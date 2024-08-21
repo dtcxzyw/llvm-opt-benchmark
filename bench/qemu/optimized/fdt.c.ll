@@ -1164,7 +1164,7 @@ entry:
   %idx.ext1 = ashr exact i64 %sext, 32
   %idx.neg = sub nsw i64 0, %idx.ext1
   %add.ptr2 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
-  %cmp.not7 = icmp ult ptr %add.ptr2, %strtab
+  %cmp.not7 = icmp ugt ptr %strtab, %add.ptr2
   br i1 %cmp.not7, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc

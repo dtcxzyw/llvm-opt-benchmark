@@ -1499,7 +1499,7 @@ define internal fastcc void @floating_fields(ptr noundef %0, ptr noundef %1, ptr
   %8 = load i32, ptr @ett_ged125_floating, align 4
   %9 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %spec.select, i32 noundef %8, ptr noundef null, ptr noundef nonnull @.str.469) #2
   %10 = add i32 %4, -2
-  %11 = icmp sgt i32 %10, %3
+  %11 = icmp slt i32 %3, %10
   br i1 %11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5, %87

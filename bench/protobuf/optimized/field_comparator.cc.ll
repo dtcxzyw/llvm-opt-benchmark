@@ -1052,7 +1052,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %mul.i = fmul double %.sroa.speculated.i, %19
   %sub.i = fsub double %value_1, %value_2
   %25 = tail call double @llvm.fabs.f64(double %sub.i)
-  %cmp.i5.i = fcmp ogt double %mul.i, %20
+  %cmp.i5.i = fcmp olt double %20, %mul.i
   %.sroa.speculated7.i = select i1 %cmp.i5.i, double %mul.i, double %20
   %cmp.i = fcmp ole double %25, %.sroa.speculated7.i
   br label %return

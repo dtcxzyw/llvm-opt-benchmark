@@ -1288,9 +1288,9 @@ if.end33:                                         ; preds = %if.end25.thread, %i
 
 if.then36:                                        ; preds = %if.end33
   %11 = load i32, ptr %ptag, align 4
-  %cmp37.not = icmp eq i32 %11, %exptag
+  %cmp37.not = icmp eq i32 %exptag, %11
   %12 = load i32, ptr %pclass, align 4
-  %cmp39.not = icmp eq i32 %12, %expclass
+  %cmp39.not = icmp eq i32 %expclass, %12
   %or.cond = select i1 %cmp37.not, i1 %cmp39.not, i1 false
   br i1 %or.cond, label %if.end49, label %if.then41
 
@@ -1325,7 +1325,7 @@ if.then57:                                        ; preds = %if.end54
   %13 = load ptr, ptr %p, align 8
   %sub.ptr.lhs.cast58 = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast59 = ptrtoint ptr %0 to i64
-  %sub.ptr.sub60.neg = add i64 %sub.ptr.rhs.cast59, %len
+  %sub.ptr.sub60.neg = add i64 %len, %sub.ptr.rhs.cast59
   %sub = sub i64 %sub.ptr.sub60.neg, %sub.ptr.lhs.cast58
   store i64 %sub, ptr %plen, align 8
   br label %if.end61
@@ -1452,7 +1452,7 @@ if.end10:                                         ; preds = %if.then6
 if.end11:                                         ; preds = %if.then4, %if.end10
   %typ.2 = phi ptr [ %call7, %if.end10 ], [ %3, %if.then4 ]
   %4 = load i32, ptr %typ.2, align 8
-  %cmp12.not = icmp eq i32 %4, %utype
+  %cmp12.not = icmp eq i32 %utype, %4
   br i1 %cmp12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end11

@@ -617,7 +617,7 @@ if.else:                                          ; preds = %entry
   %3 = call noundef i32 @llvm.bswap.i32(i32 %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i)
   %conv = zext i32 %3 to i64
-  %cmp1 = icmp ugt i64 %conv, %info_length
+  %cmp1 = icmp ult i64 %info_length, %conv
   br i1 %cmp1, label %fail, label %if.end4
 
 if.end4:                                          ; preds = %if.else
@@ -639,12 +639,12 @@ if.else9:                                         ; preds = %if.end4
   %cmp10 = icmp eq i32 %4, 0
   %add12 = add i32 %5, %3
   %conv13 = zext i32 %add12 to i64
-  %cmp14 = icmp ugt i64 %conv13, %info_length
+  %cmp14 = icmp ult i64 %info_length, %conv13
   %or.cond = or i1 %cmp10, %cmp14
   br i1 %or.cond, label %fail, label %if.end18
 
 if.end18:                                         ; preds = %if.else9
-  %add20 = add i64 %conv, %info_begin
+  %add20 = add i64 %info_begin, %conv
   %conv21 = zext i32 %5 to i64
   %add22 = add i64 %add20, %conv21
   %cmp2353 = icmp ult i64 %add20, %add22
@@ -1048,7 +1048,7 @@ entry:
   %1 = load i32, ptr %current_chunk, align 8
   %n_chunks.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i32, ptr %n_chunks.i, align 8
-  %cmp.not.i = icmp ugt i32 %2, %1
+  %cmp.not.i = icmp ult i32 %1, %2
   %sectors.i = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %sectors.i, align 8
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %if.then

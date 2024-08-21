@@ -1325,7 +1325,7 @@ entry:
   %conv2.i = zext nneg i32 %mul to i128
   %div.i = udiv i128 %mul.i, %conv2.i
   %conv3.i = trunc i128 %div.i to i64
-  %add = add i64 %conv3.i, %timadj
+  %add = add i64 %timadj, %conv3.i
   %conv = trunc i64 %add to i32
   %arrayidx3 = getelementptr i32, ptr %mac, i64 %lo
   store i32 %conv, ptr %arrayidx3, align 4

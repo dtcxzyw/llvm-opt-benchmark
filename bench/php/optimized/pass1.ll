@@ -49,7 +49,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = icmp eq ptr %17, %0
+  %18 = icmp eq ptr %0, %17
   %19 = zext i1 %18 to i8
   br label %20
 

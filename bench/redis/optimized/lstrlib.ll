@@ -2073,16 +2073,16 @@ land.lhs.true.i.i:                                ; preds = %if.else.i.i
   br i1 %cmp18.i.i, label %if.then20.i.i, label %if.else32.i.i
 
 if.then20.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp24.not.i.i = icmp ugt i8 %68, %64
+  %cmp24.not.i.i = icmp ult i8 %64, %68
   br i1 %cmp24.not.i.i, label %if.end39.i.i, label %land.lhs.true26.i.i
 
 land.lhs.true26.i.i:                              ; preds = %if.then20.i.i
   %70 = load i8, ptr %add.ptr17.i.i, align 1, !tbaa !8
-  %cmp28.not.i.i = icmp ult i8 %70, %64
+  %cmp28.not.i.i = icmp ugt i8 %64, %70
   br i1 %cmp28.not.i.i, label %if.end39.i.i, label %matchbracketclass.exit.i
 
 if.else32.i.i:                                    ; preds = %land.lhs.true.i.i, %if.else.i.i
-  %cmp34.i.i = icmp eq i8 %68, %64
+  %cmp34.i.i = icmp eq i8 %64, %68
   br i1 %cmp34.i.i, label %matchbracketclass.exit.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.else32.i.i, %land.lhs.true26.i.i, %if.then20.i.i, %if.then8.i.i
@@ -2097,7 +2097,7 @@ matchbracketclass.exit.i:                         ; preds = %if.end39.i.i, %if.e
   br label %singlematch.exit
 
 sw.default.i:                                     ; preds = %land.rhs
-  %cmp.i22 = icmp eq i8 %65, %64
+  %cmp.i22 = icmp eq i8 %64, %65
   %conv7.i = zext i1 %cmp.i22 to i32
   br label %singlematch.exit
 
@@ -2203,16 +2203,16 @@ land.lhs.true.i.i49:                              ; preds = %if.else.i.i40
   br i1 %cmp18.i.i51, label %if.then20.i.i52, label %if.else32.i.i42
 
 if.then20.i.i52:                                  ; preds = %land.lhs.true.i.i49
-  %cmp24.not.i.i54 = icmp ugt i8 %78, %75
+  %cmp24.not.i.i54 = icmp ult i8 %75, %78
   br i1 %cmp24.not.i.i54, label %if.end39.i.i45, label %land.lhs.true26.i.i55
 
 land.lhs.true26.i.i55:                            ; preds = %if.then20.i.i52
   %80 = load i8, ptr %add.ptr17.i.i50, align 1, !tbaa !8
-  %cmp28.not.i.i57 = icmp ult i8 %80, %75
+  %cmp28.not.i.i57 = icmp ugt i8 %75, %80
   br i1 %cmp28.not.i.i57, label %if.end39.i.i45, label %matchbracketclass.exit.i31
 
 if.else32.i.i42:                                  ; preds = %land.lhs.true.i.i49, %if.else.i.i40
-  %cmp34.i.i44 = icmp eq i8 %78, %75
+  %cmp34.i.i44 = icmp eq i8 %75, %78
   br i1 %cmp34.i.i44, label %matchbracketclass.exit.i31, label %if.end39.i.i45
 
 if.end39.i.i45:                                   ; preds = %if.else32.i.i42, %land.lhs.true26.i.i55, %if.then20.i.i52, %if.then8.i.i58
@@ -2227,7 +2227,7 @@ matchbracketclass.exit.i31:                       ; preds = %if.end39.i.i45, %if
   br label %singlematch.exit70
 
 sw.default.i66:                                   ; preds = %land.rhs.i
-  %cmp.i68 = icmp eq i8 %74, %75
+  %cmp.i68 = icmp eq i8 %75, %74
   %conv7.i69 = zext i1 %cmp.i68 to i32
   br label %singlematch.exit70
 
@@ -2326,16 +2326,16 @@ land.lhs.true.i.i97:                              ; preds = %if.else.i.i88
   br i1 %cmp18.i.i99, label %if.then20.i.i100, label %if.else32.i.i90
 
 if.then20.i.i100:                                 ; preds = %land.lhs.true.i.i97
-  %cmp24.not.i.i102 = icmp ugt i8 %87, %84
+  %cmp24.not.i.i102 = icmp ult i8 %84, %87
   br i1 %cmp24.not.i.i102, label %if.end39.i.i93, label %land.lhs.true26.i.i103
 
 land.lhs.true26.i.i103:                           ; preds = %if.then20.i.i100
   %89 = load i8, ptr %add.ptr17.i.i98, align 1, !tbaa !8
-  %cmp28.not.i.i105 = icmp ult i8 %89, %84
+  %cmp28.not.i.i105 = icmp ugt i8 %84, %89
   br i1 %cmp28.not.i.i105, label %if.end39.i.i93, label %matchbracketclass.exit.i79
 
 if.else32.i.i90:                                  ; preds = %land.lhs.true.i.i97, %if.else.i.i88
-  %cmp34.i.i92 = icmp eq i8 %87, %84
+  %cmp34.i.i92 = icmp eq i8 %84, %87
   br i1 %cmp34.i.i92, label %matchbracketclass.exit.i79, label %if.end39.i.i93
 
 if.end39.i.i93:                                   ; preds = %if.else32.i.i90, %land.lhs.true26.i.i103, %if.then20.i.i100, %if.then8.i.i106
@@ -2350,7 +2350,7 @@ matchbracketclass.exit.i79:                       ; preds = %if.end39.i.i93, %if
   br label %singlematch.exit118
 
 sw.default.i114:                                  ; preds = %land.rhs.i342
-  %cmp.i116 = icmp eq i8 %83, %84
+  %cmp.i116 = icmp eq i8 %84, %83
   %conv7.i117 = zext i1 %cmp.i116 to i32
   br label %singlematch.exit118
 
@@ -2443,16 +2443,16 @@ land.lhs.true.i.i145:                             ; preds = %if.else.i.i136
   br i1 %cmp18.i.i147, label %if.then20.i.i148, label %if.else32.i.i138
 
 if.then20.i.i148:                                 ; preds = %land.lhs.true.i.i145
-  %cmp24.not.i.i150 = icmp ugt i8 %95, %91
+  %cmp24.not.i.i150 = icmp ult i8 %91, %95
   br i1 %cmp24.not.i.i150, label %if.end39.i.i141, label %land.lhs.true26.i.i151
 
 land.lhs.true26.i.i151:                           ; preds = %if.then20.i.i148
   %97 = load i8, ptr %add.ptr17.i.i146, align 1, !tbaa !8
-  %cmp28.not.i.i153 = icmp ult i8 %97, %91
+  %cmp28.not.i.i153 = icmp ugt i8 %91, %97
   br i1 %cmp28.not.i.i153, label %if.end39.i.i141, label %matchbracketclass.exit.i127
 
 if.else32.i.i138:                                 ; preds = %land.lhs.true.i.i145, %if.else.i.i136
-  %cmp34.i.i140 = icmp eq i8 %95, %91
+  %cmp34.i.i140 = icmp eq i8 %91, %95
   br i1 %cmp34.i.i140, label %matchbracketclass.exit.i127, label %if.end39.i.i141
 
 if.end39.i.i141:                                  ; preds = %if.else32.i.i138, %land.lhs.true26.i.i151, %if.then20.i.i148, %if.then8.i.i154
@@ -2467,7 +2467,7 @@ matchbracketclass.exit.i127:                      ; preds = %if.end39.i.i141, %i
   br label %singlematch.exit166
 
 sw.default.i162:                                  ; preds = %land.lhs.true.i356
-  %cmp.i164 = icmp eq i8 %92, %91
+  %cmp.i164 = icmp eq i8 %91, %92
   %conv7.i165 = zext i1 %cmp.i164 to i32
   br label %singlematch.exit166
 

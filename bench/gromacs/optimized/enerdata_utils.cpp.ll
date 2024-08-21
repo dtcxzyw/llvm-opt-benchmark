@@ -291,7 +291,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
   %41 = icmp eq i64 %indvars.iv, 0
   %42 = add nuw nsw i64 %40, 4294967295
   %43 = and i64 %42, 4294967295
-  %44 = icmp eq i64 %43, %indvars.iv
+  %44 = icmp eq i64 %indvars.iv, %43
   %45 = select i1 %44, double 1.000000e+00, double 5.000000e-01
   %46 = select i1 %41, double 1.000000e+00, double 5.000000e-01
   br i1 %44, label %.split.us.i, label %.split.i
@@ -1118,7 +1118,7 @@ define void @_ZN18ForeignLambdaTerms15addConstantDhdlE34FreeEnergyPerturbationCo
   %.sroa.05.09 = phi ptr [ %5, %.lr.ph ], [ %13, %9 ]
   %10 = getelementptr inbounds [7 x double], ptr %.sroa.05.09, i64 0, i64 %8
   %11 = load double, ptr %10, align 8
-  %12 = fadd double %11, %2
+  %12 = fadd double %2, %11
   store double %12, ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 56
   %.not = icmp eq ptr %13, %7
@@ -1399,13 +1399,13 @@ define void @_ZN18ForeignLambdaTerms17accumulateKineticEidd(ptr nocapture nounde
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds double, ptr %7, i64 %6
   %9 = load double, ptr %8, align 8
-  %10 = fadd double %9, %2
+  %10 = fadd double %2, %9
   store double %10, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds %"struct.gmx::EnumerationArray.5", ptr %12, i64 %6, i32 0, i64 6
   %14 = load double, ptr %13, align 8
-  %15 = fadd double %14, %3
+  %15 = fadd double %3, %14
   store double %15, ptr %13, align 8
   ret void
 }
@@ -1423,7 +1423,7 @@ define void @_ZN18ForeignLambdaTerms28finalizeKineticContributionsEN3gmx8ArrayRe
   %.sroa.05.09.i = phi ptr [ %15, %.lr.ph.i ], [ %9, %7 ]
   %12 = getelementptr inbounds i8, ptr %.sroa.05.09.i, i64 8
   %13 = load double, ptr %12, align 8
-  %14 = fadd double %13, %3
+  %14 = fadd double %3, %13
   store double %14, ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %.sroa.05.09.i, i64 56
   %.not.i = icmp eq ptr %15, %11
@@ -1497,7 +1497,7 @@ _ZN18ForeignLambdaTerms15addConstantDhdlE34FreeEnergyPerturbationCouplingTyped.e
   %65 = load ptr, ptr %19, align 8
   %66 = getelementptr inbounds double, ptr %65, i64 %indvars.iv.next
   %67 = load double, ptr %66, align 8
-  %68 = fadd double %67, %64
+  %68 = fadd double %64, %67
   store double %68, ptr %66, align 8
   %69 = load ptr, ptr %8, align 8
   %70 = getelementptr inbounds %"struct.gmx::EnumerationArray.5", ptr %69, i64 %indvars.iv.next, i32 0, i64 6
@@ -1521,7 +1521,7 @@ _ZN18ForeignLambdaTerms15addConstantDhdlE34FreeEnergyPerturbationCouplingTyped.e
   %85 = load ptr, ptr %19, align 8
   %86 = getelementptr inbounds double, ptr %85, i64 %indvars.iv.next
   %87 = load double, ptr %86, align 8
-  %88 = fadd double %87, %84
+  %88 = fadd double %84, %87
   store double %88, ptr %86, align 8
   %89 = load ptr, ptr %8, align 8
   %90 = getelementptr inbounds %"struct.gmx::EnumerationArray.5", ptr %89, i64 %indvars.iv.next, i32 0, i64 6

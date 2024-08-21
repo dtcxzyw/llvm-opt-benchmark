@@ -232,7 +232,7 @@ if.end:                                           ; preds = %for.body
   store i64 %5, ptr %add.ptr.i, align 4
   %inc = add i16 %i.0226, 1
   %conv = zext i16 %inc to i64
-  %cmp = icmp ult i64 %conv, %symbol_count
+  %cmp = icmp ugt i64 %symbol_count, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end, %invoke.cont10
@@ -1701,7 +1701,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1775,7 +1775,7 @@ _ZNSt12_Vector_baseIN3net17HpackHuffmanTable11DecodeEntryESaIS2_EE13_M_deallocat
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -2595,7 +2595,7 @@ while.body.us:                                    ; preds = %if.end, %_ZSt13__ad
   %phi.call.us = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce, i64 %__parent.0.us
   %__value.sroa.0.0.copyload.us = load i64, ptr %phi.call.us, align 4
   %agg.tmp7.sroa.0.0.copyload.us = load ptr, ptr %__comp, align 8
-  %cmp28.i.us = icmp sgt i64 %div.i2123, %__parent.0.us
+  %cmp28.i.us = icmp slt i64 %__parent.0.us, %div.i2123
   br i1 %cmp28.i.us, label %while.body.i.us, label %while.end.i.us.thread
 
 while.end.i.us.thread:                            ; preds = %while.body.us
@@ -2659,7 +2659,7 @@ while.body:                                       ; preds = %while.body.preheade
   %phi.call = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %__first.coerce, i64 %__parent.0
   %__value.sroa.0.0.copyload = load i64, ptr %phi.call, align 4
   %agg.tmp7.sroa.0.0.copyload = load ptr, ptr %__comp, align 8
-  %cmp28.i = icmp sgt i64 %div.i2123, %__parent.0
+  %cmp28.i = icmp slt i64 %__parent.0, %div.i2123
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %while.body.i

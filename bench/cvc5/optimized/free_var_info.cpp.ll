@@ -295,7 +295,7 @@ entry:
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i1.not = icmp eq ptr %0, %__last.coerce
+  %cmp.i1.not = icmp eq ptr %__last.coerce, %0
   br i1 %cmp.i1.not, label %if.then.if.end_crit_edge, label %if.then6
 
 if.then.if.end_crit_edge:                         ; preds = %if.then

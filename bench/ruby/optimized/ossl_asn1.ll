@@ -3025,7 +3025,7 @@ ossl_asn1_tag.exit.us:                            ; preds = %117, %115
 ._crit_edge:                                      ; preds = %.lr.ph.split, %126, %121, %94
   %.2 = phi i64 [ 0, %94 ], [ %108, %121 ], [ %108, %126 ], [ %131, %.lr.ph.split ]
   %136 = load i64, ptr @sym_UNIVERSAL, align 8
-  %137 = icmp eq i64 %136, %.0
+  %137 = icmp eq i64 %.0, %136
   br i1 %137, label %138, label %154
 
 138:                                              ; preds = %._crit_edge
@@ -3095,7 +3095,7 @@ int_ossl_asn1_decode0_cons.exit:                  ; preds = %154, %144
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   %174 = load ptr, ptr %0, align 8
   %175 = load i64, ptr @sym_UNIVERSAL, align 8
-  %176 = icmp eq i64 %175, %.0
+  %176 = icmp eq i64 %.0, %175
   %177 = icmp slt i32 %173, 31
   %or.cond.i71 = and i1 %177, %176
   br i1 %or.cond.i71, label %178, label %278
@@ -3381,7 +3381,7 @@ decode_time.exit.i:                               ; preds = %270
   %284 = getelementptr inbounds i8, ptr %283, i64 %282
   store ptr %284, ptr %0, align 8
   %285 = load i64, ptr @sym_UNIVERSAL, align 8
-  %286 = icmp eq i64 %285, %.0
+  %286 = icmp eq i64 %.0, %285
   %or.cond3.i = and i1 %177, %286
   %287 = sext i32 %173 to i64
   br i1 %or.cond3.i, label %288, label %._crit_edge.i

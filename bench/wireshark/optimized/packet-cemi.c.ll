@@ -1178,7 +1178,7 @@ proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
 
 98:                                               ; preds = %96, %96, %96, %96
   %99 = add nuw nsw i32 %.0341, 6
-  %.not283 = icmp sgt i32 %99, %7
+  %.not283 = icmp slt i32 %7, %99
   %100 = sub i32 %7, %.0341
   %101 = select i1 %.not283, i32 %100, i32 6
   %102 = load i32, ptr @hf_bytes, align 4

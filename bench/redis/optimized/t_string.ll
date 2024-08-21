@@ -2227,7 +2227,7 @@ if.end4:                                          ; preds = %if.end
   %cmp6 = icmp slt i64 %3, 0
   %or.cond = select i1 %cmp5, i1 %cmp6, i1 false
   %sub = sub nsw i64 -9223372036854775808, %3
-  %cmp8 = icmp sgt i64 %sub, %incr
+  %cmp8 = icmp slt i64 %incr, %sub
   %or.cond34 = select i1 %or.cond, i1 %cmp8, i1 false
   br i1 %or.cond34, label %if.then15, label %lor.lhs.false
 
@@ -2236,7 +2236,7 @@ lor.lhs.false:                                    ; preds = %if.end4
   %cmp11 = icmp sgt i64 %3, 0
   %or.cond1 = select i1 %cmp9, i1 %cmp11, i1 false
   %sub13 = sub nuw nsw i64 9223372036854775807, %3
-  %cmp14 = icmp slt i64 %sub13, %incr
+  %cmp14 = icmp sgt i64 %incr, %sub13
   %or.cond35 = select i1 %or.cond1, i1 %cmp14, i1 false
   br i1 %or.cond35, label %if.then15, label %if.end16
 

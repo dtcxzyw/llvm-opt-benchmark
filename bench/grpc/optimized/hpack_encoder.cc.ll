@@ -143,7 +143,7 @@ entry:
   %table_ = getelementptr inbounds i8, ptr %this, i64 8
   %max_table_size_.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %max_table_size_.i, align 4
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %0, i32 %max_table_size)
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %max_table_size, i32 %0)
   %call2.i = tail call noundef zeroext i1 @_ZN9grpc_core17HPackEncoderTable10SetMaxSizeEj(ptr noundef nonnull align 8 dereferenceable(40) %table_, i32 noundef %.sroa.speculated)
   br i1 %call2.i, label %if.then.i, label %_ZN9grpc_core15HPackCompressor15SetMaxTableSizeEj.exit
 
@@ -167,7 +167,7 @@ define void @_ZN9grpc_core15HPackCompressor15SetMaxTableSizeEj(ptr noundef nonnu
 entry:
   %table_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %this, align 8
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %0, i32 %max_table_size)
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %max_table_size, i32 %0)
   %call2 = tail call noundef zeroext i1 @_ZN9grpc_core17HPackEncoderTable10SetMaxSizeEj(ptr noundef nonnull align 8 dereferenceable(40) %table_, i32 noundef %.sroa.speculated)
   br i1 %call2, label %if.then, label %if.end5
 
@@ -2105,7 +2105,7 @@ if.then21:                                        ; preds = %for.body, %for.body
   %index = getelementptr inbounds i8, ptr %it.sroa.0.0103.lcssa, i64 32
   %18 = load i32, ptr %index, align 8
   %19 = load i32, ptr %table_.i, align 8
-  %cmp.i29 = icmp ult i32 %19, %18
+  %cmp.i29 = icmp ugt i32 %18, %19
   br i1 %cmp.i29, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %if.then21
@@ -2282,7 +2282,7 @@ land.rhs:                                         ; preds = %if.end49, %_ZNSt6ve
   %index54 = getelementptr inbounds i8, ptr %46, i64 -8
   %47 = load i32, ptr %index54, align 8
   %48 = load i32, ptr %table_.i, align 8
-  %cmp.i56 = icmp ult i32 %48, %47
+  %cmp.i56 = icmp ugt i32 %47, %48
   br i1 %cmp.i56, label %return, label %while.body
 
 while.body:                                       ; preds = %land.rhs
@@ -2936,7 +2936,7 @@ entry:
   %table_ = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %index, align 4
   %3 = load i32, ptr %table_, align 8
-  %cmp.i = icmp ult i32 %3, %2
+  %cmp.i = icmp ugt i32 %2, %3
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -3058,7 +3058,7 @@ entry:
   %table_ = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %index, align 4
   %2 = load i32, ptr %table_, align 8
-  %cmp.i = icmp ult i32 %2, %1
+  %cmp.i = icmp ugt i32 %1, %2
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -3380,7 +3380,7 @@ for.body:                                         ; preds = %_ZN9grpc_coremiENS_
   %index = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %5 = load i32, ptr %index, align 4
   %6 = load i32, ptr %table_.i, align 8
-  %cmp.i = icmp ult i32 %6, %5
+  %cmp.i = icmp ugt i32 %5, %6
   br i1 %cmp.i, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
@@ -3757,7 +3757,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
-  %cmp.not5.i.i.i19 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i19 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i19, label %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29, label %for.body.i.i.i20
 
 for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i20

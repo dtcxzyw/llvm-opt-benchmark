@@ -667,13 +667,13 @@ define internal fastcc void @gen_relation(ptr noundef %0, i32 noundef %1, i32 no
 11:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
   %12 = icmp ne i32 %2, 2
   %13 = zext i1 %12 to i32
-  %14 = add nuw nsw i32 %13, %1
+  %14 = add nuw nsw i32 %1, %13
   br label %select_opcode.exit
 
 15:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
   %16 = icmp ne i32 %2, 1
   %17 = sext i1 %16 to i32
-  %18 = add nsw i32 %17, %1
+  %18 = add nsw i32 %1, %17
   br label %select_opcode.exit
 
 default.unreachable.i:                            ; preds = %10
@@ -800,13 +800,13 @@ define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32
 39:                                               ; preds = %38, %38, %38, %38, %38, %38, %38, %38, %38, %38
   %40 = icmp ne i32 %2, 2
   %41 = zext i1 %40 to i32
-  %42 = add nuw nsw i32 %41, %1
+  %42 = add nuw nsw i32 %1, %41
   br label %select_opcode.exit
 
 43:                                               ; preds = %38, %38, %38, %38, %38, %38, %38, %38, %38, %38
   %44 = icmp ne i32 %2, 1
   %45 = sext i1 %44 to i32
-  %46 = add nsw i32 %45, %1
+  %46 = add nsw i32 %1, %45
   br label %select_opcode.exit
 
 default.unreachable.i:                            ; preds = %38

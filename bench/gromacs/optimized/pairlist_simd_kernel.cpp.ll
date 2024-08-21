@@ -756,7 +756,7 @@ define void @_ZN5Nbnxm23makeClusterListSimd2xMMERKNS_4GridEP16NbnxnPairlistCpuii
 .preheader238.i:                                  ; preds = %87, %.thread291.i
   %.promoted260.i = phi i32 [ %41, %.thread291.i ], [ %81, %87 ]
   %spec.select287293.i = phi i32 [ %.0170248.i, %.thread291.i ], [ %spec.select.i, %87 ]
-  %.not263.i = icmp slt i32 %spec.select287293.i, %4
+  %.not263.i = icmp sgt i32 %4, %spec.select287293.i
   br i1 %.not263.i, label %.lr.ph257.i, label %148
 
 .lr.ph257.i:                                      ; preds = %.preheader238.i, %140
@@ -885,8 +885,8 @@ define void @_ZN5Nbnxm23makeClusterListSimd2xMMERKNS_4GridEP16NbnxnPairlistCpuii
   %.0262.i = phi i32 [ %spec.select287293.i, %.preheader.i ], [ %186, %_ZN12JClusterList9push_backERK10nbnxn_cj_t.exit.i ]
   %154 = load i32, ptr %25, align 4, !noalias !35
   %155 = add nsw i32 %154, %.0262.i
-  %156 = icmp eq i32 %.0262.i, %2
-  %or.cond3.i.i = and i1 %156, %5
+  %156 = icmp eq i32 %2, %.0262.i
+  %or.cond3.i.i = and i1 %5, %156
   %spec.select.i.i = select i1 %or.cond3.i.i, i32 2254, i32 -1
   %157 = load ptr, ptr %151, align 8, !noalias !35
   %.not.i.i.i = icmp eq ptr %153, %157

@@ -1967,7 +1967,7 @@ define internal fastcc i32 @_intel_hdcp2_disable(ptr noundef %0, i1 noundef zero
   %57 = getelementptr inbounds i8, ptr %12, i64 3976
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 0
-  %60 = or i1 %59, %1
+  %60 = or i1 %1, %59
   br i1 %60, label %61, label %199
 
 61:                                               ; preds = %55, %19

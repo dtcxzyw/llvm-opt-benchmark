@@ -408,7 +408,7 @@ dissect_cisco.exit:                               ; preds = %.loopexit.i, %25
   %90 = load i32, ptr @ett_docsis_vsif_gex_ecm, align 4
   %91 = call ptr @proto_item_add_subtree(ptr noundef %89, i32 noundef %90) #4
   %92 = add i32 %80, %82
-  %93 = icmp sgt i32 %92, %80
+  %93 = icmp slt i32 %80, %92
   br i1 %93, label %.lr.ph.i.i, label %dissect_extended_cmts_mic.exit.i
 
 .lr.ph.i.i:                                       ; preds = %87, %101
@@ -442,7 +442,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i.i
   %109 = load i32, ptr @ett_docsis_vsif_gex_sav, align 4
   %110 = call ptr @proto_item_add_subtree(ptr noundef %108, i32 noundef %109) #4
   %111 = add i32 %80, %82
-  %112 = icmp sgt i32 %111, %80
+  %112 = icmp slt i32 %80, %111
   br i1 %112, label %.lr.ph.i55.i, label %dissect_extended_cmts_mic.exit.i
 
 .lr.ph.i55.i:                                     ; preds = %106, %dissect_sav_static_prefix_rule.exit.i.i
@@ -463,7 +463,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i.i
   %121 = load i32, ptr @ett_docsis_vsif_gex_sav_spr, align 4
   %122 = call ptr @proto_item_add_subtree(ptr noundef %120, i32 noundef %121) #4
   %123 = add i32 %115, %117
-  %124 = icmp sgt i32 %123, %115
+  %124 = icmp slt i32 %115, %123
   br i1 %124, label %.lr.ph.i.i.i, label %dissect_sav_static_prefix_rule.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %118, %151
@@ -545,7 +545,7 @@ dissect_sav_static_prefix_rule.exit.i.i:          ; preds = %151, %dissect_sav_s
   %162 = load i32, ptr @ett_docsis_vsif_gex_cmam, align 4
   %163 = call ptr @proto_item_add_subtree(ptr noundef %161, i32 noundef %162) #4
   %164 = add i32 %80, %82
-  %165 = icmp sgt i32 %164, %80
+  %165 = icmp slt i32 %80, %164
   br i1 %165, label %.lr.ph.i57.i, label %dissect_extended_cmts_mic.exit.i
 
 .lr.ph.i57.i:                                     ; preds = %159, %202
@@ -635,7 +635,7 @@ dissect_sav_static_prefix_rule.exit.i.i:          ; preds = %151, %dissect_sav_s
   %208 = load i32, ptr @ett_docsis_vsif_gex_imja, align 4
   %209 = call ptr @proto_item_add_subtree(ptr noundef %207, i32 noundef %208) #4
   %210 = add i32 %80, %82
-  %211 = icmp sgt i32 %210, %80
+  %211 = icmp slt i32 %80, %210
   br i1 %211, label %.lr.ph.i58.i, label %dissect_extended_cmts_mic.exit.i
 
 .lr.ph.i58.i:                                     ; preds = %205, %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i
@@ -672,7 +672,7 @@ dissect_sav_static_prefix_rule.exit.i.i:          ; preds = %151, %dissect_sav_s
   %228 = load i32, ptr @ett_docsis_vsif_gex_imja_ssr, align 4
   %229 = call ptr @proto_item_add_subtree(ptr noundef %227, i32 noundef %228) #4
   %230 = add i32 %214, %226
-  %231 = icmp sgt i32 %230, %214
+  %231 = icmp slt i32 %214, %230
   br i1 %231, label %.lr.ph.i.i61.i, label %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i
 
 .lr.ph.i.i61.i:                                   ; preds = %224, %288

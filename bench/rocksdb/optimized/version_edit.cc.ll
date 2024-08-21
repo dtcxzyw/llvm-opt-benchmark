@@ -459,7 +459,7 @@ if.end34:                                         ; preds = %if.then32, %if.end2
   %call3.i18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %largest, ptr noundef %17, i64 noundef %18)
   %smallest_seqno = getelementptr inbounds i8, ptr %this, i64 24
   %19 = load i64, ptr %smallest_seqno, align 8
-  %.sroa.speculated25 = call i64 @llvm.umin.i64(i64 %19, i64 %seqno)
+  %.sroa.speculated25 = call i64 @llvm.umin.i64(i64 %seqno, i64 %19)
   store i64 %.sroa.speculated25, ptr %smallest_seqno, align 8
   %largest_seqno = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load i64, ptr %largest_seqno, align 8
@@ -5609,7 +5609,7 @@ _ZN7rocksdb5SliceC2EPKc.exit:                     ; preds = %call.i.i.noexc654, 
           to label %invoke.cont407 unwind label %lpad403
 
 invoke.cont407:                                   ; preds = %_ZN7rocksdb5SliceC2EPKc.exit
-  %cmp.not.i745 = icmp eq ptr %ref.tmp401, %agg.result
+  %cmp.not.i745 = icmp eq ptr %agg.result, %ref.tmp401
   br i1 %cmp.not.i745, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i746
 
 if.then.i746:                                     ; preds = %invoke.cont407
@@ -9056,7 +9056,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN7rocksdb16BlobFileAdditionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb16BlobFileAdditionESaIS1_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN7rocksdb16BlobFileAdditionESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 88
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN7rocksdb16BlobFileAdditionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN7rocksdb16BlobFileAdditionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i12
@@ -9181,7 +9181,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt4pairIiN7rocksdb11InternalKeyEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt4pairIiN7rocksdb11InternalKeyEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt4pairIiN7rocksdb11InternalKeyEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt4pairIiN7rocksdb11InternalKeyEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt4pairIiN7rocksdb11InternalKeyEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -9500,7 +9500,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 320
-  %cmp.not8.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
+  %cmp.not8.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not8.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i32
@@ -9728,7 +9728,7 @@ _ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit11.i:     ; preds = %lor.rhs.i.i5.i
 
 if.then:                                          ; preds = %if.then.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit11.i, %if.end12.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa32.i, %if.end12.i ], [ %__y.0.lcssa32.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit11.i ], [ %__y.0.lcssa33.i, %if.then.i ]
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeISt4pairIimES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then

@@ -819,7 +819,7 @@ define internal void @msg_config_req(ptr noundef %0, ptr noundef %1, ptr noundef
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %25, %.lr.ph ]
   %26 = sub i32 %.0.lcssa, %4
-  %27 = icmp ult i32 %26, %3
+  %27 = icmp ugt i32 %3, %26
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %._crit_edge
@@ -1009,7 +1009,7 @@ define internal void @msg_download_req(ptr noundef %0, ptr noundef %1, ptr nound
 ._crit_edge:                                      ; preds = %132, %10
   %.0.lcssa = phi i32 [ %14, %10 ], [ %.1, %132 ]
   %133 = sub i32 %.0.lcssa, %4
-  %134 = icmp ult i32 %133, %3
+  %134 = icmp ugt i32 %3, %133
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %._crit_edge
@@ -1021,7 +1021,7 @@ define internal void @msg_download_req(ptr noundef %0, ptr noundef %1, ptr nound
 138:                                              ; preds = %135, %._crit_edge
   %.pre-phi = phi i32 [ %.pre, %135 ], [ %133, %._crit_edge ]
   %.2 = phi i32 [ %137, %135 ], [ %.0.lcssa, %._crit_edge ]
-  %139 = icmp ult i32 %.pre-phi, %3
+  %139 = icmp ugt i32 %3, %.pre-phi
   br i1 %139, label %140, label %143
 
 140:                                              ; preds = %138
@@ -1090,7 +1090,7 @@ define internal void @msg_ms_key_req(ptr noundef %0, ptr noundef %1, ptr noundef
 41:                                               ; preds = %28, %37, %9
   %.0 = phi i32 [ %40, %37 ], [ %36, %28 ], [ %13, %9 ]
   %42 = sub i32 %.0, %4
-  %43 = icmp ult i32 %42, %3
+  %43 = icmp ugt i32 %3, %42
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %41
@@ -1138,7 +1138,7 @@ define internal void @msg_key_gen_req(ptr noundef %0, ptr noundef %1, ptr nounde
 24:                                               ; preds = %20, %19
   %.0 = phi i32 [ %23, %20 ], [ %14, %19 ]
   %25 = sub i32 %.0, %4
-  %26 = icmp ult i32 %25, %3
+  %26 = icmp ugt i32 %3, %25
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %24
@@ -1210,7 +1210,7 @@ define internal void @msg_protocap_req(ptr noundef %0, ptr noundef %1, ptr nound
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %14, %.preheader ], [ %26, %.lr.ph ]
   %27 = sub i32 %.0.lcssa, %4
-  %28 = icmp ult i32 %27, %3
+  %28 = icmp ugt i32 %3, %27
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %._crit_edge
@@ -1262,7 +1262,7 @@ define internal void @msg_sspr_config_req(ptr noundef %0, ptr noundef %1, ptr no
 29:                                               ; preds = %22, %9
   %.0 = phi i32 [ %28, %22 ], [ %13, %9 ]
   %30 = sub i32 %.0, %4
-  %31 = icmp ult i32 %30, %3
+  %31 = icmp ugt i32 %3, %30
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
@@ -1315,7 +1315,7 @@ define internal void @msg_sspr_download_req(ptr noundef %0, ptr noundef %1, ptr 
 29:                                               ; preds = %25, %24
   %.0 = phi i32 [ %28, %25 ], [ %19, %24 ]
   %30 = sub i32 %.0, %4
-  %31 = icmp ult i32 %30, %3
+  %31 = icmp ugt i32 %3, %30
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
@@ -1327,7 +1327,7 @@ define internal void @msg_sspr_download_req(ptr noundef %0, ptr noundef %1, ptr 
 35:                                               ; preds = %32, %29
   %.pre-phi = phi i32 [ %.pre, %32 ], [ %30, %29 ]
   %.1 = phi i32 [ %34, %32 ], [ %.0, %29 ]
-  %36 = icmp ult i32 %.pre-phi, %3
+  %36 = icmp ugt i32 %3, %.pre-phi
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %35
@@ -1467,7 +1467,7 @@ for_param_block_val_spc.exit:                     ; preds = %58, %56, %48, %44, 
 ._crit_edge:                                      ; preds = %71, %.preheader
   %.0.lcssa = phi i32 [ %14, %.preheader ], [ %.1, %71 ]
   %72 = sub i32 %.0.lcssa, %4
-  %73 = icmp ult i32 %72, %3
+  %73 = icmp ugt i32 %3, %72
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %._crit_edge
@@ -1521,13 +1521,13 @@ define internal void @msg_puzl_config_req(ptr noundef %0, ptr noundef %1, ptr no
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %14) #3
   %16 = load i32, ptr @hf_ansi_683_block_data, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %4, i32 noundef %12, i32 noundef 0) #3
-  %18 = add i32 %12, %4
+  %18 = add i32 %4, %12
   br label %19
 
 19:                                               ; preds = %13, %9
   %.0 = phi i32 [ %18, %13 ], [ %4, %9 ]
   %20 = sub i32 %.0, %4
-  %21 = icmp ult i32 %20, %3
+  %21 = icmp ugt i32 %3, %20
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %19
@@ -1604,7 +1604,7 @@ define internal void @msg_puzl_download_req(ptr noundef %0, ptr noundef %1, ptr 
 ._crit_edge:                                      ; preds = %40, %10
   %.0.lcssa = phi i32 [ %14, %10 ], [ %.1, %40 ]
   %41 = sub i32 %.0.lcssa, %4
-  %42 = icmp ult i32 %41, %3
+  %42 = icmp ugt i32 %3, %41
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %._crit_edge
@@ -1616,7 +1616,7 @@ define internal void @msg_puzl_download_req(ptr noundef %0, ptr noundef %1, ptr 
 46:                                               ; preds = %43, %._crit_edge
   %.pre-phi = phi i32 [ %.pre, %43 ], [ %41, %._crit_edge ]
   %.2 = phi i32 [ %45, %43 ], [ %.0.lcssa, %._crit_edge ]
-  %47 = icmp ult i32 %.pre-phi, %3
+  %47 = icmp ugt i32 %3, %.pre-phi
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
@@ -1671,7 +1671,7 @@ define internal void @msg_3gpd_config_req(ptr noundef %0, ptr noundef %1, ptr no
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %25, %.lr.ph ]
   %26 = sub i32 %.0.lcssa, %4
-  %27 = icmp ult i32 %26, %3
+  %27 = icmp ugt i32 %3, %26
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %._crit_edge
@@ -1748,7 +1748,7 @@ define internal void @msg_3gpd_download_req(ptr noundef %0, ptr noundef %1, ptr 
 ._crit_edge:                                      ; preds = %40, %10
   %.0.lcssa = phi i32 [ %14, %10 ], [ %.1, %40 ]
   %41 = sub i32 %.0.lcssa, %4
-  %42 = icmp ult i32 %41, %3
+  %42 = icmp ugt i32 %3, %41
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %._crit_edge
@@ -1760,7 +1760,7 @@ define internal void @msg_3gpd_download_req(ptr noundef %0, ptr noundef %1, ptr 
 46:                                               ; preds = %43, %._crit_edge
   %.pre-phi = phi i32 [ %.pre, %43 ], [ %41, %._crit_edge ]
   %.2 = phi i32 [ %45, %43 ], [ %.0.lcssa, %._crit_edge ]
-  %47 = icmp ult i32 %.pre-phi, %3
+  %47 = icmp ugt i32 %3, %.pre-phi
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
@@ -1825,7 +1825,7 @@ define internal void @msg_secure_mode_req(ptr noundef %0, ptr noundef %1, ptr no
 32:                                               ; preds = %28, %17
   %.0 = phi i32 [ %31, %28 ], [ %23, %17 ]
   %33 = sub i32 %.0, %4
-  %34 = icmp ult i32 %33, %3
+  %34 = icmp ugt i32 %3, %33
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %32
@@ -1880,7 +1880,7 @@ define internal void @msg_mmd_config_req(ptr noundef %0, ptr noundef %1, ptr nou
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %25, %.lr.ph ]
   %26 = sub i32 %.0.lcssa, %4
-  %27 = icmp ult i32 %26, %3
+  %27 = icmp ugt i32 %3, %26
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %._crit_edge
@@ -1957,7 +1957,7 @@ define internal void @msg_mmd_download_req(ptr noundef %0, ptr noundef %1, ptr n
 ._crit_edge:                                      ; preds = %40, %10
   %.0.lcssa = phi i32 [ %14, %10 ], [ %.1, %40 ]
   %41 = sub i32 %.0.lcssa, %4
-  %42 = icmp ult i32 %41, %3
+  %42 = icmp ugt i32 %3, %41
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %._crit_edge
@@ -1969,7 +1969,7 @@ define internal void @msg_mmd_download_req(ptr noundef %0, ptr noundef %1, ptr n
 46:                                               ; preds = %43, %._crit_edge
   %.pre-phi = phi i32 [ %.pre, %43 ], [ %41, %._crit_edge ]
   %.2 = phi i32 [ %45, %43 ], [ %.0.lcssa, %._crit_edge ]
-  %47 = icmp ult i32 %.pre-phi, %3
+  %47 = icmp ugt i32 %3, %.pre-phi
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
@@ -2019,7 +2019,7 @@ define internal void @msg_systag_config_req(ptr noundef %0, ptr noundef %1, ptr 
 26:                                               ; preds = %17, %9
   %.0 = phi i32 [ %25, %17 ], [ %12, %9 ]
   %27 = sub i32 %.0, %4
-  %28 = icmp ult i32 %27, %3
+  %28 = icmp ugt i32 %3, %27
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
@@ -2070,7 +2070,7 @@ define internal void @msg_systag_download_req(ptr noundef %0, ptr noundef %1, pt
 27:                                               ; preds = %23, %22
   %.0 = phi i32 [ %26, %23 ], [ %17, %22 ]
   %28 = sub i32 %.0, %4
-  %29 = icmp ult i32 %28, %3
+  %29 = icmp ugt i32 %3, %28
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
@@ -2161,7 +2161,7 @@ define internal void @msg_mms_config_req(ptr noundef %0, ptr noundef %1, ptr nou
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %25, %.lr.ph ]
   %26 = sub i32 %.0.lcssa, %4
-  %27 = icmp ult i32 %26, %3
+  %27 = icmp ugt i32 %3, %26
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %._crit_edge
@@ -2238,7 +2238,7 @@ define internal void @msg_mms_download_req(ptr noundef %0, ptr noundef %1, ptr n
 ._crit_edge:                                      ; preds = %40, %10
   %.0.lcssa = phi i32 [ %14, %10 ], [ %.1, %40 ]
   %41 = sub i32 %.0.lcssa, %4
-  %42 = icmp ult i32 %41, %3
+  %42 = icmp ugt i32 %3, %41
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %._crit_edge
@@ -2250,7 +2250,7 @@ define internal void @msg_mms_download_req(ptr noundef %0, ptr noundef %1, ptr n
 46:                                               ; preds = %43, %._crit_edge
   %.pre-phi = phi i32 [ %.pre, %43 ], [ %41, %._crit_edge ]
   %.2 = phi i32 [ %45, %43 ], [ %.0.lcssa, %._crit_edge ]
-  %47 = icmp ult i32 %.pre-phi, %3
+  %47 = icmp ugt i32 %3, %.pre-phi
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
@@ -2679,7 +2679,7 @@ rev_param_block_nam_cdma_analog.exit:             ; preds = %42, %63
 ._crit_edge149:                                   ; preds = %.lr.ph148, %.preheader140, %.preheader
   %.2.lcssa = phi i32 [ %.1, %.preheader ], [ %14, %.preheader140 ], [ %190, %.lr.ph148 ]
   %191 = sub i32 %.2.lcssa, %4
-  %192 = icmp ult i32 %191, %3
+  %192 = icmp ugt i32 %3, %191
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %._crit_edge149
@@ -2691,7 +2691,7 @@ rev_param_block_nam_cdma_analog.exit:             ; preds = %42, %63
 196:                                              ; preds = %193, %._crit_edge149
   %.pre-phi = phi i32 [ %.pre, %193 ], [ %191, %._crit_edge149 ]
   %.3 = phi i32 [ %195, %193 ], [ %.2.lcssa, %._crit_edge149 ]
-  %197 = icmp ult i32 %.pre-phi, %3
+  %197 = icmp ugt i32 %3, %.pre-phi
   br i1 %197, label %198, label %201
 
 198:                                              ; preds = %196
@@ -2749,7 +2749,7 @@ define internal void @msg_download_rsp(ptr noundef %0, ptr noundef %1, ptr nound
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %28, %.lr.ph ]
   %29 = sub i32 %.0.lcssa, %4
-  %30 = icmp ult i32 %29, %3
+  %30 = icmp ugt i32 %3, %29
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %._crit_edge
@@ -2818,7 +2818,7 @@ define internal void @msg_key_gen_rsp(ptr noundef %0, ptr noundef %1, ptr nounde
 27:                                               ; preds = %23, %22
   %.0 = phi i32 [ %26, %23 ], [ %17, %22 ]
   %28 = sub i32 %.0, %4
-  %29 = icmp ult i32 %28, %3
+  %29 = icmp ugt i32 %3, %28
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
@@ -2977,7 +2977,7 @@ define internal void @msg_protocap_rsp(ptr noundef %0, ptr noundef %1, ptr nound
 70:                                               ; preds = %48, %65, %47
   %.1 = phi i32 [ %69, %65 ], [ %64, %48 ], [ %42, %47 ]
   %71 = sub i32 %.1, %4
-  %72 = icmp ult i32 %71, %3
+  %72 = icmp ugt i32 %3, %71
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %70
@@ -3031,7 +3031,7 @@ define internal void @msg_sspr_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
 30:                                               ; preds = %26, %25
   %.0 = phi i32 [ %29, %26 ], [ %20, %25 ]
   %31 = sub i32 %.0, %4
-  %32 = icmp ult i32 %31, %3
+  %32 = icmp ugt i32 %3, %31
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
@@ -3043,7 +3043,7 @@ define internal void @msg_sspr_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
 36:                                               ; preds = %33, %30
   %.pre-phi = phi i32 [ %.pre, %33 ], [ %31, %30 ]
   %.1 = phi i32 [ %35, %33 ], [ %.0, %30 ]
-  %37 = icmp ult i32 %.pre-phi, %3
+  %37 = icmp ugt i32 %3, %.pre-phi
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
@@ -3133,7 +3133,7 @@ define internal void @msg_validate_rsp(ptr noundef %0, ptr noundef %1, ptr nound
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %28, %.lr.ph ]
   %29 = sub i32 %.0.lcssa, %4
-  %30 = icmp ult i32 %29, %3
+  %30 = icmp ugt i32 %3, %29
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %._crit_edge
@@ -3191,7 +3191,7 @@ define internal void @msg_otapa_rsp(ptr noundef %0, ptr noundef %1, ptr noundef 
 34:                                               ; preds = %30, %9
   %.0 = phi i32 [ %33, %30 ], [ %23, %9 ]
   %35 = sub i32 %.0, %4
-  %36 = icmp ult i32 %35, %3
+  %36 = icmp ugt i32 %3, %35
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %34
@@ -3245,7 +3245,7 @@ define internal void @msg_puzl_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
 30:                                               ; preds = %26, %25
   %.0 = phi i32 [ %29, %26 ], [ %20, %25 ]
   %31 = sub i32 %.0, %4
-  %32 = icmp ult i32 %31, %3
+  %32 = icmp ugt i32 %3, %31
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
@@ -3257,7 +3257,7 @@ define internal void @msg_puzl_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
 36:                                               ; preds = %33, %30
   %.pre-phi = phi i32 [ %.pre, %33 ], [ %31, %30 ]
   %.1 = phi i32 [ %35, %33 ], [ %.0, %30 ]
-  %37 = icmp ult i32 %.pre-phi, %3
+  %37 = icmp ugt i32 %3, %.pre-phi
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
@@ -3343,7 +3343,7 @@ define internal void @msg_puzl_download_rsp(ptr noundef %0, ptr noundef %1, ptr 
 ._crit_edge:                                      ; preds = %45, %.preheader.split
   %.0.lcssa = phi i32 [ %14, %.preheader.split ], [ %46, %45 ]
   %48 = sub i32 %.0.lcssa, %4
-  %49 = icmp ult i32 %48, %3
+  %49 = icmp ugt i32 %3, %48
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %._crit_edge
@@ -3433,7 +3433,7 @@ define internal void @msg_3gpd_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
 ._crit_edge:                                      ; preds = %45, %.preheader
   %.0.lcssa = phi i32 [ %14, %.preheader ], [ %48, %45 ]
   %49 = sub i32 %.0.lcssa, %4
-  %50 = icmp ult i32 %49, %3
+  %50 = icmp ugt i32 %3, %49
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %._crit_edge
@@ -3445,7 +3445,7 @@ define internal void @msg_3gpd_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
 54:                                               ; preds = %51, %._crit_edge
   %.pre-phi = phi i32 [ %.pre, %51 ], [ %49, %._crit_edge ]
   %.2 = phi i32 [ %53, %51 ], [ %.0.lcssa, %._crit_edge ]
-  %55 = icmp ult i32 %.pre-phi, %3
+  %55 = icmp ugt i32 %3, %.pre-phi
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %54
@@ -3503,7 +3503,7 @@ define internal void @msg_3gpd_download_rsp(ptr noundef %0, ptr noundef %1, ptr 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %28, %.lr.ph ]
   %29 = sub i32 %.0.lcssa, %4
-  %30 = icmp ult i32 %29, %3
+  %30 = icmp ugt i32 %3, %29
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %._crit_edge
@@ -3671,7 +3671,7 @@ define internal void @msg_ext_protocap_rsp(ptr noundef %0, ptr noundef %1, ptr n
 ._crit_edge144:                                   ; preds = %81, %.preheader
   %.1.lcssa = phi i32 [ %50, %.preheader ], [ %.2, %81 ]
   %82 = sub i32 %.1.lcssa, %4
-  %83 = icmp ult i32 %82, %3
+  %83 = icmp ugt i32 %3, %82
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %._crit_edge144
@@ -3761,7 +3761,7 @@ define internal void @msg_mmd_config_rsp(ptr noundef %0, ptr noundef %1, ptr nou
 ._crit_edge:                                      ; preds = %45, %.preheader
   %.0.lcssa = phi i32 [ %14, %.preheader ], [ %48, %45 ]
   %49 = sub i32 %.0.lcssa, %4
-  %50 = icmp ult i32 %49, %3
+  %50 = icmp ugt i32 %3, %49
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %._crit_edge
@@ -3773,7 +3773,7 @@ define internal void @msg_mmd_config_rsp(ptr noundef %0, ptr noundef %1, ptr nou
 54:                                               ; preds = %51, %._crit_edge
   %.pre-phi = phi i32 [ %.pre, %51 ], [ %49, %._crit_edge ]
   %.2 = phi i32 [ %53, %51 ], [ %.0.lcssa, %._crit_edge ]
-  %55 = icmp ult i32 %.pre-phi, %3
+  %55 = icmp ugt i32 %3, %.pre-phi
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %54
@@ -3831,7 +3831,7 @@ define internal void @msg_mmd_download_rsp(ptr noundef %0, ptr noundef %1, ptr n
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %28, %.lr.ph ]
   %29 = sub i32 %.0.lcssa, %4
-  %30 = icmp ult i32 %29, %3
+  %30 = icmp ugt i32 %3, %29
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %._crit_edge
@@ -3885,7 +3885,7 @@ define internal void @msg_systag_config_rsp(ptr noundef %0, ptr noundef %1, ptr 
 30:                                               ; preds = %26, %25
   %.0 = phi i32 [ %29, %26 ], [ %20, %25 ]
   %31 = sub i32 %.0, %4
-  %32 = icmp ult i32 %31, %3
+  %32 = icmp ugt i32 %3, %31
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
@@ -3938,7 +3938,7 @@ define internal void @msg_systag_download_rsp(ptr noundef %0, ptr noundef %1, pt
 28:                                               ; preds = %9, %21
   %.0 = phi i32 [ %16, %9 ], [ %27, %21 ]
   %29 = sub i32 %.0, %4
-  %30 = icmp ult i32 %29, %3
+  %30 = icmp ugt i32 %3, %29
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %28
@@ -4045,7 +4045,7 @@ define internal void @msg_mms_config_rsp(ptr noundef %0, ptr noundef %1, ptr nou
 ._crit_edge:                                      ; preds = %44, %.preheader
   %.0.lcssa = phi i32 [ %14, %.preheader ], [ %47, %44 ]
   %48 = sub i32 %.0.lcssa, %4
-  %49 = icmp ult i32 %48, %3
+  %49 = icmp ugt i32 %3, %48
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %._crit_edge
@@ -4057,7 +4057,7 @@ define internal void @msg_mms_config_rsp(ptr noundef %0, ptr noundef %1, ptr nou
 53:                                               ; preds = %50, %._crit_edge
   %.pre-phi = phi i32 [ %.pre, %50 ], [ %48, %._crit_edge ]
   %.2 = phi i32 [ %52, %50 ], [ %.0.lcssa, %._crit_edge ]
-  %54 = icmp ult i32 %.pre-phi, %3
+  %54 = icmp ugt i32 %3, %.pre-phi
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %53
@@ -4115,7 +4115,7 @@ define internal void @msg_mms_download_rsp(ptr noundef %0, ptr noundef %1, ptr n
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %28, %.lr.ph ]
   %29 = sub i32 %.0.lcssa, %4
-  %30 = icmp ult i32 %29, %3
+  %30 = icmp ugt i32 %3, %29
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %._crit_edge

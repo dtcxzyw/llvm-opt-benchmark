@@ -583,7 +583,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN16ExclusionC
 define void @_ZN16ExclusionChecker4Impl5checkEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
-  %.not = icmp eq i32 %4, %1
+  %.not = icmp eq i32 %1, %4
   br i1 %.not, label %19, label %5
 
 5:                                                ; preds = %2
@@ -712,7 +712,7 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %2
 _ZL25havePPDomainDecompositionPK9t_commrec.exit.thread: ; preds = %2, %_ZL25havePPDomainDecompositionPK9t_commrec.exit
   %14 = getelementptr inbounds i8, ptr %4, i64 56
   %15 = load i32, ptr %14, align 8
-  %.not.i2 = icmp eq i32 %15, %1
+  %.not.i2 = icmp eq i32 %1, %15
   br i1 %.not.i2, label %_ZN16ExclusionChecker4Impl5checkEi.exit, label %16
 
 16:                                               ; preds = %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread

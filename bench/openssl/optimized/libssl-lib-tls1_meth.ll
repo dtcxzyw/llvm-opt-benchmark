@@ -33,7 +33,7 @@ land.end:                                         ; preds = %entry
   %.fr = freeze i8 %1
   %cmp = icmp eq i8 %.fr, 23
   %conv2 = zext i1 %cmp to i64
-  %add = add i64 %conv2, %numtempl
+  %add = add i64 %numtempl, %conv2
   %spec.select = select i1 %cmp, i64 1116, i64 0
   br label %land.end.thread
 

@@ -92,7 +92,7 @@ define internal fastcc i32 @map_madt_entry(ptr noundef %0, i32 noundef %1, i32 n
   %24 = getelementptr inbounds i8, ptr %16, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = icmp eq i32 %26, %2
+  %27 = icmp eq i32 %2, %26
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %23
@@ -146,7 +146,7 @@ define internal fastcc i32 @map_madt_entry(ptr noundef %0, i32 noundef %1, i32 n
   %60 = getelementptr inbounds i8, ptr %16, i64 2
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
-  %63 = icmp eq i32 %62, %2
+  %63 = icmp eq i32 %2, %62
   br i1 %63, label %64, label %.thread
 
 64:                                               ; preds = %55, %59
@@ -295,7 +295,7 @@ define dso_local i32 @acpi_get_phys_id(ptr noundef %0, i32 noundef %1, i32 nound
   %31 = getelementptr inbounds i8, ptr %23, i64 2
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
-  %34 = icmp eq i32 %33, %2
+  %34 = icmp eq i32 %2, %33
   br i1 %34, label %.thread, label %thread-pre-split
 
 .thread:                                          ; preds = %30
@@ -678,7 +678,7 @@ define internal fastcc void @map_lsapic_id(ptr nocapture noundef readonly %0, i3
   %20 = getelementptr inbounds i8, ptr %0, i64 2
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
-  %23 = icmp eq i32 %22, %2
+  %23 = icmp eq i32 %2, %22
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %19, %15

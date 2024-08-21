@@ -124,7 +124,7 @@ if.then:                                          ; preds = %entry
   %close_offset_.i = getelementptr inbounds i8, ptr %this, i64 136
   %4 = load i64, ptr %close_offset_.i, align 8
   %cmp.not.i = icmp eq i64 %4, -1
-  %cmp3.not.i = icmp eq i64 %4, %add
+  %cmp3.not.i = icmp eq i64 %add, %4
   %or.cond.i = or i1 %cmp.not.i, %cmp3.not.i
   br i1 %or.cond.i, label %if.end.i, label %if.then.i
 
@@ -499,7 +499,7 @@ entry:
   %close_offset_ = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load i64, ptr %close_offset_, align 8
   %cmp.not = icmp eq i64 %0, -1
-  %cmp3.not = icmp eq i64 %0, %offset
+  %cmp3.not = icmp eq i64 %offset, %0
   %or.cond = or i1 %cmp.not, %cmp3.not
   br i1 %or.cond, label %if.end, label %if.then
 

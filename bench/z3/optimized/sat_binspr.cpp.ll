@@ -218,7 +218,7 @@ _ZNK6vectorI10ptr_vectorIN3sat6clauseEELb1EjE4sizeEv.exit.i: ; preds = %invoke.c
 _ZNK6vectorI10ptr_vectorIN3sat6clauseEELb1EjE4sizeEv.exit.thread.i: ; preds = %invoke.cont
   %arrayidx.i.i14 = getelementptr inbounds i8, ptr %.pr, i64 -4
   %17 = load i32, ptr %arrayidx.i.i14, align 4
-  %cmp4.i = icmp ult i32 %17, %mul
+  %cmp4.i = icmp ugt i32 %mul, %17
   br i1 %cmp4.i, label %while.cond.i.i.preheader, label %invoke.cont14
 
 while.cond.i.i.preheader:                         ; preds = %_ZNK6vectorI10ptr_vectorIN3sat6clauseEELb1EjE4sizeEv.exit.i, %_ZNK6vectorI10ptr_vectorIN3sat6clauseEELb1EjE4sizeEv.exit.thread.i
@@ -230,19 +230,15 @@ while.cond.i.i.preheader:                         ; preds = %_ZNK6vectorI10ptr_v
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %.noexc
   %18 = phi ptr [ %.pr.pre.i.i, %.noexc ], [ %.ph, %while.cond.i.i.preheader ]
   %cmp.i10.i.i = icmp eq ptr %18, null
-  br i1 %cmp.i10.i.i, label %_ZNK6vectorI10ptr_vectorIN3sat6clauseEELb1EjE8capacityEv.exit.i.i, label %if.end.i11.i.i
+  br i1 %cmp.i10.i.i, label %while.body.i.i, label %_ZNK6vectorI10ptr_vectorIN3sat6clauseEELb1EjE8capacityEv.exit.i.i
 
-if.end.i11.i.i:                                   ; preds = %while.cond.i.i
+_ZNK6vectorI10ptr_vectorIN3sat6clauseEELb1EjE8capacityEv.exit.i.i: ; preds = %while.cond.i.i
   %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %18, i64 -8
   %19 = load i32, ptr %arrayidx.i12.i.i, align 4
-  br label %_ZNK6vectorI10ptr_vectorIN3sat6clauseEELb1EjE8capacityEv.exit.i.i
-
-_ZNK6vectorI10ptr_vectorIN3sat6clauseEELb1EjE8capacityEv.exit.i.i: ; preds = %if.end.i11.i.i, %while.cond.i.i
-  %retval.0.i13.i.i = phi i32 [ %19, %if.end.i11.i.i ], [ 0, %while.cond.i.i ]
-  %cmp3.i.i = icmp ult i32 %retval.0.i13.i.i, %mul72.ph
+  %cmp3.i.i = icmp ugt i32 %mul72.ph, %19
   br i1 %cmp3.i.i, label %while.body.i.i, label %while.end.i.i
 
-while.body.i.i:                                   ; preds = %_ZNK6vectorI10ptr_vectorIN3sat6clauseEELb1EjE8capacityEv.exit.i.i
+while.body.i.i:                                   ; preds = %_ZNK6vectorI10ptr_vectorIN3sat6clauseEELb1EjE8capacityEv.exit.i.i, %while.cond.i.i
   invoke void @_ZN6vectorI10ptr_vectorIN3sat6clauseEELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_use_list)
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -253,8 +249,8 @@ while.body.i.i:                                   ; preds = %_ZNK6vectorI10ptr_v
 while.end.i.i:                                    ; preds = %_ZNK6vectorI10ptr_vectorIN3sat6clauseEELb1EjE8capacityEv.exit.i.i
   %arrayidx.i2.i = getelementptr inbounds i8, ptr %18, i64 -4
   store i32 %mul72.ph, ptr %arrayidx.i2.i, align 4
-  %cmp8.not17.i.i = icmp eq i32 %retval.0.i16.i.i.ph, %mul72.ph
-  br i1 %cmp8.not17.i.i, label %invoke.cont14, label %for.body.preheader.i.i
+  %cmp8.not19.i.i = icmp eq i32 %retval.0.i16.i.i.ph, %mul72.ph
+  br i1 %cmp8.not19.i.i, label %invoke.cont14, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %while.end.i.i
   %idx.ext6.i.i = zext i32 %mul72.ph to i64
@@ -959,7 +955,7 @@ if.then50:                                        ; preds = %_ZN3sat6solver11ass
   %call52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call51, ptr noundef nonnull @.str.3)
   %.b207 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %39 = select i1 %.b207, i32 -2, i32 0
-  %cmp.i.i60 = icmp eq i32 %39, %xor.i
+  %cmp.i.i60 = icmp eq i32 %xor.i, %39
   br i1 %cmp.i.i60, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then50
@@ -985,7 +981,7 @@ if.else:                                          ; preds = %_ZN3sat6solver11ass
   %call62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call61, ptr noundef nonnull @.str.3)
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %41 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i63 = icmp eq i32 %41, %xor.i
+  %cmp.i.i63 = icmp eq i32 %xor.i, %41
   br i1 %cmp.i.i63, label %if.then.i71, label %if.else.i64
 
 if.then.i71:                                      ; preds = %if.else
@@ -2575,8 +2571,8 @@ entry:
   %shr.i1 = lshr i32 %lit2.coerce, 1
   %cmp = icmp ugt i32 %shr.i, %shr.i1
   %not.cmp = xor i1 %cmp, true
-  %narrow = and i1 %not.cmp, %flip2
-  %tobool = and i1 %cmp, %flip2
+  %narrow = and i1 %flip2, %not.cmp
+  %tobool = and i1 %flip2, %cmp
   %cond = select i1 %tobool, i32 5, i32 10
   %cond5 = select i1 %narrow, i32 3, i32 12
   %or = or i32 %cond, %cond5

@@ -2720,7 +2720,7 @@ define void @_ZNK14disassembler_t11disassembleB5cxx11E6insn_t(ptr dead_on_unwind
   %15 = getelementptr inbounds i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %18 = and i64 %17, %2
+  %18 = and i64 %2, %17
   %19 = load i32, ptr %14, align 8
   %20 = zext i32 %19 to i64
   %21 = icmp eq i64 %18, %20
@@ -2747,7 +2747,7 @@ define void @_ZNK14disassembler_t11disassembleB5cxx11E6insn_t(ptr dead_on_unwind
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
-  %37 = and i64 %36, %2
+  %37 = and i64 %2, %36
   %38 = load i32, ptr %33, align 8
   %39 = zext i32 %38 to i64
   %40 = icmp eq i64 %37, %39
@@ -2771,7 +2771,7 @@ define void @_ZNK14disassembler_t11disassembleB5cxx11E6insn_t(ptr dead_on_unwind
   %51 = getelementptr inbounds i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = zext i32 %52 to i64
-  %54 = and i64 %53, %2
+  %54 = and i64 %2, %53
   %55 = load i32, ptr %50, align 8
   %56 = zext i32 %55 to i64
   %57 = icmp eq i64 %54, %56
@@ -2822,7 +2822,7 @@ define noundef ptr @_ZNK14disassembler_t6lookupE6insn_t(ptr nocapture noundef no
   %13 = getelementptr inbounds i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %16 = and i64 %15, %1
+  %16 = and i64 %1, %15
   %17 = load i32, ptr %12, align 8
   %18 = zext i32 %17 to i64
   %19 = icmp eq i64 %16, %18
@@ -2849,7 +2849,7 @@ define noundef ptr @_ZNK14disassembler_t6lookupE6insn_t(ptr nocapture noundef no
   %32 = getelementptr inbounds i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
-  %35 = and i64 %34, %1
+  %35 = and i64 %1, %34
   %36 = load i32, ptr %31, align 8
   %37 = zext i32 %36 to i64
   %38 = icmp eq i64 %35, %37
@@ -2873,7 +2873,7 @@ define noundef ptr @_ZNK14disassembler_t6lookupE6insn_t(ptr nocapture noundef no
   %49 = getelementptr inbounds i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
-  %52 = and i64 %51, %1
+  %52 = and i64 %1, %51
   %53 = load i32, ptr %48, align 8
   %54 = zext i32 %53 to i64
   %55 = icmp eq i64 %52, %54
@@ -10624,7 +10624,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i3048.thr
   br i1 %.not.i30493678, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i3099, label %2309
 
 2309:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i3048.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i3048
-  %2310 = icmp ugt ptr %2305, %137
+  %2310 = icmp ult ptr %137, %2305
   %2311 = getelementptr inbounds i8, ptr %2305, i64 %2300
   %2312 = icmp ult ptr %2311, %137
   %2313 = select i1 %2310, i1 true, i1 %2312
@@ -10668,7 +10668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94.i305
   br i1 %.not83.i3050, label %2323, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.i
 
 2323:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94.i3054
-  %.not87.i3057 = icmp ugt ptr %2311, %137
+  %.not87.i3057 = icmp ult ptr %137, %2311
   br i1 %.not87.i3057, label %2332, label %2324
 
 2324:                                             ; preds = %2323
@@ -11165,7 +11165,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i3069.thr
   br i1 %.not.i30703688, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i3114, label %2480
 
 2480:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i3069.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i3069
-  %2481 = icmp ugt ptr %2476, %138
+  %2481 = icmp ult ptr %138, %2476
   %2482 = getelementptr inbounds i8, ptr %2476, i64 %2471
   %2483 = icmp ult ptr %2482, %138
   %2484 = select i1 %2481, i1 true, i1 %2483
@@ -11209,7 +11209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94.i307
   br i1 %.not83.i3071, label %2494, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.i2541
 
 2494:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94.i3077
-  %.not87.i3080 = icmp ugt ptr %2482, %138
+  %.not87.i3080 = icmp ult ptr %138, %2482
   br i1 %.not87.i3080, label %2503, label %2495
 
 2495:                                             ; preds = %2494
@@ -18588,7 +18588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   %39 = load ptr, ptr %38, align 8
   %40 = icmp ne ptr %37, %39
   %.sroa.0.010.i.i = getelementptr inbounds i8, ptr %39, i64 -8
-  %.not11.i.i = icmp ugt ptr %.sroa.0.010.i.i, %37
+  %.not11.i.i = icmp ult ptr %37, %.sroa.0.010.i.i
   %or.cond.i.i = select i1 %40, i1 %.not11.i.i, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPPK13disasm_insn_tSt6vectorIS4_SaIS4_EEEEEvT_SA_.exit
 
@@ -20410,7 +20410,7 @@ define noundef ptr @_ZNK14disassembler_t10probe_onceE6insn_tm(ptr nocapture noun
   %13 = getelementptr inbounds i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %16 = and i64 %15, %1
+  %16 = and i64 %1, %15
   %17 = load i32, ptr %12, align 8
   %18 = zext i32 %17 to i64
   %19 = icmp eq i64 %16, %18
@@ -31212,7 +31212,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   %21 = getelementptr inbounds i8, ptr %13, i64 %1
   %22 = add i64 %2, %1
   %23 = sub i64 %7, %22
-  %24 = icmp ugt ptr %13, %3
+  %24 = icmp ult ptr %3, %13
   %25 = getelementptr inbounds i8, ptr %13, i64 %7
   %26 = icmp ult ptr %25, %3
   %27 = select i1 %24, i1 true, i1 %26
@@ -31321,7 +31321,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94: ; p
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
 
 57:                                               ; preds = %50
-  %.not87 = icmp ugt ptr %52, %3
+  %.not87 = icmp ult ptr %3, %52
   br i1 %.not87, label %67, label %58
 
 58:                                               ; preds = %57

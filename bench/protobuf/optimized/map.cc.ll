@@ -130,7 +130,7 @@ entry:
   %2 = inttoptr i64 %sub.i to ptr
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %cmp.i.i = icmp ne ptr %4, %tree_it.coerce0
+  %cmp.i.i = icmp ne ptr %tree_it.coerce0, %4
   %cmp6.i.i = icmp ne i32 %tree_it.coerce1, 0
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp6.i.i
   br i1 %.not.i, label %while.body3.i.preheader, label %if.end
@@ -1584,7 +1584,7 @@ entry:
   %mul = shl nuw nsw i64 %conv, 3
   %1 = load i32, ptr %this, align 8
   %conv2 = zext i32 %1 to i64
-  %mul3 = mul i64 %conv2, %sizeof_node
+  %mul3 = mul i64 %sizeof_node, %conv2
   %add4 = add i64 %mul3, %mul
   %cmp8.not = icmp eq i32 %0, 0
   br i1 %cmp8.not, label %for.end, label %for.body.lr.ph
@@ -2068,7 +2068,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %iter, i64 8
   store i32 %iter.coerce1, ptr %0, align 8
   %1 = load ptr, ptr %this, align 8
-  %cmp23 = icmp eq ptr %1, %iter.coerce0
+  %cmp23 = icmp eq ptr %iter.coerce0, %1
   br i1 %cmp23, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %if.end16, %entry
@@ -3527,7 +3527,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google
   %conv.i33 = zext i8 %7 to i32
   %arrayidx.i.i34 = getelementptr i8, ptr %6, i64 10
   %8 = load i8, ptr %arrayidx.i.i34, align 1
-  %cmp.i = icmp ugt i8 %8, %7
+  %cmp.i = icmp ult i8 %7, %8
   %conv9.i = zext i8 %7 to i64
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 

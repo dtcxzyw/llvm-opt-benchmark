@@ -19647,11 +19647,11 @@ entry:
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %mNumCapacity, align 8
   store i64 %n, ptr %mNumElements, align 8
-  %cmp = icmp ult i64 %0, %n
+  %cmp = icmp ugt i64 %n, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp3 = icmp ult i64 %1, %n
+  %cmp3 = icmp ugt i64 %n, %1
   br i1 %cmp3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
@@ -19712,7 +19712,7 @@ if.else:                                          ; preds = %entry
   %add.ptr24 = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %add.ptr24, align 8
   %add.ptr29 = getelementptr inbounds %struct.TestObject, ptr %9, i64 %0
-  %cmp.not7.i.i = icmp eq i64 %0, %n
+  %cmp.not7.i.i = icmp eq i64 %n, %0
   br i1 %cmp.not7.i.i, label %if.end38, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.else
@@ -19763,11 +19763,11 @@ entry:
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %mNumCapacity, align 8
   store i64 %n, ptr %mNumElements, align 8
-  %cmp = icmp ult i64 %0, %n
+  %cmp = icmp ugt i64 %n, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp7 = icmp ult i64 %1, %n
+  %cmp7 = icmp ugt i64 %n, %1
   br i1 %cmp7, label %if.then8, label %for.body.preheader.i.i.i.i
 
 if.then8:                                         ; preds = %if.then
@@ -19838,7 +19838,7 @@ if.else:                                          ; preds = %entry
   %add.ptr31 = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load ptr, ptr %add.ptr31, align 8
   %add.ptr36 = getelementptr inbounds %struct.TestObject, ptr %13, i64 %0
-  %cmp.not7.i.i = icmp eq i64 %0, %n
+  %cmp.not7.i.i = icmp eq i64 %n, %0
   br i1 %cmp.not7.i.i, label %if.end45, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.else
@@ -20374,7 +20374,7 @@ if.else:                                          ; preds = %if.then
   %36 = load i8, ptr %args, align 1
   %frombool.i = and i8 %36, 1
   %sub.i109 = sub i64 %1, %0
-  %cmp.i = icmp ugt i64 %sub.i109, %n
+  %cmp.i = icmp ult i64 %n, %sub.i109
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
@@ -20407,7 +20407,7 @@ _ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit.i: ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE15DoInsertAndFillEmmmRKb.exit, label %if.end.sink.split.i
 
 if.else.i:                                        ; preds = %if.else
-  %cmp.not2.i.i.i.i.i = icmp eq i64 %sub.i109, %n
+  %cmp.not2.i.i.i.i.i = icmp eq i64 %n, %sub.i109
   br i1 %cmp.not2.i.i.i.i.i, label %_ZN5eastl24uninitialized_fill_n_ptrIbmEEvPT_T0_RKS1_.exit.i, label %for.body.preheader.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %if.else.i
@@ -21145,7 +21145,7 @@ if.end.i.i.i.i.i.i31.i:                           ; preds = %_ZN5eastl18uninitia
   br label %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i
 
 _ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i: ; preds = %if.end.i.i.i.i.i.i31.i, %_ZN5eastl18uninitialized_copyIPbS1_EET0_T_S3_S2_.exit.i
-  %cmp.i.i.i.i36.i = icmp eq ptr %add.ptr13.i, %add.ptr77
+  %cmp.i.i.i.i36.i = icmp eq ptr %add.ptr77, %add.ptr13.i
   br i1 %cmp.i.i.i.i36.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE13DoInsertRangeEPbS3_S3_m.exit, label %if.end.i.i.i.i37.i
 
 if.end.i.i.i.i37.i:                               ; preds = %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i
@@ -21232,7 +21232,7 @@ if.end.i.i.i.i.i.i31.i149:                        ; preds = %_ZN5eastl18uninitia
   br label %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i
 
 _ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i: ; preds = %if.end.i.i.i.i.i.i31.i149, %_ZN5eastl18uninitialized_copyIPfS1_EET0_T_S3_S2_.exit.i
-  %cmp.i.i.i.i36.i151 = icmp eq ptr %add.ptr14.i, %add.ptr94
+  %cmp.i.i.i.i36.i151 = icmp eq ptr %add.ptr94, %add.ptr14.i
   br i1 %cmp.i.i.i.i36.i151, label %if.end128, label %if.end.i.i.i.i37.i152
 
 if.end.i.i.i.i37.i152:                            ; preds = %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i
@@ -21321,7 +21321,7 @@ define linkonce_odr dso_local void @_ZN5eastl16TupleVecInternal12TupleVecImplINS
 entry:
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %mNumCapacity, align 8
-  %cmp = icmp ult i64 %0, %n
+  %cmp = icmp ugt i64 %n, %0
   br i1 %cmp, label %_ZN5eastl22uninitialized_fill_ptrIbEEvPT_S2_RKS1_.exit.i, label %if.else
 
 _ZN5eastl22uninitialized_fill_ptrIbEEvPT_S2_RKS1_.exit.i: ; preds = %entry
@@ -21449,7 +21449,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %invoke.cont17.i
 if.else:                                          ; preds = %entry
   %mNumElements = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load i64, ptr %mNumElements, align 8
-  %cmp6 = icmp ult i64 %16, %n
+  %cmp6 = icmp ugt i64 %n, %16
   br i1 %cmp6, label %if.then7, label %if.else42
 
 if.then7:                                         ; preds = %if.else
@@ -21479,7 +21479,7 @@ for.body.i.i:                                     ; preds = %_ZN10TestObjectaSER
   %first.addr.04.i.i = phi ptr [ %19, %for.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %_ZN10TestObjectaSERKS_.exit.i.i ]
   %inc.i.i.i = add nsw i64 %20, 1
   store i64 %inc.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i27 = icmp eq ptr %first.addr.04.i.i, %args1
+  %cmp.not.i.i.i27 = icmp eq ptr %args1, %first.addr.04.i.i
   br i1 %cmp.not.i.i.i27, label %_ZN10TestObjectaSERKS_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
@@ -21601,7 +21601,7 @@ for.body.i.i52:                                   ; preds = %_ZN10TestObjectaSER
   %first.addr.04.i.i53 = phi ptr [ %40, %for.body.lr.ph.i.i48 ], [ %incdec.ptr.i.i62, %_ZN10TestObjectaSERKS_.exit.i.i61 ]
   %inc.i.i.i54 = add nsw i64 %41, 1
   store i64 %inc.i.i.i54, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i55 = icmp eq ptr %first.addr.04.i.i53, %args1
+  %cmp.not.i.i.i55 = icmp eq ptr %args1, %first.addr.04.i.i53
   br i1 %cmp.not.i.i.i55, label %_ZN10TestObjectaSERKS_.exit.i.i61, label %if.then.i.i.i56
 
 if.then.i.i.i56:                                  ; preds = %for.body.i.i52
@@ -21640,7 +21640,7 @@ for.body.i.i66:                                   ; preds = %_ZN5eastl4fillIP10T
 _ZN5eastl4fillIPffEEvT_S2_RKT0_.exit70:           ; preds = %for.body.i.i66, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit64.thread, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit64
   %add.ptr47135139 = phi ptr [ %add.ptr47133, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit64.thread ], [ %add.ptr47, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit64 ], [ %add.ptr47, %for.body.i.i66 ]
   %48 = load i64, ptr %mNumElements, align 8, !noalias !172
-  %cmp.not.i.i84.not = icmp eq i64 %48, %n
+  %cmp.not.i.i84.not = icmp eq i64 %n, %48
   br i1 %cmp.not.i.i84.not, label %if.end63, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5eastl4fillIPffEEvT_S2_RKT0_.exit70
@@ -23548,7 +23548,7 @@ entry:
   %inc6.i = add nsw i64 %6, 1
   store i64 %inc6.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %sub = sub i64 %numElements, %pos
-  %cmp = icmp ugt i64 %sub, %n
+  %cmp = icmp ult i64 %n, %sub
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -24218,7 +24218,7 @@ while.body.i186:                                  ; preds = %_ZN5eastl13move_bac
   %64 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i187 = add nsw i64 %64, 1
   store i64 %inc.i.i.i.i.i187, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i188 = icmp eq ptr %arrayidx6.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp.not.i.i.i.i.i188 = icmp eq ptr %add.ptr.i.i.i.i.i, %arrayidx6.i.i.i
   br i1 %cmp.not.i.i.i.i.i188, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i, label %if.then.i.i.i.i.i189
 
 if.then.i.i.i.i.i189:                             ; preds = %while.body.i186
@@ -24317,7 +24317,7 @@ while.body.i251:                                  ; preds = %_ZN5eastl22uninitia
   %79 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i259 = add nsw i64 %79, 1
   store i64 %inc.i.i.i.i.i259, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i260 = icmp eq ptr %arrayidx6.i.i.i255, %add.ptr.i.i.i.i.i258
+  %cmp.not.i.i.i.i.i260 = icmp eq ptr %add.ptr.i.i.i.i.i258, %arrayidx6.i.i.i255
   br i1 %cmp.not.i.i.i.i.i260, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i267, label %if.then.i.i.i.i.i261
 
 if.then.i.i.i.i.i261:                             ; preds = %while.body.i251
@@ -24644,7 +24644,7 @@ for.body.i.i44:                                   ; preds = %if.else, %for.body.
   br i1 %cmp.not.i.i, label %_ZN5eastl18uninitialized_copyIP10TestObjectS2_EET0_T_S4_S3_.exit, label %for.body.i.i44, !llvm.loop !434
 
 _ZN5eastl18uninitialized_copyIP10TestObjectS2_EET0_T_S4_S3_.exit: ; preds = %for.body.i.i44, %if.else
-  %cmp.i.not6.i.i54 = icmp eq ptr %add.ptr, %pDestBegin
+  %cmp.i.not6.i.i54 = icmp eq ptr %pDestBegin, %add.ptr
   br i1 %cmp.i.not6.i.i54, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit71, label %for.body.i.i55.preheader
 
 for.body.i.i55.preheader:                         ; preds = %_ZN5eastl18uninitialized_copyIP10TestObjectS2_EET0_T_S4_S3_.exit
@@ -24864,7 +24864,7 @@ while.body.i:                                     ; preds = %if.then3, %_ZN5east
   %22 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i = add nsw i64 %22, 1
   store i64 %inc.i.i.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %arrayidx6.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i, %arrayidx6.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
@@ -24964,7 +24964,7 @@ while.body.i70:                                   ; preds = %if.else11, %_ZN5eas
   %39 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i78 = add nsw i64 %39, 1
   store i64 %inc.i.i.i.i.i78, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i79 = icmp eq ptr %arrayidx6.i.i.i74, %add.ptr.i.i.i.i.i77
+  %cmp.not.i.i.i.i.i79 = icmp eq ptr %add.ptr.i.i.i.i.i77, %arrayidx6.i.i.i74
   br i1 %cmp.not.i.i.i.i.i79, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i86, label %if.then.i.i.i.i.i80
 
 if.then.i.i.i.i.i80:                              ; preds = %while.body.i70

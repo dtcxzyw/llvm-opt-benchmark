@@ -2151,7 +2151,7 @@ define internal fastcc void @gml_init_buffer(ptr noundef %0, ptr noundef %1) unn
   %3 = tail call ptr @__errno_location() #32
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %0, null
-  %.pre = load ptr, ptr @yy_buffer_stack, align 8
+  %.pr.pre = load ptr, ptr @yy_buffer_stack, align 8
   br i1 %.not.i, label %gml_flush_buffer.exit, label %5
 
 5:                                                ; preds = %2
@@ -2170,81 +2170,79 @@ define internal fastcc void @gml_init_buffer(ptr noundef %0, ptr noundef %1) unn
   store i32 1, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %14, align 8
-  %.not10.i = icmp eq ptr %.pre, null
-  br i1 %.not10.i, label %19, label %15
+  %.not10.i = icmp eq ptr %.pr.pre, null
+  br i1 %.not10.i, label %gml_flush_buffer.exit.thread, label %16
 
-15:                                               ; preds = %5
-  %16 = load i64, ptr @yy_buffer_stack_top, align 8
-  %17 = getelementptr inbounds ptr, ptr %.pre, i64 %16
-  %18 = load ptr, ptr %17, align 8
-  br label %19
-
-19:                                               ; preds = %15, %5
-  %20 = phi ptr [ %18, %15 ], [ null, %5 ]
-  %21 = icmp eq ptr %20, %0
-  br i1 %21, label %gml_flush_buffer.exit.thread, label %gml_flush_buffer.exit
-
-gml_flush_buffer.exit.thread:                     ; preds = %19
-  %22 = load i64, ptr @yy_buffer_stack_top, align 8
-  %23 = getelementptr inbounds ptr, ptr %.pre, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 28
-  %26 = load i32, ptr %25, align 4
-  store i32 %26, ptr @yy_n_chars, align 4
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr @yy_c_buf_p, align 8
-  store ptr %28, ptr @gmltext, align 8
-  %29 = load ptr, ptr %23, align 8
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr @gmlin, align 8
-  %31 = load i8, ptr %28, align 1
-  store i8 %31, ptr @yy_hold_char, align 1
+gml_flush_buffer.exit.thread:                     ; preds = %5
   store ptr %1, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 1, ptr %32, align 4
-  br label %34
+  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 1, ptr %15, align 4
+  br label %.thread
 
-gml_flush_buffer.exit:                            ; preds = %2, %19
+16:                                               ; preds = %5
+  %17 = load i64, ptr @yy_buffer_stack_top, align 8
+  %18 = getelementptr inbounds ptr, ptr %.pr.pre, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %0, %19
+  br i1 %20, label %21, label %gml_flush_buffer.exit.thread16
+
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds i8, ptr %19, i64 28
+  %23 = load i32, ptr %22, align 4
+  store i32 %23, ptr @yy_n_chars, align 4
+  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr @yy_c_buf_p, align 8
+  store ptr %25, ptr @gmltext, align 8
+  %26 = load ptr, ptr %18, align 8
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr @gmlin, align 8
+  %28 = load i8, ptr %25, align 1
+  store i8 %28, ptr @yy_hold_char, align 1
+  br label %gml_flush_buffer.exit.thread16
+
+gml_flush_buffer.exit.thread16:                   ; preds = %16, %21
   store ptr %1, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 1, ptr %33, align 4
-  %.not = icmp eq ptr %.pre, null
-  br i1 %.not, label %38, label %34
+  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 1, ptr %29, align 4
+  br label %31
 
-34:                                               ; preds = %gml_flush_buffer.exit.thread, %gml_flush_buffer.exit
-  %35 = load i64, ptr @yy_buffer_stack_top, align 8
-  %36 = getelementptr inbounds ptr, ptr %.pre, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  br label %38
+gml_flush_buffer.exit:                            ; preds = %2
+  store ptr %1, ptr %0, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 1, ptr %30, align 4
+  %.not = icmp eq ptr %.pr.pre, null
+  br i1 %.not, label %.thread, label %31
 
-38:                                               ; preds = %gml_flush_buffer.exit, %34
-  %39 = phi ptr [ %37, %34 ], [ null, %gml_flush_buffer.exit ]
-  %.not12 = icmp eq ptr %39, %0
-  br i1 %.not12, label %43, label %40
+31:                                               ; preds = %gml_flush_buffer.exit.thread16, %gml_flush_buffer.exit
+  %32 = load i64, ptr @yy_buffer_stack_top, align 8
+  %33 = getelementptr inbounds ptr, ptr %.pr.pre, i64 %32
+  %34 = load ptr, ptr %33, align 8
+  %.not12 = icmp eq ptr %0, %34
+  br i1 %.not12, label %37, label %.thread
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 0, ptr %42, align 8
+.thread:                                          ; preds = %gml_flush_buffer.exit.thread, %gml_flush_buffer.exit, %31
+  %35 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 1, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 0, ptr %36, align 8
+  br label %37
+
+37:                                               ; preds = %.thread, %31
+  %.not13 = icmp eq ptr %1, null
+  br i1 %.not13, label %43, label %38
+
+38:                                               ; preds = %37
+  %39 = tail call i32 @fileno(ptr noundef nonnull %1) #28
+  %40 = tail call i32 @isatty(i32 noundef %39) #28
+  %41 = icmp sgt i32 %40, 0
+  %42 = zext i1 %41 to i32
   br label %43
 
-43:                                               ; preds = %40, %38
-  %.not13 = icmp eq ptr %1, null
-  br i1 %.not13, label %49, label %44
-
-44:                                               ; preds = %43
-  %45 = tail call i32 @fileno(ptr noundef nonnull %1) #28
-  %46 = tail call i32 @isatty(i32 noundef %45) #28
-  %47 = icmp sgt i32 %46, 0
-  %48 = zext i1 %47 to i32
-  br label %49
-
-49:                                               ; preds = %43, %44
-  %50 = phi i32 [ %48, %44 ], [ 0, %43 ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 %50, ptr %51, align 4
+43:                                               ; preds = %37, %38
+  %44 = phi i32 [ %42, %38 ], [ 0, %37 ]
+  %45 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 %44, ptr %45, align 4
   store i32 %4, ptr %3, align 4
   ret void
 }
@@ -2351,47 +2349,41 @@ define dso_local noalias noundef ptr @gmlalloc(i64 noundef %0) local_unnamed_add
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @gml_delete_buffer(ptr noundef %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %21, label %2
+  br i1 %.not, label %16, label %2
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @yy_buffer_stack, align 8
   %.not6 = icmp eq ptr %3, null
-  br i1 %.not6, label %8, label %4
+  br i1 %.not6, label %.thread, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @yy_buffer_stack_top, align 8
   %6 = getelementptr inbounds ptr, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
-  br label %8
+  %8 = icmp eq ptr %0, %7
+  br i1 %8, label %9, label %.thread
 
-8:                                                ; preds = %2, %4
-  %9 = phi ptr [ %7, %4 ], [ null, %2 ]
-  %10 = icmp eq ptr %9, %0
-  br i1 %10, label %11, label %14
+9:                                                ; preds = %4
+  store ptr null, ptr %6, align 8
+  br label %.thread
 
-11:                                               ; preds = %8
-  %12 = load i64, ptr @yy_buffer_stack_top, align 8
-  %13 = getelementptr inbounds ptr, ptr %3, i64 %12
-  store ptr null, ptr %13, align 8
-  br label %14
+.thread:                                          ; preds = %2, %9, %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = load i32, ptr %10, align 8
+  %.not7 = icmp eq i32 %11, 0
+  br i1 %.not7, label %15, label %12
 
-14:                                               ; preds = %11, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load i32, ptr %15, align 8
-  %.not7 = icmp eq i32 %16, 0
-  br i1 %.not7, label %20, label %17
+12:                                               ; preds = %.thread
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  tail call void @free(ptr noundef %14) #28
+  br label %15
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8
-  tail call void @free(ptr noundef %19) #28
-  br label %20
-
-20:                                               ; preds = %17, %14
+15:                                               ; preds = %12, %.thread
   tail call void @free(ptr noundef nonnull %0) #28
-  br label %21
+  br label %16
 
-21:                                               ; preds = %1, %20
+16:                                               ; preds = %1, %15
   ret void
 }
 
@@ -2404,7 +2396,7 @@ define dso_local void @gmlfree(ptr nocapture noundef %0) local_unnamed_addr #7 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @gml_flush_buffer(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %31, label %2
+  br i1 %.not, label %.thread, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -2424,38 +2416,31 @@ define dso_local void @gml_flush_buffer(ptr noundef %0) local_unnamed_addr #8 {
   store i32 0, ptr %11, align 8
   %12 = load ptr, ptr @yy_buffer_stack, align 8
   %.not10 = icmp eq ptr %12, null
-  br i1 %.not10, label %17, label %13
+  br i1 %.not10, label %.thread, label %13
 
 13:                                               ; preds = %2
   %14 = load i64, ptr @yy_buffer_stack_top, align 8
   %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
-  br label %17
+  %17 = icmp eq ptr %0, %16
+  br i1 %17, label %18, label %.thread
 
-17:                                               ; preds = %2, %13
-  %18 = phi ptr [ %16, %13 ], [ null, %2 ]
-  %19 = icmp eq ptr %18, %0
-  br i1 %19, label %20, label %31
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %16, i64 28
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr @yy_n_chars, align 4
+  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr @yy_c_buf_p, align 8
+  store ptr %22, ptr @gmltext, align 8
+  %23 = load ptr, ptr %15, align 8
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr @gmlin, align 8
+  %25 = load i8, ptr %22, align 1
+  store i8 %25, ptr @yy_hold_char, align 1
+  br label %.thread
 
-20:                                               ; preds = %17
-  %21 = load i64, ptr @yy_buffer_stack_top, align 8
-  %22 = getelementptr inbounds ptr, ptr %12, i64 %21
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 28
-  %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr @yy_n_chars, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr @yy_c_buf_p, align 8
-  store ptr %27, ptr @gmltext, align 8
-  %28 = load ptr, ptr %22, align 8
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr @gmlin, align 8
-  %30 = load i8, ptr %27, align 1
-  store i8 %30, ptr @yy_hold_char, align 1
-  br label %31
-
-31:                                               ; preds = %1, %20, %17
+.thread:                                          ; preds = %2, %1, %18, %13
   ret void
 }
 
@@ -2571,52 +2556,52 @@ define dso_local void @gmlpop_buffer_state() local_unnamed_addr #6 {
   %4 = getelementptr inbounds ptr, ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8
   %.not4 = icmp eq ptr %5, null
-  br i1 %.not4, label %.thread, label %6
+  br i1 %.not4, label %.thread, label %.thread.i
 
-6:                                                ; preds = %2
+.thread.i:                                        ; preds = %2
   store ptr null, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
-  %8 = load i32, ptr %7, align 8
-  %.not7.i = icmp eq i32 %8, 0
-  br i1 %.not7.i, label %gml_delete_buffer.exit, label %9
+  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = load i32, ptr %6, align 8
+  %.not7.i = icmp eq i32 %7, 0
+  br i1 %.not7.i, label %gml_delete_buffer.exit, label %8
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void @free(ptr noundef %11) #28
+8:                                                ; preds = %.thread.i
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void @free(ptr noundef %10) #28
   br label %gml_delete_buffer.exit
 
-gml_delete_buffer.exit:                           ; preds = %6, %9
+gml_delete_buffer.exit:                           ; preds = %.thread.i, %8
   tail call void @free(ptr noundef nonnull %5) #28
   store ptr null, ptr %4, align 8
   %.not5 = icmp eq i64 %3, 0
-  br i1 %.not5, label %.thread, label %12
+  br i1 %.not5, label %.thread, label %11
 
-12:                                               ; preds = %gml_delete_buffer.exit
-  %13 = add i64 %3, -1
-  store i64 %13, ptr @yy_buffer_stack_top, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %1, i64 %13
+11:                                               ; preds = %gml_delete_buffer.exit
+  %12 = add i64 %3, -1
+  store i64 %12, ptr @yy_buffer_stack_top, align 8
+  %.phi.trans.insert = getelementptr inbounds ptr, ptr %1, i64 %12
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not7 = icmp eq ptr %.pre, null
-  br i1 %.not7, label %.thread, label %14
+  br i1 %.not7, label %.thread, label %13
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds ptr, ptr %1, i64 %13
-  %16 = getelementptr inbounds i8, ptr %.pre, i64 28
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr @yy_n_chars, align 4
-  %18 = getelementptr inbounds i8, ptr %.pre, i64 16
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr @yy_c_buf_p, align 8
-  store ptr %19, ptr @gmltext, align 8
-  %20 = load ptr, ptr %15, align 8
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr @gmlin, align 8
-  %22 = load i8, ptr %19, align 1
-  store i8 %22, ptr @yy_hold_char, align 1
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds ptr, ptr %1, i64 %12
+  %15 = getelementptr inbounds i8, ptr %.pre, i64 28
+  %16 = load i32, ptr %15, align 4
+  store i32 %16, ptr @yy_n_chars, align 4
+  %17 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr @yy_c_buf_p, align 8
+  store ptr %18, ptr @gmltext, align 8
+  %19 = load ptr, ptr %14, align 8
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr @gmlin, align 8
+  %21 = load i8, ptr %18, align 1
+  store i8 %21, ptr @yy_hold_char, align 1
   br label %.thread
 
-.thread:                                          ; preds = %gml_delete_buffer.exit, %2, %0, %14, %12
+.thread:                                          ; preds = %gml_delete_buffer.exit, %2, %0, %13, %11
   ret void
 }
 
@@ -2824,41 +2809,41 @@ define dso_local void @gmlset_debug(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @gmllex_destroy() local_unnamed_addr #1 {
   %.pr = load ptr, ptr @yy_buffer_stack, align 8
-  %.not7 = icmp eq ptr %.pr, null
-  br i1 %.not7, label %.thread, label %.lr.ph.preheader
+  %.not8 = icmp eq ptr %.pr, null
+  br i1 %.not8, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @yy_buffer_stack_top, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pr, i64 %.pre
-  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8
-  %.not218 = icmp eq ptr %.pre10, null
-  br i1 %.not218, label %.thread, label %.lr.ph19
+  %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
+  %.not219 = icmp eq ptr %.pre11, null
+  br i1 %.not219, label %.thread, label %.thread.i
 
-.lr.ph19:                                         ; preds = %.lr.ph.preheader
+.thread.i:                                        ; preds = %.lr.ph.preheader
   %1 = getelementptr inbounds ptr, ptr %.pr, i64 %.pre
   store ptr null, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %.pre10, i64 32
+  %2 = getelementptr inbounds i8, ptr %.pre11, i64 32
   %3 = load i32, ptr %2, align 8
   %.not7.i = icmp eq i32 %3, 0
   br i1 %.not7.i, label %gmlpop_buffer_state.exit, label %4
 
-4:                                                ; preds = %.lr.ph19
-  %5 = getelementptr inbounds i8, ptr %.pre10, i64 8
+4:                                                ; preds = %.thread.i
+  %5 = getelementptr inbounds i8, ptr %.pre11, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #28
-  %.pre11.pre = load ptr, ptr @yy_buffer_stack, align 8
+  %.pre12.pre = load ptr, ptr @yy_buffer_stack, align 8
   br label %gmlpop_buffer_state.exit
 
-gmlpop_buffer_state.exit:                         ; preds = %.lr.ph19, %4
-  %.pre11 = phi ptr [ %.pre11.pre, %4 ], [ %.pr, %.lr.ph19 ]
-  tail call void @free(ptr noundef nonnull %.pre10) #28
-  %.pre12 = load i64, ptr @yy_buffer_stack_top, align 8
-  %7 = getelementptr inbounds ptr, ptr %.pre11, i64 %.pre12
+gmlpop_buffer_state.exit:                         ; preds = %.thread.i, %4
+  %.pre12 = phi ptr [ %.pre12.pre, %4 ], [ %.pr, %.thread.i ]
+  tail call void @free(ptr noundef nonnull %.pre11) #28
+  %.pre13 = load i64, ptr @yy_buffer_stack_top, align 8
+  %7 = getelementptr inbounds ptr, ptr %.pre12, i64 %.pre13
   store ptr null, ptr %7, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.preheader, %gmlpop_buffer_state.exit, %0
-  %.lcssa = phi ptr [ null, %0 ], [ %.pre11, %gmlpop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
+  %.lcssa = phi ptr [ null, %0 ], [ %.pre12, %gmlpop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
   tail call void @free(ptr noundef %.lcssa) #28
   store ptr null, ptr @yy_buffer_stack, align 8
   store i64 0, ptr @yy_buffer_stack_top, align 8

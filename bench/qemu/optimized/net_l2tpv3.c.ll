@@ -537,7 +537,7 @@ entry:
   %read_poll = getelementptr inbounds i8, ptr %s, i64 488
   %0 = load i8, ptr %read_poll, align 8
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %enable
+  %2 = xor i1 %enable, %1
   br i1 %2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1040,7 +1040,7 @@ entry:
   %write_poll.i = getelementptr inbounds i8, ptr %nc, i64 489
   %0 = load i8, ptr %write_poll.i, align 1
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %enable
+  %2 = xor i1 %enable, %1
   br i1 %2, label %if.then.i, label %l2tpv3_write_poll.exit
 
 if.then.i:                                        ; preds = %entry
@@ -1060,7 +1060,7 @@ l2tpv3_write_poll.exit:                           ; preds = %entry, %if.then.i
   %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 488
   %5 = load i8, ptr %read_poll.i, align 8
   %6 = trunc i8 %5 to i1
-  %7 = xor i1 %6, %enable
+  %7 = xor i1 %enable, %6
   br i1 %7, label %if.then.i3, label %l2tpv3_read_poll.exit
 
 if.then.i3:                                       ; preds = %l2tpv3_write_poll.exit

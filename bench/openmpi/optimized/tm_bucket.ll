@@ -864,13 +864,13 @@ display_pivots.exit:                              ; preds = %230, %225
   %indvars.iv176 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next177, %327 ]
   %306 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   %307 = trunc i64 %indvars.iv176 to i32
-  %308 = mul i32 %307, %4
+  %308 = mul i32 %4, %307
   %309 = udiv i32 %308, %294
   %310 = getelementptr inbounds i32, ptr %299, i64 %indvars.iv176
   store i32 %309, ptr %310, align 4
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %311 = trunc i64 %indvars.iv.next177 to i32
-  %312 = mul i32 %311, %4
+  %312 = mul i32 %4, %311
   %313 = udiv i32 %312, %294
   %314 = getelementptr inbounds i32, ptr %300, i64 %indvars.iv176
   %315 = icmp eq i64 %indvars.iv176, %304

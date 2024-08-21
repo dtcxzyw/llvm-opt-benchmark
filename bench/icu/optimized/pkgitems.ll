@@ -636,7 +636,7 @@ lor.lhs.false.i39:                                ; preds = %if.end.i38
   %76 = load ptr, ptr %readUInt32.i, align 8
   %77 = load i32, ptr %add.ptr, align 4
   %call12.i = call noundef i32 %76(i32 noundef %77)
-  %cmp13.i = icmp ugt i32 %call12.i, %sub
+  %cmp13.i = icmp ult i32 %sub, %call12.i
   br i1 %cmp13.i, label %if.then14.i, label %if.end15.i
 
 if.then14.i:                                      ; preds = %lor.lhs.false.i39, %if.end.i38

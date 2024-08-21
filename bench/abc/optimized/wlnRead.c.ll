@@ -6250,13 +6250,13 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #22
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not = icmp slt i32 %5, %1
+  %.not = icmp sgt i32 %1, %5
   br i1 %.not, label %6, label %41
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
   %8 = shl nsw i32 %7, 1
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   %.not.i = icmp slt i32 %7, %1
   br i1 %9, label %10, label %22
 
@@ -6704,7 +6704,7 @@ Vec_IntPush.exit24:                               ; preds = %.Vec_IntGrow.exit10
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr i8, ptr %68, i64 4
   %.val.i = load i32, ptr %69, align 4
-  %70 = icmp sgt i32 %.val.i, %66
+  %70 = icmp slt i32 %66, %.val.i
   tail call void @llvm.assume(i1 %70)
   %71 = getelementptr i8, ptr %68, i64 8
   %.val4.i = load ptr, ptr %71, align 8
@@ -6743,7 +6743,7 @@ define i32 @Rtl_NtkReadSig(ptr nocapture noundef readonly %0, ptr nocapture noun
   %.val.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val.val, i64 4
   %.val.i = load i32, ptr %6, align 4
-  %7 = icmp sgt i32 %.val.i, %3
+  %7 = icmp slt i32 %3, %.val.i
   br i1 %7, label %8, label %.Rtl_NtkTokId.exit_crit_edge
 
 .Rtl_NtkTokId.exit_crit_edge:                     ; preds = %2
@@ -6768,7 +6768,7 @@ Rtl_NtkTokId.exit:                                ; preds = %.Rtl_NtkTokId.exit_
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 4
   %.val.i24 = load i32, ptr %17, align 4
-  %18 = icmp sgt i32 %.val.i24, %3
+  %18 = icmp slt i32 %3, %.val.i24
   tail call void @llvm.assume(i1 %18)
   %19 = getelementptr i8, ptr %16, i64 8
   %.val4.i = load ptr, ptr %19, align 8
@@ -6801,7 +6801,7 @@ Rtl_NtkTokId.exit:                                ; preds = %.Rtl_NtkTokId.exit_
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 4
   %.val.i25 = load i32, ptr %36, align 4
-  %37 = icmp sgt i32 %.val.i25, %33
+  %37 = icmp slt i32 %33, %.val.i25
   br i1 %37, label %Rtl_NtkTokStr.exit28, label %Rtl_NtkTokStr.exit28.thread
 
 Rtl_NtkTokStr.exit28:                             ; preds = %32
@@ -6848,7 +6848,7 @@ define i32 @Rtl_NtkReadWire(ptr nocapture noundef %0, i32 noundef %1) local_unna
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 4
   %.val121 = load i32, ptr %9, align 4
-  %10 = icmp sgt i32 %.val121, %1
+  %10 = icmp slt i32 %1, %.val121
   br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
@@ -6886,12 +6886,12 @@ define i32 @Rtl_NtkReadWire(ptr nocapture noundef %0, i32 noundef %1) local_unna
   %.val131151 = phi i32 [ %.val, %18 ], [ %.val121, %.lr.ph ]
   %26 = getelementptr inbounds i8, ptr %25, i64 140
   %27 = load i32, ptr %26, align 4
-  %.not = icmp eq i32 %27, %24
+  %.not = icmp eq i32 %24, %27
   br i1 %.not, label %28, label %39
 
 28:                                               ; preds = %.lr.ph161
   %29 = add nsw i32 %.057122159, 1
-  %30 = icmp sgt i32 %.val131151, %29
+  %30 = icmp slt i32 %29, %.val131151
   br i1 %30, label %31, label %Rtl_NtkTokStr.exit
 
 31:                                               ; preds = %28
@@ -6911,12 +6911,12 @@ Rtl_NtkTokStr.exit:                               ; preds = %28, %31
 39:                                               ; preds = %.lr.ph161
   %40 = getelementptr inbounds i8, ptr %25, i64 120
   %41 = load i32, ptr %40, align 4
-  %.not116 = icmp eq i32 %41, %24
+  %.not116 = icmp eq i32 %24, %41
   br i1 %.not116, label %42, label %53
 
 42:                                               ; preds = %39
   %43 = add nsw i32 %.057122159, 1
-  %44 = icmp sgt i32 %.val131151, %43
+  %44 = icmp slt i32 %43, %.val131151
   br i1 %44, label %45, label %Rtl_NtkTokStr.exit79
 
 45:                                               ; preds = %42
@@ -6936,12 +6936,12 @@ Rtl_NtkTokStr.exit79:                             ; preds = %42, %45
 53:                                               ; preds = %39
   %54 = getelementptr inbounds i8, ptr %25, i64 100
   %55 = load i32, ptr %54, align 4
-  %.not117 = icmp eq i32 %55, %24
+  %.not117 = icmp eq i32 %24, %55
   br i1 %.not117, label %56, label %69
 
 56:                                               ; preds = %53
   %57 = add nsw i32 %.057122159, 1
-  %58 = icmp sgt i32 %.val131151, %57
+  %58 = icmp slt i32 %57, %.val131151
   br i1 %58, label %59, label %Rtl_NtkTokStr.exit83
 
 59:                                               ; preds = %56
@@ -6964,12 +6964,12 @@ Rtl_NtkTokStr.exit83:                             ; preds = %56, %59
 69:                                               ; preds = %53
   %70 = getelementptr inbounds i8, ptr %25, i64 104
   %71 = load i32, ptr %70, align 4
-  %.not118 = icmp eq i32 %71, %24
+  %.not118 = icmp eq i32 %24, %71
   br i1 %.not118, label %72, label %85
 
 72:                                               ; preds = %69
   %73 = add nsw i32 %.057122159, 1
-  %74 = icmp sgt i32 %.val131151, %73
+  %74 = icmp slt i32 %73, %.val131151
   br i1 %74, label %75, label %Rtl_NtkTokStr.exit87
 
 75:                                               ; preds = %72
@@ -6992,13 +6992,13 @@ Rtl_NtkTokStr.exit87:                             ; preds = %72, %75
 85:                                               ; preds = %69
   %86 = getelementptr inbounds i8, ptr %25, i64 116
   %87 = load i32, ptr %86, align 4
-  %.not119 = icmp eq i32 %87, %24
+  %.not119 = icmp eq i32 %24, %87
   br i1 %.not119, label %91, label %88
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds i8, ptr %25, i64 112
   %90 = load i32, ptr %89, align 4
-  %.not120 = icmp eq i32 %90, %24
+  %.not120 = icmp eq i32 %24, %90
   %spec.select = select i1 %.not120, i32 1, i32 %.052125157
   br label %91
 
@@ -7378,7 +7378,7 @@ define range(i32 -2147483646, -2147483648) i32 @Rtl_NtkReadAttribute(ptr nocaptu
   %.val6.val = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %.val6.val, i64 4
   %.val.i = load i32, ptr %8, align 4
-  %9 = icmp sgt i32 %.val.i, %1
+  %9 = icmp slt i32 %1, %.val.i
   br i1 %9, label %10, label %Rtl_NtkTokId.exit
 
 10:                                               ; preds = %2
@@ -7463,7 +7463,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val.val = load ptr, ptr %49, align 8
   %50 = getelementptr i8, ptr %.val.val, i64 4
   %.val.i7 = load i32, ptr %50, align 4
-  %51 = icmp sgt i32 %.val.i7, %6
+  %51 = icmp slt i32 %6, %.val.i7
   br i1 %51, label %52, label %Rtl_NtkTokId.exit9
 
 52:                                               ; preds = %Vec_IntPush.exit
@@ -7921,7 +7921,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val49.val = load ptr, ptr %42, align 8
   %43 = getelementptr i8, ptr %.val49.val, i64 4
   %.val.i = load i32, ptr %43, align 4
-  %44 = icmp sgt i32 %.val.i, %1
+  %44 = icmp slt i32 %1, %.val.i
   br i1 %44, label %45, label %Rtl_NtkTokId.exit
 
 45:                                               ; preds = %Vec_IntPush.exit
@@ -8005,7 +8005,7 @@ Vec_IntPush.exit61:                               ; preds = %.Vec_IntGrow.exit10
   %.val48.val = load ptr, ptr %82, align 8
   %83 = getelementptr i8, ptr %.val48.val, i64 4
   %.val.i62 = load i32, ptr %83, align 4
-  %84 = icmp sgt i32 %.val.i62, %41
+  %84 = icmp slt i32 %41, %.val.i62
   br i1 %84, label %85, label %Rtl_NtkTokId.exit64
 
 85:                                               ; preds = %Vec_IntPush.exit61
@@ -8501,19 +8501,19 @@ Vec_IntPush.exit113:                              ; preds = %.Vec_IntGrow.exit10
   %313 = load i32, ptr %312, align 4
   %314 = getelementptr inbounds i8, ptr %308, i64 96
   %315 = load i32, ptr %314, align 4
-  %.not = icmp eq i32 %315, %313
+  %.not = icmp eq i32 %313, %315
   br i1 %.not, label %.critedge, label %316
 
 316:                                              ; preds = %307
   %317 = getelementptr inbounds i8, ptr %308, i64 124
   %318 = load i32, ptr %317, align 4
-  %.not114 = icmp eq i32 %318, %313
+  %.not114 = icmp eq i32 %313, %318
   br i1 %.not114, label %322, label %319
 
 319:                                              ; preds = %316
   %320 = getelementptr inbounds i8, ptr %308, i64 132
   %321 = load i32, ptr %320, align 4
-  %.not115 = icmp eq i32 %321, %313
+  %.not115 = icmp eq i32 %313, %321
   br i1 %.not115, label %322, label %331
 
 322:                                              ; preds = %319, %316
@@ -8649,7 +8649,7 @@ define i32 @Wln_ReadMatchEnd(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   %.val = load i32, ptr %7, align 4
-  %8 = icmp sgt i32 %.val, %1
+  %8 = icmp slt i32 %1, %.val
   br i1 %8, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
@@ -8666,7 +8666,7 @@ define i32 @Wln_ReadMatchEnd(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %.022 = phi i32 [ 0, %.lr.ph ], [ %.1, %25 ]
   %15 = getelementptr inbounds i32, ptr %.val17, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
-  %.not = icmp eq i32 %11, %16
+  %.not = icmp eq i32 %16, %11
   br i1 %.not, label %17, label %19
 
 17:                                               ; preds = %14
@@ -8675,7 +8675,7 @@ define i32 @Wln_ReadMatchEnd(ptr nocapture noundef readonly %0, i32 noundef %1) 
 
 19:                                               ; preds = %14
   %20 = load i32, ptr %12, align 4
-  %.not20 = icmp eq i32 %20, %16
+  %.not20 = icmp eq i32 %16, %20
   br i1 %.not20, label %21, label %25
 
 21:                                               ; preds = %19
@@ -8712,7 +8712,7 @@ define i32 @Rtl_NtkReadNtk(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 4
   %.val.i = load i32, ptr %9, align 4
-  %10 = icmp sgt i32 %.val.i, %1
+  %10 = icmp slt i32 %1, %.val.i
   br i1 %10, label %.lr.ph.i, label %Rtl_NtkTokId.exit
 
 .lr.ph.i:                                         ; preds = %2
@@ -8729,7 +8729,7 @@ define i32 @Rtl_NtkReadNtk(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2
   %.022.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %27 ]
   %17 = getelementptr inbounds i32, ptr %.val17.i, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4
-  %.not.i = icmp eq i32 %13, %18
+  %.not.i = icmp eq i32 %18, %13
   br i1 %.not.i, label %19, label %21
 
 19:                                               ; preds = %16
@@ -8738,7 +8738,7 @@ define i32 @Rtl_NtkReadNtk(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2
 
 21:                                               ; preds = %16
   %22 = load i32, ptr %14, align 4
-  %.not20.i = icmp eq i32 %22, %18
+  %.not20.i = icmp eq i32 %18, %22
   br i1 %.not20.i, label %23, label %27
 
 23:                                               ; preds = %21
@@ -8778,7 +8778,7 @@ Rtl_NtkTokId.exit:                                ; preds = %2, %Wln_ReadMatchEn
   tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %34, ptr noundef nonnull %6)
   %35 = getelementptr inbounds i8, ptr %5, i64 244
   store i32 0, ptr %35, align 4
-  %36 = icmp sgt i32 %.014.i49, %1
+  %36 = icmp slt i32 %1, %.014.i49
   br i1 %36, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Rtl_NtkTokId.exit
@@ -8796,7 +8796,7 @@ Rtl_NtkTokId.exit:                                ; preds = %2, %Wln_ReadMatchEn
   %.val46 = load ptr, ptr %4, align 8
   %44 = getelementptr inbounds i8, ptr %.val46, i64 128
   %45 = load i32, ptr %44, align 4
-  %.not = icmp eq i32 %45, %43
+  %.not = icmp eq i32 %43, %45
   br i1 %.not, label %46, label %49
 
 46:                                               ; preds = %38
@@ -8807,7 +8807,7 @@ Rtl_NtkTokId.exit:                                ; preds = %2, %Wln_ReadMatchEn
 49:                                               ; preds = %38
   %50 = getelementptr inbounds i8, ptr %.val46, i64 144
   %51 = load i32, ptr %50, align 4
-  %.not50 = icmp eq i32 %51, %43
+  %.not50 = icmp eq i32 %43, %51
   br i1 %.not50, label %52, label %55
 
 52:                                               ; preds = %49
@@ -8818,7 +8818,7 @@ Rtl_NtkTokId.exit:                                ; preds = %2, %Wln_ReadMatchEn
 55:                                               ; preds = %49
   %56 = getelementptr inbounds i8, ptr %.val46, i64 136
   %57 = load i32, ptr %56, align 4
-  %.not51 = icmp eq i32 %57, %43
+  %.not51 = icmp eq i32 %43, %57
   br i1 %.not51, label %58, label %61
 
 58:                                               ; preds = %55
@@ -8829,7 +8829,7 @@ Rtl_NtkTokId.exit:                                ; preds = %2, %Wln_ReadMatchEn
 61:                                               ; preds = %55
   %62 = getelementptr inbounds i8, ptr %.val46, i64 132
   %63 = load i32, ptr %62, align 4
-  %.not52 = icmp eq i32 %63, %43
+  %.not52 = icmp eq i32 %43, %63
   br i1 %.not52, label %64, label %67
 
 64:                                               ; preds = %61
@@ -10280,7 +10280,7 @@ define i32 @Rtl_NtkMapSignalRange(ptr nocapture noundef readonly %0, i32 noundef
   store i32 %2, ptr %27, align 4
   %28 = or disjoint i64 %26, 1
   %29 = trunc nsw i64 %indvars.iv.i to i32
-  %30 = add i32 %29, %3
+  %30 = add i32 %3, %29
   %.val27.i = load ptr, ptr %22, align 8
   %31 = getelementptr inbounds i32, ptr %.val27.i, i64 %28
   store i32 %30, ptr %31, align 4
@@ -13124,7 +13124,7 @@ declare void @Rtl_NtkBlastNode(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 define noundef ptr @Rtl_ShortenName(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #23 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #38
   %4 = trunc i64 %3 to i32
-  %.not = icmp sgt i32 %4, %1
+  %.not = icmp slt i32 %1, %4
   br i1 %.not, label %5, label %18
 
 5:                                                ; preds = %2

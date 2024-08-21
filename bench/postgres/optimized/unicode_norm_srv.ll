@@ -129,7 +129,7 @@ Decomp_hash_func.exit.i.i:                        ; preds = %41
   %62 = zext nneg i32 %60 to i64
   %63 = getelementptr %struct.pg_unicode_decomposition, ptr @UnicodeDecompMain, i64 %62
   %64 = load i32, ptr %63, align 8
-  %.not.i.i = icmp eq i32 %64, %36
+  %.not.i.i = icmp eq i32 %36, %64
   br i1 %.not.i.i, label %get_code_entry.exit.i, label %get_code_entry.exit.thread.i
 
 get_code_entry.exit.thread.i:                     ; preds = %61, %Decomp_hash_func.exit.i.i
@@ -184,7 +184,7 @@ Decomp_hash_func.exit.i.i93:                      ; preds = %68
   %89 = zext nneg i32 %87 to i64
   %90 = getelementptr %struct.pg_unicode_decomposition, ptr @UnicodeDecompMain, i64 %89
   %91 = load i32, ptr %90, align 8
-  %.not.i.i95 = icmp eq i32 %91, %39
+  %.not.i.i95 = icmp eq i32 %39, %91
   br i1 %.not.i.i95, label %get_canonical_class.exit99, label %get_canonical_class.exit99.thread
 
 get_canonical_class.exit99.thread:                ; preds = %Decomp_hash_func.exit.i.i93, %88
@@ -281,7 +281,7 @@ Decomp_hash_func.exit.i.i105:                     ; preds = %109
   %130 = zext nneg i32 %128 to i64
   %131 = getelementptr %struct.pg_unicode_decomposition, ptr @UnicodeDecompMain, i64 %130
   %132 = load i32, ptr %131, align 8
-  %.not.i.i107 = icmp eq i32 %132, %107
+  %.not.i.i107 = icmp eq i32 %107, %132
   br i1 %.not.i.i107, label %get_code_entry.exit.i110, label %get_code_entry.exit.thread.i108
 
 get_code_entry.exit.thread.i108:                  ; preds = %129, %Decomp_hash_func.exit.i.i105
@@ -385,14 +385,14 @@ Recomp_hash_func.exit.i:                          ; preds = %161
   %189 = zext i16 %188 to i64
   %190 = getelementptr [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %189
   %191 = load i32, ptr %190, align 4
-  %192 = icmp eq i32 %191, %.076148
+  %192 = icmp eq i32 %.076148, %191
   br i1 %192, label %193, label %recompose_code.exit
 
 193:                                              ; preds = %181
   %194 = add nuw nsw i64 %189, 1
   %195 = getelementptr [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %194
   %196 = load i32, ptr %195, align 4
-  %197 = icmp eq i32 %196, %107
+  %197 = icmp eq i32 %107, %196
   br i1 %197, label %198, label %recompose_code.exit
 
 198:                                              ; preds = %193
@@ -506,7 +506,7 @@ Decomp_hash_func.exit.i:                          ; preds = %9
   %30 = zext nneg i32 %28 to i64
   %31 = getelementptr %struct.pg_unicode_decomposition, ptr @UnicodeDecompMain, i64 %30
   %32 = load i32, ptr %31, align 8
-  %.not.i = icmp eq i32 %32, %0
+  %.not.i = icmp eq i32 %0, %32
   br i1 %.not.i, label %get_code_entry.exit, label %get_code_entry.exit.thread
 
 get_code_entry.exit.thread:                       ; preds = %Decomp_hash_func.exit.i, %29
@@ -525,7 +525,7 @@ get_code_entry.exit:                              ; preds = %29
 38:                                               ; preds = %get_code_entry.exit
   %39 = and i32 %35, 32
   %.not = icmp eq i32 %39, 0
-  %or.cond25 = or i1 %.not, %1
+  %or.cond25 = or i1 %1, %.not
   br i1 %or.cond25, label %40, label %.loopexit
 
 40:                                               ; preds = %38
@@ -649,7 +649,7 @@ Decomp_hash_func.exit.i:                          ; preds = %29
   %50 = zext nneg i32 %48 to i64
   %51 = getelementptr %struct.pg_unicode_decomposition, ptr @UnicodeDecompMain, i64 %50
   %52 = load i32, ptr %51, align 8
-  %.not.i = icmp eq i32 %52, %0
+  %.not.i = icmp eq i32 %0, %52
   br i1 %.not.i, label %get_code_entry.exit, label %get_code_entry.exit.thread
 
 get_code_entry.exit.thread:                       ; preds = %Decomp_hash_func.exit.i, %49
@@ -668,7 +668,7 @@ get_code_entry.exit:                              ; preds = %49
 58:                                               ; preds = %get_code_entry.exit
   %59 = and i32 %55, 32
   %.not = icmp eq i32 %59, 0
-  %or.cond43 = or i1 %.not, %1
+  %or.cond43 = or i1 %1, %.not
   br i1 %or.cond43, label %63, label %60
 
 60:                                               ; preds = %get_code_entry.exit.thread, %58, %get_code_entry.exit
@@ -785,7 +785,7 @@ Decomp_hash_func.exit.i.i:                        ; preds = %10
   %31 = zext nneg i32 %29 to i64
   %32 = getelementptr %struct.pg_unicode_decomposition, ptr @UnicodeDecompMain, i64 %31
   %33 = load i32, ptr %32, align 8
-  %.not.i.i = icmp eq i32 %33, %8
+  %.not.i.i = icmp eq i32 %8, %33
   br i1 %.not.i.i, label %get_canonical_class.exit, label %get_canonical_class.exit.thread
 
 get_canonical_class.exit.thread:                  ; preds = %Decomp_hash_func.exit.i.i, %30
@@ -849,7 +849,7 @@ NFC_QC_hash_func.exit.i:                          ; preds = %40
   %62 = getelementptr %struct.pg_unicode_normprops, ptr @UnicodeNormProps_NFC_QC, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 2097151
-  %.not11.i.i = icmp eq i32 %64, %8
+  %.not11.i.i = icmp eq i32 %8, %64
   %..i.i = select i1 %.not11.i.i, ptr %62, ptr null
   br label %qc_hash_lookup.exit.i
 
@@ -899,7 +899,7 @@ NFKC_QC_hash_func.exit.i:                         ; preds = %66
   %88 = getelementptr %struct.pg_unicode_normprops, ptr @UnicodeNormProps_NFKC_QC, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = and i32 %89, 2097151
-  %.not11.i8.i = icmp eq i32 %90, %8
+  %.not11.i8.i = icmp eq i32 %8, %90
   %..i9.i = select i1 %.not11.i8.i, ptr %88, ptr null
   br label %qc_hash_lookup.exit10.i
 

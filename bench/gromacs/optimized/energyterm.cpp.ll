@@ -217,7 +217,7 @@ define void @_ZN3gmx10EnergyTerm8addFrameEdliddd(ptr nocapture noundef nonnull a
   %spec.select = tail call i32 @llvm.umax.i32(i32 %3, i32 1)
   %22 = fcmp oeq double %5, 0.000000e+00
   %23 = sitofp i32 %spec.select to double
-  %24 = fmul double %23, %6
+  %24 = fmul double %6, %23
   %.134 = select i1 %22, double %24, double %4
   %25 = getelementptr inbounds i8, ptr %0, i64 136
   %26 = getelementptr inbounds i8, ptr %0, i64 144
@@ -321,7 +321,7 @@ _ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_E
   %67 = load i64, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 168
   %69 = load double, ptr %68, align 8
-  %70 = fadd double %69, %5
+  %70 = fadd double %5, %69
   store double %70, ptr %68, align 8
   %71 = icmp sgt i64 %67, 0
   br i1 %71, label %72, label %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_EEERS1_DpOT_.exit._crit_edge
@@ -399,7 +399,7 @@ define ptr @_ZNK3gmx10EnergyTerm9findFrameEl(ptr nocapture noundef nonnull reado
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 48
-  %17 = icmp sgt i64 %16, %1
+  %17 = icmp slt i64 %1, %16
   %18 = icmp sgt i64 %1, -1
   %or.cond = and i1 %18, %17
   br i1 %or.cond, label %19, label %21
@@ -409,7 +409,7 @@ define ptr @_ZNK3gmx10EnergyTerm9findFrameEl(ptr nocapture noundef nonnull reado
   br label %39
 
 21:                                               ; preds = %8
-  %.not = icmp eq i64 %16, %1
+  %.not = icmp eq i64 %1, %16
   br i1 %.not, label %36, label %22
 
 22:                                               ; preds = %21
@@ -879,7 +879,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -963,7 +963,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !13
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79

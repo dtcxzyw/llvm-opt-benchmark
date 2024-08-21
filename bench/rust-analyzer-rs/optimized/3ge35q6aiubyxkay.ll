@@ -234,7 +234,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i: ; preds =
   %87 = load i64, ptr %6, align 8, !alias.scope !43, !noalias !48, !noundef !9
   %88 = load i64, ptr %2, align 8, !alias.scope !50, !noalias !48, !noundef !9
   %89 = sub i64 %88, %87
-  %90 = icmp ult i64 %89, %86
+  %90 = icmp ugt i64 %86, %89
   br i1 %90, label %91, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h85215e92838fe4faE.exit.i.i.i"
 
 91:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i
@@ -492,7 +492,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %12 = load i64, ptr %11, align 8, !alias.scope !139, !noundef !9
   %13 = load i64, ptr %0, align 8, !alias.scope !139, !noundef !9
   %14 = sub i64 %13, %12
-  %15 = icmp ult i64 %14, %.0.sroa.speculated.i.i
+  %15 = icmp ugt i64 %.0.sroa.speculated.i.i, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9ca32f626437a49bE.llvm.17029481809861510322.exit"

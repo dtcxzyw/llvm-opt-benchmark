@@ -638,7 +638,7 @@ land.lhs.true:                                    ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pos.addr.i)
   store i32 %sub2.i, ptr %pos.addr.i, align 4
   %conv.i = zext nneg i32 %sub2.i to i64
-  %cmp.i9 = icmp ugt i64 %conv.i, %convs.coerce1
+  %cmp.i9 = icmp ult i64 %convs.coerce1, %conv.i
   br i1 %cmp.i9, label %invoke.cont11.thread, label %call.i.i.i.noexc
 
 call.i.i.i.noexc:                                 ; preds = %land.lhs.true
@@ -680,7 +680,7 @@ land.lhs.true17:                                  ; preds = %if.end14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pos.addr.i15)
   store i32 %sub2.i13, ptr %pos.addr.i15, align 4
   %conv.i16 = zext nneg i32 %sub2.i13 to i64
-  %cmp.i18 = icmp ugt i64 %conv.i16, %convs.coerce1
+  %cmp.i18 = icmp ult i64 %convs.coerce1, %conv.i16
   br i1 %cmp.i18, label %invoke.cont21.thread, label %call.i.i.i.noexc25
 
 call.i.i.i.noexc25:                               ; preds = %land.lhs.true17
@@ -723,7 +723,7 @@ _ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionC
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pos.addr.i32)
   store i32 %8, ptr %pos.addr.i32, align 4
   %conv.i33 = sext i32 %8 to i64
-  %cmp.i35 = icmp ugt i64 %conv.i33, %convs.coerce1
+  %cmp.i35 = icmp ult i64 %convs.coerce1, %conv.i33
   br i1 %cmp.i35, label %invoke.cont28.thread, label %lor.lhs.false.i36
 
 lor.lhs.false.i36:                                ; preds = %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
@@ -765,7 +765,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %13 = phi i64 [ %.pre, %for.end.loopexit ], [ 0, %entry ]
   %cmp = icmp eq i64 %13, %convs.coerce1
-  %14 = or i1 %cmp, %allow_ignored
+  %14 = or i1 %allow_ignored, %cmp
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont28.thread, %invoke.cont21.thread, %invoke.cont11.thread, %for.end
@@ -788,7 +788,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %19 = load ptr, ptr %used, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i, %19
+  %cmp.i.i.i.i.i = icmp eq ptr %19, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -823,7 +823,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
+  %cmp.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i
@@ -2033,7 +2033,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end

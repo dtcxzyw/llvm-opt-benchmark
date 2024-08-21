@@ -555,7 +555,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1010CodeHolder1
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !85
   %6 = xor i64 %5, -1
-  %7 = icmp ult i64 %6, %2
+  %7 = icmp ugt i64 %2, %6
   br i1 %7, label %.loopexit, label %8, !prof !41
 
 8:                                                ; preds = %3
@@ -2932,7 +2932,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder14relocateToBaseEm
   br label %262
 
 186:                                              ; preds = %172
-  %187 = add i64 %159, %1
+  %187 = add i64 %1, %159
   %188 = add i64 %187, %161
   %189 = add i64 %188, %165
   %190 = sub i64 %157, %189
@@ -2963,7 +2963,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder14relocateToBaseEm
   br i1 %206, label %.loopexit, label %207
 
 207:                                              ; preds = %197
-  %208 = add i64 %159, %1
+  %208 = add i64 %1, %159
   %209 = add i64 %208, %161
   %210 = add i64 %209, %165
   %211 = sub i64 %157, %210

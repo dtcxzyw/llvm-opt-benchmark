@@ -290,7 +290,7 @@ net_rx_pkt_iovec_realloc.exit:                    ; preds = %if.then, %if.then.i
 
 if.else:                                          ; preds = %entry
   %conv = trunc i64 %sub to i32
-  %cmp.i45 = icmp slt i32 %conv.i44, %iovcnt
+  %cmp.i45 = icmp sgt i32 %iovcnt, %conv.i44
   br i1 %cmp.i45, label %if.then.i46, label %net_rx_pkt_iovec_realloc.exit52
 
 if.then.i46:                                      ; preds = %if.else
@@ -2148,7 +2148,7 @@ for.end.i:                                        ; preds = %for.body.i, %sw.bb1
   br i1 %tobool.i.not.i, label %iov_to_buf.exit.thread48.i, label %land.lhs.true1.i.i
 
 land.lhs.true1.i.i:                               ; preds = %for.end.i
-  %cmp.not.i.i = icmp ult i64 %.lcssa.i, %add.i
+  %cmp.not.i.i = icmp ugt i64 %add.i, %.lcssa.i
   %sub.i.i = sub nuw i64 %.lcssa.i, %add.i
   %cmp5.not.i.i = icmp ult i64 %sub.i.i, 4
   %or.cond13.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp5.not.i.i
@@ -2173,7 +2173,7 @@ iov_to_buf.exit.thread48.i:                       ; preds = %for.end.i
 
 land.lhs.true1.i25.i:                             ; preds = %iov_to_buf.exit.i, %if.end.thread.i
   %32 = load i64, ptr %iov_len.le.i, align 8
-  %cmp.not.i27.i = icmp ult i64 %32, %add.i
+  %cmp.not.i27.i = icmp ugt i64 %add.i, %32
   %sub.i28.i = sub nuw i64 %32, %add.i
   %cmp5.not.i29.i = icmp ult i64 %sub.i28.i, 4
   %or.cond13.i30.i = select i1 %cmp.not.i27.i, i1 true, i1 %cmp5.not.i29.i
@@ -2210,7 +2210,7 @@ if.end10.i:                                       ; preds = %iov_from_buf.exit.i
 
 land.lhs.true1.i37.i:                             ; preds = %if.end10.i
   %38 = load i64, ptr %iov_len.le.i, align 8
-  %cmp.not.i39.i = icmp ult i64 %38, %add.i
+  %cmp.not.i39.i = icmp ugt i64 %add.i, %38
   %sub.i40.i = sub nuw i64 %38, %add.i
   %cmp5.not.i41.i = icmp ult i64 %sub.i40.i, 4
   %or.cond13.i42.i = select i1 %cmp.not.i39.i, i1 true, i1 %cmp5.not.i41.i
@@ -2966,7 +2966,7 @@ if.end8:                                          ; preds = %land.lhs.true, %sw.
 land.lhs.true1.i:                                 ; preds = %if.end8
   %iov_len.i = getelementptr inbounds i8, ptr %40, i64 8
   %43 = load i64, ptr %iov_len.i, align 8
-  %cmp.not.i = icmp ult i64 %43, %add
+  %cmp.not.i = icmp ugt i64 %add, %43
   %sub.i = sub nuw i64 %43, %add
   %cmp5.not.i = icmp ult i64 %sub.i, 2
   %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i
@@ -2997,7 +2997,7 @@ iov_from_buf.exit:                                ; preds = %if.then.i, %if.else
 land.lhs.true1.i90:                               ; preds = %iov_from_buf.exit
   %iov_len.i91 = getelementptr inbounds i8, ptr %46, i64 8
   %49 = load i64, ptr %iov_len.i91, align 8
-  %cmp.not.i92 = icmp ult i64 %49, %add18
+  %cmp.not.i92 = icmp ugt i64 %add18, %49
   %sub.i93 = sub nuw i64 %49, %add18
   %cmp5.not.i94 = icmp ult i64 %sub.i93, 2
   %or.cond13.i95 = select i1 %cmp.not.i92, i1 true, i1 %cmp5.not.i94

@@ -34,7 +34,7 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
   %10 = load i64, ptr %9, align 8, !noundef !4
   %11 = load i64, ptr %0, align 8, !alias.scope !5, !noundef !4
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %8
+  %13 = icmp ugt i64 %8, %12
   br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hda5efcf46bbde948E.exit"
 
 14:                                               ; preds = %3
@@ -472,7 +472,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4c49c9f277e6
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !87, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %1
+  %8 = icmp ugt i64 %1, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0dd776e98067f090E.exit"
 
 9:                                                ; preds = %3
@@ -672,7 +672,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hf93514
   %5 = load i64, ptr %4, align 8, !alias.scope !100, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !103, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hfab68e4305c941feE.llvm.1718329805141733722.exit"
 
 9:                                                ; preds = %3
@@ -697,7 +697,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hf93514
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha8b63f23e43f6130E"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp ult i64 %5, %1
+  %6 = icmp ugt i64 %1, %5
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8b07dfd81abea041E.llvm.1718329805141733722.exit"
 
 7:                                                ; preds = %3
@@ -721,7 +721,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha8b63f23e43f6130E"
   %.sroa.14.0.copyload = load i64, ptr %.sroa.14.0..sroa_idx, align 8
   %9 = load i64, ptr %0, align 8, !alias.scope !106, !noalias !111, !noundef !4
   %10 = sub i64 %9, %5
-  %11 = icmp ult i64 %10, %8
+  %11 = icmp ugt i64 %8, %10
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0dd776e98067f090E.exit.i"
 
 12:                                               ; preds = %7
@@ -825,7 +825,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hda5efcf46bbde948E
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -840,7 +840,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hda5efcf46bbde948E
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8b07dfd81abea041E.llvm.1718329805141733722"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -855,7 +855,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8b07dfd81abea041
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf3e19d12c7dfe3bfE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2

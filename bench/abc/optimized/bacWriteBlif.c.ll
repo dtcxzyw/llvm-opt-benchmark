@@ -572,7 +572,7 @@ define void @Bac_ManWriteBlifArray2(ptr nocapture noundef %0, ptr nocapture noun
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %3
   %9 = getelementptr i8, ptr %.val, i64 36
   %.val.i.i.i = load i32, ptr %9, align 4
-  %.not4.i.i = icmp slt i32 %.val.i.i.i, %7
+  %.not4.i.i = icmp sgt i32 %7, %.val.i.i.i
   br i1 %.not4.i.i, label %Bac_BoxNtk.exit, label %10
 
 10:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i
@@ -652,7 +652,7 @@ Bac_ObjNameStr.exit:                              ; preds = %41, %46
   %51 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %49) #5
   %52 = trunc i64 %indvars.iv to i32
   %53 = xor i32 %52, -1
-  %54 = add i32 %53, %2
+  %54 = add i32 %2, %53
   %.val.i.i.i34 = load ptr, ptr %22, align 8
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds i8, ptr %.val.i.i.i34, i64 %55
@@ -809,7 +809,7 @@ Bac_ManNtkIsOk.exit.i.i:                          ; preds = %15
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr i8, ptr %.val90, i64 36
   %.val.i.i.i = load i32, ptr %20, align 4
-  %.not4.i.i = icmp sge i32 %.val.i.i.i, %18
+  %.not4.i.i = icmp sle i32 %18, %.val.i.i.i
   tail call void @llvm.assume(i1 %.not4.i.i)
   %21 = getelementptr inbounds i8, ptr %.val90, i64 40
   %22 = load ptr, ptr %21, align 8

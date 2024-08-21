@@ -2919,7 +2919,7 @@ entry:
   %cmp.i = icmp slt i64 %position, 0
   %size_.i = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load i64, ptr %size_.i, align 8, !noalias !92
-  %cmp2.i = icmp slt i64 %1, %position
+  %cmp2.i = icmp sgt i64 %position, %1
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
@@ -2947,7 +2947,7 @@ entry:
   %cmp.i.i = icmp slt i64 %position, 0
   %size_.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load i64, ptr %size_.i.i, align 8, !noalias !104
-  %cmp2.i.i = icmp slt i64 %1, %position
+  %cmp2.i.i = icmp sgt i64 %position, %1
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -3021,7 +3021,7 @@ entry:
 do.end6.i:                                        ; preds = %entry
   %memcopy_threshold_.i = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load i64, ptr %memcopy_threshold_.i, align 8, !noalias !118
-  %cmp.i = icmp slt i64 %4, %nbytes
+  %cmp.i = icmp sgt i64 %nbytes, %4
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %do.end6.i
@@ -3106,7 +3106,7 @@ lpad:                                             ; preds = %if.then8.i, %_ZN5ar
 _ZN5arrow6StatusD2Ev.exit42:                      ; preds = %_ZN5arrow6StatusD2Ev.exit
   %cmp.i43 = icmp slt i64 %position, 0
   %3 = load i64, ptr %size_, align 8, !noalias !131
-  %cmp2.i = icmp slt i64 %3, %position
+  %cmp2.i = icmp sgt i64 %position, %3
   %or.cond.i = select i1 %cmp.i43, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %if.then.i, label %_ZN5arrow6StatusD2Ev.exit80.thread
 
@@ -3156,7 +3156,7 @@ _ZN5arrow6StatusD2Ev.exit118:                     ; preds = %_ZN5arrow6StatusD2E
 do.end6.i:                                        ; preds = %.noexc122
   %memcopy_threshold_.i = getelementptr inbounds i8, ptr %this, i64 96
   %7 = load i64, ptr %memcopy_threshold_.i, align 8, !noalias !140
-  %cmp.i121 = icmp slt i64 %7, %nbytes
+  %cmp.i121 = icmp sgt i64 %nbytes, %7
   br i1 %cmp.i121, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %do.end6.i
@@ -6792,7 +6792,7 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %cmp = icmp slt i64 %position, 0
   %size_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i64, ptr %size_, align 8
-  %cmp9 = icmp slt i64 %1, %position
+  %cmp9 = icmp sgt i64 %position, %1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp9
   br i1 %or.cond, label %if.then10, label %if.end11
 
@@ -7322,7 +7322,7 @@ do.end8.i:                                        ; preds = %.noexc, %nrvo.skipd
   %cmp.i = icmp slt i64 %position, 0
   %size_.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i64, ptr %size_.i, align 8, !noalias !300
-  %cmp9.i = icmp slt i64 %1, %position
+  %cmp9.i = icmp sgt i64 %position, %1
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp9.i
   br i1 %or.cond.i, label %if.then10.i, label %if.end11.i
 

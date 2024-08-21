@@ -113,7 +113,7 @@ if.end:                                           ; preds = %entry
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i64
   %cmp1 = icmp eq i8 %2, 0
-  %cmp3 = icmp ugt i64 %conv, %blocksize
+  %cmp3 = icmp ult i64 %blocksize, %conv
   %or.cond = or i1 %cmp1, %cmp3
   br i1 %or.cond, label %if.then5, label %for.body.preheader
 

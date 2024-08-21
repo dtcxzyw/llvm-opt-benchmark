@@ -390,7 +390,7 @@ default.unreachable100:                           ; preds = %16
 define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10is_special17h17272e56127b34eeE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 400
   %4 = load i32, ptr %3, align 8, !noundef !5
-  %switch.selectcmp = icmp uge i32 %4, %1
+  %switch.selectcmp = icmp ule i32 %1, %4
   ret i1 %switch.selectcmp
 }
 
@@ -408,7 +408,7 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
   %7 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %5
   %8 = load i8, ptr %7, align 1, !noundef !5
   %9 = zext i8 %8 to i32
-  %10 = add i32 %9, %2
+  %10 = add i32 %2, %9
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !5
@@ -544,7 +544,7 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
   %16 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %15, i64 0, i64 %9
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !5
-  %19 = icmp ugt i64 %18, %2
+  %19 = icmp ult i64 %2, %18
   br i1 %19, label %21, label %26, !prof !18
 
 20:                                               ; preds = %3
@@ -597,10 +597,10 @@ define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20
 define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_start17h8641e4ef75cca42bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   %4 = load i32, ptr %3, align 8, !noundef !5
-  %5 = icmp eq i32 %4, %1
+  %5 = icmp eq i32 %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 412
   %7 = load i32, ptr %6, align 4
-  %8 = icmp eq i32 %7, %1
+  %8 = icmp eq i32 %1, %7
   %.0 = select i1 %5, i1 true, i1 %8
   ret i1 %.0
 }
@@ -643,7 +643,7 @@ define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN77_$LT$aho_
 define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10is_special17h7083443fa9e23ff9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %4 = load i32, ptr %3, align 8, !noundef !5
-  %switch.selectcmp = icmp uge i32 %4, %1
+  %switch.selectcmp = icmp ule i32 %1, %4
   ret i1 %switch.selectcmp
 }
 
@@ -1151,10 +1151,10 @@ define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NF
 define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_start17hac314a92ce8b17d9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i32, ptr %3, align 8, !noundef !5
-  %5 = icmp eq i32 %4, %1
+  %5 = icmp eq i32 %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 372
   %7 = load i32, ptr %6, align 4
-  %8 = icmp eq i32 %7, %1
+  %8 = icmp eq i32 %1, %7
   %.0 = select i1 %5, i1 true, i1 %8
   ret i1 %.0
 }
@@ -1240,7 +1240,7 @@ define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN89_$LT$aho_
 define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10is_special17he07063594137fe52E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 416
   %4 = load i32, ptr %3, align 8, !noundef !5
-  %switch.selectcmp = icmp uge i32 %4, %1
+  %switch.selectcmp = icmp ule i32 %1, %4
   ret i1 %switch.selectcmp
 }
 
@@ -1312,12 +1312,12 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   %39 = load ptr, ptr %47, align 8, !noalias !34, !nonnull !5, !noundef !5
   %40 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %39, i64 0, i64 %36
   %.sroa.6.1.copyload.us = load i8, ptr %40, align 1, !noalias !38
-  %.not.i.us = icmp ult i8 %.sroa.6.1.copyload.us, %3
+  %.not.i.us = icmp ugt i8 %3, %.sroa.6.1.copyload.us
   br i1 %.not.i.us, label %33, label %41
 
 41:                                               ; preds = %38
   %.sroa.814.1..sroa_idx.us.le = getelementptr inbounds i8, ptr %40, i64 1
-  %42 = icmp eq i8 %.sroa.6.1.copyload.us, %3
+  %42 = icmp eq i8 %3, %.sroa.6.1.copyload.us
   br i1 %42, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us.thread
 
 _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us: ; preds = %41, %27
@@ -1390,12 +1390,12 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
   %67 = load ptr, ptr %60, align 8, !noalias !34, !nonnull !5, !noundef !5
   %68 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %67, i64 0, i64 %64
   %.sroa.6.1.copyload = load i8, ptr %68, align 1, !noalias !38
-  %.not.i = icmp ult i8 %.sroa.6.1.copyload, %3
+  %.not.i = icmp ugt i8 %3, %.sroa.6.1.copyload
   br i1 %.not.i, label %61, label %69
 
 69:                                               ; preds = %66
   %.sroa.814.1..sroa_idx = getelementptr inbounds i8, ptr %68, i64 1
-  %70 = icmp eq i8 %.sroa.6.1.copyload, %3
+  %70 = icmp eq i8 %3, %.sroa.6.1.copyload
   br i1 %70, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.thread
 
 71:                                               ; preds = %.lr.ph47.split
@@ -1604,10 +1604,10 @@ define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous.
 define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_start17h795614e3d962e6a4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8, !noundef !5
-  %5 = icmp eq i32 %4, %1
+  %5 = icmp eq i32 %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 428
   %7 = load i32, ptr %6, align 4
-  %8 = icmp eq i32 %7, %1
+  %8 = icmp eq i32 %1, %7
   %.0 = select i1 %5, i1 true, i1 %8
   ret i1 %.0
 }

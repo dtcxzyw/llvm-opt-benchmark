@@ -74,7 +74,7 @@ entry:
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %fLength.i.i.i.i, align 4
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %4, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %1
+  %cmp.i.i.i = icmp ult i32 %1, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %if.else.i
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %entry
@@ -135,7 +135,7 @@ entry:
   %fLength.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %cmp.i.i = icmp ugt i32 %cond.i.i.i, %1
+  %cmp.i.i = icmp ult i32 %1, %cond.i.i.i
   br i1 %cmp.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %if.else
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %entry
@@ -230,7 +230,7 @@ entry:
   %fLength.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %cmp.i.i = icmp ugt i32 %cond.i.i.i, %add
+  %cmp.i.i = icmp ult i32 %add, %cond.i.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit
 
 if.then.i.i:                                      ; preds = %entry
@@ -373,7 +373,7 @@ entry:
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %fLength.i.i.i.i, align 4
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %4, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %1
+  %cmp.i.i.i = icmp ult i32 %1, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %if.else.i
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %entry
@@ -463,7 +463,7 @@ entry:
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %fLength.i.i.i.i, align 4
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %4, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %1
+  %cmp.i.i.i = icmp ult i32 %1, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %if.end
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %entry
@@ -548,7 +548,7 @@ if.end:                                           ; preds = %lor.lhs.false3
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %8 = load i32, ptr %fLength.i.i.i.i, align 4
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %8, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %4
+  %cmp.i.i.i = icmp ult i32 %4, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %if.else.i
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %if.end
@@ -651,7 +651,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %10 = load i32, ptr %fLength.i.i.i.i, align 4
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %10, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %add.i
+  %cmp.i.i.i = icmp ult i32 %add.i, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6icu_7513StringSegment6charAtEi.exit
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -690,7 +690,7 @@ if.then.i.i:                                      ; preds = %_ZNK6icu_7513String
 _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7513StringSegment6charAtEi.exit, %if.then.i.i
   %retval.0.i.i = phi i16 [ %20, %if.then.i.i ], [ -1, %_ZNK6icu_7513StringSegment6charAtEi.exit ]
   %cmp.i = icmp ne i16 %retval.0.i.i.i, %retval.0.i.i
-  %brmerge.i.not = and i1 %cmp.i, %foldCase
+  %brmerge.i.not = and i1 %foldCase, %cmp.i
   br i1 %brmerge.i.not, label %if.end2.i, label %_ZN6icu_7513StringSegment15codePointsEqualEiib.exit
 
 if.end2.i:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit

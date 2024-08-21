@@ -737,7 +737,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc, %._crit_edg
   %103 = load ptr, ptr %13, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 12
   %105 = load i32, ptr %104, align 4
-  %106 = fmul double %.0.i, %1
+  %106 = fmul double %1, %.0.i
   %107 = mul nsw i32 %105, %42
   %108 = trunc nuw nsw i64 %indvars.iv158 to i32
   %109 = add nsw i32 %107, %108
@@ -1023,7 +1023,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i74:                ; preds = %.noexc78, %._crit_e
   %227 = sext i32 %226 to i64
   %228 = getelementptr inbounds double, ptr %220, i64 %227
   %229 = load double, ptr %228, align 8
-  %230 = fmul double %229, %4
+  %230 = fmul double %4, %229
   %231 = call double @llvm.fmuladd.f64(double %1, double %.0.i72, double %230)
   store double %231, ptr %228, align 8
   %.not.i.i83 = icmp eq ptr %.0.i4.i68, null

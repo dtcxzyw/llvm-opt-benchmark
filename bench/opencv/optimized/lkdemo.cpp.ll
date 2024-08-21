@@ -640,7 +640,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %284
 
 ._crit_edge:                                      ; preds = %239
-  %250 = icmp ult i64 %246, %.151
+  %250 = icmp ugt i64 %.151, %246
   br i1 %250, label %251, label %._crit_edge.thread
 
 251:                                              ; preds = %._crit_edge
@@ -723,7 +723,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   %.lcssa178212 = phi ptr [ %240, %._crit_edge ], [ %197, %.preheader ]
   %.lcssa180211 = phi ptr [ %241, %._crit_edge ], [ %196, %.preheader ]
   %.050.lcssa210 = phi i64 [ %.151, %._crit_edge ], [ 0, %.preheader ]
-  %276 = icmp ugt i64 %.lcssa213, %.050.lcssa210
+  %276 = icmp ult i64 %.050.lcssa210, %.lcssa213
   br i1 %276, label %277, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
 
 277:                                              ; preds = %._crit_edge.thread

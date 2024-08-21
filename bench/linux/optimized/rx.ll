@@ -126,7 +126,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_sta_ps_transition(ptr 
   %13 = load volatile i64, ptr %12, align 8
   %14 = and i64 %13, 4
   %15 = icmp ne i64 %14, 0
-  %16 = xor i1 %15, %1
+  %16 = xor i1 %1, %15
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %11
@@ -4521,7 +4521,7 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
   %103 = zext nneg i32 %.pre-phi10 to i64
   %104 = lshr i64 %3, %103
   %105 = trunc nuw nsw i32 %.pre-phi10 to i16
-  %106 = add i16 %105, %2
+  %106 = add i16 %2, %105
   %107 = getelementptr inbounds i8, ptr %52, i64 24
   %108 = load i64, ptr %107, align 8
   %109 = zext i16 %106 to i64
@@ -7639,14 +7639,14 @@ define internal fastcc noundef ptr @ieee80211_reassemble_find(ptr noundef %0, i3
   %25 = getelementptr inbounds i8, ptr %21, i64 32
   %26 = load i16, ptr %25, align 8
   %27 = zext i16 %26 to i32
-  %28 = icmp eq i32 %27, %2
+  %28 = icmp eq i32 %2, %27
   br i1 %28, label %29, label %.loopexit
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %21, i64 38
   %31 = load i8, ptr %30, align 2
   %32 = zext i8 %31 to i32
-  %33 = icmp eq i32 %32, %3
+  %33 = icmp eq i32 %3, %32
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %29
@@ -11778,7 +11778,7 @@ define internal fastcc i32 @pskb_trim(ptr noundef %0, i32 noundef %1) unnamed_ad
   %19 = sub i64 %17, %18
   %20 = trunc i64 %19 to i32
   %21 = getelementptr inbounds i8, ptr %0, i64 184
-  %22 = add i32 %20, %1
+  %22 = add i32 %1, %20
   store i32 %22, ptr %21, align 8
   br label %23
 

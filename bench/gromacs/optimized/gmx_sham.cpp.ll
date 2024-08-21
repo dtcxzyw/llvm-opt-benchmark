@@ -1675,7 +1675,7 @@ define internal fastcc void @_ZL7do_shamPKcS0_S0_S0_S0_S0_S0_S0_iiPPfbiS2_fffPKf
   %194 = sext i32 %8 to i64
   %195 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.97, i32 noundef 529, i64 noundef %194, i64 noundef 4)
   %196 = icmp eq i32 %12, 2
-  %or.cond = or i1 %196, %11
+  %or.cond = or i1 %11, %196
   br i1 %or.cond, label %.preheader924, label %.loopexit925
 
 .preheader924:                                    ; preds = %._crit_edge956
@@ -2480,7 +2480,7 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.i: ; preds = %539
   %549 = sext i32 %548 to i64
   %550 = getelementptr inbounds float, ptr %223, i64 %549
   %551 = load float, ptr %550, align 4
-  %552 = fcmp ogt float %551, %546
+  %552 = fcmp olt float %546, %551
   br i1 %552, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i
 
 _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.i, %539
@@ -2499,7 +2499,7 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.i: ; preds = %558
   %560 = sext i32 %556 to i64
   %561 = getelementptr inbounds float, ptr %223, i64 %560
   %562 = load float, ptr %561, align 4
-  %563 = fcmp ogt float %562, %546
+  %563 = fcmp olt float %546, %562
   br i1 %563, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i
 
 _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit.thread.i
@@ -2511,7 +2511,7 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.i: ; preds = %_ZL27is
   %566 = sext i32 %565 to i64
   %567 = getelementptr inbounds float, ptr %223, i64 %566
   %568 = load float, ptr %567, align 4
-  %569 = fcmp ogt float %568, %546
+  %569 = fcmp olt float %546, %568
   br i1 %569, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i
 
 _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread.i
@@ -2528,7 +2528,7 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.i: ; preds = %573
   %575 = sext i32 %571 to i64
   %576 = getelementptr inbounds float, ptr %223, i64 %575
   %577 = load float, ptr %576, align 4
-  %578 = fcmp ogt float %577, %546
+  %578 = fcmp olt float %546, %577
   br i1 %578, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit.thread268.i
 
 _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit197.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit196.thread.i
@@ -2626,7 +2626,7 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.i: ; preds = %608
   %622 = sext i32 %621 to i64
   %623 = getelementptr inbounds float, ptr %223, i64 %622
   %624 = load float, ptr %623, align 4
-  %625 = fcmp ogt float %624, %617
+  %625 = fcmp olt float %617, %624
   br i1 %625, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
 
 _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.i, %608
@@ -2647,7 +2647,7 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.i: ; preds = %633
   %635 = sext i32 %631 to i64
   %636 = getelementptr inbounds float, ptr %223, i64 %635
   %637 = load float, ptr %636, align 4
-  %638 = fcmp ogt float %637, %617
+  %638 = fcmp olt float %617, %637
   br i1 %638, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
 
 _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit198.thread.i
@@ -2660,7 +2660,7 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.i: ; preds = %_ZL27is
   %642 = sext i32 %641 to i64
   %643 = getelementptr inbounds float, ptr %223, i64 %642
   %644 = load float, ptr %643, align 4
-  %645 = fcmp ogt float %644, %617
+  %645 = fcmp olt float %617, %644
   br i1 %645, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
 
 _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread.i
@@ -2679,7 +2679,7 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.i: ; preds = %651
   %653 = sext i32 %649 to i64
   %654 = getelementptr inbounds float, ptr %223, i64 %653
   %655 = load float, ptr %654, align 4
-  %656 = fcmp ogt float %655, %617
+  %656 = fcmp olt float %617, %655
   br i1 %656, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
 
 _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit200.thread.i
@@ -2691,7 +2691,7 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.i: ; preds = %_ZL27is
   %659 = sext i32 %658 to i64
   %660 = getelementptr inbounds float, ptr %223, i64 %659
   %661 = load float, ptr %660, align 4
-  %662 = fcmp ogt float %661, %617
+  %662 = fcmp olt float %617, %661
   br i1 %662, label %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
 
 _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.thread.i: ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit201.thread.i
@@ -2708,7 +2708,7 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.i: ; preds = %666
   %668 = sext i32 %664 to i64
   %669 = getelementptr inbounds float, ptr %223, i64 %668
   %670 = load float, ptr %669, align 4
-  %671 = fcmp ogt float %670, %617
+  %671 = fcmp olt float %617, %670
   br i1 %671, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.thread.i, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit199.thread270.i
 
 _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.thread.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit203.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit202.thread.i
@@ -2891,7 +2891,7 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.i: ; preds = %728
   %731 = ashr exact i64 %sext.i, 30
   %732 = getelementptr inbounds i8, ptr %223, i64 %731
   %733 = load float, ptr %732, align 4
-  %734 = fcmp ogt float %733, %714
+  %734 = fcmp olt float %714, %733
   %735 = add nuw nsw i32 %716, 1
   store i32 %735, ptr %715, align 4
   br i1 %734, label %.lr.ph23.i228.preheader.i, label %._crit_edge316.thread.i
@@ -2948,7 +2948,7 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i: ; preds = %749
   %751 = ashr exact i64 %sext274.i, 30
   %752 = getelementptr inbounds i8, ptr %223, i64 %751
   %753 = load float, ptr %752, align 4
-  %754 = fcmp ogt float %753, %714
+  %754 = fcmp olt float %714, %753
   store i32 %716, ptr %715, align 4
   %indvars.iv.next343.i = add nuw nsw i64 %indvars.iv342.i, 1
   %755 = icmp slt i64 %indvars.iv.next343.i, %116

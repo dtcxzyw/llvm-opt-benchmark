@@ -1676,7 +1676,7 @@ pbl_get_option_by_name.exit:                      ; preds = %31
   %74 = tail call noalias ptr @g_malloc0(i64 noundef %73) #17
   %75 = ashr exact i64 %72, 32
   %76 = getelementptr i8, ptr %40, i64 %75
-  %77 = icmp ugt ptr %76, %40
+  %77 = icmp ult ptr %40, %76
   br i1 %77, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %71, %.backedge.i

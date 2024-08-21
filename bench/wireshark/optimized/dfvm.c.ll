@@ -4824,8 +4824,8 @@ drange_contains_layer.exit.thread.us.i:           ; preds = %.lr.ph.i, %drange_c
 
 70:                                               ; preds = %66, %61, %.lr.ph.i.i
   %.0.i.i = phi i32 [ %65, %61 ], [ %68, %66 ], [ 2147483647, %.lr.ph.i.i ]
-  %.not25.i.i = icmp sle i32 %.019.i.i, %49
-  %.not26.i.i = icmp sge i32 %.0.i.i, %49
+  %.not25.i.i = icmp sge i32 %49, %.019.i.i
+  %.not26.i.i = icmp sle i32 %49, %.0.i.i
   %or.cond.not.i.i = select i1 %.not25.i.i, i1 %.not26.i.i, i1 false
   br i1 %or.cond.not.i.i, label %drange_contains_layer.exit.thread.sink.split.i, label %53
 
@@ -5447,8 +5447,8 @@ dfvm_get_raw_fvalue.exit:                         ; preds = %32, %25, %41
 
 64:                                               ; preds = %60, %55, %.lr.ph.i
   %.0.i43 = phi i32 [ %59, %55 ], [ %62, %60 ], [ 2147483647, %.lr.ph.i ]
-  %.not25.i = icmp sle i32 %.019.i, %20
-  %.not26.i = icmp sge i32 %.0.i43, %20
+  %.not25.i = icmp sge i32 %20, %.019.i
+  %.not26.i = icmp sle i32 %20, %.0.i43
   %or.cond.not.i = select i1 %.not25.i, i1 %.not26.i, i1 false
   br i1 %or.cond.not.i, label %65, label %47
 

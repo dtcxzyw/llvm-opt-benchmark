@@ -437,7 +437,7 @@ _ZN5ZXing10DataMatrixL4multEhh.exit38:            ; preds = %._crit_edge.thread,
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv70 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next71, %.lr.ph59 ]
   %109 = xor i64 %indvars.iv70, -1
-  %110 = add nsw i64 %109, %9
+  %110 = add nsw i64 %9, %109
   %111 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %110
   %112 = load i8, ptr %111, align 1
   %113 = mul nsw i64 %indvars.iv70, %66
@@ -708,7 +708,7 @@ _ZSt13move_backwardIPhS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br label %_ZSt4fillIPhhEvT_S1_RKT0_.exit
 
 26:                                               ; preds = %13
-  %27 = icmp eq i64 %16, %2
+  %27 = icmp eq i64 %2, %16
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit, label %28
 
 28:                                               ; preds = %26
@@ -768,7 +768,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit:    ; preds = %36
   %53 = getelementptr inbounds i8, ptr %52, i64 %48
   %54 = load i8, ptr %3, align 1
   tail call void @llvm.memset.p0.i64(ptr align 1 %53, i8 %54, i64 %2, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i74 = icmp eq ptr %37, %1
+  %.not.i.i.i.i.i.i.i.i.i74 = icmp eq ptr %1, %37
   br i1 %.not.i.i.i.i.i.i.i.i.i74, label %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit, label %55
 
 55:                                               ; preds = %51

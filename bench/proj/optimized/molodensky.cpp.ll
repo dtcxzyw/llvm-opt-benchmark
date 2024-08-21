@@ -532,8 +532,8 @@ define internal { double, double } @_ZL24pj_molodensky_forward_2d5PJ_LPP8PJconst
 
 19:                                               ; preds = %14
   %20 = load double, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !10
-  %21 = fadd double %20, %1
-  %22 = fadd double %15, %0
+  %21 = fadd double %1, %20
+  %22 = fadd double %0, %15
   br label %_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts.exit
 
 _ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts.exit: ; preds = %17, %19
@@ -723,9 +723,9 @@ _ZL2RNddd.exit:                                   ; preds = %_ZL2RMddd.exit, %56
   %69 = fmul double %19, %25
   %70 = tail call double @llvm.fmuladd.f64(double %23, double %21, double %69)
   %71 = fmul double %11, %66
-  %72 = fneg double %15
-  %73 = fmul double %11, %72
-  %74 = fmul double %7, %73
+  %72 = fmul double %11, %15
+  %73 = fneg double %7
+  %74 = fmul double %72, %73
   %75 = tail call double @llvm.fmuladd.f64(double %71, double %8, double %74)
   %76 = tail call double @llvm.fmuladd.f64(double %17, double %12, double %75)
   %77 = tail call double @llvm.fmuladd.f64(double %70, double %27, double %76)
@@ -854,9 +854,9 @@ _ZL2RNddd.exit:                                   ; preds = %_ZL2RMddd.exit, %52
   %73 = tail call double @llvm.fmuladd.f64(double %.0.i65, double %59, double %72)
   %74 = fmul double %71, %73
   %75 = fmul double %11, %58
-  %76 = fneg double %19
-  %77 = fmul double %11, %76
-  %78 = fmul double %7, %77
+  %76 = fmul double %11, %19
+  %77 = fneg double %7
+  %78 = fmul double %76, %77
   %79 = tail call double @llvm.fmuladd.f64(double %75, double %8, double %78)
   %80 = tail call double @llvm.fmuladd.f64(double %21, double %12, double %79)
   %81 = load double, ptr %26, align 8

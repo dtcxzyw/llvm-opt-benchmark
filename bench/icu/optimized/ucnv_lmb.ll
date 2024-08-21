@@ -436,13 +436,13 @@ while.cond.i:                                     ; preds = %switch.early.test13
   %pTable.0.i = phi ptr [ %incdec.ptr.i, %while.cond.i ], [ @_ZL14UniLMBCSGrpMap, %switch.early.test131 ]
   %uniEndRange.i = getelementptr inbounds i8, ptr %pTable.0.i, i64 2
   %15 = load i16, ptr %uniEndRange.i, align 2
-  %cmp.i143 = icmp ult i16 %15, %.fr653
+  %cmp.i143 = icmp ugt i16 %.fr653, %15
   %incdec.ptr.i = getelementptr inbounds i8, ptr %pTable.0.i, i64 6
   br i1 %cmp.i143, label %while.cond.i, label %while.end.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
   %16 = load i16, ptr %pTable.0.i, align 2
-  %cmp4.not.i = icmp ugt i16 %16, %.fr653
+  %cmp4.not.i = icmp ult i16 %.fr653, %16
   br i1 %cmp4.not.i, label %if.then61, label %_ZL17FindLMBCSUniRangeDs.exit
 
 _ZL17FindLMBCSUniRangeDs.exit:                    ; preds = %while.end.i

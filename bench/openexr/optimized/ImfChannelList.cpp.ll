@@ -1249,7 +1249,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %8, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %9
+  %cmp2.i.i = icmp eq ptr %9, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -1290,7 +1290,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 1 dereferenceable(256) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -1706,7 +1706,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 entry:
   %cmp.not = icmp ne ptr %__x, null
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2 = icmp eq ptr %add.ptr.i, %__p
+  %cmp2 = icmp eq ptr %__p, %add.ptr.i
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %lor.end, label %lor.rhs
 

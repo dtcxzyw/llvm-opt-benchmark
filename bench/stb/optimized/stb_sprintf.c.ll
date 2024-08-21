@@ -3379,13 +3379,13 @@ entry:
   store i32 %add, ptr %length, align 4
   %count = getelementptr inbounds i8, ptr %user, i64 8
   %1 = load i32, ptr %count, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %len)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %len, i32 %1)
   %tobool.not = icmp eq i32 %spec.select, 0
   br i1 %tobool.not, label %if.end14, label %if.then2
 
 if.then2:                                         ; preds = %entry
   %2 = load ptr, ptr %user, align 8
-  %cmp4.not = icmp eq ptr %2, %buf
+  %cmp4.not = icmp eq ptr %buf, %2
   %.pre23 = sext i32 %spec.select to i64
   br i1 %cmp4.not, label %if.end9, label %if.then5
 
@@ -3510,7 +3510,7 @@ stbsp__clamp_callback.exit:                       ; preds = %if.end18.i, %if.the
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %cmp7.not = icmp slt i32 %conv, %count
+  %cmp7.not = icmp sgt i32 %count, %conv
   %sub = add nsw i32 %count, -1
   %spec.select = select i1 %cmp7.not, i32 %conv, i32 %sub
   %idxprom = sext i32 %spec.select to i64
@@ -3583,7 +3583,7 @@ stbsp__clamp_callback.exit.i:                     ; preds = %if.end18.i.i, %if.t
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buf to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %cmp7.not.i = icmp slt i32 %conv.i, %count
+  %cmp7.not.i = icmp sgt i32 %count, %conv.i
   %sub.i = add nsw i32 %count, -1
   %spec.select.i = select i1 %cmp7.not.i, i32 %conv.i, i32 %sub.i
   %idxprom.i = sext i32 %spec.select.i to i64
@@ -3616,7 +3616,7 @@ if.then:                                          ; preds = %entry
   %idxprom = zext nneg i32 %power to i64
   %arrayidx = getelementptr inbounds [23 x double], ptr @stbsp__bot, i64 0, i64 %idxprom
   %0 = load double, ptr %arrayidx, align 8
-  %mul = fmul double %0, %d
+  %mul = fmul double %d, %0
   %1 = bitcast double %d to i64
   %and = and i64 %1, -134217728
   %2 = bitcast i64 %and to double
@@ -3651,7 +3651,7 @@ if.then61:                                        ; preds = %if.then60
   %idxprom67 = sext i32 %dec to i64
   %arrayidx68 = getelementptr inbounds [22 x double], ptr @stbsp__negbot, i64 0, i64 %idxprom67
   %9 = load double, ptr %arrayidx68, align 8
-  %mul69 = fmul double %9, %d
+  %mul69 = fmul double %d, %9
   %10 = bitcast double %d to i64
   %and81 = and i64 %10, -134217728
   %11 = bitcast i64 %and81 to double
@@ -3713,7 +3713,7 @@ if.then211:                                       ; preds = %if.else209
   %idxprom221 = sext i32 %spec.store.select1 to i64
   %arrayidx222 = getelementptr inbounds [23 x double], ptr @stbsp__bot, i64 0, i64 %idxprom221
   %31 = load double, ptr %arrayidx222, align 8
-  %mul223 = fmul double %31, %d
+  %mul223 = fmul double %d, %31
   %32 = bitcast double %d to i64
   %and235 = and i64 %32, -134217728
   %33 = bitcast i64 %and235 to double

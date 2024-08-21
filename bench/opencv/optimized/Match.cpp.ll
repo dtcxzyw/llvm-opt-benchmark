@@ -215,8 +215,8 @@ define hidden void @_ZN5logos5Match24interOrientationAndScaleEv(ptr nocapture no
   %7 = load float, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load float, ptr %8, align 8
-  %10 = fneg float %7
-  %11 = fmul float %9, %10
+  %10 = fneg float %9
+  %11 = fmul float %7, %10
   %12 = tail call float @llvm.fmuladd.f32(float %3, float %5, float %11)
   %13 = fmul float %7, %7
   %14 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %13)

@@ -3546,7 +3546,7 @@ define internal void @CommitStringCallback(ptr nocapture readnone %0, ptr nounde
 
 .loopexit:                                        ; preds = %31, %29
   %35 = load ptr, ptr @currentX11InputMethodInstance, align 8
-  %36 = icmp eq ptr %35, %1
+  %36 = icmp eq ptr %1, %35
   br i1 %36, label %37, label %getX11InputMethodData.exit.thread
 
 37:                                               ; preds = %.loopexit
@@ -3783,7 +3783,7 @@ define internal void @PreeditDrawCallback(ptr nocapture readnone %0, ptr noundef
 
 .loopexit:                                        ; preds = %33, %31
   %37 = load ptr, ptr @currentX11InputMethodInstance, align 8
-  %38 = icmp eq ptr %37, %1
+  %38 = icmp eq ptr %1, %37
   br i1 %38, label %39, label %getX11InputMethodData.exit.thread
 
 39:                                               ; preds = %.loopexit
@@ -4094,7 +4094,7 @@ define internal void @StatusDoneCallback(ptr nocapture readnone %0, ptr noundef 
 
 .loopexit:                                        ; preds = %30, %28
   %34 = load ptr, ptr @currentX11InputMethodInstance, align 8
-  %35 = icmp eq ptr %34, %1
+  %35 = icmp eq ptr %1, %34
   br i1 %35, label %36, label %onoffStatusWindow.exit
 
 36:                                               ; preds = %.loopexit
@@ -4264,7 +4264,7 @@ define internal void @StatusDrawCallback(ptr nocapture readnone %0, ptr noundef 
 
 .loopexit:                                        ; preds = %30, %28
   %34 = load ptr, ptr @currentX11InputMethodInstance, align 8
-  %35 = icmp eq ptr %34, %1
+  %35 = icmp eq ptr %1, %34
   br i1 %35, label %36, label %onoffStatusWindow.exit
 
 36:                                               ; preds = %.loopexit

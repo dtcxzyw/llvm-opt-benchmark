@@ -106,7 +106,7 @@ define void @_ZN6BlocksC2EiPP8Variable(ptr noundef nonnull align 8 dereferenceab
 
 select.unfold.i.i:                                ; preds = %24, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %24 ]
-  %27 = icmp eq ptr %4, %.sroa.4.0.i.ph.i.i
+  %27 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %4
   br i1 %27, label %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %28
 
 28:                                               ; preds = %select.unfold.i.i
@@ -737,7 +737,7 @@ define void @_ZN6Blocks5splitEP5BlockRS1_S2_P10Constraint(ptr noundef nonnull al
 
 select.unfold.i.i:                                ; preds = %44, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %44 ]
-  %47 = icmp eq ptr %35, %.sroa.4.0.i.ph.i.i
+  %47 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %35
   br i1 %47, label %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %48
 
 48:                                               ; preds = %select.unfold.i.i
@@ -800,7 +800,7 @@ _ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit: ; preds = %44, %_ZNSt8_
 
 select.unfold.i.i40:                              ; preds = %66, %._crit_edge.thread.i.i.i43
   %.sroa.4.0.i.ph.i.i41 = phi ptr [ %.019.lcssa28.i.i.i44, %._crit_edge.thread.i.i.i43 ], [ %.019.lcssa29.i.i.i34, %66 ]
-  %69 = icmp eq ptr %35, %.sroa.4.0.i.ph.i.i41
+  %69 = icmp eq ptr %.sroa.4.0.i.ph.i.i41, %35
   br i1 %69, label %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i42, label %70
 
 70:                                               ; preds = %select.unfold.i.i40

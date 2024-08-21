@@ -1815,7 +1815,7 @@ define internal i64 @pci_write_config(ptr nocapture readnone %0, ptr noundef %1,
   %24 = getelementptr i8, ptr %1, i64 728
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
-  %27 = icmp slt i64 %26, %4
+  %27 = icmp sgt i64 %4, %26
   br i1 %27, label %96, label %28
 
 28:                                               ; preds = %23

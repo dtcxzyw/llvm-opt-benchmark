@@ -597,8 +597,8 @@ _ZN5drjit5scaleINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !40
   %106 = call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %99, <4 x float> zeroinitializer, i8 -1)
   %107 = fadd contract <4 x float> %106, %106
-  %108 = fneg contract <4 x float> %106
-  %109 = fmul contract <4 x float> %99, %108
+  %108 = fneg contract <4 x float> %99
+  %109 = fmul contract <4 x float> %106, %108
   %110 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %109, <4 x float> %106, <4 x float> %107)
   %111 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %110, <4 x float> %99, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
@@ -1041,8 +1041,8 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
   %38 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %39 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %40 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %41 = fneg contract <4 x float> %39
-  %42 = fmul contract <4 x float> %40, %41
+  %41 = fneg contract <4 x float> %40
+  %42 = fmul contract <4 x float> %39, %41
   %43 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %36, <4 x float> %38, <4 x float> %42)
   %44 = load <4 x float>, ptr %7, align 16
   %45 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %44, <4 x float> %43, i8 113)
@@ -1888,8 +1888,8 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %.not359.i.i = select i1 %not..i.i, i1 %119, i1 false
   %120 = fneg contract double %117
   %121 = fdiv contract double %120, %115
-  %122 = fmul contract double %88, -4.000000e+00
-  %123 = fmul contract double %122, %117
+  %122 = fmul contract double %88, 4.000000e+00
+  %123 = fmul contract double %122, %120
   %124 = tail call contract noundef double @llvm.fma.f64(double %115, double %115, double %123)
   %125 = fcmp contract oge double %124, 0.000000e+00
   %126 = and i1 %118, %125
@@ -1945,7 +1945,7 @@ _ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect_p
   store i32 0, ptr %151, align 4, !alias.scope !109
   store ptr %1, ptr %149, align 8, !alias.scope !109
   %153 = fcmp contract une float %148, 0x7FF0000000000000
-  %154 = and i1 %153, %4
+  %154 = and i1 %4, %153
   br i1 %154, label %159, label %155
 
 155:                                              ; preds = %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect_preliminaryERKNS_3RayINS_5PointIfLm3EEES5_EEjb.exit
@@ -2064,8 +2064,8 @@ _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19ini
   %227 = shufflevector <4 x float> %224, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %228 = shufflevector <4 x float> %175, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %229 = shufflevector <4 x float> %224, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %230 = fneg contract <4 x float> %228
-  %231 = fmul contract <4 x float> %229, %230
+  %230 = fneg contract <4 x float> %229
+  %231 = fmul contract <4 x float> %228, %230
   %232 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %226, <4 x float> %227, <4 x float> %231)
   %233 = getelementptr inbounds i8, ptr %0, i64 96
   store <4 x float> %232, ptr %233, align 16
@@ -2173,8 +2173,8 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %.not359.i = select i1 %not..i, i1 %61, i1 false
   %62 = fneg contract double %59
   %63 = fdiv contract double %62, %57
-  %64 = fmul contract double %30, -4.000000e+00
-  %65 = fmul contract double %64, %59
+  %64 = fmul contract double %30, 4.000000e+00
+  %65 = fmul contract double %64, %62
   %66 = tail call contract noundef double @llvm.fma.f64(double %57, double %57, double %65)
   %67 = fcmp contract oge double %66, 0.000000e+00
   %68 = and i1 %60, %67
@@ -2952,8 +2952,8 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %137 = shufflevector <4 x float> %135, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %138 = shufflevector <4 x float> %95, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %139 = shufflevector <4 x float> %135, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %140 = fneg contract <4 x float> %138
-  %141 = fmul contract <4 x float> %139, %140
+  %140 = fneg contract <4 x float> %139
+  %141 = fmul contract <4 x float> %138, %140
   %142 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %136, <4 x float> %137, <4 x float> %141)
   store <4 x float> %142, ptr %20, align 16
   store i32 2, ptr %18, align 4
@@ -3250,8 +3250,8 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8Spec
   %.not185.i = select i1 %not..i, i1 %36, i1 false
   %37 = fneg contract double %34
   %38 = fdiv contract double %37, %28
-  %39 = fmul contract double %23, -4.000000e+00
-  %40 = fmul contract double %39, %34
+  %39 = fmul contract double %23, 4.000000e+00
+  %40 = fmul contract double %39, %37
   %41 = tail call contract noundef double @llvm.fma.f64(double %28, double %28, double %40)
   %42 = fcmp contract oge double %41, 0.000000e+00
   %43 = and i1 %35, %42
@@ -3368,8 +3368,8 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %.not359.i = select i1 %not..i, i1 %58, i1 false
   %59 = fneg contract double %56
   %60 = fdiv contract double %59, %54
-  %61 = fmul contract double %27, -4.000000e+00
-  %62 = fmul contract double %61, %56
+  %61 = fmul contract double %27, 4.000000e+00
+  %62 = fmul contract double %61, %59
   %63 = tail call contract noundef double @llvm.fma.f64(double %54, double %54, double %62)
   %64 = fcmp contract oge double %63, 0.000000e+00
   %65 = and i1 %57, %64
@@ -3469,8 +3469,8 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8Spec
   %.not185.i = select i1 %not..i, i1 %34, i1 false
   %35 = fneg contract double %32
   %36 = fdiv contract double %35, %26
-  %37 = fmul contract double %21, -4.000000e+00
-  %38 = fmul contract double %37, %32
+  %37 = fmul contract double %21, 4.000000e+00
+  %38 = fmul contract double %37, %35
   %39 = tail call contract noundef double @llvm.fma.f64(double %26, double %26, double %38)
   %40 = fcmp contract oge double %39, 0.000000e+00
   %41 = and i1 %33, %40
@@ -3859,8 +3859,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %176 = shufflevector <4 x i1> %175, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %177 = fneg <4 x double> %174
   %178 = fdiv contract <4 x double> %177, %171
-  %179 = fmul contract <4 x double> %152, <double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00>
-  %180 = fmul contract <4 x double> %179, %174
+  %179 = fmul contract <4 x double> %152, <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>
+  %180 = fmul contract <4 x double> %179, %177
   %181 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %171, <4 x double> %171, <4 x double> %180)
   %182 = xor <8 x i1> %176, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
   %183 = fcmp contract oge <4 x double> %181, zeroinitializer
@@ -4065,8 +4065,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %75 = shufflevector <4 x i1> %74, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %76 = fneg <4 x double> %73
   %77 = fdiv contract <4 x double> %76, %70
-  %78 = fmul contract <4 x double> %51, <double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00>
-  %79 = fmul contract <4 x double> %78, %73
+  %78 = fmul contract <4 x double> %51, <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>
+  %79 = fmul contract <4 x double> %78, %76
   %80 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %70, <4 x double> %70, <4 x double> %79)
   %81 = xor <8 x i1> %75, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
   %82 = fcmp contract oge <4 x double> %80, zeroinitializer
@@ -4458,8 +4458,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %174 = fcmp contract une <8 x double> %151, zeroinitializer
   %175 = fneg <8 x double> %173
   %176 = fdiv contract <8 x double> %175, %170
-  %177 = fmul contract <8 x double> %151, <double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00>
-  %178 = fmul contract <8 x double> %177, %173
+  %177 = fmul contract <8 x double> %151, <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>
+  %178 = fmul contract <8 x double> %177, %175
   %179 = tail call contract noundef <8 x double> @llvm.fma.v8f64(<8 x double> %170, <8 x double> %170, <8 x double> %178)
   %180 = fcmp contract oge <8 x double> %179, zeroinitializer
   %181 = and <8 x i1> %180, %174
@@ -4656,8 +4656,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %74 = fcmp contract une <8 x double> %51, zeroinitializer
   %75 = fneg <8 x double> %73
   %76 = fdiv contract <8 x double> %75, %70
-  %77 = fmul contract <8 x double> %51, <double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00>
-  %78 = fmul contract <8 x double> %77, %73
+  %77 = fmul contract <8 x double> %51, <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>
+  %78 = fmul contract <8 x double> %77, %75
   %79 = tail call contract noundef <8 x double> @llvm.fma.v8f64(<8 x double> %70, <8 x double> %70, <8 x double> %78)
   %80 = fcmp contract oge <8 x double> %79, zeroinitializer
   %81 = and <8 x i1> %80, %74
@@ -5171,11 +5171,11 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %264 = fneg <8 x double> %260
   %265 = fdiv contract <8 x double> %263, %244
   %266 = fdiv contract <8 x double> %264, %256
-  %267 = fmul contract <8 x double> %221, <double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00>
-  %268 = fmul contract <8 x double> %267, %259
-  %269 = tail call contract noundef <8 x double> @llvm.fma.v8f64(<8 x double> %244, <8 x double> %244, <8 x double> %268)
-  %270 = fmul contract <8 x double> %224, <double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00>
-  %271 = fmul contract <8 x double> %270, %260
+  %267 = fmul contract <8 x double> %221, <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>
+  %268 = fmul contract <8 x double> %224, <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>
+  %269 = fmul contract <8 x double> %267, %263
+  %270 = tail call contract noundef <8 x double> @llvm.fma.v8f64(<8 x double> %244, <8 x double> %244, <8 x double> %269)
+  %271 = fmul contract <8 x double> %268, %264
   %272 = tail call contract noundef <8 x double> @llvm.fma.v8f64(<8 x double> %256, <8 x double> %256, <8 x double> %271)
   %273 = xor <8 x i1> %261, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
   %274 = bitcast <8 x i1> %273 to i8
@@ -5185,7 +5185,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %.sroa.22517.0.insert.shift = shl nuw i16 %.sroa.22517.0.insert.ext, 8
   %.sroa.02516.0.insert.ext = zext i8 %274 to i16
   %.sroa.02516.0.insert.insert = or disjoint i16 %.sroa.22517.0.insert.shift, %.sroa.02516.0.insert.ext
-  %277 = fcmp contract oge <8 x double> %269, zeroinitializer
+  %277 = fcmp contract oge <8 x double> %270, zeroinitializer
   %278 = bitcast <8 x i1> %277 to i8
   %279 = fcmp contract oge <8 x double> %272, zeroinitializer
   %280 = bitcast <8 x i1> %279 to i8
@@ -5205,7 +5205,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   br i1 %.not, label %310, label %289
 
 289:                                              ; preds = %255
-  %290 = tail call contract noundef <8 x double> @llvm.sqrt.v8f64(<8 x double> %269)
+  %290 = tail call contract noundef <8 x double> @llvm.sqrt.v8f64(<8 x double> %270)
   %291 = tail call contract noundef <8 x double> @llvm.sqrt.v8f64(<8 x double> %272)
   %292 = tail call <8 x double> @llvm.copysign.v8f64(<8 x double> %290, <8 x double> %244)
   %293 = fadd contract <8 x double> %244, %292
@@ -5505,11 +5505,11 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %108 = fneg <8 x double> %104
   %109 = fdiv contract <8 x double> %107, %88
   %110 = fdiv contract <8 x double> %108, %100
-  %111 = fmul contract <8 x double> %65, <double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00>
-  %112 = fmul contract <8 x double> %111, %103
-  %113 = tail call contract noundef <8 x double> @llvm.fma.v8f64(<8 x double> %88, <8 x double> %88, <8 x double> %112)
-  %114 = fmul contract <8 x double> %68, <double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00, double -4.000000e+00>
-  %115 = fmul contract <8 x double> %114, %104
+  %111 = fmul contract <8 x double> %65, <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>
+  %112 = fmul contract <8 x double> %68, <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>
+  %113 = fmul contract <8 x double> %111, %107
+  %114 = tail call contract noundef <8 x double> @llvm.fma.v8f64(<8 x double> %88, <8 x double> %88, <8 x double> %113)
+  %115 = fmul contract <8 x double> %112, %108
   %116 = tail call contract noundef <8 x double> @llvm.fma.v8f64(<8 x double> %100, <8 x double> %100, <8 x double> %115)
   %117 = xor <8 x i1> %105, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
   %118 = bitcast <8 x i1> %117 to i8
@@ -5519,7 +5519,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %.sroa.21692.0.insert.shift = shl nuw i16 %.sroa.21692.0.insert.ext, 8
   %.sroa.01691.0.insert.ext = zext i8 %118 to i16
   %.sroa.01691.0.insert.insert = or disjoint i16 %.sroa.21692.0.insert.shift, %.sroa.01691.0.insert.ext
-  %121 = fcmp contract oge <8 x double> %113, zeroinitializer
+  %121 = fcmp contract oge <8 x double> %114, zeroinitializer
   %122 = bitcast <8 x i1> %121 to i8
   %123 = fcmp contract oge <8 x double> %116, zeroinitializer
   %124 = bitcast <8 x i1> %123 to i8
@@ -5539,7 +5539,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   br i1 %.not, label %154, label %133
 
 133:                                              ; preds = %99
-  %134 = tail call contract noundef <8 x double> @llvm.sqrt.v8f64(<8 x double> %113)
+  %134 = tail call contract noundef <8 x double> @llvm.sqrt.v8f64(<8 x double> %114)
   %135 = tail call contract noundef <8 x double> @llvm.sqrt.v8f64(<8 x double> %116)
   %136 = tail call <8 x double> @llvm.copysign.v8f64(<8 x double> %134, <8 x double> %88)
   %137 = fadd contract <8 x double> %88, %136
@@ -6892,16 +6892,16 @@ define linkonce_odr hidden void @_ZN5drjit12polar_decompIfLm3EEENSt3__14pairINS_
   %20 = shufflevector <4 x float> %.sroa.0223.0.copyload.i, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %21 = shufflevector <4 x float> %.sroa.0232.0.copyload.i, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %22 = shufflevector <4 x float> %.sroa.0223.0.copyload.i, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %23 = fneg contract <4 x float> %21
-  %24 = fmul contract <4 x float> %22, %23
+  %23 = fneg contract <4 x float> %22
+  %24 = fmul contract <4 x float> %21, %23
   %25 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %19, <4 x float> %20, <4 x float> %24)
   %26 = shufflevector <4 x float> %.sroa.0227.0.copyload.i, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %27 = shufflevector <4 x float> %.sroa.0227.0.copyload.i, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %28 = fneg contract <4 x float> %20
-  %29 = fmul contract <4 x float> %27, %28
+  %28 = fneg contract <4 x float> %27
+  %29 = fmul contract <4 x float> %20, %28
   %30 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %22, <4 x float> %26, <4 x float> %29)
-  %31 = fneg contract <4 x float> %26
-  %32 = fmul contract <4 x float> %19, %31
+  %31 = fneg contract <4 x float> %19
+  %32 = fmul contract <4 x float> %26, %31
   %33 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %27, <4 x float> %21, <4 x float> %32)
   %34 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %.sroa.0227.0.copyload.i, <4 x float> %25, i8 113)
   %35 = extractelement <4 x float> %34, i64 0

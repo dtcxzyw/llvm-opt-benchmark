@@ -359,7 +359,7 @@ if.then9.i:                                       ; preds = %if.then6.i
 
 if.end.i:                                         ; preds = %if.then9.i, %if.then6.i
   %conv.i17.pre-phi.i = phi i64 [ %.pre22.i, %if.then9.i ], [ %conv.i.i, %if.then6.i ]
-  %cmp13.not20.i = icmp eq i64 %conv.i17.pre-phi.i, %add
+  %cmp13.not20.i = icmp eq i64 %add, %conv.i17.pre-phi.i
   br i1 %cmp13.not20.i, label %if.end15.sink.split.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
@@ -421,7 +421,7 @@ if.then9.i34:                                     ; preds = %if.then6.i23
 
 if.end.i27:                                       ; preds = %if.then9.i34, %if.then6.i23
   %conv.i17.pre-phi.i28 = phi i64 [ %.pre22.i37, %if.then9.i34 ], [ %conv.i.i19, %if.then6.i23 ]
-  %cmp13.not20.i29 = icmp eq i64 %conv.i17.pre-phi.i28, %sub.ptr.div
+  %cmp13.not20.i29 = icmp eq i64 %sub.ptr.div, %conv.i17.pre-phi.i28
   br i1 %cmp13.not20.i29, label %if.end15.sink.split.i32, label %for.body.preheader.i30
 
 for.body.preheader.i30:                           ; preds = %if.end.i27
@@ -630,7 +630,7 @@ _ZSt4copyIPKtN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEET0_T_SA_S9_.ex
 
 _ZSt7advanceIPKtmEvRT_T0_.exit:                   ; preds = %if.then4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %__last, %incdec.ptr.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKtPttET0_T_S4_S3_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIPKtmEvRT_T0_.exit
@@ -695,7 +695,7 @@ _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorItSaIt
   %cond.i55 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i56 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i56, %sub.ptr.rhs.cast.i.i52
-  %tobool.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %4, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %__position.coerce, %4
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i59, label %_ZSt22__uninitialized_copy_aIPKtPttET0_T_S4_S3_RSaIT1_E.exit68, label %if.then.i.i.i.i.i.i.i.i.i60
 
 if.then.i.i.i.i.i.i.i.i.i60:                      ; preds = %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit

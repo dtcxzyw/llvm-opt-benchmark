@@ -238,7 +238,7 @@ gv_calloc.exit59.i.i:                             ; preds = %gv_calloc.exit56.i.
   %107 = call double @vector_product(i32 noundef %9, ptr noundef %106, ptr noundef %106) #13
   %108 = call double @sqrt(double noundef %107) #13
   %109 = fdiv double %108, %64
-  %110 = fmul double %109, %4
+  %110 = fmul double %4, %109
   %111 = fcmp ogt double %109, %110
   %or.cond60.i.i = select i1 %65, i1 %111, i1 false
   br i1 %or.cond60.i.i, label %.lr.ph.i.i, label %conjugate_gradient.exit.i

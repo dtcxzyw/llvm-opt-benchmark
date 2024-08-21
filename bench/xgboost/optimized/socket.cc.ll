@@ -2099,7 +2099,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit125:       ; preds = %_ZN7xgboost10collec
 225:                                              ; preds = %.preheader
   %226 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %227 = load i32, ptr %226, align 4
-  %228 = icmp eq i32 %227, %223
+  %228 = icmp eq i32 %223, %227
   br i1 %228, label %_ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit, label %.preheader, !llvm.loop !78
 
 229:                                              ; preds = %222
@@ -2116,11 +2116,11 @@ _ZN7xgboost10collective6ResultD2Ev.exit125:       ; preds = %_ZN7xgboost10collec
   %237 = load ptr, ptr %235, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 8
   %239 = load i32, ptr %238, align 4
-  %240 = icmp eq i32 %239, %223
+  %240 = icmp eq i32 %223, %239
   br i1 %240, label %_ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit, label %.lr.ph.i.i.i.i.i.i127
 
 241:                                              ; preds = %244
-  %242 = icmp eq i32 %246, %223
+  %242 = icmp eq i32 %223, %246
   br i1 %242, label %_ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit, label %.lr.ph.i.i.i.i.i.i127, !llvm.loop !79
 
 .lr.ph.i.i.i.i.i.i127:                            ; preds = %236, %241
@@ -2337,7 +2337,7 @@ _ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_to
   call void @llvm.memset.p0.i64(ptr align 8 %286, i8 0, i64 %288, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
   %289 = load ptr, ptr %36, align 8
-  %290 = icmp eq ptr %113, %289
+  %290 = icmp eq ptr %289, %113
   br i1 %290, label %_ZN5rabit5utils10PollHelperD2Ev.exit, label %291
 
 291:                                              ; preds = %_ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -2386,7 +2386,7 @@ _ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_to
   call void @llvm.memset.p0.i64(ptr align 8 %298, i8 0, i64 %300, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
   %301 = load ptr, ptr %36, align 8
-  %302 = icmp eq ptr %113, %301
+  %302 = icmp eq ptr %301, %113
   br i1 %302, label %_ZN5rabit5utils10PollHelperD2Ev.exit168, label %303
 
 303:                                              ; preds = %_ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i167
@@ -3608,7 +3608,7 @@ _ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_to
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = icmp eq ptr %10, %9
+  %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt13unordered_mapIi6pollfdSt4hashIiESt8equal_toIiESaISt4pairIKiS0_EEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -3935,7 +3935,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -4966,7 +4966,7 @@ _ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_to
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge

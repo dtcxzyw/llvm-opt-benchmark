@@ -111,7 +111,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %invoke.cont16 unwind label %lpad12
 
 invoke.cont16:                                    ; preds = %invoke.cont11
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont16
@@ -194,7 +194,7 @@ invoke.cont21:                                    ; preds = %if.then20
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont21
-  %cmp.not.i13 = icmp eq ptr %ref.tmp23, %agg.result
+  %cmp.not.i13 = icmp eq ptr %agg.result, %ref.tmp23
   br i1 %cmp.not.i13, label %_ZN7rocksdb6StatusaSEOS0_.exit31, label %if.then.i14
 
 if.then.i14:                                      ; preds = %invoke.cont24
@@ -361,7 +361,7 @@ invoke.cont5:                                     ; preds = %if.then1
           to label %invoke.cont8 unwind label %lpad6
 
 invoke.cont8:                                     ; preds = %invoke.cont5
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont8
@@ -454,7 +454,7 @@ if.then13:                                        ; preds = %if.else
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.then13
-  %cmp.not.i26 = icmp eq ptr %ref.tmp15, %agg.result
+  %cmp.not.i26 = icmp eq ptr %agg.result, %ref.tmp15
   br i1 %cmp.not.i26, label %_ZN7rocksdb6StatusaSEOS0_.exit44, label %if.then.i27
 
 if.then.i27:                                      ; preds = %invoke.cont21
@@ -547,7 +547,7 @@ invoke.cont41:                                    ; preds = %if.then28
 
 if.then49:                                        ; preds = %invoke.cont41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %cmp.not.i55 = icmp eq ptr %s, %agg.result
+  %cmp.not.i55 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i55, label %_ZN7rocksdb6StatusaSERKS0_.exit, label %if.then.i56
 
 if.then.i56:                                      ; preds = %if.then49
@@ -641,13 +641,13 @@ if.then54:                                        ; preds = %if.else52
   br i1 %cmp55, label %cond.true56, label %cond.false58
 
 cond.true56:                                      ; preds = %if.then54
-  %cmp57 = icmp ugt i64 %33, %snap_seq
+  %cmp57 = icmp ult i64 %snap_seq, %33
   br label %cond.end62
 
 cond.false58:                                     ; preds = %if.then54
   %min_uncommitted_.i = getelementptr inbounds i8, ptr %snap_checker, i64 16
   %34 = load i64, ptr %min_uncommitted_.i, align 8
-  %cmp.i71 = icmp ugt i64 %34, %33
+  %cmp.i71 = icmp ult i64 %33, %34
   br i1 %cmp.i71, label %invoke.cont59, label %if.else.i
 
 if.else.i:                                        ; preds = %cond.false58
@@ -924,7 +924,7 @@ entry:
           to label %while.cond.preheader unwind label %ehcleanup65.thread
 
 while.cond.preheader:                             ; preds = %entry
-  %cmp.not.i21 = icmp eq ptr %ref.tmp48, %agg.result
+  %cmp.not.i21 = icmp eq ptr %agg.result, %ref.tmp48
   %subcode_.i23 = getelementptr inbounds i8, ptr %ref.tmp48, i64 1
   %subcode_5.i24 = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i25 = getelementptr inbounds i8, ptr %ref.tmp48, i64 2
@@ -1091,7 +1091,7 @@ invoke.cont18:                                    ; preds = %if.then
           to label %invoke.cont23 unwind label %lpad19
 
 invoke.cont23:                                    ; preds = %invoke.cont18
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont23

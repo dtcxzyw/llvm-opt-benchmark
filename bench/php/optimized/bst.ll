@@ -135,7 +135,7 @@ define hidden ptr @lexbor_bst_insert(ptr nocapture noundef %0, ptr nocapture nou
 .preheader:                                       ; preds = %8
   %15 = getelementptr inbounds i8, ptr %13, i64 40
   %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, %2
+  %17 = icmp eq i64 %2, %16
   br i1 %17, label %._crit_edge, label %.lr.ph
 
 18:                                               ; preds = %8
@@ -165,7 +165,7 @@ define hidden ptr @lexbor_bst_insert(ptr nocapture noundef %0, ptr nocapture nou
 .lr.ph:                                           ; preds = %.preheader, %43
   %27 = phi i64 [ %45, %43 ], [ %16, %.preheader ]
   %.052 = phi ptr [ %.1, %43 ], [ %13, %.preheader ]
-  %28 = icmp ult i64 %27, %2
+  %28 = icmp ugt i64 %2, %27
   br i1 %28, label %29, label %36
 
 29:                                               ; preds = %.lr.ph
@@ -198,7 +198,7 @@ define hidden ptr @lexbor_bst_insert(ptr nocapture noundef %0, ptr nocapture nou
   %.1 = phi ptr [ %31, %29 ], [ %38, %36 ]
   %44 = getelementptr inbounds i8, ptr %.1, i64 40
   %45 = load i64, ptr %44, align 8
-  %46 = icmp eq i64 %45, %2
+  %46 = icmp eq i64 %2, %45
   br i1 %46, label %._crit_edge, label %.lr.ph
 
 47:                                               ; preds = %4, %40, %33, %23, %18
@@ -214,7 +214,7 @@ define hidden ptr @lexbor_bst_insert_not_exists(ptr nocapture noundef %0, ptr no
 .preheader:                                       ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 40
   %7 = load i64, ptr %6, align 8
-  %8 = icmp eq i64 %7, %2
+  %8 = icmp eq i64 %2, %7
   br i1 %8, label %.loopexit, label %.lr.ph
 
 9:                                                ; preds = %3
@@ -239,7 +239,7 @@ lexbor_bst_entry_make.exit:                       ; preds = %9, %13
 .lr.ph:                                           ; preds = %.preheader, %52
   %18 = phi i64 [ %54, %52 ], [ %7, %.preheader ]
   %.041 = phi ptr [ %.1, %52 ], [ %4, %.preheader ]
-  %19 = icmp ult i64 %18, %2
+  %19 = icmp ugt i64 %2, %18
   br i1 %19, label %20, label %36
 
 20:                                               ; preds = %.lr.ph
@@ -304,7 +304,7 @@ lexbor_bst_entry_make.exit35:                     ; preds = %40, %45
   %.1 = phi ptr [ %22, %20 ], [ %38, %36 ]
   %53 = getelementptr inbounds i8, ptr %.1, i64 40
   %54 = load i64, ptr %53, align 8
-  %55 = icmp eq i64 %54, %2
+  %55 = icmp eq i64 %2, %54
   br i1 %55, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %52, %.preheader, %lexbor_bst_entry_make.exit35, %lexbor_bst_entry_make.exit34, %lexbor_bst_entry_make.exit
@@ -325,7 +325,7 @@ define hidden ptr @lexbor_bst_search(ptr nocapture noundef readnone %0, ptr noun
   br i1 %6, label %._crit_edge, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp ult i64 %5, %2
+  %8 = icmp ugt i64 %2, %5
   %.1.in.v = select i1 %8, i64 8, i64 16
   %.1.in = getelementptr inbounds i8, ptr %.0812, i64 %.1.in.v
   %.1 = load ptr, ptr %.1.in, align 8
@@ -351,7 +351,7 @@ define hidden ptr @lexbor_bst_search_close(ptr nocapture noundef readnone %0, pt
   br i1 %6, label %._crit_edge, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp ult i64 %5, %2
+  %8 = icmp ugt i64 %2, %5
   %.112.in.v = select i1 %8, i64 8, i64 16
   %.112.in = getelementptr inbounds i8, ptr %.01116, i64 %.112.in.v
   %.1 = select i1 %8, ptr %.017, ptr %.01116
@@ -382,7 +382,7 @@ define hidden ptr @lexbor_bst_remove(ptr nocapture noundef %0, ptr nocapture nou
   br label %.loopexit
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp ult i64 %5, %2
+  %10 = icmp ugt i64 %2, %5
   %.1.in.v = select i1 %10, i64 8, i64 16
   %.1.in = getelementptr inbounds i8, ptr %.017, i64 %.1.in.v
   %.0 = load ptr, ptr %.1.in, align 8
@@ -635,7 +635,7 @@ define hidden ptr @lexbor_bst_remove_close(ptr nocapture noundef %0, ptr nocaptu
   br label %21
 
 12:                                               ; preds = %.lr.ph
-  %13 = icmp ult i64 %6, %2
+  %13 = icmp ugt i64 %2, %6
   %.125.in.v = select i1 %13, i64 8, i64 16
   %.125.in = getelementptr inbounds i8, ptr %.02441, i64 %.125.in.v
   %.1 = select i1 %13, ptr %.040, ptr %.02441

@@ -3634,7 +3634,7 @@ define noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P1
 
 9:                                                ; preds = %5
   %10 = sub nsw i16 0, %1
-  %11 = or i16 %10, %0
+  %11 = or i16 %0, %10
   br label %8
 
 12:                                               ; preds = %5
@@ -4640,7 +4640,7 @@ define noundef i16 @"_ZN9softposit5p16e13ops75_$LT$impl$u20$core..ops..arith..Re
 
 80:                                               ; preds = %77
   %81 = sub nsw i16 0, %74
-  %82 = or i16 %81, %0
+  %82 = or i16 %0, %81
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3rem17h9c04e0182f45a0b2E.exit"
 
 83:                                               ; preds = %77
@@ -5637,7 +5637,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
 
 77:                                               ; preds = %74
   %78 = sub nsw i16 0, %.0.i
-  %79 = or i16 %78, %0
+  %79 = or i16 %0, %78
   br label %"_ZN9softposit5p16e14math41_$LT$impl$u20$softposit..p16e1..P16E1$GT$5fract17h4b5421c3153de77aE.exit"
 
 80:                                               ; preds = %74

@@ -576,7 +576,7 @@ entry:
   %id = alloca %"class.icu_75::UnicodeString", align 8
   %targetScript = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load i32, ptr %targetScript, align 8
-  %cmp = icmp eq i32 %0, %source
+  %cmp = icmp eq i32 %source, %0
   %cmp2 = icmp eq i32 %source, -1
   %or.cond = or i1 %cmp2, %cmp
   br i1 %or.cond, label %return, label %if.end

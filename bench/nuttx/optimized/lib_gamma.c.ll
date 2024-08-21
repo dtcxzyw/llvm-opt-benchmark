@@ -31,7 +31,7 @@ define double @tgamma(double noundef %0) local_unnamed_addr #0 {
 
 14:                                               ; preds = %10
   %15 = tail call double @llvm.floor.f64(double %0)
-  %16 = fcmp oeq double %15, %0
+  %16 = fcmp oeq double %0, %15
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %14

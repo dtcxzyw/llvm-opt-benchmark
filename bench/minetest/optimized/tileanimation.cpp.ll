@@ -422,7 +422,7 @@ if.then:                                          ; preds = %entry
   %conv4 = sitofp i32 %3 to float
   %mul = fmul nsz float %div, %conv4
   %conv5 = fptosi float %mul to i32
-  %mul6 = mul nsw i32 %conv5, %frame
+  %mul6 = mul nsw i32 %frame, %conv5
   br label %if.end17
 
 _ZNK19TileAnimationParams15determineParamsEN3irr4core8vector2dIjEEPiS4_PS3_.exit: ; preds = %entry

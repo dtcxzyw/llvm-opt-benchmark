@@ -4232,7 +4232,7 @@ lpad93:                                           ; preds = %if.end292, %land.lh
   br label %ehcleanup302
 
 if.end100:                                        ; preds = %if.then92
-  %or.cond = or i1 %tobool, %write_required
+  %or.cond = or i1 %write_required, %tobool
   br i1 %or.cond, label %if.then102, label %if.end128
 
 if.then102:                                       ; preds = %if.end100

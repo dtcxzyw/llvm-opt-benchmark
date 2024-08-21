@@ -278,7 +278,7 @@ define internal i32 @auto_decoder_memconfig(ptr nocapture noundef %0, ptr nounde
 
 13:                                               ; preds = %10
   %14 = load i64, ptr %1, align 8
-  %15 = icmp ugt i64 %14, %3
+  %15 = icmp ult i64 %3, %14
   %spec.select = select i1 %15, i32 6, i32 0
   br label %16
 

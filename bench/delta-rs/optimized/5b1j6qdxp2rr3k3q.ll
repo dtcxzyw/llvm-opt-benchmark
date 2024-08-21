@@ -76,7 +76,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
 
 14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h53247d9ba43ff86bE.exit.thread.i"
   %15 = mul nuw i64 %7, 768
-  %16 = icmp ule i64 %7, %.0.sroa.speculated.i26.i
+  %16 = icmp uge i64 %.0.sroa.speculated.i26.i, %7
   tail call void @llvm.assume(i1 %16)
   %17 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %15, i64 noundef 8, i64 noundef %10) #11, !noalias !8
   br label %_ZN5alloc7raw_vec11finish_grow17haa9a5749857e92cdE.exit.i

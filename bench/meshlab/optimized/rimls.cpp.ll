@@ -853,7 +853,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -1567,7 +1567,7 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls5RIMLSI6CMeshOE27computePotentia
 31:                                               ; preds = %20
   %32 = add nuw nsw i64 %10, 5
   %33 = and i64 %32, 4294967295
-  %34 = icmp ult i64 %28, %33
+  %34 = icmp ugt i64 %33, %28
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %31
@@ -1576,7 +1576,7 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls5RIMLSI6CMeshOE27computePotentia
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %31
-  %38 = icmp ugt i64 %28, %33
+  %38 = icmp ult i64 %33, %28
   br i1 %38, label %39, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 39:                                               ; preds = %37
@@ -1920,7 +1920,7 @@ define linkonce_odr void @_ZNK7GaelMls10MlsSurfaceI6CMeshOE19computeNeighborhood
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 2
-  %52 = icmp ult i64 %51, %43
+  %52 = icmp ugt i64 %43, %51
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %34
@@ -1929,7 +1929,7 @@ define linkonce_odr void @_ZNK7GaelMls10MlsSurfaceI6CMeshOE19computeNeighborhood
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 55:                                               ; preds = %34
-  %56 = icmp ugt i64 %51, %43
+  %56 = icmp ult i64 %43, %51
   br i1 %56, label %57, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 57:                                               ; preds = %55
@@ -1953,7 +1953,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %53, %55, %57, %59
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %65, %66
   %68 = ashr exact i64 %67, 2
-  %69 = icmp ult i64 %68, %43
+  %69 = icmp ugt i64 %43, %68
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %60
@@ -1962,7 +1962,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %53, %55, %57, %59
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit48
 
 72:                                               ; preds = %60
-  %73 = icmp ugt i64 %68, %43
+  %73 = icmp ult i64 %43, %68
   br i1 %73, label %74, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit48
 
 74:                                               ; preds = %72
@@ -2265,7 +2265,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr nou
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -2333,7 +2333,7 @@ _ZNSt12_Vector_baseIN3vcg6Point3IfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; pr
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -2820,7 +2820,7 @@ define linkonce_odr void @_ZNK7GaelMls10MlsSurfaceI6CMeshOE24requestSecondDeriva
 
 27:                                               ; preds = %8
   %28 = add nsw i64 %17, 10
-  %29 = icmp ult i64 %25, %28
+  %29 = icmp ugt i64 %28, %25
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
@@ -2829,7 +2829,7 @@ define linkonce_odr void @_ZNK7GaelMls10MlsSurfaceI6CMeshOE24requestSecondDeriva
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 32:                                               ; preds = %27
-  %33 = icmp ugt i64 %25, %28
+  %33 = icmp ult i64 %28, %25
   br i1 %33, label %34, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 34:                                               ; preds = %32

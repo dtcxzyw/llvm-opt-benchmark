@@ -1730,7 +1730,7 @@ define dso_local ptr @getIthJsonbValueFromContainer(ptr noundef %0, i32 noundef 
 
 8:                                                ; preds = %2
   %9 = and i32 %3, 268435455
-  %.not14 = icmp ugt i32 %9, %1
+  %.not14 = icmp ult i32 %1, %9
   br i1 %.not14, label %10, label %25
 
 10:                                               ; preds = %8

@@ -1887,7 +1887,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %idxprom.i = phi i64 [ %9, %if.then.i28 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit24 ]
   %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1, !alias.scope !19
-  %cmp.i = icmp eq ptr %ref.tmp, %b
+  %cmp.i = icmp eq ptr %b, %ref.tmp
   br i1 %cmp.i, label %_ZN8aiStringaSERKS_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
@@ -2933,7 +2933,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %idxprom.i = phi i64 [ %9, %if.then.i29 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit25 ]
   %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1, !alias.scope !30
-  %cmp.i = icmp eq ptr %ref.tmp, %prop
+  %cmp.i = icmp eq ptr %prop, %ref.tmp
   br i1 %cmp.i, label %_ZN8aiStringaSERKS_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
@@ -3344,7 +3344,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %idxprom.i = phi i64 [ %9, %if.then.i55 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit51 ]
   %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1, !alias.scope !34
-  %cmp.i = icmp eq ptr %ref.tmp, %nd
+  %cmp.i = icmp eq ptr %nd, %ref.tmp
   br i1 %cmp.i, label %_ZN8aiStringaSERKS_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
@@ -3839,7 +3839,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %idxprom.i = phi i64 [ %9, %if.then.i32 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit28 ]
   %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1, !alias.scope !45
-  %cmp.i = icmp eq ptr %ref.tmp, %anim
+  %cmp.i = icmp eq ptr %anim, %ref.tmp
   br i1 %cmp.i, label %_ZN8aiStringaSERKS_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
@@ -4271,7 +4271,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %idxprom.i = phi i64 [ %9, %if.then.i42 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit38 ]
   %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1, !alias.scope !49
-  %cmp.i = icmp eq ptr %ref.tmp, %l
+  %cmp.i = icmp eq ptr %l, %ref.tmp
   br i1 %cmp.i, label %_ZN8aiStringaSERKS_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
@@ -4708,7 +4708,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %idxprom.i = phi i64 [ %9, %if.then.i30 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit26 ]
   %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1, !alias.scope !61
-  %cmp.i = icmp eq ptr %ref.tmp, %cam
+  %cmp.i = icmp eq ptr %cam, %ref.tmp
   br i1 %cmp.i, label %_ZN8aiStringaSERKS_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit
@@ -6067,7 +6067,7 @@ entry:
 if.then:                                          ; preds = %entry
   %length = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %length, align 8
-  %cmp2 = icmp ult i64 %0, %pOffset
+  %cmp2 = icmp ugt i64 %pOffset, %0
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
@@ -6078,7 +6078,7 @@ if.end:                                           ; preds = %if.then
 if.then5:                                         ; preds = %entry
   %length6 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %length6, align 8
-  %cmp7 = icmp ult i64 %1, %pOffset
+  %cmp7 = icmp ugt i64 %pOffset, %1
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5

@@ -1320,7 +1320,7 @@ define dso_local void @get_translated_update_targetlist(ptr noundef %0, i32 noun
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, %1
+  %9 = icmp eq i32 %1, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 520
   %11 = load ptr, ptr %10, align 8
   br i1 %9, label %12, label %18
@@ -1384,7 +1384,7 @@ define dso_local void @add_row_identity_var(ptr nocapture noundef %0, ptr nounde
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %4

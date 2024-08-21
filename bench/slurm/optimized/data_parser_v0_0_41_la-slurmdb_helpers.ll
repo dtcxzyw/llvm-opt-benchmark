@@ -190,7 +190,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   %52 = load ptr, ptr %11, align 8
   %53 = tail call ptr @list_find_first(ptr noundef %52, ptr noundef nonnull @slurmdb_find_qos_in_list, ptr noundef nonnull %49) #6
   %.not114 = icmp ne ptr %53, null
-  %brmerge = or i1 %.not114, %7
+  %brmerge = or i1 %7, %.not114
   %.mux = select i1 %.not114, i32 0, i32 9003
   br i1 %brmerge, label %142, label %54
 
@@ -223,7 +223,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   %70 = load ptr, ptr %11, align 8
   %71 = tail call ptr @list_find_first(ptr noundef %70, ptr noundef nonnull @slurmdb_find_qos_in_list_by_name, ptr noundef nonnull %68) #6
   %.not112 = icmp ne ptr %71, null
-  %brmerge120 = or i1 %.not112, %7
+  %brmerge120 = or i1 %7, %.not112
   %.mux121 = select i1 %.not112, i32 0, i32 9003
   br i1 %brmerge120, label %142, label %72
 

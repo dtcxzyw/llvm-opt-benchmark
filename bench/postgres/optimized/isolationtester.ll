@@ -94,7 +94,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %13 = load ptr, ptr @stderr, align 8
   tail call void @setbuf(ptr noundef %13, ptr noundef null) #17
   %14 = load i32, ptr @optind, align 4
-  %15 = icmp slt i32 %14, %0
+  %15 = icmp sgt i32 %0, %14
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %11

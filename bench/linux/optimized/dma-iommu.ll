@@ -1006,7 +1006,7 @@ define dso_local range(i32 -12, 1) i32 @iommu_dma_prepare_msi(ptr nocapture noun
 20:                                               ; preds = %17, %13
   %21 = phi i64 [ %19, %17 ], [ 4096, %13 ]
   %22 = sub i64 0, %21
-  %23 = and i64 %22, %1
+  %23 = and i64 %1, %22
   %24 = getelementptr inbounds i8, ptr %14, i64 208
   br label %25
 

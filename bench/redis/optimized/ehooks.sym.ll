@@ -136,7 +136,7 @@ declare void @pages_unmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 define hidden zeroext i1 @ehooks_default_commit_impl(ptr noundef %addr, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %0 = ptrtoint ptr %addr to i64
-  %add = add i64 %0, %offset
+  %add = add i64 %offset, %0
   %1 = inttoptr i64 %add to ptr
   %call = tail call zeroext i1 @pages_commit(ptr noundef %1, i64 noundef %length) #6
   ret i1 %call
@@ -148,7 +148,7 @@ declare zeroext i1 @pages_commit(ptr noundef, i64 noundef) local_unnamed_addr #2
 define hidden zeroext i1 @ehooks_default_decommit_impl(ptr noundef %addr, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %0 = ptrtoint ptr %addr to i64
-  %add = add i64 %0, %offset
+  %add = add i64 %offset, %0
   %1 = inttoptr i64 %add to ptr
   %call = tail call zeroext i1 @pages_decommit(ptr noundef %1, i64 noundef %length) #6
   ret i1 %call
@@ -160,7 +160,7 @@ declare zeroext i1 @pages_decommit(ptr noundef, i64 noundef) local_unnamed_addr 
 define hidden zeroext i1 @ehooks_default_purge_lazy_impl(ptr noundef %addr, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %0 = ptrtoint ptr %addr to i64
-  %add = add i64 %0, %offset
+  %add = add i64 %offset, %0
   %1 = inttoptr i64 %add to ptr
   %call = tail call zeroext i1 @pages_purge_lazy(ptr noundef %1, i64 noundef %length) #6
   ret i1 %call
@@ -172,7 +172,7 @@ declare zeroext i1 @pages_purge_lazy(ptr noundef, i64 noundef) local_unnamed_add
 define hidden zeroext i1 @ehooks_default_purge_forced_impl(ptr noundef %addr, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %0 = ptrtoint ptr %addr to i64
-  %add = add i64 %0, %offset
+  %add = add i64 %offset, %0
   %1 = inttoptr i64 %add to ptr
   %call = tail call zeroext i1 @pages_purge_forced(ptr noundef %1, i64 noundef %length) #6
   ret i1 %call
@@ -319,7 +319,7 @@ ehooks_default_destroy_impl.exit:                 ; preds = %entry, %if.then.i
 define internal zeroext i1 @ehooks_default_commit(ptr nocapture readnone %extent_hooks, ptr noundef %addr, i64 %size, i64 noundef %offset, i64 noundef %length, i32 %arena_ind) #1 {
 entry:
   %0 = ptrtoint ptr %addr to i64
-  %add.i = add i64 %0, %offset
+  %add.i = add i64 %offset, %0
   %1 = inttoptr i64 %add.i to ptr
   %call.i = tail call zeroext i1 @pages_commit(ptr noundef %1, i64 noundef %length) #6
   ret i1 %call.i
@@ -329,7 +329,7 @@ entry:
 define internal zeroext i1 @ehooks_default_decommit(ptr nocapture readnone %extent_hooks, ptr noundef %addr, i64 %size, i64 noundef %offset, i64 noundef %length, i32 %arena_ind) #1 {
 entry:
   %0 = ptrtoint ptr %addr to i64
-  %add.i = add i64 %0, %offset
+  %add.i = add i64 %offset, %0
   %1 = inttoptr i64 %add.i to ptr
   %call.i = tail call zeroext i1 @pages_decommit(ptr noundef %1, i64 noundef %length) #6
   ret i1 %call.i
@@ -339,7 +339,7 @@ entry:
 define internal zeroext i1 @ehooks_default_purge_lazy(ptr nocapture readnone %extent_hooks, ptr noundef %addr, i64 %size, i64 noundef %offset, i64 noundef %length, i32 %arena_ind) #1 {
 entry:
   %0 = ptrtoint ptr %addr to i64
-  %add.i = add i64 %0, %offset
+  %add.i = add i64 %offset, %0
   %1 = inttoptr i64 %add.i to ptr
   %call.i = tail call zeroext i1 @pages_purge_lazy(ptr noundef %1, i64 noundef %length) #6
   ret i1 %call.i
@@ -349,7 +349,7 @@ entry:
 define internal zeroext i1 @ehooks_default_purge_forced(ptr nocapture readnone %extent_hooks, ptr noundef %addr, i64 %size, i64 noundef %offset, i64 noundef %length, i32 %arena_ind) #1 {
 entry:
   %0 = ptrtoint ptr %addr to i64
-  %add.i = add i64 %0, %offset
+  %add.i = add i64 %offset, %0
   %1 = inttoptr i64 %add.i to ptr
   %call.i = tail call zeroext i1 @pages_purge_forced(ptr noundef %1, i64 noundef %length) #6
   ret i1 %call.i

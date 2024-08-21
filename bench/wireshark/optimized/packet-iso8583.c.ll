@@ -385,7 +385,7 @@ bin2hex.exit:                                     ; preds = %.lr.ph.i
 
 43:                                               ; preds = %40
   %44 = getelementptr i8, ptr %.0113, i64 4
-  %45 = icmp ugt ptr %44, %.0113
+  %45 = icmp ult ptr %.0113, %44
   br i1 %45, label %.lr.ph.i123, label %dissect_databits.exit
 
 .lr.ph.i123:                                      ; preds = %43
@@ -466,7 +466,7 @@ bin2hex.exit129:                                  ; preds = %.lr.ph.i124
 
 85:                                               ; preds = %82
   %86 = getelementptr i8, ptr %.0112, i64 16
-  %87 = icmp ugt ptr %86, %.0112
+  %87 = icmp ult ptr %.0112, %86
   br i1 %87, label %.lr.ph.i131, label %dissect_databits.exit
 
 .lr.ph.i131:                                      ; preds = %85
@@ -592,7 +592,7 @@ ishex_str.exit.thread179:                         ; preds = %95, %ishex_str.exit
   %154 = load ptr, ptr %135, align 8
   %155 = call ptr @tvb_get_string_enc(ptr noundef %154, ptr noundef %0, i32 noundef %.03344.i, i32 noundef 16, i32 noundef 0) #6
   %156 = getelementptr i8, ptr %155, i64 16
-  %157 = icmp ugt ptr %156, %155
+  %157 = icmp ult ptr %155, %156
   br i1 %157, label %.lr.ph.i.i, label %get_bitmap.exit
 
 .lr.ph.i.i:                                       ; preds = %152, %163
@@ -680,7 +680,7 @@ get_bitmap.exit:                                  ; preds = %141, %149, %152, %i
   %190 = load ptr, ptr %135, align 8
   %191 = call ptr @tvb_get_string_enc(ptr noundef %190, ptr noundef %0, i32 noundef %.0114, i32 noundef 16, i32 noundef 0) #6
   %192 = getelementptr i8, ptr %191, i64 16
-  %193 = icmp ugt ptr %192, %191
+  %193 = icmp ult ptr %191, %192
   br i1 %193, label %.lr.ph.i138, label %ishex_str.exit142.thread
 
 .lr.ph.i138:                                      ; preds = %187, %199
@@ -732,7 +732,7 @@ ishex_str.exit142.thread184:                      ; preds = %199, %ishex_str.exi
   %217 = call ptr @tvb_get_string_enc(ptr noundef %216, ptr noundef %0, i32 noundef %208, i32 noundef %.1115, i32 noundef 0) #6
   %218 = zext nneg i32 %.1115 to i64
   %219 = getelementptr i8, ptr %217, i64 %218
-  %220 = icmp ugt ptr %219, %217
+  %220 = icmp ult ptr %217, %219
   br i1 %220, label %.lr.ph.i145, label %ishex_str.exit149
 
 .lr.ph.i145:                                      ; preds = %213, %226
@@ -1201,7 +1201,7 @@ get_bit.exit.i:                                   ; preds = %420, %.thread104.i.
 433:                                              ; preds = %429
   %434 = zext i32 %.668.i to i64
   %435 = getelementptr i8, ptr %.0.i69.i, i64 %434
-  %436 = icmp ugt ptr %435, %.0.i69.i
+  %436 = icmp ult ptr %.0.i69.i, %435
   br i1 %436, label %.lr.ph.i.i38.i, label %isstrtype_ok.exit.i
 
 .lr.ph.i.i38.i:                                   ; preds = %433, %442
@@ -1222,7 +1222,7 @@ get_bit.exit.i:                                   ; preds = %420, %.thread104.i.
 444:                                              ; preds = %429
   %445 = zext i32 %.668.i to i64
   %446 = getelementptr i8, ptr %.0.i69.i, i64 %445
-  %447 = icmp ugt ptr %446, %.0.i69.i
+  %447 = icmp ult ptr %.0.i69.i, %446
   br i1 %447, label %.lr.ph.i24.i.i, label %isnum_str.exit.i.i
 
 .lr.ph.i24.i.i:                                   ; preds = %444, %453
@@ -1250,7 +1250,7 @@ isnum_str.exit.i.i:                               ; preds = %453, %.lr.ph.i24.i.
 458:                                              ; preds = %429
   %459 = zext i32 %.668.i to i64
   %460 = getelementptr i8, ptr %.0.i69.i, i64 %459
-  %461 = icmp ugt ptr %460, %.0.i69.i
+  %461 = icmp ult ptr %.0.i69.i, %460
   br i1 %461, label %.lr.ph.i29.i.i, label %ishex_str.exit.i.i
 
 .lr.ph.i29.i.i:                                   ; preds = %458, %467
@@ -1278,7 +1278,7 @@ ishex_str.exit.i.i:                               ; preds = %467, %.lr.ph.i29.i.
 472:                                              ; preds = %429
   %473 = zext i32 %.668.i to i64
   %474 = getelementptr i8, ptr %.0.i69.i, i64 %473
-  %475 = icmp ugt ptr %474, %.0.i69.i
+  %475 = icmp ult ptr %.0.i69.i, %474
   br i1 %475, label %.lr.ph.i34.i.i, label %isspec_str.exit.i.i
 
 .lr.ph.i34.i.i:                                   ; preds = %472, %.critedge2.i.i.i
@@ -1306,7 +1306,7 @@ isspec_str.exit.i.i:                              ; preds = %.critedge2.i.i.i, %
 485:                                              ; preds = %429
   %486 = zext i32 %.668.i to i64
   %487 = getelementptr i8, ptr %.0.i69.i, i64 %486
-  %488 = icmp ugt ptr %487, %.0.i69.i
+  %488 = icmp ult ptr %.0.i69.i, %487
   br i1 %488, label %.lr.ph.i37.i.i, label %isalspec_str.exit.i.i
 
 .lr.ph.i37.i.i:                                   ; preds = %485, %.critedge2.i38.i.i
@@ -1334,7 +1334,7 @@ isalspec_str.exit.i.i:                            ; preds = %.critedge2.i38.i.i,
 498:                                              ; preds = %429
   %499 = zext i32 %.668.i to i64
   %500 = getelementptr i8, ptr %.0.i69.i, i64 %499
-  %501 = icmp ugt ptr %500, %.0.i69.i
+  %501 = icmp ult ptr %.0.i69.i, %500
   br i1 %501, label %.lr.ph.i41.i.i, label %isalnum_str.exit.i.i
 
 .lr.ph.i41.i.i:                                   ; preds = %498, %507
@@ -1362,7 +1362,7 @@ isalnum_str.exit.i.i:                             ; preds = %507, %.lr.ph.i41.i.
 512:                                              ; preds = %429
   %513 = zext i32 %.668.i to i64
   %514 = getelementptr i8, ptr %.0.i69.i, i64 %513
-  %515 = icmp ugt ptr %514, %.0.i69.i
+  %515 = icmp ult ptr %.0.i69.i, %514
   br i1 %515, label %.lr.ph.i46.i.i, label %isalnumspec_str.exit.i.i
 
 .lr.ph.i46.i.i:                                   ; preds = %512, %.critedge2.i49.i.i
@@ -1390,7 +1390,7 @@ isalnumspec_str.exit.i.i:                         ; preds = %.critedge2.i49.i.i,
 525:                                              ; preds = %429
   %526 = zext i32 %.668.i to i64
   %527 = getelementptr i8, ptr %.0.i69.i, i64 %526
-  %528 = icmp ugt ptr %527, %.0.i69.i
+  %528 = icmp ult ptr %.0.i69.i, %527
   br i1 %528, label %.lr.ph.i52.i.i, label %isnumspec_str.exit.i.i
 
 .lr.ph.i52.i.i:                                   ; preds = %525, %.critedge2.i55.i.i
@@ -1418,7 +1418,7 @@ isnumspec_str.exit.i.i:                           ; preds = %.critedge2.i55.i.i,
 538:                                              ; preds = %429
   %539 = zext i32 %.668.i to i64
   %540 = getelementptr i8, ptr %.0.i69.i, i64 %539
-  %541 = icmp ugt ptr %540, %.0.i69.i
+  %541 = icmp ult ptr %.0.i69.i, %540
   br i1 %541, label %.lr.ph.i58.i.i, label %ishex_str.exit62.i.i
 
 .lr.ph.i58.i.i:                                   ; preds = %538, %547
@@ -1448,7 +1448,7 @@ ishex_str.exit62.i.i:                             ; preds = %547, %.lr.ph.i58.i.
   %554 = icmp eq i32 %553, 1
   %555 = zext i32 %.668.i to i64
   %556 = getelementptr i8, ptr %.0.i69.i, i64 %555
-  %557 = icmp ugt ptr %556, %.0.i69.i
+  %557 = icmp ult ptr %.0.i69.i, %556
   br i1 %554, label %558, label %568
 
 558:                                              ; preds = %552

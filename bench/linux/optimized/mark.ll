@@ -1591,7 +1591,7 @@ define dso_local void @fsnotify_clear_marks_by_group(ptr noundef %0, i32 noundef
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i16, ptr %30, align 4
   %32 = zext i16 %31 to i32
-  %33 = icmp eq i32 %32, %1
+  %33 = icmp eq i32 %1, %32
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %.preheader

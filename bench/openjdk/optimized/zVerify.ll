@@ -1714,141 +1714,136 @@ _ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit: ; preds =
 66:                                               ; preds = %5
   %67 = and i64 %3, -65521
   %.not.i = icmp eq i64 %67, 0
-  br i1 %.not.i, label %89, label %68
+  br i1 %.not.i, label %87, label %68
 
 68:                                               ; preds = %66
   %69 = trunc i64 %3 to i32
   %70 = lshr i32 %69, 12
   %71 = and i32 %70, 15
-  %.not29.i = icmp eq i32 %71, 0
-  br i1 %.not29.i, label %76, label %72
+  %72 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %71)
+  %73 = icmp ult i32 %72, 2
+  br i1 %73, label %74, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
-72:                                               ; preds = %68
-  %73 = add nuw nsw i32 %70, 15
-  %74 = and i32 %73, %71
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
+74:                                               ; preds = %68
+  %75 = lshr i64 %3, 12
+  %76 = and i64 %75, 15
+  %77 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %76
+  %78 = load i32, ptr %77, align 4
+  %79 = load i64, ptr @ZAddressHeapBase, align 8
+  %80 = zext i32 %78 to i64
+  %81 = shl i64 %79, %80
+  %82 = and i64 %81, %3
+  %83 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %82)
+  %or.cond45.i = icmp eq i64 %83, 1
+  br i1 %or.cond45.i, label %84, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
-76:                                               ; preds = %72, %68
-  %77 = lshr i64 %3, 12
-  %78 = and i64 %77, 15
-  %79 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %78
-  %80 = load i32, ptr %79, align 4
-  %81 = load i64, ptr @ZAddressHeapBase, align 8
-  %82 = zext i32 %80 to i64
-  %83 = shl i64 %81, %82
-  %84 = and i64 %83, %3
-  %85 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %84)
-  %or.cond43.i = icmp eq i64 %85, 1
-  br i1 %or.cond43.i, label %86, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
+84:                                               ; preds = %74
+  %85 = shl i64 7, %80
+  %86 = and i64 %85, %3
+  %.not30.i = icmp eq i64 %86, 0
+  br i1 %.not30.i, label %87, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
-86:                                               ; preds = %76
-  %87 = shl i64 7, %82
-  %88 = and i64 %87, %3
-  %.not30.i = icmp eq i64 %88, 0
-  br i1 %.not30.i, label %89, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
+87:                                               ; preds = %84, %66
+  %88 = and i64 %3, 61440
+  %89 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %88)
+  %or.cond47.i = icmp eq i64 %89, 1
+  br i1 %or.cond47.i, label %90, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
-89:                                               ; preds = %86, %66
-  %90 = and i64 %3, 61440
-  %91 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %90)
-  %or.cond45.i = icmp eq i64 %91, 1
-  br i1 %or.cond45.i, label %92, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
+90:                                               ; preds = %87
+  %91 = and i64 %3, 768
+  %92 = and i64 %3, 48
+  %93 = tail call range(i64 1, 3) i64 @llvm.ctpop.i64(i64 %91)
+  %or.cond49.i = icmp eq i64 %93, 1
+  br i1 %or.cond49.i, label %94, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
-92:                                               ; preds = %89
-  %93 = and i64 %3, 768
-  %94 = and i64 %3, 48
-  %95 = tail call range(i64 1, 3) i64 @llvm.ctpop.i64(i64 %93)
-  %or.cond47.i = icmp eq i64 %95, 1
-  br i1 %or.cond47.i, label %96, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
-
-96:                                               ; preds = %92
-  %97 = and i64 %3, 3264
-  %.not.i38.i = icmp eq i64 %97, 0
+94:                                               ; preds = %90
+  %95 = and i64 %3, 3264
+  %.not.i38.i = icmp eq i64 %95, 0
   br i1 %.not.i38.i, label %_ZL24z_verify_root_oop_object8zaddressPv.exit, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i
 
-_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i: ; preds = %96
-  %98 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %97)
-  %99 = icmp ult i64 %98, 2
-  %100 = icmp ne i64 %94, 0
-  %or.cond.i.not26 = and i1 %100, %99
-  %101 = and i64 %3, 15
-  %.not32.i = icmp eq i64 %101, 0
+_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i: ; preds = %94
+  %96 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %95)
+  %97 = icmp ult i64 %96, 2
+  %98 = icmp ne i64 %92, 0
+  %or.cond.i.not26 = and i1 %98, %97
+  %99 = and i64 %3, 15
+  %.not32.i = icmp eq i64 %99, 0
   %or.cond = and i1 %.not32.i, %or.cond.i.not26
-  br i1 %or.cond, label %102, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
+  br i1 %or.cond, label %100, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
-102:                                              ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i
-  %103 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %104 = and i64 %103, %3
-  %.not.i.i2.i13 = icmp eq i64 %104, 0
-  %105 = lshr i64 %3, 12
-  %106 = and i64 %105, 15
-  %107 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %106
-  %108 = load i32, ptr %107, align 4
-  %109 = zext nneg i32 %108 to i64
-  %110 = lshr i64 %3, %109
-  br i1 %.not.i.i2.i13, label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22, label %111
+100:                                              ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i
+  %101 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %102 = and i64 %101, %3
+  %.not.i.i2.i13 = icmp eq i64 %102, 0
+  %103 = lshr i64 %3, 12
+  %104 = and i64 %103, 15
+  %105 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %104
+  %106 = load i32, ptr %105, align 4
+  %107 = zext nneg i32 %106 to i64
+  %108 = lshr i64 %3, %107
+  br i1 %.not.i.i2.i13, label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22, label %109
 
-111:                                              ; preds = %102
-  %112 = load i64, ptr @ZPointerRemappedOldMask, align 8
-  %113 = and i64 %112, %90
-  %.not7.i.i.i.i14 = icmp eq i64 %113, 0
-  br i1 %.not7.i.i.i.i14, label %116, label %114
+109:                                              ; preds = %100
+  %110 = load i64, ptr @ZPointerRemappedOldMask, align 8
+  %111 = and i64 %110, %88
+  %.not7.i.i.i.i14 = icmp eq i64 %111, 0
+  br i1 %.not7.i.i.i.i14, label %114, label %112
 
-114:                                              ; preds = %111
-  %115 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+112:                                              ; preds = %109
+  %113 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15
 
-116:                                              ; preds = %111
-  %117 = load i64, ptr @ZPointerRemappedYoungMask, align 8
-  %118 = and i64 %117, %90
-  %.not8.i.i.i.i18 = icmp eq i64 %118, 0
-  br i1 %.not8.i.i.i.i18, label %121, label %119
+114:                                              ; preds = %109
+  %115 = load i64, ptr @ZPointerRemappedYoungMask, align 8
+  %116 = and i64 %115, %88
+  %.not8.i.i.i.i18 = icmp eq i64 %116, 0
+  br i1 %.not8.i.i.i.i18, label %119, label %117
 
-119:                                              ; preds = %116
-  %120 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+117:                                              ; preds = %114
+  %118 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15
 
-121:                                              ; preds = %116
-  %122 = icmp eq i64 %94, 48
-  br i1 %122, label %123, label %125
+119:                                              ; preds = %114
+  %120 = icmp eq i64 %92, 48
+  br i1 %120, label %121, label %123
 
-123:                                              ; preds = %121
-  %124 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+121:                                              ; preds = %119
+  %122 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15
 
-125:                                              ; preds = %121
-  %126 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %127 = load i64, ptr @ZAddressOffsetMask, align 8
-  %128 = and i64 %127, %110
-  %129 = lshr i64 %128, 21
-  %130 = getelementptr inbounds i8, ptr %126, i64 40
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %129
-  %133 = load volatile ptr, ptr %132, align 8
-  %.not.i6.i.i.i19 = icmp eq ptr %133, null
-  %134 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  %spec.select.i.i.i.i20 = select i1 %.not.i6.i.i.i19, ptr %134, ptr %126
+123:                                              ; preds = %119
+  %124 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %125 = load i64, ptr @ZAddressOffsetMask, align 8
+  %126 = and i64 %125, %108
+  %127 = lshr i64 %126, 21
+  %128 = getelementptr inbounds i8, ptr %124, i64 40
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds ptr, ptr %129, i64 %127
+  %131 = load volatile ptr, ptr %130, align 8
+  %.not.i6.i.i.i19 = icmp eq ptr %131, null
+  %132 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  %spec.select.i.i.i.i20 = select i1 %.not.i6.i.i.i19, ptr %132, ptr %124
   br label %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15
 
-_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15: ; preds = %125, %123, %119, %114
-  %.0.i.i.i.i16 = phi ptr [ %115, %114 ], [ %120, %119 ], [ %124, %123 ], [ %spec.select.i.i.i.i20, %125 ]
-  %135 = tail call noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGeneration(i64 noundef %110, ptr noundef %.0.i.i.i.i16) #10
+_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15: ; preds = %123, %121, %117, %112
+  %.0.i.i.i.i16 = phi ptr [ %113, %112 ], [ %118, %117 ], [ %122, %121 ], [ %spec.select.i.i.i.i20, %123 ]
+  %133 = tail call noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGeneration(i64 noundef %108, ptr noundef %.0.i.i.i.i16) #10
   br label %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22
 
-_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22: ; preds = %102, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15
-  %.0.i.i17 = phi i64 [ %135, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15 ], [ %110, %102 ]
-  %136 = inttoptr i64 %.0.i.i17 to ptr
-  %137 = tail call noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %136, i1 noundef zeroext false) #10
-  br i1 %137, label %_ZL24z_verify_root_oop_object8zaddressPv.exit, label %138
+_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22: ; preds = %100, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15
+  %.0.i.i17 = phi i64 [ %133, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread.i15 ], [ %108, %100 ]
+  %134 = inttoptr i64 %.0.i.i17 to ptr
+  %135 = tail call noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %134, i1 noundef zeroext false) #10
+  br i1 %135, label %_ZL24z_verify_root_oop_object8zaddressPv.exit, label %136
 
-138:                                              ; preds = %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22
-  %139 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %139, align 1
-  %140 = ptrtoint ptr %1 to i64
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i64 noundef %.0.i.i17, i64 noundef %140) #11
+136:                                              ; preds = %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22
+  %137 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %137, align 1
+  %138 = ptrtoint ptr %1 to i64
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i64 noundef %.0.i.i17, i64 noundef %138) #11
   unreachable
 
-_ZL24z_verify_root_oop_object8zaddressPv.exit:    ; preds = %96, %92, %89, %76, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i, %86, %72, %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22, %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit, %2
+_ZL24z_verify_root_oop_object8zaddressPv.exit:    ; preds = %68, %94, %90, %87, %74, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i, %84, %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit22, %_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit, %2
   ret void
 }
 
@@ -2992,7 +2987,7 @@ define linkonce_odr hidden void @_ZN29ZVerifyRemsetBeforeOopClosure6do_oopEPP7oo
 23:                                               ; preds = %.lr.ph.i.i.i
   %24 = getelementptr inbounds i8, ptr %20, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, %1
+  %26 = icmp eq ptr %1, %25
   br i1 %26, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit, label %27
 
 27:                                               ; preds = %23, %.lr.ph.i.i.i
@@ -3203,7 +3198,7 @@ define linkonce_odr hidden void @_ZN28ZVerifyRemsetAfterOopClosure6do_oopEPP7oop
 30:                                               ; preds = %.lr.ph.i.i.i
   %31 = getelementptr inbounds i8, ptr %27, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, %1
+  %33 = icmp eq ptr %1, %32
   br i1 %33, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit, label %34
 
 34:                                               ; preds = %30, %.lr.ph.i.i.i
@@ -3792,7 +3787,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -3842,7 +3837,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -3892,7 +3887,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -3986,7 +3981,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -4152,7 +4147,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -4202,7 +4197,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -4252,7 +4247,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -8021,6 +8016,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZVerifyRemsetAfter
 }
 
 declare noundef i64 @_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #8

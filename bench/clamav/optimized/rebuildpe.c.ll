@@ -48,7 +48,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
 
 33:                                               ; preds = %25, %9
   %.0207 = phi i32 [ %32, %25 ], [ %17, %9 ]
-  %34 = add nsw i32 %24, %2
+  %34 = add nsw i32 %2, %24
   %35 = icmp sgt i32 %34, 96
   br i1 %35, label %197, label %36
 

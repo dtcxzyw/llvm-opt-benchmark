@@ -943,7 +943,7 @@ define hidden void @_ZNK7Decolor9colorGradERKN2cv3MatERSt6vectorIdSaIdEE(ptr nou
   %44 = ptrtoint ptr %42 to i64
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
-  %47 = icmp ult i64 %46, %39
+  %47 = icmp ugt i64 %39, %46
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %32
@@ -957,7 +957,7 @@ define hidden void @_ZNK7Decolor9colorGradERKN2cv3MatERSt6vectorIdSaIdEE(ptr nou
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 50:                                               ; preds = %32
-  %51 = icmp ugt i64 %46, %39
+  %51 = icmp ult i64 %39, %46
   br i1 %51, label %52, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 52:                                               ; preds = %50
@@ -1586,7 +1586,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.thread:             ; preds = %94
   %144 = ptrtoint ptr %142 to i64
   %145 = sub i64 %143, %144
   %146 = ashr exact i64 %145, 3
-  %147 = icmp ult i64 %146, %70
+  %147 = icmp ugt i64 %70, %146
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %._crit_edge
@@ -1600,7 +1600,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.thread:             ; preds = %94
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 150:                                              ; preds = %._crit_edge
-  %151 = icmp ugt i64 %146, %70
+  %151 = icmp ult i64 %70, %146
   br i1 %151, label %152, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 152:                                              ; preds = %150
@@ -1666,8 +1666,8 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIdSaId
   %184 = load ptr, ptr %2, align 8
   %185 = getelementptr inbounds double, ptr %184, i64 %.0332
   %186 = load double, ptr %185, align 8
-  %187 = fneg double %179
-  %188 = fmul double %181, %187
+  %187 = fneg double %181
+  %188 = fmul double %179, %187
   %189 = call double @llvm.fmuladd.f64(double %188, double %183, double %186)
   store double %189, ptr %185, align 8
   %190 = add nuw i64 %.0332, 1
@@ -4845,7 +4845,7 @@ _ZSt10_ConstructIN2cv3VecIiLi3EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %2
 _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIiLi3EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN2cv3VecIiLi3EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv3VecIiLi3EEESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv3VecIiLi3EEESaIS2_EE11_M_allocateEm.exit ], [ %30, %_ZSt10_ConstructIN2cv3VecIiLi3EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 12
-  %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIiLi3EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38, label %.preheader.i.i.i.i.i29
 
 .preheader.i.i.i.i.i29:                           ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIiLi3EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN2cv3VecIiLi3EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i35
@@ -4998,7 +4998,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %34
 _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %41
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %41 ], [ %53, %.lr.ph.i.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i28

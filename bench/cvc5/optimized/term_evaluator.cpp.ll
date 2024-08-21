@@ -2578,7 +2578,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12N
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr %"class.cvc5::internal::NodeTemplate.360", ptr %8, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
-  %cmp.i.i.not7.i.i.i.i.i44 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i44 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i44, label %_ZSt22__uninitialized_move_aIPN4cvc58internal12NodeTemplateILb0EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit52, label %for.inc.i.i.i.i.i45
 
 for.inc.i.i.i.i.i45:                              ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb0EEESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E.exit, %for.inc.i.i.i.i.i45
@@ -2680,7 +2680,7 @@ for.inc.i.i.i.i83:                                ; preds = %for.inc.i.i.i.i83.p
   br i1 %cmp.i.not.i.i.i.i88, label %invoke.cont83, label %for.inc.i.i.i.i83, !llvm.loop !33
 
 invoke.cont83:                                    ; preds = %for.inc.i.i.i.i83
-  %cmp.not7.i.i.i.i.i91 = icmp eq ptr %1, %__position.coerce
+  %cmp.not7.i.i.i.i.i91 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.not7.i.i.i.i.i91, label %invoke.cont87, label %for.inc.i.i.i.i.i92
 
 for.inc.i.i.i.i.i92:                              ; preds = %invoke.cont83, %for.inc.i.i.i.i.i92

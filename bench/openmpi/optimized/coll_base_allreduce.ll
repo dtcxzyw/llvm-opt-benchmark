@@ -545,7 +545,7 @@ ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i
   br i1 %26, label %.loopexit, label %ompi_datatype_copy_content_same_ddt.exit.thread
 
 27:                                               ; preds = %7
-  %28 = icmp sgt i32 %.val235.val, %2
+  %28 = icmp slt i32 %2, %.val235.val
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27
@@ -1000,7 +1000,7 @@ ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i
 43:                                               ; preds = %35, %31, %28
   %.0278 = phi i32 [ %2, %31 ], [ %2, %28 ], [ %spec.select, %35 ]
   %44 = mul nsw i32 %.0278, %.val342.val
-  %45 = icmp sgt i32 %44, %2
+  %45 = icmp slt i32 %2, %44
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %43
@@ -1494,7 +1494,7 @@ define i32 @ompi_coll_base_allreduce_intra_redscat_allgather(ptr noundef %0, ptr
 
 19:                                               ; preds = %7
   %20 = shl nuw nsw i32 1, %18
-  %21 = icmp sgt i32 %20, %2
+  %21 = icmp slt i32 %2, %20
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %19
@@ -1932,7 +1932,7 @@ opal_datatype_span.exit:                          ; preds = %7, %22
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %.not124 = icmp eq ptr %spec.select, %1
+  %.not124 = icmp eq ptr %1, %spec.select
   br label %45
 
 45:                                               ; preds = %.lr.ph, %60
@@ -1975,7 +1975,7 @@ opal_datatype_span.exit:                          ; preds = %7, %22
   %63 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %64 = tail call i32 %63(i64 noundef %.0104.lcssa, ptr noundef %41, ptr noundef null) #8
   %.not = icmp ne i32 %.val, 0
-  %65 = icmp eq ptr %spec.select, %1
+  %65 = icmp eq ptr %1, %spec.select
   %or.cond129 = and i1 %65, %.not
   br i1 %or.cond129, label %66, label %84
 

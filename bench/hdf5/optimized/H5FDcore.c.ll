@@ -1476,12 +1476,12 @@ define internal range(i32 -1, 1) i32 @H5FD__core_read(ptr nocapture noundef read
 22:                                               ; preds = %14
   %23 = getelementptr inbounds i8, ptr %0, i64 104
   %24 = load i64, ptr %23, align 8
-  %25 = icmp ugt i64 %24, %3
+  %25 = icmp ult i64 %3, %24
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %22
   %27 = sub nuw i64 %24, %3
-  %. = tail call i64 @llvm.umin.i64(i64 %27, i64 %4)
+  %. = tail call i64 @llvm.umin.i64(i64 %4, i64 %27)
   %28 = getelementptr inbounds i8, ptr %0, i64 88
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 %3

@@ -6573,7 +6573,7 @@ define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr nounde
 
 ._crit_edge.thread:                               ; preds = %9
   %55 = zext i8 %3 to i32
-  %56 = icmp ugt i8 %spec.select, %3
+  %56 = icmp ult i8 %3, %spec.select
   br i1 %56, label %.thread, label %70
 
 57:                                               ; preds = %._crit_edge

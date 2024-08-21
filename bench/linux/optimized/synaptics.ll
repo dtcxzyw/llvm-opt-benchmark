@@ -172,7 +172,7 @@ define dso_local range(i32 -19, 1) i32 @synaptics_detect(ptr noundef %0, i1 noun
   %10 = getelementptr inbounds i8, ptr %3, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 71
-  %13 = and i1 %12, %1
+  %13 = and i1 %1, %12
   %14 = select i1 %12, i32 0, i32 -19
   br i1 %13, label %15, label %18
 

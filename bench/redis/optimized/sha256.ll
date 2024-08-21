@@ -224,7 +224,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %4 = phi i32 [ %inc, %for.body ], [ 0, %if.then ]
   %inc11 = add i32 %i.011, 1
   %conv = zext i32 %inc11 to i64
-  %cmp = icmp ult i64 %conv, %len
+  %cmp = icmp ugt i64 %len, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %entry

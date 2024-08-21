@@ -168,7 +168,7 @@ define dso_local i32 @stbtt_GetFontOffsetForIndex(ptr nocapture noundef readonly
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = or disjoint i32 %95, %98
-  %.not14 = icmp sgt i32 %99, %1
+  %.not14 = icmp slt i32 %1, %99
   br i1 %.not14, label %100, label %_ZL13stbtt__isfontPKh.exit.thread18
 
 100:                                              ; preds = %81
@@ -942,7 +942,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %19 = zext i8 %.val154 to i32
   %20 = or disjoint i32 %18, %19
   %21 = add nsw i32 %20, -6
-  %22 = icmp sgt i32 %21, %1
+  %22 = icmp slt i32 %1, %21
   br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %14
@@ -962,7 +962,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %33 = shl nuw nsw i32 %32, 8
   %34 = zext i8 %.val152 to i32
   %35 = or disjoint i32 %33, %34
-  %.not129 = icmp ugt i32 %35, %1
+  %.not129 = icmp ult i32 %1, %35
   br i1 %.not129, label %.loopexit, label %36
 
 36:                                               ; preds = %29
@@ -975,7 +975,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %41 = zext i8 %.val150 to i32
   %42 = or disjoint i32 %39, %41
   %43 = add nuw nsw i32 %42, %35
-  %44 = icmp ugt i32 %43, %1
+  %44 = icmp ult i32 %1, %43
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %36
@@ -1036,7 +1036,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %85 = shl nuw nsw i32 %84, 8
   %86 = zext i8 %.val138 to i32
   %87 = or disjoint i32 %85, %86
-  %.not = icmp sgt i32 %87, %1
+  %.not = icmp slt i32 %1, %87
   %88 = zext i16 %78 to i32
   %89 = select i1 %.not, i32 0, i32 %88
   %.0116 = add i32 %6, 12
@@ -1072,7 +1072,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %104 = shl nuw nsw i32 %103, 8
   %105 = zext i8 %.val136 to i32
   %106 = or disjoint i32 %104, %105
-  %107 = icmp slt i32 %106, %1
+  %107 = icmp sgt i32 %1, %106
   %108 = zext nneg i16 %99 to i32
   %109 = select i1 %107, i32 %108, i32 0
   %.2 = add i32 %109, %.1162
@@ -1099,7 +1099,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %122 = shl nuw nsw i32 %121, 8
   %123 = zext i8 %.val134 to i32
   %124 = or disjoint i32 %122, %123
-  %125 = icmp sgt i32 %124, %1
+  %125 = icmp slt i32 %1, %124
   br i1 %125, label %.loopexit, label %126
 
 126:                                              ; preds = %._crit_edge
@@ -1214,7 +1214,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %213 = load i8, ptr %212, align 1
   %214 = zext i8 %213 to i32
   %215 = or disjoint i32 %211, %214
-  %216 = icmp ugt i32 %215, %1
+  %216 = icmp ult i32 %1, %215
   br i1 %216, label %261, label %217
 
 217:                                              ; preds = %192
@@ -1236,7 +1236,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %233 = load i8, ptr %232, align 1
   %234 = zext i8 %233 to i32
   %235 = or disjoint i32 %231, %234
-  %236 = icmp ult i32 %235, %1
+  %236 = icmp ugt i32 %1, %235
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %217
@@ -1294,7 +1294,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_GetGlyphShape(pt
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
-  %.not.i = icmp sgt i32 %8, %1
+  %.not.i = icmp slt i32 %1, %8
   br i1 %.not.i, label %9, label %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread
 
 9:                                                ; preds = %3
@@ -2222,7 +2222,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
 define dso_local range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
-  %.not.i = icmp sgt i32 %8, %1
+  %.not.i = icmp slt i32 %1, %8
   br i1 %.not.i, label %9, label %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread
 
 9:                                                ; preds = %6
@@ -2411,7 +2411,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr nocapture nounde
 define dso_local range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
-  %.not.i = icmp sgt i32 %4, %1
+  %.not.i = icmp slt i32 %1, %4
   br i1 %.not.i, label %5, label %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread
 
 5:                                                ; preds = %2
@@ -2558,7 +2558,7 @@ define dso_local void @stbtt_GetGlyphHMetrics(ptr nocapture noundef readonly %0,
   %14 = shl nuw nsw i32 %13, 8
   %15 = zext i8 %.val33 to i32
   %16 = or disjoint i32 %14, %15
-  %17 = icmp sgt i32 %16, %1
+  %17 = icmp slt i32 %1, %16
   %.not31 = icmp eq ptr %2, null
   br i1 %17, label %18, label %45
 
@@ -2916,7 +2916,7 @@ define dso_local void @stbtt_GetCodepointHMetrics(ptr nocapture noundef readonly
   %15 = shl nuw nsw i32 %14, 8
   %16 = zext i8 %.val33.i to i32
   %17 = or disjoint i32 %15, %16
-  %18 = icmp sgt i32 %17, %5
+  %18 = icmp slt i32 %5, %17
   %.not31.i = icmp eq ptr %2, null
   br i1 %18, label %19, label %46
 
@@ -4192,7 +4192,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
 299:                                              ; preds = %295
   %300 = getelementptr inbounds i8, ptr %.0455.i.i.i, i64 24
   %301 = load float, ptr %300, align 8
-  %302 = fcmp ogt float %301, %212
+  %302 = fcmp olt float %212, %301
   br i1 %302, label %351, label %303
 
 303:                                              ; preds = %299
@@ -4210,7 +4210,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
 311:                                              ; preds = %305, %303
   %.055.i.i.i.i = phi float [ %310, %305 ], [ %288, %303 ]
   %.054.i.i.i.i = phi float [ %301, %305 ], [ %211, %303 ]
-  %312 = fcmp olt float %297, %212
+  %312 = fcmp ogt float %212, %297
   br i1 %312, label %313, label %320
 
 313:                                              ; preds = %311
@@ -4276,7 +4276,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
 355:                                              ; preds = %351
   %356 = getelementptr inbounds i8, ptr %.0455.i.i.i, i64 24
   %357 = load float, ptr %356, align 8
-  %358 = fcmp ogt float %357, %212
+  %358 = fcmp olt float %212, %357
   br i1 %358, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit337.i.i.i, label %359
 
 359:                                              ; preds = %355
@@ -4294,7 +4294,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
 367:                                              ; preds = %361, %359
   %.055.i331.i.i.i = phi float [ %366, %361 ], [ %288, %359 ]
   %.054.i332.i.i.i = phi float [ %357, %361 ], [ %211, %359 ]
-  %368 = fcmp olt float %353, %212
+  %368 = fcmp ogt float %212, %353
   br i1 %368, label %369, label %376
 
 369:                                              ; preds = %367
@@ -4363,7 +4363,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
 412:                                              ; preds = %408
   %413 = getelementptr inbounds i8, ptr %.0455.i.i.i, i64 24
   %414 = load float, ptr %413, align 8
-  %415 = fcmp ogt float %414, %212
+  %415 = fcmp olt float %212, %414
   br i1 %415, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit337.i.i.i, label %416
 
 416:                                              ; preds = %412
@@ -4381,7 +4381,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
 424:                                              ; preds = %418, %416
   %.055.i338.i.i.i = phi float [ %423, %418 ], [ %288, %416 ]
   %.054.i339.i.i.i = phi float [ %414, %418 ], [ %211, %416 ]
-  %425 = fcmp olt float %410, %212
+  %425 = fcmp ogt float %212, %410
   br i1 %425, label %426, label %433
 
 426:                                              ; preds = %424
@@ -4611,7 +4611,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
 
 573:                                              ; preds = %570
   %574 = load float, ptr %459, align 8
-  %575 = fcmp ogt float %574, %562
+  %575 = fcmp olt float %562, %574
   br i1 %575, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit351.i.i.i, label %576
 
 576:                                              ; preds = %573
@@ -4629,7 +4629,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
 584:                                              ; preds = %578, %576
   %.055.i345.i.i.i = phi float [ %583, %578 ], [ %288, %576 ]
   %.054.i346.i.i.i = phi float [ %574, %578 ], [ %211, %576 ]
-  %585 = fcmp olt float %571, %562
+  %585 = fcmp ogt float %562, %571
   br i1 %585, label %586, label %593
 
 586:                                              ; preds = %584
@@ -4685,16 +4685,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit351.i.i.i: ; pre
 
 618:                                              ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit351.i.i.i
   %619 = load float, ptr %464, align 4
-  %620 = fcmp olt float %619, %562
+  %620 = fcmp ogt float %562, %619
   br i1 %620, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit358.i.i.i, label %621
 
 621:                                              ; preds = %618
   %622 = load float, ptr %459, align 8
-  %623 = fcmp ogt float %622, %565
+  %623 = fcmp olt float %565, %622
   br i1 %623, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit358.i.i.i, label %624
 
 624:                                              ; preds = %621
-  %625 = fcmp ogt float %622, %562
+  %625 = fcmp olt float %562, %622
   br i1 %625, label %626, label %633
 
 626:                                              ; preds = %624
@@ -4709,7 +4709,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit351.i.i.i: ; pre
 633:                                              ; preds = %626, %624
   %.055.i352.i.i.i = phi float [ %632, %626 ], [ %557, %624 ]
   %.054.i353.i.i.i = phi float [ %622, %626 ], [ %562, %624 ]
-  %634 = fcmp olt float %619, %565
+  %634 = fcmp ogt float %565, %619
   br i1 %634, label %635, label %642
 
 635:                                              ; preds = %633
@@ -4765,16 +4765,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit358.i.i.i: ; pre
 
 667:                                              ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit358.i.i.i
   %668 = load float, ptr %464, align 4
-  %669 = fcmp olt float %668, %565
+  %669 = fcmp ogt float %565, %668
   br i1 %669, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %670
 
 670:                                              ; preds = %667
   %671 = load float, ptr %459, align 8
-  %672 = fcmp ogt float %671, %212
+  %672 = fcmp olt float %212, %671
   br i1 %672, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %673
 
 673:                                              ; preds = %670
-  %674 = fcmp ogt float %671, %565
+  %674 = fcmp olt float %565, %671
   br i1 %674, label %675, label %682
 
 675:                                              ; preds = %673
@@ -4789,7 +4789,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit358.i.i.i: ; pre
 682:                                              ; preds = %675, %673
   %.055.i359.i.i.i = phi float [ %681, %675 ], [ %559, %673 ]
   %.054.i360.i.i.i = phi float [ %671, %675 ], [ %565, %673 ]
-  %683 = fcmp olt float %668, %212
+  %683 = fcmp ogt float %212, %668
   br i1 %683, label %684, label %691
 
 684:                                              ; preds = %682
@@ -4856,7 +4856,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit358.i.i.i: ; pre
 
 723:                                              ; preds = %720
   %724 = load float, ptr %459, align 8
-  %725 = fcmp ogt float %724, %565
+  %725 = fcmp olt float %565, %724
   br i1 %725, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit372.i.i.i, label %726
 
 726:                                              ; preds = %723
@@ -4874,7 +4874,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit358.i.i.i: ; pre
 734:                                              ; preds = %728, %726
   %.055.i366.i.i.i = phi float [ %733, %728 ], [ %288, %726 ]
   %.054.i367.i.i.i = phi float [ %724, %728 ], [ %211, %726 ]
-  %735 = fcmp olt float %721, %565
+  %735 = fcmp ogt float %565, %721
   br i1 %735, label %736, label %743
 
 736:                                              ; preds = %734
@@ -4930,16 +4930,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit372.i.i.i: ; pre
 
 768:                                              ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit372.i.i.i
   %769 = load float, ptr %464, align 4
-  %770 = fcmp olt float %769, %565
+  %770 = fcmp ogt float %565, %769
   br i1 %770, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit379.i.i.i, label %771
 
 771:                                              ; preds = %768
   %772 = load float, ptr %459, align 8
-  %773 = fcmp ogt float %772, %562
+  %773 = fcmp olt float %562, %772
   br i1 %773, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit379.i.i.i, label %774
 
 774:                                              ; preds = %771
-  %775 = fcmp ogt float %772, %565
+  %775 = fcmp olt float %565, %772
   br i1 %775, label %776, label %783
 
 776:                                              ; preds = %774
@@ -4954,7 +4954,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit372.i.i.i: ; pre
 783:                                              ; preds = %776, %774
   %.055.i373.i.i.i = phi float [ %782, %776 ], [ %559, %774 ]
   %.054.i374.i.i.i = phi float [ %772, %776 ], [ %565, %774 ]
-  %784 = fcmp olt float %769, %562
+  %784 = fcmp ogt float %562, %769
   br i1 %784, label %785, label %792
 
 785:                                              ; preds = %783
@@ -5010,16 +5010,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit379.i.i.i: ; pre
 
 817:                                              ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit379.i.i.i
   %818 = load float, ptr %464, align 4
-  %819 = fcmp olt float %818, %562
+  %819 = fcmp ogt float %562, %818
   br i1 %819, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %820
 
 820:                                              ; preds = %817
   %821 = load float, ptr %459, align 8
-  %822 = fcmp ogt float %821, %212
+  %822 = fcmp olt float %212, %821
   br i1 %822, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %823
 
 823:                                              ; preds = %820
-  %824 = fcmp ogt float %821, %562
+  %824 = fcmp olt float %562, %821
   br i1 %824, label %825, label %832
 
 825:                                              ; preds = %823
@@ -5034,7 +5034,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit379.i.i.i: ; pre
 832:                                              ; preds = %825, %823
   %.055.i380.i.i.i = phi float [ %831, %825 ], [ %557, %823 ]
   %.054.i381.i.i.i = phi float [ %821, %825 ], [ %562, %823 ]
-  %833 = fcmp olt float %818, %212
+  %833 = fcmp ogt float %212, %818
   br i1 %833, label %834, label %841
 
 834:                                              ; preds = %832
@@ -5100,7 +5100,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit379.i.i.i: ; pre
 
 872:                                              ; preds = %869
   %873 = load float, ptr %459, align 8
-  %874 = fcmp ogt float %873, %562
+  %874 = fcmp olt float %562, %873
   br i1 %874, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit393.i.i.i, label %875
 
 875:                                              ; preds = %872
@@ -5118,7 +5118,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit379.i.i.i: ; pre
 883:                                              ; preds = %877, %875
   %.055.i387.i.i.i = phi float [ %882, %877 ], [ %288, %875 ]
   %.054.i388.i.i.i = phi float [ %873, %877 ], [ %211, %875 ]
-  %884 = fcmp olt float %870, %562
+  %884 = fcmp ogt float %562, %870
   br i1 %884, label %885, label %892
 
 885:                                              ; preds = %883
@@ -5174,16 +5174,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit393.i.i.i: ; pre
 
 917:                                              ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit393.i.i.i
   %918 = load float, ptr %464, align 4
-  %919 = fcmp olt float %918, %562
+  %919 = fcmp ogt float %562, %918
   br i1 %919, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %920
 
 920:                                              ; preds = %917
   %921 = load float, ptr %459, align 8
-  %922 = fcmp ogt float %921, %212
+  %922 = fcmp olt float %212, %921
   br i1 %922, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %923
 
 923:                                              ; preds = %920
-  %924 = fcmp ogt float %921, %562
+  %924 = fcmp olt float %562, %921
   br i1 %924, label %925, label %932
 
 925:                                              ; preds = %923
@@ -5198,7 +5198,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit393.i.i.i: ; pre
 932:                                              ; preds = %925, %923
   %.055.i394.i.i.i = phi float [ %931, %925 ], [ %557, %923 ]
   %.054.i395.i.i.i = phi float [ %921, %925 ], [ %562, %923 ]
-  %933 = fcmp olt float %918, %212
+  %933 = fcmp ogt float %212, %918
   br i1 %933, label %934, label %941
 
 934:                                              ; preds = %932
@@ -5264,7 +5264,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit393.i.i.i: ; pre
 
 972:                                              ; preds = %969
   %973 = load float, ptr %459, align 8
-  %974 = fcmp ogt float %973, %562
+  %974 = fcmp olt float %562, %973
   br i1 %974, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit407.i.i.i, label %975
 
 975:                                              ; preds = %972
@@ -5282,7 +5282,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit393.i.i.i: ; pre
 983:                                              ; preds = %977, %975
   %.055.i401.i.i.i = phi float [ %982, %977 ], [ %288, %975 ]
   %.054.i402.i.i.i = phi float [ %973, %977 ], [ %211, %975 ]
-  %984 = fcmp olt float %970, %562
+  %984 = fcmp ogt float %562, %970
   br i1 %984, label %985, label %992
 
 985:                                              ; preds = %983
@@ -5338,16 +5338,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit407.i.i.i: ; pre
 
 1017:                                             ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit407.i.i.i
   %1018 = load float, ptr %464, align 4
-  %1019 = fcmp olt float %1018, %562
+  %1019 = fcmp ogt float %562, %1018
   br i1 %1019, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %1020
 
 1020:                                             ; preds = %1017
   %1021 = load float, ptr %459, align 8
-  %1022 = fcmp ogt float %1021, %212
+  %1022 = fcmp olt float %212, %1021
   br i1 %1022, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %1023
 
 1023:                                             ; preds = %1020
-  %1024 = fcmp ogt float %1021, %562
+  %1024 = fcmp olt float %562, %1021
   br i1 %1024, label %1025, label %1032
 
 1025:                                             ; preds = %1023
@@ -5362,7 +5362,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit407.i.i.i: ; pre
 1032:                                             ; preds = %1025, %1023
   %.055.i408.i.i.i = phi float [ %1031, %1025 ], [ %557, %1023 ]
   %.054.i409.i.i.i = phi float [ %1021, %1025 ], [ %562, %1023 ]
-  %1033 = fcmp olt float %1018, %212
+  %1033 = fcmp ogt float %212, %1018
   br i1 %1033, label %1034, label %1041
 
 1034:                                             ; preds = %1032
@@ -5428,7 +5428,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit407.i.i.i: ; pre
 
 1072:                                             ; preds = %1069
   %1073 = load float, ptr %459, align 8
-  %1074 = fcmp ogt float %1073, %565
+  %1074 = fcmp olt float %565, %1073
   br i1 %1074, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit421.i.i.i, label %1075
 
 1075:                                             ; preds = %1072
@@ -5446,7 +5446,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit407.i.i.i: ; pre
 1083:                                             ; preds = %1077, %1075
   %.055.i415.i.i.i = phi float [ %1082, %1077 ], [ %288, %1075 ]
   %.054.i416.i.i.i = phi float [ %1073, %1077 ], [ %211, %1075 ]
-  %1084 = fcmp olt float %1070, %565
+  %1084 = fcmp ogt float %565, %1070
   br i1 %1084, label %1085, label %1092
 
 1085:                                             ; preds = %1083
@@ -5502,16 +5502,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit421.i.i.i: ; pre
 
 1117:                                             ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit421.i.i.i
   %1118 = load float, ptr %464, align 4
-  %1119 = fcmp olt float %1118, %565
+  %1119 = fcmp ogt float %565, %1118
   br i1 %1119, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %1120
 
 1120:                                             ; preds = %1117
   %1121 = load float, ptr %459, align 8
-  %1122 = fcmp ogt float %1121, %212
+  %1122 = fcmp olt float %212, %1121
   br i1 %1122, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %1123
 
 1123:                                             ; preds = %1120
-  %1124 = fcmp ogt float %1121, %565
+  %1124 = fcmp olt float %565, %1121
   br i1 %1124, label %1125, label %1132
 
 1125:                                             ; preds = %1123
@@ -5526,7 +5526,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit421.i.i.i: ; pre
 1132:                                             ; preds = %1125, %1123
   %.055.i422.i.i.i = phi float [ %1131, %1125 ], [ %559, %1123 ]
   %.054.i423.i.i.i = phi float [ %1121, %1125 ], [ %565, %1123 ]
-  %1133 = fcmp olt float %1118, %212
+  %1133 = fcmp ogt float %212, %1118
   br i1 %1133, label %1134, label %1141
 
 1134:                                             ; preds = %1132
@@ -5592,7 +5592,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit421.i.i.i: ; pre
 
 1172:                                             ; preds = %1169
   %1173 = load float, ptr %459, align 8
-  %1174 = fcmp ogt float %1173, %565
+  %1174 = fcmp olt float %565, %1173
   br i1 %1174, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit435.i.i.i, label %1175
 
 1175:                                             ; preds = %1172
@@ -5610,7 +5610,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit421.i.i.i: ; pre
 1183:                                             ; preds = %1177, %1175
   %.055.i429.i.i.i = phi float [ %1182, %1177 ], [ %288, %1175 ]
   %.054.i430.i.i.i = phi float [ %1173, %1177 ], [ %211, %1175 ]
-  %1184 = fcmp olt float %1170, %565
+  %1184 = fcmp ogt float %565, %1170
   br i1 %1184, label %1185, label %1192
 
 1185:                                             ; preds = %1183
@@ -5666,16 +5666,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit435.i.i.i: ; pre
 
 1217:                                             ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit435.i.i.i
   %1218 = load float, ptr %464, align 4
-  %1219 = fcmp olt float %1218, %565
+  %1219 = fcmp ogt float %565, %1218
   br i1 %1219, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %1220
 
 1220:                                             ; preds = %1217
   %1221 = load float, ptr %459, align 8
-  %1222 = fcmp ogt float %1221, %212
+  %1222 = fcmp olt float %212, %1221
   br i1 %1222, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %1223
 
 1223:                                             ; preds = %1220
-  %1224 = fcmp ogt float %1221, %565
+  %1224 = fcmp olt float %565, %1221
   br i1 %1224, label %1225, label %1232
 
 1225:                                             ; preds = %1223
@@ -5690,7 +5690,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit435.i.i.i: ; pre
 1232:                                             ; preds = %1225, %1223
   %.055.i436.i.i.i = phi float [ %1231, %1225 ], [ %559, %1223 ]
   %.054.i437.i.i.i = phi float [ %1221, %1225 ], [ %565, %1223 ]
-  %1233 = fcmp olt float %1218, %212
+  %1233 = fcmp ogt float %212, %1218
   br i1 %1233, label %1234, label %1241
 
 1234:                                             ; preds = %1232
@@ -5750,7 +5750,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit435.i.i.i: ; pre
 
 1269:                                             ; preds = %1266
   %1270 = load float, ptr %459, align 8
-  %1271 = fcmp ogt float %1270, %212
+  %1271 = fcmp olt float %212, %1270
   br i1 %1271, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, label %1272
 
 1272:                                             ; preds = %1269
@@ -5761,7 +5761,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit435.i.i.i: ; pre
   %1277 = fadd float %288, %1276
   %.055.i443.i.i.i = select i1 %1273, float %1277, float %288
   %.054.i444.i.i.i = select i1 %1273, float %1270, float %211
-  %1278 = fcmp olt float %1267, %212
+  %1278 = fcmp ogt float %212, %1267
   br i1 %1278, label %1279, label %1286
 
 1279:                                             ; preds = %1272
@@ -6218,7 +6218,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %.lr.ph, %103
   %.06389 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %103 ]
   %.06687 = phi i32 [ 1, %.lr.ph ], [ %spec.select73, %103 ]
   %49 = trunc i64 %indvars.iv to i32
-  %50 = add i32 %49, %6
+  %50 = add i32 %6, %49
   %51 = call i32 @stbtt_FindGlyphIndex(ptr noundef nonnull %14, i32 noundef %50)
   %.val.i74 = load i8, ptr %43, align 1
   %.val33.i = load i8, ptr %44, align 1
@@ -6226,7 +6226,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %.lr.ph, %103
   %53 = shl nuw nsw i32 %52, 8
   %54 = zext i8 %.val33.i to i32
   %55 = or disjoint i32 %53, %54
-  %56 = icmp sgt i32 %55, %51
+  %56 = icmp slt i32 %51, %55
   %57 = shl nsw i32 %51, 2
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %48, i64 %58
@@ -6659,7 +6659,7 @@ define dso_local i32 @stbtt_PackFontRangesGatherRects(ptr nocapture noundef read
   %88 = uitofp i32 %87 to float
   %89 = fmul float %58, %88
   %90 = load i32, ptr %12, align 4
-  %.not.i.i = icmp sgt i32 %90, %83
+  %.not.i.i = icmp slt i32 %83, %90
   br i1 %.not.i.i, label %91, label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
 91:                                               ; preds = %81
@@ -7033,7 +7033,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %109, %105
   %133 = shl nuw nsw i32 %132, 8
   %134 = zext i8 %.val33.i to i32
   %135 = or disjoint i32 %133, %134
-  %136 = icmp sgt i32 %135, %113
+  %136 = icmp slt i32 %113, %135
   %137 = load i32, ptr %19, align 8
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds i8, ptr %126, i64 %138
@@ -7061,7 +7061,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %109, %105
   %157 = uitofp i32 %156 to float
   %158 = fmul float %69, %157
   %159 = load i32, ptr %20, align 4
-  %.not.i.i154 = icmp sgt i32 %159, %113
+  %.not.i.i154 = icmp slt i32 %113, %159
   br i1 %.not.i.i154, label %160, label %stbtt_GetGlyphBitmapBox.exit
 
 160:                                              ; preds = %stbtt_GetGlyphHMetrics.exit
@@ -7199,7 +7199,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %225, %160, %stbtt_G
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %264 = call i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly %1, i32 noundef %113, ptr noundef nonnull %8)
   %265 = load i32, ptr %20, align 4
-  %.not.i.i161 = icmp sgt i32 %265, %113
+  %.not.i.i161 = icmp slt i32 %113, %265
   br i1 %.not.i.i161, label %266, label %stbtt_GetGlyphBitmapBoxSubpixel.exit.i
 
 266:                                              ; preds = %stbtt_GetGlyphBitmapBox.exit
@@ -8248,7 +8248,7 @@ define dso_local void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %0, i3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc noundef i32 @_ZL42stbtt__CompareUTF8toUTF16_bigendian_prefixPKhiS0_i(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
-  %6 = icmp eq i32 %5, %1
+  %6 = icmp eq i32 %1, %5
   %7 = zext i1 %6 to i32
   ret i32 %7
 }
@@ -8553,7 +8553,7 @@ _ZL17stbtt__find_tablePhjPKc.exit:                ; preds = %35
   %83 = shl nuw nsw i32 %82, 8
   %84 = zext i8 %.val46 to i32
   %85 = or disjoint i32 %83, %84
-  %86 = icmp eq i32 %85, %2
+  %86 = icmp eq i32 %2, %85
   br i1 %86, label %87, label %127
 
 87:                                               ; preds = %75
@@ -8565,7 +8565,7 @@ _ZL17stbtt__find_tablePhjPKc.exit:                ; preds = %35
   %91 = shl nuw nsw i32 %90, 8
   %92 = zext i8 %.val44 to i32
   %93 = or disjoint i32 %91, %92
-  %94 = icmp eq i32 %93, %3
+  %94 = icmp eq i32 %3, %93
   br i1 %94, label %95, label %127
 
 95:                                               ; preds = %87
@@ -8577,7 +8577,7 @@ _ZL17stbtt__find_tablePhjPKc.exit:                ; preds = %35
   %99 = shl nuw nsw i32 %98, 8
   %100 = zext i8 %.val42 to i32
   %101 = or disjoint i32 %99, %100
-  %102 = icmp eq i32 %101, %4
+  %102 = icmp eq i32 %4, %101
   br i1 %102, label %103, label %127
 
 103:                                              ; preds = %95
@@ -8589,7 +8589,7 @@ _ZL17stbtt__find_tablePhjPKc.exit:                ; preds = %35
   %107 = shl nuw nsw i32 %106, 8
   %108 = zext i8 %.val40 to i32
   %109 = or disjoint i32 %107, %108
-  %110 = icmp eq i32 %109, %5
+  %110 = icmp eq i32 %5, %109
   br i1 %110, label %111, label %127
 
 111:                                              ; preds = %103
@@ -9920,21 +9920,21 @@ define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffff
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %tailrecurse
-  %.pn71 = phi float [ %35, %tailrecurse ], [ %12, %.lr.ph.preheader ]
-  %.pn = phi float [ %34, %tailrecurse ], [ %13, %.lr.ph.preheader ]
+  %.pn = phi float [ %35, %tailrecurse ], [ %12, %.lr.ph.preheader ]
+  %.pn71 = phi float [ %34, %tailrecurse ], [ %13, %.lr.ph.preheader ]
   %.tr5767 = phi i32 [ %29, %tailrecurse ], [ %9, %.lr.ph.preheader ]
   %.tr5366 = phi float [ %33, %tailrecurse ], [ %5, %.lr.ph.preheader ]
   %.tr5265 = phi float [ %31, %tailrecurse ], [ %4, %.lr.ph.preheader ]
   %.tr5164 = phi float [ %15, %tailrecurse ], [ %3, %.lr.ph.preheader ]
   %.tr5063 = phi float [ %14, %tailrecurse ], [ %2, %.lr.ph.preheader ]
-  %.in = fadd float %.pn71, %7
-  %.in70 = fadd float %.pn, %6
+  %.in70 = fadd float %6, %.pn71
   %14 = fmul float %.in70, 2.500000e-01
+  %.in = fadd float %7, %.pn
   %15 = fmul float %.in, 2.500000e-01
-  %16 = fadd float %.tr5164, %7
+  %16 = fadd float %7, %.tr5164
   %17 = fmul float %16, 5.000000e-01
   %18 = fsub float %17, %15
-  %19 = fadd float %.tr5063, %6
+  %19 = fadd float %6, %.tr5063
   %20 = fmul float %19, 5.000000e-01
   %21 = fsub float %20, %14
   %22 = fmul float %18, %18
@@ -9949,9 +9949,9 @@ tailrecurse:                                      ; preds = %.lr.ph
   %28 = fmul float %27, 5.000000e-01
   %29 = add i32 %.tr5767, 1
   tail call fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %0, ptr noundef %1, float noundef %.tr5063, float noundef %.tr5164, float noundef %26, float noundef %28, float noundef %14, float noundef %15, float noundef %8, i32 noundef %29)
-  %30 = fadd float %.tr5265, %6
+  %30 = fadd float %6, %.tr5265
   %31 = fmul float %30, 5.000000e-01
-  %32 = fadd float %.tr5366, %7
+  %32 = fadd float %7, %.tr5366
   %33 = fmul float %32, 5.000000e-01
   %34 = tail call float @llvm.fmuladd.f32(float %31, float 2.000000e+00, float %14)
   %35 = tail call float @llvm.fmuladd.f32(float %33, float 2.000000e+00, float %15)
@@ -10141,7 +10141,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL16stbtt__matchpairPhjS_ii
   %35 = shl nuw nsw i32 %34, 8
   %36 = zext i8 %.val104 to i32
   %37 = or disjoint i32 %35, %36
-  %38 = icmp eq i32 %37, %4
+  %38 = icmp eq i32 %4, %37
   br i1 %38, label %39, label %146
 
 39:                                               ; preds = %26
@@ -10215,7 +10215,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL16stbtt__matchpairPhjS_ii
   %85 = shl nuw nsw i32 %84, 8
   %86 = zext i8 %.val92 to i32
   %87 = or disjoint i32 %85, %86
-  %88 = icmp eq i32 %87, %5
+  %88 = icmp eq i32 %5, %87
   br i1 %88, label %89, label %144
 
 89:                                               ; preds = %81
@@ -10297,7 +10297,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL16stbtt__matchpairPhjS_ii
   %141 = sub nsw i32 %3, %138
   %142 = getelementptr inbounds i8, ptr %24, i64 %126
   %143 = tail call fastcc noundef i32 @_ZL42stbtt__CompareUTF8toUTF16_bigendian_prefixPKhiS0_i(ptr noundef nonnull readonly %140, i32 noundef %141, ptr noundef readonly %142, i32 noundef %120)
-  %.not = icmp eq i32 %143, %141
+  %.not = icmp eq i32 %141, %143
   br i1 %.not, label %._crit_edge, label %146
 
 144:                                              ; preds = %105, %97, %89, %81, %78

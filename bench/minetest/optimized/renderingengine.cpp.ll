@@ -526,7 +526,7 @@ entry:
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %device)
   %call.not = xor i1 %call, true
-  %brmerge = or i1 %call.not, %assume_paused
+  %brmerge = or i1 %assume_paused, %call.not
   %1 = load ptr, ptr @g_settings, align 8, !tbaa !22
   br i1 %brmerge, label %cond.false, label %cond.true
 
@@ -4697,7 +4697,7 @@ _ZN15RenderingEngine16get_video_driverEv.exit341: ; preds = %land.lhs.true.i333
   %65 = load ptr, ptr %vfn.i338, align 8
   %call.i339 = call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(8) %64)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp123) #27
-  %mul127 = mul i32 %conv91, %percent
+  %mul127 = mul i32 %percent, %conv91
   %div128 = udiv i32 %mul127, 100
   %add129 = add nuw i32 %div108200, %div128
   store i32 %div108200, ptr %ref.tmp123, align 4, !tbaa !116
@@ -5892,7 +5892,7 @@ _ZN15RenderingEngine14get_raw_deviceEv.exit:      ; preds = %land.lhs.true.i136
   %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 136
   %32 = load ptr, ptr %vfn40, align 8
   %call41 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(8) %31)
-  %33 = xor i1 %call41, %initial_window_maximized
+  %33 = xor i1 %initial_window_maximized, %call41
   br i1 %33, label %if.then46, label %return
 
 if.then46:                                        ; preds = %_ZN15RenderingEngine14get_raw_deviceEv.exit

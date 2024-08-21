@@ -1134,7 +1134,7 @@ for.body35.i:                                     ; preds = %land.rhs.lr.ph.i, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.clean_tracked_sparse_directories.s, i64 24, i1 false)
   %33 = load i64, ptr %path.i, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %33, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %22
+  %cmp.i.i = icmp ugt i64 %22, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i24.i, label %if.end.i.i
 
 if.then.i24.i:                                    ; preds = %for.body35.i

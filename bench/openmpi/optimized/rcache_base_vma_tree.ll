@@ -139,7 +139,7 @@ define i32 @mca_rcache_base_vma_tree_iterate(ptr noundef %0, ptr noundef %1, i64
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %5, ptr %8, align 8
   %9 = ptrtoint ptr %1 to i64
-  %10 = add i64 %9, %2
+  %10 = add i64 %2, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = call i32 @opal_interval_tree_traverse(ptr noundef nonnull %11, i64 noundef %9, i64 noundef %10, i1 noundef zeroext %3, ptr noundef nonnull @mca_rcache_base_vma_tree_iterate_helper, ptr noundef nonnull %7) #3
   ret i32 %12
@@ -198,7 +198,7 @@ define void @mca_rcache_base_vma_tree_dump_range(ptr noundef %0, ptr noundef %1,
 
 8:                                                ; preds = %4
   %9 = ptrtoint ptr %1 to i64
-  %10 = add i64 %9, %2
+  %10 = add i64 %2, %9
   %11 = tail call i32 @opal_interval_tree_traverse(ptr noundef nonnull %6, i64 noundef %9, i64 noundef %10, i1 noundef zeroext false, ptr noundef nonnull @mca_rcache_base_tree_dump_range_helper, ptr noundef null) #3
   br label %13
 

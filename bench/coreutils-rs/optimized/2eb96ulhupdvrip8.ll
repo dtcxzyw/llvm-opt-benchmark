@@ -1754,7 +1754,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr55drop
   %117 = load i64, ptr %3, align 8, !alias.scope !265, !noalias !268, !noundef !5
   %118 = load i64, ptr %63, align 8, !alias.scope !265, !noalias !268, !noundef !5
   %119 = sub i64 %117, %118
-  %120 = icmp ugt i64 %119, %116
+  %120 = icmp ult i64 %116, %119
   br i1 %120, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.exit.thread", label %121
 
 121:                                              ; preds = %114

@@ -76,7 +76,7 @@ if.then:                                          ; preds = %land.lhs.true
   %mnCount = getelementptr inbounds i8, ptr %pContext8, i64 8
   %3 = load i64, ptr %mnCount, align 8
   %sub = sub i64 %2, %3
-  %cmp = icmp ult i64 %sub, %nCount
+  %cmp = icmp ugt i64 %nCount, %sub
   br i1 %cmp, label %if.then2, label %if.end26
 
 if.then2:                                         ; preds = %if.then
@@ -134,7 +134,7 @@ entry:
   %mnCount = getelementptr inbounds i8, ptr %pContext16, i64 8
   %2 = load i64, ptr %mnCount, align 8
   %sub = sub i64 %1, %2
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 %nCount)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %nCount, i64 %sub)
   %3 = load ptr, ptr %pContext16, align 8
   %add.ptr = getelementptr inbounds i16, ptr %3, i64 %2
   %mul = shl i64 %spec.select, 1
@@ -153,7 +153,7 @@ entry:
   %mnCount = getelementptr inbounds i8, ptr %pContext32, i64 8
   %2 = load i64, ptr %mnCount, align 8
   %sub = sub i64 %1, %2
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 %nCount)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %nCount, i64 %sub)
   %3 = load ptr, ptr %pContext32, align 8
   %add.ptr = getelementptr inbounds i32, ptr %3, i64 %2
   %mul = shl i64 %spec.select, 2

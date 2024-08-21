@@ -825,7 +825,7 @@ if.then12:                                        ; preds = %if.end, %_ZNSt3mapI
 if.then.i.i.i:                                    ; preds = %if.then12
   %7 = extractvalue { ptr, ptr } %call3.i.i.i, 0
   %cmp.not.i.i.i.i = icmp ne ptr %7, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %6
+  %cmp2.i.i.i.i = icmp eq ptr %6, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb11WalMetadataEESt10_Select1stIS4_ESt4lessImESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i, label %lor.rhs.i.i.i.i
 
@@ -951,7 +951,7 @@ entry:
   br i1 %cmp.i.not11, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %subcode_5.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
@@ -1073,7 +1073,7 @@ define void @_ZN7rocksdb6WalSet16DeleteWalsBeforeEm(ptr noalias nocapture writeo
 entry:
   %min_wal_number_to_keep_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %min_wal_number_to_keep_, align 8
-  %cmp = icmp ult i64 %0, %wal
+  %cmp = icmp ugt i64 %wal, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1100,7 +1100,7 @@ while.body.i.i.i:                                 ; preds = %if.then, %while.bod
   br i1 %cmp.not.i.i.i, label %land.rhs.i.i.i, label %while.body.i.i.i, !llvm.loop !16
 
 land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i
-  %cmp.i1.i.i.i = icmp eq ptr %add.ptr.i.i.i, %__y.addr.1.i.i.i
+  %cmp.i1.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i1.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then, %land.rhs.i.i.i
@@ -1204,7 +1204,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %logs_on_disk, i64 24
   %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %logs_on_disk, i64 8
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %logs_on_disk, i64 16
-  %cmp.not.i19 = icmp eq ptr %ref.tmp36, %agg.result
+  %cmp.not.i19 = icmp eq ptr %agg.result, %ref.tmp36
   %subcode_.i21 = getelementptr inbounds i8, ptr %ref.tmp36, i64 1
   %subcode_5.i22 = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i23 = getelementptr inbounds i8, ptr %ref.tmp36, i64 2
@@ -1325,7 +1325,7 @@ invoke.cont28:                                    ; preds = %invoke.cont23
           to label %invoke.cont33 unwind label %lpad29
 
 invoke.cont33:                                    ; preds = %invoke.cont28
-  %cmp.not.i = icmp eq ptr %ref.tmp25, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp25
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont33
@@ -1568,7 +1568,7 @@ invoke.cont71:                                    ; preds = %invoke.cont66
           to label %invoke.cont76 unwind label %lpad72
 
 invoke.cont76:                                    ; preds = %invoke.cont71
-  %cmp.not.i49 = icmp eq ptr %ref.tmp68, %agg.result
+  %cmp.not.i49 = icmp eq ptr %agg.result, %ref.tmp68
   br i1 %cmp.not.i49, label %_ZN7rocksdb6StatusaSEOS0_.exit67, label %if.then.i50
 
 if.then.i50:                                      ; preds = %invoke.cont76
@@ -1819,7 +1819,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb11WalMetadataEESt10_Select1stIS4_ESt4lessImESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

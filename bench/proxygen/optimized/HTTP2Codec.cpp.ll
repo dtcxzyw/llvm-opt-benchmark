@@ -1362,7 +1362,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
+  %cmp.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i
@@ -1556,7 +1556,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %upgradedStreams_, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 616
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -6581,7 +6581,7 @@ entry:
   %spec.select.v = select i1 %spec.select.i.i.i, i64 40, i64 48
   %spec.select = getelementptr inbounds i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
-  %2 = icmp uge i64 %.pn.i, %stream
+  %2 = icmp ule i64 %stream, %.pn.i
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -6711,7 +6711,7 @@ entry:
   %spec.select.v = select i1 %spec.select.i.i.i, i64 40, i64 48
   %spec.select = getelementptr inbounds i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
-  %2 = icmp uge i64 %.pn.i, %stream
+  %2 = icmp ule i64 %stream, %.pn.i
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -8735,7 +8735,7 @@ entry:
   %spec.select.v = select i1 %spec.select.i.i.i, i64 40, i64 48
   %spec.select = getelementptr inbounds i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
-  %2 = icmp uge i64 %.pn.i, %stream
+  %2 = icmp ule i64 %stream, %.pn.i
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -8839,7 +8839,7 @@ entry:
   %spec.select.v = select i1 %spec.select.i.i.i, i64 40, i64 48
   %spec.select = getelementptr inbounds i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
-  %2 = icmp uge i64 %.pn.i, %stream
+  %2 = icmp ule i64 %stream, %.pn.i
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -8946,7 +8946,7 @@ entry:
   %spec.select.v = select i1 %spec.select.i.i.i, i64 40, i64 48
   %spec.select = getelementptr inbounds i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
-  %2 = icmp uge i64 %.pn.i, %stream
+  %2 = icmp ule i64 %stream, %.pn.i
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -9324,7 +9324,7 @@ entry:
   %spec.select.v = select i1 %spec.select.i.i.i, i64 40, i64 48
   %spec.select = getelementptr inbounds i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
-  %2 = icmp uge i64 %.pn.i, %stream
+  %2 = icmp ule i64 %stream, %.pn.i
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -9487,7 +9487,7 @@ entry:
   %spec.select.v = select i1 %spec.select.i.i.i, i64 40, i64 48
   %spec.select = getelementptr inbounds i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
-  %2 = icmp uge i64 %.pn.i, %stream
+  %2 = icmp ule i64 %stream, %.pn.i
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -10105,7 +10105,7 @@ entry:
   %spec.select.v = select i1 %spec.select.i.i.i, i64 40, i64 48
   %spec.select = getelementptr inbounds i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
-  %2 = icmp uge i64 %.pn.i, %stream
+  %2 = icmp ule i64 %stream, %.pn.i
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -10532,7 +10532,7 @@ entry:
   %spec.select.v = select i1 %spec.select.i.i.i, i64 40, i64 48
   %spec.select = getelementptr inbounds i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
-  %2 = icmp uge i64 %.pn.i, %stream
+  %2 = icmp ule i64 %stream, %.pn.i
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -10750,7 +10750,7 @@ entry:
   %spec.select.v = select i1 %spec.select.i.i.i, i64 40, i64 48
   %spec.select = getelementptr inbounds i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
-  %2 = icmp uge i64 %.pn.i, %stream
+  %2 = icmp ule i64 %stream, %.pn.i
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -11013,7 +11013,7 @@ if.end:                                           ; preds = %cleanup.action, %co
   %tableSize.0 = phi i32 [ %10, %sw.bb ], [ %7, %cond.false ], [ %7, %cond.end ], [ %7, %cleanup.action ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp3.i.i.i)
   %14 = load i32, ptr %capacity_.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq i32 %14, %tableSize.0
+  %cmp.not.i.i.i = icmp eq i32 %tableSize.0, %14
   br i1 %cmp.not.i.i.i, label %_ZN8proxygen10HPACKCodec25setEncoderHeaderTableSizeEj.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
@@ -12072,7 +12072,7 @@ entry:
   %spec.select.v = select i1 %spec.select.i.i.i, i64 40, i64 48
   %spec.select = getelementptr inbounds i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
-  %2 = icmp uge i64 %.pn.i, %stream
+  %2 = icmp ule i64 %stream, %.pn.i
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -12212,7 +12212,7 @@ for.body.i.i.i.i5.i.i.i:                          ; preds = %if.end.i.i.i.i9.i.i
   %i.i.06.i.i.i6.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i ], [ %inc.i.i.i.i10.i.i.i, %if.end.i.i.i.i9.i.i.i ]
   %arrayidx.i.i.i.i7.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i6.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i.i7.i.i.i, align 8
-  %cmp1.i.i.i.i8.i.i.i = icmp ugt i64 %3, %2
+  %cmp1.i.i.i.i8.i.i.i = icmp ult i64 %2, %3
   br i1 %cmp1.i.i.i.i8.i.i.i, label %if.then.i.i.i.i13.i.i.i, label %if.end.i.i.i.i9.i.i.i
 
 if.then.i.i.i.i13.i.i.i:                          ; preds = %for.body.i.i.i.i5.i.i.i
@@ -13065,7 +13065,7 @@ if.end140:                                        ; preds = %if.end140.sink.spli
   %ingressGoawayAck_.i.val = load i64, ptr %ingressGoawayAck_.i, align 8
   %egressGoawayAck_.i.val = load i64, ptr %egressGoawayAck_.i, align 8
   %.pn.i = select i1 %spec.select.i.i.i, i64 %ingressGoawayAck_.i.val, i64 %egressGoawayAck_.i.val
-  %.not = icmp ult i64 %.pn.i, %19
+  %.not = icmp ugt i64 %19, %.pn.i
   br i1 %.not, label %if.then142, label %if.end181
 
 if.then142:                                       ; preds = %if.end140
@@ -13579,7 +13579,7 @@ lpad:                                             ; preds = %invoke.cont, %while
 
 while.end:                                        ; preds = %entry, %_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   %conv = zext i32 %remainingFrameSize to i64
-  %cmp = icmp ult i64 %conv, %compressed
+  %cmp = icmp ugt i64 %compressed, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
@@ -14083,7 +14083,7 @@ entry:
   %ingressGoawayAck_.i.val = load i64, ptr %ingressGoawayAck_.i, align 8
   %egressGoawayAck_.i.val = load i64, ptr %egressGoawayAck_.i, align 8
   %.pn.i = select i1 %spec.select.i.i.i, i64 %ingressGoawayAck_.i.val, i64 %egressGoawayAck_.i.val
-  %.not = icmp ult i64 %.pn.i, %stream
+  %.not = icmp ugt i64 %stream, %.pn.i
   br i1 %.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -14742,7 +14742,7 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %ingressGoawayAck_.i.val = load i64, ptr %ingressGoawayAck_.i, align 8
   %egressGoawayAck_.i.val = load i64, ptr %egressGoawayAck_.i, align 8
   %.pn.i = select i1 %spec.select.i.i.i, i64 %ingressGoawayAck_.i.val, i64 %egressGoawayAck_.i.val
-  %.not = icmp ult i64 %.pn.i, %2
+  %.not = icmp ugt i64 %2, %.pn.i
   br i1 %.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cleanup.done
@@ -14918,7 +14918,7 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %ingressGoawayAck_.i.val = load i64, ptr %ingressGoawayAck_.i, align 8
   %egressGoawayAck_.i.val = load i64, ptr %egressGoawayAck_.i, align 8
   %.pn.i = select i1 %spec.select.i.i.i, i64 %ingressGoawayAck_.i.val, i64 %egressGoawayAck_.i.val
-  %.not = icmp ult i64 %.pn.i, %stream
+  %.not = icmp ugt i64 %stream, %.pn.i
   br i1 %.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cleanup.done
@@ -14975,7 +14975,7 @@ if.end:                                           ; preds = %cleanup.done
   %stream58 = getelementptr inbounds i8, ptr %this, i64 524
   %9 = load i32, ptr %stream58, align 4
   %conv = zext i32 %9 to i64
-  %cmp59 = icmp eq i64 %conv, %stream
+  %cmp59 = icmp eq i64 %stream, %conv
   br i1 %cmp59, label %if.then60, label %if.end64
 
 if.then60:                                        ; preds = %if.end
@@ -16267,7 +16267,7 @@ entry:
   %conv.i.i = zext i1 %cmp.i.i to i64
   %add2.i.i = add i64 %add.i.i, %conv.i.i
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
-  %cmp.not.i = icmp ult i64 %call.i, %add2.i.i
+  %cmp.not.i = icmp ugt i64 %add2.i.i, %call.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -16276,7 +16276,7 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
-  %cmp2.i = icmp ult i64 %call1.i, %add2.i.i
+  %cmp2.i = icmp ugt i64 %add2.i.i, %call1.i
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -16356,10 +16356,10 @@ entry:
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp eq i64 %1, %2
-  %cmp2.not.i = icmp ule ptr %0, %value
+  %cmp2.not.i = icmp uge ptr %value, %0
   %or.cond.not8.i = and i1 %cmp2.not.i, %cmp.i
   %add.ptr.i2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %1
-  %cmp5.i = icmp ugt ptr %add.ptr.i2, %value
+  %cmp5.i = icmp ult ptr %value, %add.ptr.i2
   %or.cond7.i = select i1 %or.cond.not8.i, i1 %cmp5.i, i1 false
   br i1 %or.cond7.i, label %if.then.i, label %if.else.i
 
@@ -16517,7 +16517,7 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %ingressGoawayAck_.i.val = load i64, ptr %ingressGoawayAck_.i, align 8
   %egressGoawayAck_.i.val = load i64, ptr %egressGoawayAck_.i, align 8
   %.pn.i = select i1 %spec.select.i.i.i, i64 %ingressGoawayAck_.i.val, i64 %egressGoawayAck_.i.val
-  %.not = icmp ult i64 %.pn.i, %stream
+  %.not = icmp ugt i64 %stream, %.pn.i
   br i1 %.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cleanup.done
@@ -16646,7 +16646,7 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %ingressGoawayAck_.i.val = load i64, ptr %ingressGoawayAck_.i, align 8
   %egressGoawayAck_.i.val = load i64, ptr %egressGoawayAck_.i, align 8
   %.pn.i = select i1 %spec.select.i.i.i, i64 %ingressGoawayAck_.i.val, i64 %egressGoawayAck_.i.val
-  %.not = icmp ult i64 %.pn.i, %stream
+  %.not = icmp ugt i64 %stream, %.pn.i
   br i1 %.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cleanup.done
@@ -17056,7 +17056,7 @@ entry:
   %spec.select.v = select i1 %spec.select.i.i.i, i64 40, i64 48
   %spec.select = getelementptr inbounds i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
-  %2 = icmp uge i64 %.pn.i, %stream
+  %2 = icmp ule i64 %stream, %.pn.i
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -17910,7 +17910,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #29
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt4pairIN8proxygen10SettingsIdEjESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -18057,10 +18057,10 @@ cleanup.done:                                     ; preds = %cond.false, %cleanu
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp eq i64 %1, %2
-  %cmp2.not.i = icmp ule ptr %0, %value
+  %cmp2.not.i = icmp uge ptr %value, %0
   %or.cond.not8.i = and i1 %cmp2.not.i, %cmp.i
   %add.ptr.i8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %1
-  %cmp5.i = icmp ugt ptr %add.ptr.i8, %value
+  %cmp5.i = icmp ult ptr %value, %add.ptr.i8
   %or.cond7.i = select i1 %or.cond.not8.i, i1 %cmp5.i, i1 false
   br i1 %or.cond7.i, label %if.then.i, label %if.else.i
 
@@ -18713,7 +18713,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not41, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.else
-  %cmp.not7.i.i = icmp eq ptr %name.coerce1.fr, %name.coerce0
+  %cmp.not7.i.i = icmp eq ptr %name.coerce0, %name.coerce1.fr
   %9 = load i64, ptr %length_, align 8
   %call8.us67 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i, i32 noundef 1, i64 noundef %9) #32
   %cmp9.us68 = icmp eq ptr %call8.us67, null
@@ -19313,7 +19313,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i,
   %i.i.06.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i = icmp ugt i64 %2, %1
+  %cmp1.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
@@ -19404,7 +19404,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i,
   %i.i.i.015.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i = icmp ugt i64 %2, %1
+  %cmp1.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i
@@ -21232,7 +21232,7 @@ if.end13:                                         ; preds = %for.cond.i, %if.end
   %__n.0 = phi ptr [ %6, %if.end ], [ %15, %for.cond.i ]
   %__bkt.0 = phi i64 [ %rem.i.i.i, %if.end ], [ %rem.i.i.i11, %for.cond.i ]
   %__prev_n.0 = phi ptr [ %__prev_p.06.i.lcssa, %if.end ], [ %__p.010.i, %for.cond.i ]
-  %cmp.i = icmp eq ptr %18, %__prev_n.0
+  %cmp.i = icmp eq ptr %__prev_n.0, %18
   %20 = load ptr, ptr %__n.0, align 8
   %tobool.not.i16 = icmp eq ptr %20, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -22173,7 +22173,7 @@ for.body.i.i.i.i.i.i12:                           ; preds = %if.end.i.i.i.i.i.i1
   %i.i.i.015.i.i.i.i13 = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit ], [ %inc.i.i.i.i.i.i17, %if.end.i.i.i.i.i.i16 ]
   %arrayidx.i.i.i.i.i.i14 = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i13
   %7 = load i64, ptr %arrayidx.i.i.i.i.i.i14, align 8
-  %cmp1.i.i.i.i.i.i15 = icmp ugt i64 %7, %6
+  %cmp1.i.i.i.i.i.i15 = icmp ult i64 %6, %7
   br i1 %cmp1.i.i.i.i.i.i15, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i40, label %if.end.i.i.i.i.i.i16
 
 if.end.i.i.i.i.i.i16:                             ; preds = %for.body.i.i.i.i.i.i12
@@ -22384,7 +22384,7 @@ _ZN5folly20base64URLDecodedSizeESt17basic_string_viewIcSt11char_traitsIcEE.exit:
   %cond.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %rem.i.i.i, i64 1)
   %add.i.i.i = add i64 %res.0.i.i.i, %cond.i.i.i
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
-  %cmp.not.i = icmp ult i64 %call.i, %add.i.i.i
+  %cmp.not.i = icmp ugt i64 %add.i.i.i, %call.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5folly20base64URLDecodedSizeESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, %_ZN5folly20base64URLDecodedSizeESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -22394,7 +22394,7 @@ if.then.i:                                        ; preds = %_ZN5folly20base64UR
 
 if.else.i:                                        ; preds = %_ZN5folly20base64URLDecodedSizeESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
-  %cmp2.i = icmp ult i64 %call1.i, %add.i.i.i
+  %cmp2.i = icmp ugt i64 %add.i.i.i, %call1.i
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -22798,7 +22798,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end

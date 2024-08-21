@@ -455,7 +455,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %215 = getelementptr inbounds i8, ptr %214, i64 48
   %216 = load i64, ptr %215, align 8
   %.not74 = icmp ne i64 %216, 0
-  %brmerge.not = and i1 %.not74, %1
+  %brmerge.not = and i1 %1, %.not74
   br i1 %brmerge.not, label %217, label %218
 
 217:                                              ; preds = %._crit_edge

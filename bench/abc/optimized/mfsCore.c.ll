@@ -1518,7 +1518,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %130, %126, %122
 
 159:                                              ; preds = %158
   %160 = load i32, ptr %144, align 4
-  %161 = icmp sgt i32 %160, %.0148228
+  %161 = icmp slt i32 %.0148228, %160
   br i1 %161, label %Extra_ProgressBarUpdate.exit200, label %162
 
 162:                                              ; preds = %159, %158

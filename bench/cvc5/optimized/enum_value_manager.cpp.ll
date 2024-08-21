@@ -798,7 +798,7 @@ for.cond.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i.i:                             ; preds = %for.cond.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i, i64 8
   %11 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %11, %0
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %0, %11
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont21, label %for.cond.i.i.i.i.i.i, !llvm.loop !5
 
 if.end15.i.i.i.i.i.i:                             ; preds = %call.i.noexc123
@@ -819,17 +819,17 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end15.i.i.i.i.i.
   %add.ptr8.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %add.ptr.i9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load i64, ptr %add.ptr.i9.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i10.i.i.i.i.i.i.i.i = icmp eq i64 %16, %bf.clear.i.i.i.i.i.i.i.i.i
+  %cmp.i.i10.i.i.i.i.i.i.i.i = icmp eq i64 %bf.clear.i.i.i.i.i.i.i.i.i, %16
   %17 = load ptr, ptr %add.ptr8.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i11.i.i.i.i.i.i.i.i = icmp eq ptr %17, %0
+  %cmp.i.i.i11.i.i.i.i.i.i.i.i = icmp eq ptr %0, %17
   %18 = select i1 %cmp.i.i10.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i11.i.i.i.i.i.i.i.i, i1 false
   br i1 %18, label %invoke.cont21.thread2044, label %if.end3.i.i.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %22, %bf.clear.i.i.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %bf.clear.i.i.i.i.i.i.i.i.i, %22
   %19 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %19, %0
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, %19
   %20 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %20, label %invoke.cont21, label %if.end3.i.i.i.i.i.i.i.i, !llvm.loop !7
 

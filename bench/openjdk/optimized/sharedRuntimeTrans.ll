@@ -828,7 +828,7 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
   %240 = bitcast i64 %.sroa.0.0.insert.mask.i227.i to double
   %241 = fsub double %1, %240
   %242 = fmul double %241, %.0286.i
-  %243 = fmul double %.0199.i, %1
+  %243 = fmul double %1, %.0199.i
   %244 = fadd double %242, %243
   %245 = fmul double %.0286.i, %240
   %246 = fadd double %245, %244

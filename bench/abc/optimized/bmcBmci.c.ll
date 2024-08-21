@@ -825,13 +825,13 @@ Vec_IntFill.exit:                                 ; preds = %21, %Vec_IntGrow.ex
   %.val27 = load i32, ptr %6, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 4
   %26 = load i32, ptr %25, align 4
-  %.not.i = icmp slt i32 %26, %.val27
+  %.not.i = icmp sgt i32 %.val27, %26
   br i1 %.not.i, label %27, label %Vec_IntFillExtra.exit
 
 27:                                               ; preds = %Vec_IntFill.exit
   %28 = load i32, ptr %1, align 8
   %29 = shl nsw i32 %28, 1
-  %30 = icmp slt i32 %29, %.val27
+  %30 = icmp sgt i32 %.val27, %29
   %.not.i.i28 = icmp slt i32 %28, %.val27
   br i1 %30, label %31, label %43
 

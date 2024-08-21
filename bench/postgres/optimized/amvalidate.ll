@@ -480,8 +480,8 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   %26 = getelementptr inbounds i8, ptr %18, i64 104
   %27 = load i16, ptr %26, align 4
   %28 = sext i16 %27 to i32
-  %29 = icmp slt i32 %28, %3
-  %30 = icmp sgt i32 %28, %4
+  %29 = icmp sgt i32 %3, %28
+  %30 = icmp slt i32 %4, %28
   %or.cond = or i1 %29, %30
   br i1 %or.cond, label %31, label %32
 

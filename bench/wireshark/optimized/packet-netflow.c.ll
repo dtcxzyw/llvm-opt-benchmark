@@ -8005,7 +8005,7 @@ dissect_v9_v10_options_template.exit:             ; preds = %232, %237, %337
 
 proto_item_set_generated.exit.i:                  ; preds = %398, %395, %394
   %402 = load i32, ptr %383, align 4
-  %.not5356.i = icmp ugt i32 %402, %344
+  %.not5356.i = icmp ult i32 %344, %402
   br i1 %.not5356.i, label %._crit_edge.i62, label %.lr.ph.i61
 
 .lr.ph.i61:                                       ; preds = %proto_item_set_generated.exit.i
@@ -8269,7 +8269,7 @@ define internal fastcc void @store_sequence_analysis_info(i32 noundef %0, i32 no
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %15, i64 4
   %21 = load i32, ptr %20, align 4
-  %.not22 = icmp eq i32 %21, %1
+  %.not22 = icmp eq i32 %1, %21
   br i1 %.not22, label %27, label %22
 
 22:                                               ; preds = %19
@@ -19897,7 +19897,7 @@ define internal fastcc void @dissect_v10_pdu_subtemplate_list(ptr noundef %0, pt
   %8 = alloca i32, align 4
   %9 = alloca %struct._v9_v10_tmplt, align 8
   %10 = zext i16 %4 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = load i32, ptr @ett_subtemplate_list, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %2, i32 noundef %12) #11
   %14 = load i32, ptr @hf_cflow_subtemplate_semantic, align 4

@@ -13,7 +13,7 @@ define noundef ptr @strchrnul(ptr noundef readonly %0, i32 noundef %1) local_unn
   %3 = load i8, ptr %.1, align 1
   %.not8 = icmp eq i8 %3, 0
   %4 = sext i8 %3 to i32
-  %.not9 = icmp eq i32 %4, %1
+  %.not9 = icmp eq i32 %1, %4
   %or.cond = or i1 %.not8, %.not9
   %5 = getelementptr inbounds i8, ptr %.1, i64 1
   br i1 %or.cond, label %.critedge, label %.preheader, !llvm.loop !6

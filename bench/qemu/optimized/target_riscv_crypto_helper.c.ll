@@ -188,7 +188,7 @@ define dso_local i64 @helper_aes64ks2(i64 noundef %rs1, i64 noundef %rs2) local_
 entry:
   %shr = lshr i64 %rs1, 32
   %conv66 = shl i64 %rs2, 32
-  %0 = xor i64 %conv66, %rs1
+  %0 = xor i64 %rs1, %conv66
   %1 = xor i64 %0, %rs2
   %shl = and i64 %1, -4294967296
   %rs2.masked = and i64 %rs2, 4294967295

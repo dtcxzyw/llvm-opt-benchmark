@@ -26,7 +26,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end
 if.end27:                                         ; preds = %do.body.i
   %rem.i = urem i64 %call4.i, %add
   %1 = trunc i64 %rem.i to i32
-  %conv7 = add i32 %1, %min
+  %conv7 = add i32 %min, %1
   ret i32 %conv7
 }
 

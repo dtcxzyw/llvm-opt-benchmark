@@ -862,7 +862,7 @@ if.end95:                                         ; preds = %for.cond.preheader,
   %sub97 = sub nsw i32 %k.0, %conv
   %idx.ext = sext i32 %sub97 to i64
   %conv.i.i88 = zext i32 %59 to i64
-  %cmp.i90 = icmp eq i64 %conv.i.i88, %idx.ext
+  %cmp.i90 = icmp eq i64 %idx.ext, %conv.i.i88
   %61 = load i32, ptr %Capacity2.i.i.i.i.i.i47, align 4
   %cmp.not.i.i92 = icmp ult i32 %59, %61
   br i1 %cmp.i90, label %if.then.i129, label %if.end.i93
@@ -2152,7 +2152,7 @@ entry:
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i56 = getelementptr inbounds i8, ptr %0, i64 %conv.i
-  %cmp = icmp eq ptr %add.ptr.i56, %I
+  %cmp = icmp eq ptr %I, %add.ptr.i56
   %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %1, %2
@@ -2234,7 +2234,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %if.end10, %if.then.
   %cmp18.not = icmp ule ptr %I.addr.0, %Elt
   %conv.i27 = zext i32 %add to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %conv.i27
-  %cmp20 = icmp ugt ptr %add.ptr.i, %Elt
+  %cmp20 = icmp ult ptr %Elt, %add.ptr.i
   %narrow = select i1 %cmp18.not, i1 %cmp20, i1 false
   %EltPtr.0.idx = zext i1 %narrow to i64
   %EltPtr.0 = getelementptr inbounds i8, ptr %Elt, i64 %EltPtr.0.idx
@@ -2293,11 +2293,11 @@ entry:
   %1 = load i32, ptr %Size.i.i, align 8
   %conv.i5.i = zext i32 %1 to i64
   %sub.i = sub nsw i64 %conv.i.i, %conv.i5.i
-  %cmp.i = icmp ult i64 %sub.i, %RHS.coerce1
+  %cmp.i = icmp ugt i64 %RHS.coerce1, %sub.i
   br i1 %cmp.i, label %if.end.i.thread, label %if.end.i
 
 if.end.i.thread:                                  ; preds = %entry
-  %add.i = add i64 %conv.i5.i, %RHS.coerce1
+  %add.i = add i64 %RHS.coerce1, %conv.i5.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef %add.i, i64 noundef 1) #12
   %.pre13.pre.i = load i32, ptr %Size.i.i, align 8

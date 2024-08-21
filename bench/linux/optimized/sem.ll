@@ -3975,7 +3975,7 @@ define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef %1, i32 noun
   %171 = zext nneg i32 %16 to i64
   %172 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %171, i64 %170) #12, !srcloc !37
   %173 = trunc i64 %172 to i32
-  %174 = and i32 %173, %2
+  %174 = and i32 %2, %173
   %175 = getelementptr inbounds i8, ptr %9, i64 256
   %176 = zext nneg i32 %174 to i64
   %177 = getelementptr [0 x %struct.sem], ptr %175, i64 0, i64 %176
@@ -4169,7 +4169,7 @@ define internal fastcc i32 @semctl_setval(ptr noundef %0, i32 noundef %1, i32 no
   %38 = sext i32 %36 to i64
   %39 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %38, i64 %37) #12, !srcloc !37
   %40 = trunc i64 %39 to i32
-  %41 = and i32 %40, %2
+  %41 = and i32 %2, %40
   %42 = getelementptr inbounds i8, ptr %9, i64 256
   %43 = zext nneg i32 %41 to i64
   %44 = getelementptr [0 x %struct.sem], ptr %42, i64 0, i64 %43

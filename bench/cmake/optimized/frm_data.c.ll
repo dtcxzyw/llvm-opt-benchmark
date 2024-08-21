@@ -122,7 +122,7 @@ define dso_local noundef zeroext i1 @data_ahead(ptr noundef readonly %0) local_u
 
 45:                                               ; preds = %47, %33
   %.0.i = phi ptr [ %44, %33 ], [ %48, %47 ]
-  %46 = icmp ugt ptr %.0.i, %.052
+  %46 = icmp ult ptr %.052, %.0.i
   br i1 %46, label %47, label %After_Last_Non_Pad_Position.exit
 
 47:                                               ; preds = %45
@@ -180,7 +180,7 @@ After_Last_Non_Pad_Position.exit:                 ; preds = %45, %47
 
 82:                                               ; preds = %84, %70
   %.0.i66 = phi ptr [ %81, %70 ], [ %85, %84 ]
-  %83 = icmp ugt ptr %.0.i66, %.052
+  %83 = icmp ult ptr %.052, %.0.i66
   br i1 %83, label %84, label %After_Last_Non_Pad_Position.exit67
 
 84:                                               ; preds = %82

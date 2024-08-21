@@ -1303,7 +1303,7 @@ if.end7:                                          ; preds = %if.then5, %if.then,
   %m_wield_change_timer = getelementptr inbounds i8, ptr %this, i64 192
   %2 = load float, ptr %m_wield_change_timer, align 8, !tbaa !50
   %cmp8 = fcmp nsz uge float %2, 0.000000e+00
-  %add = fadd nsz float %2, %dtime
+  %add = fadd nsz float %dtime, %2
   %cmp10 = fcmp nsz olt float %add, 1.250000e-01
   %cond = select i1 %cmp10, float %add, float 1.250000e-01
   store float %cond, ptr %m_wield_change_timer, align 8, !tbaa !50
@@ -1333,7 +1333,7 @@ if.end20:                                         ; preds = %if.then18, %if.end7
 if.then22:                                        ; preds = %if.end20
   %m_view_bobbing_speed = getelementptr inbounds i8, ptr %this, i64 176
   %7 = load float, ptr %m_view_bobbing_speed, align 8, !tbaa !129
-  %mul = fmul nsz float %7, %dtime
+  %mul = fmul nsz float %dtime, %7
   %conv23 = fpext float %mul to double
   %mul24 = fmul nsz double %conv23, 3.000000e-02
   %conv25 = fptrunc double %mul24 to float

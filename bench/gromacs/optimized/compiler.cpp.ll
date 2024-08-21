@@ -418,7 +418,7 @@ define internal fastcc void @_ZL16print_group_infoP8_IO_FILEPKcRKN3gmx20Selectio
   %20 = icmp eq i32 %19, 5
   %21 = getelementptr inbounds i8, ptr %2, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, %3
+  %23 = icmp eq ptr %3, %22
   %or.cond = select i1 %20, i1 %23, i1 false
   br i1 %or.cond, label %24, label %26
 

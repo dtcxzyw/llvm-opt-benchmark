@@ -723,7 +723,7 @@ land.rhs:                                         ; preds = %if.end55, %if.end10
 for.body:                                         ; preds = %land.rhs
   %30 = load i64, ptr %buffer1, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %30, i64 1)
-  %cmp.i111 = icmp ult i64 %spec.select.i, %len1.0
+  %cmp.i111 = icmp ugt i64 %len1.0, %spec.select.i
   br i1 %cmp.i111, label %if.then.i114, label %if.end.i
 
 if.then.i114:                                     ; preds = %for.body
@@ -744,7 +744,7 @@ if.then4.i:                                       ; preds = %if.end.i
 strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4.i
   %32 = load i64, ptr %buffer2, align 8
   %spec.select.i115 = call i64 @llvm.usub.sat.i64(i64 %32, i64 1)
-  %cmp.i116 = icmp ult i64 %spec.select.i115, %len2.0
+  %cmp.i116 = icmp ugt i64 %len2.0, %spec.select.i115
   br i1 %cmp.i116, label %if.then.i123, label %if.end.i117
 
 if.then.i123:                                     ; preds = %strbuf_setlen.exit

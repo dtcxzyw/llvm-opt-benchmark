@@ -254,7 +254,7 @@ entry:
   %3 = load i32, ptr %mStrideOrTotalSize.i, align 4
   %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %2
   %cond.i = mul i32 %mul.i, %3
-  %cmp.not = icmp ugt i32 %cond.i, %n
+  %cmp.not = icmp ult i32 %n, %cond.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -886,7 +886,7 @@ entry:
   %3 = load i32, ptr %mStrideOrTotalSize.i, align 4
   %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %2
   %cond.i = mul i32 %mul.i, %3
-  %cmp.not = icmp ugt i32 %cond.i, %n
+  %cmp.not = icmp ult i32 %n, %cond.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

@@ -226,7 +226,7 @@ define void @_ZNK22DDBalanceRegionHandler18closeRegionGpuImplEf27DdBalanceRegion
   %29 = fadd float %spec.select, %27
   tail call void @_Z13dd_cycles_addPK12gmx_domdec_tfi(ptr noundef %28, float noundef %29, i32 noundef 2)
   %30 = load ptr, ptr %4, align 8
-  %31 = fadd float %spec.select, %1
+  %31 = fadd float %1, %spec.select
   tail call void @_Z13dd_cycles_addPK12gmx_domdec_tfi(ptr noundef %30, float noundef %31, i32 noundef 3)
   %32 = getelementptr inbounds i8, ptr %.val.val, i64 2
   store i8 0, ptr %32, align 2

@@ -1645,11 +1645,11 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner25hasExceededIterationLimitEv.exit: ; preds =
   %33 = load ptr, ptr %31, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, %1
+  %36 = icmp eq ptr %1, %35
   br i1 %36, label %_ZNSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit, label %.lr.ph.i.i.i.i
 
 37:                                               ; preds = %40
-  %38 = icmp eq ptr %42, %1
+  %38 = icmp eq ptr %1, %42
   br i1 %38, label %_ZNSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 .lr.ph.i.i.i.i:                                   ; preds = %32, %37
@@ -1958,11 +1958,11 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner25hasExceededIterationLimitEv.exit: ; preds =
   %33 = load ptr, ptr %31, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, %1
+  %36 = icmp eq ptr %1, %35
   br i1 %36, label %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit, label %.lr.ph.i.i.i.i
 
 37:                                               ; preds = %40
-  %38 = icmp eq ptr %42, %1
+  %38 = icmp eq ptr %1, %42
   br i1 %38, label %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 .lr.ph.i.i.i.i:                                   ; preds = %32, %37
@@ -3614,7 +3614,7 @@ _ZSt10_ConstructIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEJRKS8_EEvPT_
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
   %42 = tail call ptr @__cxa_begin_catch(ptr %41) #19
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %23
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEvT_SA_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %39, %_ZSt8_DestroyIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEvPT_.exit.i.i.i.i.i.i.i
@@ -3662,7 +3662,7 @@ _ZSt8_DestroyIPN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEvT_SA_.exit.i
 _ZSt34__uninitialized_move_if_noexcept_aIPN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit: ; preds = %_ZSt10_ConstructIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit ], [ %38, %_ZSt10_ConstructIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
-  %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit44, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit, %_ZSt10_ConstructIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i38
@@ -6333,7 +6333,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #19
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -6506,7 +6506,7 @@ _ZSt10_ConstructISt8optionalIN4Luau16FunctionArgumentEEJRKS3_EEvPT_DpOT0_.exit: 
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #19
-  %.not4.i.i = icmp eq ptr %.014, %2
+  %.not4.i.i = icmp eq ptr %2, %.014
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPSt8optionalIN4Luau16FunctionArgumentEEEvT_S5_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %12, %_ZSt8_DestroyISt8optionalIN4Luau16FunctionArgumentEEEvPT_.exit.i.i
@@ -8418,7 +8418,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stE
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -8800,7 +8800,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS5_EEvPT_
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
   %64 = tail call ptr @__cxa_begin_catch(ptr %63) #19
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %56
+  %.not4.i.i.i.i.i.i = icmp eq ptr %56, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %61, %.lr.ph.i.i.i.i.i.i
@@ -8896,7 +8896,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #19
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %13
+  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -9272,7 +9272,7 @@ _ZNSt10_HashtableIPKN4Luau11TypePackVarESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Se
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIPKN4Luau11TypePackVarESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIPKN4Luau11TypePackVarESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge

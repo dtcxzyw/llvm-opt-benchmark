@@ -601,7 +601,7 @@ define dso_local noundef zeroext i1 @__is_insn_slot_addr(ptr noundef %0, i64 nou
   %8 = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
-  %11 = icmp ule i64 %10, %1
+  %11 = icmp uge i64 %1, %10
   %12 = add i64 %10, 4096
   %13 = icmp ugt i64 %12, %1
   %14 = and i1 %11, %13

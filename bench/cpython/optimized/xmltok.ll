@@ -4951,7 +4951,7 @@ sw.bb34:                                          ; preds = %while.body, %while.
 sw.bb35:                                          ; preds = %while.body, %while.body
   %conv = zext nneg i8 %1 to i32
   %add.ptr36 = getelementptr i8, ptr %ptr.addr.053, i64 1
-  %cmp37.not = icmp eq i32 %conv, %open
+  %cmp37.not = icmp eq i32 %open, %conv
   br i1 %cmp37.not, label %if.end40, label %sw.epilog
 
 if.end40:                                         ; preds = %sw.bb35
@@ -11211,7 +11211,7 @@ sw.bb30:                                          ; preds = %while.body, %while.
 sw.bb31:                                          ; preds = %cond.end, %cond.end
   %conv4 = zext nneg i8 %3 to i32
   %add.ptr32 = getelementptr i8, ptr %ptr.addr.050, i64 2
-  %cmp33.not = icmp eq i32 %conv4, %open
+  %cmp33.not = icmp eq i32 %open, %conv4
   br i1 %cmp33.not, label %if.end36, label %sw.epilog
 
 if.end36:                                         ; preds = %sw.bb31
@@ -17288,7 +17288,7 @@ sw.bb31:                                          ; preds = %while.body, %while.
 sw.bb32:                                          ; preds = %cond.end, %cond.end
   %conv5 = zext nneg i8 %3 to i32
   %add.ptr33 = getelementptr i8, ptr %ptr.addr.050, i64 2
-  %cmp34.not = icmp eq i32 %conv5, %open
+  %cmp34.not = icmp eq i32 %open, %conv5
   br i1 %cmp34.not, label %if.end37, label %sw.epilog
 
 if.end37:                                         ; preds = %sw.bb32

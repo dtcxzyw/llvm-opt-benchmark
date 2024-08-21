@@ -270,7 +270,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   %10 = getelementptr inbounds i8, ptr %6, i64 64
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   %. = sext i1 %13 to i64
   br label %119
 
@@ -283,7 +283,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   %18 = getelementptr inbounds i8, ptr %6, i64 64
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %.not = icmp ugt i64 %20, %1
+  %.not = icmp ult i64 %1, %20
   br i1 %.not, label %21, label %119
 
 21:                                               ; preds = %17
@@ -375,7 +375,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   %73 = getelementptr inbounds i8, ptr %6, i64 56
   %74 = load i32, ptr %73, align 8
   %75 = zext i32 %74 to i64
-  %.not113 = icmp ugt i64 %75, %1
+  %.not113 = icmp ult i64 %1, %75
   br i1 %.not113, label %89, label %76
 
 76:                                               ; preds = %72
@@ -806,8 +806,8 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %117 = fmul float %110, %52
   %118 = tail call float @llvm.fmuladd.f32(float %106, float 0.000000e+00, float %117)
   %119 = fpext float %118 to double
-  %120 = fneg float %99
-  %121 = fmul float %62, %120
+  %120 = fneg float %62
+  %121 = fmul float %99, %120
   %122 = tail call float @llvm.fmuladd.f32(float %95, float 0.000000e+00, float %121)
   %123 = fpext float %122 to double
   %124 = fmul float %62, %110
@@ -1155,7 +1155,7 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   %136 = getelementptr inbounds i8, ptr %9, i64 40
   %137 = load i32, ptr %136, align 8
   %138 = icmp eq i32 %137, 2
-  br i1 %138, label %139, label %154
+  br i1 %138, label %139, label %153
 
 139:                                              ; preds = %135
   %140 = getelementptr inbounds i8, ptr %45, i64 112
@@ -1170,143 +1170,142 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   %148 = getelementptr inbounds i8, ptr %9, i64 16
   %149 = load i64, ptr %148, align 8
   %150 = sitofp i64 %149 to float
-  %151 = fmul float %150, 0x3EF0000000000000
-  %152 = fneg float %143
-  %153 = fmul float %151, %152
-  br label %175
+  %151 = fmul float %150, 0xBEF0000000000000
+  %152 = fmul float %143, %151
+  br label %174
 
-154:                                              ; preds = %135
-  %155 = getelementptr inbounds i8, ptr %45, i64 128
-  %156 = getelementptr inbounds i8, ptr %45, i64 136
-  %157 = load i64, ptr %156, align 8
-  %.not163 = icmp eq i64 %157, 0
-  %158 = load i64, ptr %155, align 8
-  br i1 %.not163, label %159, label %162
+153:                                              ; preds = %135
+  %154 = getelementptr inbounds i8, ptr %45, i64 128
+  %155 = getelementptr inbounds i8, ptr %45, i64 136
+  %156 = load i64, ptr %155, align 8
+  %.not163 = icmp eq i64 %156, 0
+  %157 = load i64, ptr %154, align 8
+  br i1 %.not163, label %158, label %161
 
-159:                                              ; preds = %154
-  %160 = sitofp i64 %158 to float
-  %161 = fmul float %160, 1.562500e-02
-  store float %161, ptr %104, align 8
-  br label %175
+158:                                              ; preds = %153
+  %159 = sitofp i64 %157 to float
+  %160 = fmul float %159, 1.562500e-02
+  store float %160, ptr %104, align 8
+  br label %174
 
-162:                                              ; preds = %154
-  %.not164 = icmp eq i64 %158, 0
-  br i1 %.not164, label %163, label %168
+161:                                              ; preds = %153
+  %.not164 = icmp eq i64 %157, 0
+  br i1 %.not164, label %162, label %167
 
-163:                                              ; preds = %162
+162:                                              ; preds = %161
   store float 0.000000e+00, ptr %104, align 8
-  %164 = load i64, ptr %156, align 8
-  %165 = sub nsw i64 0, %164
-  %166 = sitofp i64 %165 to float
-  %167 = fmul float %166, 1.562500e-02
-  br label %175
+  %163 = load i64, ptr %155, align 8
+  %164 = sub nsw i64 0, %163
+  %165 = sitofp i64 %164 to float
+  %166 = fmul float %165, 1.562500e-02
+  br label %174
 
-168:                                              ; preds = %162
-  %169 = sitofp i64 %158 to float
-  %170 = fmul float %169, 1.562500e-02
-  store float %170, ptr %104, align 8
-  %171 = load i64, ptr %156, align 8
-  %172 = sub nsw i64 0, %171
-  %173 = sitofp i64 %172 to float
-  %174 = fmul float %173, 1.562500e-02
-  br label %175
+167:                                              ; preds = %161
+  %168 = sitofp i64 %157 to float
+  %169 = fmul float %168, 1.562500e-02
+  store float %169, ptr %104, align 8
+  %170 = load i64, ptr %155, align 8
+  %171 = sub nsw i64 0, %170
+  %172 = sitofp i64 %171 to float
+  %173 = fmul float %172, 1.562500e-02
+  br label %174
 
-175:                                              ; preds = %159, %168, %163, %139
-  %.sink = phi float [ 0.000000e+00, %159 ], [ %174, %168 ], [ %167, %163 ], [ %153, %139 ]
-  %176 = getelementptr inbounds i8, ptr %104, i64 4
-  store float %.sink, ptr %176, align 4
-  %177 = icmp eq i32 %101, 0
-  br i1 %177, label %178, label %180
+174:                                              ; preds = %158, %167, %162, %139
+  %.sink = phi float [ 0.000000e+00, %158 ], [ %173, %167 ], [ %166, %162 ], [ %152, %139 ]
+  %175 = getelementptr inbounds i8, ptr %104, i64 4
+  store float %.sink, ptr %175, align 4
+  %176 = icmp eq i32 %101, 0
+  br i1 %176, label %177, label %179
 
-178:                                              ; preds = %175
-  %179 = getelementptr inbounds i8, ptr %104, i64 32
-  store ptr null, ptr %179, align 8
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds i8, ptr %104, i64 32
+  store ptr null, ptr %178, align 8
   br label %CopyFTSubpixelToSubpixel.exit
 
-180:                                              ; preds = %175
-  %181 = getelementptr inbounds i8, ptr %104, i64 40
-  %182 = getelementptr inbounds i8, ptr %104, i64 32
-  store ptr %181, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %45, i64 178
-  %184 = load i8, ptr %183, align 2
-  switch i8 %184, label %222 [
-    i8 1, label %185
-    i8 2, label %191
-    i8 4, label %194
-    i8 5, label %200
-    i8 6, label %213
+179:                                              ; preds = %174
+  %180 = getelementptr inbounds i8, ptr %104, i64 40
+  %181 = getelementptr inbounds i8, ptr %104, i64 32
+  store ptr %180, ptr %181, align 8
+  %182 = getelementptr inbounds i8, ptr %45, i64 178
+  %183 = load i8, ptr %182, align 2
+  switch i8 %183, label %221 [
+    i8 1, label %184
+    i8 2, label %190
+    i8 4, label %193
+    i8 5, label %199
+    i8 6, label %212
   ]
 
-185:                                              ; preds = %180
-  %186 = getelementptr inbounds i8, ptr %45, i64 168
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %45, i64 160
-  %189 = load i32, ptr %188, align 8
-  %190 = zext i16 %.0144 to i32
-  call fastcc void @CopyBW2Grey8(ptr noundef %187, i32 noundef %189, ptr noundef nonnull %181, i32 noundef %190, i32 noundef %190, i32 noundef %100)
+184:                                              ; preds = %179
+  %185 = getelementptr inbounds i8, ptr %45, i64 168
+  %186 = load ptr, ptr %185, align 8
+  %187 = getelementptr inbounds i8, ptr %45, i64 160
+  %188 = load i32, ptr %187, align 8
+  %189 = zext i16 %.0144 to i32
+  call fastcc void @CopyBW2Grey8(ptr noundef %186, i32 noundef %188, ptr noundef nonnull %180, i32 noundef %189, i32 noundef %189, i32 noundef %100)
   br label %CopyFTSubpixelToSubpixel.exit
 
-191:                                              ; preds = %180
-  %192 = getelementptr inbounds i8, ptr %45, i64 168
-  %193 = load ptr, ptr %192, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr align 1 %193, i64 %102, i1 false)
+190:                                              ; preds = %179
+  %191 = getelementptr inbounds i8, ptr %45, i64 168
+  %192 = load ptr, ptr %191, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %180, ptr align 1 %192, i64 %102, i1 false)
   br label %CopyFTSubpixelToSubpixel.exit
 
-194:                                              ; preds = %180
-  %195 = getelementptr inbounds i8, ptr %45, i64 168
-  %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %45, i64 160
-  %198 = load i32, ptr %197, align 8
-  %199 = zext i16 %.0144 to i32
-  call fastcc void @CopyGrey4ToGrey8(ptr noundef %196, i32 noundef %198, ptr noundef nonnull %181, i32 noundef %199, i32 noundef %199, i32 noundef %100)
+193:                                              ; preds = %179
+  %194 = getelementptr inbounds i8, ptr %45, i64 168
+  %195 = load ptr, ptr %194, align 8
+  %196 = getelementptr inbounds i8, ptr %45, i64 160
+  %197 = load i32, ptr %196, align 8
+  %198 = zext i16 %.0144 to i32
+  call fastcc void @CopyGrey4ToGrey8(ptr noundef %195, i32 noundef %197, ptr noundef nonnull %180, i32 noundef %198, i32 noundef %198, i32 noundef %100)
   br label %CopyFTSubpixelToSubpixel.exit
 
-200:                                              ; preds = %180
+199:                                              ; preds = %179
   %.not11.i = icmp eq i16 %.0145, 0
   br i1 %.not11.i, label %CopyFTSubpixelToSubpixel.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %200
-  %201 = getelementptr inbounds i8, ptr %104, i64 43
-  %202 = getelementptr inbounds i8, ptr %45, i64 160
-  %203 = load i32, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %45, i64 168
-  %205 = load ptr, ptr %204, align 8
-  %206 = zext i16 %.0144 to i64
-  %207 = sext i32 %203 to i64
-  %208 = zext i16 %.1 to i64
-  br label %209
+.lr.ph.i:                                         ; preds = %199
+  %200 = getelementptr inbounds i8, ptr %104, i64 43
+  %201 = getelementptr inbounds i8, ptr %45, i64 160
+  %202 = load i32, ptr %201, align 8
+  %203 = getelementptr inbounds i8, ptr %45, i64 168
+  %204 = load ptr, ptr %203, align 8
+  %205 = zext i16 %.0144 to i64
+  %206 = sext i32 %202 to i64
+  %207 = zext i16 %.1 to i64
+  br label %208
 
-209:                                              ; preds = %209, %.lr.ph.i
-  %.014.i = phi ptr [ %201, %.lr.ph.i ], [ %212, %209 ]
-  %.0913.i = phi ptr [ %205, %.lr.ph.i ], [ %211, %209 ]
-  %.01012.i = phi i32 [ %100, %.lr.ph.i ], [ %210, %209 ]
-  %210 = add nsw i32 %.01012.i, -1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.014.i, ptr align 1 %.0913.i, i64 %206, i1 false)
-  %211 = getelementptr inbounds i8, ptr %.0913.i, i64 %207
-  %212 = getelementptr inbounds i8, ptr %.014.i, i64 %208
-  %.not.i = icmp eq i32 %210, 0
-  br i1 %.not.i, label %CopyFTSubpixelToSubpixel.exit, label %209, !llvm.loop !6
+208:                                              ; preds = %208, %.lr.ph.i
+  %.014.i = phi ptr [ %200, %.lr.ph.i ], [ %211, %208 ]
+  %.0913.i = phi ptr [ %204, %.lr.ph.i ], [ %210, %208 ]
+  %.01012.i = phi i32 [ %100, %.lr.ph.i ], [ %209, %208 ]
+  %209 = add nsw i32 %.01012.i, -1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.014.i, ptr align 1 %.0913.i, i64 %205, i1 false)
+  %210 = getelementptr inbounds i8, ptr %.0913.i, i64 %206
+  %211 = getelementptr inbounds i8, ptr %.014.i, i64 %207
+  %.not.i = icmp eq i32 %209, 0
+  br i1 %.not.i, label %CopyFTSubpixelToSubpixel.exit, label %208, !llvm.loop !6
 
-213:                                              ; preds = %180
-  %214 = getelementptr inbounds i8, ptr %45, i64 168
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %45, i64 160
-  %217 = load i32, ptr %216, align 8
-  %218 = zext i16 %.0144 to i32
-  %219 = mul nuw nsw i32 %218, 3
-  call fastcc void @CopyFTSubpixelVToSubpixel(ptr noundef %215, i32 noundef %217, ptr noundef nonnull %181, i32 noundef %219, i32 noundef %218, i32 noundef %100)
-  %220 = load i16, ptr %111, align 4
-  %221 = mul i16 %220, 3
-  store i16 %221, ptr %111, align 4
+212:                                              ; preds = %179
+  %213 = getelementptr inbounds i8, ptr %45, i64 168
+  %214 = load ptr, ptr %213, align 8
+  %215 = getelementptr inbounds i8, ptr %45, i64 160
+  %216 = load i32, ptr %215, align 8
+  %217 = zext i16 %.0144 to i32
+  %218 = mul nuw nsw i32 %217, 3
+  call fastcc void @CopyFTSubpixelVToSubpixel(ptr noundef %214, i32 noundef %216, ptr noundef nonnull %180, i32 noundef %218, i32 noundef %217, i32 noundef %100)
+  %219 = load i16, ptr %111, align 4
+  %220 = mul i16 %219, 3
+  store i16 %220, ptr %111, align 4
   br label %CopyFTSubpixelToSubpixel.exit
 
-222:                                              ; preds = %180
+221:                                              ; preds = %179
   call void @free(ptr noundef nonnull %104) #19
-  %223 = call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #20
+  %222 = call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #20
   br label %CopyFTSubpixelToSubpixel.exit
 
-CopyFTSubpixelToSubpixel.exit:                    ; preds = %209, %200, %178, %191, %222, %213, %194, %185, %106, %96, %79, %74, %40, %18, %14
-  %.0.in = phi ptr [ %15, %14 ], [ %19, %18 ], [ %41, %40 ], [ %75, %74 ], [ %80, %79 ], [ %97, %96 ], [ %107, %106 ], [ %104, %178 ], [ %104, %185 ], [ %104, %191 ], [ %104, %194 ], [ %104, %213 ], [ %223, %222 ], [ %104, %200 ], [ %104, %209 ]
+CopyFTSubpixelToSubpixel.exit:                    ; preds = %208, %199, %177, %190, %221, %212, %193, %184, %106, %96, %79, %74, %40, %18, %14
+  %.0.in = phi ptr [ %15, %14 ], [ %19, %18 ], [ %41, %40 ], [ %75, %74 ], [ %80, %79 ], [ %97, %96 ], [ %107, %106 ], [ %104, %177 ], [ %104, %184 ], [ %104, %190 ], [ %104, %193 ], [ %104, %212 ], [ %222, %221 ], [ %104, %199 ], [ %104, %208 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -2176,7 +2175,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphPointNative(ptr noundef %0,
   %31 = getelementptr inbounds i8, ptr %24, i64 202
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i32
-  %34 = icmp sgt i32 %33, %6
+  %34 = icmp slt i32 %6, %33
   br i1 %34, label %35, label %getFTOutline.exit.thread
 
 35:                                               ; preds = %29

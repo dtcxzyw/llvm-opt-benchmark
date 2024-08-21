@@ -408,7 +408,7 @@ define internal fastcc i32 @SlruSelectLRUPage(ptr noundef %0, i64 noundef %1) un
 .backedge:                                        ; preds = %.backedge.backedge, %2
   %12 = load i16, ptr %4, align 8
   %13 = zext i16 %12 to i64
-  %14 = and i64 %13, %1
+  %14 = and i64 %1, %13
   %15 = shl nuw nsw i64 %14, 4
   %16 = load i32, ptr %3, align 8
   %17 = icmp sgt i32 %16, 0
@@ -1083,7 +1083,7 @@ define dso_local i32 @SimpleLruReadPage_ReadOnly(ptr noundef %0, i64 noundef %1,
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i16, ptr %5, align 8
   %7 = zext i16 %6 to i64
-  %8 = and i64 %7, %1
+  %8 = and i64 %1, %7
   %9 = shl nuw nsw i64 %8, 4
   %10 = getelementptr inbounds i8, ptr %4, i64 56
   %11 = load ptr, ptr %10, align 8

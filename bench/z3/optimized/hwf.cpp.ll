@@ -651,7 +651,7 @@ entry:
   %conv = zext i32 %exponent to i64
   %add = shl i64 %conv, 52
   %shl = add i64 %add, 4607182418800017408
-  %or = or i64 %cond, %significand
+  %or = or i64 %significand, %cond
   %or2 = or i64 %or, %shl
   store i64 %or2, ptr %o, align 8
   ret void

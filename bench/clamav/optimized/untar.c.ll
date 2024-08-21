@@ -82,7 +82,7 @@ define i32 @cli_untar(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   %22 = load ptr, ptr %14, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 88
   %24 = load i64, ptr %23, align 8
-  %.not.i = icmp ugt i64 %24, %.0108
+  %.not.i = icmp ult i64 %.0108, %24
   br i1 %.not.i, label %25, label %fmap_need_off_once_len.exit
 
 25:                                               ; preds = %.backedge
@@ -208,8 +208,8 @@ fmap_need_off_once_len.exit:                      ; preds = %.backedge, %25
   br i1 %exitcond.not.i, label %testchecksum.exit, label %.preheader.i
 
 testchecksum.exit:                                ; preds = %75
-  %77 = icmp eq i32 %.122.i, %.0.i.i
-  %78 = icmp eq i32 %76, %.0.i.i
+  %77 = icmp eq i32 %.0.i.i, %.122.i
+  %78 = icmp eq i32 %.0.i.i, %76
   %or.cond25.not.i.not = select i1 %77, i1 true, i1 %78
   br i1 %or.cond25.not.i.not, label %81, label %testchecksum.exit.thread
 

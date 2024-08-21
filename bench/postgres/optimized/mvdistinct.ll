@@ -59,7 +59,7 @@ define dso_local noundef ptr @statext_ndistinct_build(double noundef %0, ptr noc
   %.03554 = phi i32 [ 0, %.lr.ph57 ], [ %.1.lcssa, %generator_next.exit.thread ]
   %19 = tail call ptr @palloc(i64 noundef 24) #9
   %20 = sub i32 %4, %.03455
-  %21 = tail call i32 @llvm.smin.i32(i32 %20, i32 %.03455)
+  %21 = tail call i32 @llvm.smin.i32(i32 %.03455, i32 %20)
   %.not16.i.i = icmp slt i32 %21, 1
   br i1 %.not16.i.i, label %generator_init.exit, label %.lr.ph.preheader.i.i
 
@@ -878,13 +878,13 @@ declare double @llvm.floor.f64(double) #5
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @generate_combinations_recurse(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #6 {
   %5 = load i32, ptr %0, align 8
-  %6 = icmp sgt i32 %5, %1
+  %6 = icmp slt i32 %1, %5
   br i1 %6, label %.preheader, label %17
 
 .preheader:                                       ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = icmp sgt i32 %8, %2
+  %9 = icmp slt i32 %2, %8
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader

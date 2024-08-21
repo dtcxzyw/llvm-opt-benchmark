@@ -404,7 +404,7 @@ define range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr
   %14 = load ptr, ptr %2, align 8
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
-  %17 = icmp eq i64 %16, %0
+  %17 = icmp eq i64 %0, %16
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %13, %.lr.ph

@@ -296,7 +296,7 @@ define ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %1, i32 noundef %2
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
-  %.not26.i.i.i = icmp ult i32 %18, %11
+  %.not26.i.i.i = icmp ugt i32 %11, %18
   br i1 %.not26.i.i.i, label %_tvb_captured_length_remaining.exit.thread, label %19
 
 19:                                               ; preds = %16
@@ -514,7 +514,7 @@ define ptr @tvb_new_octet_right_aligned(ptr noundef %0, i32 noundef %1, i32 noun
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
-  %.not26.i.i.i = icmp ult i32 %17, %10
+  %.not26.i.i.i = icmp ugt i32 %10, %17
   br i1 %.not26.i.i.i, label %_tvb_captured_length_remaining.exit.thread, label %18
 
 18:                                               ; preds = %15
@@ -699,7 +699,7 @@ define ptr @tvb_clone_offset_len(ptr noundef %0, i32 noundef %1, i32 noundef %2)
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %0, i64 40
   %20 = load i32, ptr %19, align 8
-  %.not26.i.i.i.i = icmp ult i32 %20, %1
+  %.not26.i.i.i.i = icmp ugt i32 %1, %20
   br i1 %.not26.i.i.i.i, label %tvb_bytes_exist.exit.thread.i, label %27
 
 21:                                               ; preds = %16
@@ -718,7 +718,7 @@ define ptr @tvb_clone_offset_len(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %29 = phi i32 [ %26, %25 ], [ %1, %18 ]
   %30 = add i32 %29, %2
   %31 = icmp ult i32 %30, %29
-  %.not.i27.i.i.not.i = icmp ult i32 %28, %30
+  %.not.i27.i.i.not.i = icmp ugt i32 %30, %28
   %or.cond.i = or i1 %31, %.not.i27.i.i.not.i
   br i1 %or.cond.i, label %tvb_bytes_exist.exit.thread.i, label %tvb_generic_clone_offset_len.exit
 
@@ -790,7 +790,7 @@ define i32 @tvb_captured_length_remaining(ptr noundef readonly %0, i32 noundef %
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
-  %.not26.i.i = icmp ult i32 %11, %1
+  %.not26.i.i = icmp ugt i32 %1, %11
   br i1 %.not26.i.i, label %compute_offset_and_remaining.exit.thread, label %18
 
 12:                                               ; preds = %7
@@ -832,108 +832,117 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
 
 7:                                                ; preds = %3
   %8 = icmp sgt i32 %1, -1
-  br i1 %8, label %9, label %19
+  br i1 %8, label %9, label %22
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
-  %.not26.i.i = icmp ult i32 %11, %1
-  br i1 %.not26.i.i, label %12, label %35
+  %.not26.i.i = icmp ugt i32 %1, %11
+  br i1 %.not26.i.i, label %12, label %39
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
-  %.not27.i.i = icmp ult i32 %14, %1
-  br i1 %.not27.i.i, label %15, label %34
+  %.not27.i.i = icmp ugt i32 %1, %14
+  br i1 %.not27.i.i, label %15, label %38
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 1
   %.not28.i.i = icmp eq i32 %18, 0
-  br i1 %.not28.i.i, label %.sink.split, label %34
+  br i1 %.not28.i.i, label %19, label %38
 
-19:                                               ; preds = %7
-  %20 = sub i32 0, %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
-  %22 = load i32, ptr %21, align 8
-  %.not.i.i = icmp ult i32 %22, %20
-  br i1 %.not.i.i, label %25, label %23
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %21 = load i32, ptr %20, align 4
+  %.not29.i.i = icmp ugt i32 %1, %21
+  br label %.sink.split
 
-23:                                               ; preds = %19
-  %24 = add i32 %22, %1
-  br label %35
+22:                                               ; preds = %7
+  %23 = sub i32 0, %1
+  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = load i32, ptr %24, align 8
+  %.not.i.i = icmp ult i32 %25, %23
+  br i1 %.not.i.i, label %28, label %26
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
-  %27 = load i32, ptr %26, align 8
-  %.not23.i.i = icmp ult i32 %27, %20
-  br i1 %.not23.i.i, label %28, label %34
+26:                                               ; preds = %22
+  %27 = add i32 %25, %1
+  br label %39
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
-  %30 = load i32, ptr %29, align 4
-  %31 = and i32 %30, 1
-  %.not24.i.i = icmp eq i32 %31, 0
-  br i1 %.not24.i.i, label %.sink.split, label %34
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = load i32, ptr %29, align 8
+  %.not23.i.i = icmp ult i32 %30, %23
+  br i1 %.not23.i.i, label %31, label %38
 
-.sink.split:                                      ; preds = %28, %15
-  %.sink21 = phi i32 [ %1, %15 ], [ %20, %28 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 44
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %0, i64 20
   %33 = load i32, ptr %32, align 4
-  %.not25.i.i = icmp ult i32 %33, %.sink21
-  %.30.i.i = select i1 %.not25.i.i, i64 3, i64 2
-  br label %34
+  %34 = and i32 %33, 1
+  %.not24.i.i = icmp eq i32 %34, 0
+  br i1 %.not24.i.i, label %35, label %38
 
-34:                                               ; preds = %.sink.split, %28, %25, %15, %12
-  %.0.i9.i.ph = phi i64 [ 1, %12 ], [ 4, %15 ], [ 1, %25 ], [ 4, %28 ], [ %.30.i.i, %.sink.split ]
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %0, i64 44
+  %37 = load i32, ptr %36, align 4
+  %.not25.i.i = icmp ult i32 %37, %23
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %19, %35
+  %.not25.i.i.sink = phi i1 [ %.not25.i.i, %35 ], [ %.not29.i.i, %19 ]
+  %.30.i.i = select i1 %.not25.i.i.sink, i64 3, i64 2
+  br label %38
+
+38:                                               ; preds = %.sink.split, %31, %28, %15, %12
+  %.0.i9.i.ph = phi i64 [ 1, %12 ], [ 4, %15 ], [ 1, %28 ], [ 4, %31 ], [ %.30.i.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #16
   unreachable
 
-35:                                               ; preds = %23, %9
-  %36 = phi i32 [ %22, %23 ], [ %11, %9 ]
-  %storemerge.i.i = phi i32 [ %24, %23 ], [ %1, %9 ]
-  %37 = icmp eq i32 %36, %storemerge.i.i
-  br i1 %37, label %38, label %54
+39:                                               ; preds = %26, %9
+  %40 = phi i32 [ %25, %26 ], [ %11, %9 ]
+  %storemerge.i.i = phi i32 [ %27, %26 ], [ %1, %9 ]
+  %41 = icmp eq i32 %40, %storemerge.i.i
+  br i1 %41, label %42, label %58
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp ult i32 %36, %40
-  br i1 %41, label %42, label %43
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp ult i32 %40, %44
+  br i1 %45, label %46, label %47
 
-42:                                               ; preds = %38
+46:                                               ; preds = %42
   tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #16
   unreachable
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %0, i64 20
-  %45 = load i32, ptr %44, align 4
-  %46 = and i32 %45, 1
-  %.not13 = icmp eq i32 %46, 0
-  br i1 %.not13, label %48, label %47
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds i8, ptr %0, i64 20
+  %49 = load i32, ptr %48, align 4
+  %50 = and i32 %49, 1
+  %.not13 = icmp eq i32 %50, 0
+  br i1 %.not13, label %52, label %51
 
-47:                                               ; preds = %43
+51:                                               ; preds = %47
   tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #16
   unreachable
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 44
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp ult i32 %36, %50
-  br i1 %51, label %52, label %53
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds i8, ptr %0, i64 44
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp ult i32 %40, %54
+  br i1 %55, label %56, label %57
 
-52:                                               ; preds = %48
+56:                                               ; preds = %52
   tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #16
   unreachable
 
-53:                                               ; preds = %48
+57:                                               ; preds = %52
   tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #16
   unreachable
 
-54:                                               ; preds = %35
-  %55 = sub i32 %36, %storemerge.i.i
-  ret i32 %55
+58:                                               ; preds = %39
+  %59 = sub i32 %40, %storemerge.i.i
+  ret i32 %59
 }
 
 ; Function Attrs: noreturn
@@ -965,7 +974,7 @@ define range(i32 0, 2) i32 @tvb_bytes_exist(ptr noundef readonly %0, i32 noundef
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
-  %.not26.i.i = icmp ult i32 %14, %1
+  %.not26.i.i = icmp ugt i32 %1, %14
   br i1 %.not26.i.i, label %check_offset_length_no_exception.exit, label %21
 
 15:                                               ; preds = %10
@@ -987,7 +996,7 @@ define range(i32 0, 2) i32 @tvb_bytes_exist(ptr noundef readonly %0, i32 noundef
   br i1 %25, label %check_offset_length_no_exception.exit, label %26
 
 26:                                               ; preds = %21
-  %.not.i27.i = icmp uge i32 %22, %24
+  %.not.i27.i = icmp ule i32 %24, %22
   %spec.select = zext i1 %.not.i27.i to i32
   br label %check_offset_length_no_exception.exit
 
@@ -1015,18 +1024,18 @@ define internal fastcc i32 @check_offset_length_no_exception(ptr nocapture nound
 
 9:                                                ; preds = %7
   %10 = icmp sgt i32 %1, -1
-  br i1 %10, label %11, label %21
+  br i1 %10, label %11, label %24
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
-  %.not26.i = icmp ult i32 %13, %1
-  br i1 %.not26.i, label %14, label %34
+  %.not26.i = icmp ugt i32 %1, %13
+  br i1 %.not26.i, label %14, label %40
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 8
-  %.not27.i = icmp ult i32 %16, %1
+  %.not27.i = icmp ugt i32 %1, %16
   br i1 %.not27.i, label %17, label %validate_offset.exit
 
 17:                                               ; preds = %14
@@ -1034,85 +1043,98 @@ define internal fastcc i32 @check_offset_length_no_exception(ptr nocapture nound
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not28.i = icmp eq i32 %20, 0
-  br i1 %.not28.i, label %validate_offset.exit.sink.split, label %validate_offset.exit
+  br i1 %.not28.i, label %21, label %validate_offset.exit
 
-21:                                               ; preds = %9
-  %22 = sub i32 0, %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load i32, ptr %23, align 8
-  %.not.i = icmp ult i32 %24, %22
-  br i1 %.not.i, label %27, label %25
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %0, i64 44
+  %23 = load i32, ptr %22, align 4
+  %.not29.i = icmp ugt i32 %1, %23
+  %..i = select i1 %.not29.i, i32 3, i32 2
+  br label %validate_offset.exit
 
-25:                                               ; preds = %21
-  %26 = add i32 %24, %1
-  br label %34
+24:                                               ; preds = %9
+  %25 = sub i32 0, %1
+  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = load i32, ptr %26, align 8
+  %.not.i = icmp ult i32 %27, %25
+  br i1 %.not.i, label %30, label %28
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
-  %29 = load i32, ptr %28, align 8
-  %.not23.i = icmp ult i32 %29, %22
-  br i1 %.not23.i, label %30, label %validate_offset.exit
+28:                                               ; preds = %24
+  %29 = add i32 %27, %1
+  br label %40
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
-  %32 = load i32, ptr %31, align 4
-  %33 = and i32 %32, 1
-  %.not24.i = icmp eq i32 %33, 0
-  br i1 %.not24.i, label %validate_offset.exit.sink.split, label %validate_offset.exit
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = load i32, ptr %31, align 8
+  %.not23.i = icmp ult i32 %32, %25
+  br i1 %.not23.i, label %33, label %validate_offset.exit
 
-34:                                               ; preds = %25, %11
-  %35 = phi i32 [ %26, %25 ], [ %1, %11 ]
-  store i32 %35, ptr %3, align 4
-  %36 = icmp slt i32 %2, -1
-  br i1 %36, label %validate_offset.exit, label %37
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %0, i64 20
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 1
+  %.not24.i = icmp eq i32 %36, 0
+  br i1 %.not24.i, label %37, label %validate_offset.exit
 
-37:                                               ; preds = %34
-  %38 = icmp eq i32 %2, -1
-  br i1 %38, label %39, label %43
-
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
-  %41 = load i32, ptr %40, align 8
-  %42 = sub i32 %41, %35
-  br label %43
-
-43:                                               ; preds = %37, %39
-  %storemerge = phi i32 [ %42, %39 ], [ %2, %37 ]
-  store i32 %storemerge, ptr %4, align 4
-  %44 = load i32, ptr %3, align 4
-  %45 = add i32 %44, %storemerge
-  %46 = icmp ult i32 %45, %44
-  br i1 %46, label %validate_offset.exit, label %47
-
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
-  %49 = load i32, ptr %48, align 8
-  %.not.i27 = icmp ult i32 %49, %45
-  br i1 %.not.i27, label %50, label %validate_offset.exit
-
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
-  %52 = load i32, ptr %51, align 8
-  %.not8.i = icmp ult i32 %52, %45
-  br i1 %.not8.i, label %53, label %validate_offset.exit
-
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %0, i64 20
-  %55 = load i32, ptr %54, align 4
-  %56 = and i32 %55, 1
-  %.not9.i = icmp eq i32 %56, 0
-  br i1 %.not9.i, label %validate_offset.exit.sink.split, label %validate_offset.exit
-
-validate_offset.exit.sink.split:                  ; preds = %53, %30, %17
-  %.sink32 = phi i32 [ %1, %17 ], [ %22, %30 ], [ %45, %53 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 44
-  %58 = load i32, ptr %57, align 4
-  %.not25.i = icmp ult i32 %58, %.sink32
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %0, i64 44
+  %39 = load i32, ptr %38, align 4
+  %.not25.i = icmp ult i32 %39, %25
   %.30.i = select i1 %.not25.i, i32 3, i32 2
   br label %validate_offset.exit
 
-validate_offset.exit:                             ; preds = %validate_offset.exit.sink.split, %30, %27, %17, %14, %53, %50, %47, %43, %34
-  %.0 = phi i32 [ 1, %34 ], [ 1, %43 ], [ 0, %47 ], [ 1, %50 ], [ 4, %53 ], [ 4, %30 ], [ 1, %27 ], [ 4, %17 ], [ 1, %14 ], [ %.30.i, %validate_offset.exit.sink.split ]
+40:                                               ; preds = %28, %11
+  %41 = phi i32 [ %29, %28 ], [ %1, %11 ]
+  store i32 %41, ptr %3, align 4
+  %42 = icmp slt i32 %2, -1
+  br i1 %42, label %validate_offset.exit, label %43
+
+43:                                               ; preds = %40
+  %44 = icmp eq i32 %2, -1
+  br i1 %44, label %45, label %49
+
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = load i32, ptr %46, align 8
+  %48 = sub i32 %47, %41
+  br label %49
+
+49:                                               ; preds = %43, %45
+  %storemerge = phi i32 [ %48, %45 ], [ %2, %43 ]
+  store i32 %storemerge, ptr %4, align 4
+  %50 = load i32, ptr %3, align 4
+  %51 = add i32 %50, %storemerge
+  %52 = icmp ult i32 %51, %50
+  br i1 %52, label %validate_offset.exit, label %53
+
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds i8, ptr %0, i64 40
+  %55 = load i32, ptr %54, align 8
+  %.not.i27 = icmp ugt i32 %51, %55
+  br i1 %.not.i27, label %56, label %validate_offset.exit
+
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = load i32, ptr %57, align 8
+  %.not8.i = icmp ugt i32 %51, %58
+  br i1 %.not8.i, label %59, label %validate_offset.exit
+
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds i8, ptr %0, i64 20
+  %61 = load i32, ptr %60, align 4
+  %62 = and i32 %61, 1
+  %.not9.i = icmp eq i32 %62, 0
+  br i1 %.not9.i, label %63, label %validate_offset.exit
+
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds i8, ptr %0, i64 44
+  %65 = load i32, ptr %64, align 4
+  %.not10.i = icmp ugt i32 %51, %65
+  %..i29 = select i1 %.not10.i, i32 3, i32 2
+  br label %validate_offset.exit
+
+validate_offset.exit:                             ; preds = %37, %33, %30, %21, %17, %14, %63, %59, %56, %53, %49, %40
+  %.0 = phi i32 [ 1, %40 ], [ 1, %49 ], [ 0, %53 ], [ 1, %56 ], [ 4, %59 ], [ %..i29, %63 ], [ %.30.i, %37 ], [ 4, %33 ], [ 1, %30 ], [ %..i, %21 ], [ 4, %17 ], [ 1, %14 ]
   ret i32 %.0
 }
 
@@ -1161,13 +1183,13 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not42 = icmp ult i32 %15, %1
+  %.not42 = icmp ugt i32 %1, %15
   br i1 %.not42, label %16, label %50
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   %18 = load i32, ptr %17, align 8
-  %.not43 = icmp ult i32 %18, %1
+  %.not43 = icmp ugt i32 %1, %18
   br i1 %.not43, label %20, label %19
 
 19:                                               ; preds = %16
@@ -1188,7 +1210,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i8, ptr %0, i64 44
   %27 = load i32, ptr %26, align 4
-  %.not45 = icmp ult i32 %27, %1
+  %.not45 = icmp ugt i32 %1, %27
   br i1 %.not45, label %29, label %28
 
 28:                                               ; preds = %25
@@ -1321,7 +1343,7 @@ define range(i32 0, 2) i32 @tvb_offset_exists(ptr noundef readonly %0, i32 nound
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
-  %.not26.i = icmp ult i32 %11, %1
+  %.not26.i = icmp ugt i32 %1, %11
   br i1 %.not26.i, label %compute_offset.exit.thread, label %compute_offset.exit
 
 12:                                               ; preds = %7
@@ -1390,7 +1412,7 @@ define i32 @tvb_reported_length_remaining(ptr noundef readonly %0, i32 noundef %
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
-  %.not26.i = icmp ult i32 %11, %1
+  %.not26.i = icmp ugt i32 %1, %11
   br i1 %.not26.i, label %compute_offset.exit.thread, label %compute_offset.exit
 
 12:                                               ; preds = %7
@@ -1433,76 +1455,85 @@ define i32 @tvb_ensure_reported_length_remaining(ptr noundef readonly %0, i32 no
 
 7:                                                ; preds = %3
   %8 = icmp sgt i32 %1, -1
-  br i1 %8, label %9, label %19
+  br i1 %8, label %9, label %22
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
-  %.not26.i = icmp ult i32 %11, %1
+  %.not26.i = icmp ugt i32 %1, %11
   br i1 %.not26.i, label %12, label %compute_offset.exit
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
-  %.not27.i = icmp ult i32 %14, %1
-  br i1 %.not27.i, label %15, label %34
+  %.not27.i = icmp ugt i32 %1, %14
+  br i1 %.not27.i, label %15, label %38
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 1
   %.not28.i = icmp eq i32 %18, 0
-  br i1 %.not28.i, label %.sink.split, label %34
+  br i1 %.not28.i, label %19, label %38
 
-19:                                               ; preds = %7
-  %20 = sub i32 0, %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
-  %22 = load i32, ptr %21, align 8
-  %.not.i = icmp ult i32 %22, %20
-  br i1 %.not.i, label %25, label %23
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %21 = load i32, ptr %20, align 4
+  %.not29.i = icmp ugt i32 %1, %21
+  br label %.sink.split
 
-23:                                               ; preds = %19
-  %24 = add i32 %22, %1
+22:                                               ; preds = %7
+  %23 = sub i32 0, %1
+  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = load i32, ptr %24, align 8
+  %.not.i = icmp ult i32 %25, %23
+  br i1 %.not.i, label %28, label %26
+
+26:                                               ; preds = %22
+  %27 = add i32 %25, %1
   br label %compute_offset.exit
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
-  %27 = load i32, ptr %26, align 8
-  %.not23.i = icmp ult i32 %27, %20
-  br i1 %.not23.i, label %28, label %34
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = load i32, ptr %29, align 8
+  %.not23.i = icmp ult i32 %30, %23
+  br i1 %.not23.i, label %31, label %38
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
-  %30 = load i32, ptr %29, align 4
-  %31 = and i32 %30, 1
-  %.not24.i = icmp eq i32 %31, 0
-  br i1 %.not24.i, label %.sink.split, label %34
-
-.sink.split:                                      ; preds = %28, %15
-  %.sink17 = phi i32 [ %1, %15 ], [ %20, %28 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 44
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %0, i64 20
   %33 = load i32, ptr %32, align 4
-  %.not29.i = icmp ult i32 %33, %.sink17
-  %..i = select i1 %.not29.i, i64 3, i64 2
-  br label %34
+  %34 = and i32 %33, 1
+  %.not24.i = icmp eq i32 %34, 0
+  br i1 %.not24.i, label %35, label %38
 
-34:                                               ; preds = %.sink.split, %12, %15, %25, %28
-  %.0.i.ph = phi i64 [ 4, %28 ], [ 1, %25 ], [ 4, %15 ], [ 1, %12 ], [ %..i, %.sink.split ]
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %0, i64 44
+  %37 = load i32, ptr %36, align 4
+  %.not25.i = icmp ult i32 %37, %23
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %35, %19
+  %.not29.i.sink = phi i1 [ %.not29.i, %19 ], [ %.not25.i, %35 ]
+  %..i = select i1 %.not29.i.sink, i64 3, i64 2
+  br label %38
+
+38:                                               ; preds = %.sink.split, %12, %15, %28, %31
+  %.0.i.ph = phi i64 [ 4, %31 ], [ 1, %28 ], [ 4, %15 ], [ 1, %12 ], [ %..i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #16
   unreachable
 
-compute_offset.exit:                              ; preds = %23, %9
-  %.0 = phi i32 [ %24, %23 ], [ %1, %9 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 44
-  %36 = load i32, ptr %35, align 4
-  %.not12 = icmp ult i32 %36, %.0
-  br i1 %.not12, label %39, label %37
+compute_offset.exit:                              ; preds = %26, %9
+  %.0 = phi i32 [ %27, %26 ], [ %1, %9 ]
+  %39 = getelementptr inbounds i8, ptr %0, i64 44
+  %40 = load i32, ptr %39, align 4
+  %.not12 = icmp ult i32 %40, %.0
+  br i1 %.not12, label %43, label %41
 
-37:                                               ; preds = %compute_offset.exit
-  %38 = sub nuw i32 %36, %.0
-  ret i32 %38
+41:                                               ; preds = %compute_offset.exit
+  %42 = sub nuw i32 %40, %.0
+  ret i32 %42
 
-39:                                               ; preds = %compute_offset.exit
+43:                                               ; preds = %compute_offset.exit
   tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #16
   unreachable
 }
@@ -1525,7 +1556,7 @@ define void @tvb_set_reported_length(ptr noundef %0, i32 noundef %1) local_unnam
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
-  %10 = icmp ult i32 %9, %1
+  %10 = icmp ugt i32 %1, %9
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
@@ -1536,7 +1567,7 @@ define void @tvb_set_reported_length(ptr noundef %0, i32 noundef %1) local_unnam
   store i32 %1, ptr %8, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
-  %15 = icmp ugt i32 %14, %1
+  %15 = icmp ult i32 %1, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
@@ -1546,7 +1577,7 @@ define void @tvb_set_reported_length(ptr noundef %0, i32 noundef %1) local_unnam
 17:                                               ; preds = %16, %12
   %18 = getelementptr inbounds i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8
-  %20 = icmp ugt i32 %19, %1
+  %20 = icmp ult i32 %1, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
@@ -1661,126 +1692,141 @@ define ptr @tvb_memcpy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
 12:                                               ; preds = %9
   %13 = trunc nuw nsw i64 %3 to i32
   %14 = icmp sgt i32 %2, -1
-  br i1 %14, label %15, label %25
+  br i1 %14, label %15, label %28
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
-  %.not26.i.i = icmp ult i32 %17, %2
-  br i1 %.not26.i.i, label %18, label %38
+  %.not26.i.i = icmp ugt i32 %2, %17
+  br i1 %.not26.i.i, label %18, label %44
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 48
   %20 = load i32, ptr %19, align 8
-  %.not27.i.i = icmp ult i32 %20, %2
-  br i1 %.not27.i.i, label %21, label %53
+  %.not27.i.i = icmp ugt i32 %2, %20
+  br i1 %.not27.i.i, label %21, label %60
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 1
   %.not28.i.i = icmp eq i32 %24, 0
-  br i1 %.not28.i.i, label %validate_offset.exit.sink.split.i, label %53
+  br i1 %.not28.i.i, label %25, label %60
 
-25:                                               ; preds = %12
-  %26 = sub i32 0, %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
-  %28 = load i32, ptr %27, align 8
-  %.not.i.i = icmp ult i32 %28, %26
-  br i1 %.not.i.i, label %31, label %29
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %0, i64 44
+  %27 = load i32, ptr %26, align 4
+  %.not29.i.i = icmp ugt i32 %2, %27
+  br label %.sink.split
 
-29:                                               ; preds = %25
-  %30 = add i32 %28, %2
-  br label %38
+28:                                               ; preds = %12
+  %29 = sub i32 0, %2
+  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = load i32, ptr %30, align 8
+  %.not.i.i = icmp ult i32 %31, %29
+  br i1 %.not.i.i, label %34, label %32
 
-31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
-  %33 = load i32, ptr %32, align 8
-  %.not23.i.i = icmp ult i32 %33, %26
-  br i1 %.not23.i.i, label %34, label %53
+32:                                               ; preds = %28
+  %33 = add i32 %31, %2
+  br label %44
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 20
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, 1
-  %.not24.i.i = icmp eq i32 %37, 0
-  br i1 %.not24.i.i, label %validate_offset.exit.sink.split.i, label %53
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = load i32, ptr %35, align 8
+  %.not23.i.i = icmp ult i32 %36, %29
+  br i1 %.not23.i.i, label %37, label %60
 
-38:                                               ; preds = %29, %15
-  %39 = phi i32 [ %28, %29 ], [ %17, %15 ]
-  %40 = phi i32 [ %30, %29 ], [ %2, %15 ]
-  %41 = add i32 %40, %13
-  %42 = icmp ult i32 %41, %40
-  br i1 %42, label %53, label %43
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %0, i64 20
+  %39 = load i32, ptr %38, align 4
+  %40 = and i32 %39, 1
+  %.not24.i.i = icmp eq i32 %40, 0
+  br i1 %.not24.i.i, label %41, label %60
 
-43:                                               ; preds = %38
-  %.not.i27.i = icmp ult i32 %39, %41
-  br i1 %.not.i27.i, label %44, label %check_offset_length.exit
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %43 = load i32, ptr %42, align 4
+  %.not25.i.i = icmp ult i32 %43, %29
+  br label %.sink.split
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
-  %46 = load i32, ptr %45, align 8
-  %.not8.i.i = icmp ult i32 %46, %41
-  br i1 %.not8.i.i, label %47, label %53
+44:                                               ; preds = %32, %15
+  %45 = phi i32 [ %31, %32 ], [ %17, %15 ]
+  %46 = phi i32 [ %33, %32 ], [ %2, %15 ]
+  %47 = add i32 %46, %13
+  %48 = icmp ult i32 %47, %46
+  br i1 %48, label %60, label %49
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 20
-  %49 = load i32, ptr %48, align 4
-  %50 = and i32 %49, 1
-  %.not9.i.i = icmp eq i32 %50, 0
-  br i1 %.not9.i.i, label %validate_offset.exit.sink.split.i, label %53
+49:                                               ; preds = %44
+  %.not.i27.i = icmp ugt i32 %47, %45
+  br i1 %.not.i27.i, label %50, label %check_offset_length.exit
 
-validate_offset.exit.sink.split.i:                ; preds = %47, %34, %21
-  %.sink32.i = phi i32 [ %2, %21 ], [ %26, %34 ], [ %41, %47 ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 44
-  %52 = load i32, ptr %51, align 4
-  %.not25.i.i = icmp ult i32 %52, %.sink32.i
-  %.30.i.i = select i1 %.not25.i.i, i64 3, i64 2
-  br label %53
+50:                                               ; preds = %49
+  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %52 = load i32, ptr %51, align 8
+  %.not8.i.i = icmp ugt i32 %47, %52
+  br i1 %.not8.i.i, label %53, label %60
 
-53:                                               ; preds = %38, %44, %47, %34, %31, %21, %18, %validate_offset.exit.sink.split.i
-  %.0.i.ph = phi i64 [ %.30.i.i, %validate_offset.exit.sink.split.i ], [ 1, %18 ], [ 4, %21 ], [ 1, %31 ], [ 4, %34 ], [ 4, %47 ], [ 1, %44 ], [ 1, %38 ]
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %0, i64 20
+  %55 = load i32, ptr %54, align 4
+  %56 = and i32 %55, 1
+  %.not9.i.i = icmp eq i32 %56, 0
+  br i1 %.not9.i.i, label %57, label %60
+
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds i8, ptr %0, i64 44
+  %59 = load i32, ptr %58, align 4
+  %.not10.i.i = icmp ugt i32 %47, %59
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %25, %41, %57
+  %.not10.i.i.sink = phi i1 [ %.not10.i.i, %57 ], [ %.not25.i.i, %41 ], [ %.not29.i.i, %25 ]
+  %..i29.i = select i1 %.not10.i.i.sink, i64 3, i64 2
+  br label %60
+
+60:                                               ; preds = %.sink.split, %44, %50, %53, %37, %34, %21, %18
+  %.0.i.ph = phi i64 [ 1, %18 ], [ 4, %21 ], [ 1, %34 ], [ 4, %37 ], [ 4, %53 ], [ 1, %50 ], [ 1, %44 ], [ %..i29.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #16
   unreachable
 
-check_offset_length.exit:                         ; preds = %43
+check_offset_length.exit:                         ; preds = %49
   %.not22 = icmp eq ptr %1, null
-  br i1 %.not22, label %.critedge, label %54
+  br i1 %.not22, label %.critedge, label %61
 
-54:                                               ; preds = %check_offset_length.exit
-  %55 = getelementptr inbounds i8, ptr %0, i64 32
-  %56 = load ptr, ptr %55, align 8
-  %.not23 = icmp eq ptr %56, null
-  br i1 %.not23, label %60, label %57
+61:                                               ; preds = %check_offset_length.exit
+  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = load ptr, ptr %62, align 8
+  %.not23 = icmp eq ptr %63, null
+  br i1 %.not23, label %67, label %64
 
-57:                                               ; preds = %54
-  %58 = zext i32 %40 to i64
-  %59 = getelementptr i8, ptr %56, i64 %58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %59, i64 %3, i1 false)
-  br label %68
+64:                                               ; preds = %61
+  %65 = zext i32 %46 to i64
+  %66 = getelementptr i8, ptr %63, i64 %65
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %66, i64 %3, i1 false)
+  br label %75
 
-60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 32
-  %64 = load ptr, ptr %63, align 8
-  %.not24 = icmp eq ptr %64, null
-  br i1 %.not24, label %.critedge, label %65
+67:                                               ; preds = %61
+  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 32
+  %71 = load ptr, ptr %70, align 8
+  %.not24 = icmp eq ptr %71, null
+  br i1 %.not24, label %.critedge, label %72
 
-65:                                               ; preds = %60
-  %66 = tail call ptr %64(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %40, i32 noundef %13) #17
-  br label %68
+72:                                               ; preds = %67
+  %73 = tail call ptr %71(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %46, i32 noundef %13) #17
+  br label %75
 
-.critedge:                                        ; preds = %check_offset_length.exit, %60
+.critedge:                                        ; preds = %check_offset_length.exit, %67
   %.not25 = icmp eq i64 %3, 0
-  br i1 %.not25, label %68, label %67
+  br i1 %.not25, label %75, label %74
 
-67:                                               ; preds = %.critedge
+74:                                               ; preds = %.critedge
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 965) #16
   unreachable
 
-68:                                               ; preds = %.critedge, %65, %57
-  %.0 = phi ptr [ %1, %57 ], [ %66, %65 ], [ null, %.critedge ]
+75:                                               ; preds = %.critedge, %72, %64
+  %.0 = phi ptr [ %1, %64 ], [ %73, %72 ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -1805,107 +1851,122 @@ define ptr @tvb_memdup(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
 9:                                                ; preds = %5
   %10 = trunc i64 %3 to i32
   %11 = icmp sgt i32 %2, -1
-  br i1 %11, label %12, label %22
+  br i1 %11, label %12, label %25
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %1, i64 40
   %14 = load i32, ptr %13, align 8
-  %.not26.i.i = icmp ult i32 %14, %2
-  br i1 %.not26.i.i, label %15, label %35
+  %.not26.i.i = icmp ugt i32 %2, %14
+  br i1 %.not26.i.i, label %15, label %41
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   %17 = load i32, ptr %16, align 8
-  %.not27.i.i = icmp ult i32 %17, %2
-  br i1 %.not27.i.i, label %18, label %54
+  %.not27.i.i = icmp ugt i32 %2, %17
+  br i1 %.not27.i.i, label %18, label %61
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %1, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %.not28.i.i = icmp eq i32 %21, 0
-  br i1 %.not28.i.i, label %validate_offset.exit.sink.split.i, label %54
+  br i1 %.not28.i.i, label %22, label %61
 
-22:                                               ; preds = %9
-  %23 = sub i32 0, %2
-  %24 = getelementptr inbounds i8, ptr %1, i64 40
-  %25 = load i32, ptr %24, align 8
-  %.not.i.i = icmp ult i32 %25, %23
-  br i1 %.not.i.i, label %28, label %26
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %1, i64 44
+  %24 = load i32, ptr %23, align 4
+  %.not29.i.i = icmp ugt i32 %2, %24
+  br label %.sink.split
 
-26:                                               ; preds = %22
-  %27 = add i32 %25, %2
-  br label %35
+25:                                               ; preds = %9
+  %26 = sub i32 0, %2
+  %27 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = load i32, ptr %27, align 8
+  %.not.i.i = icmp ult i32 %28, %26
+  br i1 %.not.i.i, label %31, label %29
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %1, i64 48
-  %30 = load i32, ptr %29, align 8
-  %.not23.i.i = icmp ult i32 %30, %23
-  br i1 %.not23.i.i, label %31, label %54
+29:                                               ; preds = %25
+  %30 = add i32 %28, %2
+  br label %41
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %1, i64 20
-  %33 = load i32, ptr %32, align 4
-  %34 = and i32 %33, 1
-  %.not24.i.i = icmp eq i32 %34, 0
-  br i1 %.not24.i.i, label %validate_offset.exit.sink.split.i, label %54
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = load i32, ptr %32, align 8
+  %.not23.i.i = icmp ult i32 %33, %26
+  br i1 %.not23.i.i, label %34, label %61
 
-35:                                               ; preds = %26, %12
-  %36 = phi i32 [ %25, %26 ], [ %14, %12 ]
-  %37 = phi i32 [ %27, %26 ], [ %2, %12 ]
-  %38 = icmp slt i32 %10, -1
-  br i1 %38, label %54, label %39
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %1, i64 20
+  %36 = load i32, ptr %35, align 4
+  %37 = and i32 %36, 1
+  %.not24.i.i = icmp eq i32 %37, 0
+  br i1 %.not24.i.i, label %38, label %61
 
-39:                                               ; preds = %35
-  %40 = icmp eq i32 %10, -1
-  %41 = sub i32 %36, %37
-  %spec.select = select i1 %40, i32 %41, i32 %10
-  %42 = add i32 %spec.select, %37
-  %43 = icmp ult i32 %42, %37
-  br i1 %43, label %54, label %44
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds i8, ptr %1, i64 44
+  %40 = load i32, ptr %39, align 4
+  %.not25.i.i = icmp ult i32 %40, %26
+  br label %.sink.split
 
-44:                                               ; preds = %39
-  %.not.i27.i = icmp ult i32 %36, %42
-  br i1 %.not.i27.i, label %45, label %check_offset_length.exit
+41:                                               ; preds = %29, %12
+  %42 = phi i32 [ %28, %29 ], [ %14, %12 ]
+  %43 = phi i32 [ %30, %29 ], [ %2, %12 ]
+  %44 = icmp slt i32 %10, -1
+  br i1 %44, label %61, label %45
 
-45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %1, i64 48
-  %47 = load i32, ptr %46, align 8
-  %.not8.i.i = icmp ult i32 %47, %42
-  br i1 %.not8.i.i, label %48, label %54
+45:                                               ; preds = %41
+  %46 = icmp eq i32 %10, -1
+  %47 = sub i32 %42, %43
+  %spec.select = select i1 %46, i32 %47, i32 %10
+  %48 = add i32 %spec.select, %43
+  %49 = icmp ult i32 %48, %43
+  br i1 %49, label %61, label %50
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %1, i64 20
-  %50 = load i32, ptr %49, align 4
-  %51 = and i32 %50, 1
-  %.not9.i.i = icmp eq i32 %51, 0
-  br i1 %.not9.i.i, label %validate_offset.exit.sink.split.i, label %54
+50:                                               ; preds = %45
+  %.not.i27.i = icmp ugt i32 %48, %42
+  br i1 %.not.i27.i, label %51, label %check_offset_length.exit
 
-validate_offset.exit.sink.split.i:                ; preds = %48, %31, %18
-  %.sink32.i = phi i32 [ %2, %18 ], [ %23, %31 ], [ %42, %48 ]
-  %52 = getelementptr inbounds i8, ptr %1, i64 44
-  %53 = load i32, ptr %52, align 4
-  %.not25.i.i = icmp ult i32 %53, %.sink32.i
-  %.30.i.i = select i1 %.not25.i.i, i64 3, i64 2
-  br label %54
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds i8, ptr %1, i64 48
+  %53 = load i32, ptr %52, align 8
+  %.not8.i.i = icmp ugt i32 %48, %53
+  br i1 %.not8.i.i, label %54, label %61
 
-54:                                               ; preds = %35, %39, %45, %48, %31, %28, %18, %15, %validate_offset.exit.sink.split.i
-  %.0.i.ph = phi i64 [ %.30.i.i, %validate_offset.exit.sink.split.i ], [ 1, %15 ], [ 4, %18 ], [ 1, %28 ], [ 4, %31 ], [ 4, %48 ], [ 1, %45 ], [ 1, %39 ], [ 1, %35 ]
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds i8, ptr %1, i64 20
+  %56 = load i32, ptr %55, align 4
+  %57 = and i32 %56, 1
+  %.not9.i.i = icmp eq i32 %57, 0
+  br i1 %.not9.i.i, label %58, label %61
+
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds i8, ptr %1, i64 44
+  %60 = load i32, ptr %59, align 4
+  %.not10.i.i = icmp ugt i32 %48, %60
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %22, %38, %58
+  %.not10.i.i.sink = phi i1 [ %.not10.i.i, %58 ], [ %.not25.i.i, %38 ], [ %.not29.i.i, %22 ]
+  %..i29.i = select i1 %.not10.i.i.sink, i64 3, i64 2
+  br label %61
+
+61:                                               ; preds = %.sink.split, %41, %45, %51, %54, %34, %31, %18, %15
+  %.0.i.ph = phi i64 [ 1, %15 ], [ 4, %18 ], [ 1, %31 ], [ 4, %34 ], [ 4, %54 ], [ 1, %51 ], [ 1, %45 ], [ 1, %41 ], [ %..i29.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #16
   unreachable
 
-check_offset_length.exit:                         ; preds = %44
-  %55 = icmp eq i32 %spec.select, 0
-  br i1 %55, label %60, label %56
+check_offset_length.exit:                         ; preds = %50
+  %62 = icmp eq i32 %spec.select, 0
+  br i1 %62, label %67, label %63
 
-56:                                               ; preds = %check_offset_length.exit
-  %57 = zext i32 %spec.select to i64
-  %58 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %57) #17
-  %59 = tail call ptr @tvb_memcpy(ptr noundef nonnull %1, ptr noundef %58, i32 noundef %37, i64 noundef %57)
-  br label %60
+63:                                               ; preds = %check_offset_length.exit
+  %64 = zext i32 %spec.select to i64
+  %65 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %64) #17
+  %66 = tail call ptr @tvb_memcpy(ptr noundef nonnull %1, ptr noundef %65, i32 noundef %43, i64 noundef %64)
+  br label %67
 
-60:                                               ; preds = %check_offset_length.exit, %56
-  %.0 = phi ptr [ %59, %56 ], [ null, %check_offset_length.exit ]
+67:                                               ; preds = %check_offset_length.exit, %63
+  %.0 = phi ptr [ %66, %63 ], [ null, %check_offset_length.exit ]
   ret ptr %.0
 }
 
@@ -3534,7 +3595,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   %28 = ptrtoint ptr %11 to i64
   %29 = sub i64 %27, %28
   %30 = trunc i64 %29 to i32
-  %31 = add i32 %30, %1
+  %31 = add i32 %1, %30
   store i32 %31, ptr %5, align 4
   br label %32
 
@@ -3981,7 +4042,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   %191 = ptrtoint ptr %21 to i64
   %192 = sub i64 %190, %191
   %193 = trunc i64 %192 to i32
-  %194 = add i32 %193, %1
+  %194 = add i32 %1, %193
   store i32 %194, ptr %5, align 4
   br label %parse_month_name.exit.thread
 
@@ -4650,148 +4711,157 @@ define i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 n
 
 10:                                               ; preds = %6
   %11 = icmp sgt i32 %1, -1
-  br i1 %11, label %12, label %22
+  br i1 %11, label %12, label %25
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
-  %.not26.i.i = icmp ult i32 %14, %1
-  br i1 %.not26.i.i, label %15, label %38
+  %.not26.i.i = icmp ugt i32 %1, %14
+  br i1 %.not26.i.i, label %15, label %42
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 48
   %17 = load i32, ptr %16, align 8
-  %.not27.i.i = icmp ult i32 %17, %1
-  br i1 %.not27.i.i, label %18, label %37
+  %.not27.i.i = icmp ugt i32 %1, %17
+  br i1 %.not27.i.i, label %18, label %41
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %.not28.i.i = icmp eq i32 %21, 0
-  br i1 %.not28.i.i, label %.sink.split, label %37
+  br i1 %.not28.i.i, label %22, label %41
 
-22:                                               ; preds = %10
-  %23 = sub i32 0, %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
-  %25 = load i32, ptr %24, align 8
-  %.not.i.i = icmp ult i32 %25, %23
-  br i1 %.not.i.i, label %28, label %26
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %0, i64 44
+  %24 = load i32, ptr %23, align 4
+  %.not29.i.i = icmp ugt i32 %1, %24
+  br label %.sink.split
 
-26:                                               ; preds = %22
-  %27 = add i32 %25, %1
-  br label %38
+25:                                               ; preds = %10
+  %26 = sub i32 0, %1
+  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = load i32, ptr %27, align 8
+  %.not.i.i = icmp ult i32 %28, %26
+  br i1 %.not.i.i, label %31, label %29
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
-  %30 = load i32, ptr %29, align 8
-  %.not23.i.i = icmp ult i32 %30, %23
-  br i1 %.not23.i.i, label %31, label %37
+29:                                               ; preds = %25
+  %30 = add i32 %28, %1
+  br label %42
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 20
-  %33 = load i32, ptr %32, align 4
-  %34 = and i32 %33, 1
-  %.not24.i.i = icmp eq i32 %34, 0
-  br i1 %.not24.i.i, label %.sink.split, label %37
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = load i32, ptr %32, align 8
+  %.not23.i.i = icmp ult i32 %33, %26
+  br i1 %.not23.i.i, label %34, label %41
 
-.sink.split:                                      ; preds = %31, %18
-  %.sink45 = phi i32 [ %1, %18 ], [ %23, %31 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 44
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %0, i64 20
   %36 = load i32, ptr %35, align 4
-  %.not25.i.i = icmp ult i32 %36, %.sink45
-  %.30.i.i = select i1 %.not25.i.i, i64 3, i64 2
-  br label %37
+  %37 = and i32 %36, 1
+  %.not24.i.i = icmp eq i32 %37, 0
+  br i1 %.not24.i.i, label %38, label %41
 
-37:                                               ; preds = %.sink.split, %31, %28, %18, %15
-  %.0.i9.i.ph = phi i64 [ 1, %15 ], [ 4, %18 ], [ 1, %28 ], [ 4, %31 ], [ %.30.i.i, %.sink.split ]
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds i8, ptr %0, i64 44
+  %40 = load i32, ptr %39, align 4
+  %.not25.i.i = icmp ult i32 %40, %26
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %22, %38
+  %.not25.i.i.sink = phi i1 [ %.not25.i.i, %38 ], [ %.not29.i.i, %22 ]
+  %.30.i.i = select i1 %.not25.i.i.sink, i64 3, i64 2
+  br label %41
+
+41:                                               ; preds = %.sink.split, %34, %31, %18, %15
+  %.0.i9.i.ph = phi i64 [ 1, %15 ], [ 4, %18 ], [ 1, %31 ], [ 4, %34 ], [ %.30.i.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #16
   unreachable
 
-38:                                               ; preds = %26, %12
-  %39 = phi i32 [ %25, %26 ], [ %14, %12 ]
-  %storemerge.i.i = phi i32 [ %27, %26 ], [ %1, %12 ]
-  %40 = sub i32 %39, %storemerge.i.i
-  %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 %2)
-  %42 = icmp slt i32 %2, 0
-  %spec.select = select i1 %42, i32 %40, i32 %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %.not30 = icmp eq ptr %44, null
-  br i1 %.not30, label %57, label %45
+42:                                               ; preds = %29, %12
+  %43 = phi i32 [ %28, %29 ], [ %14, %12 ]
+  %storemerge.i.i = phi i32 [ %30, %29 ], [ %1, %12 ]
+  %44 = sub i32 %43, %storemerge.i.i
+  %45 = tail call i32 @llvm.umin.i32(i32 %44, i32 %2)
+  %46 = icmp slt i32 %2, 0
+  %spec.select = select i1 %46, i32 %44, i32 %45
+  %47 = getelementptr inbounds i8, ptr %0, i64 32
+  %48 = load ptr, ptr %47, align 8
+  %.not30 = icmp eq ptr %48, null
+  br i1 %.not30, label %61, label %49
 
-45:                                               ; preds = %38
-  %46 = zext i32 %storemerge.i.i to i64
-  %47 = getelementptr i8, ptr %44, i64 %46
-  %48 = zext i8 %3 to i32
-  %49 = zext i32 %spec.select to i64
-  %50 = tail call ptr @memchr(ptr noundef %47, i32 noundef %48, i64 noundef %49) #19
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %tvb_find_guint8_generic.exit, label %52
+49:                                               ; preds = %42
+  %50 = zext i32 %storemerge.i.i to i64
+  %51 = getelementptr i8, ptr %48, i64 %50
+  %52 = zext i8 %3 to i32
+  %53 = zext i32 %spec.select to i64
+  %54 = tail call ptr @memchr(ptr noundef %51, i32 noundef %52, i64 noundef %53) #19
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %tvb_find_guint8_generic.exit, label %56
 
-52:                                               ; preds = %45
-  %53 = ptrtoint ptr %50 to i64
-  %54 = ptrtoint ptr %44 to i64
-  %55 = sub i64 %53, %54
-  %56 = trunc i64 %55 to i32
+56:                                               ; preds = %49
+  %57 = ptrtoint ptr %54 to i64
+  %58 = ptrtoint ptr %48 to i64
+  %59 = sub i64 %57, %58
+  %60 = trunc i64 %59 to i32
   br label %tvb_find_guint8_generic.exit
 
-57:                                               ; preds = %38
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 40
-  %61 = load ptr, ptr %60, align 8
-  %.not31 = icmp eq ptr %61, null
-  br i1 %.not31, label %64, label %62
+61:                                               ; preds = %42
+  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 40
+  %65 = load ptr, ptr %64, align 8
+  %.not31 = icmp eq ptr %65, null
+  br i1 %.not31, label %68, label %66
 
-62:                                               ; preds = %57
-  %63 = tail call i32 %61(ptr noundef nonnull %0, i32 noundef %storemerge.i.i, i32 noundef %spec.select, i8 noundef zeroext %3) #17
+66:                                               ; preds = %61
+  %67 = tail call i32 %65(ptr noundef nonnull %0, i32 noundef %storemerge.i.i, i32 noundef %spec.select, i8 noundef zeroext %3) #17
   br label %tvb_find_guint8_generic.exit
 
-64:                                               ; preds = %57
+68:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %65 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %spec.select, ptr noundef nonnull %5)
-  %66 = icmp eq ptr %65, null
-  %67 = icmp ne i32 %spec.select, 0
-  %or.cond.i.i = and i1 %67, %66
-  br i1 %or.cond.i.i, label %68, label %ensure_contiguous.exit.i
+  %69 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %spec.select, ptr noundef nonnull %5)
+  %70 = icmp eq ptr %69, null
+  %71 = icmp ne i32 %spec.select, 0
+  %or.cond.i.i = and i1 %71, %70
+  br i1 %or.cond.i.i, label %72, label %ensure_contiguous.exit.i
 
-68:                                               ; preds = %64
-  %69 = load i32, ptr %5, align 4
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %72, label %71
+72:                                               ; preds = %68
+  %73 = load i32, ptr %5, align 4
+  %74 = icmp sgt i32 %73, 0
+  br i1 %74, label %76, label %75
 
-71:                                               ; preds = %68
+75:                                               ; preds = %72
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 886, ptr noundef nonnull @.str.33) #16
   unreachable
 
-72:                                               ; preds = %68
-  %73 = zext nneg i32 %69 to i64
-  call void @except_throw(i64 noundef 1, i64 noundef %73, ptr noundef null) #16
+76:                                               ; preds = %72
+  %77 = zext nneg i32 %73 to i64
+  call void @except_throw(i64 noundef 1, i64 noundef %77, ptr noundef null) #16
   unreachable
 
-ensure_contiguous.exit.i:                         ; preds = %64
+ensure_contiguous.exit.i:                         ; preds = %68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br i1 %66, label %tvb_find_guint8_generic.exit, label %74
+  br i1 %70, label %tvb_find_guint8_generic.exit, label %78
 
-74:                                               ; preds = %ensure_contiguous.exit.i
-  %75 = zext i8 %3 to i32
-  %76 = zext i32 %spec.select to i64
-  %77 = call ptr @memchr(ptr noundef nonnull %65, i32 noundef %75, i64 noundef %76) #19
-  %.not13.i = icmp eq ptr %77, null
-  br i1 %.not13.i, label %tvb_find_guint8_generic.exit, label %78
+78:                                               ; preds = %ensure_contiguous.exit.i
+  %79 = zext i8 %3 to i32
+  %80 = zext i32 %spec.select to i64
+  %81 = call ptr @memchr(ptr noundef nonnull %69, i32 noundef %79, i64 noundef %80) #19
+  %.not13.i = icmp eq ptr %81, null
+  br i1 %.not13.i, label %tvb_find_guint8_generic.exit, label %82
 
-78:                                               ; preds = %74
-  %79 = ptrtoint ptr %77 to i64
-  %80 = ptrtoint ptr %65 to i64
-  %81 = sub i64 %79, %80
-  %82 = trunc i64 %81 to i32
-  %83 = add i32 %82, %1
+82:                                               ; preds = %78
+  %83 = ptrtoint ptr %81 to i64
+  %84 = ptrtoint ptr %69 to i64
+  %85 = sub i64 %83, %84
+  %86 = trunc i64 %85 to i32
+  %87 = add i32 %1, %86
   br label %tvb_find_guint8_generic.exit
 
-tvb_find_guint8_generic.exit:                     ; preds = %78, %74, %ensure_contiguous.exit.i, %45, %62, %52
-  %.0 = phi i32 [ %56, %52 ], [ %63, %62 ], [ -1, %45 ], [ %83, %78 ], [ -1, %ensure_contiguous.exit.i ], [ -1, %74 ]
+tvb_find_guint8_generic.exit:                     ; preds = %82, %78, %ensure_contiguous.exit.i, %49, %66, %56
+  %.0 = phi i32 [ %60, %56 ], [ %67, %66 ], [ -1, %49 ], [ %87, %82 ], [ -1, %ensure_contiguous.exit.i ], [ -1, %78 ]
   ret i32 %.0
 }
 
@@ -4801,108 +4871,117 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define i32 @tvb_find_guint16(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %1, -1
-  br i1 %5, label %6, label %16
+  br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
-  %.not26.i.i = icmp ult i32 %8, %1
-  br i1 %.not26.i.i, label %9, label %32
+  %.not26.i.i = icmp ugt i32 %1, %8
+  br i1 %.not26.i.i, label %9, label %36
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
-  %.not27.i.i = icmp ult i32 %11, %1
-  br i1 %.not27.i.i, label %12, label %31
+  %.not27.i.i = icmp ugt i32 %1, %11
+  br i1 %.not27.i.i, label %12, label %35
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 1
   %.not28.i.i = icmp eq i32 %15, 0
-  br i1 %.not28.i.i, label %.sink.split, label %31
+  br i1 %.not28.i.i, label %16, label %35
 
-16:                                               ; preds = %4
-  %17 = sub i32 0, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = load i32, ptr %18, align 8
-  %.not.i.i = icmp ult i32 %19, %17
-  br i1 %.not.i.i, label %22, label %20
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = load i32, ptr %17, align 4
+  %.not29.i.i = icmp ugt i32 %1, %18
+  br label %.sink.split
 
-20:                                               ; preds = %16
-  %21 = add i32 %19, %1
-  br label %32
+19:                                               ; preds = %4
+  %20 = sub i32 0, %1
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = load i32, ptr %21, align 8
+  %.not.i.i = icmp ult i32 %22, %20
+  br i1 %.not.i.i, label %25, label %23
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
-  %24 = load i32, ptr %23, align 8
-  %.not23.i.i = icmp ult i32 %24, %17
-  br i1 %.not23.i.i, label %25, label %31
+23:                                               ; preds = %19
+  %24 = add i32 %22, %1
+  br label %36
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 20
-  %27 = load i32, ptr %26, align 4
-  %28 = and i32 %27, 1
-  %.not24.i.i = icmp eq i32 %28, 0
-  br i1 %.not24.i.i, label %.sink.split, label %31
+25:                                               ; preds = %19
+  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = load i32, ptr %26, align 8
+  %.not23.i.i = icmp ult i32 %27, %20
+  br i1 %.not23.i.i, label %28, label %35
 
-.sink.split:                                      ; preds = %25, %12
-  %.sink54 = phi i32 [ %1, %12 ], [ %17, %25 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 44
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %0, i64 20
   %30 = load i32, ptr %29, align 4
-  %.not25.i.i = icmp ult i32 %30, %.sink54
-  %.30.i.i = select i1 %.not25.i.i, i64 3, i64 2
-  br label %31
+  %31 = and i32 %30, 1
+  %.not24.i.i = icmp eq i32 %31, 0
+  br i1 %.not24.i.i, label %32, label %35
 
-31:                                               ; preds = %.sink.split, %25, %22, %12, %9
-  %.0.i9.i.ph = phi i64 [ 1, %9 ], [ 4, %12 ], [ 1, %22 ], [ 4, %25 ], [ %.30.i.i, %.sink.split ]
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds i8, ptr %0, i64 44
+  %34 = load i32, ptr %33, align 4
+  %.not25.i.i = icmp ult i32 %34, %20
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %16, %32
+  %.not25.i.i.sink = phi i1 [ %.not25.i.i, %32 ], [ %.not29.i.i, %16 ]
+  %.30.i.i = select i1 %.not25.i.i.sink, i64 3, i64 2
+  br label %35
+
+35:                                               ; preds = %.sink.split, %28, %25, %12, %9
+  %.0.i9.i.ph = phi i64 [ 1, %9 ], [ 4, %12 ], [ 1, %25 ], [ 4, %28 ], [ %.30.i.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #16
   unreachable
 
-32:                                               ; preds = %20, %6
-  %33 = phi i32 [ %19, %20 ], [ %8, %6 ]
-  %storemerge.i.i = phi i32 [ %21, %20 ], [ %1, %6 ]
-  %34 = sub i32 %33, %storemerge.i.i
-  %35 = tail call i32 @llvm.umin.i32(i32 %34, i32 %2)
-  %36 = icmp slt i32 %2, 0
-  %spec.select = select i1 %36, i32 %34, i32 %35
-  %37 = lshr i16 %3, 8
-  %38 = trunc nuw i16 %37 to i8
-  %39 = trunc i16 %3 to i8
-  br label %40
+36:                                               ; preds = %23, %6
+  %37 = phi i32 [ %22, %23 ], [ %8, %6 ]
+  %storemerge.i.i = phi i32 [ %24, %23 ], [ %1, %6 ]
+  %38 = sub i32 %37, %storemerge.i.i
+  %39 = tail call i32 @llvm.umin.i32(i32 %38, i32 %2)
+  %40 = icmp slt i32 %2, 0
+  %spec.select = select i1 %40, i32 %38, i32 %39
+  %41 = lshr i16 %3, 8
+  %42 = trunc nuw i16 %41 to i8
+  %43 = trunc i16 %3 to i8
+  br label %44
 
-40:                                               ; preds = %53, %32
-  %.026 = phi i32 [ 0, %32 ], [ %50, %53 ]
-  %.025 = phi i32 [ %storemerge.i.i, %32 ], [ %48, %53 ]
-  %41 = sub i32 %spec.select, %.026
-  %42 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.025, i32 noundef %41, i8 noundef zeroext %38)
-  %43 = icmp eq i32 %42, -1
-  br i1 %43, label %.loopexit, label %44
+44:                                               ; preds = %57, %36
+  %.026 = phi i32 [ 0, %36 ], [ %54, %57 ]
+  %.025 = phi i32 [ %storemerge.i.i, %36 ], [ %52, %57 ]
+  %45 = sub i32 %spec.select, %.026
+  %46 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.025, i32 noundef %45, i8 noundef zeroext %42)
+  %47 = icmp eq i32 %46, -1
+  br i1 %47, label %.loopexit, label %48
 
-44:                                               ; preds = %40
-  %45 = sub i32 %42, %storemerge.i.i
-  %46 = add i32 %45, 1
-  %.not32 = icmp ult i32 %46, %spec.select
-  br i1 %.not32, label %47, label %.loopexit
+48:                                               ; preds = %44
+  %49 = sub i32 %46, %storemerge.i.i
+  %50 = add i32 %49, 1
+  %.not32 = icmp ult i32 %50, %spec.select
+  br i1 %.not32, label %51, label %.loopexit
 
-47:                                               ; preds = %44
-  %48 = add nuw i32 %42, 1
-  %49 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %48, i32 noundef 1, i8 noundef zeroext %39)
-  %50 = add i32 %45, 2
-  %.not33 = icmp eq i32 %49, -1
-  br i1 %.not33, label %53, label %51
+51:                                               ; preds = %48
+  %52 = add nuw i32 %46, 1
+  %53 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %52, i32 noundef 1, i8 noundef zeroext %43)
+  %54 = add i32 %49, 2
+  %.not33 = icmp eq i32 %53, -1
+  br i1 %.not33, label %57, label %55
 
-51:                                               ; preds = %47
-  %52 = icmp ugt i32 %50, %spec.select
-  %. = select i1 %52, i32 -1, i32 %42
+55:                                               ; preds = %51
+  %56 = icmp ugt i32 %54, %spec.select
+  %. = select i1 %56, i32 -1, i32 %46
   br label %.loopexit
 
-53:                                               ; preds = %47
-  %54 = icmp ult i32 %50, %spec.select
-  br i1 %54, label %40, label %.loopexit, !llvm.loop !18
+57:                                               ; preds = %51
+  %58 = icmp ult i32 %54, %spec.select
+  br i1 %58, label %44, label %.loopexit, !llvm.loop !18
 
-.loopexit:                                        ; preds = %53, %44, %40, %51
-  %.0 = phi i32 [ %., %51 ], [ -1, %40 ], [ -1, %44 ], [ -1, %53 ]
+.loopexit:                                        ; preds = %57, %48, %44, %55
+  %.0 = phi i32 [ %., %55 ], [ -1, %44 ], [ -1, %48 ], [ -1, %57 ]
   ret i32 %.0
 }
 
@@ -4924,145 +5003,154 @@ define i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %0, i32 noundef %1, i32 no
 
 11:                                               ; preds = %7
   %12 = icmp sgt i32 %1, -1
-  br i1 %12, label %13, label %23
+  br i1 %12, label %13, label %26
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not26.i.i = icmp ult i32 %15, %1
-  br i1 %.not26.i.i, label %16, label %39
+  %.not26.i.i = icmp ugt i32 %1, %15
+  br i1 %.not26.i.i, label %16, label %43
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   %18 = load i32, ptr %17, align 8
-  %.not27.i.i = icmp ult i32 %18, %1
-  br i1 %.not27.i.i, label %19, label %38
+  %.not27.i.i = icmp ugt i32 %1, %18
+  br i1 %.not27.i.i, label %19, label %42
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %0, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 1
   %.not28.i.i = icmp eq i32 %22, 0
-  br i1 %.not28.i.i, label %.sink.split, label %38
+  br i1 %.not28.i.i, label %23, label %42
 
-23:                                               ; preds = %11
-  %24 = sub i32 0, %1
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
-  %26 = load i32, ptr %25, align 8
-  %.not.i.i = icmp ult i32 %26, %24
-  br i1 %.not.i.i, label %29, label %27
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %0, i64 44
+  %25 = load i32, ptr %24, align 4
+  %.not29.i.i = icmp ugt i32 %1, %25
+  br label %.sink.split
 
-27:                                               ; preds = %23
-  %28 = add i32 %26, %1
-  br label %39
+26:                                               ; preds = %11
+  %27 = sub i32 0, %1
+  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = load i32, ptr %28, align 8
+  %.not.i.i = icmp ult i32 %29, %27
+  br i1 %.not.i.i, label %32, label %30
 
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = load i32, ptr %30, align 8
-  %.not23.i.i = icmp ult i32 %31, %24
-  br i1 %.not23.i.i, label %32, label %38
+30:                                               ; preds = %26
+  %31 = add i32 %29, %1
+  br label %43
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
-  %34 = load i32, ptr %33, align 4
-  %35 = and i32 %34, 1
-  %.not24.i.i = icmp eq i32 %35, 0
-  br i1 %.not24.i.i, label %.sink.split, label %38
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = load i32, ptr %33, align 8
+  %.not23.i.i = icmp ult i32 %34, %27
+  br i1 %.not23.i.i, label %35, label %42
 
-.sink.split:                                      ; preds = %32, %19
-  %.sink46 = phi i32 [ %1, %19 ], [ %24, %32 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 44
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %0, i64 20
   %37 = load i32, ptr %36, align 4
-  %.not25.i.i = icmp ult i32 %37, %.sink46
-  %.30.i.i = select i1 %.not25.i.i, i64 3, i64 2
-  br label %38
+  %38 = and i32 %37, 1
+  %.not24.i.i = icmp eq i32 %38, 0
+  br i1 %.not24.i.i, label %39, label %42
 
-38:                                               ; preds = %.sink.split, %32, %29, %19, %16
-  %.0.i9.i.ph = phi i64 [ 1, %16 ], [ 4, %19 ], [ 1, %29 ], [ 4, %32 ], [ %.30.i.i, %.sink.split ]
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds i8, ptr %0, i64 44
+  %41 = load i32, ptr %40, align 4
+  %.not25.i.i = icmp ult i32 %41, %27
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %23, %39
+  %.not25.i.i.sink = phi i1 [ %.not25.i.i, %39 ], [ %.not29.i.i, %23 ]
+  %.30.i.i = select i1 %.not25.i.i.sink, i64 3, i64 2
+  br label %42
+
+42:                                               ; preds = %.sink.split, %35, %32, %19, %16
+  %.0.i9.i.ph = phi i64 [ 1, %16 ], [ 4, %19 ], [ 1, %32 ], [ 4, %35 ], [ %.30.i.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #16
   unreachable
 
-39:                                               ; preds = %27, %13
-  %40 = phi i32 [ %26, %27 ], [ %15, %13 ]
-  %storemerge.i.i = phi i32 [ %28, %27 ], [ %1, %13 ]
-  %41 = sub i32 %40, %storemerge.i.i
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %41, i32 %2)
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
-  %43 = load ptr, ptr %42, align 8
-  %.not31 = icmp eq ptr %43, null
-  br i1 %.not31, label %56, label %44
+43:                                               ; preds = %30, %13
+  %44 = phi i32 [ %29, %30 ], [ %15, %13 ]
+  %storemerge.i.i = phi i32 [ %31, %30 ], [ %1, %13 ]
+  %45 = sub i32 %44, %storemerge.i.i
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %45, i32 %2)
+  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %47 = load ptr, ptr %46, align 8
+  %.not31 = icmp eq ptr %47, null
+  br i1 %.not31, label %60, label %48
 
-44:                                               ; preds = %39
-  %45 = zext i32 %storemerge.i.i to i64
-  %46 = getelementptr i8, ptr %43, i64 %45
-  %47 = zext i32 %spec.select to i64
-  %48 = tail call ptr @ws_mempbrk_exec(ptr noundef %46, i64 noundef %47, ptr noundef %3, ptr noundef %4) #17
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %tvb_ws_mempbrk_guint8_generic.exit, label %50
+48:                                               ; preds = %43
+  %49 = zext i32 %storemerge.i.i to i64
+  %50 = getelementptr i8, ptr %47, i64 %49
+  %51 = zext i32 %spec.select to i64
+  %52 = tail call ptr @ws_mempbrk_exec(ptr noundef %50, i64 noundef %51, ptr noundef %3, ptr noundef %4) #17
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %tvb_ws_mempbrk_guint8_generic.exit, label %54
 
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %42, align 8
-  %52 = ptrtoint ptr %48 to i64
-  %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %52, %53
-  %55 = trunc i64 %54 to i32
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %46, align 8
+  %56 = ptrtoint ptr %52 to i64
+  %57 = ptrtoint ptr %55 to i64
+  %58 = sub i64 %56, %57
+  %59 = trunc i64 %58 to i32
   br label %tvb_ws_mempbrk_guint8_generic.exit
 
-56:                                               ; preds = %39
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 48
-  %60 = load ptr, ptr %59, align 8
-  %.not32 = icmp eq ptr %60, null
-  br i1 %.not32, label %63, label %61
+60:                                               ; preds = %43
+  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 48
+  %64 = load ptr, ptr %63, align 8
+  %.not32 = icmp eq ptr %64, null
+  br i1 %.not32, label %67, label %65
 
-61:                                               ; preds = %56
-  %62 = tail call i32 %60(ptr noundef nonnull %0, i32 noundef %storemerge.i.i, i32 noundef %spec.select, ptr noundef %3, ptr noundef %4) #17
+65:                                               ; preds = %60
+  %66 = tail call i32 %64(ptr noundef nonnull %0, i32 noundef %storemerge.i.i, i32 noundef %spec.select, ptr noundef %3, ptr noundef %4) #17
   br label %tvb_ws_mempbrk_guint8_generic.exit
 
-63:                                               ; preds = %56
+67:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %64 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %0, i32 noundef %storemerge.i.i, i32 noundef %spec.select, ptr noundef nonnull %6)
-  %65 = icmp eq ptr %64, null
-  %66 = icmp ne i32 %spec.select, 0
-  %or.cond.i.i = and i1 %66, %65
-  br i1 %or.cond.i.i, label %67, label %ensure_contiguous.exit.i
+  %68 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %0, i32 noundef %storemerge.i.i, i32 noundef %spec.select, ptr noundef nonnull %6)
+  %69 = icmp eq ptr %68, null
+  %70 = icmp ne i32 %spec.select, 0
+  %or.cond.i.i = and i1 %70, %69
+  br i1 %or.cond.i.i, label %71, label %ensure_contiguous.exit.i
 
-67:                                               ; preds = %63
-  %68 = load i32, ptr %6, align 4
-  %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %71, label %70
+71:                                               ; preds = %67
+  %72 = load i32, ptr %6, align 4
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %75, label %74
 
-70:                                               ; preds = %67
+74:                                               ; preds = %71
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 886, ptr noundef nonnull @.str.33) #16
   unreachable
 
-71:                                               ; preds = %67
-  %72 = zext nneg i32 %68 to i64
-  call void @except_throw(i64 noundef 1, i64 noundef %72, ptr noundef null) #16
+75:                                               ; preds = %71
+  %76 = zext nneg i32 %72 to i64
+  call void @except_throw(i64 noundef 1, i64 noundef %76, ptr noundef null) #16
   unreachable
 
-ensure_contiguous.exit.i:                         ; preds = %63
+ensure_contiguous.exit.i:                         ; preds = %67
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br i1 %65, label %tvb_ws_mempbrk_guint8_generic.exit, label %73
+  br i1 %69, label %tvb_ws_mempbrk_guint8_generic.exit, label %77
 
-73:                                               ; preds = %ensure_contiguous.exit.i
-  %74 = zext i32 %spec.select to i64
-  %75 = call ptr @ws_mempbrk_exec(ptr noundef nonnull %64, i64 noundef %74, ptr noundef %3, ptr noundef %4) #17
-  %.not14.i = icmp eq ptr %75, null
-  br i1 %.not14.i, label %tvb_ws_mempbrk_guint8_generic.exit, label %76
+77:                                               ; preds = %ensure_contiguous.exit.i
+  %78 = zext i32 %spec.select to i64
+  %79 = call ptr @ws_mempbrk_exec(ptr noundef nonnull %68, i64 noundef %78, ptr noundef %3, ptr noundef %4) #17
+  %.not14.i = icmp eq ptr %79, null
+  br i1 %.not14.i, label %tvb_ws_mempbrk_guint8_generic.exit, label %80
 
-76:                                               ; preds = %73
-  %77 = ptrtoint ptr %75 to i64
-  %78 = ptrtoint ptr %64 to i64
-  %79 = sub i64 %77, %78
-  %80 = trunc i64 %79 to i32
-  %81 = add i32 %storemerge.i.i, %80
+80:                                               ; preds = %77
+  %81 = ptrtoint ptr %79 to i64
+  %82 = ptrtoint ptr %68 to i64
+  %83 = sub i64 %81, %82
+  %84 = trunc i64 %83 to i32
+  %85 = add i32 %storemerge.i.i, %84
   br label %tvb_ws_mempbrk_guint8_generic.exit
 
-tvb_ws_mempbrk_guint8_generic.exit:               ; preds = %76, %73, %ensure_contiguous.exit.i, %44, %61, %50
-  %.0 = phi i32 [ %55, %50 ], [ %62, %61 ], [ -1, %44 ], [ %81, %76 ], [ -1, %ensure_contiguous.exit.i ], [ -1, %73 ]
+tvb_ws_mempbrk_guint8_generic.exit:               ; preds = %80, %77, %ensure_contiguous.exit.i, %48, %65, %54
+  %.0 = phi i32 [ %59, %54 ], [ %66, %65 ], [ -1, %48 ], [ %85, %80 ], [ -1, %ensure_contiguous.exit.i ], [ -1, %77 ]
   ret i32 %.0
 }
 
@@ -5085,129 +5173,144 @@ define i32 @tvb_strsize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 7:                                                ; preds = %3
   %8 = icmp sgt i32 %1, -1
-  br i1 %8, label %9, label %19
+  br i1 %8, label %9, label %22
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
-  %.not26.i.i = icmp ult i32 %11, %1
-  br i1 %.not26.i.i, label %12, label %32
+  %.not26.i.i = icmp ugt i32 %1, %11
+  br i1 %.not26.i.i, label %12, label %38
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
-  %.not27.i.i = icmp ult i32 %14, %1
-  br i1 %.not27.i.i, label %15, label %45
+  %.not27.i.i = icmp ugt i32 %1, %14
+  br i1 %.not27.i.i, label %15, label %52
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 1
   %.not28.i.i = icmp eq i32 %18, 0
-  br i1 %.not28.i.i, label %validate_offset.exit.sink.split.i, label %45
+  br i1 %.not28.i.i, label %19, label %52
 
-19:                                               ; preds = %7
-  %20 = sub i32 0, %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
-  %22 = load i32, ptr %21, align 8
-  %.not.i.i = icmp ult i32 %22, %20
-  br i1 %.not.i.i, label %25, label %23
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %21 = load i32, ptr %20, align 4
+  %.not29.i.i = icmp ugt i32 %1, %21
+  br label %.sink.split
 
-23:                                               ; preds = %19
-  %24 = add i32 %22, %1
-  br label %32
+22:                                               ; preds = %7
+  %23 = sub i32 0, %1
+  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = load i32, ptr %24, align 8
+  %.not.i.i = icmp ult i32 %25, %23
+  br i1 %.not.i.i, label %28, label %26
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
-  %27 = load i32, ptr %26, align 8
-  %.not23.i.i = icmp ult i32 %27, %20
-  br i1 %.not23.i.i, label %28, label %45
+26:                                               ; preds = %22
+  %27 = add i32 %25, %1
+  br label %38
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
-  %30 = load i32, ptr %29, align 4
-  %31 = and i32 %30, 1
-  %.not24.i.i = icmp eq i32 %31, 0
-  br i1 %.not24.i.i, label %validate_offset.exit.sink.split.i, label %45
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = load i32, ptr %29, align 8
+  %.not23.i.i = icmp ult i32 %30, %23
+  br i1 %.not23.i.i, label %31, label %52
 
-32:                                               ; preds = %23, %9
-  %33 = phi i32 [ %22, %23 ], [ %11, %9 ]
-  %34 = phi i32 [ %24, %23 ], [ %1, %9 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
-  %.not.i27.i = icmp ult i32 %33, %34
-  br i1 %.not.i27.i, label %36, label %check_offset_length.exit
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %0, i64 20
+  %33 = load i32, ptr %32, align 4
+  %34 = and i32 %33, 1
+  %.not24.i.i = icmp eq i32 %34, 0
+  br i1 %.not24.i.i, label %35, label %52
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
-  %38 = load i32, ptr %37, align 8
-  %.not8.i.i = icmp ult i32 %38, %34
-  br i1 %.not8.i.i, label %39, label %45
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %0, i64 44
+  %37 = load i32, ptr %36, align 4
+  %.not25.i.i = icmp ult i32 %37, %23
+  br label %.sink.split
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 20
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %41, 1
-  %.not9.i.i = icmp eq i32 %42, 0
-  br i1 %.not9.i.i, label %validate_offset.exit.sink.split.i, label %45
+38:                                               ; preds = %26, %9
+  %39 = phi i32 [ %25, %26 ], [ %11, %9 ]
+  %40 = phi i32 [ %27, %26 ], [ %1, %9 ]
+  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %.not.i27.i = icmp ugt i32 %40, %39
+  br i1 %.not.i27.i, label %42, label %check_offset_length.exit
 
-validate_offset.exit.sink.split.i:                ; preds = %39, %28, %15
-  %.sink32.i = phi i32 [ %1, %15 ], [ %20, %28 ], [ %34, %39 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 44
-  %44 = load i32, ptr %43, align 4
-  %.not25.i.i = icmp ult i32 %44, %.sink32.i
-  %.30.i.i = select i1 %.not25.i.i, i64 3, i64 2
-  br label %45
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = load i32, ptr %43, align 8
+  %.not8.i.i = icmp ugt i32 %40, %44
+  br i1 %.not8.i.i, label %45, label %52
 
-45:                                               ; preds = %36, %39, %28, %25, %15, %12, %validate_offset.exit.sink.split.i
-  %.0.i.ph = phi i64 [ %.30.i.i, %validate_offset.exit.sink.split.i ], [ 1, %12 ], [ 4, %15 ], [ 1, %25 ], [ 4, %28 ], [ 4, %39 ], [ 1, %36 ]
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds i8, ptr %0, i64 20
+  %47 = load i32, ptr %46, align 4
+  %48 = and i32 %47, 1
+  %.not9.i.i = icmp eq i32 %48, 0
+  br i1 %.not9.i.i, label %49, label %52
+
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %0, i64 44
+  %51 = load i32, ptr %50, align 4
+  %.not10.i.i = icmp ugt i32 %40, %51
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %19, %35, %49
+  %.not10.i.i.sink = phi i1 [ %.not10.i.i, %49 ], [ %.not25.i.i, %35 ], [ %.not29.i.i, %19 ]
+  %..i29.i = select i1 %.not10.i.i.sink, i64 3, i64 2
+  br label %52
+
+52:                                               ; preds = %.sink.split, %42, %45, %31, %28, %15, %12
+  %.0.i.ph = phi i64 [ 1, %12 ], [ 4, %15 ], [ 1, %28 ], [ 4, %31 ], [ 4, %45 ], [ 1, %42 ], [ %..i29.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #16
   unreachable
 
-check_offset_length.exit:                         ; preds = %32
-  %46 = tail call i32 @tvb_find_guint8(ptr noundef nonnull %0, i32 noundef %34, i32 noundef -1, i8 noundef zeroext 0)
-  %47 = icmp eq i32 %46, -1
-  br i1 %47, label %48, label %65
+check_offset_length.exit:                         ; preds = %38
+  %53 = tail call i32 @tvb_find_guint8(ptr noundef nonnull %0, i32 noundef %40, i32 noundef -1, i8 noundef zeroext 0)
+  %54 = icmp eq i32 %53, -1
+  br i1 %54, label %55, label %72
 
-48:                                               ; preds = %check_offset_length.exit
-  %49 = load i32, ptr %35, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 48
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp ult i32 %49, %51
-  br i1 %52, label %53, label %54
+55:                                               ; preds = %check_offset_length.exit
+  %56 = load i32, ptr %41, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp ult i32 %56, %58
+  br i1 %59, label %60, label %61
 
-53:                                               ; preds = %48
+60:                                               ; preds = %55
   tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #16
   unreachable
 
-54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %0, i64 20
-  %56 = load i32, ptr %55, align 4
-  %57 = and i32 %56, 1
-  %.not14 = icmp eq i32 %57, 0
-  br i1 %.not14, label %59, label %58
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds i8, ptr %0, i64 20
+  %63 = load i32, ptr %62, align 4
+  %64 = and i32 %63, 1
+  %.not14 = icmp eq i32 %64, 0
+  br i1 %.not14, label %66, label %65
 
-58:                                               ; preds = %54
+65:                                               ; preds = %61
   tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #16
   unreachable
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %0, i64 44
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp ult i32 %49, %61
-  br i1 %62, label %63, label %64
+66:                                               ; preds = %61
+  %67 = getelementptr inbounds i8, ptr %0, i64 44
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp ult i32 %56, %68
+  br i1 %69, label %70, label %71
 
-63:                                               ; preds = %59
+70:                                               ; preds = %66
   tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #16
   unreachable
 
-64:                                               ; preds = %59
+71:                                               ; preds = %66
   tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #16
   unreachable
 
-65:                                               ; preds = %check_offset_length.exit
-  %reass.sub = sub i32 %46, %34
-  %66 = add i32 %reass.sub, 1
-  ret i32 %66
+72:                                               ; preds = %check_offset_length.exit
+  %reass.sub = sub i32 %53, %40
+  %73 = add i32 %reass.sub, 1
+  ret i32 %73
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5261,88 +5364,103 @@ define i32 @tvb_strnlen(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
 
 8:                                                ; preds = %4
   %9 = icmp sgt i32 %1, -1
-  br i1 %9, label %10, label %20
+  br i1 %9, label %10, label %23
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
-  %.not26.i.i = icmp ult i32 %12, %1
-  br i1 %.not26.i.i, label %13, label %33
+  %.not26.i.i = icmp ugt i32 %1, %12
+  br i1 %.not26.i.i, label %13, label %39
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
-  %.not27.i.i = icmp ult i32 %15, %1
-  br i1 %.not27.i.i, label %16, label %45
+  %.not27.i.i = icmp ugt i32 %1, %15
+  br i1 %.not27.i.i, label %16, label %52
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not28.i.i = icmp eq i32 %19, 0
-  br i1 %.not28.i.i, label %validate_offset.exit.sink.split.i, label %45
+  br i1 %.not28.i.i, label %20, label %52
 
-20:                                               ; preds = %8
-  %21 = sub i32 0, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
-  %23 = load i32, ptr %22, align 8
-  %.not.i.i = icmp ult i32 %23, %21
-  br i1 %.not.i.i, label %26, label %24
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %0, i64 44
+  %22 = load i32, ptr %21, align 4
+  %.not29.i.i = icmp ugt i32 %1, %22
+  br label %.sink.split
 
-24:                                               ; preds = %20
-  %25 = add i32 %23, %1
-  br label %33
+23:                                               ; preds = %8
+  %24 = sub i32 0, %1
+  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = load i32, ptr %25, align 8
+  %.not.i.i = icmp ult i32 %26, %24
+  br i1 %.not.i.i, label %29, label %27
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
-  %28 = load i32, ptr %27, align 8
-  %.not23.i.i = icmp ult i32 %28, %21
-  br i1 %.not23.i.i, label %29, label %45
+27:                                               ; preds = %23
+  %28 = add i32 %26, %1
+  br label %39
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 20
-  %31 = load i32, ptr %30, align 4
-  %32 = and i32 %31, 1
-  %.not24.i.i = icmp eq i32 %32, 0
-  br i1 %.not24.i.i, label %validate_offset.exit.sink.split.i, label %45
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = load i32, ptr %30, align 8
+  %.not23.i.i = icmp ult i32 %31, %24
+  br i1 %.not23.i.i, label %32, label %52
 
-33:                                               ; preds = %24, %10
-  %34 = phi i32 [ %23, %24 ], [ %12, %10 ]
-  %35 = phi i32 [ %25, %24 ], [ %1, %10 ]
-  %.not.i27.i = icmp ult i32 %34, %35
-  br i1 %.not.i27.i, label %36, label %check_offset_length.exit
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = load i32, ptr %33, align 4
+  %35 = and i32 %34, 1
+  %.not24.i.i = icmp eq i32 %35, 0
+  br i1 %.not24.i.i, label %36, label %52
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
-  %38 = load i32, ptr %37, align 8
-  %.not8.i.i = icmp ult i32 %38, %35
-  br i1 %.not8.i.i, label %39, label %45
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds i8, ptr %0, i64 44
+  %38 = load i32, ptr %37, align 4
+  %.not25.i.i = icmp ult i32 %38, %24
+  br label %.sink.split
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 20
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %41, 1
-  %.not9.i.i = icmp eq i32 %42, 0
-  br i1 %.not9.i.i, label %validate_offset.exit.sink.split.i, label %45
+39:                                               ; preds = %27, %10
+  %40 = phi i32 [ %26, %27 ], [ %12, %10 ]
+  %41 = phi i32 [ %28, %27 ], [ %1, %10 ]
+  %.not.i27.i = icmp ugt i32 %41, %40
+  br i1 %.not.i27.i, label %42, label %check_offset_length.exit
 
-validate_offset.exit.sink.split.i:                ; preds = %39, %29, %16
-  %.sink32.i = phi i32 [ %1, %16 ], [ %21, %29 ], [ %35, %39 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 44
-  %44 = load i32, ptr %43, align 4
-  %.not25.i.i = icmp ult i32 %44, %.sink32.i
-  %.30.i.i = select i1 %.not25.i.i, i64 3, i64 2
-  br label %45
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = load i32, ptr %43, align 8
+  %.not8.i.i = icmp ugt i32 %41, %44
+  br i1 %.not8.i.i, label %45, label %52
 
-45:                                               ; preds = %36, %39, %29, %26, %16, %13, %validate_offset.exit.sink.split.i
-  %.0.i.ph = phi i64 [ %.30.i.i, %validate_offset.exit.sink.split.i ], [ 1, %13 ], [ 4, %16 ], [ 1, %26 ], [ 4, %29 ], [ 4, %39 ], [ 1, %36 ]
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds i8, ptr %0, i64 20
+  %47 = load i32, ptr %46, align 4
+  %48 = and i32 %47, 1
+  %.not9.i.i = icmp eq i32 %48, 0
+  br i1 %.not9.i.i, label %49, label %52
+
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %0, i64 44
+  %51 = load i32, ptr %50, align 4
+  %.not10.i.i = icmp ugt i32 %41, %51
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %20, %36, %49
+  %.not10.i.i.sink = phi i1 [ %.not10.i.i, %49 ], [ %.not25.i.i, %36 ], [ %.not29.i.i, %20 ]
+  %..i29.i = select i1 %.not10.i.i.sink, i64 3, i64 2
+  br label %52
+
+52:                                               ; preds = %.sink.split, %42, %45, %32, %29, %16, %13
+  %.0.i.ph = phi i64 [ 1, %13 ], [ 4, %16 ], [ 1, %29 ], [ 4, %32 ], [ 4, %45 ], [ 1, %42 ], [ %..i29.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #16
   unreachable
 
-check_offset_length.exit:                         ; preds = %33
-  %46 = tail call i32 @tvb_find_guint8(ptr noundef nonnull %0, i32 noundef %35, i32 noundef %2, i8 noundef zeroext 0)
-  %47 = icmp eq i32 %46, -1
-  %48 = sub i32 %46, %35
-  %.0 = select i1 %47, i32 -1, i32 %48
+check_offset_length.exit:                         ; preds = %39
+  %53 = tail call i32 @tvb_find_guint8(ptr noundef nonnull %0, i32 noundef %41, i32 noundef %2, i8 noundef zeroext 0)
+  %54 = icmp eq i32 %53, -1
+  %55 = sub i32 %53, %41
+  %.0 = select i1 %54, i32 -1, i32 %55
   ret i32 %.0
 }
 
@@ -5367,132 +5485,145 @@ define range(i32 -1, 1) i32 @tvb_strneql(ptr noundef %0, i32 noundef %1, ptr noc
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ensure_contiguous_no_exception(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %1, -1
-  br i1 %5, label %6, label %16
+  br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
-  %.not26.i.i = icmp ult i32 %8, %1
-  br i1 %.not26.i.i, label %9, label %29
+  %.not26.i.i = icmp ugt i32 %1, %8
+  br i1 %.not26.i.i, label %9, label %35
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
-  %.not27.i.i = icmp ult i32 %11, %1
-  br i1 %.not27.i.i, label %12, label %48
+  %.not27.i.i = icmp ugt i32 %1, %11
+  br i1 %.not27.i.i, label %12, label %55
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 1
   %.not28.i.i = icmp eq i32 %15, 0
-  br i1 %.not28.i.i, label %validate_offset.exit.sink.split.i, label %48
+  br i1 %.not28.i.i, label %16, label %55
 
-16:                                               ; preds = %4
-  %17 = sub i32 0, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = load i32, ptr %18, align 8
-  %.not.i.i = icmp ult i32 %19, %17
-  br i1 %.not.i.i, label %22, label %20
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = load i32, ptr %17, align 4
+  %.not29.i.i = icmp ugt i32 %1, %18
+  %..i.i = select i1 %.not29.i.i, i32 3, i32 2
+  br label %55
 
-20:                                               ; preds = %16
-  %21 = add i32 %19, %1
-  br label %29
+19:                                               ; preds = %4
+  %20 = sub i32 0, %1
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = load i32, ptr %21, align 8
+  %.not.i.i = icmp ult i32 %22, %20
+  br i1 %.not.i.i, label %25, label %23
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
-  %24 = load i32, ptr %23, align 8
-  %.not23.i.i = icmp ult i32 %24, %17
-  br i1 %.not23.i.i, label %25, label %48
+23:                                               ; preds = %19
+  %24 = add i32 %22, %1
+  br label %35
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 20
-  %27 = load i32, ptr %26, align 4
-  %28 = and i32 %27, 1
-  %.not24.i.i = icmp eq i32 %28, 0
-  br i1 %.not24.i.i, label %validate_offset.exit.sink.split.i, label %48
+25:                                               ; preds = %19
+  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = load i32, ptr %26, align 8
+  %.not23.i.i = icmp ult i32 %27, %20
+  br i1 %.not23.i.i, label %28, label %55
 
-29:                                               ; preds = %20, %6
-  %30 = phi i32 [ %19, %20 ], [ %8, %6 ]
-  %31 = phi i32 [ %21, %20 ], [ %1, %6 ]
-  %32 = icmp slt i32 %2, -1
-  br i1 %32, label %48, label %33
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, 1
+  %.not24.i.i = icmp eq i32 %31, 0
+  br i1 %.not24.i.i, label %32, label %55
 
-33:                                               ; preds = %29
-  %34 = icmp eq i32 %2, -1
-  %35 = sub i32 %30, %31
-  %spec.select = select i1 %34, i32 %35, i32 %2
-  %36 = add i32 %spec.select, %31
-  %37 = icmp ult i32 %36, %31
-  br i1 %37, label %48, label %38
-
-38:                                               ; preds = %33
-  %.not.i27.i = icmp ult i32 %30, %36
-  br i1 %.not.i27.i, label %39, label %check_offset_length_no_exception.exit
-
-39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
-  %41 = load i32, ptr %40, align 8
-  %.not8.i.i = icmp ult i32 %41, %36
-  br i1 %.not8.i.i, label %42, label %48
-
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %0, i64 20
-  %44 = load i32, ptr %43, align 4
-  %45 = and i32 %44, 1
-  %.not9.i.i = icmp eq i32 %45, 0
-  br i1 %.not9.i.i, label %validate_offset.exit.sink.split.i, label %48
-
-validate_offset.exit.sink.split.i:                ; preds = %42, %25, %12
-  %.sink32.i = phi i32 [ %1, %12 ], [ %17, %25 ], [ %36, %42 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 44
-  %47 = load i32, ptr %46, align 4
-  %.not25.i.i = icmp ult i32 %47, %.sink32.i
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds i8, ptr %0, i64 44
+  %34 = load i32, ptr %33, align 4
+  %.not25.i.i = icmp ult i32 %34, %20
   %.30.i.i = select i1 %.not25.i.i, i32 3, i32 2
-  br label %48
+  br label %55
 
-48:                                               ; preds = %29, %33, %39, %42, %25, %22, %12, %9, %validate_offset.exit.sink.split.i
-  %.0.i.ph = phi i32 [ %.30.i.i, %validate_offset.exit.sink.split.i ], [ 1, %9 ], [ 4, %12 ], [ 1, %22 ], [ 4, %25 ], [ 4, %42 ], [ 1, %39 ], [ 1, %33 ], [ 1, %29 ]
+35:                                               ; preds = %23, %6
+  %36 = phi i32 [ %22, %23 ], [ %8, %6 ]
+  %37 = phi i32 [ %24, %23 ], [ %1, %6 ]
+  %38 = icmp slt i32 %2, -1
+  br i1 %38, label %55, label %39
+
+39:                                               ; preds = %35
+  %40 = icmp eq i32 %2, -1
+  %41 = sub i32 %36, %37
+  %spec.select = select i1 %40, i32 %41, i32 %2
+  %42 = add i32 %spec.select, %37
+  %43 = icmp ult i32 %42, %37
+  br i1 %43, label %55, label %44
+
+44:                                               ; preds = %39
+  %.not.i27.i = icmp ugt i32 %42, %36
+  br i1 %.not.i27.i, label %45, label %check_offset_length_no_exception.exit
+
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = load i32, ptr %46, align 8
+  %.not8.i.i = icmp ugt i32 %42, %47
+  br i1 %.not8.i.i, label %48, label %55
+
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds i8, ptr %0, i64 20
+  %50 = load i32, ptr %49, align 4
+  %51 = and i32 %50, 1
+  %.not9.i.i = icmp eq i32 %51, 0
+  br i1 %.not9.i.i, label %52, label %55
+
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds i8, ptr %0, i64 44
+  %54 = load i32, ptr %53, align 4
+  %.not10.i.i = icmp ugt i32 %42, %54
+  %..i29.i = select i1 %.not10.i.i, i32 3, i32 2
+  br label %55
+
+55:                                               ; preds = %35, %39, %45, %48, %52, %32, %28, %25, %16, %12, %9
+  %.0.i.ph = phi i32 [ 1, %9 ], [ 4, %12 ], [ %..i.i, %16 ], [ 1, %25 ], [ 4, %28 ], [ %.30.i.i, %32 ], [ %..i29.i, %52 ], [ 4, %48 ], [ 1, %45 ], [ 1, %39 ], [ 1, %35 ]
   %.not19 = icmp eq ptr %3, null
-  br i1 %.not19, label %65, label %49
+  br i1 %.not19, label %72, label %56
 
-49:                                               ; preds = %48
+56:                                               ; preds = %55
   store i32 %.0.i.ph, ptr %3, align 4
-  br label %65
+  br label %72
 
-check_offset_length_no_exception.exit:            ; preds = %38
-  %50 = icmp eq i32 %2, 0
-  br i1 %50, label %65, label %51
+check_offset_length_no_exception.exit:            ; preds = %44
+  %57 = icmp eq i32 %2, 0
+  br i1 %57, label %72, label %58
 
-51:                                               ; preds = %check_offset_length_no_exception.exit
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
-  %53 = load ptr, ptr %52, align 8
-  %.not17 = icmp eq ptr %53, null
-  br i1 %.not17, label %57, label %54
+58:                                               ; preds = %check_offset_length_no_exception.exit
+  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %60 = load ptr, ptr %59, align 8
+  %.not17 = icmp eq ptr %60, null
+  br i1 %.not17, label %64, label %61
 
-54:                                               ; preds = %51
-  %55 = zext i32 %31 to i64
-  %56 = getelementptr i8, ptr %53, i64 %55
-  br label %65
+61:                                               ; preds = %58
+  %62 = zext i32 %37 to i64
+  %63 = getelementptr i8, ptr %60, i64 %62
+  br label %72
 
-57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %.not18 = icmp eq ptr %61, null
-  br i1 %.not18, label %64, label %62
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  %68 = load ptr, ptr %67, align 8
+  %.not18 = icmp eq ptr %68, null
+  br i1 %.not18, label %71, label %69
 
-62:                                               ; preds = %57
-  %63 = tail call ptr %61(ptr noundef nonnull %0, i32 noundef %31, i32 noundef %spec.select) #17
-  br label %65
+69:                                               ; preds = %64
+  %70 = tail call ptr %68(ptr noundef nonnull %0, i32 noundef %37, i32 noundef %spec.select) #17
+  br label %72
 
-64:                                               ; preds = %57
+71:                                               ; preds = %64
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 874) #16
   unreachable
 
-65:                                               ; preds = %check_offset_length_no_exception.exit, %48, %49, %62, %54
-  %.0 = phi ptr [ %56, %54 ], [ %63, %62 ], [ null, %49 ], [ null, %48 ], [ null, %check_offset_length_no_exception.exit ]
+72:                                               ; preds = %check_offset_length_no_exception.exit, %55, %56, %69, %61
+  %.0 = phi ptr [ %63, %61 ], [ %70, %69 ], [ null, %56 ], [ null, %55 ], [ null, %check_offset_length_no_exception.exit ]
   ret ptr %.0
 }
 
@@ -8917,143 +9048,152 @@ define i32 @tvb_get_raw_bytes_as_stringz(ptr noundef %0, i32 noundef %1, i32 nou
 
 9:                                                ; preds = %5
   %10 = icmp sgt i32 %1, -1
-  br i1 %10, label %11, label %21
+  br i1 %10, label %11, label %24
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
-  %.not26.i.i.i = icmp ult i32 %13, %1
-  br i1 %.not26.i.i.i, label %14, label %34
+  %.not26.i.i.i = icmp ugt i32 %1, %13
+  br i1 %.not26.i.i.i, label %14, label %40
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 8
-  %.not27.i.i.i = icmp ult i32 %16, %1
-  br i1 %.not27.i.i.i, label %17, label %41
+  %.not27.i.i.i = icmp ugt i32 %1, %16
+  br i1 %.not27.i.i.i, label %17, label %45
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not28.i.i.i = icmp eq i32 %20, 0
-  br i1 %.not28.i.i.i, label %validate_offset.exit.sink.split.i.i, label %41
+  br i1 %.not28.i.i.i, label %21, label %45
 
-21:                                               ; preds = %9
-  %22 = sub i32 0, %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load i32, ptr %23, align 8
-  %.not.i.i.i = icmp ult i32 %24, %22
-  br i1 %.not.i.i.i, label %27, label %25
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %0, i64 44
+  %23 = load i32, ptr %22, align 4
+  %.not29.i.i.i = icmp ugt i32 %1, %23
+  br label %.sink.split.i
 
-25:                                               ; preds = %21
-  %26 = add i32 %24, %1
-  br label %34
+24:                                               ; preds = %9
+  %25 = sub i32 0, %1
+  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = load i32, ptr %26, align 8
+  %.not.i.i.i = icmp ult i32 %27, %25
+  br i1 %.not.i.i.i, label %30, label %28
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
-  %29 = load i32, ptr %28, align 8
-  %.not23.i.i.i = icmp ult i32 %29, %22
-  br i1 %.not23.i.i.i, label %30, label %41
+28:                                               ; preds = %24
+  %29 = add i32 %27, %1
+  br label %40
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
-  %32 = load i32, ptr %31, align 4
-  %33 = and i32 %32, 1
-  %.not24.i.i.i = icmp eq i32 %33, 0
-  br i1 %.not24.i.i.i, label %validate_offset.exit.sink.split.i.i, label %41
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = load i32, ptr %31, align 8
+  %.not23.i.i.i = icmp ult i32 %32, %25
+  br i1 %.not23.i.i.i, label %33, label %45
 
-34:                                               ; preds = %25, %11
-  %35 = phi i32 [ %24, %25 ], [ %13, %11 ]
-  %36 = phi i32 [ %26, %25 ], [ %1, %11 ]
-  %37 = sub i32 %35, %36
-  %38 = icmp ult i32 %35, %36
-  br i1 %38, label %41, label %check_offset_length.exit.i
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %0, i64 20
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 1
+  %.not24.i.i.i = icmp eq i32 %36, 0
+  br i1 %.not24.i.i.i, label %37, label %45
 
-validate_offset.exit.sink.split.i.i:              ; preds = %30, %17
-  %.sink32.i.i = phi i32 [ %1, %17 ], [ %22, %30 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 44
-  %40 = load i32, ptr %39, align 4
-  %.not25.i.i.i = icmp ult i32 %40, %.sink32.i.i
-  %.30.i.i.i = select i1 %.not25.i.i.i, i64 3, i64 2
-  br label %41
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %0, i64 44
+  %39 = load i32, ptr %38, align 4
+  %.not25.i.i.i = icmp ult i32 %39, %25
+  br label %.sink.split.i
 
-41:                                               ; preds = %validate_offset.exit.sink.split.i.i, %34, %30, %27, %17, %14
-  %.0.i.ph.i = phi i64 [ %.30.i.i.i, %validate_offset.exit.sink.split.i.i ], [ 1, %14 ], [ 4, %17 ], [ 1, %27 ], [ 4, %30 ], [ 1, %34 ]
+40:                                               ; preds = %28, %11
+  %41 = phi i32 [ %27, %28 ], [ %13, %11 ]
+  %42 = phi i32 [ %29, %28 ], [ %1, %11 ]
+  %43 = sub i32 %41, %42
+  %44 = icmp ult i32 %41, %42
+  br i1 %44, label %45, label %check_offset_length.exit.i
+
+.sink.split.i:                                    ; preds = %37, %21
+  %.not25.i.i.sink.i = phi i1 [ %.not25.i.i.i, %37 ], [ %.not29.i.i.i, %21 ]
+  %.30.i.i.i = select i1 %.not25.i.i.sink.i, i64 3, i64 2
+  br label %45
+
+45:                                               ; preds = %.sink.split.i, %40, %33, %30, %17, %14
+  %.0.i.ph.i = phi i64 [ 1, %14 ], [ 4, %17 ], [ 1, %30 ], [ 4, %33 ], [ 1, %40 ], [ %.30.i.i.i, %.sink.split.i ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph.i, ptr noundef null) #16
   unreachable
 
-check_offset_length.exit.i:                       ; preds = %34
-  switch i32 %2, label %44 [
-    i32 0, label %42
-    i32 1, label %43
+check_offset_length.exit.i:                       ; preds = %40
+  switch i32 %2, label %48 [
+    i32 0, label %46
+    i32 1, label %47
   ]
 
-42:                                               ; preds = %check_offset_length.exit.i
+46:                                               ; preds = %check_offset_length.exit.i
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3958, ptr noundef nonnull @.str.39) #16
   unreachable
 
-43:                                               ; preds = %check_offset_length.exit.i
+47:                                               ; preds = %check_offset_length.exit.i
   store i8 0, ptr %3, align 1
   br label %_tvb_get_raw_bytes_as_stringz.exit
 
-44:                                               ; preds = %check_offset_length.exit.i
-  switch i32 %37, label %47 [
-    i32 0, label %45
-    i32 -1, label %46
+48:                                               ; preds = %check_offset_length.exit.i
+  switch i32 %43, label %51 [
+    i32 0, label %49
+    i32 -1, label %50
   ]
 
-45:                                               ; preds = %44
+49:                                               ; preds = %48
   tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #16
   unreachable
 
-46:                                               ; preds = %44
+50:                                               ; preds = %48
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3976, ptr noundef nonnull @.str.40) #16
   unreachable
 
-47:                                               ; preds = %44
-  %48 = icmp sgt i32 %2, -1
-  br i1 %48, label %50, label %49
+51:                                               ; preds = %48
+  %52 = icmp sgt i32 %2, -1
+  br i1 %52, label %54, label %53
 
-49:                                               ; preds = %47
+53:                                               ; preds = %51
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3982, ptr noundef nonnull @.str.41) #16
   unreachable
 
-50:                                               ; preds = %47
-  %..i = tail call i32 @llvm.umin.i32(i32 %37, i32 %2)
-  %51 = add nsw i32 %..i, -1
-  %52 = tail call i32 @tvb_strnlen(ptr noundef nonnull %0, i32 noundef %36, i32 noundef %51)
-  %53 = icmp eq i32 %52, -1
-  br i1 %53, label %54, label %60
+54:                                               ; preds = %51
+  %..i = tail call i32 @llvm.umin.i32(i32 %43, i32 %2)
+  %55 = add nsw i32 %..i, -1
+  %56 = tail call i32 @tvb_strnlen(ptr noundef nonnull %0, i32 noundef %42, i32 noundef %55)
+  %57 = icmp eq i32 %56, -1
+  br i1 %57, label %58, label %64
 
-54:                                               ; preds = %50
-  %.not35.i = icmp ult i32 %37, %2
-  %55 = zext nneg i32 %..i to i64
-  %56 = tail call ptr @tvb_memcpy(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %36, i64 noundef %55)
-  br i1 %.not35.i, label %57, label %64
+58:                                               ; preds = %54
+  %.not35.i = icmp ult i32 %43, %2
+  %59 = zext nneg i32 %..i to i64
+  %60 = tail call ptr @tvb_memcpy(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %42, i64 noundef %59)
+  br i1 %.not35.i, label %61, label %68
 
-57:                                               ; preds = %54
-  %58 = getelementptr i8, ptr %3, i64 %55
-  store i8 0, ptr %58, align 1
-  %59 = add nuw nsw i32 %37, 1
-  br label %64
+61:                                               ; preds = %58
+  %62 = getelementptr i8, ptr %3, i64 %59
+  store i8 0, ptr %62, align 1
+  %63 = add nuw nsw i32 %43, 1
+  br label %68
 
-60:                                               ; preds = %50
-  %61 = add nuw i32 %52, 1
-  %62 = sext i32 %61 to i64
-  %63 = tail call ptr @tvb_memcpy(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %36, i64 noundef %62)
+64:                                               ; preds = %54
+  %65 = add nuw i32 %56, 1
+  %66 = sext i32 %65 to i64
+  %67 = tail call ptr @tvb_memcpy(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %42, i64 noundef %66)
   br label %_tvb_get_raw_bytes_as_stringz.exit
 
-64:                                               ; preds = %57, %54
-  %.sink.i.ph = phi i32 [ %2, %54 ], [ %59, %57 ]
-  %65 = zext nneg i32 %2 to i64
-  %66 = getelementptr i8, ptr %3, i64 %65
-  %67 = getelementptr i8, ptr %66, i64 -1
-  store i8 0, ptr %67, align 1
-  %68 = add nsw i32 %.sink.i.ph, -1
+68:                                               ; preds = %61, %58
+  %.sink.i.ph = phi i32 [ %2, %58 ], [ %63, %61 ]
+  %69 = zext nneg i32 %2 to i64
+  %70 = getelementptr i8, ptr %3, i64 %69
+  %71 = getelementptr i8, ptr %70, i64 -1
+  store i8 0, ptr %71, align 1
+  %72 = add nsw i32 %.sink.i.ph, -1
   br label %_tvb_get_raw_bytes_as_stringz.exit
 
-_tvb_get_raw_bytes_as_stringz.exit:               ; preds = %60, %43, %64
-  %.0 = phi i32 [ %68, %64 ], [ %52, %60 ], [ 0, %43 ]
+_tvb_get_raw_bytes_as_stringz.exit:               ; preds = %64, %47, %68
+  %.0 = phi i32 [ %72, %68 ], [ %56, %64 ], [ 0, %47 ]
   ret i32 %.0
 }
 
@@ -9095,7 +9235,7 @@ define range(i32 0, 2147483647) i32 @tvb_get_raw_bytes_as_string(ptr noundef %0,
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
-  %.not26.i.i.i = icmp ult i32 %18, %1
+  %.not26.i.i.i = icmp ugt i32 %1, %18
   br i1 %.not26.i.i.i, label %tvb_captured_length_remaining.exit.thread, label %tvb_captured_length_remaining.exit
 
 19:                                               ; preds = %14
@@ -9170,7 +9310,7 @@ tvb_get_ptr.exit:                                 ; preds = %3
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
-  %.not26.i.i = icmp ult i32 %19, %1
+  %.not26.i.i = icmp ugt i32 %1, %19
   br i1 %.not26.i.i, label %.lr.ph, label %26
 
 20:                                               ; preds = %15
@@ -9259,7 +9399,7 @@ tvb_get_ptr.exit:                                 ; preds = %3
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
-  %.not26.i.i = icmp ult i32 %19, %1
+  %.not26.i.i = icmp ugt i32 %1, %19
   br i1 %.not26.i.i, label %compute_offset_and_remaining.exit, label %26
 
 20:                                               ; preds = %15
@@ -9325,7 +9465,7 @@ tvb_get_ptr.exit:                                 ; preds = %3
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
-  %.not26.i.i = icmp ult i32 %19, %1
+  %.not26.i.i = icmp ugt i32 %1, %19
   br i1 %.not26.i.i, label %.lr.ph, label %26
 
 20:                                               ; preds = %15
@@ -9405,7 +9545,7 @@ define i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
-  %.not26.i.i.i = icmp ult i32 %17, %1
+  %.not26.i.i.i = icmp ugt i32 %1, %17
   br i1 %.not26.i.i.i, label %_tvb_captured_length_remaining.exit, label %24
 
 18:                                               ; preds = %13
@@ -9521,7 +9661,7 @@ define i32 @tvb_find_line_end_unquoted(ptr noundef %0, i32 noundef %1, i32 nound
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not26.i.i.i = icmp ult i32 %16, %1
+  %.not26.i.i.i = icmp ugt i32 %1, %16
   br i1 %.not26.i.i.i, label %_tvb_captured_length_remaining.exit, label %23
 
 17:                                               ; preds = %12
@@ -9648,7 +9788,7 @@ define i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %2, %1
   %spec.select = tail call i32 @llvm.smin.i32(i32 %11, i32 %10)
-  %12 = icmp sgt i32 %spec.select, %1
+  %12 = icmp slt i32 %1, %spec.select
   br i1 %12, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %8, %.critedge7
@@ -9733,7 +9873,7 @@ define hidden i32 @tvb_skip_guint8(ptr noundef %0, i32 noundef %1, i32 noundef %
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %2, %1
   %spec.select = tail call i32 @llvm.smin.i32(i32 %12, i32 %11)
-  %13 = icmp sgt i32 %spec.select, %1
+  %13 = icmp slt i32 %1, %spec.select
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9, %16
@@ -9781,7 +9921,7 @@ define i32 @tvb_get_token_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
-  %.not26.i.i.i = icmp ult i32 %17, %1
+  %.not26.i.i.i = icmp ugt i32 %1, %17
   br i1 %.not26.i.i.i, label %_tvb_captured_length_remaining.exit, label %24
 
 18:                                               ; preds = %13
@@ -9964,7 +10104,7 @@ define i32 @tvb_find_tvb(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   %13 = icmp eq i32 %12, 0
   %14 = icmp eq i32 %5, 0
   %or.cond = select i1 %13, i1 true, i1 %14
-  br i1 %or.cond, label %79, label %15
+  br i1 %or.cond, label %83, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %0, i64 32
@@ -9999,7 +10139,7 @@ ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge: ; preds = 
 
 ensure_contiguous.exit:                           ; preds = %ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge, %15
   %27 = phi i32 [ %.pre, %ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge ], [ %5, %15 ]
-  %.0.i35 = phi ptr [ %24, %ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge ], [ %17, %15 ]
+  %.0.i34 = phi ptr [ %24, %ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge ], [ %17, %15 ]
   %28 = getelementptr inbounds i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not17.i21 = icmp eq ptr %29, null
@@ -10027,89 +10167,98 @@ ensure_contiguous_no_exception.exit24:            ; preds = %30
   unreachable
 
 ensure_contiguous.exit20:                         ; preds = %ensure_contiguous.exit, %ensure_contiguous_no_exception.exit24
-  %.0.i2237 = phi ptr [ %36, %ensure_contiguous_no_exception.exit24 ], [ %29, %ensure_contiguous.exit ]
+  %.0.i2236 = phi ptr [ %36, %ensure_contiguous_no_exception.exit24 ], [ %29, %ensure_contiguous.exit ]
   %39 = icmp sgt i32 %2, -1
-  br i1 %39, label %40, label %49
+  br i1 %39, label %40, label %52
 
 40:                                               ; preds = %ensure_contiguous.exit20
   %41 = load i32, ptr %11, align 8
-  %.not26.i.i = icmp ult i32 %41, %2
-  br i1 %.not26.i.i, label %42, label %61
+  %.not26.i.i = icmp ugt i32 %2, %41
+  br i1 %.not26.i.i, label %42, label %67
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds i8, ptr %0, i64 48
   %44 = load i32, ptr %43, align 8
-  %.not27.i.i = icmp ult i32 %44, %2
-  br i1 %.not27.i.i, label %45, label %67
+  %.not27.i.i = icmp ugt i32 %2, %44
+  br i1 %.not27.i.i, label %45, label %71
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %0, i64 20
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 1
   %.not28.i.i = icmp eq i32 %48, 0
-  br i1 %.not28.i.i, label %validate_offset.exit.sink.split.i, label %67
+  br i1 %.not28.i.i, label %49, label %71
 
-49:                                               ; preds = %ensure_contiguous.exit20
-  %50 = sub i32 0, %2
-  %51 = load i32, ptr %11, align 8
-  %.not.i.i = icmp ult i32 %51, %50
-  br i1 %.not.i.i, label %54, label %52
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %0, i64 44
+  %51 = load i32, ptr %50, align 4
+  %.not29.i.i = icmp ugt i32 %2, %51
+  br label %.sink.split
 
-52:                                               ; preds = %49
-  %53 = add i32 %51, %2
-  br label %61
+52:                                               ; preds = %ensure_contiguous.exit20
+  %53 = sub i32 0, %2
+  %54 = load i32, ptr %11, align 8
+  %.not.i.i = icmp ult i32 %54, %53
+  br i1 %.not.i.i, label %57, label %55
 
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %0, i64 48
-  %56 = load i32, ptr %55, align 8
-  %.not23.i.i = icmp ult i32 %56, %50
-  br i1 %.not23.i.i, label %57, label %67
-
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %0, i64 20
-  %59 = load i32, ptr %58, align 4
-  %60 = and i32 %59, 1
-  %.not24.i.i = icmp eq i32 %60, 0
-  br i1 %.not24.i.i, label %validate_offset.exit.sink.split.i, label %67
-
-61:                                               ; preds = %52, %40
-  %62 = phi i32 [ %51, %52 ], [ %41, %40 ]
-  %63 = phi i32 [ %53, %52 ], [ %2, %40 ]
-  %64 = icmp ult i32 %62, %63
-  br i1 %64, label %67, label %check_offset_length.exit
-
-validate_offset.exit.sink.split.i:                ; preds = %57, %45
-  %.sink32.i = phi i32 [ %2, %45 ], [ %50, %57 ]
-  %65 = getelementptr inbounds i8, ptr %0, i64 44
-  %66 = load i32, ptr %65, align 4
-  %.not25.i.i = icmp ult i32 %66, %.sink32.i
-  %.30.i.i = select i1 %.not25.i.i, i64 3, i64 2
+55:                                               ; preds = %52
+  %56 = add i32 %54, %2
   br label %67
 
-67:                                               ; preds = %61, %57, %54, %45, %42, %validate_offset.exit.sink.split.i
-  %.0.i26.ph = phi i64 [ %.30.i.i, %validate_offset.exit.sink.split.i ], [ 1, %42 ], [ 4, %45 ], [ 1, %54 ], [ 4, %57 ], [ 1, %61 ]
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %59 = load i32, ptr %58, align 8
+  %.not23.i.i = icmp ult i32 %59, %53
+  br i1 %.not23.i.i, label %60, label %71
+
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds i8, ptr %0, i64 20
+  %62 = load i32, ptr %61, align 4
+  %63 = and i32 %62, 1
+  %.not24.i.i = icmp eq i32 %63, 0
+  br i1 %.not24.i.i, label %64, label %71
+
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %0, i64 44
+  %66 = load i32, ptr %65, align 4
+  %.not25.i.i = icmp ult i32 %66, %53
+  br label %.sink.split
+
+67:                                               ; preds = %55, %40
+  %68 = phi i32 [ %54, %55 ], [ %41, %40 ]
+  %69 = phi i32 [ %56, %55 ], [ %2, %40 ]
+  %70 = icmp ult i32 %68, %69
+  br i1 %70, label %71, label %check_offset_length.exit
+
+.sink.split:                                      ; preds = %49, %64
+  %.not25.i.i.sink = phi i1 [ %.not25.i.i, %64 ], [ %.not29.i.i, %49 ]
+  %.30.i.i = select i1 %.not25.i.i.sink, i64 3, i64 2
+  br label %71
+
+71:                                               ; preds = %.sink.split, %67, %60, %57, %45, %42
+  %.0.i26.ph = phi i64 [ 1, %42 ], [ 4, %45 ], [ 1, %57 ], [ 4, %60 ], [ 1, %67 ], [ %.30.i.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i26.ph, ptr noundef null) #16
   unreachable
 
-check_offset_length.exit:                         ; preds = %61
-  %68 = sub nuw i32 %62, %63
-  %69 = zext i32 %63 to i64
-  %70 = getelementptr i8, ptr %.0.i35, i64 %69
-  %71 = zext i32 %68 to i64
-  %72 = zext i32 %5 to i64
-  %73 = tail call ptr @ws_memmem(ptr noundef %70, i64 noundef %71, ptr noundef nonnull %.0.i2237, i64 noundef %72) #17
-  %.not19 = icmp eq ptr %73, null
-  br i1 %.not19, label %79, label %74
+check_offset_length.exit:                         ; preds = %67
+  %72 = sub nuw i32 %68, %69
+  %73 = zext i32 %69 to i64
+  %74 = getelementptr i8, ptr %.0.i34, i64 %73
+  %75 = zext i32 %72 to i64
+  %76 = zext i32 %5 to i64
+  %77 = tail call ptr @ws_memmem(ptr noundef %74, i64 noundef %75, ptr noundef nonnull %.0.i2236, i64 noundef %76) #17
+  %.not19 = icmp eq ptr %77, null
+  br i1 %.not19, label %83, label %78
 
-74:                                               ; preds = %check_offset_length.exit
-  %75 = ptrtoint ptr %73 to i64
-  %76 = ptrtoint ptr %.0.i35 to i64
-  %77 = sub i64 %75, %76
-  %78 = trunc i64 %77 to i32
-  br label %79
+78:                                               ; preds = %check_offset_length.exit
+  %79 = ptrtoint ptr %77 to i64
+  %80 = ptrtoint ptr %.0.i34 to i64
+  %81 = sub i64 %79, %80
+  %82 = trunc i64 %81 to i32
+  br label %83
 
-79:                                               ; preds = %check_offset_length.exit, %10, %74
-  %.0 = phi i32 [ %78, %74 ], [ -1, %10 ], [ -1, %check_offset_length.exit ]
+83:                                               ; preds = %check_offset_length.exit, %10, %78
+  %.0 = phi i32 [ %82, %78 ], [ -1, %10 ], [ -1, %check_offset_length.exit ]
   ret i32 %.0
 }
 

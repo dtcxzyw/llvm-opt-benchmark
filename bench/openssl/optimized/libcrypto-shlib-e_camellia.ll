@@ -269,7 +269,7 @@ entry:
   %call = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %ctx) #3
   %conv = sext i32 %call to i64
   %call1 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
-  %cmp = icmp ugt i64 %conv, %len
+  %cmp = icmp ult i64 %len, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

@@ -543,13 +543,13 @@ Vec_PtrGrow.exit.i109:                            ; preds = %244, %242
 
 269:                                              ; preds = %266
   %270 = shl nsw i32 %.val83, 1
-  %.not.i111 = icmp slt i32 %.val83, %270
+  %.not.i111 = icmp sgt i32 %270, %.val83
   br i1 %.not.i111, label %271, label %Vec_IntFillExtra.exit
 
 271:                                              ; preds = %269
   %272 = load i32, ptr %265, align 8
   %273 = shl nsw i32 %272, 1
-  %274 = icmp slt i32 %273, %270
+  %274 = icmp sgt i32 %270, %273
   br i1 %274, label %275, label %286
 
 275:                                              ; preds = %271

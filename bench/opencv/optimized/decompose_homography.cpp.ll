@@ -727,14 +727,14 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE6resizeEm.exit.i: ; preds = %152
   %173 = phi ptr [ %205, %._crit_edge.us.i ], [ null, %.preheader.lr.ph.i ]
   %.02835.us.i = phi i32 [ %207, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
   %174 = uitofp nneg i32 %.02835.us.i to float
-  %175 = fmul float %174, %3
+  %175 = fmul float %3, %174
   br label %176
 
 176:                                              ; preds = %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backEOS2_.exit.us.i, %.preheader.us.i
   %177 = phi ptr [ %173, %.preheader.us.i ], [ %205, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backEOS2_.exit.us.i ]
   %.02734.us.i = phi i32 [ 0, %.preheader.us.i ], [ %206, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backEOS2_.exit.us.i ]
   %178 = uitofp nneg i32 %.02734.us.i to float
-  %179 = fmul float %178, %3
+  %179 = fmul float %3, %178
   %180 = load ptr, ptr %172, align 8
   %.not.i.i.us.i = icmp eq ptr %177, %180
   br i1 %.not.i.i.us.i, label %184, label %181

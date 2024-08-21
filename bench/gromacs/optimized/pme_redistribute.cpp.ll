@@ -731,7 +731,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_30DefaultInitia
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -799,7 +799,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -827,7 +827,7 @@ define linkonce_odr void @_ZNSt6vectorIfN3gmx30DefaultInitializationAllocatorIfS
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -896,7 +896,7 @@ _ZNSt12_Vector_baseIfN3gmx30DefaultInitializationAllocatorIfSaIfEEEE13_M_dealloc
   br label %_ZNSt6vectorIfN3gmx30DefaultInitializationAllocatorIfSaIfEEEE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIfN3gmx30DefaultInitializationAllocatorIfSaIfEEEE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -921,7 +921,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIiEENS0_30DefaultInitia
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -989,7 +989,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIiEENS0_30DefaultInitializationAllocatorIS
   br label %_ZNSt6vectorIN3gmx11BasicVectorIiEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIiEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -1014,7 +1014,7 @@ define linkonce_odr void @_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiS
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -1083,7 +1083,7 @@ _ZNSt12_Vector_baseIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE13_M_dealloc
   br label %_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -2213,7 +2213,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -2281,7 +2281,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36

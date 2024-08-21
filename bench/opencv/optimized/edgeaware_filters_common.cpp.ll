@@ -666,7 +666,7 @@ define hidden void @_ZN2cv8ximgproc10intrinsics3mulEPfS2_fi(ptr nocapture nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
-  %8 = fmul float %7, %2
+  %8 = fmul float %2, %7
   %9 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
   store float %8, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -910,8 +910,8 @@ define hidden void @_ZN2cv8ximgproc10intrinsics7det_2x2EPfS2_S2_S2_S2_i(ptr noca
   %13 = load float, ptr %12, align 4
   %14 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
   %15 = load float, ptr %14, align 4
-  %16 = fneg float %13
-  %17 = fmul float %15, %16
+  %16 = fneg float %15
+  %17 = fmul float %13, %16
   %18 = tail call float @llvm.fmuladd.f32(float %9, float %11, float %17)
   %19 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
   store float %18, ptr %19, align 4

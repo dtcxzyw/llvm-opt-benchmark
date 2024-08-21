@@ -123,7 +123,7 @@ entry:
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
   %call.i = tail call ptr @memchr(ptr noundef %url, i32 noundef 58, i64 noundef %conv.i) #8
-  %cmp.i = icmp ugt ptr %call.i, %url
+  %cmp.i = icmp ult ptr %url, %call.i
   br i1 %cmp.i, label %if.then.i, label %url_decode_mem.exit
 
 if.then.i:                                        ; preds = %entry
@@ -154,7 +154,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
   %conv = sext i32 %len to i64
   %call = tail call ptr @memchr(ptr noundef %url, i32 noundef 58, i64 noundef %conv) #8
-  %cmp = icmp ugt ptr %call, %url
+  %cmp = icmp ult ptr %url, %call
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -164,7 +164,7 @@ if.then:                                          ; preds = %entry
   call void @strbuf_add(ptr noundef nonnull %out, ptr noundef %url, i64 noundef %sub.ptr.sub) #9
   %sub.ptr.sub4.neg = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
   %0 = trunc i64 %sub.ptr.sub4.neg to i32
-  %conv6 = add i32 %0, %len
+  %conv6 = add i32 %len, %0
   store ptr %call, ptr %url.addr, align 8
   br label %if.end
 

@@ -9951,7 +9951,7 @@ for.body.epil:                                    ; preds = %if.end, %for.body.e
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.epil ], [ 0, %if.end ]
   %Z37.epil = getelementptr inbounds [4 x %"class.irr::core::vector3d.0"], ptr %vertices, i64 0, i64 %indvars.iv.epil, i32 2
   %10 = load float, ptr %Z37.epil, align 4, !tbaa !50
-  %add.epil = fadd nsz float %10, %quad_offset
+  %add.epil = fadd nsz float %quad_offset, %10
   store float %add.epil, ptr %Z37.epil, align 4, !tbaa !50
   %indvars.iv.next.epil = add nuw nsw i64 %indvars.iv.epil, 1
   %epil.iter.next = add i64 %epil.iter, 1
@@ -9968,7 +9968,7 @@ for.cond40.preheader:                             ; preds = %for.cond40.preheade
   %12 = phi float [ %.pre, %for.cond40.preheader.loopexit ], [ %quad_offset, %for.cond40.preheader.unr-lcssa ]
   %rotate_degree = getelementptr inbounds i8, ptr %this, i64 644
   %13 = load float, ptr %rotate_degree, align 4, !tbaa !177
-  %add45 = fadd nsz float %13, %rotation
+  %add45 = fadd nsz float %rotation, %13
   %conv46 = fpext float %add45 to double
   %mul.i118 = fmul nsz double %conv46, 0x3F91DF46A2529D39
   %14 = tail call nsz double @llvm.cos.f64(double %mul.i118)
@@ -10832,9 +10832,9 @@ entry:
   %mul16.i = fmul nsz double %2, 0.000000e+00
   %8 = tail call nsz double @llvm.fmuladd.f64(double %conv.i, double %3, double %mul16.i)
   %conv17.i = fptrunc double %8 to float
-  %add = fadd nsz float %conv17.i, %offset_h
+  %add = fadd nsz float %offset_h, %conv17.i
   %conv8.i42 = fpext float %add to double
-  %add9 = fadd nsz float %conv10.i, %offset_v
+  %add9 = fadd nsz float %offset_v, %conv10.i
   store float %add9, ptr %Y.i, align 4, !tbaa !104
   %Z2.i.1 = getelementptr inbounds i8, ptr %vertices, i64 20
   %Y3.i.1 = getelementptr inbounds i8, ptr %vertices, i64 16
@@ -10864,10 +10864,10 @@ entry:
   %conv10.i.2 = fptrunc double %25 to float
   %26 = tail call nsz double @llvm.fmuladd.f64(double %3, double -5.000000e+00, double %mul16.i)
   %conv17.i.2 = fptrunc double %26 to float
-  %add.2 = fadd nsz float %conv17.i.2, %offset_h
+  %add.2 = fadd nsz float %offset_h, %conv17.i.2
   %conv8.i42.2 = fpext float %add.2 to double
   %27 = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %add9.2 = fadd nsz float %conv10.i.2, %offset_v
+  %add9.2 = fadd nsz float %offset_v, %conv10.i.2
   store float %add9.2, ptr %Y3.i.2, align 4, !tbaa !104
   %Z2.i.3 = getelementptr inbounds i8, ptr %vertices, i64 44
   %Y3.i.3 = getelementptr inbounds i8, ptr %vertices, i64 40

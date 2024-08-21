@@ -32,7 +32,7 @@ if.end:                                           ; preds = %entry
   %conv = trunc i64 %len to i32
   %call3 = tail call i32 @BIO_write(ptr noundef %call2, ptr noundef %buf, i32 noundef %conv) #4
   %conv4 = sext i32 %call3 to i64
-  %cmp5 = icmp eq i64 %conv4, %len
+  %cmp5 = icmp eq i64 %len, %conv4
   br i1 %cmp5, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end

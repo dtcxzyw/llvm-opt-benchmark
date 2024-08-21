@@ -22,7 +22,7 @@ define dso_local i32 @acpi_parse_entries_array(ptr noundef %0, i64 noundef %1, p
   %12 = load i32, ptr %11, align 1
   %13 = zext i32 %12 to i64
   %14 = add i64 %13, %8
-  %15 = add i64 %8, %1
+  %15 = add i64 %1, %8
   switch i32 %7, label %default.unreachable20 [
     i32 0, label %20
     i32 1, label %16

@@ -212,7 +212,7 @@ ompi_comm_remote_size.exit:                       ; preds = %91
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 16
   %96 = load i32, ptr %95, align 8
-  %97 = icmp sgt i32 %96, %5
+  %97 = icmp slt i32 %5, %96
   br i1 %97, label %116, label %99
 
 98:                                               ; preds = %91
@@ -238,7 +238,7 @@ ompi_comm_remote_size.exit:                       ; preds = %91
   %.val97 = load ptr, ptr %108, align 8
   %109 = getelementptr i8, ptr %.val97, i64 16
   %.val97.val = load i32, ptr %109, align 8
-  %.not90 = icmp sgt i32 %.val97.val, %5
+  %.not90 = icmp slt i32 %5, %.val97.val
   br i1 %.not90, label %116, label %110
 
 110:                                              ; preds = %107, %105

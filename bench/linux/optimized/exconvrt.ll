@@ -627,7 +627,7 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   %13 = getelementptr inbounds i8, ptr %1, i64 9
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = icmp eq i32 %15, %0
+  %16 = icmp eq i32 %0, %15
   br i1 %16, label %acpi_ex_convert_to_integer.exit.thread, label %acpi_ex_convert_to_integer.exit.thread5
 
 17:                                               ; preds = %4, %4

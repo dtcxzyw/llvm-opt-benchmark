@@ -553,7 +553,7 @@ define { i32, i32 } @_ZN9text_edit8TextEdit15apply_to_offset17ha87deef8c32a5b56E
   br i1 %switch.not, label %13, label %.critedge
 
 13:                                               ; preds = %.lr.ph
-  %14 = icmp ugt i32 %12, %1
+  %14 = icmp ult i32 %1, %12
   br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %13
@@ -783,7 +783,7 @@ define noundef zeroext i1 @_ZN9text_edit15TextEditBuilder18invalidates_offset17h
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i, %.lr.ph.i
   %11 = getelementptr i8, ptr %8, i64 28
   %.val4.i = load i32, ptr %11, align 4, !noalias !163, !noundef !16
-  %switch.selectcmp.i.i.not.i = icmp ult i32 %.val4.i, %1
+  %switch.selectcmp.i.i.not.i = icmp ugt i32 %1, %.val4.i
   br i1 %switch.selectcmp.i.i.not.i, label %"_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h33eadc90f87f7daaE.exit"
 
 "_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i": ; preds = %.critedge.i.i.i, %.lr.ph.i

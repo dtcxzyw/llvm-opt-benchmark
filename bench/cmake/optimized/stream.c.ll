@@ -1777,7 +1777,7 @@ define internal fastcc i32 @uv__try_write(ptr nocapture noundef readonly %0, ptr
   %5 = alloca %struct.msghdr, align 8
   %6 = alloca %union.anon.7, align 8
   %7 = tail call i32 @uv__getiovmax() #12
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %7, i32 %2)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %7)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.preheader, label %20
 

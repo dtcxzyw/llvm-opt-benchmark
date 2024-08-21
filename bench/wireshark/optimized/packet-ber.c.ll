@@ -2865,12 +2865,12 @@ define hidden i32 @dissect_ber_constrained_integer(i1 noundef zeroext %0, ptr no
   %13 = getelementptr inbounds i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ne i32 %5, -1
-  %15 = icmp ult i32 %.pre12, %5
+  %15 = icmp ugt i32 %5, %.pre12
   %or.cond.i = and i1 %.not.i, %15
   br i1 %or.cond.i, label %.sink.split.i, label %16
 
 16:                                               ; preds = %._crit_edge
-  %17 = icmp ugt i32 %.pre12, %6
+  %17 = icmp ult i32 %6, %.pre12
   br i1 %17, label %.sink.split.i, label %ber_check_value.exit
 
 .sink.split.i:                                    ; preds = %16, %._crit_edge
@@ -5842,7 +5842,7 @@ thread-pre-split:                                 ; preds = %27, %19, %50
   br i1 %116, label %117, label %120
 
 117:                                              ; preds = %114
-  %.neg = add i32 %67, %8
+  %.neg = add i32 %8, %67
   %118 = shl i32 %115, 3
   %119 = sub i32 %.neg, %118
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %103, ptr noundef nonnull @.str.48, i32 noundef %119) #14

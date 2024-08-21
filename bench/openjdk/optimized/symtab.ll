@@ -645,14 +645,14 @@ define hidden ptr @nearest_symbol(ptr noundef readonly %0, i64 noundef %1, ptr n
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load i64, ptr %12, align 8
-  %.not23 = icmp ugt i64 %13, %1
+  %.not23 = icmp ult i64 %1, %13
   br i1 %.not23, label %22, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %9, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %13
-  %18 = icmp ugt i64 %17, %1
+  %18 = icmp ult i64 %1, %17
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %14
@@ -770,7 +770,7 @@ gnu_debuglink_crc32.exit:                         ; preds = %.lr.ph, %._crit_edg
 
 ._crit_edge:                                      ; preds = %gnu_debuglink_crc32.exit, %6
   %.011.lcssa = phi i32 [ 0, %6 ], [ %.0.lcssa.i, %gnu_debuglink_crc32.exit ]
-  %27 = icmp eq i32 %.011.lcssa, %1
+  %27 = icmp eq i32 %1, %.011.lcssa
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %._crit_edge

@@ -92127,7 +92127,7 @@ if.else:                                          ; preds = %for.cond.i.i.i.i, %
   %retval.sroa.0.1.i.i = phi ptr [ %7, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %13, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 16
   %23 = load double, ptr %second, align 8, !tbaa !1861
-  %add = fadd double %23, %time
+  %add = fadd double %time, %23
   store double %add, ptr %second, align 8, !tbaa !1861
   %elements23 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 24
   %24 = load i64, ptr %elements23, align 8, !tbaa !1863
@@ -92480,7 +92480,7 @@ _ZNSt13unordered_mapISt17reference_wrapperIKN6duckdb16PhysicalOperatorEENS1_19Op
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp.not = icmp sgt i32 %conv, %id
+  %cmp.not = icmp slt i32 %id, %conv
   br i1 %cmp.not, label %if.end21, label %if.then18
 
 if.then18:                                        ; preds = %_ZNSt13unordered_mapISt17reference_wrapperIKN6duckdb16PhysicalOperatorEENS1_19OperatorInformationENS1_21ReferenceHashFunctionIS3_EENS1_17ReferenceEqualityIS3_EESaISt4pairIKS4_S5_EEE4findERSB_.exit69

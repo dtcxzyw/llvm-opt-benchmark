@@ -1372,7 +1372,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_postcopy_wake_shared.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %sub = sub i64 0, %call
-  %and = and i64 %sub, %client_addr
+  %and = and i64 %client_addr, %sub
   store i64 %and, ptr %range, align 8
   %len = getelementptr inbounds i8, ptr %range, i64 8
   store i64 %call, ptr %len, align 8
@@ -1404,7 +1404,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @qemu_ram_pagesize(ptr noundef %rb) #16
   %sub = sub i64 0, %call
-  %and = and i64 %sub, %rb_offset
+  %and = and i64 %rb_offset, %sub
   %call1 = tail call ptr @migration_incoming_get_current() #16
   %idstr = getelementptr inbounds i8, ptr %pcfd, i64 32
   %0 = load ptr, ptr %idstr, align 8
@@ -1502,7 +1502,7 @@ define internal fastcc void @postcopy_request_page(ptr noundef %mis, ptr noundef
 entry:
   %call = tail call i64 @qemu_ram_pagesize(ptr noundef %rb) #16
   %sub = sub i64 0, %call
-  %and = and i64 %sub, %haddr
+  %and = and i64 %haddr, %sub
   %0 = inttoptr i64 %and to ptr
   %call1 = tail call i64 @qemu_ram_pagesize(ptr noundef %rb) #16
   %rem = urem i64 %start, %call1

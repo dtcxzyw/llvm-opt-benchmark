@@ -734,7 +734,7 @@ define hidden void @"_ZN65_$LT$flate2..crc..CrcReader$LT$R$GT$$u20$as$u20$std..i
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %4
-  %12 = icmp ugt i64 %.cast, %3
+  %12 = icmp ult i64 %3, %.cast
   br i1 %12, label %13, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h95b86fe438fe9c56E.llvm.16116537380482378334.exit"
 
 13:                                               ; preds = %11
@@ -1053,7 +1053,7 @@ define hidden void @"_ZN71_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$
   %9 = icmp eq i64 %6, %8
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8
-  %12 = icmp ule i64 %11, %3
+  %12 = icmp uge i64 %3, %11
   %or.cond = select i1 %9, i1 %12, i1 false
   br i1 %or.cond, label %36, label %13
 

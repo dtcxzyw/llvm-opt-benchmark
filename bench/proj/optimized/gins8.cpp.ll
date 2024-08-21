@@ -61,9 +61,9 @@ declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 define internal { double, double } @_ZL15gins8_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
   %4 = fmul double %1, %1
   %5 = tail call double @llvm.fmuladd.f64(double %4, double 0x3FB5555555555555, double 1.000000e+00)
-  %6 = fmul double %5, %1
+  %6 = fmul double %1, %5
   %7 = tail call double @llvm.fmuladd.f64(double %4, double -1.623880e-01, double 1.000000e+00)
-  %8 = fmul double %7, %0
+  %8 = fmul double %0, %7
   %9 = fmul double %0, %0
   %10 = fmul double %9, -9.524260e-04
   %11 = tail call double @llvm.fmuladd.f64(double %10, double %9, double 8.700000e-01)

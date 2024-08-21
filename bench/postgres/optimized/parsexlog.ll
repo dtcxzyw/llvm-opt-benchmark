@@ -529,7 +529,7 @@ define dso_local void @findLastCheckpoint(ptr noundef %0, i64 noundef %1, i32 no
 13:                                               ; preds = %7
   %14 = add i32 %.pre, -1
   %15 = sext i32 %14 to i64
-  %16 = and i64 %15, %1
+  %16 = and i64 %1, %15
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %18, label %20
 

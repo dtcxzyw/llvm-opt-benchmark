@@ -153,10 +153,10 @@ define noundef i32 @drot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   %110 = load double, ptr %109, align 8, !tbaa !3
   %111 = getelementptr inbounds double, ptr %3, i64 %107
   %112 = load double, ptr %111, align 8, !tbaa !3
-  %113 = fmul double %112, %6
+  %113 = fmul double %6, %112
   %114 = tail call double @llvm.fmuladd.f64(double %5, double %110, double %113)
   %115 = fneg double %110
-  %116 = fmul double %115, %6
+  %116 = fmul double %6, %115
   %117 = tail call double @llvm.fmuladd.f64(double %5, double %112, double %116)
   store double %117, ptr %111, align 8, !tbaa !3
   store double %114, ptr %109, align 8, !tbaa !3

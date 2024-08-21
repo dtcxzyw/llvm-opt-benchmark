@@ -49,7 +49,7 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %.not, label %10, label %35
 
 10:                                               ; preds = %3
-  %11 = add i64 %6, %2
+  %11 = add i64 %2, %6
   %12 = urem i64 %11, %9
   %13 = trunc nuw i64 %12 to i32
   store i32 %13, ptr %4, align 8
@@ -60,8 +60,8 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
   %15 = sub nsw i64 %9, %6
   %16 = getelementptr inbounds i8, ptr %0, i64 200
   %17 = getelementptr inbounds i8, ptr %16, i64 %6
-  %18 = icmp ugt i64 %15, %2
-  %19 = tail call i64 @llvm.umin.i64(i64 %15, i64 %2)
+  %18 = icmp ult i64 %2, %15
+  %19 = tail call i64 @llvm.umin.i64(i64 %2, i64 %15)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %1, i64 %19, i1 false)
   br i1 %18, label %35, label %20
 

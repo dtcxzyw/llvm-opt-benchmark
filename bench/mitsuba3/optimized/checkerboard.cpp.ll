@@ -3349,7 +3349,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63

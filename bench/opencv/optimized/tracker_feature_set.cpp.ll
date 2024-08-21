@@ -208,7 +208,7 @@ _ZN2cv6detail8tracking17TrackerFeatureSet14clearResponsesEv.exit: ; preds = %2, 
   %18 = ptrtoint ptr %8 to i64
   %19 = sub i64 %17, %18
   %20 = sdiv exact i64 %19, 96
-  %21 = icmp ult i64 %20, %16
+  %21 = icmp ugt i64 %16, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %_ZN2cv6detail8tracking17TrackerFeatureSet14clearResponsesEv.exit
@@ -217,7 +217,7 @@ _ZN2cv6detail8tracking17TrackerFeatureSet14clearResponsesEv.exit: ; preds = %2, 
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 24:                                               ; preds = %_ZN2cv6detail8tracking17TrackerFeatureSet14clearResponsesEv.exit
-  %25 = icmp ugt i64 %20, %16
+  %25 = icmp ult i64 %16, %20
   br i1 %25, label %26, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 26:                                               ; preds = %24
@@ -636,7 +636,7 @@ _ZNSt16allocator_traitsISaIN2cv3PtrINS0_6detail8tracking14TrackerFeatureEEEEE9co
 _ZNSt6vectorIN2cv3PtrINS0_6detail8tracking14TrackerFeatureEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_6detail8tracking14TrackerFeatureEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_6detail8tracking14TrackerFeatureEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %42, %.lr.ph.i.i.i.i ]
   %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv3PtrINS0_6detail8tracking14TrackerFeatureEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv3PtrINS0_6detail8tracking14TrackerFeatureEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i17

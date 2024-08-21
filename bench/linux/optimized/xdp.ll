@@ -1582,7 +1582,7 @@ define internal fastcc void @xdp_update_skb_shared_info(ptr nocapture noundef %0
   %23 = load i8, ptr %22, align 2
   %24 = and i8 %23, 64
   %25 = icmp ne i8 %24, 0
-  %26 = or i1 %25, %4
+  %26 = or i1 %4, %25
   %27 = select i1 %26, i8 64, i8 0
   %28 = and i8 %23, -65
   %29 = or disjoint i8 %27, %28

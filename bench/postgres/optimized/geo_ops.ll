@@ -570,7 +570,7 @@ define dso_local range(i64 0, 2) i64 @box_overlap(ptr nocapture noundef readonly
   %9 = load double, ptr %8, align 8
   %10 = load double, ptr %7, align 8
   %11 = fadd double %10, 0x3EB0C6F7A0B5ED8D
-  %12 = fcmp ult double %11, %9
+  %12 = fcmp ugt double %9, %11
   br i1 %12, label %box_ov.exit, label %13
 
 13:                                               ; preds = %1
@@ -578,7 +578,7 @@ define dso_local range(i64 0, 2) i64 @box_overlap(ptr nocapture noundef readonly
   %15 = load double, ptr %14, align 8
   %16 = load double, ptr %4, align 8
   %17 = fadd double %16, 0x3EB0C6F7A0B5ED8D
-  %18 = fcmp ult double %17, %15
+  %18 = fcmp ugt double %15, %17
   br i1 %18, label %box_ov.exit, label %19
 
 19:                                               ; preds = %13
@@ -587,7 +587,7 @@ define dso_local range(i64 0, 2) i64 @box_overlap(ptr nocapture noundef readonly
   %22 = getelementptr inbounds i8, ptr %7, i64 8
   %23 = load double, ptr %22, align 8
   %24 = fadd double %23, 0x3EB0C6F7A0B5ED8D
-  %25 = fcmp ult double %24, %21
+  %25 = fcmp ugt double %21, %24
   br i1 %25, label %box_ov.exit, label %26
 
 26:                                               ; preds = %19
@@ -596,7 +596,7 @@ define dso_local range(i64 0, 2) i64 @box_overlap(ptr nocapture noundef readonly
   %29 = getelementptr inbounds i8, ptr %4, i64 8
   %30 = load double, ptr %29, align 8
   %31 = fadd double %30, 0x3EB0C6F7A0B5ED8D
-  %32 = fcmp oge double %31, %28
+  %32 = fcmp ole double %28, %31
   %33 = zext i1 %32 to i64
   br label %box_ov.exit
 
@@ -633,7 +633,7 @@ define dso_local range(i64 0, 2) i64 @box_overleft(ptr nocapture noundef readonl
   %8 = load double, ptr %4, align 8
   %9 = load double, ptr %7, align 8
   %10 = fadd double %9, 0x3EB0C6F7A0B5ED8D
-  %11 = fcmp oge double %10, %8
+  %11 = fcmp ole double %8, %10
   %12 = zext i1 %11 to i64
   ret i64 %12
 }
@@ -650,7 +650,7 @@ define dso_local range(i64 0, 2) i64 @box_right(ptr nocapture noundef readonly %
   %9 = load double, ptr %8, align 8
   %10 = load double, ptr %7, align 8
   %11 = fadd double %10, 0x3EB0C6F7A0B5ED8D
-  %12 = fcmp olt double %11, %9
+  %12 = fcmp ogt double %9, %11
   %13 = zext i1 %12 to i64
   ret i64 %13
 }
@@ -704,7 +704,7 @@ define dso_local range(i64 0, 2) i64 @box_overbelow(ptr nocapture noundef readon
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
   %12 = fadd double %11, 0x3EB0C6F7A0B5ED8D
-  %13 = fcmp oge double %12, %9
+  %13 = fcmp ole double %9, %12
   %14 = zext i1 %13 to i64
   ret i64 %14
 }
@@ -722,7 +722,7 @@ define dso_local range(i64 0, 2) i64 @box_above(ptr nocapture noundef readonly %
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
   %12 = fadd double %11, 0x3EB0C6F7A0B5ED8D
-  %13 = fcmp olt double %12, %9
+  %13 = fcmp ogt double %9, %12
   %14 = zext i1 %13 to i64
   ret i64 %14
 }
@@ -765,7 +765,7 @@ define dso_local range(i64 0, 2) i64 @box_contained(ptr nocapture noundef readon
   %15 = getelementptr inbounds i8, ptr %4, i64 16
   %16 = load double, ptr %15, align 8
   %17 = fadd double %16, 0x3EB0C6F7A0B5ED8D
-  %18 = fcmp ult double %17, %14
+  %18 = fcmp ugt double %14, %17
   br i1 %18, label %box_contain_box.exit, label %19
 
 19:                                               ; preds = %12
@@ -783,7 +783,7 @@ define dso_local range(i64 0, 2) i64 @box_contained(ptr nocapture noundef readon
   %29 = getelementptr inbounds i8, ptr %4, i64 24
   %30 = load double, ptr %29, align 8
   %31 = fadd double %30, 0x3EB0C6F7A0B5ED8D
-  %32 = fcmp oge double %31, %28
+  %32 = fcmp ole double %28, %31
   %33 = zext i1 %32 to i64
   br label %box_contain_box.exit
 
@@ -812,7 +812,7 @@ define dso_local range(i64 0, 2) i64 @box_contain(ptr nocapture noundef readonly
   %15 = getelementptr inbounds i8, ptr %7, i64 16
   %16 = load double, ptr %15, align 8
   %17 = fadd double %16, 0x3EB0C6F7A0B5ED8D
-  %18 = fcmp ult double %17, %14
+  %18 = fcmp ugt double %14, %17
   br i1 %18, label %box_contain_box.exit, label %19
 
 19:                                               ; preds = %12
@@ -830,7 +830,7 @@ define dso_local range(i64 0, 2) i64 @box_contain(ptr nocapture noundef readonly
   %29 = getelementptr inbounds i8, ptr %7, i64 24
   %30 = load double, ptr %29, align 8
   %31 = fadd double %30, 0x3EB0C6F7A0B5ED8D
-  %32 = fcmp oge double %31, %28
+  %32 = fcmp ole double %28, %31
   %33 = zext i1 %32 to i64
   br label %box_contain_box.exit
 
@@ -852,7 +852,7 @@ define dso_local range(i64 0, 2) i64 @box_below_eq(ptr nocapture noundef readonl
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load double, ptr %10, align 8
   %12 = fadd double %11, 0x3EB0C6F7A0B5ED8D
-  %13 = fcmp oge double %12, %9
+  %13 = fcmp ole double %9, %12
   %14 = zext i1 %13 to i64
   ret i64 %14
 }
@@ -972,7 +972,7 @@ define dso_local range(i64 0, 2) i64 @box_gt(ptr nocapture noundef readonly %0) 
   %8 = tail call fastcc double @box_ar(ptr noundef %4)
   %9 = tail call fastcc double @box_ar(ptr noundef %7)
   %10 = fadd double %9, 0x3EB0C6F7A0B5ED8D
-  %11 = fcmp olt double %10, %8
+  %11 = fcmp ogt double %8, %10
   %12 = zext i1 %11 to i64
   ret i64 %12
 }
@@ -1007,7 +1007,7 @@ define dso_local range(i64 0, 2) i64 @box_le(ptr nocapture noundef readonly %0) 
   %8 = tail call fastcc double @box_ar(ptr noundef %4)
   %9 = tail call fastcc double @box_ar(ptr noundef %7)
   %10 = fadd double %9, 0x3EB0C6F7A0B5ED8D
-  %11 = fcmp oge double %10, %8
+  %11 = fcmp ole double %8, %10
   %12 = zext i1 %11 to i64
   ret i64 %12
 }
@@ -1308,7 +1308,7 @@ define dso_local i64 @box_intersect(ptr nocapture noundef %0) local_unnamed_addr
   %9 = load double, ptr %8, align 8
   %10 = load double, ptr %7, align 8
   %11 = fadd double %10, 0x3EB0C6F7A0B5ED8D
-  %12 = fcmp ult double %11, %9
+  %12 = fcmp ugt double %9, %11
   br i1 %12, label %box_ov.exit.thread, label %13
 
 13:                                               ; preds = %1
@@ -1316,7 +1316,7 @@ define dso_local i64 @box_intersect(ptr nocapture noundef %0) local_unnamed_addr
   %15 = load double, ptr %14, align 8
   %16 = load double, ptr %4, align 8
   %17 = fadd double %16, 0x3EB0C6F7A0B5ED8D
-  %18 = fcmp ult double %17, %15
+  %18 = fcmp ugt double %15, %17
   br i1 %18, label %box_ov.exit.thread, label %19
 
 19:                                               ; preds = %13
@@ -1325,7 +1325,7 @@ define dso_local i64 @box_intersect(ptr nocapture noundef %0) local_unnamed_addr
   %22 = getelementptr inbounds i8, ptr %7, i64 8
   %23 = load double, ptr %22, align 8
   %24 = fadd double %23, 0x3EB0C6F7A0B5ED8D
-  %25 = fcmp ult double %24, %21
+  %25 = fcmp ugt double %21, %24
   br i1 %25, label %box_ov.exit.thread, label %box_ov.exit
 
 box_ov.exit:                                      ; preds = %19
@@ -1334,7 +1334,7 @@ box_ov.exit:                                      ; preds = %19
   %28 = getelementptr inbounds i8, ptr %4, i64 8
   %29 = load double, ptr %28, align 8
   %30 = fadd double %29, 0x3EB0C6F7A0B5ED8D
-  %31 = fcmp ult double %30, %27
+  %31 = fcmp ugt double %27, %30
   br i1 %31, label %box_ov.exit.thread, label %33
 
 box_ov.exit.thread:                               ; preds = %1, %13, %19, %box_ov.exit
@@ -1832,7 +1832,7 @@ define internal fastcc void @line_construct(ptr nocapture noundef writeonly %0, 
   store double -1.000000e+00, ptr %6, align 8
   %17 = load double, ptr %12, align 8
   %18 = load double, ptr %1, align 8
-  %19 = fmul double %18, %2
+  %19 = fmul double %2, %18
   %20 = tail call double @llvm.fabs.f64(double %19)
   %21 = fcmp une double %20, 0x7FF0000000000000
   %22 = tail call double @llvm.fabs.f64(double %18)
@@ -4330,15 +4330,15 @@ float8_min.exit68:                                ; preds = %float8_min.exit66, 
   %.sroa.4.0.lcssa = phi double [ %50, %._crit_edge ], [ %69, %float8_min.exit68 ]
   %.sroa.0.0.lcssa = phi double [ %48, %._crit_edge ], [ %61, %float8_min.exit68 ]
   %82 = fadd double %.sroa.0.0.lcssa, 0x3EB0C6F7A0B5ED8D
-  %83 = fcmp oge double %82, %.sroa.877.0.lcssa
+  %83 = fcmp ole double %.sroa.877.0.lcssa, %82
   %84 = fadd double %.sroa.073.0.lcssa, 0x3EB0C6F7A0B5ED8D
-  %85 = fcmp oge double %84, %.sroa.8.0.lcssa
+  %85 = fcmp ole double %.sroa.8.0.lcssa, %84
   %or.cond.not90 = select i1 %83, i1 %85, i1 false
   %86 = fadd double %.sroa.4.0.lcssa, 0x3EB0C6F7A0B5ED8D
-  %87 = fcmp oge double %86, %.sroa.1279.0.lcssa
+  %87 = fcmp ole double %.sroa.1279.0.lcssa, %86
   %or.cond83.not87 = select i1 %or.cond.not90, i1 %87, i1 false
   %88 = fadd double %.sroa.475.0.lcssa, 0x3EB0C6F7A0B5ED8D
-  %89 = fcmp oge double %88, %.sroa.12.0.lcssa
+  %89 = fcmp ole double %.sroa.12.0.lcssa, %88
   %or.cond85 = select i1 %or.cond83.not87, i1 %89, i1 false
   %90 = icmp sgt i32 %17, 0
   %or.cond = and i1 %or.cond85, %90
@@ -7821,7 +7821,7 @@ define dso_local range(i64 0, 2) i64 @point_right(ptr nocapture noundef readonly
   %8 = load double, ptr %4, align 8
   %9 = load double, ptr %7, align 8
   %10 = fadd double %9, 0x3EB0C6F7A0B5ED8D
-  %11 = fcmp olt double %10, %8
+  %11 = fcmp ogt double %8, %10
   %12 = zext i1 %11 to i64
   ret i64 %12
 }
@@ -7839,7 +7839,7 @@ define dso_local range(i64 0, 2) i64 @point_above(ptr nocapture noundef readonly
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
   %12 = fadd double %11, 0x3EB0C6F7A0B5ED8D
-  %13 = fcmp olt double %12, %9
+  %13 = fcmp ogt double %9, %12
   %14 = zext i1 %13 to i64
   ret i64 %14
 }
@@ -8576,7 +8576,7 @@ define dso_local range(i64 0, 2) i64 @lseg_le(ptr nocapture noundef readonly %0)
   %10 = getelementptr i8, ptr %7, i64 16
   %11 = tail call fastcc double @point_dt(ptr noundef %7, ptr noundef %10)
   %12 = fadd double %11, 0x3EB0C6F7A0B5ED8D
-  %13 = fcmp oge double %12, %9
+  %13 = fcmp ole double %9, %12
   %14 = zext i1 %13 to i64
   ret i64 %14
 }
@@ -8594,7 +8594,7 @@ define dso_local range(i64 0, 2) i64 @lseg_gt(ptr nocapture noundef readonly %0)
   %10 = getelementptr i8, ptr %7, i64 16
   %11 = tail call fastcc double @point_dt(ptr noundef %7, ptr noundef %10)
   %12 = fadd double %11, 0x3EB0C6F7A0B5ED8D
-  %13 = fcmp olt double %12, %9
+  %13 = fcmp ogt double %9, %12
   %14 = zext i1 %13 to i64
   ret i64 %14
 }
@@ -10778,7 +10778,7 @@ float8_min.exit32:                                ; preds = %float8_min.exit, %f
   %28 = select i1 %or.cond38, double %16, double %18
   %29 = load double, ptr %1, align 8
   %30 = fadd double %29, 0x3EB0C6F7A0B5ED8D
-  %31 = fcmp ult double %30, %14
+  %31 = fcmp ugt double %14, %30
   br i1 %31, label %box_ov.exit.thread, label %32
 
 32:                                               ; preds = %float8_min.exit32
@@ -10790,21 +10790,21 @@ float8_min.exit32:                                ; preds = %float8_min.exit, %f
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load double, ptr %37, align 8
   %39 = fadd double %36, 0x3EB0C6F7A0B5ED8D
-  %40 = fcmp ult double %39, %38
+  %40 = fcmp ugt double %38, %39
   br i1 %40, label %box_ov.exit.thread, label %41
 
 41:                                               ; preds = %32
   %42 = getelementptr inbounds i8, ptr %1, i64 8
   %43 = load double, ptr %42, align 8
   %44 = fadd double %43, 0x3EB0C6F7A0B5ED8D
-  %45 = fcmp ult double %44, %24
+  %45 = fcmp ugt double %24, %44
   br i1 %45, label %box_ov.exit.thread, label %box_ov.exit
 
 box_ov.exit:                                      ; preds = %41
   %46 = getelementptr inbounds i8, ptr %1, i64 24
   %47 = load double, ptr %46, align 8
   %48 = fadd double %28, 0x3EB0C6F7A0B5ED8D
-  %49 = fcmp ult double %48, %47
+  %49 = fcmp ugt double %47, %48
   br i1 %49, label %box_ov.exit.thread, label %50
 
 50:                                               ; preds = %box_ov.exit
@@ -12019,7 +12019,7 @@ define internal fastcc zeroext i1 @poly_overlap_internal(ptr nocapture noundef r
   %8 = load double, ptr %7, align 8
   %9 = load double, ptr %6, align 8
   %10 = fadd double %9, 0x3EB0C6F7A0B5ED8D
-  %11 = fcmp ult double %10, %8
+  %11 = fcmp ugt double %8, %10
   br i1 %11, label %box_ov.exit.thread, label %12
 
 12:                                               ; preds = %2
@@ -12028,7 +12028,7 @@ define internal fastcc zeroext i1 @poly_overlap_internal(ptr nocapture noundef r
   %15 = load double, ptr %14, align 8
   %16 = load double, ptr %13, align 8
   %17 = fadd double %16, 0x3EB0C6F7A0B5ED8D
-  %18 = fcmp ult double %17, %15
+  %18 = fcmp ugt double %15, %17
   br i1 %18, label %box_ov.exit.thread, label %19
 
 19:                                               ; preds = %12
@@ -12037,7 +12037,7 @@ define internal fastcc zeroext i1 @poly_overlap_internal(ptr nocapture noundef r
   %22 = getelementptr inbounds i8, ptr %1, i64 16
   %23 = load double, ptr %22, align 8
   %24 = fadd double %23, 0x3EB0C6F7A0B5ED8D
-  %25 = fcmp ult double %24, %21
+  %25 = fcmp ugt double %21, %24
   br i1 %25, label %box_ov.exit.thread, label %box_ov.exit
 
 box_ov.exit:                                      ; preds = %19
@@ -12046,7 +12046,7 @@ box_ov.exit:                                      ; preds = %19
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = load double, ptr %28, align 8
   %30 = fadd double %29, 0x3EB0C6F7A0B5ED8D
-  %31 = fcmp ult double %30, %27
+  %31 = fcmp ugt double %27, %30
   br i1 %31, label %box_ov.exit.thread, label %32
 
 32:                                               ; preds = %box_ov.exit
@@ -12536,7 +12536,7 @@ define dso_local range(i64 0, 2) i64 @poly_contain(ptr nocapture noundef readonl
   %20 = getelementptr inbounds i8, ptr %10, i64 24
   %21 = load double, ptr %20, align 8
   %22 = fadd double %21, 0x3EB0C6F7A0B5ED8D
-  %23 = fcmp ult double %22, %19
+  %23 = fcmp ugt double %19, %22
   br i1 %23, label %poly_contain_poly.exit, label %24
 
 24:                                               ; preds = %17
@@ -12554,7 +12554,7 @@ box_contain_box.exit.i:                           ; preds = %24
   %33 = getelementptr inbounds i8, ptr %10, i64 32
   %34 = load double, ptr %33, align 8
   %35 = fadd double %34, 0x3EB0C6F7A0B5ED8D
-  %36 = fcmp ult double %35, %32
+  %36 = fcmp ugt double %32, %35
   br i1 %36, label %poly_contain_poly.exit, label %37
 
 37:                                               ; preds = %box_contain_box.exit.i
@@ -12639,7 +12639,7 @@ define dso_local range(i64 0, 2) i64 @poly_contained(ptr nocapture noundef reado
   %20 = getelementptr inbounds i8, ptr %6, i64 24
   %21 = load double, ptr %20, align 8
   %22 = fadd double %21, 0x3EB0C6F7A0B5ED8D
-  %23 = fcmp ult double %22, %19
+  %23 = fcmp ugt double %19, %22
   br i1 %23, label %poly_contain_poly.exit, label %24
 
 24:                                               ; preds = %17
@@ -12657,7 +12657,7 @@ box_contain_box.exit.i:                           ; preds = %24
   %33 = getelementptr inbounds i8, ptr %6, i64 32
   %34 = load double, ptr %33, align 8
   %35 = fadd double %34, 0x3EB0C6F7A0B5ED8D
-  %36 = fcmp ult double %35, %32
+  %36 = fcmp ugt double %32, %35
   br i1 %36, label %poly_contain_poly.exit, label %37
 
 37:                                               ; preds = %box_contain_box.exit.i
@@ -17925,7 +17925,7 @@ define dso_local range(i64 0, 2) i64 @circle_overlap(ptr nocapture noundef reado
 
 float8_pl.exit:                                   ; preds = %1
   %21 = fadd double %13, 0x3EB0C6F7A0B5ED8D
-  %22 = fcmp oge double %21, %8
+  %22 = fcmp ole double %8, %21
   %23 = zext i1 %22 to i64
   ret i64 %23
 }
@@ -17977,7 +17977,7 @@ float8_pl.exit:                                   ; preds = %1
 
 float8_pl.exit8:                                  ; preds = %float8_pl.exit
   %30 = fadd double %22, 0x3EB0C6F7A0B5ED8D
-  %31 = fcmp oge double %30, %8
+  %31 = fcmp ole double %8, %30
   %32 = zext i1 %31 to i64
   ret i64 %32
 }
@@ -18081,7 +18081,7 @@ float8_mi.exit:                                   ; preds = %1
 
 float8_pl.exit:                                   ; preds = %float8_mi.exit
   %30 = fadd double %22, 0x3EB0C6F7A0B5ED8D
-  %31 = fcmp olt double %30, %8
+  %31 = fcmp ogt double %8, %30
   %32 = zext i1 %31 to i64
   ret i64 %32
 }
@@ -18168,7 +18168,7 @@ define dso_local range(i64 0, 2) i64 @circle_contained(ptr nocapture noundef rea
 
 float8_mi.exit:                                   ; preds = %1
   %21 = fadd double %13, 0x3EB0C6F7A0B5ED8D
-  %22 = fcmp oge double %21, %8
+  %22 = fcmp ole double %8, %21
   %23 = zext i1 %22 to i64
   ret i64 %23
 }
@@ -18203,7 +18203,7 @@ define dso_local range(i64 0, 2) i64 @circle_contain(ptr nocapture noundef reado
 
 float8_mi.exit:                                   ; preds = %1
   %21 = fadd double %13, 0x3EB0C6F7A0B5ED8D
-  %22 = fcmp oge double %21, %8
+  %22 = fcmp ole double %8, %21
   %23 = zext i1 %22 to i64
   ret i64 %23
 }
@@ -18311,7 +18311,7 @@ float8_mi.exit:                                   ; preds = %1
 
 float8_pl.exit:                                   ; preds = %float8_mi.exit
   %32 = fadd double %24, 0x3EB0C6F7A0B5ED8D
-  %33 = fcmp olt double %32, %9
+  %33 = fcmp ogt double %9, %32
   %34 = zext i1 %33 to i64
   ret i64 %34
 }
@@ -18365,7 +18365,7 @@ float8_pl.exit:                                   ; preds = %1
 
 float8_pl.exit8:                                  ; preds = %float8_pl.exit
   %32 = fadd double %24, 0x3EB0C6F7A0B5ED8D
-  %33 = fcmp oge double %32, %9
+  %33 = fcmp ole double %9, %32
   %34 = zext i1 %33 to i64
   ret i64 %34
 }
@@ -18857,7 +18857,7 @@ float8_mul.exit.i7:                               ; preds = %35
 
 circle_ar.exit10:                                 ; preds = %44
   %48 = fadd double %39, 0x3EB0C6F7A0B5ED8D
-  %49 = fcmp olt double %48, %19
+  %49 = fcmp ogt double %19, %48
   %50 = zext i1 %49 to i64
   ret i64 %50
 }
@@ -18965,7 +18965,7 @@ float8_mul.exit.i7:                               ; preds = %35
 
 circle_ar.exit10:                                 ; preds = %44
   %48 = fadd double %39, 0x3EB0C6F7A0B5ED8D
-  %49 = fcmp oge double %48, %19
+  %49 = fcmp ole double %19, %48
   %50 = zext i1 %49 to i64
   ret i64 %50
 }
@@ -20310,7 +20310,7 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr nocapture noundef readon
   %16 = getelementptr [0 x %struct.Point], ptr %10, i64 0, i64 %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
   %17 = getelementptr inbounds i8, ptr %2, i64 4
-  %18 = icmp sgt i32 %13, %3
+  %18 = icmp slt i32 %3, %13
   br i1 %18, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %4
@@ -20821,7 +20821,7 @@ define internal fastcc range(i32 -2, -2147483648) i32 @lseg_crossing(double noun
   unreachable
 
 float8_mi.exit:                                   ; preds = %50
-  %60 = fmul double %51, %1
+  %60 = fmul double %1, %51
   %61 = tail call double @llvm.fabs.f64(double %60)
   %62 = fcmp une double %61, 0x7FF0000000000000
   %63 = fcmp oeq double %52, 0x7FF0000000000000
@@ -20858,7 +20858,7 @@ float8_mul.exit:                                  ; preds = %66
   unreachable
 
 float8_mi.exit38:                                 ; preds = %float8_mul.exit
-  %76 = fmul double %70, %0
+  %76 = fmul double %0, %70
   %77 = tail call double @llvm.fabs.f64(double %76)
   %78 = fcmp une double %77, 0x7FF0000000000000
   %79 = fcmp oeq double %71, 0x7FF0000000000000

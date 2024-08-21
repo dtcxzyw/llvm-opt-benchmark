@@ -2664,7 +2664,7 @@ define internal fastcc i32 @ext4_group_extend_no_check(ptr noundef %0, i64 nound
 
 32:                                               ; preds = %31, %23
   %33 = sext i32 %2 to i64
-  %34 = add i64 %33, %1
+  %34 = add i64 %1, %33
   %35 = trunc i64 %34 to i32
   %36 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %35, ptr %36, align 4
@@ -2821,7 +2821,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %32 = load i32, ptr %31, align 4
   %33 = shl nsw i32 -1, %32
   %34 = sext i32 %33 to i64
-  %35 = and i64 %34, %1
+  %35 = and i64 %1, %34
   br label %36
 
 36:                                               ; preds = %30, %22
@@ -4611,7 +4611,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %74 = shl i64 %9, 32
   %75 = ashr exact i64 %74, 32
   %76 = getelementptr inbounds i8, ptr %0, i64 200
-  %77 = icmp eq i32 %13, %3
+  %77 = icmp eq i32 %3, %13
   %78 = sext i32 %14 to i64
   br label %82
 

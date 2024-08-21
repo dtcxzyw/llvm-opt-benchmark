@@ -1719,7 +1719,7 @@ if.then5:                                         ; preds = %if.end4
 if.else:                                          ; preds = %if.end4
   %call7 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 0)
   %call8 = tail call noundef double @_ZNK6icu_7517RuleBasedTimeZone17getTransitionTimeEPNS_10TransitionEaii(ptr nonnull align 8 poison, ptr noundef %call7, i8 noundef signext %local, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt)
-  %cmp9 = fcmp ogt double %call8, %date
+  %cmp9 = fcmp olt double %date, %call8
   br i1 %cmp9, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.else
@@ -1733,7 +1733,7 @@ if.else12:                                        ; preds = %if.else
   %sub = add nsw i32 %4, -1
   %call16 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %sub)
   %call17 = tail call noundef double @_ZNK6icu_7517RuleBasedTimeZone17getTransitionTimeEPNS_10TransitionEaii(ptr nonnull align 8 poison, ptr noundef %call16, i8 noundef signext %local, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt)
-  %cmp18 = fcmp olt double %call17, %date
+  %cmp18 = fcmp ogt double %date, %call17
   br i1 %cmp18, label %if.then19, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.else12
@@ -1762,7 +1762,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %7 = load ptr, ptr %fHistoricTransitions, align 8
   %call32 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %idx.030)
   %call33 = tail call noundef double @_ZNK6icu_7517RuleBasedTimeZone17getTransitionTimeEPNS_10TransitionEaii(ptr nonnull align 8 poison, ptr noundef %call32, i8 noundef signext %local, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt)
-  %cmp34 = fcmp ugt double %call33, %date
+  %cmp34 = fcmp ult double %date, %call33
   br i1 %cmp34, label %if.end36, label %while.end
 
 if.end36:                                         ; preds = %while.body

@@ -2842,8 +2842,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1023 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1822 = phi i64 [ %cond17, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1822, %add
+  %add = sub i64 0, %cond1822
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -3996,8 +3996,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1028 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond2327 = phi i64 [ %cond22, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond2327, %add
+  %add = sub i64 0, %cond2327
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_kwonly, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -4680,7 +4680,7 @@ if.then8.i:                                       ; preds = %if.end6.i
 
 if.end11.i:                                       ; preds = %if.end6.i
   %14 = load i32, ptr %actual.i, align 4
-  %cmp12.not.i = icmp eq i32 %14, %enable.0
+  %cmp12.not.i = icmp eq i32 %enable.0, %14
   br i1 %cmp12.not.i, label %setconfig_impl.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end11.i

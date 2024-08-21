@@ -448,7 +448,7 @@ if.then:                                          ; preds = %entry, %_ZNSt3mapIh
 
 if.then.i:                                        ; preds = %if.then
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -681,7 +681,7 @@ cond.true.i.split.i:                              ; preds = %_ZN4llvh11raw_ostre
   %sub.ptr.lhs.cast.i7.i84 = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i8.i85 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i9.i86 = sub i64 %sub.ptr.lhs.cast.i7.i84, %sub.ptr.rhs.cast.i8.i85
-  %cmp.i.i87 = icmp ult i64 %sub.ptr.sub.i9.i86, %call.i.i81
+  %cmp.i.i87 = icmp ugt i64 %call.i.i81, %sub.ptr.sub.i9.i86
   br i1 %cmp.i.i87, label %if.then.i.i93, label %if.end.i.i88
 
 if.then.i.i93:                                    ; preds = %cond.true.i.split.i
@@ -1146,7 +1146,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIhSt4pairIKhPKcESt10_Select1stIS4_ESt4lessIhESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__k) local_unnamed_addr #5 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

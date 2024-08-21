@@ -38,7 +38,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %15 = icmp ult i64 %11, %9
+  %15 = icmp ugt i64 %9, %11
   br i1 %15, label %16, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h35eb5bc01a7ab919E.exit.i"
 
 16:                                               ; preds = %2
@@ -103,7 +103,7 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = load i64, ptr %0, align 8, !alias.scope !23, !noundef !4
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %7
+  %12 = icmp ugt i64 %7, %11
   br i1 %12, label %13, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hca2e6963f3ad6b2cE.llvm.5846782993716646778.exit"
 
 13:                                               ; preds = %3
@@ -418,7 +418,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8ec36c
   %5 = load i64, ptr %4, align 8, !alias.scope !78, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !81, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hdd51687b60631f96E.llvm.5846782993716646778.exit"
 
 9:                                                ; preds = %3
@@ -444,7 +444,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hca2e6963f3ad6b2cE
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -607,7 +607,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !4
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -688,8 +688,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !93
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -1055,7 +1055,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %.val12 = load ptr, ptr %0, align 8, !nonnull !4, !align !26, !noundef !4
   %90 = getelementptr inbounds i8, ptr %0, i64 8
   %.val13 = load i64, ptr %90, align 8, !noundef !4
-  %91 = icmp ugt i64 %.val13, %89
+  %91 = icmp ult i64 %89, %.val13
   tail call void @llvm.assume(i1 %91)
   %92 = getelementptr inbounds { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.val12, i64 %89
   %93 = cmpxchg weak ptr %92, i64 0, i64 -4 acquire monotonic, align 8
@@ -1563,7 +1563,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %.val12 = load ptr, ptr %0, align 8, !nonnull !4, !align !26, !noundef !4
   %90 = getelementptr inbounds i8, ptr %0, i64 8
   %.val13 = load i64, ptr %90, align 8, !noundef !4
-  %91 = icmp ugt i64 %.val13, %89
+  %91 = icmp ult i64 %89, %.val13
   tail call void @llvm.assume(i1 %91)
   %92 = getelementptr inbounds { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.val12, i64 %89
   %93 = cmpxchg weak ptr %92, i64 0, i64 -4 acquire monotonic, align 8

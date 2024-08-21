@@ -72,7 +72,7 @@ define range(i32 -1, 1) i32 @H5HF__tiny_insert(ptr noundef %0, i64 noundef %1, p
   %22 = and i8 %21, 1
   %narrow = add nuw nsw i8 %22, 1
   %23 = zext nneg i8 %narrow to i64
-  %24 = add i64 %23, %1
+  %24 = add i64 %1, %23
   %25 = sub i64 %20, %24
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %25, i1 false)
   %26 = getelementptr inbounds i8, ptr %0, i64 552

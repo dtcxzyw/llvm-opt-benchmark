@@ -5264,7 +5264,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %90, %9
   %110 = and i32 %109, 268435456
   %.not289 = icmp ne i32 %110, 0
   %111 = load ptr, ptr @stdinev_global, align 8
-  %112 = icmp eq ptr %111, %2
+  %112 = icmp eq ptr %2, %111
   %or.cond322 = select i1 %.not289, i1 %112, i1 false
   br i1 %or.cond322, label %113, label %.loopexit
 

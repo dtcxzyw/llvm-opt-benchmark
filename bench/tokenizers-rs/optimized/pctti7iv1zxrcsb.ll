@@ -50,12 +50,12 @@ define hidden void @"_ZN101_$LT$alloc..collections..binary_heap..RebuildOnDrop$L
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !6, !noundef !4
-  %7 = icmp eq i64 %6, %4
+  %7 = icmp eq i64 %4, %6
   br i1 %7, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$12rebuild_tail17hb7143ca925179505E.exit", label %8
 
 8:                                                ; preds = %1
   %9 = sub i64 %6, %4
-  %10 = icmp ugt i64 %9, %4
+  %10 = icmp ult i64 %4, %9
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %8
@@ -77,7 +77,7 @@ define hidden void @"_ZN101_$LT$alloc..collections..binary_heap..RebuildOnDrop$L
   br i1 %22, label %.lr.ph.preheader.i.i, label %23
 
 23:                                               ; preds = %20, %14
-  %24 = icmp ugt i64 %6, %4
+  %24 = icmp ult i64 %4, %6
   br i1 %24, label %.lr.ph.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$12rebuild_tail17hb7143ca925179505E.exit"
 
 25:                                               ; preds = %14, %8
@@ -3716,12 +3716,12 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$alloc..collections..binary_
   %4 = load i64, ptr %3, align 8, !alias.scope !1078, !noundef !4
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1081, !noalias !1078, !noundef !4
-  %7 = icmp eq i64 %6, %4
+  %7 = icmp eq i64 %4, %6
   br i1 %7, label %"_ZN101_$LT$alloc..collections..binary_heap..RebuildOnDrop$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hac8a1a3a856753c0E.llvm.1287153784043347726.exit", label %8
 
 8:                                                ; preds = %1
   %9 = sub i64 %6, %4
-  %10 = icmp ugt i64 %9, %4
+  %10 = icmp ult i64 %4, %9
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %8
@@ -3743,7 +3743,7 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$alloc..collections..binary_
   br i1 %22, label %.lr.ph.preheader.i.i.i, label %23
 
 23:                                               ; preds = %20, %14
-  %24 = icmp ugt i64 %6, %4
+  %24 = icmp ult i64 %4, %6
   br i1 %24, label %.lr.ph.i.i, label %"_ZN101_$LT$alloc..collections..binary_heap..RebuildOnDrop$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hac8a1a3a856753c0E.llvm.1287153784043347726.exit"
 
 25:                                               ; preds = %14, %8
@@ -39726,7 +39726,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h553477f1a
   tail call void @llvm.assume(i1 %11)
   %12 = sub nuw i64 -9223372036854775808, %1
   %13 = udiv i64 %12, %0
-  %14 = icmp ult i64 %13, %2
+  %14 = icmp ugt i64 %2, %13
   br i1 %14, label %15, label %5
 
 15:                                               ; preds = %9, %5
@@ -48559,7 +48559,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hcafd37ce82522c4bE.exit: ; pred
   %30 = add i64 %29, %28
   %31 = load i64, ptr %26, align 8, !noalias !20896, !noundef !4
   %32 = sub i64 %31, %30
-  %33 = icmp ult i64 %32, %23
+  %33 = icmp ugt i64 %23, %32
   br i1 %33, label %34, label %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$9move_tail17h3faea693ba524659E.exit"
 
 34:                                               ; preds = %24
@@ -48643,7 +48643,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hcafd37ce82522c4bE.exit: ; pred
   %64 = add i64 %63, %62
   %65 = load i64, ptr %60, align 8, !noalias !20938, !noundef !4
   %66 = sub i64 %65, %64
-  %67 = icmp ult i64 %66, %.sroa.5.0.copyload.i
+  %67 = icmp ugt i64 %.sroa.5.0.copyload.i, %66
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %58
@@ -48734,7 +48734,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h14f9cd229dc6c71eE.exit: ; pred
   %30 = add i64 %29, %28
   %31 = load i64, ptr %26, align 8, !noalias !20948, !noundef !4
   %32 = sub i64 %31, %30
-  %33 = icmp ult i64 %32, %.val
+  %33 = icmp ugt i64 %.val, %32
   br i1 %33, label %34, label %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$9move_tail17h81839994a4c9ce57E.exit"
 
 34:                                               ; preds = %24
@@ -48817,7 +48817,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h14f9cd229dc6c71eE.exit: ; pred
   %65 = add i64 %64, %63
   %66 = load i64, ptr %61, align 8, !noalias !20973, !noundef !4
   %67 = sub i64 %66, %65
-  %68 = icmp ult i64 %67, %.sroa.5.0.copyload.i
+  %68 = icmp ugt i64 %.sroa.5.0.copyload.i, %67
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %59
@@ -48916,7 +48916,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h8afdbe34726d1fdeE.exit: ; pred
   %35 = add i64 %34, %33
   %36 = load i64, ptr %31, align 8, !noalias !20985, !noundef !4
   %37 = sub i64 %36, %35
-  %38 = icmp ult i64 %37, %28
+  %38 = icmp ugt i64 %28, %37
   br i1 %38, label %39, label %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$9move_tail17ha96886f10379dc22E.exit"
 
 39:                                               ; preds = %29
@@ -49003,7 +49003,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h8afdbe34726d1fdeE.exit: ; pred
   %74 = add i64 %73, %72
   %75 = load i64, ptr %70, align 8, !noalias !21027, !noundef !4
   %76 = sub i64 %75, %74
-  %77 = icmp ult i64 %76, %.sroa.5.0.copyload.i
+  %77 = icmp ugt i64 %.sroa.5.0.copyload.i, %76
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %68

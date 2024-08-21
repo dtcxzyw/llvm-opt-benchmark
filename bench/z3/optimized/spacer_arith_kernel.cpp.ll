@@ -1379,13 +1379,13 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE8num_varsEv.exit: ; preds = %entry, %if
   %m_rows.i = getelementptr inbounds i8, ptr %M, i64 8
   %2 = load ptr, ptr %m_rows.i, align 8
   %cmp.i.i52 = icmp eq ptr %2, null
-  br i1 %cmp.i.i52, label %_ZNK6vectorIjLb1EjE4sizeEv.exit.i88, label %_ZNK6vectorIjLb1EjE4sizeEv.exit.i
+  br i1 %cmp.i.i52, label %_ZNK6vectorIjLb1EjE4sizeEv.exit.i86, label %_ZNK6vectorIjLb1EjE4sizeEv.exit.i
 
 _ZNK6vectorIjLb1EjE4sizeEv.exit.i:                ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE8num_varsEv.exit
   %arrayidx.i.i54 = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i54, align 4
   %cmp.not.not.i = icmp eq i32 %3, 0
-  br i1 %cmp.not.not.i, label %_ZNK6vectorIjLb1EjE4sizeEv.exit.i88, label %while.cond.i
+  br i1 %cmp.not.not.i, label %_ZNK6vectorIjLb1EjE4sizeEv.exit.i86, label %while.cond.i
 
 while.condthread-pre-split.i:                     ; preds = %while.body.i
   %.pr.pre.i = load ptr, ptr %c, align 8
@@ -1399,12 +1399,12 @@ while.cond.i:                                     ; preds = %_ZNK6vectorIjLb1EjE
 _ZNK6vectorIjLb1EjE8capacityEv.exit.i:            ; preds = %while.cond.i
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load i32, ptr %arrayidx.i12.i, align 4
-  %cmp3.i = icmp ult i32 %5, %3
+  %cmp3.i = icmp ugt i32 %3, %5
   br i1 %cmp3.i, label %while.body.i, label %invoke.cont3
 
-while.body.i:                                     ; preds = %while.cond.i, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i
+while.body.i:                                     ; preds = %_ZNK6vectorIjLb1EjE8capacityEv.exit.i, %while.cond.i
   invoke void @_ZN6vectorIjLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %c)
-          to label %while.condthread-pre-split.i unwind label %lpad.loopexit493
+          to label %while.condthread-pre-split.i unwind label %lpad.loopexit489
 
 invoke.cont3:                                     ; preds = %_ZNK6vectorIjLb1EjE8capacityEv.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 -4
@@ -1415,70 +1415,66 @@ invoke.cont3:                                     ; preds = %_ZNK6vectorIjLb1EjE
   call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 %7, i1 false)
   %.pre = load ptr, ptr %d, align 8
   %cmp.i.i58 = icmp eq ptr %.pre, null
-  br i1 %cmp.i.i58, label %_ZNK6vectorIjLb1EjE4sizeEv.exit.i88, label %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i59
+  br i1 %cmp.i.i58, label %_ZNK6vectorIjLb1EjE4sizeEv.exit.i86, label %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i59
 
-_ZNK6vectorIjLb1EjE4sizeEv.exit.i88:              ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE8num_varsEv.exit, %invoke.cont3
-  %cmp.not.not.i89 = icmp eq i32 %retval.0.i.i, 0
-  br i1 %cmp.not.not.i89, label %invoke.cont11, label %while.cond.i66.preheader
+_ZNK6vectorIjLb1EjE4sizeEv.exit.i86:              ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE8num_varsEv.exit, %invoke.cont3
+  %cmp.not.not.i87 = icmp eq i32 %retval.0.i.i, 0
+  br i1 %cmp.not.not.i87, label %invoke.cont11, label %while.cond.i66.preheader
 
 _ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i59:       ; preds = %invoke.cont3
   %arrayidx.i.i60 = getelementptr inbounds i8, ptr %.pre, i64 -4
   %8 = load i32, ptr %arrayidx.i.i60, align 4
-  %cmp.not15.i61 = icmp ult i32 %8, %retval.0.i.i
+  %cmp.not15.i61 = icmp ugt i32 %retval.0.i.i, %8
   br i1 %cmp.not15.i61, label %while.cond.i66.preheader, label %_ZN6vectorIjLb1EjE3endEv.exit.i.i62
 
-while.cond.i66.preheader:                         ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.i88, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i59
-  %.ph736 = phi ptr [ %.pre, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i59 ], [ null, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i88 ]
-  %retval.0.i16.i67.ph = phi i32 [ %8, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i59 ], [ 0, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i88 ]
+while.cond.i66.preheader:                         ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.i86, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i59
+  %.ph732 = phi ptr [ %.pre, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i59 ], [ null, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i86 ]
+  %retval.0.i16.i67.ph = phi i32 [ %8, %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i59 ], [ 0, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i86 ]
   br label %while.cond.i66
 
 _ZN6vectorIjLb1EjE3endEv.exit.i.i62:              ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.thread.i59
   store i32 %retval.0.i.i, ptr %arrayidx.i.i60, align 4
   br label %invoke.cont11
 
-while.cond.i66:                                   ; preds = %while.cond.i66.preheader, %.noexc90
-  %9 = phi ptr [ %.pr.pre.i87, %.noexc90 ], [ %.ph736, %while.cond.i66.preheader ]
+while.cond.i66:                                   ; preds = %while.cond.i66.preheader, %.noexc88
+  %9 = phi ptr [ %.pr.pre.i85, %.noexc88 ], [ %.ph732, %while.cond.i66.preheader ]
   %cmp.i10.i68 = icmp eq ptr %9, null
-  br i1 %cmp.i10.i68, label %_ZNK6vectorIjLb1EjE8capacityEv.exit.i71, label %if.end.i11.i69
+  br i1 %cmp.i10.i68, label %while.body.i84, label %_ZNK6vectorIjLb1EjE8capacityEv.exit.i69
 
-if.end.i11.i69:                                   ; preds = %while.cond.i66
+_ZNK6vectorIjLb1EjE8capacityEv.exit.i69:          ; preds = %while.cond.i66
   %arrayidx.i12.i70 = getelementptr inbounds i8, ptr %9, i64 -8
   %10 = load i32, ptr %arrayidx.i12.i70, align 4
-  br label %_ZNK6vectorIjLb1EjE8capacityEv.exit.i71
+  %cmp3.i71 = icmp ugt i32 %retval.0.i.i, %10
+  br i1 %cmp3.i71, label %while.body.i84, label %while.end.i72
 
-_ZNK6vectorIjLb1EjE8capacityEv.exit.i71:          ; preds = %if.end.i11.i69, %while.cond.i66
-  %retval.0.i13.i72 = phi i32 [ %10, %if.end.i11.i69 ], [ 0, %while.cond.i66 ]
-  %cmp3.i73 = icmp ult i32 %retval.0.i13.i72, %retval.0.i.i
-  br i1 %cmp3.i73, label %while.body.i86, label %while.end.i74
-
-while.body.i86:                                   ; preds = %_ZNK6vectorIjLb1EjE8capacityEv.exit.i71
+while.body.i84:                                   ; preds = %_ZNK6vectorIjLb1EjE8capacityEv.exit.i69, %while.cond.i66
   invoke void @_ZN6vectorIjLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %d)
-          to label %.noexc90 unwind label %lpad.loopexit.split-lp
+          to label %.noexc88 unwind label %lpad.loopexit.split-lp
 
-.noexc90:                                         ; preds = %while.body.i86
-  %.pr.pre.i87 = load ptr, ptr %d, align 8
+.noexc88:                                         ; preds = %while.body.i84
+  %.pr.pre.i85 = load ptr, ptr %d, align 8
   br label %while.cond.i66, !llvm.loop !11
 
-while.end.i74:                                    ; preds = %_ZNK6vectorIjLb1EjE8capacityEv.exit.i71
-  %arrayidx.i75 = getelementptr inbounds i8, ptr %9, i64 -4
-  store i32 %retval.0.i.i, ptr %arrayidx.i75, align 4
-  %cmp8.not17.i78 = icmp eq i32 %retval.0.i16.i67.ph, %retval.0.i.i
-  br i1 %cmp8.not17.i78, label %invoke.cont11, label %for.body.preheader.i79
+while.end.i72:                                    ; preds = %_ZNK6vectorIjLb1EjE8capacityEv.exit.i69
+  %arrayidx.i73 = getelementptr inbounds i8, ptr %9, i64 -4
+  store i32 %retval.0.i.i, ptr %arrayidx.i73, align 4
+  %cmp8.not19.i76 = icmp eq i32 %retval.0.i16.i67.ph, %retval.0.i.i
+  br i1 %cmp8.not19.i76, label %invoke.cont11, label %for.body.preheader.i77
 
-for.body.preheader.i79:                           ; preds = %while.end.i74
-  %idx.ext6.i76 = zext i32 %retval.0.i.i to i64
+for.body.preheader.i77:                           ; preds = %while.end.i72
+  %idx.ext6.i74 = zext i32 %retval.0.i.i to i64
   %11 = load ptr, ptr %d, align 8
-  %idx.ext.i80 = zext i32 %retval.0.i16.i67.ph to i64
-  %add.ptr.i81 = getelementptr i32, ptr %11, i64 %idx.ext.i80
-  %12 = shl nuw nsw i64 %idx.ext6.i76, 2
+  %idx.ext.i78 = zext i32 %retval.0.i16.i67.ph to i64
+  %add.ptr.i79 = getelementptr i32, ptr %11, i64 %idx.ext.i78
+  %12 = shl nuw nsw i64 %idx.ext6.i74, 2
   %13 = add nsw i64 %12, -4
-  %14 = shl nuw nsw i64 %idx.ext.i80, 2
+  %14 = shl nuw nsw i64 %idx.ext.i78, 2
   %15 = sub nsw i64 %13, %14
   %16 = add nsw i64 %15, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.i81, i8 0, i64 %16, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.i79, i8 0, i64 %16, i1 false)
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %for.body.preheader.i79, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i88, %_ZN6vectorIjLb1EjE3endEv.exit.i.i62, %while.end.i74
+invoke.cont11:                                    ; preds = %for.body.preheader.i77, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i86, %_ZN6vectorIjLb1EjE3endEv.exit.i.i62, %while.end.i72
   %17 = load ptr, ptr %M, align 8
   store ptr %17, ptr %m_ik, align 8
   %m_num.i = getelementptr inbounds i8, ptr %m_ik, i64 8
@@ -1498,46 +1494,46 @@ invoke.cont11:                                    ; preds = %for.body.preheader.
   %m_ptr.i4.i.i = getelementptr inbounds i8, ptr %m_ik, i64 32
   store ptr null, ptr %m_ptr.i4.i.i, align 8
   store ptr %17, ptr %m_jk, align 8
-  %m_num.i92 = getelementptr inbounds i8, ptr %m_jk, i64 8
-  store i32 0, ptr %m_num.i92, align 8
-  %m_kind.i.i.i93 = getelementptr inbounds i8, ptr %m_jk, i64 12
-  %bf.load.i.i.i94 = load i8, ptr %m_kind.i.i.i93, align 4
-  %bf.clear3.i.i.i95 = and i8 %bf.load.i.i.i94, -4
-  store i8 %bf.clear3.i.i.i95, ptr %m_kind.i.i.i93, align 4
-  %m_ptr.i.i.i96 = getelementptr inbounds i8, ptr %m_jk, i64 16
-  store ptr null, ptr %m_ptr.i.i.i96, align 8
-  %m_den.i.i97 = getelementptr inbounds i8, ptr %m_jk, i64 24
-  store i32 1, ptr %m_den.i.i97, align 8
-  %m_kind.i1.i.i98 = getelementptr inbounds i8, ptr %m_jk, i64 28
-  %bf.load.i2.i.i99 = load i8, ptr %m_kind.i1.i.i98, align 4
-  %bf.clear3.i3.i.i100 = and i8 %bf.load.i2.i.i99, -4
-  store i8 %bf.clear3.i3.i.i100, ptr %m_kind.i1.i.i98, align 4
-  %m_ptr.i4.i.i101 = getelementptr inbounds i8, ptr %m_jk, i64 32
-  store ptr null, ptr %m_ptr.i4.i.i101, align 8
+  %m_num.i90 = getelementptr inbounds i8, ptr %m_jk, i64 8
+  store i32 0, ptr %m_num.i90, align 8
+  %m_kind.i.i.i91 = getelementptr inbounds i8, ptr %m_jk, i64 12
+  %bf.load.i.i.i92 = load i8, ptr %m_kind.i.i.i91, align 4
+  %bf.clear3.i.i.i93 = and i8 %bf.load.i.i.i92, -4
+  store i8 %bf.clear3.i.i.i93, ptr %m_kind.i.i.i91, align 4
+  %m_ptr.i.i.i94 = getelementptr inbounds i8, ptr %m_jk, i64 16
+  store ptr null, ptr %m_ptr.i.i.i94, align 8
+  %m_den.i.i95 = getelementptr inbounds i8, ptr %m_jk, i64 24
+  store i32 1, ptr %m_den.i.i95, align 8
+  %m_kind.i1.i.i96 = getelementptr inbounds i8, ptr %m_jk, i64 28
+  %bf.load.i2.i.i97 = load i8, ptr %m_kind.i1.i.i96, align 4
+  %bf.clear3.i3.i.i98 = and i8 %bf.load.i2.i.i97, -4
+  store i8 %bf.clear3.i3.i.i98, ptr %m_kind.i1.i.i96, align 4
+  %m_ptr.i4.i.i99 = getelementptr inbounds i8, ptr %m_jk, i64 32
+  store ptr null, ptr %m_ptr.i4.i.i99, align 8
   store ptr %17, ptr %last_pv, align 8
-  %m_num.i102 = getelementptr inbounds i8, ptr %last_pv, i64 8
-  %m_kind.i.i.i103 = getelementptr inbounds i8, ptr %last_pv, i64 12
-  %bf.load.i.i.i104 = load i8, ptr %m_kind.i.i.i103, align 4
-  %bf.clear3.i.i.i105 = and i8 %bf.load.i.i.i104, -4
-  %m_ptr.i.i.i106 = getelementptr inbounds i8, ptr %last_pv, i64 16
-  store ptr null, ptr %m_ptr.i.i.i106, align 8
-  %m_den.i.i107 = getelementptr inbounds i8, ptr %last_pv, i64 24
-  store i32 1, ptr %m_den.i.i107, align 8
-  %m_kind.i1.i.i108 = getelementptr inbounds i8, ptr %last_pv, i64 28
-  %bf.load.i2.i.i109 = load i8, ptr %m_kind.i1.i.i108, align 4
-  %bf.clear3.i3.i.i110 = and i8 %bf.load.i2.i.i109, -4
-  store i8 %bf.clear3.i3.i.i110, ptr %m_kind.i1.i.i108, align 4
-  %m_ptr.i4.i.i111 = getelementptr inbounds i8, ptr %last_pv, i64 32
-  store ptr null, ptr %m_ptr.i4.i.i111, align 8
-  store i32 1, ptr %m_num.i102, align 8
-  store i8 %bf.clear3.i.i.i105, ptr %m_kind.i.i.i103, align 4
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i107)
+  %m_num.i100 = getelementptr inbounds i8, ptr %last_pv, i64 8
+  %m_kind.i.i.i101 = getelementptr inbounds i8, ptr %last_pv, i64 12
+  %bf.load.i.i.i102 = load i8, ptr %m_kind.i.i.i101, align 4
+  %bf.clear3.i.i.i103 = and i8 %bf.load.i.i.i102, -4
+  %m_ptr.i.i.i104 = getelementptr inbounds i8, ptr %last_pv, i64 16
+  store ptr null, ptr %m_ptr.i.i.i104, align 8
+  %m_den.i.i105 = getelementptr inbounds i8, ptr %last_pv, i64 24
+  store i32 1, ptr %m_den.i.i105, align 8
+  %m_kind.i1.i.i106 = getelementptr inbounds i8, ptr %last_pv, i64 28
+  %bf.load.i2.i.i107 = load i8, ptr %m_kind.i1.i.i106, align 4
+  %bf.clear3.i3.i.i108 = and i8 %bf.load.i2.i.i107, -4
+  store i8 %bf.clear3.i3.i.i108, ptr %m_kind.i1.i.i106, align 4
+  %m_ptr.i4.i.i109 = getelementptr inbounds i8, ptr %last_pv, i64 32
+  store ptr null, ptr %m_ptr.i4.i.i109, align 8
+  store i32 1, ptr %m_num.i100, align 8
+  store i8 %bf.clear3.i.i.i103, ptr %m_kind.i.i.i101, align 4
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i105)
           to label %_ZN11mpq_managerILb0EE3setER3mpqi.exit unwind label %lpad12.loopexit.split-lp.loopexit.split-lp
 
 _ZN11mpq_managerILb0EE3setER3mpqi.exit:           ; preds = %invoke.cont11
-  store i32 1, ptr %m_den.i.i107, align 8
-  %cmp548.not = icmp eq i32 %retval.0.i.i, 0
-  br i1 %cmp548.not, label %for.end123, label %invoke.cont18.lr.ph
+  store i32 1, ptr %m_den.i.i105, align 8
+  %cmp544.not = icmp eq i32 %retval.0.i.i, 0
+  br i1 %cmp544.not, label %for.end123, label %invoke.cont18.lr.ph
 
 invoke.cont18.lr.ph:                              ; preds = %_ZN11mpq_managerILb0EE3setER3mpqi.exit
   %m_num.i.i = getelementptr inbounds i8, ptr %M, i64 64
@@ -1547,8 +1543,8 @@ invoke.cont18.lr.ph:                              ; preds = %_ZN11mpq_managerILb
 invoke.cont18:                                    ; preds = %invoke.cont18.lr.ph, %cleanup
   %indvars.iv = phi i64 [ 0, %invoke.cont18.lr.ph ], [ %indvars.iv.next, %cleanup ]
   %18 = load ptr, ptr %d, align 8
-  %arrayidx.i117 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
-  store i32 0, ptr %arrayidx.i117, align 4
+  %arrayidx.i115 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  store i32 0, ptr %arrayidx.i115, align 4
   %19 = load ptr, ptr %m_columns.i, align 8, !noalias !12
   %arrayidx.i.i.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %19, i64 %indvars.iv
   %m_refs.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
@@ -1568,36 +1564,36 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.prehead
 
 land.rhs.i.i.i.i.preheader:                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.preheader.i.i
   %24 = load i32, ptr %21, align 4, !noalias !12
-  %cmp.i.i.i.i.i531 = icmp eq i32 %24, -1
-  br i1 %cmp.i.i.i.i.i531, label %while.body.i.i.i.i, label %invoke.cont20
+  %cmp.i.i.i.i.i527 = icmp eq i32 %24, -1
+  br i1 %cmp.i.i.i.i.i527, label %while.body.i.i.i.i, label %invoke.cont20
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %21, i64 %indvars.iv.next.i.i.i
   %25 = load i32, ptr %arrayidx.i.i.i.i.i, align 4, !noalias !12
   %cmp.i.i.i.i.i = icmp eq i32 %25, -1
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i, label %invoke.cont20.loopexit.split.loop.exit652, !llvm.loop !17
+  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i, label %invoke.cont20.loopexit.split.loop.exit648, !llvm.loop !17
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.preheader, %land.rhs.i.i.i.i
-  %indvars.iv.i2.i.i532 = phi i64 [ %indvars.iv.next.i.i.i, %land.rhs.i.i.i.i ], [ 0, %land.rhs.i.i.i.i.preheader ]
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i2.i.i532, 1
+  %indvars.iv.i2.i.i528 = phi i64 [ %indvars.iv.next.i.i.i, %land.rhs.i.i.i.i ], [ 0, %land.rhs.i.i.i.i.preheader ]
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i2.i.i528, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %23
   br i1 %exitcond.not.i.i, label %invoke.cont20, label %land.rhs.i.i.i.i, !llvm.loop !17
 
-invoke.cont20.loopexit.split.loop.exit652:        ; preds = %land.rhs.i.i.i.i
+invoke.cont20.loopexit.split.loop.exit648:        ; preds = %land.rhs.i.i.i.i
   %26 = trunc nuw i64 %indvars.iv.next.i.i.i to i32
   br label %invoke.cont20
 
-invoke.cont20:                                    ; preds = %while.body.i.i.i.i, %invoke.cont20.loopexit.split.loop.exit652, %land.rhs.i.i.i.i.preheader, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.preheader.i.i, %invoke.cont18
-  %__begin0.sroa.0.2 = phi i32 [ 0, %invoke.cont18 ], [ 0, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.preheader.i.i ], [ 0, %land.rhs.i.i.i.i.preheader ], [ %26, %invoke.cont20.loopexit.split.loop.exit652 ], [ %22, %while.body.i.i.i.i ]
+invoke.cont20:                                    ; preds = %while.body.i.i.i.i, %invoke.cont20.loopexit.split.loop.exit648, %land.rhs.i.i.i.i.preheader, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.preheader.i.i, %invoke.cont18
+  %__begin0.sroa.0.2 = phi i32 [ 0, %invoke.cont18 ], [ 0, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i.preheader.i.i ], [ 0, %land.rhs.i.i.i.i.preheader ], [ %26, %invoke.cont20.loopexit.split.loop.exit648 ], [ %22, %while.body.i.i.i.i ]
   %27 = load ptr, ptr %m_columns.i, align 8, !noalias !18
-  %arrayidx.i.i.i121 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %27, i64 %indvars.iv
-  %m_refs.i.i.i125 = getelementptr inbounds i8, ptr %arrayidx.i.i.i121, i64 16
-  %28 = load i32, ptr %m_refs.i.i.i125, align 8, !noalias !18
-  %inc.i.i.i126 = add i32 %28, 1
-  store i32 %inc.i.i.i126, ptr %m_refs.i.i.i125, align 8, !noalias !18
-  %29 = load ptr, ptr %arrayidx.i.i.i121, align 8, !noalias !18
-  %cmp.i.i3.i.i.i.i127 = icmp eq ptr %29, null
-  br i1 %cmp.i.i3.i.i.i.i127, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit, label %if.end.i.i.i.i.i
+  %arrayidx.i.i.i119 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::column", ptr %27, i64 %indvars.iv
+  %m_refs.i.i.i123 = getelementptr inbounds i8, ptr %arrayidx.i.i.i119, i64 16
+  %28 = load i32, ptr %m_refs.i.i.i123, align 8, !noalias !18
+  %inc.i.i.i124 = add i32 %28, 1
+  store i32 %inc.i.i.i124, ptr %m_refs.i.i.i123, align 8, !noalias !18
+  %29 = load ptr, ptr %arrayidx.i.i.i119, align 8, !noalias !18
+  %cmp.i.i3.i.i.i.i125 = icmp eq ptr %29, null
+  br i1 %cmp.i.i3.i.i.i.i125, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %invoke.cont20
   %arrayidx.i.i2.i.i.i = getelementptr inbounds i8, ptr %29, i64 -4
@@ -1606,23 +1602,23 @@ if.end.i.i.i.i.i:                                 ; preds = %invoke.cont20
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit: ; preds = %invoke.cont20, %if.end.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi i32 [ %30, %if.end.i.i.i.i.i ], [ 0, %invoke.cont20 ]
-  %cmp.i.not539 = icmp eq i32 %__begin0.sroa.0.2, %retval.0.i.i.i.i.i
-  br i1 %cmp.i.not539, label %cleanup, label %invoke.cont28.lr.ph
+  %cmp.i.not535 = icmp eq i32 %__begin0.sroa.0.2, %retval.0.i.i.i.i.i
+  br i1 %cmp.i.not535, label %cleanup, label %invoke.cont28.lr.ph
 
 invoke.cont28.lr.ph:                              ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit
   %31 = load ptr, ptr %arrayidx.i.i.i, align 8
   %32 = load ptr, ptr %m_rows.i, align 8
   %33 = load ptr, ptr %c, align 8
-  %arrayidx.i.i.i.i308 = getelementptr inbounds i8, ptr %31, i64 -4
+  %arrayidx.i.i.i.i306 = getelementptr inbounds i8, ptr %31, i64 -4
   br label %invoke.cont28
 
-lpad.loopexit493:                                 ; preds = %while.body.i
-  %lpad.loopexit494 = landingpad { ptr, i32 }
+lpad.loopexit489:                                 ; preds = %while.body.i
+  %lpad.loopexit490 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup177
 
-lpad.loopexit.split-lp:                           ; preds = %while.body.i86
-  %lpad.loopexit.split-lp495 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp:                           ; preds = %while.body.i84
+  %lpad.loopexit.split-lp491 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup177
 
@@ -1631,66 +1627,66 @@ lpad12.loopexit:                                  ; preds = %invoke.cont154.invo
           cleanup
   br label %ehcleanup174
 
-lpad12.loopexit.split-lp.loopexit:                ; preds = %if.then.i337
-  %lpad.loopexit474 = landingpad { ptr, i32 }
+lpad12.loopexit.split-lp.loopexit:                ; preds = %if.then.i335
+  %lpad.loopexit470 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup174
 
 lpad12.loopexit.split-lp.loopexit.split-lp:       ; preds = %invoke.cont11, %for.end123
-  %lpad.loopexit.split-lp475 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp471 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup174
 
-lpad24.loopexit:                                  ; preds = %for.body.i232
-  %lpad.loopexit477 = landingpad { ptr, i32 }
+lpad24.loopexit:                                  ; preds = %for.body.i230
+  %lpad.loopexit473 = landingpad { ptr, i32 }
           cleanup
   br label %lpad24
 
 lpad24.loopexit.split-lp.loopexit:                ; preds = %for.body.i.i
-  %lpad.loopexit480 = landingpad { ptr, i32 }
+  %lpad.loopexit476 = landingpad { ptr, i32 }
           cleanup
   br label %lpad24
 
-lpad24.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %invoke.cont79, %if.then89, %if.else.i.i.i194, %if.else.i.i7.i202
-  %lpad.loopexit487 = landingpad { ptr, i32 }
+lpad24.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %invoke.cont79, %if.then89, %if.else.i.i.i192, %if.else.i.i7.i200
+  %lpad.loopexit483 = landingpad { ptr, i32 }
           cleanup
   br label %lpad24
 
-lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i149
-  %lpad.loopexit489 = landingpad { ptr, i32 }
+lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i147
+  %lpad.loopexit485 = landingpad { ptr, i32 }
           cleanup
   br label %lpad24
 
-lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.else.i.i7.i293, %if.else.i.i.i285, %if.else, %if.else.i.i7.i, %if.else.i.i.i
-  %lpad.loopexit.split-lp490 = landingpad { ptr, i32 }
+lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.else.i.i7.i291, %if.else.i.i.i283, %if.else, %if.else.i.i7.i, %if.else.i.i.i
+  %lpad.loopexit.split-lp486 = landingpad { ptr, i32 }
           cleanup
   br label %lpad24
 
 lpad24:                                           ; preds = %lpad24.loopexit.split-lp.loopexit, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad24.loopexit
-  %lpad.phi478 = phi { ptr, i32 } [ %lpad.loopexit477, %lpad24.loopexit ], [ %lpad.loopexit480, %lpad24.loopexit.split-lp.loopexit ], [ %lpad.loopexit487, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit489, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp490, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %34 = load i32, ptr %m_refs.i.i.i125, align 8
+  %lpad.phi474 = phi { ptr, i32 } [ %lpad.loopexit473, %lpad24.loopexit ], [ %lpad.loopexit476, %lpad24.loopexit.split-lp.loopexit ], [ %lpad.loopexit483, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit485, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp486, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %34 = load i32, ptr %m_refs.i.i.i123, align 8
   %dec.i = add i32 %34, -1
-  store i32 %dec.i, ptr %m_refs.i.i.i125, align 8
+  store i32 %dec.i, ptr %m_refs.i.i.i123, align 8
   %35 = load i32, ptr %m_refs.i.i.i, align 8
-  %dec.i324 = add i32 %35, -1
-  store i32 %dec.i324, ptr %m_refs.i.i.i, align 8
+  %dec.i322 = add i32 %35, -1
+  store i32 %dec.i322, ptr %m_refs.i.i.i, align 8
   br label %ehcleanup174
 
 invoke.cont28:                                    ; preds = %invoke.cont28.lr.ph, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit
-  %__begin0.sroa.0.0540 = phi i32 [ %__begin0.sroa.0.2, %invoke.cont28.lr.ph ], [ %__begin0.sroa.0.3.lcssa, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit ]
-  %idxprom.i.i.i128 = zext i32 %__begin0.sroa.0.0540 to i64
-  %arrayidx.i.i.i129 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %31, i64 %idxprom.i.i.i128
-  %36 = load i32, ptr %arrayidx.i.i.i129, align 4
+  %__begin0.sroa.0.0536 = phi i32 [ %__begin0.sroa.0.2, %invoke.cont28.lr.ph ], [ %__begin0.sroa.0.3.lcssa, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit ]
+  %idxprom.i.i.i126 = zext i32 %__begin0.sroa.0.0536 to i64
+  %arrayidx.i.i.i127 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %31, i64 %idxprom.i.i.i126
+  %36 = load i32, ptr %arrayidx.i.i.i127, align 4
   %idxprom.i2.i.i = zext i32 %36 to i64
-  %arrayidx.i132 = getelementptr inbounds i32, ptr %33, i64 %idxprom.i2.i.i
-  %37 = load i32, ptr %arrayidx.i132, align 4
+  %arrayidx.i130 = getelementptr inbounds i32, ptr %33, i64 %idxprom.i2.i.i
+  %37 = load i32, ptr %arrayidx.i130, align 4
   %cmp35.not = icmp eq i32 %37, 0
   br i1 %cmp35.not, label %invoke.cont36, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.preheader.i
 
 invoke.cont36:                                    ; preds = %invoke.cont28
   %arrayidx.i3.i.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %32, i64 %idxprom.i2.i.i
   %38 = load ptr, ptr %arrayidx.i3.i.i, align 8
-  %39 = getelementptr inbounds i8, ptr %arrayidx.i.i.i129, i64 4
+  %39 = getelementptr inbounds i8, ptr %arrayidx.i.i.i127, i64 4
   %40 = load i32, ptr %39, align 4
   %idxprom.i4.i.i = zext i32 %40 to i64
   %arrayidx.i5.i.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %38, i64 %idxprom.i4.i.i
@@ -1706,14 +1702,14 @@ if.end39:                                         ; preds = %invoke.cont36
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end39
-  store i32 %41, ptr %m_num.i92, align 8
-  %bf.load.i.i.i135 = load i8, ptr %m_kind.i.i.i93, align 4
-  %bf.clear.i.i.i136 = and i8 %bf.load.i.i.i135, -2
-  store i8 %bf.clear.i.i.i136, ptr %m_kind.i.i.i93, align 4
+  store i32 %41, ptr %m_num.i90, align 8
+  %bf.load.i.i.i133 = load i8, ptr %m_kind.i.i.i91, align 4
+  %bf.clear.i.i.i134 = and i8 %bf.load.i.i.i133, -2
+  store i8 %bf.clear.i.i.i134, ptr %m_kind.i.i.i91, align 4
   br label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.end39
-  invoke void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i92, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i5.i.i)
+  invoke void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i90, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i5.i.i)
           to label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i:     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -1726,68 +1722,68 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i:     ; preds = %if.else.i.i.i, %if.
 
 if.then.i.i8.i:                                   ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i
   %42 = load i32, ptr %m_den3.i, align 8
-  store i32 %42, ptr %m_den.i.i97, align 8
-  %bf.load.i.i10.i = load i8, ptr %m_kind.i1.i.i98, align 4
+  store i32 %42, ptr %m_den.i.i95, align 8
+  %bf.load.i.i10.i = load i8, ptr %m_kind.i1.i.i96, align 4
   %bf.clear.i.i11.i = and i8 %bf.load.i.i10.i, -2
-  store i8 %bf.clear.i.i11.i, ptr %m_kind.i1.i.i98, align 4
+  store i8 %bf.clear.i.i11.i, ptr %m_kind.i1.i.i96, align 4
   br label %invoke.cont43
 
 if.else.i.i7.i:                                   ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i
-  invoke void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i97, ptr noundef nonnull align 8 dereferenceable(16) %m_den3.i)
+  invoke void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i95, ptr noundef nonnull align 8 dereferenceable(16) %m_den3.i)
           to label %invoke.cont43 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont43:                                    ; preds = %if.else.i.i7.i, %if.then.i.i8.i
   %43 = load i32, ptr %arrayidx.i5.i.i, align 8
-  %cmp.i.i.i139 = icmp sgt i32 %43, 0
-  br i1 %cmp.i.i.i139, label %if.then45, label %if.else
+  %cmp.i.i.i137 = icmp sgt i32 %43, 0
+  br i1 %cmp.i.i.i137, label %if.then45, label %if.else
 
 if.then45:                                        ; preds = %invoke.cont43
   %44 = load ptr, ptr %m_rows.i, align 8
-  %arrayidx.i.i.i142 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %44, i64 %idxprom.i2.i.i
-  %45 = load ptr, ptr %arrayidx.i.i.i142, align 8
-  %cmp.i.i3.i.i.i.i143 = icmp eq ptr %45, null
-  br i1 %cmp.i.i3.i.i.i.i143, label %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.preheader.i, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i
+  %arrayidx.i.i.i140 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %44, i64 %idxprom.i2.i.i
+  %45 = load ptr, ptr %arrayidx.i.i.i140, align 8
+  %cmp.i.i3.i.i.i.i141 = icmp eq ptr %45, null
+  br i1 %cmp.i.i3.i.i.i.i141, label %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.preheader.i, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i
 
 _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i: ; preds = %if.then45
-  %arrayidx.i.i.i.i.i.i144 = getelementptr inbounds i8, ptr %45, i64 -4
-  %46 = load i32, ptr %arrayidx.i.i.i.i.i.i144, align 4
+  %arrayidx.i.i.i.i.i.i142 = getelementptr inbounds i8, ptr %45, i64 -4
+  %46 = load i32, ptr %arrayidx.i.i.i.i.i.i142, align 4
   %47 = zext i32 %46 to i64
-  %cmp.i.i1.not.i.i145 = icmp eq i32 %46, 0
-  br i1 %cmp.i.i1.not.i.i145, label %invoke.cont52, label %land.rhs.i.i.i.i146
+  %cmp.i.i1.not.i.i143 = icmp eq i32 %46, 0
+  br i1 %cmp.i.i1.not.i.i143, label %invoke.cont52, label %land.rhs.i.i.i.i144
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i: ; preds = %land.rhs.i.i.i.i146
-  %indvars.iv.next.i.i.i151 = add nuw nsw i64 %indvars.iv.i3.i.i, 1
-  %exitcond.not.i.i152 = icmp eq i64 %indvars.iv.next.i.i.i151, %47
-  br i1 %exitcond.not.i.i152, label %invoke.cont52, label %land.rhs.i.i.i.i146, !llvm.loop !9
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i: ; preds = %land.rhs.i.i.i.i144
+  %indvars.iv.next.i.i.i149 = add nuw nsw i64 %indvars.iv.i3.i.i, 1
+  %exitcond.not.i.i150 = icmp eq i64 %indvars.iv.next.i.i.i149, %47
+  br i1 %exitcond.not.i.i150, label %invoke.cont52, label %land.rhs.i.i.i.i144, !llvm.loop !9
 
-land.rhs.i.i.i.i146:                              ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i
-  %indvars.iv.i3.i.i = phi i64 [ %indvars.iv.next.i.i.i151, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i ], [ 0, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i ]
+land.rhs.i.i.i.i144:                              ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i
+  %indvars.iv.i3.i.i = phi i64 [ %indvars.iv.next.i.i.i149, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i ], [ 0, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i ]
   %m_var.i.i.i.i.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %45, i64 %indvars.iv.i3.i.i, i32 0, i32 1
   %48 = load i32, ptr %m_var.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i147 = icmp eq i32 %48, -1
-  br i1 %cmp.i.i.i.i.i147, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i
+  %cmp.i.i.i.i.i145 = icmp eq i32 %48, -1
+  br i1 %cmp.i.i.i.i.i145, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i: ; preds = %land.rhs.i.i.i.i146
+_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i: ; preds = %land.rhs.i.i.i.i144
   %indvars5.le.i.i = trunc i64 %indvars.iv.i3.i.i to i32
   %cmp.i.not24.i = icmp eq i32 %46, %indvars5.le.i.i
-  br i1 %cmp.i.not24.i, label %invoke.cont52, label %for.body.i149
+  br i1 %cmp.i.not24.i, label %invoke.cont52, label %for.body.i147
 
-for.body.i149:                                    ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i
+for.body.i147:                                    ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i
   %49 = phi ptr [ %51, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i ], [ %45, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i ]
   %it.sroa.0.025.i = phi i32 [ %it.sroa.0.2.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i ], [ %indvars5.le.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i ]
   %50 = load ptr, ptr %M, align 8
   %idxprom.i.i.i.i = zext i32 %it.sroa.0.025.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %49, i64 %idxprom.i.i.i.i
   invoke void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %50, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i.i.i)
-          to label %.noexc153 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc151 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc153:                                        ; preds = %for.body.i149
+.noexc151:                                        ; preds = %for.body.i147
   %inc.i.i = add i32 %it.sroa.0.025.i, 1
-  %51 = load ptr, ptr %arrayidx.i.i.i142, align 8
+  %51 = load ptr, ptr %arrayidx.i.i.i140, align 8
   %cmp.i.i3.i.i.i = icmp eq ptr %51, null
   br i1 %cmp.i.i3.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i: ; preds = %.noexc153
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i: ; preds = %.noexc151
   %arrayidx.i.i.i.i8.i = getelementptr inbounds i8, ptr %51, i64 -4
   %52 = load i32, ptr %arrayidx.i.i.i.i8.i, align 4
   %53 = zext i32 %52 to i64
@@ -1807,20 +1803,20 @@ land.rhs.i.i.i:                                   ; preds = %_ZNK7simplex13spars
   %indvars.iv.i22.i = phi i64 [ %indvars.iv.next.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i ], [ %54, %land.rhs.i.i.preheader.i ]
   %m_var.i.i.i.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %51, i64 %indvars.iv.i22.i, i32 0, i32 1
   %55 = load i32, ptr %m_var.i.i.i.i, align 8
-  %cmp.i.i.i.i150 = icmp eq i32 %55, -1
-  br i1 %cmp.i.i.i.i150, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i
+  %cmp.i.i.i.i148 = icmp eq i32 %55, -1
+  br i1 %cmp.i.i.i.i148, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i: ; preds = %land.rhs.i.i.i
   %indvars27.le.i = trunc i64 %indvars.iv.i22.i to i32
   br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i, %.noexc153
-  %it.sroa.0.2.i = phi i32 [ %inc.i.i, %.noexc153 ], [ %inc.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i ], [ %indvars27.le.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i ], [ %52, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i ]
+_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i, %.noexc151
+  %it.sroa.0.2.i = phi i32 [ %inc.i.i, %.noexc151 ], [ %inc.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i ], [ %indvars27.le.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i ], [ %52, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i ]
   %cmp.i.not.i = icmp eq i32 %it.sroa.0.2.i, %46
-  br i1 %cmp.i.not.i, label %invoke.cont52, label %for.body.i149, !llvm.loop !23
+  br i1 %cmp.i.not.i, label %invoke.cont52, label %for.body.i147, !llvm.loop !23
 
 if.else:                                          ; preds = %invoke.cont43
-  invoke void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i92)
+  invoke void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i90)
           to label %invoke.cont52 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont52:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i, %if.else, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i
@@ -1830,44 +1826,44 @@ invoke.cont52:                                    ; preds = %_ZNK7simplex13spars
 
 _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.preheader.i: ; preds = %if.then45, %invoke.cont52
   %56 = phi ptr [ %.pr, %invoke.cont52 ], [ %44, %if.then45 ]
-  %arrayidx.i.i.i.i157 = getelementptr inbounds i8, ptr %56, i64 -4
-  %57 = load i32, ptr %arrayidx.i.i.i.i157, align 4
+  %arrayidx.i.i.i.i155 = getelementptr inbounds i8, ptr %56, i64 -4
+  %57 = load i32, ptr %arrayidx.i.i.i.i155, align 4
   %58 = zext i32 %57 to i64
   %cmp.i.i1.not.i = icmp eq i32 %57, 0
-  br i1 %cmp.i.i1.not.i, label %invoke.cont59, label %land.rhs.i.i.i158
+  br i1 %cmp.i.i1.not.i, label %invoke.cont59, label %land.rhs.i.i.i156
 
-_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.i: ; preds = %land.rhs.i.i.i158
-  %indvars.iv.next.i.i161 = add nuw nsw i64 %indvars.iv.i3.i, 1
-  %exitcond.not.i162 = icmp eq i64 %indvars.iv.next.i.i161, %58
-  br i1 %exitcond.not.i162, label %for.end, label %land.rhs.i.i.i158, !llvm.loop !7
+_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.i: ; preds = %land.rhs.i.i.i156
+  %indvars.iv.next.i.i159 = add nuw nsw i64 %indvars.iv.i3.i, 1
+  %exitcond.not.i160 = icmp eq i64 %indvars.iv.next.i.i159, %58
+  br i1 %exitcond.not.i160, label %for.end, label %land.rhs.i.i.i156, !llvm.loop !7
 
-land.rhs.i.i.i158:                                ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.preheader.i, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.i
-  %indvars.iv.i3.i = phi i64 [ %indvars.iv.next.i.i161, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.i ], [ 0, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.preheader.i ]
+land.rhs.i.i.i156:                                ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.preheader.i, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.i
+  %indvars.iv.i3.i = phi i64 [ %indvars.iv.next.i.i159, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.i ], [ 0, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.preheader.i ]
   %m_size.i.i.i.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %56, i64 %indvars.iv.i3.i, i32 1
   %59 = load i32, ptr %m_size.i.i.i.i, align 8
   %cmp6.i.i.i = icmp eq i32 %59, 0
   br i1 %cmp6.i.i.i, label %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorC2EjRK6vectorINS2_4_rowELb1EjE.exit.loopexit.split.loop.exit6.i
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorC2EjRK6vectorINS2_4_rowELb1EjE.exit.loopexit.split.loop.exit6.i: ; preds = %land.rhs.i.i.i158
+_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorC2EjRK6vectorINS2_4_rowELb1EjE.exit.loopexit.split.loop.exit6.i: ; preds = %land.rhs.i.i.i156
   %indvars5.le.i = trunc i64 %indvars.iv.i3.i to i32
   br label %invoke.cont59
 
 invoke.cont59:                                    ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorC2EjRK6vectorINS2_4_rowELb1EjE.exit.loopexit.split.loop.exit6.i, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.preheader.i
-  %retval.sroa.0.1.i453 = phi i32 [ %indvars5.le.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorC2EjRK6vectorINS2_4_rowELb1EjE.exit.loopexit.split.loop.exit6.i ], [ 0, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.preheader.i ]
-  %retval.sroa.0.1.i166 = phi i32 [ %57, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorC2EjRK6vectorINS2_4_rowELb1EjE.exit.loopexit.split.loop.exit6.i ], [ 0, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.preheader.i ]
-  %cmp.i169.not546 = icmp eq i32 %retval.sroa.0.1.i453, %retval.sroa.0.1.i166
-  br i1 %cmp.i169.not546, label %for.end, label %invoke.cont65
+  %retval.sroa.0.1.i449 = phi i32 [ %indvars5.le.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorC2EjRK6vectorINS2_4_rowELb1EjE.exit.loopexit.split.loop.exit6.i ], [ 0, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.preheader.i ]
+  %retval.sroa.0.1.i164 = phi i32 [ %57, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorC2EjRK6vectorINS2_4_rowELb1EjE.exit.loopexit.split.loop.exit6.i ], [ 0, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.preheader.i ]
+  %cmp.i167.not542 = icmp eq i32 %retval.sroa.0.1.i449, %retval.sroa.0.1.i164
+  br i1 %cmp.i167.not542, label %for.end, label %invoke.cont65
 
 invoke.cont65:                                    ; preds = %invoke.cont59, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit
   %60 = phi ptr [ %108, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit ], [ %56, %invoke.cont59 ]
-  %__begin055.sroa.0.0547 = phi i32 [ %__begin055.sroa.0.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit ], [ %retval.sroa.0.1.i453, %invoke.cont59 ]
-  %cmp70 = icmp eq i32 %__begin055.sroa.0.0547, %36
+  %__begin055.sroa.0.0543 = phi i32 [ %__begin055.sroa.0.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit ], [ %retval.sroa.0.1.i449, %invoke.cont59 ]
+  %cmp70 = icmp eq i32 %__begin055.sroa.0.0543, %36
   br i1 %cmp70, label %for.inc, label %if.end72
 
 if.end72:                                         ; preds = %invoke.cont65
-  %idxprom.i.i.i.i172 = zext i32 %__begin055.sroa.0.0547 to i64
-  %arrayidx.i.i.i.i173 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %60, i64 %idxprom.i.i.i.i172
-  %61 = load ptr, ptr %arrayidx.i.i.i.i173, align 8
+  %idxprom.i.i.i.i170 = zext i32 %__begin055.sroa.0.0543 to i64
+  %arrayidx.i.i.i.i171 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %60, i64 %idxprom.i.i.i.i170
+  %61 = load ptr, ptr %arrayidx.i.i.i.i171, align 8
   %cmp.i.i3.i.i.i.i.i = icmp eq ptr %61, null
   br i1 %cmp.i.i3.i.i.i.i.i, label %invoke.cont77, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i
 
@@ -1893,422 +1889,422 @@ land.rhs.i.i.i.i.i:                               ; preds = %_ZNK7simplex13spars
 _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i: ; preds = %land.rhs.i.i.i.i.i
   %indvars5.le.i.i.i = trunc i64 %indvars.iv.i3.i.i.i to i32
   %cmp.i.not25.i = icmp eq i32 %62, %indvars5.le.i.i.i
-  br i1 %cmp.i.not25.i, label %invoke.cont77, label %for.body.i175
+  br i1 %cmp.i.not25.i, label %invoke.cont77, label %for.body.i173
 
-for.body.i175:                                    ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i181
-  %__begin0.sroa.0.026.i = phi i32 [ %__begin0.sroa.0.1.lcssa.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i181 ], [ %indvars5.le.i.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i ]
-  %idxprom.i.i.i176 = zext i32 %__begin0.sroa.0.026.i to i64
-  %arrayidx.i.i.i177 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %61, i64 %idxprom.i.i.i176
-  %m_var.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i177, i64 32
+for.body.i173:                                    ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i179
+  %__begin0.sroa.0.026.i = phi i32 [ %__begin0.sroa.0.1.lcssa.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i179 ], [ %indvars5.le.i.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i ]
+  %idxprom.i.i.i174 = zext i32 %__begin0.sroa.0.026.i to i64
+  %arrayidx.i.i.i175 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %61, i64 %idxprom.i.i.i174
+  %m_var.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i175, i64 32
   %65 = load i32, ptr %m_var.i, align 8
   %66 = zext i32 %65 to i64
-  %cmp.i178 = icmp eq i64 %indvars.iv, %66
-  br i1 %cmp.i178, label %invoke.cont77, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i179
+  %cmp.i176 = icmp eq i64 %indvars.iv, %66
+  br i1 %cmp.i176, label %invoke.cont77, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i177
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i179: ; preds = %for.body.i175
-  %inc.i.i180 = add i32 %__begin0.sroa.0.026.i, 1
-  %cmp.i.i21.i = icmp ult i32 %inc.i.i180, %62
-  br i1 %cmp.i.i21.i, label %land.rhs.i.i.preheader.i183, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i181
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i177: ; preds = %for.body.i173
+  %inc.i.i178 = add i32 %__begin0.sroa.0.026.i, 1
+  %cmp.i.i21.i = icmp ult i32 %inc.i.i178, %62
+  br i1 %cmp.i.i21.i, label %land.rhs.i.i.preheader.i181, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i179
 
-land.rhs.i.i.preheader.i183:                      ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i179
-  %67 = zext i32 %inc.i.i180 to i64
-  br label %land.rhs.i.i.i184
+land.rhs.i.i.preheader.i181:                      ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i177
+  %67 = zext i32 %inc.i.i178 to i64
+  br label %land.rhs.i.i.i182
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i187: ; preds = %land.rhs.i.i.i184
-  %indvars.iv.next.i.i188 = add nuw nsw i64 %indvars.iv.i23.i, 1
-  %exitcond.not.i189 = icmp eq i64 %indvars.iv.next.i.i188, %63
-  br i1 %exitcond.not.i189, label %invoke.cont77, label %land.rhs.i.i.i184, !llvm.loop !9
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i185: ; preds = %land.rhs.i.i.i182
+  %indvars.iv.next.i.i186 = add nuw nsw i64 %indvars.iv.i23.i, 1
+  %exitcond.not.i187 = icmp eq i64 %indvars.iv.next.i.i186, %63
+  br i1 %exitcond.not.i187, label %invoke.cont77, label %land.rhs.i.i.i182, !llvm.loop !9
 
-land.rhs.i.i.i184:                                ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i187, %land.rhs.i.i.preheader.i183
-  %indvars.iv.i23.i = phi i64 [ %indvars.iv.next.i.i188, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i187 ], [ %67, %land.rhs.i.i.preheader.i183 ]
-  %m_var.i.i.i.i185 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %61, i64 %indvars.iv.i23.i, i32 0, i32 1
-  %68 = load i32, ptr %m_var.i.i.i.i185, align 8
-  %cmp.i.i.i.i186 = icmp eq i32 %68, -1
-  br i1 %cmp.i.i.i.i186, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i187, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i
+land.rhs.i.i.i182:                                ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i185, %land.rhs.i.i.preheader.i181
+  %indvars.iv.i23.i = phi i64 [ %indvars.iv.next.i.i186, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i185 ], [ %67, %land.rhs.i.i.preheader.i181 ]
+  %m_var.i.i.i.i183 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %61, i64 %indvars.iv.i23.i, i32 0, i32 1
+  %68 = load i32, ptr %m_var.i.i.i.i183, align 8
+  %cmp.i.i.i.i184 = icmp eq i32 %68, -1
+  br i1 %cmp.i.i.i.i184, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i185, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i: ; preds = %land.rhs.i.i.i184
+_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i: ; preds = %land.rhs.i.i.i182
   %indvars29.le.i = trunc i64 %indvars.iv.i23.i to i32
-  br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i181
+  br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i179
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i181: ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i179
-  %__begin0.sroa.0.1.lcssa.i = phi i32 [ %inc.i.i180, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i179 ], [ %indvars29.le.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i ]
-  %cmp.i.not.i182 = icmp eq i32 %__begin0.sroa.0.1.lcssa.i, %62
-  br i1 %cmp.i.not.i182, label %invoke.cont77, label %for.body.i175
+_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i179: ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i177
+  %__begin0.sroa.0.1.lcssa.i = phi i32 [ %inc.i.i178, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i177 ], [ %indvars29.le.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i ]
+  %cmp.i.not.i180 = icmp eq i32 %__begin0.sroa.0.1.lcssa.i, %62
+  br i1 %cmp.i.not.i180, label %invoke.cont77, label %for.body.i173
 
-invoke.cont77:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i, %for.body.i175, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i181, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i187, %if.end72, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i
-  %retval.0.i = phi ptr [ %m_num.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i ], [ %m_num.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i ], [ %m_num.i.i, %if.end72 ], [ %m_num.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i187 ], [ %m_num.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i181 ], [ %arrayidx.i.i.i177, %for.body.i175 ], [ %m_num.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i ]
-  %m_kind.i.i.i.i190 = getelementptr inbounds i8, ptr %retval.0.i, i64 4
-  %bf.load.i.i.i.i191 = load i8, ptr %m_kind.i.i.i.i190, align 4
-  %bf.clear.i.i.i.i192 = and i8 %bf.load.i.i.i.i191, 1
-  %cmp.i.i.i.i193 = icmp eq i8 %bf.clear.i.i.i.i192, 0
-  br i1 %cmp.i.i.i.i193, label %if.then.i.i.i207, label %if.else.i.i.i194
+invoke.cont77:                                    ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i, %for.body.i173, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i179, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i185, %if.end72, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i
+  %retval.0.i = phi ptr [ %m_num.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i ], [ %m_num.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i ], [ %m_num.i.i, %if.end72 ], [ %m_num.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i185 ], [ %m_num.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i179 ], [ %arrayidx.i.i.i175, %for.body.i173 ], [ %m_num.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i ]
+  %m_kind.i.i.i.i188 = getelementptr inbounds i8, ptr %retval.0.i, i64 4
+  %bf.load.i.i.i.i189 = load i8, ptr %m_kind.i.i.i.i188, align 4
+  %bf.clear.i.i.i.i190 = and i8 %bf.load.i.i.i.i189, 1
+  %cmp.i.i.i.i191 = icmp eq i8 %bf.clear.i.i.i.i190, 0
+  br i1 %cmp.i.i.i.i191, label %if.then.i.i.i205, label %if.else.i.i.i192
 
-if.then.i.i.i207:                                 ; preds = %invoke.cont77
+if.then.i.i.i205:                                 ; preds = %invoke.cont77
   %69 = load i32, ptr %retval.0.i, align 8
   store i32 %69, ptr %m_num.i, align 8
-  %bf.load.i.i.i209 = load i8, ptr %m_kind.i.i.i, align 4
-  %bf.clear.i.i.i210 = and i8 %bf.load.i.i.i209, -2
-  store i8 %bf.clear.i.i.i210, ptr %m_kind.i.i.i, align 4
-  br label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i195
+  %bf.load.i.i.i207 = load i8, ptr %m_kind.i.i.i, align 4
+  %bf.clear.i.i.i208 = and i8 %bf.load.i.i.i207, -2
+  store i8 %bf.clear.i.i.i208, ptr %m_kind.i.i.i, align 4
+  br label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i193
 
-if.else.i.i.i194:                                 ; preds = %invoke.cont77
+if.else.i.i.i192:                                 ; preds = %invoke.cont77
   invoke void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i)
-          to label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i195 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i193 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i195:  ; preds = %if.else.i.i.i194, %if.then.i.i.i207
-  %m_den3.i197 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  %m_kind.i.i.i3.i198 = getelementptr inbounds i8, ptr %retval.0.i, i64 20
-  %bf.load.i.i.i4.i199 = load i8, ptr %m_kind.i.i.i3.i198, align 4
-  %bf.clear.i.i.i5.i200 = and i8 %bf.load.i.i.i4.i199, 1
-  %cmp.i.i.i6.i201 = icmp eq i8 %bf.clear.i.i.i5.i200, 0
-  br i1 %cmp.i.i.i6.i201, label %if.then.i.i8.i203, label %if.else.i.i7.i202
+_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i193:  ; preds = %if.else.i.i.i192, %if.then.i.i.i205
+  %m_den3.i195 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %m_kind.i.i.i3.i196 = getelementptr inbounds i8, ptr %retval.0.i, i64 20
+  %bf.load.i.i.i4.i197 = load i8, ptr %m_kind.i.i.i3.i196, align 4
+  %bf.clear.i.i.i5.i198 = and i8 %bf.load.i.i.i4.i197, 1
+  %cmp.i.i.i6.i199 = icmp eq i8 %bf.clear.i.i.i5.i198, 0
+  br i1 %cmp.i.i.i6.i199, label %if.then.i.i8.i201, label %if.else.i.i7.i200
 
-if.then.i.i8.i203:                                ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i195
-  %70 = load i32, ptr %m_den3.i197, align 8
+if.then.i.i8.i201:                                ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i193
+  %70 = load i32, ptr %m_den3.i195, align 8
   store i32 %70, ptr %m_den.i.i, align 8
-  %bf.load.i.i10.i205 = load i8, ptr %m_kind.i1.i.i, align 4
-  %bf.clear.i.i11.i206 = and i8 %bf.load.i.i10.i205, -2
-  store i8 %bf.clear.i.i11.i206, ptr %m_kind.i1.i.i, align 4
+  %bf.load.i.i10.i203 = load i8, ptr %m_kind.i1.i.i, align 4
+  %bf.clear.i.i11.i204 = and i8 %bf.load.i.i10.i203, -2
+  store i8 %bf.clear.i.i11.i204, ptr %m_kind.i1.i.i, align 4
   br label %invoke.cont79
 
-if.else.i.i7.i202:                                ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i195
-  invoke void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_den3.i197)
+if.else.i.i7.i200:                                ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i193
+  invoke void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_den3.i195)
           to label %invoke.cont79 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit
 
-invoke.cont79:                                    ; preds = %if.then.i.i8.i203, %if.else.i.i7.i202
-  invoke void @_ZN7simplex13sparse_matrixINS_7mpq_extEE3mulENS2_3rowERK3mpq(ptr noundef nonnull align 8 dereferenceable(96) %M, i32 %__begin055.sroa.0.0547, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i92)
+invoke.cont79:                                    ; preds = %if.then.i.i8.i201, %if.else.i.i7.i200
+  invoke void @_ZN7simplex13sparse_matrixINS_7mpq_extEE3mulENS2_3rowERK3mpq(ptr noundef nonnull align 8 dereferenceable(96) %M, i32 %__begin055.sroa.0.0543, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i90)
           to label %invoke.cont87 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont87:                                    ; preds = %invoke.cont79
   %71 = load i32, ptr %m_num.i, align 8
-  %cmp.i.i.i216 = icmp eq i32 %71, 0
-  br i1 %cmp.i.i.i216, label %if.end97, label %if.then89
+  %cmp.i.i.i214 = icmp eq i32 %71, 0
+  br i1 %cmp.i.i.i214, label %if.end97, label %if.then89
 
 if.then89:                                        ; preds = %invoke.cont87
-  invoke void @_ZN7simplex13sparse_matrixINS_7mpq_extEE3addENS2_3rowERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(96) %M, i32 %__begin055.sroa.0.0547, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i, i32 %36)
+  invoke void @_ZN7simplex13sparse_matrixINS_7mpq_extEE3addENS2_3rowERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(96) %M, i32 %__begin055.sroa.0.0543, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i, i32 %36)
           to label %if.end97 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end97:                                         ; preds = %if.then89, %invoke.cont87
-  %bf.load.i.i.i.i.i = load i8, ptr %m_kind.i.i.i103, align 4
+  %bf.load.i.i.i.i.i = load i8, ptr %m_kind.i.i.i101, align 4
   %bf.clear.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i, 1
-  %cmp.i.i.i.i.i219 = icmp eq i8 %bf.clear.i.i.i.i.i, 0
-  %72 = load i32, ptr %m_num.i102, align 8
-  %cmp.i.i.i.i220 = icmp eq i32 %72, 1
-  %73 = select i1 %cmp.i.i.i.i.i219, i1 %cmp.i.i.i.i220, i1 false
+  %cmp.i.i.i.i.i217 = icmp eq i8 %bf.clear.i.i.i.i.i, 0
+  %72 = load i32, ptr %m_num.i100, align 8
+  %cmp.i.i.i.i218 = icmp eq i32 %72, 1
+  %73 = select i1 %cmp.i.i.i.i.i217, i1 %cmp.i.i.i.i218, i1 false
   br i1 %73, label %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit.i, label %if.else.i
 
 _ZN11mpq_managerILb0EE6is_oneERK3mpq.exit.i:      ; preds = %if.end97
-  %bf.load.i.i.i3.i.i = load i8, ptr %m_kind.i1.i.i108, align 4
+  %bf.load.i.i.i3.i.i = load i8, ptr %m_kind.i1.i.i106, align 4
   %bf.clear.i.i.i4.i.i = and i8 %bf.load.i.i.i3.i.i, 1
   %cmp.i.i.i5.i.i = icmp eq i8 %bf.clear.i.i.i4.i.i, 0
-  %74 = load i32, ptr %m_den.i.i107, align 8
+  %74 = load i32, ptr %m_den.i.i105, align 8
   %cmp.i.i6.i.i = icmp eq i32 %74, 1
   %75 = select i1 %cmp.i.i.i5.i.i, i1 %cmp.i.i6.i.i, i1 false
   br i1 %75, label %for.inc, label %if.else6.i
 
 if.else.i:                                        ; preds = %if.end97
   %cmp.i.i.i7.i = icmp eq i32 %72, -1
-  %76 = select i1 %cmp.i.i.i.i.i219, i1 %cmp.i.i.i7.i, i1 false
+  %76 = select i1 %cmp.i.i.i.i.i217, i1 %cmp.i.i.i7.i, i1 false
   br i1 %76, label %_ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit.i, label %if.else6.i
 
 _ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit.i: ; preds = %if.else.i
-  %bf.load.i.i.i3.i11.i = load i8, ptr %m_kind.i1.i.i108, align 4
+  %bf.load.i.i.i3.i11.i = load i8, ptr %m_kind.i1.i.i106, align 4
   %bf.clear.i.i.i4.i12.i = and i8 %bf.load.i.i.i3.i11.i, 1
   %cmp.i.i.i5.i13.i = icmp eq i8 %bf.clear.i.i.i4.i12.i, 0
-  %77 = load i32, ptr %m_den.i.i107, align 8
+  %77 = load i32, ptr %m_den.i.i105, align 8
   %cmp.i.i6.i14.i = icmp eq i32 %77, 1
   %78 = select i1 %cmp.i.i.i5.i13.i, i1 %cmp.i.i6.i14.i, i1 false
   br i1 %78, label %if.then4.i, label %if.else6.i
 
 if.then4.i:                                       ; preds = %_ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit.i
   %79 = load ptr, ptr %m_rows.i, align 8
-  %arrayidx.i.i.i.i247 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %79, i64 %idxprom.i.i.i.i172
-  %80 = load ptr, ptr %arrayidx.i.i.i.i247, align 8
-  %cmp.i.i3.i.i.i.i.i248 = icmp eq ptr %80, null
-  br i1 %cmp.i.i3.i.i.i.i.i248, label %for.inc.thread, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i249
+  %arrayidx.i.i.i.i245 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %79, i64 %idxprom.i.i.i.i170
+  %80 = load ptr, ptr %arrayidx.i.i.i.i245, align 8
+  %cmp.i.i3.i.i.i.i.i246 = icmp eq ptr %80, null
+  br i1 %cmp.i.i3.i.i.i.i.i246, label %for.inc.thread, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i247
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i249: ; preds = %if.then4.i
-  %arrayidx.i.i.i.i.i.i.i250 = getelementptr inbounds i8, ptr %80, i64 -4
-  %81 = load i32, ptr %arrayidx.i.i.i.i.i.i.i250, align 4
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i247: ; preds = %if.then4.i
+  %arrayidx.i.i.i.i.i.i.i248 = getelementptr inbounds i8, ptr %80, i64 -4
+  %81 = load i32, ptr %arrayidx.i.i.i.i.i.i.i248, align 4
   %82 = zext i32 %81 to i64
-  %cmp.i.i1.not.i.i.i251 = icmp eq i32 %81, 0
-  br i1 %cmp.i.i1.not.i.i.i251, label %for.inc, label %land.rhs.i.i.i.i.i252
+  %cmp.i.i1.not.i.i.i249 = icmp eq i32 %81, 0
+  br i1 %cmp.i.i1.not.i.i.i249, label %for.inc, label %land.rhs.i.i.i.i.i250
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i265: ; preds = %land.rhs.i.i.i.i.i252
-  %indvars.iv.next.i.i.i.i266 = add nuw nsw i64 %indvars.iv.i3.i.i.i253, 1
-  %exitcond.not.i.i.i267 = icmp eq i64 %indvars.iv.next.i.i.i.i266, %82
-  br i1 %exitcond.not.i.i.i267, label %for.inc, label %land.rhs.i.i.i.i.i252, !llvm.loop !9
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i263: ; preds = %land.rhs.i.i.i.i.i250
+  %indvars.iv.next.i.i.i.i264 = add nuw nsw i64 %indvars.iv.i3.i.i.i251, 1
+  %exitcond.not.i.i.i265 = icmp eq i64 %indvars.iv.next.i.i.i.i264, %82
+  br i1 %exitcond.not.i.i.i265, label %for.inc, label %land.rhs.i.i.i.i.i250, !llvm.loop !9
 
-land.rhs.i.i.i.i.i252:                            ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i249, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i265
-  %indvars.iv.i3.i.i.i253 = phi i64 [ %indvars.iv.next.i.i.i.i266, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i265 ], [ 0, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i249 ]
-  %m_var.i.i.i.i.i.i254 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %80, i64 %indvars.iv.i3.i.i.i253, i32 0, i32 1
-  %83 = load i32, ptr %m_var.i.i.i.i.i.i254, align 8
-  %cmp.i.i.i.i.i.i255 = icmp eq i32 %83, -1
-  br i1 %cmp.i.i.i.i.i.i255, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i265, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i.i
+land.rhs.i.i.i.i.i250:                            ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i247, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i263
+  %indvars.iv.i3.i.i.i251 = phi i64 [ %indvars.iv.next.i.i.i.i264, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i263 ], [ 0, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i247 ]
+  %m_var.i.i.i.i.i.i252 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %80, i64 %indvars.iv.i3.i.i.i251, i32 0, i32 1
+  %83 = load i32, ptr %m_var.i.i.i.i.i.i252, align 8
+  %cmp.i.i.i.i.i.i253 = icmp eq i32 %83, -1
+  br i1 %cmp.i.i.i.i.i.i253, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i263, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i.i
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i.i: ; preds = %land.rhs.i.i.i.i.i252
-  %indvars5.le.i.i.i256 = trunc i64 %indvars.iv.i3.i.i.i253 to i32
-  %cmp.i.not24.i.i = icmp eq i32 %81, %indvars5.le.i.i.i256
+_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i.i: ; preds = %land.rhs.i.i.i.i.i250
+  %indvars5.le.i.i.i254 = trunc i64 %indvars.iv.i3.i.i.i251 to i32
+  %cmp.i.not24.i.i = icmp eq i32 %81, %indvars5.le.i.i.i254
   br i1 %cmp.i.not24.i.i, label %for.inc, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i
   %84 = phi ptr [ %86, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i ], [ %80, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i.i ]
-  %it.sroa.0.025.i.i = phi i32 [ %it.sroa.0.2.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i ], [ %indvars5.le.i.i.i256, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i.i ]
+  %it.sroa.0.025.i.i = phi i32 [ %it.sroa.0.2.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i ], [ %indvars5.le.i.i.i254, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i.i ]
   %85 = load ptr, ptr %M, align 8
   %idxprom.i.i.i.i.i = zext i32 %it.sroa.0.025.i.i to i64
-  %arrayidx.i.i.i.i.i257 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %84, i64 %idxprom.i.i.i.i.i
-  invoke void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %85, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i.i.i.i257)
-          to label %.noexc269 unwind label %lpad24.loopexit.split-lp.loopexit
+  %arrayidx.i.i.i.i.i255 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %84, i64 %idxprom.i.i.i.i.i
+  invoke void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %85, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i.i.i.i255)
+          to label %.noexc267 unwind label %lpad24.loopexit.split-lp.loopexit
 
-.noexc269:                                        ; preds = %for.body.i.i
-  %inc.i.i.i258 = add i32 %it.sroa.0.025.i.i, 1
-  %86 = load ptr, ptr %arrayidx.i.i.i.i247, align 8
-  %cmp.i.i3.i.i.i.i259 = icmp eq ptr %86, null
-  br i1 %cmp.i.i3.i.i.i.i259, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i.i
+.noexc267:                                        ; preds = %for.body.i.i
+  %inc.i.i.i256 = add i32 %it.sroa.0.025.i.i, 1
+  %86 = load ptr, ptr %arrayidx.i.i.i.i245, align 8
+  %cmp.i.i3.i.i.i.i257 = icmp eq ptr %86, null
+  br i1 %cmp.i.i3.i.i.i.i257, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i.i
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i.i: ; preds = %.noexc269
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i.i: ; preds = %.noexc267
   %arrayidx.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %86, i64 -4
   %87 = load i32, ptr %arrayidx.i.i.i.i8.i.i, align 4
   %88 = zext i32 %87 to i64
-  %cmp.i.i20.i.i = icmp ult i32 %inc.i.i.i258, %87
+  %cmp.i.i20.i.i = icmp ult i32 %inc.i.i.i256, %87
   br i1 %cmp.i.i20.i.i, label %land.rhs.i.i.preheader.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i
 
 land.rhs.i.i.preheader.i.i:                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i.i
-  %89 = zext i32 %inc.i.i.i258 to i64
-  br label %land.rhs.i.i.i.i260
+  %89 = zext i32 %inc.i.i.i256 to i64
+  br label %land.rhs.i.i.i.i258
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i262: ; preds = %land.rhs.i.i.i.i260
-  %indvars.iv.next.i.i.i263 = add nuw nsw i64 %indvars.iv.i22.i.i, 1
-  %exitcond.not.i.i264 = icmp eq i64 %indvars.iv.next.i.i.i263, %88
-  br i1 %exitcond.not.i.i264, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i, label %land.rhs.i.i.i.i260, !llvm.loop !9
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i260: ; preds = %land.rhs.i.i.i.i258
+  %indvars.iv.next.i.i.i261 = add nuw nsw i64 %indvars.iv.i22.i.i, 1
+  %exitcond.not.i.i262 = icmp eq i64 %indvars.iv.next.i.i.i261, %88
+  br i1 %exitcond.not.i.i262, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i, label %land.rhs.i.i.i.i258, !llvm.loop !9
 
-land.rhs.i.i.i.i260:                              ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i262, %land.rhs.i.i.preheader.i.i
-  %indvars.iv.i22.i.i = phi i64 [ %indvars.iv.next.i.i.i263, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i262 ], [ %89, %land.rhs.i.i.preheader.i.i ]
-  %m_var.i.i.i.i.i261 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %86, i64 %indvars.iv.i22.i.i, i32 0, i32 1
-  %90 = load i32, ptr %m_var.i.i.i.i.i261, align 8
+land.rhs.i.i.i.i258:                              ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i260, %land.rhs.i.i.preheader.i.i
+  %indvars.iv.i22.i.i = phi i64 [ %indvars.iv.next.i.i.i261, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i260 ], [ %89, %land.rhs.i.i.preheader.i.i ]
+  %m_var.i.i.i.i.i259 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %86, i64 %indvars.iv.i22.i.i, i32 0, i32 1
+  %90 = load i32, ptr %m_var.i.i.i.i.i259, align 8
   %cmp.i.i.i.i15.i = icmp eq i32 %90, -1
-  br i1 %cmp.i.i.i.i15.i, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i262, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i.i
+  br i1 %cmp.i.i.i.i15.i, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i260, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i.i
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i.i: ; preds = %land.rhs.i.i.i.i260
+_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i.i: ; preds = %land.rhs.i.i.i.i258
   %indvars27.le.i.i = trunc i64 %indvars.iv.i22.i.i to i32
   br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i262, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i.i, %.noexc269
-  %it.sroa.0.2.i.i = phi i32 [ %inc.i.i.i258, %.noexc269 ], [ %inc.i.i.i258, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i.i ], [ %indvars27.le.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i.i ], [ %87, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i262 ]
+_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i260, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i.i, %.noexc267
+  %it.sroa.0.2.i.i = phi i32 [ %inc.i.i.i256, %.noexc267 ], [ %inc.i.i.i256, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i.i ], [ %indvars27.le.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit33.i.i ], [ %87, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i260 ]
   %cmp.i.not.i.i = icmp eq i32 %it.sroa.0.2.i.i, %81
   br i1 %cmp.i.not.i.i, label %for.inc, label %for.body.i.i, !llvm.loop !23
 
 if.else6.i:                                       ; preds = %_ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit.i, %if.else.i, %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit.i
   %91 = load ptr, ptr %m_rows.i, align 8
-  %arrayidx.i.i.i223 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %91, i64 %idxprom.i.i.i.i172
-  %92 = load ptr, ptr %arrayidx.i.i.i223, align 8
+  %arrayidx.i.i.i221 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %91, i64 %idxprom.i.i.i.i170
+  %92 = load ptr, ptr %arrayidx.i.i.i221, align 8
   %cmp.i.i3.i.i.i16.i = icmp eq ptr %92, null
-  br i1 %cmp.i.i3.i.i.i16.i, label %for.inc.thread, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i224
+  br i1 %cmp.i.i3.i.i.i16.i, label %for.inc.thread, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i222
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i224: ; preds = %if.else6.i
-  %arrayidx.i.i.i.i.i.i225 = getelementptr inbounds i8, ptr %92, i64 -4
-  %93 = load i32, ptr %arrayidx.i.i.i.i.i.i225, align 4
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i222: ; preds = %if.else6.i
+  %arrayidx.i.i.i.i.i.i223 = getelementptr inbounds i8, ptr %92, i64 -4
+  %93 = load i32, ptr %arrayidx.i.i.i.i.i.i223, align 4
   %94 = zext i32 %93 to i64
-  %cmp.i.i1.not.i.i226 = icmp eq i32 %93, 0
-  br i1 %cmp.i.i1.not.i.i226, label %for.inc, label %land.rhs.i.i.i17.i
+  %cmp.i.i1.not.i.i224 = icmp eq i32 %93, 0
+  br i1 %cmp.i.i1.not.i.i224, label %for.inc, label %land.rhs.i.i.i17.i
 
 _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i20.i: ; preds = %land.rhs.i.i.i17.i
-  %indvars.iv.next.i.i21.i = add nuw nsw i64 %indvars.iv.i3.i.i227, 1
+  %indvars.iv.next.i.i21.i = add nuw nsw i64 %indvars.iv.i3.i.i225, 1
   %exitcond.not.i22.i = icmp eq i64 %indvars.iv.next.i.i21.i, %94
   br i1 %exitcond.not.i22.i, label %for.inc, label %land.rhs.i.i.i17.i, !llvm.loop !9
 
-land.rhs.i.i.i17.i:                               ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i224, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i20.i
-  %indvars.iv.i3.i.i227 = phi i64 [ %indvars.iv.next.i.i21.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i20.i ], [ 0, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i224 ]
-  %m_var.i.i.i.i18.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %92, i64 %indvars.iv.i3.i.i227, i32 0, i32 1
+land.rhs.i.i.i17.i:                               ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i222, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i20.i
+  %indvars.iv.i3.i.i225 = phi i64 [ %indvars.iv.next.i.i21.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i20.i ], [ 0, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i222 ]
+  %m_var.i.i.i.i18.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %92, i64 %indvars.iv.i3.i.i225, i32 0, i32 1
   %95 = load i32, ptr %m_var.i.i.i.i18.i, align 8
   %cmp.i.i.i.i19.i = icmp eq i32 %95, -1
-  br i1 %cmp.i.i.i.i19.i, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i20.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i230
+  br i1 %cmp.i.i.i.i19.i, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i20.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i228
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i230: ; preds = %land.rhs.i.i.i17.i
-  %indvars5.le.i.i229 = trunc i64 %indvars.iv.i3.i.i227 to i32
-  %cmp.i.not64.i = icmp eq i32 %93, %indvars5.le.i.i229
-  br i1 %cmp.i.not64.i, label %for.inc, label %for.body.i232
+_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i228: ; preds = %land.rhs.i.i.i17.i
+  %indvars5.le.i.i227 = trunc i64 %indvars.iv.i3.i.i225 to i32
+  %cmp.i.not64.i = icmp eq i32 %93, %indvars5.le.i.i227
+  br i1 %cmp.i.not64.i, label %for.inc, label %for.body.i230
 
-for.body.i232:                                    ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i230, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i236
-  %96 = phi ptr [ %98, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i236 ], [ %92, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i230 ]
-  %it.sroa.0.065.i = phi i32 [ %it.sroa.0.2.i237, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i236 ], [ %indvars5.le.i.i229, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i230 ]
+for.body.i230:                                    ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i228, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i234
+  %96 = phi ptr [ %98, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i234 ], [ %92, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i228 ]
+  %it.sroa.0.065.i = phi i32 [ %it.sroa.0.2.i235, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i234 ], [ %indvars5.le.i.i227, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i228 ]
   %97 = load ptr, ptr %M, align 8
   %idxprom.i.i.i30.i = zext i32 %it.sroa.0.065.i to i64
   %arrayidx.i.i.i31.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %96, i64 %idxprom.i.i.i30.i
-  invoke void @_ZN11mpq_managerILb0EE3divERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %97, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i31.i, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i102, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i31.i)
-          to label %.noexc270 unwind label %lpad24.loopexit
+  invoke void @_ZN11mpq_managerILb0EE3divERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %97, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i31.i, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i100, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i31.i)
+          to label %.noexc268 unwind label %lpad24.loopexit
 
-.noexc270:                                        ; preds = %for.body.i232
-  %inc.i.i233 = add i32 %it.sroa.0.065.i, 1
-  %98 = load ptr, ptr %arrayidx.i.i.i223, align 8
-  %cmp.i.i3.i.i.i234 = icmp eq ptr %98, null
-  br i1 %cmp.i.i3.i.i.i234, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i236, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i235
+.noexc268:                                        ; preds = %for.body.i230
+  %inc.i.i231 = add i32 %it.sroa.0.065.i, 1
+  %98 = load ptr, ptr %arrayidx.i.i.i221, align 8
+  %cmp.i.i3.i.i.i232 = icmp eq ptr %98, null
+  br i1 %cmp.i.i3.i.i.i232, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i234, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i233
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i235: ; preds = %.noexc270
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i233: ; preds = %.noexc268
   %arrayidx.i.i.i.i36.i = getelementptr inbounds i8, ptr %98, i64 -4
   %99 = load i32, ptr %arrayidx.i.i.i.i36.i, align 4
   %100 = zext i32 %99 to i64
-  %cmp.i.i60.i = icmp ult i32 %inc.i.i233, %99
-  br i1 %cmp.i.i60.i, label %land.rhs.i.i.preheader.i239, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i236
+  %cmp.i.i60.i = icmp ult i32 %inc.i.i231, %99
+  br i1 %cmp.i.i60.i, label %land.rhs.i.i.preheader.i237, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i234
 
-land.rhs.i.i.preheader.i239:                      ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i235
-  %101 = zext i32 %inc.i.i233 to i64
-  br label %land.rhs.i.i.i240
+land.rhs.i.i.preheader.i237:                      ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i233
+  %101 = zext i32 %inc.i.i231 to i64
+  br label %land.rhs.i.i.i238
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i242: ; preds = %land.rhs.i.i.i240
-  %indvars.iv.next.i.i243 = add nuw nsw i64 %indvars.iv.i62.i, 1
-  %exitcond.not.i244 = icmp eq i64 %indvars.iv.next.i.i243, %100
-  br i1 %exitcond.not.i244, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i236, label %land.rhs.i.i.i240, !llvm.loop !9
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i240: ; preds = %land.rhs.i.i.i238
+  %indvars.iv.next.i.i241 = add nuw nsw i64 %indvars.iv.i62.i, 1
+  %exitcond.not.i242 = icmp eq i64 %indvars.iv.next.i.i241, %100
+  br i1 %exitcond.not.i242, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i234, label %land.rhs.i.i.i238, !llvm.loop !9
 
-land.rhs.i.i.i240:                                ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i242, %land.rhs.i.i.preheader.i239
-  %indvars.iv.i62.i = phi i64 [ %indvars.iv.next.i.i243, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i242 ], [ %101, %land.rhs.i.i.preheader.i239 ]
-  %m_var.i.i.i.i241 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %98, i64 %indvars.iv.i62.i, i32 0, i32 1
-  %102 = load i32, ptr %m_var.i.i.i.i241, align 8
+land.rhs.i.i.i238:                                ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i240, %land.rhs.i.i.preheader.i237
+  %indvars.iv.i62.i = phi i64 [ %indvars.iv.next.i.i241, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i240 ], [ %101, %land.rhs.i.i.preheader.i237 ]
+  %m_var.i.i.i.i239 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %98, i64 %indvars.iv.i62.i, i32 0, i32 1
+  %102 = load i32, ptr %m_var.i.i.i.i239, align 8
   %cmp.i.i.i37.i = icmp eq i32 %102, -1
-  br i1 %cmp.i.i.i37.i, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i242, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit81.i
+  br i1 %cmp.i.i.i37.i, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i240, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit81.i
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit81.i: ; preds = %land.rhs.i.i.i240
+_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit81.i: ; preds = %land.rhs.i.i.i238
   %indvars71.le.i = trunc i64 %indvars.iv.i62.i to i32
-  br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i236
+  br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i234
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i236: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i242, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit81.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i235, %.noexc270
-  %it.sroa.0.2.i237 = phi i32 [ %inc.i.i233, %.noexc270 ], [ %inc.i.i233, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i235 ], [ %indvars71.le.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit81.i ], [ %99, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i242 ]
-  %cmp.i.not.i238 = icmp eq i32 %it.sroa.0.2.i237, %93
-  br i1 %cmp.i.not.i238, label %for.inc, label %for.body.i232, !llvm.loop !24
+_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i234: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i240, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit81.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i233, %.noexc268
+  %it.sroa.0.2.i235 = phi i32 [ %inc.i.i231, %.noexc268 ], [ %inc.i.i231, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i233 ], [ %indvars71.le.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit81.i ], [ %99, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i240 ]
+  %cmp.i.not.i236 = icmp eq i32 %it.sroa.0.2.i235, %93
+  br i1 %cmp.i.not.i236, label %for.inc, label %for.body.i230, !llvm.loop !24
 
 for.inc.thread:                                   ; preds = %if.else6.i, %if.then4.i
   %.ph = phi ptr [ %79, %if.then4.i ], [ %91, %if.else6.i ]
-  %inc.i612 = add i32 %__begin055.sroa.0.0547, 1
+  %inc.i608 = add i32 %__begin055.sroa.0.0543, 1
   br label %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.preheader.i
 
-for.inc:                                          ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i265, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i20.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i236, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i230, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i249, %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit.i, %invoke.cont65, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i224
-  %.pr466 = load ptr, ptr %m_rows.i, align 8
-  %inc.i = add i32 %__begin055.sroa.0.0547, 1
-  %cmp.i4.i.i = icmp eq ptr %.pr466, null
+for.inc:                                          ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i263, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i20.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i234, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i228, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i247, %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit.i, %invoke.cont65, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i222
+  %.pr462 = load ptr, ptr %m_rows.i, align 8
+  %inc.i = add i32 %__begin055.sroa.0.0543, 1
+  %cmp.i4.i.i = icmp eq ptr %.pr462, null
   br i1 %cmp.i4.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit, label %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.preheader.i
 
 _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.preheader.i: ; preds = %for.inc.thread, %for.inc
-  %inc.i614 = phi i32 [ %inc.i612, %for.inc.thread ], [ %inc.i, %for.inc ]
-  %103 = phi ptr [ %.ph, %for.inc.thread ], [ %.pr466, %for.inc ]
-  %arrayidx.i.i.i272 = getelementptr inbounds i8, ptr %103, i64 -4
-  %104 = load i32, ptr %arrayidx.i.i.i272, align 4
+  %inc.i610 = phi i32 [ %inc.i608, %for.inc.thread ], [ %inc.i, %for.inc ]
+  %103 = phi ptr [ %.ph, %for.inc.thread ], [ %.pr462, %for.inc ]
+  %arrayidx.i.i.i270 = getelementptr inbounds i8, ptr %103, i64 -4
+  %104 = load i32, ptr %arrayidx.i.i.i270, align 4
   %105 = zext i32 %104 to i64
-  %cmp.i.i273541 = icmp ult i32 %inc.i614, %104
-  br i1 %cmp.i.i273541, label %land.rhs.i.i.preheader, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit
+  %cmp.i.i271537 = icmp ult i32 %inc.i610, %104
+  br i1 %cmp.i.i271537, label %land.rhs.i.i.preheader, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit
 
 land.rhs.i.i.preheader:                           ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.preheader.i
-  %106 = zext i32 %inc.i614 to i64
+  %106 = zext i32 %inc.i610 to i64
   br label %land.rhs.i.i
 
 _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i: ; preds = %land.rhs.i.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i543, 1
-  %exitcond593.not = icmp eq i64 %indvars.iv.next.i, %105
-  br i1 %exitcond593.not, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit, label %land.rhs.i.i, !llvm.loop !7
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i539, 1
+  %exitcond589.not = icmp eq i64 %indvars.iv.next.i, %105
+  br i1 %exitcond589.not, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit, label %land.rhs.i.i, !llvm.loop !7
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i
-  %indvars.iv.i543 = phi i64 [ %indvars.iv.next.i, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i ], [ %106, %land.rhs.i.i.preheader ]
-  %m_size.i.i.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %103, i64 %indvars.iv.i543, i32 1
+  %indvars.iv.i539 = phi i64 [ %indvars.iv.next.i, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i ], [ %106, %land.rhs.i.i.preheader ]
+  %m_size.i.i.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %103, i64 %indvars.iv.i539, i32 1
   %107 = load i32, ptr %m_size.i.i.i, align 8
   %cmp6.i.i = icmp eq i32 %107, 0
-  br i1 %cmp6.i.i, label %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit.loopexit.split.loop.exit656
+  br i1 %cmp6.i.i, label %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit.loopexit.split.loop.exit652
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit.loopexit.split.loop.exit656: ; preds = %land.rhs.i.i
-  %indvars592.le = trunc i64 %indvars.iv.i543 to i32
+_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit.loopexit.split.loop.exit652: ; preds = %land.rhs.i.i
+  %indvars588.le = trunc i64 %indvars.iv.i539 to i32
   br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit: ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit.loopexit.split.loop.exit656, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.preheader.i, %for.inc
-  %108 = phi ptr [ null, %for.inc ], [ %103, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.preheader.i ], [ %103, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit.loopexit.split.loop.exit656 ], [ %103, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i ]
-  %__begin055.sroa.0.2 = phi i32 [ %inc.i, %for.inc ], [ %inc.i614, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.preheader.i ], [ %indvars592.le, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit.loopexit.split.loop.exit656 ], [ %104, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i ]
-  %cmp.i169.not = icmp eq i32 %__begin055.sroa.0.2, %retval.sroa.0.1.i166
-  br i1 %cmp.i169.not, label %for.end, label %invoke.cont65
+_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit: ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit.loopexit.split.loop.exit652, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.preheader.i, %for.inc
+  %108 = phi ptr [ null, %for.inc ], [ %103, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.preheader.i ], [ %103, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit.loopexit.split.loop.exit652 ], [ %103, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i ]
+  %__begin055.sroa.0.2 = phi i32 [ %inc.i, %for.inc ], [ %inc.i610, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.preheader.i ], [ %indvars588.le, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit.loopexit.split.loop.exit652 ], [ %104, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i ]
+  %cmp.i167.not = icmp eq i32 %__begin055.sroa.0.2, %retval.sroa.0.1.i164
+  br i1 %cmp.i167.not, label %for.end, label %invoke.cont65
 
 for.end:                                          ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.i.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE16all_row_iteratorppEv.exit, %invoke.cont52, %invoke.cont59
   %109 = load ptr, ptr %c, align 8
-  %arrayidx.i276 = getelementptr inbounds i32, ptr %109, i64 %idxprom.i2.i.i
+  %arrayidx.i274 = getelementptr inbounds i32, ptr %109, i64 %idxprom.i2.i.i
   %110 = trunc i64 %indvars.iv to i32
   %111 = add i32 %110, 1
-  store i32 %111, ptr %arrayidx.i276, align 4
+  store i32 %111, ptr %arrayidx.i274, align 4
   %add109 = add i32 %36, 1
   %112 = load ptr, ptr %d, align 8
-  %arrayidx.i278 = getelementptr inbounds i32, ptr %112, i64 %indvars.iv
-  store i32 %add109, ptr %arrayidx.i278, align 4
-  %bf.load.i.i.i.i282 = load i8, ptr %m_kind.i.i.i93, align 4
-  %bf.clear.i.i.i.i283 = and i8 %bf.load.i.i.i.i282, 1
-  %cmp.i.i.i.i284 = icmp eq i8 %bf.clear.i.i.i.i283, 0
-  br i1 %cmp.i.i.i.i284, label %if.then.i.i.i298, label %if.else.i.i.i285
+  %arrayidx.i276 = getelementptr inbounds i32, ptr %112, i64 %indvars.iv
+  store i32 %add109, ptr %arrayidx.i276, align 4
+  %bf.load.i.i.i.i280 = load i8, ptr %m_kind.i.i.i91, align 4
+  %bf.clear.i.i.i.i281 = and i8 %bf.load.i.i.i.i280, 1
+  %cmp.i.i.i.i282 = icmp eq i8 %bf.clear.i.i.i.i281, 0
+  br i1 %cmp.i.i.i.i282, label %if.then.i.i.i296, label %if.else.i.i.i283
 
-if.then.i.i.i298:                                 ; preds = %for.end
-  %113 = load i32, ptr %m_num.i92, align 8
-  store i32 %113, ptr %m_num.i102, align 8
-  %bf.load.i.i.i300 = load i8, ptr %m_kind.i.i.i103, align 4
-  %bf.clear.i.i.i301 = and i8 %bf.load.i.i.i300, -2
-  store i8 %bf.clear.i.i.i301, ptr %m_kind.i.i.i103, align 4
-  br label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i286
+if.then.i.i.i296:                                 ; preds = %for.end
+  %113 = load i32, ptr %m_num.i90, align 8
+  store i32 %113, ptr %m_num.i100, align 8
+  %bf.load.i.i.i298 = load i8, ptr %m_kind.i.i.i101, align 4
+  %bf.clear.i.i.i299 = and i8 %bf.load.i.i.i298, -2
+  store i8 %bf.clear.i.i.i299, ptr %m_kind.i.i.i101, align 4
+  br label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i284
 
-if.else.i.i.i285:                                 ; preds = %for.end
-  invoke void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i102, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i92)
-          to label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i286 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.else.i.i.i283:                                 ; preds = %for.end
+  invoke void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i100, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i90)
+          to label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i284 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i286:  ; preds = %if.else.i.i.i285, %if.then.i.i.i298
-  %bf.load.i.i.i4.i290 = load i8, ptr %m_kind.i1.i.i98, align 4
-  %bf.clear.i.i.i5.i291 = and i8 %bf.load.i.i.i4.i290, 1
-  %cmp.i.i.i6.i292 = icmp eq i8 %bf.clear.i.i.i5.i291, 0
-  br i1 %cmp.i.i.i6.i292, label %if.then.i.i8.i294, label %if.else.i.i7.i293
+_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i284:  ; preds = %if.else.i.i.i283, %if.then.i.i.i296
+  %bf.load.i.i.i4.i288 = load i8, ptr %m_kind.i1.i.i96, align 4
+  %bf.clear.i.i.i5.i289 = and i8 %bf.load.i.i.i4.i288, 1
+  %cmp.i.i.i6.i290 = icmp eq i8 %bf.clear.i.i.i5.i289, 0
+  br i1 %cmp.i.i.i6.i290, label %if.then.i.i8.i292, label %if.else.i.i7.i291
 
-if.then.i.i8.i294:                                ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i286
-  %114 = load i32, ptr %m_den.i.i97, align 8
-  store i32 %114, ptr %m_den.i.i107, align 8
-  %bf.load.i.i10.i296 = load i8, ptr %m_kind.i1.i.i108, align 4
-  %bf.clear.i.i11.i297 = and i8 %bf.load.i.i10.i296, -2
-  store i8 %bf.clear.i.i11.i297, ptr %m_kind.i1.i.i108, align 4
+if.then.i.i8.i292:                                ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i284
+  %114 = load i32, ptr %m_den.i.i95, align 8
+  store i32 %114, ptr %m_den.i.i105, align 8
+  %bf.load.i.i10.i294 = load i8, ptr %m_kind.i1.i.i106, align 4
+  %bf.clear.i.i11.i295 = and i8 %bf.load.i.i10.i294, -2
+  store i8 %bf.clear.i.i11.i295, ptr %m_kind.i1.i.i106, align 4
   br label %cleanup
 
-if.else.i.i7.i293:                                ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i286
-  invoke void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i107, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i97)
+if.else.i.i7.i291:                                ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i284
+  invoke void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %17, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i105, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i95)
           to label %cleanup unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.preheader.i: ; preds = %invoke.cont28, %invoke.cont36
-  %inc.i305 = add i32 %__begin0.sroa.0.0540, 1
-  %115 = load i32, ptr %arrayidx.i.i.i.i308, align 4
+  %inc.i303 = add i32 %__begin0.sroa.0.0536, 1
+  %115 = load i32, ptr %arrayidx.i.i.i.i306, align 4
   %116 = zext i32 %115 to i64
-  %cmp.i.i309534 = icmp ult i32 %inc.i305, %115
-  br i1 %cmp.i.i309534, label %land.rhs.i.i310.preheader, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit
+  %cmp.i.i307530 = icmp ult i32 %inc.i303, %115
+  br i1 %cmp.i.i307530, label %land.rhs.i.i308.preheader, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit
 
-land.rhs.i.i310.preheader:                        ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.preheader.i
-  %117 = zext i32 %inc.i305 to i64
-  br label %land.rhs.i.i310
+land.rhs.i.i308.preheader:                        ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.preheader.i
+  %117 = zext i32 %inc.i303 to i64
+  br label %land.rhs.i.i308
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i: ; preds = %land.rhs.i.i310
-  %indvars.iv.next.i314 = add nuw nsw i64 %indvars.iv.i307536, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i314, %116
-  br i1 %exitcond.not, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit, label %land.rhs.i.i310, !llvm.loop !17
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i: ; preds = %land.rhs.i.i308
+  %indvars.iv.next.i312 = add nuw nsw i64 %indvars.iv.i305532, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i312, %116
+  br i1 %exitcond.not, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit, label %land.rhs.i.i308, !llvm.loop !17
 
-land.rhs.i.i310:                                  ; preds = %land.rhs.i.i310.preheader, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i
-  %indvars.iv.i307536 = phi i64 [ %indvars.iv.next.i314, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i ], [ %117, %land.rhs.i.i310.preheader ]
-  %arrayidx.i.i.i311 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %31, i64 %indvars.iv.i307536
-  %118 = load i32, ptr %arrayidx.i.i.i311, align 4
-  %cmp.i.i.i312 = icmp eq i32 %118, -1
-  br i1 %cmp.i.i.i312, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit654
+land.rhs.i.i308:                                  ; preds = %land.rhs.i.i308.preheader, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i
+  %indvars.iv.i305532 = phi i64 [ %indvars.iv.next.i312, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i ], [ %117, %land.rhs.i.i308.preheader ]
+  %arrayidx.i.i.i309 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::col_entry", ptr %31, i64 %indvars.iv.i305532
+  %118 = load i32, ptr %arrayidx.i.i.i309, align 4
+  %cmp.i.i.i310 = icmp eq i32 %118, -1
+  br i1 %cmp.i.i.i310, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit650
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit654: ; preds = %land.rhs.i.i310
-  %indvars591.le = trunc i64 %indvars.iv.i307536 to i32
+_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit650: ; preds = %land.rhs.i.i308
+  %indvars587.le = trunc i64 %indvars.iv.i305532 to i32
   br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit654, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.preheader.i
-  %__begin0.sroa.0.3.lcssa = phi i32 [ %inc.i305, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.preheader.i ], [ %indvars591.le, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit654 ], [ %115, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i ]
+_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit650, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.preheader.i
+  %__begin0.sroa.0.3.lcssa = phi i32 [ %inc.i303, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.preheader.i ], [ %indvars587.le, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit.loopexit.split.loop.exit650 ], [ %115, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE6column11num_entriesEv.exit.i.i ]
   %cmp.i.not = icmp eq i32 %__begin0.sroa.0.3.lcssa, %retval.0.i.i.i.i.i
   br i1 %cmp.i.not, label %cleanup, label %invoke.cont28
 
-cleanup:                                          ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit, %_ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit, %if.then.i.i8.i294, %if.else.i.i7.i293
-  %119 = load i32, ptr %m_refs.i.i.i125, align 8
-  %dec.i318 = add i32 %119, -1
-  store i32 %dec.i318, ptr %m_refs.i.i.i125, align 8
+cleanup:                                          ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE12col_iteratorppEv.exit, %_ZN7simplex13sparse_matrixINS_7mpq_extEE8var_rows3endEv.exit, %if.then.i.i8.i292, %if.else.i.i7.i291
+  %119 = load i32, ptr %m_refs.i.i.i123, align 8
+  %dec.i316 = add i32 %119, -1
+  store i32 %dec.i316, ptr %m_refs.i.i.i123, align 8
   %120 = load i32, ptr %m_refs.i.i.i, align 8
-  %dec.i321 = add i32 %120, -1
-  store i32 %dec.i321, ptr %m_refs.i.i.i, align 8
+  %dec.i319 = add i32 %120, -1
+  store i32 %dec.i319, ptr %m_refs.i.i.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond596.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond596.not, label %for.end123, label %invoke.cont18, !llvm.loop !25
+  %exitcond592.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond592.not, label %for.end123, label %invoke.cont18, !llvm.loop !25
 
 for.end123:                                       ; preds = %cleanup, %_ZN11mpq_managerILb0EE3setER3mpqi.exit
   %sub = add i32 %retval.0.i.i, -1
@@ -2316,39 +2312,39 @@ for.end123:                                       ; preds = %cleanup, %_ZN11mpq_
           to label %for.cond126.preheader unwind label %lpad12.loopexit.split-lp.loopexit.split-lp
 
 for.cond126.preheader:                            ; preds = %for.end123
-  br i1 %cmp548.not, label %for.end173, label %for.body128.lr.ph
+  br i1 %cmp544.not, label %for.end173, label %for.body128.lr.ph
 
 for.body128.lr.ph:                                ; preds = %for.cond126.preheader
   %m_dead_rows.i = getelementptr inbounds i8, ptr %K, i64 16
-  %m_rows.i329 = getelementptr inbounds i8, ptr %K, i64 8
+  %m_rows.i327 = getelementptr inbounds i8, ptr %K, i64 8
   %m_size.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %m_first_free_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 12
-  %m_num.i.i375 = getelementptr inbounds i8, ptr %M, i64 64
-  %wide.trip.count605 = zext i32 %retval.0.i.i to i64
+  %m_num.i.i373 = getelementptr inbounds i8, ptr %M, i64 64
+  %wide.trip.count601 = zext i32 %retval.0.i.i to i64
   br label %for.body128
 
 for.body128:                                      ; preds = %for.body128.lr.ph, %for.inc171
-  %indvars.iv602 = phi i64 [ 0, %for.body128.lr.ph ], [ %indvars.iv.next603, %for.inc171 ]
+  %indvars.iv598 = phi i64 [ 0, %for.body128.lr.ph ], [ %indvars.iv.next599, %for.inc171 ]
   %121 = load ptr, ptr %d, align 8
-  %arrayidx.i326 = getelementptr inbounds i32, ptr %121, i64 %indvars.iv602
-  %122 = load i32, ptr %arrayidx.i326, align 4
+  %arrayidx.i324 = getelementptr inbounds i32, ptr %121, i64 %indvars.iv598
+  %122 = load i32, ptr %arrayidx.i324, align 4
   %cmp131.not = icmp eq i32 %122, 0
   br i1 %cmp131.not, label %if.end133, label %for.inc171
 
 if.end133:                                        ; preds = %for.body128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %123 = load ptr, ptr %m_dead_rows.i, align 8
-  %cmp.i.i327 = icmp eq ptr %123, null
-  br i1 %cmp.i.i327, label %if.then.i, label %_ZNK6vectorIjLb0EjE5emptyEv.exit.i
+  %cmp.i.i325 = icmp eq ptr %123, null
+  br i1 %cmp.i.i325, label %if.then.i, label %_ZNK6vectorIjLb0EjE5emptyEv.exit.i
 
 _ZNK6vectorIjLb0EjE5emptyEv.exit.i:               ; preds = %if.end133
-  %arrayidx.i.i328 = getelementptr inbounds i8, ptr %123, i64 -4
-  %124 = load i32, ptr %arrayidx.i.i328, align 4
+  %arrayidx.i.i326 = getelementptr inbounds i8, ptr %123, i64 -4
+  %124 = load i32, ptr %arrayidx.i.i326, align 4
   %cmp3.i.i = icmp eq i32 %124, 0
   br i1 %cmp3.i.i, label %if.then.i, label %_ZN6vectorIjLb0EjE4backEv.exit.i
 
 if.then.i:                                        ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit.i, %if.end133
-  %125 = load ptr, ptr %m_rows.i329, align 8
+  %125 = load ptr, ptr %m_rows.i327, align 8
   %cmp.i1.i = icmp eq ptr %125, null
   br i1 %cmp.i1.i, label %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.thread.i, label %lor.lhs.false.i.i
 
@@ -2371,11 +2367,11 @@ lor.lhs.false.i.i:                                ; preds = %if.then.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.thread.i
   %retval.0.i11.i = phi i32 [ 0, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE4sizeEv.exit.thread.i ], [ %126, %lor.lhs.false.i.i ]
-  invoke void @_ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_rows.i329)
+  invoke void @_ZN6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE4_rowELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_rows.i327)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i
-  %.pre.i.i = load ptr, ptr %m_rows.i329, align 8
+  %.pre.i.i = load ptr, ptr %m_rows.i327, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %invoke.cont.i
@@ -2388,14 +2384,14 @@ invoke.cont.i:                                    ; preds = %.noexc.i, %lor.lhs.
   %add.ptr.i.i = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %129, i64 %idx.ext.i.i
   store ptr null, ptr %add.ptr.i.i, align 8
   store ptr null, ptr %ref.tmp.i, align 8
-  %m_size.i.i.i330 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  %m_size.i.i.i328 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %130 = load i64, ptr %m_size.i.i, align 8
-  store i64 %130, ptr %m_size.i.i.i330, align 8
-  %131 = load ptr, ptr %m_rows.i329, align 8
+  store i64 %130, ptr %m_size.i.i.i328, align 8
+  %131 = load ptr, ptr %m_rows.i327, align 8
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %131, i64 -4
   %132 = load i32, ptr %arrayidx10.i.i, align 4
-  %inc.i.i331 = add i32 %132, 1
-  store i32 %inc.i.i331, ptr %arrayidx10.i.i, align 4
+  %inc.i.i329 = add i32 %132, 1
+  store i32 %inc.i.i329, ptr %arrayidx10.i.i, align 4
   br label %invoke.cont135
 
 lpad.i:                                           ; preds = %if.then.i.i
@@ -2409,248 +2405,248 @@ _ZN6vectorIjLb0EjE4backEv.exit.i:                 ; preds = %_ZNK6vectorIjLb0EjE
   %135 = zext i32 %134 to i64
   %arrayidx.i1.i.i = getelementptr inbounds i32, ptr %123, i64 %135
   %136 = load i32, ptr %arrayidx.i1.i.i, align 4
-  store i32 %134, ptr %arrayidx.i.i328, align 4
+  store i32 %134, ptr %arrayidx.i.i326, align 4
   br label %invoke.cont135
 
 invoke.cont135:                                   ; preds = %_ZN6vectorIjLb0EjE4backEv.exit.i, %invoke.cont.i
   %retval.sroa.0.0.i = phi i32 [ %136, %_ZN6vectorIjLb0EjE4backEv.exit.i ], [ %retval.0.i10.i, %invoke.cont.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %137 = load ptr, ptr %basics, align 8
-  %cmp.i332 = icmp eq ptr %137, null
-  br i1 %cmp.i332, label %if.then.i337, label %lor.lhs.false.i
+  %cmp.i330 = icmp eq ptr %137, null
+  br i1 %cmp.i330, label %if.then.i335, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %invoke.cont135
-  %arrayidx.i333 = getelementptr inbounds i8, ptr %137, i64 -4
-  %138 = load i32, ptr %arrayidx.i333, align 4
+  %arrayidx.i331 = getelementptr inbounds i8, ptr %137, i64 -4
+  %138 = load i32, ptr %arrayidx.i331, align 4
   %arrayidx4.i = getelementptr inbounds i8, ptr %137, i64 -8
   %139 = load i32, ptr %arrayidx4.i, align 4
   %cmp5.i = icmp eq i32 %138, %139
-  br i1 %cmp5.i, label %if.then.i337, label %_ZN6vectorIjLb1EjE9push_backERKj.exit
+  br i1 %cmp5.i, label %if.then.i335, label %_ZN6vectorIjLb1EjE9push_backERKj.exit
 
-if.then.i337:                                     ; preds = %lor.lhs.false.i, %invoke.cont135
+if.then.i335:                                     ; preds = %lor.lhs.false.i, %invoke.cont135
   invoke void @_ZN6vectorIjLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %basics)
-          to label %.noexc338 unwind label %lpad12.loopexit.split-lp.loopexit
+          to label %.noexc336 unwind label %lpad12.loopexit.split-lp.loopexit
 
-.noexc338:                                        ; preds = %if.then.i337
+.noexc336:                                        ; preds = %if.then.i335
   %.pre.i = load ptr, ptr %basics, align 8
   %arrayidx8.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre1.i = load i32, ptr %arrayidx8.phi.trans.insert.i, align 4
   br label %_ZN6vectorIjLb1EjE9push_backERKj.exit
 
-_ZN6vectorIjLb1EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i, %.noexc338
-  %140 = phi i32 [ %.pre1.i, %.noexc338 ], [ %138, %lor.lhs.false.i ]
-  %141 = phi ptr [ %.pre.i, %.noexc338 ], [ %137, %lor.lhs.false.i ]
-  %idx.ext.i334 = zext i32 %140 to i64
-  %add.ptr.i335 = getelementptr inbounds i32, ptr %141, i64 %idx.ext.i334
-  %142 = trunc nuw i64 %indvars.iv602 to i32
-  store i32 %142, ptr %add.ptr.i335, align 4
+_ZN6vectorIjLb1EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i, %.noexc336
+  %140 = phi i32 [ %.pre1.i, %.noexc336 ], [ %138, %lor.lhs.false.i ]
+  %141 = phi ptr [ %.pre.i, %.noexc336 ], [ %137, %lor.lhs.false.i ]
+  %idx.ext.i332 = zext i32 %140 to i64
+  %add.ptr.i333 = getelementptr inbounds i32, ptr %141, i64 %idx.ext.i332
+  %142 = trunc nuw i64 %indvars.iv598 to i32
+  store i32 %142, ptr %add.ptr.i333, align 4
   %143 = load ptr, ptr %basics, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %143, i64 -4
   %144 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i336 = add i32 %144, 1
-  store i32 %inc.i336, ptr %arrayidx10.i, align 4
+  %inc.i334 = add i32 %144, 1
+  store i32 %inc.i334, ptr %arrayidx10.i, align 4
   br label %for.body142
 
 for.body142:                                      ; preds = %_ZN6vectorIjLb1EjE9push_backERKj.exit, %for.inc168
-  %indvars.iv597 = phi i64 [ 0, %_ZN6vectorIjLb1EjE9push_backERKj.exit ], [ %indvars.iv.next598, %for.inc168 ]
+  %indvars.iv593 = phi i64 [ 0, %_ZN6vectorIjLb1EjE9push_backERKj.exit ], [ %indvars.iv.next594, %for.inc168 ]
   %145 = load ptr, ptr %d, align 8
-  %arrayidx.i340 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv597
-  %146 = load i32, ptr %arrayidx.i340, align 4
+  %arrayidx.i338 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv593
+  %146 = load i32, ptr %arrayidx.i338, align 4
   %cmp145.not = icmp eq i32 %146, 0
   br i1 %cmp145.not, label %if.else158, label %if.then146
 
 if.then146:                                       ; preds = %for.body142
   %sub149 = add i32 %146, -1
   %147 = load ptr, ptr %m_rows.i, align 8
-  %idxprom.i.i.i.i344 = zext i32 %sub149 to i64
-  %arrayidx.i.i.i.i345 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %147, i64 %idxprom.i.i.i.i344
-  %148 = load ptr, ptr %arrayidx.i.i.i.i345, align 8
-  %cmp.i.i3.i.i.i.i.i346 = icmp eq ptr %148, null
-  br i1 %cmp.i.i3.i.i.i.i.i346, label %invoke.cont154, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i347
+  %idxprom.i.i.i.i342 = zext i32 %sub149 to i64
+  %arrayidx.i.i.i.i343 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row", ptr %147, i64 %idxprom.i.i.i.i342
+  %148 = load ptr, ptr %arrayidx.i.i.i.i343, align 8
+  %cmp.i.i3.i.i.i.i.i344 = icmp eq ptr %148, null
+  br i1 %cmp.i.i3.i.i.i.i.i344, label %invoke.cont154, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i345
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i347: ; preds = %if.then146
-  %arrayidx.i.i.i.i.i.i.i348 = getelementptr inbounds i8, ptr %148, i64 -4
-  %149 = load i32, ptr %arrayidx.i.i.i.i.i.i.i348, align 4
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i345: ; preds = %if.then146
+  %arrayidx.i.i.i.i.i.i.i346 = getelementptr inbounds i8, ptr %148, i64 -4
+  %149 = load i32, ptr %arrayidx.i.i.i.i.i.i.i346, align 4
   %150 = zext i32 %149 to i64
-  %cmp.i.i1.not.i.i.i349 = icmp eq i32 %149, 0
-  br i1 %cmp.i.i1.not.i.i.i349, label %invoke.cont154, label %land.rhs.i.i.i.i.i350
+  %cmp.i.i1.not.i.i.i347 = icmp eq i32 %149, 0
+  br i1 %cmp.i.i1.not.i.i.i347, label %invoke.cont154, label %land.rhs.i.i.i.i.i348
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i387: ; preds = %land.rhs.i.i.i.i.i350
-  %indvars.iv.next.i.i.i.i388 = add nuw nsw i64 %indvars.iv.i3.i.i.i351, 1
-  %exitcond.not.i.i.i389 = icmp eq i64 %indvars.iv.next.i.i.i.i388, %150
-  br i1 %exitcond.not.i.i.i389, label %invoke.cont154, label %land.rhs.i.i.i.i.i350, !llvm.loop !9
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i385: ; preds = %land.rhs.i.i.i.i.i348
+  %indvars.iv.next.i.i.i.i386 = add nuw nsw i64 %indvars.iv.i3.i.i.i349, 1
+  %exitcond.not.i.i.i387 = icmp eq i64 %indvars.iv.next.i.i.i.i386, %150
+  br i1 %exitcond.not.i.i.i387, label %invoke.cont154, label %land.rhs.i.i.i.i.i348, !llvm.loop !9
 
-land.rhs.i.i.i.i.i350:                            ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i347, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i387
-  %indvars.iv.i3.i.i.i351 = phi i64 [ %indvars.iv.next.i.i.i.i388, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i387 ], [ 0, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i347 ]
-  %m_var.i.i.i.i.i.i352 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %148, i64 %indvars.iv.i3.i.i.i351, i32 0, i32 1
-  %151 = load i32, ptr %m_var.i.i.i.i.i.i352, align 8
-  %cmp.i.i.i.i.i.i353 = icmp eq i32 %151, -1
-  br i1 %cmp.i.i.i.i.i.i353, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i387, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i356
+land.rhs.i.i.i.i.i348:                            ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i345, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i385
+  %indvars.iv.i3.i.i.i349 = phi i64 [ %indvars.iv.next.i.i.i.i386, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i385 ], [ 0, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i345 ]
+  %m_var.i.i.i.i.i.i350 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %148, i64 %indvars.iv.i3.i.i.i349, i32 0, i32 1
+  %151 = load i32, ptr %m_var.i.i.i.i.i.i350, align 8
+  %cmp.i.i.i.i.i.i351 = icmp eq i32 %151, -1
+  br i1 %cmp.i.i.i.i.i.i351, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i385, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i354
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i356: ; preds = %land.rhs.i.i.i.i.i350
-  %indvars5.le.i.i.i355 = trunc i64 %indvars.iv.i3.i.i.i351 to i32
-  %cmp.i.not25.i359 = icmp eq i32 %149, %indvars5.le.i.i.i355
-  br i1 %cmp.i.not25.i359, label %invoke.cont154, label %for.body.i362
+_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i354: ; preds = %land.rhs.i.i.i.i.i348
+  %indvars5.le.i.i.i353 = trunc i64 %indvars.iv.i3.i.i.i349 to i32
+  %cmp.i.not25.i357 = icmp eq i32 %149, %indvars5.le.i.i.i353
+  br i1 %cmp.i.not25.i357, label %invoke.cont154, label %for.body.i360
 
-for.body.i362:                                    ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i356, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i371
-  %__begin0.sroa.0.026.i363 = phi i32 [ %__begin0.sroa.0.1.lcssa.i372, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i371 ], [ %indvars5.le.i.i.i355, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i356 ]
-  %idxprom.i.i.i364 = zext i32 %__begin0.sroa.0.026.i363 to i64
-  %arrayidx.i.i.i365 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %148, i64 %idxprom.i.i.i364
-  %m_var.i366 = getelementptr inbounds i8, ptr %arrayidx.i.i.i365, i64 32
-  %152 = load i32, ptr %m_var.i366, align 8
+for.body.i360:                                    ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i354, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i369
+  %__begin0.sroa.0.026.i361 = phi i32 [ %__begin0.sroa.0.1.lcssa.i370, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i369 ], [ %indvars5.le.i.i.i353, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i354 ]
+  %idxprom.i.i.i362 = zext i32 %__begin0.sroa.0.026.i361 to i64
+  %arrayidx.i.i.i363 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %148, i64 %idxprom.i.i.i362
+  %m_var.i364 = getelementptr inbounds i8, ptr %arrayidx.i.i.i363, i64 32
+  %152 = load i32, ptr %m_var.i364, align 8
   %153 = zext i32 %152 to i64
-  %cmp.i367 = icmp eq i64 %indvars.iv602, %153
-  br i1 %cmp.i367, label %invoke.cont154, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i368
+  %cmp.i365 = icmp eq i64 %indvars.iv598, %153
+  br i1 %cmp.i365, label %invoke.cont154, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i366
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i368: ; preds = %for.body.i362
-  %inc.i.i369 = add i32 %__begin0.sroa.0.026.i363, 1
-  %cmp.i.i21.i370 = icmp ult i32 %inc.i.i369, %149
-  br i1 %cmp.i.i21.i370, label %land.rhs.i.i.preheader.i377, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i371
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i366: ; preds = %for.body.i360
+  %inc.i.i367 = add i32 %__begin0.sroa.0.026.i361, 1
+  %cmp.i.i21.i368 = icmp ult i32 %inc.i.i367, %149
+  br i1 %cmp.i.i21.i368, label %land.rhs.i.i.preheader.i375, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i369
 
-land.rhs.i.i.preheader.i377:                      ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i368
-  %154 = zext i32 %inc.i.i369 to i64
-  br label %land.rhs.i.i.i378
+land.rhs.i.i.preheader.i375:                      ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i366
+  %154 = zext i32 %inc.i.i367 to i64
+  br label %land.rhs.i.i.i376
 
-_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i384: ; preds = %land.rhs.i.i.i378
-  %indvars.iv.next.i.i385 = add nuw nsw i64 %indvars.iv.i23.i379, 1
-  %exitcond.not.i386 = icmp eq i64 %indvars.iv.next.i.i385, %150
-  br i1 %exitcond.not.i386, label %invoke.cont154, label %land.rhs.i.i.i378, !llvm.loop !9
+_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i382: ; preds = %land.rhs.i.i.i376
+  %indvars.iv.next.i.i383 = add nuw nsw i64 %indvars.iv.i23.i377, 1
+  %exitcond.not.i384 = icmp eq i64 %indvars.iv.next.i.i383, %150
+  br i1 %exitcond.not.i384, label %invoke.cont154, label %land.rhs.i.i.i376, !llvm.loop !9
 
-land.rhs.i.i.i378:                                ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i384, %land.rhs.i.i.preheader.i377
-  %indvars.iv.i23.i379 = phi i64 [ %indvars.iv.next.i.i385, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i384 ], [ %154, %land.rhs.i.i.preheader.i377 ]
-  %m_var.i.i.i.i380 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %148, i64 %indvars.iv.i23.i379, i32 0, i32 1
-  %155 = load i32, ptr %m_var.i.i.i.i380, align 8
-  %cmp.i.i.i.i381 = icmp eq i32 %155, -1
-  br i1 %cmp.i.i.i.i381, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i384, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i382
+land.rhs.i.i.i376:                                ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i382, %land.rhs.i.i.preheader.i375
+  %indvars.iv.i23.i377 = phi i64 [ %indvars.iv.next.i.i383, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i382 ], [ %154, %land.rhs.i.i.preheader.i375 ]
+  %m_var.i.i.i.i378 = getelementptr inbounds %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %148, i64 %indvars.iv.i23.i377, i32 0, i32 1
+  %155 = load i32, ptr %m_var.i.i.i.i378, align 8
+  %cmp.i.i.i.i379 = icmp eq i32 %155, -1
+  br i1 %cmp.i.i.i.i379, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i382, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i380
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i382: ; preds = %land.rhs.i.i.i378
-  %indvars29.le.i383 = trunc i64 %indvars.iv.i23.i379 to i32
-  br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i371
+_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i380: ; preds = %land.rhs.i.i.i376
+  %indvars29.le.i381 = trunc i64 %indvars.iv.i23.i377 to i32
+  br label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i369
 
-_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i371: ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i382, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i368
-  %__begin0.sroa.0.1.lcssa.i372 = phi i32 [ %inc.i.i369, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i368 ], [ %indvars29.le.i383, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i382 ]
-  %cmp.i.not.i373 = icmp eq i32 %__begin0.sroa.0.1.lcssa.i372, %149
-  br i1 %cmp.i.not.i373, label %invoke.cont154, label %for.body.i362
+_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i369: ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i380, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i366
+  %__begin0.sroa.0.1.lcssa.i370 = phi i32 [ %inc.i.i367, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.preheader.i.i366 ], [ %indvars29.le.i381, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit36.i380 ]
+  %cmp.i.not.i371 = icmp eq i32 %__begin0.sroa.0.1.lcssa.i370, %149
+  br i1 %cmp.i.not.i371, label %invoke.cont154, label %for.body.i360
 
-invoke.cont154:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i387, %for.body.i362, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i371, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i384, %if.then146, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i356, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i347
-  %retval.0.i376 = phi ptr [ %m_num.i.i375, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i347 ], [ %m_num.i.i375, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i356 ], [ %m_num.i.i375, %if.then146 ], [ %m_num.i.i375, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i384 ], [ %m_num.i.i375, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i371 ], [ %arrayidx.i.i.i365, %for.body.i362 ], [ %m_num.i.i375, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i387 ]
-  %156 = trunc nuw i64 %indvars.iv597 to i32
+invoke.cont154:                                   ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i385, %for.body.i360, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i369, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i382, %if.then146, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i354, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i345
+  %retval.0.i374 = phi ptr [ %m_num.i.i373, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.preheader.i.i.i345 ], [ %m_num.i.i373, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i354 ], [ %m_num.i.i373, %if.then146 ], [ %m_num.i.i373, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i382 ], [ %m_num.i.i373, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i369 ], [ %arrayidx.i.i.i363, %for.body.i360 ], [ %m_num.i.i373, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i385 ]
+  %156 = trunc nuw i64 %indvars.iv593 to i32
   br label %invoke.cont154.invoke
 
 invoke.cont154.invoke:                            ; preds = %if.else158, %invoke.cont154
-  %157 = phi ptr [ %retval.0.i376, %invoke.cont154 ], [ %m_num.i102, %if.else158 ]
+  %157 = phi ptr [ %retval.0.i374, %invoke.cont154 ], [ %m_num.i100, %if.else158 ]
   %158 = phi i32 [ %156, %invoke.cont154 ], [ %142, %if.else158 ]
   invoke void @_ZN7simplex13sparse_matrixINS_7mpq_extEE7add_varENS2_3rowERK3mpqj(ptr noundef nonnull align 8 dereferenceable(96) %K, i32 %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(32) %157, i32 noundef %158)
           to label %for.inc168 unwind label %lpad12.loopexit
 
 if.else158:                                       ; preds = %for.body142
-  %cmp159 = icmp eq i64 %indvars.iv597, %indvars.iv602
+  %cmp159 = icmp eq i64 %indvars.iv593, %indvars.iv598
   br i1 %cmp159, label %invoke.cont154.invoke, label %for.inc168
 
 for.inc168:                                       ; preds = %invoke.cont154.invoke, %if.else158
-  %indvars.iv.next598 = add nuw nsw i64 %indvars.iv597, 1
-  %exitcond601.not = icmp eq i64 %indvars.iv.next598, %wide.trip.count605
-  br i1 %exitcond601.not, label %for.inc171, label %for.body142, !llvm.loop !26
+  %indvars.iv.next594 = add nuw nsw i64 %indvars.iv593, 1
+  %exitcond597.not = icmp eq i64 %indvars.iv.next594, %wide.trip.count601
+  br i1 %exitcond597.not, label %for.inc171, label %for.body142, !llvm.loop !26
 
 for.inc171:                                       ; preds = %for.inc168, %for.body128
-  %indvars.iv.next603 = add nuw nsw i64 %indvars.iv602, 1
-  %exitcond606.not = icmp eq i64 %indvars.iv.next603, %wide.trip.count605
-  br i1 %exitcond606.not, label %for.end173, label %for.body128, !llvm.loop !27
+  %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
+  %exitcond602.not = icmp eq i64 %indvars.iv.next599, %wide.trip.count601
+  br i1 %exitcond602.not, label %for.end173, label %for.body128, !llvm.loop !27
 
 for.end173:                                       ; preds = %for.inc171, %for.cond126.preheader
   %159 = load ptr, ptr %last_pv, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %159, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i102)
-          to label %.noexc.i393 unwind label %terminate.lpad.i
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %159, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i100)
+          to label %.noexc.i391 unwind label %terminate.lpad.i
 
-.noexc.i393:                                      ; preds = %for.end173
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %159, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i107)
+.noexc.i391:                                      ; preds = %for.end173
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %159, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i105)
           to label %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %.noexc.i393, %for.end173
+terminate.lpad.i:                                 ; preds = %.noexc.i391, %for.end173
   %160 = landingpad { ptr, i32 }
           catch ptr null
   %161 = extractvalue { ptr, i32 } %160, 0
   call void @__clang_call_terminate(ptr %161) #18
   unreachable
 
-_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i393
+_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i391
   %162 = load ptr, ptr %m_jk, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %162, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i92)
-          to label %.noexc.i398 unwind label %terminate.lpad.i397
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %162, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i90)
+          to label %.noexc.i396 unwind label %terminate.lpad.i395
 
-.noexc.i398:                                      ; preds = %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %162, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i97)
-          to label %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit401 unwind label %terminate.lpad.i397
+.noexc.i396:                                      ; preds = %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %162, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i95)
+          to label %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit399 unwind label %terminate.lpad.i395
 
-terminate.lpad.i397:                              ; preds = %.noexc.i398, %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit
+terminate.lpad.i395:                              ; preds = %.noexc.i396, %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit
   %163 = landingpad { ptr, i32 }
           catch ptr null
   %164 = extractvalue { ptr, i32 } %163, 0
   call void @__clang_call_terminate(ptr %164) #18
   unreachable
 
-_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit401: ; preds = %.noexc.i398
+_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit399: ; preds = %.noexc.i396
   %165 = load ptr, ptr %m_ik, align 8
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %165, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
-          to label %.noexc.i404 unwind label %terminate.lpad.i403
+          to label %.noexc.i402 unwind label %terminate.lpad.i401
 
-.noexc.i404:                                      ; preds = %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit401
+.noexc.i402:                                      ; preds = %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit399
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %165, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i)
-          to label %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit407 unwind label %terminate.lpad.i403
+          to label %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit405 unwind label %terminate.lpad.i401
 
-terminate.lpad.i403:                              ; preds = %.noexc.i404, %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit401
+terminate.lpad.i401:                              ; preds = %.noexc.i402, %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit399
   %166 = landingpad { ptr, i32 }
           catch ptr null
   %167 = extractvalue { ptr, i32 } %166, 0
   call void @__clang_call_terminate(ptr %167) #18
   unreachable
 
-_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit407: ; preds = %.noexc.i404
+_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit405: ; preds = %.noexc.i402
   %168 = load ptr, ptr %c, align 8
   %tobool.not.i.i = icmp eq ptr %168, null
-  br i1 %tobool.not.i.i, label %_ZN6vectorIjLb1EjED2Ev.exit, label %if.then.i.i408
+  br i1 %tobool.not.i.i, label %_ZN6vectorIjLb1EjED2Ev.exit, label %if.then.i.i406
 
-if.then.i.i408:                                   ; preds = %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit407
+if.then.i.i406:                                   ; preds = %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit405
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %168, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i)
-          to label %_ZN6vectorIjLb1EjED2Ev.exit unwind label %terminate.lpad.i409
+          to label %_ZN6vectorIjLb1EjED2Ev.exit unwind label %terminate.lpad.i407
 
-terminate.lpad.i409:                              ; preds = %if.then.i.i408
+terminate.lpad.i407:                              ; preds = %if.then.i.i406
   %169 = landingpad { ptr, i32 }
           catch ptr null
   %170 = extractvalue { ptr, i32 } %169, 0
   call void @__clang_call_terminate(ptr %170) #18
   unreachable
 
-_ZN6vectorIjLb1EjED2Ev.exit:                      ; preds = %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit407, %if.then.i.i408
+_ZN6vectorIjLb1EjED2Ev.exit:                      ; preds = %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit405, %if.then.i.i406
   %171 = load ptr, ptr %d, align 8
-  %tobool.not.i.i411 = icmp eq ptr %171, null
-  br i1 %tobool.not.i.i411, label %_ZN6vectorIjLb1EjED2Ev.exit416, label %if.then.i.i412
+  %tobool.not.i.i409 = icmp eq ptr %171, null
+  br i1 %tobool.not.i.i409, label %_ZN6vectorIjLb1EjED2Ev.exit414, label %if.then.i.i410
 
-if.then.i.i412:                                   ; preds = %_ZN6vectorIjLb1EjED2Ev.exit
-  %add.ptr.i.i.i413 = getelementptr inbounds i8, ptr %171, i64 -8
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i413)
-          to label %_ZN6vectorIjLb1EjED2Ev.exit416 unwind label %terminate.lpad.i414
+if.then.i.i410:                                   ; preds = %_ZN6vectorIjLb1EjED2Ev.exit
+  %add.ptr.i.i.i411 = getelementptr inbounds i8, ptr %171, i64 -8
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i411)
+          to label %_ZN6vectorIjLb1EjED2Ev.exit414 unwind label %terminate.lpad.i412
 
-terminate.lpad.i414:                              ; preds = %if.then.i.i412
+terminate.lpad.i412:                              ; preds = %if.then.i.i410
   %172 = landingpad { ptr, i32 }
           catch ptr null
   %173 = extractvalue { ptr, i32 } %172, 0
   call void @__clang_call_terminate(ptr %173) #18
   unreachable
 
-_ZN6vectorIjLb1EjED2Ev.exit416:                   ; preds = %_ZN6vectorIjLb1EjED2Ev.exit, %if.then.i.i412
+_ZN6vectorIjLb1EjED2Ev.exit414:                   ; preds = %_ZN6vectorIjLb1EjED2Ev.exit, %if.then.i.i410
   ret void
 
 ehcleanup174:                                     ; preds = %lpad12.loopexit, %lpad12.loopexit.split-lp.loopexit.split-lp, %lpad12.loopexit.split-lp.loopexit, %lpad.i, %lpad24
-  %.pn.pn = phi { ptr, i32 } [ %lpad.phi478, %lpad24 ], [ %133, %lpad.i ], [ %lpad.loopexit, %lpad12.loopexit ], [ %lpad.loopexit474, %lpad12.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp475, %lpad12.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.phi474, %lpad24 ], [ %133, %lpad.i ], [ %lpad.loopexit, %lpad12.loopexit ], [ %lpad.loopexit470, %lpad12.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp471, %lpad12.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %last_pv) #17
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_jk) #17
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_ik) #17
   br label %ehcleanup177
 
-ehcleanup177:                                     ; preds = %lpad.loopexit493, %lpad.loopexit.split-lp, %ehcleanup174
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup174 ], [ %lpad.loopexit494, %lpad.loopexit493 ], [ %lpad.loopexit.split-lp495, %lpad.loopexit.split-lp ]
+ehcleanup177:                                     ; preds = %lpad.loopexit489, %lpad.loopexit.split-lp, %ehcleanup174
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup174 ], [ %lpad.loopexit490, %lpad.loopexit489 ], [ %lpad.loopexit.split-lp491, %lpad.loopexit.split-lp ]
   call void @_ZN6vectorIjLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %c) #17
   call void @_ZN6vectorIjLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d) #17
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
@@ -2671,7 +2667,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %1, %if.end.i ], [ 0, %entry ]
-  %cmp = icmp ult i32 %retval.0.i, %s
+  %cmp = icmp ugt i32 %s, %retval.0.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
@@ -6577,7 +6573,7 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %entry
 _ZNK6vectorI8rationalLb1EjE4sizeEv.exit.thread:   ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not15 = icmp ult i32 %1, %s
+  %cmp.not15 = icmp ugt i32 %s, %1
   br i1 %cmp.not15, label %while.cond.preheader, label %_ZN6vectorI8rationalLb1EjE3endEv.exit.i
 
 while.cond.preheader:                             ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.thread
@@ -6588,7 +6584,7 @@ while.cond.preheader:                             ; preds = %_ZNK6vectorI8ration
 _ZN6vectorI8rationalLb1EjE3endEv.exit.i:          ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.thread
   %2 = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds %class.rational, ptr %0, i64 %2
-  %cmp.not4.i = icmp eq i32 %1, %s
+  %cmp.not4.i = icmp eq i32 %s, %1
   br i1 %cmp.not4.i, label %for.end.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZN6vectorI8rationalLb1EjE3endEv.exit.i
@@ -6632,19 +6628,15 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
   %7 = phi ptr [ %.pr.pre, %while.body ], [ %.ph, %while.cond.preheader ]
   %cmp.i10 = icmp eq ptr %7, null
-  br i1 %cmp.i10, label %_ZNK6vectorI8rationalLb1EjE8capacityEv.exit, label %if.end.i11
+  br i1 %cmp.i10, label %while.body, label %_ZNK6vectorI8rationalLb1EjE8capacityEv.exit
 
-if.end.i11:                                       ; preds = %while.cond
+_ZNK6vectorI8rationalLb1EjE8capacityEv.exit:      ; preds = %while.cond
   %arrayidx.i12 = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load i32, ptr %arrayidx.i12, align 4
-  br label %_ZNK6vectorI8rationalLb1EjE8capacityEv.exit
-
-_ZNK6vectorI8rationalLb1EjE8capacityEv.exit:      ; preds = %while.cond, %if.end.i11
-  %retval.0.i13 = phi i32 [ %8, %if.end.i11 ], [ 0, %while.cond ]
-  %cmp3 = icmp ult i32 %retval.0.i13, %s
+  %cmp3 = icmp ugt i32 %s, %8
   br i1 %cmp3, label %while.body, label %while.end
 
-while.body:                                       ; preds = %_ZNK6vectorI8rationalLb1EjE8capacityEv.exit
+while.body:                                       ; preds = %while.cond, %_ZNK6vectorI8rationalLb1EjE8capacityEv.exit
   tail call void @_ZN6vectorI8rationalLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %.pr.pre = load ptr, ptr %this, align 8
   br label %while.cond, !llvm.loop !42
@@ -6655,8 +6647,8 @@ while.end:                                        ; preds = %_ZNK6vectorI8ration
   %9 = load ptr, ptr %this, align 8
   %idx.ext6 = zext i32 %s to i64
   %add.ptr7 = getelementptr inbounds %class.rational, ptr %9, i64 %idx.ext6
-  %cmp8.not17 = icmp eq i32 %retval.0.i16.ph, %s
-  br i1 %cmp8.not17, label %for.end, label %for.body.lr.ph
+  %cmp8.not19 = icmp eq i32 %retval.0.i16.ph, %s
+  br i1 %cmp8.not19, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
   %idx.ext = zext i32 %retval.0.i16.ph to i64
@@ -6669,10 +6661,10 @@ for.body.lr.ph:                                   ; preds = %while.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %it.018 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
+  %it.020 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
   %10 = load i32, ptr %args, align 8
-  store i32 %10, ptr %it.018, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %it.018, i64 4
+  store i32 %10, ptr %it.020, align 8
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %it.020, i64 4
   %bf.load.i.i.i = load i8, ptr %m_kind3.i.i.i, align 4
   %bf.clear.i.i.i = and i8 %bf.load.i.i.i, 1
   %bf.load4.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
@@ -6684,15 +6676,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %bf.clear12.i.i.i = and i8 %bf.set.i.i.i, -3
   %bf.set13.i.i.i = or disjoint i8 %bf.clear12.i.i.i, %bf.clear8.i.i.i
   store i8 %bf.set13.i.i.i, ptr %m_kind.i.i.i, align 4
-  %m_ptr.i.i.i = getelementptr inbounds i8, ptr %it.018, i64 8
+  %m_ptr.i.i.i = getelementptr inbounds i8, ptr %it.020, i64 8
   store ptr null, ptr %m_ptr.i.i.i, align 8
   %11 = load ptr, ptr %m_ptr15.i.i.i, align 8
   store ptr %11, ptr %m_ptr.i.i.i, align 8
   store ptr null, ptr %m_ptr15.i.i.i, align 8
-  %m_den.i.i = getelementptr inbounds i8, ptr %it.018, i64 16
+  %m_den.i.i = getelementptr inbounds i8, ptr %it.020, i64 16
   %12 = load i32, ptr %m_den3.i.i, align 8
   store i32 %12, ptr %m_den.i.i, align 8
-  %m_kind.i2.i.i = getelementptr inbounds i8, ptr %it.018, i64 20
+  %m_kind.i2.i.i = getelementptr inbounds i8, ptr %it.020, i64 20
   %bf.load.i4.i.i = load i8, ptr %m_kind3.i3.i.i, align 4
   %bf.clear.i5.i.i = and i8 %bf.load.i4.i.i, 1
   %bf.load4.i6.i.i = load i8, ptr %m_kind.i2.i.i, align 4
@@ -6704,12 +6696,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %bf.clear12.i11.i.i = and i8 %bf.set.i8.i.i, -3
   %bf.set13.i12.i.i = or disjoint i8 %bf.clear12.i11.i.i, %bf.clear8.i10.i.i
   store i8 %bf.set13.i12.i.i, ptr %m_kind.i2.i.i, align 4
-  %m_ptr.i13.i.i = getelementptr inbounds i8, ptr %it.018, i64 24
+  %m_ptr.i13.i.i = getelementptr inbounds i8, ptr %it.020, i64 24
   store ptr null, ptr %m_ptr.i13.i.i, align 8
   %13 = load ptr, ptr %m_ptr15.i14.i.i, align 8
   store ptr %13, ptr %m_ptr.i13.i.i, align 8
   store ptr null, ptr %m_ptr15.i14.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.018, i64 32
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.020, i64 32
   %cmp8.not = icmp eq ptr %incdec.ptr, %add.ptr7
   br i1 %cmp8.not, label %for.end, label %for.body, !llvm.loop !43
 

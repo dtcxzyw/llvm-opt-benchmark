@@ -2306,7 +2306,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i: ; preds = %26
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !alias.scope !374, !noalias !372, !noundef !4
   %47 = sub i64 %46, %44
-  %48 = icmp ult i64 %47, %42
+  %48 = icmp ugt i64 %42, %47
   br i1 %48, label %49, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1c53268f09f8a2cE.exit.i"
 
 49:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
@@ -2360,7 +2360,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !387, !noalias !385, !noundef !4
   %8 = sub i64 %7, %5
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1c53268f09f8a2cE.exit"
 
 10:                                               ; preds = %3
@@ -3011,7 +3011,7 @@ common.resume:                                    ; preds = %24, %14
   %29 = load i64, ptr %27, align 8, !alias.scope !439, !noalias !444, !noundef !4
   %30 = load i64, ptr %28, align 8, !alias.scope !439, !noalias !444, !noundef !4
   %31 = sub i64 %30, %29
-  %.not.i.us.i = icmp ult i64 %31, %20
+  %.not.i.us.i = icmp ugt i64 %20, %31
   br i1 %.not.i.us.i, label %32, label %33
 
 32:                                               ; preds = %.lr.ph.split.us.i
@@ -3030,7 +3030,7 @@ common.resume:                                    ; preds = %24, %14
   %37 = load i64, ptr %28, align 8, !alias.scope !439, !noalias !444, !noundef !4
   %38 = load i64, ptr %27, align 8, !alias.scope !439, !noalias !444, !noundef !4
   %39 = sub i64 %37, %38
-  %40 = icmp ult i64 %39, %20
+  %40 = icmp ugt i64 %20, %39
   br i1 %40, label %.split.us.i, label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h4361df63f577aee7E.llvm.101954639100057123.exit.us.i"
 
 "_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h4361df63f577aee7E.llvm.101954639100057123.exit.us.i": ; preds = %33

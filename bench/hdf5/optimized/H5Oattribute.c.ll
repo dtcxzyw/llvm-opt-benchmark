@@ -1112,7 +1112,7 @@ define i32 @H5O_attr_iterate_real(i64 noundef %0, ptr noundef %1, i32 noundef %2
   %.not53 = icmp eq i64 %4, 0
   %35 = getelementptr inbounds i8, ptr %9, i64 16
   %36 = load i64, ptr %35, align 8
-  %.not54 = icmp ugt i64 %36, %4
+  %.not54 = icmp ult i64 %4, %36
   %or.cond = select i1 %.not53, i1 true, i1 %.not54
   br i1 %or.cond, label %41, label %37
 
@@ -1171,7 +1171,7 @@ define i32 @H5O_attr_iterate_real(i64 noundef %0, ptr noundef %1, i32 noundef %2
 70:                                               ; preds = %63
   %.not51 = icmp eq i64 %4, 0
   %71 = load i64, ptr %10, align 8
-  %.not52 = icmp ugt i64 %71, %4
+  %.not52 = icmp ult i64 %4, %71
   %or.cond58 = select i1 %.not51, i1 true, i1 %.not52
   br i1 %or.cond58, label %76, label %72
 
@@ -2414,7 +2414,7 @@ define range(i32 -1, 1) i32 @H5O__attr_remove_by_idx(ptr noundef %0, i32 noundef
 
 43:                                               ; preds = %.thread
   %44 = load i64, ptr %6, align 8
-  %.not41 = icmp ugt i64 %44, %3
+  %.not41 = icmp ult i64 %3, %44
   br i1 %.not41, label %49, label %45
 
 45:                                               ; preds = %43

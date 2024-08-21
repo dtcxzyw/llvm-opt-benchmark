@@ -65,7 +65,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = load i8, ptr %aead, align 8
   %conv.i = zext i8 %1 to i64
-  %cmp.not.i = icmp eq i64 %conv.i, %key_len
+  %cmp.not.i = icmp eq i64 %key_len, %conv.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -109,7 +109,7 @@ define hidden i32 @EVP_AEAD_CTX_init_with_direction(ptr noundef %ctx, ptr nounde
 entry:
   %0 = load i8, ptr %aead, align 8
   %conv = zext i8 %0 to i64
-  %cmp.not = icmp eq i64 %conv, %key_len
+  %cmp.not = icmp eq i64 %key_len, %conv
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

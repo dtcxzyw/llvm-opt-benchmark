@@ -1723,7 +1723,7 @@ define internal fastcc void @check_publications_origin(ptr noundef %0, ptr nound
   %9 = alloca [1 x i32], align 4
   store i32 25, ptr %9, align 4
   %10 = icmp ne ptr %3, null
-  %or.cond = and i1 %10, %2
+  %or.cond = and i1 %2, %10
   br i1 %or.cond, label %11, label %104
 
 11:                                               ; preds = %7

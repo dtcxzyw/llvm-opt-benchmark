@@ -13,7 +13,7 @@ define ptr @Cudd_bddCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 136
   %8 = load i32, ptr %7, align 8
-  %.not = icmp sgt i32 %8, %3
+  %.not = icmp slt i32 %3, %8
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %6
@@ -132,7 +132,7 @@ define ptr @cuddBddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %42, i64 24
   %64 = load ptr, ptr %63, align 8
-  %.not101 = icmp eq ptr %42, %2
+  %.not101 = icmp eq ptr %2, %42
   br i1 %.not101, label %72, label %65
 
 65:                                               ; preds = %60
@@ -226,7 +226,7 @@ define ptr @Cudd_addCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 136
   %8 = load i32, ptr %7, align 8
-  %.not = icmp sgt i32 %8, %3
+  %.not = icmp slt i32 %3, %8
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %6
@@ -713,7 +713,7 @@ define internal fastcc ptr @cuddBddPermuteRecur(ptr noundef %0, ptr noundef %1, 
 
 15:                                               ; preds = %13
   %16 = ptrtoint ptr %14 to i64
-  %17 = icmp ne ptr %7, %2
+  %17 = icmp ne ptr %2, %7
   %18 = zext i1 %17 to i64
   %19 = xor i64 %16, %18
   %20 = inttoptr i64 %19 to ptr
@@ -799,7 +799,7 @@ define internal fastcc ptr @cuddBddPermuteRecur(ptr noundef %0, ptr noundef %1, 
   %71 = load i32, ptr %61, align 4
   %72 = add i32 %71, -1
   store i32 %72, ptr %61, align 4
-  %73 = icmp ne ptr %7, %2
+  %73 = icmp ne ptr %2, %7
   %74 = zext i1 %73 to i64
   %75 = xor i64 %58, %74
   %76 = inttoptr i64 %75 to ptr
@@ -856,7 +856,7 @@ define internal fastcc ptr @cuddBddVarMapRecur(ptr noundef %0, ptr noundef %1) u
 
 14:                                               ; preds = %12
   %15 = ptrtoint ptr %13 to i64
-  %16 = icmp ne ptr %6, %1
+  %16 = icmp ne ptr %1, %6
   %17 = zext i1 %16 to i64
   %18 = xor i64 %15, %17
   %19 = inttoptr i64 %18 to ptr
@@ -965,7 +965,7 @@ Abc_Clock.exit:                                   ; preds = %23, %26
   %83 = load i32, ptr %77, align 4
   %84 = add i32 %83, -1
   store i32 %84, ptr %77, align 4
-  %85 = icmp ne ptr %6, %1
+  %85 = icmp ne ptr %1, %6
   %86 = zext i1 %85 to i64
   %87 = xor i64 %74, %86
   %88 = inttoptr i64 %87 to ptr
@@ -1950,7 +1950,7 @@ declare ptr @Cudd_addXnor(ptr noundef, ptr noundef, ptr noundef) #1
 define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, %4
+  %9 = icmp eq ptr %4, %8
   br i1 %9, label %164, label %10
 
 10:                                               ; preds = %6
@@ -2356,7 +2356,7 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
 
 22:                                               ; preds = %20
   %23 = ptrtoint ptr %21 to i64
-  %24 = icmp ne ptr %8, %2
+  %24 = icmp ne ptr %2, %8
   %25 = zext i1 %24 to i64
   %26 = xor i64 %23, %25
   %27 = inttoptr i64 %26 to ptr
@@ -2438,7 +2438,7 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
   %74 = load i32, ptr %63, align 4
   %75 = add i32 %74, -1
   store i32 %75, ptr %63, align 4
-  %76 = icmp ne ptr %8, %2
+  %76 = icmp ne ptr %2, %8
   %77 = zext i1 %76 to i64
   %78 = xor i64 %60, %77
   %79 = inttoptr i64 %78 to ptr

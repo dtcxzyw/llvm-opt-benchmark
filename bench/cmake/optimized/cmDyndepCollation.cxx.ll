@@ -2320,7 +2320,7 @@ _ZNK24cmInstallExportGenerator21GetCxxModuleDirectoryB5cxx11Ev.exit.i: ; preds =
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !79
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !79
-  %.not81.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %604
+  %.not81.i = icmp eq ptr %604, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !79
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
@@ -6105,7 +6105,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.sroa.12.0.i12.i.i = phi ptr [ %.sroa.12.0.i.i.i, %175 ], [ %.024.lcssa36.i60.i.i.i, %._crit_edge.thread.i59.i.i.i ], [ %.024.lcssa36.i35.i.i.i, %._crit_edge.thread.i34.i.i.i ], [ %.024.lcssa36.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %109, %116 ], [ %.08.lcssa.i.i.i16.i, %154 ], [ %.024.lcssa37.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i.i.i.i ], [ %.024.lcssa37.i25.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i27.i.i.i ], [ %.024.lcssa37.i50.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i52.i.i.i ]
   %.sroa.083.0.i11.i.i = phi ptr [ %.sroa.083.0.i.i.i, %175 ], [ null, %._crit_edge.thread.i59.i.i.i ], [ null, %._crit_edge.thread.i34.i.i.i ], [ null, %._crit_edge.thread.i.i.i.i ], [ null, %116 ], [ null, %154 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i27.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i52.i.i.i ]
   %.not.i.i11.i.i = icmp ne ptr %.sroa.083.0.i11.i.i, null
-  %176 = icmp eq ptr %35, %.sroa.12.0.i12.i.i
+  %176 = icmp eq ptr %.sroa.12.0.i12.i.i, %35
   %or.cond.i.i.i.i = select i1 %.not.i.i11.i.i, i1 true, i1 %176
   br i1 %or.cond.i.i.i.i, label %184, label %177
 
@@ -6563,7 +6563,7 @@ select.unfold:                                    ; preds = %_ZNKSt4lessINSt7__c
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp ne ptr %1, null
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = icmp eq ptr %6, %2
+  %7 = icmp eq ptr %2, %6
   %or.cond = select i1 %.not, i1 true, i1 %7
   br i1 %or.cond, label %15, label %8
 
@@ -6964,7 +6964,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
 23:                                               ; preds = %20
   %.not.i.i = icmp ne ptr %21, null
   %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = icmp eq ptr %24, %22
+  %25 = icmp eq ptr %22, %24
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %25
   br i1 %or.cond.i.i, label %.thread, label %26
 
@@ -7027,7 +7027,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_16CxxModuleFileSetESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -7444,7 +7444,7 @@ common.resume:                                    ; preds = %15, %46
 32:                                               ; preds = %29
   %.not.i.i = icmp ne ptr %30, null
   %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = icmp eq ptr %33, %31
+  %34 = icmp eq ptr %31, %33
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %34
   br i1 %or.cond.i.i, label %.thread, label %35
 
@@ -7505,7 +7505,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3setIS5_St4lessIS5_ESaIS5_EEESt10_Select1stISD_ESA_SaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

@@ -1364,7 +1364,7 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
 96:                                               ; preds = %78
   %97 = getelementptr inbounds i8, ptr %0, i64 1240
   %98 = load i64, ptr %97, align 8
-  %99 = icmp ult i64 %98, %1
+  %99 = icmp ugt i64 %1, %98
   br i1 %99, label %100, label %119
 
 100:                                              ; preds = %96
@@ -1548,7 +1548,7 @@ XLogBeginRead.exit:                               ; preds = %52, %42
 
 68:                                               ; preds = %66
   %69 = load i64, ptr %64, align 8
-  %.not40 = icmp ult i64 %69, %1
+  %.not40 = icmp ugt i64 %1, %69
   br i1 %.not40, label %66, label %70, !llvm.loop !9
 
 70:                                               ; preds = %68
@@ -1628,7 +1628,7 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %0, i64 176
   %20 = load i32, ptr %19, align 8
-  %.not = icmp ult i32 %20, %2
+  %.not = icmp ugt i32 %2, %20
   br i1 %.not, label %21, label %70
 
 21:                                               ; preds = %18, %14, %3

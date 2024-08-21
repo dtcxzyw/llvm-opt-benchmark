@@ -1975,7 +1975,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i.i:           ; preds = %44, %41
   %100 = fmul float %94, %92
   %101 = load i32, ptr %45, align 8
   %102 = sub nsw i32 %101, %2
-  %103 = icmp sgt i32 %102, %2
+  %103 = icmp slt i32 %2, %102
   br i1 %103, label %.preheader.preheader.i.i, label %._crit_edge85.i.i
 
 .preheader.preheader.i.i:                         ; preds = %75
@@ -1995,7 +1995,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i.i:           ; preds = %44, %41
   %113 = phi i32 [ %.pre.i.i, %.preheader.preheader.i.i ], [ %175, %._crit_edge.i.i ]
   %indvars.iv90.i.i = phi i64 [ %74, %.preheader.preheader.i.i ], [ %indvars.iv.next91.i.i, %._crit_edge.i.i ]
   %114 = sub nsw i32 %113, %2
-  %115 = icmp sgt i32 %114, %2
+  %115 = icmp slt i32 %2, %114
   br i1 %115, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
@@ -2213,7 +2213,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i32.i:         ; preds = %187, %184
   %243 = fmul float %237, %235
   %244 = load i32, ptr %188, align 8
   %245 = sub nsw i32 %244, %2
-  %246 = icmp sgt i32 %245, %2
+  %246 = icmp slt i32 %2, %245
   br i1 %246, label %.preheader.preheader.i40.i, label %._crit_edge85.i38.i
 
 .preheader.preheader.i40.i:                       ; preds = %218
@@ -2233,7 +2233,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i32.i:         ; preds = %187, %184
   %256 = phi i32 [ %.pre.i41.i, %.preheader.preheader.i40.i ], [ %318, %._crit_edge.i44.i ]
   %indvars.iv90.i43.i = phi i64 [ %217, %.preheader.preheader.i40.i ], [ %indvars.iv.next91.i45.i, %._crit_edge.i44.i ]
   %257 = sub nsw i32 %256, %2
-  %258 = icmp sgt i32 %257, %2
+  %258 = icmp slt i32 %2, %257
   br i1 %258, label %.lr.ph.i46.i, label %._crit_edge.i44.i
 
 .lr.ph.i46.i:                                     ; preds = %.preheader.i42.i
@@ -2451,7 +2451,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i51.i:         ; preds = %330, %327
   %386 = fmul float %380, %378
   %387 = load i32, ptr %331, align 8
   %388 = sub nsw i32 %387, %2
-  %389 = icmp sgt i32 %388, %2
+  %389 = icmp slt i32 %2, %388
   br i1 %389, label %.preheader.preheader.i59.i, label %._crit_edge85.i57.i
 
 .preheader.preheader.i59.i:                       ; preds = %361
@@ -2471,7 +2471,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i51.i:         ; preds = %330, %327
   %399 = phi i32 [ %.pre.i60.i, %.preheader.preheader.i59.i ], [ %461, %._crit_edge.i63.i ]
   %indvars.iv90.i62.i = phi i64 [ %360, %.preheader.preheader.i59.i ], [ %indvars.iv.next91.i64.i, %._crit_edge.i63.i ]
   %400 = sub nsw i32 %399, %2
-  %401 = icmp sgt i32 %400, %2
+  %401 = icmp slt i32 %2, %400
   br i1 %401, label %.lr.ph.i65.i, label %._crit_edge.i63.i
 
 .lr.ph.i65.i:                                     ; preds = %.preheader.i61.i
@@ -2689,7 +2689,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i70.i:         ; preds = %473, %470
   %529 = fmul float %523, %521
   %530 = load i32, ptr %474, align 8
   %531 = sub nsw i32 %530, %2
-  %532 = icmp sgt i32 %531, %2
+  %532 = icmp slt i32 %2, %531
   br i1 %532, label %.preheader.preheader.i78.i, label %._crit_edge85.i76.i
 
 .preheader.preheader.i78.i:                       ; preds = %504
@@ -2709,7 +2709,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i70.i:         ; preds = %473, %470
   %542 = phi i32 [ %.pre.i79.i, %.preheader.preheader.i78.i ], [ %604, %._crit_edge.i82.i ]
   %indvars.iv90.i81.i = phi i64 [ %503, %.preheader.preheader.i78.i ], [ %indvars.iv.next91.i83.i, %._crit_edge.i82.i ]
   %543 = sub nsw i32 %542, %2
-  %544 = icmp sgt i32 %543, %2
+  %544 = icmp slt i32 %2, %543
   br i1 %544, label %.lr.ph.i84.i, label %._crit_edge.i82.i
 
 .lr.ph.i84.i:                                     ; preds = %.preheader.i80.i
@@ -2927,7 +2927,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i89.i:         ; preds = %616, %613
   %672 = fmul float %666, %664
   %673 = load i32, ptr %617, align 8
   %674 = sub nsw i32 %673, %2
-  %675 = icmp sgt i32 %674, %2
+  %675 = icmp slt i32 %2, %674
   br i1 %675, label %.preheader.preheader.i97.i, label %._crit_edge85.i95.i
 
 .preheader.preheader.i97.i:                       ; preds = %647
@@ -2947,7 +2947,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i89.i:         ; preds = %616, %613
   %685 = phi i32 [ %.pre.i98.i, %.preheader.preheader.i97.i ], [ %747, %._crit_edge.i101.i ]
   %indvars.iv90.i100.i = phi i64 [ %646, %.preheader.preheader.i97.i ], [ %indvars.iv.next91.i102.i, %._crit_edge.i101.i ]
   %686 = sub nsw i32 %685, %2
-  %687 = icmp sgt i32 %686, %2
+  %687 = icmp slt i32 %2, %686
   br i1 %687, label %.lr.ph.i103.i, label %._crit_edge.i101.i
 
 .lr.ph.i103.i:                                    ; preds = %.preheader.i99.i
@@ -3165,7 +3165,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i108.i:        ; preds = %759, %756
   %815 = fmul float %809, %807
   %816 = load i32, ptr %760, align 8
   %817 = sub nsw i32 %816, %2
-  %818 = icmp sgt i32 %817, %2
+  %818 = icmp slt i32 %2, %817
   br i1 %818, label %.preheader.preheader.i116.i, label %._crit_edge85.i114.i
 
 .preheader.preheader.i116.i:                      ; preds = %790
@@ -3185,7 +3185,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i108.i:        ; preds = %759, %756
   %828 = phi i32 [ %.pre.i117.i, %.preheader.preheader.i116.i ], [ %885, %._crit_edge.i120.i ]
   %indvars.iv90.i119.i = phi i64 [ %789, %.preheader.preheader.i116.i ], [ %indvars.iv.next91.i121.i, %._crit_edge.i120.i ]
   %829 = sub nsw i32 %828, %2
-  %830 = icmp sgt i32 %829, %2
+  %830 = icmp slt i32 %2, %829
   br i1 %830, label %.lr.ph.i122.i, label %._crit_edge.i120.i
 
 .lr.ph.i122.i:                                    ; preds = %.preheader.i118.i
@@ -3378,7 +3378,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i127.i:        ; preds = %897, %894
   %933 = call double @sin(double noundef %931) #20
   %934 = load i32, ptr %898, align 8
   %935 = sub nsw i32 %934, %2
-  %936 = icmp sgt i32 %935, %2
+  %936 = icmp slt i32 %2, %935
   br i1 %936, label %.preheader.lr.ph.i.i, label %._crit_edge85.i133.i
 
 .preheader.lr.ph.i.i:                             ; preds = %928
@@ -3422,7 +3422,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i127.i:        ; preds = %897, %894
   %970 = phi i32 [ %.pre.i135.i, %.preheader.lr.ph.i.i ], [ %1029, %._crit_edge.i138.i ]
   %indvars.iv90.i137.i = phi i64 [ %927, %.preheader.lr.ph.i.i ], [ %indvars.iv.next91.i139.i, %._crit_edge.i138.i ]
   %971 = sub nsw i32 %970, %2
-  %972 = icmp sgt i32 %971, %2
+  %972 = icmp slt i32 %2, %971
   br i1 %972, label %.lr.ph.i140.i, label %._crit_edge.i138.i
 
 .lr.ph.i140.i:                                    ; preds = %.preheader.i136.i
@@ -5178,7 +5178,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #20
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -5353,7 +5353,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_st
 
 select.unfold:                                    ; preds = %20, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %20 ]
-  %24 = icmp eq ptr %9, %.sroa.4.0.i.ph
+  %24 = icmp eq ptr %.sroa.4.0.i.ph, %9
   br i1 %24, label %.thread15, label %25
 
 25:                                               ; preds = %select.unfold
@@ -5589,7 +5589,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 96
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i27

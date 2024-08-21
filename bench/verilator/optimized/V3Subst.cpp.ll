@@ -3542,7 +3542,7 @@ _ZN12SubstVisitor9getEntrypEP9AstVarRef.exit._ZN13SubstVarEntry9substWordEP7AstN
 
 _ZNK13SubstVarEntry9wordNumOkEi.exit.i.i:         ; preds = %106, %102
   %111 = phi i32 [ %110, %106 ], [ 0, %102 ]
-  %112 = icmp sgt i32 %111, %39
+  %112 = icmp slt i32 %39, %111
   br i1 %112, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit.i, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread.i
 
 _ZNK13SubstVarEntry14getWordAssignpEi.exit.i:     ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.i.i
@@ -3575,7 +3575,7 @@ _ZN13SubstVarEntry9substWordEP7AstNodei.exit:     ; preds = %_ZNK13SubstVarEntry
 
 _ZNK13SubstVarEntry9wordNumOkEi.exit.i:           ; preds = %120, %119
   %125 = phi i32 [ %124, %120 ], [ 0, %119 ]
-  %126 = icmp sgt i32 %125, %39
+  %126 = icmp slt i32 %39, %125
   br i1 %126, label %127, label %_ZNK13SubstVarEntry11getWordStepEi.exit
 
 127:                                              ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.i
@@ -3979,7 +3979,7 @@ _ZNSt11_Deque_baseI13SubstVarEntrySaIS0_EE16_M_allocate_nodeEv.exit.i: ; preds =
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #18
-  %22 = icmp ugt ptr %.011.i, %13
+  %22 = icmp ult ptr %13, %.011.i
   br i1 %22, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseI13SubstVarEntrySaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
@@ -4508,55 +4508,43 @@ define linkonce_odr dso_local void @_ZN13SubstVarEntry17assignWordComplexEi(ptr 
 
 _ZNK13SubstVarEntry9wordNumOkEi.exit:             ; preds = %2
   %6 = icmp slt i32 %1, 0
-  br i1 %6, label %_ZNK13SubstVarEntry9wordNumOkEi.exit.i, label %23
+  br i1 %6, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit, label %18
 
 _ZNK13SubstVarEntry9wordNumOkEi.exit.thread:      ; preds = %2
   %7 = getelementptr inbounds i8, ptr %5, i64 152
   %8 = load i32, ptr %7, align 8
   %9 = add nsw i32 %8, 31
   %10 = sdiv i32 %9, 32
-  %11 = icmp sgt i32 %10, %1
-  br i1 %11, label %_ZNK13SubstVarEntry9wordNumOkEi.exit.i, label %23
+  %11 = icmp slt i32 %1, %10
+  br i1 %11, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit, label %18
 
-_ZNK13SubstVarEntry9wordNumOkEi.exit.i:           ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.thread, %_ZNK13SubstVarEntry9wordNumOkEi.exit
-  %12 = phi i32 [ 0, %_ZNK13SubstVarEntry9wordNumOkEi.exit ], [ %10, %_ZNK13SubstVarEntry9wordNumOkEi.exit.thread ]
-  %13 = icmp sgt i32 %12, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  br i1 %13, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit, label %_ZNK13SubstVarEntry9wordNumOkEi.exit.i._ZNK13SubstVarEntry14getWordAssignpEi.exit.thread_crit_edge
+_ZNK13SubstVarEntry14getWordAssignpEi.exit:       ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.thread, %_ZNK13SubstVarEntry9wordNumOkEi.exit
+  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = sext i32 %1 to i64
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds %class.SubstVarWord, ptr %14, i64 %13
+  %16 = load ptr, ptr %15, align 8
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, label %18
 
-_ZNK13SubstVarEntry9wordNumOkEi.exit.i._ZNK13SubstVarEntry14getWordAssignpEi.exit.thread_crit_edge: ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.i
-  %.pre = load ptr, ptr %14, align 8
-  %.pre6 = sext i32 %1 to i64
-  br label %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread
+_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread: ; preds = %_ZNK13SubstVarEntry14getWordAssignpEi.exit
+  %.phi.trans.insert7 = getelementptr inbounds %class.SubstVarWord, ptr %14, i64 %13, i32 3
+  %.pre8 = load i8, ptr %.phi.trans.insert7, align 1
+  %17 = trunc i8 %.pre8 to i1
+  br i1 %17, label %18, label %20
 
-_ZNK13SubstVarEntry14getWordAssignpEi.exit:       ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.i
-  %15 = sext i32 %1 to i64
-  %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %class.SubstVarWord, ptr %16, i64 %15
-  %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, label %23
+18:                                               ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.thread, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, %_ZNK13SubstVarEntry14getWordAssignpEi.exit, %_ZNK13SubstVarEntry9wordNumOkEi.exit
+  %19 = getelementptr inbounds i8, ptr %0, i64 29
+  store i8 1, ptr %19, align 1
+  %.phi.trans.insert9 = getelementptr inbounds i8, ptr %0, i64 32
+  %.pre10 = load ptr, ptr %.phi.trans.insert9, align 8
+  br label %20
 
-_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread: ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.i._ZNK13SubstVarEntry14getWordAssignpEi.exit.thread_crit_edge, %_ZNK13SubstVarEntry14getWordAssignpEi.exit
-  %.pre-phi = phi i64 [ %.pre6, %_ZNK13SubstVarEntry9wordNumOkEi.exit.i._ZNK13SubstVarEntry14getWordAssignpEi.exit.thread_crit_edge ], [ %15, %_ZNK13SubstVarEntry14getWordAssignpEi.exit ]
-  %19 = phi ptr [ %.pre, %_ZNK13SubstVarEntry9wordNumOkEi.exit.i._ZNK13SubstVarEntry14getWordAssignpEi.exit.thread_crit_edge ], [ %16, %_ZNK13SubstVarEntry14getWordAssignpEi.exit ]
-  %20 = getelementptr inbounds %class.SubstVarWord, ptr %19, i64 %.pre-phi, i32 3
-  %21 = load i8, ptr %20, align 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %25
-
-23:                                               ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.thread, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, %_ZNK13SubstVarEntry14getWordAssignpEi.exit, %_ZNK13SubstVarEntry9wordNumOkEi.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 29
-  store i8 1, ptr %24, align 1
-  %.phi.trans.insert7 = getelementptr inbounds i8, ptr %0, i64 32
-  %.pre8 = load ptr, ptr %.phi.trans.insert7, align 8
-  br label %25
-
-25:                                               ; preds = %23, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread
-  %26 = phi ptr [ %.pre8, %23 ], [ %19, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread ]
-  %27 = sext i32 %1 to i64
-  %28 = getelementptr inbounds %class.SubstVarWord, ptr %26, i64 %27, i32 3
-  store i8 1, ptr %28, align 1
+20:                                               ; preds = %18, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread
+  %21 = phi ptr [ %.pre10, %18 ], [ %14, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread ]
+  %22 = sext i32 %1 to i64
+  %23 = getelementptr inbounds %class.SubstVarWord, ptr %21, i64 %22, i32 3
+  store i8 1, ptr %23, align 1
   ret void
 }
 
@@ -4570,79 +4558,67 @@ define linkonce_odr dso_local void @_ZN13SubstVarEntry10assignWordEiiP13AstNodeA
 
 _ZNK13SubstVarEntry9wordNumOkEi.exit:             ; preds = %4
   %8 = icmp slt i32 %2, 0
-  br i1 %8, label %_ZNK13SubstVarEntry9wordNumOkEi.exit.i, label %25
+  br i1 %8, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit, label %20
 
 _ZNK13SubstVarEntry9wordNumOkEi.exit.thread:      ; preds = %4
   %9 = getelementptr inbounds i8, ptr %7, i64 152
   %10 = load i32, ptr %9, align 8
   %11 = add nsw i32 %10, 31
   %12 = sdiv i32 %11, 32
-  %13 = icmp sgt i32 %12, %2
-  br i1 %13, label %_ZNK13SubstVarEntry9wordNumOkEi.exit.i, label %25
+  %13 = icmp slt i32 %2, %12
+  br i1 %13, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit, label %20
 
-_ZNK13SubstVarEntry9wordNumOkEi.exit.i:           ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.thread, %_ZNK13SubstVarEntry9wordNumOkEi.exit
-  %14 = phi i32 [ 0, %_ZNK13SubstVarEntry9wordNumOkEi.exit ], [ %12, %_ZNK13SubstVarEntry9wordNumOkEi.exit.thread ]
-  %15 = icmp sgt i32 %14, %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  br i1 %15, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit, label %_ZNK13SubstVarEntry9wordNumOkEi.exit.i._ZNK13SubstVarEntry14getWordAssignpEi.exit.thread_crit_edge
+_ZNK13SubstVarEntry14getWordAssignpEi.exit:       ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.thread, %_ZNK13SubstVarEntry9wordNumOkEi.exit
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = sext i32 %2 to i64
+  %16 = load ptr, ptr %14, align 8
+  %17 = getelementptr inbounds %class.SubstVarWord, ptr %16, i64 %15
+  %18 = load ptr, ptr %17, align 8
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, label %20
 
-_ZNK13SubstVarEntry9wordNumOkEi.exit.i._ZNK13SubstVarEntry14getWordAssignpEi.exit.thread_crit_edge: ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.i
-  %.pre = load ptr, ptr %16, align 8
-  %.pre12 = sext i32 %2 to i64
-  br label %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread
+_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread: ; preds = %_ZNK13SubstVarEntry14getWordAssignpEi.exit
+  %.phi.trans.insert13 = getelementptr inbounds %class.SubstVarWord, ptr %16, i64 %15, i32 3
+  %.pre14 = load i8, ptr %.phi.trans.insert13, align 1
+  %19 = trunc i8 %.pre14 to i1
+  br i1 %19, label %20, label %22
 
-_ZNK13SubstVarEntry14getWordAssignpEi.exit:       ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.i
-  %17 = sext i32 %2 to i64
-  %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds %class.SubstVarWord, ptr %18, i64 %17
-  %20 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, label %25
+20:                                               ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.thread, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, %_ZNK13SubstVarEntry14getWordAssignpEi.exit, %_ZNK13SubstVarEntry9wordNumOkEi.exit
+  %21 = getelementptr inbounds i8, ptr %0, i64 29
+  store i8 1, ptr %21, align 1
+  br label %22
 
-_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread: ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.i._ZNK13SubstVarEntry14getWordAssignpEi.exit.thread_crit_edge, %_ZNK13SubstVarEntry14getWordAssignpEi.exit
-  %.pre-phi = phi i64 [ %.pre12, %_ZNK13SubstVarEntry9wordNumOkEi.exit.i._ZNK13SubstVarEntry14getWordAssignpEi.exit.thread_crit_edge ], [ %17, %_ZNK13SubstVarEntry14getWordAssignpEi.exit ]
-  %21 = phi ptr [ %.pre, %_ZNK13SubstVarEntry9wordNumOkEi.exit.i._ZNK13SubstVarEntry14getWordAssignpEi.exit.thread_crit_edge ], [ %18, %_ZNK13SubstVarEntry14getWordAssignpEi.exit ]
-  %22 = getelementptr inbounds %class.SubstVarWord, ptr %21, i64 %.pre-phi, i32 3
-  %23 = load i8, ptr %22, align 1
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %25, label %27
+22:                                               ; preds = %20, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 1, ptr %23, align 8
+  %24 = load ptr, ptr %6, align 8
+  %.not.i.i.i8 = icmp eq ptr %24, null
+  br i1 %.not.i.i.i8, label %_ZNK13SubstVarEntry9wordNumOkEi.exit9, label %25
 
-25:                                               ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit.thread, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread, %_ZNK13SubstVarEntry14getWordAssignpEi.exit, %_ZNK13SubstVarEntry9wordNumOkEi.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 29
-  store i8 1, ptr %26, align 1
-  br label %27
-
-27:                                               ; preds = %25, %_ZNK13SubstVarEntry14getWordAssignpEi.exit.thread
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 1, ptr %28, align 8
-  %29 = load ptr, ptr %6, align 8
-  %.not.i.i.i8 = icmp eq ptr %29, null
-  br i1 %.not.i.i.i8, label %_ZNK13SubstVarEntry9wordNumOkEi.exit9, label %30
-
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 152
-  %32 = load i32, ptr %31, align 8
-  %33 = add nsw i32 %32, 31
-  %34 = sdiv i32 %33, 32
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %24, i64 152
+  %27 = load i32, ptr %26, align 8
+  %28 = add nsw i32 %27, 31
+  %29 = sdiv i32 %28, 32
   br label %_ZNK13SubstVarEntry9wordNumOkEi.exit9
 
-_ZNK13SubstVarEntry9wordNumOkEi.exit9:            ; preds = %27, %30
-  %35 = phi i32 [ %34, %30 ], [ 0, %27 ]
-  %36 = icmp sgt i32 %35, %2
-  br i1 %36, label %37, label %44
+_ZNK13SubstVarEntry9wordNumOkEi.exit9:            ; preds = %22, %25
+  %30 = phi i32 [ %29, %25 ], [ 0, %22 ]
+  %31 = icmp slt i32 %2, %30
+  br i1 %31, label %32, label %39
 
-37:                                               ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit9
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
-  %39 = sext i32 %2 to i64
-  %40 = load ptr, ptr %38, align 8
-  %41 = getelementptr inbounds %class.SubstVarWord, ptr %40, i64 %39
-  store ptr %3, ptr %41, align 8
-  %42 = load ptr, ptr %38, align 8
-  %43 = getelementptr inbounds %class.SubstVarWord, ptr %42, i64 %39, i32 1
-  store i32 %1, ptr %43, align 8
-  br label %44
+32:                                               ; preds = %_ZNK13SubstVarEntry9wordNumOkEi.exit9
+  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = sext i32 %2 to i64
+  %35 = load ptr, ptr %33, align 8
+  %36 = getelementptr inbounds %class.SubstVarWord, ptr %35, i64 %34
+  store ptr %3, ptr %36, align 8
+  %37 = load ptr, ptr %33, align 8
+  %38 = getelementptr inbounds %class.SubstVarWord, ptr %37, i64 %34, i32 1
+  store i32 %1, ptr %38, align 8
+  br label %39
 
-44:                                               ; preds = %37, %_ZNK13SubstVarEntry9wordNumOkEi.exit9
+39:                                               ; preds = %32, %_ZNK13SubstVarEntry9wordNumOkEi.exit9
   ret void
 }
 

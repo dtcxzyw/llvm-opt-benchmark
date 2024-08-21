@@ -2069,7 +2069,7 @@ if.end:                                           ; preds = %if.end25.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %obj_str.i)
   %call1 = call i32 @EVP_CIPHER_CTX_block_size(ptr noundef nonnull %ctx) #12
   %conv = zext i32 %call1 to i64
-  %add = add i64 %conv, %in_len
+  %add = add i64 %in_len, %conv
   %cmp = icmp ult i64 %add, %in_len
   br i1 %cmp, label %if.then3, label %if.end4
 

@@ -4612,7 +4612,7 @@ _ZSt10_ConstructIN2cv3ccm9OperationEJRKS2_EEvPT_DpOT0_.exit: ; preds = %18, %.no
   %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %23, %.body.i.i ]
   %34 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %35 = tail call ptr @__cxa_begin_catch(ptr %34) #15
-  %.not4.i.i = icmp eq ptr %.019, %2
+  %.not4.i.i = icmp eq ptr %2, %.019
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN2cv3ccm9OperationEEvT_S4_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.body, %.lr.ph.i.i
@@ -4860,7 +4860,7 @@ common.resume:                                    ; preds = %15, %38
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -4971,7 +4971,7 @@ _ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(200) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %28
 
 6:                                                ; preds = %3

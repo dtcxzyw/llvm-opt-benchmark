@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @Sfm_ObjRef_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %3, align 8
-  %.not = icmp sgt i32 %.val, %1
+  %.not = icmp slt i32 %1, %.val
   br i1 %.not, label %.critedge, label %4
 
 4:                                                ; preds = %2
@@ -98,7 +98,7 @@ define i32 @Sfm_ObjRef(ptr nocapture noundef readonly %0, i32 noundef %1) local_
 define i32 @Sfm_ObjDeref_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %3, align 8
-  %.not = icmp sgt i32 %.val, %1
+  %.not = icmp slt i32 %1, %.val
   br i1 %.not, label %.critedge, label %4
 
 4:                                                ; preds = %2
@@ -180,7 +180,7 @@ define i32 @Sfm_ObjDeref(ptr nocapture noundef readonly %0, i32 noundef %1) loca
 define i32 @Sfm_ObjMffcSize(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %3, align 8
-  %.not = icmp sgt i32 %.val, %1
+  %.not = icmp slt i32 %1, %.val
   br i1 %.not, label %Sfm_ObjRef.exit, label %4
 
 4:                                                ; preds = %2
@@ -247,7 +247,7 @@ Sfm_ObjRef.exit:                                  ; preds = %.lr.ph.i14, %8, %Sf
 define void @Sfm_NtkDfs_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %7, align 8
-  %.not = icmp sgt i32 %.val, %1
+  %.not = icmp slt i32 %1, %.val
   br i1 %.not, label %151, label %8
 
 8:                                                ; preds = %6
@@ -763,7 +763,7 @@ define void @Sfm_NtkComputeRoots_rec(ptr nocapture noundef readonly %0, i32 noun
   store i32 %.val28, ptr %9, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 240
   %13 = load i32, ptr %12, align 8
-  %.not25 = icmp eq i32 %13, %1
+  %.not25 = icmp eq i32 %1, %13
   br i1 %.not25, label %46, label %14
 
 14:                                               ; preds = %11

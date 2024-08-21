@@ -228,14 +228,14 @@ get_canonical_class.exit93:                       ; preds = %.lr.ph127, %61
   %92 = zext i16 %91 to i64
   %93 = getelementptr [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %92
   %94 = load i32, ptr %93, align 4
-  %95 = icmp eq i32 %94, %.076121
+  %95 = icmp eq i32 %.076121, %94
   br i1 %95, label %96, label %103
 
 96:                                               ; preds = %89
   %97 = add nuw nsw i64 %92, 1
   %98 = getelementptr [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %97
   %99 = load i32, ptr %98, align 4
-  %100 = icmp eq i32 %99, %59
+  %100 = icmp eq i32 %59, %99
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %96
@@ -323,7 +323,7 @@ define internal fastcc i32 @get_decomposed_size(i32 noundef %0, i1 noundef zeroe
 16:                                               ; preds = %10
   %17 = and i32 %13, 32
   %.not = icmp eq i32 %17, 0
-  %or.cond25 = or i1 %.not, %1
+  %or.cond25 = or i1 %1, %.not
   br i1 %or.cond25, label %18, label %.loopexit
 
 18:                                               ; preds = %16
@@ -426,7 +426,7 @@ define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %
 36:                                               ; preds = %30
   %37 = and i32 %33, 32
   %.not = icmp eq i32 %37, 0
-  %or.cond43 = or i1 %.not, %1
+  %or.cond43 = or i1 %1, %.not
   br i1 %or.cond43, label %41, label %38
 
 38:                                               ; preds = %36, %30, %27

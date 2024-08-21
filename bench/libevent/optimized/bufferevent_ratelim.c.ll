@@ -58,7 +58,7 @@ entry:
   %last_updated = getelementptr inbounds i8, ptr %bucket, i64 16
   %0 = load i32, ptr %last_updated, align 8
   %sub = sub i32 %current_tick, %0
-  %cmp = icmp eq i32 %0, %current_tick
+  %cmp = icmp eq i32 %current_tick, %0
   %cmp1 = icmp slt i32 %sub, 0
   %or.cond = or i1 %cmp, %cmp1
   br i1 %or.cond, label %return, label %if.end
@@ -1546,7 +1546,7 @@ if.end:                                           ; preds = %entry
   store i64 %share, ptr %configured_min_share, align 8
   %rate_limit_cfg = getelementptr inbounds i8, ptr %g, i64 32
   %0 = load i64, ptr %rate_limit_cfg, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %0, i64 %share)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %share, i64 %0)
   %write_rate = getelementptr inbounds i8, ptr %g, i64 48
   %1 = load i64, ptr %write_rate, align 8
   %share.addr.1 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %1)
@@ -1639,7 +1639,7 @@ if.end40:                                         ; preds = %if.then37, %if.end3
 
 if.end.i:                                         ; preds = %if.end40
   %11 = load i64, ptr %rate_limit_cfg, align 8
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %10)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %10, i64 %11)
   %write_rate.i = getelementptr inbounds i8, ptr %g, i64 48
   %12 = load i64, ptr %write_rate.i, align 8
   %share.addr.1.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %12)

@@ -1314,12 +1314,12 @@ define range(i32 -1, 1) i32 @cgroup_p_task_addto(i32 %0, ptr nocapture readnone 
   store i32 %3, ptr %5, align 4
   store ptr null, ptr %7, align 8
   %8 = tail call i32 @getpid() #15
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   br i1 %9, label %80, label %10
 
 10:                                               ; preds = %4
   %11 = load i32, ptr @task_special_id, align 4
-  %12 = icmp eq i32 %11, %3
+  %12 = icmp eq i32 %3, %11
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %14 = and i64 %13, 36028797018963968
   %.not10 = icmp eq i64 %14, 0

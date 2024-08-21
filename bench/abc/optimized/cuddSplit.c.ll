@@ -19,13 +19,13 @@ define ptr @Cudd_SplitSet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   br i1 %13, label %.split93.us, label %14
 
 14:                                               ; preds = %5
-  %15 = icmp eq ptr %12, %1
+  %15 = icmp eq ptr %1, %12
   br i1 %15, label %.split93.us, label %16
 
 16:                                               ; preds = %14
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %3) #7
   %ldexp.fr = freeze double %ldexp
-  %17 = fcmp olt double %ldexp.fr, %4
+  %17 = fcmp ogt double %4, %ldexp.fr
   br i1 %17, label %.split93.us, label %.preheader82
 
 .preheader82:                                     ; preds = %16
@@ -35,7 +35,7 @@ define ptr @Cudd_SplitSet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %21 = icmp sgt i32 %7, 0
   %22 = icmp sgt i32 %3, 0
   %23 = getelementptr inbounds i8, ptr %0, i64 328
-  %24 = icmp eq ptr %.fr98, %1
+  %24 = icmp eq ptr %1, %.fr98
   br i1 %24, label %.preheader82.split.us, label %.preheader82.split.preheader
 
 .preheader82.split.preheader:                     ; preds = %.preheader82
@@ -45,7 +45,7 @@ define ptr @Cudd_SplitSet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   br label %.preheader82.split
 
 .preheader82.split.us:                            ; preds = %.preheader82
-  %27 = fcmp oeq double %ldexp.fr, %4
+  %27 = fcmp oeq double %4, %ldexp.fr
   br i1 %27, label %.preheader81.us.us, label %.preheader82.split.us.split.preheader
 
 .preheader82.split.us.split.preheader:            ; preds = %.preheader82.split.us
@@ -170,7 +170,7 @@ define ptr @Cudd_SplitSet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 
 73:                                               ; preds = %._crit_edge
   %74 = tail call fastcc double @bddAnnotateMintermCount(ptr noundef %0, ptr noundef %1, double noundef %ldexp.fr, ptr noundef nonnull %66)
-  %75 = fcmp oeq double %74, %4
+  %75 = fcmp oeq double %4, %74
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %73
@@ -366,7 +366,7 @@ define internal fastcc double @bddAnnotateMintermCount(ptr noundef %0, ptr nound
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   %. = select i1 %14, double %2, double 0.000000e+00
   br label %48
 
@@ -385,7 +385,7 @@ define internal fastcc double @bddAnnotateMintermCount(ptr noundef %0, ptr nound
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %8, i64 24
   %24 = load ptr, ptr %23, align 8
-  %.not41 = icmp eq ptr %8, %1
+  %.not41 = icmp eq ptr %1, %8
   %25 = ptrtoint ptr %22 to i64
   %26 = xor i64 %25, 1
   %27 = inttoptr i64 %26 to ptr
@@ -935,7 +935,7 @@ define internal fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef %1,
   %7 = load ptr, ptr %6, align 8
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %2) #7
   %8 = fmul double %ldexp, 5.000000e-01
-  %9 = fcmp oeq double %ldexp, %3
+  %9 = fcmp oeq double %3, %ldexp
   br i1 %9, label %67, label %10
 
 10:                                               ; preds = %5
@@ -946,7 +946,7 @@ define internal fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef %1,
   br i1 %14, label %67, label %15
 
 15:                                               ; preds = %10
-  %16 = fcmp oeq double %8, %3
+  %16 = fcmp oeq double %3, %8
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %15
@@ -956,7 +956,7 @@ define internal fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef %1,
   br label %67
 
 21:                                               ; preds = %15
-  %22 = fcmp olt double %8, %3
+  %22 = fcmp ogt double %3, %8
   %23 = add nsw i32 %2, -1
   br i1 %22, label %24, label %40
 

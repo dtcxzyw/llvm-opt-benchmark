@@ -327,7 +327,7 @@ define noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(do
   %3 = getelementptr inbounds double, ptr getelementptr inbounds (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load double, ptr %3, align 8, !noalias !38, !noundef !4
   %4 = uitofp nneg i64 %.sroa.2.0.i.i.i to double
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fadd double %5, -1.000000e+00
   %7 = fdiv double %.val.i.i.i, %6
   %8 = fadd double %.sroa.07.0.i.i.i, %7
@@ -395,7 +395,7 @@ define noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(doubl
   %3 = getelementptr inbounds double, ptr getelementptr inbounds (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load double, ptr %3, align 8, !noalias !52, !noundef !4
   %4 = uitofp nneg i64 %.sroa.2.0.i.i.i to double
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fadd double %5, -1.000000e+00
   %7 = fdiv double %.val.i.i.i, %6
   %8 = fadd double %.sroa.07.0.i.i.i, %7
@@ -469,7 +469,7 @@ define noundef double @_ZN6statrs8function5gamma8gamma_ui17hf42ba329a4b24b6dE(do
   %11 = getelementptr inbounds double, ptr getelementptr inbounds (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i.i
   %.val.i.i.i.i.i = load double, ptr %11, align 8, !noalias !69, !noundef !4
   %12 = uitofp nneg i64 %.sroa.2.0.i.i.i.i.i to double
-  %13 = fadd double %12, %0
+  %13 = fadd double %0, %12
   %14 = fadd double %13, -1.000000e+00
   %15 = fdiv double %.val.i.i.i.i.i, %14
   %16 = fadd double %.sroa.07.0.i.i.i.i.i, %15
@@ -556,7 +556,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_ui17h8b4593dbcffafd5dE(ptr
   %11 = getelementptr inbounds double, ptr getelementptr inbounds (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i
   %.val.i.i.i.i = load double, ptr %11, align 8, !noalias !89, !noundef !4
   %12 = uitofp nneg i64 %.sroa.2.0.i.i.i.i to double
-  %13 = fadd double %12, %1
+  %13 = fadd double %1, %12
   %14 = fadd double %13, -1.000000e+00
   %15 = fdiv double %.val.i.i.i.i, %14
   %16 = fadd double %.sroa.07.0.i.i.i.i, %15
@@ -642,7 +642,7 @@ define noundef double @_ZN6statrs8function5gamma8gamma_li17hf72f675100a6cdb5E(do
   %11 = getelementptr inbounds double, ptr getelementptr inbounds (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i.i
   %.val.i.i.i.i.i = load double, ptr %11, align 8, !noalias !106, !noundef !4
   %12 = uitofp nneg i64 %.sroa.2.0.i.i.i.i.i to double
-  %13 = fadd double %12, %0
+  %13 = fadd double %0, %12
   %14 = fadd double %13, -1.000000e+00
   %15 = fdiv double %.val.i.i.i.i.i, %14
   %16 = fadd double %.sroa.07.0.i.i.i.i.i, %15
@@ -729,7 +729,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_li17h016f072646675049E(ptr
   %11 = getelementptr inbounds double, ptr getelementptr inbounds (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i
   %.val.i.i.i.i = load double, ptr %11, align 8, !noalias !126, !noundef !4
   %12 = uitofp nneg i64 %.sroa.2.0.i.i.i.i to double
-  %13 = fadd double %12, %1
+  %13 = fadd double %1, %12
   %14 = fadd double %13, -1.000000e+00
   %15 = fdiv double %.val.i.i.i.i, %14
   %16 = fadd double %.sroa.07.0.i.i.i.i, %15
@@ -893,7 +893,7 @@ _ZN6statrs8function5gamma8gamma_lr17hde27b862f6dd8958E.exit: ; preds = %15
 
 23:                                               ; preds = %12
   %24 = tail call noundef double @llvm.log.f64(double %2)
-  %25 = fmul double %24, %1
+  %25 = fmul double %1, %24
   %26 = fsub double %25, %2
   %27 = fcmp olt double %1, 5.000000e-01
   br i1 %27, label %.preheader.i, label %.preheader41.i
@@ -905,7 +905,7 @@ _ZN6statrs8function5gamma8gamma_lr17hde27b862f6dd8958E.exit: ; preds = %15
   %28 = getelementptr inbounds double, ptr getelementptr inbounds (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i
   %.val.i.i.i.i = load double, ptr %28, align 8, !noalias !152, !noundef !4
   %29 = uitofp nneg i64 %.sroa.2.0.i.i.i.i to double
-  %30 = fadd double %29, %1
+  %30 = fadd double %1, %29
   %31 = fadd double %30, -1.000000e+00
   %32 = fdiv double %.val.i.i.i.i, %31
   %33 = fadd double %.sroa.07.0.i.i.i.i, %32
@@ -964,10 +964,10 @@ _ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E.exit: ; preds = %"_ZN100_
 
 68:                                               ; preds = %_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E.exit
   %69 = fsub double 1.000000e+00, %1
-  %70 = fadd double %69, %2
+  %70 = fadd double %2, %69
   %71 = fadd double %70, 1.000000e+00
   %72 = fadd double %2, 1.000000e+00
-  %73 = fmul double %71, %2
+  %73 = fmul double %2, %71
   %74 = fdiv double %72, %73
   br label %.outer
 
@@ -1140,7 +1140,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(ptr
 
 18:                                               ; preds = %13
   %19 = tail call noundef double @llvm.log.f64(double %2)
-  %20 = fmul double %19, %1
+  %20 = fmul double %1, %19
   %21 = fsub double %20, %2
   %22 = fcmp olt double %1, 5.000000e-01
   br i1 %22, label %.preheader.i, label %.preheader41.i
@@ -1152,7 +1152,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(ptr
   %23 = getelementptr inbounds double, ptr getelementptr inbounds (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i
   %.val.i.i.i.i = load double, ptr %23, align 8, !noalias !172, !noundef !4
   %24 = uitofp nneg i64 %.sroa.2.0.i.i.i.i to double
-  %25 = fadd double %24, %1
+  %25 = fadd double %1, %24
   %26 = fadd double %25, -1.000000e+00
   %27 = fdiv double %.val.i.i.i.i, %26
   %28 = fadd double %.sroa.07.0.i.i.i.i, %27
@@ -1228,10 +1228,10 @@ _ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E.exit: ; preds = %"_ZN100_
 
 71:                                               ; preds = %65
   %72 = fsub double 1.000000e+00, %1
-  %73 = fadd double %72, %2
+  %73 = fadd double %2, %72
   %74 = fadd double %73, 1.000000e+00
   %75 = fadd double %2, 1.000000e+00
-  %76 = fmul double %74, %2
+  %76 = fmul double %2, %74
   %77 = fdiv double %75, %76
   br label %.outer
 

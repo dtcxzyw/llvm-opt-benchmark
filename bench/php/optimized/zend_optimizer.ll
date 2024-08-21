@@ -2242,7 +2242,7 @@ define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr nocapture 
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds %struct._zend_op, ptr %7, i64 %10
-  %12 = icmp ugt ptr %11, %1
+  %12 = icmp ult ptr %1, %11
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5, %103

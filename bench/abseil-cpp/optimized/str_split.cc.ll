@@ -64,7 +64,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 0) #10
-  %cmp.i = icmp ugt i64 %text.coerce0, %pos
+  %cmp.i = icmp ult i64 %pos, %text.coerce0
   br i1 %cmp.i, label %if.then.i, label %if.then6
 
 if.then.i:                                        ; preds = %if.then
@@ -96,7 +96,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end
-  %1 = icmp ne i64 %sub.ptr.sub.i, %text.coerce0
+  %1 = icmp ne i64 %text.coerce0, %sub.ptr.sub.i
   %.sroa.speculated.i = zext i1 %1 to i64
   %add.ptr.i7 = getelementptr inbounds i8, ptr %text.coerce1, i64 %sub.ptr.sub.i
   br label %return
@@ -123,7 +123,7 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end10
   %add.ptr6.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %text.coerce0
-  %cmp4.not.i.i.i.i = icmp ugt i64 %text.coerce0, %pos
+  %cmp4.not.i.i.i.i = icmp ult i64 %pos, %text.coerce0
   br i1 %cmp4.not.i.i.i.i, label %if.end6.i.i.i.i, label %return
 
 if.end6.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
@@ -195,7 +195,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 ; Function Attrs: mustprogress uwtable
 define dso_local { i64, ptr } @_ZNK4absl6ByChar4FindESt17basic_string_viewIcSt11char_traitsIcEEm(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %this, i64 %text.coerce0, ptr %text.coerce1, i64 noundef %pos) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cmp.i = icmp ugt i64 %text.coerce0, %pos
+  %cmp.i = icmp ult i64 %pos, %text.coerce0
   br i1 %cmp.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %entry
@@ -223,7 +223,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end
-  %1 = icmp ne i64 %sub.ptr.sub.i, %text.coerce0
+  %1 = icmp ne i64 %text.coerce0, %sub.ptr.sub.i
   %.sroa.speculated.i = zext i1 %1 to i64
   br label %return
 
@@ -285,7 +285,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 if.end.i:                                         ; preds = %entry
   %add.ptr6.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %text.coerce0
-  %cmp5.i.i.i.i = icmp ugt i64 %text.coerce0, %pos
+  %cmp5.i.i.i.i = icmp ult i64 %pos, %text.coerce0
   br i1 %cmp5.i.i.i.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %if.end.i, %for.inc.i.i.i.i

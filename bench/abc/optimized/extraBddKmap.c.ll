@@ -626,7 +626,7 @@ define void @Extra_PrintKMapRelation(ptr nocapture noundef %0, ptr noundef %1, p
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, %2
+  %18 = icmp eq ptr %2, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %15
@@ -634,7 +634,7 @@ define void @Extra_PrintKMapRelation(ptr nocapture noundef %0, ptr noundef %1, p
   br label %109
 
 21:                                               ; preds = %15
-  %22 = icmp eq ptr %17, %3
+  %22 = icmp eq ptr %3, %17
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
@@ -711,7 +711,7 @@ define void @Extra_PrintKMapRelation(ptr nocapture noundef %0, ptr noundef %1, p
 
 .lr.ph331:                                        ; preds = %.preheader321
   %43 = xor i32 %.0333, -1
-  %44 = add nsw i32 %43, %5
+  %44 = add nsw i32 %5, %43
   %45 = shl nuw i32 1, %44
   br label %47
 
@@ -802,7 +802,7 @@ define void @Extra_PrintKMapRelation(ptr nocapture noundef %0, ptr noundef %1, p
 .lr.ph343:                                        ; preds = %.preheader319, %.lr.ph343
   %.1218342 = phi i32 [ %68, %.lr.ph343 ], [ 0, %.preheader319 ]
   %64 = xor i32 %.1218342, -1
-  %65 = add nsw i32 %64, %4
+  %65 = add nsw i32 %4, %64
   %66 = shl nuw i32 1, %65
   %67 = and i32 %66, %63
   %.not295 = icmp eq i32 %67, 0

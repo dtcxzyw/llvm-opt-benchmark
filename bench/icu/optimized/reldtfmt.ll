@@ -1611,7 +1611,7 @@ land.lhs.true60:                                  ; preds = %for.body54
   %shr.i.i.i.i = sext i16 %36 to i32
   %37 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %37, i32 %shr.i.i.i.i
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i.i.i, i32 %.fr)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %.fr, i32 %cond.i.i.i)
   %sub.i = sub nsw i32 %cond.i.i.i, %spec.select.i
   %call2.i60 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %modifiedText, ptr noundef nonnull %34, i32 noundef 0, i32 noundef %35, i32 noundef %spec.select.i, i32 noundef %sub.i)
           to label %invoke.cont70 unwind label %lpad69.split

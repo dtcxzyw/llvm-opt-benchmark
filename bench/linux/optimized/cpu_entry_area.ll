@@ -73,7 +73,7 @@ define dso_local void @cea_set_pte(ptr noundef %0, i64 noundef %1, i64 %2) local
   %6 = icmp eq i64 %5, 0
   %7 = and i1 %4, %6
   %8 = sext i1 %7 to i64
-  %9 = xor i64 %8, %1
+  %9 = xor i64 %1, %8
   %10 = and i64 %9, 4503599627366400
   %11 = load i64, ptr @__supported_pte_mask, align 8
   %12 = select i1 %6, i64 -1, i64 %11

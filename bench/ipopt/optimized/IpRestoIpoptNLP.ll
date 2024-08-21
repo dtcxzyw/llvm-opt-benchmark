@@ -9217,7 +9217,7 @@ _ZN5Ipopt8SmartPtrINS_12SumSymMatrixEEC2EPS1_.exit: ; preds = %.noexc, %54
   %63 = load double, ptr %62, align 8
   %64 = call double @pow(double noundef %6, double noundef %63) #19
   %65 = fmul double %61, %64
-  %66 = fmul double %65, %3
+  %66 = fmul double %3, %65
   %67 = getelementptr inbounds i8, ptr %1, i64 264
   %68 = load ptr, ptr %67, align 8
   invoke void @_ZN5Ipopt12SumSymMatrix7SetTermEidRKNS_9SymMatrixE(ptr noundef nonnull align 8 dereferenceable(136) %53, i32 noundef 1, double noundef %66, ptr noundef nonnull align 8 dereferenceable(80) %68)

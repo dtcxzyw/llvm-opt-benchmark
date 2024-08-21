@@ -169,7 +169,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end5
   br i1 %cmp5.not.i, label %asn1_type_get_int_oct.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i
-  %call.max_len.i = tail call i32 @llvm.smin.i32(i32 %call.i, i32 %max_len)
+  %call.max_len.i = tail call i32 @llvm.smin.i32(i32 %max_len, i32 %call.i)
   %call8.i = tail call ptr @ASN1_STRING_get0_data(ptr noundef %2) #4
   %conv9.i = sext i32 %call.max_len.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data, ptr align 1 %call8.i, i64 %conv9.i, i1 false)
@@ -257,7 +257,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end5
   br i1 %cmp5.not.i, label %asn1_type_get_int_oct.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i
-  %call.max_len.i = tail call i32 @llvm.smin.i32(i32 %call.i, i32 %max_len)
+  %call.max_len.i = tail call i32 @llvm.smin.i32(i32 %max_len, i32 %call.i)
   %call8.i = tail call ptr @ASN1_STRING_get0_data(ptr noundef %2) #4
   %conv9.i = sext i32 %call.max_len.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data, ptr align 1 %call8.i, i64 %conv9.i, i1 false)

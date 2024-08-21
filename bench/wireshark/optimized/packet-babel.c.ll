@@ -891,7 +891,7 @@ define internal fastcc i32 @network_prefix(i32 noundef %0, i32 noundef %1, i32 n
 19:                                               ; preds = %16
   %20 = icmp ugt i32 %.055, %2
   %21 = sub nuw nsw i32 %.055, %2
-  %22 = icmp ugt i32 %21, %6
+  %22 = icmp ult i32 %6, %21
   %or.cond62 = select i1 %20, i1 %22, i1 false
   br i1 %or.cond62, label %64, label %23
 
@@ -928,7 +928,7 @@ define internal fastcc i32 @network_prefix(i32 noundef %0, i32 noundef %1, i32 n
 38:                                               ; preds = %36
   %39 = icmp ugt i32 %.055, %2
   %40 = sub nuw nsw i32 %.055, %2
-  %41 = icmp ugt i32 %40, %6
+  %41 = icmp ult i32 %6, %40
   %or.cond64 = select i1 %39, i1 %41, i1 false
   br i1 %or.cond64, label %64, label %42
 
@@ -958,7 +958,7 @@ define internal fastcc i32 @network_prefix(i32 noundef %0, i32 noundef %1, i32 n
 53:                                               ; preds = %15
   %54 = icmp ugt i32 %.055, 8
   %55 = add nsw i32 %.055, -8
-  %56 = icmp ugt i32 %55, %6
+  %56 = icmp ult i32 %6, %55
   %or.cond66 = select i1 %54, i1 %56, i1 false
   br i1 %or.cond66, label %64, label %57
 

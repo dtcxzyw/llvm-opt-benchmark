@@ -552,7 +552,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i
 for.body.i23:                                     ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i, %for.inc.i
   %__begin1.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %18, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i ]
   %21 = load ptr, ptr %__begin1.06.i, align 8
-  %cmp3.i = icmp eq ptr %21, %17
+  %cmp3.i = icmp eq ptr %17, %21
   br i1 %cmp3.i, label %if.end23, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i23
@@ -714,7 +714,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i
 for.body.i53:                                     ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i49, %for.inc.i61
   %__begin1.06.i54 = phi ptr [ %incdec.ptr.i62, %for.inc.i61 ], [ %54, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit.i49 ]
   %57 = load ptr, ptr %__begin1.06.i54, align 8
-  %cmp3.i55 = icmp eq ptr %57, %52
+  %cmp3.i55 = icmp eq ptr %52, %57
   br i1 %cmp3.i55, label %return, label %lor.lhs.false.i56
 
 lor.lhs.false.i56:                                ; preds = %for.body.i53
@@ -1379,7 +1379,7 @@ if.then9:                                         ; preds = %land.lhs.true.i31
 invoke.cont14:                                    ; preds = %if.then9
   %m_true.i = getelementptr inbounds i8, ptr %43, i64 856
   %47 = load ptr, ptr %m_true.i, align 8
-  %cmp.i34 = icmp eq ptr %47, %call15
+  %cmp.i34 = icmp eq ptr %call15, %47
   br i1 %cmp.i34, label %if.end20, label %if.then18
 
 if.then18:                                        ; preds = %invoke.cont14
@@ -2475,7 +2475,7 @@ if.then9:                                         ; preds = %land.lhs.true.i40
 invoke.cont11:                                    ; preds = %if.then9
   %m_true.i = getelementptr inbounds i8, ptr %45, i64 856
   %49 = load ptr, ptr %m_true.i, align 8
-  %cmp.i43 = icmp eq ptr %49, %call12
+  %cmp.i43 = icmp eq ptr %call12, %49
   br i1 %cmp.i43, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %invoke.cont11
@@ -3531,7 +3531,7 @@ invoke.cont54:                                    ; preds = %invoke.cont47
   %39 = load ptr, ptr %this, align 8
   %m_true.i = getelementptr inbounds i8, ptr %39, i64 856
   %40 = load ptr, ptr %m_true.i, align 8
-  %cmp.i27 = icmp eq ptr %40, %call55
+  %cmp.i27 = icmp eq ptr %call55, %40
   br i1 %cmp.i27, label %cleanup, label %if.end60
 
 lpad49:                                           ; preds = %if.end60, %invoke.cont47
@@ -3548,7 +3548,7 @@ invoke.cont61:                                    ; preds = %if.end60
   %42 = load ptr, ptr %this, align 8
   %m_false.i = getelementptr inbounds i8, ptr %42, i64 864
   %43 = load ptr, ptr %m_false.i, align 8
-  %cmp.i28 = icmp eq ptr %43, %call55
+  %cmp.i28 = icmp eq ptr %call55, %43
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont54, %invoke.cont61
@@ -5044,7 +5044,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %for.inc
   %__begin1.06 = phi ptr [ %incdec.ptr, %for.inc ], [ %0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
   %3 = load ptr, ptr %__begin1.06, align 8
-  %cmp3 = icmp eq ptr %3, %a
+  %cmp3 = icmp eq ptr %a, %3
   br i1 %cmp3, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
@@ -5854,7 +5854,7 @@ invoke.cont29:                                    ; preds = %invoke.cont22
   %25 = load ptr, ptr %this, align 8
   %m_false.i = getelementptr inbounds i8, ptr %25, i64 864
   %26 = load ptr, ptr %m_false.i, align 8
-  %cmp.i = icmp ne ptr %26, %call30
+  %cmp.i = icmp ne ptr %call30, %26
   br i1 %cmp.i, label %if.then34, label %cleanup
 
 if.then34:                                        ; preds = %invoke.cont29
@@ -6386,7 +6386,7 @@ _ZN6vectorIP4exprLb0EjE4backEv.exit:              ; preds = %_ZNK6vectorIP4exprL
   %11 = zext i32 %10 to i64
   %arrayidx.i1.i = getelementptr inbounds ptr, ptr %8, i64 %11
   %12 = load ptr, ptr %arrayidx.i1.i, align 8
-  %cmp = icmp eq ptr %12, %a
+  %cmp = icmp eq ptr %a, %12
   br i1 %cmp, label %_ZN6vectorIP4exprLb0EjE5resetEv.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN6vectorIP4exprLb0EjE4backEv.exit
@@ -6751,7 +6751,7 @@ entry:
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp7 = icmp ugt i32 %1, %offset
+  %cmp7 = icmp ult i32 %offset, %1
   br i1 %cmp7, label %land.rhs.lr.ph, label %for.end
 
 land.rhs.lr.ph:                                   ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
@@ -6872,7 +6872,7 @@ entry:
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp7 = icmp ugt i32 %1, %offset
+  %cmp7 = icmp ult i32 %offset, %1
   br i1 %cmp7, label %land.rhs.lr.ph, label %for.end
 
 land.rhs.lr.ph:                                   ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit

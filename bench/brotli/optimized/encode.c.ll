@@ -1711,7 +1711,7 @@ if.then.i71.i:                                    ; preds = %if.end20.i.i
   %arrayidx.i75.i = getelementptr inbounds i8, ptr %166, i64 %conv22.i.i
   %narrow.i = sub nuw i32 %164, %and.i.i181
   %sub.i76.i = zext i32 %narrow.i to i64
-  %cond.i.i80.i = tail call i64 @llvm.umin.i64(i64 %sub.i76.i, i64 %cond.i)
+  %cond.i.i80.i = tail call i64 @llvm.umin.i64(i64 %cond.i, i64 %sub.i76.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i75.i, ptr readonly align 1 %136, i64 %cond.i.i80.i, i1 false)
   %.pre = load i32, ptr %ringbuffer_1.i, align 8
   br label %RingBufferWriteTail.exit.i
@@ -1733,7 +1733,7 @@ if.else.i.i189:                                   ; preds = %RingBufferWriteTail
   %169 = load i32, ptr %total_size_.i.i178, align 4
   %conv35.i.i = zext i32 %169 to i64
   %sub36.i.i = sub nsw i64 %conv35.i.i, %conv22.i.i
-  %cond.i.i.i190 = tail call i64 @llvm.umin.i64(i64 %sub36.i.i, i64 %cond.i)
+  %cond.i.i.i190 = tail call i64 @llvm.umin.i64(i64 %cond.i, i64 %sub36.i.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx33.i.i, ptr readonly align 1 %136, i64 %cond.i.i.i190, i1 false)
   %170 = load ptr, ptr %buffer_.i34.i, align 8
   %171 = load i32, ptr %ringbuffer_1.i, align 8
@@ -4565,7 +4565,7 @@ if.end.i1368:                                     ; preds = %WrapPosition.exit.i
 if.end.i.i:                                       ; preds = %if.end.i1368
   %shr.i130.i = lshr i64 %conv303, 8
   %add.i131.i = add nuw nsw i64 %shr.i130.i, 2
-  %cmp1.i.i1369 = icmp ugt i64 %add.i131.i, %296
+  %cmp1.i.i1369 = icmp ult i64 %296, %add.i131.i
   br i1 %cmp1.i.i1369, label %if.then2.i.i, label %if.end3.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
@@ -5221,7 +5221,7 @@ entry:
   %narrow.not = or i1 %cmp.i149, %cmp
   %cmp4.i = icmp slt i32 %lgwin, 10
   %cond.i150 = select i1 %narrow.not, i32 24, i32 30
-  %spec.select232 = call i32 @llvm.umin.i32(i32 %cond.i150, i32 %lgwin)
+  %spec.select232 = call i32 @llvm.umin.i32(i32 %lgwin, i32 %cond.i150)
   %0 = select i1 %cmp4.i, i32 10, i32 %spec.select232
   %1 = load i32, ptr %lgblock.i, align 4
   %switch = icmp slt i32 %quality, 2
@@ -5352,7 +5352,7 @@ if.then:                                          ; preds = %ChooseHasher.exit
   %cmp4.not = icmp eq i32 %quality, 1
   %sh_prom = zext nneg i32 %0 to i64
   %shl = shl nuw nsw i64 1, %sh_prom
-  %cond.i146 = call i64 @llvm.umin.i64(i64 %shl, i64 %input_size)
+  %cond.i146 = call i64 @llvm.umin.i64(i64 %input_size, i64 %shl)
   %cond.i184 = select i1 %cmp4.not, i64 131072, i64 32768
   %invariant.umin.i = call i64 @llvm.umin.i64(i64 %cond.i184, i64 %cond.i146)
   br label %while.cond.i
@@ -5387,7 +5387,7 @@ if.else33:                                        ; preds = %ChooseHasher.exit.t
   %lgblock.i.0212225228 = phi i32 [ %lgblock.i.0213, %ChooseHasher.exit.thread ], [ %lgblock.i.0212, %ChooseHasher.exit ]
   %sh_prom35 = zext nneg i32 %lgblock.i.0212225228 to i64
   %shl36 = shl nuw nsw i64 1, %sh_prom35
-  %cmp38 = icmp ugt i64 %shl36, %input_size
+  %cmp38 = icmp ult i64 %input_size, %shl36
   %7 = call i32 @llvm.umax.i32(i32 %0, i32 %lgblock.i.0212225228)
   %shl42 = shl nuw i32 2, %7
   %conv43 = zext i32 %shl42 to i64
@@ -5397,8 +5397,8 @@ if.else33:                                        ; preds = %ChooseHasher.exit.t
   %cond.i.i195 = add nuw nsw i32 %8, 1
   %sh_prom.i = zext nneg i32 %cond.i.i195 to i64
   %shl.i = shl nuw nsw i64 1, %sh_prom.i
-  %cond.i132 = call i64 @llvm.umin.i64(i64 %shl.i, i64 %input_size)
-  %cond.i125 = call i64 @llvm.umin.i64(i64 %shl36, i64 %input_size)
+  %cond.i132 = call i64 @llvm.umin.i64(i64 %input_size, i64 %shl.i)
+  %cond.i125 = call i64 @llvm.umin.i64(i64 %input_size, i64 %shl36)
   %mul55 = shl nuw nsw i64 %cond.i132, 1
   %mul56 = mul nuw nsw i64 %cond.i125, 6
   %add57 = add nuw nsw i64 %mul55, %mul56
@@ -5484,7 +5484,7 @@ sw.bb11.i:                                        ; preds = %if.else33
 land.lhs.true.i366:                               ; preds = %if.else33
   %sh_prom.i360 = zext nneg i32 %0 to i64
   %shl.i361 = shl nuw nsw i64 1, %sh_prom.i360
-  %spec.select = call i64 @llvm.umin.i64(i64 %shl.i361, i64 %input_size)
+  %spec.select = call i64 @llvm.umin.i64(i64 %input_size, i64 %shl.i361)
   %mul.i364 = shl nuw nsw i64 %spec.select, 3
   br label %HasherSize.exit
 
@@ -6248,7 +6248,7 @@ entry:
   %tobool.not = icmp eq i32 %one_shot, 0
   %.pre = load i64, ptr %self, align 8
   %shr = lshr i64 %.pre, 6
-  %cmp.not = icmp ult i64 %shr, %input_size
+  %cmp.not = icmp ugt i64 %input_size, %shr
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.not
   br i1 %or.cond, label %if.else, label %for.cond.preheader
 
@@ -6291,7 +6291,7 @@ entry:
   %tobool.not = icmp eq i32 %one_shot, 0
   %.pre = load i64, ptr %self, align 8
   %shr = lshr i64 %.pre, 6
-  %cmp.not = icmp ult i64 %shr, %input_size
+  %cmp.not = icmp ugt i64 %input_size, %shr
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.not
   br i1 %or.cond, label %if.else, label %for.cond.preheader
 
@@ -6831,7 +6831,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
   %tobool.not.i = icmp eq i32 %one_shot, 0
   %shr.i = lshr i64 %.pre.i, 6
-  %cmp.not.i = icmp ult i64 %shr.i, %input_size
+  %cmp.not.i = icmp ugt i64 %input_size, %shr.i
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i
   br i1 %or.cond.i, label %if.else.i, label %for.cond.preheader.i
 

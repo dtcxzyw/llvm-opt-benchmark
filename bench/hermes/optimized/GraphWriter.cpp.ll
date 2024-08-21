@@ -1377,7 +1377,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %Name.sroa.3.0.copyload
+  %cmp.i = icmp ugt i64 %Name.sroa.3.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i14, label %if.end.i
 
 if.then.i14:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -1656,7 +1656,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit56:               ; preds = %if.then.i.i54, %if.
   %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %Filename.coerce1
+  %cmp.i = icmp ugt i64 %Filename.coerce1, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit56

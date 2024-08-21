@@ -720,7 +720,7 @@ define internal fastcc void @reindex_one_database(ptr noundef %0, i32 noundef %1
 
 38:                                               ; preds = %36, %35
   %.1 = phi i32 [ %smax, %36 ], [ %.0, %35 ]
-  %39 = tail call i32 @llvm.smin.i32(i32 %.1, i32 %7)
+  %39 = tail call i32 @llvm.smin.i32(i32 %7, i32 %.1)
   %40 = tail call ptr @ParallelSlotsSetup(i32 noundef %39, ptr noundef %0, ptr noundef %3, i1 noundef zeroext %4, ptr noundef null) #10
   tail call void @ParallelSlotsAdoptConn(ptr noundef %40, ptr noundef %12) #10
   %41 = load ptr, ptr %.068, align 8

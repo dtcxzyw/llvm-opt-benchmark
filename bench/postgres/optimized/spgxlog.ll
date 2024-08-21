@@ -2033,7 +2033,7 @@ define internal fastcc void @addOrReplaceTuple(ptr noundef %0, ptr noundef %1, i
   %9 = lshr i32 %8, 2
   %10 = trunc i32 %9 to i16
   %.0.i = select i1 %6, i16 0, i16 %10
-  %.not = icmp ult i16 %.0.i, %3
+  %.not = icmp ugt i16 %3, %.0.i
   br i1 %.not, label %32, label %11
 
 11:                                               ; preds = %4

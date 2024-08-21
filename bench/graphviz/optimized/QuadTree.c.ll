@@ -132,7 +132,7 @@ define internal fastcc void @QuadTree_get_supernodes_internal(ptr noundef readon
   %.091 = phi ptr [ %.089, %.lr.ph93 ], [ %.0, %63 ]
   %.val = load i32, ptr %4, align 4
   %19 = load i32, ptr %5, align 4
-  %.not.i = icmp sgt i32 %19, %.val
+  %.not.i = icmp slt i32 %.val, %19
   br i1 %.not.i, label %check_or_realloc_arrays.exit, label %20
 
 20:                                               ; preds = %18
@@ -221,7 +221,7 @@ check_or_realloc_arrays.exit:                     ; preds = %18, %20
   %70 = tail call double @point_distance(ptr noundef %69, ptr noundef %2, i32 noundef %15) #18
   %71 = getelementptr inbounds i8, ptr %0, i64 32
   %72 = load double, ptr %71, align 8
-  %73 = fmul double %70, %1
+  %73 = fmul double %1, %70
   %74 = fcmp olt double %72, %73
   br i1 %74, label %76, label %.preheader
 
@@ -237,7 +237,7 @@ check_or_realloc_arrays.exit:                     ; preds = %18, %20
 76:                                               ; preds = %67
   %.val85 = load i32, ptr %4, align 4
   %77 = load i32, ptr %5, align 4
-  %.not.i86 = icmp sgt i32 %77, %.val85
+  %.not.i86 = icmp slt i32 %.val85, %77
   br i1 %.not.i86, label %check_or_realloc_arrays.exit87, label %78
 
 78:                                               ; preds = %76
@@ -385,7 +385,7 @@ define internal fastcc void @QuadTree_repulsive_force_interact(ptr noundef %0, p
   %25 = getelementptr inbounds i8, ptr %1, i64 32
   %26 = load double, ptr %25, align 8
   %27 = fadd double %24, %26
-  %28 = fmul double %22, %4
+  %28 = fmul double %4, %22
   %29 = fcmp olt double %27, %28
   br i1 %29, label %30, label %82
 
@@ -431,7 +431,7 @@ get_or_alloc_force_qt.exit217:                    ; preds = %get_or_alloc_force_
 .lr.ph256:                                        ; preds = %get_or_alloc_force_qt.exit217
   %50 = fcmp oeq double %5, -1.000000e+00
   %51 = fmul double %35, %43
-  %52 = fmul double %51, %6
+  %52 = fmul double %6, %51
   %53 = fsub double 1.000000e+00, %5
   %54 = fmul double %22, %22
   %wide.trip.count317 = zext nneg i32 %13 to i64
@@ -557,7 +557,7 @@ get_or_assign_node_force.exit222.us:              ; preds = %109, %.lr.ph249.spl
   store double %116, ptr %86, align 8
   %117 = tail call double @distance_cropped(ptr noundef %2, i32 noundef %13, i32 noundef %95, i32 noundef %106) #18
   %118 = fmul double %93, %104
-  %119 = fmul double %118, %6
+  %119 = fmul double %6, %118
   %120 = fmul double %117, %117
   br i1 %88, label %.lr.ph245.split.us.us, label %.lr.ph245.split.us253
 
@@ -1403,13 +1403,13 @@ node_data_new.exit:                               ; preds = %.lr.ph.i, %gv_alloc
   br label %221
 
 39:                                               ; preds = %5
-  %40 = icmp sgt i32 %9, %4
+  %40 = icmp slt i32 %4, %9
   br i1 %40, label %41, label %184
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   %43 = load double, ptr %42, align 8
-  %44 = fadd double %43, %2
+  %44 = fadd double %2, %43
   store double %44, ptr %42, align 8
   %45 = icmp sgt i32 %7, 0
   br i1 %45, label %.lr.ph169, label %._crit_edge170
@@ -1700,7 +1700,7 @@ QuadTree_new_in_quadrant.exit157:                 ; preds = %.lr.ph.i150, %QuadT
   store i32 %185, ptr %0, align 8
   %186 = getelementptr inbounds i8, ptr %0, i64 8
   %187 = load double, ptr %186, align 8
-  %188 = fadd double %187, %2
+  %188 = fadd double %2, %187
   store double %188, ptr %186, align 8
   %189 = icmp sgt i32 %7, 0
   br i1 %189, label %.lr.ph, label %._crit_edge

@@ -1136,7 +1136,7 @@ _ZNK14TravelSalesman6energyEv.exit74:             ; preds = %139, %_ZN14TravelSa
   br i1 %exitcond.not, label %199, label %83, !llvm.loop !10
 
 199:                                              ; preds = %197
-  %200 = fmul double %.04579, %3
+  %200 = fmul double %3, %.04579
   %201 = fcmp ogt double %200, %2
   br i1 %201, label %.preheader, label %._crit_edge, !llvm.loop !11
 

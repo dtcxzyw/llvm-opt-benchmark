@@ -467,7 +467,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h0c4
           to label %.noexc14 unwind label %.loopexit
 
 36:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %32, %2
+  %.not.i.i.i = icmp eq i64 %2, %32
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %36, %40
@@ -530,7 +530,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %40,
   %54 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !110, !noalias !115, !noundef !4
   %55 = load i64, ptr %7, align 8, !alias.scope !117, !noalias !115, !noundef !4
   %56 = sub i64 %55, %54
-  %57 = icmp ult i64 %56, %53
+  %57 = icmp ugt i64 %53, %56
   br i1 %57, label %58, label %72
 
 58:                                               ; preds = %.split.us.i.i
@@ -553,7 +553,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %40,
   %64 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !120, !noalias !125, !noundef !4
   %65 = load i64, ptr %7, align 8, !alias.scope !127, !noalias !125, !noundef !4
   %66 = sub i64 %65, %64
-  %67 = icmp ult i64 %66, %63
+  %67 = icmp ugt i64 %63, %66
   br i1 %67, label %68, label %79
 
 68:                                               ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17hfb62750e07e92abaE.exit"
@@ -633,7 +633,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %40,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @_ZN8bitflags6traits5Flags10difference17h4575be19e806a43fE.llvm.14099891335049010224(i8 noundef %0, i8 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = xor i8 %1, -1
-  %4 = and i8 %3, %0
+  %4 = and i8 %0, %3
   ret i8 %4
 }
 

@@ -75306,7 +75306,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp30.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then4
-  %add.i.i.i = add nsw i64 %conv.i.i, %__n
+  %add.i.i.i = add nsw i64 %__n, %conv.i.i
   %4 = trunc i64 %add.i.i.i to i32
   %conv4.i.i.i = and i32 %4, 63
   %div.i.i.i = sdiv i64 %add.i.i.i, 64
@@ -75361,7 +75361,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i:      ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !1721
 
 _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i, %if.then4
-  %add.i.i.i58 = add nsw i64 %conv3.i.i.i.i.i.i, %__n
+  %add.i.i.i58 = add nsw i64 %__n, %conv3.i.i.i.i.i.i
   %div.i.i.i59 = sdiv i64 %add.i.i.i58, 64
   %add.ptr.i.i.i60 = getelementptr inbounds i64, ptr %__position.coerce0, i64 %div.i.i.i59
   %9 = and i64 %add.i.i.i58, -9223372036854775745
@@ -75461,7 +75461,7 @@ _ZSt14__fill_bvectorPmjjb.exit58.i.i.i:           ; preds = %if.else.i52.i.i.i, 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %_ZSt14__fill_bvectorPmjjb.exit58.i.i.i, %if.else.i.i.i, %_ZSt14__fill_bvectorPmjjb.exit46.i.i.i, %if.end.i.i.i
   %17 = load i32, ptr %_M_offset.i.i.i, align 8, !tbaa !598
   %conv.i.i67 = zext i32 %17 to i64
-  %add.i.i68 = add nsw i64 %conv.i.i67, %__n
+  %add.i.i68 = add nsw i64 %__n, %conv.i.i67
   %div.i.i = sdiv i64 %add.i.i68, 64
   %18 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !596
   %add.ptr.i.i = getelementptr inbounds i64, ptr %18, i64 %div.i.i
@@ -75558,7 +75558,7 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %__result.sroa.5.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
   %__result.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
   %conv.i.i.i92 = zext i32 %__result.sroa.5.0.lcssa.i.i.i.i.i.i to i64
-  %add.i.i.i93 = add nsw i64 %conv.i.i.i92, %__n
+  %add.i.i.i93 = add nsw i64 %__n, %conv.i.i.i92
   %div.i.i.i94 = sdiv i64 %add.i.i.i93, 64
   %add.ptr.i.i.i95 = getelementptr inbounds i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, i64 %div.i.i.i94
   %27 = and i64 %add.i.i.i93, -9223372036854775745

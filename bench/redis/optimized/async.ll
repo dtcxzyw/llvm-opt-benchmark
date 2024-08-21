@@ -1579,7 +1579,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end.i.i83
 while.body.us.i.i:                                ; preds = %while.body.lr.ph.i.i, %if.end13.us.i.i
   %he.015.us.i.i = phi ptr [ %he.0.us.i.i, %if.end13.us.i.i ], [ %he.013.i.i, %while.body.lr.ph.i.i ]
   %68 = load ptr, ptr %he.015.us.i.i, align 8
-  %cmp10.us.i.i = icmp eq ptr %68, %call28.i
+  %cmp10.us.i.i = icmp eq ptr %call28.i, %68
   br i1 %cmp10.us.i.i, label %if.then36.i, label %if.end13.us.i.i
 
 if.end13.us.i.i:                                  ; preds = %while.body.us.i.i
@@ -1605,7 +1605,7 @@ cond.true.i.i:                                    ; preds = %while.body.i.i
 
 cond.false.i.i:                                   ; preds = %while.body.i.i
   %73 = load ptr, ptr %he.015.i.i, align 8
-  %cmp10.i.i = icmp eq ptr %73, %call28.i
+  %cmp10.i.i = icmp eq ptr %call28.i, %73
   br i1 %cmp10.i.i, label %if.then36.i, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
@@ -1698,12 +1698,12 @@ while.body.lr.ph.i41.i:                           ; preds = %if.end.i34.i
 
 while.body.lr.ph.split.us.i.i:                    ; preds = %while.body.lr.ph.i41.i
   %89 = load ptr, ptr %de.032.i.i, align 8
-  %cmp10.us37.i.i = icmp eq ptr %89, %sname.0.i
+  %cmp10.us37.i.i = icmp eq ptr %sname.0.i, %89
   br i1 %cmp10.us37.i.i, label %if.else.i.i, label %if.end36.us.i.i
 
 while.body.us.i55.i:                              ; preds = %if.end36.us.i.i
   %90 = load ptr, ptr %de.0.us.i.i, align 8
-  %cmp10.us.i56.i = icmp eq ptr %90, %sname.0.i
+  %cmp10.us.i56.i = icmp eq ptr %sname.0.i, %90
   br i1 %cmp10.us.i56.i, label %if.then14.i.i, label %if.end36.us.i.i
 
 if.end36.us.i.i:                                  ; preds = %while.body.lr.ph.split.us.i.i, %while.body.us.i55.i
@@ -1731,7 +1731,7 @@ cond.true.i46.i:                                  ; preds = %while.body.i43.i
 
 cond.false.i52.i:                                 ; preds = %while.body.i43.i
   %95 = load ptr, ptr %de.035.i.i, align 8
-  %cmp10.i53.i = icmp eq ptr %95, %sname.0.i
+  %cmp10.i53.i = icmp eq ptr %sname.0.i, %95
   br i1 %cmp10.i53.i, label %if.then12.i.i, label %if.end36.i.i
 
 if.then12.i.i:                                    ; preds = %cond.false.i52.i, %cond.true.i46.i
@@ -3086,7 +3086,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
 while.body.us.i:                                  ; preds = %while.body.lr.ph.i, %if.end13.us.i
   %he.015.us.i = phi ptr [ %he.0.us.i, %if.end13.us.i ], [ %he.013.i, %while.body.lr.ph.i ]
   %17 = load ptr, ptr %he.015.us.i, align 8
-  %cmp10.us.i = icmp eq ptr %17, %call22
+  %cmp10.us.i = icmp eq ptr %call22, %17
   br i1 %cmp10.us.i, label %if.then35, label %if.end13.us.i
 
 if.end13.us.i:                                    ; preds = %while.body.us.i
@@ -3112,7 +3112,7 @@ cond.true.i:                                      ; preds = %while.body.i
 
 cond.false.i:                                     ; preds = %while.body.i
   %22 = load ptr, ptr %he.015.i, align 8
-  %cmp10.i = icmp eq ptr %22, %call22
+  %cmp10.i = icmp eq ptr %call22, %22
   br i1 %cmp10.i, label %if.then35, label %if.end13.i
 
 if.end13.i:                                       ; preds = %cond.false.i, %cond.true.i
@@ -3349,7 +3349,7 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.end.i.i.i
 while.body.us.i.i.i:                              ; preds = %while.body.lr.ph.i.i.i, %if.end14.us.i.i.i
   %he.017.us.i.i.i = phi ptr [ %he.0.us.i.i.i, %if.end14.us.i.i.i ], [ %he.015.i.i.i, %while.body.lr.ph.i.i.i ]
   %75 = load ptr, ptr %he.017.us.i.i.i, align 8
-  %cmp11.us.i.i.i = icmp eq ptr %75, %call22
+  %cmp11.us.i.i.i = icmp eq ptr %call22, %75
   br i1 %cmp11.us.i.i.i, label %if.end.i64, label %if.end14.us.i.i.i
 
 if.end14.us.i.i.i:                                ; preds = %while.body.us.i.i.i
@@ -3375,7 +3375,7 @@ cond.true.i.i.i:                                  ; preds = %while.body.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %while.body.i.i.i
   %80 = load ptr, ptr %he.017.i.i.i, align 8
-  %cmp11.i.i.i = icmp eq ptr %80, %call22
+  %cmp11.i.i.i = icmp eq ptr %call22, %80
   br i1 %cmp11.i.i.i, label %if.end.i64, label %if.end14.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %cond.false.i.i.i, %cond.true.i.i.i
@@ -3461,7 +3461,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end.i16.i
 while.body.us.i.i:                                ; preds = %while.body.lr.ph.i.i, %if.end13.us.i.i
   %he.015.us.i.i = phi ptr [ %he.0.us.i.i, %if.end13.us.i.i ], [ %he.013.i.i, %while.body.lr.ph.i.i ]
   %101 = load ptr, ptr %he.015.us.i.i, align 8
-  %cmp10.us.i.i = icmp eq ptr %101, %call22
+  %cmp10.us.i.i = icmp eq ptr %call22, %101
   br i1 %cmp10.us.i.i, label %if.end5.i65, label %if.end13.us.i.i
 
 if.end13.us.i.i:                                  ; preds = %while.body.us.i.i
@@ -3491,7 +3491,7 @@ cond.true.i.if.end5.loopexit32_crit_edge.i:       ; preds = %cond.true.i.i
 
 cond.false.i.i:                                   ; preds = %while.body.i.i
   %106 = load ptr, ptr %he.015.i.i, align 8
-  %cmp10.i.i = icmp eq ptr %106, %call22
+  %cmp10.i.i = icmp eq ptr %call22, %106
   br i1 %cmp10.i.i, label %if.end5.i65, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
@@ -3624,7 +3624,7 @@ while.body.lr.ph.i97:                             ; preds = %if.end.i87
 while.body.us.i112:                               ; preds = %while.body.lr.ph.i97, %if.end13.us.i115
   %he.015.us.i113 = phi ptr [ %he.0.us.i117, %if.end13.us.i115 ], [ %he.013.i95, %while.body.lr.ph.i97 ]
   %127 = load ptr, ptr %he.015.us.i113, align 8
-  %cmp10.us.i114 = icmp eq ptr %127, %call69
+  %cmp10.us.i114 = icmp eq ptr %call69, %127
   br i1 %cmp10.us.i114, label %if.then77, label %if.end13.us.i115
 
 if.end13.us.i115:                                 ; preds = %while.body.us.i112
@@ -3650,7 +3650,7 @@ cond.true.i102:                                   ; preds = %while.body.i98
 
 cond.false.i110:                                  ; preds = %while.body.i98
   %132 = load ptr, ptr %he.015.i99, align 8
-  %cmp10.i111 = icmp eq ptr %132, %call69
+  %cmp10.i111 = icmp eq ptr %call69, %132
   br i1 %cmp10.i111, label %if.then77, label %if.end13.i106
 
 if.end13.i106:                                    ; preds = %cond.false.i110, %cond.true.i102
@@ -4039,13 +4039,13 @@ __redisAsyncCopyError.exit:                       ; preds = %if.then
 if.end7:                                          ; preds = %if.then, %entry
   %3 = phi ptr [ %call.i, %if.then ], [ %0, %entry ]
   %4 = load i64, ptr %3, align 8
-  %cmp11.not = icmp eq i64 %4, %tv.coerce0
+  %cmp11.not = icmp eq i64 %tv.coerce0, %4
   br i1 %cmp11.not, label %lor.lhs.false, label %if.then16
 
 lor.lhs.false:                                    ; preds = %if.end7
   %tv_usec14 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %tv_usec14, align 8
-  %cmp15.not = icmp eq i64 %5, %tv.coerce1
+  %cmp15.not = icmp eq i64 %tv.coerce1, %5
   br i1 %cmp15.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %lor.lhs.false, %if.end7

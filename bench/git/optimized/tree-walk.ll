@@ -444,7 +444,7 @@ entry:
   %pathlen1 = getelementptr inbounds i8, ptr %info, i64 40
   %0 = load i64, ptr %pathlen1, align 8
   %sub.i = xor i64 %0, -1
-  %cmp.i = icmp ult i64 %sub.i, %namelen
+  %cmp.i = icmp ugt i64 %namelen, %sub.i
   br i1 %cmp.i, label %if.then.i, label %st_add.exit
 
 if.then.i:                                        ; preds = %entry
@@ -515,7 +515,7 @@ entry:
   %0 = getelementptr i8, ptr %info, i64 40
   %info.val = load i64, ptr %0, align 8
   %sub.i.i = xor i64 %info.val, -1
-  %cmp.i.i = icmp ult i64 %sub.i.i, %namelen
+  %cmp.i.i = icmp ugt i64 %namelen, %sub.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %traverse_path_len.exit
 
 if.then.i.i:                                      ; preds = %entry
@@ -532,7 +532,7 @@ traverse_path_len.exit:                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %2
   %3 = load i64, ptr %0, align 8
   %sub.i.i10 = xor i64 %3, -1
-  %cmp.i.i11 = icmp ult i64 %sub.i.i10, %namelen
+  %cmp.i.i11 = icmp ugt i64 %namelen, %sub.i.i10
   br i1 %cmp.i.i11, label %if.then.i.i13, label %st_add.exit.i
 
 if.then.i.i13:                                    ; preds = %traverse_path_len.exit
@@ -597,7 +597,7 @@ make_traverse_path.exit:                          ; preds = %if.end4.i
   %add = add i64 %8, %add.i.i
   %9 = load i64, ptr %out, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %add
+  %cmp.i = icmp ugt i64 %add, %spec.select.i
   br i1 %cmp.i, label %if.then.i17, label %if.end.i14
 
 if.then.i17:                                      ; preds = %make_traverse_path.exit
@@ -1020,7 +1020,7 @@ if.end.i.i:                                       ; preds = %if.end15.i
   br i1 %cmp2.i.i, label %sw.epilog.i, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %cmp6.i.i = icmp sgt i32 %a.val.i, %first_len.1
+  %cmp6.i.i = icmp slt i32 %first_len.1, %a.val.i
   br i1 %cmp6.i.i, label %land.lhs.true.i.i, label %return.sink.split.i
 
 land.lhs.true.i.i:                                ; preds = %if.end5.i.i
@@ -1054,7 +1054,7 @@ if.end.i30.i:                                     ; preds = %while.body22.i
   br i1 %cmp2.i31.i, label %sw.default28.i, label %if.end5.i32.i
 
 if.end5.i32.i:                                    ; preds = %if.end.i30.i
-  %cmp6.i33.i = icmp sgt i32 %a.val24.i, %first_len.1
+  %cmp6.i33.i = icmp slt i32 %first_len.1, %a.val24.i
   br i1 %cmp6.i33.i, label %land.lhs.true.i36.i, label %return.sink.split.i
 
 land.lhs.true.i36.i:                              ; preds = %if.end5.i32.i
@@ -2092,7 +2092,7 @@ if.then47:                                        ; preds = %if.end44
 if.then.i.i:                                      ; preds = %if.then47
   %prefix.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %14 = load i32, ptr %prefix.i.i, align 8
-  %.len.i.i = tail call i32 @llvm.smin.i32(i32 %14, i32 %12)
+  %.len.i.i = tail call i32 @llvm.smin.i32(i32 %12, i32 %14)
   %conv.i.i = sext i32 %.len.i.i to i64
   %call.i.i = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef readonly %10, i64 noundef %conv.i.i) #15
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
@@ -2181,7 +2181,7 @@ lor.lhs.false91:                                  ; preds = %if.end88
 if.then.i:                                        ; preds = %lor.lhs.false91
   %prefix.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %24 = load i32, ptr %prefix.i, align 8
-  %.len.i = tail call i32 @llvm.smin.i32(i32 %24, i32 %conv)
+  %.len.i = tail call i32 @llvm.smin.i32(i32 %conv, i32 %24)
   %conv.i = sext i32 %.len.i to i64
   %call.i = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef readonly %10, i64 noundef %conv.i) #15
   %tobool2.not.i = icmp eq i32 %call.i, 0
@@ -2246,7 +2246,7 @@ if.end20.i:                                       ; preds = %if.then15.i
   ]
 
 lor.lhs.false.i124:                               ; preds = %if.end20.i
-  %cmp28.i = icmp slt i32 %add.i, %sub97
+  %cmp28.i = icmp sgt i32 %sub97, %add.i
   br i1 %cmp28.i, label %if.end101, label %if.end32.i
 
 if.end32.i:                                       ; preds = %lor.lhs.false.i124, %if.end20.i, %if.end12.i
@@ -2353,7 +2353,7 @@ if.then2.i136:                                    ; preds = %if.then.i134
 if.then.i.i140:                                   ; preds = %if.then2.i136
   %prefix.i.i141 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %39 = load i32, ptr %prefix.i.i141, align 8
-  %.len.i.i142 = tail call i32 @llvm.smin.i32(i32 %39, i32 %38)
+  %.len.i.i142 = tail call i32 @llvm.smin.i32(i32 %38, i32 %39)
   %conv.i.i143 = sext i32 %.len.i.i142 to i64
   %call.i.i144 = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef readonly %10, i64 noundef %conv.i.i143) #15
   %tobool2.not.i.i145 = icmp eq i32 %call.i.i144, 0
@@ -2378,7 +2378,7 @@ while.end.i:                                      ; preds = %if.then.i134
 if.then.i20.i:                                    ; preds = %while.end.i
   %prefix.i21.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %40 = load i32, ptr %prefix.i21.i, align 8
-  %.len.i22.i = tail call i32 @llvm.smin.i32(i32 %40, i32 %conv)
+  %.len.i22.i = tail call i32 @llvm.smin.i32(i32 %conv, i32 %40)
   %conv.i23.i = sext i32 %.len.i22.i to i64
   %call.i24.i = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef readonly %10, i64 noundef %conv.i23.i) #15
   %tobool2.not.i25.i = icmp eq i32 %call.i24.i, 0
@@ -2418,7 +2418,7 @@ if.end162:                                        ; preds = %basecmp.exit36.i, %
 if.then169:                                       ; preds = %if.end162
   %44 = load i64, ptr %base, align 8
   %spec.select.i158 = tail call i64 @llvm.usub.sat.i64(i64 %44, i64 1)
-  %cmp.i159 = icmp ult i64 %spec.select.i158, %conv718.i
+  %cmp.i159 = icmp ugt i64 %conv718.i, %spec.select.i158
   br i1 %cmp.i159, label %if.then.i162, label %if.end.i160
 
 if.then.i162:                                     ; preds = %if.then169
@@ -2469,7 +2469,7 @@ ps_strncmp.exit170:                               ; preds = %if.then.i165, %if.e
 if.then189:                                       ; preds = %ps_strncmp.exit170
   %51 = load i64, ptr %base, align 8
   %spec.select.i171 = tail call i64 @llvm.usub.sat.i64(i64 %51, i64 1)
-  %cmp.i172 = icmp ult i64 %spec.select.i171, %conv718.i
+  %cmp.i172 = icmp ugt i64 %conv718.i, %spec.select.i171
   br i1 %cmp.i172, label %if.then.i179, label %if.end.i173
 
 if.then.i179:                                     ; preds = %if.then189
@@ -2484,7 +2484,7 @@ if.end.i173:                                      ; preds = %if.then189
 if.end191:                                        ; preds = %ps_strncmp.exit170, %land.lhs.true178, %if.end171
   %52 = load i64, ptr %base, align 8
   %spec.select.i181 = tail call i64 @llvm.usub.sat.i64(i64 %52, i64 1)
-  %cmp.i182 = icmp ult i64 %spec.select.i181, %conv718.i
+  %cmp.i182 = icmp ugt i64 %conv718.i, %spec.select.i181
   br i1 %cmp.i182, label %if.then.i189, label %if.end.i183
 
 if.then.i189:                                     ; preds = %if.end191
@@ -2541,7 +2541,7 @@ if.end214:                                        ; preds = %if.then208
   %call220 = tail call i32 @match_pathspec_attrs(ptr noundef %istate, ptr noundef %59, i32 noundef %conv219, ptr noundef nonnull %add.ptr) #14
   %61 = load i64, ptr %base, align 8
   %spec.select.i191 = tail call i64 @llvm.usub.sat.i64(i64 %61, i64 1)
-  %cmp.i192 = icmp ult i64 %spec.select.i191, %conv718.i
+  %cmp.i192 = icmp ugt i64 %conv718.i, %spec.select.i191
   br i1 %cmp.i192, label %if.then.i199, label %if.end.i193
 
 if.then.i199:                                     ; preds = %if.end214
@@ -2583,7 +2583,7 @@ entry:
   %2 = load i64, ptr %rawsz, align 8
   %add = add i64 %2, 3
   %conv1 = and i64 %add, 4294967295
-  %cmp = icmp ugt i64 %conv1, %size
+  %cmp = icmp ult i64 %size, %conv1
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry

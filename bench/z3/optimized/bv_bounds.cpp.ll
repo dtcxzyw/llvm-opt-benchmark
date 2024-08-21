@@ -1353,10 +1353,10 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
 _ZNK6vectorIN9bv_bounds9nintervalELb1EjE8capacityEv.exit.i: ; preds = %while.cond.i
   %arrayidx.i10.i = getelementptr inbounds i8, ptr %101, i64 -8
   %102 = load i32, ptr %arrayidx.i10.i, align 4
-  %cmp3.i = icmp ult i32 %102, %add448454
+  %cmp3.i = icmp ugt i32 %add448454, %102
   br i1 %cmp3.i, label %while.body.i, label %while.end.i
 
-while.body.i:                                     ; preds = %while.cond.i, %_ZNK6vectorIN9bv_bounds9nintervalELb1EjE8capacityEv.exit.i
+while.body.i:                                     ; preds = %_ZNK6vectorIN9bv_bounds9nintervalELb1EjE8capacityEv.exit.i, %while.cond.i
   invoke void @_ZN6vectorIN9bv_bounds9nintervalELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %nis)
           to label %.noexc337 unwind label %lpad3.loopexit
 
@@ -1375,15 +1375,15 @@ while.end.i:                                      ; preds = %_ZNK6vectorIN9bv_bo
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %while.end.i
-  %it.013.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i, %while.end.i ]
-  %m_den.i.i.i.i335 = getelementptr inbounds i8, ptr %it.013.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %it.013.i, i8 0, i64 80, i1 false)
+  %it.015.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i, %while.end.i ]
+  %m_den.i.i.i.i335 = getelementptr inbounds i8, ptr %it.015.i, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %it.015.i, i8 0, i64 80, i1 false)
   store i32 1, ptr %m_den.i.i.i.i335, align 8
-  %m_kind.i.i.i1.i.i = getelementptr inbounds i8, ptr %it.013.i, i64 44
+  %m_kind.i.i.i1.i.i = getelementptr inbounds i8, ptr %it.015.i, i64 44
   store i8 0, ptr %m_kind.i.i.i1.i.i, align 4
-  %m_den.i.i5.i.i = getelementptr inbounds i8, ptr %it.013.i, i64 56
+  %m_den.i.i5.i.i = getelementptr inbounds i8, ptr %it.015.i, i64 56
   store i32 1, ptr %m_den.i.i5.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.013.i, i64 80
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.015.i, i64 80
   %cmp8.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr7.i
   br i1 %cmp8.not.i, label %invoke.cont89thread-pre-split, label %for.body.i, !llvm.loop !9
 
@@ -6530,7 +6530,7 @@ entry:
   %1 = load ptr, ptr %m_range.i, align 8
   %m_bool_sort.i = getelementptr inbounds i8, ptr %0, i64 840
   %2 = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i = icmp eq ptr %2, %1
+  %cmp.i = icmp eq ptr %1, %2
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -14395,7 +14395,7 @@ _ZN6vectorIN9bv_bounds9nintervalELb1EjE3endEv.exit: ; preds = %entry
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds %"struct.bv_bounds::ninterval", ptr %0, i64 %2
-  %cmp.not4 = icmp eq i32 %1, %s
+  %cmp.not4 = icmp eq i32 %s, %1
   br i1 %cmp.not4, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN6vectorIN9bv_bounds9nintervalELb1EjE3endEv.exit
@@ -16521,7 +16521,7 @@ entry:
   %agg.tmp = alloca %"struct.std::pair", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp25 = icmp sgt i64 %div, %__holeIndex
+  %cmp25 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp25, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI15interval_comp_tEclIPSt4pairI8rationalS6_ES8_EEbT_T0_.exit

@@ -1188,7 +1188,7 @@ idaLs_AccessLMem.exit:                            ; preds = %13
   %.03559 = phi i32 [ 0, %35 ], [ %51, %49 ]
   %.13758 = phi double [ %.036, %35 ], [ %50, %49 ]
   tail call void @N_VLinearSum(double noundef %.13758, ptr noundef %4, double noundef 1.000000e+00, ptr noundef %1, ptr noundef %8) #12
-  %40 = fmul double %.13758, %6
+  %40 = fmul double %6, %.13758
   tail call void @N_VLinearSum(double noundef %40, ptr noundef %4, double noundef 1.000000e+00, ptr noundef %2, ptr noundef %9) #12
   %41 = load ptr, ptr %36, align 8
   %42 = load ptr, ptr %37, align 8

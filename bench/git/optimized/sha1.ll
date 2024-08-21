@@ -1345,7 +1345,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %sub = sub nuw nsw i32 64, %conv
   %conv1 = zext nneg i32 %sub to i64
-  %cmp2.not = icmp ugt i64 %conv1, %len
+  %cmp2.not = icmp ult i64 %len, %conv1
   br i1 %cmp2.not, label %if.then23, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true
@@ -3281,7 +3281,7 @@ entry:
 
 land.lhs.true.i:                                  ; preds = %entry
   %sub.i = sub nuw nsw i32 64, %conv
-  %cmp2.not.i = icmp ugt i32 %sub.i, %cond
+  %cmp2.not.i = icmp ult i32 %cond, %sub.i
   br i1 %cmp2.not.i, label %if.then23.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i

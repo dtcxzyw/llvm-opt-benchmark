@@ -2019,13 +2019,13 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit413.i:     ; preds = %_ZL15gmx_srenew_imp
   %769 = getelementptr inbounds i8, ptr %768, i64 4
   %770 = load i32, ptr %769, align 4
   %.fr1.i.i.i.i = freeze i32 %770
-  %771 = icmp sgt i32 %.fr1.i.i.i.i, %765
+  %771 = icmp slt i32 %765, %.fr1.i.i.i.i
   br i1 %771, label %775, label %772
 
 772:                                              ; preds = %766
   %773 = getelementptr inbounds i8, ptr %768, i64 8
   %774 = load i32, ptr %773, align 4
-  %.not.i.i.i414.i = icmp sgt i32 %774, %765
+  %.not.i.i.i414.i = icmp slt i32 %765, %774
   br i1 %.not.i.i.i414.i, label %779, label %775
 
 775:                                              ; preds = %772, %766

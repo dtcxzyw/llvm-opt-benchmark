@@ -345,7 +345,7 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %storage.i)
   %add.i = add i64 %1, 16
-  %cmp.not.i = icmp eq i64 %add.i, %len
+  %cmp.not.i = icmp eq i64 %len, %add.i
   br i1 %cmp.not.i, label %if.end.i, label %chacha20_poly1305_tls_cipher.exit
 
 if.end.i:                                         ; preds = %if.then2
@@ -555,7 +555,7 @@ if.end48:                                         ; preds = %if.end46, %if.else
 
 if.else53:                                        ; preds = %if.end48
   %add54 = add i64 %1, 16
-  %cmp55.not = icmp eq i64 %add54, %len
+  %cmp55.not = icmp eq i64 %len, %add54
   br i1 %cmp55.not, label %if.end59, label %return
 
 if.end59:                                         ; preds = %if.end48, %if.else53

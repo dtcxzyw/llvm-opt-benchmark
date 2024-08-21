@@ -19,7 +19,7 @@ define i32 @mca_coll_monitoring_bcast(ptr noundef %0, i32 noundef %1, ptr nounde
   %12 = mul i64 %.val24, %11
   %13 = getelementptr i8, ptr %4, i64 220
   %.val25 = load i32, ptr %13, align 4
-  %14 = icmp eq i32 %.val25, %3
+  %14 = icmp eq i32 %3, %.val25
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %6
@@ -153,7 +153,7 @@ define i32 @mca_coll_monitoring_ibcast(ptr noundef %0, i32 noundef %1, ptr nound
   %13 = mul i64 %.val25, %12
   %14 = getelementptr i8, ptr %4, i64 220
   %.val26 = load i32, ptr %14, align 4
-  %15 = icmp eq i32 %.val26, %3
+  %15 = icmp eq i32 %3, %.val26
   br i1 %15, label %16, label %.loopexit
 
 16:                                               ; preds = %7

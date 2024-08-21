@@ -1440,7 +1440,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i5: 
 
 150:                                              ; preds = %145
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  %.not.i13.i.i = icmp ugt i64 %139, %142
+  %.not.i13.i.i = icmp ult i64 %142, %139
   br i1 %.not.i13.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h511fe592da3ac4d3E.exit.i.i", label %151
 
 151:                                              ; preds = %150

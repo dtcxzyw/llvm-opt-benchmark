@@ -534,7 +534,7 @@ if.end31:                                         ; preds = %invoke.cont28
   %17 = load ptr, ptr %res, align 8
   %m_false.i = getelementptr inbounds i8, ptr %16, i64 864
   %18 = load ptr, ptr %m_false.i, align 8
-  %cmp.i8 = icmp eq ptr %18, %17
+  %cmp.i8 = icmp eq ptr %17, %18
   br i1 %cmp.i8, label %cleanup, label %cleanupthread-pre-split
 
 sw.bb39:                                          ; preds = %invoke.cont20
@@ -550,7 +550,7 @@ if.end48:                                         ; preds = %invoke.cont45
   %21 = load ptr, ptr %res, align 8
   %m_true.i = getelementptr inbounds i8, ptr %20, i64 856
   %22 = load ptr, ptr %m_true.i, align 8
-  %cmp.i9 = icmp eq ptr %22, %21
+  %cmp.i9 = icmp eq ptr %21, %22
   br i1 %cmp.i9, label %cleanup, label %cleanupthread-pre-split
 
 cleanupthread-pre-split:                          ; preds = %invoke.cont20, %if.end31, %if.end48, %invoke.cont11, %invoke.cont14, %invoke.cont28, %invoke.cont45
@@ -671,7 +671,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 if.else:                                          ; preds = %entry
   %.b = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
   %6 = zext i1 %.b to i32
-  %cmp.i4 = icmp eq i32 %6, %l.coerce
+  %cmp.i4 = icmp eq i32 %l.coerce, %6
   br i1 %cmp.i4, label %if.then5, label %if.else9
 
 if.then5:                                         ; preds = %if.else

@@ -6985,7 +6985,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.llvm.39988
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -18036,7 +18036,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i: ; preds = %26
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !alias.scope !2366, !noalias !2364, !noundef !14
   %47 = sub i64 %46, %44
-  %48 = icmp ult i64 %47, %42
+  %48 = icmp ugt i64 %42, %47
   br i1 %48, label %49, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hbf501842ee467bf5E.exit.i"
 
 49:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
@@ -18090,7 +18090,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !2379, !noalias !2377, !noundef !14
   %8 = sub i64 %7, %5
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hbf501842ee467bf5E.exit"
 
 10:                                               ; preds = %3
@@ -27872,7 +27872,7 @@ default.unreachable193:                           ; preds = %2
   %34 = getelementptr inbounds i8, ptr %27, i64 8
   %35 = load i64, ptr %34, align 8, !alias.scope !3805, !noundef !14
   %36 = sub i64 %35, %33
-  %37 = icmp ult i64 %36, %31
+  %37 = icmp ugt i64 %31, %36
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %18

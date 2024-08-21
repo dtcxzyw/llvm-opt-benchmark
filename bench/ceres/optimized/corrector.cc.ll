@@ -303,8 +303,8 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
   %16 = load double, ptr %6, align 8
   %17 = getelementptr inbounds double, ptr %3, i64 %indvars.iv53
   %18 = load double, ptr %17, align 8
-  %19 = fneg double %16
-  %20 = fmul double %18, %19
+  %19 = fneg double %18
+  %20 = fmul double %16, %19
   %21 = tail call double @llvm.fmuladd.f64(double %20, double %27, double %15)
   %22 = fmul double %13, %21
   store double %22, ptr %gep65, align 8

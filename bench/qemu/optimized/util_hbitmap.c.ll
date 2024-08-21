@@ -303,14 +303,14 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load i64, ptr %hb, align 8
-  %cmp2 = icmp ule i64 %1, %start
+  %cmp2 = icmp uge i64 %start, %1
   %cmp3 = icmp eq i64 %count, 0
   %or.cond1 = or i1 %cmp3, %cmp2
   br i1 %or.cond1, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %sub = sub nuw i64 %1, %start
-  %cmp7 = icmp ult i64 %sub, %count
+  %cmp7 = icmp ugt i64 %count, %sub
   %add = add nuw i64 %count, %start
   %cond = select i1 %cmp7, i64 %1, i64 %add
   store ptr %hb, ptr %hbi, align 8
@@ -396,7 +396,7 @@ hbitmap_iter_next.exit:                           ; preds = %hbitmap_iter_init.e
   br i1 %or.cond17, label %if.end13, label %return
 
 if.end13:                                         ; preds = %hbitmap_iter_next.exit
-  %cond18 = call i64 @llvm.smax.i64(i64 %shl12.i, i64 %start)
+  %cond18 = call i64 @llvm.smax.i64(i64 %start, i64 %shl12.i)
   br label %return
 
 return:                                           ; preds = %if.then.i, %hbitmap_iter_next.exit, %if.end, %if.end13
@@ -426,14 +426,14 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %4 = load i64, ptr %hb, align 8
-  %cmp4 = icmp ule i64 %4, %start
+  %cmp4 = icmp uge i64 %start, %4
   %cmp5 = icmp eq i64 %count, 0
   %or.cond1 = or i1 %cmp5, %cmp4
   br i1 %or.cond1, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %sub = sub nuw i64 %4, %start
-  %cmp9 = icmp ult i64 %sub, %count
+  %cmp9 = icmp ugt i64 %count, %sub
   br i1 %cmp9, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end7
@@ -528,8 +528,8 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load i64, ptr %hb, align 8
-  %cond = tail call i64 @llvm.umin.i64(i64 %1, i64 %end)
-  %cmp5.not = icmp sgt i64 %cond, %start
+  %cond = tail call i64 @llvm.umin.i64(i64 %end, i64 %1)
+  %cmp5.not = icmp slt i64 %start, %cond
   br i1 %cmp5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end
@@ -941,7 +941,7 @@ entry:
 if.end:                                           ; preds = %entry
   %notmask = shl nsw i64 -1, %sh_prom
   %1 = xor i64 %notmask, -1
-  %rem = and i64 %1, %start
+  %rem = and i64 %start, %1
   %cmp1 = icmp eq i64 %rem, 0
   br i1 %cmp1, label %if.end3, label %if.else
 
@@ -950,7 +950,7 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %rem4 = and i64 %1, %count
+  %rem4 = and i64 %count, %1
   %cmp5 = icmp eq i64 %rem4, 0
   br i1 %cmp5, label %if.end10, label %lor.lhs.false
 
@@ -2031,7 +2031,7 @@ if.else.i.i:                                      ; preds = %for.body.i70, %if.t
 if.end.i.i:                                       ; preds = %if.then31, %for.body.i70
   %15 = phi i64 [ %16, %for.body.i70 ], [ %14, %if.then31 ]
   %storemerge8.i = phi i64 [ %spec.select.i.i, %for.body.i70 ], [ 0, %if.then31 ]
-  %cmp5.not.i.i = icmp sgt i64 %15, %storemerge8.i
+  %cmp5.not.i.i = icmp slt i64 %storemerge8.i, %15
   br i1 %cmp5.not.i.i, label %if.end7.i.i, label %if.end32
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
@@ -2067,7 +2067,7 @@ if.else.i.i72:                                    ; preds = %for.body.i80, %if.t
 if.end.i.i73:                                     ; preds = %if.then34, %for.body.i80
   %19 = phi i64 [ %20, %for.body.i80 ], [ %18, %if.then34 ]
   %storemerge8.i74 = phi i64 [ %spec.select.i.i84, %for.body.i80 ], [ 0, %if.then34 ]
-  %cmp5.not.i.i75 = icmp sgt i64 %19, %storemerge8.i74
+  %cmp5.not.i.i75 = icmp slt i64 %storemerge8.i74, %19
   br i1 %cmp5.not.i.i75, label %if.end7.i.i76, label %return
 
 if.end7.i.i76:                                    ; preds = %if.end.i.i73

@@ -250,7 +250,7 @@ if.else.i:                                        ; preds = %entry
   %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 52
   %5 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %5, i32 %shr.i.i.i
-  %cmp3.i = icmp ugt i32 %cond.i.i, %length.0
+  %cmp3.i = icmp ult i32 %length.0, %cond.i.i
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6icu_7513UnicodeString8truncateEi.exit
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -389,7 +389,7 @@ if.else.i:                                        ; preds = %_ZNK6icu_759UVector
   %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 52
   %15 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %15, i32 %shr.i.i.i
-  %cmp3.i = icmp ugt i32 %cond.i.i, %and
+  %cmp3.i = icmp ult i32 %and, %cond.i.i
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6icu_7513UnicodeString8truncateEi.exit
 
 if.then4.i:                                       ; preds = %if.else.i

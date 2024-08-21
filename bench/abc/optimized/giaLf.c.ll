@@ -12992,13 +12992,13 @@ Vec_IntFree.exit172:                              ; preds = %Vec_IntAppend.exit,
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -15406,7 +15406,7 @@ define noundef ptr @Lf_ManPerformMappingInt(ptr noundef %0, ptr noundef %1) loca
 77:                                               ; preds = %70
   %78 = call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull @.str.55)
   %.pre.i = load ptr, ptr @stdout, align 8
-  %79 = icmp eq ptr %.pre.i, %78
+  %79 = icmp eq ptr %78, %.pre.i
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %77, %.thread.i

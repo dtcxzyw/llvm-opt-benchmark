@@ -28,20 +28,20 @@ define dso_local void @_Z5crossRK3vecILi3EES2_(ptr dead_on_unwind noalias nocapt
   %9 = load double, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load double, ptr %10, align 8
-  %12 = fneg double %9
-  %13 = fmul double %11, %12
+  %12 = fneg double %11
+  %13 = fmul double %9, %12
   %14 = tail call double @llvm.fmuladd.f64(double %5, double %7, double %13)
   store double %14, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load double, ptr %2, align 8
   %17 = load double, ptr %1, align 8
-  %18 = fneg double %17
-  %19 = fmul double %7, %18
+  %18 = fneg double %7
+  %19 = fmul double %17, %18
   %20 = tail call double @llvm.fmuladd.f64(double %9, double %16, double %19)
   store double %20, ptr %15, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = fneg double %5
-  %23 = fmul double %16, %22
+  %22 = fneg double %16
+  %23 = fmul double %5, %22
   %24 = tail call double @llvm.fmuladd.f64(double %17, double %11, double %23)
   store double %24, ptr %21, align 8
   ret void

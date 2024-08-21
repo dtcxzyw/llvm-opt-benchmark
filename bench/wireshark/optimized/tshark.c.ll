@@ -5595,7 +5595,7 @@ get_line_buf.exit.i:                              ; preds = %.sink.split.i.i, %2
 
 46:                                               ; preds = %46, %42
   %.0.i128.i = phi i64 [ %45, %42 ], [ %48, %46 ]
-  %47 = icmp ult i64 %.0.i128.i, %44
+  %47 = icmp ugt i64 %44, %.0.i128.i
   %48 = shl i64 %.0.i128.i, 1
   br i1 %47, label %46, label %49, !llvm.loop !24
 
@@ -5652,7 +5652,7 @@ put_spaces_string.exit.i:                         ; preds = %.lr.ph.preheader.i.
 
 69:                                               ; preds = %69, %65
   %.0.i132.i = phi i64 [ %68, %65 ], [ %71, %69 ]
-  %70 = icmp ult i64 %.0.i132.i, %67
+  %70 = icmp ugt i64 %67, %.0.i132.i
   %71 = shl i64 %.0.i132.i, 1
   br i1 %70, label %69, label %72, !llvm.loop !24
 
@@ -5709,7 +5709,7 @@ put_spaces_string.exit139.i:                      ; preds = %.lr.ph.preheader.i1
 
 92:                                               ; preds = %92, %88
   %.0.i140.i = phi i64 [ %91, %88 ], [ %94, %92 ]
-  %93 = icmp ult i64 %.0.i140.i, %90
+  %93 = icmp ugt i64 %90, %.0.i140.i
   %94 = shl i64 %.0.i140.i, 1
   br i1 %93, label %92, label %95, !llvm.loop !24
 
@@ -5766,7 +5766,7 @@ put_spaces_string.exit147.i:                      ; preds = %.lr.ph.preheader.i1
 
 115:                                              ; preds = %115, %111
   %.0.i148.i = phi i64 [ %114, %111 ], [ %117, %115 ]
-  %116 = icmp ult i64 %.0.i148.i, %113
+  %116 = icmp ugt i64 %113, %.0.i148.i
   %117 = shl i64 %.0.i148.i, 1
   br i1 %116, label %115, label %118, !llvm.loop !24
 
@@ -5821,7 +5821,7 @@ put_string_spaces.exit.i:                         ; preds = %.lr.ph.preheader.i1
 
 138:                                              ; preds = %138, %134
   %.0.i154.i = phi i64 [ %137, %134 ], [ %140, %138 ]
-  %139 = icmp ult i64 %.0.i154.i, %136
+  %139 = icmp ugt i64 %136, %.0.i154.i
   %140 = shl i64 %.0.i154.i, 1
   br i1 %139, label %138, label %141, !llvm.loop !24
 
@@ -5876,7 +5876,7 @@ get_line_buf.exit157.i:                           ; preds = %.sink.split.i155.i,
 
 163:                                              ; preds = %163, %160
   %.0.i158.i = phi i64 [ %162, %160 ], [ %165, %163 ]
-  %164 = icmp ult i64 %.0.i158.i, %161
+  %164 = icmp ugt i64 %161, %.0.i158.i
   %165 = shl i64 %.0.i158.i, 1
   br i1 %164, label %163, label %166, !llvm.loop !24
 

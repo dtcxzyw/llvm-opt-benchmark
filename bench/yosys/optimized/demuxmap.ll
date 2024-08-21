@@ -609,7 +609,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %208 = extractvalue { ptr, i32 } %lpad.phi.i, 0
   %209 = call ptr @__cxa_begin_catch(ptr %208) #18
-  %.not4.i.i.i = icmp eq ptr %.017.i, %174
+  %.not4.i.i.i = icmp eq ptr %174, %.017.i
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %207, %_ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i
@@ -846,7 +846,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
   %lpad.phi.i435 = phi { ptr, i32 } [ %lpad.loopexit.i434, %.loopexit.i433 ], [ %lpad.loopexit.split-lp.i449, %.loopexit.split-lp.i448 ]
   %287 = extractvalue { ptr, i32 } %lpad.phi.i435, 0
   %288 = call ptr @__cxa_begin_catch(ptr %287) #18
-  %.not4.i.i.i436 = icmp eq ptr %.017.i429, %253
+  %.not4.i.i.i436 = icmp eq ptr %253, %.017.i429
   br i1 %.not4.i.i.i436, label %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit.i442, label %.lr.ph.i.i.i437
 
 .lr.ph.i.i.i437:                                  ; preds = %286, %_ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i440
@@ -1083,7 +1083,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
   %lpad.phi.i462 = phi { ptr, i32 } [ %lpad.loopexit.i461, %.loopexit.i460 ], [ %lpad.loopexit.split-lp.i476, %.loopexit.split-lp.i475 ]
   %366 = extractvalue { ptr, i32 } %lpad.phi.i462, 0
   %367 = call ptr @__cxa_begin_catch(ptr %366) #18
-  %.not4.i.i.i463 = icmp eq ptr %.017.i456, %332
+  %.not4.i.i.i463 = icmp eq ptr %332, %.017.i456
   br i1 %.not4.i.i.i463, label %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit.i469, label %.lr.ph.i.i.i464
 
 .lr.ph.i.i.i464:                                  ; preds = %365, %_ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i467
@@ -2925,7 +2925,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #18
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -4270,7 +4270,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !23
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -4354,7 +4354,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !23
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -5064,7 +5064,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE
   %34 = sdiv exact i64 %33, 24
   %35 = trunc i64 %34 to i32
   %36 = add i32 %35, -1
-  %.not46 = icmp eq i32 %36, %1
+  %.not46 = icmp eq i32 %1, %36
   br i1 %.not46, label %79, label %37
 
 37:                                               ; preds = %28

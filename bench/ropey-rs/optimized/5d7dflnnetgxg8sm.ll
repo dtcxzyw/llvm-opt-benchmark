@@ -191,11 +191,11 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit: ; preds = %4
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8, !alias.scope !9, !noalias !12, !noundef !4
-  %.not = icmp ult i64 %16, %1
+  %.not = icmp ugt i64 %1, %16
   br i1 %.not, label %17, label %18
 
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread": ; preds = %_ZN8smallvec10infallible17hac02ab9634219958E.exit
-  %.not13 = icmp ult i64 %11, %1
+  %.not13 = icmp ugt i64 %1, %11
   br i1 %.not13, label %17, label %21
 
 17:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit"
@@ -468,11 +468,11 @@ define hidden void @_ZN5ropey4tree9node_text8NodeText10insert_str17h62c10d7ef775
   br i1 %17, label %_ZN5ropey4tree9node_text5inner15NodeSmallString10insert_str17hb909fc82006e57c5E.llvm.8018463459433534105.exit, label %18
 
 18:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit"
-  %.not.i = icmp ugt i64 %.sink7.i, %1
+  %.not.i = icmp ult i64 %1, %.sink7.i
   br i1 %.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit", label %19
 
 19:                                               ; preds = %18
-  %20 = icmp eq i64 %.sink7.i, %1
+  %20 = icmp eq i64 %1, %.sink7.i
   br i1 %20, label %_ZN5ropey4tree9node_text5inner15NodeSmallString10insert_str17hb909fc82006e57c5E.llvm.8018463459433534105.exit, label %24
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit": ; preds = %18
@@ -513,11 +513,11 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %_ZN5ropey4tree9n
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8, !alias.scope !80, !noalias !83, !noundef !4
-  %.not.i1 = icmp ult i64 %35, %1
+  %.not.i1 = icmp ugt i64 %1, %35
   br i1 %.not.i1, label %36, label %37
 
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread.i": ; preds = %_ZN8smallvec10infallible17hac02ab9634219958E.exit.i
-  %.not13.i = icmp ult i64 %30, %1
+  %.not13.i = icmp ugt i64 %1, %30
   br i1 %.not13.i, label %36, label %40
 
 36:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread.i", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.i"
@@ -942,11 +942,11 @@ _ZN5ropey4crlf22nearest_internal_break17h904353f5c7cdcdb8E.exit: ; preds = %107,
   br i1 %147, label %_ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exit.i, label %169
 
 169:                                              ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.i"
-  %.not.i1.i = icmp ugt i64 %.sink7.i.i61, %146
+  %.not.i1.i = icmp ult i64 %146, %.sink7.i.i61
   br i1 %.not.i1.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i63", label %170
 
 170:                                              ; preds = %169
-  %171 = icmp eq i64 %.sink7.i.i61, %146
+  %171 = icmp eq i64 %146, %.sink7.i.i61
   br i1 %171, label %_ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exit.i, label %.invoke
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i63": ; preds = %169
@@ -965,7 +965,7 @@ _ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exi
   %176 = load ptr, ptr %175, align 8, !noalias !160, !nonnull !4, !align !163, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !160
   %.promoted.i.i = load i64, ptr %176, align 8
-  %177 = icmp ugt i64 %.promoted.i.i, %146
+  %177 = icmp ult i64 %146, %.promoted.i.i
   br i1 %177, label %.lr.ph.preheader.i.i, label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h5e63882184e2c3ebE.exit.i"
 
 .lr.ph.preheader.i.i:                             ; preds = %.noexc65
@@ -1026,11 +1026,11 @@ _ZN5ropey4tree9node_text8NodeText8truncate17h55e1edad3371ff10E.exit: ; preds = %
   br i1 %201, label %208, label %202
 
 202:                                              ; preds = %200
-  %.not.i.i71 = icmp ugt i64 %.sink7.i.i69, %2
+  %.not.i.i71 = icmp ult i64 %2, %.sink7.i.i69
   br i1 %.not.i.i71, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i75", label %203
 
 203:                                              ; preds = %202
-  %204 = icmp eq i64 %.sink7.i.i69, %2
+  %204 = icmp eq i64 %2, %.sink7.i.i69
   br i1 %204, label %208, label %.invoke215
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i75": ; preds = %202
@@ -1071,11 +1071,11 @@ _ZN5ropey4tree9node_text8NodeText8truncate17h55e1edad3371ff10E.exit: ; preds = %
   br i1 %201, label %_ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exit.i81, label %223
 
 223:                                              ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.i77"
-  %.not.i1.i80 = icmp ugt i64 %.sink7.i.i79, %2
+  %.not.i1.i80 = icmp ult i64 %2, %.sink7.i.i79
   br i1 %.not.i1.i80, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i87", label %224
 
 224:                                              ; preds = %223
-  %225 = icmp eq i64 %.sink7.i.i79, %2
+  %225 = icmp eq i64 %2, %.sink7.i.i79
   br i1 %225, label %_ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exit.i81, label %.invoke
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i87": ; preds = %223
@@ -1094,7 +1094,7 @@ _ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exi
   %230 = load ptr, ptr %229, align 8, !noalias !192, !nonnull !4, !align !163, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !192
   %.promoted.i.i82 = load i64, ptr %230, align 8
-  %231 = icmp ugt i64 %.promoted.i.i82, %2
+  %231 = icmp ult i64 %2, %.promoted.i.i82
   br i1 %231, label %.lr.ph.preheader.i.i86, label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h5e63882184e2c3ebE.exit.i83"
 
 .lr.ph.preheader.i.i86:                           ; preds = %.noexc89
@@ -1190,11 +1190,11 @@ _ZN5ropey4tree9node_text8NodeText8truncate17h55e1edad3371ff10E.exit91: ; preds =
   br i1 %263, label %270, label %264
 
 264:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.thread.i100"
-  %.not.i2.i = icmp ugt i64 %.sink7.i.i48, %2
+  %.not.i2.i = icmp ult i64 %2, %.sink7.i.i48
   br i1 %.not.i2.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit4.i", label %265
 
 265:                                              ; preds = %264
-  %266 = icmp eq i64 %.sink7.i.i48, %2
+  %266 = icmp eq i64 %2, %.sink7.i.i48
   br i1 %266, label %270, label %.invoke215
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit4.i": ; preds = %264
@@ -1238,11 +1238,11 @@ _ZN5ropey4tree9node_text8NodeText8truncate17h55e1edad3371ff10E.exit91: ; preds =
   br i1 %263, label %293, label %287
 
 287:                                              ; preds = %286
-  %.not.i.i106 = icmp ugt i64 %.sink7.i.i104, %2
+  %.not.i.i106 = icmp ult i64 %2, %.sink7.i.i104
   br i1 %.not.i.i106, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i110", label %288
 
 288:                                              ; preds = %287
-  %289 = icmp eq i64 %.sink7.i.i104, %2
+  %289 = icmp eq i64 %2, %.sink7.i.i104
   br i1 %289, label %293, label %.invoke215
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i110": ; preds = %287
@@ -1283,11 +1283,11 @@ _ZN5ropey4tree9node_text8NodeText8truncate17h55e1edad3371ff10E.exit91: ; preds =
   br i1 %256, label %_ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exit.i116, label %308
 
 308:                                              ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.i112"
-  %.not.i1.i115 = icmp ugt i64 %.sink7.i.i114, %112
+  %.not.i1.i115 = icmp ult i64 %112, %.sink7.i.i114
   br i1 %.not.i1.i115, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i122", label %309
 
 309:                                              ; preds = %308
-  %310 = icmp eq i64 %.sink7.i.i114, %112
+  %310 = icmp eq i64 %112, %.sink7.i.i114
   br i1 %310, label %_ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exit.i116, label %.invoke
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i122": ; preds = %308
@@ -1313,7 +1313,7 @@ _ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exi
   %315 = load ptr, ptr %314, align 8, !noalias !243, !nonnull !4, !align !163, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !243
   %.promoted.i.i117 = load i64, ptr %315, align 8
-  %316 = icmp ugt i64 %.promoted.i.i117, %112
+  %316 = icmp ult i64 %112, %.promoted.i.i117
   br i1 %316, label %.lr.ph.preheader.i.i121, label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h5e63882184e2c3ebE.exit.i118"
 
 .lr.ph.preheader.i.i121:                          ; preds = %.noexc124
@@ -1461,11 +1461,11 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %"_ZN8smallvec17S
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !256, !noalias !259, !noundef !4
-  %.not.i1 = icmp ult i64 %22, %.sink7.i
+  %.not.i1 = icmp ugt i64 %.sink7.i, %22
   br i1 %.not.i1, label %23, label %24
 
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread.i": ; preds = %_ZN8smallvec10infallible17hac02ab9634219958E.exit.i
-  %.not13.i = icmp ult i64 %17, %.sink7.i
+  %.not13.i = icmp ugt i64 %.sink7.i, %17
   br i1 %.not13.i, label %23, label %27
 
 23:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread.i", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.i"
@@ -1565,11 +1565,11 @@ define hidden void @_ZN5ropey4tree9node_text8NodeText14truncate_front17h3c3a9309
   br i1 %16, label %_ZN5ropey4tree9node_text5inner15NodeSmallString12remove_range17hba72b51079fd91dbE.llvm.8018463459433534105.exit, label %17
 
 17:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit4"
-  %.not.i5 = icmp ugt i64 %.sink7.i2, %1
+  %.not.i5 = icmp ult i64 %1, %.sink7.i2
   br i1 %.not.i5, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit", label %18
 
 18:                                               ; preds = %17
-  %19 = icmp eq i64 %.sink7.i2, %1
+  %19 = icmp eq i64 %1, %.sink7.i2
   br i1 %19, label %_ZN5ropey4tree9node_text5inner15NodeSmallString12remove_range17hba72b51079fd91dbE.llvm.8018463459433534105.exit, label %23
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit": ; preds = %17
@@ -1618,7 +1618,7 @@ _ZN5ropey4tree9node_text5inner15NodeSmallString12remove_range17hba72b51079fd91db
   %42 = load ptr, ptr %41, align 8, !noalias !300, !nonnull !4, !align !163, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !300
   %.promoted.i = load i64, ptr %42, align 8
-  %43 = icmp ugt i64 %.promoted.i, %40
+  %43 = icmp ult i64 %40, %.promoted.i
   br i1 %43, label %.lr.ph.preheader.i, label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h5e63882184e2c3ebE.exit"
 
 .lr.ph.preheader.i:                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105.exit"
@@ -1685,11 +1685,11 @@ define hidden void @_ZN5ropey4tree9node_text8NodeText12remove_range17h0032b71294
   br i1 %20, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.thread", label %21
 
 21:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit"
-  %.not.i2 = icmp ugt i64 %.sink7.i, %1
+  %.not.i2 = icmp ult i64 %1, %.sink7.i
   br i1 %.not.i2, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit", label %22
 
 22:                                               ; preds = %21
-  %23 = icmp eq i64 %.sink7.i, %1
+  %23 = icmp eq i64 %1, %.sink7.i
   br i1 %23, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.thread", label %27
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit": ; preds = %21
@@ -1726,11 +1726,11 @@ define hidden void @_ZN5ropey4tree9node_text8NodeText12remove_range17h0032b71294
   br i1 %37, label %_ZN5ropey4tree9node_text5inner15NodeSmallString12remove_range17hba72b51079fd91dbE.llvm.8018463459433534105.exit, label %38
 
 38:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit6"
-  %.not.i7 = icmp ugt i64 %.sink7.i4, %2
+  %.not.i7 = icmp ult i64 %2, %.sink7.i4
   br i1 %.not.i7, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit9", label %39
 
 39:                                               ; preds = %38
-  %40 = icmp eq i64 %.sink7.i4, %2
+  %40 = icmp eq i64 %2, %.sink7.i4
   br i1 %40, label %_ZN5ropey4tree9node_text5inner15NodeSmallString12remove_range17hba72b51079fd91dbE.llvm.8018463459433534105.exit, label %44
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit9": ; preds = %38
@@ -1771,7 +1771,7 @@ _ZN5ropey4tree9node_text5inner15NodeSmallString12remove_range17hba72b51079fd91db
   %58 = extractvalue { i64, i64 } %56, 1
   %59 = sub i64 %58, %57
   %60 = sub i64 %55, %59
-  %.not.i15 = icmp ult i64 %60, %1
+  %.not.i15 = icmp ugt i64 %1, %60
   br i1 %.not.i15, label %61, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17h742f95b4673ace6dE.exit"
 
 61:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105.exit"
@@ -1800,7 +1800,7 @@ _ZN5ropey4tree9node_text5inner15NodeSmallString12remove_range17hba72b51079fd91db
   %70 = load ptr, ptr %69, align 8, !noalias !338, !nonnull !4, !align !163, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !338
   %.promoted.i = load i64, ptr %70, align 8
-  %71 = icmp ugt i64 %.promoted.i, %68
+  %71 = icmp ult i64 %68, %.promoted.i
   br i1 %71, label %.lr.ph.preheader.i, label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h5e63882184e2c3ebE.exit"
 
 .lr.ph.preheader.i:                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17h742f95b4673ace6dE.exit"
@@ -1863,11 +1863,11 @@ define hidden void @_ZN5ropey4tree9node_text8NodeText9split_off17h2b8fde902fd8e4
   br i1 %21, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.thread", label %22
 
 22:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit"
-  %.not.i4 = icmp ugt i64 %.sink7.i, %2
+  %.not.i4 = icmp ult i64 %2, %.sink7.i
   br i1 %.not.i4, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit", label %23
 
 23:                                               ; preds = %22
-  %24 = icmp eq i64 %.sink7.i, %2
+  %24 = icmp eq i64 %2, %.sink7.i
   br i1 %24, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.thread", label %28
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit": ; preds = %22
@@ -1952,7 +1952,7 @@ common.resume:                                    ; preds = %109, %51, %37
   %47 = getelementptr inbounds i8, ptr %5, i64 8
   %48 = load i64, ptr %47, align 8, !noalias !370, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !370
-  %49 = icmp ult i64 %48, %2
+  %49 = icmp ugt i64 %2, %48
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %.noexc9
@@ -2015,11 +2015,11 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %.noexc16
   call void @llvm.assume(i1 %71)
   %72 = getelementptr inbounds i8, ptr %7, i64 8
   %73 = load i64, ptr %72, align 8, !alias.scope !384, !noalias !387, !noundef !4
-  %.not.i15 = icmp ult i64 %73, %.sink7.i12
+  %.not.i15 = icmp ugt i64 %.sink7.i12, %73
   br i1 %.not.i15, label %.invoke, label %77
 
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread.i": ; preds = %_ZN8smallvec10infallible17hac02ab9634219958E.exit.i
-  %.not13.i = icmp ult i64 %68, %.sink7.i12
+  %.not13.i = icmp ugt i64 %.sink7.i12, %68
   br i1 %.not13.i, label %.invoke, label %80
 
 .invoke:                                          ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.i", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread.i", %.noexc16
@@ -2081,7 +2081,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %.noexc16
   %98 = load ptr, ptr %97, align 8, !noalias !403, !nonnull !4, !align !163, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !403
   %.promoted.i = load i64, ptr %98, align 8, !noalias !346
-  %99 = icmp ugt i64 %.promoted.i, %2
+  %99 = icmp ult i64 %2, %.promoted.i
   br i1 %99, label %.lr.ph.preheader.i, label %.noexc
 
 .lr.ph.preheader.i:                               ; preds = %.noexc20
@@ -2820,11 +2820,11 @@ _ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread76: ; preds = %91, %_ZN
   br i1 %148, label %_ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exit.i, label %170
 
 170:                                              ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.i"
-  %.not.i1.i = icmp ugt i64 %.sink7.i.i66, %.sroa.05.2
+  %.not.i1.i = icmp ult i64 %.sroa.05.2, %.sink7.i.i66
   br i1 %.not.i1.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i68", label %171
 
 171:                                              ; preds = %170
-  %172 = icmp eq i64 %.sink7.i.i66, %.sroa.05.2
+  %172 = icmp eq i64 %.sroa.05.2, %.sink7.i.i66
   br i1 %172, label %_ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exit.i, label %176
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i68": ; preds = %170
@@ -2844,7 +2844,7 @@ _ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exi
   %178 = load ptr, ptr %177, align 8, !noalias !594, !nonnull !4, !align !163, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !594
   %.promoted.i.i = load i64, ptr %178, align 8
-  %179 = icmp ugt i64 %.promoted.i.i, %.sroa.05.2
+  %179 = icmp ult i64 %.sroa.05.2, %.promoted.i.i
   br i1 %179, label %.lr.ph.preheader.i.i, label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h5e63882184e2c3ebE.exit.i"
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN5ropey4tree9node_text5inner15NodeSmallString8truncate17h49d75531b89ba507E.exit.i
@@ -3055,11 +3055,11 @@ define hidden void @_ZN5ropey4tree9node_text5inner15NodeSmallString10insert_str1
   br i1 %17, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.thread", label %18
 
 18:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit"
-  %.not.i = icmp ugt i64 %.sink7.i, %1
+  %.not.i = icmp ult i64 %1, %.sink7.i
   br i1 %.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit", label %19
 
 19:                                               ; preds = %18
-  %20 = icmp eq i64 %.sink7.i, %1
+  %20 = icmp eq i64 %1, %.sink7.i
   br i1 %20, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.thread", label %24
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit": ; preds = %18
@@ -3100,11 +3100,11 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %"_ZN4core3str21_
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8, !alias.scope !646, !noalias !649, !noundef !4
-  %.not.i1 = icmp ult i64 %35, %1
+  %.not.i1 = icmp ugt i64 %1, %35
   br i1 %.not.i1, label %36, label %37
 
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread.i": ; preds = %_ZN8smallvec10infallible17hac02ab9634219958E.exit.i
-  %.not13.i = icmp ult i64 %30, %1
+  %.not13.i = icmp ugt i64 %1, %30
   br i1 %.not13.i, label %36, label %40
 
 36:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread.i", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.i"
@@ -3192,11 +3192,11 @@ define hidden void @_ZN5ropey4tree9node_text5inner15NodeSmallString12remove_rang
   br i1 %20, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.thread", label %21
 
 21:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit"
-  %.not.i = icmp ugt i64 %.sink7.i, %1
+  %.not.i = icmp ult i64 %1, %.sink7.i
   br i1 %.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit", label %22
 
 22:                                               ; preds = %21
-  %23 = icmp eq i64 %.sink7.i, %1
+  %23 = icmp eq i64 %1, %.sink7.i
   br i1 %23, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.thread", label %27
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit": ; preds = %21
@@ -3233,11 +3233,11 @@ define hidden void @_ZN5ropey4tree9node_text5inner15NodeSmallString12remove_rang
   br i1 %37, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit8.thread", label %38
 
 38:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit5"
-  %.not.i6 = icmp ugt i64 %.sink7.i3, %2
+  %.not.i6 = icmp ult i64 %2, %.sink7.i3
   br i1 %.not.i6, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit8", label %39
 
 39:                                               ; preds = %38
-  %40 = icmp eq i64 %.sink7.i3, %2
+  %40 = icmp eq i64 %2, %.sink7.i3
   br i1 %40, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit8.thread", label %44
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit8": ; preds = %38
@@ -3278,7 +3278,7 @@ define hidden void @_ZN5ropey4tree9node_text5inner15NodeSmallString12remove_rang
   %58 = extractvalue { i64, i64 } %56, 1
   %59 = sub i64 %58, %57
   %60 = sub i64 %55, %59
-  %.not.i14 = icmp ult i64 %60, %1
+  %.not.i14 = icmp ugt i64 %1, %60
   br i1 %.not.i14, label %61, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17h742f95b4673ace6dE.exit"
 
 61:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105.exit"
@@ -3307,7 +3307,7 @@ define hidden void @_ZN5ropey4tree9node_text5inner15NodeSmallString12remove_rang
   %70 = load ptr, ptr %69, align 8, !noalias !692, !nonnull !4, !align !163, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !692
   %.promoted.i = load i64, ptr %70, align 8
-  %71 = icmp ugt i64 %.promoted.i, %68
+  %71 = icmp ult i64 %68, %.promoted.i
   br i1 %71, label %.lr.ph.preheader.i, label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h5e63882184e2c3ebE.exit"
 
 .lr.ph.preheader.i:                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17h742f95b4673ace6dE.exit"
@@ -3350,11 +3350,11 @@ define hidden void @_ZN5ropey4tree9node_text5inner15NodeSmallString9split_off17h
   br i1 %20, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.thread", label %21
 
 21:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit"
-  %.not.i = icmp ugt i64 %.sink7.i, %2
+  %.not.i = icmp ult i64 %2, %.sink7.i
   br i1 %.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit", label %22
 
 22:                                               ; preds = %21
-  %23 = icmp eq i64 %.sink7.i, %2
+  %23 = icmp eq i64 %2, %.sink7.i
   br i1 %23, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.thread", label %27
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit": ; preds = %21
@@ -3439,7 +3439,7 @@ common.resume:                                    ; preds = %50, %36
   %46 = getelementptr inbounds i8, ptr %5, i64 8
   %47 = load i64, ptr %46, align 8, !noalias !714, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !714
-  %48 = icmp ult i64 %47, %2
+  %48 = icmp ugt i64 %2, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %.noexc
@@ -3502,11 +3502,11 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %.noexc12
   call void @llvm.assume(i1 %70)
   %71 = getelementptr inbounds i8, ptr %7, i64 8
   %72 = load i64, ptr %71, align 8, !alias.scope !728, !noalias !731, !noundef !4
-  %.not.i11 = icmp ult i64 %72, %.sink7.i8
+  %.not.i11 = icmp ugt i64 %.sink7.i8, %72
   br i1 %.not.i11, label %.invoke, label %76
 
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread.i": ; preds = %_ZN8smallvec10infallible17hac02ab9634219958E.exit.i
-  %.not13.i = icmp ult i64 %67, %.sink7.i8
+  %.not13.i = icmp ugt i64 %.sink7.i8, %67
   br i1 %.not13.i, label %.invoke, label %79
 
 .invoke:                                          ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.i", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread.i", %.noexc12
@@ -3568,7 +3568,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %.noexc12
   %97 = load ptr, ptr %96, align 8, !noalias !747, !nonnull !4, !align !163, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !747
   %.promoted.i = load i64, ptr %97, align 8
-  %98 = icmp ugt i64 %.promoted.i, %2
+  %98 = icmp ult i64 %2, %.promoted.i
   br i1 %98, label %.lr.ph.preheader.i, label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h5e63882184e2c3ebE.exit"
 
 .lr.ph.preheader.i:                               ; preds = %.noexc16

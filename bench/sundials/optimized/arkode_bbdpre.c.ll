@@ -61,19 +61,19 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   store ptr %8, ptr %34, align 8
   %35 = add nsw i64 %1, -1
   %36 = call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %.not166 = icmp slt i64 %36, %1
+  %.not166 = icmp sgt i64 %1, %36
   %. = select i1 %.not166, i64 %36, i64 %35
   store i64 %., ptr %28, align 8
   %37 = call i64 @llvm.smax.i64(i64 %3, i64 0)
-  %.not167 = icmp slt i64 %37, %1
+  %.not167 = icmp sgt i64 %1, %37
   %38 = select i1 %.not167, i64 %37, i64 %35
   %39 = getelementptr inbounds i8, ptr %28, i64 8
   store i64 %38, ptr %39, align 8
   %40 = call i64 @llvm.smax.i64(i64 %4, i64 0)
-  %.not168 = icmp slt i64 %40, %1
+  %.not168 = icmp sgt i64 %1, %40
   %41 = select i1 %.not168, i64 %40, i64 %35
   %42 = call i64 @llvm.smax.i64(i64 %5, i64 0)
-  %.not169 = icmp slt i64 %42, %1
+  %.not169 = icmp sgt i64 %1, %42
   %43 = select i1 %.not169, i64 %42, i64 %35
   %44 = getelementptr inbounds i8, ptr %28, i64 16
   store i64 %41, ptr %44, align 8
@@ -94,7 +94,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 52:                                               ; preds = %31
   %53 = add nsw i64 %43, %41
-  %.not170 = icmp slt i64 %53, %1
+  %.not170 = icmp sgt i64 %1, %53
   %.180 = select i1 %.not170, i64 %53, i64 %35
   %54 = getelementptr inbounds i8, ptr %28, i64 64
   store ptr null, ptr %54, align 8

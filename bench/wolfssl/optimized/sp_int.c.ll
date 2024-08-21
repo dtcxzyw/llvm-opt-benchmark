@@ -146,7 +146,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %size = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %size, align 4
-  %cmp3 = icmp ult i32 %0, %l
+  %cmp3 = icmp ugt i32 %l, %0
   br i1 %cmp3, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
@@ -160,7 +160,7 @@ for.body.lr.ph:                                   ; preds = %if.then7
   %4 = getelementptr i8, ptr %a, i64 %3
   %scevgep = getelementptr i8, ptr %4, i64 8
   %5 = xor i32 %1, -1
-  %6 = add nsw i32 %5, %l
+  %6 = add nsw i32 %l, %5
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
   %9 = add nuw nsw i64 %8, 8
@@ -231,7 +231,7 @@ if.then:                                          ; preds = %entry
   %2 = trunc i64 %1 to i32
   %3 = sub i32 0, %2
   %conv.i = and i32 %3, 7
-  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %conv.i, i32 %mul)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %mul, i32 %conv.i)
   %sub3.i = sub i32 %mul, %spec.select.i
   %tobool.not12.i = icmp eq i32 %spec.select.i, 0
   br i1 %tobool.not12.i, label %for.cond.preheader.i, label %while.body.i
@@ -1213,7 +1213,7 @@ if.else.i:                                        ; preds = %if.then7
   %sub.i = sub i64 %2, %d
   %dp5.i = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %sub.i, ptr %dp5.i, align 8
-  %cmp9.i = icmp ult i64 %2, %d
+  %cmp9.i = icmp ugt i64 %d, %2
   br i1 %cmp9.i, label %for.cond.preheader.i, label %if.end25.i
 
 for.cond.preheader.i:                             ; preds = %if.else.i
@@ -1544,7 +1544,7 @@ for.body.i42:                                     ; preds = %for.body.i42, %for.
   %mul.i48 = mul i128 %or.i47, %conv3.i
   %shr.i49 = lshr i128 %mul.i48, 64
   %conv4.i = trunc nuw i128 %shr.i49 to i64
-  %mul6.i = mul i64 %conv4.i, %d
+  %mul6.i = mul i64 %d, %conv4.i
   %sub7.i = sub i64 %17, %mul6.i
   %rem8.i50 = urem i64 %sub7.i, %d
   %indvars.iv.next54.i = add nsw i64 %indvars.iv53.i, -1
@@ -1573,7 +1573,7 @@ for.body14.i28:                                   ; preds = %for.body14.i28, %fo
   %mul23.i = mul i128 %or21.i34, %conv22.i
   %shr24.i = lshr i128 %mul23.i, 64
   %conv25.i = trunc nuw i128 %shr24.i to i64
-  %mul27.i = mul i64 %conv25.i, %d
+  %mul27.i = mul i64 %d, %conv25.i
   %sub28.i = sub i64 %19, %mul27.i
   %div29.i = udiv i64 %sub28.i, %d
   %add.i35 = add i64 %div29.i, %conv25.i
@@ -1808,7 +1808,7 @@ for.body.i24:                                     ; preds = %for.body.i24, %for.
   %mul.i30 = mul i128 %or.i29, %conv3.i
   %shr.i31 = lshr i128 %mul.i30, 64
   %conv4.i = trunc nuw i128 %shr.i31 to i64
-  %mul6.i = mul i64 %conv4.i, %d
+  %mul6.i = mul i64 %d, %conv4.i
   %sub7.i = sub i64 %10, %mul6.i
   %rem8.i32 = urem i64 %sub7.i, %d
   %indvars.iv.next54.i = add nsw i64 %indvars.iv53.i, -1
@@ -3124,7 +3124,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load i32, ptr %a, align 8
-  %cmp2.not = icmp ugt i32 %0, %c
+  %cmp2.not = icmp ult i32 %c, %0
   br i1 %cmp2.not, label %for.body.lr.ph, label %if.then3
 
 if.then3:                                         ; preds = %if.then
@@ -11384,7 +11384,7 @@ land.lhs.true4:                                   ; preds = %lor.lhs.false
   %size = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %size, align 4
   %mul = shl i32 %0, 3
-  %cmp5 = icmp ult i32 %mul, %inSz
+  %cmp5 = icmp ugt i32 %inSz, %mul
   br i1 %cmp5, label %if.end108, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true4
@@ -13742,7 +13742,7 @@ if.then.i82:                                      ; preds = %lor.lhs.false186, %
   %43 = trunc i64 %42 to i32
   %44 = sub i32 0, %43
   %conv.i.i = and i32 %44, 7
-  %spec.select.i.i = call i32 @llvm.umin.i32(i32 %conv.i.i, i32 %mul.i84)
+  %spec.select.i.i = call i32 @llvm.umin.i32(i32 %mul.i84, i32 %conv.i.i)
   %sub3.i.i = sub i32 %mul.i84, %spec.select.i.i
   %tobool.not12.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %tobool.not12.i.i, label %for.cond.preheader.i.i85, label %for.cond.preheader.i.i85.loopexit
@@ -13788,7 +13788,7 @@ if.then.i88:                                      ; preds = %while.body12.i.i, %
   %47 = trunc i64 %46 to i32
   %48 = sub i32 0, %47
   %conv.i.i92 = and i32 %48, 7
-  %spec.select.i.i93 = call i32 @llvm.umin.i32(i32 %conv.i.i92, i32 %mul.i91)
+  %spec.select.i.i93 = call i32 @llvm.umin.i32(i32 %mul.i91, i32 %conv.i.i92)
   %sub3.i.i94 = sub i32 %mul.i91, %spec.select.i.i93
   %tobool.not12.i.i95 = icmp eq i32 %spec.select.i.i93, 0
   br i1 %tobool.not12.i.i95, label %for.cond.preheader.i.i102, label %for.cond.preheader.i.i102.loopexit

@@ -1080,7 +1080,7 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit:                 ; preds = %land.lhs.true
   br i1 %cmp3.i, label %if.end, label %_ZNK6vectorIjLb0EjE4sizeEv.exit
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %1, i32 %n)
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %n, i32 %1)
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
   %2 = load ptr, ptr %vfn, align 8

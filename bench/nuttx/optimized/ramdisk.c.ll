@@ -102,7 +102,7 @@ define internal range(i64 -22, 4294967296) i64 @rd_read(ptr nocapture noundef re
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
-  %8 = icmp ule i32 %7, %2
+  %8 = icmp uge i32 %2, %7
   %9 = add i32 %3, %2
   %.not = icmp ugt i32 %9, %7
   %or.cond = or i1 %8, %.not
@@ -114,10 +114,10 @@ define internal range(i64 -22, 4294967296) i64 @rd_read(ptr nocapture noundef re
   %13 = getelementptr inbounds i8, ptr %6, i64 4
   %14 = load i16, ptr %13, align 4
   %15 = zext i16 %14 to i32
-  %16 = mul i32 %15, %2
+  %16 = mul i32 %2, %15
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %12, i64 %17
-  %19 = mul i32 %15, %3
+  %19 = mul i32 %3, %15
   %20 = zext i32 %19 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %18, i64 %20, i1 false)
   %21 = zext i32 %3 to i64
@@ -140,7 +140,7 @@ define internal range(i64 -27, 4294967296) i64 @rd_write(ptr nocapture noundef r
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %6, align 8
-  %12 = icmp ule i32 %11, %2
+  %12 = icmp uge i32 %2, %11
   %13 = add i32 %3, %2
   %.not16 = icmp ugt i32 %13, %11
   %or.cond = or i1 %12, %.not16
@@ -152,10 +152,10 @@ define internal range(i64 -27, 4294967296) i64 @rd_write(ptr nocapture noundef r
   %17 = getelementptr inbounds i8, ptr %6, i64 4
   %18 = load i16, ptr %17, align 4
   %19 = zext i16 %18 to i32
-  %20 = mul i32 %19, %2
+  %20 = mul i32 %2, %19
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %16, i64 %21
-  %23 = mul i32 %19, %3
+  %23 = mul i32 %3, %19
   %24 = zext i32 %23 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %1, i64 %24, i1 false)
   %25 = zext i32 %3 to i64

@@ -919,12 +919,12 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end11.i.i.i
   %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i8
-  %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %agg.tmp9.sroa.0.0.copyload.i
+  %cmp1.i.i.i.i = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload.i, %sub.i.i.i.i
   br i1 %cmp1.i.i.i.i, label %invoke.cont6, label %if.end7.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end11.i.i.i
   %sub3.i.i.i.i = sub nsw i64 -9223372036854775808, %call.i.i8
-  %cmp4.i.i.i.i = icmp sgt i64 %sub3.i.i.i.i, %agg.tmp9.sroa.0.0.copyload.i
+  %cmp4.i.i.i.i = icmp slt i64 %agg.tmp9.sroa.0.0.copyload.i, %sub3.i.i.i.i
   br i1 %cmp4.i.i.i.i, label %invoke.cont6, label %if.end7.i.i.i.i
 
 if.end7.i.i.i.i:                                  ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
@@ -1350,7 +1350,7 @@ if.then:                                          ; preds = %_ZNK9grpc_core21Ser
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 200
-  %cmp.not.i29 = icmp ugt i64 %sub.ptr.div.i.i, %7
+  %cmp.not.i29 = icmp ult i64 %7, %sub.ptr.div.i.i
   %add.ptr.i.i30 = getelementptr inbounds %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %9, i64 %7
   %spec.select.i = select i1 %cmp.not.i29, ptr %add.ptr.i.i30, ptr null
   br label %if.end
@@ -1976,12 +1976,12 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
   %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i
-  %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %agg.tmp9.sroa.0.0.copyload
+  %cmp1.i.i.i = icmp sgt i64 %agg.tmp9.sroa.0.0.copyload, %sub.i.i.i
   br i1 %cmp1.i.i.i, label %return, label %if.end7.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end11.i.i
   %sub3.i.i.i = sub nsw i64 -9223372036854775808, %call.i
-  %cmp4.i.i.i = icmp sgt i64 %sub3.i.i.i, %agg.tmp9.sroa.0.0.copyload
+  %cmp4.i.i.i = icmp slt i64 %agg.tmp9.sroa.0.0.copyload, %sub3.i.i.i
   br i1 %cmp4.i.i.i, label %return, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i

@@ -1329,7 +1329,7 @@ define dso_local zeroext i1 @gistcanreturn(ptr noundef %0, i32 noundef %1) local
   %5 = getelementptr inbounds i8, ptr %4, i64 10
   %6 = load i16, ptr %5, align 2
   %7 = sext i16 %6 to i32
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %2

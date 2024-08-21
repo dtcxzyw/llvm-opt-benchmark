@@ -1636,7 +1636,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load i16, ptr @_ZL24gAvailableConverterCount, align 2
-  %cmp = icmp ugt i16 %0, %n
+  %cmp = icmp ult i16 %n, %0
   br i1 %cmp, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then

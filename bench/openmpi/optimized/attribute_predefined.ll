@@ -146,7 +146,7 @@ define internal fastcc i32 @create_comm(i32 noundef %0, i1 noundef zeroext %1) u
   %5 = call i32 @ompi_attr_create_keyval(i32 noundef 1, ptr nonnull %4, ptr nonnull @OMPI_C_MPI_COMM_NULL_DELETE_FN, ptr noundef nonnull %3, ptr noundef null, i32 noundef 1, ptr noundef null) #3
   %.not = icmp eq i32 %5, 0
   %6 = load i32, ptr %3, align 4
-  %.not8 = icmp eq i32 %6, %0
+  %.not8 = icmp eq i32 %0, %6
   %. = select i1 %.not8, i32 0, i32 -5
   %.0 = select i1 %.not, i32 %., i32 %5
   ret i32 %.0
@@ -159,7 +159,7 @@ define internal fastcc i32 @create_win(i32 noundef %0) unnamed_addr #0 {
   %3 = call i32 @ompi_attr_create_keyval(i32 noundef 3, ptr nonnull @OMPI_C_MPI_WIN_NULL_COPY_FN, ptr nonnull @OMPI_C_MPI_WIN_NULL_DELETE_FN, ptr noundef nonnull %2, ptr noundef null, i32 noundef 1, ptr noundef null) #3
   %.not = icmp eq i32 %3, 0
   %4 = load i32, ptr %2, align 4
-  %.not7 = icmp eq i32 %4, %0
+  %.not7 = icmp eq i32 %0, %4
   %. = select i1 %.not7, i32 0, i32 -5
   %.0 = select i1 %.not, i32 %., i32 %3
   ret i32 %.0

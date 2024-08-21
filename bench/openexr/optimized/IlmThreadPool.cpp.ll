@@ -2862,7 +2862,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -2937,7 +2937,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit29.i: ; preds = %
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else

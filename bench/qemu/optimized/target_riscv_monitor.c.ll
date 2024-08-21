@@ -209,7 +209,7 @@ for.body:                                         ; preds = %if.end, %if.end30
   %last_start.037 = phi i64 [ -1, %if.end ], [ %last_start.1, %if.end30 ]
   %mul5 = mul i32 %idx.040, %ptesize
   %conv6 = sext i32 %mul5 to i64
-  %add7 = add i64 %conv6, %base
+  %add7 = add i64 %base, %conv6
   call void @cpu_physical_memory_rw(i64 noundef %add7, ptr noundef nonnull %pte, i64 noundef %conv8, i1 noundef zeroext false) #4
   %0 = load i64, ptr %pte, align 8
   %1 = shl i64 %0, 2

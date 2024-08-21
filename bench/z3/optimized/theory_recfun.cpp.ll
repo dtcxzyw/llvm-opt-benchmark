@@ -935,7 +935,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %for.end
   %8 = load i32, ptr %atom, align 4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 -4
   %9 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %9, %8
+  %cmp.not.i.i = icmp ult i32 %8, %9
   br i1 %cmp.not.i.i, label %_ZNK3smt7context14e_internalizedEPK4expr.exit, label %if.then7
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i
@@ -966,7 +966,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end10
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit:    ; preds = %if.end10, %if.end.i.i.i.i
   %retval.0.i.i.i.i = phi i32 [ %13, %if.end.i.i.i.i ], [ 0, %if.end10 ]
-  %cmp.not.i.i.i = icmp ugt i32 %retval.0.i.i.i.i, %10
+  %cmp.not.i.i.i = icmp ult i32 %10, %retval.0.i.i.i.i
   %idxprom.i.i.i = zext i32 %10 to i64
   %arrayidx.i.i.i11 = getelementptr inbounds i32, ptr %12, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.not.i.i.i, ptr %arrayidx.i.i.i11, ptr @_ZN3smtL13null_bool_varE
@@ -1160,7 +1160,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %for.end
   %8 = load i32, ptr %term, align 4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 -4
   %9 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %9, %8
+  %cmp.not.i.i = icmp ult i32 %8, %9
   br i1 %cmp.not.i.i, label %_ZNK3smt7context14e_internalizedEPK4expr.exit, label %if.then7
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i
@@ -5485,7 +5485,7 @@ while.body68.i.i:                                 ; preds = %while.cond65.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body68.i.i
   %66 = load i32, ptr %m_num_patterns.i.i.i.i, align 8
-  %cmp3.not.i.i.i = icmp ult i32 %66, %65
+  %cmp3.not.i.i.i = icmp ugt i32 %65, %66
   %67 = xor i32 %66, -1
   %.sink345.i.i = select i1 %cmp3.not.i.i.i, i32 %67, i32 -1
   %sub9.i.i.i = add i32 %.sink345.i.i, %65
@@ -6433,13 +6433,13 @@ if.else:                                          ; preds = %lor.lhs.false, %con
   %44 = load ptr, ptr %m33, align 8
   %m_true.i = getelementptr inbounds i8, ptr %44, i64 856
   %45 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %45, %r
+  %cmp.i = icmp eq ptr %r, %45
   br i1 %cmp.i, label %if.then38, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %if.else
   %m_false.i = getelementptr inbounds i8, ptr %44, i64 864
   %46 = load ptr, ptr %m_false.i, align 8
-  %cmp.i64 = icmp eq ptr %46, %r
+  %cmp.i64 = icmp eq ptr %r, %46
   br i1 %cmp.i64, label %if.then38, label %if.end
 
 if.then38:                                        ; preds = %lor.lhs.false35, %if.else
@@ -6448,7 +6448,7 @@ if.then38:                                        ; preds = %lor.lhs.false35, %i
 if.end:                                           ; preds = %if.then38, %lor.lhs.false35
   %l.addr.0 = phi ptr [ %r, %if.then38 ], [ %l, %lor.lhs.false35 ]
   %r.addr.0 = phi ptr [ %l, %if.then38 ], [ %r, %lor.lhs.false35 ]
-  %cmp.i66 = icmp eq ptr %45, %l.addr.0
+  %cmp.i66 = icmp eq ptr %l.addr.0, %45
   br i1 %cmp.i66, label %if.then41, label %if.else45
 
 if.then41:                                        ; preds = %if.end
@@ -6518,7 +6518,7 @@ _ZN3smt13theory_recfun10mk_literalEP4expr.exit98: ; preds = %if.then41, %land.rh
 if.else45:                                        ; preds = %if.end
   %m_false.i99 = getelementptr inbounds i8, ptr %44, i64 864
   %63 = load ptr, ptr %m_false.i99, align 8
-  %cmp.i100 = icmp eq ptr %63, %l.addr.0
+  %cmp.i100 = icmp eq ptr %l.addr.0, %63
   br i1 %cmp.i100, label %if.then48, label %if.else55
 
 if.then48:                                        ; preds = %if.else45

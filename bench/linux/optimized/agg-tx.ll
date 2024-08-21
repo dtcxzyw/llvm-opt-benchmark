@@ -871,7 +871,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_start_tx_ba_session(pt
   %30 = getelementptr i8, ptr %0, i64 -1348
   %31 = load i8, ptr %30, align 4
   %32 = zext i8 %31 to i16
-  %33 = icmp eq i16 %32, %1
+  %33 = icmp eq i16 %1, %32
   br i1 %33, label %34, label %36, !prof !23
 
 34:                                               ; preds = %29
@@ -1413,7 +1413,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_stop_tx_ba_session(ptr
   %44 = getelementptr i8, ptr %0, i64 -1348
   %45 = load i8, ptr %44, align 4
   %46 = zext i8 %45 to i16
-  %47 = icmp eq i16 %46, %1
+  %47 = icmp eq i16 %1, %46
   br i1 %47, label %48, label %49, !prof !23
 
 48:                                               ; preds = %43

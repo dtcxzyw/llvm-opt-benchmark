@@ -77,7 +77,7 @@ if.then9:                                         ; preds = %if.then8
   br label %if.end32
 
 if.else:                                          ; preds = %for.end
-  %cmp12 = icmp ult i64 %len.1, %blen
+  %cmp12 = icmp ugt i64 %blen, %len.1
   br i1 %cmp12, label %for.body16, label %if.end32
 
 for.body16:                                       ; preds = %if.else, %for.inc27

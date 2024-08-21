@@ -710,7 +710,7 @@ if.then21:                                        ; preds = %if.end17, %ossl_rsa
 if.end22:                                         ; preds = %ossl_rsa_check_public_exponent.exit
   %7 = load ptr, ptr %n, align 8
   %call24 = tail call i32 @BN_num_bits(ptr noundef %7) #2
-  %cmp25.not = icmp eq i32 %call24, %nbits
+  %cmp25.not = icmp eq i32 %nbits, %call24
   br i1 %cmp25.not, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %if.end22

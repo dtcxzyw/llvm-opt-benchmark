@@ -832,7 +832,7 @@ define hidden noundef zeroext i1 @"_ZN14cranelift_wasm15code_translator17bitcast
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %8 = getelementptr inbounds i8, ptr %7, i64 456
   %9 = load i64, ptr %8, align 8, !alias.scope !51, !noalias !48, !noundef !4
-  %10 = icmp ugt i64 %9, %4
+  %10 = icmp ult i64 %4, %9
   br i1 %10, label %"_ZN14cranelift_wasm15code_translator20bitcast_wasm_returns28_$u7b$$u7b$closure$u7d$$u7d$17h034e99eaf43ce8d8E.llvm.9732445119195644079.exit", label %11, !prof !12
 
 11:                                               ; preds = %2
@@ -1465,7 +1465,7 @@ _ZN14cranelift_wasm15code_translator30translate_unreachable_operator17h8ffca4091
   %339 = load i64, ptr %338, align 8, !alias.scope !82, !noalias !87, !noundef !4
   %340 = load i64, ptr %4, align 8, !alias.scope !89, !noalias !87, !noundef !4
   %341 = sub i64 %340, %339
-  %342 = icmp ult i64 %341, %337
+  %342 = icmp ugt i64 %337, %341
   br i1 %342, label %343, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hd876e71d409c738cE.exit.i"
 
 343:                                              ; preds = %331
@@ -11023,7 +11023,7 @@ define hidden noundef zeroext i1 @"_ZN14cranelift_wasm15code_translator20bitcast
   tail call void @llvm.experimental.noalias.scope.decl(metadata !357)
   %6 = getelementptr inbounds i8, ptr %5, i64 456
   %7 = load i64, ptr %6, align 8, !alias.scope !357, !noundef !4
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   br i1 %8, label %_ZN14cranelift_wasm7environ4spec15FuncEnvironment14is_wasm_return17h2c897d7e4823c978E.exit, label %9, !prof !12
 
 9:                                                ; preds = %2
@@ -15820,7 +15820,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !917)
   %9 = getelementptr inbounds i8, ptr %8, i64 456
   %10 = load i64, ptr %9, align 8, !alias.scope !917, !noalias !916, !noundef !4
-  %11 = icmp ugt i64 %10, %5
+  %11 = icmp ult i64 %5, %10
   br i1 %11, label %"_ZN14cranelift_wasm15code_translator17bitcast_arguments28_$u7b$$u7b$closure$u7d$$u7d$17hfafbdd68dd50f581E.llvm.9732445119195644079.exit", label %12, !prof !12
 
 12:                                               ; preds = %2

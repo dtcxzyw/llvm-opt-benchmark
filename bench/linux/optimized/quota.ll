@@ -529,7 +529,7 @@ define internal fastcc i32 @do_quotactl(ptr noundef %0, i32 noundef %1, i32 noun
   %7 = zext nneg i32 %1 to i64
   %8 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 3, i64 %7) #8, !srcloc !21
   %9 = trunc i64 %8 to i32
-  %10 = and i32 %9, %1
+  %10 = and i32 %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 64
   %13 = icmp eq ptr %12, null

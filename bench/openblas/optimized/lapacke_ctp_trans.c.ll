@@ -43,7 +43,7 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   br i1 %28, label %37, label %29
 
 29:                                               ; preds = %26
-  %30 = icmp slt i32 %27, %3
+  %30 = icmp sgt i32 %3, %27
   br i1 %30, label %31, label %.loopexit8
 
 31:                                               ; preds = %29

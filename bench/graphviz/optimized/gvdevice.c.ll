@@ -99,7 +99,7 @@ agxblen.exit.i.i.i:                               ; preds = %18
   %.0.i30.i.i.i = select i1 %.not.i.i.i.i, i64 %24, i64 31
   %.0.i24.i.i.i = select i1 %.not.i.i.i.i, i64 %25, i64 %23
   %26 = sub i64 %.0.i30.i.i.i, %.0.i24.i.i.i
-  %27 = icmp ult i64 %26, %21
+  %27 = icmp ugt i64 %21, %26
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %agxblen.exit.i.i.i
@@ -382,7 +382,7 @@ define internal fastcc i64 @gvwrite_no_z(ptr noundef %0, ptr noundef %1, i64 nou
   %.neg = xor i32 %16, -1
   %17 = add i32 %14, %.neg
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %18, %2
+  %19 = icmp ugt i64 %2, %18
   %20 = trunc i64 %2 to i32
   br i1 %19, label %21, label %._crit_edge33
 
@@ -1454,7 +1454,7 @@ agxblen.exit.i.i:                                 ; preds = %10, %agxbsizeof.exi
   %.0.i30.i.i = phi i64 [ 31, %agxbsizeof.exit.i.i ], [ %12, %10 ]
   %.0.i24.i.i = phi i64 [ %9, %agxbsizeof.exit.i.i ], [ %14, %10 ]
   %15 = sub i64 %.0.i30.i.i, %.0.i24.i.i
-  %16 = icmp ult i64 %15, %5
+  %16 = icmp ugt i64 %5, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %agxblen.exit.i.i
@@ -1518,7 +1518,7 @@ agxblen.exit.i.i23:                               ; preds = %40, %agxbsizeof.exi
   %.0.i30.i.i24 = phi i64 [ 31, %agxbsizeof.exit.i.i22 ], [ %42, %40 ]
   %.0.i24.i.i25 = phi i64 [ %39, %agxbsizeof.exit.i.i22 ], [ %44, %40 ]
   %45 = sub i64 %.0.i30.i.i24, %.0.i24.i.i25
-  %46 = icmp ult i64 %45, %35
+  %46 = icmp ugt i64 %35, %45
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %agxblen.exit.i.i23
@@ -1801,7 +1801,7 @@ agxblen.exit.i.i38:                               ; preds = %150, %agxbsizeof.ex
   %.0.i30.i.i39 = phi i64 [ 31, %agxbsizeof.exit.i.i37 ], [ %152, %150 ]
   %.0.i24.i.i40 = phi i64 [ %149, %agxbsizeof.exit.i.i37 ], [ %154, %150 ]
   %155 = sub i64 %.0.i30.i.i39, %.0.i24.i.i40
-  %156 = icmp ult i64 %155, %146
+  %156 = icmp ugt i64 %146, %155
   br i1 %156, label %157, label %158
 
 157:                                              ; preds = %agxblen.exit.i.i38

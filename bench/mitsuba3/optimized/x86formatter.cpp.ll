@@ -236,7 +236,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
   %80 = getelementptr inbounds i8, ptr %79, i64 3
   %81 = load i8, ptr %80, align 1, !tbaa !37
   %82 = zext i8 %81 to i32
-  %83 = icmp ugt i32 %82, %5
+  %83 = icmp ult i32 %5, %82
   br i1 %83, label %84, label %93
 
 84:                                               ; preds = %77
@@ -253,7 +253,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
 93:                                               ; preds = %77
   %94 = load i8, ptr %79, align 1, !tbaa !40
   %95 = zext i8 %94 to i32
-  %96 = icmp ugt i32 %95, %5
+  %96 = icmp ult i32 %5, %95
   br i1 %96, label %97, label %103
 
 97:                                               ; preds = %93
@@ -1171,7 +1171,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   %255 = select i1 %252, i32 %254, i32 %248
   %256 = add i32 %247, 1
   %257 = zext i32 %256 to i64
-  %258 = icmp ult i64 %257, %6
+  %258 = icmp ugt i64 %6, %257
   br i1 %258, label %.preheader, label %167, !llvm.loop !51
 
 259:                                              ; preds = %243, %167, %162
@@ -1241,7 +1241,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
 298:                                              ; preds = %292, %285
   %299 = add i32 %150, 1
   %300 = zext i32 %299 to i64
-  %301 = icmp ult i64 %300, %6
+  %301 = icmp ugt i64 %6, %300
   br i1 %301, label %148, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %298, %148, %139
@@ -1407,7 +1407,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %10 = getelementptr inbounds %"struct.asmjit::_abi_1_10::x86::ImmBits", ptr %2, i64 %8
   %11 = load i8, ptr %10, align 1, !tbaa !59
   %12 = zext i8 %11 to i32
-  %13 = and i32 %12, %1
+  %13 = and i32 %1, %12
   %14 = getelementptr inbounds i8, ptr %10, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !61
   %16 = zext nneg i8 %15 to i32

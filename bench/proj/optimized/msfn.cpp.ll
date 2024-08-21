@@ -5,8 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define hidden noundef double @_Z7pj_msfnddd(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = fneg double %2
-  %5 = fmul double %4, %0
+  %4 = fneg double %0
+  %5 = fmul double %2, %4
   %6 = tail call double @llvm.fmuladd.f64(double %5, double %0, double 1.000000e+00)
   %7 = tail call double @sqrt(double noundef %6) #3
   %8 = fdiv double %1, %7

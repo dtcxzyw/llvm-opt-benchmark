@@ -400,7 +400,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.92650
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -1988,7 +1988,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.9265057388667634
   %44 = load i64, ptr %43, align 8, !alias.scope !378, !noalias !383, !noundef !11
   %45 = load i64, ptr %0, align 8, !alias.scope !385, !noalias !383, !noundef !11
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha9155c994f73a183E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.926505738866763462.exit.i
@@ -2045,7 +2045,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !391, !noalias !396, !noundef !11
   %6 = load i64, ptr %0, align 8, !alias.scope !398, !noalias !396, !noundef !11
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha9155c994f73a183E.exit"
 
 9:                                                ; preds = %3
@@ -3714,7 +3714,7 @@ define hidden void @"_ZN66_$LT$flate2..crc..CrcWriter$LT$W$GT$$u20$as$u20$std..i
   br i1 %trunc, label %14, label %10
 
 10:                                               ; preds = %4
-  %11 = icmp ugt i64 %.cast, %3
+  %11 = icmp ult i64 %3, %.cast
   br i1 %11, label %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd69ca6984ea4b8f5E.llvm.926505738866763462.exit"
 
 12:                                               ; preds = %10
@@ -6937,7 +6937,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$actix_web..http..header..Writer$u
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !1155, !noalias !1158, !noundef !11
   %8 = sub i64 %7, %5
-  %.not.i = icmp ult i64 %8, %2
+  %.not.i = icmp ugt i64 %2, %8
   br i1 %.not.i, label %9, label %10
 
 9:                                                ; preds = %3
@@ -6953,7 +6953,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$actix_web..http..header..Writer$u
   %14 = load i64, ptr %6, align 8, !alias.scope !1155, !noalias !1158, !noundef !11
   %15 = load i64, ptr %4, align 8, !alias.scope !1155, !noalias !1158, !noundef !11
   %16 = sub i64 %14, %15
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %18, label %_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.exit
 
 18:                                               ; preds = %10

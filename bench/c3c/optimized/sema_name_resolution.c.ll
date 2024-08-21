@@ -722,7 +722,7 @@ define dso_local ptr @sema_resolve_method(ptr noundef %0, ptr nocapture noundef 
   %17 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, %2
+  %20 = icmp eq ptr %2, %19
   br i1 %20, label %.loopexit, label %16
 
 .loopexit41:                                      ; preds = %16, %10, %13, %5
@@ -751,7 +751,7 @@ define dso_local ptr @sema_resolve_method(ptr noundef %0, ptr nocapture noundef 
   %27 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv54
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, %2
+  %30 = icmp eq ptr %2, %29
   br i1 %30, label %.loopexit, label %26
 
 ._crit_edge:                                      ; preds = %26, %.loopexit41, %23
@@ -1350,7 +1350,7 @@ define internal fastcc ptr @sema_find_decl_in_private_imports(ptr noundef readon
   %20 = load i16, ptr %19, align 8
   %21 = and i16 %20, 8
   %22 = icmp eq i16 %21, 0
-  %.not37.us = xor i1 %22, %2
+  %.not37.us = xor i1 %2, %22
   br i1 %.not37.us, label %23, label %sema_find_decl_in_module.exit.thread.us
 
 23:                                               ; preds = %.lr.ph.split.us
@@ -1414,7 +1414,7 @@ sema_find_decl_in_module.exit.thread.us:          ; preds = %39, %.thread48.us, 
   %45 = load i16, ptr %44, align 8
   %46 = and i16 %45, 8
   %47 = icmp eq i16 %46, 0
-  %.not37 = xor i1 %47, %2
+  %.not37 = xor i1 %2, %47
   br i1 %.not37, label %48, label %sema_find_decl_in_module.exit.thread
 
 48:                                               ; preds = %.lr.ph.split
@@ -1537,7 +1537,7 @@ define internal fastcc ptr @sema_find_decl_in_global(ptr nocapture noundef reado
   %28 = load i16, ptr %27, align 8
   %29 = and i16 %28, 8
   %30 = icmp eq i16 %29, 0
-  %.not17.i = xor i1 %30, %4
+  %.not17.i = xor i1 %4, %30
   br i1 %.not17.i, label %31, label %matches_subpath.exit.thread.i
 
 31:                                               ; preds = %23
@@ -3455,7 +3455,7 @@ declare i32 @decltable_get(ptr noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @decl_is_visible(ptr nocapture noundef readonly %0, ptr readonly %.56.val.0.val) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = icmp eq ptr %2, %.56.val.0.val
+  %3 = icmp eq ptr %.56.val.0.val, %2
   br i1 %3, label %.loopexit, label %.preheader4
 
 .preheader4:                                      ; preds = %1, %.preheader4

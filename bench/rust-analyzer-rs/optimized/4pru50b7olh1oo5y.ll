@@ -1157,7 +1157,7 @@ define hidden void @_ZN3vfs8vfs_path7VfsPath6encode17heb53697695158a51E(ptr noal
   %25 = load i64, ptr %4, align 8, !alias.scope !187, !noundef !5
   %26 = load i64, ptr %1, align 8, !alias.scope !190, !noundef !5
   %27 = sub i64 %26, %25
-  %28 = icmp ult i64 %27, %23
+  %28 = icmp ugt i64 %23, %27
   br i1 %28, label %29, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h98d33b75b5b70262E.exit"
 
 29:                                               ; preds = %10
@@ -1187,7 +1187,7 @@ define hidden void @_ZN3vfs8vfs_path7VfsPath6encode17heb53697695158a51E(ptr noal
   %43 = load i64, ptr %42, align 8, !noundef !5
   %44 = load i64, ptr %1, align 8, !alias.scope !193, !noundef !5
   %45 = sub i64 %44, %39
-  %46 = icmp ult i64 %45, %43
+  %46 = icmp ugt i64 %43, %45
   br i1 %46, label %47, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h98d33b75b5b70262E.exit17"
 
 47:                                               ; preds = %33

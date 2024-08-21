@@ -534,7 +534,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %2 = load ptr, ptr %order, align 8
-  %cmp = icmp ne ptr %2, %scalar
+  %cmp = icmp ne ptr %scalar, %2
   %cmp5 = icmp ne ptr %scalar, null
   %or.cond = and i1 %cmp5, %cmp
   %cmp7 = icmp eq i64 %num, 0
@@ -805,7 +805,7 @@ if.end194:                                        ; preds = %if.then186
 
 if.end196:                                        ; preds = %if.end194, %if.else182
   %totalnum.1 = phi i64 [ %add195, %if.end194 ], [ %add55, %if.else182 ]
-  %cmp199316 = icmp ugt i64 %totalnum.1, %num
+  %cmp199316 = icmp ult i64 %num, %totalnum.1
   br i1 %cmp199316, label %for.body201.lr.ph, label %for.end241
 
 for.body201.lr.ph:                                ; preds = %if.end196

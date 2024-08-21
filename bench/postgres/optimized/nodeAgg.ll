@@ -87,7 +87,7 @@ define dso_local void @hash_agg_set_limits(double noundef %0, double noundef %1,
   %19 = tail call double @llvm.fmuladd.f64(double %18, double 2.500000e-01, double -8.192000e+03)
   %20 = fmul double %19, 0x3F20000000000000
   %21 = fmul double %1, 1.500000e+00
-  %22 = fmul double %21, %0
+  %22 = fmul double %0, %21
   %23 = fdiv double %22, %18
   %24 = fadd double %23, 1.000000e+00
   %25 = fcmp ogt double %24, %20
@@ -123,7 +123,7 @@ define dso_local void @hash_agg_set_limits(double noundef %0, double noundef %1,
   %storemerge = select i1 %41, i64 %44, i64 %43
   store i64 %storemerge, ptr %3, align 8
   %45 = uitofp i64 %storemerge to double
-  %46 = fcmp ogt double %45, %0
+  %46 = fcmp olt double %0, %45
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %36
@@ -2769,7 +2769,7 @@ define internal fastcc void @build_hash_tables(ptr noundef %0) unnamed_addr #1 {
   %29 = fdiv double %28, %23
   %30 = fptosi double %29 to i64
   %31 = ashr i64 %30, 1
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %31, i64 %27)
+  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %27, i64 %31)
   %32 = tail call range(i64 -9223372036854775808, 4611686018427387904) i64 @llvm.smax.i64(i64 %spec.select.i, i64 1)
   %33 = load ptr, ptr %8, align 8
   %34 = load ptr, ptr %9, align 8
@@ -2856,7 +2856,7 @@ define internal fastcc void @initialize_phase(ptr nocapture noundef %0, i32 noun
   %15 = getelementptr inbounds i8, ptr %0, i64 256
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, -1
-  %18 = icmp sgt i32 %17, %1
+  %18 = icmp slt i32 %1, %17
   br i1 %18, label %19, label %42
 
 19:                                               ; preds = %14
@@ -5646,7 +5646,7 @@ define internal fastcc void @hashagg_spill_init(ptr nocapture noundef %0, ptr no
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %36 = add i32 %.0.i, %2
+  %36 = add i32 %2, %.0.i
   %37 = sub i32 32, %36
   %38 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %37, ptr %38, align 4
@@ -5672,7 +5672,7 @@ define internal fastcc void @hashagg_spill_init(ptr nocapture noundef %0, ptr no
   br i1 %exitcond41.not, label %._crit_edge33, label %.lr.ph32, !llvm.loop !45
 
 ._crit_edge33.critedge:                           ; preds = %5
-  %44 = add i32 %.0.i, %2
+  %44 = add i32 %2, %.0.i
   %45 = sub i32 32, %44
   %46 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %45, ptr %46, align 4

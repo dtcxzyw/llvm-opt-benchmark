@@ -2590,7 +2590,7 @@ _is_fed_job.exit:                                 ; preds = %12
   %38 = getelementptr inbounds i8, ptr %37, i64 128
   %39 = load ptr, ptr %38, align 8
   %.not27 = icmp eq ptr %39, null
-  %brmerge = or i1 %.not27, %2
+  %brmerge = or i1 %2, %.not27
   %spec.select63 = select i1 %brmerge, ptr @.str.31, ptr %39
   %40 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %spec.select63, ptr %40, align 8
@@ -2603,7 +2603,7 @@ _is_fed_job.exit:                                 ; preds = %12
   %44 = getelementptr inbounds i8, ptr %43, i64 120
   %45 = load ptr, ptr %44, align 8
   %.not28 = icmp eq ptr %45, null
-  %spec.select = or i1 %.not28, %1
+  %spec.select = or i1 %1, %.not28
   br i1 %spec.select, label %48, label %46
 
 46:                                               ; preds = %_is_fed_job.exit
@@ -9475,7 +9475,7 @@ define dso_local noundef zeroext i1 @fed_mgr_sibs_synced() local_unnamed_addr #0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @_list_find_not_synced_sib(ptr noundef readonly %0, ptr nocapture readnone %1) #9 {
   %3 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %.not = icmp eq ptr %3, %0
+  %.not = icmp eq ptr %0, %3
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
@@ -9626,7 +9626,7 @@ define dso_local void @fed_mgr_test_remote_dependencies() local_unnamed_addr #0 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i64 0, ptr %27, align 8
   %65 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %66 = icmp eq ptr %65, %41
+  %66 = icmp eq ptr %41, %65
   br i1 %66, label %_update_origin_job_dep.exit.sink.split, label %67
 
 67:                                               ; preds = %64
@@ -9674,7 +9674,7 @@ _update_origin_job_dep.exit:                      ; preds = %_update_origin_job_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i64 0, ptr %24, align 8
   %83 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %84 = icmp eq ptr %83, %41
+  %84 = icmp eq ptr %41, %83
   br i1 %84, label %_update_origin_job_dep.exit40.sink.split, label %85
 
 85:                                               ; preds = %82
@@ -9723,7 +9723,7 @@ _update_origin_job_dep.exit40:                    ; preds = %_update_origin_job_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i64 0, ptr %30, align 8
   %102 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %103 = icmp eq ptr %102, %41
+  %103 = icmp eq ptr %41, %102
   br i1 %103, label %_update_origin_job_dep.exit42.sink.split, label %104
 
 104:                                              ; preds = %101
@@ -12853,7 +12853,7 @@ define internal fastcc i32 @_open_controller_conn(ptr noundef %0, i1 noundef zer
 
 9:                                                ; preds = %5, %2
   %10 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %11 = icmp eq ptr %10, %0
+  %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %9

@@ -3528,7 +3528,7 @@ define void @zend_freedtoa(ptr noundef %0) local_unnamed_addr #5 {
 
 Bfree.exit:                                       ; preds = %8, %9
   %13 = load ptr, ptr @dtoa_result, align 8
-  %14 = icmp eq ptr %13, %0
+  %14 = icmp eq ptr %0, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %Bfree.exit
@@ -5913,7 +5913,7 @@ define noundef ptr @zend_gcvt(double noundef %0, i32 noundef %1, i8 noundef sign
 
 Bfree.exit.i:                                     ; preds = %31, %30
   %35 = load ptr, ptr @dtoa_result, align 8
-  %36 = icmp eq ptr %35, %phi.call
+  %36 = icmp eq ptr %phi.call, %35
   br i1 %36, label %zend_freedtoa.exit.sink.split, label %zend_freedtoa.exit
 
 37:                                               ; preds = %10
@@ -6163,7 +6163,7 @@ Bfree.exit.i:                                     ; preds = %31, %30
 
 Bfree.exit.i95:                                   ; preds = %123, %122
   %127 = load ptr, ptr @dtoa_result, align 8
-  %128 = icmp eq ptr %127, %phi.call
+  %128 = icmp eq ptr %phi.call, %127
   br i1 %128, label %zend_freedtoa.exit.sink.split, label %zend_freedtoa.exit
 
 zend_freedtoa.exit.sink.split:                    ; preds = %Bfree.exit.i95, %Bfree.exit.i

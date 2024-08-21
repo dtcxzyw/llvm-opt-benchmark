@@ -3611,7 +3611,7 @@ for.body54.i:                                     ; preds = %for.inc70.i, %for.b
   %directory_name.i = getelementptr inbounds i8, ptr %281, i64 56
   %282 = load ptr, ptr %directory_name.i, align 8
   %283 = load ptr, ptr %last_directory.i.i, align 8
-  %cmp.i52.i = icmp eq ptr %283, %282
+  %cmp.i52.i = icmp eq ptr %282, %283
   br i1 %cmp.i52.i, label %if.end60.i, label %if.end.i53.i
 
 if.end.i53.i:                                     ; preds = %for.body54.i
@@ -3692,7 +3692,7 @@ cond.false.i.i:                                   ; preds = %if.end38.i59.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %if.end38.i59.i
   %cond.i.i = phi ptr [ %300, %cond.false.i.i ], [ null, %if.end38.i59.i ]
-  %cmp54.not.i.i = icmp eq ptr %cond.i.i, %282
+  %cmp54.not.i.i = icmp eq ptr %282, %cond.i.i
   br i1 %cmp54.not.i.i, label %write_completed_directory.exit.i, label %if.then56.i.i
 
 if.then56.i.i:                                    ; preds = %cond.end.i.i
@@ -5235,7 +5235,7 @@ entry:
   %bf.load = load i8, ptr %dir_rename_mask, align 8
   %bf.clear = and i8 %bf.load, 7
   %not = xor i64 %dirmask, -1
-  %and = and i64 %not, %mask
+  %and = and i64 %mask, %not
   %conv = trunc i64 %and to i32
   %3 = trunc i64 %mask to i32
   %and4 = and i64 %mask, 2
@@ -5431,7 +5431,7 @@ while.end:                                        ; preds = %while.cond
   %31 = getelementptr i8, ptr %info, i64 40
   %info.val = load i64, ptr %31, align 8
   %sub.i.i = xor i64 %info.val, -1
-  %cmp.i.i193 = icmp ult i64 %sub.i.i, %conv84
+  %cmp.i.i193 = icmp ugt i64 %conv84, %sub.i.i
   br i1 %cmp.i.i193, label %if.then.i.i194, label %traverse_path_len.exit
 
 if.then.i.i194:                                   ; preds = %while.end
@@ -5889,7 +5889,7 @@ if.end200:                                        ; preds = %land.lhs.true177.if
   %pathlen215 = getelementptr inbounds i8, ptr %newinfo, i64 40
   %81 = load i64, ptr %pathlen215, align 8
   %sub.i288 = xor i64 %81, -1
-  %cmp.i = icmp ult i64 %sub.i288, %conv214
+  %cmp.i = icmp ugt i64 %conv214, %sub.i288
   br i1 %cmp.i, label %if.then.i290, label %st_add.exit
 
 if.then.i290:                                     ; preds = %if.end200
@@ -6193,7 +6193,7 @@ entry:
   %priv = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load ptr, ptr %priv, align 8
   %not = xor i64 %dirmask, -1
-  %and = and i64 %not, %mask
+  %and = and i64 %mask, %not
   %conv = trunc i64 %and to i32
   %callback_data_traverse_path = getelementptr inbounds i8, ptr %1, i64 1536
   %2 = load ptr, ptr %callback_data_traverse_path, align 8
@@ -9029,7 +9029,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end:                                           ; preds = %if.then.i, %entry
   %add = add i64 %hash_size, 8
-  %cmp21.not = icmp eq i32 %1, %offset
+  %cmp21.not = icmp eq i32 %offset, %1
   br i1 %cmp21.not, label %for.end.thread, label %for.body.lr.ph
 
 for.end.thread:                                   ; preds = %if.end
@@ -9045,7 +9045,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %maxlen.023 = phi i64 [ 0, %for.body.lr.ph ], [ %add9, %for.body ]
   %4 = trunc nuw nsw i64 %indvars.iv to i32
-  %add7 = add i32 %4, %offset
+  %add7 = add i32 %offset, %4
   %idxprom = zext i32 %add7 to i64
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %3, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
@@ -9068,7 +9068,7 @@ for.body13:                                       ; preds = %for.body13.preheade
   %indvars.iv27 = phi i64 [ 0, %for.body13.preheader ], [ %indvars.iv.next28, %for.body13 ]
   %6 = load ptr, ptr %versions, align 8
   %7 = trunc nuw nsw i64 %indvars.iv27 to i32
-  %add15 = add i32 %7, %offset
+  %add15 = add i32 %offset, %7
   %idxprom16 = zext i32 %add15 to i64
   %arrayidx17 = getelementptr inbounds %struct.string_list_item, ptr %6, i64 %idxprom16
   %util = getelementptr inbounds i8, ptr %arrayidx17, i64 8
@@ -9160,7 +9160,7 @@ while.body:                                       ; preds = %add_flattened_path.
   %suffix.010 = phi i32 [ %inc, %strbuf_setlen.exit ], [ 0, %add_flattened_path.exit ]
   %9 = load i64, ptr %newpath, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %9, i64 1)
-  %cmp.i3 = icmp ult i64 %spec.select.i, %7
+  %cmp.i3 = icmp ugt i64 %7, %spec.select.i
   br i1 %cmp.i3, label %if.then.i6, label %if.end.i
 
 if.then.i6:                                       ; preds = %while.body

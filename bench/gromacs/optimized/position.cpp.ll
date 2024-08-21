@@ -808,7 +808,7 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr nocapture noundef %
   br label %110
 
 95:                                               ; preds = %77
-  %.not56 = icmp eq i32 %33, %3
+  %.not56 = icmp eq i32 %3, %33
   br i1 %.not56, label %98, label %96
 
 96:                                               ; preds = %95

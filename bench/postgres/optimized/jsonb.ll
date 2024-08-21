@@ -2831,7 +2831,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   %66 = load i8, ptr %65, align 8
   %67 = trunc i8 %66 to i1
   %.not80 = xor i1 %67, true
-  %brmerge = or i1 %.not80, %2
+  %brmerge = or i1 %2, %.not80
   br i1 %brmerge, label %.thread, label %180
 
 .thread:                                          ; preds = %63, %64

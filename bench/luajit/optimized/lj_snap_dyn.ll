@@ -17,7 +17,7 @@ define hidden void @lj_snap_grow_buf_(ptr noundef %J, i32 noundef %need) local_u
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 1652
   %0 = load i32, ptr %arrayidx, align 4
-  %cmp = icmp ult i32 %0, %need
+  %cmp = icmp ugt i32 %need, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -48,7 +48,7 @@ entry:
   %sizesnapmap = getelementptr inbounds i8, ptr %J, i64 368
   %0 = load i32, ptr %sizesnapmap, align 8
   %mul = shl i32 %0, 1
-  %cmp = icmp ugt i32 %mul, %need
+  %cmp = icmp ult i32 %need, %mul
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %need, i32 64)
   %need.addr.0 = select i1 %cmp, i32 %mul, i32 %spec.store.select
   %L = getelementptr inbounds i8, ptr %J, i64 128
@@ -195,7 +195,7 @@ entry.lj_snap_grow_map.exit_crit_edge.i:          ; preds = %if.end25
 
 if.then.i.i:                                      ; preds = %if.end25
   %mul.i.i = shl i32 %18, 1
-  %cmp.i26.i = icmp ugt i32 %mul.i.i, %add2.i
+  %cmp.i26.i = icmp ult i32 %add2.i, %mul.i.i
   %spec.store.select.i.i = tail call i32 @llvm.umax.i32(i32 %add2.i, i32 64)
   %need.addr.0.i.i = select i1 %cmp.i26.i, i32 %mul.i.i, i32 %spec.store.select.i.i
   %L.i.i = getelementptr inbounds i8, ptr %J, i64 128
@@ -1067,7 +1067,7 @@ for.body316:                                      ; preds = %for.body316.prehead
   store i8 %61, ptr %arrayidx318, align 1
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next209 to i32
-  %exitcond211.not = icmp eq i32 %lftr.wideiv, %maxslot
+  %exitcond211.not = icmp eq i32 %maxslot, %lftr.wideiv
   br i1 %exitcond211.not, label %for.cond.backedge, label %for.body316, !llvm.loop !20
 
 return:                                           ; preds = %if.else283, %sw.epilog, %if.then76, %for.body153, %for.body273, %for.cond150.preheader, %for.cond268.preheader, %entry, %for.end98
@@ -1305,7 +1305,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %op2.i = getelementptr inbounds i8, ptr %ir.04.i, i64 2
   %6 = load i16, ptr %op2.i, align 2
   %conv3.i = zext i16 %6 to i32
-  %cmp4.not.i = icmp ugt i32 %conv3.i, %snapno
+  %cmp4.not.i = icmp ult i32 %snapno, %conv3.i
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -1406,7 +1406,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i28
   %op2.i35 = getelementptr inbounds i8, ptr %ir.04.i29, i64 2
   %20 = load i16, ptr %op2.i35, align 2
   %conv6.i = zext i16 %20 to i32
-  %cmp7.not.i = icmp ugt i32 %conv6.i, %snapno
+  %cmp7.not.i = icmp ult i32 %snapno, %conv6.i
   br i1 %cmp7.not.i, label %for.inc.i31, label %if.then.i36
 
 if.then.i36:                                      ; preds = %land.lhs.true.i
@@ -3362,7 +3362,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %op2.i = getelementptr inbounds i8, ptr %ir.04.i, i64 2
   %7 = load i16, ptr %op2.i, align 2
   %conv6.i = zext i16 %7 to i32
-  %cmp7.not.i = icmp ugt i32 %conv6.i, %snapno
+  %cmp7.not.i = icmp ult i32 %snapno, %conv6.i
   br i1 %cmp7.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -3561,14 +3561,14 @@ for.body.i:                                       ; preds = %if.then39, %for.inc
   %rs.addr.03.i = phi i32 [ %rs.addr.1.i, %for.inc.i ], [ %conv, %if.then39 ]
   %5 = load i16, ptr %ir.04.i, align 8
   %conv3.i = zext i16 %5 to i32
-  %cmp4.i = icmp eq i32 %conv3.i, %ref
+  %cmp4.i = icmp eq i32 %ref, %conv3.i
   br i1 %cmp4.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %op2.i = getelementptr inbounds i8, ptr %ir.04.i, i64 2
   %6 = load i16, ptr %op2.i, align 2
   %conv6.i = zext i16 %6 to i32
-  %cmp7.not.i = icmp ugt i32 %conv6.i, %snapno
+  %cmp7.not.i = icmp ult i32 %snapno, %conv6.i
   br i1 %cmp7.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i

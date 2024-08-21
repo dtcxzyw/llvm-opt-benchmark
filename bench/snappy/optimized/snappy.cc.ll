@@ -475,7 +475,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %op.addr.3 = phi ptr [ %op.addr.4, %if.end92 ], [ %op.addr.3.ph, %do.body.preheader ]
   %add.ptr77 = getelementptr inbounds i8, ptr %candidate.1, i64 4
   %add.ptr78 = getelementptr inbounds i8, ptr %ip.5, i64 4
-  %cmp.not.i = icmp ult ptr %add.ptr.i89, %add.ptr78
+  %cmp.not.i = icmp ugt ptr %add.ptr78, %add.ptr.i89
   br i1 %cmp.not.i, label %if.end12.i, label %if.then.i90
 
 if.then.i90:                                      ; preds = %do.body
@@ -2387,7 +2387,7 @@ define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReader4SkipEm(ptr nou
 entry:
   %curr_size_remaining_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %curr_size_remaining_, align 8
-  %cmp6 = icmp ule i64 %0, %n
+  %cmp6 = icmp uge i64 %n, %0
   %cmp27 = icmp ne i64 %n, 0
   %1 = and i1 %cmp27, %cmp6
   %total_size_remaining_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -2862,7 +2862,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %ip to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 130
-  %cmp1 = icmp sgt i64 %sub, %op
+  %cmp1 = icmp slt i64 %op, %sub
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %if.then, label %if.end57
 
@@ -3149,7 +3149,7 @@ if.end:                                           ; preds = %entry
   %output_limit_ = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %output_limit_, align 8
   %sub3 = sub i64 %2, %1
-  %cmp4 = icmp ult i64 %sub3, %len
+  %cmp4 = icmp ugt i64 %len, %sub3
   br i1 %cmp4, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end
@@ -3348,7 +3348,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %buf_limit, i64 -11
-  %cmp1.not = icmp ult ptr %add.ptr, %op
+  %cmp1.not = icmp ugt ptr %op, %add.ptr
   br i1 %cmp1.not, label %if.else, label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
@@ -3382,7 +3382,7 @@ while.body.i:                                     ; preds = %if.else, %while.bod
 if.end11:                                         ; preds = %while.end, %entry
   %op.addr.0 = phi ptr [ %add.ptr5, %while.end ], [ %op, %entry ]
   %add.ptr12 = getelementptr inbounds i8, ptr %buf_limit, i64 -15
-  %cmp13.not = icmp ult ptr %add.ptr12, %op_limit
+  %cmp13.not = icmp ugt ptr %op_limit, %add.ptr12
   br i1 %cmp13.not, label %if.end35, label %if.then16
 
 if.then16:                                        ; preds = %if.end11
@@ -4431,7 +4431,7 @@ while.body:                                       ; preds = %if.end49, %if.end68
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i96 = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i96
-  %cmp.not.i = icmp ult i64 %sub.ptr.sub.i97, %avail.0155
+  %cmp.not.i = icmp ugt i64 %avail.0155, %sub.ptr.sub.i97
   br i1 %cmp.not.i, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit.thread
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit.thread: ; preds = %while.body
@@ -4490,7 +4490,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   %31 = phi ptr [ %.pre, %while.end.loopexit ], [ %17, %if.end49 ]
   %literal_length.1.lcssa = phi i64 [ %sub58, %while.end.loopexit ], [ %literal_length.0, %if.end49 ]
   %ip.5.lcssa = phi ptr [ %call63, %while.end.loopexit ], [ %ip.4, %if.end49 ]
-  %cmp.not.i113 = icmp ult i64 %sub.ptr.sub.i112.pre-phi, %literal_length.1.lcssa
+  %cmp.not.i113 = icmp ugt i64 %literal_length.1.lcssa, %sub.ptr.sub.i112.pre-phi
   br i1 %cmp.not.i113, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit121, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit121.thread
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit121.thread: ; preds = %while.end
@@ -4727,7 +4727,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp27.not = icmp ult i64 %sub.ptr.sub, %len
+  %cmp27.not = icmp ugt i64 %len, %sub.ptr.sub
   br i1 %cmp27.not, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry

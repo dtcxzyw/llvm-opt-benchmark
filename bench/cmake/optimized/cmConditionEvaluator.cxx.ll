@@ -3379,7 +3379,7 @@ _ZNSt12_Vector_baseI25cmExpandedCommandArgumentSaIS0_EE11_M_allocateEm.exit: ; p
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = tail call ptr @__cxa_begin_catch(ptr %22) #19
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %9
+  %.not4.i.i.i.i.i.i = icmp eq ptr %9, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIP25cmExpandedCommandArgumentEvT_S2_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %20, %.lr.ph.i.i.i.i.i.i

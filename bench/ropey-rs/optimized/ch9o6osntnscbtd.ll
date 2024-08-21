@@ -857,11 +857,11 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.l
   br i1 %.not36, label %_ZN5ropey4tree9node_text8NodeText10insert_str17h62c10d7ef7752b61E.exit, label %300
 
 300:                                              ; preds = %294
-  %.not.i.i = icmp ugt i64 %299, %.sroa.0.4.i
+  %.not.i.i = icmp ult i64 %.sroa.0.4.i, %299
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i", label %301
 
 301:                                              ; preds = %300
-  %302 = icmp eq i64 %299, %.sroa.0.4.i
+  %302 = icmp eq i64 %.sroa.0.4.i, %299
   br i1 %302, label %_ZN5ropey4tree9node_text8NodeText10insert_str17h62c10d7ef7752b61E.exit, label %306
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i": ; preds = %300
@@ -1170,11 +1170,11 @@ define internal fastcc void @"_ZN5ropey4rope4Rope15insert_internal28_$u7b$$u7b$c
   br i1 %105, label %_ZN5ropey4tree9node_text8NodeText10insert_str17h62c10d7ef7752b61E.exit, label %106
 
 106:                                              ; preds = %101
-  %.not.i.i = icmp ugt i64 %104, %19
+  %.not.i.i = icmp ult i64 %19, %104
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i", label %107
 
 107:                                              ; preds = %106
-  %108 = icmp eq i64 %104, %19
+  %108 = icmp eq i64 %19, %104
   br i1 %108, label %_ZN5ropey4tree9node_text8NodeText10insert_str17h62c10d7ef7752b61E.exit, label %112
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i": ; preds = %106
@@ -1274,7 +1274,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %34 = getelementptr inbounds i8, ptr %.sroa.0122.0143, i64 8
   %35 = load i64, ptr %34, align 8, !noundef !4
   %36 = add i64 %35, %.sroa.08.0.i145
-  %37 = icmp ugt i64 %36, %2
+  %37 = icmp ult i64 %2, %36
   br i1 %37, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit83, label %38
 
 38:                                               ; preds = %.lr.ph
@@ -1768,7 +1768,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %34 = getelementptr inbounds i8, ptr %.sroa.0121.0142, i64 8
   %35 = load i64, ptr %34, align 8, !noundef !4
   %36 = add i64 %35, %.sroa.08.0.i144
-  %37 = icmp ugt i64 %36, %2
+  %37 = icmp ult i64 %2, %36
   br i1 %37, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit83, label %38
 
 38:                                               ; preds = %.lr.ph

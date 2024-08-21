@@ -18,7 +18,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp2.not = icmp eq ptr %0, %md
+  %cmp2.not = icmp eq ptr %md, %0
   br i1 %cmp2.not, label %if.then7, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true

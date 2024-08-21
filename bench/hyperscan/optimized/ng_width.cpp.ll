@@ -516,7 +516,7 @@ invoke.cont10:                                    ; preds = %for.body.i.i.i.i.i.
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %distance.sroa.0.0 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  %cmp.not.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %2
+  %cmp.not.i.i = icmp ult i64 %2, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i, label %invoke.cont38, label %if.then.i.i33.invoke
 
 invoke.cont38:                                    ; preds = %invoke.cont10
@@ -728,7 +728,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHol
   store ptr %storemerge.i.i.i.i.i.i.i.i, ptr %_M_start.i.i.i.i.i.i.i.i, align 8
   %m_header.i.i.i.i.i.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %u.sroa.0.0.copyload.i.i.i.i.i.i, i64 136
   %28 = load ptr, ptr %m_header.i.i.i.i.i.i10.i.i.i.i.i, align 8, !noalias !8
-  %cmp.i.i.i.i.not2.i.i.i.i.i.i.i.i.i = icmp eq ptr %m_header.i.i.i.i.i.i10.i.i.i.i.i, %28
+  %cmp.i.i.i.i.not2.i.i.i.i.i.i.i.i.i = icmp eq ptr %28, %m_header.i.i.i.i.i.i10.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not2.i.i.i.i.i.i.i.i.i, label %_ZN5boost9out_edgesIN3ue28NGHolderENS1_12_GLOBAL__N_117SpecialEdgeFilterENS_8keep_allEEESt4pairINS_14filtered_graphIT_T0_T1_E17out_edge_iteratorESC_ENSB_17vertex_descriptorERKSB_.exit.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEESt5dequeIS9_SaIS9_EEE3popEv.exit.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i
@@ -1674,7 +1674,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #21
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE16_M_destroy_nodesEPPS8_SC_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -2554,7 +2554,7 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %47 = load ptr, ptr %m_header.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !53
   %agg.tmp53.sroa.4.12.extract.shift.i.i.i.i.i.i.i = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i, 32
   %agg.tmp53.sroa.4.12.extract.trunc.i.i.i.i.i.i.i = trunc nuw i64 %agg.tmp53.sroa.4.12.extract.shift.i.i.i.i.i.i.i to i32
-  %cmp.i.i.i.i.not2.i.i.i.i.i.i.i.i.i = icmp eq ptr %m_header.i.i.i.i.i.i.i.i.i.i.i, %47
+  %cmp.i.i.i.i.not2.i.i.i.i.i.i.i.i.i = icmp eq ptr %47, %m_header.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not2.i.i.i.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i.i.i.i, label %land.rhs.lr.ph.i.i.i.i.i.i.i.i.i
 
 land.rhs.lr.ph.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.i.i.i.i
@@ -3175,7 +3175,7 @@ invoke.cont105.i.i.i.i.i.i:                       ; preds = %_ZNSt6vectorISt4pai
   %113 = load ptr, ptr %m_header.i.i.i.i.i179.i.i.i.i.i.i, align 8, !noalias !81
   %agg.tmp53.sroa.4.12.extract.shift.i180.i.i.i.i.i.i = lshr i64 %agg.tmp.sroa.2.0.copyload.i178.i.i.i.i.i.i, 32
   %agg.tmp53.sroa.4.12.extract.trunc.i181.i.i.i.i.i.i = trunc nuw i64 %agg.tmp53.sroa.4.12.extract.shift.i180.i.i.i.i.i.i to i32
-  %cmp.i.i.i.i.not2.i.i.i182.i.i.i.i.i.i = icmp eq ptr %m_header.i.i.i.i.i179.i.i.i.i.i.i, %113
+  %cmp.i.i.i.i.not2.i.i.i182.i.i.i.i.i.i = icmp eq ptr %113, %m_header.i.i.i.i.i179.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not2.i.i.i182.i.i.i.i.i.i, label %invoke.cont111.i.i.i.i.i.i, label %land.rhs.lr.ph.i.i.i183.i.i.i.i.i.i
 
 land.rhs.lr.ph.i.i.i183.i.i.i.i.i.i:              ; preds = %invoke.cont105.i.i.i.i.i.i
@@ -3819,7 +3819,7 @@ invoke.cont51.i.i.i.i:                            ; preds = %invoke.cont42.loope
   %194 = load ptr, ptr %m_header.i.i.i.i.i.i.i.i.i, align 8, !noalias !114
   %agg.tmp53.sroa.4.12.extract.shift.i.i.i.i.i = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i, 32
   %agg.tmp53.sroa.4.12.extract.trunc.i.i.i.i.i = trunc nuw i64 %agg.tmp53.sroa.4.12.extract.shift.i.i.i.i.i to i32
-  %cmp.i.i.i.i.not2.i.i.i.i.i.i.i = icmp eq ptr %m_header.i.i.i.i.i.i.i.i.i, %194
+  %cmp.i.i.i.i.not2.i.i.i.i.i.i.i = icmp eq ptr %194, %m_header.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not2.i.i.i.i.i.i.i, label %invoke.cont56.i.i.i.i, label %land.rhs.lr.ph.i.i.i.i.i.i.i
 
 land.rhs.lr.ph.i.i.i.i.i.i.i:                     ; preds = %invoke.cont51.i.i.i.i

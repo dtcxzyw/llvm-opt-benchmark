@@ -40,7 +40,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
 
 14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h34cd25d7e7b145ffE.exit.thread.i"
   %15 = shl nuw i64 %7, 2
-  %16 = icmp ule i64 %15, %10
+  %16 = icmp uge i64 %10, %15
   tail call void @llvm.assume(i1 %16)
   %17 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %15, i64 noundef 4, i64 noundef %10) #11, !noalias !8
   br label %_ZN5alloc7raw_vec11finish_grow17h85b5478baf7c4cd0E.exit.i
@@ -99,7 +99,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
 
 14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha59a57127e7e0dc2E.exit.thread.i"
   %15 = shl nuw i64 %7, 3
-  %16 = icmp ule i64 %15, %10
+  %16 = icmp uge i64 %10, %15
   tail call void @llvm.assume(i1 %16)
   %17 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %15, i64 noundef 4, i64 noundef %10) #11, !noalias !15
   br label %_ZN5alloc7raw_vec11finish_grow17h85b5478baf7c4cd0E.exit.i
@@ -132,7 +132,7 @@ _ZN5alloc7raw_vec11finish_grow17h85b5478baf7c4cd0E.exit.i: ; preds = %18, %14
 define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17hb64b90c68fac90fbE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load i64, ptr %0, align 8, !noundef !7
-  %.not = icmp ult i64 %4, %1
+  %.not = icmp ugt i64 %1, %4
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %2
@@ -194,7 +194,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17hb64
 define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17he20def90a5130063E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load i64, ptr %0, align 8, !noundef !7
-  %.not = icmp ult i64 %4, %1
+  %.not = icmp ugt i64 %1, %4
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %2

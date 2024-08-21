@@ -3370,7 +3370,7 @@ Io_WriteVerilogGetName.exit475:                   ; preds = %499, %._crit_edge.i
   %548 = add nsw i32 %.4596, 1
   %549 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %.09.i374, i32 noundef %.4596) #10
   %.val222586 = load i32, ptr %535, align 4
-  %.not174.not587 = icmp slt i32 %.val222586, %2
+  %.not174.not587 = icmp sgt i32 %2, %.val222586
   br i1 %.not174.not587, label %.lr.ph590, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph590, %547

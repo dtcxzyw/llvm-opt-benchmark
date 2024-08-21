@@ -1219,7 +1219,7 @@ define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr i8, ptr %1, i64 4
   %.val58 = load i32, ptr %4, align 4
   %5 = add nsw i32 %.val57, -1
-  %.not = icmp eq i32 %5, %.val58
+  %.not = icmp eq i32 %.val58, %5
   br i1 %.not, label %71, label %6
 
 6:                                                ; preds = %2
@@ -1282,7 +1282,7 @@ define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %1)
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
-  %.not47 = icmp eq ptr %35, %1
+  %.not47 = icmp eq ptr %1, %35
   br i1 %.not47, label %._crit_edge, label %.lr.ph74, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph74, %25
@@ -1296,7 +1296,7 @@ define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %1)
   %40 = ptrtoint ptr %39 to i64
   %41 = and i64 %40, -2
   %42 = inttoptr i64 %41 to ptr
-  %.not40 = icmp eq ptr %42, %1
+  %.not40 = icmp eq ptr %1, %42
   br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %37, %21, %18, %14
@@ -1561,7 +1561,7 @@ define range(i32 0, 2097152) i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 nound
   %57 = ptrtoint ptr %56 to i64
   %58 = and i64 %57, -2
   %59 = inttoptr i64 %58 to ptr
-  %.not51 = icmp eq ptr %59, %0
+  %.not51 = icmp eq ptr %0, %59
   br i1 %.not51, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1592,7 +1592,7 @@ define range(i32 0, 2097152) i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 nound
   %71 = ptrtoint ptr %70 to i64
   %72 = and i64 %71, -2
   %73 = inttoptr i64 %72 to ptr
-  %.not52 = icmp eq ptr %73, %0
+  %.not52 = icmp eq ptr %0, %73
   br i1 %.not52, label %.loopexit.loopexit, label %.lr.ph74, !llvm.loop !24
 
 .loopexit.loopexit:                               ; preds = %.lr.ph74

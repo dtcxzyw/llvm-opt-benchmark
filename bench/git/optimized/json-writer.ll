@@ -1454,7 +1454,7 @@ if.end:                                           ; preds = %entry
   %3 = load i8, ptr %arrayidx, align 1
   %4 = load i64, ptr %open_stack, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %idxprom
+  %cmp.i = icmp ugt i64 %idxprom, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end

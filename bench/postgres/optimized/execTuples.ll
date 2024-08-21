@@ -3370,7 +3370,7 @@ define dso_local void @slot_getsomeattrs_int(ptr noundef %0, i32 noundef %1) loc
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
-  %6 = icmp slt i32 %5, %1
+  %6 = icmp sgt i32 %1, %5
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
@@ -3389,7 +3389,7 @@ define dso_local void @slot_getsomeattrs_int(ptr noundef %0, i32 noundef %1) loc
   %15 = getelementptr inbounds i8, ptr %0, i64 6
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i32
-  %18 = icmp slt i32 %17, %1
+  %18 = icmp sgt i32 %1, %17
   br i1 %18, label %19, label %51
 
 19:                                               ; preds = %10
@@ -4181,7 +4181,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 2047
   %17 = zext nneg i16 %16 to i32
-  %. = tail call i32 @llvm.smin.i32(i32 %17, i32 %2)
+  %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %17)
   %18 = getelementptr inbounds i8, ptr %0, i64 6
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i32

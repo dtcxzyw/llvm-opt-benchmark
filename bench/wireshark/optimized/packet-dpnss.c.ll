@@ -1265,7 +1265,7 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noca
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %7 = icmp sgt i32 %6, %3
+  %7 = icmp slt i32 %3, %6
   br i1 %7, label %.lr.ph100, label %._crit_edge
 
 .lr.ph100:                                        ; preds = %4

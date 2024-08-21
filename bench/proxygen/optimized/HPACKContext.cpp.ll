@@ -419,7 +419,7 @@ entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen17StaticHeaderTable3getEv()
   %size_.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i32, ptr %size_.i, align 8
-  %cmp = icmp uge i32 %0, %index
+  %cmp = icmp ule i32 %index, %0
   ret i1 %cmp
 }
 
@@ -429,7 +429,7 @@ entry:
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen17StaticHeaderTable3getEv()
   %size_.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %0 = load i32, ptr %size_.i.i, align 8
-  %cmp.i.not = icmp ult i32 %0, %index
+  %cmp.i.not = icmp ugt i32 %index, %0
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

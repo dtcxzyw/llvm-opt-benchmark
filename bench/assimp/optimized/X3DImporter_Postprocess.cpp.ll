@@ -4217,7 +4217,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 define linkonce_odr hidden noundef zeroext i1 @_ZN10aiMetadata3SetIbEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #2 comdat align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
-  %cmp.not = icmp ugt i32 %0, %index
+  %cmp.not = icmp ult i32 %index, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4291,7 +4291,7 @@ return:                                           ; preds = %if.then17, %if.end5
 define linkonce_odr hidden noundef zeroext i1 @_ZN10aiMetadata3SetIfEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #2 comdat align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
-  %cmp.not = icmp ugt i32 %0, %index
+  %cmp.not = icmp ult i32 %index, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4364,7 +4364,7 @@ return:                                           ; preds = %if.then17, %if.end5
 define linkonce_odr hidden noundef zeroext i1 @_ZN10aiMetadata3SetIiEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #2 comdat align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
-  %cmp.not = icmp ugt i32 %0, %index
+  %cmp.not = icmp ult i32 %index, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4439,7 +4439,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 define linkonce_odr hidden noundef zeroext i1 @_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 4 dereferenceable(1028) %value) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 8
-  %cmp.not = icmp ugt i32 %0, %index
+  %cmp.not = icmp ult i32 %index, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

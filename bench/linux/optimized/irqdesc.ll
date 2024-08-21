@@ -723,7 +723,7 @@ define dso_local void @irq_free_descs(i32 noundef %0, i32 noundef %1) #1 align 1
 19:                                               ; preds = %.preheader, %free_desc.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %free_desc.exit ]
   %20 = trunc nuw i64 %indvars.iv to i32
-  %21 = add i32 %20, %0
+  %21 = add i32 %0, %20
   %22 = zext i32 %21 to i64
   %23 = tail call ptr @mtree_load(ptr noundef nonnull @sparse_irqs, i64 noundef %22) #11
   tail call void @unregister_irq_proc(i32 noundef %21, ptr noundef %23) #11

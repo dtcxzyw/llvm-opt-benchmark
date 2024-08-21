@@ -398,7 +398,7 @@ _ZN9CodeCache14heap_availableE12CodeBlobType.exit: ; preds = %_ZN14CompilerConfi
 76:                                               ; preds = %67
   %77 = add i64 %.sroa.0123.0, %.sroa.0.0
   %78 = add i64 %77, %29
-  %79 = icmp ult i64 %78, %34
+  %79 = icmp ugt i64 %34, %78
   %80 = sub i64 %34, %77
   %81 = select i1 %79, i64 %80, i64 %29
   br label %82
@@ -416,7 +416,7 @@ _ZN9CodeCache14heap_availableE12CodeBlobType.exit: ; preds = %_ZN14CompilerConfi
 .thread152.thread:                                ; preds = %68
   %85 = add i64 %.sroa.0123.0, %.sroa.0105.0
   %86 = add i64 %85, %29
-  %87 = icmp ult i64 %86, %34
+  %87 = icmp ugt i64 %34, %86
   %88 = sub i64 %34, %85
   %89 = select i1 %87, i64 %88, i64 %29
   %90 = add nsw i64 %64, 409600
@@ -425,7 +425,7 @@ _ZN9CodeCache14heap_availableE12CodeBlobType.exit: ; preds = %_ZN14CompilerConfi
 .thread160:                                       ; preds = %.thread152
   %91 = add i64 %.sroa.0105.0, %.sroa.0.0
   %92 = add i64 %84, %91
-  %93 = icmp ult i64 %92, %34
+  %93 = icmp ugt i64 %34, %92
   %94 = sub i64 %34, %91
   %95 = select i1 %93, i64 %94, i64 %84
   br label %.thread160.thread
@@ -1197,73 +1197,72 @@ _ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i: ; preds = %_ZN
   %30 = getelementptr inbounds i8, ptr %0, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %3, %31
-  br i1 %32, label %33, label %43
+  br i1 %32, label %33, label %41
 
 33:                                               ; preds = %.loopexit
   %34 = add nsw i32 %3, 1
   %35 = icmp sgt i32 %3, -1
-  %36 = xor i32 %3, -2147483648
-  %37 = and i32 %36, %34
-  %38 = icmp eq i32 %37, 0
-  %39 = and i1 %35, %38
-  %40 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
-  %41 = sub nuw nsw i32 32, %40
-  %42 = shl nuw i32 1, %41
-  %.0.i.i.i.i = select i1 %39, i32 %34, i32 %42
+  %36 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %34)
+  %37 = icmp ult i32 %36, 2
+  %or.cond.i.i.i.i = select i1 %35, i1 %37, i1 false
+  %38 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
+  %39 = sub nuw nsw i32 32, %38
+  %40 = shl nuw i32 1, %39
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %34, i32 %40
   tail call void @_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %0, align 8
-  br label %43
+  br label %41
 
-43:                                               ; preds = %33, %.loopexit
-  %44 = phi i32 [ %.pre.i, %33 ], [ %3, %.loopexit ]
-  %.not.not9.i = icmp sgt i32 %44, %.0.i.ph
+41:                                               ; preds = %33, %.loopexit
+  %42 = phi i32 [ %.pre.i, %33 ], [ %3, %.loopexit ]
+  %.not.not9.i = icmp sgt i32 %42, %.0.i.ph
   br i1 %.not.not9.i, label %.lr.ph.i4, label %.._crit_edge_crit_edge.i
 
-.._crit_edge_crit_edge.i:                         ; preds = %43
+.._crit_edge_crit_edge.i:                         ; preds = %41
   %.pre13.i = zext nneg i32 %.0.i.ph to i64
   br label %_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
 
-.lr.ph.i4:                                        ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
-  %46 = sext i32 %44 to i64
-  %47 = zext nneg i32 %.0.i.ph to i64
-  br label %48
+.lr.ph.i4:                                        ; preds = %41
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = sext i32 %42 to i64
+  %45 = zext nneg i32 %.0.i.ph to i64
+  br label %46
 
-48:                                               ; preds = %48, %.lr.ph.i4
-  %indvars.iv.i = phi i64 [ %46, %.lr.ph.i4 ], [ %indvars.iv.next.i, %48 ]
+46:                                               ; preds = %46, %.lr.ph.i4
+  %indvars.iv.i = phi i64 [ %44, %.lr.ph.i4 ], [ %indvars.iv.next.i, %46 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %49 = load ptr, ptr %45, align 8
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv.next.i
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv.i
-  store ptr %51, ptr %52, align 8
-  %.not.not.i = icmp sgt i64 %indvars.iv.next.i, %47
-  br i1 %.not.not.i, label %48, label %._crit_edge.loopexit.i, !llvm.loop !20
+  %47 = load ptr, ptr %43, align 8
+  %48 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv.next.i
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv.i
+  store ptr %49, ptr %50, align 8
+  %.not.not.i = icmp sgt i64 %indvars.iv.next.i, %45
+  br i1 %.not.not.i, label %46, label %._crit_edge.loopexit.i, !llvm.loop !20
 
-._crit_edge.loopexit.i:                           ; preds = %48
+._crit_edge.loopexit.i:                           ; preds = %46
   %.pre12.i = load i32, ptr %0, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit: ; preds = %.._crit_edge_crit_edge.i, %._crit_edge.loopexit.i
-  %.pre-phi.i = phi i64 [ %.pre13.i, %.._crit_edge_crit_edge.i ], [ %47, %._crit_edge.loopexit.i ]
-  %53 = phi i32 [ %44, %.._crit_edge_crit_edge.i ], [ %.pre12.i, %._crit_edge.loopexit.i ]
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %0, align 8
-  %55 = load ptr, ptr %1, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %.pre-phi.i
-  store ptr %55, ptr %58, align 8
-  %.pre = load ptr, ptr %56, align 8
+  %.pre-phi.i = phi i64 [ %.pre13.i, %.._crit_edge_crit_edge.i ], [ %45, %._crit_edge.loopexit.i ]
+  %51 = phi i32 [ %42, %.._crit_edge_crit_edge.i ], [ %.pre12.i, %._crit_edge.loopexit.i ]
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %0, align 8
+  %53 = load ptr, ptr %1, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds ptr, ptr %55, i64 %.pre-phi.i
+  store ptr %53, ptr %56, align 8
+  %.pre = load ptr, ptr %54, align 8
   br label %_ZNK17GrowableArrayViewIP8CodeHeapE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN9CodeCache17code_heap_compareES8_S8_EEEEiS6_Rb.exit
 
 _ZNK17GrowableArrayViewIP8CodeHeapE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN9CodeCache17code_heap_compareES8_S8_EEEEiS6_Rb.exit: ; preds = %_ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i, %_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
-  %59 = phi ptr [ %.pre, %_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %6, %_ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i ]
+  %57 = phi ptr [ %.pre, %_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %6, %_ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i ]
   %.0.i8 = phi i32 [ %.0.i.ph, %_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %12, %_ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i ]
-  %60 = zext nneg i32 %.0.i8 to i64
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
-  %62 = load ptr, ptr %61, align 8
-  ret ptr %62
+  %58 = zext nneg i32 %.0.i8 to i64
+  %59 = getelementptr inbounds ptr, ptr %57, i64 %58
+  %60 = load ptr, ptr %59, align 8
+  ret ptr %60
 }
 
 declare void @_ZN8CodeHeapC1EPKc12CodeBlobType(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, i32 noundef) unnamed_addr #2
@@ -1299,7 +1298,7 @@ define hidden noundef ptr @_ZN9CodeCache24get_code_heap_containingEPv(ptr nounde
   %.not.i = icmp ule ptr %12, %0
   %13 = getelementptr inbounds i8, ptr %10, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp ugt ptr %14, %0
+  %15 = icmp ult ptr %0, %14
   %16 = select i1 %.not.i, i1 %15, i1 false
   br i1 %16, label %._crit_edge, label %7
 
@@ -1335,7 +1334,7 @@ define hidden noundef ptr @_ZN9CodeCache13get_code_heapEPKv(ptr noundef readnone
   %.not.i = icmp ule ptr %12, %0
   %13 = getelementptr inbounds i8, ptr %10, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp ugt ptr %14, %0
+  %15 = icmp ult ptr %0, %14
   %16 = select i1 %.not.i, i1 %15, i1 false
   br i1 %16, label %17, label %7
 
@@ -1668,7 +1667,7 @@ define hidden void @_ZN9CodeCache4freeEP8CodeBlob(ptr noundef %0) local_unnamed_
   %.not.i.i = icmp ule ptr %12, %0
   %13 = getelementptr inbounds i8, ptr %10, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp ugt ptr %14, %0
+  %15 = icmp ult ptr %0, %14
   %16 = select i1 %.not.i.i, i1 %15, i1 false
   br i1 %16, label %_ZN9CodeCache13get_code_heapEPKv.exit, label %7
 
@@ -1774,7 +1773,7 @@ define hidden void @_ZN9CodeCache16free_unused_tailEP8CodeBlobm(ptr noundef %0, 
   %.not.i.i = icmp ule ptr %28, %0
   %29 = getelementptr inbounds i8, ptr %26, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = icmp ugt ptr %30, %0
+  %31 = icmp ult ptr %0, %30
   %32 = select i1 %.not.i.i, i1 %31, i1 false
   br i1 %32, label %_ZN9CodeCache13get_code_heapEPKv.exit, label %23
 
@@ -1786,7 +1785,7 @@ define hidden void @_ZN9CodeCache16free_unused_tailEP8CodeBlobm(ptr noundef %0, 
 
 _ZN9CodeCache13get_code_heapEPKv.exit:            ; preds = %24
   %34 = zext i32 %17 to i64
-  %35 = add i64 %34, %1
+  %35 = add i64 %1, %34
   tail call void @_ZN8CodeHeap15deallocate_tailEPvm(ptr noundef nonnull align 8 dereferenceable(336) %26, ptr noundef nonnull %0, i64 noundef %35) #20
   %36 = trunc i64 %35 to i32
   %37 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1833,7 +1832,7 @@ define hidden void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef readonly %0) loc
   %.not.i.i = icmp ule ptr %12, %0
   %13 = getelementptr inbounds i8, ptr %10, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp ugt ptr %14, %0
+  %15 = icmp ult ptr %0, %14
   %16 = select i1 %.not.i.i, i1 %15, i1 false
   br i1 %16, label %_ZN9CodeCache13get_code_heapEPKv.exit, label %7
 
@@ -1905,7 +1904,7 @@ define hidden noundef zeroext i1 @_ZN9CodeCache8containsEPv(ptr noundef readnone
   %.not.i = icmp ule ptr %11, %0
   %12 = getelementptr inbounds i8, ptr %9, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp ugt ptr %13, %0
+  %14 = icmp ult ptr %0, %13
   %15 = select i1 %.not.i, i1 %14, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not10 = icmp eq i64 %indvars.iv.next, %6
@@ -1939,7 +1938,7 @@ define hidden noundef zeroext i1 @_ZN9CodeCache8containsEP7nmethod(ptr noundef r
   %.not.i.i = icmp ule ptr %11, %0
   %12 = getelementptr inbounds i8, ptr %9, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp ugt ptr %13, %0
+  %14 = icmp ult ptr %0, %13
   %15 = select i1 %.not.i.i, i1 %14, i1 false
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not10.i = icmp eq i64 %indvars.iv.next.i, %6
@@ -1982,7 +1981,7 @@ define hidden noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %0) local_unna
   %.not.i.i = icmp ule ptr %13, %0
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp ugt ptr %15, %0
+  %16 = icmp ult ptr %0, %15
   %17 = select i1 %.not.i.i, i1 %16, i1 false
   br i1 %17, label %_ZN9CodeCache24get_code_heap_containingEPv.exit, label %8
 
@@ -2028,7 +2027,7 @@ define hidden noundef ptr @_ZN9CodeCache12find_nmethodEPv(ptr noundef %0) local_
   %.not.i.i.i = icmp ule ptr %13, %0
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp ugt ptr %15, %0
+  %16 = icmp ult ptr %0, %15
   %17 = select i1 %.not.i.i.i, i1 %16, i1 false
   br i1 %17, label %_ZN9CodeCache24get_code_heap_containingEPv.exit.i, label %8
 
@@ -3619,7 +3618,7 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit: ; preds = %.lr.ph, %.lr.ph.i
   %.not.i2 = icmp ule ptr %16, %0
   %17 = getelementptr inbounds i8, ptr %.lcssa, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp ugt ptr %18, %0
+  %19 = icmp ult ptr %0, %18
   %20 = select i1 %.not.i2, i1 %19, i1 false
   ret i1 %20
 }
@@ -4295,9 +4294,9 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %76
-  %.sroa.0.033 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %76 ]
-  %.sroa.11.032 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %indvars.iv, %76 ]
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %74
+  %.sroa.0.033 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %74 ]
+  %.sroa.11.032 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %indvars.iv, %74 ]
   %sext = shl i64 %.sroa.11.032, 32
   %13 = ashr exact i64 %sext, 32
   br label %14
@@ -4355,7 +4354,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit: ; preds = %23, %
   %.sroa.0.4 = phi ptr [ %.sroa.0.3, %.lr.ph.i ], [ %21, %23 ]
   %.sroa.11.12839 = trunc i64 %indvars.iv to i32
   %41 = tail call noundef zeroext i1 @_ZN7nmethod17has_evol_metadataEv(ptr noundef nonnull align 8 dereferenceable(214) %.sroa.0.4) #20
-  br i1 %41, label %42, label %76
+  br i1 %41, label %42, label %74
 
 42:                                               ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit
   tail call void @_ZN19DeoptimizationScope4markEP7nmethodb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sroa.0.4, i1 noundef zeroext true) #20
@@ -4395,34 +4394,33 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit: ; preds = %23, %
 60:                                               ; preds = %54
   %61 = add nsw i32 %56, 1
   %62 = icmp sgt i32 %56, -1
-  %63 = xor i32 %56, -2147483648
-  %64 = and i32 %63, %61
-  %65 = icmp eq i32 %64, 0
-  %66 = and i1 %62, %65
-  %67 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %61, i1 true)
-  %68 = sub nuw nsw i32 32, %67
-  %69 = shl nuw i32 1, %68
-  %.0.i.i.i.i.i.i = select i1 %66, i32 %61, i32 %69
+  %63 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %61)
+  %64 = icmp ult i32 %63, 2
+  %or.cond.i.i.i.i.i.i = select i1 %62, i1 %64, i1 false
+  %65 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %61, i1 true)
+  %66 = sub nuw nsw i32 32, %65
+  %67 = shl nuw i32 1, %66
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %61, i32 %67
   tail call void @_ZN26GrowableArrayWithAllocatorIP7nmethod13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %55, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %55, align 8
   br label %_ZL16add_to_old_tableP7nmethod.exit
 
 _ZL16add_to_old_tableP7nmethod.exit:              ; preds = %54, %60
-  %70 = phi i32 [ %.pre.i.i.i, %60 ], [ %56, %54 ]
-  %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %55, align 8
-  %72 = getelementptr inbounds i8, ptr %55, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = sext i32 %70 to i64
-  %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  store ptr %.sroa.0.4, ptr %75, align 8
-  br label %76
+  %68 = phi i32 [ %.pre.i.i.i, %60 ], [ %56, %54 ]
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %55, align 8
+  %70 = getelementptr inbounds i8, ptr %55, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = sext i32 %68 to i64
+  %73 = getelementptr inbounds ptr, ptr %71, i64 %72
+  store ptr %.sroa.0.4, ptr %73, align 8
+  br label %74
 
-76:                                               ; preds = %_ZL16add_to_old_tableP7nmethod.exit, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit
-  %77 = icmp eq i32 %10, %.sroa.11.12839
-  br i1 %77, label %.thread19, label %.lr.ph, !llvm.loop !58
+74:                                               ; preds = %_ZL16add_to_old_tableP7nmethod.exit, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit
+  %75 = icmp eq i32 %10, %.sroa.11.12839
+  br i1 %75, label %.thread19, label %.lr.ph, !llvm.loop !58
 
-.thread19:                                        ; preds = %76, %.backedge.i.i, %_ZL22reset_old_method_tablev.exit, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit
+.thread19:                                        ; preds = %74, %.backedge.i.i, %_ZL22reset_old_method_tablev.exit, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit
   ret void
 }
 
@@ -4445,9 +4443,9 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %78
-  %.sroa.0.034 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %78 ]
-  %.sroa.11.033 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %indvars.iv, %78 ]
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %76
+  %.sroa.0.034 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %76 ]
+  %.sroa.11.033 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %indvars.iv, %76 ]
   %sext = shl i64 %.sroa.11.033, 32
   %7 = ashr exact i64 %sext, 32
   br label %8
@@ -4507,7 +4505,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit: ; preds = %17, %
   %35 = getelementptr inbounds i8, ptr %.sroa.0.4, i64 72
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef zeroext i1 @_ZNK6Method26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(88) %36) #20
-  br i1 %37, label %78, label %38
+  br i1 %37, label %76, label %38
 
 38:                                               ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit
   %39 = load ptr, ptr %35, align 8
@@ -4527,7 +4525,7 @@ _ZNK7nmethod18can_be_deoptimizedEv.exit:          ; preds = %38
 
 _ZNK7nmethod18can_be_deoptimizedEv.exit.thread:   ; preds = %38, %42, %_ZNK7nmethod18can_be_deoptimizedEv.exit
   %43 = tail call noundef zeroext i1 @_ZN7nmethod17has_evol_metadataEv(ptr noundef nonnull align 8 dereferenceable(214) %.sroa.0.4) #20
-  br i1 %43, label %44, label %78
+  br i1 %43, label %44, label %76
 
 44:                                               ; preds = %_ZNK7nmethod18can_be_deoptimizedEv.exit.thread
   %45 = load ptr, ptr @_ZL17old_nmethod_table, align 8
@@ -4566,34 +4564,33 @@ _ZNK7nmethod18can_be_deoptimizedEv.exit.thread:   ; preds = %38, %42, %_ZNK7nmet
 62:                                               ; preds = %56
   %63 = add nsw i32 %58, 1
   %64 = icmp sgt i32 %58, -1
-  %65 = xor i32 %58, -2147483648
-  %66 = and i32 %65, %63
-  %67 = icmp eq i32 %66, 0
-  %68 = and i1 %64, %67
-  %69 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %63, i1 true)
-  %70 = sub nuw nsw i32 32, %69
-  %71 = shl nuw i32 1, %70
-  %.0.i.i.i.i.i.i = select i1 %68, i32 %63, i32 %71
+  %65 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %63)
+  %66 = icmp ult i32 %65, 2
+  %or.cond.i.i.i.i.i.i = select i1 %64, i1 %66, i1 false
+  %67 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %63, i1 true)
+  %68 = sub nuw nsw i32 32, %67
+  %69 = shl nuw i32 1, %68
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %63, i32 %69
   tail call void @_ZN26GrowableArrayWithAllocatorIP7nmethod13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %57, align 8
   br label %_ZL16add_to_old_tableP7nmethod.exit
 
 _ZL16add_to_old_tableP7nmethod.exit:              ; preds = %56, %62
-  %72 = phi i32 [ %.pre.i.i.i, %62 ], [ %58, %56 ]
-  %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %57, align 8
-  %74 = getelementptr inbounds i8, ptr %57, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = sext i32 %72 to i64
-  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
-  store ptr %.sroa.0.4, ptr %77, align 8
-  br label %78
+  %70 = phi i32 [ %.pre.i.i.i, %62 ], [ %58, %56 ]
+  %71 = add nsw i32 %70, 1
+  store i32 %71, ptr %57, align 8
+  %72 = getelementptr inbounds i8, ptr %57, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = sext i32 %70 to i64
+  %75 = getelementptr inbounds ptr, ptr %73, i64 %74
+  store ptr %.sroa.0.4, ptr %75, align 8
+  br label %76
 
-78:                                               ; preds = %_ZNK7nmethod18can_be_deoptimizedEv.exit.thread, %_ZL16add_to_old_tableP7nmethod.exit, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit
-  %79 = icmp eq i32 %4, %.sroa.11.12940
-  br i1 %79, label %.thread20, label %.lr.ph, !llvm.loop !59
+76:                                               ; preds = %_ZNK7nmethod18can_be_deoptimizedEv.exit.thread, %_ZL16add_to_old_tableP7nmethod.exit, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit
+  %77 = icmp eq i32 %4, %.sroa.11.12940
+  br i1 %77, label %.thread20, label %.lr.ph, !llvm.loop !59
 
-.thread20:                                        ; preds = %78, %.backedge.i.i, %1, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit
+.thread20:                                        ; preds = %76, %.backedge.i.i, %1, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit
   ret void
 }
 
@@ -5186,7 +5183,7 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit: ; preds = %12, %13, %2
   %20 = getelementptr inbounds i8, ptr %.0.i, i64 328
   %21 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %20) #20, !srcloc !26
   %22 = icmp eq i32 %21, 0
-  %brmerge = or i1 %22, %1
+  %brmerge = or i1 %1, %22
   br i1 %brmerge, label %23, label %121
 
 23:                                               ; preds = %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit
@@ -8854,6 +8851,9 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16

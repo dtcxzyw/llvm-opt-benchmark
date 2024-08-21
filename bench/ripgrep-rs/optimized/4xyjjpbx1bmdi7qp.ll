@@ -529,7 +529,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h4897165395c61f1aE.exit: ; preds = %.
 
 157:                                              ; preds = %151, %.thread19.i
   %.sroa.4.0.i46.ph = phi i64 [ %.pre-phi.i, %.thread19.i ], [ %152, %151 ]
-  %158 = icmp ugt i64 %125, %.sroa.4.0.i46.ph
+  %158 = icmp ult i64 %.sroa.4.0.i46.ph, %125
   br i1 %158, label %160, label %159
 
 159:                                              ; preds = %157
@@ -543,7 +543,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h4897165395c61f1aE.exit: ; preds = %.
   %163 = getelementptr inbounds i8, ptr %161, i64 8
   %164 = load i64, ptr %163, align 8, !noundef !7
   %165 = add nuw i64 %.sroa.4.0.i46.ph, 1
-  %166 = icmp ugt i64 %125, %165
+  %166 = icmp ult i64 %165, %125
   br i1 %166, label %169, label %167
 
 167:                                              ; preds = %160
@@ -607,7 +607,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h4897165395c61f1aE.exit: ; preds = %.
   %186 = getelementptr inbounds i64, ptr %185, i64 %162
   %187 = getelementptr inbounds i64, ptr %0, i64 %174
   %188 = sub i64 %184, %162
-  %.not.i55 = icmp ult i64 %188, %162
+  %.not.i55 = icmp ugt i64 %162, %188
   %189 = icmp sgt i64 %162, 0
   br i1 %.not.i55, label %190, label %194
 
@@ -645,8 +645,8 @@ _ZN4core5slice4sort20provide_sorted_batch17h4897165395c61f1aE.exit: ; preds = %.
   %204 = getelementptr inbounds i8, ptr %.02725.i, i64 -8
   %205 = load i64, ptr %.026.i, align 8
   store i64 %205, ptr %204, align 8, !alias.scope !78
-  %206 = icmp ugt ptr %201, %185
-  %207 = icmp ugt ptr %203, %14
+  %206 = icmp ult ptr %185, %201
+  %207 = icmp ult ptr %14, %203
   %or.cond.i59 = select i1 %206, i1 %207, i1 false
   br i1 %or.cond.i59, label %.lr.ph26.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h85eec9196d1c3182E.exit"
 

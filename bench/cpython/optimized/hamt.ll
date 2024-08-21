@@ -1241,7 +1241,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.else6:                                         ; preds = %if.else
   %c_hash.i = getelementptr inbounds i8, ptr %node, i64 24
   %37 = load i32, ptr %c_hash.i, align 8
-  %cmp.i19 = icmp eq i32 %37, %hash
+  %cmp.i19 = icmp eq i32 %hash, %37
   br i1 %cmp.i19, label %if.then.i26, label %if.else.i20
 
 if.then.i26:                                      ; preds = %if.else6
@@ -2367,7 +2367,7 @@ hamt_node_array_without.exit:                     ; preds = %if.then4, %if.end.i
 if.else6:                                         ; preds = %if.else
   %c_hash.i = getelementptr inbounds i8, ptr %node, i64 24
   %97 = load i32, ptr %c_hash.i, align 8
-  %cmp.not.i = icmp eq i32 %97, %hash
+  %cmp.not.i = icmp eq i32 %hash, %97
   br i1 %cmp.not.i, label %if.end.i41, label %return
 
 if.end.i41:                                       ; preds = %if.else6
@@ -3256,7 +3256,7 @@ entry:
   %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %hamt_empty = getelementptr inbounds i8, ptr %2, i64 416320
-  %cmp = icmp eq ptr %hamt_empty, %self
+  %cmp = icmp eq ptr %self, %hamt_empty
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -3998,7 +3998,7 @@ if.end26:                                         ; preds = %if.end22
   br i1 %cmp27, label %if.then28, label %if.end46
 
 if.then28:                                        ; preds = %if.end26
-  %cmp29 = icmp eq ptr %3, %val
+  %cmp29 = icmp eq ptr %val, %3
   br i1 %cmp29, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %if.then28

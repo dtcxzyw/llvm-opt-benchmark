@@ -3775,7 +3775,7 @@ _ZNKSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE2atEm.exit: ; preds = %.p
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = sdiv exact i64 %28, 28
-  %.not.i.i11 = icmp ugt i64 %29, %.013
+  %.not.i.i11 = icmp ult i64 %.013, %29
   br i1 %.not.i.i11, label %_ZNSt6vectorIN2cv7optflow9GPCForestILi5EE5TrailESaIS4_EE2atEm.exit, label %30
 
 30:                                               ; preds = %_ZNKSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE2atEm.exit
@@ -4280,7 +4280,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %phi.call = getelementptr inbounds %"struct.cv::optflow::GPCForest<5>::Trail", ptr %0, i64 %.0
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %phi.call, i64 28, i1 false)
-  %23 = icmp sgt i64 %14, %.0
+  %23 = icmp slt i64 %.0, %14
   br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %22, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN2cv7optflow9GPCForestILi5EE5TrailESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i

@@ -5385,7 +5385,7 @@ land.lhs.true12:                                  ; preds = %_ZNK11ast_manager5i
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i: ; preds = %land.lhs.true12
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 -4
   %22 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %cmp.not.i.i.i.i.i = icmp ugt i32 %22, %20
+  %cmp.not.i.i.i.i.i = icmp ult i32 %20, %22
   br i1 %cmp.not.i.i.i.i.i, label %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit, label %if.then14
 
 _ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i
@@ -5636,7 +5636,7 @@ land.lhs.true77:                                  ; preds = %invoke.cont75
 
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i133: ; preds = %land.lhs.true77
   %59 = load i32, ptr %arrayidx.i.i.i.i.i.i134, align 4
-  %cmp.not.i.i.i.i.i135 = icmp ugt i32 %59, %58
+  %cmp.not.i.i.i.i.i135 = icmp ult i32 %58, %59
   br i1 %cmp.not.i.i.i.i.i135, label %invoke.cont78, label %land.lhs.true80
 
 invoke.cont78:                                    ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i133
@@ -6241,7 +6241,7 @@ land.lhs.true175:                                 ; preds = %invoke.cont173
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i309: ; preds = %land.lhs.true175
   %arrayidx.i.i.i.i.i.i310 = getelementptr inbounds i8, ptr %135, i64 -4
   %136 = load i32, ptr %arrayidx.i.i.i.i.i.i310, align 4
-  %cmp.not.i.i.i.i.i311 = icmp ugt i32 %136, %134
+  %cmp.not.i.i.i.i.i311 = icmp ult i32 %134, %136
   br i1 %cmp.not.i.i.i.i.i311, label %invoke.cont176, label %if.then178
 
 invoke.cont176:                                   ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i309
@@ -9000,7 +9000,7 @@ land.lhs.true9:                                   ; preds = %_ZNK11ast_manager6i
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i: ; preds = %land.lhs.true9
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %cmp.not.i.i.i.i.i = icmp ugt i32 %15, %13
+  %cmp.not.i.i.i.i.i = icmp ult i32 %13, %15
   br i1 %cmp.not.i.i.i.i.i, label %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit, label %if.then12
 
 _ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i
@@ -9061,7 +9061,7 @@ land.lhs.true23:                                  ; preds = %_ZNK11ast_manager6i
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i68: ; preds = %land.lhs.true23
   %arrayidx.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %26, i64 -4
   %27 = load i32, ptr %arrayidx.i.i.i.i.i.i69, align 4
-  %cmp.not.i.i.i.i.i70 = icmp ugt i32 %27, %25
+  %cmp.not.i.i.i.i.i70 = icmp ult i32 %25, %27
   br i1 %cmp.not.i.i.i.i.i70, label %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit76, label %if.then26
 
 _ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit76: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i68
@@ -9314,7 +9314,7 @@ land.lhs.true95:                                  ; preds = %invoke.cont93
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i142: ; preds = %land.lhs.true95
   %arrayidx.i.i.i.i.i.i143 = getelementptr inbounds i8, ptr %54, i64 -4
   %55 = load i32, ptr %arrayidx.i.i.i.i.i.i143, align 4
-  %cmp.not.i.i.i.i.i144 = icmp ugt i32 %55, %53
+  %cmp.not.i.i.i.i.i144 = icmp ult i32 %53, %55
   br i1 %cmp.not.i.i.i.i.i144, label %invoke.cont97, label %if.then99
 
 invoke.cont97:                                    ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i142
@@ -10466,7 +10466,7 @@ land.lhs.true165:                                 ; preds = %invoke.cont163
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i694: ; preds = %land.lhs.true165
   %arrayidx.i.i.i.i.i.i695 = getelementptr inbounds i8, ptr %206, i64 -4
   %207 = load i32, ptr %arrayidx.i.i.i.i.i.i695, align 4
-  %cmp.not.i.i.i.i.i696 = icmp ugt i32 %207, %205
+  %cmp.not.i.i.i.i.i696 = icmp ult i32 %205, %207
   br i1 %cmp.not.i.i.i.i.i696, label %invoke.cont167, label %if.then169
 
 invoke.cont167:                                   ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i694
@@ -15458,7 +15458,7 @@ lor.lhs.false4:                                   ; preds = %land.lhs.true.i16
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i: ; preds = %lor.lhs.false4
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 -4
   %18 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %cmp.not.i.i.i.i.i = icmp ugt i32 %18, %16
+  %cmp.not.i.i.i.i.i = icmp ult i32 %16, %18
   br i1 %cmp.not.i.i.i.i.i, label %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit, label %lor.lhs.false6
 
 _ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i
@@ -15508,7 +15508,7 @@ lor.lhs.false9:                                   ; preds = %land.lhs.true.i36
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i44: ; preds = %lor.lhs.false9
   %arrayidx.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %17, i64 -4
   %27 = load i32, ptr %arrayidx.i.i.i.i.i.i45, align 4
-  %cmp.not.i.i.i.i.i46 = icmp ugt i32 %27, %26
+  %cmp.not.i.i.i.i.i46 = icmp ult i32 %26, %27
   br i1 %cmp.not.i.i.i.i.i46, label %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit52, label %lor.lhs.false11
 
 _ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit52: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i44
@@ -15558,7 +15558,7 @@ lor.lhs.false14:                                  ; preds = %land.lhs.true.i66
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i74: ; preds = %lor.lhs.false14
   %arrayidx.i.i.i.i.i.i75 = getelementptr inbounds i8, ptr %17, i64 -4
   %36 = load i32, ptr %arrayidx.i.i.i.i.i.i75, align 4
-  %cmp.not.i.i.i.i.i76 = icmp ugt i32 %36, %35
+  %cmp.not.i.i.i.i.i76 = icmp ult i32 %35, %36
   br i1 %cmp.not.i.i.i.i.i76, label %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit82, label %lor.lhs.false16
 
 _ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit82: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i74
@@ -15831,7 +15831,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_true.i = getelementptr inbounds i8, ptr %0, i64 856
   %1 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %1, %n
+  %cmp.i = icmp eq ptr %n, %1
   %m_false.i = getelementptr inbounds i8, ptr %0, i64 864
   %2 = load ptr, ptr %m_false.i, align 8
   br i1 %cmp.i, label %if.then, label %if.end
@@ -15867,7 +15867,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp.i9 = icmp eq ptr %2, %n
+  %cmp.i9 = icmp eq ptr %n, %2
   br i1 %cmp.i9, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %if.end
@@ -16991,7 +16991,7 @@ if.end:                                           ; preds = %land.lhs.true.i, %_
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i: ; preds = %if.end
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 -4
   %19 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %cmp.not.i.i.i.i.i = icmp ugt i32 %19, %17
+  %cmp.not.i.i.i.i.i = icmp ult i32 %17, %19
   br i1 %cmp.not.i.i.i.i.i, label %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit, label %land.lhs.true
 
 _ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i
@@ -17020,7 +17020,7 @@ _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i7: ; preds = %_ZN18tseitin_cnf_t
   %22 = load i32, ptr %l2.2, align 4
   %arrayidx.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %21, i64 -4
   %23 = load i32, ptr %arrayidx.i.i.i.i.i.i8, align 4
-  %cmp.not.i.i.i.i.i9 = icmp ugt i32 %23, %22
+  %cmp.not.i.i.i.i.i9 = icmp ult i32 %22, %23
   br i1 %cmp.not.i.i.i.i.i9, label %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit15, label %land.lhs.true8
 
 _ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit15: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i7

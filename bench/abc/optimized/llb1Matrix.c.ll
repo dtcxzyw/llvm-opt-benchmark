@@ -153,7 +153,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define noundef nonnull ptr @Llb_MtrVarName(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %0, align 8
-  %4 = icmp sgt i32 %3, %1
+  %4 = icmp slt i32 %1, %3
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
@@ -164,7 +164,7 @@ define noundef nonnull ptr @Llb_MtrVarName(ptr nocapture noundef readonly %0, i3
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, %3
-  %10 = icmp sgt i32 %9, %1
+  %10 = icmp slt i32 %1, %9
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %6
@@ -175,7 +175,7 @@ define noundef nonnull ptr @Llb_MtrVarName(ptr nocapture noundef readonly %0, i3
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = sub nsw i32 %14, %8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %12
@@ -233,7 +233,7 @@ define void @Llb_MtrPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %24)
   %26 = load i32, ptr %0, align 8
-  %27 = icmp sgt i32 %26, %19
+  %27 = icmp slt i32 %19, %26
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %18
@@ -243,7 +243,7 @@ define void @Llb_MtrPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 29:                                               ; preds = %18
   %30 = load i32, ptr %10, align 4
   %31 = add nsw i32 %30, %26
-  %32 = icmp sgt i32 %31, %19
+  %32 = icmp slt i32 %19, %31
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %29
@@ -253,7 +253,7 @@ define void @Llb_MtrPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 34:                                               ; preds = %29
   %35 = load i32, ptr %6, align 8
   %36 = sub nsw i32 %35, %30
-  %.not.i = icmp sgt i32 %36, %19
+  %.not.i = icmp slt i32 %19, %36
   br i1 %.not.i, label %38, label %37
 
 37:                                               ; preds = %34

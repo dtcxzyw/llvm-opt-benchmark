@@ -185,7 +185,7 @@ define hidden noundef zeroext i1 @_ZN2cv17MotionJpegCapture11setPropertyEid(ptr 
   %47 = ashr exact i64 %46, 4
   %48 = add nsw i64 %40, %47
   %49 = uitofp i64 %48 to double
-  %50 = fcmp ogt double %49, %2
+  %50 = fcmp olt double %2, %49
   br i1 %50, label %51, label %80
 
 51:                                               ; preds = %19
@@ -1919,7 +1919,7 @@ _ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds = %.l
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #15
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i

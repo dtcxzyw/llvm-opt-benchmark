@@ -72,7 +72,7 @@ define ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 nou
   %33 = getelementptr inbounds i8, ptr %0, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = sub i32 %34, %27
-  %..i = call i32 @llvm.umin.i32(i32 %35, i32 %.0)
+  %..i = call i32 @llvm.umin.i32(i32 %.0, i32 %35)
   %36 = getelementptr inbounds i8, ptr %28, i64 48
   store i32 %..i, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 20
@@ -193,7 +193,7 @@ define ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %37 = getelementptr inbounds i8, ptr %0, i64 48
   %38 = load i32, ptr %37, align 8
   %39 = sub i32 %38, %.pre
-  %..i = call i32 @llvm.umin.i32(i32 %39, i32 %.1)
+  %..i = call i32 @llvm.umin.i32(i32 %.1, i32 %39)
   %40 = getelementptr inbounds i8, ptr %32, i64 48
   store i32 %..i, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 20
@@ -257,7 +257,7 @@ define ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) local_unnam
   %18 = getelementptr inbounds i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8
   %20 = sub i32 %19, %7
-  %..i = call i32 @llvm.umin.i32(i32 %20, i32 %11)
+  %..i = call i32 @llvm.umin.i32(i32 %11, i32 %20)
   %21 = getelementptr inbounds i8, ptr %13, i64 48
   store i32 %..i, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 20
@@ -310,7 +310,7 @@ define hidden ptr @tvb_new_proxy(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %6, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8
-  %..i = tail call i32 @llvm.umin.i32(i32 %13, i32 %4)
+  %..i = tail call i32 @llvm.umin.i32(i32 %4, i32 %13)
   %14 = getelementptr inbounds i8, ptr %7, i64 48
   store i32 %..i, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 20

@@ -314,7 +314,7 @@ openFile.exit.i:                                  ; preds = %52
 ._crit_edge.i:                                    ; preds = %.thread98.i, %2
   %.2 = phi i32 [ 0, %2 ], [ %.1, %.thread98.i ]
   %102 = load i32, ptr @optind, align 4
-  %103 = icmp slt i32 %102, %0
+  %103 = icmp sgt i32 %0, %102
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %._crit_edge.i

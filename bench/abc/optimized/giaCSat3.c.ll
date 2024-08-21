@@ -2371,7 +2371,7 @@ define internal fastcc void @Cbs3_ManCancelUntil(ptr nocapture noundef %0, i32 n
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = getelementptr inbounds i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = icmp sgt i32 %6, %1
+  %7 = icmp slt i32 %1, %6
   br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
@@ -2990,7 +2990,7 @@ Cbs3_ManSaveModel.exit.i:                         ; preds = %123, %77, %58, %Cbs
   br i1 %142, label %.lr.ph.i23.i, label %Cbs3_ManSolveInt.exit, !llvm.loop !17
 
 Cbs3_ManSolveInt.exit:                            ; preds = %.lr.ph.i23.i, %131, %72, %Cbs3_ManSaveModel.exit.i
-  %.029.i = phi i32 [ %.0.ph.i, %Cbs3_ManSaveModel.exit.i ], [ 0, %72 ], [ %.0.ph.i, %131 ], [ %.0.ph.i, %.lr.ph.i23.i ]
+  %.031.i = phi i32 [ %.0.ph.i, %Cbs3_ManSaveModel.exit.i ], [ 0, %72 ], [ %.0.ph.i, %131 ], [ %.0.ph.i, %.lr.ph.i23.i ]
   store i32 0, ptr %13, align 4
   store i32 0, ptr %26, align 4
   store i32 0, ptr %25, align 8
@@ -3018,7 +3018,7 @@ Cbs3_ManSolveInt.exit:                            ; preds = %.lr.ph.i23.i, %131,
   br i1 %159, label %29, label %Cbs3_ManSolveInt.exit._crit_edge
 
 Cbs3_ManSolveInt.exit._crit_edge:                 ; preds = %29, %Cbs3_ManSolveInt.exit, %3
-  %.1 = phi i32 [ -1, %3 ], [ %.029.i, %Cbs3_ManSolveInt.exit ], [ -1, %29 ]
+  %.1 = phi i32 [ -1, %3 ], [ %.031.i, %Cbs3_ManSolveInt.exit ], [ -1, %29 ]
   %160 = getelementptr i8, ptr %0, i64 292
   %.val89.i = load i32, ptr %160, align 4
   %161 = icmp sgt i32 %.val89.i, 0
@@ -4519,7 +4519,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %47 = getelementptr inbounds i32, ptr %.val13, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, %2
+  %50 = icmp eq i32 %2, %49
   %51 = zext i1 %50 to i32
   %52 = getelementptr inbounds i32, ptr %.val14, i64 %46
   %53 = load i32, ptr %52, align 4
@@ -5152,7 +5152,7 @@ common.ret42:                                     ; preds = %17, %Gia_ObjUpdateT
   %32 = shl i64 %.val37, 2
   %33 = ashr i64 %32, 63
   %34 = trunc nsw i64 %33 to i32
-  %35 = add i32 %34, %3
+  %35 = add i32 %3, %34
   %36 = tail call fastcc i32 @Cbs3_ManToSolver2_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %31, i32 noundef %35)
   %.val31 = load i64, ptr %7, align 4
   %37 = trunc i64 %.val31 to i32

@@ -15,7 +15,7 @@ entry:
   %0 = load i64, ptr %arrayidx.i, align 8
   call void @_mpd_init_w3table(ptr noundef nonnull %w3table, i32 noundef -1, i32 noundef %modnum) #3
   %add.ptr = getelementptr i64, ptr %a, i64 %div
-  %cmp443 = icmp ugt ptr %add.ptr, %a
+  %cmp443 = icmp ult ptr %a, %add.ptr
   br i1 %cmp443, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -105,7 +105,7 @@ while.body.i.preheader:                           ; preds = %for.end, %for.inc29
 
 for.cond31.preheader:                             ; preds = %for.inc29
   %add.ptr32 = getelementptr i64, ptr %a, i64 %n
-  %cmp33452 = icmp ugt ptr %add.ptr32, %a
+  %cmp33452 = icmp ult ptr %a, %add.ptr32
   br i1 %cmp33452, label %for.body34, label %return
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %x64_mulmod.exit
@@ -772,7 +772,7 @@ entry:
   %w3table = alloca [3 x i64], align 16
   %div = udiv i64 %n, 3
   %add.ptr = getelementptr i64, ptr %a, i64 %n
-  %cmp444 = icmp ugt ptr %add.ptr, %a
+  %cmp444 = icmp ult ptr %a, %add.ptr
   br i1 %cmp444, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -1348,7 +1348,7 @@ for.inc25:                                        ; preds = %x64_mulmod.exit357,
 for.end26:                                        ; preds = %for.inc25
   call void @_mpd_init_w3table(ptr noundef nonnull %w3table, i32 noundef 1, i32 noundef %modnum) #3
   %add.ptr27 = getelementptr i64, ptr %a, i64 %div
-  %cmp32451 = icmp ugt ptr %add.ptr27, %a
+  %cmp32451 = icmp ult ptr %a, %add.ptr27
   br i1 %cmp32451, label %for.body33.lr.ph, label %return
 
 for.body33.lr.ph:                                 ; preds = %for.end26

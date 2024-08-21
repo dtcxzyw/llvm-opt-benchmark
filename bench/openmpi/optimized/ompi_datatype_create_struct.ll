@@ -123,7 +123,7 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   %.1 = phi i64 [ %43, %39 ], [ %58, %.lr.ph144._crit_edge ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %62 = trunc nuw i64 %indvars.iv.next163 to i32
-  %63 = icmp slt i32 %62, %0
+  %63 = icmp sgt i32 %0, %62
   br i1 %63, label %.lr.ph144, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %61, %14
@@ -196,7 +196,7 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   %.3 = phi i64 [ %82, %78 ], [ %95, %85 ]
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %101 = trunc nuw i64 %indvars.iv.next166 to i32
-  %102 = icmp slt i32 %101, %0
+  %102 = icmp sgt i32 %0, %101
   br i1 %102, label %.lr.ph155, label %._crit_edge156, !llvm.loop !7
 
 ._crit_edge156:                                   ; preds = %100, %._crit_edge

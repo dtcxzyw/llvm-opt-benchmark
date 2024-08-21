@@ -1301,7 +1301,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i.i:           ; preds = %_ZNKSt6vectorImSaIm
   %3 = and i8 %c, -33
   %4 = add i8 %3, -65
   %cmp.i = icmp ult i8 %4, 26
-  %cond10 = and i1 %cmp.i, %nc
+  %cond10 = and i1 %nc, %cmp.i
   store i64 1, ptr %m_num_bits.i, align 8
   br i1 %cond10, label %for.body.lr.ph.i.i, label %invoke.cont13
 

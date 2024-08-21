@@ -130,7 +130,7 @@ define i32 @ompi_osc_rdma_compare_and_swap(ptr noundef %0, ptr noundef %1, ptr n
   %64 = getelementptr inbounds i8, ptr %42, i64 152
   %65 = load i64, ptr %64, align 8
   %66 = sext i32 %57 to i64
-  %67 = mul nsw i64 %66, %5
+  %67 = mul nsw i64 %5, %66
   %68 = add nsw i64 %65, %67
   %69 = add i64 %68, %41
   %70 = add i64 %65, %63
@@ -1585,7 +1585,7 @@ opal_datatype_span.exit:                          ; preds = %66, %72
   %106 = getelementptr inbounds i8, ptr %84, i64 152
   %107 = load i64, ptr %106, align 8
   %108 = sext i32 %99 to i64
-  %109 = mul nsw i64 %108, %7
+  %109 = mul nsw i64 %7, %108
   %110 = add nsw i64 %107, %109
   %111 = add i64 %110, %83
   %112 = add i64 %107, %105

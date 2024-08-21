@@ -622,7 +622,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %42, %44
   %51 = trunc nuw nsw i64 %indvars.iv to i32
   %52 = getelementptr inbounds i8, ptr %0, i64 276
   store i32 %51, ptr %52, align 4
-  %53 = add nsw i32 %51, %3
+  %53 = add nsw i32 %3, %51
   %54 = mul nsw i32 %53, %2
   %55 = add nsw i32 %54, 7
   %56 = sdiv i32 %55, 8
@@ -1012,7 +1012,7 @@ define internal void @_ZNK5faiss12IndexLattice9sa_encodeElPKfPh.omp_outlined(ptr
   %63 = and i64 %.sroa.8.052, 7
   %64 = trunc nuw nsw i64 %63 to i32
   %65 = sub nuw nsw i32 8, %64
-  %.not.i = icmp slt i32 %65, %62
+  %.not.i = icmp sgt i32 %62, %65
   br i1 %.not.i, label %74, label %66
 
 66:                                               ; preds = %43
@@ -1064,7 +1064,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %66, %74
   %92 = and i64 %.sroa.8.1, 7
   %93 = trunc nuw nsw i64 %92 to i32
   %94 = sub nuw nsw i32 8, %93
-  %.not.i33 = icmp slt i32 %94, %91
+  %.not.i33 = icmp sgt i32 %91, %94
   br i1 %.not.i33, label %103, label %95
 
 95:                                               ; preds = %90
@@ -1220,7 +1220,7 @@ define internal void @_ZNK5faiss12IndexLattice9sa_decodeElPKhPf.omp_outlined(ptr
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = lshr i32 %51, %46
-  %.not.i = icmp slt i32 %47, %44
+  %.not.i = icmp sgt i32 %44, %47
   br i1 %.not.i, label %58, label %53
 
 53:                                               ; preds = %.lr.ph69
@@ -1312,7 +1312,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %53, %._crit_edge.i
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   %108 = lshr i32 %107, %102
-  %.not.i37 = icmp slt i32 %103, %100
+  %.not.i37 = icmp sgt i32 %100, %103
   br i1 %.not.i37, label %114, label %109
 
 109:                                              ; preds = %_ZN5faiss15BitstringReader4readEi.exit

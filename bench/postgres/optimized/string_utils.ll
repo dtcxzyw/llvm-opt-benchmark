@@ -1405,7 +1405,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 73:                                               ; preds = %46, %.thread128
-  %brmerge = or i1 %18, %5
+  %brmerge = or i1 %5, %18
   br i1 %brmerge, label %74, label %75
 
 74:                                               ; preds = %73

@@ -24830,7 +24830,7 @@ default.unreachable193:                           ; preds = %2
   %34 = getelementptr inbounds i8, ptr %27, i64 8
   %35 = load i64, ptr %34, align 8, !alias.scope !3449, !noundef !10
   %36 = sub i64 %35, %33
-  %37 = icmp ult i64 %36, %31
+  %37 = icmp ugt i64 %31, %36
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %18

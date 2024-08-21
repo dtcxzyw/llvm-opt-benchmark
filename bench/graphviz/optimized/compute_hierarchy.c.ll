@@ -53,10 +53,10 @@ define range(i32 0, 2) i32 @compute_hierarchy(ptr noundef %0, i32 noundef %1, do
   %26 = getelementptr inbounds double, ptr %.067, i64 %25
   %27 = load double, ptr %26, align 8
   %28 = fsub double %23, %27
-  %29 = fmul double %28, %3
+  %29 = fmul double %3, %28
   %30 = sitofp i32 %17 to double
   %31 = fdiv double %29, %30
-  %32 = fcmp olt double %31, %2
+  %32 = fcmp ogt double %2, %31
   %. = select i1 %32, double %2, double %31
   %33 = icmp sgt i32 %1, 1
   br i1 %33, label %.lr.ph86.preheader, label %._crit_edge87.thread

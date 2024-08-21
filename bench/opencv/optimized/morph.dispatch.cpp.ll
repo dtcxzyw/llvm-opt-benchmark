@@ -1397,7 +1397,7 @@ define hidden void @_ZN2cv12cpu_baseline19getMorphologyFilterEiiRKNS_3MatENS_6Po
   %98 = ptrtoint ptr %96 to i64
   %99 = sub i64 %97, %98
   %100 = ashr exact i64 %99, 3
-  %101 = icmp ult i64 %100, %93
+  %101 = icmp ugt i64 %93, %100
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %86
@@ -1406,7 +1406,7 @@ define hidden void @_ZN2cv12cpu_baseline19getMorphologyFilterEiiRKNS_3MatENS_6Po
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i unwind label %111, !noalias !105
 
 104:                                              ; preds = %86
-  %105 = icmp ugt i64 %100, %93
+  %105 = icmp ult i64 %93, %100
   br i1 %105, label %106, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i
 
 106:                                              ; preds = %104
@@ -1564,7 +1564,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIhEENS2_10Morp
   %158 = ptrtoint ptr %156 to i64
   %159 = sub i64 %157, %158
   %160 = ashr exact i64 %159, 3
-  %161 = icmp ult i64 %160, %153
+  %161 = icmp ugt i64 %153, %160
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %146
@@ -1573,7 +1573,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIhEENS2_10Morp
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i69 unwind label %171, !noalias !110
 
 164:                                              ; preds = %146
-  %165 = icmp ugt i64 %160, %153
+  %165 = icmp ult i64 %153, %160
   br i1 %165, label %166, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i69
 
 166:                                              ; preds = %164
@@ -1731,7 +1731,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpItEENS2_10Morp
   %218 = ptrtoint ptr %216 to i64
   %219 = sub i64 %217, %218
   %220 = ashr exact i64 %219, 3
-  %221 = icmp ult i64 %220, %213
+  %221 = icmp ugt i64 %213, %220
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %206
@@ -1740,7 +1740,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpItEENS2_10Morp
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i95 unwind label %231, !noalias !115
 
 224:                                              ; preds = %206
-  %225 = icmp ugt i64 %220, %213
+  %225 = icmp ult i64 %213, %220
   br i1 %225, label %226, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i95
 
 226:                                              ; preds = %224
@@ -1898,7 +1898,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIsEENS2_10Morp
   %278 = ptrtoint ptr %276 to i64
   %279 = sub i64 %277, %278
   %280 = ashr exact i64 %279, 3
-  %281 = icmp ult i64 %280, %273
+  %281 = icmp ugt i64 %273, %280
   br i1 %281, label %282, label %284
 
 282:                                              ; preds = %266
@@ -1907,7 +1907,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIsEENS2_10Morp
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i121 unwind label %291, !noalias !120
 
 284:                                              ; preds = %266
-  %285 = icmp ugt i64 %280, %273
+  %285 = icmp ult i64 %273, %280
   br i1 %285, label %286, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i121
 
 286:                                              ; preds = %284
@@ -2065,7 +2065,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIfEENS2_10Morp
   %338 = ptrtoint ptr %336 to i64
   %339 = sub i64 %337, %338
   %340 = ashr exact i64 %339, 3
-  %341 = icmp ult i64 %340, %333
+  %341 = icmp ugt i64 %333, %340
   br i1 %341, label %342, label %344
 
 342:                                              ; preds = %326
@@ -2074,7 +2074,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIfEENS2_10Morp
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i147 unwind label %351, !noalias !125
 
 344:                                              ; preds = %326
-  %345 = icmp ugt i64 %340, %333
+  %345 = icmp ult i64 %333, %340
   br i1 %345, label %346, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i147
 
 346:                                              ; preds = %344
@@ -2241,7 +2241,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIdEENS2_10Morp
   %399 = ptrtoint ptr %397 to i64
   %400 = sub i64 %398, %399
   %401 = ashr exact i64 %400, 3
-  %402 = icmp ult i64 %401, %394
+  %402 = icmp ugt i64 %394, %401
   br i1 %402, label %403, label %405
 
 403:                                              ; preds = %387
@@ -2250,7 +2250,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIdEENS2_10Morp
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i173 unwind label %412, !noalias !130
 
 405:                                              ; preds = %387
-  %406 = icmp ugt i64 %401, %394
+  %406 = icmp ult i64 %394, %401
   br i1 %406, label %407, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i173
 
 407:                                              ; preds = %405
@@ -2408,7 +2408,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIhEENS2_10Morp
   %459 = ptrtoint ptr %457 to i64
   %460 = sub i64 %458, %459
   %461 = ashr exact i64 %460, 3
-  %462 = icmp ult i64 %461, %454
+  %462 = icmp ugt i64 %454, %461
   br i1 %462, label %463, label %465
 
 463:                                              ; preds = %447
@@ -2417,7 +2417,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIhEENS2_10Morp
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i199 unwind label %472, !noalias !135
 
 465:                                              ; preds = %447
-  %466 = icmp ugt i64 %461, %454
+  %466 = icmp ult i64 %454, %461
   br i1 %466, label %467, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i199
 
 467:                                              ; preds = %465
@@ -2575,7 +2575,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpItEENS2_10Morp
   %519 = ptrtoint ptr %517 to i64
   %520 = sub i64 %518, %519
   %521 = ashr exact i64 %520, 3
-  %522 = icmp ult i64 %521, %514
+  %522 = icmp ugt i64 %514, %521
   br i1 %522, label %523, label %525
 
 523:                                              ; preds = %507
@@ -2584,7 +2584,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpItEENS2_10Morp
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i225 unwind label %532, !noalias !140
 
 525:                                              ; preds = %507
-  %526 = icmp ugt i64 %521, %514
+  %526 = icmp ult i64 %514, %521
   br i1 %526, label %527, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i225
 
 527:                                              ; preds = %525
@@ -2742,7 +2742,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIsEENS2_10Morp
   %579 = ptrtoint ptr %577 to i64
   %580 = sub i64 %578, %579
   %581 = ashr exact i64 %580, 3
-  %582 = icmp ult i64 %581, %574
+  %582 = icmp ugt i64 %574, %581
   br i1 %582, label %583, label %585
 
 583:                                              ; preds = %567
@@ -2751,7 +2751,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIsEENS2_10Morp
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i251 unwind label %592, !noalias !145
 
 585:                                              ; preds = %567
-  %586 = icmp ugt i64 %581, %574
+  %586 = icmp ult i64 %574, %581
   br i1 %586, label %587, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i251
 
 587:                                              ; preds = %585
@@ -2909,7 +2909,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIfEENS2_10Morp
   %639 = ptrtoint ptr %637 to i64
   %640 = sub i64 %638, %639
   %641 = ashr exact i64 %640, 3
-  %642 = icmp ult i64 %641, %634
+  %642 = icmp ugt i64 %634, %641
   br i1 %642, label %643, label %645
 
 643:                                              ; preds = %627
@@ -2918,7 +2918,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIfEENS2_10Morp
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i277 unwind label %652, !noalias !150
 
 645:                                              ; preds = %627
-  %646 = icmp ugt i64 %641, %634
+  %646 = icmp ult i64 %634, %641
   br i1 %646, label %647, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i277
 
 647:                                              ; preds = %645
@@ -5292,8 +5292,8 @@ _ZN2cv21getStructuringElementEiNS_5Size_IiEENS_6Point_IiEE.exit: ; preds = %._cr
   br i1 %92, label %93, label %.thread101
 
 93:                                               ; preds = %88
-  %94 = mul nsw i32 %.sroa.032.0.extract.trunc38, %5
-  %95 = mul nsw i32 %.sroa.8.0.extract.trunc46, %5
+  %94 = mul nsw i32 %5, %.sroa.032.0.extract.trunc38
+  %95 = mul nsw i32 %5, %.sroa.8.0.extract.trunc46
   %96 = add nsw i32 %5, -1
   %97 = add nsw i32 %.sroa.0100.0, -1
   %98 = mul nsw i32 %97, %96
@@ -7786,7 +7786,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.not93 = icmp slt i32 %19, 0
   %20 = zext nneg i32 %4 to i64
   %21 = zext nneg i32 %18 to i64
-  %22 = icmp sgt i32 %9, %4
+  %22 = icmp slt i32 %4, %9
   br i1 %.not93, label %.preheader88.lr.ph.split.us, label %.preheader88.lr.ph.split
 
 .preheader88.lr.ph.split.us:                      ; preds = %.preheader88.lr.ph
@@ -8170,7 +8170,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.not93 = icmp slt i32 %19, 0
   %20 = zext nneg i32 %4 to i64
   %21 = zext nneg i32 %18 to i64
-  %22 = icmp sgt i32 %9, %4
+  %22 = icmp slt i32 %4, %9
   br i1 %.not93, label %.preheader88.lr.ph.split.us, label %.preheader88.lr.ph.split
 
 .preheader88.lr.ph.split.us:                      ; preds = %.preheader88.lr.ph
@@ -8548,7 +8548,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.not93 = icmp slt i32 %19, 0
   %20 = zext nneg i32 %4 to i64
   %21 = zext nneg i32 %18 to i64
-  %22 = icmp sgt i32 %9, %4
+  %22 = icmp slt i32 %4, %9
   br i1 %.not93, label %.preheader88.lr.ph.split.us, label %.preheader88.lr.ph.split
 
 .preheader88.lr.ph.split.us:                      ; preds = %.preheader88.lr.ph
@@ -8926,7 +8926,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.not93 = icmp slt i32 %19, 0
   %20 = zext nneg i32 %4 to i64
   %21 = zext nneg i32 %18 to i64
-  %22 = icmp sgt i32 %9, %4
+  %22 = icmp slt i32 %4, %9
   br i1 %.not93, label %.preheader88.lr.ph.split.us, label %.preheader88.lr.ph.split
 
 .preheader88.lr.ph.split.us:                      ; preds = %.preheader88.lr.ph
@@ -9312,7 +9312,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.not93 = icmp slt i32 %19, 0
   %20 = zext nneg i32 %4 to i64
   %21 = zext nneg i32 %18 to i64
-  %22 = icmp sgt i32 %9, %4
+  %22 = icmp slt i32 %4, %9
   br i1 %.not93, label %.preheader88.lr.ph.split.us, label %.preheader88.lr.ph.split
 
 .preheader88.lr.ph.split.us:                      ; preds = %.preheader88.lr.ph
@@ -9698,7 +9698,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.not93 = icmp slt i32 %19, 0
   %20 = zext nneg i32 %4 to i64
   %21 = zext nneg i32 %18 to i64
-  %22 = icmp sgt i32 %9, %4
+  %22 = icmp slt i32 %4, %9
   br i1 %.not93, label %.preheader88.lr.ph.split.us, label %.preheader88.lr.ph.split
 
 .preheader88.lr.ph.split.us:                      ; preds = %.preheader88.lr.ph
@@ -10076,7 +10076,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.not93 = icmp slt i32 %19, 0
   %20 = zext nneg i32 %4 to i64
   %21 = zext nneg i32 %18 to i64
-  %22 = icmp sgt i32 %9, %4
+  %22 = icmp slt i32 %4, %9
   br i1 %.not93, label %.preheader88.lr.ph.split.us, label %.preheader88.lr.ph.split
 
 .preheader88.lr.ph.split.us:                      ; preds = %.preheader88.lr.ph
@@ -10454,7 +10454,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.not93 = icmp slt i32 %19, 0
   %20 = zext nneg i32 %4 to i64
   %21 = zext nneg i32 %18 to i64
-  %22 = icmp sgt i32 %9, %4
+  %22 = icmp slt i32 %4, %9
   br i1 %.not93, label %.preheader88.lr.ph.split.us, label %.preheader88.lr.ph.split
 
 .preheader88.lr.ph.split.us:                      ; preds = %.preheader88.lr.ph
@@ -10832,7 +10832,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.not93 = icmp slt i32 %19, 0
   %20 = zext nneg i32 %4 to i64
   %21 = zext nneg i32 %18 to i64
-  %22 = icmp sgt i32 %9, %4
+  %22 = icmp slt i32 %4, %9
   br i1 %.not93, label %.preheader88.lr.ph.split.us, label %.preheader88.lr.ph.split
 
 .preheader88.lr.ph.split.us:                      ; preds = %.preheader88.lr.ph
@@ -11218,7 +11218,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.not93 = icmp slt i32 %19, 0
   %20 = zext nneg i32 %4 to i64
   %21 = zext nneg i32 %18 to i64
-  %22 = icmp sgt i32 %9, %4
+  %22 = icmp slt i32 %4, %9
   br i1 %.not93, label %.preheader88.lr.ph.split.us, label %.preheader88.lr.ph.split
 
 .preheader88.lr.ph.split.us:                      ; preds = %.preheader88.lr.ph

@@ -527,7 +527,7 @@ define i32 @H5G__link_iterate_table(ptr nocapture noundef readonly %0, i64 nound
 
 6:                                                ; preds = %5
   %7 = load i64, ptr %0, align 8
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   br i1 %8, label %.lr.ph.split.us.preheader, label %._crit_edge.thread
 
 .thread:                                          ; preds = %5
@@ -535,7 +535,7 @@ define i32 @H5G__link_iterate_table(ptr nocapture noundef readonly %0, i64 nound
   %10 = add i64 %9, %1
   store i64 %10, ptr %2, align 8
   %11 = load i64, ptr %0, align 8
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %.lr.ph.split.preheader, label %._crit_edge.thread
 
 .lr.ph.split.preheader:                           ; preds = %.thread

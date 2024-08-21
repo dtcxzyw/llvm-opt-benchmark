@@ -1005,19 +1005,19 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
   %default_context_template = getelementptr inbounds i8, ptr %self.val, i64 64
   %4 = load ptr, ptr %default_context_template, align 8
-  %cmp = icmp eq ptr %4, %v
+  %cmp = icmp eq ptr %v, %4
   br i1 %cmp, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %basic_context_template = getelementptr inbounds i8, ptr %self.val, i64 72
   %5 = load ptr, ptr %basic_context_template, align 8
-  %cmp2 = icmp eq ptr %5, %v
+  %cmp2 = icmp eq ptr %v, %5
   br i1 %cmp2, label %if.then5, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
   %extended_context_template = getelementptr inbounds i8, ptr %self.val, i64 80
   %6 = load ptr, ptr %extended_context_template, align 8
-  %cmp4 = icmp eq ptr %6, %v
+  %cmp4 = icmp eq ptr %v, %6
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %lor.lhs.false3, %lor.lhs.false, %if.end
@@ -1453,7 +1453,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.c
   %indvars.iv.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr [8 x ptr], ptr %round_map.i.i, i64 0, i64 %indvars.iv.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp2.i.i = icmp eq ptr %5, %rounding
+  %cmp2.i.i = icmp eq ptr %rounding, %5
   br i1 %cmp2.i.i, label %getround.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
@@ -1842,7 +1842,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [8 x ptr], ptr %round_map.i, i64 0, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx.i, align 8
-  %cmp2.i = icmp eq ptr %5, %value
+  %cmp2.i = icmp eq ptr %value, %5
   br i1 %cmp2.i, label %getround.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -3868,7 +3868,7 @@ if.then.i:                                        ; preds = %if.end11
   %call.val.i.i.i.i = load ptr, ptr %9, align 8
   %PyDec_Type.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i.i.i, align 8
-  %cmp.i6.i.i = icmp eq ptr %10, %type
+  %cmp.i6.i.i = icmp eq ptr %type, %10
   br i1 %cmp.i6.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
@@ -3950,7 +3950,7 @@ if.then3.i:                                       ; preds = %PyObject_TypeCheck.
   %call.val.i.i.i = load ptr, ptr %18, align 8
   %PyDec_Type.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i, i64 24
   %19 = load ptr, ptr %PyDec_Type.i.i, align 8
-  %cmp.i.i = icmp eq ptr %19, %type
+  %cmp.i.i = icmp eq ptr %type, %19
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end.i33.i
 
 land.lhs.true.i.i:                                ; preds = %if.then3.i
@@ -3974,7 +3974,7 @@ if.end.i33.i:                                     ; preds = %land.lhs.true.i.i, 
   %call.val.i.i.i35.i = load ptr, ptr %21, align 8
   %PyDec_Type.i.i36.i = getelementptr inbounds i8, ptr %call.val.i.i.i35.i, i64 24
   %22 = load ptr, ptr %PyDec_Type.i.i36.i, align 8
-  %cmp.i12.i.i = icmp eq ptr %22, %type
+  %cmp.i12.i.i = icmp eq ptr %type, %22
   br i1 %cmp.i12.i.i, label %if.then.i.i53.i, label %if.else.i.i37.i
 
 if.then.i.i53.i:                                  ; preds = %if.end.i33.i
@@ -4323,7 +4323,7 @@ if.end8:                                          ; preds = %if.then.i39, %if.en
   %call.val.i.i61 = load ptr, ptr %24, align 8
   %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
-  %cmp.i63 = icmp eq ptr %25, %23
+  %cmp.i63 = icmp eq ptr %23, %25
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
 
 if.then.i66:                                      ; preds = %if.end8
@@ -4618,7 +4618,7 @@ if.end8:                                          ; preds = %if.then.i39, %if.en
   %call.val.i.i61 = load ptr, ptr %24, align 8
   %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
-  %cmp.i63 = icmp eq ptr %25, %23
+  %cmp.i63 = icmp eq ptr %23, %25
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
 
 if.then.i66:                                      ; preds = %if.end8
@@ -4913,7 +4913,7 @@ if.end8:                                          ; preds = %if.then.i39, %if.en
   %call.val.i.i61 = load ptr, ptr %24, align 8
   %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
-  %cmp.i63 = icmp eq ptr %25, %23
+  %cmp.i63 = icmp eq ptr %23, %25
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
 
 if.then.i66:                                      ; preds = %if.end8
@@ -5208,7 +5208,7 @@ if.end8:                                          ; preds = %if.then.i39, %if.en
   %call.val.i.i61 = load ptr, ptr %24, align 8
   %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
-  %cmp.i63 = icmp eq ptr %25, %23
+  %cmp.i63 = icmp eq ptr %23, %25
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
 
 if.then.i66:                                      ; preds = %if.end8
@@ -5503,7 +5503,7 @@ if.end8:                                          ; preds = %if.then.i60, %if.en
   %call.val.i.i81 = load ptr, ptr %24, align 8
   %PyDec_Type.i82 = getelementptr inbounds i8, ptr %call.val.i.i81, i64 24
   %25 = load ptr, ptr %PyDec_Type.i82, align 8
-  %cmp.i83 = icmp eq ptr %25, %23
+  %cmp.i83 = icmp eq ptr %23, %25
   br i1 %cmp.i83, label %if.then.i86, label %if.else.i
 
 if.then.i86:                                      ; preds = %if.end8
@@ -5571,7 +5571,7 @@ if.end12:                                         ; preds = %if.end.i85
   %call.val.i.i88 = load ptr, ptr %32, align 8
   %PyDec_Type.i89 = getelementptr inbounds i8, ptr %call.val.i.i88, i64 24
   %33 = load ptr, ptr %PyDec_Type.i89, align 8
-  %cmp.i90 = icmp eq ptr %33, %31
+  %cmp.i90 = icmp eq ptr %31, %33
   br i1 %cmp.i90, label %if.then.i104, label %if.else.i91
 
 if.then.i104:                                     ; preds = %if.end12
@@ -6020,7 +6020,7 @@ if.end15:                                         ; preds = %if.then.i80, %if.en
   %call.val.i.i101 = load ptr, ptr %36, align 8
   %PyDec_Type.i102 = getelementptr inbounds i8, ptr %call.val.i.i101, i64 24
   %37 = load ptr, ptr %PyDec_Type.i102, align 8
-  %cmp.i103 = icmp eq ptr %37, %35
+  %cmp.i103 = icmp eq ptr %35, %37
   br i1 %cmp.i103, label %if.then.i106, label %if.else.i
 
 if.then.i106:                                     ; preds = %if.end15
@@ -6228,7 +6228,7 @@ Py_DECREF.exit19:                                 ; preds = %if.end, %if.then1.i
   %call.val.i.i = load ptr, ptr %5, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %6 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i12 = icmp eq ptr %6, %4
+  %cmp.i12 = icmp eq ptr %4, %6
   br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %Py_DECREF.exit19
@@ -6325,7 +6325,7 @@ Py_DECREF.exit19:                                 ; preds = %if.end, %if.then1.i
   %call.val.i.i = load ptr, ptr %5, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %6 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i12 = icmp eq ptr %6, %4
+  %cmp.i12 = icmp eq ptr %4, %6
   br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %Py_DECREF.exit19
@@ -6422,7 +6422,7 @@ Py_DECREF.exit19:                                 ; preds = %if.end, %if.then1.i
   %call.val.i.i = load ptr, ptr %5, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %6 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i12 = icmp eq ptr %6, %4
+  %cmp.i12 = icmp eq ptr %4, %6
   br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %Py_DECREF.exit19
@@ -6761,7 +6761,7 @@ if.end8:                                          ; preds = %if.then.i39, %if.en
   %call.val.i.i61 = load ptr, ptr %24, align 8
   %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
-  %cmp.i63 = icmp eq ptr %25, %23
+  %cmp.i63 = icmp eq ptr %23, %25
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
 
 if.then.i66:                                      ; preds = %if.end8
@@ -7056,7 +7056,7 @@ if.end8:                                          ; preds = %if.then.i39, %if.en
   %call.val.i.i61 = load ptr, ptr %24, align 8
   %PyDec_Type.i62 = getelementptr inbounds i8, ptr %call.val.i.i61, i64 24
   %25 = load ptr, ptr %PyDec_Type.i62, align 8
-  %cmp.i63 = icmp eq ptr %25, %23
+  %cmp.i63 = icmp eq ptr %23, %25
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
 
 if.then.i66:                                      ; preds = %if.end8
@@ -7265,7 +7265,7 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
   %cm.03.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %call2.val, %if.end ]
   %flag.i = getelementptr inbounds i8, ptr %cm.03.i, i64 16
   %6 = load i32, ptr %flag.i, align 8
-  %7 = and i32 %6, %status
+  %7 = and i32 %status, %6
   %and.i = and i32 %7, %3
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %for.inc.i, label %flags_as_exception.exit
@@ -7518,7 +7518,7 @@ if.then15:                                        ; preds = %if.end12
   %call.val.i.i = load ptr, ptr %8, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %9 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i75 = icmp eq ptr %9, %type
+  %cmp.i75 = icmp eq ptr %type, %9
   br i1 %cmp.i75, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then15
@@ -7911,7 +7911,7 @@ if.end11:                                         ; preds = %if.end6
   %call.val.i.i = load ptr, ptr %8, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %9 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i28 = icmp eq ptr %9, %7
+  %cmp.i28 = icmp eq ptr %7, %9
   br i1 %cmp.i28, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end11
@@ -8020,7 +8020,7 @@ entry:
   %call.val.i.i = load ptr, ptr %0, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %1 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i = icmp eq ptr %1, %type
+  %cmp.i = icmp eq ptr %type, %1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -8199,7 +8199,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.val.i.i = load ptr, ptr %9, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i10 = icmp eq ptr %10, %8
+  %cmp.i10 = icmp eq ptr %8, %10
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
@@ -8329,7 +8329,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.val.i.i = load ptr, ptr %9, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i10 = icmp eq ptr %10, %8
+  %cmp.i10 = icmp eq ptr %8, %10
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
@@ -8459,7 +8459,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.val.i.i = load ptr, ptr %9, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i10 = icmp eq ptr %10, %8
+  %cmp.i10 = icmp eq ptr %8, %10
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
@@ -8589,7 +8589,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.val.i.i = load ptr, ptr %9, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i10 = icmp eq ptr %10, %8
+  %cmp.i10 = icmp eq ptr %8, %10
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
@@ -8719,7 +8719,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.val.i.i = load ptr, ptr %9, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i10 = icmp eq ptr %10, %8
+  %cmp.i10 = icmp eq ptr %8, %10
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
@@ -8849,7 +8849,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.val.i.i = load ptr, ptr %9, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i10 = icmp eq ptr %10, %8
+  %cmp.i10 = icmp eq ptr %8, %10
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
@@ -8999,7 +8999,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [8 x ptr], ptr %round_map.i, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx.i, align 8
-  %cmp2.i = icmp eq ptr %13, %9
+  %cmp2.i = icmp eq ptr %9, %13
   br i1 %cmp2.i, label %getround.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -9049,7 +9049,7 @@ if.end24:                                         ; preds = %if.end18, %if.end12
   %call.val.i.i = load ptr, ptr %18, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %19 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i15 = icmp eq ptr %19, %17
+  %cmp.i15 = icmp eq ptr %17, %19
   br i1 %cmp.i15, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end24
@@ -9197,7 +9197,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [8 x ptr], ptr %round_map.i, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx.i, align 8
-  %cmp2.i = icmp eq ptr %13, %9
+  %cmp2.i = icmp eq ptr %9, %13
   br i1 %cmp2.i, label %getround.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -9247,7 +9247,7 @@ if.end24:                                         ; preds = %if.end18, %if.end12
   %call.val.i.i = load ptr, ptr %18, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %19 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i15 = icmp eq ptr %19, %17
+  %cmp.i15 = icmp eq ptr %17, %19
   br i1 %cmp.i15, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end24
@@ -9375,7 +9375,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.val.i.i = load ptr, ptr %9, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i10 = icmp eq ptr %10, %8
+  %cmp.i10 = icmp eq ptr %8, %10
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
@@ -9624,7 +9624,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i55, label %if.else.i
 
 if.then.i55:                                      ; preds = %if.end20
@@ -9938,7 +9938,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i55, label %if.else.i
 
 if.then.i55:                                      ; preds = %if.end20
@@ -10252,7 +10252,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
@@ -10566,7 +10566,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
@@ -10880,7 +10880,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
@@ -11194,7 +11194,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
@@ -11508,7 +11508,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
@@ -11724,7 +11724,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [8 x ptr], ptr %round_map.i, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx.i, align 8
-  %cmp2.i = icmp eq ptr %13, %9
+  %cmp2.i = icmp eq ptr %9, %13
   br i1 %cmp2.i, label %getround.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -11896,7 +11896,7 @@ if.end32:                                         ; preds = %if.then.i37, %if.en
   %call.val.i.i56 = load ptr, ptr %42, align 8
   %PyDec_Type.i57 = getelementptr inbounds i8, ptr %call.val.i.i56, i64 24
   %43 = load ptr, ptr %PyDec_Type.i57, align 8
-  %cmp.i58 = icmp eq ptr %43, %41
+  %cmp.i58 = icmp eq ptr %41, %43
   br i1 %cmp.i58, label %if.then.i60, label %if.else.i
 
 if.then.i60:                                      ; preds = %if.end32
@@ -12208,7 +12208,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
@@ -12607,7 +12607,7 @@ if.end24:                                         ; preds = %if.then.i66, %if.en
   %call.val.i.i85 = load ptr, ptr %49, align 8
   %PyDec_Type.i86 = getelementptr inbounds i8, ptr %call.val.i.i85, i64 24
   %50 = load ptr, ptr %PyDec_Type.i86, align 8
-  %cmp.i87 = icmp eq ptr %50, %48
+  %cmp.i87 = icmp eq ptr %48, %50
   br i1 %cmp.i87, label %if.then.i89, label %if.else.i
 
 if.then.i89:                                      ; preds = %if.end24
@@ -13279,7 +13279,7 @@ entry:
   %call.val.i.i = load ptr, ptr %3, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %4 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i = icmp eq ptr %4, %2
+  %cmp.i = icmp eq ptr %2, %4
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -13338,7 +13338,7 @@ entry:
   %call.val.i.i = load ptr, ptr %3, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %4 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i6 = icmp eq ptr %4, %2
+  %cmp.i6 = icmp eq ptr %2, %4
   br i1 %cmp.i6, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -13417,7 +13417,7 @@ entry:
   %call.val.i.i = load ptr, ptr %3, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %4 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i6 = icmp eq ptr %4, %2
+  %cmp.i6 = icmp eq ptr %2, %4
   br i1 %cmp.i6, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -13548,7 +13548,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.val.i.i = load ptr, ptr %9, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i10 = icmp eq ptr %10, %8
+  %cmp.i10 = icmp eq ptr %8, %10
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
@@ -13678,7 +13678,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   %call.val.i.i = load ptr, ptr %9, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %10 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i10 = icmp eq ptr %10, %8
+  %cmp.i10 = icmp eq ptr %8, %10
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
@@ -14111,7 +14111,7 @@ if.end20:                                         ; preds = %if.then.i28, %if.en
   %call.val.i.i47 = load ptr, ptr %33, align 8
   %PyDec_Type.i48 = getelementptr inbounds i8, ptr %call.val.i.i47, i64 24
   %34 = load ptr, ptr %PyDec_Type.i48, align 8
-  %cmp.i49 = icmp eq ptr %34, %32
+  %cmp.i49 = icmp eq ptr %32, %34
   br i1 %cmp.i49, label %if.then.i51, label %if.else.i
 
 if.then.i51:                                      ; preds = %if.end20
@@ -14398,7 +14398,7 @@ if.end20:                                         ; preds = %if.then.i28, %if.en
   %call.val.i.i47 = load ptr, ptr %33, align 8
   %PyDec_Type.i48 = getelementptr inbounds i8, ptr %call.val.i.i47, i64 24
   %34 = load ptr, ptr %PyDec_Type.i48, align 8
-  %cmp.i49 = icmp eq ptr %34, %32
+  %cmp.i49 = icmp eq ptr %32, %34
   br i1 %cmp.i49, label %if.then.i51, label %if.else.i
 
 if.then.i51:                                      ; preds = %if.end20
@@ -14687,7 +14687,7 @@ if.end20:                                         ; preds = %if.then.i32, %if.en
   %call.val.i.i51 = load ptr, ptr %33, align 8
   %PyDec_Type.i52 = getelementptr inbounds i8, ptr %call.val.i.i51, i64 24
   %34 = load ptr, ptr %PyDec_Type.i52, align 8
-  %cmp.i53 = icmp eq ptr %34, %32
+  %cmp.i53 = icmp eq ptr %32, %34
   br i1 %cmp.i53, label %if.then.i55, label %if.else.i
 
 if.then.i55:                                      ; preds = %if.end20
@@ -15242,7 +15242,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
@@ -15556,7 +15556,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
@@ -15870,7 +15870,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
@@ -16184,7 +16184,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
@@ -16498,7 +16498,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
@@ -16812,7 +16812,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   %call.val.i.i50 = load ptr, ptr %33, align 8
   %PyDec_Type.i51 = getelementptr inbounds i8, ptr %call.val.i.i50, i64 24
   %34 = load ptr, ptr %PyDec_Type.i51, align 8
-  %cmp.i52 = icmp eq ptr %34, %32
+  %cmp.i52 = icmp eq ptr %32, %34
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
@@ -16969,7 +16969,7 @@ Py_DECREF.exit17:                                 ; preds = %if.end, %if.then1.i
   %3 = load ptr, ptr %PyDec_Type, align 8
   %call2 = tail call fastcc ptr @PyDecType_FromFloatExact(ptr noundef %3, ptr noundef %pyfloat, ptr noundef nonnull %call1)
   %4 = load ptr, ptr %PyDec_Type, align 8
-  %cmp4 = icmp ne ptr %4, %type
+  %cmp4 = icmp ne ptr %type, %4
   %cmp5 = icmp ne ptr %call2, null
   %or.cond = select i1 %cmp4, i1 %cmp5, i1 false
   br i1 %or.cond, label %do.body, label %return
@@ -17268,7 +17268,7 @@ Py_DECREF.exit168:                                ; preds = %if.end10, %if.then1
   %call.val.i.i = load ptr, ptr %7, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %8 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i74 = icmp eq ptr %8, %6
+  %cmp.i74 = icmp eq ptr %6, %8
   br i1 %cmp.i74, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %Py_DECREF.exit168
@@ -17744,7 +17744,7 @@ if.then.i48:                                      ; preds = %land.lhs.true.i
   br label %if.end18.i
 
 if.else.i:                                        ; preds = %while.body.i, %land.lhs.true.i, %if.end25
-  %cmp9.i = icmp ugt ptr %add.ptr.i, %fmt.0
+  %cmp9.i = icmp ult ptr %fmt.0, %add.ptr.i
   br i1 %cmp9.i, label %land.lhs.true11.i, label %if.end18.i
 
 land.lhs.true11.i:                                ; preds = %if.else.i
@@ -18342,7 +18342,7 @@ if.end18:                                         ; preds = %land.lhs.true, %if.
   %call.val.i.i = load ptr, ptr %10, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %11 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i18 = icmp eq ptr %11, %9
+  %cmp.i18 = icmp eq ptr %9, %11
   br i1 %cmp.i18, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end18
@@ -18995,7 +18995,7 @@ entry:
   %call.val.i.i = load ptr, ptr %3, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %4 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i = icmp eq ptr %4, %2
+  %cmp.i = icmp eq ptr %2, %4
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -19340,7 +19340,7 @@ entry:
   %call.val.i.i = load ptr, ptr %0, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %1 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i7 = icmp eq ptr %1, %type
+  %cmp.i7 = icmp eq ptr %type, %1
   br i1 %cmp.i7, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -20226,7 +20226,7 @@ entry:
   %call.val.i = load ptr, ptr %0, align 8
   %PyDecContext_Type = getelementptr inbounds i8, ptr %call.val.i, i64 8
   %1 = load ptr, ptr %PyDecContext_Type, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -20401,7 +20401,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -20558,7 +20558,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -20715,7 +20715,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -20872,7 +20872,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -21029,7 +21029,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -21186,7 +21186,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -21343,7 +21343,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -21500,7 +21500,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -21657,7 +21657,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -21814,7 +21814,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -21971,7 +21971,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -22128,7 +22128,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -22359,7 +22359,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -22623,7 +22623,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -22887,7 +22887,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -23151,7 +23151,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -23415,7 +23415,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -23679,7 +23679,7 @@ if.end8:                                          ; preds = %if.then.i52, %if.en
   %call.val.i.i71 = load ptr, ptr %25, align 8
   %PyDec_Type.i72 = getelementptr inbounds i8, ptr %call.val.i.i71, i64 24
   %26 = load ptr, ptr %PyDec_Type.i72, align 8
-  %cmp.i73 = icmp eq ptr %26, %24
+  %cmp.i73 = icmp eq ptr %24, %26
   br i1 %cmp.i73, label %if.then.i75, label %if.else.i
 
 if.then.i75:                                      ; preds = %if.end8
@@ -23747,7 +23747,7 @@ if.end13:                                         ; preds = %if.end.i74
   %call.val.i.i77 = load ptr, ptr %33, align 8
   %PyDec_Type.i78 = getelementptr inbounds i8, ptr %call.val.i.i77, i64 24
   %34 = load ptr, ptr %PyDec_Type.i78, align 8
-  %cmp.i79 = icmp eq ptr %34, %32
+  %cmp.i79 = icmp eq ptr %32, %34
   br i1 %cmp.i79, label %if.then.i93, label %if.else.i80
 
 if.then.i93:                                      ; preds = %if.end13
@@ -24076,7 +24076,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -24340,7 +24340,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -24604,7 +24604,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -24868,7 +24868,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -25132,7 +25132,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -25396,7 +25396,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -25660,7 +25660,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -25924,7 +25924,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -26188,7 +26188,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -26452,7 +26452,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -26804,7 +26804,7 @@ if.end14:                                         ; preds = %if.then.i69, %if.en
   %call.val.i.i88 = load ptr, ptr %39, align 8
   %PyDec_Type.i89 = getelementptr inbounds i8, ptr %call.val.i.i88, i64 24
   %40 = load ptr, ptr %PyDec_Type.i89, align 8
-  %cmp.i90 = icmp eq ptr %40, %38
+  %cmp.i90 = icmp eq ptr %38, %40
   br i1 %cmp.i90, label %if.then.i92, label %if.else.i
 
 if.then.i92:                                      ; preds = %if.end14
@@ -27197,7 +27197,7 @@ if.end12:                                         ; preds = %if.then.i68, %if.en
   %call.val.i.i87 = load ptr, ptr %39, align 8
   %PyDec_Type.i88 = getelementptr inbounds i8, ptr %call.val.i.i87, i64 24
   %40 = load ptr, ptr %PyDec_Type.i88, align 8
-  %cmp.i89 = icmp eq ptr %40, %38
+  %cmp.i89 = icmp eq ptr %38, %40
   br i1 %cmp.i89, label %if.then.i91, label %if.else.i
 
 if.then.i91:                                      ; preds = %if.end12
@@ -28517,7 +28517,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i18 = icmp eq ptr %13, %11
+  %cmp.i18 = icmp eq ptr %11, %13
   br i1 %cmp.i18, label %if.then.i20, label %if.else.i
 
 if.then.i20:                                      ; preds = %if.end
@@ -28733,7 +28733,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i18 = icmp eq ptr %13, %11
+  %cmp.i18 = icmp eq ptr %11, %13
   br i1 %cmp.i18, label %if.then.i20, label %if.else.i
 
 if.then.i20:                                      ; preds = %if.end
@@ -28889,7 +28889,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -29046,7 +29046,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   %call.val.i.i15 = load ptr, ptr %12, align 8
   %PyDec_Type.i16 = getelementptr inbounds i8, ptr %call.val.i.i15, i64 24
   %13 = load ptr, ptr %PyDec_Type.i16, align 8
-  %cmp.i17 = icmp eq ptr %13, %11
+  %cmp.i17 = icmp eq ptr %11, %13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
@@ -29599,7 +29599,7 @@ if.end8:                                          ; preds = %if.then.i25, %if.en
   %call.val.i.i44 = load ptr, ptr %25, align 8
   %PyDec_Type.i45 = getelementptr inbounds i8, ptr %call.val.i.i44, i64 24
   %26 = load ptr, ptr %PyDec_Type.i45, align 8
-  %cmp.i46 = icmp eq ptr %26, %24
+  %cmp.i46 = icmp eq ptr %24, %26
   br i1 %cmp.i46, label %if.then.i49, label %if.else.i
 
 if.then.i49:                                      ; preds = %if.end8
@@ -29838,7 +29838,7 @@ if.end8:                                          ; preds = %if.then.i25, %if.en
   %call.val.i.i44 = load ptr, ptr %25, align 8
   %PyDec_Type.i45 = getelementptr inbounds i8, ptr %call.val.i.i44, i64 24
   %26 = load ptr, ptr %PyDec_Type.i45, align 8
-  %cmp.i46 = icmp eq ptr %26, %24
+  %cmp.i46 = icmp eq ptr %24, %26
   br i1 %cmp.i46, label %if.then.i49, label %if.else.i
 
 if.then.i49:                                      ; preds = %if.end8
@@ -30079,7 +30079,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -30342,7 +30342,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -30606,7 +30606,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -30870,7 +30870,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -31134,7 +31134,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -31589,7 +31589,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -31853,7 +31853,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   %call.val.i.i49 = load ptr, ptr %25, align 8
   %PyDec_Type.i50 = getelementptr inbounds i8, ptr %call.val.i.i49, i64 24
   %26 = load ptr, ptr %PyDec_Type.i50, align 8
-  %cmp.i51 = icmp eq ptr %26, %24
+  %cmp.i51 = icmp eq ptr %24, %26
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
@@ -32196,7 +32196,7 @@ if.then.i:                                        ; preds = %if.end
   %call.val.i.i.i.i = load ptr, ptr %4, align 8
   %PyDec_Type.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i.i, i64 24
   %5 = load ptr, ptr %PyDec_Type.i.i.i, align 8
-  %cmp.i7.i.i = icmp eq ptr %5, %3
+  %cmp.i7.i.i = icmp eq ptr %3, %5
   br i1 %cmp.i7.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
@@ -32295,7 +32295,7 @@ if.end.i:                                         ; preds = %if.then12.i
   %call.val.i.i.i = load ptr, ptr %15, align 8
   %PyDec_Type.i.i = getelementptr inbounds i8, ptr %call.val.i.i.i, i64 24
   %16 = load ptr, ptr %PyDec_Type.i.i, align 8
-  %cmp.i.i = icmp eq ptr %16, %14
+  %cmp.i.i = icmp eq ptr %14, %16
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -32556,7 +32556,7 @@ entry:
   %call.val.i.i = load ptr, ptr %3, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %4 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i13 = icmp eq ptr %4, %2
+  %cmp.i13 = icmp eq ptr %2, %4
   br i1 %cmp.i13, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -32683,7 +32683,7 @@ entry:
   %call.val.i.i = load ptr, ptr %0, align 8
   %PyDec_Type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
   %1 = load ptr, ptr %PyDec_Type.i, align 8
-  %cmp.i7 = icmp eq ptr %1, %type
+  %cmp.i7 = icmp eq ptr %type, %1
   br i1 %cmp.i7, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry

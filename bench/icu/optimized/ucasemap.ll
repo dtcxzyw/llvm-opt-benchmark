@@ -2489,7 +2489,7 @@ land.lhs.true16:                                  ; preds = %if.end14
   %cmp17.not = icmp uge ptr %src, %dest
   %idx.ext = zext nneg i32 %destCapacity to i64
   %add.ptr = getelementptr inbounds i8, ptr %dest, i64 %idx.ext
-  %cmp19 = icmp ugt ptr %add.ptr, %src
+  %cmp19 = icmp ult ptr %src, %add.ptr
   %or.cond36 = select i1 %cmp17.not, i1 %cmp19, i1 false
   br i1 %or.cond36, label %if.then26, label %lor.lhs.false20
 
@@ -2497,7 +2497,7 @@ lor.lhs.false20:                                  ; preds = %land.lhs.true16
   %cmp21.not = icmp uge ptr %dest, %src
   %idx.ext23 = sext i32 %srcLength.addr.0 to i64
   %add.ptr24 = getelementptr inbounds i8, ptr %src, i64 %idx.ext23
-  %cmp25 = icmp ugt ptr %add.ptr24, %dest
+  %cmp25 = icmp ult ptr %dest, %add.ptr24
   %or.cond37 = select i1 %cmp21.not, i1 %cmp25, i1 false
   br i1 %or.cond37, label %if.then26, label %if.end27
 

@@ -807,7 +807,7 @@ define dso_local void @_ZN17cmOutputConverter14EscapeForShellB5cxx11ESt17basic_s
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZL32cmOutputConverterIsShellOperatorSt17basic_string_viewIcSt11char_traitsIcEEE14shellOperators, i64 8), %17 ]
   %19 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %.sroa.01.0.copyload.i.i.i.i.i = load i64, ptr %19, align 8
-  %.sroa.speculated.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.01.0.copyload.i.i.i.i.i, i64 %1)
+  %.sroa.speculated.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %1, i64 %.sroa.01.0.copyload.i.i.i.i.i)
   %20 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i, 0
   br i1 %20, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
 
@@ -842,7 +842,7 @@ _ZNKSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEES3_St9_IdentityIS3_ESt
 26:                                               ; preds = %_ZNKSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i.i
   %27 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %27, align 8
-  %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %1, i64 %.sroa.0.0.copyload.i.i.i.i)
+  %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.0.0.copyload.i.i.i.i, i64 %1)
   %28 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %28, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
@@ -1859,7 +1859,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11ch
 9:                                                ; preds = %6
   %10 = extractvalue { ptr, ptr } %7, 0
   %.not.i.i = icmp ne ptr %10, null
-  %11 = icmp eq ptr %4, %8
+  %11 = icmp eq ptr %8, %4
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %11
   br i1 %or.cond.i.i, label %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i, label %12
 
@@ -1867,7 +1867,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11ch
   %13 = getelementptr inbounds i8, ptr %8, i64 32
   %.sroa.01.0.copyload.i.i.i = load i64, ptr %.08, align 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %13, align 8
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.copyload.i.i.i, i64 %.sroa.0.0.copyload.i.i.i)
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.0.0.copyload.i.i.i, i64 %.sroa.01.0.copyload.i.i.i)
   %14 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %14, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
@@ -1945,7 +1945,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %22
 
 6:                                                ; preds = %3
@@ -1960,7 +1960,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeISt17basic_string_view
   %12 = getelementptr inbounds i8, ptr %11, i64 32
   %.sroa.01.0.copyload.i = load i64, ptr %12, align 8
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.copyload.i, i64 %.sroa.0.0.copyload.i)
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.0.0.copyload.i, i64 %.sroa.01.0.copyload.i)
   %13 = icmp eq i64 %.sroa.speculated.i.i.i, 0
   br i1 %13, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
@@ -1995,7 +1995,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds
   %23 = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.01.0.copyload.i10 = load i64, ptr %2, align 8
   %.sroa.0.0.copyload.i11 = load i64, ptr %23, align 8
-  %.sroa.speculated.i.i.i12 = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.copyload.i10, i64 %.sroa.0.0.copyload.i11)
+  %.sroa.speculated.i.i.i12 = tail call i64 @llvm.umin.i64(i64 %.sroa.0.0.copyload.i11, i64 %.sroa.01.0.copyload.i10)
   %24 = icmp eq i64 %.sroa.speculated.i.i.i12, 0
   br i1 %24, label %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit23, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i13
 
@@ -2032,7 +2032,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit23.thread
   %37 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #20
   %38 = getelementptr inbounds i8, ptr %37, i64 32
   %.sroa.01.0.copyload.i24 = load i64, ptr %38, align 8
-  %.sroa.speculated.i.i.i26 = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.copyload.i24, i64 %.sroa.01.0.copyload.i10)
+  %.sroa.speculated.i.i.i26 = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.copyload.i10, i64 %.sroa.01.0.copyload.i24)
   %39 = icmp eq i64 %.sroa.speculated.i.i.i26, 0
   br i1 %39, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i33, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i27
 
@@ -2098,7 +2098,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit51: ; pre
   %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #20
   %62 = getelementptr inbounds i8, ptr %61, i64 32
   %.sroa.0.0.copyload.i53 = load i64, ptr %62, align 8
-  %.sroa.speculated.i.i.i54 = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.copyload.i10, i64 %.sroa.0.0.copyload.i53)
+  %.sroa.speculated.i.i.i54 = tail call i64 @llvm.umin.i64(i64 %.sroa.0.0.copyload.i53, i64 %.sroa.01.0.copyload.i10)
   %63 = icmp eq i64 %.sroa.speculated.i.i.i54, 0
   br i1 %63, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i61, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i55
 
@@ -2163,7 +2163,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeISt17basic_string_view
   %.03438 = phi ptr [ %.03436, %.lr.ph ], [ %.034, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit ]
   %6 = getelementptr inbounds i8, ptr %.03438, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 8
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.copyload.i, i64 %.sroa.0.0.copyload.i)
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.0.0.copyload.i, i64 %.sroa.01.0.copyload.i)
   %7 = icmp eq i64 %.sroa.speculated.i.i.i, 0
   br i1 %7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
@@ -2210,7 +2210,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds
   %18 = getelementptr inbounds i8, ptr %.sroa.019.0, i64 32
   %.sroa.01.0.copyload.i5 = load i64, ptr %18, align 8
   %.sroa.0.0.copyload.i6 = load i64, ptr %1, align 8
-  %.sroa.speculated.i.i.i7 = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.copyload.i5, i64 %.sroa.0.0.copyload.i6)
+  %.sroa.speculated.i.i.i7 = tail call i64 @llvm.umin.i64(i64 %.sroa.0.0.copyload.i6, i64 %.sroa.01.0.copyload.i5)
   %19 = icmp eq i64 %.sroa.speculated.i.i.i7, 0
   br i1 %19, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i14, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i8
 

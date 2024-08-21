@@ -188,7 +188,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !43, !noalias !48, !noundef !9
   %6 = load i64, ptr %0, align 8, !alias.scope !50, !noalias !48, !noundef !9
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hfb0361c8db9e9b66E.exit"
 
 9:                                                ; preds = %3
@@ -285,7 +285,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !56, !noalias !61, !noundef !9
   %45 = load i64, ptr %0, align 8, !alias.scope !63, !noalias !61, !noundef !9
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hfb0361c8db9e9b66E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -364,7 +364,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %11 = load i64, ptr %10, align 8, !alias.scope !73, !noundef !9
   %12 = load i64, ptr %0, align 8, !alias.scope !73, !noundef !9
   %13 = sub i64 %12, %11
-  %14 = icmp ult i64 %13, %.0.sroa.speculated.i.i
+  %14 = icmp ugt i64 %.0.sroa.speculated.i.i, %13
   br i1 %14, label %15, label %.preheader
 
 15:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h40aee9da24317a5cE.llvm.2373854839890531113.exit"

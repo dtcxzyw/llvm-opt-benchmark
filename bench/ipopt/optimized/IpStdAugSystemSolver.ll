@@ -3990,7 +3990,7 @@ define noundef zeroext i1 @_ZN5Ipopt18StdAugSystemSolver29AugmentedSystemRequire
   %.not29 = icmp ne i32 %16, %18
   %.old66 = getelementptr inbounds i8, ptr %0, i64 136
   %.old67 = load double, ptr %.old66, align 8
-  %.old68 = fcmp une double %.old67, %2
+  %.old68 = fcmp une double %2, %.old67
   %or.cond85 = select i1 %.not29, i1 true, i1 %.old68
   br i1 %or.cond85, label %69, label %22
 
@@ -4000,7 +4000,7 @@ define noundef zeroext i1 @_ZN5Ipopt18StdAugSystemSolver29AugmentedSystemRequire
   %.not30.old = icmp ne i32 %.old45, 0
   %19 = getelementptr inbounds i8, ptr %0, i64 136
   %20 = load double, ptr %19, align 8
-  %21 = fcmp une double %20, %2
+  %21 = fcmp une double %2, %20
   %or.cond = select i1 %.not30.old, i1 true, i1 %21
   br i1 %or.cond, label %69, label %22
 
@@ -4016,7 +4016,7 @@ define noundef zeroext i1 @_ZN5Ipopt18StdAugSystemSolver29AugmentedSystemRequire
   %.not32 = icmp ne i32 %25, %27
   %.old69 = getelementptr inbounds i8, ptr %0, i64 152
   %.old70 = load double, ptr %.old69, align 8
-  %.old71 = fcmp une double %.old70, %4
+  %.old71 = fcmp une double %4, %.old70
   %or.cond86 = select i1 %.not32, i1 true, i1 %.old71
   br i1 %or.cond86, label %69, label %31
 
@@ -4026,7 +4026,7 @@ define noundef zeroext i1 @_ZN5Ipopt18StdAugSystemSolver29AugmentedSystemRequire
   %.not33.old = icmp ne i32 %.old49, 0
   %28 = getelementptr inbounds i8, ptr %0, i64 152
   %29 = load double, ptr %28, align 8
-  %30 = fcmp une double %29, %4
+  %30 = fcmp une double %4, %29
   %or.cond72 = select i1 %.not33.old, i1 true, i1 %30
   br i1 %or.cond72, label %69, label %31
 
@@ -4042,7 +4042,7 @@ define noundef zeroext i1 @_ZN5Ipopt18StdAugSystemSolver29AugmentedSystemRequire
   %.not35 = icmp ne i32 %34, %36
   %.old73 = getelementptr inbounds i8, ptr %0, i64 168
   %.old74 = load double, ptr %.old73, align 8
-  %.old75 = fcmp une double %.old74, %6
+  %.old75 = fcmp une double %6, %.old74
   %or.cond87 = select i1 %.not35, i1 true, i1 %.old75
   br i1 %or.cond87, label %69, label %40
 
@@ -4052,7 +4052,7 @@ define noundef zeroext i1 @_ZN5Ipopt18StdAugSystemSolver29AugmentedSystemRequire
   %.not36.old = icmp ne i32 %.old54, 0
   %37 = getelementptr inbounds i8, ptr %0, i64 168
   %38 = load double, ptr %37, align 8
-  %39 = fcmp une double %38, %6
+  %39 = fcmp une double %6, %38
   %or.cond76 = select i1 %.not36.old, i1 true, i1 %39
   br i1 %or.cond76, label %69, label %40
 
@@ -4076,7 +4076,7 @@ define noundef zeroext i1 @_ZN5Ipopt18StdAugSystemSolver29AugmentedSystemRequire
   %.not39 = icmp ne i32 %48, %50
   %.old77 = getelementptr inbounds i8, ptr %0, i64 184
   %.old78 = load double, ptr %.old77, align 8
-  %.old79 = fcmp une double %.old78, %9
+  %.old79 = fcmp une double %9, %.old78
   %or.cond88 = select i1 %.not39, i1 true, i1 %.old79
   br i1 %or.cond88, label %69, label %54
 
@@ -4086,7 +4086,7 @@ define noundef zeroext i1 @_ZN5Ipopt18StdAugSystemSolver29AugmentedSystemRequire
   %.not40.old = icmp ne i32 %.old59, 0
   %51 = getelementptr inbounds i8, ptr %0, i64 184
   %52 = load double, ptr %51, align 8
-  %53 = fcmp une double %52, %9
+  %53 = fcmp une double %9, %52
   %or.cond80 = select i1 %.not40.old, i1 true, i1 %53
   br i1 %or.cond80, label %69, label %54
 
@@ -4110,7 +4110,7 @@ define noundef zeroext i1 @_ZN5Ipopt18StdAugSystemSolver29AugmentedSystemRequire
   %.not43 = icmp ne i32 %62, %64
   %.old81 = getelementptr inbounds i8, ptr %0, i64 200
   %.old82 = load double, ptr %.old81, align 8
-  %.old83 = fcmp une double %.old82, %12
+  %.old83 = fcmp une double %12, %.old82
   %or.cond89 = select i1 %.not43, i1 true, i1 %.old83
   br i1 %or.cond89, label %69, label %68
 
@@ -4120,7 +4120,7 @@ define noundef zeroext i1 @_ZN5Ipopt18StdAugSystemSolver29AugmentedSystemRequire
   %.not44.old = icmp ne i32 %.old64, 0
   %65 = getelementptr inbounds i8, ptr %0, i64 200
   %66 = load double, ptr %65, align 8
-  %67 = fcmp une double %66, %12
+  %67 = fcmp une double %12, %66
   %or.cond84 = select i1 %.not44.old, i1 true, i1 %67
   br i1 %or.cond84, label %69, label %68
 

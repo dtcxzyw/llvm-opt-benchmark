@@ -648,7 +648,7 @@ modnn.exit265:                                    ; preds = %.lr.ph.i263, %140
 
 157:                                              ; preds = %154
   %158 = trunc nsw i64 %indvars.iv451 to i32
-  %159 = add i32 %158, %2
+  %159 = add i32 %2, %158
   br label %160
 
 160:                                              ; preds = %157, %modnn.exit269

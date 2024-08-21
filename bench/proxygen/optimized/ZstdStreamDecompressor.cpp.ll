@@ -387,7 +387,7 @@ if.then3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %5, i64 %n)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %n, i64 %5)
   %6 = load ptr, ptr %this, align 8
   call void @_ZN5folly5IOBuf6createEm(ptr nonnull sret(%"class.std::unique_ptr.2") align 8 %ref.tmp, i64 noundef %.sroa.speculated)
   invoke void @_ZN5folly5IOBuf13appendToChainEOSt10unique_ptrIS0_St14default_deleteIS0_EE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)

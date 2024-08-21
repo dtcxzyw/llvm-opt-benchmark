@@ -803,7 +803,7 @@ define dso_local zeroext i1 @heap_attisnull(ptr nocapture noundef readonly %0, i
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 2047
   %9 = zext nneg i16 %8 to i32
-  %10 = icmp slt i32 %9, %1
+  %10 = icmp sgt i32 %1, %9
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %3

@@ -203,7 +203,7 @@ ZSTD_blockSizeMax.exit.i:                         ; preds = %cond.true.i.i, %do.
 land.lhs.true.i:                                  ; preds = %ZSTD_blockSizeMax.exit.i
   %add1.i = add nuw nsw i64 %litSize.0, 64
   %add2.i = add nuw nsw i64 %add1.i, %cond.i.i
-  %cmp3.i = icmp ult i64 %add2.i, %dstCapacity
+  %cmp3.i = icmp ugt i64 %dstCapacity, %add2.i
   br i1 %cmp3.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -388,7 +388,7 @@ do.body295:                                       ; preds = %do.body278
   br i1 %cmp296, label %sw.epilog508, label %do.body309
 
 do.body309:                                       ; preds = %do.body295
-  %cmp310 = icmp ugt i64 %litSize234.0, %dstCapacity
+  %cmp310 = icmp ult i64 %dstCapacity, %litSize234.0
   br i1 %cmp310, label %sw.epilog508, label %do.end322
 
 do.end322:                                        ; preds = %do.body309
@@ -408,7 +408,7 @@ ZSTD_blockSizeMax.exit.i187:                      ; preds = %cond.true.i.i185, %
 land.lhs.true.i207:                               ; preds = %ZSTD_blockSizeMax.exit.i187
   %add1.i208 = add nuw nsw i64 %litSize234.0, 64
   %add2.i209 = add nuw nsw i64 %add1.i208, %cond.i.i188
-  %cmp3.i210 = icmp ult i64 %add2.i209, %dstCapacity
+  %cmp3.i210 = icmp ugt i64 %dstCapacity, %add2.i209
   br i1 %cmp3.i210, label %if.then.i211, label %if.else.i190
 
 if.then.i211:                                     ; preds = %land.lhs.true.i207
@@ -549,7 +549,7 @@ do.body448:                                       ; preds = %do.body431
   br i1 %cmp449, label %sw.epilog508, label %do.body462
 
 do.body462:                                       ; preds = %do.body448
-  %cmp463 = icmp ugt i64 %litSize378.0, %dstCapacity
+  %cmp463 = icmp ult i64 %dstCapacity, %litSize378.0
   br i1 %cmp463, label %sw.epilog508, label %do.end475
 
 do.end475:                                        ; preds = %do.body462
@@ -569,7 +569,7 @@ ZSTD_blockSizeMax.exit.i225:                      ; preds = %cond.true.i.i223, %
 land.lhs.true.i245:                               ; preds = %ZSTD_blockSizeMax.exit.i225
   %add1.i246 = add nuw nsw i64 %litSize378.0, 64
   %add2.i247 = add nuw nsw i64 %add1.i246, %cond.i.i226
-  %cmp3.i248 = icmp ult i64 %add2.i247, %dstCapacity
+  %cmp3.i248 = icmp ugt i64 %dstCapacity, %add2.i247
   br i1 %cmp3.i248, label %if.then.i249, label %if.else.i228
 
 if.then.i249:                                     ; preds = %land.lhs.true.i245
@@ -1538,7 +1538,7 @@ cond.true.i:                                      ; preds = %entry
 
 ZSTD_blockSizeMax.exit:                           ; preds = %entry, %cond.true.i
   %cond.i = phi i64 [ %2, %cond.true.i ], [ 131072, %entry ]
-  %cmp = icmp ult i64 %cond.i, %srcSize
+  %cmp = icmp ugt i64 %srcSize, %cond.i
   br i1 %cmp, label %return, label %do.end10
 
 do.end10:                                         ; preds = %ZSTD_blockSizeMax.exit
@@ -1561,7 +1561,7 @@ ZSTD_blockSizeMax.exit59.thread:                  ; preds = %if.end16
   %blockSizeMax1.i57 = getelementptr inbounds i8, ptr %dctx, i64 29944
   %4 = load i32, ptr %blockSizeMax1.i57, align 8
   %5 = zext i32 %4 to i64
-  %spec.select73 = tail call i64 @llvm.umin.i64(i64 %5, i64 %dstCapacity)
+  %spec.select73 = tail call i64 @llvm.umin.i64(i64 %dstCapacity, i64 %5)
   br label %cond.end
 
 cond.end:                                         ; preds = %ZSTD_blockSizeMax.exit59.thread, %ZSTD_blockSizeMax.exit59
@@ -2796,7 +2796,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
 
 if.end.i1735.i:                                   ; preds = %if.end83.i.i
   %add.ptr4.i1736.i = getelementptr inbounds i8, ptr %add.ptr.i1733.i, i64 -32
-  %cmp5.i.i = icmp uge ptr %add.ptr4.i1736.i, %op.i.12020.i
+  %cmp5.i.i = icmp ule ptr %op.i.12020.i, %add.ptr4.i1736.i
   %cmp6.i1737.i = icmp ult i64 %sub.ptr.sub.i1732.i, -16
   %or.cond1.i.i = and i1 %cmp6.i1737.i, %cmp5.i.i
   br i1 %or.cond1.i.i, label %if.then7.i.i, label %while.body25.i.i.preheader
@@ -3116,8 +3116,8 @@ do.body13.i.i:                                    ; preds = %if.then.i636.i
   br i1 %cmp18.i.i, label %ZSTD_decompressSequencesLong_default.exit, label %do.body30.i.i
 
 do.body30.i.i:                                    ; preds = %do.body13.i.i
-  %cmp31.i.i = icmp ult ptr %112, %op.i.12020.i
-  %cmp34.i.i = icmp ugt ptr %add.ptr57.i.i, %op.i.12020.i
+  %cmp31.i.i = icmp ugt ptr %op.i.12020.i, %112
+  %cmp34.i.i = icmp ult ptr %op.i.12020.i, %add.ptr57.i.i
   %or.cond.i1755.i = and i1 %cmp31.i.i, %cmp34.i.i
   br i1 %or.cond.i1755.i, label %ZSTD_decompressSequencesLong_default.exit, label %do.end45.i.i
 
@@ -3144,7 +3144,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.preheade
 
 if.end.i.i1758.i:                                 ; preds = %do.end45.i.i
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i610.i, i64 -32
-  %cmp5.i.i.i = icmp uge ptr %add.ptr4.i.i.i, %op.i.12020.i
+  %cmp5.i.i.i = icmp ule ptr %op.i.12020.i, %add.ptr4.i.i.i
   %cmp6.i.i.i = icmp ult i64 %sub.ptr.sub.i.i1756.i, -16
   %or.cond1.i.i.i = and i1 %cmp6.i.i.i, %cmp5.i.i.i
   br i1 %or.cond1.i.i.i, label %if.then7.i.i.i, label %while.body25.i.i.i.preheader
@@ -3747,7 +3747,7 @@ while.body.i1812.i:                               ; preds = %while.cond.preheade
 
 if.end.i1778.i:                                   ; preds = %if.end205.i.i
   %add.ptr4.i1779.i = getelementptr inbounds i8, ptr %add.ptr.i1774.i, i64 -32
-  %cmp5.i1780.i = icmp uge ptr %add.ptr4.i1779.i, %op.i.42032.i
+  %cmp5.i1780.i = icmp ule ptr %op.i.42032.i, %add.ptr4.i1779.i
   %cmp6.i1781.i = icmp ult i64 %sub.ptr.sub.i1773.i, -16
   %or.cond1.i1782.i = and i1 %cmp6.i1781.i, %cmp5.i1780.i
   br i1 %or.cond1.i1782.i, label %if.then7.i1794.i, label %while.body25.i1788.i.preheader
@@ -4055,8 +4055,8 @@ do.body13.i1832.i:                                ; preds = %if.then.i729.i
   br i1 %cmp18.i1836.i, label %ZSTD_decompressSequencesLong_default.exit, label %do.body30.i1837.i
 
 do.body30.i1837.i:                                ; preds = %do.body13.i1832.i
-  %cmp31.i1838.i = icmp ult ptr %189, %op.i.42032.i
-  %cmp34.i1839.i = icmp ugt ptr %add.ptr178.i.i, %op.i.42032.i
+  %cmp31.i1838.i = icmp ugt ptr %op.i.42032.i, %189
+  %cmp34.i1839.i = icmp ult ptr %op.i.42032.i, %add.ptr178.i.i
   %or.cond.i1840.i = and i1 %cmp31.i1838.i, %cmp34.i1839.i
   br i1 %or.cond.i1840.i, label %ZSTD_decompressSequencesLong_default.exit, label %do.end45.i1841.i
 
@@ -4083,7 +4083,7 @@ while.body.i.i1902.i:                             ; preds = %while.cond.preheade
 
 if.end.i.i1846.i:                                 ; preds = %do.end45.i1841.i
   %add.ptr4.i.i1847.i = getelementptr inbounds i8, ptr %add.ptr.i656.i, i64 -32
-  %cmp5.i.i1848.i = icmp uge ptr %add.ptr4.i.i1847.i, %op.i.42032.i
+  %cmp5.i.i1848.i = icmp ule ptr %op.i.42032.i, %add.ptr4.i.i1847.i
   %cmp6.i.i1849.i = icmp ult i64 %sub.ptr.sub.i.i1842.i, -16
   %or.cond1.i.i1850.i = and i1 %cmp6.i.i1849.i, %cmp5.i.i1848.i
   br i1 %or.cond1.i.i1850.i, label %if.then7.i.i1884.i, label %while.body25.i.i1854.i.preheader
@@ -5426,8 +5426,8 @@ do.body13.i.i:                                    ; preds = %if.then.i588.i.i
   br i1 %cmp18.i.i, label %ZSTD_decompressSequencesSplitLitBuffer_default.exit, label %do.body30.i.i
 
 do.body30.i.i:                                    ; preds = %do.body13.i.i
-  %cmp31.i1146.i = icmp ult ptr %84, %op.i.11347.i
-  %cmp34.i.i = icmp ugt ptr %add.ptr29.i1269.i, %op.i.11347.i
+  %cmp31.i1146.i = icmp ugt ptr %op.i.11347.i, %84
+  %cmp34.i.i = icmp ult ptr %op.i.11347.i, %add.ptr29.i1269.i
   %or.cond.i.i = and i1 %cmp34.i.i, %cmp31.i1146.i
   br i1 %or.cond.i.i, label %ZSTD_decompressSequencesSplitLitBuffer_default.exit, label %do.end45.i.i
 
@@ -5454,7 +5454,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.preheade
 
 if.end.i.i1149.i:                                 ; preds = %do.end45.i.i
   %add.ptr4.i.i1150.i = getelementptr inbounds i8, ptr %add.ptr.i563.i.i, i64 -32
-  %cmp5.i.i.i = icmp uge ptr %add.ptr4.i.i1150.i, %op.i.11347.i
+  %cmp5.i.i.i = icmp ule ptr %op.i.11347.i, %add.ptr4.i.i1150.i
   %cmp6.i.i1151.i = icmp ult i64 %sub.ptr.sub.i.i1147.i, -16
   %or.cond1.i.i.i = and i1 %cmp5.i.i.i, %cmp6.i.i1151.i
   br i1 %or.cond1.i.i.i, label %if.then7.i.i.i, label %while.body25.i.i.i.preheader
@@ -5772,7 +5772,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
 
 if.end.i1166.i:                                   ; preds = %if.end77.i.i
   %add.ptr4.i1167.i = getelementptr inbounds i8, ptr %add.ptr.i1163.i, i64 -32
-  %cmp5.i.i = icmp uge ptr %add.ptr4.i1167.i, %op.i.11347.i
+  %cmp5.i.i = icmp ule ptr %op.i.11347.i, %add.ptr4.i1167.i
   %cmp6.i.i = icmp ult i64 %sub.ptr.sub.i1162.i, -16
   %or.cond1.i.i = and i1 %cmp6.i.i, %cmp5.i.i
   br i1 %or.cond1.i.i, label %if.then7.i.i, label %while.body25.i.i.preheader
@@ -7736,7 +7736,7 @@ define void @ZSTD_checkContinuity(ptr nocapture noundef %dctx, ptr noundef %dst,
 entry:
   %previousDstEnd = getelementptr inbounds i8, ptr %dctx, i64 29888
   %0 = load ptr, ptr %previousDstEnd, align 8
-  %cmp = icmp ne ptr %0, %dst
+  %cmp = icmp ne ptr %dst, %0
   %cmp1 = icmp ne i64 %dstSize, 0
   %or.cond = and i1 %cmp1, %cmp
   br i1 %or.cond, label %if.then, label %if.end
@@ -7767,7 +7767,7 @@ entry:
   store i32 0, ptr %isFrameDecompression, align 8
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 29888
   %0 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.i = icmp ne ptr %0, %dst
+  %cmp.i = icmp ne ptr %dst, %0
   %cmp1.i = icmp ne i64 %dstCapacity, 0
   %or.cond.i = and i1 %cmp1.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %ZSTD_checkContinuity.exit
@@ -7808,7 +7808,7 @@ entry:
   store i32 0, ptr %isFrameDecompression.i, align 8
   %previousDstEnd.i.i = getelementptr inbounds i8, ptr %dctx, i64 29888
   %0 = load ptr, ptr %previousDstEnd.i.i, align 8
-  %cmp.i.i = icmp ne ptr %0, %dst
+  %cmp.i.i = icmp ne ptr %dst, %0
   %cmp1.i.i = icmp ne i64 %dstCapacity, 0
   %or.cond.i.i = and i1 %cmp1.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %ZSTD_checkContinuity.exit.i
@@ -8994,7 +8994,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
 
 if.end.i1735:                                     ; preds = %if.end83.i
   %add.ptr4.i1736 = getelementptr inbounds i8, ptr %add.ptr.i1733, i64 -32
-  %cmp5.i = icmp uge ptr %add.ptr4.i1736, %op.i.12020
+  %cmp5.i = icmp ule ptr %op.i.12020, %add.ptr4.i1736
   %cmp6.i1737 = icmp ult i64 %sub.ptr.sub.i1732, -16
   %or.cond1.i = and i1 %cmp6.i1737, %cmp5.i
   br i1 %or.cond1.i, label %if.then7.i, label %while.body25.i.preheader
@@ -9317,8 +9317,8 @@ do.body13.i:                                      ; preds = %if.then.i636
   br i1 %cmp18.i, label %ZSTD_decompressSequencesLong_body.exit, label %do.body30.i
 
 do.body30.i:                                      ; preds = %do.body13.i
-  %cmp31.i = icmp ult ptr %111, %op.i.12020
-  %cmp34.i = icmp ugt ptr %add.ptr57.i, %op.i.12020
+  %cmp31.i = icmp ugt ptr %op.i.12020, %111
+  %cmp34.i = icmp ult ptr %op.i.12020, %add.ptr57.i
   %or.cond.i1755 = and i1 %cmp31.i, %cmp34.i
   br i1 %or.cond.i1755, label %ZSTD_decompressSequencesLong_body.exit, label %do.end45.i
 
@@ -9345,7 +9345,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
 
 if.end.i.i1758:                                   ; preds = %do.end45.i
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %add.ptr.i610, i64 -32
-  %cmp5.i.i = icmp uge ptr %add.ptr4.i.i, %op.i.12020
+  %cmp5.i.i = icmp ule ptr %op.i.12020, %add.ptr4.i.i
   %cmp6.i.i = icmp ult i64 %sub.ptr.sub.i.i1756, -16
   %or.cond1.i.i = and i1 %cmp6.i.i, %cmp5.i.i
   br i1 %or.cond1.i.i, label %if.then7.i.i, label %while.body25.i.i.preheader
@@ -9950,7 +9950,7 @@ while.body.i1812:                                 ; preds = %while.cond.preheade
 
 if.end.i1778:                                     ; preds = %if.end205.i
   %add.ptr4.i1779 = getelementptr inbounds i8, ptr %add.ptr.i1774, i64 -32
-  %cmp5.i1780 = icmp uge ptr %add.ptr4.i1779, %op.i.42032
+  %cmp5.i1780 = icmp ule ptr %op.i.42032, %add.ptr4.i1779
   %cmp6.i1781 = icmp ult i64 %sub.ptr.sub.i1773, -16
   %or.cond1.i1782 = and i1 %cmp6.i1781, %cmp5.i1780
   br i1 %or.cond1.i1782, label %if.then7.i1794, label %while.body25.i1788.preheader
@@ -10259,8 +10259,8 @@ do.body13.i1832:                                  ; preds = %if.then.i729
   br i1 %cmp18.i1836, label %ZSTD_decompressSequencesLong_body.exit, label %do.body30.i1837
 
 do.body30.i1837:                                  ; preds = %do.body13.i1832
-  %cmp31.i1838 = icmp ult ptr %188, %op.i.42032
-  %cmp34.i1839 = icmp ugt ptr %add.ptr178.i, %op.i.42032
+  %cmp31.i1838 = icmp ugt ptr %op.i.42032, %188
+  %cmp34.i1839 = icmp ult ptr %op.i.42032, %add.ptr178.i
   %or.cond.i1840 = and i1 %cmp31.i1838, %cmp34.i1839
   br i1 %or.cond.i1840, label %ZSTD_decompressSequencesLong_body.exit, label %do.end45.i1841
 
@@ -10287,7 +10287,7 @@ while.body.i.i1902:                               ; preds = %while.cond.preheade
 
 if.end.i.i1846:                                   ; preds = %do.end45.i1841
   %add.ptr4.i.i1847 = getelementptr inbounds i8, ptr %add.ptr.i656, i64 -32
-  %cmp5.i.i1848 = icmp uge ptr %add.ptr4.i.i1847, %op.i.42032
+  %cmp5.i.i1848 = icmp ule ptr %op.i.42032, %add.ptr4.i.i1847
   %cmp6.i.i1849 = icmp ult i64 %sub.ptr.sub.i.i1842, -16
   %or.cond1.i.i1850 = and i1 %cmp6.i.i1849, %cmp5.i.i1848
   br i1 %or.cond1.i.i1850, label %if.then7.i.i1884, label %while.body25.i.i1854.preheader
@@ -10938,7 +10938,7 @@ do.body11.i47.i:                                  ; preds = %do.body11.i47.i, %i
   br i1 %cmp23.i52.i, label %do.body11.i47.i, label %ZSTD_safecopy.exit, !llvm.loop !25
 
 if.end8.i:                                        ; preds = %if.end.i
-  %cmp9.not.i = icmp ult ptr %add.ptr5, %op
+  %cmp9.not.i = icmp ugt ptr %op, %add.ptr5
   br i1 %cmp9.not.i, label %if.end22.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
@@ -11976,8 +11976,8 @@ do.body13.i:                                      ; preds = %if.then.i588.i
   br i1 %cmp18.i, label %ZSTD_decompressSequences_bodySplitLitBuffer.exit, label %do.body30.i
 
 do.body30.i:                                      ; preds = %do.body13.i
-  %cmp31.i1146 = icmp ult ptr %83, %op.i.11347
-  %cmp34.i = icmp ugt ptr %add.ptr29.i1269, %op.i.11347
+  %cmp31.i1146 = icmp ugt ptr %op.i.11347, %83
+  %cmp34.i = icmp ult ptr %op.i.11347, %add.ptr29.i1269
   %or.cond.i = and i1 %cmp34.i, %cmp31.i1146
   br i1 %or.cond.i, label %ZSTD_decompressSequences_bodySplitLitBuffer.exit, label %do.end45.i
 
@@ -12004,7 +12004,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
 
 if.end.i.i1149:                                   ; preds = %do.end45.i
   %add.ptr4.i.i1150 = getelementptr inbounds i8, ptr %add.ptr.i563.i, i64 -32
-  %cmp5.i.i = icmp uge ptr %add.ptr4.i.i1150, %op.i.11347
+  %cmp5.i.i = icmp ule ptr %op.i.11347, %add.ptr4.i.i1150
   %cmp6.i.i1151 = icmp ult i64 %sub.ptr.sub.i.i1147, -16
   %or.cond1.i.i = and i1 %cmp5.i.i, %cmp6.i.i1151
   br i1 %or.cond1.i.i, label %if.then7.i.i, label %while.body25.i.i.preheader
@@ -12322,7 +12322,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
 
 if.end.i1166:                                     ; preds = %if.end77.i
   %add.ptr4.i1167 = getelementptr inbounds i8, ptr %add.ptr.i1163, i64 -32
-  %cmp5.i = icmp uge ptr %add.ptr4.i1167, %op.i.11347
+  %cmp5.i = icmp ule ptr %op.i.11347, %add.ptr4.i1167
   %cmp6.i = icmp ult i64 %sub.ptr.sub.i1162, -16
   %or.cond1.i = and i1 %cmp6.i, %cmp5.i
   br i1 %or.cond1.i, label %if.then7.i, label %while.body25.i.preheader

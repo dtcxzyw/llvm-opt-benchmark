@@ -31,7 +31,7 @@ define range(i32 0, 21) i32 @partition_intersection_list_check(ptr nocapture nou
   %11 = add i32 %10, -1
   store i32 %11, ptr %1, align 4
   %12 = load i64, ptr %.02838, align 8
-  %13 = icmp slt i64 %12, %2
+  %13 = icmp sgt i64 %2, %12
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %9
@@ -42,7 +42,7 @@ define range(i32 0, 21) i32 @partition_intersection_list_check(ptr nocapture nou
   br i1 %18, label %._crit_edge, label %22
 
 19:                                               ; preds = %9
-  %20 = icmp sle i64 %12, %2
+  %20 = icmp sge i64 %2, %12
   %21 = icmp ugt i64 %8, %12
   %or.cond = or i1 %20, %21
   br i1 %or.cond, label %._crit_edge, label %22

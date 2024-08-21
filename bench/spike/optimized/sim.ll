@@ -2630,7 +2630,7 @@ _ZNSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit: ;
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -4289,7 +4289,7 @@ _ZN5sim_t8get_coreEm.exit34:                      ; preds = %._crit_edge
   %79 = sub i64 %77, %78
   %80 = add i64 %79, 4095
   %81 = and i64 %80, -4096
-  %82 = icmp ult i64 %79, %81
+  %82 = icmp ugt i64 %81, %79
   br i1 %82, label %83, label %112
 
 83:                                               ; preds = %74
@@ -4377,7 +4377,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %109, %_ZNS
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 112:                                              ; preds = %74
-  %113 = icmp ugt i64 %79, %81
+  %113 = icmp ult i64 %81, %79
   br i1 %113, label %114, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 114:                                              ; preds = %112
@@ -5782,7 +5782,7 @@ _ZNSt12_Vector_baseIPK16device_factory_tSaIS2_EE11_M_allocateEm.exit: ; preds = 
   %75 = phi ptr [ %74, %72 ], [ null, %_ZNKSt6vectorIPK16device_factory_tSaIS2_EE12_M_check_lenEmPKc.exit ]
   %76 = ptrtoint ptr %1 to i64
   %77 = sub i64 %76, %62
-  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %61, %1
+  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %1, %61
   br i1 %.not.i.i.i.i.i.i.i.i.i59, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP16device_factory_tSt6vectorIS3_SaIS3_EEEEPPKS2_SA_ET0_T_SD_SC_RSaIT1_E.exit65, label %78
 
 78:                                               ; preds = %_ZNSt12_Vector_baseIPK16device_factory_tSaIS2_EE11_M_allocateEm.exit
@@ -5993,7 +5993,7 @@ _ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JR
 _ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %42, %.lr.ph.i.i.i ]
   %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i17
@@ -6099,7 +6099,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_t
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit: ; preds = %17
   %28 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %28, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %28
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_cET0_T_SB_SA_RSaIT1_E.exit, label %29
 
 29:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit
@@ -6162,7 +6162,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %52 = phi ptr [ %51, %50 ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %53 = ptrtoint ptr %1 to i64
   %54 = sub i64 %53, %41
-  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %40, %1
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %40
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %56, label %55
 
 55:                                               ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
@@ -6278,7 +6278,7 @@ _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNK
 _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit ], [ %40, %.lr.ph.i.i.i ]
   %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17
@@ -6324,7 +6324,7 @@ declare void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #7 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

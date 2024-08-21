@@ -511,7 +511,7 @@ define internal i32 @gdsdb_connect(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %reass.sub.i, %3
+  %13 = add i32 %3, %reass.sub.i
   %14 = add i32 %13, 20
   %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14) #3
   %16 = mul i32 %15, 20

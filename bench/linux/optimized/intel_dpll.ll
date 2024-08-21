@@ -2179,7 +2179,7 @@ define internal fastcc void @assert_pll(ptr noundef %0, i32 noundef %1, i1 nound
   %16 = tail call i32 %15(ptr noundef %13, i32 %12, i1 noundef zeroext true) #11
   %17 = icmp slt i32 %16, 0
   %18 = icmp sgt i32 %16, -1
-  %19 = xor i1 %18, %2
+  %19 = xor i1 %2, %18
   br i1 %19, label %47, label %20, !prof !7
 
 20:                                               ; preds = %3

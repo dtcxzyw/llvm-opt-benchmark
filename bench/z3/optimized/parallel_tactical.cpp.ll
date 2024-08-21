@@ -5886,7 +5886,7 @@ invoke.cont107:                                   ; preds = %_ZNK6vectorIN15para
   %arrayidx.i1.i.i = getelementptr inbounds ptr, ptr %72, i64 %77
   %78 = load ptr, ptr %arrayidx.i1.i.i, align 8
   %79 = load ptr, ptr %m_true.i, align 8
-  %cmp.i156 = icmp eq ptr %79, %78
+  %cmp.i156 = icmp eq ptr %78, %79
   br i1 %cmp.i156, label %if.then111, label %invoke.cont122
 
 if.then111:                                       ; preds = %invoke.cont101, %invoke.cont107, %invoke.cont103
@@ -5972,7 +5972,7 @@ invoke.cont122:                                   ; preds = %lor.lhs.false, %_ZN
   %arrayidx.i1.i.i166 = getelementptr inbounds ptr, ptr %72, i64 %84
   %85 = load ptr, ptr %arrayidx.i1.i.i166, align 8
   %86 = load ptr, ptr %m_false.i, align 8
-  %cmp.i168 = icmp eq ptr %86, %85
+  %cmp.i168 = icmp eq ptr %85, %86
   br i1 %cmp.i168, label %cleanup, label %if.end127
 
 if.end127:                                        ; preds = %invoke.cont122

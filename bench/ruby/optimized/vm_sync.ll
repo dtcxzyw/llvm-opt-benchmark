@@ -32,7 +32,7 @@ define hidden zeroext i1 @rb_vm_locked_p() local_unnamed_addr #0 {
 
 vm_locked.exit:                                   ; preds = %0, %4, %8
   %.0.i.i.i = phi ptr [ %3, %0 ], [ %10, %8 ], [ null, %4 ]
-  %11 = icmp eq ptr %.0.i.i.i, %.val
+  %11 = icmp eq ptr %.val, %.0.i.i.i
   ret i1 %11
 }
 
@@ -60,11 +60,11 @@ vm_locked.exit:                                   ; preds = %5
 vm_locked.exit.thread7:                           ; preds = %5
   %10 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %.val
+  %12 = icmp eq ptr %.val, %11
   br i1 %12, label %25, label %14
 
 vm_locked.exit.thread:                            ; preds = %1
-  %13 = icmp eq ptr %4, %.val
+  %13 = icmp eq ptr %.val, %4
   br i1 %13, label %25, label %rb_current_ractor.exit
 
 14:                                               ; preds = %vm_locked.exit.thread7
@@ -130,11 +130,11 @@ vm_locked.exit:                                   ; preds = %5
 vm_locked.exit.thread7:                           ; preds = %5
   %10 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %.val
+  %12 = icmp eq ptr %.val, %11
   br i1 %12, label %18, label %14
 
 vm_locked.exit.thread:                            ; preds = %1
-  %13 = icmp eq ptr %4, %.val
+  %13 = icmp eq ptr %.val, %4
   br i1 %13, label %18, label %rb_current_ractor.exit
 
 14:                                               ; preds = %vm_locked.exit.thread7
@@ -182,7 +182,7 @@ define hidden void @rb_vm_lock_enter_body_cr(ptr noundef %0, ptr nocapture nound
 
 vm_locked.exit:                                   ; preds = %2, %6, %10
   %.0.i.i.i = phi ptr [ %5, %2 ], [ %12, %10 ], [ null, %6 ]
-  %13 = icmp eq ptr %.0.i.i.i, %.val
+  %13 = icmp eq ptr %.val, %.0.i.i.i
   br i1 %13, label %vm_lock_enter.exit, label %14
 
 14:                                               ; preds = %vm_locked.exit
@@ -379,7 +379,7 @@ define hidden void @rb_ec_vm_lock_rec_release(ptr nocapture noundef readnone %0,
   br i1 %4, label %10, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %5 = icmp ugt i32 %2, %1
+  %5 = icmp ult i32 %1, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -415,7 +415,7 @@ rb_vm_lock_leave.exit.thread:                     ; preds = %.lr.ph.split
   br label %._crit_edge
 
 rb_vm_lock_leave.exit:                            ; preds = %.lr.ph.split
-  %16 = icmp ugt i32 %12, %1
+  %16 = icmp ult i32 %1, %12
   br i1 %16, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %rb_vm_lock_leave.exit

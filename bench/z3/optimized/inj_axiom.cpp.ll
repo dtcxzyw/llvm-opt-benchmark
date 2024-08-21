@@ -616,7 +616,7 @@ invoke.cont152:                                   ; preds = %invoke.cont146
   %add.ptr.i = getelementptr inbounds ptr, ptr %71, i64 %idx.ext.i
   %cmp.i.i177 = icmp ne i32 %72, 0
   %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
-  %cmp19.i.i = icmp ugt ptr %__last.addr.08.i.i, %71
+  %cmp19.i.i = icmp ult ptr %71, %__last.addr.08.i.i
   %or.cond.i.i = select i1 %cmp.i.i177, i1 %cmp19.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %invoke.cont154
 

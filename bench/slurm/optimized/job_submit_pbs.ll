@@ -381,7 +381,7 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
 61:                                               ; preds = %.lr.ph.i
   %62 = getelementptr inbounds i8, ptr %56, i64 1064
   %63 = load i32, ptr %62, align 8
-  %.not63.i = icmp eq i32 %63, %1
+  %.not63.i = icmp eq i32 %1, %63
   br i1 %.not63.i, label %71, label %64
 
 64:                                               ; preds = %61

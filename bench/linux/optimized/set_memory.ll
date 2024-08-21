@@ -3306,7 +3306,7 @@ define internal fastcc i64 @static_protections(i64 %0, i64 noundef %1, i64 nound
 87:                                               ; preds = %82, %78
   %88 = or i64 %79, %62
   %89 = xor i64 %88, -1
-  %90 = and i64 %89, %0
+  %90 = and i64 %0, %89
   br label %91
 
 91:                                               ; preds = %87, %6
@@ -3335,7 +3335,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr nocapture
 15:                                               ; preds = %6
   %16 = shl i32 %3, 12
   %17 = zext i32 %16 to i64
-  %18 = add i64 %17, %1
+  %18 = add i64 %1, %17
   %19 = and i64 %1, -2097152
   %20 = add i64 %19, 2097152
   %21 = tail call i64 @llvm.umin.i64(i64 %18, i64 %20)

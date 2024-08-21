@@ -786,7 +786,7 @@ define dso_local zeroext i1 @file_has_suffix_in_list(ptr nocapture noundef reado
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
   %11 = trunc i64 %10 to i32
-  %.not = icmp slt i32 %11, %1
+  %.not = icmp sgt i32 %1, %11
   br i1 %.not, label %12, label %19
 
 12:                                               ; preds = %.lr.ph
@@ -1008,7 +1008,7 @@ define dso_local void @file_add_wildcard_files(ptr nocapture noundef %0, ptr nou
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #18
   %34 = trunc i64 %33 to i32
-  %.not.i.us = icmp slt i32 %34, %29
+  %.not.i.us = icmp sgt i32 %29, %34
   br i1 %.not.i.us, label %35, label %42
 
 35:                                               ; preds = %.lr.ph.i.us
@@ -1127,7 +1127,7 @@ file_has_suffix_in_list.exit.thread.us:           ; preds = %file_has_suffix_in_
 93:                                               ; preds = %89
   %94 = load i8, ptr %21, align 1
   %.not53.us = icmp ne i8 %94, 46
-  %brmerge.not.us = and i1 %.not53.us, %2
+  %brmerge.not.us = and i1 %2, %.not53.us
   br i1 %brmerge.not.us, label %95, label %.backedge.us
 
 95:                                               ; preds = %93

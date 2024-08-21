@@ -222,7 +222,7 @@ entry:
 define range(i32 -3, 1) i32 @wc_DhCheckPubValue(ptr nocapture noundef readonly %prime, i32 noundef %primeSz, ptr nocapture noundef readonly %pub, i32 noundef %pubSz) local_unnamed_addr #3 {
 entry:
   %cmp34.not = icmp eq i32 %pubSz, 0
-  br i1 %cmp34.not, label %for.end, label %land.rhs.preheader
+  br i1 %cmp34.not, label %if.end72, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %entry
   %wide.trip.count = zext i32 %pubSz to i64
@@ -233,23 +233,19 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %arrayidx = getelementptr inbounds i8, ptr %pub, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %cmp1 = icmp eq i8 %0, 0
-  br i1 %cmp1, label %for.inc, label %for.end.loopexit
+  br i1 %cmp1, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end72, label %land.rhs, !llvm.loop !4
 
-for.end.loopexit:                                 ; preds = %land.rhs
+for.end:                                          ; preds = %land.rhs
   %1 = trunc nuw i64 %indvars.iv to i32
-  br label %for.end
-
-for.end:                                          ; preds = %for.end.loopexit, %entry
-  %i.0.lcssa = phi i32 [ 0, %entry ], [ %1, %for.end.loopexit ]
-  %sub = sub i32 %pubSz, %i.0.lcssa
-  %idx.ext = zext i32 %i.0.lcssa to i64
+  %sub = sub i32 %pubSz, %1
+  %idx.ext = and i64 %indvars.iv, 4294967295
   %add.ptr = getelementptr inbounds i8, ptr %pub, i64 %idx.ext
-  %cmp3 = icmp eq i32 %i.0.lcssa, %pubSz
+  %cmp3 = icmp eq i32 %pubSz, %1
   br i1 %cmp3, label %if.end72, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end
@@ -328,8 +324,8 @@ if.else66:                                        ; preds = %if.else
   %spec.select33 = select i1 %cmp67, i32 -3, i32 0
   br label %if.end72
 
-if.end72:                                         ; preds = %for.inc, %if.else66, %if.else55, %land.lhs.true35, %for.end, %land.lhs.true
-  %ret.0 = phi i32 [ -3, %land.lhs.true ], [ -3, %for.end ], [ -3, %land.lhs.true35 ], [ %spec.select, %if.else55 ], [ %spec.select33, %if.else66 ], [ -3, %for.inc ]
+if.end72:                                         ; preds = %for.inc, %entry, %if.else66, %if.else55, %land.lhs.true35, %for.end, %land.lhs.true
+  %ret.0 = phi i32 [ -3, %land.lhs.true ], [ -3, %for.end ], [ -3, %land.lhs.true35 ], [ %spec.select, %if.else55 ], [ %spec.select33, %if.else66 ], [ -3, %entry ], [ -3, %for.inc ]
   ret i32 %ret.0
 }
 
@@ -909,7 +905,7 @@ if.then9:                                         ; preds = %entry
   %3 = load i8, ptr %p, align 1
   %cmp10 = icmp eq i8 %3, 0
   %dec = sext i1 %cmp10 to i32
-  %pSz.addr.1 = add i32 %dec, %pSz
+  %pSz.addr.1 = add i32 %pSz, %dec
   %p.addr.1.idx = zext i1 %cmp10 to i64
   %p.addr.1 = getelementptr inbounds i8, ptr %p, i64 %p.addr.1.idx
   %4 = load i8, ptr %g, align 1
@@ -917,7 +913,7 @@ if.then9:                                         ; preds = %entry
   %g.addr.1.idx = zext i1 %cmp16 to i64
   %g.addr.1 = getelementptr inbounds i8, ptr %g, i64 %g.addr.1.idx
   %dec19 = sext i1 %cmp16 to i32
-  %gSz.addr.1 = add i32 %dec19, %gSz
+  %gSz.addr.1 = add i32 %gSz, %dec19
   %cmp22.not = icmp eq ptr %q, null
   br i1 %cmp22.not, label %if.end33, label %if.then24
 

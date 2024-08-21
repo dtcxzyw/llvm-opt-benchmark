@@ -79,7 +79,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
   %3 = load ptr, ptr %swapInvChars, align 8
   %call13 = tail call noundef i32 %3(ptr noundef %ds, ptr noundef nonnull %inData, i32 noundef %stringsLength.0.lcssa, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
   %cmp14.not = icmp ne ptr %inData, %outData
-  %cmp16 = icmp slt i32 %stringsLength.0.lcssa, %length
+  %cmp16 = icmp sgt i32 %length, %stringsLength.0.lcssa
   %or.cond28 = and i1 %cmp14.not, %cmp16
   br i1 %or.cond28, label %do.body, label %if.end22
 
@@ -207,7 +207,7 @@ lor.lhs.false36:                                  ; preds = %if.end24
 
 lor.lhs.false40:                                  ; preds = %lor.lhs.false36
   %conv43 = zext i16 %call27 to i32
-  %or.cond65 = icmp ugt i32 %conv43, %length
+  %or.cond65 = icmp ult i32 %length, %conv43
   br i1 %or.cond65, label %if.then45, label %if.end48
 
 if.then45:                                        ; preds = %lor.lhs.false40, %lor.lhs.false36, %if.end24
@@ -830,7 +830,7 @@ lor.lhs.false44:                                  ; preds = %if.end38
   %add = add nuw nsw i64 %conv42, 4
   %cmp47 = icmp ugt i64 %add, %conv39
   %conv51 = zext i16 %headerSize.0 to i32
-  %or.cond28 = icmp ugt i32 %conv51, %length
+  %or.cond28 = icmp ult i32 %length, %conv51
   %or.cond30 = or i1 %cmp47, %or.cond28
   br i1 %or.cond30, label %if.then53, label %if.end54
 

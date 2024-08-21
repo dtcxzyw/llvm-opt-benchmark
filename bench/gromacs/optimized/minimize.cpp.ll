@@ -4073,7 +4073,7 @@ define internal fastcc void @_ZL13write_em_trajP8_IO_FILEPK9t_commrecP10gmx_mdou
   %43 = getelementptr i8, ptr %1, i64 96
   %.val49 = load ptr, ptr %43, align 8
   %.not53 = icmp eq ptr %.val49, null
-  %brmerge = or i1 %.not53, %3
+  %brmerge = or i1 %3, %.not53
   %.mux = select i1 %.not53, ptr %9, ptr %10
   br i1 %brmerge, label %86, label %44
 
@@ -4365,7 +4365,7 @@ define internal fastcc noundef zeroext i1 @_ZL10do_em_stepPK9t_commrecPK10t_inpu
   br i1 %.not18, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %74
 
 74:                                               ; preds = %57
-  %75 = icmp ult i64 %65, %73
+  %75 = icmp ugt i64 %73, %65
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %74
@@ -4374,7 +4374,7 @@ define internal fastcc noundef zeroext i1 @_ZL10do_em_stepPK9t_commrecPK10t_inpu
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 78:                                               ; preds = %74
-  %79 = icmp ugt i64 %65, %73
+  %79 = icmp ult i64 %73, %65
   br i1 %79, label %80, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 80:                                               ; preds = %78
@@ -5788,7 +5788,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -5856,7 +5856,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36

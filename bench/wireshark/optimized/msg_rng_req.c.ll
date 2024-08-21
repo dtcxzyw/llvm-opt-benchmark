@@ -164,7 +164,7 @@ define hidden void @dissect_power_saving_class(ptr noundef %0, i32 %1, ptr nound
   %10 = load i32, ptr @ett_mac_mgmt_msg_rng_req_decoder, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
   %12 = add i32 %5, %3
-  %13 = icmp ugt i32 %12, %5
+  %13 = icmp ult i32 %5, %12
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6, %75

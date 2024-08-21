@@ -1373,7 +1373,7 @@ define void @Mpm_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %0, i64 4880
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @stdout, align 8
-  %14 = icmp eq ptr %13, %10
+  %14 = icmp eq ptr %10, %13
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %9
@@ -2040,7 +2040,7 @@ define void @Mpm_ManPrintStats(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %20 = getelementptr i8, ptr %18, i64 28
   %.val7.i = load i32, ptr %20, align 4
   %21 = add nsw i32 %.val.i, 1
-  %22 = mul nsw i32 %21, %.val7.i
+  %22 = mul nsw i32 %.val7.i, %21
   %23 = add nsw i32 %22, %.010.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2059,7 +2059,7 @@ Mmr_StepMemory.exit:                              ; preds = %17
   %28 = getelementptr i8, ptr %26, i64 28
   %.val7.i63 = load i32, ptr %28, align 4
   %29 = add nsw i32 %.val.i62, 1
-  %30 = mul nsw i32 %29, %.val7.i63
+  %30 = mul nsw i32 %.val7.i63, %29
   %31 = add nsw i32 %30, %.010.i61
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i

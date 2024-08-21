@@ -16553,10 +16553,10 @@ _ZN5arrow6StatusD2Ev.exit62.thread:               ; preds = %entry
 if.then:                                          ; preds = %entry
   %offset2 = getelementptr inbounds i8, ptr %a, i64 24
   %2 = load i64, ptr %offset2, align 8
-  %cmp3 = icmp eq i64 %2, %offset
+  %cmp3 = icmp eq i64 %offset, %2
   %length4 = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load i64, ptr %length4, align 8
-  %cmp5 = icmp eq i64 %3, %length
+  %cmp5 = icmp eq i64 %length, %3
   %or.cond = select i1 %cmp3, i1 %cmp5, i1 false
   br i1 %or.cond, label %if.then6, label %if.else
 
@@ -21565,10 +21565,10 @@ sw.bb17:                                          ; preds = %entry
   %actual_value.i128 = getelementptr inbounds i8, ptr %visitor, i64 16
   store i64 %call18.val, ptr %actual_value.i128, align 8, !noalias !757
   %21 = load i64, ptr %visitor, align 8, !noalias !757
-  %cmp.not.i129 = icmp sle i64 %21, %call18.val
+  %cmp.not.i129 = icmp sge i64 %call18.val, %21
   %max_value.i130 = getelementptr inbounds i8, ptr %visitor, i64 8
   %22 = load i64, ptr %max_value.i130, align 8, !noalias !757
-  %cmp4.i131 = icmp sge i64 %22, %call18.val
+  %cmp4.i131 = icmp sle i64 %call18.val, %22
   %narrow.i132 = select i1 %cmp.not.i129, i1 %cmp4.i131, i1 false
   %frombool.i133 = zext i1 %narrow.i132 to i8
   %ok.i134 = getelementptr inbounds i8, ptr %visitor, i64 24
@@ -21583,10 +21583,10 @@ sw.bb19:                                          ; preds = %entry
   %actual_value.i135 = getelementptr inbounds i8, ptr %visitor, i64 16
   store i64 %call20.val, ptr %actual_value.i135, align 8, !noalias !763
   %24 = load i64, ptr %visitor, align 8, !noalias !763
-  %cmp.not.i136 = icmp sle i64 %24, %call20.val
+  %cmp.not.i136 = icmp sge i64 %call20.val, %24
   %max_value.i137 = getelementptr inbounds i8, ptr %visitor, i64 8
   %25 = load i64, ptr %max_value.i137, align 8, !noalias !763
-  %cmp4.i138 = icmp sge i64 %25, %call20.val
+  %cmp4.i138 = icmp sle i64 %call20.val, %25
   %narrow.i139 = select i1 %cmp.not.i136, i1 %cmp4.i138, i1 false
   %frombool.i140 = zext i1 %narrow.i139 to i8
   %ok.i141 = getelementptr inbounds i8, ptr %visitor, i64 24
@@ -111842,7 +111842,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -129708,7 +129708,7 @@ if.end.i.i.i.i.i.i818:                            ; preds = %sw.bb3.i.i.i.i.i816
   %div.i.i.i.i.i.i.i.i.i819 = sdiv i64 %from.val2.i.i744, 86400000
   %conv.i.i.i.i.i.i.i.i.i = trunc i64 %div.i.i.i.i.i.i.i.i.i819 to i32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i819, 86400000
-  %cmp.i.i.i.not.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i, %from.val2.i.i744
+  %cmp.i.i.i.not.i.i.i.i.i.i = icmp slt i64 %from.val2.i.i744, %mul.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then11.i.i.i.i.i.i
 
 if.then11.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i818
@@ -129981,7 +129981,7 @@ if.end.i14.i.i.i.i.i:                             ; preds = %sw.bb4.i.i.i.i.i814
   %div.i.i.i.i15.i.i.i.i.i = sdiv i64 %from.val2.i.i744, 86400000000
   %conv.i.i.i.i16.i.i.i.i.i = trunc nsw i64 %div.i.i.i.i15.i.i.i.i.i to i32
   %mul.i.i.i.i.i.i.i17.i.i.i.i.i = mul nsw i64 %div.i.i.i.i15.i.i.i.i.i, 86400000000
-  %cmp.i.i.i.not.i18.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i17.i.i.i.i.i, %from.val2.i.i744
+  %cmp.i.i.i.not.i18.i.i.i.i.i = icmp slt i64 %from.val2.i.i744, %mul.i.i.i.i.i.i.i17.i.i.i.i.i
   br i1 %cmp.i.i.i.not.i18.i.i.i.i.i, label %if.else.i173.i.i.i.i.i, label %if.then11.i19.i.i.i.i.i
 
 if.then11.i19.i.i.i.i.i:                          ; preds = %if.end.i14.i.i.i.i.i
@@ -130245,7 +130245,7 @@ sw.bb7.i.i.i.i.i890:                              ; preds = %if.end.i.i.i813
   %div.i.i.i.i180.i.i.i.i.i = sdiv i64 %from.val2.i.i744, 86400000000000
   %conv.i.i.i.i181.i.i.i.i.i = trunc nsw i64 %div.i.i.i.i180.i.i.i.i.i to i32
   %mul.i.i.i.i.i.i.i182.i.i.i.i.i = mul nsw i64 %div.i.i.i.i180.i.i.i.i.i, 86400000000000
-  %cmp.i.i.i.not.i183.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i182.i.i.i.i.i, %from.val2.i.i744
+  %cmp.i.i.i.not.i183.i.i.i.i.i = icmp slt i64 %from.val2.i.i744, %mul.i.i.i.i.i.i.i182.i.i.i.i.i
   br i1 %cmp.i.i.i.not.i183.i.i.i.i.i, label %if.else.i334.i.i.i.i.i, label %if.then11.i184.i.i.i.i.i
 
 if.then11.i184.i.i.i.i.i:                         ; preds = %sw.bb7.i.i.i.i.i890
@@ -130511,7 +130511,7 @@ if.end.i341.i.i.i.i.i:                            ; preds = %sw.epilog.i.i.i.i.i
   %div.i.i.i.i342.i.i.i.i.i = sdiv i64 %from.val2.i.i744, 86400
   %conv.i.i.i.i343.i.i.i.i.i = trunc i64 %div.i.i.i.i342.i.i.i.i.i to i32
   %mul.i.i.i.i.i.i.i344.i.i.i.i.i = mul nsw i64 %div.i.i.i.i342.i.i.i.i.i, 86400
-  %cmp.i.i.i.not.i345.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i344.i.i.i.i.i, %from.val2.i.i744
+  %cmp.i.i.i.not.i345.i.i.i.i.i = icmp slt i64 %from.val2.i.i744, %mul.i.i.i.i.i.i.i344.i.i.i.i.i
   br i1 %cmp.i.i.i.not.i345.i.i.i.i.i, label %if.else.i437.i.i.i.i.i, label %if.then11.i346.i.i.i.i.i
 
 if.then11.i346.i.i.i.i.i:                         ; preds = %if.end.i341.i.i.i.i.i

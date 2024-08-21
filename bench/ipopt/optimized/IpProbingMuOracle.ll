@@ -1205,7 +1205,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 480:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #20
-  %481 = fcmp ogt double %427, %2
+  %481 = fcmp olt double %2, %427
   %.sroa.speculated.i119 = select i1 %481, double %2, double %427
   %482 = fcmp olt double %.sroa.speculated.i119, %1
   %.sroa.speculated.i120 = select i1 %482, double %1, double %.sroa.speculated.i119

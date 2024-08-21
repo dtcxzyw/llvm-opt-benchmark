@@ -75,7 +75,7 @@ if.end:                                           ; preds = %entry
 
 while.cond:                                       ; preds = %if.end
   %sub = xor i32 %index, -1
-  %cmp.not.i = icmp ult i32 %sub, %base
+  %cmp.not.i = icmp ugt i32 %base, %sub
   br i1 %cmp.not.i, label %if.else.i, label %while.end
 
 if.else.i:                                        ; preds = %while.cond

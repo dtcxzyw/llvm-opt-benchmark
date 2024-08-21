@@ -3896,7 +3896,7 @@ define hidden noundef align 8 ptr @_ZN11ockam_vault8software25vault_for_secure_c
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !9
   %16 = sub i64 %15, %13
-  %17 = icmp ult i64 %16, %11
+  %17 = icmp ugt i64 %11, %16
   br i1 %17, label %18, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hff69dbcd17ed3c06E.exit"
 
 18:                                               ; preds = %10
@@ -3909,7 +3909,7 @@ define hidden noundef align 8 ptr @_ZN11ockam_vault8software25vault_for_secure_c
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hff69dbcd17ed3c06E.exit": ; preds = %10, %18
   %.pre-phi = phi i64 [ %16, %10 ], [ %.pre34, %18 ]
   %19 = phi i64 [ %13, %10 ], [ %.pre, %18 ]
-  %20 = icmp ult i64 %.pre-phi, %3
+  %20 = icmp ugt i64 %3, %.pre-phi
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8321437b65f2e73cE.exit"
 
 21:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hff69dbcd17ed3c06E.exit"

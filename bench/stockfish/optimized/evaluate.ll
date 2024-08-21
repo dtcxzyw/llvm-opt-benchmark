@@ -414,7 +414,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %119 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr null, ptr %119, align 8
   %120 = getelementptr inbounds i8, ptr %3, i64 48
-  %121 = icmp eq ptr %120, %109
+  %121 = icmp eq ptr %109, %120
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %._crit_edge

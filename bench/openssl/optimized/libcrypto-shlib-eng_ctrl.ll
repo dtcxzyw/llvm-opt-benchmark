@@ -488,7 +488,7 @@ if.then45:                                        ; preds = %if.end42
 if.end46:                                         ; preds = %if.end42
   %call47 = call i64 @strtol(ptr noundef nonnull %arg, ptr noundef nonnull %ptr, i32 noundef 10) #5
   %2 = load ptr, ptr %ptr, align 8
-  %cmp48 = icmp eq ptr %2, %arg
+  %cmp48 = icmp eq ptr %arg, %2
   br i1 %cmp48, label %if.then54, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %if.end46

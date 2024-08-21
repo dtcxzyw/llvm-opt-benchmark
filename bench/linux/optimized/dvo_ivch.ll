@@ -510,7 +510,7 @@ define internal void @ivch_dpms(ptr nocapture noundef readonly %0, i1 noundef ze
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #8
   %104 = icmp sgt i8 %103, -1
-  %105 = xor i1 %104, %1
+  %105 = xor i1 %1, %104
   br i1 %105, label %.loopexit, label %106
 
 106:                                              ; preds = %102

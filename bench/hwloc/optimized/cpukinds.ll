@@ -1588,7 +1588,7 @@ define range(i32 -1, 1) i32 @hwloc_cpukinds_get_info(ptr nocapture noundef reado
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 760
   %11 = load i32, ptr %10, align 8
-  %.not18 = icmp ugt i32 %11, %1
+  %.not18 = icmp ult i32 %1, %11
   br i1 %.not18, label %14, label %12
 
 12:                                               ; preds = %9

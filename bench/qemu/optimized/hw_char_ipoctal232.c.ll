@@ -677,7 +677,7 @@ entry:
   %rx_pending = getelementptr inbounds i8, ptr %opaque, i64 73
   %1 = load i8, ptr %rx_pending, align 1
   %conv1 = zext i8 %1 to i32
-  %add4 = add i32 %conv1, %size
+  %add4 = add i32 %size, %conv1
   %cmp = icmp slt i32 %add4, 4
   br i1 %cmp, label %if.end, label %if.else
 

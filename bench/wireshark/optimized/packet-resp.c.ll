@@ -189,7 +189,7 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
   %.050 = phi i32 [ 0, %.lr.ph ], [ %214, %213 ]
   %.02748 = phi i32 [ %3, %.lr.ph ], [ %215, %213 ]
   %19 = sext i32 %.050 to i64
-  %20 = icmp eq i64 %19, %5
+  %20 = icmp eq i64 %5, %19
   %or.cond = select i1 %8, i1 %20, i1 false
   br i1 %or.cond, label %.loopexit, label %21
 

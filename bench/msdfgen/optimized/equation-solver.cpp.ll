@@ -32,8 +32,9 @@ if.end6:                                          ; preds = %if.then
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %2 = fmul double %a, -4.000000e+00
-  %neg = fmul double %2, %c
+  %mul9 = fmul double %a, 4.000000e+00
+  %2 = fneg double %c
+  %neg = fmul double %mul9, %2
   %3 = tail call double @llvm.fmuladd.f64(double %b, double %b, double %neg)
   %cmp11 = fcmp ogt double %3, 0.000000e+00
   br i1 %cmp11, label %if.then12, label %if.else
@@ -174,63 +175,64 @@ return.sink.split.i:                              ; preds = %if.then51.i, %if.th
 
 if.end5:                                          ; preds = %if.then, %entry
   %cmp.i9 = fcmp oeq double %b, 0.000000e+00
-  br i1 %cmp.i9, label %if.then.i19, label %lor.lhs.false.i10
+  br i1 %cmp.i9, label %if.then.i20, label %lor.lhs.false.i10
 
 lor.lhs.false.i10:                                ; preds = %if.end5
   %12 = tail call double @llvm.fabs.f64(double %c)
   %13 = tail call double @llvm.fabs.f64(double %b)
   %mul.i11 = fmul double %13, 1.000000e+12
   %cmp1.i = fcmp ogt double %12, %mul.i11
-  br i1 %cmp1.i, label %if.then.i19, label %if.end7.i
+  br i1 %cmp1.i, label %if.then.i20, label %if.end7.i
 
-if.then.i19:                                      ; preds = %lor.lhs.false.i10, %if.end5
+if.then.i20:                                      ; preds = %lor.lhs.false.i10, %if.end5
   %cmp2.i = fcmp oeq double %c, 0.000000e+00
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
-if.then3.i:                                       ; preds = %if.then.i19
+if.then3.i:                                       ; preds = %if.then.i20
   %cmp4.i = fcmp oeq double %d, 0.000000e+00
   %..i = sext i1 %cmp4.i to i32
   br label %return
 
-if.end6.i:                                        ; preds = %if.then.i19
+if.end6.i:                                        ; preds = %if.then.i20
   %fneg.i = fneg double %d
-  %div.i20 = fdiv double %fneg.i, %c
-  store double %div.i20, ptr %x, align 8
+  %div.i21 = fdiv double %fneg.i, %c
+  store double %div.i21, ptr %x, align 8
   br label %return
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i10
-  %14 = fmul double %b, -4.000000e+00
-  %neg.i12 = fmul double %14, %d
-  %15 = tail call double @llvm.fmuladd.f64(double %c, double %c, double %neg.i12)
+  %mul9.i12 = fmul double %b, 4.000000e+00
+  %14 = fneg double %d
+  %neg.i13 = fmul double %mul9.i12, %14
+  %15 = tail call double @llvm.fmuladd.f64(double %c, double %c, double %neg.i13)
   %cmp11.i = fcmp ogt double %15, 0.000000e+00
-  br i1 %cmp11.i, label %if.then12.i, label %if.else.i13
+  br i1 %cmp11.i, label %if.then12.i, label %if.else.i14
 
 if.then12.i:                                      ; preds = %if.end7.i
-  %call.i16 = tail call double @sqrt(double noundef %15) #3
+  %call.i17 = tail call double @sqrt(double noundef %15) #3
   %fneg13.i = fneg double %c
-  %add.i17 = fsub double %call.i16, %c
+  %add.i18 = fsub double %call.i17, %c
   %mul14.i = fmul double %b, 2.000000e+00
-  %div15.i = fdiv double %add.i17, %mul14.i
+  %div15.i = fdiv double %add.i18, %mul14.i
   store double %div15.i, ptr %x, align 8
-  %sub.i18 = fsub double %fneg13.i, %call.i16
-  %div19.i = fdiv double %sub.i18, %mul14.i
+  %sub.i19 = fsub double %fneg13.i, %call.i17
+  %div19.i = fdiv double %sub.i19, %mul14.i
   %arrayidx20.i = getelementptr inbounds i8, ptr %x, i64 8
   store double %div19.i, ptr %arrayidx20.i, align 8
   br label %return
 
-if.else.i13:                                      ; preds = %if.end7.i
+if.else.i14:                                      ; preds = %if.end7.i
   %cmp21.i = fcmp oeq double %15, 0.000000e+00
   br i1 %cmp21.i, label %if.then22.i, label %return
 
-if.then22.i:                                      ; preds = %if.else.i13
+if.then22.i:                                      ; preds = %if.else.i14
   %fneg23.i = fneg double %c
-  %mul24.i15 = fmul double %b, 2.000000e+00
-  %div25.i = fdiv double %fneg23.i, %mul24.i15
+  %mul24.i16 = fmul double %b, 2.000000e+00
+  %div25.i = fdiv double %fneg23.i, %mul24.i16
   store double %div25.i, ptr %x, align 8
   br label %return
 
-return:                                           ; preds = %if.then22.i, %if.else.i13, %if.then12.i, %if.end6.i, %if.then3.i, %return.sink.split.i, %lor.lhs.false.i
-  %retval.0 = phi i32 [ 1, %lor.lhs.false.i ], [ %retval.0.ph.i, %return.sink.split.i ], [ 1, %if.end6.i ], [ 2, %if.then12.i ], [ 1, %if.then22.i ], [ %..i, %if.then3.i ], [ 0, %if.else.i13 ]
+return:                                           ; preds = %if.then22.i, %if.else.i14, %if.then12.i, %if.end6.i, %if.then3.i, %return.sink.split.i, %lor.lhs.false.i
+  %retval.0 = phi i32 [ 1, %lor.lhs.false.i ], [ %retval.0.ph.i, %return.sink.split.i ], [ 1, %if.end6.i ], [ 2, %if.then12.i ], [ 1, %if.then22.i ], [ %..i, %if.then3.i ], [ 0, %if.else.i14 ]
   ret i32 %retval.0
 }
 

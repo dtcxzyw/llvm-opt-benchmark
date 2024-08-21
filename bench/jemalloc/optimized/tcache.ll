@@ -786,7 +786,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %10 = getelementptr i8, ptr %9, i64 78944
   %call10.i.val = load i32, ptr %10, align 32
   %11 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i156 = icmp ugt i32 %11, %call10.i.val
+  %cmp.i156 = icmp ult i32 %call10.i.val, %11
   br i1 %cmp.i156, label %if.end24.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %while.body.i
@@ -862,7 +862,7 @@ if.end59.i:                                       ; preds = %if.then58.i, %for.b
 land.lhs.true63.i:                                ; preds = %if.end59.i
   %call10.i.val149 = load i32, ptr %10, align 32
   %20 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i161 = icmp ugt i32 %20, %call10.i.val149
+  %cmp.i161 = icmp ult i32 %call10.i.val149, %20
   br i1 %cmp.i161, label %if.end70.i, label %if.then65.i
 
 if.then65.i:                                      ; preds = %land.lhs.true63.i
@@ -1128,7 +1128,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   %17 = getelementptr i8, ptr %12, i64 78944
   %call10.i.val = load i32, ptr %17, align 32
   %18 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i169 = icmp ugt i32 %18, %call10.i.val
+  %cmp.i169 = icmp ult i32 %call10.i.val, %18
   br i1 %cmp.i169, label %if.end24.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %land.lhs.true.i
@@ -1232,7 +1232,7 @@ land.lhs.true63.i:                                ; preds = %if.end59.i
   %30 = getelementptr i8, ptr %12, i64 78944
   %call10.i.val157 = load i32, ptr %30, align 32
   %31 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i189 = icmp ugt i32 %31, %call10.i.val157
+  %cmp.i189 = icmp ult i32 %call10.i.val157, %31
   br i1 %cmp.i189, label %if.end70.i, label %if.then65.i
 
 if.then65.i:                                      ; preds = %land.lhs.true63.i
@@ -2516,7 +2516,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %1 = xor i1 %tobool.i13, true
-  %brmerge12 = or i1 %1, %enabled
+  %brmerge12 = or i1 %enabled, %1
   br i1 %brmerge12, label %if.end9, label %do.end7.i
 
 do.end7.i:                                        ; preds = %if.else

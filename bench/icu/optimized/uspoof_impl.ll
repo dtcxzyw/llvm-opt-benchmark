@@ -2222,7 +2222,7 @@ if.end6:                                          ; preds = %if.end3
   store ptr %data, ptr %this, align 8
   %fLength = getelementptr inbounds i8, ptr %data, i64 8
   %1 = load i32, ptr %fLength, align 4
-  %cmp8 = icmp sgt i32 %1, %length
+  %cmp8 = icmp slt i32 %length, %1
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end6
@@ -2511,7 +2511,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %fLength = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %fLength, align 4
-  %cmp = icmp sgt i32 %1, %capacity
+  %cmp = icmp slt i32 %capacity, %1
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -2743,7 +2743,7 @@ if.end82:                                         ; preds = %lor.lhs.false76
   br i1 %cmp86, label %return, label %if.end88
 
 if.end88:                                         ; preds = %if.end82
-  %cmp89 = icmp sgt i32 %add, %length
+  %cmp89 = icmp slt i32 %length, %add
   br i1 %cmp89, label %if.then90, label %if.end91
 
 if.then90:                                        ; preds = %if.end88

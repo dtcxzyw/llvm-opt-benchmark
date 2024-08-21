@@ -3767,7 +3767,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %235, %_ZNSt6vectorI
   %241 = sub i64 %239, %240
   %242 = ashr exact i64 %241, 4
   %243 = icmp eq ptr %238, %237
-  %brmerge102.not = and i1 %243, %5
+  %brmerge102.not = and i1 %5, %243
   br i1 %brmerge102.not, label %_ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EE9push_backERKS3_.exit, label %244
 
 244:                                              ; preds = %._crit_edge
@@ -4104,7 +4104,7 @@ _ZNK2cv15line_descriptor23BinaryDescriptorMatcher15checkKDistancesEPjiRSt6vector
   %119 = getelementptr inbounds i32, ptr %.sroa.086.3, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = sitofp i32 %120 to float
-  %122 = fcmp ugt float %121, %4
+  %122 = fcmp ult float %4, %121
   br i1 %122, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit, label %123
 
 123:                                              ; preds = %117
@@ -4329,7 +4329,7 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorI
   %206 = sub i64 %204, %205
   %207 = ashr exact i64 %206, 4
   %208 = icmp eq ptr %203, %202
-  %brmerge92.not = and i1 %208, %6
+  %brmerge92.not = and i1 %6, %208
   br i1 %brmerge92.not, label %_ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EE9push_backERKS3_.exit, label %209
 
 209:                                              ; preds = %._crit_edge
@@ -4679,7 +4679,7 @@ _ZNK2cv15line_descriptor23BinaryDescriptorMatcher15checkKDistancesEPjiRSt6vector
   %121 = getelementptr inbounds i32, ptr %.sroa.090.8, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = sitofp i32 %122 to float
-  %124 = fcmp ugt float %123, %3
+  %124 = fcmp ult float %3, %123
   br i1 %124, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit.thread, label %125
 
 125:                                              ; preds = %_ZNK2cv15line_descriptor23BinaryDescriptorMatcher15checkKDistancesEPjiRSt6vectorIiSaIiEEii.exit
@@ -4957,7 +4957,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit68:                  ; preds = %_ZNSt6vectorIN2cv6D
   %228 = sub i64 %226, %227
   %229 = ashr exact i64 %228, 4
   %230 = icmp eq ptr %225, %224
-  %brmerge99.not = and i1 %230, %5
+  %brmerge99.not = and i1 %5, %230
   br i1 %brmerge99.not, label %_ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EE9push_backERKS3_.exit, label %231
 
 231:                                              ; preds = %._crit_edge
@@ -6532,7 +6532,7 @@ define linkonce_odr ptr @_ZNSt6vectorIjSaIjEE6insertEN9__gnu_cxx17__normal_itera
   br i1 %.not, label %32, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp eq ptr %9, %1
+  %13 = icmp eq ptr %1, %9
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
@@ -7112,7 +7112,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_E
 
 select.unfold:                                    ; preds = %19, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %19 ]
-  %22 = icmp eq ptr %10, %.sroa.4.0.i.ph
+  %22 = icmp eq ptr %.sroa.4.0.i.ph, %10
   br i1 %22, label %.thread21, label %23
 
 23:                                               ; preds = %select.unfold
@@ -7275,7 +7275,7 @@ _ZNSt16allocator_traitsISaIN2cv6DMatchEEE8allocateERS2_m.exit.i.i.i.i.i.i: ; pre
 _ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i.i, %.loopexit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %.loopexit ], [ %51, %.lr.ph.i.i.i.i ]
   %52 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i.i28
@@ -7553,7 +7553,7 @@ _ZSt10_ConstructIN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtable
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #23
-  %.not4.i.i.i.i.i = icmp eq ptr %.014.i.i.i, %5
+  %.not4.i.i.i.i.i = icmp eq ptr %5, %.014.i.i.i
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtableEEvT_S5_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %21, %.lr.ph.i.i.i.i.i
@@ -7625,7 +7625,7 @@ _ZSt10_ConstructIN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtable
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = tail call ptr @__cxa_begin_catch(ptr %44) #23
-  %.not4.i.i.i.i.i43 = icmp eq ptr %.014.i.i.i41, %39
+  %.not4.i.i.i.i.i43 = icmp eq ptr %39, %.014.i.i.i41
   br i1 %.not4.i.i.i.i.i43, label %_ZSt8_DestroyIPN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtableEEvT_S5_.exit.i.i.i47, label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %42, %.lr.ph.i.i.i.i.i44
@@ -7813,7 +7813,7 @@ _ZNSt16allocator_traitsISaIN2cv15line_descriptor23BinaryDescriptorMatcher11Bucke
   %eh.lpad-body = phi { ptr, i32 } [ %22, %24 ], [ %22, %21 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %30 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #23
-  %.not4.i.i = icmp eq ptr %.021, %2
+  %.not4.i.i = icmp eq ptr %2, %.021
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtableEEvT_S5_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.body, %.lr.ph.i.i
@@ -7931,7 +7931,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %14
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %32 = extractvalue { ptr, i32 } %lpad.phi, 0
   %33 = tail call ptr @__cxa_begin_catch(ptr %32) #23
-  %.not4.i.i = icmp eq ptr %.017, %2
+  %.not4.i.i = icmp eq ptr %2, %.017
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN2cv15line_descriptor23BinaryDescriptorMatcher11BucketGroupEEvT_S5_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %31, %.lr.ph.i.i
@@ -8052,7 +8052,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %15
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %33 = extractvalue { ptr, i32 } %lpad.phi, 0
   %34 = tail call ptr @__cxa_begin_catch(ptr %33) #23
-  %.not4.i.i = icmp eq ptr %.018, %0
+  %.not4.i.i = icmp eq ptr %0, %.018
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN2cv15line_descriptor23BinaryDescriptorMatcher11BucketGroupEEvT_S5_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %32, %.lr.ph.i.i

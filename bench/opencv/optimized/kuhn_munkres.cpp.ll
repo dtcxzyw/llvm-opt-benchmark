@@ -1272,7 +1272,7 @@ define hidden void @_ZN2cv6detail8tracking11KuhnMunkres25UpdateDissimilarityMatr
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds float, ptr %15, i64 %indvars.iv
   %22 = load float, ptr %21, align 4
-  %23 = fadd float %22, %1
+  %23 = fadd float %1, %22
   store float %23, ptr %21, align 4
   br label %24
 
@@ -1332,7 +1332,7 @@ define hidden noundef i32 @_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii(ptr 
   %16 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i32
-  %19 = icmp eq i32 %18, %2
+  %19 = icmp eq i32 %2, %18
   br i1 %19, label %._crit_edge.loopexit.split.loop.exit12, label %20
 
 20:                                               ; preds = %15
@@ -1373,7 +1373,7 @@ define hidden noundef i32 @_ZN2cv6detail8tracking11KuhnMunkres9FindInColEii(ptr 
   %gep = getelementptr i8, ptr %invariant.gep, i64 %14
   %15 = load i8, ptr %gep, align 1
   %16 = sext i8 %15 to i32
-  %17 = icmp eq i32 %16, %2
+  %17 = icmp eq i32 %2, %16
   br i1 %17, label %._crit_edge.loopexit.split.loop.exit12, label %18
 
 18:                                               ; preds = %13

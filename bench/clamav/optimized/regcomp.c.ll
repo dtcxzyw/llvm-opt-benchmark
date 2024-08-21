@@ -677,7 +677,7 @@ define internal fastcc void @p_ere(ptr noundef %0, i32 noundef %1) unnamed_addr 
   %22 = load i8, ptr %21, align 1
   %.not = icmp eq i8 %22, 124
   %23 = sext i8 %22 to i32
-  %.not43 = icmp eq i32 %23, %1
+  %.not43 = icmp eq i32 %1, %23
   %or.cond = or i1 %.not, %.not43
   %.pre232.pre242 = load i64, ptr %3, align 8
   br i1 %or.cond, label %.critedge, label %24
@@ -2532,14 +2532,14 @@ enlarge.exit.thread.i:                            ; preds = %37, %23, %20
 67:                                               ; preds = %62
   %68 = load i8, ptr %66, align 1
   %69 = sext i8 %68 to i32
-  %70 = icmp eq i32 %69, %1
+  %70 = icmp eq i32 %1, %69
   br i1 %70, label %71, label %.critedge30
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds i8, ptr %66, i64 1
   %73 = load i8, ptr %72, align 1
   %74 = sext i8 %73 to i32
-  %75 = icmp eq i32 %74, %2
+  %75 = icmp eq i32 %2, %74
   br i1 %75, label %.critedge, label %.critedge30
 
 .critedge30:                                      ; preds = %67, %62, %71
@@ -4956,7 +4956,7 @@ p_b_term.exit:                                    ; preds = %p_b_term.exit.loope
 
 ._crit_edge.i118:                                 ; preds = %.lr.ph.i115, %487
   %508 = getelementptr inbounds i8, ptr %494, i64 -16
-  %509 = icmp eq ptr %508, %147
+  %509 = icmp eq ptr %147, %508
   br i1 %509, label %510, label %freeset.exit
 
 510:                                              ; preds = %._crit_edge.i118
@@ -5227,7 +5227,7 @@ othercase.exit165:                                ; preds = %627, %629, %631
   %.0.in.i162 = phi i32 [ %628, %627 ], [ %632, %631 ], [ %.0.i130, %629 ]
   %sext173 = shl i32 %.0.in.i162, 24
   %633 = ashr exact i32 %sext173, 24
-  %.not8.i134 = icmp eq i32 %633, %.0.i130
+  %.not8.i134 = icmp eq i32 %.0.i130, %633
   br i1 %.not8.i134, label %635, label %634
 
 634:                                              ; preds = %othercase.exit165
@@ -5329,7 +5329,7 @@ ordinary.exit:                                    ; preds = %enlarge.exit.thread
 
 ._crit_edge.i140:                                 ; preds = %.lr.ph.i136, %ordinary.exit
   %684 = getelementptr inbounds i8, ptr %670, i64 -16
-  %685 = icmp eq ptr %684, %147
+  %685 = icmp eq ptr %147, %684
   br i1 %685, label %686, label %freeset.exit
 
 686:                                              ; preds = %._crit_edge.i140
@@ -5460,7 +5460,7 @@ nch.exit.thread.thread:                           ; preds = %593
   %.us-phi59.i = phi ptr [ %.us-phi58.i, %._crit_edge.i.loopexit.i ], [ %.us-phi.i, %.split.us.i ]
   %.pre54.i = phi ptr [ %.pre54.pre.i, %._crit_edge.i.loopexit.i ], [ %.val97, %.split.us.i ]
   %749 = getelementptr inbounds i8, ptr %748, i64 -16
-  %750 = icmp eq ptr %749, %147
+  %750 = icmp eq ptr %147, %749
   br i1 %750, label %751, label %freezeset.exit
 
 751:                                              ; preds = %._crit_edge.i.i
@@ -5595,7 +5595,7 @@ othercase.exit:                                   ; preds = %20, %22, %24
   %.0.in.i = phi i32 [ %21, %20 ], [ %25, %24 ], [ %1, %22 ]
   %sext = shl i32 %.0.in.i, 24
   %26 = ashr exact i32 %sext, 24
-  %.not8 = icmp eq i32 %26, %1
+  %.not8 = icmp eq i32 %1, %26
   br i1 %.not8, label %34, label %27
 
 27:                                               ; preds = %othercase.exit

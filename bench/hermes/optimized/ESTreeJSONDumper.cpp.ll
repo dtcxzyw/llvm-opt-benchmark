@@ -3663,7 +3663,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_body = getelementptr inbounds i8, ptr %node, i64 88
   %0 = load ptr, ptr %_body, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_body
+  %cmp.i.i.i = icmp eq ptr %_body, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -3764,7 +3764,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_params = getelementptr inbounds i8, ptr %node, i64 80
   %8 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -4157,7 +4157,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_params = getelementptr inbounds i8, ptr %node, i64 80
   %8 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -4550,7 +4550,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_params = getelementptr inbounds i8, ptr %node, i64 80
   %8 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -4943,7 +4943,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_params = getelementptr inbounds i8, ptr %node, i64 80
   %8 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -5892,7 +5892,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_body
+  %cmp.i.i.i = icmp eq ptr %_body, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -6311,7 +6311,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_cases = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_cases, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_cases
+  %cmp.i.i.i = icmp eq ptr %_cases, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -7006,7 +7006,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_expressions = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expressions, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_expressions
+  %cmp.i.i.i = icmp eq ptr %_expressions, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -7059,7 +7059,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_properties = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_properties, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_properties
+  %cmp.i.i.i = icmp eq ptr %_properties, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -7112,7 +7112,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_elements = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_elements, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_elements
+  %cmp.i.i.i = icmp eq ptr %_elements, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -7365,7 +7365,7 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_arguments = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load ptr, ptr %_arguments, align 8
-  %cmp.i.i.i = icmp eq ptr %16, %_arguments
+  %cmp.i.i.i = icmp eq ptr %_arguments, %16
   br i1 %cmp.i.i.i, label %if.then63, label %if.end93
 
 if.then63:                                        ; preds = %do.body61
@@ -7774,7 +7774,7 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_arguments = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load ptr, ptr %_arguments, align 8
-  %cmp.i.i.i = icmp eq ptr %16, %_arguments
+  %cmp.i.i.i = icmp eq ptr %_arguments, %16
   br i1 %cmp.i.i.i, label %if.then63, label %if.end93
 
 if.then63:                                        ; preds = %do.body61
@@ -7923,7 +7923,7 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_arguments = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load ptr, ptr %_arguments, align 8
-  %cmp.i.i.i = icmp eq ptr %16, %_arguments
+  %cmp.i.i.i = icmp eq ptr %_arguments, %16
   br i1 %cmp.i.i.i, label %if.then63, label %if.end93
 
 if.then63:                                        ; preds = %do.body61
@@ -9552,7 +9552,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_consequent = getelementptr inbounds i8, ptr %node, i64 56
   %8 = load ptr, ptr %_consequent, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_consequent
+  %cmp.i.i.i = icmp eq ptr %_consequent, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -9829,7 +9829,7 @@ if.else.i:                                        ; preds = %entry
 _ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit: ; preds = %if.then.i, %if.else.i
   %_declarations = getelementptr inbounds i8, ptr %node, i64 56
   %2 = load ptr, ptr %_declarations, align 8
-  %cmp.i.i.i = icmp eq ptr %2, %_declarations
+  %cmp.i.i.i = icmp eq ptr %_declarations, %2
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeEPNS_12UniqueStringE.exit
@@ -9882,7 +9882,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_quasis = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_quasis, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_quasis
+  %cmp.i.i.i = icmp eq ptr %_quasis, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -9929,7 +9929,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_expressions = getelementptr inbounds i8, ptr %node, i64 64
   %7 = load ptr, ptr %_expressions, align 8
-  %cmp.i.i.i20 = icmp eq ptr %7, %_expressions
+  %cmp.i.i.i20 = icmp eq ptr %_expressions, %7
   br i1 %cmp.i.i.i20, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -10644,7 +10644,7 @@ if.end130:                                        ; preds = %if.then100, %if.the
 do.body135:                                       ; preds = %if.then100, %if.end130, %if.then120
   %_implements = getelementptr inbounds i8, ptr %node, i64 80
   %32 = load ptr, ptr %_implements, align 8
-  %cmp.i.i.i = icmp eq ptr %32, %_implements
+  %cmp.i.i.i = icmp eq ptr %_implements, %32
   br i1 %cmp.i.i.i, label %if.then137, label %if.end167
 
 if.then137:                                       ; preds = %do.body135
@@ -10691,7 +10691,7 @@ if.end167:                                        ; preds = %if.then137, %if.the
 do.body172:                                       ; preds = %if.then137, %if.end167, %if.then157
   %_decorators = getelementptr inbounds i8, ptr %node, i64 96
   %39 = load ptr, ptr %_decorators, align 8
-  %cmp.i.i.i145 = icmp eq ptr %39, %_decorators
+  %cmp.i.i.i145 = icmp eq ptr %_decorators, %39
   br i1 %cmp.i.i.i145, label %if.then174, label %if.end204
 
 if.then174:                                       ; preds = %do.body172
@@ -10984,7 +10984,7 @@ if.end130:                                        ; preds = %if.then100, %if.the
 do.body135:                                       ; preds = %if.then100, %if.end130, %if.then120
   %_implements = getelementptr inbounds i8, ptr %node, i64 80
   %32 = load ptr, ptr %_implements, align 8
-  %cmp.i.i.i = icmp eq ptr %32, %_implements
+  %cmp.i.i.i = icmp eq ptr %_implements, %32
   br i1 %cmp.i.i.i, label %if.then137, label %if.end167
 
 if.then137:                                       ; preds = %do.body135
@@ -11031,7 +11031,7 @@ if.end167:                                        ; preds = %if.then137, %if.the
 do.body172:                                       ; preds = %if.then137, %if.end167, %if.then157
   %_decorators = getelementptr inbounds i8, ptr %node, i64 96
   %39 = load ptr, ptr %_decorators, align 8
-  %cmp.i.i.i145 = icmp eq ptr %39, %_decorators
+  %cmp.i.i.i145 = icmp eq ptr %_decorators, %39
   br i1 %cmp.i.i.i145, label %if.then174, label %if.end204
 
 if.then174:                                       ; preds = %do.body172
@@ -11132,7 +11132,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_body = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_body, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_body
+  %cmp.i.i.i = icmp eq ptr %_body, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -12249,7 +12249,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_specifiers = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_specifiers, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_specifiers
+  %cmp.i.i.i = icmp eq ptr %_specifiers, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -12344,7 +12344,7 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_assertions = getelementptr inbounds i8, ptr %node, i64 72
   %15 = load ptr, ptr %_assertions, align 8
-  %cmp.i.i.i58 = icmp eq ptr %15, %_assertions
+  %cmp.i.i.i58 = icmp eq ptr %_assertions, %15
   br i1 %cmp.i.i.i58, label %if.then63, label %if.end93
 
 if.then63:                                        ; preds = %do.body61
@@ -12797,7 +12797,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_specifiers = getelementptr inbounds i8, ptr %node, i64 56
   %8 = load ptr, ptr %_specifiers, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_specifiers
+  %cmp.i.i.i = icmp eq ptr %_specifiers, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -13202,7 +13202,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_properties = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_properties, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_properties
+  %cmp.i.i.i = icmp eq ptr %_properties, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -13303,7 +13303,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_elements = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_elements, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_elements
+  %cmp.i.i.i = icmp eq ptr %_elements, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -13946,7 +13946,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_attributes = getelementptr inbounds i8, ptr %node, i64 56
   %8 = load ptr, ptr %_attributes, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_attributes
+  %cmp.i.i.i = icmp eq ptr %_attributes, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -14447,7 +14447,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_children = getelementptr inbounds i8, ptr %node, i64 56
   %8 = load ptr, ptr %_children, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_children
+  %cmp.i.i.i = icmp eq ptr %_children, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -14596,7 +14596,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_children = getelementptr inbounds i8, ptr %node, i64 56
   %8 = load ptr, ptr %_children, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_children
+  %cmp.i.i.i = icmp eq ptr %_children, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -14877,7 +14877,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_params = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -15274,7 +15274,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_params = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -16063,7 +16063,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_types = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_types, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_types
+  %cmp.i.i.i = icmp eq ptr %_types, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -16526,7 +16526,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_types = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_types, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_types
+  %cmp.i.i.i = icmp eq ptr %_types, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -16579,7 +16579,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_types = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_types, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_types
+  %cmp.i.i.i = icmp eq ptr %_types, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -17338,7 +17338,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_extends = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_extends, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_extends
+  %cmp.i.i.i = icmp eq ptr %_extends, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -17883,7 +17883,7 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_extends = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load ptr, ptr %_extends, align 8
-  %cmp.i.i.i = icmp eq ptr %16, %_extends
+  %cmp.i.i.i = icmp eq ptr %_extends, %16
   br i1 %cmp.i.i.i, label %if.then63, label %if.end93
 
 if.then63:                                        ; preds = %do.body61
@@ -18428,7 +18428,7 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_extends = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load ptr, ptr %_extends, align 8
-  %cmp.i.i.i = icmp eq ptr %16, %_extends
+  %cmp.i.i.i = icmp eq ptr %_extends, %16
   br i1 %cmp.i.i.i, label %if.then63, label %if.end93
 
 if.then63:                                        ; preds = %do.body61
@@ -18625,7 +18625,7 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_extends = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load ptr, ptr %_extends, align 8
-  %cmp.i.i.i = icmp eq ptr %16, %_extends
+  %cmp.i.i.i = icmp eq ptr %_extends, %16
   br i1 %cmp.i.i.i, label %if.then63, label %if.end93
 
 if.then63:                                        ; preds = %do.body61
@@ -18672,7 +18672,7 @@ if.end93:                                         ; preds = %if.then63, %if.then
 do.body98:                                        ; preds = %if.then63, %if.end93, %if.then83
   %_implements = getelementptr inbounds i8, ptr %node, i64 80
   %23 = load ptr, ptr %_implements, align 8
-  %cmp.i.i.i96 = icmp eq ptr %23, %_implements
+  %cmp.i.i.i96 = icmp eq ptr %_implements, %23
   br i1 %cmp.i.i.i96, label %if.then100, label %if.end130
 
 if.then100:                                       ; preds = %do.body98
@@ -18719,7 +18719,7 @@ if.end130:                                        ; preds = %if.then100, %if.the
 do.body135:                                       ; preds = %if.then100, %if.end130, %if.then120
   %_mixins = getelementptr inbounds i8, ptr %node, i64 96
   %30 = load ptr, ptr %_mixins, align 8
-  %cmp.i.i.i116 = icmp eq ptr %30, %_mixins
+  %cmp.i.i.i116 = icmp eq ptr %_mixins, %30
   br i1 %cmp.i.i.i116, label %if.then137, label %if.end167
 
 if.then137:                                       ; preds = %do.body135
@@ -18970,7 +18970,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_params = getelementptr inbounds i8, ptr %node, i64 56
   %8 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -19391,7 +19391,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_specifiers = getelementptr inbounds i8, ptr %node, i64 56
   %8 = load ptr, ptr %_specifiers, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_specifiers
+  %cmp.i.i.i = icmp eq ptr %_specifiers, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -20030,7 +20030,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_properties = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_properties, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_properties
+  %cmp.i.i.i = icmp eq ptr %_properties, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -20077,7 +20077,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_indexers = getelementptr inbounds i8, ptr %node, i64 64
   %7 = load ptr, ptr %_indexers, align 8
-  %cmp.i.i.i57 = icmp eq ptr %7, %_indexers
+  %cmp.i.i.i57 = icmp eq ptr %_indexers, %7
   br i1 %cmp.i.i.i57, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -20124,7 +20124,7 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_callProperties = getelementptr inbounds i8, ptr %node, i64 80
   %14 = load ptr, ptr %_callProperties, align 8
-  %cmp.i.i.i77 = icmp eq ptr %14, %_callProperties
+  %cmp.i.i.i77 = icmp eq ptr %_callProperties, %14
   br i1 %cmp.i.i.i77, label %if.then63, label %if.end93
 
 if.then63:                                        ; preds = %do.body61
@@ -20171,7 +20171,7 @@ if.end93:                                         ; preds = %if.then63, %if.then
 do.body98:                                        ; preds = %if.then63, %if.end93, %if.then83
   %_internalSlots = getelementptr inbounds i8, ptr %node, i64 96
   %21 = load ptr, ptr %_internalSlots, align 8
-  %cmp.i.i.i97 = icmp eq ptr %21, %_internalSlots
+  %cmp.i.i.i97 = icmp eq ptr %_internalSlots, %21
   br i1 %cmp.i.i.i97, label %if.then100, label %if.end130
 
 if.then100:                                       ; preds = %do.body98
@@ -21596,7 +21596,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_params = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -21869,7 +21869,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_params = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -22282,7 +22282,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_members = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_members, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_members
+  %cmp.i.i.i = icmp eq ptr %_members, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -22435,7 +22435,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_members = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_members, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_members
+  %cmp.i.i.i = icmp eq ptr %_members, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -22588,7 +22588,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_members = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_members, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_members
+  %cmp.i.i.i = icmp eq ptr %_members, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -22741,7 +22741,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_members = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_members, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_members
+  %cmp.i.i.i = icmp eq ptr %_members, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -23824,7 +23824,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_params = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -23973,7 +23973,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_params = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -24224,7 +24224,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_elementTypes = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_elementTypes, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_elementTypes
+  %cmp.i.i.i = icmp eq ptr %_elementTypes, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -24951,7 +24951,7 @@ if.end56:                                         ; preds = %if.then26, %if.then
 do.body61:                                        ; preds = %if.then26, %if.end56, %if.then46
   %_extends = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load ptr, ptr %_extends, align 8
-  %cmp.i.i.i = icmp eq ptr %16, %_extends
+  %cmp.i.i.i = icmp eq ptr %_extends, %16
   br i1 %cmp.i.i.i, label %if.then63, label %if.end93
 
 if.then63:                                        ; preds = %do.body61
@@ -25154,7 +25154,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_body = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_body, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_body
+  %cmp.i.i.i = icmp eq ptr %_body, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -25255,7 +25255,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_members = getelementptr inbounds i8, ptr %node, i64 56
   %8 = load ptr, ptr %_members, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_members
+  %cmp.i.i.i = icmp eq ptr %_members, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -25512,7 +25512,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_body = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_body, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_body
+  %cmp.i.i.i = icmp eq ptr %_body, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -25667,7 +25667,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_params = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -25870,7 +25870,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_params = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -25923,7 +25923,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_types = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_types, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_types
+  %cmp.i.i.i = icmp eq ptr %_types, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -25976,7 +25976,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_types = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_types, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_types
+  %cmp.i.i.i = icmp eq ptr %_types, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -26281,7 +26281,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_members = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_members, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_members
+  %cmp.i.i.i = icmp eq ptr %_members, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -26782,7 +26782,7 @@ if.end21:                                         ; preds = %if.then, %if.then13
 do.body24:                                        ; preds = %if.then, %if.end21, %if.then13
   %_params = getelementptr inbounds i8, ptr %node, i64 56
   %8 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %8
   br i1 %cmp.i.i.i, label %if.then26, label %if.end56
 
 if.then26:                                        ; preds = %do.body24
@@ -26933,7 +26933,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_parameters = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameters, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_parameters
+  %cmp.i.i.i = icmp eq ptr %_parameters, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
@@ -27034,7 +27034,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper13visitCh
 entry:
   %_params = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_params, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %_params
+  %cmp.i.i.i = icmp eq ptr %_params, %0
   br i1 %cmp.i.i.i, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry

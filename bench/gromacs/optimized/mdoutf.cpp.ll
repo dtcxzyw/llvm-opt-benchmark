@@ -189,7 +189,7 @@ define noundef ptr @_Z11init_mdoutfP8_IO_FILEiPK8t_filenmRKN3gmx12MdrunOptionsEP
   %59 = getelementptr inbounds i8, ptr %32, i64 120
   store ptr %5, ptr %59, align 8
   %60 = icmp eq ptr %13, null
-  %or.cond.not = and i1 %60, %12
+  %or.cond.not = and i1 %12, %60
   br i1 %or.cond.not, label %61, label %62
 
 61:                                               ; preds = %14

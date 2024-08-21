@@ -65,7 +65,7 @@ define hidden noundef signext i8 @_ZNK9metaspace14MetaspaceArena16next_chunk_lev
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
-  %.not.i = icmp sgt i32 %7, %3
+  %.not.i = icmp slt i32 %3, %7
   %8 = load ptr, ptr %5, align 8
   %9 = sext i32 %7 to i64
   %10 = getelementptr i8, ptr %8, i64 %9
@@ -193,7 +193,7 @@ define hidden noundef ptr @_ZN9metaspace14MetaspaceArena18allocate_new_chunkEm(p
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
-  %.not.i.i = icmp sgt i32 %13, %9
+  %.not.i.i = icmp slt i32 %9, %13
   %14 = load ptr, ptr %11, align 8
   %15 = sext i32 %13 to i64
   %16 = getelementptr i8, ptr %14, i64 %15
@@ -406,7 +406,7 @@ define hidden noundef zeroext i1 @_ZN9metaspace14MetaspaceArena29attempt_enlarge
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8
-  %.not.i.i = icmp sgt i32 %37, %33
+  %.not.i.i = icmp slt i32 %33, %37
   %38 = load ptr, ptr %35, align 8
   %39 = sext i32 %37 to i64
   %40 = getelementptr i8, ptr %38, i64 %39
@@ -556,7 +556,7 @@ define hidden noundef ptr @_ZN9metaspace14MetaspaceArena14allocate_innerEm(ptr n
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
-  %.not.i.i.i = icmp sgt i32 %44, %40
+  %.not.i.i.i = icmp slt i32 %40, %44
   %45 = load ptr, ptr %42, align 8
   %46 = sext i32 %44 to i64
   %47 = getelementptr i8, ptr %45, i64 %46
@@ -629,7 +629,7 @@ _ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 8
   %85 = load i32, ptr %84, align 8
-  %.not.i.i.i30 = icmp sgt i32 %85, %81
+  %.not.i.i.i30 = icmp slt i32 %81, %85
   %86 = load ptr, ptr %83, align 8
   %87 = sext i32 %85 to i64
   %88 = getelementptr i8, ptr %86, i64 %87

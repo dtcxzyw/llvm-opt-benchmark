@@ -53,7 +53,7 @@ define hidden void @"_ZN120_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$C$J$C$K$C$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21), !noalias !33
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22), !noalias !33
   %switch.i.i.i.i.i = icmp eq i64 %36, 0
-  %.not.i.i.i.i.i = icmp ule i64 %31, %3
+  %.not.i.i.i.i.i = icmp uge i64 %3, %31
   %37 = and i1 %.not.i.i.i.i.i, %switch.i.i.i.i.i
   br i1 %37, label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit.thread", label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit"
 
@@ -101,7 +101,7 @@ define hidden void @"_ZN120_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$C$J$C$K$C$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18), !noalias !76
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19), !noalias !76
   %switch.i.i.i.i.i169 = icmp eq i64 %49, 0
-  %.not.i.i.i.i.i170 = icmp ule i64 %45, %3
+  %.not.i.i.i.i.i170 = icmp uge i64 %3, %45
   %50 = and i1 %.not.i.i.i.i.i170, %switch.i.i.i.i.i169
   br i1 %50, label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit177.thread", label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit177"
 
@@ -150,7 +150,7 @@ define hidden void @"_ZN120_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$C$J$C$K$C$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15), !noalias !119
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16), !noalias !119
   %switch.i.i.i.i.i178 = icmp eq i64 %63, 0
-  %.not.i.i.i.i.i179 = icmp ule i64 %59, %3
+  %.not.i.i.i.i.i179 = icmp uge i64 %3, %59
   %64 = and i1 %.not.i.i.i.i.i179, %switch.i.i.i.i.i178
   br i1 %64, label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit186.thread", label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit186"
 
@@ -199,7 +199,7 @@ define hidden void @"_ZN120_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$C$J$C$K$C$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !162
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13), !noalias !162
   %switch.i.i.i.i.i187 = icmp eq i64 %77, 0
-  %.not.i.i.i.i.i188 = icmp ule i64 %73, %3
+  %.not.i.i.i.i.i188 = icmp uge i64 %3, %73
   %78 = and i1 %.not.i.i.i.i.i188, %switch.i.i.i.i.i187
   br i1 %78, label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit195.thread", label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit195"
 
@@ -248,7 +248,7 @@ define hidden void @"_ZN120_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$C$J$C$K$C$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !205
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !205
   %switch.i.i.i.i.i196 = icmp eq i64 %91, 0
-  %.not.i.i.i.i.i197 = icmp ule i64 %87, %3
+  %.not.i.i.i.i.i197 = icmp uge i64 %3, %87
   %92 = and i1 %.not.i.i.i.i.i197, %switch.i.i.i.i.i196
   br i1 %92, label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit204.thread", label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit204"
 
@@ -297,7 +297,7 @@ define hidden void @"_ZN120_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$C$J$C$K$C$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !248
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7), !noalias !248
   %switch.i.i.i.i.i205 = icmp eq i64 %105, 0
-  %.not.i.i.i.i.i206 = icmp ule i64 %101, %3
+  %.not.i.i.i.i.i206 = icmp uge i64 %3, %101
   %106 = and i1 %.not.i.i.i.i.i206, %switch.i.i.i.i.i205
   br i1 %106, label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit213.thread", label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit213"
 
@@ -740,7 +740,7 @@ define internal fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !335
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7), !noalias !335
   %switch.i.i.i.i = icmp eq i64 %15, 0
-  %.not.i.i.i.i = icmp ule i64 %10, %3
+  %.not.i.i.i.i = icmp uge i64 %3, %10
   %16 = and i1 %.not.i.i.i.i, %switch.i.i.i.i
   br i1 %16, label %17, label %23
 
@@ -864,7 +864,7 @@ define hidden void @"_ZN80_$LT$$LP$A$C$B$RP$$u20$as$u20$nom..branch..Alt$LT$Inpu
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !396
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !396
   %switch.i.i.i.i.i = icmp eq i64 %30, 0
-  %.not.i.i.i.i.i = icmp ule i64 %25, %3
+  %.not.i.i.i.i.i = icmp uge i64 %3, %25
   %31 = and i1 %.not.i.i.i.i.i, %switch.i.i.i.i.i
   br i1 %31, label %32, label %52
 
@@ -1056,7 +1056,7 @@ define hidden void @"_ZN80_$LT$$LP$A$C$B$RP$$u20$as$u20$nom..branch..Alt$LT$Inpu
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !472
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !472
   %switch.i.i.i.i.i.i.i = icmp eq i64 %16, 0
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %.val1.i.i, %3
+  %.not.i.i.i.i.i.i.i = icmp uge i64 %3, %.val1.i.i
   %17 = and i1 %.not.i.i.i.i.i.i.i, %switch.i.i.i.i.i.i.i
   br i1 %17, label %18, label %.noexc
 

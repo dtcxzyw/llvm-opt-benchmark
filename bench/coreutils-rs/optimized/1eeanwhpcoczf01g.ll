@@ -64,7 +64,7 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
   %23 = getelementptr inbounds i8, ptr %.sroa.0.04.i, i64 24
   %24 = getelementptr inbounds i8, ptr %.sroa.0.04.i, i64 8
   %25 = load i64, ptr %24, align 8, !noalias !7, !noundef !4
-  %.not.i.i = icmp eq i64 %25, %12
+  %.not.i.i = icmp eq i64 %12, %25
   br i1 %.not.i.i, label %26, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i"
 
 26:                                               ; preds = %.lr.ph.i

@@ -4740,7 +4740,7 @@ cpuid_or_from_dump.exit.us:                       ; preds = %.lr.ph
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %36, i64 4
   %41 = load i32, ptr %40, align 4
-  %.not32.i.i = icmp eq i32 %41, %2
+  %.not32.i.i = icmp eq i32 %2, %41
   br i1 %.not32.i.i, label %42, label %66
 
 42:                                               ; preds = %39, %35
@@ -4886,7 +4886,7 @@ cpuid_or_from_dump.exit:                          ; preds = %57, %._crit_edge.i.
 102:                                              ; preds = %98
   %103 = getelementptr inbounds i8, ptr %99, i64 4
   %104 = load i32, ptr %103, align 4
-  %.not32.i.i83 = icmp eq i32 %104, %2
+  %.not32.i.i83 = icmp eq i32 %2, %104
   br i1 %.not32.i.i83, label %105, label %130
 
 105:                                              ; preds = %102, %98
@@ -5187,7 +5187,7 @@ define internal fastcc void @hwloc_x86_add_groups(ptr noundef %0, ptr nocapture 
 38:                                               ; preds = %.sink.split, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %38, %21

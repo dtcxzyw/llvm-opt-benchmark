@@ -2023,7 +2023,7 @@ read_abstract_origin.exit.i:                      ; preds = %696, %uleb128.exit2
 
 710:                                              ; preds = %709
   %.not78.i.i = icmp ugt i64 %.sroa.0.0.i250, %708
-  %.not79.i.i = icmp ult i64 %.sroa.6.2.i, %708
+  %.not79.i.i = icmp ugt i64 %708, %.sroa.6.2.i
   %or.cond.i = select i1 %.not78.i.i, i1 true, i1 %.not79.i.i
   br i1 %or.cond.i, label %ranges_include.exit.thread118.i, label %ranges_include.exit.i
 
@@ -2310,7 +2310,7 @@ read_dw_form_addr.exit.i.i:                       ; preds = %.lr.ph.i111.i.i, %.
   %.065.i.i = phi i64 [ 0, %728 ], [ %845, %uleb128.exit157.i.i ], [ %808, %uleb128.exit136.i.i ], [ 0, %769 ], [ 0, %811 ], [ 0, %813 ], [ %819, %816 ], [ %.val3.i3.i.i.i141.i.i, %820 ], [ 0, %731 ], [ 0, %uleb128.exit91.i.i ], [ 0, %uleb128.exit109.i.i ], [ 0, %.lr.ph.i.i90.i ], [ 0, %.lr.ph.i93.i.i ], [ 0, %.lr.ph.i111.i.i ]
   %.1.i.i265 = phi i64 [ %.064.i.i, %728 ], [ %.064.i.i, %uleb128.exit157.i.i ], [ %.064.i.i, %uleb128.exit136.i.i ], [ %.064.i.i, %769 ], [ %812, %811 ], [ %.val3.i3.i.i.i.i.i, %813 ], [ %.064.i.i, %816 ], [ %.064.i.i, %820 ], [ %.064.i.i, %731 ], [ %.064.i.i, %uleb128.exit91.i.i ], [ %.064.i.i, %uleb128.exit109.i.i ], [ %.064.i.i, %.lr.ph.i.i90.i ], [ %.064.i.i, %.lr.ph.i93.i.i ], [ %.064.i.i, %.lr.ph.i111.i.i ]
   %.not77.i.i = icmp ule i64 %.066.i.i, %708
-  %846 = icmp ugt i64 %.065.i.i, %708
+  %846 = icmp ult i64 %708, %.065.i.i
   %or.cond80.i.i = select i1 %.not77.i.i, i1 %846, i1 false
   br i1 %or.cond80.i.i, label %ranges_include.exit.i, label %728
 
@@ -2338,7 +2338,7 @@ read_dw_form_addr.exit.i.i:                       ; preds = %.lr.ph.i111.i.i, %.
   %856 = add i64 %.238.i.i, %.val3.i3.i.i39.i.i
   %.not.i88.i = icmp ule i64 %856, %708
   %857 = add i64 %.238.i.i, %.val3.i3.i.i15840.i.i
-  %858 = icmp ugt i64 %857, %708
+  %858 = icmp ult i64 %708, %857
   %or.cond82.i.i = select i1 %.not.i88.i, i1 %858, i1 false
   br i1 %or.cond82.i.i, label %ranges_include.exit.i, label %859
 
@@ -2568,7 +2568,7 @@ debug_info_read.exit:                             ; preds = %.backedge.i, %rngli
   %966 = getelementptr inbounds i8, ptr %26, i64 104
   %967 = load i64, ptr %966, align 8
   %968 = getelementptr i8, ptr %944, i64 %967
-  %969 = icmp ugt ptr %968, %944
+  %969 = icmp ult ptr %944, %968
   br i1 %969, label %.lr.ph.i300, label %._crit_edge.i
 
 .lr.ph.i300:                                      ; preds = %965
@@ -2670,7 +2670,7 @@ debug_info_read.exit:                             ; preds = %.backedge.i, %rngli
 1017:                                             ; preds = %1014, %1008
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
-  %exitcond.not.i.i.i = icmp eq i32 %lftr.wideiv.i.i.i, %0
+  %exitcond.not.i.i.i = icmp eq i32 %0, %lftr.wideiv.i.i.i
   br i1 %exitcond.not.i.i.i, label %fill_line.exit.i.i, label %1008, !llvm.loop !23
 
 1018:                                             ; preds = %999
@@ -2879,7 +2879,7 @@ uleb128.exit105.i.i:                              ; preds = %.lr.ph.i97.i.i, %11
 1126:                                             ; preds = %1123, %1117
   %indvars.iv.next.i110.i.i = add nsw i64 %indvars.iv.i108.i.i, 1
   %lftr.wideiv.i111.i.i = trunc i64 %indvars.iv.next.i110.i.i to i32
-  %exitcond.not.i112.i.i = icmp eq i32 %lftr.wideiv.i111.i.i, %0
+  %exitcond.not.i112.i.i = icmp eq i32 %0, %lftr.wideiv.i111.i.i
   br i1 %exitcond.not.i112.i.i, label %fill_line.exit.i.i, label %1117, !llvm.loop !23
 
 1127:                                             ; preds = %uleb128.exit105.i.i
@@ -2949,7 +2949,7 @@ uleb128.exit105.i.i:                              ; preds = %.lr.ph.i97.i.i, %11
 1167:                                             ; preds = %1164, %1158
   %indvars.iv.next.i128.i.i = add nsw i64 %indvars.iv.i126.i.i, 1
   %lftr.wideiv.i129.i.i = trunc i64 %indvars.iv.next.i128.i.i to i32
-  %exitcond.not.i130.i.i = icmp eq i32 %lftr.wideiv.i129.i.i, %0
+  %exitcond.not.i130.i.i = icmp eq i32 %0, %lftr.wideiv.i129.i.i
   br i1 %exitcond.not.i130.i.i, label %fill_line.exit.i.i, label %1158, !llvm.loop !23
 
 fill_line.exit.i.i:                               ; preds = %.lr.ph.i115.i.i, %1126, %.lr.ph.i87.i.i, %.lr.ph.i77.i.i, %1017, %1167, %1143, %1140, %1132, %1130, %1127, %1111, %1093, %1088, %1083, %1075, %uleb128.exit75.i.i, %._crit_edge.i.i.i, %uleb128.exit.i.i309, %1002, %999, %999, %999, %999
@@ -3358,7 +3358,7 @@ uleb128.exit20.i:                                 ; preds = %._crit_edge.loopexi
   %109 = zext nneg i8 %.lcssa.i19.i to i64
   %110 = shl i64 %109, %.09.lcssa.i17.i
   %111 = add i64 %110, %.0.lcssa.i18.i
-  %.not93.i = icmp eq i64 %111, %23
+  %.not93.i = icmp eq i64 %23, %111
   br i1 %.not93.i, label %di_find_abbrev.exit, label %.lr.ph.i19
 
 .lr.ph.i19:                                       ; preds = %uleb128.exit20.i, %uleb128.exit60.i
@@ -3518,7 +3518,7 @@ uleb128.exit60.i:                                 ; preds = %._crit_edge.loopexi
   %187 = zext nneg i8 %.lcssa.i59.i to i64
   %188 = shl i64 %187, %.09.lcssa.i57.i
   %189 = add i64 %188, %.0.lcssa.i58.i
-  %.not.i = icmp eq i64 %189, %23
+  %.not.i = icmp eq i64 %23, %189
   br i1 %.not.i, label %di_find_abbrev.exit, label %.lr.ph.i19, !llvm.loop !27
 
 di_find_abbrev.exit:                              ; preds = %uleb128.exit60.i, %31, %uleb128.exit20.i
@@ -3906,7 +3906,7 @@ uleb128.exit43:                                   ; preds = %._crit_edge, %._cri
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %63 = add nsw i32 %40, -1
-  %.not109 = icmp ult i32 %63, %1
+  %.not109 = icmp ugt i32 %1, %63
   %spec.select = select i1 %.not109, ptr %.266, ptr null
   br label %.loopexit
 

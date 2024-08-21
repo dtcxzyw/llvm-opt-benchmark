@@ -7572,7 +7572,7 @@ if.end12.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %w
 
 if.then.i.i.i:                                    ; preds = %if.end12.i.i.i.i, %if.then.i.i.i.i
   %retval.sroa.4.0.i.ph.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i, %if.then.i.i.i.i ], [ %__y.0.lcssa26.i.i.i.i, %if.end12.i.i.i.i ]
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.4.0.i.ph.i.i.i
+  %cmp2.i.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp2.i.i.i.i, label %if.then5.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -7778,7 +7778,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %add.ptr.i.i.i.i
   br i1 %cmp2.i.i.i, label %if.then5, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -8117,8 +8117,8 @@ _ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0
   %right_resid.sroa.3.0.extract.trunc = trunc nuw i64 %right_resid.sroa.3.0.extract.shift to i32
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 24
   %11 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i26 = icmp eq ptr %11, %call.i.i
-  %cmp.i1.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %call.i.i5
+  %cmp.i.i.i.i.i26 = icmp eq ptr %call.i.i, %11
+  %cmp.i1.i.i.i.i = icmp eq ptr %call.i.i5, %add.ptr.i.i.i.i
   %or.cond = select i1 %cmp.i.i.i.i.i26, i1 %cmp.i1.i.i.i.i, i1 false
   br i1 %or.cond, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 

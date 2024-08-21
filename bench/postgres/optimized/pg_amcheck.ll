@@ -2243,8 +2243,8 @@ define internal fastcc void @progress_report(i64 noundef %0, i64 noundef %1, i64
   %15 = tail call i64 @time(ptr noundef null) #12
   %16 = load i64, ptr @last_progress_report, align 8
   %17 = icmp ne i64 %15, %16
-  %brmerge = or i1 %17, %5
-  %brmerge37 = or i1 %brmerge, %6
+  %brmerge = or i1 %5, %17
+  %brmerge37 = or i1 %6, %brmerge
   br i1 %brmerge37, label %18, label %73
 
 18:                                               ; preds = %14

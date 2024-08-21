@@ -212,7 +212,7 @@ define hidden noundef range(i8 4, 3) i8 @_ZN4core4iter6traits8iterator12iter_com
   %14 = tail call { i1, i8 } %13(ptr noundef nonnull align 1 %2), !noalias !18
   %15 = extractvalue { i1, i8 } %14, 0
   %16 = extractvalue { i1, i8 } %14, 1
-  %.not.i.i.i.i.i = icmp eq i8 %16, %12
+  %.not.i.i.i.i.i = icmp eq i8 %12, %16
   %17 = select i1 %15, i1 %.not.i.i.i.i.i, i1 false
   br i1 %17, label %8, label %.split.loop.exit1.i.i.i
 
@@ -252,7 +252,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   %14 = tail call { i1, i8 } %13(ptr noundef nonnull align 1 %2), !noalias !29
   %15 = extractvalue { i1, i8 } %14, 0
   %16 = extractvalue { i1, i8 } %14, 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %16, %12
+  %.not.i.i.i.i.i.i = icmp eq i8 %12, %16
   %17 = select i1 %15, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %17, label %8, label %_ZN4core4iter6traits8iterator12iter_compare17hb675cb207326a688E.llvm.2392520393932681634.exit
 

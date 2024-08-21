@@ -2764,7 +2764,7 @@ define hidden range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %
   %12 = getelementptr inbounds i8, ptr %1, i64 72
   %13 = load i16, ptr %12, align 4
   %14 = zext i16 %13 to i32
-  %.not31 = icmp eq i32 %14, %2
+  %.not31 = icmp eq i32 %2, %14
   br i1 %.not31, label %17, label %15
 
 15:                                               ; preds = %11
@@ -3146,7 +3146,7 @@ define hidden range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, 
 53:                                               ; preds = %33
   %54 = mul nuw i32 %51, 12
   %55 = add nuw i32 %54, 132
-  %56 = icmp ugt i32 %55, %3
+  %56 = icmp ult i32 %3, %55
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %53, %33
@@ -3972,7 +3972,7 @@ define hidden void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 n
   %.1 = phi i32 [ 0, %10 ], [ 1, %.sink.split ]
   %13 = getelementptr inbounds i8, ptr %0, i64 948
   %14 = load i32, ptr %13, align 4
-  %15 = icmp ult i32 %14, %1
+  %15 = icmp ugt i32 %1, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
@@ -3997,7 +3997,7 @@ define hidden void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 n
   %.5 = phi i32 [ %.3, %19 ], [ 1, %.sink.split92 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 952
   %23 = load i32, ptr %22, align 8
-  %24 = icmp ult i32 %23, %2
+  %24 = icmp ugt i32 %2, %23
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %21
@@ -4323,7 +4323,7 @@ define hidden void @png_ascii_from_fp(ptr noalias noundef %0, ptr nocapture noun
   %spec.store.select6 = select i1 %9, i32 15, i32 %10
   %11 = add nuw nsw i32 %spec.store.select6, 5
   %12 = zext nneg i32 %11 to i64
-  %.not = icmp ugt i64 %12, %2
+  %.not = icmp ult i64 %2, %12
   br i1 %.not, label %190, label %13
 
 13:                                               ; preds = %5

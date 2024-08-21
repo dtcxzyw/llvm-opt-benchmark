@@ -48,7 +48,7 @@ define hidden void @zend_accel_hash_init(ptr nocapture noundef %0, i32 noundef %
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %5 = getelementptr inbounds [18 x i32], ptr @prime_numbers, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
-  %.not = icmp ult i32 %6, %1
+  %.not = icmp ugt i32 %1, %6
   br i1 %.not, label %3, label %7
 
 7:                                                ; preds = %4, %3

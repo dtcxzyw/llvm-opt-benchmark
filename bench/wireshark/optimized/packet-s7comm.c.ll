@@ -3064,7 +3064,7 @@ define internal fastcc noundef i32 @s7comm_add_timestamp_to_tree(ptr noundef %0,
 .preheader:                                       ; preds = %5, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %5 ]
   %9 = trunc nuw nsw i64 %indvars.iv to i32
-  %10 = add i32 %9, %2
+  %10 = add i32 %2, %9
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #7
   %12 = lshr i8 %11, 4
   %13 = mul nsw i8 %12, -6
@@ -3089,7 +3089,7 @@ define internal fastcc noundef i32 @s7comm_add_timestamp_to_tree(ptr noundef %0,
 20:                                               ; preds = %19, %20
   %indvars.iv87 = phi i64 [ 0, %19 ], [ %indvars.iv.next88, %20 ]
   %21 = trunc nuw nsw i64 %indvars.iv87 to i32
-  %22 = add i32 %21, %2
+  %22 = add i32 %2, %21
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #7
   %24 = lshr i8 %23, 4
   %25 = mul nsw i8 %24, -6
@@ -3717,7 +3717,7 @@ define internal fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef %1, pt
   %62 = load ptr, ptr %55, align 8
   %63 = load i32, ptr %11, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.2301, i32 noundef %63) #7
-  %64 = add nuw nsw i32 %13, %5
+  %64 = add nuw nsw i32 %5, %13
   %65 = zext i16 %4 to i32
   %66 = load i32, ptr @hf_s7comm_data, align 4
   %67 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %64, i32 noundef %65, i32 noundef 0) #7
@@ -3952,7 +3952,7 @@ define internal fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef %1, pt
 212:                                              ; preds = %197, %210, %191
   %.0201 = phi i8 [ %199, %210 ], [ %199, %197 ], [ 0, %191 ]
   %.0200 = phi i8 [ %203, %210 ], [ %203, %197 ], [ 0, %191 ]
-  %213 = add nuw nsw i32 %13, %5
+  %213 = add nuw nsw i32 %5, %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %214 = icmp ugt i16 %4, 3
   br i1 %214, label %215, label %s7comm_decode_ud_data.exit
@@ -7618,7 +7618,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_tis_param(ptr noundef %0, p
   br label %.thread112
 
 .thread112:                                       ; preds = %14, %16, %23, %49, %91, %76, %87, %81, %60, %5
-  %97 = add i32 %7, %4
+  %97 = add i32 %4, %7
   ret i32 %97
 }
 

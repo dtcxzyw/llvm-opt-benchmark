@@ -522,7 +522,7 @@ if.then7.i:                                       ; preds = %Classifier_match.ex
   %call.i24.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #18
   %add1.i.i = add i64 %nOut.042.i, 3
   %add12.i = add i64 %call.i24.i, %add1.i.i
-  %cmp13.i = icmp ugt i64 %add12.i, %2
+  %cmp13.i = icmp ult i64 %2, %add12.i
   br i1 %cmp13.i, label %return, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then7.i
@@ -1687,14 +1687,14 @@ if.end:                                           ; preds = %entry
   %add12 = add i64 %add, %counters.sroa.4.0.copyload
   %add13 = add i64 %add12, %counters.sroa.5.0.copyload
   %add15 = add i64 %add13, %counters.sroa.6.0.copyload
-  %cmp16 = icmp ugt i64 %add15, %iSize
-  %cmp17 = icmp ugt i64 %counters.sroa.3.0.copyload, %iSize
+  %cmp16 = icmp ult i64 %iSize, %add15
+  %cmp17 = icmp ult i64 %iSize, %counters.sroa.3.0.copyload
   %or.cond = or i1 %cmp17, %cmp16
-  %cmp19 = icmp ugt i64 %counters.sroa.4.0.copyload, %iSize
+  %cmp19 = icmp ult i64 %iSize, %counters.sroa.4.0.copyload
   %or.cond254 = or i1 %cmp19, %or.cond
-  %cmp21 = icmp ugt i64 %counters.sroa.5.0.copyload, %iSize
+  %cmp21 = icmp ult i64 %iSize, %counters.sroa.5.0.copyload
   %or.cond255 = or i1 %cmp21, %or.cond254
-  %cmp23 = icmp ugt i64 %counters.sroa.6.0.copyload, %iSize
+  %cmp23 = icmp ult i64 %iSize, %counters.sroa.6.0.copyload
   %or.cond256 = or i1 %cmp23, %or.cond255
   br i1 %or.cond256, label %return, label %if.end25
 
@@ -6493,7 +6493,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 if.end.i.i:                                       ; preds = %for.body.i.i
   %prefix_len21.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %19 = load i64, ptr %prefix_len21.i.i, align 8
-  %cmp22.i.i = icmp eq i64 %19, %sub.ptr.sub.i
+  %cmp22.i.i = icmp eq i64 %sub.ptr.sub.i, %19
   br i1 %cmp22.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i

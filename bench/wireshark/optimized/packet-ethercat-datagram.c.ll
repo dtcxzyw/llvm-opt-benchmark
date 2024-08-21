@@ -2332,7 +2332,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
 .split.us:                                        ; preds = %12
   %18 = load i16, ptr %13, align 2
   %19 = zext i16 %18 to i32
-  %20 = add nuw nsw i32 %19, %4
+  %20 = add nuw nsw i32 %4, %19
   %21 = add i16 %18, %14
   %22 = zext i16 %21 to i32
   br label %23
@@ -2383,7 +2383,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
   %.164 = phi i32 [ -1, %.split.preheader ], [ %.2.lcssa, %._crit_edge.split ]
   %36 = load i16, ptr %17, align 2
   %37 = zext i16 %36 to i32
-  %38 = add nuw nsw i32 %37, %4
+  %38 = add nuw nsw i32 %4, %37
   %39 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %indvars.iv
   %40 = load i16, ptr %39, align 8
   %41 = zext i16 %40 to i32

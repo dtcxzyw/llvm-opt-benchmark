@@ -2148,7 +2148,7 @@ lpGetIntegerIfValid.exit164:                      ; preds = %if.end2.i155, %lpGe
   %41 = load ptr, ptr %lp_ele103, align 8
   %call112 = call ptr @lpNext(ptr noundef %call108, ptr noundef %41) #16
   store ptr %call112, ptr %lp_ele103, align 8
-  %cmp113 = icmp eq i64 %retval.0.i161, %numfields
+  %cmp113 = icmp eq i64 %numfields, %retval.0.i161
   br i1 %cmp113, label %for.cond117.preheader, label %if.end146
 
 for.cond117.preheader:                            ; preds = %lpGetIntegerIfValid.exit164
@@ -4499,7 +4499,7 @@ createObjectFromStreamID.exit:                    ; preds = %if.then72, %sw.bb.i
 
 if.end75:                                         ; preds = %if.end69, %createObjectFromStreamID.exit, %while.end
   %inc76 = add i64 %arraylen.0, 1
-  %cmp79 = icmp eq i64 %inc76, %count
+  %cmp79 = icmp eq i64 %count, %inc76
   %or.cond59 = select i1 %tobool77.not, i1 %cmp79, i1 false
   br i1 %or.cond59, label %while.end83, label %while.cond, !llvm.loop !28
 

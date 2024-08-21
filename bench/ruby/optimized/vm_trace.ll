@@ -3883,7 +3883,7 @@ define internal i64 @tracepoint_enable_m(ptr nocapture readnone %0, i64 noundef 
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = load i64, ptr @sym_default, align 8
-  %10 = icmp eq i64 %9, %4
+  %10 = icmp eq i64 %4, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %5
@@ -5232,7 +5232,7 @@ define dso_local i32 @rb_postponed_job_preregister(i32 noundef %0, ptr noundef %
   %11 = extractvalue { i64, i1 } %10, 0
   %12 = inttoptr i64 %11 to ptr
   %13 = extractvalue { i64, i1 } %10, 1
-  %14 = icmp eq ptr %12, %1
+  %14 = icmp eq ptr %1, %12
   %or.cond = or i1 %13, %14
   br i1 %or.cond, label %15, label %20
 
@@ -5292,7 +5292,7 @@ define dso_local range(i32 0, 2) i32 @rb_postponed_job_register(i32 noundef %0, 
   %11 = extractvalue { i64, i1 } %10, 0
   %12 = inttoptr i64 %11 to ptr
   %13 = extractvalue { i64, i1 } %10, 1
-  %14 = icmp eq ptr %12, %1
+  %14 = icmp eq ptr %1, %12
   %or.cond.i.i = or i1 %13, %14
   br i1 %or.cond.i.i, label %rb_postponed_job_preregister.exit.i, label %15
 
@@ -5347,7 +5347,7 @@ define dso_local range(i32 0, 2) i32 @rb_postponed_job_register_one(i32 noundef 
   %11 = extractvalue { i64, i1 } %10, 0
   %12 = inttoptr i64 %11 to ptr
   %13 = extractvalue { i64, i1 } %10, 1
-  %14 = icmp eq ptr %12, %1
+  %14 = icmp eq ptr %1, %12
   %or.cond.i.i = or i1 %13, %14
   br i1 %or.cond.i.i, label %rb_postponed_job_preregister.exit.i, label %15
 

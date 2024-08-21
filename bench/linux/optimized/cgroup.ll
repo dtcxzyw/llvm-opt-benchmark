@@ -7353,7 +7353,7 @@ define dso_local ptr @cgroup_procs_write_start(ptr noundef %0, i1 noundef zeroex
 
 11:                                               ; preds = %3
   %12 = icmp ne i32 %8, 0
-  %13 = or i1 %12, %1
+  %13 = or i1 %1, %12
   %14 = zext i1 %13 to i8
   store i8 %14, ptr %2, align 1
   call void @cpus_read_lock() #30
@@ -18371,7 +18371,7 @@ define internal fastcc i32 @cgroup_attach_permissions(ptr noundef readonly %0, p
 125:                                              ; preds = %._crit_edge18, %117, %106, %72
   %126 = phi i32 [ 0, %72 ], [ 0, %117 ], [ %124, %._crit_edge18 ], [ 0, %106 ]
   %127 = icmp ne i32 %126, 0
-  %128 = or i1 %127, %3
+  %128 = or i1 %3, %127
   br i1 %128, label %.thread11, label %129
 
 129:                                              ; preds = %125

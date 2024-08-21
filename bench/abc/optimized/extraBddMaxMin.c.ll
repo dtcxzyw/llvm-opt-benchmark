@@ -23,13 +23,13 @@ define ptr @Extra_zddMaximal(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 define ptr @extraZddMaximal(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %55, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   br i1 %9, label %55, label %10
 
 10:                                               ; preds = %6
@@ -133,7 +133,7 @@ define ptr @Extra_zddMinimal(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 define ptr @extraZddMinimal(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %56, label %6
 
 6:                                                ; preds = %2
@@ -247,13 +247,13 @@ define ptr @Extra_zddMaxUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 define ptr @extraZddMaxUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 320
-  %9 = icmp eq ptr %5, %2
+  %9 = icmp eq ptr %2, %5
   %10 = icmp eq ptr %1, %2
   %or.cond96118 = or i1 %10, %9
   br i1 %or.cond96118, label %.loopexit, label %.lr.ph121.preheader
@@ -265,11 +265,11 @@ define ptr @extraZddMaxUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %tailrecurse
   %.tr97101120 = phi ptr [ %.tr98102119, %tailrecurse ], [ %1, %.lr.ph121.preheader ]
   %.tr98102119 = phi ptr [ %.tr97101120, %tailrecurse ], [ %2, %.lr.ph121.preheader ]
-  %12 = icmp eq ptr %11, %.tr97101120
+  %12 = icmp eq ptr %.tr97101120, %11
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %.lr.ph121
-  %14 = icmp eq ptr %11, %.tr98102119
+  %14 = icmp eq ptr %.tr98102119, %11
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %13
@@ -292,7 +292,7 @@ define ptr @extraZddMaxUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   br i1 %or.cond, label %tailrecurse, label %31
 
 tailrecurse:                                      ; preds = %26, %15
-  %29 = icmp eq ptr %5, %.tr97101120
+  %29 = icmp eq ptr %.tr97101120, %5
   %30 = icmp eq ptr %.tr98102119, %.tr97101120
   %or.cond96 = or i1 %30, %29
   br i1 %or.cond96, label %.loopexit, label %.lr.ph121
@@ -428,7 +428,7 @@ define ptr @Extra_zddMinUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 define ptr @extraZddMinUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -439,7 +439,7 @@ define ptr @extraZddMinUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %9 = phi ptr [ %5, %.lr.ph ], [ %33, %tailrecurse ]
   %.tr98104 = phi ptr [ %2, %.lr.ph ], [ %.tr97103, %tailrecurse ]
   %.tr97103 = phi ptr [ %1, %.lr.ph ], [ %.tr98104, %tailrecurse ]
-  %10 = icmp eq ptr %9, %.tr98104
+  %10 = icmp eq ptr %.tr98104, %9
   %11 = icmp eq ptr %.tr97103, %.tr98104
   %or.cond96 = or i1 %11, %10
   br i1 %or.cond96, label %.loopexit, label %12
@@ -480,7 +480,7 @@ define ptr @extraZddMinUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
 
 tailrecurse:                                      ; preds = %30, %19
   %33 = load ptr, ptr %4, align 8
-  %34 = icmp eq ptr %33, %.tr98104
+  %34 = icmp eq ptr %.tr98104, %33
   br i1 %34, label %.loopexit, label %8
 
 35:                                               ; preds = %30
@@ -614,8 +614,8 @@ define ptr @Extra_zddDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 define ptr @extraZddDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
-  %7 = icmp eq ptr %5, %2
+  %6 = icmp eq ptr %1, %5
+  %7 = icmp eq ptr %2, %5
   %or.cond122 = or i1 %6, %7
   br i1 %or.cond122, label %.loopexit, label %.lr.ph
 
@@ -628,11 +628,11 @@ define ptr @extraZddDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
 11:                                               ; preds = %.lr.ph, %tailrecurse
   %.tr119124 = phi ptr [ %2, %.lr.ph ], [ %.tr118123, %tailrecurse ]
   %.tr118123 = phi ptr [ %1, %.lr.ph ], [ %.tr119124, %tailrecurse ]
-  %12 = icmp eq ptr %9, %.tr118123
+  %12 = icmp eq ptr %.tr118123, %9
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp eq ptr %9, %.tr119124
+  %14 = icmp eq ptr %.tr119124, %9
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %13
@@ -655,8 +655,8 @@ define ptr @extraZddDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   br i1 %or.cond117, label %tailrecurse, label %31
 
 tailrecurse:                                      ; preds = %26, %15
-  %29 = icmp eq ptr %5, %.tr119124
-  %30 = icmp eq ptr %5, %.tr118123
+  %29 = icmp eq ptr %.tr119124, %5
+  %30 = icmp eq ptr %.tr118123, %5
   %or.cond = or i1 %29, %30
   br i1 %or.cond, label %.loopexit, label %11
 
@@ -840,8 +840,8 @@ define ptr @Extra_zddCrossProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2
 define ptr @extraZddCrossProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
-  %7 = icmp eq ptr %5, %2
+  %6 = icmp eq ptr %1, %5
+  %7 = icmp eq ptr %2, %5
   %or.cond136 = or i1 %6, %7
   br i1 %or.cond136, label %.loopexit, label %.lr.ph
 
@@ -854,8 +854,8 @@ define ptr @extraZddCrossProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 11:                                               ; preds = %.lr.ph, %tailrecurse
   %.tr133138 = phi ptr [ %2, %.lr.ph ], [ %.tr132137, %tailrecurse ]
   %.tr132137 = phi ptr [ %1, %.lr.ph ], [ %.tr133138, %tailrecurse ]
-  %12 = icmp eq ptr %9, %.tr132137
-  %13 = icmp eq ptr %9, %.tr133138
+  %12 = icmp eq ptr %.tr132137, %9
+  %13 = icmp eq ptr %.tr133138, %9
   %or.cond130 = or i1 %12, %13
   br i1 %or.cond130, label %.loopexit, label %14
 
@@ -879,8 +879,8 @@ define ptr @extraZddCrossProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %or.cond131, label %tailrecurse, label %30
 
 tailrecurse:                                      ; preds = %25, %14
-  %28 = icmp eq ptr %5, %.tr133138
-  %29 = icmp eq ptr %5, %.tr132137
+  %28 = icmp eq ptr %.tr133138, %5
+  %29 = icmp eq ptr %.tr132137, %5
   %or.cond = or i1 %28, %29
   br i1 %or.cond, label %.loopexit, label %11
 
@@ -1088,8 +1088,8 @@ define ptr @Extra_zddMaxDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %
 define ptr @extraZddMaxDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
-  %7 = icmp eq ptr %5, %2
+  %6 = icmp eq ptr %1, %5
+  %7 = icmp eq ptr %2, %5
   %or.cond134 = or i1 %6, %7
   br i1 %or.cond134, label %.loopexit, label %.lr.ph
 
@@ -1102,11 +1102,11 @@ define ptr @extraZddMaxDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2
 11:                                               ; preds = %.lr.ph, %tailrecurse
   %.tr131136 = phi ptr [ %2, %.lr.ph ], [ %.tr130135, %tailrecurse ]
   %.tr130135 = phi ptr [ %1, %.lr.ph ], [ %.tr131136, %tailrecurse ]
-  %12 = icmp eq ptr %9, %.tr130135
+  %12 = icmp eq ptr %.tr130135, %9
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp eq ptr %9, %.tr131136
+  %14 = icmp eq ptr %.tr131136, %9
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %13
@@ -1129,8 +1129,8 @@ define ptr @extraZddMaxDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond129, label %tailrecurse, label %31
 
 tailrecurse:                                      ; preds = %26, %15
-  %29 = icmp eq ptr %5, %.tr131136
-  %30 = icmp eq ptr %5, %.tr130135
+  %29 = icmp eq ptr %.tr131136, %5
+  %30 = icmp eq ptr %.tr130135, %5
   %or.cond = or i1 %29, %30
   br i1 %or.cond, label %.loopexit, label %11
 

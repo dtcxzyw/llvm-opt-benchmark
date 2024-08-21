@@ -40335,7 +40335,7 @@ sw.bb:                                            ; preds = %_ZN4entt16basic_spa
   %head = getelementptr inbounds i8, ptr %this, i64 68
   %11 = load i32, ptr %head, align 4, !tbaa !24
   %cmp.not = icmp eq i32 %11, 1048575
-  %brmerge = or i1 %cmp.not, %force_back
+  %brmerge = or i1 %force_back, %cmp.not
   br i1 %brmerge, label %sw.bb13, label %if.then
 
 if.then:                                          ; preds = %sw.bb
@@ -60833,7 +60833,7 @@ for.body:                                         ; preds = %for.body.preheader5
   %add = add i64 %cnt.014, %conv7
   %inc = add i32 %pos.015, 1
   %conv = zext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %length
+  %cmp = icmp ugt i64 %length, %conv
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !1889
 }
 
@@ -62190,7 +62190,7 @@ for.body:                                         ; preds = %for.body.preheader5
   %add = add i64 %cnt.08, %conv3
   %inc = add i32 %pos.09, 1
   %conv = zext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %length
+  %cmp = icmp ugt i64 %length, %conv
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !1945
 }
 
@@ -65069,7 +65069,7 @@ lor.end12:                                        ; preds = %lor.rhs7, %for.body
   %add = add i64 %conv13, %cnt.022
   %inc = add i32 %pos.023, 1
   %conv = zext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %length
+  %cmp = icmp ugt i64 %length, %conv
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !2063
 }
 
@@ -66658,7 +66658,7 @@ for.body:                                         ; preds = %for.body.preheader5
   %add = add i64 %cnt.014, %conv7
   %inc = add i32 %pos.015, 1
   %conv = zext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %length
+  %cmp = icmp ugt i64 %length, %conv
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !2132
 }
 
@@ -70341,7 +70341,7 @@ lor.end24:                                        ; preds = %lor.rhs17, %for.bod
   %add = add i64 %conv25, %cnt.038
   %inc = add i32 %pos.039, 1
   %conv = zext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %length
+  %cmp = icmp ugt i64 %length, %conv
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !2308
 }
 
@@ -72642,7 +72642,7 @@ lor.end18:                                        ; preds = %lor.rhs12, %for.bod
   %add = add i64 %conv19, %cnt.030
   %inc = add i32 %pos.031, 1
   %conv = zext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %length
+  %cmp = icmp ugt i64 %length, %conv
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !2414
 }
 
@@ -74948,7 +74948,7 @@ lor.end12:                                        ; preds = %lor.rhs7, %for.body
   %add = add i64 %conv13, %cnt.022
   %inc = add i32 %pos.023, 1
   %conv = zext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %length
+  %cmp = icmp ugt i64 %length, %conv
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !2520
 }
 

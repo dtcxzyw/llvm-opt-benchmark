@@ -342,10 +342,10 @@ cleanup.done:                                     ; preds = %cond.false, %cleanu
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp eq i64 %1, %2
-  %cmp2.not.i = icmp ule ptr %0, %value
+  %cmp2.not.i = icmp uge ptr %value, %0
   %or.cond.not8.i = and i1 %cmp2.not.i, %cmp.i
   %add.ptr.i8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %1
-  %cmp5.i = icmp ugt ptr %add.ptr.i8, %value
+  %cmp5.i = icmp ult ptr %value, %add.ptr.i8
   %or.cond7.i = select i1 %or.cond.not8.i, i1 %cmp5.i, i1 false
   br i1 %or.cond7.i, label %if.then.i, label %if.else.i
 
@@ -460,7 +460,7 @@ if.else:                                          ; preds = %entry
 
 while.body.lr.ph:                                 ; preds = %if.else
   %length_ = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.not7.i.i = icmp eq ptr %name.coerce1.fr, %name.coerce0
+  %cmp.not7.i.i = icmp eq ptr %name.coerce0, %name.coerce1.fr
   %5 = load i64, ptr %length_, align 8
   br i1 %cmp.not7.i.i, label %while.body.lr.ph.split.us.split, label %while.body.preheader
 
@@ -706,7 +706,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %tobool.not40.i, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_17getNumberOfValuesEN5folly5RangeIPKcEEE3$_0EEbS6_T_.exit", label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.else.i
-  %cmp.not7.i.i.i = icmp eq ptr %name.coerce1.fr.i, %name.coerce0
+  %cmp.not7.i.i.i = icmp eq ptr %name.coerce0, %name.coerce1.fr.i
   %8 = load i64, ptr %length_.i, align 8
   %call8.us60.i = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i, i32 noundef 1, i64 noundef %8) #25
   %cmp9.us61.i = icmp eq ptr %call8.us60.i, null
@@ -905,7 +905,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not44, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.else
-  %cmp.not7.i.i = icmp eq ptr %name.coerce1.fr, %name.coerce0
+  %cmp.not7.i.i = icmp eq ptr %name.coerce0, %name.coerce1.fr
   %deletedCount_ = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load i64, ptr %length_, align 8
   %call7.us70 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i, i32 noundef 1, i64 noundef %8) #25
@@ -2002,7 +2002,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not57, label %if.end55, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %cmp.not7.i.i = icmp eq ptr %name.coerce1.fr, %name.coerce0
+  %cmp.not7.i.i = icmp eq ptr %name.coerce0, %name.coerce1.fr
   %deletedCount_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %length_, align 8
   %call6.us83 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i, i32 noundef 1, i64 noundef %2) #25
@@ -2596,7 +2596,7 @@ if.then:                                          ; preds = %for.body
   %and.i = and i64 %29, %shl.i.i
   %cmp.i21 = icmp ne i64 %and.i, 0
   %cmp8 = icmp eq i8 %28, 47
-  %or.cond = and i1 %cmp8, %stripPriority
+  %or.cond = and i1 %stripPriority, %cmp8
   %or.cond44 = or i1 %or.cond, %cmp.i21
   br i1 %or.cond44, label %if.then21, label %lor.rhs
 

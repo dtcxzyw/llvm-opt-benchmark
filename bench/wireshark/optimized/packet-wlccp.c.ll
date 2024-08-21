@@ -1355,7 +1355,7 @@ define internal fastcc i32 @dissect_wlccp_tlvs(ptr noundef %0, ptr noundef %1, i
   %5 = add i32 %2, 2
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %5) #4
   %7 = zext i16 %6 to i32
-  %8 = add i32 %7, %2
+  %8 = add i32 %2, %7
   %9 = load i32, ptr @hf_wlccp_tlv, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef 0) #4
   %11 = load i32, ptr @ett_wlccp_tlv_tree, align 4

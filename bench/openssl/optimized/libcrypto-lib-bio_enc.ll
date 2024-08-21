@@ -180,7 +180,7 @@ while.body31:                                     ; preds = %if.end25, %if.end45
 
 if.then38:                                        ; preds = %while.body31
   tail call void @BIO_copy_next_retry(ptr noundef %b) #5
-  %cmp39 = icmp eq i32 %sub26, %inl
+  %cmp39 = icmp eq i32 %inl, %sub26
   %sub42 = sub nsw i32 %inl, %sub26
   %cond44 = select i1 %cmp39, i32 %call36, i32 %sub42
   br label %return

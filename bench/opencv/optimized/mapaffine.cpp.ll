@@ -622,8 +622,8 @@ define void @_ZNK2cv3reg9MapAffine10inverseMapEv(ptr dead_on_unwind noalias noca
   %13 = load double, ptr %12, align 8, !noalias !21
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8, !noalias !21
-  %16 = fneg double %13
-  %17 = fmul double %15, %16
+  %16 = fneg double %15
+  %17 = fmul double %13, %16
   %18 = tail call noundef double @llvm.fmuladd.f64(double %9, double %11, double %17)
   %19 = fcmp une double %18, 0.000000e+00
   br i1 %19, label %20, label %_ZNK2cv8internal14Matx_FastInvOpIdLi2ELi2EEclERKNS_4MatxIdLi2ELi2EEERS4_i.exit.i
@@ -632,12 +632,12 @@ define void @_ZNK2cv3reg9MapAffine10inverseMapEv(ptr dead_on_unwind noalias noca
   %21 = fdiv double 1.000000e+00, %18
   %22 = fmul double %9, %21
   %23 = fmul double %11, %21
-  %24 = fmul double %21, %16
-  %25 = fneg double %15
-  %26 = fmul double %21, %25
+  %24 = fneg double %13
+  %25 = fmul double %21, %24
+  %26 = fmul double %21, %16
   store double %23, ptr %3, align 8, !alias.scope !21
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
-  store double %24, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !21
+  store double %25, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !21
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
   store double %26, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !21
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
@@ -872,11 +872,11 @@ define void @_ZN2cv3reg9MapAffine5scaleEd(ptr nocapture noundef nonnull align 8 
 _ZN2cvmLIdLi2EEERNS_3VecIT_XT0_EEES4_d.exit.critedge:
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load double, ptr %2, align 8
-  %4 = fmul double %3, %1
+  %4 = fmul double %1, %3
   store double %4, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load double, ptr %5, align 8
-  %7 = fmul double %6, %1
+  %7 = fmul double %1, %6
   store double %7, ptr %5, align 8
   ret void
 }

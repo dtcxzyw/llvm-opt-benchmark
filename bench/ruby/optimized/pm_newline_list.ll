@@ -105,7 +105,7 @@ define hidden i64 @pm_newline_list_line_column(ptr nocapture noundef readonly %0
 
 20:                                               ; preds = %13
   %21 = trunc i64 %16 to i32
-  %22 = add i32 %21, %2
+  %22 = add i32 %2, %21
   br label %36
 
 23:                                               ; preds = %13

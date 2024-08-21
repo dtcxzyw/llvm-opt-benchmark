@@ -2239,7 +2239,7 @@ define internal void @_ZN2cvL16batchDistHammingEPKhS1_miiPiS1_(ptr noundef %0, p
 
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.lr.ph33
   %indvars.iv36 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next37, %.lr.ph33 ]
-  %9 = mul i64 %indvars.iv36, %2
+  %9 = mul i64 %2, %indvars.iv36
   %10 = getelementptr inbounds i8, ptr %1, i64 %9
   %11 = tail call noundef i32 @_ZN2cv3hal11normHammingEPKhS2_i(ptr noundef %0, ptr noundef %10, i32 noundef %4)
   %12 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv36
@@ -2256,7 +2256,7 @@ define internal void @_ZN2cvL16batchDistHammingEPKhS1_miiPiS1_(ptr noundef %0, p
   br i1 %.not28, label %19, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = mul i64 %indvars.iv, %2
+  %16 = mul i64 %2, %indvars.iv
   %17 = getelementptr inbounds i8, ptr %1, i64 %16
   %18 = tail call noundef i32 @_ZN2cv3hal11normHammingEPKhS2_i(ptr noundef %0, ptr noundef %17, i32 noundef %4)
   br label %19
@@ -2295,7 +2295,7 @@ define internal void @_ZN2cvL17batchDistHamming2EPKhS1_miiPiS1_(ptr noundef %0, 
 
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.lr.ph33
   %indvars.iv36 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next37, %.lr.ph33 ]
-  %9 = mul i64 %indvars.iv36, %2
+  %9 = mul i64 %2, %indvars.iv36
   %10 = getelementptr inbounds i8, ptr %1, i64 %9
   %11 = tail call noundef i32 @_ZN2cv3hal11normHammingEPKhS2_ii(ptr noundef %0, ptr noundef %10, i32 noundef %4, i32 noundef 2)
   %12 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv36
@@ -2312,7 +2312,7 @@ define internal void @_ZN2cvL17batchDistHamming2EPKhS1_miiPiS1_(ptr noundef %0, 
   br i1 %.not28, label %19, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = mul i64 %indvars.iv, %2
+  %16 = mul i64 %2, %indvars.iv
   %17 = getelementptr inbounds i8, ptr %1, i64 %16
   %18 = tail call noundef i32 @_ZN2cv3hal11normHammingEPKhS2_ii(ptr noundef %0, ptr noundef %17, i32 noundef %4, i32 noundef 2)
   br label %19

@@ -705,7 +705,7 @@ define range(i32 0, 2) i32 @tng_molecule_find(ptr nocapture noundef readonly %0,
 
 30:                                               ; preds = %25, %.lr.ph.split
   %31 = load i64, ptr %22, align 8
-  %32 = icmp eq i64 %31, %2
+  %32 = icmp eq i64 %2, %31
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %25, %30
@@ -729,7 +729,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define range(i32 0, 2) i32 @tng_molecule_of_index_get(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 208
   %5 = load i64, ptr %4, align 8
-  %.not = icmp sgt i64 %5, %1
+  %.not = icmp slt i64 %1, %5
   br i1 %.not, label %6, label %10
 
 6:                                                ; preds = %3
@@ -1643,7 +1643,7 @@ define noundef i32 @tng_molecule_num_chains_get(ptr nocapture noundef readnone %
 define range(i32 0, 2) i32 @tng_molecule_chain_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
-  %.not = icmp sgt i64 %6, %2
+  %.not = icmp slt i64 %2, %6
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %4
@@ -1671,7 +1671,7 @@ define noundef i32 @tng_molecule_num_residues_get(ptr nocapture noundef readnone
 define range(i32 0, 2) i32 @tng_molecule_residue_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
-  %.not = icmp sgt i64 %6, %2
+  %.not = icmp slt i64 %2, %6
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %4
@@ -1699,7 +1699,7 @@ define noundef i32 @tng_molecule_num_atoms_get(ptr nocapture noundef readnone %0
 define range(i32 0, 2) i32 @tng_molecule_atom_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i64, ptr %5, align 8
-  %.not = icmp sgt i64 %6, %2
+  %.not = icmp slt i64 %2, %6
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %4
@@ -1768,7 +1768,7 @@ define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr nocapture noundef readno
 31:                                               ; preds = %26, %.lr.ph.split
   %32 = getelementptr inbounds i8, ptr %23, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = icmp eq i64 %33, %3
+  %34 = icmp eq i64 %3, %33
   br i1 %34, label %.loopexit, label %35
 
 35:                                               ; preds = %26, %31
@@ -1939,7 +1939,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr nocapture noundef readnon
 31:                                               ; preds = %26, %.lr.ph.split
   %32 = getelementptr inbounds i8, ptr %23, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = icmp eq i64 %33, %3
+  %34 = icmp eq i64 %3, %33
   br i1 %34, label %.loopexit, label %35
 
 35:                                               ; preds = %26, %31
@@ -1985,7 +1985,7 @@ define noundef i32 @tng_chain_num_residues_get(ptr nocapture noundef readnone %0
 define range(i32 0, 2) i32 @tng_chain_residue_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
-  %.not = icmp sgt i64 %6, %2
+  %.not = icmp slt i64 %2, %6
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %4
@@ -2054,7 +2054,7 @@ define range(i32 0, 2) i32 @tng_chain_residue_find(ptr nocapture noundef readnon
 31:                                               ; preds = %26, %.lr.ph.split
   %32 = getelementptr inbounds i8, ptr %23, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = icmp eq i64 %33, %3
+  %34 = icmp eq i64 %3, %33
   br i1 %34, label %.loopexit, label %35
 
 35:                                               ; preds = %26, %31
@@ -2165,7 +2165,7 @@ define noundef i32 @tng_residue_num_atoms_get(ptr nocapture noundef readnone %0,
 define range(i32 0, 2) i32 @tng_residue_atom_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #14 {
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
-  %.not = icmp sgt i64 %6, %2
+  %.not = icmp slt i64 %2, %6
   br i1 %.not, label %7, label %19
 
 7:                                                ; preds = %4
@@ -2970,14 +2970,14 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr nocapture noundef %0, i
   %.05775 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
   %14 = getelementptr inbounds %struct.tng_particle_mapping, ptr %9, i64 %.05775
   %15 = load i64, ptr %14, align 8
-  %.not67 = icmp sgt i64 %15, %1
+  %.not67 = icmp slt i64 %1, %15
   br i1 %.not67, label %24, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = add nsw i64 %18, %15
-  %20 = icmp sgt i64 %19, %1
+  %20 = icmp slt i64 %1, %19
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %16
@@ -5864,7 +5864,7 @@ define noundef i32 @tng_medium_stride_length_get(ptr nocapture noundef readonly 
 define range(i32 0, 2) i32 @tng_medium_stride_length_set(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8
-  %.not = icmp sgt i64 %4, %1
+  %.not = icmp slt i64 %1, %4
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %2
@@ -5889,7 +5889,7 @@ define noundef i32 @tng_long_stride_length_get(ptr nocapture noundef readonly %0
 define range(i32 0, 2) i32 @tng_long_stride_length_set(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load i64, ptr %3, align 8
-  %.not = icmp slt i64 %4, %1
+  %.not = icmp sgt i64 %1, %4
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %2
@@ -11320,7 +11320,7 @@ define range(i32 0, 3) i32 @tng_frame_set_nr_find(ptr noundef %0, i64 noundef %1
 
 6:                                                ; preds = %2
   %7 = load i64, ptr %3, align 8
-  %.not161 = icmp sgt i64 %7, %1
+  %.not161 = icmp slt i64 %1, %7
   br i1 %.not161, label %8, label %219
 
 8:                                                ; preds = %6
@@ -11330,7 +11330,7 @@ define range(i32 0, 3) i32 @tng_frame_set_nr_find(ptr noundef %0, i64 noundef %1
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = sub nsw i64 %13, %1
-  %15 = icmp sgt i64 %14, %1
+  %15 = icmp slt i64 %1, %14
   %.0136.in.v = select i1 %15, i64 240, i64 256
   %.0136.in = getelementptr inbounds i8, ptr %0, i64 %.0136.in.v
   %.0135 = select i1 %15, i64 0, i64 %13
@@ -11964,7 +11964,7 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   %66 = load i64, ptr %65, align 8
   %67 = add nsw i64 %64, %66
   %.not243 = icmp sle i64 %64, %1
-  %.not244.not = icmp sgt i64 %67, %1
+  %.not244.not = icmp slt i64 %1, %67
   %or.cond = select i1 %.not243, i1 %.not244.not, i1 false
   br i1 %or.cond, label %68, label %82
 
@@ -12022,7 +12022,7 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   %.0229 = select i1 %90, i64 %spec.select, i64 %84
   %93 = call i32 @tng_num_frames_get(ptr noundef nonnull %0, ptr noundef nonnull %4)
   %94 = load i64, ptr %4, align 8
-  %.not245 = icmp sgt i64 %94, %1
+  %.not245 = icmp slt i64 %1, %94
   br i1 %.not245, label %109, label %95
 
 95:                                               ; preds = %82
@@ -12203,8 +12203,8 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   %169 = tail call noundef i64 @llvm.smax.i64(i64 %168, i64 0)
   %170 = load i64, ptr %65, align 8
   %171 = add nsw i64 %169, %170
-  %.not249 = icmp sle i64 %169, %1
-  %.not250.not = icmp sgt i64 %171, %1
+  %.not249 = icmp sge i64 %1, %169
+  %.not250.not = icmp slt i64 %1, %171
   %or.cond286 = select i1 %.not249, i1 %.not250.not, i1 false
   br i1 %or.cond286, label %172, label %186
 
@@ -12308,16 +12308,16 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   %.pre491 = load i64, ptr %65, align 8
   %215 = tail call noundef i64 @llvm.smax.i64(i64 %.pre, i64 0)
   %216 = add nsw i64 %215, %.pre491
-  %.not281 = icmp sle i64 %215, %1
-  %.not282.not = icmp sgt i64 %216, %1
+  %.not281 = icmp sge i64 %1, %215
+  %.not282.not = icmp slt i64 %1, %216
   %or.cond287 = select i1 %.not281, i1 %.not282.not, i1 false
   br i1 %or.cond287, label %.loopexit544, label %194, !llvm.loop !92
 
 .thread510:                                       ; preds = %.lr.ph844
   %217 = tail call noundef i64 @llvm.smax.i64(i64 %197, i64 0)
   %218 = add nsw i64 %217, %198
-  %.not281511 = icmp sle i64 %217, %1
-  %.not282.not512 = icmp sgt i64 %218, %1
+  %.not281511 = icmp sge i64 %1, %217
+  %.not282.not512 = icmp slt i64 %1, %218
   %or.cond287513 = select i1 %.not281511, i1 %.not282.not512, i1 false
   br i1 %or.cond287513, label %.loopexit544, label %.critedge2, !llvm.loop !92
 
@@ -12384,16 +12384,16 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   %.pre494 = load i64, ptr %65, align 8
   %244 = tail call noundef i64 @llvm.smax.i64(i64 %.pre493, i64 0)
   %245 = add nsw i64 %244, %.pre494
-  %.not277 = icmp sle i64 %244, %1
-  %.not278.not = icmp sgt i64 %245, %1
+  %.not277 = icmp sge i64 %1, %244
+  %.not278.not = icmp slt i64 %1, %245
   %or.cond288 = select i1 %.not277, i1 %.not278.not, i1 false
   br i1 %or.cond288, label %.loopexit543, label %224, !llvm.loop !93
 
 .thread519:                                       ; preds = %.lr.ph850
   %246 = tail call noundef i64 @llvm.smax.i64(i64 %226, i64 0)
   %247 = add nsw i64 %246, %227
-  %.not277520 = icmp sle i64 %246, %1
-  %.not278.not521 = icmp sgt i64 %247, %1
+  %.not277520 = icmp sge i64 %1, %246
+  %.not278.not521 = icmp slt i64 %1, %247
   %or.cond288522 = select i1 %.not277520, i1 %.not278.not521, i1 false
   br i1 %or.cond288522, label %.loopexit543, label %.critedge2, !llvm.loop !93
 
@@ -12478,8 +12478,8 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   %280 = phi i64 [ %.pre496, %._crit_edge495 ], [ %255, %262 ]
   %281 = tail call noundef i64 @llvm.smax.i64(i64 %280, i64 0)
   %282 = add nsw i64 %281, %279
-  %.not273 = icmp ule i64 %281, %1
-  %.not274.not = icmp sgt i64 %282, %1
+  %.not273 = icmp uge i64 %1, %281
+  %.not274.not = icmp slt i64 %1, %282
   %or.cond291 = select i1 %.not273, i1 %.not274.not, i1 false
   br i1 %or.cond291, label %283, label %253, !llvm.loop !94
 
@@ -12534,16 +12534,16 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   %.pre500 = load i64, ptr %65, align 8
   %304 = tail call noundef i64 @llvm.smax.i64(i64 %.pre499, i64 0)
   %305 = add nsw i64 %304, %.pre500
-  %.not269 = icmp sle i64 %304, %1
-  %.not270.not = icmp sgt i64 %305, %1
+  %.not269 = icmp sge i64 %1, %304
+  %.not270.not = icmp slt i64 %1, %305
   %or.cond292 = select i1 %.not269, i1 %.not270.not, i1 false
   br i1 %or.cond292, label %.loopexit539, label %.critedge4, !llvm.loop !95
 
 .thread524:                                       ; preds = %.lr.ph863
   %306 = tail call noundef i64 @llvm.smax.i64(i64 %286, i64 0)
   %307 = add nsw i64 %306, %287
-  %.not269525 = icmp sle i64 %306, %1
-  %.not270.not526 = icmp sgt i64 %307, %1
+  %.not269525 = icmp sge i64 %1, %306
+  %.not270.not526 = icmp slt i64 %1, %307
   %or.cond292527 = select i1 %.not269525, i1 %.not270.not526, i1 false
   br i1 %or.cond292527, label %.loopexit539, label %.critedge8, !llvm.loop !95
 
@@ -12608,16 +12608,16 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   %.pre503 = load i64, ptr %65, align 8
   %331 = tail call noundef i64 @llvm.smax.i64(i64 %.pre502, i64 0)
   %332 = add nsw i64 %331, %.pre503
-  %.not265 = icmp sle i64 %331, %1
-  %.not266.not = icmp sgt i64 %332, %1
+  %.not265 = icmp sge i64 %1, %331
+  %.not266.not = icmp slt i64 %1, %332
   %or.cond293 = select i1 %.not265, i1 %.not266.not, i1 false
   br i1 %or.cond293, label %.loopexit, label %311, !llvm.loop !96
 
 .thread533:                                       ; preds = %.lr.ph870
   %333 = tail call noundef i64 @llvm.smax.i64(i64 %313, i64 0)
   %334 = add nsw i64 %333, %314
-  %.not265534 = icmp sle i64 %333, %1
-  %.not266.not535 = icmp sgt i64 %334, %1
+  %.not265534 = icmp sge i64 %1, %333
+  %.not266.not535 = icmp slt i64 %1, %334
   %or.cond293536 = select i1 %.not265534, i1 %.not266.not535, i1 false
   br i1 %or.cond293536, label %.loopexit, label %.critedge8, !llvm.loop !96
 
@@ -12690,8 +12690,8 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   %362 = phi i64 [ %.pre508, %._crit_edge507 ], [ %340, %344 ]
   %363 = tail call noundef i64 @llvm.smax.i64(i64 %362, i64 0)
   %364 = add nsw i64 %363, %361
-  %.not261 = icmp sle i64 %363, %1
-  %.not262.not = icmp sgt i64 %364, %1
+  %.not261 = icmp sge i64 %1, %363
+  %.not262.not = icmp slt i64 %1, %364
   %or.cond296 = select i1 %.not261, i1 %.not262.not, i1 false
   br i1 %or.cond296, label %365, label %338, !llvm.loop !97
 
@@ -12755,8 +12755,8 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   %390 = tail call noundef i64 @llvm.smax.i64(i64 %389, i64 0)
   %391 = add nsw i64 %390, %388
   %392 = add nsw i64 %391, -1
-  %.not257 = icmp ule i64 %390, %1
-  %.not258.not = icmp sgt i64 %391, %1
+  %.not257 = icmp uge i64 %1, %390
+  %.not258.not = icmp slt i64 %1, %391
   %or.cond299 = select i1 %.not257, i1 %.not258.not, i1 false
   br i1 %or.cond299, label %393, label %.critedge10, !llvm.loop !98
 
@@ -14224,18 +14224,18 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
 536:                                              ; preds = %535, %531
   %537 = tail call fastcc i32 @tng_frame_set_pointers_update(ptr noundef nonnull %0, i8 noundef signext %1)
   %538 = load i64, ptr %403, align 8
-  %.not49.i.i = icmp eq i64 %538, %.383.i
+  %.not49.i.i = icmp eq i64 %.383.i, %538
   br i1 %.not49.i.i, label %539, label %.thread50.i.i
 
 539:                                              ; preds = %536
   store i64 %507, ptr %403, align 8
   %540 = load i64, ptr %404, align 8
-  %541 = icmp eq i64 %540, %.383.i
+  %541 = icmp eq i64 %.383.i, %540
   br i1 %541, label %.thread.i59.i, label %544
 
 .thread50.i.i:                                    ; preds = %536
   %542 = load i64, ptr %404, align 8
-  %543 = icmp eq i64 %542, %.383.i
+  %543 = icmp eq i64 %.383.i, %542
   br i1 %543, label %.thread.i59.i, label %559
 
 .thread.i59.i:                                    ; preds = %.thread50.i.i, %539
@@ -20495,7 +20495,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 157:                                              ; preds = %153
   %158 = getelementptr inbounds i8, ptr %0, i64 312
   %159 = load i64, ptr %158, align 8
-  %160 = icmp slt i64 %159, %6
+  %160 = icmp sgt i64 %6, %159
   br i1 %160, label %161, label %162
 
 161:                                              ; preds = %157
@@ -22683,7 +22683,7 @@ tng_block_destroy.exit347:                        ; preds = %136, %151
   %.0280.in.v = select i1 %.not310, i64 232, i64 328
   %.0280.in = getelementptr inbounds i8, ptr %0, i64 %.0280.in.v
   %.0280 = load i64, ptr %.0280.in, align 8
-  %161 = icmp sgt i64 %.0280, %5
+  %161 = icmp slt i64 %5, %.0280
   br i1 %161, label %162, label %217
 
 162:                                              ; preds = %158
@@ -22732,14 +22732,14 @@ tng_block_destroy.exit347:                        ; preds = %136, %151
   %185 = getelementptr %struct.tng_particle_mapping, ptr %183, i64 %184
   %186 = getelementptr i8, ptr %185, i64 -24
   %187 = load i64, ptr %186, align 8
-  %.not330 = icmp sgt i64 %187, %4
+  %.not330 = icmp slt i64 %4, %187
   br i1 %.not330, label %193, label %188
 
 188:                                              ; preds = %182
   %189 = getelementptr i8, ptr %185, i64 -16
   %190 = load i64, ptr %189, align 8
   %191 = add nsw i64 %190, %187
-  %192 = icmp sle i64 %191, %4
+  %192 = icmp sge i64 %4, %191
   %.not331 = icmp sgt i64 %168, %191
   %or.cond333 = select i1 %192, i1 true, i1 %.not331
   %spec.select336 = select i1 %or.cond333, i64 %.0284397, i64 %179
@@ -24077,14 +24077,14 @@ thread-pre-split:                                 ; preds = %168
   %.02126.i = phi i64 [ 0, %.preheader.i ], [ %213, %212 ]
   %199 = getelementptr inbounds %struct.tng_particle_mapping, ptr %197, i64 %.02126.i
   %200 = load i64, ptr %199, align 8
-  %201 = icmp sgt i64 %200, %.0223434
+  %201 = icmp slt i64 %.0223434, %200
   br i1 %201, label %212, label %202
 
 202:                                              ; preds = %198
   %203 = getelementptr inbounds i8, ptr %199, i64 8
   %204 = load i64, ptr %203, align 8
   %205 = add nsw i64 %204, %200
-  %.not.i253 = icmp sgt i64 %205, %.0223434
+  %.not.i253 = icmp slt i64 %.0223434, %205
   br i1 %.not.i253, label %206, label %212
 
 206:                                              ; preds = %202
@@ -24197,14 +24197,14 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %212, %.lr.ph435, %2
   %.02126.i256 = phi i64 [ 0, %.preheader.i255 ], [ %286, %285 ]
   %272 = getelementptr inbounds %struct.tng_particle_mapping, ptr %270, i64 %.02126.i256
   %273 = load i64, ptr %272, align 8
-  %274 = icmp sgt i64 %273, %.1224427
+  %274 = icmp slt i64 %.1224427, %273
   br i1 %274, label %285, label %275
 
 275:                                              ; preds = %271
   %276 = getelementptr inbounds i8, ptr %272, i64 8
   %277 = load i64, ptr %276, align 8
   %278 = add nsw i64 %277, %273
-  %.not.i257 = icmp sgt i64 %278, %.1224427
+  %.not.i257 = icmp slt i64 %.1224427, %278
   br i1 %.not.i257, label %279, label %285
 
 279:                                              ; preds = %275
@@ -24301,14 +24301,14 @@ tng_particle_mapping_get_real_particle.exit261:   ; preds = %285, %265, %279
   %.02126.i263 = phi i64 [ 0, %.preheader.i262 ], [ %343, %342 ]
   %329 = getelementptr inbounds %struct.tng_particle_mapping, ptr %327, i64 %.02126.i263
   %330 = load i64, ptr %329, align 8
-  %331 = icmp sgt i64 %330, %.2225420
+  %331 = icmp slt i64 %.2225420, %330
   br i1 %331, label %342, label %332
 
 332:                                              ; preds = %328
   %333 = getelementptr inbounds i8, ptr %329, i64 8
   %334 = load i64, ptr %333, align 8
   %335 = add nsw i64 %334, %330
-  %.not.i264 = icmp sgt i64 %335, %.2225420
+  %.not.i264 = icmp slt i64 %.2225420, %335
   br i1 %.not.i264, label %336, label %342
 
 336:                                              ; preds = %332
@@ -24404,14 +24404,14 @@ tng_particle_mapping_get_real_particle.exit268:   ; preds = %342, %322, %336
   %.02126.i270 = phi i64 [ 0, %.preheader.i269 ], [ %399, %398 ]
   %385 = getelementptr inbounds %struct.tng_particle_mapping, ptr %383, i64 %.02126.i270
   %386 = load i64, ptr %385, align 8
-  %387 = icmp sgt i64 %386, %.3226441
+  %387 = icmp slt i64 %.3226441, %386
   br i1 %387, label %398, label %388
 
 388:                                              ; preds = %384
   %389 = getelementptr inbounds i8, ptr %385, i64 8
   %390 = load i64, ptr %389, align 8
   %391 = add nsw i64 %390, %386
-  %.not.i271 = icmp sgt i64 %391, %.3226441
+  %.not.i271 = icmp slt i64 %.3226441, %391
   br i1 %.not.i271, label %392, label %398
 
 392:                                              ; preds = %388
@@ -25152,14 +25152,14 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i110, %67, %
   %.02126.i = phi i64 [ 0, %.preheader.i ], [ %217, %216 ]
   %203 = getelementptr inbounds %struct.tng_particle_mapping, ptr %201, i64 %.02126.i
   %204 = load i64, ptr %203, align 8
-  %205 = icmp sgt i64 %204, %.090169
+  %205 = icmp slt i64 %.090169, %204
   br i1 %205, label %216, label %206
 
 206:                                              ; preds = %202
   %207 = getelementptr inbounds i8, ptr %203, i64 8
   %208 = load i64, ptr %207, align 8
   %209 = add nsw i64 %208, %204
-  %.not.i114 = icmp sgt i64 %209, %.090169
+  %.not.i114 = icmp slt i64 %.090169, %209
   br i1 %.not.i114, label %210, label %216
 
 210:                                              ; preds = %206
@@ -25659,14 +25659,14 @@ tng_frame_set_read_next.exit:                     ; preds = %196
   %.02126.i = phi i64 [ 0, %.preheader.i ], [ %225, %224 ]
   %211 = getelementptr inbounds %struct.tng_particle_mapping, ptr %209, i64 %.02126.i
   %212 = load i64, ptr %211, align 8
-  %213 = icmp sgt i64 %212, %.0262466
+  %213 = icmp slt i64 %.0262466, %212
   br i1 %213, label %224, label %214
 
 214:                                              ; preds = %210
   %215 = getelementptr inbounds i8, ptr %211, i64 8
   %216 = load i64, ptr %215, align 8
   %217 = add nsw i64 %216, %212
-  %.not.i317 = icmp sgt i64 %217, %.0262466
+  %.not.i317 = icmp slt i64 %.0262466, %217
   br i1 %.not.i317, label %218, label %224
 
 218:                                              ; preds = %214
@@ -25853,14 +25853,14 @@ tng_frame_set_read_next.exit322:                  ; preds = %310
   %.02126.i324 = phi i64 [ 0, %.preheader.i323 ], [ %342, %341 ]
   %328 = getelementptr inbounds %struct.tng_particle_mapping, ptr %326, i64 %.02126.i324
   %329 = load i64, ptr %328, align 8
-  %330 = icmp sgt i64 %329, %.2264453
+  %330 = icmp slt i64 %.2264453, %329
   br i1 %330, label %341, label %331
 
 331:                                              ; preds = %327
   %332 = getelementptr inbounds i8, ptr %328, i64 8
   %333 = load i64, ptr %332, align 8
   %334 = add nsw i64 %333, %329
-  %.not.i325 = icmp sgt i64 %334, %.2264453
+  %.not.i325 = icmp slt i64 %.2264453, %334
   br i1 %.not.i325, label %335, label %341
 
 335:                                              ; preds = %331
@@ -26019,14 +26019,14 @@ tng_frame_set_read_next.exit333:                  ; preds = %396
   %.02126.i335 = phi i64 [ 0, %.preheader.i334 ], [ %428, %427 ]
   %414 = getelementptr inbounds %struct.tng_particle_mapping, ptr %412, i64 %.02126.i335
   %415 = load i64, ptr %414, align 8
-  %416 = icmp sgt i64 %415, %.4266441
+  %416 = icmp slt i64 %.4266441, %415
   br i1 %416, label %427, label %417
 
 417:                                              ; preds = %413
   %418 = getelementptr inbounds i8, ptr %414, i64 8
   %419 = load i64, ptr %418, align 8
   %420 = add nsw i64 %419, %415
-  %.not.i336 = icmp sgt i64 %420, %.4266441
+  %.not.i336 = icmp slt i64 %.4266441, %420
   br i1 %.not.i336, label %421, label %427
 
 421:                                              ; preds = %417
@@ -26179,14 +26179,14 @@ tng_frame_set_read_next.exit344:                  ; preds = %480
   %.02126.i346 = phi i64 [ 0, %.preheader.i345 ], [ %512, %511 ]
   %498 = getelementptr inbounds %struct.tng_particle_mapping, ptr %496, i64 %.02126.i346
   %499 = load i64, ptr %498, align 8
-  %500 = icmp sgt i64 %499, %.6478
+  %500 = icmp slt i64 %.6478, %499
   br i1 %500, label %511, label %501
 
 501:                                              ; preds = %497
   %502 = getelementptr inbounds i8, ptr %498, i64 8
   %503 = load i64, ptr %502, align 8
   %504 = add nsw i64 %503, %499
-  %.not.i347 = icmp sgt i64 %504, %.6478
+  %.not.i347 = icmp slt i64 %.6478, %504
   br i1 %.not.i347, label %505, label %511
 
 505:                                              ; preds = %501
@@ -26291,7 +26291,7 @@ define internal fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64
   %17 = getelementptr inbounds i8, ptr %0, i64 424
   %18 = load i64, ptr %17, align 8
   %19 = icmp slt i64 %18, 0
-  %20 = icmp sgt i64 %16, %3
+  %20 = icmp slt i64 %3, %16
   %or.cond217 = select i1 %19, i1 true, i1 %20
   br i1 %or.cond217, label %25, label %21
 
@@ -26299,7 +26299,7 @@ define internal fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64
   %22 = getelementptr inbounds i8, ptr %0, i64 296
   %23 = load i64, ptr %22, align 8
   %24 = add nsw i64 %23, %16
-  %.not = icmp sgt i64 %24, %3
+  %.not = icmp slt i64 %3, %24
   br i1 %.not, label %27, label %25
 
 25:                                               ; preds = %21, %11
@@ -26827,7 +26827,7 @@ tng_particle_data_find.exit231:                   ; preds = %.lr.ph.i233, %232, 
   %.0167 = phi i64 [ %260, %259 ], [ 1, %255 ]
   %262 = getelementptr inbounds i8, ptr %.lcssa478.sink, i64 24
   %263 = load i64, ptr %262, align 8
-  %264 = icmp slt i64 %263, %3
+  %264 = icmp sgt i64 %3, %263
   br i1 %264, label %265, label %270
 
 265:                                              ; preds = %261
@@ -27160,7 +27160,7 @@ tng_particle_data_find.exit253:                   ; preds = %.lr.ph.i255, %400, 
   %422 = tail call noundef i64 @llvm.smin.i64(i64 %420, i64 %421)
   %423 = getelementptr inbounds i8, ptr %.lcssa347349, i64 24
   %424 = load i64, ptr %423, align 8
-  %.not210 = icmp sgt i64 %424, %4
+  %.not210 = icmp slt i64 %4, %424
   %425 = tail call i64 @llvm.smax.i64(i64 %.0171359539, i64 %424)
   %.1172 = select i1 %.not210, i64 %.0171359539, i64 %425
   %426 = load i64, ptr %8, align 8
@@ -28001,7 +28001,7 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr nocapture nounde
   %29 = getelementptr inbounds %struct.tng_chain, ptr %26, i64 %.01417.i.us
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8
-  %32 = icmp eq i64 %31, %22
+  %32 = icmp eq i64 %22, %31
   br i1 %32, label %tng_molecule_chain_find.exit.thread.loopexit62, label %33
 
 33:                                               ; preds = %.lr.ph.split.i.us
@@ -28042,7 +28042,7 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr nocapture nounde
 48:                                               ; preds = %.lr.ph.split.i
   %49 = getelementptr inbounds i8, ptr %43, i64 8
   %50 = load i64, ptr %49, align 8
-  %51 = icmp eq i64 %50, %22
+  %51 = icmp eq i64 %22, %50
   br i1 %51, label %tng_molecule_chain_find.exit.thread.loopexit62, label %52
 
 52:                                               ; preds = %48, %.lr.ph.split.i
@@ -28111,7 +28111,7 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
   %74 = getelementptr inbounds %struct.tng_residue, ptr %71, i64 %.01417.i46.us
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load i64, ptr %75, align 8
-  %77 = icmp eq i64 %76, %65
+  %77 = icmp eq i64 %65, %76
   br i1 %77, label %tng_chain_residue_find.exit.thread.loopexit59, label %78
 
 78:                                               ; preds = %.lr.ph.split.i45.us
@@ -28152,7 +28152,7 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
 93:                                               ; preds = %.lr.ph.split.i45
   %94 = getelementptr inbounds i8, ptr %88, i64 8
   %95 = load i64, ptr %94, align 8
-  %96 = icmp eq i64 %95, %65
+  %96 = icmp eq i64 %65, %95
   br i1 %96, label %tng_chain_residue_find.exit.thread.loopexit59, label %97
 
 97:                                               ; preds = %93, %.lr.ph.split.i45
@@ -30278,7 +30278,7 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
   %33 = load i64, ptr %32, align 8
   %34 = add nsw i64 %33, %31
   %35 = add nsw i64 %34, -1
-  %.not140 = icmp sgt i64 %34, %1
+  %.not140 = icmp slt i64 %1, %34
   br i1 %.not140, label %50, label %36
 
 36:                                               ; preds = %29
@@ -30717,7 +30717,7 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
   %33 = load i64, ptr %32, align 8
   %34 = add nsw i64 %33, %31
   %35 = add nsw i64 %34, -1
-  %.not140 = icmp sgt i64 %34, %1
+  %.not140 = icmp slt i64 %1, %34
   br i1 %.not140, label %50, label %36
 
 36:                                               ; preds = %29
@@ -31171,7 +31171,7 @@ define i32 @tng_util_generic_with_time_write(ptr noundef %0, i64 noundef %1, dou
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 288
   %17 = load i64, ptr %16, align 8
-  %18 = icmp slt i64 %17, %1
+  %18 = icmp sgt i64 %1, %17
   br i1 %18, label %19, label %.sink.split
 
 19:                                               ; preds = %15
@@ -31207,7 +31207,7 @@ define i32 @tng_util_generic_with_time_double_write(ptr noundef %0, i64 noundef 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 288
   %17 = load i64, ptr %16, align 8
-  %18 = icmp slt i64 %17, %1
+  %18 = icmp sgt i64 %1, %17
   br i1 %18, label %19, label %.sink.split
 
 19:                                               ; preds = %15
@@ -31243,7 +31243,7 @@ define i32 @tng_util_pos_with_time_write(ptr noundef %0, i64 noundef %1, double 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 288
   %12 = load i64, ptr %11, align 8
-  %13 = icmp slt i64 %12, %1
+  %13 = icmp sgt i64 %1, %12
   br i1 %13, label %14, label %.sink.split.i
 
 14:                                               ; preds = %10
@@ -31279,7 +31279,7 @@ define i32 @tng_util_pos_with_time_double_write(ptr noundef %0, i64 noundef %1, 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 288
   %12 = load i64, ptr %11, align 8
-  %13 = icmp slt i64 %12, %1
+  %13 = icmp sgt i64 %1, %12
   br i1 %13, label %14, label %.sink.split.i
 
 14:                                               ; preds = %10
@@ -31315,7 +31315,7 @@ define i32 @tng_util_vel_with_time_write(ptr noundef %0, i64 noundef %1, double 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 288
   %12 = load i64, ptr %11, align 8
-  %13 = icmp slt i64 %12, %1
+  %13 = icmp sgt i64 %1, %12
   br i1 %13, label %14, label %.sink.split.i
 
 14:                                               ; preds = %10
@@ -31351,7 +31351,7 @@ define i32 @tng_util_vel_with_time_double_write(ptr noundef %0, i64 noundef %1, 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 288
   %12 = load i64, ptr %11, align 8
-  %13 = icmp slt i64 %12, %1
+  %13 = icmp sgt i64 %1, %12
   br i1 %13, label %14, label %.sink.split.i
 
 14:                                               ; preds = %10
@@ -31387,7 +31387,7 @@ define i32 @tng_util_force_with_time_write(ptr noundef %0, i64 noundef %1, doubl
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 288
   %12 = load i64, ptr %11, align 8
-  %13 = icmp slt i64 %12, %1
+  %13 = icmp sgt i64 %1, %12
   br i1 %13, label %14, label %.sink.split.i
 
 14:                                               ; preds = %10
@@ -31423,7 +31423,7 @@ define i32 @tng_util_force_with_time_double_write(ptr noundef %0, i64 noundef %1
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 288
   %12 = load i64, ptr %11, align 8
-  %13 = icmp slt i64 %12, %1
+  %13 = icmp sgt i64 %1, %12
   br i1 %13, label %14, label %.sink.split.i
 
 14:                                               ; preds = %10
@@ -31459,7 +31459,7 @@ define i32 @tng_util_box_shape_with_time_write(ptr noundef %0, i64 noundef %1, d
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 288
   %12 = load i64, ptr %11, align 8
-  %13 = icmp slt i64 %12, %1
+  %13 = icmp sgt i64 %1, %12
   br i1 %13, label %14, label %.sink.split.i
 
 14:                                               ; preds = %10
@@ -31495,7 +31495,7 @@ define i32 @tng_util_box_shape_with_time_double_write(ptr noundef %0, i64 nounde
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 288
   %12 = load i64, ptr %11, align 8
-  %13 = icmp slt i64 %12, %1
+  %13 = icmp sgt i64 %1, %12
   br i1 %13, label %14, label %.sink.split.i
 
 14:                                               ; preds = %10

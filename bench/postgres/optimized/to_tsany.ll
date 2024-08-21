@@ -1081,7 +1081,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %82 = load i16, ptr %69, align 8
   %83 = and i16 %82, 2
   %84 = icmp ne i16 %83, 0
-  %85 = or i1 %84, %5
+  %85 = or i1 %5, %84
   call void @pushValue(ptr noundef %1, ptr noundef %78, i32 noundef %81, i16 noundef signext %4, i1 noundef zeroext %85) #8
   %86 = load ptr, ptr %7, align 8
   %87 = getelementptr %struct.ParsedWord, ptr %86, i64 %70, i32 5

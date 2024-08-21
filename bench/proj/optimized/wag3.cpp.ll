@@ -137,7 +137,7 @@ define internal { double, double } @_ZL14wag3_s_forward5PJ_LPP8PJconsts(double %
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %5, align 8
-  %7 = fmul double %6, %0
+  %7 = fmul double %0, %6
   %8 = fmul double %1, 0x3FE5555555555555
   %9 = tail call double @cos(double noundef %8) #6
   %10 = fmul double %7, %9

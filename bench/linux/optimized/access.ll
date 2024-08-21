@@ -1039,7 +1039,7 @@ define dso_local i32 @pcie_capability_read_word(ptr nocapture noundef readonly %
   br label %.thread
 
 23:                                               ; preds = %13
-  %24 = add i32 %16, %1
+  %24 = add i32 %1, %16
   %25 = getelementptr inbounds i8, ptr %18, i64 192
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 24
@@ -1271,7 +1271,7 @@ define dso_local i32 @pcie_capability_read_dword(ptr nocapture noundef readonly 
   br label %.thread
 
 23:                                               ; preds = %13
-  %24 = add i32 %16, %1
+  %24 = add i32 %1, %16
   %25 = getelementptr inbounds i8, ptr %18, i64 192
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 24
@@ -1383,7 +1383,7 @@ define dso_local i32 @pcie_capability_write_word(ptr nocapture noundef readonly 
   br i1 %17, label %18, label %pci_bus_write_config_word.exit
 
 18:                                               ; preds = %12
-  %19 = add i32 %15, %1
+  %19 = add i32 %1, %15
   %20 = getelementptr inbounds i8, ptr %0, i64 56
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1456,7 +1456,7 @@ define dso_local i32 @pcie_capability_write_dword(ptr nocapture noundef readonly
   br i1 %17, label %18, label %pci_bus_write_config_dword.exit
 
 18:                                               ; preds = %12
-  %19 = add i32 %15, %1
+  %19 = add i32 %1, %15
   %20 = getelementptr inbounds i8, ptr %0, i64 56
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1538,7 +1538,7 @@ define dso_local i32 @pcie_capability_clear_and_set_word_unlocked(ptr nocapture 
   br label %pci_bus_write_config_word.exit
 
 24:                                               ; preds = %14
-  %25 = add i32 %17, %1
+  %25 = add i32 %1, %17
   %26 = getelementptr inbounds i8, ptr %19, i64 192
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
@@ -1592,7 +1592,7 @@ define dso_local i32 @pcie_capability_clear_and_set_word_unlocked(ptr nocapture 
   br i1 %62, label %63, label %pci_bus_write_config_word.exit
 
 63:                                               ; preds = %57
-  %64 = add i32 %60, %1
+  %64 = add i32 %1, %60
   %65 = getelementptr inbounds i8, ptr %0, i64 56
   %66 = load i32, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1655,7 +1655,7 @@ define dso_local i32 @pcie_capability_clear_and_set_dword(ptr nocapture noundef 
   br label %pci_bus_write_config_dword.exit
 
 24:                                               ; preds = %14
-  %25 = add i32 %17, %1
+  %25 = add i32 %1, %17
   %26 = getelementptr inbounds i8, ptr %19, i64 192
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
@@ -1708,7 +1708,7 @@ define dso_local i32 @pcie_capability_clear_and_set_dword(ptr nocapture noundef 
   br i1 %61, label %62, label %pci_bus_write_config_dword.exit
 
 62:                                               ; preds = %56
-  %63 = add i32 %59, %1
+  %63 = add i32 %1, %59
   %64 = getelementptr inbounds i8, ptr %0, i64 56
   %65 = load i32, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 16

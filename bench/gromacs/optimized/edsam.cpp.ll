@@ -1463,24 +1463,24 @@ define internal fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr nocaptur
   %199 = load float, ptr %198, align 4
   %200 = getelementptr inbounds i8, ptr %2, i64 20
   %201 = load float, ptr %200, align 4
-  %202 = fneg float %199
-  %203 = fmul float %201, %202
+  %202 = fneg float %201
+  %203 = fmul float %199, %202
   %204 = call float @llvm.fmuladd.f32(float %194, float %197, float %203)
   %205 = load float, ptr %192, align 4
   %206 = getelementptr inbounds i8, ptr %2, i64 4
   %207 = load float, ptr %206, align 4
   %208 = getelementptr inbounds i8, ptr %2, i64 8
   %209 = load float, ptr %208, align 4
-  %210 = fmul float %209, %202
-  %211 = call float @llvm.fmuladd.f32(float %207, float %197, float %210)
-  %212 = fneg float %205
-  %213 = fmul float %211, %212
-  %214 = call float @llvm.fmuladd.f32(float %191, float %204, float %213)
-  %215 = load float, ptr %195, align 4
-  %216 = fneg float %194
-  %217 = fmul float %209, %216
+  %210 = fneg float %209
+  %211 = fmul float %199, %210
+  %212 = call float @llvm.fmuladd.f32(float %207, float %197, float %211)
+  %213 = fneg float %212
+  %214 = fmul float %205, %213
+  %215 = call float @llvm.fmuladd.f32(float %191, float %204, float %214)
+  %216 = load float, ptr %195, align 4
+  %217 = fmul float %194, %210
   %218 = call float @llvm.fmuladd.f32(float %207, float %201, float %217)
-  %219 = call noundef float @llvm.fmuladd.f32(float %215, float %218, float %214)
+  %219 = call noundef float @llvm.fmuladd.f32(float %216, float %218, float %215)
   %220 = fcmp olt float %219, 0.000000e+00
   br i1 %220, label %.preheader.i, label %_ZL8do_edfitiPA3_fS0_S0_P5edpar.exit
 
@@ -1985,13 +1985,13 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
   %121 = getelementptr inbounds i8, ptr %120, i64 4
   %122 = load i32, ptr %121, align 4
   %.fr1.i.i.i.i = freeze i32 %122
-  %123 = icmp sgt i32 %.fr1.i.i.i.i, %109
+  %123 = icmp slt i32 %109, %.fr1.i.i.i.i
   br i1 %123, label %127, label %124
 
 124:                                              ; preds = %118
   %125 = getelementptr inbounds i8, ptr %120, i64 8
   %126 = load i32, ptr %125, align 4
-  %.not.i.i.i.i = icmp sgt i32 %126, %109
+  %.not.i.i.i.i = icmp slt i32 %109, %126
   br i1 %.not.i.i.i.i, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit.i, label %127
 
 127:                                              ; preds = %124, %118
@@ -2117,13 +2117,13 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit.i:     ; preds = %124
   %196 = getelementptr inbounds i8, ptr %195, i64 4
   %197 = load i32, ptr %196, align 4
   %.fr1.i.i.i65.i = freeze i32 %197
-  %198 = icmp sgt i32 %.fr1.i.i.i65.i, %184
+  %198 = icmp slt i32 %184, %.fr1.i.i.i65.i
   br i1 %198, label %202, label %199
 
 199:                                              ; preds = %193
   %200 = getelementptr inbounds i8, ptr %195, i64 8
   %201 = load i32, ptr %200, align 4
-  %.not.i.i.i66.i = icmp sgt i32 %201, %184
+  %.not.i.i.i66.i = icmp slt i32 %184, %201
   br i1 %.not.i.i.i66.i, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit69.i, label %202
 
 202:                                              ; preds = %199, %193
@@ -10415,7 +10415,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -10947,7 +10947,7 @@ define linkonce_odr void @_ZNSt6vectorI5edparSaIS0_EE6resizeEm(ptr noundef nonnu
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 888
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -11018,7 +11018,7 @@ _ZNSt12_Vector_baseI5edparSaIS0_EE13_M_deallocateEPS0_m.exit37.i: ; preds = %33,
   br label %_ZNSt6vectorI5edparSaIS0_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorI5edparSaIS0_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -11396,7 +11396,7 @@ _Z11do_per_stepll.exit150:                        ; preds = %_Z11do_per_stepll.e
   %246 = getelementptr inbounds i8, ptr %.sroa.0195.0247, i64 8
   %247 = load i32, ptr %246, align 8
   %248 = sext i32 %247 to i64
-  %.not = icmp sgt i64 %248, %1
+  %.not = icmp slt i64 %1, %248
   %or.cond = select i1 %245, i1 true, i1 %.not
   br i1 %or.cond, label %254, label %249
 
@@ -11420,7 +11420,7 @@ _Z11do_per_stepll.exit150:                        ; preds = %_Z11do_per_stepll.e
   %255 = phi ptr [ %242, %_Z11do_per_stepll.exit150.thread ], [ %246, %249 ], [ %246, %_Z11do_per_stepll.exit150 ]
   %256 = load i32, ptr %255, align 8
   %257 = sext i32 %256 to i64
-  %.not125 = icmp sgt i64 %257, %1
+  %.not125 = icmp slt i64 %1, %257
   %or.cond133 = select i1 %28, i1 true, i1 %.not125
   br i1 %or.cond133, label %284, label %258
 
@@ -11484,7 +11484,7 @@ _ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit159: ; preds = %265, %258
 284:                                              ; preds = %.sink.split, %254
   %285 = load i32, ptr %255, align 8
   %286 = sext i32 %285 to i64
-  %.not126 = icmp sgt i64 %286, %1
+  %.not126 = icmp slt i64 %1, %286
   br i1 %.not126, label %_ZL20ed_apply_constraintsPA3_fP5edparl.exit, label %287
 
 287:                                              ; preds = %284

@@ -794,7 +794,7 @@ define dso_local noundef range(i32 -22, 1) i32 @traceprobe_parse_event_name(ptr 
   %55 = getelementptr i8, ptr %11, i64 1
   store ptr %55, ptr %0, align 8
   %56 = trunc i64 %18 to i32
-  %57 = add i32 %56, %3
+  %57 = add i32 %3, %56
   %58 = tail call i64 @strlen(ptr noundef %55) #16
   %59 = trunc i64 %58 to i32
   %60 = icmp eq i32 %59, 0

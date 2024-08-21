@@ -151,7 +151,7 @@ define dso_local void @tsc_verify_tsc_adjust(i1 noundef zeroext %0) local_unname
   %37 = getelementptr inbounds i8, ptr %3, i64 24
   %38 = load i8, ptr %37, align 8, !range !5, !noundef !6
   %39 = icmp eq i8 %38, 0
-  %40 = or i1 %39, %0
+  %40 = or i1 %0, %39
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %36
@@ -273,7 +273,7 @@ define dso_local noundef zeroext i1 @tsc_store_and_check_tsc_adjust(i1 noundef z
 .thread.thread:                                   ; preds = %25, %.thread
   %49 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !20
   %50 = icmp ne i64 %14, 0
-  %51 = and i1 %50, %0
+  %51 = and i1 %0, %50
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %.thread.thread

@@ -376,7 +376,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_Z8ddglatnrPK12gmx_domde
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 1588
   %9 = load i32, ptr %8, align 4
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %5
@@ -1966,7 +1966,7 @@ _ZN14DDBufferAccessIN3gmx11BasicVectorIfEEEC2ER8DDBufferIS2_Em.exit: ; preds = %
   %181 = ptrtoint ptr %179 to i64
   %182 = sub i64 %180, %181
   %183 = sdiv exact i64 %182, 12
-  %184 = icmp ult i64 %183, %173
+  %184 = icmp ugt i64 %173, %183
   br i1 %184, label %185, label %.noexc129
 
 185:                                              ; preds = %177
@@ -3151,7 +3151,7 @@ define void @_Z13dd_cycles_addPK12gmx_domdec_tfi(ptr nocapture noundef readonly 
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds [5 x float], ptr %6, i64 0, i64 %7
   %9 = load float, ptr %8, align 4
-  %10 = fadd float %9, %1
+  %10 = fadd float %1, %9
   store float %10, ptr %8, align 4
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 2156
@@ -3163,7 +3163,7 @@ define void @_Z13dd_cycles_addPK12gmx_domdec_tfi(ptr nocapture noundef readonly 
   %17 = getelementptr inbounds i8, ptr %16, i64 2176
   %18 = getelementptr inbounds [5 x float], ptr %17, i64 0, i64 %7
   %19 = load float, ptr %18, align 4
-  %20 = fcmp olt float %19, %1
+  %20 = fcmp ogt float %1, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %3
@@ -8584,7 +8584,7 @@ define internal fastcc noundef i32 @_ZL18dd_simnode2pmenodeRK11DDRankSetupRK18Ca
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i8, ptr %0, i64 4
   %51 = load i32, ptr %50, align 4
-  %52 = icmp sgt i32 %51, %5
+  %52 = icmp slt i32 %5, %51
   br i1 %52, label %53, label %78
 
 53:                                               ; preds = %49
@@ -8604,7 +8604,7 @@ define internal fastcc noundef i32 @_ZL18dd_simnode2pmenodeRK11DDRankSetupRK18Ca
 62:                                               ; preds = %60
   %63 = getelementptr inbounds i8, ptr %0, i64 4
   %64 = load i32, ptr %63, align 4
-  %65 = icmp sgt i32 %64, %5
+  %65 = icmp slt i32 %5, %64
   br i1 %65, label %66, label %78
 
 66:                                               ; preds = %62
@@ -8621,12 +8621,12 @@ define internal fastcc noundef i32 @_ZL18dd_simnode2pmenodeRK11DDRankSetupRK18Ca
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %60 ]
   %73 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4
-  %75 = icmp slt i32 %74, %5
+  %75 = icmp sgt i32 %5, %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %75, label %.preheader, label %76, !llvm.loop !80
 
 76:                                               ; preds = %.preheader
-  %77 = icmp sgt i32 %74, %5
+  %77 = icmp slt i32 %5, %74
   %spec.select = select i1 %77, i32 %74, i32 -1
   br label %78
 
@@ -12380,7 +12380,7 @@ define internal fastcc void @_ZL10init_ddpmeP12gmx_domdec_tP9gmx_ddpmei(ptr noca
   %22 = sext i32 %2 to i64
   %23 = getelementptr inbounds [3 x i32], ptr %21, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, %2
+  %25 = icmp eq i32 %2, %24
   %26 = getelementptr inbounds i8, ptr %1, i64 4
   %27 = zext i1 %25 to i8
   store i8 %27, ptr %26, align 4
@@ -13746,7 +13746,7 @@ define linkonce_odr void @_ZNSt6vectorIN14RowCoordinator6BoundsESaIS1_EE6resizeE
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -13817,7 +13817,7 @@ _ZNSt12_Vector_baseIN14RowCoordinator6BoundsESaIS1_EE13_M_deallocateEPS1_m.exit3
   br label %_ZNSt6vectorIN14RowCoordinator6BoundsESaIS1_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN14RowCoordinator6BoundsESaIS1_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -13871,7 +13871,7 @@ define linkonce_odr void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iterator
   br i1 %32, label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
-  %33 = add nsw i64 %22, %3
+  %33 = add nsw i64 %3, %22
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 63
   %36 = sdiv i64 %33, 64
@@ -13926,7 +13926,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i:      ; preds = %53, %50
   br i1 %58, label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !160
 
 _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i, %25
-  %59 = add nsw i64 %29, %3
+  %59 = add nsw i64 %3, %29
   %60 = sdiv i64 %59, 64
   %61 = getelementptr inbounds i64, ptr %1, i64 %60
   %62 = and i64 %59, -9223372036854775745
@@ -13935,7 +13935,7 @@ _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bi
   %storemerge.i.i.i43 = getelementptr inbounds i8, ptr %61, i64 %storemerge.idx.i.i.i42
   %64 = trunc i64 %59 to i32
   %65 = and i32 %64, 63
-  %.not.i.i.i = icmp eq ptr %storemerge.i.i.i43, %1
+  %.not.i.i.i = icmp eq ptr %1, %storemerge.i.i.i43
   br i1 %.not.i.i.i, label %91, label %66
 
 66:                                               ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
@@ -13996,7 +13996,7 @@ _ZSt14__fill_bvectorPmjjb.exit29.i.i.i:           ; preds = %87, %84
   br label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit
 
 91:                                               ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
-  %.not25.i.i.i = icmp eq i32 %65, %2
+  %.not25.i.i.i = icmp eq i32 %2, %65
   br i1 %.not25.i.i.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit, label %92
 
 92:                                               ; preds = %91
@@ -14026,7 +14026,7 @@ _ZSt14__fill_bvectorPmjjb.exit31.i.i.i:           ; preds = %101, %98
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %77, %_ZSt14__fill_bvectorPmjjb.exit29.i.i.i, %91, %_ZSt14__fill_bvectorPmjjb.exit31.i.i.i
   %105 = load i32, ptr %17, align 8
   %106 = zext i32 %105 to i64
-  %107 = add nsw i64 %106, %3
+  %107 = add nsw i64 %3, %106
   %108 = sdiv i64 %107, 64
   %109 = load ptr, ptr %15, align 8
   %110 = getelementptr inbounds i64, ptr %109, i64 %108
@@ -14060,7 +14060,7 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %115
   %126 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %125) #28
   %127 = ptrtoint ptr %1 to i64
   %128 = sub i64 %127, %12
-  %.not.i.i.i.i.i.i48 = icmp eq ptr %10, %1
+  %.not.i.i.i.i.i.i48 = icmp eq ptr %1, %10
   br i1 %.not.i.i.i.i.i.i48, label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, label %129
 
 129:                                              ; preds = %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit
@@ -14123,7 +14123,7 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %.sroa.5.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
   %.sroa.03.0.lcssa.i.i.i.i.i.i = phi ptr [ %130, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
   %151 = zext i32 %.sroa.5.0.lcssa.i.i.i.i.i.i to i64
-  %152 = add nsw i64 %151, %3
+  %152 = add nsw i64 %3, %151
   %153 = sdiv i64 %152, 64
   %154 = getelementptr inbounds i64, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %153
   %155 = and i64 %152, -9223372036854775745
@@ -14525,7 +14525,7 @@ define noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIK
   %42 = fpext float %41 to double
   %43 = fmul double %42, 1.020000e+00
   %44 = fptrunc double %43 to float
-  %45 = fmul float %44, %4
+  %45 = fmul float %4, %44
   %46 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %32
   %47 = load float, ptr %46, align 4
   %48 = fmul float %47, %45
@@ -14582,7 +14582,7 @@ define noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIK
   %81 = fmul double %80, 1.020000e+00
   %82 = fptrunc double %81 to float
   %.0.i.us.i = select i1 %26, float %82, float %79
-  %83 = fmul float %.0.i.us.i, %4
+  %83 = fmul float %4, %.0.i.us.i
   %84 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %70
   %85 = load float, ptr %84, align 4
   %86 = fmul float %85, %83
@@ -14649,7 +14649,7 @@ define noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIK
   %124 = fpext float %123 to double
   %125 = fdiv double %121, %124
   %126 = fptrunc double %125 to float
-  %127 = fmul float %126, %4
+  %127 = fmul float %4, %126
   %128 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %117
   %129 = load float, ptr %128, align 4
   %130 = fmul float %129, %127

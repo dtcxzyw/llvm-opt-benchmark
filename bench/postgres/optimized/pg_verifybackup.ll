@@ -1041,7 +1041,7 @@ define internal fastcc void @verify_backup_directory(ptr noundef %0, ptr noundef
   tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef %2)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @simple_string_list_append(ptr noundef nonnull %17, ptr noundef nonnull %1) #16
-  br label %108
+  br label %106
 
 18:                                               ; preds = %.lr.ph, %.backedge
   %19 = phi ptr [ %8, %.lr.ph ], [ %35, %.backedge ]
@@ -1167,85 +1167,85 @@ sub_2:                                            ; preds = %sub_1
   %63 = tail call i32 @hash_bytes(ptr noundef %.0, i32 noundef %62) #16
   %64 = getelementptr i8, ptr %60, i64 12
   %.val.i.i = load i32, ptr %64, align 4
-  %65 = and i32 %.val.i.i, %63
-  %66 = getelementptr inbounds i8, ptr %60, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %68 = zext i32 %65 to i64
-  %69 = getelementptr %struct.manifest_file, ptr %67, i64 %68
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %.loopexit, label %.lr.ph.i.i
+  %65 = getelementptr inbounds i8, ptr %60, i64 24
+  %66 = load ptr, ptr %65, align 8
+  %.01214.i.i = and i32 %.val.i.i, %63
+  %67 = zext i32 %.01214.i.i to i64
+  %68 = getelementptr %struct.manifest_file, ptr %66, i64 %67
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %59, %77
-  %72 = phi ptr [ %81, %77 ], [ %69, %59 ]
-  %.01214.i.i = phi i32 [ %79, %77 ], [ %65, %59 ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull readonly dereferenceable(1) %.0) #17
+71:                                               ; preds = %.lr.ph.i.i
+  %72 = add i32 %.01215.i.i, 1
+  %.012.i.i = and i32 %72, %.val.i.i
+  %73 = zext i32 %.012.i.i to i64
+  %74 = getelementptr %struct.manifest_file, ptr %66, i64 %73
+  %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %manifest_files_lookup.exit, label %77
+  br i1 %76, label %.loopexit, label %.lr.ph.i.i
 
-77:                                               ; preds = %.lr.ph.i.i
-  %78 = add i32 %.01214.i.i, 1
-  %79 = and i32 %78, %.val.i.i
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr %struct.manifest_file, ptr %67, i64 %80
-  %82 = load i32, ptr %81, align 8
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.loopexit, label %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %59, %71
+  %77 = phi ptr [ %74, %71 ], [ %68, %59 ]
+  %.01215.i.i = phi i32 [ %.012.i.i, %71 ], [ %.01214.i.i, %59 ]
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull readonly dereferenceable(1) %.0) #17
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %manifest_files_lookup.exit, label %71
 
-.loopexit:                                        ; preds = %77, %59
+.loopexit:                                        ; preds = %71, %59
   tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.47, ptr noundef %.0)
   br label %verify_backup_file.exit
 
 manifest_files_lookup.exit:                       ; preds = %.lr.ph.i.i
-  %84 = getelementptr inbounds i8, ptr %72, i64 40
-  store i8 1, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %72, i64 16
-  %86 = load i64, ptr %85, align 8
-  %87 = load i64, ptr %12, align 8
-  %.not29.i = icmp eq i64 %86, %87
-  br i1 %.not29.i, label %90, label %88
+  %82 = getelementptr inbounds i8, ptr %77, i64 40
+  store i8 1, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %77, i64 16
+  %84 = load i64, ptr %83, align 8
+  %85 = load i64, ptr %12, align 8
+  %.not29.i = icmp eq i64 %84, %85
+  br i1 %.not29.i, label %88, label %86
 
-88:                                               ; preds = %manifest_files_lookup.exit
-  tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %.0, i64 noundef %87, i64 noundef %86)
-  %89 = getelementptr inbounds i8, ptr %72, i64 41
-  store i8 1, ptr %89, align 1
-  br label %90
+86:                                               ; preds = %manifest_files_lookup.exit
+  tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %.0, i64 noundef %85, i64 noundef %84)
+  %87 = getelementptr inbounds i8, ptr %77, i64 41
+  store i8 1, ptr %87, align 1
+  br label %88
 
-90:                                               ; preds = %88, %manifest_files_lookup.exit
+88:                                               ; preds = %86, %manifest_files_lookup.exit
   %.b30.i = load i1, ptr @show_progress, align 1
-  br i1 %.b30.i, label %91, label %verify_backup_file.exit
+  br i1 %.b30.i, label %89, label %verify_backup_file.exit
 
-91:                                               ; preds = %90
+89:                                               ; preds = %88
   %.b2831.i = load i1, ptr @skip_checksums, align 1
-  br i1 %.b2831.i, label %verify_backup_file.exit, label %92
+  br i1 %.b2831.i, label %verify_backup_file.exit, label %90
 
-92:                                               ; preds = %91
-  %93 = load i8, ptr %84, align 8
-  %94 = trunc i8 %93 to i1
-  br i1 %94, label %95, label %verify_backup_file.exit
+90:                                               ; preds = %89
+  %91 = load i8, ptr %82, align 8
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %verify_backup_file.exit
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %72, i64 41
-  %97 = load i8, ptr %96, align 1
-  %98 = trunc i8 %97 to i1
-  br i1 %98, label %verify_backup_file.exit, label %99
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds i8, ptr %77, i64 41
+  %95 = load i8, ptr %94, align 1
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %verify_backup_file.exit, label %97
 
-99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %72, i64 24
-  %101 = load i32, ptr %100, align 8
-  %.not32.i = icmp eq i32 %101, 0
-  br i1 %.not32.i, label %verify_backup_file.exit, label %102
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds i8, ptr %77, i64 24
+  %99 = load i32, ptr %98, align 8
+  %.not32.i = icmp eq i32 %99, 0
+  br i1 %.not32.i, label %verify_backup_file.exit, label %100
 
-102:                                              ; preds = %99
-  %103 = load i64, ptr %85, align 8
-  %104 = load i64, ptr @total_size, align 8
-  %105 = add i64 %104, %103
-  store i64 %105, ptr @total_size, align 8
+100:                                              ; preds = %97
+  %101 = load i64, ptr %83, align 8
+  %102 = load i64, ptr @total_size, align 8
+  %103 = add i64 %102, %101
+  store i64 %103, ptr @total_size, align 8
   br label %verify_backup_file.exit
 
-verify_backup_file.exit:                          ; preds = %53, %57, %58, %.loopexit, %90, %91, %92, %95, %99, %102
+verify_backup_file.exit:                          ; preds = %53, %57, %58, %.loopexit, %88, %89, %90, %93, %97, %100
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   br label %should_ignore_relpath.exit
 
@@ -1255,15 +1255,15 @@ should_ignore_relpath.exit:                       ; preds = %._crit_edge.i, %._c
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
-  %106 = tail call i32 @closedir(ptr noundef nonnull %5)
-  %.not31 = icmp eq i32 %106, 0
-  br i1 %.not31, label %108, label %107
+  %104 = tail call i32 @closedir(ptr noundef nonnull %5)
+  %.not31 = icmp eq i32 %104, 0
+  br i1 %.not31, label %106, label %105
 
-107:                                              ; preds = %._crit_edge
+105:                                              ; preds = %._crit_edge
   tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef %0, ptr noundef nonnull @.str.44, ptr noundef %2)
-  br label %108
+  br label %106
 
-108:                                              ; preds = %107, %._crit_edge, %16
+106:                                              ; preds = %105, %._crit_edge, %16
   ret void
 }
 
@@ -1702,7 +1702,7 @@ define internal fastcc void @progress_report(i1 noundef zeroext %0) unnamed_addr
   %5 = tail call i64 @time(ptr noundef null) #16
   %6 = load i64, ptr @progress_report.last_progress_report, align 8
   %7 = icmp ne i64 %5, %6
-  %brmerge = or i1 %7, %0
+  %brmerge = or i1 %0, %7
   br i1 %brmerge, label %8, label %35
 
 8:                                                ; preds = %4

@@ -823,7 +823,7 @@ define hidden void @_ZN13CodeHeapState20update_SizeDistArrayEP12outputStreamj(pt
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ugt i32 %13, %1
+  %14 = icmp ult i32 %1, %13
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %11
@@ -1197,7 +1197,7 @@ _ZN13CodeHeapState22holding_required_locksEv.exit.thread1082: ; preds = %52, %_Z
 _ZN13CodeHeapState22holding_required_locksEv.exit.thread: ; preds = %_ZN13CodeHeapState22holding_required_locksEv.exit._ZN13CodeHeapState22holding_required_locksEv.exit.thread_crit_edge, %47
   %64 = phi i32 [ %.pre1309, %_ZN13CodeHeapState22holding_required_locksEv.exit._ZN13CodeHeapState22holding_required_locksEv.exit.thread_crit_edge ], [ %49, %47 ]
   %65 = phi i64 [ %.pre, %_ZN13CodeHeapState22holding_required_locksEv.exit._ZN13CodeHeapState22holding_required_locksEv.exit.thread_crit_edge ], [ %37, %47 ]
-  %spec.select = call i64 @llvm.umin.i64(i64 %34, i64 %2)
+  %spec.select = call i64 @llvm.umin.i64(i64 %2, i64 %34)
   %66 = udiv i64 %34, %spec.select
   %67 = icmp ult i64 %66, 256
   %68 = lshr i64 %34, 8
@@ -1607,7 +1607,7 @@ _ZN13CodeHeapState21prepare_SizeDistArrayEP12outputStreamjPKc.exit: ; preds = %.
 232:                                              ; preds = %.lr.ph.i1028
   %233 = getelementptr inbounds i8, ptr %230, i64 4
   %234 = load i32, ptr %233, align 4
-  %235 = icmp ugt i32 %234, %178
+  %235 = icmp ult i32 %178, %234
   br i1 %235, label %236, label %243
 
 236:                                              ; preds = %232
@@ -5578,7 +5578,7 @@ define hidden void @_ZN13CodeHeapState16print_line_delimEP12outputStreamP14buffe
   %25 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 19) #12
   %26 = load i64, ptr @_ZL12granule_size, align 8
   %27 = trunc i64 %26 to i32
-  %28 = mul i32 %27, %3
+  %28 = mul i32 %3, %27
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.210, i32 noundef %28) #12
   br label %29
 
@@ -7839,7 +7839,7 @@ define hidden void @_ZN13CodeHeapState16print_line_delimEP12outputStreamS1_Pcjj(
   %16 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 19) #12
   %17 = load i64, ptr @_ZL12granule_size, align 8
   %18 = trunc i64 %17 to i32
-  %19 = mul i32 %18, %3
+  %19 = mul i32 %3, %18
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.210, i32 noundef %19) #12
   br label %20
 

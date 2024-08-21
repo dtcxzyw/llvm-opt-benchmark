@@ -687,7 +687,7 @@ define internal noundef i64 @_7z_write_data(ptr noundef %0, ptr noundef %1, i64 
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 104
   %7 = load i64, ptr %6, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %7, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %7)
   %8 = icmp eq i64 %spec.select, 0
   br i1 %8, label %25, label %9
 
@@ -748,7 +748,7 @@ define internal noundef i32 @_7z_finish_entry(ptr noundef %0) #0 {
   %15 = load ptr, ptr %2, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 104
   %17 = load i64, ptr %16, align 8
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %spec.select)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %17)
   %18 = icmp eq i64 %spec.select.i, 0
   br i1 %18, label %_7z_write_data.exit, label %19
 

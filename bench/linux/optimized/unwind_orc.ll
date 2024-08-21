@@ -1709,7 +1709,7 @@ define dso_local void @__unwind_start(ptr noundef %0, ptr noundef %1, ptr nounde
 7:                                                ; preds = %4
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !20
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %7

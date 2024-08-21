@@ -17,7 +17,7 @@ define noundef i32 @dsymm_iutcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
 
 .split.preheader:                                 ; preds = %10
   %14 = and i64 %1, -16
-  %15 = add i64 %14, %4
+  %15 = add i64 %4, %14
   br label %.loopexit6
 
 .split.us:                                        ; preds = %10, %.loopexit5.us

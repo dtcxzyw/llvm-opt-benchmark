@@ -274,7 +274,7 @@ define dso_local void @GinPageDeletePostingItem(ptr nocapture noundef %0, i16 no
   %6 = getelementptr i8, ptr %0, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i16, ptr %7, align 4
-  %.not = icmp eq i16 %8, %1
+  %.not = icmp eq i16 %1, %8
   br i1 %.not, label %22, label %9
 
 9:                                                ; preds = %2

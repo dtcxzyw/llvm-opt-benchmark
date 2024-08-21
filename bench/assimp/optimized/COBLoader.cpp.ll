@@ -881,10 +881,10 @@ invoke.cont14:                                    ; preds = %invoke.cont11
   store ptr %add.ptr.i57, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %call12, i64 40
   %7 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %7, %add.ptr.i57
+  %cmp.i.i = icmp ugt ptr %add.ptr.i57, %7
   %mBuffer.i.i = getelementptr inbounds i8, ptr %call12, i64 16
   %8 = load ptr, ptr %mBuffer.i.i, align 8
-  %cmp4.i.i = icmp ugt ptr %8, %add.ptr.i57
+  %cmp4.i.i = icmp ult ptr %add.ptr.i57, %8
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %invoke.cont18
 
@@ -9662,7 +9662,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -9733,7 +9733,7 @@ _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit29.i: ; pre
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -9759,7 +9759,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -9833,7 +9833,7 @@ _ZNSt12_Vector_baseI10aiVector2tIfESaIS1_EE13_M_deallocateEPS1_m.exit29.i: ; pre
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -14195,7 +14195,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #24
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt10shared_ptrIN6Assimp3COB4NodeEESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -15112,7 +15112,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #24
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPKN6Assimp3COB4NodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -16413,7 +16413,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %9, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %10
+  %cmp2.i.i = icmp eq ptr %10, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -16483,7 +16483,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjSt5dequeIPN6Assimp3COB4FaceESaIS6_EEESt10_Select1stIS9
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt5dequeIPN6Assimp3COB4FaceESaIS6_EEESt10_Select1stIS9_ESt4lessIjESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -16774,7 +16774,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #24
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPN6Assimp3COB4FaceESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -17242,7 +17242,7 @@ if.end43:                                         ; preds = %if.end
 land.lhs.true51:                                  ; preds = %if.end13, %land.lhs.true21, %if.end43
   %cmp54 = icmp eq i8 %1, 46
   %cmp60 = icmp eq i8 %1, 44
-  %or.cond17 = and i1 %cmp60, %check_comma
+  %or.cond17 = and i1 %check_comma, %cmp60
   %or.cond = or i1 %cmp54, %or.cond17
   br i1 %or.cond, label %land.lhs.true61, label %if.then69
 
@@ -17293,7 +17293,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread35,
 if.end74:                                         ; preds = %if.end43, %land.lhs.true61
   %cmp76.not = icmp eq i8 %1, 46
   %cmp82.not = icmp eq i8 %1, 44
-  %or.cond19 = and i1 %cmp82.not, %check_comma
+  %or.cond19 = and i1 %check_comma, %cmp82.not
   %or.cond23 = or i1 %cmp76.not, %or.cond19
   br i1 %or.cond23, label %if.end86, label %if.then83
 
@@ -17310,7 +17310,7 @@ if.end86:                                         ; preds = %if.then83, %if.end7
   %f.0 = phi float [ %conv85, %if.then83 ], [ 0.000000e+00, %if.end74 ]
   %cmp88 = icmp eq i8 %10, 46
   %cmp94 = icmp eq i8 %10, 44
-  %or.cond20 = and i1 %cmp94, %check_comma
+  %or.cond20 = and i1 %check_comma, %cmp94
   %or.cond24 = or i1 %cmp88, %or.cond20
   br i1 %or.cond24, label %land.lhs.true95, label %if.end114
 
@@ -18425,7 +18425,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
   %20 = tail call ptr @__cxa_begin_catch(ptr %19) #24
-  %cmp.not3.i.i = icmp eq ptr %__cur.010, %__result
+  %cmp.not3.i.i = icmp eq ptr %__result, %__cur.010
   br i1 %cmp.not3.i.i, label %invoke.cont3, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lpad, %for.body.i.i
@@ -19293,7 +19293,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN6Assimp3COB4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6Assimp3COB4FaceESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6Assimp3COB4FaceESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6Assimp3COB4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6Assimp3COB4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i12

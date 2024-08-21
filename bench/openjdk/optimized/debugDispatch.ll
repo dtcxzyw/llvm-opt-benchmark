@@ -125,7 +125,7 @@ define hidden ptr @debugDispatch_getHandler(i32 noundef %0, i32 noundef %1, ptr 
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %2, align 8
   %15 = load i32, ptr %10, align 8
-  %16 = icmp slt i32 %15, %1
+  %16 = icmp sgt i32 %1, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %12

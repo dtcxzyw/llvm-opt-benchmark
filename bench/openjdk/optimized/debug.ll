@@ -3118,7 +3118,7 @@ define hidden void @_Z20disarm_assert_poisonv() local_unnamed_addr #8 {
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_Z26handle_assert_poison_faultPKvS0_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @g_assert_poison, align 8
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   br i1 %4, label %5, label %14
 
 5:                                                ; preds = %2

@@ -164,7 +164,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %cmp4 = icmp ugt i64 %0, %outsz
+  %cmp4 = icmp ult i64 %outsz, %0
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end3
@@ -384,7 +384,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %cmp4 = icmp ugt i64 %0, %outsz
+  %cmp4 = icmp ult i64 %outsz, %0
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end3

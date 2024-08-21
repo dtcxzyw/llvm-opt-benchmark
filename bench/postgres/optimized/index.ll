@@ -1846,7 +1846,7 @@ define internal fastcc void @index_update_stats(ptr noundef %0, i1 noundef zeroe
   %44 = getelementptr inbounds i8, ptr %36, i64 112
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
-  %47 = xor i1 %46, %1
+  %47 = xor i1 %1, %46
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %43
@@ -2079,7 +2079,7 @@ RelationGetSmgr.exit52:                           ; preds = %82, %85
   %95 = load i8, ptr %94, align 2
   %96 = trunc i8 %95 to i1
   %.not47 = xor i1 %96, true
-  %brmerge = or i1 %.not47, %3
+  %brmerge = or i1 %3, %.not47
   br i1 %brmerge, label %119, label %97
 
 97:                                               ; preds = %93
@@ -2137,7 +2137,7 @@ RelationGetSmgr.exit52:                           ; preds = %82, %85
   %126 = getelementptr inbounds i8, ptr %1, i64 72
   %127 = load i32, ptr %126, align 8
   %128 = load i32, ptr @currentlyReindexedIndex, align 4
-  %129 = icmp eq i32 %128, %127
+  %129 = icmp eq i32 %127, %128
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %125
@@ -3801,7 +3801,7 @@ list_head.exit:                                   ; preds = %._crit_edge43, %16
 
 51:                                               ; preds = %50
   %52 = load i16, ptr %27, align 2
-  %53 = icmp slt i16 %52, %37
+  %53 = icmp sgt i16 %37, %52
   br i1 %53, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %51
@@ -4683,14 +4683,14 @@ declare i32 @get_rel_namespace(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @ReindexIsProcessingHeap(i32 noundef %0) local_unnamed_addr #5 {
   %2 = load i32, ptr @currentlyReindexedHeap, align 4
-  %3 = icmp eq i32 %2, %0
+  %3 = icmp eq i32 %0, %2
   ret i1 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @ReindexIsProcessingIndex(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @currentlyReindexedIndex, align 4
-  %3 = icmp eq i32 %2, %0
+  %3 = icmp eq i32 %0, %2
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1

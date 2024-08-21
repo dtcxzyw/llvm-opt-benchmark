@@ -1396,7 +1396,7 @@ land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i,
   %idxprom.i7.i.i.i.i = sext i32 %index.014.i.i.i.i to i64
   %arrayidx.i8.i.i.i.i = getelementptr inbounds %class.b3HashPtr, ptr %47, i64 %idxprom.i7.i.i.i.i
   %49 = load ptr, ptr %arrayidx.i8.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %49, %42
+  %cmp.i.i.i.i.i = icmp eq ptr %42, %49
   br i1 %cmp.i.i.i.i.i, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
@@ -1808,7 +1808,7 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
   %idxprom.i7.i.i.i = sext i32 %index.014.i.i.i to i64
   %arrayidx.i8.i.i.i = getelementptr inbounds %class.b3HashPtr, ptr %7, i64 %idxprom.i7.i.i.i
   %9 = load ptr, ptr %arrayidx.i8.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %9, %2
+  %cmp.i.i.i.i = icmp eq ptr %2, %9
   br i1 %cmp.i.i.i.i, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
@@ -3901,7 +3901,7 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
   %idxprom.i7.i.i.i = sext i32 %index.014.i.i.i to i64
   %arrayidx.i8.i.i.i = getelementptr inbounds %class.b3HashPtr, ptr %10, i64 %idxprom.i7.i.i.i
   %12 = load ptr, ptr %arrayidx.i8.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %12, %5
+  %cmp.i.i.i.i = icmp eq ptr %5, %12
   br i1 %cmp.i.i.i.i, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
@@ -4047,7 +4047,7 @@ land.rhs.i.i.i62:                                 ; preds = %while.body.i.i.i67,
   %idxprom.i7.i.i.i64 = sext i32 %index.014.i.i.i63 to i64
   %arrayidx.i8.i.i.i65 = getelementptr inbounds %class.b3HashPtr, ptr %36, i64 %idxprom.i7.i.i.i64
   %38 = load ptr, ptr %arrayidx.i8.i.i.i65, align 8
-  %cmp.i.i.i.i66 = icmp eq ptr %38, %31
+  %cmp.i.i.i.i66 = icmp eq ptr %31, %38
   br i1 %cmp.i.i.i.i66, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i71, label %while.body.i.i.i67
 
 while.body.i.i.i67:                               ; preds = %land.rhs.i.i.i62
@@ -4238,7 +4238,7 @@ land.rhs.i.i.i110:                                ; preds = %while.body.i.i.i115
   %idxprom.i7.i.i.i112 = sext i32 %index.014.i.i.i111 to i64
   %arrayidx.i8.i.i.i113 = getelementptr inbounds %class.b3HashPtr, ptr %57, i64 %idxprom.i7.i.i.i112
   %59 = load ptr, ptr %arrayidx.i8.i.i.i113, align 8
-  %cmp.i.i.i.i114 = icmp eq ptr %59, %dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0.
+  %cmp.i.i.i.i114 = icmp eq ptr %dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0., %59
   br i1 %cmp.i.i.i.i114, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i119, label %while.body.i.i.i115
 
 while.body.i.i.i115:                              ; preds = %land.rhs.i.i.i110
@@ -4331,7 +4331,7 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %la
   %idxprom.i7.i.i = sext i32 %index.014.i.i to i64
   %arrayidx.i8.i.i = getelementptr inbounds %class.b3HashPtr, ptr %4, i64 %idxprom.i7.i.i
   %6 = load ptr, ptr %arrayidx.i8.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %6, %ptr
+  %cmp.i.i.i = icmp eq ptr %ptr, %6
   br i1 %cmp.i.i.i, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
@@ -4421,7 +4421,7 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
   %idxprom.i7.i.i.i = sext i32 %index.014.i.i.i to i64
   %arrayidx.i8.i.i.i = getelementptr inbounds %class.b3HashPtr, ptr %9, i64 %idxprom.i7.i.i.i
   %11 = load ptr, ptr %arrayidx.i8.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %11, %4
+  %cmp.i.i.i.i = icmp eq ptr %4, %11
   br i1 %cmp.i.i.i.i, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
@@ -4609,7 +4609,7 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
   %idxprom.i7.i.i.i = sext i32 %index.014.i.i.i to i64
   %arrayidx.i8.i.i.i = getelementptr inbounds %class.b3HashPtr, ptr %17, i64 %idxprom.i7.i.i.i
   %19 = load ptr, ptr %arrayidx.i8.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %19, %12
+  %cmp.i.i.i.i = icmp eq ptr %12, %19
   br i1 %cmp.i.i.i.i, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
@@ -4700,7 +4700,7 @@ land.rhs.i.i.i137:                                ; preds = %while.body.i.i.i142
   %idxprom.i7.i.i.i139 = sext i32 %index.014.i.i.i138 to i64
   %arrayidx.i8.i.i.i140 = getelementptr inbounds %class.b3HashPtr, ptr %27, i64 %idxprom.i7.i.i.i139
   %29 = load ptr, ptr %arrayidx.i8.i.i.i140, align 8
-  %cmp.i.i.i.i141 = icmp eq ptr %29, %22
+  %cmp.i.i.i.i141 = icmp eq ptr %22, %29
   br i1 %cmp.i.i.i.i141, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i146, label %while.body.i.i.i142
 
 while.body.i.i.i142:                              ; preds = %land.rhs.i.i.i137
@@ -4779,7 +4779,7 @@ land.rhs.i.i.i184:                                ; preds = %while.body.i.i.i189
   %idxprom.i7.i.i.i186 = sext i32 %index.014.i.i.i185 to i64
   %arrayidx.i8.i.i.i187 = getelementptr inbounds %class.b3HashPtr, ptr %39, i64 %idxprom.i7.i.i.i186
   %41 = load ptr, ptr %arrayidx.i8.i.i.i187, align 8
-  %cmp.i.i.i.i188 = icmp eq ptr %41, %34
+  %cmp.i.i.i.i188 = icmp eq ptr %34, %41
   br i1 %cmp.i.i.i.i188, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i193, label %while.body.i.i.i189
 
 while.body.i.i.i189:                              ; preds = %land.rhs.i.i.i184
@@ -5327,7 +5327,7 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
   %idxprom.i7.i.i.i = sext i32 %index.014.i.i.i to i64
   %arrayidx.i8.i.i.i = getelementptr inbounds %class.b3HashPtr, ptr %21, i64 %idxprom.i7.i.i.i
   %23 = load ptr, ptr %arrayidx.i8.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %23, %16
+  %cmp.i.i.i.i = icmp eq ptr %16, %23
   br i1 %cmp.i.i.i.i, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
@@ -5496,7 +5496,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body9.i
   store i32 %1, ptr %m_size.i, align 4
   %m_size.i.i17 = getelementptr inbounds i8, ptr %this, i64 36
   %5 = load i32, ptr %m_size.i.i17, align 4
-  %cmp4.i18 = icmp slt i32 %5, %1
+  %cmp4.i18 = icmp sgt i32 %1, %5
   br i1 %cmp4.i18, label %for.body9.lr.ph.i19, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit28
 
 for.body9.lr.ph.i19:                              ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit

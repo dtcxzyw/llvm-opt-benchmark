@@ -88,7 +88,7 @@ entry:
   %frombool = zext i1 %flag to i8
   store i8 %frombool, ptr @_ZL25g_exit_when_out_of_memory, align 1
   %tobool3 = icmp ne ptr %msg, null
-  %or.cond = and i1 %tobool3, %flag
+  %or.cond = and i1 %flag, %tobool3
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -425,7 +425,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt10lo
   %9 = load i64, ptr @_ZL24g_memory_max_alloc_count, align 8
   %call1.i.i.i8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #23
   store i64 0, ptr %1, align 8
-  %brmerge.not = and i1 %or.cond.not.not9, %allocating
+  %brmerge.not = and i1 %allocating, %or.cond.not.not9
   br i1 %brmerge.not, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end
@@ -436,7 +436,7 @@ if.end14:                                         ; preds = %if.end
   %cmp6.not = icmp ne i64 %9, 0
   %cmp8 = icmp sgt i64 %add1, %9
   %or.cond4.not.not10 = select i1 %cmp6.not, i1 %cmp8, i1 false
-  %brmerge6.not = and i1 %or.cond4.not.not10, %allocating
+  %brmerge6.not = and i1 %allocating, %or.cond4.not.not10
   br i1 %brmerge6.not, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end14

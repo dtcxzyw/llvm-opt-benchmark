@@ -44,7 +44,7 @@ define hidden void @_ZN6base646engine15general_purpose6decode18complete_quads_le
   %14 = tail call i64 @llvm.usub.sat.i64(i64 %11, i64 %13)
   %15 = lshr i64 %14, 2
   %16 = mul nuw i64 %15, 3
-  %17 = icmp ugt i64 %16, %4
+  %17 = icmp ult i64 %4, %16
   br i1 %17, label %31, label %29
 
 18:                                               ; preds = %8

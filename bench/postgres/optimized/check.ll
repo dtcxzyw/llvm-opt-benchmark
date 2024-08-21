@@ -182,7 +182,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @output_check_banner(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @user_opts, align 8
   %3 = trunc i8 %2 to i1
-  %brmerge.demorgan = and i1 %3, %0
+  %brmerge.demorgan = and i1 %0, %3
   %.str..str.1 = select i1 %brmerge.demorgan, ptr @.str, ptr @.str.1
   tail call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull %.str..str.1) #12
   ret void

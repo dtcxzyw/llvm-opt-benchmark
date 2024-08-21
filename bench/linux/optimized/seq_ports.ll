@@ -43,7 +43,7 @@ define dso_local ptr @snd_seq_port_use_ptr(ptr noundef %0, i32 noundef %1) local
   %12 = getelementptr i8, ptr %9, i64 -79
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
-  %15 = icmp eq i32 %14, %1
+  %15 = icmp eq i32 %1, %14
   br i1 %15, label %16, label %7, !llvm.loop !5
 
 16:                                               ; preds = %11
@@ -286,7 +286,7 @@ define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr nounde
   %54 = getelementptr i8, ptr %52, i64 -79
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
-  %57 = icmp eq i32 %56, %1
+  %57 = icmp eq i32 %1, %56
   br i1 %57, label %.split11.us, label %58
 
 58:                                               ; preds = %.split.us
@@ -304,7 +304,7 @@ define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr nounde
   %65 = getelementptr i8, ptr %64, i64 -79
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
-  %68 = icmp eq i32 %67, %1
+  %68 = icmp eq i32 %1, %67
   br i1 %68, label %.split11.us, label %69
 
 .split11.us:                                      ; preds = %.split, %.split.us
@@ -392,7 +392,7 @@ define dso_local noundef range(i32 -2, 1) i32 @snd_seq_delete_port(ptr noundef %
   %11 = getelementptr i8, ptr %8, i64 -79
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
-  %14 = icmp eq i32 %13, %1
+  %14 = icmp eq i32 %1, %13
   br i1 %14, label %15, label %6, !llvm.loop !11
 
 15:                                               ; preds = %10

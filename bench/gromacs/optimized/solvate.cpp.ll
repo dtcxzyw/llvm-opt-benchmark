@@ -663,20 +663,20 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit24:      ; preds = %_ZNSt6vectorIN3gmx1
   %186 = getelementptr inbounds i8, ptr %41, i64 32
   %187 = getelementptr inbounds i8, ptr %41, i64 28
   %188 = getelementptr inbounds i8, ptr %41, i64 20
-  %189 = fneg float %179
-  %190 = fmul float %178, %189
+  %189 = fneg float %178
+  %190 = fmul float %179, %189
   %191 = call float @llvm.fmuladd.f32(float %181, float %180, float %190)
   %192 = getelementptr inbounds i8, ptr %41, i64 4
   %193 = getelementptr inbounds i8, ptr %41, i64 8
-  %194 = fmul float %175, %189
-  %195 = call float @llvm.fmuladd.f32(float %176, float %180, float %194)
-  %196 = fneg float %177
-  %197 = fmul float %195, %196
-  %198 = call float @llvm.fmuladd.f32(float %182, float %191, float %197)
-  %199 = fneg float %181
-  %200 = fmul float %175, %199
+  %194 = fneg float %175
+  %195 = fmul float %179, %194
+  %196 = call float @llvm.fmuladd.f32(float %176, float %180, float %195)
+  %197 = fneg float %196
+  %198 = fmul float %177, %197
+  %199 = call float @llvm.fmuladd.f32(float %182, float %191, float %198)
+  %200 = fmul float %181, %194
   %201 = call float @llvm.fmuladd.f32(float %176, float %178, float %200)
-  %202 = call noundef float @llvm.fmuladd.f32(float %174, float %201, float %198)
+  %202 = call noundef float @llvm.fmuladd.f32(float %174, float %201, float %199)
   %203 = fcmp oeq float %202, 0.000000e+00
   br i1 %203, label %204, label %209
 
@@ -1023,22 +1023,22 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit26:        ; preds = %231, %234
   %320 = load float, ptr %186, align 16
   %321 = load float, ptr %187, align 4
   %322 = load float, ptr %188, align 4
-  %323 = fneg float %321
-  %324 = fmul float %322, %323
+  %323 = fneg float %322
+  %324 = fmul float %321, %323
   %325 = call float @llvm.fmuladd.f32(float %319, float %320, float %324)
   %326 = load float, ptr %183, align 4
   %327 = load float, ptr %192, align 4
   %328 = load float, ptr %193, align 8
-  %329 = fmul float %328, %323
-  %330 = call float @llvm.fmuladd.f32(float %327, float %320, float %329)
-  %331 = fneg float %326
-  %332 = fmul float %330, %331
-  %333 = call float @llvm.fmuladd.f32(float %318, float %325, float %332)
-  %334 = load float, ptr %185, align 8
-  %335 = fneg float %319
-  %336 = fmul float %328, %335
+  %329 = fneg float %328
+  %330 = fmul float %321, %329
+  %331 = call float @llvm.fmuladd.f32(float %327, float %320, float %330)
+  %332 = fneg float %331
+  %333 = fmul float %326, %332
+  %334 = call float @llvm.fmuladd.f32(float %318, float %325, float %333)
+  %335 = load float, ptr %185, align 8
+  %336 = fmul float %319, %329
   %337 = call float @llvm.fmuladd.f32(float %327, float %322, float %336)
-  %338 = call noundef float @llvm.fmuladd.f32(float %334, float %337, float %333)
+  %338 = call noundef float @llvm.fmuladd.f32(float %335, float %337, float %334)
   %339 = load ptr, ptr @stderr, align 8
   %340 = fpext float %338 to double
   %341 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %339, ptr noundef nonnull @.str.107, double noundef %340) #22
@@ -1242,7 +1242,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %359, %356
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit85.i: ; preds = %410
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #21
   %413 = load i32, ptr %237, align 8
-  %414 = icmp sgt i32 %413, %.019
+  %414 = icmp slt i32 %.019, %413
   br i1 %414, label %.lr.ph128.i, label %._crit_edge129.i
 
 .lr.ph128.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit85.i, %439
@@ -6241,7 +6241,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorI
   %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr %"class.gmx::BasicVector", ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
-  %.not11.i.i.i.i.i53 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_SaIS2_EET0_T_S6_S5_RT1_.exit59, label %.lr.ph.i.i.i.i.i54
 
 .lr.ph.i.i.i.i.i54:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit, %.lr.ph.i.i.i.i.i54
@@ -6323,7 +6323,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit: ; preds 
   br i1 %.not.i.i.i.i72, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit74, label %.lr.ph.i.i.i.i69, !llvm.loop !63
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit74: ; preds = %.lr.ph.i.i.i.i69
-  %.not11.i.i.i.i.i75 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i75 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i75, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_SaIS2_EET0_T_S6_S5_RT1_.exit81, label %.lr.ph.i.i.i.i.i76
 
 .lr.ph.i.i.i.i.i76:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit74, %.lr.ph.i.i.i.i.i76

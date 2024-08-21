@@ -680,7 +680,7 @@ if.end:                                           ; preds = %if.then
 if.then7:                                         ; preds = %if.end
   %6 = load i64, ptr %base, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %0
+  %cmp.i = icmp ugt i64 %0, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then7
@@ -698,7 +698,7 @@ if.end8:                                          ; preds = %if.end
   %sub = add i64 %8, -1
   %9 = load i64, ptr %base, align 8
   %spec.select.i20 = call i64 @llvm.usub.sat.i64(i64 %9, i64 1)
-  %cmp.i21 = icmp ult i64 %spec.select.i20, %sub
+  %cmp.i21 = icmp ugt i64 %sub, %spec.select.i20
   br i1 %cmp.i21, label %if.then.i28, label %if.end.i22
 
 if.then.i28:                                      ; preds = %if.end8
@@ -761,7 +761,7 @@ set_index_entry.exit:                             ; preds = %if.end10, %if.then.
   call void @add_name_hash(ptr noundef nonnull %14, ptr noundef nonnull %call13) #12
   %19 = load i64, ptr %base, align 8
   %spec.select.i34 = call i64 @llvm.usub.sat.i64(i64 %19, i64 1)
-  %cmp.i35 = icmp ult i64 %spec.select.i34, %0
+  %cmp.i35 = icmp ugt i64 %0, %spec.select.i34
   br i1 %cmp.i35, label %if.then.i42, label %if.end.i36
 
 if.then.i42:                                      ; preds = %set_index_entry.exit

@@ -527,7 +527,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub nsw i32 0, %max
-  %cmp1 = icmp slt i32 %sub, %n
+  %cmp1 = icmp sgt i32 %n, %sub
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
@@ -544,7 +544,7 @@ if.end:                                           ; preds = %entry
 
 if.then6:                                         ; preds = %if.end
   %mul = shl nsw i32 %max, 1
-  %cmp7.not = icmp sgt i32 %mul, %n
+  %cmp7.not = icmp slt i32 %n, %mul
   br i1 %cmp7.not, label %if.else9, label %return
 
 if.else9:                                         ; preds = %if.then6
@@ -838,9 +838,9 @@ entry:
   %sub = fsub float %out_pixel_center, %out_filter_radius
   %add = fadd float %out_pixel_center, %out_filter_radius
   %add1 = fadd float %sub, %out_shift
-  %mul = fmul float %add1, %inv_scale
+  %mul = fmul float %inv_scale, %add1
   %add2 = fadd float %add, %out_shift
-  %mul3 = fmul float %add2, %inv_scale
+  %mul3 = fmul float %inv_scale, %add2
   %add4 = fadd float %mul, 5.000000e-01
   %call = tail call float @stbir_simd_floorf(float noundef %add4) #24
   %conv = fptosi float %call to i32
@@ -907,7 +907,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add4 = fadd float %1, %add
   %mul = fmul float %0, %add4
   %sub.i = fsub float %add, %out_filter_radius
-  %add.i = fadd float %add, %out_filter_radius
+  %add.i = fadd float %out_filter_radius, %add
   %add1.i = fadd float %1, %sub.i
   %mul.i = fmul float %0, %add1.i
   %add2.i = fadd float %1, %add.i
@@ -987,12 +987,12 @@ define void @stbir__insert_coeff(ptr nocapture noundef %contribs, ptr nocapture 
 entry:
   %n1 = getelementptr inbounds i8, ptr %contribs, i64 4
   %0 = load i32, ptr %n1, align 4
-  %cmp.not = icmp slt i32 %0, %new_pixel
+  %cmp.not = icmp sgt i32 %new_pixel, %0
   %1 = load i32, ptr %contribs, align 4
   br i1 %cmp.not, label %if.else26, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp sgt i32 %1, %new_pixel
+  %cmp1 = icmp slt i32 %new_pixel, %1
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
@@ -1041,7 +1041,7 @@ if.else:                                          ; preds = %if.then
   %idxprom23 = sext i32 %sub22 to i64
   %arrayidx24 = getelementptr inbounds float, ptr %coeffs, i64 %idxprom23
   %5 = load float, ptr %arrayidx24, align 4
-  %add25 = fadd float %5, %new_coeff
+  %add25 = fadd float %new_coeff, %5
   store float %add25, ptr %arrayidx24, align 4
   br label %if.end44
 
@@ -1089,7 +1089,7 @@ entry:
   %sub5 = fadd float %sub3, -5.000000e-01
   %call6 = tail call float @stbir_simd_floorf(float noundef %sub5) #24
   %conv7 = fptosi float %call6 to i32
-  %cmp9.not = icmp slt i32 %conv7, %out_size
+  %cmp9.not = icmp sgt i32 %out_size, %conv7
   %sub12 = add nsw i32 %out_size, -1
   %spec.select = select i1 %cmp9.not, i32 %conv7, i32 %sub12
   %conv = fptosi float %call to i32
@@ -1131,7 +1131,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = fadd float %conv, 5.000000e-01
   %mul = fmul float %0, %add
   %sub.i = fsub float %add, %in_pixels_radius
-  %add.i = fadd float %add, %in_pixels_radius
+  %add.i = fadd float %in_pixels_radius, %add
   %mul.i = fmul float %0, %sub.i
   %sub1.i = fsub float %mul.i, %1
   %mul2.i = fmul float %0, %add.i
@@ -1484,12 +1484,12 @@ for.body113:                                      ; preds = %if.then106, %stbir_
   %arrayidx118 = getelementptr inbounds float, ptr %coeffs.1300, i64 %31
   %32 = load float, ptr %arrayidx118, align 4
   %33 = load i32, ptr %n1103, align 4
-  %cmp.not.i = icmp slt i32 %33, %call
+  %cmp.not.i = icmp sgt i32 %call, %33
   %34 = load i32, ptr %contribs.1299, align 4
   br i1 %cmp.not.i, label %if.else26.i, label %if.then.i151
 
 if.then.i151:                                     ; preds = %for.body113
-  %cmp1.i = icmp sgt i32 %34, %call
+  %cmp1.i = icmp slt i32 %call, %34
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i151
@@ -1598,12 +1598,12 @@ for.body135:                                      ; preds = %if.then126, %stbir_
   %incdec.ptr139 = getelementptr inbounds i8, ptr %c.0290, i64 -4
   %48 = load float, ptr %c.0290, align 4
   %49 = load i32, ptr %n1103, align 4
-  %cmp.not.i153 = icmp slt i32 %49, %call138
+  %cmp.not.i153 = icmp sgt i32 %call138, %49
   %50 = load i32, ptr %contribs.1299, align 4
   br i1 %cmp.not.i153, label %if.else26.i181, label %if.then.i154
 
 if.then.i154:                                     ; preds = %for.body135
-  %cmp1.i155 = icmp sgt i32 %50, %call138
+  %cmp1.i155 = icmp slt i32 %call138, %50
   br i1 %cmp1.i155, label %if.then2.i161, label %if.else.i156
 
 if.then2.i161:                                    ; preds = %if.then.i154
@@ -1718,12 +1718,12 @@ for.end157:                                       ; preds = %for.body149, %for.e
   %70 = load ptr, ptr %arrayidx115, align 8
   %call160 = tail call i32 %70(i32 noundef %.lcssa, i32 noundef %0) #24
   %71 = load i32, ptr %n1103, align 4
-  %cmp.not.i193 = icmp slt i32 %71, %call160
+  %cmp.not.i193 = icmp sgt i32 %call160, %71
   %72 = load i32, ptr %contribs.1299, align 4
   br i1 %cmp.not.i193, label %if.else26.i221, label %if.then.i194
 
 if.then.i194:                                     ; preds = %for.end157
-  %cmp1.i195 = icmp sgt i32 %72, %call160
+  %cmp1.i195 = icmp slt i32 %call160, %72
   br i1 %cmp1.i195, label %if.then2.i201, label %if.else.i196
 
 if.then2.i201:                                    ; preds = %if.then.i194
@@ -1859,7 +1859,7 @@ for.body212.preheader:                            ; preds = %if.end208
   %91 = shl nsw i64 %90, 2
   %scevgep = getelementptr i8, ptr %coeffs.1300, i64 %91
   %92 = xor i32 %diff.0316, -1
-  %93 = add i32 %92, %coefficient_width
+  %93 = add i32 %coefficient_width, %92
   %94 = zext i32 %93 to i64
   %95 = shl nuw nsw i64 %94, 2
   %96 = add nuw nsw i64 %95, 4
@@ -2176,7 +2176,7 @@ if.end:                                           ; preds = %do.body169, %do.bod
 
 land.rhs.lr.ph:                                   ; preds = %if.end
   %sub = add nsw i32 %num_contributors, -1
-  %mul217 = mul nsw i32 %sub, %widest
+  %mul217 = mul nsw i32 %widest, %sub
   %idx.ext218 = sext i32 %mul217 to i64
   %add.ptr219 = getelementptr inbounds float, ptr %coefficents, i64 %idx.ext218
   %mul222 = shl nsw i32 %widest, 1
@@ -2458,11 +2458,11 @@ while.end:                                        ; preds = %while.body, %if.the
   br label %if.end66
 
 if.else:                                          ; preds = %lor.lhs.false
-  %cmp.not.i = icmp slt i32 %35, %n.0125
+  %cmp.not.i = icmp sgt i32 %n.0125, %35
   br i1 %cmp.not.i, label %if.else26.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %cmp1.i = icmp sgt i32 %34, %n.0125
+  %cmp1.i = icmp slt i32 %n.0125, %34
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -26502,7 +26502,7 @@ if.end19:                                         ; preds = %if.else12, %if.else
   %0 = load float, ptr %arrayidx, align 4
   %mul = fmul float %0, %conv
   %conv21 = sitofp i32 %vertical_filter_pixel_width to float
-  %mul22 = fmul float %conv21, %horizontal_scale
+  %mul22 = fmul float %horizontal_scale, %conv21
   %arrayidx23 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %1 = load float, ptr %arrayidx23, align 4
   %mul24 = fmul float %mul22, %1
@@ -26510,7 +26510,7 @@ if.end19:                                         ; preds = %if.else12, %if.else
   %arrayidx27 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load float, ptr %arrayidx27, align 4
   %mul28 = fmul float %2, %conv21
-  %mul30 = fmul float %conv, %vertical_scale
+  %mul30 = fmul float %vertical_scale, %conv
   %arrayidx31 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %3 = load float, ptr %arrayidx31, align 4
   %mul32 = fmul float %mul30, %3
@@ -27643,7 +27643,7 @@ entry:
   %tobool.not = icmp eq i32 %limit_denom, 0
   %conv1 = zext i32 %limit to i64
   %0 = zext i1 %tobool.not to i32
-  %cmp.not43 = icmp ult i32 %0, %limit
+  %cmp.not43 = icmp ugt i32 %limit, %0
   br i1 %cmp.not43, label %if.end.lr.ph, label %for.end
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -27735,7 +27735,7 @@ for.end:                                          ; preds = %entry
 
 if.then27:                                        ; preds = %if.end21, %if.end17, %for.end
   %conv28 = uitofp i32 %limit to double
-  %mul29 = fmul double %conv28, %f
+  %mul29 = fmul double %f, %conv28
   %add30 = fadd double %mul29, 5.000000e-01
   %conv31 = fptoui double %add30 to i64
   %1 = trunc i64 %conv31 to i32
@@ -27830,7 +27830,7 @@ if.then.i:                                        ; preds = %if.end14
 if.end.i:                                         ; preds = %if.then.i, %if.end14
   %input_s0.addr.0 = phi double [ %sub2.i, %if.then.i ], [ %input_s0, %if.end14 ]
   %2 = phi i32 [ 0, %if.then.i ], [ %1, %if.end14 ]
-  %3 = add i32 %2, %output_sub_range
+  %3 = add i32 %output_sub_range, %2
   %sub3.i = sub i32 %output_full_range, %3
   %cmp4.i = icmp slt i32 %sub3.i, 0
   br i1 %cmp4.i, label %if.then6.i, label %stbir__clip.exit
@@ -27840,7 +27840,7 @@ if.then6.i:                                       ; preds = %if.end.i
   %div9.i = fdiv double %conv7.i, %conv16
   %sub10.i = fsub double %input_s1, %input_s0.addr.0
   %mul11.i = fmul double %sub10.i, %div9.i
-  %add12.i = fadd double %mul11.i, %input_s1
+  %add12.i = fadd double %input_s1, %mul11.i
   %sub13.i = sub nsw i32 %output_full_range, %2
   br label %stbir__clip.exit
 
@@ -28201,7 +28201,7 @@ entry:
   store i32 1, ptr %needs_rebuild, align 8
   %output_w = getelementptr inbounds i8, ptr %resize, i64 72
   %0 = load i32, ptr %output_w, align 8
-  %cmp.not = icmp sle i32 %0, %subx
+  %cmp.not = icmp sge i32 %subx, %0
   %add = add nsw i32 %subw, %subx
   %cmp1 = icmp slt i32 %add, 1
   %or.cond16 = select i1 %cmp.not, i1 true, i1 %cmp1
@@ -28210,7 +28210,7 @@ entry:
 lor.lhs.false2:                                   ; preds = %entry
   %output_h = getelementptr inbounds i8, ptr %resize, i64 76
   %1 = load i32, ptr %output_h, align 4
-  %cmp3.not = icmp sgt i32 %1, %suby
+  %cmp3.not = icmp slt i32 %suby, %1
   br i1 %cmp3.not, label %lor.lhs.false4, label %return
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false2
@@ -28265,10 +28265,10 @@ entry:
   store i32 %subh, ptr %output_subh, align 4
   %needs_rebuild = getelementptr inbounds i8, ptr %resize, i64 120
   store i32 1, ptr %needs_rebuild, align 8
-  %cmp.not = icmp sgt i32 %0, %subx
+  %cmp.not = icmp slt i32 %subx, %0
   %cmp17 = icmp sgt i32 %add, 0
   %or.cond30.not32 = select i1 %cmp.not, i1 %cmp17, i1 false
-  %cmp21.not = icmp sgt i32 %1, %suby
+  %cmp21.not = icmp slt i32 %suby, %1
   %or.cond31 = select i1 %or.cond30.not32, i1 %cmp21.not, i1 false
   br i1 %or.cond31, label %lor.lhs.false23, label %return
 
@@ -28649,7 +28649,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %splits = getelementptr inbounds i8, ptr %resize, i64 112
   %0 = load i32, ptr %splits, align 8
-  %cmp2 = icmp eq i32 %0, %split_count
+  %cmp2 = icmp eq i32 %split_count, %0
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %land.lhs.true
@@ -28671,7 +28671,7 @@ lor.lhs.false4:                                   ; preds = %if.end
 if.end6:                                          ; preds = %lor.lhs.false4
   %splits7 = getelementptr inbounds i8, ptr %resize, i64 112
   %3 = load i32, ptr %splits7, align 8
-  %cmp8 = icmp sle i32 %3, %split_start
+  %cmp8 = icmp sge i32 %split_start, %3
   %cmp10 = icmp slt i32 %split_start, 0
   %or.cond = or i1 %cmp10, %cmp8
   br i1 %or.cond, label %return, label %lor.lhs.false11
@@ -28762,7 +28762,7 @@ entry:
   %arrayidx.i = getelementptr inbounds [17 x i8], ptr @stbir__pixel_channels, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %1 to i32
-  %mul1.i = mul nsw i32 %conv.i, %output_w
+  %mul1.i = mul nsw i32 %output_w, %conv.i
   %cmp.i = icmp eq i32 %mul1.i, 0
   br i1 %cmp.i, label %return, label %if.end.i
 
@@ -28869,7 +28869,7 @@ entry:
   %arrayidx.i = getelementptr inbounds [17 x i8], ptr @stbir__pixel_channels, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %1 to i32
-  %mul1.i = mul nsw i32 %conv.i, %output_w
+  %mul1.i = mul nsw i32 %output_w, %conv.i
   %cmp.i = icmp eq i32 %mul1.i, 0
   br i1 %cmp.i, label %return, label %if.end.i
 
@@ -29084,7 +29084,7 @@ entry:
   %idxprom1 = zext i32 %pixel_layout to i64
   %arrayidx2 = getelementptr inbounds [17 x i32], ptr @stbir__pixel_layout_convert_public_to_internal, i64 0, i64 %idxprom1
   %1 = load i32, ptr %arrayidx2, align 4
-  %mul.i = mul nsw i32 %conv, %output_w
+  %mul.i = mul nsw i32 %output_w, %conv
   %idxprom.i = zext i32 %1 to i64
   %arrayidx.i = getelementptr inbounds [17 x i8], ptr @stbir__pixel_channels, i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1

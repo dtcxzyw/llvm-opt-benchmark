@@ -2199,7 +2199,7 @@ define void @Acec_TreePhases_rec(ptr nocapture noundef readnone %0, ptr nocaptur
   %36 = and i32 %35, 1
   %37 = xor i32 %36, %4
   %38 = xor i32 %37, %30
-  %.not.i = icmp eq i32 %36, %4
+  %.not.i = icmp eq i32 %4, %36
   br i1 %.not.i, label %Acec_SignSetBit2.exit, label %39
 
 39:                                               ; preds = %34
@@ -2284,7 +2284,7 @@ Acec_SignSetBit2.exit67:                          ; preds = %67, %Acec_SignSetBi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @Acec_TreeAddInOutPoint(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = shl nsw i32 %1, 1
-  %6 = add nsw i32 %5, %3
+  %6 = add nsw i32 %3, %5
   %7 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %7, align 8
   %8 = sext i32 %6 to i64
@@ -2692,7 +2692,7 @@ Vec_IntPush.exit26:                               ; preds = %.Vec_IntGrow.exit10
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i64 %indvars.iv, 4
   %86 = zext i1 %85 to i32
-  %87 = add nsw i32 %86, %3
+  %87 = add nsw i32 %3, %86
   tail call void @Acec_TreeFindTrees_rec(ptr noundef %0, ptr noundef %1, i32 noundef %84, i32 noundef %87, ptr noundef nonnull %4, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5

@@ -735,7 +735,7 @@ declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noun
 define noundef ptr @_Z11gmx_strndupPKci(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %4 = trunc i64 %3 to i32
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %4, i32 %1)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %4)
   %5 = add nsw i32 %spec.select, 1
   %6 = sext i32 %5 to i64
   %7 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 287, i64 noundef %6, i64 noundef 1)
@@ -902,7 +902,7 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr nocapture noundef readonly %0, i32 
   %9 = sext i32 %8 to i64
   %10 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 405, i64 noundef %9, i64 noundef 1)
   %11 = icmp sgt i32 %2, 0
-  %or.cond146 = and i1 %11, %3
+  %or.cond146 = and i1 %3, %11
   %12 = zext i32 %2 to i64
   br i1 %or.cond146, label %.lr.ph.preheader, label %.loopexit129
 
@@ -1052,7 +1052,7 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr nocapture noundef readonly %0, i32 
   %67 = sext i32 %58 to i64
   %scevgep152 = getelementptr i8, ptr %66, i64 %67
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep152, i8 32, i64 %12, i1 false)
-  %68 = add i32 %58, %2
+  %68 = add i32 %2, %58
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph144.preheader, %62

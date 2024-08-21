@@ -813,7 +813,7 @@ _ZN6spacer16pred_transformer13legacy_frames16get_frame_lemmasEjR10ref_vectorI4ex
 _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit: ; preds = %_ZN6spacer16pred_transformer13legacy_frames16get_frame_lemmasEjR10ref_vectorI4expr11ast_managerE.exit
   %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i, align 4
-  %cmp4 = icmp ugt i32 %13, %lvl
+  %cmp4 = icmp ult i32 %lvl, %13
   br i1 %cmp4, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit, %for.body
@@ -911,7 +911,7 @@ if.else:                                          ; preds = %entry
 _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit: ; preds = %if.else
   %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i, align 4
-  %cmp = icmp ugt i32 %13, %level
+  %cmp = icmp ult i32 %level, %13
   br i1 %cmp, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit
@@ -1019,7 +1019,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
 if.end7:                                          ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
   %cmp.i.i21 = icmp ult i32 %src_level, 65535
   %add.i = zext i1 %cmp.i.i21 to i32
-  %cond.i = add nuw i32 %add.i, %src_level
+  %cond.i = add nuw i32 %src_level, %add.i
   %cmp.i.i22 = icmp ult i32 %cond.i, 65535
   %add.i23 = zext i1 %cmp.i.i22 to i32
   %cond.i24 = add i32 %cond.i, %add.i23

@@ -1157,8 +1157,8 @@ free_token.exit.i:                                ; preds = %431, %429, %.lr.ph.
 435:                                              ; preds = %415
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14, i64 noundef %388, i64 noundef %402, i64 noundef 0) #19
   %436 = load i64, ptr %112, align 8
-  %.not.i117.i = icmp ule i64 %436, %388
-  %437 = icmp ult i64 %436, %402
+  %.not.i117.i = icmp uge i64 %388, %436
+  %437 = icmp ugt i64 %402, %436
   %or.cond46.i.i = or i1 %.not.i117.i, %437
   %.pre168.pre.i = load ptr, ptr %4, align 8
   br i1 %or.cond46.i.i, label %.replace_token_range.exit_crit_edge.i, label %.preheader.i118.i
@@ -3657,8 +3657,8 @@ define internal fastcc range(i32 0, 21) i32 @replace_token_range(ptr nocapture n
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14, i64 noundef %1, i64 noundef %2, i64 noundef %10) #19
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
-  %.not = icmp ule i64 %12, %1
-  %13 = icmp ult i64 %12, %2
+  %.not = icmp uge i64 %1, %12
+  %13 = icmp ugt i64 %2, %12
   %or.cond46 = or i1 %.not, %13
   br i1 %or.cond46, label %tokens_ensure_capacity.exit, label %.preheader
 
@@ -3721,8 +3721,8 @@ free_token.exit:                                  ; preds = %.lr.ph, %20, %22
 36:                                               ; preds = %35, %._crit_edge
   %37 = phi i64 [ %.pre52, %35 ], [ %24, %._crit_edge ]
   %38 = phi ptr [ %34, %35 ], [ %.pre51, %._crit_edge ]
-  %39 = getelementptr %struct.token, ptr %38, i64 %10
-  %40 = getelementptr %struct.token, ptr %39, i64 %1
+  %39 = getelementptr %struct.token, ptr %38, i64 %1
+  %40 = getelementptr %struct.token, ptr %39, i64 %10
   %41 = getelementptr inbounds %struct.token, ptr %38, i64 %2
   %42 = sub i64 %37, %2
   %43 = shl i64 %42, 4

@@ -3780,7 +3780,7 @@ define internal fastcc void @result_request(ptr noundef %0) unnamed_addr #2 {
   %.val11.i = load ptr, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %.val11.i, i64 40
   %30 = load i32, ptr %29, align 8
-  %.not.i.i = icmp sgt i32 %30, %.val.i
+  %.not.i.i = icmp slt i32 %.val.i, %30
   %31 = add nsw i32 %30, -1
   %32 = select i1 %.not.i.i, i32 %.val.i, i32 %31
   %33 = getelementptr inbounds i8, ptr %.val11.i, i64 32
@@ -5242,7 +5242,7 @@ define internal fastcc void @era_check_status(ptr noundef %0) unnamed_addr #2 {
   %.val11.i = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %.val11.i, i64 40
   %10 = load i32, ptr %9, align 8
-  %.not.i.i = icmp sgt i32 %10, %.val.i
+  %.not.i.i = icmp slt i32 %.val.i, %10
   %11 = add nsw i32 %10, -1
   %12 = select i1 %.not.i.i, i32 %.val.i, i32 %11
   %13 = getelementptr inbounds i8, ptr %.val11.i, i64 32
@@ -5336,7 +5336,7 @@ era_parent.exit:                                  ; preds = %era_tree_rank_from_
   %.val11.i34 = load ptr, ptr %8, align 8
   %59 = getelementptr inbounds i8, ptr %.val11.i34, i64 40
   %60 = load i32, ptr %59, align 8
-  %.not.i.i35 = icmp sgt i32 %60, %58
+  %.not.i.i35 = icmp slt i32 %58, %60
   %61 = add nsw i32 %60, -1
   %62 = select i1 %.not.i.i35, i32 %58, i32 %61
   %63 = getelementptr inbounds i8, ptr %.val11.i34, i64 32
@@ -5801,7 +5801,7 @@ define internal fastcc void @era_update_return_value(ptr nocapture noundef %0, i
 25:                                               ; preds = %14
   %26 = getelementptr inbounds i8, ptr %0, i64 64
   %27 = load i32, ptr %26, align 8
-  %.not51 = icmp eq i32 %27, %1
+  %.not51 = icmp eq i32 %1, %27
   br i1 %.not51, label %29, label %28
 
 28:                                               ; preds = %25
@@ -6180,7 +6180,7 @@ define internal fastcc i32 @era_next_child(ptr nocapture noundef readonly %0, i3
   br label %.critedge
 
 6:                                                ; preds = %2
-  %.not.i = icmp sgt i32 %.pre, %1
+  %.not.i = icmp slt i32 %1, %.pre
   %7 = add nsw i32 %.pre, -1
   %8 = select i1 %.not.i, i32 %1, i32 %7
   %9 = getelementptr inbounds i8, ptr %.val37.pre, i64 32
@@ -6206,7 +6206,7 @@ era_tree_rank_from_comm_rank.exit:                ; preds = %12
   %17 = getelementptr i8, ptr %4, i64 220
   %.val = load i32, ptr %17, align 4
   %18 = getelementptr i8, ptr %0, i64 56
-  %.not.i41 = icmp sgt i32 %.pre, %.val
+  %.not.i41 = icmp slt i32 %.val, %.pre
   %19 = select i1 %.not.i41, i32 %.val, i32 %.pre-phi
   %20 = sext i32 %19 to i64
   br label %21
@@ -6881,7 +6881,7 @@ define internal fastcc void @era_merge_new_dead_list(ptr nocapture noundef reado
   %62 = shl nsw i64 %61, 2
   %scevgep136 = getelementptr i8, ptr %2, i64 %62
   %63 = xor i32 %.056.lcssa, -1
-  %64 = add i32 %63, %1
+  %64 = add i32 %1, %63
   %65 = zext i32 %64 to i64
   %66 = shl nuw nsw i64 %65, 2
   %67 = add nuw nsw i64 %66, 4
@@ -6987,7 +6987,7 @@ define internal fastcc void @era_mark_process_failed(ptr noundef %0, i32 noundef
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %0, i64 272
   %24 = load i32, ptr %23, align 8
-  %25 = icmp eq i32 %24, %1
+  %25 = icmp eq i32 %1, %24
   br i1 %25, label %26, label %226
 
 26:                                               ; preds = %22
@@ -6999,7 +6999,7 @@ define internal fastcc void @era_mark_process_failed(ptr noundef %0, i32 noundef
   %.val11.i = load ptr, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %.val11.i, i64 40
   %32 = load i32, ptr %31, align 8
-  %.not.i.i = icmp sgt i32 %32, %.val.i
+  %.not.i.i = icmp slt i32 %.val.i, %32
   %33 = add nsw i32 %32, -1
   %34 = select i1 %.not.i.i, i32 %.val.i, i32 %33
   %35 = getelementptr inbounds i8, ptr %.val11.i, i64 32
@@ -7058,7 +7058,7 @@ era_parent.exit:                                  ; preds = %era_tree_rank_from_
   %.pre62.i = load ptr, ptr %.phi.trans.insert61.i, align 8
   %.pre63.i = add nsw i32 %.pre.i, -1
   %.val.i79 = load i32, ptr %60, align 4
-  %.not.i41.i = icmp sgt i32 %.pre.i, %.val.i79
+  %.not.i41.i = icmp slt i32 %.val.i79, %.pre.i
   %64 = select i1 %.not.i41.i, i32 %.val.i79, i32 %.pre63.i
   %65 = sext i32 %64 to i64
   br label %66

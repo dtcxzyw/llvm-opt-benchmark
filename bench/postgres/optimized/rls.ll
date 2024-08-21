@@ -63,7 +63,7 @@ define dso_local range(i32 0, 3) i32 @check_enable_rls(i32 noundef %0, i32 nound
 32:                                               ; preds = %30, %27
   %33 = load i8, ptr @row_security, align 1
   %34 = trunc i8 %33 to i1
-  %brmerge = or i1 %34, %2
+  %brmerge = or i1 %2, %34
   br i1 %brmerge, label %43, label %35
 
 35:                                               ; preds = %32

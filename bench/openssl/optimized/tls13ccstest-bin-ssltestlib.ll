@@ -588,7 +588,7 @@ if.end:                                           ; preds = %lor.lhs.false
   store i32 %inc, ptr %currpkt, align 8
   %len6 = getelementptr inbounds i8, ptr %call.i, i64 8
   %5 = load i32, ptr %len6, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %5, i32 %outl)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %outl, i32 %5)
   %type = getelementptr inbounds i8, ptr %call.i, i64 16
   %6 = load i32, ptr %type, align 8
   %cmp11.not = icmp eq i32 %6, 2

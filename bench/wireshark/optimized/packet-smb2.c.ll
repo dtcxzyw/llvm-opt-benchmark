@@ -4587,7 +4587,7 @@ smb2_pipe_get_fid_info.exit:                      ; preds = %7, %11, %14, %17
   %20 = ptrtoint ptr %.08.i to i64
   %21 = trunc i64 %20 to i32
   %22 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #12
-  %23 = tail call i32 @llvm.smin.i32(i32 %22, i32 %4)
+  %23 = tail call i32 @llvm.smin.i32(i32 %4, i32 %22)
   %24 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %3, i32 noundef %23, i32 noundef %4) #12
   %25 = getelementptr inbounds i8, ptr %1, i64 328
   store i16 0, ptr %25, align 8
@@ -7680,7 +7680,7 @@ proto_item_set_generated.exit:                    ; preds = %47, %44, %39, %36, 
   %121 = add i32 %.0111, 62
   %122 = icmp eq i16 %109, 0
   %123 = add nuw nsw i32 %114, %110
-  %..i = call i32 @llvm.smax.i32(i32 %123, i32 %121)
+  %..i = call i32 @llvm.smax.i32(i32 %121, i32 %123)
   %.0.i = select i1 %122, i32 %121, i32 %..i
   %124 = load ptr, ptr %74, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 16
@@ -7968,7 +7968,7 @@ proto_item_set_generated.exit:                    ; preds = %56, %53, %48, %45, 
   %148 = icmp eq i16 %89, 0
   %149 = add i32 %3, 24
   %150 = add nuw nsw i32 %94, %90
-  %..i = tail call i32 @llvm.smax.i32(i32 %150, i32 %149)
+  %..i = tail call i32 @llvm.smax.i32(i32 %149, i32 %150)
   %.0.i = select i1 %148, i32 %149, i32 %..i
   ret i32 %.0.i
 }
@@ -8210,7 +8210,7 @@ proto_item_set_generated.exit:                    ; preds = %95, %92, %87, %84, 
   %134 = icmp eq i16 %117, 0
   %135 = add i32 %3, 8
   %136 = add nuw nsw i32 %122, %118
-  %..i = tail call i32 @llvm.smax.i32(i32 %136, i32 %135)
+  %..i = tail call i32 @llvm.smax.i32(i32 %135, i32 %136)
   %.0.i = select i1 %134, i32 %135, i32 %..i
   ret i32 %.0.i
 }
@@ -8375,7 +8375,7 @@ define internal i32 @dissect_smb2_tree_connect_request(ptr noundef %0, ptr nound
   %70 = icmp eq i32 %.val, 0
   %71 = add i32 %3, 8
   %72 = add i32 %.val43, %.val
-  %..i = tail call i32 @llvm.smax.i32(i32 %72, i32 %71)
+  %..i = tail call i32 @llvm.smax.i32(i32 %71, i32 %72)
   %.0.i = select i1 %70, i32 %71, i32 %..i
   ret i32 %.0.i
 }
@@ -8718,11 +8718,11 @@ define internal i32 @dissect_smb2_create_request(ptr noundef %0, ptr noundef %1,
   %.val = load i32, ptr %6, align 4
   %106 = icmp eq i32 %.val, 0
   %107 = add i32 %.val66, %.val
-  %..i = tail call i32 @llvm.smax.i32(i32 %107, i32 %105)
+  %..i = tail call i32 @llvm.smax.i32(i32 %105, i32 %107)
   %.0.i = select i1 %106, i32 %105, i32 %..i
   %108 = icmp eq i32 %58, 0
   %109 = add i32 %61, %58
-  %..i69 = tail call i32 @llvm.smax.i32(i32 %109, i32 %.0.i)
+  %..i69 = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 %109)
   %.0.i70 = select i1 %108, i32 %.0.i, i32 %..i69
   ret i32 %.0.i70
 }
@@ -8837,7 +8837,7 @@ define internal i32 @dissect_smb2_create_response(ptr noundef %0, ptr noundef %1
   call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_create_extra_info)
   %83 = icmp eq i32 %76, 0
   %84 = add i32 %79, %76
-  %..i = call i32 @llvm.smax.i32(i32 %84, i32 %82)
+  %..i = call i32 @llvm.smax.i32(i32 %82, i32 %84)
   %.0.i = select i1 %83, i32 %82, i32 %..i
   %85 = getelementptr inbounds i8, ptr %4, i64 56
   %86 = load ptr, ptr %85, align 8
@@ -9129,7 +9129,7 @@ define internal i32 @dissect_smb2_read_request(ptr noundef %0, ptr noundef %1, p
   %67 = icmp eq i16 %49, 0
   %68 = add i32 %35, 16
   %69 = add nuw nsw i32 %54, %50
-  %..i = tail call i32 @llvm.smax.i32(i32 %69, i32 %68)
+  %..i = tail call i32 @llvm.smax.i32(i32 %68, i32 %69)
   %.0.i = select i1 %67, i32 %68, i32 %..i
   ret i32 %.0.i
 }
@@ -9357,7 +9357,7 @@ smb2_pipe_set_file_id.exit:                       ; preds = %68, %smb2_pipe_get_
   %87 = add i32 %86, %60
   %88 = icmp eq i16 %48, 0
   %89 = add nuw nsw i32 %53, %49
-  %..i = tail call i32 @llvm.smax.i32(i32 %89, i32 %87)
+  %..i = tail call i32 @llvm.smax.i32(i32 %87, i32 %89)
   %.0.i = select i1 %88, i32 %87, i32 %..i
   br label %90
 
@@ -9654,11 +9654,11 @@ define internal i32 @dissect_smb2_ioctl_request(ptr noundef %0, ptr noundef %1, 
   %66 = add i32 %24, 32
   %67 = icmp eq i32 %41, 0
   %68 = add i32 %44, %41
-  %..i = tail call i32 @llvm.smax.i32(i32 %68, i32 %66)
+  %..i = tail call i32 @llvm.smax.i32(i32 %66, i32 %68)
   %.0.i = select i1 %67, i32 %66, i32 %..i
   %69 = icmp eq i32 %28, 0
   %70 = add i32 %31, %28
-  %..i64 = tail call i32 @llvm.smax.i32(i32 %70, i32 %.0.i)
+  %..i64 = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 %70)
   %.0.i65 = select i1 %69, i32 %.0.i, i32 %..i64
   ret i32 %.0.i65
 }
@@ -9757,11 +9757,11 @@ define internal i32 @dissect_smb2_ioctl_response(ptr noundef %0, ptr noundef %1,
 62:                                               ; preds = %61, %60
   %63 = icmp eq i32 %36, 0
   %64 = add i32 %39, %36
-  %..i = call i32 @llvm.smax.i32(i32 %64, i32 %58)
+  %..i = call i32 @llvm.smax.i32(i32 %58, i32 %64)
   %.0.i = select i1 %63, i32 %58, i32 %..i
   %65 = icmp eq i32 %46, 0
   %66 = add i32 %49, %46
-  %..i59 = call i32 @llvm.smax.i32(i32 %66, i32 %.0.i)
+  %..i59 = call i32 @llvm.smax.i32(i32 %.0.i, i32 %66)
   %.0.i60 = select i1 %65, i32 %.0.i, i32 %..i59
   br label %67
 
@@ -9938,7 +9938,7 @@ define internal i32 @dissect_smb2_find_request(ptr noundef %0, ptr noundef %1, p
   %67 = icmp eq i32 %.val, 0
   %68 = add i32 %35, 8
   %69 = add i32 %.val48, %.val
-  %..i = tail call i32 @llvm.smax.i32(i32 %69, i32 %68)
+  %..i = tail call i32 @llvm.smax.i32(i32 %68, i32 %69)
   %.0.i = select i1 %67, i32 %68, i32 %..i
   %70 = getelementptr inbounds i8, ptr %1, i64 8
   %71 = load ptr, ptr %70, align 8
@@ -10070,7 +10070,7 @@ proto_item_set_generated.exit:                    ; preds = %19, %16, %10, %5
   call fastcc void @dissect_smb2_olb_buffer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_find_data)
   %82 = icmp eq i16 %74, 0
   %83 = add i32 %78, %75
-  %..i = call i32 @llvm.smax.i32(i32 %83, i32 %81)
+  %..i = call i32 @llvm.smax.i32(i32 %81, i32 %83)
   %.0.i = select i1 %82, i32 %81, i32 %..i
   br label %84
 
@@ -10171,7 +10171,7 @@ define internal i32 @dissect_smb2_notify_response(ptr noundef %0, ptr noundef %1
   call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_notify_data_out)
   %37 = icmp eq i16 %29, 0
   %38 = add i32 %33, %30
-  %..i = call i32 @llvm.smax.i32(i32 %38, i32 %36)
+  %..i = call i32 @llvm.smax.i32(i32 %36, i32 %38)
   %.0.i = select i1 %37, i32 %36, i32 %..i
   br label %39
 
@@ -12957,7 +12957,7 @@ define internal fastcc void @feed_eo_smb2(ptr noundef %0, ptr noundef %1, ptr no
   %106 = load ptr, ptr %19, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 104
   %108 = load i32, ptr %107, align 8
-  %109 = icmp ugt i32 %108, %4
+  %109 = icmp ult i32 %4, %108
   br i1 %109, label %110, label %119
 
 110:                                              ; preds = %100

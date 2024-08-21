@@ -6980,7 +6980,7 @@ define internal fastcc void @dissect_ARData_block(ptr noundef %0, i32 noundef %1
 
 37:                                               ; preds = %9
   %38 = zext i16 %8 to i32
-  %39 = add i32 %38, %1
+  %39 = add i32 %1, %38
   %40 = load i32, ptr @hf_pn_io_number_of_ars, align 4
   %41 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %15) #11
   %42 = icmp eq i8 %7, 0
@@ -11776,7 +11776,7 @@ define internal fastcc void @dissect_PDInterfaceMrpDataAdjust_block(ptr noundef 
   %18 = alloca i8, align 1
   %19 = alloca i8, align 1
   %20 = zext i16 %8 to i32
-  %21 = add i32 %20, %1
+  %21 = add i32 %1, %20
   %22 = icmp ne i8 %6, 1
   %23 = icmp ugt i8 %7, 1
   %or.cond = or i1 %22, %23
@@ -11896,7 +11896,7 @@ define internal fastcc void @dissect_PDInterfaceMrpDataReal_block(ptr noundef %0
   %19 = alloca i8, align 1
   %20 = alloca i8, align 1
   %21 = zext i16 %8 to i32
-  %22 = add i32 %21, %1
+  %22 = add i32 %1, %21
   %23 = icmp ne i8 %6, 1
   %24 = icmp ugt i8 %7, 2
   %or.cond = or i1 %23, %24
@@ -12902,7 +12902,7 @@ define internal fastcc void @dissect_PDPortDataRealExtended_block(ptr noundef %0
   store i16 0, ptr %12, align 2
   store ptr null, ptr %14, align 8
   %15 = zext i16 %8 to i32
-  %16 = add i32 %15, %1
+  %16 = add i32 %1, %15
   %17 = icmp ne i8 %6, 1
   %18 = icmp ne i8 %7, 0
   %or.cond = or i1 %17, %18
@@ -12951,7 +12951,7 @@ define internal fastcc void @dissect_MrpInstanceDataAdjust_block(ptr noundef %0,
   %15 = alloca i16, align 2
   %16 = alloca i8, align 1
   %17 = zext i16 %8 to i32
-  %18 = add i32 %17, %1
+  %18 = add i32 %1, %17
   %19 = icmp ne i8 %6, 1
   %20 = icmp ne i8 %7, 0
   %or.cond = or i1 %19, %20
@@ -13023,7 +13023,7 @@ define internal fastcc void @dissect_MrpInstanceDataReal_block(ptr noundef %0, i
   %16 = alloca i16, align 2
   %17 = alloca i8, align 1
   %18 = zext i16 %8 to i32
-  %19 = add i32 %18, %1
+  %19 = add i32 %1, %18
   %20 = icmp ne i8 %6, 1
   %21 = icmp ne i8 %7, 0
   %or.cond = or i1 %20, %21
@@ -14599,7 +14599,7 @@ define internal fastcc void @dissect_CIMSNMPAdjust_block(ptr noundef %0, i32 nou
   %62 = add i32 %57, %46
   %.neg = sub i32 %1, %62
   %63 = trunc i32 %.neg to i16
-  %64 = add i16 %63, %8
+  %64 = add i16 %8, %63
   %.not = icmp eq i16 %64, 0
   br i1 %.not, label %68, label %65
 
@@ -16303,7 +16303,7 @@ define internal fastcc void @dissect_ARServerBlock(ptr noundef %0, i32 noundef %
   %23 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef %22, i32 noundef 0) #11
   %24 = load i16, ptr %10, align 2
   %25 = add i16 %24, 2
-  %.not = icmp eq i16 %25, %8
+  %.not = icmp eq i16 %8, %25
   br i1 %.not, label %32, label %26
 
 26:                                               ; preds = %17

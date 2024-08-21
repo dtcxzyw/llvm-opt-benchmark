@@ -838,19 +838,19 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %27, %2
   %.03654 = phi ptr [ %.036, %57 ], [ %.03652, %40 ]
   %43 = getelementptr inbounds i8, ptr %.03654, i64 40
   %44 = load i32, ptr %43, align 8
-  %45 = icmp eq i32 %44, %1
+  %45 = icmp eq i32 %1, %44
   br i1 %45, label %46, label %57
 
 46:                                               ; preds = %.lr.ph
   %47 = getelementptr inbounds i8, ptr %.03654, i64 44
   %48 = load i32, ptr %47, align 4
-  %49 = icmp eq i32 %48, %2
+  %49 = icmp eq i32 %2, %48
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds i8, ptr %.03654, i64 52
   %52 = load i8, ptr %51, align 4
-  %53 = icmp eq i8 %52, %3
+  %53 = icmp eq i8 %3, %52
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %50

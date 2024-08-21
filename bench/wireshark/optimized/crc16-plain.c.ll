@@ -22,7 +22,7 @@ define hidden i64 @crc16_plain_reflect(i64 noundef %0, i64 noundef %1) local_unn
   %8 = or disjoint i64 %6, %7
   %9 = add i32 %.0811, 1
   %10 = zext i32 %9 to i64
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2

@@ -829,7 +829,7 @@ _ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d2
   %.0.in.i = getelementptr inbounds i8, ptr %24, i64 %.0.in.idx.i
   %.0.i = load i64, ptr %.0.in.i, align 8, !noalias !140, !noundef !5
   %36 = sub i64 %8, %.0.i
-  %37 = icmp ult i64 %8, %.0.i
+  %37 = icmp ugt i64 %.0.i, %8
   br i1 %37, label %39, label %_ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE.exit
 
 38:                                               ; preds = %_ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit
@@ -917,7 +917,7 @@ _ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d2
   %27 = getelementptr inbounds i8, ptr %2, i64 16
   %28 = load i64, ptr %27, align 8, !alias.scope !156, !noundef !5
   %29 = sub i64 %28, %.0
-  %30 = icmp ult i64 %28, %.0
+  %30 = icmp ugt i64 %.0, %28
   br i1 %30, label %32, label %_ZN14cranelift_wasm5state20FuncTranslationState9peekn_mut17hf414566f25f2d02dE.exit
 
 31:                                               ; preds = %3

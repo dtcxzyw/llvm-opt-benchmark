@@ -878,7 +878,7 @@ cond.false.i:                                     ; preds = %if.end37
 
 cond.end4.i:                                      ; preds = %if.end37
   %6 = load i64, ptr %allocated.i, align 8
-  %cmp5.i = icmp sgt i64 %6, %i29.06
+  %cmp5.i = icmp slt i64 %i29.06, %6
   br i1 %cmp5.i, label %PyList_SET_ITEM.exit, label %cond.false7.i
 
 cond.false7.i:                                    ; preds = %cond.end4.i

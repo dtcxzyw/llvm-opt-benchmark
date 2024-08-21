@@ -347,7 +347,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %32 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %33 = load i64, ptr %6, align 8, !noundef !4
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %31
+  %35 = icmp ugt i64 %31, %34
   br i1 %35, label %36, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i.i"
 
 36:                                               ; preds = %.noexc6
@@ -765,7 +765,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %32 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %33 = load i64, ptr %6, align 8, !noundef !4
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %31
+  %35 = icmp ugt i64 %31, %34
   br i1 %35, label %36, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i.i"
 
 36:                                               ; preds = %.noexc6
@@ -1083,7 +1083,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 23:                                               ; preds = %.noexc
   %24 = getelementptr inbounds i8, ptr %6, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = icmp ult i64 %17, %25
+  %26 = icmp ugt i64 %25, %17
   br i1 %26, label %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h85bf6704176b2124E.exit.i"
 
 27:                                               ; preds = %23
@@ -1233,7 +1233,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %38 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %39 = load i64, ptr %7, align 8, !noundef !4
   %40 = sub i64 %39, %38
-  %41 = icmp ult i64 %40, %37
+  %41 = icmp ugt i64 %37, %40
   br i1 %41, label %42, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcdc5f0dd7b43d2d4E.exit.i.i"
 
 42:                                               ; preds = %.noexc6
@@ -1412,7 +1412,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 23:                                               ; preds = %.noexc
   %24 = getelementptr inbounds i8, ptr %6, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = icmp ult i64 %17, %25
+  %26 = icmp ugt i64 %25, %17
   br i1 %26, label %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h173b88eea8bba1beE.exit.i"
 
 27:                                               ; preds = %23
@@ -1565,7 +1565,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %39 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %40 = load i64, ptr %7, align 8, !noundef !4
   %41 = sub i64 %40, %39
-  %42 = icmp ult i64 %41, %38
+  %42 = icmp ugt i64 %38, %41
   br i1 %42, label %43, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit.i.i"
 
 43:                                               ; preds = %.noexc6
@@ -1762,7 +1762,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %39 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %40 = load i64, ptr %7, align 8, !noundef !4
   %41 = sub i64 %40, %39
-  %42 = icmp ult i64 %41, %38
+  %42 = icmp ugt i64 %38, %41
   br i1 %42, label %43, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit.i.i"
 
 43:                                               ; preds = %.noexc6
@@ -1895,7 +1895,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %39 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %40 = load i64, ptr %7, align 8, !noundef !4
   %41 = sub i64 %40, %39
-  %42 = icmp ult i64 %41, %38
+  %42 = icmp ugt i64 %38, %41
   br i1 %42, label %43, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit.i.i"
 
 43:                                               ; preds = %.noexc6
@@ -2060,7 +2060,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 23:                                               ; preds = %.noexc
   %24 = getelementptr inbounds i8, ptr %6, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = icmp ult i64 %17, %25
+  %26 = icmp ugt i64 %25, %17
   br i1 %26, label %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h14e4e4df1d2ebc66E.exit.i"
 
 27:                                               ; preds = %23
@@ -2201,7 +2201,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %32 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %33 = load i64, ptr %6, align 8, !noundef !4
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %31
+  %35 = icmp ugt i64 %31, %34
   br i1 %35, label %36, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i.i"
 
 36:                                               ; preds = %.noexc6
@@ -2399,7 +2399,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %32 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %33 = load i64, ptr %6, align 8, !noundef !4
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %31
+  %35 = icmp ugt i64 %31, %34
   br i1 %35, label %36, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i.i"
 
 36:                                               ; preds = %.noexc6
@@ -2573,7 +2573,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 23:                                               ; preds = %.noexc
   %24 = getelementptr inbounds i8, ptr %6, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = icmp ult i64 %17, %25
+  %26 = icmp ugt i64 %25, %17
   br i1 %26, label %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1d17998352b0701cE.exit.i"
 
 27:                                               ; preds = %23
@@ -2723,7 +2723,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %38 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %39 = load i64, ptr %7, align 8, !noundef !4
   %40 = sub i64 %39, %38
-  %41 = icmp ult i64 %40, %37
+  %41 = icmp ugt i64 %37, %40
   br i1 %41, label %42, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcdc5f0dd7b43d2d4E.exit.i.i"
 
 42:                                               ; preds = %.noexc6
@@ -2842,7 +2842,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %32 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %33 = load i64, ptr %6, align 8, !noundef !4
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %31
+  %35 = icmp ugt i64 %31, %34
   br i1 %35, label %36, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i.i"
 
 36:                                               ; preds = %.noexc6
@@ -3312,7 +3312,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %32 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %33 = load i64, ptr %6, align 8, !noundef !4
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %31
+  %35 = icmp ugt i64 %31, %34
   br i1 %35, label %36, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i.i"
 
 36:                                               ; preds = %.noexc6
@@ -3577,7 +3577,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %33 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %34 = load i64, ptr %6, align 8, !noundef !4
   %35 = sub i64 %34, %33
-  %36 = icmp ult i64 %35, %32
+  %36 = icmp ugt i64 %32, %35
   br i1 %36, label %37, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit.i.i"
 
 37:                                               ; preds = %.noexc6
@@ -3837,7 +3837,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %39 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %40 = load i64, ptr %7, align 8, !noundef !4
   %41 = sub i64 %40, %39
-  %42 = icmp ult i64 %41, %38
+  %42 = icmp ugt i64 %38, %41
   br i1 %42, label %43, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit.i.i"
 
 43:                                               ; preds = %.noexc6
@@ -4043,7 +4043,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %34 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %35 = load i64, ptr %7, align 8, !noundef !4
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %33
+  %37 = icmp ugt i64 %33, %36
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb638201fcec9cfd2E.exit.i.i"
 
 38:                                               ; preds = %.noexc5
@@ -4261,7 +4261,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %34 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %35 = load i64, ptr %7, align 8, !noundef !4
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %33
+  %37 = icmp ugt i64 %33, %36
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb638201fcec9cfd2E.exit.i.i"
 
 38:                                               ; preds = %.noexc5
@@ -4459,7 +4459,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %32 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %33 = load i64, ptr %6, align 8, !noundef !4
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %31
+  %35 = icmp ugt i64 %31, %34
   br i1 %35, label %36, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i.i"
 
 36:                                               ; preds = %.noexc6
@@ -4641,7 +4641,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %32 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !4
   %33 = load i64, ptr %6, align 8, !noundef !4
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %31
+  %35 = icmp ugt i64 %31, %34
   br i1 %35, label %36, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcdc5f0dd7b43d2d4E.exit.i.i"
 
 36:                                               ; preds = %.noexc6
@@ -4708,7 +4708,7 @@ define void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spe
   %10 = load i64, ptr %9, align 8, !noundef !4
   %11 = load i64, ptr %0, align 8, !noundef !4
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %8
+  %13 = icmp ugt i64 %8, %12
   br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6997c65cc1d3354E.exit"
 
 14:                                               ; preds = %3
@@ -4742,7 +4742,7 @@ define void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spe
   %11 = load i64, ptr %10, align 8, !noundef !4
   %12 = load i64, ptr %0, align 8, !noundef !4
   %13 = sub i64 %12, %11
-  %14 = icmp ult i64 %13, %9
+  %14 = icmp ugt i64 %9, %13
   br i1 %14, label %15, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h85cadf053c7cede8E.exit"
 
 15:                                               ; preds = %3
@@ -4779,7 +4779,7 @@ define void @"_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spe
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = load i64, ptr %0, align 8, !noundef !4
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %7
+  %12 = icmp ugt i64 %7, %11
   br i1 %12, label %13, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7960c0e94f1eba13E.exit"
 
 13:                                               ; preds = %6
@@ -4835,7 +4835,7 @@ define void @"_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spe
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = load i64, ptr %0, align 8, !noundef !4
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %7
+  %12 = icmp ugt i64 %7, %11
   br i1 %12, label %13, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit"
 
 13:                                               ; preds = %6
@@ -5103,7 +5103,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h082ea60a2dce7d8cE"(
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = load i64, ptr %0, align 8, !noundef !4
   %9 = sub i64 %8, %7
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 11:                                               ; preds = %3
@@ -5212,7 +5212,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h981f6d3602f7ed7cE"(
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = load i64, ptr %0, align 8, !noundef !4
   %9 = sub i64 %8, %7
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe3dc9daf95a5cbcE.exit"
 
 11:                                               ; preds = %3
@@ -5292,7 +5292,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17haea7ef94360d7bd9E"(
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = load i64, ptr %0, align 8, !noundef !4
   %9 = sub i64 %8, %7
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h05c0dc32a9d1401dE.exit"
 
 11:                                               ; preds = %3
@@ -5370,7 +5370,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hf7584c7b3b21fdcdE"(
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = load i64, ptr %0, align 8, !noundef !4
   %9 = sub i64 %8, %7
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 11:                                               ; preds = %4
@@ -5469,7 +5469,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h03bb78c237f3649e
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb8ff9890aa39e576E.exit"
 
 19:                                               ; preds = %11
@@ -5527,7 +5527,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h066a0df10898e060
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 19:                                               ; preds = %11
@@ -5585,7 +5585,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0dada107b720679a
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdde9b38cff3572d6E.exit"
 
 19:                                               ; preds = %11
@@ -5643,7 +5643,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0e1a77722d759fa9
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 19:                                               ; preds = %11
@@ -5701,7 +5701,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h10459c80ae8dfe2a
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb8ff9890aa39e576E.exit"
 
 19:                                               ; preds = %11
@@ -5756,7 +5756,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h14e4e4df1d2ebc66
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = load i64, ptr %0, align 8, !noundef !4
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %11
+  %16 = icmp ugt i64 %11, %15
   br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0fb071df2f540538E.exit"
 
 17:                                               ; preds = %9
@@ -5810,7 +5810,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h173b88eea8bba1be
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = load i64, ptr %0, align 8, !noundef !4
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %11
+  %16 = icmp ugt i64 %11, %15
   br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 17:                                               ; preds = %9
@@ -5864,7 +5864,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1d17998352b0701c
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = load i64, ptr %0, align 8, !noundef !4
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %11
+  %16 = icmp ugt i64 %11, %15
   br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3eab168f0b0b37e4E.exit"
 
 17:                                               ; preds = %9
@@ -5921,7 +5921,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1ef7c20d55be0f29
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 19:                                               ; preds = %11
@@ -5979,7 +5979,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2c20a6a5a6114fda
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 19:                                               ; preds = %11
@@ -6037,7 +6037,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h432b3c985299db15
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 19:                                               ; preds = %11
@@ -6095,7 +6095,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h4859d98a7c7cbee9
   %14 = load i64, ptr %13, align 8, !noundef !4
   %15 = load i64, ptr %0, align 8, !noundef !4
   %16 = sub i64 %15, %14
-  %17 = icmp ult i64 %16, %12
+  %17 = icmp ugt i64 %12, %16
   br i1 %17, label %18, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 18:                                               ; preds = %10
@@ -6173,7 +6173,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h5331030f44d73149
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 19:                                               ; preds = %11
@@ -6231,7 +6231,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h55374b62eb343dd4
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 19:                                               ; preds = %11
@@ -6289,7 +6289,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h7ad879cd7ea1f61d
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 19:                                               ; preds = %11
@@ -6347,7 +6347,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h7eaab80bab87026d
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 19:                                               ; preds = %11
@@ -6402,7 +6402,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h85bf6704176b2124
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = load i64, ptr %0, align 8, !noundef !4
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %11
+  %16 = icmp ugt i64 %11, %15
   br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 17:                                               ; preds = %9
@@ -6459,7 +6459,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17ha85ad959bb230fe7
   %14 = load i64, ptr %13, align 8, !noundef !4
   %15 = load i64, ptr %0, align 8, !noundef !4
   %16 = sub i64 %15, %14
-  %17 = icmp ult i64 %16, %12
+  %17 = icmp ugt i64 %12, %16
   br i1 %17, label %18, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 18:                                               ; preds = %10
@@ -6537,7 +6537,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17had013d3b74b1428d
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 19:                                               ; preds = %11
@@ -6595,7 +6595,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17haf7e6259a0b3dbbc
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 19:                                               ; preds = %11
@@ -6653,7 +6653,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hbdcb1fcbb35a15a2
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 19:                                               ; preds = %11
@@ -6711,7 +6711,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc33ddf1d032d73db
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d3b5795c651b1eeE.exit"
 
 19:                                               ; preds = %11
@@ -6769,7 +6769,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc44b24481c570b61
   %14 = load i64, ptr %13, align 8, !noundef !4
   %15 = load i64, ptr %0, align 8, !noundef !4
   %16 = sub i64 %15, %14
-  %17 = icmp ult i64 %16, %12
+  %17 = icmp ugt i64 %12, %16
   br i1 %17, label %18, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha685e23de26d40f4E.exit"
 
 18:                                               ; preds = %10
@@ -6847,7 +6847,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd614bbcf412b0508
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 19:                                               ; preds = %11
@@ -6905,7 +6905,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hdfe621bc05436f4e
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 19:                                               ; preds = %11
@@ -6963,7 +6963,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hec3859a9fc2075e2
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 19:                                               ; preds = %11
@@ -7021,7 +7021,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hedde3e05d0440937
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = load i64, ptr %0, align 8, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 19:                                               ; preds = %11
@@ -7489,7 +7489,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h1039ca5df0da70
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit"
 
 21:                                               ; preds = %14
@@ -7540,7 +7540,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h151fc4e35e9eca
   %17 = load i64, ptr %6, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 21:                                               ; preds = %14
@@ -7597,7 +7597,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h22d6cedd9b75bd
   %20 = load i64, ptr %9, align 8, !noundef !4
   %21 = load i64, ptr %0, align 8, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 24:                                               ; preds = %17
@@ -7649,7 +7649,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h2630fe52e55ab4
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit"
 
 21:                                               ; preds = %14
@@ -7699,7 +7699,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h2bc55d8d32f79a
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit"
 
 21:                                               ; preds = %14
@@ -7754,7 +7754,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h2bed1539d03e8c
   %20 = load i64, ptr %9, align 8, !noundef !4
   %21 = load i64, ptr %0, align 8, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 24:                                               ; preds = %17
@@ -7834,7 +7834,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h38b7a0ef843928
   %24 = load i64, ptr %7, align 8, !noundef !4
   %25 = load i64, ptr %0, align 8, !noundef !4
   %26 = sub i64 %25, %24
-  %27 = icmp ult i64 %26, %23
+  %27 = icmp ugt i64 %23, %26
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 28:                                               ; preds = %21
@@ -7916,7 +7916,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h3d0f747d14ae48
   %26 = load i64, ptr %6, align 8, !noundef !4
   %27 = load i64, ptr %0, align 8, !noundef !4
   %28 = sub i64 %27, %26
-  %29 = icmp ult i64 %28, %25
+  %29 = icmp ugt i64 %25, %28
   br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h45b90e31f771f442E.exit"
 
 30:                                               ; preds = %23
@@ -7969,7 +7969,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h3dba10a1e93baf
   %20 = load i64, ptr %10, align 8, !noundef !4
   %21 = load i64, ptr %0, align 8, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcdc5f0dd7b43d2d4E.exit"
 
 24:                                               ; preds = %17
@@ -8047,7 +8047,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h4c91797215c835
   %24 = load i64, ptr %7, align 8, !noundef !4
   %25 = load i64, ptr %0, align 8, !noundef !4
   %26 = sub i64 %25, %24
-  %27 = icmp ult i64 %26, %23
+  %27 = icmp ugt i64 %23, %26
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 28:                                               ; preds = %21
@@ -8089,7 +8089,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h55071884bbb081
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit"
 
 21:                                               ; preds = %14
@@ -8139,7 +8139,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h586bb1ce4738be
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit"
 
 21:                                               ; preds = %14
@@ -8217,7 +8217,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h5f33ebae5d6905
   %24 = load i64, ptr %7, align 8, !noundef !4
   %25 = load i64, ptr %0, align 8, !noundef !4
   %26 = sub i64 %25, %24
-  %27 = icmp ult i64 %26, %23
+  %27 = icmp ugt i64 %23, %26
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 28:                                               ; preds = %21
@@ -8261,7 +8261,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h6a633cff1aec40
   %18 = load i64, ptr %8, align 8, !noundef !4
   %19 = load i64, ptr %0, align 8, !noundef !4
   %20 = sub i64 %19, %18
-  %21 = icmp ult i64 %20, %17
+  %21 = icmp ugt i64 %17, %20
   br i1 %21, label %22, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb638201fcec9cfd2E.exit"
 
 22:                                               ; preds = %15
@@ -8310,7 +8310,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h7125eac4523f95
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit"
 
 21:                                               ; preds = %14
@@ -8388,7 +8388,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h7580956172bbe0
   %24 = load i64, ptr %7, align 8, !noundef !4
   %25 = load i64, ptr %0, align 8, !noundef !4
   %26 = sub i64 %25, %24
-  %27 = icmp ult i64 %26, %23
+  %27 = icmp ugt i64 %23, %26
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 28:                                               ; preds = %21
@@ -8435,7 +8435,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h75ae75e294ef21
   %20 = load i64, ptr %9, align 8, !noundef !4
   %21 = load i64, ptr %0, align 8, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 24:                                               ; preds = %17
@@ -8515,7 +8515,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h87bc90f92dbd5b
   %24 = load i64, ptr %7, align 8, !noundef !4
   %25 = load i64, ptr %0, align 8, !noundef !4
   %26 = sub i64 %25, %24
-  %27 = icmp ult i64 %26, %23
+  %27 = icmp ugt i64 %23, %26
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 28:                                               ; preds = %21
@@ -8585,7 +8585,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h92922d07714849
   %24 = load i64, ptr %7, align 8, !noundef !4
   %25 = load i64, ptr %0, align 8, !noundef !4
   %26 = sub i64 %25, %24
-  %27 = icmp ult i64 %26, %23
+  %27 = icmp ugt i64 %23, %26
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 28:                                               ; preds = %21
@@ -8627,7 +8627,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17had1ca68ac90c2b
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcdc5f0dd7b43d2d4E.exit"
 
 21:                                               ; preds = %14
@@ -8705,7 +8705,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hb05a0372662871
   %24 = load i64, ptr %7, align 8, !noundef !4
   %25 = load i64, ptr %0, align 8, !noundef !4
   %26 = sub i64 %25, %24
-  %27 = icmp ult i64 %26, %23
+  %27 = icmp ugt i64 %23, %26
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 28:                                               ; preds = %21
@@ -8788,7 +8788,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc9863f021b6061
   %27 = load i64, ptr %7, align 8, !noundef !4
   %28 = load i64, ptr %0, align 8, !noundef !4
   %29 = sub i64 %28, %27
-  %30 = icmp ult i64 %29, %26
+  %30 = icmp ugt i64 %26, %29
   br i1 %30, label %31, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3eab168f0b0b37e4E.exit"
 
 31:                                               ; preds = %24
@@ -8865,7 +8865,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hcc89c00cff0e61
   %24 = load i64, ptr %7, align 8, !noundef !4
   %25 = load i64, ptr %0, align 8, !noundef !4
   %26 = sub i64 %25, %24
-  %27 = icmp ult i64 %26, %23
+  %27 = icmp ugt i64 %23, %26
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 28:                                               ; preds = %21
@@ -8912,7 +8912,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd405a6a3778275
   %20 = load i64, ptr %9, align 8, !noundef !4
   %21 = load i64, ptr %0, align 8, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
 
 24:                                               ; preds = %17
@@ -8964,7 +8964,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hda62aaa0a3f6ed
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit"
 
 21:                                               ; preds = %14
@@ -9016,7 +9016,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hdd2877928594e2
   %18 = load i64, ptr %8, align 8, !noundef !4
   %19 = load i64, ptr %0, align 8, !noundef !4
   %20 = sub i64 %19, %18
-  %21 = icmp ult i64 %20, %17
+  %21 = icmp ugt i64 %17, %20
   br i1 %21, label %22, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb638201fcec9cfd2E.exit"
 
 22:                                               ; preds = %15
@@ -9093,7 +9093,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he097ab5ea90387
   %24 = load i64, ptr %7, align 8, !noundef !4
   %25 = load i64, ptr %0, align 8, !noundef !4
   %26 = sub i64 %25, %24
-  %27 = icmp ult i64 %26, %23
+  %27 = icmp ugt i64 %23, %26
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 28:                                               ; preds = %21
@@ -9163,7 +9163,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hfb59c45663e73b
   %24 = load i64, ptr %7, align 8, !noundef !4
   %25 = load i64, ptr %0, align 8, !noundef !4
   %26 = sub i64 %25, %24
-  %27 = icmp ult i64 %26, %23
+  %27 = icmp ugt i64 %23, %26
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 28:                                               ; preds = %21
@@ -9209,7 +9209,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hfbe72af1d7e833
   %20 = load i64, ptr %10, align 8, !noundef !4
   %21 = load i64, ptr %0, align 8, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcdc5f0dd7b43d2d4E.exit"
 
 24:                                               ; preds = %17
@@ -9239,7 +9239,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3b1b8c699a961
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = load i64, ptr %0, align 8, !noundef !4
   %8 = sub i64 %7, %6
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h54eed8991e4f2333E.exit"
 
 10:                                               ; preds = %3
@@ -9862,7 +9862,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6append17hb7f22dc9fd711c0eE"(ptr al
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = load i64, ptr %0, align 8, !noundef !4
   %10 = sub i64 %9, %8
-  %11 = icmp ult i64 %10, %6
+  %11 = icmp ugt i64 %6, %10
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
 
 12:                                               ; preds = %2
@@ -9888,7 +9888,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6append17hb7f22dc9fd711c0eE"(ptr al
 define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h83148134737df036E"(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 %0, ptr nocapture align 8 %1, i64 %2, ptr align 8 %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %.not = icmp ugt i64 %6, %2
+  %.not = icmp ult i64 %2, %6
   br i1 %.not, label %7, label %16
 
 7:                                                ; preds = %4
@@ -9916,7 +9916,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h05c0dc32a9d1401dE"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -9933,7 +9933,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0fb071df2f540538E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -9950,7 +9950,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3eab168f0b0b37e4E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -9967,7 +9967,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h45b90e31f771f442E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -9984,7 +9984,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10001,7 +10001,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7960c0e94f1eba13E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10018,7 +10018,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h85cadf053c7cede8E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10035,7 +10035,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9d3b5795c651b1eeE"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10052,7 +10052,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha685e23de26d40f4E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10069,7 +10069,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6997c65cc1d3354E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10086,7 +10086,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb638201fcec9cfd2E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10103,7 +10103,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb8ff9890aa39e576E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10120,7 +10120,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10137,7 +10137,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcdc5f0dd7b43d2d4E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10154,7 +10154,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdde9b38cff3572d6E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10171,7 +10171,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10188,7 +10188,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe3dc9daf95a5cbcE"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -10835,7 +10835,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %17 = load i64, ptr %6, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit.i"
 
 21:                                               ; preds = %14
@@ -10907,7 +10907,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i"
 
 21:                                               ; preds = %14
@@ -10959,7 +10959,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i"
 
 21:                                               ; preds = %14
@@ -11029,7 +11029,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i"
 
 21:                                               ; preds = %14
@@ -11087,7 +11087,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = load i64, ptr %0, align 8, !noundef !4
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %11
+  %16 = icmp ugt i64 %11, %15
   br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h85bf6704176b2124E.exit"
 
 17:                                               ; preds = %9
@@ -11167,7 +11167,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = load i64, ptr %0, align 8, !noundef !4
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %11
+  %16 = icmp ugt i64 %11, %15
   br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1d17998352b0701cE.exit"
 
 17:                                               ; preds = %9
@@ -11235,7 +11235,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcdc5f0dd7b43d2d4E.exit.i"
 
 21:                                               ; preds = %14
@@ -11293,7 +11293,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i"
 
 21:                                               ; preds = %14
@@ -11345,7 +11345,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i"
 
 21:                                               ; preds = %14
@@ -11402,7 +11402,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %20 = load i64, ptr %10, align 8, !noundef !4
   %21 = load i64, ptr %0, align 8, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcdc5f0dd7b43d2d4E.exit.i"
 
 24:                                               ; preds = %17
@@ -11476,7 +11476,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %18 = load i64, ptr %8, align 8, !noundef !4
   %19 = load i64, ptr %0, align 8, !noundef !4
   %20 = sub i64 %19, %18
-  %21 = icmp ult i64 %20, %17
+  %21 = icmp ugt i64 %17, %20
   br i1 %21, label %22, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb638201fcec9cfd2E.exit.i"
 
 22:                                               ; preds = %15
@@ -11537,7 +11537,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %18 = load i64, ptr %8, align 8, !noundef !4
   %19 = load i64, ptr %0, align 8, !noundef !4
   %20 = sub i64 %19, %18
-  %21 = icmp ult i64 %20, %17
+  %21 = icmp ugt i64 %17, %20
   br i1 %21, label %22, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb638201fcec9cfd2E.exit.i"
 
 22:                                               ; preds = %15
@@ -11619,7 +11619,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %20 = load i64, ptr %9, align 8, !noundef !4
   %21 = load i64, ptr %0, align 8, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit.i"
 
 24:                                               ; preds = %17
@@ -11698,7 +11698,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = load i64, ptr %0, align 8, !noundef !4
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %11
+  %16 = icmp ugt i64 %11, %15
   br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h14e4e4df1d2ebc66E.exit"
 
 17:                                               ; preds = %9
@@ -11772,7 +11772,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %20 = load i64, ptr %9, align 8, !noundef !4
   %21 = load i64, ptr %0, align 8, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit.i"
 
 24:                                               ; preds = %17
@@ -11851,7 +11851,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %20 = load i64, ptr %9, align 8, !noundef !4
   %21 = load i64, ptr %0, align 8, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit.i"
 
 24:                                               ; preds = %17
@@ -11917,7 +11917,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %20 = load i64, ptr %10, align 8, !noundef !4
   %21 = load i64, ptr %0, align 8, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcdc5f0dd7b43d2d4E.exit.i"
 
 24:                                               ; preds = %17
@@ -11976,7 +11976,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = load i64, ptr %0, align 8, !noundef !4
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %11
+  %16 = icmp ugt i64 %11, %15
   br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h173b88eea8bba1beE.exit"
 
 17:                                               ; preds = %9
@@ -12056,7 +12056,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i"
 
 21:                                               ; preds = %14
@@ -12108,7 +12108,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %17 = load i64, ptr %7, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %16
+  %20 = icmp ugt i64 %16, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h74578b85e0910384E.exit.i"
 
 21:                                               ; preds = %14
@@ -12172,7 +12172,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %20 = load i64, ptr %9, align 8, !noundef !4
   %21 = load i64, ptr %0, align 8, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit.i"
 
 24:                                               ; preds = %17

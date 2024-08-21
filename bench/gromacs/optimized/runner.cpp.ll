@@ -9968,7 +9968,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL34gpuAccelerationOfNonbondedI
   %11 = load i32, ptr %10, align 8
   %12 = sub nsw i32 %9, %11
   %13 = icmp slt i32 %12, 2
-  %brmerge = or i1 %13, %3
+  %brmerge = or i1 %3, %13
   br i1 %brmerge, label %18, label %14
 
 14:                                               ; preds = %4
@@ -11073,9 +11073,9 @@ define linkonce_odr void @_ZN3gmx15makeConstraintsIJRP8_IO_FILERP9t_commrecbRP14
 24:                                               ; preds = %14
   %25 = sub i32 0, %18
   %26 = icmp ne i32 %17, %25
-  %27 = and i1 %21, %4
+  %27 = and i1 %4, %21
   %or.cond = or i1 %26, %27
-  %brmerge = or i1 %or.cond, %5
+  %brmerge = or i1 %5, %or.cond
   br i1 %brmerge, label %28, label %_ZNSt10unique_ptrIN3gmx11Constraints14CreationHelperESt14default_deleteIS2_EED2Ev.exit
 
 28:                                               ; preds = %24
@@ -12234,7 +12234,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %11
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %29 = extractvalue { ptr, i32 } %lpad.phi, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #30
-  %.not4.i.i = icmp eq ptr %.017, %2
+  %.not4.i.i = icmp eq ptr %2, %.017
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN3gmx17RangePartitioningEEvT_S3_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %28, %_ZSt8_DestroyIN3gmx17RangePartitioningEEvPT_.exit.i.i
@@ -12598,7 +12598,7 @@ _ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit: ; preds = %2, %
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = sdiv exact i64 %16, 12
-  %18 = icmp ult i64 %17, %1
+  %18 = icmp ugt i64 %1, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %_ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit
@@ -12610,7 +12610,7 @@ _ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit: ; preds = %2, %
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit
 
 21:                                               ; preds = %_ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit
-  %22 = icmp ugt i64 %17, %1
+  %22 = icmp ult i64 %1, %17
   br i1 %22, label %23, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit
 
 23:                                               ; preds = %21
@@ -12918,7 +12918,7 @@ _ZSt13move_backwardIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit: ; preds = %27, 
 _ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit: ; preds = %.lr.ph.i, %33
   %37 = phi ptr [ %10, %33 ], [ %36, %.lr.ph.i ]
   store ptr %37, ptr %9, align 8
-  %.not13.i.i68 = icmp eq ptr %10, %1
+  %.not13.i.i68 = icmp eq ptr %1, %10
   br i1 %.not13.i.i68, label %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit74.thread, label %.lr.ph.i.i69
 
 _ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit74.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit
@@ -13016,7 +13016,7 @@ _ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit: ; preds = %.lr.ph.i.i89, %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87
   %.0.lcssa.i.i93 = phi ptr [ %64, %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87 ], [ %69, %.lr.ph.i.i89 ]
   %70 = getelementptr %"class.gmx::BasicVector", ptr %.0.lcssa.i.i93, i64 %2
-  %.not13.i.i94 = icmp eq ptr %10, %1
+  %.not13.i.i94 = icmp eq ptr %1, %10
   br i1 %.not13.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit100, label %.lr.ph.i.i95
 
 .lr.ph.i.i95:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit, %.lr.ph.i.i95

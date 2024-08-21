@@ -2065,7 +2065,7 @@ define void @fstWriterEmitValueChange(ptr noundef %0, i32 noundef %1, ptr nocapt
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i32, ptr %5, align 8
-  %.not48 = icmp ult i32 %6, %1
+  %.not48 = icmp ugt i32 %1, %6
   br i1 %.not48, label %.critedge, label %7
 
 7:                                                ; preds = %4
@@ -4822,7 +4822,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %.thread,
   store i64 %72, ptr %45, align 8
   %73 = getelementptr inbounds i8, ptr %0, i64 104
   %74 = load i32, ptr %73, align 8
-  %75 = icmp ult i32 %74, %5
+  %75 = icmp ugt i32 %5, %74
   %spec.store.select = select i1 %75, i32 0, i32 %5
   %76 = load ptr, ptr %33, align 8
   %77 = zext i32 %spec.store.select to i64
@@ -5860,7 +5860,7 @@ define void @fstWriterEmitValueChange32(ptr noundef %0, i32 noundef %1, i32 noun
   %.011 = phi i32 [ %13, %.lr.ph ], [ 0, %4 ]
   %.0810 = phi ptr [ %12, %.lr.ph ], [ %5, %4 ]
   %6 = xor i32 %.011, -1
-  %7 = add i32 %6, %2
+  %7 = add i32 %2, %6
   %8 = lshr i32 %3, %7
   %9 = trunc i32 %8 to i8
   %10 = and i8 %9, 1
@@ -5891,7 +5891,7 @@ define void @fstWriterEmitValueChange64(ptr noundef %0, i32 noundef %1, i32 noun
   %.0810 = phi ptr [ %5, %.lr.ph.preheader ], [ %14, %.lr.ph ]
   %6 = trunc nuw i64 %indvars.iv to i32
   %7 = xor i32 %6, -1
-  %8 = add i32 %7, %2
+  %8 = add i32 %2, %7
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i64 %3, %9
   %11 = trunc i64 %10 to i8
@@ -5924,7 +5924,7 @@ define void @fstWriterEmitValueChangeVec32(ptr noundef %0, i32 noundef %1, i32 n
   %.011.i = phi i32 [ %16, %.lr.ph.i ], [ 0, %7 ]
   %.0810.i = phi ptr [ %15, %.lr.ph.i ], [ %5, %7 ]
   %9 = xor i32 %.011.i, -1
-  %10 = add nsw i32 %9, %2
+  %10 = add nsw i32 %2, %9
   %11 = lshr i32 %8, %10
   %12 = trunc i32 %11 to i8
   %13 = and i8 %12, 1
@@ -5949,7 +5949,7 @@ fstWriterEmitValueChange32.exit:                  ; preds = %.lr.ph.i, %7
   %20 = and i32 %2, 31
   %21 = getelementptr inbounds i8, ptr %0, i64 88
   %22 = load i32, ptr %21, align 8
-  %23 = icmp ult i32 %22, %2
+  %23 = icmp ugt i32 %2, %22
   br i1 %23, label %24, label %._crit_edge69
 
 ._crit_edge69:                                    ; preds = %18
@@ -6081,7 +6081,7 @@ define void @fstWriterEmitValueChangeVec64(ptr noundef %0, i32 noundef %1, i32 n
   %.0810.i = phi ptr [ %5, %.lr.ph.preheader.i ], [ %17, %.lr.ph.i ]
   %9 = trunc nuw i64 %indvars.iv.i to i32
   %10 = xor i32 %9, -1
-  %11 = add i32 %10, %2
+  %11 = add i32 %2, %10
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %8, %12
   %14 = trunc i64 %13 to i8
@@ -6107,7 +6107,7 @@ fstWriterEmitValueChange64.exit:                  ; preds = %.lr.ph.i, %7
   %21 = and i32 %2, 63
   %22 = getelementptr inbounds i8, ptr %0, i64 88
   %23 = load i32, ptr %22, align 8
-  %24 = icmp ult i32 %23, %2
+  %24 = icmp ugt i32 %2, %23
   br i1 %24, label %25, label %._crit_edge69
 
 ._crit_edge69:                                    ; preds = %19
@@ -6228,7 +6228,7 @@ define void @fstWriterEmitVariableLengthValueChange(ptr noundef %0, i32 noundef 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   %7 = load i32, ptr %6, align 8
-  %.not39 = icmp ult i32 %7, %1
+  %.not39 = icmp ugt i32 %1, %7
   br i1 %.not39, label %.critedge, label %8
 
 8:                                                ; preds = %5
@@ -6359,7 +6359,7 @@ _ZL36fstWriterUint32WithVarint32AndLengthP16fstWriterContextPjjPKvj.exit: ; pred
   %67 = ptrtoint ptr %53 to i64
   %68 = sub i64 %66, %67
   %69 = trunc i64 %68 to i32
-  %70 = add i32 %69, %3
+  %70 = add i32 %3, %69
   %71 = load i32, ptr %24, align 8
   %72 = add i32 %70, %71
   store i32 %72, ptr %24, align 8
@@ -7308,7 +7308,7 @@ define i64 @fstReaderGetDumpActivityChangeTime(ptr noundef readonly %0, i32 noun
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 408
   %5 = load i32, ptr %4, align 8
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %3
@@ -7336,7 +7336,7 @@ define zeroext i8 @fstReaderGetDumpActivityChangeValue(ptr noundef readonly %0, 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 408
   %5 = load i32, ptr %4, align 8
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %3
@@ -12912,7 +12912,7 @@ define noundef ptr @fstReaderGetValueFromHandleAtTime(ptr noundef %0, i64 nounde
 25:                                               ; preds = %4
   %26 = getelementptr inbounds i8, ptr %0, i64 56
   %27 = load i32, ptr %26, align 8
-  %28 = icmp uge i32 %27, %2
+  %28 = icmp ule i32 %2, %27
   %29 = icmp ne ptr %3, null
   %or.cond3 = and i1 %29, %28
   br i1 %or.cond3, label %30, label %.loopexit732
@@ -12971,7 +12971,7 @@ define noundef ptr @fstReaderGetValueFromHandleAtTime(ptr noundef %0, i64 nounde
 57:                                               ; preds = %54
   %58 = getelementptr inbounds i8, ptr %0, i64 472
   %59 = load i64, ptr %58, align 8
-  %.not565 = icmp ult i64 %59, %1
+  %.not565 = icmp ugt i64 %1, %59
   br i1 %.not565, label %60, label %524
 
 60:                                               ; preds = %57, %54
@@ -13104,18 +13104,18 @@ _ZL15fstReaderUint64P8_IO_FILE.exit612:           ; preds = %99
 _ZL15fstReaderUint64P8_IO_FILE.exit617:           ; preds = %107
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   %.not569 = icmp ugt i64 %104, %1
-  %.not570 = icmp ult i64 %112, %1
+  %.not570 = icmp ugt i64 %1, %112
   %or.cond606 = or i1 %.not569, %.not570
   br i1 %or.cond606, label %.outer.backedge, label %113
 
 113:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit617
-  %114 = icmp eq i64 %112, %1
+  %114 = icmp eq i64 %1, %112
   br i1 %114, label %115, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit619
 
 115:                                              ; preds = %113
   %116 = getelementptr inbounds i8, ptr %0, i64 24
   %117 = load i64, ptr %116, align 8
-  %.not571 = icmp eq i64 %117, %1
+  %.not571 = icmp eq i64 %1, %117
   br i1 %.not571, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit619, label %118
 
 118:                                              ; preds = %115
@@ -14108,7 +14108,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit690: ; preds = %.thread88
 614:                                              ; preds = %607
   %615 = getelementptr inbounds i8, ptr %0, i64 568
   %616 = load i64, ptr %615, align 8
-  %.not594 = icmp ugt i64 %616, %1
+  %.not594 = icmp ult i64 %1, %616
   br i1 %.not594, label %622, label %617
 
 617:                                              ; preds = %614

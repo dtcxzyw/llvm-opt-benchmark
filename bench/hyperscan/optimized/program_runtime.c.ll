@@ -132,7 +132,7 @@ land.lhs.true:                                    ; preds = %LABEL_ROSE_INSTR_AN
   %floatingMinLiteralMatchOffset = getelementptr inbounds i8, ptr %t, i64 232
   %1 = load i32, ptr %floatingMinLiteralMatchOffset, align 8
   %conv22 = zext i32 %1 to i64
-  %cmp = icmp ult i64 %conv22, %end
+  %cmp = icmp ugt i64 %end, %conv22
   br i1 %cmp, label %do.end25, label %if.end
 
 do.end25:                                         ; preds = %land.lhs.true
@@ -146,7 +146,7 @@ do.end25:                                         ; preds = %land.lhs.true
   %4 = load i32, ptr %anch_id, align 8
   %5 = load i32, ptr %floatingMinLiteralMatchOffset, align 8
   %conv.i = zext i32 %5 to i64
-  %cmp.i.not = icmp ult i64 %conv.i, %end
+  %cmp.i.not = icmp ugt i64 %end, %conv.i
   br i1 %cmp.i.not, label %if.end.i, label %recordAnchoredLiteralMatch.exit
 
 if.end.i:                                         ; preds = %do.end25
@@ -279,7 +279,7 @@ do.end32:                                         ; preds = %entry, %indirectgot
   %min_offset = getelementptr inbounds i8, ptr %pc.3, i64 4
   %27 = load i32, ptr %min_offset, align 4
   %conv34 = zext i32 %27 to i64
-  %cmp35 = icmp ugt i64 %conv34, %end
+  %cmp35 = icmp ult i64 %end, %conv34
   br i1 %cmp35, label %do.end39, label %if.end44
 
 do.end39:                                         ; preds = %do.end32
@@ -320,7 +320,7 @@ do.end67:                                         ; preds = %entry, %indirectgot
   %len = getelementptr inbounds i8, ptr %scratch, i64 296
   %32 = load i64, ptr %len, align 8
   %add = add i64 %32, %31
-  %cmp69.not = icmp eq i64 %add, %end
+  %cmp69.not = icmp eq i64 %end, %add
   br i1 %cmp69.not, label %if.end79, label %do.end73
 
 do.end73:                                         ; preds = %do.end67
@@ -343,8 +343,8 @@ do.end85:                                         ; preds = %entry, %indirectgot
   %34 = load i64, ptr %min_bound, align 8
   %max_bound = getelementptr inbounds i8, ptr %pc.6, i64 16
   %35 = load i64, ptr %max_bound, align 8
-  %cmp.i1217 = icmp ule i64 %34, %end
-  %cmp1.i = icmp uge i64 %35, %end
+  %cmp.i1217 = icmp uge i64 %end, %34
+  %cmp1.i = icmp ule i64 %end, %35
   %36 = select i1 %cmp.i1217, i1 %cmp1.i, i1 false
   br i1 %36, label %if.end97, label %do.end91
 
@@ -484,7 +484,7 @@ do.end121:                                        ; preds = %entry, %indirectgot
   %add.i = add nsw i64 %sub.i1227, %conv.i1228
   %cmp.i1229 = icmp slt i8 %57, 0
   %sub8.i = sub nsw i64 0, %conv.i1228
-  %cmp10.i = icmp ugt i64 %sub8.i, %end
+  %cmp10.i = icmp ult i64 %end, %sub8.i
   %or.cond7932 = select i1 %cmp.i1229, i1 %cmp10.i, i1 false
   br i1 %or.cond7932, label %do.end127, label %if.end.i1230
 
@@ -567,7 +567,7 @@ do.end139:                                        ; preds = %entry, %indirectgot
   %cmp.i1254 = icmp slt i8 %70, 0
   %conv.i1253 = sext i8 %70 to i64
   %sub8.i1269 = sub nsw i64 0, %conv.i1253
-  %cmp10.i1271 = icmp ugt i64 %sub8.i1269, %end
+  %cmp10.i1271 = icmp ult i64 %end, %sub8.i1269
   %or.cond7933 = select i1 %cmp.i1254, i1 %cmp10.i1271, i1 false
   br i1 %or.cond7933, label %do.end146.critedge, label %do.body16.i.preheader
 
@@ -714,7 +714,7 @@ do.end158:                                        ; preds = %entry, %indirectgot
   %cmp.i1281 = icmp slt i32 %88, 0
   %sub4.i = sub nsw i32 0, %88
   %conv5.i1302 = zext nneg i32 %sub4.i to i64
-  %cmp6.i = icmp ugt i64 %conv5.i1302, %end
+  %cmp6.i = icmp ult i64 %end, %conv5.i1302
   %or.cond7934 = select i1 %cmp.i1281, i1 %cmp6.i, i1 false
   br i1 %or.cond7934, label %do.end167, label %if.end.i1286
 
@@ -1173,7 +1173,7 @@ do.end179:                                        ; preds = %entry, %indirectgot
   %cmp.i1320 = icmp slt i32 %158, 0
   %sub4.i1351 = sub nsw i32 0, %158
   %conv5.i1352 = zext nneg i32 %sub4.i1351 to i64
-  %cmp6.i1353 = icmp ugt i64 %conv5.i1352, %end
+  %cmp6.i1353 = icmp ult i64 %end, %conv5.i1352
   %or.cond7936 = select i1 %cmp.i1320, i1 %cmp6.i1353, i1 false
   br i1 %or.cond7936, label %if.then190.critedge, label %if.end.i1325
 
@@ -1669,7 +1669,7 @@ do.end202:                                        ; preds = %entry, %indirectgot
   %cmp.i1363 = icmp slt i32 %235, 0
   %sub.i1383 = sub nsw i32 0, %235
   %conv.i1384 = zext nneg i32 %sub.i1383 to i64
-  %cmp1.i1385 = icmp ugt i64 %conv.i1384, %end
+  %cmp1.i1385 = icmp ult i64 %end, %conv.i1384
   %or.cond7937 = select i1 %cmp.i1363, i1 %cmp1.i1385, i1 false
   br i1 %or.cond7937, label %do.end213, label %if.end.i1367
 
@@ -1746,7 +1746,7 @@ do.end225:                                        ; preds = %entry, %indirectgot
   %cmp.i1399 = icmp slt i32 %245, 0
   %sub4.i1413 = sub nsw i32 0, %245
   %conv5.i1414 = zext nneg i32 %sub4.i1413 to i64
-  %cmp6.i1415 = icmp ugt i64 %conv5.i1414, %end
+  %cmp6.i1415 = icmp ult i64 %end, %conv5.i1414
   %or.cond7939 = select i1 %cmp.i1399, i1 %cmp6.i1415, i1 false
   br i1 %or.cond7939, label %if.then235, label %if.end.i1404
 
@@ -2239,7 +2239,7 @@ do.end247:                                        ; preds = %entry, %indirectgot
   %cmp.i1430 = icmp slt i32 %315, 0
   %sub4.i1452 = sub nsw i32 0, %315
   %conv5.i1453 = zext nneg i32 %sub4.i1452 to i64
-  %cmp6.i1454 = icmp ugt i64 %conv5.i1453, %end
+  %cmp6.i1454 = icmp ult i64 %end, %conv5.i1453
   %or.cond7941 = select i1 %cmp.i1430, i1 %cmp6.i1454, i1 false
   br i1 %or.cond7941, label %if.then259, label %if.end.i1435
 
@@ -2781,7 +2781,7 @@ do.end271:                                        ; preds = %entry, %indirectgot
   %cmp.i1474 = icmp slt i32 %402, 0
   %sub4.i1492 = sub nsw i32 0, %402
   %conv5.i1493 = zext nneg i32 %sub4.i1492 to i64
-  %cmp6.i1494 = icmp ugt i64 %conv5.i1493, %end
+  %cmp6.i1494 = icmp ult i64 %end, %conv5.i1493
   %or.cond7943 = select i1 %cmp.i1474, i1 %cmp6.i1494, i1 false
   br i1 %or.cond7943, label %if.then285, label %if.end.i1479
 
@@ -3285,7 +3285,7 @@ do.end297:                                        ; preds = %entry, %indirectgot
   %cmp.i1510 = icmp slt i32 %476, 0
   %sub4.i1530 = sub nsw i32 0, %476
   %conv5.i1531 = zext nneg i32 %sub4.i1530 to i64
-  %cmp6.i1532 = icmp ugt i64 %conv5.i1531, %end
+  %cmp6.i1532 = icmp ult i64 %end, %conv5.i1531
   %or.cond7945 = select i1 %cmp.i1510, i1 %cmp6.i1532, i1 false
   br i1 %or.cond7945, label %if.then311, label %if.end.i1515
 
@@ -3919,7 +3919,7 @@ mmbit_isset.exit.i5349:                           ; preds = %do.end323
 
 if.end.i5352:                                     ; preds = %if.end.i15640, %mmbit_isset.exit.i5349
   %conv.i5353 = zext i32 %573 to i64
-  %cmp.i5354 = icmp ugt i64 %conv.i5353, %end
+  %cmp.i5354 = icmp ult i64 %end, %conv.i5353
   br i1 %cmp.i5354, label %do.end329, label %if.end15.i5358
 
 if.end15.i5358:                                   ; preds = %if.end.i5352
@@ -4838,7 +4838,7 @@ mmbit_isset.exit.i5245:                           ; preds = %do.end341
 
 if.end.i5248:                                     ; preds = %if.end.i15685, %mmbit_isset.exit.i5245
   %conv.i5249 = zext i32 %737 to i64
-  %cmp.i5250 = icmp ugt i64 %conv.i5249, %end
+  %cmp.i5250 = icmp ult i64 %end, %conv.i5249
   br i1 %cmp.i5250, label %do.end350, label %if.end15.i5254
 
 if.end15.i5254:                                   ; preds = %if.end.i5248
@@ -5580,7 +5580,7 @@ do.end362:                                        ; preds = %entry, %indirectgot
   %index = getelementptr inbounds i8, ptr %pc.19, i64 4
   %886 = load i32, ptr %index, align 4
   %conv.i1547 = zext i8 %885 to i64
-  %add.i1548 = add i64 %conv.i1547, %end
+  %add.i1548 = add i64 %end, %conv.i1547
   %delayLastEndOffset.i = getelementptr inbounds i8, ptr %scratch, i64 56
   %887 = load i64, ptr %delayLastEndOffset.i, align 8
   %cmp.i1550.not = icmp ugt i64 %add.i1548, %887
@@ -5715,7 +5715,7 @@ do.end377:                                        ; preds = %entry, %indirectgot
   %work_done.20 = phi i32 [ %work_done.1, %indirectgoto ], [ 0, %entry ]
   %minMatchOffset.i = getelementptr inbounds i8, ptr %scratch, i64 88
   %908 = load i64, ptr %minMatchOffset.i, align 8
-  %cmp.i1563.not = icmp ult i64 %908, %end
+  %cmp.i1563.not = icmp ugt i64 %end, %908
   br i1 %cmp.i1563.not, label %if.end.i1564, label %if.end383
 
 if.end.i1564:                                     ; preds = %do.end377
@@ -5726,7 +5726,7 @@ if.end.i1564:                                     ; preds = %do.end377
   %sub.i1567 = sub i64 %end, %910
   %minNonMpvMatchOffset.i = getelementptr inbounds i8, ptr %scratch, i64 96
   %911 = load i64, ptr %minNonMpvMatchOffset.i, align 32
-  %cmp4.i.not = icmp ult i64 %911, %end
+  %cmp4.i.not = icmp ugt i64 %end, %911
   br i1 %cmp4.i.not, label %if.end6.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i1564
@@ -5738,7 +5738,7 @@ if.then5.i:                                       ; preds = %if.end.i1564
 if.end.i8174:                                     ; preds = %if.then5.i
   %next_mpv_offset.i8176 = getelementptr inbounds i8, ptr %scratch, i64 104
   %913 = load i64, ptr %next_mpv_offset.i8176, align 8
-  %cmp.i8177 = icmp ugt i64 %913, %end
+  %cmp.i8177 = icmp ult i64 %end, %913
   br i1 %cmp.i8177, label %if.then.i1586, label %if.end2.i8178
 
 if.end2.i8178:                                    ; preds = %if.end.i8174
@@ -5955,7 +5955,7 @@ if.else:                                          ; preds = %do.end389
 if.end.i8139:                                     ; preds = %if.else
   %next_mpv_offset.i = getelementptr inbounds i8, ptr %scratch, i64 104
   %937 = load i64, ptr %next_mpv_offset.i, align 8
-  %cmp.i8141 = icmp ugt i64 %937, %end
+  %cmp.i8141 = icmp ult i64 %end, %937
   br i1 %cmp.i8141, label %if.then.i1605, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i8139
@@ -8320,18 +8320,18 @@ updateSeqPoint.exit:                              ; preds = %do.end476, %if.then
   %offset_adjust = getelementptr inbounds i8, ptr %pc.29, i64 8
   %1329 = load i32, ptr %offset_adjust, align 4
   %conv478 = zext i32 %1329 to i64
-  %add479 = add i64 %conv478, %end
+  %add479 = add i64 %end, %conv478
   %dkey = getelementptr inbounds i8, ptr %pc.29, i64 4
   %1330 = load i32, ptr %dkey, align 4
   %deduper1.i1864 = getelementptr inbounds i8, ptr %scratch, i64 336
   %current_report_offset.i1865 = getelementptr inbounds i8, ptr %scratch, i64 392
   %1331 = load i64, ptr %current_report_offset.i1865, align 8
-  %cmp.i1866.not = icmp eq i64 %1331, %end
+  %cmp.i1866.not = icmp eq i64 %end, %1331
   br i1 %cmp.i1866.not, label %if.end13.i1867, label %if.then.i1925
 
 if.then.i1925:                                    ; preds = %updateSeqPoint.exit
   %add.i1927 = add i64 %1331, 1
-  %cmp3.i1928 = icmp eq i64 %add.i1927, %end
+  %cmp3.i1928 = icmp eq i64 %end, %add.i1927
   br i1 %cmp3.i1928, label %if.then4.i1940, label %if.else.i1929
 
 if.then4.i1940:                                   ; preds = %if.then.i1925
@@ -8499,7 +8499,7 @@ updateSeqPoint.exit7982:                          ; preds = %do.end495, %if.then
   %offset_adjust500 = getelementptr inbounds i8, ptr %pc.30, i64 8
   %1354 = load i32, ptr %offset_adjust500, align 4
   %conv50111547 = zext i32 %1354 to i64
-  %add502 = add i64 %conv50111547, %end
+  %add502 = add i64 %end, %conv50111547
   %dkey503 = getelementptr inbounds i8, ptr %pc.30, i64 4
   %1355 = load i32, ptr %dkey503, align 4
   %quash_som505 = getelementptr inbounds i8, ptr %pc.30, i64 1
@@ -8507,12 +8507,12 @@ updateSeqPoint.exit7982:                          ; preds = %do.end495, %if.then
   %deduper1.i1764 = getelementptr inbounds i8, ptr %scratch, i64 336
   %current_report_offset.i1765 = getelementptr inbounds i8, ptr %scratch, i64 392
   %1357 = load i64, ptr %current_report_offset.i1765, align 8
-  %cmp.i1766.not = icmp eq i64 %1357, %end
+  %cmp.i1766.not = icmp eq i64 %end, %1357
   br i1 %cmp.i1766.not, label %if.end13.i1767, label %if.then.i1825
 
 if.then.i1825:                                    ; preds = %updateSeqPoint.exit7982
   %add.i1827 = add i64 %1357, 1
-  %cmp3.i1828 = icmp eq i64 %add.i1827, %end
+  %cmp3.i1828 = icmp eq i64 %end, %add.i1827
   br i1 %cmp3.i1828, label %if.then4.i1840, label %if.else.i1829
 
 if.then4.i1840:                                   ; preds = %if.then.i1825
@@ -8793,7 +8793,7 @@ do.end521:                                        ; preds = %entry, %indirectgot
 land.lhs.true.i1949:                              ; preds = %do.end521
   %minNonMpvMatchOffset.i9970 = getelementptr inbounds i8, ptr %scratch, i64 96
   %1401 = load i64, ptr %minNonMpvMatchOffset.i9970, align 32
-  %cmp.i9971.not = icmp ult i64 %1401, %end
+  %cmp.i9971.not = icmp ugt i64 %end, %1401
   br i1 %cmp.i9971.not, label %if.end.i9972, label %roseCatchUpAndHandleChainMatch.exit
 
 if.end.i9972:                                     ; preds = %land.lhs.true.i1949
@@ -8993,7 +8993,7 @@ updateSeqPoint.exit8006:                          ; preds = %do.end550, %if.then
   store i64 %end, ptr %lastMatchOffset.i10055, align 8
   %core_info.i10088 = getelementptr inbounds i8, ptr %scratch, i64 232
   %conv.i10089 = sext i32 %1418 to i64
-  %add.i10090 = add i64 %conv.i10089, %end
+  %add.i10090 = add i64 %end, %conv.i10089
   %userCallback.i = getelementptr inbounds i8, ptr %scratch, i64 240
   %1419 = load ptr, ptr %userCallback.i, align 8
   %1420 = load ptr, ptr %core_info.i10088, align 8
@@ -9040,7 +9040,7 @@ updateSeqPoint.exit8014:                          ; preds = %do.end563, %if.then
   store i64 %end, ptr %lastMatchOffset.i10060, align 8
   %core_info.i10118 = getelementptr inbounds i8, ptr %scratch, i64 232
   %conv.i10119 = sext i32 %1425 to i64
-  %add.i10120 = add i64 %conv.i10119, %end
+  %add.i10120 = add i64 %end, %conv.i10119
   %userCallback.i10123 = getelementptr inbounds i8, ptr %scratch, i64 240
   %1427 = load ptr, ptr %userCallback.i10123, align 8
   %1428 = load ptr, ptr %core_info.i10118, align 8
@@ -9331,7 +9331,7 @@ updateSeqPoint.exit8022:                          ; preds = %do.end577, %if.then
   store i64 %end, ptr %lastMatchOffset.i, align 8
   %core_info.i10274 = getelementptr inbounds i8, ptr %scratch, i64 232
   %conv.i10275 = sext i32 %1468 to i64
-  %add.i10276 = add i64 %conv.i10275, %end
+  %add.i10276 = add i64 %end, %conv.i10275
   %userCallback.i10279 = getelementptr inbounds i8, ptr %scratch, i64 240
   %1469 = load ptr, ptr %userCallback.i10279, align 8
   %1470 = load ptr, ptr %core_info.i10274, align 8
@@ -9378,7 +9378,7 @@ updateSeqPoint.exit8030:                          ; preds = %do.end591, %if.then
   store i64 %end, ptr %lastMatchOffset.i10050, align 8
   %core_info.i10312 = getelementptr inbounds i8, ptr %scratch, i64 232
   %conv.i10313 = sext i32 %1475 to i64
-  %add.i10314 = add i64 %conv.i10313, %end
+  %add.i10314 = add i64 %end, %conv.i10313
   %userCallback.i10317 = getelementptr inbounds i8, ptr %scratch, i64 240
   %1477 = load ptr, ptr %userCallback.i10317, align 8
   %1478 = load ptr, ptr %core_info.i10312, align 8
@@ -9667,18 +9667,18 @@ updateSeqPoint.exit8038:                          ; preds = %do.end606, %if.then
   %offset_adjust612 = getelementptr inbounds i8, ptr %pc.38, i64 12
   %1518 = load i32, ptr %offset_adjust612, align 4
   %conv613 = zext i32 %1518 to i64
-  %add614 = add i64 %conv613, %end
+  %add614 = add i64 %end, %conv613
   %dkey615 = getelementptr inbounds i8, ptr %pc.38, i64 4
   %1519 = load i32, ptr %dkey615, align 4
   %deduper1.i = getelementptr inbounds i8, ptr %scratch, i64 336
   %current_report_offset.i = getelementptr inbounds i8, ptr %scratch, i64 392
   %1520 = load i64, ptr %current_report_offset.i, align 8
-  %cmp.i1717.not = icmp eq i64 %1520, %end
+  %cmp.i1717.not = icmp eq i64 %end, %1520
   br i1 %cmp.i1717.not, label %if.end13.i1718, label %if.then.i1733
 
 if.then.i1733:                                    ; preds = %updateSeqPoint.exit8038
   %add.i1734 = add i64 %1520, 1
-  %cmp3.i = icmp eq i64 %add.i1734, %end
+  %cmp3.i = icmp eq i64 %end, %add.i1734
   br i1 %cmp3.i, label %if.then4.i1742, label %if.else.i1735
 
 if.then4.i1742:                                   ; preds = %if.then.i1733
@@ -9828,7 +9828,7 @@ sw.epilog627:                                     ; preds = %while.body.i11803, 
   store i64 %end, ptr %lastMatchOffset.i10065, align 8
   %core_info.i10150 = getelementptr inbounds i8, ptr %scratch, i64 232
   %conv.i10151 = sext i32 %1543 to i64
-  %add.i10152 = add i64 %conv.i10151, %end
+  %add.i10152 = add i64 %end, %conv.i10151
   %userCallback.i10155 = getelementptr inbounds i8, ptr %scratch, i64 240
   %1544 = load ptr, ptr %userCallback.i10155, align 8
   %1545 = load ptr, ptr %core_info.i10150, align 8
@@ -9871,7 +9871,7 @@ updateSeqPoint.exit8046:                          ; preds = %do.end641, %if.then
   store i64 %end, ptr %lastMatchOffset.i10070, align 8
   %core_info.i10182 = getelementptr inbounds i8, ptr %scratch, i64 232
   %conv.i10183 = sext i32 %1550 to i64
-  %add.i10184 = add i64 %conv.i10183, %end
+  %add.i10184 = add i64 %end, %conv.i10183
   %userCallback.i10187 = getelementptr inbounds i8, ptr %scratch, i64 240
   %1551 = load ptr, ptr %userCallback.i10187, align 8
   %1552 = load ptr, ptr %core_info.i10182, align 8
@@ -12533,7 +12533,7 @@ if.end.i19783:                                    ; preds = %if.end3.i
   %1913 = load i64, ptr %len.i2354, align 8
   %add.i19788 = add i64 %1913, %1912
   %cmp.i19789 = icmp ne i64 %1911, %add.i19788
-  %cmp5.i19792.not = icmp eq i64 %add.i19788, %end
+  %cmp5.i19792.not = icmp eq i64 %end, %add.i19788
   %or.cond7952 = and i1 %cmp.i19789, %cmp5.i19792.not
   br i1 %or.cond7952, label %if.end7.i19793, label %if.end907
 
@@ -12992,13 +12992,13 @@ do.end913:                                        ; preds = %entry, %indirectgot
   %idx.ext.i.i2444 = zext i32 %1957 to i64
   %add.ptr.i.i2445 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i.i2444
   %conv.i2446 = zext i32 %1958 to i64
-  %cmp.i2447 = icmp ugt i64 %conv.i2446, %end
+  %cmp.i2447 = icmp ult i64 %end, %conv.i2446
   br i1 %cmp.i2447, label %do.end919, label %if.end.i2448
 
 if.end.i2448:                                     ; preds = %do.end913
   %buf_offset.i2449 = getelementptr inbounds i8, ptr %scratch, i64 320
   %1959 = load i64, ptr %buf_offset.i2449, align 8
-  %cmp6.i2450 = icmp ult i64 %1959, %end
+  %cmp6.i2450 = icmp ugt i64 %end, %1959
   br i1 %cmp6.i2450, label %if.then8.i2500, label %if.end32.i2451
 
 if.then8.i2500:                                   ; preds = %if.end.i2448
@@ -13152,13 +13152,13 @@ do.end931:                                        ; preds = %entry, %indirectgot
   %idx.ext.i.i2385 = zext i32 %1977 to i64
   %add.ptr.i.i2386 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i.i2385
   %conv.i2387 = zext i32 %1978 to i64
-  %cmp.i2388 = icmp ugt i64 %conv.i2387, %end
+  %cmp.i2388 = icmp ult i64 %end, %conv.i2387
   br i1 %cmp.i2388, label %do.end940, label %if.end.i2389
 
 if.end.i2389:                                     ; preds = %do.end931
   %buf_offset.i2390 = getelementptr inbounds i8, ptr %scratch, i64 320
   %1979 = load i64, ptr %buf_offset.i2390, align 8
-  %cmp6.i2391 = icmp ult i64 %1979, %end
+  %cmp6.i2391 = icmp ugt i64 %end, %1979
   br i1 %cmp6.i2391, label %if.then8.i, label %if.end32.i
 
 if.then8.i:                                       ; preds = %if.end.i2389
@@ -13356,13 +13356,13 @@ do.end952:                                        ; preds = %entry, %indirectgot
   %idx.ext.i.i2619 = zext i32 %2001 to i64
   %add.ptr.i.i2620 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i.i2619
   %conv.i2621 = zext i32 %2002 to i64
-  %cmp.i2622 = icmp ugt i64 %conv.i2621, %end
+  %cmp.i2622 = icmp ult i64 %end, %conv.i2621
   br i1 %cmp.i2622, label %do.end961, label %if.end.i2623
 
 if.end.i2623:                                     ; preds = %do.end952
   %buf_offset.i2624 = getelementptr inbounds i8, ptr %scratch, i64 320
   %2003 = load i64, ptr %buf_offset.i2624, align 8
-  %cmp6.i2625 = icmp ult i64 %2003, %end
+  %cmp6.i2625 = icmp ugt i64 %end, %2003
   br i1 %cmp6.i2625, label %if.then8.i2666, label %if.end32.i2626
 
 if.then8.i2666:                                   ; preds = %if.end.i2623
@@ -13516,13 +13516,13 @@ do.end973:                                        ; preds = %entry, %indirectgot
   %idx.ext.i.i2548 = zext i32 %2021 to i64
   %add.ptr.i.i2549 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i.i2548
   %conv.i2550 = zext i32 %2022 to i64
-  %cmp.i2551 = icmp ugt i64 %conv.i2550, %end
+  %cmp.i2551 = icmp ult i64 %end, %conv.i2550
   br i1 %cmp.i2551, label %do.end982, label %if.end.i2552
 
 if.end.i2552:                                     ; preds = %do.end973
   %buf_offset.i2553 = getelementptr inbounds i8, ptr %scratch, i64 320
   %2023 = load i64, ptr %buf_offset.i2553, align 8
-  %cmp6.i2554 = icmp ult i64 %2023, %end
+  %cmp6.i2554 = icmp ugt i64 %end, %2023
   br i1 %cmp6.i2554, label %if.then8.i2572, label %if.end32.i2555
 
 if.then8.i2572:                                   ; preds = %if.end.i2552
@@ -13736,7 +13736,7 @@ do.end1003:                                       ; preds = %entry, %indirectgot
   %sub.i2716 = sub i64 %end, %2048
   %sub4.i2717 = sub nsw i32 0, %2047
   %conv.i2718 = sext i32 %sub4.i2717 to i64
-  %cmp.i2719 = icmp ugt i64 %conv.i2718, %end
+  %cmp.i2719 = icmp ult i64 %end, %conv.i2718
   br i1 %cmp.i2719, label %do.end1013.critedge, label %if.end.i2723
 
 if.end.i2723:                                     ; preds = %do.end1003
@@ -13877,7 +13877,7 @@ do.end1025:                                       ; preds = %entry, %indirectgot
   %cmp.i = icmp slt i32 %2065, 0
   %sub5.i = sub nsw i32 0, %2065
   %conv6.i = zext nneg i32 %sub5.i to i64
-  %cmp7.i8051 = icmp ugt i64 %conv6.i, %end
+  %cmp7.i8051 = icmp ult i64 %end, %conv6.i
   %2067 = select i1 %cmp.i, i1 %cmp7.i8051, i1 false
   br i1 %2067, label %if.then.i8171, label %if.end18.i8052
 
@@ -13886,7 +13886,7 @@ if.then.i8171:                                    ; preds = %do.end1025
   %2068 = load i32, ptr %last_start.i, align 4
   %sub11.i = sub nsw i32 0, %2068
   %conv12.i8172 = sext i32 %sub11.i to i64
-  %cmp13.i8173 = icmp ugt i64 %conv12.i8172, %end
+  %cmp13.i8173 = icmp ult i64 %end, %conv12.i8172
   br i1 %cmp13.i8173, label %roseCheckMultipathShufti16x8.exit.thread, label %if.end18.i8052
 
 roseCheckMultipathShufti16x8.exit.thread:         ; preds = %if.then.i8171
@@ -14534,7 +14534,7 @@ do.end1043:                                       ; preds = %entry, %indirectgot
   %cmp.i8181 = icmp slt i32 %2155, 0
   %sub5.i8182 = sub nsw i32 0, %2155
   %conv6.i8183 = zext nneg i32 %sub5.i8182 to i64
-  %cmp7.i8184 = icmp ugt i64 %conv6.i8183, %end
+  %cmp7.i8184 = icmp ult i64 %end, %conv6.i8183
   %2157 = select i1 %cmp.i8181, i1 %cmp7.i8184, i1 false
   br i1 %2157, label %if.then.i8368, label %if.end18.i8185
 
@@ -14543,7 +14543,7 @@ if.then.i8368:                                    ; preds = %do.end1043
   %2158 = load i32, ptr %last_start.i8369, align 4
   %sub11.i8370 = sub nsw i32 0, %2158
   %conv12.i8371 = sext i32 %sub11.i8370 to i64
-  %cmp13.i8372 = icmp ugt i64 %conv12.i8371, %end
+  %cmp13.i8372 = icmp ult i64 %end, %conv12.i8371
   br i1 %cmp13.i8372, label %roseCheckMultipathShufti32x8.exit.thread, label %if.end18.i8185
 
 roseCheckMultipathShufti32x8.exit.thread:         ; preds = %if.then.i8368
@@ -15224,7 +15224,7 @@ do.end1061:                                       ; preds = %entry, %indirectgot
   %cmp.i8379 = icmp slt i32 %2269, 0
   %sub5.i8380 = sub nsw i32 0, %2269
   %conv6.i8381 = zext nneg i32 %sub5.i8380 to i64
-  %cmp7.i8382 = icmp ugt i64 %conv6.i8381, %end
+  %cmp7.i8382 = icmp ult i64 %end, %conv6.i8381
   %2270 = select i1 %cmp.i8379, i1 %cmp7.i8382, i1 false
   br i1 %2270, label %if.then.i8581, label %if.end18.i8383
 
@@ -15233,7 +15233,7 @@ if.then.i8581:                                    ; preds = %do.end1061
   %2271 = load i32, ptr %last_start.i8582, align 4
   %sub11.i8583 = sub nsw i32 0, %2271
   %conv12.i8584 = sext i32 %sub11.i8583 to i64
-  %cmp13.i8585 = icmp ugt i64 %conv12.i8584, %end
+  %cmp13.i8585 = icmp ult i64 %end, %conv12.i8584
   br i1 %cmp13.i8585, label %roseCheckMultipathShufti32x16.exit.thread, label %if.end18.i8383
 
 roseCheckMultipathShufti32x16.exit.thread:        ; preds = %if.then.i8581
@@ -15938,7 +15938,7 @@ do.end1079:                                       ; preds = %entry, %indirectgot
   %cmp.i8593 = icmp slt i32 %2390, 0
   %sub5.i8594 = sub nsw i32 0, %2390
   %conv6.i8595 = zext nneg i32 %sub5.i8594 to i64
-  %cmp7.i8596 = icmp ugt i64 %conv6.i8595, %end
+  %cmp7.i8596 = icmp ult i64 %end, %conv6.i8595
   %2391 = select i1 %cmp.i8593, i1 %cmp7.i8596, i1 false
   br i1 %2391, label %if.then.i8786, label %if.end18.i8597
 
@@ -15947,7 +15947,7 @@ if.then.i8786:                                    ; preds = %do.end1079
   %2392 = load i32, ptr %last_start.i8787, align 4
   %sub11.i8788 = sub nsw i32 0, %2392
   %conv12.i8789 = sext i32 %sub11.i8788 to i64
-  %cmp13.i8790 = icmp ugt i64 %conv12.i8789, %end
+  %cmp13.i8790 = icmp ult i64 %end, %conv12.i8789
   br i1 %cmp13.i8790, label %roseCheckMultipathShufti64.exit.thread, label %if.end18.i8597
 
 roseCheckMultipathShufti64.exit.thread:           ; preds = %if.then.i8786
@@ -16802,7 +16802,7 @@ setLogicalVal.exit:                               ; preds = %if.end.i12947, %whi
   %offset_adjust1125 = getelementptr inbounds i8, ptr %pc.63, i64 8
   %2556 = load i32, ptr %offset_adjust1125, align 4
   %conv1126 = sext i32 %2556 to i64
-  %add1127 = add i64 %conv1126, %end
+  %add1127 = add i64 %end, %conv1126
   %lastCombMatchOffset.i = getelementptr inbounds i8, ptr %scratch, i64 80
   store i64 %add1127, ptr %lastCombMatchOffset.i, align 8
   %add.ptr1128 = getelementptr inbounds i8, ptr %pc.63, i64 16
@@ -16916,7 +16916,7 @@ do.end1143:                                       ; preds = %entry, %indirectgot
   %work_done.52 = phi i32 [ %work_done.1, %indirectgoto ], [ 0, %entry ]
   %lastCombMatchOffset = getelementptr inbounds i8, ptr %scratch, i64 80
   %2575 = load i64, ptr %lastCombMatchOffset, align 8
-  %cmp1145 = icmp ult i64 %2575, %end
+  %cmp1145 = icmp ugt i64 %end, %2575
   br i1 %cmp1145, label %if.then1147, label %if.end1153
 
 if.then1147:                                      ; preds = %do.end1143
@@ -20785,13 +20785,13 @@ for.body.i2931:                                   ; preds = %for.body.i2931.lr.p
   %add.ptr2.i = getelementptr inbounds %struct.CombInfo, ptr %add.ptr.i2934, i64 %indvars.iv11175
   %min_offset.i2935 = getelementptr inbounds i8, ptr %add.ptr2.i, i64 16
   %3220 = load i64, ptr %min_offset.i2935, align 8
-  %cmp5.i2969 = icmp ugt i64 %3220, %end
+  %cmp5.i2969 = icmp ult i64 %end, %3220
   br i1 %cmp5.i2969, label %for.inc.i2947, label %if.end.i2937
 
 if.end.i2937:                                     ; preds = %for.body.i2931
   %max_offset.i2938 = getelementptr inbounds i8, ptr %add.ptr2.i, i64 24
   %3221 = load i64, ptr %max_offset.i2938, align 8
-  %cmp9.i2966 = icmp ult i64 %3221, %end
+  %cmp9.i2966 = icmp ugt i64 %end, %3221
   br i1 %cmp9.i2966, label %for.inc.i2947, label %if.end13.i2940
 
 if.end13.i2940:                                   ; preds = %if.end.i2937
@@ -22398,7 +22398,7 @@ do.end26:                                         ; preds = %for.cond
   %cmp.i = icmp slt i32 %8, 0
   %sub4.i = sub nsw i32 0, %8
   %conv5.i = zext nneg i32 %sub4.i to i64
-  %cmp6.i = icmp ugt i64 %conv5.i, %end
+  %cmp6.i = icmp ult i64 %end, %conv5.i
   %or.cond4316 = select i1 %cmp.i, i1 %cmp6.i, i1 false
   br i1 %or.cond4316, label %do.end32, label %if.end.i
 
@@ -22845,7 +22845,7 @@ do.end38:                                         ; preds = %for.cond
   %cmp.i458 = icmp slt i32 %78, 0
   %sub4.i487 = sub nsw i32 0, %78
   %conv5.i488 = zext nneg i32 %sub4.i487 to i64
-  %cmp6.i489 = icmp ugt i64 %conv5.i488, %end
+  %cmp6.i489 = icmp ult i64 %end, %conv5.i488
   %or.cond4317 = select i1 %cmp.i458, i1 %cmp6.i489, i1 false
   br i1 %or.cond4317, label %if.then49.critedge, label %if.end.i463
 
@@ -23325,7 +23325,7 @@ do.end57:                                         ; preds = %for.cond
   %cmp.i498 = icmp slt i32 %155, 0
   %sub.i514 = sub nsw i32 0, %155
   %conv.i515 = zext nneg i32 %sub.i514 to i64
-  %cmp1.i = icmp ugt i64 %conv.i515, %end
+  %cmp1.i = icmp ult i64 %end, %conv.i515
   %or.cond4318 = select i1 %cmp.i498, i1 %cmp1.i, i1 false
   br i1 %or.cond4318, label %do.end68, label %if.end.i502
 
@@ -23384,7 +23384,7 @@ do.end76:                                         ; preds = %for.cond
   %index = getelementptr inbounds i8, ptr %pc.0, i64 4
   %165 = load i32, ptr %index, align 4
   %conv.i518 = zext i8 %164 to i64
-  %add.i519 = add i64 %conv.i518, %end
+  %add.i519 = add i64 %end, %conv.i518
   %166 = load i64, ptr %delayLastEndOffset.i, align 8
   %cmp.i521.not = icmp ugt i64 %add.i519, %166
   br i1 %cmp.i521.not, label %if.end.i522, label %rosePushDelayedMatch.exit
@@ -23502,7 +23502,7 @@ rosePushDelayedMatch.exit:                        ; preds = %if.end.i6108, %whil
 
 do.end82:                                         ; preds = %for.cond
   %187 = load i64, ptr %minMatchOffset.i.i4393, align 8
-  %cmp.i533.not = icmp ult i64 %187, %end
+  %cmp.i533.not = icmp ugt i64 %end, %187
   br i1 %cmp.i533.not, label %if.end.i534, label %if.end87
 
 if.end.i534:                                      ; preds = %do.end82
@@ -23510,7 +23510,7 @@ if.end.i534:                                      ; preds = %do.end82
   %189 = load i64, ptr %buf_offset.i1177, align 8
   %sub.i536 = sub i64 %end, %189
   %190 = load i64, ptr %minNonMpvMatchOffset.i.i4394, align 32
-  %cmp4.i.not = icmp ult i64 %190, %end
+  %cmp4.i.not = icmp ugt i64 %end, %190
   br i1 %cmp4.i.not, label %if.end6.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i534
@@ -23520,7 +23520,7 @@ if.then5.i:                                       ; preds = %if.end.i534
 
 if.end.i2851:                                     ; preds = %if.then5.i
   %192 = load i64, ptr %next_mpv_offset.i262.i, align 8
-  %cmp.i2854 = icmp ugt i64 %192, %end
+  %cmp.i2854 = icmp ult i64 %end, %192
   br i1 %cmp.i2854, label %if.then.i554, label %if.end2.i2855
 
 if.end2.i2855:                                    ; preds = %if.end.i2851
@@ -23722,7 +23722,7 @@ if.else:                                          ; preds = %do.end91
 
 if.end.i2817:                                     ; preds = %if.else
   %215 = load i64, ptr %next_mpv_offset.i262.i, align 8
-  %cmp.i2819 = icmp ugt i64 %215, %end
+  %cmp.i2819 = icmp ult i64 %end, %215
   br i1 %cmp.i2819, label %if.then.i571, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i2817
@@ -25136,16 +25136,16 @@ updateSeqPoint.exit:                              ; preds = %do.end129, %if.then
   %offset_adjust = getelementptr inbounds i8, ptr %pc.0, i64 8
   %454 = load i32, ptr %offset_adjust, align 4
   %conv131 = zext i32 %454 to i64
-  %add = add i64 %conv131, %end
+  %add = add i64 %end, %conv131
   %dkey = getelementptr inbounds i8, ptr %pc.0, i64 4
   %455 = load i32, ptr %dkey, align 4
   %456 = load i64, ptr %current_report_offset.i, align 8
-  %cmp.i759.not = icmp eq i64 %456, %end
+  %cmp.i759.not = icmp eq i64 %end, %456
   br i1 %cmp.i759.not, label %if.end13.i760, label %if.then.i818
 
 if.then.i818:                                     ; preds = %updateSeqPoint.exit
   %add.i820 = add i64 %456, 1
-  %cmp3.i821 = icmp eq i64 %add.i820, %end
+  %cmp3.i821 = icmp eq i64 %end, %add.i820
   br i1 %cmp3.i821, label %if.end.i824, label %if.else.i822
 
 if.else.i822:                                     ; preds = %if.then.i818
@@ -25298,18 +25298,18 @@ updateSeqPoint.exit4351:                          ; preds = %do.end143, %if.then
   %offset_adjust148 = getelementptr inbounds i8, ptr %pc.0, i64 8
   %479 = load i32, ptr %offset_adjust148, align 4
   %conv1496389 = zext i32 %479 to i64
-  %add150 = add i64 %conv1496389, %end
+  %add150 = add i64 %end, %conv1496389
   %dkey151 = getelementptr inbounds i8, ptr %pc.0, i64 4
   %480 = load i32, ptr %dkey151, align 4
   %quash_som153 = getelementptr inbounds i8, ptr %pc.0, i64 1
   %481 = load i8, ptr %quash_som153, align 1
   %482 = load i64, ptr %current_report_offset.i, align 8
-  %cmp.i659.not = icmp eq i64 %482, %end
+  %cmp.i659.not = icmp eq i64 %end, %482
   br i1 %cmp.i659.not, label %if.end13.i660, label %if.then.i718
 
 if.then.i718:                                     ; preds = %updateSeqPoint.exit4351
   %add.i720 = add i64 %482, 1
-  %cmp3.i721 = icmp eq i64 %add.i720, %end
+  %cmp3.i721 = icmp eq i64 %end, %add.i720
   br i1 %cmp3.i721, label %land.lhs.true.i729, label %if.else.i722
 
 if.else.i722:                                     ; preds = %if.then.i718
@@ -25573,7 +25573,7 @@ do.end165:                                        ; preds = %for.cond
 
 land.lhs.true.i842:                               ; preds = %do.end165
   %526 = load i64, ptr %minNonMpvMatchOffset.i.i4394, align 32
-  %cmp.i4283.not = icmp ult i64 %526, %end
+  %cmp.i4283.not = icmp ugt i64 %end, %526
   br i1 %cmp.i4283.not, label %if.end.i4284, label %roseCatchUpAndHandleChainMatch.exit
 
 if.end.i4284:                                     ; preds = %land.lhs.true.i842
@@ -25710,7 +25710,7 @@ updateSeqPoint.exit4359:                          ; preds = %do.end176, %if.then
   %541 = load i32, ptr %offset_adjust178, align 4
   store i64 %end, ptr %lastMatchOffset.i4367, align 8
   %conv.i4380 = sext i32 %541 to i64
-  %add.i4381 = add i64 %conv.i4380, %end
+  %add.i4381 = add i64 %end, %conv.i4380
   %542 = load ptr, ptr %userCallback.i.i12534, align 8
   %543 = load ptr, ptr %core_info.i1341, align 8
   %call.i4383 = tail call i32 %542(i32 noundef %540, i64 noundef 0, i64 noundef %add.i4381, i32 noundef 0, ptr noundef %543) #10
@@ -25748,7 +25748,7 @@ updateSeqPoint.exit4367:                          ; preds = %do.end187, %if.then
   %549 = load i32, ptr %ekey, align 4
   store i64 %end, ptr %lastMatchOffset.i4367, align 8
   %conv.i4408 = sext i32 %548 to i64
-  %add.i4409 = add i64 %conv.i4408, %end
+  %add.i4409 = add i64 %end, %conv.i4408
   %550 = load ptr, ptr %userCallback.i.i12534, align 8
   %551 = load ptr, ptr %core_info.i1341, align 8
   %call.i4412 = tail call i32 %550(i32 noundef %547, i64 noundef 0, i64 noundef %add.i4409, i32 noundef 0, ptr noundef %551) #10
@@ -26025,7 +26025,7 @@ updateSeqPoint.exit4375:                          ; preds = %do.end199, %if.then
   %591 = load i32, ptr %offset_adjust202, align 4
   store i64 %end, ptr %lastMatchOffset.i4367, align 8
   %conv.i4553 = sext i32 %591 to i64
-  %add.i4554 = add i64 %conv.i4553, %end
+  %add.i4554 = add i64 %end, %conv.i4553
   %592 = load ptr, ptr %userCallback.i.i12534, align 8
   %593 = load ptr, ptr %core_info.i1341, align 8
   %call.i4557 = tail call i32 %592(i32 noundef %590, i64 noundef %som.addr.0, i64 noundef %add.i4554, i32 noundef 0, ptr noundef %593) #10
@@ -26059,16 +26059,16 @@ updateSeqPoint.exit4383:                          ; preds = %do.end211, %if.then
   %offset_adjust217 = getelementptr inbounds i8, ptr %pc.0, i64 12
   %598 = load i32, ptr %offset_adjust217, align 4
   %conv218 = zext i32 %598 to i64
-  %add219 = add i64 %conv218, %end
+  %add219 = add i64 %end, %conv218
   %dkey220 = getelementptr inbounds i8, ptr %pc.0, i64 4
   %599 = load i32, ptr %dkey220, align 4
   %600 = load i64, ptr %current_report_offset.i, align 8
-  %cmp.i614.not = icmp eq i64 %600, %end
+  %cmp.i614.not = icmp eq i64 %end, %600
   br i1 %cmp.i614.not, label %if.end13.i615, label %if.then.i626
 
 if.then.i626:                                     ; preds = %updateSeqPoint.exit4383
   %add.i627 = add i64 %600, 1
-  %cmp3.i = icmp eq i64 %add.i627, %end
+  %cmp3.i = icmp eq i64 %end, %add.i627
   br i1 %cmp3.i, label %if.end.i629, label %if.else.i628
 
 if.else.i628:                                     ; preds = %if.then.i626
@@ -26208,7 +26208,7 @@ sw.epilog230:                                     ; preds = %while.body.i5676, %
   %623 = load i32, ptr %offset_adjust217, align 4
   store i64 %end, ptr %lastMatchOffset.i4367, align 8
   %conv.i4438 = sext i32 %623 to i64
-  %add.i4439 = add i64 %conv.i4438, %end
+  %add.i4439 = add i64 %end, %conv.i4438
   %624 = load ptr, ptr %userCallback.i.i12534, align 8
   %625 = load ptr, ptr %core_info.i1341, align 8
   %call.i4442 = tail call i32 %624(i32 noundef %622, i64 noundef 0, i64 noundef %add.i4439, i32 noundef 0, ptr noundef %625) #10
@@ -26244,7 +26244,7 @@ updateSeqPoint.exit4391:                          ; preds = %do.end242, %if.then
   %630 = load i32, ptr %offset_adjust245, align 4
   store i64 %end, ptr %lastMatchOffset.i4367, align 8
   %conv.i4468 = sext i32 %630 to i64
-  %add.i4469 = add i64 %conv.i4468, %end
+  %add.i4469 = add i64 %end, %conv.i4468
   %631 = load ptr, ptr %userCallback.i.i12534, align 8
   %632 = load ptr, ptr %core_info.i1341, align 8
   %call.i4472 = tail call i32 %631(i32 noundef %629, i64 noundef 0, i64 noundef %add.i4469, i32 noundef 0, ptr noundef %632) #10
@@ -26355,12 +26355,12 @@ do.end284:                                        ; preds = %for.cond
   %idx.ext.i.i1068 = zext i32 %656 to i64
   %add.ptr.i.i1069 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i.i1068
   %conv.i1070 = zext i32 %657 to i64
-  %cmp.i1071 = icmp ugt i64 %conv.i1070, %end
+  %cmp.i1071 = icmp ult i64 %end, %conv.i1070
   br i1 %cmp.i1071, label %do.end290, label %if.end.i1072
 
 if.end.i1072:                                     ; preds = %do.end284
   %658 = load i64, ptr %buf_offset.i1177, align 8
-  %cmp6.i1074 = icmp ult i64 %658, %end
+  %cmp6.i1074 = icmp ugt i64 %end, %658
   br i1 %cmp6.i1074, label %if.then8.i1124, label %if.end32.i1075
 
 if.then8.i1124:                                   ; preds = %if.end.i1072
@@ -26507,12 +26507,12 @@ do.end298:                                        ; preds = %for.cond
   %idx.ext.i.i = zext i32 %676 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i.i
   %conv.i1019 = zext i32 %677 to i64
-  %cmp.i1020 = icmp ugt i64 %conv.i1019, %end
+  %cmp.i1020 = icmp ult i64 %end, %conv.i1019
   br i1 %cmp.i1020, label %do.end307, label %if.end.i1021
 
 if.end.i1021:                                     ; preds = %do.end298
   %678 = load i64, ptr %buf_offset.i1177, align 8
-  %cmp6.i1023 = icmp ult i64 %678, %end
+  %cmp6.i1023 = icmp ugt i64 %end, %678
   br i1 %cmp6.i1023, label %if.then8.i, label %if.end32.i
 
 if.then8.i:                                       ; preds = %if.end.i1021
@@ -26703,12 +26703,12 @@ do.end315:                                        ; preds = %for.cond
   %idx.ext.i.i1243 = zext i32 %700 to i64
   %add.ptr.i.i1244 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i.i1243
   %conv.i1245 = zext i32 %701 to i64
-  %cmp.i1246 = icmp ugt i64 %conv.i1245, %end
+  %cmp.i1246 = icmp ult i64 %end, %conv.i1245
   br i1 %cmp.i1246, label %do.end324, label %if.end.i1247
 
 if.end.i1247:                                     ; preds = %do.end315
   %702 = load i64, ptr %buf_offset.i1177, align 8
-  %cmp6.i1249 = icmp ult i64 %702, %end
+  %cmp6.i1249 = icmp ugt i64 %end, %702
   br i1 %cmp6.i1249, label %if.then8.i1290, label %if.end32.i1250
 
 if.then8.i1290:                                   ; preds = %if.end.i1247
@@ -26855,12 +26855,12 @@ do.end332:                                        ; preds = %for.cond
   %idx.ext.i.i1172 = zext i32 %720 to i64
   %add.ptr.i.i1173 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i.i1172
   %conv.i1174 = zext i32 %721 to i64
-  %cmp.i1175 = icmp ugt i64 %conv.i1174, %end
+  %cmp.i1175 = icmp ult i64 %end, %conv.i1174
   br i1 %cmp.i1175, label %do.end341, label %if.end.i1176
 
 if.end.i1176:                                     ; preds = %do.end332
   %722 = load i64, ptr %buf_offset.i1177, align 8
-  %cmp6.i1178 = icmp ult i64 %722, %end
+  %cmp6.i1178 = icmp ugt i64 %end, %722
   br i1 %cmp6.i1178, label %if.then8.i1196, label %if.end32.i1179
 
 if.then8.i1196:                                   ; preds = %if.end.i1176
@@ -27171,7 +27171,7 @@ setLogicalVal.exit:                               ; preds = %if.end.i6197, %whil
   %offset_adjust380 = getelementptr inbounds i8, ptr %pc.0, i64 8
   %769 = load i32, ptr %offset_adjust380, align 4
   %conv381 = sext i32 %769 to i64
-  %add382 = add i64 %conv381, %end
+  %add382 = add i64 %end, %conv381
   store i64 %add382, ptr %lastCombMatchOffset.i13484671, align 8
   %add.ptr383 = getelementptr inbounds i8, ptr %pc.0, i64 16
   br label %for.cond.backedge
@@ -27273,7 +27273,7 @@ mmbit_set_i.exit4675:                             ; preds = %if.end.i6286, %whil
 
 do.end394:                                        ; preds = %for.cond
   %788 = load i64, ptr %lastCombMatchOffset.i13484671, align 8
-  %cmp396 = icmp ult i64 %788, %end
+  %cmp396 = icmp ugt i64 %end, %788
   br i1 %cmp396, label %if.then398, label %if.end404
 
 if.then398:                                       ; preds = %do.end394
@@ -31074,13 +31074,13 @@ for.body.i1478:                                   ; preds = %if.end425, %for.inc
   %add.ptr2.i = getelementptr inbounds %struct.CombInfo, ptr %add.ptr.i1481, i64 %indvars.iv6173
   %min_offset.i1482 = getelementptr inbounds i8, ptr %add.ptr2.i, i64 16
   %1430 = load i64, ptr %min_offset.i1482, align 8
-  %cmp5.i1513 = icmp ugt i64 %1430, %end
+  %cmp5.i1513 = icmp ult i64 %end, %1430
   br i1 %cmp5.i1513, label %for.inc.i1494, label %if.end.i1484
 
 if.end.i1484:                                     ; preds = %for.body.i1478
   %max_offset.i1485 = getelementptr inbounds i8, ptr %add.ptr2.i, i64 24
   %1431 = load i64, ptr %max_offset.i1485, align 8
-  %cmp9.i = icmp ult i64 %1431, %end
+  %cmp9.i = icmp ugt i64 %end, %1431
   br i1 %cmp9.i, label %for.inc.i1494, label %if.end13.i1487
 
 if.end13.i1487:                                   ; preds = %if.end.i1484
@@ -32561,7 +32561,7 @@ if.end:                                           ; preds = %entry
 
 if.end8:                                          ; preds = %if.end
   %sub9 = add nsw i64 %sub, -256
-  %cond = tail call i64 @llvm.smax.i64(i64 %sub9, i64 %begin_loc)
+  %cond = tail call i64 @llvm.smax.i64(i64 %begin_loc, i64 %sub9)
   %2 = load i8, ptr %add.ptr, align 16
   %tobool15.not = icmp eq i8 %2, 0
   br i1 %tobool15.not, label %if.then16, label %if.else

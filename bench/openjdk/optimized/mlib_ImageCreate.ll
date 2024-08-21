@@ -101,7 +101,7 @@ define hidden noundef ptr @mlib_ImageSet(ptr noundef writeonly %0, i32 noundef %
   %55 = or disjoint i32 %51, %46
   %56 = or disjoint i32 %55, %49
   %57 = or disjoint i32 %56, %54
-  %.not80 = icmp eq i32 %.072, %5
+  %.not80 = icmp eq i32 %5, %.072
   br i1 %.not80, label %58, label %62
 
 58:                                               ; preds = %44
@@ -363,9 +363,9 @@ define hidden ptr @mlib_ImageCreateSubimage(ptr noundef readonly %0, i32 noundef
 21:                                               ; preds = %9
   %22 = add nsw i32 %4, %2
   %23 = icmp sgt i32 %22, 0
-  %.not = icmp sgt i32 %14, %1
+  %.not = icmp slt i32 %1, %14
   %or.cond90 = select i1 %23, i1 %.not, i1 false
-  %.not89 = icmp sgt i32 %16, %2
+  %.not89 = icmp slt i32 %2, %16
   %or.cond91 = select i1 %or.cond90, i1 %.not89, i1 false
   br i1 %or.cond91, label %24, label %j2d_mlib_ImageCreateStruct.exit.thread
 

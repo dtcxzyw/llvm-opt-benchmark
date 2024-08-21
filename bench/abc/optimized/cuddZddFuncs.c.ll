@@ -37,17 +37,17 @@ define ptr @cuddZddProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 tailrecurse:                                      ; preds = %21, %3
   %.tr260 = phi ptr [ %1, %3 ], [ %.tr261, %21 ]
   %.tr261 = phi ptr [ %2, %3 ], [ %.tr260, %21 ]
-  %15 = icmp eq ptr %13, %.tr260
-  %16 = icmp eq ptr %13, %.tr261
+  %15 = icmp eq ptr %.tr260, %13
+  %16 = icmp eq ptr %.tr261, %13
   %or.cond = or i1 %15, %16
   br i1 %or.cond, label %.loopexit, label %17
 
 17:                                               ; preds = %tailrecurse
-  %18 = icmp eq ptr %11, %.tr260
+  %18 = icmp eq ptr %.tr260, %11
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp eq ptr %11, %.tr261
+  %20 = icmp eq ptr %.tr261, %11
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %19
@@ -352,17 +352,17 @@ define ptr @cuddZddUnateProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 tailrecurse:                                      ; preds = %17, %3
   %.tr170 = phi ptr [ %1, %3 ], [ %.tr171, %17 ]
   %.tr171 = phi ptr [ %2, %3 ], [ %.tr170, %17 ]
-  %11 = icmp eq ptr %9, %.tr170
-  %12 = icmp eq ptr %9, %.tr171
+  %11 = icmp eq ptr %.tr170, %9
+  %12 = icmp eq ptr %.tr171, %9
   %or.cond = or i1 %11, %12
   br i1 %or.cond, label %cuddZddGetCofactors2.exit.thread, label %13
 
 13:                                               ; preds = %tailrecurse
-  %14 = icmp eq ptr %7, %.tr170
+  %14 = icmp eq ptr %.tr170, %7
   br i1 %14, label %cuddZddGetCofactors2.exit.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = icmp eq ptr %7, %.tr171
+  %16 = icmp eq ptr %.tr171, %7
   br i1 %16, label %cuddZddGetCofactors2.exit.thread, label %17
 
 17:                                               ; preds = %15
@@ -556,12 +556,12 @@ define ptr @cuddZddWeakDiv(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %11, %2
+  %14 = icmp eq ptr %2, %11
   br i1 %14, label %72, label %15
 
 15:                                               ; preds = %3
-  %16 = icmp eq ptr %13, %1
-  %17 = icmp eq ptr %11, %1
+  %16 = icmp eq ptr %1, %13
+  %17 = icmp eq ptr %1, %11
   %or.cond = or i1 %17, %16
   br i1 %or.cond, label %72, label %18
 
@@ -768,12 +768,12 @@ define ptr @cuddZddDivide(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %5, %2
+  %8 = icmp eq ptr %2, %5
   br i1 %8, label %cuddZddGetCofactors2.exit.thread, label %9
 
 9:                                                ; preds = %3
-  %10 = icmp eq ptr %7, %1
-  %11 = icmp eq ptr %5, %1
+  %10 = icmp eq ptr %1, %7
+  %11 = icmp eq ptr %1, %5
   %or.cond = or i1 %11, %10
   br i1 %or.cond, label %cuddZddGetCofactors2.exit.thread, label %12
 
@@ -918,12 +918,12 @@ define ptr @cuddZddWeakDivF(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %11, %2
+  %14 = icmp eq ptr %2, %11
   br i1 %14, label %113, label %15
 
 15:                                               ; preds = %3
-  %16 = icmp eq ptr %13, %1
-  %17 = icmp eq ptr %11, %1
+  %16 = icmp eq ptr %1, %13
+  %17 = icmp eq ptr %1, %11
   %or.cond = or i1 %17, %16
   br i1 %or.cond, label %113, label %18
 
@@ -1234,12 +1234,12 @@ define ptr @cuddZddDivideF(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %5, %2
+  %8 = icmp eq ptr %2, %5
   br i1 %8, label %cuddZddGetCofactors2.exit.thread, label %9
 
 9:                                                ; preds = %3
-  %10 = icmp eq ptr %7, %1
-  %11 = icmp eq ptr %5, %1
+  %10 = icmp eq ptr %1, %7
+  %11 = icmp eq ptr %1, %5
   %or.cond = or i1 %11, %10
   br i1 %or.cond, label %cuddZddGetCofactors2.exit.thread, label %12
 

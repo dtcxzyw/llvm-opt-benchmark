@@ -3035,7 +3035,7 @@ rb_num2long_inline.exit:                          ; preds = %5, %7
   %20 = and i64 %19, 1
   %.not.i17 = icmp eq i64 %20, 0
   %21 = ashr i64 %19, 1
-  %22 = tail call i64 @llvm.umin.i64(i64 %21, i64 %.0.i)
+  %22 = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %21)
   %.0.i18 = select i1 %.not.i17, i64 %.0.i, i64 %22
   %23 = tail call i64 @rb_ary_new_capa(i64 noundef %.0.i18) #13
   %24 = tail call i32 @rb_block_arity() #13
@@ -3126,7 +3126,7 @@ rb_num2long_inline.exit:                          ; preds = %5, %7
   %21 = and i64 %20, 1
   %.not.i15 = icmp eq i64 %21, 0
   %22 = ashr i64 %20, 1
-  %23 = icmp uge i64 %22, %.0.i
+  %23 = icmp ule i64 %.0.i, %22
   %narrow.i.not = or i1 %.not.i15, %23
   br i1 %narrow.i.not, label %24, label %36
 
@@ -4601,14 +4601,14 @@ rb_uniform_is_less.exit.i:                        ; preds = %.lr.ph43.i
   br i1 %35, label %.preheader.i, label %.preheader30.split.us.i
 
 .preheader.i:                                     ; preds = %rb_uniform_is_less.exit.i, %22, %20
-  %36 = icmp ugt ptr %.040.i, %0
+  %36 = icmp ult ptr %0, %.040.i
   br i1 %36, label %.lr.ph36.i, label %.loopexit.i
 
 .lr.ph36.i:                                       ; preds = %.preheader.i, %.lr.ph36.i
   %.02235.i = phi ptr [ %37, %.lr.ph36.i ], [ %.040.i, %.preheader.i ]
   %37 = getelementptr i8, ptr %.02235.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.02235.i, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
-  %38 = icmp ugt ptr %37, %0
+  %38 = icmp ult ptr %0, %37
   br i1 %38, label %.lr.ph36.i, label %.loopexit.i, !llvm.loop !23
 
 .preheader30.split.i:                             ; preds = %.preheader30.split.i.preheader, %47
@@ -7229,11 +7229,11 @@ define internal fastcc void @minmax_i_update(i64 noundef %0, i64 noundef %1, ptr
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %10
-  %15 = icmp slt i64 %4, %0
+  %15 = icmp sgt i64 %0, %4
   br i1 %15, label %.thread157, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp sgt i64 %4, %0
+  %17 = icmp slt i64 %0, %4
   %18 = sext i1 %17 to i32
   br label %71
 
@@ -7357,7 +7357,7 @@ RB_FLOAT_TYPE_P.exit.thread152:                   ; preds = %24, %rb_class_of.ex
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %80
-  %85 = icmp slt i64 %78, %1
+  %85 = icmp sgt i64 %1, %78
   br i1 %85, label %.thread167.sink.split, label %.thread167
 
 86:                                               ; preds = %80, %76, %.thread157
@@ -8107,11 +8107,11 @@ define internal fastcc void @minmax_by_i_update(i64 noundef %0, i64 noundef %1, 
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
-  %18 = icmp slt i64 %6, %0
+  %18 = icmp sgt i64 %0, %6
   br i1 %18, label %.thread163, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp sgt i64 %6, %0
+  %20 = icmp slt i64 %0, %6
   %21 = sext i1 %20 to i32
   br label %74
 
@@ -8237,7 +8237,7 @@ RB_FLOAT_TYPE_P.exit.thread158:                   ; preds = %27, %rb_class_of.ex
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %84
-  %89 = icmp slt i64 %82, %1
+  %89 = icmp sgt i64 %1, %82
   br i1 %89, label %.thread173.sink.split, label %.thread173
 
 90:                                               ; preds = %84, %80, %.thread163

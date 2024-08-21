@@ -4108,7 +4108,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.15947
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -6753,7 +6753,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3nth17hc6a6f5cfd639c67
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hf776b9800966f4dfE.llvm.15947207822535676624.exit: ; preds = %9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1416
-  %20 = icmp eq i64 %.sroa.01.012.i, %2
+  %20 = icmp eq i64 %2, %.sroa.01.012.i
   br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf776b9800966f4dfE.llvm.15947207822535676624.exit.thread, label %21
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hf776b9800966f4dfE.llvm.15947207822535676624.exit.thread: ; preds = %"_ZN4core3ptr267drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$$GT$17hf368fc9d70097a17E.exit.i", %3, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf776b9800966f4dfE.llvm.15947207822535676624.exit
@@ -16732,21 +16732,21 @@ define hidden void @"_ZN89_$LT$io_lifetimes..views..FilelikeView$LT$Target$GT$$u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN8bitflags6traits5Flags10difference17ha7462d2ba1794659E.llvm.15947207822535676624(i64 noundef %0, i64 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = xor i64 %1, -1
-  %4 = and i64 %3, %0
+  %4 = and i64 %0, %3
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN8bitflags6traits5Flags10difference17hc680843f8ee66565E.llvm.15947207822535676624(i64 noundef %0, i64 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = xor i64 %1, -1
-  %4 = and i64 %3, %0
+  %4 = and i64 %0, %3
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN8bitflags6traits5Flags10difference17hdee40b8e437c7ee3E.llvm.15947207822535676624(i64 noundef %0, i64 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = xor i64 %1, -1
-  %4 = and i64 %3, %0
+  %4 = and i64 %0, %3
   ret i64 %4
 }
 
@@ -20878,7 +20878,7 @@ common.resume:                                    ; preds = %.body, %27
   store i64 %50, ptr %6, align 8, !noalias !3257
   %62 = getelementptr inbounds i8, ptr %7, i64 16
   %63 = load i64, ptr %62, align 8, !noalias !3253, !noundef !9
-  %.not.i.i = icmp ult i64 %63, %50
+  %.not.i.i = icmp ugt i64 %50, %63
   br i1 %.not.i.i, label %64, label %80
 
 64:                                               ; preds = %.noexc
@@ -21170,7 +21170,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1594
   %55 = getelementptr inbounds i8, ptr %9, i64 40
   %56 = load i64, ptr %55, align 8, !alias.scope !3302, !noalias !3305, !noundef !9
   %57 = sub i64 %56, %48
-  %.not.i = icmp ult i64 %57, %44
+  %.not.i = icmp ugt i64 %44, %57
   br i1 %.not.i, label %58, label %59
 
 58:                                               ; preds = %51
@@ -25293,7 +25293,7 @@ define hidden void @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wa
   %23 = load i64, ptr %18, align 8, !alias.scope !4229, !noalias !4232, !noundef !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %24 = load i64, ptr %9, align 8, !alias.scope !4234, !noundef !9
-  %25 = icmp ult i64 %24, %23
+  %25 = icmp ugt i64 %23, %24
   br i1 %25, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7f3097c324db8e87E.exit", label %26
 
 26:                                               ; preds = %22

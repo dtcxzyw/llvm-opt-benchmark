@@ -150,12 +150,12 @@ if.then:                                          ; preds = %previousinstruction
   %add5 = add nuw nsw i32 %and2, %and4
   %cmp6.not = icmp sgt i32 %and2, %from
   %add7 = add nuw nsw i32 %add5, 1
-  %cmp8.not = icmp slt i32 %add7, %from
+  %cmp8.not = icmp sgt i32 %from, %add7
   %or.cond = select i1 %cmp6.not, i1 true, i1 %cmp8.not
   br i1 %or.cond, label %lor.lhs.false, label %if.then13
 
 lor.lhs.false:                                    ; preds = %if.then
-  %cmp9.not = icmp slt i32 %and2, %from
+  %cmp9.not = icmp sgt i32 %from, %and2
   %cmp12.not = icmp sgt i32 %and2, %add
   %or.cond25 = select i1 %cmp9.not, i1 true, i1 %cmp12.not
   br i1 %or.cond25, label %if.end27, label %if.then13
@@ -240,7 +240,7 @@ while.cond:                                       ; preds = %while.cond.preheade
 
 while.end:                                        ; preds = %while.cond
   %add.neg.i = xor i32 %list.0, -1
-  %sub.i7 = add i32 %add.neg.i, %l2
+  %sub.i7 = add i32 %l2, %add.neg.i
   %3 = add i32 %sub.i7, 16777215
   %or.cond.i = icmp ult i32 %3, 33554432
   br i1 %or.cond.i, label %fixjump.exit, label %if.then.i
@@ -361,7 +361,7 @@ if.end.i:                                         ; preds = %getjumpcontrol.exit
 land.lhs.true.i:                                  ; preds = %if.end.i
   %shr2.i = lshr i32 %5, 16
   %and3.i = and i32 %shr2.i, 255
-  %cmp4.not.i = icmp eq i32 %and3.i, %reg
+  %cmp4.not.i = icmp eq i32 %reg, %and3.i
   br i1 %cmp4.not.i, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
@@ -391,7 +391,7 @@ if.then.i:                                        ; preds = %if.then
 
 fixjump.exit:                                     ; preds = %if.then
   %add.neg.i = xor i32 %list.addr.036, -1
-  %sub.i10 = add i32 %add.neg.i, %vtarget
+  %sub.i10 = add i32 %vtarget, %add.neg.i
   %9 = load ptr, ptr %fs, align 8
   %code.i = getelementptr inbounds i8, ptr %9, i64 64
   %10 = load ptr, ptr %code.i, align 8
@@ -412,7 +412,7 @@ if.then.i20:                                      ; preds = %if.else
 
 fixjump.exit30:                                   ; preds = %if.else
   %add.neg.i17 = xor i32 %list.addr.036, -1
-  %sub.i18 = add i32 %add.neg.i17, %dtarget
+  %sub.i18 = add i32 %dtarget, %add.neg.i17
   br label %if.end
 
 if.end:                                           ; preds = %fixjump.exit30, %fixjump.exit
@@ -549,7 +549,7 @@ entry:
   %freereg = getelementptr inbounds i8, ptr %fs, i64 68
   %0 = load i8, ptr %freereg, align 4
   %conv = zext i8 %0 to i32
-  %add = add nsw i32 %conv, %n
+  %add = add nsw i32 %n, %conv
   %1 = load ptr, ptr %fs, align 8
   %maxstacksize = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i8, ptr %maxstacksize, align 4
@@ -582,7 +582,7 @@ entry:
   %freereg.i = getelementptr inbounds i8, ptr %fs, i64 68
   %0 = load i8, ptr %freereg.i, align 4
   %conv.i = zext i8 %0 to i32
-  %add.i = add nsw i32 %conv.i, %n
+  %add.i = add nsw i32 %n, %conv.i
   %1 = load ptr, ptr %fs, align 8
   %maxstacksize.i = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i8, ptr %maxstacksize.i, align 4
@@ -1039,7 +1039,7 @@ if.then.i:                                        ; preds = %entry
   %u.i = getelementptr inbounds i8, ptr %e, i64 8
   %1 = load i32, ptr %u.i, align 8
   %call.i.i = tail call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i.i = icmp sgt i32 %call.i.i, %1
+  %cmp.not.i.i = icmp slt i32 %1, %call.i.i
   br i1 %cmp.not.i.i, label %freeexp.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -1343,7 +1343,7 @@ if.then.i.i:                                      ; preds = %if.end9
   %u.i.i = getelementptr inbounds i8, ptr %e, i64 8
   %6 = load i32, ptr %u.i.i, align 8
   %call.i.i.i = tail call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i.i.i = icmp sgt i32 %call.i.i.i, %6
+  %cmp.not.i.i.i = icmp slt i32 %6, %call.i.i.i
   br i1 %cmp.not.i.i.i, label %freeexp.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -1463,7 +1463,7 @@ if.then.i:                                        ; preds = %sw.bb
   %u.i = getelementptr inbounds i8, ptr %ex, i64 8
   %2 = load i32, ptr %u.i, align 8
   %call.i.i = tail call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i.i = icmp sgt i32 %call.i.i, %2
+  %cmp.not.i.i = icmp slt i32 %2, %call.i.i
   br i1 %cmp.not.i.i, label %freeexp.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -1616,7 +1616,7 @@ if.then.i74:                                      ; preds = %sw.epilog
   %u.i75 = getelementptr inbounds i8, ptr %ex, i64 8
   %19 = load i32, ptr %u.i75, align 8
   %call.i.i76 = tail call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i.i77 = icmp sgt i32 %call.i.i76, %19
+  %cmp.not.i.i77 = icmp slt i32 %19, %call.i.i76
   br i1 %cmp.not.i.i77, label %return, label %if.then.i.i78
 
 if.then.i.i78:                                    ; preds = %if.then.i74
@@ -1642,7 +1642,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i.i = tail call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i.i = icmp sgt i32 %call.i.i, %0
+  %cmp.not.i.i = icmp slt i32 %0, %call.i.i
   br i1 %cmp.not.i.i, label %freeexp.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -1716,7 +1716,7 @@ codeABRK.exit:                                    ; preds = %luaK_reserveregs.ex
 if.then.i17:                                      ; preds = %codeABRK.exit
   %12 = load i32, ptr %u.i15, align 8
   %call.i.i19 = tail call i32 @luaY_nvarstack(ptr noundef nonnull %fs) #13
-  %cmp.not.i.i20 = icmp sgt i32 %call.i.i19, %12
+  %cmp.not.i.i20 = icmp slt i32 %12, %call.i.i19
   br i1 %cmp.not.i.i20, label %freeexp.exit24, label %if.then.i.i21
 
 if.then.i.i21:                                    ; preds = %if.then.i17
@@ -1961,7 +1961,7 @@ if.then.i12:                                      ; preds = %entry, %discharge2a
   %u.i = getelementptr inbounds i8, ptr %e, i64 8
   %18 = load i32, ptr %u.i, align 8
   %call.i.i13 = tail call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i.i14 = icmp sgt i32 %call.i.i13, %18
+  %cmp.not.i.i14 = icmp slt i32 %18, %call.i.i13
   br i1 %cmp.not.i.i14, label %freeexp.exit, label %if.then.i.i15
 
 if.then.i.i15:                                    ; preds = %if.then.i12
@@ -2269,7 +2269,7 @@ if.then.i.i:                                      ; preds = %sw.bb1
   %u.i.i = getelementptr inbounds i8, ptr %e, i64 8
   %1 = load i32, ptr %u.i.i, align 8
   %call.i.i.i = tail call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i.i.i = icmp sgt i32 %call.i.i.i, %1
+  %cmp.not.i.i.i = icmp slt i32 %1, %call.i.i.i
   br i1 %cmp.not.i.i.i, label %codeunexpval.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -2385,7 +2385,7 @@ if.then.i21.i:                                    ; preds = %discharge2anyreg.ex
   %u.i.i14 = getelementptr inbounds i8, ptr %e, i64 8
   %15 = load i32, ptr %u.i.i14, align 8
   %call.i.i.i15 = tail call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i.i.i16 = icmp sgt i32 %call.i.i.i15, %15
+  %cmp.not.i.i.i16 = icmp slt i32 %15, %call.i.i.i15
   br i1 %cmp.not.i.i.i16, label %freeexp.exit.i, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %if.then.i21.i
@@ -2723,7 +2723,7 @@ if.then.i.i:                                      ; preds = %sw.bb2
   %u.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %1 = load i32, ptr %u.i.i, align 8
   %call.i.i.i = tail call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i.i.i = icmp sgt i32 %call.i.i.i, %1
+  %cmp.not.i.i.i = icmp slt i32 %1, %call.i.i.i
   br i1 %cmp.not.i.i.i, label %freeexp.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -3036,7 +3036,7 @@ if.then.i.i108:                                   ; preds = %sw.bb4
   %u.i.i = getelementptr inbounds i8, ptr %e2, i64 8
   %13 = load i32, ptr %u.i.i, align 8
   %call.i.i.i = tail call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i.i.i = icmp sgt i32 %call.i.i.i, %13
+  %cmp.not.i.i.i = icmp slt i32 %13, %call.i.i.i
   br i1 %cmp.not.i.i.i, label %freeexp.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i108
@@ -3110,7 +3110,7 @@ if.then.i13.i:                                    ; preds = %if.then.i
   %u.i.i113 = getelementptr inbounds i8, ptr %e2, i64 8
   %27 = load i32, ptr %u.i.i113, align 8
   %call.i.i.i114 = tail call i32 @luaY_nvarstack(ptr noundef nonnull %fs) #13
-  %cmp.not.i.i.i115 = icmp sgt i32 %call.i.i.i114, %27
+  %cmp.not.i.i.i115 = icmp slt i32 %27, %call.i.i.i114
   br i1 %cmp.not.i.i.i115, label %freeexp.exit.i112, label %if.then.i.i.i116
 
 if.then.i.i.i116:                                 ; preds = %if.then.i13.i
@@ -3147,7 +3147,7 @@ if.then.i15.i:                                    ; preds = %if.else.i111
   %u.i16.i = getelementptr inbounds i8, ptr %e2, i64 8
   %33 = load i32, ptr %u.i16.i, align 8
   %call.i.i17.i = tail call i32 @luaY_nvarstack(ptr noundef nonnull %fs) #13
-  %cmp.not.i.i18.i = icmp sgt i32 %call.i.i17.i, %33
+  %cmp.not.i.i18.i = icmp slt i32 %33, %call.i.i17.i
   br i1 %cmp.not.i.i18.i, label %freeexp.exit22.i, label %if.then.i.i19.i
 
 if.then.i.i19.i:                                  ; preds = %if.then.i15.i
@@ -3492,7 +3492,7 @@ cond.end6.i.i:                                    ; preds = %cond.true3.i.i, %co
   br i1 %cmp.i.i18.i, label %if.then.i.i.i182, label %if.else.i.i.i
 
 if.then.i.i.i182:                                 ; preds = %cond.end6.i.i
-  %cmp.not.i.i.i.i = icmp sgt i32 %call.i.i.i.i, %cond.i.i
+  %cmp.not.i.i.i.i = icmp slt i32 %cond.i.i, %call.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %freereg.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i182
@@ -3504,11 +3504,11 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i182
 
 freereg.exit.i.i.i:                               ; preds = %if.then.i.i.i.i, %if.then.i.i.i182
   %call.i8.i.i.i = call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i9.i.i.i = icmp sgt i32 %call.i8.i.i.i, %cond7.i.i
+  %cmp.not.i9.i.i.i = icmp slt i32 %cond7.i.i, %call.i8.i.i.i
   br i1 %cmp.not.i9.i.i.i, label %codeeq.exit, label %if.end.sink.split.i.i.i
 
 if.else.i.i.i:                                    ; preds = %cond.end6.i.i
-  %cmp.not.i15.i.i.i = icmp sgt i32 %call.i.i.i.i, %cond7.i.i
+  %cmp.not.i15.i.i.i = icmp slt i32 %cond7.i.i, %call.i.i.i.i
   br i1 %cmp.not.i15.i.i.i, label %freereg.exit19.i.i.i, label %if.then.i16.i.i.i
 
 if.then.i16.i.i.i:                                ; preds = %if.else.i.i.i
@@ -3520,7 +3520,7 @@ if.then.i16.i.i.i:                                ; preds = %if.else.i.i.i
 
 freereg.exit19.i.i.i:                             ; preds = %if.then.i16.i.i.i, %if.else.i.i.i
   %call.i20.i.i.i = call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i21.i.i.i = icmp sgt i32 %call.i20.i.i.i, %cond.i.i
+  %cmp.not.i21.i.i.i = icmp slt i32 %cond.i.i, %call.i20.i.i.i
   br i1 %cmp.not.i21.i.i.i, label %codeeq.exit, label %if.end.sink.split.i.i.i
 
 if.end.sink.split.i.i.i:                          ; preds = %freereg.exit19.i.i.i, %freereg.exit.i.i.i
@@ -3684,7 +3684,7 @@ cond.end6.i.i207:                                 ; preds = %cond.true3.i.i238, 
   br i1 %cmp.i.i40.i, label %if.then.i.i.i230, label %if.else.i.i.i210
 
 if.then.i.i.i230:                                 ; preds = %cond.end6.i.i207
-  %cmp.not.i.i.i.i231 = icmp sgt i32 %call.i.i.i.i209, %cond.i.i205
+  %cmp.not.i.i.i.i231 = icmp slt i32 %cond.i.i205, %call.i.i.i.i209
   br i1 %cmp.not.i.i.i.i231, label %freereg.exit.i.i.i235, label %if.then.i.i.i.i232
 
 if.then.i.i.i.i232:                               ; preds = %if.then.i.i.i230
@@ -3696,11 +3696,11 @@ if.then.i.i.i.i232:                               ; preds = %if.then.i.i.i230
 
 freereg.exit.i.i.i235:                            ; preds = %if.then.i.i.i.i232, %if.then.i.i.i230
   %call.i8.i.i.i236 = call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i9.i.i.i237 = icmp sgt i32 %call.i8.i.i.i236, %cond7.i.i208
+  %cmp.not.i9.i.i.i237 = icmp slt i32 %cond7.i.i208, %call.i8.i.i.i236
   br i1 %cmp.not.i9.i.i.i237, label %codeorder.exit, label %if.end.sink.split.i.i.i218
 
 if.else.i.i.i210:                                 ; preds = %cond.end6.i.i207
-  %cmp.not.i15.i.i.i211 = icmp sgt i32 %call.i.i.i.i209, %cond7.i.i208
+  %cmp.not.i15.i.i.i211 = icmp slt i32 %cond7.i.i208, %call.i.i.i.i209
   br i1 %cmp.not.i15.i.i.i211, label %freereg.exit19.i.i.i215, label %if.then.i16.i.i.i212
 
 if.then.i16.i.i.i212:                             ; preds = %if.else.i.i.i210
@@ -3712,7 +3712,7 @@ if.then.i16.i.i.i212:                             ; preds = %if.else.i.i.i210
 
 freereg.exit19.i.i.i215:                          ; preds = %if.then.i16.i.i.i212, %if.else.i.i.i210
   %call.i20.i.i.i216 = call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i21.i.i.i217 = icmp sgt i32 %call.i20.i.i.i216, %cond.i.i205
+  %cmp.not.i21.i.i.i217 = icmp slt i32 %cond.i.i205, %call.i20.i.i.i216
   br i1 %cmp.not.i21.i.i.i217, label %codeorder.exit, label %if.end.sink.split.i.i.i218
 
 if.end.sink.split.i.i.i218:                       ; preds = %freereg.exit19.i.i.i215, %freereg.exit.i.i.i235
@@ -4356,12 +4356,12 @@ if.then.i:                                        ; preds = %previousinstruction
   %add5.i = add nuw nsw i32 %and2.i, %and4.i
   %cmp6.not.i = icmp sgt i32 %and2.i, %reg
   %add7.i = add nuw nsw i32 %add5.i, 1
-  %cmp8.not.i = icmp slt i32 %add7.i, %reg
+  %cmp8.not.i = icmp sgt i32 %reg, %add7.i
   %or.cond.i = select i1 %cmp6.not.i, i1 true, i1 %cmp8.not.i
   br i1 %or.cond.i, label %lor.lhs.false.i, label %if.then13.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %cmp9.not.i = icmp slt i32 %and2.i, %reg
+  %cmp9.not.i = icmp sgt i32 %reg, %and2.i
   %cmp12.not.i = icmp sgt i32 %and2.i, %add.i
   %or.cond25.i = select i1 %cmp9.not.i, i1 true, i1 %cmp12.not.i
   br i1 %or.cond25.i, label %if.end27.i, label %if.then13.i
@@ -4534,7 +4534,7 @@ sw.bb11:                                          ; preds = %entry
 sw.bb14:                                          ; preds = %entry
   %u15 = getelementptr inbounds i8, ptr %e, i64 8
   %23 = load i32, ptr %u15, align 8
-  %cmp.not = icmp eq i32 %23, %reg
+  %cmp.not = icmp eq i32 %reg, %23
   br i1 %cmp.not, label %sw.epilog, label %if.then
 
 if.then:                                          ; preds = %sw.bb14
@@ -4744,7 +4744,7 @@ cond.end6.i:                                      ; preds = %cond.true3.i, %cond
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %cond.end6.i
-  %cmp.not.i.i.i = icmp sgt i32 %call.i.i.i, %cond.i
+  %cmp.not.i.i.i = icmp slt i32 %cond.i, %call.i.i.i
   br i1 %cmp.not.i.i.i, label %freereg.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -4756,11 +4756,11 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 freereg.exit.i.i:                                 ; preds = %if.then.i.i.i, %if.then.i.i
   %call.i8.i.i = tail call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i9.i.i = icmp sgt i32 %call.i8.i.i, %cond7.i
+  %cmp.not.i9.i.i = icmp slt i32 %cond7.i, %call.i8.i.i
   br i1 %cmp.not.i9.i.i, label %freeexps.exit, label %if.end.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %cond.end6.i
-  %cmp.not.i15.i.i = icmp sgt i32 %call.i.i.i, %cond7.i
+  %cmp.not.i15.i.i = icmp slt i32 %cond7.i, %call.i.i.i
   br i1 %cmp.not.i15.i.i, label %freereg.exit19.i.i, label %if.then.i16.i.i
 
 if.then.i16.i.i:                                  ; preds = %if.else.i.i
@@ -4772,7 +4772,7 @@ if.then.i16.i.i:                                  ; preds = %if.else.i.i
 
 freereg.exit19.i.i:                               ; preds = %if.then.i16.i.i, %if.else.i.i
   %call.i20.i.i = tail call i32 @luaY_nvarstack(ptr noundef %fs) #13
-  %cmp.not.i21.i.i = icmp sgt i32 %call.i20.i.i, %cond.i
+  %cmp.not.i21.i.i = icmp slt i32 %cond.i, %call.i20.i.i
   br i1 %cmp.not.i21.i.i, label %freeexps.exit, label %if.end.sink.split.i.i
 
 if.end.sink.split.i.i:                            ; preds = %freereg.exit19.i.i, %freereg.exit.i.i

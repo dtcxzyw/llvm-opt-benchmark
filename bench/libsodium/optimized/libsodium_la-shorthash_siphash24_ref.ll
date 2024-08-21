@@ -20,7 +20,7 @@ entry:
   %xor4 = xor i64 %k.val, 7816392313619706465
   %xor5 = xor i64 %add.ptr.val, 7237128888997146477
   %xor6 = xor i64 %k.val, 8317987319222330741
-  %cmp.not353 = icmp eq ptr %add.ptr3, %in
+  %cmp.not353 = icmp eq ptr %in, %add.ptr3
   br i1 %cmp.not353, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body

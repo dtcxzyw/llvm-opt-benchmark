@@ -1549,7 +1549,7 @@ define dso_local i32 @perform_database_update(ptr noundef %0, i32 noundef %1, pt
   %62 = add i64 %61, -4
   %63 = call noalias ptr @strndup(ptr noundef nonnull %60, i64 noundef %62) #17
   %64 = trunc nuw i64 %indvars.iv149 to i32
-  %65 = add i32 %64, %1
+  %65 = add i32 %1, %64
   %66 = zext i32 %65 to i64
   %67 = getelementptr inbounds ptr, ptr %38, i64 %66
   store ptr %63, ptr %67, align 8

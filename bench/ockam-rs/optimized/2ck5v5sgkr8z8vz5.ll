@@ -7031,7 +7031,7 @@ define hidden void @_ZN11tungstenite8protocol5frame10FrameCodec12buffer_frame17h
   %39 = getelementptr inbounds i8, ptr %1, i64 72
   %40 = load i64, ptr %39, align 8, !alias.scope !899, !noundef !7
   %41 = sub i64 %40, %18
-  %42 = icmp ult i64 %41, %38
+  %42 = icmp ugt i64 %38, %41
   br i1 %42, label %43, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf95c35406030abbdE.exit"
 
 43:                                               ; preds = %37
@@ -7179,7 +7179,7 @@ define hidden void @_ZN11tungstenite8protocol5frame10FrameCodec12buffer_frame17h
   %39 = getelementptr inbounds i8, ptr %1, i64 72
   %40 = load i64, ptr %39, align 8, !alias.scope !911, !noundef !7
   %41 = sub i64 %40, %18
-  %42 = icmp ult i64 %41, %38
+  %42 = icmp ugt i64 %38, %41
   br i1 %42, label %43, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf95c35406030abbdE.exit"
 
 43:                                               ; preds = %37
@@ -7490,7 +7490,7 @@ define hidden void @_ZN11tungstenite8protocol7message17IncompleteMessage6extend1
   %35 = getelementptr inbounds i8, ptr %1, i64 8
   %36 = load i64, ptr %35, align 8, !alias.scope !939, !noundef !7
   %37 = sub i64 %36, %34
-  %38 = icmp ult i64 %37, %13
+  %38 = icmp ugt i64 %13, %37
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %32

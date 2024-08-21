@@ -698,7 +698,7 @@ if.then8.i:                                       ; preds = %if.end.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %if.end.i
   %14 = load i64, ptr %__begin1, align 8
-  %cmp.i.i.i12 = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %14
+  %cmp.i.i.i12 = icmp ugt i64 %14, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i12, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i

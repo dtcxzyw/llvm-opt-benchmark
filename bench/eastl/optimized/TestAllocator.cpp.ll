@@ -526,9 +526,9 @@ while.body.i.i.i:                                 ; preds = %for.end58.i, %_ZN5e
   %p.04.i.i.i = phi ptr [ %54, %_ZN5eastl29fixed_allocator_with_overflow10deallocateEPvm.exit.i.i.i ], [ %53, %for.end58.i ]
   %54 = load ptr, ptr %p.04.i.i.i, align 8
   %55 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i51.i = icmp ule ptr %55, %p.04.i.i.i
+  %cmp.not.i.i.i51.i = icmp uge ptr %p.04.i.i.i, %55
   %56 = load ptr, ptr %mpPoolEnd.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %56, %p.04.i.i.i
+  %cmp2.i.i.i.i = icmp ult ptr %p.04.i.i.i, %56
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i51.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -673,9 +673,9 @@ while.body.i.i.i97.i:                             ; preds = %invoke.cont92.i, %_
   %p.04.i.i.i98.i = phi ptr [ %74, %_ZN5eastl29fixed_allocator_with_overflow10deallocateEPvm.exit.i.i.i103.i ], [ %73, %invoke.cont92.i ]
   %74 = load ptr, ptr %p.04.i.i.i98.i, align 8
   %75 = load ptr, ptr %mpPoolBegin.i.i.i.i.i83.i, align 8
-  %cmp.not.i.i.i.i99.i = icmp ule ptr %75, %p.04.i.i.i98.i
+  %cmp.not.i.i.i.i99.i = icmp uge ptr %p.04.i.i.i98.i, %75
   %76 = load ptr, ptr %mpPoolEnd.i88.i, align 8
-  %cmp2.i.i.i.i100.i = icmp ugt ptr %76, %p.04.i.i.i98.i
+  %cmp2.i.i.i.i100.i = icmp ult ptr %p.04.i.i.i98.i, %76
   %or.cond.i.i.i.i101.i = select i1 %cmp.not.i.i.i.i99.i, i1 %cmp2.i.i.i.i100.i, i1 false
   br i1 %or.cond.i.i.i.i101.i, label %if.then.i.i.i.i105.i, label %delete.notnull.i.i.i.i.i102.i
 
@@ -702,9 +702,9 @@ while.body.i.i.i112.i:                            ; preds = %_ZN5eastl4listIiNS_
   %p.04.i.i.i113.i = phi ptr [ %79, %_ZN5eastl29fixed_allocator_with_overflow10deallocateEPvm.exit.i.i.i118.i ], [ %78, %_ZN5eastl4listIiNS_29fixed_allocator_with_overflowEED2Ev.exit106.i ]
   %79 = load ptr, ptr %p.04.i.i.i113.i, align 8
   %80 = load ptr, ptr %mpPoolBegin.i.i.i.i.i60.i, align 8
-  %cmp.not.i.i.i.i114.i = icmp ule ptr %80, %p.04.i.i.i113.i
+  %cmp.not.i.i.i.i114.i = icmp uge ptr %p.04.i.i.i113.i, %80
   %81 = load ptr, ptr %mpPoolEnd.i65.i, align 8
-  %cmp2.i.i.i.i115.i = icmp ugt ptr %81, %p.04.i.i.i113.i
+  %cmp2.i.i.i.i115.i = icmp ult ptr %p.04.i.i.i113.i, %81
   %or.cond.i.i.i.i116.i = select i1 %cmp.not.i.i.i.i114.i, i1 %cmp2.i.i.i.i115.i, i1 false
   br i1 %or.cond.i.i.i.i116.i, label %if.then.i.i.i.i120.i, label %delete.notnull.i.i.i.i.i117.i
 
@@ -1399,9 +1399,9 @@ while.body.i.i:                                   ; preds = %_ZN5eastl29fixed_al
   %p.04.i.i = phi ptr [ %0, %while.body.lr.ph.i.i ], [ %1, %_ZN5eastl29fixed_allocator_with_overflow10deallocateEPvm.exit.i.i ]
   %1 = load ptr, ptr %p.04.i.i, align 8
   %2 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %2, %p.04.i.i
+  %cmp.not.i.i.i = icmp uge ptr %p.04.i.i, %2
   %3 = load ptr, ptr %mpPoolEnd.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %3, %p.04.i.i
+  %cmp2.i.i.i = icmp ult ptr %p.04.i.i, %3
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -1474,9 +1474,9 @@ while.body.i:                                     ; preds = %_ZN5eastl4listIiNS_
   %6 = load ptr, ptr %3, align 8, !noalias !86
   store ptr %6, ptr %4, align 8, !noalias !86
   %7 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8, !noalias !86
-  %cmp.not.i.i.i.i.i = icmp ule ptr %7, %3
+  %cmp.not.i.i.i.i.i = icmp uge ptr %3, %7
   %8 = load ptr, ptr %mpPoolEnd.i.i.i.i.i, align 8, !noalias !86
-  %cmp2.i.i.i.i.i = icmp ugt ptr %8, %3
+  %cmp2.i.i.i.i.i = icmp ult ptr %3, %8
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 

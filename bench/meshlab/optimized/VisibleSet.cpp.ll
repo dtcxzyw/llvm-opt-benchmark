@@ -433,7 +433,7 @@ _ZNSt6vectorIP11RasterModelSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
 
 _ZNSt6vectorIP11RasterModelSaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vectorIP11RasterModelSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %138
   %164 = load float, ptr %132, align 8
-  %165 = fcmp olt float %164, %127
+  %165 = fcmp ogt float %127, %164
   br i1 %165, label %166, label %_ZN10VisibleSet11FaceVisInfo3addEfP11RasterModel.exit
 
 166:                                              ; preds = %_ZNSt6vectorIP11RasterModelSaIS1_EE9push_backERKS1_.exit.i

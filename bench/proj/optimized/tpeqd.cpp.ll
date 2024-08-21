@@ -262,7 +262,7 @@ define internal { double, double } @_ZL15tpeqd_s_inverse5PJ_XYP8PJconsts(double 
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 80
   %7 = load double, ptr %6, align 8
-  %8 = fadd double %7, %0
+  %8 = fadd double %0, %7
   %9 = tail call double @hypot(double noundef %1, double noundef %8) #8
   %10 = tail call double @cos(double noundef %9) #8
   %11 = load double, ptr %6, align 8
@@ -307,8 +307,8 @@ define internal { double, double } @_ZL15tpeqd_s_inverse5PJ_XYP8PJconsts(double 
   %49 = load double, ptr %39, align 8
   %50 = fmul double %33, %49
   %51 = load double, ptr %41, align 8
-  %52 = fneg double %51
-  %53 = fmul double %32, %52
+  %52 = fneg double %32
+  %53 = fmul double %51, %52
   %54 = tail call double @llvm.fmuladd.f64(double %50, double %37, double %53)
   %55 = tail call double @atan2(double noundef %48, double noundef %54) #8
   %56 = getelementptr inbounds i8, ptr %5, i64 128
@@ -332,7 +332,7 @@ define internal { double, double } @_ZL15tpeqd_s_forward5PJ_LPP8PJconsts(double 
   %12 = fmul double %7, %11
   %13 = getelementptr inbounds i8, ptr %5, i64 72
   %14 = load double, ptr %13, align 8
-  %15 = fadd double %14, %0
+  %15 = fadd double %0, %14
   %16 = tail call double @cos(double noundef %15) #8
   %17 = fmul double %12, %16
   %18 = tail call double @llvm.fmuladd.f64(double %10, double %6, double %17)
@@ -371,11 +371,11 @@ define internal { double, double } @_ZL15tpeqd_s_forward5PJ_LPP8PJconsts(double 
   %51 = getelementptr inbounds i8, ptr %5, i64 48
   %52 = load double, ptr %51, align 8
   %53 = tail call double @sin(double noundef %27) #8
-  %54 = fneg double %52
-  %55 = fmul double %53, %54
+  %54 = fneg double %53
+  %55 = fmul double %52, %54
   %56 = tail call double @llvm.fmuladd.f64(double %49, double %50, double %55)
-  %57 = fneg double %7
-  %58 = fmul double %56, %57
+  %57 = fneg double %56
+  %58 = fmul double %7, %57
   %59 = tail call double @llvm.fmuladd.f64(double %47, double %6, double %58)
   %60 = fcmp olt double %59, 0.000000e+00
   %61 = fneg double %45

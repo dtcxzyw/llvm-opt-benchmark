@@ -170,7 +170,7 @@ define hidden void @_ZN6LoggerD2Ev(ptr nocapture nonnull readnone align 8 %0) un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK6Logger10isLoggableENS_8LogLevelE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = load i32, ptr %0, align 8
-  %4 = icmp sle i32 %3, %1
+  %4 = icmp sge i32 %1, %3
   ret i1 %4
 }
 
@@ -489,7 +489,7 @@ define hidden void @_ZN6Logger11ScopeTracerC2ERS_NS_8LogLevelEPKciS4_RKNSt7__cxx
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 120
   %22 = load i32, ptr %1, align 8
-  %23 = icmp sle i32 %22, %2
+  %23 = icmp sge i32 %2, %22
   %24 = zext i1 %23 to i8
   store i8 %24, ptr %21, align 8
   br i1 %23, label %25, label %49

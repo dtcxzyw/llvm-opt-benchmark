@@ -372,7 +372,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i: ; preds = %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit473
   %14 = load i64, ptr %9, align 8
-  %cmp16.i = icmp ult i64 %14, %add.i
+  %cmp16.i = icmp ugt i64 %add.i, %14
   br i1 %cmp16.i, label %if.end.i.i164, label %if.end.i
 
 if.end.i.i164:                                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -389,7 +389,7 @@ if.then.i.i13.i:                                  ; preds = %if.end.i.i164
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i164
   %mul.i.i.i = shl nuw i64 %cond.i1719.i, 1
-  %cmp3.i.i11.i = icmp ugt i64 %mul.i.i.i, %add.i
+  %cmp3.i.i11.i = icmp ult i64 %add.i, %mul.i.i.i
   %spec.store.select.i.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i.i, i64 9223372036854775807)
   %__res.addr.0.i.i = select i1 %cmp3.i.i11.i, i64 %spec.store.select.i.i.i, i64 %add.i
   %add.i.i.i = add nuw i64 %__res.addr.0.i.i, 1
@@ -586,7 +586,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i243: ; p
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i209: ; preds = %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJ6personEEENS_21serialize_buffer_sizeEDpRKT0_.exit429
   %33 = load i64, ptr %32, align 8
-  %cmp16.i210 = icmp ult i64 %33, %add.i149
+  %cmp16.i210 = icmp ugt i64 %add.i149, %33
   br i1 %cmp16.i210, label %if.end.i.i217, label %if.end.i211
 
 if.end.i.i217:                                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread.i209, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i243
@@ -603,7 +603,7 @@ if.then.i.i13.i242:                               ; preds = %if.end.i.i217
 
 land.lhs.true.i.i.i220:                           ; preds = %if.end.i.i217
   %mul.i.i.i221 = shl nuw i64 %cond.i1719.i218, 1
-  %cmp3.i.i11.i222 = icmp ugt i64 %mul.i.i.i221, %add.i149
+  %cmp3.i.i11.i222 = icmp ult i64 %add.i149, %mul.i.i.i221
   %spec.store.select.i.i.i223 = call i64 @llvm.umin.i64(i64 %mul.i.i.i221, i64 9223372036854775807)
   %__res.addr.0.i.i224 = select i1 %cmp3.i.i11.i222, i64 %spec.store.select.i.i.i223, i64 %add.i149
   %add.i.i.i225 = add nuw i64 %__res.addr.0.i.i224, 1
@@ -3347,7 +3347,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread: ; preds = %entry
   %3 = load i64, ptr %1, align 8
-  %cmp16 = icmp ult i64 %3, %sz
+  %cmp16 = icmp ugt i64 %sz, %3
   br i1 %cmp16, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread
@@ -3361,7 +3361,7 @@ if.then.i.i13:                                    ; preds = %if.end.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
   %mul.i.i = shl nuw i64 %cond.i1719, 1
-  %cmp3.i.i11 = icmp ugt i64 %mul.i.i, %sz
+  %cmp3.i.i11 = icmp ult i64 %sz, %mul.i.i
   %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %mul.i.i, i64 9223372036854775807)
   %__res.addr.0.i = select i1 %cmp3.i.i11, i64 %spec.store.select.i.i, i64 %sz
   %add.i.i = add nuw i64 %__res.addr.0.i, 1
@@ -3964,7 +3964,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
   %9 = load i64, ptr %8, align 8
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 15, i64 %9
-  %cmp.not.i.i.i.i = icmp ult i64 %cond.i.i.i.i.i, %i.0
+  %cmp.not.i.i.i.i = icmp ugt i64 %i.0, %cond.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then12.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
@@ -3987,7 +3987,7 @@ if.end.i.i22.i.i.i.i:                             ; preds = %if.then12.i.i.i.i
   br label %if.end5.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.then13
-  %cmp3.i.i = icmp ugt i64 %6, %i.0
+  %cmp3.i.i = icmp ult i64 %i.0, %6
   br i1 %cmp3.i.i, label %if.end5.sink.split.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 if.end5.sink.split.i.i:                           ; preds = %if.else.i.i, %if.end.i.i22.i.i.i.i, %if.then.i21.i.i.i.i
@@ -4343,7 +4343,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
   %10 = load i64, ptr %9, align 8
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 15, i64 %10
-  %cmp.not.i.i.i.i = icmp ult i64 %cond.i.i.i.i.i, %i.0
+  %cmp.not.i.i.i.i = icmp ugt i64 %i.0, %cond.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then12.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
@@ -4366,7 +4366,7 @@ if.end.i.i22.i.i.i.i:                             ; preds = %if.then12.i.i.i.i
   br label %if.end5.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.then23
-  %cmp3.i.i = icmp ugt i64 %7, %i.0
+  %cmp3.i.i = icmp ult i64 %i.0, %7
   br i1 %cmp3.i.i, label %if.end5.sink.split.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 if.end5.sink.split.i.i:                           ; preds = %if.else.i.i, %if.end.i.i22.i.i.i.i, %if.then.i21.i.i.i.i

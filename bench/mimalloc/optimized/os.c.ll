@@ -119,7 +119,7 @@ if.else6:                                         ; preds = %if.else3
 if.end12:                                         ; preds = %if.else6, %if.else3, %if.else, %if.then
   %align_size.0 = phi i64 [ %0, %if.then ], [ 65536, %if.else ], [ 262144, %if.else3 ], [ %., %if.else6 ]
   %sub = xor i64 %align_size.0, -1
-  %cmp13.not = icmp ugt i64 %sub, %size
+  %cmp13.not = icmp ult i64 %size, %sub
   br i1 %cmp13.not, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end12
@@ -232,7 +232,7 @@ if.else6.i:                                       ; preds = %if.else3.i
 if.end12.i:                                       ; preds = %if.else6.i, %if.else3.i, %if.else.i, %if.then.i
   %align_size.0.i = phi i64 [ %3, %if.then.i ], [ 65536, %if.else.i ], [ 262144, %if.else3.i ], [ %..i, %if.else6.i ]
   %sub.i = xor i64 %align_size.0.i, -1
-  %cmp13.not.i = icmp ugt i64 %sub.i, %size
+  %cmp13.not.i = icmp ult i64 %size, %sub.i
   br i1 %cmp13.not.i, label %if.end16.i, label %_mi_os_good_alloc_size.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
@@ -393,7 +393,7 @@ if.else6.i:                                       ; preds = %if.else3.i
 if.end12.i:                                       ; preds = %if.else6.i, %if.else3.i, %if.else.i, %if.then.i
   %align_size.0.i = phi i64 [ %0, %if.then.i ], [ 65536, %if.else.i ], [ 262144, %if.else3.i ], [ %..i, %if.else6.i ]
   %sub.i = xor i64 %align_size.0.i, -1
-  %cmp13.not.i = icmp ugt i64 %sub.i, %size
+  %cmp13.not.i = icmp ult i64 %size, %sub.i
   br i1 %cmp13.not.i, label %if.end16.i, label %_mi_os_good_alloc_size.exit.thread
 
 _mi_os_good_alloc_size.exit.thread:               ; preds = %if.end12.i
@@ -517,7 +517,7 @@ if.else6.i:                                       ; preds = %if.else3.i
 if.end12.i:                                       ; preds = %if.else6.i, %if.else3.i, %if.else.i, %if.then.i
   %align_size.0.i = phi i64 [ %0, %if.then.i ], [ 65536, %if.else.i ], [ 262144, %if.else3.i ], [ %..i, %if.else6.i ]
   %sub.i = xor i64 %align_size.0.i, -1
-  %cmp13.not.i = icmp ugt i64 %sub.i, %size
+  %cmp13.not.i = icmp ult i64 %size, %sub.i
   br i1 %cmp13.not.i, label %if.end16.i, label %_mi_os_good_alloc_size.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
@@ -560,7 +560,7 @@ _mi_align_up.exit:                                ; preds = %if.then.i14, %if.el
   %retval.0.i13 = phi i64 [ %and1.i, %if.then.i14 ], [ %mul.i, %if.else.i12 ]
   store i8 0, ptr %os_is_large, align 1
   %spec.select.i = and i1 %commit, %allow_large
-  %cmp.not.i = icmp ule i64 %3, %retval.0.i13
+  %cmp.not.i = icmp uge i64 %retval.0.i13, %3
   %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %retval.0.i13)
   %cmp2.i = icmp ult i64 %6, 2
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false

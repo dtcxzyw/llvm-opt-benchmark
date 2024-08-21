@@ -1880,7 +1880,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %7 = alloca i32, align 4
   store i32 %3, ptr %7, align 4
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %.not = icmp ugt i32 %8, %3
+  %.not = icmp ult i32 %3, %8
   br i1 %.not, label %9, label %2619
 
 9:                                                ; preds = %6

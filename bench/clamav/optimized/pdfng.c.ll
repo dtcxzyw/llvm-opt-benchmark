@@ -117,7 +117,7 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr nocapture no
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = ptrtoint ptr %5 to i64
-  %7 = icmp ugt ptr %5, %0
+  %7 = icmp ult ptr %0, %5
   br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3
@@ -669,7 +669,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %24 = ptrtoint ptr %23 to i64
   %.neg245 = sub i64 %21, %18
   %25 = add i64 %.neg245, %24
-  %26 = icmp ult i64 %25, %3
+  %26 = icmp ugt i64 %3, %25
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %19
@@ -684,7 +684,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %33 = ptrtoint ptr %32 to i64
   %.neg = sub i64 %30, %18
   %34 = add i64 %.neg, %33
-  %35 = icmp ult i64 %34, %3
+  %35 = icmp ugt i64 %3, %34
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %28
@@ -702,13 +702,13 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 38:                                               ; preds = %37
   %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
   %40 = add i64 %39, 3
-  %41 = icmp ugt i64 %40, %3
+  %41 = icmp ult i64 %3, %40
   br i1 %41, label %._crit_edge.thread, label %.preheader284
 
 .preheader284:                                    ; preds = %38
   %42 = ptrtoint ptr %2 to i64
   %43 = sub i64 %3, %39
-  %.not317 = icmp eq i64 %39, %3
+  %.not317 = icmp eq i64 %3, %39
   br i1 %.not317, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader284
@@ -1246,7 +1246,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %.sink427 = select i1 %.not, ptr %20, ptr %21
   %22 = load ptr, ptr %.sink427, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %19
-  %24 = icmp ugt ptr %23, %3
+  %24 = icmp ult ptr %3, %23
   br i1 %24, label %255, label %25
 
 25:                                               ; preds = %15
@@ -1878,7 +1878,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %.sink242 = select i1 %.not, ptr %21, ptr %22
   %23 = load ptr, ptr %.sink242, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %20
-  %25 = icmp ugt ptr %24, %3
+  %25 = icmp ult ptr %3, %24
   br i1 %25, label %.loopexit173, label %26
 
 26:                                               ; preds = %16

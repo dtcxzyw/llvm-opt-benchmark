@@ -866,7 +866,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %entry
   %cmp3 = icmp ugt i64 %namelen, 1
   %sub = sext i1 %cmp3 to i64
-  %cond7 = add i64 %sub, %namelen
+  %cond7 = add i64 %namelen, %sub
   %call8 = tail call ptr @memchr(ptr noundef nonnull %name, i32 noundef 0, i64 noundef %cond7) #9
   %cmp9.not = icmp eq ptr %call8, null
   br i1 %cmp9.not, label %land.lhs.true13, label %return

@@ -484,7 +484,7 @@ define internal range(i32 0, 7) i32 @index_decoder_memconfig(ptr nocapture nound
 
 10:                                               ; preds = %4
   %11 = load i64, ptr %1, align 8
-  %12 = icmp ugt i64 %11, %3
+  %12 = icmp ult i64 %3, %11
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %10

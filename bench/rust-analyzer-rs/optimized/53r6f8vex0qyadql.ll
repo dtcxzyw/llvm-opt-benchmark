@@ -786,7 +786,7 @@ define hidden noundef i64 @_ZN3mbe8expander7matcher15BindingsBuilder4copy11copy_
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = icmp ugt i64 %6, %0
+  %8 = icmp ult i64 %0, %6
   br i1 %8, label %9, label %14, !prof !205
 
 9:                                                ; preds = %2
@@ -915,7 +915,7 @@ define hidden noundef i64 @_ZN3mbe8expander7matcher15BindingsBuilder4copy11copy_
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = icmp ugt i64 %6, %0
+  %8 = icmp ult i64 %0, %6
   br i1 %8, label %9, label %14, !prof !205
 
 9:                                                ; preds = %2

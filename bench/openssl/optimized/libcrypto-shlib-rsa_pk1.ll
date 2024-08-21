@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define range(i32 0, 2) i32 @RSA_padding_add_PKCS1_type_1(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
 entry:
   %sub = add nsw i32 %tlen, -11
-  %cmp = icmp slt i32 %sub, %flen
+  %cmp = icmp sgt i32 %flen, %sub
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -91,7 +91,7 @@ if.end7:                                          ; preds = %if.end6, %if.end
   %flen.addr.0 = phi i32 [ %dec, %if.end6 ], [ %flen, %if.end ]
   %p.0 = phi ptr [ %incdec.ptr, %if.end6 ], [ %from, %if.end ]
   %add = add nsw i32 %flen.addr.0, 1
-  %cmp8.not = icmp eq i32 %add, %num
+  %cmp8.not = icmp eq i32 %num, %add
   br i1 %cmp8.not, label %lor.lhs.false, label %if.then14
 
 lor.lhs.false:                                    ; preds = %if.end7
@@ -177,7 +177,7 @@ return:                                           ; preds = %entry, %if.end42, %
 define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_type_2_ex(ptr noundef %libctx, ptr noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
 entry:
   %sub = add nsw i32 %tlen, -11
-  %cmp = icmp slt i32 %sub, %flen
+  %cmp = icmp sgt i32 %flen, %sub
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -348,7 +348,7 @@ for.end40:                                        ; preds = %for.body31, %for.en
   %and27127 = and i32 %shr.neg.i.i75126, %8
   %and42 = ashr i32 %and27127, 31
   %add.neg = xor i32 %zero_index.0.lcssa, -1
-  %sub43 = add i32 %add.neg, %num
+  %sub43 = add i32 %num, %add.neg
   %xor.i.i85 = xor i32 %sub43, %tlen
   %sub.i.i86 = sub i32 %tlen, %sub43
   %xor1.i.i87 = xor i32 %sub.i.i86, %sub43

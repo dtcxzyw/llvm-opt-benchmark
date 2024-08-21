@@ -492,7 +492,7 @@ btree_insert.exit:                                ; preds = %._crit_edge.i, %33
 left_rotate.exit:                                 ; preds = %76, %79
   %81 = phi ptr [ %51, %76 ], [ %.pre64, %79 ]
   %82 = phi ptr [ %54, %76 ], [ %.pre62, %79 ]
-  %83 = icmp eq ptr %81, %51
+  %83 = icmp eq ptr %51, %81
   %.sink.i.v = select i1 %83, i64 72, i64 80
   %.sink.i = getelementptr inbounds i8, ptr %82, i64 %.sink.i.v
   store ptr %74, ptr %.sink.i, align 8
@@ -537,7 +537,7 @@ right_rotate.exit:                                ; preds = %87, %102
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 72
   %107 = load ptr, ptr %106, align 8
-  %108 = icmp eq ptr %107, %97
+  %108 = icmp eq ptr %97, %107
   %109 = getelementptr inbounds i8, ptr %105, i64 80
   %.sink.i53 = select i1 %108, ptr %106, ptr %109
   store ptr %99, ptr %.sink.i53, align 8
@@ -593,7 +593,7 @@ right_rotate.exit:                                ; preds = %87, %102
 right_rotate.exit56:                              ; preds = %129, %132
   %134 = phi ptr [ %56, %129 ], [ %.pre61, %132 ]
   %135 = phi ptr [ %54, %129 ], [ %.pre, %132 ]
-  %136 = icmp eq ptr %134, %51
+  %136 = icmp eq ptr %51, %134
   %.sink.i55.v = select i1 %136, i64 72, i64 80
   %.sink.i55 = getelementptr inbounds i8, ptr %135, i64 %.sink.i55.v
   store ptr %127, ptr %.sink.i55, align 8
@@ -638,7 +638,7 @@ left_rotate.exit59:                               ; preds = %140, %155
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 72
   %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %160, %150
+  %161 = icmp eq ptr %150, %160
   %162 = getelementptr inbounds i8, ptr %158, i64 80
   %.sink.i58 = select i1 %161, ptr %159, ptr %162
   store ptr %152, ptr %.sink.i58, align 8
@@ -821,7 +821,7 @@ btree_successor.exit:                             ; preds = %.preheader21.i, %op
   %58 = load ptr, ptr %3, align 16
   %59 = getelementptr inbounds i8, ptr %58, i64 72
   %60 = load ptr, ptr %59, align 8
-  %.not78.i = icmp eq ptr %60, %.039
+  %.not78.i = icmp eq ptr %.039, %60
   br i1 %.not78.i, label %btree_delete_fixup.exit, label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %57, %246
@@ -871,7 +871,7 @@ left_rotate.exit.i:                               ; preds = %84, %76
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 72
   %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, %79
+  %90 = icmp eq ptr %79, %89
   %91 = getelementptr inbounds i8, ptr %87, i64 80
   %.sink.i.i = select i1 %90, ptr %88, ptr %91
   store ptr %81, ptr %.sink.i.i, align 8
@@ -936,7 +936,7 @@ right_rotate.exit.i:                              ; preds = %120, %114
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 72
   %125 = load ptr, ptr %124, align 8
-  %126 = icmp eq ptr %125, %.055.i
+  %126 = icmp eq ptr %.055.i, %125
   %127 = getelementptr inbounds i8, ptr %123, i64 80
   %.sink.i65.i = select i1 %126, ptr %124, ptr %127
   store ptr %117, ptr %.sink.i65.i, align 8
@@ -985,7 +985,7 @@ left_rotate.exit68.i:                             ; preds = %148, %.thread.i
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 72
   %153 = load ptr, ptr %152, align 8
-  %154 = icmp eq ptr %153, %143
+  %154 = icmp eq ptr %143, %153
   %155 = getelementptr inbounds i8, ptr %151, i64 80
   %.sink.i67.i = select i1 %154, ptr %152, ptr %155
   store ptr %145, ptr %.sink.i67.i, align 8
@@ -1028,7 +1028,7 @@ right_rotate.exit71.i:                            ; preds = %171, %163
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 72
   %176 = load ptr, ptr %175, align 8
-  %177 = icmp eq ptr %176, %166
+  %177 = icmp eq ptr %166, %176
   %178 = getelementptr inbounds i8, ptr %174, i64 80
   %.sink.i70.i = select i1 %177, ptr %175, ptr %178
   store ptr %168, ptr %.sink.i70.i, align 8
@@ -1093,7 +1093,7 @@ left_rotate.exit74.i:                             ; preds = %207, %201
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 72
   %212 = load ptr, ptr %211, align 8
-  %213 = icmp eq ptr %212, %.2.i
+  %213 = icmp eq ptr %.2.i, %212
   %214 = getelementptr inbounds i8, ptr %210, i64 80
   %.sink.i73.i = select i1 %213, ptr %211, ptr %214
   store ptr %204, ptr %.sink.i73.i, align 8
@@ -1142,7 +1142,7 @@ right_rotate.exit77.i:                            ; preds = %235, %.thread89.i
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds i8, ptr %238, i64 72
   %240 = load ptr, ptr %239, align 8
-  %241 = icmp eq ptr %240, %230
+  %241 = icmp eq ptr %230, %240
   %242 = getelementptr inbounds i8, ptr %238, i64 80
   %.sink.i76.i = select i1 %241, ptr %239, ptr %242
   store ptr %232, ptr %.sink.i76.i, align 8
@@ -1426,7 +1426,7 @@ opal_free_list_return.exit18:                     ; preds = %opal_lifo_push_atom
 define internal fastcc void @inorder_destroy(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %opal_free_list_return.exit31, label %6
 
 6:                                                ; preds = %2
@@ -1637,7 +1637,7 @@ define range(i32 -1, 1) i32 @opal_rb_tree_traverse(ptr nocapture noundef readonl
 define internal fastcc void @inorder_traversal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %3
+  %7 = icmp eq ptr %3, %6
   br i1 %7, label %tailrecurse._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %tailrecurse
@@ -1662,7 +1662,7 @@ tailrecurse:                                      ; preds = %13, %.lr.ph
   %17 = getelementptr inbounds i8, ptr %.tr1718, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %5, align 8
-  %20 = icmp eq ptr %19, %18
+  %20 = icmp eq ptr %18, %19
   br i1 %20, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4

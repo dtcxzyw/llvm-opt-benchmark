@@ -1112,7 +1112,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZLiveMap13find_base_bitEm(ptr nounde
   %16 = lshr i64 %15, 6
   %17 = mul i64 %16, %5
   %18 = add i64 %1, 1
-  %19 = icmp ugt i64 %18, %17
+  %19 = icmp ult i64 %17, %18
   br i1 %19, label %20, label %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread
 
 20:                                               ; preds = %13
@@ -1193,7 +1193,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread: ; preds = %36, %.loopexit
   %60 = lshr i64 %59, 6
   %61 = mul i64 %60, %51
   %62 = mul i64 %60, %.01452
-  %63 = icmp ugt i64 %62, %61
+  %63 = icmp ult i64 %61, %62
   br i1 %63, label %64, label %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread
 
 64:                                               ; preds = %58

@@ -347,7 +347,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout15from_size_align17h0921
   %7 = icmp ult i64 %1, -9223372036854775807
   tail call void @llvm.assume(i1 %7)
   %8 = sub nuw i64 -9223372036854775808, %1
-  %9 = icmp ult i64 %8, %0
+  %9 = icmp ugt i64 %0, %8
   %. = select i1 %9, i64 0, i64 %1
   br label %10
 
@@ -625,12 +625,12 @@ define hidden noundef ptr @_ZN16wasmtime_runtime9component8libcalls12utf8_to_utf
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = add i64 %10, %1
+  %13 = add i64 %1, %10
   %14 = icmp ult i64 %13, %9
   br i1 %14, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.exit, label %18
 
 15:                                               ; preds = %3
-  %16 = add i64 %9, %1
+  %16 = add i64 %1, %9
   %17 = icmp ult i64 %16, %10
   br i1 %17, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.exit, label %19
 
@@ -685,7 +685,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %.not.i = icmp eq i64 %35, %1
+  %.not.i = icmp eq i64 %1, %35
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2efaedcf5fb76406E.exit", label %36
 
 36:                                               ; preds = %31
@@ -936,12 +936,12 @@ define hidden noalias noundef ptr @_ZN16wasmtime_runtime9component8libcalls16lat
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %3
-  %11 = add i64 %8, %1
+  %11 = add i64 %1, %8
   %12 = icmp ult i64 %11, %7
   br i1 %12, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.exit, label %16
 
 13:                                               ; preds = %3
-  %14 = add i64 %7, %1
+  %14 = add i64 %1, %7
   %15 = icmp ult i64 %14, %8
   br i1 %15, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.exit, label %17
 
@@ -1003,7 +1003,7 @@ define hidden noalias noundef ptr @_ZN16wasmtime_runtime9component8libcalls15lat
   br i1 %13, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.exit, label %17
 
 14:                                               ; preds = %3
-  %15 = add i64 %7, %1
+  %15 = add i64 %1, %7
   %16 = icmp ult i64 %15, %8
   br i1 %16, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.exit, label %18
 
@@ -1088,7 +1088,7 @@ define hidden void @_ZN16wasmtime_runtime9component8libcalls13utf8_to_utf1617h66
   br i1 %16, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.exit, label %20
 
 17:                                               ; preds = %4
-  %18 = add i64 %10, %2
+  %18 = add i64 %2, %10
   %19 = icmp ult i64 %18, %11
   br i1 %19, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.exit, label %21
 
@@ -1341,7 +1341,7 @@ define hidden void @_ZN16wasmtime_runtime9component8libcalls13utf16_to_utf817h6b
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %5
-  %25 = add i64 %22, %4
+  %25 = add i64 %4, %22
   %26 = icmp ult i64 %25, %21
   br i1 %26, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.exit, label %31
 
@@ -1638,12 +1638,12 @@ define hidden void @_ZN16wasmtime_runtime9component8libcalls14latin1_to_utf817h5
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %5
-  %16 = add i64 %13, %4
+  %16 = add i64 %4, %13
   %17 = icmp ult i64 %16, %12
   br i1 %17, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.exit, label %21
 
 18:                                               ; preds = %5
-  %19 = add i64 %12, %2
+  %19 = add i64 %2, %12
   %20 = icmp ult i64 %19, %13
   br i1 %20, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.exit, label %22
 
@@ -1999,12 +1999,12 @@ define hidden void @_ZN16wasmtime_runtime9component8libcalls14utf8_to_latin117h0
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %4
-  %14 = add i64 %11, %2
+  %14 = add i64 %2, %11
   %15 = icmp ult i64 %14, %10
   br i1 %15, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.exit, label %19
 
 16:                                               ; preds = %4
-  %17 = add i64 %10, %2
+  %17 = add i64 %2, %10
   %18 = icmp ult i64 %17, %11
   br i1 %18, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.exit, label %20
 
@@ -2093,7 +2093,7 @@ define hidden void @_ZN16wasmtime_runtime9component8libcalls15utf16_to_latin117h
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %4
-  %13 = add i64 %10, %2
+  %13 = add i64 %2, %10
   %14 = icmp ult i64 %13, %9
   br i1 %14, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.exit, label %19
 
@@ -2207,7 +2207,7 @@ define hidden void @_ZN16wasmtime_runtime9component8libcalls21utf8_to_compact_ut
   br i1 %20, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.exit, label %24
 
 21:                                               ; preds = %6
-  %22 = add i64 %14, %2
+  %22 = add i64 %2, %14
   %23 = icmp ult i64 %22, %15
   br i1 %23, label %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.exit, label %25
 
@@ -3099,7 +3099,7 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
 47:                                               ; preds = %.noexc13.us
   %48 = extractvalue { i64, i64 } %45, 1
   %49 = load i64, ptr %38, align 8, !alias.scope !409, !noundef !4
-  %50 = icmp ugt i64 %49, %48
+  %50 = icmp ult i64 %48, %49
   br i1 %50, label %51, label %.thread.i
 
 51:                                               ; preds = %47
@@ -3165,7 +3165,7 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
   %78 = extractvalue { i64, i64 } %75, 1
   %79 = getelementptr inbounds i8, ptr %72, i64 16
   %80 = load i64, ptr %79, align 8, !alias.scope !409, !noundef !4
-  %81 = icmp ugt i64 %80, %78
+  %81 = icmp ult i64 %78, %80
   br i1 %81, label %82, label %.thread.i
 
 82:                                               ; preds = %77
@@ -3306,7 +3306,7 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
   %124 = extractvalue { i64, i64 } %121, 1
   %125 = getelementptr inbounds i8, ptr %.06.i, i64 16
   %126 = load i64, ptr %125, align 8, !alias.scope !409, !noundef !4
-  %127 = icmp ugt i64 %126, %124
+  %127 = icmp ult i64 %124, %126
   br i1 %127, label %134, label %.thread.i
 
 .thread.i:                                        ; preds = %134, %123, %.noexc13, %82, %77, %.noexc13.us38, %.noexc13.us, %47, %51
@@ -3736,7 +3736,7 @@ define { ptr, ptr } @_ZN16wasmtime_runtime9component17ComponentInstance5store17h
 define noundef ptr @_ZN16wasmtime_runtime9component17ComponentInstance14runtime_memory17h1109ac33cc3603ffE(ptr noalias noundef readonly align 16 dereferenceable(144) %0, i32 noundef %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -3765,7 +3765,7 @@ define noundef ptr @_ZN16wasmtime_runtime9component17ComponentInstance14runtime_
 define noundef nonnull ptr @_ZN16wasmtime_runtime9component17ComponentInstance15runtime_realloc17hd9caefa6b5a36f0fE(ptr noalias noundef readonly align 16 dereferenceable(144) %0, i32 noundef %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -3794,7 +3794,7 @@ define noundef nonnull ptr @_ZN16wasmtime_runtime9component17ComponentInstance15
 define noundef nonnull ptr @_ZN16wasmtime_runtime9component17ComponentInstance19runtime_post_return17h7f6e9898a29af9f4E(ptr noalias noundef readonly align 16 dereferenceable(144) %0, i32 noundef %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -3822,7 +3822,7 @@ define noundef nonnull ptr @_ZN16wasmtime_runtime9component17ComponentInstance19
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN16wasmtime_runtime9component17ComponentInstance8lowering17h098d9c6c06d7c053E(ptr noalias noundef readonly align 16 dereferenceable(144) %0, i32 noundef %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.val = load i32, ptr %0, align 16, !noundef !4
-  %3 = icmp ugt i32 %.val, %1
+  %3 = icmp ult i32 %1, %.val
   br i1 %3, label %"_ZN16wasmtime_environ9component19vmcomponent_offsets27VMComponentOffsets$LT$P$GT$8lowering17h08781cd92daacf1aE.exit", label %4
 
 4:                                                ; preds = %2
@@ -3855,7 +3855,7 @@ define { ptr, ptr } @_ZN16wasmtime_runtime9component17ComponentInstance8lowering
 define noundef nonnull ptr @_ZN16wasmtime_runtime9component17ComponentInstance19trampoline_func_ref17h2659c309e67bf86dE(ptr noalias noundef readonly align 16 dereferenceable(144) %0, i32 noundef %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -3883,7 +3883,7 @@ define noundef nonnull ptr @_ZN16wasmtime_runtime9component17ComponentInstance19
 define void @_ZN16wasmtime_runtime9component17ComponentInstance18set_runtime_memory17h0e5dd8227be4c2b6E(ptr noundef nonnull align 16 %0, i32 noundef %1, ptr noundef %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !noundef !4
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
@@ -3912,7 +3912,7 @@ define void @_ZN16wasmtime_runtime9component17ComponentInstance18set_runtime_mem
 define void @_ZN16wasmtime_runtime9component17ComponentInstance19set_runtime_realloc17hc60c510f2d093788E(ptr noundef nonnull align 16 %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
@@ -3941,7 +3941,7 @@ define void @_ZN16wasmtime_runtime9component17ComponentInstance19set_runtime_rea
 define void @_ZN16wasmtime_runtime9component17ComponentInstance23set_runtime_post_return17h2a22bfa7d7217a82E(ptr noundef nonnull align 16 %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4, !noundef !4
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
@@ -3969,7 +3969,7 @@ define void @_ZN16wasmtime_runtime9component17ComponentInstance23set_runtime_pos
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN16wasmtime_runtime9component17ComponentInstance12set_lowering17h9c0c250961f0b20eE(ptr noundef nonnull align 16 %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.val = load i32, ptr %0, align 16, !noundef !4
-  %5 = icmp ugt i32 %.val, %1
+  %5 = icmp ult i32 %1, %.val
   br i1 %5, label %"_ZN16wasmtime_environ9component19vmcomponent_offsets27VMComponentOffsets$LT$P$GT$8lowering17h08781cd92daacf1aE.exit", label %6
 
 6:                                                ; preds = %4
@@ -4000,7 +4000,7 @@ define void @_ZN16wasmtime_runtime9component17ComponentInstance12set_lowering17h
 define void @_ZN16wasmtime_runtime9component17ComponentInstance14set_trampoline17h2130028f3ee2f5ffE(ptr noundef nonnull align 16 %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #10 personality ptr @rust_eh_personality {
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4, !noundef !4
-  %9 = icmp ugt i32 %8, %1
+  %9 = icmp ult i32 %1, %8
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6
@@ -4037,7 +4037,7 @@ define void @_ZN16wasmtime_runtime9component17ComponentInstance14set_trampoline1
 define void @_ZN16wasmtime_runtime9component17ComponentInstance23set_resource_destructor17hac196256f822421bE(ptr noundef nonnull align 16 %0, i32 noundef %1, ptr noundef %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
@@ -4066,7 +4066,7 @@ define void @_ZN16wasmtime_runtime9component17ComponentInstance23set_resource_de
 define noundef ptr @_ZN16wasmtime_runtime9component17ComponentInstance19resource_destructor17hdd1d212177af7078E(ptr noalias noundef readonly align 16 dereferenceable(144) %0, i32 noundef %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !noundef !4
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -4431,7 +4431,7 @@ define { ptr, ptr } @_ZN16wasmtime_runtime9component17ComponentInstance14dtor_an
   tail call void @llvm.experimental.noalias.scope.decl(metadata !705)
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   %27 = load i32, ptr %26, align 8, !alias.scope !705, !noundef !4
-  %28 = icmp ugt i32 %27, %25
+  %28 = icmp ult i32 %25, %27
   br i1 %28, label %_ZN16wasmtime_runtime9component17ComponentInstance19resource_destructor17hdd1d212177af7078E.exit, label %29
 
 29:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hc65ba90c502227c5E.exit"
@@ -4482,7 +4482,7 @@ _ZN16wasmtime_runtime9component17ComponentInstance19resource_destructor17hdd1d21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !716)
   %60 = getelementptr inbounds i8, ptr %0, i64 16
   %61 = load i32, ptr %60, align 16, !alias.scope !716, !noundef !4
-  %62 = icmp ugt i32 %61, %59
+  %62 = icmp ult i32 %59, %61
   br i1 %62, label %_ZN16wasmtime_runtime9component17ComponentInstance14instance_flags17h70614a7d14fd55edE.exit, label %63
 
 63:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h199bee23f91916e5E.exit"
@@ -5074,7 +5074,7 @@ define noundef nonnull ptr @_ZN16wasmtime_runtime9component22OwnedComponentInsta
 75:                                               ; preds = %_ZN16wasmtime_runtime9component17ComponentInstance14instance_flags17h70614a7d14fd55edE.exit.i.i, %.lr.ph.i.i
   %.sroa.01.09.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %78, %_ZN16wasmtime_runtime9component17ComponentInstance14instance_flags17h70614a7d14fd55edE.exit.i.i ]
   %76 = load i32, ptr %72, align 16, !alias.scope !841, !noalias !834, !noundef !4
-  %77 = icmp ugt i32 %76, %.sroa.01.09.i.i
+  %77 = icmp ult i32 %.sroa.01.09.i.i, %76
   br i1 %77, label %_ZN16wasmtime_runtime9component17ComponentInstance14instance_flags17h70614a7d14fd55edE.exit.i.i, label %.noexc31.i
 
 .noexc31.i:                                       ; preds = %75
@@ -5234,7 +5234,7 @@ define void @_ZN16wasmtime_runtime9component22OwnedComponentInstance18set_runtim
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %.val, i64 4
   %5 = load i32, ptr %4, align 4, !noundef !4
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %_ZN16wasmtime_runtime9component17ComponentInstance18set_runtime_memory17h0e5dd8227be4c2b6E.exit, label %7
 
 7:                                                ; preds = %3
@@ -5264,7 +5264,7 @@ define void @_ZN16wasmtime_runtime9component22OwnedComponentInstance19set_runtim
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %.val, i64 8
   %5 = load i32, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %_ZN16wasmtime_runtime9component17ComponentInstance19set_runtime_realloc17hc60c510f2d093788E.exit, label %7
 
 7:                                                ; preds = %3
@@ -5294,7 +5294,7 @@ define void @_ZN16wasmtime_runtime9component22OwnedComponentInstance23set_runtim
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %.val, i64 12
   %5 = load i32, ptr %4, align 4, !noundef !4
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %_ZN16wasmtime_runtime9component17ComponentInstance23set_runtime_post_return17h2a22bfa7d7217a82E.exit, label %7
 
 7:                                                ; preds = %3
@@ -5323,7 +5323,7 @@ _ZN16wasmtime_runtime9component17ComponentInstance23set_runtime_post_return17h2a
 define void @_ZN16wasmtime_runtime9component22OwnedComponentInstance12set_lowering17h0e04d7505f49c9eaE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.val.i = load i32, ptr %.val, align 4, !noundef !4
-  %5 = icmp ugt i32 %.val.i, %1
+  %5 = icmp ult i32 %1, %.val.i
   br i1 %5, label %_ZN16wasmtime_runtime9component17ComponentInstance12set_lowering17h9c0c250961f0b20eE.exit, label %6
 
 6:                                                ; preds = %4
@@ -5355,7 +5355,7 @@ define void @_ZN16wasmtime_runtime9component22OwnedComponentInstance14set_trampo
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %.val, i64 20
   %8 = load i32, ptr %7, align 4, !noundef !4
-  %9 = icmp ugt i32 %8, %1
+  %9 = icmp ult i32 %1, %8
   br i1 %9, label %_ZN16wasmtime_runtime9component17ComponentInstance14set_trampoline17h2130028f3ee2f5ffE.exit, label %10
 
 10:                                               ; preds = %6
@@ -5393,7 +5393,7 @@ define void @_ZN16wasmtime_runtime9component22OwnedComponentInstance23set_resour
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %.val, i64 24
   %5 = load i32, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %_ZN16wasmtime_runtime9component17ComponentInstance23set_resource_destructor17hac196256f822421bE.exit, label %7
 
 7:                                                ; preds = %3

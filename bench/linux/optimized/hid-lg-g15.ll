@@ -1563,7 +1563,7 @@ define internal range(i32 5, 4) i32 @lg_g510_kbd_led_set(ptr nocapture noundef %
   %19 = getelementptr inbounds i8, ptr %0, i64 416
   %20 = load i8, ptr %19, align 8
   %21 = zext i8 %20 to i32
-  %22 = mul i32 %21, %1
+  %22 = mul i32 %1, %21
   %23 = add i32 %22, 127
   %24 = udiv i32 %23, 255
   %25 = trunc i32 %24 to i8
@@ -1572,7 +1572,7 @@ define internal range(i32 5, 4) i32 @lg_g510_kbd_led_set(ptr nocapture noundef %
   %27 = getelementptr inbounds i8, ptr %0, i64 417
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %30 = mul i32 %29, %1
+  %30 = mul i32 %1, %29
   %31 = add i32 %30, 127
   %32 = udiv i32 %31, 255
   %33 = trunc i32 %32 to i8
@@ -1581,7 +1581,7 @@ define internal range(i32 5, 4) i32 @lg_g510_kbd_led_set(ptr nocapture noundef %
   %35 = getelementptr inbounds i8, ptr %0, i64 418
   %36 = load i8, ptr %35, align 2
   %37 = zext i8 %36 to i32
-  %38 = mul i32 %37, %1
+  %38 = mul i32 %1, %37
   %39 = add i32 %38, 127
   %40 = udiv i32 %39, 255
   %41 = trunc i32 %40 to i8

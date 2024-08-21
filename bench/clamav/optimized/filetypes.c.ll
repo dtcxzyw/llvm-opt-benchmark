@@ -267,7 +267,7 @@ define i32 @cli_compare_ftm_partition(ptr nocapture noundef readonly %0, i64 nou
   %9 = zext i16 %8 to i32
   %10 = add i32 %6, %9
   %11 = zext i32 %10 to i64
-  %.not13 = icmp ugt i64 %11, %1
+  %.not13 = icmp ult i64 %1, %11
   br i1 %.not13, label %22, label %12
 
 12:                                               ; preds = %.lr.ph
@@ -320,7 +320,7 @@ define i32 @cli_compare_ftm_file(ptr noundef %0, i64 noundef %1, ptr nocapture n
   %9 = zext i16 %8 to i32
   %10 = add i32 %6, %9
   %11 = zext i32 %10 to i64
-  %.not15 = icmp ugt i64 %11, %1
+  %.not15 = icmp ult i64 %1, %11
   br i1 %.not15, label %22, label %12
 
 12:                                               ; preds = %.lr.ph

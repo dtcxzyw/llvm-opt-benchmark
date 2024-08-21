@@ -5142,7 +5142,7 @@ hwloc_get_next_obj_covering_cpuset_by_depth.exit: ; preds = %.preheader.i
 51:                                               ; preds = %49, %48
   %52 = load i32, ptr @hiernblevels, align 4
   %53 = add nsw i32 %52, -1
-  %.not41 = icmp eq i32 %53, %5
+  %.not41 = icmp eq i32 %5, %53
   br i1 %.not41, label %58, label %54
 
 54:                                               ; preds = %51

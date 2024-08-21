@@ -1780,7 +1780,7 @@ if.end.i.i:                                       ; preds = %sw.epilog.i.i, %con
 sw.bb.i.i5:                                       ; preds = %if.end.i.i, %if.end.i.i
   %13 = getelementptr inbounds i8, ptr %c.017.i.i, i64 4
   %14 = load i32, ptr %13, align 4
-  %cmp4.i.i = icmp eq i32 %14, %i
+  %cmp4.i.i = icmp eq i32 %i, %14
   br i1 %cmp4.i.i, label %if.then5.i.i, label %sw.epilog.i.i
 
 if.then5.i.i:                                     ; preds = %sw.bb.i.i5

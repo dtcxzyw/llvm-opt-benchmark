@@ -176,7 +176,7 @@ if.end4:                                          ; preds = %fdt_cells.exit.i33,
 if.then6:                                         ; preds = %if.end4
   %cmp7 = icmp ugt i64 %addr, 4294967295
   %sub = sub nsw i64 0, %addr
-  %cmp8 = icmp ult i64 %sub, %size
+  %cmp8 = icmp ugt i64 %size, %sub
   %or.cond = select i1 %cmp7, i1 true, i1 %cmp8
   br i1 %or.cond, label %return, label %if.end10
 

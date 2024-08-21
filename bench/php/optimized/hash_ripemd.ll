@@ -65,7 +65,7 @@ define void @PHP_RIPEMD128Update(ptr nocapture noundef %0, ptr nocapture noundef
   store i32 %18, ptr %17, align 4
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
-  %.not = icmp ugt i64 %20, %2
+  %.not = icmp ult i64 %2, %20
   br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %._crit_edge
@@ -154,7 +154,7 @@ define void @PHP_RIPEMD128Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %40 = add i32 %39, %37
   store i32 %40, ptr %16, align 4
   %41 = sub nuw nsw i32 64, %30
-  %.not.i = icmp ugt i32 %41, %32
+  %.not.i = icmp ult i32 %32, %41
   br i1 %.not.i, label %53, label %42
 
 42:                                               ; preds = %2
@@ -307,7 +307,7 @@ define void @PHP_RIPEMD160Update(ptr nocapture noundef %0, ptr nocapture noundef
   store i32 %18, ptr %17, align 4
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
-  %.not = icmp ugt i64 %20, %2
+  %.not = icmp ult i64 %2, %20
   br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %._crit_edge
@@ -396,7 +396,7 @@ define void @PHP_RIPEMD160Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %40 = add i32 %39, %37
   store i32 %40, ptr %16, align 4
   %41 = sub nuw nsw i32 64, %30
-  %.not.i = icmp ugt i32 %41, %32
+  %.not.i = icmp ult i32 %32, %41
   br i1 %.not.i, label %53, label %42
 
 42:                                               ; preds = %2
@@ -549,7 +549,7 @@ define void @PHP_RIPEMD256Update(ptr nocapture noundef %0, ptr nocapture noundef
   store i32 %18, ptr %17, align 4
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
-  %.not = icmp ugt i64 %20, %2
+  %.not = icmp ult i64 %2, %20
   br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %._crit_edge
@@ -638,7 +638,7 @@ define void @PHP_RIPEMD256Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %40 = add i32 %39, %37
   store i32 %40, ptr %16, align 4
   %41 = sub nuw nsw i32 64, %30
-  %.not.i = icmp ugt i32 %41, %32
+  %.not.i = icmp ult i32 %32, %41
   br i1 %.not.i, label %53, label %42
 
 42:                                               ; preds = %2
@@ -795,7 +795,7 @@ define void @PHP_RIPEMD320Update(ptr nocapture noundef %0, ptr nocapture noundef
   store i32 %18, ptr %17, align 4
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
-  %.not = icmp ugt i64 %20, %2
+  %.not = icmp ult i64 %2, %20
   br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %._crit_edge
@@ -884,7 +884,7 @@ define void @PHP_RIPEMD320Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %40 = add i32 %39, %37
   store i32 %40, ptr %16, align 4
   %41 = sub nuw nsw i32 64, %30
-  %.not.i = icmp ugt i32 %41, %32
+  %.not.i = icmp ult i32 %32, %41
   br i1 %.not.i, label %53, label %42
 
 42:                                               ; preds = %2

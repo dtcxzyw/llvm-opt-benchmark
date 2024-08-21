@@ -1610,7 +1610,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp2 = icmp slt i32 %conv.i, %idx
+  %cmp2 = icmp sgt i32 %idx, %conv.i
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -1942,8 +1942,8 @@ if.end:                                           ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp sge i32 %conv.i, %idx
-  %brmerge = or i1 %cmp, %serializationMode
+  %cmp = icmp sle i32 %idx, %conv.i
+  %brmerge = or i1 %serializationMode, %cmp
   br i1 %brmerge, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
@@ -2310,7 +2310,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp2.not = icmp sgt i32 %conv.i, %idx
+  %cmp2.not = icmp slt i32 %idx, %conv.i
   br i1 %cmp2.not, label %if.end, label %if.end23
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -2418,7 +2418,7 @@ if.then13:                                        ; preds = %if.else
   %sub.ptr.sub.i.i42 = sub i64 %sub.ptr.lhs.cast.i.i40, %sub.ptr.rhs.cast.i.i41
   %sub.ptr.div.i.i43 = lshr exact i64 %sub.ptr.sub.i.i42, 3
   %conv.i44 = trunc i64 %sub.ptr.div.i.i43 to i32
-  %cmp16 = icmp eq i32 %conv.i44, %idx
+  %cmp16 = icmp eq i32 %idx, %conv.i44
   br i1 %cmp16, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %if.then13
@@ -2522,7 +2522,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp2.not = icmp sgt i32 %conv.i, %idx
+  %cmp2.not = icmp slt i32 %idx, %conv.i
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -2676,7 +2676,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp2.not = icmp ugt i32 %conv.i, %idx
+  %cmp2.not = icmp ult i32 %idx, %conv.i
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -5143,7 +5143,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i, %idx
+  %cmp.not = icmp ult i32 %idx, %conv.i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

@@ -821,7 +821,7 @@ define hidden void @"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$
   %10 = load i64, ptr %9, align 8, !alias.scope !103, !noalias !108, !noundef !4
   %11 = load i64, ptr %8, align 8, !alias.scope !110, !noalias !108, !noundef !4
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %7
+  %13 = icmp ugt i64 %7, %12
   br i1 %13, label %14, label %"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$DB$GT$$GT$6to_sql17had90f4f0e069b448E.exit"
 
 14:                                               ; preds = %3
@@ -865,7 +865,7 @@ define hidden void @"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$
   %10 = load i64, ptr %9, align 8, !alias.scope !141, !noalias !146, !noundef !4
   %11 = load i64, ptr %8, align 8, !alias.scope !148, !noalias !146, !noundef !4
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %7
+  %13 = icmp ugt i64 %7, %12
   br i1 %13, label %14, label %"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$DB$GT$$GT$6to_sql17hafdc3c7af4be0272E.exit"
 
 14:                                               ; preds = %3
@@ -903,7 +903,7 @@ define hidden void @"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$
   %9 = load i64, ptr %8, align 8, !alias.scope !164, !noalias !169, !noundef !4
   %10 = load i64, ptr %7, align 8, !alias.scope !171, !noalias !169, !noundef !4
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %6
+  %12 = icmp ugt i64 %6, %11
   br i1 %12, label %13, label %"_ZN6diesel10type_impls10primitives94_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Text$C$DB$GT$$u20$for$u20$str$GT$6to_sql17ha188d3b5858184a6E.exit"
 
 13:                                               ; preds = %3
@@ -943,7 +943,7 @@ define hidden void @"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$
   %9 = load i64, ptr %8, align 8, !alias.scope !194, !noalias !199, !noundef !4
   %10 = load i64, ptr %7, align 8, !alias.scope !201, !noalias !199, !noundef !4
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %6
+  %12 = icmp ugt i64 %6, %11
   br i1 %12, label %13, label %"_ZN6diesel10type_impls10primitives13foreign_impls1_131_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Text$GT$$C$__DB$GT$$u20$for$u20$str$GT$6to_sql17he083aea5becd5a7bE.exit"
 
 13:                                               ; preds = %3

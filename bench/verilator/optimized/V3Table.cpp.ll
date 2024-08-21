@@ -8251,7 +8251,7 @@ _ZSt19__relocate_object_aI14TableOutputVarS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; 
 _ZNSt6vectorI14TableOutputVarSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt19__relocate_object_aI14TableOutputVarS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i, %24
   %.0.lcssa.i.i.i = phi ptr [ %25, %24 ], [ %42, %_ZSt19__relocate_object_aI14TableOutputVarS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ]
   %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
-  %.not11.i.i.i27 = icmp eq ptr %6, %1
+  %.not11.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not11.i.i.i27, label %_ZNSt6vectorI14TableOutputVarSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorI14TableOutputVarSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %_ZSt19__relocate_object_aI14TableOutputVarS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i32
@@ -10294,7 +10294,7 @@ _ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 48
-  %24 = icmp eq ptr %23, %22
+  %24 = icmp eq ptr %22, %23
   br i1 %24, label %_ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %25
 
 25:                                               ; preds = %_ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -10602,7 +10602,7 @@ _ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %90 = load ptr, ptr %2, align 8
   %91 = getelementptr inbounds i8, ptr %0, i64 216
-  %92 = icmp eq ptr %91, %90
+  %92 = icmp eq ptr %90, %91
   br i1 %92, label %_ZNSt13unordered_mapIPK12AstNodeDTypeSt5dequeIP8AstConstSaIS5_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S7_EEED2Ev.exit, label %93
 
 93:                                               ; preds = %_ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -10999,7 +10999,7 @@ _ZNSt11_Deque_baseIN15SimulateVisitor11AuxVariableESaIS1_EE16_M_allocate_nodeEv.
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #21
-  %20 = icmp ugt ptr %.011.i, %11
+  %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN15SimulateVisitor11AuxVariableESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
@@ -15035,7 +15035,7 @@ _ZNK14TableOutputVar4nameB5cxx11Ev.exit:          ; preds = %508
   %529 = getelementptr inbounds i8, ptr %.sroa.0153.0258, i64 8
   %530 = load i32, ptr %529, align 8
   %531 = load i32, ptr %44, align 8
-  %.not.i90 = icmp sgt i32 %531, %530
+  %.not.i90 = icmp slt i32 %530, %531
   br i1 %.not.i90, label %532, label %_ZN8V3Number6setBitEic.exit
 
 532:                                              ; preds = %528
@@ -16642,7 +16642,7 @@ define linkonce_odr dso_local void @_ZNK8AstConst4nameB5cxx11Ev(ptr dead_on_unwi
 define linkonce_odr dso_local void @_ZN8V3Number6setBitEic(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %5, %1
+  %.not = icmp slt i32 %1, %5
   br i1 %.not, label %6, label %49
 
 6:                                                ; preds = %3
@@ -17664,7 +17664,7 @@ _ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds = %.lr
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #21
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -17838,7 +17838,7 @@ _ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge

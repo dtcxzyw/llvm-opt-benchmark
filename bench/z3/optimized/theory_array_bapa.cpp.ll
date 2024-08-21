@@ -1825,7 +1825,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %_ZN7obj_refI4expr1
   %5 = load i32, ptr %e, align 4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 -4
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %6, %5
+  %cmp.not.i.i = icmp ult i32 %5, %6
   br i1 %cmp.not.i.i, label %invoke.cont2, label %if.then
 
 invoke.cont2:                                     ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i

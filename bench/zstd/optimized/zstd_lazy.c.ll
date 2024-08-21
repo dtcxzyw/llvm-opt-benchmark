@@ -800,7 +800,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
 if.then192.i:                                     ; preds = %while.body.i
   %add.ptr194.i = getelementptr inbounds i8, ptr %ip.i.01471, i64 5
   %add.ptr199.i = getelementptr inbounds i8, ptr %add.ptr194.i, i64 %idx.neg.i
-  %cmp.i1341 = icmp ugt ptr %add.ptr.i1340, %add.ptr194.i
+  %cmp.i1341 = icmp ult ptr %add.ptr194.i, %add.ptr.i1340
   br i1 %cmp.i1341, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %if.then192.i
@@ -1161,7 +1161,7 @@ land.rhs657.i:                                    ; preds = %if.end646.i, %ZSTD_
 while.body666.i:                                  ; preds = %land.rhs657.i
   %add.ptr667.i = getelementptr inbounds i8, ptr %ip.i.51498, i64 4
   %add.ptr671.i = getelementptr inbounds i8, ptr %add.ptr667.i, i64 %idx.neg660.i
-  %cmp.i1352 = icmp ugt ptr %add.ptr.i1340, %add.ptr667.i
+  %cmp.i1352 = icmp ult ptr %add.ptr667.i, %add.ptr.i1340
   br i1 %cmp.i1352, label %if.then.i1391, label %if.end19.i1353
 
 if.then.i1391:                                    ; preds = %while.body666.i
@@ -1723,7 +1723,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1342, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1342, ptr %add.ptr.i
   %add.ptr.i.i1343 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1343, %add.ptr637.i
+  %cmp.i.i = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1343
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -1827,7 +1827,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -2384,7 +2384,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1342, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1342, ptr %add.ptr.i
   %add.ptr.i.i1343 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1343, %add.ptr637.i
+  %cmp.i.i = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1343
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -2488,7 +2488,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -2954,7 +2954,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
 if.then192.i:                                     ; preds = %while.body.i
   %add.ptr194.i = getelementptr inbounds i8, ptr %ip.i.01596, i64 5
   %add.ptr199.i = getelementptr inbounds i8, ptr %add.ptr194.i, i64 %idx.neg.i
-  %cmp.i1356 = icmp ugt ptr %add.ptr.i1355, %add.ptr194.i
+  %cmp.i1356 = icmp ult ptr %add.ptr194.i, %add.ptr.i1355
   br i1 %cmp.i1356, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %if.then192.i
@@ -3453,7 +3453,7 @@ land.rhs657.i:                                    ; preds = %if.end646.i, %ZSTD_
 while.body666.i:                                  ; preds = %land.rhs657.i
   %add.ptr667.i = getelementptr inbounds i8, ptr %ip.i.51620, i64 4
   %add.ptr671.i = getelementptr inbounds i8, ptr %add.ptr667.i, i64 %idx.neg660.i
-  %cmp.i1384 = icmp ugt ptr %add.ptr.i1355, %add.ptr667.i
+  %cmp.i1384 = icmp ult ptr %add.ptr667.i, %add.ptr.i1355
   br i1 %cmp.i1384, label %if.then.i1423, label %if.end19.i1385
 
 if.then.i1423:                                    ; preds = %while.body666.i
@@ -4364,7 +4364,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1371, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1371, ptr %add.ptr.i
   %add.ptr.i.i1372 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1372, %add.ptr637.i
+  %cmp.i.i = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1372
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -4468,7 +4468,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i1375 = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i1375
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i1375, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -5374,7 +5374,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1371, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1371, ptr %add.ptr.i
   %add.ptr.i.i1372 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1372, %add.ptr637.i
+  %cmp.i.i = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1372
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -5478,7 +5478,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i1375 = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i1375
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i1375, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -5733,7 +5733,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
 if.then192.i:                                     ; preds = %while.body.i
   %add.ptr194.i = getelementptr inbounds i8, ptr %ip.i.01551, i64 5
   %add.ptr199.i = getelementptr inbounds i8, ptr %add.ptr194.i, i64 %idx.neg.i
-  %cmp.i1342 = icmp ugt ptr %add.ptr.i1341, %add.ptr194.i
+  %cmp.i1342 = icmp ult ptr %add.ptr194.i, %add.ptr.i1341
   br i1 %cmp.i1342, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %if.then192.i
@@ -5908,7 +5908,7 @@ land.lhs.true237.i:                               ; preds = %while.body230.i
 if.then249.i:                                     ; preds = %land.lhs.true237.i
   %add.ptr250.i = getelementptr inbounds i8, ptr %ip.i.1, i64 5
   %add.ptr254.i = getelementptr inbounds i8, ptr %add.ptr250.i, i64 %idx.neg.i
-  %cmp.i1348 = icmp ugt ptr %add.ptr.i1341, %add.ptr250.i
+  %cmp.i1348 = icmp ult ptr %add.ptr250.i, %add.ptr.i1341
   br i1 %cmp.i1348, label %if.then.i1387, label %if.end19.i1349
 
 if.then.i1387:                                    ; preds = %if.then249.i
@@ -6293,7 +6293,7 @@ land.rhs657.i:                                    ; preds = %if.end646.i, %ZSTD_
 while.body666.i:                                  ; preds = %land.rhs657.i
   %add.ptr667.i = getelementptr inbounds i8, ptr %ip.i.51573, i64 4
   %add.ptr671.i = getelementptr inbounds i8, ptr %add.ptr667.i, i64 %idx.neg660.i
-  %cmp.i1422 = icmp ugt ptr %add.ptr.i1341, %add.ptr667.i
+  %cmp.i1422 = icmp ult ptr %add.ptr667.i, %add.ptr.i1341
   br i1 %cmp.i1422, label %if.then.i1461, label %if.end19.i1423
 
 if.then.i1461:                                    ; preds = %while.body666.i
@@ -6973,7 +6973,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1346, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1346, ptr %add.ptr.i
   %add.ptr.i.i1347 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1347, %add.ptr637.i
+  %cmp.i.i = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1347
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -7077,7 +7077,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -7752,7 +7752,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1346, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1346, ptr %add.ptr.i
   %add.ptr.i.i1347 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1347, %add.ptr637.i
+  %cmp.i.i = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1347
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -7856,7 +7856,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -8323,7 +8323,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
 if.then192.i:                                     ; preds = %while.body.i
   %add.ptr194.i = getelementptr inbounds i8, ptr %ip.i.01685, i64 5
   %add.ptr199.i = getelementptr inbounds i8, ptr %add.ptr194.i, i64 %idx.neg.i
-  %cmp.i1357 = icmp ugt ptr %add.ptr.i1356, %add.ptr194.i
+  %cmp.i1357 = icmp ult ptr %add.ptr194.i, %add.ptr.i1356
   br i1 %cmp.i1357, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %if.then192.i
@@ -8552,7 +8552,7 @@ land.lhs.true237.i:                               ; preds = %while.body230.i
 if.then249.i:                                     ; preds = %land.lhs.true237.i
   %add.ptr250.i = getelementptr inbounds i8, ptr %ip.i.1, i64 5
   %add.ptr254.i = getelementptr inbounds i8, ptr %add.ptr250.i, i64 %idx.neg.i
-  %cmp.i1365 = icmp ugt ptr %add.ptr.i1356, %add.ptr250.i
+  %cmp.i1365 = icmp ult ptr %add.ptr250.i, %add.ptr.i1356
   br i1 %cmp.i1365, label %if.then.i1404, label %if.end19.i1366
 
 if.then.i1404:                                    ; preds = %if.then249.i
@@ -9074,7 +9074,7 @@ land.rhs657.i:                                    ; preds = %if.end646.i, %ZSTD_
 while.body666.i:                                  ; preds = %land.rhs657.i
   %add.ptr667.i = getelementptr inbounds i8, ptr %ip.i.51709, i64 4
   %add.ptr671.i = getelementptr inbounds i8, ptr %add.ptr667.i, i64 %idx.neg660.i
-  %cmp.i1454 = icmp ugt ptr %add.ptr.i1356, %add.ptr667.i
+  %cmp.i1454 = icmp ult ptr %add.ptr667.i, %add.ptr.i1356
   br i1 %cmp.i1454, label %if.then.i1493, label %if.end19.i1455
 
 if.then.i1493:                                    ; preds = %while.body666.i
@@ -10157,7 +10157,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1375, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1375, ptr %add.ptr.i
   %add.ptr.i.i1376 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1376, %add.ptr637.i
+  %cmp.i.i = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1376
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -10261,7 +10261,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i1379 = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i1379
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i1379, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -11339,7 +11339,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1375, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1375, ptr %add.ptr.i
   %add.ptr.i.i1376 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1376, %add.ptr637.i
+  %cmp.i.i = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1376
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -11443,7 +11443,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i1379 = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i1379
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i1379, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -11699,7 +11699,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
 if.then192.i:                                     ; preds = %while.body.i
   %add.ptr194.i = getelementptr inbounds i8, ptr %ip.i.01629, i64 5
   %add.ptr199.i = getelementptr inbounds i8, ptr %add.ptr194.i, i64 %idx.neg.i
-  %cmp.i1343 = icmp ugt ptr %add.ptr.i1342, %add.ptr194.i
+  %cmp.i1343 = icmp ult ptr %add.ptr194.i, %add.ptr.i1342
   br i1 %cmp.i1343, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %if.then192.i
@@ -11871,7 +11871,7 @@ land.lhs.true237.i:                               ; preds = %while.body230.i
 if.then249.i:                                     ; preds = %land.lhs.true237.i
   %add.ptr250.i = getelementptr inbounds i8, ptr %ip.i.11641, i64 5
   %add.ptr254.i = getelementptr inbounds i8, ptr %add.ptr250.i, i64 %idx.neg.i
-  %cmp.i1349 = icmp ugt ptr %add.ptr.i1342, %add.ptr250.i
+  %cmp.i1349 = icmp ult ptr %add.ptr250.i, %add.ptr.i1342
   br i1 %cmp.i1349, label %if.then.i1388, label %if.end19.i1350
 
 if.then.i1388:                                    ; preds = %if.then249.i
@@ -12055,7 +12055,7 @@ land.lhs.true372.i:                               ; preds = %if.then364.i
 if.then384.i:                                     ; preds = %land.lhs.true372.i
   %add.ptr386.i = getelementptr inbounds i8, ptr %ip.i.11641, i64 6
   %add.ptr390.i = getelementptr inbounds i8, ptr %add.ptr386.i, i64 %idx.neg.i
-  %cmp.i1417 = icmp ugt ptr %add.ptr.i1342, %add.ptr386.i
+  %cmp.i1417 = icmp ult ptr %add.ptr386.i, %add.ptr.i1342
   br i1 %cmp.i1417, label %if.then.i1456, label %if.end19.i1418
 
 if.then.i1456:                                    ; preds = %if.then384.i
@@ -12434,7 +12434,7 @@ land.rhs657.i:                                    ; preds = %if.end646.i, %ZSTD_
 while.body666.i:                                  ; preds = %land.rhs657.i
   %add.ptr667.i = getelementptr inbounds i8, ptr %ip.i.51670, i64 4
   %add.ptr671.i = getelementptr inbounds i8, ptr %add.ptr667.i, i64 %idx.neg660.i
-  %cmp.i1491 = icmp ugt ptr %add.ptr.i1342, %add.ptr667.i
+  %cmp.i1491 = icmp ult ptr %add.ptr667.i, %add.ptr.i1342
   br i1 %cmp.i1491, label %if.then.i1530, label %if.end19.i1492
 
 if.then.i1530:                                    ; preds = %while.body666.i
@@ -13213,7 +13213,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1350, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1350, ptr %add.ptr.i
   %add.ptr.i.i1351 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1351, %add.ptr637.i
+  %cmp.i.i = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1351
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -13317,7 +13317,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -14091,7 +14091,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1350, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1350, ptr %add.ptr.i
   %add.ptr.i.i1351 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1351, %add.ptr637.i
+  %cmp.i.i = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1351
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -14195,7 +14195,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -14663,7 +14663,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
 if.then192.i:                                     ; preds = %while.body.i
   %add.ptr194.i = getelementptr inbounds i8, ptr %ip.i.01772, i64 5
   %add.ptr199.i = getelementptr inbounds i8, ptr %add.ptr194.i, i64 %idx.neg.i
-  %cmp.i1358 = icmp ugt ptr %add.ptr.i1357, %add.ptr194.i
+  %cmp.i1358 = icmp ult ptr %add.ptr194.i, %add.ptr.i1357
   br i1 %cmp.i1358, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %if.then192.i
@@ -14889,7 +14889,7 @@ land.lhs.true237.i:                               ; preds = %while.body230.i
 if.then249.i:                                     ; preds = %land.lhs.true237.i
   %add.ptr250.i = getelementptr inbounds i8, ptr %ip.i.11784, i64 5
   %add.ptr254.i = getelementptr inbounds i8, ptr %add.ptr250.i, i64 %idx.neg.i
-  %cmp.i1366 = icmp ugt ptr %add.ptr.i1357, %add.ptr250.i
+  %cmp.i1366 = icmp ult ptr %add.ptr250.i, %add.ptr.i1357
   br i1 %cmp.i1366, label %if.then.i1405, label %if.end19.i1367
 
 if.then.i1405:                                    ; preds = %if.then249.i
@@ -15118,7 +15118,7 @@ land.lhs.true372.i:                               ; preds = %if.then364.i
 if.then384.i:                                     ; preds = %land.lhs.true372.i
   %add.ptr386.i = getelementptr inbounds i8, ptr %ip.i.11784, i64 6
   %add.ptr390.i = getelementptr inbounds i8, ptr %add.ptr386.i, i64 %idx.neg.i
-  %cmp.i1434 = icmp ugt ptr %add.ptr.i1357, %add.ptr386.i
+  %cmp.i1434 = icmp ult ptr %add.ptr386.i, %add.ptr.i1357
   br i1 %cmp.i1434, label %if.then.i1473, label %if.end19.i1435
 
 if.then.i1473:                                    ; preds = %if.then384.i
@@ -15634,7 +15634,7 @@ land.rhs657.i:                                    ; preds = %if.end646.i, %ZSTD_
 while.body666.i:                                  ; preds = %land.rhs657.i
   %add.ptr667.i = getelementptr inbounds i8, ptr %ip.i.51815, i64 4
   %add.ptr671.i = getelementptr inbounds i8, ptr %add.ptr667.i, i64 %idx.neg660.i
-  %cmp.i1523 = icmp ugt ptr %add.ptr.i1357, %add.ptr667.i
+  %cmp.i1523 = icmp ult ptr %add.ptr667.i, %add.ptr.i1357
   br i1 %cmp.i1523, label %if.then.i1562, label %if.end19.i1524
 
 if.then.i1562:                                    ; preds = %while.body666.i
@@ -16861,7 +16861,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1379, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1379, ptr %add.ptr.i
   %add.ptr.i.i1380 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1380, %add.ptr637.i
+  %cmp.i.i = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1380
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -16965,7 +16965,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i1383 = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i1383
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i1383, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -18187,7 +18187,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1379, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1379, ptr %add.ptr.i
   %add.ptr.i.i1380 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1380, %add.ptr637.i
+  %cmp.i.i = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1380
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -18291,7 +18291,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i1383 = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i1383
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i1383, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -18552,7 +18552,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
 if.then192.i:                                     ; preds = %while.body.i
   %add.ptr194.i = getelementptr inbounds i8, ptr %ip.i.01914, i64 5
   %add.ptr199.i = getelementptr inbounds i8, ptr %add.ptr194.i, i64 %idx.neg.i
-  %cmp.i1343 = icmp ugt ptr %add.ptr.i1342, %add.ptr194.i
+  %cmp.i1343 = icmp ult ptr %add.ptr194.i, %add.ptr.i1342
   br i1 %cmp.i1343, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %if.then192.i
@@ -18658,7 +18658,7 @@ if.end206.i:                                      ; preds = %ZSTD_count.exit, %w
   %14 = load i32, ptr %nextToUpdate.i.i1372, align 4
   %idx.ext.i.i = zext i32 %14 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 %idx.ext.i.i
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %ip.i.01914
+  %cmp.i.i = icmp ult ptr %ip.i.01914, %add.ptr.i.i
   switch i32 %spec.select1889, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb7.i513
     i32 5, label %sw.bb9.i511
@@ -18858,7 +18858,7 @@ land.lhs.true237.i:                               ; preds = %while.body230.i
 if.then249.i:                                     ; preds = %land.lhs.true237.i
   %add.ptr250.i = getelementptr inbounds i8, ptr %ip.i.11926, i64 5
   %add.ptr254.i = getelementptr inbounds i8, ptr %add.ptr250.i, i64 %idx.neg.i
-  %cmp.i1397 = icmp ugt ptr %add.ptr.i1342, %add.ptr250.i
+  %cmp.i1397 = icmp ult ptr %add.ptr250.i, %add.ptr.i1342
   br i1 %cmp.i1397, label %if.then.i1436, label %if.end19.i1398
 
 if.then.i1436:                                    ; preds = %if.then249.i
@@ -18986,7 +18986,7 @@ sw.bb7.i319:                                      ; preds = %if.end334.i
   %47 = load i32, ptr %nextToUpdate.i.i1372, align 4
   %idx.ext.i.i1464 = zext i32 %47 to i64
   %add.ptr.i.i1465 = getelementptr inbounds i8, ptr %46, i64 %idx.ext.i.i1464
-  %cmp.i.i1466 = icmp ugt ptr %add.ptr.i.i1465, %incdec.ptr.i
+  %cmp.i.i1466 = icmp ult ptr %incdec.ptr.i, %add.ptr.i.i1465
   br i1 %cmp.i.i1466, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1467
 
 if.end.i.i1467:                                   ; preds = %sw.bb7.i319
@@ -19036,7 +19036,7 @@ sw.bb9.i317:                                      ; preds = %if.end334.i
   %56 = load i32, ptr %nextToUpdate.i.i1372, align 4
   %idx.ext.i.i1503 = zext i32 %56 to i64
   %add.ptr.i.i1504 = getelementptr inbounds i8, ptr %55, i64 %idx.ext.i.i1503
-  %cmp.i.i1505 = icmp ugt ptr %add.ptr.i.i1504, %incdec.ptr.i
+  %cmp.i.i1505 = icmp ult ptr %incdec.ptr.i, %add.ptr.i.i1504
   br i1 %cmp.i.i1505, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1506
 
 if.end.i.i1506:                                   ; preds = %sw.bb9.i317
@@ -19086,7 +19086,7 @@ sw.bb11.i315:                                     ; preds = %if.end334.i
   %65 = load i32, ptr %nextToUpdate.i.i1372, align 4
   %idx.ext.i.i1542 = zext i32 %65 to i64
   %add.ptr.i.i1543 = getelementptr inbounds i8, ptr %64, i64 %idx.ext.i.i1542
-  %cmp.i.i1544 = icmp ugt ptr %add.ptr.i.i1543, %incdec.ptr.i
+  %cmp.i.i1544 = icmp ult ptr %incdec.ptr.i, %add.ptr.i.i1543
   br i1 %cmp.i.i1544, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1545
 
 if.end.i.i1545:                                   ; preds = %sw.bb11.i315
@@ -19190,7 +19190,7 @@ land.lhs.true372.i:                               ; preds = %if.then364.i
 if.then384.i:                                     ; preds = %land.lhs.true372.i
   %add.ptr386.i = getelementptr inbounds i8, ptr %ip.i.11926, i64 6
   %add.ptr390.i = getelementptr inbounds i8, ptr %add.ptr386.i, i64 %idx.neg.i
-  %cmp.i1582 = icmp ugt ptr %add.ptr.i1342, %add.ptr386.i
+  %cmp.i1582 = icmp ult ptr %add.ptr386.i, %add.ptr.i1342
   br i1 %cmp.i1582, label %if.then.i1621, label %if.end19.i1583
 
 if.then.i1621:                                    ; preds = %if.then384.i
@@ -19312,7 +19312,7 @@ sw.bb7.i132:                                      ; preds = %if.end473.i
   %88 = load i32, ptr %nextToUpdate.i.i1372, align 4
   %idx.ext.i.i1649 = zext i32 %88 to i64
   %add.ptr.i.i1650 = getelementptr inbounds i8, ptr %87, i64 %idx.ext.i.i1649
-  %cmp.i.i1651 = icmp ugt ptr %add.ptr.i.i1650, %incdec.ptr367.i
+  %cmp.i.i1651 = icmp ult ptr %incdec.ptr367.i, %add.ptr.i.i1650
   br i1 %cmp.i.i1651, label %if.end500.i, label %if.end.i.i1652
 
 if.end.i.i1652:                                   ; preds = %sw.bb7.i132
@@ -19362,7 +19362,7 @@ sw.bb9.i:                                         ; preds = %if.end473.i
   %97 = load i32, ptr %nextToUpdate.i.i1372, align 4
   %idx.ext.i.i1688 = zext i32 %97 to i64
   %add.ptr.i.i1689 = getelementptr inbounds i8, ptr %96, i64 %idx.ext.i.i1688
-  %cmp.i.i1690 = icmp ugt ptr %add.ptr.i.i1689, %incdec.ptr367.i
+  %cmp.i.i1690 = icmp ult ptr %incdec.ptr367.i, %add.ptr.i.i1689
   br i1 %cmp.i.i1690, label %if.end500.i, label %if.end.i.i1691
 
 if.end.i.i1691:                                   ; preds = %sw.bb9.i
@@ -19412,7 +19412,7 @@ sw.bb11.i:                                        ; preds = %if.end473.i
   %106 = load i32, ptr %nextToUpdate.i.i1372, align 4
   %idx.ext.i.i1727 = zext i32 %106 to i64
   %add.ptr.i.i1728 = getelementptr inbounds i8, ptr %105, i64 %idx.ext.i.i1727
-  %cmp.i.i1729 = icmp ugt ptr %add.ptr.i.i1728, %incdec.ptr367.i
+  %cmp.i.i1729 = icmp ult ptr %incdec.ptr367.i, %add.ptr.i.i1728
   br i1 %cmp.i.i1729, label %if.end500.i, label %if.end.i.i1730
 
 if.end.i.i1730:                                   ; preds = %sw.bb11.i
@@ -19709,7 +19709,7 @@ land.rhs657.i:                                    ; preds = %if.end646.i, %ZSTD_
 while.body666.i:                                  ; preds = %land.rhs657.i
   %add.ptr667.i = getelementptr inbounds i8, ptr %ip.i.51955, i64 4
   %add.ptr671.i = getelementptr inbounds i8, ptr %add.ptr667.i, i64 %idx.neg660.i
-  %cmp.i1776 = icmp ugt ptr %add.ptr.i1342, %add.ptr667.i
+  %cmp.i1776 = icmp ult ptr %add.ptr667.i, %add.ptr.i1342
   br i1 %cmp.i1776, label %if.then.i1815, label %if.end19.i1777
 
 if.then.i1815:                                    ; preds = %while.body666.i
@@ -20000,7 +20000,7 @@ if.end206.i:                                      ; preds = %land.lhs.true154.i,
   %13 = load i32, ptr %nextToUpdate.i.i1361, align 4
   %idx.ext.i.i = zext i32 %13 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext.i.i
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %ip.i.01702
+  %cmp.i.i = icmp ult ptr %ip.i.01702, %add.ptr.i.i
   switch i32 %spec.select1682, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb112.i425
     i32 5, label %sw.bb114.i423
@@ -20243,7 +20243,7 @@ sw.bb112.i231:                                    ; preds = %if.end334.i
   %43 = load i32, ptr %nextToUpdate.i.i1361, align 4
   %idx.ext.i.i1388 = zext i32 %43 to i64
   %add.ptr.i.i1389 = getelementptr inbounds i8, ptr %42, i64 %idx.ext.i.i1388
-  %cmp.i.i1390 = icmp ugt ptr %add.ptr.i.i1389, %incdec.ptr.i
+  %cmp.i.i1390 = icmp ult ptr %incdec.ptr.i, %add.ptr.i.i1389
   br i1 %cmp.i.i1390, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1391
 
 if.end.i.i1391:                                   ; preds = %sw.bb112.i231
@@ -20292,7 +20292,7 @@ sw.bb114.i229:                                    ; preds = %if.end334.i
   %52 = load i32, ptr %nextToUpdate.i.i1361, align 4
   %idx.ext.i.i1427 = zext i32 %52 to i64
   %add.ptr.i.i1428 = getelementptr inbounds i8, ptr %51, i64 %idx.ext.i.i1427
-  %cmp.i.i1429 = icmp ugt ptr %add.ptr.i.i1428, %incdec.ptr.i
+  %cmp.i.i1429 = icmp ult ptr %incdec.ptr.i, %add.ptr.i.i1428
   br i1 %cmp.i.i1429, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1430
 
 if.end.i.i1430:                                   ; preds = %sw.bb114.i229
@@ -20341,7 +20341,7 @@ sw.bb116.i227:                                    ; preds = %if.end334.i
   %61 = load i32, ptr %nextToUpdate.i.i1361, align 4
   %idx.ext.i.i1466 = zext i32 %61 to i64
   %add.ptr.i.i1467 = getelementptr inbounds i8, ptr %60, i64 %idx.ext.i.i1466
-  %cmp.i.i1468 = icmp ugt ptr %add.ptr.i.i1467, %incdec.ptr.i
+  %cmp.i.i1468 = icmp ult ptr %incdec.ptr.i, %add.ptr.i.i1467
   br i1 %cmp.i.i1468, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1469
 
 if.end.i.i1469:                                   ; preds = %sw.bb116.i227
@@ -20487,7 +20487,7 @@ sw.bb112.i:                                       ; preds = %if.end473.i
   %81 = load i32, ptr %nextToUpdate.i.i1361, align 4
   %idx.ext.i.i1508 = zext i32 %81 to i64
   %add.ptr.i.i1509 = getelementptr inbounds i8, ptr %80, i64 %idx.ext.i.i1508
-  %cmp.i.i1510 = icmp ugt ptr %add.ptr.i.i1509, %incdec.ptr367.i
+  %cmp.i.i1510 = icmp ult ptr %incdec.ptr367.i, %add.ptr.i.i1509
   br i1 %cmp.i.i1510, label %if.end500.i, label %if.end.i.i1511
 
 if.end.i.i1511:                                   ; preds = %sw.bb112.i
@@ -20536,7 +20536,7 @@ sw.bb114.i:                                       ; preds = %if.end473.i
   %90 = load i32, ptr %nextToUpdate.i.i1361, align 4
   %idx.ext.i.i1547 = zext i32 %90 to i64
   %add.ptr.i.i1548 = getelementptr inbounds i8, ptr %89, i64 %idx.ext.i.i1547
-  %cmp.i.i1549 = icmp ugt ptr %add.ptr.i.i1548, %incdec.ptr367.i
+  %cmp.i.i1549 = icmp ult ptr %incdec.ptr367.i, %add.ptr.i.i1548
   br i1 %cmp.i.i1549, label %if.end500.i, label %if.end.i.i1550
 
 if.end.i.i1550:                                   ; preds = %sw.bb114.i
@@ -20585,7 +20585,7 @@ sw.bb116.i:                                       ; preds = %if.end473.i
   %99 = load i32, ptr %nextToUpdate.i.i1361, align 4
   %idx.ext.i.i1586 = zext i32 %99 to i64
   %add.ptr.i.i1587 = getelementptr inbounds i8, ptr %98, i64 %idx.ext.i.i1586
-  %cmp.i.i1588 = icmp ugt ptr %add.ptr.i.i1587, %incdec.ptr367.i
+  %cmp.i.i1588 = icmp ult ptr %incdec.ptr367.i, %add.ptr.i.i1587
   br i1 %cmp.i.i1588, label %if.end500.i, label %if.end.i.i1589
 
 if.end.i.i1589:                                   ; preds = %sw.bb116.i
@@ -20904,7 +20904,7 @@ if.then630.i:                                     ; preds = %land.lhs.true625.i
   %cmp.i = icmp ult ptr %add.ptr.i1635, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i, ptr %add.ptr.i1635, ptr %add.ptr.i
   %add.ptr.i.i1636 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i1637 = icmp ugt ptr %add.ptr.i.i1636, %add.ptr637.i
+  %cmp.i.i1637 = icmp ult ptr %add.ptr637.i, %add.ptr.i.i1636
   br i1 %cmp.i.i1637, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then630.i
@@ -21008,7 +21008,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr637.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -21204,7 +21204,7 @@ entry:
   %7 = load i32, ptr %arrayidx60.i, align 4
   %lazySkipping.i = getelementptr inbounds i8, ptr %ms, i64 300
   store i32 0, ptr %lazySkipping.i, align 4
-  %cmp61.i = icmp eq ptr %add.ptr7.i, %src
+  %cmp61.i = icmp eq ptr %src, %add.ptr7.i
   %idx.ext62.i = zext i1 %cmp61.i to i64
   %add.ptr63.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext62.i
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !25
@@ -21573,7 +21573,7 @@ if.then414.i:                                     ; preds = %if.then409.i
   %cmp.i1206 = icmp ult ptr %add.ptr.i1205, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i1206, ptr %add.ptr.i1205, ptr %add.ptr.i
   %add.ptr.i.i1207 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1207, %add.ptr422.i
+  %cmp.i.i = icmp ult ptr %add.ptr422.i, %add.ptr.i.i1207
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then414.i
@@ -21677,7 +21677,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr422.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -21874,7 +21874,7 @@ entry:
   %8 = load i32, ptr %arrayidx60.i, align 4
   %lazySkipping.i = getelementptr inbounds i8, ptr %ms, i64 300
   store i32 0, ptr %lazySkipping.i, align 4
-  %cmp61.i = icmp eq ptr %add.ptr7.i, %src
+  %cmp61.i = icmp eq ptr %src, %add.ptr7.i
   %idx.ext62.i = zext i1 %cmp61.i to i64
   %add.ptr63.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext62.i
   %nextToUpdate.i = getelementptr inbounds i8, ptr %ms, i64 44
@@ -22588,7 +22588,7 @@ if.then414.i:                                     ; preds = %if.then409.i
   %cmp.i1237 = icmp ult ptr %add.ptr.i1236, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i1237, ptr %add.ptr.i1236, ptr %add.ptr.i
   %add.ptr.i.i1238 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1238, %add.ptr422.i
+  %cmp.i.i = icmp ult ptr %add.ptr422.i, %add.ptr.i.i1238
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then414.i
@@ -22692,7 +22692,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i1241 = getelementptr inbounds i8, ptr %add.ptr422.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i1241
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i1241, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -22886,7 +22886,7 @@ entry:
   %7 = load i32, ptr %arrayidx60.i, align 4
   %lazySkipping.i = getelementptr inbounds i8, ptr %ms, i64 300
   store i32 0, ptr %lazySkipping.i, align 4
-  %cmp61.i = icmp eq ptr %add.ptr7.i, %src
+  %cmp61.i = icmp eq ptr %src, %add.ptr7.i
   %idx.ext62.i = zext i1 %cmp61.i to i64
   %add.ptr63.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext62.i
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !25
@@ -23382,7 +23382,7 @@ if.then414.i:                                     ; preds = %if.then409.i
   %cmp.i1219 = icmp ult ptr %add.ptr.i1218, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i1219, ptr %add.ptr.i1218, ptr %add.ptr.i
   %add.ptr.i.i1220 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1220, %add.ptr422.i
+  %cmp.i.i = icmp ult ptr %add.ptr422.i, %add.ptr.i.i1220
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then414.i
@@ -23486,7 +23486,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr422.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -23684,7 +23684,7 @@ entry:
   %8 = load i32, ptr %arrayidx60.i, align 4
   %lazySkipping.i = getelementptr inbounds i8, ptr %ms, i64 300
   store i32 0, ptr %lazySkipping.i, align 4
-  %cmp61.i = icmp eq ptr %add.ptr7.i, %src
+  %cmp61.i = icmp eq ptr %src, %add.ptr7.i
   %idx.ext62.i = zext i1 %cmp61.i to i64
   %add.ptr63.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext62.i
   %nextToUpdate.i = getelementptr inbounds i8, ptr %ms, i64 44
@@ -24579,7 +24579,7 @@ if.then414.i:                                     ; preds = %if.then409.i
   %cmp.i1250 = icmp ult ptr %add.ptr.i1249, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i1250, ptr %add.ptr.i1249, ptr %add.ptr.i
   %add.ptr.i.i1251 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1251, %add.ptr422.i
+  %cmp.i.i = icmp ult ptr %add.ptr422.i, %add.ptr.i.i1251
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then414.i
@@ -24683,7 +24683,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i1254 = getelementptr inbounds i8, ptr %add.ptr422.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i1254
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i1254, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -24878,7 +24878,7 @@ entry:
   %7 = load i32, ptr %arrayidx60.i, align 4
   %lazySkipping.i = getelementptr inbounds i8, ptr %ms, i64 300
   store i32 0, ptr %lazySkipping.i, align 4
-  %cmp61.i = icmp eq ptr %add.ptr7.i, %src
+  %cmp61.i = icmp eq ptr %src, %add.ptr7.i
   %idx.ext62.i = zext i1 %cmp61.i to i64
   %add.ptr63.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext62.i
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !25
@@ -25482,7 +25482,7 @@ if.then414.i:                                     ; preds = %if.then409.i
   %cmp.i1231 = icmp ult ptr %add.ptr.i1230, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i1231, ptr %add.ptr.i1230, ptr %add.ptr.i
   %add.ptr.i.i1232 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1232, %add.ptr422.i
+  %cmp.i.i = icmp ult ptr %add.ptr422.i, %add.ptr.i.i1232
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then414.i
@@ -25586,7 +25586,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr422.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -25785,7 +25785,7 @@ entry:
   %8 = load i32, ptr %arrayidx60.i, align 4
   %lazySkipping.i = getelementptr inbounds i8, ptr %ms, i64 300
   store i32 0, ptr %lazySkipping.i, align 4
-  %cmp61.i = icmp eq ptr %add.ptr7.i, %src
+  %cmp61.i = icmp eq ptr %src, %add.ptr7.i
   %idx.ext62.i = zext i1 %cmp61.i to i64
   %add.ptr63.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext62.i
   %nextToUpdate.i = getelementptr inbounds i8, ptr %ms, i64 44
@@ -26833,7 +26833,7 @@ if.then414.i:                                     ; preds = %if.then409.i
   %cmp.i1262 = icmp ult ptr %add.ptr.i1261, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i1262, ptr %add.ptr.i1261, ptr %add.ptr.i
   %add.ptr.i.i1263 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i1263, %add.ptr422.i
+  %cmp.i.i = icmp ult ptr %add.ptr422.i, %add.ptr.i.i1263
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then414.i
@@ -26937,7 +26937,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i1266 = getelementptr inbounds i8, ptr %add.ptr422.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i1266
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i1266, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -27132,7 +27132,7 @@ entry:
   %7 = load i32, ptr %arrayidx60.i, align 4
   %lazySkipping.i = getelementptr inbounds i8, ptr %ms, i64 300
   store i32 0, ptr %lazySkipping.i, align 4
-  %cmp61.i = icmp eq ptr %add.ptr7.i, %src
+  %cmp61.i = icmp eq ptr %src, %add.ptr7.i
   %idx.ext62.i = zext i1 %cmp61.i to i64
   %add.ptr63.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext62.i
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !25
@@ -27216,7 +27216,7 @@ if.end110.i:                                      ; preds = %if.then93.i, %if.th
   %11 = load i32, ptr %nextToUpdate.i.i1222, align 4
   %idx.ext.i.i = zext i32 %11 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %idx.ext.i.i
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %ip.i.01587
+  %cmp.i.i = icmp ult ptr %ip.i.01587, %add.ptr.i.i
   switch i32 %spec.select1563, label %if.end110.i.unreachabledefault [
     i32 4, label %sw.bb58.i469
     i32 5, label %sw.bb60.i467
@@ -27470,7 +27470,7 @@ sw.bb58.i276:                                     ; preds = %if.end193.i
   %41 = load i32, ptr %nextToUpdate.i.i1222, align 4
   %idx.ext.i.i1255 = zext i32 %41 to i64
   %add.ptr.i.i1256 = getelementptr inbounds i8, ptr %40, i64 %idx.ext.i.i1255
-  %cmp.i.i1257 = icmp ugt ptr %add.ptr.i.i1256, %incdec.ptr.i
+  %cmp.i.i1257 = icmp ult ptr %incdec.ptr.i, %add.ptr.i.i1256
   br i1 %cmp.i.i1257, label %ZSTD_searchMax.exit331.thread, label %if.end.i.i1258
 
 if.end.i.i1258:                                   ; preds = %sw.bb58.i276
@@ -27520,7 +27520,7 @@ sw.bb60.i274:                                     ; preds = %if.end193.i
   %50 = load i32, ptr %nextToUpdate.i.i1222, align 4
   %idx.ext.i.i1294 = zext i32 %50 to i64
   %add.ptr.i.i1295 = getelementptr inbounds i8, ptr %49, i64 %idx.ext.i.i1294
-  %cmp.i.i1296 = icmp ugt ptr %add.ptr.i.i1295, %incdec.ptr.i
+  %cmp.i.i1296 = icmp ult ptr %incdec.ptr.i, %add.ptr.i.i1295
   br i1 %cmp.i.i1296, label %ZSTD_searchMax.exit331.thread, label %if.end.i.i1297
 
 if.end.i.i1297:                                   ; preds = %sw.bb60.i274
@@ -27570,7 +27570,7 @@ sw.bb62.i272:                                     ; preds = %if.end193.i
   %59 = load i32, ptr %nextToUpdate.i.i1222, align 4
   %idx.ext.i.i1333 = zext i32 %59 to i64
   %add.ptr.i.i1334 = getelementptr inbounds i8, ptr %58, i64 %idx.ext.i.i1333
-  %cmp.i.i1335 = icmp ugt ptr %add.ptr.i.i1334, %incdec.ptr.i
+  %cmp.i.i1335 = icmp ult ptr %incdec.ptr.i, %add.ptr.i.i1334
   br i1 %cmp.i.i1335, label %ZSTD_searchMax.exit331.thread, label %if.end.i.i1336
 
 if.end.i.i1336:                                   ; preds = %sw.bb62.i272
@@ -27729,7 +27729,7 @@ sw.bb58.i:                                        ; preds = %if.end290.i
   %79 = load i32, ptr %nextToUpdate.i.i1222, align 4
   %idx.ext.i.i1381 = zext i32 %79 to i64
   %add.ptr.i.i1382 = getelementptr inbounds i8, ptr %78, i64 %idx.ext.i.i1381
-  %cmp.i.i1383 = icmp ugt ptr %add.ptr.i.i1382, %incdec.ptr225.i
+  %cmp.i.i1383 = icmp ult ptr %incdec.ptr225.i, %add.ptr.i.i1382
   br i1 %cmp.i.i1383, label %if.end317.i, label %if.end.i.i1384
 
 if.end.i.i1384:                                   ; preds = %sw.bb58.i
@@ -27779,7 +27779,7 @@ sw.bb60.i:                                        ; preds = %if.end290.i
   %88 = load i32, ptr %nextToUpdate.i.i1222, align 4
   %idx.ext.i.i1420 = zext i32 %88 to i64
   %add.ptr.i.i1421 = getelementptr inbounds i8, ptr %87, i64 %idx.ext.i.i1420
-  %cmp.i.i1422 = icmp ugt ptr %add.ptr.i.i1421, %incdec.ptr225.i
+  %cmp.i.i1422 = icmp ult ptr %incdec.ptr225.i, %add.ptr.i.i1421
   br i1 %cmp.i.i1422, label %if.end317.i, label %if.end.i.i1423
 
 if.end.i.i1423:                                   ; preds = %sw.bb60.i
@@ -27829,7 +27829,7 @@ sw.bb62.i:                                        ; preds = %if.end290.i
   %97 = load i32, ptr %nextToUpdate.i.i1222, align 4
   %idx.ext.i.i1459 = zext i32 %97 to i64
   %add.ptr.i.i1460 = getelementptr inbounds i8, ptr %96, i64 %idx.ext.i.i1459
-  %cmp.i.i1461 = icmp ugt ptr %add.ptr.i.i1460, %incdec.ptr225.i
+  %cmp.i.i1461 = icmp ult ptr %incdec.ptr225.i, %add.ptr.i.i1460
   br i1 %cmp.i.i1461, label %if.end317.i, label %if.end.i.i1462
 
 if.end.i.i1462:                                   ; preds = %sw.bb62.i
@@ -28160,7 +28160,7 @@ if.then414.i:                                     ; preds = %if.then409.i
   %cmp.i1516 = icmp ult ptr %add.ptr.i1515, %add.ptr.i
   %add.ptr.iEnd.i = select i1 %cmp.i1516, ptr %add.ptr.i1515, ptr %add.ptr.i
   %add.ptr.i.i1517 = getelementptr inbounds i8, ptr %add.ptr.iEnd.i, i64 -7
-  %cmp.i.i1518 = icmp ugt ptr %add.ptr.i.i1517, %add.ptr422.i
+  %cmp.i.i1518 = icmp ult ptr %add.ptr422.i, %add.ptr.i.i1517
   br i1 %cmp.i.i1518, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %if.then414.i
@@ -28264,7 +28264,7 @@ ZSTD_count.exit.i:                                ; preds = %if.end56.i.i, %if.e
 
 do.end14.i:                                       ; preds = %ZSTD_count.exit.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr422.i, i64 %retval.0.i.i
-  %cmp.i15.i = icmp ugt ptr %add.ptr.i14.i, %add.ptr15.i
+  %cmp.i15.i = icmp ult ptr %add.ptr15.i, %add.ptr.i14.i
   br i1 %cmp.i15.i, label %if.then.i54.i, label %if.end19.i16.i
 
 if.then.i54.i:                                    ; preds = %do.end14.i
@@ -28440,7 +28440,7 @@ entry:
   %cmp = icmp ult ptr %add.ptr, %iEnd
   %add.ptr.iEnd = select i1 %cmp, ptr %add.ptr, ptr %iEnd
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.iEnd, i64 -7
-  %cmp.i = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i = icmp ult ptr %ip, %add.ptr.i
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %entry
@@ -28545,7 +28545,7 @@ ZSTD_count.exit:                                  ; preds = %if.then2.i, %if.end
 do.end14:                                         ; preds = %ZSTD_count.exit
   %add.ptr15 = getelementptr inbounds i8, ptr %ip, i64 %retval.0.i
   %add.ptr.i14 = getelementptr inbounds i8, ptr %iEnd, i64 -7
-  %cmp.i15 = icmp ugt ptr %add.ptr.i14, %add.ptr15
+  %cmp.i15 = icmp ult ptr %add.ptr15, %add.ptr.i14
   br i1 %cmp.i15, label %if.then.i54, label %if.end19.i16
 
 if.then.i54:                                      ; preds = %do.end14
@@ -28765,7 +28765,7 @@ while.end.i.i:                                    ; preds = %sw.bb.i23.i.i.us, %
 
 if.then58.i.lr.ph:                                ; preds = %while.end.i.i
   %add.ptr.i = getelementptr i8, ptr %iLimit, i64 -7
-  %cmp.i220 = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i220 = icmp ult ptr %ip, %add.ptr.i
   %add.ptr22.i = getelementptr i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub88.i = add i32 %conv.i, 3
@@ -28902,7 +28902,7 @@ if.end19.i.loopexit.us:                           ; preds = %while.cond.i.us
   br i1 %cmp23.i.us, label %land.lhs.true25.i.us, label %if.end33.i.us
 
 if.then58.i.lr.ph.split:                          ; preds = %if.then58.i.lr.ph
-  %cmp23.i = icmp ugt ptr %add.ptr22.i, %ip
+  %cmp23.i = icmp ult ptr %ip, %add.ptr22.i
   br i1 %cmp23.i, label %if.then58.i.us240, label %if.then58.i.lr.ph.split.split
 
 if.then58.i.us240:                                ; preds = %if.then58.i.lr.ph.split, %if.end100.i.us292
@@ -28985,7 +28985,7 @@ if.end100.i.us292:                                ; preds = %if.end96.i.us289
   br i1 %and.i213.us300, label %if.then58.i.us240, label %ZSTD_HcFindBestMatch.exit, !llvm.loop !31
 
 if.then58.i.lr.ph.split.split:                    ; preds = %if.then58.i.lr.ph.split
-  %cmp35.i = icmp ugt ptr %add.ptr34.i, %ip
+  %cmp35.i = icmp ult ptr %ip, %add.ptr34.i
   br label %if.then58.i
 
 if.then58.i:                                      ; preds = %if.then58.i.lr.ph.split.split, %if.end100.i
@@ -29169,7 +29169,7 @@ while.end.i.i:                                    ; preds = %sw.bb1.i21.i.i.us, 
 
 if.then58.i.lr.ph:                                ; preds = %while.end.i.i
   %add.ptr.i = getelementptr i8, ptr %iLimit, i64 -7
-  %cmp.i219 = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i219 = icmp ult ptr %ip, %add.ptr.i
   %add.ptr22.i = getelementptr i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub88.i = add i32 %conv.i, 3
@@ -29306,7 +29306,7 @@ if.end19.i.loopexit.us:                           ; preds = %while.cond.i.us
   br i1 %cmp23.i.us, label %land.lhs.true25.i.us, label %if.end33.i.us
 
 if.then58.i.lr.ph.split:                          ; preds = %if.then58.i.lr.ph
-  %cmp23.i = icmp ugt ptr %add.ptr22.i, %ip
+  %cmp23.i = icmp ult ptr %ip, %add.ptr22.i
   br i1 %cmp23.i, label %if.then58.i.us239, label %if.then58.i.lr.ph.split.split
 
 if.then58.i.us239:                                ; preds = %if.then58.i.lr.ph.split, %if.end100.i.us291
@@ -29389,7 +29389,7 @@ if.end100.i.us291:                                ; preds = %if.end96.i.us288
   br i1 %and.i213.us299, label %if.then58.i.us239, label %ZSTD_HcFindBestMatch.exit, !llvm.loop !31
 
 if.then58.i.lr.ph.split.split:                    ; preds = %if.then58.i.lr.ph.split
-  %cmp35.i = icmp ugt ptr %add.ptr34.i, %ip
+  %cmp35.i = icmp ult ptr %ip, %add.ptr34.i
   br label %if.then58.i
 
 if.then58.i:                                      ; preds = %if.then58.i.lr.ph.split.split, %if.end100.i
@@ -29573,7 +29573,7 @@ while.end.i.i:                                    ; preds = %sw.bb3.i19.i.i.us, 
 
 if.then58.i.lr.ph:                                ; preds = %while.end.i.i
   %add.ptr.i = getelementptr i8, ptr %iLimit, i64 -7
-  %cmp.i219 = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i219 = icmp ult ptr %ip, %add.ptr.i
   %add.ptr22.i = getelementptr i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub88.i = add i32 %conv.i, 3
@@ -29710,7 +29710,7 @@ if.end19.i.loopexit.us:                           ; preds = %while.cond.i.us
   br i1 %cmp23.i.us, label %land.lhs.true25.i.us, label %if.end33.i.us
 
 if.then58.i.lr.ph.split:                          ; preds = %if.then58.i.lr.ph
-  %cmp23.i = icmp ugt ptr %add.ptr22.i, %ip
+  %cmp23.i = icmp ult ptr %ip, %add.ptr22.i
   br i1 %cmp23.i, label %if.then58.i.us239, label %if.then58.i.lr.ph.split.split
 
 if.then58.i.us239:                                ; preds = %if.then58.i.lr.ph.split, %if.end100.i.us291
@@ -29793,7 +29793,7 @@ if.end100.i.us291:                                ; preds = %if.end96.i.us288
   br i1 %and.i213.us299, label %if.then58.i.us239, label %ZSTD_HcFindBestMatch.exit, !llvm.loop !31
 
 if.then58.i.lr.ph.split.split:                    ; preds = %if.then58.i.lr.ph.split
-  %cmp35.i = icmp ugt ptr %add.ptr34.i, %ip
+  %cmp35.i = icmp ult ptr %ip, %add.ptr34.i
   br label %if.then58.i
 
 if.then58.i:                                      ; preds = %if.then58.i.lr.ph.split.split, %if.end100.i
@@ -30217,7 +30217,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i535 = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i535 = icmp ult ptr %ip, %add.ptr.i
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -30714,7 +30714,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i536 = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i536 = icmp ult ptr %ip, %add.ptr.i
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -31244,7 +31244,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i535 = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i535 = icmp ult ptr %ip, %add.ptr.i
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -31728,7 +31728,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i534 = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i534 = icmp ult ptr %ip, %add.ptr.i
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -32226,7 +32226,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i535 = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i535 = icmp ult ptr %ip, %add.ptr.i
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -32757,7 +32757,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i534 = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i534 = icmp ult ptr %ip, %add.ptr.i
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -33241,7 +33241,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i534 = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i534 = icmp ult ptr %ip, %add.ptr.i
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -33739,7 +33739,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i535 = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i535 = icmp ult ptr %ip, %add.ptr.i
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -34270,7 +34270,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i534 = icmp ugt ptr %add.ptr.i, %ip
+  %cmp.i534 = icmp ult ptr %ip, %add.ptr.i
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -34522,7 +34522,7 @@ while.end.i.i:                                    ; preds = %sw.bb.i23.i.i.us, %
 
 lor.lhs.false.i.lr.ph:                            ; preds = %while.end.i.i
   %add.ptr.i221 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i222 = icmp ugt ptr %add.ptr.i221, %ip
+  %cmp.i222 = icmp ult ptr %ip, %add.ptr.i221
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %add.ptr80.i = getelementptr inbounds i8, ptr %ip, i64 4
@@ -34799,7 +34799,7 @@ while.end.i.i:                                    ; preds = %sw.bb1.i21.i.i.us, 
 
 lor.lhs.false.i.lr.ph:                            ; preds = %while.end.i.i
   %add.ptr.i220 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i221 = icmp ugt ptr %add.ptr.i220, %ip
+  %cmp.i221 = icmp ult ptr %ip, %add.ptr.i220
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %add.ptr80.i = getelementptr inbounds i8, ptr %ip, i64 4
@@ -35076,7 +35076,7 @@ while.end.i.i:                                    ; preds = %sw.bb3.i19.i.i.us, 
 
 lor.lhs.false.i.lr.ph:                            ; preds = %while.end.i.i
   %add.ptr.i220 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i221 = icmp ugt ptr %add.ptr.i220, %ip
+  %cmp.i221 = icmp ult ptr %ip, %add.ptr.i220
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %add.ptr80.i = getelementptr inbounds i8, ptr %ip, i64 4
@@ -35595,7 +35595,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i536 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i537 = icmp ugt ptr %add.ptr.i536, %ip
+  %cmp.i537 = icmp ult ptr %ip, %add.ptr.i536
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %add.ptr156.i = getelementptr inbounds i8, ptr %ip, i64 4
@@ -36119,7 +36119,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i537 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i538 = icmp ugt ptr %add.ptr.i537, %ip
+  %cmp.i538 = icmp ult ptr %ip, %add.ptr.i537
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %add.ptr156.i = getelementptr inbounds i8, ptr %ip, i64 4
@@ -36676,7 +36676,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i536 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i537 = icmp ugt ptr %add.ptr.i536, %ip
+  %cmp.i537 = icmp ult ptr %ip, %add.ptr.i536
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %add.ptr156.i = getelementptr inbounds i8, ptr %ip, i64 4
@@ -37187,7 +37187,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i535 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i536 = icmp ugt ptr %add.ptr.i535, %ip
+  %cmp.i536 = icmp ult ptr %ip, %add.ptr.i535
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %add.ptr156.i = getelementptr inbounds i8, ptr %ip, i64 4
@@ -37712,7 +37712,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i536 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i537 = icmp ugt ptr %add.ptr.i536, %ip
+  %cmp.i537 = icmp ult ptr %ip, %add.ptr.i536
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %add.ptr156.i = getelementptr inbounds i8, ptr %ip, i64 4
@@ -38270,7 +38270,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i535 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i536 = icmp ugt ptr %add.ptr.i535, %ip
+  %cmp.i536 = icmp ult ptr %ip, %add.ptr.i535
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %add.ptr156.i = getelementptr inbounds i8, ptr %ip, i64 4
@@ -38781,7 +38781,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i535 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i536 = icmp ugt ptr %add.ptr.i535, %ip
+  %cmp.i536 = icmp ult ptr %ip, %add.ptr.i535
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %add.ptr156.i = getelementptr inbounds i8, ptr %ip, i64 4
@@ -39306,7 +39306,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i536 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i537 = icmp ugt ptr %add.ptr.i536, %ip
+  %cmp.i537 = icmp ult ptr %ip, %add.ptr.i536
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %add.ptr156.i = getelementptr inbounds i8, ptr %ip, i64 4
@@ -39864,7 +39864,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i535 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i536 = icmp ugt ptr %add.ptr.i535, %ip
+  %cmp.i536 = icmp ult ptr %ip, %add.ptr.i535
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %add.ptr156.i = getelementptr inbounds i8, ptr %ip, i64 4
@@ -40133,7 +40133,7 @@ while.end.i.i:                                    ; preds = %sw.bb.i23.i.i.us, %
 
 if.then58.i.lr.ph:                                ; preds = %while.end.i.i
   %add.ptr.i223 = getelementptr i8, ptr %iLimit, i64 -7
-  %cmp.i224 = icmp ugt ptr %add.ptr.i223, %ip
+  %cmp.i224 = icmp ult ptr %ip, %add.ptr.i223
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub88.i = add i32 %conv.i, 3
@@ -40270,7 +40270,7 @@ if.end19.i.loopexit.us:                           ; preds = %while.cond.i.us
   br i1 %cmp23.i.us, label %land.lhs.true25.i.us, label %if.end33.i.us
 
 if.then58.i.lr.ph.split:                          ; preds = %if.then58.i.lr.ph
-  %cmp23.i = icmp ugt ptr %add.ptr22.i, %ip
+  %cmp23.i = icmp ult ptr %ip, %add.ptr22.i
   br label %if.then58.i
 
 if.then58.i:                                      ; preds = %if.then58.i.lr.ph.split, %if.end100.i
@@ -40561,7 +40561,7 @@ while.end.i.i:                                    ; preds = %sw.bb1.i21.i.i.us, 
 
 if.then58.i.lr.ph:                                ; preds = %while.end.i.i
   %add.ptr.i222 = getelementptr i8, ptr %iLimit, i64 -7
-  %cmp.i223 = icmp ugt ptr %add.ptr.i222, %ip
+  %cmp.i223 = icmp ult ptr %ip, %add.ptr.i222
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub88.i = add i32 %conv.i, 3
@@ -40698,7 +40698,7 @@ if.end19.i.loopexit.us:                           ; preds = %while.cond.i.us
   br i1 %cmp23.i.us, label %land.lhs.true25.i.us, label %if.end33.i.us
 
 if.then58.i.lr.ph.split:                          ; preds = %if.then58.i.lr.ph
-  %cmp23.i = icmp ugt ptr %add.ptr22.i, %ip
+  %cmp23.i = icmp ult ptr %ip, %add.ptr22.i
   br label %if.then58.i
 
 if.then58.i:                                      ; preds = %if.then58.i.lr.ph.split, %if.end100.i
@@ -40989,7 +40989,7 @@ while.end.i.i:                                    ; preds = %sw.bb3.i19.i.i.us, 
 
 if.then58.i.lr.ph:                                ; preds = %while.end.i.i
   %add.ptr.i222 = getelementptr i8, ptr %iLimit, i64 -7
-  %cmp.i223 = icmp ugt ptr %add.ptr.i222, %ip
+  %cmp.i223 = icmp ult ptr %ip, %add.ptr.i222
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub88.i = add i32 %conv.i, 3
@@ -41126,7 +41126,7 @@ if.end19.i.loopexit.us:                           ; preds = %while.cond.i.us
   br i1 %cmp23.i.us, label %land.lhs.true25.i.us, label %if.end33.i.us
 
 if.then58.i.lr.ph.split:                          ; preds = %if.then58.i.lr.ph
-  %cmp23.i = icmp ugt ptr %add.ptr22.i, %ip
+  %cmp23.i = icmp ult ptr %ip, %add.ptr22.i
   br label %if.then58.i
 
 if.then58.i:                                      ; preds = %if.then58.i.lr.ph.split, %if.end100.i
@@ -41675,7 +41675,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i541 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i542 = icmp ugt ptr %add.ptr.i541, %ip
+  %cmp.i542 = icmp ult ptr %ip, %add.ptr.i541
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -42310,7 +42310,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i542 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i543 = icmp ugt ptr %add.ptr.i542, %ip
+  %cmp.i543 = icmp ult ptr %ip, %add.ptr.i542
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -42988,7 +42988,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i541 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i542 = icmp ugt ptr %add.ptr.i541, %ip
+  %cmp.i542 = icmp ult ptr %ip, %add.ptr.i541
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -43639,7 +43639,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i540 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i541 = icmp ugt ptr %add.ptr.i540, %ip
+  %cmp.i541 = icmp ult ptr %ip, %add.ptr.i540
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -44275,7 +44275,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i541 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i542 = icmp ugt ptr %add.ptr.i541, %ip
+  %cmp.i542 = icmp ult ptr %ip, %add.ptr.i541
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -44954,7 +44954,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i540 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i541 = icmp ugt ptr %add.ptr.i540, %ip
+  %cmp.i541 = icmp ult ptr %ip, %add.ptr.i540
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -45605,7 +45605,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i540 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i541 = icmp ugt ptr %add.ptr.i540, %ip
+  %cmp.i541 = icmp ult ptr %ip, %add.ptr.i540
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -46241,7 +46241,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i541 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i542 = icmp ugt ptr %add.ptr.i541, %ip
+  %cmp.i542 = icmp ult ptr %ip, %add.ptr.i541
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -46920,7 +46920,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i540 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i541 = icmp ugt ptr %add.ptr.i540, %ip
+  %cmp.i541 = icmp ult ptr %ip, %add.ptr.i540
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -47326,7 +47326,7 @@ while.end.i.i:                                    ; preds = %sw.bb.i23.i.i.us, %
 
 if.then58.i.lr.ph:                                ; preds = %while.end.i.i
   %add.ptr.i227 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i228 = icmp ugt ptr %add.ptr.i227, %ip
+  %cmp.i228 = icmp ult ptr %ip, %add.ptr.i227
   %add.ptr22.i229 = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub88.i = add i32 %conv.i, 3
@@ -47765,7 +47765,7 @@ while.end.i.i:                                    ; preds = %sw.bb1.i21.i.i.us, 
 
 if.then58.i.lr.ph:                                ; preds = %while.end.i.i
   %add.ptr.i226 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i227 = icmp ugt ptr %add.ptr.i226, %ip
+  %cmp.i227 = icmp ult ptr %ip, %add.ptr.i226
   %add.ptr22.i228 = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub88.i = add i32 %conv.i, 3
@@ -48204,7 +48204,7 @@ while.end.i.i:                                    ; preds = %sw.bb3.i19.i.i.us, 
 
 if.then58.i.lr.ph:                                ; preds = %while.end.i.i
   %add.ptr.i226 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i227 = icmp ugt ptr %add.ptr.i226, %ip
+  %cmp.i227 = icmp ult ptr %ip, %add.ptr.i226
   %add.ptr22.i228 = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub88.i = add i32 %conv.i, 3
@@ -48886,7 +48886,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i542 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i543 = icmp ugt ptr %add.ptr.i542, %ip
+  %cmp.i543 = icmp ult ptr %ip, %add.ptr.i542
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -49573,7 +49573,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i543 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i544 = icmp ugt ptr %add.ptr.i543, %ip
+  %cmp.i544 = icmp ult ptr %ip, %add.ptr.i543
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -50293,7 +50293,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i542 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i543 = icmp ugt ptr %add.ptr.i542, %ip
+  %cmp.i543 = icmp ult ptr %ip, %add.ptr.i542
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -50967,7 +50967,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i541 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i542 = icmp ugt ptr %add.ptr.i541, %ip
+  %cmp.i542 = icmp ult ptr %ip, %add.ptr.i541
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -51655,7 +51655,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i542 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i543 = icmp ugt ptr %add.ptr.i542, %ip
+  %cmp.i543 = icmp ult ptr %ip, %add.ptr.i542
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -52376,7 +52376,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i541 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i542 = icmp ugt ptr %add.ptr.i541, %ip
+  %cmp.i542 = icmp ult ptr %ip, %add.ptr.i541
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -53050,7 +53050,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i541 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i542 = icmp ugt ptr %add.ptr.i541, %ip
+  %cmp.i542 = icmp ult ptr %ip, %add.ptr.i541
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -53738,7 +53738,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i542 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i543 = icmp ugt ptr %add.ptr.i542, %ip
+  %cmp.i543 = icmp ult ptr %ip, %add.ptr.i542
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -54459,7 +54459,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end9
 
 for.body125.i.lr.ph:                              ; preds = %for.end.i
   %add.ptr.i541 = getelementptr inbounds i8, ptr %iLimit, i64 -7
-  %cmp.i542 = icmp ugt ptr %add.ptr.i541, %ip
+  %cmp.i542 = icmp ult ptr %ip, %add.ptr.i541
   %add.ptr22.i = getelementptr inbounds i8, ptr %iLimit, i64 -3
   %add.ptr34.i = getelementptr inbounds i8, ptr %iLimit, i64 -1
   %sub165.i = add i32 %conv.i, 3
@@ -54901,7 +54901,7 @@ while.body46:                                     ; preds = %while.body46.lr.ph,
   %14 = load ptr, ptr %base4, align 8
   %15 = load ptr, ptr %dictBase5.i, align 8
   %16 = load i32, ptr %dictLimit7.i, align 8
-  %cmp.not.i = icmp ugt i32 %16, %matchIndex.1231
+  %cmp.not.i = icmp ult i32 %matchIndex.1231, %16
   %idx.ext.i = zext i32 %matchIndex.1231 to i64
   %cond.v.i = select i1 %cmp.not.i, ptr %15, ptr %14
   %cond.i = getelementptr inbounds i8, ptr %cond.v.i, i64 %idx.ext.i
@@ -54964,7 +54964,7 @@ cond.end60.i:                                     ; preds = %if.then.i, %for.bod
   %add.ptr63.i = getelementptr inbounds i8, ptr %cond61.i, i64 %conv.i162
   %add.ptr64.i = getelementptr inbounds i8, ptr %cond.i, i64 %cond42.i
   %add.ptr65.i = getelementptr inbounds i8, ptr %add.ptr63.i, i64 %cond42.i
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %add.ptr64.i
+  %cmp.i.i = icmp ult ptr %add.ptr64.i, %add.ptr.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
 if.then.i.i:                                      ; preds = %cond.end60.i
@@ -55175,7 +55175,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then95:                                        ; preds = %for.body
   %add.ptr97 = getelementptr inbounds i8, ptr %2, i64 %conv90
   %add.ptr99 = getelementptr inbounds i8, ptr %add.ptr97, i64 %cond87
-  %cmp.i163 = icmp ugt ptr %add.ptr.i, %add.ptr104
+  %cmp.i163 = icmp ult ptr %add.ptr104, %add.ptr.i
   br i1 %cmp.i163, label %if.then.i166, label %if.end19.i
 
 if.then.i166:                                     ; preds = %if.then95

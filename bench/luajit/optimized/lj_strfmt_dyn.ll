@@ -907,7 +907,7 @@ entry:
   %and.i = and i32 %shr.i, 255
   %shr1.i = lshr i32 %sf, 24
   %sub.i = add nsw i32 %shr1.i, -1
-  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %sub.i, i32 %0)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %0, i32 %sub.i)
   %cond.i = tail call i32 @llvm.umax.i32(i32 %and.i, i32 %spec.select.i)
   %e.i.i = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load ptr, ptr %e.i.i, align 8
@@ -1783,7 +1783,7 @@ if.else160:                                       ; preds = %if.end155
   %and.i = and i32 %shr.i, 255
   %shr1.i = lshr i32 %sf.3.i, 24
   %sub.i94 = add nsw i32 %shr1.i, -1
-  %spec.select.i95 = tail call i32 @llvm.umin.i32(i32 %sub.i94, i32 %len68.0)
+  %spec.select.i95 = tail call i32 @llvm.umin.i32(i32 %len68.0, i32 %sub.i94)
   %cond.i96 = tail call i32 @llvm.umax.i32(i32 %and.i, i32 %spec.select.i95)
   %51 = load ptr, ptr %e.i.i122, align 8
   %52 = load ptr, ptr %sb, align 8

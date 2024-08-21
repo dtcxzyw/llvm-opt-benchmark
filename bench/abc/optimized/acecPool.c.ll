@@ -2478,13 +2478,13 @@ Vec_IntStart.exit:
   %11 = getelementptr inbounds i32, ptr %.val27, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %12, 1
-  %.not.i29.not = icmp sgt i32 %9, %12
+  %.not.i29.not = icmp slt i32 %12, %9
   br i1 %.not.i29.not, label %Vec_IntFillExtra.exit, label %14
 
 14:                                               ; preds = %8
   %15 = load i32, ptr %1, align 8
   %16 = shl nsw i32 %15, 1
-  %.not31 = icmp sgt i32 %16, %12
+  %.not31 = icmp slt i32 %12, %16
   %.not.i.i.not = icmp sgt i32 %15, %12
   br i1 %.not31, label %25, label %17
 

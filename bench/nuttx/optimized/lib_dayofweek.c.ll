@@ -9,7 +9,7 @@ define range(i32 -6, 7) i32 @clock_dayoftheweek(i32 noundef %0, i32 noundef %1, 
   %5 = add nsw i32 %1, 12
   %.010 = select i1 %4, i32 %5, i32 %1
   %6 = sext i1 %4 to i32
-  %.0 = add nsw i32 %6, %2
+  %.0 = add nsw i32 %2, %6
   %7 = add nsw i32 %.0, %0
   %8 = sdiv i32 %.0, 4
   %9 = add nsw i32 %7, %8

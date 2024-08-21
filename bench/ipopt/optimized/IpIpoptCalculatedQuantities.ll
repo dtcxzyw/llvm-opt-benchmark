@@ -15421,7 +15421,7 @@ _ZNK5Ipopt6Vector7SumLogsEv.exit39:               ; preds = %._crit_edge.i36, %5
 
 _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit: ; preds = %.noexc
   %79 = load double, ptr %65, align 8
-  %80 = fmul double %79, %1
+  %80 = fmul double %1, %79
   %81 = invoke noundef nonnull align 8 dereferenceable(205) ptr @_ZN5Ipopt25IpoptCalculatedQuantities7Tmp_x_LEv(ptr noundef nonnull align 8 dereferenceable(2185) %0)
           to label %82 unwind label %210
 
@@ -15480,7 +15480,7 @@ _ZNK5Ipopt6Vector4AsumEv.exit:                    ; preds = %.noexc45, %._crit_e
 
 _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit48: ; preds = %.noexc46
   %105 = load double, ptr %65, align 8
-  %106 = fmul double %105, %1
+  %106 = fmul double %1, %105
   %107 = invoke noundef nonnull align 8 dereferenceable(205) ptr @_ZN5Ipopt25IpoptCalculatedQuantities7Tmp_x_UEv(ptr noundef nonnull align 8 dereferenceable(2185) %0)
           to label %108 unwind label %210
 
@@ -15539,7 +15539,7 @@ _ZNK5Ipopt6Vector4AsumEv.exit54:                  ; preds = %.noexc53, %._crit_e
 
 _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit57: ; preds = %.noexc55
   %131 = load double, ptr %65, align 8
-  %132 = fmul double %131, %1
+  %132 = fmul double %1, %131
   %133 = invoke noundef nonnull align 8 dereferenceable(205) ptr @_ZN5Ipopt25IpoptCalculatedQuantities7Tmp_s_LEv(ptr noundef nonnull align 8 dereferenceable(2185) %0)
           to label %134 unwind label %210
 
@@ -15598,7 +15598,7 @@ _ZNK5Ipopt6Vector4AsumEv.exit63:                  ; preds = %.noexc62, %._crit_e
 
 _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit66: ; preds = %.noexc64
   %157 = load double, ptr %65, align 8
-  %158 = fmul double %157, %1
+  %158 = fmul double %1, %157
   %159 = invoke noundef nonnull align 8 dereferenceable(205) ptr @_ZN5Ipopt25IpoptCalculatedQuantities7Tmp_s_UEv(ptr noundef nonnull align 8 dereferenceable(2185) %0)
           to label %160 unwind label %210
 
@@ -56822,7 +56822,7 @@ _ZNK5Ipopt6Vector4AsumEv.exit56:                  ; preds = %._crit_edge.i53, %5
 82:                                               ; preds = %_ZNK5Ipopt6Vector4AsumEv.exit56
   %83 = sitofp i32 %80 to double
   %84 = fdiv double %61, %83
-  %85 = fcmp ogt double %84, %7
+  %85 = fcmp olt double %7, %84
   %.sroa.speculated.i = select i1 %85, double %84, double %7
   %86 = fdiv double %.sroa.speculated.i, %7
   br label %87
@@ -57009,7 +57009,7 @@ _ZNK5Ipopt6Vector4AsumEv.exit86:                  ; preds = %._crit_edge.i83, %1
 183:                                              ; preds = %_ZNK5Ipopt6Vector4AsumEv.exit86
   %184 = sitofp i32 %181 to double
   %185 = fdiv double %156, %184
-  %186 = fcmp ogt double %185, %7
+  %186 = fcmp olt double %7, %185
   %.sroa.speculated.i87 = select i1 %186, double %185, double %7
   %187 = fdiv double %.sroa.speculated.i87, %7
   br label %188

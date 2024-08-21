@@ -14670,7 +14670,7 @@ entry:
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
   %.sink.i = select i1 %tobool.i.not.i, i64 1, i64 %2
   %shr.i.sink.i = lshr i64 %0, 1
-  %cmp = icmp ult i64 %.sink.i, %new_size
+  %cmp = icmp ugt i64 %new_size, %.sink.i
   br i1 %cmp, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %entry
@@ -14697,7 +14697,7 @@ _ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core17L
   br label %for.body.preheader.i20
 
 if.else:                                          ; preds = %entry
-  %cmp9 = icmp ult i64 %shr.i.sink.i, %new_size
+  %cmp9 = icmp ugt i64 %new_size, %shr.i.sink.i
   br i1 %cmp9, label %if.then10, label %if.else18
 
 if.then10:                                        ; preds = %if.else
@@ -14903,7 +14903,7 @@ entry:
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
   %.sink.i = select i1 %tobool.i.not.i, i64 1, i64 %2
   %shr.i.sink.i = lshr i64 %0, 1
-  %cmp = icmp ult i64 %.sink.i, %new_size
+  %cmp = icmp ugt i64 %new_size, %.sink.i
   br i1 %cmp, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %entry
@@ -14930,7 +14930,7 @@ _ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112b
   br label %for.body.preheader.i20
 
 if.else:                                          ; preds = %entry
-  %cmp9 = icmp ult i64 %shr.i.sink.i, %new_size
+  %cmp9 = icmp ugt i64 %new_size, %shr.i.sink.i
   br i1 %cmp9, label %if.then10, label %if.else18
 
 if.then10:                                        ; preds = %if.else

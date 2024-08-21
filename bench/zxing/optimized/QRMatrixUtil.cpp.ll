@@ -82,7 +82,7 @@ define void @_ZN5ZXing6QRCode11BuildMatrixERKNS_8BitArrayENS0_20ErrorCorrectionL
 
 28:                                               ; preds = %.preheader.split.split.us.i.i
   %.pre76.i.i = load i32, ptr %26, align 4
-  %29 = icmp sgt i32 %.pre74.i.i, %.054.us55.i.i
+  %29 = icmp slt i32 %.054.us55.i.i, %.pre74.i.i
   %30 = icmp sgt i32 %.pre76.i.i, 7
   %or.cond44.us59.i.i = select i1 %29, i1 %30, i1 false
   br i1 %or.cond44.us59.i.i, label %31, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i"
@@ -102,7 +102,7 @@ define void @_ZN5ZXing6QRCode11BuildMatrixERKNS_8BitArrayENS0_20ErrorCorrectionL
   %37 = phi i32 [ %.pre75.i.i, %31 ], [ %.pre76.i.i, %28 ]
   %38 = phi i32 [ %.pre73.i.i, %31 ], [ %.pre74.i.i, %28 ]
   %39 = icmp sgt i32 %38, 7
-  %40 = icmp sgt i32 %37, %.054.us55.i.i
+  %40 = icmp slt i32 %.054.us55.i.i, %37
   %or.cond50.us62.i.i = select i1 %39, i1 %40, i1 false
   br i1 %or.cond50.us62.i.i, label %41, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
 
@@ -1499,9 +1499,9 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   br i1 %18, label %19, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
 
 19:                                               ; preds = %.preheader.split.us
-  %20 = icmp sgt i32 %.pre80, %17
+  %20 = icmp slt i32 %17, %.pre80
   %or.cond.i.us = and i1 %13, %20
-  %21 = icmp sge i32 %.pre82, %1
+  %21 = icmp sle i32 %1, %.pre82
   %or.cond.us = select i1 %or.cond.i.us, i1 %21, i1 false
   br i1 %or.cond.us, label %22, label %28
 
@@ -1519,9 +1519,9 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 28:                                               ; preds = %22, %19
   %29 = phi i32 [ %.pre78, %22 ], [ %.pre82, %19 ]
   %30 = phi i32 [ %.pre77, %22 ], [ %.pre80, %19 ]
-  %31 = icmp sgt i32 %30, %17
+  %31 = icmp slt i32 %17, %30
   %or.cond.i30.us = and i1 %16, %31
-  %32 = icmp sgt i32 %29, %15
+  %32 = icmp slt i32 %15, %29
   %or.cond44.us = select i1 %or.cond.i30.us, i1 %32, i1 false
   br i1 %or.cond44.us, label %33, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
 
@@ -1540,10 +1540,10 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %39 = phi i32 [ %.pre81, %33 ], [ %29, %28 ], [ %.pre82, %.preheader.split.us ]
   %40 = phi i32 [ %.pre79, %33 ], [ %30, %28 ], [ %.pre80, %.preheader.split.us ]
   %41 = add nsw i32 %.054.us, %1
-  %42 = icmp sge i32 %40, %0
+  %42 = icmp sle i32 %0, %40
   %43 = icmp sgt i32 %41, -1
   %or.cond.i32.us = and i1 %43, %42
-  %44 = icmp sgt i32 %39, %41
+  %44 = icmp slt i32 %41, %39
   %or.cond47.us = select i1 %or.cond.i32.us, i1 %44, i1 false
   br i1 %or.cond47.us, label %45, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
 
@@ -1561,10 +1561,10 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 
 51:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
   %52 = load i32, ptr %2, align 8
-  %53 = icmp sgt i32 %52, %11
+  %53 = icmp slt i32 %11, %52
   %or.cond.i34.us = and i1 %43, %53
   %54 = load i32, ptr %14, align 4
-  %55 = icmp sgt i32 %54, %41
+  %55 = icmp slt i32 %41, %54
   %or.cond50.us = select i1 %or.cond.i34.us, i1 %55, i1 false
   br i1 %or.cond50.us, label %56, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
 
@@ -1594,9 +1594,9 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   br i1 %64, label %65, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
 
 65:                                               ; preds = %.preheader.split.split.us
-  %66 = icmp sgt i32 %.pre74, %63
+  %66 = icmp slt i32 %63, %.pre74
   %or.cond.i.us56 = and i1 %13, %66
-  %67 = icmp sge i32 %.pre76, %1
+  %67 = icmp sle i32 %1, %.pre76
   %or.cond.us57 = select i1 %or.cond.i.us56, i1 %67, i1 false
   br i1 %or.cond.us57, label %68, label %74
 
@@ -1614,9 +1614,9 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 74:                                               ; preds = %68, %65
   %75 = phi i32 [ %.pre72, %68 ], [ %.pre76, %65 ]
   %76 = phi i32 [ %.pre71, %68 ], [ %.pre74, %65 ]
-  %77 = icmp sgt i32 %76, %63
+  %77 = icmp slt i32 %63, %76
   %or.cond.i30.us58 = and i1 %16, %77
-  %78 = icmp sgt i32 %75, %15
+  %78 = icmp slt i32 %15, %75
   %or.cond44.us59 = select i1 %or.cond.i30.us58, i1 %78, i1 false
   br i1 %or.cond44.us59, label %79, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
 
@@ -1635,10 +1635,10 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %85 = phi i32 [ %.pre75, %79 ], [ %75, %74 ], [ %.pre76, %.preheader.split.split.us ]
   %86 = phi i32 [ %.pre73, %79 ], [ %76, %74 ], [ %.pre74, %.preheader.split.split.us ]
   %87 = add nsw i32 %.054.us55, %1
-  %88 = icmp sgt i32 %86, %11
+  %88 = icmp slt i32 %11, %86
   %89 = icmp sgt i32 %87, -1
   %or.cond.i34.us61 = and i1 %89, %88
-  %90 = icmp sgt i32 %85, %87
+  %90 = icmp slt i32 %87, %85
   %or.cond50.us62 = select i1 %or.cond.i34.us61, i1 %90, i1 false
   br i1 %or.cond50.us62, label %91, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63"
 
@@ -1688,10 +1688,10 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 
 115:                                              ; preds = %.preheader.split.split
   %116 = load i32, ptr %2, align 8
-  %117 = icmp sgt i32 %116, %113
+  %117 = icmp slt i32 %113, %116
   %or.cond.i = and i1 %13, %117
   %118 = load i32, ptr %14, align 4
-  %119 = icmp sge i32 %118, %1
+  %119 = icmp sle i32 %1, %118
   %or.cond = select i1 %or.cond.i, i1 %119, i1 false
   br i1 %or.cond, label %120, label %126
 
@@ -1709,9 +1709,9 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 126:                                              ; preds = %115, %120
   %127 = phi i32 [ %118, %115 ], [ %.pre70, %120 ]
   %128 = phi i32 [ %116, %115 ], [ %.pre, %120 ]
-  %129 = icmp sgt i32 %128, %113
+  %129 = icmp slt i32 %113, %128
   %or.cond.i30 = and i1 %16, %129
-  %130 = icmp sgt i32 %127, %15
+  %130 = icmp slt i32 %15, %127
   %or.cond44 = select i1 %or.cond.i30, i1 %130, i1 false
   br i1 %or.cond44, label %131, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
 

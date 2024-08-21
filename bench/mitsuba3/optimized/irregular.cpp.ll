@@ -866,14 +866,14 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit87: ; preds = %_ZNSt3__16
 
 265:                                              ; preds = %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit87
   %266 = load ptr, ptr %41, align 8
-  %.not6.i.i.i.i = icmp eq ptr %266, %264
+  %.not6.i.i.i.i = icmp eq ptr %264, %266
   br i1 %.not6.i.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %265, %.lr.ph.i.i.i.i
   %.07.i.i.i.i = phi ptr [ %267, %.lr.ph.i.i.i.i ], [ %266, %265 ]
   %267 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -24
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %267) #28
-  %.not.i.i.i.i = icmp eq ptr %267, %264
+  %.not.i.i.i.i = icmp eq ptr %264, %267
   br i1 %.not.i.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i
@@ -894,14 +894,14 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 270:                                              ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit
   %271 = getelementptr inbounds i8, ptr %7, i64 8
   %272 = load ptr, ptr %271, align 8
-  %.not6.i.i.i.i90 = icmp eq ptr %272, %269
+  %.not6.i.i.i.i90 = icmp eq ptr %269, %272
   br i1 %.not6.i.i.i.i90, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i96, label %.lr.ph.i.i.i.i91
 
 .lr.ph.i.i.i.i91:                                 ; preds = %270, %.lr.ph.i.i.i.i91
   %.07.i.i.i.i92 = phi ptr [ %273, %.lr.ph.i.i.i.i91 ], [ %272, %270 ]
   %273 = getelementptr inbounds i8, ptr %.07.i.i.i.i92, i64 -24
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %273) #28
-  %.not.i.i.i.i93 = icmp eq ptr %273, %269
+  %.not.i.i.i.i93 = icmp eq ptr %269, %273
   br i1 %.not.i.i.i.i93, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i94, label %.lr.ph.i.i.i.i91
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i94: ; preds = %.lr.ph.i.i.i.i91
@@ -921,14 +921,14 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 
 276:                                              ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit97
   %277 = load ptr, ptr %48, align 8
-  %.not6.i.i.i.i99 = icmp eq ptr %277, %275
+  %.not6.i.i.i.i99 = icmp eq ptr %275, %277
   br i1 %.not6.i.i.i.i99, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i105, label %.lr.ph.i.i.i.i100
 
 .lr.ph.i.i.i.i100:                                ; preds = %276, %.lr.ph.i.i.i.i100
   %.07.i.i.i.i101 = phi ptr [ %278, %.lr.ph.i.i.i.i100 ], [ %277, %276 ]
   %278 = getelementptr inbounds i8, ptr %.07.i.i.i.i101, i64 -24
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %278) #28
-  %.not.i.i.i.i102 = icmp eq ptr %278, %275
+  %.not.i.i.i.i102 = icmp eq ptr %275, %278
   br i1 %.not.i.i.i.i102, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i103, label %.lr.ph.i.i.i.i100
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i103: ; preds = %.lr.ph.i.i.i.i100
@@ -1641,14 +1641,14 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_t
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not6.i.i.i = icmp eq ptr %5, %2
+  %.not6.i.i.i = icmp eq ptr %2, %5
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.07.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %5, %3 ]
   %6 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 -24
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
-  %.not.i.i.i = icmp eq ptr %6, %2
+  %.not.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit: ; preds = %.lr.ph.i.i.i
@@ -1759,11 +1759,11 @@ define weak_odr <4 x float> @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_
   %6 = getelementptr inbounds i8, ptr %0, i64 120
   %7 = load <4 x float>, ptr %6, align 8
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
-  %9 = fcmp contract ole <4 x float> %8, %.sroa.0.0.copyload
+  %9 = fcmp contract oge <4 x float> %.sroa.0.0.copyload, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 124
   %11 = load <4 x float>, ptr %10, align 4
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
-  %13 = fcmp contract oge <4 x float> %12, %.sroa.0.0.copyload
+  %13 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, %12
   %14 = and <4 x i1> %13, %9
   %15 = shufflevector <4 x i1> %14, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %16 = and <8 x i1> %15, <i1 true, i1 true, i1 true, i1 true, i1 false, i1 false, i1 false, i1 false>
@@ -1838,11 +1838,11 @@ define weak_odr <4 x float> @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_
   %6 = getelementptr inbounds i8, ptr %0, i64 120
   %7 = load <4 x float>, ptr %6, align 8
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
-  %9 = fcmp contract ole <4 x float> %8, %.sroa.0.0.copyload
+  %9 = fcmp contract oge <4 x float> %.sroa.0.0.copyload, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 124
   %11 = load <4 x float>, ptr %10, align 4
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
-  %13 = fcmp contract oge <4 x float> %12, %.sroa.0.0.copyload
+  %13 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, %12
   %14 = and <4 x i1> %13, %9
   %15 = shufflevector <4 x i1> %14, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %16 = and <8 x i1> %15, <i1 true, i1 true, i1 true, i1 true, i1 false, i1 false, i1 false, i1 false>
@@ -4198,7 +4198,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63

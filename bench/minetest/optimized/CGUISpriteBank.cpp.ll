@@ -372,7 +372,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ugt i32 %conv.i, %index
+  %cmp = icmp ult i32 %index, %conv.i
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -492,7 +492,7 @@ entry:
   %sub.ptr.sub.i.i33 = sub i64 %sub.ptr.lhs.cast.i.i31, %sub.ptr.rhs.cast.i.i32
   %sub.ptr.div.i.i34 = lshr exact i64 %sub.ptr.sub.i.i33, 3
   %conv.i35 = trunc i64 %sub.ptr.div.i.i34 to i32
-  %cmp.not36 = icmp ugt i32 %conv.i35, %index
+  %cmp.not36 = icmp ult i32 %index, %conv.i35
   br i1 %cmp.not36, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -576,7 +576,7 @@ _ZN3irr4core5arrayIPNS_5video8ITextureEE9push_backEOS4_.exit: ; preds = %_ZNSt6v
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i, %index
+  %cmp.not = icmp ult i32 %index, %conv.i
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !46
 
 while.end:                                        ; preds = %_ZN3irr4core5arrayIPNS_5video8ITextureEE9push_backEOS4_.exit, %entry
@@ -963,7 +963,7 @@ entry:
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
   %conv.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
-  %cmp.not.i = icmp ugt i32 %conv.i.i, %index
+  %cmp.not.i = icmp ult i32 %index, %conv.i.i
   br i1 %cmp.not.i, label %if.end.i, label %cleanup29
 
 if.end.i:                                         ; preds = %entry
@@ -1090,7 +1090,7 @@ entry:
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
   %conv.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
-  %cmp.not.i = icmp ugt i32 %conv.i.i, %index
+  %cmp.not.i = icmp ult i32 %index, %conv.i.i
   br i1 %cmp.not.i, label %if.end.i, label %cleanup20
 
 if.end.i:                                         ; preds = %entry

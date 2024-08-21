@@ -151,7 +151,7 @@ define internal ptr @_cmsCallocDefaultFn(ptr noundef %0, i32 noundef %1, i32 nou
 
 6:                                                ; preds = %3
   %7 = udiv i32 -1, %2
-  %.not = icmp ugt i32 %7, %1
+  %.not = icmp ult i32 %1, %7
   br i1 %.not, label %8, label %17
 
 8:                                                ; preds = %6

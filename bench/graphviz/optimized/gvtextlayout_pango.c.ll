@@ -932,7 +932,7 @@ agxblen.exit.i.i:                                 ; preds = %8, %agxbsizeof.exit
   %.0.i30.i.i = phi i64 [ 31, %agxbsizeof.exit.i.i ], [ %10, %8 ]
   %.0.i24.i.i = phi i64 [ %7, %agxbsizeof.exit.i.i ], [ %12, %8 ]
   %13 = sub i64 %.0.i30.i.i, %.0.i24.i.i
-  %14 = icmp ult i64 %13, %3
+  %14 = icmp ugt i64 %3, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %agxblen.exit.i.i

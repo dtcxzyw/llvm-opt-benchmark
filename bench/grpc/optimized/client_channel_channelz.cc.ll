@@ -457,7 +457,7 @@ call3.i.i.noexc:                                  ; preds = %invoke.cont12
 if.then.i.i289:                                   ; preds = %call3.i.i.noexc
   %3 = extractvalue { ptr, ptr } %call3.i.i293, 0
   %cmp.not.i.i.i290 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %1, %2
+  %cmp2.i.i.i = icmp eq ptr %2, %1
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i290, %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
@@ -551,7 +551,7 @@ call3.i.i.noexc316:                               ; preds = %for.body.i298
 if.then.i.i301:                                   ; preds = %call3.i.i.noexc316
   %12 = extractvalue { ptr, ptr } %call3.i.i317, 0
   %cmp.not.i.i.i302 = icmp ne ptr %12, null
-  %cmp2.i.i.i303 = icmp eq ptr %10, %11
+  %cmp2.i.i.i303 = icmp eq ptr %11, %10
   %or.cond.i.i.i304 = or i1 %cmp.not.i.i.i302, %cmp2.i.i.i303
   br i1 %or.cond.i.i.i304, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i311, label %lor.rhs.i.i.i305
 
@@ -992,7 +992,7 @@ call3.i.i.noexc342:                               ; preds = %invoke.cont110
 if.then.i.i327:                                   ; preds = %call3.i.i.noexc342
   %56 = extractvalue { ptr, ptr } %call3.i.i343, 0
   %cmp.not.i.i.i328 = icmp ne ptr %56, null
-  %cmp2.i.i.i329 = icmp eq ptr %54, %55
+  %cmp2.i.i.i329 = icmp eq ptr %55, %54
   %or.cond.i.i.i330 = or i1 %cmp.not.i.i.i328, %cmp2.i.i.i329
   br i1 %or.cond.i.i.i330, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i337, label %lor.rhs.i.i.i331
 
@@ -1076,7 +1076,7 @@ call3.i.i.noexc368:                               ; preds = %for.body.i350
 if.then.i.i353:                                   ; preds = %call3.i.i.noexc368
   %64 = extractvalue { ptr, ptr } %call3.i.i369, 0
   %cmp.not.i.i.i354 = icmp ne ptr %64, null
-  %cmp2.i.i.i355 = icmp eq ptr %62, %63
+  %cmp2.i.i.i355 = icmp eq ptr %63, %62
   %or.cond.i.i.i356 = or i1 %cmp.not.i.i.i354, %cmp2.i.i.i355
   br i1 %or.cond.i.i.i356, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i363, label %lor.rhs.i.i.i357
 
@@ -1393,7 +1393,7 @@ call3.i.i.noexc394:                               ; preds = %for.body.i376
 if.then.i.i379:                                   ; preds = %call3.i.i.noexc394
   %100 = extractvalue { ptr, ptr } %call3.i.i395, 0
   %cmp.not.i.i.i380 = icmp ne ptr %100, null
-  %cmp2.i.i.i381 = icmp eq ptr %98, %99
+  %cmp2.i.i.i381 = icmp eq ptr %99, %98
   %or.cond.i.i.i382 = or i1 %cmp.not.i.i.i380, %cmp2.i.i.i381
   br i1 %or.cond.i.i.i382, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i389, label %lor.rhs.i.i.i383
 
@@ -5126,7 +5126,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -5478,7 +5478,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 

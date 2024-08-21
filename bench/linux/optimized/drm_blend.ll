@@ -102,7 +102,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_plane_create_rotation_proper
 
 12:                                               ; preds = %11, %7
   %13 = xor i32 %2, -1
-  %14 = and i32 %13, %1
+  %14 = and i32 %1, %13
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %17, label %16, !prof !14
 
@@ -149,7 +149,7 @@ declare dso_local ptr @drm_property_create_bitmask(ptr noundef, i32 noundef, ptr
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
 define dso_local i32 @drm_rotation_simplify(i32 noundef %0, i32 noundef %1) #2 align 16 {
   %3 = xor i32 %1, -1
-  %4 = and i32 %3, %0
+  %4 = and i32 %0, %3
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %17, label %6
 

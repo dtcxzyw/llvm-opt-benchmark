@@ -23274,8 +23274,8 @@ default.unreachable214:                           ; preds = %116, %3
 
 335:                                              ; preds = %353, %.noexc135.i
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc135.i ], [ %354, %353 ]
-  %.pn.i.i.i = phi i64 [ %331, %.noexc135.i ], [ %355, %353 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val6.i.i
+  %.pn.i.i.i.i = phi i64 [ %331, %.noexc135.i ], [ %355, %353 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %.val6.i.i
   %336 = getelementptr inbounds i8, ptr %.val5.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i29.i.i.i.i = load <16 x i8>, ptr %336, align 1, !noalias !2667
   %337 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -23303,7 +23303,7 @@ default.unreachable214:                           ; preds = %116, %3
   %351 = sub nsw i64 0, %350
   %gep.i.i.i.i = getelementptr { i8, [7 x i8], { ptr, ptr } }, ptr %invariant.gep.i.i.i.i, i64 %351
   %.val3.i.i.i.i.i = load i8, ptr %gep.i.i.i.i, align 1, !alias.scope !2675, !noalias !2680, !noundef !4
-  %352 = icmp eq i8 %.val3.i.i.i.i.i, %294
+  %352 = icmp eq i8 %294, %.val3.i.i.i.i.i
   br i1 %352, label %358, label %339
 
 353:                                              ; preds = %340
@@ -177907,7 +177907,7 @@ common.ret:                                       ; preds = %315, %312, %140
 
 246:                                              ; preds = %238
   %.val1.i.i.i.i.i = load i64, ptr %229, align 8, !noalias !23287, !noundef !4
-  %.not.i.i.i.i.i.i = icmp eq i64 %.val1.i.i.i.i.i, %.val2.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp eq i64 %.val2.i.i.i.i, %.val1.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %247, label %.thread.i.i.i.i.i
 
 247:                                              ; preds = %246

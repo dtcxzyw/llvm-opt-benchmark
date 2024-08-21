@@ -80,7 +80,7 @@ define dso_local void @join_search_one_level(ptr noundef %0, i32 noundef %1) loc
   %36 = getelementptr inbounds i8, ptr %34, i64 16
   %37 = getelementptr inbounds i8, ptr %22, i64 8
   %38 = load i32, ptr %35, align 4
-  %39 = icmp sgt i32 %38, %.084
+  %39 = icmp slt i32 %.084, %38
   br i1 %39, label %.lr.ph24.preheader.i, label %make_rels_by_clause_joins.exit
 
 .lr.ph24.preheader.i:                             ; preds = %.lr.ph.i

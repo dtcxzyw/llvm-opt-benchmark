@@ -317,9 +317,9 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN99_$LT$regex_au
   store i64 %.sroa.8.0.i.i.i, ptr %6, align 8, !noalias !71
   %84 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %83, ptr %84, align 8, !noalias !71
-  %.not.i.i.i.i = icmp ult i64 %82, %83
+  %.not.i.i.i.i = icmp ugt i64 %83, %82
   %85 = add i64 %83, 1
-  %.not4.i.i.i.i = icmp ult i64 %85, %.sroa.8.0.i.i.i
+  %.not4.i.i.i.i = icmp ugt i64 %.sroa.8.0.i.i.i, %85
   %or.cond.i.i.i.i = or i1 %.not.i.i.i.i, %.not4.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %86, label %117
 
@@ -698,9 +698,9 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h6af6adf9f5a52a22E.exit
   store i64 %.sroa.8.0.i.i.i.i, ptr %7, align 8, !noalias !174
   %135 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %134, ptr %135, align 8, !noalias !174
-  %.not.i.i.i.i.i = icmp ult i64 %133, %134
+  %.not.i.i.i.i.i = icmp ugt i64 %134, %133
   %136 = add i64 %134, 1
-  %.not4.i.i.i.i.i = icmp ult i64 %136, %.sroa.8.0.i.i.i.i
+  %.not4.i.i.i.i.i = icmp ugt i64 %.sroa.8.0.i.i.i.i, %136
   %or.cond.i.i.i.i.i = or i1 %.not.i.i.i.i.i, %.not4.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %137, label %_ZN14regex_automata4util6search5Input8set_span17h77aedb0a5511365fE.exit.i.i.i.i
 
@@ -1089,7 +1089,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h45b907bdb355a6f2E(ptr no
 .lr.ph.split.us.i.i:                              ; preds = %7
   %9 = load i64, ptr %6, align 8, !alias.scope !260, !noalias !265, !noundef !9
   %10 = sub i64 %9, %.val.i
-  %.not.i.us.i.i = icmp ult i64 %10, %.0.sroa.speculated.i.i
+  %.not.i.us.i.i = icmp ugt i64 %.0.sroa.speculated.i.i, %10
   br i1 %.not.i.us.i.i, label %11, label %12
 
 11:                                               ; preds = %.lr.ph.split.us.i.i
@@ -1105,7 +1105,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h45b907bdb355a6f2E(ptr no
   %16 = load i64, ptr %6, align 8, !alias.scope !260, !noalias !265, !noundef !9
   %17 = load i64, ptr %5, align 8, !alias.scope !260, !noalias !265, !noundef !9
   %18 = sub i64 %16, %17
-  %19 = icmp ult i64 %18, %.0.sroa.speculated.i.i
+  %19 = icmp ugt i64 %.0.sroa.speculated.i.i, %18
   br i1 %19, label %.split.us.i.i, label %20
 
 .split.us.i.i:                                    ; preds = %12
@@ -2992,7 +2992,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17hd409573a9de2af9bE.exit: ; 
   %141 = load i64, ptr %.sroa.534.0..sroa_idx, align 8, !alias.scope !521, !noalias !526, !noundef !9
   %142 = load i64, ptr %25, align 8, !alias.scope !528, !noalias !526, !noundef !9
   %143 = sub i64 %142, %141
-  %144 = icmp ult i64 %143, %140
+  %144 = icmp ugt i64 %140, %143
   br i1 %144, label %145, label %150
 
 145:                                              ; preds = %138
@@ -3024,7 +3024,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17hd409573a9de2af9bE.exit: ; 
   %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !531, !noundef !9
   %156 = load i64, ptr %25, align 8, !alias.scope !534, !noalias !541, !noundef !9
   %157 = sub i64 %156, %155
-  %158 = icmp ult i64 %157, %.sroa.5.0.i
+  %158 = icmp ugt i64 %.sroa.5.0.i, %157
   br i1 %158, label %159, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha9155c994f73a183E.exit126"
 
 159:                                              ; preds = %150
@@ -3092,7 +3092,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17hd409573a9de2af9bE.exit: ; 
   %183 = load i64, ptr %.sroa.534.0..sroa_idx, align 8, !alias.scope !549, !noalias !554, !noundef !9
   %184 = load i64, ptr %25, align 8, !alias.scope !556, !noalias !554, !noundef !9
   %185 = sub i64 %184, %183
-  %186 = icmp ult i64 %185, %181
+  %186 = icmp ugt i64 %181, %185
   br i1 %186, label %187, label %191
 
 187:                                              ; preds = %180
@@ -3540,7 +3540,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17hd409573a9de2af9bE.exit: ; 
   %340 = load i64, ptr %.sroa.553.0..sroa_idx, align 8, !alias.scope !625, !noalias !630, !noundef !9
   %341 = load i64, ptr %22, align 8, !alias.scope !632, !noalias !630, !noundef !9
   %342 = sub i64 %341, %340
-  %343 = icmp ult i64 %342, %339
+  %343 = icmp ugt i64 %339, %342
   br i1 %343, label %344, label %348
 
 344:                                              ; preds = %337
@@ -3617,7 +3617,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17hd409573a9de2af9bE.exit: ; 
   %370 = load i64, ptr %.sroa.553.0..sroa_idx, align 8, !alias.scope !640, !noalias !645, !noundef !9
   %371 = load i64, ptr %22, align 8, !alias.scope !647, !noalias !645, !noundef !9
   %372 = sub i64 %371, %370
-  %373 = icmp ult i64 %372, %368
+  %373 = icmp ugt i64 %368, %372
   br i1 %373, label %374, label %378
 
 374:                                              ; preds = %367
@@ -4435,7 +4435,7 @@ _ZN4http6header5value11HeaderValue16try_from_generic17hc558a62304874136E.exit.i:
   store i64 %85, ptr %8, align 8, !noalias !764
   %93 = getelementptr inbounds i8, ptr %10, i64 16
   %94 = load i64, ptr %93, align 8, !noalias !757, !noundef !9
-  %.not.i.i.i.i = icmp ult i64 %94, %85
+  %.not.i.i.i.i = icmp ugt i64 %85, %94
   br i1 %.not.i.i.i.i, label %95, label %111
 
 95:                                               ; preds = %.noexc26
@@ -4709,7 +4709,7 @@ define internal fastcc void @_ZN9actix_web4http6header19content_disposition10spl
   br label %42
 
 34:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %30, %2
+  %.not.i.i.i = icmp eq i64 %2, %30
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %34, %38
@@ -5869,7 +5869,7 @@ _ZN5alloc6string6String9from_utf817h11549ca97a8af181E.exit: ; preds = %52
 250:                                              ; preds = %247
   %251 = ptrtoint ptr %.sroa.0252.0 to i64
   %252 = sub nuw i64 %212, %251
-  %.not.i.i.i = icmp ugt i64 %252, %.sroa.10256.0
+  %.not.i.i.i = icmp ult i64 %.sroa.10256.0, %252
   %253 = getelementptr inbounds i8, ptr %.sroa.0252.0, i64 %.sroa.10256.0
   br i1 %.not.i.i.i, label %254, label %277
 
@@ -7212,7 +7212,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$actix_web..http..header..Writer$u
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !1284, !noalias !1287, !noundef !9
   %8 = sub i64 %7, %5
-  %.not.i = icmp ult i64 %8, %2
+  %.not.i = icmp ugt i64 %2, %8
   br i1 %.not.i, label %9, label %10
 
 9:                                                ; preds = %3
@@ -7228,7 +7228,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$actix_web..http..header..Writer$u
   %14 = load i64, ptr %6, align 8, !alias.scope !1284, !noalias !1287, !noundef !9
   %15 = load i64, ptr %4, align 8, !alias.scope !1284, !noalias !1287, !noundef !9
   %16 = sub i64 %14, %15
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %18, label %_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.exit
 
 18:                                               ; preds = %10

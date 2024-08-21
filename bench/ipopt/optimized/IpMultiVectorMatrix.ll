@@ -812,7 +812,7 @@ define void @_ZNK5Ipopt17MultiVectorMatrix14MultVectorImplEdRKNS_6VectorEdRS1_(p
 .lr.ph29:                                         ; preds = %16
   %22 = getelementptr inbounds i8, ptr %2, i64 240
   %23 = load double, ptr %22, align 8
-  %24 = fmul double %23, %1
+  %24 = fmul double %1, %23
   %25 = getelementptr inbounds i8, ptr %0, i64 104
   %26 = getelementptr inbounds i8, ptr %0, i64 80
   br label %27
@@ -865,7 +865,7 @@ _ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit:    ; preds = %27, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit25 ]
   %54 = getelementptr inbounds double, ptr %45, i64 %indvars.iv
   %55 = load double, ptr %54, align 8
-  %56 = fmul double %55, %1
+  %56 = fmul double %1, %55
   %57 = load ptr, ptr %51, align 8
   %58 = getelementptr inbounds %"class.Ipopt::SmartPtr.11", ptr %57, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
@@ -1045,7 +1045,7 @@ _ZNK5Ipopt6Vector3DotERKS0_.exit:                 ; preds = %_ZNK5Ipopt6Vector4N
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %75 = getelementptr inbounds double, ptr %31, i64 %indvars.iv40
   %76 = load double, ptr %75, align 8
-  %77 = fmul double %76, %3
+  %77 = fmul double %3, %76
   %78 = call double @llvm.fmuladd.f64(double %1, double %.0.i22, double %77)
   store double %78, ptr %75, align 8
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
@@ -1126,7 +1126,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i28:                ; preds = %98, %._crit_edge.i.
 _ZNK5Ipopt6Vector3DotERKS0_.exit32:               ; preds = %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i28, %115
   %.0.i26 = phi double [ %106, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i28 ], [ %116, %115 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %117 = fmul double %.0.i26, %1
+  %117 = fmul double %1, %.0.i26
   %118 = getelementptr inbounds double, ptr %31, i64 %indvars.iv
   store double %117, ptr %118, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1245,7 +1245,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %35, %._crit_edge.i.
 _ZNK5Ipopt6Vector3DotERKS0_.exit:                 ; preds = %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i, %52
   %.0.i12 = phi double [ %43, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %54 = fmul double %.0.i12, %1
+  %54 = fmul double %1, %.0.i12
   %55 = load ptr, ptr %19, align 8
   %56 = getelementptr inbounds %"class.Ipopt::SmartPtr.11", ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8

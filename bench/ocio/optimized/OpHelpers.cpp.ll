@@ -68,7 +68,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden noundef double @_ZN19OpenColorIO_v2_4dev13Interpolate1DEjPKdd(i32 noundef %lutSize, ptr nocapture noundef readonly %lutValues, double noundef %in) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load double, ptr %lutValues, align 8
-  %cmp = fcmp ogt double %0, %in
+  %cmp = fcmp olt double %in, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -82,7 +82,7 @@ if.else:                                          ; preds = %entry
   %idxprom = zext i32 %mul to i64
   %arrayidx2 = getelementptr inbounds double, ptr %lutValues, i64 %idxprom
   %2 = load double, ptr %arrayidx2, align 8
-  %cmp3 = fcmp ugt double %2, %in
+  %cmp3 = fcmp ult double %in, %2
   br i1 %cmp3, label %for.cond.preheader, label %if.then4
 
 for.cond.preheader:                               ; preds = %if.else
@@ -112,7 +112,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %idxprom12 = zext i32 %mul11 to i64
   %arrayidx13 = getelementptr inbounds double, ptr %lutValues, i64 %idxprom12
   %5 = load double, ptr %arrayidx13, align 8
-  %cmp14 = fcmp ogt double %5, %in
+  %cmp14 = fcmp olt double %in, %5
   br i1 %cmp14, label %if.then15, label %for.cond
 
 if.then15:                                        ; preds = %for.body

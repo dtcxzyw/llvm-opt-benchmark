@@ -545,7 +545,7 @@ RB_SYMBOL_P.exit.i:                               ; preds = %16
 
 vm_block_handler_type.exit:                       ; preds = %RB_SYMBOL_P.exit.i, %13
   %34 = load i64, ptr @rb_cProc, align 8
-  %.not = icmp eq i64 %34, %0
+  %.not = icmp eq i64 %0, %34
   br i1 %.not, label %46, label %35
 
 35:                                               ; preds = %vm_block_handler_type.exit

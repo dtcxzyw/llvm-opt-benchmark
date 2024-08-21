@@ -1520,7 +1520,7 @@ PyUnicode_DATA.exit33.i:                          ; preds = %if.end.i31.i, %if.t
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i.i)
   store volatile i64 %b.val16.i, ptr %length.i.i, align 8
   %length.i.i.0.length.i.i.0.length.i.i.0.length.i.0.length.i.0.length.0.length.0.length.0..i.i = load volatile i64, ptr %length.i.i, align 8
-  %cmp.i34.i = icmp eq i64 %length.i.i.0.length.i.i.0.length.i.i.0.length.i.0.length.i.0.length.0.length.0.length.0..i.i, %a.val15.i
+  %cmp.i34.i = icmp eq i64 %a.val15.i, %length.i.i.0.length.i.i.0.length.i.i.0.length.i.0.length.i.0.length.0.length.0.length.0..i.i
   br i1 %cmp.i34.i, label %if.then.i36.i, label %if.end.i35.i
 
 if.then.i36.i:                                    ; preds = %PyUnicode_DATA.exit33.i
@@ -1530,7 +1530,7 @@ if.then.i36.i:                                    ; preds = %PyUnicode_DATA.exit
 if.end.i35.i:                                     ; preds = %if.then.i36.i, %PyUnicode_DATA.exit33.i
   %left.0.i.i = phi ptr [ %retval.0.i.i, %if.then.i36.i ], [ null, %PyUnicode_DATA.exit33.i ]
   %length.i.i.0.length.i.i.0.length.i.i.0.length.i.0.length.i.0.length.0.length.0.length.0.3.i.i = load volatile i64, ptr %length.i.i, align 8
-  %cmp1.not.i.i = icmp eq i64 %length.i.i.0.length.i.i.0.length.i.i.0.length.i.0.length.i.0.length.0.length.0.length.0.3.i.i, %a.val15.i
+  %cmp1.not.i.i = icmp eq i64 %a.val15.i, %length.i.i.0.length.i.i.0.length.i.i.0.length.i.0.length.i.0.length.0.length.0.length.0.3.i.i
   br i1 %cmp1.not.i.i, label %if.end3.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i35.i
@@ -1638,7 +1638,7 @@ if.end39.i:                                       ; preds = %if.end35.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i38.i)
   store volatile i64 %32, ptr %length.i37.i, align 8
   %length.i37.i.0.length.i37.i.0.length.i37.i.0.length.i37.0.length.i37.0.length.0.length.0.length.0..i39.i = load volatile i64, ptr %length.i37.i, align 8
-  %cmp.i40.i = icmp eq i64 %length.i37.i.0.length.i37.i.0.length.i37.i.0.length.i37.0.length.i37.0.length.0.length.0.length.0..i39.i, %31
+  %cmp.i40.i = icmp eq i64 %31, %length.i37.i.0.length.i37.i.0.length.i37.i.0.length.i37.0.length.i37.0.length.0.length.0.length.0..i39.i
   br i1 %cmp.i40.i, label %if.then.i65.i, label %if.end.i41.i
 
 if.then.i65.i:                                    ; preds = %if.end39.i
@@ -1648,7 +1648,7 @@ if.then.i65.i:                                    ; preds = %if.end39.i
 if.end.i41.i:                                     ; preds = %if.then.i65.i, %if.end39.i
   %left.0.i42.i = phi ptr [ %29, %if.then.i65.i ], [ null, %if.end39.i ]
   %length.i37.i.0.length.i37.i.0.length.i37.i.0.length.i37.0.length.i37.0.length.0.length.0.length.0.3.i43.i = load volatile i64, ptr %length.i37.i, align 8
-  %cmp1.not.i44.i = icmp eq i64 %length.i37.i.0.length.i37.i.0.length.i37.i.0.length.i37.0.length.i37.0.length.0.length.0.length.0.3.i43.i, %31
+  %cmp1.not.i44.i = icmp eq i64 %31, %length.i37.i.0.length.i37.i.0.length.i37.i.0.length.i37.0.length.i37.0.length.0.length.0.length.0.3.i43.i
   br i1 %cmp1.not.i44.i, label %if.end3.i46.i, label %if.then2.i45.i
 
 if.then2.i45.i:                                   ; preds = %if.end.i41.i

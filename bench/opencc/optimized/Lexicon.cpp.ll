@@ -1040,7 +1040,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
-  %9 = icmp sgt i64 %8, %1
+  %9 = icmp slt i64 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EEaSEOS4_.exit

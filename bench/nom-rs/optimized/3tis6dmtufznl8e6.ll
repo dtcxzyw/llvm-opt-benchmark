@@ -47,7 +47,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %23 = ptrtoint ptr %.val.i.i.i to i64
   %24 = sub nuw i64 %22, %23
   %25 = udiv exact i64 %24, 40
-  %26 = icmp ult i64 %16, %25
+  %26 = icmp ugt i64 %25, %16
   br i1 %26, label %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17heb3f752cdbb83b9cE.exit.i.i"
 
 27:                                               ; preds = %15
@@ -165,7 +165,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %23 = ptrtoint ptr %.val.i.i.i to i64
   %24 = sub nuw i64 %22, %23
   %25 = udiv exact i64 %24, 40
-  %26 = icmp ult i64 %16, %25
+  %26 = icmp ugt i64 %25, %16
   br i1 %26, label %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h04628b7b4786e400E.exit.i.i"
 
 27:                                               ; preds = %15

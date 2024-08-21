@@ -692,11 +692,11 @@ lor.lhs.false48:                                  ; preds = %if.else45
 
 if.end52:                                         ; preds = %lor.lhs.false48
   %cmp54 = icmp eq i32 %10, 0
-  %cmp59 = icmp sge i32 %10, %minversion
+  %cmp59 = icmp sle i32 %minversion, %10
   %narrow = or i1 %cmp54, %cmp59
   %ret.2 = zext i1 %narrow to i32
   %cmp63.not = icmp eq i32 %9, 0
-  %cmp67.not = icmp sgt i32 %9, %maxversion
+  %cmp67.not = icmp slt i32 %maxversion, %9
   %and69 = select i1 %cmp67.not, i32 0, i32 %ret.2
   %ret.3 = select i1 %cmp63.not, i32 %ret.2, i32 %and69
   %tobool71 = icmp ne i32 %ret.3, 0
@@ -2305,7 +2305,7 @@ land.lhs.true:                                    ; preds = %if.end8
   %curve10 = getelementptr inbounds i8, ptr %lu.04.i, i64 32
   %11 = load i32, ptr %curve10, align 8
   %cmp11.not = icmp ne i32 %11, 0
-  %cmp14 = icmp eq i32 %11, %curve
+  %cmp14 = icmp eq i32 %curve, %11
   %or.cond = and i1 %cmp11.not, %cmp14
   br i1 %or.cond, label %return, label %for.inc
 
@@ -2676,7 +2676,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.0119 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %incdec.ptr116118 = phi ptr [ %incdec.ptr, %for.inc ], [ %sent_sigs.promoted, %for.body.preheader ]
   %38 = load i16, ptr %incdec.ptr116118, align 2
-  %cmp158 = icmp eq i16 %38, %sig
+  %cmp158 = icmp eq i16 %sig, %38
   br i1 %cmp158, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -4176,7 +4176,7 @@ if.end108:                                        ; preds = %if.end104
   %add = add nuw nsw i32 %call105, 16
   %conv = zext nneg i32 %add to i64
   %add109 = add i64 %retval.0.i, %conv
-  %cmp110.not = icmp ult i64 %add109, %eticklen
+  %cmp110.not = icmp ugt i64 %eticklen, %add109
   br i1 %cmp110.not, label %if.end113, label %if.then.i120
 
 if.end113:                                        ; preds = %if.end108
@@ -5233,7 +5233,7 @@ if.end18:                                         ; preds = %if.end
   br i1 %cmp19, label %if.then20, label %return
 
 if.then20:                                        ; preds = %if.end18
-  %cmp21.not = icmp ugt i32 %conv, %idx
+  %cmp21.not = icmp ult i32 %idx, %conv
   br i1 %cmp21.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then20
@@ -5386,7 +5386,7 @@ lor.lhs.false15:                                  ; preds = %if.end
   %shared_sigalgslen = getelementptr inbounds i8, ptr %cond1128, i64 5360
   %3 = load i64, ptr %shared_sigalgslen, align 8
   %conv = trunc i64 %3 to i32
-  %cmp16.not = icmp sle i32 %conv, %idx
+  %cmp16.not = icmp sge i32 %idx, %conv
   %cmp20 = icmp ugt i64 %3, 2147483647
   %or.cond22 = or i1 %cmp20, %cmp16.not
   br i1 %or.cond22, label %return, label %if.end23
@@ -7432,7 +7432,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true22
   %ssl_pkey_num.i = getelementptr inbounds i8, ptr %s, i64 272
   %10 = load i64, ptr %ssl_pkey_num.i, align 8
   %conv.i = trunc i64 %10 to i32
-  %cmp1.not.i = icmp sgt i32 %conv.i, %conv
+  %cmp1.not.i = icmp slt i32 %conv, %conv.i
   br i1 %cmp1.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -8160,7 +8160,7 @@ if.then:                                          ; preds = %entry
   %cmp = icmp sgt i32 %call1, 0
   %0 = lshr i32 %call1, 3
   %div = zext nneg i32 %0 to i64
-  %cmp2.not = icmp eq i64 %div, %enckeylen
+  %cmp2.not = icmp eq i64 %enckeylen, %div
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %if.end17, label %return
 

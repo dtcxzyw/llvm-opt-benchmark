@@ -4330,7 +4330,7 @@ _ZN14AccessInternal15BarrierResolverILm286790EPFP7oopDescS2_lELNS_11BarrierTypeE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -4349,7 +4349,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -4368,7 +4368,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -4387,7 +4387,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -4434,7 +4434,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oop
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -4487,7 +4487,7 @@ _ZN11XBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %5, i64 noundef %6)
@@ -4549,7 +4549,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet8oop_loadI9narr
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds ptr, ptr %34, i64 %32
   %36 = load ptr, ptr %35, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %36, %15
+  %.not.i.i.i.i.i = icmp ult ptr %15, %36
   br i1 %.not.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i, label %_ZN20ShenandoahBarrierSet18keep_alive_if_weakEmP7oopDesc.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i: ; preds = %26
@@ -4616,7 +4616,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -4666,7 +4666,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -4716,7 +4716,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -4810,7 +4810,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -5020,7 +5020,7 @@ declare noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGenera
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -5029,7 +5029,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -5038,7 +5038,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -5047,7 +5047,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -5071,7 +5071,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oop
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -5114,7 +5114,7 @@ _ZN11XBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %5, i64 noundef %6)
@@ -5153,7 +5153,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -5203,7 +5203,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -5253,7 +5253,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -5335,7 +5335,7 @@ _ZN14AccessInternal15BarrierResolverILm397382EPFP7oopDescS2_lELNS_11BarrierTypeE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm397414ES1_EELNS_11BarrierTypeE3ELm397414EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -5354,7 +5354,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm397414ES1_EELNS_11BarrierTypeE3ELm397414EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -5373,7 +5373,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm397414ES1_EELNS_11BarrierTypeE3ELm397414EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -5417,7 +5417,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %4 = tail call noundef i64 @_ZN20AccessBarrierSupport32resolve_unknown_oop_ref_strengthEmP7oopDescl(i64 noundef 397414, ptr noundef %0, i64 noundef %1) #17
   %5 = ptrtoint ptr %0 to i64
-  %6 = add nsw i64 %5, %1
+  %6 = add nsw i64 %1, %5
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call noundef ptr @_ZN20ShenandoahBarrierSet8oop_loadI9narrowOopEEP7oopDescmPT_(ptr noundef nonnull align 8 dereferenceable(1064) %3, i64 noundef %4, ptr noundef %7)
   ret ptr %8
@@ -5426,7 +5426,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm397414ES1_EELNS_11BarrierTypeE3ELm397414EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -5734,7 +5734,7 @@ declare noundef i64 @_ZN8XBarrier42weak_load_barrier_on_phantom_oop_slow_pathEm(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN11ZBarrierSet13AccessBarrierILm397414ES_E19oop_load_in_heap_atEP7oopDescl(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN20AccessBarrierSupport32resolve_unknown_oop_ref_strengthEmP7oopDescl(i64 noundef 397414, ptr noundef %0, i64 noundef %1) #17
@@ -6072,7 +6072,7 @@ declare noundef i64 @_ZN8ZBarrier42blocking_load_barrier_on_phantom_slow_pathEPV
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm397382ES1_EELNS_11BarrierTypeE3ELm397382EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -6081,7 +6081,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm397382ES1_EELNS_11BarrierTypeE3ELm397382EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -6090,7 +6090,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm397382ES1_EELNS_11BarrierTypeE3ELm397382EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN20AccessBarrierSupport32resolve_unknown_oop_ref_strengthEmP7oopDescl(i64 noundef 397382, ptr noundef %0, i64 noundef %1) #17
@@ -6128,7 +6128,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm397382ES1_EELNS_11BarrierTypeE3ELm397382EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @_ZN11XBarrierSet13AccessBarrierILm397382ES_E43load_barrier_on_unknown_oop_field_preloadedIP7oopDescEES4_S4_lPT_S4_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef %6)
@@ -6146,7 +6146,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %4 = tail call noundef i64 @_ZN20AccessBarrierSupport32resolve_unknown_oop_ref_strengthEmP7oopDescl(i64 noundef 397382, ptr noundef %0, i64 noundef %1) #17
   %5 = ptrtoint ptr %0 to i64
-  %6 = add nsw i64 %5, %1
+  %6 = add nsw i64 %1, %5
   %7 = inttoptr i64 %6 to ptr
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_(ptr noundef nonnull align 8 dereferenceable(1064) %3, i64 noundef %4, ptr noundef %8, ptr noundef nonnull %7)
@@ -6182,7 +6182,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds ptr, ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %30, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %30
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %20
@@ -6299,7 +6299,7 @@ _ZN8XBarrier40weak_load_barrier_on_oop_field_preloadedEPVP7oopDescS1_.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN11ZBarrierSet13AccessBarrierILm397382ES_E19oop_load_in_heap_atEP7oopDescl(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN20AccessBarrierSupport32resolve_unknown_oop_ref_strengthEmP7oopDescl(i64 noundef 397382, ptr noundef %0, i64 noundef %1) #17
@@ -6735,7 +6735,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet11oop_cmpxchgI9
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %21
   %25 = load ptr, ptr %24, align 8
-  %.not.i.i.i.i = icmp ugt ptr %25, %4
+  %.not.i.i.i.i = icmp ult ptr %4, %25
   br i1 %.not.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.preheader
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i: ; preds = %15
@@ -6939,7 +6939,7 @@ _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23: ; preds = %_ZN20S
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds ptr, ptr %142, i64 %140
   %144 = load ptr, ptr %143, align 8
-  %.not.i.i.i.i25 = icmp ugt ptr %144, %124
+  %.not.i.i.i.i25 = icmp ult ptr %124, %144
   br i1 %.not.i.i.i.i25, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26: ; preds = %134
@@ -7086,7 +7086,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet11oop_cmpxchgIP
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %21
   %25 = load ptr, ptr %24, align 8
-  %.not.i.i.i.i = icmp ugt ptr %25, %4
+  %.not.i.i.i.i = icmp ult ptr %4, %25
   br i1 %.not.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.preheader
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i: ; preds = %15
@@ -7194,7 +7194,7 @@ _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23: ; preds = %_ZN20S
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds ptr, ptr %82, i64 %80
   %84 = load ptr, ptr %83, align 8
-  %.not.i.i.i.i25 = icmp ugt ptr %84, %64
+  %.not.i.i.i.i25 = icmp ult ptr %64, %84
   br i1 %.not.i.i.i.i25, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26: ; preds = %74
@@ -7389,7 +7389,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN20She
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %23, %1
+  %.not.i.i.i.i.i.i = icmp ult ptr %1, %23
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm282726ES_E17oop_store_in_heapI9narrowOopEEvPT_P7oopDesc.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %13
@@ -7538,7 +7538,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN20She
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %23, %1
+  %.not.i.i.i.i.i.i = icmp ult ptr %1, %23
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm282694ES_E17oop_store_in_heapIP7oopDescEEvPT_S4_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %13

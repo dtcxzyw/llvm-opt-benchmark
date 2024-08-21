@@ -65,7 +65,7 @@ define dso_local noundef i64 @spg_kd_choose(ptr nocapture noundef readonly %0) l
   %.in.idx.i = zext nneg i32 %23 to i64
   %.in.i = getelementptr inbounds i8, ptr %13, i64 %.in.idx.i
   %24 = load double, ptr %.in.i, align 8
-  %25 = fcmp uge double %24, %18
+  %25 = fcmp ule double %18, %24
   %26 = zext i1 %25 to i32
   %27 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 %26, ptr %27, align 8
@@ -305,7 +305,7 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
 
 40:                                               ; preds = %37
   %41 = load double, ptr %26, align 8
-  %42 = fcmp olt double %19, %41
+  %42 = fcmp ogt double %41, %19
   %43 = and i32 %.0104141, 4
   br i1 %42, label %select.unfold, label %.thread
 
@@ -326,7 +326,7 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
   br label %select.unfold
 
 53:                                               ; preds = %47
-  %54 = fcmp olt double %19, %48
+  %54 = fcmp ogt double %48, %19
   %55 = and i32 %.0104141, 4
   br i1 %54, label %select.unfold, label %.thread
 
@@ -342,7 +342,7 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
   br label %select.unfold
 
 63:                                               ; preds = %56
-  %64 = fcmp olt double %19, %58
+  %64 = fcmp ogt double %58, %19
   %65 = and i32 %.0104141, 4
   br i1 %64, label %select.unfold, label %.thread
 
@@ -369,7 +369,7 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
 80:                                               ; preds = %76
   %81 = getelementptr inbounds i8, ptr %26, i64 8
   %82 = load double, ptr %81, align 8
-  %83 = fcmp olt double %19, %82
+  %83 = fcmp ogt double %82, %19
   %84 = and i32 %.0104141, 4
   br i1 %83, label %select.unfold, label %.thread
 
@@ -392,7 +392,7 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
 94:                                               ; preds = %88
   %95 = getelementptr inbounds i8, ptr %26, i64 16
   %96 = load double, ptr %95, align 8
-  %97 = fcmp olt double %19, %96
+  %97 = fcmp ogt double %96, %19
   %98 = and i32 %.0104141, 4
   br i1 %97, label %select.unfold, label %.thread
 
@@ -410,7 +410,7 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr nocapture noundef read
 106:                                              ; preds = %99
   %107 = getelementptr inbounds i8, ptr %26, i64 24
   %108 = load double, ptr %107, align 8
-  %109 = fcmp olt double %19, %108
+  %109 = fcmp ogt double %108, %19
   %110 = and i32 %.0104141, 4
   br i1 %109, label %select.unfold, label %.thread
 

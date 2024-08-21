@@ -602,7 +602,7 @@ _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEEN
 
 land.rhs.i.i:                                     ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i
   %7 = load i32, ptr %6, align 4, !noalias !30
-  %cmp.i2.i.i = icmp sgt i32 %7, %tag
+  %cmp.i2.i.i = icmp slt i32 %tag, %7
   %spec.select.i = select i1 %cmp.i2.i.i, ptr %add.ptr.i.i.i.i, ptr %6
   br label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit
 
@@ -793,7 +793,7 @@ _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEEN
 
 land.rhs.i.i:                                     ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i
   %7 = load i32, ptr %6, align 4, !noalias !63
-  %cmp.i2.i.i = icmp sgt i32 %7, %tag
+  %cmp.i2.i.i = icmp slt i32 %tag, %7
   %spec.select.i = select i1 %cmp.i2.i.i, ptr %add.ptr.i.i.i.i, ptr %6
   br label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit
 
@@ -847,7 +847,7 @@ _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEEN
 
 land.rhs.i.i:                                     ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i
   %7 = load i32, ptr %6, align 4, !noalias !73
-  %cmp.i2.i.i = icmp sgt i32 %7, %tag
+  %cmp.i2.i.i = icmp slt i32 %tag, %7
   %spec.select.i = select i1 %cmp.i2.i.i, ptr %add.ptr.i.i.i.i, ptr %6
   br label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit
 
@@ -901,7 +901,7 @@ _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEEN
 
 land.rhs.i.i:                                     ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i
   %7 = load i32, ptr %6, align 4, !noalias !83
-  %cmp.i2.i.i = icmp sgt i32 %7, %tag
+  %cmp.i2.i.i = icmp slt i32 %tag, %7
   %spec.select.i = select i1 %cmp.i2.i.i, ptr %add.ptr.i.i.i.i, ptr %6
   br label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit
 
@@ -1222,7 +1222,7 @@ _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEEN
 
 land.rhs.i.i.i:                                   ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i
   %21 = load i32, ptr %20, align 4, !noalias !116
-  %cmp.i2.i.i.i = icmp sgt i32 %21, %tag
+  %cmp.i2.i.i.i = icmp slt i32 %tag, %21
   %spec.select.i.i = select i1 %cmp.i2.i.i.i, ptr %add.ptr.i.i.i.i.i, ptr %20
   br label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i
 
@@ -2144,7 +2144,7 @@ entry:
   %ref.tmp86 = alloca i64, align 8
   %agg.tmp118 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp119 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %cmp = icmp ule ptr %buf.coerce0, %dirp
+  %cmp = icmp uge ptr %dirp, %buf.coerce0
   %add.ptr = getelementptr inbounds i8, ptr %dirp, i64 12
   %add.ptr3 = getelementptr inbounds i8, ptr %buf.coerce0, i64 %buf.coerce1
   %cmp4.not = icmp ult ptr %add.ptr, %add.ptr3
@@ -2267,7 +2267,7 @@ if.then20:                                        ; preds = %if.end13, %if.end13
   %18 = call i32 @llvm.bswap.i32(i32 %8)
   %spec.select = select i1 %swab, i32 %18, i32 %8
   %conv24 = zext i32 %spec.select to i64
-  %cmp26.not = icmp ult i64 %conv24, %buf.coerce1
+  %cmp26.not = icmp ugt i64 %buf.coerce1, %conv24
   br i1 %cmp26.not, label %if.end28, label %if.end138
 
 if.end28:                                         ; preds = %if.then20
@@ -2338,7 +2338,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %add.ptr.i.i.i
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -2392,7 +2392,7 @@ if.then65:                                        ; preds = %if.end13
   %31 = call i32 @llvm.bswap.i32(i32 %8)
   %spec.select169 = select i1 %swab, i32 %31, i32 %8
   %conv70 = zext i32 %spec.select169 to i64
-  %cmp72.not = icmp ult i64 %conv70, %buf.coerce1
+  %cmp72.not = icmp ugt i64 %buf.coerce1, %conv70
   br i1 %cmp72.not, label %if.end74, label %if.end138
 
 if.end74:                                         ; preds = %if.then65
@@ -4112,7 +4112,7 @@ _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEEN
 
 land.rhs.i.i.i:                                   ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i
   %6 = load i32, ptr %5, align 4, !noalias !153
-  %cmp.i2.i.i.i = icmp sgt i32 %6, %tag
+  %cmp.i2.i.i.i = icmp slt i32 %tag, %6
   %spec.select.i.i = select i1 %cmp.i2.i.i.i, ptr %add.ptr.i.i.i.i.i, ptr %5
   br label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i
 
@@ -4154,7 +4154,7 @@ _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEEN
 
 _ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i80: ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i74
   %13 = load i32, ptr %12, align 4, !noalias !163
-  %cmp.i2.i.i.i78 = icmp sgt i32 %13, %tag
+  %cmp.i2.i.i.i78 = icmp slt i32 %tag, %13
   br i1 %cmp.i2.i.i.i78, label %_ZNK18OpenImageIO_v2_6_03pvt6TagMap9tiffcountEi.exit, label %cond.false.i83
 
 cond.false.i83:                                   ; preds = %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i80
@@ -5216,7 +5216,7 @@ entry:
   %m_size = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   %sub = sub i64 %0, %1
-  %cmp.not = icmp ult i64 %sub, %n
+  %cmp.not = icmp ugt i64 %n, %sub
   br i1 %cmp.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -5416,7 +5416,7 @@ if.then21.i:                                      ; preds = %if.then.i.i.i, %if.
   %add.ptr.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %r.addr.0.i.i.i, i64 %n
   %11 = load i64, ptr %m_size.i, align 8
   %add.ptr25.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %6, i64 %11
-  %cmp.i.i13.i = icmp ne ptr %add.ptr25.i, %0
+  %cmp.i.i13.i = icmp ne ptr %0, %add.ptr25.i
   %tobool5.i.i16.i = icmp ne ptr %0, null
   %or.cond1.i.i17.i = and i1 %tobool5.i.i16.i, %cmp.i.i13.i
   br i1 %or.cond1.i.i17.i, label %if.then.i.i19.i, label %_ZN5boost9container24uninitialized_move_allocINS0_13new_allocatorINS0_3dtl4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEEEEPS9_SB_EENS3_40enable_if_memtransfer_copy_constructibleIT0_T1_SE_E4typeERT_SD_SD_SE_.exit24.i
@@ -5923,7 +5923,7 @@ entry:
   %m_size = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   %sub = sub i64 %0, %1
-  %cmp.not = icmp ult i64 %sub, %n
+  %cmp.not = icmp ugt i64 %n, %sub
   %2 = load ptr, ptr %pos, align 8
   %3 = load ptr, ptr %this, align 8
   br i1 %cmp.not, label %if.then, label %if.else
@@ -6051,7 +6051,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_13new_allocatorINS0_3dtl4pairI
   %5 = phi i64 [ %.pre, %_ZN5boost9container24uninitialized_move_allocINS0_13new_allocatorINS0_3dtl4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_07TagInfoEEEEEPSF_SH_EENS3_41disable_if_memtransfer_copy_constructibleIT0_T1_SK_E4typeERT_SJ_SJ_SK_.exit.loopexit ], [ %1, %if.then6 ]
   %add12 = add i64 %5, %n
   store i64 %add12, ptr %m_size.i, align 8
-  %cmp.not5.i = icmp eq ptr %add.ptr, %pos
+  %cmp.not5.i = icmp eq ptr %pos, %add.ptr
   br i1 %cmp.not5.i, label %_ZN5boost9container13move_backwardIPNS0_3dtl4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_07TagInfoEEESF_EENS2_38disable_if_memtransfer_copy_assignableIT_T0_SI_E4typeESH_SH_SI_.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_13new_allocatorINS0_3dtl4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_07TagInfoEEEEEPSF_SH_EENS3_41disable_if_memtransfer_copy_constructibleIT0_T1_SK_E4typeERT_SJ_SJ_SK_.exit, %while.body.i
@@ -6064,7 +6064,7 @@ while.body.i:                                     ; preds = %_ZN5boost9container
   %6 = load ptr, ptr %second.i.i, align 8
   %second5.i.i = getelementptr inbounds i8, ptr %r.addr.07.i, i64 -8
   store ptr %6, ptr %second5.i.i, align 8
-  %cmp.not.i33 = icmp eq ptr %incdec.ptr.i32, %pos
+  %cmp.not.i33 = icmp eq ptr %pos, %incdec.ptr.i32
   br i1 %cmp.not.i33, label %_ZN5boost9container13move_backwardIPNS0_3dtl4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_07TagInfoEEESF_EENS2_38disable_if_memtransfer_copy_assignableIT_T0_SI_E4typeESH_SH_SI_.exit, label %while.body.i, !llvm.loop !248
 
 _ZN5boost9container13move_backwardIPNS0_3dtl4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_07TagInfoEEESF_EENS2_38disable_if_memtransfer_copy_assignableIT_T0_SI_E4typeESH_SH_SI_.exit: ; preds = %while.body.i, %_ZN5boost9container24uninitialized_move_allocINS0_13new_allocatorINS0_3dtl4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN18OpenImageIO_v2_6_07TagInfoEEEEEPSF_SH_EENS3_41disable_if_memtransfer_copy_constructibleIT0_T1_SK_E4typeERT_SJ_SJ_SK_.exit
@@ -6147,7 +6147,7 @@ if.then23:                                        ; preds = %invoke.cont16
   %m_size = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %m_size, align 8
   %add.ptr27 = getelementptr inbounds %"struct.boost::container::dtl::pair.52", ptr %0, i64 %3
-  %cmp.not9.i22 = icmp eq ptr %add.ptr27, %pos
+  %cmp.not9.i22 = icmp eq ptr %pos, %add.ptr27
   br i1 %cmp.not9.i22, label %invoke.cont28, label %invoke.cont2.i23
 
 invoke.cont2.i23:                                 ; preds = %if.then23, %invoke.cont2.i23
@@ -6263,7 +6263,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
 
 if.then.i:                                        ; preds = %if.end12.i.i, %if.then.i.i
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa25.i.i, %if.then.i.i ], [ %__y.0.lcssa26.i.i, %if.end12.i.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.sroa.4.0.i.ph.i
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %add.ptr.i.i.i
   br i1 %cmp2.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then.i
@@ -6387,7 +6387,7 @@ invoke.cont:                                      ; preds = %if.then3
   %call5.i.i.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.idx) #30
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i1.i, ptr nonnull align 2 %retval.0.i249, i64 %add.ptr.idx, i1 false)
   %cmp5.i71 = icmp sgt i32 %3, 0
-  %or.cond294 = and i1 %cmp5.i71, %swab
+  %or.cond294 = and i1 %swab, %cmp5.i71
   br i1 %or.cond294, label %for.body.i, label %if.end9
 
 for.body.i:                                       ; preds = %invoke.cont, %for.body.i
@@ -6453,7 +6453,7 @@ invoke.cont26:                                    ; preds = %if.then19
   %call5.i.i.i.i1.i85 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr23.idx) #30
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i1.i85, ptr nonnull align 4 %retval.0.i249, i64 %add.ptr23.idx, i1 false)
   %cmp5.i105 = icmp sgt i32 %3, 0
-  %or.cond295 = and i1 %cmp5.i105, %swab
+  %or.cond295 = and i1 %swab, %cmp5.i105
   br i1 %or.cond295, label %for.body.i108, label %if.end34
 
 for.body.i108:                                    ; preds = %invoke.cont26, %for.body.i108
@@ -7032,7 +7032,7 @@ _ZSt4copyIPcN9__gnu_cxx17__normal_iteratorIS0_St6vectorIcSaIcEEEEET0_T_S8_S7_.ex
 
 _ZSt7advanceIPcmEvRT_T0_.exit:                    ; preds = %if.then4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %__last, %incdec.ptr.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPcS0_cET0_T_S2_S1_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIPcmEvRT_T0_.exit
@@ -7095,7 +7095,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %cond.i58 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i59 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i61 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i59, %sub.ptr.rhs.cast.i.i56
-  %tobool.not.i.i.i.i.i.i.i.i.i62 = icmp eq ptr %4, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i62 = icmp eq ptr %__position.coerce, %4
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i62, label %invoke.cont61, label %if.then.i.i.i.i.i.i.i.i.i63
 
 if.then.i.i.i.i.i.i.i.i.i63:                      ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
@@ -7184,7 +7184,7 @@ _ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.ex
 
 _ZSt7advanceIPKcmEvRT_T0_.exit:                   ; preds = %if.then4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %__last, %incdec.ptr.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKcPccET0_T_S4_S3_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIPKcmEvRT_T0_.exit
@@ -7247,7 +7247,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %cond.i58 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i59 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i61 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i59, %sub.ptr.rhs.cast.i.i56
-  %tobool.not.i.i.i.i.i.i.i.i.i62 = icmp eq ptr %4, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i62 = icmp eq ptr %__position.coerce, %4
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i62, label %invoke.cont61, label %if.then.i.i.i.i.i.i.i.i.i63
 
 if.then.i.i.i.i.i.i.i.i.i63:                      ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
@@ -7515,7 +7515,7 @@ entry:
   %__comp.coerce.fr = freeze i32 %__comp.coerce
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp29 = icmp sgt i64 %div, %__holeIndex
+  %cmp29 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp29, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry

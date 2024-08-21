@@ -543,7 +543,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -631,7 +631,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #10 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -4617,14 +4617,14 @@ define linkonce_odr void @_ZN3vcg3tri13UpdateQualityI6CMeshOE14VertexFromFaceERS
   %49 = getelementptr inbounds i8, ptr %42, i64 16
   %50 = load float, ptr %49, align 4
   %51 = fsub float %50, %39
-  %52 = fneg float %40
-  %53 = fmul float %48, %52
+  %52 = fneg float %48
+  %53 = fmul float %40, %52
   %54 = call float @llvm.fmuladd.f32(float %35, float %51, float %53)
-  %55 = fneg float %30
-  %56 = fmul float %51, %55
+  %55 = fneg float %51
+  %56 = fmul float %30, %55
   %57 = call float @llvm.fmuladd.f32(float %40, float %45, float %56)
-  %58 = fneg float %35
-  %59 = fmul float %45, %58
+  %58 = fneg float %45
+  %59 = fmul float %35, %58
   %60 = call float @llvm.fmuladd.f32(float %30, float %48, float %59)
   %61 = fmul float %57, %57
   %62 = call float @llvm.fmuladd.f32(float %54, float %54, float %61)
@@ -6502,14 +6502,14 @@ define linkonce_odr void @_ZN3vcg3tri12UpdateNormalI6CMeshOE17PerFaceNormalizedE
   %38 = getelementptr inbounds i8, ptr %31, i64 16
   %39 = load float, ptr %38, align 4
   %40 = fsub float %39, %28
-  %41 = fneg float %29
-  %42 = fmul float %37, %41
+  %41 = fneg float %37
+  %42 = fmul float %29, %41
   %43 = tail call float @llvm.fmuladd.f32(float %24, float %40, float %42)
-  %44 = fneg float %19
-  %45 = fmul float %40, %44
+  %44 = fneg float %40
+  %45 = fmul float %19, %44
   %46 = tail call float @llvm.fmuladd.f32(float %29, float %34, float %45)
-  %47 = fneg float %24
-  %48 = fmul float %34, %47
+  %47 = fneg float %34
+  %48 = fmul float %24, %47
   %49 = tail call float @llvm.fmuladd.f32(float %19, float %37, float %48)
   %.sroa.0.0.vec.insert.i20.i.i = insertelement <2 x float> poison, float %43, i64 0
   %.sroa.0.4.vec.insert.i21.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i20.i.i, float %46, i64 1
@@ -6814,14 +6814,14 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit: ; preds = %_ZN3vc
   %79 = getelementptr inbounds i8, ptr %72, i64 16
   %80 = load float, ptr %79, align 4
   %81 = fsub float %80, %69
-  %82 = fneg float %70
-  %83 = fmul float %78, %82
+  %82 = fneg float %78
+  %83 = fmul float %70, %82
   %84 = tail call float @llvm.fmuladd.f32(float %65, float %81, float %83)
-  %85 = fneg float %60
-  %86 = fmul float %81, %85
+  %85 = fneg float %81
+  %86 = fmul float %60, %85
   %87 = tail call float @llvm.fmuladd.f32(float %70, float %75, float %86)
-  %88 = fneg float %65
-  %89 = fmul float %75, %88
+  %88 = fneg float %75
+  %89 = fmul float %65, %88
   %90 = tail call float @llvm.fmuladd.f32(float %60, float %78, float %89)
   br label %91
 
@@ -7073,7 +7073,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr nou
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -7141,7 +7141,7 @@ _ZNSt12_Vector_baseIN3vcg6Point3IfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; pr
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -7677,7 +7677,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
@@ -7686,7 +7686,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 14:                                               ; preds = %2
-  %15 = icmp ugt i64 %10, %1
+  %15 = icmp ult i64 %1, %10
   br i1 %15, label %16, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 16:                                               ; preds = %14
@@ -9245,7 +9245,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identit
   %6 = alloca %"class.vcg::PointerToAttribute", align 8
   %.not = icmp ne ptr %1, null
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   %or.cond = select i1 %.not, i1 true, i1 %8
   br i1 %or.cond, label %31, label %9
 
@@ -9606,7 +9606,7 @@ _ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pair
 30:                                               ; preds = %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i
   %31 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %32 = load i32, ptr %31, align 4
-  %33 = icmp sgt i32 %32, %3
+  %33 = icmp slt i32 %3, %32
   br i1 %33, label %.critedge.i, label %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit
 
 .critedge.i:                                      ; preds = %30, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i, %24
@@ -9935,7 +9935,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
   %.lcssa = phi float [ %8, %4 ], [ %14, %tailrecurse ]
   %16 = fsub float %.lcssa, %.lcssa73
   %17 = fmul float %16, 2.500000e-01
-  %18 = fcmp ogt float %.lcssa73, %.tr72.lcssa
+  %18 = fcmp olt float %.tr72.lcssa, %.lcssa73
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %tailrecurse._crit_edge
@@ -10110,7 +10110,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 

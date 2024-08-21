@@ -473,8 +473,8 @@ define hidden void @OGLRenderer_DrawParallelogram(ptr noundef readnone %0, float
   %25 = load ptr, ptr @j2d_glVertex2f, align 8
   tail call void %25(float noundef %16, float noundef %19) #4
   %26 = load ptr, ptr @j2d_glVertex2f, align 8
-  %27 = fadd float %16, %3
-  %28 = fadd float %19, %4
+  %27 = fadd float %3, %16
+  %28 = fadd float %4, %19
   tail call void %26(float noundef %27, float noundef %28) #4
   %29 = load ptr, ptr @j2d_glVertex2f, align 8
   %30 = fadd float %12, %27
@@ -491,22 +491,22 @@ define hidden void @OGLRenderer_DrawParallelogram(ptr noundef readnone %0, float
   %38 = fadd float %11, %28
   tail call void %36(float noundef %37, float noundef %38) #4
   %39 = load ptr, ptr @j2d_glVertex2f, align 8
-  %40 = fadd float %37, %5
-  %41 = fadd float %38, %6
+  %40 = fadd float %5, %37
+  %41 = fadd float %6, %38
   tail call void %39(float noundef %40, float noundef %41) #4
   %42 = load ptr, ptr @j2d_glVertex2f, align 8
-  %43 = fadd float %27, %5
-  %44 = fadd float %28, %6
+  %43 = fadd float %5, %27
+  %44 = fadd float %6, %28
   tail call void %42(float noundef %43, float noundef %44) #4
-  %45 = fadd float %16, %5
+  %45 = fadd float %5, %16
   %46 = fadd float %10, %45
-  %47 = fadd float %19, %6
+  %47 = fadd float %6, %19
   %48 = fadd float %11, %47
   %49 = load ptr, ptr @j2d_glVertex2f, align 8
   tail call void %49(float noundef %46, float noundef %48) #4
   %50 = load ptr, ptr @j2d_glVertex2f, align 8
-  %51 = fadd float %46, %3
-  %52 = fadd float %48, %4
+  %51 = fadd float %3, %46
+  %52 = fadd float %4, %48
   tail call void %50(float noundef %51, float noundef %52) #4
   %53 = load ptr, ptr @j2d_glVertex2f, align 8
   %54 = fadd float %12, %51
@@ -523,20 +523,20 @@ define hidden void @OGLRenderer_DrawParallelogram(ptr noundef readnone %0, float
   %62 = fadd float %11, %34
   tail call void %60(float noundef %61, float noundef %62) #4
   %63 = load ptr, ptr @j2d_glVertex2f, align 8
-  %64 = fadd float %61, %5
-  %65 = fadd float %62, %6
+  %64 = fadd float %5, %61
+  %65 = fadd float %6, %62
   tail call void %63(float noundef %64, float noundef %65) #4
   %66 = load ptr, ptr @j2d_glVertex2f, align 8
-  %67 = fadd float %33, %5
-  %68 = fadd float %34, %6
+  %67 = fadd float %5, %33
+  %68 = fadd float %6, %34
   tail call void %66(float noundef %67, float noundef %68) #4
   br label %84
 
 69:                                               ; preds = %21
-  %70 = fadd float %10, %3
-  %71 = fadd float %11, %4
-  %72 = fadd float %12, %5
-  %73 = fadd float %13, %6
+  %70 = fadd float %3, %10
+  %71 = fadd float %4, %11
+  %72 = fadd float %5, %12
+  %73 = fadd float %6, %13
   %74 = load ptr, ptr @j2d_glVertex2f, align 8
   tail call void %74(float noundef %16, float noundef %19) #4
   %75 = load ptr, ptr @j2d_glVertex2f, align 8
@@ -565,24 +565,24 @@ define hidden void @OGLRenderer_FillAAParallelogram(ptr noundef readnone %0, ptr
   br i1 %or.cond, label %78, label %11
 
 11:                                               ; preds = %8
-  %12 = fneg float %6
-  %13 = fmul float %12, %5
+  %12 = fneg float %5
+  %13 = fmul float %6, %12
   %14 = tail call float @llvm.fmuladd.f32(float %4, float %7, float %13)
   %15 = fcmp oeq float %14, 0.000000e+00
   br i1 %15, label %78, label %16
 
 16:                                               ; preds = %11
   %17 = fdiv float %7, %14
-  %18 = fdiv float %12, %14
-  %19 = fneg float %5
-  %20 = fdiv float %19, %14
+  %18 = fneg float %6
+  %19 = fdiv float %18, %14
+  %20 = fdiv float %12, %14
   %21 = fdiv float %4, %14
-  %22 = fneg float %7
-  %23 = fmul float %22, %2
+  %22 = fneg float %2
+  %23 = fmul float %7, %22
   %24 = tail call float @llvm.fmuladd.f32(float %6, float %3, float %23)
   %25 = fdiv float %24, %14
-  %26 = fneg float %4
-  %27 = fmul float %26, %3
+  %26 = fneg float %3
+  %27 = fmul float %4, %26
   %28 = tail call float @llvm.fmuladd.f32(float %5, float %2, float %27)
   %29 = fdiv float %28, %14
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -5) #4
@@ -608,7 +608,7 @@ define hidden void @OGLRenderer_FillAAParallelogram(ptr noundef readnone %0, ptr
   %41 = tail call float @llvm.floor.f32(float %.1109)
   %42 = tail call float @llvm.ceil.f32(float %.1111)
   %43 = tail call float @llvm.ceil.f32(float %.1113)
-  %44 = fmul float %18, %41
+  %44 = fmul float %19, %41
   %45 = tail call float @llvm.fmuladd.f32(float %40, float %17, float %44)
   %46 = fadd float %25, %45
   %47 = fmul float %21, %41
@@ -618,7 +618,7 @@ define hidden void @OGLRenderer_FillAAParallelogram(ptr noundef readnone %0, ptr
   %51 = fadd float %25, %50
   %52 = tail call float @llvm.fmuladd.f32(float %42, float %20, float %47)
   %53 = fadd float %29, %52
-  %54 = fmul float %18, %43
+  %54 = fmul float %19, %43
   %55 = tail call float @llvm.fmuladd.f32(float %40, float %17, float %54)
   %56 = fadd float %25, %55
   %57 = fmul float %21, %43
@@ -673,8 +673,8 @@ define hidden void @OGLRenderer_FillAAParallelogramInnerOuter(ptr noundef %0, pt
   br i1 %or.cond, label %123, label %17
 
 17:                                               ; preds = %14
-  %18 = fneg float %12
-  %19 = fmul float %18, %11
+  %18 = fneg float %11
+  %19 = fmul float %12, %18
   %20 = tail call float @llvm.fmuladd.f32(float %10, float %13, float %19)
   %21 = fcmp oeq float %20, 0.000000e+00
   br i1 %21, label %22, label %23
@@ -684,37 +684,37 @@ define hidden void @OGLRenderer_FillAAParallelogramInnerOuter(ptr noundef %0, pt
   br label %123
 
 23:                                               ; preds = %17
-  %24 = fneg float %6
-  %25 = fmul float %24, %5
+  %24 = fneg float %5
+  %25 = fmul float %6, %24
   %26 = tail call float @llvm.fmuladd.f32(float %4, float %7, float %25)
   %27 = fcmp oeq float %26, 0.000000e+00
   br i1 %27, label %123, label %28
 
 28:                                               ; preds = %23
-  %29 = fneg float %10
-  %30 = fmul float %29, %9
+  %29 = fneg float %9
+  %30 = fmul float %10, %29
   %31 = tail call float @llvm.fmuladd.f32(float %11, float %8, float %30)
   %32 = fdiv float %31, %20
-  %33 = fneg float %13
-  %34 = fmul float %33, %8
+  %33 = fneg float %8
+  %34 = fmul float %13, %33
   %35 = tail call float @llvm.fmuladd.f32(float %12, float %9, float %34)
   %36 = fdiv float %35, %20
   %37 = fdiv float %10, %20
-  %38 = fneg float %11
-  %39 = fdiv float %38, %20
-  %40 = fdiv float %18, %20
+  %38 = fdiv float %18, %20
+  %39 = fneg float %12
+  %40 = fdiv float %39, %20
   %41 = fdiv float %13, %20
   %42 = fdiv float %7, %26
-  %43 = fdiv float %24, %26
-  %44 = fneg float %5
-  %45 = fdiv float %44, %26
+  %43 = fneg float %6
+  %44 = fdiv float %43, %26
+  %45 = fdiv float %24, %26
   %46 = fdiv float %4, %26
-  %47 = fneg float %7
-  %48 = fmul float %47, %2
+  %47 = fneg float %2
+  %48 = fmul float %7, %47
   %49 = tail call float @llvm.fmuladd.f32(float %6, float %3, float %48)
   %50 = fdiv float %49, %26
-  %51 = fneg float %4
-  %52 = fmul float %51, %3
+  %51 = fneg float %3
+  %52 = fmul float %4, %51
   %53 = tail call float @llvm.fmuladd.f32(float %5, float %2, float %52)
   %54 = fdiv float %53, %26
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -5) #4
@@ -740,7 +740,7 @@ define hidden void @OGLRenderer_FillAAParallelogramInnerOuter(ptr noundef %0, pt
   %66 = tail call float @llvm.floor.f32(float %.1188)
   %67 = tail call float @llvm.ceil.f32(float %.1190)
   %68 = tail call float @llvm.ceil.f32(float %.1192)
-  %69 = fmul float %43, %66
+  %69 = fmul float %44, %66
   %70 = tail call float @llvm.fmuladd.f32(float %65, float %42, float %69)
   %71 = fadd float %50, %70
   %72 = fmul float %46, %66
@@ -750,7 +750,7 @@ define hidden void @OGLRenderer_FillAAParallelogramInnerOuter(ptr noundef %0, pt
   %76 = fadd float %50, %75
   %77 = tail call float @llvm.fmuladd.f32(float %67, float %45, float %72)
   %78 = fadd float %54, %77
-  %79 = fmul float %43, %68
+  %79 = fmul float %44, %68
   %80 = tail call float @llvm.fmuladd.f32(float %65, float %42, float %79)
   %81 = fadd float %50, %80
   %82 = fmul float %46, %68
@@ -764,21 +764,21 @@ define hidden void @OGLRenderer_FillAAParallelogramInnerOuter(ptr noundef %0, pt
   %90 = tail call float @llvm.fmuladd.f32(float %65, float %41, float %89)
   %91 = fadd float %36, %90
   %92 = fmul float %66, %37
-  %93 = tail call float @llvm.fmuladd.f32(float %65, float %39, float %92)
+  %93 = tail call float @llvm.fmuladd.f32(float %65, float %38, float %92)
   %94 = fadd float %32, %93
   %95 = tail call float @llvm.fmuladd.f32(float %67, float %41, float %89)
   %96 = fadd float %36, %95
-  %97 = tail call float @llvm.fmuladd.f32(float %67, float %39, float %92)
+  %97 = tail call float @llvm.fmuladd.f32(float %67, float %38, float %92)
   %98 = fadd float %32, %97
   %99 = fmul float %68, %40
   %100 = tail call float @llvm.fmuladd.f32(float %65, float %41, float %99)
   %101 = fadd float %36, %100
   %102 = fmul float %68, %37
-  %103 = tail call float @llvm.fmuladd.f32(float %65, float %39, float %102)
+  %103 = tail call float @llvm.fmuladd.f32(float %65, float %38, float %102)
   %104 = fadd float %32, %103
   %105 = tail call float @llvm.fmuladd.f32(float %67, float %41, float %99)
   %106 = fadd float %36, %105
-  %107 = tail call float @llvm.fmuladd.f32(float %67, float %39, float %102)
+  %107 = tail call float @llvm.fmuladd.f32(float %67, float %38, float %102)
   %108 = fadd float %32, %107
   %109 = load ptr, ptr @j2d_glBegin, align 8
   tail call void %109(i32 noundef 7) #4
@@ -832,18 +832,18 @@ define hidden void @OGLRenderer_DrawAAParallelogram(ptr noundef %0, ptr noundef 
   %21 = fadd float %15, %17
   %22 = fmul float %21, 5.000000e-01
   %23 = fsub float %3, %22
-  %24 = fadd float %14, %4
-  %25 = fadd float %15, %5
-  %26 = fadd float %16, %6
-  %27 = fadd float %17, %7
+  %24 = fadd float %4, %14
+  %25 = fadd float %5, %15
+  %26 = fadd float %6, %16
+  %27 = fadd float %7, %17
   %28 = fcmp olt float %8, 1.000000e+00
   %29 = fcmp olt float %9, 1.000000e+00
   %or.cond = and i1 %28, %29
   br i1 %or.cond, label %30, label %37
 
 30:                                               ; preds = %13
-  %31 = fadd float %19, %2
-  %32 = fadd float %22, %3
+  %31 = fadd float %2, %19
+  %32 = fadd float %3, %22
   %33 = fsub float %4, %14
   %34 = fsub float %5, %15
   %35 = fsub float %6, %16

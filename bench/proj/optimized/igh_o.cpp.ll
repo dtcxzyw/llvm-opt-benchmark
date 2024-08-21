@@ -470,9 +470,9 @@ define internal { double, double } @_ZL15igh_o_s_inverse5PJ_XYP8PJconsts(double 
   %7 = load double, ptr %6, align 8
   %8 = fadd double %7, 0x3FF6A09E667F3BCD
   %9 = fadd double %8, 1.000000e-10
-  %10 = fcmp olt double %9, %1
+  %10 = fcmp ogt double %1, %9
   %11 = fsub double 1.000000e-10, %8
-  %12 = fcmp ogt double %11, %1
+  %12 = fcmp olt double %1, %11
   %or.cond94 = or i1 %10, %12
   br i1 %or.cond94, label %120, label %13
 

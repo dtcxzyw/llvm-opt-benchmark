@@ -404,7 +404,7 @@ entry:
   %0 = getelementptr i8, ptr %call, i64 32
   %call.val = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %call.val, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry

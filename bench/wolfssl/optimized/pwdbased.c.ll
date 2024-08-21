@@ -556,7 +556,7 @@ if.then20.i:                                      ; preds = %if.end18.i
 for.inc.i:                                        ; preds = %if.then20.i, %if.end18.i, %for.body.i
   %ret.3.i = phi i32 [ %call22.i, %if.then20.i ], [ %call17.i, %if.end18.i ], [ %ret.120.i, %for.body.i ]
   %inc.i = add nuw nsw i32 %i.019.i, 1
-  %exitcond.not.i = icmp eq i32 %inc.i, %iterations
+  %exitcond.not.i = icmp eq i32 %iterations, %inc.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end12.i

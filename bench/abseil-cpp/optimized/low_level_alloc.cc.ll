@@ -1026,7 +1026,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %before.0 = phi ptr [ %11, %land.rhs ], [ %freelist, %while.cond.preheader ]
   %levels.i = getelementptr inbounds i8, ptr %before.0, i64 32
   %10 = load i32, ptr %levels.i, align 8
-  %cmp.not.i56.not = icmp slt i32 %10, %8
+  %cmp.not.i56.not = icmp sgt i32 %8, %10
   br i1 %cmp.not.i56.not, label %do.body76.invoke, label %do.end4.i
 
 do.end4.i:                                        ; preds = %while.cond
@@ -1051,11 +1051,11 @@ do.body20.i:                                      ; preds = %do.body8.i
   br i1 %cmp23.not.i, label %do.end32.i, label %do.body76.invoke
 
 do.end32.i:                                       ; preds = %do.body20.i
-  %cmp33.not.i = icmp eq ptr %freelist, %before.0
+  %cmp33.not.i = icmp eq ptr %before.0, %freelist
   br i1 %cmp33.not.i, label %land.rhs, label %do.body35.i
 
 do.body35.i:                                      ; preds = %do.end32.i
-  %cmp36.not.i = icmp ugt ptr %11, %before.0
+  %cmp36.not.i = icmp ult ptr %before.0, %11
   br i1 %cmp36.not.i, label %do.body46.i, label %do.body76.invoke
 
 do.body46.i:                                      ; preds = %do.body35.i
@@ -1214,7 +1214,7 @@ cond.false.i.i:                                   ; preds = %for.end8.i.i
 
 _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i: ; preds = %cond.false.i.i, %for.end8.i.i
   %cond.i.i = phi ptr [ %36, %cond.false.i.i ], [ null, %for.end8.i.i ]
-  %cmp.not.i78 = icmp eq ptr %cond.i.i, %11
+  %cmp.not.i78 = icmp eq ptr %11, %cond.i.i
   br i1 %cmp.not.i78, label %for.cond.preheader.i, label %do.body76.invoke
 
 for.cond.preheader.i:                             ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
@@ -1447,7 +1447,7 @@ cond.false.i.i:                                   ; preds = %for.end8.i.i
 
 _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i: ; preds = %cond.false.i.i, %for.end8.i.i
   %cond.i.i = phi ptr [ %9, %cond.false.i.i ], [ null, %for.end8.i.i ]
-  %cmp.not.i = icmp eq ptr %cond.i.i, %0
+  %cmp.not.i = icmp eq ptr %0, %cond.i.i
   br i1 %cmp.not.i, label %for.cond.preheader.i, label %do.body1.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
@@ -1562,7 +1562,7 @@ cond.false.i.i22:                                 ; preds = %for.end8.i.i20
 _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24: ; preds = %while.body.i, %cond.false.i.i22, %for.end8.i.i20
   %26 = phi i32 [ %23, %cond.false.i.i22 ], [ 0, %for.end8.i.i20 ], [ 0, %while.body.i ]
   %cond.i.i25 = phi ptr [ %25, %cond.false.i.i22 ], [ null, %for.end8.i.i20 ], [ null, %while.body.i ]
-  %cmp.not.i26 = icmp eq ptr %cond.i.i25, %a
+  %cmp.not.i26 = icmp eq ptr %a, %cond.i.i25
   br i1 %cmp.not.i26, label %for.cond.preheader.i28, label %do.body1.i27
 
 for.cond.preheader.i28:                           ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24

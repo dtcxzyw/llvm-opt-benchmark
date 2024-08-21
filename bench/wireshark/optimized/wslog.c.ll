@@ -131,7 +131,7 @@ switch.lookup:                                    ; preds = %1
 define zeroext i1 @ws_log_msg_is_active(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp ult i32 %1, 6
   %4 = load i32, ptr @fatal_log_level, align 4
-  %.not = icmp ugt i32 %4, %1
+  %.not = icmp ult i32 %1, %4
   %or.cond20 = select i1 %3, i1 %.not, i1 false
   br i1 %or.cond20, label %5, label %level_filter_matches.exit
 
@@ -215,11 +215,11 @@ filter_contains.exit.i:                           ; preds = %.lr.ph.i.i
   br i1 %42, label %45, label %47
 
 45:                                               ; preds = %filter_contains.exit.i
-  %46 = icmp ule i32 %44, %1
+  %46 = icmp uge i32 %1, %44
   br label %level_filter_matches.exit
 
 47:                                               ; preds = %filter_contains.exit.i
-  %.not.i21 = icmp ult i32 %44, %1
+  %.not.i21 = icmp ugt i32 %1, %44
   br i1 %.not.i21, label %.loopexit49, label %level_filter_matches.exit
 
 .loopexit49:                                      ; preds = %34, %28, %47, %31
@@ -260,19 +260,19 @@ filter_contains.exit.i27:                         ; preds = %.lr.ph.i.i23
   br i1 %64, label %67, label %69
 
 67:                                               ; preds = %filter_contains.exit.i27
-  %68 = icmp ule i32 %66, %1
+  %68 = icmp uge i32 %1, %66
   br label %level_filter_matches.exit
 
 69:                                               ; preds = %filter_contains.exit.i27
-  %.not.i28 = icmp uge i32 %66, %1
+  %.not.i28 = icmp ule i32 %1, %66
   %70 = load i32, ptr @current_log_level, align 4
-  %71 = icmp ugt i32 %70, %1
+  %71 = icmp ult i32 %1, %70
   %or.cond48 = select i1 %.not.i28, i1 true, i1 %71
   br i1 %or.cond48, label %level_filter_matches.exit, label %72
 
 .critedge:                                        ; preds = %56, %53, %.loopexit49, %50, %5, %25
   %.old = load i32, ptr @current_log_level, align 4
-  %.old47 = icmp ugt i32 %.old, %1
+  %.old47 = icmp ult i32 %1, %.old
   br i1 %.old47, label %level_filter_matches.exit, label %72
 
 72:                                               ; preds = %69, %.critedge
@@ -2007,7 +2007,7 @@ msg_is_active.exit:                               ; preds = %4, %14
 define internal fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
   %9 = alloca [1 x %struct.__va_list_tag], align 16
   %10 = load i32, ptr @fatal_log_level, align 4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = icmp ne i32 %1, 8
   %or.cond = and i1 %12, %11
   br i1 %or.cond, label %filter_contains.exit.thread, label %13
@@ -2382,7 +2382,7 @@ define void @ws_log_utf8_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i6
   %25 = call noalias ptr @wmem_strbuf_new(ptr noundef null, ptr noundef nonnull @.str.67) #20
   %26 = call noalias ptr @wmem_strbuf_new(ptr noundef null, ptr noundef nonnull @.str.67) #20
   %27 = getelementptr i8, ptr %5, i64 %24
-  %28 = icmp ugt ptr %21, %5
+  %28 = icmp ult ptr %5, %21
   br i1 %28, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %20

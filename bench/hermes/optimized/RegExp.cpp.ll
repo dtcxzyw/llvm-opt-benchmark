@@ -4747,7 +4747,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end24
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %4, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %brmerge = or i1 %bf.cast.i.not, %isConstructorCall
+  %brmerge = or i1 %isConstructorCall, %bf.cast.i.not
   br i1 %brmerge, label %if.end66, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -5741,7 +5741,7 @@ land.lhs.true:                                    ; preds = %entry
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %1, 2147483647
-  %cmp3 = icmp ugt i32 %and.i, %e
+  %cmp3 = icmp ult i32 %e, %and.i
   br i1 %cmp3, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %land.lhs.true
@@ -9424,7 +9424,7 @@ entry:
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i77 = getelementptr inbounds i16, ptr %0, i64 %conv.i
-  %cmp = icmp eq ptr %add.ptr.i77, %I
+  %cmp = icmp eq ptr %I, %add.ptr.i77
   %tobool.not.i.i.i.i = icmp eq ptr %To.coerce0, null
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %To.coerce0 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %From.coerce0 to i64

@@ -354,7 +354,7 @@ define internal range(i32 -1, 1) i32 @pre_sync_fname(ptr noundef %0, i1 noundef 
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 13
   %9 = icmp eq i32 %7, 21
-  %or.cond = and i1 %9, %1
+  %or.cond = and i1 %1, %9
   %or.cond8 = or i1 %8, %or.cond
   br i1 %or.cond8, label %14, label %10
 
@@ -384,7 +384,7 @@ define dso_local range(i32 -1, 1) i32 @fsync_fname(ptr noundef %0, i1 noundef ze
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 13
   %9 = icmp eq i32 %7, 21
-  %or.cond = and i1 %9, %1
+  %or.cond = and i1 %1, %9
   %or.cond18 = or i1 %8, %or.cond
   br i1 %or.cond18, label %21, label %10
 

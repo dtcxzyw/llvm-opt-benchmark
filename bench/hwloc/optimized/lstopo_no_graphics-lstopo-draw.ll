@@ -3881,7 +3881,7 @@ define internal void @bridge_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %invariant.op = add i32 %22, %3
+  %invariant.op = add i32 %3, %22
   %47 = add i32 %2, -1
   %48 = mul i32 %12, 3
   %.reass = add i32 %48, %invariant.op

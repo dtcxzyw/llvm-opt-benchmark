@@ -10847,9 +10847,9 @@ do.body.i.i.i.i785.i.i:                           ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i.i.i.i.i.i704.i.i), !noalias !1239
   store i64 %185, ptr %v.i.i.i.i.i.i704.i.i, align 8, !noalias !1242
   %186 = load i64, ptr %min_value3.i, align 8, !noalias !1242
-  %cmp.i.i.i.i.i.i787.i.i = icmp sgt i64 %186, %185
+  %cmp.i.i.i.i.i.i787.i.i = icmp slt i64 %185, %186
   %187 = load i64, ptr %max_value4.i, align 8, !noalias !1227
-  %cmp2.i.i.i.i.i.i788.i.i = icmp slt i64 %187, %185
+  %cmp2.i.i.i.i.i.i788.i.i = icmp sgt i64 %185, %187
   %or.cond.i789.i.i = select i1 %cmp.i.i.i.i.i.i787.i.i, i1 true, i1 %cmp2.i.i.i.i.i.i788.i.i
   br i1 %or.cond.i789.i.i, label %if.then.i.i.i.i.i.i795.i.i, label %nrvo.skipdtor.thread.i.i.i.i790.i.i
 
@@ -10946,9 +10946,9 @@ do.body55.i.i.i.i766.i.i:                         ; preds = %for.body52.i.i.i.i7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i.i141.i.i.i.i702.i.i), !noalias !1260
   store i64 %198, ptr %v.i.i141.i.i.i.i702.i.i, align 8, !noalias !1263
   %199 = load i64, ptr %min_value3.i, align 8, !noalias !1263
-  %cmp.i.i144.i.i.i.i.i.i = icmp sgt i64 %199, %198
+  %cmp.i.i144.i.i.i.i.i.i = icmp slt i64 %198, %199
   %200 = load i64, ptr %max_value4.i, align 8, !noalias !1227
-  %cmp2.i.i147.i.i.i.i.i.i = icmp slt i64 %200, %198
+  %cmp2.i.i147.i.i.i.i.i.i = icmp sgt i64 %198, %200
   %or.cond1.i768.i.i = select i1 %cmp.i.i144.i.i.i.i.i.i, i1 true, i1 %cmp2.i.i147.i.i.i.i.i.i
   br i1 %or.cond1.i768.i.i, label %if.then.i.i150.i.i.i.i.i.i, label %nrvo.skipdtor71.thread.i.i.i.i769.i.i
 
@@ -11163,9 +11163,9 @@ do.body.i.i.i.i903.i.i:                           ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i.i.i.i.i.i806.i.i), !noalias !1299
   store i64 %214, ptr %v.i.i.i.i.i.i806.i.i, align 8, !noalias !1302
   %215 = load i64, ptr %min_value3.i, align 8, !noalias !1302
-  %cmp.i.i.i.i.i.i907.i.i = icmp sgt i64 %215, %214
+  %cmp.i.i.i.i.i.i907.i.i = icmp slt i64 %214, %215
   %216 = load i64, ptr %max_value4.i, align 8, !noalias !1287
-  %cmp2.i.i.i.i.i.i908.i.i = icmp slt i64 %216, %214
+  %cmp2.i.i.i.i.i.i908.i.i = icmp sgt i64 %214, %216
   %or.cond.i909.i.i = select i1 %cmp.i.i.i.i.i.i907.i.i, i1 true, i1 %cmp2.i.i.i.i.i.i908.i.i
   br i1 %or.cond.i909.i.i, label %if.then.i.i.i.i.i.i916.i.i, label %nrvo.skipdtor.thread.i.i.i.i910.i.i
 
@@ -11261,9 +11261,9 @@ do.body55.i.i.i.i874.i.i:                         ; preds = %for.body52.i.i.i.i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i.i141.i.i.i.i804.i.i), !noalias !1319
   store i64 %227, ptr %v.i.i141.i.i.i.i804.i.i, align 8, !noalias !1322
   %228 = load i64, ptr %min_value3.i, align 8, !noalias !1322
-  %cmp.i.i144.i.i.i.i876.i.i = icmp sgt i64 %228, %227
+  %cmp.i.i144.i.i.i.i876.i.i = icmp slt i64 %227, %228
   %229 = load i64, ptr %max_value4.i, align 8, !noalias !1287
-  %cmp2.i.i147.i.i.i.i877.i.i = icmp slt i64 %229, %227
+  %cmp2.i.i147.i.i.i.i877.i.i = icmp sgt i64 %227, %229
   %or.cond1.i878.i.i = select i1 %cmp.i.i144.i.i.i.i876.i.i, i1 true, i1 %cmp2.i.i147.i.i.i.i877.i.i
   br i1 %or.cond1.i878.i.i, label %if.then.i.i150.i.i.i.i884.i.i, label %nrvo.skipdtor71.thread.i.i.i.i879.i.i
 
@@ -12864,7 +12864,7 @@ _ZN5arrow6Status7InvalidIJRA56_KcRlRA3_S2_RKiRA4_S2_RiEEES0_DpOT_.exit: ; preds 
 
 if.end7:                                          ; preds = %for.body
   %conv = sext i32 %8 to i64
-  %cmp8 = icmp sgt i64 %conv, %offset_limit
+  %cmp8 = icmp slt i64 %offset_limit, %conv
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end7

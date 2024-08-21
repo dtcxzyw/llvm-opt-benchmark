@@ -679,7 +679,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_udt_heur(ptr noundef %0, ptr
 
 9:                                                ; preds = %5
   %10 = load i32, ptr %8, align 4
-  %.not33 = icmp eq i32 %10, %4
+  %.not33 = icmp eq i32 %4, %10
   br i1 %.not33, label %.sink.split, label %35
 
 11:                                               ; preds = %5

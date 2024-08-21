@@ -516,13 +516,13 @@ if.end:                                           ; preds = %while.end
   %sub.i55 = sub i32 %or10.i, %18
   %horizon_.i56 = getelementptr inbounds i8, ptr %this, i64 20
   %23 = load i32, ptr %horizon_.i56, align 4
-  %cmp.i57 = icmp ugt i32 %23, %sub.i
+  %cmp.i57 = icmp ult i32 %sub.i, %23
   br i1 %cmp.i57, label %_ZNK3net14StrikeRegister13GetValidRangeEj.exit, label %if.end.i58
 
 if.end.i58:                                       ; preds = %if.end
   %window_secs_.i = getelementptr inbounds i8, ptr %this, i64 4
   %24 = load i32, ptr %window_secs_.i, align 4
-  %cmp5.not.i = icmp ugt i32 %24, %sub.i
+  %cmp5.not.i = icmp ult i32 %sub.i, %24
   %sub.i59 = sub nuw i32 %sub.i, %24
   %.sroa.speculated14.i = tail call i32 @llvm.umax.i32(i32 %23, i32 %sub.i59)
   %storemerge.i = select i1 %cmp5.not.i, i32 %23, i32 %.sroa.speculated14.i
@@ -944,13 +944,13 @@ define dso_local i64 @_ZNK3net14StrikeRegister13GetValidRangeEj(ptr nocapture no
 entry:
   %horizon_ = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %horizon_, align 4
-  %cmp = icmp ugt i32 %0, %current_time_internal
+  %cmp = icmp ult i32 %current_time_internal, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %window_secs_ = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %window_secs_, align 4
-  %cmp5.not = icmp ugt i32 %1, %current_time_internal
+  %cmp5.not = icmp ult i32 %current_time_internal, %1
   %sub = sub nuw i32 %current_time_internal, %1
   %.sroa.speculated14 = tail call i32 @llvm.umax.i32(i32 %0, i32 %sub)
   %storemerge = select i1 %cmp5.not, i32 %0, i32 %.sroa.speculated14
@@ -1075,13 +1075,13 @@ entry:
   %sub.i = sub i32 %current_time_external, %0
   %horizon_.i = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %horizon_.i, align 4
-  %cmp.i = icmp ugt i32 %1, %sub.i
+  %cmp.i = icmp ult i32 %sub.i, %1
   br i1 %cmp.i, label %_ZNK3net14StrikeRegister13GetValidRangeEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %window_secs_.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %window_secs_.i, align 4
-  %cmp5.not.i = icmp ugt i32 %2, %sub.i
+  %cmp5.not.i = icmp ult i32 %sub.i, %2
   %sub.i3 = sub nuw i32 %sub.i, %2
   %.sroa.speculated14.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %sub.i3)
   %storemerge.i = select i1 %cmp5.not.i, i32 %1, i32 %.sroa.speculated14.i
@@ -1268,7 +1268,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %0
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -1447,7 +1447,7 @@ if.end12.i.i.i80:                                 ; preds = %if.else.i.i.i102, %
 
 if.then.i.i88:                                    ; preds = %if.end12.i.i.i80, %if.then.i.i.i98
   %retval.sroa.4.0.i.ph.i.i89 = phi ptr [ %__y.0.lcssa25.i.i.i99, %if.then.i.i.i98 ], [ %__y.0.lcssa26.i.i.i81, %if.end12.i.i.i80 ]
-  %cmp2.i.i.i90 = icmp eq ptr %15, %retval.sroa.4.0.i.ph.i.i89
+  %cmp2.i.i.i90 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i89, %15
   br i1 %cmp2.i.i.i90, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i94, label %lor.rhs.i.i.i91
 
 lor.rhs.i.i.i91:                                  ; preds = %if.then.i.i88
@@ -1615,7 +1615,7 @@ entry:
   %ref.tmp164 = alloca %"class.logging::LogMessage", align 8
   store i32 %internal_node, ptr %internal_node.addr, align 4
   %0 = load i32, ptr %this, align 8
-  %cmp.i = icmp ugt i32 %0, %internal_node
+  %cmp.i = icmp ult i32 %internal_node, %0
   br i1 %cmp.i, label %if.end, label %_ZN7logging11CheckLTImplIjjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
 
 _ZN7logging11CheckLTImplIjjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %entry
@@ -1909,7 +1909,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i78, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %add.ptr.i.i.i78
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -2289,7 +2289,7 @@ if.end12.i.i.i219:                                ; preds = %if.else.i.i.i242, %
 
 if.then.i.i227:                                   ; preds = %if.end12.i.i.i219, %if.then.i.i.i238
   %retval.sroa.4.0.i.ph.i.i228 = phi ptr [ %__y.0.lcssa25.i.i.i239, %if.then.i.i.i238 ], [ %__y.0.lcssa26.i.i.i220, %if.end12.i.i.i219 ]
-  %cmp2.i.i.i229 = icmp eq ptr %add.ptr.i.i.i173, %retval.sroa.4.0.i.ph.i.i228
+  %cmp2.i.i.i229 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i228, %add.ptr.i.i.i173
   br i1 %cmp2.i.i.i229, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i233, label %lor.rhs.i.i.i230
 
 lor.rhs.i.i.i230:                                 ; preds = %if.then.i.i227

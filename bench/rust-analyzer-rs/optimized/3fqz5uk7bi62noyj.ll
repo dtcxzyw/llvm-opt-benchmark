@@ -147,7 +147,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %0
+  %6 = icmp eq ptr %0, %1
   br i1 %6, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i
 
 .._crit_edge_crit_edge.i.i:                       ; preds = %3
@@ -178,7 +178,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = add i64 %13, 1
   store i64 %15, ptr %9, align 8, !alias.scope !51, !noalias !54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i.i.i), !noalias !46
-  %16 = icmp eq ptr %11, %0
+  %16 = icmp eq ptr %0, %11
   br i1 %16, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84a326814d94aa78E.exit", label %10
 
 17:                                               ; preds = %10
@@ -2533,7 +2533,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h04f64b0c1f122
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hff0413d5b0be4a48E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #15 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !881, !noundef !4
-  %.not.i.i = icmp eq i64 %5, %1
+  %.not.i.i = icmp eq i64 %1, %5
   br i1 %.not.i.i, label %6, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.7315907467015768964.exit"
 
 6:                                                ; preds = %3

@@ -130,7 +130,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -410,7 +410,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #11
   %cmp7 = icmp eq ptr %call, null
@@ -734,7 +734,7 @@ sw.default:                                       ; preds = %delete.end
 if.end.i:                                         ; preds = %sw.default
   %fParent.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %fParent.i, align 8
-  %cmp130.not.i = icmp eq ptr %3, %2
+  %cmp130.not.i = icmp eq ptr %2, %3
   br i1 %cmp130.not.i, label %_ZN6icu_758RBBINode12NRDeleteNodeEPS0_.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %if.end45.i
@@ -831,7 +831,7 @@ _ZN6icu_758RBBINode12NRDeleteNodeEPS0_.exit:      ; preds = %if.end45.i, %sw.def
 if.end.i5:                                        ; preds = %_ZN6icu_758RBBINode12NRDeleteNodeEPS0_.exit
   %fParent.i6 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %fParent.i6, align 8
-  %cmp130.not.i7 = icmp eq ptr %15, %14
+  %cmp130.not.i7 = icmp eq ptr %14, %15
   br i1 %cmp130.not.i7, label %_ZN6icu_758RBBINode12NRDeleteNodeEPS0_.exit44, label %while.body.i8
 
 while.body.i8:                                    ; preds = %if.end.i5, %if.end45.i23
@@ -979,7 +979,7 @@ entry:
 if.end:                                           ; preds = %entry
   %fParent = getelementptr inbounds i8, ptr %node, i64 8
   %0 = load ptr, ptr %fParent, align 8
-  %cmp130.not = icmp eq ptr %0, %node
+  %cmp130.not = icmp eq ptr %node, %0
   br i1 %cmp130.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end, %if.end45

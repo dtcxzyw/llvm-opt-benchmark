@@ -12289,7 +12289,7 @@ define hidden void @"_ZN5gimli4read4unit24EntriesTreeIter$LT$R$GT$4next17h4bae07
   %78 = load i64, ptr %77, align 8, !alias.scope !3225, !noalias !3228, !noundef !4
   %79 = sub i64 %.val.i.i.i.i.i, %78
   %80 = add i64 %79, %spec.select.i.i.i.i.i.i
-  %81 = icmp ule i64 %80, %.sroa.5.i.sroa.0.0.copyload.i.i
+  %81 = icmp uge i64 %.sroa.5.i.sroa.0.0.copyload.i.i, %80
   %82 = sub i64 %.sroa.5.i.sroa.0.0.copyload.i.i, %80
   %83 = icmp ult i64 %82, %78
   %.0.i.i.i.i = and i1 %81, %83
@@ -13028,7 +13028,7 @@ define hidden void @"_ZN5gimli4read4unit28UnitHeader$LT$R$C$Offset$GT$10range_fr
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = sub i64 %.val.i.i, %7
   %9 = add i64 %8, %spec.select.i.i.i
-  %10 = icmp ule i64 %9, %2
+  %10 = icmp uge i64 %2, %9
   %11 = sub i64 %2, %9
   %12 = icmp ult i64 %11, %7
   %.0.i = and i1 %10, %12
@@ -13079,7 +13079,7 @@ define hidden void @"_ZN5gimli4read4unit28UnitHeader$LT$R$C$Offset$GT$12entries_
   %15 = load i64, ptr %14, align 8, !alias.scope !3381, !noalias !3384, !noundef !4
   %16 = sub i64 %.val.i.i.i, %15
   %17 = add i64 %16, %spec.select.i.i.i.i
-  %18 = icmp ule i64 %17, %4
+  %18 = icmp uge i64 %4, %17
   %19 = sub i64 %4, %17
   %20 = icmp ult i64 %19, %15
   %.0.i.i = and i1 %18, %20
@@ -13134,7 +13134,7 @@ define hidden void @"_ZN5gimli4read4unit28UnitHeader$LT$R$C$Offset$GT$17entries_
   %8 = load i64, ptr %7, align 8, !alias.scope !3389, !noalias !3392, !noundef !4
   %9 = sub i64 %.val.i.i.i, %8
   %10 = add i64 %9, %spec.select.i.i.i.i
-  %11 = icmp ule i64 %10, %3
+  %11 = icmp uge i64 %3, %10
   %12 = sub i64 %3, %10
   %13 = icmp ult i64 %12, %8
   %.0.i.i = and i1 %11, %13
@@ -13508,7 +13508,7 @@ define hidden void @"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offse
 
 51:                                               ; preds = %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread"
   %.sroa.611.24.extract.trunc = trunc i64 %.sroa.10.240 to i16
-  %52 = icmp eq i16 %.sroa.611.24.extract.trunc, %2
+  %52 = icmp eq i16 %2, %.sroa.611.24.extract.trunc
   br i1 %52, label %.split54, label %.split, !llvm.loop !3425
 
 .split54:                                         ; preds = %51
@@ -17193,14 +17193,14 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform12line_program18clone
 133:                                              ; preds = %131
   %134 = icmp ne ptr %.val.i, null
   call void @llvm.assume(i1 %134)
-  %135 = icmp ugt i64 %.sroa.562.sroa.0.0.copyload, %.val1.i
+  %135 = icmp ult i64 %.val1.i, %.sroa.562.sroa.0.0.copyload
   br i1 %135, label %.loopexit758, label %136
 
 136:                                              ; preds = %133
   %137 = sub nuw i64 %.val1.i, %.sroa.562.sroa.0.0.copyload
   %138 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.562.sroa.0.0.copyload
   %139 = getelementptr inbounds i8, ptr %.val.i, i64 %.val1.i
-  %140 = icmp eq i64 %.sroa.562.sroa.0.0.copyload, %.val1.i
+  %140 = icmp eq i64 %.val1.i, %.sroa.562.sroa.0.0.copyload
   br i1 %140, label %.loopexit758, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %136, %143
@@ -17258,14 +17258,14 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform12line_program18clone
 157:                                              ; preds = %155
   %158 = icmp ne ptr %.val.i429, null
   call void @llvm.assume(i1 %158)
-  %159 = icmp ugt i64 %.sroa.569.sroa.0.0.copyload, %.val1.i430
+  %159 = icmp ult i64 %.val1.i430, %.sroa.569.sroa.0.0.copyload
   br i1 %159, label %.loopexit757, label %160
 
 160:                                              ; preds = %157
   %161 = sub nuw i64 %.val1.i430, %.sroa.569.sroa.0.0.copyload
   %162 = getelementptr inbounds i8, ptr %.val.i429, i64 %.sroa.569.sroa.0.0.copyload
   %163 = getelementptr inbounds i8, ptr %.val.i429, i64 %.val1.i430
-  %164 = icmp eq i64 %.sroa.569.sroa.0.0.copyload, %.val1.i430
+  %164 = icmp eq i64 %.val1.i430, %.sroa.569.sroa.0.0.copyload
   br i1 %164, label %.loopexit757, label %.lr.ph.i.i.i.i.i.i433
 
 .lr.ph.i.i.i.i.i.i433:                            ; preds = %160, %167

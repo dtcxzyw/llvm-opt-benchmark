@@ -12088,7 +12088,7 @@ define noundef ptr @Abc_NtkDarExtWin(ptr noundef %0, i32 noundef %1, i32 noundef
   %.val38 = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %.val38, i64 4
   %.val38.val = load i32, ptr %15, align 4
-  %.not = icmp sgt i32 %.val38.val, %1
+  %.not = icmp slt i32 %1, %.val38.val
   br i1 %.not, label %Aig_ManObj.exit, label %16
 
 16:                                               ; preds = %13
@@ -12189,7 +12189,7 @@ define ptr @Abc_NtkDarInsWin(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %.val47 = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %.val47, i64 4
   %.val47.val = load i32, ptr %16, align 4
-  %.not = icmp sgt i32 %.val47.val, %2
+  %.not = icmp slt i32 %2, %.val47.val
   br i1 %.not, label %Aig_ManObj.exit, label %17
 
 17:                                               ; preds = %14

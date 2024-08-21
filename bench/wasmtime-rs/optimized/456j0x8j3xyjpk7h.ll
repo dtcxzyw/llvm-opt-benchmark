@@ -258,7 +258,7 @@ define void @"_ZN157_$LT$cranelift_codegen_meta..cdsl..settings..PredicateNode$u
 define void @"_ZN224_$LT$cranelift_codegen_meta..cdsl..settings..PredicateNode$u20$as$u20$core..convert..From$LT$$LP$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$C$$RF$cranelift_codegen_meta..cdsl..settings..SettingGroup$RP$$GT$$GT$4from17h1919f8d11f3cd613E"(ptr nocapture writeonly sret({ i64, [4 x i64] }) align 8 %0, i64 %1, ptr nocapture readonly align 8 %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %7, label %22, !prof !6
 
 7:                                                ; preds = %3

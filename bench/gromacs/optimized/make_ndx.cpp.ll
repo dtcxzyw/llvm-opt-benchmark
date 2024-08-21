@@ -3418,7 +3418,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPK10IndexGroupSt6vectorIS2_SaIS2_EEE
   %69 = load ptr, ptr %12, align 8
   %70 = getelementptr inbounds %struct.IndexGroup, ptr %69, i64 %68
   store ptr %70, ptr %12, align 8
-  %.not11.i.i.i.i.i54 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i54 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i54, label %_ZSt22__uninitialized_move_aIP10IndexGroupS1_SaIS0_EET0_T_S4_S3_RT1_.exit60, label %.lr.ph.i.i.i.i.i55
 
 .lr.ph.i.i.i.i.i55:                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPK10IndexGroupSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit, %.lr.ph.i.i.i.i.i55
@@ -3532,7 +3532,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIP10IndexGroupS1_SaIS0_EET0_T_S4_S3_RT1_
           to label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPK10IndexGroupSt6vectorIS2_SaIS2_EEEEPS2_S2_ET0_T_SB_SA_RSaIT1_E.exit unwind label %139
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPK10IndexGroupSt6vectorIS2_SaIS2_EEEEPS2_S2_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP10IndexGroupS1_SaIS0_EET0_T_S4_S3_RT1_.exit
-  %.not11.i.i.i.i.i74 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i74 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i74, label %_ZSt34__uninitialized_move_if_noexcept_aIP10IndexGroupS1_SaIS0_EET0_T_S4_S3_RT1_.exit80, label %.lr.ph.i.i.i.i.i75
 
 .lr.ph.i.i.i.i.i75:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPK10IndexGroupSt6vectorIS2_SaIS2_EEEEPS2_S2_ET0_T_SB_SA_RSaIT1_E.exit, %.lr.ph.i.i.i.i.i75
@@ -4240,7 +4240,7 @@ define internal fastcc void @_ZL11split_groupPK7t_atomsiPSt6vectorI10IndexGroupS
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq i32 %.03657, -1
-  %or.cond = or i1 %38, %3
+  %or.cond = or i1 %3, %38
   br i1 %or.cond, label %43, label %39
 
 39:                                               ; preds = %27
@@ -4582,7 +4582,7 @@ _ZL16check_have_atomsPK7t_atomsPc.exit:           ; preds = %96
 
 112:                                              ; preds = %108
   %113 = load i32, ptr %2, align 8
-  %114 = icmp slt i32 %113, %102
+  %114 = icmp sgt i32 %102, %113
   %115 = load i32, ptr %11, align 4
   %116 = icmp slt i32 %115, 1
   %117 = icmp sgt i32 %115, %113
@@ -4595,7 +4595,7 @@ _ZL16check_have_atomsPK7t_atomsPc.exit:           ; preds = %96
   br label %_ZL18select_atomnumbersPPcPK7t_atomsiPiS4_S_.exit
 
 120:                                              ; preds = %112
-  %.not39.not46.not.i = icmp ult i32 %115, %102
+  %.not39.not46.not.i = icmp ugt i32 %102, %115
   %.pre56.i = load i32, ptr %4, align 4
   br i1 %.not39.not46.not.i, label %._crit_edge.i153, label %.lr.ph.i152.preheader
 
@@ -4621,7 +4621,7 @@ _ZL16check_have_atomsPK7t_atomsPc.exit:           ; preds = %96
   %129 = icmp eq i32 %128, 1
   %130 = select i1 %129, ptr @.str.6, ptr @.str.140
   %131 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.139, i32 noundef %128, ptr noundef nonnull %130, i32 noundef %102, i32 noundef %115)
-  %132 = icmp eq i32 %115, %102
+  %132 = icmp eq i32 %102, %115
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %._crit_edge.i153
@@ -5659,7 +5659,7 @@ define internal fastcc noundef i32 @_ZL21select_residueindicesPPcPK7t_atomsihPiS
 
 .lr.ph76:                                         ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %.not5272 = icmp slt i32 %.pre, %2
+  %.not5272 = icmp sgt i32 %2, %.pre
   br i1 %.not5272, label %._crit_edge77, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph76, %._crit_edge
@@ -5703,7 +5703,7 @@ define internal fastcc noundef i32 @_ZL21select_residueindicesPPcPK7t_atomsihPiS
   %42 = icmp eq i32 %41, 1
   %43 = select i1 %42, ptr @.str.6, ptr @.str.140
   %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.157, i32 noundef %41, ptr noundef nonnull %43, i32 noundef %2, i32 noundef %.pre)
-  %45 = icmp eq i32 %.pre, %2
+  %45 = icmp eq i32 %2, %.pre
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %._crit_edge77
@@ -5893,7 +5893,7 @@ define internal fastcc noundef i32 @_ZL21select_residuenumbersPPcPK7t_atomsihPiS
 .lr.ph74:                                         ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 48
   %23 = getelementptr inbounds i8, ptr %1, i64 8
-  %.not5070 = icmp slt i32 %.pre, %2
+  %.not5070 = icmp sgt i32 %2, %.pre
   br i1 %.not5070, label %._crit_edge75, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph74, %._crit_edge
@@ -5940,7 +5940,7 @@ define internal fastcc noundef i32 @_ZL21select_residuenumbersPPcPK7t_atomsihPiS
   %46 = icmp eq i32 %45, 1
   %47 = select i1 %46, ptr @.str.6, ptr @.str.140
   %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.161, i32 noundef %45, ptr noundef nonnull %47, i32 noundef %2, i32 noundef %.pre)
-  %49 = icmp eq i32 %.pre, %2
+  %49 = icmp eq i32 %2, %.pre
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %._crit_edge75
@@ -6615,7 +6615,7 @@ _ZNSt12_Vector_baseI10IndexGroupSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
 _ZNSt6vectorI10IndexGroupSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseI10IndexGroupSaIS0_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseI10IndexGroupSaIS0_EE11_M_allocateEm.exit ], [ %44, %.lr.ph.i.i.i ]
   %45 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 56
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorI10IndexGroupSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorI10IndexGroupSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i17

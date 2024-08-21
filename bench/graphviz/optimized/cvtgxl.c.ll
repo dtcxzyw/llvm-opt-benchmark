@@ -126,7 +126,7 @@ openFile.exit.i:                                  ; preds = %15
 
 40:                                               ; preds = %7
   %41 = load i32, ptr @optind, align 4
-  %42 = icmp slt i32 %41, %0
+  %42 = icmp sgt i32 %0, %41
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %40

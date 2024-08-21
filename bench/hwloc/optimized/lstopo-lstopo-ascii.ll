@@ -706,12 +706,12 @@ define internal void @ascii_box(ptr nocapture noundef readonly %0, ptr noundef %
 32:                                               ; preds = %put.exit.us.us.us, %.preheader.us.us
   %.16370.us.us.us = phi i32 [ %.16369, %.preheader.us.us ], [ %.163.us.us.us, %put.exit.us.us.us ]
   %33 = load i32, ptr %28, align 4
-  %.not.i.us.us.us = icmp sgt i32 %33, %.16370.us.us.us
+  %.not.i.us.us.us = icmp slt i32 %.16370.us.us.us, %33
   br i1 %.not.i.us.us.us, label %34, label %put.exit.us.us.us
 
 34:                                               ; preds = %32
   %35 = load i32, ptr %29, align 8
-  %.not20.i.us.us.us = icmp sgt i32 %35, %.173.us.us
+  %.not20.i.us.us.us = icmp slt i32 %.173.us.us, %35
   br i1 %.not20.i.us.us.us, label %36, label %put.exit.us.us.us
 
 36:                                               ; preds = %34
@@ -741,12 +741,12 @@ put.exit.us.us.us:                                ; preds = %36, %34, %32
 43:                                               ; preds = %.preheader.us, %put.exit.us78
   %.16370.us75 = phi i32 [ %.16369, %.preheader.us ], [ %.163.us79, %put.exit.us78 ]
   %44 = load i32, ptr %28, align 4
-  %.not.i.us76 = icmp sgt i32 %44, %.16370.us75
+  %.not.i.us76 = icmp slt i32 %.16370.us75, %44
   br i1 %.not.i.us76, label %45, label %put.exit.us78
 
 45:                                               ; preds = %43
   %46 = load i32, ptr %29, align 8
-  %.not20.i.us77 = icmp sgt i32 %46, %.173.us
+  %.not20.i.us77 = icmp slt i32 %.173.us, %46
   br i1 %.not20.i.us77, label %47, label %put.exit.us78
 
 47:                                               ; preds = %45
@@ -875,12 +875,12 @@ define internal void @ascii_text(ptr nocapture noundef readonly %0, ptr noundef 
   %.01619.us = phi i32 [ %26, %put.exit.us ], [ %20, %.lr.ph ]
   %26 = add i32 %.01619.us, 1
   %27 = load i32, ptr %21, align 4
-  %.not.i.us = icmp sgt i32 %27, %.01619.us
+  %.not.i.us = icmp slt i32 %.01619.us, %27
   br i1 %.not.i.us, label %28, label %put.exit.us
 
 28:                                               ; preds = %.lr.ph.split.us
   %29 = load i32, ptr %22, align 8
-  %.not20.i.us = icmp sgt i32 %29, %12
+  %.not20.i.us = icmp slt i32 %12, %29
   br i1 %.not20.i.us, label %30, label %put.exit.us
 
 30:                                               ; preds = %28
@@ -904,12 +904,12 @@ put.exit.us:                                      ; preds = %30, %28, %.lr.ph.sp
   %.01619 = phi i32 [ %39, %put.exit ], [ %20, %.lr.ph ]
   %39 = add i32 %.01619, 1
   %40 = load i32, ptr %21, align 4
-  %.not.i = icmp sgt i32 %40, %.01619
+  %.not.i = icmp slt i32 %.01619, %40
   br i1 %.not.i, label %41, label %put.exit
 
 41:                                               ; preds = %.lr.ph.split
   %42 = load i32, ptr %22, align 8
-  %.not20.i = icmp sgt i32 %42, %12
+  %.not20.i = icmp slt i32 %12, %42
   br i1 %.not20.i, label %43, label %put.exit
 
 43:                                               ; preds = %41
@@ -951,13 +951,13 @@ declare ptr @tparm(ptr noundef, ...) local_unnamed_addr #1
 define internal fastcc void @merge(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #12 {
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %9, label %put.exit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
-  %.not17 = icmp sgt i32 %11, %2
+  %.not17 = icmp slt i32 %2, %11
   br i1 %.not17, label %12, label %put.exit
 
 12:                                               ; preds = %9

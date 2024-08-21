@@ -15,7 +15,7 @@ define double @SUNRpowerI(double noundef %0, i32 noundef %1) local_unnamed_addr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.011 = phi double [ %3, %.lr.ph ], [ 1.000000e+00, %.lr.ph.preheader ]
   %.0810 = phi i32 [ %4, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %3 = fmul double %.011, %0
+  %3 = fmul double %0, %.011
   %4 = add nuw i32 %.0810, 1
   %exitcond.not = icmp eq i32 %.0810, %smax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -108,7 +108,7 @@ define range(i32 0, 2) i32 @SUNRCompareTol(double noundef %0, double noundef %1,
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp olt double %15, 0x7FEFFFFFFFFFFFFF
   %17 = select i1 %16, double %15, double 0x7FEFFFFFFFFFFFFF
-  %18 = fmul double %17, %2
+  %18 = fmul double %2, %17
   %19 = fcmp olt double %18, 0x3CE4000000000000
   %20 = select i1 %19, double 0x3CE4000000000000, double %18
   %21 = fcmp oge double %13, %20

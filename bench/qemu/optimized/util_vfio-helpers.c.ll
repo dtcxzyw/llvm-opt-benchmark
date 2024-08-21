@@ -158,7 +158,7 @@ assert_bar_index_valid.exit:                      ; preds = %if.end
   %size1 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %0 = load i64, ptr %size1, align 8
   %sub = sub i64 %0, %offset
-  %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %size)
+  %cond = tail call i64 @llvm.umin.i64(i64 %size, i64 %sub)
   %device = getelementptr inbounds i8, ptr %s, i64 56
   %1 = load i32, ptr %device, align 8
   %offset6 = getelementptr inbounds i8, ptr %arrayidx, i64 24
@@ -238,7 +238,7 @@ if.then:                                          ; preds = %entry
   %size1 = getelementptr [6 x %struct.vfio_region_info], ptr %bar_region_info, i64 0, i64 %idxprom, i32 4
   %0 = load i64, ptr %size1, align 8
   %sub = sub i64 %0, %offset
-  %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %size)
+  %cond = tail call i64 @llvm.umin.i64(i64 %size, i64 %sub)
   %call = tail call i32 @munmap(ptr noundef nonnull %bar, i64 noundef %cond) #16
   br label %if.end
 

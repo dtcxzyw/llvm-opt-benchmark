@@ -1803,9 +1803,9 @@ declare void @_ZN27MetaspaceCriticalAllocation7processEv() local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9Metaspace8containsEPKv(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN12MetaspaceObj21_shared_metaspace_topE, align 8
-  %3 = icmp ugt ptr %2, %0
+  %3 = icmp ult ptr %0, %2
   %4 = load ptr, ptr @_ZN12MetaspaceObj22_shared_metaspace_baseE, align 8
-  %5 = icmp ule ptr %4, %0
+  %5 = icmp uge ptr %0, %4
   %6 = select i1 %3, i1 %5, i1 false
   br i1 %6, label %_ZN9Metaspace19contains_non_sharedEPKv.exit, label %7
 

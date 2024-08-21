@@ -26,17 +26,17 @@ define range(i32 -1, 1) i32 @fclose(ptr noundef %0) local_unnamed_addr #0 {
   %.040 = phi i32 [ %10, %6 ], [ 22, %2 ]
   %.039 = phi i32 [ %8, %6 ], [ 0, %2 ]
   %12 = tail call ptr @lib_get_stream(i32 noundef 0) #3
-  %13 = icmp eq ptr %12, %0
+  %13 = icmp eq ptr %0, %12
   br i1 %13, label %63, label %14
 
 14:                                               ; preds = %11
   %15 = tail call ptr @lib_get_stream(i32 noundef 1) #3
-  %16 = icmp eq ptr %15, %0
+  %16 = icmp eq ptr %0, %15
   br i1 %16, label %63, label %17
 
 17:                                               ; preds = %14
   %18 = tail call ptr @lib_get_stream(i32 noundef 2) #3
-  %19 = icmp eq ptr %18, %0
+  %19 = icmp eq ptr %0, %18
   br i1 %19, label %63, label %20
 
 20:                                               ; preds = %17
@@ -58,13 +58,13 @@ define range(i32 -1, 1) i32 @fclose(ptr noundef %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %23, align 8
-  %29 = icmp eq ptr %28, %0
+  %29 = icmp eq ptr %0, %28
   %30 = load ptr, ptr %.043, align 8
   %..044.lcssa62 = select i1 %29, ptr %23, ptr %.044
   store ptr %30, ptr %..044.lcssa62, align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 648
   %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, %0
+  %33 = icmp eq ptr %0, %32
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %27

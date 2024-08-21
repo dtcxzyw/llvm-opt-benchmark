@@ -600,7 +600,7 @@ for.end:                                          ; preds = %for.body
   %26 = load i32, ptr %nslots.i.i, align 4
   %mul.i.i = shl i32 %26, 2
   %add.i.i = add i32 %mul.i.i, 36
-  %cmp.not.i.i = icmp ugt i32 %add.i.i, %mul.i
+  %cmp.not.i.i = icmp ult i32 %mul.i, %add.i.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %shpc_cap_update_dword.exit
 
 if.end.i.i:                                       ; preds = %for.end
@@ -765,7 +765,7 @@ if.end19:                                         ; preds = %if.then10, %if.end
   %5 = load i32, ptr %nslots.i.i, align 4
   %mul.i.i = shl i32 %5, 2
   %add.i.i20 = add i32 %mul.i.i, 36
-  %cmp.not.i.i = icmp ugt i32 %add.i.i20, %mul.i
+  %cmp.not.i.i = icmp ult i32 %mul.i, %add.i.i20
   br i1 %cmp.not.i.i, label %if.end.i.i, label %shpc_cap_update_dword.exit
 
 if.end.i.i:                                       ; preds = %if.end19
@@ -801,12 +801,12 @@ entry:
   %1 = load i32, ptr %nslots, align 4
   %mul = shl i32 %1, 2
   %add = add i32 %mul, 36
-  %cmp.not = icmp ugt i32 %add, %addr
+  %cmp.not = icmp ult i32 %addr, %add
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %sub = sub nuw i32 %add, %addr
-  %cond = tail call i32 @llvm.umin.i32(i32 %sub, i32 %l)
+  %cond = tail call i32 @llvm.umin.i32(i32 %l, i32 %sub)
   %cmp831 = icmp sgt i32 %cond, 0
   br i1 %cmp831, label %for.body.lr.ph, label %for.end
 
@@ -821,7 +821,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end16 ]
   %val.addr.033 = phi i64 [ %val, %for.body.lr.ph ], [ %shr, %if.end16 ]
   %2 = trunc nuw nsw i64 %indvars.iv to i32
-  %add9 = add i32 %2, %addr
+  %add9 = add i32 %addr, %2
   %3 = load ptr, ptr %wmask10, align 8
   %idxprom = zext i32 %add9 to i64
   %arrayidx = getelementptr i8, ptr %3, i64 %idxprom
@@ -1312,7 +1312,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %sub.i = sub nuw i32 %add.i, %conv
-  %cond.i = tail call i32 @llvm.umin.i32(i32 %sub.i, i32 %size)
+  %cond.i = tail call i32 @llvm.umin.i32(i32 %size, i32 %sub.i)
   %config.i = getelementptr inbounds i8, ptr %opaque.val, i64 8
   %2 = load ptr, ptr %config.i, align 8
   %idx.ext.i = and i64 %addr, 4294967295

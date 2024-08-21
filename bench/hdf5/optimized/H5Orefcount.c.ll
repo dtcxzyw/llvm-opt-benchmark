@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal ptr @H5O__refcount_decode(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr i8, ptr %5, i64 %4
   %.ptr37 = getelementptr i8, ptr %7, i64 -1
-  %8 = icmp ult ptr %.ptr37, %5
+  %8 = icmp ugt ptr %5, %.ptr37
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %6

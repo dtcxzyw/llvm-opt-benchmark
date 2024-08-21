@@ -1757,7 +1757,7 @@ entry:
   %call = tail call i32 @narenas_total_get() #11
   %indefinite_sleep.i = getelementptr inbounds i8, ptr %info, i64 172
   %0 = load atomic i8, ptr %indefinite_sleep.i acquire, align 1
-  %cmp14 = icmp ugt i32 %call, %ind
+  %cmp14 = icmp ult i32 %ind, %call
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry

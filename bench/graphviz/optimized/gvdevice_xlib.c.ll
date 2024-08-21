@@ -1042,7 +1042,7 @@ handle_configure_notify.exit.i:                   ; preds = %449, %427
   %.val44.i = load i64, ptr %107, align 8
   %466 = getelementptr inbounds i8, ptr %346, i64 56
   %467 = load i64, ptr %466, align 8
-  %468 = icmp eq i64 %467, %.val44.i
+  %468 = icmp eq i64 %.val44.i, %467
   br i1 %468, label %469, label %handle_client_message.exit.i
 
 469:                                              ; preds = %465

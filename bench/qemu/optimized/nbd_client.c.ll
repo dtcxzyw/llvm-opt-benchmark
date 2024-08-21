@@ -3712,7 +3712,7 @@ if.end31:                                         ; preds = %trace_nbd_server_er
   %12 = phi i32 [ %0, %if.end5 ], [ %.pre, %trace_nbd_server_error_msg.exit ]
   %msg.1 = phi ptr [ null, %if.end5 ], [ %call15, %trace_nbd_server_error_msg.exit ]
   %cmp33 = icmp ne i32 %12, -2147483647
-  %brmerge.not = and i1 %cmp33, %strict
+  %brmerge.not = and i1 %strict, %cmp33
   br i1 %brmerge.not, label %if.end43, label %if.then37
 
 if.then37:                                        ; preds = %if.end31

@@ -1561,7 +1561,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__fix_order(i32 noundef %0, i32 
   %indvars.iv66 = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next67, %.lr.ph60 ]
   %37 = trunc nuw nsw i64 %indvars.iv66 to i32
   %38 = xor i32 %37, -1
-  %39 = add nsw i32 %38, %0
+  %39 = add nsw i32 %0, %38
   %40 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv66
   store i32 %39, ptr %40, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
@@ -1596,7 +1596,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__fix_order(i32 noundef %0, i32 
   %54 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   store i32 %53, ptr %54, align 4
   %55 = xor i32 %52, -1
-  %56 = add nsw i32 %55, %0
+  %56 = add nsw i32 %0, %55
   %57 = or disjoint i64 %indvars.iv, 1
   %58 = getelementptr inbounds i32, ptr %2, i64 %57
   store i32 %56, ptr %58, align 4

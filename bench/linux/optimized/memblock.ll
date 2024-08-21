@@ -351,7 +351,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @memblock_add_range(ptr nou
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = icmp ult i64 %34, %36
-  %38 = icmp ugt i64 %8, %1
+  %38 = icmp ult i64 %1, %8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %121, %33
@@ -1978,7 +1978,7 @@ define dso_local i64 @memblock_alloc_range_nid(i64 noundef %0, i64 noundef %1, i
 18:                                               ; preds = %17, %14
   %19 = phi i64 [ %1, %14 ], [ 64, %17 ]
   %20 = icmp eq i32 %15, -1
-  %21 = or i1 %20, %5
+  %21 = or i1 %5, %20
   br label %22
 
 22:                                               ; preds = %47, %18

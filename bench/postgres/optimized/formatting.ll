@@ -5458,7 +5458,7 @@ get_last_relevant_decnum.exit:                    ; preds = %.preheader.i
 
 get_last_relevant_decnum.exit.thread:             ; preds = %72, %64, %get_last_relevant_decnum.exit, %57
   %.sroa.266.0 = phi ptr [ %.0.i.ph, %get_last_relevant_decnum.exit ], [ null, %57 ], [ null, %64 ], [ %spec.select, %72 ]
-  %80 = or i32 %.sroa.45.1, %5
+  %80 = or i32 %5, %.sroa.45.1
   %or.cond302 = icmp ne i32 %80, 0
   %81 = sext i1 %or.cond302 to i32
   %spec.select648 = add i32 %62, %81
@@ -5698,7 +5698,7 @@ NUM_prepare_locale.exit:                          ; preds = %89, %123, %125
   br i1 %177, label %.critedge.i, label %.sink.split.i
 
 178:                                              ; preds = %172
-  %179 = icmp eq ptr %.sroa.115.1, %3
+  %179 = icmp eq ptr %3, %.sroa.115.1
   %or.cond650 = select i1 %.not138.i, i1 %179, i1 false
   br i1 %or.cond650, label %180, label %.critedge.i
 
@@ -5842,7 +5842,7 @@ NUM_prepare_locale.exit:                          ; preds = %89, %123, %125
   br i1 %or.cond7.i, label %254, label %235
 
 235:                                              ; preds = %232, %231
-  %236 = icmp eq ptr %.sroa.115.1, %3
+  %236 = icmp eq ptr %3, %.sroa.115.1
   %or.cond651 = select i1 %.not144160.i, i1 %236, i1 false
   br i1 %or.cond651, label %237, label %252
 
@@ -8799,7 +8799,7 @@ DCH_prevent_counter_overflow.exit.i:              ; preds = %._crit_edge.i.i, %2
   %23 = getelementptr inbounds i8, ptr %14, i64 2040
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
-  %26 = xor i1 %25, %1
+  %26 = xor i1 %1, %25
   br i1 %26, label %27, label %DCH_cache_search.exit
 
 27:                                               ; preds = %22, %18, %.lr.ph.i
@@ -11435,7 +11435,7 @@ is_next_separator.exit.thread:                    ; preds = %39, %43, %36, %34, 
   br label %95
 
 is_next_separator.exit.thread61:                  ; preds = %43, %32, %is_next_separator.exit
-  %60 = icmp slt i32 %28, %2
+  %60 = icmp sgt i32 %2, %28
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %is_next_separator.exit.thread61
@@ -11463,7 +11463,7 @@ is_next_separator.exit.thread61:                  ; preds = %43, %32, %is_next_s
   %77 = sub i64 %75, %76
   %78 = trunc i64 %77 to i32
   %79 = icmp sgt i32 %78, 0
-  %80 = icmp slt i32 %78, %2
+  %80 = icmp sgt i32 %2, %78
   %or.cond = and i1 %79, %80
   br i1 %or.cond, label %81, label %91
 

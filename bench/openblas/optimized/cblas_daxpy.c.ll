@@ -21,7 +21,7 @@ define void @cblas_daxpy(i32 noundef %0, double noundef %1, ptr noundef %2, i32 
 
 14:                                               ; preds = %11
   %15 = uitofp nneg i32 %0 to double
-  %16 = fmul double %15, %1
+  %16 = fmul double %1, %15
   %17 = load double, ptr %2, align 8, !tbaa !3
   %18 = load double, ptr %4, align 8, !tbaa !3
   %19 = tail call double @llvm.fmuladd.f64(double %16, double %17, double %18)
@@ -33,13 +33,13 @@ define void @cblas_daxpy(i32 noundef %0, double noundef %1, ptr noundef %2, i32 
   %22 = icmp eq i32 %3, 0
   %23 = icmp slt i32 %3, 0
   %24 = add nsw i32 %0, -1
-  %25 = mul nsw i32 %24, %3
+  %25 = mul nsw i32 %3, %24
   %26 = sext i32 %25 to i64
   %27 = sub nsw i64 0, %26
   %28 = select i1 %23, i64 %27, i64 0
   %29 = getelementptr inbounds double, ptr %2, i64 %28
   %30 = icmp slt i32 %5, 0
-  %31 = mul nsw i32 %24, %5
+  %31 = mul nsw i32 %5, %24
   %32 = sext i32 %31 to i64
   %33 = sub nsw i64 0, %32
   %34 = select i1 %30, i64 %33, i64 0

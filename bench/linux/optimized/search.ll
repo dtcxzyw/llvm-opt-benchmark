@@ -366,7 +366,7 @@ define dso_local ptr @pci_get_domain_bus_and_slot(i32 noundef %0, i32 noundef %1
   %21 = getelementptr inbounds i8, ptr %15, i64 216
   %22 = load i8, ptr %21, align 8
   %23 = zext i8 %22 to i32
-  %24 = icmp eq i32 %23, %1
+  %24 = icmp eq i32 %1, %23
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %20

@@ -25,11 +25,11 @@ define hidden void @_ZN5alloc6string6String13replace_range17h1bd36e5354c4ec84E(p
   br i1 %14, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %15
 
 15:                                               ; preds = %5
-  %.not.i = icmp ugt i64 %13, %1
+  %.not.i = icmp ult i64 %1, %13
   br i1 %.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit", label %16
 
 16:                                               ; preds = %15
-  %17 = icmp eq i64 %13, %1
+  %17 = icmp eq i64 %1, %13
   br i1 %17, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %28
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit": ; preds = %15
@@ -43,11 +43,11 @@ define hidden void @_ZN5alloc6string6String13replace_range17h1bd36e5354c4ec84E(p
   br i1 %21, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit34.thread", label %22
 
 22:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread"
-  %.not.i32 = icmp ugt i64 %13, %2
+  %.not.i32 = icmp ult i64 %2, %13
   br i1 %.not.i32, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit34", label %23
 
 23:                                               ; preds = %22
-  %24 = icmp eq i64 %13, %2
+  %24 = icmp eq i64 %2, %13
   br i1 %24, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit34.thread", label %45
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit34": ; preds = %22

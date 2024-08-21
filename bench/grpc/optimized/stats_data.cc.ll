@@ -363,7 +363,7 @@ if.then5:                                         ; preds = %if.else3
   %idxprom = zext i8 %1 to i64
   %arrayidx7 = getelementptr inbounds [21 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable0E, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx7, align 4
-  %cmp8 = icmp sgt i32 %2, %value
+  %cmp8 = icmp slt i32 %value, %2
   %conv9.neg = sext i1 %cmp8 to i32
   %sub10 = add nsw i32 %conv9.neg, %conv6
   br label %return
@@ -398,7 +398,7 @@ if.then5:                                         ; preds = %if.else3
   %idxprom = zext i8 %1 to i64
   %arrayidx7 = getelementptr inbounds [27 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable2E, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx7, align 4
-  %cmp8 = icmp sgt i32 %2, %value
+  %cmp8 = icmp slt i32 %value, %2
   %conv9.neg = sext i1 %cmp8 to i32
   %sub10 = add nsw i32 %conv9.neg, %conv6
   br label %return
@@ -433,7 +433,7 @@ if.then5:                                         ; preds = %if.else3
   %idxprom = zext i8 %1 to i64
   %arrayidx7 = getelementptr inbounds [21 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx7, align 4
-  %cmp8 = icmp sgt i32 %2, %value
+  %cmp8 = icmp slt i32 %value, %2
   %conv9.neg = sext i1 %cmp8 to i32
   %sub10 = add nsw i32 %conv9.neg, %conv6
   br label %return
@@ -468,7 +468,7 @@ if.then5:                                         ; preds = %if.else3
   %idxprom = zext i8 %1 to i64
   %arrayidx7 = getelementptr inbounds [11 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable6E, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx7, align 4
-  %cmp8 = icmp sgt i32 %2, %value
+  %cmp8 = icmp slt i32 %value, %2
   %conv9.neg = sext i1 %cmp8 to i32
   %sub10 = add nsw i32 %conv9.neg, %conv6
   br label %return
@@ -508,7 +508,7 @@ if.then5:                                         ; preds = %if.else3
   %idxprom = zext i8 %1 to i64
   %arrayidx7 = getelementptr inbounds [21 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable8E, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx7, align 4
-  %cmp8 = icmp sgt i32 %2, %value
+  %cmp8 = icmp slt i32 %value, %2
   %conv9.neg = sext i1 %cmp8 to i32
   %sub10 = add nsw i32 %conv9.neg, %conv6
   br label %return

@@ -6811,7 +6811,7 @@ define dso_local i32 @fcntl_setlk(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %125 = and i64 %118, %124
   %126 = inttoptr i64 %125 to ptr
   tail call void @_raw_spin_unlock(ptr noundef %112) #15
-  %127 = icmp eq ptr %126, %1
+  %127 = icmp eq ptr %1, %126
   br i1 %127, label %flock_to_posix_lock.exit.thread, label %128
 
 128:                                              ; preds = %110

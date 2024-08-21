@@ -541,7 +541,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %76 = ptrtoint ptr %74 to i64
   %77 = sub i64 %75, %76
   %78 = ashr exact i64 %77, 2
-  %79 = icmp ult i64 %78, %71
+  %79 = icmp ugt i64 %71, %78
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %70
@@ -550,7 +550,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %.lr.ph.preheader unwind label %.loopexit.split-lp
 
 82:                                               ; preds = %70
-  %83 = icmp ugt i64 %78, %71
+  %83 = icmp ult i64 %71, %78
   br i1 %83, label %84, label %.lr.ph.preheader
 
 84:                                               ; preds = %82
@@ -2379,7 +2379,7 @@ _ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv.exit29: ; preds = %26, %26, %26
   %.0.in.i27 = load i64, ptr %34, align 8
   %.0.i28 = trunc i64 %.0.in.i27 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %35 = icmp sgt i32 %.0.i28, %1
+  %35 = icmp slt i32 %1, %.0.i28
   br i1 %35, label %43, label %.thread
 
 .thread:                                          ; preds = %_ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv.exit, %_ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv.exit29, %24
@@ -2716,7 +2716,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE14_M_fill_assignEmRKS1_
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %27
 
 12:                                               ; preds = %3
@@ -2779,7 +2779,7 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Dest
   %30 = ptrtoint ptr %29 to i64
   %31 = sub i64 %30, %8
   %32 = sdiv exact i64 %31, 24
-  %33 = icmp ult i64 %32, %1
+  %33 = icmp ugt i64 %1, %32
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %27
@@ -3047,7 +3047,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %12
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %30 = extractvalue { ptr, i32 } %lpad.phi, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #21
-  %.not4.i.i = icmp eq ptr %.018, %0
+  %.not4.i.i = icmp eq ptr %0, %.018
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPSt6vectorIiSaIiEEEvT_S4_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i

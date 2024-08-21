@@ -439,7 +439,7 @@ sw.bb31.i:                                        ; preds = %eth_get_l2_hdr_leng
 land.lhs.true1.i68.i:                             ; preds = %sw.bb31.i
   %iov_len.i69.i = getelementptr inbounds i8, ptr %24, i64 8
   %28 = load i64, ptr %iov_len.i69.i, align 8
-  %cmp.not.i.i = icmp ult i64 %28, %26
+  %cmp.not.i.i = icmp ugt i64 %26, %28
   %sub.i.i = sub nuw i64 %28, %26
   %cmp5.not.i70.i = icmp ult i64 %sub.i.i, 20
   %or.cond13.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp5.not.i70.i
@@ -620,7 +620,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %tso_enable.not = xor i1 %tso_enable, true
-  %brmerge = or i1 %tso_enable.not, %csum_enable
+  %brmerge = or i1 %csum_enable, %tso_enable.not
   br i1 %brmerge, label %if.end6, label %if.else5
 
 if.else5:                                         ; preds = %if.end
@@ -1507,7 +1507,7 @@ entry:
 
 land.lhs.true1.i:                                 ; preds = %entry
   %3 = load i64, ptr %iov_len5, align 8
-  %cmp.not.i = icmp ult i64 %3, %add
+  %cmp.not.i = icmp ugt i64 %add, %3
   %sub.i = sub nuw i64 %3, %add
   %cmp5.not.i = icmp ult i64 %sub.i, 2
   %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i
@@ -1565,7 +1565,7 @@ if.end18:                                         ; preds = %iov_from_buf.exit, 
 
 land.lhs.true1.i22:                               ; preds = %if.end18
   %13 = load i64, ptr %iov_len5, align 8
-  %cmp.not.i24 = icmp ult i64 %13, %add
+  %cmp.not.i24 = icmp ugt i64 %add, %13
   %sub.i25 = sub nuw i64 %13, %add
   %cmp5.not.i26 = icmp ult i64 %sub.i25, 2
   %or.cond13.i27 = select i1 %cmp.not.i24, i1 true, i1 %cmp5.not.i26

@@ -490,7 +490,7 @@ define linkonce_odr void @_ZN8LightGBM12GOSSStrategy7BaggingEiPNS_11TreeLearnerE
   %13 = load double, ptr %12, align 8
   %14 = fdiv double 1.000000e+00, %13
   %15 = fptosi double %14 to i32
-  %16 = icmp sgt i32 %15, %1
+  %16 = icmp slt i32 %1, %15
   br i1 %16, label %63, label %17
 
 17:                                               ; preds = %5
@@ -1770,7 +1770,7 @@ define internal void @_ZN8LightGBM23ParallelPartitionRunnerIiLb0EE3RunILb1EEEiiR
   %76 = getelementptr inbounds i32, ptr %66, i64 %75
   %77 = icmp ne i32 %71, %.sroa.speculated
   %.012.i.i = getelementptr inbounds i8, ptr %76, i64 -4
-  %78 = icmp ugt ptr %.012.i.i, %74
+  %78 = icmp ult ptr %74, %.012.i.i
   %or.cond.i.i = select i1 %77, i1 %78, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPiEvT_S1_.exit
 
@@ -2104,7 +2104,7 @@ define linkonce_odr void @_ZN8LightGBM3Log5WriteENS_8LogLevelEPKcS3_P13__va_list
   %5 = alloca [512 x i8], align 16
   %6 = tail call noundef nonnull align 4 dereferenceable(4) ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZZN8LightGBM3Log8GetLevelEvE5level)
   %7 = load i32, ptr %6, align 4
-  %.not = icmp slt i32 %7, %0
+  %.not = icmp sgt i32 %0, %7
   br i1 %.not, label %23, label %8
 
 8:                                                ; preds = %4
@@ -2388,7 +2388,7 @@ define linkonce_odr noundef i32 @_ZN8LightGBM12GOSSStrategy6HelperEiiPiPfS2_(ptr
   %.neg = add i32 %.082107, %50
   %103 = sub i32 %.neg, %.076110
   %104 = sitofp i32 %103 to double
-  %105 = add i32 %.082107, %2
+  %105 = add i32 %2, %.082107
   %106 = trunc i64 %indvars.iv128 to i32
   %107 = add i32 %.sroa.speculated, %106
   %108 = sub i32 %105, %107
@@ -2464,7 +2464,7 @@ define linkonce_odr noundef i32 @_ZN8LightGBM9ArrayArgsIfE9ArgMaxAtKEPSt6vectorI
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = add nsw i32 %2, -1
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   br i1 %.not, label %8, label %23
 
 8:                                                ; preds = %4
@@ -2472,9 +2472,9 @@ define linkonce_odr noundef i32 @_ZN8LightGBM9ArrayArgsIfE9ArgMaxAtKEPSt6vectorI
   store i32 %7, ptr %6, align 4
   call void @_ZN8LightGBM9ArrayArgsIfE9PartitionEPSt6vectorIfSaIfEEiiPiS6_(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %9 = load i32, ptr %5, align 4
-  %10 = icmp slt i32 %9, %3
+  %10 = icmp sgt i32 %3, %9
   %11 = load i32, ptr %6, align 4
-  %12 = icmp sgt i32 %11, %3
+  %12 = icmp slt i32 %3, %11
   %or.cond = select i1 %10, i1 %12, i1 false
   br i1 %or.cond, label %23, label %13
 
@@ -2509,7 +2509,7 @@ declare float @llvm.fabs.f32(float) #19
 define linkonce_odr void @_ZN8LightGBM9ArrayArgsIfE9PartitionEPSt6vectorIfSaIfEEiiPiS6_(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #8 comdat align 2 {
   %6 = add nsw i32 %1, -1
   %7 = add nsw i32 %2, -1
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   br i1 %.not, label %8, label %.loopexit
 
 8:                                                ; preds = %5
@@ -2559,7 +2559,7 @@ define linkonce_odr void @_ZN8LightGBM9ArrayArgsIfE9PartitionEPSt6vectorIfSaIfEE
   %26 = load float, ptr %25, align 4
   %27 = fcmp ule float %12, %26
   %28 = trunc nsw i64 %indvars.iv.next120 to i32
-  %29 = icmp eq i32 %28, %1
+  %29 = icmp eq i32 %1, %28
   %or.cond = or i1 %27, %29
   br i1 %or.cond, label %30, label %24, !llvm.loop !24
 
@@ -2613,7 +2613,7 @@ define linkonce_odr void @_ZN8LightGBM9ArrayArgsIfE9PartitionEPSt6vectorIfSaIfEE
   store float %56, ptr %21, align 4
   store float %19, ptr %55, align 4
   %57 = add nsw i32 %54, 2
-  %.not86100 = icmp slt i32 %.077, %1
+  %.not86100 = icmp sgt i32 %1, %.077
   br i1 %.not86100, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %53
@@ -3434,7 +3434,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
   %207 = getelementptr inbounds i8, ptr %0, i64 72
   %208 = load ptr, ptr %207, align 8
   %.not.i34 = icmp eq ptr %208, null
-  %brmerge31 = or i1 %.not.i34, %2
+  %brmerge31 = or i1 %2, %.not.i34
   br i1 %brmerge31, label %209, label %220
 
 209:                                              ; preds = %206

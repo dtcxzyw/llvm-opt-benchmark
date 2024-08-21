@@ -245,8 +245,8 @@ define weak_odr void @_ZNK7mitsuba10VolumeGridIfN5drjit6MatrixINS_8SpectrumIfLm4
   %17 = fsub contract <4 x float> %15, %16
   %18 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %17, <4 x float> zeroinitializer, i8 -1)
   %19 = fadd contract <4 x float> %18, %18
-  %20 = fneg contract <4 x float> %18
-  %21 = fmul contract <4 x float> %17, %20
+  %20 = fneg contract <4 x float> %17
+  %21 = fmul contract <4 x float> %18, %20
   %22 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %21, <4 x float> %18, <4 x float> %19)
   %23 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %22, <4 x float> %17, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
@@ -274,8 +274,8 @@ _ZN5drjit5scaleINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !7
   %30 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %23, <4 x float> zeroinitializer, i8 -1)
   %31 = fadd contract <4 x float> %30, %30
-  %32 = fneg contract <4 x float> %30
-  %33 = fmul contract <4 x float> %23, %32
+  %32 = fneg contract <4 x float> %23
+  %33 = fmul contract <4 x float> %30, %32
   %34 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %33, <4 x float> %30, <4 x float> %31)
   %35 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %34, <4 x float> %23, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
@@ -4681,7 +4681,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %41 = zext nneg i8 %40 to i64
   %42 = select i1 %.not.i.i.i, i64 %41, i64 %39
   %43 = trunc i64 %42 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %43, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %43)
   %44 = sext i32 %.sroa.speculated to i64
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %37, i64 noundef %44)
           to label %46 unwind label %54
@@ -5089,7 +5089,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %49 = zext nneg i8 %48 to i64
   %50 = select i1 %.not.i.i.i, i64 %49, i64 %47
   %51 = trunc i64 %50 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %51, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %51)
   %52 = sext i32 %.sroa.speculated to i64
   %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %45, i64 noundef %52)
           to label %54 unwind label %62
@@ -5249,7 +5249,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %41 = zext nneg i8 %40 to i64
   %42 = select i1 %.not.i.i.i, i64 %41, i64 %39
   %43 = trunc i64 %42 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %43, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %43)
   %44 = sext i32 %.sroa.speculated to i64
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %37, i64 noundef %44)
           to label %46 unwind label %54

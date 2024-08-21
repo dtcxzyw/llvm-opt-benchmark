@@ -252,7 +252,7 @@ define i32 @recvln(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nound
   br label %69
 
 61:                                               ; preds = %51
-  %.not62 = icmp eq ptr %52, %0
+  %.not62 = icmp eq ptr %0, %52
   br i1 %.not62, label %64, label %62
 
 62:                                               ; preds = %61

@@ -153,7 +153,7 @@ needs_toast_table.exit:                           ; preds = %34
 
 45:                                               ; preds = %43, %needs_toast_table.exit
   %46 = icmp ne i32 %4, 8
-  %or.cond = and i1 %46, %5
+  %or.cond = and i1 %5, %46
   br i1 %or.cond, label %47, label %50
 
 47:                                               ; preds = %45

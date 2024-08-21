@@ -26,7 +26,7 @@ entry:
   %1 = getelementptr i8, ptr %ctable, i64 2
   %ctable.val = load i16, ptr %1, align 1
   %conv.i11 = zext i16 %ctable.val to i32
-  %cmp = icmp ult i32 %conv.i11, %max
+  %cmp = icmp ugt i32 %max, %conv.i11
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
@@ -153,14 +153,14 @@ if.end18:                                         ; preds = %if.then9
   %sh_prom = zext nneg i32 %defaultNormLog to i64
   %mul29 = shl i64 %conv, %sh_prom
   %shr = lshr i64 %mul29, 3
-  %cmp19 = icmp ugt i64 %shr, %nbSeq
+  %cmp19 = icmp ult i64 %nbSeq, %shr
   br i1 %cmp19, label %do.end28, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end18
   %sub21 = add i32 %defaultNormLog, -1
   %sh_prom22 = zext nneg i32 %sub21 to i64
   %shr23 = lshr i64 %nbSeq, %sh_prom22
-  %cmp24 = icmp ugt i64 %shr23, %mostFrequent
+  %cmp24 = icmp ult i64 %mostFrequent, %shr23
   br i1 %cmp24, label %do.end28, label %do.end64
 
 do.end28:                                         ; preds = %lor.lhs.false, %if.end18
@@ -221,7 +221,7 @@ cond.true34:                                      ; preds = %cond.end
   %7 = getelementptr i8, ptr %prevCTable, i64 2
   %ctable.val.i = load i16, ptr %7, align 1
   %conv.i11.i = zext i16 %ctable.val.i to i32
-  %cmp.i = icmp ult i32 %conv.i11.i, %max
+  %cmp.i = icmp ugt i32 %max, %conv.i11.i
   br i1 %cmp.i, label %cond.end37, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %cond.true34
@@ -305,7 +305,7 @@ for.body.i44:                                     ; preds = %for.body.i44, %ZSTD
   %conv.i48 = zext i32 %mul.i47 to i64
   %div.i = udiv i64 %conv.i48, %nbSeq
   %cmp4.i = icmp ne i32 %14, 0
-  %cmp6.i = icmp ult i64 %conv.i48, %nbSeq
+  %cmp6.i = icmp ugt i64 %nbSeq, %conv.i48
   %or.cond.i = and i1 %cmp4.i, %cmp6.i
   %idxprom10.i = select i1 %or.cond.i, i64 1, i64 %div.i
   %arrayidx11.i = getelementptr inbounds [256 x i32], ptr @kInverseProbabilityLog256, i64 0, i64 %idxprom10.i
@@ -604,7 +604,7 @@ if.end61.i.i:                                     ; preds = %if.then57.i.i, %con
   %idxprom.i.i160.i = zext nneg i32 %cond54.i507.i to i64
   %arrayidx.i.i161.i = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %idxprom.i.i160.i
   %25 = load i32, ptr %arrayidx.i.i161.i, align 4
-  %and.i.i163518.i = and i32 %25, %shr.i.i
+  %and.i.i163518.i = and i32 %shr.i.i, %25
   %and.i.i163.i = zext i32 %and.i.i163518.i to i64
   %sh_prom.i165.i = zext nneg i32 %blockStream.i.sroa.61.0.i to i64
   %shl.i166.i = shl i64 %and.i.i163.i, %sh_prom.i165.i
@@ -843,7 +843,7 @@ if.end150.i.i:                                    ; preds = %if.then146.i.i, %co
   %idxprom.i.i307.i = zext nneg i32 %cond143.i512.i to i64
   %arrayidx.i.i308.i = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %idxprom.i.i307.i
   %55 = load i32, ptr %arrayidx.i.i308.i, align 4
-  %and.i.i310521.i = and i32 %55, %shr153.i.i
+  %and.i.i310521.i = and i32 %shr153.i.i, %55
   %and.i.i310.i = zext i32 %and.i.i310521.i to i64
   %sh_prom.i312.i = zext nneg i32 %blockStream.i.sroa.61.5.i to i64
   %shl.i313.i = shl i64 %and.i.i310.i, %sh_prom.i312.i
@@ -1140,7 +1140,7 @@ if.end61.i:                                       ; preds = %if.then42.i, %if.th
   %idxprom.i.i160 = zext nneg i32 %cond54.i507 to i64
   %arrayidx.i.i161 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %idxprom.i.i160
   %25 = load i32, ptr %arrayidx.i.i161, align 4
-  %and.i.i163518 = and i32 %25, %shr.i
+  %and.i.i163518 = and i32 %shr.i, %25
   %and.i.i163 = zext i32 %and.i.i163518 to i64
   %sh_prom.i165 = zext nneg i32 %blockStream.i.sroa.61.0 to i64
   %shl.i166 = shl i64 %and.i.i163, %sh_prom.i165
@@ -1379,7 +1379,7 @@ if.end150.i:                                      ; preds = %if.then128.i, %if.t
   %idxprom.i.i307 = zext nneg i32 %cond143.i512 to i64
   %arrayidx.i.i308 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %idxprom.i.i307
   %55 = load i32, ptr %arrayidx.i.i308, align 4
-  %and.i.i310521 = and i32 %55, %shr153.i
+  %and.i.i310521 = and i32 %shr153.i, %55
   %and.i.i310 = zext i32 %and.i.i310521 to i64
   %sh_prom.i312 = zext nneg i32 %blockStream.i.sroa.61.5 to i64
   %shl.i313 = shl i64 %and.i.i310, %sh_prom.i312

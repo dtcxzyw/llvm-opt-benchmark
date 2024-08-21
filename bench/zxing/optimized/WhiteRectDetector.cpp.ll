@@ -32,9 +32,9 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
   %15 = load i32, ptr %0, align 8
   %16 = sdiv i32 %1, 2
   %17 = sub nsw i32 %2, %16
-  %18 = add nsw i32 %16, %2
+  %18 = add nsw i32 %2, %16
   %19 = sub nsw i32 %3, %16
-  %20 = add nsw i32 %16, %3
+  %20 = add nsw i32 %3, %16
   %21 = icmp sgt i32 %19, -1
   %22 = icmp sgt i32 %17, -1
   %or.cond.not297 = select i1 %21, i1 %22, i1 false
@@ -93,7 +93,7 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
 
 40:                                               ; preds = %36, %39
   %41 = icmp slt i32 %.1178, 0
-  %.not.i = icmp sle i32 %15, %.1178
+  %.not.i = icmp sge i32 %.1178, %15
   %or.cond294.not395 = select i1 %41, i1 true, i1 %.not.i
   %brmerge378 = select i1 %or.cond294.not395, i1 true, i1 %.not2256.i
   br i1 %brmerge378, label %.loopexit304, label %.lr.ph.i
@@ -165,7 +165,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i:             ; preds = %44
 
 62:                                               ; preds = %58, %61
   %63 = icmp slt i32 %.1172, 0
-  %.not23.i = icmp sle i32 %14, %.1172
+  %.not23.i = icmp sge i32 %.1172, %14
   %or.cond.i.not394 = select i1 %63, i1 true, i1 %.not23.i
   %brmerge379 = select i1 %or.cond.i.not394, i1 true, i1 %.not2459.i
   br i1 %brmerge379, label %.loopexit303, label %.lr.ph61.i
@@ -243,7 +243,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %67
   br i1 %.old10, label %87, label %.critedge5
 
 87:                                               ; preds = %86, %84
-  %.not.i225 = icmp sle i32 %15, %.1181
+  %.not.i225 = icmp sge i32 %.1181, %15
   %brmerge380 = select i1 %.not.i225, i1 true, i1 %.not2256.i228
   br i1 %brmerge380, label %.loopexit302, label %.lr.ph.i229
 
@@ -312,7 +312,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i232:          ; preds = %90
   br i1 %.old14, label %107, label %.critedge7
 
 107:                                              ; preds = %104, %106
-  %.not23.i238 = icmp sle i32 %14, %.1175
+  %.not23.i238 = icmp sge i32 %.1175, %14
   %brmerge381 = select i1 %.not23.i238, i1 true, i1 %.not2459.i242
   br i1 %brmerge381, label %.loopexit, label %.lr.ph61.i243
 

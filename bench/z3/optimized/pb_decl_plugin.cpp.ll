@@ -215,7 +215,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds ptr, ptr %domain, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %cmp.i = icmp eq ptr %1, %2
+  %cmp.i = icmp eq ptr %2, %1
   br i1 %cmp.i, label %for.cond, label %if.then
 
 if.then:                                          ; preds = %for.body
@@ -341,7 +341,7 @@ sw.bb19:                                          ; preds = %for.end, %sw.bb5, %
   %16 = load i64, ptr %m_pbeq_sym, align 8
   store i64 %16, ptr %sym, align 8
   %add = add i32 %arity, 1
-  %cmp20.not = icmp eq i32 %add, %num_parameters
+  %cmp20.not = icmp eq i32 %num_parameters, %add
   br i1 %cmp20.not, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %sw.bb19

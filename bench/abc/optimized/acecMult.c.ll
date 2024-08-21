@@ -62,7 +62,7 @@ define i64 @Extra_TruthCanonNPN3(i64 noundef %0, i32 noundef %1, ptr nocapture n
   %indvars.iv70 = phi i64 [ 0, %.preheader.lr.ph.us.us.preheader ], [ 1, %._crit_edge49.split.us.us.us ]
   %.03551.us.us = phi i64 [ -1, %.preheader.lr.ph.us.us.preheader ], [ %spec.select.us.us.us, %._crit_edge49.split.us.us.us ]
   %12 = sub nsw i64 0, %indvars.iv70
-  %13 = xor i64 %12, %0
+  %13 = xor i64 %0, %12
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader.lr.ph.us.us
@@ -839,11 +839,11 @@ define noalias noundef ptr @Acec_MultCollectInputs(ptr nocapture noundef readonl
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i32, ptr %.val23, i64 %12
   %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %14, %2
+  %17 = icmp eq i32 %2, %14
   br i1 %17, label %.sink.split, label %18
 
 18:                                               ; preds = %11
-  %19 = icmp eq i32 %16, %2
+  %19 = icmp eq i32 %2, %16
   br i1 %19, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %18, %11

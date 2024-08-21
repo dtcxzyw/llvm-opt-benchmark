@@ -69,7 +69,7 @@ define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..Defa
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109e31907df2efafE.exit": ; preds = %.noexc
   %12 = load i64, ptr %6, align 8, !alias.scope !4, !noundef !7
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9bc938daedb0ab97E.llvm.7371537965014501254.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9bc938daedb0ab97E.llvm.7371537965014501254.exit.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109e31907df2efafE.exit"
@@ -88,7 +88,7 @@ define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..Defa
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !14, !noalias !11, !noundef !7
-  %18 = icmp eq i64 %17, %1
+  %18 = icmp eq i64 %1, %17
   br i1 %18, label %25, label %21
 
 19:                                               ; preds = %21
@@ -272,7 +272,7 @@ define noundef double @"_ZN113_$LT$statrs..distribution..bernoulli..Bernoulli$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !33, !noundef !7
-  %.not.i = icmp ugt i64 %6, %1
+  %.not.i = icmp ult i64 %1, %6
   br i1 %.not.i, label %7, label %"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf17h768a3c98d1b35a99E.exit"
 
 7:                                                ; preds = %2
@@ -313,7 +313,7 @@ define noundef double @"_ZN113_$LT$statrs..distribution..bernoulli..Bernoulli$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !44, !noundef !7
-  %.not.i = icmp ugt i64 %6, %1
+  %.not.i = icmp ult i64 %1, %6
   br i1 %.not.i, label %7, label %"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$2sf17h1fc55e4550a89c05E.exit"
 
 7:                                                ; preds = %2
@@ -913,7 +913,7 @@ define noundef double @"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$sta
   %13 = tail call double @llvm.pow.f64(double %1, double %11)
   %14 = fmul double %13, %exp2
   %15 = fneg double %1
-  %16 = fmul double %15, %1
+  %16 = fmul double %1, %15
   %17 = fmul double %16, 5.000000e-01
   %18 = tail call double @llvm.exp.f64(double %17)
   %19 = fmul double %18, %14
@@ -1095,7 +1095,7 @@ _ZN6statrs12distribution9dirichlet14is_valid_alpha17h00e7d4c1915b2f3aE.exit.thre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   %47 = getelementptr inbounds i8, ptr %4, i64 16
   %48 = load i64, ptr %47, align 8, !alias.scope !146, !noalias !149, !noundef !7
-  %49 = icmp eq i64 %48, %11
+  %49 = icmp eq i64 %11, %48
   br i1 %49, label %61, label %52
 
 50:                                               ; preds = %52
@@ -1413,7 +1413,7 @@ _ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit:
   store ptr %.sroa.4.0.copyload.i, ptr %15, align 8, !noalias !171
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %.sroa.6.0.copyload.i, ptr %16, align 8, !noalias !171
-  %17 = icmp eq i64 %.sroa.6.0.copyload.i, %.sroa.7.0.copyload.i
+  %17 = icmp eq i64 %.sroa.7.0.copyload.i, %.sroa.6.0.copyload.i
   br i1 %17, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hdfd22009a9b924bdE.exit", label %20
 
 18:                                               ; preds = %20
@@ -1524,7 +1524,7 @@ common.resume:                                    ; preds = %.body, %82, %26
   store ptr %.sroa.4.0.copyload.i, ptr %23, align 8, !noalias !192
   %24 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %.sroa.6.0.copyload.i, ptr %24, align 8, !noalias !192
-  %25 = icmp eq i64 %.sroa.6.0.copyload.i, %.sroa.7.0.copyload.i
+  %25 = icmp eq i64 %.sroa.7.0.copyload.i, %.sroa.6.0.copyload.i
   br i1 %25, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.exit", label %28
 
 26:                                               ; preds = %28
@@ -1743,8 +1743,8 @@ common.resume:                                    ; preds = %.body, %82, %26
   %90 = load double, ptr %89, align 8, !noalias !233, !noundef !7
   %91 = fmul double %90, %88
   %92 = fdiv double %91, %20
-  %93 = icmp ugt i64 %.val3.i.i, %.sroa.07.037
-  %94 = icmp ugt i64 %.val4.i.i, %.sroa.09.035
+  %93 = icmp ult i64 %.sroa.07.037, %.val3.i.i
+  %94 = icmp ult i64 %.sroa.09.035, %.val4.i.i
   %or.cond.i12.i = and i1 %93, %94
   br i1 %or.cond.i12.i, label %"_ZN8nalgebra4base3ops137_$LT$impl$u20$core..ops..index..IndexMut$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$9index_mut17hf25e42010faa6ac2E.exit.i", label %.invoke
 
@@ -1755,8 +1755,8 @@ common.resume:                                    ; preds = %.body, %82, %26
   store double %92, ptr %97, align 8, !noalias !233
   %.val3.i13.i = load i64, ptr %.sroa.57.0..sroa_idx.i, align 8, !noalias !233, !noundef !7
   %.val4.i14.i = load i64, ptr %.sroa.7.0..sroa_idx.i23, align 8, !noalias !233, !noundef !7
-  %98 = icmp ugt i64 %.val3.i13.i, %.sroa.09.035
-  %99 = icmp ugt i64 %.val4.i14.i, %.sroa.07.037
+  %98 = icmp ult i64 %.sroa.09.035, %.val3.i13.i
+  %99 = icmp ult i64 %.sroa.07.037, %.val4.i14.i
   %or.cond.i15.i = and i1 %98, %99
   br i1 %or.cond.i15.i, label %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit", label %.invoke
 
@@ -1989,7 +1989,7 @@ define noundef double @"_ZN111_$LT$statrs..distribution..exponential..Exp$u20$as
 4:                                                ; preds = %2
   %5 = load double, ptr %0, align 8, !noundef !7
   %6 = fneg double %5
-  %7 = fmul double %6, %1
+  %7 = fmul double %1, %6
   %8 = tail call double @llvm.exp.f64(double %7)
   %9 = fsub double 1.000000e+00, %8
   br label %10
@@ -2007,7 +2007,7 @@ define noundef double @"_ZN111_$LT$statrs..distribution..exponential..Exp$u20$as
 4:                                                ; preds = %2
   %5 = load double, ptr %0, align 8, !noundef !7
   %6 = fneg double %5
-  %7 = fmul double %6, %1
+  %7 = fmul double %1, %6
   %8 = tail call double @llvm.exp.f64(double %7)
   br label %9
 
@@ -2087,7 +2087,7 @@ define noundef double @"_ZN108_$LT$statrs..distribution..exponential..Exp$u20$as
 4:                                                ; preds = %2
   %5 = load double, ptr %0, align 8, !noundef !7
   %6 = fneg double %5
-  %7 = fmul double %6, %1
+  %7 = fmul double %1, %6
   %8 = tail call double @llvm.exp.f64(double %7)
   %9 = fmul double %5, %8
   br label %10
@@ -2105,7 +2105,7 @@ define noundef double @"_ZN108_$LT$statrs..distribution..exponential..Exp$u20$as
 4:                                                ; preds = %2
   %5 = load double, ptr %0, align 8, !noundef !7
   %6 = tail call noundef double @llvm.log.f64(double %5)
-  %7 = fmul double %5, %1
+  %7 = fmul double %1, %5
   %8 = fsub double %6, %7
   br label %9
 

@@ -96,7 +96,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 lor.lhs.false18:                                  ; preds = %for.body
   %call19 = call i32 @BIO_ADDRINFO_family(ptr noundef nonnull %ai.079) #9
-  %cmp20 = icmp eq i32 %call19, %family
+  %cmp20 = icmp eq i32 %family, %call19
   br i1 %cmp20, label %land.lhs.true21, label %cond.false
 
 land.lhs.true21:                                  ; preds = %lor.lhs.false18, %for.body
@@ -104,7 +104,7 @@ land.lhs.true21:                                  ; preds = %lor.lhs.false18, %f
 
 lor.lhs.false23:                                  ; preds = %land.lhs.true21
   %call24 = call i32 @BIO_ADDRINFO_socktype(ptr noundef nonnull %ai.079) #9
-  %cmp25 = icmp eq i32 %call24, %type
+  %cmp25 = icmp eq i32 %type, %call24
   br i1 %cmp25, label %land.lhs.true26, label %cond.false
 
 land.lhs.true26:                                  ; preds = %lor.lhs.false23, %land.lhs.true21
@@ -112,7 +112,7 @@ land.lhs.true26:                                  ; preds = %lor.lhs.false23, %l
 
 lor.lhs.false28:                                  ; preds = %land.lhs.true26
   %call29 = call i32 @BIO_ADDRINFO_protocol(ptr noundef nonnull %ai.079) #9
-  %cmp30 = icmp eq i32 %call29, %protocol
+  %cmp30 = icmp eq i32 %protocol, %call29
   br i1 %cmp30, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %lor.lhs.false28, %lor.lhs.false23, %lor.lhs.false18
@@ -515,7 +515,7 @@ if.end3:                                          ; preds = %if.end
 lor.lhs.false:                                    ; preds = %if.end3
   %1 = load ptr, ptr %res, align 8
   %call5 = call i32 @BIO_ADDRINFO_family(ptr noundef %1) #9
-  %cmp6 = icmp eq i32 %call5, %family
+  %cmp6 = icmp eq i32 %family, %call5
   br i1 %cmp6, label %land.lhs.true, label %cond.false
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end3
@@ -525,7 +525,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false, %if.
 lor.lhs.false8:                                   ; preds = %land.lhs.true
   %2 = load ptr, ptr %res, align 8
   %call9 = call i32 @BIO_ADDRINFO_socktype(ptr noundef %2) #9
-  %cmp10 = icmp eq i32 %call9, %type
+  %cmp10 = icmp eq i32 %type, %call9
   br i1 %cmp10, label %land.lhs.true11, label %cond.false
 
 land.lhs.true11:                                  ; preds = %lor.lhs.false8, %land.lhs.true
@@ -535,7 +535,7 @@ land.lhs.true11:                                  ; preds = %lor.lhs.false8, %la
 lor.lhs.false13:                                  ; preds = %land.lhs.true11
   %3 = load ptr, ptr %res, align 8
   %call14 = call i32 @BIO_ADDRINFO_protocol(ptr noundef %3) #9
-  %cmp15 = icmp eq i32 %call14, %protocol
+  %cmp15 = icmp eq i32 %protocol, %call14
   br i1 %cmp15, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %lor.lhs.false13, %lor.lhs.false8, %lor.lhs.false

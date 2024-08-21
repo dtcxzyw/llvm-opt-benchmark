@@ -2288,7 +2288,7 @@ entry:
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp = icmp eq ptr %0, %this
+  %cmp = icmp eq ptr %this, %0
   br i1 %cmp, label %land.lhs.true, label %if.end6
 
 land.lhs.true:                                    ; preds = %if.end
@@ -2701,13 +2701,13 @@ if.end.i:                                         ; preds = %entry
   %3 = load ptr, ptr %chunk_resolver_, align 8
   %add.ptr.i.i = getelementptr i64, ptr %3, i64 %2
   %4 = load i64, ptr %add.ptr.i.i, align 8
-  %cmp5.not.i = icmp sgt i64 %4, %index
+  %cmp5.not.i = icmp slt i64 %index, %4
   br i1 %cmp5.not.i, label %if.end15.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end.i
   %add.ptr.i15.i = getelementptr i8, ptr %add.ptr.i.i, i64 8
   %5 = load i64, ptr %add.ptr.i15.i, align 8
-  %cmp8.i = icmp sgt i64 %5, %index
+  %cmp8.i = icmp slt i64 %index, %5
   br i1 %cmp8.i, label %if.then10.i, label %if.end15.i
 
 if.then10.i:                                      ; preds = %land.rhs.i
@@ -2730,7 +2730,7 @@ while.body.i.i:                                   ; preds = %if.end15.i, %while.
   %add.i.i = add nuw nsw i64 %shr.i.i, %lo.09.i.i
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %3, i64 %add.i.i
   %7 = load i64, ptr %add.ptr.i.i.i, align 8
-  %cmp4.not.i.i = icmp sgt i64 %7, %index
+  %cmp4.not.i.i = icmp slt i64 %index, %7
   %sub.i.i = sub nsw i64 %n.08.i.i, %shr.i.i
   %n.1.i.i = select i1 %cmp4.not.i.i, i64 %shr.i.i, i64 %sub.i.i
   %lo.1.i.i = select i1 %cmp4.not.i.i, i64 %lo.09.i.i, i64 %add.i.i
@@ -3016,7 +3016,7 @@ entry:
   %ref.tmp47 = alloca %"class.std::shared_ptr.8", align 8
   %length_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %length_, align 8
-  %cmp.not = icmp slt i64 %0, %offset
+  %cmp.not = icmp sgt i64 %offset, %0
   br i1 %cmp.not, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %entry
@@ -3069,7 +3069,7 @@ cleanup.action:                                   ; preds = %call4.i.noexc22, %c
 
 cleanup.done:                                     ; preds = %entry, %cleanup.action
   %5 = phi i64 [ %0, %entry ], [ %.pre, %cleanup.action ]
-  %cmp11 = icmp eq i64 %5, %offset
+  %cmp11 = icmp eq i64 %offset, %5
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %this, align 8
@@ -7986,7 +7986,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -8694,7 +8694,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN5arrow5ArrayEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt10shared_ptrIN5arrow5ArrayEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12

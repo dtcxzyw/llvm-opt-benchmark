@@ -181,7 +181,7 @@ define noundef zeroext i1 @ompi_seq_tracker_check_duplicate(ptr noundef %0, i32 
 
 .thread:                                          ; preds = %..thread_crit_edge, %9
   %14 = phi i32 [ %.pre, %..thread_crit_edge ], [ %11, %9 ]
-  %15 = icmp ugt i32 %14, %1
+  %15 = icmp ult i32 %1, %14
   %16 = icmp ne i32 %.035, 1
   %or.cond5 = and i1 %16, %15
   br i1 %or.cond5, label %17, label %.loopexit
@@ -548,7 +548,7 @@ opal_obj_new.exit119:                             ; preds = %.lr.ph.i.i116
   br label %.loopexit.sink.split
 
 176:                                              ; preds = %141
-  %177 = icmp ugt i32 %94, %1
+  %177 = icmp ult i32 %1, %94
   br i1 %177, label %178, label %.loopexit
 
 178:                                              ; preds = %176

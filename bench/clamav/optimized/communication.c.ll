@@ -324,7 +324,7 @@ define dso_local i32 @onas_recvln(ptr noundef %0, ptr nocapture noundef writeonl
   br label %94
 
 88:                                               ; preds = %79
-  %.not70 = icmp eq ptr %80, %0
+  %.not70 = icmp eq ptr %0, %80
   br i1 %.not70, label %90, label %89
 
 89:                                               ; preds = %88
@@ -454,7 +454,7 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr nocapture noundef write
   br label %57
 
 51:                                               ; preds = %42
-  %.not60 = icmp eq ptr %43, %0
+  %.not60 = icmp eq ptr %0, %43
   br i1 %.not60, label %53, label %52
 
 52:                                               ; preds = %51

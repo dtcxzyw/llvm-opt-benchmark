@@ -1698,13 +1698,13 @@ define dso_local ptr @PyFile_NewStdPrinter(i32 noundef %fd) local_unnamed_addr #
 entry:
   %0 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fileno(ptr noundef %0) #9
-  %cmp.not = icmp eq i32 %call, %fd
+  %cmp.not = icmp eq i32 %fd, %call
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
   %call1 = tail call i32 @fileno(ptr noundef %1) #9
-  %cmp2.not = icmp eq i32 %call1, %fd
+  %cmp2.not = icmp eq i32 %fd, %call1
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry

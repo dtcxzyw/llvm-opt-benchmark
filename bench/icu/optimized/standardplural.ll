@@ -184,8 +184,8 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %entry
   %5 = load i16, ptr %cond.i2.i.i, align 2
   %switch.selectcmp = icmp eq i16 %5, 49
   %switch.select = select i1 %switch.selectcmp, i32 7, i32 -1
-  %switch.selectcmp92 = icmp eq i16 %5, 48
-  %switch.select93 = select i1 %switch.selectcmp92, i32 6, i32 %switch.select
+  %switch.selectcmp96 = icmp eq i16 %5, 48
+  %switch.select97 = select i1 %switch.selectcmp96, i32 6, i32 %switch.select
   br label %return
 
 sw.bb7:                                           ; preds = %entry
@@ -336,7 +336,7 @@ sw.epilog:                                        ; preds = %entry, %invoke.cont
   br label %return
 
 return:                                           ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit, %invoke.cont70, %invoke.cont60, %invoke.cont52, %invoke.cont41, %invoke.cont33, %invoke.cont25, %invoke.cont15, %invoke.cont, %sw.epilog
-  %retval.0 = phi i32 [ -1, %sw.epilog ], [ 6, %invoke.cont ], [ 7, %invoke.cont15 ], [ 1, %invoke.cont25 ], [ 2, %invoke.cont33 ], [ 3, %invoke.cont41 ], [ 4, %invoke.cont52 ], [ 0, %invoke.cont60 ], [ 5, %invoke.cont70 ], [ %switch.select93, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
+  %retval.0 = phi i32 [ -1, %sw.epilog ], [ 6, %invoke.cont ], [ 7, %invoke.cont15 ], [ 1, %invoke.cont25 ], [ 2, %invoke.cont33 ], [ 3, %invoke.cont41 ], [ 4, %invoke.cont52 ], [ 0, %invoke.cont60 ], [ 5, %invoke.cont70 ], [ %switch.select97, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad69, %lpad59, %lpad51, %lpad40, %lpad32, %lpad24, %lpad14, %lpad

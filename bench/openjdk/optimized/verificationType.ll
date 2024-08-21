@@ -301,7 +301,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit42:            ; preds = %_ZN6HandleC2EP6Thre
 
 68:                                               ; preds = %67
   %69 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
-  %.not = icmp eq ptr %69, %2
+  %.not = icmp eq ptr %2, %69
   br i1 %.not, label %77, label %70
 
 70:                                               ; preds = %68, %67
@@ -745,14 +745,14 @@ declare void @_ZN15SignatureStreamC1EPK6Symbolb(ptr noundef nonnull align 8 dere
 define linkonce_odr hidden noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEP6Symbol(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
-  br i1 %5, label %43, label %6
+  %5 = icmp eq ptr %1, %4
+  br i1 %5, label %41, label %6
 
 6:                                                ; preds = %2
   %7 = load volatile i32, ptr %1, align 4
   %8 = and i32 %7, 65535
   %9 = icmp eq i32 %8, 65535
-  br i1 %9, label %42, label %10
+  br i1 %9, label %40, label %10
 
 10:                                               ; preds = %6
   tail call void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #9
@@ -786,34 +786,33 @@ define linkonce_odr hidden noundef ptr @_ZN13ClassVerifier23create_temporary_sym
 26:                                               ; preds = %20
   %27 = add nsw i32 %22, 1
   %28 = icmp sgt i32 %22, -1
-  %29 = xor i32 %22, -2147483648
-  %30 = and i32 %29, %27
-  %31 = icmp eq i32 %30, 0
-  %32 = and i1 %28, %31
-  %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
-  %34 = sub nuw nsw i32 32, %33
-  %35 = shl nuw i32 1, %34
-  %.0.i.i.i.i.i = select i1 %32, i32 %27, i32 %35
+  %29 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
+  %30 = icmp ult i32 %29, 2
+  %or.cond.i.i.i.i.i = select i1 %28, i1 %30, i1 false
+  %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
+  %32 = sub nuw nsw i32 32, %31
+  %33 = shl nuw i32 1, %32
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %27, i32 %33
   tail call void @_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %21, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE4pushERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %20, %26
-  %36 = phi i32 [ %.pre.i.i, %26 ], [ %22, %20 ]
-  %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %21, align 8
-  %38 = getelementptr inbounds i8, ptr %21, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
-  store ptr %1, ptr %41, align 8
-  br label %42
+  %34 = phi i32 [ %.pre.i.i, %26 ], [ %22, %20 ]
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %21, align 8
+  %36 = getelementptr inbounds i8, ptr %21, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = sext i32 %34 to i64
+  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  store ptr %1, ptr %39, align 8
+  br label %40
 
-42:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE4pushERKS1_.exit, %6
+40:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE4pushERKS1_.exit, %6
   store ptr %1, ptr %3, align 8
-  br label %43
+  br label %41
 
-43:                                               ; preds = %2, %42
+41:                                               ; preds = %2, %40
   ret ptr %1
 }
 
@@ -1265,7 +1264,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -1757,6 +1756,9 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7

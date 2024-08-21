@@ -80,7 +80,7 @@ gv_calloc.exit.i:                                 ; preds = %14
 .lr.ph.i:                                         ; preds = %gv_calloc.exit.i
   %.val81.i = load ptr, ptr %7, align 8
   %.not32.i.i = icmp eq ptr %.fr.i, null
-  %27 = fadd double %23, %2
+  %27 = fadd double %2, %23
   br i1 %.not32.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
@@ -355,7 +355,7 @@ getInfo.exit.loopexit.i:                          ; preds = %84
   %178 = load i32, ptr %177, align 8
   %179 = sitofp i32 %178 to double
   %180 = fdiv double %174, %179
-  %181 = fadd double %180, %2
+  %181 = fadd double %2, %180
   br label %190
 
 182:                                              ; preds = %160
@@ -741,17 +741,17 @@ define internal fastcc void @applyDelta(ptr nocapture noundef readonly %0, doubl
   %15 = load double, ptr %14, align 8
   %16 = tail call double @cos(double noundef %3) #10
   %17 = tail call double @sin(double noundef %3) #10
-  %18 = fneg double %15
-  %19 = fmul double %17, %18
+  %18 = fneg double %17
+  %19 = fmul double %15, %18
   %20 = tail call double @llvm.fmuladd.f64(double %13, double %16, double %19)
   %21 = fmul double %15, %16
   %22 = tail call double @llvm.fmuladd.f64(double %13, double %17, double %21)
-  %23 = fadd double %20, %1
+  %23 = fadd double %1, %20
   %24 = load ptr, ptr %9, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 176
   %26 = load ptr, ptr %25, align 8
   store double %23, ptr %26, align 8
-  %27 = fadd double %22, %2
+  %27 = fadd double %2, %22
   %28 = load ptr, ptr %9, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 176
   %30 = load ptr, ptr %29, align 8
@@ -770,9 +770,9 @@ define internal fastcc void @applyDelta(ptr nocapture noundef readonly %0, doubl
   %37 = load double, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %36, i64 8
   %39 = load double, ptr %38, align 8
-  %40 = fadd double %37, %1
+  %40 = fadd double %1, %37
   store double %40, ptr %36, align 8
-  %41 = fadd double %39, %2
+  %41 = fadd double %2, %39
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 176
   %44 = load ptr, ptr %43, align 8

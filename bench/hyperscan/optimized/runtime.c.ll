@@ -257,7 +257,7 @@ if.end97:                                         ; preds = %if.then89, %if.end8
 if.end103:                                        ; preds = %if.end97
   %maxBiAnchoredWidth = getelementptr inbounds i8, ptr %add.ptr.i, i64 208
   %27 = load i32, ptr %maxBiAnchoredWidth, align 8
-  %cmp107 = icmp ult i32 %27, %length
+  %cmp107 = icmp ugt i32 %length, %27
   br i1 %cmp107, label %done_scan, label %if.end112
 
 if.end112:                                        ; preds = %if.end103
@@ -270,7 +270,7 @@ if.end.i232:                                      ; preds = %if.end112
   %idx.ext.i233 = zext i32 %28 to i64
   %add.ptr.i234 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i233
   %29 = load i32, ptr %add.ptr.i234, align 64
-  %cmp116 = icmp ugt i32 %29, %length
+  %cmp116 = icmp ult i32 %length, %29
   br i1 %cmp116, label %do.end120, label %if.end122
 
 do.end120:                                        ; preds = %if.end.i232
@@ -2656,7 +2656,7 @@ if.end4.i:                                        ; preds = %if.then114
   %103 = load i32, ptr %stateOffsets.i166, align 4
   %idx.ext.i319 = zext i32 %103 to i64
   %add.ptr.i320 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i319
-  %cmp7.i = icmp ugt i32 %102, %length
+  %cmp7.i = icmp ult i32 %length, %102
   br i1 %cmp7.i, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %if.end4.i
@@ -4330,7 +4330,7 @@ if.end16:                                         ; preds = %if.end
   %2 = load ptr, ptr %stream, align 8
   %call = tail call i64 @size_compress_stream(ptr noundef %2, ptr noundef nonnull %stream) #11
   store i64 %call, ptr %used_space, align 8
-  %cmp = icmp ugt i64 %call, %buf_space
+  %cmp = icmp ult i64 %buf_space, %call
   br i1 %cmp, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end16

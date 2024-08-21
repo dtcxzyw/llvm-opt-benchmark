@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local range(i32 -11, 1) i32 @task_current_syscall(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %4 = inttoptr i64 %3 to ptr
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2

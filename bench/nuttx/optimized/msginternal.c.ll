@@ -188,7 +188,7 @@ define ptr @nxmsg_lookup(i32 noundef %0) local_unnamed_addr #4 {
   %2 = icmp slt i32 %0, 1
   %3 = load i8, ptr @g_nmsgq, align 1
   %4 = zext i8 %3 to i32
-  %5 = icmp ult i32 %4, %0
+  %5 = icmp ugt i32 %0, %4
   %or.cond = select i1 %2, i1 true, i1 %5
   br i1 %or.cond, label %12, label %6
 

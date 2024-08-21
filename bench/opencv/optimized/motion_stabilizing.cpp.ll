@@ -1155,9 +1155,9 @@ define void @_ZN2cv9videostab25ensureInclusionConstraintERKNS_3MatENS_5Size_IiEE
 34:                                               ; preds = %21
   %35 = sitofp i32 %.sroa.0.0.extract.trunc to float
   %36 = sitofp i32 %.sroa.2.0.extract.trunc to float
-  %37 = fmul float %35, %3
+  %37 = fmul float %3, %35
   %38 = call float @llvm.floor.f32(float %37)
-  %39 = fmul float %36, %3
+  %39 = fmul float %3, %36
   %40 = call float @llvm.floor.f32(float %39)
   %41 = getelementptr inbounds i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
@@ -1460,8 +1460,8 @@ define internal fastcc noundef zeroext i1 @_ZN2cv9videostabL12isGoodMotionEPKfff
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i, label %52, !llvm.loop !27
 
-_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ; preds = %62, %123
-  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %123 ], [ 0, %62 ]
+_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ; preds = %62, %125
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %125 ], [ 0, %62 ]
   %63 = getelementptr inbounds %"class.cv::Point_", ptr %5, i64 %indvars.iv46.i
   %.sroa.03.0.copyload.i = load <2 x float>, ptr %63, align 8
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
@@ -1475,25 +1475,25 @@ _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ;
   %68 = fsub float %.sroa.014.4.vec.extract.i.i.i, %.sroa.015.4.vec.extract.i.i.i
   %69 = fpext float %67 to double
   %70 = fpext float %68 to double
-  %71 = fneg double %70
-  br label %72
+  br label %71
 
-72:                                               ; preds = %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i
+71:                                               ; preds = %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i
   %indvars.iv42.i = phi i64 [ 0, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i ], [ %indvars.iv.next43.i, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i ]
-  %73 = getelementptr inbounds %"class.cv::Point_", ptr %6, i64 %indvars.iv42.i
-  %.sroa.01.0.copyload.i = load <2 x float>, ptr %73, align 8
+  %72 = getelementptr inbounds %"class.cv::Point_", ptr %6, i64 %indvars.iv42.i
+  %.sroa.01.0.copyload.i = load <2 x float>, ptr %72, align 8
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
-  %74 = and i64 %indvars.iv.next43.i, 3
-  %75 = getelementptr inbounds %"class.cv::Point_", ptr %6, i64 %74
-  %.sroa.0.0.copyload.i = load <2 x float>, ptr %75, align 8
+  %73 = and i64 %indvars.iv.next43.i, 3
+  %74 = getelementptr inbounds %"class.cv::Point_", ptr %6, i64 %73
+  %.sroa.0.0.copyload.i = load <2 x float>, ptr %74, align 8
   %.sroa.013.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 1
-  %76 = fsub <2 x float> %.sroa.01.0.copyload.i, %.sroa.03.0.copyload.i
-  %77 = extractelement <2 x float> %76, i64 0
-  %78 = fsub float %.sroa.013.4.vec.extract.i.i.i, %.sroa.015.4.vec.extract.i.i.i
-  %79 = fpext float %78 to double
-  %80 = fpext float %77 to double
-  %81 = fmul double %71, %80
-  %82 = tail call noundef double @llvm.fmuladd.f64(double %69, double %79, double %81)
+  %75 = fsub <2 x float> %.sroa.01.0.copyload.i, %.sroa.03.0.copyload.i
+  %76 = extractelement <2 x float> %75, i64 0
+  %77 = fsub float %.sroa.013.4.vec.extract.i.i.i, %.sroa.015.4.vec.extract.i.i.i
+  %78 = fpext float %77 to double
+  %79 = fpext float %76 to double
+  %80 = fneg double %79
+  %81 = fmul double %70, %80
+  %82 = tail call noundef double @llvm.fmuladd.f64(double %69, double %78, double %81)
   %83 = fcmp olt double %82, -1.000000e-05
   %84 = fcmp ogt double %82, 1.000000e-05
   %..i.i.i = zext i1 %84 to i32
@@ -1504,59 +1504,61 @@ _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ;
   %87 = fsub float %.sroa.013.4.vec.extract.i29.i.i, %.sroa.015.4.vec.extract.i.i.i
   %88 = fpext float %87 to double
   %89 = fpext float %86 to double
-  %90 = fmul double %71, %89
-  %91 = tail call noundef double @llvm.fmuladd.f64(double %69, double %88, double %90)
-  %92 = fcmp olt double %91, -1.000000e-05
-  %93 = fcmp ogt double %91, 1.000000e-05
-  %..i30.i.i = zext i1 %93 to i32
-  %.0.i31.i.i = select i1 %92, i32 -1, i32 %..i30.i.i
-  %94 = mul nsw i32 %.0.i31.i.i, %.0.i.i.i
-  %95 = icmp slt i32 %94, 0
-  br i1 %95, label %96, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
+  %90 = fneg double %89
+  %91 = fmul double %70, %90
+  %92 = tail call noundef double @llvm.fmuladd.f64(double %69, double %88, double %91)
+  %93 = fcmp olt double %92, -1.000000e-05
+  %94 = fcmp ogt double %92, 1.000000e-05
+  %..i30.i.i = zext i1 %94 to i32
+  %.0.i31.i.i = select i1 %93, i32 -1, i32 %..i30.i.i
+  %95 = mul nsw i32 %.0.i31.i.i, %.0.i.i.i
+  %96 = icmp slt i32 %95, 0
+  br i1 %96, label %97, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
 
-96:                                               ; preds = %72
-  %97 = fsub <2 x float> %.sroa.0.0.copyload.i, %.sroa.01.0.copyload.i
-  %98 = extractelement <2 x float> %97, i64 0
-  %99 = fsub float %.sroa.013.4.vec.extract.i29.i.i, %.sroa.013.4.vec.extract.i.i.i
-  %100 = fsub <2 x float> %.sroa.03.0.copyload.i, %.sroa.01.0.copyload.i
-  %101 = extractelement <2 x float> %100, i64 0
-  %102 = fsub float %.sroa.015.4.vec.extract.i.i.i, %.sroa.013.4.vec.extract.i.i.i
-  %103 = fpext float %98 to double
-  %104 = fpext float %102 to double
-  %105 = fpext float %99 to double
-  %106 = fpext float %101 to double
-  %107 = fneg double %105
-  %108 = fmul double %106, %107
-  %109 = tail call noundef double @llvm.fmuladd.f64(double %103, double %104, double %108)
-  %110 = fcmp olt double %109, -1.000000e-05
-  %111 = fcmp ogt double %109, 1.000000e-05
-  %..i38.i.i = zext i1 %111 to i32
-  %.0.i39.i.i = select i1 %110, i32 -1, i32 %..i38.i.i
-  %112 = fsub <2 x float> %.sroa.02.0.copyload.i, %.sroa.01.0.copyload.i
-  %113 = extractelement <2 x float> %112, i64 0
-  %114 = fsub float %.sroa.014.4.vec.extract.i.i.i, %.sroa.013.4.vec.extract.i.i.i
-  %115 = fpext float %114 to double
-  %116 = fpext float %113 to double
-  %117 = fmul double %116, %107
-  %118 = tail call noundef double @llvm.fmuladd.f64(double %103, double %115, double %117)
-  %119 = fcmp olt double %118, -1.000000e-05
-  %120 = fcmp ogt double %118, 1.000000e-05
-  %..i46.i.i = zext i1 %120 to i32
-  %.0.i47.i.i = select i1 %119, i32 -1, i32 %..i46.i.i
-  %121 = mul nsw i32 %.0.i39.i.i, %.0.i47.i.i
-  %122 = icmp slt i32 %121, 0
-  br i1 %122, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
+97:                                               ; preds = %71
+  %98 = fsub <2 x float> %.sroa.0.0.copyload.i, %.sroa.01.0.copyload.i
+  %99 = extractelement <2 x float> %98, i64 0
+  %100 = fsub float %.sroa.013.4.vec.extract.i29.i.i, %.sroa.013.4.vec.extract.i.i.i
+  %101 = fsub <2 x float> %.sroa.03.0.copyload.i, %.sroa.01.0.copyload.i
+  %102 = extractelement <2 x float> %101, i64 0
+  %103 = fsub float %.sroa.015.4.vec.extract.i.i.i, %.sroa.013.4.vec.extract.i.i.i
+  %104 = fpext float %99 to double
+  %105 = fpext float %103 to double
+  %106 = fpext float %100 to double
+  %107 = fpext float %102 to double
+  %108 = fneg double %107
+  %109 = fmul double %108, %106
+  %110 = tail call noundef double @llvm.fmuladd.f64(double %104, double %105, double %109)
+  %111 = fcmp olt double %110, -1.000000e-05
+  %112 = fcmp ogt double %110, 1.000000e-05
+  %..i38.i.i = zext i1 %112 to i32
+  %.0.i39.i.i = select i1 %111, i32 -1, i32 %..i38.i.i
+  %113 = fsub <2 x float> %.sroa.02.0.copyload.i, %.sroa.01.0.copyload.i
+  %114 = extractelement <2 x float> %113, i64 0
+  %115 = fsub float %.sroa.014.4.vec.extract.i.i.i, %.sroa.013.4.vec.extract.i.i.i
+  %116 = fpext float %115 to double
+  %117 = fpext float %114 to double
+  %118 = fneg double %117
+  %119 = fmul double %118, %106
+  %120 = tail call noundef double @llvm.fmuladd.f64(double %104, double %116, double %119)
+  %121 = fcmp olt double %120, -1.000000e-05
+  %122 = fcmp ogt double %120, 1.000000e-05
+  %..i46.i.i = zext i1 %122 to i32
+  %.0.i47.i.i = select i1 %121, i32 -1, i32 %..i46.i.i
+  %123 = mul nsw i32 %.0.i39.i.i, %.0.i47.i.i
+  %124 = icmp slt i32 %123, 0
+  br i1 %124, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
 
-_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i: ; preds = %96, %72
+_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i: ; preds = %97, %71
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next43.i, 4
-  br i1 %exitcond45.not.i, label %123, label %72, !llvm.loop !28
+  br i1 %exitcond45.not.i, label %125, label %71, !llvm.loop !28
 
-123:                                              ; preds = %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
+125:                                              ; preds = %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next47.i, 4
   br i1 %exitcond49.not.i, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i, !llvm.loop !29
 
-_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit: ; preds = %57, %123, %96
-  %.0.i = phi i1 [ false, %96 ], [ true, %123 ], [ false, %57 ]
+_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit: ; preds = %57, %125, %97
+  %.0.i = phi i1 [ false, %97 ], [ true, %125 ], [ false, %57 ]
   ret i1 %.0.i
 }
 
@@ -1727,8 +1729,8 @@ _ZN2cv4Mat_IfEC2ERKNS_3MatE.exit:                 ; preds = %28
   br i1 %exitcond.not, label %.preheader, label %67, !llvm.loop !30
 
 .preheader:                                       ; preds = %67, %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit
-  %.04885 = phi float [ %166, %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit ], [ 5.000000e-01, %67 ]
-  %.05084 = phi float [ %165, %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit ], [ 0.000000e+00, %67 ]
+  %.04885 = phi float [ %168, %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit ], [ 5.000000e-01, %67 ]
+  %.05084 = phi float [ %167, %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit ], [ 0.000000e+00, %67 ]
   %85 = fadd float %.05084, %.04885
   %86 = fmul float %85, 5.000000e-01
   %87 = fmul float %86, %29
@@ -1769,8 +1771,8 @@ _ZN2cv4Mat_IfEC2ERKNS_3MatE.exit:                 ; preds = %28
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i, label %93, !llvm.loop !27
 
-_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ; preds = %103, %164
-  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %164 ], [ 0, %103 ]
+_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ; preds = %103, %166
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %166 ], [ 0, %103 ]
   %104 = getelementptr inbounds %"class.cv::Point_", ptr %7, i64 %indvars.iv46.i
   %.sroa.03.0.copyload.i = load <2 x float>, ptr %104, align 8
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
@@ -1784,25 +1786,25 @@ _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ;
   %109 = fsub float %.sroa.014.4.vec.extract.i.i.i, %.sroa.015.4.vec.extract.i.i.i
   %110 = fpext float %108 to double
   %111 = fpext float %109 to double
-  %112 = fneg double %111
-  br label %113
+  br label %112
 
-113:                                              ; preds = %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i
+112:                                              ; preds = %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i
   %indvars.iv42.i = phi i64 [ 0, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i ], [ %indvars.iv.next43.i, %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i ]
-  %114 = getelementptr inbounds %"class.cv::Point_", ptr %8, i64 %indvars.iv42.i
-  %.sroa.01.0.copyload.i = load <2 x float>, ptr %114, align 8
+  %113 = getelementptr inbounds %"class.cv::Point_", ptr %8, i64 %indvars.iv42.i
+  %.sroa.01.0.copyload.i = load <2 x float>, ptr %113, align 8
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
-  %115 = and i64 %indvars.iv.next43.i, 3
-  %116 = getelementptr inbounds %"class.cv::Point_", ptr %8, i64 %115
-  %.sroa.0.0.copyload.i = load <2 x float>, ptr %116, align 8
+  %114 = and i64 %indvars.iv.next43.i, 3
+  %115 = getelementptr inbounds %"class.cv::Point_", ptr %8, i64 %114
+  %.sroa.0.0.copyload.i = load <2 x float>, ptr %115, align 8
   %.sroa.013.4.vec.extract.i.i.i = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 1
-  %117 = fsub <2 x float> %.sroa.01.0.copyload.i, %.sroa.03.0.copyload.i
-  %118 = extractelement <2 x float> %117, i64 0
-  %119 = fsub float %.sroa.013.4.vec.extract.i.i.i, %.sroa.015.4.vec.extract.i.i.i
-  %120 = fpext float %119 to double
-  %121 = fpext float %118 to double
-  %122 = fmul double %112, %121
-  %123 = call noundef double @llvm.fmuladd.f64(double %110, double %120, double %122)
+  %116 = fsub <2 x float> %.sroa.01.0.copyload.i, %.sroa.03.0.copyload.i
+  %117 = extractelement <2 x float> %116, i64 0
+  %118 = fsub float %.sroa.013.4.vec.extract.i.i.i, %.sroa.015.4.vec.extract.i.i.i
+  %119 = fpext float %118 to double
+  %120 = fpext float %117 to double
+  %121 = fneg double %120
+  %122 = fmul double %111, %121
+  %123 = call noundef double @llvm.fmuladd.f64(double %110, double %119, double %122)
   %124 = fcmp olt double %123, -1.000000e-05
   %125 = fcmp ogt double %123, 1.000000e-05
   %..i.i.i = zext i1 %125 to i32
@@ -1813,84 +1815,86 @@ _ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i: ;
   %128 = fsub float %.sroa.013.4.vec.extract.i29.i.i, %.sroa.015.4.vec.extract.i.i.i
   %129 = fpext float %128 to double
   %130 = fpext float %127 to double
-  %131 = fmul double %112, %130
-  %132 = call noundef double @llvm.fmuladd.f64(double %110, double %129, double %131)
-  %133 = fcmp olt double %132, -1.000000e-05
-  %134 = fcmp ogt double %132, 1.000000e-05
-  %..i30.i.i = zext i1 %134 to i32
-  %.0.i31.i.i = select i1 %133, i32 -1, i32 %..i30.i.i
-  %135 = mul nsw i32 %.0.i31.i.i, %.0.i.i.i
-  %136 = icmp slt i32 %135, 0
-  br i1 %136, label %137, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
+  %131 = fneg double %130
+  %132 = fmul double %111, %131
+  %133 = call noundef double @llvm.fmuladd.f64(double %110, double %129, double %132)
+  %134 = fcmp olt double %133, -1.000000e-05
+  %135 = fcmp ogt double %133, 1.000000e-05
+  %..i30.i.i = zext i1 %135 to i32
+  %.0.i31.i.i = select i1 %134, i32 -1, i32 %..i30.i.i
+  %136 = mul nsw i32 %.0.i31.i.i, %.0.i.i.i
+  %137 = icmp slt i32 %136, 0
+  br i1 %137, label %138, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
 
-137:                                              ; preds = %113
-  %138 = fsub <2 x float> %.sroa.0.0.copyload.i, %.sroa.01.0.copyload.i
-  %139 = extractelement <2 x float> %138, i64 0
-  %140 = fsub float %.sroa.013.4.vec.extract.i29.i.i, %.sroa.013.4.vec.extract.i.i.i
-  %141 = fsub <2 x float> %.sroa.03.0.copyload.i, %.sroa.01.0.copyload.i
-  %142 = extractelement <2 x float> %141, i64 0
-  %143 = fsub float %.sroa.015.4.vec.extract.i.i.i, %.sroa.013.4.vec.extract.i.i.i
-  %144 = fpext float %139 to double
-  %145 = fpext float %143 to double
-  %146 = fpext float %140 to double
-  %147 = fpext float %142 to double
-  %148 = fneg double %146
-  %149 = fmul double %147, %148
-  %150 = call noundef double @llvm.fmuladd.f64(double %144, double %145, double %149)
-  %151 = fcmp olt double %150, -1.000000e-05
-  %152 = fcmp ogt double %150, 1.000000e-05
-  %..i38.i.i = zext i1 %152 to i32
-  %.0.i39.i.i = select i1 %151, i32 -1, i32 %..i38.i.i
-  %153 = fsub <2 x float> %.sroa.02.0.copyload.i, %.sroa.01.0.copyload.i
-  %154 = extractelement <2 x float> %153, i64 0
-  %155 = fsub float %.sroa.014.4.vec.extract.i.i.i, %.sroa.013.4.vec.extract.i.i.i
-  %156 = fpext float %155 to double
-  %157 = fpext float %154 to double
-  %158 = fmul double %157, %148
-  %159 = call noundef double @llvm.fmuladd.f64(double %144, double %156, double %158)
-  %160 = fcmp olt double %159, -1.000000e-05
-  %161 = fcmp ogt double %159, 1.000000e-05
-  %..i46.i.i = zext i1 %161 to i32
-  %.0.i47.i.i = select i1 %160, i32 -1, i32 %..i46.i.i
-  %162 = mul nsw i32 %.0.i39.i.i, %.0.i47.i.i
-  %163 = icmp slt i32 %162, 0
-  br i1 %163, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
+138:                                              ; preds = %112
+  %139 = fsub <2 x float> %.sroa.0.0.copyload.i, %.sroa.01.0.copyload.i
+  %140 = extractelement <2 x float> %139, i64 0
+  %141 = fsub float %.sroa.013.4.vec.extract.i29.i.i, %.sroa.013.4.vec.extract.i.i.i
+  %142 = fsub <2 x float> %.sroa.03.0.copyload.i, %.sroa.01.0.copyload.i
+  %143 = extractelement <2 x float> %142, i64 0
+  %144 = fsub float %.sroa.015.4.vec.extract.i.i.i, %.sroa.013.4.vec.extract.i.i.i
+  %145 = fpext float %140 to double
+  %146 = fpext float %144 to double
+  %147 = fpext float %141 to double
+  %148 = fpext float %143 to double
+  %149 = fneg double %148
+  %150 = fmul double %149, %147
+  %151 = call noundef double @llvm.fmuladd.f64(double %145, double %146, double %150)
+  %152 = fcmp olt double %151, -1.000000e-05
+  %153 = fcmp ogt double %151, 1.000000e-05
+  %..i38.i.i = zext i1 %153 to i32
+  %.0.i39.i.i = select i1 %152, i32 -1, i32 %..i38.i.i
+  %154 = fsub <2 x float> %.sroa.02.0.copyload.i, %.sroa.01.0.copyload.i
+  %155 = extractelement <2 x float> %154, i64 0
+  %156 = fsub float %.sroa.014.4.vec.extract.i.i.i, %.sroa.013.4.vec.extract.i.i.i
+  %157 = fpext float %156 to double
+  %158 = fpext float %155 to double
+  %159 = fneg double %158
+  %160 = fmul double %159, %147
+  %161 = call noundef double @llvm.fmuladd.f64(double %145, double %157, double %160)
+  %162 = fcmp olt double %161, -1.000000e-05
+  %163 = fcmp ogt double %161, 1.000000e-05
+  %..i46.i.i = zext i1 %163 to i32
+  %.0.i47.i.i = select i1 %162, i32 -1, i32 %..i46.i.i
+  %164 = mul nsw i32 %.0.i39.i.i, %.0.i47.i.i
+  %165 = icmp slt i32 %164, 0
+  br i1 %165, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
 
-_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i: ; preds = %137, %113
+_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i: ; preds = %138, %112
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next43.i, 4
-  br i1 %exitcond45.not.i, label %164, label %113, !llvm.loop !28
+  br i1 %exitcond45.not.i, label %166, label %112, !llvm.loop !28
 
-164:                                              ; preds = %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
+166:                                              ; preds = %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.backedge.i
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next47.i, 4
   br i1 %exitcond49.not.i, label %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit, label %_ZN2cv9videostabL17segmentsIntersectENS_6Point_IfEES2_S2_S2_.exit.preheader.i, !llvm.loop !29
 
-_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit: ; preds = %98, %164, %137
-  %165 = phi float [ %86, %137 ], [ %.05084, %164 ], [ %86, %98 ]
-  %166 = phi float [ %.04885, %137 ], [ %86, %164 ], [ %.04885, %98 ]
-  %167 = fsub float %166, %165
-  %168 = fcmp ogt float %167, 0x3F50624DE0000000
-  br i1 %168, label %.preheader, label %169, !llvm.loop !31
+_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit: ; preds = %98, %166, %138
+  %167 = phi float [ %86, %138 ], [ %.05084, %166 ], [ %86, %98 ]
+  %168 = phi float [ %.04885, %138 ], [ %86, %166 ], [ %.04885, %98 ]
+  %169 = fsub float %168, %167
+  %170 = fcmp ogt float %169, 0x3F50624DE0000000
+  br i1 %170, label %.preheader, label %171, !llvm.loop !31
 
-169:                                              ; preds = %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit
+171:                                              ; preds = %_ZN2cv9videostabL12isRectInsideEPKNS_6Point_IfEES4_.exit
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #24
-  %170 = getelementptr inbounds i8, ptr %3, i64 8
-  %171 = load i32, ptr %170, align 8
-  %.not.i = icmp eq i32 %171, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %172
+  %172 = getelementptr inbounds i8, ptr %3, i64 8
+  %173 = load i32, ptr %172, align 8
+  %.not.i = icmp eq i32 %173, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %174
 
-172:                                              ; preds = %169
+174:                                              ; preds = %171
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %3)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %173
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %175
 
-173:                                              ; preds = %172
-  %174 = landingpad { ptr, i32 }
+175:                                              ; preds = %174
+  %176 = landingpad { ptr, i32 }
           catch ptr null
-  %175 = extractvalue { ptr, i32 } %174, 0
-  call void @__clang_call_terminate(ptr %175) #26
+  %177 = extractvalue { ptr, i32 } %176, 0
+  call void @__clang_call_terminate(ptr %177) #26
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %169, %172
-  ret float %166
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %171, %174
+  ret float %168
 
 .body:                                            ; preds = %35, %27
   %.pn54 = phi { ptr, i32 } [ %.pn, %27 ], [ %36, %35 ]

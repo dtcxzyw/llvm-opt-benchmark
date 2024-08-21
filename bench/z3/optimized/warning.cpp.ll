@@ -106,19 +106,15 @@ while.condthread-pre-split.i:                     ; preds = %while.body.i
 while.cond.i:                                     ; preds = %_ZNK6vectorIcLb0EjE4sizeEv.exit.i, %while.condthread-pre-split.i
   %0 = phi ptr [ %.pr.pre.i, %while.condthread-pre-split.i ], [ null, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i ]
   %cmp.i10.i = icmp eq ptr %0, null
-  br i1 %cmp.i10.i, label %_ZNK6vectorIcLb0EjE8capacityEv.exit.i, label %if.end.i11.i
+  br i1 %cmp.i10.i, label %while.body.i, label %_ZNK6vectorIcLb0EjE8capacityEv.exit.i
 
-if.end.i11.i:                                     ; preds = %while.cond.i
+_ZNK6vectorIcLb0EjE8capacityEv.exit.i:            ; preds = %while.cond.i
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx.i12.i, align 4
-  br label %_ZNK6vectorIcLb0EjE8capacityEv.exit.i
-
-_ZNK6vectorIcLb0EjE8capacityEv.exit.i:            ; preds = %if.end.i11.i, %while.cond.i
-  %retval.0.i13.i = phi i32 [ %1, %if.end.i11.i ], [ 0, %while.cond.i ]
-  %cmp3.i = icmp ult i32 %retval.0.i13.i, %add
+  %cmp3.i = icmp ugt i32 %add, %1
   br i1 %cmp3.i, label %while.body.i, label %invoke.cont
 
-while.body.i:                                     ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.i
+while.body.i:                                     ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.i, %while.cond.i
   invoke void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %buff)
           to label %while.condthread-pre-split.i unwind label %lpad.loopexit
 

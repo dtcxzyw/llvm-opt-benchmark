@@ -301,7 +301,7 @@ entry:
   tail call void @uv_mutex_lock(ptr noundef nonnull %wq_mutex) #9
   %wq1 = getelementptr inbounds i8, ptr %handle, i64 -56
   %0 = load ptr, ptr %wq1, align 8
-  %cmp.i.not.i = icmp eq ptr %0, %wq1
+  %cmp.i.not.i = icmp eq ptr %wq1, %0
   br i1 %cmp.i.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -327,7 +327,7 @@ uv__queue_move.exit:                              ; preds = %if.then.i, %if.else
   store ptr %wq, ptr %prev4.i.sink.i, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %wq_mutex) #9
   %3 = load ptr, ptr %wq, align 8
-  %cmp.i.not12 = icmp eq ptr %3, %wq
+  %cmp.i.not12 = icmp eq ptr %wq, %3
   br i1 %cmp.i.not12, label %if.end18, label %while.body
 
 while.body:                                       ; preds = %uv__queue_move.exit, %while.body
@@ -349,7 +349,7 @@ while.body:                                       ; preds = %uv__queue_move.exit
   call void %9(ptr noundef nonnull %add.ptr4, i32 noundef %cond) #9
   %inc = add nuw nsw i32 %nevents.013, 1
   %10 = load ptr, ptr %wq, align 8
-  %cmp.i.not = icmp eq ptr %10, %wq
+  %cmp.i.not = icmp eq ptr %wq, %10
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body
@@ -503,7 +503,7 @@ switch.lookup:                                    ; preds = %entry
   tail call void @uv_mutex_lock(ptr noundef nonnull %wq_mutex.i) #9
   %wq.i = getelementptr inbounds i8, ptr %work_req13, i64 24
   %5 = load ptr, ptr %wq.i, align 8
-  %cmp.i.not.i = icmp eq ptr %5, %wq.i
+  %cmp.i.not.i = icmp eq ptr %wq.i, %5
   br i1 %cmp.i.not.i, label %if.then7.critedge.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %switch.lookup

@@ -62,7 +62,7 @@ define void @opal_list_join(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   %7 = getelementptr inbounds i8, ptr %2, i64 32
   %8 = load volatile ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %.not.i = icmp eq ptr %9, %1
+  %.not.i = icmp eq ptr %1, %9
   br i1 %.not.i, label %opal_list_transfer.exit, label %10
 
 10:                                               ; preds = %6

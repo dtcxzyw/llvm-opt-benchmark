@@ -158,7 +158,7 @@ invoke.cont57.us:                                 ; preds = %if.end55.us
 for.inc.us:                                       ; preds = %invoke.cont57.us
   %inc.us = add i32 %chunk_size.019.us, 1
   %conv.us = zext i32 %inc.us to i64
-  %cmp19.not.us = icmp ugt i64 %conv.us, %msg_len
+  %cmp19.not.us = icmp ult i64 %msg_len, %conv.us
   br i1 %cmp19.not.us, label %cleanup, label %for.body.us, !llvm.loop !9
 
 while.body.us:                                    ; preds = %invoke.cont21.us, %while.cond.us

@@ -7836,7 +7836,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorIPK8VariableSaIS2_EE6insertEN9__g
   br i1 %.not, label %32, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp eq ptr %9, %1
+  %13 = icmp eq ptr %1, %9
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
@@ -7997,7 +7997,7 @@ _ZNSt3mapIPK8VariablejSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit: ; 
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -8945,7 +8945,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorIP10TableEntryIj14eVariableScopeE
   br i1 %.not, label %32, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp eq ptr %9, %1
+  %13 = icmp eq ptr %1, %9
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
@@ -9106,7 +9106,7 @@ _ZSt13move_backwardIPP8VariableS2_ET0_T_S4_S3_.exit: ; preds = %25, %_ZSt22__uni
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP8VariableSt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
   %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %30, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP8VariableSt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit, label %31
 
 31:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP8VariableSt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
@@ -9171,7 +9171,7 @@ _ZNSt12_Vector_baseIP8VariableSaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6ve
   %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorIP8VariableSaIS1_EE12_M_check_lenEmPKc.exit ]
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %60, label %59
 
 59:                                               ; preds = %_ZNSt12_Vector_baseIP8VariableSaIS1_EE11_M_allocateEm.exit
@@ -9360,7 +9360,7 @@ _ZNSt12_Vector_baseIPK8VariableSaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6v
   %74 = phi ptr [ %73, %71 ], [ null, %_ZNKSt6vectorIPK8VariableSaIS2_EE12_M_check_lenEmPKc.exit ]
   %75 = ptrtoint ptr %1 to i64
   %76 = sub i64 %75, %61
-  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %60, %1
+  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %1, %60
   br i1 %.not.i.i.i.i.i.i.i.i.i59, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKP8VariableSt6vectorIS3_SaIS3_EEEEPPKS2_SB_ET0_T_SE_SD_RSaIT1_E.exit65, label %77
 
 77:                                               ; preds = %_ZNSt12_Vector_baseIPK8VariableSaIS2_EE11_M_allocateEm.exit
@@ -9455,7 +9455,7 @@ _ZSt13move_backwardIPP8VariableS2_ET0_T_S4_S3_.exit: ; preds = %25, %_ZSt22__uni
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKP8VariableSt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
   %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %30, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKP8VariableSt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %31
 
 31:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKP8VariableSt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
@@ -9520,7 +9520,7 @@ _ZNSt12_Vector_baseIP8VariableSaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6ve
   %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorIP8VariableSaIS1_EE12_M_check_lenEmPKc.exit ]
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %60, label %59
 
 59:                                               ; preds = %_ZNSt12_Vector_baseIP8VariableSaIS1_EE11_M_allocateEm.exit
@@ -9565,7 +9565,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK8VariableSt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

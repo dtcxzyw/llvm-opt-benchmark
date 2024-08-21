@@ -19690,7 +19690,7 @@ switch.early.test6687:                            ; preds = %7096
   %7640 = sext i8 %7637 to i32
   %7641 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.23, i32 noundef %7640) #17
   %7642 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %.not.i.i = icmp eq i32 %7642, %7639
+  %.not.i.i = icmp eq i32 %7639, %7642
   br i1 %.not.i.i, label %report_bad_nesting.exit.i, label %7643
 
 7643:                                             ; preds = %7635
@@ -20627,7 +20627,7 @@ define internal fastcc range(i32 -1, 1) i32 @check_nesting_at_end() unnamed_addr
   %8 = sext i8 %5 to i32
   %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256, ptr noundef nonnull @.str.23, i32 noundef %8) #17
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %.not.i = icmp eq i32 %10, %7
+  %.not.i = icmp eq i32 %7, %10
   br i1 %.not.i, label %report_bad_nesting.exit, label %11
 
 11:                                               ; preds = %3
@@ -21234,7 +21234,7 @@ define internal fastcc range(i32 -1, 1) i32 @exit_nesting(i8 noundef signext %0)
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str.23, i32 noundef %22) #17
   %24 = sext i32 %23 to i64
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %.not.i = icmp eq i32 %25, %21
+  %.not.i = icmp eq i32 %21, %25
   br i1 %.not.i, label %32, label %26
 
 26:                                               ; preds = %19

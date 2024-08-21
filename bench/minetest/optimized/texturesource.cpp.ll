@@ -3792,7 +3792,7 @@ if.end41:                                         ; preds = %if.end41.sink.split
   %23 = phi ptr [ null, %if.end35 ], [ %.sink, %if.end41.sink.split ]
   %add = add i64 %last_separator_pos.0.lcssa455458, 1
   %conv42 = and i64 %add, 4294967295
-  %cmp.i.i = icmp ugt i64 %conv42, %name.coerce0
+  %cmp.i.i = icmp ult i64 %name.coerce0, %conv42
   br i1 %cmp.i.i, label %if.then.i.i183, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
 if.then.i.i183:                                   ; preds = %if.end41
@@ -3802,7 +3802,7 @@ if.then.i.i183:                                   ; preds = %if.end41
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end41
   %sub.i = sub nuw i64 %name.coerce0, %conv42
   %add.ptr.i180 = getelementptr inbounds i8, ptr %name.coerce1, i64 %conv42
-  %cmp.i = icmp eq i64 %conv42, %name.coerce0
+  %cmp.i = icmp eq i64 %name.coerce0, %conv42
   br i1 %cmp.i, label %if.end86, label %if.else
 
 if.else:                                          ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit

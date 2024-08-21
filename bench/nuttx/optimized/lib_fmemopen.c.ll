@@ -147,7 +147,7 @@ define internal i64 @fmemopen_read(ptr nocapture noundef %0, ptr nocapture nound
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = add i64 %6, %2
+  %7 = add i64 %2, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
@@ -170,7 +170,7 @@ define internal i64 @fmemopen_write(ptr nocapture noundef %0, ptr nocapture noun
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = add i64 %6, %2
+  %7 = add i64 %2, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %7, %9

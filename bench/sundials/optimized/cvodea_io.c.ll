@@ -84,7 +84,7 @@ define i32 @CVodeSetNonlinearSolverB(ptr noundef %0, i32 noundef %1, ptr noundef
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -99,7 +99,7 @@ define i32 @CVodeSetNonlinearSolverB(ptr noundef %0, i32 noundef %1, ptr noundef
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -140,7 +140,7 @@ define range(i32 -101, 1) i32 @CVodeSetUserDataB(ptr noundef %0, i32 noundef %1,
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -155,7 +155,7 @@ define range(i32 -101, 1) i32 @CVodeSetUserDataB(ptr noundef %0, i32 noundef %1,
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.0 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.0, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.0, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -193,7 +193,7 @@ define i32 @CVodeSetMaxOrdB(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -208,7 +208,7 @@ define i32 @CVodeSetMaxOrdB(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -249,7 +249,7 @@ define i32 @CVodeSetMaxNumStepsB(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -264,7 +264,7 @@ define i32 @CVodeSetMaxNumStepsB(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -305,7 +305,7 @@ define i32 @CVodeSetStabLimDetB(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -320,7 +320,7 @@ define i32 @CVodeSetStabLimDetB(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -361,7 +361,7 @@ define i32 @CVodeSetInitStepB(ptr noundef %0, i32 noundef %1, double noundef %2)
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -376,7 +376,7 @@ define i32 @CVodeSetInitStepB(ptr noundef %0, i32 noundef %1, double noundef %2)
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -417,7 +417,7 @@ define i32 @CVodeSetMinStepB(ptr noundef %0, i32 noundef %1, double noundef %2) 
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -432,7 +432,7 @@ define i32 @CVodeSetMinStepB(ptr noundef %0, i32 noundef %1, double noundef %2) 
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -473,7 +473,7 @@ define i32 @CVodeSetMaxStepB(ptr noundef %0, i32 noundef %1, double noundef %2) 
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -488,7 +488,7 @@ define i32 @CVodeSetMaxStepB(ptr noundef %0, i32 noundef %1, double noundef %2) 
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -529,7 +529,7 @@ define i32 @CVodeSetConstraintsB(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -544,7 +544,7 @@ define i32 @CVodeSetConstraintsB(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -585,7 +585,7 @@ define i32 @CVodeSetQuadErrConB(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -600,7 +600,7 @@ define i32 @CVodeSetQuadErrConB(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -641,7 +641,7 @@ define ptr @CVodeGetAdjCVodeBmem(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 56
   %14 = load i32, ptr %13, align 8
-  %.not = icmp sgt i32 %14, %1
+  %.not = icmp slt i32 %1, %14
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %10
@@ -656,7 +656,7 @@ define ptr @CVodeGetAdjCVodeBmem(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.sink = phi ptr [ %20, %.lr.ph ], [ %17, %16 ]
   %.015 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %18 = load i32, ptr %.015, align 8
-  %19 = icmp eq i32 %18, %1
+  %19 = icmp eq i32 %1, %18
   %20 = getelementptr inbounds i8, ptr %.015, i64 120
   br i1 %19, label %._crit_edge, label %.lr.ph
 

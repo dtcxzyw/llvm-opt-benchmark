@@ -361,7 +361,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
 
 ..loopexit180_crit_edge:                          ; preds = %105
   %125 = trunc nuw nsw i64 %indvars.iv to i32
-  %126 = icmp slt i32 %125, %2
+  %126 = icmp sgt i32 %2, %125
   br i1 %126, label %.lr.ph188, label %._crit_edge
 
 .lr.ph188:                                        ; preds = %..loopexit180_crit_edge
@@ -501,7 +501,7 @@ define internal range(i32 0, 2) i32 @DispatchAlpha_SSE2(ptr noalias nocapture no
 
 ..preheader_crit_edge.us:                         ; preds = %25
   %46 = trunc nuw nsw i64 %indvars.iv.next142 to i32
-  %47 = icmp slt i32 %46, %2
+  %47 = icmp sgt i32 %2, %46
   br i1 %47, label %.lr.ph108.us, label %._crit_edge.us
 
 .preheader101.lr.ph.split:                        ; preds = %.preheader101.lr.ph
@@ -629,7 +629,7 @@ define internal void @DispatchAlphaToGreen_SSE2(ptr noalias nocapture noundef re
 
 ..preheader_crit_edge.us:                         ; preds = %23
   %42 = trunc nuw nsw i64 %indvars.iv.next88 to i32
-  %43 = icmp slt i32 %42, %2
+  %43 = icmp sgt i32 %2, %42
   br i1 %43, label %.lr.ph71.us, label %._crit_edge.us
 
 .preheader68.lr.ph.split:                         ; preds = %.preheader68.lr.ph
@@ -742,7 +742,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias nocapture nou
 
 ..preheader_crit_edge.us:                         ; preds = %25
   %39 = trunc nuw nsw i64 %indvars.iv.next122 to i32
-  %40 = icmp slt i32 %39, %2
+  %40 = icmp sgt i32 %2, %39
   br i1 %40, label %.lr.ph88.us, label %._crit_edge.us
 
 .preheader81.lr.ph.split:                         ; preds = %.preheader81.lr.ph
@@ -903,7 +903,7 @@ define internal range(i32 0, 2) i32 @HasAlpha8b_SSE2(ptr nocapture noundef reado
 
 .preheader:                                       ; preds = %4
   %5 = trunc nuw nsw i64 %indvars.iv to i32
-  %6 = icmp slt i32 %5, %1
+  %6 = icmp sgt i32 %1, %5
   br i1 %6, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader

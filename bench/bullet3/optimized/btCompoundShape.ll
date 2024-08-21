@@ -1436,7 +1436,7 @@ if.end17:                                         ; preds = %if.then16, %for.bod
   %10 = load float, ptr %arrayidx31, align 4
   %11 = tail call noundef float @llvm.fabs.f32(float %10)
   %add33 = fadd float %add, %11
-  %mul = fmul float %add33, %threshold
+  %mul = fmul float %threshold, %add33
   %cmp34 = fcmp ugt float %max.1, %mul
   br i1 %cmp34, label %if.end40, label %if.then35
 
@@ -1504,8 +1504,8 @@ if.end83:                                         ; preds = %if.else, %if.then62
   %20 = load float, ptr %arrayidx116, align 4
   %arrayidx122 = getelementptr inbounds float, ptr %arrayidx113, i64 %q.1
   %21 = load float, ptr %arrayidx122, align 4
-  %22 = fneg float %sin.0
-  %neg125 = fmul float %21, %22
+  %22 = fneg float %21
+  %neg125 = fmul float %sin.0, %22
   %23 = tail call float @llvm.fmuladd.f32(float %cos.0, float %20, float %neg125)
   %arrayidx131 = getelementptr inbounds float, ptr %arrayidx42, i64 %r.1
   store float %23, ptr %arrayidx131, align 4
@@ -1524,12 +1524,13 @@ for.body154:                                      ; preds = %if.end83, %for.body
   %25 = load float, ptr %arrayidx158, align 4
   %arrayidx161 = getelementptr inbounds float, ptr %arrayidx.i, i64 %q.1
   %26 = load float, ptr %arrayidx161, align 4
-  %neg164 = fmul float %26, %22
-  %27 = tail call float @llvm.fmuladd.f32(float %cos.0, float %25, float %neg164)
-  store float %27, ptr %arrayidx158, align 4
+  %27 = fneg float %26
+  %neg164 = fmul float %sin.0, %27
+  %28 = tail call float @llvm.fmuladd.f32(float %cos.0, float %25, float %neg164)
+  store float %28, ptr %arrayidx158, align 4
   %mul169 = fmul float %sin.0, %25
-  %28 = tail call float @llvm.fmuladd.f32(float %cos.0, float %26, float %mul169)
-  store float %28, ptr %arrayidx161, align 4
+  %29 = tail call float @llvm.fmuladd.f32(float %cos.0, float %26, float %mul169)
+  store float %29, ptr %arrayidx161, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.inc173, label %for.body154, !llvm.loop !14

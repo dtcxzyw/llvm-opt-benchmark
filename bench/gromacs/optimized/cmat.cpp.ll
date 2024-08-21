@@ -237,7 +237,7 @@ define void @_Z13set_mat_entryP5t_matiif(ptr nocapture noundef %0, i32 noundef %
 19:                                               ; preds = %4
   %20 = getelementptr inbounds i8, ptr %0, i64 20
   %21 = load float, ptr %20, align 4
-  %22 = fcmp ogt float %21, %3
+  %22 = fcmp olt float %3, %21
   %.sroa.speculated = select i1 %22, float %3, float %21
   store float %.sroa.speculated, ptr %20, align 4
   br label %23
@@ -245,7 +245,7 @@ define void @_Z13set_mat_entryP5t_matiif(ptr nocapture noundef %0, i32 noundef %
 23:                                               ; preds = %19, %4
   %24 = getelementptr inbounds i8, ptr %0, i64 28
   %25 = load float, ptr %24, align 4
-  %26 = fadd float %25, %3
+  %26 = fadd float %3, %25
   store float %26, ptr %24, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 4

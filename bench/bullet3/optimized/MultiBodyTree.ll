@@ -1346,7 +1346,7 @@ if.end10:                                         ; preds = %invoke.cont
   %9 = load i32, ptr %m_size.i.i.i.i, align 4
   %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 60
   %10 = load i32, ptr %m_size.i.i.i.i.i, align 4
-  %cmp4.i.i.i.i = icmp slt i32 %10, %9
+  %cmp4.i.i.i.i = icmp sgt i32 %9, %10
   br i1 %cmp4.i.i.i.i, label %for.body9.lr.ph.i.i.i.i, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i.i.i
 
 for.body9.lr.ph.i.i.i.i:                          ; preds = %if.end10

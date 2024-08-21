@@ -644,8 +644,8 @@ define internal { double, double } @_ZL18mod_ster_e_inverse5PJ_XYP8PJconsts(doub
   %24 = call double @llvm.fmuladd.f64(double %17, double %19, double %23)
   %25 = fneg double %24
   %26 = fdiv double %25, %22
-  %27 = fneg double %17
-  %28 = fmul double %20, %27
+  %27 = fneg double %20
+  %28 = fmul double %17, %27
   %29 = call double @llvm.fmuladd.f64(double %18, double %19, double %28)
   %30 = fneg double %29
   %31 = fdiv double %30, %22
@@ -721,9 +721,9 @@ define internal { double, double } @_ZL18mod_ster_e_inverse5PJ_XYP8PJconsts(doub
   %86 = load double, ptr %55, align 8
   %87 = fmul double %39, %86
   %88 = load double, ptr %52, align 8
-  %89 = fneg double %33
-  %90 = fmul double %88, %89
-  %91 = fmul double %43, %90
+  %89 = fmul double %33, %88
+  %90 = fneg double %43
+  %91 = fmul double %89, %90
   %92 = call double @llvm.fmuladd.f64(double %87, double %44, double %91)
   %93 = call double @atan2(double noundef %85, double noundef %92) #7
   br label %.thread72
@@ -778,9 +778,9 @@ define internal { double, double } @_ZL18mod_ster_e_forward5PJ_LPP8PJconsts(doub
   %37 = fdiv double 2.000000e+00, %32
   %38 = fmul double %25, %37
   %39 = fmul double %6, %38
-  %40 = fneg double %27
-  %41 = fmul double %25, %40
-  %42 = fmul double %7, %41
+  %40 = fmul double %25, %27
+  %41 = fneg double %7
+  %42 = fmul double %40, %41
   %43 = tail call double @llvm.fmuladd.f64(double %30, double %24, double %42)
   %44 = fmul double %43, %37
   %45 = load ptr, ptr %5, align 8

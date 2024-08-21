@@ -1112,7 +1112,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %6 = load i64, ptr %5, align 8, !alias.scope !162, !noalias !167, !noundef !7
   %7 = load i64, ptr %4, align 8, !alias.scope !169, !noalias !167, !noundef !7
   %8 = sub i64 %7, %6
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN92_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$$RF$str$GT$$GT$6extend28_$u7b$$u7b$closure$u7d$$u7d$17h2022ef4a994dff46E.llvm.15028059726034733731.exit"
 
 10:                                               ; preds = %3
@@ -1145,7 +1145,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
   %8 = load ptr, ptr %7, align 8, !alias.scope !172, !noalias !175, !nonnull !7, !align !8, !noundef !7
   %9 = load i64, ptr %8, align 8, !noalias !177, !noundef !7
-  %.not.i = icmp ult i64 %9, %2
+  %.not.i = icmp ugt i64 %2, %9
   br i1 %.not.i, label %10, label %16
 
 10:                                               ; preds = %3
@@ -1222,7 +1222,7 @@ _ZN4core3str7pattern8Searcher11next_reject17h1bbe74191b716c5cE.llvm.369453164356
   %36 = load i64, ptr %35, align 8, !alias.scope !208, !noalias !213, !noundef !7
   %37 = load i64, ptr %34, align 8, !alias.scope !215, !noalias !213, !noundef !7
   %38 = sub i64 %37, %36
-  %39 = icmp ult i64 %38, %.pn5.i
+  %39 = icmp ugt i64 %.pn5.i, %38
   br i1 %39, label %40, label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h64fe977511aa4873E.llvm.15028059726034733731.exit"
 
 40:                                               ; preds = %"_ZN4stdx11trim_indent28_$u7b$$u7b$closure$u7d$$u7d$17h0165a6fb90c428f4E.llvm.15028059726034733731.exit"
@@ -1253,7 +1253,7 @@ define hidden void @"_ZN92_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %6 = load i64, ptr %5, align 8, !alias.scope !218, !noalias !223, !noundef !7
   %7 = load i64, ptr %4, align 8, !alias.scope !225, !noalias !223, !noundef !7
   %8 = sub i64 %7, %6
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hcf8d56eb4d4d150bE.exit"
 
 10:                                               ; preds = %3
@@ -1697,7 +1697,7 @@ define hidden { ptr, i64 } @"_ZN4stdx11trim_indent28_$u7b$$u7b$closure$u7d$$u7d$
   %6 = alloca { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, align 8
   %7 = load ptr, ptr %0, align 8, !nonnull !7, !align !8, !noundef !7
   %8 = load i64, ptr %7, align 8, !noundef !7
-  %.not = icmp ult i64 %8, %2
+  %.not = icmp ugt i64 %2, %8
   br i1 %.not, label %9, label %15
 
 9:                                                ; preds = %3

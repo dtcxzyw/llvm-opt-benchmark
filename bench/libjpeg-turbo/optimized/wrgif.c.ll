@@ -535,7 +535,7 @@ define internal fastcc void @emit_header(ptr nocapture noundef %0, i32 noundef %
 19:                                               ; preds = %.preheader, %19
   %.071 = phi i32 [ %22, %19 ], [ 1, %.preheader ]
   %20 = shl nuw i32 1, %.071
-  %21 = icmp slt i32 %20, %1
+  %21 = icmp sgt i32 %1, %20
   %22 = add nuw nsw i32 %.071, 1
   br i1 %21, label %19, label %23, !llvm.loop !8
 

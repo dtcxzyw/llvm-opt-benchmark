@@ -115,7 +115,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5zxing6qrcode2
   %3 = alloca %"class.zxing::ReaderErrorHandler", align 8
   %4 = icmp sgt i32 %0, -1
   %5 = load i32, ptr @_ZN5zxing6qrcode20ErrorCorrectionLevel8N_LEVELSE, align 4
-  %.not = icmp sgt i32 %5, %0
+  %.not = icmp slt i32 %0, %5
   %or.cond = select i1 %4, i1 %.not, i1 false
   br i1 %or.cond, label %14, label %6
 

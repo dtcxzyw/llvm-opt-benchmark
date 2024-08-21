@@ -1330,7 +1330,7 @@ define dso_local void @uv__io_start(ptr noundef %0, ptr noundef %1, i32 noundef 
   %9 = add nsw i32 %8, 1
   %10 = getelementptr inbounds i8, ptr %0, i64 112
   %11 = load i32, ptr %10, align 8
-  %.not.i = icmp ult i32 %11, %9
+  %.not.i = icmp ugt i32 %9, %11
   br i1 %.not.i, label %12, label %maybe_resize.exit
 
 12:                                               ; preds = %3
@@ -1491,7 +1491,7 @@ define dso_local void @uv__io_stop(ptr noundef %0, ptr noundef %1, i32 noundef %
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, %1
+  %30 = icmp eq ptr %1, %29
   br i1 %30, label %31, label %42
 
 31:                                               ; preds = %18
@@ -1561,7 +1561,7 @@ define dso_local void @uv__io_close(ptr noundef %0, ptr noundef %1) local_unname
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %23, i64 %25
   %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, %1
+  %28 = icmp eq ptr %1, %27
   br i1 %28, label %29, label %uv__io_stop.exit
 
 29:                                               ; preds = %16
@@ -1646,7 +1646,7 @@ define dso_local range(i32 0, 2) i32 @uv__io_active(ptr nocapture noundef readon
 define dso_local range(i32 0, 2) i32 @uv__fd_exists(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2

@@ -994,7 +994,7 @@ invoke.cont3.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %4, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %5
+  %cmp2.i.i.i.i = icmp eq ptr %5, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -1416,7 +1416,7 @@ _ZNSt3mapItSt6vectorIN4fizz16CertificateEntryESaIS2_EESt4lessItESaISt4pairIKtS4_
 lor.rhs.i:                                        ; preds = %_ZNSt3mapItSt6vectorIN4fizz16CertificateEntryESaIS2_EESt4lessItESaISt4pairIKtS4_EEE11lower_boundERS8_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %50 = load i16, ptr %_M_storage.i.i.i, align 2
-  %cmp.i3.i = icmp ugt i16 %50, %certId
+  %cmp.i3.i = icmp ult i16 %certId, %50
   br i1 %cmp.i3.i, label %if.then.i, label %invoke.cont55
 
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3mapItSt6vectorIN4fizz16CertificateEntryESaIS2_EESt4lessItESaISt4pairIKtS4_EEE11lower_boundERS8_.exit.i, %invoke.cont53
@@ -1851,7 +1851,7 @@ _ZNSt8_Rb_treeItSt4pairIKttESt10_Select1stIS2_ESt4lessItESaIS2_EE14_M_lower_boun
 _ZNSt3mapIttSt4lessItESaISt4pairIKttEEE4findERS3_.exit: ; preds = %_ZNSt8_Rb_treeItSt4pairIKttESt10_Select1stIS2_ESt4lessItESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i16, ptr %_M_storage.i.i.i3.i.i, align 2
-  %cmp.i4.i.i = icmp ugt i16 %2, %requestId
+  %cmp.i4.i.i = icmp ult i16 %requestId, %2
   br i1 %cmp.i4.i.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry, %_ZNSt8_Rb_treeItSt4pairIKttESt10_Select1stIS2_ESt4lessItESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapIttSt4lessItESaISt4pairIKttEEE4findERS3_.exit
@@ -1923,7 +1923,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -1997,7 +1997,7 @@ _ZNSt8_Rb_treeItSt4pairIKtSt6vectorIN4fizz16CertificateEntryESaIS4_EEESt10_Selec
 invoke.cont:                                      ; preds = %_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIN4fizz16CertificateEntryESaIS4_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i16, ptr %_M_storage.i.i.i3.i.i, align 2
-  %cmp.i4.i.i = icmp ugt i16 %2, %certId
+  %cmp.i4.i.i = icmp ult i16 %certId, %2
   br i1 %cmp.i4.i.i, label %cleanup.thread, label %if.else
 
 cleanup.thread:                                   ; preds = %invoke.cont, %_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIN4fizz16CertificateEntryESaIS4_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %entry
@@ -2045,7 +2045,7 @@ _ZNSt3mapItSt6vectorIN4fizz16CertificateEntryESaIS2_EESt4lessItESaISt4pairIKtS4_
 lor.rhs.i:                                        ; preds = %_ZNSt3mapItSt6vectorIN4fizz16CertificateEntryESaIS2_EESt4lessItESaISt4pairIKtS4_EEE11lower_boundERS8_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %6 = load i16, ptr %_M_storage.i.i.i, align 2
-  %cmp.i3.i = icmp ugt i16 %6, %certId
+  %cmp.i3.i = icmp ult i16 %certId, %6
   br i1 %cmp.i3.i, label %if.then.i, label %invoke.cont8.thread
 
 invoke.cont8.thread:                              ; preds = %lor.rhs.i
@@ -2372,7 +2372,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont3
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -2421,7 +2421,7 @@ _ZNSt8_Rb_treeItSt4pairIKtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEE
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessItESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 2 dereferenceable(2) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -2673,7 +2673,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKttESt10_Select1stIS2_ESt4lessItESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 2 dereferenceable(2) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -2918,7 +2918,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont3
   %cmp.not.i.i = icmp ne ptr %4, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %5
+  %cmp2.i.i = icmp eq ptr %5, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -2958,7 +2958,7 @@ _ZNSt8_Rb_treeItSt4pairIKtSt6vectorIN4fizz16CertificateEntryESaIS4_EEESt10_Selec
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIN4fizz16CertificateEntryESaIS4_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 2 dereferenceable(2) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -3255,7 +3255,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %3, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -3327,7 +3327,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %3, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 

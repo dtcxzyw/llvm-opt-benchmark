@@ -1666,14 +1666,14 @@ define internal fastcc i32 @drm_client_pick_crtcs(ptr noundef %0, ptr noundef %1
   %39 = getelementptr i8, ptr %38, i64 -60
   %40 = load i16, ptr %39, align 4
   %41 = zext i16 %40 to i32
-  %42 = icmp sgt i32 %41, %6
+  %42 = icmp slt i32 %6, %41
   br i1 %42, label %53, label %43
 
 43:                                               ; preds = %.preheader17
   %44 = getelementptr i8, ptr %38, i64 -50
   %45 = load i16, ptr %44, align 2
   %46 = zext i16 %45 to i32
-  %47 = icmp sgt i32 %46, %7
+  %47 = icmp slt i32 %7, %46
   br i1 %47, label %53, label %48
 
 48:                                               ; preds = %43
@@ -2143,7 +2143,7 @@ drm_client_rotation.exit:                         ; preds = %91, %83
 drm_client_rotation.exit.thread:                  ; preds = %79, %77, %.preheader, %103, %drm_client_rotation.exit
   %111 = call i32 @__drm_atomic_helper_set_config(ptr noundef %40, ptr noundef nonnull %6) #11
   %112 = icmp ne i32 %111, 0
-  %113 = or i1 %112, %1
+  %113 = or i1 %1, %112
   br i1 %113, label %122, label %.thread10
 
 .thread10:                                        ; preds = %drm_client_rotation.exit.thread

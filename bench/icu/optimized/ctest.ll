@@ -245,7 +245,7 @@ while.cond.i:                                     ; preds = %while.body.i, %whil
   %name10.i = getelementptr inbounds i8, ptr %nextNode.0.i, i64 24
   %call.i34.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name10.i) #25
   %conv.i35.i = trunc i64 %call.i34.i to i32
-  %cmp.not.i36.i = icmp slt i32 %conv.i35.i, %nameLen.0.i
+  %cmp.not.i36.i = icmp sgt i32 %nameLen.0.i, %conv.i35.i
   br i1 %cmp.not.i36.i, label %strncmp_nullcheck.exit.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.cond.i
@@ -579,7 +579,7 @@ if.then71:                                        ; preds = %if.then66
 if.else74:                                        ; preds = %if.else64
   %call78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name20) #25
   %conv = trunc i64 %call78 to i32
-  %17 = add i32 %conv, %depth
+  %17 = add i32 %depth, %conv
   %sub79 = sub i32 44, %17
   %spec.store.select = call i32 @llvm.smax.i32(i32 %sub79, i32 0)
   call void (ptr, ...) @log_testinfo(ptr noundef nonnull @.str.66, i32 noundef %spec.store.select, ptr noundef nonnull @.str.64)
@@ -941,7 +941,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %name9 = getelementptr inbounds i8, ptr %nextNode.0, i64 24
   %call.i13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name9) #25
   %conv.i14 = trunc i64 %call.i13 to i32
-  %cmp.not.i15 = icmp slt i32 %conv.i14, %nameLen.0
+  %cmp.not.i15 = icmp sgt i32 %nameLen.0, %conv.i14
   br i1 %cmp.not.i15, label %strncmp_nullcheck.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.cond
@@ -1905,7 +1905,7 @@ entry:
   %0 = load i64, ptr @MINIMUM_MEMORY_SIZE_FAILURE, align 8
   %cmp.not = icmp ugt i64 %0, %size
   %1 = load i64, ptr @MAXIMUM_MEMORY_SIZE_FAILURE, align 8
-  %cmp1.not = icmp ult i64 %1, %size
+  %cmp1.not = icmp ugt i64 %size, %1
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp1.not
   br i1 %or.cond, label %if.end, label %return
 
@@ -1924,7 +1924,7 @@ entry:
   %0 = load i64, ptr @MINIMUM_MEMORY_SIZE_FAILURE, align 8
   %cmp.not = icmp ugt i64 %0, %size
   %1 = load i64, ptr @MAXIMUM_MEMORY_SIZE_FAILURE, align 8
-  %cmp1.not = icmp ult i64 %1, %size
+  %cmp1.not = icmp ugt i64 %size, %1
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp1.not
   br i1 %or.cond, label %if.end, label %return
 

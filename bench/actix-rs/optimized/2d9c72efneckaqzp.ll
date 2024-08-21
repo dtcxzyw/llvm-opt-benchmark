@@ -2610,7 +2610,7 @@ define hidden void @_ZN2h25proto7streams6buffer5Deque10push_front17h3b10b3cf5da5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !117, !noalias !120, !noundef !4
-  %.not.i = icmp ugt i64 %14, %7
+  %.not.i = icmp ult i64 %7, %14
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !117, !noalias !120, !nonnull !4
   %17 = getelementptr inbounds { i64, [38 x i64] }, ptr %16, i64 %7
@@ -2757,7 +2757,7 @@ define hidden void @_ZN2h25proto7streams6buffer5Deque9push_back17hf14df871de39c0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !132, !noalias !135, !noundef !4
-  %.not.i = icmp ugt i64 %14, %12
+  %.not.i = icmp ult i64 %12, %14
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !132, !noalias !135, !nonnull !4
   %17 = getelementptr inbounds { i64, [38 x i64] }, ptr %16, i64 %12
@@ -3185,7 +3185,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.10699
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -7959,7 +7959,7 @@ define void @_ZN3awc7request13ClientRequest16prep_for_sending17h0cb2ec6af81e8b3b
   %.val.i = load ptr, ptr %103, align 8, !alias.scope !574, !noalias !584, !nonnull !4, !noundef !4
   %104 = getelementptr i8, ptr %77, i64 16
   %.val70.i = load i64, ptr %104, align 8, !alias.scope !574, !noalias !584, !noundef !4
-  %105 = icmp ult i64 %99, %.val70.i
+  %105 = icmp ugt i64 %.val70.i, %99
   br i1 %105, label %106, label %110
 
 106:                                              ; preds = %.noexc83
@@ -8357,7 +8357,7 @@ _ZN5alloc3str17join_generic_copy17h4da22ddfbcdf0820E.exit: ; preds = %._crit_edg
   %.val.i102 = load ptr, ptr %213, align 8, !alias.scope !655, !noalias !665, !nonnull !4, !align !10, !noundef !4
   %234 = getelementptr i8, ptr %213, i64 8
   %.val70.i103 = load i64, ptr %234, align 8, !alias.scope !655, !noalias !665, !noundef !4
-  %235 = icmp ult i64 %230, %.val70.i103
+  %235 = icmp ugt i64 %.val70.i103, %230
   br i1 %235, label %236, label %240
 
 236:                                              ; preds = %.noexc127

@@ -3697,7 +3697,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.else:                                          ; preds = %land.lhs.true
   %tobool.not = xor i1 %tobool, true
-  %.not = or i1 %tobool.not, %paused
+  %.not = or i1 %paused, %tobool.not
   %exec_.i = getelementptr inbounds i8, ptr %this, i64 152
   %3 = load ptr, ptr %exec_.i, align 8
   %cmp.i.not = icmp eq ptr %3, null

@@ -1677,7 +1677,7 @@ define noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr no
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = icmp eq i64 %7, %1
+  %8 = icmp eq i64 %1, %7
   br i1 %8, label %9, label %30
 
 9:                                                ; preds = %5
@@ -1693,7 +1693,7 @@ define noundef ptr @_ZN8nanobind6detail17seq_get_with_sizeEP7_objectmPS2_(ptr no
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = icmp eq i64 %15, %1
+  %16 = icmp eq i64 %1, %15
   br i1 %16, label %17, label %30
 
 17:                                               ; preds = %13

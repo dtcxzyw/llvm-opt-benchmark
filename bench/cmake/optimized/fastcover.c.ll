@@ -95,7 +95,7 @@ define dso_local i64 @ZDICT_trainFromBuffer_fastCover(ptr noundef %0, i64 nounde
 
 29:                                               ; preds = %28, %28
   %30 = zext i32 %.sroa.0.0.copyload31 to i64
-  %31 = icmp ugt i64 %30, %1
+  %31 = icmp ult i64 %1, %30
   %32 = icmp ugt i32 %.sroa.4.0.copyload, %.sroa.0.0.copyload31
   %or.cond20.i = or i1 %32, %31
   %33 = add i32 %14, -32
@@ -244,7 +244,7 @@ define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr nocapture n
   %9 = tail call i64 @COVER_sum(ptr noundef %2, i32 noundef %3) #13
   %10 = fcmp olt double %5, 1.000000e+00
   %11 = uitofp i32 %3 to double
-  %12 = fmul double %11, %5
+  %12 = fmul double %5, %11
   %13 = fptoui double %12 to i32
   %14 = select i1 %10, i32 %13, i32 0
   %15 = select i1 %10, i32 %13, i32 %3
@@ -299,7 +299,7 @@ define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr nocapture n
   br label %FASTCOVER_computeFrequency.exit
 
 49:                                               ; preds = %39
-  %50 = icmp eq i32 %14, %3
+  %50 = icmp eq i32 %3, %14
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %49
@@ -1073,7 +1073,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noun
 
 158:                                              ; preds = %157, %157
   %159 = zext i32 %.0128188 to i64
-  %160 = icmp ugt i64 %159, %1
+  %160 = icmp ult i64 %1, %159
   %161 = icmp ugt i32 %.0127193, %.0128188
   %or.cond20.i = or i1 %160, %161
   %162 = add i32 %155, -32

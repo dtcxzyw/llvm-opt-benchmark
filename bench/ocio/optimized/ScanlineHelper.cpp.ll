@@ -581,7 +581,7 @@ if.then22:                                        ; preds = %if.then17, %if.end2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul26
+  %cmp.i = icmp ugt i64 %mul26, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then22
@@ -590,7 +590,7 @@ if.then.i8:                                       ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then22
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul26
+  %cmp4.i = icmp ult i64 %mul26, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -652,7 +652,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -735,7 +735,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i: ; preds = %if.then.i31.
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -800,7 +800,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -809,7 +809,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -1489,7 +1489,7 @@ if.then22:                                        ; preds = %if.then17, %if.end2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul26
+  %cmp.i = icmp ugt i64 %mul26, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then22
@@ -1498,7 +1498,7 @@ if.then.i8:                                       ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then22
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul26
+  %cmp4.i = icmp ult i64 %mul26, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -1519,7 +1519,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.els
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 1
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -1528,7 +1528,7 @@ if.then.i21:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end27
 
 if.else.i15:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %if.end27
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -1593,7 +1593,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -1602,7 +1602,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -1625,7 +1625,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 1
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -1634,7 +1634,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %if.end
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -2302,7 +2302,7 @@ if.then22:                                        ; preds = %if.then17, %if.end2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul26
+  %cmp.i = icmp ugt i64 %mul26, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then22
@@ -2311,7 +2311,7 @@ if.then.i8:                                       ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then22
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul26
+  %cmp4.i = icmp ult i64 %mul26, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -2332,7 +2332,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.els
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 1
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -2341,7 +2341,7 @@ if.then.i21:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end27
 
 if.else.i15:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %if.end27
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -2406,7 +2406,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -2415,7 +2415,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -2438,7 +2438,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 1
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -2447,7 +2447,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %if.end
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -3115,7 +3115,7 @@ if.then22:                                        ; preds = %if.then17, %if.end2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul26
+  %cmp.i = icmp ugt i64 %mul26, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then22
@@ -3124,7 +3124,7 @@ if.then.i8:                                       ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then22
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul26
+  %cmp4.i = icmp ult i64 %mul26, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -3145,7 +3145,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.els
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -3154,7 +3154,7 @@ if.then.i21:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end27
 
 if.else.i15:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %if.end27
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -3219,7 +3219,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -3228,7 +3228,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -3251,7 +3251,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 2
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -3260,7 +3260,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %if.end
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -3916,7 +3916,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
@@ -3927,7 +3927,7 @@ if.then.i8:                                       ; preds = %if.then17
   br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end20
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -3953,7 +3953,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
@@ -3962,7 +3962,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i15:                                      ; preds = %if.then22
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -4032,7 +4032,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -4041,7 +4041,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -4062,7 +4062,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 1
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -4071,7 +4071,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -4732,7 +4732,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
@@ -4743,7 +4743,7 @@ if.then.i8:                                       ; preds = %if.then17
   br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end20
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -4769,7 +4769,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
@@ -4778,7 +4778,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i15:                                      ; preds = %if.then22
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -4799,7 +4799,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 1
-  %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i27, %mul26
+  %cmp.i28 = icmp ugt i64 %mul26, %sub.ptr.div.i.i27
   br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -4808,7 +4808,7 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end27
 
 if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i30 = icmp ugt i64 %sub.ptr.div.i.i27, %mul26
+  %cmp4.i30 = icmp ult i64 %mul26, %sub.ptr.div.i.i27
   br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
 
 if.then5.i31:                                     ; preds = %if.else.i29
@@ -4873,7 +4873,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -4882,7 +4882,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -4903,7 +4903,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 1
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -4912,7 +4912,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -4933,7 +4933,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %if.then.i17, %if.el
   %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
   %sub.ptr.div.i.i23 = ashr exact i64 %sub.ptr.sub.i.i22, 1
-  %cmp.i24 = icmp ult i64 %sub.ptr.div.i.i23, %mul
+  %cmp.i24 = icmp ugt i64 %mul, %sub.ptr.div.i.i23
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
@@ -4942,7 +4942,7 @@ if.then.i31:                                      ; preds = %_ZNSt6vectorItSaItE
   br label %if.end
 
 if.else.i25:                                      ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %cmp4.i26 = icmp ugt i64 %sub.ptr.div.i.i23, %mul
+  %cmp4.i26 = icmp ult i64 %mul, %sub.ptr.div.i.i23
   br i1 %cmp4.i26, label %if.then5.i27, label %if.end
 
 if.then5.i27:                                     ; preds = %if.else.i25
@@ -5596,7 +5596,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
@@ -5607,7 +5607,7 @@ if.then.i8:                                       ; preds = %if.then17
   br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end20
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -5633,7 +5633,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
@@ -5642,7 +5642,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i15:                                      ; preds = %if.then22
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -5663,7 +5663,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 1
-  %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i27, %mul26
+  %cmp.i28 = icmp ugt i64 %mul26, %sub.ptr.div.i.i27
   br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -5672,7 +5672,7 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end27
 
 if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i30 = icmp ugt i64 %sub.ptr.div.i.i27, %mul26
+  %cmp4.i30 = icmp ult i64 %mul26, %sub.ptr.div.i.i27
   br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
 
 if.then5.i31:                                     ; preds = %if.else.i29
@@ -5737,7 +5737,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -5746,7 +5746,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -5767,7 +5767,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 1
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -5776,7 +5776,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -5797,7 +5797,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %if.then.i17, %if.el
   %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
   %sub.ptr.div.i.i23 = ashr exact i64 %sub.ptr.sub.i.i22, 1
-  %cmp.i24 = icmp ult i64 %sub.ptr.div.i.i23, %mul
+  %cmp.i24 = icmp ugt i64 %mul, %sub.ptr.div.i.i23
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
@@ -5806,7 +5806,7 @@ if.then.i31:                                      ; preds = %_ZNSt6vectorItSaItE
   br label %if.end
 
 if.else.i25:                                      ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %cmp4.i26 = icmp ugt i64 %sub.ptr.div.i.i23, %mul
+  %cmp4.i26 = icmp ult i64 %mul, %sub.ptr.div.i.i23
   br i1 %cmp4.i26, label %if.then5.i27, label %if.end
 
 if.then5.i27:                                     ; preds = %if.else.i25
@@ -6460,7 +6460,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
@@ -6471,7 +6471,7 @@ if.then.i8:                                       ; preds = %if.then17
   br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end20
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -6497,7 +6497,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
@@ -6506,7 +6506,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i15:                                      ; preds = %if.then22
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -6527,7 +6527,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 2
-  %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i27, %mul26
+  %cmp.i28 = icmp ugt i64 %mul26, %sub.ptr.div.i.i27
   br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -6536,7 +6536,7 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end27
 
 if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i30 = icmp ugt i64 %sub.ptr.div.i.i27, %mul26
+  %cmp4.i30 = icmp ult i64 %mul26, %sub.ptr.div.i.i27
   br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
 
 if.then5.i31:                                     ; preds = %if.else.i29
@@ -6601,7 +6601,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -6610,7 +6610,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -6631,7 +6631,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 1
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -6640,7 +6640,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -6661,7 +6661,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %if.then.i17, %if.el
   %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
   %sub.ptr.div.i.i23 = ashr exact i64 %sub.ptr.sub.i.i22, 2
-  %cmp.i24 = icmp ult i64 %sub.ptr.div.i.i23, %mul
+  %cmp.i24 = icmp ugt i64 %mul, %sub.ptr.div.i.i23
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
@@ -6670,7 +6670,7 @@ if.then.i31:                                      ; preds = %_ZNSt6vectorItSaItE
   br label %if.end
 
 if.else.i25:                                      ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %cmp4.i26 = icmp ugt i64 %sub.ptr.div.i.i23, %mul
+  %cmp4.i26 = icmp ult i64 %mul, %sub.ptr.div.i.i23
   br i1 %cmp4.i26, label %if.then5.i27, label %if.end
 
 if.then5.i27:                                     ; preds = %if.else.i25
@@ -7324,7 +7324,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
@@ -7335,7 +7335,7 @@ if.then.i8:                                       ; preds = %if.then17
   br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end20
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -7361,7 +7361,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
@@ -7370,7 +7370,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i15:                                      ; preds = %if.then22
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -7440,7 +7440,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -7449,7 +7449,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -7470,7 +7470,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 1
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -7479,7 +7479,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -8140,7 +8140,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
@@ -8151,7 +8151,7 @@ if.then.i8:                                       ; preds = %if.then17
   br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end20
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -8177,7 +8177,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
@@ -8186,7 +8186,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i15:                                      ; preds = %if.then22
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -8207,7 +8207,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 1
-  %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i27, %mul26
+  %cmp.i28 = icmp ugt i64 %mul26, %sub.ptr.div.i.i27
   br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -8216,7 +8216,7 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end27
 
 if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i30 = icmp ugt i64 %sub.ptr.div.i.i27, %mul26
+  %cmp4.i30 = icmp ult i64 %mul26, %sub.ptr.div.i.i27
   br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
 
 if.then5.i31:                                     ; preds = %if.else.i29
@@ -8281,7 +8281,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -8290,7 +8290,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -8311,7 +8311,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 1
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -8320,7 +8320,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -8341,7 +8341,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %if.then.i17, %i
   %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
   %sub.ptr.div.i.i23 = ashr exact i64 %sub.ptr.sub.i.i22, 1
-  %cmp.i24 = icmp ult i64 %sub.ptr.div.i.i23, %mul
+  %cmp.i24 = icmp ugt i64 %mul, %sub.ptr.div.i.i23
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
@@ -8350,7 +8350,7 @@ if.then.i31:                                      ; preds = %_ZNSt6vectorIN9Imat
   br label %if.end
 
 if.else.i25:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
-  %cmp4.i26 = icmp ugt i64 %sub.ptr.div.i.i23, %mul
+  %cmp4.i26 = icmp ult i64 %mul, %sub.ptr.div.i.i23
   br i1 %cmp4.i26, label %if.then5.i27, label %if.end
 
 if.then5.i27:                                     ; preds = %if.else.i25
@@ -9004,7 +9004,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
@@ -9015,7 +9015,7 @@ if.then.i8:                                       ; preds = %if.then17
   br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end20
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -9041,7 +9041,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
@@ -9050,7 +9050,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i15:                                      ; preds = %if.then22
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -9071,7 +9071,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 1
-  %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i27, %mul26
+  %cmp.i28 = icmp ugt i64 %mul26, %sub.ptr.div.i.i27
   br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -9080,7 +9080,7 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end27
 
 if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i30 = icmp ugt i64 %sub.ptr.div.i.i27, %mul26
+  %cmp4.i30 = icmp ult i64 %mul26, %sub.ptr.div.i.i27
   br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
 
 if.then5.i31:                                     ; preds = %if.else.i29
@@ -9145,7 +9145,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -9154,7 +9154,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -9175,7 +9175,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 1
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -9184,7 +9184,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -9205,7 +9205,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %if.then.i17, %i
   %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
   %sub.ptr.div.i.i23 = ashr exact i64 %sub.ptr.sub.i.i22, 1
-  %cmp.i24 = icmp ult i64 %sub.ptr.div.i.i23, %mul
+  %cmp.i24 = icmp ugt i64 %mul, %sub.ptr.div.i.i23
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
@@ -9214,7 +9214,7 @@ if.then.i31:                                      ; preds = %_ZNSt6vectorIN9Imat
   br label %if.end
 
 if.else.i25:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
-  %cmp4.i26 = icmp ugt i64 %sub.ptr.div.i.i23, %mul
+  %cmp4.i26 = icmp ult i64 %mul, %sub.ptr.div.i.i23
   br i1 %cmp4.i26, label %if.then5.i27, label %if.end
 
 if.then5.i27:                                     ; preds = %if.else.i25
@@ -9868,7 +9868,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
@@ -9879,7 +9879,7 @@ if.then.i8:                                       ; preds = %if.then17
   br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end20
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -9905,7 +9905,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
@@ -9914,7 +9914,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i15:                                      ; preds = %if.then22
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -9935,7 +9935,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 2
-  %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i27, %mul26
+  %cmp.i28 = icmp ugt i64 %mul26, %sub.ptr.div.i.i27
   br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -9944,7 +9944,7 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end27
 
 if.else.i29:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i30 = icmp ugt i64 %sub.ptr.div.i.i27, %mul26
+  %cmp4.i30 = icmp ult i64 %mul26, %sub.ptr.div.i.i27
   br i1 %cmp4.i30, label %if.then5.i31, label %if.end27
 
 if.then5.i31:                                     ; preds = %if.else.i29
@@ -10009,7 +10009,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -10018,7 +10018,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -10039,7 +10039,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 1
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -10048,7 +10048,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -10069,7 +10069,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %if.then.i17, %i
   %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
   %sub.ptr.div.i.i23 = ashr exact i64 %sub.ptr.sub.i.i22, 2
-  %cmp.i24 = icmp ult i64 %sub.ptr.div.i.i23, %mul
+  %cmp.i24 = icmp ugt i64 %mul, %sub.ptr.div.i.i23
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
@@ -10078,7 +10078,7 @@ if.then.i31:                                      ; preds = %_ZNSt6vectorIN9Imat
   br label %if.end
 
 if.else.i25:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
-  %cmp4.i26 = icmp ugt i64 %sub.ptr.div.i.i23, %mul
+  %cmp4.i26 = icmp ult i64 %mul, %sub.ptr.div.i.i23
   br i1 %cmp4.i26, label %if.then5.i27, label %if.end
 
 if.then5.i27:                                     ; preds = %if.else.i25
@@ -10732,7 +10732,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
@@ -10743,7 +10743,7 @@ if.then.i8:                                       ; preds = %if.then17
   br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end20
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -10769,7 +10769,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
@@ -10778,7 +10778,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 if.else.i15:                                      ; preds = %if.then22
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -10848,7 +10848,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -10857,7 +10857,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -10878,7 +10878,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 2
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -10887,7 +10887,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -11548,7 +11548,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
@@ -11559,7 +11559,7 @@ if.then.i8:                                       ; preds = %if.then17
   br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end20
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -11585,7 +11585,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
@@ -11594,7 +11594,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 if.else.i15:                                      ; preds = %if.then22
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -11615,7 +11615,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.el
   %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i25, %sub.ptr.rhs.cast.i.i26
   %sub.ptr.div.i.i28 = ashr exact i64 %sub.ptr.sub.i.i27, 1
-  %cmp.i29 = icmp ult i64 %sub.ptr.div.i.i28, %mul26
+  %cmp.i29 = icmp ugt i64 %mul26, %sub.ptr.div.i.i28
   br i1 %cmp.i29, label %if.then.i36, label %if.else.i30
 
 if.then.i36:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
@@ -11624,7 +11624,7 @@ if.then.i36:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end27
 
 if.else.i30:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
-  %cmp4.i31 = icmp ugt i64 %sub.ptr.div.i.i28, %mul26
+  %cmp4.i31 = icmp ult i64 %mul26, %sub.ptr.div.i.i28
   br i1 %cmp4.i31, label %if.then5.i32, label %if.end27
 
 if.then5.i32:                                     ; preds = %if.else.i30
@@ -11689,7 +11689,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -11698,7 +11698,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -11719,7 +11719,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 2
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -11728,7 +11728,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -11749,7 +11749,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit19:             ; preds = %if.then.i17, %if.el
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
   %sub.ptr.div.i.i24 = ashr exact i64 %sub.ptr.sub.i.i23, 1
-  %cmp.i25 = icmp ult i64 %sub.ptr.div.i.i24, %mul
+  %cmp.i25 = icmp ugt i64 %mul, %sub.ptr.div.i.i24
   br i1 %cmp.i25, label %if.then.i32, label %if.else.i26
 
 if.then.i32:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
@@ -11758,7 +11758,7 @@ if.then.i32:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end
 
 if.else.i26:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
-  %cmp4.i27 = icmp ugt i64 %sub.ptr.div.i.i24, %mul
+  %cmp4.i27 = icmp ult i64 %mul, %sub.ptr.div.i.i24
   br i1 %cmp4.i27, label %if.then5.i28, label %if.end
 
 if.then5.i28:                                     ; preds = %if.else.i26
@@ -12412,7 +12412,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
@@ -12423,7 +12423,7 @@ if.then.i8:                                       ; preds = %if.then17
   br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end20
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -12449,7 +12449,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
@@ -12458,7 +12458,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 if.else.i15:                                      ; preds = %if.then22
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -12479,7 +12479,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.el
   %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i25, %sub.ptr.rhs.cast.i.i26
   %sub.ptr.div.i.i28 = ashr exact i64 %sub.ptr.sub.i.i27, 1
-  %cmp.i29 = icmp ult i64 %sub.ptr.div.i.i28, %mul26
+  %cmp.i29 = icmp ugt i64 %mul26, %sub.ptr.div.i.i28
   br i1 %cmp.i29, label %if.then.i36, label %if.else.i30
 
 if.then.i36:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
@@ -12488,7 +12488,7 @@ if.then.i36:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end27
 
 if.else.i30:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
-  %cmp4.i31 = icmp ugt i64 %sub.ptr.div.i.i28, %mul26
+  %cmp4.i31 = icmp ult i64 %mul26, %sub.ptr.div.i.i28
   br i1 %cmp4.i31, label %if.then5.i32, label %if.end27
 
 if.then5.i32:                                     ; preds = %if.else.i30
@@ -12553,7 +12553,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -12562,7 +12562,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -12583,7 +12583,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 2
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -12592,7 +12592,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -12613,7 +12613,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit19:             ; preds = %if.then.i17, %if.el
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
   %sub.ptr.div.i.i24 = ashr exact i64 %sub.ptr.sub.i.i23, 1
-  %cmp.i25 = icmp ult i64 %sub.ptr.div.i.i24, %mul
+  %cmp.i25 = icmp ugt i64 %mul, %sub.ptr.div.i.i24
   br i1 %cmp.i25, label %if.then.i32, label %if.else.i26
 
 if.then.i32:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
@@ -12622,7 +12622,7 @@ if.then.i32:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end
 
 if.else.i26:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
-  %cmp4.i27 = icmp ugt i64 %sub.ptr.div.i.i24, %mul
+  %cmp4.i27 = icmp ult i64 %mul, %sub.ptr.div.i.i24
   br i1 %cmp4.i27, label %if.then5.i28, label %if.end
 
 if.then5.i28:                                     ; preds = %if.else.i26
@@ -13276,7 +13276,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
@@ -13287,7 +13287,7 @@ if.then.i8:                                       ; preds = %if.then17
   br i1 %11, label %if.end27, label %if.then22
 
 if.else.i:                                        ; preds = %if.then17
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end20
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -13313,7 +13313,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i.i13 = ashr exact i64 %sub.ptr.sub.i.i12, 2
-  %cmp.i14 = icmp ult i64 %sub.ptr.div.i.i13, %mul26
+  %cmp.i14 = icmp ugt i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
@@ -13322,7 +13322,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 if.else.i15:                                      ; preds = %if.then22
-  %cmp4.i16 = icmp ugt i64 %sub.ptr.div.i.i13, %mul26
+  %cmp4.i16 = icmp ult i64 %mul26, %sub.ptr.div.i.i13
   br i1 %cmp4.i16, label %if.then5.i17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
 if.then5.i17:                                     ; preds = %if.else.i15
@@ -13343,7 +13343,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.el
   %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i25, %sub.ptr.rhs.cast.i.i26
   %sub.ptr.div.i.i28 = ashr exact i64 %sub.ptr.sub.i.i27, 2
-  %cmp.i29 = icmp ult i64 %sub.ptr.div.i.i28, %mul26
+  %cmp.i29 = icmp ugt i64 %mul26, %sub.ptr.div.i.i28
   br i1 %cmp.i29, label %if.then.i36, label %if.else.i30
 
 if.then.i36:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
@@ -13352,7 +13352,7 @@ if.then.i36:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end27
 
 if.else.i30:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
-  %cmp4.i31 = icmp ugt i64 %sub.ptr.div.i.i28, %mul26
+  %cmp4.i31 = icmp ult i64 %mul26, %sub.ptr.div.i.i28
   br i1 %cmp4.i31, label %if.then5.i32, label %if.end27
 
 if.then5.i32:                                     ; preds = %if.else.i30
@@ -13417,7 +13417,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %mul
+  %cmp.i = icmp ugt i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
@@ -13426,7 +13426,7 @@ if.then.i4:                                       ; preds = %if.then
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %mul
+  %cmp4.i = icmp ult i64 %mul, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -13447,7 +13447,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = ashr exact i64 %sub.ptr.sub.i.i8, 2
-  %cmp.i10 = icmp ult i64 %sub.ptr.div.i.i9, %mul
+  %cmp.i10 = icmp ugt i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -13456,7 +13456,7 @@ if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %cmp4.i12 = icmp ugt i64 %sub.ptr.div.i.i9, %mul
+  %cmp4.i12 = icmp ult i64 %mul, %sub.ptr.div.i.i9
   br i1 %cmp4.i12, label %if.then5.i13, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 if.then5.i13:                                     ; preds = %if.else.i11
@@ -13477,7 +13477,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit19:             ; preds = %if.then.i17, %if.el
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
   %sub.ptr.div.i.i24 = ashr exact i64 %sub.ptr.sub.i.i23, 2
-  %cmp.i25 = icmp ult i64 %sub.ptr.div.i.i24, %mul
+  %cmp.i25 = icmp ugt i64 %mul, %sub.ptr.div.i.i24
   br i1 %cmp.i25, label %if.then.i32, label %if.else.i26
 
 if.then.i32:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
@@ -13486,7 +13486,7 @@ if.then.i32:                                      ; preds = %_ZNSt6vectorIfSaIfE
   br label %if.end
 
 if.else.i26:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
-  %cmp4.i27 = icmp ugt i64 %sub.ptr.div.i.i24, %mul
+  %cmp4.i27 = icmp ult i64 %mul, %sub.ptr.div.i.i24
   br i1 %cmp4.i27, label %if.then5.i28, label %if.end
 
 if.then5.i28:                                     ; preds = %if.else.i26

@@ -160,7 +160,7 @@ define hidden i32 @mbedtls_pk_psa_rsa_sign_ext(i32 noundef %0, ptr noundef %1, p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) @mbedtls_rsa_info, i64 96, i1 false)
   %13 = tail call i64 @mbedtls_rsa_get_len(ptr noundef %1) #10
   store i64 %13, ptr %6, align 8
-  %14 = icmp ugt i64 %13, %5
+  %14 = icmp ult i64 %5, %13
   br i1 %14, label %mbedtls_pk_error_from_psa.exit32, label %15
 
 15:                                               ; preds = %7
@@ -305,7 +305,7 @@ define internal i32 @rsa_verify_wrap(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %or.cond, label %17, label %10
 
 10:                                               ; preds = %6
-  %11 = icmp ugt i64 %7, %5
+  %11 = icmp ult i64 %5, %7
   br i1 %11, label %17, label %12
 
 12:                                               ; preds = %10
@@ -315,7 +315,7 @@ define internal i32 @rsa_verify_wrap(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not, label %15, label %17
 
 15:                                               ; preds = %12
-  %16 = icmp ult i64 %7, %5
+  %16 = icmp ugt i64 %5, %7
   %. = select i1 %16, i32 -14592, i32 0
   br label %17
 
@@ -334,7 +334,7 @@ define internal i32 @rsa_sign_wrap(ptr noundef %0, i32 noundef %1, ptr noundef %
 12:                                               ; preds = %9
   %13 = tail call i64 @mbedtls_rsa_get_len(ptr noundef %0) #10
   store i64 %13, ptr %6, align 8
-  %14 = icmp ugt i64 %13, %5
+  %14 = icmp ult i64 %5, %13
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %12
@@ -350,7 +350,7 @@ define internal i32 @rsa_sign_wrap(ptr noundef %0, i32 noundef %1, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsa_decrypt_wrap(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = tail call i64 @mbedtls_rsa_get_len(ptr noundef %0) #10
-  %.not = icmp eq i64 %9, %2
+  %.not = icmp eq i64 %2, %9
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %8
@@ -620,7 +620,7 @@ define internal i32 @rsa_alt_decrypt_wrap(ptr nocapture noundef readonly %0, ptr
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = tail call i64 %10(ptr noundef %11) #10
-  %.not = icmp eq i64 %12, %2
+  %.not = icmp eq i64 %2, %12
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %8
@@ -667,13 +667,13 @@ rsa_alt_sign_wrap.exit:                           ; preds = %12
 
 21:                                               ; preds = %rsa_alt_sign_wrap.exit
   %22 = call i64 @mbedtls_rsa_get_len(ptr noundef %0) #10
-  %23 = icmp ugt i64 %22, %15
+  %23 = icmp ult i64 %15, %22
   br i1 %23, label %rsa_verify_wrap.exit.thread, label %24
 
 24:                                               ; preds = %21
   %25 = call i32 @mbedtls_rsa_pkcs1_verify(ptr noundef %0, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %6, ptr noundef nonnull %5) #10
   %.not.i = icmp ne i32 %25, 0
-  %26 = icmp ult i64 %22, %15
+  %26 = icmp ugt i64 %15, %22
   %or.cond = or i1 %26, %.not.i
   br i1 %or.cond, label %rsa_verify_wrap.exit.thread, label %rsa_verify_wrap.exit
 

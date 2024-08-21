@@ -63,7 +63,7 @@ entry:
   br i1 %cmp.not, label %while.body.preheader, label %if.then
 
 while.body.preheader:                             ; preds = %entry
-  %cmp54 = icmp eq i32 %1, %event
+  %cmp54 = icmp eq i32 %event, %1
   %.off5 = add i32 %1, -10
   %switch6 = icmp ult i32 %.off5, 12
   br i1 %switch6, label %sw.bb, label %return
@@ -86,7 +86,7 @@ sw.bb:                                            ; preds = %while.body.preheade
   tail call void @replay_finish_event() #12
   tail call void @qemu_system_shutdown_request(i32 noundef %.off8) #12
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
-  %cmp5 = icmp eq i32 %2, %event
+  %cmp5 = icmp eq i32 %event, %2
   %spec.select = select i1 %cmp5, i1 true, i1 %spec.select7
   %.off = add i32 %2, -10
   %switch = icmp ult i32 %.off, 12
@@ -537,7 +537,7 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp.not.i, label %while.body.preheader.i, label %if.then.i
 
 while.body.preheader.i:                           ; preds = %do.end
-  %cmp54.i = icmp eq i32 %2, %add
+  %cmp54.i = icmp eq i32 %add, %2
   %.off5.i = add i32 %2, -10
   %switch6.i = icmp ult i32 %.off5.i, 12
   br i1 %switch6.i, label %sw.bb.i, label %replay_next_event_is.exit
@@ -560,7 +560,7 @@ sw.bb.i:                                          ; preds = %while.body.preheade
   tail call void @replay_finish_event() #12
   tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #12
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
-  %cmp5.i = icmp eq i32 %3, %add
+  %cmp5.i = icmp eq i32 %add, %3
   %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
   %.off.i = add i32 %3, -10
   %switch.i = icmp ult i32 %.off.i, 12

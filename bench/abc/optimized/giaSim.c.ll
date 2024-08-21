@@ -4726,7 +4726,7 @@ define range(i32 0, 2) i32 @Gia_ManObjCheckSat_rec(ptr noundef %0, i32 noundef %
 10:                                               ; preds = %3
   %11 = lshr i64 %8, 62
   %12 = trunc nuw nsw i64 %11 to i32
-  %13 = xor i32 %12, %1
+  %13 = xor i32 %1, %12
   %14 = and i32 %13, 1
   %15 = xor i32 %14, 1
   br label %84
@@ -5016,13 +5016,13 @@ define void @Gia_ManIncrSimUpdate(ptr nocapture noundef %0) local_unnamed_addr #
   %9 = mul nsw i32 %8, %.val
   %10 = getelementptr inbounds i8, ptr %6, i64 4
   %11 = load i32, ptr %10, align 4
-  %.not.i = icmp slt i32 %11, %9
+  %.not.i = icmp sgt i32 %9, %11
   br i1 %.not.i, label %12, label %Vec_WrdFillExtra.exit
 
 12:                                               ; preds = %1
   %13 = load i32, ptr %6, align 8
   %14 = shl nsw i32 %13, 1
-  %15 = icmp slt i32 %14, %9
+  %15 = icmp sgt i32 %9, %14
   %.not.i.i = icmp slt i32 %13, %9
   br i1 %15, label %16, label %28
 
@@ -5175,13 +5175,13 @@ Vec_WrdFillExtra.exit:                            ; preds = %1, %._crit_edge.i
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

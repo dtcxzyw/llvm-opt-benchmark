@@ -260,7 +260,7 @@ define internal fastcc void @findDependentObjects(ptr noundef %0, i32 noundef %1
 55:                                               ; preds = %53
   %56 = getelementptr inbounds i8, ptr %.01823.i, i64 8
   %57 = load i32, ptr %56, align 8
-  %58 = or i32 %57, %1
+  %58 = or i32 %1, %57
   %59 = or i32 %58, 256
   store i32 %59, ptr %56, align 8
   br label %60
@@ -374,7 +374,7 @@ stack_address_present_add_flags.exit.thread:      ; preds = %7, %stack_address_p
   %111 = load ptr, ptr %68, align 8
   %112 = getelementptr %struct.ObjectAddressExtra, ptr %111, i64 %indvars.iv.i
   %113 = load i32, ptr %112, align 4
-  %114 = or i32 %113, %1
+  %114 = or i32 %1, %113
   %115 = or i32 %114, 256
   store i32 %115, ptr %112, align 4
   br label %116
@@ -4333,7 +4333,7 @@ define internal fastcc zeroext i1 @object_address_present_add_flags(ptr nocaptur
   %52 = load ptr, ptr %9, align 8
   %53 = getelementptr %struct.ObjectAddressExtra, ptr %52, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
-  %55 = or i32 %54, %1
+  %55 = or i32 %1, %54
   %56 = or i32 %55, 256
   store i32 %56, ptr %53, align 4
   br label %57

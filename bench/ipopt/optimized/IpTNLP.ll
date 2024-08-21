@@ -229,7 +229,7 @@ _ZN5Ipopt8SmartPtrINS_3NLPEED2Ev.exit:            ; preds = %71, %77
   %84 = load i32, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %75, i64 164
   %86 = load i32, ptr %85, align 4
-  %.not207 = icmp eq i32 %84, %4
+  %.not207 = icmp eq i32 %4, %84
   br i1 %.not207, label %107, label %87
 
 87:                                               ; preds = %82
@@ -310,7 +310,7 @@ _ZN5Ipopt8SmartPtrINS_3NLPEED2Ev.exit:            ; preds = %71, %77
   br label %_ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit347
 
 107:                                              ; preds = %88, %82
-  %.not209 = icmp eq i32 %86, %8
+  %.not209 = icmp eq i32 %8, %86
   br i1 %.not209, label %127, label %108
 
 108:                                              ; preds = %107
@@ -5903,7 +5903,7 @@ _ZN5Ipopt8SmartPtrINS_3NLPEED2Ev.exit:            ; preds = %109, %115
   %122 = load i32, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %113, i64 164
   %124 = load i32, ptr %123, align 4
-  %.not257 = icmp eq i32 %122, %4
+  %.not257 = icmp eq i32 %4, %122
   br i1 %.not257, label %147, label %125
 
 125:                                              ; preds = %120
@@ -5986,7 +5986,7 @@ _ZN5Ipopt8SmartPtrINS_3NLPEED2Ev.exit:            ; preds = %109, %115
   br label %common.resume
 
 147:                                              ; preds = %125, %120
-  %.not258 = icmp eq i32 %124, %10
+  %.not258 = icmp eq i32 %10, %124
   br i1 %.not258, label %167, label %148
 
 148:                                              ; preds = %147

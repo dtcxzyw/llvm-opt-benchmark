@@ -1154,7 +1154,7 @@ if.end.i:                                         ; preds = %for.body
   %10 = load atomic i32, ptr %refcount5.i acquire, align 4
   %shr.i.i = ashr i32 %10, 1
   %conv.i.i11 = sext i32 %shr.i.i to i64
-  %mul.i = mul i64 %conv.i.i11, %rep.coerce1
+  %mul.i = mul i64 %rep.coerce1, %conv.i.i11
   br label %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef5ChildEPKNS0_7CordRepE.exit
 
 _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef5ChildEPKNS0_7CordRepE.exit: ; preds = %for.body, %if.end.i
@@ -1183,7 +1183,7 @@ if.end.i26:                                       ; preds = %for.body20
   %12 = load atomic i32, ptr %refcount5.i27 acquire, align 4
   %shr.i.i28 = ashr i32 %12, 1
   %conv.i.i29 = sext i32 %shr.i.i28 to i64
-  %mul.i30 = mul i64 %conv.i.i29, %rep.coerce1
+  %mul.i30 = mul i64 %rep.coerce1, %conv.i.i29
   br label %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef5ChildEPKNS0_7CordRepE.exit34
 
 _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef5ChildEPKNS0_7CordRepE.exit34: ; preds = %for.body20, %if.end.i26

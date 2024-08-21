@@ -197,7 +197,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_122SampleTrac
 
 10:                                               ; preds = %3
   %11 = load float, ptr %.val, align 4
-  %12 = fcmp ult float %11, %1
+  %12 = fcmp ugt float %1, %11
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %10
@@ -210,7 +210,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_122SampleTrac
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %.val19, i64 -16
   %17 = load float, ptr %16, align 4
-  %18 = fcmp ugt float %17, %1
+  %18 = fcmp ult float %1, %17
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %15
@@ -291,7 +291,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnim
 
 61:                                               ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEEFNS_4math6Float3ERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
   %62 = load float, ptr %.val20, align 4
-  %63 = fcmp ult float %62, %1
+  %63 = fcmp ugt float %1, %62
   br i1 %63, label %66, label %64
 
 64:                                               ; preds = %61
@@ -304,7 +304,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnim
 66:                                               ; preds = %61
   %67 = getelementptr inbounds i8, ptr %.val21, i64 -20
   %68 = load float, ptr %67, align 4
-  %69 = fcmp ugt float %68, %1
+  %69 = fcmp ult float %1, %68
   br i1 %69, label %72, label %70
 
 70:                                               ; preds = %66
@@ -439,7 +439,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnim
 
 141:                                              ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEEFNS_4math10QuaternionERKSB_SD_fEEENT_10value_type5ValueERKSF_RKT0_f.exit
   %142 = load float, ptr %.val22, align 4
-  %143 = fcmp ult float %142, %1
+  %143 = fcmp ugt float %1, %142
   br i1 %143, label %146, label %144
 
 144:                                              ; preds = %141
@@ -452,7 +452,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnim
 146:                                              ; preds = %141
   %147 = getelementptr inbounds i8, ptr %.val23, i64 -16
   %148 = load float, ptr %147, align 4
-  %149 = fcmp ugt float %148, %1
+  %149 = fcmp ult float %1, %148
   br i1 %149, label %152, label %150
 
 150:                                              ; preds = %146
@@ -1527,7 +1527,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %.0.us = phi i64 [ %42, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us ], [ %10, %.split ]
   %phi.call.us = getelementptr inbounds float, ptr %0, i64 %.0.us
   %19 = load float, ptr %phi.call.us, align 4
-  %20 = icmp sgt i64 %12, %.0.us
+  %20 = icmp slt i64 %.0.us, %12
   br i1 %20, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.split.us, %.lr.ph.i.us
@@ -1579,7 +1579,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAlloca
   %.0 = phi i64 [ %70, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ], [ %10, %.split.split.preheader ]
   %phi.call = getelementptr inbounds float, ptr %0, i64 %.0
   %43 = load float, ptr %phi.call, align 4
-  %44 = icmp sgt i64 %12, %.0
+  %44 = icmp slt i64 %.0, %12
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split, %.lr.ph.i

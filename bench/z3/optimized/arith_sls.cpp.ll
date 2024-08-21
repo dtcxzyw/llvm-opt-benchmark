@@ -474,7 +474,7 @@ if.then24:                                        ; preds = %for.body21
   %call25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %18 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i17 = icmp eq i32 %18, %15
+  %cmp.i.i17 = icmp eq i32 %15, %18
   br i1 %cmp.i.i17, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then24
@@ -564,7 +564,7 @@ if.end.i:                                         ; preds = %for.body
 sw.bb.i.i.i:                                      ; preds = %if.end.i
   %m_bound.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %11 = load i64, ptr %m_bound.i.i.i, align 8
-  %cmp.not.i.i.i = icmp slt i64 %11, %9
+  %cmp.not.i.i.i = icmp sgt i64 %9, %11
   br i1 %call.i.i, label %if.end4.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb.i.i.i
@@ -586,12 +586,12 @@ sw.bb11.i.i.i:                                    ; preds = %if.end.i
   br i1 %call.i.i, label %if.end18.i.i.i, label %if.then13.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %sw.bb11.i.i.i
-  %cmp15.i.i.i = icmp eq i64 %12, %9
+  %cmp15.i.i.i = icmp eq i64 %9, %12
   %..i.i.i = zext i1 %cmp15.i.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i
 
 if.end18.i.i.i:                                   ; preds = %sw.bb11.i.i.i
-  %cmp20.i.i.i = icmp ne i64 %12, %9
+  %cmp20.i.i.i = icmp ne i64 %9, %12
   %.30.i.i.i = zext i1 %cmp20.i.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i
 
@@ -601,19 +601,19 @@ sw.bb23.i.i.i:                                    ; preds = %if.end.i
   br i1 %call.i.i, label %if.end30.i.i.i, label %if.then25.i.i.i
 
 if.then25.i.i.i:                                  ; preds = %sw.bb23.i.i.i
-  %cmp27.i.i.i = icmp ne i64 %13, %9
+  %cmp27.i.i.i = icmp ne i64 %9, %13
   %.31.i.i.i = zext i1 %cmp27.i.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i
 
 if.end30.i.i.i:                                   ; preds = %sw.bb23.i.i.i
-  %cmp32.i.i.i = icmp eq i64 %13, %9
+  %cmp32.i.i.i = icmp eq i64 %9, %13
   %.32.i.i.i = zext i1 %cmp32.i.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i
 
 sw.bb35.i.i.i:                                    ; preds = %if.end.i
   %m_bound38.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %14 = load i64, ptr %m_bound38.i.i.i, align 8
-  %cmp39.i.i.i = icmp sgt i64 %14, %9
+  %cmp39.i.i.i = icmp slt i64 %9, %14
   br i1 %call.i.i, label %if.end44.i.i.i, label %if.then37.i.i.i
 
 if.then37.i.i.i:                                  ; preds = %sw.bb35.i.i.i
@@ -2140,7 +2140,7 @@ _ZNK3sat6solver8num_varsEv.exit:                  ; preds = %entry, %if.end.i.i
 _ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit.i: ; preds = %_ZNK3sat6solver8num_varsEv.exit
   %arrayidx.i.i12 = getelementptr inbounds i8, ptr %4, i64 -4
   %5 = load i32, ptr %arrayidx.i.i12, align 4
-  %cmp.not.i = icmp ugt i32 %5, %retval.0.i.i
+  %cmp.not.i = icmp ult i32 %retval.0.i.i, %5
   br i1 %cmp.not.i, label %_ZN17scoped_ptr_vectorIN5arith3sls4ineqEE7reserveEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit.i, %_ZNK3sat6solver8num_varsEv.exit
@@ -2430,7 +2430,7 @@ entry:
 _ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit.i: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp2.i = icmp ugt i32 %1, %bv
+  %cmp2.i = icmp ult i32 %bv, %1
   br i1 %cmp2.i, label %_ZNK17scoped_ptr_vectorIN5arith3sls4ineqEE3getEjPS2_.exit, label %if.end
 
 _ZNK17scoped_ptr_vectorIN5arith3sls4ineqEE3getEjPS2_.exit: ; preds = %_ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit.i
@@ -2823,7 +2823,7 @@ entry:
 _ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit.i: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp2.i = icmp ugt i32 %1, %v
+  %cmp2.i = icmp ult i32 %v, %1
   br i1 %cmp2.i, label %_ZNK17scoped_ptr_vectorIN5arith3sls4ineqEE3getEjPS2_.exit, label %if.end
 
 _ZNK17scoped_ptr_vectorIN5arith3sls4ineqEE3getEjPS2_.exit: ; preds = %_ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit.i
@@ -2855,7 +2855,7 @@ land.lhs.true:                                    ; preds = %_ZNK17scoped_ptr_ve
 sw.bb.i.i:                                        ; preds = %land.lhs.true
   %m_bound.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load i64, ptr %m_bound.i.i, align 8
-  %cmp.not.i.i = icmp slt i64 %7, %5
+  %cmp.not.i.i = icmp sgt i64 %5, %7
   %sub10.i.i = sub nsw i64 %5, %7
   %spec.select.i.i = select i1 %cmp.not.i.i, i64 %sub10.i.i, i64 0
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit
@@ -2863,21 +2863,21 @@ sw.bb.i.i:                                        ; preds = %land.lhs.true
 sw.bb11.i.i:                                      ; preds = %land.lhs.true
   %m_bound14.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %m_bound14.i.i, align 8
-  %cmp20.i.i = icmp ne i64 %8, %5
+  %cmp20.i.i = icmp ne i64 %5, %8
   %.30.i.i = zext i1 %cmp20.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit
 
 sw.bb23.i.i:                                      ; preds = %land.lhs.true
   %m_bound26.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %9 = load i64, ptr %m_bound26.i.i, align 8
-  %cmp32.i.i = icmp eq i64 %9, %5
+  %cmp32.i.i = icmp eq i64 %5, %9
   %.32.i.i = zext i1 %cmp32.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit
 
 sw.bb35.i.i:                                      ; preds = %land.lhs.true
   %m_bound38.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load i64, ptr %m_bound38.i.i, align 8
-  %cmp39.i.i = icmp sgt i64 %10, %5
+  %cmp39.i.i = icmp slt i64 %5, %10
   br i1 %cmp39.i.i, label %sw.bb35.i.i._ZNK5arith3sls3dttEbRKNS0_4ineqE.exit_crit_edge, label %if.end48.i.i
 
 sw.bb35.i.i._ZNK5arith3sls3dttEbRKNS0_4ineqE.exit_crit_edge: ; preds = %sw.bb35.i.i
@@ -2923,7 +2923,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %m_bound = getelementptr inbounds i8, ptr %ineq, i64 16
   %1 = load i64, ptr %m_bound, align 8
-  %cmp.not = icmp slt i64 %1, %args
+  %cmp.not = icmp sgt i64 %args, %1
   br i1 %sign, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %sw.bb
@@ -2945,12 +2945,12 @@ sw.bb11:                                          ; preds = %entry
   br i1 %sign, label %if.then13, label %if.end18
 
 if.then13:                                        ; preds = %sw.bb11
-  %cmp15 = icmp eq i64 %2, %args
+  %cmp15 = icmp eq i64 %args, %2
   %. = zext i1 %cmp15 to i64
   br label %return
 
 if.end18:                                         ; preds = %sw.bb11
-  %cmp20 = icmp ne i64 %2, %args
+  %cmp20 = icmp ne i64 %args, %2
   %.30 = zext i1 %cmp20 to i64
   br label %return
 
@@ -2960,19 +2960,19 @@ sw.bb23:                                          ; preds = %entry
   br i1 %sign, label %if.then25, label %if.end30
 
 if.then25:                                        ; preds = %sw.bb23
-  %cmp27 = icmp ne i64 %3, %args
+  %cmp27 = icmp ne i64 %args, %3
   %.31 = zext i1 %cmp27 to i64
   br label %return
 
 if.end30:                                         ; preds = %sw.bb23
-  %cmp32 = icmp eq i64 %3, %args
+  %cmp32 = icmp eq i64 %args, %3
   %.32 = zext i1 %cmp32 to i64
   br label %return
 
 sw.bb35:                                          ; preds = %entry
   %m_bound38 = getelementptr inbounds i8, ptr %ineq, i64 16
   %4 = load i64, ptr %m_bound38, align 8
-  %cmp39 = icmp sgt i64 %4, %args
+  %cmp39 = icmp slt i64 %args, %4
   br i1 %sign, label %if.then37, label %if.end44
 
 if.then37:                                        ; preds = %sw.bb35
@@ -3044,7 +3044,7 @@ if.then:                                          ; preds = %for.body
 sw.bb.i:                                          ; preds = %if.then
   %m_bound.i = getelementptr inbounds i8, ptr %ineq, i64 16
   %9 = load i64, ptr %m_bound.i, align 8
-  %cmp.not.i = icmp slt i64 %9, %add
+  %cmp.not.i = icmp sgt i64 %add, %9
   br i1 %sign, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %sw.bb.i
@@ -3066,12 +3066,12 @@ sw.bb11.i:                                        ; preds = %if.then
   br i1 %sign, label %if.then13.i, label %if.end18.i
 
 if.then13.i:                                      ; preds = %sw.bb11.i
-  %cmp15.i = icmp eq i64 %10, %add
+  %cmp15.i = icmp eq i64 %add, %10
   %..i = zext i1 %cmp15.i to i64
   br label %return
 
 if.end18.i:                                       ; preds = %sw.bb11.i
-  %cmp20.i = icmp ne i64 %10, %add
+  %cmp20.i = icmp ne i64 %add, %10
   %.30.i = zext i1 %cmp20.i to i64
   br label %return
 
@@ -3081,19 +3081,19 @@ sw.bb23.i:                                        ; preds = %if.then
   br i1 %sign, label %if.then25.i, label %if.end30.i
 
 if.then25.i:                                      ; preds = %sw.bb23.i
-  %cmp27.i = icmp ne i64 %11, %add
+  %cmp27.i = icmp ne i64 %add, %11
   %.31.i = zext i1 %cmp27.i to i64
   br label %return
 
 if.end30.i:                                       ; preds = %sw.bb23.i
-  %cmp32.i = icmp eq i64 %11, %add
+  %cmp32.i = icmp eq i64 %add, %11
   %.32.i = zext i1 %cmp32.i to i64
   br label %return
 
 sw.bb35.i:                                        ; preds = %if.then
   %m_bound38.i = getelementptr inbounds i8, ptr %ineq, i64 16
   %12 = load i64, ptr %m_bound38.i, align 8
-  %cmp39.i = icmp sgt i64 %12, %add
+  %cmp39.i = icmp slt i64 %add, %12
   br i1 %sign, label %if.then37.i, label %if.end44.i
 
 if.then37.i:                                      ; preds = %sw.bb35.i
@@ -3144,7 +3144,7 @@ entry:
 sw.bb.i:                                          ; preds = %entry
   %m_bound.i = getelementptr inbounds i8, ptr %ineq, i64 16
   %2 = load i64, ptr %m_bound.i, align 8
-  %cmp.not.i = icmp slt i64 %2, %add
+  %cmp.not.i = icmp sgt i64 %add, %2
   br i1 %sign, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %sw.bb.i
@@ -3166,12 +3166,12 @@ sw.bb11.i:                                        ; preds = %entry
   br i1 %sign, label %if.then13.i, label %if.end18.i
 
 if.then13.i:                                      ; preds = %sw.bb11.i
-  %cmp15.i = icmp eq i64 %3, %add
+  %cmp15.i = icmp eq i64 %add, %3
   %..i = zext i1 %cmp15.i to i64
   br label %_ZNK5arith3sls3dttEblRKNS0_4ineqE.exit
 
 if.end18.i:                                       ; preds = %sw.bb11.i
-  %cmp20.i = icmp ne i64 %3, %add
+  %cmp20.i = icmp ne i64 %add, %3
   %.30.i = zext i1 %cmp20.i to i64
   br label %_ZNK5arith3sls3dttEblRKNS0_4ineqE.exit
 
@@ -3181,19 +3181,19 @@ sw.bb23.i:                                        ; preds = %entry
   br i1 %sign, label %if.then25.i, label %if.end30.i
 
 if.then25.i:                                      ; preds = %sw.bb23.i
-  %cmp27.i = icmp ne i64 %4, %add
+  %cmp27.i = icmp ne i64 %add, %4
   %.31.i = zext i1 %cmp27.i to i64
   br label %_ZNK5arith3sls3dttEblRKNS0_4ineqE.exit
 
 if.end30.i:                                       ; preds = %sw.bb23.i
-  %cmp32.i = icmp eq i64 %4, %add
+  %cmp32.i = icmp eq i64 %add, %4
   %.32.i = zext i1 %cmp32.i to i64
   br label %_ZNK5arith3sls3dttEblRKNS0_4ineqE.exit
 
 sw.bb35.i:                                        ; preds = %entry
   %m_bound38.i = getelementptr inbounds i8, ptr %ineq, i64 16
   %5 = load i64, ptr %m_bound38.i, align 8
-  %cmp39.i = icmp sgt i64 %5, %add
+  %cmp39.i = icmp slt i64 %add, %5
   br i1 %sign, label %if.then37.i, label %if.end44.i
 
 if.then37.i:                                      ; preds = %sw.bb35.i
@@ -3298,7 +3298,7 @@ sw.default.i:                                     ; preds = %entry
 
 _ZNK5arith3sls4ineq7is_trueEv.exit:               ; preds = %sw.bb.i, %sw.bb2.i, %sw.bb6.i, %sw.default.i
   %retval.0.i = phi i1 [ %cmp12.i, %sw.default.i ], [ %cmp9.i, %sw.bb6.i ], [ %cmp5.i, %sw.bb2.i ], [ %cmp.i, %sw.bb.i ]
-  %3 = xor i1 %retval.0.i, %old_sign
+  %3 = xor i1 %old_sign, %retval.0.i
   br i1 %3, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNK5arith3sls4ineq7is_trueEv.exit
@@ -3820,7 +3820,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 sw.bb.i.i:                                        ; preds = %for.body
   %m_bound.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %13 = load i64, ptr %m_bound.i.i, align 8
-  %cmp.not.i.i = icmp slt i64 %13, %add
+  %cmp.not.i.i = icmp sgt i64 %add, %13
   br i1 %call.i, label %if.end4.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb.i.i
@@ -3841,12 +3841,12 @@ sw.bb11.i.i:                                      ; preds = %for.body
   br i1 %call.i, label %if.end18.i.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %sw.bb11.i.i
-  %cmp15.i.i = icmp eq i64 %14, %add
+  %cmp15.i.i = icmp eq i64 %add, %14
   %..i.i = zext i1 %cmp15.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit
 
 if.end18.i.i:                                     ; preds = %sw.bb11.i.i
-  %cmp20.i.i = icmp ne i64 %14, %add
+  %cmp20.i.i = icmp ne i64 %add, %14
   %.30.i.i = zext i1 %cmp20.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit
 
@@ -3856,19 +3856,19 @@ sw.bb23.i.i:                                      ; preds = %for.body
   br i1 %call.i, label %if.end30.i.i, label %if.then25.i.i
 
 if.then25.i.i:                                    ; preds = %sw.bb23.i.i
-  %cmp27.i.i = icmp ne i64 %15, %add
+  %cmp27.i.i = icmp ne i64 %add, %15
   %.31.i.i = zext i1 %cmp27.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit
 
 if.end30.i.i:                                     ; preds = %sw.bb23.i.i
-  %cmp32.i.i = icmp eq i64 %15, %add
+  %cmp32.i.i = icmp eq i64 %add, %15
   %.32.i.i = zext i1 %cmp32.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit
 
 sw.bb35.i.i:                                      ; preds = %for.body
   %m_bound38.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %16 = load i64, ptr %m_bound38.i.i, align 8
-  %cmp39.i.i = icmp sgt i64 %16, %add
+  %cmp39.i.i = icmp slt i64 %add, %16
   br i1 %call.i, label %if.end44.i.i, label %if.then37.i.i
 
 if.then37.i.i:                                    ; preds = %sw.bb35.i.i
@@ -4014,7 +4014,7 @@ if.end.i:                                         ; preds = %for.body.i
 sw.bb.i.i.i:                                      ; preds = %if.end.i
   %m_bound.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
   %21 = load i64, ptr %m_bound.i.i.i, align 8
-  %cmp.not.i.i.i = icmp slt i64 %21, %19
+  %cmp.not.i.i.i = icmp sgt i64 %19, %21
   br i1 %tobool.i.not.i, label %if.end4.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb.i.i.i
@@ -4036,12 +4036,12 @@ sw.bb11.i.i.i:                                    ; preds = %if.end.i
   br i1 %tobool.i.not.i, label %if.end18.i.i.i, label %if.then13.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %sw.bb11.i.i.i
-  %cmp15.i.i.i = icmp eq i64 %22, %19
+  %cmp15.i.i.i = icmp eq i64 %19, %22
   %..i.i.i = zext i1 %cmp15.i.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i
 
 if.end18.i.i.i:                                   ; preds = %sw.bb11.i.i.i
-  %cmp20.i.i.i = icmp ne i64 %22, %19
+  %cmp20.i.i.i = icmp ne i64 %19, %22
   %.30.i.i.i = zext i1 %cmp20.i.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i
 
@@ -4051,19 +4051,19 @@ sw.bb23.i.i.i:                                    ; preds = %if.end.i
   br i1 %tobool.i.not.i, label %if.end30.i.i.i, label %if.then25.i.i.i
 
 if.then25.i.i.i:                                  ; preds = %sw.bb23.i.i.i
-  %cmp27.i.i.i = icmp ne i64 %23, %19
+  %cmp27.i.i.i = icmp ne i64 %19, %23
   %.31.i.i.i = zext i1 %cmp27.i.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i
 
 if.end30.i.i.i:                                   ; preds = %sw.bb23.i.i.i
-  %cmp32.i.i.i = icmp eq i64 %23, %19
+  %cmp32.i.i.i = icmp eq i64 %19, %23
   %.32.i.i.i = zext i1 %cmp32.i.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i
 
 sw.bb35.i.i.i:                                    ; preds = %if.end.i
   %m_bound38.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
   %24 = load i64, ptr %m_bound38.i.i.i, align 8
-  %cmp39.i.i.i = icmp sgt i64 %24, %19
+  %cmp39.i.i.i = icmp slt i64 %19, %24
   br i1 %tobool.i.not.i, label %if.end44.i.i.i, label %if.then37.i.i.i
 
 if.then37.i.i.i:                                  ; preds = %sw.bb35.i.i.i
@@ -4156,7 +4156,7 @@ if.then.i:                                        ; preds = %for.body.i183
 sw.bb.i.i:                                        ; preds = %if.then.i
   %m_bound.i.i = getelementptr inbounds i8, ptr %26, i64 16
   %36 = load i64, ptr %m_bound.i.i, align 8
-  %cmp.not.i.i = icmp slt i64 %36, %add.i189
+  %cmp.not.i.i = icmp sgt i64 %add.i189, %36
   br i1 %tobool.i.i.not, label %if.end4.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb.i.i
@@ -4178,12 +4178,12 @@ sw.bb11.i.i:                                      ; preds = %if.then.i
   br i1 %tobool.i.i.not, label %if.end18.i.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %sw.bb11.i.i
-  %cmp15.i.i = icmp eq i64 %37, %add.i189
+  %cmp15.i.i = icmp eq i64 %add.i189, %37
   %..i.i = zext i1 %cmp15.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit
 
 if.end18.i.i:                                     ; preds = %sw.bb11.i.i
-  %cmp20.i.i = icmp ne i64 %37, %add.i189
+  %cmp20.i.i = icmp ne i64 %add.i189, %37
   %.30.i.i = zext i1 %cmp20.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit
 
@@ -4193,19 +4193,19 @@ sw.bb23.i.i:                                      ; preds = %if.then.i
   br i1 %tobool.i.i.not, label %if.end30.i.i, label %if.then25.i.i
 
 if.then25.i.i:                                    ; preds = %sw.bb23.i.i
-  %cmp27.i.i = icmp ne i64 %38, %add.i189
+  %cmp27.i.i = icmp ne i64 %add.i189, %38
   %.31.i.i = zext i1 %cmp27.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit
 
 if.end30.i.i:                                     ; preds = %sw.bb23.i.i
-  %cmp32.i.i = icmp eq i64 %38, %add.i189
+  %cmp32.i.i = icmp eq i64 %add.i189, %38
   %.32.i.i = zext i1 %cmp32.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit
 
 sw.bb35.i.i:                                      ; preds = %if.then.i
   %m_bound38.i.i = getelementptr inbounds i8, ptr %26, i64 16
   %39 = load i64, ptr %m_bound38.i.i, align 8
-  %cmp39.i.i = icmp sgt i64 %39, %add.i189
+  %cmp39.i.i = icmp slt i64 %add.i189, %39
   br i1 %tobool.i.i.not, label %if.end44.i.i, label %if.then37.i.i
 
 if.then37.i.i:                                    ; preds = %sw.bb35.i.i
@@ -4324,7 +4324,7 @@ if.end.i94:                                       ; preds = %for.body.i86
 sw.bb.i.i.i135:                                   ; preds = %if.end.i94
   %m_bound.i.i.i136 = getelementptr inbounds i8, ptr %50, i64 16
   %54 = load i64, ptr %m_bound.i.i.i136, align 8
-  %cmp.not.i.i.i137 = icmp slt i64 %54, %52
+  %cmp.not.i.i.i137 = icmp sgt i64 %52, %54
   br i1 %tobool.i.not.i95, label %if.end4.i.i.i142, label %if.then.i.i.i138
 
 if.then.i.i.i138:                                 ; preds = %sw.bb.i.i.i135
@@ -4346,12 +4346,12 @@ sw.bb11.i.i.i127:                                 ; preds = %if.end.i94
   br i1 %tobool.i.not.i95, label %if.end18.i.i.i132, label %if.then13.i.i.i129
 
 if.then13.i.i.i129:                               ; preds = %sw.bb11.i.i.i127
-  %cmp15.i.i.i130 = icmp eq i64 %55, %52
+  %cmp15.i.i.i130 = icmp eq i64 %52, %55
   %..i.i.i131 = zext i1 %cmp15.i.i.i130 to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104
 
 if.end18.i.i.i132:                                ; preds = %sw.bb11.i.i.i127
-  %cmp20.i.i.i133 = icmp ne i64 %55, %52
+  %cmp20.i.i.i133 = icmp ne i64 %52, %55
   %.30.i.i.i134 = zext i1 %cmp20.i.i.i133 to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104
 
@@ -4361,19 +4361,19 @@ sw.bb23.i.i.i119:                                 ; preds = %if.end.i94
   br i1 %tobool.i.not.i95, label %if.end30.i.i.i124, label %if.then25.i.i.i121
 
 if.then25.i.i.i121:                               ; preds = %sw.bb23.i.i.i119
-  %cmp27.i.i.i122 = icmp ne i64 %56, %52
+  %cmp27.i.i.i122 = icmp ne i64 %52, %56
   %.31.i.i.i123 = zext i1 %cmp27.i.i.i122 to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104
 
 if.end30.i.i.i124:                                ; preds = %sw.bb23.i.i.i119
-  %cmp32.i.i.i125 = icmp eq i64 %56, %52
+  %cmp32.i.i.i125 = icmp eq i64 %52, %56
   %.32.i.i.i126 = zext i1 %cmp32.i.i.i125 to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104
 
 sw.bb35.i.i.i98:                                  ; preds = %if.end.i94
   %m_bound38.i.i.i99 = getelementptr inbounds i8, ptr %50, i64 16
   %57 = load i64, ptr %m_bound38.i.i.i99, align 8
-  %cmp39.i.i.i100 = icmp sgt i64 %57, %52
+  %cmp39.i.i.i100 = icmp slt i64 %52, %57
   br i1 %tobool.i.not.i95, label %if.end44.i.i.i115, label %if.then37.i.i.i101
 
 if.then37.i.i.i101:                               ; preds = %sw.bb35.i.i.i98
@@ -4466,7 +4466,7 @@ if.then.i204:                                     ; preds = %for.body.i196
 sw.bb.i.i239:                                     ; preds = %if.then.i204
   %m_bound.i.i240 = getelementptr inbounds i8, ptr %59, i64 16
   %69 = load i64, ptr %m_bound.i.i240, align 8
-  %cmp.not.i.i241 = icmp slt i64 %69, %add.i211
+  %cmp.not.i.i241 = icmp sgt i64 %add.i211, %69
   br i1 %tobool.i.i168.not, label %if.end4.i.i242, label %if.then.i.i245
 
 if.then.i.i245:                                   ; preds = %sw.bb.i.i239
@@ -4488,12 +4488,12 @@ sw.bb11.i.i231:                                   ; preds = %if.then.i204
   br i1 %tobool.i.i168.not, label %if.end18.i.i233, label %if.then13.i.i236
 
 if.then13.i.i236:                                 ; preds = %sw.bb11.i.i231
-  %cmp15.i.i237 = icmp eq i64 %70, %add.i211
+  %cmp15.i.i237 = icmp eq i64 %add.i211, %70
   %..i.i238 = zext i1 %cmp15.i.i237 to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250
 
 if.end18.i.i233:                                  ; preds = %sw.bb11.i.i231
-  %cmp20.i.i234 = icmp ne i64 %70, %add.i211
+  %cmp20.i.i234 = icmp ne i64 %add.i211, %70
   %.30.i.i235 = zext i1 %cmp20.i.i234 to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250
 
@@ -4503,19 +4503,19 @@ sw.bb23.i.i223:                                   ; preds = %if.then.i204
   br i1 %tobool.i.i168.not, label %if.end30.i.i225, label %if.then25.i.i228
 
 if.then25.i.i228:                                 ; preds = %sw.bb23.i.i223
-  %cmp27.i.i229 = icmp ne i64 %71, %add.i211
+  %cmp27.i.i229 = icmp ne i64 %add.i211, %71
   %.31.i.i230 = zext i1 %cmp27.i.i229 to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250
 
 if.end30.i.i225:                                  ; preds = %sw.bb23.i.i223
-  %cmp32.i.i226 = icmp eq i64 %71, %add.i211
+  %cmp32.i.i226 = icmp eq i64 %add.i211, %71
   %.32.i.i227 = zext i1 %cmp32.i.i226 to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250
 
 sw.bb35.i.i213:                                   ; preds = %if.then.i204
   %m_bound38.i.i214 = getelementptr inbounds i8, ptr %59, i64 16
   %72 = load i64, ptr %m_bound38.i.i214, align 8
-  %cmp39.i.i215 = icmp sgt i64 %72, %add.i211
+  %cmp39.i.i215 = icmp slt i64 %add.i211, %72
   br i1 %tobool.i.i168.not, label %if.end44.i.i216, label %if.then37.i.i220
 
 if.then37.i.i220:                                 ; preds = %sw.bb35.i.i213
@@ -4635,7 +4635,7 @@ if.end:                                           ; preds = %for.body
 sw.bb.i.i:                                        ; preds = %if.end
   %m_bound.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %11 = load i64, ptr %m_bound.i.i, align 8
-  %cmp.not.i.i = icmp slt i64 %11, %9
+  %cmp.not.i.i = icmp sgt i64 %9, %11
   br i1 %tobool.i.not, label %if.end4.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb.i.i
@@ -4657,12 +4657,12 @@ sw.bb11.i.i:                                      ; preds = %if.end
   br i1 %tobool.i.not, label %if.end18.i.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %sw.bb11.i.i
-  %cmp15.i.i = icmp eq i64 %12, %9
+  %cmp15.i.i = icmp eq i64 %9, %12
   %..i.i = zext i1 %cmp15.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit
 
 if.end18.i.i:                                     ; preds = %sw.bb11.i.i
-  %cmp20.i.i = icmp ne i64 %12, %9
+  %cmp20.i.i = icmp ne i64 %9, %12
   %.30.i.i = zext i1 %cmp20.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit
 
@@ -4672,19 +4672,19 @@ sw.bb23.i.i:                                      ; preds = %if.end
   br i1 %tobool.i.not, label %if.end30.i.i, label %if.then25.i.i
 
 if.then25.i.i:                                    ; preds = %sw.bb23.i.i
-  %cmp27.i.i = icmp ne i64 %13, %9
+  %cmp27.i.i = icmp ne i64 %9, %13
   %.31.i.i = zext i1 %cmp27.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit
 
 if.end30.i.i:                                     ; preds = %sw.bb23.i.i
-  %cmp32.i.i = icmp eq i64 %13, %9
+  %cmp32.i.i = icmp eq i64 %9, %13
   %.32.i.i = zext i1 %cmp32.i.i to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit
 
 sw.bb35.i.i:                                      ; preds = %if.end
   %m_bound38.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %14 = load i64, ptr %m_bound38.i.i, align 8
-  %cmp39.i.i = icmp sgt i64 %14, %9
+  %cmp39.i.i = icmp slt i64 %9, %14
   br i1 %tobool.i.not, label %if.end44.i.i, label %if.then37.i.i
 
 if.then37.i.i:                                    ; preds = %sw.bb35.i.i
@@ -4841,7 +4841,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 sw.bb.i.i:                                        ; preds = %for.body
   %m_bound.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %12 = load i64, ptr %m_bound.i.i, align 8
-  %cmp.not.i.i = icmp slt i64 %12, %10
+  %cmp.not.i.i = icmp sgt i64 %10, %12
   br i1 %call.i, label %if.end4.i.i54, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb.i.i
@@ -4851,7 +4851,7 @@ if.then.i.i:                                      ; preds = %sw.bb.i.i
   %13 = load i64, ptr %__begin1.0179, align 8
   %mul.i106131 = mul nsw i64 %13, %sub.i115
   %add.i107132 = add nsw i64 %mul.i106131, %10
-  %cmp.not.i.i53134 = icmp slt i64 %12, %add.i107132
+  %cmp.not.i.i53134 = icmp sgt i64 %add.i107132, %12
   br i1 %cmp.not.i.i53134, label %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit.thr_comm, label %if.then2.i.i58
 
 sw.bb11.i.i:                                      ; preds = %for.body
@@ -4873,7 +4873,7 @@ sw.bb23.i.i:                                      ; preds = %for.body
 sw.bb35.i.i:                                      ; preds = %for.body
   %m_bound38.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %18 = load i64, ptr %m_bound38.i.i, align 8
-  %cmp39.i.i = icmp sgt i64 %18, %10
+  %cmp39.i.i = icmp slt i64 %10, %18
   br i1 %call.i, label %if.end44.i.i, label %if.then37.i.i32
 
 if.end44.i.i:                                     ; preds = %sw.bb35.i.i
@@ -4883,7 +4883,7 @@ if.end44.i.i:                                     ; preds = %sw.bb35.i.i
   %19 = load i64, ptr %__begin1.0179, align 8
   %mul.i116154 = mul nsw i64 %19, %sub.i115
   %add.i117155 = add nsw i64 %mul.i116154, %10
-  %cmp39.i.i26157 = icmp sgt i64 %18, %add.i117155
+  %cmp39.i.i26157 = icmp slt i64 %add.i117155, %18
   br i1 %cmp39.i.i26157, label %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit.thr_comm, label %if.end48.i.i28
 
 sw.default.i.i:                                   ; preds = %for.body
@@ -4902,36 +4902,36 @@ if.end4.i.i54:                                    ; preds = %sw.bb.i.i
   %20 = load i64, ptr %__begin1.0179, align 8
   %mul.i106 = mul nsw i64 %20, %sub.i115
   %add.i107 = add nsw i64 %mul.i106, %10
-  %cmp.not.i.i53 = icmp slt i64 %12, %add.i107
+  %cmp.not.i.i53 = icmp sgt i64 %add.i107, %12
   %sub10.i.i55 = sub nsw i64 %add.i107, %12
   %spec.select.i.i56 = select i1 %cmp.not.i.i53, i64 %sub10.i.i55, i64 0
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit
 
 if.then13.i.i48:                                  ; preds = %sw.bb11.i.i
-  %cmp15.i.i = icmp eq i64 %14, %10
+  %cmp15.i.i = icmp eq i64 %10, %14
   %..i.i = zext i1 %cmp15.i.i to i64
-  %cmp15.i.i49 = icmp eq i64 %14, %add.i126
+  %cmp15.i.i49 = icmp eq i64 %add.i126, %14
   %..i.i50 = zext i1 %cmp15.i.i49 to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit
 
 if.end18.i.i45:                                   ; preds = %sw.bb11.i.i
-  %cmp20.i.i = icmp ne i64 %14, %10
+  %cmp20.i.i = icmp ne i64 %10, %14
   %.30.i.i = zext i1 %cmp20.i.i to i64
-  %cmp20.i.i46 = icmp ne i64 %14, %add.i126
+  %cmp20.i.i46 = icmp ne i64 %add.i126, %14
   %.30.i.i47 = zext i1 %cmp20.i.i46 to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit
 
 if.then25.i.i40:                                  ; preds = %sw.bb23.i.i
-  %cmp27.i.i = icmp ne i64 %16, %10
+  %cmp27.i.i = icmp ne i64 %10, %16
   %.31.i.i = zext i1 %cmp27.i.i to i64
-  %cmp27.i.i41 = icmp ne i64 %16, %add.i
+  %cmp27.i.i41 = icmp ne i64 %add.i, %16
   %.31.i.i42 = zext i1 %cmp27.i.i41 to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit
 
 if.end30.i.i37:                                   ; preds = %sw.bb23.i.i
-  %cmp32.i.i = icmp eq i64 %16, %10
+  %cmp32.i.i = icmp eq i64 %10, %16
   %.32.i.i = zext i1 %cmp32.i.i to i64
-  %cmp32.i.i38 = icmp eq i64 %16, %add.i
+  %cmp32.i.i38 = icmp eq i64 %add.i, %16
   %.32.i.i39 = zext i1 %cmp32.i.i38 to i64
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit
 
@@ -4941,7 +4941,7 @@ if.then37.i.i32:                                  ; preds = %sw.bb35.i.i
   %21 = load i64, ptr %__begin1.0179, align 8
   %mul.i116 = mul nsw i64 %21, %sub.i115
   %add.i117 = add nsw i64 %mul.i116, %10
-  %cmp39.i.i26 = icmp sgt i64 %18, %add.i117
+  %cmp39.i.i26 = icmp slt i64 %add.i117, %18
   %sub42.i.i33 = sub nsw i64 %18, %add.i117
   %spec.select33.i.i34 = select i1 %cmp39.i.i26, i64 %sub42.i.i33, i64 0
   br label %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit
@@ -5084,7 +5084,7 @@ entry:
 sw.bb.i:                                          ; preds = %entry
   %m_bound.i = getelementptr inbounds i8, ptr %ineq, i64 16
   %2 = load i64, ptr %m_bound.i, align 8
-  %cmp.not.i = icmp slt i64 %2, %0
+  %cmp.not.i = icmp sgt i64 %0, %2
   br i1 %sign, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %sw.bb.i
@@ -5106,12 +5106,12 @@ sw.bb11.i:                                        ; preds = %entry
   br i1 %sign, label %if.then13.i, label %if.end18.i
 
 if.then13.i:                                      ; preds = %sw.bb11.i
-  %cmp15.i = icmp eq i64 %3, %0
+  %cmp15.i = icmp eq i64 %0, %3
   %..i = zext i1 %cmp15.i to i64
   br label %_ZNK5arith3sls3dttEblRKNS0_4ineqE.exit
 
 if.end18.i:                                       ; preds = %sw.bb11.i
-  %cmp20.i = icmp ne i64 %3, %0
+  %cmp20.i = icmp ne i64 %0, %3
   %.30.i = zext i1 %cmp20.i to i64
   br label %_ZNK5arith3sls3dttEblRKNS0_4ineqE.exit
 
@@ -5121,19 +5121,19 @@ sw.bb23.i:                                        ; preds = %entry
   br i1 %sign, label %if.then25.i, label %if.end30.i
 
 if.then25.i:                                      ; preds = %sw.bb23.i
-  %cmp27.i = icmp ne i64 %4, %0
+  %cmp27.i = icmp ne i64 %0, %4
   %.31.i = zext i1 %cmp27.i to i64
   br label %_ZNK5arith3sls3dttEblRKNS0_4ineqE.exit
 
 if.end30.i:                                       ; preds = %sw.bb23.i
-  %cmp32.i = icmp eq i64 %4, %0
+  %cmp32.i = icmp eq i64 %0, %4
   %.32.i = zext i1 %cmp32.i to i64
   br label %_ZNK5arith3sls3dttEblRKNS0_4ineqE.exit
 
 sw.bb35.i:                                        ; preds = %entry
   %m_bound38.i = getelementptr inbounds i8, ptr %ineq, i64 16
   %5 = load i64, ptr %m_bound38.i, align 8
-  %cmp39.i = icmp sgt i64 %5, %0
+  %cmp39.i = icmp slt i64 %0, %5
   br i1 %sign, label %if.then37.i, label %if.end44.i
 
 if.then37.i:                                      ; preds = %sw.bb35.i
@@ -6435,7 +6435,7 @@ entry:
 _ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit: ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp = icmp ugt i32 %1, %sz
+  %cmp = icmp ult i32 %sz, %1
   br i1 %cmp, label %for.body.preheader, label %_ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit20
 
 for.body.preheader:                               ; preds = %_ZNK6vectorIPN5arith3sls4ineqELb0EjE4sizeEv.exit

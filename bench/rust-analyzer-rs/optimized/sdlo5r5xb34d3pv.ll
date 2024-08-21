@@ -1133,7 +1133,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %20 = getelementptr inbounds i8, ptr %18, i64 32
   %21 = getelementptr i8, ptr %18, i64 24
   %.val3.i.i = load i32, ptr %21, align 8, !noalias !304, !noundef !23
-  %22 = icmp eq i32 %16, %.val3.i.i
+  %22 = icmp eq i32 %.val3.i.i, %16
   br i1 %22, label %"_ZN3hir5Crate20reverse_dependencies28_$u7b$$u7b$closure$u7d$$u7d$17hf813fef92a18d677E.llvm.16389444582445941026.exit", label %17
 
 "_ZN3hir5Crate20reverse_dependencies28_$u7b$$u7b$closure$u7d$$u7d$17hf813fef92a18d677E.llvm.16389444582445941026.exit": ; preds = %17, %19
@@ -5624,7 +5624,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !2410, !noalias !2415, !noundef !23
   %45 = load i64, ptr %0, align 8, !alias.scope !2417, !noalias !2415, !noundef !23
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h99bc63eb9f4eceadE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -5681,7 +5681,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !2423, !noalias !2428, !noundef !23
   %6 = load i64, ptr %0, align 8, !alias.scope !2430, !noalias !2428, !noundef !23
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h99bc63eb9f4eceadE.exit"
 
 9:                                                ; preds = %3
@@ -7877,7 +7877,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   store ptr %9, ptr %0, align 8, !alias.scope !2834
   %10 = getelementptr i8, ptr %7, i64 24
   %.val3 = load i32, ptr %10, align 8, !noundef !23
-  %11 = icmp eq i32 %5, %.val3
+  %11 = icmp eq i32 %.val3, %5
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4c0eb17cfc05dd4E.exit", label %6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4c0eb17cfc05dd4E.exit": ; preds = %6, %8
@@ -26351,7 +26351,7 @@ define hidden noundef zeroext i1 @"_ZN3hir5Crate20reverse_dependencies28_$u7b$$u
   %19 = getelementptr inbounds i8, ptr %17, i64 32
   %20 = getelementptr i8, ptr %17, i64 24
   %.val3.i = load i32, ptr %20, align 8, !noalias !6592, !noundef !23
-  %21 = icmp eq i32 %15, %.val3.i
+  %21 = icmp eq i32 %.val3.i, %15
   br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2ae63efe6bbbb4caE.llvm.16389444582445941026.exit", label %16
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2ae63efe6bbbb4caE.llvm.16389444582445941026.exit": ; preds = %16, %18

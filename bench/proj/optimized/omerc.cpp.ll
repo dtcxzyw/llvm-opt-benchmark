@@ -271,8 +271,8 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
   %118 = tail call double @cos(double noundef %117) #12
   %119 = getelementptr inbounds i8, ptr %0, i64 216
   %120 = load double, ptr %119, align 8
-  %121 = fneg double %120
-  %122 = fmul double %116, %121
+  %121 = fneg double %116
+  %122 = fmul double %120, %121
   %123 = tail call double @llvm.fmuladd.f64(double %122, double %116, double 1.000000e+00)
   %124 = fmul double %118, %118
   %125 = getelementptr inbounds i8, ptr %5, i64 8
@@ -700,9 +700,9 @@ define internal { double, double } @_ZL15omerc_e_inverse5PJ_XYP8PJconsts(double 
   %12 = getelementptr inbounds i8, ptr %6, i64 72
   %13 = load double, ptr %12, align 8
   %14 = fneg double %13
-  %15 = fmul double %14, %1
+  %15 = fmul double %1, %14
   %16 = tail call double @llvm.fmuladd.f64(double %0, double %11, double %15)
-  %17 = fmul double %13, %0
+  %17 = fmul double %0, %13
   %18 = tail call double @llvm.fmuladd.f64(double %1, double %11, double %17)
   %19 = getelementptr inbounds i8, ptr %6, i64 104
   %20 = load double, ptr %19, align 8
@@ -784,8 +784,8 @@ define internal { double, double } @_ZL15omerc_e_inverse5PJ_XYP8PJconsts(double 
   %76 = fneg double %75
   %77 = load double, ptr %40, align 8
   %78 = load double, ptr %42, align 8
-  %79 = fneg double %39
-  %80 = fmul double %78, %79
+  %79 = fneg double %78
+  %80 = fmul double %39, %79
   %81 = tail call double @llvm.fmuladd.f64(double %34, double %77, double %80)
   %82 = load double, ptr %23, align 8
   %83 = fmul double %.0, %82
@@ -829,14 +829,14 @@ define internal { double, double } @_ZL15omerc_e_forward5PJ_LPP8PJconsts(double 
   %24 = fadd double %20, %21
   %25 = fmul double %24, 5.000000e-01
   %26 = load double, ptr %17, align 8
-  %27 = fmul double %26, %0
+  %27 = fmul double %0, %26
   %28 = tail call double @sin(double noundef %27) #12
   %29 = getelementptr inbounds i8, ptr %5, i64 56
   %30 = load double, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 64
   %32 = load double, ptr %31, align 8
-  %33 = fneg double %28
-  %34 = fmul double %32, %33
+  %33 = fneg double %32
+  %34 = fmul double %28, %33
   %35 = tail call double @llvm.fmuladd.f64(double %23, double %30, double %34)
   %36 = fdiv double %35, %25
   %37 = tail call double @llvm.fabs.f64(double %36)
@@ -859,7 +859,7 @@ define internal { double, double } @_ZL15omerc_e_forward5PJ_LPP8PJconsts(double 
   %50 = tail call double @log(double noundef %49) #12
   %51 = fmul double %46, %50
   %52 = load double, ptr %17, align 8
-  %53 = fmul double %52, %0
+  %53 = fmul double %0, %52
   %54 = tail call double @cos(double noundef %53) #12
   %55 = tail call double @llvm.fabs.f64(double %54)
   %56 = fcmp olt double %55, 0x3E7AD7F29ABCAF48
@@ -867,7 +867,7 @@ define internal { double, double } @_ZL15omerc_e_forward5PJ_LPP8PJconsts(double 
 
 57:                                               ; preds = %43
   %58 = load double, ptr %5, align 8
-  %59 = fmul double %58, %0
+  %59 = fmul double %0, %58
   br label %74
 
 60:                                               ; preds = %43
@@ -887,7 +887,7 @@ define internal { double, double } @_ZL15omerc_e_forward5PJ_LPP8PJconsts(double 
   %70 = load double, ptr %.in, align 8
   %71 = getelementptr inbounds i8, ptr %5, i64 32
   %72 = load double, ptr %71, align 8
-  %73 = fmul double %72, %1
+  %73 = fmul double %1, %72
   br label %74
 
 74:                                               ; preds = %57, %60, %68
@@ -908,8 +908,8 @@ define internal { double, double } @_ZL15omerc_e_forward5PJ_LPP8PJconsts(double 
   %84 = load double, ptr %83, align 8
   %85 = fmul double %80, %84
   %86 = tail call double @llvm.fmuladd.f64(double %.053, double %82, double %85)
-  %87 = fneg double %.053
-  %88 = fmul double %84, %87
+  %87 = fneg double %84
+  %88 = fmul double %.053, %87
   %89 = tail call double @llvm.fmuladd.f64(double %80, double %82, double %88)
   br label %90
 

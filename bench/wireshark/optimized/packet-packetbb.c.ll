@@ -982,7 +982,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5, i32 noundef %6) unnamed_addr #0 {
   %8 = add nuw nsw i32 %3, 2
-  %9 = icmp ugt i32 %8, %4
+  %9 = icmp ult i32 %4, %8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7
@@ -994,7 +994,7 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
   %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #6
   %15 = zext i16 %14 to i32
   %16 = add nuw nsw i32 %8, %15
-  %17 = icmp ugt i32 %16, %4
+  %17 = icmp ult i32 %4, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %13

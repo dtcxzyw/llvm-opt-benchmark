@@ -215,7 +215,7 @@ define internal range(i64 -2147483648, -9223372036854775808) i64 @loop_read(ptr 
   %12 = getelementptr inbounds i8, ptr %6, i64 48
   %13 = load i16, ptr %12, align 8
   %14 = zext i16 %13 to i32
-  %15 = mul i32 %14, %2
+  %15 = mul i32 %2, %14
   %16 = getelementptr inbounds i8, ptr %6, i64 44
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %15, %17
@@ -227,7 +227,7 @@ define internal range(i64 -2147483648, -9223372036854775808) i64 @loop_read(ptr 
 .preheader:                                       ; preds = %11, %31
   %22 = load i16, ptr %12, align 8
   %23 = zext i16 %22 to i32
-  %24 = mul i32 %23, %3
+  %24 = mul i32 %3, %23
   %25 = zext i32 %24 to i64
   %26 = tail call i64 @file_read(ptr noundef nonnull %19, ptr noundef %1, i64 noundef %25) #6
   %27 = icmp slt i64 %26, 0
@@ -261,7 +261,7 @@ define internal i64 @loop_write(ptr nocapture noundef readonly %0, ptr noundef %
   %7 = getelementptr inbounds i8, ptr %6, i64 48
   %8 = load i16, ptr %7, align 8
   %9 = zext i16 %8 to i32
-  %10 = mul i32 %9, %2
+  %10 = mul i32 %2, %9
   %11 = getelementptr inbounds i8, ptr %6, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %10, %12
@@ -272,7 +272,7 @@ define internal i64 @loop_write(ptr nocapture noundef readonly %0, ptr noundef %
 16:                                               ; preds = %24, %4
   %17 = load i16, ptr %7, align 8
   %18 = zext i16 %17 to i32
-  %19 = mul i32 %18, %3
+  %19 = mul i32 %3, %18
   %20 = zext i32 %19 to i64
   %21 = tail call i64 @file_write(ptr noundef nonnull %14, ptr noundef %1, i64 noundef %20) #6
   %22 = icmp slt i64 %21, 0

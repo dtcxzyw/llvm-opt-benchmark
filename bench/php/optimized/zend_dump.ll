@@ -414,7 +414,7 @@ define void @zend_dump_var(ptr nocapture noundef readonly %0, i8 noundef zeroext
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8
-  %7 = icmp sgt i32 %6, %2
+  %7 = icmp slt i32 %2, %6
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %4
@@ -469,7 +469,7 @@ define void @zend_dump_ssa_var(ptr nocapture noundef readonly %0, ptr nocapture 
 13:                                               ; preds = %11, %9
   %14 = getelementptr inbounds i8, ptr %0, i64 80
   %15 = load i32, ptr %14, align 8
-  %16 = icmp sgt i32 %15, %4
+  %16 = icmp slt i32 %4, %15
   %17 = select i1 %16, i8 8, i8 %3
   switch i8 %17, label %31 [
     i8 8, label %18
@@ -716,7 +716,7 @@ define void @zend_dump_op(ptr nocapture noundef readonly %0, ptr noundef readonl
 38:                                               ; preds = %32
   %39 = getelementptr inbounds i8, ptr %0, i64 80
   %40 = load i32, ptr %39, align 8
-  %41 = icmp sgt i32 %40, %37
+  %41 = icmp slt i32 %37, %40
   br i1 %41, label %42, label %.thread.i
 
 42:                                               ; preds = %38
@@ -1212,7 +1212,7 @@ zend_dump_var.exit:                               ; preds = %.thread.i, %57, %51
 297:                                              ; preds = %290
   %298 = getelementptr inbounds i8, ptr %0, i64 80
   %299 = load i32, ptr %298, align 8
-  %300 = icmp sgt i32 %299, %296
+  %300 = icmp slt i32 %296, %299
   br i1 %300, label %301, label %.thread.i283
 
 301:                                              ; preds = %297
@@ -1262,7 +1262,7 @@ zend_dump_var.exit:                               ; preds = %.thread.i, %57, %51
 328:                                              ; preds = %321
   %329 = getelementptr inbounds i8, ptr %0, i64 80
   %330 = load i32, ptr %329, align 8
-  %331 = icmp sgt i32 %330, %327
+  %331 = icmp slt i32 %327, %330
   br i1 %331, label %332, label %.thread.i285
 
 332:                                              ; preds = %328
@@ -1595,7 +1595,7 @@ zend_dump_var.exit284:                            ; preds = %332, %341, %347, %.
 518:                                              ; preds = %511
   %519 = getelementptr inbounds i8, ptr %0, i64 80
   %520 = load i32, ptr %519, align 8
-  %521 = icmp sgt i32 %520, %517
+  %521 = icmp slt i32 %517, %520
   br i1 %521, label %522, label %.thread.i287
 
 522:                                              ; preds = %518
@@ -1645,7 +1645,7 @@ zend_dump_var.exit284:                            ; preds = %332, %341, %347, %.
 549:                                              ; preds = %542
   %550 = getelementptr inbounds i8, ptr %0, i64 80
   %551 = load i32, ptr %550, align 8
-  %552 = icmp sgt i32 %551, %548
+  %552 = icmp slt i32 %548, %551
   br i1 %552, label %553, label %.thread.i289
 
 553:                                              ; preds = %549
@@ -4502,7 +4502,7 @@ define internal fastcc void @zend_dump_var_set(ptr nocapture noundef readonly %0
 
 25:                                               ; preds = %21, %22
   %26 = phi i32 [ %13, %21 ], [ %.pre, %22 ]
-  %27 = icmp sgt i32 %26, %.011
+  %27 = icmp slt i32 %.011, %26
   %28 = load ptr, ptr @stderr, align 8
   br i1 %27, label %29, label %.thread.i
 
@@ -4634,7 +4634,7 @@ zend_dump_op_array_name.exit:                     ; preds = %16, %21, %24
   %51 = getelementptr inbounds i8, ptr %.017, i64 64
   %52 = load i32, ptr %51, align 8
   %53 = load i32, ptr %30, align 8
-  %54 = icmp sgt i32 %53, %52
+  %54 = icmp slt i32 %52, %53
   %55 = load ptr, ptr @stderr, align 8
   br i1 %54, label %56, label %.thread.i
 

@@ -20434,12 +20434,12 @@ entry:
   %Width = getelementptr inbounds i8, ptr %0, i64 316
   %1 = load i32, ptr %Width, align 4, !tbaa !829
   %conv = uitofp i32 %1 to float
-  %mul = fmul float %conv, %x
+  %mul = fmul float %x, %conv
   %conv2 = fptosi float %mul to i32
   %Height = getelementptr inbounds i8, ptr %0, i64 320
   %2 = load i32, ptr %Height, align 8, !tbaa !830
   %conv4 = uitofp i32 %2 to float
-  %mul5 = fmul float %conv4, %y
+  %mul5 = fmul float %y, %conv4
   %conv6 = fptosi float %mul5 to i32
   %vtable = load ptr, ptr %this, align 8, !tbaa !23
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40

@@ -395,7 +395,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h702
           to label %.noexc14 unwind label %.loopexit
 
 36:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %32, %2
+  %.not.i.i.i = icmp eq i64 %2, %32
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %36, %40
@@ -458,7 +458,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %40,
   %54 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !35, !noalias !40, !noundef !5
   %55 = load i64, ptr %7, align 8, !alias.scope !42, !noalias !40, !noundef !5
   %56 = sub i64 %55, %54
-  %57 = icmp ult i64 %56, %53
+  %57 = icmp ugt i64 %53, %56
   br i1 %57, label %58, label %72
 
 58:                                               ; preds = %.split.us.i.i
@@ -481,7 +481,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %40,
   %64 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !45, !noalias !50, !noundef !5
   %65 = load i64, ptr %7, align 8, !alias.scope !52, !noalias !50, !noundef !5
   %66 = sub i64 %65, %64
-  %67 = icmp ult i64 %66, %63
+  %67 = icmp ugt i64 %63, %66
   br i1 %67, label %68, label %79
 
 68:                                               ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17hbc17d9f7afdc33efE.exit"
@@ -770,7 +770,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h9f8
   %86 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !84, !noalias !89, !noundef !5
   %87 = load i64, ptr %7, align 8, !alias.scope !91, !noalias !89, !noundef !5
   %88 = sub i64 %87, %86
-  %89 = icmp ult i64 %88, %85
+  %89 = icmp ugt i64 %85, %88
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %.loopexit252
@@ -1027,7 +1027,7 @@ _ZN4core3str11validations15next_code_point17hcba652dd4152b0b8E.exit.thread.i.i.i
   %199 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !122, !noalias !127, !noundef !5
   %200 = load i64, ptr %7, align 8, !alias.scope !129, !noalias !127, !noundef !5
   %201 = sub i64 %200, %199
-  %202 = icmp ult i64 %201, %198
+  %202 = icmp ugt i64 %198, %201
   br i1 %202, label %203, label %217
 
 203:                                              ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17he12b2548f31ab396E.exit.thread"
@@ -1050,7 +1050,7 @@ _ZN4core3str11validations15next_code_point17hcba652dd4152b0b8E.exit.thread.i.i.i
   %209 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !84, !noalias !89, !noundef !5
   %210 = load i64, ptr %7, align 8, !alias.scope !91, !noalias !89, !noundef !5
   %211 = sub i64 %210, %209
-  %212 = icmp ult i64 %211, %208
+  %212 = icmp ugt i64 %208, %211
   br i1 %212, label %213, label %224
 
 213:                                              ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17he12b2548f31ab396E.exit"

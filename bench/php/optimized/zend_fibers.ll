@@ -163,7 +163,7 @@ zend_fiber_get_page_size.exit.i:                  ; preds = %6, %4
   %9 = phi i64 [ %spec.store.select.i.i, %6 ], [ %5, %4 ]
   %.fr.i = freeze i64 %9
   %10 = shl i64 %.fr.i, 1
-  %11 = icmp ugt i64 %10, %3
+  %11 = icmp ult i64 %3, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %zend_fiber_get_page_size.exit.i

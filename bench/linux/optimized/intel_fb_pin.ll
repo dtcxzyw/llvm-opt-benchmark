@@ -206,7 +206,7 @@ define dso_local ptr @intel_pin_and_fence_fb_obj(ptr noundef %0, i1 noundef zero
 
 i915_gem_object_lock.exit:                        ; preds = %102
   %115 = icmp eq i32 %104, 0
-  %116 = and i1 %115, %1
+  %116 = and i1 %1, %115
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %i915_gem_object_lock.exit

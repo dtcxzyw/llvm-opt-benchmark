@@ -62,7 +62,7 @@ define noundef i32 @dsyr2k_kernel_U(i64 noundef %0, i64 noundef %1, i64 noundef 
 45:                                               ; preds = %42
   %46 = sub nsw i64 0, %30
   %47 = tail call i32 @dgemm_kernel(i64 noundef %46, i64 noundef %43, i64 noundef %2, double noundef %3, ptr noundef %4, ptr noundef %28, ptr noundef %29, i64 noundef %7) #4
-  %48 = mul i64 %30, %2
+  %48 = mul i64 %2, %30
   %49 = sub i64 0, %48
   %50 = getelementptr inbounds double, ptr %4, i64 %49
   %51 = getelementptr inbounds double, ptr %29, i64 %46

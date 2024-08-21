@@ -1802,7 +1802,7 @@ define internal i32 @software_node_read_int_array(ptr noundef readonly %0, ptr n
   br i1 %47, label %48, label %property_entry_read_int_array.exit
 
 48:                                               ; preds = %43
-  %49 = mul i64 %20, %4
+  %49 = mul i64 %4, %20
   %50 = icmp eq ptr %18, null
   br i1 %50, label %.thread16.i, label %51
 

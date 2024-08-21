@@ -1198,7 +1198,7 @@ define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
   %80 = icmp eq i32 %79, 0
-  %81 = and i1 %80, %4
+  %81 = and i1 %4, %80
   br i1 %81, label %82, label %88
 
 82:                                               ; preds = %76

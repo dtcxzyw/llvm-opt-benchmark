@@ -585,7 +585,7 @@ define internal fastcc void @_ZN10num_bigint6bigint6BigInt12from_biguint17hcc6db
 28:                                               ; preds = %25
   %29 = icmp ult i64 %27, %9
   tail call void @llvm.assume(i1 %29)
-  %30 = icmp ult i64 %9, %.0.i.i.i
+  %30 = icmp ugt i64 %.0.i.i.i, %9
   br i1 %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h91184237c55f1edfE.exit.i.i", label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %22, %28
@@ -1396,7 +1396,7 @@ _ZN10num_bigint7biguint8division9rem_digit17ha4d36f6717b21bb9E.exit.thread: ; pr
   %20 = and i64 %16, 4294967295
   %21 = or disjoint i64 %19, %20
   %22 = urem i64 %21, %6
-  %23 = icmp eq ptr %15, %.val
+  %23 = icmp eq ptr %.val, %15
   br i1 %23, label %_ZN10num_bigint7biguint8division9rem_digit17ha4d36f6717b21bb9E.exit, label %.lr.ph.i
 
 24:                                               ; preds = %10
@@ -2070,7 +2070,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !416, !noalias !421, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !423, !noalias !421, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17haa68775b6a23b4e2E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -2127,7 +2127,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !429, !noalias !434, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !436, !noalias !434, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17haa68775b6a23b4e2E.exit"
 
 9:                                                ; preds = %3

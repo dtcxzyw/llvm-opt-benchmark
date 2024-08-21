@@ -275,7 +275,7 @@ define dso_local noundef range(i32 -14, 1) i32 @acpi_get_psd_map(i32 noundef %0,
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %33
-  %38 = icmp eq i32 %35, %0
+  %38 = icmp eq i32 %0, %35
   br i1 %38, label %62, label %39
 
 39:                                               ; preds = %37
@@ -2932,7 +2932,7 @@ define internal fastcc range(i32 -110, 1) i32 @check_pcc_chan(i32 noundef %0, i1
   store i8 0, ptr %6, align 1
   %41 = and i32 %40, 4
   %42 = icmp ne i32 %41, 0
-  %43 = and i1 %42, %1
+  %43 = and i1 %1, %42
   br i1 %43, label %.thread, label %46
 
 .thread:                                          ; preds = %.loopexit, %.loopexit.thread

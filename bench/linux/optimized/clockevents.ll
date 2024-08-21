@@ -372,7 +372,7 @@ define dso_local i32 @clockevents_program_event(ptr noundef %0, i64 noundef %1, 
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 %49(i64 noundef %47, ptr noundef %0) #11
   %51 = icmp ne i32 %50, 0
-  %52 = and i1 %51, %2
+  %52 = and i1 %2, %51
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %33

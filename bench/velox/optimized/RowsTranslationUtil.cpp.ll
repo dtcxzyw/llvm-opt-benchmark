@@ -89,7 +89,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %
   store ptr %call6.i.i, ptr %agg.result, align 8, !alias.scope !10
   %5 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !10
   %6 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !10
-  %cmp.not.i9.i.i = icmp ult i64 %6, %1
+  %cmp.not.i9.i.i = icmp ugt i64 %1, %6
   br i1 %cmp.not.i9.i.i, label %if.then.i12.i.i, label %if.end.i.i.i
 
 if.then.i12.i.i:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
@@ -195,7 +195,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   br i1 %cmp.i36.i.i.i.i, label %for.cond.i.i.i.i, label %land.end.i.i, !llvm.loop !11
 
 for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i
-  %cmp25.not.i.i.i.i = icmp eq i32 %18, %15
+  %cmp25.not.i.i.i.i = icmp eq i32 %15, %18
   br i1 %cmp25.not.i.i.i.i, label %land.end.i.i, label %if.then26.i.i.i.i
 
 if.then26.i.i.i.i:                                ; preds = %for.end.i.i.i.i
@@ -374,7 +374,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %tobool5.old.not.i.i.i.i.i, label %nrvo.skipdtor, label %while.body.i.i.i.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.end.i.i.i8.i
-  %cmp9.not.i.i.i.i = icmp eq i32 %mul.i.i.i.i.i, %38
+  %cmp9.not.i.i.i.i = icmp eq i32 %38, %mul.i.i.i.i.i
   br i1 %cmp9.not.i.i.i.i, label %if.end14.i.i.i.i, label %if.then10.i.i.i.i
 
 if.then10.i.i.i.i:                                ; preds = %if.end8.i.i.i.i
@@ -605,7 +605,7 @@ for.body.i26.i.i.i.i.i:                           ; preds = %for.body.i26.i.i.i.
   br i1 %cmp15.not.i.i.i.i, label %for.end.i.i.i11.i, label %for.body.i.i.i10.i, !llvm.loop !17
 
 for.end.i.i.i11.i:                                ; preds = %"_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS8_PKmPNS0_6memory10MemoryPoolEE3$_0EEvSA_iibT_ENKUliE_clEi.exit.i.i.i.i", %if.end14.i.i.i.i
-  %cmp18.not.i.i.i.i = icmp eq i32 %41, %39
+  %cmp18.not.i.i.i.i = icmp eq i32 %39, %41
   br i1 %cmp18.not.i.i.i.i, label %nrvo.skipdtor, label %if.then19.i.i.i.i
 
 if.then19.i.i.i.i:                                ; preds = %for.end.i.i.i11.i
@@ -768,7 +768,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %capacity_, align 8
-  %cmp.not = icmp ult i64 %1, %size
+  %cmp.not = icmp ugt i64 %size, %1
   br i1 %cmp.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end

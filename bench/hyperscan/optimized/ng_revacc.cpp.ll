@@ -167,7 +167,7 @@ if.then.i:                                        ; preds = %land.lhs.true12.us.
   %add.ptr.i49.us.i.le = getelementptr i8, ptr %add.ptr.i.us.i, i64 -32
   %31 = trunc i64 %indvars.iv101.i to i32
   %conv2.le.i = and i32 %31, 255
-  %cmp16.not.i = icmp ult i32 %conv2.le.i, %min_width
+  %cmp16.not.i = icmp ugt i32 %min_width, %conv2.le.i
   br i1 %cmp16.not.i, label %if.end.i, label %for.cond74.preheader.i.preheader
 
 if.end.i:                                         ; preds = %if.then.i
@@ -350,7 +350,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit115.i: ; preds = %for.inc.i.i1
 if.then38.i:                                      ; preds = %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit115.i, %land.lhs.true33.i
   %60 = trunc i64 %indvars.iv.i to i32
   %conv2.le44.i = and i32 %60, 255
-  %cmp40.not.i = icmp ult i32 %conv2.le44.i, %min_width
+  %cmp40.not.i = icmp ugt i32 %min_width, %conv2.le44.i
   br i1 %cmp40.not.i, label %if.end42.i, label %for.cond74.preheader.i.preheader
 
 if.end42.i:                                       ; preds = %if.then38.i
@@ -473,7 +473,7 @@ for.body77.i:                                     ; preds = %for.cond74.preheade
 if.then86.i:                                      ; preds = %for.body77.us.i
   %85 = trunc i64 %indvars.iv109.i to i32
   %conv75.le.i = and i32 %85, 255
-  %cmp88.not.i = icmp ult i32 %conv75.le.i, %min_width
+  %cmp88.not.i = icmp ugt i32 %min_width, %conv75.le.i
   br i1 %cmp88.not.i, label %if.end90.i, label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit
 
 if.end90.i:                                       ; preds = %if.then86.i
@@ -560,7 +560,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit194.i: ; preds = %for.inc.i.i1
 if.then105.i:                                     ; preds = %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit194.i
   %96 = trunc i64 %indvars.iv105.i to i32
   %conv75.le51.i = and i32 %96, 255
-  %cmp107.not.i = icmp ult i32 %conv75.le51.i, %min_width
+  %cmp107.not.i = icmp ugt i32 %min_width, %conv75.le51.i
   br i1 %cmp107.not.i, label %if.end109.i, label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit
 
 if.end109.i:                                      ; preds = %if.then105.i
@@ -714,7 +714,7 @@ land.lhs.true19.i:                                ; preds = %land.lhs.true.i
 if.then.i71:                                      ; preds = %land.lhs.true19.i
   %124 = trunc nuw nsw i64 %indvars.iv.i30 to i8
   %125 = trunc nuw nsw i64 %indvars.iv.i30 to i32
-  %cmp23.i = icmp ugt i32 %125, %min_width
+  %cmp23.i = icmp ult i32 %min_width, %125
   br i1 %cmp23.i, label %single.i56, label %if.end.i72
 
 if.end.i72:                                       ; preds = %if.then.i71
@@ -896,7 +896,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit122.i: ; preds = %for.inc.i.i1
 if.then41.i:                                      ; preds = %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit122.i, %land.lhs.true36.i
   %150 = trunc nuw nsw i64 %indvars.iv.i30 to i32
   %151 = trunc nuw nsw i64 %indvars.iv.i30 to i8
-  %cmp43.i = icmp ugt i32 %150, %min_width
+  %cmp43.i = icmp ult i32 %min_width, %150
   br i1 %cmp43.i, label %single.i56, label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then41.i
@@ -1062,7 +1062,7 @@ if.then89.i:                                      ; preds = %for.body77.us.i59
   %184 = trunc nuw nsw i64 %indvars.iv93.i to i8
   %185 = trunc i64 %indvars.iv93.i to i32
   %conv75.le.i60 = and i32 %185, 255
-  %cmp91.not.i = icmp ult i32 %conv75.le.i60, %min_width
+  %cmp91.not.i = icmp ugt i32 %min_width, %conv75.le.i60
   br i1 %cmp91.not.i, label %if.end93.i, label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.exit
 
 if.end93.i:                                       ; preds = %if.then89.i
@@ -1151,7 +1151,7 @@ if.then107.i:                                     ; preds = %_ZN3ue2L18isPseudoN
   %196 = trunc nuw nsw i64 %indvars.iv89.i to i8
   %197 = trunc i64 %indvars.iv89.i to i32
   %conv75.le44.i = and i32 %197, 255
-  %cmp109.not.i = icmp ult i32 %conv75.le44.i, %min_width
+  %cmp109.not.i = icmp ugt i32 %min_width, %conv75.le44.i
   br i1 %cmp109.not.i, label %if.end111.i, label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.exit
 
 if.end111.i:                                      ; preds = %if.then107.i
@@ -1446,7 +1446,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
 
 if.then.i:                                        ; preds = %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i.i, %if.then.i.i11.i.i, %if.then.i.i
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa40.i.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i.i ], [ %__y.0.lcssa40.i.i, %if.then.i.i11.i.i ], [ %__y.0.lcssa41.i.i, %if.then.i.i ]
-  %cmp2.i.i = icmp eq ptr %2, %retval.sroa.4.0.i.ph.i
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %2
   br i1 %cmp2.i.i, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then.i
@@ -1844,7 +1844,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
 
 if.then:                                          ; preds = %if.then.i, %if.then.i.i11.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa40.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i ], [ %__y.0.lcssa40.i, %if.then.i.i11.i ], [ %__y.0.lcssa41.i, %if.then.i ]
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then

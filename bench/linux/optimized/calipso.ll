@@ -2422,7 +2422,7 @@ define internal fastcc range(i32 -28, 268435722) i32 @calipso_genopt(ptr noundef
   %8 = getelementptr [4 x i8], ptr @calipso_genopt.padding, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
-  %11 = add i32 %10, %1
+  %11 = add i32 %1, %10
   %12 = add i32 %11, 10
   %13 = icmp ult i32 %12, %2
   br i1 %13, label %14, label %.loopexit

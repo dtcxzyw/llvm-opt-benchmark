@@ -19,7 +19,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buffer to i64
   %add = add i64 %vertex_size, 1
-  %cmp = icmp ugt i64 %add, %buffer_size
+  %cmp = icmp ult i64 %buffer_size, %add
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -441,7 +441,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %buffer_size
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %add = add i64 %vertex_size, 1
-  %cmp = icmp ugt i64 %add, %buffer_size
+  %cmp = icmp ult i64 %buffer_size, %add
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1423,7 +1423,7 @@ for.end104:                                       ; preds = %for.inc102, %entry
   %mul106 = mul i64 %vertex_size, %vertex_count
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %vertex_data, ptr nonnull align 16 %transposed, i64 %mul106, i1 false)
   %sub107 = add i64 %vertex_count, -1
-  %mul108 = mul i64 %sub107, %vertex_size
+  %mul108 = mul i64 %vertex_size, %sub107
   %arrayidx = getelementptr inbounds [8192 x i8], ptr %transposed, i64 0, i64 %mul108
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %last_vertex, ptr nonnull align 1 %arrayidx, i64 %vertex_size, i1 false)
   br label %return
@@ -1453,7 +1453,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp217.not.i, label %for.body.lr.ph.split.us, label %for.body
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
-  %0 = mul nuw nsw i64 %div114.i, %vertex_size
+  %0 = mul nuw nsw i64 %vertex_size, %div114.i
   %scevgep42 = getelementptr i8, ptr %data, i64 %0
   br i1 %cmp226.not, label %for.body.us, label %for.body.us.us
 
@@ -1902,7 +1902,7 @@ for.end13:                                        ; preds = %for.inc11, %for.con
   %mul = mul i64 %vertex_size, %vertex_count
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %vertex_data, ptr nonnull align 16 %transposed, i64 %mul, i1 false)
   %sub15 = add i64 %vertex_count, -1
-  %mul16 = mul i64 %sub15, %vertex_size
+  %mul16 = mul i64 %vertex_size, %sub15
   %arrayidx17 = getelementptr inbounds [8192 x i8], ptr %transposed, i64 0, i64 %mul16
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %last_vertex, ptr nonnull align 1 %arrayidx17, i64 %vertex_size, i1 false)
   br label %return

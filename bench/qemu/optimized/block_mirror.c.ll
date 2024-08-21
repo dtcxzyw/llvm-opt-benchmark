@@ -1163,7 +1163,7 @@ if.then:                                          ; preds = %land.lhs.true
   %2 = urem i64 %sub, %.fr
   %mul = sub nuw i64 %sub, %2
   %sub4 = sub i64 %mul, %offset
-  %cmp5.not = icmp ult i64 %sub4, %bytes
+  %cmp5.not = icmp ugt i64 %bytes, %sub4
   br i1 %cmp5.not, label %if.end, label %if.end93
 
 if.end:                                           ; preds = %if.then
@@ -3412,7 +3412,7 @@ if.end164:                                        ; preds = %while.end159
   %64 = load i64, ptr %io_bytes, align 8
   %s.val = load i64, ptr %bdev_length76, align 8
   %sub.i = sub i64 %s.val, %offset.1156
-  %cond.i = call i64 @llvm.smin.i64(i64 %sub.i, i64 %64)
+  %cond.i = call i64 @llvm.smin.i64(i64 %64, i64 %sub.i)
   store i64 %cond.i, ptr %io_bytes, align 8
   %conv166 = trunc i64 %cond.i to i32
   %call167 = call fastcc i32 @mirror_perform(ptr noundef nonnull %s, i64 noundef %offset.1156, i32 noundef %conv166, i32 noundef %mirror_method.0)
@@ -4146,7 +4146,7 @@ if.end27:                                         ; preds = %if.end, %if.end.thr
   %22 = getelementptr i8, ptr %s, i64 624
   %s.val = load i64, ptr %22, align 8
   %sub.i = sub i64 %s.val, %21
-  %cond.i = call i64 @llvm.smin.i64(i64 %sub.i, i64 %20)
+  %cond.i = call i64 @llvm.smin.i64(i64 %20, i64 %sub.i)
   store i64 %cond.i, ptr %align_bytes, align 8
   %23 = load i64, ptr %offset, align 8
   %24 = load i64, ptr %bytes, align 8

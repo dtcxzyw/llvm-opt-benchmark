@@ -826,7 +826,7 @@ if.then8.i:                                       ; preds = %call3.i.noexc
 
 if.end10.i:                                       ; preds = %if.then8.i, %call3.i.noexc
   %20 = load i64, ptr %__begin18, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %20
+  %cmp.i.i.i = icmp ugt i64 %20, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i
@@ -2845,7 +2845,7 @@ if.then8.i.i:                                     ; preds = %if.end.i
 
 if.end10.i.i:                                     ; preds = %if.then8.i.i, %if.end.i
   %3 = load i64, ptr %agg.result, align 8
-  %cmp.i.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %3
+  %cmp.i.i.i.i = icmp ugt i64 %3, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end10.i.i
@@ -4383,7 +4383,7 @@ _ZSt19__relocate_object_aISt8functionIFSt8optionalIN6google8protobuf2io7Printer9
 _ZNSt6vectorISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit: ; preds = %_ZSt19__relocate_object_aISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i19 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i19 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i19, label %_ZNSt6vectorISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit34, label %for.body.i.i.i20
 
 for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit, %_ZSt19__relocate_object_aISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i29
@@ -5037,7 +5037,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 if.end:                                           ; preds = %invoke.cont
   %compressed_tuple_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 8), align 8
-  %cmp.i = icmp ult i64 %1, %0
+  %cmp.i = icmp ugt i64 %0, %1
   br i1 %cmp.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %if.end

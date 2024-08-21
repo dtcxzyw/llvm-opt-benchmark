@@ -736,7 +736,7 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %4, i64 1
-  %15 = icmp ult ptr %14, %5
+  %15 = icmp ugt ptr %5, %14
   br i1 %15, label %16, label %47
 
 16:                                               ; preds = %13
@@ -827,7 +827,7 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds i8, ptr %4, i64 1
-  %59 = icmp ult ptr %58, %5
+  %59 = icmp ugt ptr %5, %58
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %57

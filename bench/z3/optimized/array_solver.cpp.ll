@@ -1683,7 +1683,7 @@ _ZNK3euf13th_euf_solver12get_num_varsEv.exit:     ; preds = %entry, %if.end.i.i
 _ZNK6vectorIPN5array6solver8var_dataELb0EjE4sizeEv.exit.i: ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit
   %arrayidx.i.i2 = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i2, align 4
-  %cmp.i = icmp ugt i32 %3, %retval.0.i.i
+  %cmp.i = icmp ult i32 %retval.0.i.i, %3
   br i1 %cmp.i, label %for.body.preheader.i, label %_ZNK6vectorIPN5array6solver8var_dataELb0EjE4sizeEv.exit18.i
 
 for.body.preheader.i:                             ; preds = %_ZNK6vectorIPN5array6solver8var_dataELb0EjE4sizeEv.exit.i
@@ -2455,7 +2455,7 @@ do.body.i.i.i:                                    ; preds = %if.then.i, %if.end5
   %bf.load.i.i.i2.i = load i32, ptr %l.0.i.i.i, align 8
   %bf.shl.i.i.i.i = shl i32 %bf.load.i.i.i2.i, 24
   %bf.ashr.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i, 24
-  %cmp.i.i3.i = icmp eq i32 %bf.ashr.i.i.i.i, %28
+  %cmp.i.i3.i = icmp eq i32 %28, %bf.ashr.i.i.i.i
   br i1 %cmp.i.i3.i, label %if.then3.i.i.i, label %if.end5.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %do.body.i.i.i
@@ -2767,7 +2767,7 @@ do.body.i.i.i.i:                                  ; preds = %if.then.i.i, %if.en
   %bf.load.i.i.i2.i.i = load i32, ptr %l.0.i.i.i.i, align 8
   %bf.shl.i.i.i.i.i = shl i32 %bf.load.i.i.i2.i.i, 24
   %bf.ashr.i.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i.i, 24
-  %cmp.i.i3.i.i = icmp eq i32 %bf.ashr.i.i.i.i.i, %24
+  %cmp.i.i3.i.i = icmp eq i32 %24, %bf.ashr.i.i.i.i.i
   br i1 %cmp.i.i3.i.i, label %if.then3.i.i.i.i, label %if.end5.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %do.body.i.i.i.i
@@ -2981,7 +2981,7 @@ do.body.i.i.i:                                    ; preds = %if.then.i, %if.end5
   %bf.load.i.i.i2.i = load i32, ptr %l.0.i.i.i, align 8
   %bf.shl.i.i.i.i = shl i32 %bf.load.i.i.i2.i, 24
   %bf.ashr.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i, 24
-  %cmp.i.i3.i = icmp eq i32 %bf.ashr.i.i.i.i, %63
+  %cmp.i.i3.i = icmp eq i32 %63, %bf.ashr.i.i.i.i
   br i1 %cmp.i.i3.i, label %if.then3.i.i.i, label %if.end5.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %do.body.i.i.i
@@ -3585,7 +3585,7 @@ do.body.i.i.i:                                    ; preds = %if.then.i, %if.end5
   %bf.load.i.i.i2.i = load i32, ptr %l.0.i.i.i, align 8
   %bf.shl.i.i.i.i = shl i32 %bf.load.i.i.i2.i, 24
   %bf.ashr.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i, 24
-  %cmp.i.i3.i = icmp eq i32 %bf.ashr.i.i.i.i, %12
+  %cmp.i.i3.i = icmp eq i32 %12, %bf.ashr.i.i.i.i
   br i1 %cmp.i.i3.i, label %if.then3.i.i.i, label %if.end5.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %do.body.i.i.i
@@ -3695,7 +3695,7 @@ do.body.i.i:                                      ; preds = %if.then, %if.end5.i
   %bf.load.i.i.i2 = load i32, ptr %l.0.i.i, align 8
   %bf.shl.i.i.i = shl i32 %bf.load.i.i.i2, 24
   %bf.ashr.i.i.i = ashr exact i32 %bf.shl.i.i.i, 24
-  %cmp.i.i3 = icmp eq i32 %bf.ashr.i.i.i, %8
+  %cmp.i.i3 = icmp eq i32 %8, %bf.ashr.i.i.i
   br i1 %cmp.i.i3, label %if.then3.i.i, label %if.end5.i.i
 
 if.then3.i.i:                                     ; preds = %do.body.i.i

@@ -100,7 +100,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
 define dso_local i64 @COVER_computeEpochs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = mul i32 %2, 10
   %6 = udiv i32 %0, %2
-  %7 = icmp ult i32 %6, %3
+  %7 = icmp ugt i32 %3, %6
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %4
@@ -144,7 +144,7 @@ define dso_local i64 @ZDICT_trainFromBuffer_cover(ptr noundef %0, i64 noundef %1
   %16 = load i32, ptr %5, align 8
   %17 = icmp eq i32 %16, 0
   %18 = zext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   %20 = or i1 %17, %19
   %21 = icmp ugt i32 %14, %16
   %22 = or i1 %21, %20
@@ -402,7 +402,7 @@ COVER_sum.exit:                                   ; preds = %.lr.ph.i, %6
   %.06.lcssa.i = phi i64 [ 0, %6 ], [ %9, %.lr.ph.i ]
   %10 = fcmp olt double %5, 1.000000e+00
   %11 = uitofp i32 %3 to double
-  %12 = fmul double %11, %5
+  %12 = fmul double %5, %11
   %13 = fptoui double %12 to i32
   %14 = select i1 %10, i32 %13, i32 0
   %15 = select i1 %10, i32 %13, i32 %3
@@ -431,7 +431,7 @@ COVER_sum.exit110.thread:                         ; preds = %.lr.ph.i104, %17
   %.pre-phi = phi i64 [ 0, %17 ], [ %wide.trip.count.i103, %.lr.ph.i104 ]
   %21 = phi i64 [ 0, %17 ], [ %20, %.lr.ph.i104 ]
   %22 = getelementptr inbounds i64, ptr %2, i64 %.pre-phi
-  %.not.i111 = icmp eq i32 %14, %3
+  %.not.i111 = icmp eq i32 %3, %14
   br i1 %.not.i111, label %COVER_sum.exit120, label %.lr.ph.preheader.i112
 
 .lr.ph.preheader.i112:                            ; preds = %COVER_sum.exit110.thread
@@ -489,7 +489,7 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
   br label %COVER_ctx_destroy.exit
 
 52:                                               ; preds = %42
-  %53 = icmp eq i32 %14, %3
+  %53 = icmp eq i32 %3, %14
   br i1 %53, label %54, label %62
 
 54:                                               ; preds = %52
@@ -1997,7 +1997,7 @@ COVER_ctx_destroy.exit:                           ; preds = %161, %163
   %173 = getelementptr inbounds i8, ptr %135, i64 60
   store i32 %172, ptr %173, align 4
   %174 = zext i32 %.0111169 to i64
-  %175 = icmp ugt i64 %174, %1
+  %175 = icmp ult i64 %1, %174
   %176 = icmp uge i32 %134, %.0111169
   %or.cond11.i = or i1 %175, %176
   br i1 %or.cond11.i, label %COVER_checkParameters.exit.thread, label %COVER_checkParameters.exit

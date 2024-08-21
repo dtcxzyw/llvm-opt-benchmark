@@ -39,7 +39,7 @@ entry:
   %1 = and i8 %0, 7
   %narrow = sub nuw nsw i8 14, %1
   %conv2 = zext nneg i8 %narrow to i64
-  %cmp = icmp ugt i64 %conv2, %nlen
+  %cmp = icmp ult i64 %nlen, %conv2
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -978,7 +978,7 @@ entry:
   %2 = and i8 %1, 14
   %narrow = add nuw nsw i8 %2, 2
   %conv1 = zext nneg i8 %narrow to i64
-  %cmp.not = icmp eq i64 %conv1, %len
+  %cmp.not = icmp eq i64 %len, %conv1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

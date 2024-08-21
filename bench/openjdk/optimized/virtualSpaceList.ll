@@ -289,11 +289,11 @@ define hidden noundef zeroext i1 @_ZNK9metaspace16VirtualSpaceList8containsEPKP1
   %.08 = phi ptr [ %13, %12 ], [ %4, %2 ]
   %5 = getelementptr inbounds i8, ptr %.08, i64 72
   %6 = load ptr, ptr %5, align 8
-  %.not.i = icmp ule ptr %6, %1
+  %.not.i = icmp uge ptr %1, %6
   %7 = getelementptr inbounds i8, ptr %.08, i64 88
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %6, i64 %8
-  %10 = icmp ugt ptr %9, %1
+  %10 = icmp ult ptr %1, %9
   %11 = select i1 %.not.i, i1 %10, i1 false
   br i1 %11, label %._crit_edge, label %12
 

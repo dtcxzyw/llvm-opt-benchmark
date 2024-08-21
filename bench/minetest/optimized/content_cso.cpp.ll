@@ -826,7 +826,7 @@ define linkonce_odr dso_local void @_ZN12SmokePuffCSO4stepEf(ptr noundef nonnull
 entry:
   %m_age = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_age, align 4, !tbaa !17
-  %add = fadd nsz float %0, %dtime
+  %add = fadd nsz float %dtime, %0
   store float %add, ptr %m_age, align 4, !tbaa !17
   %cmp = fcmp nsz ogt float %add, 1.000000e+00
   br i1 %cmp, label %if.then, label %if.end

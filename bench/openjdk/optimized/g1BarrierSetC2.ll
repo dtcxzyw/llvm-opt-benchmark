@@ -922,7 +922,7 @@ define hidden void @_ZNK14G1BarrierSetC212post_barrierEP8GraphKitP4NodeS3_S3_S3_
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef ptr @_ZN8GraphKit21just_allocated_objectEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %1, ptr noundef %36) #6
-  %38 = icmp eq ptr %37, %4
+  %38 = icmp eq ptr %4, %37
   br i1 %38, label %359, label %39
 
 39:                                               ; preds = %31, %29

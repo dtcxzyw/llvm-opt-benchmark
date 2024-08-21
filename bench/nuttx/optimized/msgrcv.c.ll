@@ -29,7 +29,7 @@ define range(i64 -1, 2147483648) i64 @msgrcv(i32 noundef %0, ptr noundef writeon
   %13 = getelementptr inbounds i8, ptr %10, i64 64
   %14 = load i16, ptr %13, align 8
   %15 = zext i16 %14 to i64
-  %16 = icmp ugt i64 %15, %2
+  %16 = icmp ult i64 %2, %15
   %17 = and i32 %4, 4096
   %18 = icmp eq i32 %17, 0
   %or.cond = and i1 %18, %16
@@ -265,7 +265,7 @@ msgrcv_wait.exit.thread50:                        ; preds = %.lr.ph.split.split.
   %105 = getelementptr inbounds i8, ptr %.247.i, i64 16
   %106 = load i16, ptr %105, align 8
   %107 = zext i16 %106 to i64
-  %. = call i64 @llvm.umin.i64(i64 %107, i64 %2)
+  %. = call i64 @llvm.umin.i64(i64 %2, i64 %107)
   %108 = trunc nuw nsw i64 %. to i32
   %109 = getelementptr inbounds i8, ptr %.247.i, i64 24
   %110 = load i64, ptr %109, align 8

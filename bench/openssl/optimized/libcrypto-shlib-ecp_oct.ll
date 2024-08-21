@@ -353,7 +353,7 @@ if.end11:                                         ; preds = %if.end
   br i1 %cmp17.not, label %if.end111, label %if.then19
 
 if.then19:                                        ; preds = %if.end11
-  %cmp20 = icmp ugt i64 %cond, %len
+  %cmp20 = icmp ult i64 %len, %cond
   br i1 %cmp20, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.then19
@@ -397,7 +397,7 @@ land.lhs.true47:                                  ; preds = %if.end42, %if.end42
   %call48 = tail call i32 @BN_is_odd(ptr noundef nonnull %call34) #3
   %tobool49.not = icmp ne i32 %call48, 0
   %add51 = zext i1 %tobool49.not to i32
-  %spec.select = or disjoint i32 %add51, %form
+  %spec.select = or disjoint i32 %form, %add51
   br label %if.end56
 
 if.end56:                                         ; preds = %land.lhs.true47, %if.end42
@@ -583,7 +583,7 @@ if.end28:                                         ; preds = %if.end20
   %mul = shl nsw i64 %conv30, 1
   %add34 = or disjoint i64 %mul, 1
   %cond = select i1 %cmp31, i64 %add33, i64 %add34
-  %cmp35.not = icmp eq i64 %cond, %len
+  %cmp35.not = icmp eq i64 %len, %cond
   br i1 %cmp35.not, label %if.end38, label %if.then37
 
 if.then37:                                        ; preds = %if.end28

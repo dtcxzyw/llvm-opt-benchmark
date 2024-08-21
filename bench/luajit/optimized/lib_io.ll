@@ -735,7 +735,7 @@ entry:
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 3
   %conv = trunc i64 %sub.ptr.div to i32
   tail call void @clearerr(ptr noundef %iof.0.val) #10
-  %cmp = icmp eq i32 %conv, %start
+  %cmp = icmp eq i32 %start, %conv
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry

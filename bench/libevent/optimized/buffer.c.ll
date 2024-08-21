@@ -1324,7 +1324,7 @@ if.end6:                                          ; preds = %do.end3
   %total_len = getelementptr inbounds i8, ptr %buf, i64 24
   %3 = load i64, ptr %total_len, align 8
   %sub = xor i64 %3, -1
-  %cmp = icmp ult i64 %sub, %datlen
+  %cmp = icmp ugt i64 %datlen, %sub
   br i1 %cmp, label %do.body87, label %if.end8
 
 if.end8:                                          ; preds = %if.end6
@@ -1385,7 +1385,7 @@ land.lhs.true:                                    ; preds = %if.else35
   %sub.i = sub i64 %8, %10
   %cmp.not.i = icmp ult i64 %sub.i, %datlen
   %div5.i = lshr i64 %8, 1
-  %cmp3.i = icmp ule i64 %div5.i, %10
+  %cmp3.i = icmp uge i64 %10, %div5.i
   %or.cond.i.not86 = or i1 %cmp3.i, %cmp.not.i
   %cmp5.i = icmp ugt i64 %10, 2048
   %narrow.i.not = or i1 %cmp5.i, %or.cond.i.not86
@@ -1411,7 +1411,7 @@ if.end54:                                         ; preds = %if.end19, %land.lhs
   %cmp56 = icmp ult i64 %8, 2049
   %shl = zext i1 %cmp56 to i64
   %spec.select = shl nuw nsw i64 %8, %shl
-  %to_alloc.1 = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 %datlen)
+  %to_alloc.1 = tail call i64 @llvm.umax.i64(i64 %datlen, i64 %spec.select)
   %cmp.i = icmp ugt i64 %to_alloc.1, 9223372036854775759
   br i1 %cmp.i, label %do.body87, label %if.end.i
 
@@ -1800,7 +1800,7 @@ if.end33:                                         ; preds = %if.end29
   %sub.i = sub i64 %8, %10
   %cmp.not.i = icmp ult i64 %sub.i, %datlen
   %div5.i = lshr i64 %8, 1
-  %cmp3.i = icmp ule i64 %div5.i, %10
+  %cmp3.i = icmp uge i64 %10, %div5.i
   %or.cond.i.not60 = or i1 %cmp3.i, %cmp.not.i
   %cmp5.i = icmp ugt i64 %10, 2048
   %narrow.i.not = or i1 %cmp5.i, %or.cond.i.not60
@@ -1822,7 +1822,7 @@ if.end36:                                         ; preds = %if.end33
 lor.lhs.false51:                                  ; preds = %if.end36
   %cmp53 = icmp ult i64 %10, 4097
   %sub56 = sub nuw nsw i64 9223372036854775807, %10
-  %cmp57.not = icmp ugt i64 %sub56, %datlen
+  %cmp57.not = icmp ult i64 %datlen, %sub56
   %or.cond = select i1 %cmp53, i1 %cmp57.not, i1 false
   br i1 %or.cond, label %if.else81, label %if.then58
 
@@ -3142,7 +3142,7 @@ if.end5:                                          ; preds = %do.end3
   br i1 %tobool6.not, label %if.end8, label %do.body58
 
 if.end8:                                          ; preds = %if.end5
-  %cmp9.not = icmp ugt i64 %2, %len
+  %cmp9.not = icmp ult i64 %len, %2
   br i1 %cmp9.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end8
@@ -3178,7 +3178,7 @@ for.end:                                          ; preds = %for.body, %if.then1
   br label %if.end55
 
 if.else:                                          ; preds = %HAS_PINNED_R.exit, %if.end8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %len)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %len, i64 %2)
   %sub = sub i64 %2, %spec.select
   store i64 %sub, ptr %total_len, align 8
   %9 = load ptr, ptr %buf, align 8
@@ -3301,7 +3301,7 @@ if.then.i:                                        ; preds = %do.end3
 do.end3.i:                                        ; preds = %entry, %if.then.i, %do.end3
   %total_len19.i = getelementptr inbounds i8, ptr %buf, i64 24
   %3 = load i64, ptr %total_len19.i, align 8
-  %spec.select40.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %datlen)
+  %spec.select40.i = tail call i64 @llvm.umin.i64(i64 %datlen, i64 %3)
   %cmp25.i = icmp eq i64 %spec.select40.i, 0
   br i1 %cmp25.i, label %do.body53.i, label %if.end27.i
 
@@ -3395,7 +3395,7 @@ do.end3:                                          ; preds = %if.then, %entry
 if.then5:                                         ; preds = %do.end3
   %2 = load i64, ptr %pos, align 8
   %sub = sub nsw i64 9223372036854775807, %2
-  %cmp = icmp ult i64 %sub, %datlen
+  %cmp = icmp ugt i64 %datlen, %sub
   br i1 %cmp, label %do.body53, label %if.end8
 
 if.end8:                                          ; preds = %if.then5
@@ -3413,7 +3413,7 @@ if.end8:                                          ; preds = %if.then5
 if.else:                                          ; preds = %do.end3
   %total_len19 = getelementptr inbounds i8, ptr %buf, i64 24
   %5 = load i64, ptr %total_len19, align 8
-  %spec.select40 = tail call i64 @llvm.umin.i64(i64 %5, i64 %datlen)
+  %spec.select40 = tail call i64 @llvm.umin.i64(i64 %datlen, i64 %5)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %if.end8
@@ -3490,7 +3490,7 @@ if.then.i:                                        ; preds = %entry
 do.end3.i:                                        ; preds = %if.then.i, %entry
   %total_len19.i = getelementptr inbounds i8, ptr %buf, i64 24
   %2 = load i64, ptr %total_len19.i, align 8
-  %spec.select40.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %datlen)
+  %spec.select40.i = tail call i64 @llvm.umin.i64(i64 %datlen, i64 %2)
   %cmp25.i = icmp eq i64 %spec.select40.i, 0
   br i1 %cmp25.i, label %do.body53.i, label %if.end27.i
 
@@ -3602,7 +3602,7 @@ lor.lhs.false27:                                  ; preds = %if.end25
 if.end34:                                         ; preds = %lor.lhs.false27
   %total_len = getelementptr inbounds i8, ptr %src, i64 24
   %8 = load i64, ptr %total_len, align 8
-  %cmp35.not = icmp ugt i64 %8, %datlen
+  %cmp35.not = icmp ult i64 %datlen, %8
   br i1 %cmp35.not, label %while.cond.preheader, label %if.then36
 
 while.cond.preheader:                             ; preds = %if.end34
@@ -4834,7 +4834,7 @@ if.end8:                                          ; preds = %if.end5
   %total_len = getelementptr inbounds i8, ptr %buf, i64 24
   %3 = load i64, ptr %total_len, align 8
   %sub = xor i64 %3, -1
-  %cmp9 = icmp ult i64 %sub, %datlen
+  %cmp9 = icmp ugt i64 %datlen, %sub
   br i1 %cmp9, label %do.body88, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
@@ -5083,7 +5083,7 @@ if.end6:                                          ; preds = %do.end3
   %4 = select i1 %cmp, i1 true, i1 %cmp8
   %n.0 = select i1 %4, i32 %.pre50, i32 %3
   %cmp14 = icmp slt i32 %howmuch, 0
-  %5 = call i32 @llvm.smin.i32(i32 %n.0, i32 %howmuch)
+  %5 = call i32 @llvm.smin.i32(i32 %howmuch, i32 %n.0)
   %howmuch.addr.0 = select i1 %cmp14, i32 %n.0, i32 %5
   %conv21 = sext i32 %howmuch.addr.0 to i64
   %call22 = call i32 @evbuffer_expand_fast_(ptr noundef nonnull %buf, i64 noundef %conv21, i32 noundef 4)
@@ -5296,7 +5296,7 @@ if.end6:                                          ; preds = %do.end3
   %cmp = icmp slt i64 %howmuch, 0
   %total_len9.phi.trans.insert = getelementptr inbounds i8, ptr %buffer, i64 24
   %.pre = load i64, ptr %total_len9.phi.trans.insert, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.pre, i64 %howmuch)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %howmuch, i64 %.pre)
   %howmuch.addr.0 = select i1 %cmp, i64 %.pre, i64 %spec.select
   %cmp11 = icmp sgt i64 %howmuch.addr.0, 0
   br i1 %cmp11, label %if.then12, label %do.body25
@@ -6302,7 +6302,7 @@ if.end8:                                          ; preds = %if.end7, %if.end
   %cmp11 = icmp slt i64 %length.addr.0, 0
   %or.cond1 = select i1 %cmp10, i1 true, i1 %cmp11
   %sub = sub nuw nsw i64 9223372036854775807, %length.addr.0
-  %cmp15 = icmp ult i64 %sub, %offset
+  %cmp15 = icmp ugt i64 %offset, %sub
   %or.cond = select i1 %or.cond1, i1 true, i1 %cmp15
   br i1 %or.cond, label %err, label %if.end17
 
@@ -6714,7 +6714,7 @@ if.end46:                                         ; preds = %do.end43
   br i1 %cmp47, label %if.then48, label %if.end54
 
 if.then48:                                        ; preds = %if.end46
-  %cmp50 = icmp slt i64 %11, %offset
+  %cmp50 = icmp sgt i64 %offset, %11
   br i1 %cmp50, label %do.body121, label %if.end52
 
 if.end52:                                         ; preds = %if.then48
@@ -6944,7 +6944,7 @@ if.end8.i:                                        ; preds = %if.end7.i, %if.end.
   %cmp11.i = icmp slt i64 %length.addr.0.i, 0
   %or.cond1.i = select i1 %cmp10.i, i1 true, i1 %cmp11.i
   %sub.i = sub nuw nsw i64 9223372036854775807, %length.addr.0.i
-  %cmp15.i = icmp ult i64 %sub.i, %offset
+  %cmp15.i = icmp ugt i64 %offset, %sub.i
   %or.cond.i = select i1 %or.cond1.i, i1 true, i1 %cmp15.i
   br i1 %or.cond.i, label %err.i, label %if.end17.i
 
@@ -7222,13 +7222,13 @@ for.body:                                         ; preds = %do.end3, %for.inc
   %cbent.014 = phi ptr [ %cbent.0, %for.inc ], [ %cbent.012, %do.end3 ]
   %cb4 = getelementptr inbounds i8, ptr %cbent.014, i64 16
   %2 = load ptr, ptr %cb4, align 8
-  %cmp5 = icmp eq ptr %2, %cb
+  %cmp5 = icmp eq ptr %cb, %2
   br i1 %cmp5, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
   %cbarg6 = getelementptr inbounds i8, ptr %cbent.014, i64 24
   %3 = load ptr, ptr %cbarg6, align 8
-  %cmp7 = icmp eq ptr %3, %cbarg
+  %cmp7 = icmp eq ptr %cbarg, %3
   br i1 %cmp7, label %if.then8, label %for.inc
 
 if.then8:                                         ; preds = %land.lhs.true

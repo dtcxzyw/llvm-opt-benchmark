@@ -4230,7 +4230,7 @@ define internal fastcc noundef nonnull ptr @spl_object_storage_new_ex(ptr nounde
   br i1 %16, label %17, label %60
 
 17:                                               ; preds = %15
-  %.not53 = icmp eq ptr %14, %0
+  %.not53 = icmp eq ptr %0, %14
   br i1 %.not53, label %.loopexit, label %18
 
 18:                                               ; preds = %17

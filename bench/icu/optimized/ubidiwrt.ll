@@ -41,7 +41,7 @@ land.lhs.true12:                                  ; preds = %if.end10
   %cmp13.not = icmp uge ptr %src, %dest
   %idx.ext = zext nneg i32 %destSize to i64
   %add.ptr = getelementptr inbounds i16, ptr %dest, i64 %idx.ext
-  %cmp15 = icmp ugt ptr %add.ptr, %src
+  %cmp15 = icmp ult ptr %src, %add.ptr
   %or.cond29 = select i1 %cmp13.not, i1 %cmp15, i1 false
   br i1 %or.cond29, label %if.then22, label %lor.lhs.false16
 
@@ -49,7 +49,7 @@ lor.lhs.false16:                                  ; preds = %land.lhs.true12
   %cmp17.not = icmp uge ptr %dest, %src
   %idx.ext19 = sext i32 %srcLength to i64
   %add.ptr20 = getelementptr inbounds i16, ptr %src, i64 %idx.ext19
-  %cmp21 = icmp ugt ptr %add.ptr20, %dest
+  %cmp21 = icmp ult ptr %dest, %add.ptr20
   %or.cond30 = select i1 %cmp17.not, i1 %cmp21, i1 false
   br i1 %or.cond30, label %if.then22, label %if.end23
 
@@ -264,7 +264,7 @@ do.end92:                                         ; preds = %do.body74
 if.end93:                                         ; preds = %sw.default, %do.end92
   %i.0 = phi i32 [ %i.2, %do.end92 ], [ %srcLength, %sw.default ]
   %src.addr.0 = phi ptr [ %add.ptr, %do.end92 ], [ %src, %sw.default ]
-  %cmp94 = icmp sgt i32 %i.0, %destSize
+  %cmp94 = icmp slt i32 %destSize, %i.0
   br i1 %cmp94, label %return.sink.split, label %do.body97.preheader
 
 do.body97.preheader:                              ; preds = %if.end93
@@ -495,7 +495,7 @@ land.lhs.true16:                                  ; preds = %if.end14
   br i1 %or.cond, label %if.then26, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %land.lhs.true16
-  %cmp21.not = icmp ugt ptr %1, %dest
+  %cmp21.not = icmp ult ptr %dest, %1
   br i1 %cmp21.not, label %if.end27, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %lor.lhs.false20
@@ -503,7 +503,7 @@ land.lhs.true22:                                  ; preds = %lor.lhs.false20
   %4 = load i32, ptr %originalLength, align 8
   %idx.ext23 = sext i32 %4 to i64
   %add.ptr24 = getelementptr inbounds i16, ptr %1, i64 %idx.ext23
-  %cmp25 = icmp ugt ptr %add.ptr24, %dest
+  %cmp25 = icmp ult ptr %dest, %add.ptr24
   br i1 %cmp25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %land.lhs.true16, %land.lhs.true22

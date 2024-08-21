@@ -371,7 +371,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !22, !noalias !27, !noundef !9
   %45 = load i64, ptr %0, align 8, !alias.scope !29, !noalias !27, !noundef !9
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17heef94b749dba1c83E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
@@ -428,7 +428,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %5 = load i64, ptr %4, align 8, !alias.scope !35, !noalias !40, !noundef !9
   %6 = load i64, ptr %0, align 8, !alias.scope !42, !noalias !40, !noundef !9
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17heef94b749dba1c83E.exit"
 
 9:                                                ; preds = %3
@@ -572,7 +572,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h3c09248155375defE(ptr noa
   %.val = load ptr, ptr %44, align 8, !nonnull !9, !noundef !9
   %45 = getelementptr i8, ptr %1, i64 16
   %.val71 = load i64, ptr %45, align 8, !noundef !9
-  %46 = icmp ult i64 %40, %.val71
+  %46 = icmp ugt i64 %.val71, %40
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %38
@@ -816,7 +816,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h3c09248155375defE(ptr noa
   %.val.i173 = load ptr, ptr %117, align 8, !noalias !166, !nonnull !9, !noundef !9
   %118 = getelementptr i8, ptr %.sroa.0247.0336, i64 16
   %.val3.i174 = load i64, ptr %118, align 8, !noalias !166, !noundef !9
-  %.not.i.i178 = icmp ult i64 %.sroa.27.0338, %4
+  %.not.i.i178 = icmp ugt i64 %4, %.sroa.27.0338
   br i1 %.not.i.i178, label %119, label %120
 
 119:                                              ; preds = %.lr.ph339

@@ -980,7 +980,7 @@ boxes_append.exit:                                ; preds = %._crit_edge.i.i, %8
   %116 = getelementptr inbounds %struct.trap_t, ptr %114, i64 %115
   %117 = load i32, ptr %116, align 8
   %118 = load i32, ptr %30, align 8
-  %119 = icmp eq i32 %111, %.tr820825
+  %119 = icmp eq i32 %.tr820825, %111
   br i1 %119, label %120, label %124
 
 120:                                              ; preds = %113
@@ -1041,7 +1041,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   %149 = zext nneg i32 %99 to i64
   %150 = getelementptr inbounds %struct.trap_t, ptr %148, i64 %149, i32 1
   %151 = load i32, ptr %150, align 4
-  %152 = icmp eq i32 %143, %.tr820825
+  %152 = icmp eq i32 %.tr820825, %143
   br i1 %152, label %153, label %156
 
 153:                                              ; preds = %145
@@ -1516,8 +1516,8 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @make_new_monoton
   %24 = fsub double %.val39.i, %.val37.i
   %25 = fsub double %.val40.i, %.val.i
   %26 = fsub double %.val41.i, %.val37.i
-  %27 = fneg double %25
-  %28 = fmul double %24, %27
+  %27 = fneg double %24
+  %28 = fmul double %25, %27
   %29 = tail call double @llvm.fmuladd.f64(double %23, double %26, double %28)
   %30 = fcmp ult double %29, 0.000000e+00
   %31 = fmul double %24, %26
@@ -1584,8 +1584,8 @@ get_angle.exit.i:                                 ; preds = %38, %33
   %61 = fsub double %.val45.i, %.val43.i
   %62 = fsub double %.val46.i, %.val42.i
   %63 = fsub double %.val47.i, %.val43.i
-  %64 = fneg double %62
-  %65 = fmul double %61, %64
+  %64 = fneg double %61
+  %65 = fmul double %62, %64
   %66 = tail call double @llvm.fmuladd.f64(double %60, double %63, double %65)
   %67 = fcmp ult double %66, 0.000000e+00
   %68 = fmul double %61, %63

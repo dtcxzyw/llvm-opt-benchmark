@@ -62,7 +62,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %arrayidx6.i = phi ptr [ @ecc_sets, %entry ], [ %arrayidx.i, %for.inc.i ]
   %id.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 4
   %0 = load i32, ptr %id.i, align 4
-  %cmp3.i = icmp eq i32 %0, %curve_id
+  %cmp3.i = icmp eq i32 %curve_id, %0
   br i1 %cmp3.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -93,7 +93,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %arrayidx6 = phi ptr [ @ecc_sets, %entry ], [ %arrayidx, %for.inc ]
   %id = getelementptr inbounds i8, ptr %arrayidx6, i64 4
   %0 = load i32, ptr %id, align 4
-  %cmp3 = icmp eq i32 %0, %curve_id
+  %cmp3 = icmp eq i32 %curve_id, %0
   br i1 %cmp3, label %for.end.split.loop.exit, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -145,7 +145,7 @@ for.body.us:                                      ; preds = %if.then7, %for.inc.
   %arrayidx19.us = phi ptr [ %arrayidx.us, %for.inc.us ], [ @ecc_sets, %if.then7 ]
   %id.us = getelementptr inbounds i8, ptr %arrayidx19.us, i64 4
   %1 = load i32, ptr %id.us, align 4
-  %cmp14.us = icmp eq i32 %1, %curve_id
+  %cmp14.us = icmp eq i32 %curve_id, %1
   br i1 %cmp14.us, label %if.end29.loopexit, label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body.us
@@ -162,7 +162,7 @@ for.body:                                         ; preds = %for.inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %indvars.iv.next
   %2 = load i32, ptr %arrayidx, align 8
-  %cmp20.not = icmp slt i32 %2, %keysize
+  %cmp20.not = icmp sgt i32 %keysize, %2
   br i1 %cmp20.not, label %for.inc, label %if.end29.loopexit27, !llvm.loop !6
 
 for.inc:                                          ; preds = %if.then7.split, %for.body
@@ -1918,7 +1918,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %arrayidx6.i = phi ptr [ @ecc_sets, %entry ], [ %arrayidx.i, %for.inc.i ]
   %id.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 4
   %0 = load i32, ptr %id.i, align 4
-  %cmp3.i = icmp eq i32 %0, %curve_id
+  %cmp3.i = icmp eq i32 %curve_id, %0
   br i1 %cmp3.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -2121,7 +2121,7 @@ land.lhs.true43:                                  ; preds = %land.lhs.true37
 land.lhs.true49:                                  ; preds = %land.lhs.true43
   %cofactor52 = getelementptr inbounds i8, ptr %arrayidx24, i64 80
   %7 = load i32, ptr %cofactor52, align 8
-  %cmp53 = icmp eq i32 %7, %cofactor
+  %cmp53 = icmp eq i32 %cofactor, %7
   br i1 %cmp53, label %if.end62, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true49, %land.lhs.true43, %land.lhs.true37, %land.lhs.true31, %land.lhs.true25, %land.lhs.true, %if.then15
@@ -2679,7 +2679,7 @@ if.end6:                                          ; preds = %if.end, %if.end.if.
   store ptr %dp, ptr %0, align 8
   %load_mask8 = getelementptr inbounds i8, ptr %0, i64 64
   %not = xor i8 %2, -1
-  %and35 = and i8 %not, %load_mask
+  %and35 = and i8 %load_mask, %not
   %conv13 = zext nneg i8 %and35 to i32
   %or36 = or i8 %2, %load_mask
   store i8 %or36, ptr %load_mask8, align 8
@@ -3397,7 +3397,7 @@ for.body.us.i:                                    ; preds = %if.then7.i, %for.in
   %arrayidx19.us.i = phi ptr [ %arrayidx.us.i, %for.inc.us.i ], [ @ecc_sets, %if.then7.i ]
   %id.us.i = getelementptr inbounds i8, ptr %arrayidx19.us.i, i64 4
   %1 = load i32, ptr %id.us.i, align 4
-  %cmp14.us.i = icmp eq i32 %1, %curve_id
+  %cmp14.us.i = icmp eq i32 %curve_id, %1
   br i1 %cmp14.us.i, label %if.end29.loopexit.i, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
@@ -3414,7 +3414,7 @@ for.body.i:                                       ; preds = %for.inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %indvars.iv.next.i
   %2 = load i32, ptr %arrayidx.i, align 8
-  %cmp20.not.i = icmp slt i32 %2, %keysize
+  %cmp20.not.i = icmp sgt i32 %keysize, %2
   br i1 %cmp20.not.i, label %for.inc.i, label %if.end29.loopexit27.i, !llvm.loop !6
 
 for.inc.i:                                        ; preds = %if.then7.split.i, %for.body.i
@@ -6260,7 +6260,7 @@ for.body.us.i:                                    ; preds = %if.then7.i, %for.in
   %arrayidx19.us.i = phi ptr [ %arrayidx.us.i, %for.inc.us.i ], [ @ecc_sets, %if.then7.i ]
   %id.us.i = getelementptr inbounds i8, ptr %arrayidx19.us.i, i64 4
   %4 = load i32, ptr %id.us.i, align 4
-  %cmp14.us.i = icmp eq i32 %4, %curve_id
+  %cmp14.us.i = icmp eq i32 %curve_id, %4
   br i1 %cmp14.us.i, label %if.end29.loopexit.i, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
@@ -6277,7 +6277,7 @@ for.body.i:                                       ; preds = %for.inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %indvars.iv.next.i
   %5 = load i32, ptr %arrayidx.i, align 8
-  %cmp20.not.i = icmp slt i32 %5, %shr
+  %cmp20.not.i = icmp sgt i32 %shr, %5
   br i1 %cmp20.not.i, label %for.inc.i, label %if.end29.loopexit27.i, !llvm.loop !6
 
 for.inc.i:                                        ; preds = %if.then7.split.i, %for.body.i
@@ -6585,7 +6585,7 @@ for.body.us.i:                                    ; preds = %if.then7.i, %for.in
   %arrayidx19.us.i = phi ptr [ %arrayidx.us.i, %for.inc.us.i ], [ @ecc_sets, %if.then7.i ]
   %id.us.i = getelementptr inbounds i8, ptr %arrayidx19.us.i, i64 4
   %1 = load i32, ptr %id.us.i, align 4
-  %cmp14.us.i = icmp eq i32 %1, %curve_id
+  %cmp14.us.i = icmp eq i32 %curve_id, %1
   br i1 %cmp14.us.i, label %if.end29.loopexit.i, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
@@ -6602,7 +6602,7 @@ for.body.i:                                       ; preds = %for.inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %indvars.iv.next.i
   %2 = load i32, ptr %arrayidx.i, align 8
-  %cmp20.not.i = icmp slt i32 %2, %privSz
+  %cmp20.not.i = icmp sgt i32 %privSz, %2
   br i1 %cmp20.not.i, label %for.inc.i, label %if.end29.loopexit27.i, !llvm.loop !6
 
 for.inc.i:                                        ; preds = %if.then7.split.i, %for.body.i
@@ -6802,7 +6802,7 @@ for.body.us.i:                                    ; preds = %if.then7.i, %for.in
   %arrayidx19.us.i = phi ptr [ %arrayidx.us.i, %for.inc.us.i ], [ @ecc_sets, %if.then7.i ]
   %id.us.i = getelementptr inbounds i8, ptr %arrayidx19.us.i, i64 4
   %1 = load i32, ptr %id.us.i, align 4
-  %cmp14.us.i = icmp eq i32 %1, %curve_id
+  %cmp14.us.i = icmp eq i32 %curve_id, %1
   br i1 %cmp14.us.i, label %if.end29.loopexit.i, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %for.body.us.i

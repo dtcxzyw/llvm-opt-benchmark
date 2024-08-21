@@ -8235,7 +8235,7 @@ if.then.i4:                                       ; preds = %_ZN5folly3f146detai
   %sh_prom.i.i = and i64 %14, 255
   %notmask.i.i = shl nsw i64 -1, %sh_prom.i.i
   %sub.i.i = xor i64 %notmask.i.i, -1
-  %and.i37.i = and i64 %sub.i.i, %hp.coerce0
+  %and.i37.i = and i64 %hp.coerce0, %sub.i.i
   %add.ptr38.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %13, i64 %and.i37.i
   %cmp839.i = icmp eq ptr %add.ptr38.i, %add.ptr1.i.i.i
   br i1 %cmp839.i, label %cleanup.thread.i, label %if.end.i5
@@ -14722,7 +14722,7 @@ _ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit: ; preds = %if.then7.i.i
   %runOnceCallbacks_ = getelementptr inbounds i8, ptr %this, i64 184
   %17 = load ptr, ptr %runOnceCallbacks_, align 8, !tbaa !157
   %cmp.not = icmp ne ptr %17, null
-  %brmerge.not = and i1 %cmp.not, %thisIteration
+  %brmerge.not = and i1 %thisIteration, %cmp.not
   %loopCallbacks_ = getelementptr inbounds i8, ptr %this, i64 88
   %prev_.i8.i.i27 = getelementptr inbounds i8, ptr %this, i64 96
   %prev_.i8.i.i = getelementptr inbounds i8, ptr %17, i64 8
@@ -15285,7 +15285,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %runOnceCallbacks_ = getelementptr inbounds i8, ptr %this, i64 184
   %15 = load ptr, ptr %runOnceCallbacks_, align 8, !tbaa !157
   %cmp.not = icmp ne ptr %15, null
-  %brmerge.not = and i1 %cmp.not, %thisIteration
+  %brmerge.not = and i1 %thisIteration, %cmp.not
   %loopCallbacks_ = getelementptr inbounds i8, ptr %this, i64 88
   %prev_.i8.i.i17 = getelementptr inbounds i8, ptr %this, i64 96
   %prev_.i8.i.i = getelementptr inbounds i8, ptr %15, i64 8

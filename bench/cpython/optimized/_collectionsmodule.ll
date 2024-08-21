@@ -2740,7 +2740,7 @@ define internal noundef ptr @deque_item(ptr nocapture noundef readonly %deque, i
 entry:
   %0 = getelementptr i8, ptr %deque, i64 16
   %deque.val = load i64, ptr %0, align 8
-  %cmp.i.not = icmp ugt i64 %deque.val, %i
+  %cmp.i.not = icmp ult i64 %i, %deque.val
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2754,7 +2754,7 @@ if.end:                                           ; preds = %entry
 
 if.else:                                          ; preds = %if.end
   %sub = add i64 %deque.val, -1
-  %cmp4 = icmp eq i64 %sub, %i
+  %cmp4 = icmp eq i64 %i, %sub
   br i1 %cmp4, label %if.end28.sink.split, label %if.else6
 
 if.else6:                                         ; preds = %if.else
@@ -2764,7 +2764,7 @@ if.else6:                                         ; preds = %if.else
   %div23 = lshr i64 %add, 6
   %rem = and i64 %add, 63
   %shr = ashr i64 %deque.val, 1
-  %cmp9 = icmp sgt i64 %shr, %i
+  %cmp9 = icmp slt i64 %i, %shr
   br i1 %cmp9, label %if.then10, label %if.else13
 
 if.then10:                                        ; preds = %if.else6
@@ -2833,7 +2833,7 @@ entry:
   %deque.val = load i64, ptr %0, align 8
   %add = add i64 %deque.val, 1
   %shr = ashr i64 %add, 1
-  %cmp.i25.not = icmp ugt i64 %deque.val, %i
+  %cmp.i25.not = icmp ult i64 %i, %deque.val
   br i1 %cmp.i25.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2855,7 +2855,7 @@ if.end4:                                          ; preds = %if.end
   %add5 = add i64 %2, %i
   %div22 = lshr i64 %add5, 6
   %rem = and i64 %add5, 63
-  %cmp6.not = icmp slt i64 %shr, %i
+  %cmp6.not = icmp sgt i64 %i, %shr
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
@@ -3753,7 +3753,7 @@ if.end6:                                          ; preds = %entry.if.end6_crit_
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %inc
   store ptr %item, ptr %arrayidx, align 8
   %deque.val = load i64, ptr %6, align 8
-  %cmp12 = icmp ugt i64 %deque.val, %maxlen
+  %cmp12 = icmp ult i64 %maxlen, %deque.val
   br i1 %cmp12, label %if.end.i23, label %if.else
 
 if.end.i23:                                       ; preds = %if.end6
@@ -5243,9 +5243,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp5 = icmp slt i64 %shr, %n
+  %cmp5 = icmp sgt i64 %n, %shr
   %sub = sub nsw i64 0, %shr
-  %cmp6 = icmp sgt i64 %sub, %n
+  %cmp6 = icmp slt i64 %n, %sub
   %or.cond = select i1 %cmp5, i1 true, i1 %cmp6
   br i1 %or.cond, label %if.then7, label %if.end16
 
@@ -7106,7 +7106,7 @@ entry:
   %type.val.val = load ptr, ptr %1, align 8
   %tuplegetter_type = getelementptr inbounds i8, ptr %type.val.val, i64 32
   %2 = load ptr, ptr %tuplegetter_type, align 8
-  %cmp = icmp eq ptr %2, %type
+  %cmp = icmp eq ptr %type, %2
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry

@@ -1192,7 +1192,7 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i.i, ptr %len.i.i.i, align 8
   %127 = load i64, ptr %name.i.i91, align 8
   %spec.select.i.i.i.i = call i64 @llvm.usub.sat.i64(i64 %127, i64 1)
-  %cmp.i4.i.i.i = icmp ult i64 %spec.select.i.i.i.i, %sub.i.i.i.i
+  %cmp.i4.i.i.i = icmp ugt i64 %sub.i.i.i.i, %spec.select.i.i.i.i
   br i1 %cmp.i4.i.i.i, label %if.then.i.i.i.i, label %if.end.i5.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i

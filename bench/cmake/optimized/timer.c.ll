@@ -298,7 +298,7 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #
 
 28:                                               ; preds = %._crit_edge.i
   %29 = load ptr, ptr %10, align 8
-  %30 = icmp eq ptr %29, %11
+  %30 = icmp eq ptr %11, %29
   br i1 %30, label %31, label %heap_remove.exit
 
 31:                                               ; preds = %28

@@ -2159,7 +2159,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnu
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -2242,7 +2242,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -2394,7 +2394,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -2477,7 +2477,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -3013,7 +3013,7 @@ define hidden void @_ZN2cv9BitStream8patchIntEjm(ptr noundef nonnull align 8 der
   %10 = alloca [4 x i8], align 1
   %11 = getelementptr inbounds i8, ptr %0, i64 560
   %12 = load i64, ptr %11, align 8
-  %.not = icmp ugt i64 %12, %2
+  %.not = icmp ult i64 %2, %12
   br i1 %.not, label %56, label %13
 
 13:                                               ; preds = %3
@@ -3280,7 +3280,7 @@ define hidden void @_ZN2cv9BitStream6jflushEji(ptr noundef nonnull align 8 deref
 .lr.ph.preheader:                                 ; preds = %3
   %notmask = shl nsw i32 -1, %2
   %7 = xor i32 %notmask, -1
-  %8 = or i32 %7, %1
+  %8 = or i32 %1, %7
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
@@ -7886,7 +7886,7 @@ define void @_ZN2cv17AVIWriteContainer12jflushStreamEji(ptr nocapture noundef no
 .lr.ph.preheader.i:                               ; preds = %3
   %notmask.i = shl nsw i32 -1, %2
   %8 = xor i32 %notmask.i, -1
-  %9 = or i32 %8, %1
+  %9 = or i32 %1, %8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
@@ -7981,7 +7981,7 @@ _ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds = %.l
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #23
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseISt4pairImjESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i

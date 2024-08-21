@@ -125,7 +125,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store i64 %call3, ptr %size_.i.i.i, align 8, !noalias !4
   %7 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !4
   %8 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !4
-  %cmp.not.i9.i = icmp ult i64 %8, %call3
+  %cmp.not.i9.i = icmp ugt i64 %call3, %8
   br i1 %cmp.not.i9.i, label %if.then.i12.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIcEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
 
 if.then.i12.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
@@ -321,7 +321,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %capacity_, align 8
-  %cmp.not = icmp ult i64 %1, %size
+  %cmp.not = icmp ugt i64 %size, %1
   br i1 %cmp.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end

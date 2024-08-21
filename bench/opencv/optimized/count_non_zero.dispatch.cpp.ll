@@ -711,7 +711,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit105.thread:   ; preds = %38
   %105 = ashr exact i64 %104, 3
   %106 = zext nneg i32 %.289 to i64
   %107 = add nsw i64 %105, %106
-  %108 = icmp ult i64 %105, %107
+  %108 = icmp ugt i64 %107, %105
   br i1 %108, label %109, label %132
 
 109:                                              ; preds = %101
@@ -784,7 +784,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br label %.lr.ph164
 
 132:                                              ; preds = %101
-  %133 = icmp ugt i64 %105, %107
+  %133 = icmp ult i64 %107, %105
   %134 = getelementptr inbounds %"class.cv::Point_", ptr %.sroa.0108.0167, i64 %107
   %spec.select = select i1 %133, ptr %134, ptr %.sroa.12.0166
   br label %.lr.ph164

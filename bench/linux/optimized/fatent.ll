@@ -2048,7 +2048,7 @@ define internal noundef range(i32 -5, 1) i32 @fat_ent_bread(ptr noundef %0, ptr 
   %9 = getelementptr inbounds i8, ptr %6, i64 10
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i64
-  %12 = icmp ugt i64 %11, %3
+  %12 = icmp ult i64 %3, %11
   br i1 %12, label %13, label %14, !prof !13
 
 13:                                               ; preds = %4
@@ -2385,7 +2385,7 @@ define internal noundef range(i32 -5, 1) i32 @fat12_ent_bread(ptr noundef %0, pt
   %8 = getelementptr inbounds i8, ptr %7, i64 10
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
-  %11 = icmp ugt i64 %10, %3
+  %11 = icmp ult i64 %3, %10
   br i1 %11, label %12, label %13, !prof !13
 
 12:                                               ; preds = %4

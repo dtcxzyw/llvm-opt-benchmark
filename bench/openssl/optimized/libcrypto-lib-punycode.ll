@@ -24,7 +24,7 @@ for.body:                                         ; preds = %entry, %for.body
   %spec.select = select i1 %cmp3, i32 %loop.076, i32 %basic_count.075
   %inc = add i32 %loop.076, 1
   %conv = zext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %enc_len
+  %cmp = icmp ugt i64 %enc_len, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
@@ -62,7 +62,7 @@ if.end33:                                         ; preds = %entry, %for.end31, 
   %processed_in.0 = phi i32 [ %add, %for.end31 ], [ 0, %for.end ], [ 0, %entry ]
   %written_out.0 = phi i64 [ %wide.trip.count, %for.end31 ], [ 0, %for.end ], [ 0, %entry ]
   %conv3687 = zext i32 %processed_in.0 to i64
-  %cmp3788 = icmp ult i64 %conv3687, %enc_len
+  %cmp3788 = icmp ugt i64 %enc_len, %conv3687
   br i1 %cmp3788, label %for.cond40.preheader.lr.ph, label %if.end33.for.end123_crit_edge
 
 if.end33.for.end123_crit_edge:                    ; preds = %if.end33
@@ -80,7 +80,7 @@ for.cond40.preheader:                             ; preds = %for.cond40.preheade
   %bias.090 = phi i32 [ 72, %for.cond40.preheader.lr.ph ], [ %add7.i, %if.end112 ]
   %written_out.289 = phi i64 [ %written_out.0, %for.cond40.preheader.lr.ph ], [ %add85, %if.end112 ]
   %conv4180 = zext i32 %loop.291 to i64
-  %cmp42.not81 = icmp ult i64 %conv4180, %enc_len
+  %cmp42.not81 = icmp ugt i64 %enc_len, %conv4180
   br i1 %cmp42.not81, label %if.end45.lr.ph, label %return
 
 if.end45.lr.ph:                                   ; preds = %for.cond40.preheader
@@ -152,7 +152,7 @@ if.end78:                                         ; preds = %if.end72
   %mul80 = mul i32 %sub73, %w.084
   %add82 = add i32 %k.085, 36
   %conv41 = zext i32 %inc49 to i64
-  %cmp42.not = icmp ult i64 %conv41, %enc_len
+  %cmp42.not = icmp ugt i64 %enc_len, %conv41
   br i1 %cmp42.not, label %if.end45, label %return
 
 for.end83:                                        ; preds = %if.end57
@@ -216,7 +216,7 @@ if.end112:                                        ; preds = %adapt.exit
   store i32 %conv104, ptr %add.ptr, align 4
   %inc121 = add nuw i32 %rem68, 1
   %conv36 = zext i32 %inc49 to i64
-  %cmp37 = icmp ult i64 %conv36, %enc_len
+  %cmp37 = icmp ugt i64 %enc_len, %conv36
   br i1 %cmp37, label %for.cond40.preheader, label %for.end123, !llvm.loop !8
 
 for.end123:                                       ; preds = %if.end112, %if.end33.for.end123_crit_edge

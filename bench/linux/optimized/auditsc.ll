@@ -419,7 +419,7 @@ define dso_local void @__audit_free(ptr noundef %0) local_unnamed_addr #0 align 
 12:                                               ; preds = %11, %7
   %13 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !16
   %14 = inttoptr i64 %13 to ptr
-  %15 = icmp eq ptr %14, %0
+  %15 = icmp eq ptr %0, %14
   br i1 %15, label %16, label %96
 
 16:                                               ; preds = %12

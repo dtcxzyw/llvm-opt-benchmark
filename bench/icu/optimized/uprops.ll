@@ -623,7 +623,7 @@ invoke.cont15:                                    ; preds = %if.then14
 invoke.cont17:                                    ; preds = %invoke.cont15
   %minNoNo.i = getelementptr inbounds i8, ptr %call16, i64 18
   %2 = load i16, ptr %minNoNo.i, align 2
-  %cmp.i33 = icmp ule i16 %2, %call18
+  %cmp.i33 = icmp uge i16 %call18, %2
   %cmp4.i = icmp ult i16 %call18, -510
   %or.cond.i.not = and i1 %cmp4.i, %cmp.i33
   %minMaybeYes.i = getelementptr inbounds i8, ptr %call16, i64 30
@@ -836,7 +836,7 @@ cond.false6:                                      ; preds = %cond.false
 cond.true8:                                       ; preds = %cond.false6
   %highStart = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %highStart, align 8
-  %cmp10.not = icmp sgt i32 %4, %c
+  %cmp10.not = icmp slt i32 %c, %4
   br i1 %cmp10.not, label %cond.false13, label %cond.true11
 
 cond.true11:                                      ; preds = %cond.true8
@@ -1011,7 +1011,7 @@ cond.false6.i:                                    ; preds = %cond.false.i
 cond.true8.i:                                     ; preds = %cond.false6.i
   %highStart.i = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i32, ptr %highStart.i, align 8
-  %cmp10.not.i = icmp sgt i32 %7, %c
+  %cmp10.not.i = icmp slt i32 %c, %7
   br i1 %cmp10.not.i, label %cond.false13.i, label %cond.true11.i
 
 cond.true11.i:                                    ; preds = %cond.true8.i
@@ -1044,7 +1044,7 @@ _ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit:    ; preds = %land.rhs, %cond.end
   %cmp.not.i = icmp ule i16 %11, %cond26.i
   %minMaybeYes.i = getelementptr inbounds i8, ptr %call, i64 30
   %12 = load i16, ptr %minMaybeYes.i, align 2
-  %cmp5.i = icmp ugt i16 %12, %cond26.i
+  %cmp5.i = icmp ult i16 %cond26.i, %12
   %narrow.i = select i1 %cmp.not.i, i1 %cmp5.i, i1 false
   %conv6.i = zext i1 %narrow.i to i8
   br label %land.end
@@ -1534,7 +1534,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %__begin1.0.idx4 = phi i64 [ %__begin1.0.add, %for.cond ], [ 0, %entry ]
   %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZL20ID_COMPAT_MATH_START, i64 %__begin1.0.idx4
   %2 = load i32, ptr %__begin1.0.ptr, align 4
-  %cmp3 = icmp eq i32 %2, %c
+  %cmp3 = icmp eq i32 %c, %2
   br i1 %cmp3, label %return, label %for.cond
 
 return:                                           ; preds = %for.cond, %for.body, %entry
@@ -1556,14 +1556,14 @@ for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZL23ID_COMPAT_MATH_CONTINUE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
-  %cmp1 = icmp sgt i32 %1, %c
+  %cmp1 = icmp slt i32 %c, %1
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
   %2 = or disjoint i64 %indvars.iv, 1
   %arrayidx3 = getelementptr inbounds [10 x i32], ptr @_ZL23ID_COMPAT_MATH_CONTINUE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx3, align 4
-  %cmp4 = icmp sgt i32 %3, %c
+  %cmp4 = icmp slt i32 %c, %3
   br i1 %cmp4, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond
@@ -1579,7 +1579,7 @@ for.body.i:                                       ; preds = %for.end, %for.cond.
   %__begin1.0.idx4.i = phi i64 [ %__begin1.0.add.i, %for.cond.i ], [ 0, %for.end ]
   %__begin1.0.ptr.i = getelementptr inbounds i8, ptr @_ZL20ID_COMPAT_MATH_START, i64 %__begin1.0.idx4.i
   %4 = load i32, ptr %__begin1.0.ptr.i, align 4
-  %cmp3.i = icmp eq i32 %4, %c
+  %cmp3.i = icmp eq i32 %c, %4
   br i1 %cmp3.i, label %return, label %for.cond.i
 
 return:                                           ; preds = %if.end, %for.body, %for.body.i, %for.cond.i, %for.end

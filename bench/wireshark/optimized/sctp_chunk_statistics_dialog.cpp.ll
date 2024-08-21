@@ -6337,7 +6337,7 @@ _ZNSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EE
 
 22:                                               ; preds = %19
   %.not.i.i.i.i = icmp ne ptr %20, null
-  %23 = icmp eq ptr %6, %21
+  %23 = icmp eq ptr %21, %6
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %23
   br i1 %or.cond.i.i.i.i, label %.thread.i.i, label %24
 
@@ -6622,7 +6622,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

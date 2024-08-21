@@ -804,7 +804,7 @@ _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.
   br i1 %66, label %_cmsMLUgetWide.exit.thread, label %67
 
 67:                                               ; preds = %65
-  %.not = icmp ult i32 %61, %4
+  %.not = icmp ugt i32 %4, %61
   %68 = add nsw i32 %4, -1
   %spec.select = select i1 %.not, i32 %61, i32 %68
   %.not41 = icmp eq i32 %spec.select, 0
@@ -968,7 +968,7 @@ _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.
 
 68:                                               ; preds = %66
   %69 = add i32 %62, 1
-  %70 = icmp ugt i32 %69, %4
+  %70 = icmp ult i32 %4, %69
   %71 = add i32 %4, -1
   %spec.select = select i1 %70, i32 %71, i32 %62
   %72 = tail call fastcc i32 @encodeUTF8(ptr noundef nonnull %3, ptr noundef nonnull %58, i32 noundef %61, i32 noundef %4)
@@ -1442,7 +1442,7 @@ define hidden range(i32 0, 2) i32 @cmsMLUtranslationsCodes(ptr noundef readonly 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
-  %.not = icmp ugt i32 %8, %1
+  %.not = icmp ult i32 %1, %8
   br i1 %.not, label %9, label %27
 
 9:                                                ; preds = %6
@@ -1851,7 +1851,7 @@ define hidden range(i32 0, 2) i32 @cmsNamedColorInfo(ptr noundef readonly %0, i3
 
 cmsNamedColorCount.exit:                          ; preds = %7
   %9 = load i32, ptr %0, align 8
-  %.not = icmp ugt i32 %9, %1
+  %.not = icmp ult i32 %1, %9
   br i1 %.not, label %10, label %41
 
 10:                                               ; preds = %cmsNamedColorCount.exit

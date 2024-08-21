@@ -10,7 +10,7 @@ define double @ceil(double noundef %0) local_unnamed_addr #0 {
   %3 = call double @modf(double noundef %0, ptr noundef nonnull %2) #2
   %4 = fcmp ule double %0, 0.000000e+00
   %.pre = load double, ptr %2, align 8
-  %5 = fcmp ueq double %.pre, %0
+  %5 = fcmp ueq double %0, %.pre
   %or.cond = select i1 %4, i1 true, i1 %5
   %6 = fadd double %.pre, 1.000000e+00
   %7 = select i1 %or.cond, double %.pre, double %6

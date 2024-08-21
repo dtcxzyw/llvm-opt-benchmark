@@ -2085,7 +2085,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %div14.i.i.i = lshr i64 %add.i.i.i, 1
   %end_addr.i.i.i = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %this.val16.i.i.i, i64 %div14.i.i.i, i32 2
   %78 = load ptr, ptr %end_addr.i.i.i, align 8
-  %cmp13.i.i.i = icmp ugt ptr %78, %pc
+  %cmp13.i.i.i = icmp ult ptr %pc, %78
   %add15.i.i.i = add nuw i64 %div14.i.i.i, 1
   %lo.1.i.i.i = select i1 %cmp13.i.i.i, i64 %lo.0106.i.i.i, i64 %add15.i.i.i
   %hi.1.i.i.i = select i1 %cmp13.i.i.i, i64 %div14.i.i.i, i64 %hi.0107.i.i.i
@@ -2112,7 +2112,7 @@ cond.false.i.i.i:                                 ; preds = %if.then20.i.i.i
 cond.end.i.i.i:                                   ; preds = %if.then20.i.i.i
   %start_addr.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i18.i.i.i, i64 8
   %80 = load ptr, ptr %start_addr.i.i.i, align 8
-  %cmp25.not.i.i.i = icmp ugt ptr %80, %pc
+  %cmp25.not.i.i.i = icmp ult ptr %pc, %80
   br i1 %cmp25.not.i.i.i, label %if.end30.i.i.i, label %if.then.i.i18
 
 if.end30.i.i.i:                                   ; preds = %cond.end.i.i.i, %while.end.i.i.i
@@ -2584,7 +2584,7 @@ if.end23.i.i:                                     ; preds = %for.body.i9.i
   %114 = load i64, ptr %p_memsz.i.i, align 8
   %add24.i.i = add i64 %add.i.i20, %114
   %115 = inttoptr i64 %add24.i.i to ptr
-  %cmp25.i.i = icmp ugt ptr %115, %pc
+  %cmp25.i.i = icmp ult ptr %pc, %115
   br i1 %cmp25.i.i, label %if.else.i.i, label %for.cond.i.i
 
 do.body30.i.i:                                    ; preds = %for.body.i9.i, %for.cond.i.i
@@ -2967,7 +2967,7 @@ for.body18.i.i.i.i:                               ; preds = %for.cond16.preheade
   %130 = inttoptr i64 %add.i42.i.i.i.i to ptr
   %st_size.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i86.i.i.i, i64 16
   %131 = load i64, ptr %st_size.i.i.i.i, align 8
-  %add.i43.i.i.i.i = add nsw i64 %add.i42.i.i.i.i, %131
+  %add.i43.i.i.i.i = add nsw i64 %131, %add.i42.i.i.i.i
   %132 = inttoptr i64 %add.i43.i.i.i.i to ptr
   %cmp22.not.i.i.i.i = icmp eq i64 %129, 0
   br i1 %cmp22.not.i.i.i.i, label %for.inc.i.i109.i.i, label %land.lhs.true.i.i105.i.i
@@ -2986,14 +2986,14 @@ land.lhs.true24.i.i.i.i:                          ; preds = %land.lhs.true.i.i10
   br i1 %cmp26.not.i.i.i.i, label %for.inc.i.i109.i.i, label %land.lhs.true27.i.i.i.i
 
 land.lhs.true27.i.i.i.i:                          ; preds = %land.lhs.true24.i.i.i.i
-  %cmp28.not.i.i.i.i = icmp ule ptr %130, %pc
-  %cmp30.i.i.i.i = icmp ugt ptr %132, %pc
+  %cmp28.not.i.i.i.i = icmp uge ptr %pc, %130
+  %cmp30.i.i.i.i = icmp ult ptr %pc, %132
   %or.cond.i.i106.i.i = and i1 %cmp28.not.i.i.i.i, %cmp30.i.i.i.i
   br i1 %or.cond.i.i106.i.i, label %if.then34.i.i110.i.i, label %lor.lhs.false.i.i107.i.i
 
 lor.lhs.false.i.i107.i.i:                         ; preds = %land.lhs.true27.i.i.i.i
-  %cmp31.i.i.i.i = icmp eq ptr %130, %pc
-  %cmp33.i.i108.i.i = icmp eq ptr %132, %pc
+  %cmp31.i.i.i.i = icmp eq ptr %pc, %130
+  %cmp33.i.i108.i.i = icmp eq ptr %pc, %132
   %or.cond40.i.i.i.i = and i1 %cmp31.i.i.i.i, %cmp33.i.i108.i.i
   br i1 %or.cond40.i.i.i.i, label %if.then34.i.i110.i.i, label %for.inc.i.i109.i.i
 

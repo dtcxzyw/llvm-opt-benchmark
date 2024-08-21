@@ -352,7 +352,7 @@ cond.end:
   %call2.i.i.i = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i), !noalias !6
   %cmp.i.i414 = icmp eq i32 %call2.i.i.i, 2
   %inc.i.i = zext i1 %cmp.i.i414 to i64
-  %spec.select.i.i = add i64 %inc.i.i, %index
+  %spec.select.i.i = add i64 %index, %inc.i.i
   %d_children.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %sext = shl i64 %spec.select.i.i, 32
   %idxprom.i.i415 = ashr exact i64 %sext, 32

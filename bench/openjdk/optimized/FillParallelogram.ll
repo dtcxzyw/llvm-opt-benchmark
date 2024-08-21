@@ -44,8 +44,8 @@ define void @Java_sun_java2d_loops_FillParallelogram_FillParallelogram(ptr nound
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %25
-  %28 = fadd double %.0, %8
-  %29 = fadd double %.0223, %9
+  %28 = fadd double %8, %.0
+  %29 = fadd double %9, %.0223
   %30 = fneg double %8
   %31 = fneg double %9
   br label %32

@@ -5218,7 +5218,7 @@ _ZN12regex_syntax3hir7literal3Seq9singleton17h72802fcc184ebda0E.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %20 = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp eq ptr %3, %2
+  %21 = icmp eq ptr %2, %3
   br i1 %21, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f29910a10a55ec0E.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12regex_syntax3hir7literal3Seq9singleton17h72802fcc184ebda0E.exit
@@ -5338,7 +5338,7 @@ _ZN12regex_syntax3hir7literal3Seq9singleton17h72802fcc184ebda0E.exit: ; preds = 
 
 "_ZN4core3ptr52drop_in_place$LT$regex_syntax..hir..literal..Seq$GT$17h4931f889ab02a353E.exit": ; preds = %"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..literal..Literal$GT$$GT$17h2bdd4734cd954b50E.exit.i.i", %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %60 = icmp eq ptr %29, %2
+  %60 = icmp eq ptr %2, %29
   br i1 %60, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f29910a10a55ec0E.exit.thread", label %28
 
 61:                                               ; preds = %63, %44, %41

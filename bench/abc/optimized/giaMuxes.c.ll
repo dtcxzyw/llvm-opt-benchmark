@@ -2994,13 +2994,13 @@ define internal fastcc i32 @Gia_ObjLevelId(ptr nocapture %.160.val, i32 noundef 
   %2 = add nsw i32 %0, 1
   %3 = getelementptr inbounds i8, ptr %.160.val, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not.i.not.i = icmp sgt i32 %4, %0
+  %.not.i.not.i = icmp slt i32 %0, %4
   br i1 %.not.i.not.i, label %Vec_IntGetEntry.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %.160.val, align 8
   %7 = shl nsw i32 %6, 1
-  %.not.i = icmp sgt i32 %7, %0
+  %.not.i = icmp slt i32 %0, %7
   %.not.i.i.not.i = icmp sgt i32 %6, %0
   br i1 %.not.i, label %20, label %8
 
@@ -8532,7 +8532,7 @@ Gia_ObjIsRi.exit578.thread:                       ; preds = %849, %Gia_ObjIsRi.e
   %884 = getelementptr inbounds i32, ptr %.val206, i64 %883
   %885 = load i32, ptr %884, align 4
   %886 = sub nsw i32 0, %885
-  %887 = icmp slt i32 %886, %1
+  %887 = icmp sgt i32 %1, %886
   br i1 %887, label %.thread609, label %888
 
 888:                                              ; preds = %880
@@ -9530,7 +9530,7 @@ common.ret19:                                     ; preds = %11, %common.ret
   %12 = add nsw i32 %2, -1
   %13 = tail call i32 @Gia_ManFindMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %12, ptr noundef %3, i32 noundef %4)
   %14 = shl nuw i32 1, %12
-  %15 = add nsw i32 %14, %4
+  %15 = add nsw i32 %4, %14
   %16 = tail call i32 @Gia_ManFindMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %12, ptr noundef %3, i32 noundef %15)
   %17 = sext i32 %12 to i64
   %18 = getelementptr inbounds i32, ptr %1, i64 %17

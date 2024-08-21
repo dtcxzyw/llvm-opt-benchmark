@@ -2161,7 +2161,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %157, %162
   %170 = ptrtoint ptr %159 to i64
   %171 = sub i64 %169, %170
   %172 = ashr exact i64 %171, 2
-  %173 = icmp ult i64 %172, %168
+  %173 = icmp ugt i64 %168, %172
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
@@ -2170,7 +2170,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %157, %162
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit unwind label %218
 
 176:                                              ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  %177 = icmp ugt i64 %172, %168
+  %177 = icmp ult i64 %168, %172
   br i1 %177, label %178, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 178:                                              ; preds = %176
@@ -2201,7 +2201,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit52:              ; preds = %_ZNSt6vectorIiSaIiE
   %188 = ptrtoint ptr %182 to i64
   %189 = sub i64 %187, %188
   %190 = ashr exact i64 %189, 2
-  %191 = icmp ult i64 %190, %168
+  %191 = icmp ugt i64 %168, %190
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit52
@@ -2210,7 +2210,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit52:              ; preds = %_ZNSt6vectorIiSaIiE
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit55 unwind label %218
 
 194:                                              ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit52
-  %195 = icmp ugt i64 %190, %168
+  %195 = icmp ult i64 %168, %190
   br i1 %195, label %196, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit55
 
 196:                                              ; preds = %194
@@ -2352,7 +2352,7 @@ _ZNK2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTar
   %261 = add nuw i64 %260, %.030102
   %sext = shl i64 %261, 32
   %262 = ashr exact i64 %sext, 32
-  %.not.i.i60 = icmp ugt i64 %259, %262
+  %.not.i.i60 = icmp ult i64 %262, %259
   br i1 %.not.i.i60, label %264, label %263
 
 263:                                              ; preds = %253
@@ -3251,7 +3251,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vec
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 96
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i17
@@ -3385,7 +3385,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !33
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -3469,7 +3469,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !33
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79

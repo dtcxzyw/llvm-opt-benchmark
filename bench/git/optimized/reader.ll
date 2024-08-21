@@ -615,12 +615,12 @@ cond.end5:                                        ; preds = %entry, %cond.false4
   %cond6 = phi i32 [ %call, %cond.false4 ], [ 0, %entry ]
   %size = getelementptr inbounds i8, ptr %r, i64 24
   %2 = load i64, ptr %size, align 8
-  %cmp.not = icmp ugt i64 %2, %next_off
+  %cmp.not = icmp ult i64 %next_off, %2
   br i1 %cmp.not, label %reader_get_block.exit, label %return
 
 reader_get_block.exit:                            ; preds = %cond.end5
   %conv.i = zext i32 %spec.select to i64
-  %add.i = add i64 %conv.i, %next_off
+  %add.i = add i64 %next_off, %conv.i
   %cmp2.i = icmp ugt i64 %add.i, %2
   %sub.i = sub nuw i64 %2, %next_off
   %conv6.i = trunc i64 %sub.i to i32
@@ -676,12 +676,12 @@ if.end24:                                         ; preds = %if.end16
 if.then27:                                        ; preds = %if.end24
   call void @reftable_block_done(ptr noundef nonnull %block) #11
   %9 = load i64, ptr %size, align 8
-  %cmp.not.i22 = icmp ugt i64 %9, %next_off
+  %cmp.not.i22 = icmp ult i64 %next_off, %9
   br i1 %cmp.not.i22, label %reader_get_block.exit36, label %if.end33
 
 reader_get_block.exit36:                          ; preds = %if.then27
   %conv.i25 = zext nneg i32 %result.0.i39 to i64
-  %add.i26 = add i64 %conv.i25, %next_off
+  %add.i26 = add i64 %next_off, %conv.i25
   %cmp2.i27 = icmp ugt i64 %add.i26, %9
   %sub.i28 = sub nuw i64 %9, %next_off
   %conv6.i29 = trunc i64 %sub.i28 to i32

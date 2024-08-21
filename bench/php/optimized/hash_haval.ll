@@ -94,7 +94,7 @@ define void @PHP_HAVALUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 
   store i32 %18, ptr %17, align 4
   %19 = sub nuw nsw i32 128, %6
   %20 = zext nneg i32 %19 to i64
-  %.not = icmp ugt i64 %20, %2
+  %.not = icmp ult i64 %2, %20
   br i1 %.not, label %34, label %21
 
 21:                                               ; preds = %._crit_edge
@@ -204,7 +204,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   %48 = add i32 %47, %45
   store i32 %48, ptr %43, align 4
   %49 = sub nuw nsw i32 128, %36
-  %.not.i = icmp ugt i32 %49, %38
+  %.not.i = icmp ult i32 %38, %49
   br i1 %.not.i, label %64, label %50
 
 50:                                               ; preds = %Encode.exit
@@ -729,7 +729,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   %48 = add i32 %47, %45
   store i32 %48, ptr %43, align 4
   %49 = sub nuw nsw i32 128, %36
-  %.not.i = icmp ugt i32 %49, %38
+  %.not.i = icmp ult i32 %38, %49
   br i1 %.not.i, label %64, label %50
 
 50:                                               ; preds = %Encode.exit
@@ -980,7 +980,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   %48 = add i32 %47, %45
   store i32 %48, ptr %43, align 4
   %49 = sub nuw nsw i32 128, %36
-  %.not.i = icmp ugt i32 %49, %38
+  %.not.i = icmp ult i32 %38, %49
   br i1 %.not.i, label %64, label %50
 
 50:                                               ; preds = %Encode.exit
@@ -1227,7 +1227,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   %48 = add i32 %47, %45
   store i32 %48, ptr %43, align 4
   %49 = sub nuw nsw i32 128, %36
-  %.not.i = icmp ugt i32 %49, %38
+  %.not.i = icmp ult i32 %38, %49
   br i1 %.not.i, label %64, label %50
 
 50:                                               ; preds = %Encode.exit
@@ -1465,7 +1465,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   %48 = add i32 %47, %45
   store i32 %48, ptr %43, align 4
   %49 = sub nuw nsw i32 128, %36
-  %.not.i = icmp ugt i32 %49, %38
+  %.not.i = icmp ult i32 %38, %49
   br i1 %.not.i, label %64, label %50
 
 50:                                               ; preds = %Encode.exit

@@ -81,7 +81,7 @@ if.then6.i:                                       ; preds = %sw.bb2.i
 
 wc_SignatureGetSize.exit:                         ; preds = %if.end, %sw.bb.i, %if.then.i, %sw.bb2.i, %if.then6.i
   %sig_len.0.i = phi i32 [ %call7.i, %if.then6.i ], [ -173, %sw.bb2.i ], [ %call.i, %if.then.i ], [ -173, %sw.bb.i ], [ -173, %if.end ]
-  %cmp10 = icmp slt i32 %sig_len.0.i, %sig_len
+  %cmp10 = icmp sgt i32 %sig_len, %sig_len.0.i
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %wc_SignatureGetSize.exit
@@ -228,7 +228,7 @@ if.then6.i:                                       ; preds = %sw.bb2.i
 
 wc_SignatureGetSize.exit:                         ; preds = %if.end, %sw.bb.i, %if.then.i, %sw.bb2.i, %if.then6.i
   %sig_len.0.i = phi i32 [ %call7.i, %if.then6.i ], [ -173, %sw.bb2.i ], [ %call.i, %if.then.i ], [ -173, %sw.bb.i ], [ -173, %if.end ]
-  %cmp10 = icmp slt i32 %sig_len.0.i, %sig_len
+  %cmp10 = icmp sgt i32 %sig_len, %sig_len.0.i
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %wc_SignatureGetSize.exit

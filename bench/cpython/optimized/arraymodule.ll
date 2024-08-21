@@ -635,7 +635,7 @@ for.cond:                                         ; preds = %if.end, %for.cond
   %9 = load i8, ptr %descr.0, align 8
   %cmp.not = icmp eq i8 %9, 0
   %conv = sext i8 %9 to i32
-  %cmp16 = icmp eq i32 %conv, %typecode
+  %cmp16 = icmp eq i32 %typecode, %conv
   %or.cond81 = or i1 %cmp.not, %cmp16
   %incdec.ptr = getelementptr i8, ptr %descr.0, i64 48
   br i1 %or.cond81, label %for.end, label %for.cond, !llvm.loop !4
@@ -676,7 +676,7 @@ if.then35:                                        ; preds = %if.end31
 if.end39:                                         ; preds = %if.end31
   %conv40 = trunc i32 %typecode to i8
   %call41 = tail call fastcc i32 @typecode_to_mformat_code(i8 noundef signext %conv40)
-  %cmp42 = icmp eq i32 %call41, %mformat_code
+  %cmp42 = icmp eq i32 %mformat_code, %call41
   br i1 %cmp42, label %if.then47, label %if.end50
 
 if.then47:                                        ; preds = %if.end39
@@ -2387,7 +2387,7 @@ entry:
   %call.val = load ptr, ptr %0, align 8
   store ptr null, ptr %initial, align 8
   %1 = load ptr, ptr %call.val, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -2655,7 +2655,7 @@ if.then1.i320:                                    ; preds = %if.end.i317
 
 if.end143:                                        ; preds = %for.body138
   %a.val.i.i = load i64, ptr %50, align 8
-  %cmp1.not.i.i = icmp sgt i64 %a.val.i.i, %i.0194
+  %cmp1.not.i.i = icmp slt i64 %i.0194, %a.val.i.i
   br i1 %cmp1.not.i.i, label %setarrayitem.exit, label %setarrayitem.exit.thread
 
 setarrayitem.exit.thread:                         ; preds = %if.end143
@@ -2998,7 +2998,7 @@ if.end:                                           ; preds = %entry
   %0 = load i32, ptr %itemsize, align 4
   %conv = sext i32 %0 to i64
   %div = sdiv i64 9223372036854775807, %conv
-  %cmp1 = icmp slt i64 %div, %size
+  %cmp1 = icmp sgt i64 %size, %div
   br i1 %cmp1, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -3006,7 +3006,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %mul = mul i64 %conv, %size
+  %mul = mul i64 %size, %conv
   %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %1 = load ptr, ptr %tp_alloc, align 8
   %call7 = tail call ptr %1(ptr noundef %type, i64 noundef 0) #11
@@ -3325,7 +3325,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %0 = getelementptr i8, ptr %a, i64 16
   %a.val = load i64, ptr %0, align 8
-  %cmp1.not = icmp sgt i64 %a.val, %i
+  %cmp1.not = icmp slt i64 %i, %a.val
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -3357,7 +3357,7 @@ if.then22.i:                                      ; preds = %if.else.i
   %itemsize.i = getelementptr inbounds i8, ptr %5, i64 4
   %6 = load i32, ptr %itemsize.i, align 4
   %conv.i = sext i32 %6 to i64
-  %mul.i = mul i64 %conv.i, %i
+  %mul.i = mul i64 %i, %conv.i
   %add.ptr.i = getelementptr i8, ptr %4, i64 %mul.i
   %mul27.i = mul i64 %add, %conv.i
   %add.ptr28.i = getelementptr i8, ptr %4, i64 %mul27.i
@@ -3398,7 +3398,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %1 = getelementptr i8, ptr %self, i64 16
   %self.val32 = load i64, ptr %1, align 8
-  %cmp1.not = icmp eq i64 %self.val32, %newsize
+  %cmp1.not = icmp eq i64 %newsize, %self.val32
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -4472,7 +4472,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %0 = getelementptr i8, ptr %a, i64 16
   %a.val = load i64, ptr %0, align 8
-  %cmp1.not = icmp sgt i64 %a.val, %i
+  %cmp1.not = icmp slt i64 %i, %a.val
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -4710,7 +4710,7 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
 lor.lhs.false.i:                                  ; preds = %if.end.lor.lhs.false.i_crit_edge, %if.end11
   %a.val.i = phi i64 [ %self.val34, %if.end11 ], [ %a.val.i.pre, %if.end.lor.lhs.false.i_crit_edge ]
   %i.042 = phi i64 [ %add, %if.end11 ], [ %call4, %if.end.lor.lhs.false.i_crit_edge ]
-  %cmp1.not.i = icmp sgt i64 %a.val.i, %i.042
+  %cmp1.not.i = icmp slt i64 %i.042, %a.val.i
   br i1 %cmp1.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end11
@@ -6488,7 +6488,7 @@ if.end9.i:                                        ; preds = %lor.lhs.false.i
 
 if.else.i.i:                                      ; preds = %if.end9.i
   %a.val30.i.i = load i64, ptr %8, align 8
-  %spec.select.i.i = tail call i64 @llvm.smin.i64(i64 %a.val30.i.i, i64 %i.addr.021.i)
+  %spec.select.i.i = tail call i64 @llvm.smin.i64(i64 %i.addr.021.i, i64 %a.val30.i.i)
   %add14.i = add nuw nsw i64 %i.addr.021.i, 1
   %spec.select49.i.i = tail call i64 @llvm.smin.i64(i64 %add14.i, i64 %a.val30.i.i)
   %ob_item.i.i = getelementptr inbounds i8, ptr %self, i64 24
@@ -6869,7 +6869,7 @@ Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i
 
 if.else10.i:                                      ; preds = %Py_DECREF.exit
   %a.val30.i = load i64, ptr %0, align 8
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %a.val30.i, i64 %i.023)
+  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %i.023, i64 %a.val30.i)
   %add = add nuw nsw i64 %i.023, 1
   %spec.select49.i = tail call i64 @llvm.smin.i64(i64 %add, i64 %a.val30.i)
   %ob_item.i = getelementptr inbounds i8, ptr %self, i64 24
@@ -7357,7 +7357,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %div = sdiv i64 9223372036854775807, %conv
-  %cmp3 = icmp slt i64 %div, %n
+  %cmp3 = icmp sgt i64 %n, %div
   br i1 %cmp3, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
@@ -7368,7 +7368,7 @@ if.end6:                                          ; preds = %if.end
   %call7 = tail call ptr @PyType_GetModule(ptr noundef %cls) #11
   %3 = getelementptr i8, ptr %call7, i64 32
   %call7.val = load ptr, ptr %3, align 8
-  %mul = mul i64 %conv, %n
+  %mul = mul i64 %n, %conv
   %str_read = getelementptr inbounds i8, ptr %call7.val, i64 24
   %4 = load ptr, ptr %str_read, align 8
   %call9 = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %f, ptr noundef %4, ptr noundef nonnull @.str.97, i64 noundef %mul) #11

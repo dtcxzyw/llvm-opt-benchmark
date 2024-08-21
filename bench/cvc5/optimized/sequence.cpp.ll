@@ -1174,7 +1174,7 @@ entry:
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
   %sub.ptr.div.i.i16 = ashr exact i64 %sub.ptr.sub.i.i15, 3
   %cond13 = tail call i64 @llvm.umin.i64(i64 %sub.ptr.div.i.i, i64 %sub.ptr.div.i.i16)
-  %cmp14 = icmp ult i64 %cond13, %n
+  %cmp14 = icmp ugt i64 %n, %cond13
   br i1 %cmp14, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %entry
@@ -1223,7 +1223,7 @@ entry:
   %sub.ptr.sub.i.i16 = sub i64 %sub.ptr.lhs.cast.i.i14, %sub.ptr.rhs.cast.i.i15
   %sub.ptr.div.i.i17 = ashr exact i64 %sub.ptr.sub.i.i16, 3
   %cond13 = tail call i64 @llvm.umin.i64(i64 %sub.ptr.div.i.i, i64 %sub.ptr.div.i.i17)
-  %cmp14 = icmp ult i64 %cond13, %n
+  %cmp14 = icmp ugt i64 %n, %cond13
   br i1 %cmp14, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %entry
@@ -1855,7 +1855,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i, %i
+  %cmp = icmp ult i64 %i, %sub.ptr.div.i.i
   br i1 %cmp, label %if.then, label %if.end85
 
 if.then:                                          ; preds = %entry

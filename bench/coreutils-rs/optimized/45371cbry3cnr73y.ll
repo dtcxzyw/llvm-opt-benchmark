@@ -290,7 +290,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.55915
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -1019,7 +1019,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !208, !noalias !213, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !215, !noalias !213, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h7877bc4fdbfca5f1E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -1076,7 +1076,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !221, !noalias !226, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !228, !noalias !226, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h7877bc4fdbfca5f1E.exit"
 
 9:                                                ; preds = %3
@@ -7521,116 +7521,116 @@ _ZN4core3cmp6max_by17h0c4ea46612dd2c9aE.exit:
   %7 = load i8, ptr %2, align 1, !range !261, !noundef !4
   %8 = getelementptr inbounds i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1, !noundef !4
-  %brmerge.not.i31 = and i8 %7, %3
-  %brmerge.not.i = trunc nuw i8 %brmerge.not.i31 to i1
-  %10 = add i8 %6, -1
-  %switch14.i = icmp eq i8 %10, %9
+  %brmerge.not.i36 = and i8 %7, %3
+  %brmerge.not.i = trunc nuw i8 %brmerge.not.i36 to i1
+  %.neg.i = add i8 %9, 1
+  %switch14.i = icmp eq i8 %6, %.neg.i
   %switch.i = select i1 %brmerge.not.i, i1 %switch14.i, i1 %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 6
-  %12 = load i8, ptr %11, align 1, !range !261, !noundef !4
-  %13 = trunc nuw i8 %12 to i1
-  %14 = getelementptr inbounds i8, ptr %1, i64 7
-  %15 = load i8, ptr %14, align 1, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %2, i64 6
-  %17 = load i8, ptr %16, align 1, !range !261, !noundef !4
-  %18 = getelementptr inbounds i8, ptr %2, i64 7
-  %19 = load i8, ptr %18, align 1, !noundef !4
-  %brmerge.not.i134 = and i8 %17, %12
-  %brmerge.not.i1 = trunc nuw i8 %brmerge.not.i134 to i1
-  %20 = add i8 %15, -1
-  %switch14.i5 = icmp eq i8 %20, %19
-  %switch.i2 = select i1 %brmerge.not.i1, i1 %switch14.i5, i1 %13
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
-  %22 = load i8, ptr %21, align 1, !range !261, !noundef !4
-  %23 = trunc nuw i8 %22 to i1
-  %24 = getelementptr inbounds i8, ptr %1, i64 5
-  %25 = load i8, ptr %24, align 1, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %2, i64 4
-  %27 = load i8, ptr %26, align 1, !range !261, !noundef !4
-  %28 = getelementptr inbounds i8, ptr %2, i64 5
-  %29 = load i8, ptr %28, align 1, !noundef !4
-  %brmerge.not.i733 = and i8 %27, %22
-  %brmerge.not.i7 = trunc nuw i8 %brmerge.not.i733 to i1
-  %30 = add i8 %25, -1
-  %switch14.i11 = icmp eq i8 %30, %29
-  %switch.i8 = select i1 %brmerge.not.i7, i1 %switch14.i11, i1 %23
-  %31 = getelementptr inbounds i8, ptr %1, i64 2
-  %32 = load i8, ptr %31, align 1, !range !261, !noundef !4
-  %33 = trunc nuw i8 %32 to i1
-  %34 = getelementptr inbounds i8, ptr %1, i64 3
-  %35 = load i8, ptr %34, align 1, !noundef !4
-  %36 = getelementptr inbounds i8, ptr %2, i64 2
-  %37 = load i8, ptr %36, align 1, !range !261, !noundef !4
-  %38 = getelementptr inbounds i8, ptr %2, i64 3
-  %39 = load i8, ptr %38, align 1, !noundef !4
-  %brmerge.not.i1332 = and i8 %37, %32
-  %brmerge.not.i13 = trunc nuw i8 %brmerge.not.i1332 to i1
-  %40 = add i8 %35, -1
-  %switch14.i17 = icmp eq i8 %40, %39
-  %switch.i14 = select i1 %brmerge.not.i13, i1 %switch14.i17, i1 %33
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  %42 = load i8, ptr %41, align 1, !range !261, !noundef !4
-  %43 = trunc nuw i8 %42 to i1
-  %44 = getelementptr inbounds i8, ptr %1, i64 9
+  %10 = getelementptr inbounds i8, ptr %1, i64 6
+  %11 = load i8, ptr %10, align 1, !range !261, !noundef !4
+  %12 = trunc nuw i8 %11 to i1
+  %13 = getelementptr inbounds i8, ptr %1, i64 7
+  %14 = load i8, ptr %13, align 1, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %2, i64 6
+  %16 = load i8, ptr %15, align 1, !range !261, !noundef !4
+  %17 = getelementptr inbounds i8, ptr %2, i64 7
+  %18 = load i8, ptr %17, align 1, !noundef !4
+  %brmerge.not.i139 = and i8 %16, %11
+  %brmerge.not.i1 = trunc nuw i8 %brmerge.not.i139 to i1
+  %.neg.i5 = add i8 %18, 1
+  %switch14.i6 = icmp eq i8 %14, %.neg.i5
+  %switch.i2 = select i1 %brmerge.not.i1, i1 %switch14.i6, i1 %12
+  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %20 = load i8, ptr %19, align 1, !range !261, !noundef !4
+  %21 = trunc nuw i8 %20 to i1
+  %22 = getelementptr inbounds i8, ptr %1, i64 5
+  %23 = load i8, ptr %22, align 1, !noundef !4
+  %24 = getelementptr inbounds i8, ptr %2, i64 4
+  %25 = load i8, ptr %24, align 1, !range !261, !noundef !4
+  %26 = getelementptr inbounds i8, ptr %2, i64 5
+  %27 = load i8, ptr %26, align 1, !noundef !4
+  %brmerge.not.i838 = and i8 %25, %20
+  %brmerge.not.i8 = trunc nuw i8 %brmerge.not.i838 to i1
+  %.neg.i12 = add i8 %27, 1
+  %switch14.i13 = icmp eq i8 %23, %.neg.i12
+  %switch.i9 = select i1 %brmerge.not.i8, i1 %switch14.i13, i1 %21
+  %28 = getelementptr inbounds i8, ptr %1, i64 2
+  %29 = load i8, ptr %28, align 1, !range !261, !noundef !4
+  %30 = trunc nuw i8 %29 to i1
+  %31 = getelementptr inbounds i8, ptr %1, i64 3
+  %32 = load i8, ptr %31, align 1, !noundef !4
+  %33 = getelementptr inbounds i8, ptr %2, i64 2
+  %34 = load i8, ptr %33, align 1, !range !261, !noundef !4
+  %35 = getelementptr inbounds i8, ptr %2, i64 3
+  %36 = load i8, ptr %35, align 1, !noundef !4
+  %brmerge.not.i1537 = and i8 %34, %29
+  %brmerge.not.i15 = trunc nuw i8 %brmerge.not.i1537 to i1
+  %.neg.i19 = add i8 %36, 1
+  %switch14.i20 = icmp eq i8 %32, %.neg.i19
+  %switch.i16 = select i1 %brmerge.not.i15, i1 %switch14.i20, i1 %30
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = load i8, ptr %37, align 1, !range !261, !noundef !4
+  %39 = trunc nuw i8 %38 to i1
+  %40 = getelementptr inbounds i8, ptr %1, i64 9
+  %41 = load i8, ptr %40, align 1, !noundef !4
+  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = load i8, ptr %42, align 1, !range !261, !noundef !4
+  %44 = getelementptr inbounds i8, ptr %2, i64 9
   %45 = load i8, ptr %44, align 1, !noundef !4
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %brmerge.not.i2240 = and i8 %43, %38
+  %brmerge.not.i22 = trunc nuw i8 %brmerge.not.i2240 to i1
+  %.neg.i26 = add i8 %45, 1
+  %switch14.i27 = icmp eq i8 %41, %.neg.i26
+  %switch.i23 = select i1 %brmerge.not.i22, i1 %switch14.i27, i1 %39
+  %46 = getelementptr inbounds i8, ptr %1, i64 10
   %47 = load i8, ptr %46, align 1, !range !261, !noundef !4
-  %48 = getelementptr inbounds i8, ptr %2, i64 9
-  %49 = load i8, ptr %48, align 1, !noundef !4
-  %brmerge.not.i1935 = and i8 %47, %42
-  %brmerge.not.i19 = trunc nuw i8 %brmerge.not.i1935 to i1
-  %50 = add i8 %45, -1
-  %switch14.i23 = icmp eq i8 %50, %49
-  %switch.i20 = select i1 %brmerge.not.i19, i1 %switch14.i23, i1 %43
-  %51 = getelementptr inbounds i8, ptr %1, i64 10
+  %48 = trunc nuw i8 %47 to i1
+  %49 = getelementptr inbounds i8, ptr %1, i64 11
+  %50 = load i8, ptr %49, align 1, !noundef !4
+  %51 = getelementptr inbounds i8, ptr %2, i64 10
   %52 = load i8, ptr %51, align 1, !range !261, !noundef !4
-  %53 = trunc nuw i8 %52 to i1
-  %54 = getelementptr inbounds i8, ptr %1, i64 11
-  %55 = load i8, ptr %54, align 1, !noundef !4
-  %56 = getelementptr inbounds i8, ptr %2, i64 10
-  %57 = load i8, ptr %56, align 1, !range !261, !noundef !4
-  %58 = getelementptr inbounds i8, ptr %2, i64 11
-  %59 = load i8, ptr %58, align 1, !noundef !4
-  %brmerge.not.i2536 = and i8 %57, %52
-  %brmerge.not.i25 = trunc nuw i8 %brmerge.not.i2536 to i1
-  %60 = add i8 %55, -1
-  %switch14.i29 = icmp eq i8 %60, %59
-  %switch.i26 = select i1 %brmerge.not.i25, i1 %switch14.i29, i1 %53
-  %.sroa.0.0.sroa.speculated.v.i22 = select i1 %switch.i20, i8 %42, i8 %47
-  %.sroa.3.0.i21 = select i1 %switch.i20, i8 %45, i8 %49
-  %.sroa.0.0.sroa.speculated.v.i16 = select i1 %switch.i14, i8 %32, i8 %37
-  %.sroa.3.0.i15 = select i1 %switch.i14, i8 %35, i8 %39
-  %.sroa.0.0.sroa.speculated.v.i10 = select i1 %switch.i8, i8 %22, i8 %27
-  %.sroa.3.0.i9 = select i1 %switch.i8, i8 %25, i8 %29
-  %.sroa.0.0.sroa.speculated.v.i4 = select i1 %switch.i2, i8 %12, i8 %17
-  %.sroa.3.0.i3 = select i1 %switch.i2, i8 %15, i8 %19
+  %53 = getelementptr inbounds i8, ptr %2, i64 11
+  %54 = load i8, ptr %53, align 1, !noundef !4
+  %brmerge.not.i2941 = and i8 %52, %47
+  %brmerge.not.i29 = trunc nuw i8 %brmerge.not.i2941 to i1
+  %.neg.i33 = add i8 %54, 1
+  %switch14.i34 = icmp eq i8 %50, %.neg.i33
+  %switch.i30 = select i1 %brmerge.not.i29, i1 %switch14.i34, i1 %48
+  %.sroa.0.0.sroa.speculated.v.i25 = select i1 %switch.i23, i8 %38, i8 %43
+  %.sroa.3.0.i24 = select i1 %switch.i23, i8 %41, i8 %45
+  %.sroa.0.0.sroa.speculated.v.i18 = select i1 %switch.i16, i8 %29, i8 %34
+  %.sroa.3.0.i17 = select i1 %switch.i16, i8 %32, i8 %36
+  %.sroa.0.0.sroa.speculated.v.i11 = select i1 %switch.i9, i8 %20, i8 %25
+  %.sroa.3.0.i10 = select i1 %switch.i9, i8 %23, i8 %27
+  %.sroa.0.0.sroa.speculated.v.i4 = select i1 %switch.i2, i8 %11, i8 %16
+  %.sroa.3.0.i3 = select i1 %switch.i2, i8 %14, i8 %18
   %.sroa.0.0.sroa.speculated.v.i = select i1 %switch.i, i8 %3, i8 %7
   %.sroa.3.0.i = select i1 %switch.i, i8 %6, i8 %9
-  %.sroa.3.0.i27 = select i1 %switch.i26, i8 %55, i8 %59
-  %.sroa.0.0.sroa.speculated.v.i28 = select i1 %switch.i26, i8 %52, i8 %57
+  %.sroa.3.0.i31 = select i1 %switch.i30, i8 %50, i8 %54
+  %.sroa.0.0.sroa.speculated.v.i32 = select i1 %switch.i30, i8 %47, i8 %52
   store i8 %.sroa.0.0.sroa.speculated.v.i, ptr %0, align 1
-  %61 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %.sroa.3.0.i, ptr %61, align 1
-  %62 = getelementptr inbounds i8, ptr %0, i64 2
-  store i8 %.sroa.0.0.sroa.speculated.v.i16, ptr %62, align 1
-  %63 = getelementptr inbounds i8, ptr %0, i64 3
-  store i8 %.sroa.3.0.i15, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %0, i64 4
-  store i8 %.sroa.0.0.sroa.speculated.v.i10, ptr %64, align 1
-  %65 = getelementptr inbounds i8, ptr %0, i64 5
-  store i8 %.sroa.3.0.i9, ptr %65, align 1
-  %66 = getelementptr inbounds i8, ptr %0, i64 6
-  store i8 %.sroa.0.0.sroa.speculated.v.i4, ptr %66, align 1
-  %67 = getelementptr inbounds i8, ptr %0, i64 7
-  store i8 %.sroa.3.0.i3, ptr %67, align 1
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.sroa.0.0.sroa.speculated.v.i22, ptr %68, align 1
-  %69 = getelementptr inbounds i8, ptr %0, i64 9
-  store i8 %.sroa.3.0.i21, ptr %69, align 1
-  %70 = getelementptr inbounds i8, ptr %0, i64 10
-  store i8 %.sroa.0.0.sroa.speculated.v.i28, ptr %70, align 1
-  %71 = getelementptr inbounds i8, ptr %0, i64 11
-  store i8 %.sroa.3.0.i27, ptr %71, align 1
+  %55 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %.sroa.3.0.i, ptr %55, align 1
+  %56 = getelementptr inbounds i8, ptr %0, i64 2
+  store i8 %.sroa.0.0.sroa.speculated.v.i18, ptr %56, align 1
+  %57 = getelementptr inbounds i8, ptr %0, i64 3
+  store i8 %.sroa.3.0.i17, ptr %57, align 1
+  %58 = getelementptr inbounds i8, ptr %0, i64 4
+  store i8 %.sroa.0.0.sroa.speculated.v.i11, ptr %58, align 1
+  %59 = getelementptr inbounds i8, ptr %0, i64 5
+  store i8 %.sroa.3.0.i10, ptr %59, align 1
+  %60 = getelementptr inbounds i8, ptr %0, i64 6
+  store i8 %.sroa.0.0.sroa.speculated.v.i4, ptr %60, align 1
+  %61 = getelementptr inbounds i8, ptr %0, i64 7
+  store i8 %.sroa.3.0.i3, ptr %61, align 1
+  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %.sroa.0.0.sroa.speculated.v.i25, ptr %62, align 1
+  %63 = getelementptr inbounds i8, ptr %0, i64 9
+  store i8 %.sroa.3.0.i24, ptr %63, align 1
+  %64 = getelementptr inbounds i8, ptr %0, i64 10
+  store i8 %.sroa.0.0.sroa.speculated.v.i32, ptr %64, align 1
+  %65 = getelementptr inbounds i8, ptr %0, i64 11
+  store i8 %.sroa.3.0.i31, ptr %65, align 1
   ret void
 }
 
@@ -14580,8 +14580,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5591502974640346016.exit352: ; pre
 
 746:                                              ; preds = %762, %710
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %710 ], [ %763, %762 ]
-  %.pn.i.i = phi i64 [ %742, %710 ], [ %764, %762 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val5.i
+  %.pn.i.i.i.i = phi i64 [ %742, %710 ], [ %764, %762 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i
   %747 = getelementptr inbounds i8, ptr %.val.i362, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i25.i.i.i = load <16 x i8>, ptr %747, align 1, !noalias !3911
   %748 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, %.15.vec.insert.i.i.i.i

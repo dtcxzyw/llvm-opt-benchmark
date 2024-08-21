@@ -683,7 +683,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %call3 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %i.020) #6
   %method = getelementptr inbounds i8, ptr %call3, i64 8
   %1 = load ptr, ptr %method, align 8
-  %cmp4 = icmp eq ptr %1, %m
+  %cmp4 = icmp eq ptr %m, %1
   br i1 %cmp4, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %entry

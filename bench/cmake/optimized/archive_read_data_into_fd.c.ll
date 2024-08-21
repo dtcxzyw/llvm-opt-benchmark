@@ -108,13 +108,13 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
 
 44:                                               ; preds = %.lr.ph.i
   %45 = add nsw i64 %50, %.02327.i
-  %46 = icmp slt i64 %45, %42
+  %46 = icmp sgt i64 %42, %45
   br i1 %46, label %.lr.ph.i, label %.loopexit66, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %40, %44
   %.02327.i = phi i64 [ %45, %44 ], [ %.043, %40 ]
   %47 = add nsw i64 %.02327.i, 16384
-  %48 = icmp sgt i64 %47, %42
+  %48 = icmp slt i64 %42, %47
   %49 = sub nsw i64 %42, %.02327.i
   %spec.select.i = select i1 %48, i64 %49, i64 16384
   %50 = call i64 @write(i32 noundef %1, ptr noundef nonnull readonly %19, i64 noundef %spec.select.i) #9
@@ -199,7 +199,7 @@ define internal fastcc range(i32 -30, 1) i32 @pad_to(ptr noundef %0, i32 noundef
   br i1 %.not, label %.preheader, label %8
 
 .preheader:                                       ; preds = %6
-  %7 = icmp slt i64 %5, %4
+  %7 = icmp sgt i64 %4, %5
   br i1 %7, label %.lr.ph, label %.loopexit
 
 8:                                                ; preds = %6
@@ -210,13 +210,13 @@ define internal fastcc range(i32 -30, 1) i32 @pad_to(ptr noundef %0, i32 noundef
 
 11:                                               ; preds = %.lr.ph
   %12 = add nsw i64 %17, %.02327
-  %13 = icmp slt i64 %12, %4
+  %13 = icmp sgt i64 %4, %12
   br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.preheader, %11
   %.02327 = phi i64 [ %12, %11 ], [ %5, %.preheader ]
   %14 = add nsw i64 %.02327, 16384
-  %15 = icmp sgt i64 %14, %4
+  %15 = icmp slt i64 %4, %14
   %16 = sub nsw i64 %4, %.02327
   %spec.select = select i1 %15, i64 %16, i64 16384
   %17 = tail call i64 @write(i32 noundef %1, ptr noundef %3, i64 noundef %spec.select) #9

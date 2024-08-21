@@ -18924,7 +18924,7 @@ define internal noundef i32 @implement_date_interface_handler(ptr nocapture read
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @date_ce_date, align 8
-  %7 = icmp eq ptr %6, %1
+  %7 = icmp eq ptr %1, %6
   br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %5
@@ -18933,7 +18933,7 @@ define internal noundef i32 @implement_date_interface_handler(ptr nocapture read
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @date_ce_immutable, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %10

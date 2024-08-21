@@ -3579,7 +3579,7 @@ define internal i32 @passwd_callback(ptr nocapture noundef writeonly %0, i32 nou
 5:                                                ; preds = %4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
   %7 = tail call i32 @curlx_uztosi(i64 noundef %6) #13
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5

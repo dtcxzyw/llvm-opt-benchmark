@@ -277,7 +277,7 @@ entry:
   store ptr null, ptr %arrayinit.element7, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd, ptr noundef nonnull align 8 dereferenceable(120) @__const.merge_entry.cmd, i64 120, i1 false)
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
-  %cmp.not = icmp ugt i32 %1, %pos
+  %cmp.not = icmp ult i32 %pos, %1
   br i1 %cmp.not, label %do.body.preheader, label %if.then
 
 do.body.preheader:                                ; preds = %entry

@@ -353,7 +353,7 @@ _ZN3std3env6var_os17h7b3e5846479e59fdE.exit:      ; preds = %_ZN6uu_env14native_
   %37 = load i64, ptr %36, align 8, !alias.scope !97, !noalias !102, !noundef !5
   %38 = load i64, ptr %1, align 8, !alias.scope !104, !noalias !102, !noundef !5
   %39 = sub i64 %38, %37
-  %40 = icmp ult i64 %39, %.sroa.617.0.copyload
+  %40 = icmp ugt i64 %.sroa.617.0.copyload, %39
   br i1 %40, label %41, label %_ZN6uu_env15string_expander14StringExpander17put_native_string17h6d02a56aaa7dc00aE.exit
 
 41:                                               ; preds = %35
@@ -1653,7 +1653,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   %.ptr.i.i = getelementptr inbounds i8, ptr @anon.6126f6c3ba55af2b6950f393ac5adac1.1, i64 %.idx.i.i
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 8
   %.val3.i.i.i = load i32, ptr %.ptr.i.i, align 4, !range !107, !noalias !416, !noundef !5
-  %220 = icmp eq i32 %.0.i.i.i, %.val3.i.i.i
+  %220 = icmp eq i32 %.val3.i.i.i, %.0.i.i.i
   br i1 %220, label %242, label %.preheader.i.i
 
 221:                                              ; preds = %214

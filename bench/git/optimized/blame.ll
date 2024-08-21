@@ -2231,7 +2231,7 @@ if.then:                                          ; preds = %for.body
   %call.i = call ptr @repo_find_unique_abbrev(ptr noundef %4, ptr noundef nonnull %oid.i, i32 noundef %auto_abbrev.034) #17
   %call1.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i) #16
   %conv.i = trunc i64 %call1.i to i32
-  %conv.auto_abbrev.i = call i32 @llvm.smax.i32(i32 %conv.i, i32 %auto_abbrev.034)
+  %conv.auto_abbrev.i = call i32 @llvm.smax.i32(i32 %auto_abbrev.034, i32 %conv.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
@@ -2494,7 +2494,7 @@ land.rhs.i.i.us:                                  ; preds = %while.body.i.i.us, 
   %indvars.iv.i.i.us = phi i64 [ 0, %land.rhs.lr.ph.i.i.us ], [ %indvars.iv.next.i.i.us, %while.body.i.i.us ]
   %arrayidx.i.i.us = getelementptr inbounds %struct.color_field, ptr %.pre.i.i.us, i64 %indvars.iv.i.i.us
   %12 = load i64, ptr %arrayidx.i.i.us, align 8
-  %cmp1.i.i.us = icmp ult i64 %12, %ci.val.i.us
+  %cmp1.i.i.us = icmp ugt i64 %ci.val.i.us, %12
   br i1 %cmp1.i.i.us, label %while.body.i.i.us, label %while.end.loopexit.split.loop.exit6.i.i.us
 
 while.end.loopexit.split.loop.exit6.i.i.us:       ; preds = %land.rhs.i.i.us

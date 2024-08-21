@@ -168,7 +168,7 @@ define internal i64 @ft_bzip2_stream_io(ptr nocapture noundef readonly %0, i64 n
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8296
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %4
@@ -208,7 +208,7 @@ ft_bzip2_file_reset.exit.thread.i:                ; preds = %13
 
 27:                                               ; preds = %ft_bzip2_file_reset.exit.thread.i, %10
   %28 = phi i64 [ %.pre.i, %ft_bzip2_file_reset.exit.thread.i ], [ %8, %10 ]
-  %29 = icmp ult i64 %28, %1
+  %29 = icmp ugt i64 %1, %28
   br i1 %29, label %30, label %48
 
 30:                                               ; preds = %27

@@ -773,7 +773,7 @@ define dso_local void @assert_transcoder(ptr noundef %0, i32 noundef %1, i1 noun
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 16
   %7 = icmp ne i32 %6, 0
-  %8 = or i1 %7, %2
+  %8 = or i1 %2, %7
   %9 = add i32 %1, 9
   %10 = tail call i64 @intel_display_power_get_if_enabled(ptr noundef %0, i32 noundef %9) #25
   %11 = icmp eq i64 %10, 0
@@ -1497,7 +1497,7 @@ define dso_local i32 @intel_fb_xy_to_linear(i32 noundef %0, i32 noundef %1, ptr 
   %15 = getelementptr [4 x %struct.i915_color_plane_view], ptr %14, i64 0, i64 %10, i32 3
   %16 = load i32, ptr %15, align 4
   %17 = mul i32 %16, %1
-  %18 = mul i32 %13, %0
+  %18 = mul i32 %0, %13
   %19 = add i32 %17, %18
   ret i32 %19
 }
@@ -16925,7 +16925,7 @@ define internal fastcc void @assert_plane(ptr noundef %0, i1 noundef zeroext %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 1416
   %6 = load ptr, ptr %5, align 8
   %7 = call zeroext i1 %6(ptr noundef %0, ptr noundef nonnull %3) #25
-  %8 = xor i1 %7, %1
+  %8 = xor i1 %1, %7
   br i1 %8, label %9, label %40, !prof !13
 
 9:                                                ; preds = %2

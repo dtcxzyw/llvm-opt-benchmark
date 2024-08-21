@@ -694,7 +694,7 @@ define hidden void @_ZN8grep_cli7pattern20patterns_from_reader17hfc3a2fa92e33206
   %80 = load i64, ptr %35, align 8, !alias.scope !130, !noalias !135, !noundef !4
   %81 = load i64, ptr %11, align 8, !alias.scope !137, !noalias !135, !noundef !4
   %82 = sub i64 %81, %80
-  %83 = icmp ult i64 %82, %.sroa.5.0.i.i.i
+  %83 = icmp ugt i64 %.sroa.5.0.i.i.i, %82
   br i1 %83, label %84, label %103
 
 84:                                               ; preds = %79

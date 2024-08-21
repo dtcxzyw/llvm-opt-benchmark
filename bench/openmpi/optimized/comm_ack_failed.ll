@@ -65,7 +65,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %11, %ompi_comm_inva
   %.val = load ptr, ptr %21, align 8
   %22 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %22, align 8
-  %.not23 = icmp slt i32 %.val.val, %1
+  %.not23 = icmp sgt i32 %1, %.val.val
   br i1 %.not23, label %23, label %29
 
 23:                                               ; preds = %20

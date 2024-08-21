@@ -144,7 +144,7 @@ _ZN5folly6detail11UnrollUtils15unrollUntilImplILi4ELi0EZNKS_11simd_detail19SimdF
   br i1 %tobool.i114.not, label %for.cond.i, label %_ZN5folly11simd_detail19simdForEachAligningILi4EKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS2_NS_6detail25SimpleSimdStringUtilsImplIS6_E28HasSpaceOrCntrlSymbolsLambdaEEEEEviPT0_SE_RT1_.exit
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS3_NS_6detail25SimpleSimdStringUtilsImplIS7_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SF_RT0_NS9_10UnrollStepIXT1_EEE.exit: ; preds = %lor.rhs.i130, %lor.rhs.i107, %lor.rhs.i, %while.body.i.loopexit, %if.end7.i
-  %cmp13.i = icmp eq ptr %2, %s.coerce1
+  %cmp13.i = icmp eq ptr %s.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi4EKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS2_NS_6detail25SimpleSimdStringUtilsImplIS6_E28HasSpaceOrCntrlSymbolsLambdaEEEEEviPT0_SE_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS3_NS_6detail25SimpleSimdStringUtilsImplIS7_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SF_RT0_NS9_10UnrollStepIXT1_EEE.exit, %if.end.i

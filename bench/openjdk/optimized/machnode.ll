@@ -577,7 +577,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK8MachNode10in
   %4 = getelementptr inbounds i8, ptr %3, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
-  %7 = icmp ugt i32 %6, %1
+  %7 = icmp ult i32 %1, %6
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %2
@@ -603,7 +603,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK8MachNode10in
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
   %28 = add i32 %27, %6
-  %.not25 = icmp ugt i32 %28, %1
+  %.not25 = icmp ult i32 %1, %28
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
@@ -619,7 +619,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK8MachNode10in
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(8) %34) #13
   %39 = add i32 %38, %29
-  %.not = icmp ugt i32 %39, %1
+  %.not = icmp ult i32 %1, %39
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
@@ -1800,7 +1800,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MachCallNod
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4
-  %9 = icmp ugt i32 %8, %1
+  %9 = icmp ult i32 %1, %8
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %2
@@ -1815,7 +1815,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MachCallNod
   %17 = getelementptr inbounds i8, ptr %16, i64 208
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %15
@@ -1896,7 +1896,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16MachCallJav
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4
-  %9 = icmp ugt i32 %8, %1
+  %9 = icmp ult i32 %1, %8
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %2
@@ -1911,7 +1911,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK16MachCallJav
   %17 = getelementptr inbounds i8, ptr %16, i64 208
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %15

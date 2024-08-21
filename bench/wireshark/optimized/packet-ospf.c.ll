@@ -2370,7 +2370,7 @@ define internal fastcc i32 @dissect_ospf_v2_lsa(ptr noundef %0, ptr noundef %1, 
   %17 = add i32 %2, 18
   %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %17) #5
   %19 = zext i16 %18 to i32
-  %20 = add i32 %19, %2
+  %20 = add i32 %2, %19
   %.not = icmp eq i32 %4, 0
   %21 = select i1 %.not, i32 20, i32 %19
   %22 = load i32, ptr @ett_ospf_lsa, align 4
@@ -2803,7 +2803,7 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
   %278 = add i32 %103, %225
   %279 = load i32, ptr @ett_ospf_lsa_epfx, align 4
   %280 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %0, i32 noundef %103, i32 noundef %225, i32 noundef %279, ptr noundef null, ptr noundef nonnull @.str.631) #5
-  %281 = icmp sgt i32 %278, %103
+  %281 = icmp slt i32 %103, %278
   br i1 %281, label %.lr.ph197.i.i, label %dissect_ospf_lsa_ext_prefix.exit.i
 
 .lr.ph197.i.i:                                    ; preds = %277
@@ -3089,7 +3089,7 @@ dissect_ospf_lsa_ext_prefix.exit.i:               ; preds = %.loopexit.i.i, %376
   store i32 0, ptr %9, align 4
   %458 = load i32, ptr @ett_ospf_lsa_elink, align 4
   %459 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %0, i32 noundef %103, i32 noundef %225, i32 noundef %458, ptr noundef null, ptr noundef nonnull @.str.632) #5
-  %460 = icmp sgt i32 %457, %103
+  %460 = icmp slt i32 %103, %457
   br i1 %460, label %.lr.ph274.i.i, label %dissect_ospf_lsa_ext_link.exit.i
 
 .lr.ph274.i.i:                                    ; preds = %456
@@ -3391,7 +3391,7 @@ dissect_ospf_lsa_ext_prefix.exit.i:               ; preds = %.loopexit.i.i, %376
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %647 = add i32 %.2246.i.i, %646
-  %648 = icmp sgt i32 %647, %.2246.i.i
+  %648 = icmp slt i32 %.2246.i.i, %647
   br i1 %648, label %.lr.ph.i.i.i, label %dissect_ospf_lsa_app_link_attributes.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %645, %dissect_ospf_subtlv_ext_admin_group.exit.i.i.i
@@ -3643,7 +3643,7 @@ define internal fastcc i32 @dissect_ospf_v3_lsa(ptr noundef %0, ptr noundef %1, 
   %12 = add i32 %2, 18
   %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %12) #5
   %14 = zext i16 %13 to i32
-  %15 = add i32 %14, %2
+  %15 = add i32 %2, %14
   %.not = icmp eq i32 %4, 0
   %16 = select i1 %.not, i32 20, i32 %14
   %17 = load i32, ptr @ett_ospf_lsa, align 4
@@ -5145,7 +5145,7 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   %8 = add i32 %4, %2
   %9 = load i32, ptr @ett_ospf_lsa_opaque_ri, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.816) #5
-  %11 = icmp sgt i32 %8, %2
+  %11 = icmp slt i32 %2, %8
   br i1 %11, label %.lr.ph282, label %._crit_edge
 
 .lr.ph282:                                        ; preds = %5, %.loopexit

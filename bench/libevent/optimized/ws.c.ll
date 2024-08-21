@@ -621,7 +621,7 @@ if.end45.i:                                       ; preds = %for.end.i, %if.end2
   %conv48.i = zext nneg i8 %7 to i64
   %add46.i = add nuw nsw i64 %pos.0.i, %conv48.i
   %add49.i = add nuw nsw i64 %add46.i, %payload_len.0.i
-  %cmp50.i = icmp ugt i64 %add49.i, %call365
+  %cmp50.i = icmp ult i64 %call365, %add49.i
   br i1 %cmp50.i, label %bailout, label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.end45.i

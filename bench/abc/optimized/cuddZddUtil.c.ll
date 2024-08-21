@@ -111,7 +111,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 15:                                               ; preds = %tailrecurse
   %16 = load ptr, ptr %7, align 8
-  %17 = icmp eq ptr %16, %.tr71.ph
+  %17 = icmp eq ptr %.tr71.ph, %16
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %15
@@ -290,7 +290,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 15:                                               ; preds = %tailrecurse
   %16 = load ptr, ptr %7, align 8
-  %17 = icmp eq ptr %16, %.tr70.ph
+  %17 = icmp eq ptr %.tr70.ph, %16
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %15
@@ -404,7 +404,7 @@ tailrecurse.outer.backedge:                       ; preds = %67, %68
 define range(i32 0, 2) i32 @Cudd_zddPrintDebug(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %1
+  %7 = icmp eq ptr %1, %6
   %8 = icmp sgt i32 %3, 0
   %or.cond = and i1 %8, %7
   br i1 %or.cond, label %9, label %13
@@ -1645,7 +1645,7 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds i8, ptr %0, i64 608
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %5, %1
+  %16 = icmp eq ptr %1, %5
   %17 = zext i1 %16 to i32
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.27, i32 noundef %17) #11
   br label %70

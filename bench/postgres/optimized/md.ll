@@ -1793,7 +1793,7 @@ _fdvec_resize.exit:                               ; preds = %27, %29, %35, %42
 ; Function Attrs: nounwind uwtable
 define dso_local void @mdtruncate(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @mdnblocks(ptr noundef %0, i32 noundef %1)
-  %5 = icmp ult i32 %4, %2
+  %5 = icmp ugt i32 %2, %4
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %3
@@ -1817,7 +1817,7 @@ define dso_local void @mdtruncate(ptr nocapture noundef %0, i32 noundef %1, i32 
   unreachable
 
 20:                                               ; preds = %3
-  %21 = icmp eq i32 %4, %2
+  %21 = icmp eq i32 %2, %4
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %20

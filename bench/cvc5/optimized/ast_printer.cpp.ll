@@ -1130,7 +1130,7 @@ if.then23:                                        ; preds = %if.else21, %if.else
 for.body.lr.ph:                                   ; preds = %if.then23
   %cmp36 = icmp sgt i32 %toDepth, -1
   %sub = sext i1 %cmp36 to i32
-  %cond = add nsw i32 %sub, %toDepth
+  %cond = add nsw i32 %toDepth, %sub
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1258,7 +1258,7 @@ if.then46:                                        ; preds = %if.then43
   store ptr %16, ptr %agg.tmp47, align 8
   %cmp51 = icmp sgt i32 %toDepth, -1
   %sub54 = sext i1 %cmp51 to i32
-  %cond56 = add nsw i32 %sub54, %toDepth
+  %cond56 = add nsw i32 %toDepth, %sub54
   invoke void @_ZNK4cvc58internal7printer3ast10AstPrinter8toStreamERSoNS0_12NodeTemplateILb0EEEiPNS0_10LetBindingE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %agg.tmp47, i32 noundef %cond56, ptr noundef %lbind)
           to label %invoke.cont58 unwind label %lpad57
 
@@ -1325,7 +1325,7 @@ if.end75.lr.ph:                                   ; preds = %if.end64
   %cmp76.not = icmp eq i32 %toDepth, 0
   %cmp79 = icmp sgt i32 %toDepth, -1
   %sub82 = sext i1 %cmp79 to i32
-  %cond84 = add nsw i32 %sub82, %toDepth
+  %cond84 = add nsw i32 %toDepth, %sub82
   br i1 %cmp76.not, label %if.end75.us, label %if.end75
 
 if.end75.us:                                      ; preds = %if.end75.lr.ph, %if.end75.us
@@ -2346,7 +2346,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS0_7context1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %d_map, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEEPNS0_7context11CDOhash_mapIS3_jSt4hashIS3_EEES7_St8equal_toIS3_ESaISt4pairIKS3_S9_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS0_7context11CDOhash_mapIS3_jSt4hashIS3_EEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ES9_NSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -2732,7 +2732,7 @@ entry:
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i1.not = icmp eq ptr %0, %__last.coerce
+  %cmp.i1.not = icmp eq ptr %__last.coerce, %0
   br i1 %cmp.i1.not, label %if.then.if.end_crit_edge, label %if.then6
 
 if.then.if.end_crit_edge:                         ; preds = %if.then

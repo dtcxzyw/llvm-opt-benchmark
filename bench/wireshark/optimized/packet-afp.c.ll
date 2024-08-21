@@ -5196,7 +5196,7 @@ define internal fastcc noundef i32 @parse_long_filename(ptr noundef %0, ptr noun
 
 8:                                                ; preds = %4
   %9 = zext i16 %5 to i32
-  %10 = add i32 %9, %3
+  %10 = add i32 %3, %9
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %10) #7
   %12 = load i32, ptr @hf_afp_path_len, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %12, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0) #7
@@ -5223,7 +5223,7 @@ define internal fastcc noundef i32 @parse_UTF8_filename(ptr noundef %0, ptr noun
 
 9:                                                ; preds = %4
   %10 = zext i16 %5 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = icmp sgt i32 %11, %8
   br i1 %12, label %13, label %16
 
@@ -5820,7 +5820,7 @@ define internal fastcc noundef i32 @catsearch_spec(ptr noundef %0, ptr noundef %
   %.0 = add i32 %2, 2
   %26 = trunc i32 %4 to i16
   %27 = tail call fastcc i32 @parse_file_bitmap(ptr noundef %15, ptr noundef %0, i32 noundef %.0, i16 noundef zeroext %26, i32 noundef 0)
-  %28 = add i32 %13, %2
+  %28 = add i32 %2, %13
   ret i32 %28
 }
 
@@ -6035,7 +6035,7 @@ define internal fastcc i32 @loop_record(ptr noundef %0, ptr nocapture noundef re
 19:                                               ; preds = %14
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.07992) #7
   %21 = zext i8 %20 to i32
-  %22 = add nuw nsw i32 %21, %7
+  %22 = add nuw nsw i32 %7, %21
   br label %23
 
 23:                                               ; preds = %19, %15
@@ -6163,7 +6163,7 @@ define internal fastcc ptr @name_in_bitmap(ptr noundef %0, ptr noundef %1, i32 n
 
 19:                                               ; preds = %17
   %20 = zext i16 %18 to i32
-  %21 = add i32 %20, %2
+  %21 = add i32 %2, %20
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %21) #7
   %23 = add i32 %21, 1
   %24 = zext i8 %22 to i32
@@ -6220,7 +6220,7 @@ define internal fastcc ptr @name_in_bitmap(ptr noundef %0, ptr noundef %1, i32 n
 
 48:                                               ; preds = %46
   %49 = zext i16 %47 to i32
-  %50 = add i32 %49, %2
+  %50 = add i32 %2, %49
   %51 = add i32 %50, 4
   %52 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %51) #7
   %53 = add i32 %50, 6
@@ -6282,7 +6282,7 @@ define internal fastcc i32 @spotlight_dissect_query_loop(ptr noundef %0, ptr nou
   %9 = alloca %struct.nstime_t, align 8
   %10 = alloca ptr, align 8
   %11 = add i32 %6, -8
-  %12 = icmp sgt i32 %11, %3
+  %12 = icmp slt i32 %3, %11
   %13 = icmp sgt i32 %5, 0
   %14 = and i1 %12, %13
   br i1 %14, label %.lr.ph278, label %.loopexit271

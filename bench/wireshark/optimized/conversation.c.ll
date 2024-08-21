@@ -1005,7 +1005,7 @@ define void @conversation_set_port2(ptr noundef %0, i32 noundef %1) local_unname
 13:                                               ; preds = %9
   %14 = load ptr, ptr @conversation_hashtable_no_addr2_or_port2, align 8
   %15 = tail call ptr @wmem_map_lookup(ptr noundef %14, ptr noundef %12) #13
-  %16 = icmp eq ptr %15, %0
+  %16 = icmp eq ptr %0, %15
   br i1 %16, label %17, label %34
 
 17:                                               ; preds = %13
@@ -1074,7 +1074,7 @@ define void @conversation_set_port2(ptr noundef %0, i32 noundef %1) local_unname
 47:                                               ; preds = %9
   %48 = load ptr, ptr @conversation_hashtable_no_port2, align 8
   %49 = tail call ptr @wmem_map_lookup(ptr noundef %48, ptr noundef %12) #13
-  %50 = icmp eq ptr %49, %0
+  %50 = icmp eq ptr %0, %49
   br i1 %50, label %51, label %68
 
 51:                                               ; preds = %47
@@ -1203,7 +1203,7 @@ define void @conversation_set_addr2(ptr noundef %0, ptr noundef %1) local_unname
 15:                                               ; preds = %11
   %16 = load ptr, ptr @conversation_hashtable_no_addr2_or_port2, align 8
   %17 = tail call ptr @wmem_map_lookup(ptr noundef %16, ptr noundef %14) #13
-  %18 = icmp eq ptr %17, %0
+  %18 = icmp eq ptr %0, %17
   br i1 %18, label %19, label %36
 
 19:                                               ; preds = %15
@@ -1272,7 +1272,7 @@ define void @conversation_set_addr2(ptr noundef %0, ptr noundef %1) local_unname
 49:                                               ; preds = %11
   %50 = load ptr, ptr @conversation_hashtable_no_addr2, align 8
   %51 = tail call ptr @wmem_map_lookup(ptr noundef %50, ptr noundef %14) #13
-  %52 = icmp eq ptr %51, %0
+  %52 = icmp eq ptr %0, %51
   br i1 %52, label %53, label %70
 
 53:                                               ; preds = %49

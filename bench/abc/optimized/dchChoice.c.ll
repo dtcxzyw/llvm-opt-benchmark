@@ -222,7 +222,7 @@ define range(i32 0, 2) i32 @Dch_ObjMarkTfi_rec(ptr nocapture noundef readonly %0
 
 10:                                               ; preds = %7
   %11 = add nsw i32 %.val, -1
-  %12 = icmp ne i32 %11, %.val20
+  %12 = icmp ne i32 %.val20, %11
   %13 = zext i1 %12 to i32
   store i32 %.val, ptr %6, align 8
   br label %.loopexit
@@ -594,7 +594,7 @@ define range(i32 0, 2) i32 @Aig_ManCheckAcyclic_rec(ptr noundef %0, ptr nocaptur
   %19 = getelementptr i8, ptr %18, i64 32
   %.val79 = load i32, ptr %19, align 8
   %20 = add nsw i32 %.val78, -1
-  %.not95 = icmp eq i32 %20, %.val79
+  %.not95 = icmp eq i32 %.val79, %20
   br i1 %.not95, label %26, label %21
 
 21:                                               ; preds = %14
@@ -626,7 +626,7 @@ define range(i32 0, 2) i32 @Aig_ManCheckAcyclic_rec(ptr noundef %0, ptr nocaptur
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr i8, ptr %30, i64 32
   %.val77 = load i32, ptr %31, align 8
-  %.not96 = icmp eq i32 %.pre-phi, %.val77
+  %.not96 = icmp eq i32 %.val77, %.pre-phi
   br i1 %.not96, label %37, label %32
 
 32:                                               ; preds = %26
@@ -681,7 +681,7 @@ Aig_ObjEquiv.exit:                                ; preds = %Aig_ObjRepr.exit.th
   %51 = getelementptr i8, ptr %.0100, i64 32
   %.0.val = load i32, ptr %51, align 8
   %52 = add nsw i32 %.val75, -1
-  %.not97 = icmp eq i32 %52, %.0.val
+  %.not97 = icmp eq i32 %.0.val, %52
   br i1 %.not97, label %58, label %53
 
 53:                                               ; preds = %.lr.ph
@@ -796,7 +796,7 @@ define range(i32 0, 2) i32 @Aig_ManCheckAcyclic(ptr noundef %0, i32 noundef %1) 
   %17 = getelementptr i8, ptr %16, i64 32
   %.val23 = load i32, ptr %17, align 8
   %18 = add nsw i32 %.val22, -1
-  %.not = icmp eq i32 %18, %.val23
+  %.not = icmp eq i32 %.val23, %18
   br i1 %.not, label %24, label %19
 
 19:                                               ; preds = %8

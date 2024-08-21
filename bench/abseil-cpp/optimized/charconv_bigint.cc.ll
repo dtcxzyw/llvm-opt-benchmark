@@ -1414,7 +1414,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds [4 x i32], ptr %words_.i, i64 0, i64 %indvars.iv.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %conv8.i = zext i32 %2 to i64
-  %mul.i = mul nuw i64 %conv8.i, %v
+  %mul.i = mul nuw i64 %v, %conv8.i
   %add.i = add nuw i64 %mul.i, %window.012.i
   %conv9.i = trunc i64 %add.i to i32
   store i32 %conv9.i, ptr %arrayidx.i, align 4
@@ -1648,7 +1648,7 @@ for.body.preheader.i:                             ; preds = %if.else
 for.body.i:                                       ; preds = %_ZN4absl16strings_internal11BigUnsignedILi4EE12MultiplyStepEiPKjii.exit, %for.body.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4absl16strings_internal11BigUnsignedILi4EE12MultiplyStepEiPKjii.exit ], [ %4, %for.body.preheader.i ]
   %5 = trunc nsw i64 %indvars.iv to i32
-  %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %sub.i19, i32 %5)
+  %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %5, i32 %sub.i19)
   %sub2.i = sub i32 %5, %.sroa.speculated.i
   %cmp19.i = icmp sgt i32 %.sroa.speculated.i, -1
   %cmp320.i = icmp slt i32 %sub2.i, %mul.i12
@@ -1926,7 +1926,7 @@ define weak_odr dso_local noundef i32 @_ZNK4absl16strings_internal11BigUnsignedI
 entry:
   %cmp = icmp sgt i32 %index, -1
   %0 = load i32, ptr %this, align 4
-  %cmp2.not = icmp sgt i32 %0, %index
+  %cmp2.not = icmp slt i32 %index, %0
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %if.end, label %return
 
@@ -2040,7 +2040,7 @@ if.end:                                           ; preds = %if.then, %while.end
   %call11 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #9
   %cmp.i.i.i = icmp ne ptr %call9, %call11
   %__last.sroa.0.09.i.i = getelementptr inbounds i8, ptr %call11, i64 -1
-  %cmp.i110.i.i = icmp ugt ptr %__last.sroa.0.09.i.i, %call9
+  %cmp.i110.i.i = icmp ult ptr %call9, %__last.sroa.0.09.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %cmp.i110.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %nrvo.skipdtor
 
@@ -2142,7 +2142,7 @@ if.end12:                                         ; preds = %while.end, %entry
 define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE12MultiplyStepEiPKjii(ptr noundef nonnull align 4 dereferenceable(20) %this, i32 noundef %original_size, ptr noundef %other_words, i32 noundef %other_size, i32 noundef %step) local_unnamed_addr #4 comdat align 2 {
 entry:
   %sub = add nsw i32 %original_size, -1
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %sub, i32 %step)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %step, i32 %sub)
   %sub2 = sub i32 %step, %.sroa.speculated
   %cmp19 = icmp sgt i32 %.sroa.speculated, -1
   %cmp320 = icmp slt i32 %sub2, %other_size
@@ -3699,7 +3699,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds [84 x i32], ptr %words_.i, i64 0, i64 %indvars.iv.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %conv8.i = zext i32 %2 to i64
-  %mul.i = mul nuw i64 %conv8.i, %v
+  %mul.i = mul nuw i64 %v, %conv8.i
   %add.i = add nuw i64 %mul.i, %window.012.i
   %conv9.i = trunc i64 %add.i to i32
   store i32 %conv9.i, ptr %arrayidx.i, align 4
@@ -3933,7 +3933,7 @@ for.body.preheader.i:                             ; preds = %if.else
 for.body.i:                                       ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii.exit, %for.body.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii.exit ], [ %4, %for.body.preheader.i ]
   %5 = trunc nsw i64 %indvars.iv to i32
-  %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %sub.i19, i32 %5)
+  %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %5, i32 %sub.i19)
   %sub2.i = sub i32 %5, %.sroa.speculated.i
   %cmp19.i = icmp sgt i32 %.sroa.speculated.i, -1
   %cmp320.i = icmp slt i32 %sub2.i, %mul.i12
@@ -4211,7 +4211,7 @@ define weak_odr dso_local noundef i32 @_ZNK4absl16strings_internal11BigUnsignedI
 entry:
   %cmp = icmp sgt i32 %index, -1
   %0 = load i32, ptr %this, align 4
-  %cmp2.not = icmp sgt i32 %0, %index
+  %cmp2.not = icmp slt i32 %index, %0
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %if.end, label %return
 
@@ -4325,7 +4325,7 @@ if.end:                                           ; preds = %if.then, %while.end
   %call11 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #9
   %cmp.i.i.i = icmp ne ptr %call9, %call11
   %__last.sroa.0.09.i.i = getelementptr inbounds i8, ptr %call11, i64 -1
-  %cmp.i110.i.i = icmp ugt ptr %__last.sroa.0.09.i.i, %call9
+  %cmp.i110.i.i = icmp ult ptr %call9, %__last.sroa.0.09.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %cmp.i110.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %nrvo.skipdtor
 
@@ -4405,7 +4405,7 @@ if.end12:                                         ; preds = %while.end, %entry
 define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii(ptr noundef nonnull align 4 dereferenceable(340) %this, i32 noundef %original_size, ptr noundef %other_words, i32 noundef %other_size, i32 noundef %step) local_unnamed_addr #4 comdat align 2 {
 entry:
   %sub = add nsw i32 %original_size, -1
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %sub, i32 %step)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %step, i32 %sub)
   %sub2 = sub i32 %step, %.sroa.speculated
   %cmp19 = icmp sgt i32 %.sroa.speculated, -1
   %cmp320 = icmp slt i32 %sub2, %other_size

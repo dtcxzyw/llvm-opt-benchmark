@@ -545,7 +545,7 @@ if.end89:                                         ; preds = %if.then83
 
 if.end97:                                         ; preds = %if.end80
   %cmp98 = icmp ne i64 %ret.0, 0
-  %brmerge = or i1 %cmp98, %do_send
+  %brmerge = or i1 %do_send, %cmp98
   br i1 %brmerge, label %if.end103, label %while.end
 
 if.end103:                                        ; preds = %if.end97

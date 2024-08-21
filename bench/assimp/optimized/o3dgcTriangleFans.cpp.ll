@@ -1828,7 +1828,7 @@ for.body.i10:                                     ; preds = %entry, %for.body.i1
 _ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23: ; preds = %for.body.i10
   %m_allocated.i = getelementptr inbounds i8, ptr %data, i64 8
   %4 = load i64, ptr %m_allocated.i, align 8
-  %cmp.i = icmp ult i64 %4, %add.i19
+  %cmp.i = icmp ugt i64 %add.i19, %4
   br i1 %cmp.i, label %if.then.i, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
 
 if.then.i:                                        ; preds = %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23
@@ -1982,7 +1982,7 @@ for.body.i10:                                     ; preds = %entry, %for.body.i1
 _ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23: ; preds = %for.body.i10
   %m_allocated.i = getelementptr inbounds i8, ptr %data, i64 8
   %4 = load i64, ptr %m_allocated.i, align 8
-  %cmp.i = icmp ult i64 %4, %add.i19
+  %cmp.i = icmp ugt i64 %add.i19, %4
   br i1 %cmp.i, label %if.then.i, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
 
 if.then.i:                                        ; preds = %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23
@@ -2144,7 +2144,7 @@ _ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit25: ; preds = %for.body.i12
   %mul = mul i64 %add.i21, 7
   %m_allocated.i = getelementptr inbounds i8, ptr %data, i64 8
   %4 = load i64, ptr %m_allocated.i, align 8
-  %cmp.i = icmp ult i64 %4, %mul
+  %cmp.i = icmp ugt i64 %mul, %4
   br i1 %cmp.i, label %if.then.i, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
 
 if.then.i:                                        ; preds = %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit25
@@ -2482,7 +2482,7 @@ _ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit97: ; preds = %if.then.i79, %if.e
   store i64 %add, ptr %iterator, align 8
   %m_allocated.i = getelementptr inbounds i8, ptr %data, i64 8
   %50 = load i64, ptr %m_allocated.i, align 8
-  %cmp.i98 = icmp ult i64 %50, %value.0.i36
+  %cmp.i98 = icmp ugt i64 %value.0.i36, %50
   br i1 %cmp.i98, label %if.then.i99, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
 
 if.then.i99:                                      ; preds = %_ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit97
@@ -2850,7 +2850,7 @@ _ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit100: ; preds = %if.then.i82, %if.
   store i64 %add, ptr %iterator, align 8
   %m_allocated.i = getelementptr inbounds i8, ptr %data, i64 8
   %50 = load i64, ptr %m_allocated.i, align 8
-  %cmp.i101 = icmp ult i64 %50, %value.0.i39
+  %cmp.i101 = icmp ugt i64 %value.0.i39, %50
   br i1 %cmp.i101, label %if.then.i102, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
 
 if.then.i102:                                     ; preds = %_ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit100
@@ -2914,7 +2914,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 invoke.cont12:                                    ; preds = %for.body
   %conv14 = zext i32 %call13 to i64
-  %cmp15 = icmp eq i64 %conv14, %M
+  %cmp15 = icmp eq i64 %M, %conv14
   br i1 %cmp15, label %do.body.i, label %if.end21
 
 do.body.i:                                        ; preds = %invoke.cont12, %call.i103.noexc
@@ -2956,7 +2956,7 @@ invoke.cont17:                                    ; preds = %call3.i.noexc, %whi
   %binary_symbol.0.lcssa.i = phi i32 [ 0, %while.cond.preheader.i ], [ %binary_symbol.1.i, %call3.i.noexc ]
   %add8.i = add nsw i32 %binary_symbol.0.lcssa.i, %symbol.1.i
   %conv19 = zext i32 %add8.i to i64
-  %add20 = add nuw nsw i64 %conv19, %M
+  %add20 = add nuw nsw i64 %M, %conv19
   br label %if.end21
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont, %_ZN5o3dgc6VectorIlE8AllocateEm.exit
@@ -3215,7 +3215,7 @@ if.end:                                           ; preds = %_ZNK5o3dgc12BinaryS
   store i64 %add, ptr %iterator, align 8
   %m_allocated.i = getelementptr inbounds i8, ptr %data, i64 8
   %34 = load i64, ptr %m_allocated.i, align 8
-  %cmp.i53 = icmp ult i64 %34, %value.0.i33
+  %cmp.i53 = icmp ugt i64 %value.0.i33, %34
   br i1 %cmp.i53, label %if.then.i54, label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
 
 if.then.i54:                                      ; preds = %if.end

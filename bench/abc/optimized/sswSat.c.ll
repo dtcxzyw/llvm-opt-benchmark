@@ -212,7 +212,7 @@ Abc_Clock.exit101:                                ; preds = %99, %102
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr i8, ptr %127, i64 48
   %.val97 = load ptr, ptr %128, align 8
-  %129 = icmp eq ptr %.val97, %1
+  %129 = icmp eq ptr %1, %.val97
   br i1 %129, label %164, label %168
 
 130:                                              ; preds = %Abc_Clock.exit99
@@ -520,13 +520,13 @@ define internal fastcc i32 @Ssw_ObjSatNum(ptr nocapture %.32.val, i32 %.36.val) 
   %1 = add nsw i32 %.36.val, 1
   %2 = getelementptr inbounds i8, ptr %.32.val, i64 4
   %3 = load i32, ptr %2, align 4
-  %.not.i.not.i = icmp sgt i32 %3, %.36.val
+  %.not.i.not.i = icmp slt i32 %.36.val, %3
   br i1 %.not.i.not.i, label %Vec_IntGetEntry.exit, label %4
 
 4:                                                ; preds = %0
   %5 = load i32, ptr %.32.val, align 8
   %6 = shl nsw i32 %5, 1
-  %.not.i = icmp sgt i32 %6, %.36.val
+  %.not.i = icmp slt i32 %.36.val, %6
   %.not.i.i.not.i = icmp sgt i32 %5, %.36.val
   br i1 %.not.i, label %19, label %7
 

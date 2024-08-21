@@ -1189,7 +1189,7 @@ land.rhs.i:                                       ; preds = %lor.rhs.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %land.rhs.i
   %transition.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i = zext i16 %expectedFlags.coerce to i32
-  %xor.i.i.i.i.i.i.i.i = xor i32 %transition.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i, %name.coerce
+  %xor.i.i.i.i.i.i.i.i = xor i32 %name.coerce, %transition.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i = add i32 %cond.i.i18.i.i.i.i.i.i, -1
   %BucketNo.033.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i.i, %xor.i.i.i.i.i.i.i.i
   %idx.ext34.i.i.i.i.i.i = zext i32 %BucketNo.033.i.i.i.i.i.i to i64

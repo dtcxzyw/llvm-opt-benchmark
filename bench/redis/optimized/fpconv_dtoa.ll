@@ -413,7 +413,7 @@ if.else.i15:                                      ; preds = %if.then18.i
 
 if.end50.i:                                       ; preds = %land.lhs.true13.i, %if.end.i13
   %sub52.i = select i1 %tobool.not, i32 17, i32 18
-  %cond61.i = tail call i32 @llvm.smin.i32(i32 %sub52.i, i32 %retval.0.i.i)
+  %cond61.i = tail call i32 @llvm.smin.i32(i32 %retval.0.i.i, i32 %sub52.i)
   %20 = load i8, ptr %digits, align 16
   store i8 %20, ptr %add.ptr, align 1
   %cmp65.i = icmp sgt i32 %retval.0.i.i, 1

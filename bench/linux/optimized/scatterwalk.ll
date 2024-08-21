@@ -36,13 +36,13 @@ define dso_local void @scatterwalk_copychunks(ptr nocapture noundef %0, ptr noca
   %15 = sub nuw nsw i32 4096, %14
   %16 = tail call i32 @llvm.umin.i32(i32 %15, i32 %13)
   %17 = zext nneg i32 %16 to i64
-  %18 = icmp ugt i64 %17, %2
+  %18 = icmp ult i64 %2, %17
   %19 = trunc i64 %2 to i32
   %20 = select i1 %18, i32 %19, i32 %16
   %21 = add i32 %.pre8, %20
   store i32 %21, ptr %5, align 8
   %22 = zext i32 %20 to i64
-  %23 = icmp eq i64 %22, %2
+  %23 = icmp eq i64 %2, %22
   br i1 %23, label %.split4.us, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split.us.preheader, %.split.us
@@ -249,7 +249,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr nocapture noundef %0, ptr no
   %52 = and i32 %48, 4095
   %53 = sub nuw nsw i32 4096, %52
   %54 = call i32 @llvm.umin.i32(i32 %53, i32 %51)
-  %.not = icmp ult i32 %54, %3
+  %.not = icmp ugt i32 %3, %54
   br i1 %.not, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %.split.us

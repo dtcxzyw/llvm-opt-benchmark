@@ -32,7 +32,7 @@ define dso_local void @archive_entry_sparse_add_entry(ptr noundef %0, i64 nounde
   %4 = or i64 %2, %1
   %or.cond.not = icmp slt i64 %4, 0
   %5 = sub nuw nsw i64 9223372036854775807, %2
-  %6 = icmp slt i64 %5, %1
+  %6 = icmp sgt i64 %1, %5
   %or.cond = select i1 %or.cond.not, i1 true, i1 %6
   br i1 %or.cond, label %38, label %7
 

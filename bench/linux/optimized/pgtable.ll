@@ -507,7 +507,7 @@ define dso_local void @native_set_fixmap(i32 noundef %0, i64 noundef %1, i64 %2)
   %14 = icmp ne i64 %8, 0
   %15 = and i1 %14, %10
   %16 = sext i1 %15 to i64
-  %17 = xor i64 %16, %1
+  %17 = xor i64 %1, %16
   %18 = and i64 %17, 4503599627366400
   %19 = or i64 %18, %13
   %20 = shl nuw nsw i32 %0, 12
@@ -562,7 +562,7 @@ define dso_local noundef range(i32 0, 2) i32 @pud_set_huge(ptr noundef %0, i64 n
   %23 = and i64 %2, 1
   %24 = icmp eq i64 %23, 0
   %25 = sext i1 %24 to i64
-  %26 = xor i64 %25, %1
+  %26 = xor i64 %1, %25
   %27 = and i64 %26, 4503599627366400
   %28 = load i64, ptr @__supported_pte_mask, align 8
   %29 = select i1 %24, i64 -1, i64 %28
@@ -628,7 +628,7 @@ define dso_local noundef range(i32 0, 2) i32 @pmd_set_huge(ptr noundef %0, i64 n
   %27 = and i64 %2, 1
   %28 = icmp eq i64 %27, 0
   %29 = sext i1 %28 to i64
-  %30 = xor i64 %29, %1
+  %30 = xor i64 %1, %29
   %31 = and i64 %30, 4503599627366400
   %32 = load i64, ptr @__supported_pte_mask, align 8
   %33 = select i1 %28, i64 -1, i64 %32

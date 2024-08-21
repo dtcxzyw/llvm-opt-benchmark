@@ -1936,7 +1936,7 @@ Ivy_FraigCountClassNodes.exit:                    ; preds = %.lr.ph.i, %1, %15
 
 78:                                               ; preds = %75
   %79 = load i32, ptr %76, align 4
-  %80 = icmp sgt i32 %79, %.0115
+  %80 = icmp slt i32 %.0115, %79
   br i1 %80, label %Extra_ProgressBarUpdate.exit, label %81
 
 81:                                               ; preds = %78, %75

@@ -5664,7 +5664,7 @@ _ZNK7xgboost6common4SpanIlLm18446744073709551615EEixEm.exit: ; preds = %8
 
 37:                                               ; preds = %_ZNK7xgboost6common4SpanIlLm18446744073709551615EEixEm.exit
   %38 = load i64, ptr %6, align 8, !noalias !218
-  %.not8.i = icmp ult i64 %38, %34
+  %.not8.i = icmp ugt i64 %34, %38
   br i1 %.not8.i, label %42, label %43
 
 39:                                               ; preds = %_ZNK7xgboost6common4SpanIlLm18446744073709551615EEixEm.exit
@@ -17031,7 +17031,7 @@ define linkonce_odr { ptr, i64 } @_ZSt11partial_sumIN7xgboost6common6detail12Spa
 
 10:                                               ; preds = %6
   %11 = load i64, ptr %0, align 8
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEdeEv.exit, label %13
 
 13:                                               ; preds = %10
@@ -17041,7 +17041,7 @@ define linkonce_odr { ptr, i64 } @_ZSt11partial_sumIN7xgboost6common6detail12Spa
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEdeEv.exit: ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load i64, ptr %4, align 8
-  %16 = icmp ugt i64 %15, %5
+  %16 = icmp ult i64 %5, %15
   br i1 %16, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0EEdeEv.exit, label %17
 
 17:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEdeEv.exit
@@ -17057,7 +17057,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0
   %23 = getelementptr inbounds i64, ptr %22, i64 %5
   store i64 %20, ptr %23, align 8
   %24 = load i64, ptr %0, align 8
-  %.not.i39 = icmp eq i64 %24, %1
+  %.not.i39 = icmp eq i64 %1, %24
   br i1 %.not.i39, label %._crit_edge, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEppEv.exit.lr.ph
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEppEv.exit.lr.ph: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0EEdeEv.exit
@@ -17380,7 +17380,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17

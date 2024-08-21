@@ -905,7 +905,7 @@ if.end7.i:                                        ; preds = %if.end.lr.ph.i, %if
   %shr.i.i.i.i.i = sext i16 %9 to i32
   %10 = load i32, ptr %fLength.i.i.i.i, align 4
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %10, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %7
+  %cmp.i.i.i = icmp ult i32 %7, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %cond.false.i
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %if.end7.i
@@ -920,11 +920,11 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %if.end7.i
   br i1 %cmp13.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i
-  %cmp14.i = fcmp olt double %call8.i, %number
+  %cmp14.i = fcmp ogt double %number, %call8.i
   br i1 %cmp14.i, label %if.end17.i, label %_ZN6icu_7512ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit
 
 cond.false.i:                                     ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end7.i
-  %cmp15.i = fcmp ugt double %call8.i, %number
+  %cmp15.i = fcmp ult double %number, %call8.i
   br i1 %cmp15.i, label %_ZN6icu_7512ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit, label %if.end17.i
 
 if.end17.i:                                       ; preds = %cond.false.i, %cond.true.i
@@ -1024,7 +1024,7 @@ if.end7:                                          ; preds = %if.end.lr.ph, %if.e
   %shr.i.i.i.i = sext i16 %8 to i32
   %9 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %9, i32 %shr.i.i.i.i
-  %cmp.i.i = icmp ugt i32 %cond.i.i.i, %6
+  %cmp.i.i = icmp ult i32 %6, %cond.i.i.i
   br i1 %cmp.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %cond.false
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %if.end7
@@ -1039,11 +1039,11 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %if.end7
   br i1 %cmp13, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %cmp14 = fcmp olt double %call8, %number
+  %cmp14 = fcmp ogt double %number, %call8
   br i1 %cmp14, label %if.end17, label %for.end
 
 cond.false:                                       ; preds = %if.end7, %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %cmp15 = fcmp ugt double %call8, %number
+  %cmp15 = fcmp ult double %number, %call8
   br i1 %cmp15, label %for.end, label %if.end17
 
 if.end17:                                         ; preds = %cond.false, %cond.true
@@ -1136,7 +1136,7 @@ entry:
   %1 = load i32, ptr %partsLength.i, align 8
   %parts.i.i = getelementptr inbounds i8, ptr %pattern, i64 88
   %fUnion.i.i = getelementptr inbounds i8, ptr %source, i64 8
-  %cmp27 = icmp sgt i32 %1, %partIndex
+  %cmp27 = icmp slt i32 %partIndex, %1
   br i1 %cmp27, label %land.rhs.lr.ph, label %if.then20
 
 land.rhs.lr.ph:                                   ; preds = %entry
@@ -1278,11 +1278,11 @@ if.else.i.i:                                      ; preds = %land.lhs.true
   %11 = load i32, ptr %fLength.i.i.i.i, align 4
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %11, i32 %shr.i.i.i.i.i
   %cmp.i.i.i = icmp slt i32 %prevIndex.0.ph, 0
-  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i.i.i, i32 %prevIndex.0.ph)
+  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %prevIndex.0.ph, i32 %cond.i.i.i.i)
   %srcStart.addr.0.i.i = select i1 %cmp.i.i.i, i32 0, i32 %spec.select.i.i
   %cmp5.i.i.i = icmp slt i32 %sub, 0
   %sub.i.i.i = sub nsw i32 %cond.i.i.i.i, %srcStart.addr.0.i.i
-  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %sub)
+  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %sub, i32 %sub.i.i.i)
   %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
   %12 = and i16 %6, 2
   %tobool.not.i.i.i = icmp eq i16 %12, 0

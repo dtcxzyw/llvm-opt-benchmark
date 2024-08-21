@@ -3244,7 +3244,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17he3998373324a9
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hce1b33d971084b9bE.exit: ; preds = %11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !906
-  %28 = icmp eq i64 %.sroa.01.015.i, %2
+  %28 = icmp eq i64 %2, %.sroa.01.015.i
   br i1 %28, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hce1b33d971084b9bE.exit.thread, label %29
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hce1b33d971084b9bE.exit.thread: ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$$LP$usize$C$alloc..vec..Vec$LT$uu_pr..FileLine$GT$$RP$$GT$$GT$17h8da2dc6992f7014dE.exit.i", %3, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hce1b33d971084b9bE.exit
@@ -3426,7 +3426,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !953, !noalias !958, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !960, !noalias !958, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h41a51e7805b40388E.exit"
 
 9:                                                ; preds = %3
@@ -3607,7 +3607,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !966, !noalias !971, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !973, !noalias !971, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h41a51e7805b40388E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -3752,7 +3752,7 @@ define internal fastcc void @_ZN5regex5regex6string5Regex11captures_at17h9983fbb
 19:                                               ; preds = %._crit_edge.i
   %20 = getelementptr inbounds i8, ptr %.pre, i64 8
   %21 = load i64, ptr %20, align 8, !noalias !983
-  %22 = icmp ugt i64 %21, %3
+  %22 = icmp ult i64 %3, %21
   br i1 %22, label %.thread, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i: ; preds = %19
@@ -3777,7 +3777,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.i: ; preds = %30
   %33 = getelementptr inbounds i8, ptr %.pre, i64 24
   %34 = load i64, ptr %33, align 8, !noalias !979
-  %35 = icmp ult i64 %34, %3
+  %35 = icmp ugt i64 %3, %34
   br i1 %35, label %.thread, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.thread.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.thread.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.i, %30, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.thread.i, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i, %._crit_edge.i
@@ -8189,7 +8189,7 @@ common.resume:                                    ; preds = %.body27, %283, %39
 111:                                              ; preds = %99
   %112 = getelementptr inbounds i8, ptr %109, i64 8
   %113 = load i64, ptr %112, align 8, !noalias !2378
-  %114 = icmp ugt i64 %113, %104
+  %114 = icmp ult i64 %104, %113
   br i1 %114, label %.thread82, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i.i: ; preds = %111
@@ -8214,7 +8214,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.i.i: ; preds = %122
   %125 = getelementptr inbounds i8, ptr %109, i64 24
   %126 = load i64, ptr %125, align 8, !noalias !2377
-  %127 = icmp ult i64 %126, %104
+  %127 = icmp ugt i64 %104, %126
   br i1 %127, label %.thread82, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.thread.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.thread.i.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.i.i, %122, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.thread.i.i, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i.i, %99
@@ -8395,7 +8395,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2404)
   %180 = getelementptr inbounds i8, ptr %28, i64 16
   %181 = load i64, ptr %180, align 8, !alias.scope !2404, !noalias !2407, !noundef !5
-  %.not.i = icmp ugt i64 %181, %98
+  %.not.i = icmp ult i64 %98, %181
   br i1 %.not.i, label %183, label %182
 
 182:                                              ; preds = %179
@@ -8513,7 +8513,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %195
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h94fec850c2f4915fE.llvm.4097280427338753871.exit.i": ; preds = %216, %212
   %217 = load ptr, ptr %184, align 8, !alias.scope !2438, !noalias !2441, !nonnull !5, !noundef !5
   %218 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %217, i64 %98
-  %219 = icmp ugt i64 %213, %98
+  %219 = icmp ult i64 %98, %213
   br i1 %219, label %224, label %222
 
 220:                                              ; preds = %228, %216
@@ -8523,7 +8523,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %195
           to label %.thread89 unwind label %230
 
 222:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h94fec850c2f4915fE.llvm.4097280427338753871.exit.i"
-  %223 = icmp eq i64 %213, %98
+  %223 = icmp eq i64 %98, %213
   br i1 %223, label %232, label %228
 
 224:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h94fec850c2f4915fE.llvm.4097280427338753871.exit.i"
@@ -8565,7 +8565,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %195
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h94fec850c2f4915fE.llvm.4097280427338753871.exit.i51": ; preds = %237, %232
   %238 = load ptr, ptr %184, align 8, !alias.scope !2443, !noalias !2446, !nonnull !5, !noundef !5
   %239 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %238, i64 %234
-  %240 = icmp ugt i64 %233, %234
+  %240 = icmp ult i64 %234, %233
   br i1 %240, label %245, label %243
 
 241:                                              ; preds = %249, %237
@@ -8575,7 +8575,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %195
           to label %.thread74 unwind label %251
 
 243:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h94fec850c2f4915fE.llvm.4097280427338753871.exit.i51"
-  %244 = icmp eq i64 %233, %234
+  %244 = icmp eq i64 %234, %233
   br i1 %244, label %253, label %249
 
 245:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h94fec850c2f4915fE.llvm.4097280427338753871.exit.i51"
@@ -14728,16 +14728,16 @@ define void @_ZN5uu_pr3mpr17h47c4779e0b4a54bfE(ptr noalias nocapture noundef wri
   call void @llvm.experimental.noalias.scope.decl(metadata !3544)
   store i64 -1, ptr %26, align 8, !noalias !3546
   %62 = load i64, ptr %41, align 8, !alias.scope !3547, !noalias !3550, !noundef !5
-  %63 = icmp ugt i64 %62, %61
+  %63 = icmp ult i64 %61, %62
   br i1 %63, label %122, label %64
 
 64:                                               ; preds = %60
   %65 = load i64, ptr %.sroa.4.sroa.11.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !3547, !noalias !3550, !noundef !5
-  %66 = icmp ugt i64 %65, %61
+  %66 = icmp ult i64 %61, %65
   br i1 %66, label %79, label %67
 
 67:                                               ; preds = %64
-  %68 = icmp eq i64 %65, %61
+  %68 = icmp eq i64 %61, %65
   br i1 %68, label %69, label %.thread.i
 
 69:                                               ; preds = %67

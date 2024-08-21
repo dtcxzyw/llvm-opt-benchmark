@@ -326,7 +326,7 @@ if.end12:                                         ; preds = %while.body
 
 while.end:                                        ; preds = %while.body, %invoke.cont6
   %5 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp13 = icmp eq i32 %5, %bufferLen
+  %cmp13 = icmp eq i32 %bufferLen, %5
   br i1 %cmp13, label %land.lhs.true, label %if.end21
 
 land.lhs.true:                                    ; preds = %while.end
@@ -508,7 +508,7 @@ if.then3:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %mul = shl nsw i32 %0, 1
-  %cmp6.not = icmp sgt i32 %mul, %capacity
+  %cmp6.not = icmp slt i32 %capacity, %mul
   br i1 %cmp6.not, label %if.else, label %if.end17
 
 if.else:                                          ; preds = %if.end

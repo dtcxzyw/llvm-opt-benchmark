@@ -325,7 +325,7 @@ define dso_local void @reserve_crashkernel_generic(ptr nocapture noundef readnon
 
 24:                                               ; preds = %21
   %25 = icmp ne i64 %18, 4294967296
-  %26 = or i1 %25, %4
+  %26 = or i1 %4, %25
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %24
@@ -336,7 +336,7 @@ define dso_local void @reserve_crashkernel_generic(ptr nocapture noundef readnon
 
 31:                                               ; preds = %24
   %32 = icmp eq i64 %18, 70368744177664
-  %33 = and i1 %32, %4
+  %33 = and i1 %4, %32
   br i1 %33, label %16, label %34
 
 34:                                               ; preds = %31

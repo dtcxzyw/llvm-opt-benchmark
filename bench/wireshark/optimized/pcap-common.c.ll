@@ -787,7 +787,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %224
 
 292:                                              ; preds = %288
   %293 = add nuw nsw i32 %.1.i, 8
-  %294 = icmp ugt i32 %293, %3
+  %294 = icmp ult i32 %3, %293
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %292
@@ -884,7 +884,7 @@ pcap_read_erf_pseudoheader.exit.thread149:        ; preds = %.loopexit106.i
 
 340:                                              ; preds = %336
   %341 = add nsw i32 %.086.i, 4
-  %342 = icmp ugt i32 %341, %3
+  %342 = icmp ult i32 %3, %341
   br i1 %342, label %343, label %345
 
 343:                                              ; preds = %340
@@ -930,7 +930,7 @@ pcap_read_erf_pseudoheader.exit.thread149:        ; preds = %.loopexit106.i
 
 370:                                              ; preds = %366
   %371 = add nsw i32 %.086.i, 4
-  %372 = icmp ugt i32 %371, %3
+  %372 = icmp ult i32 %3, %371
   br i1 %372, label %373, label %375
 
 373:                                              ; preds = %370
@@ -976,7 +976,7 @@ pcap_read_erf_pseudoheader.exit.thread149:        ; preds = %.loopexit106.i
 
 400:                                              ; preds = %396
   %401 = add nsw i32 %.086.i, 2
-  %402 = icmp ugt i32 %401, %3
+  %402 = icmp ult i32 %3, %401
   br i1 %402, label %403, label %405
 
 403:                                              ; preds = %400

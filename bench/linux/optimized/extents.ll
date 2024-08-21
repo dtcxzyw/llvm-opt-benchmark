@@ -304,7 +304,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @__ext4_ext_check(ptr noun
   %12 = getelementptr inbounds i8, ptr %3, i64 6
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
-  %15 = icmp eq i32 %14, %4
+  %15 = icmp eq i32 %4, %14
   br i1 %15, label %16, label %.thread10, !prof !13
 
 16:                                               ; preds = %11
@@ -317,7 +317,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @__ext4_ext_check(ptr noun
   %21 = getelementptr i8, ptr %2, i64 -290
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
-  %24 = icmp eq i32 %23, %4
+  %24 = icmp eq i32 %4, %23
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %20
@@ -481,7 +481,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @__ext4_ext_check(ptr noun
 136:                                              ; preds = %.loopexit
   %137 = load i16, ptr %21, align 2
   %138 = zext i16 %137 to i32
-  %139 = icmp eq i32 %138, %4
+  %139 = icmp eq i32 %4, %138
   br i1 %139, label %.thread, label %140
 
 140:                                              ; preds = %136
@@ -8527,7 +8527,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @ext4_zero_range(p
   br i1 %77, label %90, label %78
 
 78:                                               ; preds = %73
-  %79 = and i64 %40, %1
+  %79 = and i64 %1, %40
   %80 = ashr i64 %79, %44
   %81 = trunc i64 %80 to i32
   %82 = add i64 %39, -1
@@ -10465,7 +10465,7 @@ define dso_local i32 @ext4_ext_replay_update_ex(ptr noundef %0, i32 noundef %1, 
   %26 = icmp ult i16 %24, -32767
   %27 = add nsw i32 %25, -32768
   %28 = select i1 %26, i32 %25, i32 %27
-  %29 = icmp eq i32 %28, %2
+  %29 = icmp eq i32 %2, %28
   br i1 %29, label %85, label %30
 
 30:                                               ; preds = %22, %19
@@ -10515,7 +10515,7 @@ define dso_local i32 @ext4_ext_replay_update_ex(ptr noundef %0, i32 noundef %1, 
   %58 = icmp ult i16 %56, -32767
   %59 = add nsw i32 %57, -32768
   %60 = select i1 %58, i32 %57, i32 %59
-  %61 = icmp eq i32 %60, %2
+  %61 = icmp eq i32 %2, %60
   br i1 %61, label %85, label %62
 
 62:                                               ; preds = %54
@@ -12931,7 +12931,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %63 = select i1 %61, i32 %60, i32 %62
   %64 = add i32 %63, %22
   %65 = xor i32 %64, -1
-  %66 = icmp ult i32 %65, %3
+  %66 = icmp ugt i32 %3, %65
   br i1 %66, label %.thread43, label %67
 
 67:                                               ; preds = %57, %47

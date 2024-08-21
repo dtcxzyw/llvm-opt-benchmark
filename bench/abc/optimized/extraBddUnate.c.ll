@@ -66,7 +66,7 @@ define noalias noundef ptr @Extra_UnateInfoCreateFromZdd(ptr noundef %0, ptr nou
   store i32 %9, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
-  %.not52 = icmp eq ptr %14, %2
+  %.not52 = icmp eq ptr %2, %14
   br i1 %.not52, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -94,7 +94,7 @@ define noalias noundef ptr @Extra_UnateInfoCreateFromZdd(ptr noundef %0, ptr nou
   tail call void @Cudd_Ref(ptr noundef %1) #9
   %27 = getelementptr inbounds i8, ptr %0, i64 48
   %28 = load ptr, ptr %27, align 8
-  %.not4955 = icmp eq ptr %28, %1
+  %.not4955 = icmp eq ptr %1, %28
   br i1 %.not4955, label %._crit_edge59, label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %._crit_edge
@@ -205,7 +205,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %.0136.lcssa = phi ptr [ %2, %19 ], [ %32, %.lr.ph ]
-  %.not154 = icmp eq ptr %6, %1
+  %.not154 = icmp eq ptr %1, %6
   %38 = getelementptr inbounds i8, ptr %6, i64 16
   %39 = getelementptr inbounds i8, ptr %6, i64 24
   %40 = load ptr, ptr %39, align 8
@@ -489,7 +489,7 @@ define ptr @Extra_zddGetSingletonsBoth(ptr noundef %0, ptr noundef %1) local_unn
 define ptr @extraZddGetSingletonsBoth(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %72, label %6
 
 6:                                                ; preds = %2

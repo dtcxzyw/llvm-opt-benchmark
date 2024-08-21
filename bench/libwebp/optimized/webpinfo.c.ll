@@ -1823,7 +1823,7 @@ AnalyzeWebP.exit:                                 ; preds = %Validate.exit.i, %7
   %.1 = phi i32 [ 6, %100 ], [ %.0.i67, %AnalyzeWebP.exit ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %786 = trunc nuw i64 %indvars.iv.next153 to i32
-  %787 = icmp slt i32 %786, %0
+  %787 = icmp sgt i32 %0, %786
   br i1 %787, label %94, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %785

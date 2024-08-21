@@ -163,7 +163,7 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br label %.thread292.i
 
 29:                                               ; preds = %22
-  %30 = icmp ult ptr %.ptr240.i, %5
+  %30 = icmp ugt ptr %5, %.ptr240.i
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %29
@@ -692,7 +692,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_encode(ptr noundef %0, i1
   %6 = load i32, ptr %4, align 8
   %7 = add i32 %6, -3
   %switch = icmp ult i32 %7, -2
-  %brmerge = or i1 %switch, %1
+  %brmerge = or i1 %1, %switch
   br i1 %brmerge, label %15, label %8
 
 8:                                                ; preds = %5
@@ -956,7 +956,7 @@ define internal i64 @H5O__attr_shared_size(ptr noundef %0, i1 noundef zeroext %1
   %4 = load i32, ptr %2, align 8
   %5 = add i32 %4, -3
   %switch = icmp ult i32 %5, -2
-  %brmerge = or i1 %switch, %1
+  %brmerge = or i1 %1, %switch
   br i1 %brmerge, label %13, label %6
 
 6:                                                ; preds = %3

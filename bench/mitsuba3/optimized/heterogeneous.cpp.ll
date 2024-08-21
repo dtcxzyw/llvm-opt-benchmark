@@ -642,8 +642,8 @@ define weak_odr { i64, float } @_ZNK7mitsuba19HeterogeneousMediumIfN5drjit6Matri
   %20 = icmp eq i8 %19, 7
   %21 = call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %7, <4 x float> zeroinitializer, i8 -1)
   %22 = fadd contract <4 x float> %21, %21
-  %23 = fneg contract <4 x float> %21
-  %24 = fmul contract <4 x float> %7, %23
+  %23 = fneg contract <4 x float> %7
+  %24 = fmul contract <4 x float> %21, %23
   %25 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %24, <4 x float> %21, <4 x float> %22)
   %26 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %25, <4 x float> %7, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   %27 = fsub contract <4 x float> %10, %9
@@ -3457,7 +3457,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63

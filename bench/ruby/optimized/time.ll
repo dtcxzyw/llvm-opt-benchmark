@@ -301,7 +301,7 @@ define dso_local i64 @rb_time_new(i64 noundef %0, i64 noundef %1) local_unnamed_
   %15 = xor i64 %1, -1
   %16 = udiv i64 %15, 1000000
   %17 = add nuw nsw i64 %16, -9223372036854775807
-  %18 = icmp sgt i64 %17, %0
+  %18 = icmp slt i64 %0, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %14
@@ -313,7 +313,7 @@ define dso_local i64 @rb_time_new(i64 noundef %0, i64 noundef %1) local_unnamed_
   %22 = xor i64 %16, -1
   %.neg7 = mul i64 %22, -1000000
   %23 = add i64 %.neg7, %1
-  %24 = add i64 %22, %0
+  %24 = add i64 %0, %22
   br label %subsec_normalize.exit
 
 subsec_normalize.exit:                            ; preds = %9, %12, %21
@@ -537,7 +537,7 @@ define internal fastcc i64 @nsec2timew(i64 noundef %0, i64 noundef %1) unnamed_a
   %15 = xor i64 %1, -1
   %16 = udiv i64 %15, 1000000000
   %17 = add nuw nsw i64 %16, -9223372036854775807
-  %18 = icmp sgt i64 %17, %0
+  %18 = icmp slt i64 %0, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %14
@@ -549,7 +549,7 @@ define internal fastcc i64 @nsec2timew(i64 noundef %0, i64 noundef %1) unnamed_a
   %22 = xor i64 %16, -1
   %.neg6 = mul i64 %22, -1000000000
   %23 = add i64 %.neg6, %1
-  %24 = add i64 %22, %0
+  %24 = add i64 %0, %22
   br label %subsec_normalize.exit
 
 subsec_normalize.exit:                            ; preds = %9, %12, %21
@@ -7754,31 +7754,31 @@ define internal i64 @time_s_at(ptr nocapture readnone %0, i64 noundef %1, i64 no
 7:                                                ; preds = %6
   %8 = load i64, ptr @id_nanosecond, align 8
   %9 = tail call i64 @rb_id2sym(i64 noundef %8) #18
-  %10 = icmp eq i64 %9, %4
+  %10 = icmp eq i64 %4, %9
   br i1 %10, label %get_scale.exit, label %11
 
 11:                                               ; preds = %7
   %12 = load i64, ptr @id_nsec, align 8
   %13 = tail call i64 @rb_id2sym(i64 noundef %12) #18
-  %14 = icmp eq i64 %13, %4
+  %14 = icmp eq i64 %4, %13
   br i1 %14, label %get_scale.exit, label %15
 
 15:                                               ; preds = %11
   %16 = load i64, ptr @id_microsecond, align 8
   %17 = tail call i64 @rb_id2sym(i64 noundef %16) #18
-  %18 = icmp eq i64 %17, %4
+  %18 = icmp eq i64 %4, %17
   br i1 %18, label %get_scale.exit, label %19
 
 19:                                               ; preds = %15
   %20 = load i64, ptr @id_usec, align 8
   %21 = tail call i64 @rb_id2sym(i64 noundef %20) #18
-  %22 = icmp eq i64 %21, %4
+  %22 = icmp eq i64 %4, %21
   br i1 %22, label %get_scale.exit, label %23
 
 23:                                               ; preds = %19
   %24 = load i64, ptr @id_millisecond, align 8
   %25 = tail call i64 @rb_id2sym(i64 noundef %24) #18
-  %26 = icmp eq i64 %25, %4
+  %26 = icmp eq i64 %4, %25
   br i1 %26, label %get_scale.exit, label %27
 
 27:                                               ; preds = %23
@@ -11642,7 +11642,7 @@ leap_year_p.exit:                                 ; preds = %15
   %26 = phi ptr [ %20, %leap_year_p.exit.thread14 ], [ %14, %leap_year_p.exit.thread ], [ %spec.select, %leap_year_p.exit ]
   %.pn.in = load i16, ptr %26, align 2
   %.pn = sext i16 %.pn.in to i32
-  %.0 = add i32 %.pn, %2
+  %.0 = add i32 %2, %.pn
   ret i32 %.0
 }
 
@@ -19161,7 +19161,7 @@ define internal fastcc noundef i64 @time_init_vtm(i64 noundef returned %0, ptr n
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %11
   %.lcssa.i = phi i64 [ %.pr.i, %11 ], [ %12, %.lr.ph.i ]
   %13 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i) #18
-  %14 = icmp eq i64 %13, %2
+  %14 = icmp eq i64 %2, %13
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %rbimpl_intern_const.exit
@@ -19184,7 +19184,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %11
 rbimpl_intern_const.exit60:                       ; preds = %.lr.ph.i58, %18
   %.lcssa.i57 = phi i64 [ %.pr.i55, %18 ], [ %19, %.lr.ph.i58 ]
   %20 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i57) #18
-  %21 = icmp eq i64 %20, %2
+  %21 = icmp eq i64 %2, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %rbimpl_intern_const.exit60

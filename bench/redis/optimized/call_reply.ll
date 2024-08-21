@@ -459,7 +459,7 @@ callReplyParse.exit:                              ; preds = %entry, %if.end.i
 if.end:                                           ; preds = %callReplyParse.exit
   %len.i = getelementptr inbounds i8, ptr %rep, i64 40
   %4 = load i64, ptr %len.i, align 8
-  %cmp.not.i = icmp ugt i64 %4, %idx
+  %cmp.not.i = icmp ult i64 %idx, %4
   br i1 %cmp.not.i, label %if.end.i3, label %return
 
 if.end.i3:                                        ; preds = %if.end
@@ -506,7 +506,7 @@ callReplyParse.exit:                              ; preds = %entry, %if.end.i
 if.end:                                           ; preds = %callReplyParse.exit
   %len.i = getelementptr inbounds i8, ptr %rep, i64 40
   %4 = load i64, ptr %len.i, align 8
-  %cmp.not.i = icmp ugt i64 %4, %idx
+  %cmp.not.i = icmp ult i64 %idx, %4
   br i1 %cmp.not.i, label %if.end.i3, label %return
 
 if.end.i3:                                        ; preds = %if.end
@@ -553,7 +553,7 @@ callReplyParse.exit.i:                            ; preds = %if.end.i.i, %entry
 if.end.i:                                         ; preds = %callReplyParse.exit.i
   %len.i = getelementptr inbounds i8, ptr %rep, i64 40
   %4 = load i64, ptr %len.i, align 8
-  %cmp2.not.i = icmp ugt i64 %4, %idx
+  %cmp2.not.i = icmp ult i64 %idx, %4
   br i1 %cmp2.not.i, label %if.end4.i, label %callReplyGetMapElementInternal.exit
 
 if.end4.i:                                        ; preds = %if.end.i
@@ -563,7 +563,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then5.i:                                       ; preds = %if.end4.i
   %mul.i = shl i64 %idx, 1
   %mul.i.i = shl i64 %4, 1
-  %cmp.not.i.i = icmp ugt i64 %mul.i.i, %mul.i
+  %cmp.not.i.i = icmp ult i64 %mul.i, %mul.i.i
   br i1 %cmp.not.i.i, label %if.end.i9.i, label %callReplyGetCollectionElement.exit.i
 
 if.end.i9.i:                                      ; preds = %if.then5.i
@@ -586,7 +586,7 @@ if.then8.i:                                       ; preds = %if.end6.i
   %add.i = or disjoint i64 %mul9.i, 1
   %6 = load i64, ptr %len.i, align 8
   %mul.i11.i = shl i64 %6, 1
-  %cmp.not.i12.i = icmp ugt i64 %mul.i11.i, %add.i
+  %cmp.not.i12.i = icmp ult i64 %add.i, %mul.i11.i
   br i1 %cmp.not.i12.i, label %if.end.i14.i, label %callReplyGetCollectionElement.exit17.i
 
 if.end.i14.i:                                     ; preds = %if.then8.i
@@ -646,7 +646,7 @@ callReplyParse.exit.i:                            ; preds = %if.end.i.i, %entry
 if.end.i:                                         ; preds = %callReplyParse.exit.i
   %len.i = getelementptr inbounds i8, ptr %rep, i64 40
   %4 = load i64, ptr %len.i, align 8
-  %cmp2.not.i = icmp ugt i64 %4, %idx
+  %cmp2.not.i = icmp ult i64 %idx, %4
   br i1 %cmp2.not.i, label %if.end4.i, label %callReplyGetMapElementInternal.exit
 
 if.end4.i:                                        ; preds = %if.end.i
@@ -656,7 +656,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then5.i:                                       ; preds = %if.end4.i
   %mul.i = shl i64 %idx, 1
   %mul.i.i = shl i64 %4, 1
-  %cmp.not.i.i = icmp ugt i64 %mul.i.i, %mul.i
+  %cmp.not.i.i = icmp ult i64 %mul.i, %mul.i.i
   br i1 %cmp.not.i.i, label %if.end.i9.i, label %callReplyGetCollectionElement.exit.i
 
 if.end.i9.i:                                      ; preds = %if.then5.i
@@ -679,7 +679,7 @@ if.then8.i:                                       ; preds = %if.end6.i
   %add.i = or disjoint i64 %mul9.i, 1
   %6 = load i64, ptr %len.i, align 8
   %mul.i11.i = shl i64 %6, 1
-  %cmp.not.i12.i = icmp ugt i64 %mul.i11.i, %add.i
+  %cmp.not.i12.i = icmp ult i64 %add.i, %mul.i11.i
   br i1 %cmp.not.i12.i, label %if.end.i14.i, label %callReplyGetCollectionElement.exit17.i
 
 if.end.i14.i:                                     ; preds = %if.then8.i

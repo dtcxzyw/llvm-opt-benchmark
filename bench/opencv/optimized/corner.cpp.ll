@@ -563,7 +563,7 @@ select.unfold.i102:                               ; preds = %175, %174
   %206 = fadd float %197, %201
   %207 = fpext float %206 to double
   %208 = fneg double %207
-  %209 = fmul double %208, %5
+  %209 = fmul double %5, %208
   %210 = call double @llvm.fmuladd.f64(double %209, double %207, double %205)
   %211 = fptrunc double %210 to float
   %212 = getelementptr inbounds float, ptr %194, i64 %indvars.iv.i97
@@ -1059,7 +1059,7 @@ define void @_ZN2cv15preCornerDetectERKNS_11_InputArrayERKNS_12_OutputArrayEii(p
 27:                                               ; preds = %4
   %28 = landingpad { ptr, i32 }
           cleanup
-  br label %191
+  br label %192
 
 29:                                               ; preds = %26
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #10
@@ -1087,7 +1087,7 @@ define void @_ZN2cv15preCornerDetectERKNS_11_InputArrayERKNS_12_OutputArrayEii(p
 36:                                               ; preds = %34, %32
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #10
-  br label %191
+  br label %192
 
 37:                                               ; preds = %26, %26
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #10
@@ -1226,37 +1226,37 @@ define void @_ZN2cv15preCornerDetectERKNS_11_InputArrayERKNS_12_OutputArrayEii(p
 87:                                               ; preds = %43, %40, %37
   %88 = landingpad { ptr, i32 }
           cleanup
-  br label %190
+  br label %191
 
 89:                                               ; preds = %56, %53, %50, %44
   %90 = landingpad { ptr, i32 }
           cleanup
-  br label %189
+  br label %190
 
 91:                                               ; preds = %57
   %92 = landingpad { ptr, i32 }
           cleanup
-  br label %188
+  br label %189
 
 93:                                               ; preds = %63
   %94 = landingpad { ptr, i32 }
           cleanup
-  br label %188
+  br label %189
 
 95:                                               ; preds = %69
   %96 = landingpad { ptr, i32 }
           cleanup
-  br label %188
+  br label %189
 
 97:                                               ; preds = %75
   %98 = landingpad { ptr, i32 }
           cleanup
-  br label %188
+  br label %189
 
 99:                                               ; preds = %81
   %100 = landingpad { ptr, i32 }
           cleanup
-  br label %188
+  br label %189
 
 101:                                              ; preds = %81
   %102 = add nsw i32 %2, -1
@@ -1346,16 +1346,17 @@ define void @_ZN2cv15preCornerDetectERKNS_11_InputArrayERKNS_12_OutputArrayEii(p
   %170 = load float, ptr %169, align 4
   %171 = fmul float %168, %170
   %172 = call float @llvm.fmuladd.f32(float %165, float %167, float %171)
-  %173 = getelementptr inbounds float, ptr %159, i64 %indvars.iv
-  %174 = load float, ptr %173, align 4
-  %175 = fmul float %162, -2.000000e+00
-  %176 = fmul float %175, %164
-  %177 = call float @llvm.fmuladd.f32(float %176, float %174, float %172)
-  %178 = fpext float %177 to double
-  %179 = fmul double %111, %178
-  %180 = fptrunc double %179 to float
-  %181 = getelementptr inbounds float, ptr %134, i64 %indvars.iv
-  store float %180, ptr %181, align 4
+  %173 = fmul float %162, 2.000000e+00
+  %174 = getelementptr inbounds float, ptr %159, i64 %indvars.iv
+  %175 = load float, ptr %174, align 4
+  %176 = fneg float %164
+  %177 = fmul float %173, %176
+  %178 = call float @llvm.fmuladd.f32(float %177, float %175, float %172)
+  %179 = fpext float %178 to double
+  %180 = fmul double %111, %179
+  %181 = fptrunc double %180 to float
+  %182 = getelementptr inbounds float, ptr %134, i64 %indvars.iv
+  store float %181, ptr %182, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %160, !llvm.loop !37
@@ -1373,46 +1374,46 @@ define void @_ZN2cv15preCornerDetectERKNS_11_InputArrayERKNS_12_OutputArrayEii(p
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #10
-  %182 = getelementptr inbounds i8, ptr %5, i64 8
-  %183 = load i32, ptr %182, align 8
-  %.not.i = icmp eq i32 %183, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %184
+  %183 = getelementptr inbounds i8, ptr %5, i64 8
+  %184 = load i32, ptr %183, align 8
+  %.not.i = icmp eq i32 %184, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %185
 
-184:                                              ; preds = %._crit_edge96
+185:                                              ; preds = %._crit_edge96
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %5)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %185
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %186
 
-185:                                              ; preds = %184
-  %186 = landingpad { ptr, i32 }
+186:                                              ; preds = %185
+  %187 = landingpad { ptr, i32 }
           catch ptr null
-  %187 = extractvalue { ptr, i32 } %186, 0
-  call void @__clang_call_terminate(ptr %187) #11
+  %188 = extractvalue { ptr, i32 } %187, 0
+  call void @__clang_call_terminate(ptr %188) #11
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge96, %184
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge96, %185
   ret void
 
-188:                                              ; preds = %99, %97, %95, %93, %91
+189:                                              ; preds = %99, %97, %95, %93, %91
   %.pn77 = phi { ptr, i32 } [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #10
-  br label %189
-
-189:                                              ; preds = %188, %89
-  %.pn77.pn = phi { ptr, i32 } [ %.pn77, %188 ], [ %90, %89 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #10
   br label %190
 
-190:                                              ; preds = %189, %87
-  %.pn77.pn.pn = phi { ptr, i32 } [ %.pn77.pn, %189 ], [ %88, %87 ]
+190:                                              ; preds = %189, %89
+  %.pn77.pn = phi { ptr, i32 } [ %.pn77, %189 ], [ %90, %89 ]
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #10
+  br label %191
+
+191:                                              ; preds = %190, %87
+  %.pn77.pn.pn = phi { ptr, i32 } [ %.pn77.pn, %190 ], [ %88, %87 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #10
-  br label %191
+  br label %192
 
-191:                                              ; preds = %190, %36, %27
-  %.pn77.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn, %190 ], [ %.pn, %36 ], [ %28, %27 ]
+192:                                              ; preds = %191, %36, %27
+  %.pn77.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn, %191 ], [ %.pn, %36 ], [ %28, %27 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #10
   resume { ptr, i32 } %.pn77.pn.pn.pn
 }

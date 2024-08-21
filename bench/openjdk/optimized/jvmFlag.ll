@@ -3478,7 +3478,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit:                 ; preds = %17
 _ZNK7JVMFlag11is_unlockerEv.exit:                 ; preds = %21
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(28) @.str.4) #12
   %27 = icmp eq i32 %26, 0
-  %brmerge = or i1 %27, %2
+  %brmerge = or i1 %2, %27
   br i1 %brmerge, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %28
 
 _ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %21, %17, %14, %_ZNK7JVMFlag11is_unlockerEv.exit, %_ZNK7JVMFlag11is_unlockedEv.exit
@@ -3551,7 +3551,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit:                 ; preds = %22
 _ZNK7JVMFlag11is_unlockerEv.exit:                 ; preds = %26
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(28) @.str.4) #12
   %32 = icmp eq i32 %31, 0
-  %brmerge = or i1 %32, %2
+  %brmerge = or i1 %2, %32
   br i1 %brmerge, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %._crit_edge.thread
 
 _ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %26, %22, %19, %_ZNK7JVMFlag11is_unlockerEv.exit, %_ZNK7JVMFlag11is_unlockedEv.exit
@@ -3829,7 +3829,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit43:               ; preds = %50
 _ZNK7JVMFlag11is_unlockedEv.exit43.thread:        ; preds = %50, %47, %_ZNK7JVMFlag11is_unlockedEv.exit43
   %54 = and i32 %45, 15
   %55 = icmp eq i32 %54, 0
-  %or.cond48 = and i1 %55, %3
+  %or.cond48 = and i1 %3, %55
   br i1 %or.cond48, label %57, label %56
 
 56:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit43.thread

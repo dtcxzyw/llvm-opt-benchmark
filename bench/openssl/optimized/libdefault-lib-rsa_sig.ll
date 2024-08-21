@@ -172,7 +172,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %cmp6 = icmp ugt i64 %conv, %sigsize
+  %cmp6 = icmp ult i64 %sigsize, %conv
   br i1 %cmp6, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end5
@@ -186,7 +186,7 @@ if.end9:                                          ; preds = %if.end5
   br i1 %cmp10.not, label %if.else, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  %cmp13.not = icmp eq i64 %retval.0.i, %tbslen
+  %cmp13.not = icmp eq i64 %tbslen, %retval.0.i
   br i1 %cmp13.not, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.then12
@@ -503,7 +503,7 @@ if.end11.if.end58_crit_edge:                      ; preds = %if.end11
 rsa_get_md_size.exit:                             ; preds = %if.then1
   %call.i36 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %0) #11
   %conv.i37 = sext i32 %call.i36 to i64
-  %cmp19.not = icmp eq i64 %conv.i37, %tbslen
+  %cmp19.not = icmp eq i64 %tbslen, %conv.i37
   br i1 %cmp19.not, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %rsa_get_md_size.exit
@@ -739,11 +739,11 @@ if.then29:                                        ; preds = %if.end24
 if.end32:                                         ; preds = %if.end24
   store i64 %idxprom, ptr %routlen, align 8
   %12 = load ptr, ptr %tbuf.i, align 8
-  %cmp35.not = icmp eq ptr %12, %rout
+  %cmp35.not = icmp eq ptr %rout, %12
   br i1 %cmp35.not, label %if.end63, label %if.then37
 
 if.then37:                                        ; preds = %if.end32
-  %cmp39 = icmp ugt i64 %idxprom, %routsize
+  %cmp39 = icmp ult i64 %routsize, %idxprom
   br i1 %cmp39, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.then37
@@ -2406,7 +2406,7 @@ if.then:                                          ; preds = %entry
   %dec = sext i1 %cmp4 to i32
   %spec.select = add nsw i32 %sub, %dec
   %cmp6 = icmp slt i32 %min_saltlen, 0
-  %cmp7 = icmp slt i32 %spec.select, %min_saltlen
+  %cmp7 = icmp sgt i32 %min_saltlen, %spec.select
   %or.cond = select i1 %cmp6, i1 true, i1 %cmp7
   br i1 %or.cond, label %if.then8, label %if.end9
 

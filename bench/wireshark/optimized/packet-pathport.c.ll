@@ -448,7 +448,7 @@ define internal fastcc i32 @dissect_pathport_common(ptr noundef %0, ptr nocaptur
 
 105:                                              ; preds = %.lr.ph.i
   %106 = add i32 %86, %81
-  %107 = icmp ugt i32 %106, %86
+  %107 = icmp ult i32 %86, %106
   br i1 %107, label %.lr.ph.i.i.i, label %dissect_one_pdu.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %105, %.lr.ph.i.i.i
@@ -461,7 +461,7 @@ define internal fastcc i32 @dissect_pathport_common(ptr noundef %0, ptr nocaptur
 
 112:                                              ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %113 = add i32 %86, %81
-  %114 = icmp ugt i32 %113, %86
+  %114 = icmp ult i32 %86, %113
   br i1 %114, label %.lr.ph.i41.i.i, label %dissect_one_pdu.exit.i
 
 .lr.ph.i41.i.i:                                   ; preds = %112, %dissect_one_tlv.exit.i.i.i
@@ -508,7 +508,7 @@ dissect_one_tlv.exit.i.i.i:                       ; preds = %136, %.lr.ph.i41.i.
 141:                                              ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %142 = add i32 %86, %81
-  %143 = icmp ugt i32 %142, %86
+  %143 = icmp ult i32 %86, %142
   br i1 %143, label %.lr.ph.i42.i.i, label %dissect_data_payload.exit.i.i
 
 .lr.ph.i42.i.i:                                   ; preds = %141, %.lr.ph.i42.i.i

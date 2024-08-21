@@ -756,7 +756,7 @@ define void @_ZN6parser9lexed_str8LexedStr12single_token17hdf47ecb7550f53afE(ptr
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   %17 = load i32, ptr %16, align 4, !noundef !5
   %18 = zext i32 %17 to i64
-  %.not = icmp eq i64 %18, %2
+  %.not = icmp eq i64 %2, %18
   br i1 %.not, label %21, label %23
 
 19:                                               ; preds = %11
@@ -898,7 +898,7 @@ define noundef range(i16 0, 273) i16 @_ZN6parser9lexed_str8LexedStr4kind17h4b0f0
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = add i64 %4, -1
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
@@ -906,7 +906,7 @@ define noundef range(i16 0, 273) i16 @_ZN6parser9lexed_str8LexedStr4kind17h4b0f0
   unreachable
 
 8:                                                ; preds = %2
-  %9 = icmp ugt i64 %4, %1
+  %9 = icmp ult i64 %1, %4
   br i1 %9, label %10, label %15, !prof !141
 
 10:                                               ; preds = %8
@@ -941,7 +941,7 @@ define { ptr, i64 } @_ZN6parser9lexed_str8LexedStr10range_text17h658e8b3e85b21e8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !142, !noundef !5
   %9 = add i64 %8, -1
-  %.not = icmp ult i64 %9, %2
+  %.not = icmp ugt i64 %2, %9
   br i1 %.not, label %5, label %10
 
 10:                                               ; preds = %6
@@ -949,14 +949,14 @@ define { ptr, i64 } @_ZN6parser9lexed_str8LexedStr10range_text17h658e8b3e85b21e8
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8, !noundef !5
-  %15 = icmp ugt i64 %14, %1
+  %15 = icmp ult i64 %1, %14
   br i1 %15, label %16, label %21, !prof !141
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %1
   %18 = load i32, ptr %17, align 4, !noundef !5
   %19 = zext i32 %18 to i64
-  %20 = icmp ugt i64 %14, %2
+  %20 = icmp ult i64 %2, %14
   br i1 %20, label %22, label %45, !prof !141
 
 21:                                               ; preds = %10
@@ -1031,7 +1031,7 @@ define { i64, i64 } @_ZN6parser9lexed_str8LexedStr10text_range17h938f0e6243c46f5
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !153, !noundef !5
   %5 = add i64 %4, -1
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
@@ -1043,7 +1043,7 @@ define { i64, i64 } @_ZN6parser9lexed_str8LexedStr10text_range17h938f0e6243c46f5
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8, !noundef !5
-  %13 = icmp ugt i64 %12, %1
+  %13 = icmp ult i64 %1, %12
   br i1 %13, label %14, label %17, !prof !141
 
 14:                                               ; preds = %8
@@ -1076,7 +1076,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6parser9lexed_str8LexedStr10text
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !156, !noundef !5
   %5 = add i64 %4, -1
-  %.not = icmp ult i64 %5, %1
+  %.not = icmp ugt i64 %1, %5
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %2
@@ -1086,7 +1086,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6parser9lexed_str8LexedStr10text
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8, !noundef !5
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %11, label %17, !prof !141
 
 11:                                               ; preds = %7
@@ -1107,7 +1107,7 @@ define noundef range(i64 -4294967295, 4294967296) i64 @_ZN6parser9lexed_str8Lexe
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = add i64 %4, -1
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
@@ -1120,7 +1120,7 @@ define noundef range(i64 -4294967295, 4294967296) i64 @_ZN6parser9lexed_str8Lexe
   %10 = load ptr, ptr %9, align 8, !alias.scope !159, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8, !alias.scope !159, !noundef !5
-  %13 = icmp ugt i64 %12, %1
+  %13 = icmp ult i64 %1, %12
   br i1 %13, label %14, label %17, !prof !141
 
 14:                                               ; preds = %8
@@ -1152,7 +1152,7 @@ define { ptr, i64 } @_ZN6parser9lexed_str8LexedStr5error17hbfd0fd7560cda079E(ptr
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !162, !noundef !5
   %5 = add i64 %4, -1
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
@@ -3022,7 +3022,7 @@ default.unreachable:                              ; preds = %"_ZN102_$LT$core..i
   %35 = phi i64 [ %29, %.lr.ph.i ], [ %50, %43 ]
   %36 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %44, %43 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !370)
-  %37 = icmp ugt i64 %35, %36
+  %37 = icmp ult i64 %36, %35
   br i1 %37, label %_ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit.i, label %38, !prof !141
 
 38:                                               ; preds = %34
@@ -3133,7 +3133,7 @@ default.unreachable37:                            ; preds = %67
   %79 = getelementptr inbounds i8, ptr %77, i64 16
   %80 = load i64, ptr %79, align 8, !alias.scope !387, !noundef !5
   %81 = add i64 %80, -1
-  %.not.i = icmp ult i64 %81, %78
+  %.not.i = icmp ugt i64 %78, %81
   br i1 %.not.i, label %82, label %83
 
 82:                                               ; preds = %75
@@ -3143,7 +3143,7 @@ default.unreachable37:                            ; preds = %67
 83:                                               ; preds = %75
   %84 = getelementptr inbounds i8, ptr %77, i64 40
   %85 = load i64, ptr %84, align 8, !alias.scope !384, !noundef !5
-  %86 = icmp ugt i64 %85, %78
+  %86 = icmp ult i64 %78, %85
   br i1 %86, label %_ZN6parser9lexed_str8LexedStr10text_start17h2633626a67cee820E.exit, label %87, !prof !141
 
 87:                                               ; preds = %83

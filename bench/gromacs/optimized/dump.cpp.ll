@@ -676,13 +676,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %25, %28
   %56 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %53, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
-  %59 = icmp sgt i32 %58, %45
+  %59 = icmp slt i32 %45, %58
   br i1 %59, label %63, label %60
 
 60:                                               ; preds = %54
   %61 = getelementptr inbounds i8, ptr %56, i64 8
   %62 = load i32, ptr %61, align 4
-  %.not.i.i = icmp sgt i32 %62, %45
+  %.not.i.i = icmp slt i32 %45, %62
   br i1 %.not.i.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, label %63
 
 63:                                               ; preds = %60, %54

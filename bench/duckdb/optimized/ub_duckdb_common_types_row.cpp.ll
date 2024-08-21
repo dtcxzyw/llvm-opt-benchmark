@@ -11909,7 +11909,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   store i8 %frombool1, ptr %flush, align 1, !tbaa !491
   %8 = load i8, ptr %all_constant.i, align 8, !tbaa !420, !range !68, !noundef !69
   %tobool.i = icmp eq i8 %8, 0
-  %or.cond.not = and i1 %tobool.i, %external_p
+  %or.cond.not = and i1 %external_p, %tobool.i
   br i1 %or.cond.not, label %land.rhs, label %invoke.cont21
 
 land.rhs:                                         ; preds = %invoke.cont7
@@ -12328,7 +12328,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %unswizzling = getelementptr inbounds i8, ptr %this, i64 322
   %8 = load i8, ptr %all_constant.i, align 8, !tbaa !420, !range !68, !noundef !69
   %tobool.i = icmp eq i8 %8, 0
-  %or.cond.not = and i1 %tobool.i, %external_p
+  %or.cond.not = and i1 %external_p, %tobool.i
   br i1 %or.cond.not, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %invoke.cont7
@@ -14531,7 +14531,7 @@ entry:
   %all_constant.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i8, ptr %all_constant.i, align 8, !tbaa !67, !range !68, !noundef !69
   %tobool.i = icmp eq i8 %1, 0
-  %brmerge.not = and i1 %tobool.i, %release_heap
+  %brmerge.not = and i1 %release_heap, %tobool.i
   br i1 %brmerge.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

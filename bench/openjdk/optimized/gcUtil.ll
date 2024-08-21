@@ -31,9 +31,9 @@ define hidden noundef float @_ZN23AdaptiveWeightedAverage24compute_adaptive_aver
   %14 = tail call noundef i32 @llvm.umax.i32(i32 %13, i32 %.0)
   %15 = uitofp i32 %14 to float
   %16 = fsub float 1.000000e+02, %15
-  %17 = fmul float %16, %2
+  %17 = fmul float %2, %16
   %18 = fdiv float %17, 1.000000e+02
-  %19 = fmul float %15, %1
+  %19 = fmul float %1, %15
   %20 = fdiv float %19, 1.000000e+02
   %21 = fadd float %20, %18
   ret float %21
@@ -76,7 +76,7 @@ _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %_ZN23
   %20 = fsub float 1.000000e+02, %19
   %21 = fmul float %15, %20
   %22 = fdiv float %21, 1.000000e+02
-  %23 = fmul float %19, %1
+  %23 = fmul float %1, %19
   %24 = fdiv float %23, 1.000000e+02
   %25 = fadd float %24, %22
   store float %25, ptr %0, align 4
@@ -173,7 +173,7 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit:       ; preds = %_ZN23AdaptiveWeight
   %20 = fsub float 1.000000e+02, %19
   %21 = fmul float %15, %20
   %22 = fdiv float %21, 1.000000e+02
-  %23 = fmul float %19, %1
+  %23 = fmul float %1, %19
   %24 = fdiv float %23, 1.000000e+02
   %25 = fadd float %24, %22
   store float %25, ptr %0, align 4
@@ -250,7 +250,7 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit:       ; preds = %_ZN23AdaptiveWeight
   %20 = fsub float 1.000000e+02, %19
   %21 = fmul float %15, %20
   %22 = fdiv float %21, 1.000000e+02
-  %23 = fmul float %19, %1
+  %23 = fmul float %1, %19
   %24 = fdiv float %23, 1.000000e+02
   %25 = fadd float %24, %22
   store float %25, ptr %0, align 4
@@ -325,7 +325,7 @@ define hidden void @_ZN20LinearLeastSquareFitC2Ej(ptr nocapture noundef nonnull 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN20LinearLeastSquareFit6updateEdd(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, double noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load double, ptr %0, align 8
-  %5 = fadd double %4, %1
+  %5 = fadd double %1, %4
   store double %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8
@@ -333,7 +333,7 @@ define hidden void @_ZN20LinearLeastSquareFit6updateEdd(ptr nocapture noundef no
   store double %8, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8
-  %11 = fadd double %10, %2
+  %11 = fadd double %2, %10
   store double %11, ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load double, ptr %12, align 8
@@ -424,7 +424,7 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit16:     ; preds = %_ZN23AdaptiveWeight
   %64 = getelementptr inbounds i8, ptr %0, i64 84
   store float %41, ptr %64, align 4
   %65 = icmp ugt i32 %19, 1
-  br i1 %65, label %66, label %81
+  br i1 %65, label %66, label %82
 
 66:                                               ; preds = %_ZN23AdaptiveWeightedAverage6sampleEf.exit16
   %67 = uitofp i32 %19 to double
@@ -432,22 +432,23 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit16:     ; preds = %_ZN23AdaptiveWeight
   %69 = fmul double %5, %68
   %70 = tail call double @llvm.fmuladd.f64(double %67, double %8, double %69)
   %71 = fcmp une double %70, 0.000000e+00
-  br i1 %71, label %72, label %81
+  br i1 %71, label %72, label %82
 
 72:                                               ; preds = %66
-  %73 = fmul double %11, %68
-  %74 = tail call double @llvm.fmuladd.f64(double %67, double %14, double %73)
-  %75 = fdiv double %74, %70
-  %76 = getelementptr inbounds i8, ptr %0, i64 40
-  store double %75, ptr %76, align 8
-  %77 = fneg double %75
-  %78 = tail call double @llvm.fmuladd.f64(double %77, double %5, double %11)
-  %79 = fdiv double %78, %67
-  %80 = getelementptr inbounds i8, ptr %0, i64 32
-  store double %79, ptr %80, align 8
-  br label %81
+  %73 = fneg double %11
+  %74 = fmul double %5, %73
+  %75 = tail call double @llvm.fmuladd.f64(double %67, double %14, double %74)
+  %76 = fdiv double %75, %70
+  %77 = getelementptr inbounds i8, ptr %0, i64 40
+  store double %76, ptr %77, align 8
+  %78 = fneg double %76
+  %79 = tail call double @llvm.fmuladd.f64(double %78, double %5, double %11)
+  %80 = fdiv double %79, %67
+  %81 = getelementptr inbounds i8, ptr %0, i64 32
+  store double %80, ptr %81, align 8
+  br label %82
 
-81:                                               ; preds = %66, %72, %_ZN23AdaptiveWeightedAverage6sampleEf.exit16
+82:                                               ; preds = %66, %72, %_ZN23AdaptiveWeightedAverage6sampleEf.exit16
   ret void
 }
 

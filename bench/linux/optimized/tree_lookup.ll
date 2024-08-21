@@ -229,7 +229,7 @@ define dso_local ptr @mod_find(i64 noundef %0, ptr noundef %1) local_unnamed_add
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
-  %19 = icmp ugt i64 %18, %0
+  %19 = icmp ult i64 %0, %18
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %13

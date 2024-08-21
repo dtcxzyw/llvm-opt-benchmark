@@ -288,14 +288,14 @@ define internal ptr @setup_vq(ptr noundef %0, ptr nocapture noundef writeonly %1
   %17 = getelementptr inbounds i8, ptr %0, i64 1050
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
-  %20 = icmp eq i32 %19, %2
+  %20 = icmp eq i32 %2, %19
   br label %21
 
 21:                                               ; preds = %16, %7
   %22 = phi i1 [ %20, %16 ], [ false, %7 ]
   %23 = tail call zeroext i16 @vp_modern_get_num_queues(ptr noundef %8) #8
   %24 = zext i16 %23 to i32
-  %25 = icmp ugt i32 %24, %2
+  %25 = icmp ult i32 %2, %24
   %26 = select i1 %25, i1 true, i1 %22
   br i1 %26, label %27, label %55
 
@@ -430,7 +430,7 @@ define internal zeroext i1 @vp_is_avq(ptr nocapture noundef readonly %0, i32 nou
   %8 = getelementptr inbounds i8, ptr %0, i64 1050
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i32
-  %11 = icmp eq i32 %10, %1
+  %11 = icmp eq i32 %1, %10
   br label %12
 
 12:                                               ; preds = %7, %2

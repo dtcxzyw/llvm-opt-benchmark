@@ -512,7 +512,7 @@ define internal fastcc void @JDK_execvpe(i32 noundef %0, ptr noundef %1, ptr nou
   %5 = alloca [4096 x i8], align 16
   %6 = icmp eq ptr %3, null
   %7 = load ptr, ptr @environ, align 8
-  %8 = icmp eq ptr %7, %3
+  %8 = icmp eq ptr %3, %7
   %or.cond = select i1 %6, i1 true, i1 %8
   br i1 %or.cond, label %9, label %11
 

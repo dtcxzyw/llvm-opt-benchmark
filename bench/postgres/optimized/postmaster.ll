@@ -6089,7 +6089,7 @@ select.unfold:                                    ; preds = %92, %87, %sigquit_c
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %select.unfold.us, %._crit_edge.thread, %._crit_edge
   %106 = load i32, ptr @StartupPID, align 4
-  %107 = icmp eq i32 %106, %0
+  %107 = icmp eq i32 %0, %106
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %select.unfold._crit_edge
@@ -6123,7 +6123,7 @@ sigquit_child.exit92:                             ; preds = %110, %112
 
 120:                                              ; preds = %109, %sigquit_child.exit92, %108
   %121 = load i32, ptr @BgWriterPID, align 4
-  %122 = icmp eq i32 %121, %0
+  %122 = icmp eq i32 %0, %121
   br i1 %122, label %123, label %124
 
 123:                                              ; preds = %120
@@ -6156,7 +6156,7 @@ sigquit_child.exit93:                             ; preds = %125, %127
 
 135:                                              ; preds = %124, %sigquit_child.exit93, %123
   %136 = load i32, ptr @CheckpointerPID, align 4
-  %137 = icmp eq i32 %136, %0
+  %137 = icmp eq i32 %0, %136
   br i1 %137, label %138, label %139
 
 138:                                              ; preds = %135
@@ -6189,7 +6189,7 @@ sigquit_child.exit94:                             ; preds = %140, %142
 
 150:                                              ; preds = %139, %sigquit_child.exit94, %138
   %151 = load i32, ptr @WalWriterPID, align 4
-  %152 = icmp eq i32 %151, %0
+  %152 = icmp eq i32 %0, %151
   br i1 %152, label %153, label %154
 
 153:                                              ; preds = %150
@@ -6222,7 +6222,7 @@ sigquit_child.exit95:                             ; preds = %155, %157
 
 165:                                              ; preds = %154, %sigquit_child.exit95, %153
   %166 = load i32, ptr @WalReceiverPID, align 4
-  %167 = icmp eq i32 %166, %0
+  %167 = icmp eq i32 %0, %166
   br i1 %167, label %168, label %169
 
 168:                                              ; preds = %165
@@ -6255,7 +6255,7 @@ sigquit_child.exit96:                             ; preds = %170, %172
 
 180:                                              ; preds = %169, %sigquit_child.exit96, %168
   %181 = load i32, ptr @WalSummarizerPID, align 4
-  %182 = icmp eq i32 %181, %0
+  %182 = icmp eq i32 %0, %181
   br i1 %182, label %183, label %184
 
 183:                                              ; preds = %180
@@ -6288,7 +6288,7 @@ sigquit_child.exit97:                             ; preds = %185, %187
 
 195:                                              ; preds = %184, %sigquit_child.exit97, %183
   %196 = load i32, ptr @AutoVacPID, align 4
-  %197 = icmp eq i32 %196, %0
+  %197 = icmp eq i32 %0, %196
   br i1 %197, label %198, label %199
 
 198:                                              ; preds = %195
@@ -6321,7 +6321,7 @@ sigquit_child.exit98:                             ; preds = %200, %202
 
 210:                                              ; preds = %199, %sigquit_child.exit98, %198
   %211 = load i32, ptr @PgArchPID, align 4
-  %212 = icmp eq i32 %211, %0
+  %212 = icmp eq i32 %0, %211
   br i1 %212, label %213, label %214
 
 213:                                              ; preds = %210
@@ -6354,7 +6354,7 @@ sigquit_child.exit99:                             ; preds = %215, %217
 
 225:                                              ; preds = %214, %sigquit_child.exit99, %213
   %226 = load i32, ptr @SlotSyncWorkerPID, align 4
-  %227 = icmp eq i32 %226, %0
+  %227 = icmp eq i32 %0, %226
   br i1 %227, label %228, label %229
 
 228:                                              ; preds = %225

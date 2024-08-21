@@ -1536,7 +1536,7 @@ define ptr @create_node_record_at(i32 noundef %0, ptr noundef %1, ptr noundef %2
   store i64 %6, ptr @last_node_update, align 8
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 656), align 8
   %.not = icmp eq i32 %7, -2
-  %.not14 = icmp ugt i32 %7, %0
+  %.not14 = icmp ult i32 %0, %7
   %or.cond = or i1 %.not, %.not14
   br i1 %or.cond, label %10, label %8
 
@@ -1546,7 +1546,7 @@ define ptr @create_node_record_at(i32 noundef %0, ptr noundef %1, ptr noundef %2
 
 10:                                               ; preds = %3
   %11 = load i32, ptr @last_node_index, align 4
-  %12 = icmp slt i32 %11, %0
+  %12 = icmp sgt i32 %0, %11
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
@@ -2638,7 +2638,7 @@ define i32 @cr_get_coremap_offset(i32 noundef %0) local_unnamed_addr #11 {
   %2 = load ptr, ptr @node_record_table_ptr, align 8
   %.not.i = icmp ne ptr %2, null
   %.pre = load i32, ptr @node_record_count, align 4
-  %.not8.i = icmp sgt i32 %.pre, %0
+  %.not8.i = icmp slt i32 %0, %.pre
   %or.cond = select i1 %.not.i, i1 %.not8.i, i1 false
   br i1 %or.cond, label %.preheader.i.preheader, label %next_node.exit.thread
 
@@ -2693,7 +2693,7 @@ define noundef i32 @adjust_cpus_nppcu(i16 noundef zeroext %0, i32 noundef %1, i3
 
 7:                                                ; preds = %4
   %8 = zext i16 %0 to i32
-  %9 = mul i32 %8, %1
+  %9 = mul i32 %1, %8
   %10 = mul i32 %9, %2
   %. = tail call i32 @llvm.smax.i32(i32 %10, i32 %3)
   br label %11

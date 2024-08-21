@@ -2890,7 +2890,7 @@ lpad5:                                            ; preds = %invoke.cont118.invo
 if.end:                                           ; preds = %invoke.cont
   %numXLevels.i = getelementptr inbounds i8, ptr %2, i64 212
   %7 = load i32, ptr %numXLevels.i, align 4
-  %cmp.i = icmp sgt i32 %7, %lx
+  %cmp.i = icmp slt i32 %lx, %7
   %cmp2.i = icmp sgt i32 %lx, -1
   %or.cond.i = and i1 %cmp2.i, %cmp.i
   br i1 %or.cond.i, label %land.lhs.true3.i, label %if.then10
@@ -2898,7 +2898,7 @@ if.end:                                           ; preds = %invoke.cont
 land.lhs.true3.i:                                 ; preds = %if.end
   %numYLevels.i = getelementptr inbounds i8, ptr %2, i64 216
   %8 = load i32, ptr %numYLevels.i, align 8
-  %cmp5.i = icmp sgt i32 %8, %ly
+  %cmp5.i = icmp slt i32 %ly, %8
   %cmp7.i = icmp sgt i32 %ly, -1
   %or.cond1.i = and i1 %cmp7.i, %cmp5.i
   br i1 %or.cond1.i, label %land.lhs.true8.i, label %if.then10
@@ -2909,7 +2909,7 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true3.i
   %idxprom.i = zext nneg i32 %lx to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %9, i64 %idxprom.i
   %10 = load i32, ptr %arrayidx.i, align 4
-  %cmp10.i = icmp sgt i32 %10, %dx1
+  %cmp10.i = icmp slt i32 %dx1, %10
   %cmp12.i = icmp sgt i32 %dx1, -1
   %or.cond2.i = and i1 %cmp12.i, %cmp10.i
   br i1 %or.cond2.i, label %_ZNK7Imf_3_219DeepTiledOutputFile11isValidTileEiiii.exit, label %if.then10
@@ -2920,19 +2920,19 @@ _ZNK7Imf_3_219DeepTiledOutputFile11isValidTileEiiii.exit: ; preds = %land.lhs.tr
   %idxprom14.i = zext nneg i32 %ly to i64
   %arrayidx15.i = getelementptr inbounds i32, ptr %11, i64 %idxprom14.i
   %12 = load i32, ptr %arrayidx15.i, align 4
-  %cmp16.i = icmp sgt i32 %12, %dy1
+  %cmp16.i = icmp slt i32 %dy1, %12
   %cmp18.i = icmp sgt i32 %dy1, -1
   %13 = and i1 %cmp18.i, %cmp16.i
   br i1 %13, label %land.lhs.true8.i71, label %if.then10
 
 land.lhs.true8.i71:                               ; preds = %_ZNK7Imf_3_219DeepTiledOutputFile11isValidTileEiiii.exit
-  %cmp10.i75 = icmp sgt i32 %10, %dx2
+  %cmp10.i75 = icmp slt i32 %dx2, %10
   %cmp12.i76 = icmp sgt i32 %dx2, -1
   %or.cond2.i77 = and i1 %cmp12.i76, %cmp10.i75
   br i1 %or.cond2.i77, label %_ZNK7Imf_3_219DeepTiledOutputFile11isValidTileEiiii.exit84, label %if.then10
 
 _ZNK7Imf_3_219DeepTiledOutputFile11isValidTileEiiii.exit84: ; preds = %land.lhs.true8.i71
-  %cmp16.i82 = icmp sgt i32 %12, %dy2
+  %cmp16.i82 = icmp slt i32 %dy2, %12
   %cmp18.i83 = icmp sgt i32 %dy2, -1
   %14 = and i1 %cmp18.i83, %cmp16.i82
   br i1 %14, label %if.end14, label %if.then10
@@ -3352,36 +3352,36 @@ lor.lhs.false.i.i.i:                              ; preds = %_ZNSt8_Rb_treeIN7Im
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %ly2.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 44
   %50 = load i32, ptr %ly2.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp sgt i32 %50, %ly
+  %cmp.i.i.i.i.i = icmp slt i32 %ly, %50
   br i1 %cmp.i.i.i.i.i, label %if.end57.i, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %lor.lhs.false.i.i.i
-  %cmp5.i.i.i.i.i = icmp eq i32 %50, %ly
+  %cmp5.i.i.i.i.i = icmp eq i32 %ly, %50
   br i1 %cmp5.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %do.body29.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %lor.lhs.false.i.i.i.i.i
   %lx6.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   %51 = load i32, ptr %lx6.i.i.i.i.i, align 4
-  %cmp7.i.i.i.i.i = icmp sgt i32 %51, %lx
+  %cmp7.i.i.i.i.i = icmp slt i32 %lx, %51
   br i1 %cmp7.i.i.i.i.i, label %if.end57.i, label %land.lhs.true11.i.i.i.i.i
 
 land.lhs.true11.i.i.i.i.i:                        ; preds = %land.lhs.true.i.i.i.i.i
-  %cmp14.i.i.i.i.i = icmp eq i32 %51, %lx
+  %cmp14.i.i.i.i.i = icmp eq i32 %lx, %51
   br i1 %cmp14.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %do.body29.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %land.lhs.true11.i.i.i.i.i
   %dy15.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 36
   %52 = load i32, ptr %dy15.i.i.i.i.i, align 4
-  %cmp16.i.i.i.i.i = icmp sgt i32 %52, %dyWrite.0233
+  %cmp16.i.i.i.i.i = icmp slt i32 %dyWrite.0233, %52
   br i1 %cmp16.i.i.i.i.i, label %if.end57.i, label %lor.rhs17.i.i.i.i.i
 
 lor.rhs17.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i.i
-  %cmp20.i.i.i.i.i = icmp eq i32 %52, %dyWrite.0233
+  %cmp20.i.i.i.i.i = icmp eq i32 %dyWrite.0233, %52
   br i1 %cmp20.i.i.i.i.i, label %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i, label %do.body29.i
 
 _ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i: ; preds = %lor.rhs17.i.i.i.i.i
   %53 = load i32, ptr %_M_storage.i.i.i3.i.i.i, align 4
-  %cmp23.i.i.i.i.not.i = icmp sgt i32 %53, %dxWrite.0227
+  %cmp23.i.i.i.i.not.i = icmp slt i32 %dxWrite.0227, %53
   br i1 %cmp23.i.i.i.i.not.i, label %if.end57.i, label %do.body29.i
 
 do.body29.i:                                      ; preds = %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i, %lor.rhs17.i.i.i.i.i, %land.lhs.true11.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i
@@ -3858,36 +3858,36 @@ lor.rhs.i.i:                                      ; preds = %_ZNSt3mapIN7Imf_3_2
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %ly2.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 44
   %113 = load i32, ptr %ly2.i.i.i.i, align 4
-  %cmp.i.i.i199.i = icmp sgt i32 %113, %ly
+  %cmp.i.i.i199.i = icmp slt i32 %ly, %113
   br i1 %cmp.i.i.i199.i, label %if.then.i.i97, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %lor.rhs.i.i
-  %cmp5.i.i.i.i = icmp eq i32 %113, %ly
+  %cmp5.i.i.i.i = icmp eq i32 %ly, %113
   br i1 %cmp5.i.i.i.i, label %land.lhs.true.i.i.i.i, label %_ZNSt3mapIN7Imf_3_212_GLOBAL__N_19TileCoordEPNS1_12BufferedTileESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %lor.lhs.false.i.i.i.i
   %lx6.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 40
   %114 = load i32, ptr %lx6.i.i.i.i, align 4
-  %cmp7.i.i.i.i = icmp sgt i32 %114, %lx
+  %cmp7.i.i.i.i = icmp slt i32 %lx, %114
   br i1 %cmp7.i.i.i.i, label %if.then.i.i97, label %land.lhs.true11.i.i.i.i
 
 land.lhs.true11.i.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i
-  %cmp14.i.i.i.i = icmp eq i32 %114, %lx
+  %cmp14.i.i.i.i = icmp eq i32 %lx, %114
   br i1 %cmp14.i.i.i.i, label %land.rhs.i.i.i.i, label %_ZNSt3mapIN7Imf_3_212_GLOBAL__N_19TileCoordEPNS1_12BufferedTileESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit.i
 
 land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true11.i.i.i.i
   %dy15.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 36
   %115 = load i32, ptr %dy15.i.i.i.i, align 4
-  %cmp16.i.i.i.i = icmp sgt i32 %115, %dyWrite.0233
+  %cmp16.i.i.i.i = icmp slt i32 %dyWrite.0233, %115
   br i1 %cmp16.i.i.i.i, label %if.then.i.i97, label %lor.rhs17.i.i.i.i
 
 lor.rhs17.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i
-  %cmp20.i.i.i.i = icmp eq i32 %115, %dyWrite.0233
+  %cmp20.i.i.i.i = icmp eq i32 %dyWrite.0233, %115
   br i1 %cmp20.i.i.i.i, label %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i, label %_ZNSt3mapIN7Imf_3_212_GLOBAL__N_19TileCoordEPNS1_12BufferedTileESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit.i
 
 _ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i: ; preds = %lor.rhs17.i.i.i.i
   %116 = load i32, ptr %_M_storage.i.i.i.i, align 4
-  %cmp23.i.i.i.i = icmp sgt i32 %116, %dxWrite.0227
+  %cmp23.i.i.i.i = icmp slt i32 %dxWrite.0227, %116
   br i1 %cmp23.i.i.i.i, label %if.then.i.i97, label %_ZNSt3mapIN7Imf_3_212_GLOBAL__N_19TileCoordEPNS1_12BufferedTileESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit.i
 
 if.then.i.i97:                                    ; preds = %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i, %land.rhs.i.i.i.i, %land.lhs.true.i.i.i.i, %lor.rhs.i.i, %_ZNSt3mapIN7Imf_3_212_GLOBAL__N_19TileCoordEPNS1_12BufferedTileESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i.i, %invoke.cont117.i
@@ -3957,36 +3957,36 @@ if.else12.i.i.i.i:                                ; preds = %call5.i.i.i.i.i.i.i
   %_M_storage.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i36.i.i, i64 32
   %ly2.i.i13.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i36.i.i, i64 44
   %123 = load i32, ptr %ly2.i.i13.i.i.i.i, align 4
-  %cmp.i.i14.i.i.i.i = icmp sgt i32 %123, %ly
+  %cmp.i.i14.i.i.i.i = icmp slt i32 %ly, %123
   br i1 %cmp.i.i14.i.i.i.i, label %if.then18.i.i.i.i, label %lor.lhs.false.i.i15.i.i.i.i
 
 lor.lhs.false.i.i15.i.i.i.i:                      ; preds = %if.else12.i.i.i.i
-  %cmp5.i.i16.i.i.i.i = icmp eq i32 %123, %ly
+  %cmp5.i.i16.i.i.i.i = icmp eq i32 %ly, %123
   br i1 %cmp5.i.i16.i.i.i.i, label %land.lhs.true.i.i17.i.i.i.i, label %if.else44.thread.i.i.i.i
 
 land.lhs.true.i.i17.i.i.i.i:                      ; preds = %lor.lhs.false.i.i15.i.i.i.i
   %lx6.i.i19.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i36.i.i, i64 40
   %124 = load i32, ptr %lx6.i.i19.i.i.i.i, align 4
-  %cmp7.i.i20.i.i.i.i = icmp sgt i32 %124, %lx
+  %cmp7.i.i20.i.i.i.i = icmp slt i32 %lx, %124
   br i1 %cmp7.i.i20.i.i.i.i, label %if.then18.i.i.i.i, label %land.lhs.true11.i.i21.i.i.i.i
 
 land.lhs.true11.i.i21.i.i.i.i:                    ; preds = %land.lhs.true.i.i17.i.i.i.i
-  %cmp14.i.i22.i.i.i.i = icmp eq i32 %124, %lx
+  %cmp14.i.i22.i.i.i.i = icmp eq i32 %lx, %124
   br i1 %cmp14.i.i22.i.i.i.i, label %land.rhs.i.i23.i.i.i.i, label %if.else44.i.thread.i.i.i
 
 land.rhs.i.i23.i.i.i.i:                           ; preds = %land.lhs.true11.i.i21.i.i.i.i
   %dy15.i.i25.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i36.i.i, i64 36
   %125 = load i32, ptr %dy15.i.i25.i.i.i.i, align 4
-  %cmp16.i.i26.i.i.i.i = icmp sgt i32 %125, %dyWrite.0233
+  %cmp16.i.i26.i.i.i.i = icmp slt i32 %dyWrite.0233, %125
   br i1 %cmp16.i.i26.i.i.i.i, label %if.then18.i.i.i.i, label %lor.rhs17.i.i27.i.i.i.i
 
 lor.rhs17.i.i27.i.i.i.i:                          ; preds = %land.rhs.i.i23.i.i.i.i
-  %cmp20.i.i28.i.i.i.i = icmp eq i32 %125, %dyWrite.0233
+  %cmp20.i.i28.i.i.i.i = icmp eq i32 %dyWrite.0233, %125
   br i1 %cmp20.i.i28.i.i.i.i, label %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit31.i.i.i.i, label %if.then50.i.i.i.i
 
 _ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit31.i.i.i.i: ; preds = %lor.rhs17.i.i27.i.i.i.i
   %126 = load i32, ptr %_M_storage.i.i.i11.i.i.i.i, align 4
-  %cmp23.i.i30.i.i.i.i = icmp sgt i32 %126, %dxWrite.0227
+  %cmp23.i.i30.i.i.i.i = icmp slt i32 %dxWrite.0227, %126
   br i1 %cmp23.i.i30.i.i.i.i, label %if.then18.i.i.i.i, label %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit78.i.i.i.i
 
 if.then18.i.i.i.i:                                ; preds = %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit31.i.i.i.i, %land.rhs.i.i23.i.i.i.i, %land.lhs.true.i.i17.i.i.i.i, %if.else12.i.i.i.i
@@ -4063,36 +4063,36 @@ if.else57.i.i.i.i:                                ; preds = %if.then50.i.i.i.i
   %_M_storage.i.i.i83.i.i.i.i = getelementptr inbounds i8, ptr %call.i82.i.i.i.i, i64 32
   %ly2.i.i85.i.i.i.i = getelementptr inbounds i8, ptr %call.i82.i.i.i.i, i64 44
   %134 = load i32, ptr %ly2.i.i85.i.i.i.i, align 4
-  %cmp.i.i86.i.i.i.i = icmp sgt i32 %134, %ly
+  %cmp.i.i86.i.i.i.i = icmp slt i32 %ly, %134
   br i1 %cmp.i.i86.i.i.i.i, label %if.then64.i.i.i.i, label %lor.lhs.false.i.i87.i.i.i.i
 
 lor.lhs.false.i.i87.i.i.i.i:                      ; preds = %if.else57.i.i.i.i
-  %cmp5.i.i88.i.i.i.i = icmp eq i32 %134, %ly
+  %cmp5.i.i88.i.i.i.i = icmp eq i32 %ly, %134
   br i1 %cmp5.i.i88.i.i.i.i, label %land.lhs.true.i.i89.i.i.i.i, label %invoke.cont7.sink.split.i.i.i
 
 land.lhs.true.i.i89.i.i.i.i:                      ; preds = %lor.lhs.false.i.i87.i.i.i.i
   %lx6.i.i91.i.i.i.i = getelementptr inbounds i8, ptr %call.i82.i.i.i.i, i64 40
   %135 = load i32, ptr %lx6.i.i91.i.i.i.i, align 4
-  %cmp7.i.i92.i.i.i.i = icmp sgt i32 %135, %lx
+  %cmp7.i.i92.i.i.i.i = icmp slt i32 %lx, %135
   br i1 %cmp7.i.i92.i.i.i.i, label %if.then64.i.i.i.i, label %land.lhs.true11.i.i93.i.i.i.i
 
 land.lhs.true11.i.i93.i.i.i.i:                    ; preds = %land.lhs.true.i.i89.i.i.i.i
-  %cmp14.i.i94.i.i.i.i = icmp eq i32 %135, %lx
+  %cmp14.i.i94.i.i.i.i = icmp eq i32 %lx, %135
   br i1 %cmp14.i.i94.i.i.i.i, label %land.rhs.i.i95.i.i.i.i, label %invoke.cont7.sink.split.i.i.i
 
 land.rhs.i.i95.i.i.i.i:                           ; preds = %land.lhs.true11.i.i93.i.i.i.i
   %dy15.i.i97.i.i.i.i = getelementptr inbounds i8, ptr %call.i82.i.i.i.i, i64 36
   %136 = load i32, ptr %dy15.i.i97.i.i.i.i, align 4
-  %cmp16.i.i98.i.i.i.i = icmp sgt i32 %136, %dyWrite.0233
+  %cmp16.i.i98.i.i.i.i = icmp slt i32 %dyWrite.0233, %136
   br i1 %cmp16.i.i98.i.i.i.i, label %if.then64.i.i.i.i, label %lor.rhs17.i.i99.i.i.i.i
 
 lor.rhs17.i.i99.i.i.i.i:                          ; preds = %land.rhs.i.i95.i.i.i.i
-  %cmp20.i.i100.i.i.i.i = icmp eq i32 %136, %dyWrite.0233
+  %cmp20.i.i100.i.i.i.i = icmp eq i32 %dyWrite.0233, %136
   br i1 %cmp20.i.i100.i.i.i.i, label %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit103.i.i.i.i, label %invoke.cont7.sink.split.i.i.i
 
 _ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit103.i.i.i.i: ; preds = %lor.rhs17.i.i99.i.i.i.i
   %137 = load i32, ptr %_M_storage.i.i.i83.i.i.i.i, align 4
-  %cmp23.i.i102.i.i.i.i = icmp sgt i32 %137, %dxWrite.0227
+  %cmp23.i.i102.i.i.i.i = icmp slt i32 %dxWrite.0227, %137
   br i1 %cmp23.i.i102.i.i.i.i, label %if.then64.i.i.i.i, label %invoke.cont7.sink.split.i.i.i
 
 if.then64.i.i.i.i:                                ; preds = %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit103.i.i.i.i, %land.rhs.i.i95.i.i.i.i, %land.lhs.true.i.i89.i.i.i.i, %if.else57.i.i.i.i
@@ -4111,36 +4111,36 @@ while.body.i.i.i:                                 ; preds = %invoke.cont7.sink.s
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 32
   %ly2.i.i.i.i200.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 44
   %139 = load i32, ptr %ly2.i.i.i.i200.i, align 4
-  %cmp.i.i.i.i201.i = icmp sgt i32 %139, %ly
+  %cmp.i.i.i.i201.i = icmp slt i32 %ly, %139
   br i1 %cmp.i.i.i.i201.i, label %cond.end.i.i.i, label %lor.lhs.false.i.i.i.i202.i
 
 lor.lhs.false.i.i.i.i202.i:                       ; preds = %while.body.i.i.i
-  %cmp5.i.i.i.i203.i = icmp eq i32 %139, %ly
+  %cmp5.i.i.i.i203.i = icmp eq i32 %ly, %139
   br i1 %cmp5.i.i.i.i203.i, label %land.lhs.true.i.i.i.i205.i, label %cond.end.i.thread.i.i
 
 land.lhs.true.i.i.i.i205.i:                       ; preds = %lor.lhs.false.i.i.i.i202.i
   %lx6.i.i.i.i206.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 40
   %140 = load i32, ptr %lx6.i.i.i.i206.i, align 4
-  %cmp7.i.i.i.i207.i = icmp sgt i32 %140, %lx
+  %cmp7.i.i.i.i207.i = icmp slt i32 %lx, %140
   br i1 %cmp7.i.i.i.i207.i, label %cond.end.i.i.i, label %land.lhs.true11.i.i.i.i208.i
 
 land.lhs.true11.i.i.i.i208.i:                     ; preds = %land.lhs.true.i.i.i.i205.i
-  %cmp14.i.i.i.i209.i = icmp eq i32 %140, %lx
+  %cmp14.i.i.i.i209.i = icmp eq i32 %lx, %140
   br i1 %cmp14.i.i.i.i209.i, label %land.rhs.i.i.i.i210.i, label %cond.end.i.thread.i.i
 
 land.rhs.i.i.i.i210.i:                            ; preds = %land.lhs.true11.i.i.i.i208.i
   %dy15.i.i.i.i211.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 36
   %141 = load i32, ptr %dy15.i.i.i.i211.i, align 4
-  %cmp16.i.i.i.i212.i = icmp sgt i32 %141, %dyWrite.0233
+  %cmp16.i.i.i.i212.i = icmp slt i32 %dyWrite.0233, %141
   br i1 %cmp16.i.i.i.i212.i, label %cond.end.i.i.i, label %lor.rhs17.i.i.i.i213.i
 
 lor.rhs17.i.i.i.i213.i:                           ; preds = %land.rhs.i.i.i.i210.i
-  %cmp20.i.i.i.i214.i = icmp eq i32 %141, %dyWrite.0233
+  %cmp20.i.i.i.i214.i = icmp eq i32 %dyWrite.0233, %141
   br i1 %cmp20.i.i.i.i214.i, label %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i215.i, label %cond.end.i.thread.i.i
 
 _ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i215.i: ; preds = %lor.rhs17.i.i.i.i213.i
   %142 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
-  %cmp23.i.i.i.i216.i = icmp sgt i32 %142, %dxWrite.0227
+  %cmp23.i.i.i.i216.i = icmp slt i32 %dxWrite.0227, %142
   br i1 %cmp23.i.i.i.i216.i, label %cond.end.i.i.i, label %cond.end.i.thread.i.i
 
 cond.end.i.i.i:                                   ; preds = %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i215.i, %land.rhs.i.i.i.i210.i, %land.lhs.true.i.i.i.i205.i, %while.body.i.i.i
@@ -4219,7 +4219,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont7.i.i.i,
   %retval.sroa.12.0.i7.i.i.i = phi ptr [ %retval.sroa.12.0.i.i.i.i, %invoke.cont7.i.i.i ], [ %spec.select132.i.i.i.i, %if.then64.i.i.i.i ], [ %spec.select130.i.i.i.i, %if.then32.i.i.i.i ], [ %118, %land.rhs.i.i.i.i.i229.i ], [ %118, %land.lhs.true.i.i29.i.i ], [ %118, %land.lhs.true.i.i.i.i.i223.i ], [ %118, %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i235.i ], [ %__y.0.lcssa45.i.i.i, %land.rhs.i.i17.i.i.i ], [ %__y.0.lcssa45.i.i.i, %if.end12.i.i.i ], [ %__y.0.lcssa45.i.i.i, %land.lhs.true.i.i11.i.i.i ], [ %__y.0.lcssa45.i.i.i, %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit25.i.i.i ], [ %__y.0.lcssa46.i.i.i, %if.then.i32.i.i ]
   %retval.sroa.0.0.i6.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %invoke.cont7.i.i.i ], [ %spec.select131.i.i.i.i, %if.then64.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then32.i.i.i.i ], [ null, %land.rhs.i.i.i.i.i229.i ], [ null, %land.lhs.true.i.i29.i.i ], [ null, %land.lhs.true.i.i.i.i.i223.i ], [ null, %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit.i.i.i235.i ], [ null, %land.rhs.i.i17.i.i.i ], [ null, %if.end12.i.i.i ], [ null, %land.lhs.true.i.i11.i.i.i ], [ null, %_ZNKSt4lessIN7Imf_3_212_GLOBAL__N_19TileCoordEEclERKS2_S5_.exit25.i.i.i ], [ null, %if.then.i32.i.i ]
   %cmp.not.i.i.i9.i.i = icmp ne ptr %retval.sroa.0.0.i6.i.i.i, null
-  %cmp2.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.12.0.i7.i.i.i
+  %cmp2.i.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i7.i.i.i, %add.ptr.i.i.i.i
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i9.i.i, i1 true, i1 %cmp2.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %cleanup.i.i.i, label %lor.rhs.i.i.i.i.i
 
@@ -4227,36 +4227,36 @@ lor.rhs.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.0.i7.i.i.i, i64 32
   %ly2.i.i.i.i.i11.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.0.i7.i.i.i, i64 44
   %150 = load i32, ptr %ly2.i.i.i.i.i11.i.i, align 4
-  %cmp.i.i.i.i.i12.i.i = icmp sgt i32 %150, %ly
+  %cmp.i.i.i.i.i12.i.i = icmp slt i32 %ly, %150
   br i1 %cmp.i.i.i.i.i12.i.i, label %cleanup.i.i.i, label %lor.lhs.false.i.i.i.i.i13.i.i
 
 lor.lhs.false.i.i.i.i.i13.i.i:                    ; preds = %lor.rhs.i.i.i.i.i
-  %cmp5.i.i.i.i.i14.i.i = icmp eq i32 %150, %ly
+  %cmp5.i.i.i.i.i14.i.i = icmp eq i32 %ly, %150
   br i1 %cmp5.i.i.i.i.i14.i.i, label %land.lhs.true.i.i.i.i.i15.i.i, label %cleanup.i.i.i
 
 land.lhs.true.i.i.i.i.i15.i.i:                    ; preds = %lor.lhs.false.i.i.i.i.i13.i.i
   %lx6.i.i.i.i.i17.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.0.i7.i.i.i, i64 40
   %151 = load i32, ptr %lx6.i.i.i.i.i17.i.i, align 4
-  %cmp7.i.i.i.i.i18.i.i = icmp sgt i32 %151, %lx
+  %cmp7.i.i.i.i.i18.i.i = icmp slt i32 %lx, %151
   br i1 %cmp7.i.i.i.i.i18.i.i, label %cleanup.i.i.i, label %land.lhs.true11.i.i.i.i.i19.i.i
 
 land.lhs.true11.i.i.i.i.i19.i.i:                  ; preds = %land.lhs.true.i.i.i.i.i15.i.i
-  %cmp14.i.i.i.i.i20.i.i = icmp eq i32 %151, %lx
+  %cmp14.i.i.i.i.i20.i.i = icmp eq i32 %lx, %151
   br i1 %cmp14.i.i.i.i.i20.i.i, label %land.rhs.i.i.i.i.i21.i.i, label %cleanup.i.i.i
 
 land.rhs.i.i.i.i.i21.i.i:                         ; preds = %land.lhs.true11.i.i.i.i.i19.i.i
   %dy15.i.i.i.i.i23.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.0.i7.i.i.i, i64 36
   %152 = load i32, ptr %dy15.i.i.i.i.i23.i.i, align 4
-  %cmp16.i.i.i.i.i24.i.i = icmp sgt i32 %152, %dyWrite.0233
+  %cmp16.i.i.i.i.i24.i.i = icmp slt i32 %dyWrite.0233, %152
   br i1 %cmp16.i.i.i.i.i24.i.i, label %cleanup.i.i.i, label %lor.rhs17.i.i.i.i.i25.i.i
 
 lor.rhs17.i.i.i.i.i25.i.i:                        ; preds = %land.rhs.i.i.i.i.i21.i.i
-  %cmp20.i.i.i.i.i26.i.i = icmp eq i32 %152, %dyWrite.0233
+  %cmp20.i.i.i.i.i26.i.i = icmp eq i32 %dyWrite.0233, %152
   br i1 %cmp20.i.i.i.i.i26.i.i, label %land.rhs21.i.i.i.i.i.i.i, label %cleanup.i.i.i
 
 land.rhs21.i.i.i.i.i.i.i:                         ; preds = %lor.rhs17.i.i.i.i.i25.i.i
   %153 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i, align 4
-  %cmp23.i.i.i.i.i27.i.i = icmp sgt i32 %153, %dxWrite.0227
+  %cmp23.i.i.i.i.i27.i.i = icmp slt i32 %dxWrite.0227, %153
   br label %cleanup.i.i.i
 
 cleanup.i.i.i:                                    ; preds = %land.rhs21.i.i.i.i.i.i.i, %lor.rhs17.i.i.i.i.i25.i.i, %land.rhs.i.i.i.i.i21.i.i, %land.lhs.true11.i.i.i.i.i19.i.i, %land.lhs.true.i.i.i.i.i15.i.i, %lor.lhs.false.i.i.i.i.i13.i.i, %lor.rhs.i.i.i.i.i, %if.then.i.i.i
@@ -4543,7 +4543,7 @@ entry:
   %0 = load ptr, ptr %_data, align 8
   %numXLevels = getelementptr inbounds i8, ptr %0, i64 212
   %1 = load i32, ptr %numXLevels, align 4
-  %cmp = icmp sgt i32 %1, %lx
+  %cmp = icmp slt i32 %lx, %1
   %cmp2 = icmp sgt i32 %lx, -1
   %or.cond = and i1 %cmp2, %cmp
   br i1 %or.cond, label %land.lhs.true3, label %land.end19
@@ -4551,7 +4551,7 @@ entry:
 land.lhs.true3:                                   ; preds = %entry
   %numYLevels = getelementptr inbounds i8, ptr %0, i64 216
   %2 = load i32, ptr %numYLevels, align 8
-  %cmp5 = icmp sgt i32 %2, %ly
+  %cmp5 = icmp slt i32 %ly, %2
   %cmp7 = icmp sgt i32 %ly, -1
   %or.cond1 = and i1 %cmp7, %cmp5
   br i1 %or.cond1, label %land.lhs.true8, label %land.end19
@@ -4562,7 +4562,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true3
   %idxprom = zext nneg i32 %lx to i64
   %arrayidx = getelementptr inbounds i32, ptr %3, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4
-  %cmp10 = icmp sgt i32 %4, %dx
+  %cmp10 = icmp slt i32 %dx, %4
   %cmp12 = icmp sgt i32 %dx, -1
   %or.cond2 = and i1 %cmp12, %cmp10
   br i1 %or.cond2, label %land.rhs, label %land.end19
@@ -4573,7 +4573,7 @@ land.rhs:                                         ; preds = %land.lhs.true8
   %idxprom14 = zext nneg i32 %ly to i64
   %arrayidx15 = getelementptr inbounds i32, ptr %5, i64 %idxprom14
   %6 = load i32, ptr %arrayidx15, align 4
-  %cmp16 = icmp sgt i32 %6, %dy
+  %cmp16 = icmp slt i32 %dy, %6
   %cmp18 = icmp sgt i32 %dy, -1
   %7 = and i1 %cmp18, %cmp16
   br label %land.end19
@@ -4603,13 +4603,13 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %numXLevels.i = getelementptr inbounds i8, ptr %1, i64 212
   %3 = load i32, ptr %numXLevels.i, align 4
-  %cmp8.not = icmp sgt i32 %3, %lx
+  %cmp8.not = icmp slt i32 %lx, %3
   br i1 %cmp8.not, label %lor.lhs.false9, label %return
 
 lor.lhs.false9:                                   ; preds = %if.end6
   %numYLevels.i = getelementptr inbounds i8, ptr %1, i64 216
   %4 = load i32, ptr %numYLevels.i, align 8
-  %cmp11.not = icmp sgt i32 %4, %ly
+  %cmp11.not = icmp slt i32 %ly, %4
   br label %return
 
 return:                                           ; preds = %lor.lhs.false9, %if.end6, %if.end, %entry
@@ -6624,7 +6624,7 @@ lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %_data, align 8
   %numXLevels = getelementptr inbounds i8, ptr %0, i64 212
   %1 = load i32, ptr %numXLevels, align 4
-  %cmp2.not = icmp sgt i32 %1, %lx
+  %cmp2.not = icmp slt i32 %lx, %1
   br i1 %cmp2.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %lor.lhs.false
@@ -6701,7 +6701,7 @@ lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %_data, align 8
   %numYLevels = getelementptr inbounds i8, ptr %0, i64 216
   %1 = load i32, ptr %numYLevels, align 8
-  %cmp2.not = icmp sgt i32 %1, %ly
+  %cmp2.not = icmp slt i32 %ly, %1
   br i1 %cmp2.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %lor.lhs.false
@@ -6895,7 +6895,7 @@ entry:
   %0 = load ptr, ptr %_data.i, align 8
   %numXLevels.i = getelementptr inbounds i8, ptr %0, i64 212
   %1 = load i32, ptr %numXLevels.i, align 4
-  %cmp.i = icmp sgt i32 %1, %lx
+  %cmp.i = icmp slt i32 %lx, %1
   %cmp2.i = icmp sgt i32 %lx, -1
   %or.cond.i = and i1 %cmp2.i, %cmp.i
   br i1 %or.cond.i, label %land.lhs.true3.i, label %if.then
@@ -6903,7 +6903,7 @@ entry:
 land.lhs.true3.i:                                 ; preds = %entry
   %numYLevels.i = getelementptr inbounds i8, ptr %0, i64 216
   %2 = load i32, ptr %numYLevels.i, align 8
-  %cmp5.i = icmp sgt i32 %2, %ly
+  %cmp5.i = icmp slt i32 %ly, %2
   %cmp7.i = icmp sgt i32 %ly, -1
   %or.cond1.i = and i1 %cmp7.i, %cmp5.i
   br i1 %or.cond1.i, label %land.lhs.true8.i, label %if.then
@@ -6914,7 +6914,7 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true3.i
   %idxprom.i = zext nneg i32 %lx to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 4
-  %cmp10.i = icmp sgt i32 %4, %dx
+  %cmp10.i = icmp slt i32 %dx, %4
   %cmp12.i = icmp sgt i32 %dx, -1
   %or.cond2.i = and i1 %cmp12.i, %cmp10.i
   br i1 %or.cond2.i, label %_ZNK7Imf_3_219DeepTiledOutputFile11isValidTileEiiii.exit, label %if.then
@@ -6925,7 +6925,7 @@ _ZNK7Imf_3_219DeepTiledOutputFile11isValidTileEiiii.exit: ; preds = %land.lhs.tr
   %idxprom14.i = zext nneg i32 %ly to i64
   %arrayidx15.i = getelementptr inbounds i32, ptr %5, i64 %idxprom14.i
   %6 = load i32, ptr %arrayidx15.i, align 4
-  %cmp16.i = icmp sgt i32 %6, %dy
+  %cmp16.i = icmp slt i32 %dy, %6
   %cmp18.i = icmp sgt i32 %dy, -1
   %7 = and i1 %cmp18.i, %cmp16.i
   br i1 %7, label %if.end, label %if.then

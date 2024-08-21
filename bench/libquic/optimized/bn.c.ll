@@ -149,7 +149,7 @@ BN_new.exit.thread:                               ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %flags.i = getelementptr inbounds i8, ptr %calloc.i, i64 20
   store i32 1, ptr %flags.i, align 4
-  %cmp.i5 = icmp eq ptr %calloc.i, %src
+  %cmp.i5 = icmp eq ptr %src, %calloc.i
   br i1 %cmp.i5, label %return, label %if.end.i6
 
 if.end.i6:                                        ; preds = %if.end3
@@ -248,7 +248,7 @@ entry:
   %dmax = getelementptr inbounds i8, ptr %bn, i64 12
   %0 = load i32, ptr %dmax, align 4
   %conv = sext i32 %0 to i64
-  %cmp.not = icmp ult i64 %conv, %words
+  %cmp.not = icmp ugt i64 %words, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -337,7 +337,7 @@ entry:
   %flags1 = getelementptr inbounds i8, ptr %out, i64 20
   %0 = load i32, ptr %flags1, align 4
   %and = and i32 %0, -4
-  %or = or i32 %and, %flags
+  %or = or i32 %flags, %and
   %or3 = or i32 %or, 2
   store i32 %or3, ptr %flags1, align 4
   ret void

@@ -114,7 +114,7 @@ define dso_local void @percpu_counter_add_batch(ptr noundef %0, i64 noundef %1, 
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #8, !srcloc !13
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = call i64 @llvm.abs.i64(i64 %10, i1 false)
   %12 = sext i32 %2 to i64
   %13 = icmp slt i64 %11, %12
@@ -451,7 +451,7 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #8, !srcloc !28
   %15 = sext i32 %14 to i64
-  %16 = add i64 %15, %2
+  %16 = add i64 %2, %15
   %17 = call i64 @llvm.abs.i64(i64 %16, i1 false)
   %18 = sext i32 %3 to i64
   %19 = icmp sgt i64 %17, %18

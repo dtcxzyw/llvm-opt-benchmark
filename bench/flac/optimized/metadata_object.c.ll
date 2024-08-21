@@ -912,7 +912,7 @@ if.then.i:                                        ; preds = %sw.default
   br label %compare_block_data_unknown_.exit
 
 if.else.i:                                        ; preds = %sw.default
-  %cmp9.i = icmp eq ptr %.pre.i, %data34.val
+  %cmp9.i = icmp eq ptr %data34.val, %.pre.i
   br label %compare_block_data_unknown_.exit
 
 compare_block_data_unknown_.exit:                 ; preds = %if.then.i, %if.else.i
@@ -1575,7 +1575,7 @@ if.else34:                                        ; preds = %if.end26
 if.end44:                                         ; preds = %if.else34, %if.then29
   %storemerge = phi ptr [ null, %if.then29 ], [ %call37, %if.else34 ]
   store ptr %storemerge, ptr %points, align 8
-  %cmp45 = icmp ult i32 %3, %new_num_points
+  %cmp45 = icmp ugt i32 %new_num_points, %3
   br i1 %cmp45, label %if.then47, label %if.end63
 
 if.then47:                                        ; preds = %if.end44
@@ -1688,7 +1688,7 @@ entry:
   %data = getelementptr inbounds i8, ptr %object, i64 16
   %0 = load i32, ptr %data, align 8
   %sub8 = add i32 %0, -1
-  %cmp9 = icmp ugt i32 %sub8, %point_num
+  %cmp9 = icmp ult i32 %point_num, %sub8
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -1848,7 +1848,7 @@ for.cond.preheader:                               ; preds = %if.then
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
   %i.015 = phi i32 [ %0, %for.cond.preheader ], [ %inc, %for.body ]
-  %mul = mul i64 %indvars.iv, %total_samples
+  %mul = mul i64 %total_samples, %indvars.iv
   %div = udiv i64 %mul, %conv5
   %1 = load ptr, ptr %points, align 8
   %idxprom = zext i32 %i.015 to i64
@@ -2134,7 +2134,7 @@ if.else27:                                        ; preds = %entry
   br i1 %cmp33, label %return, label %if.end36
 
 if.end36:                                         ; preds = %if.else27
-  %cmp39 = icmp ugt i32 %6, %new_num_comments
+  %cmp39 = icmp ult i32 %new_num_comments, %6
   br i1 %cmp39, label %for.body48, label %if.end66
 
 for.body48:                                       ; preds = %if.end36, %for.inc63
@@ -2175,7 +2175,7 @@ if.else74:                                        ; preds = %if.end66
 if.end84:                                         ; preds = %if.else74, %if.then69
   %storemerge = phi ptr [ null, %if.then69 ], [ %call77, %if.else74 ]
   store ptr %storemerge, ptr %comments, align 8
-  %cmp85 = icmp ult i32 %6, %new_num_comments
+  %cmp85 = icmp ugt i32 %new_num_comments, %6
   br i1 %cmp85, label %if.then87, label %if.end123
 
 if.then87:                                        ; preds = %if.end84
@@ -2397,7 +2397,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv6.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %cmp7.i.i = icmp eq i32 %conv6.i.i, %conv12
+  %cmp7.i.i = icmp eq i32 %conv12, %conv6.i.i
   %or.cond.i.i = and i1 %cmp.not.i.i, %cmp7.i.i
   br i1 %or.cond.i.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i, label %for.inc.i
 
@@ -2468,7 +2468,7 @@ for.body.i43:                                     ; preds = %for.inc.i55, %for.b
   %sub.ptr.rhs.cast.i.i50 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i51 = sub i64 %sub.ptr.lhs.cast.i.i49, %sub.ptr.rhs.cast.i.i50
   %conv6.i.i52 = trunc i64 %sub.ptr.sub.i.i51 to i32
-  %cmp7.i.i53 = icmp eq i32 %conv6.i.i52, %conv12
+  %cmp7.i.i53 = icmp eq i32 %conv12, %conv6.i.i52
   %or.cond.i.i54 = and i1 %cmp.not.i.i48, %cmp7.i.i53
   br i1 %or.cond.i.i54, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i59, label %for.inc.i55
 
@@ -2546,7 +2546,7 @@ for.body.i74:                                     ; preds = %for.inc.i86, %for.b
   %sub.ptr.rhs.cast.i.i81 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i82 = sub i64 %sub.ptr.lhs.cast.i.i80, %sub.ptr.rhs.cast.i.i81
   %conv6.i.i83 = trunc i64 %sub.ptr.sub.i.i82 to i32
-  %cmp7.i.i84 = icmp eq i32 %conv6.i.i83, %conv12
+  %cmp7.i.i84 = icmp eq i32 %conv12, %conv6.i.i83
   %or.cond.i.i85 = and i1 %cmp.not.i.i79, %cmp7.i.i84
   br i1 %or.cond.i.i85, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i90, label %for.inc.i86
 
@@ -2759,7 +2759,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %entry.coerce1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv6 = trunc i64 %sub.ptr.sub to i32
-  %cmp7 = icmp eq i32 %conv6, %field_name_length
+  %cmp7 = icmp eq i32 %field_name_length, %conv6
   %or.cond = and i1 %cmp.not, %cmp7
   br i1 %or.cond, label %land.rhs, label %land.end
 
@@ -2786,7 +2786,7 @@ entry:
   %conv10.i.i = and i64 %call, 4294967295
   %num_comments.i = getelementptr inbounds i8, ptr %object, i64 32
   %0 = load i32, ptr %num_comments.i, align 8
-  %cmp7.i = icmp ugt i32 %0, %offset
+  %cmp7.i = icmp ult i32 %offset, %0
   br i1 %cmp7.i, label %for.body.lr.ph.i, label %vorbiscomment_find_entry_from_.exit
 
 for.body.lr.ph.i:                                 ; preds = %entry
@@ -2808,7 +2808,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv6.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %cmp7.i.i = icmp eq i32 %conv6.i.i, %conv
+  %cmp7.i.i = icmp eq i32 %conv, %conv6.i.i
   %or.cond.i.i = and i1 %cmp.not.i.i, %cmp7.i.i
   br i1 %or.cond.i.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i, label %for.inc.i
 
@@ -2862,7 +2862,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv6.i = trunc i64 %sub.ptr.sub.i to i32
-  %cmp7.i = icmp eq i32 %conv6.i, %conv
+  %cmp7.i = icmp eq i32 %conv, %conv6.i
   %or.cond.i = and i1 %cmp.not.i, %cmp7.i
   br i1 %or.cond.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit, label %for.inc
 
@@ -2946,7 +2946,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv6.i = trunc i64 %sub.ptr.sub.i to i32
-  %cmp7.i = icmp eq i32 %conv6.i, %conv
+  %cmp7.i = icmp eq i32 %conv, %conv6.i
   %or.cond.i = and i1 %cmp.not.i, %cmp7.i
   br i1 %or.cond.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit, label %for.inc
 
@@ -3442,7 +3442,7 @@ if.else8:                                         ; preds = %entry
   br i1 %cmp13, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.else8
-  %cmp19 = icmp ugt i32 %1, %new_num_tracks
+  %cmp19 = icmp ult i32 %new_num_tracks, %1
   br i1 %cmp19, label %for.body, label %if.end28
 
 for.body:                                         ; preds = %if.end16, %for.body

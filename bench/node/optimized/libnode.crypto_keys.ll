@@ -4123,7 +4123,7 @@ do.body.i:                                        ; preds = %if.end
   %arrayidx = getelementptr inbounds i8, ptr %call1.i.i, i64 %4
   store i8 0, ptr %arrayidx, align 1
   %5 = load i64, ptr %length_.i, align 8
-  %cmp.not.i = icmp ult i64 %add, %5
+  %cmp.not.i = icmp ugt i64 %5, %add
   br i1 %cmp.not.i, label %do.body6.i, label %do.end7.i
 
 do.body6.i:                                       ; preds = %do.body.i
@@ -4404,7 +4404,7 @@ if.end.i95:                                       ; preds = %do.body
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit103: ; preds = %if.end.i95, %if.then.i100
   %retval.i86.sroa.0.0 = phi ptr [ %46, %if.then.i100 ], [ %add.ptr.i98, %if.end.i95 ]
   %call35 = tail call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i86.sroa.0.0) #23
-  %48 = and i1 %call35, %allow_key_object
+  %48 = and i1 %allow_key_object, %call35
   br i1 %48, label %do.body43, label %do.body39
 
 do.body39:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit103

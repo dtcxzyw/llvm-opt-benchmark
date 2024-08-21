@@ -3743,7 +3743,7 @@ define void @"_ZN65_$LT$markup5ever_rcdom..Node$u20$as$u20$core..ops..drop..Drop
   call void @llvm.experimental.noalias.scope.decl(metadata !954)
   %.idx = shl nuw nsw i64 %.sroa.5.0.copyload94, 3
   %41 = sub i64 %25, %24
-  %42 = icmp ult i64 %41, %.sroa.5.0.copyload94
+  %42 = icmp ugt i64 %.sroa.5.0.copyload94, %41
   br i1 %42, label %43, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h286b4de4b2f08090E.llvm.2171480472617847398.exit"
 
 43:                                               ; preds = %38

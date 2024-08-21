@@ -383,7 +383,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %nirq = getelementptr inbounds i8, ptr %bus, i64 2280
   %0 = load i32, ptr %nirq, align 8
-  %cmp1 = icmp sgt i32 %0, %irq_num
+  %cmp1 = icmp slt i32 %irq_num, %0
   br i1 %cmp1, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end
@@ -477,7 +477,7 @@ if.end6:                                          ; preds = %if.end
   %shr.i = lshr i32 %conv.i, %irq_num
   %and.i = and i32 %shr.i, 1
   %sub = sub nsw i32 %level, %and.i
-  %tobool.not = icmp eq i32 %and.i, %level
+  %tobool.not = icmp eq i32 %level, %and.i
   br i1 %tobool.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end6
@@ -1731,7 +1731,7 @@ if.else41.i:                                      ; preds = %if.else10.i
 if.end47.i:                                       ; preds = %if.else41.i, %if.then36.i
   %new_addr.1.i = phi i64 [ %add.ptr39.val.i, %if.then36.i ], [ %conv46.i, %if.else41.i ]
   %conv48.i = zext i32 %div.i to i64
-  %mul49.i = mul i64 %conv48.i, %size
+  %mul49.i = mul i64 %size, %conv48.i
   %add50.i = add i64 %new_addr.1.i, %mul49.i
   br label %pci_config_get_bar_addr.exit
 
@@ -1842,7 +1842,7 @@ if.else41.i72:                                    ; preds = %if.else10.i38
 if.end47.i62:                                     ; preds = %if.else41.i72, %if.then36.i60
   %new_addr.1.i63 = phi i64 [ %add.ptr39.val.i61, %if.then36.i60 ], [ %conv46.i74, %if.else41.i72 ]
   %conv48.i64 = zext i32 %div.i56 to i64
-  %mul49.i65 = mul i64 %conv48.i64, %size
+  %mul49.i65 = mul i64 %size, %conv48.i64
   %add50.i66 = add i64 %new_addr.1.i63, %mul49.i65
   br label %pci_config_get_bar_addr.exit96
 
@@ -1987,7 +1987,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %val.079 = phi i32 [ %val_in, %for.body.lr.ph ], [ %shr, %if.end12 ]
   %4 = load ptr, ptr %wmask3, align 8
   %5 = trunc nuw nsw i64 %indvars.iv to i32
-  %add4 = add i32 %5, %addr
+  %add4 = add i32 %addr, %5
   %idxprom = zext i32 %add4 to i64
   %arrayidx = getelementptr i8, ptr %4, i64 %idxprom
   %6 = load i8, ptr %arrayidx, align 1
@@ -2071,7 +2071,7 @@ if.then60:                                        ; preds = %if.end55
   %d.val8.val.i = load i16, ptr %16, align 1
   %d.val8.val.fr.i = freeze i16 %d.val8.val.i
   %17 = and i16 %d.val8.val.fr.i, 1024
-  %cmp.i75 = icmp eq i16 %17, %2
+  %cmp.i75 = icmp eq i16 %2, %17
   br i1 %cmp.i75, label %pci_update_irq_disabled.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then60
@@ -2380,7 +2380,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %shr.i.i = lshr i32 %conv.i.i, %sub.i
   %and.i.i = and i32 %shr.i.i, 1
   %sub.i2 = sub nsw i32 %level, %and.i.i
-  %tobool.not.i = icmp eq i32 %and.i.i, %level
+  %tobool.not.i = icmp eq i32 %level, %and.i.i
   br i1 %tobool.not.i, label %pci_irq_handler.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end6.i
@@ -2717,14 +2717,14 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true
   %arrayidx.i = getelementptr i8, ptr %.val, i64 25
   %5 = load i8, ptr %arrayidx.i, align 1
   %conv2.i = zext i8 %5 to i32
-  %cmp.not.i = icmp sgt i32 %conv2.i, %bus_num
+  %cmp.not.i = icmp slt i32 %bus_num, %conv2.i
   br i1 %cmp.not.i, label %return, label %pci_secondary_bus_in_range.exit
 
 pci_secondary_bus_in_range.exit:                  ; preds = %land.lhs.true.i
   %arrayidx5.i = getelementptr i8, ptr %.val, i64 26
   %6 = load i8, ptr %arrayidx5.i, align 1
   %conv6.i = zext i8 %6 to i32
-  %cmp7.i.not = icmp ult i32 %conv6.i, %bus_num
+  %cmp7.i.not = icmp ugt i32 %bus_num, %conv6.i
   br i1 %cmp7.i.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %pci_secondary_bus_in_range.exit, %if.end2
@@ -2780,14 +2780,14 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
   %arrayidx.i.i = getelementptr i8, ptr %.val.i, i64 25
   %12 = load i8, ptr %arrayidx.i.i, align 1
   %conv2.i.i = zext i8 %12 to i32
-  %cmp.not.i.i = icmp sgt i32 %conv2.i.i, %bus_num
+  %cmp.not.i.i = icmp slt i32 %bus_num, %conv2.i.i
   br i1 %cmp.not.i.i, label %for.inc.i, label %pci_secondary_bus_in_range.exit.i
 
 pci_secondary_bus_in_range.exit.i:                ; preds = %land.lhs.true.i.i
   %arrayidx5.i.i = getelementptr i8, ptr %.val.i, i64 26
   %13 = load i8, ptr %arrayidx5.i.i, align 1
   %conv6.i.i = zext i8 %13 to i32
-  %cmp7.i.not.i = icmp ult i32 %conv6.i.i, %bus_num
+  %cmp7.i.not.i = icmp ugt i32 %bus_num, %conv6.i.i
   br i1 %cmp7.i.not.i, label %for.inc.i, label %pci_root_bus_in_range.exit
 
 for.inc.i:                                        ; preds = %pci_secondary_bus_in_range.exit.i, %land.lhs.true.i.i, %if.then.i, %land.lhs.true.i27, %for.body.i
@@ -2815,14 +2815,14 @@ land.lhs.true.i31:                                ; preds = %if.else
   %arrayidx.i32 = getelementptr i8, ptr %.val18, i64 25
   %17 = load i8, ptr %arrayidx.i32, align 1
   %conv2.i33 = zext i8 %17 to i32
-  %cmp.not.i34 = icmp sgt i32 %conv2.i33, %bus_num
+  %cmp.not.i34 = icmp slt i32 %bus_num, %conv2.i33
   br i1 %cmp.not.i34, label %for.inc, label %pci_secondary_bus_in_range.exit39
 
 pci_secondary_bus_in_range.exit39:                ; preds = %land.lhs.true.i31
   %arrayidx5.i36 = getelementptr i8, ptr %.val18, i64 26
   %18 = load i8, ptr %arrayidx5.i36, align 1
   %conv6.i37 = zext i8 %18 to i32
-  %cmp7.i38.not = icmp ult i32 %conv6.i37, %bus_num
+  %cmp7.i38.not = icmp ugt i32 %bus_num, %conv6.i37
   br i1 %cmp7.i38.not, label %for.inc, label %for.inc25
 
 for.inc:                                          ; preds = %if.else, %land.lhs.true.i31, %pci_root_bus_in_range.exit, %pci_secondary_bus_in_range.exit39
@@ -2912,7 +2912,7 @@ land.rhs:                                         ; preds = %entry, %while.body
   %desc.04 = phi ptr [ @pci_class_descriptions, %entry ], [ %incdec.ptr, %while.body ]
   %0 = load i16, ptr %desc.04, align 8
   %conv = zext i16 %0 to i32
-  %cmp.not = icmp eq i32 %conv, %class
+  %cmp.not = icmp eq i32 %class, %conv
   br i1 %cmp.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
@@ -3982,7 +3982,7 @@ entry:
   %has_power = getelementptr inbounds i8, ptr %d, i64 161
   %0 = load i8, ptr %has_power, align 1
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %state
+  %2 = xor i1 %state, %1
   br i1 %2, label %if.end, label %if.end15
 
 if.end:                                           ; preds = %entry
@@ -4062,7 +4062,7 @@ entry:
   %and.i.i = and i32 %add.ptr.val, 4
   %tobool.not.i = icmp eq i32 %and.i.i, 0
   %cond.i = select i1 %tobool.not.i, i64 256, i64 4096
-  %cmp = icmp eq i64 %cond.i, %size
+  %cmp = icmp eq i64 %size, %cond.i
   br i1 %cmp, label %for.body.lr.ph, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -4114,7 +4114,7 @@ if.then24:                                        ; preds = %for.body
 for.inc:                                          ; preds = %for.body
   %inc = add i32 %i.038, 1
   %conv4 = sext i32 %inc to i64
-  %cmp5 = icmp ult i64 %conv4, %size
+  %cmp5 = icmp ugt i64 %size, %conv4
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !29
 
 for.end:                                          ; preds = %for.inc
@@ -4153,7 +4153,7 @@ entry:
   %and.i.i = and i32 %add.ptr.val, 4
   %tobool.not.i = icmp eq i32 %and.i.i, 0
   %cond.i = select i1 %tobool.not.i, i64 256, i64 4096
-  %cmp = icmp eq i64 %cond.i, %size
+  %cmp = icmp eq i64 %size, %cond.i
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -4360,7 +4360,7 @@ if.else.i:                                        ; preds = %for.end
 if.end.i:                                         ; preds = %for.end
   %nirq.i = getelementptr inbounds i8, ptr %call.i1.i, i64 2280
   %13 = load i32, ptr %nirq.i, align 8
-  %cmp1.i = icmp sgt i32 %13, %call2
+  %cmp1.i = icmp slt i32 %call2, %13
   br i1 %cmp1.i, label %pci_bus_change_irq_level.exit, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.end.i
@@ -4411,7 +4411,7 @@ entry:
   %extend_by.val16 = load i64, ptr %0, align 8
   %cmp.not.i.i = icmp ule i64 %extend_by.val, %extend_by.val16
   %add.i.i = add i64 %extend_by.val16, 1
-  %cmp3.i.i = icmp eq i64 %add.i.i, %extend_by.val
+  %cmp3.i.i = icmp eq i64 %extend_by.val, %add.i.i
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp3.i.i
   br i1 %or.cond.i.i, label %range_is_empty.exit, label %if.else.i.i
 
@@ -4429,7 +4429,7 @@ if.end:                                           ; preds = %range_is_empty.exit
   %range.val15 = load i64, ptr %1, align 8
   %cmp.not.i.i17 = icmp ule i64 %range.val14, %range.val15
   %add.i.i18 = add i64 %range.val15, 1
-  %cmp3.i.i19 = icmp eq i64 %add.i.i18, %range.val14
+  %cmp3.i.i19 = icmp eq i64 %range.val14, %add.i.i18
   %or.cond.i.i20 = or i1 %cmp.not.i.i17, %cmp3.i.i19
   br i1 %or.cond.i.i20, label %range_is_empty.exit23, label %if.else.i.i21
 
@@ -4469,7 +4469,7 @@ if.end14:                                         ; preds = %if.then11, %if.end8
   %add.i.pre-phi = phi i64 [ %.pre26, %if.then11 ], [ %add.i.i18, %if.end8 ]
   %range.val13 = phi i64 [ %2, %if.then11 ], [ %range.val15, %if.end8 ]
   %cmp.not.i = icmp ule i64 %range.val, %range.val13
-  %cmp3.i = icmp eq i64 %add.i.pre-phi, %range.val
+  %cmp3.i = icmp eq i64 %range.val, %add.i.pre-phi
   %or.cond.i = or i1 %cmp.not.i, %cmp3.i
   br i1 %or.cond.i, label %return, label %if.else.i
 

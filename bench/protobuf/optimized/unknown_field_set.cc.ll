@@ -1612,7 +1612,7 @@ for.inc:                                          ; preds = %sw.epilog.sink.spli
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %left.1
+  %cmp.i = icmp ugt i64 %left.1, %sub.ptr.div.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
@@ -1625,7 +1625,7 @@ if.else.i:                                        ; preds = %entry, %for.end
   %.lcssa34 = phi ptr [ %11, %for.end ], [ %1, %entry ]
   %.lcssa1333 = phi ptr [ %10, %for.end ], [ %0, %entry ]
   %left.0.lcssa32 = phi i64 [ %left.1, %for.end ], [ 0, %entry ]
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.lcssa35, %left.0.lcssa32
+  %cmp4.i = icmp ult i64 %left.0.lcssa32, %sub.ptr.div.i.lcssa35
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -1903,7 +1903,7 @@ entry:
   %stream.i = alloca %"class.google::protobuf::io::EpsCopyOutputStream", align 8
   %call = tail call noundef i64 @_ZN6google8protobuf8internal10WireFormat24ComputeUnknownFieldsSizeERKNS0_15UnknownFieldSetE(ptr noundef nonnull align 8 dereferenceable(24) %this)
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #19
-  %cmp.i = icmp ult i64 %call.i, %call
+  %cmp.i = icmp ugt i64 %call, %call.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -2861,7 +2861,7 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
 
 _ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf12UnknownFieldESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit: ; preds = %if.then13
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__last.coerce
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %__last.coerce, %incdec.ptr.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf12UnknownFieldESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf12UnknownFieldESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit
@@ -2926,7 +2926,7 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE11_M_allocateEm.exit
   %cond.i47 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE12_M_check_lenEmPKc.exit ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i48 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i48, %sub.ptr.rhs.cast.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %4, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %__position.coerce, %4
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i51, label %invoke.cont95, label %if.then.i.i.i.i.i.i.i.i.i52
 
 if.then.i.i.i.i.i.i.i.i.i52:                      ; preds = %_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE11_M_allocateEm.exit

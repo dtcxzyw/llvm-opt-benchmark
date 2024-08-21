@@ -296,7 +296,7 @@ define dso_local void @_ZN21CoverageTestExtension17output_array_initERSoi(ptr no
 7:                                                ; preds = %3
   %8 = add i32 %2, -1
   %9 = add i32 %8, %5
-  %10 = icmp sgt i32 %9, %2
+  %10 = icmp slt i32 %2, %9
   br i1 %10, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %7

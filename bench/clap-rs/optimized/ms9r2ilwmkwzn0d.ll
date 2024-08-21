@@ -1951,7 +1951,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !405, !noalias !410, !noundef !7
   %6 = load i64, ptr %0, align 8, !alias.scope !412, !noalias !410, !noundef !7
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48db17b41ef1d069E.exit"
 
 9:                                                ; preds = %3
@@ -2104,7 +2104,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !418, !noalias !423, !noundef !7
   %45 = load i64, ptr %0, align 8, !alias.scope !425, !noalias !423, !noundef !7
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48db17b41ef1d069E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
@@ -2881,7 +2881,7 @@ define internal noundef zeroext i1 @"_ZN81_$LT$clap_builder..builder..styled_str
   %5 = load i64, ptr %4, align 8, !alias.scope !508, !noalias !513, !noundef !7
   %6 = load i64, ptr %0, align 8, !alias.scope !515, !noalias !513, !noundef !7
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48db17b41ef1d069E.exit"
 
 9:                                                ; preds = %3
@@ -3212,7 +3212,7 @@ define void @_ZN12clap_builder5error7Message9formatted17hb8a5085a0c6ccae7E(ptr n
   %14 = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !594, !noalias !601, !noundef !7
   %15 = load i64, ptr %4, align 8, !alias.scope !604, !noalias !601, !noundef !7
   %16 = sub i64 %15, %14
-  %17 = icmp ult i64 %16, %10
+  %17 = icmp ugt i64 %10, %16
   br i1 %17, label %18, label %_ZN12clap_builder5error6format20format_error_message17h87a4c3af7a183583E.exit
 
 18:                                               ; preds = %13
@@ -8439,7 +8439,7 @@ define hidden void @_ZN12clap_builder7mkeymap7MKeyMap6_build17h92015560e1fe5051E
   %6 = load i64, ptr %5, align 8, !alias.scope !2154, !noundef !7
   %7 = load i64, ptr %2, align 8, !alias.scope !2154, !noundef !7
   %8 = sub i64 %7, %6
-  %9 = icmp ult i64 %8, %4
+  %9 = icmp ugt i64 %4, %8
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1178fd71d70cb67bE.exit"
 
 10:                                               ; preds = %1
@@ -8556,7 +8556,7 @@ define noundef nonnull align 8 dereferenceable(552) ptr @"_ZN116_$LT$clap_builde
   call void @llvm.experimental.noalias.scope.decl(metadata !2193)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !2196, !noalias !2197, !noundef !7
-  %19 = icmp ugt i64 %18, %16
+  %19 = icmp ult i64 %16, %18
   br i1 %19, label %22, label %20, !prof !2199
 
 20:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h129976943f4a770fE.llvm.7008872586094235178.exit.i"

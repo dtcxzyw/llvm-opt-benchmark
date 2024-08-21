@@ -1108,7 +1108,7 @@ if.end.i36:                                       ; preds = %while.body
 
 dictGetKey.exit:                                  ; preds = %while.body, %if.end.i36
   %retval.0.i35 = phi ptr [ %he.048, %while.body ], [ %29, %if.end.i36 ]
-  %cmp33 = icmp eq ptr %retval.0.i35, %key
+  %cmp33 = icmp eq ptr %key, %retval.0.i35
   br i1 %cmp33, label %if.then45, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %dictGetKey.exit
@@ -1174,7 +1174,7 @@ entry:
   %idxprom = zext i1 %cmp.not to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %ht_table, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %cmp3.not = icmp ugt ptr %1, %position
+  %cmp3.not = icmp ult ptr %position, %1
   br i1 %cmp3.not, label %cond.false32, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
@@ -1188,7 +1188,7 @@ land.rhs:                                         ; preds = %entry
   %sub = xor i64 %notmask, -1
   %cond25 = select i1 %cmp9, i64 0, i64 %sub
   %arrayidx26 = getelementptr inbounds ptr, ptr %1, i64 %cond25
-  %cmp27.not = icmp ult ptr %arrayidx26, %position
+  %cmp27.not = icmp ugt ptr %position, %arrayidx26
   br i1 %cmp27.not, label %cond.false32, label %cond.end33
 
 cond.false32:                                     ; preds = %entry, %land.rhs
@@ -1503,7 +1503,7 @@ if.end.i:                                         ; preds = %while.body
 
 dictGetKey.exit:                                  ; preds = %while.body, %if.end.i
   %retval.0.i = phi ptr [ %he.083, %while.body ], [ %12, %if.end.i ]
-  %cmp35 = icmp eq ptr %retval.0.i, %key
+  %cmp35 = icmp eq ptr %key, %retval.0.i
   br i1 %cmp35, label %if.then47, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %dictGetKey.exit
@@ -1984,7 +1984,7 @@ if.end.i:                                         ; preds = %while.body
 
 dictGetKey.exit:                                  ; preds = %while.body, %if.end.i
   %retval.0.i = phi ptr [ %he.038, %while.body ], [ %12, %if.end.i ]
-  %cmp32 = icmp eq ptr %retval.0.i, %key
+  %cmp32 = icmp eq ptr %key, %retval.0.i
   br i1 %cmp32, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %dictGetKey.exit
@@ -2138,7 +2138,7 @@ if.end.i:                                         ; preds = %while.body
 
 dictGetKey.exit:                                  ; preds = %while.body, %if.end.i
   %retval.0.i = phi ptr [ %10, %while.body ], [ %13, %if.end.i ]
-  %cmp33 = icmp eq ptr %retval.0.i, %key
+  %cmp33 = icmp eq ptr %key, %retval.0.i
   br i1 %cmp33, label %if.then45, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %dictGetKey.exit
@@ -2448,7 +2448,7 @@ cond.false:                                       ; preds = %entry
 cond.end:                                         ; preds = %entry
   %v = getelementptr inbounds i8, ptr %de, i64 8
   %1 = load double, ptr %v, align 8
-  %add = fadd double %1, %val
+  %add = fadd double %val, %1
   store double %add, ptr %v, align 8
   ret double %add
 }
@@ -3483,7 +3483,7 @@ dictGetNext.exit:                                 ; preds = %while.body
 
 while.end:                                        ; preds = %dictGetNext.exit, %dictGetNext.exit.thread, %if.end26
   %not = xor i64 %cond21, -1
-  %or = or i64 %not, %v
+  %or = or i64 %v, %not
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.end
@@ -3995,11 +3995,11 @@ dictGetKey.exit:                                  ; preds = %while.body
   %7 = inttoptr i64 %and.i.i.i to ptr
   %de.sink.i = select i1 %cmp.i.not.i, ptr %7, ptr %he.029
   %8 = load ptr, ptr %de.sink.i, align 8
-  %cmp27 = icmp eq ptr %8, %oldptr
+  %cmp27 = icmp eq ptr %oldptr, %8
   br i1 %cmp27, label %return, label %dictGetNext.exit
 
 dictGetKey.exit.thread:                           ; preds = %while.body
-  %cmp2725 = icmp eq ptr %he.029, %oldptr
+  %cmp2725 = icmp eq ptr %oldptr, %he.029
   br i1 %cmp2725, label %return, label %while.end
 
 dictGetNext.exit:                                 ; preds = %dictGetKey.exit
@@ -4328,7 +4328,7 @@ entry:
   %rehashidx = getelementptr inbounds i8, ptr %d, i64 40
   %1 = load i64, ptr %rehashidx, align 8
   %cmp = icmp ne i64 %1, -1
-  %cmp2 = icmp ne i64 %call1, %bufsize
+  %cmp2 = icmp ne i64 %bufsize, %call1
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then, label %if.end
 

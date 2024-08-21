@@ -18,12 +18,12 @@ entry:
   store i32 0, ptr %has_bg, align 4
   store i32 0, ptr %has_fg, align 4
   %add = add i32 %h, %y
-  %cmp22 = icmp sgt i32 %add, %y
+  %cmp22 = icmp slt i32 %y, %add
   br i1 %cmp22, label %for.cond2.preheader.lr.ph, label %for.end19
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %add3 = add i32 %w, %x
-  %cmp420 = icmp sgt i32 %add3, %x
+  %cmp420 = icmp slt i32 %x, %add3
   %hextile = getelementptr inbounds i8, ptr %vs, i64 49808
   br i1 %cmp420, label %for.cond2.preheader.us, label %for.end19
 

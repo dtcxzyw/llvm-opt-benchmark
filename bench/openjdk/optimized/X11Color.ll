@@ -239,7 +239,7 @@ define hidden void @awt_fill_imgcv(ptr nocapture noundef writeonly %0, i32 nound
 5:                                                ; preds = %4, %11
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %11 ]
   %6 = trunc nuw nsw i64 %indvars.iv to i32
-  %7 = and i32 %6, %1
+  %7 = and i32 %1, %6
   %8 = icmp eq i32 %7, %2
   br i1 %8, label %9, label %11
 

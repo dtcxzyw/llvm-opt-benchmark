@@ -925,7 +925,7 @@ define internal ptr @access_virt_sarray(ptr noundef %0, ptr noundef %1, i32 noun
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = icmp ult i32 %12, %3
+  %13 = icmp ugt i32 %3, %12
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %10
@@ -945,7 +945,7 @@ define internal ptr @access_virt_sarray(ptr noundef %0, ptr noundef %1, i32 noun
 22:                                               ; preds = %17, %14
   %23 = getelementptr inbounds i8, ptr %1, i64 28
   %24 = load i32, ptr %23, align 4
-  %25 = icmp ugt i32 %24, %2
+  %25 = icmp ult i32 %2, %24
   br i1 %25, label %31, label %26
 
 26:                                               ; preds = %22
@@ -1041,7 +1041,7 @@ do_sarray_io.exit:                                ; preds = %.lr.ph.split.i, %72
 
 85:                                               ; preds = %do_sarray_io.exit, %39
   %86 = load i32, ptr %23, align 4
-  %87 = icmp ult i32 %86, %2
+  %87 = icmp ugt i32 %2, %86
   br i1 %87, label %._crit_edge, label %88
 
 ._crit_edge:                                      ; preds = %85
@@ -1228,7 +1228,7 @@ define internal ptr @access_virt_barray(ptr noundef %0, ptr noundef %1, i32 noun
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = icmp ult i32 %12, %3
+  %13 = icmp ugt i32 %3, %12
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %10
@@ -1248,7 +1248,7 @@ define internal ptr @access_virt_barray(ptr noundef %0, ptr noundef %1, i32 noun
 22:                                               ; preds = %17, %14
   %23 = getelementptr inbounds i8, ptr %1, i64 28
   %24 = load i32, ptr %23, align 4
-  %25 = icmp ugt i32 %24, %2
+  %25 = icmp ult i32 %2, %24
   br i1 %25, label %31, label %26
 
 26:                                               ; preds = %22
@@ -1345,7 +1345,7 @@ do_barray_io.exit:                                ; preds = %.lr.ph.split.i, %73
 
 86:                                               ; preds = %do_barray_io.exit, %39
   %87 = load i32, ptr %23, align 4
-  %88 = icmp ult i32 %87, %2
+  %88 = icmp ugt i32 %2, %87
   br i1 %88, label %._crit_edge, label %89
 
 ._crit_edge:                                      ; preds = %86

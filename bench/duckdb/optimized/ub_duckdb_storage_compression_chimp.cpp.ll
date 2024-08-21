@@ -1755,7 +1755,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i148 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i
   %3 = load i64, ptr %arrayidx.i148, align 8, !tbaa !69
   %4 = trunc i64 %3 to i32
-  %conv18 = xor i32 %4, %in
+  %conv18 = xor i32 %in, %4
   %5 = tail call noundef i32 @llvm.cttz.i32(i32 %conv18, i1 false), !range !118
   %cmp20 = icmp ugt i32 %5, 12
   br i1 %cmp20, label %if.end44.thread, label %if.end44
@@ -1765,11 +1765,11 @@ if.end44:                                         ; preds = %if.then, %entry
   %.pn.in.in = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %conv38.pn
   %.pn.in = load i64, ptr %.pn.in.in, align 8, !tbaa !69
   %.pn = trunc i64 %.pn.in to i32
-  %cmp45 = icmp eq i32 %.pn, %in
+  %cmp45 = icmp eq i32 %in, %.pn
   br i1 %cmp45, label %if.then46, label %if.else69
 
 if.end44.thread:                                  ; preds = %if.then
-  %cmp45181 = icmp eq i32 %4, %in
+  %cmp45181 = icmp eq i32 %in, %4
   br i1 %cmp45181, label %if.then46, label %if.then52
 
 if.then46:                                        ; preds = %if.end44.thread, %if.end44
@@ -1811,7 +1811,7 @@ if.then52:                                        ; preds = %if.end44.thread
   br label %if.end94
 
 if.else69:                                        ; preds = %if.end44
-  %xor_result.1 = xor i32 %.pn, %in
+  %xor_result.1 = xor i32 %in, %.pn
   %15 = tail call noundef i32 @llvm.ctlz.i32(i32 %xor_result.1, i1 true), !range !118
   %idxprom = zext nneg i32 %15 to i64
   %arrayidx = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression13LEADING_ROUNDE, i64 0, i64 %idxprom
@@ -2658,7 +2658,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i148 = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i
   %4 = load i64, ptr %arrayidx.i148, align 8, !tbaa !69
   %5 = trunc i64 %4 to i32
-  %conv18 = xor i32 %5, %in
+  %conv18 = xor i32 %in, %5
   %6 = tail call noundef i32 @llvm.cttz.i32(i32 %conv18, i1 false), !range !118
   %cmp20 = icmp ugt i32 %6, 12
   br i1 %cmp20, label %if.end44.thread, label %if.end44
@@ -2668,14 +2668,14 @@ if.end44:                                         ; preds = %if.then, %entry
   %.pn.in.in = getelementptr inbounds [128 x i64], ptr %ring_buffer, i64 0, i64 %idxprom.i153.pn
   %.pn.in = load i64, ptr %.pn.in.in, align 8, !tbaa !69
   %.pn = trunc i64 %.pn.in to i32
-  %xor_result.1 = xor i32 %.pn, %in
+  %xor_result.1 = xor i32 %in, %.pn
   %previous_index.0.in = trunc i64 %1 to i8
   %previous_index.0 = and i8 %previous_index.0.in, 127
-  %cmp45 = icmp eq i32 %.pn, %in
+  %cmp45 = icmp eq i32 %in, %.pn
   br i1 %cmp45, label %if.then46, label %if.else69
 
 if.end44.thread:                                  ; preds = %if.then
-  %cmp45243 = icmp eq i32 %5, %in
+  %cmp45243 = icmp eq i32 %in, %5
   br i1 %cmp45243, label %if.then46, label %if.then52
 
 if.then46:                                        ; preds = %if.end44.thread, %if.end44

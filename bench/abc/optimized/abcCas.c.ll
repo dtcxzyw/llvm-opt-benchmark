@@ -116,7 +116,7 @@ Abc_Clock.exit52:                                 ; preds = %16, %27
   %54 = getelementptr i8, ptr %.val48.val.val, i64 56
   %.val48.val.val.val = load ptr, ptr %54, align 8
   %55 = load i32, ptr %.val48.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %55, %.val49
+  %.not.i.i = icmp slt i32 %.val49, %55
   br i1 %.not.i.i, label %Vec_AttGrow.exit.i.i, label %56
 
 56:                                               ; preds = %.lr.ph

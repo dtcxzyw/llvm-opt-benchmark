@@ -1383,8 +1383,8 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller30rotate_mueller_basis_colli
   %81 = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %82 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %83 = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %84 = fneg contract <4 x float> %82
-  %85 = fmul contract <4 x float> %83, %84
+  %84 = fneg contract <4 x float> %83
+  %85 = fmul contract <4 x float> %82, %84
   %86 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %80, <4 x float> %81, <4 x float> %85)
   %87 = load <4 x float>, ptr %2, align 16, !noalias !92
   %88 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %87, <4 x float> %86, i8 113)
@@ -4561,7 +4561,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63

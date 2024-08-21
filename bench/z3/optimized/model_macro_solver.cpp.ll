@@ -394,7 +394,7 @@ lpad2:                                            ; preds = %while.cond
 while.end:                                        ; preds = %invoke.cont3
   %11 = load ptr, ptr %qs, align 8
   store ptr null, ptr %qs, align 8
-  %cmp.i.i.i = icmp eq ptr %new_qs, %qs
+  %cmp.i.i.i = icmp eq ptr %qs, %new_qs
   %.pre.i = load ptr, ptr %new_qs, align 8
   br i1 %cmp.i.i.i, label %if.end.i.i4.i, label %if.end.i.i4.thread.i
 
@@ -504,7 +504,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIP10quan
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin1.013 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %3 = load ptr, ptr %__begin1.013, align 8
-  %cmp3 = icmp eq ptr %3, %q
+  %cmp3 = icmp eq ptr %q, %3
   br i1 %cmp3, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
@@ -636,7 +636,7 @@ for.body.lr.ph.i:                                 ; preds = %_ZNK6vectorIP10quan
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %__begin1.013.i = phi ptr [ %8, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
   %11 = load ptr, ptr %__begin1.013.i, align 8
-  %cmp3.i = icmp eq ptr %11, %q
+  %cmp3.i = icmp eq ptr %q, %11
   br i1 %cmp3.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
@@ -8283,7 +8283,7 @@ _ZNK10cond_macro16is_unconditionalEv.exit:        ; preds = %if.then
   %13 = load ptr, ptr %m_manager.i.i, align 8
   %m_true.i.i = getelementptr inbounds i8, ptr %13, i64 856
   %14 = load ptr, ptr %m_true.i.i, align 8
-  %cmp.i1.i = icmp eq ptr %14, %12
+  %cmp.i1.i = icmp eq ptr %12, %14
   br i1 %cmp.i1.i, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then, %_ZNK10cond_macro16is_unconditionalEv.exit
@@ -9162,7 +9162,7 @@ invoke.cont10:                                    ; preds = %if.end9
   %22 = load ptr, ptr %m_manager.i.i, align 8
   %m_true.i.i = getelementptr inbounds i8, ptr %22, i64 856
   %23 = load ptr, ptr %m_true.i.i, align 8
-  %cmp.i1.i = icmp eq ptr %23, %21
+  %cmp.i1.i = icmp eq ptr %21, %23
   br i1 %cmp.i1.i, label %cleanup, label %if.end13
 
 if.end13:                                         ; preds = %invoke.cont10
@@ -13590,7 +13590,7 @@ while.body68:                                     ; preds = %while.cond65
 
 if.else.i:                                        ; preds = %while.body68
   %48 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %48, %47
+  %cmp3.not.i = icmp ugt i32 %47, %48
   %49 = xor i32 %48, -1
   %.sink368 = select i1 %cmp3.not.i, i32 %49, i32 -1
   %sub9.i = add i32 %47, %.sink368

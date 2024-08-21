@@ -2991,7 +2991,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 define ptr @Aig_Compose(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 136
   %.val = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %.val, %3
+  %.not = icmp slt i32 %3, %.val
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4

@@ -124,7 +124,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xstate_get_g
 define dso_local range(i32 0, 2) i32 @cpu_has_xfeatures(i64 noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @fpu_kernel_cfg, i64 8), align 8
   %4 = xor i64 %3, -1
-  %5 = and i64 %4, %0
+  %5 = and i64 %0, %4
   %6 = icmp eq ptr %1, null
   br i1 %6, label %15, label %7, !prof !6
 
@@ -655,7 +655,7 @@ define internal fastcc void @print_xstate_offset_size() unnamed_addr #3 section 
   %35 = add i32 %19, 63
   %36 = and i32 %35, -64
   %37 = select i1 %34, i32 %19, i32 %36
-  %38 = icmp eq i32 %28, %13
+  %38 = icmp eq i32 %13, %28
   br i1 %38, label %xfeature_get_offset.exit, label %39
 
 39:                                               ; preds = %27
@@ -886,7 +886,7 @@ define internal fastcc ptr @__raw_xsave_addr(ptr noundef readonly %0, i32 nounde
   %39 = add i32 %23, 63
   %40 = and i32 %39, -64
   %41 = select i1 %38, i32 %23, i32 %40
-  %42 = icmp eq i32 %32, %1
+  %42 = icmp eq i32 %1, %32
   br i1 %42, label %.thread3, label %43
 
 43:                                               ; preds = %31
@@ -997,7 +997,7 @@ define dso_local void @__copy_xstate_to_uabi_buf(ptr nocapture writeonly %0, i64
 16:                                               ; preds = %6
   %17 = getelementptr inbounds i8, ptr %2, i64 16
   %18 = load i64, ptr %17, align 16
-  %19 = and i64 %18, %3
+  %19 = and i64 %3, %18
   %20 = and i64 %19, %11
   br label %.sink.split
 
@@ -1556,7 +1556,7 @@ define dso_local void @xfd_validate_state(ptr noundef readonly %0, i64 noundef %
   %20 = load i64, ptr %19, align 8
   %21 = or i64 %20, %4
   %22 = xor i64 %21, -1
-  %23 = and i64 %22, %1
+  %23 = and i64 %1, %22
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %27, label %26, !prof !6
 
@@ -2821,7 +2821,7 @@ define internal fastcc void @os_xrstor_booting() unnamed_addr #3 section ".init.
 define internal fastcc void @print_xstate_feature(i64 noundef %0) unnamed_addr #3 section ".init.text" align 16 {
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @fpu_kernel_cfg, i64 8), align 8
   %3 = xor i64 %2, -1
-  %4 = and i64 %3, %0
+  %4 = and i64 %0, %3
   %5 = icmp eq i64 %4, 0
   %6 = select i1 %5, i64 %0, i64 %4
   %7 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %6, i32 -1) #13, !srcloc !7

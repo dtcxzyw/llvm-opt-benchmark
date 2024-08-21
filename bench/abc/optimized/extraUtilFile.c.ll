@@ -775,60 +775,60 @@ define range(i32 0, 2) i32 @Extra_ReadHex(ptr nocapture noundef %0, ptr nocaptur
 .lr.ph.preheader:                                 ; preds = %3
   %5 = zext nneg i32 %2 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
-  %invariant.gep = getelementptr i8, ptr %1, i64 %5
+  %6 = getelementptr i8, ptr %1, i64 %5
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
-  %6 = xor i64 %indvars.iv, -1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %6
-  %7 = load i8, ptr %gep, align 1
-  %8 = add i8 %7, -48
-  %or.cond = icmp ult i8 %8, 10
-  br i1 %or.cond, label %9, label %11
-
-9:                                                ; preds = %.lr.ph
-  %10 = zext nneg i8 %8 to i32
-  br label %21
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
+  %7 = xor i64 %indvars.iv, -1
+  %8 = getelementptr i8, ptr %6, i64 %7
+  %9 = load i8, ptr %8, align 1
+  %10 = add i8 %9, -48
+  %or.cond = icmp ult i8 %10, 10
+  br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %.lr.ph
-  %12 = add i8 %7, -65
-  %or.cond33 = icmp ult i8 %12, 6
-  br i1 %or.cond33, label %13, label %16
+  %12 = zext nneg i8 %10 to i32
+  br label %23
 
-13:                                               ; preds = %11
-  %14 = zext nneg i8 %7 to i32
-  %15 = add nsw i32 %14, -55
-  br label %21
+13:                                               ; preds = %.lr.ph
+  %14 = add i8 %9, -65
+  %or.cond33 = icmp ult i8 %14, 6
+  br i1 %or.cond33, label %15, label %18
 
-16:                                               ; preds = %11
-  %17 = add i8 %7, -97
-  %or.cond34 = icmp ult i8 %17, 6
-  br i1 %or.cond34, label %18, label %._crit_edge
+15:                                               ; preds = %13
+  %16 = zext nneg i8 %9 to i32
+  %17 = add nsw i32 %16, -55
+  br label %23
 
-18:                                               ; preds = %16
-  %19 = zext nneg i8 %7 to i32
-  %20 = add nsw i32 %19, -87
-  br label %21
+18:                                               ; preds = %13
+  %19 = add i8 %9, -97
+  %or.cond34 = icmp ult i8 %19, 6
+  br i1 %or.cond34, label %20, label %._crit_edge
 
-21:                                               ; preds = %13, %18, %9
-  %.028 = phi i32 [ %10, %9 ], [ %15, %13 ], [ %20, %18 ]
-  %22 = trunc nuw nsw i64 %indvars.iv to i32
-  %23 = shl i32 %22, 2
-  %24 = and i32 %23, 28
-  %25 = shl nuw i32 %.028, %24
-  %26 = lshr i64 %indvars.iv, 3
-  %27 = and i64 %26, 536870911
-  %28 = getelementptr inbounds i32, ptr %0, i64 %27
-  %29 = load i32, ptr %28, align 4
-  %30 = or i32 %29, %25
-  store i32 %30, ptr %28, align 4
+20:                                               ; preds = %18
+  %21 = zext nneg i8 %9 to i32
+  %22 = add nsw i32 %21, -87
+  br label %23
+
+23:                                               ; preds = %15, %20, %11
+  %.028 = phi i32 [ %12, %11 ], [ %17, %15 ], [ %22, %20 ]
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
+  %25 = shl i32 %24, 2
+  %26 = and i32 %25, 28
+  %27 = shl nuw i32 %.028, %26
+  %28 = lshr i64 %indvars.iv, 3
+  %29 = and i64 %28, 536870911
+  %30 = getelementptr inbounds i32, ptr %0, i64 %29
+  %31 = load i32, ptr %30, align 4
+  %32 = or i32 %31, %27
+  store i32 %32, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %16, %21, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %21 ], [ 0, %16 ]
+._crit_edge:                                      ; preds = %18, %23, %3
+  %.0 = phi i32 [ 1, %3 ], [ 1, %23 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -857,59 +857,59 @@ define noundef i32 @Extra_ReadHexadecimal(ptr nocapture noundef %0, ptr nocaptur
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
   %14 = zext nneg i32 %spec.store.select to i64
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 %14
+  %15 = getelementptr i8, ptr %1, i64 %14
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %30 ]
-  %15 = xor i64 %indvars.iv.i, -1
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %15
-  %16 = load i8, ptr %gep.i, align 1
-  %17 = add i8 %16, -48
-  %or.cond.i = icmp ult i8 %17, 10
-  br i1 %or.cond.i, label %18, label %20
-
-18:                                               ; preds = %.lr.ph.i
-  %19 = zext nneg i8 %17 to i32
-  br label %30
+.lr.ph.i:                                         ; preds = %32, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %32 ]
+  %16 = xor i64 %indvars.iv.i, -1
+  %17 = getelementptr i8, ptr %15, i64 %16
+  %18 = load i8, ptr %17, align 1
+  %19 = add i8 %18, -48
+  %or.cond.i = icmp ult i8 %19, 10
+  br i1 %or.cond.i, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = add i8 %16, -65
-  %or.cond33.i = icmp ult i8 %21, 6
-  br i1 %or.cond33.i, label %22, label %25
+  %21 = zext nneg i8 %19 to i32
+  br label %32
 
-22:                                               ; preds = %20
-  %23 = zext nneg i8 %16 to i32
-  %24 = add nsw i32 %23, -55
-  br label %30
+22:                                               ; preds = %.lr.ph.i
+  %23 = add i8 %18, -65
+  %or.cond33.i = icmp ult i8 %23, 6
+  br i1 %or.cond33.i, label %24, label %27
 
-25:                                               ; preds = %20
-  %26 = add i8 %16, -97
-  %or.cond34.i = icmp ult i8 %26, 6
-  br i1 %or.cond34.i, label %27, label %Extra_ReadHex.exit
+24:                                               ; preds = %22
+  %25 = zext nneg i8 %18 to i32
+  %26 = add nsw i32 %25, -55
+  br label %32
 
-27:                                               ; preds = %25
-  %28 = zext nneg i8 %16 to i32
-  %29 = add nsw i32 %28, -87
-  br label %30
+27:                                               ; preds = %22
+  %28 = add i8 %18, -97
+  %or.cond34.i = icmp ult i8 %28, 6
+  br i1 %or.cond34.i, label %29, label %Extra_ReadHex.exit
 
-30:                                               ; preds = %27, %22, %18
-  %.028.i = phi i32 [ %19, %18 ], [ %24, %22 ], [ %29, %27 ]
-  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %32 = shl i32 %31, 2
-  %33 = and i32 %32, 28
-  %34 = shl nuw i32 %.028.i, %33
-  %35 = lshr i64 %indvars.iv.i, 3
-  %36 = and i64 %35, 536870911
-  %37 = getelementptr inbounds i32, ptr %0, i64 %36
-  %38 = load i32, ptr %37, align 4
-  %39 = or i32 %38, %34
-  store i32 %39, ptr %37, align 4
+29:                                               ; preds = %27
+  %30 = zext nneg i8 %18 to i32
+  %31 = add nsw i32 %30, -87
+  br label %32
+
+32:                                               ; preds = %29, %24, %20
+  %.028.i = phi i32 [ %21, %20 ], [ %26, %24 ], [ %31, %29 ]
+  %33 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %34 = shl i32 %33, 2
+  %35 = and i32 %34, 28
+  %36 = shl nuw i32 %.028.i, %35
+  %37 = lshr i64 %indvars.iv.i, 3
+  %38 = and i64 %37, 536870911
+  %39 = getelementptr inbounds i32, ptr %0, i64 %38
+  %40 = load i32, ptr %39, align 4
+  %41 = or i32 %40, %36
+  store i32 %41, ptr %39, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
   br i1 %exitcond.not.i, label %Extra_ReadHex.exit, label %.lr.ph.i, !llvm.loop !16
 
-Extra_ReadHex.exit:                               ; preds = %25, %30, %._crit_edge
+Extra_ReadHex.exit:                               ; preds = %27, %32, %._crit_edge
   ret i32 1
 }
 

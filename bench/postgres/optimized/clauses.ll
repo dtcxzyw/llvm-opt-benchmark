@@ -5129,7 +5129,7 @@ define internal fastcc ptr @simplify_function(i32 noundef %0, i32 noundef %1, i3
 evaluate_function.exit:                           ; preds = %37, %42, %65, %67, %71, %76
   %.0.i = phi ptr [ %66, %65 ], [ %87, %76 ], [ null, %37 ], [ null, %42 ], [ null, %67 ], [ null, %71 ]
   %.not50 = icmp eq ptr %.0.i, null
-  %brmerge.not = and i1 %.not50, %8
+  %brmerge.not = and i1 %8, %.not50
   br i1 %brmerge.not, label %88, label %112
 
 88:                                               ; preds = %evaluate_function.exit
@@ -5177,7 +5177,7 @@ evaluate_function.exit:                           ; preds = %37, %42, %65, %67, 
 112:                                              ; preds = %evaluate_function.exit, %91, %88
   %.0 = phi ptr [ %.0.i, %evaluate_function.exit ], [ %111, %91 ], [ null, %88 ]
   %.not52 = icmp eq ptr %.0, null
-  %brmerge55.not = and i1 %.not52, %8
+  %brmerge55.not = and i1 %8, %.not52
   br i1 %brmerge55.not, label %113, label %374
 
 113:                                              ; preds = %112
@@ -6016,7 +6016,7 @@ define internal fastcc noundef zeroext i1 @rowtype_field_matches(i32 noundef %0,
 
 10:                                               ; preds = %7
   %11 = load i32, ptr %8, align 8
-  %12 = icmp slt i32 %11, %1
+  %12 = icmp sgt i32 %1, %11
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %7, %10

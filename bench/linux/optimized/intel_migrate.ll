@@ -430,7 +430,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 
 52:                                               ; preds = %.loopexit64
   %53 = xor i1 %4, true
-  %54 = and i1 %53, %7
+  %54 = and i1 %7, %53
   %55 = xor i1 %54, true
   %56 = icmp eq ptr %5, null
   br i1 %56, label %.loopexit61, label %.preheader60
@@ -562,7 +562,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   %133 = icmp ne i64 %.pre-phi, 0
   %134 = icmp eq i64 %130, 0
   %135 = and i1 %134, %133
-  %136 = and i1 %135, %7
+  %136 = and i1 %7, %135
   %137 = load ptr, ptr %29, align 8
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 7168
@@ -636,7 +636,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 
 184:                                              ; preds = %.thread47, %180
   %185 = icmp eq i64 %161, 0
-  %186 = or i1 %185, %4
+  %186 = or i1 %4, %185
   %187 = tail call i64 @llvm.umin.i64(i64 %162, i64 8388608)
   %188 = trunc nuw nsw i64 %187 to i32
   %189 = select i1 %186, i32 8388608, i32 %188
@@ -1620,7 +1620,7 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   %142 = and i64 %141, 512
   %143 = icmp ne i64 %142, 0
   %144 = and i1 %30, %143
-  %145 = and i1 %144, %4
+  %145 = and i1 %4, %144
   br i1 %145, label %146, label %201
 
 146:                                              ; preds = %.thread22

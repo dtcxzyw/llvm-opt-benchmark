@@ -1618,7 +1618,7 @@ Vec_FltGrow.exit.i44:                             ; preds = %107, %105
 
 144:                                              ; preds = %141
   %145 = load i32, ptr %143, align 8
-  %146 = icmp sgt i32 %145, %9
+  %146 = icmp slt i32 %9, %145
   br i1 %146, label %Vec_QueIsMember.exit, label %Vec_QueIsMember.exit.thread
 
 Vec_QueIsMember.exit:                             ; preds = %144
@@ -1650,7 +1650,7 @@ Vec_QueIsMember.exit.thread:                      ; preds = %144, %Vec_QueIsMemb
 
 160:                                              ; preds = %156, %Vec_QueIsMember.exit.thread
   %161 = phi i32 [ %.pre.i46, %156 ], [ %145, %Vec_QueIsMember.exit.thread ]
-  %.not20.i = icmp sgt i32 %161, %9
+  %.not20.i = icmp slt i32 %9, %161
   br i1 %.not20.i, label %166, label %162
 
 162:                                              ; preds = %160
@@ -2647,7 +2647,7 @@ define i32 @Fxch_DivRemove(ptr nocapture noundef readonly %0, i32 noundef %1, i3
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr i8, ptr %13, i64 4
   %.val = load i32, ptr %14, align 4
-  %15 = add i32 %.val, %3
+  %15 = add i32 %3, %.val
   %16 = sub i32 1, %15
   %17 = sitofp i32 %16 to float
   br label %18
@@ -2672,7 +2672,7 @@ define i32 @Fxch_DivRemove(ptr nocapture noundef readonly %0, i32 noundef %1, i3
 
 27:                                               ; preds = %24
   %28 = load i32, ptr %26, align 8
-  %29 = icmp sgt i32 %28, %9
+  %29 = icmp slt i32 %9, %28
   br i1 %29, label %Vec_QueIsMember.exit, label %Vec_QueIsMember.exit.thread
 
 Vec_QueIsMember.exit:                             ; preds = %27

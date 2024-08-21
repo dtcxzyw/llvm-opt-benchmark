@@ -2396,7 +2396,7 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
   %67 = load ptr, ptr %66, align 8, !noalias !13
   %68 = getelementptr i8, ptr %67, i64 8
   %.val.i.i.i.i.i = load i32, ptr %68, align 8, !noalias !13
-  %69 = icmp eq i32 %58, %.val.i.i.i.i.i
+  %69 = icmp eq i32 %.val.i.i.i.i.i, %58
   br i1 %69, label %.loopexit.i, label %70
 
 70:                                               ; preds = %62
@@ -2404,7 +2404,7 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
   %72 = load ptr, ptr %71, align 8, !noalias !13
   %73 = getelementptr i8, ptr %72, i64 8
   %.val.i8.i.i.i.i = load i32, ptr %73, align 8, !noalias !13
-  %74 = icmp eq i32 %58, %.val.i8.i.i.i.i
+  %74 = icmp eq i32 %.val.i8.i.i.i.i, %58
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %70
@@ -2417,7 +2417,7 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
   %79 = load ptr, ptr %78, align 8, !noalias !13
   %80 = getelementptr i8, ptr %79, i64 8
   %.val.i9.i.i.i.i = load i32, ptr %80, align 8, !noalias !13
-  %81 = icmp eq i32 %58, %.val.i9.i.i.i.i
+  %81 = icmp eq i32 %.val.i9.i.i.i.i, %58
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %77
@@ -2430,7 +2430,7 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
   %86 = load ptr, ptr %85, align 8, !noalias !13
   %87 = getelementptr i8, ptr %86, i64 8
   %.val.i10.i.i.i.i = load i32, ptr %87, align 8, !noalias !13
-  %88 = icmp eq i32 %58, %.val.i10.i.i.i.i
+  %88 = icmp eq i32 %.val.i10.i.i.i.i, %58
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %84
@@ -2474,7 +2474,7 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
   %102 = getelementptr i8, ptr %101, i64 8
   %.val.i13.i.i.i.i = load i32, ptr %102, align 8, !noalias !13
   %103 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstStatLocalEE5valueE, align 4, !noalias !13
-  %104 = icmp eq i32 %103, %.val.i13.i.i.i.i
+  %104 = icmp eq i32 %.val.i13.i.i.i.i, %103
   br i1 %104, label %.loopexit.i, label %105
 
 105:                                              ; preds = %98
@@ -2491,7 +2491,7 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
   %114 = load ptr, ptr %113, align 8, !noalias !13
   %115 = getelementptr i8, ptr %114, i64 8
   %.val.i14.i.i.i.i = load i32, ptr %115, align 8, !noalias !13
-  %116 = icmp eq i32 %110, %.val.i14.i.i.i.i
+  %116 = icmp eq i32 %.val.i14.i.i.i.i, %110
   br i1 %116, label %.loopexit.i, label %117
 
 117:                                              ; preds = %108
@@ -2507,7 +2507,7 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
   %125 = load ptr, ptr %124, align 8, !noalias !13
   %126 = getelementptr i8, ptr %125, i64 8
   %.val.i15.i.i.i.i = load i32, ptr %126, align 8, !noalias !13
-  %127 = icmp eq i32 %121, %.val.i15.i.i.i.i
+  %127 = icmp eq i32 %.val.i15.i.i.i.i, %121
   %spec.select.i.i.i = select i1 %127, i64 %122, i64 %54
   br label %.loopexit.i
 
@@ -3970,7 +3970,7 @@ define internal fastcc void @_ZN4LuauL34checkOverloadedDocumentationSymbolERKNS_
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %1, i64 480
   %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, %3
+  %32 = icmp eq ptr %3, %31
   br i1 %32, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread, label %33
 
 33:                                               ; preds = %29
@@ -6359,7 +6359,7 @@ _ZNSt10_HashtableIPKN4Luau11TypePackVarESt4pairIKS3_NSt7__cxx1112basic_stringIcS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 104
-  %13 = icmp eq ptr %12, %11
+  %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZNSt13unordered_mapIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S9_EEED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZNSt10_HashtableIPKN4Luau11TypePackVarESt4pairIKS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -6392,7 +6392,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NSt7__cxx1112basic_stringIcSt11char_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 48
-  %27 = icmp eq ptr %26, %25
+  %27 = icmp eq ptr %25, %26
   br i1 %27, label %_ZNSt13unordered_mapIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S9_EEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i

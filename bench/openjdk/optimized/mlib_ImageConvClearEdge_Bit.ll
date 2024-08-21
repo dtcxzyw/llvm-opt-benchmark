@@ -47,7 +47,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr nocapture nou
   %30 = and i32 %18, %29
   %31 = xor i32 %29, -1
   %32 = sub nsw i32 %.val271, %4
-  %33 = icmp sgt i32 %32, %3
+  %33 = icmp slt i32 %3, %32
   br i1 %33, label %.lr.ph295.preheader, label %.loopexit281
 
 .lr.ph295.preheader:                              ; preds = %25
@@ -74,7 +74,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr nocapture nou
   %46 = and i32 %18, %24
   %47 = ashr i32 -256, %.val274
   %48 = sub nsw i32 %.val271, %4
-  %49 = icmp sgt i32 %48, %3
+  %49 = icmp slt i32 %3, %48
   br i1 %49, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %45
@@ -190,7 +190,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr nocapture nou
   %104 = and i32 %18, %103
   %105 = xor i32 %103, -1
   %106 = sub nsw i32 %.val271, %4
-  %107 = icmp sgt i32 %106, %3
+  %107 = icmp slt i32 %3, %106
   br i1 %107, label %.lr.ph311.preheader, label %.loopexit278
 
 .lr.ph311.preheader:                              ; preds = %99
@@ -217,7 +217,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr nocapture nou
   %120 = and i32 %18, %98
   %121 = ashr exact i32 -256, %95
   %122 = sub nsw i32 %.val271, %4
-  %123 = icmp sgt i32 %122, %3
+  %123 = icmp slt i32 %3, %122
   br i1 %123, label %.lr.ph298.preheader, label %._crit_edge299
 
 .lr.ph298.preheader:                              ; preds = %119

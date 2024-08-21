@@ -326,7 +326,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi4Lsqr8init_memEPv(ptr noundef non
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
-  %18 = icmp ult i64 %17, %10
+  %18 = icmp ugt i64 %10, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %4
@@ -335,7 +335,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi4Lsqr8init_memEPv(ptr noundef non
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 21:                                               ; preds = %4
-  %22 = icmp ugt i64 %17, %10
+  %22 = icmp ult i64 %10, %17
   br i1 %22, label %23, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 23:                                               ; preds = %21
@@ -357,7 +357,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 3
-  %35 = icmp ult i64 %34, %27
+  %35 = icmp ugt i64 %27, %34
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
@@ -366,7 +366,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit6
 
 38:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %39 = icmp ugt i64 %34, %27
+  %39 = icmp ult i64 %27, %34
   br i1 %39, label %40, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit6
 
 40:                                               ; preds = %38
@@ -1913,7 +1913,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -1961,7 +1961,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi15PluginInterfaceINS8_14LinsolInternalEE6PluginEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -3116,8 +3116,8 @@ _ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit375:    ; preds = %.lr.ph.i.i370, %_ZN
   %303 = tail call double @llvm.fmuladd.f64(double %302, double %302, double %.0251)
   %304 = fneg double %.0255
   %305 = fmul double %.sink.i, %304
-  %306 = fneg double %.0256
-  %307 = fmul double %.sink.i, %306
+  %306 = fneg double %.sink.i
+  %307 = fmul double %.0256, %306
   %308 = tail call double @llvm.fmuladd.f64(double %307, double %.0254, double %275)
   %309 = fdiv double %308, %305
   %310 = tail call double @llvm.fmuladd.f64(double %309, double %309, double %.0253)

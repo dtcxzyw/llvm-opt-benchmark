@@ -804,7 +804,7 @@ define internal fastcc void @Saig_BmcObjSetFrame(ptr nocapture noundef readonly 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   %.val14 = load i32, ptr %7, align 4
-  %8 = icmp eq i32 %.val14, %2
+  %8 = icmp eq i32 %2, %.val14
   br i1 %8, label %9, label %52
 
 9:                                                ; preds = %4
@@ -843,7 +843,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %9
 
 Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.thread.i, %Vec_IntAlloc.exit.i, %20
   %23 = load i32, ptr %6, align 8
-  %24 = icmp eq i32 %23, %2
+  %24 = icmp eq i32 %2, %23
   br i1 %24, label %25, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Vec_IntStartFull.exit
@@ -2455,13 +2455,13 @@ Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i
   %64 = add nsw i32 %.val49, 1
   %65 = getelementptr inbounds i8, ptr %.val48, i64 4
   %66 = load i32, ptr %65, align 4
-  %.not.i.not = icmp sgt i32 %66, %.val49
+  %.not.i.not = icmp slt i32 %.val49, %66
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %67
 
 67:                                               ; preds = %60
   %68 = load i32, ptr %.val48, align 8
   %69 = shl nsw i32 %68, 1
-  %.not55 = icmp sgt i32 %69, %.val49
+  %.not55 = icmp slt i32 %.val49, %69
   %.not.i.i53.not = icmp sgt i32 %68, %.val49
   br i1 %.not55, label %82, label %70
 
@@ -3472,13 +3472,13 @@ declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

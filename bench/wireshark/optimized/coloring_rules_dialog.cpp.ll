@@ -6812,7 +6812,7 @@ define void @_ZN19ColoringRulesDialog20on_buttonBox_clickedEP15QAbstractButton(p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, %1
+  %26 = icmp eq ptr %1, %25
   br i1 %26, label %27, label %125
 
 27:                                               ; preds = %2
@@ -7128,7 +7128,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i81:    ; preds = %_ZN7QStringD2Ev.exi
 125:                                              ; preds = %2
   %126 = getelementptr inbounds i8, ptr %0, i64 80
   %127 = load ptr, ptr %126, align 8
-  %128 = icmp eq ptr %127, %1
+  %128 = icmp eq ptr %1, %127
   br i1 %128, label %129, label %_ZN7QStringD2Ev.exit79
 
 129:                                              ; preds = %125
@@ -8487,7 +8487,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit: ; preds = %3
 7:                                                ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit, label %31
 
 _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -8813,7 +8813,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %4, %_ZNK17Q
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %29
-  %35 = add i64 %31, %2
+  %35 = add i64 %2, %31
   %36 = sub i64 %19, %35
   %37 = sdiv i64 %36, 2
   %38 = tail call noundef i64 @llvm.smax.i64(i64 %37, i64 0)
@@ -9177,7 +9177,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit.thread: ; preds = %22, 
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %.not.i.i = icmp eq i32 %26, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %23)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %23, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %23, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv.exit31
 
@@ -9220,7 +9220,7 @@ _ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33: ; preds = %35
   %48 = getelementptr inbounds i8, ptr %32, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = load i64, ptr %6, align 8
-  %51 = add i64 %50, %2
+  %51 = add i64 %2, %50
   %52 = sub i64 %49, %51
   %53 = sdiv i64 %52, 2
   %54 = call noundef i64 @llvm.smax.i64(i64 %53, i64 0)
@@ -10016,7 +10016,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_S
   %30 = load ptr, ptr %6, align 8
   %.not.i.i = icmp ne ptr %27, null
   %31 = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = icmp eq ptr %31, %28
+  %32 = icmp eq ptr %28, %31
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %32
   br i1 %or.cond.i.i, label %.thread, label %33
 
@@ -10105,7 +10105,7 @@ _ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %42
 
 6:                                                ; preds = %3
@@ -10580,7 +10580,7 @@ _ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit.thread: ; preds 
   %13 = sub i64 %12, %11
   %.neg = sdiv exact i64 %13, -24
   %14 = add i64 %.neg, %6
-  %.not23 = icmp slt i64 %14, %1
+  %.not23 = icmp sgt i64 %1, %14
   br i1 %.not23, label %_ZNK17QArrayDataPointerI11QModelIndexE8isSharedEv.exit.thread, label %_ZNK17QArrayDataPointerI11QModelIndexE5flagsEv.exit
 
 _ZNK17QArrayDataPointerI11QModelIndexE5flagsEv.exit: ; preds = %_ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit.thread
@@ -10603,7 +10603,7 @@ _ZNK17QArrayDataPointerI11QModelIndexE8isSharedEv.exit: ; preds = %_ZNK17QArrayD
 _ZNK17QArrayDataPointerI11QModelIndexE8isSharedEv.exit.thread: ; preds = %2, %_ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit.thread, %_ZNK17QArrayDataPointerI11QModelIndexE8isSharedEv.exit
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %22, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %1, i64 %22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %23 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %3, i64 noundef 24, i64 noundef 8, i64 noundef %.sroa.speculated, i32 noundef 1) #20
   call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
@@ -10677,7 +10677,7 @@ _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit: ; preds = %3
 8:                                                ; preds = %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = icmp eq i64 %10, %1
+  %11 = icmp eq i64 %1, %10
   br i1 %11, label %_ZNK17QArrayDataPointerI11QModelIndexE14freeSpaceAtEndEv.exit, label %23
 
 _ZNK17QArrayDataPointerI11QModelIndexE14freeSpaceAtEndEv.exit: ; preds = %8
@@ -10932,7 +10932,7 @@ _ZNK17QArrayDataPointerI11QModelIndexE14freeSpaceAtEndEv.exit: ; preds = %4, %_Z
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %29
-  %35 = add i64 %31, %2
+  %35 = add i64 %2, %31
   %36 = sub i64 %19, %35
   %37 = sdiv i64 %36, 2
   %38 = tail call noundef i64 @llvm.smax.i64(i64 %37, i64 0)
@@ -11246,7 +11246,7 @@ _ZNK17QArrayDataPointerI11QModelIndexE14freeSpaceAtEndEv.exit.thread: ; preds = 
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %.not.i.i = icmp eq i32 %26, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %23)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %23, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %23, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerI11QModelIndexE22constAllocatedCapacityEv.exit31
 
@@ -11289,7 +11289,7 @@ _ZNK17QArrayDataPointerI11QModelIndexE16freeSpaceAtBeginEv.exit33: ; preds = %35
   %48 = getelementptr inbounds i8, ptr %32, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = load i64, ptr %6, align 8
-  %51 = add i64 %50, %2
+  %51 = add i64 %2, %50
   %52 = sub i64 %49, %51
   %53 = sdiv i64 %52, 2
   %54 = call noundef i64 @llvm.smax.i64(i64 %53, i64 0)
@@ -11646,12 +11646,12 @@ _ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_E
 define linkonce_odr void @_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS4_ESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = icmp eq ptr %8, %2
+  %9 = icmp eq ptr %2, %8
   br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %7
@@ -11730,7 +11730,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_S
 8:                                                ; preds = %4
   %.not.i = icmp ne ptr %6, null
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = icmp eq ptr %9, %7
+  %10 = icmp eq ptr %7, %9
   %or.cond.i = select i1 %.not.i, i1 true, i1 %10
   br i1 %or.cond.i, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i, label %11
 
@@ -12103,7 +12103,7 @@ _ZSt21__unguarded_partitionIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_
 define linkonce_odr void @_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef byval(%class.QModelIndex) align 8 %3) local_unnamed_addr #0 comdat {
   %5 = add i64 %2, -1
   %6 = sdiv i64 %5, 2
-  %7 = icmp sgt i64 %6, %1
+  %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5QListI11QModelIndexE8iteratorES6_EEbT_T0_.exit.thread44
@@ -12686,7 +12686,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStrin
 6:                                                ; preds = %2
   %.not.i = icmp ne ptr %4, null
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = icmp eq ptr %7, %5
+  %8 = icmp eq ptr %5, %7
   %or.cond.i = select i1 %.not.i, i1 true, i1 %8
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit, label %9
 

@@ -2572,7 +2572,7 @@ switch.lookup:                                    ; preds = %sanitize_usb_max_pa
   %165 = load ptr, ptr %8, align 8
   %166 = zext i8 %17 to i32
   call void @proto_item_set_len(ptr noundef %165, i32 noundef %166) #11
-  %167 = add i32 %166, %3
+  %167 = add i32 %3, %166
   %168 = icmp slt i32 %.0133, %167
   br i1 %168, label %169, label %172
 
@@ -2617,7 +2617,7 @@ define hidden noundef i32 @dissect_usb_unknown_descriptor(ptr nocapture noundef 
   %16 = call ptr @val_to_str_ext_const(i32 noundef %15, ptr noundef nonnull @std_descriptor_type_vals_ext, ptr noundef nonnull @.str.3) #11
   %17 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %8, i32 noundef %14, ptr noundef %2, i32 noundef %12, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.2, i32 noundef %15, ptr noundef %16) #11
   %18 = zext i8 %9 to i32
-  %19 = add i32 %18, %3
+  %19 = add i32 %3, %18
   %20 = load ptr, ptr %6, align 8
   call void @proto_item_set_len(ptr noundef %20, i32 noundef %18) #11
   ret i32 %19
@@ -5967,7 +5967,7 @@ is_usb_standard_setup_request.exit.thread:        ; preds = %110, %is_usb_standa
   %.1164 = phi ptr [ %128, %123 ], [ %134, %161 ]
   %.1162 = phi ptr [ %127, %123 ], [ %133, %161 ]
   %.1 = phi ptr [ %129, %123 ], [ %162, %161 ]
-  %.not184 = icmp eq ptr %.1, %3
+  %.not184 = icmp eq ptr %3, %.1
   br i1 %.not184, label %181, label %167
 
 167:                                              ; preds = %166
@@ -7138,7 +7138,7 @@ dissect_usb_interface_descriptor.exit.i:          ; preds = %358, %switch.lookup
   br i1 %446, label %447, label %dissect_usb_endpoint_companion_descriptor.exit.i
 
 447:                                              ; preds = %438
-  %448 = add nsw i32 %444, -6
+  %448 = sub i32 %445, %442
   %449 = call ptr @proto_tree_add_expert(ptr noundef %411, ptr noundef %0, ptr noundef nonnull @ei_usb_undecoded, ptr noundef %2, i32 noundef %442, i32 noundef %448) #11
   br label %dissect_usb_endpoint_companion_descriptor.exit.i
 

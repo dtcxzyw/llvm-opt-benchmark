@@ -1165,14 +1165,14 @@ define dso_local range(i32 0, 2) i32 @GetFileBackupMethod(ptr nocapture noundef 
   %14 = alloca %struct.RelFileLocator, align 4
   %15 = and i64 %7, 8191
   %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %16, label %backup_file_lookup.exit69.thread
+  br i1 %.not, label %16, label %backup_file_lookup.exit71.thread
 
 16:                                               ; preds = %11
   %17 = lshr exact i64 %7, 13
   %18 = icmp ugt i64 %7, 1073741824
   %19 = icmp eq i32 %5, 1
   %or.cond64 = or i1 %19, %18
-  br i1 %or.cond64, label %backup_file_lookup.exit69.thread, label %20
+  br i1 %or.cond64, label %backup_file_lookup.exit71.thread, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1182,171 +1182,171 @@ define dso_local range(i32 0, 2) i32 @GetFileBackupMethod(ptr nocapture noundef 
   %25 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %24) #12
   %26 = getelementptr i8, ptr %22, i64 12
   %.val.i.i = load i32, ptr %26, align 4
-  %27 = and i32 %.val.i.i, %25
-  %28 = getelementptr inbounds i8, ptr %22, i64 24
-  %29 = load ptr, ptr %28, align 8
-  %30 = zext i32 %27 to i64
-  %31 = getelementptr %struct.backup_file_entry, ptr %29, i64 %30
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.loopexit, label %.lr.ph.i.i
+  %27 = getelementptr inbounds i8, ptr %22, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %.01214.i.i = and i32 %.val.i.i, %25
+  %29 = zext i32 %.01214.i.i to i64
+  %30 = getelementptr %struct.backup_file_entry, ptr %28, i64 %29
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %20, %39
-  %34 = phi i64 [ %42, %39 ], [ %30, %20 ]
-  %.01214.i.i = phi i32 [ %41, %39 ], [ %27, %20 ]
-  %35 = getelementptr %struct.backup_file_entry, ptr %29, i64 %34, i32 1
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %1) #13
+33:                                               ; preds = %.lr.ph.i.i
+  %34 = add i32 %.01215.i.i, 1
+  %.012.i.i = and i32 %34, %.val.i.i
+  %35 = zext i32 %.012.i.i to i64
+  %36 = getelementptr %struct.backup_file_entry, ptr %28, i64 %35
+  %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %backup_file_lookup.exit, label %39
+  br i1 %38, label %.loopexit, label %.lr.ph.i.i
 
-39:                                               ; preds = %.lr.ph.i.i
-  %40 = add i32 %.01214.i.i, 1
-  %41 = and i32 %40, %.val.i.i
-  %42 = zext i32 %41 to i64
-  %43 = getelementptr %struct.backup_file_entry, ptr %29, i64 %42
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.loopexit, label %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %20, %33
+  %39 = phi i64 [ %35, %33 ], [ %29, %20 ]
+  %.01215.i.i = phi i32 [ %.012.i.i, %33 ], [ %.01214.i.i, %20 ]
+  %40 = getelementptr %struct.backup_file_entry, ptr %28, i64 %39, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %1) #13
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %backup_file_lookup.exit, label %33
 
-.loopexit:                                        ; preds = %39, %20
-  %46 = tail call ptr @GetRelationPath(i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef %5) #12
-  %47 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %46, i32 noundef 47) #13
-  store i8 0, ptr %47, align 1
+.loopexit:                                        ; preds = %33, %20
+  %44 = tail call ptr @GetRelationPath(i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef %5) #12
+  %45 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %44, i32 noundef 47) #13
+  store i8 0, ptr %45, align 1
   %.not.i = icmp eq i32 %6, 0
-  %48 = getelementptr i8, ptr %47, i64 1
-  br i1 %.not.i, label %51, label %49
+  %46 = getelementptr i8, ptr %45, i64 1
+  br i1 %.not.i, label %49, label %47
+
+47:                                               ; preds = %.loopexit
+  %48 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.15, ptr noundef %44, ptr noundef %46, i32 noundef %6) #12
+  br label %GetIncrementalFilePath.exit
 
 49:                                               ; preds = %.loopexit
-  %50 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.15, ptr noundef %46, ptr noundef %48, i32 noundef %6) #12
+  %50 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.16, ptr noundef %44, ptr noundef %46) #12
   br label %GetIncrementalFilePath.exit
 
-51:                                               ; preds = %.loopexit
-  %52 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.16, ptr noundef %46, ptr noundef %48) #12
-  br label %GetIncrementalFilePath.exit
+GetIncrementalFilePath.exit:                      ; preds = %47, %49
+  %.0.i = phi ptr [ %48, %47 ], [ %50, %49 ]
+  tail call void @pfree(ptr noundef %44) #12
+  %51 = load ptr, ptr %21, align 8
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #13
+  %53 = trunc i64 %52 to i32
+  %54 = tail call i32 @hash_bytes(ptr noundef %.0.i, i32 noundef %53) #12
+  %55 = getelementptr i8, ptr %51, i64 12
+  %.val.i.i65 = load i32, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %51, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %.01214.i.i66 = and i32 %.val.i.i65, %54
+  %58 = zext i32 %.01214.i.i66 to i64
+  %59 = getelementptr %struct.backup_file_entry, ptr %57, i64 %58
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %backup_file_lookup.exit71.thread, label %.lr.ph.i.i67
 
-GetIncrementalFilePath.exit:                      ; preds = %49, %51
-  %.0.i = phi ptr [ %50, %49 ], [ %52, %51 ]
-  tail call void @pfree(ptr noundef %46) #12
-  %53 = load ptr, ptr %21, align 8
-  %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #13
-  %55 = trunc i64 %54 to i32
-  %56 = tail call i32 @hash_bytes(ptr noundef %.0.i, i32 noundef %55) #12
-  %57 = getelementptr i8, ptr %53, i64 12
-  %.val.i.i65 = load i32, ptr %57, align 4
-  %58 = and i32 %.val.i.i65, %56
-  %59 = getelementptr inbounds i8, ptr %53, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %61 = zext i32 %58 to i64
-  %62 = getelementptr %struct.backup_file_entry, ptr %60, i64 %61
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %backup_file_lookup.exit69.thread, label %.lr.ph.i.i66
+62:                                               ; preds = %.lr.ph.i.i67
+  %63 = add i32 %.01215.i.i68, 1
+  %.012.i.i69 = and i32 %63, %.val.i.i65
+  %64 = zext i32 %.012.i.i69 to i64
+  %65 = getelementptr %struct.backup_file_entry, ptr %57, i64 %64
+  %66 = load i32, ptr %65, align 8
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %backup_file_lookup.exit71.thread, label %.lr.ph.i.i67
 
-.lr.ph.i.i66:                                     ; preds = %GetIncrementalFilePath.exit, %70
-  %65 = phi i64 [ %73, %70 ], [ %61, %GetIncrementalFilePath.exit ]
-  %.01214.i.i67 = phi i32 [ %72, %70 ], [ %58, %GetIncrementalFilePath.exit ]
-  %66 = getelementptr %struct.backup_file_entry, ptr %60, i64 %65, i32 1
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull readonly dereferenceable(1) %.0.i) #13
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %backup_file_lookup.exit, label %70
+.lr.ph.i.i67:                                     ; preds = %GetIncrementalFilePath.exit, %62
+  %68 = phi i64 [ %64, %62 ], [ %58, %GetIncrementalFilePath.exit ]
+  %.01215.i.i68 = phi i32 [ %.012.i.i69, %62 ], [ %.01214.i.i66, %GetIncrementalFilePath.exit ]
+  %69 = getelementptr %struct.backup_file_entry, ptr %57, i64 %68, i32 1
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull readonly dereferenceable(1) %.0.i) #13
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %backup_file_lookup.exit, label %62
 
-70:                                               ; preds = %.lr.ph.i.i66
-  %71 = add i32 %.01214.i.i67, 1
-  %72 = and i32 %71, %.val.i.i65
-  %73 = zext i32 %72 to i64
-  %74 = getelementptr %struct.backup_file_entry, ptr %60, i64 %73
-  %75 = load i32, ptr %74, align 8
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %backup_file_lookup.exit69.thread, label %.lr.ph.i.i66
-
-backup_file_lookup.exit:                          ; preds = %.lr.ph.i.i, %.lr.ph.i.i66
+backup_file_lookup.exit:                          ; preds = %.lr.ph.i.i, %.lr.ph.i.i67
   store i32 %3, ptr %14, align 4
-  %77 = getelementptr inbounds i8, ptr %14, i64 4
-  store i32 %2, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %14, i64 8
-  store i32 %4, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %0, i64 48
-  %80 = load ptr, ptr %79, align 8
-  %81 = call ptr @BlockRefTableGetEntry(ptr noundef %80, ptr noundef nonnull %14, i32 noundef %5, ptr noundef nonnull %13) #12
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %87
+  %73 = getelementptr inbounds i8, ptr %14, i64 4
+  store i32 %2, ptr %73, align 4
+  %74 = getelementptr inbounds i8, ptr %14, i64 8
+  store i32 %4, ptr %74, align 4
+  %75 = getelementptr inbounds i8, ptr %0, i64 48
+  %76 = load ptr, ptr %75, align 8
+  %77 = call ptr @BlockRefTableGetEntry(ptr noundef %76, ptr noundef nonnull %14, i32 noundef %5, ptr noundef nonnull %13) #12
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %79, label %83
+
+79:                                               ; preds = %backup_file_lookup.exit
+  %80 = icmp eq i64 %7, 0
+  br i1 %80, label %backup_file_lookup.exit71.thread, label %81
+
+81:                                               ; preds = %79
+  store i32 0, ptr %8, align 4
+  %82 = trunc nuw nsw i64 %17 to i32
+  br label %backup_file_lookup.exit71.thread.sink.split
 
 83:                                               ; preds = %backup_file_lookup.exit
-  %84 = icmp eq i64 %7, 0
-  br i1 %84, label %backup_file_lookup.exit69.thread, label %85
+  %84 = load i32, ptr %13, align 4
+  %85 = shl i32 %6, 17
+  %.not62 = icmp ugt i32 %84, %85
+  br i1 %.not62, label %86, label %backup_file_lookup.exit71.thread
 
-85:                                               ; preds = %83
-  store i32 0, ptr %8, align 4
-  %86 = trunc nuw nsw i64 %17 to i32
-  br label %backup_file_lookup.exit69.thread.sink.split
-
-87:                                               ; preds = %backup_file_lookup.exit
-  %88 = load i32, ptr %13, align 4
-  %89 = shl i32 %6, 17
-  %.not62 = icmp ugt i32 %88, %89
-  br i1 %.not62, label %90, label %backup_file_lookup.exit69.thread
-
-90:                                               ; preds = %87
-  %91 = trunc nuw i64 %17 to i32
-  %92 = add i32 %89, %91
+86:                                               ; preds = %83
+  %87 = trunc nuw i64 %17 to i32
+  %88 = add i32 %85, %87
   %.not63 = icmp ugt i32 %6, 32767
-  %93 = icmp ult i32 %92, %89
-  %or.cond = select i1 %.not63, i1 true, i1 %93
-  br i1 %or.cond, label %94, label %98
+  %89 = icmp ult i32 %88, %85
+  %or.cond = select i1 %.not63, i1 true, i1 %89
+  br i1 %or.cond, label %90, label %94
 
-94:                                               ; preds = %90
-  %95 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %95)
-  %96 = call i32 @errcode(i32 noundef 2600) #12
-  %97 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %6, i64 noundef %7) #12
+90:                                               ; preds = %86
+  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %91)
+  %92 = call i32 @errcode(i32 noundef 2600) #12
+  %93 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %6, i64 noundef %7) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 825, ptr noundef nonnull @__func__.GetFileBackupMethod) #12
   unreachable
 
-98:                                               ; preds = %90
-  %99 = call i32 @BlockRefTableEntryGetBlocks(ptr noundef nonnull %81, i32 noundef %89, i32 noundef %92, ptr noundef nonnull %12, i32 noundef 131072) #12
-  %100 = shl i32 %99, 13
-  %101 = uitofp i32 %100 to double
-  %102 = uitofp i64 %7 to double
-  %103 = fmul double %102, 9.000000e-01
-  %104 = fcmp olt double %103, %101
-  br i1 %104, label %backup_file_lookup.exit69.thread, label %105
+94:                                               ; preds = %86
+  %95 = call i32 @BlockRefTableEntryGetBlocks(ptr noundef nonnull %77, i32 noundef %85, i32 noundef %88, ptr noundef nonnull %12, i32 noundef 131072) #12
+  %96 = shl i32 %95, 13
+  %97 = uitofp i32 %96 to double
+  %98 = uitofp i64 %7 to double
+  %99 = fmul double %98, 9.000000e-01
+  %100 = fcmp olt double %99, %97
+  br i1 %100, label %backup_file_lookup.exit71.thread, label %101
 
-105:                                              ; preds = %98
-  %106 = zext i32 %99 to i64
-  call void @pg_qsort(ptr noundef nonnull %12, i64 noundef %106, i64 noundef 4, ptr noundef nonnull @compare_block_numbers) #12
-  %.not75 = icmp eq i32 %99, 0
-  br i1 %.not75, label %._crit_edge, label %.lr.ph
+101:                                              ; preds = %94
+  %102 = zext i32 %95 to i64
+  call void @pg_qsort(ptr noundef nonnull %12, i64 noundef %102, i64 noundef 4, ptr noundef nonnull @compare_block_numbers) #12
+  %.not77 = icmp eq i32 %95, 0
+  br i1 %.not77, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %105, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %105 ]
-  %107 = getelementptr [131072 x i32], ptr %12, i64 0, i64 %indvars.iv
-  %108 = load i32, ptr %107, align 4
-  %109 = sub i32 %108, %89
-  %110 = getelementptr i32, ptr %9, i64 %indvars.iv
-  store i32 %109, ptr %110, align 4
+.lr.ph:                                           ; preds = %101, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %101 ]
+  %103 = getelementptr [131072 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %104 = load i32, ptr %103, align 4
+  %105 = sub i32 %104, %85
+  %106 = getelementptr i32, ptr %9, i64 %indvars.iv
+  store i32 %105, ptr %106, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %106
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %102
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph, %105
-  store i32 %99, ptr %8, align 4
-  store i32 %91, ptr %10, align 4
-  %111 = load i32, ptr %13, align 4
-  %.not72 = icmp ne i32 %111, -1
-  %112 = sub i32 %111, %89
-  %113 = icmp ugt i32 %112, %91
-  %or.cond80 = select i1 %.not72, i1 %113, i1 false
-  br i1 %or.cond80, label %backup_file_lookup.exit69.thread.sink.split, label %backup_file_lookup.exit69.thread
+._crit_edge:                                      ; preds = %.lr.ph, %101
+  store i32 %95, ptr %8, align 4
+  store i32 %87, ptr %10, align 4
+  %107 = load i32, ptr %13, align 4
+  %.not74 = icmp ne i32 %107, -1
+  %108 = sub i32 %107, %85
+  %109 = icmp ugt i32 %108, %87
+  %or.cond82 = select i1 %.not74, i1 %109, i1 false
+  br i1 %or.cond82, label %backup_file_lookup.exit71.thread.sink.split, label %backup_file_lookup.exit71.thread
 
-backup_file_lookup.exit69.thread.sink.split:      ; preds = %._crit_edge, %85
-  %.sink = phi i32 [ %86, %85 ], [ %112, %._crit_edge ]
+backup_file_lookup.exit71.thread.sink.split:      ; preds = %._crit_edge, %81
+  %.sink = phi i32 [ %82, %81 ], [ %108, %._crit_edge ]
   store i32 %.sink, ptr %10, align 4
-  br label %backup_file_lookup.exit69.thread
+  br label %backup_file_lookup.exit71.thread
 
-backup_file_lookup.exit69.thread:                 ; preds = %70, %backup_file_lookup.exit69.thread.sink.split, %GetIncrementalFilePath.exit, %._crit_edge, %98, %87, %83, %11, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %11 ], [ 0, %83 ], [ 0, %87 ], [ 0, %98 ], [ 1, %._crit_edge ], [ 0, %GetIncrementalFilePath.exit ], [ 1, %backup_file_lookup.exit69.thread.sink.split ], [ 0, %70 ]
+backup_file_lookup.exit71.thread:                 ; preds = %62, %backup_file_lookup.exit71.thread.sink.split, %GetIncrementalFilePath.exit, %._crit_edge, %94, %83, %79, %11, %16
+  %.0 = phi i32 [ 0, %16 ], [ 0, %11 ], [ 0, %79 ], [ 0, %83 ], [ 0, %94 ], [ 1, %._crit_edge ], [ 0, %GetIncrementalFilePath.exit ], [ 1, %backup_file_lookup.exit71.thread.sink.split ], [ 0, %62 ]
   ret i32 %.0
 }
 

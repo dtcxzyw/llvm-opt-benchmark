@@ -32,13 +32,13 @@ entry:
   %arg_tuple.i.i.i = alloca %"class.std::tuple", align 8
   %result.i.i.i = alloca i8, align 1
   %0 = load i64, ptr %this, align 8
-  %cmp.not = icmp ult i64 %0, %size
+  %cmp.not = icmp ugt i64 %size, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %hard_limit_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %hard_limit_, align 8
-  %cmp2 = icmp ugt i64 %1, %size
+  %cmp2 = icmp ult i64 %size, %1
   br i1 %cmp2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end

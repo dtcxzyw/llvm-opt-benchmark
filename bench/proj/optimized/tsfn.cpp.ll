@@ -8,7 +8,7 @@ define hidden noundef double @_Z7pj_tsfnddd(double noundef %0, double noundef %1
   %4 = tail call double @cos(double noundef %0) #2
   %5 = fmul double %1, %2
   %6 = tail call double @atanh(double noundef %5) #2
-  %7 = fmul double %6, %2
+  %7 = fmul double %2, %6
   %8 = tail call double @exp(double noundef %7) #2
   %9 = fcmp ogt double %1, 0.000000e+00
   %10 = fadd double %1, 1.000000e+00

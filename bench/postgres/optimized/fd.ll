@@ -404,7 +404,7 @@ define dso_local range(i32 -1, 1) i32 @fsync_fname_ext(ptr noundef %0, i1 nounde
 14:                                               ; preds = %.thread, %11
   %15 = phi i1 [ %7, %.thread ], [ true, %11 ]
   %phi.call70 = phi i32 [ %6, %.thread ], [ -1, %11 ]
-  %brmerge59.demorgan = and i1 %15, %2
+  %brmerge59.demorgan = and i1 %2, %15
   br i1 %brmerge59.demorgan, label %16, label %20
 
 16:                                               ; preds = %14
@@ -1953,7 +1953,7 @@ TempTablespacePath.exit:                          ; preds = %5, %7
   %19 = load i32, ptr @pg_file_create_mode, align 4
   %20 = call i32 @PathNameOpenFilePerm(ptr noundef nonnull readonly %4, i32 noundef 578, i32 noundef %19)
   %21 = icmp slt i32 %20, 1
-  %brmerge.not = and i1 %21, %1
+  %brmerge.not = and i1 %1, %21
   br i1 %brmerge.not, label %22, label %25
 
 22:                                               ; preds = %16
@@ -4130,7 +4130,7 @@ define dso_local void @RemovePgTempFilesInDir(ptr noundef %0, i1 noundef zeroext
   %8 = tail call ptr @__errno_location() #26
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 2
-  %brmerge.not = and i1 %10, %1
+  %brmerge.not = and i1 %1, %10
   br i1 %brmerge.not, label %FreeDir.exit, label %11
 
 11:                                               ; preds = %7, %3

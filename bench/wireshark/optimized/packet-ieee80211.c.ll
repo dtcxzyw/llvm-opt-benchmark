@@ -19302,7 +19302,7 @@ add_ff_action_s1g.exit:                           ; preds = %1641, %1649, %1659,
 
 1837:                                             ; preds = %1836
   %1838 = load i32, ptr %1822, align 4
-  %1839 = icmp eq i32 %1838, %.077.i.i
+  %1839 = icmp eq i32 %.077.i.i, %1838
   br i1 %1839, label %dissect_compressed_beamforming_and_cqi.exit.i, label %1862
 
 1840:                                             ; preds = %1835
@@ -19310,7 +19310,7 @@ add_ff_action_s1g.exit:                           ; preds = %1641, %1649, %1659,
 
 1841:                                             ; preds = %1840
   %1842 = load i32, ptr %1821, align 4
-  %1843 = icmp eq i32 %1842, %.077.i.i
+  %1843 = icmp eq i32 %.077.i.i, %1842
   br i1 %1843, label %dissect_compressed_beamforming_and_cqi.exit.i, label %1862
 
 1844:                                             ; preds = %.split.i
@@ -19321,7 +19321,7 @@ add_ff_action_s1g.exit:                           ; preds = %1641, %1649, %1659,
 
 1846:                                             ; preds = %1845
   %1847 = load i32, ptr %1819, align 4
-  %1848 = icmp eq i32 %1847, %.077.i.i
+  %1848 = icmp eq i32 %.077.i.i, %1847
   br i1 %1848, label %dissect_compressed_beamforming_and_cqi.exit.i, label %1862
 
 1849:                                             ; preds = %1844
@@ -19329,7 +19329,7 @@ add_ff_action_s1g.exit:                           ; preds = %1641, %1649, %1659,
 
 1850:                                             ; preds = %1849
   %1851 = load i32, ptr %1818, align 4
-  %1852 = icmp eq i32 %1851, %.077.i.i
+  %1852 = icmp eq i32 %.077.i.i, %1851
   br i1 %1852, label %dissect_compressed_beamforming_and_cqi.exit.i, label %1862
 
 1853:                                             ; preds = %.split.i
@@ -19340,7 +19340,7 @@ add_ff_action_s1g.exit:                           ; preds = %1641, %1649, %1659,
 
 1855:                                             ; preds = %1854
   %1856 = load i32, ptr %1816, align 4
-  %1857 = icmp eq i32 %1856, %.077.i.i
+  %1857 = icmp eq i32 %.077.i.i, %1856
   br i1 %1857, label %dissect_compressed_beamforming_and_cqi.exit.i, label %1862
 
 1858:                                             ; preds = %1853
@@ -19348,7 +19348,7 @@ add_ff_action_s1g.exit:                           ; preds = %1641, %1649, %1659,
 
 1859:                                             ; preds = %1858
   %1860 = load i32, ptr %1815, align 4
-  %1861 = icmp eq i32 %1860, %.077.i.i
+  %1861 = icmp eq i32 %.077.i.i, %1860
   br i1 %1861, label %dissect_compressed_beamforming_and_cqi.exit.i, label %1862
 
 default.unreachable.i.i170:                       ; preds = %.split.i
@@ -38666,7 +38666,7 @@ define internal fastcc i32 @dissect_he_feedback_matrix(ptr noundef %0, ptr nound
   %11 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %.408.val, ptr noundef null) #22
   %12 = icmp eq i32 %6, %5
   %13 = sext i1 %12 to i32
-  %spec.select = add i32 %13, %6
+  %spec.select = add i32 %6, %13
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %11, ptr noundef nonnull @.str.7612, i32 noundef %4) #22
   %.not9 = icmp slt i32 %spec.select, 1
   br i1 %.not9, label %._crit_edge12, label %.preheader.lr.ph
@@ -38833,16 +38833,16 @@ define internal fastcc noundef i32 @dissect_quiet_time_period(ptr noundef %0, pt
   %.sink3.ph = phi i32 [ 8, %8 ], [ 9, %11 ]
   %hf_ieee80211_he_qtp_response_srv_specific_identif.sink.ph = phi ptr [ @hf_ieee80211_he_qtp_request_srv_specific_identif, %8 ], [ @hf_ieee80211_he_qtp_response_srv_specific_identif, %11 ]
   %.sink.ph = phi i32 [ 10, %8 ], [ 11, %11 ]
-  %17 = add i32 %.sink15, %2
+  %17 = add i32 %2, %.sink15
   %18 = load i32, ptr %hf_ieee80211_he_qtp_request_quiet_period_offset.sink, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef 0) #22
-  %20 = add i32 %.sink12, %2
+  %20 = add i32 %2, %.sink12
   %21 = load i32, ptr %hf_ieee80211_he_qtp_request_quiet_period_duration.sink, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef -2147483648) #22
-  %23 = add i32 %.sink9, %2
+  %23 = add i32 %2, %.sink9
   %24 = load i32, ptr %hf_ieee80211_he_qtp_request_quiet_period_interval.sink, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0) #22
-  %26 = add i32 %.sink6, %2
+  %26 = add i32 %2, %.sink6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %3
@@ -38853,10 +38853,10 @@ define internal fastcc noundef i32 @dissect_quiet_time_period(ptr noundef %0, pt
   %.sink = phi i32 [ 4, %3 ], [ %.sink.ph, %.sink.split.sink.split ]
   %27 = load i32, ptr %hf_ieee80211_he_qtp_response_repetition_count.sink, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %27, ptr noundef %0, i32 noundef %.sink5, i32 noundef 1, i32 noundef 0) #22
-  %29 = add i32 %.sink3, %2
+  %29 = add i32 %2, %.sink3
   %30 = load i32, ptr %hf_ieee80211_he_qtp_response_srv_specific_identif.sink, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %29, i32 noundef 2, i32 noundef -2147483648) #22
-  %32 = add i32 %.sink, %2
+  %32 = add i32 %2, %.sink
   br label %33
 
 33:                                               ; preds = %.sink.split, %3
@@ -44485,7 +44485,7 @@ define internal fastcc void @dissect_frame_control(ptr noundef %0, ptr noundef %
 25:                                               ; preds = %19, %15
   %26 = phi i32 [ %18, %15 ], [ %24, %19 ]
   %27 = load i32, ptr @hf_ieee80211_fc_frame_type_subtype, align 4
-  %28 = add nuw nsw i32 %7, %3
+  %28 = add nuw nsw i32 %3, %7
   %29 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef %28, i32 noundef 1, i32 noundef %26) #22
   %30 = load i32, ptr @hf_ieee80211_fc_field, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef %3, i32 noundef 2, i32 noundef 0) #22
@@ -46720,7 +46720,7 @@ define internal fastcc i32 @capture_ieee80211_common(ptr noundef %0, i32 noundef
   %47 = and i16 %46, 124
   %.2 = select i1 %.not103, i16 %.1, i16 %47
   %48 = zext nneg i16 %.2 to i32
-  %.not104.not = icmp ugt i32 %48, %1
+  %.not104.not = icmp ult i32 %1, %48
   br i1 %.not104.not, label %49, label %82
 
 49:                                               ; preds = %45
@@ -46754,7 +46754,7 @@ define internal fastcc i32 @capture_ieee80211_common(ptr noundef %0, i32 noundef
 has_mesh_control.exit.thread:                     ; preds = %49, %54, %60, %38
   %.090 = phi i16 [ %62, %60 ], [ %41, %38 ], [ %.2, %54 ], [ %.2, %49 ]
   %63 = zext nneg i16 %.090 to i32
-  %64 = add i32 %63, %1
+  %64 = add i32 %1, %63
   %65 = add i32 %64, 2
   %66 = icmp ugt i32 %64, -3
   %.not106 = icmp ugt i32 %65, %2
@@ -47651,7 +47651,7 @@ define internal fastcc i32 @ieee80211_frame_classifier(ptr noundef %0, ptr nound
   %98 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %96, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #22
   %99 = load i32, ptr @hf_ieee80211_tclas_reserved_bytes, align 4
   %100 = xor i32 %2, -1
-  %101 = add i32 %100, %3
+  %101 = add i32 %3, %100
   %102 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %99, ptr noundef %0, i32 noundef %94, i32 noundef %101, i32 noundef 0) #22
   br label %476
 

@@ -106,7 +106,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   %20 = call i64 @strtol(ptr noundef %19, ptr noundef nonnull %14, i32 noundef 10) #10
   %21 = load ptr, ptr %14, align 8
-  %22 = icmp eq ptr %21, %19
+  %22 = icmp eq ptr %19, %21
   %23 = icmp sgt i64 %20, 2147483647
   %or.cond.i.i.i.i = select i1 %22, i1 true, i1 %23
   br i1 %or.cond.i.i.i.i, label %24, label %27
@@ -196,7 +196,7 @@ setFold.exit.i:                                   ; preds = %63, %59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   %65 = call i64 @strtol(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %13, i32 noundef 10) #10
   %66 = load ptr, ptr %13, align 8
-  %67 = icmp eq ptr %66, %.0.i.i
+  %67 = icmp eq ptr %.0.i.i, %66
   %68 = icmp sgt i64 %65, 2147483647
   %or.cond.i.i.i = select i1 %67, i1 true, i1 %68
   br i1 %or.cond.i.i.i, label %69, label %72
@@ -231,7 +231,7 @@ readPos.exit.i.i:                                 ; preds = %72
   %83 = getelementptr inbounds i8, ptr %66, i64 1
   %84 = call i64 @strtol(ptr noundef nonnull %83, ptr noundef nonnull %13, i32 noundef 10) #10
   %85 = load ptr, ptr %13, align 8
-  %86 = icmp eq ptr %85, %83
+  %86 = icmp eq ptr %83, %85
   %87 = icmp sgt i64 %84, 2147483647
   %or.cond.i14.i.i = select i1 %86, i1 true, i1 %87
   br i1 %or.cond.i14.i.i, label %88, label %91
@@ -275,7 +275,7 @@ setTwo.exit.i:                                    ; preds = %readPos.exit16.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %104 = call i64 @strtol(ptr noundef %103, ptr noundef nonnull %12, i32 noundef 10) #10
   %105 = load ptr, ptr %12, align 8
-  %106 = icmp eq ptr %105, %103
+  %106 = icmp eq ptr %103, %105
   %107 = icmp sgt i64 %104, 2147483647
   %or.cond.i.i.i84.i = select i1 %106, i1 true, i1 %107
   br i1 %or.cond.i.i.i84.i, label %108, label %111
@@ -315,7 +315,7 @@ setOne.exit87.i:                                  ; preds = %111
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %125 = call i64 @strtol(ptr noundef %124, ptr noundef nonnull %11, i32 noundef 10) #10
   %126 = load ptr, ptr %11, align 8
-  %127 = icmp eq ptr %126, %124
+  %127 = icmp eq ptr %124, %126
   %128 = icmp sgt i64 %125, 2147483647
   %or.cond.i.i.i90.i = select i1 %127, i1 true, i1 %128
   br i1 %or.cond.i.i.i90.i, label %129, label %132
@@ -385,7 +385,7 @@ setOne.exit93.i:                                  ; preds = %132
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %164 = call i64 @strtol(ptr noundef %163, ptr noundef nonnull %10, i32 noundef 10) #10
   %165 = load ptr, ptr %10, align 8
-  %166 = icmp eq ptr %165, %163
+  %166 = icmp eq ptr %163, %165
   %167 = icmp sgt i64 %164, 2147483647
   %or.cond.i.i.i100.i = select i1 %166, i1 true, i1 %167
   br i1 %or.cond.i.i.i100.i, label %168, label %171
@@ -440,7 +440,7 @@ setOne.exit103.i:                                 ; preds = %171
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %194 = call i64 @strtol(ptr noundef %193, ptr noundef nonnull %9, i32 noundef 10) #10
   %195 = load ptr, ptr %9, align 8
-  %196 = icmp eq ptr %195, %193
+  %196 = icmp eq ptr %193, %195
   %197 = icmp sgt i64 %194, 2147483647
   %or.cond.i.i.i108.i = select i1 %196, i1 true, i1 %197
   br i1 %or.cond.i.i.i108.i, label %198, label %201
@@ -508,7 +508,7 @@ openFile.exit.i:                                  ; preds = %217
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %227 = call i64 @strtol(ptr noundef %226, ptr noundef nonnull %8, i32 noundef 10) #10
   %228 = load ptr, ptr %8, align 8
-  %229 = icmp eq ptr %228, %226
+  %229 = icmp eq ptr %226, %228
   %230 = icmp sgt i64 %227, 2147483647
   %or.cond.i.i.i114.i = select i1 %229, i1 true, i1 %230
   br i1 %or.cond.i.i.i114.i, label %231, label %234
@@ -579,7 +579,7 @@ setOne.exit117.i:                                 ; preds = %234
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %268 = call i64 @strtol(ptr noundef %267, ptr noundef nonnull %7, i32 noundef 10) #10
   %269 = load ptr, ptr %7, align 8
-  %270 = icmp eq ptr %269, %267
+  %270 = icmp eq ptr %267, %269
   %271 = icmp sgt i64 %268, 2147483647
   %or.cond.i.i.i124.i = select i1 %270, i1 true, i1 %271
   br i1 %or.cond.i.i.i124.i, label %272, label %275
@@ -634,7 +634,7 @@ setOne.exit127.i:                                 ; preds = %275
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %298 = call i64 @strtol(ptr noundef %297, ptr noundef nonnull %6, i32 noundef 10) #10
   %299 = load ptr, ptr %6, align 8
-  %300 = icmp eq ptr %299, %297
+  %300 = icmp eq ptr %297, %299
   %301 = icmp sgt i64 %298, 2147483647
   %or.cond.i.i132.i = select i1 %300, i1 true, i1 %301
   br i1 %or.cond.i.i132.i, label %302, label %305
@@ -669,7 +669,7 @@ readPos.exit.i133.i:                              ; preds = %305
   %316 = getelementptr inbounds i8, ptr %299, i64 1
   %317 = call i64 @strtol(ptr noundef nonnull %316, ptr noundef nonnull %6, i32 noundef 10) #10
   %318 = load ptr, ptr %6, align 8
-  %319 = icmp eq ptr %318, %316
+  %319 = icmp eq ptr %316, %318
   %320 = icmp sgt i64 %317, 2147483647
   %or.cond.i28.i.i = select i1 %319, i1 true, i1 %320
   br i1 %or.cond.i28.i.i, label %321, label %324
@@ -704,7 +704,7 @@ readPos.exit30.i.i:                               ; preds = %324
   %333 = getelementptr inbounds i8, ptr %318, i64 1
   %334 = call i64 @strtol(ptr noundef nonnull %333, ptr noundef nonnull %6, i32 noundef 10) #10
   %335 = load ptr, ptr %6, align 8
-  %336 = icmp eq ptr %335, %333
+  %336 = icmp eq ptr %333, %335
   %337 = icmp sgt i64 %334, 2147483647
   %or.cond.i31.i.i = select i1 %336, i1 true, i1 %337
   br i1 %or.cond.i31.i.i, label %338, label %341
@@ -739,7 +739,7 @@ readPos.exit33.i.i:                               ; preds = %341
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %351 = call i64 @strtol(ptr noundef nonnull %350, ptr noundef nonnull %5, i32 noundef 10) #10
   %352 = load ptr, ptr %5, align 8
-  %353 = icmp eq ptr %352, %350
+  %353 = icmp eq ptr %350, %352
   %354 = icmp sgt i64 %351, 2147483647
   %or.cond.i.i.i136.i = select i1 %353, i1 true, i1 %354
   br i1 %or.cond.i.i.i136.i, label %355, label %358
@@ -788,7 +788,7 @@ setTwoTwoOpt.exit.thread.i:                       ; preds = %setTwoTwoOpt.exit.t
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %371 = call i64 @strtol(ptr noundef %370, ptr noundef nonnull %4, i32 noundef 10) #10
   %372 = load ptr, ptr %4, align 8
-  %373 = icmp eq ptr %372, %370
+  %373 = icmp eq ptr %370, %372
   %374 = icmp sgt i64 %371, 2147483647
   %or.cond.i.i140.i = select i1 %373, i1 true, i1 %374
   br i1 %or.cond.i.i140.i, label %375, label %378
@@ -828,7 +828,7 @@ readOne.exit.i:                                   ; preds = %378
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %392 = call i64 @strtol(ptr noundef %391, ptr noundef nonnull %3, i32 noundef 10) #10
   %393 = load ptr, ptr %3, align 8
-  %394 = icmp eq ptr %393, %391
+  %394 = icmp eq ptr %391, %393
   %395 = icmp sgt i64 %392, 2147483647
   %or.cond.i.i.i145.i = select i1 %394, i1 true, i1 %395
   br i1 %or.cond.i.i.i145.i, label %396, label %399
@@ -1206,7 +1206,7 @@ define internal fastcc range(i32 -1, 2) i32 @setTwo(ptr noundef %0) unnamed_addr
   %2 = alloca ptr, align 8
   %3 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 10) #10
   %4 = load ptr, ptr %2, align 8
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   %6 = icmp sgt i64 %3, 2147483647
   %or.cond.i = select i1 %5, i1 true, i1 %6
   br i1 %or.cond.i, label %7, label %10
@@ -1241,7 +1241,7 @@ readPos.exit:                                     ; preds = %10
   %21 = getelementptr inbounds i8, ptr %4, i64 1
   %22 = call i64 @strtol(ptr noundef nonnull %21, ptr noundef nonnull %2, i32 noundef 10) #10
   %23 = load ptr, ptr %2, align 8
-  %24 = icmp eq ptr %23, %21
+  %24 = icmp eq ptr %21, %23
   %25 = icmp sgt i64 %22, 2147483647
   %or.cond.i14 = select i1 %24, i1 true, i1 %25
   br i1 %or.cond.i14, label %26, label %29
@@ -1279,7 +1279,7 @@ define internal fastcc range(i32 -1, 2) i32 @setTwoOpt(ptr noundef %0) unnamed_a
   %2 = alloca ptr, align 8
   %3 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 10) #10
   %4 = load ptr, ptr %2, align 8
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   %6 = icmp sgt i64 %3, 2147483647
   %or.cond.i = select i1 %5, i1 true, i1 %6
   br i1 %or.cond.i, label %7, label %10
@@ -1313,7 +1313,7 @@ readPos.exit:                                     ; preds = %10
   %19 = getelementptr inbounds i8, ptr %4, i64 1
   %20 = call i64 @strtol(ptr noundef nonnull %19, ptr noundef nonnull %2, i32 noundef 10) #10
   %21 = load ptr, ptr %2, align 8
-  %22 = icmp eq ptr %21, %19
+  %22 = icmp eq ptr %19, %21
   %23 = icmp sgt i64 %20, 2147483647
   %or.cond.i15 = select i1 %22, i1 true, i1 %23
   br i1 %or.cond.i15, label %24, label %27

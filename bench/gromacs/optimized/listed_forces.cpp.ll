@@ -952,7 +952,7 @@ _ZNSt6vectorI9t_iparamsSaIS0_EE5clearEv.exit9:    ; preds = %58, %_ZNSt6vectorI9
   %75 = ptrtoint ptr %73 to i64
   %76 = sub i64 %74, %75
   %77 = ashr exact i64 %76, 2
-  %78 = icmp ult i64 %77, %70
+  %78 = icmp ugt i64 %70, %77
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %66
@@ -961,7 +961,7 @@ _ZNSt6vectorI9t_iparamsSaIS0_EE5clearEv.exit9:    ; preds = %58, %_ZNSt6vectorI9
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 81:                                               ; preds = %66
-  %82 = icmp ugt i64 %77, %70
+  %82 = icmp ult i64 %70, %77
   br i1 %82, label %83, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 83:                                               ; preds = %81

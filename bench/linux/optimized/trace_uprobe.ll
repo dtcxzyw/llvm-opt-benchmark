@@ -2765,7 +2765,7 @@ define internal fastcc void @__uprobe_trace_func(ptr nocapture noundef readonly 
   %37 = select i1 %36, i64 16, i64 24
   %38 = add i64 %37, %33
   %39 = trunc i64 %38 to i32
-  %40 = add i32 %39, %4
+  %40 = add i32 %4, %39
   %41 = sext i32 %40 to i64
   %42 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %7, ptr noundef %5, i64 noundef %41) #16
   %43 = icmp eq ptr %42, null

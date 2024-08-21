@@ -181,7 +181,7 @@ if.then56:                                        ; preds = %if.end50
   %11 = load i8, ptr %p.0, align 1
   %12 = and i8 %11, 32
   %and = zext nneg i8 %12 to i32
-  %13 = or i32 %and, %tag
+  %13 = or i32 %tag, %and
   %or58 = or i32 %13, %aclass
   %conv59 = trunc i32 %or58 to i8
   store i8 %conv59, ptr %p.0, align 1

@@ -1572,14 +1572,14 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
   %0 = load i32, ptr %vq_index, align 4
-  %cmp.not = icmp sgt i32 %0, %idx
+  %cmp.not = icmp slt i32 %idx, %0
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
   %1 = load i32, ptr %nvqs, align 8
   %add = add i32 %1, %0
-  %cmp2 = icmp ugt i32 %add, %idx
+  %cmp2 = icmp ult i32 %idx, %add
   br i1 %cmp2, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %entry
@@ -2351,7 +2351,7 @@ if.end8:                                          ; preds = %vhost_vdpa_svqs_sta
   %vq_index_end = getelementptr inbounds i8, ptr %dev, i64 448
   %81 = load i32, ptr %vq_index_end, align 8
   %cmp.not = icmp eq i32 %add, %81
-  %brmerge.not = and i1 %cmp.not, %started
+  %brmerge.not = and i1 %started, %cmp.not
   br i1 %brmerge.not, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end8

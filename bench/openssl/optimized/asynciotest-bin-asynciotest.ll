@@ -632,7 +632,7 @@ if.then104:                                       ; preds = %while.end95
 if.end107:                                        ; preds = %while.cond, %if.then104, %if.then6
   %written.0 = phi i64 [ %written.2.lcssa, %if.then104 ], [ 0, %if.then6 ], [ %written.1, %while.cond ]
   %conv108 = trunc i64 %written.0 to i32
-  %cmp109 = icmp slt i32 %conv108, %inl
+  %cmp109 = icmp sgt i32 %inl, %conv108
   br i1 %cmp109, label %if.end115, label %land.lhs.true118
 
 if.end115:                                        ; preds = %if.end107

@@ -1433,7 +1433,7 @@ if.end10.thread:                                  ; preds = %if.then4
 if.else:                                          ; preds = %if.then4
   %add6 = add i64 %0, 36
   %and = and i64 %add6, -16
-  %cmp7.not = icmp eq i64 %and, %len
+  %cmp7.not = icmp eq i64 %len, %and
   br i1 %cmp7.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.else

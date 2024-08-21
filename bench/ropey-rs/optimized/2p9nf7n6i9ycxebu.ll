@@ -734,7 +734,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren17update_child_in
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h435e5dd35a2eaf23E.llvm.1041312438752767756.exit": ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %10 = icmp ugt i64 %7, %1
+  %10 = icmp ult i64 %1, %7
   br i1 %10, label %11, label %47, !prof !90
 
 11:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h435e5dd35a2eaf23E.llvm.1041312438752767756.exit"
@@ -1040,7 +1040,7 @@ define hidden noundef zeroext i1 @_ZN5ropey4tree13node_children12NodeChildren16m
   %20 = getelementptr inbounds i8, ptr %0, i64 960
   %21 = load i8, ptr %20, align 8, !noundef !4
   %22 = zext i8 %21 to i64
-  %23 = icmp ugt i64 %22, %2
+  %23 = icmp ult i64 %2, %22
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %19
@@ -2013,7 +2013,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren6insert17h906c4f1
   %5 = getelementptr inbounds i8, ptr %0, i64 960
   %6 = load i8, ptr %5, align 8, !alias.scope !447, !noalias !450, !noundef !4
   %7 = zext i8 %6 to i64
-  %.not.i = icmp ult i64 %7, %1
+  %.not.i = icmp ugt i64 %1, %7
   br i1 %.not.i, label %.invoke, label %8
 
 8:                                                ; preds = %3
@@ -2062,7 +2062,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren6insert17h906c4f1
   %28 = extractvalue { i64, i64 } %26, 1
   %29 = sub i64 %28, %27
   %30 = sub i64 24, %29
-  %.not.i1.not = icmp ugt i64 %30, %1
+  %.not.i1.not = icmp ult i64 %1, %30
   br i1 %.not.i1.not, label %_ZN5ropey4tree13node_children5inner20NodeChildrenInternal6insert17hcdd0295b64a031c6E.llvm.1041312438752767756.exit, label %31
 
 31:                                               ; preds = %.noexc2
@@ -2130,11 +2130,11 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren12insert_split17h
   unreachable
 
 14:                                               ; preds = %4
-  %.not2 = icmp ult i64 %10, %2
+  %.not2 = icmp ugt i64 %2, %10
   br i1 %.not2, label %.invoke, label %15
 
 15:                                               ; preds = %14
-  %16 = icmp ugt i64 %10, %2
+  %16 = icmp ult i64 %2, %10
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %15
@@ -2239,7 +2239,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren6remove17h3b2b5ec
 
 9:                                                ; preds = %3
   %10 = zext i8 %7 to i64
-  %11 = icmp ugt i64 %10, %2
+  %11 = icmp ult i64 %2, %10
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %9
@@ -2274,7 +2274,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren6remove17h3b2b5ec
   %28 = extractvalue { i64, i64 } %26, 1
   %29 = sub i64 %28, %27
   %30 = sub i64 24, %29
-  %.not.i1 = icmp ult i64 %30, %2
+  %.not.i1 = icmp ugt i64 %2, %30
   br i1 %.not.i1, label %31, label %_ZN5ropey4tree13node_children5inner20NodeChildrenInternal6remove17h9dd2bf05d1fc3d3bE.llvm.1041312438752767756.exit
 
 31:                                               ; preds = %.noexc
@@ -2338,7 +2338,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren9split_off17h076e
   %6 = getelementptr inbounds i8, ptr %1, i64 960
   %7 = load i8, ptr %6, align 8, !noundef !4
   %8 = zext i8 %7 to i64
-  %.not = icmp ult i64 %8, %2
+  %.not = icmp ugt i64 %2, %8
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %3
@@ -2365,7 +2365,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren9split_off17h076e
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 960
   store i8 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !515
   %11 = sub nuw nsw i64 %8, %2
-  %.not4 = icmp eq i64 %8, %2
+  %.not4 = icmp eq i64 %2, %8
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
@@ -2472,7 +2472,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren11get_two_mut17h8
   %8 = getelementptr inbounds i8, ptr %1, i64 960
   %9 = load i8, ptr %8, align 8, !noundef !4
   %10 = zext i8 %9 to i64
-  %11 = icmp ugt i64 %10, %3
+  %11 = icmp ult i64 %3, %10
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %7
@@ -2957,7 +2957,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %.sroa.04.012 = phi ptr [ %27, %17 ], [ %.ptr, %.lr.ph.preheader ]
   %14 = load i64, ptr %.sroa.04.012, align 8, !noalias !610, !noundef !4
   %15 = add i64 %14, %.sroa.015.0.i14
-  %16 = icmp ugt i64 %15, %2
+  %16 = icmp ult i64 %2, %15
   br i1 %16, label %_ZN5ropey4tree13node_children12NodeChildren9search_by17hc5b243de1fdf9abdE.llvm.1041312438752767756.exit, label %17
 
 17:                                               ; preds = %.lr.ph
@@ -3044,7 +3044,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %14 = getelementptr inbounds i8, ptr %.sroa.04.013, i64 8
   %15 = load i64, ptr %14, align 8, !noalias !622, !noundef !4
   %16 = add i64 %15, %.sroa.517.0.i16
-  %17 = icmp ugt i64 %16, %2
+  %17 = icmp ult i64 %2, %16
   br i1 %17, label %_ZN5ropey4tree13node_children12NodeChildren9search_by17h6eeff1bfaf1e9a15E.llvm.1041312438752767756.exit, label %18
 
 18:                                               ; preds = %.lr.ph
@@ -3135,7 +3135,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %18 = add i64 %15, %.sroa.517.0.i16
   %19 = add i64 %17, %.sroa.8.0.i17
   %20 = add i64 %19, %18
-  %21 = icmp ugt i64 %20, %2
+  %21 = icmp ult i64 %2, %20
   br i1 %21, label %_ZN5ropey4tree13node_children12NodeChildren9search_by17hcf55ee8a6021a16dE.llvm.1041312438752767756.exit, label %22
 
 22:                                               ; preds = %.lr.ph
@@ -3222,7 +3222,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %14 = getelementptr inbounds i8, ptr %.sroa.04.013, i64 24
   %15 = load i64, ptr %14, align 8, !noalias !644, !noundef !4
   %16 = add i64 %15, %.sroa.11.0.i18
-  %.not = icmp ult i64 %16, %2
+  %.not = icmp ugt i64 %2, %16
   br i1 %.not, label %17, label %_ZN5ropey4tree13node_children12NodeChildren9search_by17hde606ec2850a28a5E.llvm.1041312438752767756.exit
 
 17:                                               ; preds = %.lr.ph
@@ -3419,7 +3419,7 @@ define hidden void @_ZN5ropey4tree13node_children5inner20NodeChildrenInternal6in
   %5 = getelementptr inbounds i8, ptr %0, i64 960
   %6 = load i8, ptr %5, align 8, !noundef !4
   %7 = zext i8 %6 to i64
-  %.not = icmp ult i64 %7, %1
+  %.not = icmp ugt i64 %1, %7
   br i1 %.not, label %.invoke, label %8
 
 8:                                                ; preds = %3
@@ -3468,7 +3468,7 @@ define hidden void @_ZN5ropey4tree13node_children5inner20NodeChildrenInternal6in
   %28 = extractvalue { i64, i64 } %26, 1
   %29 = sub i64 %28, %27
   %30 = sub i64 24, %29
-  %.not.i.not = icmp ugt i64 %30, %1
+  %.not.i.not = icmp ult i64 %1, %30
   br i1 %.not.i.not, label %36, label %31
 
 31:                                               ; preds = %.noexc7
@@ -3529,7 +3529,7 @@ define hidden void @_ZN5ropey4tree13node_children5inner20NodeChildrenInternal6re
 
 9:                                                ; preds = %3
   %10 = zext i8 %7 to i64
-  %11 = icmp ugt i64 %10, %2
+  %11 = icmp ult i64 %2, %10
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %9
@@ -3564,7 +3564,7 @@ define hidden void @_ZN5ropey4tree13node_children5inner20NodeChildrenInternal6re
   %28 = extractvalue { i64, i64 } %26, 1
   %29 = sub i64 %28, %27
   %30 = sub i64 24, %29
-  %.not.i = icmp ult i64 %30, %2
+  %.not.i = icmp ugt i64 %2, %30
   br i1 %.not.i, label %31, label %42
 
 31:                                               ; preds = %.noexc

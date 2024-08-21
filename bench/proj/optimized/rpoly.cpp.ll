@@ -153,7 +153,7 @@ define internal { double, double } @_ZL15rpoly_s_forward5PJ_LPP8PJconsts(double 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load double, ptr %9, align 8
-  %11 = fmul double %10, %0
+  %11 = fmul double %0, %10
   %12 = tail call double @tan(double noundef %11) #7
   %13 = getelementptr inbounds i8, ptr %5, i64 8
   %14 = load double, ptr %13, align 8

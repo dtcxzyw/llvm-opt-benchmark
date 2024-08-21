@@ -846,7 +846,7 @@ entry:
   %switch.and.i = and i32 %1, -3
   %switch.selectcmp.i = icmp eq i32 %switch.and.i, 0
   %2 = zext i1 %switch.selectcmp.i to i32
-  %cmp.not = icmp ne i32 %2, %dir
+  %cmp.not = icmp ne i32 %dir, %2
   %3 = icmp ult i32 %0, 4
   %or.cond = and i1 %cmp.not, %3
   br i1 %or.cond, label %switch.lookup, label %if.end
@@ -2562,7 +2562,7 @@ if.then70:                                        ; preds = %if.end67
   %145 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i.i311 = icmp ne ptr %144, %145
   %__last.sroa.0.09.i.i = getelementptr inbounds i8, ptr %145, i64 -16
-  %cmp.i110.i.i = icmp ugt ptr %__last.sroa.0.09.i.i, %144
+  %cmp.i110.i.i = icmp ult ptr %144, %__last.sroa.0.09.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i311, i1 %cmp.i110.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %if.end78
 
@@ -3603,7 +3603,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev6OpDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_4dev6OpDataEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_4dev6OpDataEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
-  %cmp.not5.i.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev6OpDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i.i12
 
 for.body.i.i.i.i12:                               ; preds = %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev6OpDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i.i12

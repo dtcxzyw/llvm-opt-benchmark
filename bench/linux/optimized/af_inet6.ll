@@ -2207,7 +2207,7 @@ define internal i32 @inet6_create(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %39 = getelementptr inbounds i8, ptr %38, i64 18
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
-  %42 = icmp eq i32 %41, %2
+  %42 = icmp eq i32 %2, %41
   %43 = icmp eq i16 %40, 0
   %or.cond = or i1 %42, %43
   br i1 %or.cond, label %.split19.us, label %44

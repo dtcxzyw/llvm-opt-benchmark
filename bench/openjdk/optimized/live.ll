@@ -1437,7 +1437,7 @@ _ZNK9VectorSet4testEj.exit:                       ; preds = %121
   %136 = add i32 %135, 1
   store i32 %136, ptr %134, align 8
   %137 = load i32, ptr %1, align 8
-  %.not.i.i = icmp ugt i32 %137, %135
+  %.not.i.i = icmp ult i32 %135, %137
   br i1 %.not.i.i, label %_ZN10Block_List4pushEP5Block.exit, label %138
 
 138:                                              ; preds = %133
@@ -1557,7 +1557,7 @@ _ZNK9VectorSet4testEj.exit:                       ; preds = %55
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 8
   %70 = load i32, ptr %1, align 8
-  %.not.i.i = icmp ugt i32 %70, %68
+  %.not.i.i = icmp ult i32 %68, %70
   br i1 %.not.i.i, label %_ZN10Block_List4pushEP5Block.exit, label %71
 
 71:                                               ; preds = %66

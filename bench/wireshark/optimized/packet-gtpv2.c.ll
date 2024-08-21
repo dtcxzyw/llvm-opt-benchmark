@@ -3386,7 +3386,7 @@ define internal fastcc noalias ptr @decode_gtpv2_uli(ptr noundef %0, ptr noundef
   %150 = getelementptr inbounds i8, ptr %1, i64 408
   %151 = load ptr, ptr %150, align 8
   %152 = load i32, ptr @hf_gtpv2_ext_macro_ng_enodeb_id, align 4
-  %153 = icmp eq i32 %152, %144
+  %153 = icmp eq i32 %144, %152
   %154 = select i1 %153, ptr @.str.1508, ptr @.str.10
   %155 = load i32, ptr %7, align 4
   %156 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %151, ptr noundef nonnull @.str.1507, ptr noundef %145, ptr noundef nonnull %154, i32 noundef %155) #10
@@ -3981,7 +3981,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
-  %9 = icmp sgt i32 %8, %3
+  %9 = icmp slt i32 %3, %8
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6, %64
@@ -5295,7 +5295,7 @@ thread-pre-split164:                              ; preds = %126, %thread-pre-sp
   %183 = add i32 %.7154201, 6
   %184 = load ptr, ptr %173, align 8
   %185 = load i32, ptr @hf_gtpv2_ext_macro_ng_enodeb_id, align 4
-  %186 = icmp eq i32 %185, %177
+  %186 = icmp eq i32 %177, %185
   %187 = select i1 %186, ptr @.str.1508, ptr @.str.10
   %188 = load i32, ptr %5, align 4
   %189 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %184, ptr noundef nonnull @.str.1507, ptr noundef %178, ptr noundef nonnull %187, i32 noundef %188) #10
@@ -7946,7 +7946,7 @@ define internal void @dissect_gtpv2_target_id(ptr noundef %0, ptr noundef %1, pt
   %60 = getelementptr inbounds i8, ptr %1, i64 408
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr @hf_gtpv2_ext_macro_ng_enodeb_id, align 4
-  %63 = icmp eq i32 %62, %55
+  %63 = icmp eq i32 %55, %62
   %64 = select i1 %63, ptr @.str.1508, ptr @.str.10
   %65 = load i32, ptr %12, align 4
   %66 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %61, ptr noundef nonnull @.str.1507, ptr noundef %56, ptr noundef nonnull %64, i32 noundef %65) #10
@@ -7995,7 +7995,7 @@ define internal void @dissect_gtpv2_target_id(ptr noundef %0, ptr noundef %1, pt
   %97 = getelementptr inbounds i8, ptr %1, i64 408
   %98 = load ptr, ptr %97, align 8
   %99 = load i32, ptr @hf_gtpv2_ext_macro_ng_enodeb_id, align 4
-  %100 = icmp eq i32 %99, %92
+  %100 = icmp eq i32 %92, %99
   %101 = select i1 %100, ptr @.str.1508, ptr @.str.10
   %102 = load i32, ptr %9, align 4
   %103 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %98, ptr noundef nonnull @.str.1507, ptr noundef %93, ptr noundef nonnull %101, i32 noundef %102) #10

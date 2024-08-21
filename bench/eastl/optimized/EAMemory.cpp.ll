@@ -1713,7 +1713,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then
-  %cmp4.not17 = icmp ult ptr %add.ptr1, %pMemory
+  %cmp4.not17 = icmp ugt ptr %pMemory, %add.ptr1
   br i1 %cmp4.not17, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader

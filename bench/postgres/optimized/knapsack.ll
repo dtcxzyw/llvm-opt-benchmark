@@ -55,7 +55,7 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nocap
 
 25:                                               ; preds = %19, %22
   %26 = phi double [ %24, %22 ], [ 1.000000e+00, %19 ]
-  %.not5963 = icmp sgt i32 %.fr, %0
+  %.not5963 = icmp slt i32 %0, %.fr
   br i1 %.not5963, label %._crit_edge, label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %25

@@ -502,7 +502,7 @@ define hidden noundef i32 @_ZN2os16get_native_stackEPPhii(ptr nocapture noundef 
   %39 = shl nsw i64 %38, 3
   %scevgep = getelementptr i8, ptr %0, i64 %39
   %40 = xor i32 %.113, -1
-  %41 = add i32 %40, %1
+  %41 = add i32 %1, %40
   %42 = zext i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 3
   %44 = add nuw nsw i64 %43, 8
@@ -2111,8 +2111,8 @@ define hidden noundef zeroext i1 @_ZN2os5Posix21handle_stack_overflowEP10JavaThr
   %18 = getelementptr i8, ptr %14, i64 %15
   %19 = getelementptr i8, ptr %18, i64 %16
   %20 = getelementptr i8, ptr %19, i64 %17
-  %21 = icmp ugt ptr %20, %1
-  %22 = icmp ule ptr %18, %1
+  %21 = icmp ult ptr %1, %20
+  %22 = icmp uge ptr %1, %18
   %spec.select.i = and i1 %22, %21
   br i1 %spec.select.i, label %23, label %100
 
@@ -2145,7 +2145,7 @@ define hidden noundef zeroext i1 @_ZN2os5Posix21handle_stack_overflowEP10JavaThr
   %33 = ptrtoint ptr %20 to i64
   %34 = sub i64 %33, %17
   %35 = inttoptr i64 %34 to ptr
-  %.not36 = icmp ugt ptr %35, %1
+  %.not36 = icmp ult ptr %1, %35
   br i1 %.not36, label %_ZNK10JavaThread18is_vthread_mountedEv.exit, label %36
 
 36:                                               ; preds = %.loopexit
@@ -2174,7 +2174,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.i:      ; preds = %36
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %43, i64 %46
-  %48 = icmp ugt ptr %47, %2
+  %48 = icmp ult ptr %2, %47
   %49 = select i1 %.not.i.i.i, i1 %48, i1 false
   br i1 %49, label %50, label %_ZN19TemplateInterpreter8containsEPh.exit.thread.i
 
@@ -2211,11 +2211,11 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread.i: ; preds = %_ZN19TemplateInte
   %67 = load i32, ptr %66, align 8
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i8, ptr %52, i64 %68
-  %70 = icmp ugt ptr %69, %2
+  %70 = icmp ult ptr %2, %69
   %71 = select i1 %.not.i.i19.i, i1 %70, i1 false
   %72 = sext i16 %60 to i64
   %73 = getelementptr inbounds i8, ptr %65, i64 %72
-  %74 = icmp ule ptr %73, %2
+  %74 = icmp uge ptr %2, %73
   %or.cond.i = select i1 %71, i1 %74, i1 false
   br i1 %or.cond.i, label %_ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.exit, label %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i
 
@@ -2264,7 +2264,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %78
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds i8, ptr %83, i64 %86
-  %88 = icmp ugt ptr %87, %81
+  %88 = icmp ult ptr %81, %87
   %89 = select i1 %.not.i.i.i31, i1 %88, i1 false
   br i1 %89, label %90, label %_ZNK5frame20is_interpreted_frameEv.exit.thread
 
@@ -2294,8 +2294,8 @@ _ZNK10JavaThread18is_vthread_mountedEv.exit:      ; preds = %.lr.ph.i.i, %_ZL32g
   br label %118
 
 100:                                              ; preds = %5
-  %101 = icmp ugt ptr %18, %1
-  %102 = icmp ule ptr %14, %1
+  %101 = icmp ult ptr %1, %18
+  %102 = icmp uge ptr %1, %14
   %spec.select.i33 = and i1 %102, %101
   br i1 %spec.select.i33, label %103, label %106
 
@@ -3036,7 +3036,7 @@ define hidden void @_ZN6Parker4parkEbl(ptr noundef nonnull align 8 dereferenceab
 
 13:                                               ; preds = %8
   %14 = icmp eq i64 %2, 0
-  %or.cond = and i1 %14, %1
+  %or.cond = and i1 %1, %14
   br i1 %or.cond, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %15
 
 15:                                               ; preds = %13

@@ -571,7 +571,7 @@ define hidden void @_ZN17crossbeam_channel6select17SelectedOperation4recv17h43b0
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !noundef !4
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %3
@@ -636,7 +636,7 @@ define hidden void @_ZN17crossbeam_channel6select17SelectedOperation4recv17h55c9
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !noundef !4
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %3

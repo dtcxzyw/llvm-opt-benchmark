@@ -5306,7 +5306,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %13, %34
   %45 = load i32, ptr @hf_scsi_modesel_mode_data_length8, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %45, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
   %.not92.not = icmp eq i32 %6, 0
-  %47 = tail call i32 @llvm.smin.i32(i32 %44, i32 %6)
+  %47 = tail call i32 @llvm.smin.i32(i32 %6, i32 %44)
   %.085 = select i1 %.not92.not, i32 %44, i32 %47
   %48 = icmp slt i32 %.085, 1
   br i1 %48, label %.critedge, label %49
@@ -5452,7 +5452,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %12, %35
   %47 = load i32, ptr @hf_scsi_modesel_mode_data_length16, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %47, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #10
   %.not103.not = icmp eq i32 %6, 0
-  %49 = tail call i32 @llvm.smin.i32(i32 %46, i32 %6)
+  %49 = tail call i32 @llvm.smin.i32(i32 %6, i32 %46)
   %.095 = select i1 %.not103.not, i32 %46, i32 %49
   %50 = icmp slt i32 %.095, 1
   br i1 %50, label %.critedge, label %51
@@ -5621,7 +5621,7 @@ define hidden void @dissect_spc_persistentreservein(ptr noundef %0, ptr nocaptur
   %39 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %38) #10
   %40 = load i32, ptr @hf_scsi_persresvin_additional_length, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %40, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef 0) #10
-  %42 = tail call i32 @llvm.umin.i32(i32 %39, i32 %6)
+  %42 = tail call i32 @llvm.umin.i32(i32 %6, i32 %39)
   %43 = icmp eq i32 %.056, 0
   br i1 %43, label %44, label %49
 
@@ -9138,7 +9138,7 @@ define internal range(i32 0, 2) i32 @dissect_scsi_mmc5_modepage(ptr noundef %0, 
   %.sink222 = phi i32 [ 30, %62 ], [ 3, %7 ], [ 52, %58 ]
   %.sink221 = phi i32 [ 2, %62 ], [ 1, %7 ], [ 4, %58 ]
   %171 = load i32, ptr %hf_scsi_mmc5_modepage_lba_space.sink, align 4
-  %172 = add i32 %.sink222, %3
+  %172 = add i32 %3, %.sink222
   %173 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %171, ptr noundef %0, i32 noundef %172, i32 noundef %.sink221, i32 noundef 0) #10
   br label %174
 

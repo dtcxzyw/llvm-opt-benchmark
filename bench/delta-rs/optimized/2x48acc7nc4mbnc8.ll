@@ -485,7 +485,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !9, !noundef !9
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !9
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 80, i1 false)
@@ -567,7 +567,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !9, !noundef !9
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !9
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 80, i1 false)
@@ -1215,7 +1215,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.0.i)
   %19 = load ptr, ptr %14, align 8, !alias.scope !110, !nonnull !9, !noundef !9
-  %20 = icmp ugt i64 %18, %4
+  %20 = icmp ult i64 %4, %18
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %19, i64 %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(80) %21, i64 80, i1 false), !noalias !110
@@ -1296,7 +1296,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.0.i)
   %19 = load ptr, ptr %14, align 8, !alias.scope !118, !nonnull !9, !noundef !9
-  %20 = icmp ugt i64 %18, %4
+  %20 = icmp ult i64 %4, %18
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %19, i64 %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(80) %21, i64 80, i1 false), !noalias !118
@@ -1341,7 +1341,7 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %5 = load ptr, ptr %4, align 8, !nonnull !9, !noundef !9
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !9
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 80, i1 false)
@@ -1386,7 +1386,7 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %5 = load ptr, ptr %4, align 8, !nonnull !9, !noundef !9
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !9
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 80, i1 false)

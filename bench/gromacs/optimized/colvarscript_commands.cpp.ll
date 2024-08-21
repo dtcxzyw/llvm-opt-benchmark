@@ -402,7 +402,7 @@ define linkonce_odr noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object
   %22 = alloca %"class.std::allocator", align 1
   store i32 %2, ptr %6, align 4
   %23 = add nsw i32 %3, 2
-  %24 = icmp sgt i32 %23, %2
+  %24 = icmp slt i32 %2, %23
   br i1 %24, label %25, label %75
 
 25:                                               ; preds = %5
@@ -553,7 +553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 75:                                               ; preds = %5
   %76 = add nsw i32 %4, 2
-  %77 = icmp slt i32 %76, %2
+  %77 = icmp sgt i32 %2, %76
   br i1 %77, label %78, label %128
 
 78:                                               ; preds = %75

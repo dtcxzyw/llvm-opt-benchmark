@@ -60,7 +60,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pvsnprintf(ptr noundef 
 
 10:                                               ; preds = %4
   %11 = zext nneg i32 %5 to i64
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %22, label %13
 
 13:                                               ; preds = %10

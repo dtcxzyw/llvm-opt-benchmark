@@ -467,7 +467,7 @@ define void @_ZN10serde_json4read9SliceRead3new17h232b4f972eace9a5E(ptr noalias 
 define hidden { i64, i64 } @_ZN10serde_json4read9SliceRead17position_of_index17h02c4711b4edef64dE.llvm.5010337980914317090(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !13
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %6, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit"
 
 6:                                                ; preds = %2
@@ -509,7 +509,7 @@ define { i64, i64 } @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_jso
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !76, !noundef !13
-  %6 = icmp ult i64 %5, %3
+  %6 = icmp ugt i64 %3, %5
   br i1 %6, label %7, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i"
 
 7:                                                ; preds = %1
@@ -871,7 +871,7 @@ define { i64, i64 } @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !148, !noundef !13
-  %6 = icmp ult i64 %5, %3
+  %6 = icmp ugt i64 %3, %5
   br i1 %6, label %7, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i"
 
 7:                                                ; preds = %1

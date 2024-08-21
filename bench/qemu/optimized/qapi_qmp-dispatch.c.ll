@@ -160,7 +160,7 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %call5.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call1.i, ptr noundef nonnull dereferenceable(9) @.str.1) #7
   %tobool6.not.i = icmp eq i32 %call5.i, 0
-  %brmerge.not.i = and i1 %tobool6.not.i, %allow_oob
+  %brmerge.not.i = and i1 %allow_oob, %tobool6.not.i
   br i1 %brmerge.not.i, label %if.then.i, label %if.else.i46
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %for.body.i

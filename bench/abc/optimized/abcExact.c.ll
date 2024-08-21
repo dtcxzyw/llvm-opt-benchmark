@@ -5308,13 +5308,13 @@ define internal fastcc void @Vec_IntSetEntry(ptr nocapture noundef %0, i32 nound
   %4 = add nsw i32 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not.i.not = icmp sgt i32 %6, %1
+  %.not.i.not = icmp slt i32 %1, %6
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 8
   %9 = shl nsw i32 %8, 1
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   %.not.i.i.not = icmp sgt i32 %8, %1
   br i1 %.not, label %22, label %10
 
@@ -10465,7 +10465,7 @@ Ses_ManSelectVar.exit.i:                          ; preds = %.lr.ph.i.i, %52
   %71 = add i32 %70, %69
   %72 = shl nsw i32 %71, 1
   store i32 %72, ptr %invariant.gep, align 4
-  %73 = icmp sgt i32 %54, %.069212
+  %73 = icmp slt i32 %.069212, %54
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %Ses_ManSelectVar.exit.i
@@ -10481,7 +10481,7 @@ Ses_ManSelectVar.exit.i:                          ; preds = %.lr.ph.i.i, %52
 
 80:                                               ; preds = %75, %74
   %.0.i = phi i32 [ 2, %74 ], [ 3, %75 ]
-  %81 = icmp sgt i32 %54, %.068210
+  %81 = icmp slt i32 %.068210, %54
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %80
@@ -10557,7 +10557,7 @@ Ses_ManSelectVar.exit.i81:                        ; preds = %.lr.ph.i.i93, %Ses_
   %120 = add i32 %119, %118
   %121 = shl nsw i32 %120, 1
   store i32 %121, ptr %invariant.gep200, align 4
-  %122 = icmp sgt i32 %104, %.069212
+  %122 = icmp slt i32 %.069212, %104
   br i1 %122, label %123, label %124
 
 123:                                              ; preds = %Ses_ManSelectVar.exit.i81
@@ -10574,7 +10574,7 @@ Ses_ManSelectVar.exit.i81:                        ; preds = %.lr.ph.i.i93, %Ses_
 
 130:                                              ; preds = %124, %123
   %.0.i88 = phi i32 [ 2, %123 ], [ 3, %124 ]
-  %131 = icmp sgt i32 %104, %.068210
+  %131 = icmp slt i32 %.068210, %104
   br i1 %131, label %132, label %135
 
 132:                                              ; preds = %130
@@ -10650,7 +10650,7 @@ Ses_ManSelectVar.exit.i99:                        ; preds = %.lr.ph.i.i111, %Ses
   %168 = add i32 %167, %166
   %169 = shl nsw i32 %168, 1
   store i32 %169, ptr %invariant.gep202, align 4
-  %170 = icmp sgt i32 %153, %.069212
+  %170 = icmp slt i32 %.069212, %153
   br i1 %170, label %171, label %172
 
 171:                                              ; preds = %Ses_ManSelectVar.exit.i99
@@ -10667,7 +10667,7 @@ Ses_ManSelectVar.exit.i99:                        ; preds = %.lr.ph.i.i111, %Ses
 
 178:                                              ; preds = %172, %171
   %.0.i106 = phi i32 [ 2, %171 ], [ 3, %172 ]
-  %179 = icmp sgt i32 %153, %.068210
+  %179 = icmp slt i32 %.068210, %153
   br i1 %179, label %180, label %183
 
 180:                                              ; preds = %178
@@ -10745,7 +10745,7 @@ Ses_ManSelectVar.exit.i117:                       ; preds = %.lr.ph.i.i128, %Ses
   %218 = shl nsw i32 %217, 1
   %219 = or disjoint i32 %218, 1
   store i32 %219, ptr %23, align 4
-  %220 = icmp sgt i32 %202, %.069212
+  %220 = icmp slt i32 %.069212, %202
   br i1 %220, label %221, label %222
 
 221:                                              ; preds = %Ses_ManSelectVar.exit.i117
@@ -10761,7 +10761,7 @@ Ses_ManSelectVar.exit.i117:                       ; preds = %.lr.ph.i.i128, %Ses
 
 227:                                              ; preds = %222, %221
   %.0.i124 = phi i32 [ 2, %221 ], [ 3, %222 ]
-  %228 = icmp sgt i32 %202, %.068210
+  %228 = icmp slt i32 %.068210, %202
   br i1 %228, label %229, label %232
 
 229:                                              ; preds = %227
@@ -10831,7 +10831,7 @@ Ses_ManSelectVar.exit.i134:                       ; preds = %.lr.ph.i.i146, %Ses
   %262 = shl nsw i32 %261, 1
   %263 = or disjoint i32 %262, 1
   store i32 %263, ptr %invariant.gep204, align 4
-  %264 = icmp sgt i32 %246, %.069212
+  %264 = icmp slt i32 %.069212, %246
   br i1 %264, label %265, label %266
 
 265:                                              ; preds = %Ses_ManSelectVar.exit.i134
@@ -10847,7 +10847,7 @@ Ses_ManSelectVar.exit.i134:                       ; preds = %.lr.ph.i.i146, %Ses
 
 271:                                              ; preds = %266, %265
   %.0.i141 = phi i32 [ 2, %265 ], [ 3, %266 ]
-  %272 = icmp sgt i32 %246, %.068210
+  %272 = icmp slt i32 %.068210, %246
   br i1 %272, label %273, label %276
 
 273:                                              ; preds = %271
@@ -10924,7 +10924,7 @@ Ses_ManSelectVar.exit.i152:                       ; preds = %.lr.ph.i.i165, %Ses
   %310 = shl nsw i32 %309, 1
   %311 = or disjoint i32 %310, 1
   store i32 %311, ptr %invariant.gep206, align 4
-  %312 = icmp sgt i32 %294, %.069212
+  %312 = icmp slt i32 %.069212, %294
   br i1 %312, label %313, label %314
 
 313:                                              ; preds = %Ses_ManSelectVar.exit.i152
@@ -10941,7 +10941,7 @@ Ses_ManSelectVar.exit.i152:                       ; preds = %.lr.ph.i.i165, %Ses
 
 320:                                              ; preds = %314, %313
   %.0.i159 = phi i32 [ 2, %313 ], [ 3, %314 ]
-  %321 = icmp sgt i32 %294, %.068210
+  %321 = icmp slt i32 %.068210, %294
   br i1 %321, label %322, label %325
 
 322:                                              ; preds = %320
@@ -11017,7 +11017,7 @@ Ses_ManSelectVar.exit.i171:                       ; preds = %.lr.ph.i.i184, %Ses
   %358 = shl nsw i32 %357, 1
   %359 = or disjoint i32 %358, 1
   store i32 %359, ptr %invariant.gep208, align 4
-  %360 = icmp sgt i32 %342, %.069212
+  %360 = icmp slt i32 %.069212, %342
   br i1 %360, label %361, label %362
 
 361:                                              ; preds = %Ses_ManSelectVar.exit.i171
@@ -11034,7 +11034,7 @@ Ses_ManSelectVar.exit.i171:                       ; preds = %.lr.ph.i.i184, %Ses
 
 368:                                              ; preds = %362, %361
   %.0.i178 = phi i32 [ 2, %361 ], [ 3, %362 ]
-  %369 = icmp sgt i32 %342, %.068210
+  %369 = icmp slt i32 %.068210, %342
   br i1 %369, label %370, label %373
 
 370:                                              ; preds = %368
@@ -11476,7 +11476,7 @@ Abc_DebugPrintIntInt.exit:                        ; preds = %Abc_DebugErase.exit
   %25 = load i32, ptr %24, align 4
   %.not.i48 = icmp eq i32 %25, -1
   %26 = shl nuw i32 1, %25
-  %.not25.i = icmp sgt i32 %26, %1
+  %.not25.i = icmp slt i32 %1, %26
   %or.cond.i = select i1 %.not.i48, i1 true, i1 %.not25.i
   br i1 %or.cond.i, label %32, label %27
 
@@ -11501,7 +11501,7 @@ Abc_DebugPrintIntInt.exit:                        ; preds = %Abc_DebugErase.exit
 
 36:                                               ; preds = %33
   %37 = load i32, ptr %23, align 8
-  %38 = icmp slt i32 %37, %1
+  %38 = icmp sgt i32 %1, %37
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %36
@@ -11523,7 +11523,7 @@ Abc_DebugPrintIntInt.exit:                        ; preds = %Abc_DebugErase.exit
 47:                                               ; preds = %44
   %48 = add nsw i32 %25, -1
   %49 = shl nuw i32 1, %48
-  %.not29.not.i = icmp slt i32 %49, %1
+  %.not29.not.i = icmp sgt i32 %1, %49
   br i1 %.not29.not.i, label %50, label %55
 
 50:                                               ; preds = %47
@@ -11540,7 +11540,7 @@ Abc_DebugPrintIntInt.exit:                        ; preds = %Abc_DebugErase.exit
   %56 = getelementptr inbounds i8, ptr %0, i64 20
   %57 = load i32, ptr %56, align 4
   %58 = shl nuw i32 1, %57
-  %.not30.i = icmp sgt i32 %58, %1
+  %.not30.i = icmp slt i32 %1, %58
   br i1 %.not30.i, label %Ses_CheckGatesConsistency.exit.preheader, label %64
 
 Ses_CheckGatesConsistency.exit.preheader:         ; preds = %55
@@ -11913,13 +11913,13 @@ define internal fastcc void @Vec_PtrSetEntry(ptr nocapture noundef %0, i32 nound
   %4 = add nsw i32 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not.i.not = icmp sgt i32 %6, %1
+  %.not.i.not = icmp slt i32 %1, %6
   br i1 %.not.i.not, label %Vec_PtrFillExtra.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 8
   %9 = shl nsw i32 %8, 1
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   %.not.i.i.not = icmp sgt i32 %8, %1
   br i1 %.not, label %22, label %10
 

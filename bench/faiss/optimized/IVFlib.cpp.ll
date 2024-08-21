@@ -993,7 +993,7 @@ _ZN5faiss6ivflib17extract_index_ivfEPNS_5IndexE.exit: ; preds = %2
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = sdiv exact i64 %41, 24
-  %43 = icmp ult i64 %42, %34
+  %43 = icmp ugt i64 %34, %42
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %32
@@ -1002,7 +1002,7 @@ _ZN5faiss6ivflib17extract_index_ivfEPNS_5IndexE.exit: ; preds = %2
           to label %_ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit unwind label %11
 
 46:                                               ; preds = %32
-  %47 = icmp ugt i64 %42, %34
+  %47 = icmp ult i64 %34, %42
   br i1 %47, label %48, label %_ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit
 
 48:                                               ; preds = %46
@@ -1288,7 +1288,7 @@ define void @_ZN5faiss6ivflib18SlidingIndexWindow4stepEPKNS_5IndexEb(ptr nocaptu
   %52 = load ptr, ptr %0, align 8
   %53 = tail call noundef ptr @_ZN5faiss6ivflib17extract_index_ivfEPKNS_5IndexE(ptr noundef %52)
   %54 = icmp ne ptr %.081, null
-  %or.cond = and i1 %54, %2
+  %or.cond = and i1 %2, %54
   br i1 %or.cond, label %.preheader, label %191
 
 .preheader:                                       ; preds = %51
@@ -1364,7 +1364,7 @@ define void @_ZN5faiss6ivflib18SlidingIndexWindow4stepEPKNS_5IndexEb(ptr nocaptu
   %108 = sub i64 %106, %107
   %109 = ashr exact i64 %108, 3
   %110 = add i64 %109, %102
-  %111 = icmp ult i64 %101, %110
+  %111 = icmp ugt i64 %110, %101
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %94
@@ -1374,7 +1374,7 @@ define void @_ZN5faiss6ivflib18SlidingIndexWindow4stepEPKNS_5IndexEb(ptr nocaptu
   br label %_ZN5faiss6ivflibL13shift_and_addIlEEvRSt6vectorIT_SaIS3_EEmRKS5_.exit
 
 114:                                              ; preds = %94
-  %115 = icmp ugt i64 %101, %110
+  %115 = icmp ult i64 %110, %101
   br i1 %115, label %116, label %_ZN5faiss6ivflibL13shift_and_addIlEEvRSt6vectorIT_SaIS3_EEmRKS5_.exit
 
 116:                                              ; preds = %114
@@ -1541,7 +1541,7 @@ _ZN5faiss6ivflibL13shift_and_addIhEEvRSt6vectorIT_SaIS3_EEmRKS5_.exit.._crit_edg
   %229 = sub i64 %227, %228
   %230 = ashr exact i64 %229, 3
   %231 = add nsw i64 %230, %223
-  %232 = icmp ult i64 %223, %231
+  %232 = icmp ugt i64 %231, %223
   br i1 %232, label %233, label %234
 
 233:                                              ; preds = %199
@@ -1550,7 +1550,7 @@ _ZN5faiss6ivflibL13shift_and_addIhEEvRSt6vectorIT_SaIS3_EEmRKS5_.exit.._crit_edg
   br label %_ZN5faiss6ivflibL13shift_and_addIlEEvRSt6vectorIT_SaIS3_EEmRKS5_.exit105
 
 234:                                              ; preds = %199
-  %235 = icmp ugt i64 %223, %231
+  %235 = icmp ult i64 %231, %223
   br i1 %235, label %236, label %_ZN5faiss6ivflibL13shift_and_addIlEEvRSt6vectorIT_SaIS3_EEmRKS5_.exit105
 
 236:                                              ; preds = %234
@@ -1724,7 +1724,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %289, %_ZNSt6vectorI
   %337 = ptrtoint ptr %336 to i64
   %338 = getelementptr inbounds i8, ptr %334, i64 8
   %339 = load ptr, ptr %338, align 8
-  %.not11.i.i.i = icmp eq ptr %339, %336
+  %.not11.i.i.i = icmp eq ptr %336, %339
   br i1 %.not11.i.i.i, label %._crit_edge.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %330
@@ -1764,7 +1764,7 @@ _ZN5faiss6ivflibL17remove_from_beginIlEEvRSt6vectorIT_SaIS3_EEm.exit: ; preds = 
   %356 = ptrtoint ptr %355 to i64
   %357 = getelementptr inbounds i8, ptr %353, i64 8
   %358 = load ptr, ptr %357, align 8
-  %.not11.i.i.i109 = icmp eq ptr %358, %355
+  %.not11.i.i.i109 = icmp eq ptr %355, %358
   br i1 %.not11.i.i.i109, label %._crit_edge.i.i.i112, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES6_ET0_T_S8_S7_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %350
@@ -2025,7 +2025,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -2108,7 +2108,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -2236,7 +2236,7 @@ define noundef ptr @_ZN5faiss6ivflib17get_invlist_rangeEPKNS_5IndexEll(ptr nound
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 56
   %9 = load i64, ptr %8, align 8
-  %.not32 = icmp ult i64 %9, %2
+  %.not32 = icmp ugt i64 %2, %9
   br i1 %.not32, label %10, label %26
 
 10:                                               ; preds = %3, %7
@@ -2418,7 +2418,7 @@ define void @_ZN5faiss6ivflib17set_invlist_rangeEPNS_5IndexEllPNS_18ArrayInverte
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %8, i64 56
   %12 = load i64, ptr %11, align 8
-  %.not52 = icmp ult i64 %12, %2
+  %.not52 = icmp ugt i64 %2, %12
   br i1 %.not52, label %13, label %28
 
 13:                                               ; preds = %4, %10
@@ -3444,7 +3444,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58
   %60 = ashr exact i64 %59, 2
-  %61 = icmp ult i64 %60, %51
+  %61 = icmp ugt i64 %51, %60
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %47
@@ -3457,7 +3457,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 64:                                               ; preds = %47
-  %65 = icmp ugt i64 %60, %51
+  %65 = icmp ult i64 %51, %60
   br i1 %65, label %66, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 66:                                               ; preds = %64

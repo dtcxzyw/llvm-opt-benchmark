@@ -1109,7 +1109,7 @@ lor.lhs.false175:                                 ; preds = %sw.bb173
   store ptr %add.ptr.i338, ptr %current_.i, align 8
   %c2.i339 = getelementptr inbounds i8, ptr %arrayidx, i64 1
   %67 = load i16, ptr %c2.i339, align 1
-  %cmp.i340 = icmp eq i16 %67, %66
+  %cmp.i340 = icmp eq i16 %66, %67
   br i1 %cmp.i340, label %if.end194, label %do.body179
 
 do.body179:                                       ; preds = %sw.bb173, %lor.lhs.false175
@@ -1303,7 +1303,7 @@ lor.lhs.false255:                                 ; preds = %sw.bb253
   store ptr %add.ptr.i412, ptr %current_.i, align 8
   %c2.i413 = getelementptr inbounds i8, ptr %arrayidx, i64 1
   %103 = load i16, ptr %c2.i413, align 1
-  %cmp.i414 = icmp eq i16 %103, %102
+  %cmp.i414 = icmp eq i16 %102, %103
   br i1 %cmp.i414, label %if.end274, label %lor.rhs.i415
 
 lor.rhs.i415:                                     ; preds = %lor.lhs.false255
@@ -3501,7 +3501,7 @@ for.body.i.i:                                     ; preds = %if.end38, %for.inc.
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %end.i.i = getelementptr inbounds i8, ptr %__begin2.08.i.i, i64 4
   %9 = load i32, ptr %end.i.i, align 1
-  %cmp3.not.i.i = icmp ult i32 %9, %ch
+  %cmp3.not.i.i = icmp ugt i32 %ch, %9
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %_ZNK6hermes5regex16UTF16RegexTraits13rangesContainEN4llvh8ArrayRefINS0_14BracketRange32EEEj.exit
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
@@ -3732,7 +3732,7 @@ for.body.i42:                                     ; preds = %for.inc.i48, %for.b
   %9 = getelementptr i16, ptr %add.ptr.i36.i44, i64 %conv.i.i.i38
   %arrayidx.i.i.i45 = getelementptr i8, ptr %9, i64 -2
   %10 = load i16, ptr %arrayidx.i.i.i45, align 2
-  %cmp.i.i46 = icmp eq i16 %8, %10
+  %cmp.i.i46 = icmp eq i16 %10, %8
   br i1 %cmp.i.i46, label %for.inc.i48, label %sw.epilog
 
 for.inc.i48:                                      ; preds = %for.body.i42
@@ -3824,7 +3824,7 @@ for.body.i83:                                     ; preds = %for.inc.i100, %for.
   %arrayidx.i.i.i86 = getelementptr i8, ptr %23, i64 -2
   %24 = load i16, ptr %arrayidx.i.i.i86, align 2
   %add.ptr.i.i87 = getelementptr inbounds i16, ptr %add.ptr.i7.i84, i64 %idx.ext.i.i78
-  %cmp.i.i88 = icmp eq i16 %22, %24
+  %cmp.i.i88 = icmp eq i16 %24, %22
   br i1 %cmp.i.i88, label %for.inc.i100, label %lor.rhs.i.i89
 
 lor.rhs.i.i89:                                    ; preds = %for.body.i83
@@ -4446,7 +4446,7 @@ lor.lhs.false149:                                 ; preds = %sw.bb147
   store ptr %add.ptr.i295, ptr %current_.i, align 8
   %c2.i = getelementptr inbounds i8, ptr %arrayidx, i64 1
   %45 = load i8, ptr %c2.i, align 1
-  %cmp.i296 = icmp eq i8 %45, %44
+  %cmp.i296 = icmp eq i8 %44, %45
   br i1 %cmp.i296, label %if.end168, label %do.body153
 
 do.body153:                                       ; preds = %sw.bb147, %lor.lhs.false149
@@ -6738,7 +6738,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %5 = getelementptr i8, ptr %add.ptr.i36.i, i64 %conv.i.i.i
   %arrayidx.i.i.i = getelementptr i8, ptr %5, i64 -1
   %6 = load i8, ptr %arrayidx.i.i.i, align 1
-  %cmp.i.i = icmp eq i8 %4, %6
+  %cmp.i.i = icmp eq i8 %6, %4
   br i1 %cmp.i.i, label %for.inc.i, label %sw.epilog
 
 for.inc.i:                                        ; preds = %for.body.i

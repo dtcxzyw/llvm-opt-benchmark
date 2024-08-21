@@ -472,7 +472,7 @@ if.then21:                                        ; preds = %if.end16
 
 if.end24:                                         ; preds = %if.end16
   %cmp27 = icmp eq i32 %format, 1
-  %or.cond = and i1 %cmp27, %has_format
+  %or.cond = and i1 %has_format, %cmp27
   br i1 %or.cond, label %if.then29, label %if.else34
 
 if.then29:                                        ; preds = %if.end24

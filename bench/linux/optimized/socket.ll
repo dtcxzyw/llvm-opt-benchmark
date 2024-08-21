@@ -8440,7 +8440,7 @@ define internal range(i64 -2147483648, 2147483669) i64 @sockfs_listxattr(ptr noc
   br label %21
 
 12:                                               ; preds = %9
-  %13 = icmp ugt i64 %7, %2
+  %13 = icmp ult i64 %2, %7
   br i1 %13, label %21, label %14
 
 14:                                               ; preds = %12
@@ -8781,7 +8781,7 @@ define internal i32 @sockfs_xattr_get(ptr nocapture readnone %0, ptr nocapture n
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, 1
   %12 = zext i32 %11 to i64
-  %13 = icmp ugt i64 %12, %5
+  %13 = icmp ult i64 %5, %12
   br i1 %13, label %21, label %14
 
 14:                                               ; preds = %8

@@ -2082,7 +2082,7 @@ if.end90.i:                                       ; preds = %if.end80.i
   %add81.i = add i32 %add71.i, %45
   %add91.i = add i32 %add81.i, %50
   %div43.i = lshr i32 %add91.i, 3
-  %cmp.i = icmp ugt i32 %div43.i, %11
+  %cmp.i = icmp ult i32 %11, %div43.i
   br i1 %cmp.i, label %read_metadata_streaminfo_.exit.thread, label %read_metadata_streaminfo_.exit
 
 read_metadata_streaminfo_.exit.thread:            ; preds = %if.then14, %if.end.i, %if.end15.i, %if.end25.i, %if.end35.i, %if.end45.i, %if.end55.i, %if.end66.i, %if.end80.i, %if.end90.i
@@ -3723,13 +3723,13 @@ if.end21:                                         ; preds = %if.end
   %156 = load i32, ptr %bits_per_sample, align 8
   %output_capacity.i = getelementptr inbounds i8, ptr %153, i64 432
   %157 = load i32, ptr %output_capacity.i, align 8
-  %cmp.not.i = icmp ult i32 %157, %154
+  %cmp.not.i = icmp ugt i32 %154, %157
   br i1 %cmp.not.i, label %for.body.i158.preheader, label %land.lhs.true.i155
 
 land.lhs.true.i155:                               ; preds = %if.end21
   %output_channels.i = getelementptr inbounds i8, ptr %153, i64 436
   %158 = load i32, ptr %output_channels.i, align 4
-  %cmp2.not.i = icmp ult i32 %158, %155
+  %cmp2.not.i = icmp ugt i32 %155, %158
   br i1 %cmp2.not.i, label %for.body.i158.preheader, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i155
@@ -5763,7 +5763,7 @@ land.lhs.true54.i:                                ; preds = %if.end47.i
   br i1 %cmp56.not.i, label %if.end76.i, label %if.then57.i
 
 if.then57.i:                                      ; preds = %land.lhs.true54.i
-  %cmp60.i = icmp ugt i64 %66, %sample
+  %cmp60.i = icmp ult i64 %sample, %66
   %67 = load i32, ptr %20, align 8
   %tobool.not.i145.i = icmp eq i32 %67, 0
   br i1 %cmp60.i, label %if.then61.i, label %if.else68.i
@@ -6199,7 +6199,7 @@ if.end281.i:                                      ; preds = %if.end257.i
   br i1 %cmp282.i, label %return.sink.split.i67, label %if.end287.i
 
 if.end287.i:                                      ; preds = %if.end281.i
-  %cmp288.i = icmp ugt i64 %141, %sample
+  %cmp288.i = icmp ult i64 %sample, %141
   %144 = load i32, ptr %131, align 8
   %tobool.not.i182.i = icmp eq i32 %144, 0
   br i1 %cmp288.i, label %if.then290.i, label %if.else308.i

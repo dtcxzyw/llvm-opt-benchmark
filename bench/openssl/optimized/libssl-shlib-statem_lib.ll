@@ -3802,7 +3802,7 @@ entry:
 sw.default:                                       ; preds = %entry
   %version2 = getelementptr inbounds i8, ptr %s, i64 64
   %2 = load i32, ptr %version2, align 8
-  %cmp.i = icmp eq i32 %2, %version
+  %cmp.i = icmp eq i32 %version, %2
   %conv = zext i1 %cmp.i to i32
   br label %return
 
@@ -3831,7 +3831,7 @@ land.rhs.lr.ph:                                   ; preds = %sw.epilog
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %for.inc.us
   %4 = phi i32 [ %9, %for.inc.us ], [ %3, %land.rhs.lr.ph ]
   %vent.071.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %table.0, %land.rhs.lr.ph ]
-  %cmp.i18.us.not = icmp eq i32 %4, %version
+  %cmp.i18.us.not = icmp eq i32 %version, %4
   br i1 %cmp.i18.us.not, label %for.body.thread.us, label %if.end.i19.us
 
 if.end.i19.us:                                    ; preds = %land.rhs.us
@@ -3851,7 +3851,7 @@ if.end3.i25.us:                                   ; preds = %if.end.i19.us
   br i1 %cmp11.i30.us, label %for.inc.us, label %return
 
 if.then1.i33.us:                                  ; preds = %if.end.i19.us
-  %cmp2.i34.us = icmp sgt i32 %4, %version
+  %cmp2.i34.us = icmp slt i32 %version, %4
   br i1 %cmp2.i34.us, label %for.inc.us, label %return
 
 for.body.thread.us:                               ; preds = %land.rhs.us
@@ -5072,7 +5072,7 @@ for.body.us:                                      ; preds = %for.cond.preheader,
   %i.06.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.cond.preheader ]
   %arrayidx.us = getelementptr inbounds i16, ptr %groups, i64 %i.06.us
   %0 = load i16, ptr %arrayidx.us, align 2
-  %cmp4.us = icmp eq i16 %0, %group_id
+  %cmp4.us = icmp eq i16 %group_id, %0
   br i1 %cmp4.us, label %return, label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body.us
@@ -5084,7 +5084,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.06 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %arrayidx = getelementptr inbounds i16, ptr %groups, i64 %i.06
   %1 = load i16, ptr %arrayidx, align 2
-  %cmp4 = icmp eq i16 %1, %group_id
+  %cmp4 = icmp eq i16 %group_id, %1
   br i1 %cmp4, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
@@ -5630,7 +5630,7 @@ lor.lhs.false:                                    ; preds = %entry
   %ssl_pkey_num = getelementptr inbounds i8, ptr %s, i64 272
   %0 = load i64, ptr %ssl_pkey_num, align 8
   %conv = trunc i64 %0 to i32
-  %cmp1.not = icmp sgt i32 %conv, %idx
+  %cmp1.not = icmp slt i32 %idx, %conv
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false

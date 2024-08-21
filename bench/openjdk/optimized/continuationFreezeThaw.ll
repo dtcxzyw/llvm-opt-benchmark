@@ -763,7 +763,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %71
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %75, i64 %78
-  %80 = icmp ugt ptr %79, %73
+  %80 = icmp ult ptr %73, %79
   %81 = select i1 %.not.i.i.i.i11, i1 %80, i1 false
   br i1 %81, label %82, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
 
@@ -1396,7 +1396,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.i:      ; preds = %_ZNK5frame7real_fpE
   %36 = load i32, ptr %35, align 4, !noalias !22
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %34, i64 %37
-  %39 = icmp ugt ptr %38, %32
+  %39 = icmp ult ptr %32, %38
   %40 = select i1 %.not.i.i.i, i1 %39, i1 false
   br i1 %40, label %_ZN10FreezeBase33freeze_start_frame_safepoint_stubE5frame.exit, label %_ZN19TemplateInterpreter8containsEPh.exit.thread.i
 
@@ -1430,7 +1430,7 @@ _ZN19TemplateInterpreter8containsEPh.exit4.i:     ; preds = %_ZN18ContinuationHe
   %55 = load i32, ptr %54, align 4, !noalias !22
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  %58 = icmp ugt ptr %57, %51
+  %58 = icmp ult ptr %51, %57
   %59 = select i1 %.not.i.i3.i, i1 %58, i1 false
   br i1 %59, label %60, label %_ZN10FreezeBase33freeze_start_frame_safepoint_stubE5frame.exit
 
@@ -1548,7 +1548,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %_ZNK5frame17is_comp
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  %58 = icmp ugt ptr %57, %51
+  %58 = icmp ult ptr %51, %57
   %59 = select i1 %.not.i.i.i, i1 %58, i1 false
   br i1 %59, label %60, label %_ZNK5frame20is_interpreted_frameEv.exit.thread
 
@@ -1556,7 +1556,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %_ZNK5frame17is_comp
   %61 = getelementptr inbounds i8, ptr %0, i64 25
   %62 = load i8, ptr %61, align 1
   %63 = trunc i8 %62 to i1
-  %brmerge.demorgan = and i1 %63, %5
+  %brmerge.demorgan = and i1 %5, %63
   br i1 %brmerge.demorgan, label %64, label %68
 
 64:                                               ; preds = %60
@@ -1575,7 +1575,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %_ZNK5frame17is_comp
   %70 = getelementptr inbounds i8, ptr %0, i64 25
   %71 = load i8, ptr %70, align 1
   %72 = trunc i8 %71 to i1
-  %brmerge21.demorgan = and i1 %72, %5
+  %brmerge21.demorgan = and i1 %5, %72
   %brmerge30.not = and i1 %.not.i, %brmerge21.demorgan
   br i1 %brmerge30.not, label %_ZN18ContinuationHelper5Frame7is_stubEP8CodeBlob.exit, label %_ZN18ContinuationHelper5Frame7is_stubEP8CodeBlob.exit.thread
 
@@ -1623,7 +1623,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %3
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %18, i64 %21
-  %23 = icmp ugt ptr %22, %16
+  %23 = icmp ult ptr %16, %22
   %24 = select i1 %.not.i.i.i.i, i1 %23, i1 false
   br i1 %24, label %25, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
 
@@ -1793,7 +1793,7 @@ _ZN19TemplateInterpreter8containsEPh.exit:        ; preds = %_ZNK5frame7real_fpE
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = icmp ugt ptr %28, %22
+  %29 = icmp ult ptr %22, %28
   %30 = select i1 %.not.i.i, i1 %29, i1 false
   br i1 %30, label %_ZN19TemplateInterpreter8containsEPh.exit4.thread, label %_ZN19TemplateInterpreter8containsEPh.exit.thread
 
@@ -1827,7 +1827,7 @@ _ZN19TemplateInterpreter8containsEPh.exit4:       ; preds = %_ZN18ContinuationHe
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %43, i64 %46
-  %48 = icmp ugt ptr %47, %41
+  %48 = icmp ult ptr %41, %47
   %49 = select i1 %.not.i.i3, i1 %48, i1 false
   br i1 %49, label %50, label %_ZN19TemplateInterpreter8containsEPh.exit4.thread
 
@@ -2146,7 +2146,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %50
   %69 = load i32, ptr %68, align 4, !noalias !25
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %67, i64 %70
-  %72 = icmp ugt ptr %71, %65
+  %72 = icmp ult ptr %65, %71
   %73 = select i1 %.not.i.i.i.i, i1 %72, i1 false
   br i1 %73, label %74, label %_ZN10FreezeBase14new_heap_frameIN18ContinuationHelper13CompiledFrameEEE5frameRS3_S4_.exit
 
@@ -2187,7 +2187,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %_ZN10FreezeBase14ne
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i8, ptr %94, i64 %97
-  %99 = icmp ugt ptr %98, %92
+  %99 = icmp ult ptr %92, %98
   %100 = select i1 %.not.i.i.i30, i1 %99, i1 false
   br i1 %100, label %101, label %_ZNK5frame20is_interpreted_frameEv.exit.thread
 
@@ -2225,7 +2225,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i.i:      ; preds = %110
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds i8, ptr %115, i64 %118
-  %120 = icmp ugt ptr %119, %113
+  %120 = icmp ult ptr %113, %119
   %121 = select i1 %.not.i.i.i.i.i, i1 %120, i1 false
   br i1 %121, label %122, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i.i
 
@@ -2263,7 +2263,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i33:      ; preds = %_ZN10FreezeBase8pat
   %140 = load i32, ptr %139, align 4
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds i8, ptr %138, i64 %141
-  %143 = icmp ugt ptr %142, %136
+  %143 = icmp ult ptr %136, %142
   %144 = select i1 %.not.i.i.i9.i, i1 %143, i1 false
   br i1 %144, label %145, label %_ZN10FreezeBase5patchERK5frameRS0_S2_b.exit
 
@@ -2350,7 +2350,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %_ZN10FreezeBase38ad
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
-  %37 = icmp ugt ptr %36, %30
+  %37 = icmp ult ptr %30, %36
   %38 = select i1 %.not.i.i.i.i, i1 %37, i1 false
   br i1 %38, label %39, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
 
@@ -2430,7 +2430,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i33:      ; preds = %74
   %83 = load i32, ptr %82, align 4, !noalias !31
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr %81, i64 %84
-  %86 = icmp ugt ptr %85, %.pre.i
+  %86 = icmp ult ptr %.pre.i, %85
   %87 = select i1 %.not.i.i.i.i34, i1 %86, i1 false
   br i1 %87, label %.thread.i, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i35
 
@@ -2509,7 +2509,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i.i:      ; preds = %129
   %135 = load i32, ptr %134, align 4
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds i8, ptr %133, i64 %136
-  %138 = icmp ugt ptr %137, %131
+  %138 = icmp ult ptr %131, %137
   %139 = select i1 %.not.i.i.i.i.i, i1 %138, i1 false
   br i1 %139, label %140, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i.i
 
@@ -2547,7 +2547,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i38:      ; preds = %_ZN10FreezeBase8pat
   %158 = load i32, ptr %157, align 4
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i8, ptr %156, i64 %159
-  %161 = icmp ugt ptr %160, %154
+  %161 = icmp ult ptr %154, %160
   %162 = select i1 %.not.i.i.i9.i, i1 %161, i1 false
   br i1 %162, label %163, label %_ZN10FreezeBase5patchERK5frameRS0_S2_b.exit
 
@@ -2749,7 +2749,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %89
   %107 = load i32, ptr %106, align 4, !noalias !34
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i8, ptr %105, i64 %108
-  %110 = icmp ugt ptr %109, %103
+  %110 = icmp ult ptr %103, %109
   %111 = select i1 %.not.i.i.i.i, i1 %110, i1 false
   br i1 %111, label %112, label %_ZN10FreezeBase14new_heap_frameIN18ContinuationHelper9StubFrameEEE5frameRS3_S4_.exit
 
@@ -2851,12 +2851,12 @@ define hidden noundef range(i32 1, 6) i32 @_ZN10FreezeBase15finalize_freezeERK5f
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %44, i64 %47
-  %49 = icmp ugt ptr %48, %40
+  %49 = icmp ult ptr %40, %48
   %50 = select i1 %.not.i.i, i1 %49, i1 false
   %51 = getelementptr inbounds i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i = icmp ule ptr %44, %52
-  %53 = icmp ugt ptr %48, %52
+  %53 = icmp ult ptr %52, %48
   %54 = select i1 %.not.i.i.i, i1 %53, i1 false
   %55 = xor i1 %50, %54
   %56 = select i1 %55, i32 0, i32 %3
@@ -3050,7 +3050,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i: ; preds 
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
-  %36 = icmp ugt ptr %35, %.pre.i
+  %36 = icmp ult ptr %.pre.i, %35
   %37 = select i1 %.not.i.i.i.i, i1 %36, i1 false
   br i1 %37, label %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread.i
 
@@ -3102,7 +3102,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit: ; preds = 
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = icmp ugt ptr %60, %54
+  %61 = icmp ult ptr %54, %60
   %62 = select i1 %.not.i.i.i5, i1 %61, i1 false
   br i1 %62, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread
 
@@ -3187,7 +3187,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i: ; preds 
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %17, i64 %20
-  %22 = icmp ugt ptr %21, %.pre.pre
+  %22 = icmp ult ptr %.pre.pre, %21
   %23 = select i1 %.not.i.i.i.i, i1 %22, i1 false
   br i1 %23, label %24, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread.i
 
@@ -3235,7 +3235,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE2fpEv.exit: ; preds = %24, %_ZNK21S
   %45 = load i32, ptr %44, align 8
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %30, i64 %46
-  %48 = icmp eq ptr %47, %.pre.pre
+  %48 = icmp eq ptr %.pre.pre, %47
   br i1 %48, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i, label %49
 
 49:                                               ; preds = %43
@@ -3243,7 +3243,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE2fpEv.exit: ; preds = %24, %_ZNK21S
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 3
   %53 = getelementptr inbounds i8, ptr %47, i64 5
-  %54 = icmp eq ptr %53, %.pre.pre
+  %54 = icmp eq ptr %.pre.pre, %53
   %or.cond.i.i.i.i = select i1 %52, i1 %54, i1 false
   br i1 %or.cond.i.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i
 
@@ -3252,13 +3252,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i: ; preds = %49
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %30, i64 %57
-  %59 = icmp ne ptr %58, %.pre.pre
+  %59 = icmp ne ptr %.pre.pre, %58
   %brmerge.i.not.i.i.i = and i1 %52, %59
   br i1 %brmerge.i.not.i.i.i, label %60, label %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i
 
 60:                                               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i
   %61 = getelementptr inbounds i8, ptr %58, i64 5
-  %62 = icmp eq ptr %61, %.pre.pre
+  %62 = icmp eq ptr %.pre.pre, %61
   br i1 %62, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i:           ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i
@@ -3321,7 +3321,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %11
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %16, i64 %19
-  %21 = icmp ugt ptr %20, %14
+  %21 = icmp ult ptr %14, %20
   %22 = select i1 %.not.i.i.i.i, i1 %21, i1 false
   br i1 %22, label %23, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
 
@@ -3360,7 +3360,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %_ZN10FreezeBase8pat
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %40, i64 %43
-  %45 = icmp ugt ptr %44, %38
+  %45 = icmp ult ptr %38, %44
   %46 = select i1 %.not.i.i.i9, i1 %45, i1 false
   br i1 %46, label %47, label %_ZNK5frame20is_interpreted_frameEv.exit.thread
 
@@ -3681,7 +3681,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %30
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %35, i64 %38
-  %40 = icmp ugt ptr %39, %33
+  %40 = icmp ult ptr %33, %39
   %41 = select i1 %.not.i.i.i.i, i1 %40, i1 false
   br i1 %41, label %42, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
 
@@ -3762,7 +3762,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %9
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %14, i64 %17
-  %19 = icmp ugt ptr %18, %12
+  %19 = icmp ult ptr %12, %18
   %20 = select i1 %.not.i.i.i, i1 %19, i1 false
   br i1 %20, label %21, label %_ZNK5frame20is_interpreted_frameEv.exit.thread
 
@@ -4059,7 +4059,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %22
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %27, i64 %30
-  %32 = icmp ugt ptr %31, %25
+  %32 = icmp ult ptr %25, %31
   %33 = select i1 %.not.i.i.i, i1 %32, i1 false
   br i1 %33, label %55, label %.thread44
 
@@ -4082,7 +4082,7 @@ _ZN19TemplateInterpreter8containsEPh.exit:        ; preds = %.critedge
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %42, i64 %45
-  %47 = icmp ugt ptr %46, %39
+  %47 = icmp ult ptr %39, %46
   %48 = select i1 %.not.i.i37, i1 %47, i1 false
   br i1 %48, label %55, label %.thread
 
@@ -4128,7 +4128,7 @@ _ZNK5frame20is_interpreted_frameEv.exit40:        ; preds = %62
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %69, i64 %72
-  %74 = icmp ugt ptr %73, %67
+  %74 = icmp ult ptr %67, %73
   %75 = select i1 %.not.i.i.i39, i1 %74, i1 false
   br i1 %75, label %76, label %_ZNK5frame20is_interpreted_frameEv.exit40.thread
 
@@ -4232,7 +4232,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %129
   %142 = load i32, ptr %141, align 4
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds i8, ptr %140, i64 %143
-  %145 = icmp ugt ptr %144, %138
+  %145 = icmp ult ptr %138, %144
   %146 = select i1 %.not.i.i.i.i, i1 %145, i1 false
   br i1 %146, label %147, label %_ZN8ThawBase5patchER5frameRKS0_b.exit
 
@@ -4261,7 +4261,7 @@ _ZN8ThawBase5patchER5frameRKS0_b.exit:            ; preds = %129, %_ZNK5frame20i
   %163 = load ptr, ptr %7, align 8
   %164 = getelementptr inbounds i8, ptr %0, i64 16
   %165 = load ptr, ptr %164, align 8
-  %166 = icmp ult ptr %165, %163
+  %166 = icmp ugt ptr %163, %165
   br i1 %166, label %167, label %_ZN8ThawBase18maybe_set_fastpathEPl.exit
 
 167:                                              ; preds = %162
@@ -4302,7 +4302,7 @@ _ZN8ThawBase5patchER5frameRKS0_b.exit:            ; preds = %129, %_ZNK5frame20i
   %189 = load ptr, ptr %7, align 8
   %190 = getelementptr inbounds i8, ptr %0, i64 16
   %191 = load ptr, ptr %190, align 8
-  %192 = icmp ult ptr %191, %189
+  %192 = icmp ugt ptr %189, %191
   br i1 %192, label %193, label %_ZN8ThawBase18maybe_set_fastpathEPl.exit
 
 193:                                              ; preds = %188
@@ -4445,7 +4445,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %18
   %31 = load i32, ptr %30, align 4, !noalias !40
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
-  %34 = icmp ugt ptr %33, %27
+  %34 = icmp ult ptr %27, %33
   %35 = select i1 %.not.i.i.i.i, i1 %34, i1 false
   br i1 %35, label %36, label %_ZN8ThawBase15new_stack_frameIN18ContinuationHelper16InterpretedFrameEEE5frameRKS3_RS3_b.exit
 
@@ -4581,7 +4581,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i26:      ; preds = %115
   %128 = load i32, ptr %127, align 4
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds i8, ptr %126, i64 %129
-  %131 = icmp ugt ptr %130, %124
+  %131 = icmp ult ptr %124, %130
   %132 = select i1 %.not.i.i.i.i27, i1 %131, i1 false
   br i1 %132, label %133, label %_ZN8ThawBase5patchER5frameRKS0_b.exit
 
@@ -4604,7 +4604,7 @@ _ZN8ThawBase5patchER5frameRKS0_b.exit:            ; preds = %115, %_ZNK5frame20i
   %145 = load ptr, ptr %6, align 8
   %146 = getelementptr inbounds i8, ptr %0, i64 16
   %147 = load ptr, ptr %146, align 8
-  %148 = icmp ult ptr %147, %145
+  %148 = icmp ugt ptr %145, %147
   br i1 %148, label %149, label %_ZN8ThawBase18maybe_set_fastpathEPl.exit
 
 149:                                              ; preds = %_ZN8ThawBase5patchER5frameRKS0_b.exit
@@ -4873,7 +4873,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %15
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %21, i64 %24
-  %26 = icmp ugt ptr %25, %19
+  %26 = icmp ult ptr %19, %25
   %27 = select i1 %.not.i.i.i.i10, i1 %26, i1 false
   br i1 %27, label %28, label %_ZNK5frame20is_interpreted_frameEv.exit.i.thread
 
@@ -4917,7 +4917,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i: ; preds 
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %14, i64 %17
-  %19 = icmp ugt ptr %18, %12
+  %19 = icmp ult ptr %12, %18
   %20 = select i1 %.not.i.i.i.i, i1 %19, i1 false
   br i1 %20, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE31interpreter_frame_stack_argsizeEv.exit.i, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread.i
 
@@ -4992,7 +4992,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %47
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  %58 = icmp ugt ptr %57, %51
+  %58 = icmp ult ptr %51, %57
   %59 = select i1 %.not.i.i.i.i9, i1 %58, i1 false
   br i1 %59, label %60, label %_ZNK5frame20is_interpreted_frameEv.exit.i.thread
 
@@ -5037,7 +5037,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %15
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %20, i64 %23
-  %25 = icmp ugt ptr %24, %18
+  %25 = icmp ult ptr %18, %24
   %26 = select i1 %.not.i.i.i, i1 %25, i1 false
   br i1 %26, label %27, label %_ZN8ThawBase5alignERK5framePlRS0_b.exit
 
@@ -5174,7 +5174,7 @@ _ZNK5frame7oop_mapEv.exit:                        ; preds = %58, %_ZNK5frame11ge
   %102 = load i32, ptr %101, align 8
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i8, ptr %59, i64 %103
-  %105 = icmp eq ptr %104, %61
+  %105 = icmp eq ptr %61, %104
   br i1 %105, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i, label %106
 
 106:                                              ; preds = %100
@@ -5182,7 +5182,7 @@ _ZNK5frame7oop_mapEv.exit:                        ; preds = %58, %_ZNK5frame11ge
   %108 = load i8, ptr %107, align 1
   %109 = icmp eq i8 %108, 3
   %110 = getelementptr inbounds i8, ptr %104, i64 5
-  %111 = icmp eq ptr %110, %61
+  %111 = icmp eq ptr %61, %110
   %or.cond.i.i.i.i = select i1 %109, i1 %111, i1 false
   br i1 %or.cond.i.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i
 
@@ -5191,13 +5191,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i: ; preds = %106
   %113 = load i32, ptr %112, align 4
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %59, i64 %114
-  %116 = icmp ne ptr %115, %61
+  %116 = icmp ne ptr %61, %115
   %brmerge.i.not.i.i.i = and i1 %109, %116
   br i1 %brmerge.i.not.i.i.i, label %117, label %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i
 
 117:                                              ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i
   %118 = getelementptr inbounds i8, ptr %115, i64 5
-  %119 = icmp eq ptr %118, %61
+  %119 = icmp eq ptr %61, %118
   br i1 %119, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i:           ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i
@@ -5276,7 +5276,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit: ; preds = 
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %20, i64 %23
-  %25 = icmp ugt ptr %24, %18
+  %25 = icmp ult ptr %18, %24
   %26 = select i1 %.not.i.i.i, i1 %25, i1 false
   br i1 %26, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE12derelativizeEi.exit.thread.i, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread
 
@@ -5339,7 +5339,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10: ; preds 
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  %58 = icmp ugt ptr %57, %51
+  %58 = icmp ult ptr %51, %57
   %59 = select i1 %.not.i.i.i9, i1 %58, i1 false
   br i1 %59, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10.thread
 
@@ -5382,7 +5382,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i: ; preds 
   %76 = load i32, ptr %75, align 4
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr %74, i64 %77
-  %79 = icmp ugt ptr %78, %.pre.i
+  %79 = icmp ult ptr %.pre.i, %78
   %80 = select i1 %.not.i.i.i.i18, i1 %79, i1 false
   br i1 %80, label %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread.i
 
@@ -5496,7 +5496,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %15
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %20, i64 %23
-  %25 = icmp ugt ptr %24, %18
+  %25 = icmp ult ptr %18, %24
   %26 = select i1 %.not.i.i.i, i1 %25, i1 false
   br i1 %26, label %27, label %_ZN8ThawBase5alignERK5framePlRS0_b.exit
 
@@ -5633,7 +5633,7 @@ _ZNK5frame7oop_mapEv.exit:                        ; preds = %58, %_ZNK5frame11ge
   %102 = load i32, ptr %101, align 8
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i8, ptr %59, i64 %103
-  %105 = icmp eq ptr %104, %61
+  %105 = icmp eq ptr %61, %104
   br i1 %105, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i, label %106
 
 106:                                              ; preds = %100
@@ -5641,7 +5641,7 @@ _ZNK5frame7oop_mapEv.exit:                        ; preds = %58, %_ZNK5frame11ge
   %108 = load i8, ptr %107, align 1
   %109 = icmp eq i8 %108, 3
   %110 = getelementptr inbounds i8, ptr %104, i64 5
-  %111 = icmp eq ptr %110, %61
+  %111 = icmp eq ptr %61, %110
   %or.cond.i.i.i.i = select i1 %109, i1 %111, i1 false
   br i1 %or.cond.i.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i
 
@@ -5650,13 +5650,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i: ; preds = %106
   %113 = load i32, ptr %112, align 4
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %59, i64 %114
-  %116 = icmp ne ptr %115, %61
+  %116 = icmp ne ptr %61, %115
   %brmerge.i.not.i.i.i = and i1 %109, %116
   br i1 %brmerge.i.not.i.i.i, label %117, label %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i
 
 117:                                              ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i
   %118 = getelementptr inbounds i8, ptr %115, i64 5
-  %119 = icmp eq ptr %118, %61
+  %119 = icmp eq ptr %61, %118
   br i1 %119, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i:           ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i
@@ -6087,7 +6087,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp ugt ptr %21, %3
+  %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
@@ -6149,7 +6149,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %60, %39
+  %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
@@ -6226,7 +6226,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -6765,7 +6765,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp ugt ptr %21, %3
+  %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
@@ -6827,7 +6827,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %60, %39
+  %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
@@ -7253,7 +7253,7 @@ _ZN14AccessInternal15BarrierResolverILm286790EPFvP7oopDesclS2_ELNS_11BarrierType
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE1ELm286822EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %8 = icmp eq ptr %2, null
@@ -7282,7 +7282,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19Car
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE1ELm286822EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = icmp eq ptr %2, null
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -7301,7 +7301,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17Eps
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE1ELm286822EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 1264
@@ -7365,7 +7365,7 @@ _ZN16ModRefBarrierSet13AccessBarrierILm286822E12G1BarrierSetE20oop_store_in_heap
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE1ELm286822EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   tail call void @_ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E16oop_store_commonI9narrowOopEEvPT_P7oopDesc(ptr noundef %6, ptr noundef %2)
   ret void
@@ -7374,7 +7374,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN20She
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE1ELm286822EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = icmp eq ptr %2, null
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -7393,7 +7393,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE1ELm286822EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   tail call void @_ZN8ZBarrier31store_barrier_on_heap_oop_fieldEPV8zpointerb(ptr noundef %6, i1 noundef zeroext false)
   %7 = ptrtoint ptr %2 to i64
@@ -7441,7 +7441,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet13AccessBarrierILm2868
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
-  %.not.i.i.i.i = icmp ugt ptr %23, %1
+  %.not.i.i.i.i = icmp ult ptr %1, %23
   br i1 %.not.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i: ; preds = %13
@@ -7750,7 +7750,7 @@ declare noundef i64 @_ZN8ZBarrier20heap_store_slow_pathEPV8zpointer8zaddressS0_b
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE1ELm286790EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   store ptr %2, ptr %6, align 8
@@ -7769,7 +7769,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19Car
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE1ELm286790EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   store ptr %2, ptr %6, align 8
   ret void
@@ -7778,7 +7778,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17Eps
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE1ELm286790EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 1264
@@ -7824,7 +7824,7 @@ _ZN16ModRefBarrierSet13AccessBarrierILm286790E12G1BarrierSetE20oop_store_in_heap
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE1ELm286790EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   tail call void @_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E16oop_store_commonIP7oopDescEEvPT_S4_(ptr noundef %6, ptr noundef %2)
   ret void
@@ -7833,7 +7833,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN20She
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE1ELm286790EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   store ptr %2, ptr %6, align 8
   ret void
@@ -7842,7 +7842,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE1ELm286790EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   tail call void @_ZN8ZBarrier31store_barrier_on_heap_oop_fieldEPV8zpointerb(ptr noundef %6, i1 noundef zeroext false)
   %7 = ptrtoint ptr %2 to i64
@@ -7888,7 +7888,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet13AccessBarrierILm2867
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
-  %.not.i.i.i.i = icmp ugt ptr %23, %1
+  %.not.i.i.i.i = icmp ult ptr %1, %23
   br i1 %.not.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i: ; preds = %13
@@ -7951,7 +7951,7 @@ _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit: ; preds = %2, %7, %13, %_Z
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds ptr, ptr %66, i64 %64
   %68 = load ptr, ptr %67, align 8
-  %.not.i.i.i.i7 = icmp ugt ptr %68, %56
+  %.not.i.i.i.i7 = icmp ult ptr %56, %68
   br i1 %.not.i.i.i.i7, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i8, label %_ZN20ShenandoahBarrierSet12satb_barrierILm286790EP7oopDescEEvPT0_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i8: ; preds = %58
@@ -8190,7 +8190,7 @@ _ZN9CodeCache14find_blob_fastEPv.exit:            ; preds = %13, %_ZNK17NativePo
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %.0.i.i, i64 %30
-  %32 = icmp eq ptr %31, %27
+  %32 = icmp eq ptr %27, %31
   br i1 %32, label %_ZNK5frame21get_deopt_original_pcEv.exit.i, label %33
 
 33:                                               ; preds = %26
@@ -8198,7 +8198,7 @@ _ZN9CodeCache14find_blob_fastEPv.exit:            ; preds = %13, %_ZNK17NativePo
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 3
   %37 = getelementptr inbounds i8, ptr %31, i64 5
-  %38 = icmp eq ptr %37, %27
+  %38 = icmp eq ptr %27, %37
   %or.cond.i.i.i = select i1 %36, i1 %38, i1 false
   br i1 %or.cond.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i
 
@@ -8207,13 +8207,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i: ; preds = %33
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 %41
-  %43 = icmp ne ptr %42, %27
+  %43 = icmp ne ptr %27, %42
   %brmerge.i.not.i.i = and i1 %36, %43
   br i1 %brmerge.i.not.i.i, label %44, label %_ZN7nmethod11is_deopt_pcEPh.exit.i.i
 
 44:                                               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i
   %45 = getelementptr inbounds i8, ptr %42, i64 5
-  %46 = icmp eq ptr %45, %27
+  %46 = icmp eq ptr %27, %45
   br i1 %46, label %_ZNK5frame21get_deopt_original_pcEv.exit.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i.i:             ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i
@@ -8308,7 +8308,7 @@ _ZN14AccessInternal15BarrierResolverILm286790EPFP7oopDescS2_lELNS_11BarrierTypeE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -8327,7 +8327,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -8346,7 +8346,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -8365,7 +8365,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -8412,7 +8412,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oop
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -8465,7 +8465,7 @@ _ZN11XBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %5, i64 noundef %6)
@@ -8476,7 +8476,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -8485,7 +8485,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -8494,7 +8494,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -8503,7 +8503,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -8527,7 +8527,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oop
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -8570,7 +8570,7 @@ _ZN11XBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %5, i64 noundef %6)
@@ -8604,7 +8604,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %3, %_ZNK11RegisterM
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @_ZN12StubRoutines25_call_stub_return_addressE, align 8
-  %13 = icmp eq ptr %12, %11
+  %13 = icmp eq ptr %11, %12
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %_ZNK11RegisterMap7in_contEv.exit.thread
@@ -8640,7 +8640,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %_ZNK5frame20is_upca
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = icmp ugt ptr %28, %11
+  %29 = icmp ult ptr %11, %28
   %30 = select i1 %.not.i.i.i, i1 %29, i1 false
   br i1 %30, label %31, label %_ZNK5frame20is_interpreted_frameEv.exit.thread
 
@@ -8691,7 +8691,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %_ZNK5frame20is_upca
   %54 = load i32, ptr %53, align 8
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds i8, ptr %45, i64 %55
-  %57 = icmp eq ptr %56, %52
+  %57 = icmp eq ptr %52, %56
   br i1 %57, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %58
 
 58:                                               ; preds = %51
@@ -8699,7 +8699,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %_ZNK5frame20is_upca
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 3
   %62 = getelementptr inbounds i8, ptr %56, i64 5
-  %63 = icmp eq ptr %62, %52
+  %63 = icmp eq ptr %52, %62
   %or.cond.i.i.i.i.i = select i1 %61, i1 %63, i1 false
   br i1 %or.cond.i.i.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
 
@@ -8708,13 +8708,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i: ; preds = %58
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %45, i64 %66
-  %68 = icmp ne ptr %67, %52
+  %68 = icmp ne ptr %52, %67
   %brmerge.i.not.i.i.i.i = and i1 %61, %68
   br i1 %brmerge.i.not.i.i.i.i, label %69, label %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i
 
 69:                                               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
   %70 = getelementptr inbounds i8, ptr %67, i64 5
-  %71 = icmp eq ptr %70, %52
+  %71 = icmp eq ptr %52, %70
   br i1 %71, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i:         ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
@@ -9499,7 +9499,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E19CardTab
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = load i32, ptr @LogBitsPerHeapOop, align 4
   %12 = sub nsw i32 6, %11
   %13 = zext nneg i32 %12 to i64
@@ -9896,7 +9896,7 @@ _ZN14AccessInternal15BarrierResolverILm4481094EPFvP7oopDesclS2_ELNS_11BarrierTyp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm4481126ES1_EELNS_11BarrierTypeE1ELm4481126EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %8 = icmp eq ptr %2, null
@@ -9925,7 +9925,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19Car
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm4481126ES1_EELNS_11BarrierTypeE1ELm4481126EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = icmp eq ptr %2, null
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -9944,7 +9944,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17Eps
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm4481126ES1_EELNS_11BarrierTypeE1ELm4481126EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %8 = icmp eq ptr %2, null
@@ -10008,7 +10008,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN20She
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i.i.i.i = icmp ugt ptr %24, %2
+  %.not.i.i.i.i.i.i.i = icmp ult ptr %2, %24
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm4481126ES_E20oop_store_in_heap_atEP7oopDesclS3_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i.i: ; preds = %14
@@ -10042,7 +10042,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i.i: ; preds = %14
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm4481126ES_E20oop_store_in_heap_atEP7oopDesclS3_.exit: ; preds = %3, %8, %14, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i.i, %43
   %48 = ptrtoint ptr %0 to i64
-  %49 = add nsw i64 %48, %1
+  %49 = add nsw i64 %1, %48
   %50 = inttoptr i64 %49 to ptr
   %51 = icmp eq ptr %2, null
   %52 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -10061,7 +10061,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm4481126ES_E20oop_store_in_heap_atEP7o
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm4481126ES1_EELNS_11BarrierTypeE1ELm4481126EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = icmp eq ptr %2, null
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -10080,7 +10080,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm4481126ES1_EELNS_11BarrierTypeE1ELm4481126EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = ptrtoint ptr %2 to i64
   %8 = load i64, ptr @ZPointerStoreGoodMask, align 8
@@ -10098,7 +10098,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm4481094ES1_EELNS_11BarrierTypeE1ELm4481094EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   store ptr %2, ptr %6, align 8
@@ -10117,7 +10117,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19Car
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm4481094ES1_EELNS_11BarrierTypeE1ELm4481094EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   store ptr %2, ptr %6, align 8
   ret void
@@ -10126,7 +10126,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17Eps
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm4481094ES1_EELNS_11BarrierTypeE1ELm4481094EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   store ptr %2, ptr %6, align 8
@@ -10180,7 +10180,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN20She
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i.i.i.i = icmp ugt ptr %24, %2
+  %.not.i.i.i.i.i.i.i = icmp ult ptr %2, %24
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm4481094ES_E20oop_store_in_heap_atEP7oopDesclS3_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i.i: ; preds = %14
@@ -10214,7 +10214,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i.i: ; preds = %14
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm4481094ES_E20oop_store_in_heap_atEP7oopDesclS3_.exit: ; preds = %3, %8, %14, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i.i, %43
   %48 = ptrtoint ptr %0 to i64
-  %49 = add nsw i64 %48, %1
+  %49 = add nsw i64 %1, %48
   %50 = inttoptr i64 %49 to ptr
   store ptr %2, ptr %50, align 8
   ret void
@@ -10223,7 +10223,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm4481094ES_E20oop_store_in_heap_atEP7o
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm4481094ES1_EELNS_11BarrierTypeE1ELm4481094EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   store ptr %2, ptr %6, align 8
   ret void
@@ -10232,7 +10232,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm4481094ES1_EELNS_11BarrierTypeE1ELm4481094EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = ptrtoint ptr %2 to i64
   %8 = load i64, ptr @ZPointerStoreGoodMask, align 8
@@ -10845,7 +10845,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E17Epsilon
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = load i32, ptr @LogBitsPerHeapOop, align 4
   %12 = sub nsw i32 6, %11
   %13 = zext nneg i32 %12 to i64
@@ -11643,7 +11643,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E12G1Barri
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = load i32, ptr @LogBitsPerHeapOop, align 4
   %12 = sub nsw i32 6, %11
   %13 = zext nneg i32 %12 to i64
@@ -12441,7 +12441,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E20Shenand
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = load i32, ptr @LogBitsPerHeapOop, align 4
   %12 = sub nsw i32 6, %11
   %13 = zext nneg i32 %12 to i64
@@ -13239,7 +13239,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E11XBarrie
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = load i32, ptr @LogBitsPerHeapOop, align 4
   %12 = sub nsw i32 6, %11
   %13 = zext nneg i32 %12 to i64
@@ -14037,7 +14037,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E11ZBarrie
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = load i32, ptr @LogBitsPerHeapOop, align 4
   %12 = sub nsw i32 6, %11
   %13 = zext nneg i32 %12 to i64
@@ -14835,7 +14835,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E19CardTab
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = load i32, ptr @LogBitsPerHeapOop, align 4
   %12 = sub nsw i32 6, %11
   %13 = zext nneg i32 %12 to i64
@@ -15633,7 +15633,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E17Epsilon
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = load i32, ptr @LogBitsPerHeapOop, align 4
   %12 = sub nsw i32 6, %11
   %13 = zext nneg i32 %12 to i64
@@ -16431,7 +16431,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E12G1Barri
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = load i32, ptr @LogBitsPerHeapOop, align 4
   %12 = sub nsw i32 6, %11
   %13 = zext nneg i32 %12 to i64
@@ -17229,7 +17229,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E20Shenand
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = load i32, ptr @LogBitsPerHeapOop, align 4
   %12 = sub nsw i32 6, %11
   %13 = zext nneg i32 %12 to i64
@@ -18027,7 +18027,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E11XBarrie
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = load i32, ptr @LogBitsPerHeapOop, align 4
   %12 = sub nsw i32 6, %11
   %13 = zext nneg i32 %12 to i64
@@ -18825,7 +18825,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E11ZBarrie
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = load i32, ptr @LogBitsPerHeapOop, align 4
   %12 = sub nsw i32 6, %11
   %13 = zext nneg i32 %12 to i64
@@ -19348,7 +19348,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit: ; preds = 
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %13, i64 %16
-  %18 = icmp ugt ptr %17, %11
+  %18 = icmp ult ptr %11, %17
   %19 = select i1 %.not.i.i.i, i1 %18, i1 false
   br i1 %19, label %97, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread
 
@@ -19377,7 +19377,7 @@ select.unfold:                                    ; preds = %_ZNK17NativePostCal
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %26, i64 %29
-  %31 = icmp eq ptr %30, %21
+  %31 = icmp eq ptr %21, %30
   br i1 %31, label %_ZN7nmethod11is_deopt_pcEPh.exit.thread, label %32
 
 32:                                               ; preds = %select.unfold
@@ -19385,7 +19385,7 @@ select.unfold:                                    ; preds = %_ZNK17NativePostCal
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 3
   %36 = getelementptr inbounds i8, ptr %30, i64 5
-  %37 = icmp eq ptr %36, %21
+  %37 = icmp eq ptr %21, %36
   %or.cond.i = select i1 %35, i1 %37, i1 false
   br i1 %or.cond.i, label %_ZN7nmethod11is_deopt_pcEPh.exit.thread, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i
 
@@ -19394,13 +19394,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i:    ; preds = %32
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %26, i64 %40
-  %42 = icmp ne ptr %41, %21
+  %42 = icmp ne ptr %21, %41
   %brmerge.i.not = and i1 %35, %42
   br i1 %brmerge.i.not, label %43, label %_ZN7nmethod11is_deopt_pcEPh.exit
 
 43:                                               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i
   %44 = getelementptr inbounds i8, ptr %41, i64 5
-  %45 = icmp eq ptr %44, %21
+  %45 = icmp eq ptr %21, %44
   br i1 %45, label %_ZN7nmethod11is_deopt_pcEPh.exit.thread, label %select.unfold21
 
 _ZN7nmethod11is_deopt_pcEPh.exit:                 ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i
@@ -19422,7 +19422,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i: ; preds 
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %49, i64 %52
-  %54 = icmp ugt ptr %53, %21
+  %54 = icmp ult ptr %21, %53
   %55 = select i1 %.not.i.i.i.i, i1 %54, i1 false
   br i1 %55, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i
 
@@ -19442,7 +19442,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread.i: ; preds =
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 3
   %62 = getelementptr inbounds i8, ptr %30, i64 5
-  %63 = icmp eq ptr %62, %21
+  %63 = icmp eq ptr %21, %62
   %or.cond.i.i = select i1 %61, i1 %63, i1 false
   br i1 %or.cond.i.i, label %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i
 
@@ -19451,13 +19451,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i:  ; preds = %58
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %26, i64 %66
-  %68 = icmp ne ptr %67, %21
+  %68 = icmp ne ptr %21, %67
   %brmerge.i.not.i = and i1 %61, %68
   br i1 %brmerge.i.not.i, label %69, label %_ZN7nmethod11is_deopt_pcEPh.exit.i
 
 69:                                               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i
   %70 = getelementptr inbounds i8, ptr %67, i64 5
-  %71 = icmp eq ptr %70, %21
+  %71 = icmp eq ptr %21, %70
   br i1 %71, label %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i:               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i
@@ -19558,7 +19558,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit: ; preds = 
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %20, i64 %23
-  %25 = icmp ugt ptr %24, %18
+  %25 = icmp ult ptr %18, %24
   %26 = select i1 %.not.i.i.i, i1 %25, i1 false
   br i1 %26, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE12derelativizeEi.exit.thread.i, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread
 
@@ -19621,7 +19621,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10: ; preds 
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  %58 = icmp ugt ptr %57, %51
+  %58 = icmp ult ptr %51, %57
   %59 = select i1 %.not.i.i.i9, i1 %58, i1 false
   br i1 %59, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10.thread
 
@@ -19664,7 +19664,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i: ; preds 
   %76 = load i32, ptr %75, align 4
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr %74, i64 %77
-  %79 = icmp ugt ptr %78, %.pre.i
+  %79 = icmp ult ptr %.pre.i, %78
   %80 = select i1 %.not.i.i.i.i18, i1 %79, i1 false
   br i1 %80, label %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit.thread, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread.i
 
@@ -19764,7 +19764,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i.i: ; pred
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  %30 = icmp ule ptr %29, %23
+  %30 = icmp uge ptr %23, %29
   %.not3 = select i1 %.not.i.i.i.i.i, i1 true, i1 %30
   call void @llvm.assume(i1 %.not3)
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread.i.i

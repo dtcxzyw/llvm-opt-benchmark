@@ -3808,7 +3808,7 @@ glob_alloc_n.exit:                                ; preds = %do_lstat.exit391.th
   %.0279.lcssa = phi ptr [ %381, %.preheader ], [ %.3282.us, %406 ], [ %.3282, %429 ]
   %432 = ptrtoint ptr %354 to i64
   %433 = ptrtoint ptr %343 to i64
-  %434 = add i64 %433, %2
+  %434 = add i64 %2, %433
   %435 = sub i64 %327, %434
   %436 = add i64 %435, %432
   %437 = call fastcc i32 @glob_helper(i32 noundef %0, ptr noundef nonnull %343, i64 noundef %2, i64 noundef %436, i32 noundef 1, i32 noundef %.2278.fr, ptr noundef nonnull %381, ptr noundef %.0279.lcssa, i32 noundef %289, ptr noundef %9, i64 noundef %10, ptr noundef %11)
@@ -6030,7 +6030,7 @@ define internal range(i32 0, 2) i32 @fnmatch_brace(ptr noundef %0, i64 noundef %
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call ptr @rb_enc_get(i64 noundef %7) #22
-  %.not = icmp eq ptr %8, %2
+  %.not = icmp eq ptr %2, %8
   br i1 %.not, label %22, label %9
 
 9:                                                ; preds = %3

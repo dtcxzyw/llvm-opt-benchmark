@@ -241,7 +241,7 @@ Abc_Clock.exit103:                                ; preds = %123, %126
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 48
   %149 = load ptr, ptr %148, align 8
-  %150 = icmp eq ptr %149, %1
+  %150 = icmp eq ptr %1, %149
   br i1 %150, label %.sink.split, label %189
 
 151:                                              ; preds = %Abc_Clock.exit101
@@ -297,7 +297,7 @@ Abc_Clock.exit107:                                ; preds = %165, %168
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 48
   %182 = load ptr, ptr %181, align 8
-  %.not92 = icmp eq ptr %182, %1
+  %.not92 = icmp eq ptr %1, %182
   br i1 %.not92, label %186, label %183
 
 183:                                              ; preds = %Abc_Clock.exit107
@@ -853,7 +853,7 @@ Abc_Clock.exit60:                                 ; preds = %125, %128
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 48
   %142 = load ptr, ptr %141, align 8
-  %.not49 = icmp eq ptr %142, %1
+  %.not49 = icmp eq ptr %1, %142
   br i1 %.not49, label %147, label %143
 
 143:                                              ; preds = %Abc_Clock.exit60
@@ -1109,7 +1109,7 @@ Abc_Clock.exit61:                                 ; preds = %124, %127
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 48
   %141 = load ptr, ptr %140, align 8
-  %.not50 = icmp eq ptr %141, %1
+  %.not50 = icmp eq ptr %1, %141
   br i1 %.not50, label %146, label %142
 
 142:                                              ; preds = %Abc_Clock.exit61

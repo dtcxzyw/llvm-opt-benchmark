@@ -286,7 +286,7 @@ define i64 @PPC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2
   %31 = shl nuw nsw i32 %30, 8
   %32 = and i32 %16, 252
   %33 = trunc i64 %.04043.us to i32
-  %34 = add i32 %33, %2
+  %34 = add i32 %2, %33
   %35 = sub i32 %21, %34
   %36 = add i32 %35, %32
   %37 = add i32 %36, %26
@@ -346,7 +346,7 @@ define i64 @PPC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2
   %74 = shl nuw nsw i32 %73, 8
   %75 = and i32 %59, 252
   %76 = trunc i64 %.04043 to i32
-  %77 = add i32 %76, %2
+  %77 = add i32 %2, %76
   %78 = add i32 %64, %77
   %79 = add i32 %78, %75
   %80 = add i32 %79, %69

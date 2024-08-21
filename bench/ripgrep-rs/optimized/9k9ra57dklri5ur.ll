@@ -492,7 +492,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %10 = getelementptr inbounds i8, ptr %9, i64 1
   store ptr %10, ptr %0, align 8, !alias.scope !150
   %.val4 = load i8, ptr %9, align 1, !noundef !9
-  %.not = icmp eq i8 %.0.i.i.i, %.val4
+  %.not = icmp eq i8 %.val4, %.0.i.i.i
   br i1 %.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h891fa85a811d5a85E.exit", label %8
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h891fa85a811d5a85E.exit": ; preds = %8, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit"

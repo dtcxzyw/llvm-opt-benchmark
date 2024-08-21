@@ -1954,7 +1954,7 @@ if.end.i.i:                                       ; preds = %entry
   %len.i.i = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load i64, ptr %len.i.i, align 8
   %sub.i.i = sub i64 %1, %2
-  %cmp.not.i.i = icmp ult i64 %sub.i.i, %len
+  %cmp.not.i.i = icmp ugt i64 %len, %sub.i.i
   br i1 %cmp.not.i.i, label %if.end2.i.i, label %str_buf_reserve.exit.i
 
 if.end2.i.i:                                      ; preds = %if.end.i.i

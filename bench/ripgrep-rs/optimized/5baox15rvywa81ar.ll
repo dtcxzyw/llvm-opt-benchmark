@@ -3093,12 +3093,12 @@ _ZN12aho_corasick9automaton9get_match17haad0f4f2fcd5a7d8E.exit103: ; preds = %"_
   %124 = load ptr, ptr %116, align 8, !noalias !541, !nonnull !4, !noundef !4
   %125 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %124, i64 0, i64 %120
   %.sroa.6419.1.copyload = load i8, ptr %125, align 1, !noalias !545
-  %.not.i.i = icmp ult i8 %.sroa.6419.1.copyload, %98
+  %.not.i.i = icmp ugt i8 %98, %.sroa.6419.1.copyload
   br i1 %.not.i.i, label %117, label %126
 
 126:                                              ; preds = %123
   %.sroa.8420.1..sroa_idx = getelementptr inbounds i8, ptr %125, i64 1
-  %127 = icmp eq i8 %.sroa.6419.1.copyload, %98
+  %127 = icmp eq i8 %98, %.sroa.6419.1.copyload
   br i1 %127, label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17h2cae0fffa4328cccE.exit", label %.thread1508
 
 128:                                              ; preds = %102
@@ -3478,12 +3478,12 @@ _ZN12aho_corasick9automaton9get_match17haad0f4f2fcd5a7d8E.exit99: ; preds = %"_Z
   %290 = load ptr, ptr %282, align 8, !noalias !634, !nonnull !4, !noundef !4
   %291 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %290, i64 0, i64 %286
   %.sroa.6425.1.copyload = load i8, ptr %291, align 1, !noalias !638
-  %.not.i.i130 = icmp ult i8 %.sroa.6425.1.copyload, %262
+  %.not.i.i130 = icmp ugt i8 %262, %.sroa.6425.1.copyload
   br i1 %.not.i.i130, label %283, label %292
 
 292:                                              ; preds = %289
   %.sroa.8426.1..sroa_idx = getelementptr inbounds i8, ptr %291, i64 1
-  %293 = icmp eq i8 %.sroa.6425.1.copyload, %262
+  %293 = icmp eq i8 %262, %.sroa.6425.1.copyload
   br i1 %293, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.i, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.i.thread
 
 294:                                              ; preds = %268
@@ -3869,12 +3869,12 @@ _ZN12aho_corasick9automaton9get_match17haad0f4f2fcd5a7d8E.exit95: ; preds = %"_Z
   %452 = load ptr, ptr %444, align 8, !noalias !730, !nonnull !4, !noundef !4
   %453 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %452, i64 0, i64 %448
   %.sroa.6432.1.copyload = load i8, ptr %453, align 1, !noalias !734
-  %.not.i.i142 = icmp ult i8 %.sroa.6432.1.copyload, %424
+  %.not.i.i142 = icmp ugt i8 %424, %.sroa.6432.1.copyload
   br i1 %.not.i.i142, label %445, label %454
 
 454:                                              ; preds = %451
   %.sroa.8433.1..sroa_idx = getelementptr inbounds i8, ptr %453, i64 1
-  %455 = icmp eq i8 %.sroa.6432.1.copyload, %424
+  %455 = icmp eq i8 %424, %.sroa.6432.1.copyload
   br i1 %455, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.i135, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.i135.thread
 
 456:                                              ; preds = %430
@@ -4219,12 +4219,12 @@ _ZN12aho_corasick9automaton9get_match17haad0f4f2fcd5a7d8E.exit91: ; preds = %"_Z
   %596 = load ptr, ptr %588, align 8, !noalias !819, !nonnull !4, !noundef !4
   %597 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %596, i64 0, i64 %592
   %.sroa.6439.1.copyload = load i8, ptr %597, align 1, !noalias !823
-  %.not.i.i154 = icmp ult i8 %.sroa.6439.1.copyload, %568
+  %.not.i.i154 = icmp ugt i8 %568, %.sroa.6439.1.copyload
   br i1 %.not.i.i154, label %589, label %598
 
 598:                                              ; preds = %595
   %.sroa.8440.1..sroa_idx = getelementptr inbounds i8, ptr %597, i64 1
-  %599 = icmp eq i8 %.sroa.6439.1.copyload, %568
+  %599 = icmp eq i8 %568, %.sroa.6439.1.copyload
   br i1 %599, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.i147, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.i147.thread
 
 600:                                              ; preds = %574
@@ -4542,12 +4542,12 @@ _ZN12aho_corasick9automaton9get_match17haad0f4f2fcd5a7d8E.exit: ; preds = %"_ZN9
   %734 = load ptr, ptr %726, align 8, !noalias !912, !nonnull !4, !noundef !4
   %735 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %734, i64 0, i64 %730
   %.sroa.6446.1.copyload = load i8, ptr %735, align 1, !noalias !916
-  %.not.i.i166 = icmp ult i8 %.sroa.6446.1.copyload, %706
+  %.not.i.i166 = icmp ugt i8 %706, %.sroa.6446.1.copyload
   br i1 %.not.i.i166, label %727, label %736
 
 736:                                              ; preds = %733
   %.sroa.8447.1..sroa_idx = getelementptr inbounds i8, ptr %735, i64 1
-  %737 = icmp eq i8 %.sroa.6446.1.copyload, %706
+  %737 = icmp eq i8 %706, %.sroa.6446.1.copyload
   br i1 %737, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.i159, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.i159.thread
 
 738:                                              ; preds = %712
@@ -6699,12 +6699,12 @@ _ZN12aho_corasick9automaton9get_match17haad0f4f2fcd5a7d8E.exit37: ; preds = %"_Z
   %242 = load ptr, ptr %250, align 8, !noalias !1446, !nonnull !4, !noundef !4
   %243 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %242, i64 0, i64 %239
   %.sroa.6184.1.copyload.us = load i8, ptr %243, align 1, !noalias !1450
-  %.not.i.i.us = icmp ult i8 %.sroa.6184.1.copyload.us, %212
+  %.not.i.i.us = icmp ugt i8 %212, %.sroa.6184.1.copyload.us
   br i1 %.not.i.i.us, label %236, label %244
 
 244:                                              ; preds = %241
   %.sroa.8185.1..sroa_idx.us.le = getelementptr inbounds i8, ptr %243, i64 1
-  %245 = icmp eq i8 %.sroa.6184.1.copyload.us, %212
+  %245 = icmp eq i8 %212, %.sroa.6184.1.copyload.us
   br i1 %245, label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17h2cae0fffa4328cccE.exit", label %.thread603
 
 .lr.ph405.us:                                     ; preds = %232
@@ -6769,12 +6769,12 @@ _ZN12aho_corasick9automaton9get_match17haad0f4f2fcd5a7d8E.exit37: ; preds = %"_Z
   %271 = load ptr, ptr %264, align 8, !noalias !1446, !nonnull !4, !noundef !4
   %272 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %271, i64 0, i64 %268
   %.sroa.6184.1.copyload = load i8, ptr %272, align 1, !noalias !1450
-  %.not.i.i = icmp ult i8 %.sroa.6184.1.copyload, %212
+  %.not.i.i = icmp ugt i8 %212, %.sroa.6184.1.copyload
   br i1 %.not.i.i, label %265, label %273
 
 273:                                              ; preds = %270
   %.sroa.8185.1..sroa_idx = getelementptr inbounds i8, ptr %272, i64 1
-  %274 = icmp eq i8 %.sroa.6184.1.copyload, %212
+  %274 = icmp eq i8 %212, %.sroa.6184.1.copyload
   br i1 %274, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.i, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.i.thread
 
 275:                                              ; preds = %.lr.ph412.split
@@ -7327,12 +7327,12 @@ _ZN12aho_corasick9automaton9get_match17haad0f4f2fcd5a7d8E.exit31: ; preds = %"_Z
   %515 = load ptr, ptr %507, align 8, !noalias !1584, !nonnull !4, !noundef !4
   %516 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %515, i64 0, i64 %511
   %.sroa.6190.1.copyload = load i8, ptr %516, align 1, !noalias !1588
-  %.not.i.i55 = icmp ult i8 %.sroa.6190.1.copyload, %487
+  %.not.i.i55 = icmp ugt i8 %487, %.sroa.6190.1.copyload
   br i1 %.not.i.i55, label %508, label %517
 
 517:                                              ; preds = %514
   %.sroa.8191.1..sroa_idx = getelementptr inbounds i8, ptr %516, i64 1
-  %518 = icmp eq i8 %.sroa.6190.1.copyload, %487
+  %518 = icmp eq i8 %487, %.sroa.6190.1.copyload
   br i1 %518, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.i47, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.i47.thread
 
 519:                                              ; preds = %493

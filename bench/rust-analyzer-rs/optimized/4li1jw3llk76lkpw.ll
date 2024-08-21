@@ -13595,7 +13595,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !2664, !noalias !2669, !noundef !12
   %6 = load i64, ptr %0, align 8, !alias.scope !2671, !noalias !2669, !noundef !12
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3284dcacd0b3f923E.exit"
 
 9:                                                ; preds = %3
@@ -13773,7 +13773,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !2699, !noalias !2704, !noundef !12
   %45 = load i64, ptr %0, align 8, !alias.scope !2706, !noalias !2704, !noundef !12
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3284dcacd0b3f923E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -14608,7 +14608,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !12
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -14689,8 +14689,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !2854
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -25701,7 +25701,7 @@ _ZN14ide_completion6render8function6params17h0d62492d9521799fE.exit.thread.i: ; 
   call void @llvm.experimental.noalias.scope.decl(metadata !5105)
   call void @llvm.experimental.noalias.scope.decl(metadata !5108)
   %432 = load ptr, ptr %85, align 8, !alias.scope !5110, !noalias !5113, !nonnull !12, !noundef !12
-  %433 = icmp eq ptr %432, %422
+  %433 = icmp eq ptr %422, %432
   br i1 %433, label %"_ZN50_$LT$hir..Type$u20$as$u20$core..cmp..PartialEq$GT$2eq17h67c748c412e61516E.llvm.18152640266846470746.exit.i.i", label %434
 
 434:                                              ; preds = %428
@@ -27051,7 +27051,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.i: ; preds = %.noexc.i240,
   %913 = phi i64 [ %.pre.i239, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.i ], [ %.pre17.i, %902 ]
   %914 = phi i64 [ %911, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.i ], [ 0, %902 ]
   %915 = sub i64 %913, %914
-  %916 = icmp ult i64 %915, %.sroa.4.0.i.i.i.le.i
+  %916 = icmp ugt i64 %.sroa.4.0.i.i.i.le.i, %915
   br i1 %916, label %917, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3284dcacd0b3f923E.exit.i"
 
 917:                                              ; preds = %912

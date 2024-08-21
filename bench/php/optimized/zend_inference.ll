@@ -1526,9 +1526,9 @@ declare void @llvm.assume(i1 noundef) #4
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define hidden i64 @minOR(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = xor i64 %0, -1
-  %6 = and i64 %5, %2
+  %6 = and i64 %2, %5
   %7 = xor i64 %2, -1
-  %8 = and i64 %7, %0
+  %8 = and i64 %0, %7
   br label %9
 
 9:                                                ; preds = %4, %21
@@ -1644,9 +1644,9 @@ define hidden i64 @minAND(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 no
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define hidden i64 @maxAND(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = xor i64 %3, -1
-  %6 = and i64 %5, %1
+  %6 = and i64 %1, %5
   %7 = xor i64 %1, -1
-  %8 = and i64 %7, %3
+  %8 = and i64 %3, %7
   br label %9
 
 9:                                                ; preds = %4, %23
@@ -1693,7 +1693,7 @@ define hidden i64 @minXOR(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   %5 = xor i64 %3, -1
   %6 = xor i64 %2, -1
   %.not = xor i64 %0, -1
-  %7 = and i64 %.not, %3
+  %7 = and i64 %3, %.not
   br label %8
 
 8:                                                ; preds = %17, %4
@@ -1724,7 +1724,7 @@ minAND.exit:                                      ; preds = %10, %14, %17
   %.020.i = phi i64 [ %5, %17 ], [ %5, %10 ], [ %16, %14 ]
   %.019.i = phi i64 [ %0, %17 ], [ %13, %10 ], [ %0, %14 ]
   %19 = xor i64 %1, -1
-  %20 = and i64 %6, %1
+  %20 = and i64 %1, %6
   br label %21
 
 21:                                               ; preds = %30, %minAND.exit
@@ -9478,7 +9478,7 @@ zend_abs_range.exit:                              ; preds = %1984
 
 zend_abs_range.exit.thread2945:                   ; preds = %1986
   %1990 = sub nsw i64 0, %.02033
-  %1991 = tail call i64 @llvm.umax.i64(i64 %1990, i64 %.02022)
+  %1991 = tail call i64 @llvm.umax.i64(i64 %.02022, i64 %1990)
   br label %.thread2951
 
 1992:                                             ; preds = %zend_abs_range.exit.thread, %zend_abs_range.exit
@@ -30127,7 +30127,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_infer_types(ptr noundef %0, pt
 120:                                              ; preds = %117
   %121 = getelementptr inbounds i8, ptr %119, i64 24
   %122 = load ptr, ptr %121, align 8
-  %123 = icmp eq ptr %122, %0
+  %123 = icmp eq ptr %0, %122
   br i1 %123, label %is_recursive_tail_call.exit.thread.i, label %is_recursive_tail_call.exit.i
 
 is_recursive_tail_call.exit.i:                    ; preds = %120, %117, %112, %107, %103, %100, %97, %86
@@ -32315,9 +32315,9 @@ define internal fastcc void @zend_ssa_range_or(i64 noundef %0, i64 noundef %1, i
 
 19:                                               ; preds = %5, %5, %5, %5
   %20 = xor i64 %0, -1
-  %21 = and i64 %20, %2
+  %21 = and i64 %2, %20
   %22 = xor i64 %2, -1
-  %23 = and i64 %22, %0
+  %23 = and i64 %0, %22
   br label %24
 
 24:                                               ; preds = %36, %19
@@ -32390,9 +32390,9 @@ maxOR.exit:                                       ; preds = %42, %46, %49
 
 52:                                               ; preds = %5
   %53 = xor i64 %0, -1
-  %54 = and i64 %53, %2
+  %54 = and i64 %2, %53
   %55 = xor i64 %2, -1
-  %56 = and i64 %55, %0
+  %56 = and i64 %0, %55
   br label %57
 
 57:                                               ; preds = %69, %52
@@ -32463,9 +32463,9 @@ maxOR.exit61:                                     ; preds = %82, %75, %79
 
 85:                                               ; preds = %5
   %86 = xor i64 %0, -1
-  %87 = and i64 %86, %2
+  %87 = and i64 %2, %86
   %88 = xor i64 %2, -1
-  %89 = and i64 %88, %0
+  %89 = and i64 %0, %88
   br label %90
 
 90:                                               ; preds = %102, %85
@@ -32636,9 +32636,9 @@ minAND.exit:                                      ; preds = %23, %27, %30
   %32 = and i64 %.019.i, %.020.i
   store i64 %32, ptr %4, align 8
   %33 = xor i64 %3, -1
-  %34 = and i64 %33, %1
+  %34 = and i64 %1, %33
   %35 = xor i64 %1, -1
-  %36 = and i64 %35, %3
+  %36 = and i64 %3, %35
   br label %37
 
 37:                                               ; preds = %51, %minAND.exit
@@ -32743,9 +32743,9 @@ minAND.exit62:                                    ; preds = %76, %72
   %78 = and i64 %.019.i59, %2
   store i64 %78, ptr %4, align 8
   %79 = xor i64 %3, -1
-  %80 = and i64 %79, %1
+  %80 = and i64 %1, %79
   %81 = xor i64 %1, -1
-  %82 = and i64 %81, %3
+  %82 = and i64 %3, %81
   br label %83
 
 83:                                               ; preds = %97, %minAND.exit62
@@ -32819,9 +32819,9 @@ minAND.exit80:                                    ; preds = %111, %104, %108
   %113 = and i64 %.019.i77, %.020.i76
   store i64 %113, ptr %4, align 8
   %114 = xor i64 %3, -1
-  %115 = and i64 %114, %1
+  %115 = and i64 %1, %114
   %116 = xor i64 %1, -1
-  %117 = and i64 %116, %3
+  %117 = and i64 %3, %116
   br label %118
 
 118:                                              ; preds = %132, %minAND.exit80
@@ -34288,14 +34288,14 @@ define internal fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr
   %209 = load i64, ptr %24, align 8
   %210 = icmp sgt i64 %209, 0
   %211 = sub nuw nsw i64 9223372036854775807, %209
-  %212 = icmp slt i64 %211, %208
+  %212 = icmp sgt i64 %208, %211
   %or.cond.i = select i1 %210, i1 %212, i1 false
   br i1 %or.cond.i, label %add_will_overflow.exit.thread, label %add_will_overflow.exit
 
 add_will_overflow.exit:                           ; preds = %202
   %213 = icmp slt i64 %209, 0
   %214 = sub nsw i64 -9223372036854775808, %209
-  %215 = icmp sgt i64 %214, %208
+  %215 = icmp slt i64 %208, %214
   %216 = select i1 %213, i1 %215, i1 false
   br i1 %216, label %add_will_overflow.exit.thread, label %217
 
@@ -34363,14 +34363,14 @@ add_will_overflow.exit.thread:                    ; preds = %add_will_overflow.e
   %250 = load i64, ptr %249, align 8
   %251 = icmp sgt i64 %250, 0
   %252 = sub nuw nsw i64 9223372036854775807, %250
-  %253 = icmp slt i64 %252, %248
+  %253 = icmp sgt i64 %248, %252
   %or.cond.i268 = select i1 %251, i1 %253, i1 false
   br i1 %or.cond.i268, label %add_will_overflow.exit269.thread, label %add_will_overflow.exit269
 
 add_will_overflow.exit269:                        ; preds = %246
   %254 = icmp slt i64 %250, 0
   %255 = sub nsw i64 -9223372036854775808, %250
-  %256 = icmp sgt i64 %255, %248
+  %256 = icmp slt i64 %248, %255
   %257 = select i1 %254, i1 %256, i1 false
   br i1 %257, label %add_will_overflow.exit269.thread, label %258
 
@@ -34434,14 +34434,14 @@ add_will_overflow.exit269.thread:                 ; preds = %246, %258, %add_wil
   %291 = load i64, ptr %24, align 8
   %292 = icmp sgt i64 %291, 0
   %293 = sub nuw nsw i64 9223372036854775807, %291
-  %294 = icmp slt i64 %293, %290
+  %294 = icmp sgt i64 %290, %293
   %or.cond.i270 = select i1 %292, i1 %294, i1 false
   br i1 %or.cond.i270, label %add_will_overflow.exit271.thread, label %add_will_overflow.exit271
 
 add_will_overflow.exit271:                        ; preds = %288
   %295 = icmp slt i64 %291, 0
   %296 = sub nsw i64 -9223372036854775808, %291
-  %297 = icmp sgt i64 %296, %290
+  %297 = icmp slt i64 %290, %296
   %298 = select i1 %295, i1 %297, i1 false
   br i1 %298, label %add_will_overflow.exit271.thread, label %299
 
@@ -34501,14 +34501,14 @@ add_will_overflow.exit271.thread:                 ; preds = %288, %add_will_over
   %332 = load i64, ptr %331, align 8
   %333 = icmp sgt i64 %332, 0
   %334 = sub nuw nsw i64 9223372036854775807, %332
-  %335 = icmp slt i64 %334, %330
+  %335 = icmp sgt i64 %330, %334
   %or.cond.i272 = select i1 %333, i1 %335, i1 false
   br i1 %or.cond.i272, label %add_will_overflow.exit273.thread, label %add_will_overflow.exit273
 
 add_will_overflow.exit273:                        ; preds = %328
   %336 = icmp slt i64 %332, 0
   %337 = sub nsw i64 -9223372036854775808, %332
-  %338 = icmp sgt i64 %337, %330
+  %338 = icmp slt i64 %330, %337
   %339 = select i1 %336, i1 %338, i1 false
   br i1 %339, label %add_will_overflow.exit273.thread, label %340
 

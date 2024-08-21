@@ -1753,7 +1753,7 @@ define internal fastcc void @infix(ptr noundef %0, i32 noundef %1, i1 noundef ze
   store ptr %212, ptr %0, align 8
   %213 = icmp slt i32 %209, %1
   %214 = icmp eq i8 %125, 4
-  %brmerge.not = and i1 %214, %2
+  %brmerge.not = and i1 %2, %214
   %or.cond = or i1 %brmerge.not, %213
   br i1 %or.cond, label %.preheader216, label %240
 

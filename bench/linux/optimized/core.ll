@@ -4303,8 +4303,8 @@ define internal fastcc noundef zeroext i1 @check_msr(i64 noundef %0, i64 noundef
   %21 = add i32 %20, %19
   %22 = zext i32 %21 to i64
   %23 = zext i32 %19 to i64
-  %24 = icmp ule i64 %23, %0
-  %25 = icmp ugt i64 %22, %0
+  %24 = icmp uge i64 %0, %23
+  %25 = icmp ult i64 %0, %22
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %27, label %29
 
@@ -4361,8 +4361,8 @@ define internal fastcc noundef zeroext i1 @check_msr(i64 noundef %0, i64 noundef
   %53 = add i32 %52, %51
   %54 = zext i32 %53 to i64
   %55 = zext i32 %51 to i64
-  %56 = icmp ule i64 %55, %0
-  %57 = icmp ugt i64 %54, %0
+  %56 = icmp uge i64 %0, %55
+  %57 = icmp ult i64 %0, %54
   %58 = select i1 %56, i1 %57, i1 false
   br i1 %58, label %59, label %61
 

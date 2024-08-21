@@ -355,7 +355,7 @@ define range(i32 -101, 1) i32 @CVDenseB(ptr noundef %0, i32 noundef %1, i64 noun
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -370,7 +370,7 @@ define range(i32 -101, 1) i32 @CVDenseB(ptr noundef %0, i32 noundef %1, i64 noun
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.026 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.026, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.026, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 

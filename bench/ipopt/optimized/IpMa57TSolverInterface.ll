@@ -3000,7 +3000,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit15:                 ; preds = %198, %194, %177
 
 222:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit15
   %223 = load i32, ptr %47, align 8
-  %.not = icmp eq i32 %223, %4
+  %.not = icmp eq i32 %4, %223
   br i1 %.not, label %229, label %224
 
 224:                                              ; preds = %222

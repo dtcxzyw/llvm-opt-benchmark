@@ -1778,7 +1778,7 @@ define i64 @bb_get_size_num(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %3, align 8
-  %12 = icmp eq ptr %11, %0
+  %12 = icmp eq ptr %0, %11
   br i1 %12, label %43, label %13
 
 13:                                               ; preds = %10
@@ -1954,7 +1954,7 @@ define i32 @bb_pack_bufs(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
 13:                                               ; preds = %.lr.ph.us
   %14 = getelementptr inbounds i8, ptr %.02836.us.us, i64 168
   %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, %0
+  %16 = icmp eq i32 %0, %15
   br i1 %16, label %17, label %66
 
 17:                                               ; preds = %13, %.lr.ph.us
@@ -2097,7 +2097,7 @@ _pack_alloc.exit.us40.us:                         ; preds = %.preheader.split.sp
   %.135 = phi i32 [ %spec.select, %.lr.ph ], [ %.02946, %.preheader.split.split ]
   %72 = getelementptr inbounds i8, ptr %.02836, i64 168
   %73 = load i32, ptr %72, align 8
-  %74 = icmp eq i32 %73, %0
+  %74 = icmp eq i32 %0, %73
   %75 = zext i1 %74 to i32
   %spec.select = add nsw i32 %.135, %75
   %76 = getelementptr inbounds i8, ptr %.02836, i64 80
@@ -2671,7 +2671,7 @@ define i32 @bb_pack_usage(i32 noundef %0, ptr nocapture noundef readonly %1, ptr
   %.139 = phi i32 [ %.2, %31 ], [ %.03141, %.preheader.split ]
   %22 = getelementptr inbounds i8, ptr %.03040, i64 24
   %23 = load i32, ptr %22, align 8
-  %24 = icmp eq i32 %23, %0
+  %24 = icmp eq i32 %0, %23
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %.lr.ph

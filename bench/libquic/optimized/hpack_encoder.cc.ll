@@ -937,11 +937,11 @@ define dso_local void @_ZN3net12HpackEncoder27ApplyHeaderTableSizeSettingEm(ptr 
 entry:
   %settings_size_bound_.i = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load i64, ptr %settings_size_bound_.i, align 8
-  %cmp = icmp eq i64 %0, %size_setting
+  %cmp = icmp eq i64 %size_setting, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp4 = icmp ugt i64 %0, %size_setting
+  %cmp4 = icmp ult i64 %size_setting, %0
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.end

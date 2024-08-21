@@ -32,7 +32,7 @@ define noundef i64 @"_ZN55_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..Input$GT
 define { ptr, i64 } @"_ZN55_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..Input$GT$9take_from17he9e1ec1c3c0a4f84E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %2
@@ -362,7 +362,7 @@ define { i64, i64 } @"_ZN87_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindSub
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = icmp ult i64 %6, %2
+  %7 = icmp ugt i64 %2, %6
   br i1 %7, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h230935fb34d16781E.exit44, label %8
 
 8:                                                ; preds = %3

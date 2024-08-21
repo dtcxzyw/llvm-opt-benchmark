@@ -739,11 +739,11 @@ define hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel5atan217h9b8a551
   %4 = icmp slt i32 %1, 0
   %.014 = select i1 %4, i32 -2, i32 0
   %.013 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %or.cond.not = icmp slt i32 %.013, %0
+  %or.cond.not = icmp sgt i32 %0, %.013
   %5 = sub i32 0, %.013
   %6 = zext i1 %or.cond.not to i32
   %.115 = or disjoint i32 %.014, %6
-  %.1 = tail call i32 @llvm.smax.i32(i32 %.013, i32 %0)
+  %.1 = tail call i32 @llvm.smax.i32(i32 %0, i32 %.013)
   %.0 = select i1 %or.cond.not, i32 %5, i32 %0
   %7 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3div17h16b276436e5bfe98E"(i32 noundef %.0, i32 noundef %.1)
   %8 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %7, i32 noundef %7)
@@ -936,7 +936,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef3pow17h9e0fbae857cd1c76E(i32 n
 
 _ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit: ; preds = %15
   %18 = tail call noundef i32 @"_ZN9softposit5p32e24math5round41_$LT$impl$u20$softposit..p32e2..P32E2$GT$5round17h0017071b2bac8556E"(i32 noundef %1)
-  %19 = icmp eq i32 %18, %1
+  %19 = icmp eq i32 %1, %18
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %_ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit
@@ -3022,7 +3022,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4exp217h06699633706008f9E(i32 
 
 9:                                                ; preds = %6
   %10 = sub nsw i32 0, %3
-  %11 = or i32 %10, %0
+  %11 = or i32 %0, %10
   br label %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit"
 
 12:                                               ; preds = %6

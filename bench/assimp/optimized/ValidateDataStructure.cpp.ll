@@ -739,7 +739,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %if.then5.i
   %5 = load ptr, ptr %mScene, align 8
   %mRootNode = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %mRootNode, align 8
-  %cmp.not = icmp eq ptr %6, %pNode
+  %cmp.not = icmp eq ptr %pNode, %6
   br i1 %cmp.not, label %if.end5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit
@@ -3718,7 +3718,7 @@ if.then18:                                        ; preds = %_ZNK8aiStringeqERKS
 for.inc:                                          ; preds = %for.body12, %_ZNK8aiStringeqERKS_.exit
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next37 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %size
+  %exitcond.not = icmp eq i32 %size, %lftr.wideiv
   br i1 %exitcond.not, label %for.cond.loopexit, label %for.body12, !llvm.loop !39
 
 for.end22:                                        ; preds = %for.cond.loopexit, %entry
@@ -3977,7 +3977,7 @@ if.then18:                                        ; preds = %_ZNK8aiStringeqERKS
 for.inc:                                          ; preds = %for.body12, %_ZNK8aiStringeqERKS_.exit
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next33 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %size
+  %exitcond.not = icmp eq i32 %size, %lftr.wideiv
   br i1 %exitcond.not, label %for.cond.loopexit, label %for.body12, !llvm.loop !42
 
 for.end22:                                        ; preds = %for.cond.loopexit, %entry
@@ -4023,7 +4023,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp24.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then4
-  %add.i.i.i = add nsw i64 %conv.i.i, %__n
+  %add.i.i.i = add nsw i64 %__n, %conv.i.i
   %4 = trunc i64 %add.i.i.i to i32
   %conv4.i.i.i = and i32 %4, 63
   %div.i.i.i = sdiv i64 %add.i.i.i, 64
@@ -4078,7 +4078,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i:      ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !43
 
 _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i, %if.then4
-  %add.i.i.i21 = add nsw i64 %conv3.i.i.i.i.i.i, %__n
+  %add.i.i.i21 = add nsw i64 %__n, %conv3.i.i.i.i.i.i
   %div.i.i.i22 = sdiv i64 %add.i.i.i21, 64
   %add.ptr.i.i.i23 = getelementptr inbounds i64, ptr %__position.coerce0, i64 %div.i.i.i22
   %9 = and i64 %add.i.i.i21, -9223372036854775745
@@ -4087,7 +4087,7 @@ _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bi
   %storemerge.i.i.i26 = getelementptr inbounds i8, ptr %add.ptr.i.i.i23, i64 %storemerge.idx.i.i.i25
   %10 = trunc i64 %add.i.i.i21 to i32
   %conv4.i.i.i27 = and i32 %10, 63
-  %cmp.not.i.i.i = icmp eq ptr %storemerge.i.i.i26, %__position.coerce0
+  %cmp.not.i.i.i = icmp eq ptr %__position.coerce0, %storemerge.i.i.i26
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
@@ -4148,7 +4148,7 @@ _ZSt14__fill_bvectorPmjjb.exit22.i.i.i:           ; preds = %if.else.i16.i.i.i, 
   br label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit
 
 if.else.i.i.i:                                    ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
-  %cmp17.not.i.i.i = icmp eq i32 %conv4.i.i.i27, %__position.coerce1
+  %cmp17.not.i.i.i = icmp eq i32 %__position.coerce1, %conv4.i.i.i27
   br i1 %cmp17.not.i.i.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit, label %if.then18.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %if.else.i.i.i
@@ -4178,7 +4178,7 @@ _ZSt14__fill_bvectorPmjjb.exit34.i.i.i:           ; preds = %if.else.i28.i.i.i, 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %if.end.i.i.i, %_ZSt14__fill_bvectorPmjjb.exit22.i.i.i, %if.else.i.i.i, %_ZSt14__fill_bvectorPmjjb.exit34.i.i.i
   %17 = load i32, ptr %_M_offset.i.i.i, align 8
   %conv.i.i30 = zext i32 %17 to i64
-  %add.i.i31 = add nsw i64 %conv.i.i30, %__n
+  %add.i.i31 = add nsw i64 %__n, %conv.i.i30
   %div.i.i = sdiv i64 %add.i.i31, 64
   %18 = load ptr, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i64, ptr %18, i64 %div.i.i
@@ -4212,7 +4212,7 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i37) #24
   %sub.ptr.lhs.cast.i.i.i.i.i.i45 = ptrtoint ptr %__position.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i45, %sub.ptr.rhs.cast.i.i
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %1, %__position.coerce0
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %__position.coerce0, %1
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit
@@ -4275,7 +4275,7 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %__result.sroa.5.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
   %__result.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
   %conv.i.i.i55 = zext i32 %__result.sroa.5.0.lcssa.i.i.i.i.i.i to i64
-  %add.i.i.i56 = add nsw i64 %conv.i.i.i55, %__n
+  %add.i.i.i56 = add nsw i64 %__n, %conv.i.i.i55
   %div.i.i.i57 = sdiv i64 %add.i.i.i56, 64
   %add.ptr.i.i.i58 = getelementptr inbounds i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, i64 %div.i.i.i57
   %27 = and i64 %add.i.i.i56, -9223372036854775745

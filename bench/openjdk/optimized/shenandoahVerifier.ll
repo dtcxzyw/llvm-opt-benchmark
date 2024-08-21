@@ -2482,7 +2482,7 @@ _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbP
   %35 = lshr i64 %33, %34
   %36 = getelementptr inbounds i8, ptr %29, i64 544
   %37 = load i64, ptr %36, align 8
-  %38 = icmp ugt i64 %37, %35
+  %38 = icmp ult i64 %35, %37
   br i1 %38, label %39, label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit
 
 39:                                               ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit90
@@ -2549,7 +2549,7 @@ _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbP
 _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit92: ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit91, %67
   %74 = getelementptr inbounds i8, ptr %.0.i.i, i64 48
   %75 = load ptr, ptr %74, align 8
-  %76 = icmp ugt ptr %75, %1
+  %76 = icmp ult ptr %1, %75
   br i1 %76, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit93, label %77
 
 77:                                               ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit92
@@ -2763,7 +2763,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
   %213 = load ptr, ptr %3, align 8
   %214 = getelementptr inbounds i8, ptr %213, i64 544
   %215 = load i64, ptr %214, align 8
-  %216 = icmp ugt i64 %215, %.0166
+  %216 = icmp ult i64 %.0166, %215
   tail call void @llvm.assume(i1 %216)
   %217 = getelementptr inbounds i8, ptr %213, i64 552
   %218 = load ptr, ptr %217, align 8
@@ -2926,7 +2926,7 @@ _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbP
   %.not.i = icmp eq i64 %313, 0
   %spec.select.i = select i1 %.not.i, ptr %1, ptr %314
   %.0.i110 = select i1 %312, ptr %spec.select.i, ptr %1
-  %315 = icmp ne ptr %.0.i110, %1
+  %315 = icmp ne ptr %1, %.0.i110
   br i1 %315, label %316, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit134
 
 316:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit109
@@ -3057,7 +3057,7 @@ _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbP
   %393 = lshr i64 %391, %392
   %394 = getelementptr inbounds i8, ptr %387, i64 544
   %395 = load i64, ptr %394, align 8
-  %396 = icmp ugt i64 %395, %393
+  %396 = icmp ult i64 %393, %395
   br i1 %396, label %397, label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit120
 
 397:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit118
@@ -3238,7 +3238,7 @@ _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbP
   %509 = load ptr, ptr %508, align 8
   %510 = getelementptr inbounds ptr, ptr %509, i64 %507
   %511 = load ptr, ptr %510, align 8
-  %.not.i135 = icmp ugt ptr %511, %1
+  %.not.i135 = icmp ult ptr %1, %511
   br i1 %.not.i135, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %502
@@ -3272,7 +3272,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %502
   %536 = load ptr, ptr %535, align 8
   %537 = getelementptr inbounds ptr, ptr %536, i64 %534
   %538 = load ptr, ptr %537, align 8
-  %.not.i137 = icmp ugt ptr %538, %1
+  %.not.i137 = icmp ult ptr %1, %538
   br i1 %.not.i137, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit138, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit138: ; preds = %529
@@ -3306,7 +3306,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit138: ; preds = %529
   %563 = load ptr, ptr %562, align 8
   %564 = getelementptr inbounds ptr, ptr %563, i64 %561
   %565 = load ptr, ptr %564, align 8
-  %.not.i140 = icmp ugt ptr %565, %1
+  %.not.i140 = icmp ult ptr %1, %565
   br i1 %.not.i140, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit141, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit141: ; preds = %556
@@ -3349,7 +3349,7 @@ _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbP
   ]
 
 590:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
-  %591 = icmp eq ptr %.0.i110, %1
+  %591 = icmp eq ptr %1, %.0.i110
   br i1 %591, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143.sink.split
 
 592:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
@@ -3779,7 +3779,7 @@ define linkonce_odr hidden void @_ZN34ShenandoahVerifierMarkedRegionTask14work_h
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds ptr, ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
-  %.not.i = icmp ugt ptr %18, %7
+  %.not.i = icmp ult ptr %7, %18
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %4
@@ -4204,7 +4204,7 @@ define linkonce_odr hidden void @_ZN32ShenandoahVerifyInToSpaceClosure11do_oop_w
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds ptr, ptr %13, i64 %11
   %15 = load ptr, ptr %14, align 8
-  %.not.i = icmp ugt ptr %15, %3
+  %.not.i = icmp ult ptr %3, %15
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %5
@@ -5364,7 +5364,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -5414,7 +5414,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -5464,7 +5464,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -5558,7 +5558,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -5724,7 +5724,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -5774,7 +5774,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -5824,7 +5824,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84

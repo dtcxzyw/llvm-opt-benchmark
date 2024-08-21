@@ -214,7 +214,7 @@ entry:
   %capacity_proxy_.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %capacity_proxy_.i, align 4
   %add.i.neg = xor i32 %0, -1
-  %sub = add i32 %add.i.neg, %capacity
+  %sub = add i32 %capacity, %add.i.neg
   %cmp = icmp sgt i32 %sub, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -582,7 +582,7 @@ entry:
   %capacity_proxy_.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %capacity_proxy_.i.i, align 4
   %add.i.i = add nsw i32 %2, 1
-  %cmp.not.i = icmp slt i32 %add.i.i, %add
+  %cmp.not.i = icmp sgt i32 %add, %add.i.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -825,7 +825,7 @@ entry:
   %capacity_proxy_.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %capacity_proxy_.i.i, align 4
   %add.i.i = add nsw i32 %2, 1
-  %cmp.not.i = icmp slt i32 %add.i.i, %add
+  %cmp.not.i = icmp sgt i32 %add, %add.i.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -986,7 +986,7 @@ entry:
   %capacity_proxy_.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %capacity_proxy_.i.i, align 4
   %add.i.i = add nsw i32 %2, 1
-  %cmp.not.i = icmp slt i32 %add.i.i, %add
+  %cmp.not.i = icmp sgt i32 %add, %add.i.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry

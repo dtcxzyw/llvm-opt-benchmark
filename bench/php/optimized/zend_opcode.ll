@@ -3674,13 +3674,13 @@ zend_get_brk_cont_target.exit.zend_check_finally_breakout.exit_crit_edge: ; pred
   br i1 %.not.i163, label %.thread.i, label %163
 
 163:                                              ; preds = %160, %155
-  %.not36.i = icmp ugt i32 %158, %142
+  %.not36.i = icmp ult i32 %142, %158
   br i1 %.not36.i, label %171, label %164
 
 164:                                              ; preds = %163
   %165 = getelementptr inbounds i8, ptr %156, i64 12
   %166 = load i32, ptr %165, align 4
-  %.not37.i = icmp ult i32 %166, %142
+  %.not37.i = icmp ugt i32 %142, %166
   br i1 %.not37.i, label %171, label %167
 
 167:                                              ; preds = %164
@@ -3707,8 +3707,8 @@ zend_get_brk_cont_target.exit.zend_check_finally_breakout.exit_crit_edge: ; pred
   br i1 %.not39.i, label %180, label %173
 
 173:                                              ; preds = %.thread.i
-  %174 = icmp ult i32 %172, %142
-  %175 = icmp ugt i32 %158, %142
+  %174 = icmp ugt i32 %142, %172
+  %175 = icmp ult i32 %142, %158
   %or.cond.i = or i1 %175, %174
   br i1 %or.cond.i, label %176, label %180
 
@@ -3781,13 +3781,13 @@ zend_check_finally_breakout.exit:                 ; preds = %180, %zend_get_brk_
   br i1 %.not.i167, label %.thread.i173, label %209
 
 209:                                              ; preds = %206, %201
-  %.not36.i168 = icmp ugt i32 %204, %197
+  %.not36.i168 = icmp ult i32 %197, %204
   br i1 %.not36.i168, label %217, label %210
 
 210:                                              ; preds = %209
   %211 = getelementptr inbounds i8, ptr %202, i64 12
   %212 = load i32, ptr %211, align 4
-  %.not37.i169 = icmp ult i32 %212, %197
+  %.not37.i169 = icmp ugt i32 %197, %212
   br i1 %.not37.i169, label %217, label %213
 
 213:                                              ; preds = %210
@@ -3814,8 +3814,8 @@ zend_check_finally_breakout.exit:                 ; preds = %180, %zend_get_brk_
   br i1 %.not39.i174, label %226, label %219
 
 219:                                              ; preds = %.thread.i173
-  %220 = icmp ult i32 %218, %197
-  %221 = icmp ugt i32 %204, %197
+  %220 = icmp ugt i32 %197, %218
+  %221 = icmp ult i32 %197, %204
   %or.cond.i175 = or i1 %221, %220
   br i1 %or.cond.i175, label %222, label %226
 
@@ -4439,7 +4439,7 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   %80 = sub i64 %78, %79
   %81 = lshr exact i64 %80, 5
   %82 = trunc i64 %81 to i32
-  %.not91 = icmp eq i32 %82, %3
+  %.not91 = icmp eq i32 %3, %82
   br i1 %.not91, label %.critedge96.preheader, label %83
 
 83:                                               ; preds = %76

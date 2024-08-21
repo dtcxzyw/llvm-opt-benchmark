@@ -3590,7 +3590,7 @@ _ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %25
   %28 = load ptr, ptr %11, align 8
   %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %28, ptr %27, i64 %21)
   %29 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  %30 = xor i1 %29, %1
+  %30 = xor i1 %1, %29
   br i1 %30, label %38, label %52
 
 _ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %25
@@ -3616,7 +3616,7 @@ _ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.t
 
 _ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit: ; preds = %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i, %34
   %.0.shrunk.i.i = phi i1 [ %35, %34 ], [ %33, %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i ]
-  %37 = xor i1 %.0.shrunk.i.i, %1
+  %37 = xor i1 %1, %.0.shrunk.i.i
   br i1 %37, label %38, label %52
 
 38:                                               ; preds = %_ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.thr_comm, %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit
@@ -9828,7 +9828,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   %21 = getelementptr inbounds i8, ptr %13, i64 %1
   %22 = add i64 %2, %1
   %23 = sub i64 %7, %22
-  %24 = icmp ugt ptr %13, %3
+  %24 = icmp ult ptr %3, %13
   %25 = getelementptr inbounds i8, ptr %13, i64 %7
   %26 = icmp ult ptr %25, %3
   %27 = select i1 %24, i1 true, i1 %26
@@ -9937,7 +9937,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94: ; p
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
 
 57:                                               ; preds = %50
-  %.not87 = icmp ugt ptr %52, %3
+  %.not87 = icmp ult ptr %3, %52
   br i1 %.not87, label %67, label %58
 
 58:                                               ; preds = %57

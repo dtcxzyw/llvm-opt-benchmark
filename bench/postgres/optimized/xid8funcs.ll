@@ -614,13 +614,13 @@ define dso_local range(i64 0, 2) i64 @pg_visible_in_snapshot(ptr nocapture nound
   store i64 %4, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = icmp ugt i64 %10, %4
+  %11 = icmp ult i64 %4, %10
   br i1 %11, label %is_visible_fxid.exit, label %12
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %8, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = icmp ugt i64 %14, %4
+  %15 = icmp ult i64 %4, %14
   br i1 %15, label %16, label %is_visible_fxid.exit
 
 16:                                               ; preds = %12
@@ -654,7 +654,7 @@ define dso_local range(i64 0, 2) i64 @pg_visible_in_snapshot(ptr nocapture nound
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %25 ]
   %26 = getelementptr [0 x %struct.FullTransactionId], ptr %20, i64 0, i64 %indvars.iv.i
   %27 = load i64, ptr %26, align 8
-  %.not19.i = icmp eq i64 %27, %4
+  %.not19.i = icmp eq i64 %4, %27
   br i1 %.not19.i, label %is_visible_fxid.exit, label %25
 
 is_visible_fxid.exit:                             ; preds = %25, %.lr.ph.i, %1, %12, %.preheader.i, %21
@@ -777,7 +777,7 @@ define dso_local i64 @pg_xact_status(ptr nocapture noundef %0) local_unnamed_add
   br i1 %11, label %12, label %TransactionIdInRecentPast.exit.thread
 
 12:                                               ; preds = %10
-  %13 = icmp ugt i64 %8, %3
+  %13 = icmp ult i64 %3, %8
   br i1 %13, label %TransactionIdInRecentPast.exit, label %14
 
 14:                                               ; preds = %12
@@ -798,7 +798,7 @@ TransactionIdInRecentPast.exit:                   ; preds = %12
   %.sink.i = select i1 %.not27.i, i64 %22, i64 %21
   %23 = zext i32 %20 to i64
   %24 = or disjoint i64 %.sink.i, %23
-  %.not = icmp ugt i64 %24, %3
+  %.not = icmp ult i64 %3, %24
   br i1 %.not, label %TransactionIdInRecentPast.exit.thread9, label %TransactionIdInRecentPast.exit.thread
 
 TransactionIdInRecentPast.exit.thread:            ; preds = %10, %TransactionIdInRecentPast.exit

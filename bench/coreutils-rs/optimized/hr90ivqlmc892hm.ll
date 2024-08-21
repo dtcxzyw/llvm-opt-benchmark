@@ -158,7 +158,7 @@ default.unreachable:                              ; preds = %43
   %63 = load i64, ptr %2, align 8, !alias.scope !24, !noalias !27, !noundef !11
   %64 = load i64, ptr %17, align 8, !alias.scope !24, !noalias !27, !noundef !11
   %65 = sub i64 %63, %64
-  %66 = icmp ugt i64 %65, %41
+  %66 = icmp ult i64 %41, %65
   br i1 %66, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit.thread": ; preds = %60
@@ -362,7 +362,7 @@ default.unreachable:                              ; preds = %43
   %63 = load i64, ptr %2, align 8, !alias.scope !57, !noalias !60, !noundef !11
   %64 = load i64, ptr %17, align 8, !alias.scope !57, !noalias !60, !noundef !11
   %65 = sub i64 %63, %64
-  %66 = icmp ugt i64 %65, %41
+  %66 = icmp ult i64 %41, %65
   br i1 %66, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit.thread": ; preds = %60
@@ -448,7 +448,7 @@ define hidden void @"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !72, !noalias !75, !noundef !11
   %15 = sub i64 %12, %14
-  %16 = icmp ugt i64 %15, %.0.sroa.speculated.i
+  %16 = icmp ult i64 %.0.sroa.speculated.i, %15
   br i1 %16, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit.thread": ; preds = %4
@@ -1558,7 +1558,7 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !alias.scope !251, !noalias !254, !noundef !11
   %8 = sub nuw i64 %7, %5
-  %.not = icmp ult i64 %8, %2
+  %.not = icmp ugt i64 %2, %8
   br i1 %.not, label %_ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17h8a10e15a48d591e3E.exit, label %_ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17h8a10e15a48d591e3E.exit.thread
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17h8a10e15a48d591e3E.exit.thread: ; preds = %3
@@ -1586,7 +1586,7 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !alias.scope !262, !noalias !265, !noundef !11
   %8 = sub nuw i64 %7, %5
-  %.not = icmp ult i64 %8, %2
+  %.not = icmp ugt i64 %2, %8
   br i1 %.not, label %_ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17hb640960484b06e38E.exit, label %_ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17hb640960484b06e38E.exit.thread
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17hb640960484b06e38E.exit.thread: ; preds = %3
@@ -1620,7 +1620,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %13 = load i64, ptr %12, align 8, !noundef !11
   %14 = load i64, ptr %2, align 8, !noundef !11
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %10
+  %16 = icmp ugt i64 %10, %15
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %3
@@ -1640,9 +1640,9 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %.pre-phi = phi i64 [ %15, %3 ], [ %.pre20, %._crit_edge.i ]
   %22 = phi i64 [ %13, %3 ], [ %.pre, %._crit_edge.i ]
   %.pre-phi.i = phi i64 [ %15, %3 ], [ %.pre9.i, %._crit_edge.i ]
-  %23 = icmp uge i64 %.pre-phi.i, %10
+  %23 = icmp ule i64 %10, %.pre-phi.i
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %.pre-phi, %10
+  %24 = icmp ugt i64 %10, %.pre-phi
   br i1 %24, label %25, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h886c86e5fe23bea7E.exit"
 
 25:                                               ; preds = %21
@@ -1710,7 +1710,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %13 = load i64, ptr %12, align 8, !noundef !11
   %14 = load i64, ptr %2, align 8, !noundef !11
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %10
+  %16 = icmp ugt i64 %10, %15
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %3
@@ -1730,9 +1730,9 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %.pre-phi = phi i64 [ %15, %3 ], [ %.pre20, %._crit_edge.i ]
   %22 = phi i64 [ %13, %3 ], [ %.pre, %._crit_edge.i ]
   %.pre-phi.i = phi i64 [ %15, %3 ], [ %.pre9.i, %._crit_edge.i ]
-  %23 = icmp uge i64 %.pre-phi.i, %10
+  %23 = icmp ule i64 %10, %.pre-phi.i
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %.pre-phi, %10
+  %24 = icmp ugt i64 %10, %.pre-phi
   br i1 %24, label %25, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h886c86e5fe23bea7E.exit"
 
 25:                                               ; preds = %21
@@ -2128,7 +2128,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %32 = load i64, ptr %9, align 8, !alias.scope !347, !noalias !352, !noundef !11
   %33 = load i64, ptr %2, align 8, !alias.scope !354, !noalias !352, !noundef !11
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %30
+  %35 = icmp ugt i64 %30, %34
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %31
@@ -2283,7 +2283,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %32 = load i64, ptr %9, align 8, !alias.scope !377, !noalias !382, !noundef !11
   %33 = load i64, ptr %2, align 8, !alias.scope !384, !noalias !382, !noundef !11
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %30
+  %35 = icmp ugt i64 %30, %34
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %31
@@ -2429,7 +2429,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %10 = icmp eq i64 %7, %9
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = icmp ule i64 %12, %3
+  %13 = icmp uge i64 %3, %12
   %or.cond = select i1 %10, i1 %13, i1 false
   br i1 %or.cond, label %33, label %14
 
@@ -2528,7 +2528,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %10 = icmp eq i64 %7, %9
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = icmp ule i64 %12, %3
+  %13 = icmp uge i64 %3, %12
   %or.cond = select i1 %10, i1 %13, i1 false
   br i1 %or.cond, label %33, label %14
 

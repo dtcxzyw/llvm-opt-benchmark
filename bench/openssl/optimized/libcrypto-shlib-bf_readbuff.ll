@@ -352,7 +352,7 @@ sw.bb6:                                           ; preds = %entry, %entry
   %add = add nsw i32 %4, %3
   %cmp8 = icmp slt i64 %num, 0
   %conv = sext i32 %add to i64
-  %cmp10 = icmp slt i64 %conv, %num
+  %cmp10 = icmp sgt i64 %num, %conv
   %or.cond = select i1 %cmp8, i1 true, i1 %cmp10
   br i1 %or.cond, label %return, label %if.end13
 

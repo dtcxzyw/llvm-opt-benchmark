@@ -918,7 +918,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hac4687a2333fdf39E.exit.i.i.i: 
   %85 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !346, !noalias !319, !noundef !5
   %86 = load i64, ptr %6, align 8, !alias.scope !346, !noalias !319, !noundef !5
   %87 = sub i64 %86, %85
-  %88 = icmp ult i64 %87, %84
+  %88 = icmp ugt i64 %84, %87
   br i1 %88, label %89, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.i.i"
 
 89:                                               ; preds = %82
@@ -1165,7 +1165,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %76 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !452, !noalias !408, !noundef !5
   %77 = load i64, ptr %8, align 8, !alias.scope !452, !noalias !408, !noundef !5
   %78 = sub i64 %77, %76
-  %79 = icmp ult i64 %78, %75
+  %79 = icmp ugt i64 %75, %78
   br i1 %79, label %85, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.i.i": ; preds = %85, %"_ZN4core6option15Option$LT$T$GT$6map_or17h98add3440341a129E.exit49.i.i.i.i", %57
@@ -1416,7 +1416,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %76 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !553, !noalias !509, !noundef !5
   %77 = load i64, ptr %8, align 8, !alias.scope !553, !noalias !509, !noundef !5
   %78 = sub i64 %77, %76
-  %79 = icmp ult i64 %78, %75
+  %79 = icmp ugt i64 %75, %78
   br i1 %79, label %85, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.i.i": ; preds = %85, %"_ZN4core6option15Option$LT$T$GT$6map_or17h98add3440341a129E.exit48.i.i.i.i", %57
@@ -1682,7 +1682,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %79 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !610, !noalias !598, !noundef !5
   %80 = load i64, ptr %6, align 8, !alias.scope !610, !noalias !598, !noundef !5
   %81 = sub i64 %80, %79
-  %82 = icmp ult i64 %81, %78
+  %82 = icmp ugt i64 %78, %81
   br i1 %82, label %83, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.i.i"
 
 83:                                               ; preds = %76
@@ -2094,7 +2094,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hac4687a2333fdf39E.exit.i.i.i.i
   %126 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !699, !noalias !670, !noundef !5
   %127 = load i64, ptr %6, align 8, !alias.scope !699, !noalias !670, !noundef !5
   %128 = sub i64 %127, %126
-  %129 = icmp ult i64 %128, %125
+  %129 = icmp ugt i64 %125, %128
   br i1 %129, label %130, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.i.i"
 
 130:                                              ; preds = %123
@@ -2188,7 +2188,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %9, align 8
-  %10 = icmp ult i64 %6, %1
+  %10 = icmp ugt i64 %1, %6
   br i1 %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.thread.i.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.thread.i.i": ; preds = %3
@@ -2641,7 +2641,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hb65a81e9e8edb527E.exit.i: ; 
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h289a4166dae424efE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -2840,7 +2840,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   store ptr %7, ptr %8, align 8, !noalias !841
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %9, align 8, !noalias !841
-  %10 = icmp ult i64 %6, %1
+  %10 = icmp ugt i64 %1, %6
   br i1 %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.thread.i.i.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.i.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c1bfb71dd7d498cE.exit.thread.i.i.i": ; preds = %3

@@ -453,7 +453,7 @@ define hidden zeroext i1 @plpgsql_token_is_unreserved_keyword(i32 noundef %0) lo
   %4 = getelementptr [83 x i16], ptr @UnreservedPLKeywordTokens, i64 0, i64 %indvars.iv.next
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = icmp eq i32 %6, %0
+  %7 = icmp eq i32 %0, %6
   br i1 %7, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %3

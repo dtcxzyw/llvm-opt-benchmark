@@ -25,7 +25,7 @@ define dso_local void @maybe_flush_or_die(ptr noundef %f, ptr noundef %desc) loc
 entry:
   %st = alloca %struct.stat, align 8
   %0 = load ptr, ptr @stdout, align 8
-  %cmp = icmp eq ptr %0, %f
+  %cmp = icmp eq ptr %f, %0
   br i1 %cmp, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %entry

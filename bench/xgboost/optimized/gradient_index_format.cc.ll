@@ -1253,7 +1253,7 @@ define linkonce_odr void @_ZN7xgboost6common5Index12SetBinOffsetERKSt6vectorIjSa
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2
-  %19 = icmp ult i64 %18, %11
+  %19 = icmp ugt i64 %11, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %2
@@ -1264,7 +1264,7 @@ define linkonce_odr void @_ZN7xgboost6common5Index12SetBinOffsetERKSt6vectorIjSa
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 22:                                               ; preds = %2
-  %23 = icmp ugt i64 %18, %11
+  %23 = icmp ult i64 %11, %18
   br i1 %23, label %24, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -1961,7 +1961,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17

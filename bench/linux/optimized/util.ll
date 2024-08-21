@@ -1177,7 +1177,7 @@ define dso_local nonnull ptr @ipc_obtain_object_idr(ptr noundef %0, i32 noundef 
   %3 = load i32, ptr @ipc_mni_shift, align 4
   %4 = shl nsw i32 -1, %3
   %5 = xor i32 %4, -1
-  %6 = and i32 %5, %1
+  %6 = and i32 %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = zext nneg i32 %6 to i64
   %9 = tail call ptr @idr_find(ptr noundef %7, i64 noundef %8) #15
@@ -1194,7 +1194,7 @@ define dso_local nonnull ptr @ipc_obtain_object_check(ptr noundef %0, i32 nounde
   %3 = load i32, ptr @ipc_mni_shift, align 4
   %4 = shl nsw i32 -1, %3
   %5 = xor i32 %4, -1
-  %6 = and i32 %5, %1
+  %6 = and i32 %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = zext nneg i32 %6 to i64
   %9 = tail call ptr @idr_find(ptr noundef %7, i64 noundef %8) #15
@@ -1461,7 +1461,7 @@ define dso_local ptr @ipcctl_obtain_check(ptr nocapture noundef readonly %0, ptr
   %7 = load i32, ptr @ipc_mni_shift, align 4
   %8 = shl nsw i32 -1, %7
   %9 = xor i32 %8, -1
-  %10 = and i32 %9, %2
+  %10 = and i32 %2, %9
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = zext nneg i32 %10 to i64
   %13 = tail call ptr @idr_find(ptr noundef %11, i64 noundef %12) #15

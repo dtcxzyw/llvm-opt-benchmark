@@ -11404,12 +11404,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %20
   %24 = load ptr, ptr %18, align 8
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val1.i.i.i.i, ptr %24, i64 %.sroa.speculated.i.i.i.i.i.i.i)
   %.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  %25 = icmp eq i64 %17, %.val2.i.i.i.i
+  %25 = icmp eq i64 %.val2.i.i.i.i, %17
   %or.cond.i.i.i = and i1 %25, %.not.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNS7_17TSymbolTableLevelD1EvE3$_0ET_SJ_SJ_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit.i.i.i": ; preds = %20
-  %.old.i.i.i = icmp eq i64 %17, %.val2.i.i.i.i
+  %.old.i.i.i = icmp eq i64 %.val2.i.i.i.i, %17
   br i1 %.old.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNS7_17TSymbolTableLevelD1EvE3$_0ET_SJ_SJ_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
@@ -11425,12 +11425,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i24.i.i.i: ; preds = %"_ZN9__gn
   %29 = load ptr, ptr %18, align 8
   %bcmp.i.i.i26.i.i.i = tail call i32 @bcmp(ptr readonly %.val1.i25.i.i.i, ptr %29, i64 %.sroa.speculated.i.i.i.i23.i.i.i)
   %.not.i.i.i.i27.i.i.i = icmp eq i32 %bcmp.i.i.i26.i.i.i, 0
-  %30 = icmp eq i64 %17, %.val2.i22.i.i.i
+  %30 = icmp eq i64 %.val2.i22.i.i.i, %17
   %or.cond96.i.i.i = and i1 %30, %.not.i.i.i.i27.i.i.i
   br i1 %or.cond96.i.i.i, label %.loopexit.split.loop.exit116.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit.thread.i.i.i"
-  %.old95.i.i.i = icmp eq i64 %17, %.val2.i22.i.i.i
+  %.old95.i.i.i = icmp eq i64 %.val2.i22.i.i.i, %17
   br i1 %.old95.i.i.i, label %.loopexit.split.loop.exit108.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i24.i.i.i
@@ -11446,12 +11446,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i33.i.i.i: ; preds = %"_ZN9__gn
   %34 = load ptr, ptr %18, align 8
   %bcmp.i.i.i35.i.i.i = tail call i32 @bcmp(ptr readonly %.val1.i34.i.i.i, ptr %34, i64 %.sroa.speculated.i.i.i.i32.i.i.i)
   %.not.i.i.i.i36.i.i.i = icmp eq i32 %bcmp.i.i.i35.i.i.i, 0
-  %35 = icmp eq i64 %17, %.val2.i31.i.i.i
+  %35 = icmp eq i64 %.val2.i31.i.i.i, %17
   %or.cond98.i.i.i = and i1 %35, %.not.i.i.i.i36.i.i.i
   br i1 %or.cond98.i.i.i, label %.loopexit.split.loop.exit118.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit39.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit39.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.thread.i.i.i"
-  %.old97.i.i.i = icmp eq i64 %17, %.val2.i31.i.i.i
+  %.old97.i.i.i = icmp eq i64 %.val2.i31.i.i.i, %17
   br i1 %.old97.i.i.i, label %.loopexit.split.loop.exit110.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit39.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit39.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit39.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i33.i.i.i
@@ -11467,12 +11467,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i42.i.i.i: ; preds = %"_ZN9__gn
   %39 = load ptr, ptr %18, align 8
   %bcmp.i.i.i44.i.i.i = tail call i32 @bcmp(ptr readonly %.val1.i43.i.i.i, ptr %39, i64 %.sroa.speculated.i.i.i.i41.i.i.i)
   %.not.i.i.i.i45.i.i.i = icmp eq i32 %bcmp.i.i.i44.i.i.i, 0
-  %40 = icmp eq i64 %17, %.val2.i40.i.i.i
+  %40 = icmp eq i64 %.val2.i40.i.i.i, %17
   %or.cond100.i.i.i = and i1 %40, %.not.i.i.i.i45.i.i.i
   br i1 %or.cond100.i.i.i, label %.loopexit.split.loop.exit120.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit48.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit48.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit39.thread.i.i.i"
-  %.old99.i.i.i = icmp eq i64 %17, %.val2.i40.i.i.i
+  %.old99.i.i.i = icmp eq i64 %.val2.i40.i.i.i, %17
   br i1 %.old99.i.i.i, label %.loopexit.split.loop.exit112.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit48.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit48.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit48.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i42.i.i.i
@@ -11522,12 +11522,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i.i.i: ; preds = %45
   %52 = load ptr, ptr %51, align 8
   %bcmp.i.i.i53.i.i.i = tail call i32 @bcmp(ptr readonly %.val1.i52.i.i.i, ptr %52, i64 %.sroa.speculated.i.i.i.i50.i.i.i)
   %.not.i.i.i.i54.i.i.i = icmp eq i32 %bcmp.i.i.i53.i.i.i, 0
-  %53 = icmp eq i64 %48, %.val2.i49.i.i.i
+  %53 = icmp eq i64 %.val2.i49.i.i.i, %48
   %or.cond102.i.i.i = and i1 %53, %.not.i.i.i.i54.i.i.i
   br i1 %or.cond102.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNS7_17TSymbolTableLevelD1EvE3$_0ET_SJ_SJ_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit57.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit57.i.i.i": ; preds = %45
-  %.old101.i.i.i = icmp eq i64 %48, %.val2.i49.i.i.i
+  %.old101.i.i.i = icmp eq i64 %.val2.i49.i.i.i, %48
   br i1 %.old101.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNS7_17TSymbolTableLevelD1EvE3$_0ET_SJ_SJ_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit57.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit57.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit57.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i.i.i
@@ -11550,12 +11550,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i60.i.i.i: ; preds = %55
   %61 = load ptr, ptr %60, align 8
   %bcmp.i.i.i62.i.i.i = tail call i32 @bcmp(ptr readonly %.val1.i61.i.i.i, ptr %61, i64 %.sroa.speculated.i.i.i.i59.i.i.i)
   %.not.i.i.i.i63.i.i.i = icmp eq i32 %bcmp.i.i.i62.i.i.i, 0
-  %62 = icmp eq i64 %56, %.val2.i58.i.i.i
+  %62 = icmp eq i64 %.val2.i58.i.i.i, %56
   %or.cond104.i.i.i = and i1 %62, %.not.i.i.i.i63.i.i.i
   br i1 %or.cond104.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNS7_17TSymbolTableLevelD1EvE3$_0ET_SJ_SJ_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit66.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit66.i.i.i": ; preds = %55
-  %.old103.i.i.i = icmp eq i64 %56, %.val2.i58.i.i.i
+  %.old103.i.i.i = icmp eq i64 %.val2.i58.i.i.i, %56
   br i1 %.old103.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNS7_17TSymbolTableLevelD1EvE3$_0ET_SJ_SJ_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit66.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit66.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit66.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i60.i.i.i
@@ -11578,12 +11578,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i69.i.i.i: ; preds = %64
   %70 = load ptr, ptr %69, align 8
   %bcmp.i.i.i71.i.i.i = tail call i32 @bcmp(ptr readonly %.val1.i70.i.i.i, ptr %70, i64 %.sroa.speculated.i.i.i.i68.i.i.i)
   %.not.i.i.i.i72.i.i.i = icmp eq i32 %bcmp.i.i.i71.i.i.i, 0
-  %71 = icmp eq i64 %65, %.val2.i67.i.i.i
+  %71 = icmp eq i64 %.val2.i67.i.i.i, %65
   %or.cond106.i.i.i = and i1 %71, %.not.i.i.i.i72.i.i.i
   br i1 %or.cond106.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNS7_17TSymbolTableLevelD1EvE3$_0ET_SJ_SJ_T0_.exit", label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNS7_17TSymbolTableLevelD1EvE3$_0ET_SJ_SJ_T0_.exit.thread"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit75.i.i.i": ; preds = %64
-  %.old105.i.i.i = icmp eq i64 %65, %.val2.i67.i.i.i
+  %.old105.i.i.i = icmp eq i64 %.val2.i67.i.i.i, %65
   br i1 %.old105.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNS7_17TSymbolTableLevelD1EvE3$_0ET_SJ_SJ_T0_.exit", label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNS7_17TSymbolTableLevelD1EvE3$_0ET_SJ_SJ_T0_.exit.thread"
 
 .loopexit.split.loop.exit108.i.i.i:               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang17TSymbolTableLevelD1EvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.i.i.i"
@@ -11791,7 +11791,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE13
   br i1 %.not, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE13find_first_ofEcm.exit.thread, label %49
 
 49:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE13find_first_ofEcm.exit
-  %spec.select.i.i = call noundef i64 @llvm.umin.i64(i64 %42, i64 %48)
+  %spec.select.i.i = call noundef i64 @llvm.umin.i64(i64 %48, i64 %42)
   %50 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %50, i64 %spec.select.i.i)
   %51 = icmp eq i64 %.sroa.speculated.i, 0
@@ -11965,7 +11965,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE13
   br i1 %.not, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE13find_first_ofEcm.exit.thread, label %50
 
 50:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE13find_first_ofEcm.exit
-  %spec.select.i.i = call noundef i64 @llvm.umin.i64(i64 %43, i64 %49)
+  %spec.select.i.i = call noundef i64 @llvm.umin.i64(i64 %49, i64 %43)
   %51 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %51, i64 %spec.select.i.i)
   %52 = icmp eq i64 %.sroa.speculated.i, 0
@@ -13386,12 +13386,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %133
   %137 = load ptr, ptr %131, align 8
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr readonly %.val1.i.i.i.i, ptr %137, i64 %.sroa.speculated.i.i.i.i.i.i.i)
   %.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  %138 = icmp eq i64 %130, %.val2.i.i.i.i
+  %138 = icmp eq i64 %.val2.i.i.i.i, %130
   %or.cond.i.i.i = and i1 %138, %.not.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNKS7_17TSymbolTableLevel5cloneEvE3$_0ET_SK_SK_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit.i.i.i": ; preds = %133
-  %.old.i.i.i = icmp eq i64 %130, %.val2.i.i.i.i
+  %.old.i.i.i = icmp eq i64 %.val2.i.i.i.i, %130
   br i1 %.old.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNKS7_17TSymbolTableLevel5cloneEvE3$_0ET_SK_SK_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
@@ -13407,12 +13407,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i24.i.i.i: ; preds = %"_ZN9__gn
   %142 = load ptr, ptr %131, align 8
   %bcmp.i.i.i26.i.i.i = call i32 @bcmp(ptr readonly %.val1.i25.i.i.i, ptr %142, i64 %.sroa.speculated.i.i.i.i23.i.i.i)
   %.not.i.i.i.i27.i.i.i = icmp eq i32 %bcmp.i.i.i26.i.i.i, 0
-  %143 = icmp eq i64 %130, %.val2.i22.i.i.i
+  %143 = icmp eq i64 %.val2.i22.i.i.i, %130
   %or.cond96.i.i.i = and i1 %143, %.not.i.i.i.i27.i.i.i
   br i1 %or.cond96.i.i.i, label %.loopexit.split.loop.exit116.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit.thread.i.i.i"
-  %.old95.i.i.i = icmp eq i64 %130, %.val2.i22.i.i.i
+  %.old95.i.i.i = icmp eq i64 %.val2.i22.i.i.i, %130
   br i1 %.old95.i.i.i, label %.loopexit.split.loop.exit108.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i24.i.i.i
@@ -13428,12 +13428,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i33.i.i.i: ; preds = %"_ZN9__gn
   %147 = load ptr, ptr %131, align 8
   %bcmp.i.i.i35.i.i.i = call i32 @bcmp(ptr readonly %.val1.i34.i.i.i, ptr %147, i64 %.sroa.speculated.i.i.i.i32.i.i.i)
   %.not.i.i.i.i36.i.i.i = icmp eq i32 %bcmp.i.i.i35.i.i.i, 0
-  %148 = icmp eq i64 %130, %.val2.i31.i.i.i
+  %148 = icmp eq i64 %.val2.i31.i.i.i, %130
   %or.cond98.i.i.i = and i1 %148, %.not.i.i.i.i36.i.i.i
   br i1 %or.cond98.i.i.i, label %.loopexit.split.loop.exit118.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit39.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit39.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.thread.i.i.i"
-  %.old97.i.i.i = icmp eq i64 %130, %.val2.i31.i.i.i
+  %.old97.i.i.i = icmp eq i64 %.val2.i31.i.i.i, %130
   br i1 %.old97.i.i.i, label %.loopexit.split.loop.exit110.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit39.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit39.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit39.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i33.i.i.i
@@ -13449,12 +13449,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i42.i.i.i: ; preds = %"_ZN9__gn
   %152 = load ptr, ptr %131, align 8
   %bcmp.i.i.i44.i.i.i = call i32 @bcmp(ptr readonly %.val1.i43.i.i.i, ptr %152, i64 %.sroa.speculated.i.i.i.i41.i.i.i)
   %.not.i.i.i.i45.i.i.i = icmp eq i32 %bcmp.i.i.i44.i.i.i, 0
-  %153 = icmp eq i64 %130, %.val2.i40.i.i.i
+  %153 = icmp eq i64 %.val2.i40.i.i.i, %130
   %or.cond100.i.i.i = and i1 %153, %.not.i.i.i.i45.i.i.i
   br i1 %or.cond100.i.i.i, label %.loopexit.split.loop.exit120.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit48.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit48.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit39.thread.i.i.i"
-  %.old99.i.i.i = icmp eq i64 %130, %.val2.i40.i.i.i
+  %.old99.i.i.i = icmp eq i64 %.val2.i40.i.i.i, %130
   br i1 %.old99.i.i.i, label %.loopexit.split.loop.exit112.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit48.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit48.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit48.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i42.i.i.i
@@ -13504,12 +13504,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i.i.i: ; preds = %158
   %165 = load ptr, ptr %164, align 8
   %bcmp.i.i.i53.i.i.i = call i32 @bcmp(ptr readonly %.val1.i52.i.i.i, ptr %165, i64 %.sroa.speculated.i.i.i.i50.i.i.i)
   %.not.i.i.i.i54.i.i.i = icmp eq i32 %bcmp.i.i.i53.i.i.i, 0
-  %166 = icmp eq i64 %161, %.val2.i49.i.i.i
+  %166 = icmp eq i64 %.val2.i49.i.i.i, %161
   %or.cond102.i.i.i = and i1 %166, %.not.i.i.i.i54.i.i.i
   br i1 %or.cond102.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNKS7_17TSymbolTableLevel5cloneEvE3$_0ET_SK_SK_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit57.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit57.i.i.i": ; preds = %158
-  %.old101.i.i.i = icmp eq i64 %161, %.val2.i49.i.i.i
+  %.old101.i.i.i = icmp eq i64 %.val2.i49.i.i.i, %161
   br i1 %.old101.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNKS7_17TSymbolTableLevel5cloneEvE3$_0ET_SK_SK_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit57.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit57.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit57.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i.i.i
@@ -13532,12 +13532,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i60.i.i.i: ; preds = %168
   %174 = load ptr, ptr %173, align 8
   %bcmp.i.i.i62.i.i.i = call i32 @bcmp(ptr readonly %.val1.i61.i.i.i, ptr %174, i64 %.sroa.speculated.i.i.i.i59.i.i.i)
   %.not.i.i.i.i63.i.i.i = icmp eq i32 %bcmp.i.i.i62.i.i.i, 0
-  %175 = icmp eq i64 %169, %.val2.i58.i.i.i
+  %175 = icmp eq i64 %.val2.i58.i.i.i, %169
   %or.cond104.i.i.i = and i1 %175, %.not.i.i.i.i63.i.i.i
   br i1 %or.cond104.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNKS7_17TSymbolTableLevel5cloneEvE3$_0ET_SK_SK_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit66.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit66.i.i.i": ; preds = %168
-  %.old103.i.i.i = icmp eq i64 %169, %.val2.i58.i.i.i
+  %.old103.i.i.i = icmp eq i64 %.val2.i58.i.i.i, %169
   br i1 %.old103.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNKS7_17TSymbolTableLevel5cloneEvE3$_0ET_SK_SK_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit66.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit66.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit66.i.i.i", %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i60.i.i.i
@@ -13560,12 +13560,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i69.i.i.i: ; preds = %177
   %183 = load ptr, ptr %182, align 8
   %bcmp.i.i.i71.i.i.i = call i32 @bcmp(ptr readonly %.val1.i70.i.i.i, ptr %183, i64 %.sroa.speculated.i.i.i.i68.i.i.i)
   %.not.i.i.i.i72.i.i.i = icmp eq i32 %bcmp.i.i.i71.i.i.i, 0
-  %184 = icmp eq i64 %178, %.val2.i67.i.i.i
+  %184 = icmp eq i64 %.val2.i67.i.i.i, %178
   %or.cond106.i.i.i = and i1 %184, %.not.i.i.i.i72.i.i.i
   br i1 %or.cond106.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNKS7_17TSymbolTableLevel5cloneEvE3$_0ET_SK_SK_T0_.exit", label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNKS7_17TSymbolTableLevel5cloneEvE3$_0ET_SK_SK_T0_.exit.thread"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit75.i.i.i": ; preds = %177
-  %.old105.i.i.i = icmp eq i64 %178, %.val2.i67.i.i.i
+  %.old105.i.i.i = icmp eq i64 %.val2.i67.i.i.i, %178
   br i1 %.old105.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNKS7_17TSymbolTableLevel5cloneEvE3$_0ET_SK_SK_T0_.exit", label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ESt6vectorISB_NS8_ISB_EEEEEZNKS7_17TSymbolTableLevel5cloneEvE3$_0ET_SK_SK_T0_.exit.thread"
 
 .loopexit.split.loop.exit108.i.i.i:               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK7glslang17TSymbolTableLevel5cloneEvE3$_0EclINS_17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcENS2_14pool_allocatorIcEEEESF_ESt6vectorISG_NSD_ISG_EEEEEEEbT_.exit30.i.i.i"
@@ -14904,7 +14904,7 @@ define linkonce_odr void @_ZN7glslang9TVariable19setMemberExtensionsEiiPKPKc(ptr
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 5
-  %30 = icmp ult i64 %29, %22
+  %30 = icmp ugt i64 %22, %29
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %8
@@ -14913,7 +14913,7 @@ define linkonce_odr void @_ZN7glslang9TVariable19setMemberExtensionsEiiPKPKc(ptr
   br label %_ZNSt6vectorIN7glslang7TVectorIPKcEENS0_14pool_allocatorIS4_EEE6resizeEm.exit
 
 33:                                               ; preds = %8
-  %34 = icmp ugt i64 %29, %22
+  %34 = icmp ult i64 %22, %29
   br i1 %34, label %35, label %_ZNSt6vectorIN7glslang7TVectorIPKcEENS0_14pool_allocatorIS4_EEE6resizeEm.exit
 
 35:                                               ; preds = %33
@@ -15361,7 +15361,7 @@ define linkonce_odr void @_ZN7glslang9TFunction12removePrefixERKNSt7__cxx1112bas
   ]
 
 7:                                                ; preds = %2
-  %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %6, i64 %4)
+  %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %6)
   %8 = icmp ugt i64 %6, %4
   %9 = icmp ne i64 %spec.select.i.i, 0
   %or.cond.i.i = and i1 %8, %9
@@ -17851,7 +17851,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType17containsBasicTypeENS
   %17 = getelementptr inbounds i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_17containsBasicTypeENS2_10TBasicTypeEEUlPKSC_E_EEbT_EUlRKS3_E_EEESI_SI_SI_T0_St26random_access_iterator_tag(ptr %16, ptr %18, i32 %1) #23
-  %20 = icmp ne ptr %19, %18
+  %20 = icmp ne ptr %18, %19
   br label %_ZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_.exit
 
 _ZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_.exit: ; preds = %2, %7, %12
@@ -17882,7 +17882,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType13containsArrayEv(ptr 
   %16 = getelementptr inbounds i8, ptr %13, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_13containsArrayEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %15, ptr %17) #23
-  %19 = icmp ne ptr %18, %17
+  %19 = icmp ne ptr %17, %18
   br label %_ZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_.exit
 
 _ZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_.exit: ; preds = %1, %6, %11
@@ -17906,7 +17906,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType17containsStructureEv(
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_17containsStructureEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %10, ptr %12, ptr nonnull %0) #23
-  %14 = icmp ne ptr %13, %12
+  %14 = icmp ne ptr %12, %13
   br label %_ZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_.exit
 
 _ZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_.exit: ; preds = %1, %6
@@ -17937,7 +17937,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType20containsUnsizedArray
   %16 = getelementptr inbounds i8, ptr %13, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_20containsUnsizedArrayEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %15, ptr %17) #23
-  %19 = icmp ne ptr %18, %17
+  %19 = icmp ne ptr %17, %18
   br label %_ZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_.exit
 
 _ZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_.exit: ; preds = %1, %6, %11
@@ -17968,7 +17968,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType14containsOpaqueEv(ptr
   %16 = getelementptr inbounds i8, ptr %13, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_14containsOpaqueEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %15, ptr %17) #23
-  %19 = icmp ne ptr %18, %17
+  %19 = icmp ne ptr %17, %18
   br label %_ZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_.exit
 
 _ZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_.exit: ; preds = %1, %6, %11
@@ -18006,7 +18006,7 @@ _ZZNK7glslang5TType15containsSamplerEvENKUlPKS0_E_clES2_.exit.i: ; preds = %1
   %20 = getelementptr inbounds i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_15containsSamplerEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %19, ptr %21) #23
-  %23 = icmp ne ptr %22, %21
+  %23 = icmp ne ptr %21, %22
   br label %_ZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_.exit
 
 _ZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_.exit: ; preds = %1, %_ZZNK7glslang5TType15containsSamplerEvENKUlPKS0_E_clES2_.exit.i, %10, %15
@@ -18037,7 +18037,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang5TType15containsBuiltInEv(pt
   %16 = getelementptr inbounds i8, ptr %13, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_15containsBuiltInEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %15, ptr %17) #23
-  %19 = icmp ne ptr %18, %17
+  %19 = icmp ne ptr %17, %18
   br label %_ZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_.exit
 
 _ZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_.exit: ; preds = %1, %6, %11
@@ -18068,7 +18068,7 @@ _ZZNK7glslang5TType17containsNonOpaqueEvENKUlPKS0_E_clES2_.exit.i: ; preds = %sw
   %14 = getelementptr inbounds i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_17containsNonOpaqueEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %13, ptr %15) #23
-  %17 = icmp ne ptr %16, %15
+  %17 = icmp ne ptr %15, %16
   br label %_ZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_.exit
 
 switch.hole_check:                                ; preds = %1
@@ -18117,7 +18117,7 @@ _ZZNK7glslang5TType26containsSpecializationSizeEvENKUlPKS0_E_clES2_.exit.thread.
   %23 = getelementptr inbounds i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_26containsSpecializationSizeEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %22, ptr %24) #23
-  %26 = icmp ne ptr %25, %24
+  %26 = icmp ne ptr %24, %25
   br label %_ZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_.exit
 
 _ZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_.exit: ; preds = %_ZZNK7glslang5TType26containsSpecializationSizeEvENKUlPKS0_E_clES2_.exit.i, %_ZZNK7glslang5TType26containsSpecializationSizeEvENKUlPKS0_E_clES2_.exit.thread.i, %18
@@ -18128,7 +18128,7 @@ _ZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEZNKS2_5TType8containsIZNKSA_17containsBasicTypeENS2_10TBasicTypeEEUlPKSA_E_EEbT_EUlRKS3_E_EbSG_SG_T0_(ptr %0, ptr %1, i32 %2) local_unnamed_addr #0 comdat {
   %4 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_17containsBasicTypeENS2_10TBasicTypeEEUlPKSC_E_EEbT_EUlRKS3_E_EEESI_SI_SI_T0_St26random_access_iterator_tag(ptr %0, ptr %1, i32 %2)
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   ret i1 %5
 }
 
@@ -18392,7 +18392,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEZNKS2_5TType8containsIZNKSA_13containsArrayEvEUlPKSA_E_EEbT_EUlRKS3_E_EbSF_SF_T0_(ptr %0, ptr %1) local_unnamed_addr #0 comdat {
   %3 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_13containsArrayEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1)
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   ret i1 %4
 }
 
@@ -18656,7 +18656,7 @@ _ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TT
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEZNKS2_5TType8containsIZNKSA_17containsStructureEvEUlPKSA_E_EEbT_EUlRKS3_E_EbSF_SF_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #0 comdat {
   %4 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_17containsStructureEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1, ptr %2)
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   ret i1 %5
 }
 
@@ -18948,7 +18948,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEZNKS2_5TType8containsIZNKSA_20containsUnsizedArrayEvEUlPKSA_E_EEbT_EUlRKS3_E_EbSF_SF_T0_(ptr %0, ptr %1) local_unnamed_addr #0 comdat {
   %3 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_20containsUnsizedArrayEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1)
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   ret i1 %4
 }
 
@@ -19212,7 +19212,7 @@ _ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlR
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEZNKS2_5TType8containsIZNKSA_14containsOpaqueEvEUlPKSA_E_EEbT_EUlRKS3_E_EbSF_SF_T0_(ptr %0, ptr %1) local_unnamed_addr #0 comdat {
   %3 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_14containsOpaqueEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1)
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   ret i1 %4
 }
 
@@ -19476,7 +19476,7 @@ _ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8T
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEZNKS2_5TType8containsIZNKSA_15containsSamplerEvEUlPKSA_E_EEbT_EUlRKS3_E_EbSF_SF_T0_(ptr %0, ptr %1) local_unnamed_addr #0 comdat {
   %3 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_15containsSamplerEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1)
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   ret i1 %4
 }
 
@@ -19801,7 +19801,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEZNKS2_5TType8containsIZNKSA_15containsBuiltInEvEUlPKSA_E_EEbT_EUlRKS3_E_EbSF_SF_T0_(ptr %0, ptr %1) local_unnamed_addr #0 comdat {
   %3 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_15containsBuiltInEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1)
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   ret i1 %4
 }
 
@@ -20065,7 +20065,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEZNKS2_5TType8containsIZNKSA_17containsNonOpaqueEvEUlPKSA_E_EEbT_EUlRKS3_E_EbSF_SF_T0_(ptr %0, ptr %1) local_unnamed_addr #0 comdat {
   %3 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_17containsNonOpaqueEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1)
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   ret i1 %4
 }
 
@@ -20427,7 +20427,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEZNKS2_5TType8containsIZNKSA_26containsSpecializationSizeEvEUlPKSA_E_EEbT_EUlRKS3_E_EbSF_SF_T0_(ptr %0, ptr %1) local_unnamed_addr #0 comdat {
   %3 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_26containsSpecializationSizeEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1)
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   ret i1 %4
 }
 
@@ -21807,7 +21807,7 @@ _ZNSt3mapIPN7glslang7TVectorINS0_8TTypeLocEEES4_St4lessIS4_ENS0_14pool_allocator
 
 24:                                               ; preds = %.critedge
   %.not.i.i.i4 = icmp ne ptr %22, null
-  %25 = icmp eq ptr %5, %23
+  %25 = icmp eq ptr %23, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %25
   br i1 %or.cond.i.i.i, label %_ZNSt8_Rb_treeIPN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ENS0_14pool_allocatorIS7_EEE10_Auto_node9_M_insertES5_IPSt18_Rb_tree_node_baseSH_E.exit.i, label %26
 
@@ -22485,7 +22485,7 @@ _ZN7glslang7TVectorINS_10TArraySizeEEaSERKS2_.exit: ; preds = %_ZSt4copyIN9__gnu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ENS0_14pool_allocatorIS7_EEE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS6_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -22759,7 +22759,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %22 = getelementptr inbounds i8, ptr %14, i64 %1
   %23 = add i64 %2, %1
   %24 = sub i64 %7, %23
-  %25 = icmp ugt ptr %14, %3
+  %25 = icmp ult ptr %3, %14
   %26 = getelementptr inbounds i8, ptr %14, i64 %7
   %27 = icmp ult ptr %26, %3
   %28 = select i1 %25, i1 true, i1 %27
@@ -22868,7 +22868,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit
 
 58:                                               ; preds = %51
-  %.not87 = icmp ugt ptr %53, %3
+  %.not87 = icmp ult ptr %3, %53
   br i1 %.not87, label %68, label %59
 
 59:                                               ; preds = %58
@@ -23153,7 +23153,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allo
 32:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE10_Auto_nodeC2IJKSC_EEERSI_DpOT_.exit
   %.not.i.i = icmp ne ptr %30, null
   %33 = getelementptr inbounds i8, ptr %0, i64 16
-  %34 = icmp eq ptr %33, %31
+  %34 = icmp eq ptr %31, %33
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %34
   br i1 %or.cond.i.i, label %.thread, label %35
 
@@ -23560,7 +23560,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN7glslang10TParameterENS0_14pool_allocator
   br i1 %.not, label %28, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp eq ptr %10, %1
+  %14 = icmp eq ptr %1, %10
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
@@ -23645,7 +23645,7 @@ _ZNSt12_Vector_baseIN7glslang10TParameterENS0_14pool_allocatorIS1_EEE11_M_alloca
 _ZSt34__uninitialized_move_if_noexcept_aIPN7glslang10TParameterES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit.i: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN7glslang10TParameterENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i = phi ptr [ %44, %_ZNSt12_Vector_baseIN7glslang10TParameterENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i ], [ %47, %.lr.ph.i.i.i ]
   %48 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not8.i.i18.i = icmp eq ptr %10, %1
+  %.not8.i.i18.i = icmp eq ptr %1, %10
   br i1 %.not8.i.i18.i, label %_ZNSt6vectorIN7glslang10TParameterENS0_14pool_allocatorIS1_EEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S4_EEDpOT_.exit, label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7glslang10TParameterES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit.i, %.lr.ph.i.i19.i
@@ -23728,7 +23728,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glsla
 _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ESA_NS6_IS9_EEET0_T_SD_SC_RT1_.exit: ; preds = %.lr.ph.i.i, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ENS6_IS9_EEE11_M_allocateEm.exit
   %.0.lcssa.i.i = phi ptr [ %25, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ENS6_IS9_EEE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i ]
   %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 80
-  %.not8.i.i18 = icmp eq ptr %6, %1
+  %.not8.i.i18 = icmp eq ptr %1, %6
   br i1 %.not8.i.i18, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ESA_NS6_IS9_EEET0_T_SD_SC_RT1_.exit24, label %.lr.ph.i.i19
 
 .lr.ph.i.i19:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ESA_NS6_IS9_EEET0_T_SD_SC_RT1_.exit, %.lr.ph.i.i19

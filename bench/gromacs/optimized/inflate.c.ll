@@ -529,7 +529,7 @@ define range(i32 -2, 1) i32 @inflatePrime(ptr noundef readonly %0, i32 noundef %
   %notmask = shl nsw i64 -1, %22
   %23 = trunc i64 %notmask to i32
   %24 = xor i32 %23, -1
-  %25 = and i32 %24, %2
+  %25 = and i32 %2, %24
   %26 = shl i32 %25, %18
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %7, i64 72
@@ -3283,7 +3283,7 @@ default.unreachable2829:                          ; preds = %444
 
 1089:                                             ; preds = %1083, %1078
   %1090 = phi i32 [ %1086, %1083 ], [ %1081, %1078 ]
-  %.not.i = icmp ugt i32 %1090, %1063
+  %.not.i = icmp ult i32 %1063, %1090
   br i1 %.not.i, label %1098, label %1091
 
 1091:                                             ; preds = %1089
@@ -3310,7 +3310,7 @@ default.unreachable2829:                          ; preds = %444
   %1106 = getelementptr inbounds i8, ptr %1062, i64 %1105
   %1107 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1103, ptr readonly align 1 %1106, i64 %1107, i1 false)
-  %.not57.not.i = icmp ult i32 %1101, %1063
+  %.not57.not.i = icmp ugt i32 %1063, %1101
   br i1 %.not57.not.i, label %1108, label %1116
 
 1108:                                             ; preds = %1098
@@ -3617,7 +3617,7 @@ define range(i32 -4, 1) i32 @inflateSetDictionary(ptr noundef readonly %0, ptr n
 
 47:                                               ; preds = %41, %36
   %48 = phi i32 [ %44, %41 ], [ %39, %36 ]
-  %.not.i = icmp ugt i32 %48, %2
+  %.not.i = icmp ult i32 %2, %48
   br i1 %.not.i, label %56, label %49
 
 49:                                               ; preds = %47
@@ -3641,7 +3641,7 @@ define range(i32 -4, 1) i32 @inflateSetDictionary(ptr noundef readonly %0, ptr n
   %61 = getelementptr inbounds i8, ptr %37, i64 %60
   %62 = zext i32 %spec.select.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr readonly align 1 %1, i64 %62, i1 false)
-  %.not57.not.i = icmp ult i32 %59, %2
+  %.not57.not.i = icmp ugt i32 %2, %59
   br i1 %.not57.not.i, label %63, label %71
 
 63:                                               ; preds = %56

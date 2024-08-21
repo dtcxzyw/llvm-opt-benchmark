@@ -3953,7 +3953,7 @@ define hidden range(i32 0, 2) i32 @do_cli_server(i32 noundef %0, ptr noundef %1)
   %.not28 = icmp eq ptr %.sink, null
   %spec.select = select i1 %.not28, ptr %.019.lcssa.sink, ptr %13
   %45 = load i32, ptr %12, align 4
-  %46 = icmp slt i32 %45, %0
+  %46 = icmp sgt i32 %0, %45
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %44
@@ -4385,7 +4385,7 @@ php_cli_server_startup_workers.exit.i:            ; preds = %193, %199, %188, %1
 
 212:                                              ; preds = %203, %php_cli_server_startup_workers.exit.i
   %213 = phi i32 [ %.pre.i, %203 ], [ -1, %php_cli_server_startup_workers.exit.i ]
-  %214 = icmp slt i32 %213, %.317.i35.i
+  %214 = icmp sgt i32 %.317.i35.i, %213
   br i1 %214, label %215, label %php_cli_server_poller_add.exit.i
 
 215:                                              ; preds = %212
@@ -5966,7 +5966,7 @@ define internal void @php_cli_server_client_dtor_wrapper(ptr nocapture noundef r
 26:                                               ; preds = %1, %12
   %27 = getelementptr inbounds i8, ptr %8, i64 520
   %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, %10
+  %29 = icmp eq i32 %10, %28
   br i1 %29, label %.preheader.i, label %php_cli_server_poller_remove.exit
 
 .preheader.i:                                     ; preds = %26
@@ -6404,7 +6404,7 @@ php_cli_server_client_read_request.exit:          ; preds = %32
 95:                                               ; preds = %85, %80
   %96 = getelementptr inbounds i8, ptr %0, i64 520
   %97 = load i32, ptr %96, align 8
-  %98 = icmp eq i32 %97, %83
+  %98 = icmp eq i32 %83, %97
   br i1 %98, label %.preheader.i, label %php_cli_server_poller_remove.exit
 
 .preheader.i:                                     ; preds = %95
@@ -6993,7 +6993,7 @@ php_cli_server_buffer_append.exit.i.i:            ; preds = %352
 
 368:                                              ; preds = %358, %php_cli_server_buffer_append.exit.i.i
   %369 = load i32, ptr %96, align 8
-  %370 = icmp slt i32 %369, %356
+  %370 = icmp sgt i32 %356, %369
   br i1 %370, label %371, label %php_cli_server_begin_send_static.exit.thread.i
 
 371:                                              ; preds = %368
@@ -7053,7 +7053,7 @@ php_cli_server_begin_send_static.exit.i:          ; preds = %216, %212, %209, %.
 397:                                              ; preds = %387, %384
   %398 = getelementptr inbounds i8, ptr %0, i64 520
   %399 = load i32, ptr %398, align 8
-  %400 = icmp slt i32 %399, %385
+  %400 = icmp sgt i32 %385, %399
   br i1 %400, label %401, label %php_cli_server_dispatch.exit
 
 401:                                              ; preds = %397
@@ -7502,7 +7502,7 @@ php_cli_server_client_ctor.exit:                  ; preds = %54, %59, %64
 95:                                               ; preds = %85, %php_cli_server_client_ctor.exit
   %96 = getelementptr inbounds i8, ptr %7, i64 520
   %97 = load i32, ptr %96, align 8
-  %98 = icmp slt i32 %97, %83
+  %98 = icmp sgt i32 %83, %97
   br i1 %98, label %99, label %php_cli_server_poller_add.exit
 
 99:                                               ; preds = %95
@@ -8221,7 +8221,7 @@ php_cli_server_buffer_prepend.exit:               ; preds = %283, %287
 302:                                              ; preds = %292, %php_cli_server_buffer_prepend.exit
   %303 = getelementptr inbounds i8, ptr %0, i64 520
   %304 = load i32, ptr %303, align 8
-  %305 = icmp slt i32 %304, %290
+  %305 = icmp sgt i32 %290, %304
   br i1 %305, label %306, label %php_cli_server_poller_add.exit
 
 306:                                              ; preds = %302

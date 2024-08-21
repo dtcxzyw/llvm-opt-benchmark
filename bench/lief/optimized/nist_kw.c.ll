@@ -97,7 +97,7 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
 
 12:                                               ; preds = %7
   %13 = add i64 %3, 8
-  %14 = icmp ugt i64 %13, %6
+  %14 = icmp ult i64 %6, %13
   br i1 %14, label %78, label %15
 
 15:                                               ; preds = %12
@@ -121,7 +121,7 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
   %spec.select = select i1 %.not, i64 0, i64 %22
   %23 = add i64 %3, 8
   %24 = add i64 %23, %spec.select
-  %25 = icmp ugt i64 %24, %6
+  %25 = icmp ult i64 %6, %24
   %26 = add i64 %3, -4294967296
   %or.cond3 = icmp ult i64 %26, -4294967295
   %or.cond95 = or i1 %or.cond3, %25
@@ -260,7 +260,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   store i8 0, ptr %11, align 1
   store i64 0, ptr %5, align 8
   %13 = add i64 %3, -8
-  %14 = icmp ugt i64 %13, %6
+  %14 = icmp ult i64 %6, %13
   br i1 %14, label %81, label %15
 
 15:                                               ; preds = %7

@@ -5656,7 +5656,7 @@ define internal fastcc i32 @cli_scanbzip(ptr noundef %0) unnamed_addr #0 {
   %21 = load ptr, ptr %15, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 88
   %23 = load i64, ptr %22, align 8
-  %.not.i = icmp ugt i64 %23, %.0
+  %.not.i = icmp ult i64 %.0, %23
   br i1 %.not.i, label %fmap_need_off_once_len.exit, label %fmap_need_off_once_len.exit.thread
 
 fmap_need_off_once_len.exit.thread:               ; preds = %20
@@ -5871,7 +5871,7 @@ define internal fastcc i32 @cli_scanxz(ptr noundef %0) unnamed_addr #0 {
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 88
   %27 = load i64, ptr %26, align 8
-  %.not.i = icmp ugt i64 %27, %.038
+  %.not.i = icmp ult i64 %.038, %27
   br i1 %.not.i, label %28, label %fmap_need_off_once_len.exit.thread
 
 28:                                               ; preds = %24
@@ -7496,7 +7496,7 @@ define internal fastcc i32 @cli_scancryptff(ptr noundef %0) unnamed_addr #0 {
   %18 = load ptr, ptr %12, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 88
   %20 = load i64, ptr %19, align 8
-  %.not.i = icmp ugt i64 %20, %17
+  %.not.i = icmp ult i64 %17, %20
   br i1 %.not.i, label %fmap_need_off_once_len.exit, label %fmap_need_off_once_len.exit.thread
 
 fmap_need_off_once_len.exit:                      ; preds = %10, %16
@@ -7655,7 +7655,7 @@ default.unreachable:                              ; preds = %4
   %.03659.us = phi i64 [ %41, %40 ], [ 0, %.split.us.preheader ]
   %.04156.us = phi i32 [ %47, %40 ], [ 0, %.split.us.preheader ]
   %34 = load i64, ptr %32, align 8
-  %or.cond55.not.us = icmp ugt i64 %34, %.03659.us
+  %or.cond55.not.us = icmp ult i64 %.03659.us, %34
   br i1 %or.cond55.not.us, label %35, label %.critedge
 
 35:                                               ; preds = %.split.us
@@ -7692,7 +7692,7 @@ fmap_readn.exit.us:                               ; preds = %35
   %.03957 = phi i32 [ %69, %57 ], [ 0, %.split.preheader ]
   %.04156 = phi i32 [ %64, %57 ], [ 0, %.split.preheader ]
   %51 = load i64, ptr %30, align 8
-  %or.cond55.not = icmp ugt i64 %51, %.03659
+  %or.cond55.not = icmp ult i64 %.03659, %51
   br i1 %or.cond55.not, label %52, label %.critedge
 
 52:                                               ; preds = %.split
@@ -8047,7 +8047,7 @@ define i32 @cli_magic_scan_nested_fmap_type(ptr noundef %0, i64 noundef %1, i64 
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.54, i64 noundef %1, i64 noundef %2) #16
   %10 = getelementptr inbounds i8, ptr %0, i64 88
   %11 = load i64, ptr %10, align 8
-  %.not = icmp ugt i64 %11, %1
+  %.not = icmp ult i64 %1, %11
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %7
@@ -8094,7 +8094,7 @@ define i32 @cli_magic_scan_nested_fmap_type(ptr noundef %0, i64 noundef %1, i64 
   %31 = add i64 %.157, %1
   %.not70 = icmp ule i64 %31, %26
   %or.cond76.not86 = and i1 %.not69, %.not70
-  %32 = icmp ugt i64 %26, %1
+  %32 = icmp ult i64 %1, %26
   %or.cond77 = and i1 %32, %or.cond76.not86
   br i1 %or.cond77, label %fmap_need_off_once_len.exit, label %33
 
@@ -8104,7 +8104,7 @@ define i32 @cli_magic_scan_nested_fmap_type(ptr noundef %0, i64 noundef %1, i64 
 
 fmap_need_off_once_len.exit:                      ; preds = %30
   %34 = sub nuw i64 %26, %1
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %34, i64 %.157)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.157, i64 %34)
   %35 = getelementptr inbounds i8, ptr %0, i64 104
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %spec.select.i, i32 noundef 0) #16
@@ -8175,7 +8175,7 @@ fmap_need_off_once_len.exit:                      ; preds = %30
 69:                                               ; preds = %13
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.298, i64 noundef %11, i64 noundef %1, i64 noundef %2) #16
   %70 = load i64, ptr %10, align 8
-  %.not.i79 = icmp ugt i64 %70, %1
+  %.not.i79 = icmp ult i64 %1, %70
   br i1 %.not.i79, label %72, label %71
 
 71:                                               ; preds = %69

@@ -2036,7 +2036,7 @@ next_line.exit:                                   ; preds = %get_line_size.exit6
   %138 = icmp eq i8 %130, 47
   %spec.select.i76 = select i1 %138, i32 1, i32 %.085.i
   %139 = getelementptr inbounds i8, ptr %131, i64 -1
-  %.not65.i = icmp ult ptr %139, %.1116172
+  %.not65.i = icmp ugt ptr %.1116172, %139
   br i1 %.not65.i, label %.critedge.i, label %.lr.ph86thread-pre-split.i, !llvm.loop !22
 
 .critedge.i:                                      ; preds = %136, %.lr.ph86.i, %.lr.ph86.i

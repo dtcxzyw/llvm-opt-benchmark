@@ -285,7 +285,7 @@ define range(i32 -22, 1) i32 @CVodeSetMaxOrd(ptr noundef %0, i32 noundef %1) loc
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 1120
   %10 = load i32, ptr %9, align 8
-  %11 = icmp slt i32 %10, %1
+  %11 = icmp sgt i32 %1, %10
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
@@ -429,7 +429,7 @@ define range(i32 -22, 1) i32 @CVodeSetMinStep(ptr noundef %0, double noundef %1)
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 752
   %14 = load double, ptr %13, align 8
-  %15 = fmul double %14, %1
+  %15 = fmul double %1, %14
   %16 = fcmp ogt double %15, 1.000000e+00
   br i1 %16, label %17, label %18
 

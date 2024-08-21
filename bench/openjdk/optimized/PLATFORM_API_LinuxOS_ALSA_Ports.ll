@@ -431,7 +431,7 @@ define hidden i32 @PORT_GetPortType(ptr noundef readonly %0, i32 noundef %1) loc
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   br i1 %.not, label %8, label %14
 
 8:                                                ; preds = %5
@@ -457,7 +457,7 @@ define hidden range(i32 -1, 2) i32 @PORT_GetPortName(ptr noundef readonly %0, i3
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   br i1 %.not, label %10, label %21
 
 10:                                               ; preds = %7
@@ -498,7 +498,7 @@ define hidden void @PORT_GetControls(ptr noundef %0, i32 noundef %1, ptr noundef
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
-  %.not = icmp sgt i32 %14, %1
+  %.not = icmp slt i32 %1, %14
   br i1 %.not, label %15, label %172
 
 15:                                               ; preds = %12
@@ -1144,9 +1144,9 @@ getFakeBalance.exit:                              ; preds = %14, %17, %19
   %.0.i = phi float [ %16, %14 ], [ %21, %19 ], [ 0.000000e+00, %17 ]
   %22 = fcmp olt float %.0.i, 0.000000e+00
   %23 = fadd float %.0.i, 1.000000e+00
-  %24 = fmul float %23, %1
+  %24 = fmul float %1, %23
   %25 = fsub float 1.000000e+00, %.0.i
-  %26 = fmul float %25, %1
+  %26 = fmul float %1, %25
   %.011.i = select i1 %22, float %1, float %26
   %.0.i18 = select i1 %22, float %24, float %1
   tail call void @setRealVolume(ptr noundef nonnull readonly %0, i32 noundef 0, float noundef %.011.i)

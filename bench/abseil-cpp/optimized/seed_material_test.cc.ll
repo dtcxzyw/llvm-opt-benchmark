@@ -5535,7 +5535,7 @@ if.end.i:                                         ; preds = %invoke.cont.i, %cal
 
 invoke.cont4:                                     ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %4 = xor i1 %call5.i12, %all_elements_should_match
+  %4 = xor i1 %all_elements_should_match, %call5.i12
   br i1 %4, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont4

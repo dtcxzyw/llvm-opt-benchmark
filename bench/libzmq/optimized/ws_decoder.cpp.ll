@@ -835,7 +835,7 @@ entry:
   store i64 0, ptr %bytes_used_, align 8
   %_read_pos = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_read_pos, align 8
-  %cmp = icmp eq ptr %0, %data_
+  %cmp = icmp eq ptr %data_, %0
   br i1 %cmp, label %do.body, label %while.cond15.preheader
 
 while.cond15.preheader:                           ; preds = %entry
@@ -852,7 +852,7 @@ while.body17.lr.ph:                               ; preds = %while.cond15.prehea
 do.body:                                          ; preds = %entry
   %_to_read = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %_to_read, align 8
-  %cmp2.not = icmp ult i64 %1, %size_
+  %cmp2.not = icmp ugt i64 %size_, %1
   br i1 %cmp2.not, label %if.then3, label %do.end
 
 if.then3:                                         ; preds = %do.body

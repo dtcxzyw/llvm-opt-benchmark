@@ -511,7 +511,7 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef4join28_$u7b$$u7b$cl
   store ptr %15, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
-  %16 = icmp ult i64 %14, %7
+  %16 = icmp ugt i64 %7, %14
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %3
@@ -545,7 +545,7 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef4join28_$u7b$$u7b$cl
   store i64 %28, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !111, !noalias !116
   %29 = load i64, ptr %4, align 8, !alias.scope !118, !noalias !125, !noundef !14
   %30 = sub i64 %29, %28
-  %31 = icmp ult i64 %30, %11
+  %31 = icmp ugt i64 %11, %30
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %23

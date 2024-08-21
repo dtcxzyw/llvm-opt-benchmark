@@ -11936,7 +11936,7 @@ define hidden void @nds_defrag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 153:                                              ; preds = %148
   %154 = getelementptr inbounds i8, ptr %104, i64 25
   %155 = load i8, ptr %154, align 1
-  %.not228 = icmp eq i8 %155, %3
+  %.not228 = icmp eq i8 %3, %155
   br i1 %.not228, label %162, label %156
 
 156:                                              ; preds = %153
@@ -15339,7 +15339,7 @@ define internal fastcc void @process_ptvc_record(ptr noundef %0, ptr noundef %1,
 
 .lr.ph58:                                         ; preds = %7
   %15 = icmp ne ptr %3, null
-  %or.cond = and i1 %15, %4
+  %or.cond = and i1 %4, %15
   %16 = getelementptr inbounds i8, ptr %5, i64 56
   br label %17
 
@@ -20904,7 +20904,7 @@ declare void @g_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_ad
 define internal void @ncp1633_reply_expert_func(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i1 noundef zeroext %3) #0 {
   %5 = load i32, ptr @nds_echo_eid, align 4
   %.not = icmp eq i32 %5, 0
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %20, label %6
 
 6:                                                ; preds = %4
@@ -20933,7 +20933,7 @@ define internal void @ncp1633_reply_expert_func(ptr noundef %0, ptr noundef %1, 
 define internal void @ncp1711_reply_expert_func(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i1 noundef zeroext %3) #0 {
   %5 = load i32, ptr @ncp_echo_server, align 4
   %.not = icmp eq i32 %5, 0
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %40, label %6
 
 6:                                                ; preds = %4
@@ -20987,7 +20987,7 @@ define internal void @ncp1711_reply_expert_func(ptr noundef %0, ptr noundef %1, 
 define internal void @ncp42_request_expert_func(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i1 noundef zeroext %3) #0 {
   %5 = load i32, ptr @ncp_echo_file, align 4
   %.not = icmp ne i32 %5, 0
-  %brmerge.not = and i1 %.not, %3
+  %brmerge.not = and i1 %3, %.not
   br i1 %brmerge.not, label %6, label %13
 
 6:                                                ; preds = %4
@@ -21137,7 +21137,7 @@ define internal void @file_rights_expert_func(ptr noundef %0, ptr noundef %1, pt
 define internal void @ncp5722_request_expert_func(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i1 noundef zeroext %3) #0 {
   %5 = load i32, ptr @ncp_echo_file, align 4
   %.not = icmp ne i32 %5, 0
-  %brmerge.not = and i1 %.not, %3
+  %brmerge.not = and i1 %3, %.not
   br i1 %brmerge.not, label %6, label %16
 
 6:                                                ; preds = %4
@@ -21319,7 +21319,7 @@ define internal fastcc void @add_ptvc_field(ptr nocapture noundef readonly %0, p
   %9 = load i32, ptr %8, align 4
   %10 = tail call ptr @proto_registrar_get_nth(i32 noundef %9) #13
   %.not129 = xor i1 %3, true
-  %brmerge = or i1 %.not129, %4
+  %brmerge = or i1 %4, %.not129
   br i1 %brmerge, label %17, label %11
 
 11:                                               ; preds = %6
@@ -22922,7 +22922,7 @@ process_search_match.exit:                        ; preds = %150
 define internal fastcc noundef ptr @get_string(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @llvm.umin.i32(i32 %2, i32 1024)
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #13
-  %6 = icmp slt i32 %5, %2
+  %6 = icmp sgt i32 %2, %5
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
@@ -23100,7 +23100,7 @@ define internal fastcc void @print_nds_values(ptr noundef %0, ptr noundef %1, pt
   %31 = add i32 %.1655783, 4
   %32 = call i32 @llvm.umin.i32(i32 %30, i32 1024)
   %33 = call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %31) #13
-  %34 = icmp slt i32 %33, %30
+  %34 = icmp sgt i32 %30, %33
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %.lr.ph786

@@ -974,7 +974,7 @@ entry:
   %shadow_vqs_enabled = getelementptr inbounds i8, ptr %s, i64 624
   %0 = load i8, ptr %shadow_vqs_enabled, align 16
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %enable
+  %2 = xor i1 %enable, %1
   br i1 %2, label %if.end, label %if.end32
 
 if.end:                                           ; preds = %entry
@@ -2159,7 +2159,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %for.body
   %inc = add i32 %i.07, 1
   %conv2 = sext i32 %inc to i64
-  %cmp3 = icmp ult i64 %conv2, %len
+  %cmp3 = icmp ugt i64 %len, %conv2
   br i1 %cmp3, label %for.body, label %return, !llvm.loop !14
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond

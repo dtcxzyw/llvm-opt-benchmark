@@ -749,7 +749,7 @@ define hidden i32 @lj_ir_knumint(ptr nocapture noundef %J, double noundef %n) lo
 entry:
   %conv.i = fptosi double %n to i32
   %conv1.i = sitofp i32 %conv.i to double
-  %cmp.i = fcmp oeq double %conv1.i, %n
+  %cmp.i = fcmp oeq double %n, %conv1.i
   br i1 %cmp.i, label %numistrueint.exit, label %entry.if.else_crit_edge
 
 entry.if.else_crit_edge:                          ; preds = %entry
@@ -919,7 +919,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %arrayidx3 = getelementptr inbounds i8, ptr %arrayidx2, i64 8
   %1 = load i64, ptr %arrayidx3, align 8
   %2 = inttoptr i64 %1 to ptr
-  %cmp = icmp eq ptr %2, %o
+  %cmp = icmp eq ptr %o, %2
   br i1 %cmp, label %found.loopexit, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %entry
@@ -1025,7 +1025,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %arrayidx4 = getelementptr inbounds i8, ptr %arrayidx3, i64 8
   %1 = load i64, ptr %arrayidx4, align 8
   %2 = inttoptr i64 %1 to ptr
-  %cmp = icmp eq ptr %2, %ptr
+  %cmp = icmp eq ptr %ptr, %2
   br i1 %cmp, label %found.loopexit, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %entry
@@ -1096,7 +1096,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %t3 = getelementptr inbounds i8, ptr %arrayidx2, i64 4
   %1 = load i8, ptr %t3, align 4
   %conv4 = zext i8 %1 to i32
-  %cmp = icmp eq i32 %conv4, %t
+  %cmp = icmp eq i32 %t, %conv4
   br i1 %cmp, label %found.loopexit, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %entry

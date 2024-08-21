@@ -478,7 +478,7 @@ Kit_DsdNtkRoot.exit:
   %7 = load i16, ptr %6, align 2
   %8 = lshr i16 %7, 1
   %9 = load i16, ptr %2, align 8
-  %10 = icmp ule i16 %9, %8
+  %10 = icmp uge i16 %8, %9
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
@@ -1176,7 +1176,7 @@ Abc_Clock.exit89:                                 ; preds = %Abc_Clock.exit87, %
   %159 = load i16, ptr %158, align 2
   %160 = lshr i16 %159, 1
   %161 = load i16, ptr %157, align 8
-  %162 = icmp ule i16 %161, %160
+  %162 = icmp uge i16 %160, %161
   call void @llvm.assume(i1 %162)
   %163 = getelementptr inbounds i8, ptr %157, i64 24
   %164 = load ptr, ptr %163, align 8

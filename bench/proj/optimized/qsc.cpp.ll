@@ -207,14 +207,14 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   %9 = tail call double @atan2(double noundef %1, double noundef %0) #8
   %10 = fcmp oge double %0, 0.000000e+00
   %11 = tail call double @llvm.fabs.f64(double %1)
-  %12 = fcmp ole double %11, %0
+  %12 = fcmp oge double %0, %11
   %or.cond.not = and i1 %10, %12
   br i1 %or.cond.not, label %28, label %13
 
 13:                                               ; preds = %3
   %14 = fcmp ult double %1, 0.000000e+00
   %15 = tail call double @llvm.fabs.f64(double %0)
-  %16 = fcmp ugt double %15, %1
+  %16 = fcmp ult double %1, %15
   %or.cond131 = or i1 %14, %16
   br i1 %or.cond131, label %19, label %17
 
@@ -253,16 +253,16 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   %38 = tail call double @atan(double noundef %37) #8
   %39 = tail call double @cos(double noundef %.0) #8
   %40 = tail call double @tan(double noundef %8) #8
-  %41 = tail call double @cos(double noundef %38) #8
-  %42 = fdiv double 1.000000e+00, %41
-  %43 = tail call double @atan(double noundef %42) #8
-  %44 = tail call double @cos(double noundef %43) #8
-  %45 = fsub double 1.000000e+00, %44
-  %46 = fneg double %39
-  %47 = fmul double %39, %46
-  %48 = fmul double %47, %40
-  %49 = fmul double %40, %48
-  %50 = tail call double @llvm.fmuladd.f64(double %49, double %45, double 1.000000e+00)
+  %41 = fmul double %39, %39
+  %42 = fmul double %41, %40
+  %43 = tail call double @cos(double noundef %38) #8
+  %44 = fdiv double 1.000000e+00, %43
+  %45 = tail call double @atan(double noundef %44) #8
+  %46 = tail call double @cos(double noundef %45) #8
+  %47 = fsub double 1.000000e+00, %46
+  %48 = fneg double %40
+  %49 = fmul double %42, %48
+  %50 = tail call double @llvm.fmuladd.f64(double %49, double %47, double 1.000000e+00)
   %51 = fcmp olt double %50, -1.000000e+00
   br i1 %51, label %55, label %52
 
@@ -559,7 +559,7 @@ define internal { double, double } @_ZL13qsc_e_forward5PJ_LPP8PJconsts(double %0
 26:                                               ; preds = %23
   %27 = fcmp ogt double %0, 0.000000e+00
   %.v = select i1 %27, double 0xC00921FB54442D18, double 0x400921FB54442D18
-  %28 = fadd double %.v, %0
+  %28 = fadd double %0, %.v
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
 29:                                               ; preds = %23

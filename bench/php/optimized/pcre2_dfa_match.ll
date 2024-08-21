@@ -71,7 +71,7 @@ define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ult i64 %.0531, %3
+  %30 = icmp ugt i64 %3, %.0531
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %29
@@ -367,7 +367,7 @@ define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %.not626, label %.loopexit721, label %187
 
 187:                                              ; preds = %186
-  %188 = icmp sgt i64 %.0531, %3
+  %188 = icmp slt i64 %3, %.0531
   br i1 %188, label %189, label %193
 
 189:                                              ; preds = %187
@@ -1361,7 +1361,7 @@ define internal fastcc i32 @internal_dfa_match(ptr noundef %0, ptr noundef %1, p
   %38 = add i32 %8, 1
   %39 = getelementptr inbounds i8, ptr %0, i64 100
   %40 = load i32, ptr %39, align 4
-  %41 = icmp ult i32 %40, %8
+  %41 = icmp ugt i32 %8, %40
   br i1 %41, label %more_workspace.exit.thread, label %42
 
 42:                                               ; preds = %37
@@ -1410,7 +1410,7 @@ define internal fastcc i32 @internal_dfa_match(ptr noundef %0, ptr noundef %1, p
 
 .preheader3192:                                   ; preds = %73
   %74 = icmp ne i64 %spec.select, 0
-  %.not28993282 = icmp ult ptr %21, %2
+  %.not28993282 = icmp ugt ptr %2, %21
   %or.cond30443283 = select i1 %74, i1 %.not28993282, i1 false
   br i1 %or.cond30443283, label %.preheader3191, label %.loopexit3193
 

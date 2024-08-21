@@ -1013,7 +1013,7 @@ do.body.i37.backedge:                             ; preds = %do.body.i37, %do.bo
 
 _ZN7msdfgen9readCharSEPPKc.exit44:                ; preds = %do.body.i37
   %conv.i43 = sext i8 %7 to i32
-  %cmp9.not = icmp eq i32 %conv.i43, %terminator
+  %cmp9.not = icmp eq i32 %terminator, %conv.i43
   %cmp10.not = icmp ne i8 %7, 59
   %or.cond.not = or i1 %cmp10.not, %cmp9.not
   br i1 %or.cond.not, label %return, label %if.end12

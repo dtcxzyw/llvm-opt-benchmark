@@ -902,7 +902,7 @@ define dso_local void @Curl_disconnect(ptr noundef %0, ptr noundef %1, i1 nounde
   %4 = getelementptr inbounds i8, ptr %1, i64 744
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %6, label %26
 
 6:                                                ; preds = %3
@@ -921,7 +921,7 @@ define dso_local void @Curl_disconnect(ptr noundef %0, ptr noundef %1, i1 nounde
   %11 = getelementptr inbounds i8, ptr %1, i64 1153
   %12 = load i8, ptr %11, align 1
   %.not23 = icmp ne i8 %12, 0
-  %spec.select = or i1 %.not23, %2
+  %spec.select = or i1 %2, %.not23
   tail call void @Curl_attach_connection(ptr noundef %0, ptr noundef nonnull %1) #12
   %13 = getelementptr inbounds i8, ptr %1, i64 680
   %14 = load ptr, ptr %13, align 8
@@ -3515,7 +3515,7 @@ priority_remove_child.exit:                       ; preds = %8, %.critedge.i
   %23 = getelementptr inbounds i8, ptr %0, i64 2552
   %24 = load ptr, ptr %23, align 8
   %.not40 = icmp ne ptr %24, null
-  %brmerge.not = and i1 %.not40, %2
+  %brmerge.not = and i1 %2, %.not40
   br i1 %brmerge.not, label %.preheader, label %34
 
 .preheader:                                       ; preds = %21, %.preheader

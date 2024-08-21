@@ -3519,7 +3519,7 @@ while.body79:                                     ; preds = %while.cond76
 
 if.else.i:                                        ; preds = %while.body79
   %44 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %44, %43
+  %cmp3.not.i = icmp ugt i32 %43, %44
   %45 = xor i32 %44, -1
   %.sink352 = select i1 %cmp3.not.i, i32 %45, i32 -1
   %sub9.i = add i32 %43, %.sink352

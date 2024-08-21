@@ -132,7 +132,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -412,7 +412,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #10
   %cmp7 = icmp eq ptr %call, null
@@ -504,7 +504,7 @@ land.lhs.true:                                    ; preds = %entry
   %fLength.i.i.i = getelementptr inbounds i8, ptr %rule, i64 12
   %3 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %3, i32 %shr.i.i.i.i
-  %cmp.i.i = icmp ugt i32 %cond.i.i.i, %0
+  %cmp.i.i = icmp ult i32 %0, %cond.i.i.i
   br i1 %cmp.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %if.end14
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %land.lhs.true
@@ -523,7 +523,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %land.lhs.true
 if.then:                                          ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
   %add = add nuw nsw i32 %0, 1
   %cmp2 = icmp slt i32 %add, %limit
-  %cmp.i.i28 = icmp ugt i32 %cond.i.i.i, %add
+  %cmp.i.i28 = icmp ult i32 %add, %cond.i.i.i
   %or.cond = and i1 %cmp2, %cmp.i.i28
   br i1 %or.cond, label %_ZNK6icu_7513UnicodeString6charAtEi.exit37, label %if.end14
 
@@ -596,7 +596,7 @@ if.end22:                                         ; preds = %_ZNK6icu_7513Unicod
 if.end28:                                         ; preds = %if.end22
   %inc23 = add nuw nsw i32 %count.180, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %limit
+  %exitcond.not = icmp eq i32 %limit, %lftr.wideiv
   br i1 %exitcond.not, label %if.then30, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit67, %if.end14
@@ -675,7 +675,7 @@ if.end:                                           ; preds = %sw.bb
   %shr.i.i.i.i16 = sext i16 %9 to i32
   %10 = load i32, ptr %fLength.i.i.i17, align 4
   %cond.i.i.i18 = select i1 %cmp.i.i.i.i15, i32 %10, i32 %shr.i.i.i.i16
-  %cmp.i.i19 = icmp ugt i32 %cond.i.i.i18, %7
+  %cmp.i.i19 = icmp ult i32 %7, %cond.i.i.i18
   br i1 %cmp.i.i19, label %if.then.i.i21, label %_ZNK6icu_7513UnicodeString6charAtEi.exit28
 
 if.then.i.i21:                                    ; preds = %if.end
@@ -729,7 +729,7 @@ if.end18:                                         ; preds = %sw.default
   %shr.i.i.i.i31 = sext i16 %19 to i32
   %20 = load i32, ptr %fLength.i.i.i17, align 4
   %cond.i.i.i33 = select i1 %cmp.i.i.i.i30, i32 %20, i32 %shr.i.i.i.i31
-  %cmp.i.i34 = icmp ugt i32 %cond.i.i.i33, %17
+  %cmp.i.i34 = icmp ult i32 %17, %cond.i.i.i33
   br i1 %cmp.i.i34, label %if.then.i.i36, label %_ZNK6icu_7513UnicodeString6charAtEi.exit43
 
 if.then.i.i36:                                    ; preds = %if.end18

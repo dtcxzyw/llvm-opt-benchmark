@@ -802,7 +802,7 @@ if.then46:                                        ; preds = %land.lhs.true25, %i
 if.end54:                                         ; preds = %do.end.thread, %do.end
   %tobool24.not43 = phi i1 [ true, %do.end.thread ], [ %tobool24.not41, %do.end ]
   %call935 = phi i32 [ -1, %do.end.thread ], [ %.us-phi, %do.end ]
-  %brmerge = or i1 %tobool24.not43, %WaitUntilTerminates
+  %brmerge = or i1 %WaitUntilTerminates, %tobool24.not43
   br i1 %brmerge, label %if.end61, label %if.then58
 
 if.then58:                                        ; preds = %if.end54
@@ -1550,7 +1550,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i7 = icmp ult i64 %sub.ptr.sub.i, %Contents.coerce1
+  %cmp.i7 = icmp ugt i64 %Contents.coerce1, %sub.ptr.sub.i
   br i1 %cmp.i7, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end

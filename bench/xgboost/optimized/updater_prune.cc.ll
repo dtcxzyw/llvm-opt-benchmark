@@ -730,7 +730,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -778,7 +778,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7xgboost14TreeUpdaterRegEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -1996,14 +1996,14 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit45: ; preds = %.noexc44, %_ZN4dmlc
   %79 = load float, ptr %62, align 4
   %80 = getelementptr inbounds i8, ptr %1, i64 8
   %81 = load float, ptr %80, align 8
-  %82 = fcmp ogt float %81, %79
+  %82 = fcmp olt float %79, %81
   br i1 %82, label %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit.thread, label %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit
 
 _ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit:  ; preds = %78
   %83 = getelementptr inbounds i8, ptr %1, i64 12
   %84 = load i32, ptr %83, align 4
   %.not.i = icmp ne i32 %84, 0
-  %85 = icmp slt i32 %84, %4
+  %85 = icmp sgt i32 %4, %84
   %spec.select.i = and i1 %.not.i, %85
   br i1 %spec.select.i, label %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit.thread, label %.critedge
 
@@ -2431,7 +2431,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -3008,7 +3008,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %40 = getelementptr inbounds %"class.xgboost::RegTree::Node", ptr %35, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = icmp eq i32 %42, %1
+  %43 = icmp eq i32 %1, %42
   %44 = getelementptr inbounds i8, ptr %40, i64 8
   %.sink = select i1 %43, ptr %41, ptr %44
   store i32 -1, ptr %.sink, align 4

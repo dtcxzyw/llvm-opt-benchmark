@@ -4103,7 +4103,7 @@ for.inc36.i.i.i:                                  ; preds = %if.then22.i.i.i, %f
 if.then.i318:                                     ; preds = %if.then.i.i.i325, %if.then22.i.i.i
   %retval.0.i.i.i319 = phi ptr [ %curr.133.i.i.i, %if.then22.i.i.i ], [ %curr.031.i.i.i, %if.then.i.i.i325 ]
   %m_value.i = getelementptr inbounds i8, ptr %retval.0.i.i.i319, i64 8
-  %cmp.i.i.i320 = icmp eq ptr %m_value.i, %core1
+  %cmp.i.i.i320 = icmp eq ptr %core1, %m_value.i
   br i1 %cmp.i.i.i320, label %if.end166, label %_ZN6vectorIP4exprLb0EjE7destroyEv.exit.i.i.i
 
 _ZN6vectorIP4exprLb0EjE7destroyEv.exit.i.i.i:     ; preds = %if.then.i318
@@ -11455,7 +11455,7 @@ entry:
   %agg.tmp = alloca %"struct.opt::weighted_core", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp26 = icmp sgt i64 %div, %__holeIndex
+  %cmp26 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp26, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores14disjoint_coresEvE3$_0EclIPNS2_13weighted_coreES8_EEbT_T0_.exit"
@@ -13383,7 +13383,7 @@ if.then:                                          ; preds = %while.body
   %0 = load ptr, ptr %add.ptr9.i.i.i, align 8
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i235237.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp24.i.i.i.i = icmp ugt i64 %div.i235237.i.i.i, %div13.i.i.i
+  %cmp24.i.i.i.i = icmp ult i64 %div13.i.i.i, %div.i235237.i.i.i
   br i1 %cmp24.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i
@@ -13485,7 +13485,7 @@ if.end8.split.i.i.i:                              ; preds = %"_ZSt13__adjust_hea
   %dec.i.i.i = add nsw i64 %__parent.0247.i.i.i, -1
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i.i
   %5 = load ptr, ptr %add.ptr11.i.i.i, align 8
-  %cmp24.i16.not.i.i.i = icmp slt i64 %div.i235237.i.i.i, %__parent.0247.i.i.i
+  %cmp24.i16.not.i.i.i = icmp sgt i64 %__parent.0247.i.i.i, %div.i235237.i.i.i
   br i1 %cmp24.i16.not.i.i.i, label %while.end.i17.i.i.i, label %while.body.i45.i.i.i
 
 while.body.i45.i.i.i:                             ; preds = %if.end8.split.i.i.i, %"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit97.i.i.i"

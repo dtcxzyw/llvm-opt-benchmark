@@ -216,7 +216,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %39
   %68 = call i32 @H5Sclose(i64 noundef %62) #10
   %69 = icmp slt i32 %68, 0
   %70 = add nsw i32 %spec.store.select, -1
-  %71 = icmp ult i32 %70, %2
+  %71 = icmp ugt i32 %2, %70
   %or.cond316 = select i1 %69, i1 true, i1 %71
   br i1 %or.cond316, label %446, label %72
 
@@ -1412,7 +1412,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %40
   %53 = call i32 @H5Sclose(i64 noundef %47) #10
   %54 = icmp slt i32 %53, 0
   %55 = add nsw i32 %50, -1
-  %56 = icmp ult i32 %55, %2
+  %56 = icmp ugt i32 %2, %55
   %or.cond291 = select i1 %54, i1 true, i1 %56
   br i1 %or.cond291, label %338, label %57
 
@@ -1731,7 +1731,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %40
   %208 = getelementptr inbounds %struct.ds_list_t, ptr %.0214371398, i64 %.0210327, i32 1
   %.0205.in = select i1 %80, ptr %208, ptr %207
   %.0205 = load i32, ptr %.0205.in, align 8
-  %209 = icmp eq i32 %.0205, %2
+  %209 = icmp eq i32 %2, %.0205
   br i1 %209, label %210, label %243
 
 210:                                              ; preds = %206
@@ -2117,7 +2117,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %36
 
 59:                                               ; preds = %56
   %60 = add nsw i32 %54, -1
-  %61 = icmp ult i32 %60, %2
+  %61 = icmp ugt i32 %2, %60
   br i1 %61, label %301, label %62
 
 62:                                               ; preds = %59
@@ -2432,7 +2432,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %36
 218:                                              ; preds = %216
   %219 = getelementptr inbounds %struct.ds_list_t, ptr %186, i64 %indvars.iv215, i32 1
   %220 = load i32, ptr %219, align 8
-  %221 = icmp eq i32 %220, %2
+  %221 = icmp eq i32 %2, %220
   %spec.select179.us = select i1 %221, i32 1, i32 %.1113196.us
   br label %222
 
@@ -2485,7 +2485,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %36
 244:                                              ; preds = %242
   %245 = getelementptr inbounds %struct.nds_list_t, ptr %.1128223230, i64 %indvars.iv212, i32 1
   %246 = load i32, ptr %245, align 8
-  %247 = icmp eq i32 %246, %2
+  %247 = icmp eq i32 %2, %246
   %spec.select178 = select i1 %247, i32 1, i32 %.1113196
   br label %248
 
@@ -2693,7 +2693,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %19
   br i1 %37, label %.loopexit109, label %38
 
 38:                                               ; preds = %35
-  %.not96 = icmp ugt i32 %33, %1
+  %.not96 = icmp ult i32 %1, %33
   br i1 %.not96, label %39, label %170
 
 39:                                               ; preds = %38
@@ -2995,7 +2995,7 @@ define i32 @H5DSget_num_scales(i64 noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %15, label %56, label %16
 
 16:                                               ; preds = %13
-  %.not48 = icmp ugt i32 %11, %1
+  %.not48 = icmp ult i32 %1, %11
   br i1 %.not48, label %17, label %78
 
 17:                                               ; preds = %16
@@ -3141,7 +3141,7 @@ define range(i32 -1, 1) i32 @H5DSset_label(i64 noundef %0, i32 noundef %1, ptr n
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %16
-  %.not105 = icmp ugt i32 %14, %1
+  %.not105 = icmp ult i32 %1, %14
   br i1 %.not105, label %20, label %125
 
 20:                                               ; preds = %19
@@ -3400,7 +3400,7 @@ define i64 @H5DSget_label(i64 noundef %0, i32 noundef %1, ptr noundef writeonly 
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %15
-  %.not78 = icmp ugt i32 %13, %1
+  %.not78 = icmp ult i32 %1, %13
   br i1 %.not78, label %19, label %83
 
 19:                                               ; preds = %18

@@ -497,7 +497,7 @@ _ZN5ceres8internal20MatrixMatrixMultiplyILin1ELin1ELin1ELin1ELi0EEEvPKdiiS3_iiPd
   %186 = getelementptr inbounds i8, ptr %0, i64 8
   %187 = load ptr, ptr %186, align 8
   %188 = icmp ne ptr %187, null
-  %brmerge.not = and i1 %188, %1
+  %brmerge.not = and i1 %1, %188
   br i1 %brmerge.not, label %191, label %189
 
 189:                                              ; preds = %.loopexit144
@@ -740,7 +740,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
   %17 = getelementptr inbounds double, ptr %3, i64 %16
   %18 = icmp sgt i32 %2, 0
   %19 = sext i32 %5 to i64
-  %20 = add i32 %15, %8
+  %20 = add i32 %8, %15
   %21 = sext i32 %2 to i64
   %wide.trip.count191 = zext nneg i32 %1 to i64
   br i1 %18, label %.lr.ph.us.preheader, label %.lr.ph116.split
@@ -769,7 +769,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
 
 ._crit_edge.us:                                   ; preds = %22
   %28 = trunc i64 %indvars.iv188 to i32
-  %29 = add i32 %28, %7
+  %29 = add i32 %7, %28
   %30 = mul i32 %29, %10
   %31 = add i32 %20, %30
   %32 = sext i32 %31 to i64
@@ -783,7 +783,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
 .lr.ph116.split:                                  ; preds = %.lr.ph116, %.lr.ph116.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph116.split ], [ 0, %.lr.ph116 ]
   %35 = trunc i64 %indvars.iv to i32
-  %36 = add i32 %35, %7
+  %36 = add i32 %7, %35
   %37 = mul i32 %36, %10
   %38 = add i32 %20, %37
   %39 = sext i32 %38 to i64
@@ -812,7 +812,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
   %48 = getelementptr inbounds double, ptr %3, i64 %47
   %49 = icmp sgt i32 %2, 0
   %50 = sext i32 %5 to i64
-  %51 = add i32 %46, %8
+  %51 = add i32 %8, %46
   %52 = sext i32 %2 to i64
   %wide.trip.count206 = zext nneg i32 %1 to i64
   br i1 %49, label %.lr.ph.us128.preheader, label %.lr.ph126.split
@@ -845,7 +845,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
 
 ._crit_edge.us129:                                ; preds = %53
   %62 = trunc i64 %indvars.iv203 to i32
-  %63 = add i32 %62, %7
+  %63 = add i32 %7, %62
   %64 = mul i32 %63, %10
   %65 = add i32 %51, %64
   %66 = sext i32 %65 to i64
@@ -861,7 +861,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
 .lr.ph126.split:                                  ; preds = %.lr.ph126, %.lr.ph126.split
   %indvars.iv193 = phi i64 [ %indvars.iv.next194, %.lr.ph126.split ], [ 0, %.lr.ph126 ]
   %70 = trunc i64 %indvars.iv193 to i32
-  %71 = add i32 %70, %7
+  %71 = add i32 %7, %70
   %72 = mul i32 %71, %10
   %73 = add i32 %51, %72
   %74 = sext i32 %73 to i64
@@ -905,14 +905,14 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.split.us.us.us
   %indvars.iv226 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next227, %._crit_edge.split.us.us.us ]
   %88 = trunc nuw nsw i64 %indvars.iv226 to i32
-  %89 = add i32 %88, %8
+  %89 = add i32 %8, %88
   %90 = getelementptr inbounds double, ptr %3, i64 %indvars.iv226
   br label %.lr.ph.preheader.i.us.us.us
 
 .lr.ph.preheader.i.us.us.us:                      ; preds = %_ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.us.us.us, %.preheader.us.us
   %indvars.iv221 = phi i64 [ %indvars.iv.next222, %_ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.us.us.us ], [ 0, %.preheader.us.us ]
   %91 = trunc i64 %indvars.iv221 to i32
-  %92 = add i32 %91, %7
+  %92 = add i32 %7, %91
   %93 = mul i32 %92, %10
   %94 = add i32 %89, %93
   %95 = mul nsw i64 %indvars.iv221, %84
@@ -1073,7 +1073,7 @@ _ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.us.us.us: ; preds = %.lr.ph156.
 .preheader.i.us132.us.us:                         ; preds = %.preheader.i.us132.us.us, %.preheader.us.us161
   %indvars.iv216 = phi i64 [ %indvars.iv.next217, %.preheader.i.us132.us.us ], [ 0, %.preheader.us.us161 ]
   %186 = trunc i64 %indvars.iv216 to i32
-  %187 = add i32 %186, %7
+  %187 = add i32 %7, %186
   %188 = mul i32 %187, %10
   %189 = add i32 %185, %188
   %190 = sext i32 %189 to i64
@@ -1091,14 +1091,14 @@ _ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.us.us.us: ; preds = %.lr.ph156.
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.split.split.us156
   %indvars.iv213 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next214, %._crit_edge.split.split.us156 ]
   %194 = trunc nuw nsw i64 %indvars.iv213 to i32
-  %195 = add i32 %194, %8
+  %195 = add i32 %8, %194
   %196 = getelementptr inbounds double, ptr %3, i64 %indvars.iv213
   br label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %.preheader.us, %_ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.loopexit.us150
   %indvars.iv208 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next209, %_ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.loopexit.us150 ]
   %197 = trunc i64 %indvars.iv208 to i32
-  %198 = add i32 %197, %7
+  %198 = add i32 %7, %197
   %199 = mul i32 %198, %10
   %200 = add i32 %195, %199
   %201 = mul nsw i64 %indvars.iv208, %84

@@ -599,7 +599,7 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr nocapture noundef readonly %0, ptr noun
   %.val59 = load float, ptr %47, align 8
   %48 = load float, ptr %38, align 4
   %49 = fadd float %.val59, %48
-  %50 = fadd float %49, %2
+  %50 = fadd float %2, %49
   %51 = fcmp olt float %.val, %50
   %52 = trunc nuw nsw i64 %indvars.iv87 to i32
   %53 = shl nuw i32 1, %52
@@ -640,7 +640,7 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr nocapture noundef readonly %0, ptr noun
   %70 = getelementptr inbounds float, ptr %38, i64 %indvars.iv
   %71 = load float, ptr %70, align 4
   %72 = fadd float %.val60, %71
-  %73 = fadd float %72, %2
+  %73 = fadd float %2, %72
   %74 = fcmp olt float %.val, %73
   %75 = shl nuw i32 1, %65
   %76 = select i1 %74, i32 %75, i32 0

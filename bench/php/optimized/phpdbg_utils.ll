@@ -240,7 +240,7 @@ define range(i32 0, 2) i32 @phpdbg_is_class_method(ptr noundef %0, i64 noundef %
   %16 = load i8, ptr %0, align 1
   %17 = icmp eq i8 %16, 92
   %18 = sext i1 %17 to i64
-  %.128 = add i64 %18, %1
+  %.128 = add i64 %1, %18
   %.1.idx = zext i1 %17 to i64
   %.1 = getelementptr inbounds i8, ptr %0, i64 %.1.idx
   %19 = ptrtoint ptr %7 to i64
@@ -574,7 +574,7 @@ define noundef ptr @phpdbg_get_color(ptr nocapture noundef readonly %0, i64 noun
   %.012 = phi ptr [ @colors, %2 ], [ %11, %10 ]
   %5 = getelementptr inbounds i8, ptr %.012, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = icmp eq i64 %6, %1
+  %7 = icmp eq i64 %1, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
@@ -610,7 +610,7 @@ define void @phpdbg_set_color_ex(i32 noundef %0, ptr nocapture noundef readonly 
   %.012.i = phi ptr [ @colors, %3 ], [ %12, %11 ]
   %6 = getelementptr inbounds i8, ptr %.012.i, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = icmp eq i64 %7, %2
+  %8 = icmp eq i64 %2, %7
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
@@ -646,7 +646,7 @@ define i32 @phpdbg_get_element(ptr nocapture noundef readonly %0, i64 noundef %1
   %.013 = phi ptr [ @elements, %2 ], [ %15, %14 ]
   %5 = getelementptr inbounds i8, ptr %.013, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = icmp eq i64 %6, %1
+  %7 = icmp eq i64 %1, %6
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %3

@@ -2208,7 +2208,7 @@ if.end14.i18.i:                                   ; preds = %for.body.i13.i
 
 if.then:                                          ; preds = %for.body.i13.i, %if.end12.i, %if.then.i
   %retval.sroa.4.0.i39 = phi ptr [ %__y.0.lcssa48.i, %if.end12.i ], [ %__y.0.lcssa49.i, %if.then.i ], [ %__y.0.lcssa48.i, %for.body.i13.i ]
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i39
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i39, %add.ptr.i.i
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeISt4pairImPKPN6hermes6parser10JSONStringEES0_IKS7_PNS2_15JSONHiddenClassEESt10_Select1stISB_ENS2_11JSONFactory18LessHiddenClassKeyESaISB_EE10_M_insert_ISB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then
@@ -2573,7 +2573,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN6hermes6parser10JSO
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp27 = icmp sgt i64 %div, %__holeIndex
+  %cmp27 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp27, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SB_EEbT_T0_.exit"

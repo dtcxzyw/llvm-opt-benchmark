@@ -681,7 +681,7 @@ define internal fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %
   %13 = alloca i16, align 2
   %14 = alloca i8, align 1
   %15 = zext i16 %5 to i32
-  %16 = add nuw nsw i32 %15, %7
+  %16 = add nuw nsw i32 %7, %15
   %17 = load i32, ptr @hf_pn_rsi_conn_block, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %17, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 0) #3
   %19 = load i32, ptr @ett_pn_rsi_conn_block, align 4
@@ -730,7 +730,7 @@ define internal fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %
 define internal fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = zext i16 %5 to i32
-  %12 = add nuw nsw i32 %11, %7
+  %12 = add nuw nsw i32 %7, %11
   %13 = load i32, ptr @hf_pn_rsi_svcs_block, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %13, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 0) #3
   %15 = load i32, ptr @ett_pn_rsi_svcs_block, align 4

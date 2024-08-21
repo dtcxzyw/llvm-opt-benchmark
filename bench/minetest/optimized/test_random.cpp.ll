@@ -1343,7 +1343,7 @@ if.end26:                                         ; preds = %if.end
   %rem.rhs.trunc = add nuw nsw i16 %12, 1
   %rem49 = urem i16 %rem.lhs.trunc, %rem.rhs.trunc
   %rem.zext = zext nneg i16 %rem49 to i32
-  %add28 = add i32 %rem.zext, %min
+  %add28 = add i32 %min, %rem.zext
   ret i32 %add28
 
 eh.resume:                                        ; preds = %cleanup.action24, %ehcleanup19.thread, %cleanup.action, %ehcleanup.thread

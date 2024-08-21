@@ -869,7 +869,7 @@ detzcode.exit481.i:                               ; preds = %268
   %395 = and i64 %indvars.iv.next.i483.i, 2147483647
   %396 = getelementptr [50 x %struct.lsinfo], ptr %44, i64 0, i64 %395
   %397 = load i64, ptr %396, align 8
-  %.not.i.i = icmp sgt i64 %397, %390
+  %.not.i.i = icmp slt i64 %390, %397
   br i1 %.not.i.i, label %391, label %398, !llvm.loop !19
 
 398:                                              ; preds = %394
@@ -928,7 +928,7 @@ leapcorr.exit._crit_edge.i:                       ; preds = %leapcorr.exit._crit
   %422 = and i64 %indvars.iv.next.i485.i, 2147483647
   %423 = getelementptr [50 x %struct.lsinfo], ptr %44, i64 0, i64 %422
   %424 = load i64, ptr %423, align 8
-  %.not.i487.i = icmp sgt i64 %424, %415
+  %.not.i487.i = icmp slt i64 %415, %424
   br i1 %.not.i487.i, label %418, label %425, !llvm.loop !19
 
 425:                                              ; preds = %421
@@ -2349,7 +2349,7 @@ define internal fastcc i32 @transtime(i32 noundef %0, ptr nocapture noundef read
   %28 = srem i32 %27, 12
   %29 = icmp slt i32 %26, 3
   %30 = sext i1 %29 to i32
-  %31 = add i32 %30, %0
+  %31 = add i32 %0, %30
   %.neg = sdiv i32 %31, -100
   %32 = srem i32 %31, 100
   %33 = trunc nsw i32 %28 to i16
@@ -3292,12 +3292,12 @@ define internal fastcc noundef ptr @timesub(ptr nocapture noundef readonly %0, i
 
 57:                                               ; preds = %51
   %58 = sub nuw nsw i32 2147483647, %.016
-  %59 = icmp slt i32 %58, %spec.select
+  %59 = icmp sgt i32 %spec.select, %58
   br i1 %59, label %increment_overflow.exit.thread, label %63
 
 60:                                               ; preds = %51
   %61 = sub nsw i32 -2147483648, %.016
-  %62 = icmp sgt i32 %61, %spec.select
+  %62 = icmp slt i32 %spec.select, %61
   br i1 %62, label %increment_overflow.exit.thread, label %63
 
 63:                                               ; preds = %60, %57

@@ -21,7 +21,7 @@ define noalias noundef ptr @wmem_array_sized_new(ptr noundef %0, i64 noundef %1,
   %9 = getelementptr inbounds i8, ptr %4, i64 32
   store i8 0, ptr %9, align 8
   %10 = zext i32 %7 to i64
-  %11 = mul i64 %10, %1
+  %11 = mul i64 %1, %10
   %12 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %11) #11
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %12, ptr %13, align 8
@@ -265,7 +265,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define ptr @wmem_array_index(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -290,7 +290,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 define range(i32 -1, 1) i32 @wmem_array_try_index(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  %.not = icmp ugt i32 %5, %1
+  %.not = icmp ult i32 %1, %5
   br i1 %.not, label %6, label %14
 
 6:                                                ; preds = %3

@@ -132,7 +132,7 @@ define i32 @hwloc_get_type_depth(ptr nocapture noundef readonly %0, i32 noundef 
 define i32 @hwloc_get_depth_type(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp ugt i32 %4, %1
+  %.not = icmp ult i32 %1, %4
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -239,7 +239,7 @@ hwloc_get_obj_by_depth.exit:                      ; preds = %7, %14
 define ptr @hwloc_get_obj_by_depth(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not = icmp ugt i32 %5, %1
+  %.not = icmp ult i32 %1, %5
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %3
@@ -252,7 +252,7 @@ define ptr @hwloc_get_obj_by_depth(ptr nocapture noundef readonly %0, i32 nounde
   %11 = zext nneg i32 %7 to i64
   %12 = getelementptr inbounds [6 x %struct.hwloc_special_level_s], ptr %10, i64 0, i64 %11
   %13 = load i32, ptr %12, align 8
-  %14 = icmp ugt i32 %13, %2
+  %14 = icmp ult i32 %2, %13
   br i1 %14, label %15, label %31
 
 15:                                               ; preds = %9
@@ -265,7 +265,7 @@ define ptr @hwloc_get_obj_by_depth(ptr nocapture noundef readonly %0, i32 nounde
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
-  %.not20 = icmp ugt i32 %22, %2
+  %.not20 = icmp ult i32 %2, %22
   br i1 %.not20, label %23, label %31
 
 23:                                               ; preds = %17
@@ -291,7 +291,7 @@ define ptr @hwloc_get_obj_by_depth(ptr nocapture noundef readonly %0, i32 nounde
 define i32 @hwloc_get_nbobjs_by_depth(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp ugt i32 %4, %1
+  %.not = icmp ult i32 %1, %4
   br i1 %.not, label %13, label %5
 
 5:                                                ; preds = %2
@@ -440,7 +440,7 @@ hwloc_get_obj_by_depth_and_gp_index.exit.thread:  ; preds = %29, %16, %.thread, 
 32:                                               ; preds = %hwloc_get_type_depth.exit
   %33 = getelementptr inbounds i8, ptr %0, i64 4
   %34 = load i32, ptr %33, align 4
-  %.not.i.i23 = icmp ugt i32 %34, %8
+  %.not.i.i23 = icmp ult i32 %8, %34
   br i1 %.not.i.i23, label %45, label %35
 
 35:                                               ; preds = %32
@@ -1158,7 +1158,7 @@ define internal fastcc ptr @hwloc__type_match(ptr noundef readonly %0, ptr nocap
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %.022.lcssa = phi ptr [ %0, %3 ], [ %22, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %3 ], [ %5, %._crit_edge.loopexit ]
-  %6 = icmp ult i64 %.0.lcssa, %2
+  %6 = icmp ugt i64 %2, %.0.lcssa
   %..022 = select i1 %6, ptr null, ptr %.022.lcssa
   br label %25
 
@@ -1190,7 +1190,7 @@ define internal fastcc ptr @hwloc__type_match(ptr noundef readonly %0, ptr nocap
 
 17:                                               ; preds = %14
   %18 = zext i32 %.042 to i64
-  %19 = icmp ult i64 %18, %2
+  %19 = icmp ugt i64 %2, %18
   %..02234 = select i1 %19, ptr null, ptr %.02240
   br label %25
 
@@ -1709,7 +1709,7 @@ hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup5
 
 .preheader.lr.ph.i:                               ; preds = %58
   %59 = zext nneg i32 %56 to i64
-  %.not76.i = icmp slt i64 %59, %1
+  %.not76.i = icmp sgt i64 %1, %59
   %60 = icmp sgt i64 %1, 0
   %61 = trunc i64 %1 to i32
   %62 = add nsw i32 %61, -1
@@ -1907,7 +1907,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   %.0141170174 = phi i32 [ 0, %43 ], [ 0, %38 ], [ %.0141, %52 ]
   %54 = phi ptr [ @.str.55, %43 ], [ @.str.55, %38 ], [ %spec.select180, %52 ]
   %55 = zext nneg i32 %.0141170174 to i64
-  %.not163 = icmp slt i64 %55, %1
+  %.not163 = icmp sgt i64 %1, %55
   %56 = icmp sgt i64 %1, 0
   %57 = trunc i64 %1 to i32
   %58 = add nsw i32 %57, -1
@@ -2316,7 +2316,7 @@ define noundef i32 @hwloc_bitmap_singlify_per_core(ptr nocapture noundef readonl
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %6, align 4
-  %.not.i.i.i.i = icmp ugt i32 %13, %11
+  %.not.i.i.i.i = icmp ult i32 %11, %13
   br i1 %.not.i.i.i.i, label %23, label %14
 
 14:                                               ; preds = %12
@@ -2496,7 +2496,7 @@ hwloc_get_type_depth.exit.i:                      ; preds = %hwloc_get_type_dept
 
 32:                                               ; preds = %hwloc_get_type_depth.exit.i
   %33 = load i32, ptr %20, align 4
-  %.not.i.i.i = icmp ugt i32 %33, %19
+  %.not.i.i.i = icmp ult i32 %19, %33
   br i1 %.not.i.i.i, label %37, label %34
 
 34:                                               ; preds = %32

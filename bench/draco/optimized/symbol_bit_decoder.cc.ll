@@ -80,7 +80,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %21, %23, %25, %27
   %32 = load ptr, ptr %13, align 8
   %33 = icmp ne ptr %31, %32
   %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %32, i64 -4
-  %34 = icmp ugt ptr %.sroa.0.08.i.i, %31
+  %34 = icmp ult ptr %31, %.sroa.0.08.i.i
   %or.cond.i.i = select i1 %33, i1 %34, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 

@@ -739,7 +739,7 @@ invoke.cont28:                                    ; preds = %if.then.i.i.i, %if.
   %30 = load ptr, ptr %m, align 8
   %m_true.i = getelementptr inbounds i8, ptr %30, i64 856
   %31 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %31, %26
+  %cmp.i = icmp eq ptr %26, %31
   br i1 %cmp.i, label %for.inc143, label %if.end36
 
 lpad23.loopexit:                                  ; preds = %if.else.i.i.i.i, %if.else.i.i7.i.i
@@ -3985,7 +3985,7 @@ while.body73:                                     ; preds = %while.cond70
 
 if.else.i:                                        ; preds = %while.body73
   %54 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %54, %53
+  %cmp3.not.i = icmp ugt i32 %53, %54
   %55 = xor i32 %54, -1
   %.sink382 = select i1 %cmp3.not.i, i32 %55, i32 -1
   %sub9.i = add i32 %53, %.sink382
@@ -4882,7 +4882,7 @@ entry:
   %agg.tmp19 = alloca %class.rational, align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp70 = icmp sgt i64 %div, %__holeIndex
+  %cmp70 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp70, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIP8rationalS4_EEbT_T0_.exit

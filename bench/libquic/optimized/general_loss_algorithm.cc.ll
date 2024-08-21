@@ -229,7 +229,7 @@ if.end28:                                         ; preds = %if.end
 
 if.then38:                                        ; preds = %if.end28
   %add.i37 = add nsw i64 %agg.tmp39.sroa.0.0.copyload, %loss_delay.sroa.2.0.copyload.sroa.speculated
-  %cmp.i = icmp sgt i64 %add.i37, %time.coerce
+  %cmp.i = icmp slt i64 %time.coerce, %add.i37
   br i1 %cmp.i, label %if.then50, label %if.end52
 
 if.then50:                                        ; preds = %if.then38
@@ -458,7 +458,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %largest_sent_on_spurious_retransmit_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %largest_sent_on_spurious_retransmit_, align 8
-  %cmp3.not = icmp ult i64 %2, %spurious_retransmission
+  %cmp3.not = icmp ugt i64 %spurious_retransmission, %2
   br i1 %cmp3.not, label %if.end5, label %do.end
 
 if.end5:                                          ; preds = %if.end

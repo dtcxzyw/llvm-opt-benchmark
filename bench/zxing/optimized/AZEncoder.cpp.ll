@@ -66,7 +66,7 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = trunc i64 %17 to i32
-  %19 = mul nsw i32 %18, %2
+  %19 = mul nsw i32 %2, %18
   %20 = sdiv i32 %19, 100
   %21 = add nsw i32 %20, 11
   %22 = add nsw i32 %21, %18
@@ -1931,7 +1931,7 @@ _ZNK5ZXing8BitArray3getEi.exit:                   ; preds = %28
 32:                                               ; preds = %_ZNK5ZXing8BitArray3getEi.exit, %26
   %33 = trunc i64 %indvars.iv to i32
   %34 = xor i32 %33, -1
-  %35 = add i32 %34, %1
+  %35 = add i32 %1, %34
   %36 = shl nuw i32 1, %35
   %37 = or i32 %36, %.03585
   br label %38
@@ -2273,7 +2273,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIiS
 
 .lr.ph.i:                                         ; preds = %.loopexit.i
   %26 = sext i32 %2 to i64
-  %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %24, i32 %2)
+  %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %2, i32 %24)
   %27 = icmp sgt i32 %2, 0
   %sext.i = and i64 %23, 2147483647
   br i1 %27, label %.lr.ph.preheader.i.i.us, label %_ZN5ZXing5ToIntIivEET_RKNS_8BitArrayEii.exit.i
@@ -2396,7 +2396,7 @@ _ZN5ZXing6ToIntsIivEESt6vectorIT_SaIS2_EERKNS_8BitArrayEiii.exit: ; preds = %_ZN
   %70 = ptrtoint ptr %68 to i64
   %.neg = sub i64 %70, %69
   %.neg58 = trunc i64 %.neg to i32
-  %71 = add i32 %.neg58, %1
+  %71 = add i32 %1, %.neg58
   %72 = sdiv i32 %71, %2
   invoke void @_ZN5ZXing17ReedSolomonEncodeERKNS_9GenericGFERSt6vectorIiSaIiEEi(ptr noundef nonnull align 8 dereferenceable(56) %.07.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %72)
           to label %73 unwind label %.loopexit.split-lp.loopexit.split-lp

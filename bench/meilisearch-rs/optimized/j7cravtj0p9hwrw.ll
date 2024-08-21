@@ -14228,7 +14228,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h16496dcd1
   tail call void @llvm.assume(i1 %11)
   %12 = sub nuw i64 -9223372036854775808, %1
   %13 = udiv i64 %12, %0
-  %14 = icmp ult i64 %13, %2
+  %14 = icmp ugt i64 %2, %13
   br i1 %14, label %15, label %5
 
 15:                                               ; preds = %9, %5
@@ -16320,7 +16320,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hd731befd03d26edbE.exit: ; pred
   %45 = add i64 %44, %43
   %46 = load i64, ptr %42, align 8, !noalias !7854, !noundef !4
   %47 = sub i64 %46, %45
-  %48 = icmp ult i64 %47, %40
+  %48 = icmp ugt i64 %40, %47
   br i1 %48, label %49, label %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$9move_tail17h4ff6dbf18efa342fE.exit"
 
 49:                                               ; preds = %41
@@ -16411,7 +16411,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hd731befd03d26edbE.exit: ; pred
   %81 = add i64 %80, %79
   %82 = load i64, ptr %78, align 8, !noalias !7895, !noundef !4
   %83 = sub i64 %82, %81
-  %84 = icmp ult i64 %83, %.sroa.5.0.copyload.i
+  %84 = icmp ugt i64 %.sroa.5.0.copyload.i, %83
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %77

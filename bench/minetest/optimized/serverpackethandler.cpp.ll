@@ -16479,7 +16479,7 @@ if.then4:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %sub7 = sub nsw i32 0, %conv2
-  %cmp8 = icmp sgt i32 %sub7, %amount
+  %cmp8 = icmp slt i32 %amount, %sub7
   br i1 %cmp8, label %if.then9, label %if.else11
 
 if.then9:                                         ; preds = %if.else

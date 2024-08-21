@@ -1538,7 +1538,7 @@ define internal fastcc ptr @pt_topa_entry_for_page(ptr noundef readonly %0, i32 
 42:                                               ; preds = %35, %28
   %43 = phi i32 [ %40, %35 ], [ 0, %28 ]
   %44 = phi i32 [ %41, %35 ], [ 0, %28 ]
-  %45 = icmp ule i32 %31, %1
+  %45 = icmp uge i32 %1, %31
   %46 = add i32 %44, %31
   %47 = icmp ugt i32 %46, %1
   %48 = select i1 %45, i1 %47, i1 false
@@ -2540,7 +2540,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
   %10 = getelementptr inbounds i8, ptr %0, i64 328
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
-  %13 = or i1 %12, %3
+  %13 = or i1 %3, %12
   br i1 %13, label %14, label %371
 
 14:                                               ; preds = %9

@@ -1976,7 +1976,7 @@ define dso_local void @heap_drop_with_catalog(i32 noundef %0) local_unnamed_addr
   br i1 %.not54, label %23, label %21
 
 21:                                               ; preds = %18
-  %.not55 = icmp eq i32 %20, %0
+  %.not55 = icmp eq i32 %0, %20
   br i1 %.not55, label %23, label %22
 
 22:                                               ; preds = %21
@@ -2030,7 +2030,7 @@ define dso_local void @heap_drop_with_catalog(i32 noundef %0) local_unnamed_addr
   br label %42
 
 42:                                               ; preds = %41, %38
-  %43 = icmp eq i32 %.049, %0
+  %43 = icmp eq i32 %0, %.049
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %42
@@ -2695,7 +2695,7 @@ fastgetattr.exit.i:                               ; preds = %195
   %217 = load i8, ptr %216, align 1
   %218 = trunc i8 %217 to i1
   %not..i = xor i1 %218, true
-  %spec.select50.i = or i1 %not..i, %3
+  %spec.select50.i = or i1 %3, %not..i
   br label %219
 
 219:                                              ; preds = %214, %210, %209
@@ -3272,7 +3272,7 @@ define internal fastcc void @SetRelationNumChecks(ptr noundef %0, i32 noundef %1
   %19 = getelementptr inbounds i8, ptr %18, i64 118
   %20 = load i16, ptr %19, align 2
   %21 = sext i16 %20 to i32
-  %.not15 = icmp eq i32 %21, %1
+  %.not15 = icmp eq i32 %1, %21
   br i1 %.not15, label %25, label %22
 
 22:                                               ; preds = %12

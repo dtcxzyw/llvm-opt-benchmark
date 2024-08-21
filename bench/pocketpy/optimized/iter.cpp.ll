@@ -258,7 +258,7 @@ define noundef ptr @_ZN4pkpy9Generator4nextEPNS_2VME(ptr nocapture noundef nonnu
 
 54:                                               ; preds = %49
   %55 = shl nsw i32 %51, 2
-  %.not.i.i = icmp slt i32 %51, %55
+  %.not.i.i = icmp sgt i32 %55, %51
   br i1 %.not.i.i, label %56, label %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EE9push_backIRS2_EEvOT_.exit
 
 56:                                               ; preds = %54
@@ -1557,7 +1557,7 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_9GeneratorEEC2IJNS_5FrameERNS_8ArgsVie
 
 19:                                               ; preds = %.lr.ph.i
   %20 = shl nsw i32 %16, 2
-  %.not.i.i.i = icmp slt i32 %16, %20
+  %.not.i.i.i = icmp sgt i32 %20, %16
   br i1 %.not.i.i.i, label %21, label %29
 
 21:                                               ; preds = %19

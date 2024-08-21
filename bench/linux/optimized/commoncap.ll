@@ -438,7 +438,7 @@ define dso_local i32 @cap_inode_getsecurity(ptr noundef %0, ptr noundef %1, ptr 
 
 57:                                               ; preds = %34
   %58 = icmp eq i32 %37, 0
-  %59 = and i1 %58, %4
+  %59 = and i1 %4, %58
   %60 = select i1 %58, i32 20, i32 -75
   br i1 %59, label %61, label %77
 
@@ -1523,7 +1523,7 @@ define dso_local i32 @cap_task_prctl(i32 noundef %0, i64 noundef %1, i64 noundef
   %37 = lshr exact i32 %36, 1
   %38 = zext nneg i32 %37 to i64
   %39 = zext i32 %35 to i64
-  %40 = xor i64 %39, %1
+  %40 = xor i64 %1, %39
   %41 = and i64 %40, %38
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %43, label %153
@@ -1619,7 +1619,7 @@ define dso_local i32 @cap_task_prctl(i32 noundef %0, i64 noundef %1, i64 noundef
 100:                                              ; preds = %88
   %101 = icmp ugt i64 %2, 40
   %102 = zext i1 %101 to i64
-  %103 = or i64 %102, %3
+  %103 = or i64 %3, %102
   %104 = or i64 %103, %4
   %105 = icmp eq i64 %104, 0
   br i1 %105, label %106, label %153

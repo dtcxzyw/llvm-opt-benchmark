@@ -481,13 +481,13 @@ define void @utext_setNativeIndex_75(ptr noundef %ut, i64 noundef %index) local_
 entry:
   %chunkNativeStart = getelementptr inbounds i8, ptr %ut, i64 32
   %0 = load i64, ptr %chunkNativeStart, align 8
-  %cmp = icmp sgt i64 %0, %index
+  %cmp = icmp slt i64 %index, %0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %chunkNativeLimit = getelementptr inbounds i8, ptr %ut, i64 16
   %1 = load i64, ptr %chunkNativeLimit, align 8
-  %cmp1.not = icmp sgt i64 %1, %index
+  %cmp1.not = icmp slt i64 %index, %1
   br i1 %cmp1.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -897,7 +897,7 @@ define range(i32 -56613888, 10559488) i32 @utext_char32At_75(ptr noundef %ut, i6
 entry:
   %chunkNativeStart = getelementptr inbounds i8, ptr %ut, i64 32
   %0 = load i64, ptr %chunkNativeStart, align 8
-  %cmp.not = icmp sgt i64 %0, %nativeIndex
+  %cmp.not = icmp slt i64 %nativeIndex, %0
   br i1 %cmp.not, label %if.then.i, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -905,7 +905,7 @@ land.lhs.true:                                    ; preds = %entry
   %1 = load i32, ptr %nativeIndexingLimit, align 4
   %conv = sext i32 %1 to i64
   %add = add nsw i64 %0, %conv
-  %cmp2 = icmp sgt i64 %add, %nativeIndex
+  %cmp2 = icmp slt i64 %nativeIndex, %add
   br i1 %cmp2, label %if.then, label %lor.lhs.false.i
 
 if.then:                                          ; preds = %land.lhs.true
@@ -928,7 +928,7 @@ lor.lhs.false.i:                                  ; preds = %if.then, %land.lhs.
   %c.0.ph = phi i32 [ -1, %land.lhs.true ], [ %conv6, %if.then ]
   %chunkNativeLimit.i = getelementptr inbounds i8, ptr %ut, i64 16
   %5 = load i64, ptr %chunkNativeLimit.i, align 8
-  %cmp1.not.i = icmp sgt i64 %5, %nativeIndex
+  %cmp1.not.i = icmp slt i64 %nativeIndex, %5
   br i1 %cmp1.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry, %lor.lhs.false.i
@@ -1019,7 +1019,7 @@ if.then39.i:                                      ; preds = %if.then30.i
 utext_setNativeIndex_75.exit:                     ; preds = %if.end12.i, %if.then15.i, %if.end27.i, %if.then30.i, %if.then39.i
   %24 = phi i32 [ %10, %if.end12.i ], [ %10, %if.then15.i ], [ %18, %if.end27.i ], [ %18, %if.then30.i ], [ %dec.i, %if.then39.i ]
   %25 = load i64, ptr %chunkNativeStart, align 8
-  %cmp13.not = icmp sgt i64 %25, %nativeIndex
+  %cmp13.not = icmp slt i64 %nativeIndex, %25
   br i1 %cmp13.not, label %return, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %utext_setNativeIndex_75.exit
@@ -1102,13 +1102,13 @@ define range(i32 -56613888, 10559488) i32 @utext_next32From_75(ptr noundef %ut, 
 entry:
   %chunkNativeStart = getelementptr inbounds i8, ptr %ut, i64 32
   %0 = load i64, ptr %chunkNativeStart, align 8
-  %cmp = icmp sgt i64 %0, %index
+  %cmp = icmp slt i64 %index, %0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %chunkNativeLimit = getelementptr inbounds i8, ptr %ut, i64 16
   %1 = load i64, ptr %chunkNativeLimit, align 8
-  %cmp1.not = icmp sgt i64 %1, %index
+  %cmp1.not = icmp slt i64 %index, %1
   br i1 %cmp1.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -1162,13 +1162,13 @@ if.end14:                                         ; preds = %if.then.if.end14_cr
 
 if.then18:                                        ; preds = %if.end14
   %10 = load i64, ptr %chunkNativeStart, align 8
-  %cmp.i = icmp sgt i64 %10, %index
+  %cmp.i = icmp slt i64 %index, %10
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then18
   %chunkNativeLimit.i = getelementptr inbounds i8, ptr %ut, i64 16
   %11 = load i64, ptr %chunkNativeLimit.i, align 8
-  %cmp1.not.i = icmp sgt i64 %11, %index
+  %cmp1.not.i = icmp slt i64 %index, %11
   br i1 %cmp1.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.then18
@@ -1335,13 +1335,13 @@ define range(i32 -56613888, 10559488) i32 @utext_previous32From_75(ptr noundef %
 entry:
   %chunkNativeStart = getelementptr inbounds i8, ptr %ut, i64 32
   %0 = load i64, ptr %chunkNativeStart, align 8
-  %cmp.not = icmp slt i64 %0, %index
+  %cmp.not = icmp sgt i64 %index, %0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
   %chunkNativeLimit = getelementptr inbounds i8, ptr %ut, i64 16
   %1 = load i64, ptr %chunkNativeLimit, align 8
-  %cmp1 = icmp slt i64 %1, %index
+  %cmp1 = icmp sgt i64 %index, %1
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -1403,13 +1403,13 @@ if.end22:                                         ; preds = %if.then5, %land.lhs
 
 if.then27:                                        ; preds = %if.end22
   %12 = load i64, ptr %chunkNativeStart, align 8
-  %cmp.i = icmp sgt i64 %12, %index
+  %cmp.i = icmp slt i64 %index, %12
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then27
   %chunkNativeLimit.i = getelementptr inbounds i8, ptr %ut, i64 16
   %13 = load i64, ptr %chunkNativeLimit.i, align 8
-  %cmp1.not.i = icmp sgt i64 %13, %index
+  %cmp1.not.i = icmp slt i64 %index, %13
   br i1 %cmp1.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.then27
@@ -1877,7 +1877,7 @@ if.end24:                                         ; preds = %if.then21, %land.lh
   store i32 %and26, ptr %flags18, align 4
   %extraSize27 = getelementptr inbounds i8, ptr %ut, i64 24
   %7 = load i32, ptr %extraSize27, align 8
-  %cmp28 = icmp slt i32 %7, %extraSpace
+  %cmp28 = icmp sgt i32 %extraSpace, %7
   br i1 %cmp28, label %if.then29, label %if.end49
 
 if.then29:                                        ; preds = %if.end24
@@ -3375,11 +3375,11 @@ if.end4:                                          ; preds = %lor.lhs.false
   %1 = load i32, ptr %b, align 8
   %conv = sext i32 %1 to i64
   %cmp.i35 = icmp slt i64 %start, 0
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %conv, i64 %start)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %start, i64 %conv)
   %2 = trunc i64 %spec.select to i32
   %conv.i36 = select i1 %cmp.i35, i32 0, i32 %2
   %cmp.i37 = icmp slt i64 %limit, 0
-  %spec.select47 = tail call i64 @llvm.smin.i64(i64 %conv, i64 %limit)
+  %spec.select47 = tail call i64 @llvm.smin.i64(i64 %limit, i64 %conv)
   %3 = trunc i64 %spec.select47 to i32
   %conv.i40 = select i1 %cmp.i37, i32 0, i32 %3
   %cmp8 = icmp sgt i32 %conv.i36, %conv.i40
@@ -3481,7 +3481,7 @@ if.end57:                                         ; preds = %if.end52, %if.end57
   %cond.i = select i1 %cmp1, ptr null, ptr %add.ptr.i
   store i32 0, ptr %index.i, align 4
   %cmp136.i = icmp sgt i32 %sub59, 0
-  %cmp237.i = icmp ugt ptr %cond.i, %dest
+  %cmp237.i = icmp ult ptr %dest, %cond.i
   %16 = select i1 %cmp136.i, i1 %cmp237.i, i1 false
   br i1 %16, label %while.body.i, label %while.end.i
 
@@ -3976,7 +3976,7 @@ entry:
   %call.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %conv = sext i32 %call.i to i64
   %cmp.i = icmp slt i64 %index, 0
-  %spec.select86 = tail call i64 @llvm.smin.i64(i64 %conv, i64 %index)
+  %spec.select86 = tail call i64 @llvm.smin.i64(i64 %index, i64 %conv)
   %index.addr.0 = select i1 %cmp.i, i64 0, i64 %spec.select86
   %2 = trunc i64 %spec.select86 to i32
   %conv.i = select i1 %cmp.i, i32 0, i32 %2
@@ -4231,11 +4231,11 @@ if.then7:                                         ; preds = %if.end5
 if.end8:                                          ; preds = %if.end5
   %conv = sext i32 %call.i to i64
   %cmp.i36 = icmp slt i64 %start, 0
-  %spec.select59 = tail call i64 @llvm.smin.i64(i64 %conv, i64 %start)
+  %spec.select59 = tail call i64 @llvm.smin.i64(i64 %start, i64 %conv)
   %3 = trunc i64 %spec.select59 to i32
   %conv.i37 = select i1 %cmp.i36, i32 0, i32 %3
   %cmp.i38 = icmp slt i64 %limit, 0
-  %spec.select60 = tail call i64 @llvm.smin.i64(i64 %conv, i64 %limit)
+  %spec.select60 = tail call i64 @llvm.smin.i64(i64 %limit, i64 %conv)
   %4 = trunc i64 %spec.select60 to i32
   %conv.i41 = select i1 %cmp.i38, i32 0, i32 %4
   %cmp12 = icmp slt i32 %conv.i37, %call.i
@@ -4359,11 +4359,11 @@ if.then6:                                         ; preds = %if.end3
 if.end7:                                          ; preds = %if.end3
   %conv = sext i32 %call.i to i64
   %cmp.i34 = icmp slt i64 %start, 0
-  %spec.select61 = tail call i64 @llvm.smin.i64(i64 %conv, i64 %start)
+  %spec.select61 = tail call i64 @llvm.smin.i64(i64 %start, i64 %conv)
   %3 = trunc i64 %spec.select61 to i32
   %conv.i35 = select i1 %cmp.i34, i32 0, i32 %3
   %cmp.i36 = icmp slt i64 %limit, 0
-  %spec.select62 = tail call i64 @llvm.smin.i64(i64 %conv, i64 %limit)
+  %spec.select62 = tail call i64 @llvm.smin.i64(i64 %limit, i64 %conv)
   %4 = trunc i64 %spec.select62 to i32
   %conv.i39 = select i1 %cmp.i36, i32 0, i32 %4
   %cmp11 = icmp slt i32 %conv.i35, %call.i
@@ -4518,15 +4518,15 @@ if.then4:                                         ; preds = %lor.lhs.false, %if.
 if.end5:                                          ; preds = %lor.lhs.false
   %conv = sext i32 %call.i to i64
   %cmp.i39 = icmp slt i64 %start, 0
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %conv, i64 %start)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %start, i64 %conv)
   %3 = trunc i64 %spec.select to i32
   %conv.i40 = select i1 %cmp.i39, i32 0, i32 %3
   %cmp.i41 = icmp slt i64 %limit, 0
-  %spec.select58 = tail call i64 @llvm.smin.i64(i64 %conv, i64 %limit)
+  %spec.select58 = tail call i64 @llvm.smin.i64(i64 %limit, i64 %conv)
   %4 = trunc i64 %spec.select58 to i32
   %conv.i44 = select i1 %cmp.i41, i32 0, i32 %4
   %cmp.i48 = icmp slt i64 %destIndex, 0
-  %spec.select59 = tail call i64 @llvm.smin.i64(i64 %conv, i64 %destIndex)
+  %spec.select59 = tail call i64 @llvm.smin.i64(i64 %destIndex, i64 %conv)
   %5 = trunc i64 %spec.select59 to i32
   %conv.i51 = select i1 %cmp.i48, i32 0, i32 %5
   %tobool11.not = icmp ne i8 %move, 0
@@ -4696,7 +4696,7 @@ entry:
   %0 = load i32, ptr %chunkLength, align 4
   %conv = sext i32 %0 to i64
   %cmp.i = icmp slt i64 %index, 0
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %conv, i64 %index)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %index, i64 %conv)
   %index.addr.0 = select i1 %cmp.i, i64 0, i64 %spec.select
   %1 = trunc i64 %spec.select to i32
   %conv.i = select i1 %cmp.i, i32 0, i32 %1
@@ -4753,7 +4753,7 @@ if.then9:                                         ; preds = %if.end5
 
 if.end10:                                         ; preds = %if.end5
   %conv = sext i32 %cond.i to i64
-  %cmp11 = icmp sgt i64 %conv, %start
+  %cmp11 = icmp slt i64 %start, %conv
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end10
@@ -4763,7 +4763,7 @@ cond.true:                                        ; preds = %if.end10
 
 cond.end:                                         ; preds = %if.end10, %cond.true
   %cond = phi i32 [ %call13, %cond.true ], [ %cond.i, %if.end10 ]
-  %cmp15 = icmp sgt i64 %conv, %limit
+  %cmp15 = icmp slt i64 %limit, %conv
   br i1 %cmp15, label %cond.true16, label %cond.end20
 
 cond.true16:                                      ; preds = %cond.end
@@ -4845,11 +4845,11 @@ if.end6:                                          ; preds = %if.end3
   %cond.i = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
   %conv = sext i32 %cond.i to i64
   %cmp.i29 = icmp slt i64 %start, 0
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %conv, i64 %start)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %start, i64 %conv)
   %5 = trunc i64 %spec.select to i32
   %conv.i30 = select i1 %cmp.i29, i32 0, i32 %5
   %cmp.i31 = icmp slt i64 %limit, 0
-  %spec.select49 = tail call i64 @llvm.smin.i64(i64 %conv, i64 %limit)
+  %spec.select49 = tail call i64 @llvm.smin.i64(i64 %limit, i64 %conv)
   %6 = trunc i64 %spec.select49 to i32
   %conv.i34 = select i1 %cmp.i31, i32 0, i32 %6
   %cmp11 = icmp slt i32 %conv.i30, %cond.i
@@ -4949,15 +4949,15 @@ if.end:                                           ; preds = %entry
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   %conv = sext i32 %cond.i to i64
   %cmp.i43 = icmp slt i64 %start, 0
-  %spec.select62 = tail call i64 @llvm.smin.i64(i64 %conv, i64 %start)
+  %spec.select62 = tail call i64 @llvm.smin.i64(i64 %start, i64 %conv)
   %5 = trunc i64 %spec.select62 to i32
   %conv.i44 = select i1 %cmp.i43, i32 0, i32 %5
   %cmp.i45 = icmp slt i64 %limit, 0
-  %spec.select63 = tail call i64 @llvm.smin.i64(i64 %conv, i64 %limit)
+  %spec.select63 = tail call i64 @llvm.smin.i64(i64 %limit, i64 %conv)
   %6 = trunc i64 %spec.select63 to i32
   %conv.i48 = select i1 %cmp.i45, i32 0, i32 %6
   %cmp.i52 = icmp slt i64 %destIndex, 0
-  %spec.select64 = tail call i64 @llvm.smin.i64(i64 %conv, i64 %destIndex)
+  %spec.select64 = tail call i64 @llvm.smin.i64(i64 %destIndex, i64 %conv)
   %7 = trunc i64 %spec.select64 to i32
   %conv.i55 = select i1 %cmp.i52, i32 0, i32 %7
   %cmp = icmp sgt i32 %conv.i44, %conv.i48
@@ -5227,7 +5227,7 @@ entry:
 if.else:                                          ; preds = %entry
   %chunkNativeLimit = getelementptr inbounds i8, ptr %ut, i64 16
   %1 = load i64, ptr %chunkNativeLimit, align 8
-  %cmp1 = icmp sgt i64 %1, %index
+  %cmp1 = icmp slt i64 %index, %1
   br i1 %cmp1, label %do.body, label %if.else11
 
 do.body:                                          ; preds = %if.else
@@ -5245,7 +5245,7 @@ land.lhs.true5:                                   ; preds = %do.body
   %5 = and i16 %4, -1024
   %cmp9 = icmp eq i16 %5, -10240
   %dec = sext i1 %cmp9 to i64
-  %spec.select = add nsw i64 %dec, %index
+  %spec.select = add nsw i64 %index, %dec
   br label %breakout
 
 if.else11:                                        ; preds = %if.else
@@ -5283,7 +5283,7 @@ if.then29:                                        ; preds = %for.body
   store i32 %9, ptr %chunkLength, align 4
   %nativeIndexingLimit = getelementptr inbounds i8, ptr %ut, i64 28
   store i32 %9, ptr %nativeIndexingLimit, align 4
-  %cmp33.not = icmp sgt i64 %indvars.iv, %index
+  %cmp33.not = icmp slt i64 %index, %indvars.iv
   br i1 %cmp33.not, label %do.body37, label %if.end54
 
 do.body37:                                        ; preds = %if.then29
@@ -5301,7 +5301,7 @@ land.lhs.true44:                                  ; preds = %do.body37
   %13 = and i16 %12, -1024
   %cmp49 = icmp eq i16 %13, -10240
   %dec51 = sext i1 %cmp49 to i64
-  %spec.select71 = add nsw i64 %dec51, %index
+  %spec.select71 = add nsw i64 %index, %dec51
   br label %if.end54
 
 if.end54:                                         ; preds = %land.lhs.true44, %if.then29, %do.body37
@@ -5334,7 +5334,7 @@ land.lhs.true66:                                  ; preds = %do.body59
   %18 = and i16 %17, -1024
   %cmp71 = icmp eq i16 %18, -10240
   %dec73 = sext i1 %cmp71 to i64
-  %spec.select72 = add nsw i64 %dec73, %index
+  %spec.select72 = add nsw i64 %index, %dec73
   br label %do.end75
 
 do.end75:                                         ; preds = %land.lhs.true66, %do.body59
@@ -5413,7 +5413,7 @@ lor.lhs.false:                                    ; preds = %if.end
   %cmp1 = icmp eq ptr %dest, null
   %cmp2 = icmp ne i32 %destCapacity, 0
   %or.cond = and i1 %cmp1, %cmp2
-  %cmp4 = icmp slt i64 %limit, %start
+  %cmp4 = icmp sgt i64 %start, %limit
   %or.cond58 = or i1 %cmp4, %or.cond
   br i1 %or.cond58, label %if.then5, label %if.end6
 
@@ -5435,7 +5435,7 @@ if.end6:                                          ; preds = %lor.lhs.false
 
 if.then9:                                         ; preds = %if.end6
   %conv10 = and i64 %3, 2147483647
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %conv10, i64 %limit)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %limit, i64 %conv10)
   br label %if.end13
 
 if.else:                                          ; preds = %if.end6
@@ -5711,13 +5711,13 @@ utext_getNativeIndex_75.exit:                     ; preds = %if.then.i, %if.else
   %retval.0.i19 = phi i64 [ %add.i, %if.then.i ], [ %call.i, %if.else.i ]
   %chunkNativeStart.i21 = getelementptr inbounds i8, ptr %call4.i, i64 32
   %14 = load i64, ptr %chunkNativeStart.i21, align 8
-  %cmp.i22 = icmp sgt i64 %14, %retval.0.i19
+  %cmp.i22 = icmp slt i64 %retval.0.i19, %14
   br i1 %cmp.i22, label %if.then.i24, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %utext_getNativeIndex_75.exit
   %chunkNativeLimit.i23 = getelementptr inbounds i8, ptr %call4.i, i64 16
   %15 = load i64, ptr %chunkNativeLimit.i23, align 8
-  %cmp1.not.i = icmp sgt i64 %15, %retval.0.i19
+  %cmp1.not.i = icmp slt i64 %retval.0.i19, %15
   br i1 %cmp1.not.i, label %if.else.i29, label %if.then.i24
 
 if.then.i24:                                      ; preds = %lor.lhs.false.i, %utext_getNativeIndex_75.exit
@@ -6023,11 +6023,11 @@ if.end6:                                          ; preds = %lor.lhs.false
   %sext = shl i64 %1, 32
   %conv7 = ashr exact i64 %sext, 32
   %cmp.i32 = icmp slt i64 %start, 0
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %conv7, i64 %start)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %start, i64 %conv7)
   %2 = trunc i64 %spec.select to i32
   %conv.i33 = select i1 %cmp.i32, i32 0, i32 %2
   %cmp.i34 = icmp slt i64 %limit, 0
-  %spec.select44 = tail call i64 @llvm.smin.i64(i64 %conv7, i64 %limit)
+  %spec.select44 = tail call i64 @llvm.smin.i64(i64 %limit, i64 %conv7)
   %3 = trunc i64 %spec.select44 to i32
   %conv.i37 = select i1 %cmp.i34, i32 0, i32 %3
   %context = getelementptr inbounds i8, ptr %ut, i64 72

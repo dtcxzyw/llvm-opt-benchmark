@@ -274,7 +274,7 @@ define range(i32 -1, 2) i32 @H5Itype_exists(i32 noundef %0) local_unnamed_addr #
 28:                                               ; preds = %21
   %29 = icmp sgt i32 %0, -1
   %30 = load i32, ptr @H5I_next_type_g, align 4
-  %.not = icmp sgt i32 %30, %0
+  %.not = icmp slt i32 %0, %30
   %or.cond16 = select i1 %29, i1 %.not, i1 false
   br i1 %or.cond16, label %36, label %31
 
@@ -352,7 +352,7 @@ define range(i32 -1, 1) i32 @H5Inmembers(i32 noundef %0, ptr noundef writeonly %
 29:                                               ; preds = %22
   %30 = icmp sgt i32 %0, -1
   %31 = load i32, ptr @H5I_next_type_g, align 4
-  %.not = icmp sgt i32 %31, %0
+  %.not = icmp slt i32 %0, %31
   %or.cond24 = select i1 %30, i1 %.not, i1 false
   br i1 %or.cond24, label %36, label %32
 
@@ -732,7 +732,7 @@ define ptr @H5Iobject_verify(i64 noundef %0, i32 noundef %1) local_unnamed_addr 
 29:                                               ; preds = %22
   %30 = icmp sgt i32 %1, 0
   %31 = load i32, ptr @H5I_next_type_g, align 4
-  %.not = icmp sgt i32 %31, %1
+  %.not = icmp slt i32 %1, %31
   %or.cond16 = select i1 %30, i1 %.not, i1 false
   br i1 %or.cond16, label %37, label %32
 
@@ -1132,7 +1132,7 @@ define range(i32 -1, -2147483648) i32 @H5Iinc_type_ref(i32 noundef %0) local_unn
   %22 = tail call i32 @H5E_clear_stack() #3
   %23 = icmp sgt i32 %0, 0
   %24 = load i32, ptr @H5I_next_type_g, align 4
-  %.not = icmp sgt i32 %24, %0
+  %.not = icmp slt i32 %0, %24
   %or.cond = select i1 %23, i1 %.not, i1 false
   br i1 %or.cond, label %29, label %25
 
@@ -1277,7 +1277,7 @@ define range(i32 -1, -2147483648) i32 @H5Iget_type_ref(i32 noundef %0) local_unn
   %22 = tail call i32 @H5E_clear_stack() #3
   %23 = icmp sgt i32 %0, 0
   %24 = load i32, ptr @H5I_next_type_g, align 4
-  %.not = icmp sgt i32 %24, %0
+  %.not = icmp slt i32 %0, %24
   %or.cond = select i1 %23, i1 %.not, i1 false
   br i1 %or.cond, label %29, label %25
 

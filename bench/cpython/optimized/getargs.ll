@@ -1594,7 +1594,7 @@ cond.false4.i.i73:                                ; preds = %cond.end.i.i70
 
 Py_SIZE.exit.i:                                   ; preds = %cond.end.i.i70
   %29 = load i64, ptr %ob_size.i.i72, align 8
-  %cmp6.i = icmp sgt i64 %29, %i102.091
+  %cmp6.i = icmp slt i64 %i102.091, %29
   br i1 %cmp6.i, label %PyTuple_SET_ITEM.exit, label %cond.false8.i
 
 cond.false8.i:                                    ; preds = %Py_SIZE.exit.i

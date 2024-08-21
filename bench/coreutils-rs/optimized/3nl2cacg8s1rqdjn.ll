@@ -37,7 +37,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %.val4.i.i = load i64, ptr %17, align 8, !alias.scope !15, !noalias !16, !noundef !4
   %18 = sub nuw i64 %.val4.i.i, %.val.i.i
-  %19 = icmp ult i64 %12, %18
+  %19 = icmp ugt i64 %18, %12
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6cfb0f94edd1e210E.exit.i.i"
 
 20:                                               ; preds = %11

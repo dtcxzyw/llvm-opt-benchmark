@@ -1675,11 +1675,11 @@ _ZN4abslleENS_8DurationES0_.exit.i:               ; preds = %cond.false.i.i19.i
   br i1 %cmp25.i.i22.i, label %while.cond.i.backedge, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZN4abslleENS_8DurationES0_.exit.i, %cond.true13.i.i23.i, %cond.true.i.i16.i
-  %cmp.not.i.i27.i = icmp eq i64 %retval.sroa.0.0.copyload.i.i.i, %retval.sroa.0.0.copyload.i6
+  %cmp.not.i.i27.i = icmp eq i64 %retval.sroa.0.0.copyload.i6, %retval.sroa.0.0.copyload.i.i.i
   br i1 %cmp.not.i.i27.i, label %cond.false.i.i32.i, label %cond.true.i.i28.i
 
 cond.true.i.i28.i:                                ; preds = %land.lhs.true.i
-  %cmp8.i.i29.i = icmp sgt i64 %retval.sroa.0.0.copyload.i.i.i, %retval.sroa.0.0.copyload.i6
+  %cmp8.i.i29.i = icmp slt i64 %retval.sroa.0.0.copyload.i6, %retval.sroa.0.0.copyload.i.i.i
   br i1 %cmp8.i.i29.i, label %while.cond.i.backedge, label %if.then
 
 cond.false.i.i32.i:                               ; preds = %land.lhs.true.i
@@ -1691,7 +1691,7 @@ cond.true13.i.i36.i:                              ; preds = %cond.false.i.i32.i
   br i1 %cmp19.i.i39.i, label %while.cond.i.backedge, label %if.then
 
 _ZN4abslleENS_8DurationES0_.exit40.i:             ; preds = %cond.false.i.i32.i
-  %cmp25.i.i35.i = icmp ugt i32 %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.2.0.copyload.i8
+  %cmp25.i.i35.i = icmp ult i32 %retval.sroa.2.0.copyload.i8, %retval.sroa.2.0.copyload.i.i.i
   br i1 %cmp25.i.i35.i, label %while.cond.i.backedge, label %if.then
 
 while.cond.i.backedge:                            ; preds = %_ZN4abslleENS_8DurationES0_.exit40.i, %cond.true13.i.i36.i, %cond.true.i.i28.i, %_ZN4abslleENS_8DurationES0_.exit.i, %cond.true13.i.i23.i, %cond.true.i.i16.i, %if.then32.i

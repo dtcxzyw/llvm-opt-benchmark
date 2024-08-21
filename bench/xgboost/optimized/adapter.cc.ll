@@ -1104,7 +1104,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -1860,7 +1860,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorImSaIm
   %74 = phi ptr [ %73, %71 ], [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit ]
   %75 = ptrtoint ptr %1 to i64
   %76 = sub i64 %75, %61
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %60, %1
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %60
   br i1 %.not.i.i.i.i.i.i.i.i.i63, label %_ZSt22__uninitialized_copy_aIPlPmmET0_T_S3_S2_RSaIT1_E.exit69, label %77
 
 77:                                               ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit
@@ -1959,7 +1959,7 @@ _ZSt4copyIPfN9__gnu_cxx17__normal_iteratorIS0_St6vectorIfSaIfEEEEET0_T_S8_S7_.ex
 
 _ZSt7advanceIPfmEvRT_T0_.exit:                    ; preds = %17
   %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %30, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPfS0_fET0_T_S2_S1_RSaIT1_E.exit, label %31
 
 31:                                               ; preds = %_ZSt7advanceIPfmEvRT_T0_.exit
@@ -2024,7 +2024,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIfSaIf
   %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit ]
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i60, label %60, label %59
 
 59:                                               ; preds = %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit
@@ -2214,7 +2214,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIjSaIj
   %74 = phi ptr [ %73, %71 ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit ]
   %75 = ptrtoint ptr %1 to i64
   %76 = sub i64 %75, %61
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %60, %1
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %60
   br i1 %.not.i.i.i.i.i.i.i.i.i63, label %_ZSt22__uninitialized_copy_aIPiPjjET0_T_S3_S2_RSaIT1_E.exit69, label %77
 
 77:                                               ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit

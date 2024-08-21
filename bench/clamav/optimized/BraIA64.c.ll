@@ -25,7 +25,7 @@ define i64 @IA64_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = trunc i64 %.06375 to i32
-  %17 = add i32 %16, %2
+  %17 = add i32 %2, %16
   %18 = sub i32 0, %17
   %.0.p = select i1 %.not65, i32 %18, i32 %17
   %19 = lshr i32 %.0.p, 4

@@ -5014,7 +5014,7 @@ sw.bb44:                                          ; preds = %sw.bb
 sw.default:                                       ; preds = %sw.bb
   %cmp51 = icmp ult i32 %cond.i, 32
   %cmp52 = icmp ugt i32 %cond.i, 126
-  %or.cond = and i1 %cmp52, %ensure_ascii
+  %or.cond = and i1 %ensure_ascii, %cmp52
   %or.cond62 = or i1 %cmp51, %or.cond
   br i1 %or.cond62, label %if.then, label %if.else71
 

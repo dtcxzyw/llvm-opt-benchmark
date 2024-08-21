@@ -1233,7 +1233,7 @@ _tocEntryIsACL.exit:                              ; preds = %30
 
 129:                                              ; preds = %125
   %130 = load i32, ptr %120, align 4
-  %.not.i.us = icmp slt i32 %130, %127
+  %.not.i.us = icmp sgt i32 %127, %130
   br i1 %.not.i.us, label %getTocEntryByDumpId.exit.thread.us, label %getTocEntryByDumpId.exit.us
 
 getTocEntryByDumpId.exit.us:                      ; preds = %129
@@ -1284,7 +1284,7 @@ getTocEntryByDumpId.exit.thread.us:               ; preds = %139, %134, %getTocE
 
 152:                                              ; preds = %150
   %153 = load i32, ptr %120, align 4
-  %.not.i = icmp slt i32 %153, %147
+  %.not.i = icmp sgt i32 %147, %153
   br i1 %.not.i, label %getTocEntryByDumpId.exit.thread, label %getTocEntryByDumpId.exit
 
 getTocEntryByDumpId.exit:                         ; preds = %152
@@ -4030,7 +4030,7 @@ define internal fastcc range(i32 0, 13) i32 @restore_toc_entry(ptr noundef %0, p
   %49 = getelementptr inbounds i8, ptr %6, i64 328
   %50 = load i32, ptr %49, align 8
   %.not109 = icmp eq i32 %50, 0
-  %brmerge = or i1 %.not109, %2
+  %brmerge = or i1 %2, %.not109
   %.mux = select i1 %.not109, i32 0, i32 11
   br i1 %brmerge, label %inhibit_data_for_failed_table.exit, label %51
 
@@ -4433,7 +4433,7 @@ define dso_local ptr @ArchiveEntry(ptr noundef %0, i64 %1, i32 noundef %2, ptr n
   store i32 %8, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 516
   %10 = load i32, ptr %9, align 4
-  %11 = icmp slt i32 %10, %2
+  %11 = icmp sgt i32 %2, %10
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %4
@@ -5077,7 +5077,7 @@ define dso_local void @StartRestoreLO(ptr noundef %0, i32 noundef %1, i1 noundef
   %10 = getelementptr inbounds i8, ptr %0, i64 640
   store i64 0, ptr %10, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.57, i32 noundef %1) #22
-  %brmerge.not = and i1 %6, %2
+  %brmerge.not = and i1 %2, %6
   br i1 %brmerge.not, label %11, label %12
 
 11:                                               ; preds = %3
@@ -5431,7 +5431,7 @@ define dso_local ptr @getTocEntryByDumpId(ptr nocapture noundef %0, i32 noundef 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 516
   %11 = load i32, ptr %10, align 4
-  %.not = icmp slt i32 %11, %1
+  %.not = icmp sgt i32 %1, %11
   br i1 %.not, label %17, label %12
 
 12:                                               ; preds = %9
@@ -5754,7 +5754,7 @@ define dso_local i32 @TocIDRequired(ptr nocapture noundef %0, i32 noundef %1) lo
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 516
   %11 = load i32, ptr %10, align 4
-  %.not.i = icmp slt i32 %11, %1
+  %.not.i = icmp sgt i32 %1, %11
   br i1 %.not.i, label %getTocEntryByDumpId.exit.thread, label %getTocEntryByDumpId.exit
 
 getTocEntryByDumpId.exit:                         ; preds = %9

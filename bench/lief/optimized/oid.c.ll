@@ -913,7 +913,7 @@ define hidden i32 @mbedtls_oid_get_numeric_string(ptr nocapture noundef writeonl
 
 14:                                               ; preds = %6
   %15 = zext nneg i32 %12 to i64
-  %.not49 = icmp ult i64 %15, %1
+  %.not49 = icmp ugt i64 %1, %15
   br i1 %.not49, label %16, label %.loopexit
 
 16:                                               ; preds = %14

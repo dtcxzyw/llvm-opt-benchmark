@@ -1087,7 +1087,7 @@ get_object_address_opf_member.exit:               ; preds = %304, %318, %.sink.s
 338:                                              ; preds = %10
   %339 = tail call i32 @oidparse(ptr noundef %1) #9
   %340 = tail call zeroext i1 @LargeObjectExists(i32 noundef %339) #9
-  %brmerge = or i1 %340, %4
+  %brmerge = or i1 %4, %340
   br i1 %brmerge, label %.thread, label %341
 
 341:                                              ; preds = %338
@@ -1258,7 +1258,7 @@ get_object_address_usermapping.exit:              ; preds = %378, %394, %403, %4
   %429 = zext i32 %428 to i64
   %430 = tail call i32 @GetSysCacheOid(i32 noundef 48, i16 noundef signext 1, i64 noundef %427, i64 noundef %429, i64 noundef 0, i64 noundef 0) #9
   %.not17.i = icmp ne i32 %430, 0
-  %brmerge.i = or i1 %.not17.i, %4
+  %brmerge.i = or i1 %4, %.not17.i
   br i1 %brmerge.i, label %.thread, label %431
 
 431:                                              ; preds = %426
@@ -5511,7 +5511,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
   %12 = zext nneg i16 %11 to i32
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6

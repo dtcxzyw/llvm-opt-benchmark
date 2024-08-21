@@ -766,7 +766,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.end23.i.i.i.i.i,
   %__first.sroa.0.080.i.i.i.i.i = phi ptr [ %call.i8, %for.body.lr.ph.i.i.i.i.i ], [ %incdec.ptr.i32.i.i.i.i.i, %if.end23.i.i.i.i.i ]
   %40 = load i8, ptr %__first.sroa.0.080.i.i.i.i.i, align 1
   %cmp.i.i.i.i.i.i.i = icmp slt i8 %40, 0
-  %or.cond.i.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i.i, %escapeNonAscii
+  %or.cond.i.i.i.i.i.i.i = and i1 %escapeNonAscii, %cmp.i.i.i.i.i.i.i
   %cmp3.i.i.i.i.i.i.i = icmp eq i8 %40, 10
   %spec.select.i.i.i.i.i.i.i = or i1 %cmp3.i.i.i.i.i.i.i, %or.cond.i.i.i.i.i.i.i
   br i1 %spec.select.i.i.i.i.i.i.i, label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %if.end.i.i.i.i.i
@@ -775,7 +775,7 @@ if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.080.i.i.i.i.i, i64 1
   %41 = load i8, ptr %incdec.ptr.i.i.i.i.i.i, align 1
   %cmp.i.i16.i.i.i.i.i = icmp slt i8 %41, 0
-  %or.cond.i.i17.i.i.i.i.i = and i1 %cmp.i.i16.i.i.i.i.i, %escapeNonAscii
+  %or.cond.i.i17.i.i.i.i.i = and i1 %escapeNonAscii, %cmp.i.i16.i.i.i.i.i
   %cmp3.i.i18.i.i.i.i.i = icmp eq i8 %41, 10
   %spec.select.i.i19.i.i.i.i.i = or i1 %cmp3.i.i18.i.i.i.i.i, %or.cond.i.i17.i.i.i.i.i
   br i1 %spec.select.i.i19.i.i.i.i.i, label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit.loopexit.split.loop.exit, label %if.end11.i.i.i.i.i
@@ -784,7 +784,7 @@ if.end11.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   %incdec.ptr.i20.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.080.i.i.i.i.i, i64 2
   %42 = load i8, ptr %incdec.ptr.i20.i.i.i.i.i, align 1
   %cmp.i.i22.i.i.i.i.i = icmp slt i8 %42, 0
-  %or.cond.i.i23.i.i.i.i.i = and i1 %cmp.i.i22.i.i.i.i.i, %escapeNonAscii
+  %or.cond.i.i23.i.i.i.i.i = and i1 %escapeNonAscii, %cmp.i.i22.i.i.i.i.i
   %cmp3.i.i24.i.i.i.i.i = icmp eq i8 %42, 10
   %spec.select.i.i25.i.i.i.i.i = or i1 %cmp3.i.i24.i.i.i.i.i, %or.cond.i.i23.i.i.i.i.i
   br i1 %spec.select.i.i25.i.i.i.i.i, label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit.loopexit.split.loop.exit93, label %if.end17.i.i.i.i.i
@@ -793,7 +793,7 @@ if.end17.i.i.i.i.i:                               ; preds = %if.end11.i.i.i.i.i
   %incdec.ptr.i26.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.080.i.i.i.i.i, i64 3
   %43 = load i8, ptr %incdec.ptr.i26.i.i.i.i.i, align 1
   %cmp.i.i28.i.i.i.i.i = icmp slt i8 %43, 0
-  %or.cond.i.i29.i.i.i.i.i = and i1 %cmp.i.i28.i.i.i.i.i, %escapeNonAscii
+  %or.cond.i.i29.i.i.i.i.i = and i1 %escapeNonAscii, %cmp.i.i28.i.i.i.i.i
   %cmp3.i.i30.i.i.i.i.i = icmp eq i8 %43, 10
   %spec.select.i.i31.i.i.i.i.i = or i1 %cmp3.i.i30.i.i.i.i.i, %or.cond.i.i29.i.i.i.i.i
   br i1 %spec.select.i.i31.i.i.i.i.i, label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit.loopexit.split.loop.exit95, label %if.end23.i.i.i.i.i
@@ -821,7 +821,7 @@ for.end.i.i.i.i.i:                                ; preds = %for.end.loopexit.i.
 sw.bb.i.i.i.i.i:                                  ; preds = %for.end.i.i.i.i.i
   %44 = load i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i, align 1
   %cmp.i.i37.i.i.i.i.i = icmp slt i8 %44, 0
-  %or.cond.i.i38.i.i.i.i.i = and i1 %cmp.i.i37.i.i.i.i.i, %escapeNonAscii
+  %or.cond.i.i38.i.i.i.i.i = and i1 %escapeNonAscii, %cmp.i.i37.i.i.i.i.i
   %cmp3.i.i39.i.i.i.i.i = icmp eq i8 %44, 10
   %spec.select.i.i40.i.i.i.i.i = or i1 %cmp3.i.i39.i.i.i.i.i, %or.cond.i.i38.i.i.i.i.i
   br i1 %spec.select.i.i40.i.i.i.i.i, label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %if.end30.i.i.i.i.i
@@ -834,7 +834,7 @@ sw.bb32.i.i.i.i.i:                                ; preds = %if.end30.i.i.i.i.i,
   %__first.sroa.0.1.i.i.i.i.i = phi ptr [ %incdec.ptr.i41.i.i.i.i.i, %if.end30.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ]
   %45 = load i8, ptr %__first.sroa.0.1.i.i.i.i.i, align 1
   %cmp.i.i43.i.i.i.i.i = icmp slt i8 %45, 0
-  %or.cond.i.i44.i.i.i.i.i = and i1 %cmp.i.i43.i.i.i.i.i, %escapeNonAscii
+  %or.cond.i.i44.i.i.i.i.i = and i1 %escapeNonAscii, %cmp.i.i43.i.i.i.i.i
   %cmp3.i.i45.i.i.i.i.i = icmp eq i8 %45, 10
   %spec.select.i.i46.i.i.i.i.i = or i1 %cmp3.i.i45.i.i.i.i.i, %or.cond.i.i44.i.i.i.i.i
   br i1 %spec.select.i.i46.i.i.i.i.i, label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, label %if.end37.i.i.i.i.i
@@ -847,7 +847,7 @@ sw.bb39.i.i.i.i.i:                                ; preds = %if.end37.i.i.i.i.i,
   %__first.sroa.0.2.i.i.i.i.i = phi ptr [ %incdec.ptr.i47.i.i.i.i.i, %if.end37.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ]
   %46 = load i8, ptr %__first.sroa.0.2.i.i.i.i.i, align 1
   %cmp.i.i49.i.i.i.i.i = icmp slt i8 %46, 0
-  %or.cond.i.i50.i.i.i.i.i = and i1 %cmp.i.i49.i.i.i.i.i, %escapeNonAscii
+  %or.cond.i.i50.i.i.i.i.i = and i1 %escapeNonAscii, %cmp.i.i49.i.i.i.i.i
   %cmp3.i.i51.i.i.i.i.i = icmp eq i8 %46, 10
   %spec.select.i.i52.i.i.i.i.i = or i1 %cmp3.i.i51.i.i.i.i.i, %or.cond.i.i50.i.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %spec.select.i.i52.i.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i, ptr %call2.i9
@@ -867,7 +867,7 @@ _ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_str
 
 _ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit: ; preds = %for.body.i.i.i.i.i, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit.loopexit.split.loop.exit, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit.loopexit.split.loop.exit93, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit.loopexit.split.loop.exit95, %for.end.i.i.i.i.i, %sw.bb.i.i.i.i.i, %sw.bb32.i.i.i.i.i, %sw.bb39.i.i.i.i.i
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i, %sw.bb32.i.i.i.i.i ], [ %call2.i9, %for.end.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %sw.bb39.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.le, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i20.i.i.i.i.i.le, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit.loopexit.split.loop.exit93 ], [ %incdec.ptr.i26.i.i.i.i.i.le, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit.loopexit.split.loop.exit95 ], [ %__first.sroa.0.080.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i, %call2.i9
+  %cmp.i.i.i = icmp eq ptr %call2.i9, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i
   %.6 = select i1 %cmp.i.i.i, i32 1, i32 2
   br label %return
 
@@ -934,7 +934,7 @@ for.end.i.i.i.i.i18:                              ; preds = %if.end23.i.i.i.i.i4
 sw.bb.i.i.i.i.i30:                                ; preds = %for.end.i.i.i.i.i18
   %52 = load i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i19, align 1
   %cmp.i.i28.i.i.i.i.i31 = icmp slt i8 %52, 0
-  %53 = and i1 %cmp.i.i28.i.i.i.i.i31, %escapeNonAscii
+  %53 = and i1 %escapeNonAscii, %cmp.i.i28.i.i.i.i.i31
   br i1 %53, label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit, label %if.end30.i.i.i.i.i32
 
 if.end30.i.i.i.i.i32:                             ; preds = %sw.bb.i.i.i.i.i30
@@ -945,7 +945,7 @@ sw.bb32.i.i.i.i.i26:                              ; preds = %if.end30.i.i.i.i.i3
   %__first.sroa.0.1.i.i.i.i.i27 = phi ptr [ %incdec.ptr.i29.i.i.i.i.i, %if.end30.i.i.i.i.i32 ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i19, %for.end.i.i.i.i.i18 ]
   %54 = load i8, ptr %__first.sroa.0.1.i.i.i.i.i27, align 1
   %cmp.i.i31.i.i.i.i.i = icmp slt i8 %54, 0
-  %55 = and i1 %cmp.i.i31.i.i.i.i.i, %escapeNonAscii
+  %55 = and i1 %escapeNonAscii, %cmp.i.i31.i.i.i.i.i
   br i1 %55, label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit, label %if.end37.i.i.i.i.i28
 
 if.end37.i.i.i.i.i28:                             ; preds = %sw.bb32.i.i.i.i.i26
@@ -956,7 +956,7 @@ sw.bb39.i.i.i.i.i20:                              ; preds = %if.end37.i.i.i.i.i2
   %__first.sroa.0.2.i.i.i.i.i21 = phi ptr [ %incdec.ptr.i32.i.i.i.i.i29, %if.end37.i.i.i.i.i28 ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i19, %for.end.i.i.i.i.i18 ]
   %56 = load i8, ptr %__first.sroa.0.2.i.i.i.i.i21, align 1
   %cmp.i.i34.i.i.i.i.i = icmp slt i8 %56, 0
-  %57 = and i1 %cmp.i.i34.i.i.i.i.i, %escapeNonAscii
+  %57 = and i1 %escapeNonAscii, %cmp.i.i34.i.i.i.i.i
   %spec.select.i.i.i.i.i22 = select i1 %57, ptr %__first.sroa.0.2.i.i.i.i.i21, ptr %call2.i13
   br label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit
 
@@ -974,7 +974,7 @@ _ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIc
 
 _ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit: ; preds = %for.body.i.i.i.i.i34, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.loopexit.split.loop.exit, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.loopexit.split.loop.exit85, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.loopexit.split.loop.exit87, %sw.bb.i.i.i.i.i30, %sw.bb32.i.i.i.i.i26, %sw.bb39.i.i.i.i.i20
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i23 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i19, %sw.bb.i.i.i.i.i30 ], [ %__first.sroa.0.1.i.i.i.i.i27, %sw.bb32.i.i.i.i.i26 ], [ %spec.select.i.i.i.i.i22, %sw.bb39.i.i.i.i.i20 ], [ %incdec.ptr.i20.i.i.i.i.i41.le, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i17.i.i.i.i.i.le, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.loopexit.split.loop.exit85 ], [ %incdec.ptr.i.i.i.i.i.i37.le, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.loopexit.split.loop.exit87 ], [ %__first.sroa.0.062.i.i.i.i.i, %for.body.i.i.i.i.i34 ]
-  %cmp.i.i.i24 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i23, %call2.i13
+  %cmp.i.i.i24 = icmp eq ptr %call2.i13, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i23
   %cond.fr = freeze i1 %cmp.i.i.i24
   br i1 %cond.fr, label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread51, label %return
 

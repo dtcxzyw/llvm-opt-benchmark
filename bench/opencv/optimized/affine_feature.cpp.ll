@@ -2379,7 +2379,7 @@ define linkonce_odr hidden void @_ZNK2cv22skewedDetectAndComputeclERKNS_5RangeE(
   %109 = ptrtoint ptr %107 to i64
   %110 = sub i64 %108, %109
   %111 = sdiv exact i64 %110, 28
-  %112 = icmp ult i64 %111, %105
+  %112 = icmp ugt i64 %105, %111
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %99
@@ -2393,7 +2393,7 @@ define linkonce_odr hidden void @_ZNK2cv22skewedDetectAndComputeclERKNS_5RangeE(
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit
 
 115:                                              ; preds = %99
-  %116 = icmp ugt i64 %111, %105
+  %116 = icmp ult i64 %105, %111
   br i1 %116, label %117, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit
 
 117:                                              ; preds = %115
@@ -2590,7 +2590,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit72:  ; preds = %_ZNSt6vectorIiSaIiE
   %198 = ptrtoint ptr %196 to i64
   %199 = sub i64 %197, %198
   %200 = sdiv exact i64 %199, 28
-  %201 = icmp ult i64 %200, %193
+  %201 = icmp ugt i64 %193, %200
   br i1 %201, label %202, label %204
 
 202:                                              ; preds = %184
@@ -2599,7 +2599,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit72:  ; preds = %_ZNSt6vectorIiSaIiE
           to label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit80 unwind label %244
 
 204:                                              ; preds = %184
-  %205 = icmp ugt i64 %200, %193
+  %205 = icmp ult i64 %193, %200
   br i1 %205, label %206, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit80
 
 206:                                              ; preds = %204
@@ -3585,7 +3585,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv8KeyPointESt6v
   %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr %"class.cv::KeyPoint", ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
-  %.not11.i.i.i.i.i53 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPN2cv8KeyPointES2_SaIS1_EET0_T_S5_S4_RT1_.exit59, label %.lr.ph.i.i.i.i.i54
 
 .lr.ph.i.i.i.i.i54:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv8KeyPointESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, %.lr.ph.i.i.i.i.i54
@@ -3667,7 +3667,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKS
   br i1 %.not.i.i.i.i72, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv8KeyPointESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit74, label %.lr.ph.i.i.i.i69, !llvm.loop !52
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv8KeyPointESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit74: ; preds = %.lr.ph.i.i.i.i69
-  %.not11.i.i.i.i.i75 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i75 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i75, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv8KeyPointES2_SaIS1_EET0_T_S5_S4_RT1_.exit81, label %.lr.ph.i.i.i.i.i76
 
 .lr.ph.i.i.i.i.i76:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv8KeyPointESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit74, %.lr.ph.i.i.i.i.i76

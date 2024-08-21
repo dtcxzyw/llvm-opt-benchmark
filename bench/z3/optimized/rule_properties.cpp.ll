@@ -1931,7 +1931,7 @@ while.body59:                                     ; preds = %while.body59.lr.ph,
 
 if.else.i:                                        ; preds = %while.body59
   %91 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %91, %90
+  %cmp3.not.i = icmp ugt i32 %90, %91
   %92 = xor i32 %91, -1
   %.sink477 = select i1 %cmp3.not.i, i32 %92, i32 -1
   %sub9.i = add i32 %90, %.sink477
@@ -3582,7 +3582,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i105
   %75 = load ptr, ptr %this, align 8
   %m_true.i = getelementptr inbounds i8, ptr %75, i64 856
   %76 = load ptr, ptr %m_true.i, align 8
-  %cmp.i111 = icmp eq ptr %76, %73
+  %cmp.i111 = icmp eq ptr %73, %76
   br i1 %cmp.i111, label %if.then79, label %_ZNK11ast_manager5is_eqEPK4expr.exit.i136
 
 if.then79:                                        ; preds = %land.lhs.true
@@ -3625,7 +3625,7 @@ land.lhs.true86:                                  ; preds = %land.lhs.true.i140
   %86 = load ptr, ptr %this, align 8
   %m_true.i147 = getelementptr inbounds i8, ptr %86, i64 856
   %87 = load ptr, ptr %m_true.i147, align 8
-  %cmp.i148 = icmp eq ptr %87, %85
+  %cmp.i148 = icmp eq ptr %85, %87
   br i1 %cmp.i148, label %if.then90, label %if.else93
 
 if.then90:                                        ; preds = %land.lhs.true86

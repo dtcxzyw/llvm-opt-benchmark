@@ -474,7 +474,7 @@ define dso_local void @ModifyWaitEvent(ptr nocapture noundef %0, i32 noundef %1,
   %8 = getelementptr %struct.WaitEvent, ptr %6, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, %2
+  %11 = icmp eq i32 %2, %10
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %4
@@ -631,7 +631,7 @@ define dso_local range(i32 0, -1) i32 @WaitEventSetWait(ptr nocapture noundef re
   %44 = load i32, ptr %18, align 8
   %45 = load ptr, ptr %19, align 8
   %46 = load i32, ptr %20, align 4
-  %..i = call i32 @llvm.smin.i32(i32 %46, i32 %3)
+  %..i = call i32 @llvm.smin.i32(i32 %3, i32 %46)
   %47 = call i32 @epoll_wait(i32 noundef %44, ptr noundef %45, i32 noundef %..i, i32 noundef %43) #14
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %56

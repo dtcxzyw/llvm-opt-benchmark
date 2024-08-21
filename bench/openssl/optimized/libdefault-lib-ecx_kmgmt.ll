@@ -1065,7 +1065,7 @@ entry:
   %pub.i = alloca [64 x i8], align 16
   %keylen1 = getelementptr inbounds i8, ptr %keydata, i64 88
   %0 = load i64, ptr %keylen1, align 8
-  %cmp = icmp eq i64 %0, %keylen
+  %cmp = icmp eq i64 %keylen, %0
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end

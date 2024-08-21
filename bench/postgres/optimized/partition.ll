@@ -61,7 +61,7 @@ get_partition_parent_worker.exit:                 ; preds = %2
 22:                                               ; preds = %get_partition_parent_worker.exit
   %23 = trunc i8 %16 to i1
   %.not7 = xor i1 %23, true
-  %brmerge = or i1 %.not7, %1
+  %brmerge = or i1 %1, %.not7
   br i1 %brmerge, label %27, label %24
 
 24:                                               ; preds = %22

@@ -1640,7 +1640,7 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i
   call void %187(ptr noundef nonnull %c.i.i.i, ptr noundef nonnull %hdr.i.i.i, i64 noundef %conv.i.i.i) #23
   %cmp.i.i.i110 = icmp eq i8 %180, 3
   %188 = load i64, ptr @big_file_threshold, align 8
-  %cmp5.i.i.i = icmp ult i64 %188, %179
+  %cmp5.i.i.i = icmp ugt i64 %179, %188
   %or.cond17.i.i.i = select i1 %cmp.i.i.i110, i1 %cmp5.i.i.i, i1 false
   br i1 %or.cond17.i.i.i, label %if.end10.i.i.i, label %if.else8.i.i.i
 
@@ -4250,7 +4250,7 @@ declare i32 @xopen(ptr noundef, i32 noundef, ...) local_unnamed_addr #4
 define internal fastcc ptr @fill(i32 noundef %min) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @input_len, align 4
-  %cmp.not = icmp ult i32 %0, %min
+  %cmp.not = icmp ugt i32 %min, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -4363,7 +4363,7 @@ define internal fastcc void @use(i32 noundef %bytes) unnamed_addr #0 {
 entry:
   %size_limit = alloca %struct.strbuf, align 8
   %0 = load i32, ptr @input_len, align 4
-  %cmp = icmp ult i32 %0, %bytes
+  %cmp = icmp ugt i32 %bytes, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -4643,9 +4643,9 @@ if.then28:                                        ; preds = %if.end26
 
 if.end31:                                         ; preds = %if.end26
   %19 = load i64, ptr %has_size, align 8
-  %cmp32.not = icmp eq i64 %19, %size
+  %cmp32.not = icmp eq i64 %size, %19
   %20 = load i32, ptr %has_type, align 4
-  %cmp34.not = icmp eq i32 %20, %type
+  %cmp34.not = icmp eq i32 %type, %20
   %or.cond46 = select i1 %cmp32.not, i1 %cmp34.not, i1 false
   br i1 %or.cond46, label %lor.lhs.false35, label %if.then38
 
@@ -6089,8 +6089,8 @@ if.then.i.i.i27:                                  ; preds = %while.body.i.i17
 
 if.end.i.i.i56:                                   ; preds = %while.body.i.i17
   %26 = load i64, ptr %arrayidx.i.i22, align 8
-  %cmp1.i.i.i = icmp sgt i64 %26, %20
-  %cmp2.i.i.i = icmp slt i64 %26, %20
+  %cmp1.i.i.i = icmp slt i64 %20, %26
+  %cmp2.i.i.i = icmp sgt i64 %20, %26
   %cond.i.i.i = zext i1 %cmp2.i.i.i to i32
   br i1 %cmp1.i.i.i, label %if.end.i.i32, label %compare_ofs_delta_bases.exit.i.i
 

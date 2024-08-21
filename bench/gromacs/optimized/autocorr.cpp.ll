@@ -216,7 +216,7 @@ _Z11get_acfnoutv.exit:                            ; preds = %16
   %64 = icmp eq i64 %63, 12
   %or.cond171 = or i1 %62, %64
   %65 = select i1 %or.cond171, i1 %41, i1 false
-  %brmerge177.not = and i1 %65, %12
+  %brmerge177.not = and i1 %12, %65
   %.mux = select i1 %65, i8 0, i8 %40
   br i1 %brmerge177.not, label %66, label %69
 
@@ -950,7 +950,7 @@ _ZL12do_four_coremiPfS_S_.exit:                   ; preds = %.lr.ph217.i, %.loop
 .critedge.us.us.us.us.us.i:                       ; preds = %346, %302
   %indvars.iv.next267.i = add nuw nsw i64 %indvars.iv266.i, %295
   %300 = trunc nuw i64 %indvars.iv.next267.i to i32
-  %301 = icmp slt i32 %300, %3
+  %301 = icmp sgt i32 %3, %300
   %indvar.next.i = add i32 %indvar.i, 1
   br i1 %301, label %.lr.ph143.us.us.us.us.us.i, label %.preheader.i179, !llvm.loop !24
 
@@ -1088,14 +1088,14 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
   %.sroa.2.0.copyload.i = load float, ptr %.sroa.2.0.scevgep238.sroa_idx.i, align 4
   %.sroa.3.0.scevgep238.sroa_idx.i = getelementptr inbounds i8, ptr %scevgep238.i, i64 8
   %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0.scevgep238.sroa_idx.i, align 4
-  %367 = fneg float %.sroa.3276.0.copyload.i
-  %368 = fmul float %.sroa.2.0.copyload.i, %367
+  %367 = fneg float %.sroa.2.0.copyload.i
+  %368 = fmul float %.sroa.3276.0.copyload.i, %367
   %369 = call float @llvm.fmuladd.f32(float %.sroa.2275.0.copyload.i, float %.sroa.3.0.copyload.i, float %368)
-  %370 = fneg float %.sroa.0274.0.copyload.i
-  %371 = fmul float %.sroa.3.0.copyload.i, %370
+  %370 = fneg float %.sroa.3.0.copyload.i
+  %371 = fmul float %.sroa.0274.0.copyload.i, %370
   %372 = call float @llvm.fmuladd.f32(float %.sroa.3276.0.copyload.i, float %.sroa.0.0.copyload.i, float %371)
-  %373 = fneg float %.sroa.2275.0.copyload.i
-  %374 = fmul float %.sroa.0.0.copyload.i, %373
+  %373 = fneg float %.sroa.0.0.copyload.i
+  %374 = fmul float %.sroa.2275.0.copyload.i, %373
   %375 = call float @llvm.fmuladd.f32(float %.sroa.0274.0.copyload.i, float %.sroa.2.0.copyload.i, float %374)
   %376 = fmul float %372, %372
   %377 = call float @llvm.fmuladd.f32(float %369, float %369, float %376)
@@ -2475,7 +2475,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !38
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -2559,7 +2559,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !38
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79

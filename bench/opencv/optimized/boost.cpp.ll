@@ -2309,7 +2309,7 @@ define linkonce_odr hidden void @_ZN2cv2ml18DTreesImplForBoost13startTrainingERK
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 3
-  %52 = icmp ult i64 %51, %44
+  %52 = icmp ugt i64 %44, %51
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %31
@@ -2318,7 +2318,7 @@ define linkonce_odr hidden void @_ZN2cv2ml18DTreesImplForBoost13startTrainingERK
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 55:                                               ; preds = %31
-  %56 = icmp ugt i64 %51, %44
+  %56 = icmp ult i64 %44, %51
   br i1 %56, label %57, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 57:                                               ; preds = %55
@@ -3983,7 +3983,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter_le
   %12 = load double, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -4063,7 +4063,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds double, ptr %0, i64 %51
   %53 = load double, ptr %52, align 8
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -4115,7 +4115,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds double, ptr %0, i64 %73
   %75 = load double, ptr %74, align 8
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -4198,7 +4198,7 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE14_M_fill_assignEmRKd(ptr noundef 
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %3
@@ -4241,7 +4241,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
   %25 = ptrtoint ptr %24 to i64
   %26 = sub i64 %25, %8
   %27 = ashr exact i64 %26, 3
-  %28 = icmp ult i64 %27, %1
+  %28 = icmp ugt i64 %1, %27
   br i1 %28, label %29, label %39
 
 29:                                               ; preds = %22
@@ -4268,7 +4268,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit.loopexit, %29
   %.pre-phi27 = phi i64 [ %.pre26, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit.loopexit ], [ %27, %29 ]
   %32 = phi ptr [ %.pre19, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit.loopexit ], [ %24, %29 ]
-  %33 = icmp eq i64 %.pre-phi27, %1
+  %33 = icmp eq i64 %1, %.pre-phi27
   br i1 %33, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %34
 
 34:                                               ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit

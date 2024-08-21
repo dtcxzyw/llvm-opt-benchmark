@@ -200,7 +200,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -789,7 +789,7 @@ _ZN4QMapIi18MeshModelStateDataE6detachEv.exit.i:  ; preds = %.noexc, %_ZN12QWrit
 17:                                               ; preds = %._crit_edge.i
   %18 = getelementptr inbounds i8, ptr %.121.i, i64 24
   %19 = load i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, %1
+  %20 = icmp slt i32 %1, %19
   br i1 %20, label %._crit_edge.thread.i, label %23
 
 ._crit_edge.thread.i:                             ; preds = %17, %._crit_edge.i, %_ZN4QMapIi18MeshModelStateDataE6detachEv.exit.i
@@ -1022,7 +1022,7 @@ _ZN8QMapNodeIi18MeshModelStateDataE10lowerBoundERKi.exit.i.i: ; preds = %.prehea
 16:                                               ; preds = %_ZN8QMapNodeIi18MeshModelStateDataE10lowerBoundERKi.exit.i.i
   %17 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 24
   %18 = load i32, ptr %17, align 4
-  %19 = icmp sgt i32 %18, %1
+  %19 = icmp slt i32 %1, %18
   br i1 %19, label %20, label %_ZN4QMapIi18MeshModelStateDataE4findERKi.exit
 
 20:                                               ; preds = %16, %_ZN8QMapNodeIi18MeshModelStateDataE10lowerBoundERKi.exit.i.i, %_ZN4QMapIi18MeshModelStateDataE6detachEv.exit.i

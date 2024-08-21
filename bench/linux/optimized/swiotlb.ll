@@ -1400,7 +1400,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
 
 35:                                               ; preds = %30
   %36 = zext nneg i32 %20 to i64
-  %37 = add i64 %36, %3
+  %37 = add i64 %3, %36
   %38 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !22
   %39 = getelementptr inbounds i8, ptr %9, i64 36
   %40 = load i32, ptr %39, align 4

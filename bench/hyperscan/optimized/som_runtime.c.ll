@@ -37,7 +37,7 @@ entry:
   %8 = load ptr, ptr %som_attempted_store, align 16
   %som_set_now_offset = getelementptr inbounds i8, ptr %scratch, i64 456
   %9 = load i64, ptr %som_set_now_offset, align 8
-  %cmp.not = icmp eq i64 %9, %to_offset
+  %cmp.not = icmp eq i64 %to_offset, %9
   br i1 %cmp.not, label %if.end, label %do.end10
 
 do.end10:                                         ; preds = %entry
@@ -2932,7 +2932,7 @@ entry:
   %8 = load ptr, ptr %som_attempted_store, align 16
   %som_set_now_offset = getelementptr inbounds i8, ptr %scratch, i64 456
   %9 = load i64, ptr %som_set_now_offset, align 8
-  %cmp.not = icmp eq i64 %9, %to_offset
+  %cmp.not = icmp eq i64 %to_offset, %9
   br i1 %cmp.not, label %if.end, label %do.end
 
 do.end:                                           ; preds = %entry
@@ -3606,7 +3606,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %add = add nuw i64 %0, 1
-  %cmp8 = icmp eq i64 %add, %offset
+  %cmp8 = icmp eq i64 %offset, %add
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end
@@ -5337,7 +5337,7 @@ define internal noundef i32 @somRevCallback(i64 %start, i64 noundef %end, i32 no
 entry:
   %0 = load i64, ptr %ctx, align 8
   %conv = zext i32 %id to i64
-  %add = add i64 %conv, %end
+  %add = add i64 %end, %conv
   %.add = tail call i64 @llvm.umin.i64(i64 %0, i64 %add)
   store i64 %.add, ptr %ctx, align 8
   ret i32 1

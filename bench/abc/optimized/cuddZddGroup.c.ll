@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @Cudd_MakeZddTreeNode(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 140
   %6 = load i32, ptr %5, align 4
-  %7 = icmp ugt i32 %6, %1
+  %7 = icmp ult i32 %1, %6
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %4
@@ -658,7 +658,7 @@ zddGroupSifting.exit:                             ; preds = %220, %50, %217, %21
   %.0 = phi i32 [ %219, %218 ], [ %59, %58 ], [ %57, %56 ], [ %49, %48 ], [ %47, %46 ], [ 1, %40 ], [ 1, %._crit_edge120.i ], [ 1, %214 ], [ 0, %217 ], [ 0, %216 ], [ 0, %.thread139.i ], [ 0, %.thread ], [ %52, %50 ], [ %222, %220 ]
   %226 = getelementptr inbounds i8, ptr %0, i64 528
   %227 = load ptr, ptr %226, align 8
-  %.not.i32 = icmp eq ptr %227, %1
+  %.not.i32 = icmp eq ptr %1, %227
   br i1 %.not.i32, label %238, label %.preheader.i33
 
 .preheader.i33:                                   ; preds = %zddGroupSifting.exit

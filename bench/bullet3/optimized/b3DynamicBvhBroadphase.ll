@@ -195,7 +195,7 @@ cond.end:                                         ; preds = %invoke.cont6.cond.e
   store i32 0, ptr %m_cid, align 4
   %m_stageRoots = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_stageRoots, i8 0, i64 24, i1 false)
-  %cmp4.i = icmp slt i32 %0, %proxyCapacity
+  %cmp4.i = icmp sgt i32 %proxyCapacity, %0
   br i1 %cmp4.i, label %for.body9.lr.ph.i, label %invoke.cont12
 
 lpad:                                             ; preds = %arrayctor.loop
@@ -1156,7 +1156,7 @@ if.then18:                                        ; preds = %if.then16
 if.then19:                                        ; preds = %if.then18
   %43 = load i32, ptr %m_size.i.i, align 4
   %mul = shl nsw i32 %43, 1
-  %cmp4.i35 = icmp slt i32 %43, %mul
+  %cmp4.i35 = icmp sgt i32 %mul, %43
   br i1 %cmp4.i35, label %for.body9.lr.ph.i36, label %_ZN20b3AlignedObjectArrayIPK10b3DbvtNodeE6resizeEiRKS2_.exit44
 
 for.body9.lr.ph.i36:                              ; preds = %if.then19
@@ -1590,7 +1590,7 @@ do.body:                                          ; preds = %do.cond, %_ZN20b3Al
 if.then7:                                         ; preds = %do.body
   %8 = load i32, ptr %m_size.i.i, align 4
   %mul = shl nsw i32 %8, 1
-  %cmp4.i48 = icmp slt i32 %8, %mul
+  %cmp4.i48 = icmp sgt i32 %mul, %8
   br i1 %cmp4.i48, label %for.body9.lr.ph.i49, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit56
 
 for.body9.lr.ph.i49:                              ; preds = %if.then7
@@ -3022,7 +3022,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !21
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo.tr
+  %cmp15 = icmp slt i32 %lo.tr, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end

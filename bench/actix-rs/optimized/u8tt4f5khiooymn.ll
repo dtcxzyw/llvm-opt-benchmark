@@ -1111,7 +1111,7 @@ define internal fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17h
   br i1 %or.cond.not, label %64, label %61
 
 58:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h190fa1b5ceadf067E.llvm.13158767072824543338.exit._crit_edge"
-  %brmerge = or i1 %56, %6
+  %brmerge = or i1 %6, %56
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   %60 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %brmerge, label %72, label %71
@@ -4626,7 +4626,7 @@ _ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c
   call void @llvm.experimental.noalias.scope.decl(metadata !436)
   %248 = and i32 %247, 255
   %249 = and i64 %246, 255
-  %250 = icmp ult i64 %249, %217
+  %250 = icmp ugt i64 %217, %249
   br i1 %250, label %251, label %.invoke, !prof !54
 
 251:                                              ; preds = %_ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c34853ac7883aE.exit.i
@@ -5293,7 +5293,7 @@ _ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c
   call void @llvm.experimental.noalias.scope.decl(metadata !509)
   %613 = and i32 %612, 255
   %614 = and i64 %611, 255
-  %615 = icmp ult i64 %614, %581
+  %615 = icmp ugt i64 %581, %614
   br i1 %615, label %616, label %.invoke, !prof !54
 
 616:                                              ; preds = %_ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c34853ac7883aE.exit
@@ -5668,7 +5668,7 @@ _ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c
   call void @llvm.experimental.noalias.scope.decl(metadata !541)
   %797 = and i32 %796, 255
   %798 = and i64 %795, 255
-  %799 = icmp ult i64 %798, %768
+  %799 = icmp ugt i64 %768, %798
   br i1 %799, label %800, label %.invoke, !prof !54
 
 800:                                              ; preds = %_ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c34853ac7883aE.exit.i248
@@ -7236,7 +7236,7 @@ _ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !856)
   %64 = and i32 %63, 255
   %65 = and i64 %62, 255
-  %66 = icmp ult i64 %65, %30
+  %66 = icmp ugt i64 %30, %65
   br i1 %66, label %67, label %73, !prof !54
 
 67:                                               ; preds = %_ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c34853ac7883aE.exit
@@ -7941,7 +7941,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.13158
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -8728,7 +8728,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d14
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = sub i64 %7, %5
-  %.not = icmp ult i64 %8, %2
+  %.not = icmp ugt i64 %2, %8
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %3
@@ -8744,7 +8744,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d14
   %14 = load i64, ptr %6, align 8, !noundef !5
   %15 = load i64, ptr %4, align 8, !noundef !5
   %16 = sub i64 %14, %15
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %10
@@ -8809,7 +8809,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.llvm
   store i64 %17, ptr %6, align 8, !noalias !1044
   %25 = getelementptr inbounds i8, ptr %8, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !5
-  %.not.i = icmp ult i64 %26, %17
+  %.not.i = icmp ugt i64 %17, %26
   br i1 %.not.i, label %27, label %44
 
 27:                                               ; preds = %16
@@ -9258,7 +9258,7 @@ define hidden noundef zeroext i1 @"_ZN8bitflags6traits59_$LT$impl$u20$bitflags..
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @_ZN8bitflags6traits5Flags10difference17h58f3e1abe4839c6bE.llvm.13158767072824543338(i8 noundef %0, i8 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = xor i8 %1, -1
-  %4 = and i8 %3, %0
+  %4 = and i8 %0, %3
   ret i8 %4
 }
 
@@ -9449,7 +9449,7 @@ define void @_ZN10actix_http8encoding6Writer4take17h5349e7f440b8725fE(ptr noalia
   store i64 %18, ptr %6, align 8, !noalias !1153
   %26 = getelementptr inbounds i8, ptr %8, i64 16
   %27 = load i64, ptr %26, align 8, !noalias !1149, !noundef !5
-  %.not.i.i = icmp ult i64 %27, %18
+  %.not.i.i = icmp ugt i64 %18, %27
   br i1 %.not.i.i, label %28, label %44
 
 28:                                               ; preds = %17
@@ -9527,7 +9527,7 @@ define void @"_ZN63_$LT$actix_http..encoding..Writer$u20$as$u20$std..io..Write$G
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !1168, !noalias !1171, !noundef !5
   %9 = sub i64 %8, %6
-  %.not.i = icmp ult i64 %9, %3
+  %.not.i = icmp ugt i64 %3, %9
   br i1 %.not.i, label %10, label %11
 
 10:                                               ; preds = %4
@@ -9543,7 +9543,7 @@ define void @"_ZN63_$LT$actix_http..encoding..Writer$u20$as$u20$std..io..Write$G
   %15 = load i64, ptr %7, align 8, !alias.scope !1168, !noalias !1171, !noundef !5
   %16 = load i64, ptr %5, align 8, !alias.scope !1168, !noalias !1171, !noundef !5
   %17 = sub i64 %15, %16
-  %18 = icmp ult i64 %17, %3
+  %18 = icmp ugt i64 %3, %17
   br i1 %18, label %19, label %_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.13158767072824543338.exit
 
 19:                                               ; preds = %11
@@ -9615,7 +9615,7 @@ define void @_ZN10actix_http10extensions10Extensions6extend17h0e21389c007d7b88E(
   %.0.i = select i1 %8, i64 %10, i64 %12
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !1194, !noalias !1197, !noundef !5
-  %15 = icmp ult i64 %14, %.0.i
+  %15 = icmp ugt i64 %.0.i, %14
   br i1 %15, label %16, label %"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17h795fcf43516fd02aE.exit"
 
 16:                                               ; preds = %2
@@ -10272,7 +10272,7 @@ _ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.1315876
   %102 = getelementptr inbounds i8, ptr %2, i64 16
   %103 = load i64, ptr %102, align 8, !alias.scope !1249, !noalias !1252, !noundef !5
   %104 = sub i64 %103, %101
-  %.not.i.i38 = icmp ult i64 %104, %88
+  %.not.i.i38 = icmp ugt i64 %88, %104
   br i1 %.not.i.i38, label %105, label %106
 
 105:                                              ; preds = %99
@@ -10291,7 +10291,7 @@ _ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.1315876
   %110 = load i64, ptr %102, align 8, !alias.scope !1249, !noalias !1252, !noundef !5
   %111 = load i64, ptr %100, align 8, !alias.scope !1249, !noalias !1252, !noundef !5
   %112 = sub i64 %110, %111
-  %113 = icmp ult i64 %112, %88
+  %113 = icmp ugt i64 %88, %112
   br i1 %113, label %.invoke, label %_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.13158767072824543338.exit.i39
 
 _ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.13158767072824543338.exit.i39: ; preds = %106
@@ -10437,7 +10437,7 @@ select.unfold.i:                                  ; preds = %143
 161:                                              ; preds = %.noexc49, %153
   %.pre-phi.i = phi i64 [ %159, %153 ], [ %.pre28.i, %.noexc49 ]
   %162 = phi i64 [ %156, %153 ], [ %.pre.i, %.noexc49 ]
-  %.not.i16.i = icmp ult i64 %.pre-phi.i, %88
+  %.not.i16.i = icmp ugt i64 %88, %.pre-phi.i
   br i1 %.not.i16.i, label %163, label %164
 
 163:                                              ; preds = %161
@@ -10456,7 +10456,7 @@ select.unfold.i:                                  ; preds = %143
   %168 = load i64, ptr %157, align 8, !alias.scope !1244, !noalias !1260, !noundef !5
   %169 = load i64, ptr %155, align 8, !alias.scope !1285, !noalias !1288, !noundef !5
   %170 = sub i64 %168, %169
-  %171 = icmp ult i64 %170, %88
+  %171 = icmp ugt i64 %88, %170
   br i1 %171, label %.invoke, label %_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.13158767072824543338.exit18.i
 
 _ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.13158767072824543338.exit18.i: ; preds = %164
@@ -10497,7 +10497,7 @@ _ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.1315876
   %187 = getelementptr inbounds i8, ptr %2, i64 16
   %188 = load i64, ptr %187, align 8, !alias.scope !1295, !noalias !1298, !noundef !5
   %189 = sub i64 %188, %186
-  %.not.i22.i = icmp ult i64 %189, %.0.sroa.speculated.i.i
+  %.not.i22.i = icmp ugt i64 %.0.sroa.speculated.i.i, %189
   br i1 %.not.i22.i, label %190, label %191
 
 190:                                              ; preds = %184
@@ -10516,7 +10516,7 @@ _ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.1315876
   %195 = load i64, ptr %187, align 8, !alias.scope !1295, !noalias !1298, !noundef !5
   %196 = load i64, ptr %185, align 8, !alias.scope !1295, !noalias !1298, !noundef !5
   %197 = sub i64 %195, %196
-  %198 = icmp ult i64 %197, %.0.sroa.speculated.i.i
+  %198 = icmp ugt i64 %.0.sroa.speculated.i.i, %197
   br i1 %198, label %.invoke, label %_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.13158767072824543338.exit24.i
 
 .invoke:                                          ; preds = %191, %175, %164, %124, %106
@@ -11947,7 +11947,7 @@ select.unfold:                                    ; preds = %45
   store i64 %69, ptr %7, align 8, !noalias !1556
   %77 = getelementptr inbounds i8, ptr %9, i64 16
   %78 = load i64, ptr %77, align 8, !noalias !1552, !noundef !5
-  %.not.i.i = icmp ult i64 %78, %69
+  %.not.i.i = icmp ugt i64 %69, %78
   br i1 %.not.i.i, label %79, label %95
 
 79:                                               ; preds = %.noexc10

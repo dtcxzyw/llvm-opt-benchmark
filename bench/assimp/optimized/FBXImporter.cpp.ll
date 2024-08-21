@@ -416,7 +416,7 @@ invoke.cont13:                                    ; preds = %invoke.cont10
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i16 = icmp ult i64 %sub.ptr.sub.i.i, %add
+  %cmp.i16 = icmp ugt i64 %add, %sub.ptr.sub.i.i
   br i1 %cmp.i16, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont13
@@ -506,7 +506,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i.i: ; preds = %if.then.i3
   br label %invoke.cont15
 
 if.else.i:                                        ; preds = %invoke.cont13
-  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %add
+  %cmp4.i = icmp ult i64 %add, %sub.ptr.sub.i.i
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont15
 
 if.then5.i:                                       ; preds = %if.else.i

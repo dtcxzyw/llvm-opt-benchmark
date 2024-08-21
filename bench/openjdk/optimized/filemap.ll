@@ -732,7 +732,7 @@ define hidden noundef ptr @_ZN11FileMapInfo35create_dumptime_app_classpath_array
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
-  %.06 = phi ptr [ %31, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %7, %1 ]
+  %.06 = phi ptr [ %29, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %7, %1 ]
   %8 = load ptr, ptr %.06, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
@@ -745,30 +745,29 @@ define hidden noundef ptr @_ZN11FileMapInfo35create_dumptime_app_classpath_array
 15:                                               ; preds = %.lr.ph
   %16 = add nsw i32 %12, 1
   %17 = icmp sgt i32 %12, -1
-  %18 = xor i32 %12, -2147483648
-  %19 = and i32 %18, %16
-  %20 = icmp eq i32 %19, 0
-  %21 = and i1 %17, %20
-  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
-  %23 = sub nuw nsw i32 32, %22
-  %24 = shl nuw i32 1, %23
-  %.0.i.i.i.i = select i1 %21, i32 %16, i32 %24
+  %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %16)
+  %19 = icmp ult i32 %18, 2
+  %or.cond.i.i.i.i = select i1 %17, i1 %19, i1 false
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
+  %21 = sub nuw nsw i32 32, %20
+  %22 = shl nuw i32 1, %21
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %16, i32 %22
   tail call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %2, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %.lr.ph, %15
-  %25 = phi i32 [ %.pre.i, %15 ], [ %12, %.lr.ph ]
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %2, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds ptr, ptr %27, i64 %28
-  store ptr %11, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.06, i64 8
-  %31 = load volatile ptr, ptr %30, align 8
+  %23 = phi i32 [ %.pre.i, %15 ], [ %12, %.lr.ph ]
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %2, align 8
+  %25 = load ptr, ptr %5, align 8
+  %26 = sext i32 %23 to i64
+  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  store ptr %11, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %.06, i64 8
+  %29 = load volatile ptr, ptr %28, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !10
-  %.not = icmp eq ptr %31, null
+  %.not = icmp eq ptr %29, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit, %1
@@ -1711,7 +1710,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit:           ; preds = %7, %13
 19:                                               ; preds = %_ZNK20SharedClassPathEntry4nameEv.exit, %18
   %20 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %.0.i, ptr noundef nonnull %3) #25
   %.not = icmp ne i32 %20, 0
-  %brmerge.not = and i1 %.not, %1
+  %brmerge.not = and i1 %1, %.not
   br i1 %brmerge.not, label %21, label %24
 
 21:                                               ; preds = %19
@@ -2259,7 +2258,7 @@ define hidden noundef i32 @_ZN11FileMapInfo21add_shared_classpathsEiPKcP14ClassP
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr @_ZN11ClassLoader10_jrt_entryE, align 8
-  %42 = icmp eq ptr %41, %.02631
+  %42 = icmp eq ptr %.02631, %41
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
@@ -2513,27 +2512,26 @@ define hidden void @_ZN11FileMapInfo36record_non_existent_class_path_entryEPKc(p
 23:                                               ; preds = %16
   %24 = add nsw i32 %19, 1
   %25 = icmp sgt i32 %19, -1
-  %26 = xor i32 %19, -2147483648
-  %27 = and i32 %26, %24
-  %28 = icmp eq i32 %27, 0
-  %29 = and i1 %25, %28
-  %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
-  %31 = sub nuw nsw i32 32, %30
-  %32 = shl nuw i32 1, %31
-  %.0.i.i.i.i = select i1 %29, i32 %24, i32 %32
+  %26 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %24)
+  %27 = icmp ult i32 %26, 2
+  %or.cond.i.i.i.i = select i1 %25, i1 %27, i1 false
+  %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
+  %29 = sub nuw nsw i32 32, %28
+  %30 = shl nuw i32 1, %29
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %24, i32 %30
   tail call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %17, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %16, %23
-  %33 = phi i32 [ %.pre.i, %23 ], [ %19, %16 ]
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %17, align 8
-  %35 = getelementptr inbounds i8, ptr %17, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = sext i32 %33 to i64
-  %38 = getelementptr inbounds ptr, ptr %36, i64 %37
-  store ptr %18, ptr %38, align 8
+  %31 = phi i32 [ %.pre.i, %23 ], [ %19, %16 ]
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %17, align 8
+  %33 = getelementptr inbounds i8, ptr %17, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = sext i32 %31 to i64
+  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
+  store ptr %18, ptr %36, align 8
   ret void
 }
 
@@ -2868,15 +2866,15 @@ define hidden noundef ptr @_ZN11FileMapInfo17create_path_arrayEPKc(ptr nocapture
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 440
   %22 = load i8, ptr %21, align 8
-  %.fr15 = freeze i8 %22
-  %23 = trunc i8 %.fr15 to i1
+  %.fr16 = freeze i8 %22
+  %23 = trunc i8 %.fr16 to i1
   br i1 %23, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %50
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %48
   %24 = call noundef ptr @_ZN15ClasspathStream8get_nextEv(ptr noundef nonnull align 8 dereferenceable(20) %3) #25
   %25 = call noundef ptr @_ZN11ClassLoader18get_canonical_pathEPKcP6Thread(ptr noundef %24, ptr noundef %12) #25
   %.not.us = icmp eq ptr %25, null
-  br i1 %.not.us, label %50, label %26
+  br i1 %.not.us, label %48, label %26
 
 26:                                               ; preds = %.lr.ph.split.us
   store ptr null, ptr %5, align 8
@@ -2885,89 +2883,87 @@ define hidden noundef ptr @_ZN11FileMapInfo17create_path_arrayEPKc(ptr nocapture
   %29 = load ptr, ptr %5, align 8
   %30 = icmp eq ptr %29, null
   %or.cond.us = select i1 %28, i1 %30, i1 false
-  br i1 %or.cond.us, label %31, label %50
+  br i1 %or.cond.us, label %31, label %48
 
 31:                                               ; preds = %26
   %32 = load i32, ptr %6, align 8
   %33 = load i32, ptr %8, align 4
   %34 = icmp eq i32 %32, %33
-  br i1 %34, label %35, label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit13.us
+  br i1 %34, label %35, label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit14.us
 
 35:                                               ; preds = %31
   %36 = add nsw i32 %32, 1
   %37 = icmp sgt i32 %32, -1
-  %38 = xor i32 %32, -2147483648
-  %39 = and i32 %38, %36
-  %40 = icmp eq i32 %39, 0
-  %41 = and i1 %37, %40
-  %42 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
-  %43 = sub nuw nsw i32 32, %42
-  %44 = shl nuw i32 1, %43
-  %.0.i.i.i.i11.us = select i1 %41, i32 %36, i32 %44
-  call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %.0.i.i.i.i11.us)
-  %.pre.i12.us = load i32, ptr %6, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit13.us
+  %38 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %36)
+  %39 = icmp ult i32 %38, 2
+  %or.cond.i.i.i.i11.us = select i1 %37, i1 %39, i1 false
+  %40 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
+  %41 = sub nuw nsw i32 32, %40
+  %42 = shl nuw i32 1, %41
+  %.0.i.i.i.i12.us = select i1 %or.cond.i.i.i.i11.us, i32 %36, i32 %42
+  call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %.0.i.i.i.i12.us)
+  %.pre.i13.us = load i32, ptr %6, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit14.us
 
-_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit13.us: ; preds = %35, %31
-  %45 = phi i32 [ %.pre.i12.us, %35 ], [ %32, %31 ]
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %6, align 8
-  %47 = load ptr, ptr %9, align 8
-  %48 = sext i32 %45 to i64
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
-  store ptr %24, ptr %49, align 8
-  br label %50
+_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit14.us: ; preds = %35, %31
+  %43 = phi i32 [ %.pre.i13.us, %35 ], [ %32, %31 ]
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %6, align 8
+  %45 = load ptr, ptr %9, align 8
+  %46 = sext i32 %43 to i64
+  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  store ptr %24, ptr %47, align 8
+  br label %48
 
-50:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit13.us, %26, %.lr.ph.split.us
-  %51 = load i32, ptr %16, align 4
-  %52 = load i32, ptr %15, align 8
-  %53 = icmp slt i32 %51, %52
-  br i1 %53, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !21
+48:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit14.us, %26, %.lr.ph.split.us
+  %49 = load i32, ptr %16, align 4
+  %50 = load i32, ptr %15, align 8
+  %51 = icmp slt i32 %49, %50
+  br i1 %51, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !21
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %76
-  %54 = call noundef ptr @_ZN15ClasspathStream8get_nextEv(ptr noundef nonnull align 8 dereferenceable(20) %3) #25
-  %55 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %54, ptr noundef nonnull %4) #25
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %76
+.lr.ph.split:                                     ; preds = %.lr.ph, %72
+  %52 = call noundef ptr @_ZN15ClasspathStream8get_nextEv(ptr noundef nonnull align 8 dereferenceable(20) %3) #25
+  %53 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %52, ptr noundef nonnull %4) #25
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %72
 
-57:                                               ; preds = %.lr.ph.split
-  %58 = load i32, ptr %6, align 8
-  %59 = load i32, ptr %8, align 4
-  %60 = icmp eq i32 %58, %59
-  br i1 %60, label %61, label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
+55:                                               ; preds = %.lr.ph.split
+  %56 = load i32, ptr %6, align 8
+  %57 = load i32, ptr %8, align 4
+  %58 = icmp eq i32 %56, %57
+  br i1 %58, label %59, label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
 
-61:                                               ; preds = %57
-  %62 = add nsw i32 %58, 1
-  %63 = icmp sgt i32 %58, -1
-  %64 = xor i32 %58, -2147483648
-  %65 = and i32 %64, %62
-  %66 = icmp eq i32 %65, 0
-  %67 = and i1 %63, %66
-  %68 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %62, i1 true)
-  %69 = sub nuw nsw i32 32, %68
-  %70 = shl nuw i32 1, %69
-  %.0.i.i.i.i = select i1 %67, i32 %62, i32 %70
+59:                                               ; preds = %55
+  %60 = add nsw i32 %56, 1
+  %61 = icmp sgt i32 %56, -1
+  %62 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %60)
+  %63 = icmp ult i32 %62, 2
+  %or.cond.i.i.i.i = select i1 %61, i1 %63, i1 false
+  %64 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %60, i1 true)
+  %65 = sub nuw nsw i32 32, %64
+  %66 = shl nuw i32 1, %65
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %60, i32 %66
   call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %6, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %57, %61
-  %71 = phi i32 [ %.pre.i, %61 ], [ %58, %57 ]
-  %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %6, align 8
-  %73 = load ptr, ptr %9, align 8
-  %74 = sext i32 %71 to i64
-  %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  store ptr %54, ptr %75, align 8
-  br label %76
+_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %55, %59
+  %67 = phi i32 [ %.pre.i, %59 ], [ %56, %55 ]
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %6, align 8
+  %69 = load ptr, ptr %9, align 8
+  %70 = sext i32 %67 to i64
+  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  store ptr %52, ptr %71, align 8
+  br label %72
 
-76:                                               ; preds = %.lr.ph.split, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
-  %77 = load i32, ptr %16, align 4
-  %78 = load i32, ptr %15, align 8
-  %79 = icmp slt i32 %77, %78
-  br i1 %79, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
+72:                                               ; preds = %.lr.ph.split, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
+  %73 = load i32, ptr %16, align 4
+  %74 = load i32, ptr %15, align 8
+  %75 = icmp slt i32 %73, %74
+  br i1 %75, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %76, %50, %2
+._crit_edge:                                      ; preds = %72, %48, %2
   ret ptr %6
 }
 
@@ -3694,7 +3690,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit:           ; preds = %19, %25
   %29 = call noundef ptr @_ZN2os14path_separatorEv() #25
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %3
+  %exitcond.not = icmp eq i32 %3, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZNK20SharedClassPathEntry4nameEv.exit, %7
@@ -6386,7 +6382,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN11FileMapInfo11map_regionsEPiiPc13
   %43 = getelementptr inbounds i8, ptr %41, i64 %12
   %44 = getelementptr inbounds i8, ptr %42, i64 736
   store ptr %43, ptr %44, align 8
-  %.not = icmp eq ptr %9, %3
+  %.not = icmp eq ptr %3, %9
   br i1 %.not, label %47, label %45
 
 45:                                               ; preds = %._crit_edge
@@ -9462,6 +9458,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22

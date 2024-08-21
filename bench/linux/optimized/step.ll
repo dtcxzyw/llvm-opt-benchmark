@@ -122,7 +122,7 @@ define dso_local void @set_task_blockstep(ptr noundef %0, i1 noundef zeroext %1)
   %16 = phi i64 [ %12, %11 ], [ %14, %13 ]
   %17 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !12
   %18 = inttoptr i64 %17 to ptr
-  %19 = icmp eq ptr %18, %0
+  %19 = icmp eq ptr %0, %18
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %15
@@ -341,7 +341,7 @@ define internal fastcc void @enable_step(ptr noundef %0, i1 noundef zeroext %1) 
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %102, i32 2, ptr elementtype(i8) %102) #5, !srcloc !10
   %103 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !12
   %104 = inttoptr i64 %103 to ptr
-  %105 = icmp eq ptr %104, %0
+  %105 = icmp eq ptr %0, %104
   br i1 %105, label %106, label %111
 
 106:                                              ; preds = %100
@@ -386,7 +386,7 @@ define internal fastcc void @enable_step(ptr noundef %0, i1 noundef zeroext %1) 
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %125, i32 -3, ptr elementtype(i8) %125) #5, !srcloc !11
   %126 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !12
   %127 = inttoptr i64 %126 to ptr
-  %128 = icmp eq ptr %127, %0
+  %128 = icmp eq ptr %0, %127
   br i1 %128, label %129, label %134
 
 129:                                              ; preds = %123
@@ -442,7 +442,7 @@ define dso_local void @user_disable_single_step(ptr noundef %0) local_unnamed_ad
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i32 -3, ptr elementtype(i8) %14) #5, !srcloc !11
   %15 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !12
   %16 = inttoptr i64 %15 to ptr
-  %17 = icmp eq ptr %16, %0
+  %17 = icmp eq ptr %0, %16
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %12

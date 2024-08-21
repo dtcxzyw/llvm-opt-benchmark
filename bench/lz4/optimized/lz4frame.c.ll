@@ -207,7 +207,7 @@ if.end5:                                          ; preds = %if.then2, %if.end
 while.body.i:                                     ; preds = %if.end5, %if.end.i
   %maxBlockSize.07.i = phi i64 [ %shl.i, %if.end.i ], [ 65536, %if.end5 ]
   %proposedBSID.06.i = phi i32 [ %add.i, %if.end.i ], [ 4, %if.end5 ]
-  %cmp1.not.i = icmp ult i64 %maxBlockSize.07.i, %srcSize
+  %cmp1.not.i = icmp ugt i64 %srcSize, %maxBlockSize.07.i
   br i1 %cmp1.not.i, label %if.end.i, label %LZ4F_optimalBSID.exit
 
 if.end.i:                                         ; preds = %while.body.i
@@ -242,7 +242,7 @@ LZ4F_getBlockSize.exit:                           ; preds = %LZ4F_optimalBSID.ex
   %cmp.i53 = phi i1 [ %cmp.i54, %if.end4.i ], [ %cmp.i, %LZ4F_optimalBSID.exit ]
   %.else.val25.fr.i.i51 = phi i32 [ %.else.val25.fr.i.i52, %if.end4.i ], [ %.else.val25.fr.i.i, %LZ4F_optimalBSID.exit ]
   %retval.0.i27 = phi i64 [ %2, %if.end4.i ], [ -2, %LZ4F_optimalBSID.exit ]
-  %cmp12.not = icmp ult i64 %retval.0.i27, %srcSize
+  %cmp12.not = icmp ugt i64 %srcSize, %retval.0.i27
   br i1 %cmp12.not, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %LZ4F_getBlockSize.exit
@@ -294,7 +294,7 @@ LZ4F_compressFrameBound.exit:                     ; preds = %4, %LZ4F_getBlockSi
   %add33.i.i = add i64 %add32.i.i, %and.i.i
   %add34.i.i = add i64 %add33.i.i, %mul31.i.i
   %add.i29 = add i64 %add34.i.i, %mul29.i.i
-  %cmp17 = icmp ugt i64 %add.i29, %dstCapacity
+  %cmp17 = icmp ult i64 %dstCapacity, %add.i29
   br i1 %cmp17, label %return, label %do.end
 
 do.end:                                           ; preds = %LZ4F_compressFrameBound.exit
@@ -1527,7 +1527,7 @@ LZ4F_compressBound_internal.exit:                 ; preds = %5, %LZ4F_getBlockSi
   %10 = add nuw nsw i64 %9, 4
   %11 = add nuw nsw i64 %mul.i, 4
   %sub.i = add i64 %retval.0.i47.i, -1
-  %cond9.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %4)
+  %cond9.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %sub.i)
   %add.i = add i64 %cond9.i, %srcSize
   %div.i = udiv i64 %add.i, %retval.0.i47.i
   %tobool.not.i = icmp eq i32 %or.i, 0
@@ -1543,7 +1543,7 @@ LZ4F_compressBound_internal.exit:                 ; preds = %5, %LZ4F_getBlockSi
   %add32.i = add i64 %10, %cond15.i
   %add33.i = add i64 %add32.i, %mul31.i
   %add34.i = add i64 %add33.i, %mul29.i
-  %cmp5 = icmp ugt i64 %add34.i, %dstCapacity
+  %cmp5 = icmp ult i64 %dstCapacity, %add34.i
   %cmp10 = icmp ult i64 %dstCapacity, %srcSize
   %or.cond105 = and i1 %cmp10, %cmp.i
   %or.cond229 = or i1 %or.cond105, %cmp5
@@ -2036,7 +2036,7 @@ do.body:                                          ; preds = %entry
 
 do.body4:                                         ; preds = %do.body
   %add6 = add i64 %0, 8
-  %cmp7 = icmp ugt i64 %add6, %dstCapacity
+  %cmp7 = icmp ult i64 %dstCapacity, %add6
   br i1 %cmp7, label %return, label %do.end11
 
 do.end11:                                         ; preds = %do.body4
@@ -3726,7 +3726,7 @@ if.then3:                                         ; preds = %do.end
   %frameType = getelementptr inbounds i8, ptr %dctx, i64 44
   store i32 1, ptr %frameType, align 4
   %header = getelementptr inbounds i8, ptr %dctx, i64 268
-  %cmp5 = icmp eq ptr %header, %src
+  %cmp5 = icmp eq ptr %src, %header
   br i1 %cmp5, label %if.then6, label %return.sink.split
 
 if.then6:                                         ; preds = %if.then3
@@ -3768,12 +3768,12 @@ if.end37:                                         ; preds = %if.end32
   %cond40 = shl nuw nsw i32 %and25, 2
   %narrow = add nuw nsw i32 %4, %cond40
   %add42 = zext nneg i32 %narrow to i64
-  %cmp43 = icmp ugt i64 %add42, %srcSize
+  %cmp43 = icmp ult i64 %srcSize, %add42
   br i1 %cmp43, label %if.then45, label %if.end57
 
 if.then45:                                        ; preds = %if.end37
   %header46 = getelementptr inbounds i8, ptr %dctx, i64 268
-  %cmp48.not = icmp eq ptr %header46, %src
+  %cmp48.not = icmp eq ptr %src, %header46
   br i1 %cmp48.not, label %if.end53, label %if.then50
 
 if.then50:                                        ; preds = %if.then45

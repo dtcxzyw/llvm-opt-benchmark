@@ -1557,7 +1557,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !331, !noalias !336, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !338, !noalias !336, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hef1f814a28653c99E.exit"
 
 9:                                                ; preds = %3
@@ -1657,7 +1657,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !344, !noalias !349, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !351, !noalias !349, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hef1f814a28653c99E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -4300,7 +4300,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h1df44266d04bfe42E.exit: ; 
 685:                                              ; preds = %681
   %686 = extractvalue { i64, i64 } %682, 1
   %687 = load i64, ptr %.val17.i, align 8, !noalias !1118, !noundef !4
-  %.not.i.i18.i = icmp ugt i64 %687, %686
+  %.not.i.i18.i = icmp ult i64 %686, %687
   br i1 %.not.i.i18.i, label %681, label %.loopexit1116
 
 .loopexit1115:                                    ; preds = %681, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h3131bd5523b5a88eE.exit.thread.i"
@@ -4341,7 +4341,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h1df44266d04bfe42E.exit: ; 
   %697 = extractvalue { i64, i64 } %696, 0
   %698 = icmp eq i64 %697, 1
   %699 = extractvalue { i64, i64 } %696, 1
-  %.not.i618 = icmp uge i64 %694, %699
+  %.not.i618 = icmp ule i64 %699, %694
   %or.cond.not.i = select i1 %698, i1 %.not.i618, i1 false
   br i1 %or.cond.not.i, label %695, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he301ea73fb489703E.exit
 
@@ -25088,7 +25088,7 @@ select.unfold398:                                 ; preds = %select.unfold398.ba
   %383 = ptrtoint ptr %.sroa.0361.0 to i64
   %384 = sub nuw i64 %323, %383
   %385 = udiv exact i64 %384, 304
-  %.not.i.not.i.i = icmp ugt i64 %385, %382
+  %.not.i.not.i.i = icmp ult i64 %382, %385
   %386 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %.sroa.0361.0, i64 %382
   %387 = getelementptr inbounds i8, ptr %386, i64 304
   br i1 %.not.i.not.i.i, label %._crit_edge.i.i, label %.loopexit
@@ -33954,7 +33954,7 @@ define internal fastcc void @_ZN5uu_ls17display_item_name17h18c8a3e50fcdcd7bE(pt
   %110 = load i64, ptr %109, align 8, !alias.scope !8735, !noalias !8741, !noundef !4
   %111 = load i64, ptr %46, align 8, !alias.scope !8744, !noalias !8741, !noundef !4
   %112 = sub i64 %111, %110
-  %113 = icmp ult i64 %112, %108
+  %113 = icmp ugt i64 %108, %112
   br i1 %113, label %114, label %122
 
 114:                                              ; preds = %105

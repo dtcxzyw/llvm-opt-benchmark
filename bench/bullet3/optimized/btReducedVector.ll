@@ -661,13 +661,13 @@ invoke.cont8:                                     ; preds = %for.body, %if.then.
   %14 = load ptr, ptr %m_data.i13, align 8
   %arrayidx.i15 = getelementptr inbounds %class.btVector3, ptr %14, i64 %indvars.iv
   %15 = load float, ptr %arrayidx.i15, align 4
-  %mul.i.i16 = fmul float %15, %s
+  %mul.i.i16 = fmul float %s, %15
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %arrayidx.i15, i64 4
   %16 = load float, ptr %arrayidx3.i.i, align 4
-  %mul4.i.i = fmul float %16, %s
+  %mul4.i.i = fmul float %s, %16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i15, i64 8
   %17 = load float, ptr %arrayidx7.i.i, align 4
-  %mul8.i.i = fmul float %17, %s
+  %mul8.i.i = fmul float %s, %17
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i.i16, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %mul4.i.i, i64 1
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i, i64 0
@@ -10034,7 +10034,7 @@ if.end:                                           ; preds = %entry
   %1 = load i32, ptr %m_size.i.i, align 4
   %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %m_size.i.i.i, align 4
-  %cmp3.i.i = icmp slt i32 %2, %1
+  %cmp3.i.i = icmp sgt i32 %1, %2
   br i1 %cmp3.i.i, label %if.then4.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i
 
 if.then4.i.i:                                     ; preds = %if.end
@@ -10142,7 +10142,7 @@ _ZN20btAlignedObjectArrayIiE13copyFromArrayERKS0_.exit: ; preds = %for.body.i.i,
   %14 = load i32, ptr %m_size.i.i4, align 4
   %m_size.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 36
   %15 = load i32, ptr %m_size.i.i.i5, align 4
-  %cmp3.i.i6 = icmp slt i32 %15, %14
+  %cmp3.i.i6 = icmp sgt i32 %14, %15
   br i1 %cmp3.i.i6, label %if.then4.i.i18, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i
 
 if.then4.i.i18:                                   ; preds = %_ZN20btAlignedObjectArrayIiE13copyFromArrayERKS0_.exit

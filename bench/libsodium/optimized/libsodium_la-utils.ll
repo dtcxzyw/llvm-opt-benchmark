@@ -344,7 +344,7 @@ entry:
   %0 = load i64, ptr @page_size, align 8
   %mul.i = shl i64 %0, 2
   %sub.i = xor i64 %mul.i, -1
-  %cmp.not.i = icmp ugt i64 %sub.i, %size
+  %cmp.not.i = icmp ult i64 %size, %sub.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -419,7 +419,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %div = udiv i64 -1, %count
-  %cmp1.not = icmp ugt i64 %div, %size
+  %cmp1.not = icmp ult i64 %size, %div
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true

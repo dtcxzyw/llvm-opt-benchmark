@@ -952,7 +952,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6add64fEPKdmS3_mPdmii(ptr nocapture 
 
 ..preheader_crit_edge.i:                          ; preds = %35
   %33 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %34 = icmp slt i32 %33, %6
+  %34 = icmp sgt i32 %6, %33
   br i1 %34, label %.lr.ph58.i, label %._crit_edge.i
 
 35:                                               ; preds = %35, %.preheader54.i
@@ -1495,7 +1495,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6sub64fEPKdmS3_mPdmii(ptr nocapture 
 
 ..preheader_crit_edge.i:                          ; preds = %35
   %33 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %34 = icmp slt i32 %33, %6
+  %34 = icmp sgt i32 %6, %33
   br i1 %34, label %.lr.ph58.i, label %._crit_edge.i
 
 35:                                               ; preds = %35, %.preheader54.i
@@ -2037,7 +2037,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6min64fEPKdmS3_mPdmii(ptr nocapture 
 
 ..preheader_crit_edge.i:                          ; preds = %35
   %33 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %34 = icmp slt i32 %33, %6
+  %34 = icmp sgt i32 %6, %33
   br i1 %34, label %.lr.ph62.i, label %._crit_edge.i
 
 35:                                               ; preds = %35, %.preheader58.i
@@ -2584,7 +2584,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6max64fEPKdmS3_mPdmii(ptr nocapture 
 
 ..preheader_crit_edge.i:                          ; preds = %35
   %33 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %34 = icmp slt i32 %33, %6
+  %34 = icmp sgt i32 %6, %33
   br i1 %34, label %.lr.ph62.i, label %._crit_edge.i
 
 35:                                               ; preds = %35, %.preheader58.i
@@ -3142,7 +3142,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline10absdiff64fEPKdmS3_mPdmii(ptr nocap
 
 ..preheader_crit_edge.i:                          ; preds = %36
   %34 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %35 = icmp slt i32 %34, %6
+  %35 = icmp sgt i32 %6, %34
   br i1 %35, label %.lr.ph58.i, label %._crit_edge.i
 
 36:                                               ; preds = %36, %.preheader54.i
@@ -5421,7 +5421,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
 
 ..preheader_crit_edge.i.i:                        ; preds = %39
   %37 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
-  %38 = icmp slt i32 %37, %6
+  %38 = icmp sgt i32 %6, %37
   br i1 %38, label %.lr.ph57.i.i, label %._crit_edge.i.i
 
 39:                                               ; preds = %39, %.preheader53.i.i
@@ -5552,7 +5552,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
 
 ..preheader_crit_edge.i66.i:                      ; preds = %109
   %107 = trunc nuw nsw i64 %indvars.iv.next.i63.i to i32
-  %108 = icmp slt i32 %107, %6
+  %108 = icmp sgt i32 %6, %107
   br i1 %108, label %.lr.ph57.i69.i, label %._crit_edge.i67.i
 
 109:                                              ; preds = %109, %.preheader53.i57.i
@@ -5683,7 +5683,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
 
 ..preheader_crit_edge.i98.i:                      ; preds = %179
   %177 = trunc nuw nsw i64 %indvars.iv.next.i95.i to i32
-  %178 = icmp slt i32 %177, %6
+  %178 = icmp sgt i32 %6, %177
   br i1 %178, label %.lr.ph57.i101.i, label %._crit_edge.i99.i
 
 179:                                              ; preds = %179, %.preheader53.i89.i
@@ -5814,7 +5814,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
 
 ..preheader_crit_edge.i129.i:                     ; preds = %249
   %247 = trunc nuw nsw i64 %indvars.iv.next.i126.i to i32
-  %248 = icmp slt i32 %247, %6
+  %248 = icmp sgt i32 %6, %247
   br i1 %248, label %.lr.ph57.i132.i, label %._crit_edge.i130.i
 
 249:                                              ; preds = %249, %.preheader53.i120.i
@@ -5945,7 +5945,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
 
 ..preheader_crit_edge.i161.i:                     ; preds = %319
   %317 = trunc nuw nsw i64 %indvars.iv.next.i158.i to i32
-  %318 = icmp slt i32 %317, %6
+  %318 = icmp sgt i32 %6, %317
   br i1 %318, label %.lr.ph57.i164.i, label %._crit_edge.i162.i
 
 319:                                              ; preds = %319, %.preheader53.i152.i
@@ -6105,7 +6105,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
 
 ..preheader_crit_edge.i192.i:                     ; preds = %396
   %394 = trunc nuw nsw i64 %indvars.iv.next.i189.i to i32
-  %395 = icmp slt i32 %394, %6
+  %395 = icmp sgt i32 %6, %394
   br i1 %395, label %.lr.ph57.i195.i, label %._crit_edge.i193.i
 
 396:                                              ; preds = %396, %.preheader53.i183.i
@@ -6794,7 +6794,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKd(ptr nocaptu
 
 ..preheader_crit_edge.i.i:                        ; preds = %59
   %57 = trunc nuw nsw i64 %indvars.iv.next.i18.i to i32
-  %58 = icmp slt i32 %57, %6
+  %58 = icmp sgt i32 %6, %57
   br i1 %58, label %.lr.ph63.i.i, label %._crit_edge.i.i
 
 59:                                               ; preds = %59, %.preheader59.i.i
@@ -7018,7 +7018,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr nocaptu
 
 ..preheader_crit_edge.i.i:                        ; preds = %60
   %58 = trunc nuw nsw i64 %indvars.iv.next.i18.i to i32
-  %59 = icmp slt i32 %58, %6
+  %59 = icmp sgt i32 %6, %58
   br i1 %59, label %.lr.ph63.i.i, label %._crit_edge.i.i
 
 60:                                               ; preds = %60, %.preheader59.i.i
@@ -7201,7 +7201,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr nocaptu
 
 ..preheader_crit_edge.i.i:                        ; preds = %39
   %37 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
-  %38 = icmp slt i32 %37, %6
+  %38 = icmp sgt i32 %6, %37
   br i1 %38, label %.lr.ph58.i.i, label %._crit_edge.i.i
 
 39:                                               ; preds = %39, %.preheader54.i.i
@@ -7324,7 +7324,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr nocaptu
 
 ..preheader_crit_edge.i21.i:                      ; preds = %102
   %100 = trunc nuw nsw i64 %indvars.iv.next.i19.i to i32
-  %101 = icmp slt i32 %100, %6
+  %101 = icmp sgt i32 %6, %100
   br i1 %101, label %.lr.ph63.i.i, label %._crit_edge.i22.i
 
 102:                                              ; preds = %102, %.preheader59.i.i
@@ -7342,7 +7342,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr nocaptu
   %113 = getelementptr inbounds double, ptr %.05566.i.i, i64 %110
   %114 = load double, ptr %113, align 8
   %115 = fmul double %107, %112
-  %116 = fmul double %115, %114
+  %116 = fmul double %114, %115
   %117 = getelementptr inbounds double, ptr %.05765.i.i, i64 %indvars.iv.i18.i
   store double %109, ptr %117, align 8
   %118 = getelementptr inbounds double, ptr %.05765.i.i, i64 %110
@@ -7361,7 +7361,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr nocaptu
   %130 = getelementptr inbounds double, ptr %.05566.i.i, i64 %127
   %131 = load double, ptr %130, align 8
   %132 = fmul double %124, %129
-  %133 = fmul double %132, %131
+  %133 = fmul double %131, %132
   %134 = getelementptr inbounds double, ptr %.05765.i.i, i64 %119
   store double %126, ptr %134, align 8
   %135 = getelementptr inbounds double, ptr %.05765.i.i, i64 %127
@@ -7941,7 +7941,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr nocaptu
 
 ..preheader_crit_edge.i.i:                        ; preds = %55
   %53 = trunc nuw nsw i64 %indvars.iv.next.i17.i to i32
-  %54 = icmp slt i32 %53, %6
+  %54 = icmp sgt i32 %6, %53
   br i1 %54, label %.lr.ph63.i.i, label %._crit_edge.i.i
 
 55:                                               ; preds = %55, %.preheader59.i.i
@@ -8101,7 +8101,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr nocaptu
 
 ..preheader_crit_edge.i.i:                        ; preds = %39
   %37 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
-  %38 = icmp slt i32 %37, %6
+  %38 = icmp sgt i32 %6, %37
   br i1 %38, label %.lr.ph58.i.i, label %._crit_edge.i.i
 
 39:                                               ; preds = %39, %.preheader54.i.i
@@ -8224,7 +8224,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr nocaptu
 
 ..preheader_crit_edge.i21.i:                      ; preds = %102
   %100 = trunc nuw nsw i64 %indvars.iv.next.i19.i to i32
-  %101 = icmp slt i32 %100, %6
+  %101 = icmp sgt i32 %6, %100
   br i1 %101, label %.lr.ph63.i.i, label %._crit_edge.i22.i
 
 102:                                              ; preds = %102, %.preheader59.i.i
@@ -8922,7 +8922,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
 
 ..preheader_crit_edge.i.i:                        ; preds = %49
   %47 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
-  %48 = icmp slt i32 %47, %6
+  %48 = icmp sgt i32 %6, %47
   br i1 %48, label %.lr.ph63.i.i, label %._crit_edge.i.i
 
 49:                                               ; preds = %49, %.preheader59.i.i
@@ -9081,7 +9081,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
 
 ..preheader_crit_edge.i32.i:                      ; preds = %147
   %145 = trunc nuw nsw i64 %indvars.iv.next.i29.i to i32
-  %146 = icmp slt i32 %145, %6
+  %146 = icmp sgt i32 %6, %145
   br i1 %146, label %.lr.ph63.i35.i, label %._crit_edge.i33.i
 
 147:                                              ; preds = %147, %.preheader59.i23.i
@@ -9286,7 +9286,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
 
 ..preheader_crit_edge.i.i:                        ; preds = %48
   %46 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
-  %47 = icmp slt i32 %46, %6
+  %47 = icmp sgt i32 %6, %46
   br i1 %47, label %.lr.ph63.i.i, label %._crit_edge.i.i
 
 48:                                               ; preds = %48, %.preheader59.i.i
@@ -9439,7 +9439,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
 
 ..preheader_crit_edge.i32.i:                      ; preds = %140
   %138 = trunc nuw nsw i64 %indvars.iv.next.i29.i to i32
-  %139 = icmp slt i32 %138, %6
+  %139 = icmp sgt i32 %6, %138
   br i1 %139, label %.lr.ph63.i35.i, label %._crit_edge.i33.i
 
 140:                                              ; preds = %140, %.preheader59.i23.i
@@ -9636,7 +9636,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
 
 ..preheader_crit_edge.i.i:                        ; preds = %45
   %43 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
-  %44 = icmp slt i32 %43, %6
+  %44 = icmp sgt i32 %6, %43
   br i1 %44, label %.lr.ph63.i.i, label %._crit_edge.i.i
 
 45:                                               ; preds = %45, %.preheader59.i.i
@@ -9771,7 +9771,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
 
 ..preheader_crit_edge.i32.i:                      ; preds = %119
   %117 = trunc nuw nsw i64 %indvars.iv.next.i29.i to i32
-  %118 = icmp slt i32 %117, %6
+  %118 = icmp sgt i32 %6, %117
   br i1 %118, label %.lr.ph63.i35.i, label %._crit_edge.i33.i
 
 119:                                              ; preds = %119, %.preheader59.i23.i
@@ -10373,7 +10373,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline8recip64fEPKdmPdmiiS3_(ptr nocapture
 
 ..preheader_crit_edge.i.i:                        ; preds = %31
   %29 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
-  %30 = icmp slt i32 %29, %4
+  %30 = icmp sgt i32 %4, %29
   br i1 %30, label %.lr.ph49.i.i, label %._crit_edge.i.i
 
 31:                                               ; preds = %31, %.preheader45.i.i

@@ -597,7 +597,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   %136 = getelementptr inbounds double, ptr %.val121.val, i64 %.01.i153
   %137 = load double, ptr %136, align 8
   %138 = fadd double %135, %137
-  %139 = fmul double %138, %0
+  %139 = fmul double %0, %138
   %140 = getelementptr inbounds double, ptr %.val122.val, i64 %.01.i153
   store double %139, ptr %140, align 8
   %141 = add nuw nsw i64 %.01.i153, 1
@@ -606,7 +606,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
 
 142:                                              ; preds = %127
   %143 = fneg double %2
-  %144 = fcmp oeq double %143, %0
+  %144 = fcmp oeq double %0, %143
   %.val124 = load ptr, ptr %1, align 8
   br i1 %144, label %145, label %158
 
@@ -630,7 +630,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   %152 = getelementptr inbounds double, ptr %.val125.val, i64 %.01.i156
   %153 = load double, ptr %152, align 8
   %154 = fsub double %151, %153
-  %155 = fmul double %154, %0
+  %155 = fmul double %0, %154
   %156 = getelementptr inbounds double, ptr %.val126.val, i64 %.01.i156
   store double %155, ptr %156, align 8
   %157 = add nuw nsw i64 %.01.i156, 1
@@ -656,7 +656,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
   %170 = load double, ptr %169, align 8
   %171 = getelementptr inbounds double, ptr %164, i64 %.0170
   %172 = load double, ptr %171, align 8
-  %173 = fmul double %172, %2
+  %173 = fmul double %2, %172
   %174 = tail call double @llvm.fmuladd.f64(double %0, double %170, double %173)
   %175 = getelementptr inbounds double, ptr %167, i64 %.0170
   store double %174, ptr %175, align 8
@@ -770,7 +770,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr nou
   %.01.i = phi i64 [ %11, %.lr.ph.i ], [ 0, %5 ]
   %8 = getelementptr inbounds double, ptr %.val.val23, i64 %.01.i
   %9 = load double, ptr %8, align 8
-  %10 = fmul double %9, %0
+  %10 = fmul double %0, %9
   store double %10, ptr %8, align 8
   %11 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %11, %.val.val
@@ -841,7 +841,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr nou
   %.039 = phi i64 [ %45, %.lr.ph ], [ 0, %33 ]
   %41 = getelementptr inbounds double, ptr %36, i64 %.039
   %42 = load double, ptr %41, align 8
-  %43 = fmul double %42, %0
+  %43 = fmul double %0, %42
   %44 = getelementptr inbounds double, ptr %39, i64 %.039
   store double %43, ptr %44, align 8
   %45 = add nuw nsw i64 %.039, 1
@@ -922,7 +922,7 @@ define void @N_VAddConst_Serial(ptr nocapture noundef readonly %0, double nounde
   %.010 = phi i64 [ %16, %.lr.ph ], [ 0, %3 ]
   %12 = getelementptr inbounds double, ptr %7, i64 %.010
   %13 = load double, ptr %12, align 8
-  %14 = fadd double %13, %1
+  %14 = fadd double %1, %13
   %15 = getelementptr inbounds double, ptr %10, i64 %.010
   store double %14, ptr %15, align 8
   %16 = add nuw nsw i64 %.010, 1
@@ -1682,7 +1682,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr nocapture no
 
 6:                                                ; preds = %4
   %7 = load double, ptr %1, align 8
-  %8 = icmp eq ptr %5, %3
+  %8 = icmp eq ptr %3, %5
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %6
@@ -2230,7 +2230,7 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 
 99:                                               ; preds = %96
   %100 = fneg double %3
-  %101 = fcmp oeq double %100, %1
+  %101 = fcmp oeq double %1, %100
   br i1 %101, label %102, label %103
 
 102:                                              ; preds = %99
@@ -2275,7 +2275,7 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   %126 = load double, ptr %125, align 8
   %127 = getelementptr inbounds double, ptr %118, i64 %.0115135.us
   %128 = load double, ptr %127, align 8
-  %129 = fmul double %128, %3
+  %129 = fmul double %3, %128
   %130 = tail call double @llvm.fmuladd.f64(double %1, double %126, double %129)
   %131 = getelementptr inbounds double, ptr %123, i64 %.0115135.us
   store double %130, ptr %131, align 8
@@ -2579,7 +2579,7 @@ define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef %0, double 
   %29 = getelementptr inbounds double, ptr %20, i64 %.01920.us
   %30 = load double, ptr %29, align 8
   %31 = fadd double %28, %30
-  %32 = fmul double %31, %1
+  %32 = fmul double %1, %31
   %33 = getelementptr inbounds double, ptr %25, i64 %.01920.us
   store double %32, ptr %33, align 8
   %34 = add nuw nsw i64 %.01920.us, 1
@@ -2635,7 +2635,7 @@ define internal fastcc void @VScaleDiffVectorArray_Serial(i32 noundef %0, double
   %29 = getelementptr inbounds double, ptr %20, i64 %.01920.us
   %30 = load double, ptr %29, align 8
   %31 = fsub double %28, %30
-  %32 = fmul double %31, %1
+  %32 = fmul double %1, %31
   %33 = getelementptr inbounds double, ptr %25, i64 %.01920.us
   store double %32, ptr %33, align 8
   %34 = add nuw nsw i64 %.01920.us, 1

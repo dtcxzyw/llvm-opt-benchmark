@@ -158,7 +158,7 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
   %3 = alloca %struct.timespec, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load double, ptr %4, align 8
-  %6 = fadd double %5, %1
+  %6 = fadd double %1, %5
   store double %6, ptr %4, align 8
   %7 = load i8, ptr %0, align 8
   %8 = trunc i8 %7 to i1
@@ -450,7 +450,7 @@ define dso_local void @WalUsageAccumDiff(ptr nocapture noundef %0, ptr nocapture
 define dso_local void @InstrUpdateTupleCount(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load double, ptr %3, align 8
-  %5 = fadd double %4, %1
+  %5 = fadd double %1, %4
   store double %5, ptr %3, align 8
   ret void
 }

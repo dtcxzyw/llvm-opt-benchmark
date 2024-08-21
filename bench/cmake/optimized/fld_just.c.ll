@@ -17,7 +17,7 @@ define dso_local i32 @set_field_just(ptr noundef %0, i32 noundef %1) local_unnam
   %6 = getelementptr inbounds i8, ptr %5, i64 30
   %7 = load i16, ptr %6, align 2
   %8 = sext i16 %7 to i32
-  %.not17 = icmp eq i32 %8, %1
+  %.not17 = icmp eq i32 %1, %8
   br i1 %.not17, label %12, label %9
 
 9:                                                ; preds = %3

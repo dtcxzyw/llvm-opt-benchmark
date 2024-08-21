@@ -4775,8 +4775,8 @@ if.end24:                                         ; preds = %if.else, %if.end, %
   %cmp31 = phi i1 [ true, %if.else16 ], [ true, %if.end ], [ false, %if.else ]
   %key_len25 = getelementptr inbounds i8, ptr %iter, i64 32
   %3 = load i64, ptr %key_len25, align 8
-  %cmp26 = icmp ugt i64 %3, %key_len
-  %key_len. = tail call i64 @llvm.umin.i64(i64 %3, i64 %key_len)
+  %cmp26 = icmp ult i64 %key_len, %3
+  %key_len. = tail call i64 @llvm.umin.i64(i64 %key_len, i64 %3)
   %key30 = getelementptr inbounds i8, ptr %iter, i64 16
   %4 = load ptr, ptr %key30, align 8
   %call = tail call i32 @memcmp(ptr noundef %4, ptr noundef %key, i64 noundef %key_len.) #28
@@ -4785,7 +4785,7 @@ if.end24:                                         ; preds = %if.else, %if.end, %
   br i1 %or.cond, label %if.then35, label %if.end41
 
 if.then35:                                        ; preds = %if.end24
-  %cmp39 = icmp eq i64 %3, %key_len
+  %cmp39 = icmp eq i64 %key_len, %3
   %spec.select = and i1 %cmp36, %cmp39
   br label %return
 
@@ -4793,7 +4793,7 @@ if.end41:                                         ; preds = %if.end24
   br i1 %cmp36, label %if.then44, label %if.else63
 
 if.then44:                                        ; preds = %if.end41
-  %cmp47 = icmp eq i64 %3, %key_len
+  %cmp47 = icmp eq i64 %key_len, %3
   %or.cond22 = and i1 %tobool.not.not, %cmp47
   br i1 %or.cond22, label %return, label %if.else50
 

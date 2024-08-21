@@ -6589,7 +6589,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit4.i.i32:         ; preds = %82, %_ZNSt6vectorIj
 
 _ZN4Luau7CodeGen14ConstPropState14invalidateHeapEv.exit19: ; preds = %3, %87, %_ZNSt6vectorIjSaIjEE5clearEv.exit4.i.i32, %59, %_ZNSt6vectorIjSaIjEE5clearEv.exit4.i.i17
   %88 = getelementptr inbounds i8, ptr %0, i64 5132
-  %.not4.i = icmp slt i32 %.pre, %2
+  %.not4.i = icmp sgt i32 %2, %.pre
   br i1 %.not4.i, label %_ZN4Luau7CodeGen14ConstPropState14invalidateHeapEv.exit, label %.lr.ph.i35
 
 .lr.ph.i35:                                       ; preds = %_ZN4Luau7CodeGen14ConstPropState14invalidateHeapEv.exit19
@@ -6899,7 +6899,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen14ConstPropState23invalidate
 .preheader:                                       ; preds = %3
   %6 = icmp slt i32 %2, 1
   %7 = load i32, ptr %5, align 4
-  %.not12 = icmp slt i32 %7, %1
+  %.not12 = icmp sgt i32 %1, %7
   %or.cond13 = select i1 %6, i1 true, i1 %.not12
   br i1 %or.cond13, label %.critedge, label %.lr.ph
 
@@ -6912,7 +6912,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen14ConstPropState23invalidate
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %5, align 4
-  %.not4.i = icmp slt i32 %13, %1
+  %.not4.i = icmp sgt i32 %1, %13
   br i1 %.not4.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12
@@ -6976,7 +6976,7 @@ declare i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 
 define linkonce_odr dso_local void @_ZN4Luau7CodeGen14ConstPropState23invalidateRegistersFromEi(ptr noundef nonnull align 8 dereferenceable(5416) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 5132
   %4 = load i32, ptr %3, align 4
-  %.not4 = icmp slt i32 %4, %1
+  %.not4 = icmp sgt i32 %1, %4
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -7034,7 +7034,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen14ConstPropState13createRegL
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %0, i64 5168
   %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   br i1 %21, label %.loopexit.i.i, label %22
 
 22:                                               ; preds = %18

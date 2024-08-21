@@ -2241,7 +2241,7 @@ define internal fastcc void @_ZL9subdivideP6BVItemiiiRiP8dtBVNode(ptr noundef %0
   %94 = phi i16 [ %90, %92 ], [ %53, %87 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %2
+  %exitcond.not.i = icmp eq i32 %2, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_ZL11calcExtendsP6BVItemiiiPtS1_.exit, label %.lr.ph.i, !llvm.loop !35
 
 _ZL11calcExtendsP6BVItemiiiPtS1_.exit:            ; preds = %93, %33
@@ -2256,7 +2256,7 @@ _ZL11calcExtendsP6BVItemiiiPtS1_.exit:            ; preds = %93, %33
   %103 = sub i16 %96, %95
   %104 = icmp ugt i16 %102, %101
   %spec.select8.i = tail call i16 @llvm.umax.i16(i16 %102, i16 %101)
-  %105 = icmp uge i16 %spec.select8.i, %103
+  %105 = icmp ule i16 %103, %spec.select8.i
   %106 = sext i32 %6 to i64
   %switch.selectcmp = and i1 %105, %104
   %switch.select = select i1 %switch.selectcmp, ptr @_ZL12compareItemYPKvS0_, ptr @_ZL12compareItemZPKvS0_

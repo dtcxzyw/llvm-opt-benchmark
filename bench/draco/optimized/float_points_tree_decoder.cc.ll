@@ -2796,7 +2796,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %153 = getelementptr inbounds i32, ptr %152, i64 %146
   %154 = load i32, ptr %56, align 8
   %155 = sub i32 32, %154
-  %.not.i = icmp slt i32 %155, %151
+  %.not.i = icmp sgt i32 %151, %155
   br i1 %.not.i, label %171, label %156
 
 156:                                              ; preds = %150
@@ -3286,7 +3286,7 @@ _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingSta
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #19
-  %20 = icmp ugt ptr %.011.i, %11
+  %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
@@ -3629,7 +3629,7 @@ _ZSt10_ConstructIN5draco7VectorDIjLi3EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; pre
 _ZSt34__uninitialized_move_if_noexcept_aIPN5draco7VectorDIjLi3EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN5draco7VectorDIjLi3EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN5draco7VectorDIjLi3EEESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN5draco7VectorDIjLi3EEESaIS2_EE11_M_allocateEm.exit ], [ %30, %_ZSt10_ConstructIN5draco7VectorDIjLi3EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 12
-  %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5draco7VectorDIjLi3EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38, label %.preheader.i.i.i.i.i29
 
 .preheader.i.i.i.i.i29:                           ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5draco7VectorDIjLi3EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN5draco7VectorDIjLi3EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i35
@@ -3829,7 +3829,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %12
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %30 = extractvalue { ptr, i32 } %lpad.phi, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #19
-  %.not4.i.i = icmp eq ptr %.018, %0
+  %.not4.i.i = icmp eq ptr %0, %.018
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPSt6vectorIjSaIjEEEvT_S4_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %_ZSt8_DestroyISt6vectorIjSaIjEEEvPT_.exit.i.i
@@ -4164,7 +4164,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5
 93:                                               ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit
   %94 = load i32, ptr %10, align 4
   %95 = add i32 %94, -1
-  %96 = icmp eq i32 %95, %.sroa.2.0.copyload146
+  %96 = icmp eq i32 %.sroa.2.0.copyload146, %95
   %97 = add i32 %.sroa.2.0.copyload146, 1
   %98 = select i1 %96, i32 0, i32 %97
   %.not = icmp ult i32 %98, %94
@@ -4299,7 +4299,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %163 = getelementptr inbounds i32, ptr %162, i64 %156
   %164 = load i32, ptr %64, align 8
   %165 = sub i32 32, %164
-  %.not.i = icmp slt i32 %165, %161
+  %.not.i = icmp sgt i32 %161, %165
   br i1 %.not.i, label %181, label %166
 
 166:                                              ; preds = %160
@@ -4445,7 +4445,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %251 = xor i32 %250, 31
   %252 = load i32, ptr %52, align 8
   %253 = sub i32 32, %252
-  %.not.i.i106 = icmp slt i32 %253, %251
+  %.not.i.i106 = icmp sgt i32 %251, %253
   br i1 %.not.i.i106, label %267, label %254
 
 254:                                              ; preds = %240
@@ -4717,7 +4717,7 @@ _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingSta
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #19
-  %20 = icmp ugt ptr %.011.i, %11
+  %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
@@ -5483,7 +5483,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %153 = getelementptr inbounds i32, ptr %152, i64 %146
   %154 = load i32, ptr %56, align 8
   %155 = sub i32 32, %154
-  %.not.i = icmp slt i32 %155, %151
+  %.not.i = icmp sgt i32 %151, %155
   br i1 %.not.i, label %171, label %156
 
 156:                                              ; preds = %150
@@ -5860,7 +5860,7 @@ _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingSta
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #19
-  %20 = icmp ugt ptr %.011.i, %11
+  %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
@@ -6500,7 +6500,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
 92:                                               ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit
   %93 = load i32, ptr %11, align 4
   %94 = add i32 %93, -1
-  %95 = icmp eq i32 %94, %.sroa.2.0.copyload144
+  %95 = icmp eq i32 %.sroa.2.0.copyload144, %94
   %96 = add i32 %.sroa.2.0.copyload144, 1
   %97 = select i1 %95, i32 0, i32 %96
   %.not = icmp ult i32 %97, %93
@@ -6635,7 +6635,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %162 = getelementptr inbounds i32, ptr %161, i64 %155
   %163 = load i32, ptr %63, align 8
   %164 = sub i32 32, %163
-  %.not.i = icmp slt i32 %164, %160
+  %.not.i = icmp sgt i32 %160, %164
   br i1 %.not.i, label %180, label %165
 
 165:                                              ; preds = %159
@@ -7003,7 +7003,7 @@ _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingSta
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #19
-  %20 = icmp ugt ptr %.011.i, %11
+  %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
@@ -7784,7 +7784,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %153 = getelementptr inbounds i32, ptr %152, i64 %146
   %154 = load i32, ptr %56, align 8
   %155 = sub i32 32, %154
-  %.not.i = icmp slt i32 %155, %151
+  %.not.i = icmp sgt i32 %151, %155
   br i1 %.not.i, label %171, label %156
 
 156:                                              ; preds = %150
@@ -8161,7 +8161,7 @@ _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingSta
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #19
-  %20 = icmp ugt ptr %.011.i, %11
+  %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
@@ -8818,7 +8818,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5
 91:                                               ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit
   %92 = load i32, ptr %10, align 4
   %93 = add i32 %92, -1
-  %94 = icmp eq i32 %93, %.sroa.2.0.copyload145
+  %94 = icmp eq i32 %.sroa.2.0.copyload145, %93
   %95 = add i32 %.sroa.2.0.copyload145, 1
   %96 = select i1 %94, i32 0, i32 %95
   %.not = icmp ult i32 %96, %92
@@ -8953,7 +8953,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %161 = getelementptr inbounds i32, ptr %160, i64 %154
   %162 = load i32, ptr %62, align 8
   %163 = sub i32 32, %162
-  %.not.i = icmp slt i32 %163, %159
+  %.not.i = icmp sgt i32 %159, %163
   br i1 %.not.i, label %179, label %164
 
 164:                                              ; preds = %158
@@ -9334,7 +9334,7 @@ _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingSta
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #19
-  %20 = icmp ugt ptr %.011.i, %11
+  %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
@@ -10115,7 +10115,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %153 = getelementptr inbounds i32, ptr %152, i64 %146
   %154 = load i32, ptr %56, align 8
   %155 = sub i32 32, %154
-  %.not.i = icmp slt i32 %155, %151
+  %.not.i = icmp sgt i32 %151, %155
   br i1 %.not.i, label %171, label %156
 
 156:                                              ; preds = %150
@@ -10492,7 +10492,7 @@ _ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingSta
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #19
-  %20 = icmp ugt ptr %.011.i, %11
+  %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i

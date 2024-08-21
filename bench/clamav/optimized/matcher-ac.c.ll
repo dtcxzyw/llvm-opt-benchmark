@@ -414,7 +414,7 @@ store_trans_node.exit:                            ; preds = %47
   store ptr %.176, ptr %106, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i16
-  %exitcond.not = icmp eq i16 %lftr.wideiv, %4
+  %exitcond.not = icmp eq i16 %4, %lftr.wideiv
   br i1 %exitcond.not, label %tailrecurse._crit_edge, label %35
 
 insert_list.exit:                                 ; preds = %102, %.thread, %80, %store_trans_node.exit, %30, %26, %14, %41
@@ -2507,8 +2507,8 @@ define range(i32 0, 21) i32 @lsig_sub_matched(ptr nocapture noundef readonly %0,
 
 29:                                               ; preds = %22
   %.not129.not = icmp eq i32 %5, 0
-  %.not130 = icmp uge i32 %28, %4
-  %30 = icmp ugt i32 %28, %4
+  %.not130 = icmp ule i32 %4, %28
+  %30 = icmp ult i32 %4, %28
   %or.cond142 = select i1 %.not129.not, i1 %.not130, i1 %30
   br i1 %or.cond142, label %176, label %31
 
@@ -3433,7 +3433,7 @@ ac_findmatch.exit:                                ; preds = %121
   %385 = load i16, ptr %384, align 8
   %.not522 = icmp eq i16 %385, 0
   %386 = zext i16 %385 to i32
-  %387 = icmp eq i32 %386, %8
+  %387 = icmp eq i32 %8, %386
   %or.cond538 = or i1 %.not522, %387
   br i1 %or.cond538, label %.loopexit599, label %.thread582
 
@@ -3456,7 +3456,7 @@ ac_findmatch.exit:                                ; preds = %121
   %.pre-phi748 = phi i32 [ %.pre747, %..thread582_crit_edge ], [ %386, %383 ]
   %393 = phi i16 [ %.pre742, %..thread582_crit_edge ], [ %385, %383 ]
   %394 = icmp eq i16 %393, 0
-  %395 = icmp eq i32 %.pre-phi748, %8
+  %395 = icmp eq i32 %8, %.pre-phi748
   %or.cond542 = or i1 %394, %395
   br i1 %or.cond542, label %396, label %.critedge536
 
@@ -3726,7 +3726,7 @@ ac_addtype.exit:                                  ; preds = %442
   %529 = load i16, ptr %528, align 8
   %530 = icmp eq i16 %529, 0
   %531 = zext i16 %529 to i32
-  %532 = icmp eq i32 %531, %8
+  %532 = icmp eq i32 %8, %531
   %or.cond545 = or i1 %530, %532
   br i1 %or.cond545, label %.loopexit599, label %.thread587
 
@@ -3749,7 +3749,7 @@ ac_addtype.exit:                                  ; preds = %442
   %.pre-phi = phi i32 [ %.pre746, %..thread587_crit_edge ], [ %531, %527 ]
   %538 = phi i16 [ %.pre745, %..thread587_crit_edge ], [ %529, %527 ]
   %539 = icmp eq i16 %538, 0
-  %540 = icmp eq i32 %.pre-phi, %8
+  %540 = icmp eq i32 %8, %.pre-phi
   %or.cond549 = or i1 %539, %540
   br i1 %or.cond549, label %541, label %.critedge536
 
@@ -6689,13 +6689,13 @@ define internal fastcc i32 @ac_findmatch_special(ptr nocapture noundef readonly 
   br i1 %.not149, label %44, label %47
 
 44:                                               ; preds = %40
-  %45 = add i32 %43, %2
+  %45 = add i32 %2, %43
   %46 = icmp ugt i32 %45, %4
   br i1 %46, label %.loopexit, label %52
 
 47:                                               ; preds = %40
   %48 = add nsw i32 %43, -1
-  %49 = icmp ugt i32 %48, %2
+  %49 = icmp ult i32 %2, %48
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %47
@@ -6745,7 +6745,7 @@ define internal fastcc i32 @ac_findmatch_special(ptr nocapture noundef readonly 
   %70 = load i16, ptr %69, align 8
   %71 = zext i16 %70 to i32
   %72 = add nsw i32 %71, -1
-  %73 = icmp ugt i32 %72, %2
+  %73 = icmp ult i32 %2, %72
   br i1 %73, label %.backedge, label %75
 
 .backedge:                                        ; preds = %.lr.ph.split
@@ -6885,7 +6885,7 @@ define internal fastcc i32 @ac_findmatch_special(ptr nocapture noundef readonly 
   %133 = getelementptr inbounds i8, ptr %.0180.us, i64 8
   %134 = load i16, ptr %133, align 8
   %135 = zext i16 %134 to i32
-  %136 = add i32 %135, %2
+  %136 = add i32 %2, %135
   %137 = icmp ugt i32 %136, %4
   br i1 %137, label %.backedge.us, label %.loopexit163.split.us
 

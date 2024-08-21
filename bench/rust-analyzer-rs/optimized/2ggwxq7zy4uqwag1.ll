@@ -1162,7 +1162,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3set21IndexSet$LT$T$C$S$GT$11insert_full
 define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN8indexmap3set21IndexSet$LT$T$C$S$GT$9get_index17hdd8273ee5da8f15dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %.not = icmp ugt i64 %4, %1
+  %.not = icmp ult i64 %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !4
   %7 = getelementptr inbounds { { { i64, [3 x i64] } }, i64, {} }, ptr %6, i64 %1
@@ -1255,7 +1255,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h30
   %28 = getelementptr inbounds { i32, [1 x i32], { { i64, [3 x i64] } } }, ptr %.val.i, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 -40
   %.val4.i.i = load i32, ptr %29, align 4, !alias.scope !308, !noalias !313, !noundef !4
-  %30 = icmp eq i32 %.val4.i.i, %2
+  %30 = icmp eq i32 %2, %.val4.i.i
   br i1 %30, label %56, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
 
 31:                                               ; preds = %19

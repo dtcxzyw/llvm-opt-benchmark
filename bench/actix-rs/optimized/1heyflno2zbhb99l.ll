@@ -1427,7 +1427,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d14
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = sub i64 %7, %5
-  %.not = icmp ult i64 %8, %2
+  %.not = icmp ugt i64 %2, %8
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %3
@@ -1443,7 +1443,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d14
   %14 = load i64, ptr %6, align 8, !noundef !4
   %15 = load i64, ptr %4, align 8, !noundef !4
   %16 = sub i64 %14, %15
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %10
@@ -1681,7 +1681,7 @@ define hidden void @"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$13choos
   store i64 %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 216
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = icmp eq i64 %9, %2
+  %10 = icmp eq i64 %2, %9
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %3
@@ -6687,7 +6687,7 @@ define hidden void @_ZN6brotli3enc9metablock34BrotliBuildMetaBlockGreedyInternal
 
 .lr.ph.preheader:                                 ; preds = %15
   %41 = add i64 %13, -1
-  %.not367.not = icmp ult i64 %41, %12
+  %.not367.not = icmp ugt i64 %12, %41
   br i1 %.not367.not, label %.lr.ph, label %551, !prof !228
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
@@ -7156,7 +7156,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17h19674f15767ad67bE.exit: ; preds = 
   store ptr %165, ptr %118, align 8, !alias.scope !692, !noalias !733
   store i64 %167, ptr %168, align 8, !alias.scope !692, !noalias !733
   call void @llvm.experimental.noalias.scope.decl(metadata !748)
-  %187 = icmp ult i64 %167, %8
+  %187 = icmp ugt i64 %8, %167
   br i1 %187, label %188, label %.lr.ph8.i.i
 
 188:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli..enc..histogram..HistogramLiteral$GT$$GT$17ha0b1fb5210b18c59E.exit.i"
@@ -8105,7 +8105,7 @@ _ZN6brotli3enc9histogram7Context17h3c4d6e2e7062a258E.exit: ; preds = %499, %501,
   %521 = zext i8 %.0.i to i64
   %522 = load ptr, ptr %348, align 8, !alias.scope !1012, !nonnull !4, !align !5, !noundef !4
   %523 = load i64, ptr %349, align 8, !alias.scope !1012, !noundef !4
-  %524 = icmp ult i64 %521, %10
+  %524 = icmp ugt i64 %10, %521
   br i1 %524, label %528, label %550, !prof !228
 
 _ZN6brotli3enc9metablock22BlockSplitterAddSymbol17hb8480aba3be28daaE.exit: ; preds = %549, %535, %496, %482
@@ -8163,21 +8163,21 @@ _ZN6brotli3enc9metablock22BlockSplitterAddSymbol17hb8480aba3be28daaE.exit: ; pre
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @_ZN8bitflags6traits5Flags10difference17h894065d66247a5a2E.llvm.10804153884081904121(i8 noundef %0, i8 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = xor i8 %1, -1
-  %4 = and i8 %3, %0
+  %4 = and i8 %0, %3
   ret i8 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @_ZN8bitflags6traits5Flags10difference17hc3cae34f44722c0cE.llvm.10804153884081904121(i8 noundef %0, i8 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = xor i8 %1, -1
-  %4 = and i8 %3, %0
+  %4 = and i8 %0, %3
   ret i8 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @_ZN8bitflags6traits5Flags10difference17hde4a95d2fd7cf070E.llvm.10804153884081904121(i8 noundef %0, i8 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = xor i8 %1, -1
-  %4 = and i8 %3, %0
+  %4 = and i8 %0, %3
   ret i8 %4
 }
 
@@ -9619,7 +9619,7 @@ _ZN4rand6random17hb5f13b67dcceef58E.exit:         ; preds = %.noexc3.i
   %67 = getelementptr inbounds i8, ptr %0, i64 8
   %68 = load i64, ptr %67, align 8, !noundef !4
   %69 = sub i64 %68, %2
-  %70 = icmp ult i64 %68, %2
+  %70 = icmp ugt i64 %2, %68
   br i1 %70, label %76, label %72
 
 71:                                               ; preds = %56, %72

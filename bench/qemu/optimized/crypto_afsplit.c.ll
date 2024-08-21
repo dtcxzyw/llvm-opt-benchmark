@@ -73,7 +73,7 @@ for.end:                                          ; preds = %for.inc.us, %entry
   br i1 %cmp6.not.i15, label %cleanup, label %for.body.i16.preheader
 
 for.body.i16.preheader:                           ; preds = %for.inc, %for.end
-  %mul1236.pn = mul i64 %conv, %blocklen
+  %mul1236.pn = mul i64 %blocklen, %conv
   %add.ptr1339 = getelementptr i8, ptr %out, i64 %mul1236.pn
   br label %for.body.i16
 
@@ -260,7 +260,7 @@ for.end:                                          ; preds = %for.inc.us, %entry
   br i1 %cmp6.not.i10, label %cleanup, label %for.body.i11.preheader
 
 for.body.i11.preheader:                           ; preds = %for.inc, %for.end
-  %mul531.pn = mul i64 %conv, %blocklen
+  %mul531.pn = mul i64 %blocklen, %conv
   %add.ptr634 = getelementptr i8, ptr %in, i64 %mul531.pn
   br label %for.body.i11
 

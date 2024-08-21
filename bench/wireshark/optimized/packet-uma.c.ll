@@ -1050,7 +1050,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   %.sink632 = phi i32 [ 2, %31 ], [ 3, %19 ]
   %.0599 = phi i16 [ %32, %31 ], [ %25, %19 ]
   %.0 = phi i32 [ %17, %31 ], [ %20, %19 ]
-  %38 = add nsw i32 %.sink632, %3
+  %38 = add nsw i32 %3, %.sink632
   switch i8 %10, label %548 [
     i8 1, label %45
     i8 2, label %48

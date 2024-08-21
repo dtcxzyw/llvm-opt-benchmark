@@ -576,9 +576,9 @@ define hidden void @_ZN2cv6dynafu10TSDFVolumeC2ENS_7Point3_IiEEfNS_7Affine3IfEEf
   %32 = trunc nuw i64 %31 to i32
   %33 = sitofp i32 %32 to float
   %34 = sitofp i32 %2 to float
-  %35 = fmul float %30, %3
-  %36 = fmul float %33, %3
-  %37 = fmul float %34, %3
+  %35 = fmul float %3, %30
+  %36 = fmul float %3, %33
+  %37 = fmul float %3, %34
   %.sroa.0.0.vec.insert.i20 = insertelement <2 x float> poison, float %35, i64 0
   %.sroa.0.4.vec.insert.i21 = insertelement <2 x float> %.sroa.0.0.vec.insert.i20, float %36, i64 1
   %38 = getelementptr inbounds i8, ptr %0, i64 132
@@ -586,11 +586,11 @@ define hidden void @_ZN2cv6dynafu10TSDFVolumeC2ENS_7Point3_IiEEfNS_7Affine3IfEEf
   store <2 x float> %.sroa.0.4.vec.insert.i21, ptr %26, align 4
   store float %37, ptr %27, align 4
   %39 = fmul float %3, 0x4000CCCCC0000000
-  %40 = fcmp ogt float %39, %5
+  %40 = fcmp olt float %5, %39
   %.sroa.speculated = select i1 %40, float %39, float %5
   %41 = getelementptr inbounds i8, ptr %0, i64 112
   store float %.sroa.speculated, ptr %41, align 8
-  %42 = mul nsw i32 %32, %2
+  %42 = mul nsw i32 %2, %32
   %43 = mul nsw i32 %32, %29
   %.019 = select i1 %8, i32 %42, i32 1
   %.018 = select i1 %8, i32 %2, i32 %29
@@ -5206,7 +5206,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
   %25 = load ptr, ptr %6, align 8
   %.not.i.i = icmp ne ptr %22, null
   %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = icmp eq ptr %26, %23
+  %27 = icmp eq ptr %23, %26
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %27
   br i1 %or.cond.i.i, label %.thread, label %28
 
@@ -5270,7 +5270,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7cvflann3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -7089,7 +7089,7 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv6dynafu13TSDFVolumeCPU
   %32 = load i32, ptr %31, align 8
   %33 = add nsw i32 %32, -2
   %34 = sitofp i32 %33 to float
-  %35 = fcmp ugt float %34, %2
+  %35 = fcmp ult float %2, %34
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %30, %23, %16, %3
@@ -8101,7 +8101,7 @@ _ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %2
 _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv3VecIfLi4EEESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv3VecIfLi4EEESaIS2_EE11_M_allocateEm.exit ], [ %30, %_ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
-  %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38, label %.preheader.i.i.i.i.i29
 
 .preheader.i.i.i.i.i29:                           ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i35
@@ -8282,7 +8282,7 @@ _ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i: ; preds 
 _ZNSt6vectorIS_IN2cv3VecIfLi4EEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %.loopexit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %.loopexit ], [ %55, %.lr.ph.i.i.i.i ]
   %56 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IN2cv3VecIfLi4EEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IN2cv3VecIfLi4EEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i.i28
@@ -10070,7 +10070,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIfLi4EEESt6
   %52 = sub nuw nsw i64 %9, %20
   %53 = getelementptr inbounds %"class.cv::Vec.16", ptr %51, i64 %52
   store ptr %53, ptr %12, align 8
-  %.not11.i.i.i.i.i52 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i52 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit62, label %.preheader.i.i.i.i.i53
 
 .preheader.i.i.i.i.i53:                           ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIfLi4EEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit, %_ZSt10_ConstructIN2cv3VecIfLi4EEEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i59
@@ -10196,7 +10196,7 @@ _ZSt10_ConstructIN2cv3VecIfLi4EEEJRS2_EEvPT_DpOT0_.exit.i.i.i.i82: ; preds = %90
   br i1 %.not.i.i.i.i83, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIfLi4EEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit85, label %.preheader.i.i.i.i76, !llvm.loop !237
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIfLi4EEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit85: ; preds = %_ZSt10_ConstructIN2cv3VecIfLi4EEEJRS2_EEvPT_DpOT0_.exit.i.i.i.i82
-  %.not13.i.i.i.i.i86 = icmp eq ptr %13, %1
+  %.not13.i.i.i.i.i86 = icmp eq ptr %1, %13
   br i1 %.not13.i.i.i.i.i86, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit96, label %.preheader.i.i.i.i.i87
 
 .preheader.i.i.i.i.i87:                           ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIfLi4EEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit85, %_ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i93
@@ -10530,7 +10530,7 @@ _ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.i.us:     ; preds = %72
   %112 = load float, ptr %111, align 4
   %113 = fmul float %93, %112
   %114 = fmul float %101, %112
-  %115 = fmul float %109, %112
+  %115 = fmul float %112, %109
   %.sroa.0.0.vec.insert.i28.i.us = insertelement <2 x float> poison, float %113, i64 0
   %.sroa.0.4.vec.insert.i29.i.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i28.i.us, float %114, i64 1
   %116 = getelementptr inbounds i8, ptr %110, i64 32
@@ -10819,7 +10819,7 @@ _ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.i57:      ; preds = %.lr.ph.i38
   %272 = load float, ptr %271, align 4
   %273 = fmul float %253, %272
   %274 = fmul float %261, %272
-  %275 = fmul float %269, %272
+  %275 = fmul float %272, %269
   %.sroa.0.0.vec.insert.i28.i59 = insertelement <2 x float> poison, float %273, i64 0
   %.sroa.0.4.vec.insert.i29.i60 = insertelement <2 x float> %.sroa.0.0.vec.insert.i28.i59, float %274, i64 1
   %276 = getelementptr inbounds i8, ptr %270, i64 32

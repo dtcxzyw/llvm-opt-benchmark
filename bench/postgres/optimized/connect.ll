@@ -1011,7 +1011,7 @@ define internal fastcc void @ecpg_finish(ptr noundef %0) unnamed_addr #0 {
   %5 = load ptr, ptr %4, align 8
   tail call void @PQfinish(ptr noundef %5) #8
   %6 = load ptr, ptr @all_connections, align 8
-  %7 = icmp eq ptr %6, %0
+  %7 = icmp eq ptr %0, %6
   br i1 %7, label %.sink.split, label %.preheader36
 
 .preheader36:                                     ; preds = %2, %.preheader36

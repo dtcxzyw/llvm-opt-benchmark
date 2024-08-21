@@ -1580,7 +1580,7 @@ if.end:                                           ; preds = %entry
   %cmp.not = icmp eq ptr %1, null
   %finalStartMillis = getelementptr inbounds i8, ptr %this, i64 136
   %2 = load double, ptr %finalStartMillis, align 8
-  %cmp2 = fcmp ugt double %2, %date
+  %cmp2 = fcmp ult double %date, %2
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %if.else, label %if.then3
 
@@ -1612,7 +1612,7 @@ if.end:                                           ; preds = %entry
   %cmp.not = icmp eq ptr %1, null
   %finalStartMillis = getelementptr inbounds i8, ptr %this, i64 136
   %2 = load double, ptr %finalStartMillis, align 8
-  %cmp2 = fcmp ugt double %2, %date
+  %cmp2 = fcmp ult double %date, %2
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %if.else, label %if.then3
 
@@ -1660,7 +1660,7 @@ define noundef i64 @_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs(ptr no
 entry:
   %transitionCountPre32 = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i16, ptr %transitionCountPre32, align 8
-  %cmp = icmp sgt i16 %0, %transIdx
+  %cmp = icmp slt i16 %transIdx, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2817,7 +2817,7 @@ define linkonce_odr noundef double @_ZNK6icu_7513OlsonTimeZone14transitionTimeEs
 entry:
   %transitionCountPre32.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i16, ptr %transitionCountPre32.i, align 8
-  %cmp.i = icmp sgt i16 %0, %transIdx
+  %cmp.i = icmp slt i16 %transIdx, %0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -2955,7 +2955,7 @@ land.lhs.true:                                    ; preds = %if.then2
   %firstFinalTZTransition = getelementptr inbounds i8, ptr %this, i64 184
   %5 = load ptr, ptr %firstFinalTZTransition, align 8
   %call4 = tail call noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
-  %cmp5 = fcmp oeq double %call4, %base
+  %cmp5 = fcmp oeq double %base, %call4
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -2967,7 +2967,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   %firstFinalTZTransition9 = getelementptr inbounds i8, ptr %this, i64 184
   %7 = load ptr, ptr %firstFinalTZTransition9, align 8
   %call10 = tail call noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
-  %cmp11 = fcmp ugt double %call10, %base
+  %cmp11 = fcmp ult double %base, %call10
   br i1 %cmp11, label %if.end23, label %if.then12
 
 if.then12:                                        ; preds = %if.else
@@ -3026,7 +3026,7 @@ for.body.lr.ph:                                   ; preds = %if.then25
 for.body.us:                                      ; preds = %for.body.lr.ph, %lor.lhs.false.us
   %conv2886.us = phi i32 [ %conv28.us, %lor.lhs.false.us ], [ %conv2883, %for.body.lr.ph ]
   %ttidx.085.us = phi i16 [ %dec.us, %lor.lhs.false.us ], [ %conv27, %for.body.lr.ph ]
-  %cmp.i.i.us = icmp sgt i16 %13, %ttidx.085.us
+  %cmp.i.i.us = icmp slt i16 %ttidx.085.us, %13
   br i1 %cmp.i.i.us, label %if.then.i.i.us, label %if.end.i.i31.us
 
 if.end.i.i31.us:                                  ; preds = %for.body.us
@@ -3077,7 +3077,7 @@ _ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit.us: ; preds = %if.then.i.i.us,
   %retval.0.i.i.us = phi i64 [ %or.i.i.us, %if.then.i.i.us ], [ %conv22.i.i.us, %if.then19.i.i.us ], [ %or42.i.i.us, %if.end23.i.i.us ]
   %conv.i32.us = sitofp i64 %retval.0.i.i.us to double
   %mul.i.us = fmul double %conv.i32.us, 1.000000e+03
-  %cmp32.us = fcmp olt double %mul.i.us, %base
+  %cmp32.us = fcmp ogt double %base, %mul.i.us
   br i1 %cmp32.us, label %for.end, label %lor.lhs.false.us
 
 lor.lhs.false.us:                                 ; preds = %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit.us
@@ -3089,7 +3089,7 @@ lor.lhs.false.us:                                 ; preds = %_ZNK6icu_7513OlsonT
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %conv2886 = phi i32 [ %conv28, %for.inc ], [ %conv2883, %for.body.lr.ph ]
   %ttidx.085 = phi i16 [ %dec, %for.inc ], [ %conv27, %for.body.lr.ph ]
-  %cmp.i.i = icmp sgt i16 %13, %ttidx.085
+  %cmp.i.i = icmp slt i16 %ttidx.085, %13
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i31
 
 if.then.i.i:                                      ; preds = %for.body
@@ -3140,7 +3140,7 @@ _ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit: ; preds = %if.then.i.i, %if.t
   %retval.0.i.i = phi i64 [ %or.i.i, %if.then.i.i ], [ %conv22.i.i, %if.then19.i.i ], [ %or42.i.i, %if.end23.i.i ]
   %conv.i32 = sitofp i64 %retval.0.i.i to double
   %mul.i = fmul double %conv.i32, 1.000000e+03
-  %or.cond = fcmp ugt double %mul.i, %base
+  %or.cond = fcmp ult double %base, %mul.i
   br i1 %or.cond, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit
@@ -3435,7 +3435,7 @@ land.lhs.true:                                    ; preds = %if.then2
   %firstFinalTZTransition = getelementptr inbounds i8, ptr %this, i64 184
   %5 = load ptr, ptr %firstFinalTZTransition, align 8
   %call4 = tail call noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
-  %cmp5 = fcmp oeq double %call4, %base
+  %cmp5 = fcmp oeq double %base, %call4
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -3447,7 +3447,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   %firstFinalTZTransition9 = getelementptr inbounds i8, ptr %this, i64 184
   %7 = load ptr, ptr %firstFinalTZTransition9, align 8
   %call10 = tail call noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
-  %cmp11 = fcmp olt double %call10, %base
+  %cmp11 = fcmp ogt double %base, %call10
   br i1 %cmp11, label %if.then12, label %if.end25
 
 if.then12:                                        ; preds = %if.else
@@ -3511,7 +3511,7 @@ for.cond.us:                                      ; preds = %_ZNK6icu_7513OlsonT
 
 for.body.us:                                      ; preds = %if.then27.split.us, %for.cond.us
   %ttidx.0.us86 = phi i16 [ %ttidx.0.us, %for.cond.us ], [ %ttidx.0.us84, %if.then27.split.us ]
-  %cmp.i.i.us = icmp sgt i16 %14, %ttidx.0.us86
+  %cmp.i.i.us = icmp slt i16 %ttidx.0.us86, %14
   br i1 %cmp.i.i.us, label %if.then.i.i.us, label %if.end.i.i30.us
 
 if.end.i.i30.us:                                  ; preds = %for.body.us
@@ -3563,7 +3563,7 @@ _ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit.us: ; preds = %if.then.i.i.us,
   %retval.0.i.i.us = phi i64 [ %or.i.i.us, %if.then.i.i.us ], [ %conv22.i.i.us, %if.then19.i.i.us ], [ %or42.i.i.us, %if.end23.i.i.us ]
   %conv.i31.us = sitofp i64 %retval.0.i.i.us to double
   %mul.i.us = fmul double %conv.i31.us, 1.000000e+03
-  %cmp34.us = fcmp olt double %mul.i.us, %base
+  %cmp34.us = fcmp ogt double %base, %mul.i.us
   br i1 %cmp34.us, label %if.else45, label %for.cond.us
 
 for.cond:                                         ; preds = %if.then27, %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit
@@ -3573,7 +3573,7 @@ for.cond:                                         ; preds = %if.then27, %_ZNK6ic
   br i1 %cmp32.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %cmp.i.i = icmp sgt i16 %14, %ttidx.0
+  %cmp.i.i = icmp slt i16 %ttidx.0, %14
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i30
 
 if.then.i.i:                                      ; preds = %for.body
@@ -3625,7 +3625,7 @@ _ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit: ; preds = %if.then.i.i, %if.t
   %retval.0.i.i = phi i64 [ %or.i.i, %if.then.i.i ], [ %conv22.i.i, %if.then19.i.i ], [ %or42.i.i, %if.end23.i.i ]
   %conv.i31 = sitofp i64 %retval.0.i.i to double
   %mul.i = fmul double %conv.i31, 1.000000e+03
-  %or.cond = fcmp ugt double %mul.i, %base
+  %or.cond = fcmp ult double %base, %mul.i
   br i1 %or.cond, label %for.cond, label %if.else45, !llvm.loop !14
 
 if.else45:                                        ; preds = %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit, %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit.us
@@ -3653,7 +3653,7 @@ if.else52:                                        ; preds = %if.else45
   %idxprom62 = zext i8 %35 to i64
   %arrayidx63 = getelementptr inbounds ptr, ptr %13, i64 %idxprom62
   %36 = load ptr, ptr %arrayidx63, align 8
-  %cmp.i.i33 = icmp sgt i16 %14, %.us-phi
+  %cmp.i.i33 = icmp slt i16 %.us-phi, %14
   br i1 %cmp.i.i33, label %if.then.i.i60, label %if.end.i.i34
 
 if.then.i.i60:                                    ; preds = %if.else52

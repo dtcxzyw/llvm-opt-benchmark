@@ -4691,7 +4691,7 @@ _ZN7VString12quotePercentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 ._crit_edge:                                      ; preds = %95, %6
   %.0.lcssa = phi ptr [ %4, %6 ], [ %.2, %95 ]
   %.not96 = icmp eq ptr %.0.lcssa, null
-  %brmerge = or i1 %.not96, %5
+  %brmerge = or i1 %5, %.not96
   br i1 %brmerge, label %.loopexit125, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
@@ -5350,7 +5350,7 @@ _ZNSt3mapIPK6AstVarP11AstNodeExprSt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundE
 
 23:                                               ; preds = %20
   %.not.i.i.i.i = icmp ne ptr %21, null
-  %24 = icmp eq ptr %6, %22
+  %24 = icmp eq ptr %22, %6
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %24
   br i1 %or.cond.i.i.i.i, label %.thread.i.i, label %25
 
@@ -6044,7 +6044,7 @@ declare noundef ptr @_ZN7AstNode9cloneTreeEbb(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK6AstVarSt4pairIKS2_P11AstNodeExprESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -6415,7 +6415,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN18LinkResolveVisitor5visitEP15AstNodeFTask
   %49 = sub i64 %47, %48
   %50 = ashr exact i64 %49, 3
   %51 = ashr exact i64 %49, 2
-  %52 = icmp ult i64 %50, %51
+  %52 = icmp ugt i64 %51, %50
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %44
@@ -6428,7 +6428,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN18LinkResolveVisitor5visitEP15AstNodeFTask
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN18LinkResolveVisitor5visitEP15AstNodeFTaskRefEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit21
 
 55:                                               ; preds = %44
-  %56 = icmp ugt i64 %50, %51
+  %56 = icmp ult i64 %51, %50
   br i1 %56, label %57, label %_ZZN7AstNode11foreachImplI9AstVarRefZN18LinkResolveVisitor5visitEP15AstNodeFTaskRefEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit21
 
 57:                                               ; preds = %55

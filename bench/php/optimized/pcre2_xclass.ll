@@ -224,7 +224,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
 157:                                              ; preds = %61, %83, %129, %140, %97, %69
   %.0258 = phi i32 [ %76, %69 ], [ %92, %83 ], [ %112, %97 ], [ %138, %129 ], [ %155, %140 ], [ %64, %61 ]
   %.2 = phi ptr [ %72, %69 ], [ %93, %83 ], [ %113, %97 ], [ %139, %129 ], [ %156, %140 ], [ %62, %61 ]
-  %158 = icmp eq i32 %.0258, %0
+  %158 = icmp eq i32 %0, %.0258
   br i1 %158, label %159, label %.backedge
 
 159:                                              ; preds = %157
@@ -468,8 +468,8 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
 353:                                              ; preds = %257, %279, %325, %336, %293, %265
   %.0257 = phi i32 [ %272, %265 ], [ %288, %279 ], [ %308, %293 ], [ %334, %325 ], [ %351, %336 ], [ %260, %257 ]
   %.5 = phi ptr [ %268, %265 ], [ %289, %279 ], [ %309, %293 ], [ %335, %325 ], [ %352, %336 ], [ %258, %257 ]
-  %.not287 = icmp ugt i32 %.1259, %0
-  %.not288 = icmp ult i32 %.0257, %0
+  %.not287 = icmp ult i32 %0, %.1259
+  %.not288 = icmp ugt i32 %0, %.0257
   %or.cond289 = select i1 %.not287, i1 true, i1 %.not288
   br i1 %or.cond289, label %.backedge, label %354
 

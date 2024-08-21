@@ -3302,7 +3302,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_e
   %7 = alloca i8, align 1
   %8 = alloca { i8, [15 x i8] }, align 8
   %.not = xor i1 %4, true
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   %9 = getelementptr inbounds i8, ptr %1, i64 80
   br i1 %brmerge, label %.preheader, label %34
 

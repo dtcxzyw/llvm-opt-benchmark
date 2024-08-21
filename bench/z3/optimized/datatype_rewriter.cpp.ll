@@ -247,7 +247,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv167 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next168, %for.cond ]
   %arrayidx.i76 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv167
   %35 = load ptr, ptr %arrayidx.i76, align 8
-  %cmp60 = icmp eq ptr %35, %f
+  %cmp60 = icmp eq ptr %f, %35
   br i1 %cmp60, label %if.then61, label %for.cond
 
 if.then61:                                        ; preds = %for.body

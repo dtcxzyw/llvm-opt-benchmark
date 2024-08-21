@@ -2989,7 +2989,7 @@ _ZNSt11_Deque_baseIN14CombineVisitor6CFuncsESaIS1_EE16_M_allocate_nodeEv.exit.i:
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #17
-  %22 = icmp ugt ptr %.011.i, %13
+  %22 = icmp ult ptr %13, %.011.i
   br i1 %22, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN14CombineVisitor6CFuncsESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
@@ -3490,7 +3490,7 @@ _ZNSt11_Deque_baseISt6vectorIP8AstCCallSaIS2_EESaIS4_EE16_M_allocate_nodeEv.exit
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #17
-  %20 = icmp ugt ptr %.011.i, %11
+  %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseISt6vectorIP8AstCCallSaIS2_EESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
@@ -4664,7 +4664,7 @@ _ZNSt7__cxx114listIP8AstCFuncSaIS2_EE6spliceESt20_List_const_iteratorIS2_ERS4_.e
   br i1 %.not.i.i.i.i, label %199, label %.lr.ph.i.i.i.i, !llvm.loop !61
 
 199:                                              ; preds = %.lr.ph.i.i.i.i
-  %200 = icmp eq ptr %99, %.0710.i.i.i.i
+  %200 = icmp eq ptr %.0710.i.i.i.i, %99
   %spec.select.i.i.i = or i1 %200, %198
   br label %201
 

@@ -154,7 +154,7 @@ define hidden void @_ZN16LogMessageBuffer6vwriteEN8LogLevel4typeEPKcP13__va_list
 16:                                               ; preds = %9, %4
   %17 = getelementptr inbounds i8, ptr %0, i64 60
   %18 = load i32, ptr %17, align 4
-  %19 = icmp slt i32 %18, %1
+  %19 = icmp sgt i32 %1, %18
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16

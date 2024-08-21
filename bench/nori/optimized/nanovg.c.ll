@@ -328,7 +328,7 @@ define dso_local i32 @stbtt_GetFontOffsetForIndex(ptr nocapture noundef readonly
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = or disjoint i32 %95, %98
-  %.not14 = icmp sgt i32 %99, %1
+  %.not14 = icmp slt i32 %1, %99
   br i1 %.not14, label %100, label %stbtt__isfont.exit.thread18
 
 100:                                              ; preds = %81
@@ -1102,7 +1102,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %19 = zext i8 %.val154 to i32
   %20 = or disjoint i32 %18, %19
   %21 = add nsw i32 %20, -6
-  %22 = icmp sgt i32 %21, %1
+  %22 = icmp slt i32 %1, %21
   br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %14
@@ -1122,7 +1122,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %33 = shl nuw nsw i32 %32, 8
   %34 = zext i8 %.val152 to i32
   %35 = or disjoint i32 %33, %34
-  %.not129 = icmp ugt i32 %35, %1
+  %.not129 = icmp ult i32 %1, %35
   br i1 %.not129, label %.loopexit, label %36
 
 36:                                               ; preds = %29
@@ -1135,7 +1135,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %41 = zext i8 %.val150 to i32
   %42 = or disjoint i32 %39, %41
   %43 = add nuw nsw i32 %42, %35
-  %44 = icmp ugt i32 %43, %1
+  %44 = icmp ult i32 %1, %43
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %36
@@ -1196,7 +1196,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %85 = shl nuw nsw i32 %84, 8
   %86 = zext i8 %.val138 to i32
   %87 = or disjoint i32 %85, %86
-  %.not = icmp sgt i32 %87, %1
+  %.not = icmp slt i32 %1, %87
   %88 = zext i16 %78 to i32
   %89 = select i1 %.not, i32 0, i32 %88
   %.0116 = add i32 %6, 12
@@ -1232,7 +1232,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %104 = shl nuw nsw i32 %103, 8
   %105 = zext i8 %.val136 to i32
   %106 = or disjoint i32 %104, %105
-  %107 = icmp slt i32 %106, %1
+  %107 = icmp sgt i32 %1, %106
   %108 = zext nneg i16 %99 to i32
   %109 = select i1 %107, i32 %108, i32 0
   %.2 = add i32 %109, %.1162
@@ -1259,7 +1259,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %122 = shl nuw nsw i32 %121, 8
   %123 = zext i8 %.val134 to i32
   %124 = or disjoint i32 %122, %123
-  %125 = icmp sgt i32 %124, %1
+  %125 = icmp slt i32 %1, %124
   br i1 %125, label %.loopexit, label %126
 
 126:                                              ; preds = %._crit_edge
@@ -1374,7 +1374,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %213 = load i8, ptr %212, align 1
   %214 = zext i8 %213 to i32
   %215 = or disjoint i32 %211, %214
-  %216 = icmp ugt i32 %215, %1
+  %216 = icmp ult i32 %1, %215
   br i1 %216, label %261, label %217
 
 217:                                              ; preds = %192
@@ -1396,7 +1396,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
   %233 = load i8, ptr %232, align 1
   %234 = zext i8 %233 to i32
   %235 = or disjoint i32 %231, %234
-  %236 = icmp ult i32 %235, %1
+  %236 = icmp ugt i32 %1, %235
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %217
@@ -1454,7 +1454,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_GetGlyphShape(pt
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
-  %.not.i = icmp sgt i32 %8, %1
+  %.not.i = icmp slt i32 %1, %8
   br i1 %.not.i, label %9, label %stbtt__GetGlyfOffset.exit.thread
 
 9:                                                ; preds = %3
@@ -2411,7 +2411,7 @@ fons__tmpalloc.exit.thread:                       ; preds = %fons__tmpalloc.exit
 define dso_local range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
-  %.not.i = icmp sgt i32 %8, %1
+  %.not.i = icmp slt i32 %1, %8
   br i1 %.not.i, label %9, label %stbtt__GetGlyfOffset.exit.thread
 
 9:                                                ; preds = %6
@@ -2600,7 +2600,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr nocapture nounde
 define dso_local range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
-  %.not.i = icmp sgt i32 %4, %1
+  %.not.i = icmp slt i32 %1, %4
   br i1 %.not.i, label %5, label %stbtt__GetGlyfOffset.exit.thread
 
 5:                                                ; preds = %2
@@ -2735,7 +2735,7 @@ define dso_local void @stbtt_GetGlyphHMetrics(ptr nocapture noundef readonly %0,
   %14 = shl nuw nsw i32 %13, 8
   %15 = zext i8 %.val33 to i32
   %16 = or disjoint i32 %14, %15
-  %17 = icmp sgt i32 %16, %1
+  %17 = icmp slt i32 %1, %16
   %.not31 = icmp eq ptr %2, null
   br i1 %17, label %18, label %45
 
@@ -3093,7 +3093,7 @@ define dso_local void @stbtt_GetCodepointHMetrics(ptr nocapture noundef readonly
   %15 = shl nuw nsw i32 %14, 8
   %16 = zext i8 %.val33.i to i32
   %17 = or disjoint i32 %15, %16
-  %18 = icmp sgt i32 %17, %5
+  %18 = icmp slt i32 %5, %17
   %.not31.i = icmp eq ptr %2, null
   br i1 %18, label %19, label %46
 
@@ -4509,7 +4509,7 @@ stbtt__new_active.exit.thread.i.i:                ; preds = %stbtt__new_active.e
 375:                                              ; preds = %371
   %376 = getelementptr inbounds i8, ptr %.0455.i.i.i, i64 24
   %377 = load float, ptr %376, align 8
-  %378 = fcmp ogt float %377, %278
+  %378 = fcmp olt float %278, %377
   br i1 %378, label %427, label %379
 
 379:                                              ; preds = %375
@@ -4527,7 +4527,7 @@ stbtt__new_active.exit.thread.i.i:                ; preds = %stbtt__new_active.e
 387:                                              ; preds = %381, %379
   %.055.i.i.i.i = phi float [ %386, %381 ], [ %364, %379 ]
   %.054.i.i.i.i = phi float [ %377, %381 ], [ %277, %379 ]
-  %388 = fcmp olt float %373, %278
+  %388 = fcmp ogt float %278, %373
   br i1 %388, label %389, label %396
 
 389:                                              ; preds = %387
@@ -4593,7 +4593,7 @@ stbtt__new_active.exit.thread.i.i:                ; preds = %stbtt__new_active.e
 431:                                              ; preds = %427
   %432 = getelementptr inbounds i8, ptr %.0455.i.i.i, i64 24
   %433 = load float, ptr %432, align 8
-  %434 = fcmp ogt float %433, %278
+  %434 = fcmp olt float %278, %433
   br i1 %434, label %stbtt__handle_clipped_edge.exit337.i.i.i, label %435
 
 435:                                              ; preds = %431
@@ -4611,7 +4611,7 @@ stbtt__new_active.exit.thread.i.i:                ; preds = %stbtt__new_active.e
 443:                                              ; preds = %437, %435
   %.055.i331.i.i.i = phi float [ %442, %437 ], [ %364, %435 ]
   %.054.i332.i.i.i = phi float [ %433, %437 ], [ %277, %435 ]
-  %444 = fcmp olt float %429, %278
+  %444 = fcmp ogt float %278, %429
   br i1 %444, label %445, label %452
 
 445:                                              ; preds = %443
@@ -4680,7 +4680,7 @@ stbtt__new_active.exit.thread.i.i:                ; preds = %stbtt__new_active.e
 488:                                              ; preds = %484
   %489 = getelementptr inbounds i8, ptr %.0455.i.i.i, i64 24
   %490 = load float, ptr %489, align 8
-  %491 = fcmp ogt float %490, %278
+  %491 = fcmp olt float %278, %490
   br i1 %491, label %stbtt__handle_clipped_edge.exit337.i.i.i, label %492
 
 492:                                              ; preds = %488
@@ -4698,7 +4698,7 @@ stbtt__new_active.exit.thread.i.i:                ; preds = %stbtt__new_active.e
 500:                                              ; preds = %494, %492
   %.055.i338.i.i.i = phi float [ %499, %494 ], [ %364, %492 ]
   %.054.i339.i.i.i = phi float [ %490, %494 ], [ %277, %492 ]
-  %501 = fcmp olt float %486, %278
+  %501 = fcmp ogt float %278, %486
   br i1 %501, label %502, label %509
 
 502:                                              ; preds = %500
@@ -4928,7 +4928,7 @@ stbtt__new_active.exit.thread.i.i:                ; preds = %stbtt__new_active.e
 
 649:                                              ; preds = %646
   %650 = load float, ptr %535, align 8
-  %651 = fcmp ogt float %650, %638
+  %651 = fcmp olt float %638, %650
   br i1 %651, label %stbtt__handle_clipped_edge.exit351.i.i.i, label %652
 
 652:                                              ; preds = %649
@@ -4946,7 +4946,7 @@ stbtt__new_active.exit.thread.i.i:                ; preds = %stbtt__new_active.e
 660:                                              ; preds = %654, %652
   %.055.i345.i.i.i = phi float [ %659, %654 ], [ %364, %652 ]
   %.054.i346.i.i.i = phi float [ %650, %654 ], [ %277, %652 ]
-  %661 = fcmp olt float %647, %638
+  %661 = fcmp ogt float %638, %647
   br i1 %661, label %662, label %669
 
 662:                                              ; preds = %660
@@ -5002,16 +5002,16 @@ stbtt__handle_clipped_edge.exit351.i.i.i:         ; preds = %681, %678, %672, %6
 
 694:                                              ; preds = %stbtt__handle_clipped_edge.exit351.i.i.i
   %695 = load float, ptr %540, align 4
-  %696 = fcmp olt float %695, %638
+  %696 = fcmp ogt float %638, %695
   br i1 %696, label %stbtt__handle_clipped_edge.exit358.i.i.i, label %697
 
 697:                                              ; preds = %694
   %698 = load float, ptr %535, align 8
-  %699 = fcmp ogt float %698, %641
+  %699 = fcmp olt float %641, %698
   br i1 %699, label %stbtt__handle_clipped_edge.exit358.i.i.i, label %700
 
 700:                                              ; preds = %697
-  %701 = fcmp ogt float %698, %638
+  %701 = fcmp olt float %638, %698
   br i1 %701, label %702, label %709
 
 702:                                              ; preds = %700
@@ -5026,7 +5026,7 @@ stbtt__handle_clipped_edge.exit351.i.i.i:         ; preds = %681, %678, %672, %6
 709:                                              ; preds = %702, %700
   %.055.i352.i.i.i = phi float [ %708, %702 ], [ %633, %700 ]
   %.054.i353.i.i.i = phi float [ %698, %702 ], [ %638, %700 ]
-  %710 = fcmp olt float %695, %641
+  %710 = fcmp ogt float %641, %695
   br i1 %710, label %711, label %718
 
 711:                                              ; preds = %709
@@ -5082,16 +5082,16 @@ stbtt__handle_clipped_edge.exit358.i.i.i:         ; preds = %730, %727, %721, %6
 
 743:                                              ; preds = %stbtt__handle_clipped_edge.exit358.i.i.i
   %744 = load float, ptr %540, align 4
-  %745 = fcmp olt float %744, %641
+  %745 = fcmp ogt float %641, %744
   br i1 %745, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %746
 
 746:                                              ; preds = %743
   %747 = load float, ptr %535, align 8
-  %748 = fcmp ogt float %747, %278
+  %748 = fcmp olt float %278, %747
   br i1 %748, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %749
 
 749:                                              ; preds = %746
-  %750 = fcmp ogt float %747, %641
+  %750 = fcmp olt float %641, %747
   br i1 %750, label %751, label %758
 
 751:                                              ; preds = %749
@@ -5106,7 +5106,7 @@ stbtt__handle_clipped_edge.exit358.i.i.i:         ; preds = %730, %727, %721, %6
 758:                                              ; preds = %751, %749
   %.055.i359.i.i.i = phi float [ %757, %751 ], [ %635, %749 ]
   %.054.i360.i.i.i = phi float [ %747, %751 ], [ %641, %749 ]
-  %759 = fcmp olt float %744, %278
+  %759 = fcmp ogt float %278, %744
   br i1 %759, label %760, label %767
 
 760:                                              ; preds = %758
@@ -5173,7 +5173,7 @@ stbtt__handle_clipped_edge.exit358.i.i.i:         ; preds = %730, %727, %721, %6
 
 799:                                              ; preds = %796
   %800 = load float, ptr %535, align 8
-  %801 = fcmp ogt float %800, %641
+  %801 = fcmp olt float %641, %800
   br i1 %801, label %stbtt__handle_clipped_edge.exit372.i.i.i, label %802
 
 802:                                              ; preds = %799
@@ -5191,7 +5191,7 @@ stbtt__handle_clipped_edge.exit358.i.i.i:         ; preds = %730, %727, %721, %6
 810:                                              ; preds = %804, %802
   %.055.i366.i.i.i = phi float [ %809, %804 ], [ %364, %802 ]
   %.054.i367.i.i.i = phi float [ %800, %804 ], [ %277, %802 ]
-  %811 = fcmp olt float %797, %641
+  %811 = fcmp ogt float %641, %797
   br i1 %811, label %812, label %819
 
 812:                                              ; preds = %810
@@ -5247,16 +5247,16 @@ stbtt__handle_clipped_edge.exit372.i.i.i:         ; preds = %831, %828, %822, %7
 
 844:                                              ; preds = %stbtt__handle_clipped_edge.exit372.i.i.i
   %845 = load float, ptr %540, align 4
-  %846 = fcmp olt float %845, %641
+  %846 = fcmp ogt float %641, %845
   br i1 %846, label %stbtt__handle_clipped_edge.exit379.i.i.i, label %847
 
 847:                                              ; preds = %844
   %848 = load float, ptr %535, align 8
-  %849 = fcmp ogt float %848, %638
+  %849 = fcmp olt float %638, %848
   br i1 %849, label %stbtt__handle_clipped_edge.exit379.i.i.i, label %850
 
 850:                                              ; preds = %847
-  %851 = fcmp ogt float %848, %641
+  %851 = fcmp olt float %641, %848
   br i1 %851, label %852, label %859
 
 852:                                              ; preds = %850
@@ -5271,7 +5271,7 @@ stbtt__handle_clipped_edge.exit372.i.i.i:         ; preds = %831, %828, %822, %7
 859:                                              ; preds = %852, %850
   %.055.i373.i.i.i = phi float [ %858, %852 ], [ %635, %850 ]
   %.054.i374.i.i.i = phi float [ %848, %852 ], [ %641, %850 ]
-  %860 = fcmp olt float %845, %638
+  %860 = fcmp ogt float %638, %845
   br i1 %860, label %861, label %868
 
 861:                                              ; preds = %859
@@ -5327,16 +5327,16 @@ stbtt__handle_clipped_edge.exit379.i.i.i:         ; preds = %880, %877, %871, %8
 
 893:                                              ; preds = %stbtt__handle_clipped_edge.exit379.i.i.i
   %894 = load float, ptr %540, align 4
-  %895 = fcmp olt float %894, %638
+  %895 = fcmp ogt float %638, %894
   br i1 %895, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %896
 
 896:                                              ; preds = %893
   %897 = load float, ptr %535, align 8
-  %898 = fcmp ogt float %897, %278
+  %898 = fcmp olt float %278, %897
   br i1 %898, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %899
 
 899:                                              ; preds = %896
-  %900 = fcmp ogt float %897, %638
+  %900 = fcmp olt float %638, %897
   br i1 %900, label %901, label %908
 
 901:                                              ; preds = %899
@@ -5351,7 +5351,7 @@ stbtt__handle_clipped_edge.exit379.i.i.i:         ; preds = %880, %877, %871, %8
 908:                                              ; preds = %901, %899
   %.055.i380.i.i.i = phi float [ %907, %901 ], [ %633, %899 ]
   %.054.i381.i.i.i = phi float [ %897, %901 ], [ %638, %899 ]
-  %909 = fcmp olt float %894, %278
+  %909 = fcmp ogt float %278, %894
   br i1 %909, label %910, label %917
 
 910:                                              ; preds = %908
@@ -5417,7 +5417,7 @@ stbtt__handle_clipped_edge.exit379.i.i.i:         ; preds = %880, %877, %871, %8
 
 948:                                              ; preds = %945
   %949 = load float, ptr %535, align 8
-  %950 = fcmp ogt float %949, %638
+  %950 = fcmp olt float %638, %949
   br i1 %950, label %stbtt__handle_clipped_edge.exit393.i.i.i, label %951
 
 951:                                              ; preds = %948
@@ -5435,7 +5435,7 @@ stbtt__handle_clipped_edge.exit379.i.i.i:         ; preds = %880, %877, %871, %8
 959:                                              ; preds = %953, %951
   %.055.i387.i.i.i = phi float [ %958, %953 ], [ %364, %951 ]
   %.054.i388.i.i.i = phi float [ %949, %953 ], [ %277, %951 ]
-  %960 = fcmp olt float %946, %638
+  %960 = fcmp ogt float %638, %946
   br i1 %960, label %961, label %968
 
 961:                                              ; preds = %959
@@ -5491,16 +5491,16 @@ stbtt__handle_clipped_edge.exit393.i.i.i:         ; preds = %980, %977, %971, %9
 
 993:                                              ; preds = %stbtt__handle_clipped_edge.exit393.i.i.i
   %994 = load float, ptr %540, align 4
-  %995 = fcmp olt float %994, %638
+  %995 = fcmp ogt float %638, %994
   br i1 %995, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %996
 
 996:                                              ; preds = %993
   %997 = load float, ptr %535, align 8
-  %998 = fcmp ogt float %997, %278
+  %998 = fcmp olt float %278, %997
   br i1 %998, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %999
 
 999:                                              ; preds = %996
-  %1000 = fcmp ogt float %997, %638
+  %1000 = fcmp olt float %638, %997
   br i1 %1000, label %1001, label %1008
 
 1001:                                             ; preds = %999
@@ -5515,7 +5515,7 @@ stbtt__handle_clipped_edge.exit393.i.i.i:         ; preds = %980, %977, %971, %9
 1008:                                             ; preds = %1001, %999
   %.055.i394.i.i.i = phi float [ %1007, %1001 ], [ %633, %999 ]
   %.054.i395.i.i.i = phi float [ %997, %1001 ], [ %638, %999 ]
-  %1009 = fcmp olt float %994, %278
+  %1009 = fcmp ogt float %278, %994
   br i1 %1009, label %1010, label %1017
 
 1010:                                             ; preds = %1008
@@ -5581,7 +5581,7 @@ stbtt__handle_clipped_edge.exit393.i.i.i:         ; preds = %980, %977, %971, %9
 
 1048:                                             ; preds = %1045
   %1049 = load float, ptr %535, align 8
-  %1050 = fcmp ogt float %1049, %638
+  %1050 = fcmp olt float %638, %1049
   br i1 %1050, label %stbtt__handle_clipped_edge.exit407.i.i.i, label %1051
 
 1051:                                             ; preds = %1048
@@ -5599,7 +5599,7 @@ stbtt__handle_clipped_edge.exit393.i.i.i:         ; preds = %980, %977, %971, %9
 1059:                                             ; preds = %1053, %1051
   %.055.i401.i.i.i = phi float [ %1058, %1053 ], [ %364, %1051 ]
   %.054.i402.i.i.i = phi float [ %1049, %1053 ], [ %277, %1051 ]
-  %1060 = fcmp olt float %1046, %638
+  %1060 = fcmp ogt float %638, %1046
   br i1 %1060, label %1061, label %1068
 
 1061:                                             ; preds = %1059
@@ -5655,16 +5655,16 @@ stbtt__handle_clipped_edge.exit407.i.i.i:         ; preds = %1080, %1077, %1071,
 
 1093:                                             ; preds = %stbtt__handle_clipped_edge.exit407.i.i.i
   %1094 = load float, ptr %540, align 4
-  %1095 = fcmp olt float %1094, %638
+  %1095 = fcmp ogt float %638, %1094
   br i1 %1095, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %1096
 
 1096:                                             ; preds = %1093
   %1097 = load float, ptr %535, align 8
-  %1098 = fcmp ogt float %1097, %278
+  %1098 = fcmp olt float %278, %1097
   br i1 %1098, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %1099
 
 1099:                                             ; preds = %1096
-  %1100 = fcmp ogt float %1097, %638
+  %1100 = fcmp olt float %638, %1097
   br i1 %1100, label %1101, label %1108
 
 1101:                                             ; preds = %1099
@@ -5679,7 +5679,7 @@ stbtt__handle_clipped_edge.exit407.i.i.i:         ; preds = %1080, %1077, %1071,
 1108:                                             ; preds = %1101, %1099
   %.055.i408.i.i.i = phi float [ %1107, %1101 ], [ %633, %1099 ]
   %.054.i409.i.i.i = phi float [ %1097, %1101 ], [ %638, %1099 ]
-  %1109 = fcmp olt float %1094, %278
+  %1109 = fcmp ogt float %278, %1094
   br i1 %1109, label %1110, label %1117
 
 1110:                                             ; preds = %1108
@@ -5745,7 +5745,7 @@ stbtt__handle_clipped_edge.exit407.i.i.i:         ; preds = %1080, %1077, %1071,
 
 1148:                                             ; preds = %1145
   %1149 = load float, ptr %535, align 8
-  %1150 = fcmp ogt float %1149, %641
+  %1150 = fcmp olt float %641, %1149
   br i1 %1150, label %stbtt__handle_clipped_edge.exit421.i.i.i, label %1151
 
 1151:                                             ; preds = %1148
@@ -5763,7 +5763,7 @@ stbtt__handle_clipped_edge.exit407.i.i.i:         ; preds = %1080, %1077, %1071,
 1159:                                             ; preds = %1153, %1151
   %.055.i415.i.i.i = phi float [ %1158, %1153 ], [ %364, %1151 ]
   %.054.i416.i.i.i = phi float [ %1149, %1153 ], [ %277, %1151 ]
-  %1160 = fcmp olt float %1146, %641
+  %1160 = fcmp ogt float %641, %1146
   br i1 %1160, label %1161, label %1168
 
 1161:                                             ; preds = %1159
@@ -5819,16 +5819,16 @@ stbtt__handle_clipped_edge.exit421.i.i.i:         ; preds = %1180, %1177, %1171,
 
 1193:                                             ; preds = %stbtt__handle_clipped_edge.exit421.i.i.i
   %1194 = load float, ptr %540, align 4
-  %1195 = fcmp olt float %1194, %641
+  %1195 = fcmp ogt float %641, %1194
   br i1 %1195, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %1196
 
 1196:                                             ; preds = %1193
   %1197 = load float, ptr %535, align 8
-  %1198 = fcmp ogt float %1197, %278
+  %1198 = fcmp olt float %278, %1197
   br i1 %1198, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %1199
 
 1199:                                             ; preds = %1196
-  %1200 = fcmp ogt float %1197, %641
+  %1200 = fcmp olt float %641, %1197
   br i1 %1200, label %1201, label %1208
 
 1201:                                             ; preds = %1199
@@ -5843,7 +5843,7 @@ stbtt__handle_clipped_edge.exit421.i.i.i:         ; preds = %1180, %1177, %1171,
 1208:                                             ; preds = %1201, %1199
   %.055.i422.i.i.i = phi float [ %1207, %1201 ], [ %635, %1199 ]
   %.054.i423.i.i.i = phi float [ %1197, %1201 ], [ %641, %1199 ]
-  %1209 = fcmp olt float %1194, %278
+  %1209 = fcmp ogt float %278, %1194
   br i1 %1209, label %1210, label %1217
 
 1210:                                             ; preds = %1208
@@ -5909,7 +5909,7 @@ stbtt__handle_clipped_edge.exit421.i.i.i:         ; preds = %1180, %1177, %1171,
 
 1248:                                             ; preds = %1245
   %1249 = load float, ptr %535, align 8
-  %1250 = fcmp ogt float %1249, %641
+  %1250 = fcmp olt float %641, %1249
   br i1 %1250, label %stbtt__handle_clipped_edge.exit435.i.i.i, label %1251
 
 1251:                                             ; preds = %1248
@@ -5927,7 +5927,7 @@ stbtt__handle_clipped_edge.exit421.i.i.i:         ; preds = %1180, %1177, %1171,
 1259:                                             ; preds = %1253, %1251
   %.055.i429.i.i.i = phi float [ %1258, %1253 ], [ %364, %1251 ]
   %.054.i430.i.i.i = phi float [ %1249, %1253 ], [ %277, %1251 ]
-  %1260 = fcmp olt float %1246, %641
+  %1260 = fcmp ogt float %641, %1246
   br i1 %1260, label %1261, label %1268
 
 1261:                                             ; preds = %1259
@@ -5983,16 +5983,16 @@ stbtt__handle_clipped_edge.exit435.i.i.i:         ; preds = %1280, %1277, %1271,
 
 1293:                                             ; preds = %stbtt__handle_clipped_edge.exit435.i.i.i
   %1294 = load float, ptr %540, align 4
-  %1295 = fcmp olt float %1294, %641
+  %1295 = fcmp ogt float %641, %1294
   br i1 %1295, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %1296
 
 1296:                                             ; preds = %1293
   %1297 = load float, ptr %535, align 8
-  %1298 = fcmp ogt float %1297, %278
+  %1298 = fcmp olt float %278, %1297
   br i1 %1298, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %1299
 
 1299:                                             ; preds = %1296
-  %1300 = fcmp ogt float %1297, %641
+  %1300 = fcmp olt float %641, %1297
   br i1 %1300, label %1301, label %1308
 
 1301:                                             ; preds = %1299
@@ -6007,7 +6007,7 @@ stbtt__handle_clipped_edge.exit435.i.i.i:         ; preds = %1280, %1277, %1271,
 1308:                                             ; preds = %1301, %1299
   %.055.i436.i.i.i = phi float [ %1307, %1301 ], [ %635, %1299 ]
   %.054.i437.i.i.i = phi float [ %1297, %1301 ], [ %641, %1299 ]
-  %1309 = fcmp olt float %1294, %278
+  %1309 = fcmp ogt float %278, %1294
   br i1 %1309, label %1310, label %1317
 
 1310:                                             ; preds = %1308
@@ -6067,7 +6067,7 @@ stbtt__handle_clipped_edge.exit435.i.i.i:         ; preds = %1280, %1277, %1271,
 
 1345:                                             ; preds = %1342
   %1346 = load float, ptr %535, align 8
-  %1347 = fcmp ogt float %1346, %278
+  %1347 = fcmp olt float %278, %1346
   br i1 %1347, label %stbtt__handle_clipped_edge.exit365.i.i.i, label %1348
 
 1348:                                             ; preds = %1345
@@ -6078,7 +6078,7 @@ stbtt__handle_clipped_edge.exit435.i.i.i:         ; preds = %1280, %1277, %1271,
   %1353 = fadd float %364, %1352
   %.055.i443.i.i.i = select i1 %1349, float %1353, float %364
   %.054.i444.i.i.i = select i1 %1349, float %1346, float %277
-  %1354 = fcmp olt float %1343, %278
+  %1354 = fcmp ogt float %278, %1343
   br i1 %1354, label %1355, label %1362
 
 1355:                                             ; preds = %1348
@@ -6525,7 +6525,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %.lr.ph, %103
   %.06389 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %103 ]
   %.06687 = phi i32 [ 1, %.lr.ph ], [ %spec.select73, %103 ]
   %49 = trunc i64 %indvars.iv to i32
-  %50 = add i32 %49, %6
+  %50 = add i32 %6, %49
   %51 = call i32 @stbtt_FindGlyphIndex(ptr noundef nonnull %14, i32 noundef %50)
   %.val.i74 = load i8, ptr %43, align 1
   %.val33.i = load i8, ptr %44, align 1
@@ -6533,7 +6533,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %.lr.ph, %103
   %53 = shl nuw nsw i32 %52, 8
   %54 = zext i8 %.val33.i to i32
   %55 = or disjoint i32 %53, %54
-  %56 = icmp sgt i32 %55, %51
+  %56 = icmp slt i32 %51, %55
   %57 = shl nsw i32 %51, 2
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %48, i64 %58
@@ -6997,7 +6997,7 @@ define dso_local i32 @stbtt_PackFontRangesGatherRects(ptr nocapture noundef read
   %88 = uitofp i32 %87 to float
   %89 = fmul float %58, %88
   %90 = load i32, ptr %12, align 4
-  %.not.i.i = icmp sgt i32 %90, %83
+  %.not.i.i = icmp slt i32 %83, %90
   br i1 %.not.i.i, label %91, label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
 91:                                               ; preds = %81
@@ -7371,7 +7371,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %109, %105
   %133 = shl nuw nsw i32 %132, 8
   %134 = zext i8 %.val33.i to i32
   %135 = or disjoint i32 %133, %134
-  %136 = icmp sgt i32 %135, %113
+  %136 = icmp slt i32 %113, %135
   %137 = load i32, ptr %19, align 8
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds i8, ptr %126, i64 %138
@@ -7399,7 +7399,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %109, %105
   %157 = uitofp i32 %156 to float
   %158 = fmul float %69, %157
   %159 = load i32, ptr %20, align 4
-  %.not.i.i154 = icmp sgt i32 %159, %113
+  %.not.i.i154 = icmp slt i32 %113, %159
   br i1 %.not.i.i154, label %160, label %stbtt_GetGlyphBitmapBox.exit
 
 160:                                              ; preds = %stbtt_GetGlyphHMetrics.exit
@@ -7537,7 +7537,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %225, %160, %stbtt_G
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %264 = call i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly %1, i32 noundef %113, ptr noundef nonnull %8)
   %265 = load i32, ptr %20, align 4
-  %.not.i.i161 = icmp sgt i32 %265, %113
+  %.not.i.i161 = icmp slt i32 %113, %265
   br i1 %.not.i.i161, label %266, label %stbtt_GetGlyphBitmapBoxSubpixel.exit.i
 
 266:                                              ; preds = %stbtt_GetGlyphBitmapBox.exit
@@ -8616,7 +8616,7 @@ define dso_local void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %0, i3
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #14 {
   %5 = tail call fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
-  %6 = icmp eq i32 %5, %1
+  %6 = icmp eq i32 %1, %5
   %7 = zext i1 %6 to i32
   ret i32 %7
 }
@@ -8921,7 +8921,7 @@ stbtt__find_table.exit:                           ; preds = %35
   %83 = shl nuw nsw i32 %82, 8
   %84 = zext i8 %.val46 to i32
   %85 = or disjoint i32 %83, %84
-  %86 = icmp eq i32 %85, %2
+  %86 = icmp eq i32 %2, %85
   br i1 %86, label %87, label %127
 
 87:                                               ; preds = %75
@@ -8933,7 +8933,7 @@ stbtt__find_table.exit:                           ; preds = %35
   %91 = shl nuw nsw i32 %90, 8
   %92 = zext i8 %.val44 to i32
   %93 = or disjoint i32 %91, %92
-  %94 = icmp eq i32 %93, %3
+  %94 = icmp eq i32 %3, %93
   br i1 %94, label %95, label %127
 
 95:                                               ; preds = %87
@@ -8945,7 +8945,7 @@ stbtt__find_table.exit:                           ; preds = %35
   %99 = shl nuw nsw i32 %98, 8
   %100 = zext i8 %.val42 to i32
   %101 = or disjoint i32 %99, %100
-  %102 = icmp eq i32 %101, %4
+  %102 = icmp eq i32 %4, %101
   br i1 %102, label %103, label %127
 
 103:                                              ; preds = %95
@@ -8957,7 +8957,7 @@ stbtt__find_table.exit:                           ; preds = %35
   %107 = shl nuw nsw i32 %106, 8
   %108 = zext i8 %.val40 to i32
   %109 = or disjoint i32 %107, %108
-  %110 = icmp eq i32 %109, %5
+  %110 = icmp eq i32 %5, %109
   br i1 %110, label %111, label %127
 
 111:                                              ; preds = %103
@@ -9429,7 +9429,7 @@ define dso_local noundef i32 @fons__tt_buildGlyphBitmap(ptr nocapture noundef re
   %20 = shl nuw nsw i32 %19, 8
   %21 = zext i8 %.val33.i to i32
   %22 = or disjoint i32 %20, %21
-  %23 = icmp sgt i32 %22, %1
+  %23 = icmp slt i32 %1, %22
   %.not31.i = icmp eq ptr %4, null
   br i1 %23, label %24, label %51
 
@@ -10627,9 +10627,9 @@ define dso_local float @fonsDrawText(ptr noundef %0, float noundef %1, float nou
 
 fons__getVertAlign.exit:                          ; preds = %87, %94, %103, %105, %111, %119, %128, %130
   %.0.i = phi float [ %91, %87 ], [ %102, %94 ], [ %109, %105 ], [ %116, %111 ], [ %127, %119 ], [ %135, %130 ], [ 0.000000e+00, %103 ], [ 0.000000e+00, %128 ]
-  %136 = fadd float %.0.i, %2
+  %136 = fadd float %2, %.0.i
   store float %136, ptr %7, align 4
-  %.not7386 = icmp eq ptr %.063, %3
+  %.not7386 = icmp eq ptr %3, %.063
   br i1 %.not7386, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %fons__getVertAlign.exit
@@ -11164,7 +11164,7 @@ define dso_local float @fonsTextBounds(ptr nocapture noundef %0, float noundef %
 
 fons__getVertAlign.exit:                          ; preds = %69, %76, %85, %87, %93, %101, %110, %112
   %.0.i = phi float [ %73, %69 ], [ %84, %76 ], [ %91, %87 ], [ %98, %93 ], [ %109, %101 ], [ %117, %112 ], [ 0.000000e+00, %85 ], [ 0.000000e+00, %110 ]
-  %118 = fadd float %.0.i, %2
+  %118 = fadd float %2, %.0.i
   store float %118, ptr %8, align 4
   %119 = icmp eq ptr %4, null
   br i1 %119, label %120, label %123
@@ -11176,7 +11176,7 @@ fons__getVertAlign.exit:                          ; preds = %69, %76, %85, %87, 
 
 123:                                              ; preds = %120, %fons__getVertAlign.exit
   %.080 = phi ptr [ %122, %120 ], [ %4, %fons__getVertAlign.exit ]
-  %.not95117 = icmp eq ptr %.080, %3
+  %.not95117 = icmp eq ptr %3, %.080
   br i1 %.not95117, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %123
@@ -11364,7 +11364,7 @@ define internal fastcc noundef ptr @fons__getGlyph(ptr nocapture noundef %0, ptr
   store i32 0, ptr %19, align 8
   %20 = shl i32 %2, 15
   %21 = xor i32 %20, -1
-  %22 = add i32 %21, %2
+  %22 = add i32 %2, %21
   %23 = lshr i32 %22, 10
   %24 = xor i32 %23, %22
   %25 = mul i32 %24, 9
@@ -11503,7 +11503,7 @@ define internal fastcc noundef ptr @fons__getGlyph(ptr nocapture noundef %0, ptr
   %106 = shl nuw nsw i32 %105, 8
   %107 = zext i8 %.val33.i.i to i32
   %108 = or disjoint i32 %106, %107
-  %109 = icmp sgt i32 %108, %.0161
+  %109 = icmp slt i32 %.0161, %108
   %110 = getelementptr inbounds i8, ptr %.0158, i64 40
   %111 = load i32, ptr %110, align 8
   %112 = sext i32 %111 to i64
@@ -12103,8 +12103,8 @@ define internal fastcc void @fons__getQuad(ptr nocapture noundef readonly %0, pt
 
 fons__tt_getGlyphKernAdvance.exit:                ; preds = %84, %10, %19, %27, %34, %75
   %.0.i.i = phi float [ %83, %75 ], [ 0.000000e+00, %10 ], [ 0.000000e+00, %19 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %84 ]
-  %85 = fmul float %.0.i.i, %4
-  %86 = fadd float %85, %5
+  %85 = fmul float %4, %.0.i.i
+  %86 = fadd float %5, %85
   %87 = fadd float %86, 5.000000e-01
   %88 = fptosi float %87 to i32
   %89 = sitofp i32 %88 to float
@@ -12414,7 +12414,7 @@ define dso_local range(i32 0, 2) i32 @fonsTextIterInit(ptr nocapture noundef %0,
 
 fons__getVertAlign.exit:                          ; preds = %87, %95, %105, %107, %114, %123, %133, %135
   %.0.i = phi float [ %92, %87 ], [ %104, %95 ], [ %112, %107 ], [ %120, %114 ], [ %132, %123 ], [ %141, %135 ], [ 0.000000e+00, %105 ], [ 0.000000e+00, %133 ]
-  %142 = fadd float %.0.i, %3
+  %142 = fadd float %3, %.0.i
   %143 = icmp eq ptr %5, null
   br i1 %143, label %144, label %147
 
@@ -12678,8 +12678,8 @@ fons__flush.exit:                                 ; preds = %48, %33, %3
   %72 = load i32, ptr %15, align 8
   %73 = add nsw i32 %72, 1
   store i32 %73, ptr %15, align 8
-  %74 = fadd float %8, %1
-  %75 = fadd float %12, %2
+  %74 = fadd float %1, %8
+  %75 = fadd float %2, %12
   %76 = shl nsw i32 %73, 1
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds [2048 x float], ptr %52, i64 0, i64 %77
@@ -13037,11 +13037,11 @@ fons__flush.exit122:                              ; preds = %326, %318, %298
   %327 = phi i32 [ 0, %326 ], [ %.pre130, %318 ], [ %299, %298 ]
   %328 = load i16, ptr %303, align 2
   %329 = sitofp i16 %328 to float
-  %330 = fadd float %329, %1
+  %330 = fadd float %1, %329
   %331 = getelementptr inbounds i8, ptr %303, i64 2
   %332 = load i16, ptr %331, align 2
   %333 = sitofp i16 %332 to float
-  %334 = fadd float %333, %2
+  %334 = fadd float %2, %333
   %335 = shl nsw i32 %327, 1
   %336 = sext i32 %335 to i64
   %337 = getelementptr inbounds [2048 x float], ptr %52, i64 0, i64 %336
@@ -13069,14 +13069,14 @@ fons__flush.exit122:                              ; preds = %326, %318, %298
   store i32 %353, ptr %15, align 8
   %354 = load i16, ptr %303, align 2
   %355 = sitofp i16 %354 to float
-  %356 = fadd float %355, %1
+  %356 = fadd float %1, %355
   %357 = getelementptr inbounds i8, ptr %303, i64 4
   %358 = load i16, ptr %357, align 2
   %359 = sitofp i16 %358 to float
   %360 = fadd float %356, %359
   %361 = load i16, ptr %331, align 2
   %362 = sitofp i16 %361 to float
-  %363 = fadd float %362, %2
+  %363 = fadd float %2, %362
   %364 = fadd float %363, 1.000000e+00
   %365 = shl nsw i32 %353, 1
   %366 = sext i32 %365 to i64
@@ -13105,13 +13105,13 @@ fons__flush.exit122:                              ; preds = %326, %318, %298
   store i32 %383, ptr %15, align 8
   %384 = load i16, ptr %303, align 2
   %385 = sitofp i16 %384 to float
-  %386 = fadd float %385, %1
+  %386 = fadd float %1, %385
   %387 = load i16, ptr %357, align 2
   %388 = sitofp i16 %387 to float
   %389 = fadd float %386, %388
   %390 = load i16, ptr %331, align 2
   %391 = sitofp i16 %390 to float
-  %392 = fadd float %391, %2
+  %392 = fadd float %2, %391
   %393 = shl nsw i32 %383, 1
   %394 = sext i32 %393 to i64
   %395 = getelementptr inbounds [2048 x float], ptr %52, i64 0, i64 %394
@@ -13139,10 +13139,10 @@ fons__flush.exit122:                              ; preds = %326, %318, %298
   store i32 %411, ptr %15, align 8
   %412 = load i16, ptr %303, align 2
   %413 = sitofp i16 %412 to float
-  %414 = fadd float %413, %1
+  %414 = fadd float %1, %413
   %415 = load i16, ptr %331, align 2
   %416 = sitofp i16 %415 to float
-  %417 = fadd float %416, %2
+  %417 = fadd float %2, %416
   %418 = shl nsw i32 %411, 1
   %419 = sext i32 %418 to i64
   %420 = getelementptr inbounds [2048 x float], ptr %52, i64 0, i64 %419
@@ -13170,10 +13170,10 @@ fons__flush.exit122:                              ; preds = %326, %318, %298
   store i32 %436, ptr %15, align 8
   %437 = load i16, ptr %303, align 2
   %438 = sitofp i16 %437 to float
-  %439 = fadd float %438, %1
+  %439 = fadd float %1, %438
   %440 = load i16, ptr %331, align 2
   %441 = sitofp i16 %440 to float
-  %442 = fadd float %441, %2
+  %442 = fadd float %2, %441
   %443 = fadd float %442, 1.000000e+00
   %444 = shl nsw i32 %436, 1
   %445 = sext i32 %444 to i64
@@ -13202,13 +13202,13 @@ fons__flush.exit122:                              ; preds = %326, %318, %298
   store i32 %462, ptr %15, align 8
   %463 = load i16, ptr %303, align 2
   %464 = sitofp i16 %463 to float
-  %465 = fadd float %464, %1
+  %465 = fadd float %1, %464
   %466 = load i16, ptr %357, align 2
   %467 = sitofp i16 %466 to float
   %468 = fadd float %465, %467
   %469 = load i16, ptr %331, align 2
   %470 = sitofp i16 %469 to float
-  %471 = fadd float %470, %2
+  %471 = fadd float %2, %470
   %472 = fadd float %471, 1.000000e+00
   %473 = shl nsw i32 %462, 1
   %474 = sext i32 %473 to i64
@@ -13525,7 +13525,7 @@ define dso_local void @fonsLineBounds(ptr nocapture noundef readonly %0, float n
 91:                                               ; preds = %._crit_edge, %56, %44, %36
   %.pre-phi35 = phi float [ %.pre34, %._crit_edge ], [ %59, %56 ], [ %51, %44 ], [ %39, %36 ]
   %.0.i = phi float [ 0.000000e+00, %._crit_edge ], [ %61, %56 ], [ %53, %44 ], [ %41, %36 ]
-  %92 = fadd float %.0.i, %1
+  %92 = fadd float %1, %.0.i
   %93 = getelementptr inbounds i8, ptr %21, i64 136
   %94 = load float, ptr %93, align 8
   %95 = fmul float %94, %.pre-phi35
@@ -13543,7 +13543,7 @@ define dso_local void @fonsLineBounds(ptr nocapture noundef readonly %0, float n
 103:                                              ; preds = %._crit_edge33, %63, %72, %84
   %.pre-phi = phi float [ %.pre, %._crit_edge33 ], [ %67, %63 ], [ %79, %72 ], [ %88, %84 ]
   %.0.i.ph = phi float [ 0.000000e+00, %._crit_edge33 ], [ %69, %63 ], [ %81, %72 ], [ %90, %84 ]
-  %104 = fadd float %.0.i.ph, %1
+  %104 = fadd float %1, %.0.i.ph
   %105 = getelementptr inbounds i8, ptr %21, i64 140
   %106 = load float, ptr %105, align 4
   %107 = fmul float %106, %.pre-phi
@@ -13828,7 +13828,7 @@ fons__flush.exit:                                 ; preds = %36, %49
   %92 = getelementptr inbounds i8, ptr %0, i64 104
   %93 = load ptr, ptr %92, align 8
   %94 = load i32, ptr %93, align 8
-  %95 = icmp slt i32 %94, %7
+  %95 = icmp sgt i32 %7, %94
   br i1 %95, label %96, label %fons__atlasExpand.exit
 
 96:                                               ; preds = %89
@@ -15199,7 +15199,7 @@ stbi__vertical_flip.exit.i:                       ; preds = %._crit_edge.i.i, %1
 
 stbi__mul2sizes_valid.exit.i.i.i:                 ; preds = %48
   %50 = udiv i32 2147483647, %42
-  %.not34.i.i.i = icmp slt i32 %50, %41
+  %.not34.i.i.i = icmp sgt i32 %41, %50
   br i1 %.not34.i.i.i, label %stbi__malloc_mad4.exit.thread.i, label %stbi__mul2sizes_valid.exit.thread24.i.i.i
 
 stbi__mul2sizes_valid.exit.thread24.i.i.i:        ; preds = %stbi__mul2sizes_valid.exit.i.i.i, %48
@@ -15214,7 +15214,7 @@ stbi__mul2sizes_valid.exit.thread24.i.i.i:        ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit18.i.i.i:               ; preds = %53
   %55 = udiv i32 2147483647, %46
-  %.not.i.i.i = icmp slt i32 %55, %51
+  %.not.i.i.i = icmp sgt i32 %51, %55
   %56 = mul nsw i32 %46, %51
   %57 = icmp ugt i32 %56, 536870911
   %or.cond.i.i31 = select i1 %.not.i.i.i, i1 true, i1 %57
@@ -19627,8 +19627,8 @@ define dso_local range(i32 0, 2) i32 @nvgTransformInverse(ptr nocapture noundef 
   %11 = getelementptr inbounds i8, ptr %1, i64 4
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
-  %14 = fneg double %10
-  %15 = fmul double %14, %13
+  %14 = fneg double %13
+  %15 = fmul double %10, %14
   %16 = tail call double @llvm.fmuladd.f64(double %4, double %7, double %15)
   %17 = tail call double @llvm.fabs.f64(double %16)
   %or.cond = fcmp olt double %17, 0x3EB0C6F7A0B5ED8D
@@ -19668,8 +19668,8 @@ define dso_local range(i32 0, 2) i32 @nvgTransformInverse(ptr nocapture noundef 
   %40 = getelementptr inbounds i8, ptr %1, i64 16
   %41 = load float, ptr %40, align 4
   %42 = fpext float %41 to double
-  %43 = fneg double %39
-  %44 = fmul double %43, %42
+  %43 = fneg double %42
+  %44 = fmul double %39, %43
   %45 = tail call double @llvm.fmuladd.f64(double %34, double %37, double %44)
   %46 = fmul double %24, %45
   %47 = fptrunc double %46 to float
@@ -19696,8 +19696,8 @@ define dso_local range(i32 0, 2) i32 @nvgTransformInverse(ptr nocapture noundef 
   %65 = fpext float %64 to double
   %66 = load float, ptr %35, align 4
   %67 = fpext float %66 to double
-  %68 = fneg double %65
-  %69 = fmul double %68, %67
+  %68 = fneg double %67
+  %69 = fmul double %65, %68
   %70 = tail call double @llvm.fmuladd.f64(double %61, double %63, double %69)
   %71 = fmul double %24, %70
   %72 = fptrunc double %71 to float
@@ -19719,7 +19719,7 @@ define dso_local void @nvgTransformPoint(ptr nocapture noundef writeonly %0, ptr
   %6 = load float, ptr %2, align 4
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load float, ptr %7, align 4
-  %9 = fmul float %8, %4
+  %9 = fmul float %4, %8
   %10 = tail call float @llvm.fmuladd.f32(float %3, float %6, float %9)
   %11 = getelementptr inbounds i8, ptr %2, i64 16
   %12 = load float, ptr %11, align 4
@@ -19729,7 +19729,7 @@ define dso_local void @nvgTransformPoint(ptr nocapture noundef writeonly %0, ptr
   %15 = load float, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %2, i64 12
   %17 = load float, ptr %16, align 4
-  %18 = fmul float %17, %4
+  %18 = fmul float %4, %17
   %19 = tail call float @llvm.fmuladd.f32(float %3, float %15, float %18)
   %20 = getelementptr inbounds i8, ptr %2, i64 20
   %21 = load float, ptr %20, align 4
@@ -19851,11 +19851,11 @@ define dso_local void @nvgTransform(ptr nocapture noundef %0, float noundef %1, 
   %14 = load float, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load float, ptr %15, align 4
-  %17 = fmul float %16, %2
+  %17 = fmul float %2, %16
   %18 = tail call float @llvm.fmuladd.f32(float %1, float %14, float %17)
-  %19 = fmul float %16, %4
+  %19 = fmul float %4, %16
   %20 = tail call float @llvm.fmuladd.f32(float %3, float %14, float %19)
-  %21 = fmul float %16, %6
+  %21 = fmul float %6, %16
   %22 = tail call float @llvm.fmuladd.f32(float %5, float %14, float %21)
   %23 = getelementptr inbounds i8, ptr %13, i64 16
   %24 = load float, ptr %23, align 4
@@ -19864,11 +19864,11 @@ define dso_local void @nvgTransform(ptr nocapture noundef %0, float noundef %1, 
   %27 = load float, ptr %26, align 4
   %28 = getelementptr inbounds i8, ptr %13, i64 12
   %29 = load float, ptr %28, align 4
-  %30 = fmul float %29, %2
+  %30 = fmul float %2, %29
   %31 = tail call float @llvm.fmuladd.f32(float %1, float %27, float %30)
-  %32 = fmul float %29, %4
+  %32 = fmul float %4, %29
   %33 = tail call float @llvm.fmuladd.f32(float %3, float %27, float %32)
-  %34 = fmul float %29, %6
+  %34 = fmul float %6, %29
   %35 = tail call float @llvm.fmuladd.f32(float %5, float %27, float %34)
   %36 = getelementptr inbounds i8, ptr %13, i64 20
   %37 = load float, ptr %36, align 4
@@ -19918,7 +19918,7 @@ define dso_local void @nvgTranslate(ptr nocapture noundef %0, float noundef %1, 
   %13 = fmul float %12, 0.000000e+00
   %14 = fadd float %10, %13
   %15 = tail call float @llvm.fmuladd.f32(float %10, float 0.000000e+00, float %12)
-  %16 = fmul float %12, %2
+  %16 = fmul float %2, %12
   %17 = tail call float @llvm.fmuladd.f32(float %1, float %10, float %16)
   %18 = getelementptr inbounds i8, ptr %9, i64 16
   %19 = load float, ptr %18, align 4
@@ -19930,7 +19930,7 @@ define dso_local void @nvgTranslate(ptr nocapture noundef %0, float noundef %1, 
   %25 = fmul float %24, 0.000000e+00
   %26 = fadd float %22, %25
   %27 = tail call float @llvm.fmuladd.f32(float %22, float 0.000000e+00, float %24)
-  %28 = fmul float %24, %2
+  %28 = fmul float %2, %24
   %29 = tail call float @llvm.fmuladd.f32(float %1, float %22, float %28)
   %30 = getelementptr inbounds i8, ptr %9, i64 20
   %31 = load float, ptr %30, align 4
@@ -20082,7 +20082,7 @@ define dso_local void @nvgScale(ptr nocapture noundef %0, float noundef %1, floa
   %12 = load float, ptr %11, align 4
   %13 = fmul float %12, 0.000000e+00
   %14 = tail call float @llvm.fmuladd.f32(float %1, float %10, float %13)
-  %15 = fmul float %12, %2
+  %15 = fmul float %2, %12
   %16 = tail call float @llvm.fmuladd.f32(float %10, float 0.000000e+00, float %15)
   %17 = tail call float @llvm.fmuladd.f32(float %10, float 0.000000e+00, float %13)
   %18 = getelementptr inbounds i8, ptr %9, i64 16
@@ -20094,7 +20094,7 @@ define dso_local void @nvgScale(ptr nocapture noundef %0, float noundef %1, floa
   %24 = load float, ptr %23, align 4
   %25 = fmul float %24, 0.000000e+00
   %26 = tail call float @llvm.fmuladd.f32(float %1, float %22, float %25)
-  %27 = fmul float %24, %2
+  %27 = fmul float %2, %24
   %28 = tail call float @llvm.fmuladd.f32(float %22, float 0.000000e+00, float %27)
   %29 = tail call float @llvm.fmuladd.f32(float %22, float 0.000000e+00, float %25)
   %30 = getelementptr inbounds i8, ptr %9, i64 20
@@ -20711,8 +20711,8 @@ define dso_local void @nvgIntersectScissor(ptr nocapture noundef %0, float nound
   %68 = getelementptr inbounds i8, ptr %11, i64 196
   %69 = load float, ptr %68, align 4
   %70 = fpext float %69 to double
-  %71 = fneg double %67
-  %72 = fmul double %71, %70
+  %71 = fneg double %70
+  %72 = fmul double %67, %71
   %73 = tail call double @llvm.fmuladd.f64(double %61, double %64, double %72)
   %74 = tail call double @llvm.fabs.f64(double %73)
   %or.cond.i = fcmp olt double %74, 0x3EB0C6F7A0B5ED8D
@@ -20739,8 +20739,8 @@ define dso_local void @nvgIntersectScissor(ptr nocapture noundef %0, float nound
   %86 = getelementptr inbounds i8, ptr %11, i64 208
   %87 = load float, ptr %86, align 4
   %88 = fpext float %87 to double
-  %89 = fneg double %64
-  %90 = fmul double %89, %88
+  %89 = fneg double %88
+  %90 = fmul double %64, %89
   %91 = tail call double @llvm.fmuladd.f64(double %67, double %85, double %90)
   %92 = fmul double %76, %91
   %93 = fptrunc double %92 to float
@@ -20750,8 +20750,8 @@ define dso_local void @nvgIntersectScissor(ptr nocapture noundef %0, float nound
   %97 = fptrunc double %96 to float
   %98 = fmul double %76, %61
   %99 = fptrunc double %98 to float
-  %100 = fneg double %61
-  %101 = fmul double %100, %85
+  %100 = fneg double %85
+  %101 = fmul double %61, %100
   %102 = tail call double @llvm.fmuladd.f64(double %70, double %88, double %101)
   %103 = fmul double %76, %102
   %104 = fptrunc double %103 to float
@@ -21235,7 +21235,7 @@ define dso_local void @nvgArcTo(ptr nocapture noundef %0, float noundef %1, floa
   %13 = getelementptr inbounds i8, ptr %0, i64 124
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %97, label %16
+  br i1 %15, label %99, label %16
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds i8, ptr %0, i64 8860
@@ -21285,7 +21285,7 @@ nvg__distPtSeg.exit:                              ; preds = %31, %41, %43
   %48 = fmul float %47, %47
   %49 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %48)
   %50 = fcmp olt float %49, %23
-  %51 = fcmp ogt float %18, %5
+  %51 = fcmp olt float %5, %18
   %or.cond = or i1 %51, %50
   br i1 %or.cond, label %52, label %nvg__normalize.exit
 
@@ -21298,7 +21298,7 @@ nvg__distPtSeg.exit:                              ; preds = %31, %41, %43
   store float %2, ptr %54, align 4
   call fastcc void @nvg__appendCommands(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 3)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
-  br label %97
+  br label %99
 
 nvg__normalize.exit:                              ; preds = %nvg__distPtSeg.exit
   %55 = fsub float %10, %1
@@ -21337,39 +21337,41 @@ nvg__normalize.exit:                              ; preds = %nvg__distPtSeg.exit
   store float %2, ptr %76, align 4
   call fastcc void @nvg__appendCommands(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 3)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  br label %97
+  br label %99
 
 77:                                               ; preds = %nvg__normalize.exit
-  %78 = fneg float %.091
-  %79 = fmul float %.0, %78
+  %78 = fneg float %.0
+  %79 = fmul float %.091, %78
   %80 = tail call noundef float @llvm.fmuladd.f32(float %.089, float %.090, float %79)
   %81 = fcmp ogt float %80, 0.000000e+00
-  %82 = tail call float @llvm.fmuladd.f32(float %.091, float %72, float %1)
   br i1 %81, label %.split63, label %.split
 
 .split63:                                         ; preds = %77
-  %83 = fneg float %.090
-  %84 = tail call float @atan2f(float noundef %.091, float noundef %83) #57
-  %85 = fneg float %.089
-  %86 = tail call float @atan2f(float noundef %85, float noundef %.0) #57
+  %82 = fneg float %.090
+  %83 = tail call float @atan2f(float noundef %.091, float noundef %82) #57
+  %84 = fneg float %.089
+  %85 = tail call float @atan2f(float noundef %84, float noundef %.0) #57
+  %86 = fneg float %.091
   %87 = tail call float @llvm.fmuladd.f32(float %.090, float %72, float %2)
-  %88 = tail call float @llvm.fmuladd.f32(float %78, float %5, float %87)
-  %89 = tail call float @llvm.fmuladd.f32(float %.090, float %5, float %82)
-  tail call void @nvgArc(ptr noundef nonnull %0, float noundef %89, float noundef %88, float noundef %5, float noundef %84, float noundef %86, i32 noundef 2)
-  br label %97
+  %88 = tail call float @llvm.fmuladd.f32(float %86, float %5, float %87)
+  %89 = tail call float @llvm.fmuladd.f32(float %.091, float %72, float %1)
+  %90 = tail call float @llvm.fmuladd.f32(float %.090, float %5, float %89)
+  tail call void @nvgArc(ptr noundef nonnull %0, float noundef %90, float noundef %88, float noundef %5, float noundef %83, float noundef %85, i32 noundef 2)
+  br label %99
 
 .split:                                           ; preds = %77
-  %90 = tail call float @atan2f(float noundef %78, float noundef %.090) #57
-  %91 = fneg float %.0
-  %92 = tail call float @atan2f(float noundef %.089, float noundef %91) #57
-  %93 = tail call float @llvm.fmuladd.f32(float %.090, float %72, float %2)
-  %94 = tail call float @llvm.fmuladd.f32(float %.091, float %5, float %93)
-  %95 = fneg float %.090
-  %96 = tail call float @llvm.fmuladd.f32(float %95, float %5, float %82)
-  tail call void @nvgArc(ptr noundef nonnull %0, float noundef %96, float noundef %94, float noundef %5, float noundef %90, float noundef %92, i32 noundef 1)
-  br label %97
+  %91 = fneg float %.091
+  %92 = tail call float @atan2f(float noundef %91, float noundef %.090) #57
+  %93 = tail call float @atan2f(float noundef %.089, float noundef %78) #57
+  %94 = tail call float @llvm.fmuladd.f32(float %.090, float %72, float %2)
+  %95 = tail call float @llvm.fmuladd.f32(float %.091, float %5, float %94)
+  %96 = fneg float %.090
+  %97 = tail call float @llvm.fmuladd.f32(float %.091, float %72, float %1)
+  %98 = tail call float @llvm.fmuladd.f32(float %96, float %5, float %97)
+  tail call void @nvgArc(ptr noundef nonnull %0, float noundef %98, float noundef %95, float noundef %5, float noundef %92, float noundef %93, i32 noundef 1)
+  br label %99
 
-97:                                               ; preds = %.split63, %.split, %6, %74, %52
+99:                                               ; preds = %.split63, %.split, %6, %74, %52
   ret void
 }
 
@@ -21455,9 +21457,9 @@ define dso_local void @nvgArc(ptr nocapture noundef %0, float noundef %1, float 
   %54 = tail call float @llvm.fmuladd.f32(float %52, float %3, float %1)
   %55 = tail call float @llvm.fmuladd.f32(float %53, float %3, float %2)
   %56 = fneg float %53
-  %57 = fmul float %56, %3
+  %57 = fmul float %3, %56
   %58 = fmul float %spec.select, %57
-  %59 = fmul float %52, %3
+  %59 = fmul float %3, %52
   %60 = fmul float %spec.select, %59
   %61 = icmp eq i32 %.06985, 0
   %62 = add nuw nsw i32 %.086, 1
@@ -21628,37 +21630,37 @@ define dso_local void @nvgRoundedRectVarying(ptr nocapture noundef %0, float nou
   %37 = fneg float %4
   %38 = select i1 %36, float %4, float %37
   %39 = fmul float %38, 5.000000e-01
-  %40 = fcmp ogt float %35, %8
+  %40 = fcmp olt float %8, %35
   %41 = select i1 %40, float %8, float %35
   %42 = select i1 %32, float 1.000000e+00, float -1.000000e+00
   %43 = fmul float %42, %41
-  %44 = fcmp ogt float %39, %8
+  %44 = fcmp olt float %8, %39
   %45 = select i1 %44, float %8, float %39
   %46 = select i1 %36, float 1.000000e+00, float -1.000000e+00
   %47 = fmul float %46, %45
-  %48 = fcmp ogt float %35, %7
+  %48 = fcmp olt float %7, %35
   %49 = select i1 %48, float %7, float %35
   %50 = fmul float %42, %49
-  %51 = fcmp ogt float %39, %7
+  %51 = fcmp olt float %7, %39
   %52 = select i1 %51, float %7, float %39
   %53 = fmul float %46, %52
-  %54 = fcmp ogt float %35, %6
+  %54 = fcmp olt float %6, %35
   %55 = select i1 %54, float %6, float %35
   %56 = fmul float %42, %55
-  %57 = fcmp ogt float %39, %6
+  %57 = fcmp olt float %6, %39
   %58 = select i1 %57, float %6, float %39
   %59 = fmul float %46, %58
-  %60 = fcmp ogt float %35, %5
+  %60 = fcmp olt float %5, %35
   %61 = select i1 %60, float %5, float %35
   %62 = fmul float %42, %61
-  %63 = fcmp ogt float %39, %5
+  %63 = fcmp olt float %5, %39
   %64 = select i1 %63, float %5, float %39
   %65 = fmul float %46, %64
   store float 0.000000e+00, ptr %11, align 16
   %66 = getelementptr inbounds i8, ptr %11, i64 4
   store float %1, ptr %66, align 4
   %67 = getelementptr inbounds i8, ptr %11, i64 8
-  %68 = fadd float %65, %2
+  %68 = fadd float %2, %65
   store float %68, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %11, i64 12
   store float 1.000000e+00, ptr %69, align 4
@@ -21682,7 +21684,7 @@ define dso_local void @nvgRoundedRectVarying(ptr nocapture noundef %0, float nou
   %81 = getelementptr inbounds i8, ptr %11, i64 40
   store float %72, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %11, i64 44
-  %83 = fadd float %43, %1
+  %83 = fadd float %1, %43
   store float %83, ptr %82, align 4
   %84 = getelementptr inbounds i8, ptr %11, i64 48
   store float %72, ptr %84, align 16
@@ -21718,7 +21720,7 @@ define dso_local void @nvgRoundedRectVarying(ptr nocapture noundef %0, float nou
   %103 = getelementptr inbounds i8, ptr %11, i64 96
   store float %87, ptr %103, align 16
   %104 = getelementptr inbounds i8, ptr %11, i64 100
-  %105 = fadd float %59, %2
+  %105 = fadd float %2, %59
   store float %105, ptr %104, align 4
   %106 = getelementptr inbounds i8, ptr %11, i64 104
   store float 2.000000e+00, ptr %106, align 8
@@ -21741,7 +21743,7 @@ define dso_local void @nvgRoundedRectVarying(ptr nocapture noundef %0, float nou
   %117 = getelementptr inbounds i8, ptr %11, i64 132
   store float 1.000000e+00, ptr %117, align 4
   %118 = getelementptr inbounds i8, ptr %11, i64 136
-  %119 = fadd float %62, %1
+  %119 = fadd float %1, %62
   store float %119, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %11, i64 140
   store float %2, ptr %120, align 4
@@ -22417,8 +22419,8 @@ thread-pre-split:                                 ; preds = %131, %156
   %174 = fsub float %169, %163
   %175 = fsub float %170, %162
   %176 = fsub float %172, %163
-  %177 = fneg float %173
-  %178 = fmul float %176, %177
+  %177 = fneg float %176
+  %178 = fmul float %173, %177
   %179 = tail call noundef float @llvm.fmuladd.f32(float %175, float %174, float %178)
   %180 = fadd float %.01516.i, %179
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -22631,7 +22633,7 @@ define internal fastcc void @nvg__expandFill(ptr nocapture noundef readonly %0, 
   %34 = load ptr, ptr %3, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 44
   %36 = load i32, ptr %35, align 4
-  %37 = icmp slt i32 %36, %.0163.lcssa
+  %37 = icmp sgt i32 %.0163.lcssa, %36
   br i1 %37, label %38, label %nvg__allocTempVerts.exit
 
 38:                                               ; preds = %._crit_edge
@@ -22683,7 +22685,7 @@ nvg__allocTempVerts.exit:                         ; preds = %._crit_edge, %47
   %66 = phi i1 [ %63, %.thread ], [ false, %64 ]
   %67 = getelementptr inbounds i8, ptr %4, i64 16
   %68 = fmul float %6, 5.000000e-01
-  %69 = fadd float %68, %1
+  %69 = fadd float %1, %68
   %70 = fsub float %1, %68
   %.0175 = select i1 %66, float 5.000000e-01, float 0.000000e+00
   %.0174 = select i1 %66, float %68, float %69
@@ -23150,7 +23152,7 @@ define internal fastcc void @nvg__expandStroke(ptr nocapture noundef readonly %0
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8856
   %10 = load float, ptr %9, align 8
-  %11 = fadd float %10, %1
+  %11 = fadd float %1, %10
   %12 = fdiv float %1, %11
   %13 = tail call float @acosf(float noundef %12) #57
   %14 = fmul float %13, 2.000000e+00
@@ -23279,7 +23281,7 @@ define internal fastcc void @nvg__expandStroke(ptr nocapture noundef readonly %0
   %75 = load ptr, ptr %7, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 44
   %77 = load i32, ptr %76, align 4
-  %78 = icmp slt i32 %77, %.0183.lcssa
+  %78 = icmp sgt i32 %.0183.lcssa, %77
   br i1 %78, label %79, label %nvg__allocTempVerts.exit
 
 79:                                               ; preds = %._crit_edge
@@ -24533,7 +24535,7 @@ define dso_local float @nvgText(ptr noundef %0, float noundef %1, float noundef 
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 44
   %108 = load i32, ptr %107, align 4
-  %109 = icmp slt i32 %108, %104
+  %109 = icmp sgt i32 %104, %108
   br i1 %109, label %110, label %nvg__allocTempVerts.exit
 
 110:                                              ; preds = %50
@@ -24566,8 +24568,8 @@ nvg__allocTempVerts.exit:                         ; preds = %50, %119
 
 128:                                              ; preds = %nvg__allocTempVerts.exit
   %129 = load ptr, ptr %51, align 8
-  %130 = fmul float %40, %1
-  %131 = fmul float %40, %2
+  %130 = fmul float %1, %40
+  %131 = fmul float %2, %40
   %132 = call i32 @fonsTextIterInit(ptr noundef %129, ptr noundef nonnull %8, float noundef %130, float noundef %131, ptr noundef %3, ptr noundef %.080, i32 noundef 2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(80) %8, i64 80, i1 false)
   %133 = load ptr, ptr %51, align 8
@@ -24669,16 +24671,16 @@ nvg__allocTempVerts.exit:                         ; preds = %50, %119
   %195 = load float, ptr %10, align 4
   %196 = fmul float %41, %195
   %197 = load float, ptr %23, align 4
-  %198 = load float, ptr %25, align 4
-  %199 = load float, ptr %145, align 4
-  %200 = fmul float %41, %199
-  %201 = fmul float %198, %200
+  %198 = load float, ptr %145, align 4
+  %199 = fmul float %41, %198
+  %200 = load float, ptr %25, align 4
+  %201 = fmul float %199, %200
   %202 = call float @llvm.fmuladd.f32(float %196, float %197, float %201)
   %203 = fadd float %194, %202
   %204 = load float, ptr %146, align 4
   %205 = load float, ptr %17, align 4
   %206 = load float, ptr %19, align 4
-  %207 = fmul float %200, %206
+  %207 = fmul float %199, %206
   %208 = call float @llvm.fmuladd.f32(float %196, float %205, float %207)
   %209 = fadd float %204, %208
   %210 = load float, ptr %147, align 4
@@ -24689,7 +24691,7 @@ nvg__allocTempVerts.exit:                         ; preds = %50, %119
   %215 = fadd float %204, %214
   %216 = load float, ptr %148, align 4
   %217 = fmul float %41, %216
-  %218 = fmul float %198, %217
+  %218 = fmul float %200, %217
   %219 = call float @llvm.fmuladd.f32(float %211, float %197, float %218)
   %220 = fadd float %194, %219
   %221 = fmul float %206, %217
@@ -25432,7 +25434,7 @@ define dso_local i32 @nvgTextBreakLines(ptr nocapture noundef %0, ptr noundef %1
 
 51:                                               ; preds = %48, %46
   %.0256 = phi ptr [ %50, %48 ], [ %2, %46 ]
-  %52 = icmp eq ptr %.0256, %1
+  %52 = icmp eq ptr %1, %.0256
   br i1 %52, label %.loopexit, label %53
 
 53:                                               ; preds = %51
@@ -25489,7 +25491,7 @@ define dso_local i32 @nvgTextBreakLines(ptr nocapture noundef %0, ptr noundef %1
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds [20 x %struct.FONSstate], ptr %96, i64 0, i64 %100
   store i32 %95, ptr %101, align 4
-  %102 = fmul float %39, %3
+  %102 = fmul float %3, %39
   %103 = load ptr, ptr %54, align 8
   %104 = call i32 @fonsTextIterInit(ptr noundef %103, ptr noundef nonnull %7, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %1, ptr noundef %.0256, i32 noundef 1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %7, i64 80, i1 false)
@@ -25821,7 +25823,7 @@ define dso_local i32 @nvgTextGlyphPositions(ptr nocapture noundef %0, float noun
 
 50:                                               ; preds = %47, %45
   %.049 = phi ptr [ %49, %47 ], [ %4, %45 ]
-  %51 = icmp eq ptr %.049, %3
+  %51 = icmp eq ptr %3, %.049
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %50
@@ -25879,8 +25881,8 @@ define dso_local i32 @nvgTextGlyphPositions(ptr nocapture noundef %0, float noun
   %100 = getelementptr inbounds [20 x %struct.FONSstate], ptr %95, i64 0, i64 %99
   store i32 %94, ptr %100, align 4
   %101 = load ptr, ptr %53, align 8
-  %102 = fmul float %40, %1
-  %103 = fmul float %40, %2
+  %102 = fmul float %1, %40
+  %103 = fmul float %2, %40
   %104 = call i32 @fonsTextIterInit(ptr noundef %101, ptr noundef nonnull %8, float noundef %102, float noundef %103, ptr noundef %3, ptr noundef %.049, i32 noundef 1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(80) %8, i64 80, i1 false)
   %105 = getelementptr inbounds i8, ptr %8, i64 40
@@ -26044,8 +26046,8 @@ define dso_local float @nvgTextBounds(ptr nocapture noundef readonly %0, float n
   %89 = getelementptr inbounds [20 x %struct.FONSstate], ptr %84, i64 0, i64 %88
   store i32 %83, ptr %89, align 4
   %90 = load ptr, ptr %42, align 8
-  %91 = fmul float %36, %1
-  %92 = fmul float %36, %2
+  %91 = fmul float %1, %36
+  %92 = fmul float %2, %36
   %93 = tail call float @fonsTextBounds(ptr noundef %90, float noundef %91, float noundef %92, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %107, label %94
@@ -26260,11 +26262,11 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
   %120 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv174
   %121 = getelementptr inbounds i8, ptr %120, i64 28
   %122 = load float, ptr %121, align 4
-  %123 = fadd float %122, %1
+  %123 = fadd float %1, %122
   %124 = fadd float %123, 0.000000e+00
   %125 = getelementptr inbounds i8, ptr %120, i64 32
   %126 = load float, ptr %125, align 8
-  %127 = fadd float %126, %1
+  %127 = fadd float %1, %126
   %128 = fadd float %127, 0.000000e+00
   %129 = fcmp olt float %.18596.us.us.us.us.us.us, %123
   %130 = select i1 %129, float %.18596.us.us.us.us.us.us, float %124
@@ -26324,11 +26326,11 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
   %153 = fsub float %3, %152
   %154 = getelementptr inbounds i8, ptr %150, i64 28
   %155 = load float, ptr %154, align 4
-  %156 = fadd float %155, %1
+  %156 = fadd float %1, %155
   %157 = fadd float %153, %156
   %158 = getelementptr inbounds i8, ptr %150, i64 32
   %159 = load float, ptr %158, align 8
-  %160 = fadd float %159, %1
+  %160 = fadd float %1, %159
   %161 = fadd float %153, %160
   %162 = fcmp olt float %.18596.us.us.us.us, %157
   %163 = select i1 %162, float %.18596.us.us.us.us, float %157
@@ -26389,11 +26391,11 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
   %187 = call float @llvm.fmuladd.f32(float %3, float 5.000000e-01, float %186)
   %188 = getelementptr inbounds i8, ptr %183, i64 28
   %189 = load float, ptr %188, align 4
-  %190 = fadd float %189, %1
+  %190 = fadd float %1, %189
   %191 = fadd float %187, %190
   %192 = getelementptr inbounds i8, ptr %183, i64 32
   %193 = load float, ptr %192, align 8
-  %194 = fadd float %193, %1
+  %194 = fadd float %1, %193
   %195 = fadd float %187, %194
   %196 = fcmp olt float %.18596.us.us, %191
   %197 = select i1 %196, float %.18596.us.us, float %191
@@ -26436,11 +26438,11 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
   %212 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv
   %213 = getelementptr inbounds i8, ptr %212, i64 28
   %214 = load float, ptr %213, align 4
-  %215 = fadd float %214, %1
+  %215 = fadd float %1, %214
   %216 = fadd float %215, 0.000000e+00
   %217 = getelementptr inbounds i8, ptr %212, i64 32
   %218 = load float, ptr %217, align 8
-  %219 = fadd float %218, %1
+  %219 = fadd float %1, %218
   %220 = fadd float %219, 0.000000e+00
   %221 = fcmp olt float %.18596, %215
   %222 = select i1 %221, float %.18596, float %216
@@ -26505,21 +26507,21 @@ define internal fastcc void @stbtt__tesselate_curve(ptr noundef %0, ptr nocaptur
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %tailrecurse
-  %.pn71 = phi float [ %35, %tailrecurse ], [ %12, %.lr.ph.preheader ]
-  %.pn = phi float [ %34, %tailrecurse ], [ %13, %.lr.ph.preheader ]
+  %.pn = phi float [ %35, %tailrecurse ], [ %12, %.lr.ph.preheader ]
+  %.pn71 = phi float [ %34, %tailrecurse ], [ %13, %.lr.ph.preheader ]
   %.tr5767 = phi i32 [ %29, %tailrecurse ], [ %9, %.lr.ph.preheader ]
   %.tr5366 = phi float [ %33, %tailrecurse ], [ %5, %.lr.ph.preheader ]
   %.tr5265 = phi float [ %31, %tailrecurse ], [ %4, %.lr.ph.preheader ]
   %.tr5164 = phi float [ %15, %tailrecurse ], [ %3, %.lr.ph.preheader ]
   %.tr5063 = phi float [ %14, %tailrecurse ], [ %2, %.lr.ph.preheader ]
-  %.in = fadd float %.pn71, %7
-  %.in70 = fadd float %.pn, %6
+  %.in70 = fadd float %6, %.pn71
   %14 = fmul float %.in70, 2.500000e-01
+  %.in = fadd float %7, %.pn
   %15 = fmul float %.in, 2.500000e-01
-  %16 = fadd float %.tr5164, %7
+  %16 = fadd float %7, %.tr5164
   %17 = fmul float %16, 5.000000e-01
   %18 = fsub float %17, %15
-  %19 = fadd float %.tr5063, %6
+  %19 = fadd float %6, %.tr5063
   %20 = fmul float %19, 5.000000e-01
   %21 = fsub float %20, %14
   %22 = fmul float %18, %18
@@ -26534,9 +26536,9 @@ tailrecurse:                                      ; preds = %.lr.ph
   %28 = fmul float %27, 5.000000e-01
   %29 = add i32 %.tr5767, 1
   tail call fastcc void @stbtt__tesselate_curve(ptr noundef %0, ptr noundef %1, float noundef %.tr5063, float noundef %.tr5164, float noundef %26, float noundef %28, float noundef %14, float noundef %15, float noundef %8, i32 noundef %29)
-  %30 = fadd float %.tr5265, %6
+  %30 = fadd float %6, %.tr5265
   %31 = fmul float %30, 5.000000e-01
-  %32 = fadd float %.tr5366, %7
+  %32 = fadd float %7, %.tr5366
   %33 = fmul float %32, 5.000000e-01
   %34 = tail call float @llvm.fmuladd.f32(float %31, float 2.000000e+00, float %14)
   %35 = tail call float @llvm.fmuladd.f32(float %33, float 2.000000e+00, float %15)
@@ -26723,7 +26725,7 @@ define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr nocapture nound
   %35 = shl nuw nsw i32 %34, 8
   %36 = zext i8 %.val104 to i32
   %37 = or disjoint i32 %35, %36
-  %38 = icmp eq i32 %37, %4
+  %38 = icmp eq i32 %4, %37
   br i1 %38, label %39, label %147
 
 39:                                               ; preds = %26
@@ -26797,7 +26799,7 @@ define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr nocapture nound
   %86 = shl nuw nsw i32 %85, 8
   %87 = zext i8 %.val92 to i32
   %88 = or disjoint i32 %86, %87
-  %89 = icmp eq i32 %88, %5
+  %89 = icmp eq i32 %5, %88
   br i1 %89, label %90, label %145
 
 90:                                               ; preds = %82
@@ -26879,7 +26881,7 @@ define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr nocapture nound
   %142 = sub nsw i32 %3, %139
   %143 = getelementptr inbounds i8, ptr %24, i64 %127
   %144 = tail call fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef nonnull readonly %141, i32 noundef %142, ptr noundef readonly %143, i32 noundef %121)
-  %.not = icmp eq i32 %144, %142
+  %.not = icmp eq i32 %142, %144
   br i1 %.not, label %._crit_edge, label %147
 
 145:                                              ; preds = %106, %98, %90, %82, %79
@@ -26923,7 +26925,7 @@ define internal fastcc range(i32 0, 2) i32 @fons__atlasAddRect(ptr nocapture nou
   %16 = getelementptr inbounds %struct.FONSatlasNode, ptr %13, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
-  %19 = add nsw i32 %18, %1
+  %19 = add nsw i32 %1, %18
   %20 = icmp sgt i32 %19, %8
   br i1 %20, label %fons__atlasRectFits.exit.thread, label %21
 
@@ -27073,7 +27075,7 @@ fons__atlasRectFits.exit.thread:                  ; preds = %26, %.lr.ph.i, %15,
   %87 = add nsw i32 %86, 1
   store i32 %87, ptr %9, align 8
   %88 = add nuw nsw i32 %.143, 1
-  %89 = icmp sgt i32 %86, %.143
+  %89 = icmp slt i32 %.143, %86
   br i1 %89, label %.lr.ph.i50, label %._crit_edge.i
 
 .lr.ph.i50:                                       ; preds = %.loopexit.i
@@ -27133,7 +27135,7 @@ fons__atlasRectFits.exit.thread:                  ; preds = %26, %.lr.ph.i, %15,
 
 .preheader.i.i:                                   ; preds = %129
   %131 = add nsw i32 %.pre.pre.i, -1
-  %132 = icmp sgt i32 %131, %88
+  %132 = icmp slt i32 %88, %131
   br i1 %132, label %.lr.ph.i51.i, label %._crit_edge.i50.i
 
 .lr.ph.i51.i:                                     ; preds = %.preheader.i.i, %.lr.ph.i51.i
@@ -27193,7 +27195,7 @@ fons__atlasRemoveNode.exit.i:                     ; preds = %._crit_edge.i50.i, 
 
 .preheader.i54.i:                                 ; preds = %155
   %163 = add nsw i32 %161, -1
-  %164 = icmp sgt i32 %163, %149
+  %164 = icmp slt i32 %149, %163
   br i1 %164, label %.lr.ph.i57.i, label %._crit_edge.i55.i
 
 .lr.ph.i57.i:                                     ; preds = %.preheader.i54.i, %.lr.ph.i57.i
@@ -27241,7 +27243,7 @@ define internal fastcc void @fons__blurRows(ptr nocapture noundef %0, i32 nounde
 
 .preheader.lr.ph:                                 ; preds = %5
   %7 = mul nsw i32 %3, %2
-  %8 = icmp sgt i32 %7, %3
+  %8 = icmp slt i32 %3, %7
   %9 = add nsw i32 %2, -1
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
@@ -30021,12 +30023,12 @@ stbi__cleanup_jpeg.exit300.i.i:                   ; preds = %1255, %1237
 
 stbi__mul2sizes_valid.exit.i.i.i.i:               ; preds = %1288
   %1290 = udiv i32 2147483647, %1284
-  %.not23.i.i.i.i = icmp slt i32 %1290, %1220
+  %.not23.i.i.i.i = icmp sgt i32 %1220, %1290
   br i1 %.not23.i.i.i.i, label %stbi__malloc_mad3.exit.thread.i.i, label %stbi__mul2sizes_valid.exit.thread15.i.i.i.i
 
 stbi__mul2sizes_valid.exit.thread15.i.i.i.i:      ; preds = %stbi__mul2sizes_valid.exit.i.i.i.i, %1288
   %1291 = mul nsw i32 %1284, %1220
-  %1292 = or i32 %1291, %1286
+  %1292 = or i32 %1286, %1291
   %or.cond.not.i10.i.i.i.i = icmp sgt i32 %1292, -1
   br i1 %or.cond.not.i10.i.i.i.i, label %1293, label %stbi__malloc_mad3.exit.thread.i.i
 
@@ -30036,7 +30038,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i.i.i:      ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i.i.i:             ; preds = %1293
   %1295 = udiv i32 2147483647, %1286
-  %.not.i.i302.i.i = icmp slt i32 %1295, %1291
+  %.not.i.i302.i.i = icmp sgt i32 %1291, %1295
   br i1 %.not.i.i302.i.i, label %stbi__malloc_mad3.exit.thread.i.i, label %stbi__mad3sizes_valid.exit.i.i.i
 
 stbi__mad3sizes_valid.exit.i.i.i:                 ; preds = %stbi__mul2sizes_valid.exit12.i.i.i.i, %1293
@@ -30820,7 +30822,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
 1709:                                             ; preds = %1704
   %1710 = getelementptr inbounds i8, ptr %.pre51.i.i, i64 12
   %1711 = load i32, ptr %1710, align 4
-  %.not49.i.i = icmp eq i32 %1711, %4
+  %.not49.i.i = icmp eq i32 %4, %1711
   br i1 %.not49.i.i, label %._crit_edge.i.i92, label %1712
 
 1712:                                             ; preds = %1709
@@ -31256,7 +31258,7 @@ stbi__bmp_test.exit:                              ; preds = %stbi__get16le.exit3
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %1894
   %1896 = udiv i32 2147483647, %1893
-  %.not23.i.i = icmp ult i32 %1896, %..i
+  %.not23.i.i = icmp ugt i32 %..i, %1896
   br i1 %.not23.i.i, label %1900, label %stbi__mul2sizes_valid.exit.thread15.i.i
 
 stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_valid.exit.i.i, %1894
@@ -31266,7 +31268,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i
   %1899 = udiv i32 2147483647, %1861
-  %.not.i.i108 = icmp ult i32 %1899, %1897
+  %.not.i.i108 = icmp ugt i32 %1897, %1899
   br i1 %.not.i.i108, label %1900, label %stbi__mad3sizes_valid.exit.i
 
 1900:                                             ; preds = %stbi__mul2sizes_valid.exit12.i.i, %stbi__mul2sizes_valid.exit.i.i, %1889
@@ -31278,7 +31280,7 @@ stbi__mad3sizes_valid.exit.i:                     ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit.i.i.i:                 ; preds = %stbi__mad3sizes_valid.exit.i
   %1901 = udiv i32 2147483647, %1893
-  %.not23.i.i.i = icmp ult i32 %1901, %..i
+  %.not23.i.i.i = icmp ugt i32 %..i, %1901
   br i1 %.not23.i.i.i, label %stbi__malloc_mad3.exit.thread.i, label %stbi__mul2sizes_valid.exit.thread15.i.i.i
 
 stbi__mul2sizes_valid.exit.thread15.i.i.i:        ; preds = %stbi__mul2sizes_valid.exit.i.i.i, %stbi__mad3sizes_valid.exit.i
@@ -31286,7 +31288,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i.i:        ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i.i:               ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i.i
   %1902 = udiv i32 2147483647, %1861
-  %.not.i.i.i109 = icmp ult i32 %1902, %1897
+  %.not.i.i.i109 = icmp ugt i32 %1897, %1902
   br i1 %.not.i.i.i109, label %stbi__malloc_mad3.exit.thread.i, label %stbi__malloc_mad3.exit.i
 
 stbi__malloc_mad3.exit.i:                         ; preds = %stbi__mul2sizes_valid.exit12.i.i.i, %stbi__mul2sizes_valid.exit.thread15.i.i.i
@@ -33005,7 +33007,7 @@ stbi__skip.exit451.i:                             ; preds = %2725, %2721
 
 .loopexit.i:                                      ; preds = %._crit_edge71.us.i, %.lr.ph73.i, %.preheader.i, %.loopexit15..loopexit_crit_edge.i
   %.pre103.i = phi i32 [ %.pre103.pre.i, %.loopexit15..loopexit_crit_edge.i ], [ %.pre103.pre107.i, %.preheader.i ], [ %.pre103.pre107.i, %.lr.ph73.i ], [ %.pre103.pre107.i, %._crit_edge71.us.i ]
-  %.not320.i = icmp eq i32 %..i, %4
+  %.not320.i = icmp eq i32 %4, %..i
   %or.cond.i = or i1 %.not313.i, %.not320.i
   br i1 %or.cond.i, label %2762, label %2759
 
@@ -34271,7 +34273,7 @@ stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %386
 
 stbi__mul2sizes_valid.exit12.i:                   ; preds = %388
   %390 = udiv i32 2147483647, %144
-  %.not.i274 = icmp ult i32 %390, %387
+  %.not.i274 = icmp ugt i32 %387, %390
   br i1 %.not.i274, label %391, label %stbi__mad3sizes_valid.exit
 
 391:                                              ; preds = %stbi__mul2sizes_valid.exit12.i, %386, %stbi__mul2sizes_valid.exit.thread15.i
@@ -35536,7 +35538,7 @@ stbi__at_eof.exit.thread:                         ; preds = %124, %stbi__at_eof.
 
 stbi__mul2sizes_valid.exit.i:                     ; preds = %stbi__at_eof.exit.thread
   %135 = udiv i32 2147483647, %122
-  %.not23.i = icmp ult i32 %135, %80
+  %.not23.i = icmp ugt i32 %80, %135
   %136 = mul nuw nsw i32 %122, %80
   %.not.i57 = icmp ugt i32 %136, 536870911
   %or.cond = select i1 %.not23.i, i1 true, i1 %.not.i57
@@ -35727,7 +35729,7 @@ stbi__refill_buffer.exit.i4.i78:                  ; preds = %204, %203
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %207
   %208 = udiv i32 2147483647, %122
-  %.not23.i.i = icmp ult i32 %208, %80
+  %.not23.i.i = icmp ugt i32 %80, %208
   br i1 %.not23.i.i, label %stbi__malloc_mad3.exit, label %stbi__mul2sizes_valid.exit.thread15.i.i
 
 stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_valid.exit.i.i, %207
@@ -37029,12 +37031,12 @@ define internal fastcc noundef ptr @stbi__pnm_load(ptr noundef %0, ptr nocapture
 
 stbi__mul2sizes_valid.exit.i:                     ; preds = %17
   %19 = udiv i32 2147483647, %15
-  %.not23.i = icmp slt i32 %19, %.pre
+  %.not23.i = icmp sgt i32 %.pre, %19
   br i1 %.not23.i, label %25, label %stbi__mul2sizes_valid.exit.thread15.i
 
 stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %stbi__mul2sizes_valid.exit.i, %17
   %20 = mul i32 %15, %.pre
-  %21 = or i32 %20, %14
+  %21 = or i32 %14, %20
   %or.cond.not.i10.i = icmp sgt i32 %21, -1
   br i1 %or.cond.not.i10.i, label %22, label %25
 
@@ -37044,7 +37046,7 @@ stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i:                   ; preds = %22
   %24 = udiv i32 2147483647, %14
-  %.not.i = icmp slt i32 %24, %20
+  %.not.i = icmp sgt i32 %20, %24
   br i1 %.not.i, label %25, label %stbi__mad3sizes_valid.exit
 
 25:                                               ; preds = %stbi__mul2sizes_valid.exit12.i, %stbi__mul2sizes_valid.exit.i, %13, %stbi__mul2sizes_valid.exit.thread15.i
@@ -37056,7 +37058,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %22, %stbi__mul2size
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %stbi__mad3sizes_valid.exit
   %26 = udiv i32 2147483647, %15
-  %.not23.i.i = icmp slt i32 %26, %.pre
+  %.not23.i.i = icmp sgt i32 %.pre, %26
   br i1 %.not23.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__mul2sizes_valid.exit.thread15.i.i
 
 stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mad3sizes_valid.exit, %stbi__mul2sizes_valid.exit.i.i
@@ -37064,7 +37066,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mad3sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i
   %27 = udiv i32 2147483647, %14
-  %.not.i.i = icmp slt i32 %27, %20
+  %.not.i.i = icmp sgt i32 %20, %27
   br i1 %.not.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__malloc_mad3.exit
 
 stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i, %stbi__mul2sizes_valid.exit12.i.i
@@ -37135,7 +37137,7 @@ stbi__getn.exit:                                  ; preds = %44, %52, %56
 
 58:                                               ; preds = %stbi__getn.exit
   %59 = load i32, ptr %7, align 8
-  %.not44 = icmp eq i32 %59, %4
+  %.not44 = icmp eq i32 %4, %59
   br i1 %.not44, label %64, label %60
 
 60:                                               ; preds = %58
@@ -37286,7 +37288,7 @@ stbi__mul2sizes_valid.exit.thread24.i:            ; preds = %stbi__mul2sizes_val
 
 57:                                               ; preds = %stbi__mul2sizes_valid.exit.thread24.i
   %58 = udiv i32 2147483647, %spec.store.select
-  %.not.i = icmp slt i32 %58, %55
+  %.not.i = icmp sgt i32 %55, %58
   %59 = mul nsw i32 %55, %spec.store.select
   %60 = icmp ugt i32 %59, 536870911
   %or.cond191 = select i1 %.not.i, i1 true, i1 %60
@@ -37846,12 +37848,12 @@ define internal fastcc noalias noundef ptr @stbi__hdr_to_ldr(ptr noundef %0, i32
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %7
   %9 = udiv i32 2147483647, %2
-  %.not23.i.i = icmp slt i32 %9, %1
+  %.not23.i.i = icmp sgt i32 %1, %9
   br i1 %.not23.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__mul2sizes_valid.exit.thread15.i.i
 
 stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_valid.exit.i.i, %7
   %10 = mul nsw i32 %2, %1
-  %11 = or i32 %10, %3
+  %11 = or i32 %3, %10
   %or.cond.not.i10.i.i = icmp sgt i32 %11, -1
   br i1 %or.cond.not.i10.i.i, label %12, label %stbi__malloc_mad3.exit.thread
 
@@ -37861,7 +37863,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %12
   %14 = udiv i32 2147483647, %3
-  %.not.i.i = icmp slt i32 %14, %10
+  %.not.i.i = icmp sgt i32 %10, %14
   br i1 %.not.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__malloc_mad3.exit
 
 stbi__malloc_mad3.exit:                           ; preds = %12, %stbi__mul2sizes_valid.exit12.i.i
@@ -39625,19 +39627,19 @@ stbi__tga_get_comp.exit:                          ; preds = %495, %491
 
 stbi__mul2sizes_valid.exit.i:                     ; preds = %505
   %507 = udiv i32 2147483647, %436
-  %.not23.i = icmp ult i32 %507, %380
+  %.not23.i = icmp ugt i32 %380, %507
   br i1 %.not23.i, label %512, label %stbi__mul2sizes_valid.exit.thread15.i.thread
 
 stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %505
   %508 = mul nuw nsw i32 %436, %380
   %509 = udiv i32 2147483647, %.0190.ph
-  %.not.i312 = icmp ult i32 %509, %508
+  %.not.i312 = icmp ugt i32 %508, %509
   br i1 %.not.i312, label %512, label %stbi__malloc_mad3.exit
 
 stbi__mul2sizes_valid.exit.thread15.i.thread:     ; preds = %stbi__mul2sizes_valid.exit.i
   %510 = mul nuw nsw i32 %436, %380
   %511 = udiv i32 2147483647, %.0190.ph
-  %.not.i312109 = icmp ult i32 %511, %510
+  %.not.i312109 = icmp ugt i32 %510, %511
   br i1 %.not.i312109, label %512, label %stbi__mul2sizes_valid.exit.i.i
 
 512:                                              ; preds = %stbi__mul2sizes_valid.exit.thread15.i.thread, %stbi__mul2sizes_valid.exit.thread15.i, %stbi__mul2sizes_valid.exit.i
@@ -39646,7 +39648,7 @@ stbi__mul2sizes_valid.exit.thread15.i.thread:     ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %stbi__mul2sizes_valid.exit.thread15.i.thread
   %513 = udiv i32 2147483647, %436
-  %.not23.i.i = icmp ult i32 %513, %380
+  %.not23.i.i = icmp ugt i32 %380, %513
   br i1 %.not23.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__malloc_mad3.exit
 
 stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit.thread15.i
@@ -39678,7 +39680,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %525 = ptrtoint ptr %523 to i64
   %526 = sub i64 %524, %525
   %527 = trunc i64 %526 to i32
-  %528 = icmp slt i32 %527, %37
+  %528 = icmp sgt i32 %37, %527
   br i1 %528, label %529, label %535
 
 529:                                              ; preds = %521
@@ -40325,7 +40327,7 @@ stbi__get8.exit359:                               ; preds = %733, %736, %stbi__r
 
 .loopexit:                                        ; preds = %776, %.loopexit33
   %.not208 = icmp eq i32 %4, 0
-  %.not209 = icmp eq i32 %.0190.ph, %4
+  %.not209 = icmp eq i32 %4, %.0190.ph
   %or.cond216 = or i1 %.not208, %.not209
   br i1 %or.cond216, label %784, label %782
 
@@ -43462,7 +43464,7 @@ stbi__get8.exit231:                               ; preds = %323, %stbi__refill_
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %408
   %410 = udiv i32 2147483647, %403
-  %.not10.i.i = icmp slt i32 %410, %400
+  %.not10.i.i = icmp sgt i32 %400, %410
   br i1 %.not10.i.i, label %stbi__malloc_mad2.exit.thread, label %stbi__malloc_mad2.exit
 
 stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__mul2sizes_valid.exit.i.i, %384
@@ -43885,7 +43887,7 @@ define internal fastcc void @stbi__skip(ptr nocapture noundef %0, i32 noundef %1
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = trunc i64 %18 to i32
-  %20 = icmp slt i32 %19, %1
+  %20 = icmp sgt i32 %1, %19
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %11
@@ -43922,12 +43924,12 @@ define internal fastcc range(i32 0, 2) i32 @stbi__mad3sizes_valid(i32 noundef %0
 
 stbi__mul2sizes_valid.exit:                       ; preds = %6
   %8 = udiv i32 2147483647, %1
-  %.not23 = icmp slt i32 %8, %0
+  %.not23 = icmp sgt i32 %0, %8
   br i1 %.not23, label %stbi__mul2sizes_valid.exit.thread, label %stbi__mul2sizes_valid.exit.thread15
 
 stbi__mul2sizes_valid.exit.thread15:              ; preds = %6, %stbi__mul2sizes_valid.exit
   %9 = mul nsw i32 %1, %0
-  %10 = or i32 %9, %2
+  %10 = or i32 %2, %9
   %or.cond.not.i10 = icmp sgt i32 %10, -1
   br i1 %or.cond.not.i10, label %11, label %stbi__mul2sizes_valid.exit.thread
 
@@ -43937,13 +43939,13 @@ stbi__mul2sizes_valid.exit.thread15:              ; preds = %6, %stbi__mul2sizes
 
 stbi__mul2sizes_valid.exit12:                     ; preds = %11
   %13 = udiv i32 2147483647, %2
-  %.not = icmp slt i32 %13, %9
+  %.not = icmp sgt i32 %9, %13
   br i1 %.not, label %stbi__mul2sizes_valid.exit.thread, label %stbi__mul2sizes_valid.exit12.thread20
 
 stbi__mul2sizes_valid.exit12.thread20:            ; preds = %11, %stbi__mul2sizes_valid.exit12
   %14 = mul nsw i32 %9, %2
   %15 = sub nuw nsw i32 2147483647, %3
-  %16 = icmp sge i32 %15, %14
+  %16 = icmp sle i32 %14, %15
   %17 = zext i1 %16 to i32
   br label %stbi__mul2sizes_valid.exit.thread
 
@@ -44021,12 +44023,12 @@ define internal fastcc noalias noundef ptr @stbi__malloc_mad3(i32 noundef %0, i3
 
 stbi__mul2sizes_valid.exit.i:                     ; preds = %6
   %8 = udiv i32 2147483647, %1
-  %.not23.i = icmp slt i32 %8, %0
+  %.not23.i = icmp sgt i32 %0, %8
   br i1 %.not23.i, label %stbi__mad3sizes_valid.exit.thread, label %stbi__mul2sizes_valid.exit.thread15.i
 
 stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %stbi__mul2sizes_valid.exit.i, %6
   %9 = mul nsw i32 %1, %0
-  %10 = or i32 %9, %2
+  %10 = or i32 %2, %9
   %or.cond.not.i10.i = icmp sgt i32 %10, -1
   br i1 %or.cond.not.i10.i, label %11, label %stbi__mad3sizes_valid.exit.thread
 
@@ -44036,13 +44038,13 @@ stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i:                   ; preds = %11
   %13 = udiv i32 2147483647, %2
-  %.not.i = icmp slt i32 %13, %9
+  %.not.i = icmp sgt i32 %9, %13
   br i1 %.not.i, label %stbi__mad3sizes_valid.exit.thread, label %stbi__mad3sizes_valid.exit
 
 stbi__mad3sizes_valid.exit:                       ; preds = %11, %stbi__mul2sizes_valid.exit12.i
   %14 = mul nsw i32 %9, %2
   %15 = sub nuw nsw i32 2147483647, %3
-  %.not9 = icmp slt i32 %15, %14
+  %.not9 = icmp sgt i32 %14, %15
   br i1 %.not9, label %stbi__mad3sizes_valid.exit.thread, label %16
 
 16:                                               ; preds = %stbi__mad3sizes_valid.exit
@@ -46317,7 +46319,7 @@ stbi__getn.exit.thread:                           ; preds = %491, %stbi__getn.ex
   store ptr null, ptr %10, align 8
   %530 = load i32, ptr %47, align 8
   %531 = add nsw i32 %530, 1
-  %532 = icmp eq i32 %531, %2
+  %532 = icmp eq i32 %2, %531
   %533 = icmp ne i32 %2, 3
   %or.cond3.not229.not234 = and i1 %533, %532
   %534 = icmp eq i8 %.0196, 0
@@ -46507,12 +46509,12 @@ define internal fastcc noundef ptr @stbi__convert_format(ptr noundef %0, i32 nou
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %9
   %11 = udiv i32 2147483647, %3
-  %.not23.i.i = icmp slt i32 %11, %2
+  %.not23.i.i = icmp sgt i32 %2, %11
   br i1 %.not23.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__mul2sizes_valid.exit.thread15.i.i
 
 stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_valid.exit.i.i, %9
   %12 = mul nsw i32 %3, %2
-  %13 = or i32 %12, %4
+  %13 = or i32 %4, %12
   %or.cond.not.i10.i.i = icmp sgt i32 %13, -1
   br i1 %or.cond.not.i10.i.i, label %14, label %stbi__malloc_mad3.exit.thread
 
@@ -46522,7 +46524,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %14
   %16 = udiv i32 2147483647, %4
-  %.not.i.i = icmp slt i32 %16, %12
+  %.not.i.i = icmp sgt i32 %12, %16
   br i1 %.not.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__malloc_mad3.exit
 
 stbi__malloc_mad3.exit:                           ; preds = %14, %stbi__mul2sizes_valid.exit12.i.i
@@ -46552,7 +46554,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 25:                                               ; preds = %.lr.ph252, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph252 ], [ %indvars.iv.next, %.loopexit ]
   %26 = trunc nuw nsw i64 %indvars.iv to i32
-  %27 = mul i32 %26, %3
+  %27 = mul i32 %3, %26
   %28 = mul i32 %27, %1
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %0, i64 %29
@@ -46906,7 +46908,7 @@ define internal fastcc noundef ptr @stbi__convert_format16(ptr noundef %0, i32 n
 19:                                               ; preds = %.lr.ph251, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next, %.loopexit ]
   %20 = trunc nuw nsw i64 %indvars.iv to i32
-  %21 = mul i32 %20, %3
+  %21 = mul i32 %3, %20
   %22 = mul i32 %21, %1
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds i16, ptr %0, i64 %23
@@ -47470,7 +47472,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__getn(ptr nocapture noundef %0,
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = trunc i64 %13 to i32
-  %15 = icmp slt i32 %14, %2
+  %15 = icmp sgt i32 %2, %14
   br i1 %15, label %16, label %27
 
 16:                                               ; preds = %6
@@ -47537,7 +47539,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__create_png_image(ptr nocapture
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %19
   %21 = udiv i32 2147483647, %14
-  %.not23.i.i = icmp slt i32 %21, %12
+  %.not23.i.i = icmp sgt i32 %12, %21
   br i1 %.not23.i.i, label %stbi__malloc_mad3.exit, label %stbi__mul2sizes_valid.exit.thread15.i.i
 
 stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_valid.exit.i.i, %19
@@ -47552,7 +47554,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %24
   %26 = udiv i32 2147483647, %10
-  %.not.i.i = icmp slt i32 %26, %22
+  %.not.i.i = icmp sgt i32 %22, %26
   br i1 %.not.i.i, label %stbi__malloc_mad3.exit, label %stbi__mad3sizes_valid.exit.i
 
 stbi__mad3sizes_valid.exit.i:                     ; preds = %stbi__mul2sizes_valid.exit12.i.i, %24
@@ -47951,7 +47953,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__expand_png_palette(ptr nocaptu
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %12
   %14 = udiv i32 2147483647, %2
-  %.not10.i.i = icmp slt i32 %14, %8
+  %.not10.i.i = icmp sgt i32 %8, %14
   br i1 %.not10.i.i, label %stbi__malloc_mad2.exit.thread, label %stbi__malloc_mad2.exit
 
 stbi__malloc_mad2.exit:                           ; preds = %12, %stbi__mul2sizes_valid.exit.i.i
@@ -48077,7 +48079,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__create_png_image_raw(ptr nocap
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %19
   %21 = udiv i32 2147483647, %5
-  %.not23.i.i = icmp slt i32 %21, %4
+  %.not23.i.i = icmp sgt i32 %4, %21
   br i1 %.not23.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__mul2sizes_valid.exit.thread15.i.i
 
 stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_valid.exit.i.i, %19
@@ -48092,7 +48094,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %24
   %26 = udiv i32 2147483647, %16
-  %.not.i.i = icmp slt i32 %26, %22
+  %.not.i.i = icmp sgt i32 %22, %26
   br i1 %.not.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__malloc_mad3.exit
 
 stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_valid.exit12.i.i, %stbi__mul2sizes_valid.exit.i.i, %8, %stbi__mul2sizes_valid.exit.thread15.i.i
@@ -48120,7 +48122,7 @@ stbi__malloc_mad3.exit:                           ; preds = %24, %stbi__mul2size
 
 stbi__mul2sizes_valid.exit.i:                     ; preds = %34
   %36 = udiv i32 2147483647, %4
-  %.not23.i = icmp slt i32 %36, %15
+  %.not23.i = icmp sgt i32 %15, %36
   br i1 %.not23.i, label %.loopexit708.sink.split, label %stbi__mul2sizes_valid.exit.thread15.i
 
 stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %stbi__mul2sizes_valid.exit.i, %34
@@ -48135,7 +48137,7 @@ stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i:                   ; preds = %39
   %41 = udiv i32 2147483647, %6
-  %.not.i = icmp slt i32 %41, %37
+  %.not.i = icmp sgt i32 %37, %41
   %42 = mul i32 %37, %6
   %43 = icmp sgt i32 %42, 2147483640
   %or.cond700 = or i1 %.not.i, %43
@@ -48147,7 +48149,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %45 = lshr i32 %44, 3
   %46 = add nuw nsw i32 %45, 1
   %47 = mul i32 %46, %5
-  %48 = icmp ugt i32 %47, %2
+  %48 = icmp ult i32 %2, %47
   br i1 %48, label %.loopexit708.sink.split, label %.preheader744
 
 .preheader744:                                    ; preds = %stbi__mad3sizes_valid.exit._crit_edge
@@ -50418,7 +50420,7 @@ stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %9
 
 stbi__mul2sizes_valid.exit12.i:                   ; preds = %14
   %16 = udiv i32 2147483647, %12
-  %.not.i = icmp ult i32 %16, %13
+  %.not.i = icmp ugt i32 %13, %16
   br i1 %.not.i, label %stbi__process_gif_raster.exit.thread.sink.split, label %stbi__mad3sizes_valid.exit
 
 stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_valid.exit12.i, %14
@@ -51443,7 +51445,7 @@ stbi__get8.exit122.i:                             ; preds = %stbi__refill_buffer
   %485 = ptrtoint ptr %.pre.i126.i to i64
   %486 = sub i64 %484, %485
   %487 = trunc i64 %486 to i32
-  %488 = icmp slt i32 %487, %481
+  %488 = icmp sgt i32 %481, %487
   br i1 %488, label %489, label %._crit_edge.i124.i
 
 489:                                              ; preds = %483
@@ -51942,7 +51944,7 @@ stbi__get8.exit240.thread:                        ; preds = %stbi__get8.exit240.
   %707 = ptrtoint ptr %.pre.i270 to i64
   %708 = sub i64 %706, %707
   %709 = trunc i64 %708 to i32
-  %710 = icmp slt i32 %709, %704
+  %710 = icmp sgt i32 %704, %709
   br i1 %710, label %711, label %._crit_edge.i268
 
 711:                                              ; preds = %705
@@ -52023,7 +52025,7 @@ stbi__get8.exit277:                               ; preds = %720, %stbi__refill_
   %742 = ptrtoint ptr %.pre.i281 to i64
   %743 = sub i64 %741, %742
   %744 = trunc i64 %743 to i32
-  %745 = icmp slt i32 %744, %738
+  %745 = icmp sgt i32 %738, %744
   br i1 %745, label %746, label %._crit_edge.i279
 
 746:                                              ; preds = %740
@@ -56788,75 +56790,74 @@ define internal fastcc void @nvg__tesselateBezier(ptr nocapture noundef readonly
   br label %14
 
 14:                                               ; preds = %.lr.ph, %tailrecurse
-  %.tr8290 = phi i32 [ %9, %.lr.ph ], [ %65, %tailrecurse ]
-  %.tr7989 = phi float [ %6, %.lr.ph ], [ %54, %tailrecurse ]
-  %.tr7888 = phi float [ %5, %.lr.ph ], [ %56, %tailrecurse ]
-  %.tr7787 = phi float [ %4, %.lr.ph ], [ %60, %tailrecurse ]
-  %.tr7686 = phi float [ %3, %.lr.ph ], [ %58, %tailrecurse ]
-  %.tr7585 = phi float [ %2, %.lr.ph ], [ %64, %tailrecurse ]
-  %.tr7484 = phi float [ %1, %.lr.ph ], [ %62, %tailrecurse ]
+  %.tr8290 = phi i32 [ %9, %.lr.ph ], [ %64, %tailrecurse ]
+  %.tr7989 = phi float [ %6, %.lr.ph ], [ %53, %tailrecurse ]
+  %.tr7888 = phi float [ %5, %.lr.ph ], [ %55, %tailrecurse ]
+  %.tr7787 = phi float [ %4, %.lr.ph ], [ %59, %tailrecurse ]
+  %.tr7686 = phi float [ %3, %.lr.ph ], [ %57, %tailrecurse ]
+  %.tr7585 = phi float [ %2, %.lr.ph ], [ %63, %tailrecurse ]
+  %.tr7484 = phi float [ %1, %.lr.ph ], [ %61, %tailrecurse ]
   %15 = fsub float %7, %.tr7484
   %16 = fsub float %8, %.tr7585
   %17 = fsub float %.tr7686, %7
   %18 = fsub float %.tr7787, %8
-  %19 = fneg float %18
-  %20 = fmul float %15, %19
+  %19 = fneg float %15
+  %20 = fmul float %18, %19
   %21 = tail call float @llvm.fmuladd.f32(float %17, float %16, float %20)
   %22 = fcmp oge float %21, 0.000000e+00
   %23 = fneg float %21
   %24 = select i1 %22, float %21, float %23
   %25 = fsub float %.tr7888, %7
   %26 = fsub float %.tr7989, %8
-  %27 = fneg float %26
-  %28 = fmul float %15, %27
-  %29 = tail call float @llvm.fmuladd.f32(float %25, float %16, float %28)
-  %30 = fcmp oge float %29, 0.000000e+00
-  %31 = fneg float %29
-  %32 = select i1 %30, float %29, float %31
-  %33 = fadd float %24, %32
-  %34 = fmul float %33, %33
-  %35 = load float, ptr %13, align 8
-  %36 = fmul float %16, %16
-  %37 = tail call float @llvm.fmuladd.f32(float %15, float %15, float %36)
-  %38 = fmul float %37, %35
-  %39 = fcmp olt float %34, %38
-  br i1 %39, label %40, label %tailrecurse
+  %27 = fmul float %26, %19
+  %28 = tail call float @llvm.fmuladd.f32(float %25, float %16, float %27)
+  %29 = fcmp oge float %28, 0.000000e+00
+  %30 = fneg float %28
+  %31 = select i1 %29, float %28, float %30
+  %32 = fadd float %24, %31
+  %33 = fmul float %32, %32
+  %34 = load float, ptr %13, align 8
+  %35 = fmul float %16, %16
+  %36 = tail call float @llvm.fmuladd.f32(float %15, float %15, float %35)
+  %37 = fmul float %36, %34
+  %38 = fcmp olt float %33, %37
+  br i1 %38, label %39, label %tailrecurse
 
-40:                                               ; preds = %14
+39:                                               ; preds = %14
   tail call fastcc void @nvg__addPoint(ptr noundef nonnull %0, float noundef %7, float noundef %8, i32 noundef %10)
   br label %.loopexit
 
 tailrecurse:                                      ; preds = %14
-  %41 = fadd float %.tr7585, %.tr7787
-  %42 = fmul float %41, 5.000000e-01
-  %43 = fadd float %.tr7787, %.tr7989
-  %44 = fmul float %43, 5.000000e-01
-  %45 = fadd float %42, %44
-  %46 = fmul float %45, 5.000000e-01
-  %47 = fadd float %.tr7484, %.tr7686
-  %48 = fmul float %47, 5.000000e-01
-  %49 = fadd float %.tr7686, %.tr7888
-  %50 = fmul float %49, 5.000000e-01
-  %51 = fadd float %48, %50
-  %52 = fmul float %51, 5.000000e-01
-  %53 = fadd float %.tr7989, %8
-  %54 = fmul float %53, 5.000000e-01
-  %55 = fadd float %.tr7888, %7
-  %56 = fmul float %55, 5.000000e-01
-  %57 = fadd float %50, %56
-  %58 = fmul float %57, 5.000000e-01
-  %59 = fadd float %44, %54
-  %60 = fmul float %59, 5.000000e-01
-  %61 = fadd float %52, %58
-  %62 = fmul float %61, 5.000000e-01
-  %63 = fadd float %46, %60
-  %64 = fmul float %63, 5.000000e-01
-  %65 = add i32 %.tr8290, 1
-  tail call fastcc void @nvg__tesselateBezier(ptr noundef nonnull %0, float noundef %.tr7484, float noundef %.tr7585, float noundef %48, float noundef %42, float noundef %52, float noundef %46, float noundef %62, float noundef %64, i32 noundef %65, i32 noundef 0)
-  %exitcond = icmp eq i32 %65, 11
+  %40 = fadd float %.tr7585, %.tr7787
+  %41 = fmul float %40, 5.000000e-01
+  %42 = fadd float %.tr7787, %.tr7989
+  %43 = fmul float %42, 5.000000e-01
+  %44 = fadd float %41, %43
+  %45 = fmul float %44, 5.000000e-01
+  %46 = fadd float %.tr7484, %.tr7686
+  %47 = fmul float %46, 5.000000e-01
+  %48 = fadd float %.tr7686, %.tr7888
+  %49 = fmul float %48, 5.000000e-01
+  %50 = fadd float %47, %49
+  %51 = fmul float %50, 5.000000e-01
+  %52 = fadd float %8, %.tr7989
+  %53 = fmul float %52, 5.000000e-01
+  %54 = fadd float %7, %.tr7888
+  %55 = fmul float %54, 5.000000e-01
+  %56 = fadd float %49, %55
+  %57 = fmul float %56, 5.000000e-01
+  %58 = fadd float %43, %53
+  %59 = fmul float %58, 5.000000e-01
+  %60 = fadd float %51, %57
+  %61 = fmul float %60, 5.000000e-01
+  %62 = fadd float %45, %59
+  %63 = fmul float %62, 5.000000e-01
+  %64 = add i32 %.tr8290, 1
+  tail call fastcc void @nvg__tesselateBezier(ptr noundef nonnull %0, float noundef %.tr7484, float noundef %.tr7585, float noundef %47, float noundef %41, float noundef %51, float noundef %45, float noundef %61, float noundef %63, i32 noundef %64, i32 noundef 0)
+  %exitcond = icmp eq i32 %64, 11
   br i1 %exitcond, label %.loopexit, label %14
 
-.loopexit:                                        ; preds = %tailrecurse, %11, %40
+.loopexit:                                        ; preds = %tailrecurse, %11, %39
   ret void
 }
 
@@ -56941,8 +56942,8 @@ define internal fastcc void @nvg__calculateJoins(ptr nocapture readonly %.8848.v
   store i8 %52, ptr %50, align 4
   %53 = load float, ptr %26, align 4
   %54 = load float, ptr %28, align 4
-  %55 = fneg float %54
-  %56 = fmul float %31, %55
+  %55 = fneg float %31
+  %56 = fmul float %54, %55
   %57 = tail call float @llvm.fmuladd.f32(float %33, float %53, float %56)
   %58 = fcmp ogt float %57, 0.000000e+00
   br i1 %58, label %59, label %62
@@ -56982,8 +56983,8 @@ define internal fastcc void @nvg__calculateJoins(ptr nocapture readonly %.8848.v
   br i1 %.not, label %87, label %81
 
 81:                                               ; preds = %78
-  %82 = fmul float %42, %2
-  %83 = fmul float %82, %2
+  %82 = fmul float %2, %42
+  %83 = fmul float %2, %82
   %84 = fcmp olt float %83, 1.000000e+00
   %or.cond3 = or i1 %11, %84
   br i1 %or.cond3, label %85, label %87

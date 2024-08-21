@@ -86,7 +86,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   %46 = getelementptr inbounds i8, ptr %6, i64 32
   %47 = load ptr, ptr %40, align 8
   %48 = load ptr, ptr %46, align 8
-  %.not.i = icmp eq ptr %47, %25
+  %.not.i = icmp eq ptr %25, %47
   br i1 %.not.i, label %49, label %98
 
 49:                                               ; preds = %45
@@ -232,7 +232,7 @@ mountptrename.exit:                               ; preds = %33, %102, %104
   %.048.i = phi ptr [ %136, %139 ], [ %1, %105 ]
   %111 = load ptr, ptr %106, align 8
   store ptr %111, ptr %4, align 8
-  %112 = icmp eq ptr %111, %25
+  %112 = icmp eq ptr %25, %111
   br i1 %112, label %113, label %114
 
 113:                                              ; preds = %.lr.ph.i25

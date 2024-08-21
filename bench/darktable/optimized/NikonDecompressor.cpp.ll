@@ -3930,7 +3930,7 @@ define linkonce_odr hidden void @_ZN8rawspeed17NikonDecompressor10decompressINS_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
   %115 = add nuw nsw i64 %88, 1
   %116 = trunc nuw nsw i64 %115 to i32
-  %117 = icmp slt i32 %116, %3
+  %117 = icmp sgt i32 %3, %116
   br i1 %117, label %87, label %.loopexit23, !llvm.loop !256
 
 118:                                              ; preds = %311, %87

@@ -115,7 +115,7 @@ define internal { double, double } @_ZL15loxim_s_inverse5PJ_XYP8PJconsts(double 
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %5, align 8
-  %7 = fadd double %6, %1
+  %7 = fadd double %1, %6
   %8 = tail call double @llvm.fabs.f64(double %1)
   %9 = fcmp olt double %8, 1.000000e-08
   br i1 %9, label %10, label %14
@@ -144,7 +144,7 @@ define internal { double, double } @_ZL15loxim_s_inverse5PJ_XYP8PJconsts(double 
   %25 = load double, ptr %24, align 8
   %26 = fdiv double %23, %25
   %27 = tail call double @log(double noundef %26) #7
-  %28 = fmul double %27, %0
+  %28 = fmul double %0, %27
   %29 = fdiv double %28, %1
   br label %30
 
@@ -168,7 +168,7 @@ define internal { double, double } @_ZL15loxim_s_forward5PJ_LPP8PJconsts(double 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   %12 = load double, ptr %11, align 8
-  %13 = fmul double %12, %0
+  %13 = fmul double %0, %12
   br label %30
 
 14:                                               ; preds = %3
@@ -184,7 +184,7 @@ define internal { double, double } @_ZL15loxim_s_forward5PJ_LPP8PJconsts(double 
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %18
-  %23 = fmul double %7, %0
+  %23 = fmul double %0, %7
   %24 = tail call double @tan(double noundef %15) #7
   %25 = getelementptr inbounds i8, ptr %5, i64 16
   %26 = load double, ptr %25, align 8

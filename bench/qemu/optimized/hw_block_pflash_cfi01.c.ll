@@ -744,7 +744,7 @@ sw.bb3.i:                                         ; preds = %if.else, %if.else, 
   %11 = load i8, ptr %device_width.i, align 1
   %conv5.i = zext i8 %11 to i32
   %tobool.not.i = icmp ne i8 %11, 0
-  %cmp.i = icmp slt i32 %conv5.i, %len
+  %cmp.i = icmp sgt i32 %len, %conv5.i
   %or.cond75.i = and i1 %tobool.not.i, %cmp.i
   br i1 %or.cond75.i, label %if.then.i, label %if.else.i
 
@@ -907,7 +907,7 @@ for.body.i:                                       ; preds = %deposit32.exit.i, %
   %mul74.i = shl nuw nsw i32 %conv73.i, 3
   %mul77.i = mul i32 %i.0185.i, %conv73.i
   %conv78.i = sext i32 %mul77.i to i64
-  %add79.i = add i64 %conv78.i, %addr
+  %add79.i = add i64 %addr, %conv78.i
   %29 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv73.i, i1 false)
   %30 = load i8, ptr %max_device_width.i.i, align 2
   %conv1.i.i = zext i8 %30 to i32
@@ -1088,7 +1088,7 @@ pflash_devid_query.exit.i:                        ; preds = %deposit32.exit.i.i,
   %cmp1.i.i = icmp eq i8 %28, 0
   %or.cond.not9.i.i = or i1 %cmp1.i.i, %cmp.i90.i
   %sub.i91.i = sub nsw i32 32, %mul71.i
-  %cmp3.not.i.i = icmp slt i32 %sub.i91.i, %mul74.i
+  %cmp3.not.i.i = icmp sgt i32 %mul74.i, %sub.i91.i
   %or.cond8.i.i = select i1 %or.cond.not9.i.i, i1 true, i1 %cmp3.not.i.i
   br i1 %or.cond8.i.i, label %if.else.i.i, label %deposit32.exit.i
 
@@ -1169,7 +1169,7 @@ for.body117.i:                                    ; preds = %deposit32.exit149.i
   %mul121.i = shl nuw nsw i32 %conv120.i, 3
   %mul124.i = mul i32 %i113.0182.i, %conv120.i
   %conv125.i = sext i32 %mul124.i to i64
-  %add126.i = add i64 %conv125.i, %addr
+  %add126.i = add i64 %addr, %conv125.i
   %64 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv120.i, i1 false)
   %65 = load i8, ptr %max_device_width.i96.i, align 2
   %conv1.i97.i = zext i8 %65 to i32
@@ -1311,7 +1311,7 @@ pflash_cfi_query.exit.i:                          ; preds = %deposit32.exit40.i.
   %cmp1.i134.i = icmp eq i8 %63, 0
   %or.cond.not9.i135.i = or i1 %cmp1.i134.i, %cmp.i133.i
   %sub.i136.i = sub nsw i32 32, %mul118.i
-  %cmp3.not.i137.i = icmp slt i32 %sub.i136.i, %mul121.i
+  %cmp3.not.i137.i = icmp sgt i32 %mul121.i, %sub.i136.i
   %or.cond8.i138.i = select i1 %or.cond.not9.i135.i, i1 true, i1 %cmp3.not.i137.i
   br i1 %or.cond8.i138.i, label %if.else.i148.i, label %deposit32.exit149.i
 
@@ -1530,7 +1530,7 @@ sw.bb8.i:                                         ; preds = %sw.bb.i
   %sector_len.i = getelementptr inbounds i8, ptr %opaque, i64 832
   %20 = load i64, ptr %sector_len.i, align 16
   %not.i = sub i64 0, %20
-  %and.i = and i64 %not.i, %addr
+  %and.i = and i64 %addr, %not.i
   %21 = load ptr, ptr %name.i, align 16
   tail call fastcc void @trace_pflash_write_block_erase(ptr noundef %21, i64 noundef %and.i, i64 noundef %20)
   %ro.i = getelementptr inbounds i8, ptr %opaque, i64 849
@@ -1944,7 +1944,7 @@ if.then172.i:                                     ; preds = %trace_pflash_write.
   %sub164.i = add i32 %84, -1
   %conv165.i = zext i32 %sub164.i to i64
   %not166.i = xor i64 %conv165.i, -1
-  %and173.i = and i64 %not166.i, %addr
+  %and173.i = and i64 %addr, %not166.i
   %conv174.i = trunc i64 %and173.i to i32
   %94 = load i32, ptr %writeblock_size.i, align 8
   tail call fastcc void @pflash_update(ptr noundef nonnull %opaque, i32 noundef %conv174.i, i32 noundef %94)

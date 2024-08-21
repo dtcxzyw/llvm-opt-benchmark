@@ -486,7 +486,7 @@ declare ptr @archive_strcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @append_uint(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = zext nneg i32 %2 to i64
-  %.not = icmp ugt i64 %4, %1
+  %.not = icmp ult i64 %1, %4
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3

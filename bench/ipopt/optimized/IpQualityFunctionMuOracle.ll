@@ -14919,7 +14919,7 @@ define noundef double @_ZN5Ipopt23QualityFunctionMuOracle20PerformGoldenSectionE
   %.1228 = phi double [ %65, %62 ], [ %.0225271, %58 ]
   %.1226 = phi double [ %.0227270, %62 ], [ %61, %58 ]
   %.1 = phi double [ %.0225271, %62 ], [ %.0221273, %58 ]
-  %67 = fmul double %.1240, %5
+  %67 = fmul double %5, %.1240
   %68 = fcmp ult double %.pre-phi, %67
   br i1 %68, label %.critedge245, label %38, !llvm.loop !737
 

@@ -632,7 +632,7 @@ entry:
   %s = alloca %"class.rocksdb::Status", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %filter_block, i8 0, i64 25, i1 false)
   %use_cache.not = xor i1 %use_cache, true
-  %brmerge = or i1 %use_cache.not, %prefetch
+  %brmerge = or i1 %prefetch, %use_cache.not
   br i1 %brmerge, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %entry
@@ -654,7 +654,7 @@ lpad:                                             ; preds = %if.end13, %if.then
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont6
-  %brmerge6 = or i1 %use_cache.not, %pin
+  %brmerge6 = or i1 %pin, %use_cache.not
   br i1 %brmerge6, label %cleanup, label %if.then10
 
 if.then10:                                        ; preds = %if.end
@@ -869,7 +869,7 @@ entry:
   %1 = load ptr, ptr %range, align 8, !noalias !4
   %end_.i.i = getelementptr inbounds i8, ptr %range, i64 16
   %2 = load i64, ptr %end_.i.i, align 8, !noalias !4
-  %cmp2.i.i = icmp ugt i64 %2, %0
+  %cmp2.i.i = icmp ult i64 %0, %2
   br i1 %cmp2.i.i, label %land.rhs.lr.ph.i.i, label %invoke.cont
 
 land.rhs.lr.ph.i.i:                               ; preds = %entry
@@ -933,7 +933,7 @@ if.end13:                                         ; preds = %if.end
   %12 = load i64, ptr %start_.i, align 8
   %13 = load ptr, ptr %range, align 8
   %14 = load i64, ptr %end_.i.i, align 8, !noalias !9
-  %cmp2.i.i17 = icmp ugt i64 %14, %12
+  %cmp2.i.i17 = icmp ult i64 %12, %14
   br i1 %cmp2.i.i17, label %land.rhs.lr.ph.i.i18, label %invoke.cont19
 
 land.rhs.lr.ph.i.i18:                             ; preds = %if.end13
@@ -976,7 +976,7 @@ invoke.cont20:                                    ; preds = %invoke.cont19
   %20 = load i64, ptr %skip_mask_.i, align 8
   %invalid_mask_.i = getelementptr inbounds i8, ptr %range, i64 32
   %21 = load i64, ptr %invalid_mask_.i, align 8
-  %cmp2.i.i41 = icmp ugt i64 %14, %ref.tmp15.sroa.2.1
+  %cmp2.i.i41 = icmp ult i64 %ref.tmp15.sroa.2.1, %14
   br i1 %cmp2.i.i41, label %land.rhs.lr.ph.i.i42, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit56
 
 land.rhs.lr.ph.i.i42:                             ; preds = %invoke.cont20
@@ -1884,7 +1884,7 @@ entry:
   %1 = load ptr, ptr %range, align 8, !noalias !33
   %end_.i.i = getelementptr inbounds i8, ptr %range, i64 16
   %2 = load i64, ptr %end_.i.i, align 8, !noalias !9
-  %cmp2.i.i = icmp ugt i64 %2, %0
+  %cmp2.i.i = icmp ult i64 %0, %2
   br i1 %cmp2.i.i, label %land.rhs.lr.ph.i.i, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
 
 land.rhs.lr.ph.i.i:                               ; preds = %entry
@@ -1990,7 +1990,7 @@ entry:
   %1 = load ptr, ptr %range, align 8, !noalias !37
   %end_.i.i = getelementptr inbounds i8, ptr %range, i64 16
   %2 = load i64, ptr %end_.i.i, align 8, !noalias !9
-  %cmp2.i.i = icmp ugt i64 %2, %0
+  %cmp2.i.i = icmp ult i64 %0, %2
   br i1 %cmp2.i.i, label %land.rhs.lr.ph.i.i, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
 
 land.rhs.lr.ph.i.i:                               ; preds = %entry

@@ -6015,7 +6015,7 @@ define internal fastcc i32 @dissect_opts(ptr noundef %0, ptr noundef %1, ptr nou
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = load i32, ptr @proto_ipv6_hopopts, align 4
-  %14 = icmp eq i32 %13, %4
+  %14 = icmp eq i32 %4, %13
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #13
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #13
   %17 = zext i8 %16 to i32
@@ -6094,12 +6094,12 @@ ipv6_previous_layer_id.exit:                      ; preds = %44, %46
 
 53:                                               ; preds = %51, %ipv6_previous_layer_id.exit, %p_ipv6_pinfo_add_len.exit
   %54 = load i32, ptr @proto_ipv6_hopopts, align 4
-  %55 = icmp eq i32 %54, %4
+  %55 = icmp eq i32 %4, %54
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %53
   %57 = load i32, ptr @proto_ipv6_dstopts, align 4
-  %58 = icmp eq i32 %57, %4
+  %58 = icmp eq i32 %4, %57
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %56

@@ -4207,13 +4207,13 @@ Ndr_ObjReadArray.exit:                            ; preds = %118, %Ndr_DataSize.
   %133 = getelementptr inbounds i32, ptr %.2, i64 %indvars.iv
   %134 = load i32, ptr %133, align 4
   %135 = add nsw i32 %134, 1
-  %.not.i85.not = icmp sgt i32 %132, %134
+  %.not.i85.not = icmp slt i32 %134, %132
   br i1 %.not.i85.not, label %Vec_IntFillExtra.exit, label %136
 
 136:                                              ; preds = %131
   %137 = load i32, ptr %2, align 8
   %138 = shl nsw i32 %137, 1
-  %.not96 = icmp sgt i32 %138, %134
+  %.not96 = icmp slt i32 %134, %138
   %.not.i.i.not = icmp sgt i32 %137, %134
   br i1 %.not96, label %147, label %139
 
@@ -4370,7 +4370,7 @@ define internal fastcc i32 @Ndr_ObjReadBody(ptr nocapture noundef readonly %0, i
   %14 = getelementptr inbounds i8, ptr %.val13, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = icmp eq i32 %16, %2
+  %17 = icmp eq i32 %2, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %12
@@ -6473,13 +6473,13 @@ define internal fastcc void @Wln_ObjSetSigned(ptr nocapture noundef %0, i32 noun
   %4 = add nsw i32 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 164
   %6 = load i32, ptr %5, align 4
-  %.not.i.not.i = icmp sgt i32 %6, %1
+  %.not.i.not.i = icmp slt i32 %1, %6
   br i1 %.not.i.not.i, label %Vec_StrSetEntry.exit, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %3, align 8
   %9 = shl nsw i32 %8, 1
-  %.not.i = icmp sgt i32 %9, %1
+  %.not.i = icmp slt i32 %1, %9
   %.not.i.i.not.i = icmp sgt i32 %8, %1
   br i1 %.not.i, label %21, label %10
 
@@ -6889,13 +6889,13 @@ Ndr_ObjReadArray.exit:                            ; preds = %25, %Ndr_DataSize.e
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

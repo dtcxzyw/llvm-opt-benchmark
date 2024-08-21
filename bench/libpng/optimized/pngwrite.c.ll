@@ -3565,7 +3565,7 @@ define internal void @image_memory_write(ptr noundef %0, ptr nocapture noundef r
   %6 = getelementptr inbounds i8, ptr %5, i64 80
   %7 = load i64, ptr %6, align 8
   %8 = xor i64 %7, -1
-  %.not = icmp ult i64 %8, %2
+  %.not = icmp ugt i64 %2, %8
   br i1 %.not, label %19, label %9
 
 9:                                                ; preds = %3

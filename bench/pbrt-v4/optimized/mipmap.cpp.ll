@@ -681,7 +681,7 @@ entry:
   %nStored.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %nStored.i.i, align 8
   %conv.i = trunc i64 %0 to i32
-  %cmp.not = icmp sgt i32 %conv.i, %level
+  %cmp.not = icmp slt i32 %level, %conv.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1623,7 +1623,7 @@ entry:
   %nStored.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %nStored.i.i, align 8
   %conv.i = trunc i64 %0 to i32
-  %cmp.not = icmp sgt i32 %conv.i, %level
+  %cmp.not = icmp slt i32 %level, %conv.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

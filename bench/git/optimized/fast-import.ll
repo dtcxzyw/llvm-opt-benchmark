@@ -7232,7 +7232,7 @@ for.end:                                          ; preds = %land.lhs.true
 if.else:                                          ; preds = %do.cond.i21
   %call11 = tail call i64 @strtoumax(ptr noundef %scevgep, ptr noundef null, i32 noundef 10) #24
   %tobool12.not = icmp ne i64 %limit, 0
-  %cmp14 = icmp ugt i64 %call11, %limit
+  %cmp14 = icmp ult i64 %limit, %call11
   %or.cond = select i1 %tobool12.not, i1 %cmp14, i1 false
   br i1 %or.cond, label %if.then15, label %while.cond.preheader
 
@@ -8651,7 +8651,7 @@ lookup_branch.exit:                               ; preds = %for.cond.i
   br i1 %cmp, label %if.then, label %if.else17
 
 lookup_branch.exit.thread:                        ; preds = %for.body.i
-  %cmp78 = icmp eq ptr %b.0.i, %b
+  %cmp78 = icmp eq ptr %b, %b.0.i
   br i1 %cmp78, label %if.then, label %if.then2
 
 if.then:                                          ; preds = %lookup_branch.exit.thread, %lookup_branch.exit
@@ -8981,7 +8981,7 @@ lor.lhs.false:                                    ; preds = %entry
   %hexsz = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i64, ptr %hexsz, align 8
   %add = add i64 %2, 6
-  %cmp = icmp ugt i64 %add, %size
+  %cmp = icmp ult i64 %size, %add
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -10490,7 +10490,7 @@ entry:
   %sub.ptr.rhs.cast31 = ptrtoint ptr %p to i64
   %sub.ptr.sub32 = sub i64 %sub.ptr.lhs.cast30, %sub.ptr.rhs.cast31
   %conv33 = trunc i64 %sub.ptr.sub32 to i32
-  %0 = or i32 %conv33, %allow_root
+  %0 = or i32 %allow_root, %conv33
   %or.cond.not35 = icmp eq i32 %0, 0
   br i1 %or.cond.not35, label %if.then, label %if.end
 
@@ -10889,7 +10889,7 @@ for.body:                                         ; preds = %land.rhs
   %str_len = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i16, ptr %str_len, align 8
   %conv5 = zext i16 %9 to i32
-  %add = add i32 %conv5, %hex_oid_len
+  %add = add i32 %hex_oid_len, %conv5
   %arrayidx6 = getelementptr inbounds i8, ptr %7, i64 56
   %10 = load i16, ptr %arrayidx6, align 8
   %tobool7.not = icmp ne i16 %10, 0

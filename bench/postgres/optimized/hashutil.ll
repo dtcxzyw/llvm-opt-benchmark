@@ -214,7 +214,7 @@ BufferGetPage.exit:                               ; preds = %5, %11
   %46 = getelementptr inbounds i8, ptr %45, i64 12
   %47 = load i16, ptr %46, align 4
   %48 = zext i16 %47 to i32
-  %49 = and i32 %48, %2
+  %49 = and i32 %2, %48
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %60
 
@@ -432,7 +432,7 @@ define dso_local i32 @_hash_get_oldblock_from_newbucket(ptr noundef %0, i32 noun
   %4 = xor i32 %3, 31
   %notmask = shl nsw i32 -1, %4
   %5 = xor i32 %notmask, -1
-  %6 = and i32 %5, %1
+  %6 = and i32 %1, %5
   %7 = tail call i32 @_hash_getbuf(ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 8) #8
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %15

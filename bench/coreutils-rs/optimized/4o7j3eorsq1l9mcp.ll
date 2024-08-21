@@ -964,7 +964,7 @@ define void @"_ZN80_$LT$uucore..features..sum..Blake2b$u20$as$u20$uucore..featur
   %6 = extractvalue { ptr, i64 } %5, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %.not.i = icmp eq i64 %6, %2
+  %.not.i = icmp eq i64 %2, %6
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit", label %7
 
 7:                                                ; preds = %3
@@ -1190,7 +1190,7 @@ define void @"_ZN76_$LT$uucore..features..sum..Sm3$u20$as$u20$uucore..features..
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i", label %11
 
 11:                                               ; preds = %3
@@ -1234,7 +1234,7 @@ define void @"_ZN76_$LT$uucore..features..sum..Sm3$u20$as$u20$uucore..features..
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i": ; preds = %3
   %29 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !168, !noalias !172
-  %30 = add nuw nsw i64 %7, %2
+  %30 = add nuw nsw i64 %2, %7
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17hdc460a3e6f635b5eE.exit"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17hdc460a3e6f635b5eE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit41.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i"
@@ -2212,7 +2212,7 @@ define void @"_ZN76_$LT$uucore..features..sum..Md5$u20$as$u20$uucore..features..
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i", label %11
 
 11:                                               ; preds = %3
@@ -2256,7 +2256,7 @@ define void @"_ZN76_$LT$uucore..features..sum..Md5$u20$as$u20$uucore..features..
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i": ; preds = %3
   %29 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !446, !noalias !450
-  %30 = add nuw nsw i64 %7, %2
+  %30 = add nuw nsw i64 %2, %7
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h9259c7a834030fc6E.exit"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h9259c7a834030fc6E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit41.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i"
@@ -2519,7 +2519,7 @@ define void @"_ZN77_$LT$uucore..features..sum..Sha1$u20$as$u20$uucore..features.
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i", label %11
 
 11:                                               ; preds = %3
@@ -2563,7 +2563,7 @@ define void @"_ZN77_$LT$uucore..features..sum..Sha1$u20$as$u20$uucore..features.
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i": ; preds = %3
   %29 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !541, !noalias !545
-  %30 = add nuw nsw i64 %7, %2
+  %30 = add nuw nsw i64 %2, %7
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h912b92f0cc40906aE.exit"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h912b92f0cc40906aE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit41.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i"
@@ -2849,7 +2849,7 @@ define void @"_ZN79_$LT$uucore..features..sum..Sha224$u20$as$u20$uucore..feature
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i", label %11
 
 11:                                               ; preds = %3
@@ -2893,7 +2893,7 @@ define void @"_ZN79_$LT$uucore..features..sum..Sha224$u20$as$u20$uucore..feature
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i": ; preds = %3
   %29 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !652, !noalias !656
-  %30 = add nuw nsw i64 %7, %2
+  %30 = add nuw nsw i64 %2, %7
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17he38a8537a8fb0303E.exit"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17he38a8537a8fb0303E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit41.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i"
@@ -3102,7 +3102,7 @@ define void @"_ZN79_$LT$uucore..features..sum..Sha256$u20$as$u20$uucore..feature
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i", label %11
 
 11:                                               ; preds = %3
@@ -3146,7 +3146,7 @@ define void @"_ZN79_$LT$uucore..features..sum..Sha256$u20$as$u20$uucore..feature
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i": ; preds = %3
   %29 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !736, !noalias !740
-  %30 = add nuw nsw i64 %7, %2
+  %30 = add nuw nsw i64 %2, %7
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h69c3b03e737a9039E.exit"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h69c3b03e737a9039E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit41.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i"
@@ -3355,7 +3355,7 @@ define void @"_ZN79_$LT$uucore..features..sum..Sha384$u20$as$u20$uucore..feature
   %8 = icmp sgt i8 %6, -1
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 128, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i", label %11
 
 11:                                               ; preds = %3
@@ -3400,7 +3400,7 @@ define void @"_ZN79_$LT$uucore..features..sum..Sha384$u20$as$u20$uucore..feature
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i": ; preds = %3
   %30 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !820, !noalias !824
-  %31 = add nuw nsw i64 %7, %2
+  %31 = add nuw nsw i64 %2, %7
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h6f76e713ecc4b0f4E.exit"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h6f76e713ecc4b0f4E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit41.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i"
@@ -3609,7 +3609,7 @@ define void @"_ZN79_$LT$uucore..features..sum..Sha512$u20$as$u20$uucore..feature
   %8 = icmp sgt i8 %6, -1
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 128, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i", label %11
 
 11:                                               ; preds = %3
@@ -3654,7 +3654,7 @@ define void @"_ZN79_$LT$uucore..features..sum..Sha512$u20$as$u20$uucore..feature
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i": ; preds = %3
   %30 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !904, !noalias !908
-  %31 = add nuw nsw i64 %7, %2
+  %31 = add nuw nsw i64 %2, %7
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17he77a1576b88e68e1E.exit"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17he77a1576b88e68e1E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit41.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit44.i.i.i"
@@ -3865,7 +3865,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_224$u20$as$u20$uucore..featu
   %8 = icmp ult i8 %6, -112
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 144, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i.i.i", label %11
 
 11:                                               ; preds = %3
@@ -3956,7 +3956,7 @@ _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i46.i.i.i: ; p
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i.i.i": ; preds = %3
   %41 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !1012, !noalias !1016
-  %42 = add nuw nsw i64 %7, %2
+  %42 = add nuw nsw i64 %2, %7
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h2636f735f7945f19E.exit"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h2636f735f7945f19E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit49.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i.i.i"
@@ -4190,7 +4190,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_256$u20$as$u20$uucore..featu
   %8 = icmp ult i8 %6, -120
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 136, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i.i.i", label %11
 
 11:                                               ; preds = %3
@@ -4281,7 +4281,7 @@ _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i46.i.i.i: ; p
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i.i.i": ; preds = %3
   %41 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !1151, !noalias !1155
-  %42 = add nuw nsw i64 %7, %2
+  %42 = add nuw nsw i64 %2, %7
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17hf12d0827200d9ed7E.exit"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17hf12d0827200d9ed7E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit49.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i.i.i"
@@ -4515,7 +4515,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_384$u20$as$u20$uucore..featu
   %8 = icmp ult i8 %6, 104
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 104, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i.i.i", label %11
 
 11:                                               ; preds = %3
@@ -4606,7 +4606,7 @@ _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i46.i.i.i: ; p
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i.i.i": ; preds = %3
   %41 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !1290, !noalias !1294
-  %42 = add nuw nsw i64 %7, %2
+  %42 = add nuw nsw i64 %2, %7
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h8c76d5bedd83670fE.exit"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h8c76d5bedd83670fE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit49.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i.i.i"
@@ -4840,7 +4840,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_512$u20$as$u20$uucore..featu
   %8 = icmp ult i8 %6, 72
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 72, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i.i.i", label %11
 
 11:                                               ; preds = %3
@@ -4931,7 +4931,7 @@ _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i46.i.i.i: ; p
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i.i.i": ; preds = %3
   %41 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !1429, !noalias !1433
-  %42 = add nuw nsw i64 %7, %2
+  %42 = add nuw nsw i64 %2, %7
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17hee32307f3021eec9E.exit"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17hee32307f3021eec9E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit49.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i.i.i"
@@ -5161,7 +5161,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Shake128$u20$as$u20$uucore..featu
   %8 = icmp ult i8 %6, -88
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 168, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i", label %11
 
 11:                                               ; preds = %3
@@ -5252,7 +5252,7 @@ _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i46.i: ; preds
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i": ; preds = %3
   %41 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !1555, !noalias !1559
-  %42 = add nuw nsw i64 %7, %2
+  %42 = add nuw nsw i64 %2, %7
   br label %"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17h83e47edc09006698E.exit"
 
 "_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17h83e47edc09006698E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit49.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i"
@@ -5394,7 +5394,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Shake256$u20$as$u20$uucore..featu
   %8 = icmp ult i8 %6, -120
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 136, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i", label %11
 
 11:                                               ; preds = %3
@@ -5485,7 +5485,7 @@ _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i46.i: ; preds
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i": ; preds = %3
   %41 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !1635, !noalias !1639
-  %42 = add nuw nsw i64 %7, %2
+  %42 = add nuw nsw i64 %2, %7
   br label %"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17hdfe75de8479d9508E.exit"
 
 "_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17hdfe75de8479d9508E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit49.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit52.i"

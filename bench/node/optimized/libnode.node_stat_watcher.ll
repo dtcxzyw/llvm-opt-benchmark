@@ -1251,7 +1251,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
-  %cmp.i.i.i.i = icmp eq i32 %1, %permission
+  %cmp.i.i.i.i = icmp eq i32 %permission, %1
   br i1 %cmp.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !5
 
 if.end15.i.i:                                     ; preds = %entry
@@ -1269,11 +1269,11 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %5 = load ptr, ptr %4, align 8
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %add.ptr8.i.i.i.i, align 4
-  %cmp.i.i.i9.i.i.i.i = icmp eq i32 %6, %permission
+  %cmp.i.i.i9.i.i.i.i = icmp eq i32 %permission, %6
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.then, label %if.end3.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %8, %permission
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %permission, %8
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !7
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i

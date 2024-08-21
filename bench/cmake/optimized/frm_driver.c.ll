@@ -1820,7 +1820,7 @@ define dso_local ptr @_nc_First_Active_Field(ptr nocapture noundef readonly %0) 
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 3
   %43 = icmp eq i32 %42, 3
-  %.not.i = icmp eq ptr %39, %13
+  %.not.i = icmp eq ptr %13, %39
   %or.cond.i = or i1 %.not.i, %43
   br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %35, !llvm.loop !16
 
@@ -1874,7 +1874,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef %0, i32 no
   %4 = getelementptr inbounds i8, ptr %0, i64 28
   %5 = load i16, ptr %4, align 4
   %6 = sext i16 %5 to i32
-  %.not = icmp eq i32 %6, %1
+  %.not = icmp eq i32 %1, %6
   br i1 %.not, label %.loopexit, label %7
 
 7:                                                ; preds = %3
@@ -1978,7 +1978,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef %0, i32 no
   %77 = load i32, ptr %76, align 8
   %78 = and i32 %77, 3
   %79 = icmp eq i32 %78, 3
-  %.not.i.i = icmp eq ptr %75, %49
+  %.not.i.i = icmp eq ptr %49, %75
   %or.cond.i.i = or i1 %.not.i.i, %79
   br i1 %or.cond.i.i, label %FN_First_Field.exit, label %71, !llvm.loop !16
 
@@ -2038,7 +2038,7 @@ define internal range(i32 -11, 1) i32 @FN_First_Field(ptr noundef %0) #0 {
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 3
   %43 = icmp eq i32 %42, 3
-  %.not.i = icmp eq ptr %39, %13
+  %.not.i = icmp eq ptr %13, %39
   %or.cond.i = or i1 %.not.i, %43
   br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %35, !llvm.loop !16
 
@@ -2116,7 +2116,7 @@ define dso_local i32 @form_driver(ptr noundef %0, i32 noundef %1) local_unnamed_
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 3
   %52 = icmp eq i32 %51, 3
-  %.not.i.i = icmp eq ptr %48, %22
+  %.not.i.i = icmp eq ptr %22, %48
   %or.cond.i.i = or i1 %.not.i.i, %52
   br i1 %or.cond.i.i, label %Next_Field_On_Page.exit.i, label %44, !llvm.loop !16
 
@@ -2897,7 +2897,7 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   %8 = getelementptr inbounds i8, ptr %0, i64 28
   %9 = load i16, ptr %8, align 4
   %10 = sext i16 %9 to i32
-  %11 = icmp slt i32 %10, %1
+  %11 = icmp sgt i32 %1, %10
   br i1 %11, label %.loopexit123, label %12
 
 12:                                               ; preds = %7
@@ -3165,7 +3165,7 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef %0, i32 nound
   %33 = getelementptr inbounds i8, ptr %0, i64 4
   %34 = load i16, ptr %33, align 4
   %35 = sext i16 %34 to i32
-  %36 = mul nsw i32 %35, %1
+  %36 = mul nsw i32 %1, %35
   %37 = getelementptr inbounds i8, ptr %0, i64 20
   %38 = load i32, ptr %37, align 4
   %.not158 = icmp eq i32 %38, 0
@@ -3433,7 +3433,7 @@ Buffer_To_Window.exit.thread:                     ; preds = %120, %Buffer_To_Win
   tail call void @free(ptr noundef %20) #13
   %176 = getelementptr inbounds i8, ptr %0, i64 72
   %177 = load ptr, ptr %176, align 8
-  %.not168 = icmp eq ptr %177, %0
+  %.not168 = icmp eq ptr %0, %177
   br i1 %.not168, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %175, %.preheader
@@ -3495,7 +3495,7 @@ define internal fastcc range(i32 -2, 1) i32 @Synchronize_Field(ptr noundef %0) u
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %4, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, %0
+  %21 = icmp eq ptr %0, %20
   br i1 %21, label %22, label %56
 
 22:                                               ; preds = %18
@@ -3581,7 +3581,7 @@ define dso_local ptr @field_buffer(ptr noundef readonly %0, i32 noundef %1) loca
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load i16, ptr %6, align 4
   %8 = sext i16 %7 to i32
-  %.not = icmp slt i32 %8, %1
+  %.not = icmp sgt i32 %1, %8
   br i1 %.not, label %21, label %9
 
 9:                                                ; preds = %5
@@ -3694,7 +3694,7 @@ define internal range(i32 -11, 1) i32 @FN_Next_Field(ptr noundef %0) #0 {
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 3
   %33 = icmp eq i32 %32, 3
-  %.not.i = icmp eq ptr %29, %3
+  %.not.i = icmp eq ptr %3, %29
   %or.cond.i = or i1 %.not.i, %33
   br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %25, !llvm.loop !16
 
@@ -3740,7 +3740,7 @@ define internal range(i32 -11, 1) i32 @FN_Previous_Field(ptr noundef %0) #0 {
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 3
   %33 = icmp eq i32 %32, 3
-  %.not.i = icmp eq ptr %29, %3
+  %.not.i = icmp eq ptr %3, %29
   %or.cond.i = or i1 %.not.i, %33
   br i1 %or.cond.i, label %Previous_Field_On_Page.exit, label %25, !llvm.loop !24
 
@@ -3796,7 +3796,7 @@ define internal range(i32 -11, 1) i32 @FN_Last_Field(ptr noundef %0) #0 {
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 3
   %43 = icmp eq i32 %42, 3
-  %.not.i = icmp eq ptr %39, %13
+  %.not.i = icmp eq ptr %13, %39
   %or.cond.i = or i1 %.not.i, %43
   br i1 %or.cond.i, label %Previous_Field_On_Page.exit, label %35, !llvm.loop !24
 
@@ -6611,7 +6611,7 @@ After_End_Of_Data.exit:                           ; preds = %17, %19
 37:                                               ; preds = %After_End_Of_Data.exit
   %38 = load i32, ptr %9, align 4
   %39 = add nsw i32 %38, -1
-  %40 = icmp eq i32 %39, %1
+  %40 = icmp eq i32 %1, %39
   br i1 %40, label %41, label %53
 
 41:                                               ; preds = %37
@@ -6642,7 +6642,7 @@ After_End_Of_Data.exit:                           ; preds = %17, %19
   %.pre-phi = phi i32 [ %.pre81, %47 ], [ %39, %37 ]
   %54 = phi i32 [ %49, %47 ], [ %11, %37 ]
   %.071 = phi ptr [ %52, %47 ], [ %14, %37 ]
-  %55 = icmp sgt i32 %.pre-phi, %1
+  %55 = icmp slt i32 %1, %.pre-phi
   br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %53

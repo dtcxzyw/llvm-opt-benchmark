@@ -354,7 +354,7 @@ pm_slashskip.exit86:                              ; preds = %pm_slashskip.exit86
   %.3.i = phi ptr [ %82, %81 ], [ %78, %77 ]
   %.0.i87 = phi i8 [ %83, %81 ], [ %79, %77 ]
   %.not.i = icmp sgt i8 %.03447.i, %61
-  %.not43.i = icmp slt i8 %.0.i87, %61
+  %.not43.i = icmp sgt i8 %61, %.0.i87
   %or.cond45.i = select i1 %.not.i, i1 true, i1 %.not43.i
   br i1 %or.cond45.i, label %90, label %pm_list.exit
 
@@ -879,7 +879,7 @@ pm_slashskip_w.exit86:                            ; preds = %pm_slashskip_w.exit
   %.3.i = phi ptr [ %82, %81 ], [ %78, %77 ]
   %.0.i87 = phi i32 [ %83, %81 ], [ %79, %77 ]
   %.not.i = icmp sgt i32 %.03448.i, %61
-  %.not44.i = icmp slt i32 %.0.i87, %61
+  %.not44.i = icmp sgt i32 %61, %.0.i87
   %or.cond46.i = select i1 %.not.i, i1 true, i1 %.not44.i
   br i1 %or.cond46.i, label %90, label %pm_list_w.exit
 

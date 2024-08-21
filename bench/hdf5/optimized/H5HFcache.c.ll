@@ -1611,7 +1611,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_hdr_pre_serialize(ptr noundef 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds i8, ptr %1, i64 584
   %15 = load i64, ptr %14, align 8
-  %.not = icmp eq i64 %15, %3
+  %.not = icmp eq i64 %3, %15
   br i1 %.not, label %20, label %16
 
 16:                                               ; preds = %13
@@ -4723,7 +4723,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
   %207 = getelementptr inbounds i8, ptr %1, i64 312
   store i64 %206, ptr %207, align 8
   %.not133 = icmp ne i64 %2, -1
-  %208 = icmp eq i64 %.2, %2
+  %208 = icmp eq i64 %2, %.2
   %or.cond = and i1 %.not133, %208
   br i1 %or.cond, label %210, label %209
 
@@ -4735,7 +4735,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
   %.0116 = phi i32 [ 2, %209 ], [ 0, %203 ]
   %211 = load i32, ptr %69, align 4
   %.not134 = icmp eq i32 %211, 0
-  %.not135 = icmp eq i64 %206, %3
+  %.not135 = icmp eq i64 %3, %206
   %or.cond146 = select i1 %.not134, i1 true, i1 %.not135
   br i1 %or.cond146, label %214, label %212
 

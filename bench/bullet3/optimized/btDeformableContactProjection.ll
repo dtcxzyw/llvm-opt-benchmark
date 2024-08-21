@@ -460,7 +460,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI15btReducedVectorE
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -538,7 +538,7 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
   br i1 %exitcond23.not, label %if.end15, label %for.body, !llvm.loop !7
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
 
 for.body8.lr.ph:                                  ; preds = %if.else
@@ -554,7 +554,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   tail call void @_ZN15btReducedVectorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(68) %arrayidx11, ptr noundef nonnull align 8 dereferenceable(68) %fillData)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %newsize
+  %exitcond.not = icmp eq i32 %newsize, %lftr.wideiv
   br i1 %exitcond.not, label %if.end15, label %for.body8, !llvm.loop !8
 
 if.end15:                                         ; preds = %for.body8, %_ZN15btReducedVectorD2Ev.exit, %if.else
@@ -769,7 +769,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   store i32 %12, ptr %m_sz2.i, align 8
   %13 = load i32, ptr %m_size.i.i.i15, align 4
   %14 = load i32, ptr %m_size.i.i.i.i16, align 4
-  %cmp3.i.i.i = icmp slt i32 %14, %13
+  %cmp3.i.i.i = icmp sgt i32 %13, %14
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i
 
 if.then4.i.i.i:                                   ; preds = %invoke.cont17
@@ -870,7 +870,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 _ZN20btAlignedObjectArrayIiE13copyFromArrayERKS0_.exit.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i
   %26 = load i32, ptr %m_size.i.i4.i17, align 4
   %27 = load i32, ptr %m_size.i.i.i5.i, align 4
-  %cmp3.i.i6.i = icmp slt i32 %27, %26
+  %cmp3.i.i6.i = icmp sgt i32 %26, %27
   %28 = load i32, ptr %m_capacity.i.i.i.i19.i, align 8
   %cmp.i.i.i20.i = icmp slt i32 %28, %26
   %or.cond = select i1 %cmp3.i.i6.i, i1 %cmp.i.i.i20.i, i1 false
@@ -2350,7 +2350,7 @@ if.end:                                           ; preds = %entry
   %1 = load i32, ptr %m_size.i.i, align 4
   %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %m_size.i.i.i, align 4
-  %cmp3.i.i = icmp slt i32 %2, %1
+  %cmp3.i.i = icmp sgt i32 %1, %2
   br i1 %cmp3.i.i, label %if.then4.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i
 
 if.then4.i.i:                                     ; preds = %if.end
@@ -2458,7 +2458,7 @@ _ZN20btAlignedObjectArrayIiE13copyFromArrayERKS0_.exit: ; preds = %for.body.i.i,
   %14 = load i32, ptr %m_size.i.i4, align 4
   %m_size.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 36
   %15 = load i32, ptr %m_size.i.i.i5, align 4
-  %cmp3.i.i6 = icmp slt i32 %15, %14
+  %cmp3.i.i6 = icmp sgt i32 %14, %15
   br i1 %cmp3.i.i6, label %if.then4.i.i18, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i
 
 if.then4.i.i18:                                   ; preds = %_ZN20btAlignedObjectArrayIiE13copyFromArrayERKS0_.exit
@@ -4148,14 +4148,14 @@ if.then13:                                        ; preds = %if.else
   %dir1.sroa.2.0.copyload = load float, ptr %dir1.sroa.2.0.arrayidx.i28.sroa_idx, align 4
   %dir1.sroa.3.0.arrayidx.i28.sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   %dir1.sroa.3.0.copyload = load float, ptr %dir1.sroa.3.0.arrayidx.i28.sroa_idx, align 4
-  %6 = fneg float %dir0.sroa.7.0.copyload
-  %neg.i.i = fmul float %dir1.sroa.2.0.copyload, %6
+  %6 = fneg float %dir1.sroa.2.0.copyload
+  %neg.i.i = fmul float %dir0.sroa.7.0.copyload, %6
   %7 = tail call float @llvm.fmuladd.f32(float %dir0.sroa.4.0.copyload, float %dir1.sroa.3.0.copyload, float %neg.i.i)
-  %8 = fneg float %dir0.sroa.0.0.copyload
-  %neg19.i.i = fmul float %dir1.sroa.3.0.copyload, %8
+  %8 = fneg float %dir1.sroa.3.0.copyload
+  %neg19.i.i = fmul float %dir0.sroa.0.0.copyload, %8
   %9 = tail call float @llvm.fmuladd.f32(float %dir0.sroa.7.0.copyload, float %dir1.sroa.0.0.copyload, float %neg19.i.i)
-  %10 = fneg float %dir0.sroa.4.0.copyload
-  %neg30.i.i = fmul float %dir1.sroa.0.0.copyload, %10
+  %10 = fneg float %dir1.sroa.0.0.copyload
+  %neg30.i.i = fmul float %dir0.sroa.4.0.copyload, %10
   %11 = tail call float @llvm.fmuladd.f32(float %dir0.sroa.0.0.copyload, float %dir1.sroa.2.0.copyload, float %neg30.i.i)
   %mul8.i.i.i = fmul float %9, %9
   %12 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %mul8.i.i.i)
@@ -5948,7 +5948,7 @@ if.then:                                          ; preds = %land.rhs.i
   %8 = load i32, ptr %m_size.i.i.i, align 4
   %m_size.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %9 = load i32, ptr %m_size.i.i.i.i, align 4
-  %cmp3.i.i.i = icmp slt i32 %9, %8
+  %cmp3.i.i.i = icmp sgt i32 %8, %9
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then
@@ -7819,7 +7819,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I28btDeformableS
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -7888,7 +7888,7 @@ _ZN20btAlignedObjectArrayI28btDeformableStaticConstraintED2Ev.exit: ; preds = %_
   br i1 %exitcond25.not, label %if.end15, label %for.body, !llvm.loop !80
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
 
 for.body8.lr.ph:                                  ; preds = %if.else
@@ -7991,7 +7991,7 @@ for.body.i7.i:                                    ; preds = %for.body.i7.i, %for
 _ZN20btAlignedObjectArrayI28btDeformableStaticConstraintEC2ERKS1_.exit: ; preds = %for.body.i7.i, %if.else.i.i, %invoke.cont.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %newsize
+  %exitcond.not = icmp eq i32 %newsize, %lftr.wideiv
   br i1 %exitcond.not, label %if.end15, label %for.body8, !llvm.loop !83
 
 if.end15:                                         ; preds = %_ZN20btAlignedObjectArrayI28btDeformableStaticConstraintEC2ERKS1_.exit, %_ZN20btAlignedObjectArrayI28btDeformableStaticConstraintED2Ev.exit, %if.else
@@ -8061,7 +8061,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I32btDeformableN
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -8130,7 +8130,7 @@ _ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintED2Ev.exit: ; preds 
   br i1 %exitcond23.not, label %if.end15, label %for.body, !llvm.loop !84
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
 
 for.body8.lr.ph:                                  ; preds = %if.else
@@ -8146,7 +8146,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   tail call void @_ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %arrayidx11, ptr noundef nonnull align 8 dereferenceable(25) %fillData)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %newsize
+  %exitcond.not = icmp eq i32 %newsize, %lftr.wideiv
   br i1 %exitcond.not, label %if.end15, label %for.body8, !llvm.loop !85
 
 if.end15:                                         ; preds = %for.body8, %_ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintED2Ev.exit, %if.else
@@ -8216,7 +8216,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I38btDeformableN
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -8285,7 +8285,7 @@ _ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintED2Ev.exit: ; 
   br i1 %exitcond23.not, label %if.end15, label %for.body, !llvm.loop !86
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
 
 for.body8.lr.ph:                                  ; preds = %if.else
@@ -8301,7 +8301,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   tail call void @_ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %arrayidx11, ptr noundef nonnull align 8 dereferenceable(25) %fillData)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %newsize
+  %exitcond.not = icmp eq i32 %newsize, %lftr.wideiv
   br i1 %exitcond.not, label %if.end15, label %for.body8, !llvm.loop !87
 
 if.end15:                                         ; preds = %for.body8, %_ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintED2Ev.exit, %if.else
@@ -8371,7 +8371,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I38btDeformableF
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -8440,7 +8440,7 @@ _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintED2Ev.exit: ; 
   br i1 %exitcond23.not, label %if.end15, label %for.body, !llvm.loop !88
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
 
 for.body8.lr.ph:                                  ; preds = %if.else
@@ -8456,7 +8456,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   tail call void @_ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %arrayidx11, ptr noundef nonnull align 8 dereferenceable(25) %fillData)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %newsize
+  %exitcond.not = icmp eq i32 %newsize, %lftr.wideiv
   br i1 %exitcond.not, label %if.end15, label %for.body8, !llvm.loop !89
 
 if.end15:                                         ; preds = %for.body8, %_ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintED2Ev.exit, %if.else
@@ -8526,7 +8526,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I37btDeformableF
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -8595,7 +8595,7 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintED2Ev.exit: ; p
   br i1 %exitcond25.not, label %if.end15, label %for.body, !llvm.loop !90
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
 
 for.body8.lr.ph:                                  ; preds = %if.else
@@ -8697,7 +8697,7 @@ for.body.i7.i:                                    ; preds = %for.body.i7.i, %for
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintEC2ERKS1_.exit: ; preds = %for.body.i7.i, %if.else.i.i, %invoke.cont.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %newsize
+  %exitcond.not = icmp eq i32 %newsize, %lftr.wideiv
   br i1 %exitcond.not, label %if.end15, label %for.body8, !llvm.loop !94
 
 if.end15:                                         ; preds = %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintEC2ERKS1_.exit, %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintED2Ev.exit, %if.else
@@ -11121,7 +11121,7 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body8.i
   store i32 %1, ptr %m_size.i, align 4
   %m_size.i.i17 = getelementptr inbounds i8, ptr %this, i64 36
   %11 = load i32, ptr %m_size.i.i17, align 4
-  %cmp3.i20 = icmp slt i32 %11, %1
+  %cmp3.i20 = icmp sgt i32 %1, %11
   br i1 %cmp3.i20, label %if.then4.i21, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit61
 
 if.then4.i21:                                     ; preds = %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit
@@ -11694,7 +11694,7 @@ for.body.i7.i:                                    ; preds = %for.body.i7.i, %for
 _ZN20btAlignedObjectArrayI28btDeformableStaticConstraintEC2ERKS1_.exit: ; preds = %for.body.i7.i, %if.else.i.i, %invoke.cont.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %end
+  %exitcond.not = icmp eq i32 %end, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !107
 
 for.end:                                          ; preds = %_ZN20btAlignedObjectArrayI28btDeformableStaticConstraintEC2ERKS1_.exit, %entry
@@ -12587,7 +12587,7 @@ for.body.i7.i:                                    ; preds = %for.body.i7.i, %for
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintEC2ERKS1_.exit: ; preds = %for.body.i7.i, %if.else.i.i, %invoke.cont.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %end
+  %exitcond.not = icmp eq i32 %end, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !117
 
 for.end:                                          ; preds = %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintEC2ERKS1_.exit, %entry

@@ -1675,7 +1675,7 @@ tailrecurse.i:                                    ; preds = %1, %6
   ]
 
 6:                                                ; preds = %tailrecurse.i, %tailrecurse.i
-  %7 = icmp eq ptr %.tr.i, %0
+  %7 = icmp eq ptr %0, %.tr.i
   br i1 %7, label %Ivy_ManLatchIsSelfFeed_rec.exit, label %tailrecurse.i
 
 Ivy_ManLatchIsSelfFeed_rec.exit:                  ; preds = %6, %tailrecurse.i, %1

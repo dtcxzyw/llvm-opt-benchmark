@@ -1903,7 +1903,7 @@ define hidden void @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drai
   %9 = add i64 %8, %6
   %10 = load i64, ptr %4, align 8, !noundef !11
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %19, %2
@@ -13444,7 +13444,7 @@ common.resume:                                    ; preds = %171, %79, %411
 229:                                              ; preds = %226
   %230 = icmp ult i64 %228, %198
   call void @llvm.assume(i1 %230)
-  %231 = icmp ult i64 %198, %.0.i133
+  %231 = icmp ugt i64 %.0.i133, %198
   br i1 %231, label %.lr.ph.i.preheader, label %232
 
 232:                                              ; preds = %229
@@ -13859,7 +13859,7 @@ common.resume:                                    ; preds = %171, %79, %411
   %378 = load i64, ptr %125, align 8, !alias.scope !1177, !noalias !1182, !noundef !11
   %379 = load i64, ptr %27, align 8, !alias.scope !1184, !noalias !1182, !noundef !11
   %380 = sub i64 %379, %378
-  %381 = icmp ult i64 %380, %.sroa.5.0.i180
+  %381 = icmp ugt i64 %.sroa.5.0.i180, %380
   br i1 %381, label %382, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h6ecec6ccc86e75e2E.exit"
 
 382:                                              ; preds = %377
@@ -14046,7 +14046,7 @@ define void @_ZN16wasmtime_environ14module_environ17ModuleTranslation19try_func_
   br i1 %exitcond.not.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h792d74cdd609f48aE.exit.thread.i.i.i, label %36
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h792d74cdd609f48aE.exit.i.i.i: ; preds = %36
-  %42 = icmp eq i64 %.sroa.01.012.i.i.i.i, %32
+  %42 = icmp eq i64 %32, %.sroa.01.012.i.i.i.i
   br i1 %42, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h792d74cdd609f48aE.exit.thread.i.i.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he05734b204532bbdE.exit"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h792d74cdd609f48aE.exit.thread.i.i.i: ; preds = %"_ZN100_$LT$cranelift_entity..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd97a6d14153107e4E.exit.i.i.i.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h792d74cdd609f48aE.exit.i.i.i

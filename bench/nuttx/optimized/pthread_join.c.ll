@@ -14,7 +14,7 @@ define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 16
   %7 = tail call i32 @nxsched_gettid() #2
-  %8 = icmp eq i32 %7, %0
+  %8 = icmp eq i32 %0, %7
   br i1 %8, label %53, label %9
 
 9:                                                ; preds = %2

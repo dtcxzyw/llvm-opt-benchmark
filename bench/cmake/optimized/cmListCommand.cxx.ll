@@ -1651,7 +1651,7 @@ _ZN6cmList9pop_frontEv.exit:                      ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %.not.i.i.i24, label %_ZN6cmList5eraseEN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESD_.exit, label %53
 
 53:                                               ; preds = %.critedge
-  %.not11.i.i.i = icmp eq ptr %45, %44
+  %.not11.i.i.i = icmp eq ptr %44, %45
   br i1 %.not11.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i, label %54
 
 54:                                               ; preds = %53
@@ -3918,7 +3918,7 @@ _ZNSt8_Rb_treeIZN12_GLOBAL__N_122HandleTransformCommandERKSt6vectorINSt7__cxx111
 
 _ZNSt8_Rb_treeIZN12_GLOBAL__N_122HandleTransformCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE16ActionDescriptorSE_St9_IdentityISE_ESt8functionIFbRKS7_SJ_EESaISE_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISE_ERKSE_.exit.thread.i.i.i: ; preds = %_ZNSt8_Rb_treeIZN12_GLOBAL__N_122HandleTransformCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE16ActionDescriptorSE_St9_IdentityISE_ESt8functionIFbRKS7_SJ_EESaISE_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISE_ERKSE_.exit.i.i.i, %.noexc13.i, %._crit_edge.thread.i.i.i.i.i
   %.sroa.12.0.i11.i.i.i = phi ptr [ %210, %_ZNSt8_Rb_treeIZN12_GLOBAL__N_122HandleTransformCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE16ActionDescriptorSE_St9_IdentityISE_ESt8functionIFbRKS7_SJ_EESaISE_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISE_ERKSE_.exit.i.i.i ], [ %.025.lcssa37.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i ], [ %.025.lcssa38.i.i.i.i.i, %.noexc13.i ]
-  %211 = icmp eq ptr %185, %.sroa.12.0.i11.i.i.i
+  %211 = icmp eq ptr %.sroa.12.0.i11.i.i.i, %185
   br i1 %211, label %.noexc15.i, label %212
 
 212:                                              ; preds = %_ZNSt8_Rb_treeIZN12_GLOBAL__N_122HandleTransformCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE16ActionDescriptorSE_St9_IdentityISE_ESt8functionIFbRKS7_SJ_EESaISE_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISE_ERKSE_.exit.thread.i.i.i
@@ -7247,7 +7247,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ne ptr %32, %34
   %.sroa.0.08.i.i.i = getelementptr inbounds i8, ptr %34, i64 -32
-  %36 = icmp ugt ptr %.sroa.0.08.i.i.i, %32
+  %36 = icmp ult ptr %32, %.sroa.0.08.i.i.i
   %or.cond.i.i.i = select i1 %35, i1 %36, i1 false
   br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %_ZN6cmList7reverseEv.exit
 
@@ -9276,7 +9276,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11c
   br i1 %.not, label %36, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp eq ptr %10, %1
+  %14 = icmp eq ptr %1, %10
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
@@ -9388,7 +9388,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -9591,7 +9591,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #23
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %11
+  %.not4.i.i.i.i.i.i = icmp eq ptr %11, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i

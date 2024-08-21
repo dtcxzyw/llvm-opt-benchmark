@@ -23,7 +23,7 @@ define range(i32 0, 2) i32 @DynBuf_Write(ptr nocapture noundef %0, ptr nocapture
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %6, %8
-  %10 = icmp ult i64 %9, %2
+  %10 = icmp ugt i64 %2, %9
   br i1 %10, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4

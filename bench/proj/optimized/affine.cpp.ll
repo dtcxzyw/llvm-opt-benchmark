@@ -241,33 +241,33 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_affineP8PJconsts(ptr
   %116 = load double, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %100, i64 96
   %118 = load double, ptr %117, align 8
-  %119 = fneg double %112
-  %120 = fmul double %116, %119
+  %119 = fneg double %116
+  %120 = fmul double %112, %119
   %121 = tail call double @llvm.fmuladd.f64(double %110, double %118, double %120)
-  %122 = fmul double %114, %119
-  %123 = tail call double @llvm.fmuladd.f64(double %108, double %118, double %122)
-  %124 = fneg double %123
-  %125 = fneg double %110
-  %126 = fmul double %114, %125
+  %122 = fneg double %114
+  %123 = fmul double %112, %122
+  %124 = tail call double @llvm.fmuladd.f64(double %108, double %118, double %123)
+  %125 = fneg double %124
+  %126 = fmul double %110, %122
   %127 = tail call double @llvm.fmuladd.f64(double %108, double %116, double %126)
-  %128 = fneg double %106
-  %129 = fmul double %116, %128
-  %130 = tail call double @llvm.fmuladd.f64(double %104, double %118, double %129)
-  %131 = fneg double %130
-  %132 = fmul double %114, %128
-  %133 = tail call double @llvm.fmuladd.f64(double %102, double %118, double %132)
-  %134 = fneg double %104
-  %135 = fmul double %114, %134
-  %136 = tail call double @llvm.fmuladd.f64(double %102, double %116, double %135)
-  %137 = fneg double %136
-  %138 = fmul double %110, %128
-  %139 = tail call double @llvm.fmuladd.f64(double %104, double %112, double %138)
-  %140 = fmul double %108, %128
+  %128 = fmul double %106, %119
+  %129 = tail call double @llvm.fmuladd.f64(double %104, double %118, double %128)
+  %130 = fneg double %129
+  %131 = fmul double %106, %122
+  %132 = tail call double @llvm.fmuladd.f64(double %102, double %118, double %131)
+  %133 = fmul double %104, %122
+  %134 = tail call double @llvm.fmuladd.f64(double %102, double %116, double %133)
+  %135 = fneg double %134
+  %136 = fneg double %110
+  %137 = fmul double %106, %136
+  %138 = tail call double @llvm.fmuladd.f64(double %104, double %112, double %137)
+  %139 = fneg double %108
+  %140 = fmul double %106, %139
   %141 = tail call double @llvm.fmuladd.f64(double %102, double %112, double %140)
   %142 = fneg double %141
-  %143 = fmul double %108, %134
+  %143 = fmul double %104, %139
   %144 = tail call double @llvm.fmuladd.f64(double %102, double %110, double %143)
-  %145 = fmul double %104, %124
+  %145 = fmul double %104, %125
   %146 = tail call double @llvm.fmuladd.f64(double %102, double %121, double %145)
   %147 = tail call double @llvm.fmuladd.f64(double %106, double %127, double %146)
   %148 = fcmp oeq double %147, 0.000000e+00
@@ -299,16 +299,16 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_affineP8PJconsts(ptr
   %160 = fdiv double %121, %147
   %161 = getelementptr inbounds i8, ptr %100, i64 112
   store double %160, ptr %161, align 8
-  %162 = fdiv double %131, %147
+  %162 = fdiv double %130, %147
   %163 = getelementptr inbounds i8, ptr %100, i64 120
   store double %162, ptr %163, align 8
-  %164 = fdiv double %139, %147
+  %164 = fdiv double %138, %147
   %165 = getelementptr inbounds i8, ptr %100, i64 128
   store double %164, ptr %165, align 8
-  %166 = fdiv double %124, %147
+  %166 = fdiv double %125, %147
   %167 = getelementptr inbounds i8, ptr %100, i64 136
   store double %166, ptr %167, align 8
-  %168 = fdiv double %133, %147
+  %168 = fdiv double %132, %147
   %169 = getelementptr inbounds i8, ptr %100, i64 144
   store double %168, ptr %169, align 8
   %170 = fdiv double %142, %147
@@ -317,7 +317,7 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_affineP8PJconsts(ptr
   %172 = fdiv double %127, %147
   %173 = getelementptr inbounds i8, ptr %100, i64 160
   store double %172, ptr %173, align 8
-  %174 = fdiv double %137, %147
+  %174 = fdiv double %135, %147
   %175 = getelementptr inbounds i8, ptr %100, i64 168
   store double %174, ptr %175, align 8
   %176 = fdiv double %144, %147

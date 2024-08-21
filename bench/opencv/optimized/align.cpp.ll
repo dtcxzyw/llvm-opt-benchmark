@@ -395,13 +395,13 @@ define hidden void @_ZN2cv13wechat_qrcode5Align4cropERKNS_3MatES4_ffi(ptr dead_o
   %reass.sub64 = sub i32 %27, %19
   %29 = add i32 %reass.sub64, 1
   %30 = sitofp i32 %28 to float
-  %31 = fmul float %30, %4
+  %31 = fmul float %4, %30
   %32 = sitofp i32 %6 to float
   %33 = fcmp olt float %31, %32
   %.sroa.speculated59 = select i1 %33, float %32, float %31
   %34 = fptosi float %.sroa.speculated59 to i32
   %35 = sitofp i32 %29 to float
-  %36 = fmul float %35, %5
+  %36 = fmul float %5, %35
   %37 = fcmp olt float %36, %32
   %.sroa.speculated57 = select i1 %37, float %32, float %36
   %38 = fptosi float %.sroa.speculated57 to i32

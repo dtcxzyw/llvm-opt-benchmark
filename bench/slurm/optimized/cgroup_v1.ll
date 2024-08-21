@@ -2367,7 +2367,7 @@ define dso_local i32 @cgroup_p_task_addto(i32 noundef %0, ptr noundef %1, i32 no
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @g_max_task_id, align 4
-  %10 = icmp ult i32 %9, %3
+  %10 = icmp ugt i32 %3, %9
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %4

@@ -3972,7 +3972,7 @@ if.then319.i:                                     ; preds = %if.end317.i
 if.then321.i:                                     ; preds = %if.then319.i
   %sub323.i = add nsw i32 %.pre.i64, -2
   %186 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 4), align 4
-  %cmp.i.i66 = icmp slt i32 %186, %sub323.i
+  %cmp.i.i66 = icmp sgt i32 %sub323.i, %186
   br i1 %cmp.i.i66, label %if.then.i.i67, label %_ZN8ImVectorI6ImVec2E6resizeEi.exit.i
 
 if.then.i.i67:                                    ; preds = %if.then321.i
@@ -4023,7 +4023,7 @@ if.end324.i:                                      ; preds = %_ZN8ImVectorI6ImVec
 if.then327.i:                                     ; preds = %if.end324.i
   %sub329.i = add nsw i32 %.pre16.i, -2
   %191 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 4), align 4
-  %cmp.i292.i = icmp slt i32 %191, %sub329.i
+  %cmp.i292.i = icmp sgt i32 %sub329.i, %191
   br i1 %cmp.i292.i, label %if.then.i293.i, label %_ZN8ImVectorI6ImVec2E6resizeEi.exit309.i
 
 if.then.i293.i:                                   ; preds = %if.then327.i
@@ -21179,7 +21179,7 @@ init.end1490:                                     ; preds = %init1487, %init.che
 
 if.then1492:                                      ; preds = %init.end1490
   %235 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, i64 4), align 4
-  %cmp.i998 = icmp slt i32 %235, %234
+  %cmp.i998 = icmp sgt i32 %234, %235
   br i1 %cmp.i998, label %if.then.i1007, label %if.end.i999
 
 if.then.i1007:                                    ; preds = %if.then1492
@@ -21218,7 +21218,7 @@ if.end7.i.i1022:                                  ; preds = %if.then2.i.i1019, %
 
 if.end.i999:                                      ; preds = %if.end7.i.i1022, %if.then1492
   %239 = phi i32 [ %.pre1347, %if.end7.i.i1022 ], [ %233, %if.then1492 ]
-  %cmp2.i1000 = icmp slt i32 %239, %234
+  %cmp2.i1000 = icmp sgt i32 %234, %239
   br i1 %cmp2.i1000, label %for.cond.preheader.i1001, label %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE6resizeEiRKS1_.exit1023
 
 for.cond.preheader.i1001:                         ; preds = %if.end.i999
@@ -21560,7 +21560,7 @@ _ZN8ImVectorIiE4findERKi.exit.i:                  ; preds = %if.else.i.i, %while
 
 if.then.i1041:                                    ; preds = %_ZN8ImVectorIiE4findERKi.exit.i
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -4
-  %cmp.i5.i = icmp ugt ptr %add.ptr3.i.i, %data.0.lcssa.i.i
+  %cmp.i5.i = icmp ult ptr %data.0.lcssa.i.i, %add.ptr3.i.i
   br i1 %cmp.i5.i, label %if.then.i.i1042, label %_ZN8ImVectorIiE14erase_unsortedEPKi.exit.i
 
 if.then.i.i1042:                                  ; preds = %if.then.i1041
@@ -23271,7 +23271,7 @@ if.then:                                          ; preds = %entry
   %2 = load i32, ptr %BufSize, align 4
   %Capacity.i = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i32, ptr %Capacity.i, align 4
-  %cmp.i = icmp slt i32 %3, %2
+  %cmp.i = icmp sgt i32 %2, %3
   br i1 %cmp.i, label %if.then.i, label %if.then._ZN8ImVectorIcE6resizeEi.exit_crit_edge
 
 if.then._ZN8ImVectorIcE6resizeEi.exit_crit_edge:  ; preds = %if.then

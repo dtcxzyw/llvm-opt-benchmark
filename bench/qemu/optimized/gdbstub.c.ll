@@ -1146,7 +1146,7 @@ if.end8:                                          ; preds = %for.inc, %for.cond.
 
 if.then22:                                        ; preds = %if.end8
   %9 = load i32, ptr %arrayidx14, align 8
-  %cmp24.not = icmp eq i32 %9, %g_pos
+  %cmp24.not = icmp eq i32 %g_pos, %9
   br i1 %cmp24.not, label %if.else27, label %if.then25
 
 if.then25:                                        ; preds = %if.then22
@@ -2618,7 +2618,7 @@ for.body:                                         ; preds = %entry, %gdb_read_re
   %add.ptr.i.i = getelementptr i8, ptr %4, i64 10176
   %gdb_num_core_regs.i = getelementptr inbounds i8, ptr %call1.i.i, i64 348
   %6 = load i32, ptr %gdb_num_core_regs.i, align 4
-  %cmp.i = icmp sgt i32 %6, %reg_id.09
+  %cmp.i = icmp slt i32 %reg_id.09, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body
@@ -2655,7 +2655,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %num_regs.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %12 = load i32, ptr %num_regs.i, align 4
   %add.i = add i32 %12, %11
-  %cmp9.i = icmp sgt i32 %add.i, %reg_id.09
+  %cmp9.i = icmp slt i32 %reg_id.09, %add.i
   br i1 %cmp9.i, label %if.then10.i, label %for.inc.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
@@ -2818,7 +2818,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr.i.i = getelementptr i8, ptr %18, i64 10176
   %gdb_num_core_regs.i = getelementptr inbounds i8, ptr %call1.i.i, i64 348
   %19 = load i32, ptr %gdb_num_core_regs.i, align 4
-  %cmp.i = icmp sgt i32 %19, %reg_id.019
+  %cmp.i = icmp slt i32 %reg_id.019, %19
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body
@@ -2855,7 +2855,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i10
   %num_regs.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %25 = load i32, ptr %num_regs.i, align 4
   %add.i = add i32 %25, %24
-  %cmp9.i = icmp sgt i32 %add.i, %reg_id.019
+  %cmp9.i = icmp slt i32 %reg_id.019, %add.i
   br i1 %cmp9.i, label %if.then10.i, label %for.inc.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i

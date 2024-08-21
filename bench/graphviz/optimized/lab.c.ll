@@ -208,7 +208,7 @@ RGB2XYZ.exit:                                     ; preds = %24, %29
   %40 = tail call double @llvm.fmuladd.f64(double %.0.i11.i, double 9.505000e-01, double %39)
   %41 = fdiv double %34, 0x4057C3020C49BA5E
   %42 = load double, ptr @XYZEpsilon, align 8
-  %43 = fcmp olt double %42, %41
+  %43 = fcmp ogt double %41, %42
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %RGB2XYZ.exit
@@ -226,7 +226,7 @@ PivotXYZ.exit:                                    ; preds = %44, %46
   %50 = phi double [ %.pre, %44 ], [ %42, %46 ]
   %.0.i = phi double [ %45, %44 ], [ %49, %46 ]
   %51 = fdiv double %37, 1.000000e+02
-  %52 = fcmp olt double %50, %51
+  %52 = fcmp ogt double %51, %50
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %PivotXYZ.exit
@@ -244,7 +244,7 @@ PivotXYZ.exit11:                                  ; preds = %53, %55
   %59 = phi double [ %.pre19, %53 ], [ %50, %55 ]
   %.0.i10 = phi double [ %54, %53 ], [ %58, %55 ]
   %60 = fdiv double %40, 1.088830e+02
-  %61 = fcmp olt double %59, %60
+  %61 = fcmp ogt double %60, %59
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %PivotXYZ.exit11

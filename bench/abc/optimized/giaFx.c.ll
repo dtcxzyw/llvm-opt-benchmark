@@ -66,7 +66,7 @@ define i32 @Gia_ManGraphToAig(ptr noundef %0, ptr nocapture noundef readonly %1)
   %30 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31, i64 %29, i32 2
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %26, 1
-  %33 = xor i32 %32, %31
+  %33 = xor i32 %31, %32
   %34 = getelementptr inbounds i8, ptr %25, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 1
@@ -75,7 +75,7 @@ define i32 @Gia_ManGraphToAig(ptr noundef %0, ptr nocapture noundef readonly %1)
   %39 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31, i64 %38, i32 2
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %35, 1
-  %42 = xor i32 %41, %40
+  %42 = xor i32 %40, %41
   %43 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %33, i32 noundef %42) #17
   %44 = getelementptr inbounds i8, ptr %25, i64 8
   store i32 %43, ptr %44, align 8
@@ -250,7 +250,7 @@ define i32 @Gia_ManFactorGraph(ptr noundef %0, ptr nocapture noundef readonly %1
   %41 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31.i, i64 %40, i32 2
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %37, 1
-  %44 = xor i32 %43, %42
+  %44 = xor i32 %42, %43
   %45 = getelementptr inbounds i8, ptr %36, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = lshr i32 %46, 1
@@ -259,7 +259,7 @@ define i32 @Gia_ManFactorGraph(ptr noundef %0, ptr nocapture noundef readonly %1
   %50 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31.i, i64 %49, i32 2
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %46, 1
-  %53 = xor i32 %52, %51
+  %53 = xor i32 %51, %52
   %54 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %44, i32 noundef %53) #17
   %55 = getelementptr inbounds i8, ptr %36, i64 8
   store i32 %54, ptr %55, align 8
@@ -1847,7 +1847,7 @@ Vec_IntStart.exit87:                              ; preds = %Vec_IntAlloc.exit.t
   br label %77
 
 .preheader:                                       ; preds = %77, %Vec_IntStart.exit87
-  %.not96 = icmp slt i32 %.0.lcssa, %1
+  %.not96 = icmp sgt i32 %1, %.0.lcssa
   br i1 %.not96, label %._crit_edge, label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %.preheader
@@ -2233,13 +2233,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val227394 = phi ptr [ %.val227395, %.critedge.loopexit ], [ %71, %Vec_IntAlloc.exit ]
   %.val220351 = phi i32 [ %.val221.pre, %.critedge.loopexit ], [ %.val224, %Vec_IntAlloc.exit ]
   %161 = load i32, ptr %66, align 4
-  %.not.i253 = icmp slt i32 %161, %.val220351
+  %.not.i253 = icmp sgt i32 %.val220351, %161
   br i1 %.not.i253, label %162, label %Vec_IntFillExtra.exit
 
 162:                                              ; preds = %.critedge
   %163 = load i32, ptr %67, align 8
   %164 = shl nsw i32 %163, 1
-  %165 = icmp slt i32 %164, %.val220351
+  %165 = icmp sgt i32 %.val220351, %164
   %.not.i.i254 = icmp slt i32 %163, %.val220351
   br i1 %165, label %166, label %175
 

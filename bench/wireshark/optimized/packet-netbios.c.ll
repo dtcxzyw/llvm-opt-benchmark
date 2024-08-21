@@ -1382,7 +1382,7 @@ define internal noundef i32 @dissect_netb_name_resp(ptr noundef %0, ptr nocaptur
 .critedge:                                        ; preds = %16, %24
   %.sink37 = phi i32 [ 28, %24 ], [ 12, %16 ]
   %.str.189.sink = phi ptr [ @.str.185, %24 ], [ @.str.189, %16 ]
-  %29 = add i32 %.sink37, %2
+  %29 = add i32 %2, %.sink37
   tail call void @netbios_add_name(ptr noundef nonnull %.str.189.sink, ptr noundef %0, i32 noundef %29, ptr noundef %3)
   ret i32 0
 }

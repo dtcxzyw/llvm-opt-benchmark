@@ -111,7 +111,7 @@ define i32 @Dau_DsdMergeStatus_rec(ptr noundef %0, ptr nocapture noundef %1, ptr
 
 54:                                               ; preds = %.loopexit
   %55 = zext nneg i8 %53 to i32
-  %56 = icmp slt i32 %55, %3
+  %56 = icmp sgt i32 %3, %55
   %57 = select i1 %56, i32 0, i32 3
   %58 = ptrtoint ptr %51 to i64
   %59 = ptrtoint ptr %0 to i64

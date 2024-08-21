@@ -947,7 +947,7 @@ define range(i32 -1, -2147483648) i32 @H5G__obj_iterate(ptr noundef %0, i32 noun
   %.not40 = icmp eq i64 %3, 0
   %20 = getelementptr inbounds i8, ptr %8, i64 24
   %21 = load i64, ptr %20, align 8
-  %.not41 = icmp ugt i64 %21, %3
+  %.not41 = icmp ult i64 %3, %21
   %or.cond = select i1 %.not40, i1 true, i1 %.not41
   br i1 %or.cond, label %26, label %22
 

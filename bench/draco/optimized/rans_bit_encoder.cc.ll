@@ -109,9 +109,9 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i:          ; preds = %1
 
 20:                                               ; preds = %13
   %.not5.i.i.i.i.i = icmp eq ptr %4, %15
-  br i1 %.not5.i.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.thread, label %.lr.ph.i.i.i.i.i.preheader
+  br i1 %.not5.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit.i.loopexit, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %20
+_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i: ; preds = %20
   %21 = add i64 %16, -8
   %22 = sub i64 %21, %6
   %23 = and i64 %22, -8
@@ -124,11 +124,11 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i:          ; preds = %1
   %.pre24.i = sub i64 %.pre21.i, %.pre22.i
   %.pre26.i = ashr exact i64 %.pre24.i, 3
   %25 = icmp eq i64 %.pre24.i, 16
-  br i1 %25, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.thread
+  br i1 %25, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit.i, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit.i.loopexit
 
-_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.thread: ; preds = %20, %.lr.ph.i.i.i.i.i.preheader
-  %26 = phi ptr [ %.pre19.i, %.lr.ph.i.i.i.i.i.preheader ], [ %15, %20 ]
-  %.pre-phi27.i6 = phi i64 [ %.pre26.i, %.lr.ph.i.i.i.i.i.preheader ], [ %18, %20 ]
+_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit.i.loopexit: ; preds = %20, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i
+  %26 = phi ptr [ %.pre19.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i ], [ %15, %20 ]
+  %.pre-phi27.i6 = phi i64 [ %.pre26.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i ], [ %18, %20 ]
   %27 = sub nsw i64 2, %.pre-phi27.i6
   %28 = shl nsw i64 %.pre-phi27.i6, 3
   %29 = sub i64 16, %28
@@ -136,8 +136,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit
   %30 = getelementptr inbounds i64, ptr %26, i64 %27
   br label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit.i
 
-_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit.i: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.thread, %.lr.ph.i.i.i.i.i.preheader
-  %.0.i.i.i.i.i.i = phi ptr [ %.pre19.i, %.lr.ph.i.i.i.i.i.preheader ], [ %30, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.thread ]
+_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit.i: ; preds = %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit.i.loopexit, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i
+  %.0.i.i.i.i.i.i = phi ptr [ %.pre19.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i ], [ %30, %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit.i.loopexit ]
   store ptr %.0.i.i.i.i.i.i, ptr %14, align 8
   br label %_ZNSt6vectorImSaImEE14_M_fill_assignEmRKm.exit
 
@@ -331,7 +331,7 @@ define void @_ZN5draco14RAnsBitEncoder28EncodeLeastSignificantBits32Eij(ptr noca
   %18 = getelementptr inbounds i8, ptr %0, i64 52
   %19 = load i32, ptr %18, align 4
   %20 = sub i32 32, %19
-  %.not = icmp slt i32 %20, %1
+  %.not = icmp sgt i32 %1, %20
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   br i1 %.not, label %64, label %22
 
@@ -1027,7 +1027,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %70 = phi ptr [ %69, %68 ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %71 = ptrtoint ptr %1 to i64
   %72 = sub i64 %71, %59
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %58, %1
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %58
   br i1 %.not.i.i.i.i.i.i.i.i.i63, label %74, label %73
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit

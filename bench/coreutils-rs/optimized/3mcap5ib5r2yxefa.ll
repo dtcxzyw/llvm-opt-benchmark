@@ -79,7 +79,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %13 = phi i64 [ %.sroa.5.0.copyload, %4 ], [ %24, %17 ]
   %.0.i.i = phi i64 [ 0, %4 ], [ %25, %17 ]
   %14 = load i64, ptr %10, align 8, !noalias !45, !noundef !18
-  %15 = icmp ugt i64 %14, %13
+  %15 = icmp ult i64 %13, %14
   br i1 %15, label %17, label %16, !prof !55
 
 16:                                               ; preds = %12
@@ -373,7 +373,7 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   %16 = phi i64 [ %9, %7 ], [ %27, %20 ]
   %.0.i = phi i64 [ 0, %7 ], [ %28, %20 ]
   %17 = load i64, ptr %13, align 8, !noalias !250, !noundef !18
-  %18 = icmp ugt i64 %17, %16
+  %18 = icmp ult i64 %16, %17
   br i1 %18, label %20, label %19, !prof !55
 
 19:                                               ; preds = %15
@@ -963,7 +963,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !567)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !581)
   %22 = load i64, ptr %12, align 8, !noalias !562, !noundef !18
-  %23 = icmp ugt i64 %22, %20
+  %23 = icmp ult i64 %20, %22
   br i1 %23, label %25, label %24, !prof !55
 
 24:                                               ; preds = %19

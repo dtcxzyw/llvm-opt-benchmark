@@ -1839,24 +1839,24 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit.i:              ; preds = %65
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i:       ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i, %65, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i
   %78 = phi float [ %.pre.i, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i ], [ %67, %65 ], [ %67, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i ]
-  %79 = fcmp olt float %78, %57
+  %79 = fcmp ogt float %57, %78
   br i1 %79, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i:            ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i
   %80 = getelementptr inbounds i64, ptr %53, i64 %63
   %81 = load i64, ptr %80, align 8
-  %82 = fcmp oeq float %78, %57
-  %83 = icmp slt i64 %81, %.03236
+  %82 = fcmp oeq float %57, %78
+  %83 = icmp sgt i64 %.03236, %81
   %84 = and i1 %82, %83
   br i1 %84, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %90
 
 85:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i
-  %86 = fcmp olt float %69, %57
+  %86 = fcmp ogt float %57, %69
   br i1 %86, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %85
-  %87 = fcmp oeq float %69, %57
-  %88 = icmp slt i64 %71, %.03236
+  %87 = fcmp oeq float %57, %69
+  %88 = icmp sgt i64 %.03236, %71
   %89 = and i1 %87, %88
   br i1 %89, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %90
 
@@ -2018,7 +2018,7 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %6, %_ZN5fa
   %53 = getelementptr inbounds i64, ptr %5, i64 %.0.lcssa.i
   store i64 %52, ptr %53, align 8
   %54 = xor i64 %.03740, -1
-  %55 = add i64 %54, %0
+  %55 = add i64 %0, %54
   %56 = getelementptr inbounds float, ptr %1, i64 %55
   store float %7, ptr %56, align 4
   %57 = getelementptr inbounds i64, ptr %2, i64 %55
@@ -2121,24 +2121,24 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit.i:              ; preds = %20
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i:       ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i, %20, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i
   %33 = phi float [ %.pre.i, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i ], [ %22, %20 ], [ %22, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i ]
-  %34 = fcmp olt float %33, %1
+  %34 = fcmp ogt float %1, %33
   br i1 %34, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i:            ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i
   %35 = getelementptr inbounds i64, ptr %15, i64 %18
   %36 = load i64, ptr %35, align 8
-  %37 = fcmp oeq float %33, %1
-  %38 = icmp slt i64 %36, %2
+  %37 = fcmp oeq float %1, %33
+  %38 = icmp sgt i64 %2, %36
   %39 = and i1 %37, %38
   br i1 %39, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %45
 
 40:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i
-  %41 = fcmp olt float %24, %1
+  %41 = fcmp ogt float %1, %24
   br i1 %41, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %40
-  %42 = fcmp oeq float %24, %1
-  %43 = icmp slt i64 %26, %2
+  %42 = fcmp oeq float %1, %24
+  %43 = icmp sgt i64 %2, %26
   %44 = and i1 %42, %43
   br i1 %44, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %45
 
@@ -2430,7 +2430,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16Hamm
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = mul nsw i64 %11, %1
+  %12 = mul nsw i64 %1, %11
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %6, align 8
@@ -2473,7 +2473,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16Hamm
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = mul nsw i64 %9, %2
+  %10 = mul nsw i64 %2, %9
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = sdiv i32 %8, 8
@@ -2482,7 +2482,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16Hamm
   %14 = srem i32 %8, 8
   %15 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %14, ptr %15, align 4
-  %16 = mul nsw i64 %9, %1
+  %16 = mul nsw i64 %1, %9
   %17 = getelementptr inbounds i8, ptr %6, i64 %16
   %18 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %17)
   %19 = sitofp i32 %18 to float
@@ -2824,7 +2824,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16Hamm
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = mul nsw i64 %11, %1
+  %12 = mul nsw i64 %1, %11
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %6, align 8
@@ -2843,7 +2843,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16Hamm
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = mul nsw i64 %9, %2
+  %10 = mul nsw i64 %2, %9
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = sdiv i32 %8, 8
@@ -2852,7 +2852,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16Hamm
   %14 = srem i32 %8, 8
   %15 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %14, ptr %15, align 4
-  %16 = mul nsw i64 %9, %1
+  %16 = mul nsw i64 %1, %9
   %17 = getelementptr inbounds i8, ptr %6, i64 %16
   %18 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %17)
   %19 = sitofp i32 %18 to float
@@ -2912,7 +2912,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = mul nsw i64 %11, %1
+  %12 = mul nsw i64 %1, %11
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %6, align 8
@@ -2939,7 +2939,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = mul nsw i64 %9, %2
+  %10 = mul nsw i64 %2, %9
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = sdiv i32 %8, 8
@@ -2948,7 +2948,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %14 = srem i32 %8, 8
   %15 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %14, ptr %15, align 4
-  %16 = mul nsw i64 %9, %1
+  %16 = mul nsw i64 %1, %9
   %17 = getelementptr inbounds i8, ptr %6, i64 %16
   %18 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %17)
   %19 = sitofp i32 %18 to float
@@ -3013,7 +3013,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = mul nsw i64 %11, %1
+  %12 = mul nsw i64 %1, %11
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %6, align 8
@@ -3047,7 +3047,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = mul nsw i64 %9, %2
+  %10 = mul nsw i64 %2, %9
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = sdiv i32 %8, 8
@@ -3056,7 +3056,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %14 = srem i32 %8, 8
   %15 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %14, ptr %15, align 4
-  %16 = mul nsw i64 %9, %1
+  %16 = mul nsw i64 %1, %9
   %17 = getelementptr inbounds i8, ptr %6, i64 %16
   %18 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %17)
   %19 = sitofp i32 %18 to float
@@ -3124,7 +3124,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = mul nsw i64 %11, %1
+  %12 = mul nsw i64 %1, %11
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %6, align 8
@@ -3167,7 +3167,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = mul nsw i64 %9, %2
+  %10 = mul nsw i64 %2, %9
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = sdiv i32 %8, 8
@@ -3176,7 +3176,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %14 = srem i32 %8, 8
   %15 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %14, ptr %15, align 4
-  %16 = mul nsw i64 %9, %1
+  %16 = mul nsw i64 %1, %9
   %17 = getelementptr inbounds i8, ptr %6, i64 %16
   %18 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %17)
   %19 = sitofp i32 %18 to float
@@ -3260,7 +3260,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = mul nsw i64 %11, %1
+  %12 = mul nsw i64 %1, %11
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %6, align 8
@@ -3335,7 +3335,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = mul nsw i64 %9, %2
+  %10 = mul nsw i64 %2, %9
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = sdiv i32 %8, 8
@@ -3344,7 +3344,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %14 = srem i32 %8, 8
   %15 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %14, ptr %15, align 4
-  %16 = mul nsw i64 %9, %1
+  %16 = mul nsw i64 %1, %9
   %17 = getelementptr inbounds i8, ptr %6, i64 %16
   %18 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %17)
   %19 = sitofp i32 %18 to float
@@ -3407,7 +3407,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_22Hamm
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = mul nsw i64 %11, %1
+  %12 = mul nsw i64 %1, %11
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = tail call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %13)
   %15 = sitofp i32 %14 to float
@@ -3422,7 +3422,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_22Hamm
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = mul nsw i64 %9, %2
+  %10 = mul nsw i64 %2, %9
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = sdiv i32 %8, 8
@@ -3431,7 +3431,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_22Hamm
   %14 = srem i32 %8, 8
   %15 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %14, ptr %15, align 4
-  %16 = mul nsw i64 %9, %1
+  %16 = mul nsw i64 %1, %9
   %17 = getelementptr inbounds i8, ptr %6, i64 %16
   %18 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %17)
   %19 = sitofp i32 %18 to float

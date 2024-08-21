@@ -1044,7 +1044,7 @@ _ZN16XObjectAllocator18alloc_small_objectEm16XAllocationFlags.exit: ; preds = %_
 
 28:                                               ; preds = %3
   %29 = load i64, ptr @XObjectSizeLimitMedium, align 8
-  %.not = icmp ult i64 %29, %1
+  %.not = icmp ugt i64 %1, %29
   br i1 %.not, label %36, label %30
 
 30:                                               ; preds = %28

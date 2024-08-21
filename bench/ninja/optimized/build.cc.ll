@@ -582,7 +582,7 @@ _ZN4Plan10EdgeWantedEPK4Edge.exit:                ; preds = %77, %72, %69, %65
 
 select.unfold.i.i:                                ; preds = %92, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %92 ]
-  %95 = icmp eq ptr %83, %.sroa.4.0.i.ph.i.i
+  %95 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %83
   br i1 %95, label %_ZNSt8_Rb_treeIP4EdgeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %96
 
 96:                                               ; preds = %select.unfold.i.i
@@ -738,7 +738,7 @@ _ZNSt3mapIP4EdgeN4Plan4WantESt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.
 
 23:                                               ; preds = %20
   %.not.i.i.i.i = icmp ne ptr %21, null
-  %24 = icmp eq ptr %5, %22
+  %24 = icmp eq ptr %22, %5
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %24
   br i1 %or.cond.i.i.i.i, label %.thread.i.i, label %25
 
@@ -1020,7 +1020,7 @@ _ZNSt8_Rb_treeIP4EdgeSt4pairIKS1_N4Plan4WantEESt10_Select1stIS6_ESt4lessIS1_ESaI
 12:                                               ; preds = %_ZNSt8_Rb_treeIP4EdgeSt4pairIKS1_N4Plan4WantEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp ugt ptr %14, %1
+  %15 = icmp ult ptr %1, %14
   %spec.select.i.i = select i1 %15, ptr %7, ptr %.19.i.i.i
   br label %_ZNSt3mapIP4EdgeN4Plan4WantESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit
 
@@ -1846,7 +1846,7 @@ _ZNSt3mapIP4EdgeN4Plan4WantESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit31: 
 
 select.unfold.i.i:                                ; preds = %118, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %118 ]
-  %121 = icmp eq ptr %90, %.sroa.4.0.i.ph.i.i
+  %121 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %90
   br i1 %121, label %_ZNSt8_Rb_treeIP4EdgeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %122
 
 122:                                              ; preds = %select.unfold.i.i
@@ -2447,7 +2447,7 @@ _ZNSt3mapIP4EdgeN4Plan4WantESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit: ; 
 
 select.unfold.i.i:                                ; preds = %41, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %41 ]
-  %44 = icmp eq ptr %11, %.sroa.4.0.i.ph.i.i
+  %44 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %11
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %select.unfold.i.i
@@ -2587,7 +2587,7 @@ define dso_local void @_ZN4Plan19ComputeCriticalPathEv(ptr nocapture noundef non
   %.02024.i.i.i.i.i.i.i.i.i = phi ptr [ %.020.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.02022.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i ]
   %39 = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i.i.i.i.i, i64 32
   %40 = load ptr, ptr %39, align 8
-  %41 = icmp ugt ptr %40, %38
+  %41 = icmp ult ptr %38, %40
   %.in.v.i.i.i.i.i.i.i.i.i = select i1 %41, i64 16, i64 24
   %.in.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i.i.i.i.i, i64 %.in.v.i.i.i.i.i.i.i.i.i
   %.020.i.i.i.i.i.i.i.i.i = load ptr, ptr %.in.i.i.i.i.i.i.i.i.i, align 8
@@ -2617,13 +2617,13 @@ define dso_local void @_ZN4Plan19ComputeCriticalPathEv(ptr nocapture noundef non
 
 select.unfold.i.i.i.i.i.i.i.i:                    ; preds = %46, %._crit_edge.thread.i.i.i.i.i.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i.i.i.i.i, %46 ]
-  %49 = icmp eq ptr %24, %.sroa.4.0.i.ph.i.i.i.i.i.i.i.i
+  %49 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i.i.i.i.i.i, %24
   br i1 %49, label %54, label %50
 
 50:                                               ; preds = %select.unfold.i.i.i.i.i.i.i.i
   %51 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i.i.i.i.i.i, i64 32
   %52 = load ptr, ptr %51, align 8
-  %53 = icmp ugt ptr %52, %38
+  %53 = icmp ult ptr %38, %52
   br label %54
 
 54:                                               ; preds = %50, %select.unfold.i.i.i.i.i.i.i.i
@@ -2648,7 +2648,7 @@ select.unfold.i.i.i.i.i.i.i.i:                    ; preds = %46, %._crit_edge.th
   %.02024.i.i.i.i.i25.i.i.i.i = phi ptr [ %.020.i.i.i.i.i28.i.i.i.i, %.lr.ph.i.i.i.i.i24.i.i.i.i ], [ %.02022.i.i.i.i.i22.i.i.i.i, %.noexc ]
   %62 = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i25.i.i.i.i, i64 32
   %63 = load ptr, ptr %62, align 8
-  %64 = icmp ugt ptr %63, %61
+  %64 = icmp ult ptr %61, %63
   %.in.v.i.i.i.i.i26.i.i.i.i = select i1 %64, i64 16, i64 24
   %.in.i.i.i.i.i27.i.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i25.i.i.i.i, i64 %.in.v.i.i.i.i.i26.i.i.i.i
   %.020.i.i.i.i.i28.i.i.i.i = load ptr, ptr %.in.i.i.i.i.i27.i.i.i.i, align 8
@@ -2678,13 +2678,13 @@ select.unfold.i.i.i.i.i.i.i.i:                    ; preds = %46, %._crit_edge.th
 
 select.unfold.i.i.i.i32.i.i.i.i:                  ; preds = %69, %._crit_edge.thread.i.i.i.i.i35.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i33.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i36.i.i.i.i, %._crit_edge.thread.i.i.i.i.i35.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i31.i.i.i.i, %69 ]
-  %72 = icmp eq ptr %24, %.sroa.4.0.i.ph.i.i.i.i33.i.i.i.i
+  %72 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i.i33.i.i.i.i, %24
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %select.unfold.i.i.i.i32.i.i.i.i
   %74 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i.i33.i.i.i.i, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = icmp ugt ptr %75, %61
+  %76 = icmp ult ptr %61, %75
   br label %77
 
 77:                                               ; preds = %73, %select.unfold.i.i.i.i32.i.i.i.i
@@ -2709,7 +2709,7 @@ select.unfold.i.i.i.i32.i.i.i.i:                  ; preds = %69, %._crit_edge.th
   %.02024.i.i.i.i.i43.i.i.i.i = phi ptr [ %.020.i.i.i.i.i46.i.i.i.i, %.lr.ph.i.i.i.i.i42.i.i.i.i ], [ %.02022.i.i.i.i.i40.i.i.i.i, %.noexc34 ]
   %85 = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i43.i.i.i.i, i64 32
   %86 = load ptr, ptr %85, align 8
-  %87 = icmp ugt ptr %86, %84
+  %87 = icmp ult ptr %84, %86
   %.in.v.i.i.i.i.i44.i.i.i.i = select i1 %87, i64 16, i64 24
   %.in.i.i.i.i.i45.i.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i43.i.i.i.i, i64 %.in.v.i.i.i.i.i44.i.i.i.i
   %.020.i.i.i.i.i46.i.i.i.i = load ptr, ptr %.in.i.i.i.i.i45.i.i.i.i, align 8
@@ -2739,13 +2739,13 @@ select.unfold.i.i.i.i32.i.i.i.i:                  ; preds = %69, %._crit_edge.th
 
 select.unfold.i.i.i.i50.i.i.i.i:                  ; preds = %92, %._crit_edge.thread.i.i.i.i.i53.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i51.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i54.i.i.i.i, %._crit_edge.thread.i.i.i.i.i53.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i49.i.i.i.i, %92 ]
-  %95 = icmp eq ptr %24, %.sroa.4.0.i.ph.i.i.i.i51.i.i.i.i
+  %95 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i.i51.i.i.i.i, %24
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %select.unfold.i.i.i.i50.i.i.i.i
   %97 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i.i51.i.i.i.i, i64 32
   %98 = load ptr, ptr %97, align 8
-  %99 = icmp ugt ptr %98, %84
+  %99 = icmp ult ptr %84, %98
   br label %100
 
 100:                                              ; preds = %96, %select.unfold.i.i.i.i50.i.i.i.i
@@ -2770,7 +2770,7 @@ select.unfold.i.i.i.i50.i.i.i.i:                  ; preds = %92, %._crit_edge.th
   %.02024.i.i.i.i.i61.i.i.i.i = phi ptr [ %.020.i.i.i.i.i64.i.i.i.i, %.lr.ph.i.i.i.i.i60.i.i.i.i ], [ %.02022.i.i.i.i.i58.i.i.i.i, %.noexc35 ]
   %108 = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i61.i.i.i.i, i64 32
   %109 = load ptr, ptr %108, align 8
-  %110 = icmp ugt ptr %109, %107
+  %110 = icmp ult ptr %107, %109
   %.in.v.i.i.i.i.i62.i.i.i.i = select i1 %110, i64 16, i64 24
   %.in.i.i.i.i.i63.i.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i61.i.i.i.i, i64 %.in.v.i.i.i.i.i62.i.i.i.i
   %.020.i.i.i.i.i64.i.i.i.i = load ptr, ptr %.in.i.i.i.i.i63.i.i.i.i, align 8
@@ -2800,13 +2800,13 @@ select.unfold.i.i.i.i50.i.i.i.i:                  ; preds = %92, %._crit_edge.th
 
 select.unfold.i.i.i.i68.i.i.i.i:                  ; preds = %115, %._crit_edge.thread.i.i.i.i.i71.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i69.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i72.i.i.i.i, %._crit_edge.thread.i.i.i.i.i71.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i67.i.i.i.i, %115 ]
-  %118 = icmp eq ptr %24, %.sroa.4.0.i.ph.i.i.i.i69.i.i.i.i
+  %118 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i.i69.i.i.i.i, %24
   br i1 %118, label %123, label %119
 
 119:                                              ; preds = %select.unfold.i.i.i.i68.i.i.i.i
   %120 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i.i69.i.i.i.i, i64 32
   %121 = load ptr, ptr %120, align 8
-  %122 = icmp ugt ptr %121, %107
+  %122 = icmp ult ptr %107, %121
   br label %123
 
 123:                                              ; preds = %119, %select.unfold.i.i.i.i68.i.i.i.i
@@ -2851,7 +2851,7 @@ select.unfold.i.i.i.i68.i.i.i.i:                  ; preds = %115, %._crit_edge.t
   %.02024.i.i.i.i.i79.i.i.i.i = phi ptr [ %.020.i.i.i.i.i82.i.i.i.i, %.lr.ph.i.i.i.i.i78.i.i.i.i ], [ %.02022.i.i.i.i.i76.i.i.i.i, %133 ]
   %135 = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i79.i.i.i.i, i64 32
   %136 = load ptr, ptr %135, align 8
-  %137 = icmp ugt ptr %136, %134
+  %137 = icmp ult ptr %134, %136
   %.in.v.i.i.i.i.i80.i.i.i.i = select i1 %137, i64 16, i64 24
   %.in.i.i.i.i.i81.i.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i79.i.i.i.i, i64 %.in.v.i.i.i.i.i80.i.i.i.i
   %.020.i.i.i.i.i82.i.i.i.i = load ptr, ptr %.in.i.i.i.i.i81.i.i.i.i, align 8
@@ -2881,13 +2881,13 @@ select.unfold.i.i.i.i68.i.i.i.i:                  ; preds = %115, %._crit_edge.t
 
 select.unfold.i.i.i.i86.i.i.i.i:                  ; preds = %142, %._crit_edge.thread.i.i.i.i.i89.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i87.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i90.i.i.i.i, %._crit_edge.thread.i.i.i.i.i89.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i85.i.i.i.i, %142 ]
-  %145 = icmp eq ptr %24, %.sroa.4.0.i.ph.i.i.i.i87.i.i.i.i
+  %145 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i.i87.i.i.i.i, %24
   br i1 %145, label %150, label %146
 
 146:                                              ; preds = %select.unfold.i.i.i.i86.i.i.i.i
   %147 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i.i87.i.i.i.i, i64 32
   %148 = load ptr, ptr %147, align 8
-  %149 = icmp ugt ptr %148, %134
+  %149 = icmp ult ptr %134, %148
   br label %150
 
 150:                                              ; preds = %146, %select.unfold.i.i.i.i86.i.i.i.i
@@ -2916,7 +2916,7 @@ select.unfold.i.i.i.i86.i.i.i.i:                  ; preds = %142, %._crit_edge.t
   %.02024.i.i.i.i.i97.i.i.i.i = phi ptr [ %.020.i.i.i.i.i100.i.i.i.i, %.lr.ph.i.i.i.i.i96.i.i.i.i ], [ %.02022.i.i.i.i.i94.i.i.i.i, %157 ]
   %159 = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i97.i.i.i.i, i64 32
   %160 = load ptr, ptr %159, align 8
-  %161 = icmp ugt ptr %160, %158
+  %161 = icmp ult ptr %158, %160
   %.in.v.i.i.i.i.i98.i.i.i.i = select i1 %161, i64 16, i64 24
   %.in.i.i.i.i.i99.i.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i97.i.i.i.i, i64 %.in.v.i.i.i.i.i98.i.i.i.i
   %.020.i.i.i.i.i100.i.i.i.i = load ptr, ptr %.in.i.i.i.i.i99.i.i.i.i, align 8
@@ -2946,13 +2946,13 @@ select.unfold.i.i.i.i86.i.i.i.i:                  ; preds = %142, %._crit_edge.t
 
 select.unfold.i.i.i.i104.i.i.i.i:                 ; preds = %166, %._crit_edge.thread.i.i.i.i.i107.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i105.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i108.i.i.i.i, %._crit_edge.thread.i.i.i.i.i107.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i103.i.i.i.i, %166 ]
-  %169 = icmp eq ptr %24, %.sroa.4.0.i.ph.i.i.i.i105.i.i.i.i
+  %169 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i.i105.i.i.i.i, %24
   br i1 %169, label %174, label %170
 
 170:                                              ; preds = %select.unfold.i.i.i.i104.i.i.i.i
   %171 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i.i105.i.i.i.i, i64 32
   %172 = load ptr, ptr %171, align 8
-  %173 = icmp ugt ptr %172, %158
+  %173 = icmp ult ptr %158, %172
   br label %174
 
 174:                                              ; preds = %170, %select.unfold.i.i.i.i104.i.i.i.i
@@ -2981,7 +2981,7 @@ select.unfold.i.i.i.i104.i.i.i.i:                 ; preds = %166, %._crit_edge.t
   %.02024.i.i.i.i.i115.i.i.i.i = phi ptr [ %.020.i.i.i.i.i118.i.i.i.i, %.lr.ph.i.i.i.i.i114.i.i.i.i ], [ %.02022.i.i.i.i.i112.i.i.i.i, %181 ]
   %183 = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i115.i.i.i.i, i64 32
   %184 = load ptr, ptr %183, align 8
-  %185 = icmp ugt ptr %184, %182
+  %185 = icmp ult ptr %182, %184
   %.in.v.i.i.i.i.i116.i.i.i.i = select i1 %185, i64 16, i64 24
   %.in.i.i.i.i.i117.i.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i115.i.i.i.i, i64 %.in.v.i.i.i.i.i116.i.i.i.i
   %.020.i.i.i.i.i118.i.i.i.i = load ptr, ptr %.in.i.i.i.i.i117.i.i.i.i, align 8
@@ -3011,13 +3011,13 @@ select.unfold.i.i.i.i104.i.i.i.i:                 ; preds = %166, %._crit_edge.t
 
 select.unfold.i.i.i.i122.i.i.i.i:                 ; preds = %190, %._crit_edge.thread.i.i.i.i.i125.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i123.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i126.i.i.i.i, %._crit_edge.thread.i.i.i.i.i125.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i121.i.i.i.i, %190 ]
-  %193 = icmp eq ptr %24, %.sroa.4.0.i.ph.i.i.i.i123.i.i.i.i
+  %193 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i.i123.i.i.i.i, %24
   br i1 %193, label %198, label %194
 
 194:                                              ; preds = %select.unfold.i.i.i.i122.i.i.i.i
   %195 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i.i123.i.i.i.i, i64 32
   %196 = load ptr, ptr %195, align 8
-  %197 = icmp ugt ptr %196, %182
+  %197 = icmp ult ptr %182, %196
   br label %198
 
 198:                                              ; preds = %194, %select.unfold.i.i.i.i122.i.i.i.i
@@ -3066,7 +3066,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0
   %.02024.i.i.i.i.i.i.i = phi ptr [ %.020.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.02022.i.i.i.i.i.i.i, %.lr.ph.i.i ]
   %209 = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i.i.i, i64 32
   %210 = load ptr, ptr %209, align 8
-  %211 = icmp ugt ptr %210, %208
+  %211 = icmp ult ptr %208, %210
   %.in.v.i.i.i.i.i.i.i = select i1 %211, i64 16, i64 24
   %.in.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i.i.i.i.i, i64 %.in.v.i.i.i.i.i.i.i
   %.020.i.i.i.i.i.i.i = load ptr, ptr %.in.i.i.i.i.i.i.i, align 8
@@ -3096,13 +3096,13 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %216, %._crit_edge.thread.i.i.i.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i.i.i, %216 ]
-  %219 = icmp eq ptr %24, %.sroa.4.0.i.ph.i.i.i.i.i.i
+  %219 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i.i.i.i, %24
   br i1 %219, label %224, label %220
 
 220:                                              ; preds = %select.unfold.i.i.i.i.i.i
   %221 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i.i.i.i, i64 32
   %222 = load ptr, ptr %221, align 8
-  %223 = icmp ugt ptr %222, %208
+  %223 = icmp ult ptr %208, %222
   br label %224
 
 224:                                              ; preds = %220, %select.unfold.i.i.i.i.i.i
@@ -3227,7 +3227,7 @@ _ZNSt5queueIP4EdgeSt5dequeIS1_SaIS1_EEEC2IS4_vEEv.exit: ; preds = %_ZNSt3setIPK4
   %.02024.i.i.i.i = phi ptr [ %.020.i.i.i.i, %.lr.ph.i.i.i.i44 ], [ %.02022.i.i.i.i, %268 ]
   %273 = getelementptr inbounds i8, ptr %.02024.i.i.i.i, i64 32
   %274 = load ptr, ptr %273, align 8
-  %275 = icmp ugt ptr %274, %270
+  %275 = icmp ult ptr %270, %274
   %.in.v.i.i.i.i = select i1 %275, i64 16, i64 24
   %.in.i.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i.i, i64 %.in.v.i.i.i.i
   %.020.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8
@@ -3257,13 +3257,13 @@ _ZNSt5queueIP4EdgeSt5dequeIS1_SaIS1_EEEC2IS4_vEEv.exit: ; preds = %_ZNSt3setIPK4
 
 select.unfold.i.i.i:                              ; preds = %280, %._crit_edge.thread.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %280 ]
-  %283 = icmp eq ptr %242, %.sroa.4.0.i.ph.i.i.i
+  %283 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %242
   br i1 %283, label %_ZNSt8_Rb_treeIPK4EdgeS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i, label %284
 
 284:                                              ; preds = %select.unfold.i.i.i
   %285 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
   %286 = load ptr, ptr %285, align 8
-  %287 = icmp ugt ptr %286, %270
+  %287 = icmp ult ptr %270, %286
   br label %_ZNSt8_Rb_treeIPK4EdgeS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i
 
 _ZNSt8_Rb_treeIPK4EdgeS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i: ; preds = %284, %select.unfold.i.i.i
@@ -3452,7 +3452,7 @@ _ZNSt3setIPK4EdgeSt4lessIS2_ESaIS2_EE5eraseERKS2_.exit: ; preds = %_ZNSt5queueIP
   %.02024.i.i.i.i57 = phi ptr [ %.020.i.i.i.i60, %.lr.ph.i.i.i.i56 ], [ %.02022.i.i.i.i54, %354 ]
   %355 = getelementptr inbounds i8, ptr %.02024.i.i.i.i57, i64 32
   %356 = load ptr, ptr %355, align 8
-  %357 = icmp ugt ptr %356, %350
+  %357 = icmp ult ptr %350, %356
   %.in.v.i.i.i.i58 = select i1 %357, i64 16, i64 24
   %.in.i.i.i.i59 = getelementptr inbounds i8, ptr %.02024.i.i.i.i57, i64 %.in.v.i.i.i.i58
   %.020.i.i.i.i60 = load ptr, ptr %.in.i.i.i.i59, align 8
@@ -3482,13 +3482,13 @@ _ZNSt3setIPK4EdgeSt4lessIS2_ESaIS2_EE5eraseERKS2_.exit: ; preds = %_ZNSt5queueIP
 
 select.unfold.i.i.i64:                            ; preds = %362, %._crit_edge.thread.i.i.i.i67
   %.sroa.4.0.i.ph.i.i.i65 = phi ptr [ %.019.lcssa28.i.i.i.i68, %._crit_edge.thread.i.i.i.i67 ], [ %.019.lcssa29.i.i.i.i63, %362 ]
-  %365 = icmp eq ptr %242, %.sroa.4.0.i.ph.i.i.i65
+  %365 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i65, %242
   br i1 %365, label %_ZNSt8_Rb_treeIPK4EdgeS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i66, label %366
 
 366:                                              ; preds = %select.unfold.i.i.i64
   %367 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i65, i64 32
   %368 = load ptr, ptr %367, align 8
-  %369 = icmp ugt ptr %368, %350
+  %369 = icmp ult ptr %350, %368
   br label %_ZNSt8_Rb_treeIPK4EdgeS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i66
 
 _ZNSt8_Rb_treeIPK4EdgeS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i66: ; preds = %366, %select.unfold.i.i.i64
@@ -3813,7 +3813,7 @@ define dso_local void @_ZN4Plan20ScheduleInitialEdgesEv(ptr noundef nonnull alig
 
 select.unfold.i.i:                                ; preds = %37, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %37 ]
-  %40 = icmp eq ptr %4, %.sroa.4.0.i.ph.i.i
+  %40 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %4
   br i1 %40, label %_ZNSt8_Rb_treeIP4PoolS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %41
 
 41:                                               ; preds = %select.unfold.i.i
@@ -4292,7 +4292,7 @@ _ZNSt3mapIPK10SubprocessP4EdgeSt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8
 
 23:                                               ; preds = %20
   %.not.i.i.i.i = icmp ne ptr %21, null
-  %24 = icmp eq ptr %5, %22
+  %24 = icmp eq ptr %22, %5
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %24
   br i1 %or.cond.i.i.i.i, label %.thread.i.i, label %25
 
@@ -6187,7 +6187,7 @@ _ZNSt8_Rb_treeIP4EdgeSt4pairIKS1_N4Plan4WantEESt10_Select1stIS6_ESt4lessIS1_ESaI
 123:                                              ; preds = %_ZNSt8_Rb_treeIP4EdgeSt4pairIKS1_N4Plan4WantEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %124 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %125 = load ptr, ptr %124, align 8
-  %126 = icmp ugt ptr %125, %39
+  %126 = icmp ult ptr %39, %125
   %spec.select.i.i.i = select i1 %126, ptr %118, ptr %.19.i.i.i.i
   br label %_ZNSt3mapIP4EdgeN4Plan4WantESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i
 
@@ -6717,7 +6717,7 @@ _ZNSt3mapIPK4EdgeiSt4lessIS2_ESaISt4pairIKS2_iEEE11lower_boundERS6_.exit: ; pred
 
 24:                                               ; preds = %21
   %.not.i.i.i.i = icmp ne ptr %22, null
-  %25 = icmp eq ptr %5, %23
+  %25 = icmp eq ptr %23, %5
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %25
   br i1 %or.cond.i.i.i.i, label %.thread.i.i, label %26
 
@@ -8137,7 +8137,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIP4EdgeSt4pairIKS1_N4Plan4WantEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -8851,7 +8851,7 @@ _ZNSt11_Deque_baseIP4EdgeSaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #26
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIP4EdgeSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -9015,8 +9015,8 @@ _ZNSt8_Rb_treeIPK4EdgeS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %.sroa.037.0.i
-  %30 = icmp eq ptr %4, %.sroa.3.0.i
+  %29 = icmp eq ptr %.sroa.037.0.i, %28
+  %30 = icmp eq ptr %.sroa.3.0.i, %4
   %or.cond = select i1 %29, i1 %30, i1 false
   br i1 %or.cond, label %31, label %.critedge.i
 
@@ -9066,7 +9066,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK10SubprocessSt4pairIKS2_P4EdgeESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -9280,7 +9280,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK4EdgeSt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

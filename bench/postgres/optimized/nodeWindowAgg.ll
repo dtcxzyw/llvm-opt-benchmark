@@ -3350,7 +3350,7 @@ ExecQualAndReset.exit:                            ; preds = %49
 define dso_local void @WinSetMarkPosition(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
-  %5 = icmp sgt i64 %4, %1
+  %5 = icmp slt i64 %1, %4
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
@@ -3369,7 +3369,7 @@ define dso_local void @WinSetMarkPosition(ptr nocapture noundef %0, i64 noundef 
   %15 = load i32, ptr %14, align 8
   tail call void @tuplestore_select_read_pointer(ptr noundef %13, i32 noundef %15) #8
   %16 = load i64, ptr %3, align 8
-  %17 = icmp slt i64 %16, %1
+  %17 = icmp sgt i64 %1, %16
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %9
@@ -3386,7 +3386,7 @@ define dso_local void @WinSetMarkPosition(ptr nocapture noundef %0, i64 noundef 
   tail call void @tuplestore_select_read_pointer(ptr noundef %23, i32 noundef %25) #8
   %26 = getelementptr inbounds i8, ptr %0, i64 48
   %27 = load i64, ptr %26, align 8
-  %28 = icmp slt i64 %27, %1
+  %28 = icmp sgt i64 %1, %27
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %22
@@ -3521,13 +3521,13 @@ define internal fastcc noundef zeroext i1 @window_gettupleslot(ptr nocapture nou
   tail call fastcc void @spool_tuples(ptr noundef %5, i64 noundef %1)
   %11 = getelementptr inbounds i8, ptr %5, i64 296
   %12 = load i64, ptr %11, align 8
-  %.not42 = icmp sgt i64 %12, %1
+  %.not42 = icmp slt i64 %1, %12
   br i1 %.not42, label %13, label %76
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = load i64, ptr %14, align 8
-  %16 = icmp sgt i64 %15, %1
+  %16 = icmp slt i64 %1, %15
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %13
@@ -4320,7 +4320,7 @@ are_peers.exit:                                   ; preds = %75
 174:                                              ; preds = %170
   %175 = getelementptr inbounds i8, ptr %168, i64 6
   %176 = load i16, ptr %175, align 2
-  %177 = icmp slt i16 %176, %125
+  %177 = icmp sgt i16 %125, %176
   br i1 %177, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %174
@@ -4339,7 +4339,7 @@ slot_getattr.exit:                                ; preds = %174, %slot_getsomea
   %186 = load ptr, ptr %158, align 8
   %187 = getelementptr inbounds i8, ptr %186, i64 6
   %188 = load i16, ptr %187, align 2
-  %189 = icmp slt i16 %188, %125
+  %189 = icmp sgt i16 %125, %188
   br i1 %189, label %slot_getsomeattrs.exit.i146, label %slot_getattr.exit147
 
 slot_getsomeattrs.exit.i146:                      ; preds = %slot_getattr.exit
@@ -4997,7 +4997,7 @@ are_peers.exit.thread:                            ; preds = %80, %are_peers.exit
 182:                                              ; preds = %178
   %183 = getelementptr inbounds i8, ptr %176, i64 6
   %184 = load i16, ptr %183, align 2
-  %185 = icmp slt i16 %184, %134
+  %185 = icmp sgt i16 %134, %184
   br i1 %185, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %182
@@ -5016,7 +5016,7 @@ slot_getattr.exit:                                ; preds = %182, %slot_getsomea
   %194 = load ptr, ptr %167, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 6
   %196 = load i16, ptr %195, align 2
-  %197 = icmp slt i16 %196, %134
+  %197 = icmp sgt i16 %134, %196
   br i1 %197, label %slot_getsomeattrs.exit.i151, label %slot_getattr.exit152
 
 slot_getsomeattrs.exit.i151:                      ; preds = %slot_getattr.exit
@@ -5245,7 +5245,7 @@ define internal fastcc range(i32 -1, 2) i32 @row_is_in_frame(ptr noundef %0, i64
   tail call fastcc void @update_frameheadpos(ptr noundef %0)
   %7 = getelementptr inbounds i8, ptr %0, i64 312
   %8 = load i64, ptr %7, align 8
-  %9 = icmp sgt i64 %8, %1
+  %9 = icmp slt i64 %1, %8
   br i1 %9, label %93, label %10
 
 10:                                               ; preds = %3
@@ -5261,7 +5261,7 @@ define internal fastcc range(i32 -1, 2) i32 @row_is_in_frame(ptr noundef %0, i64
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 304
   %16 = load i64, ptr %15, align 8
-  %17 = icmp slt i64 %16, %1
+  %17 = icmp sgt i64 %1, %16
   br i1 %17, label %93, label %are_peers.exit.thread
 
 18:                                               ; preds = %12
@@ -5272,7 +5272,7 @@ define internal fastcc range(i32 -1, 2) i32 @row_is_in_frame(ptr noundef %0, i64
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 304
   %22 = load i64, ptr %21, align 8
-  %23 = icmp slt i64 %22, %1
+  %23 = icmp sgt i64 %1, %22
   br i1 %23, label %24, label %are_peers.exit.thread
 
 24:                                               ; preds = %20
@@ -5340,7 +5340,7 @@ are_peers.exit:                                   ; preds = %30
   %58 = getelementptr inbounds i8, ptr %0, i64 304
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %spec.select
-  %61 = icmp slt i64 %60, %1
+  %61 = icmp sgt i64 %1, %60
   br i1 %61, label %93, label %are_peers.exit.thread
 
 62:                                               ; preds = %51
@@ -5352,7 +5352,7 @@ are_peers.exit:                                   ; preds = %30
   tail call fastcc void @update_frametailpos(ptr noundef nonnull %0)
   %65 = getelementptr inbounds i8, ptr %0, i64 320
   %66 = load i64, ptr %65, align 8
-  %.not45 = icmp sgt i64 %66, %1
+  %.not45 = icmp slt i64 %1, %66
   br i1 %.not45, label %are_peers.exit.thread, label %93
 
 are_peers.exit.thread:                            ; preds = %24, %are_peers.exit.thread55, %49, %64, %62, %53, %14, %18, %20, %are_peers.exit
@@ -5363,7 +5363,7 @@ are_peers.exit.thread:                            ; preds = %24, %are_peers.exit
 68:                                               ; preds = %are_peers.exit.thread
   %69 = getelementptr inbounds i8, ptr %0, i64 304
   %70 = load i64, ptr %69, align 8
-  %71 = icmp eq i64 %70, %1
+  %71 = icmp eq i64 %1, %70
   br i1 %71, label %93, label %92
 
 72:                                               ; preds = %are_peers.exit.thread
@@ -5379,7 +5379,7 @@ are_peers.exit.thread:                            ; preds = %24, %are_peers.exit
 76:                                               ; preds = %74
   %77 = getelementptr inbounds i8, ptr %0, i64 304
   %78 = load i64, ptr %77, align 8
-  %.not52 = icmp eq i64 %78, %1
+  %.not52 = icmp eq i64 %1, %78
   br i1 %.not52, label %92, label %79
 
 79:                                               ; preds = %76, %72
@@ -5393,14 +5393,14 @@ are_peers.exit.thread:                            ; preds = %24, %are_peers.exit
 85:                                               ; preds = %79
   %86 = getelementptr inbounds i8, ptr %0, i64 520
   %87 = load i64, ptr %86, align 8
-  %.not53 = icmp sgt i64 %87, %1
+  %.not53 = icmp slt i64 %1, %87
   br i1 %.not53, label %92, label %88
 
 88:                                               ; preds = %85
   call fastcc void @update_grouptailpos(ptr noundef nonnull %0)
   %89 = getelementptr inbounds i8, ptr %0, i64 528
   %90 = load i64, ptr %89, align 8
-  %91 = icmp sgt i64 %90, %1
+  %91 = icmp slt i64 %1, %90
   br i1 %91, label %93, label %92
 
 92:                                               ; preds = %74, %76, %88, %85, %68

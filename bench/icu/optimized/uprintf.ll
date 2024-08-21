@@ -295,7 +295,7 @@ entry:
   %fWidth = getelementptr inbounds i8, ptr %info, i64 4
   %0 = load i32, ptr %fWidth, align 4
   %cmp.not = icmp ne i32 %0, -1
-  %cmp2 = icmp sgt i32 %0, %resultLen
+  %cmp2 = icmp slt i32 %resultLen, %0
   %or.cond = and i1 %cmp.not, %cmp2
   br i1 %or.cond, label %if.then, label %if.else20
 

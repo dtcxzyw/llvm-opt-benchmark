@@ -146,7 +146,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -426,7 +426,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #10
   %cmp7 = icmp eq ptr %call, null
@@ -881,7 +881,7 @@ land.lhs.true36:                                  ; preds = %if.else33
 if.then40:                                        ; preds = %land.lhs.true36
   %inc43 = add nsw i32 %16, 1
   store i32 %inc43, ptr %pos, align 8
-  %cmp.i.i25 = icmp ugt i32 %cond.i, %16
+  %cmp.i.i25 = icmp ult i32 %16, %cond.i
   br i1 %cmp.i.i25, label %if.then.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit
 
 if.then.i.i:                                      ; preds = %if.then40
@@ -1327,7 +1327,7 @@ if.else15:                                        ; preds = %entry
   %fLength.i.i.i = getelementptr inbounds i8, ptr %this, i64 436
   %10 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %10, i32 %shr.i.i.i.i
-  %cmp.i.i = icmp ugt i32 %cond.i.i.i, %7
+  %cmp.i.i = icmp ult i32 %7, %cond.i.i.i
   br i1 %cmp.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit, label %return
 
 _ZNK6icu_7513UnicodeStringixEi.exit:              ; preds = %if.else15

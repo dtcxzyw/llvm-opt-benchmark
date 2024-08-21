@@ -201,7 +201,7 @@ define hidden void @_ZN18GenericWaitBarrier4waitEi(ptr noundef nonnull align 8 d
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   %10 = lshr i64 %9, 32
   %11 = trunc nuw i64 %10 to i32
-  %.not.i = icmp eq i32 %11, %1
+  %.not.i = icmp eq i32 %1, %11
   br i1 %.not.i, label %12, label %_ZN18GenericWaitBarrier4Cell4waitEi.exit
 
 12:                                               ; preds = %8
@@ -268,7 +268,7 @@ define hidden void @_ZN18GenericWaitBarrier4Cell4waitEi(ptr noundef nonnull alig
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   %6 = lshr i64 %5, 32
   %7 = trunc nuw i64 %6 to i32
-  %.not = icmp eq i32 %7, %1
+  %.not = icmp eq i32 %1, %7
   br i1 %.not, label %8, label %.loopexit
 
 8:                                                ; preds = %4

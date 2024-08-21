@@ -823,7 +823,7 @@ list_length.exit:                                 ; preds = %38
   %68 = getelementptr inbounds i8, ptr %59, i64 24
   %69 = load ptr, ptr %68, align 8
   %.not49 = icmp eq ptr %69, null
-  %brmerge.not = and i1 %.not49, %1
+  %brmerge.not = and i1 %1, %.not49
   %.str.19.mux = select i1 %.not49, ptr null, ptr @.str.19
   br i1 %brmerge.not, label %70, label %.critedge
 
@@ -5013,7 +5013,7 @@ list_length.exit164.thread:                       ; preds = %111, %list_length.e
 
 129:                                              ; preds = %123
   %130 = load i32, ptr %8, align 8
-  %131 = icmp eq i32 %130, %.pre-phi
+  %131 = icmp eq i32 %.pre-phi, %130
   br i1 %131, label %132, label %165
 
 132:                                              ; preds = %129

@@ -1962,7 +1962,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
   %32 = load i64, ptr %1, align 8
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 15, i64 %32
-  %cmp.not.i.i.i.i = icmp ult i64 %cond.i.i.i.i.i, %sz.0653
+  %cmp.not.i.i.i.i = icmp ugt i64 %sz.0653, %cond.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then12.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
@@ -1985,7 +1985,7 @@ if.end.i.i22.i.i.i.i:                             ; preds = %if.then12.i.i.i.i
   br label %if.end5.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.end5
-  %cmp3.i.i = icmp ugt i64 %30, %sz.0653
+  %cmp3.i.i = icmp ult i64 %sz.0653, %30
   br i1 %cmp3.i.i, label %if.end5.sink.split.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 if.end5.sink.split.i.i:                           ; preds = %if.else.i.i, %if.end.i.i22.i.i.i.i, %if.then.i21.i.i.i.i
@@ -2482,7 +2482,7 @@ if.then.i.i.i.i.i.i599:                           ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i589: ; preds = %if.then.i.i.i.i.i.i599, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i587
   %81 = load i64, ptr %0, align 8
   %cond.i.i.i.i.i590 = select i1 %cmp.i.i.i.i.i.i588, i64 15, i64 %81
-  %cmp.not.i.i.i.i591 = icmp ult i64 %cond.i.i.i.i.i590, %sz31.0665
+  %cmp.not.i.i.i.i591 = icmp ugt i64 %sz31.0665, %cond.i.i.i.i.i590
   br i1 %cmp.not.i.i.i.i591, label %if.else.i.i.i.i597, label %if.then12.i.i.i.i592
 
 if.else.i.i.i.i597:                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i589
@@ -2508,7 +2508,7 @@ if.end.i.i22.i.i.i.i595:                          ; preds = %if.then12.i.i.i.i59
   br label %if.end5.sink.split.i.i581
 
 if.else.i.i579:                                   ; preds = %if.end36
-  %cmp3.i.i580 = icmp ugt i64 %79, %sz31.0665
+  %cmp3.i.i580 = icmp ult i64 %sz31.0665, %79
   br i1 %cmp3.i.i580, label %if.end5.sink.split.i.i581, label %invoke.cont37
 
 if.end5.sink.split.i.i581:                        ; preds = %if.else.i.i579, %if.end.i.i22.i.i.i.i595, %if.then.i21.i.i.i.i596
@@ -4955,7 +4955,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
   %79 = load i64, ptr %3, align 8
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 15, i64 %79
-  %cmp.not.i.i.i.i = icmp ult i64 %cond.i.i.i.i.i, %sz.0995
+  %cmp.not.i.i.i.i = icmp ugt i64 %sz.0995, %cond.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then12.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
@@ -4978,7 +4978,7 @@ if.end.i.i22.i.i.i.i:                             ; preds = %if.then12.i.i.i.i
   br label %if.end5.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.end26
-  %cmp3.i.i = icmp ugt i64 %77, %sz.0995
+  %cmp3.i.i = icmp ult i64 %sz.0995, %77
   br i1 %cmp3.i.i, label %if.end5.sink.split.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 if.end5.sink.split.i.i:                           ; preds = %if.else.i.i, %if.end.i.i22.i.i.i.i, %if.then.i21.i.i.i.i
@@ -5205,7 +5205,7 @@ if.then.i.i.i.i.i.i908:                           ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i898: ; preds = %if.then.i.i.i.i.i.i908, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i896
   %102 = load i64, ptr %2, align 8
   %cond.i.i.i.i.i899 = select i1 %cmp.i.i.i.i.i.i897, i64 15, i64 %102
-  %cmp.not.i.i.i.i900 = icmp ult i64 %cond.i.i.i.i.i899, %sz34.01001
+  %cmp.not.i.i.i.i900 = icmp ugt i64 %sz34.01001, %cond.i.i.i.i.i899
   br i1 %cmp.not.i.i.i.i900, label %if.else.i.i.i.i906, label %if.then12.i.i.i.i901
 
 if.else.i.i.i.i906:                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i898
@@ -5228,7 +5228,7 @@ if.end.i.i22.i.i.i.i904:                          ; preds = %if.then12.i.i.i.i90
   br label %if.end5.sink.split.i.i890
 
 if.else.i.i888:                                   ; preds = %if.end39
-  %cmp3.i.i889 = icmp ugt i64 %100, %sz34.01001
+  %cmp3.i.i889 = icmp ult i64 %sz34.01001, %100
   br i1 %cmp3.i.i889, label %if.end5.sink.split.i.i890, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit911
 
 if.end5.sink.split.i.i890:                        ; preds = %if.else.i.i888, %if.end.i.i22.i.i.i.i904, %if.then.i21.i.i.i.i905
@@ -6046,7 +6046,7 @@ if.then.i.i.i.i.i.i939:                           ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i929: ; preds = %if.then.i.i.i.i.i.i939, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i927
   %181 = load i64, ptr %1, align 8
   %cond.i.i.i.i.i930 = select i1 %cmp.i.i.i.i.i.i928, i64 15, i64 %181
-  %cmp.not.i.i.i.i931 = icmp ult i64 %cond.i.i.i.i.i930, %sz84.01025
+  %cmp.not.i.i.i.i931 = icmp ugt i64 %sz84.01025, %cond.i.i.i.i.i930
   br i1 %cmp.not.i.i.i.i931, label %if.else.i.i.i.i937, label %if.then12.i.i.i.i932
 
 if.else.i.i.i.i937:                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i929
@@ -6069,7 +6069,7 @@ if.end.i.i22.i.i.i.i935:                          ; preds = %if.then12.i.i.i.i93
   br label %if.end5.sink.split.i.i921
 
 if.else.i.i919:                                   ; preds = %if.end89
-  %cmp3.i.i920 = icmp ugt i64 %179, %sz84.01025
+  %cmp3.i.i920 = icmp ult i64 %sz84.01025, %179
   br i1 %cmp3.i.i920, label %if.end5.sink.split.i.i921, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit942
 
 if.end5.sink.split.i.i921:                        ; preds = %if.else.i.i919, %if.end.i.i22.i.i.i.i935, %if.then.i21.i.i.i.i936
@@ -6296,7 +6296,7 @@ if.then.i.i.i.i.i.i965:                           ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i955: ; preds = %if.then.i.i.i.i.i.i965, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i953
   %204 = load i64, ptr %0, align 8
   %cond.i.i.i.i.i956 = select i1 %cmp.i.i.i.i.i.i954, i64 15, i64 %204
-  %cmp.not.i.i.i.i957 = icmp ult i64 %cond.i.i.i.i.i956, %sz99.01031
+  %cmp.not.i.i.i.i957 = icmp ugt i64 %sz99.01031, %cond.i.i.i.i.i956
   br i1 %cmp.not.i.i.i.i957, label %if.else.i.i.i.i963, label %if.then12.i.i.i.i958
 
 if.else.i.i.i.i963:                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i955
@@ -6319,7 +6319,7 @@ if.end.i.i22.i.i.i.i961:                          ; preds = %if.then12.i.i.i.i95
   br label %if.end5.sink.split.i.i947
 
 if.else.i.i945:                                   ; preds = %if.end104
-  %cmp3.i.i946 = icmp ugt i64 %202, %sz99.01031
+  %cmp3.i.i946 = icmp ult i64 %sz99.01031, %202
   br i1 %cmp3.i.i946, label %if.end5.sink.split.i.i947, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit968
 
 if.end5.sink.split.i.i947:                        ; preds = %if.else.i.i945, %if.end.i.i22.i.i.i.i961, %if.then.i21.i.i.i.i962
@@ -7831,7 +7831,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
   %31 = load i64, ptr %0, align 8
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 15, i64 %31
-  %cmp.not.i.i.i.i = icmp ult i64 %cond.i.i.i.i.i, %sz.0536
+  %cmp.not.i.i.i.i = icmp ugt i64 %sz.0536, %cond.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then12.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
@@ -7854,7 +7854,7 @@ if.end.i.i22.i.i.i.i:                             ; preds = %if.then12.i.i.i.i
   br label %if.end5.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.end5
-  %cmp3.i.i = icmp ugt i64 %29, %sz.0536
+  %cmp3.i.i = icmp ult i64 %sz.0536, %29
   br i1 %cmp3.i.i, label %if.end5.sink.split.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 if.end5.sink.split.i.i:                           ; preds = %if.else.i.i, %if.end.i.i22.i.i.i.i, %if.then.i21.i.i.i.i
@@ -9305,7 +9305,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
   %31 = load i64, ptr %0, align 8
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 15, i64 %31
-  %cmp.not.i.i.i.i = icmp ult i64 %cond.i.i.i.i.i, %sz.0335
+  %cmp.not.i.i.i.i = icmp ugt i64 %sz.0335, %cond.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then12.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
@@ -9328,7 +9328,7 @@ if.end.i.i22.i.i.i.i:                             ; preds = %if.then12.i.i.i.i
   br label %if.end5.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.end5
-  %cmp3.i.i = icmp ugt i64 %29, %sz.0335
+  %cmp3.i.i = icmp ult i64 %sz.0335, %29
   br i1 %cmp3.i.i, label %if.end5.sink.split.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 if.end5.sink.split.i.i:                           ; preds = %if.else.i.i, %if.end.i.i22.i.i.i.i, %if.then.i21.i.i.i.i
@@ -10159,7 +10159,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
   %31 = load i64, ptr %0, align 8
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 15, i64 %31
-  %cmp.not.i.i.i.i = icmp ult i64 %cond.i.i.i.i.i, %sz.0259
+  %cmp.not.i.i.i.i = icmp ugt i64 %sz.0259, %cond.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then12.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
@@ -10182,7 +10182,7 @@ if.end.i.i22.i.i.i.i:                             ; preds = %if.then12.i.i.i.i
   br label %if.end5.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.end5
-  %cmp3.i.i = icmp ugt i64 %29, %sz.0259
+  %cmp3.i.i = icmp ult i64 %sz.0259, %29
   br i1 %cmp3.i.i, label %if.end5.sink.split.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 if.end5.sink.split.i.i:                           ; preds = %if.else.i.i, %if.end.i.i22.i.i.i.i, %if.then.i21.i.i.i.i
@@ -10669,7 +10669,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6google8protobuf5FieldESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6google8protobuf5FieldESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 176
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6google8protobuf5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i12
@@ -11226,7 +11226,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit30, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i19
@@ -11401,7 +11401,7 @@ _ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.
 _ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt12_Vector_baseIN6google8protobuf6OptionESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6google8protobuf6OptionESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6google8protobuf6OptionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %_ZSt19__relocate_object_aIN6google8protobuf6OptionES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i19
@@ -11590,7 +11590,7 @@ _ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.ex
 _ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt12_Vector_baseIN6google8protobuf9EnumValueESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6google8protobuf9EnumValueESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 64
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %_ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i19

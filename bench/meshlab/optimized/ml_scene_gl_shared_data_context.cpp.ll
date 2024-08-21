@@ -589,7 +589,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -1654,7 +1654,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i
   %10 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %11 = load i32, ptr %10, align 4
-  %12 = icmp sgt i32 %11, %1
+  %12 = icmp slt i32 %1, %11
   br i1 %12, label %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.thread, label %13
 
 13:                                               ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit
@@ -1749,7 +1749,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %19 = load i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, %1
+  %20 = icmp slt i32 %1, %19
   br i1 %20, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -1910,7 +1910,7 @@ _ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaIS
 46:                                               ; preds = %_ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i
   %47 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %48 = load ptr, ptr %47, align 8
-  %49 = icmp ugt ptr %48, %1
+  %49 = icmp ult ptr %1, %48
   br i1 %49, label %.critedge.i, label %51
 
 .critedge.i:                                      ; preds = %46, %_ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i, %37
@@ -2466,7 +2466,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewD
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -2543,7 +2543,7 @@ _ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -3095,7 +3095,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %17 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %18 = load i32, ptr %17, align 4
-  %19 = icmp sgt i32 %18, %1
+  %19 = icmp slt i32 %1, %18
   br i1 %19, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -3340,7 +3340,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %10 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %11 = load i32, ptr %10, align 4
-  %12 = icmp sgt i32 %11, %1
+  %12 = icmp slt i32 %1, %11
   br i1 %12, label %_ZNSt6vectorIjSaIjEED2Ev.exit22, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -3755,7 +3755,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %12 = load i32, ptr %11, align 4
-  %13 = icmp sgt i32 %12, %1
+  %13 = icmp slt i32 %1, %12
   br i1 %13, label %_ZNK3vcg33QtThreadSafeTextureNamesContainerixEm.exit, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -3786,7 +3786,7 @@ _ZNK3vcg33QtThreadSafeTextureNamesContainer4sizeEv.exit: ; preds = %16
   %26 = ptrtoint ptr %21 to i64
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 2
-  %29 = icmp ugt i64 %28, %2
+  %29 = icmp ult i64 %2, %28
   br i1 %29, label %30, label %_ZNK3vcg33QtThreadSafeTextureNamesContainerixEm.exit
 
 30:                                               ; preds = %_ZNK3vcg33QtThreadSafeTextureNamesContainer4sizeEv.exit
@@ -3861,7 +3861,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %19 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %20 = load i32, ptr %19, align 4
-  %21 = icmp sgt i32 %20, %1
+  %21 = icmp slt i32 %1, %20
   br i1 %21, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -4244,7 +4244,7 @@ _ZNSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QG
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -4793,7 +4793,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #10 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -5030,7 +5030,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManag
 _ZNSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %10 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %11 = load i32, ptr %10, align 4
-  %12 = icmp sgt i32 %11, %1
+  %12 = icmp slt i32 %1, %11
   br i1 %12, label %_ZNSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.thread, label %13
 
 13:                                               ; preds = %_ZNSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit
@@ -11003,7 +11003,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMulti
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -11074,7 +11074,7 @@ _ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CM
   br label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -11128,7 +11128,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.0.i.i = phi i64 [ %13, %.split.i.i ], [ %61, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_less_iterEEvT_T0_SI_T1_T2_.exit.i.i ]
   %phi.call.i.i = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %.0.i.i
   %.sroa.02.0.copyload.i.i = load i64, ptr %phi.call.i.i, align 4
-  %22 = icmp sgt i64 %15, %.0.i.i
+  %22 = icmp slt i64 %.0.i.i, %15
   br i1 %22, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %21, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread37.i.i.i
@@ -11888,7 +11888,7 @@ define linkonce_odr void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMan
   %9 = sub i64 %7, %8
   %10 = lshr exact i64 %9, 3
   %11 = trunc i64 %10 to i32
-  %.not = icmp ugt i32 %11, %1
+  %.not = icmp ult i32 %1, %11
   br i1 %.not, label %12, label %45
 
 12:                                               ; preds = %2
@@ -12316,7 +12316,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaIS3_EEESt1
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -12363,7 +12363,7 @@ _ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaIS3_EEESt10_Select1stIS6_ESt4lessIs
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaIS3_EEESt10_Select1stIS6_ESt4lessIsESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 2 dereferenceable(2) %2) local_unnamed_addr #10 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -12623,7 +12623,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaIS3_EEESt1
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -12829,7 +12829,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !184
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -12913,7 +12913,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !184
 
 _ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -13141,7 +13141,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i17
@@ -13203,7 +13203,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %12 = load i32, ptr %11, align 4
-  %13 = icmp sgt i32 %12, %1
+  %13 = icmp slt i32 %1, %12
   br i1 %13, label %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11setTrMatrixERKNS_8Matrix44IfEE.exit, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -13264,7 +13264,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %12 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %13, %1
+  %14 = icmp slt i32 %1, %13
   br i1 %14, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -13316,7 +13316,7 @@ _ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsE
 _ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit.i: ; preds = %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %14 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp ugt ptr %15, %1
+  %16 = icmp ult ptr %1, %15
   br i1 %16, label %_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE12setGLOptionsES3_RKS4_.exit, label %17
 
 17:                                               ; preds = %_ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit.i
@@ -13403,7 +13403,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %12 = load i32, ptr %11, align 4
-  %13 = icmp sgt i32 %12, %1
+  %13 = icmp slt i32 %1, %12
   br i1 %13, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -13472,7 +13472,7 @@ _ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptions
 _ZNKSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit.i: ; preds = %_ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp ugt ptr %19, %1
+  %20 = icmp ult ptr %1, %19
   br i1 %20, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE4drawES3_RKSt6vectorIjSaIjEE.exit, label %21
 
 21:                                               ; preds = %_ZNKSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit.i
@@ -16289,7 +16289,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %12 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %13, %1
+  %14 = icmp slt i32 %1, %13
   br i1 %14, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -16390,7 +16390,7 @@ _ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptions
 _ZNKSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit: ; preds = %_ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
   %18 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp ugt ptr %19, %1
+  %20 = icmp ult ptr %1, %19
   br i1 %20, label %_ZN3vcg11PerViewDataI18MLPerViewGLOptionsED2Ev.exit, label %21
 
 21:                                               ; preds = %_ZNKSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit
@@ -16686,7 +16686,7 @@ _ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsE
 _ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit.i: ; preds = %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %14 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %15 = load ptr, ptr %14, align 8
-  %.not.i = icmp ugt ptr %15, %1
+  %.not.i = icmp ult ptr %1, %15
   br i1 %.not.i, label %_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE10removeViewES3_.exit, label %.lr.ph.i.i.i2.i
 
 .lr.ph.i.i.i2.i:                                  ; preds = %_ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit.i, %32
@@ -16698,7 +16698,7 @@ _ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaIS
   br i1 %18, label %32, label %19
 
 19:                                               ; preds = %.lr.ph.i.i.i2.i
-  %20 = icmp ugt ptr %17, %1
+  %20 = icmp ult ptr %1, %17
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %19
@@ -16732,7 +16732,7 @@ _ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsE
   %.0811.i27.i.i.i.i = phi ptr [ %.19.i28.i.i.i.i, %.lr.ph.i25.i.i.i.i ], [ %.02243.i.i.i.i, %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i.i ]
   %29 = getelementptr inbounds i8, ptr %.012.i26.i.i.i.i, i64 32
   %30 = load ptr, ptr %29, align 8
-  %31 = icmp ugt ptr %30, %1
+  %31 = icmp ult ptr %1, %30
   %.19.i28.i.i.i.i = select i1 %31, ptr %.012.i26.i.i.i.i, ptr %.0811.i27.i.i.i.i
   %.1.in.v.i29.i.i.i.i = select i1 %31, i64 16, i64 24
   %.1.in.i30.i.i.i.i = getelementptr inbounds i8, ptr %.012.i26.i.i.i.i, i64 %.1.in.v.i29.i.i.i.i
@@ -16856,12 +16856,12 @@ _ZN12QWriteLockerD2Ev.exit:                       ; preds = %15
 define linkonce_odr void @_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_ESG_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr %2) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = icmp eq ptr %8, %2
+  %9 = icmp eq ptr %2, %8
   br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %7
@@ -17022,7 +17022,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %15 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %16 = load i32, ptr %15, align 4
-  %17 = icmp sgt i32 %16, %1
+  %17 = icmp slt i32 %1, %16
   br i1 %17, label %_ZN26MLSceneGLSharedDataContext20doneCurrentGLContextEP10QGLContext.exit, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -17244,7 +17244,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %19 = load i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, %1
+  %20 = icmp slt i32 %1, %19
   br i1 %20, label %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE21meshAttributesUpdatedEbRKNS_20GLMeshAttributesInfo13RenderingAttsINS6_9ATT_NAMESEEE.exit, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -17360,7 +17360,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %12 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %13, %1
+  %14 = icmp slt i32 %1, %13
   br i1 %14, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -17412,7 +17412,7 @@ _ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptions
 _ZNKSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit.i: ; preds = %_ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %14 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp ugt ptr %15, %1
+  %16 = icmp ult ptr %1, %15
   br i1 %16, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14getPerViewInfoES3_RNS_11PerViewDataIS4_EE.exit, label %17
 
 17:                                               ; preds = %_ZNKSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit.i
@@ -17531,7 +17531,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %21 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %22 = load i32, ptr %21, align 4
-  %23 = icmp sgt i32 %22, %15
+  %23 = icmp slt i32 %15, %22
   br i1 %23, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -18048,7 +18048,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %16 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %17 = load i32, ptr %16, align 4
-  %18 = icmp sgt i32 %17, %1
+  %18 = icmp slt i32 %1, %17
   br i1 %18, label %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE12setDebugModeEb.exit, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -18113,7 +18113,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %17 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %18 = load i32, ptr %17, align 4
-  %19 = icmp sgt i32 %18, %1
+  %19 = icmp slt i32 %1, %18
   br i1 %19, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -18375,7 +18375,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS5_EEvPT_
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
   %60 = tail call ptr @__cxa_begin_catch(ptr %59) #27
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %52
+  %.not4.i.i.i.i.i.i = icmp eq ptr %52, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %57, %.lr.ph.i.i.i.i.i.i
@@ -18467,7 +18467,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #27
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %13
+  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -18569,7 +18569,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOMana
 _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %15 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %16 = load i32, ptr %15, align 4
-  %17 = icmp sgt i32 %16, %1
+  %17 = icmp slt i32 %1, %16
   br i1 %17, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; preds = %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i
@@ -18672,7 +18672,7 @@ define void @_ZN26MLSceneGLSharedDataContext30meshAttributesUpdatedRequestedEibR
 ; Function Attrs: mustprogress uwtable
 define void @_ZN26MLSceneGLSharedDataContext22requestInitPerMeshViewEP7QThreadiP10QGLContextRK15MLRenderingData(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef readnone %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4) local_unnamed_addr #10 align 2 {
   %6 = tail call noundef ptr @_ZNK7QObject6threadEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %.not = icmp eq ptr %6, %1
+  %.not = icmp eq ptr %1, %6
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %5
@@ -18696,7 +18696,7 @@ declare void @_ZN26MLSceneGLSharedDataContext24initPerMeshViewRequestMTEiP10QGLC
 ; Function Attrs: mustprogress uwtable
 define void @_ZN26MLSceneGLSharedDataContext24requestRemovePerMeshViewEP7QThreadP10QGLContext(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #10 align 2 {
   %4 = tail call noundef ptr @_ZNK7QObject6threadEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %.not = icmp eq ptr %4, %1
+  %.not = icmp eq ptr %1, %4
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
@@ -18750,7 +18750,7 @@ declare void @_ZN26MLSceneGLSharedDataContext26removePerMeshViewRequestMTEP10QGL
 ; Function Attrs: mustprogress uwtable
 define void @_ZN26MLSceneGLSharedDataContext34requestSetPerMeshViewRenderingDataEP7QThreadiP10QGLContextRK15MLRenderingData(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef readnone %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4) local_unnamed_addr #10 align 2 {
   %6 = tail call noundef ptr @_ZNK7QObject6threadEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %.not = icmp eq ptr %6, %1
+  %.not = icmp eq ptr %1, %6
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %5
@@ -18771,7 +18771,7 @@ declare void @_ZN26MLSceneGLSharedDataContext36setPerMeshViewRenderingDataReques
 ; Function Attrs: mustprogress uwtable
 define void @_ZN26MLSceneGLSharedDataContext28requestMeshAttributesUpdatedEP7QThreadibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS3_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef readnone %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 1 dereferenceable(7) %4) local_unnamed_addr #10 align 2 {
   %6 = tail call noundef ptr @_ZNK7QObject6threadEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %.not = icmp eq ptr %6, %1
+  %.not = icmp eq ptr %1, %6
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %5

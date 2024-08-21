@@ -2024,7 +2024,7 @@ _ZN12TraceVisitor15getCFuncVertexpEP8AstCFunc.exit: ; preds = %30, %38
   %52 = load ptr, ptr @v3Global, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 192
   %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, %1
+  %55 = icmp eq ptr %1, %54
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %51
@@ -5340,7 +5340,7 @@ common.resume:                                    ; preds = %14, %163, %28
   br i1 %.not.i.i.i.i, label %70, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 70:                                               ; preds = %.lr.ph.i.i.i.i
-  %71 = icmp eq ptr %17, %.0710.i.i.i.i
+  %71 = icmp eq ptr %.0710.i.i.i.i, %17
   %spec.select.i.i.i = or i1 %71, %69
   br label %_ZN11V3DupFinder6insertEP7AstNode.exit
 
@@ -6856,7 +6856,7 @@ _ZNK7AstNode8dumpTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.ex
 
 select.unfold.i.i:                                ; preds = %118, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %118 ]
-  %121 = icmp eq ptr %21, %.sroa.4.0.i.ph.i.i
+  %121 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %21
   br i1 %121, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %122
 
 122:                                              ; preds = %select.unfold.i.i
@@ -6913,7 +6913,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IjNS5_11_Alloc_nodeE
 
 select.unfold.i.i89:                              ; preds = %137, %._crit_edge.thread.i.i.i92
   %.sroa.4.0.i.ph.i.i90 = phi ptr [ %.019.lcssa28.i.i.i93, %._crit_edge.thread.i.i.i92 ], [ %.019.lcssa29.i.i.i83, %137 ]
-  %140 = icmp eq ptr %21, %.sroa.4.0.i.ph.i.i90
+  %140 = icmp eq ptr %.sroa.4.0.i.ph.i.i90, %21
   br i1 %140, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i91, label %141
 
 141:                                              ; preds = %select.unfold.i.i89
@@ -7090,7 +7090,7 @@ _ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree
 
 select.unfold.i.i116:                             ; preds = %208, %._crit_edge.thread.i.i.i119
   %.sroa.4.0.i.ph.i.i117 = phi ptr [ %.019.lcssa28.i.i.i120, %._crit_edge.thread.i.i.i119 ], [ %.019.lcssa29.i.i.i110, %208 ]
-  %211 = icmp eq ptr %21, %.sroa.4.0.i.ph.i.i117
+  %211 = icmp eq ptr %.sroa.4.0.i.ph.i.i117, %21
   br i1 %211, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i118, label %212
 
 212:                                              ; preds = %select.unfold.i.i116
@@ -7473,7 +7473,7 @@ define linkonce_odr dso_local void @_ZN12TraceVisitor28createNonConstTraceFuncti
   %17 = add i32 %2, -1
   %18 = add i32 %17, %3
   %19 = udiv i32 %18, %3
-  %20 = icmp ult i32 %18, %3
+  %20 = icmp ugt i32 %3, %18
   %.sroa.speculated = select i1 %20, i32 1, i32 %19
   %.not384 = icmp ne i32 %.sroa.speculated, 0
   %21 = getelementptr inbounds i8, ptr %0, i64 48
@@ -10768,7 +10768,7 @@ _ZZN7AstNode11foreachImplI9AstCAwaitZN12TraceVisitor17addActivitySetterEPS_jEUlP
   %53 = sub i64 %51, %52
   %54 = ashr exact i64 %53, 3
   %55 = ashr exact i64 %53, 2
-  %56 = icmp ult i64 %54, %55
+  %56 = icmp ugt i64 %55, %54
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %48
@@ -10781,7 +10781,7 @@ _ZZN7AstNode11foreachImplI9AstCAwaitZN12TraceVisitor17addActivitySetterEPS_jEUlP
   br label %_ZZN7AstNode11foreachImplI9AstCAwaitZN12TraceVisitor17addActivitySetterEPS_jEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit23
 
 59:                                               ; preds = %48
-  %60 = icmp ugt i64 %54, %55
+  %60 = icmp ult i64 %55, %54
   br i1 %60, label %61, label %_ZZN7AstNode11foreachImplI9AstCAwaitZN12TraceVisitor17addActivitySetterEPS_jEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit23
 
 61:                                               ; preds = %59
@@ -11186,8 +11186,8 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE11equal_rangeERKj.exit: ; preds 
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %.sroa.037.0.i
-  %30 = icmp eq ptr %4, %.sroa.3.0.i
+  %29 = icmp eq ptr %.sroa.037.0.i, %28
+  %30 = icmp eq ptr %.sroa.3.0.i, %4
   %or.cond = select i1 %29, i1 %30, i1 false
   br i1 %or.cond, label %31, label %.critedge.i
 
@@ -11346,7 +11346,7 @@ _ZNKSt4lessISt3setIjS_IjESaIjEEEclERKS3_S6_.exit.thread.i: ; preds = %.lr.ph.i.i
 
 .loopexit:                                        ; preds = %_ZNKSt4lessISt3setIjS_IjESaIjEEEclERKS3_S6_.exit.us.us.i, %_ZNKSt4lessISt3setIjS_IjESaIjEEEclERKS3_S6_.exit.us.i, %_ZNKSt4lessISt3setIjS_IjESaIjEEEclERKS3_S6_.exit.thread.i
   %.0.lcssa.i = phi ptr [ %.0714.i, %_ZNKSt4lessISt3setIjS_IjESaIjEEEclERKS3_S6_.exit.thread.i ], [ %.0714.us.i, %_ZNKSt4lessISt3setIjS_IjESaIjEEEclERKS3_S6_.exit.us.i ], [ %.0714.us.us.i, %_ZNKSt4lessISt3setIjS_IjESaIjEEEclERKS3_S6_.exit.us.us.i ]
-  %34 = icmp eq ptr %6, %.0.lcssa.i
+  %34 = icmp eq ptr %.0.lcssa.i, %6
   br i1 %34, label %_ZNSt8_Rb_treeISt3setIjSt4lessIjESaIjEESt4pairIKS4_P16TraceTraceVertexESt10_Select1stIS9_ES1_IS4_ESaIS9_EE10_Auto_nodeD2Ev.exit, label %35
 
 35:                                               ; preds = %.loopexit
@@ -13268,7 +13268,7 @@ _ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
   %50 = ashr exact i64 %48, 2
-  %51 = icmp ult i64 %49, %50
+  %51 = icmp ugt i64 %50, %49
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %43
@@ -13281,7 +13281,7 @@ _ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3
   br label %_ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 54:                                               ; preds = %43
-  %55 = icmp ugt i64 %49, %50
+  %55 = icmp ult i64 %50, %49
   br i1 %55, label %56, label %_ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 56:                                               ; preds = %54

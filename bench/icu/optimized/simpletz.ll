@@ -1922,7 +1922,7 @@ if.end30:                                         ; preds = %lor.lhs.false9
 lor.lhs.false32:                                  ; preds = %if.end30
   %startYear = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load i32, ptr %startYear, align 8
-  %cmp33 = icmp sgt i32 %11, %year
+  %cmp33 = icmp slt i32 %year, %11
   %or.cond12 = or i1 %cmp, %cmp33
   br i1 %or.cond12, label %return, label %if.end38
 
@@ -2618,12 +2618,12 @@ if.end4:                                          ; preds = %_ZNK6icu_7514Simple
   %firstTransition = getelementptr inbounds i8, ptr %this, i64 136
   %3 = load ptr, ptr %firstTransition, align 8
   %call5 = tail call noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %cmp = fcmp ogt double %call5, %base
+  %cmp = fcmp olt double %base, %call5
   br i1 %cmp, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
   %tobool6.not = icmp ne i8 %inclusive, 0
-  %cmp7 = fcmp oeq double %call5, %base
+  %cmp7 = fcmp oeq double %base, %call5
   %or.cond = and i1 %tobool6.not, %cmp7
   br i1 %or.cond, label %if.then8, label %if.end11
 
@@ -2767,12 +2767,12 @@ if.end4:                                          ; preds = %_ZNK6icu_7514Simple
   %firstTransition = getelementptr inbounds i8, ptr %this, i64 136
   %3 = load ptr, ptr %firstTransition, align 8
   %call5 = tail call noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %cmp = fcmp ogt double %call5, %base
+  %cmp = fcmp olt double %base, %call5
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
   %tobool6.not = icmp eq i8 %inclusive, 0
-  %cmp7 = fcmp oeq double %call5, %base
+  %cmp7 = fcmp oeq double %base, %call5
   %or.cond = and i1 %tobool6.not, %cmp7
   br i1 %or.cond, label %return, label %if.end9
 

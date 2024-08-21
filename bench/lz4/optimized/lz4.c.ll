@@ -75,7 +75,7 @@ cond.false.i:                                     ; preds = %LZ4_initStream.exit
 
 LZ4_compressBound.exit:                           ; preds = %LZ4_initStream.exit, %cond.false.i
   %cond.i = phi i32 [ %add1.i, %cond.false.i ], [ 0, %LZ4_initStream.exit ]
-  %cmp5.not = icmp sgt i32 %cond.i, %maxOutputSize
+  %cmp5.not = icmp slt i32 %maxOutputSize, %cond.i
   %cmp12 = icmp slt i32 %inputSize, 65547
   br i1 %cmp5.not, label %if.else11, label %if.then6
 
@@ -1984,7 +1984,7 @@ cond.false.i:                                     ; preds = %entry
 
 LZ4_compressBound.exit:                           ; preds = %entry, %cond.false.i
   %cond.i = phi i32 [ %add1.i, %cond.false.i ], [ 0, %entry ]
-  %cmp4.not = icmp sgt i32 %cond.i, %dstCapacity
+  %cmp4.not = icmp slt i32 %dstCapacity, %cond.i
   %cmp15 = icmp slt i32 %srcSize, 65547
   %tableType1.i179 = getelementptr inbounds i8, ptr %state, i64 16404
   %0 = load i32, ptr %tableType1.i179, align 4
@@ -4946,7 +4946,7 @@ cond.false.i.i:                                   ; preds = %entry
 
 LZ4_compressBound.exit.i:                         ; preds = %cond.false.i.i, %entry
   %cond.i.i = phi i32 [ %add1.i.i, %cond.false.i.i ], [ 0, %entry ]
-  %cmp.not.i = icmp sgt i32 %cond.i.i, %targetDstSize
+  %cmp.not.i = icmp slt i32 %targetDstSize, %cond.i.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %LZ4_compressBound.exit.i

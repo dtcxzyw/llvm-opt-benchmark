@@ -51,7 +51,7 @@ define noundef i64 @_ZN7RawRead4ReadEm(ptr nocapture noundef nonnull align 8 der
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = sub i64 %7, %9
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %53
 
 12:                                               ; preds = %5
@@ -480,7 +480,7 @@ define noundef i64 @_ZN7RawRead4GetVEv(ptr nocapture noundef nonnull align 8 der
 define noundef i32 @_ZN7RawRead8GetVSizeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2
@@ -639,7 +639,7 @@ define noundef i64 @_Z7RawGetVPKhRjjRb(ptr nocapture noundef readonly %0, ptr no
 
 7:                                                ; preds = %.lr.ph
   %8 = add i32 %.01216, 7
-  %exitcond.not = icmp eq i32 %9, %2
+  %exitcond.not = icmp eq i32 %2, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7

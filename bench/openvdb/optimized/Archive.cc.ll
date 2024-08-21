@@ -2601,7 +2601,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 4), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %is, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -2658,7 +2658,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 8), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %is, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -2702,7 +2702,7 @@ lpad.i6:                                          ; preds = %init.i5
 _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit8: ; preds = %_ZNSt8ios_base5iwordEi.exit, %init.check.i3, %invoke.cont.i7
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 12), align 4
   %13 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i10 = icmp ugt i32 %13, %12
+  %cmp.i10 = icmp ult i32 %12, %13
   br i1 %cmp.i10, label %cond.true.i15, label %cond.false.i11
 
 cond.true.i15:                                    ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit8
@@ -2760,7 +2760,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 16), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -2813,7 +2813,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 28), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -2868,7 +2868,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 32), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -2921,7 +2921,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 20), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -3233,7 +3233,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 4), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -3279,7 +3279,7 @@ lpad.i11:                                         ; preds = %init.i10
 _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit13: ; preds = %_ZNSt8ios_base5iwordEi.exit, %init.check.i8, %invoke.cont.i12
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 8), align 4
   %13 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i15 = icmp ugt i32 %13, %12
+  %cmp.i15 = icmp ult i32 %12, %13
   br i1 %cmp.i15, label %cond.true.i20, label %cond.false.i16
 
 cond.true.i20:                                    ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit13
@@ -3326,7 +3326,7 @@ lpad.i29:                                         ; preds = %init.i28
 _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit31: ; preds = %_ZNSt8ios_base5iwordEi.exit24, %init.check.i26, %invoke.cont.i30
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 12), align 4
   %21 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i33 = icmp ugt i32 %21, %20
+  %cmp.i33 = icmp ult i32 %20, %21
   br i1 %cmp.i33, label %cond.true.i38, label %cond.false.i34
 
 cond.true.i38:                                    ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit31
@@ -3469,7 +3469,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 16), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -3608,7 +3608,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 24), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -3747,7 +3747,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 28), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -3887,7 +3887,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 32), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -4028,7 +4028,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 20), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -6967,7 +6967,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 4), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %add.ptr, i64 192
   %6 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %6, %5
+  %cmp.i = icmp ult i32 %5, %6
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -7109,7 +7109,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 40), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -7286,7 +7286,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 8), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %add.ptr, i64 192
   %6 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %6, %5
+  %cmp.i = icmp ult i32 %5, %6
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -7338,7 +7338,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit9: ; preds = %_ZNSt8ios_
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 12), align 4
   %_M_word_size.i10 = getelementptr inbounds i8, ptr %add.ptr8, i64 192
   %14 = load i32, ptr %_M_word_size.i10, align 8
-  %cmp.i11 = icmp ugt i32 %14, %13
+  %cmp.i11 = icmp ult i32 %13, %14
   br i1 %cmp.i11, label %cond.true.i16, label %cond.false.i12
 
 cond.true.i16:                                    ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit9
@@ -7537,7 +7537,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 4), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %add.ptr, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -7586,7 +7586,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit10: ; preds = %_ZNSt8ios
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 8), align 4
   %_M_word_size.i11 = getelementptr inbounds i8, ptr %add.ptr5, i64 192
   %12 = load i32, ptr %_M_word_size.i11, align 8
-  %cmp.i12 = icmp ugt i32 %12, %11
+  %cmp.i12 = icmp ult i32 %11, %12
   br i1 %cmp.i12, label %cond.true.i17, label %cond.false.i13
 
 cond.true.i17:                                    ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit10
@@ -7635,7 +7635,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit28: ; preds = %_ZNSt8ios
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 12), align 4
   %_M_word_size.i29 = getelementptr inbounds i8, ptr %add.ptr11, i64 192
   %19 = load i32, ptr %_M_word_size.i29, align 8
-  %cmp.i30 = icmp ugt i32 %19, %18
+  %cmp.i30 = icmp ult i32 %18, %19
   br i1 %cmp.i30, label %cond.true.i35, label %cond.false.i31
 
 cond.true.i35:                                    ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit28
@@ -8000,7 +8000,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 24), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -8051,7 +8051,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 36), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -8136,7 +8136,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 36), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -8187,7 +8187,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit: ; preds = %entry, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 40), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit
@@ -8276,7 +8276,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i, %ini
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 40), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %strm, i64 192
   %5 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %5, %4
+  %cmp.i = icmp ult i32 %4, %5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %invoke.cont
@@ -9902,7 +9902,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit.i.i: ; preds = %invoke.
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 40), align 4
   %_M_word_size.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i5, i64 192
   %11 = load i32, ptr %_M_word_size.i.i.i, align 8
-  %cmp.i.i.i = icmp ugt i32 %11, %10
+  %cmp.i.i.i = icmp ult i32 %10, %11
   br i1 %cmp.i.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit.i.i
@@ -10988,7 +10988,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit.i.i: ; preds = %invoke.
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 40), align 4
   %_M_word_size.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i5, i64 192
   %11 = load i32, ptr %_M_word_size.i.i.i, align 8
-  %cmp.i.i.i = icmp ugt i32 %11, %10
+  %cmp.i.i.i = icmp ult i32 %10, %11
   br i1 %cmp.i.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit.i.i
@@ -12099,7 +12099,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit.i.i: ; preds = %invoke.
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 40), align 4
   %_M_word_size.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i5, i64 192
   %11 = load i32, ptr %_M_word_size.i.i.i, align 8
-  %cmp.i.i.i = icmp ugt i32 %11, %10
+  %cmp.i.i.i = icmp ult i32 %10, %11
   br i1 %cmp.i.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit.i.i
@@ -14860,7 +14860,7 @@ _ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit.i: ; preds = %invoke.co
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 40), align 4
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 192
   %5 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %5, %4
+  %cmp.i.i = icmp ult i32 %4, %5
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit.i
@@ -17794,7 +17794,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i, %ini
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 40), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %1, i64 192
   %7 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %7, %6
+  %cmp.i = icmp ult i32 %6, %7
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %invoke.cont
@@ -18614,7 +18614,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %if.t
   %cur.0.idx6.i.i = phi i64 [ 0, %if.then12 ], [ %cur.0.add.i.i, %for.cond.i.i ]
   %cur.0.ptr7.i.i = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.idx6.i.i
   %6 = load i32, ptr %cur.0.ptr7.i.i, align 8
-  %cmp1.i.i = icmp eq i32 %6, %5
+  %cmp1.i.i = icmp eq i32 %5, %6
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.cond.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -18715,7 +18715,7 @@ for.body.i.i49:                                   ; preds = %for.cond.i.i53, %if
   %cur.0.idx6.i.i50 = phi i64 [ 0, %if.then52 ], [ %cur.0.add.i.i54, %for.cond.i.i53 ]
   %cur.0.ptr7.i.i51 = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.idx6.i.i50
   %4 = load i32, ptr %cur.0.ptr7.i.i51, align 8
-  %cmp1.i.i52 = icmp eq i32 %4, %3
+  %cmp1.i.i52 = icmp eq i32 %3, %4
   br i1 %cmp1.i.i52, label %if.then.i.i58, label %for.cond.i.i53
 
 if.then.i.i58:                                    ; preds = %for.body.i.i49
@@ -18836,7 +18836,7 @@ for.body.i.i66:                                   ; preds = %for.cond.i.i70, %if
   %cur.0.idx6.i.i67 = phi i64 [ 0, %if.then85 ], [ %cur.0.add.i.i71, %for.cond.i.i70 ]
   %cur.0.ptr7.i.i68 = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.idx6.i.i67
   %15 = load i32, ptr %cur.0.ptr7.i.i68, align 8
-  %cmp1.i.i69 = icmp eq i32 %15, %14
+  %cmp1.i.i69 = icmp eq i32 %14, %15
   br i1 %cmp1.i.i69, label %if.then.i.i75, label %for.cond.i.i70
 
 if.then.i.i75:                                    ; preds = %for.body.i.i66
@@ -19071,7 +19071,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset
   %_M_word_size.i = getelementptr inbounds i8, ptr %add.ptr, i64 192
   %0 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %0, %call
+  %cmp.i = icmp ult i32 %call, %0
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %entry
@@ -19098,7 +19098,7 @@ _ZNSt8ios_base5iwordEi.exit:                      ; preds = %cond.true.i, %cond.
   %add.ptr7 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset6
   %_M_word_size.i16 = getelementptr inbounds i8, ptr %add.ptr7, i64 192
   %3 = load i32, ptr %_M_word_size.i16, align 8
-  %cmp.i17 = icmp ugt i32 %3, %2
+  %cmp.i17 = icmp ult i32 %2, %3
   br i1 %cmp.i17, label %cond.true.i21, label %cond.false.i18
 
 cond.true.i21:                                    ; preds = %_ZNSt8ios_base5iwordEi.exit
@@ -19294,7 +19294,7 @@ entry:
   %0 = load i32, ptr %this, align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %add.ptr, i64 192
   %1 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %1, %0
+  %cmp.i = icmp ult i32 %0, %1
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %entry
@@ -19323,7 +19323,7 @@ invoke.cont:                                      ; preds = %cond.false.i.invoke
   %3 = load i32, ptr %this, align 4
   %_M_word_size.i2 = getelementptr inbounds i8, ptr %add.ptr5, i64 192
   %4 = load i32, ptr %_M_word_size.i2, align 8
-  %cmp.i3 = icmp ugt i32 %4, %3
+  %cmp.i3 = icmp ult i32 %3, %4
   br i1 %cmp.i3, label %cond.true.i6, label %cond.false.i4
 
 cond.true.i6:                                     ; preds = %invoke.cont
@@ -20844,7 +20844,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #26
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPKN7openvdb5v11_04tree12InternalNodeINS2_8LeafNodeIiLj3EEELj4EEESaIS8_EE16_M_destroy_nodesEPPS8_SC_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -28512,7 +28512,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #26
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPKN7openvdb5v11_04tree12InternalNodeINS2_8LeafNodeIlLj3EEELj4EEESaIS8_EE16_M_destroy_nodesEPPS8_SC_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -35991,7 +35991,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #26
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPKN7openvdb5v11_04tree12InternalNodeINS2_8LeafNodeIfLj3EEELj4EEESaIS8_EE16_M_destroy_nodesEPPS8_SC_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -43775,7 +43775,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #26
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPKN7openvdb5v11_04tree12InternalNodeINS2_8LeafNodeIdLj3EEELj4EEESaIS8_EE16_M_destroy_nodesEPPS8_SC_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -51559,7 +51559,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #26
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPKN7openvdb5v11_04tree12InternalNodeINS2_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEESaISB_EE16_M_destroy_nodesEPPSB_SF_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -59212,7 +59212,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #26
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPKN7openvdb5v11_04tree12InternalNodeINS2_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEESaISB_EE16_M_destroy_nodesEPPSB_SF_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -67455,7 +67455,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #26
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPKN7openvdb5v11_04tree12InternalNodeINS2_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEESaISB_EE16_M_destroy_nodesEPPSB_SF_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -76553,7 +76553,7 @@ sw.bb25:                                          ; preds = %if.end24
   %11 = load ptr, ptr %ibeg_.i, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %call26 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %11 to i64
-  %sub.ptr.sub = add i64 %sub.ptr.lhs.cast, %off
+  %sub.ptr.sub = add i64 %off, %sub.ptr.lhs.cast
   %add = sub i64 %sub.ptr.sub, %sub.ptr.rhs.cast
   br label %sw.epilog
 
@@ -76563,7 +76563,7 @@ sw.bb28:                                          ; preds = %if.end24
   %13 = load ptr, ptr %ibeg_.i, align 8
   %sub.ptr.lhs.cast31 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast32 = ptrtoint ptr %13 to i64
-  %sub.ptr.sub33 = add i64 %sub.ptr.lhs.cast31, %off
+  %sub.ptr.sub33 = add i64 %off, %sub.ptr.lhs.cast31
   %add34 = sub i64 %sub.ptr.sub33, %sub.ptr.rhs.cast32
   br label %sw.epilog
 
@@ -76643,7 +76643,7 @@ sw.epilog81.sink.split:                           ; preds = %sw.bb66, %sw.bb73
   %21 = load ptr, ptr %obeg_.i2129, align 8
   %sub.ptr.lhs.cast76 = ptrtoint ptr %.sink48 to i64
   %sub.ptr.rhs.cast77 = ptrtoint ptr %21 to i64
-  %sub.ptr.sub78 = add i64 %sub.ptr.lhs.cast76, %off
+  %sub.ptr.sub78 = add i64 %off, %sub.ptr.lhs.cast76
   %add79 = sub i64 %sub.ptr.sub78, %sub.ptr.rhs.cast77
   br label %sw.epilog81
 
@@ -76874,7 +76874,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i, %ini
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 40), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %1, i64 192
   %7 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %7, %6
+  %cmp.i = icmp ult i32 %6, %7
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %invoke.cont
@@ -76941,7 +76941,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i, %ini
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 40), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %1, i64 192
   %7 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %7, %6
+  %cmp.i = icmp ult i32 %6, %7
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %invoke.cont
@@ -77008,7 +77008,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i, %ini
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, i64 40), align 4
   %_M_word_size.i = getelementptr inbounds i8, ptr %1, i64 192
   %7 = load i32, ptr %_M_word_size.i, align 8
-  %cmp.i = icmp ugt i32 %7, %6
+  %cmp.i = icmp ult i32 %6, %7
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %invoke.cont
@@ -77140,7 +77140,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %8, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %9
+  %cmp2.i.i = icmp eq ptr %9, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -77189,7 +77189,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_i
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -77612,7 +77612,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 entry:
   %cmp.not = icmp ne ptr %__x, null
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2 = icmp eq ptr %add.ptr.i, %__p
+  %cmp2 = icmp eq ptr %__p, %add.ptr.i
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %lor.end, label %lor.rhs
 
@@ -77735,7 +77735,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %9, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %10
+  %cmp2.i.i = icmp eq ptr %10, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -77775,7 +77775,7 @@ _ZNSt8_Rb_treeIPKN7openvdb5v11_04tree8TreeBaseESt4pairIKS5_NS1_2io14GridDescript
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPKN7openvdb5v11_04tree8TreeBaseESt4pairIKS5_NS1_2io14GridDescriptorEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #6 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

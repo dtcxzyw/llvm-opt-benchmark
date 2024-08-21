@@ -260,7 +260,7 @@ define void @_ZN9CvLevMarq4initEii14CvTermCriteriab(ptr noundef nonnull align 8 
 
 19:                                               ; preds = %13, %16
   %20 = phi i32 [ %18, %16 ], [ 0, %13 ]
-  %.not16 = icmp eq i32 %20, %2
+  %.not16 = icmp eq i32 %2, %20
   br i1 %.not16, label %22, label %21
 
 21:                                               ; preds = %19, %10, %6

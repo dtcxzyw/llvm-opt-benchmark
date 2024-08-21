@@ -602,7 +602,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.end.i, %if.then.
   %m_proof_mode.i = getelementptr inbounds i8, ptr %5, i64 712
   %6 = load i32, ptr %m_proof_mode.i, align 8
   %cmp.i = icmp eq i32 %6, 0
-  %cmp.not = icmp eq ptr %0, %n
+  %cmp.not = icmp eq ptr %n, %0
   %or.cond = or i1 %cmp.not, %cmp.i
   br i1 %or.cond, label %if.end, label %if.then
 

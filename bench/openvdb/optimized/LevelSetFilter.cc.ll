@@ -7804,7 +7804,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeM
   %arrayidx.i.i.i.i.i.i55 = getelementptr inbounds float, ptr %114, i64 %idxprom.i.i.i.i.i.i54
   %retval.0.i.i.i.i.i.i56 = select i1 %tobool.not.i.i.i.i.i.i53, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i55
   %115 = load float, ptr %retval.0.i.i.i.i.i.i56, align 4
-  %add = fadd float %115, %offset
+  %add = fadd float %offset, %115
   %call.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIfLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter42)
   %116 = load i32, ptr %mMaskIter.i.i.i.i40, align 8
   %mOutOfCore.i.i.i.i.i59 = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -22139,7 +22139,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeM
   %arrayidx.i.i.i.i.i.i55 = getelementptr inbounds double, ptr %114, i64 %idxprom.i.i.i.i.i.i54
   %retval.0.i.i.i.i.i.i56 = select i1 %tobool.not.i.i.i.i.i.i53, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i55
   %115 = load double, ptr %retval.0.i.i.i.i.i.i56, align 8
-  %add = fadd double %115, %offset
+  %add = fadd double %offset, %115
   %call.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIdLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter42)
   %116 = load i32, ptr %mMaskIter.i.i.i.i40, align 8
   %mOutOfCore.i.i.i.i.i59 = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -30737,7 +30737,7 @@ entry:
   %xor.i.i = xor i64 %0, 63
   %notmask = shl nsw i64 -1, %xor.i.i
   %sub = xor i64 %notmask, -1
-  %and = and i64 %sub, %hash
+  %and = and i64 %hash, %sub
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
   %xor.i.i.i.i.i = xor i64 %1, 63
@@ -31724,7 +31724,7 @@ entry:
   %xor.i.i = xor i64 %0, 63
   %notmask = shl nsw i64 -1, %xor.i.i
   %sub = xor i64 %notmask, -1
-  %and = and i64 %sub, %hash
+  %and = and i64 %hash, %sub
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
   %xor.i.i.i.i.i = xor i64 %1, 63
@@ -39491,7 +39491,7 @@ while.body.us:                                    ; preds = %if.end, %_ZSt13__ad
   %__parent.0.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %div1617, %if.end ]
   %phi.call.us = getelementptr inbounds float, ptr %__first.coerce, i64 %__parent.0.us
   %1 = load float, ptr %phi.call.us, align 4
-  %cmp28.i.us = icmp sgt i64 %div.i2123, %__parent.0.us
+  %cmp28.i.us = icmp slt i64 %__parent.0.us, %div.i2123
   br i1 %cmp28.i.us, label %while.body.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 while.body.i.us:                                  ; preds = %while.body.us, %while.body.i.us
@@ -39543,7 +39543,7 @@ while.body:                                       ; preds = %while.body.preheade
   %__parent.0 = phi i64 [ %dec, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %div1617, %while.body.preheader ]
   %phi.call = getelementptr inbounds float, ptr %__first.coerce, i64 %__parent.0
   %6 = load float, ptr %phi.call, align 4
-  %cmp28.i = icmp sgt i64 %div.i2123, %__parent.0
+  %cmp28.i = icmp slt i64 %__parent.0, %div.i2123
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %while.body.i
@@ -47285,7 +47285,7 @@ while.body.us:                                    ; preds = %if.end, %_ZSt13__ad
   %__parent.0.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %div1617, %if.end ]
   %phi.call.us = getelementptr inbounds double, ptr %__first.coerce, i64 %__parent.0.us
   %1 = load double, ptr %phi.call.us, align 8
-  %cmp28.i.us = icmp sgt i64 %div.i2123, %__parent.0.us
+  %cmp28.i.us = icmp slt i64 %__parent.0.us, %div.i2123
   br i1 %cmp28.i.us, label %while.body.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 while.body.i.us:                                  ; preds = %while.body.us, %while.body.i.us
@@ -47337,7 +47337,7 @@ while.body:                                       ; preds = %while.body.preheade
   %__parent.0 = phi i64 [ %dec, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %div1617, %while.body.preheader ]
   %phi.call = getelementptr inbounds double, ptr %__first.coerce, i64 %__parent.0
   %6 = load double, ptr %phi.call, align 8
-  %cmp28.i = icmp sgt i64 %div.i2123, %__parent.0
+  %cmp28.i = icmp slt i64 %__parent.0, %div.i2123
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %while.body.i

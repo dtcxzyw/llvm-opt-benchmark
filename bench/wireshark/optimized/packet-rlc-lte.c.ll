@@ -3614,7 +3614,7 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
 98:                                               ; preds = %96, %93
   %.1 = phi i16 [ %.0264, %93 ], [ %spec.select, %96 ]
   %99 = zext i16 %.1 to i32
-  %100 = icmp eq i16 %.1, %7
+  %100 = icmp eq i16 %7, %.1
   %101 = zext i1 %100 to i32
   store i32 %101, ptr %79, align 4
   br i1 %100, label %143, label %102
@@ -3903,7 +3903,7 @@ reassembly_add_segment.exit:                      ; preds = %162, %163
 272:                                              ; preds = %266
   %273 = zext i16 %7 to i32
   %274 = zext i16 %.2 to i32
-  %.not287 = icmp eq i16 %.2, %7
+  %.not287 = icmp eq i16 %7, %.2
   br i1 %.not287, label %283, label %275
 
 275:                                              ; preds = %272

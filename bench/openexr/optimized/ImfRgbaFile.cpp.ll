@@ -195,7 +195,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %entr
 while.end.i:                                      ; preds = %while.cond.i
   %shl.i = shl nuw i64 1, %inc.i
   %sub.i = add nsw i64 %shl.i, -64
-  %cmp2.i = icmp slt i64 %sub.i, %mul
+  %cmp2.i = icmp sgt i64 %mul, %sub.i
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -206,7 +206,7 @@ if.then.i:                                        ; preds = %while.end.i
 if.end.i:                                         ; preds = %while.end.i
   %shl7.i = shl nuw i64 1, %i.0.i
   %add8.i = add nuw nsw i64 %shl7.i, 64
-  %cmp9.i = icmp sgt i64 %add8.i, %mul
+  %cmp9.i = icmp slt i64 %mul, %add8.i
   br i1 %cmp9.i, label %if.then10.i, label %_ZN7Imf_3_212_GLOBAL__N_112cachePaddingEl.exit
 
 if.then10.i:                                      ; preds = %if.end.i
@@ -2363,7 +2363,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %entr
 while.end.i:                                      ; preds = %while.cond.i
   %shl.i = shl nuw i64 1, %inc.i
   %sub.i = add nsw i64 %shl.i, -64
-  %cmp2.i = icmp slt i64 %sub.i, %mul
+  %cmp2.i = icmp sgt i64 %mul, %sub.i
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end.i
@@ -2374,7 +2374,7 @@ if.then.i:                                        ; preds = %while.end.i
 if.end.i:                                         ; preds = %while.end.i
   %shl7.i = shl nuw i64 1, %i.0.i
   %add8.i = add nuw nsw i64 %shl7.i, 64
-  %cmp9.i = icmp sgt i64 %add8.i, %mul
+  %cmp9.i = icmp slt i64 %mul, %add8.i
   br i1 %cmp9.i, label %if.then10.i, label %_ZN7Imf_3_212_GLOBAL__N_112cachePaddingEl.exit
 
 if.then10.i:                                      ; preds = %if.end.i
@@ -2888,7 +2888,7 @@ for.body33.lr.ph:                                 ; preds = %for.body
 for.body33:                                       ; preds = %for.body33.lr.ph, %for.inc57
   %indvars.iv99 = phi i64 [ 0, %for.body33.lr.ph ], [ %indvars.iv.next100, %for.inc57 ]
   %16 = trunc i64 %indvars.iv99 to i32
-  %17 = add i32 %16, %scanLine
+  %17 = add i32 %scanLine, %16
   %and = and i32 %17, 1
   %tobool.not = icmp eq i32 %and, 0
   %18 = load i32, ptr %_width, align 8
@@ -2919,7 +2919,7 @@ for.inc57:                                        ; preds = %if.then35, %if.else
   br i1 %exitcond.not, label %if.end120, label %for.body33, !llvm.loop !22
 
 if.else59:                                        ; preds = %if.end15
-  %cmp6879.not = icmp eq i32 %4, %scanLine
+  %cmp6879.not = icmp eq i32 %scanLine, %4
   br i1 %cmp6879.not, label %if.end120, label %for.body69.lr.ph
 
 for.body69.lr.ph:                                 ; preds = %if.else59
@@ -2957,7 +2957,7 @@ for.body85.lr.ph:                                 ; preds = %for.end77
 for.body85:                                       ; preds = %for.body85.lr.ph, %for.inc117
   %indvars.iv90 = phi i64 [ 2, %for.body85.lr.ph ], [ %indvars.iv.next91, %for.inc117 ]
   %31 = trunc i64 %indvars.iv90 to i32
-  %32 = add i32 %31, %scanLine
+  %32 = add i32 %scanLine, %31
   %and87 = and i32 %32, 1
   %tobool88.not = icmp eq i32 %and87, 0
   %33 = load i32, ptr %_width91, align 8
@@ -3136,10 +3136,10 @@ define hidden void @_ZN7Imf_3_213RgbaInputFile7FromYca15readYCAScanLineEiPNS_4Rg
 entry:
   %_yMin = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %_yMin, align 8
-  %cmp = icmp sgt i32 %0, %y
+  %cmp = icmp slt i32 %y, %0
   %_yMax = getelementptr inbounds i8, ptr %this, i64 60
   %1 = load i32, ptr %_yMax, align 4
-  %cmp3 = icmp slt i32 %1, %y
+  %cmp3 = icmp sgt i32 %y, %1
   %sub = add nsw i32 %1, -1
   %spec.select = select i1 %cmp3, i32 %sub, i32 %y
   %y.addr.0 = select i1 %cmp, i32 %0, i32 %spec.select

@@ -479,7 +479,7 @@ define hidden noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !16
   %7 = sub i64 %4, %6
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3
@@ -643,7 +643,7 @@ common.resume:                                    ; preds = %19, %15
   %58 = getelementptr inbounds i8, ptr %2, i64 16
   %59 = load i64, ptr %58, align 8, !alias.scope !95, !noalias !98, !noundef !16
   %60 = sub i64 %57, %59
-  %61 = icmp ugt i64 %60, %56
+  %61 = icmp ult i64 %56, %60
   br i1 %61, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit45.thread", label %62
 
 62:                                               ; preds = %52
@@ -675,7 +675,7 @@ common.resume:                                    ; preds = %19, %15
   %78 = getelementptr inbounds i8, ptr %2, i64 16
   %79 = load i64, ptr %78, align 8, !alias.scope !100, !noalias !103, !noundef !16
   %80 = sub i64 %77, %79
-  %81 = icmp ugt i64 %80, %76
+  %81 = icmp ult i64 %76, %80
   br i1 %81, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit48.thread", label %82
 
 82:                                               ; preds = %72
@@ -707,7 +707,7 @@ common.resume:                                    ; preds = %19, %15
   %96 = getelementptr inbounds i8, ptr %2, i64 16
   %97 = load i64, ptr %96, align 8, !alias.scope !106, !noalias !109, !noundef !16
   %98 = sub i64 %95, %97
-  %99 = icmp ugt i64 %98, %94
+  %99 = icmp ult i64 %94, %98
   br i1 %99, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit51.thread", label %100
 
 100:                                              ; preds = %89
@@ -923,7 +923,7 @@ _ZN6uu_fmt9linebreak9BreakArgs13compute_width17hcd40995adcd93216E.exit: ; preds 
   %32 = trunc nuw i8 %31 to i1
   %brmerge.i36 = or i8 %28, %26
   %brmerge.i = trunc nuw i8 %brmerge.i36 to i1
-  %brmerge2.demorgan.i = and i1 %29, %3
+  %brmerge2.demorgan.i = and i1 %3, %29
   %or.cond.i = or i1 %brmerge2.demorgan.i, %32
   %spec.select.i = select i1 %or.cond.i, i64 2, i64 1
   %.0.i28 = select i1 %brmerge.i, i64 %spec.select.i, i64 0
@@ -983,7 +983,7 @@ _ZN6uu_fmt9linebreak9BreakArgs13compute_width17hcd40995adcd93216E.exit: ; preds 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   %66 = load i64, ptr %40, align 8, !alias.scope !156, !noalias !159, !noundef !16
   %67 = sub i64 %66, %65
-  %68 = icmp ugt i64 %67, %52
+  %68 = icmp ult i64 %52, %67
   br i1 %68, label %_ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.thread, label %_ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit
 
 _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.thread: ; preds = %64
@@ -1052,7 +1052,7 @@ _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.thread32: ; preds =
   %99 = load i64, ptr %40, align 8, !alias.scope !170, !noalias !173, !noundef !16
   %100 = load i64, ptr %54, align 8, !alias.scope !170, !noalias !173, !noundef !16
   %101 = sub i64 %99, %100
-  %102 = icmp ugt i64 %101, %97
+  %102 = icmp ult i64 %97, %101
   br i1 %102, label %_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.thread, label %_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit
 
 _ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.thread: ; preds = %96
@@ -1461,7 +1461,7 @@ _ZN6uu_fmt9linebreak9BreakArgs13compute_width17hcd40995adcd93216E.exit: ; preds 
 define hidden noundef range(i64 0, 3) i64 @_ZN6uu_fmt9linebreak12compute_slen17hca925cb8fb85ceadE(i1 noundef zeroext %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #3 {
   %brmerge = or i1 %0, %1
   %brmerge2.demorgan = and i1 %1, %3
-  %or.cond = or i1 %brmerge2.demorgan, %2
+  %or.cond = or i1 %2, %brmerge2.demorgan
   %spec.select = select i1 %or.cond, i64 2, i64 1
   %.0 = select i1 %brmerge, i64 %spec.select, i64 0
   ret i64 %.0
@@ -1474,7 +1474,7 @@ define hidden void @_ZN6uu_fmt9linebreak14slice_if_fresh17he2750172105604aaE(ptr
 10:                                               ; preds = %9
   %brmerge.i = or i1 %5, %6
   %brmerge2.demorgan.i = and i1 %6, %8
-  %or.cond.i = or i1 %brmerge2.demorgan.i, %7
+  %or.cond.i = or i1 %7, %brmerge2.demorgan.i
   %spec.select.i = select i1 %or.cond.i, i64 2, i64 1
   %.0.i = select i1 %brmerge.i, i64 %spec.select.i, i64 0
   br label %21
@@ -1553,7 +1553,7 @@ define hidden noundef ptr @_ZN6uu_fmt9linebreak13write_newline17h20c93d642033101
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
   %17 = load i64, ptr %2, align 8, !alias.scope !239, !noalias !242, !noundef !16
   %18 = sub i64 %17, %16
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %15
@@ -1610,7 +1610,7 @@ define hidden noundef ptr @_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e3888
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   %20 = load i64, ptr %19, align 8, !alias.scope !249, !noalias !252, !noundef !16
   %21 = sub i64 %18, %20
-  %22 = icmp ugt i64 %21, %1
+  %22 = icmp ult i64 %1, %21
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %17

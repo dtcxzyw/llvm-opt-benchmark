@@ -1100,7 +1100,7 @@ define void @Dtt_ManAddVisited(ptr nocapture noundef readonly %0, i32 noundef %1
   %6 = and i32 %5, %1
   %.not = icmp ne i32 %6, 0
   %7 = sext i1 %.not to i32
-  %8 = xor i32 %7, %1
+  %8 = xor i32 %1, %7
   %9 = getelementptr inbounds i8, ptr %0, i64 272
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2629,7 +2629,7 @@ Vec_IntPush.exit71:                               ; preds = %.Vec_IntGrow.exit10
   %213 = and i32 %212, %5
   %.not = icmp ne i32 %213, 0
   %214 = sext i1 %.not to i32
-  %215 = xor i32 %214, %5
+  %215 = xor i32 %5, %214
   %216 = getelementptr inbounds i8, ptr %0, i64 104
   %217 = load i32, ptr %216, align 8
   %218 = and i32 %215, %217
@@ -4104,7 +4104,7 @@ define range(i32 -1, 2) i32 @Dtt_Check(i32 noundef %0, i32 noundef %1, i32 nound
 
 13:                                               ; preds = %11, %11
   %14 = xor i32 %2, -1
-  %15 = and i32 %14, %0
+  %15 = and i32 %0, %14
   %16 = icmp eq i32 %15, %1
   br i1 %16, label %switch.lookup, label %18
 
@@ -4136,7 +4136,7 @@ switch.lookup71:                                  ; preds = %22
 
 26:                                               ; preds = %22
   %27 = xor i32 %2, -1
-  %28 = and i32 %27, %0
+  %28 = and i32 %0, %27
   %29 = icmp eq i32 %28, %1
   %30 = zext i1 %29 to i32
   br label %Dtt_ProcessType.exit
@@ -4180,14 +4180,14 @@ switch.lookup71:                                  ; preds = %22
   br label %Dtt_ProcessType.exit
 
 44:                                               ; preds = %31
-  %45 = and i32 %33, %2
+  %45 = and i32 %2, %33
   %46 = icmp eq i32 %45, %1
   %47 = zext i1 %46 to i32
   br label %Dtt_ProcessType.exit
 
 48:                                               ; preds = %11, %11
   %49 = xor i32 %2, -1
-  %50 = or i32 %49, %0
+  %50 = or i32 %0, %49
   %51 = icmp eq i32 %50, %1
   br i1 %51, label %switch.lookup74, label %53
 
@@ -4293,7 +4293,7 @@ define void @Dtt_FindNP(ptr nocapture noundef readonly %0, i32 noundef %1, i32 n
 
 35:                                               ; preds = %.lr.ph
   %.not58 = icmp eq i32 %2, 0
-  %36 = xor i32 %33, %1
+  %36 = xor i32 %1, %33
   %37 = icmp eq i32 %36, -1
   %or.cond = and i1 %.not58, %37
   %.not59 = icmp eq i32 %6, 0

@@ -531,7 +531,7 @@ define internal void @ContextSkip(ptr nocapture noundef readonly %0, i64 noundef
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %6, i64 %1)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %6)
   %7 = sub i64 %6, %spec.select
   store i64 %7, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8

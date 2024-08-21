@@ -584,8 +584,8 @@ _ZN5drjitmlIffLm4EEENS_6MatrixINS_6detail14replace_scalarINS2_7deepestIJT_T0_EE4
   %136 = shufflevector <4 x float> %122, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %137 = shufflevector <4 x float> %124, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %138 = shufflevector <4 x float> %122, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %139 = fneg contract <4 x float> %137
-  %140 = fmul contract <4 x float> %138, %139
+  %139 = fneg contract <4 x float> %138
+  %140 = fmul contract <4 x float> %137, %139
   %141 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %135, <4 x float> %136, <4 x float> %140)
   %142 = fmul contract <4 x float> %141, %141
   %shift20 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -702,8 +702,8 @@ define weak_odr void @_ZN7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   %55 = shufflevector <4 x float> %41, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %56 = shufflevector <4 x float> %43, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %57 = shufflevector <4 x float> %41, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %58 = fneg contract <4 x float> %56
-  %59 = fmul contract <4 x float> %57, %58
+  %58 = fneg contract <4 x float> %57
+  %59 = fmul contract <4 x float> %56, %58
   %60 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %54, <4 x float> %55, <4 x float> %59)
   %61 = fmul contract <4 x float> %60, %60
   %shift279 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -737,8 +737,8 @@ define weak_odr noundef float @_ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8Spectr
   %7 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %8 = shufflevector <4 x float> %4, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %9 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %10 = fneg contract <4 x float> %8
-  %11 = fmul contract <4 x float> %9, %10
+  %10 = fneg contract <4 x float> %9
+  %11 = fmul contract <4 x float> %8, %10
   %12 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %5, <4 x float> %7, <4 x float> %11)
   %13 = fmul contract <4 x float> %12, %12
   %shift = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -909,8 +909,8 @@ define weak_odr void @_ZN7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   %65 = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %66 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %67 = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %68 = fneg contract <4 x float> %66
-  %69 = fmul contract <4 x float> %67, %68
+  %68 = fneg contract <4 x float> %67
+  %69 = fmul contract <4 x float> %66, %68
   %70 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %64, <4 x float> %65, <4 x float> %69)
   %71 = fmul contract <4 x float> %70, %70
   %shift11 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -944,14 +944,14 @@ define weak_odr void @_ZN7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
 83:                                               ; preds = %81
   %84 = getelementptr inbounds i8, ptr %4, i64 8
   %85 = load ptr, ptr %84, align 8
-  %.not6.i.i.i.i = icmp eq ptr %85, %82
+  %.not6.i.i.i.i = icmp eq ptr %82, %85
   br i1 %.not6.i.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
   %.07.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i ], [ %85, %83 ]
   %86 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -24
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %86) #26
-  %.not.i.i.i.i = icmp eq ptr %86, %82
+  %.not.i.i.i.i = icmp eq ptr %82, %86
   br i1 %.not.i.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i
@@ -991,14 +991,14 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_t
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not6.i.i.i = icmp eq ptr %5, %2
+  %.not6.i.i.i = icmp eq ptr %2, %5
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.07.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %5, %3 ]
   %6 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 -24
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #26
-  %.not.i.i.i = icmp eq ptr %6, %2
+  %.not.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit: ; preds = %.lr.ph.i.i.i
@@ -1178,7 +1178,7 @@ _ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersec
   %72 = select i1 %or.cond161.i.i, float %62, float 0x7FF0000000000000
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6), !noalias !65
   %73 = fcmp contract une float %72, 0x7FF0000000000000
-  %74 = and i1 %73, %4
+  %74 = and i1 %4, %73
   %75 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %74, label %.critedge.i, label %76
 
@@ -1305,8 +1305,8 @@ _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19ini
   %156 = shufflevector <4 x float> %153, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %157 = shufflevector <4 x float> %104, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %158 = shufflevector <4 x float> %153, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %159 = fneg contract <4 x float> %157
-  %160 = fmul contract <4 x float> %158, %159
+  %159 = fneg contract <4 x float> %158
+  %160 = fmul contract <4 x float> %157, %159
   %161 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %155, <4 x float> %156, <4 x float> %160)
   %162 = getelementptr inbounds i8, ptr %0, i64 96
   store <4 x float> %161, ptr %162, align 16
@@ -1716,8 +1716,8 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba6VectorIfLm2EEEE4mul_ERKS3_.exit.critedge.cri
   %147 = shufflevector <4 x float> %145, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %148 = shufflevector <4 x float> %130, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %149 = shufflevector <4 x float> %145, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %150 = fneg contract <4 x float> %148
-  %151 = fmul contract <4 x float> %149, %150
+  %150 = fneg contract <4 x float> %149
+  %151 = fmul contract <4 x float> %148, %150
   %152 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %146, <4 x float> %147, <4 x float> %151)
   %153 = fmul contract <4 x float> %152, %152
   %shift1611 = shufflevector <4 x float> %153, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -2000,8 +2000,8 @@ define weak_odr void @_ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %111 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %112 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %113 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %114 = fneg contract <4 x float> %112
-  %115 = fmul contract <4 x float> %113, %114
+  %114 = fneg contract <4 x float> %113
+  %115 = fmul contract <4 x float> %112, %114
   %116 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %110, <4 x float> %111, <4 x float> %115)
   %117 = fmul contract <4 x float> %116, %116
   %shift1406 = shufflevector <4 x float> %117, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -5234,8 +5234,8 @@ _ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsB8ne190000EPFRS3_S4_E.exit18: ;
   %113 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %114 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %115 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %116 = fneg contract <4 x float> %114
-  %117 = fmul contract <4 x float> %115, %116
+  %116 = fneg contract <4 x float> %115
+  %117 = fmul contract <4 x float> %114, %116
   %118 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %111, <4 x float> %113, <4 x float> %117)
   %119 = fmul contract <4 x float> %118, %118
   %shift = shufflevector <4 x float> %119, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>

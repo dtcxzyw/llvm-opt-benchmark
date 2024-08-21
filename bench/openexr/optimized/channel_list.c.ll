@@ -161,7 +161,7 @@ if.then10:                                        ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %cmp14 = icmp slt i32 %conv, %namelen
+  %cmp14 = icmp sgt i32 %namelen, %conv
   br i1 %cmp14, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %if.end13

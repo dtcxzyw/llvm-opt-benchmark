@@ -2444,7 +2444,7 @@ if.end7:                                          ; preds = %for.end.loopexit.i
   %24 = xor i64 %sub.ptr.lhs.cast, -1
   %sub = add i64 %24, %sub.ptr.lhs.cast9
   %add.i = add i64 %sub, %sub.ptr.sub
-  %cmp.i20 = icmp ugt i64 %add.i, %subject_len
+  %cmp.i20 = icmp ult i64 %subject_len, %add.i
   br i1 %cmp.i20, label %return, label %skip_prefix.exit.i.i
 
 skip_prefix.exit.i.i:                             ; preds = %if.end7
@@ -2531,7 +2531,7 @@ land.lhs.true.i:                                  ; preds = %if.end7.i
   br i1 %cmp9.i, label %if.then11.i, label %if.end19.i
 
 if.then11.i:                                      ; preds = %land.lhs.true.i
-  %cmp12.i33 = icmp eq i64 %sub, %subject_len
+  %cmp12.i33 = icmp eq i64 %subject_len, %sub
   br i1 %cmp12.i33, label %return, label %if.end19.thread.i
 
 if.end19.thread.i:                                ; preds = %if.then11.i
@@ -2557,12 +2557,12 @@ if.end29.i:                                       ; preds = %land.lhs.true24.i, 
 land.lhs.true33.i:                                ; preds = %if.end29.i
   %38 = load i8, ptr %add.ptr.i, align 1
   %cmp35.i32 = icmp eq i8 %38, 42
-  %cmp39.not76.i = icmp eq i64 %sub.i25, %sub.ptr.sub
+  %cmp39.not76.i = icmp eq i64 %sub.ptr.sub, %sub.i25
   %or.cond79.i = or i1 %cmp39.not76.i, %cmp35.i32
   br i1 %or.cond79.i, label %return, label %for.body.i26.preheader
 
 if.end38.i:                                       ; preds = %if.end29.i
-  %cmp39.not76.old.i = icmp eq i64 %sub.i25, %sub.ptr.sub
+  %cmp39.not76.old.i = icmp eq i64 %sub.ptr.sub, %sub.i25
   br i1 %cmp39.not76.old.i, label %return, label %for.body.i26.preheader
 
 for.body.i26.preheader:                           ; preds = %if.end38.i, %land.lhs.true33.i
@@ -2688,7 +2688,7 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then2:                                         ; preds = %if.end
   %type = getelementptr inbounds i8, ptr %a, i64 4
   %2 = load i32, ptr %type, align 4
-  %cmp3.not = icmp eq i32 %2, %cmp_type
+  %cmp3.not = icmp eq i32 %cmp_type, %2
   br i1 %cmp3.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then2

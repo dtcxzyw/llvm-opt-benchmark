@@ -392,7 +392,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %150 = getelementptr inbounds i8, ptr %12, i64 92
   store i32 1, ptr %150, align 4
   %151 = load i32, ptr @globalUtilOptind, align 4
-  %152 = icmp eq i32 %151, %0
+  %152 = icmp eq i32 %0, %151
   br i1 %152, label %162, label %153
 
 153:                                              ; preds = %149

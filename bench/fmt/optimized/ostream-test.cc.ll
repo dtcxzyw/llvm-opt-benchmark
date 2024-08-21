@@ -5962,7 +5962,7 @@ while.body.i:                                     ; preds = %_ZSt20uninitialized
   %gepdiff = sub nsw i64 3, %begin.addr.011.i.idx
   %add.i = add i64 %gepdiff, %0
   %1 = load i64, ptr %capacity_.i.i, align 8
-  %cmp.i.i = icmp ult i64 %1, %add.i
+  %cmp.i.i = icmp ugt i64 %add.i, %1
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i
 
 if.then.i.i:                                      ; preds = %while.body.i
@@ -7667,7 +7667,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = call ptr @__cxa_begin_catch(ptr %1) #27
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %call5.i.i.i.i24
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i.i24, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -8466,7 +8466,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %7 = load i64, ptr %limit_.i.i.i, align 8
   %spec.select.i.i.i.i = call i64 @llvm.usub.sat.i64(i64 %7, i64 %4)
-  %cond9.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %spec.select.i.i.i.i, i64 %3)
+  %cond9.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %3, i64 %spec.select.i.i.i.i)
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %6, i64 %cond9.i.i.i.i
   br label %_ZN3fmt3v1012vformat_to_nIPcJETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEENS0_18format_to_n_resultIS4_EES4_mNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE.exit
 
@@ -8825,7 +8825,7 @@ _ZN7testing15AssertionResultD2Ev.exit82:          ; preds = %if.end54, %_ZNKSt14
 if.then.i.i.i98:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit82
   %48 = load i64, ptr %limit_.i.i.i87, align 8
   %spec.select.i.i.i.i99 = call i64 @llvm.usub.sat.i64(i64 %48, i64 %45)
-  %cond9.i.i.i.i100 = call noundef i64 @llvm.umin.i64(i64 %spec.select.i.i.i.i99, i64 %44)
+  %cond9.i.i.i.i100 = call noundef i64 @llvm.umin.i64(i64 %44, i64 %spec.select.i.i.i.i99)
   %add.ptr5.i.i.i101 = getelementptr inbounds i8, ptr %47, i64 %cond9.i.i.i.i100
   br label %_ZN3fmt3v1012vformat_to_nIPcJETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEENS0_18format_to_n_resultIS4_EES4_mNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE.exit102
 
@@ -9580,7 +9580,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = call ptr @__cxa_begin_catch(ptr %1) #27
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %call5.i.i.i.i21
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i.i21, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -14278,7 +14278,7 @@ entry:
   %0 = load i64, ptr %capacity_.i, align 8
   %div16 = lshr i64 %0, 1
   %add = add i64 %div16, %0
-  %cmp3 = icmp ult i64 %add, %size
+  %cmp3 = icmp ugt i64 %size, %add
   br i1 %cmp3, label %if.end7, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -15291,7 +15291,7 @@ while.body.i:                                     ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add.i = add i64 %sub.ptr.sub.i, %1
   %2 = load i64, ptr %capacity_.i.i, align 8
-  %cmp.i.i = icmp ult i64 %2, %add.i
+  %cmp.i.i = icmp ugt i64 %add.i, %2
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i
 
 if.then.i.i:                                      ; preds = %while.body.i
@@ -15344,7 +15344,7 @@ if.then:                                          ; preds = %entry
   %add.i = add i64 %1, 1
   %capacity_.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i64, ptr %capacity_.i.i, align 8
-  %cmp.i.i = icmp ult i64 %2, %add.i
+  %cmp.i.i = icmp ugt i64 %add.i, %2
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN3fmt3v106detail6bufferIcE9push_backERKc.exit
 
 if.then.i.i:                                      ; preds = %if.then
@@ -15928,7 +15928,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %conv = zext nneg i32 %0 to i64
-  %cmp5 = icmp ult i64 %conv, %s.coerce1
+  %cmp5 = icmp ugt i64 %s.coerce1, %conv
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
@@ -16176,7 +16176,7 @@ if.end8.i.loopexit.i.loopexit:                    ; preds = %_ZZN3fmt3v106detail
 if.end8.i.i:                                      ; preds = %if.then.i.i, %if.end8.i.loopexit.i.loopexit, %do.body
   %sub.ptr.sub.i.pre-phi.i = phi i64 [ %sub.ptr.sub.i, %do.body ], [ %.pre97, %if.end8.i.loopexit.i.loopexit ], [ %sub.ptr.sub.i, %if.then.i.i ]
   %p.0.i.i = phi ptr [ %begin.0, %do.body ], [ %cond158.i71, %if.end8.i.loopexit.i.loopexit ], [ %begin.0, %if.then.i.i ]
-  %tobool12.not.i.i = icmp eq ptr %p.0.i.i, %add.ptr.i
+  %tobool12.not.i.i = icmp eq ptr %add.ptr.i, %p.0.i.i
   br i1 %tobool12.not.i.i, label %_ZN3fmt3v106detail11find_escapeEPKcS3_.exitthread-pre-split, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %if.end8.i.i
@@ -16359,7 +16359,7 @@ for.body.i.i:                                     ; preds = %_ZNSt20back_insert_
   %4 = load i64, ptr %size_.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %4, 1
   %5 = load i64, ptr %capacity_.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %5, %add.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %5
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
@@ -16394,7 +16394,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.i.i.i = add i64 %sub.ptr.sub.i.i.i, %10
   %11 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %11, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %11
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i
@@ -16470,7 +16470,7 @@ while.body.i.i.i19:                               ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i14, %sub.ptr.rhs.cast.i.i.i21
   %add.i.i.i23 = add i64 %sub.ptr.sub.i.i.i22, %23
   %24 = load i64, ptr %capacity_.i.i.i.i16, align 8
-  %cmp.i.i.i.i24 = icmp ult i64 %24, %add.i.i.i23
+  %cmp.i.i.i.i24 = icmp ugt i64 %add.i.i.i23, %24
   br i1 %cmp.i.i.i.i24, label %if.then.i.i.i.i36, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i25
 
 if.then.i.i.i.i36:                                ; preds = %while.body.i.i.i19
@@ -16539,7 +16539,7 @@ for.body.i.i87:                                   ; preds = %_ZNSt20back_insert_
   %31 = load i64, ptr %size_.i.i.i.i84, align 8
   %add.i.i.i.i89 = add i64 %31, 1
   %32 = load i64, ptr %capacity_.i.i.i.i.i85, align 8
-  %cmp.i.i.i.i.i90 = icmp ult i64 %32, %add.i.i.i.i89
+  %cmp.i.i.i.i.i90 = icmp ugt i64 %add.i.i.i.i89, %32
   br i1 %cmp.i.i.i.i.i90, label %if.then.i.i.i.i.i96, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i91
 
 if.then.i.i.i.i.i96:                              ; preds = %for.body.i.i87
@@ -16574,7 +16574,7 @@ while.body.i.i.i58:                               ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i61 = sub i64 %sub.ptr.lhs.cast.i.i.i49, %sub.ptr.rhs.cast.i.i.i60
   %add.i.i.i62 = add i64 %sub.ptr.sub.i.i.i61, %37
   %38 = load i64, ptr %capacity_.i.i.i.i51, align 8
-  %cmp.i.i.i.i63 = icmp ult i64 %38, %add.i.i.i62
+  %cmp.i.i.i.i63 = icmp ugt i64 %add.i.i.i62, %38
   br i1 %cmp.i.i.i.i63, label %if.then.i.i.i.i78, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i64
 
 if.then.i.i.i.i78:                                ; preds = %while.body.i.i.i58
@@ -17107,7 +17107,7 @@ entry:
   %add.i.i = add i64 %0, 1
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %1 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %1, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -17250,7 +17250,7 @@ if.end8.i.loopexit.i.loopexit:                    ; preds = %_ZZN3fmt3v106detail
 if.end8.i.i:                                      ; preds = %if.then.i.i, %if.end8.i.loopexit.i.loopexit, %do.body
   %sub.ptr.sub.i.pre-phi.i = phi i64 [ %sub.ptr.sub.i, %do.body ], [ %.pre112, %if.end8.i.loopexit.i.loopexit ], [ %sub.ptr.sub.i, %if.then.i.i ]
   %p.0.i.i = phi ptr [ %begin.0, %do.body ], [ %cond158.i90, %if.end8.i.loopexit.i.loopexit ], [ %begin.0, %if.then.i.i ]
-  %tobool12.not.i.i = icmp eq ptr %p.0.i.i, %add.ptr.i
+  %tobool12.not.i.i = icmp eq ptr %add.ptr.i, %p.0.i.i
   br i1 %tobool12.not.i.i, label %_ZN3fmt3v106detail11find_escapeEPKcS3_.exit, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %if.end8.i.i
@@ -17383,7 +17383,7 @@ while.body.i.i:                                   ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.i.i9 = add i64 %sub.ptr.sub.i.i, %42
   %43 = load i64, ptr %capacity_.i.i.i6, align 8
-  %cmp.i.i.i10 = icmp ult i64 %43, %add.i.i9
+  %cmp.i.i.i10 = icmp ugt i64 %add.i.i9, %43
   br i1 %cmp.i.i.i10, label %if.then.i.i.i12, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
 
 if.then.i.i.i12:                                  ; preds = %while.body.i.i
@@ -17434,7 +17434,7 @@ do.end:                                           ; preds = %_ZN3fmt3v106detail8
   %add.i.i16 = add i64 %50, 1
   %capacity_.i.i.i17 = getelementptr inbounds i8, ptr %out.sroa.0.1, i64 24
   %51 = load i64, ptr %capacity_.i.i.i17, align 8
-  %cmp.i.i.i18 = icmp ult i64 %51, %add.i.i16
+  %cmp.i.i.i18 = icmp ugt i64 %add.i.i16, %51
   br i1 %cmp.i.i.i18, label %if.then.i.i.i22, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit26
 
 if.then.i.i.i22:                                  ; preds = %do.end
@@ -17477,7 +17477,7 @@ sw.bb:                                            ; preds = %entry
   %add.i.i = add i64 %1, 1
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %2 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %2, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
 
 if.then.i.i.i:                                    ; preds = %sw.bb
@@ -17503,7 +17503,7 @@ sw.bb8:                                           ; preds = %entry
   %add.i.i17 = add i64 %6, 1
   %capacity_.i.i.i18 = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %7 = load i64, ptr %capacity_.i.i.i18, align 8
-  %cmp.i.i.i19 = icmp ult i64 %7, %add.i.i17
+  %cmp.i.i.i19 = icmp ugt i64 %add.i.i17, %7
   br i1 %cmp.i.i.i19, label %if.then.i.i.i23, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit27
 
 if.then.i.i.i23:                                  ; preds = %sw.bb8
@@ -17529,7 +17529,7 @@ sw.bb16:                                          ; preds = %entry
   %add.i.i30 = add i64 %11, 1
   %capacity_.i.i.i31 = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %12 = load i64, ptr %capacity_.i.i.i31, align 8
-  %cmp.i.i.i32 = icmp ult i64 %12, %add.i.i30
+  %cmp.i.i.i32 = icmp ugt i64 %add.i.i30, %12
   br i1 %cmp.i.i.i32, label %if.then.i.i.i36, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit40
 
 if.then.i.i.i36:                                  ; preds = %sw.bb16
@@ -17555,7 +17555,7 @@ sw.bb26:                                          ; preds = %entry, %entry, %ent
   %add.i.i43 = add i64 %16, 1
   %capacity_.i.i.i44 = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %17 = load i64, ptr %capacity_.i.i.i44, align 8
-  %cmp.i.i.i45 = icmp ult i64 %17, %add.i.i43
+  %cmp.i.i.i45 = icmp ugt i64 %add.i.i43, %17
   br i1 %cmp.i.i.i45, label %if.then.i.i.i49, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit53
 
 if.then.i.i.i49:                                  ; preds = %sw.bb26
@@ -17625,7 +17625,7 @@ sw.epilog:                                        ; preds = %_ZNSt20back_insert_
   %add.i.i57 = add i64 %24, 1
   %capacity_.i.i.i58 = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %25 = load i64, ptr %capacity_.i.i.i58, align 8
-  %cmp.i.i.i59 = icmp ult i64 %25, %add.i.i57
+  %cmp.i.i.i59 = icmp ugt i64 %add.i.i57, %25
   br i1 %cmp.i.i.i59, label %if.then.i.i.i63, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit
 
 if.then.i.i.i63:                                  ; preds = %sw.epilog
@@ -17660,7 +17660,7 @@ entry:
   %add.i.i = add i64 %0, 1
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %1 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %1, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -17682,7 +17682,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %e
   %5 = load i64, ptr %size_.i.i, align 8
   %add.i.i3 = add i64 %5, 1
   %6 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i5 = icmp ult i64 %6, %add.i.i3
+  %cmp.i.i.i5 = icmp ugt i64 %add.i.i3, %6
   br i1 %cmp.i.i.i5, label %if.then.i.i.i9, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit13
 
 if.then.i.i.i9:                                   ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
@@ -17728,7 +17728,7 @@ while.body.i.i:                                   ; preds = %_ZSt20uninitialized
   %gepdiff = sub nsw i64 2, %begin.addr.011.i.i.idx
   %add.i.i19 = add i64 %gepdiff, %11
   %12 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i20 = icmp ult i64 %12, %add.i.i19
+  %cmp.i.i.i20 = icmp ugt i64 %add.i.i19, %12
   br i1 %cmp.i.i.i20, label %if.then.i.i.i21, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
 
 if.then.i.i.i21:                                  ; preds = %while.body.i.i
@@ -17775,7 +17775,7 @@ entry:
   %add.i.i = add i64 %0, 1
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %1 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %1, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -17797,7 +17797,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %e
   %5 = load i64, ptr %size_.i.i, align 8
   %add.i.i3 = add i64 %5, 1
   %6 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i5 = icmp ult i64 %6, %add.i.i3
+  %cmp.i.i.i5 = icmp ugt i64 %add.i.i3, %6
   br i1 %cmp.i.i.i5, label %if.then.i.i.i9, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit13
 
 if.then.i.i.i9:                                   ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
@@ -17843,7 +17843,7 @@ while.body.i.i:                                   ; preds = %_ZSt20uninitialized
   %gepdiff = sub nsw i64 4, %begin.addr.011.i.i.idx
   %add.i.i19 = add i64 %gepdiff, %11
   %12 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i20 = icmp ult i64 %12, %add.i.i19
+  %cmp.i.i.i20 = icmp ugt i64 %add.i.i19, %12
   br i1 %cmp.i.i.i20, label %if.then.i.i.i21, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
 
 if.then.i.i.i21:                                  ; preds = %while.body.i.i
@@ -17890,7 +17890,7 @@ entry:
   %add.i.i = add i64 %0, 1
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %1 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %1, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -17912,7 +17912,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %e
   %5 = load i64, ptr %size_.i.i, align 8
   %add.i.i3 = add i64 %5, 1
   %6 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i5 = icmp ult i64 %6, %add.i.i3
+  %cmp.i.i.i5 = icmp ugt i64 %add.i.i3, %6
   br i1 %cmp.i.i.i5, label %if.then.i.i.i9, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit13
 
 if.then.i.i.i9:                                   ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
@@ -17958,7 +17958,7 @@ while.body.i.i:                                   ; preds = %_ZSt20uninitialized
   %gepdiff = sub nsw i64 8, %begin.addr.011.i.i.idx
   %add.i.i19 = add i64 %gepdiff, %11
   %12 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i20 = icmp ult i64 %12, %add.i.i19
+  %cmp.i.i.i20 = icmp ugt i64 %add.i.i19, %12
   br i1 %cmp.i.i.i20, label %if.then.i.i.i21, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
 
 if.then.i.i.i21:                                  ; preds = %while.body.i.i
@@ -20379,7 +20379,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
 _ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %for.body.i.i.i12
@@ -21195,7 +21195,7 @@ while.body.i.i:                                   ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.i.i = add i64 %sub.ptr.sub.i.i, %23
   %24 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %24, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %24
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i
@@ -21784,7 +21784,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   %5 = load i64, ptr %size_.i.i, align 8
   %add.i.i70 = add i64 %5, 1
   %6 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %6, %add.i.i70
+  %cmp.i.i.i = icmp ugt i64 %add.i.i70, %6
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
 
 if.then.i.i.i:                                    ; preds = %for.body.i
@@ -21869,7 +21869,7 @@ while.body.i.i.i.i.i:                             ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i, %15
   %16 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp ult i64 %16, %add.i.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, %16
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i
@@ -22006,7 +22006,7 @@ for.body.i62:                                     ; preds = %for.body.i62.lr.ph,
   %29 = load i64, ptr %size_.i.i84, align 8
   %add.i.i85 = add i64 %29, 1
   %30 = load i64, ptr %capacity_.i.i.i86, align 8
-  %cmp.i.i.i87 = icmp ult i64 %30, %add.i.i85
+  %cmp.i.i.i87 = icmp ugt i64 %add.i.i85, %30
   br i1 %cmp.i.i.i87, label %if.then.i.i.i91, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit95
 
 if.then.i.i.i91:                                  ; preds = %for.body.i62
@@ -22096,7 +22096,7 @@ while.body.i.i.i.i.i107:                          ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i.i.i110 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i105, %sub.ptr.rhs.cast.i.i.i.i.i109
   %add.i.i.i.i.i111 = add i64 %sub.ptr.sub.i.i.i.i.i110, %39
   %40 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i112 = icmp ult i64 %40, %add.i.i.i.i.i111
+  %cmp.i.i.i.i.i.i112 = icmp ugt i64 %add.i.i.i.i.i111, %40
   br i1 %cmp.i.i.i.i.i.i112, label %if.then.i.i.i.i.i.i124, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i113
 
 if.then.i.i.i.i.i.i124:                           ; preds = %while.body.i.i.i.i.i107
@@ -22232,7 +22232,7 @@ for.body.i106:                                    ; preds = %for.body.i106.lr.ph
   %53 = load i64, ptr %size_.i.i159, align 8
   %add.i.i160 = add i64 %53, 1
   %54 = load i64, ptr %capacity_.i.i.i161, align 8
-  %cmp.i.i.i162 = icmp ult i64 %54, %add.i.i160
+  %cmp.i.i.i162 = icmp ugt i64 %add.i.i160, %54
   br i1 %cmp.i.i.i162, label %if.then.i.i.i166, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit170
 
 if.then.i.i.i166:                                 ; preds = %for.body.i106
@@ -22318,7 +22318,7 @@ while.body.i.i.i.i.i198:                          ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i.i.i201 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i196, %sub.ptr.rhs.cast.i.i.i.i.i200
   %add.i.i.i.i.i202 = add i64 %sub.ptr.sub.i.i.i.i.i201, %65
   %66 = load i64, ptr %capacity_.i.i.i.i174, align 8
-  %cmp.i.i.i.i.i.i203 = icmp ult i64 %66, %add.i.i.i.i.i202
+  %cmp.i.i.i.i.i.i203 = icmp ugt i64 %add.i.i.i.i.i202, %66
   br i1 %cmp.i.i.i.i.i.i203, label %if.then.i.i.i.i.i.i215, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i204
 
 if.then.i.i.i.i.i.i215:                           ; preds = %while.body.i.i.i.i.i198
@@ -22459,7 +22459,7 @@ for.body.i150:                                    ; preds = %for.body.i150.lr.ph
   %79 = load i64, ptr %size_.i.i248, align 8
   %add.i.i249 = add i64 %79, 1
   %80 = load i64, ptr %capacity_.i.i.i250, align 8
-  %cmp.i.i.i251 = icmp ult i64 %80, %add.i.i249
+  %cmp.i.i.i251 = icmp ugt i64 %add.i.i249, %80
   br i1 %cmp.i.i.i251, label %if.then.i.i.i255, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit259
 
 if.then.i.i.i255:                                 ; preds = %for.body.i150
@@ -22545,7 +22545,7 @@ while.body.i.i.i.i.i295:                          ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i.i.i298 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i293, %sub.ptr.rhs.cast.i.i.i.i.i297
   %add.i.i.i.i.i299 = add i64 %sub.ptr.sub.i.i.i.i.i298, %91
   %92 = load i64, ptr %capacity_.i.i.i.i263, align 8
-  %cmp.i.i.i.i.i.i300 = icmp ult i64 %92, %add.i.i.i.i.i299
+  %cmp.i.i.i.i.i.i300 = icmp ugt i64 %add.i.i.i.i.i299, %92
   br i1 %cmp.i.i.i.i.i.i300, label %if.then.i.i.i.i.i.i312, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i301
 
 if.then.i.i.i.i.i.i312:                           ; preds = %while.body.i.i.i.i.i295
@@ -22699,7 +22699,7 @@ for.body.i.i:                                     ; preds = %_ZNSt20back_insert_
   %4 = load i64, ptr %size_.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %4, 1
   %5 = load i64, ptr %capacity_.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %5, %add.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %5
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
@@ -22734,7 +22734,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.i.i.i = add i64 %sub.ptr.sub.i.i.i, %10
   %11 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %11, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %11
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i
@@ -22808,7 +22808,7 @@ for.body.i.i58:                                   ; preds = %_ZNSt20back_insert_
   %18 = load i64, ptr %size_.i.i.i.i55, align 8
   %add.i.i.i.i60 = add i64 %18, 1
   %19 = load i64, ptr %capacity_.i.i.i.i.i56, align 8
-  %cmp.i.i.i.i.i61 = icmp ult i64 %19, %add.i.i.i.i60
+  %cmp.i.i.i.i.i61 = icmp ugt i64 %add.i.i.i.i60, %19
   br i1 %cmp.i.i.i.i.i61, label %if.then.i.i.i.i.i67, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i62
 
 if.then.i.i.i.i.i67:                              ; preds = %for.body.i.i58
@@ -22843,7 +22843,7 @@ while.body.i.i.i29:                               ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i32 = sub i64 %sub.ptr.lhs.cast.i.i.i20, %sub.ptr.rhs.cast.i.i.i31
   %add.i.i.i33 = add i64 %sub.ptr.sub.i.i.i32, %24
   %25 = load i64, ptr %capacity_.i.i.i.i22, align 8
-  %cmp.i.i.i.i34 = icmp ult i64 %25, %add.i.i.i33
+  %cmp.i.i.i.i34 = icmp ugt i64 %add.i.i.i33, %25
   br i1 %cmp.i.i.i.i34, label %if.then.i.i.i.i49, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i35
 
 if.then.i.i.i.i49:                                ; preds = %while.body.i.i.i29
@@ -22907,7 +22907,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %1 = load i64, ptr %size_.i.i, align 8
   %add.i.i = add i64 %1, 1
   %2 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %2, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -22946,7 +22946,7 @@ for.body.i:                                       ; preds = %_ZNSt20back_insert_
   %7 = load i64, ptr %size_.i.i.i, align 8
   %add.i.i.i = add i64 %7, 1
   %8 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %8, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %8
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i
@@ -23035,7 +23035,7 @@ while.body.i.i.i.i.i:                             ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i, %21
   %22 = load i64, ptr %capacity_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp ult i64 %22, %add.i.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, %22
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i
@@ -23125,7 +23125,7 @@ for.body.i.i:                                     ; preds = %_ZNSt20back_insert_
   %4 = load i64, ptr %size_.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %4, 1
   %5 = load i64, ptr %capacity_.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %5, %add.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %5
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
@@ -23160,7 +23160,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.i.i.i = add i64 %sub.ptr.sub.i.i.i, %10
   %11 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %11, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %11
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i
@@ -23234,7 +23234,7 @@ for.body.i.i58:                                   ; preds = %_ZNSt20back_insert_
   %18 = load i64, ptr %size_.i.i.i.i55, align 8
   %add.i.i.i.i60 = add i64 %18, 1
   %19 = load i64, ptr %capacity_.i.i.i.i.i56, align 8
-  %cmp.i.i.i.i.i61 = icmp ult i64 %19, %add.i.i.i.i60
+  %cmp.i.i.i.i.i61 = icmp ugt i64 %add.i.i.i.i60, %19
   br i1 %cmp.i.i.i.i.i61, label %if.then.i.i.i.i.i67, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i62
 
 if.then.i.i.i.i.i67:                              ; preds = %for.body.i.i58
@@ -23269,7 +23269,7 @@ while.body.i.i.i29:                               ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i32 = sub i64 %sub.ptr.lhs.cast.i.i.i20, %sub.ptr.rhs.cast.i.i.i31
   %add.i.i.i33 = add i64 %sub.ptr.sub.i.i.i32, %24
   %25 = load i64, ptr %capacity_.i.i.i.i22, align 8
-  %cmp.i.i.i.i34 = icmp ult i64 %25, %add.i.i.i33
+  %cmp.i.i.i.i34 = icmp ugt i64 %add.i.i.i33, %25
   br i1 %cmp.i.i.i.i34, label %if.then.i.i.i.i49, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i35
 
 if.then.i.i.i.i49:                                ; preds = %while.body.i.i.i29
@@ -23333,7 +23333,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %1 = load i64, ptr %size_.i.i, align 8
   %add.i.i = add i64 %1, 1
   %2 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %2, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -23372,7 +23372,7 @@ for.body.i:                                       ; preds = %_ZNSt20back_insert_
   %7 = load i64, ptr %size_.i.i.i, align 8
   %add.i.i.i = add i64 %7, 1
   %8 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %8, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %8
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i
@@ -23476,7 +23476,7 @@ while.body.i.i.i.i.i:                             ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i, %23
   %24 = load i64, ptr %capacity_.i.i.i.i3, align 8
-  %cmp.i.i.i.i.i.i = icmp ult i64 %24, %add.i.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, %24
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i
@@ -23566,7 +23566,7 @@ for.body.i.i:                                     ; preds = %_ZNSt20back_insert_
   %4 = load i64, ptr %size_.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %4, 1
   %5 = load i64, ptr %capacity_.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %5, %add.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %5
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
@@ -23601,7 +23601,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.i.i.i = add i64 %sub.ptr.sub.i.i.i, %10
   %11 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %11, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %11
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i
@@ -23675,7 +23675,7 @@ for.body.i.i58:                                   ; preds = %_ZNSt20back_insert_
   %18 = load i64, ptr %size_.i.i.i.i55, align 8
   %add.i.i.i.i60 = add i64 %18, 1
   %19 = load i64, ptr %capacity_.i.i.i.i.i56, align 8
-  %cmp.i.i.i.i.i61 = icmp ult i64 %19, %add.i.i.i.i60
+  %cmp.i.i.i.i.i61 = icmp ugt i64 %add.i.i.i.i60, %19
   br i1 %cmp.i.i.i.i.i61, label %if.then.i.i.i.i.i67, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i62
 
 if.then.i.i.i.i.i67:                              ; preds = %for.body.i.i58
@@ -23710,7 +23710,7 @@ while.body.i.i.i29:                               ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i32 = sub i64 %sub.ptr.lhs.cast.i.i.i20, %sub.ptr.rhs.cast.i.i.i31
   %add.i.i.i33 = add i64 %sub.ptr.sub.i.i.i32, %24
   %25 = load i64, ptr %capacity_.i.i.i.i22, align 8
-  %cmp.i.i.i.i34 = icmp ult i64 %25, %add.i.i.i33
+  %cmp.i.i.i.i34 = icmp ugt i64 %add.i.i.i33, %25
   br i1 %cmp.i.i.i.i34, label %if.then.i.i.i.i49, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i35
 
 if.then.i.i.i.i49:                                ; preds = %while.body.i.i.i29
@@ -23774,7 +23774,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %1 = load i64, ptr %size_.i.i, align 8
   %add.i.i = add i64 %1, 1
   %2 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %2, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -23813,7 +23813,7 @@ for.body.i:                                       ; preds = %_ZNSt20back_insert_
   %7 = load i64, ptr %size_.i.i.i, align 8
   %add.i.i.i = add i64 %7, 1
   %8 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %8, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %8
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i
@@ -23910,7 +23910,7 @@ while.body.i.i.i.i.i:                             ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i, %23
   %24 = load i64, ptr %capacity_.i.i.i.i3, align 8
-  %cmp.i.i.i.i.i.i = icmp ult i64 %24, %add.i.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, %24
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i
@@ -24000,7 +24000,7 @@ for.body.i.i:                                     ; preds = %_ZNSt20back_insert_
   %4 = load i64, ptr %size_.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %4, 1
   %5 = load i64, ptr %capacity_.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %5, %add.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %5
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
@@ -24035,7 +24035,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.i.i.i = add i64 %sub.ptr.sub.i.i.i, %10
   %11 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %11, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %11
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i
@@ -24109,7 +24109,7 @@ for.body.i.i58:                                   ; preds = %_ZNSt20back_insert_
   %18 = load i64, ptr %size_.i.i.i.i55, align 8
   %add.i.i.i.i60 = add i64 %18, 1
   %19 = load i64, ptr %capacity_.i.i.i.i.i56, align 8
-  %cmp.i.i.i.i.i61 = icmp ult i64 %19, %add.i.i.i.i60
+  %cmp.i.i.i.i.i61 = icmp ugt i64 %add.i.i.i.i60, %19
   br i1 %cmp.i.i.i.i.i61, label %if.then.i.i.i.i.i67, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i62
 
 if.then.i.i.i.i.i67:                              ; preds = %for.body.i.i58
@@ -24144,7 +24144,7 @@ while.body.i.i.i29:                               ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i32 = sub i64 %sub.ptr.lhs.cast.i.i.i20, %sub.ptr.rhs.cast.i.i.i31
   %add.i.i.i33 = add i64 %sub.ptr.sub.i.i.i32, %24
   %25 = load i64, ptr %capacity_.i.i.i.i22, align 8
-  %cmp.i.i.i.i34 = icmp ult i64 %25, %add.i.i.i33
+  %cmp.i.i.i.i34 = icmp ugt i64 %add.i.i.i33, %25
   br i1 %cmp.i.i.i.i34, label %if.then.i.i.i.i49, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i35
 
 if.then.i.i.i.i49:                                ; preds = %while.body.i.i.i29
@@ -24208,7 +24208,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %1 = load i64, ptr %size_.i.i, align 8
   %add.i.i = add i64 %1, 1
   %2 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %2, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -24247,7 +24247,7 @@ for.body.i:                                       ; preds = %_ZNSt20back_insert_
   %7 = load i64, ptr %size_.i.i.i, align 8
   %add.i.i.i = add i64 %7, 1
   %8 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %8, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %8
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i
@@ -24344,7 +24344,7 @@ while.body.i.i.i.i.i:                             ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %add.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i, %23
   %24 = load i64, ptr %capacity_.i.i.i.i3, align 8
-  %cmp.i.i.i.i.i.i = icmp ult i64 %24, %add.i.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, %24
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i
@@ -24434,7 +24434,7 @@ for.body.i.i:                                     ; preds = %_ZNSt20back_insert_
   %4 = load i64, ptr %size_.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %4, 1
   %5 = load i64, ptr %capacity_.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %5, %add.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %5
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
@@ -24469,7 +24469,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.i.i.i = add i64 %sub.ptr.sub.i.i.i, %10
   %11 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %11, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %11
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i
@@ -24525,7 +24525,7 @@ if.end.i:                                         ; preds = %if.end
   %add.i.i.i13 = add i64 %20, 1
   %capacity_.i.i.i.i14 = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %21 = load i64, ptr %capacity_.i.i.i.i14, align 8
-  %cmp.i.i.i.i15 = icmp ult i64 %21, %add.i.i.i13
+  %cmp.i.i.i.i15 = icmp ugt i64 %add.i.i.i13, %21
   br i1 %cmp.i.i.i.i15, label %if.then.i.i.i.i17, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i
 
 if.then.i.i.i.i17:                                ; preds = %if.end.i
@@ -24582,7 +24582,7 @@ for.body.i.i67:                                   ; preds = %_ZNSt20back_insert_
   %27 = load i64, ptr %size_.i.i.i.i64, align 8
   %add.i.i.i.i69 = add i64 %27, 1
   %28 = load i64, ptr %capacity_.i.i.i.i.i65, align 8
-  %cmp.i.i.i.i.i70 = icmp ult i64 %28, %add.i.i.i.i69
+  %cmp.i.i.i.i.i70 = icmp ugt i64 %add.i.i.i.i69, %28
   br i1 %cmp.i.i.i.i.i70, label %if.then.i.i.i.i.i76, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i71
 
 if.then.i.i.i.i.i76:                              ; preds = %for.body.i.i67
@@ -24617,7 +24617,7 @@ while.body.i.i.i38:                               ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i41 = sub i64 %sub.ptr.lhs.cast.i.i.i29, %sub.ptr.rhs.cast.i.i.i40
   %add.i.i.i42 = add i64 %sub.ptr.sub.i.i.i41, %33
   %34 = load i64, ptr %capacity_.i.i.i.i31, align 8
-  %cmp.i.i.i.i43 = icmp ult i64 %34, %add.i.i.i42
+  %cmp.i.i.i.i43 = icmp ugt i64 %add.i.i.i42, %34
   br i1 %cmp.i.i.i.i43, label %if.then.i.i.i.i58, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i44
 
 if.then.i.i.i.i58:                                ; preds = %while.body.i.i.i38
@@ -24671,7 +24671,7 @@ entry:
   %add.i.i = add i64 %0, 1
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %1 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %1, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -24728,7 +24728,7 @@ if.else:                                          ; preds = %_ZN3fmt3v106detail1
   %6 = load i64, ptr %size_.i.i, align 8
   %add.i.i4 = add i64 %6, 1
   %7 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i6 = icmp ult i64 %7, %add.i.i4
+  %cmp.i.i.i6 = icmp ugt i64 %add.i.i4, %7
   br i1 %cmp.i.i.i6, label %if.then.i.i.i10, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit
 
 if.then.i.i.i10:                                  ; preds = %if.else
@@ -24755,7 +24755,7 @@ if.end:                                           ; preds = %_ZNSt20back_insert_
   %add.i.i16 = add i64 %11, 1
   %capacity_.i.i.i17 = getelementptr inbounds i8, ptr %out.sroa.0.0, i64 24
   %12 = load i64, ptr %capacity_.i.i.i17, align 8
-  %cmp.i.i.i18 = icmp ult i64 %12, %add.i.i16
+  %cmp.i.i.i18 = icmp ugt i64 %add.i.i16, %12
   br i1 %cmp.i.i.i18, label %if.then.i.i.i22, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit26
 
 if.then.i.i.i22:                                  ; preds = %if.end
@@ -24928,7 +24928,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.i.i.i = add i64 %sub.ptr.sub.i.i.i, %8
   %9 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %9, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %9
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i
@@ -25131,7 +25131,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %4)
-  %cond9.i.i = tail call noundef i64 @llvm.umin.i64(i64 %spec.select.i.i, i64 %1)
+  %cond9.i.i = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 %spec.select.i.i)
   %add.ptr5.i = getelementptr inbounds i8, ptr %6, i64 %cond9.i.i
   store ptr %add.ptr5.i, ptr %out_.i, align 8
   %data_.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -25934,7 +25934,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.i.i.i = add i64 %sub.ptr.sub.i.i.i, %2
   %3 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %3, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %3
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i
@@ -26009,7 +26009,7 @@ while.body.i.i.i14:                               ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i.i9, %sub.ptr.rhs.cast.i.i.i16
   %add.i.i.i18 = add i64 %sub.ptr.sub.i.i.i17, %13
   %14 = load i64, ptr %capacity_.i.i.i.i11, align 8
-  %cmp.i.i.i.i19 = icmp ult i64 %14, %add.i.i.i18
+  %cmp.i.i.i.i19 = icmp ugt i64 %add.i.i.i18, %14
   br i1 %cmp.i.i.i.i19, label %if.then.i.i.i.i31, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i20
 
 if.then.i.i.i.i31:                                ; preds = %while.body.i.i.i14
@@ -26076,7 +26076,7 @@ while.body.i.i.i45:                               ; preds = %_ZSt20uninitialized
   %sub.ptr.sub.i.i.i48 = sub i64 %sub.ptr.lhs.cast.i.i.i40, %sub.ptr.rhs.cast.i.i.i47
   %add.i.i.i49 = add i64 %sub.ptr.sub.i.i.i48, %22
   %23 = load i64, ptr %capacity_.i.i.i.i42, align 8
-  %cmp.i.i.i.i50 = icmp ult i64 %23, %add.i.i.i49
+  %cmp.i.i.i.i50 = icmp ugt i64 %add.i.i.i49, %23
   br i1 %cmp.i.i.i.i50, label %if.then.i.i.i.i62, label %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i51
 
 if.then.i.i.i.i62:                                ; preds = %while.body.i.i.i45

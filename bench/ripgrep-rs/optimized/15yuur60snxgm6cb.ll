@@ -4150,7 +4150,7 @@ default.unreachable:                              ; preds = %519, %212, %164, %1
 122:                                              ; preds = %.noexc49, %.noexc48
   %.sroa.515.019.ph.i = phi i64 [ %.sroa.515.0.copyload.i, %.noexc49 ], [ %.sroa.72.0.copyload.i.i, %.noexc48 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.8.i)
-  %123 = icmp eq i64 %.sroa.515.019.ph.i, %104
+  %123 = icmp eq i64 %104, %.sroa.515.019.ph.i
   br label %133
 
 124:                                              ; preds = %.noexc49

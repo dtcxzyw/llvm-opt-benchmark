@@ -970,7 +970,7 @@ define dso_local void @_ZN23SmoothTranslatorWrapped9translateEf(ptr nocapture no
 entry:
   %anim_time_counter = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %anim_time_counter, align 4, !tbaa !25
-  %add = fadd nsz float %0, %dtime
+  %add = fadd nsz float %dtime, %0
   store float %add, ptr %anim_time_counter, align 4, !tbaa !25
   %val_target = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load float, ptr %val_target, align 4, !tbaa !28
@@ -1033,7 +1033,7 @@ define dso_local void @_ZN26SmoothTranslatorWrappedv3f9translateEf(ptr nocapture
 entry:
   %anim_time_counter = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load float, ptr %anim_time_counter, align 4, !tbaa !35
-  %add = fadd nsz float %0, %dtime
+  %add = fadd nsz float %dtime, %0
   store float %add, ptr %anim_time_counter, align 4, !tbaa !35
   %val_target = getelementptr inbounds i8, ptr %this, i64 24
   %Z = getelementptr inbounds i8, ptr %this, i64 32
@@ -3796,7 +3796,7 @@ if.then:                                          ; preds = %for.body
   %m_force_visible = getelementptr inbounds i8, ptr %call8, i64 897
   %2 = load i8, ptr %m_force_visible, align 1, !tbaa !266, !range !32, !noundef !33
   %tobool9 = icmp ne i8 %2, 0
-  %cond = or i1 %tobool9, %toset
+  %cond = or i1 %toset, %tobool9
   %frombool.i = zext i1 %cond to i8
   %m_is_visible.i = getelementptr inbounds i8, ptr %call8, i64 1060
   store i8 %frombool.i, ptr %m_is_visible.i, align 4, !tbaa !178
@@ -4498,7 +4498,7 @@ entry:
   %m_env = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_env, align 8, !tbaa !199
   %tobool.not = icmp ne ptr %0, null
-  %brmerge.not = and i1 %tobool.not, %permanent
+  %brmerge.not = and i1 %permanent, %tobool.not
   br i1 %brmerge.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -9545,7 +9545,7 @@ if.end23:                                         ; preds = %invoke.cont
   %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.0270, i64 40
   %dtime_passed = getelementptr inbounds i8, ptr %__begin1.sroa.0.0270, i64 144
   %17 = load float, ptr %dtime_passed, align 4, !tbaa !428
-  %add = fadd nsz float %17, %dtime
+  %add = fadd nsz float %dtime, %17
   store float %add, ptr %dtime_passed, align 4, !tbaa !428
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp) #29
   %vtable24 = load ptr, ptr %call20, align 8, !tbaa !42
@@ -11430,7 +11430,7 @@ if.else347:                                       ; preds = %if.else309
   %m_position363 = getelementptr inbounds i8, ptr %this, i64 536
   %116 = load <4 x float>, ptr %m_position363, align 8, !tbaa !34
   %117 = extractelement <4 x float> %116, i64 3
-  %mul.i.i769 = fmul nsz float %117, %dtime
+  %mul.i.i769 = fmul nsz float %dtime, %117
   %118 = insertelement <4 x float> poison, float %mul.i.i769, i64 0
   %119 = insertelement <4 x float> poison, float %mul.i.i772, i64 0
   %120 = load <2 x float>, ptr %Y.i.i, align 8, !tbaa !34
@@ -11502,7 +11502,7 @@ if.end377:                                        ; preds = %_ZN16SmoothTranslat
   %149 = phi float [ 0.000000e+00, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828 ], [ %.pre, %_ZN19collisionMoveResultD2Ev.exit764 ]
   %150 = phi <2 x float> [ %140, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828 ], [ %114, %_ZN19collisionMoveResultD2Ev.exit764 ]
   %anim_time_counter.i829 = getelementptr inbounds i8, ptr %this, i64 628
-  %add.i830 = fadd nsz float %149, %dtime
+  %add.i830 = fadd nsz float %dtime, %149
   store float %add.i830, ptr %anim_time_counter.i829, align 4, !tbaa !35
   %Z5.i.i = getelementptr inbounds i8, ptr %this, i64 596
   %151 = load float, ptr %Z5.i.i, align 4, !tbaa !49
@@ -11877,7 +11877,7 @@ _ZN9SoundSpecD2Ev.exit963:                        ; preds = %if.then.i.i.i959, %
 if.end444:                                        ; preds = %_ZN9SoundSpecD2Ev.exit, %if.then385, %_ZN10GenericCAO13updateNodePosEv.exit, %_ZNK10GenericCAO11getPositionEv.exit
   %m_anim_timer = getelementptr inbounds i8, ptr %this, i64 912
   %228 = load float, ptr %m_anim_timer, align 8, !tbaa !486
-  %add445 = fadd nsz float %228, %dtime
+  %add445 = fadd nsz float %dtime, %228
   store float %add445, ptr %m_anim_timer, align 8, !tbaa !486
   %m_anim_framelength = getelementptr inbounds i8, ptr %this, i64 908
   %229 = load float, ptr %m_anim_framelength, align 4, !tbaa !487
@@ -12062,7 +12062,7 @@ if.then506:                                       ; preds = %land.lhs.true497
   br i1 %cmp521, label %if.then522, label %if.end529.sink.split
 
 if.then522:                                       ; preds = %if.then506
-  %mul525 = fmul nsz float %259, %dtime
+  %mul525 = fmul nsz float %dtime, %259
   %260 = load float, ptr %Y524, align 8, !tbaa !34
   %sub.i984 = fsub nsz float %conv519, %260
   %cmp.i985 = fcmp nsz olt float %sub.i984, 0.000000e+00

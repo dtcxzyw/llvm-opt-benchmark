@@ -539,7 +539,7 @@ _ZNK2cv3Mat3endINS_3VecIfLi2EEEEENS_17MatConstIterator_IT_EEv.exit: ; preds = %2
 
 64:                                               ; preds = %47
   %65 = uitofp i16 %61 to float
-  %66 = fmul float %65, %1
+  %66 = fmul float %1, %65
   br label %67
 
 67:                                               ; preds = %47, %47, %64
@@ -709,7 +709,7 @@ _ZNK2cv3Mat3endINS_3VecIfLi2EEEEENS_17MatConstIterator_IT_EEv.exit: ; preds = %2
   %or.cond = or i1 %62, %63
   %64 = fcmp oeq float %61, 0x47EFFFFFE0000000
   %or.cond19 = or i1 %64, %or.cond
-  %65 = fmul float %61, %1
+  %65 = fmul float %1, %61
   %storemerge = select i1 %or.cond19, float 0x7FF8000000000000, float %65
   store float %storemerge, ptr %.025, align 4
   %.not.i.i = icmp eq ptr %.val28, null
@@ -2764,7 +2764,7 @@ _ZN2cv4Mat_IfEaSEOS1_.exit56:                     ; preds = %_ZN2cv4Mat_IfEC2Eii
 
 91:                                               ; preds = %70
   %92 = uitofp i16 %90 to float
-  %93 = fmul float %92, %2
+  %93 = fmul float %2, %92
   br label %94
 
 94:                                               ; preds = %70, %70, %91
@@ -3006,7 +3006,7 @@ _ZN2cv4Mat_IfEaSEOS1_.exit56:                     ; preds = %_ZN2cv4Mat_IfEC2Eii
   %.off.us = add i16 %90, -32767
   %switch.us = icmp ult i16 %.off.us, 2
   %91 = sitofp i16 %90 to float
-  %92 = fmul float %91, %2
+  %92 = fmul float %2, %91
   %.sink = select i1 %switch.us, float 0x7FF8000000000000, float %92
   %93 = load ptr, ptr %59, align 8
   %94 = load ptr, ptr %60, align 8
@@ -3247,7 +3247,7 @@ _ZN2cv4Mat_IfEaSEOS1_.exit56:                     ; preds = %_ZN2cv4Mat_IfEC2Eii
   %or.cond.us = or i1 %91, %92
   %93 = fcmp oeq float %90, 0x47EFFFFFE0000000
   %or.cond63.us = or i1 %93, %or.cond.us
-  %94 = fmul float %90, %2
+  %94 = fmul float %2, %90
   %.sink = select i1 %or.cond63.us, float 0x7FF8000000000000, float %94
   %95 = load ptr, ptr %59, align 8
   %96 = load ptr, ptr %60, align 8

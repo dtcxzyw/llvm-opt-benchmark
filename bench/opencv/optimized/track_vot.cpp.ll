@@ -1900,7 +1900,7 @@ define hidden noundef i32 @_ZN2cv8datasets13TRACK_votImpl16getDatasetLengthEi(pt
   %11 = sub i64 %9, %10
   %12 = sdiv exact i64 %11, 24
   %13 = trunc i64 %12 to i32
-  %.not = icmp slt i32 %13, %1
+  %.not = icmp sgt i32 %1, %13
   br i1 %.not, label %26, label %14
 
 14:                                               ; preds = %4
@@ -1954,7 +1954,7 @@ define hidden noundef zeroext i1 @_ZN2cv8datasets13TRACK_votImpl11initDatasetEi(
   %11 = sub i64 %9, %10
   %12 = sdiv exact i64 %11, 24
   %13 = trunc i64 %12 to i32
-  %.not = icmp slt i32 %13, %1
+  %.not = icmp sgt i32 %1, %13
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %4
@@ -2939,7 +2939,7 @@ _ZSt10_ConstructIN2cv3PtrINS0_8datasets12TRACK_votObjEEEJRKS4_EEvPT_DpOT0_.exit.
 _ZNSt6vectorIS_IN2cv3PtrINS0_8datasets12TRACK_votObjEEESaIS4_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %.loopexit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %.loopexit ], [ %63, %.lr.ph.i.i.i.i ]
   %64 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IN2cv3PtrINS0_8datasets12TRACK_votObjEEESaIS4_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IN2cv3PtrINS0_8datasets12TRACK_votObjEEESaIS4_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i28

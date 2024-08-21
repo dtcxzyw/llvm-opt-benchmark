@@ -4476,7 +4476,7 @@ invoke.cont4:
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont4
-  %cmp.i = icmp eq ptr %ref.tmp, %sign
+  %cmp.i = icmp eq ptr %sign, %ref.tmp
   br i1 %cmp.i, label %invoke.cont14, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont12
@@ -4504,7 +4504,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont14
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  %cmp.i8 = icmp eq ptr %ref.tmp16, %exp
+  %cmp.i8 = icmp eq ptr %exp, %ref.tmp16
   br i1 %cmp.i8, label %invoke.cont20, label %if.end.i9
 
 if.end.i9:                                        ; preds = %invoke.cont18
@@ -4532,7 +4532,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit17:           ; preds = %invoke.cont20
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit17
-  %cmp.i18 = icmp eq ptr %ref.tmp22, %sig
+  %cmp.i18 = icmp eq ptr %sig, %ref.tmp22
   br i1 %cmp.i18, label %invoke.cont25, label %if.end.i19
 
 if.end.i19:                                       ; preds = %invoke.cont23

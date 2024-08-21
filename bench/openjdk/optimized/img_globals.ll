@@ -58,7 +58,7 @@ define void @make_uns_ordered_dither_array(ptr nocapture noundef %0, i32 noundef
   %22 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv68, i64 %indvars.iv64
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
-  %25 = mul nsw i32 %24, %1
+  %25 = mul nsw i32 %1, %24
   %26 = sdiv i32 %25, 64
   %27 = trunc i32 %26 to i8
   store i8 %27, ptr %22, align 1

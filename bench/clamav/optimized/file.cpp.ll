@@ -907,7 +907,7 @@ define noundef zeroext i1 @_ZN4File7RawSeekEli(ptr noundef nonnull align 8 deref
   %14 = icmp ne i32 %2, 0
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8
-  %.not = icmp sgt i64 %16, %1
+  %.not = icmp slt i64 %1, %16
   %or.cond32 = select i1 %14, i1 true, i1 %.not
   br i1 %or.cond32, label %33, label %17
 

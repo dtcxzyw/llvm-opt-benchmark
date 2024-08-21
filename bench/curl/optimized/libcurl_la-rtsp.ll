@@ -617,7 +617,7 @@ entry:
   %rtspreq = getelementptr inbounds i8, ptr %data, i64 2544
   %1 = load i32, ptr %rtspreq, align 8
   %cmp = icmp eq i32 %1, 11
-  %spec.select = or i1 %cmp, %premature
+  %spec.select = or i1 %premature, %cmp
   %call = tail call i32 @Curl_http_done(ptr noundef %data, i32 noundef %status, i1 noundef zeroext %spec.select) #7
   %tobool1 = icmp eq ptr %0, null
   %tobool2 = icmp ne i32 %status, 0
@@ -1333,7 +1333,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true2.i
 
 rtp_write_body_junk.exit:                         ; preds = %land.rhs.i
   %sub.i = sub nsw i64 %13, %14
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %sub.i, i64 %.us-phi)
+  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %.us-phi, i64 %sub.i)
   %call.i = tail call i32 @Curl_client_write(ptr noundef nonnull %data, i32 noundef 1, ptr noundef nonnull %add.ptr, i64 noundef %spec.select.i) #7
   %tobool50.not = icmp eq i32 %call.i, 0
   br i1 %tobool50.not, label %if.end53, label %return
@@ -1577,7 +1577,7 @@ land.rhs.i129:                                    ; preds = %land.lhs.true2.i127
 
 if.then.i132:                                     ; preds = %land.rhs.i129
   %sub.i133 = sub nsw i64 %37, %38
-  %spec.select.i134 = tail call i64 @llvm.smin.i64(i64 %sub.i133, i64 %skip_len.2)
+  %spec.select.i134 = tail call i64 @llvm.smin.i64(i64 %skip_len.2, i64 %sub.i133)
   %call.i135 = tail call i32 @Curl_client_write(ptr noundef nonnull %data, i32 noundef 1, ptr noundef nonnull %add.ptr178, i64 noundef %spec.select.i134) #7
   br label %return
 

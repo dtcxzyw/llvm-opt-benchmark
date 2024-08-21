@@ -338,16 +338,12 @@ land.lhs.true:                                    ; preds = %if.then
   %m_nodes.i = getelementptr inbounds i8, ptr %seq_regex_ptr, i64 64
   %1 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.i, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %if.end, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
 
-if.end.i.i:                                       ; preds = %land.lhs.true
+_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %land.lhs.true
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
-
-_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %land.lhs.true, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %2, %if.end.i.i ], [ 0, %land.lhs.true ]
-  %cmp2.not = icmp ult i32 %retval.0.i.i, %id
+  %cmp2.not = icmp ugt i32 %id, %2
   br i1 %cmp2.not, label %if.end, label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
@@ -370,7 +366,7 @@ lpad:                                             ; preds = %invoke.cont4
   call void @_ZN8seq_util3rexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %re_util) #21
   resume { ptr, i32 } %4
 
-if.end:                                           ; preds = %invoke.cont4, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %if.then
+if.end:                                           ; preds = %land.lhs.true, %invoke.cont4, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %if.then
   call void @_ZN8seq_util3rexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %re_util) #21
   br label %if.end10
 
@@ -1517,7 +1513,7 @@ invoke.cont:                                      ; preds = %_ZN7obj_refI4expr11
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont
-  %cmp.i10 = icmp eq i32 %call14, %lit.coerce
+  %cmp.i10 = icmp eq i32 %lit.coerce, %call14
   br i1 %cmp.i10, label %if.then18, label %if.end23
 
 if.then18:                                        ; preds = %invoke.cont13
@@ -2873,7 +2869,7 @@ _ZN3smt9seq_regex19is_nullable_wrapperEP4expr.exit: ; preds = %if.end6
   %5 = load ptr, ptr %r_nullable, align 8
   %m_true.i = getelementptr inbounds i8, ptr %4, i64 856
   %6 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %6, %5
+  %cmp.i = icmp eq ptr %5, %6
   br i1 %cmp.i, label %if.then11, label %invoke.cont15
 
 if.then11:                                        ; preds = %_ZN3smt9seq_regex19is_nullable_wrapperEP4expr.exit
@@ -3300,7 +3296,7 @@ if.end8:                                          ; preds = %if.end
   %9 = load ptr, ptr %this, align 8
   %m_max_unfolding_depth.i = getelementptr inbounds i8, ptr %9, i64 4184
   %10 = load i32, ptr %m_max_unfolding_depth.i, align 8
-  %cmp.i7 = icmp ult i32 %10, %8
+  %cmp.i7 = icmp ugt i32 %8, %10
   br i1 %cmp.i7, label %land.lhs.true.i8, label %if.end13
 
 land.lhs.true.i8:                                 ; preds = %if.end8
@@ -3462,7 +3458,7 @@ _ZN3smt9seq_regex19is_nullable_wrapperEP4expr.exit: ; preds = %if.then37
   %42 = load ptr, ptr %is_nullable, align 8
   %m_false.i = getelementptr inbounds i8, ptr %41, i64 864
   %43 = load ptr, ptr %m_false.i, align 8
-  %cmp.i28 = icmp eq ptr %43, %42
+  %cmp.i28 = icmp eq ptr %42, %43
   br i1 %cmp.i28, label %if.then43, label %if.else
 
 if.then43:                                        ; preds = %_ZN3smt9seq_regex19is_nullable_wrapperEP4expr.exit
@@ -3492,7 +3488,7 @@ lpad38:                                           ; preds = %.noexc, %invoke.con
 if.else:                                          ; preds = %_ZN3smt9seq_regex19is_nullable_wrapperEP4expr.exit
   %m_true.i = getelementptr inbounds i8, ptr %41, i64 856
   %48 = load ptr, ptr %m_true.i, align 8
-  %cmp.i29 = icmp eq ptr %48, %42
+  %cmp.i29 = icmp eq ptr %42, %48
   br i1 %cmp.i29, label %if.end104, label %if.then59
 
 if.then59:                                        ; preds = %if.else
@@ -3863,7 +3859,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_max_unfolding_depth = getelementptr inbounds i8, ptr %0, i64 4184
   %1 = load i32, ptr %m_max_unfolding_depth, align 8
-  %cmp = icmp ult i32 %1, %i
+  %cmp = icmp ugt i32 %i, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
@@ -4537,7 +4533,7 @@ invoke.cont44:                                    ; preds = %if.then.i.i.i197, %
   %79 = load ptr, ptr %m, align 8
   %m_true.i = getelementptr inbounds i8, ptr %79, i64 856
   %80 = load ptr, ptr %m_true.i, align 8
-  %cmp.i222 = icmp eq ptr %80, %62
+  %cmp.i222 = icmp eq ptr %62, %80
   %cmp50 = icmp eq ptr %72, %78
   %or.cond = select i1 %cmp.i222, i1 true, i1 %cmp50
   br i1 %or.cond, label %cond.end59, label %cond.false
@@ -4545,7 +4541,7 @@ invoke.cont44:                                    ; preds = %if.then.i.i.i197, %
 cond.false:                                       ; preds = %invoke.cont44
   %m_false.i = getelementptr inbounds i8, ptr %79, i64 864
   %81 = load ptr, ptr %m_false.i, align 8
-  %cmp.i223 = icmp eq ptr %81, %62
+  %cmp.i223 = icmp eq ptr %62, %81
   br i1 %cmp.i223, label %cond.end59, label %cond.false55
 
 cond.false55:                                     ; preds = %cond.false
@@ -5062,13 +5058,13 @@ invoke.cont104:                                   ; preds = %if.then.i.i.i459, %
   %160 = load ptr, ptr %m, align 8
   %m_false.i484 = getelementptr inbounds i8, ptr %160, i64 864
   %161 = load ptr, ptr %m_false.i484, align 8
-  %cmp.i485 = icmp eq ptr %161, %153
+  %cmp.i485 = icmp eq ptr %153, %161
   %cmp111 = icmp eq ptr %153, %159
   %or.cond39 = select i1 %cmp.i485, i1 true, i1 %cmp111
   br i1 %or.cond39, label %cond.end124, label %cond.false113
 
 cond.false113:                                    ; preds = %invoke.cont104
-  %cmp.i487 = icmp eq ptr %161, %159
+  %cmp.i487 = icmp eq ptr %159, %161
   br i1 %cmp.i487, label %cond.end124, label %cond.false118
 
 cond.false118:                                    ; preds = %cond.false113
@@ -6363,11 +6359,11 @@ while.body:                                       ; preds = %land.lhs.true.i
   %8 = load ptr, ptr %m_args.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %u.addr.0, i64 40
   %9 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp = icmp eq ptr %9, %r
+  %cmp = icmp eq ptr %r, %9
   br i1 %cmp, label %return, label %while.cond, !llvm.loop !52
 
 while.end:                                        ; preds = %land.lhs.true.i, %_ZNK8seq_util3rex8is_unionEPK4expr.exit.i, %while.cond, %land.rhs.i.i.i
-  %cmp3 = icmp eq ptr %u.addr.0, %r
+  %cmp3 = icmp eq ptr %r, %u.addr.0
   br label %return
 
 return:                                           ; preds = %while.body, %while.end
@@ -6440,7 +6436,7 @@ _ZN3smt9seq_regex19is_nullable_wrapperEP4expr.exit: ; preds = %if.end8
   %11 = load ptr, ptr %is_nullable, align 8
   %m_true.i = getelementptr inbounds i8, ptr %10, i64 856
   %12 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %12, %11
+  %cmp.i = icmp eq ptr %11, %12
   br i1 %cmp.i, label %cleanup112, label %if.end13
 
 lpad:                                             ; preds = %invoke.cont16, %if.end13
@@ -6610,11 +6606,11 @@ while.body.i:                                     ; preds = %land.lhs.true.i.i
   %44 = load ptr, ptr %m_args.i.i.i, align 8
   %arrayidx.i.i.i34 = getelementptr inbounds i8, ptr %u.addr.0.i, i64 40
   %45 = load ptr, ptr %arrayidx.i.i.i34, align 8
-  %cmp.i35 = icmp eq ptr %45, %35
+  %cmp.i35 = icmp eq ptr %35, %45
   br i1 %cmp.i35, label %for.inc, label %while.cond.i, !llvm.loop !52
 
 invoke.cont54:                                    ; preds = %while.cond.i, %land.rhs.i.i.i.i, %_ZNK8seq_util3rex8is_unionEPK4expr.exit.i.i, %land.lhs.true.i.i
-  %cmp3.i = icmp eq ptr %u.addr.0.i, %35
+  %cmp3.i = icmp eq ptr %35, %u.addr.0.i
   br i1 %cmp3.i, label %for.inc, label %if.end57
 
 lpad46:                                           ; preds = %for.end, %invoke.cont45
@@ -6656,7 +6652,7 @@ invoke.cont65:                                    ; preds = %invoke.cont64
   %54 = load ptr, ptr %cond, align 8
   %m_false.i = getelementptr inbounds i8, ptr %53, i64 864
   %55 = load ptr, ptr %m_false.i, align 8
-  %cmp.i40 = icmp eq ptr %55, %54
+  %cmp.i40 = icmp eq ptr %54, %55
   br i1 %cmp.i40, label %cleanup, label %if.end72
 
 lpad61:                                           ; preds = %invoke.cont77, %if.end72, %invoke.cont64, %invoke.cont59
@@ -6688,7 +6684,7 @@ invoke.cont79:                                    ; preds = %invoke.cont77
   %64 = load ptr, ptr %cond, align 8
   %m_true.i46 = getelementptr inbounds i8, ptr %63, i64 856
   %65 = load ptr, ptr %m_true.i46, align 8
-  %cmp.i47 = icmp eq ptr %65, %64
+  %cmp.i47 = icmp eq ptr %64, %65
   %.pre140 = load ptr, ptr %next_non_empty, align 8
   br i1 %cmp.i47, label %if.end96, label %if.then86
 
@@ -8561,7 +8557,7 @@ invoke.cont134:                                   ; preds = %invoke.cont130
   %181 = load ptr, ptr %m, align 8
   %m_false.i260 = getelementptr inbounds i8, ptr %181, i64 864
   %182 = load ptr, ptr %m_false.i260, align 8
-  %cmp.i261 = icmp eq ptr %182, %call3.i250
+  %cmp.i261 = icmp eq ptr %call3.i250, %182
   %.pre545 = load ptr, ptr %r125, align 8
   br i1 %cmp.i261, label %if.end152, label %land.lhs.true
 
@@ -9841,7 +9837,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %m_cache, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIP4exprS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -10162,7 +10158,7 @@ _ZN3smt9seq_regex19is_nullable_wrapperEP4expr.exit: ; preds = %if.end
   %11 = load ptr, ptr %is_nullable, align 8
   %m_true.i = getelementptr inbounds i8, ptr %10, i64 856
   %12 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %12, %11
+  %cmp.i = icmp eq ptr %11, %12
   %13 = load ptr, ptr %this, align 8
   %xor.i = xor i32 %lit.coerce, 1
   br i1 %cmp.i, label %if.then8, label %if.end24
@@ -10280,11 +10276,11 @@ while.body.i:                                     ; preds = %land.lhs.true.i.i
   %32 = load ptr, ptr %m_args.i.i.i, align 8
   %arrayidx.i.i.i22 = getelementptr inbounds i8, ptr %u.addr.0.i, i64 40
   %33 = load ptr, ptr %arrayidx.i.i.i22, align 8
-  %cmp.i23 = icmp eq ptr %33, %23
+  %cmp.i23 = icmp eq ptr %23, %33
   br i1 %cmp.i23, label %for.inc, label %while.cond.i, !llvm.loop !52
 
 invoke.cont74:                                    ; preds = %while.cond.i, %land.rhs.i.i.i.i, %_ZNK8seq_util3rex8is_unionEPK4expr.exit.i.i, %land.lhs.true.i.i
-  %cmp3.i = icmp eq ptr %u.addr.0.i, %23
+  %cmp3.i = icmp eq ptr %23, %u.addr.0.i
   br i1 %cmp3.i, label %for.inc, label %if.end77
 
 lpad57:                                           ; preds = %invoke.cont53
@@ -10331,7 +10327,7 @@ invoke.cont85:                                    ; preds = %invoke.cont84
   %43 = load ptr, ptr %cond, align 8
   %m_false.i = getelementptr inbounds i8, ptr %42, i64 864
   %44 = load ptr, ptr %m_false.i, align 8
-  %cmp.i27 = icmp eq ptr %44, %43
+  %cmp.i27 = icmp eq ptr %43, %44
   br i1 %cmp.i27, label %cleanup, label %if.end92
 
 lpad81:                                           ; preds = %invoke.cont138, %if.end133, %if.then.i32, %invoke.cont84, %if.then107, %invoke.cont79
@@ -10384,7 +10380,7 @@ invoke.cont100:                                   ; preds = %.noexc, %lor.lhs.fa
   %54 = load ptr, ptr %cond, align 8
   %m_true.i33 = getelementptr inbounds i8, ptr %53, i64 856
   %55 = load ptr, ptr %m_true.i33, align 8
-  %cmp.i34 = icmp eq ptr %55, %54
+  %cmp.i34 = icmp eq ptr %54, %55
   br i1 %cmp.i34, label %if.end133, label %if.then107
 
 if.then107:                                       ; preds = %invoke.cont100

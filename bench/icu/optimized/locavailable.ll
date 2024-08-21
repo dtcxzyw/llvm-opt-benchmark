@@ -248,7 +248,7 @@ invoke.cont2:                                     ; preds = %entry
   %0 = load i32, ptr %errorCode.i, align 8
   %cmp.i.i = icmp sgt i32 %0, 0
   %1 = load i32, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, align 4
-  %cmp = icmp slt i32 %1, %offset
+  %cmp = icmp sgt i32 %offset, %1
   %or.cond = select i1 %cmp.i.i, i1 true, i1 %cmp
   br i1 %or.cond, label %cleanup, label %if.end5
 

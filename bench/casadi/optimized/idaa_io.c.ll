@@ -84,7 +84,7 @@ define range(i32 -101, 1) i32 @IDASetUserDataB(ptr noundef %0, i32 noundef %1, p
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -99,7 +99,7 @@ define range(i32 -101, 1) i32 @IDASetUserDataB(ptr noundef %0, i32 noundef %1, p
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.0 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.0, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.0, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -137,7 +137,7 @@ define i32 @IDASetMaxOrdB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -152,7 +152,7 @@ define i32 @IDASetMaxOrdB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -193,7 +193,7 @@ define i32 @IDASetMaxNumStepsB(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -208,7 +208,7 @@ define i32 @IDASetMaxNumStepsB(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -249,7 +249,7 @@ define i32 @IDASetInitStepB(ptr noundef %0, i32 noundef %1, double noundef %2) l
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -264,7 +264,7 @@ define i32 @IDASetInitStepB(ptr noundef %0, i32 noundef %1, double noundef %2) l
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -305,7 +305,7 @@ define i32 @IDASetMaxStepB(ptr noundef %0, i32 noundef %1, double noundef %2) lo
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -320,7 +320,7 @@ define i32 @IDASetMaxStepB(ptr noundef %0, i32 noundef %1, double noundef %2) lo
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -361,7 +361,7 @@ define i32 @IDASetSuppressAlgB(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -376,7 +376,7 @@ define i32 @IDASetSuppressAlgB(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -417,7 +417,7 @@ define i32 @IDASetIdB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -432,7 +432,7 @@ define i32 @IDASetIdB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -473,7 +473,7 @@ define i32 @IDASetConstraintsB(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -488,7 +488,7 @@ define i32 @IDASetConstraintsB(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -529,7 +529,7 @@ define i32 @IDASetQuadErrConB(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -544,7 +544,7 @@ define i32 @IDASetQuadErrConB(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -585,7 +585,7 @@ define ptr @IDAGetAdjIDABmem(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load i32, ptr %13, align 8
-  %.not = icmp sgt i32 %14, %1
+  %.not = icmp slt i32 %1, %14
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %10
@@ -600,7 +600,7 @@ define ptr @IDAGetAdjIDABmem(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %.sink = phi ptr [ %20, %.lr.ph ], [ %17, %16 ]
   %.015 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %18 = load i32, ptr %.015, align 8
-  %19 = icmp eq i32 %18, %1
+  %19 = icmp eq i32 %1, %18
   %20 = getelementptr inbounds i8, ptr %.015, i64 128
   br i1 %19, label %._crit_edge, label %.lr.ph
 
@@ -863,7 +863,7 @@ define i32 @IDAGetConsistentICB(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -878,7 +878,7 @@ define i32 @IDAGetConsistentICB(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.018 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.018, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.018, i64 128
   br i1 %21, label %._crit_edge, label %.lr.ph
 

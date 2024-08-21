@@ -284,7 +284,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -2581,14 +2581,14 @@ define linkonce_odr void @_ZN3vcg3tri12UpdateNormalI6CMeshOE26PerVertexNormalize
   %38 = getelementptr inbounds i8, ptr %31, i64 16
   %39 = load float, ptr %38, align 4
   %40 = fsub float %39, %28
-  %41 = fneg float %29
-  %42 = fmul float %37, %41
+  %41 = fneg float %37
+  %42 = fmul float %29, %41
   %43 = tail call float @llvm.fmuladd.f32(float %24, float %40, float %42)
-  %44 = fneg float %19
-  %45 = fmul float %40, %44
+  %44 = fneg float %40
+  %45 = fmul float %19, %44
   %46 = tail call float @llvm.fmuladd.f32(float %29, float %34, float %45)
-  %47 = fneg float %24
-  %48 = fmul float %34, %47
+  %47 = fneg float %34
+  %48 = fmul float %24, %47
   %49 = tail call float @llvm.fmuladd.f32(float %19, float %37, float %48)
   %.sroa.0.0.vec.insert.i20.i.i.i = insertelement <2 x float> poison, float %43, i64 0
   %.sroa.0.4.vec.insert.i21.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i20.i.i.i, float %46, i64 1
@@ -2822,14 +2822,14 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit: ; preds = %_ZN3vc
   %79 = getelementptr inbounds i8, ptr %72, i64 16
   %80 = load float, ptr %79, align 4
   %81 = fsub float %80, %69
-  %82 = fneg float %70
-  %83 = fmul float %78, %82
+  %82 = fneg float %78
+  %83 = fmul float %70, %82
   %84 = tail call float @llvm.fmuladd.f32(float %65, float %81, float %83)
-  %85 = fneg float %60
-  %86 = fmul float %81, %85
+  %85 = fneg float %81
+  %86 = fmul float %60, %85
   %87 = tail call float @llvm.fmuladd.f32(float %70, float %75, float %86)
-  %88 = fneg float %65
-  %89 = fmul float %75, %88
+  %88 = fneg float %75
+  %89 = fmul float %65, %88
   %90 = tail call float @llvm.fmuladd.f32(float %60, float %78, float %89)
   br label %91
 

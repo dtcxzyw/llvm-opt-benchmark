@@ -3414,7 +3414,7 @@ common.ret:                                       ; preds = %627, %71, %22
   %.val.i.i = load ptr, ptr %392, align 8, !noalias !390, !noundef !8
   %393 = getelementptr i8, ptr %1, i64 560
   %.val28.i.i = load i64, ptr %393, align 8, !noalias !390, !noundef !8
-  %394 = icmp ult i64 %387, %.val28.i.i
+  %394 = icmp ugt i64 %.val28.i.i, %387
   br i1 %394, label %395, label %401
 
 395:                                              ; preds = %386
@@ -3451,7 +3451,7 @@ common.ret:                                       ; preds = %627, %71, %22
   %.val30.i.i = load i64, ptr %408, align 8, !noalias !390, !noundef !8
   %409 = load i64, ptr %323, align 8, !alias.scope !496, !noalias !503, !noundef !8
   %410 = sub i64 %409, %406
-  %411 = icmp ult i64 %410, %.val30.i.i
+  %411 = icmp ugt i64 %.val30.i.i, %410
   br i1 %411, label %412, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he0ad04300950d129E.exit40.i.i"
 
 412:                                              ; preds = %401
@@ -3592,7 +3592,7 @@ common.ret:                                       ; preds = %627, %71, %22
   %470 = load i64, ptr %469, align 8, !alias.scope !530, !noalias !535, !noundef !8
   %471 = load i64, ptr %465, align 8, !alias.scope !537, !noalias !535, !noundef !8
   %472 = sub i64 %471, %470
-  %473 = icmp ult i64 %472, %.val32.i.i
+  %473 = icmp ugt i64 %.val32.i.i, %472
   br i1 %473, label %474, label %486
 
 474:                                              ; preds = %467

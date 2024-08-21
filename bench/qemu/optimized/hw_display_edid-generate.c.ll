@@ -360,7 +360,7 @@ if.end6.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.end21.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end6.i
-  %cmp9.i = icmp ugt ptr %add.ptr2.i, %add.ptr
+  %cmp9.i = icmp ult ptr %add.ptr, %add.ptr2.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.then7.i
@@ -402,7 +402,7 @@ if.end6.i145:                                     ; preds = %if.end.i140
   br i1 %tobool.not.i146, label %if.end21.i152, label %if.then7.i147
 
 if.then7.i147:                                    ; preds = %if.end6.i145
-  %cmp9.i148 = icmp ugt ptr %add.ptr2.i143, %desc.0
+  %cmp9.i148 = icmp ult ptr %desc.0, %add.ptr2.i143
   br i1 %cmp9.i148, label %if.then10.i154, label %if.end12.i149
 
 if.then10.i154:                                   ; preds = %if.then7.i147
@@ -628,7 +628,7 @@ if.end6.i187:                                     ; preds = %if.end.i182
   br i1 %tobool41.not.i, label %while.end, label %if.then7.i189
 
 if.then7.i189:                                    ; preds = %if.end6.i187
-  %cmp9.i190 = icmp ugt ptr %add.ptr2.i143, %retval.0.i153
+  %cmp9.i190 = icmp ult ptr %retval.0.i153, %add.ptr2.i143
   br i1 %cmp9.i190, label %if.then10.i196, label %if.end12.i191
 
 if.then10.i196:                                   ; preds = %if.then7.i189
@@ -679,7 +679,7 @@ if.end6.i213:                                     ; preds = %if.end.i208
   br i1 %tobool41.not.i, label %while.end, label %if.then7.i215
 
 if.then7.i215:                                    ; preds = %if.end6.i213
-  %cmp9.i216 = icmp ugt ptr %add.ptr2.i143, %retval.0.i195
+  %cmp9.i216 = icmp ult ptr %retval.0.i195, %add.ptr2.i143
   br i1 %cmp9.i216, label %if.then10.i222, label %if.end12.i217
 
 if.then10.i222:                                   ; preds = %if.then7.i215
@@ -731,7 +731,7 @@ if.end6.i241:                                     ; preds = %if.end.i236
   br i1 %tobool41.not.i, label %while.end, label %if.then7.i243
 
 if.then7.i243:                                    ; preds = %if.end6.i241
-  %cmp9.i244 = icmp ugt ptr %add.ptr2.i143, %desc.1395
+  %cmp9.i244 = icmp ult ptr %desc.1395, %add.ptr2.i143
   br i1 %cmp9.i244, label %if.then10.i250, label %if.end12.i245
 
 if.then10.i250:                                   ; preds = %if.then7.i243
@@ -790,7 +790,7 @@ if.end.i260:                                      ; preds = %if.end.i260.lr.ph, 
   br i1 %cmp3.i264, label %edid_desc_next.exit278, label %if.end6.i265
 
 if.end6.i265:                                     ; preds = %if.end.i260
-  %cmp9.i268 = icmp ugt ptr %add.ptr2.i143, %desc.3397
+  %cmp9.i268 = icmp ult ptr %desc.3397, %add.ptr2.i143
   br i1 %cmp9.i268, label %if.then10.i274, label %if.end12.i269
 
 if.then10.i274:                                   ; preds = %if.end6.i265

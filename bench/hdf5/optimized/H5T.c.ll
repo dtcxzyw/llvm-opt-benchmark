@@ -8066,7 +8066,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__set_size(ptr noundef %0, i64 n
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %4, i64 16
   %55 = load i64, ptr %54, align 8
-  %56 = icmp ugt i64 %55, %1
+  %56 = icmp ult i64 %1, %55
   br i1 %56, label %57, label %140
 
 57:                                               ; preds = %53
@@ -8099,7 +8099,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__set_size(ptr noundef %0, i64 n
 68:                                               ; preds = %.preheader
   %69 = tail call i64 @H5T__get_member_size(ptr noundef %0, i32 noundef %spec.select121) #17
   %70 = add i64 %69, %spec.select122
-  %71 = icmp ugt i64 %70, %1
+  %71 = icmp ult i64 %1, %70
   br i1 %71, label %72, label %140
 
 72:                                               ; preds = %68
@@ -9161,7 +9161,7 @@ define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %20, i64 48
   %30 = load ptr, ptr %29, align 8
-  %.not57.us.us = icmp eq ptr %30, %5
+  %.not57.us.us = icmp eq ptr %5, %30
   br i1 %.not57.us.us, label %31, label %37
 
 31:                                               ; preds = %28, %27
@@ -9203,7 +9203,7 @@ define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly
 49:                                               ; preds = %48
   %50 = getelementptr inbounds i8, ptr %42, i64 48
   %51 = load ptr, ptr %50, align 8
-  %.not57.us.us70 = icmp eq ptr %51, %5
+  %.not57.us.us70 = icmp eq ptr %5, %51
   br i1 %.not57.us.us70, label %52, label %58
 
 52:                                               ; preds = %49, %48
@@ -9251,7 +9251,7 @@ define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly
 76:                                               ; preds = %75
   %77 = getelementptr inbounds i8, ptr %63, i64 48
   %78 = load ptr, ptr %77, align 8
-  %.not57.us = icmp eq ptr %78, %5
+  %.not57.us = icmp eq ptr %5, %78
   br i1 %.not57.us, label %79, label %85
 
 79:                                               ; preds = %76, %75
@@ -9306,7 +9306,7 @@ define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly
 102:                                              ; preds = %101
   %103 = getelementptr inbounds i8, ptr %90, i64 48
   %104 = load ptr, ptr %103, align 8
-  %.not57.us66 = icmp eq ptr %104, %5
+  %.not57.us66 = icmp eq ptr %5, %104
   br i1 %.not57.us66, label %105, label %111
 
 105:                                              ; preds = %102, %101
@@ -9367,7 +9367,7 @@ define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly
 134:                                              ; preds = %133
   %135 = getelementptr inbounds i8, ptr %116, i64 48
   %136 = load ptr, ptr %135, align 8
-  %.not57 = icmp eq ptr %136, %5
+  %.not57 = icmp eq ptr %5, %136
   br i1 %.not57, label %137, label %143
 
 137:                                              ; preds = %134, %133
@@ -9478,7 +9478,7 @@ define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly
 187:                                              ; preds = %186
   %188 = getelementptr inbounds i8, ptr %153, i64 56
   %189 = load ptr, ptr %188, align 8
-  %.not35.i = icmp eq ptr %189, %5
+  %.not35.i = icmp eq ptr %5, %189
   br i1 %.not35.i, label %191, label %H5T_path_match.exit
 
 H5T_path_match.exit:                              ; preds = %187, %182, %173, %168, %165, %158, %154

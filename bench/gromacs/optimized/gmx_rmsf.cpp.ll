@@ -935,8 +935,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit269.preheader: ; preds = %352
   %369 = load double, ptr %gep631, align 8
   %gep629 = getelementptr inbounds double, ptr %invariant.gep628, i64 %indvars.iv513
   %370 = load double, ptr %gep629, align 8
-  %371 = fneg double %369
-  %372 = fmul double %370, %371
+  %371 = fneg double %370
+  %372 = fmul double %369, %371
   %373 = call double @llvm.fmuladd.f64(double %368, double %354, double %372)
   store double %373, ptr %367, align 8
   %374 = load ptr, ptr %274, align 8

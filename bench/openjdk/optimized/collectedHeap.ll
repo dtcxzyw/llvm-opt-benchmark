@@ -1317,7 +1317,7 @@ define linkonce_odr hidden void @_ZN13CollectedHeap21fill_with_object_implEPP12H
   %13 = sub i32 0, %9
   %14 = sext i32 %13 to i64
   %15 = and i64 %12, %14
-  %.not = icmp ugt i64 %15, %1
+  %.not = icmp ult i64 %1, %15
   br i1 %.not, label %36, label %16
 
 16:                                               ; preds = %3
@@ -1348,7 +1348,7 @@ define linkonce_odr hidden void @_ZN13CollectedHeap21fill_with_object_implEPP12H
   %30 = load i8, ptr @UseCompressedClassPointers, align 1
   %31 = trunc i8 %30 to i1
   %32 = select i1 %31, i64 2, i64 3
-  %.not6.i.i.i.i = icmp eq i64 %32, %1
+  %.not6.i.i.i.i = icmp eq i64 %1, %32
   br i1 %.not6.i.i.i.i, label %_ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %29
@@ -1397,7 +1397,7 @@ define hidden void @_ZN13CollectedHeap17fill_with_objectsEPP12HeapWordImplmb(ptr
   %11 = and i32 %9, %10
   %12 = sext i32 %11 to i64
   %13 = load i64, ptr @_ZN13CollectedHeap22_filler_array_max_sizeE, align 8
-  %14 = icmp ult i64 %13, %1
+  %14 = icmp ugt i64 %1, %13
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -1438,7 +1438,7 @@ define hidden void @_ZN13CollectedHeap17fill_with_objectsEPP12HeapWordImplmb(ptr
   %33 = load i8, ptr @UseCompressedClassPointers, align 1
   %34 = trunc i8 %33 to i1
   %35 = select i1 %34, i64 2, i64 3
-  %.not6.i.i.i.i = icmp eq i64 %35, %23
+  %.not6.i.i.i.i = icmp eq i64 %23, %35
   br i1 %.not6.i.i.i.i, label %_ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %32
@@ -1672,14 +1672,14 @@ define hidden void @_ZN13CollectedHeap12full_gc_dumpEP7GCTimerb(ptr nocapture no
   %7 = alloca %class.VM_GC_HeapInspection, align 8
   %8 = load i8, ptr @HeapDumpBeforeFullGC, align 1
   %9 = trunc i8 %8 to i1
-  %brmerge.demorgan = and i1 %9, %2
+  %brmerge.demorgan = and i1 %2, %9
   br i1 %brmerge.demorgan, label %13, label %10
 
 10:                                               ; preds = %3
   %11 = load i8, ptr @HeapDumpAfterFullGC, align 1
   %12 = trunc i8 %11 to i1
   %.not6 = xor i1 %12, true
-  %brmerge7 = or i1 %.not6, %2
+  %brmerge7 = or i1 %2, %.not6
   br i1 %brmerge7, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %13
 
 13:                                               ; preds = %10, %3

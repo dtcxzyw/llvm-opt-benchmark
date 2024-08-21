@@ -7969,13 +7969,13 @@ Gia_ObjIsHead.exit:                               ; preds = %13
   %25 = add nuw nsw i32 %.05282, 1
   %26 = getelementptr inbounds i8, ptr %.val71, i64 4
   %27 = load i32, ptr %26, align 4
-  %.not.i74.not = icmp sgt i32 %27, %.05282
+  %.not.i74.not = icmp slt i32 %.05282, %27
   br i1 %.not.i74.not, label %Vec_IntFillExtra.exit, label %28
 
 28:                                               ; preds = %23
   %29 = load i32, ptr %.val71, align 8
   %30 = shl nsw i32 %29, 1
-  %.not78 = icmp sgt i32 %30, %.05282
+  %.not78 = icmp slt i32 %.05282, %30
   br i1 %.not78, label %42, label %31
 
 31:                                               ; preds = %28
@@ -12862,13 +12862,13 @@ declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

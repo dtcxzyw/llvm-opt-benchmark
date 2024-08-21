@@ -254,7 +254,7 @@ define hidden void @"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13dig
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit44", label %11
 
 11:                                               ; preds = %4
@@ -306,7 +306,7 @@ define hidden void @"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13dig
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit44": ; preds = %4
   %32 = getelementptr inbounds i8, ptr %0, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !34, !noalias !38
-  %33 = add nuw nsw i64 %7, %2
+  %33 = add nuw nsw i64 %2, %7
   br label %31
 }
 
@@ -379,7 +379,7 @@ define hidden void @"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit44.i.i", label %11
 
 11:                                               ; preds = %3
@@ -423,7 +423,7 @@ define hidden void @"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit44.i.i": ; preds = %3
   %29 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !86, !noalias !90
-  %30 = add nuw nsw i64 %7, %2
+  %30 = add nuw nsw i64 %2, %7
   br label %"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update17hee171201791fe896E.llvm.12840853548696167234.exit"
 
 "_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update17hee171201791fe896E.llvm.12840853548696167234.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit41.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit44.i.i"
@@ -1157,7 +1157,7 @@ define hidden void @_ZN5bytes5bytes5Bytes5slice17h01c715c9f7dbb922E(ptr noalias 
   unreachable
 
 22:                                               ; preds = %4
-  %.not23 = icmp ult i64 %13, %3
+  %.not23 = icmp ugt i64 %3, %13
   br i1 %.not23, label %23, label %31
 
 23:                                               ; preds = %22
@@ -1270,7 +1270,7 @@ define internal fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b87
   store i64 %17, ptr %6, align 8, !noalias !175
   %25 = getelementptr inbounds i8, ptr %8, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !4
-  %.not.i = icmp ult i64 %26, %17
+  %.not.i = icmp ugt i64 %17, %26
   br i1 %.not.i, label %27, label %44
 
 27:                                               ; preds = %16
@@ -1530,7 +1530,7 @@ define hidden { i64, i64 } @_ZN6base646engine6Engine12encode_slice17h52af296ace0
   unreachable
 
 11:                                               ; preds = %4
-  %12 = icmp ugt i64 %9, %3
+  %12 = icmp ult i64 %3, %9
   br i1 %12, label %_ZN6base646engine6Engine12encode_slice5inner17ha0452d22faf564f2E.exit, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9cc2a09d608b8e03E.llvm.3706446735560306221.exit.i"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9cc2a09d608b8e03E.llvm.3706446735560306221.exit.i": ; preds = %11
@@ -1618,7 +1618,7 @@ define hidden void @"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit44.i", label %11
 
 11:                                               ; preds = %3
@@ -1662,7 +1662,7 @@ define hidden void @"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit44.i": ; preds = %3
   %29 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !268, !noalias !272
-  %30 = add nuw nsw i64 %7, %2
+  %30 = add nuw nsw i64 %2, %7
   br label %"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17h1726094fcf6057cdE.llvm.12840853548696167234.exit"
 
 "_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17h1726094fcf6057cdE.llvm.12840853548696167234.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit41.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit44.i"
@@ -4708,7 +4708,7 @@ default.unreachable326:                           ; preds = %3
   store i64 %82, ptr %19, align 8, !noalias !634
   %90 = getelementptr inbounds i8, ptr %21, i64 16
   %91 = load i64, ptr %90, align 8, !noalias !630, !noundef !4
-  %.not.i.i = icmp ult i64 %91, %82
+  %.not.i.i = icmp ugt i64 %82, %91
   br i1 %.not.i.i, label %92, label %108
 
 92:                                               ; preds = %.noexc
@@ -4813,7 +4813,7 @@ default.unreachable326:                           ; preds = %3
   store i64 %118, ptr %13, align 8, !noalias !653
   %126 = getelementptr inbounds i8, ptr %15, i64 16
   %127 = load i64, ptr %126, align 8, !noalias !649, !noundef !4
-  %.not.i.i167 = icmp ult i64 %127, %118
+  %.not.i.i167 = icmp ugt i64 %118, %127
   br i1 %.not.i.i167, label %128, label %144
 
 128:                                              ; preds = %.noexc170
@@ -5499,7 +5499,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit188
   store i64 %351, ptr %7, align 8, !noalias !714
   %359 = getelementptr inbounds i8, ptr %9, i64 16
   %360 = load i64, ptr %359, align 8, !noalias !710, !noundef !4
-  %.not.i.i212 = icmp ult i64 %360, %351
+  %.not.i.i212 = icmp ugt i64 %351, %360
   br i1 %.not.i.i212, label %361, label %377
 
 361:                                              ; preds = %350
@@ -7039,7 +7039,7 @@ default.unreachable:                              ; preds = %53
   %83 = getelementptr inbounds i8, ptr %7, i64 16
   %84 = load i64, ptr %83, align 8, !noalias !1000, !noundef !4
   %85 = add i64 %76, -2
-  %86 = icmp ult i64 %85, %84
+  %86 = icmp ugt i64 %84, %85
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %80

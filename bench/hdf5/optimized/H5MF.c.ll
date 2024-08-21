@@ -224,7 +224,7 @@ define void @H5MF__alloc_to_fs_type(ptr noundef %0, i32 noundef %1, i64 noundef 
   br i1 %.not, label %30, label %11
 
 11:                                               ; preds = %8
-  %.not27 = icmp ugt i64 %10, %2
+  %.not27 = icmp ult i64 %2, %10
   br i1 %.not27, label %24, label %12
 
 12:                                               ; preds = %11
@@ -522,15 +522,15 @@ H5MF__alloc_to_fs_type.exit31:                    ; preds = %51, %49, %56
 
 H5MF__alloc_to_fs_type.exit37:                    ; preds = %66, %64, %71, %75
   %..sink.i33 = phi i32 [ %..i36, %71 ], [ %.28.i32, %75 ], [ 7, %64 ], [ %spec.select46, %66 ]
-  %79 = icmp eq i32 %..sink.i, %1
-  %80 = icmp eq i32 %..sink.i21, %1
+  %79 = icmp eq i32 %1, %..sink.i
+  %80 = icmp eq i32 %1, %..sink.i21
   %or.cond = select i1 %79, i1 true, i1 %80
-  %81 = icmp eq i32 %..sink.i27, %1
+  %81 = icmp eq i32 %1, %..sink.i27
   %or.cond19 = select i1 %or.cond, i1 true, i1 %81
   br i1 %or.cond19, label %90, label %82
 
 82:                                               ; preds = %H5MF__alloc_to_fs_type.exit37
-  %83 = icmp eq i32 %..sink.i33, %1
+  %83 = icmp eq i32 %1, %..sink.i33
   br label %90
 
 84:                                               ; preds = %46, %H5MF__alloc_to_fs_type.exit25
@@ -538,8 +538,8 @@ H5MF__alloc_to_fs_type.exit37:                    ; preds = %66, %64, %71, %75
   br i1 %85, label %90, label %86
 
 86:                                               ; preds = %84
-  %87 = icmp eq i32 %..sink.i, %1
-  %88 = icmp eq i32 %..sink.i21, %1
+  %87 = icmp eq i32 %1, %..sink.i
+  %88 = icmp eq i32 %1, %..sink.i21
   %89 = select i1 %87, i1 true, i1 %88
   br label %90
 
@@ -991,21 +991,21 @@ H5MF__alloc_to_fs_type.exit39:                    ; preds = %66, %64, %71, %75
   %80 = zext i32 %..sink.i to i64
   %81 = getelementptr inbounds [13 x ptr], ptr %79, i64 0, i64 %80
   %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %82, %1
+  %83 = icmp eq ptr %1, %82
   br i1 %83, label %105, label %84
 
 84:                                               ; preds = %H5MF__alloc_to_fs_type.exit39
   %85 = zext i32 %..sink.i23 to i64
   %86 = getelementptr inbounds [13 x ptr], ptr %79, i64 0, i64 %85
   %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %87, %1
+  %88 = icmp eq ptr %1, %87
   br i1 %88, label %105, label %89
 
 89:                                               ; preds = %84
   %90 = zext i32 %..sink.i29 to i64
   %91 = getelementptr inbounds [13 x ptr], ptr %79, i64 0, i64 %90
   %92 = load ptr, ptr %91, align 8
-  %93 = icmp eq ptr %92, %1
+  %93 = icmp eq ptr %1, %92
   br i1 %93, label %105, label %.sink.split
 
 94:                                               ; preds = %46, %H5MF__alloc_to_fs_type.exit27
@@ -1013,7 +1013,7 @@ H5MF__alloc_to_fs_type.exit39:                    ; preds = %66, %64, %71, %75
   %96 = zext i32 %..sink.i to i64
   %97 = getelementptr inbounds [13 x ptr], ptr %95, i64 0, i64 %96
   %98 = load ptr, ptr %97, align 8
-  %99 = icmp eq ptr %98, %1
+  %99 = icmp eq ptr %1, %98
   br i1 %99, label %105, label %.sink.split
 
 .sink.split:                                      ; preds = %94, %89
@@ -1022,7 +1022,7 @@ H5MF__alloc_to_fs_type.exit39:                    ; preds = %66, %64, %71, %75
   %101 = zext i32 %..sink.i23.sink to i64
   %102 = getelementptr inbounds [13 x ptr], ptr %100, i64 0, i64 %101
   %103 = load ptr, ptr %102, align 8
-  %104 = icmp eq ptr %103, %1
+  %104 = icmp eq ptr %1, %103
   br label %105
 
 105:                                              ; preds = %.sink.split, %94, %H5MF__alloc_to_fs_type.exit39, %84, %89
@@ -1143,7 +1143,7 @@ define i64 @H5MF_alloc(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unn
   br i1 %.not.i, label %34, label %15
 
 15:                                               ; preds = %12
-  %.not27.i = icmp ugt i64 %14, %2
+  %.not27.i = icmp ult i64 %2, %14
   br i1 %.not27.i, label %28, label %16
 
 16:                                               ; preds = %15
@@ -1273,7 +1273,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %16, %24, %26, %28, 
   br i1 %.not.i38, label %105, label %86
 
 86:                                               ; preds = %83
-  %.not27.i39 = icmp ugt i64 %85, %2
+  %.not27.i39 = icmp ult i64 %2, %85
   br i1 %.not27.i39, label %99, label %87
 
 87:                                               ; preds = %86
@@ -1633,7 +1633,7 @@ define range(i32 -1, 1) i32 @H5MF_xfree(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %.not.i, label %38, label %19
 
 19:                                               ; preds = %16
-  %.not27.i = icmp ugt i64 %18, %3
+  %.not27.i = icmp ult i64 %3, %18
   br i1 %.not27.i, label %32, label %20
 
 20:                                               ; preds = %19
@@ -1770,7 +1770,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %20, %28, %30, %32, 
   %91 = load ptr, ptr %11, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 1528
   %93 = load i64, ptr %92, align 8
-  %94 = icmp ugt i64 %93, %3
+  %94 = icmp ult i64 %3, %93
   br i1 %94, label %158, label %95
 
 95:                                               ; preds = %90, %78
@@ -1816,7 +1816,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %20, %28, %30, %32, 
   br i1 %.not85, label %121, label %119
 
 119:                                              ; preds = %116
-  %.not86 = icmp ugt i64 %118, %3
+  %.not86 = icmp ult i64 %3, %118
   %120 = select i1 %.not86, i32 1, i32 2
   br label %121
 
@@ -1836,7 +1836,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %20, %28, %30, %32, 
   %130 = load ptr, ptr %11, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 1528
   %132 = load i64, ptr %131, align 8
-  %.not87 = icmp ugt i64 %132, %3
+  %.not87 = icmp ult i64 %3, %132
   br i1 %.not87, label %143, label %133
 
 133:                                              ; preds = %129
@@ -1937,7 +1937,7 @@ define range(i32 -1, -2147483648) i32 @H5MF_try_shrink(ptr noundef %0, i32 nound
   br i1 %.not, label %36, label %17
 
 17:                                               ; preds = %14
-  %.not28 = icmp ugt i64 %16, %3
+  %.not28 = icmp ult i64 %3, %16
   br i1 %.not28, label %30, label %18
 
 18:                                               ; preds = %17
@@ -2100,7 +2100,7 @@ define range(i32 -1, -2147483648) i32 @H5MF_try_extend(ptr noundef %0, i32 nound
   br i1 %.not, label %44, label %20
 
 20:                                               ; preds = %17
-  %21 = icmp ugt i64 %19, %3
+  %21 = icmp ult i64 %3, %19
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %20
@@ -2157,7 +2157,7 @@ define range(i32 -1, -2147483648) i32 @H5MF_try_extend(ptr noundef %0, i32 nound
   br i1 %.not.i, label %71, label %52
 
 52:                                               ; preds = %49
-  %.not27.i = icmp ugt i64 %51, %3
+  %.not27.i = icmp ult i64 %3, %51
   br i1 %.not27.i, label %65, label %53
 
 53:                                               ; preds = %52
@@ -2425,7 +2425,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %53, %61, %63, %65, 
   %.1 = phi i64 [ 0, %185 ], [ %spec.select137, %187 ]
   %196 = call i64 @H5F_get_pgend_meta_thres(ptr noundef nonnull %0) #7
   %.not132 = icmp ule i64 %.1, %196
-  %.not133 = icmp uge i64 %.1, %4
+  %.not133 = icmp ule i64 %4, %.1
   %or.cond135.not = and i1 %.not133, %.not132
   %spec.select138 = zext i1 %or.cond135.not to i32
   br label %.thread
@@ -3761,7 +3761,7 @@ define range(i32 -1, 1) i32 @H5MF_settle_raw_data_fsm(ptr noundef %0, ptr nocapt
   br i1 %.not.i, label %74, label %55
 
 55:                                               ; preds = %52
-  %.not27.i = icmp ugt i64 %54, %.089
+  %.not27.i = icmp ult i64 %.089, %54
   br i1 %.not27.i, label %68, label %56
 
 56:                                               ; preds = %55
@@ -4044,7 +4044,7 @@ split:                                            ; preds = %36, %41, %._crit_ed
   br i1 %.not.i117, label %227, label %208
 
 208:                                              ; preds = %205
-  %.not27.i118 = icmp ugt i64 %207, %.190
+  %.not27.i118 = icmp ult i64 %.190, %207
   br i1 %.not27.i118, label %221, label %209
 
 209:                                              ; preds = %208

@@ -403,7 +403,7 @@ openFile.exit.i.backedge:                         ; preds = %81, %76, %147, %117
 
 init.exit:                                        ; preds = %openFile.exit.i
   %188 = load i32, ptr @optind, align 4
-  %.not82.i = icmp eq i32 %188, %0
+  %.not82.i = icmp eq i32 %0, %188
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds ptr, ptr %1, i64 %189
   %.sroa.2.0 = select i1 %.not82.i, ptr null, ptr %190

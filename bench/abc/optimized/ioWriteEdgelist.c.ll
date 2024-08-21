@@ -600,7 +600,7 @@ Io_NtkEdgelistWriteLatch.exit:                    ; preds = %91, %95
 
 171:                                              ; preds = %170
   %172 = load i32, ptr %156, align 4
-  %173 = icmp sgt i32 %172, %.3149
+  %173 = icmp slt i32 %.3149, %172
   br i1 %173, label %Extra_ProgressBarUpdate.exit, label %174
 
 174:                                              ; preds = %171, %170

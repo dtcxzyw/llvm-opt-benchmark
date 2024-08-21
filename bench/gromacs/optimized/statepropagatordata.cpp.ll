@@ -594,13 +594,13 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit18:        ; preds = %44
 _ZNSt8functionIFvvEED2Ev.exit20:                  ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit18, %48
   %53 = getelementptr inbounds i8, ptr %0, i64 80
   %54 = load i64, ptr %53, align 8
-  %55 = icmp eq i64 %54, %1
+  %55 = icmp eq i64 %1, %54
   br i1 %55, label %64, label %56
 
 56:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit20
   %57 = getelementptr inbounds i8, ptr %0, i64 184
   %58 = load i64, ptr %57, align 8
-  %59 = icmp eq i64 %58, %1
+  %59 = icmp eq i64 %1, %58
   br i1 %59, label %60, label %_ZNSt8functionIFvvEED2Ev.exit27
 
 60:                                               ; preds = %56
@@ -1043,7 +1043,7 @@ _ZNRSt8optionalIN3gmx14CheckpointDataILNS0_23CheckpointDataOperationE0EEEE5value
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds i8, ptr %30, i64 352
   %41 = getelementptr inbounds i8, ptr %32, i64 408
-  %.not.i.i = icmp eq ptr %41, %33
+  %.not.i.i = icmp eq ptr %33, %41
   br i1 %.not.i.i, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEEaSERKS6_.exit.i, label %42
 
 42:                                               ; preds = %28
@@ -1064,7 +1064,7 @@ _ZNRSt8optionalIN3gmx14CheckpointDataILNS0_23CheckpointDataOperationE0EEEE5value
 
 _ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEEaSERKS6_.exit.i: ; preds = %42, %28
   %55 = getelementptr inbounds i8, ptr %32, i64 448
-  %.not.i11.i = icmp eq ptr %55, %34
+  %.not.i11.i = icmp eq ptr %34, %55
   br i1 %.not.i11.i, label %69, label %56
 
 56:                                               ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEEaSERKS6_.exit.i
@@ -2672,7 +2672,7 @@ _ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit: ; preds = %2, %
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = sdiv exact i64 %16, 12
-  %18 = icmp ult i64 %17, %1
+  %18 = icmp ugt i64 %1, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %_ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit
@@ -2684,7 +2684,7 @@ _ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit: ; preds = %2, %
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit
 
 21:                                               ; preds = %_ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit
-  %22 = icmp ugt i64 %17, %1
+  %22 = icmp ult i64 %1, %17
   br i1 %22, label %23, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit
 
 23:                                               ; preds = %21
@@ -3523,7 +3523,7 @@ _ZSt13move_backwardIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit: ; preds = %27, 
 _ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit: ; preds = %.lr.ph.i, %33
   %37 = phi ptr [ %10, %33 ], [ %36, %.lr.ph.i ]
   store ptr %37, ptr %9, align 8
-  %.not13.i.i68 = icmp eq ptr %10, %1
+  %.not13.i.i68 = icmp eq ptr %1, %10
   br i1 %.not13.i.i68, label %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit74.thread, label %.lr.ph.i.i69
 
 _ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit74.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit
@@ -3621,7 +3621,7 @@ _ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit: ; preds = %.lr.ph.i.i89, %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87
   %.0.lcssa.i.i93 = phi ptr [ %64, %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87 ], [ %69, %.lr.ph.i.i89 ]
   %70 = getelementptr %"class.gmx::BasicVector", ptr %.0.lcssa.i.i93, i64 %2
-  %.not13.i.i94 = icmp eq ptr %10, %1
+  %.not13.i.i94 = icmp eq ptr %1, %10
   br i1 %.not13.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit100, label %.lr.ph.i.i95
 
 .lr.ph.i.i95:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit, %.lr.ph.i.i95
@@ -5711,7 +5711,7 @@ _Z11do_per_stepll.exit50.thread:                  ; preds = %_Z11do_per_stepll.e
   tail call void @_Z32mdoutf_write_to_trajectory_filesP8_IO_FILEPK9t_commrecP10gmx_mdoutfiildP7t_stateS7_P18ObservablesHistoryN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEEPNSA_25WriteCheckpointDataHolderE(ptr noundef %130, ptr noundef %132, ptr noundef %1, i32 noundef %128, i32 noundef %135, i64 noundef %2, double noundef %3, ptr noundef %137, ptr noundef %139, ptr noundef null, ptr noundef nonnull byval(%"class.gmx::ArrayRef.252") align 8 %5, ptr noundef nonnull %149)
   %150 = getelementptr inbounds i8, ptr %0, i64 184
   %151 = load i64, ptr %150, align 8
-  %.not = icmp eq i64 %151, %2
+  %.not = icmp eq i64 %2, %151
   br i1 %.not, label %152, label %156
 
 152:                                              ; preds = %.thread
@@ -7031,7 +7031,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 15:                                               ; preds = %12
   %.not.i.i = icmp ne ptr %13, null
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = icmp eq ptr %16, %14
+  %17 = icmp eq ptr %14, %16
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %17
   br i1 %or.cond.i.i, label %.thread, label %18
 
@@ -7092,7 +7092,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -8070,7 +8070,7 @@ _ZSt10_ConstructIN3gmx17KeyValueTreeValueEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pre
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #19
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx17KeyValueTreeValueEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %28, %_ZSt8_DestroyIN3gmx17KeyValueTreeValueEEvPT_.exit.i.i.i.i.i.i
@@ -11475,7 +11475,7 @@ define internal void @"_ZNSt17_Function_handlerIFvldEZN3gmx19StatePropagatorData
   store i64 %.val3, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %.val, i64 200
   %6 = load i64, ptr %5, align 8
-  %7 = icmp eq i64 %6, %.val3
+  %7 = icmp eq i64 %.val3, %6
   %8 = getelementptr inbounds i8, ptr %.val, i64 176
   %9 = zext i1 %7 to i8
   store i8 %9, ptr %8, align 8

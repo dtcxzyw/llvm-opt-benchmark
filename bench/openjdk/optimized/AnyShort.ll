@@ -167,8 +167,8 @@ define hidden void @AnyShortSetParallelogram(ptr nocapture noundef readonly %0, 
   %.02741 = inttoptr i64 %.027.in40 to ptr
   %28 = lshr i64 %.03037, 32
   %29 = trunc nuw i64 %28 to i32
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %27, i32 %1)
-  %.0 = tail call i32 @llvm.smin.i32(i32 %29, i32 %3)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 %27)
+  %.0 = tail call i32 @llvm.smin.i32(i32 %3, i32 %29)
   %30 = icmp slt i32 %spec.select, %.0
   br i1 %30, label %.lr.ph.preheader, label %._crit_edge
 

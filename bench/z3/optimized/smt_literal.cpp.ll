@@ -47,7 +47,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %.b22 = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
   %0 = zext i1 %.b22 to i32
-  %cmp.i8 = icmp eq i32 %0, %lit.coerce
+  %cmp.i8 = icmp eq i32 %lit.coerce, %0
   br i1 %cmp.i8, label %if.then3, label %if.else5
 
 if.then3:                                         ; preds = %if.else
@@ -57,7 +57,7 @@ if.then3:                                         ; preds = %if.else
 if.else5:                                         ; preds = %if.else
   %.b = load i1, ptr @_ZN3smtL12null_literalE.0, align 4
   %1 = select i1 %.b, i32 -2, i32 0
-  %cmp.i9 = icmp eq i32 %1, %lit.coerce
+  %cmp.i9 = icmp eq i32 %lit.coerce, %1
   br i1 %cmp.i9, label %if.then7, label %if.else9
 
 if.then7:                                         ; preds = %if.else5
@@ -110,7 +110,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %.b20 = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
   %0 = zext i1 %.b20 to i32
-  %cmp.i9 = icmp eq i32 %0, %lit.coerce
+  %cmp.i9 = icmp eq i32 %lit.coerce, %0
   br i1 %cmp.i9, label %if.then3, label %if.else5
 
 if.then3:                                         ; preds = %if.else
@@ -120,7 +120,7 @@ if.then3:                                         ; preds = %if.else
 if.else5:                                         ; preds = %if.else
   %.b = load i1, ptr @_ZN3smtL12null_literalE.0, align 4
   %1 = select i1 %.b, i32 -2, i32 0
-  %cmp.i10 = icmp eq i32 %1, %lit.coerce
+  %cmp.i10 = icmp eq i32 %lit.coerce, %1
   br i1 %cmp.i10, label %if.then7, label %if.else9
 
 if.then7:                                         ; preds = %if.else5
@@ -202,7 +202,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %.b = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
   %0 = zext i1 %.b to i32
-  %cmp.i6 = icmp eq i32 %0, %lit.coerce
+  %cmp.i6 = icmp eq i32 %lit.coerce, %0
   br i1 %cmp.i6, label %if.then3, label %if.else5
 
 if.then3:                                         ; preds = %if.else
@@ -251,7 +251,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %.b = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
   %0 = zext i1 %.b to i32
-  %cmp.i5 = icmp eq i32 %0, %l.coerce
+  %cmp.i5 = icmp eq i32 %l.coerce, %0
   br i1 %cmp.i5, label %if.then3, label %if.else5
 
 if.then3:                                         ; preds = %if.else
@@ -306,7 +306,7 @@ if.end.i.i3:                                      ; preds = %if.else.i.i, %for.b
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %it.06.i.i, align 4
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %3 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i.i.i = icmp eq i32 %3, %agg.tmp.sroa.0.0.copyload.i.i
+  %cmp.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i, %3
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i3
@@ -430,7 +430,7 @@ for.end.us.thread:                                ; preds = %for.inc.us
 
 for.end.us:                                       ; preds = %for.body3.us
   %3 = trunc nuw i64 %indvars.iv to i32
-  %cmp6.us = icmp eq i32 %3, %num_lits2
+  %cmp6.us = icmp eq i32 %num_lits2, %3
   br i1 %cmp6.us, label %for.end11.loopexit.split.loop.exit, label %for.inc9.us
 
 for.inc9.us:                                      ; preds = %for.end.us

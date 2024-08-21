@@ -433,13 +433,13 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = lshr i64 %6, 51
-  %8 = icmp eq i64 %7, %1
+  %8 = icmp eq i64 %1, %7
   br i1 %8, label %.lr.ph32, label %.loopexit
 
 .lr.ph32:                                         ; preds = %4
   %.cmp = icmp ult i64 %1, 8190
   %.v = select i1 %.cmp, i64 1, i64 -8190
-  %9 = add i64 %.v, %1
+  %9 = add i64 %1, %.v
   %10 = shl nuw i64 %9, 51
   br label %11
 
@@ -505,7 +505,7 @@ _ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit: ; pre
   %.117 = phi i1 [ %.01628, %11 ], [ true, %29 ], [ true, %27 ]
   %.1 = phi i64 [ %.sroa.07.0.i, %11 ], [ %.01529, %29 ], [ %.01529, %27 ]
   %30 = lshr i64 %.1, 51
-  %31 = icmp eq i64 %30, %1
+  %31 = icmp eq i64 %1, %30
   %or.cond.not = or i1 %.117, %31
   br i1 %or.cond.not, label %11, label %.loopexit
 }
@@ -515,13 +515,13 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = lshr i64 %6, 51
-  %8 = icmp eq i64 %7, %1
+  %8 = icmp eq i64 %1, %7
   br i1 %8, label %.lr.ph33, label %"_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17h4d5b05611c6056b8E.exit"
 
 .lr.ph33:                                         ; preds = %4
   %.cmp = icmp ult i64 %1, 8190
   %.v = select i1 %.cmp, i64 1, i64 -8190
-  %9 = add i64 %.v, %1
+  %9 = add i64 %1, %.v
   %10 = shl nuw i64 %9, 51
   br label %11
 
@@ -598,7 +598,7 @@ _ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit: ; pre
   %.117 = phi i1 [ %.01629, %11 ], [ true, %32 ], [ true, %30 ]
   %.1 = phi i64 [ %.sroa.07.0.i, %11 ], [ %.01530, %32 ], [ %.01530, %30 ]
   %33 = lshr i64 %.1, 51
-  %34 = icmp eq i64 %33, %1
+  %34 = icmp eq i64 %1, %33
   %or.cond.not = or i1 %.117, %34
   br i1 %or.cond.not, label %11, label %"_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17h4d5b05611c6056b8E.exit"
 }

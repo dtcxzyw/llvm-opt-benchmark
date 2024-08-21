@@ -2979,8 +2979,8 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h44
 
 74:                                               ; preds = %91, %.noexc37
   %.sroa.9.0.i.i.i.i21 = phi i64 [ 0, %.noexc37 ], [ %92, %91 ]
-  %.pn.i.i22 = phi i64 [ %70, %.noexc37 ], [ %93, %91 ]
-  %.sroa.01.0.i.i.i.i23 = and i64 %.pn.i.i22, %.val5.i17
+  %.pn.i.i.i22 = phi i64 [ %70, %.noexc37 ], [ %93, %91 ]
+  %.sroa.01.0.i.i.i.i23 = and i64 %.pn.i.i.i22, %.val5.i17
   %75 = getelementptr inbounds i8, ptr %.val.i16, i64 %.sroa.01.0.i.i.i.i23
   %.0.copyload.i30.i.i.i24 = load <16 x i8>, ptr %75, align 1, !noalias !557
   %76 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i24, %.15.vec.insert.i.i.i.i19
@@ -3008,7 +3008,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h44
   %89 = sub nsw i64 0, %88
   %gep.i.i.i27 = getelementptr { i64, ptr }, ptr %invariant.gep.i.i.i20, i64 %89
   %.val4.i.i.i.i28 = load i64, ptr %gep.i.i.i27, align 8, !alias.scope !565, !noalias !570, !noundef !4
-  %90 = icmp eq i64 %.val4.i.i.i.i28, %.val10.i
+  %90 = icmp eq i64 %.val10.i, %.val4.i.i.i.i28
   br i1 %90, label %94, label %78
 
 91:                                               ; preds = %79
@@ -3095,8 +3095,8 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h44
 
 126:                                              ; preds = %143, %.noexc9
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %.noexc9 ], [ %144, %143 ]
-  %.pn.i.i = phi i64 [ %123, %.noexc9 ], [ %145, %143 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val5.i
+  %.pn.i.i.i = phi i64 [ %123, %.noexc9 ], [ %145, %143 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i
   %127 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i30.i.i.i = load <16 x i8>, ptr %127, align 1, !noalias !616
   %128 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, %.15.vec.insert.i.i.i.i
@@ -3124,7 +3124,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h44
   %141 = sub nsw i64 0, %140
   %gep.i.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i.i, i64 %141
   %.val4.i.i.i.i = load i64, ptr %gep.i.i.i, align 8, !alias.scope !624, !noalias !629, !noundef !4
-  %142 = icmp eq i64 %.val4.i.i.i.i, %.val14.i
+  %142 = icmp eq i64 %.val14.i, %.val4.i.i.i.i
   br i1 %142, label %"_ZN8mini_lsm7compact7leveled27LeveledCompactionController23apply_compaction_result28_$u7b$$u7b$closure$u7d$$u7d$17h1c2b39e58acce019E.exit.i.i", label %130
 
 143:                                              ; preds = %131
@@ -6159,8 +6159,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hash
 
 41:                                               ; preds = %58, %8
   %.sroa.9.0.i.i.i = phi i64 [ 0, %8 ], [ %59, %58 ]
-  %.pn.i = phi i64 [ %37, %8 ], [ %60, %58 ]
-  %.sroa.01.0.i.i.i = and i64 %.pn.i, %.val5
+  %.pn.i.i = phi i64 [ %37, %8 ], [ %60, %58 ]
+  %.sroa.01.0.i.i.i = and i64 %.pn.i.i, %.val5
   %42 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i30.i.i = load <16 x i8>, ptr %42, align 1, !noalias !957
   %43 = icmp eq <16 x i8> %.0.copyload.i30.i.i, %.15.vec.insert.i.i.i
@@ -6188,7 +6188,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hash
   %56 = sub nsw i64 0, %55
   %gep.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i, i64 %56
   %.val4.i.i.i = load i64, ptr %gep.i.i, align 8, !alias.scope !965, !noalias !970, !noundef !4
-  %57 = icmp eq i64 %.val4.i.i.i, %.0.val
+  %57 = icmp eq i64 %.0.val, %.val4.i.i.i
   br i1 %57, label %61, label %45
 
 58:                                               ; preds = %46
@@ -7157,7 +7157,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hb88df020905c41ffE.exit.i.i.i: ; pred
 
 229:                                              ; preds = %.thread19.i.i.i.i, %223
   %.sroa.4.0.i54.ph.i.i.i = phi i64 [ %.pre-phi.i.i.i.i, %.thread19.i.i.i.i ], [ %224, %223 ]
-  %230 = icmp ugt i64 %197, %.sroa.4.0.i54.ph.i.i.i
+  %230 = icmp ult i64 %.sroa.4.0.i54.ph.i.i.i, %197
   br i1 %230, label %233, label %231
 
 231:                                              ; preds = %229
@@ -7188,7 +7188,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hb88df020905c41ffE.exit.i.i.i: ; pred
   %236 = getelementptr inbounds i8, ptr %234, i64 8
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add nuw i64 %.sroa.4.0.i54.ph.i.i.i, 1
-  %239 = icmp ugt i64 %197, %238
+  %239 = icmp ult i64 %238, %197
   br i1 %239, label %241, label %240
 
 240:                                              ; preds = %233
@@ -7216,7 +7216,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hb88df020905c41ffE.exit.i.i.i: ; pred
   %253 = getelementptr inbounds { double, i64 }, ptr %252, i64 %235
   %254 = getelementptr inbounds { double, i64 }, ptr %.pre, i64 %246
   %255 = sub i64 %251, %235
-  %.not.i64.i.i.i = icmp ult i64 %255, %235
+  %.not.i64.i.i.i = icmp ugt i64 %235, %255
   %256 = icmp sgt i64 %235, 0
   br i1 %.not.i64.i.i.i, label %257, label %261
 
@@ -7282,8 +7282,8 @@ _ZN4core5slice4sort20provide_sorted_batch17hb88df020905c41ffE.exit.i.i.i: ; pred
   %277 = phi ptr [ %266, %274 ], [ %265, %.lr.ph35.i.i.i.i ], [ %265, %.lr.ph35.i.i.i.i ]
   %278 = getelementptr inbounds i8, ptr %.02734.i.i.i.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %278, ptr noundef nonnull align 8 dereferenceable(16) %277, i64 16, i1 false)
-  %279 = icmp ugt ptr %276, %252
-  %280 = icmp ugt ptr %275, %86
+  %279 = icmp ult ptr %252, %276
+  %280 = icmp ult ptr %86, %275
   %or.cond.i77.i.i.i = and i1 %280, %279
   br i1 %or.cond.i77.i.i.i, label %.lr.ph35.i.i.i.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h87a15f18214404a5E.exit.i.i.i"
 
@@ -8521,7 +8521,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %211 = load i64, ptr %107, align 8, !alias.scope !1336, !noundef !4
   %212 = load i64, ptr %45, align 8, !alias.scope !1339, !noundef !4
   %213 = sub i64 %212, %211
-  %214 = icmp ult i64 %213, %111
+  %214 = icmp ugt i64 %111, %213
   br i1 %214, label %215, label %216
 
 215:                                              ; preds = %210
@@ -8543,7 +8543,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %.idx172 = shl nuw nsw i64 %129, 3
   %222 = load i64, ptr %45, align 8, !alias.scope !1342, !noundef !4
   %223 = sub i64 %222, %221
-  %224 = icmp ult i64 %223, %129
+  %224 = icmp ugt i64 %129, %223
   br i1 %224, label %225, label %226
 
 225:                                              ; preds = %216
@@ -8610,7 +8610,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %255 = load i64, ptr %254, align 8, !alias.scope !1348, !noundef !4
   %256 = load i64, ptr %36, align 8, !alias.scope !1351, !noundef !4
   %257 = sub i64 %256, %255
-  %258 = icmp ult i64 %257, %5
+  %258 = icmp ugt i64 %5, %257
   br i1 %258, label %259, label %262
 
 259:                                              ; preds = %253
@@ -9155,7 +9155,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h0ef387e5ff14f491E.exit.i.i.i: ; pred
 
 450:                                              ; preds = %.thread19.i.i.i.i, %444
   %.sroa.4.0.i70.ph.i.i.i = phi i64 [ %.pre-phi.i.i.i.i, %.thread19.i.i.i.i ], [ %445, %444 ]
-  %451 = icmp ugt i64 %418, %.sroa.4.0.i70.ph.i.i.i
+  %451 = icmp ult i64 %.sroa.4.0.i70.ph.i.i.i, %418
   br i1 %451, label %454, label %452
 
 452:                                              ; preds = %450
@@ -9186,7 +9186,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h0ef387e5ff14f491E.exit.i.i.i: ; pred
   %457 = getelementptr inbounds i8, ptr %455, i64 8
   %458 = load i64, ptr %457, align 8, !noundef !4
   %459 = add nuw i64 %.sroa.4.0.i70.ph.i.i.i, 1
-  %460 = icmp ugt i64 %418, %459
+  %460 = icmp ult i64 %459, %418
   br i1 %460, label %462, label %461
 
 461:                                              ; preds = %454
@@ -9214,7 +9214,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h0ef387e5ff14f491E.exit.i.i.i: ; pred
   %474 = getelementptr inbounds i64, ptr %473, i64 %456
   %475 = getelementptr inbounds i64, ptr %269, i64 %467
   %476 = sub i64 %472, %456
-  %.not.i79.i.i.i = icmp ult i64 %476, %456
+  %.not.i79.i.i.i = icmp ugt i64 %456, %476
   %477 = icmp sgt i64 %456, 0
   br i1 %.not.i79.i.i.i, label %478, label %482
 
@@ -9322,8 +9322,8 @@ _ZN4core5slice4sort20provide_sorted_batch17h0ef387e5ff14f491E.exit.i.i.i: ; pred
 
 520:                                              ; preds = %537, %.noexc179.i.i.i
   %.sroa.9.0.i.i.i.i163.i.i.i = phi i64 [ 0, %.noexc179.i.i.i ], [ %538, %537 ]
-  %.pn.i.i164.i.i.i = phi i64 [ %516, %.noexc179.i.i.i ], [ %539, %537 ]
-  %.sroa.01.0.i.i.i.i165.i.i.i = and i64 %.pn.i.i164.i.i.i, %.val5.i159.i.i.i
+  %.pn.i.i.i164.i.i.i = phi i64 [ %516, %.noexc179.i.i.i ], [ %539, %537 ]
+  %.sroa.01.0.i.i.i.i165.i.i.i = and i64 %.pn.i.i.i164.i.i.i, %.val5.i159.i.i.i
   %521 = getelementptr inbounds i8, ptr %.val.i158.i.i.i, i64 %.sroa.01.0.i.i.i.i165.i.i.i
   %.0.copyload.i30.i.i.i166.i.i.i = load <16 x i8>, ptr %521, align 1, !noalias !1468
   %522 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i166.i.i.i, %.15.vec.insert.i.i.i.i161.i.i.i
@@ -9351,7 +9351,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h0ef387e5ff14f491E.exit.i.i.i: ; pred
   %535 = sub nsw i64 0, %534
   %gep.i.i.i169.i.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i.i162.i.i.i, i64 %535
   %.val4.i.i.i.i170.i.i.i = load i64, ptr %gep.i.i.i169.i.i.i, align 8, !alias.scope !1476, !noalias !1481, !noundef !4
-  %536 = icmp eq i64 %.val4.i.i.i.i170.i.i.i, %.val35.i84.i.i.i
+  %536 = icmp eq i64 %.val35.i84.i.i.i, %.val4.i.i.i.i170.i.i.i
   br i1 %536, label %540, label %524
 
 537:                                              ; preds = %525
@@ -9438,8 +9438,8 @@ _ZN4core5slice4sort20provide_sorted_batch17h0ef387e5ff14f491E.exit.i.i.i: ; pred
 
 572:                                              ; preds = %589, %.noexc150.i.i.i
   %.sroa.9.0.i.i.i.i134.i.i.i = phi i64 [ 0, %.noexc150.i.i.i ], [ %590, %589 ]
-  %.pn.i.i135.i.i.i = phi i64 [ %569, %.noexc150.i.i.i ], [ %591, %589 ]
-  %.sroa.01.0.i.i.i.i136.i.i.i = and i64 %.pn.i.i135.i.i.i, %.val5.i130.i.i.i
+  %.pn.i.i.i135.i.i.i = phi i64 [ %569, %.noexc150.i.i.i ], [ %591, %589 ]
+  %.sroa.01.0.i.i.i.i136.i.i.i = and i64 %.pn.i.i.i135.i.i.i, %.val5.i130.i.i.i
   %573 = getelementptr inbounds i8, ptr %.val.i129.i.i.i, i64 %.sroa.01.0.i.i.i.i136.i.i.i
   %.0.copyload.i30.i.i.i137.i.i.i = load <16 x i8>, ptr %573, align 1, !noalias !1527
   %574 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i137.i.i.i, %.15.vec.insert.i.i.i.i132.i.i.i
@@ -9467,7 +9467,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h0ef387e5ff14f491E.exit.i.i.i: ; pred
   %587 = sub nsw i64 0, %586
   %gep.i.i.i140.i.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i.i133.i.i.i, i64 %587
   %.val4.i.i.i.i141.i.i.i = load i64, ptr %gep.i.i.i140.i.i.i, align 8, !alias.scope !1535, !noalias !1540, !noundef !4
-  %588 = icmp eq i64 %.val4.i.i.i.i141.i.i.i, %.val36.i.i.i.i
+  %588 = icmp eq i64 %.val36.i.i.i.i, %.val4.i.i.i.i141.i.i.i
   br i1 %588, label %"_ZN8mini_lsm7compact7leveled27LeveledCompactionController23apply_compaction_result28_$u7b$$u7b$closure$u7d$$u7d$17h1c2b39e58acce019E.exit.i.i.i.i.i", label %576
 
 589:                                              ; preds = %577
@@ -9503,8 +9503,8 @@ select.unfold15.i.i.i.cont:                       ; preds = %select.unfold15.i.i
   %604 = getelementptr inbounds i8, ptr %.02740.i.i.i.i, i64 -8
   %605 = load i64, ptr %.026.i.i.i.i, align 8
   store i64 %605, ptr %604, align 8, !alias.scope !1425, !noalias !1386
-  %606 = icmp ugt ptr %601, %473
-  %607 = icmp ugt ptr %603, %276
+  %606 = icmp ult ptr %473, %601
+  %607 = icmp ult ptr %276, %603
   %or.cond.i86.i.i.i = select i1 %606, i1 %607, i1 false
   br i1 %or.cond.i86.i.i.i, label %.lr.ph41.i.i.i.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17hf6ad65354af5e869E.exit.i.i.i"
 
@@ -9594,8 +9594,8 @@ select.unfold15.i.i.i.cont:                       ; preds = %select.unfold15.i.i
 
 640:                                              ; preds = %657, %.noexc121.i.i.i
   %.sroa.9.0.i.i.i.i105.i.i.i = phi i64 [ 0, %.noexc121.i.i.i ], [ %658, %657 ]
-  %.pn.i.i106.i.i.i = phi i64 [ %636, %.noexc121.i.i.i ], [ %659, %657 ]
-  %.sroa.01.0.i.i.i.i107.i.i.i = and i64 %.pn.i.i106.i.i.i, %.val5.i101.i.i.i
+  %.pn.i.i.i106.i.i.i = phi i64 [ %636, %.noexc121.i.i.i ], [ %659, %657 ]
+  %.sroa.01.0.i.i.i.i107.i.i.i = and i64 %.pn.i.i.i106.i.i.i, %.val5.i101.i.i.i
   %641 = getelementptr inbounds i8, ptr %.val.i100.i.i.i, i64 %.sroa.01.0.i.i.i.i107.i.i.i
   %.0.copyload.i30.i.i.i108.i.i.i = load <16 x i8>, ptr %641, align 1, !noalias !1586
   %642 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i108.i.i.i, %.15.vec.insert.i.i.i.i103.i.i.i
@@ -9623,7 +9623,7 @@ select.unfold15.i.i.i.cont:                       ; preds = %select.unfold15.i.i
   %655 = sub nsw i64 0, %654
   %gep.i.i.i111.i.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i.i104.i.i.i, i64 %655
   %.val4.i.i.i.i112.i.i.i = load i64, ptr %gep.i.i.i111.i.i.i, align 8, !alias.scope !1594, !noalias !1599, !noundef !4
-  %656 = icmp eq i64 %.val4.i.i.i.i112.i.i.i, %.028.val.i.i.i.i
+  %656 = icmp eq i64 %.028.val.i.i.i.i, %.val4.i.i.i.i112.i.i.i
   br i1 %656, label %660, label %644
 
 657:                                              ; preds = %645
@@ -9710,8 +9710,8 @@ select.unfold15.i.i.i.cont:                       ; preds = %select.unfold15.i.i
 
 692:                                              ; preds = %709, %.noexc93.i.i.i
   %.sroa.9.0.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc93.i.i.i ], [ %710, %709 ]
-  %.pn.i.i.i.i.i = phi i64 [ %689, %.noexc93.i.i.i ], [ %711, %709 ]
-  %.sroa.01.0.i.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i.i.i
+  %.pn.i.i.i.i.i.i = phi i64 [ %689, %.noexc93.i.i.i ], [ %711, %709 ]
+  %.sroa.01.0.i.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i.i, %.val5.i.i.i.i
   %693 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i.i
   %.0.copyload.i30.i.i.i.i.i.i = load <16 x i8>, ptr %693, align 1, !noalias !1645
   %694 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i.i.i, %.15.vec.insert.i.i.i.i.i.i.i
@@ -9739,7 +9739,7 @@ select.unfold15.i.i.i.cont:                       ; preds = %select.unfold15.i.i
   %707 = sub nsw i64 0, %706
   %gep.i.i.i.i.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i.i.i.i.i, i64 %707
   %.val4.i.i.i.i.i.i.i = load i64, ptr %gep.i.i.i.i.i.i, align 8, !alias.scope !1653, !noalias !1658, !noundef !4
-  %708 = icmp eq i64 %.val4.i.i.i.i.i.i.i, %.val38.i.i.i.i
+  %708 = icmp eq i64 %.val38.i.i.i.i, %.val4.i.i.i.i.i.i.i
   br i1 %708, label %"_ZN8mini_lsm7compact7leveled27LeveledCompactionController23apply_compaction_result28_$u7b$$u7b$closure$u7d$$u7d$17h1c2b39e58acce019E.exit.i44.i.i.i.i", label %696
 
 709:                                              ; preds = %697

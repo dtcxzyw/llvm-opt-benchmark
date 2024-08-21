@@ -5364,7 +5364,7 @@ if.end:                                           ; preds = %set_noreply_maybe.e
   %7 = load i8, ptr %noreply5.i, align 4
   %tobool8 = trunc i8 %7 to i1
   %conv = select i1 %tobool8, i64 3, i64 2
-  %cmp.not = icmp eq i64 %conv, %ntokens
+  %cmp.not = icmp eq i64 %ntokens, %conv
   br i1 %cmp.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end

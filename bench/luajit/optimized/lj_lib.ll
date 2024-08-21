@@ -1005,8 +1005,8 @@ if.then:                                          ; preds = %entry
 if.then6:                                         ; preds = %if.then
   %3 = bitcast i64 %2 to double
   %conv7 = fptosi double %3 to i32
-  %cmp8.not = icmp slt i32 %conv7, %a
-  %cmp10.not = icmp sgt i32 %conv7, %b
+  %cmp8.not = icmp sgt i32 %a, %conv7
+  %cmp10.not = icmp slt i32 %b, %conv7
   %or.cond = or i1 %cmp8.not, %cmp10.not
   br i1 %or.cond, label %if.end59, label %return
 

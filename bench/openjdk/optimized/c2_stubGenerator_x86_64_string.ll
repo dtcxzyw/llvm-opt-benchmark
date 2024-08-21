@@ -1705,8 +1705,8 @@ _ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAsse
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
   call void @_ZN14MacroAssembler9vpmovmskbE8Register11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 %4, i32 2, i32 noundef 1) #6
-  %60 = icmp sge i32 %59, %1
-  %or.cond.not = and i1 %60, %0
+  %60 = icmp sle i32 %1, %59
+  %or.cond.not = and i1 %0, %60
   br i1 %or.cond.not, label %75, label %61
 
 61:                                               ; preds = %_ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAssembler.exit
@@ -2061,7 +2061,7 @@ define internal fastcc void @_ZL28broadcast_additional_needlesbi8RegisterS_S_N16
   br label %18
 
 17:                                               ; preds = %6
-  %.not = icmp slt i32 %16, %1
+  %.not = icmp sgt i32 %1, %16
   br i1 %.not, label %18, label %46
 
 18:                                               ; preds = %.thread, %17

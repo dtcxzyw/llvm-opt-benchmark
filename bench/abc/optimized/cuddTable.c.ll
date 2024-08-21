@@ -2141,7 +2141,7 @@ declare void @cuddLocalCacheClearDead(ptr noundef) local_unnamed_addr #4
 define ptr @cuddZddGetNode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %2
+  %7 = icmp eq ptr %2, %6
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %4
@@ -2157,7 +2157,7 @@ define ptr @cuddZddGetNode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
 define ptr @cuddUniqueInterZdd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 140
   %6 = load i32, ptr %5, align 4
-  %.not = icmp sgt i32 %6, %1
+  %.not = icmp slt i32 %1, %6
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %4
@@ -2596,7 +2596,7 @@ declare ptr @cuddZddUnion(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %6, %1
+  %.not = icmp slt i32 %1, %6
   br i1 %.not, label %340, label %7
 
 7:                                                ; preds = %4
@@ -2604,7 +2604,7 @@ define ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 144
   %11 = load i32, ptr %10, align 8
-  %12 = icmp sgt i32 %11, %1
+  %12 = icmp slt i32 %1, %11
   br i1 %12, label %.lr.ph177, label %71
 
 .lr.ph177:                                        ; preds = %7
@@ -3337,24 +3337,24 @@ ddResizeTable.exit:                               ; preds = %333
   %.0121 = load ptr, ptr %.0119, align 8
   %378 = getelementptr inbounds i8, ptr %.0121, i64 16
   %379 = load ptr, ptr %378, align 8
-  %380 = icmp ugt ptr %379, %2
+  %380 = icmp ult ptr %2, %379
   %381 = getelementptr inbounds i8, ptr %.0121, i64 8
   br i1 %380, label %377, label %.preheader143, !llvm.loop !58
 
 .preheader143:                                    ; preds = %377
-  %382 = icmp eq ptr %379, %2
+  %382 = icmp eq ptr %2, %379
   br i1 %382, label %.lr.ph197.preheader, label %.critedge
 
 .lr.ph197.preheader:                              ; preds = %.preheader143
   %383 = getelementptr inbounds i8, ptr %.0121, i64 24
   %384 = load ptr, ptr %383, align 8
-  %385 = icmp ugt ptr %384, %3
+  %385 = icmp ult ptr %3, %384
   br i1 %385, label %.lr.ph307, label %.lr.ph197._crit_edge
 
 .lr.ph197:                                        ; preds = %.lr.ph307
   %386 = getelementptr inbounds i8, ptr %390, i64 24
   %387 = load ptr, ptr %386, align 8
-  %388 = icmp ugt ptr %387, %3
+  %388 = icmp ult ptr %3, %387
   br i1 %388, label %.lr.ph307, label %.lr.ph197._crit_edge.loopexit, !llvm.loop !59
 
 .lr.ph307:                                        ; preds = %.lr.ph197.preheader, %.lr.ph197
@@ -3363,7 +3363,7 @@ ddResizeTable.exit:                               ; preds = %333
   %390 = load ptr, ptr %389, align 8
   %391 = getelementptr inbounds i8, ptr %390, i64 16
   %392 = load ptr, ptr %391, align 8
-  %393 = icmp eq ptr %392, %2
+  %393 = icmp eq ptr %2, %392
   br i1 %393, label %.lr.ph197, label %.critedge.loopexit, !llvm.loop !59
 
 .lr.ph197._crit_edge.loopexit:                    ; preds = %.lr.ph197
@@ -3374,7 +3374,7 @@ ddResizeTable.exit:                               ; preds = %333
   %.1120196.lcssa = phi ptr [ %.0119, %.lr.ph197.preheader ], [ %394, %.lr.ph197._crit_edge.loopexit ]
   %.1122195.lcssa = phi ptr [ %.0121, %.lr.ph197.preheader ], [ %390, %.lr.ph197._crit_edge.loopexit ]
   %.lcssa294 = phi ptr [ %384, %.lr.ph197.preheader ], [ %387, %.lr.ph197._crit_edge.loopexit ]
-  %395 = icmp eq ptr %.lcssa294, %3
+  %395 = icmp eq ptr %3, %.lcssa294
   br i1 %395, label %396, label %.critedge
 
 396:                                              ; preds = %.lr.ph197._crit_edge
@@ -3492,24 +3492,24 @@ ddResizeTable.exit:                               ; preds = %333
   %.2123 = load ptr, ptr %.3, align 8
   %468 = getelementptr inbounds i8, ptr %.2123, i64 16
   %469 = load ptr, ptr %468, align 8
-  %470 = icmp ugt ptr %469, %2
+  %470 = icmp ult ptr %2, %469
   %471 = getelementptr inbounds i8, ptr %.2123, i64 8
   br i1 %470, label %467, label %.preheader142, !llvm.loop !60
 
 .preheader142:                                    ; preds = %467
-  %472 = icmp eq ptr %469, %2
+  %472 = icmp eq ptr %2, %469
   br i1 %472, label %.lr.ph200.preheader, label %.critedge2
 
 .lr.ph200.preheader:                              ; preds = %.preheader142
   %473 = getelementptr inbounds i8, ptr %.2123, i64 24
   %474 = load ptr, ptr %473, align 8
-  %475 = icmp ugt ptr %474, %3
+  %475 = icmp ult ptr %3, %474
   br i1 %475, label %.lr.ph311, label %.critedge2
 
 .lr.ph200:                                        ; preds = %.lr.ph311
   %476 = getelementptr inbounds i8, ptr %480, i64 24
   %477 = load ptr, ptr %476, align 8
-  %478 = icmp ugt ptr %477, %3
+  %478 = icmp ult ptr %3, %477
   br i1 %478, label %.lr.ph311, label %.critedge2.loopexit, !llvm.loop !61
 
 .lr.ph311:                                        ; preds = %.lr.ph200.preheader, %.lr.ph200
@@ -3518,7 +3518,7 @@ ddResizeTable.exit:                               ; preds = %333
   %480 = load ptr, ptr %479, align 8
   %481 = getelementptr inbounds i8, ptr %480, i64 16
   %482 = load ptr, ptr %481, align 8
-  %483 = icmp eq ptr %482, %2
+  %483 = icmp eq ptr %2, %482
   br i1 %483, label %.lr.ph200, label %.critedge2.loopexit, !llvm.loop !61
 
 .critedge2.loopexit:                              ; preds = %.lr.ph311, %.lr.ph200
@@ -3569,24 +3569,24 @@ ddResizeTable.exit:                               ; preds = %333
   %.0 = load ptr, ptr %.6, align 8
   %514 = getelementptr inbounds i8, ptr %.0, i64 16
   %515 = load ptr, ptr %514, align 8
-  %516 = icmp ugt ptr %515, %2
+  %516 = icmp ult ptr %2, %515
   %517 = getelementptr inbounds i8, ptr %.0, i64 8
   br i1 %516, label %513, label %.preheader, !llvm.loop !62
 
 .preheader:                                       ; preds = %513
-  %518 = icmp eq ptr %515, %2
+  %518 = icmp eq ptr %2, %515
   br i1 %518, label %.lr.ph206.preheader, label %.critedge4
 
 .lr.ph206.preheader:                              ; preds = %.preheader
   %519 = getelementptr inbounds i8, ptr %.0, i64 24
   %520 = load ptr, ptr %519, align 8
-  %521 = icmp ugt ptr %520, %3
+  %521 = icmp ult ptr %3, %520
   br i1 %521, label %.lr.ph315, label %.critedge4
 
 .lr.ph206:                                        ; preds = %.lr.ph315
   %522 = getelementptr inbounds i8, ptr %526, i64 24
   %523 = load ptr, ptr %522, align 8
-  %524 = icmp ugt ptr %523, %3
+  %524 = icmp ult ptr %3, %523
   br i1 %524, label %.lr.ph315, label %.critedge4.loopexit, !llvm.loop !63
 
 .lr.ph315:                                        ; preds = %.lr.ph206.preheader, %.lr.ph206
@@ -3595,7 +3595,7 @@ ddResizeTable.exit:                               ; preds = %333
   %526 = load ptr, ptr %525, align 8
   %527 = getelementptr inbounds i8, ptr %526, i64 16
   %528 = load ptr, ptr %527, align 8
-  %529 = icmp eq ptr %528, %2
+  %529 = icmp eq ptr %2, %528
   br i1 %529, label %.lr.ph206, label %.critedge4.loopexit, !llvm.loop !63
 
 .critedge4.loopexit:                              ; preds = %.lr.ph315, %.lr.ph206
@@ -4009,7 +4009,7 @@ define range(i32 0, 2) i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) l
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 148
   %8 = load i32, ptr %7, align 4
-  %9 = icmp sgt i32 %8, %1
+  %9 = icmp slt i32 %1, %8
   br i1 %9, label %.preheader192, label %42
 
 .preheader192:                                    ; preds = %2
@@ -5038,7 +5038,7 @@ define range(i32 0, 2) i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, 
   br label %188
 
 .preheader625:                                    ; preds = %188, %166
-  %184 = icmp sgt i32 %7, %2
+  %184 = icmp slt i32 %2, %7
   br i1 %184, label %.lr.ph644, label %.preheader624
 
 .lr.ph644:                                        ; preds = %.preheader625
@@ -5476,7 +5476,7 @@ ddFixLimits.exit:                                 ; preds = %.loopexit, %388
   br label %420
 
 .preheader:                                       ; preds = %420, %411
-  %414 = icmp sgt i32 %7, %2
+  %414 = icmp slt i32 %2, %7
   br i1 %414, label %.lr.ph665, label %._crit_edge666
 
 .lr.ph665:                                        ; preds = %.preheader
@@ -5728,7 +5728,7 @@ define range(i32 0, 2) i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1)
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %6, i32 %1)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %6)
   %7 = getelementptr inbounds i8, ptr %0, i64 152
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 344

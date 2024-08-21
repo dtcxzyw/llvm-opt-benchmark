@@ -1838,7 +1838,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp19, label %for.body, label %if.end49, !llvm.loop !19
 
 if.else37:                                        ; preds = %if.end
-  %cmp39.not = icmp ult i64 %conv, %srcSize
+  %cmp39.not = icmp ugt i64 %srcSize, %conv
   br i1 %cmp39.not, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.else37
@@ -3951,7 +3951,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %if.end.i.i, label %for.body.i.i, !llvm.loop !31
 
 if.end.i.i:                                       ; preds = %for.body.i.i, %if.then.i.i, %if.then.i
-  %cmp633.not.i.i = icmp eq i32 %14, %nextRankStart.0.lcssa
+  %cmp633.not.i.i = icmp eq i32 %nextRankStart.0.lcssa, %14
   br i1 %cmp633.not.i.i, label %HUFv05_fillDTableX4Level2.exit.i, label %for.body8.preheader.i.i
 
 for.body8.preheader.i.i:                          ; preds = %if.end.i.i
@@ -5693,7 +5693,7 @@ define i64 @ZSTDv05_decompressBlock(ptr noundef %dctx, ptr noundef %dst, i64 nou
 entry:
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 26640
   %0 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.not.i = icmp eq ptr %0, %dst
+  %cmp.not.i = icmp eq ptr %dst, %0
   br i1 %cmp.not.i, label %ZSTDv05_checkContinuity.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -6068,7 +6068,7 @@ if.end3:                                          ; preds = %if.end274.i, %if.en
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max101.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max135.i.i)
   %add.ptr.i.i = getelementptr i8, ptr %src, i64 %srcSize
-  %cmp.i.i11 = icmp eq i64 %retval.0.i, %srcSize
+  %cmp.i.i11 = icmp eq i64 %srcSize, %retval.0.i
   br i1 %cmp.i.i11, label %ZSTDv05_decodeSeqHeaders.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end3
@@ -6411,7 +6411,7 @@ if.end.i15:                                       ; preds = %ZSTDv05_decodeSeqHe
 if.then12.i:                                      ; preds = %if.end.i15
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr, i64 %sub.ptr.sub155.i.i
   %gepdiff.i = sub nsw i64 %sub, %sub.ptr.sub155.i.i
-  %cmp.i36.i = icmp eq i64 %sub.ptr.sub155.i.i, %sub
+  %cmp.i36.i = icmp eq i64 %sub, %sub.ptr.sub155.i.i
   br i1 %cmp.i36.i, label %return, label %if.end.i37.i
 
 if.end.i37.i:                                     ; preds = %if.then12.i
@@ -7177,7 +7177,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26763) %dctx, ptr noundef nonnull readonly align 8 dereferenceable(26763) %refDCtx, i64 26763, i1 false)
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 26640
   %0 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.not.i = icmp eq ptr %0, %dst
+  %cmp.not.i = icmp eq ptr %dst, %0
   br i1 %cmp.not.i, label %ZSTDv05_checkContinuity.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -7343,7 +7343,7 @@ entry:
   %call = tail call i64 @ZSTDv05_decompressBegin_usingDict(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize)
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 26640
   %0 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.not.i = icmp eq ptr %0, %dst
+  %cmp.not.i = icmp eq ptr %dst, %0
   br i1 %cmp.not.i, label %ZSTDv05_checkContinuity.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -7746,13 +7746,13 @@ define i64 @ZSTDv05_decompressContinue(ptr noundef %dctx, ptr noundef %dst, i64 
 entry:
   %expected = getelementptr inbounds i8, ptr %dctx, i64 26672
   %0 = load i64, ptr %expected, align 8
-  %cmp.not = icmp eq i64 %0, %srcSize
+  %cmp.not = icmp eq i64 %srcSize, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 26640
   %1 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.not.i = icmp eq ptr %1, %dst
+  %cmp.not.i = icmp eq ptr %dst, %1
   br i1 %cmp.not.i, label %ZSTDv05_checkContinuity.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end

@@ -830,7 +830,7 @@ while.body.us:                                    ; preds = %if.end4.us
   %add.us = add i64 %.sub.us19, %bytes_written.010.us18
   %sub.us = sub i64 %len, %add.us
   %.sub.us = call i64 @llvm.umin.i64(i64 %sub.us, i64 65516)
-  %cmp2.us = icmp eq i64 %add.us, %len
+  %cmp2.us = icmp eq i64 %len, %add.us
   br i1 %cmp2.us, label %while.end, label %if.end4.us, !llvm.loop !8
 
 if.end4.us:                                       ; preds = %if.end4.us.preheader, %while.body.us
@@ -865,7 +865,7 @@ while.body:                                       ; preds = %if.end4
   %add = add i64 %.sub14, %bytes_written.01013
   %sub = sub i64 %len, %add
   %.sub = call i64 @llvm.umin.i64(i64 %sub, i64 65516)
-  %cmp2 = icmp eq i64 %add, %len
+  %cmp2 = icmp eq i64 %len, %add
   br i1 %cmp2, label %while.end, label %if.end4, !llvm.loop !8
 
 if.end4:                                          ; preds = %if.end4.preheader, %while.body
@@ -1456,7 +1456,7 @@ if.then8:                                         ; preds = %if.then5
 if.else:                                          ; preds = %if.then5
   %6 = load i64, ptr %sb_out, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %0
+  %cmp.i = icmp ugt i64 %0, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else

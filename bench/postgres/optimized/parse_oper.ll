@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i32 @LookupOperName(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @OpernameGetOprid(ptr noundef %1, i32 noundef %2, i32 noundef %3) #10
   %.not = icmp ne i32 %7, 0
-  %brmerge = or i1 %.not, %4
+  %brmerge = or i1 %4, %.not
   br i1 %brmerge, label %19, label %8
 
 8:                                                ; preds = %6
@@ -429,7 +429,7 @@ define internal fastcc noundef zeroext i1 @make_oper_cache_key(ptr noundef %0, p
 
 13:                                               ; preds = %6
   %14 = getelementptr i8, ptr %1, i64 136
-  %15 = icmp ugt ptr %14, %1
+  %15 = icmp ult ptr %1, %14
   br i1 %15, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %13

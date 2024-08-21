@@ -304,7 +304,7 @@ while.body.i34:                                   ; preds = %while.cond, %strbuf
   %cmp2.i = icmp eq i8 %28, 47
   %29 = load i64, ptr %slashed, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %29, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %sub.i
+  %cmp.i.i = icmp ugt i64 %sub.i, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i34

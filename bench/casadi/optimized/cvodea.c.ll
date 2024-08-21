@@ -3623,7 +3623,7 @@ define i32 @CVodeInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, double no
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load i32, ptr %16, align 8
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
@@ -3638,7 +3638,7 @@ define i32 @CVodeInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, double no
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
   %.028 = load ptr, ptr %.sink, align 8, !nonnull !72, !noundef !72
   %21 = load i32, ptr %.028, align 8
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   %23 = getelementptr inbounds i8, ptr %.028, i64 120
   br i1 %22, label %._crit_edge, label %.lr.ph
 
@@ -3758,7 +3758,7 @@ define i32 @CVodeInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, double n
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load i32, ptr %16, align 8
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
@@ -3773,7 +3773,7 @@ define i32 @CVodeInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, double n
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
   %.028 = load ptr, ptr %.sink, align 8, !nonnull !72, !noundef !72
   %21 = load i32, ptr %.028, align 8
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   %23 = getelementptr inbounds i8, ptr %.028, i64 120
   br i1 %22, label %._crit_edge, label %.lr.ph
 
@@ -3826,7 +3826,7 @@ define i32 @CVodeReInitB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -3841,7 +3841,7 @@ define i32 @CVodeReInitB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr 
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.018 = load ptr, ptr %.sink, align 8, !nonnull !72, !noundef !72
   %20 = load i32, ptr %.018, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.018, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -3882,7 +3882,7 @@ define i32 @CVodeSStolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -3897,7 +3897,7 @@ define i32 @CVodeSStolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.018 = load ptr, ptr %.sink, align 8, !nonnull !72, !noundef !72
   %20 = load i32, ptr %.018, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.018, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -3938,7 +3938,7 @@ define i32 @CVodeSVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -3953,7 +3953,7 @@ define i32 @CVodeSVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.018 = load ptr, ptr %.sink, align 8, !nonnull !72, !noundef !72
   %20 = load i32, ptr %.018, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.018, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -3994,7 +3994,7 @@ define i32 @CVodeQuadInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -4009,7 +4009,7 @@ define i32 @CVodeQuadInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.021 = load ptr, ptr %.sink, align 8, !nonnull !72, !noundef !72
   %20 = load i32, ptr %.021, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.021, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -4111,7 +4111,7 @@ define i32 @CVodeQuadInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -4126,7 +4126,7 @@ define i32 @CVodeQuadInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.021 = load ptr, ptr %.sink, align 8, !nonnull !72, !noundef !72
   %20 = load i32, ptr %.021, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.021, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -4173,7 +4173,7 @@ define i32 @CVodeQuadReInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -4188,7 +4188,7 @@ define i32 @CVodeQuadReInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.018 = load ptr, ptr %.sink, align 8, !nonnull !72, !noundef !72
   %19 = load i32, ptr %.018, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.018, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -4229,7 +4229,7 @@ define i32 @CVodeQuadSStolerancesB(ptr noundef %0, i32 noundef %1, double nounde
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -4244,7 +4244,7 @@ define i32 @CVodeQuadSStolerancesB(ptr noundef %0, i32 noundef %1, double nounde
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.018 = load ptr, ptr %.sink, align 8, !nonnull !72, !noundef !72
   %20 = load i32, ptr %.018, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.018, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -4285,7 +4285,7 @@ define i32 @CVodeQuadSVtolerancesB(ptr noundef %0, i32 noundef %1, double nounde
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -4300,7 +4300,7 @@ define i32 @CVodeQuadSVtolerancesB(ptr noundef %0, i32 noundef %1, double nounde
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.018 = load ptr, ptr %.sink, align 8, !nonnull !72, !noundef !72
   %20 = load i32, ptr %.018, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.018, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -5222,7 +5222,7 @@ define range(i32 -101, 1) i32 @CVodeGetB(ptr noundef %0, i32 noundef %1, ptr noc
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -5237,7 +5237,7 @@ define range(i32 -101, 1) i32 @CVodeGetB(ptr noundef %0, i32 noundef %1, ptr noc
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.0 = load ptr, ptr %.sink, align 8, !nonnull !72, !noundef !72
   %20 = load i32, ptr %.0, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.0, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -5280,7 +5280,7 @@ define i32 @CVodeGetQuadB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr no
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load i32, ptr %16, align 8
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
@@ -5295,7 +5295,7 @@ define i32 @CVodeGetQuadB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr no
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
   %.024 = load ptr, ptr %.sink, align 8, !nonnull !72, !noundef !72
   %21 = load i32, ptr %.024, align 8
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   %23 = getelementptr inbounds i8, ptr %.024, i64 120
   br i1 %22, label %._crit_edge, label %.lr.ph
 

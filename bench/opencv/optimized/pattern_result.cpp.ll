@@ -122,7 +122,7 @@ define hidden void @_ZN5zxing6qrcode13PatternResult28setConfirmedAlignmentPatter
   %9 = sub i64 %7, %8
   %10 = lshr exact i64 %9, 3
   %11 = trunc i64 %10 to i32
-  %.not = icmp sgt i32 %11, %1
+  %.not = icmp slt i32 %1, %11
   br i1 %.not, label %12, label %32
 
 12:                                               ; preds = %2

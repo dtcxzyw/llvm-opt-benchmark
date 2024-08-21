@@ -27,7 +27,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %ctx, align 4
   %conv = zext i32 %0 to i64
-  %add = add i64 %conv, %in_len
+  %add = add i64 %in_len, %conv
   %length = getelementptr inbounds i8, ptr %ctx, i64 4
   %1 = load i32, ptr %length, align 4
   %conv1 = zext i32 %1 to i64
@@ -620,7 +620,7 @@ entry:
 EVP_DecodedLength.exit:                           ; preds = %entry
   %div2.i = lshr exact i64 %in_len, 2
   %mul.i = mul nuw i64 %div2.i, 3
-  %cmp = icmp ugt i64 %mul.i, %max_out
+  %cmp = icmp ult i64 %max_out, %mul.i
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %EVP_DecodedLength.exit
@@ -898,7 +898,7 @@ if.end51:                                         ; preds = %if.end38, %if.then4
   %ln.5 = phi i32 [ 0, %if.then47 ], [ 0, %if.then41 ], [ %ln.2, %if.end38 ]
   %add = add i32 %i.0119, 1
   %conv52 = zext i32 %add to i64
-  %cmp53 = icmp eq i64 %conv52, %in_len
+  %cmp53 = icmp eq i64 %in_len, %conv52
   br i1 %cmp53, label %land.lhs.true55, label %if.end78
 
 land.lhs.true55:                                  ; preds = %if.end51
@@ -1085,7 +1085,7 @@ for.inc:                                          ; preds = %if.then47, %lor.lhs
   %ret.2 = phi i32 [ %ret.1122, %if.then41 ], [ %ret.3, %if.end124 ], [ %ret.1122, %land.lhs.true81 ], [ %ret.1122, %lor.lhs.false85 ], [ %ret.1122, %if.then47 ]
   %inc126 = add i32 %i.0119, 1
   %conv4 = zext i32 %inc126 to i64
-  %cmp5 = icmp ult i64 %conv4, %in_len
+  %cmp5 = icmp ugt i64 %in_len, %conv4
   br i1 %cmp5, label %for.body, label %end, !llvm.loop !14
 
 end:                                              ; preds = %for.inc, %if.else118, %if.end112, %if.end104, %EVP_DecodeBlock.exit, %if.then28, %if.else, %for.body, %land.lhs.true, %EVP_DecodeBlock.exit.thread, %entry

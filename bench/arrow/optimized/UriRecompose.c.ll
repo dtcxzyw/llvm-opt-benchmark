@@ -66,7 +66,7 @@ if.then22:                                        ; preds = %if.end14.thread
   %sub.ptr.rhs.cast350 = ptrtoint ptr %1 to i64
   %sub.ptr.sub351 = sub i64 %sub.ptr.lhs.cast349, %sub.ptr.rhs.cast350
   %conv352 = trunc i64 %sub.ptr.sub351 to i32
-  %cmp23.not.not = icmp slt i32 %conv352, %maxChars
+  %cmp23.not.not = icmp sgt i32 %maxChars, %conv352
   br i1 %cmp23.not.not, label %if.then42, label %if.else30
 
 if.else30:                                        ; preds = %if.then22
@@ -1115,7 +1115,7 @@ if.then22:                                        ; preds = %if.end14.thread
   %sub.ptr.sub351 = sub i64 %sub.ptr.lhs.cast349, %sub.ptr.rhs.cast350
   %sub.ptr.div352 = lshr exact i64 %sub.ptr.sub351, 2
   %conv353 = trunc i64 %sub.ptr.div352 to i32
-  %cmp23.not.not = icmp slt i32 %conv353, %maxChars
+  %cmp23.not.not = icmp sgt i32 %maxChars, %conv353
   br i1 %cmp23.not.not, label %if.then42, label %if.else30
 
 if.else30:                                        ; preds = %if.then22

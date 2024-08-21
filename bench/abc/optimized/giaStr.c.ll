@@ -120,7 +120,7 @@ Abc_UtilStrsav.exit79:                            ; preds = %Abc_UtilStrsav.exit
   %44 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val60, i64 %43, i32 3
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %41, 1
-  %47 = xor i32 %46, %45
+  %47 = xor i32 %45, %46
   %48 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %6, i32 noundef %37, i32 noundef %47) #27
   store i32 %48, ptr %34, align 4
   %49 = add nuw nsw i32 %.082, 1
@@ -154,7 +154,7 @@ Abc_UtilStrsav.exit79:                            ; preds = %Abc_UtilStrsav.exit
   %64 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val62, i64 %63, i32 3
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %61, 1
-  %67 = xor i32 %66, %65
+  %67 = xor i32 %65, %66
   %68 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %6, i32 noundef %57, i32 noundef %67) #27
   store i32 %68, ptr %54, align 4
   %69 = add nuw nsw i32 %.181, 1
@@ -176,7 +176,7 @@ Abc_UtilStrsav.exit79:                            ; preds = %Abc_UtilStrsav.exit
   %81 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val5987, i64 %80, i32 3
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %78, 1
-  %84 = xor i32 %83, %82
+  %84 = xor i32 %82, %83
   %85 = getelementptr i8, ptr %76, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = ashr i32 %86, 1
@@ -184,14 +184,14 @@ Abc_UtilStrsav.exit79:                            ; preds = %Abc_UtilStrsav.exit
   %89 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val5987, i64 %88, i32 3
   %90 = load i32, ptr %89, align 4
   %91 = and i32 %86, 1
-  %92 = xor i32 %91, %90
+  %92 = xor i32 %90, %91
   %93 = load i32, ptr %76, align 4
   %94 = ashr i32 %93, 1
   %95 = sext i32 %94 to i64
   %96 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val5987, i64 %95, i32 3
   %97 = load i32, ptr %96, align 4
   %98 = and i32 %93, 1
-  %99 = xor i32 %98, %97
+  %99 = xor i32 %97, %98
   %100 = tail call i32 @Gia_ManHashMux(ptr noundef nonnull %6, i32 noundef %84, i32 noundef %92, i32 noundef %99) #27
   br label %.loopexit.sink.split
 
@@ -207,7 +207,7 @@ Abc_UtilStrsav.exit79:                            ; preds = %Abc_UtilStrsav.exit
   %108 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val5987, i64 %107, i32 3
   %109 = load i32, ptr %108, align 4
   %110 = and i32 %105, 1
-  %111 = xor i32 %110, %109
+  %111 = xor i32 %109, %110
   %112 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %6, i32 noundef %111)
   br label %.loopexit.sink.split
 
@@ -4861,7 +4861,7 @@ define void @Str_NtkBalanceMulti2(ptr noundef %0, ptr nocapture noundef readonly
   %26 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val23, i64 %25, i32 3
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %23, 1
-  %29 = xor i32 %28, %27
+  %29 = xor i32 %27, %28
   br i1 %18, label %30, label %32
 
 30:                                               ; preds = %15
@@ -5036,7 +5036,7 @@ define i32 @Str_NtkBalanceTwo(ptr noundef %0, ptr nocapture readnone %1, ptr noc
   %36 = or i64 %35, %33
   store i64 %36, ptr %34, align 8
   %37 = add nsw i32 %9, -1
-  %38 = icmp sgt i32 %37, %4
+  %38 = icmp slt i32 %4, %37
   br i1 %38, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %26
@@ -5144,7 +5144,7 @@ define void @Str_NtkBalanceMulti(ptr noundef %0, ptr nocapture noundef readonly 
   %30 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val297, i64 %29, i32 3
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %27, 1
-  %33 = xor i32 %32, %31
+  %33 = xor i32 %31, %32
   %34 = load i32, ptr %18, align 4
   %35 = load i32, ptr %13, align 8
   %36 = icmp eq i32 %34, %35
@@ -6195,7 +6195,7 @@ Str_MuxRestructure.exit:                          ; preds = %28, %30, %33, %35
   %45 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val61, i64 %44, i32 3
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %42, 1
-  %48 = xor i32 %47, %46
+  %48 = xor i32 %46, %47
   %49 = getelementptr i8, ptr %40, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = ashr i32 %50, 1
@@ -6203,14 +6203,14 @@ Str_MuxRestructure.exit:                          ; preds = %28, %30, %33, %35
   %53 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val61, i64 %52, i32 3
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %50, 1
-  %56 = xor i32 %55, %54
+  %56 = xor i32 %54, %55
   %57 = load i32, ptr %40, align 4
   %58 = ashr i32 %57, 1
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val61, i64 %59, i32 3
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %57, 1
-  %63 = xor i32 %62, %61
+  %63 = xor i32 %61, %62
   %64 = tail call i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %48, i32 noundef %56, i32 noundef %63) #27
   %65 = getelementptr inbounds i8, ptr %.167, i64 12
   store i32 %64, ptr %65, align 4
@@ -6663,7 +6663,7 @@ Str_ObjReadGroup.exit:                            ; preds = %121, %123
   %153 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val114151, i64 %152, i32 3
   %154 = load i32, ptr %153, align 4
   %155 = and i32 %150, 1
-  %156 = xor i32 %155, %154
+  %156 = xor i32 %154, %155
   %157 = getelementptr i8, ptr %148, i64 4
   %158 = load i32, ptr %157, align 4
   %159 = ashr i32 %158, 1
@@ -6671,14 +6671,14 @@ Str_ObjReadGroup.exit:                            ; preds = %121, %123
   %161 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val114151, i64 %160, i32 3
   %162 = load i32, ptr %161, align 4
   %163 = and i32 %158, 1
-  %164 = xor i32 %163, %162
+  %164 = xor i32 %162, %163
   %165 = load i32, ptr %148, align 4
   %166 = ashr i32 %165, 1
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val114151, i64 %167, i32 3
   %169 = load i32, ptr %168, align 4
   %170 = and i32 %165, 1
-  %171 = xor i32 %170, %169
+  %171 = xor i32 %169, %170
   %172 = tail call i32 @Gia_ManHashMuxReal(ptr noundef nonnull %9, i32 noundef %156, i32 noundef %164, i32 noundef %171) #27
   %173 = getelementptr inbounds i8, ptr %.0102149, i64 12
   store i32 %172, ptr %173, align 4
@@ -6699,7 +6699,7 @@ Str_ObjReadGroup.exit:                            ; preds = %121, %123
   %183 = getelementptr inbounds %struct.Str_Obj_t_, ptr %.val114151, i64 %182, i32 3
   %184 = load i32, ptr %183, align 4
   %185 = and i32 %180, 1
-  %186 = xor i32 %185, %184
+  %186 = xor i32 %184, %185
   %187 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %9, i32 noundef %186)
   %188 = getelementptr inbounds i8, ptr %.0102149, i64 12
   store i32 %187, ptr %188, align 4
@@ -7320,7 +7320,7 @@ define void @Str_MuxChangeOnce(ptr nocapture noundef %0, ptr nocapture noundef r
   %55 = xor i32 %54, %.0107
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %3
+  %exitcond.not = icmp eq i32 %3, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
@@ -7389,7 +7389,7 @@ define void @Str_MuxChangeOnce(ptr nocapture noundef %0, ptr nocapture noundef r
   store i32 %100, ptr %78, align 4
   %indvars.iv.next120 = add nsw i64 %indvars.iv119, 1
   %lftr.wideiv122 = trunc i64 %indvars.iv.next120 to i32
-  %exitcond123.not = icmp eq i32 %lftr.wideiv122, %3
+  %exitcond123.not = icmp eq i32 %3, %lftr.wideiv122
   br i1 %exitcond123.not, label %._crit_edge111, label %81, !llvm.loop !63
 
 ._crit_edge111:                                   ; preds = %81, %._crit_edge

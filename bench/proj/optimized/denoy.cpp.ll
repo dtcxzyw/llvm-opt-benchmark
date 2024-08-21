@@ -60,13 +60,13 @@ define internal { double, double } @_ZL15denoy_s_forward5PJ_LPP8PJconsts(double 
   %6 = tail call double @llvm.fmuladd.f64(double %5, double 0x3F5B4E81B4E81B4E, double 0xBFB5555555555555)
   %7 = tail call double @llvm.fmuladd.f64(double %4, double %6, double 0x3FEE666666666666)
   %8 = fmul double %1, 3.000000e-02
-  %9 = fmul double %8, %1
-  %10 = fmul double %9, %1
+  %9 = fmul double %1, %8
+  %10 = fmul double %1, %9
   %11 = tail call double @llvm.fmuladd.f64(double %10, double %1, double 9.000000e-01)
-  %12 = fmul double %11, %1
+  %12 = fmul double %1, %11
   %13 = fmul double %7, %12
   %14 = tail call double @cos(double noundef %13) #6
-  %15 = fmul double %14, %0
+  %15 = fmul double %0, %14
   %.fca.0.insert = insertvalue { double, double } poison, double %15, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %1, 1
   ret { double, double } %.fca.1.insert

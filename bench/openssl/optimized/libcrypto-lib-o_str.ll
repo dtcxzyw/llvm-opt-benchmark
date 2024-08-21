@@ -459,7 +459,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end
-  %cmp9 = icmp ugt i64 %cond, %str_n
+  %cmp9 = icmp ult i64 %str_n, %cond
   br i1 %cmp9, label %if.then11, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end8

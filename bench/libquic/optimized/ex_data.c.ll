@@ -108,7 +108,7 @@ if.end5:                                          ; preds = %if.then, %entry
   %1 = phi ptr [ %call, %if.then ], [ %0, %entry ]
   %call7 = tail call i64 @sk_num(ptr noundef nonnull %1) #7
   %conv = trunc i64 %call7 to i32
-  %cmp8.not8 = icmp sgt i32 %conv, %index
+  %cmp8.not8 = icmp slt i32 %index, %conv
   br i1 %cmp8.not8, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body

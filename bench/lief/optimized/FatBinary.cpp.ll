@@ -228,7 +228,7 @@ define noundef ptr @_ZN4LIEF5MachO9FatBinary2atEm(ptr nocapture noundef nonnull 
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %.not.i = icmp ugt i64 %10, %1
+  %.not.i = icmp ult i64 %1, %10
   br i1 %.not.i, label %11, label %_ZNK4LIEF5MachO9FatBinary2atEm.exit
 
 11:                                               ; preds = %2
@@ -251,7 +251,7 @@ define noundef ptr @_ZNK4LIEF5MachO9FatBinary2atEm(ptr nocapture noundef nonnull
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %14
 
 11:                                               ; preds = %2
@@ -348,7 +348,7 @@ define noundef ptr @_ZN4LIEF5MachO9FatBinaryixEm(ptr nocapture noundef nonnull r
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %.not.i.i = icmp ugt i64 %10, %1
+  %.not.i.i = icmp ult i64 %1, %10
   br i1 %.not.i.i, label %11, label %_ZNK4LIEF5MachO9FatBinaryixEm.exit
 
 11:                                               ; preds = %2
@@ -371,7 +371,7 @@ define noundef ptr @_ZNK4LIEF5MachO9FatBinaryixEm(ptr nocapture noundef nonnull 
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %.not.i = icmp ugt i64 %10, %1
+  %.not.i = icmp ult i64 %1, %10
   br i1 %.not.i, label %11, label %_ZNK4LIEF5MachO9FatBinary2atEm.exit
 
 11:                                               ; preds = %2
@@ -595,7 +595,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeEm(ptr dead_on_unwind noalias nocaptur
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not = icmp ugt i64 %11, %2
+  %.not = icmp ult i64 %2, %11
   br i1 %.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit, label %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit: ; preds = %3

@@ -428,7 +428,7 @@ write_blocked.exit.i:                             ; preds = %if.end.i.i.i
 
 if.then.i.i8.i:                                   ; preds = %write_blocked.exit.i
   %sub.i.i9.i = sub i64 10240, %.pr.i
-  %spec.select.i.i10.i = call i64 @llvm.umin.i64(i64 %sub.i.i9.i, i64 %14)
+  %spec.select.i.i10.i = call i64 @llvm.umin.i64(i64 %14, i64 %sub.i.i9.i)
   %add.ptr.i.i11.i = getelementptr inbounds i8, ptr @block, i64 %.pr.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i11.i, ptr align 1 %13, i64 %spec.select.i.i10.i, i1 false)
   %sub2.i.i12.i = sub i64 %14, %spec.select.i.i10.i
@@ -615,7 +615,7 @@ if.then27:                                        ; preds = %if.end25
   %6 = load i8, ptr %arrayidx.i, align 1
   %cmp1.i = icmp eq i8 %6, 47
   %dec.i = sext i1 %cmp1.i to i64
-  %i.0.i = add i64 %dec.i, %pathlen
+  %i.0.i = add i64 %pathlen, %dec.i
   %i.1.i = tail call i64 @llvm.umin.i64(i64 %i.0.i, i64 155)
   br label %do.body.i
 
@@ -766,7 +766,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i2.i.i, %do
 
 if.then.i.i3.i:                                   ; preds = %if.end.i.i.i
   %sub.i.i4.i = sub i64 10240, %.pr.i
-  %spec.select.i.i5.i = call i64 @llvm.umin.i64(i64 %sub.i.i4.i, i64 %8)
+  %spec.select.i.i5.i = call i64 @llvm.umin.i64(i64 %8, i64 %sub.i.i4.i)
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr @block, i64 %.pr.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i6.i, ptr align 1 %9, i64 %spec.select.i.i5.i, i1 false)
   %sub2.i.i7.i = sub i64 %8, %spec.select.i.i5.i
@@ -928,7 +928,7 @@ if.then75:                                        ; preds = %if.then73
 
 if.then.i.i47:                                    ; preds = %if.then75
   %sub.i.i48 = sub i64 10240, %23
-  %spec.select.i.i49 = call i64 @llvm.umin.i64(i64 %sub.i.i48, i64 %size)
+  %spec.select.i.i49 = call i64 @llvm.umin.i64(i64 %size, i64 %sub.i.i48)
   %add.ptr.i.i50 = getelementptr inbounds i8, ptr @block, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i50, ptr nonnull align 1 %buffer, i64 %spec.select.i.i49, i1 false)
   %sub2.i.i51 = sub i64 %size, %spec.select.i.i49
@@ -1041,7 +1041,7 @@ if.end7.i:                                        ; preds = %for.cond.preheader.
 
 if.then.i.i91:                                    ; preds = %if.end7.i
   %sub.i.i92 = sub i64 10240, %31
-  %spec.select.i.i93 = call i64 @llvm.umin.i64(i64 %sub.i.i92, i64 %call516.i)
+  %spec.select.i.i93 = call i64 @llvm.umin.i64(i64 %call516.i, i64 %sub.i.i92)
   %add.ptr.i.i94 = getelementptr inbounds i8, ptr @block, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i94, ptr nonnull align 16 %buf.i88, i64 %spec.select.i.i93, i1 false)
   %sub2.i.i95 = sub nsw i64 %call516.i, %spec.select.i.i93

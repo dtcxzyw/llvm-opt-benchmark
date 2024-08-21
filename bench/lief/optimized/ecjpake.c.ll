@@ -283,7 +283,7 @@ ecjpake_kkp_write.exit.i:                         ; preds = %28
 33:                                               ; preds = %ecjpake_kkp_write.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %34 = load ptr, ptr %9, align 8
-  %35 = icmp ugt ptr %34, %24
+  %35 = icmp ult ptr %24, %34
   br i1 %35, label %ecjpake_kkp_write.exit31.thread.i, label %36
 
 36:                                               ; preds = %33
@@ -422,7 +422,7 @@ define internal fastcc i32 @ecjpake_kkp_read(ptr noundef %0, ptr noundef %1, i32
   %11 = alloca %struct.mbedtls_mpi, align 8
   %12 = alloca %struct.mbedtls_mpi, align 8
   %13 = load ptr, ptr %6, align 8
-  %14 = icmp ugt ptr %13, %7
+  %14 = icmp ult ptr %7, %13
   br i1 %14, label %50, label %15
 
 15:                                               ; preds = %8
@@ -448,7 +448,7 @@ define internal fastcc i32 @ecjpake_kkp_read(ptr noundef %0, ptr noundef %1, i32
   call void @mbedtls_mpi_init(ptr noundef nonnull %11) #14
   call void @mbedtls_mpi_init(ptr noundef nonnull %12) #14
   %23 = load ptr, ptr %6, align 8
-  %24 = icmp ugt ptr %23, %7
+  %24 = icmp ult ptr %7, %23
   br i1 %24, label %ecjpake_zkp_read.exit, label %25
 
 25:                                               ; preds = %22
@@ -460,7 +460,7 @@ define internal fastcc i32 @ecjpake_kkp_read(ptr noundef %0, ptr noundef %1, i32
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %6, align 8
-  %or.cond46.not.i = icmp ult ptr %30, %7
+  %or.cond46.not.i = icmp ugt ptr %7, %30
   br i1 %or.cond46.not.i, label %31, label %49
 
 31:                                               ; preds = %29
@@ -687,7 +687,7 @@ define internal fastcc i32 @ecjpake_zkp_write(ptr noundef %0, ptr noundef %1, i3
   %14 = alloca %struct.mbedtls_mpi, align 8
   %15 = alloca i64, align 8
   %16 = load ptr, ptr %7, align 8
-  %17 = icmp ugt ptr %16, %8
+  %17 = icmp ult ptr %8, %16
   br i1 %17, label %59, label %18
 
 18:                                               ; preds = %11
@@ -736,7 +736,7 @@ define internal fastcc i32 @ecjpake_zkp_write(ptr noundef %0, ptr noundef %1, i3
   %39 = call i64 @mbedtls_mpi_size(ptr noundef nonnull %14) #14
   store i64 %39, ptr %15, align 8
   %40 = load ptr, ptr %7, align 8
-  %41 = icmp ugt ptr %40, %8
+  %41 = icmp ult ptr %8, %40
   br i1 %41, label %58, label %42
 
 42:                                               ; preds = %35
@@ -788,7 +788,7 @@ define hidden i32 @mbedtls_ecjpake_derive_secret(ptr noundef %0, ptr noundef %1,
   %12 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %11) #14
   %13 = zext i8 %12 to i64
   store i64 %13, ptr %3, align 8
-  %14 = icmp ugt i64 %13, %2
+  %14 = icmp ult i64 %2, %13
   br i1 %14, label %39, label %15
 
 15:                                               ; preds = %6
@@ -1247,7 +1247,7 @@ ecjpake_write_len_point.exit:                     ; preds = %8
   %31 = getelementptr i8, ptr %30, i64 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %32 = icmp ugt ptr %31, %14
+  %32 = icmp ult ptr %14, %31
   br i1 %32, label %ecjpake_write_len_point.exit47.thread, label %33
 
 33:                                               ; preds = %18
@@ -1290,7 +1290,7 @@ ecjpake_write_len_point.exit47.thread:            ; preds = %33, %18, %38
   %56 = getelementptr i8, ptr %55, i64 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %57 = icmp ugt ptr %56, %14
+  %57 = icmp ult ptr %14, %56
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %34, %58
   %60 = icmp slt i64 %59, 5

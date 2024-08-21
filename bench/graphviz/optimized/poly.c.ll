@@ -1098,11 +1098,11 @@ gv_calloc.exit48:                                 ; preds = %89
   %.0811.i = phi ptr [ %110, %.lr.ph.i ], [ %97, %.lr.ph.i.preheader ]
   %.0910.i = phi ptr [ %109, %.lr.ph.i ], [ %102, %.lr.ph.i.preheader ]
   %103 = load double, ptr %.0910.i, align 8
-  %104 = fadd double %103, %0
+  %104 = fadd double %0, %103
   store double %104, ptr %.0811.i, align 8
   %105 = getelementptr inbounds i8, ptr %.0910.i, i64 8
   %106 = load double, ptr %105, align 8
-  %107 = fadd double %106, %1
+  %107 = fadd double %1, %106
   %108 = getelementptr inbounds i8, ptr %.0811.i, i64 8
   store double %107, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %.0910.i, i64 16
@@ -1128,11 +1128,11 @@ transCopy.exit:                                   ; preds = %.lr.ph.i, %96
   %.0811.i51 = phi ptr [ %125, %.lr.ph.i49 ], [ %114, %.lr.ph.i49.preheader ]
   %.0910.i52 = phi ptr [ %124, %.lr.ph.i49 ], [ %117, %.lr.ph.i49.preheader ]
   %118 = load double, ptr %.0910.i52, align 8
-  %119 = fadd double %118, %3
+  %119 = fadd double %3, %118
   store double %119, ptr %.0811.i51, align 8
   %120 = getelementptr inbounds i8, ptr %.0910.i52, i64 8
   %121 = load double, ptr %120, align 8
-  %122 = fadd double %121, %4
+  %122 = fadd double %4, %121
   %123 = getelementptr inbounds i8, ptr %.0811.i51, i64 8
   store double %122, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %.0910.i52, i64 16
@@ -1464,8 +1464,8 @@ gv_calloc.exit:                                   ; preds = %12
   %58 = load double, ptr %37, align 8
   %59 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %.phi.trans.insert
   %60 = load double, ptr %59, align 8
-  %61 = fneg double %60
-  %62 = fmul double %39, %61
+  %61 = fneg double %39
+  %62 = fmul double %60, %61
   %63 = tail call double @llvm.fmuladd.f64(double %58, double %.pre, double %62)
   %64 = fsub double %.pre, %39
   %65 = fdiv double %63, %64

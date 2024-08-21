@@ -1310,7 +1310,7 @@ define ptr @wolfSSL_get_cipher_list(i32 noundef %priority) local_unnamed_addr #0
 entry:
   %call = tail call ptr @GetCipherNames() #20
   %call1 = tail call i32 @GetCipherNamesSize() #20
-  %cmp = icmp sle i32 %call1, %priority
+  %cmp = icmp sge i32 %priority, %call1
   %cmp2 = icmp slt i32 %priority, 0
   %or.cond = or i1 %cmp2, %cmp
   br i1 %or.cond, label %return, label %if.end
@@ -1349,7 +1349,7 @@ if.then2:                                         ; preds = %if.else
 if.else6:                                         ; preds = %if.else
   %call.i = tail call ptr @GetCipherNames() #20
   %call1.i = tail call i32 @GetCipherNamesSize() #20
-  %cmp.i = icmp sle i32 %call1.i, %priority
+  %cmp.i = icmp sge i32 %priority, %call1.i
   %cmp2.i = icmp slt i32 %priority, 0
   %or.cond.i = or i1 %cmp2.i, %cmp.i
   br i1 %or.cond.i, label %return, label %if.end.i
@@ -2574,7 +2574,7 @@ wolfSSL_GetMaxOutputSize.exit:                    ; preds = %if.end.i
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %wolfSSL_GetMaxOutputSize.exit
-  %cmp4 = icmp ult i32 %call.i, %inSz
+  %cmp4 = icmp ugt i32 %inSz, %call.i
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
@@ -4756,7 +4756,7 @@ entry:
   %1 = trunc i64 %0 to i32
   %2 = sub i32 0, %1
   %conv = and i32 %2, 7
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %conv, i32 %len)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %len, i32 %conv)
   %sub3 = sub i32 %len, %spec.select
   %tobool.not12 = icmp eq i32 %spec.select, 0
   br i1 %tobool.not12, label %for.cond.preheader, label %while.body
@@ -7233,7 +7233,7 @@ land.lhs.true33:                                  ; preds = %for.body
   %side34 = getelementptr inbounds i8, ptr %arrayidx29, i64 104
   %5 = load i8, ptr %side34, align 8
   %conv35 = zext i8 %5 to i32
-  %cmp36 = icmp eq i32 %conv35, %side
+  %cmp36 = icmp eq i32 %side, %conv35
   br i1 %cmp36, label %if.end44, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true33
@@ -7353,7 +7353,7 @@ if.end65:                                         ; preds = %if.then62, %if.then
 
 if.end69:                                         ; preds = %if.end65, %if.then56
   %sessionID70 = getelementptr inbounds i8, ptr %call, i64 116
-  %cmp72.not = icmp eq ptr %sessionID70, %id
+  %cmp72.not = icmp eq ptr %id, %sessionID70
   br i1 %cmp72.not, label %if.end78, label %if.then74
 
 if.then74:                                        ; preds = %if.end69
@@ -8570,7 +8570,7 @@ if.else:                                          ; preds = %if.end12.if.else_cr
 
 if.then32:                                        ; preds = %if.else
   %altSessionID = getelementptr inbounds i8, ptr %6, i64 56
-  %cmp36 = icmp eq ptr %6, %output
+  %cmp36 = icmp eq ptr %output, %6
   br i1 %cmp36, label %if.then38, label %if.end50
 
 if.then38:                                        ; preds = %if.then32
@@ -8668,7 +8668,7 @@ if.end106:                                        ; preds = %if.end106.sink.spli
   %bf.load109 = load i8, ptr %haveAltSessionID108, align 8
   %bf.clear110 = and i8 %bf.load109, 1
   %tobool112.not = icmp ne i8 %bf.clear110, 0
-  %cmp115 = icmp eq ptr %18, %output
+  %cmp115 = icmp eq ptr %output, %18
   %or.cond34 = and i1 %cmp115, %tobool112.not
   br i1 %or.cond34, label %if.then117, label %return
 
@@ -9840,7 +9840,7 @@ do.end22:                                         ; preds = %if.end17
   %8 = trunc i64 %7 to i32
   %9 = sub i32 0, %8
   %conv.i = and i32 %9, 7
-  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %conv.i, i32 %6)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %6, i32 %conv.i)
   %sub3.i = sub i32 %6, %spec.select.i
   %tobool.not12.i = icmp eq i32 %spec.select.i, 0
   br i1 %tobool.not12.i, label %for.cond.preheader.i, label %while.body.i

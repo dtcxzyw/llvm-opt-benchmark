@@ -444,8 +444,8 @@ if.then29:                                        ; preds = %if.end23
   br label %return
 
 if.end31:                                         ; preds = %if.end23
-  %88 = fneg double %85
-  %neg = fmul double %38, %88
+  %88 = fneg double %38
+  %neg = fmul double %85, %88
   %89 = tail call double @llvm.fmuladd.f64(double %36, double %87, double %neg)
   %cmp33 = fcmp ole double %89, 0.000000e+00
   %cmp35 = fcmp oge double %36, 0.000000e+00
@@ -500,8 +500,8 @@ if.then51:                                        ; preds = %if.end45
   br label %return
 
 if.end53:                                         ; preds = %if.end45
-  %97 = fneg double %36
-  %neg55 = fmul double %96, %97
+  %97 = fneg double %96
+  %neg55 = fmul double %36, %97
   %98 = tail call double @llvm.fmuladd.f64(double %94, double %38, double %neg55)
   %cmp56 = fcmp ole double %98, 0.000000e+00
   %cmp58 = fcmp oge double %38, 0.000000e+00
@@ -535,8 +535,8 @@ if.then61:                                        ; preds = %if.end53
   br label %return
 
 if.end70:                                         ; preds = %if.end53
-  %102 = fneg double %94
-  %neg72 = fmul double %87, %102
+  %102 = fneg double %87
+  %neg72 = fmul double %94, %102
   %103 = tail call double @llvm.fmuladd.f64(double %85, double %96, double %neg72)
   %cmp73 = fcmp ugt double %103, 0.000000e+00
   br i1 %cmp73, label %if.end92, label %land.lhs.true74

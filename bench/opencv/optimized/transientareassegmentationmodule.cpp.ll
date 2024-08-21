@@ -1690,7 +1690,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %25, %28
   %80 = load i32, ptr %4, align 8
   %81 = lshr i32 %80, 3
   %82 = and i32 %81, 511
-  %.not32.not = icmp slt i32 %82, %2
+  %.not32.not = icmp sgt i32 %2, %82
   br i1 %.not32.not, label %83, label %121
 
 83:                                               ; preds = %79
@@ -1893,7 +1893,7 @@ define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl4_r
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = mul i32 %7, %2
+  %8 = mul i32 %2, %7
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8

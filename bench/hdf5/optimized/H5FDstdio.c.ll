@@ -598,7 +598,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %0, i64 104
   %34 = load i64, ptr %33, align 8
-  %.not72 = icmp ugt i64 %34, %3
+  %.not72 = icmp ult i64 %3, %34
   br i1 %.not72, label %36, label %35
 
 35:                                               ; preds = %32
@@ -842,7 +842,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_flush(ptr nocapture noundef %0,
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %23, label %7
 
 7:                                                ; preds = %3

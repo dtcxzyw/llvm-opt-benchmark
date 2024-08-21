@@ -3341,7 +3341,7 @@ for.body22:                                       ; preds = %invoke.cont14, %cle
   %12 = load ptr, ptr %__begin3.sroa.0.0874, align 8, !tbaa !42
   %m_usage_timer.i = getelementptr inbounds i8, ptr %12, i64 40
   %13 = load float, ptr %m_usage_timer.i, align 8, !tbaa !188
-  %add.i384 = fadd nsz float %13, %dtime
+  %add.i384 = fadd nsz float %dtime, %13
   store float %add.i384, ptr %m_usage_timer.i, align 8, !tbaa !188
   %m_refcount.i = getelementptr inbounds i8, ptr %12, i64 22
   %14 = load i16, ptr %m_refcount.i, align 2, !tbaa !189
@@ -3781,7 +3781,7 @@ for.body123:                                      ; preds = %invoke.cont112, %in
   %51 = load ptr, ptr %__begin3114.sroa.0.0848, align 8, !tbaa !42
   %m_usage_timer.i445 = getelementptr inbounds i8, ptr %51, i64 40
   %52 = load float, ptr %m_usage_timer.i445, align 8, !tbaa !188
-  %add.i446 = fadd nsz float %52, %dtime
+  %add.i446 = fadd nsz float %dtime, %52
   store float %add.i446, ptr %m_usage_timer.i445, align 8, !tbaa !188
   %53 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !42
   %54 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !208
@@ -3947,7 +3947,7 @@ land.rhs:                                         ; preds = %cleanup220, %land.r
   %sub.ptr.sub.i.i461 = sub i64 %sub.ptr.lhs.cast.i.i459, %sub.ptr.rhs.cast.i.i460
   %sub.ptr.div.i.i462 = lshr exact i64 %sub.ptr.sub.i.i461, 4
   %conv164 = trunc i64 %sub.ptr.div.i.i462 to i32
-  %cmp165 = icmp sgt i32 %conv164, %max_loaded_blocks
+  %cmp165 = icmp slt i32 %max_loaded_blocks, %conv164
   %b.sroa.5.0.call174.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %65, i64 8
   %b.sroa.5.0.copyload.pre = load ptr, ptr %b.sroa.5.0.call174.sroa_idx.phi.trans.insert, align 8, !tbaa !42
   br i1 %cmp165, label %while.body, label %lor.rhs
@@ -7084,7 +7084,7 @@ entry:
   %conv3.i56 = sitofp i16 %pos_camera.sroa.4.0.extract.trunc to float
   %mul4.i57 = fmul nsz float %conv3.i56, 1.000000e+01
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_valid_position) #26
-  %add = fadd nsz float %13, %end_offset
+  %add = fadd nsz float %end_offset, %13
   %cmp11103 = fcmp nsz ogt float %add, %offset
   br i1 %cmp11103, label %for.body.lr.ph, label %cleanup31
 
@@ -7150,7 +7150,7 @@ if.then23:                                        ; preds = %land.rhs
 
 for.inc:                                          ; preds = %if.then23, %land.rhs, %for.body
   %count.1 = phi i32 [ %inc, %if.then23 ], [ %count.0104, %land.rhs ], [ %count.0104, %for.body ]
-  %mul = fmul nsz float %step.addr.0106, %stepfac
+  %mul = fmul nsz float %stepfac, %step.addr.0106
   %add30 = fadd nsz float %offset.addr.0105, %mul
   %cmp11 = fcmp nsz olt float %add30, %add
   br i1 %cmp11, label %for.body, label %cleanup31, !llvm.loop !260

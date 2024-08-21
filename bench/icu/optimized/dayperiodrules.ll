@@ -184,7 +184,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -464,7 +464,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #20
   %cmp7 = icmp eq ptr %call, null
@@ -1912,8 +1912,8 @@ if.end.i.i:                                       ; preds = %if.end.i
   %36 = and i32 %cond.i.i.i, -2
   %or.cond.i.i = icmp eq i32 %36, 4
   %cmp.i.i23.i.i = icmp ugt i32 %cond.i.i.i, 2
-  %or.cond88.i.i = and i1 %cmp.i.i23.i.i, %or.cond.i.i
-  br i1 %or.cond88.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit.i.i, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i
+  %or.cond90.i.i = and i1 %cmp.i.i23.i.i, %or.cond.i.i
+  br i1 %or.cond90.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit.i.i, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i
 
 _ZNK6icu_7513UnicodeStringixEi.exit.i.i:          ; preds = %if.end.i.i
   %37 = and i16 %33, 2
@@ -2091,8 +2091,8 @@ if.end.i.i77:                                     ; preds = %if.end.i75
   %70 = and i32 %cond.i.i.i82, -2
   %or.cond.i.i84 = icmp eq i32 %70, 4
   %cmp.i.i23.i.i85 = icmp ugt i32 %cond.i.i.i82, 2
-  %or.cond88.i.i86 = and i1 %cmp.i.i23.i.i85, %or.cond.i.i84
-  br i1 %or.cond88.i.i86, label %_ZNK6icu_7513UnicodeStringixEi.exit.i.i88, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i87
+  %or.cond90.i.i86 = and i1 %cmp.i.i23.i.i85, %or.cond.i.i84
+  br i1 %or.cond90.i.i86, label %_ZNK6icu_7513UnicodeStringixEi.exit.i.i88, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i87
 
 _ZNK6icu_7513UnicodeStringixEi.exit.i.i88:        ; preds = %if.end.i.i77
   %71 = and i16 %67, 2

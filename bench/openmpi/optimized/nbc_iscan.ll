@@ -225,7 +225,7 @@ opal_datatype_span.exit.i:                        ; preds = %88, %85
 
 97:                                               ; preds = %95, %83
   %98 = add nsw i32 %.val101.val, -1
-  %.not40.i = icmp eq i32 %98, %.val
+  %.not40.i = icmp eq i32 %.val, %98
   br i1 %.not40.i, label %scan_sched_linear.exit.thread134, label %99
 
 99:                                               ; preds = %97
@@ -278,7 +278,7 @@ opal_datatype_span.exit.i:                        ; preds = %88, %85
   br i1 %.not96.i, label %117, label %scan_sched_linear.exit.thread
 
 117:                                              ; preds = %115
-  %118 = icmp slt i32 %111, %.val
+  %118 = icmp sgt i32 %.val, %111
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %117

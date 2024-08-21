@@ -1909,7 +1909,7 @@ define void @jobacct_gather_handle_mem_limit(i64 noundef %0, i64 noundef %1) loc
   %21 = load i32, ptr @jobacct_step_id, align 4
   %22 = icmp ne i32 %21, 0
   %23 = icmp ne i64 %20, 0
-  %24 = icmp ult i64 %20, %0
+  %24 = icmp ugt i64 %0, %20
   %25 = and i1 %23, %24
   %or.cond11 = select i1 %22, i1 %25, i1 false
   br i1 %or.cond11, label %26, label %37
@@ -1947,7 +1947,7 @@ define void @jobacct_gather_handle_mem_limit(i64 noundef %0, i64 noundef %1) loc
   %38 = phi i1 [ %14, %.thread ], [ %22, %19 ]
   %39 = load i64, ptr @jobacct_vmem_limit, align 8
   %40 = icmp ne i64 %39, 0
-  %41 = icmp ult i64 %39, %1
+  %41 = icmp ugt i64 %1, %39
   %42 = and i1 %40, %41
   %or.cond12 = select i1 %38, i1 %42, i1 false
   br i1 %or.cond12, label %43, label %54

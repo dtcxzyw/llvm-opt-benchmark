@@ -3320,7 +3320,7 @@ entry:
   %4 = extractvalue { ptr, i64 } %call10, 0
   %arrayidx.i11 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load float, ptr %arrayidx.i11, align 4
-  %mul12 = fmul float %5, %v.coerce1
+  %mul12 = fmul float %v.coerce1, %5
   %add13 = fadd float %add, %mul12
   %call16 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %6 = extractvalue { ptr, i64 } %call16, 0
@@ -3336,7 +3336,7 @@ entry:
   %10 = extractvalue { ptr, i64 } %call29, 0
   %arrayidx.i14 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load float, ptr %arrayidx.i14, align 4
-  %mul32 = fmul float %11, %v.coerce1
+  %mul32 = fmul float %v.coerce1, %11
   %add33 = fadd float %add26, %mul32
   %call36 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %12 = extractvalue { ptr, i64 } %call36, 0
@@ -3352,7 +3352,7 @@ entry:
   %16 = extractvalue { ptr, i64 } %call49, 0
   %arrayidx.i17 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load float, ptr %arrayidx.i17, align 4
-  %mul52 = fmul float %17, %v.coerce1
+  %mul52 = fmul float %v.coerce1, %17
   %add53 = fadd float %add46, %mul52
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add13, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %add33, i64 1
@@ -3453,7 +3453,7 @@ _ZN4pbrt8IntervalpLEf.exit27:                     ; preds = %_ZN4pbrt12AddRoundD
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i26, ptr %y3, align 4
   %z5 = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load float, ptr %z5, align 4
-  %add.i.i.i.i28 = fadd float %12, %v.coerce1
+  %add.i.i.i.i28 = fadd float %v.coerce1, %12
   %or.cond.i.i.i.i.i29 = fcmp oeq float %add.i.i.i.i28, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i.i29, label %_ZN4pbrt12AddRoundDownEff.exit.i.i.i36, label %if.end.i.i.i.i.i30
 
@@ -3471,7 +3471,7 @@ _ZN4pbrt12AddRoundDownEff.exit.i.i.i36:           ; preds = %if.end.i.i.i.i.i30,
   %retval.0.i.i.i.i.i37 = phi float [ %14, %if.end.i.i.i.i.i30 ], [ 0xFFF0000000000000, %_ZN4pbrt8IntervalpLEf.exit27 ]
   %high.i.i.i38 = getelementptr inbounds i8, ptr %this, i64 20
   %15 = load float, ptr %high.i.i.i38, align 4
-  %add.i1.i.i.i39 = fadd float %15, %v.coerce1
+  %add.i1.i.i.i39 = fadd float %v.coerce1, %15
   %or.cond.i.i2.i.i.i40 = fcmp oeq float %add.i1.i.i.i39, 0x7FF0000000000000
   br i1 %or.cond.i.i2.i.i.i40, label %_ZN4pbrt8IntervalpLEf.exit54, label %if.end.i.i3.i.i.i41
 

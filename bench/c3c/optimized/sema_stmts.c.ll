@@ -6349,14 +6349,14 @@ type_flatten.exit:                                ; preds = %.preheader
 
 .thread:                                          ; preds = %type_flatten.exit
   %102 = load ptr, ptr @type_typeid, align 8
-  %103 = icmp eq ptr %102, %79
+  %103 = icmp eq ptr %79, %102
   br label %._crit_edge
 
 104:                                              ; preds = %type_flatten.exit
   %105 = getelementptr inbounds i8, ptr %81, i64 -8
   %106 = load i32, ptr %105, align 4
   %107 = load ptr, ptr @type_typeid, align 8
-  %108 = icmp eq ptr %107, %79
+  %108 = icmp eq ptr %79, %107
   %.not216 = icmp eq i32 %106, 0
   br i1 %.not216, label %._crit_edge, label %.lr.ph
 
@@ -8701,7 +8701,7 @@ define internal fastcc void @sema_inline_return_defers(ptr noundef %0, ptr nocap
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 100
   %24 = load i32, ptr %23, align 4
-  %.not8.not.i = icmp eq i32 %22, %24
+  %.not8.not.i = icmp eq i32 %24, %22
   br i1 %.not8.not.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20
@@ -8725,7 +8725,7 @@ define internal fastcc void @sema_inline_return_defers(ptr noundef %0, ptr nocap
 
 35:                                               ; preds = %33
   %36 = load i32, ptr %29, align 8
-  %.not.not.i = icmp eq i32 %36, %24
+  %.not.not.i = icmp eq i32 %24, %36
   br i1 %.not.not.i, label %.critedge, label %26, !llvm.loop !56
 
 37:                                               ; preds = %26, %33

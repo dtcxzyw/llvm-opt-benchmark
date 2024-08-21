@@ -329,7 +329,7 @@ define dso_local i64 @FSE_writeNCount(ptr noundef %0, i64 noundef %1, ptr nocapt
   %.not.i = icmp eq i32 %3, 0
   %narrow.i = select i1 %.not.i, i32 512, i32 %13
   %14 = zext nneg i32 %narrow.i to i64
-  %15 = icmp ule i64 %14, %1
+  %15 = icmp uge i64 %1, %14
   %. = zext i1 %15 to i32
   %16 = tail call fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.)
   br label %17
@@ -686,7 +686,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   %32 = getelementptr inbounds i32, ptr %2, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
-  %35 = icmp eq i64 %34, %3
+  %35 = icmp eq i64 %3, %34
   br i1 %35, label %FSE_normalizeM2.exit.thread, label %36
 
 36:                                               ; preds = %30
@@ -1015,7 +1015,7 @@ define dso_local i64 @FSE_compress_usingCTable(ptr noundef %0, i64 noundef %1, p
   %6 = lshr i64 %3, 7
   %7 = add i64 %3, 12
   %8 = add i64 %7, %6
-  %.not = icmp ule i64 %8, %1
+  %.not = icmp uge i64 %1, %8
   %. = zext i1 %.not to i32
   %9 = tail call fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %.)
   ret i64 %9

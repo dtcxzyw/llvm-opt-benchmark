@@ -388,7 +388,7 @@ define dso_local nonnull ptr @Ppmd8_MakeEscFreq(ptr noundef %0, i32 noundef %1, 
   %32 = getelementptr inbounds i8, ptr %28, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
-  %35 = add i32 %34, %1
+  %35 = add i32 %1, %34
   %36 = icmp ult i32 %26, %35
   %37 = select i1 %36, i64 2, i64 0
   %38 = getelementptr inbounds %struct.CPpmd_See, ptr %25, i64 %37
@@ -1240,7 +1240,7 @@ define internal fastcc void @UpdateModel(ptr noundef %0) unnamed_addr #7 {
 
 174:                                              ; preds = %171
   %175 = load ptr, ptr %59, align 8
-  %176 = icmp eq ptr %175, %102
+  %176 = icmp eq ptr %102, %175
   br i1 %176, label %177, label %185
 
 177:                                              ; preds = %174
@@ -3126,7 +3126,7 @@ define internal fastcc void @RestoreModel(ptr noundef %0, ptr noundef readnone %
   %36 = getelementptr inbounds i8, ptr %.092, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %36, ptr noundef nonnull align 2 dereferenceable(6) %28, i64 6, i1 false)
   %37 = load ptr, ptr %13, align 8
-  %.not.i = icmp eq ptr %37, %28
+  %.not.i = icmp eq ptr %28, %37
   br i1 %.not.i, label %51, label %38
 
 38:                                               ; preds = %23
@@ -3983,7 +3983,7 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %0, i64 36
   %17 = load i32, ptr %16, align 4
-  %18 = icmp ugt i32 %17, %2
+  %18 = icmp ult i32 %2, %17
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %15
@@ -4020,7 +4020,7 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 36:                                               ; preds = %._crit_edge116, %9
   %37 = phi ptr [ %.pre117, %._crit_edge116 ], [ %14, %9 ]
-  %.not.i = icmp eq ptr %37, %1
+  %.not.i = icmp eq ptr %1, %37
   br i1 %.not.i, label %53, label %38
 
 38:                                               ; preds = %36
@@ -4060,7 +4060,7 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 16384
-  %65 = icmp ult ptr %64, %58
+  %65 = icmp ugt ptr %58, %64
   br i1 %65, label %MoveUnitsUp.exit, label %66
 
 66:                                               ; preds = %55
@@ -4112,7 +4112,7 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 98:                                               ; preds = %87
   %99 = load ptr, ptr %62, align 8
-  %.not37.i = icmp eq ptr %99, %58
+  %.not37.i = icmp eq ptr %58, %99
   br i1 %.not37.i, label %114, label %100
 
 100:                                              ; preds = %98
@@ -4201,7 +4201,7 @@ MoveUnitsUp.exit:                                 ; preds = %55, %66, %100, %114
 
 151:                                              ; preds = %137
   %152 = load i32, ptr %135, align 4
-  %153 = icmp ugt i32 %152, %2
+  %153 = icmp ult i32 %2, %152
   br i1 %153, label %154, label %159
 
 154:                                              ; preds = %151
@@ -4275,7 +4275,7 @@ MoveUnitsUp.exit:                                 ; preds = %55, %66, %100, %114
   %197 = add i32 %196, 1
   store i32 %197, ptr %195, align 4
   %198 = load ptr, ptr %62, align 8
-  %.not.i99 = icmp eq ptr %198, %1
+  %.not.i99 = icmp eq ptr %1, %198
   br i1 %.not.i99, label %211, label %199
 
 199:                                              ; preds = %173

@@ -441,7 +441,7 @@ define dso_local noundef i32 @badblocks_set(ptr noundef %0, i64 noundef %1, i32 
   %83 = icmp ult i64 %82, 513
   %84 = lshr i64 %72, 63
   %85 = trunc nuw nsw i64 %84 to i32
-  %86 = icmp eq i32 %85, %3
+  %86 = icmp eq i32 %3, %85
   %87 = and i1 %86, %83
   br i1 %87, label %93, label %88
 
@@ -566,13 +566,13 @@ define dso_local noundef i32 @badblocks_set(ptr noundef %0, i64 noundef %1, i32 
 163:                                              ; preds = %158, %135
   %164 = lshr i64 %136, 63
   %165 = trunc nuw nsw i64 %164 to i32
-  %166 = icmp eq i32 %165, %3
+  %166 = icmp eq i32 %3, %165
   br i1 %166, label %334, label %343
 
 167:                                              ; preds = %158
   %168 = lshr i64 %136, 63
   %169 = trunc nuw nsw i64 %168 to i32
-  %170 = icmp eq i32 %169, %3
+  %170 = icmp eq i32 %3, %169
   br i1 %170, label %171, label %176
 
 171:                                              ; preds = %167
@@ -583,7 +583,7 @@ define dso_local noundef i32 @badblocks_set(ptr noundef %0, i64 noundef %1, i32 
   br label %437
 
 176:                                              ; preds = %167
-  %177 = icmp slt i32 %169, %3
+  %177 = icmp sgt i32 %3, %169
   br i1 %177, label %178, label %.thread
 
 178:                                              ; preds = %176

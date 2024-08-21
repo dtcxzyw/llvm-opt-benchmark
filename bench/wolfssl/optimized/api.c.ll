@@ -2811,7 +2811,7 @@ entry:
 if.end4:                                          ; preds = %entry
   %buf.0.idx = select i1 %cmp, i64 65552, i64 0
   %buf.0 = getelementptr inbounds i8, ptr %ctx, i64 %buf.0.idx
-  %sz. = tail call i32 @llvm.smin.i32(i32 %0, i32 %sz)
+  %sz. = tail call i32 @llvm.smin.i32(i32 %sz, i32 %0)
   %conv = sext i32 %sz. to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data, ptr align 1 %buf.0, i64 %conv, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %buf.0, i64 %conv
@@ -4815,7 +4815,7 @@ for.body12:                                       ; preds = %for.cond8.preheader
 
 for.end:                                          ; preds = %for.body12
   %4 = trunc nuw nsw i64 %indvars.iv50 to i32
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %conv.i26, i32 %4)
+  %spec.select.i = call i32 @llvm.umin.i32(i32 %4, i32 %conv.i26)
   %sub3.i = sub i32 %4, %spec.select.i
   br i1 %tobool.not12.i, label %for.cond.preheader.i, label %while.body.i
 
@@ -36344,7 +36344,7 @@ entry:
 if.end4:                                          ; preds = %entry
   %buf.0.v = select i1 %cmp, i64 65828, i64 288
   %buf.0 = getelementptr inbounds i8, ptr %ctx, i64 %buf.0.v
-  %sz. = tail call i32 @llvm.smin.i32(i32 %0, i32 %sz)
+  %sz. = tail call i32 @llvm.smin.i32(i32 %sz, i32 %0)
   %conv = sext i32 %sz. to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data, ptr nonnull align 1 %buf.0, i64 %conv, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %buf.0, i64 %conv

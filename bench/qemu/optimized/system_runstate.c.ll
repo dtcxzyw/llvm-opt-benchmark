@@ -283,7 +283,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %other.024.i = phi ptr [ %other.0.i, %for.inc.i ], [ %other.022.i, %entry ]
   %priority5.i = getelementptr inbounds i8, ptr %other.024.i, i64 40
   %0 = load i32, ptr %priority5.i, align 8
-  %cmp.i = icmp sgt i32 %0, %priority
+  %cmp.i = icmp slt i32 %priority, %0
   br i1 %cmp.i, label %do.body.i, label %for.inc.i
 
 do.body.i:                                        ; preds = %for.body.i
@@ -337,7 +337,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %other.024 = phi ptr [ %other.0, %for.inc ], [ %other.022, %entry ]
   %priority5 = getelementptr inbounds i8, ptr %other.024, i64 40
   %0 = load i32, ptr %priority5, align 8
-  %cmp = icmp sgt i32 %0, %priority
+  %cmp = icmp slt i32 %priority, %0
   br i1 %cmp, label %do.body, label %for.inc
 
 do.body:                                          ; preds = %for.body

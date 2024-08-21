@@ -277,7 +277,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden ptr @uv__strndup(ptr nocapture noundef readonly %s, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #24
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %call, i64 %n)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %n, i64 %call)
   %add = add i64 %spec.select, 1
   %cmp.not.i = icmp eq i64 %add, 0
   br i1 %cmp.not.i, label %return, label %uv__malloc.exit
@@ -2601,7 +2601,7 @@ entry:
   %queue = alloca %struct.uv__queue, align 8
   %handle_queue = getelementptr inbounds i8, ptr %loop, i64 16
   %0 = load ptr, ptr %handle_queue, align 8
-  %cmp.i.not.i = icmp eq ptr %0, %handle_queue
+  %cmp.i.not.i = icmp eq ptr %handle_queue, %0
   br i1 %cmp.i.not.i, label %while.end, label %uv__queue_move.exit
 
 uv__queue_move.exit:                              ; preds = %entry
@@ -2617,7 +2617,7 @@ uv__queue_move.exit:                              ; preds = %entry
   store ptr %handle_queue, ptr %2, align 8
   %.pre = load ptr, ptr %queue, align 8
   store ptr %queue, ptr %prev4.i.i, align 8
-  %cmp.i.not6 = icmp eq ptr %.pre, %queue
+  %cmp.i.not6 = icmp eq ptr %queue, %.pre
   br i1 %cmp.i.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
@@ -2651,7 +2651,7 @@ if.end:                                           ; preds = %while.body
 
 while.cond.backedge:                              ; preds = %if.end, %while.body
   %9 = load ptr, ptr %queue, align 8
-  %cmp.i.not = icmp eq ptr %9, %queue
+  %cmp.i.not = icmp eq ptr %queue, %9
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.cond.backedge, %entry, %uv__queue_move.exit
@@ -3233,7 +3233,7 @@ for.body:                                         ; preds = %for.cond
 for.end:                                          ; preds = %for.cond
   tail call void @uv__loop_close(ptr noundef %loop) #25
   %2 = load ptr, ptr @default_loop_ptr, align 8
-  %cmp6 = icmp eq ptr %2, %loop
+  %cmp6 = icmp eq ptr %loop, %2
   br i1 %cmp6, label %if.then7, label %return
 
 if.then7:                                         ; preds = %for.end
@@ -3276,7 +3276,7 @@ for.body.i:                                       ; preds = %for.cond.i
 for.end.i:                                        ; preds = %for.cond.i
   tail call void @uv__loop_close(ptr noundef %loop) #25
   %3 = load ptr, ptr @default_loop_ptr, align 8
-  %cmp6.i = icmp eq ptr %3, %loop
+  %cmp6.i = icmp eq ptr %loop, %3
   br i1 %cmp6.i, label %if.then7.i, label %uv_loop_close.exit
 
 if.then7.i:                                       ; preds = %for.end.i
@@ -3284,7 +3284,7 @@ if.then7.i:                                       ; preds = %for.end.i
   br label %uv_loop_close.exit
 
 uv_loop_close.exit:                               ; preds = %for.body.i, %entry, %for.end.i, %if.then7.i
-  %cmp.not = icmp eq ptr %0, %loop
+  %cmp.not = icmp eq ptr %loop, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %uv_loop_close.exit

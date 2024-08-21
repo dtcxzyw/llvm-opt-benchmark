@@ -258,7 +258,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %17 = getelementptr inbounds i8, ptr %5, i64 296
   %.val4.i.i = load i64, ptr %17, align 8, !alias.scope !79, !noalias !80, !noundef !15
   %18 = sub nuw i64 %.val4.i.i, %.val.i.i
-  %19 = icmp ult i64 %12, %18
+  %19 = icmp ugt i64 %18, %12
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h6715df0be3833bf7E.exit.i"
 
 20:                                               ; preds = %11
@@ -1063,7 +1063,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h3dd2fb794990e806E"
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !15, !noundef !15
   %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %10, i64 %1
-  %12 = icmp ugt i64 %5, %1
+  %12 = icmp ult i64 %1, %5
   br i1 %12, label %17, label %15
 
 13:                                               ; preds = %8, %21
@@ -1073,7 +1073,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h3dd2fb794990e806E"
           to label %27 unwind label %25
 
 15:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h63945f4143e430c7E.llvm.11644101286175177538.exit"
-  %16 = icmp eq i64 %5, %1
+  %16 = icmp eq i64 %1, %5
   br i1 %16, label %23, label %21
 
 17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h63945f4143e430c7E.llvm.11644101286175177538.exit"
@@ -1112,7 +1112,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h63945f4143e430c7E
   %4 = load i64, ptr %3, align 8, !noundef !15
   %5 = load i64, ptr %0, align 8, !noundef !15
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2

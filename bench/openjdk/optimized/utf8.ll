@@ -567,7 +567,7 @@ _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %17, %24, %41, %51
   %53 = getelementptr inbounds i8, ptr %.11522, i64 %.024.sink.i
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %54 = trunc nuw i64 %indvars.iv.next30 to i32
-  %55 = icmp slt i32 %54, %2
+  %55 = icmp sgt i32 %2, %54
   br i1 %55, label %.lr.ph26, label %._crit_edge27, !llvm.loop !10
 
 ._crit_edge27:                                    ; preds = %7, %_ZN4UTF84nextItEEPcPKcPT_.exit, %._crit_edge
@@ -664,7 +664,7 @@ _ZN4UTF84nextIaEEPcPKcPT_.exit:                   ; preds = %.lr.ph25, %16, %21,
   %39 = getelementptr inbounds i8, ptr %.11522, i64 %.024.sink.i
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %40 = trunc nuw i64 %indvars.iv.next29 to i32
-  %41 = icmp slt i32 %40, %2
+  %41 = icmp sgt i32 %2, %40
   br i1 %41, label %.lr.ph25, label %._crit_edge26, !llvm.loop !12
 
 ._crit_edge26:                                    ; preds = %7, %_ZN4UTF84nextIaEEPcPKcPT_.exit, %._crit_edge

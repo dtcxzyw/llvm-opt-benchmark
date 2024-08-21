@@ -391,7 +391,7 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %lxb_encoding_data_b
   %69 = getelementptr inbounds i8, ptr %13, i64 104
   store i64 1, ptr %69, align 8
   %70 = load ptr, ptr %43, align 8
-  %71 = icmp eq ptr %70, %60
+  %71 = icmp eq ptr %60, %70
   %72 = zext i1 %71 to i8
   store i8 %72, ptr %13, align 8
   %spec.select.i = select i1 %71, ptr null, ptr %63
@@ -830,7 +830,7 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %16, %23, %27, %.thr
   store i64 1, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %2, i64 144
   %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, %.sroa.0.0.i
+  %65 = icmp eq ptr %.sroa.0.0.i, %64
   %66 = zext i1 %65 to i8
   store i8 %66, ptr %2, align 8
   %spec.select.i = select i1 %65, ptr null, ptr %56
@@ -900,7 +900,7 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
 
 ._crit_edge.i:                                    ; preds = %32, %14
   %.031.lcssa.i = phi ptr [ %15, %14 ], [ %.1.i, %32 ]
-  %.not35.i = icmp eq ptr %.031.lcssa.i, %4
+  %.not35.i = icmp eq ptr %4, %.031.lcssa.i
   br i1 %.not35.i, label %dom_decode_encode_fast_path.exit, label %34
 
 34:                                               ; preds = %._crit_edge.i
@@ -1498,7 +1498,7 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %lxb_encoding_data_b
   %76 = getelementptr inbounds i8, ptr %11, i64 104
   store i64 1, ptr %76, align 8
   %77 = load ptr, ptr %50, align 8
-  %78 = icmp eq ptr %77, %67
+  %78 = icmp eq ptr %67, %77
   %79 = zext i1 %78 to i8
   store i8 %79, ptr %11, align 8
   %spec.select.i = select i1 %78, ptr null, ptr %70
@@ -1577,7 +1577,7 @@ dom_setup_parser_encoding_manually.exit93:        ; preds = %lxb_encoding_data_b
   %114 = getelementptr inbounds i8, ptr %11, i64 104
   store i64 1, ptr %114, align 8
   %115 = load ptr, ptr %50, align 8
-  %116 = icmp eq ptr %115, %107
+  %116 = icmp eq ptr %107, %115
   %117 = zext i1 %116 to i8
   store i8 %117, ptr %11, align 8
   %spec.select.i88 = select i1 %116, ptr null, ptr %108

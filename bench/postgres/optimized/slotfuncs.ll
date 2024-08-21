@@ -1025,7 +1025,7 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   %58 = icmp eq i32 %57, 2
   %59 = getelementptr inbounds i8, ptr %4, i64 137
   %60 = select i1 %1, ptr %59, ptr null
-  %61 = xor i1 %53, %1
+  %61 = xor i1 %1, %53
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %48

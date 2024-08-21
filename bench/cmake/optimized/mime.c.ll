@@ -609,7 +609,7 @@ cleanup_part_content.exit.i66:                    ; preds = %58, %55
   br i1 %.not33.i.i, label %.critedge.i.i, label %.preheader.i.i, !llvm.loop !7
 
 .critedge.i.i:                                    ; preds = %117, %.preheader.i.i
-  %119 = icmp eq ptr %.0.i.i, %77
+  %119 = icmp eq ptr %77, %.0.i.i
   br i1 %119, label %curl_mime_name.exit.thread, label %120
 
 120:                                              ; preds = %.critedge.i.i, %114
@@ -1149,7 +1149,7 @@ cleanup_part_content.exit.i:                      ; preds = %14, %11
   br i1 %.not33.i, label %.critedge.i, label %.preheader.i, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %33, %.preheader.i
-  %35 = icmp eq ptr %.0.i, %1
+  %35 = icmp eq ptr %1, %.0.i
   br i1 %35, label %Curl_mime_set_subparts.exit, label %36
 
 36:                                               ; preds = %.critedge.i, %30
@@ -1631,7 +1631,7 @@ cleanup_part_content.exit:                        ; preds = %12, %15
   br i1 %.not33, label %.critedge, label %.preheader, !llvm.loop !7
 
 .critedge:                                        ; preds = %.preheader, %34
-  %36 = icmp eq ptr %.0, %1
+  %36 = icmp eq ptr %1, %.0
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %.critedge, %31
@@ -1903,7 +1903,7 @@ define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 no
   %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #16
   %40 = load i64, ptr %12, align 8
   %41 = tail call i64 @curlx_sotouz(i64 noundef %40) #15
-  %42 = icmp ult i64 %41, %39
+  %42 = icmp ugt i64 %39, %41
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %.thread
@@ -3008,7 +3008,7 @@ define internal i64 @encoder_nop_read(ptr nocapture noundef writeonly %0, i64 no
   %8 = getelementptr inbounds i8, ptr %3, i64 168
   %9 = load i64, ptr %8, align 8
   %10 = sub i64 %9, %6
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %10, i64 %1)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %10)
   %.not18 = icmp eq i64 %9, %6
   br i1 %.not18, label %14, label %11
 
@@ -3052,7 +3052,7 @@ define internal i64 @encoder_7bit_read(ptr nocapture noundef writeonly %0, i64 n
 
 .lr.ph:                                           ; preds = %6
   %10 = sub i64 %8, %9
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %10, i64 %1)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %10)
   %11 = getelementptr inbounds i8, ptr %3, i64 176
   %umax = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 1)
   br label %12
@@ -3362,7 +3362,7 @@ define internal i64 @encoder_qp_read(ptr nocapture noundef writeonly %0, i64 nou
 32:                                               ; preds = %15
   %33 = add nuw i64 %17, 1
   %34 = icmp uge i64 %33, %16
-  %or.cond.i = and i1 %34, %2
+  %or.cond.i = and i1 %2, %34
   br i1 %or.cond.i, label %qp_lookahead_eol.exit.thread, label %35
 
 35:                                               ; preds = %32
@@ -3398,7 +3398,7 @@ qp_lookahead_eol.exit.thread:                     ; preds = %45, %32
 
 53:                                               ; preds = %15
   %54 = icmp uge i64 %17, %16
-  %or.cond.i58 = and i1 %54, %2
+  %or.cond.i58 = and i1 %2, %54
   br i1 %or.cond.i58, label %qp_lookahead_eol.exit61.thread, label %55
 
 55:                                               ; preds = %53
@@ -3449,7 +3449,7 @@ qp_lookahead_eol.exit.thread67:                   ; preds = %qp_lookahead_eol.ex
 74:                                               ; preds = %70
   %75 = add i64 %17, %.047
   %76 = icmp uge i64 %75, %16
-  %or.cond.i62 = and i1 %76, %2
+  %or.cond.i62 = and i1 %2, %76
   br i1 %or.cond.i62, label %.thread, label %77
 
 77:                                               ; preds = %74

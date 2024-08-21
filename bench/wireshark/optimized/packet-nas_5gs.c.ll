@@ -5996,7 +5996,7 @@ define internal zeroext i16 @de_nas_5gs_mm_sor_transp_cont(ptr noundef %0, ptr n
 .loopexit:                                        ; preds = %.lr.ph128, %.preheader, %24, %58, %61, %76
   %.3 = phi i32 [ %28, %24 ], [ %67, %61 ], [ %.1119, %58 ], [ %15, %76 ], [ %21, %.preheader ], [ %72, %.lr.ph128 ]
   %79 = sub i32 %.3, %3
-  %80 = icmp ult i32 %79, %4
+  %80 = icmp ugt i32 %4, %79
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %.loopexit
@@ -6805,7 +6805,7 @@ define internal noundef zeroext i16 @de_nas_5gs_sm_pdu_address(ptr noundef %0, p
   br i1 %.not, label %85, label %81
 
 81:                                               ; preds = %79
-  %82 = add i32 %.sink, %3
+  %82 = add i32 %3, %.sink
   %83 = load i32, ptr @hf_nas_5gs_sm_smf_ipv6_lla, align 4
   %84 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %83, ptr noundef %0, i32 noundef %82, i32 noundef 16, i32 noundef 0) #12
   br label %85
@@ -7603,7 +7603,7 @@ define internal noundef zeroext i16 @de_nas_5gs_updp_upsi_list(ptr noundef %0, p
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = add i32 %4, %3
-  %11 = icmp ugt i32 %10, %3
+  %11 = icmp ult i32 %3, %10
   br i1 %11, label %.lr.ph23, label %._crit_edge
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph23
@@ -8836,7 +8836,7 @@ define internal void @nas_5gs_mm_5gmm_status(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9280,7 +9280,7 @@ define internal void @nas_5gs_mm_registration_accept(ptr noundef %0, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9711,12 +9711,12 @@ define internal void @nas_5gs_mm_registration_complete(ptr noundef %0, ptr nound
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 115, i32 noundef 17, i32 noundef 64, i32 noundef %3, i32 noundef %4, ptr noundef null) #12
   %9 = zext i16 %8 to i32
-  %.not22 = icmp eq i32 %9, %4
+  %.not22 = icmp eq i32 %4, %9
   br i1 %.not22, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_nas_5gs_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #12
   br label %14
 
@@ -9736,7 +9736,7 @@ define internal void @nas_5gs_mm_registration_rej(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9910,7 +9910,7 @@ define internal void @nas_5gs_mm_de_registration_req_ue_term(ptr noundef %0, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -10130,7 +10130,7 @@ define internal void @nas_5gs_mm_service_rej(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -10246,7 +10246,7 @@ define internal void @nas_5gs_mm_service_acc(ptr noundef %0, ptr noundef %1, ptr
   br i1 %11, label %56, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 38, i32 noundef 17, i32 noundef 52, i32 noundef %13, i32 noundef %10, ptr noundef null) #12
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -10447,7 +10447,7 @@ define internal void @nas_5gs_mm_nw_slice_spec_auth_cmd(ptr noundef %0, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -10504,7 +10504,7 @@ define internal void @nas_5gs_mm_nw_slice_spec_auth_comp(ptr noundef %0, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -10561,7 +10561,7 @@ define internal void @nas_5gs_mm_nw_slice_spec_auth_res(ptr noundef %0, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -10619,7 +10619,7 @@ define internal void @nas_5gs_mm_conf_upd_cmd(ptr noundef %0, ptr noundef %1, pt
   br i1 %11, label %212, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 119, i32 noundef 17, i32 noundef 4, i32 noundef %13, i32 noundef %10, ptr noundef null) #12
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -10918,7 +10918,7 @@ define internal void @nas_5gs_mm_authentication_req(ptr noundef %0, ptr noundef 
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -11000,7 +11000,7 @@ define internal void @nas_5gs_mm_authentication_resp(ptr noundef %0, ptr noundef
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 120, i32 noundef 16, i32 noundef 3, i32 noundef %13, i32 noundef %10, ptr noundef null) #12
   %15 = zext i16 %14 to i32
   %.not35 = icmp eq i32 %10, %15
@@ -11024,12 +11024,12 @@ define internal void @nas_5gs_mm_authentication_rej(ptr noundef %0, ptr noundef 
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 120, i32 noundef 16, i32 noundef 3, i32 noundef %3, i32 noundef %4, ptr noundef null) #12
   %9 = zext i16 %8 to i32
-  %.not22 = icmp eq i32 %9, %4
+  %.not22 = icmp eq i32 %4, %9
   br i1 %.not22, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_nas_5gs_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #12
   br label %14
 
@@ -11049,7 +11049,7 @@ define internal void @nas_5gs_mm_authentication_failure(ptr noundef %0, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -11094,7 +11094,7 @@ define internal void @nas_5gs_mm_authentication_result(ptr noundef %0, ptr nound
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -11161,7 +11161,7 @@ define internal void @nas_5gs_mm_id_req(ptr noundef %0, ptr noundef %1, ptr noun
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -11196,7 +11196,7 @@ define internal void @nas_5gs_mm_id_resp(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -11231,7 +11231,7 @@ define internal void @nas_5gs_mm_sec_mode_cmd(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -11361,7 +11361,7 @@ define internal void @nas_5gs_mm_sec_mode_comp(ptr noundef %0, ptr noundef %1, p
   br i1 %11, label %26, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 113, i32 noundef 17, i32 noundef 41, i32 noundef %13, i32 noundef %10, ptr noundef null) #12
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -11397,7 +11397,7 @@ define internal void @nas_5gs_mm_sec_mode_rej(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -11434,7 +11434,7 @@ define internal void @nas_5gs_mm_notification(ptr noundef %0, ptr noundef %1, pt
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -11465,12 +11465,12 @@ define internal void @nas_5gs_mm_notification_resp(ptr noundef %0, ptr noundef %
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 80, i32 noundef 17, i32 noundef 54, i32 noundef %3, i32 noundef %4, ptr noundef null) #12
   %9 = zext i16 %8 to i32
-  %.not22 = icmp eq i32 %9, %4
+  %.not22 = icmp eq i32 %4, %9
   br i1 %.not22, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_nas_5gs_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #12
   br label %14
 
@@ -11515,7 +11515,7 @@ nas5gs_get_private_data.exit:                     ; preds = %5, %14
 
 26:                                               ; preds = %24
   %27 = zext i16 %25 to i32
-  %28 = add i32 %27, %3
+  %28 = add i32 %3, %27
   %29 = sub nsw i32 %4, %27
   br label %33
 
@@ -11661,7 +11661,7 @@ nas5gs_get_private_data.exit:                     ; preds = %5, %14
 
 26:                                               ; preds = %24
   %27 = zext i16 %25 to i32
-  %28 = add i32 %27, %3
+  %28 = add i32 %3, %27
   %29 = sub nsw i32 %4, %27
   br label %33
 
@@ -11758,7 +11758,7 @@ define internal void @nas_5gs_mm_relay_key_request(ptr noundef %0, ptr noundef %
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -11815,7 +11815,7 @@ define internal void @nas_5gs_mm_relay_key_accept(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -11880,7 +11880,7 @@ define internal void @nas_5gs_mm_relay_key_reject(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -11923,7 +11923,7 @@ define internal void @nas_5gs_mm_relay_authentication_request(ptr noundef %0, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -11980,7 +11980,7 @@ define internal void @nas_5gs_mm_relay_authentication_response(ptr noundef %0, p
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -12057,7 +12057,7 @@ define internal void @nas_5gs_sm_pdu_ses_est_req(ptr noundef %0, ptr noundef %1,
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -12232,7 +12232,7 @@ define internal void @nas_5gs_sm_pdu_ses_est_acc(ptr noundef %0, ptr noundef %1,
 
 12:                                               ; preds = %10
   %13 = zext i16 %11 to i32
-  %14 = add i32 %13, %3
+  %14 = add i32 %3, %13
   %15 = sub nsw i32 %4, %13
   br label %19
 
@@ -12457,7 +12457,7 @@ define internal void @nas_5gs_sm_pdu_ses_est_rej(ptr noundef %0, ptr noundef %1,
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -12550,7 +12550,7 @@ define internal void @nas_5gs_sm_pdu_ses_auth_cmd(ptr noundef %0, ptr noundef %1
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -12595,7 +12595,7 @@ define internal void @nas_5gs_sm_pdu_ses_auth_comp(ptr noundef %0, ptr noundef %
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -12641,7 +12641,7 @@ define internal void @nas_5gs_sm_pdu_ses_auth_res(ptr noundef %0, ptr noundef %1
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 123, i32 noundef 11, i32 noundef 28, i32 noundef %14, i32 noundef %11, ptr noundef null) #12
   %16 = zext i16 %15 to i32
   %.not36 = icmp eq i32 %11, %16
@@ -12672,7 +12672,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_req(ptr noundef %0, ptr noundef %1,
   br i1 %12, label %93, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 89, i32 noundef 18, i32 noundef 1, i32 noundef %14, ptr noundef null) #12
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -12798,7 +12798,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_rej(ptr noundef %0, ptr noundef %1,
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -12868,7 +12868,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_cmd(ptr noundef %0, ptr noundef %1,
   br i1 %12, label %99, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 42, i32 noundef 18, i32 noundef 13, i32 noundef %14, i32 noundef %11, ptr noundef null) #12
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -13003,7 +13003,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_comp(ptr noundef %0, ptr noundef %1
   br i1 %12, label %33, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 89, i32 noundef 18, i32 noundef 1, i32 noundef %14, ptr noundef null) #12
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -13049,7 +13049,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_com_rej(ptr noundef %0, ptr noundef
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -13095,7 +13095,7 @@ define internal void @nas_5gs_sm_pdu_ses_rel_req(ptr noundef %0, ptr noundef %1,
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 123, i32 noundef 11, i32 noundef 28, i32 noundef %14, i32 noundef %11, ptr noundef null) #12
   %16 = zext i16 %15 to i32
   %.not35 = icmp eq i32 %11, %16
@@ -13125,7 +13125,7 @@ define internal void @nas_5gs_sm_pdu_ses_rel_rej(ptr noundef %0, ptr noundef %1,
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -13170,7 +13170,7 @@ define internal void @nas_5gs_sm_pdu_ses_rel_cmd(ptr noundef %0, ptr noundef %1,
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -13256,7 +13256,7 @@ define internal void @nas_5gs_sm_pdu_ses_rel_comp(ptr noundef %0, ptr noundef %1
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 123, i32 noundef 11, i32 noundef 28, i32 noundef %14, i32 noundef %11, ptr noundef null) #12
   %16 = zext i16 %15 to i32
   %.not35 = icmp eq i32 %11, %16
@@ -13284,7 +13284,7 @@ define internal void @nas_5gs_sm_5gsm_status(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -13319,7 +13319,7 @@ define internal void @nas_5gs_sm_serv_level_auth_cmd(ptr noundef %0, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -13354,7 +13354,7 @@ define internal void @nas_5gs_sm_serv_level_auth_comp(ptr noundef %0, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -13390,7 +13390,7 @@ define internal void @nas_5gs_sm_remote_ue_report(ptr noundef %0, ptr noundef %1
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 112, i32 noundef 18, i32 noundef 27, i32 noundef %13, i32 noundef %10, ptr noundef nonnull @.str.1467) #12
   %15 = zext i16 %14 to i32
   %.not35 = icmp eq i32 %10, %15
@@ -13433,7 +13433,7 @@ define internal void @nas_5gs_updp_manage_ue_policy_cmd(ptr noundef %0, ptr noun
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -13498,7 +13498,7 @@ define internal void @nas_5gs_updp_ue_state_indication(ptr noundef %0, ptr nound
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -13688,7 +13688,7 @@ define internal void @nas_5gs_n1_sm_info_from_ue(ptr noundef %0, ptr noundef %1,
   br i1 %12, label %81, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext -96, i32 noundef 18, i32 noundef 15, i32 noundef %14, ptr noundef null) #12
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -13799,7 +13799,7 @@ define internal void @nas_5gs_n1_sm_info_to_ue(ptr noundef %0, ptr noundef %1, p
   br i1 %12, label %51, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 120, i32 noundef 16, i32 noundef 3, i32 noundef %14, i32 noundef %11, ptr noundef null) #12
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16

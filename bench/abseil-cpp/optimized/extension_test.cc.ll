@@ -354,7 +354,7 @@ if.end.i:                                         ; preds = %invoke.cont11
   %4 = load ptr, ptr %pos_.i, align 8
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %1
+  %cmp3.not.i = icmp ult i64 %1, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i

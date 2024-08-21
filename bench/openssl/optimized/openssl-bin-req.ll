@@ -3401,7 +3401,7 @@ if.end65:                                         ; preds = %if.end56
   %idxprom66 = sext i32 %dec to i64
   %arrayidx67 = getelementptr inbounds i8, ptr %buf, i64 %idxprom66
   store i8 0, ptr %arrayidx67, align 1
-  %cmp1.i = icmp sle i32 %conv58, %n_min
+  %cmp1.i = icmp sge i32 %n_min, %conv58
   %or.cond.i = and i1 %cmp.i36, %cmp1.i
   br i1 %or.cond.i, label %if.then.i39, label %if.end.i37
 

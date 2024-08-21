@@ -6603,7 +6603,7 @@ define internal fastcc range(i32 0, 2) i32 @is_in(ptr nocapture noundef readonly
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %67, 1
   %69 = zext i1 %68 to i32
-  %70 = xor i32 %69, %4
+  %70 = xor i32 %4, %69
   br label %92
 
 71:                                               ; preds = %5

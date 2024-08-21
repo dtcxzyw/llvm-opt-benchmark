@@ -1292,7 +1292,7 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit74: ; preds = %.
 define hidden { ptr, i64 } @_ZN7uu_join4Line9get_field17h79dc743dc583b057E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit"
@@ -1617,7 +1617,7 @@ common.resume:                                    ; preds = %98, %84, %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   %35 = getelementptr inbounds i8, ptr %33, i64 16
   %36 = load i64, ptr %35, align 8, !alias.scope !178, !noalias !174, !noundef !4
-  %37 = icmp ugt i64 %36, %34
+  %37 = icmp ult i64 %34, %36
   br i1 %37, label %38, label %55
 
 38:                                               ; preds = %32
@@ -1660,7 +1660,7 @@ common.resume:                                    ; preds = %98, %84, %24
   %.sroa.0.0.i.i = phi ptr [ %53, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i" ], [ null, %32 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
   %56 = load i64, ptr %13, align 8, !alias.scope !182, !noundef !4
-  %57 = icmp ugt i64 %56, %34
+  %57 = icmp ult i64 %34, %56
   br i1 %57, label %58, label %75
 
 58:                                               ; preds = %55
@@ -2466,7 +2466,7 @@ define hidden void @_ZN7uu_join5State9next_line17h32e4bef65236a617E(ptr noalias 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   %38 = getelementptr inbounds i8, ptr %35, i64 16
   %39 = load i64, ptr %38, align 8, !alias.scope !237, !noalias !234, !noundef !4
-  %40 = icmp ugt i64 %39, %37
+  %40 = icmp ult i64 %37, %39
   br i1 %40, label %41, label %61
 
 41:                                               ; preds = %33
@@ -2515,7 +2515,7 @@ define hidden void @_ZN7uu_join5State9next_line17h32e4bef65236a617E(ptr noalias 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
   %62 = getelementptr inbounds i8, ptr %14, i64 16
   %63 = load i64, ptr %62, align 8, !alias.scope !241, !noundef !4
-  %64 = icmp ugt i64 %63, %37
+  %64 = icmp ult i64 %37, %63
   br i1 %64, label %65, label %85
 
 65:                                               ; preds = %61
@@ -2789,7 +2789,7 @@ define hidden { ptr, i64 } @_ZN7uu_join5State15get_current_key17h3299d1b51c78a2a
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !276, !noundef !4
-  %11 = icmp ugt i64 %10, %8
+  %11 = icmp ult i64 %8, %10
   br i1 %11, label %12, label %_ZN7uu_join4Line9get_field17h79dc743dc583b057E.exit
 
 12:                                               ; preds = %4
@@ -7411,7 +7411,7 @@ default.unreachable421:                           ; preds = %363
   call void @llvm.experimental.noalias.scope.decl(metadata !1501)
   %220 = getelementptr inbounds i8, ptr %218, i64 16
   %221 = load i64, ptr %220, align 8, !alias.scope !1501, !noalias !1498, !noundef !4
-  %222 = icmp ugt i64 %221, %219
+  %222 = icmp ult i64 %219, %221
   br i1 %222, label %223, label %339
 
 223:                                              ; preds = %217
@@ -7705,7 +7705,7 @@ default.unreachable421:                           ; preds = %363
   call void @llvm.experimental.noalias.scope.decl(metadata !1514)
   %342 = getelementptr inbounds i8, ptr %340, i64 16
   %343 = load i64, ptr %342, align 8, !alias.scope !1514, !noalias !1511, !noundef !4
-  %344 = icmp ugt i64 %343, %341
+  %344 = icmp ult i64 %341, %343
   br i1 %344, label %345, label %361
 
 345:                                              ; preds = %339

@@ -664,7 +664,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit:    ; preds = %62, %64
   %91 = load i8, ptr %90, align 1
   %92 = add i64 %87, 1
   %93 = load i64, ptr %24, align 8
-  %.not.i.i53 = icmp ult i64 %93, %92
+  %.not.i.i53 = icmp ugt i64 %92, %93
   br i1 %.not.i.i53, label %94, label %108
 
 94:                                               ; preds = %.lr.ph112
@@ -738,7 +738,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit:    ; preds = %62, %64
   %119 = phi i64 [ %79, %._crit_edge113.thread ], [ %113, %._crit_edge113 ]
   %120 = add i64 %119, 1
   %121 = load i64, ptr %24, align 8
-  %.not.i.i62 = icmp ult i64 %121, %120
+  %.not.i.i62 = icmp ugt i64 %120, %121
   br i1 %.not.i.i62, label %122, label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit72
 
 122:                                              ; preds = %118
@@ -805,7 +805,7 @@ _ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit72: ; preds = %118, %.pre
 147:                                              ; preds = %143
   %148 = add i64 %144, 1
   %149 = load i64, ptr %31, align 8
-  %.not.i.i.i73 = icmp ult i64 %149, %148
+  %.not.i.i.i73 = icmp ugt i64 %148, %149
   br i1 %.not.i.i.i73, label %150, label %_ZN6marisa8grimoire6vector6VectorImE7reserveEm.exit.i.i
 
 150:                                              ; preds = %147
@@ -1777,7 +1777,7 @@ define void @_ZNK6marisa8grimoire4trie4Tail7restoreERNS_5AgentEm(ptr nocapture n
   %.024 = phi ptr [ %17, %.lr.ph ], [ %47, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit ]
   %25 = add i64 %24, 1
   %26 = load i64, ptr %20, align 8
-  %.not.i.i = icmp ult i64 %26, %25
+  %.not.i.i = icmp ugt i64 %25, %26
   br i1 %.not.i.i, label %27, label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit
 
 27:                                               ; preds = %23
@@ -1840,7 +1840,7 @@ _ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit: ; preds = %23, %.prehea
   %52 = getelementptr inbounds i8, ptr %51, i64 %.09
   %53 = add i64 %50, 1
   %54 = load i64, ptr %11, align 8
-  %.not.i.i10 = icmp ult i64 %54, %53
+  %.not.i.i10 = icmp ugt i64 %53, %54
   br i1 %.not.i.i10, label %55, label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit20
 
 55:                                               ; preds = %49
@@ -2049,7 +2049,7 @@ define noundef zeroext i1 @_ZNK6marisa8grimoire4trie4Tail12prefix_matchERNS_5Age
   %39 = load i64, ptr %25, align 8
   %40 = add i64 %39, 1
   %41 = load i64, ptr %26, align 8
-  %.not.i.i = icmp ult i64 %41, %40
+  %.not.i.i = icmp ugt i64 %40, %41
   br i1 %.not.i.i, label %42, label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit
 
 42:                                               ; preds = %38
@@ -2123,7 +2123,7 @@ _ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit: ; preds = %38, %.prehea
   %.0 = phi ptr [ %97, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit49 ], [ %72, %71 ]
   %75 = add i64 %74, 1
   %76 = load i64, ptr %26, align 8
-  %.not.i.i39 = icmp ult i64 %76, %75
+  %.not.i.i39 = icmp ugt i64 %75, %76
   br i1 %.not.i.i39, label %77, label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit49
 
 77:                                               ; preds = %73
@@ -2196,7 +2196,7 @@ _ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit49: ; preds = %73, %.preh
   %109 = load i64, ptr %11, align 8
   %110 = add i64 %109, 1
   %111 = load i64, ptr %12, align 8
-  %.not.i.i50 = icmp ult i64 %111, %110
+  %.not.i.i50 = icmp ugt i64 %110, %111
   br i1 %.not.i.i50, label %112, label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit60
 
 112:                                              ; preds = %108
@@ -2274,7 +2274,7 @@ _ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit60: ; preds = %108, %.pre
   %148 = getelementptr inbounds i8, ptr %147, i64 %.1
   %149 = add i64 %146, 1
   %150 = load i64, ptr %12, align 8
-  %.not.i.i61 = icmp ult i64 %150, %149
+  %.not.i.i61 = icmp ugt i64 %149, %150
   br i1 %.not.i.i61, label %151, label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit71
 
 151:                                              ; preds = %.preheader
@@ -2792,7 +2792,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector9push_backEb(ptr n
   %18 = add i64 %14, 1
   %19 = getelementptr inbounds i8, ptr %0, i64 32
   %20 = load i64, ptr %19, align 8
-  %.not.i.i = icmp ult i64 %20, %18
+  %.not.i.i = icmp ugt i64 %18, %20
   br i1 %.not.i.i, label %21, label %_ZN6marisa8grimoire6vector6VectorImE7reserveEm.exit.i
 
 21:                                               ; preds = %17
@@ -4229,7 +4229,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE5read_ERNS0_2io6Re
   %13 = lshr exact i64 %4, 3
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load i64, ptr %14, align 8
-  %.not.i.i = icmp ult i64 %15, %13
+  %.not.i.i = icmp ugt i64 %13, %15
   br i1 %.not.i.i, label %16, label %_ZN6marisa8grimoire6vector6VectorImE6resizeEm.exit
 
 16:                                               ; preds = %12
@@ -4340,7 +4340,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE5rea
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load i64, ptr %14, align 8
-  %.not.i.i = icmp ult i64 %15, %6
+  %.not.i.i = icmp ugt i64 %6, %15
   br i1 %.not.i.i, label %16, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i
 
 16:                                               ; preds = %13
@@ -4472,7 +4472,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE5read_ERNS0_2io6Re
   %13 = lshr exact i64 %4, 2
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load i64, ptr %14, align 8
-  %.not.i.i = icmp ult i64 %15, %13
+  %.not.i.i = icmp ugt i64 %13, %15
   br i1 %.not.i.i, label %16, label %_ZN6marisa8grimoire6vector6VectorIjE6resizeEm.exit
 
 16:                                               ; preds = %12
@@ -5300,7 +5300,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIcE5read_ERNS0_2io6Re
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
-  %.not.i.i = icmp ult i64 %6, %4
+  %.not.i.i = icmp ugt i64 %4, %6
   br i1 %.not.i.i, label %7, label %_ZN6marisa8grimoire6vector6VectorIcE6resizeEm.exit
 
 7:                                                ; preds = %2

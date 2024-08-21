@@ -3059,7 +3059,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.else:                                          ; preds = %land.lhs.true
   %tobool.not = xor i1 %tobool, true
-  %.not = or i1 %tobool.not, %paused
+  %.not = or i1 %paused, %tobool.not
   %exec_.i = getelementptr inbounds i8, ptr %this, i64 152
   %3 = load ptr, ptr %exec_.i, align 8
   %cmp.i.not = icmp eq ptr %3, null
@@ -3893,7 +3893,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #27
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i

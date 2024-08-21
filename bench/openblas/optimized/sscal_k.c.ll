@@ -70,16 +70,16 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   %46 = phi ptr [ %4, %44 ], [ %59, %45 ]
   %47 = phi i64 [ 0, %44 ], [ %60, %45 ]
   %48 = load float, ptr %46, align 4, !tbaa !3
-  %49 = fmul float %48, %3
+  %49 = fmul float %3, %48
   %50 = getelementptr inbounds float, ptr %46, i64 %5
   %51 = load float, ptr %50, align 4, !tbaa !3
-  %52 = fmul float %51, %3
+  %52 = fmul float %3, %51
   %53 = getelementptr inbounds i8, ptr %46, i64 %.idx.i
   %54 = load float, ptr %53, align 4, !tbaa !3
-  %55 = fmul float %54, %3
+  %55 = fmul float %3, %54
   %56 = getelementptr inbounds i8, ptr %46, i64 %.idx1.i
   %57 = load float, ptr %56, align 4, !tbaa !3
-  %58 = fmul float %57, %3
+  %58 = fmul float %3, %57
   store float %49, ptr %46, align 4, !tbaa !3
   store float %52, ptr %50, align 4, !tbaa !3
   store float %55, ptr %53, align 4, !tbaa !3
@@ -90,7 +90,7 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   br i1 %61, label %45, label %sscal_kernel_inc_8.exit, !llvm.loop !11
 
 sscal_kernel_inc_8.exit:                          ; preds = %45
-  %62 = mul nsw i64 %42, %5
+  %62 = mul nsw i64 %5, %42
   br label %63
 
 63:                                               ; preds = %sscal_kernel_inc_8.exit, %41
@@ -104,7 +104,7 @@ sscal_kernel_inc_8.exit:                          ; preds = %45
   %68 = phi i64 [ %73, %.preheader16 ], [ %64, %63 ]
   %69 = getelementptr inbounds float, ptr %4, i64 %67
   %70 = load float, ptr %69, align 4, !tbaa !3
-  %71 = fmul float %70, %3
+  %71 = fmul float %3, %70
   store float %71, ptr %69, align 4, !tbaa !3
   %72 = add nsw i64 %67, %5
   %73 = add nuw nsw i64 %68, 1
@@ -192,7 +192,7 @@ sscal_kernel_inc_8.exit:                          ; preds = %45
   %119 = phi i64 [ %123, %.preheader ], [ %76, %112 ]
   %120 = getelementptr inbounds float, ptr %4, i64 %119
   %121 = load float, ptr %120, align 4, !tbaa !3
-  %122 = fmul float %121, %3
+  %122 = fmul float %3, %121
   store float %122, ptr %120, align 4, !tbaa !3
   %123 = add nsw i64 %119, 1
   %124 = icmp eq i64 %123, %0

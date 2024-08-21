@@ -5941,7 +5941,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_add_span_element_helper(
   %.1101 = phi i1 [ true, %41 ], [ true, %42 ], [ %.0100132, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit129, label %34
 
 .loopexit129:                                     ; preds = %44, %30, %27
@@ -7165,7 +7165,7 @@ define range(i32 -1, 1) i32 @H5S_hyper_clip_unlim(ptr noundef %0, i64 noundef %1
 
 27:                                               ; preds = %23
   %28 = xor i64 %14, -1
-  %29 = add i64 %28, %1
+  %29 = add i64 %1, %28
   %30 = add i64 %29, %16
   %31 = udiv i64 %30, %16
   store i64 %31, ptr %12, align 8
@@ -10259,7 +10259,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_iterate(ptr noc
 44:                                               ; preds = %.thread.thread286
   %45 = add i32 %.1211317, 1
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %46, %2
+  %47 = icmp ugt i64 %2, %46
   br i1 %47, label %48, label %.loopexit294
 
 48:                                               ; preds = %.lr.ph318, %44
@@ -10772,7 +10772,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_iterate(ptr noc
   store i64 %298, ptr %36, align 8
   %299 = add i32 %.2212319, 1
   %300 = zext i32 %299 to i64
-  %301 = icmp ult i64 %300, %2
+  %301 = icmp ugt i64 %2, %300
   br i1 %301, label %.lr.ph320, label %.loopexit294
 
 302:                                              ; preds = %22, %16
@@ -10977,7 +10977,7 @@ define i64 @H5S_hyper_get_clip_extent(ptr nocapture noundef readonly %0, ptr noc
   %44 = udiv i64 %21, %34
   %.recomposed = urem i64 %21, %34
   %45 = mul i64 %44, %34
-  %.not.i = icmp eq i64 %45, %21
+  %.not.i = icmp eq i64 %21, %45
   %46 = load i64, ptr %26, align 8
   br i1 %.not.i, label %51, label %47
 
@@ -11032,7 +11032,7 @@ define i64 @H5S_hyper_get_clip_extent_match(ptr nocapture noundef readonly %0, p
 
 H5S__hyper_get_clip_diminfo.exit:                 ; preds = %17
   %20 = xor i64 %14, -1
-  %21 = add i64 %20, %2
+  %21 = add i64 %2, %20
   %22 = add i64 %21, %16
   %23 = udiv i64 %22, %16
   %24 = icmp eq i64 %13, 0
@@ -11119,7 +11119,7 @@ H5S__hyper_get_clip_diminfo.exit.thread30:        ; preds = %17
   %73 = udiv i64 %.045, %63
   %.recomposed = urem i64 %.045, %63
   %74 = mul i64 %73, %63
-  %.not.i22 = icmp eq i64 %74, %.045
+  %.not.i22 = icmp eq i64 %.045, %74
   %75 = load i64, ptr %61, align 8
   br i1 %.not.i22, label %80, label %76
 
@@ -13528,7 +13528,7 @@ H5S__hyper_iter_get_seq_list_opt.exit:            ; preds = %.lr.ph469.i, %483
   %509 = load i64, ptr %508, align 8
   %510 = getelementptr inbounds i8, ptr %0, i64 528
   %511 = load i64, ptr %510, align 8
-  %..i151 = tail call i64 @llvm.umin.i64(i64 %511, i64 %2)
+  %..i151 = tail call i64 @llvm.umin.i64(i64 %2, i64 %511)
   %.not510.i = icmp eq i32 %499, 0
   br i1 %.not510.i, label %._crit_edge.i158, label %.lr.ph.preheader.i152
 

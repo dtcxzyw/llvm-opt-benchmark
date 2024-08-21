@@ -2515,16 +2515,16 @@ define void @_ZN5nblib23GmxNBForceCalculatorCpu7CpuImpl14updatePairlistEN3gmx8Ar
 
 _ZN3gmx5RangeIiEC2Eii.exit:                       ; preds = %46
   %69 = uitofp i64 %18 to float
-  %70 = fneg float %49
-  %71 = fmul float %57, %70
+  %70 = fneg float %57
+  %71 = fmul float %49, %70
   %72 = tail call float @llvm.fmuladd.f32(float %55, float %53, float %71)
-  %73 = fneg float %37
-  %74 = fmul float %53, %73
+  %73 = fneg float %53
+  %74 = fmul float %37, %73
   %75 = tail call float @llvm.fmuladd.f32(float %49, float %51, float %74)
-  %76 = fmul float %57, %73
+  %76 = fmul float %37, %70
   %77 = tail call float @llvm.fmuladd.f32(float %55, float %51, float %76)
-  %78 = fneg float %31
-  %79 = fmul float %77, %78
+  %78 = fneg float %77
+  %79 = fmul float %31, %78
   %80 = tail call float @llvm.fmuladd.f32(float %47, float %75, float %79)
   %81 = tail call noundef float @llvm.fmuladd.f32(float %34, float %72, float %80)
   %82 = fdiv float %69, %81

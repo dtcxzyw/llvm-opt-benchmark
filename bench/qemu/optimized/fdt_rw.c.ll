@@ -336,7 +336,7 @@ if.then18.i:                                      ; preds = %if.end12.i
 
 if.end:                                           ; preds = %if.then18.i, %if.end12.i
   %call2 = tail call i32 @fdt_num_mem_rsv(ptr noundef nonnull %fdt) #9
-  %cmp3.not = icmp sgt i32 %call2, %n
+  %cmp3.not = icmp slt i32 %n, %call2
   br i1 %cmp3.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end
@@ -1532,14 +1532,14 @@ if.end35:                                         ; preds = %if.end25
   %conv9.i92 = zext i8 %19 to i32
   %or10.i93 = or disjoint i32 %or7.i90, %conv9.i92
   %add42 = add i32 %add39, %or10.i93
-  %cmp44 = icmp sgt i32 %add42, %bufsize
+  %cmp44 = icmp slt i32 %bufsize, %add42
   br i1 %cmp44, label %return, label %if.end47
 
 if.end47:                                         ; preds = %if.end35
   %idx.ext48 = sext i32 %add42 to i64
   %add.ptr49 = getelementptr i8, ptr %buf, i64 %idx.ext48
   %cmp50 = icmp ugt ptr %add.ptr49, %fdt
-  %cmp52 = icmp ugt ptr %add.ptr, %buf
+  %cmp52 = icmp ult ptr %buf, %add.ptr
   %or.cond = select i1 %cmp50, i1 %cmp52, i1 false
   br i1 %or.cond, label %if.then54, label %if.end63
 

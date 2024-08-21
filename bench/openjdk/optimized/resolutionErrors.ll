@@ -155,7 +155,7 @@ _ZN20ResolutionErrorEntryC2EP6SymbolPKcS1_S3_.exit: ; preds = %_ZN6Symbol24maybe
   %59 = icmp eq ptr %7, %58
   %60 = getelementptr inbounds i8, ptr %.pr.i, i64 16
   %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %61, %1
+  %62 = icmp eq i32 %1, %61
   %63 = select i1 %59, i1 %62, i1 false
   br i1 %63, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107E18ResolutionErrorKeyP20ResolutionErrorEntryES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES9_S9_EEE11lookup_nodeEjS9_.exit.i, label %64
 
@@ -255,7 +255,7 @@ define hidden void @_ZN20ResolutionErrorTable9add_entryERK18constantPoolHandleiP
   %41 = icmp eq ptr %4, %40
   %42 = getelementptr inbounds i8, ptr %.pr.i, i64 16
   %43 = load i32, ptr %42, align 8
-  %44 = icmp eq i32 %43, %1
+  %44 = icmp eq i32 %1, %43
   %45 = select i1 %41, i1 %44, i1 false
   br i1 %45, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107E18ResolutionErrorKeyP20ResolutionErrorEntryES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES9_S9_EEE11lookup_nodeEjS9_.exit.i, label %46
 
@@ -351,7 +351,7 @@ define hidden noundef ptr @_ZN20ResolutionErrorTable10find_entryERK18constantPoo
   %39 = icmp eq ptr %3, %38
   %40 = getelementptr inbounds i8, ptr %33, i64 16
   %41 = load i32, ptr %40, align 8
-  %42 = icmp eq i32 %41, %1
+  %42 = icmp eq i32 %1, %41
   %43 = select i1 %39, i1 %42, i1 false
   br i1 %43, label %47, label %44
 

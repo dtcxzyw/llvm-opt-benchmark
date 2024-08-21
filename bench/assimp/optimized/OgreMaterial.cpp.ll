@@ -4353,7 +4353,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -4799,7 +4799,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i19
@@ -5035,7 +5035,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12
@@ -5615,7 +5615,7 @@ if.end43:                                         ; preds = %if.end
 land.lhs.true51:                                  ; preds = %if.end13, %land.lhs.true21, %if.end43
   %cmp54 = icmp eq i8 %1, 46
   %cmp60 = icmp eq i8 %1, 44
-  %or.cond17 = and i1 %cmp60, %check_comma
+  %or.cond17 = and i1 %check_comma, %cmp60
   %or.cond = or i1 %cmp54, %or.cond17
   br i1 %or.cond, label %land.lhs.true61, label %if.then69
 
@@ -5666,7 +5666,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread35,
 if.end74:                                         ; preds = %if.end43, %land.lhs.true61
   %cmp76.not = icmp eq i8 %1, 46
   %cmp82.not = icmp eq i8 %1, 44
-  %or.cond19 = and i1 %cmp82.not, %check_comma
+  %or.cond19 = and i1 %check_comma, %cmp82.not
   %or.cond23 = or i1 %cmp76.not, %or.cond19
   br i1 %or.cond23, label %if.end86, label %if.then83
 
@@ -5683,7 +5683,7 @@ if.end86:                                         ; preds = %if.then83, %if.end7
   %f.0 = phi float [ %conv85, %if.then83 ], [ 0.000000e+00, %if.end74 ]
   %cmp88 = icmp eq i8 %10, 46
   %cmp94 = icmp eq i8 %10, 44
-  %or.cond20 = and i1 %cmp94, %check_comma
+  %or.cond20 = and i1 %check_comma, %cmp94
   %or.cond24 = or i1 %cmp88, %or.cond20
   br i1 %or.cond24, label %land.lhs.true95, label %if.end114
 
@@ -6992,7 +6992,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeI13aiTextureTypeSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

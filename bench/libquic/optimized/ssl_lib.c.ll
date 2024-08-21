@@ -1778,7 +1778,7 @@ lor.lhs.false:                                    ; preds = %if.end11
   br i1 %cmp, label %err, label %if.end16
 
 if.end16:                                         ; preds = %lor.lhs.false
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %finished_len.0, i64 %max_out)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %max_out, i64 %finished_len.0)
   store i64 %spec.select, ptr %out_len, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr nonnull align 1 %finished.0, i64 %spec.select, i1 false)
   br label %return
@@ -2339,7 +2339,7 @@ if.then:                                          ; preds = %entry
   %finish_md_len = getelementptr inbounds i8, ptr %0, i64 352
   %1 = load i32, ptr %finish_md_len, align 8
   %conv = sext i32 %1 to i64
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %conv, i64 %count)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %count, i64 %conv)
   %tmp6 = getelementptr inbounds i8, ptr %0, i64 288
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 8 %tmp6, i64 %spec.select, i1 false)
   br label %if.end7
@@ -2361,7 +2361,7 @@ if.then:                                          ; preds = %entry
   %peer_finish_md_len = getelementptr inbounds i8, ptr %0, i64 420
   %1 = load i32, ptr %peer_finish_md_len, align 4
   %conv = sext i32 %1 to i64
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %conv, i64 %count)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %count, i64 %conv)
   %peer_finish_md = getelementptr inbounds i8, ptr %0, i64 356
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 4 %peer_finish_md, i64 %spec.select, i1 false)
   br label %if.end7
@@ -2683,7 +2683,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call = tail call i32 @dtls1_min_mtu() #21
-  %cmp = icmp ugt i32 %call, %mtu
+  %cmp = icmp ult i32 %mtu, %call
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -5138,7 +5138,7 @@ entry:
   br i1 %tobool.not, label %if.else42, label %if.then
 
 if.then:                                          ; preds = %entry
-  %client_version.addr.0 = tail call i16 @llvm.umax.i16(i16 %2, i16 %client_version)
+  %client_version.addr.0 = tail call i16 @llvm.umax.i16(i16 %client_version, i16 %2)
   %cmp10 = icmp ult i16 %client_version.addr.0, -258
   br i1 %cmp10, label %land.lhs.true12, label %if.else
 
@@ -5176,7 +5176,7 @@ land.lhs.true30:                                  ; preds = %land.lhs.true12, %i
 
 if.else42:                                        ; preds = %entry
   %cmp45.not.not = icmp eq i16 %2, 0
-  %8 = tail call i16 @llvm.umin.i16(i16 %2, i16 %client_version)
+  %8 = tail call i16 @llvm.umin.i16(i16 %client_version, i16 %2)
   %client_version.addr.1 = select i1 %cmp45.not.not, i16 %client_version, i16 %8
   %cmp57 = icmp ugt i16 %client_version.addr.1, 770
   br i1 %cmp57, label %land.lhs.true59, label %if.else65
@@ -5309,14 +5309,14 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp5 = icmp ugt i16 %2, %version
+  %cmp5 = icmp ult i16 %version, %2
   br i1 %cmp5, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
   %min_version = getelementptr inbounds i8, ptr %ssl, i64 6
   %3 = load i16, ptr %min_version, align 2
   %cmp9.not = icmp ne i16 %3, 0
-  %cmp15 = icmp ult i16 %3, %version
+  %cmp15 = icmp ugt i16 %version, %3
   %or.cond25 = and i1 %cmp9.not, %cmp15
   br i1 %or.cond25, label %return, label %if.end18
 
@@ -5331,14 +5331,14 @@ sw.bb22:                                          ; preds = %if.end18
 
 if.else:                                          ; preds = %entry
   %cmp31.not = icmp ne i16 %2, 0
-  %cmp37 = icmp ult i16 %2, %version
+  %cmp37 = icmp ugt i16 %version, %2
   %or.cond26 = and i1 %cmp31.not, %cmp37
   br i1 %or.cond26, label %return, label %if.end40
 
 if.end40:                                         ; preds = %if.else
   %min_version41 = getelementptr inbounds i8, ptr %ssl, i64 6
   %4 = load i16, ptr %min_version41, align 2
-  %cmp49 = icmp ugt i16 %4, %version
+  %cmp49 = icmp ult i16 %version, %4
   br i1 %cmp49, label %return, label %if.end52
 
 if.end52:                                         ; preds = %if.end40

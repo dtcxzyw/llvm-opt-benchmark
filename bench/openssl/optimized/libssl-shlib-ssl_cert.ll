@@ -151,7 +151,7 @@ if.end4:                                          ; preds = %ssl_get_security_le
   ]
 
 sw.bb:                                            ; preds = %if.end4, %if.end4, %if.end4
-  %cmp5 = icmp sgt i32 %1, %bits
+  %cmp5 = icmp slt i32 %bits, %1
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %sw.bb
@@ -240,7 +240,7 @@ sw.bb68:                                          ; preds = %if.end4
   br i1 %cmp69, label %return, label %sw.epilog
 
 sw.default:                                       ; preds = %if.end4
-  %cmp72 = icmp sgt i32 %1, %bits
+  %cmp72 = icmp slt i32 %bits, %1
   br i1 %cmp72, label %return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb68, %sw.bb64, %if.then47, %if.else, %if.end20, %land.lhs.true22, %land.lhs.true24
@@ -2739,7 +2739,7 @@ entry:
   %sigalg_list_len = getelementptr inbounds i8, ptr %ctx, i64 1632
   %0 = load i64, ptr %sigalg_list_len, align 8
   %add = add i64 %0, 9
-  %cmp.not = icmp ugt i64 %add, %idx
+  %cmp.not = icmp ult i64 %idx, %add
   br i1 %cmp.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry

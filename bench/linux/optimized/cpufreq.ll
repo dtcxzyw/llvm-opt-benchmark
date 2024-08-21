@@ -3365,7 +3365,7 @@ define dso_local i32 @cpufreq_boost_trigger_state(i32 noundef %0) local_unnamed_
   %3 = getelementptr inbounds i8, ptr %2, i64 184
   %4 = load i8, ptr %3, align 8, !range !20, !noundef !21
   %5 = zext nneg i8 %4 to i32
-  %6 = icmp eq i32 %5, %0
+  %6 = icmp eq i32 %0, %5
   br i1 %6, label %38, label %7
 
 7:                                                ; preds = %1

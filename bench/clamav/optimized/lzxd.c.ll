@@ -172,7 +172,7 @@ define range(i32 0, 4) i32 @lzxd_set_reference_data(ptr noundef %0, ptr noundef 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8
-  %14 = icmp ult i32 %13, %3
+  %14 = icmp ugt i32 %3, %13
   br i1 %14, label %33, label %15
 
 15:                                               ; preds = %11
@@ -3407,7 +3407,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef %0, i3
   %.2.us128 = phi i32 [ %.174115.us125, %.lr.ph116.split.us132 ], [ %12, %.preheader101.us129 ]
   %18 = add i16 %.087113.us126, 1
   %19 = zext i16 %18 to i32
-  %20 = icmp ult i32 %19, %0
+  %20 = icmp ugt i32 %0, %19
   br i1 %20, label %.lr.ph116.split.us132, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %..loopexit102_crit_edge.us, %.preheader101.us.us
@@ -3415,7 +3415,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef %0, i3
   %21 = lshr i32 %.0121.us, 1
   %22 = add i8 %.075118.us, 1
   %23 = zext i8 %22 to i32
-  %.not.us = icmp ugt i32 %23, %1
+  %.not.us = icmp ult i32 %1, %23
   br i1 %.not.us, label %._crit_edge123, label %.preheader103.us
 
 .lr.ph116.split.us.us:                            ; preds = %.lr.ph116.split.us.us.preheader, %.preheader101.us.us
@@ -3430,14 +3430,14 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef %0, i3
 .preheader101.us.us:                              ; preds = %.lr.ph116.split.us.us
   %27 = add i16 %.087113.us.us, 1
   %28 = zext i16 %27 to i32
-  %29 = icmp ult i32 %28, %0
+  %29 = icmp ugt i32 %0, %28
   br i1 %29, label %.lr.ph116.split.us.us, label %._crit_edge.us
 
 .preheader103:                                    ; preds = %.preheader103.lr.ph, %.preheader103
   %.075118 = phi i8 [ %30, %.preheader103 ], [ 1, %.preheader103.lr.ph ]
   %30 = add i8 %.075118, 1
   %31 = zext i8 %30 to i32
-  %.not = icmp ugt i32 %31, %1
+  %.not = icmp ult i32 %1, %31
   br i1 %.not, label %._crit_edge123, label %.preheader103
 
 ._crit_edge123:                                   ; preds = %._crit_edge.us, %.preheader103, %4
@@ -3488,7 +3488,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef %0, i3
   %.3152.us = phi i32 [ %42, %.preheader.us.preheader ], [ %.us-phi149.us, %._crit_edge146.us ]
   %.082151.us = phi i16 [ %47, %.preheader.us.preheader ], [ %.us-phi.us165, %._crit_edge146.us ]
   %umax = tail call i32 @llvm.umax.i32(i32 %indvars.iv, i32 1)
-  %.not172 = icmp eq i32 %indvars.iv180, %1
+  %.not172 = icmp eq i32 %1, %indvars.iv180
   br i1 %.not172, label %.lr.ph145.split.us164, label %.lr.ph145.split.us.us
 
 .lr.ph145.split.us164:                            ; preds = %.preheader.us, %60
@@ -3498,7 +3498,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef %0, i3
   %51 = getelementptr inbounds i8, ptr %2, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
-  %.not96.us159 = icmp eq i32 %53, %1
+  %.not96.us159 = icmp eq i32 %1, %53
   br i1 %.not96.us159, label %54, label %60
 
 54:                                               ; preds = %.lr.ph145.split.us164
@@ -3517,7 +3517,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef %0, i3
   %.5.us161 = phi i32 [ %.4144.us157, %.lr.ph145.split.us164 ], [ %59, %55 ]
   %61 = add i16 %.289142.us158, 1
   %62 = zext i16 %61 to i32
-  %63 = icmp ult i32 %62, %0
+  %63 = icmp ugt i32 %0, %62
   br i1 %63, label %.lr.ph145.split.us164, label %._crit_edge146.us
 
 ._crit_edge146.us:                                ; preds = %72, %60
@@ -3554,7 +3554,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef %0, i3
   %.5.us.us = phi i32 [ %.4144.us.us, %.lr.ph145.split.us.us ], [ %97, %._crit_edge140.us.us ]
   %73 = add i16 %.289142.us.us, 1
   %74 = zext i16 %73 to i32
-  %75 = icmp ult i32 %74, %0
+  %75 = icmp ugt i32 %0, %74
   br i1 %75, label %.lr.ph145.split.us.us, label %._crit_edge146.us
 
 76:                                               ; preds = %90, %.lr.ph139.us.us

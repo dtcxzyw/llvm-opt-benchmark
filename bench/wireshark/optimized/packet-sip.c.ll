@@ -5427,7 +5427,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 
 1366:                                             ; preds = %1336
   %1367 = load i32, ptr %1365, align 8
-  %1368 = icmp eq i32 %1367, %.013241712
+  %1368 = icmp eq i32 %.013241712, %1367
   br i1 %1368, label %1369, label %1381
 
 1369:                                             ; preds = %1366
@@ -5830,7 +5830,7 @@ proto_item_set_generated.exit1565:                ; preds = %1554, %1551, %1547,
   %1566 = load i32, ptr @ett_raw_text, align 4
   %1567 = call ptr @proto_item_add_subtree(ptr noundef %1565, i32 noundef %1566) #15
   %.fr.i = freeze ptr %1567
-  %1568 = icmp sgt i32 %.5, %.11270
+  %1568 = icmp slt i32 %.11270, %.5
   %1569 = load i32, ptr @global_sip_raw_text_body_default_encoding, align 4
   br i1 %1568, label %switch.early.test.i, label %1584
 
@@ -5862,7 +5862,7 @@ switch.early.test.i:                              ; preds = %1562
 
 1584:                                             ; preds = %1573, %1570, %switch.early.test.i, %switch.early.test.i, %1562
   %.078.i1566 = phi ptr [ %1581, %1573 ], [ null, %1570 ], [ null, %switch.early.test.i ], [ null, %1562 ], [ null, %switch.early.test.i ]
-  %1585 = icmp sgt i32 %.11270, %1
+  %1585 = icmp slt i32 %1, %.11270
   br i1 %1585, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %1584
@@ -6468,7 +6468,7 @@ define internal fastcc void @dissect_sip_generic_parameters(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @dissect_sip_history_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef returned %3) unnamed_addr #0 {
-  %5 = icmp slt i32 %2, %3
+  %5 = icmp sgt i32 %3, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %9
@@ -6485,7 +6485,7 @@ define internal fastcc noundef i32 @dissect_sip_history_info(ptr noundef %0, ptr
   %10 = sub i32 %.mux, %.0191
   %11 = tail call ptr @proto_tree_add_format_text(ptr noundef %1, ptr noundef %0, i32 noundef %.0191, i32 noundef %10) #15
   %12 = add i32 %.mux, 1
-  %13 = icmp slt i32 %12, %3
+  %13 = icmp sgt i32 %3, %12
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %9, %.lr.ph, %4
@@ -6494,7 +6494,7 @@ define internal fastcc noundef i32 @dissect_sip_history_info(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_sip_p_charging_func_addresses(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = icmp slt i32 %2, %3
+  %5 = icmp sgt i32 %3, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %24
@@ -6537,7 +6537,7 @@ define internal fastcc void @dissect_sip_p_charging_func_addresses(ptr noundef %
   %25 = sub i32 %.037.mux, %.0361
   %26 = tail call ptr @proto_tree_add_format_text(ptr noundef %1, ptr noundef %0, i32 noundef %.0361, i32 noundef %25) #15
   %27 = add i32 %.037.mux, 1
-  %28 = icmp slt i32 %27, %3
+  %28 = icmp sgt i32 %3, %27
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %24, %22, %4
@@ -7147,7 +7147,7 @@ define internal fastcc void @dissect_sip_route_header(ptr noundef %0, ptr nounde
   %.042 = phi i32 [ %9, %.preheader ], [ %20, %18 ]
   %.03441 = phi i32 [ %4, %.preheader ], [ %20, %18 ]
   %12 = xor i32 %.042, -1
-  %13 = add i32 %12, %5
+  %13 = add i32 %5, %12
   %14 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.042, i32 noundef %13, i8 noundef zeroext 44) #15
   %.not39 = icmp eq i32 %14, -1
   store i32 0, ptr %7, align 4
@@ -7844,7 +7844,7 @@ define internal fastcc void @dissect_sip_session_id_header(ptr noundef %0, ptr n
 39:                                               ; preds = %36
   %40 = add nuw i32 %25, 1
   %41 = xor i32 %25, -1
-  %42 = add i32 %41, %3
+  %42 = add i32 %3, %41
   %43 = tail call ptr @tvb_get_string_bytes(ptr noundef %0, i32 noundef %40, i32 noundef %42, i32 noundef 33619970, ptr noundef %27, ptr noundef null) #15
   %.not131 = icmp eq ptr %43, null
   br i1 %.not131, label %157, label %44
@@ -8367,7 +8367,7 @@ define internal fastcc i32 @sip_is_packet_resend(ptr noundef %0, ptr noundef %1,
 
 62:                                               ; preds = %58
   %63 = load i32, ptr %61, align 8
-  %.not110 = icmp eq i32 %63, %4
+  %.not110 = icmp eq i32 %4, %63
   br i1 %.not110, label %123, label %64
 
 64:                                               ; preds = %62
@@ -8480,7 +8480,7 @@ copy_address_wmem.exit118:                        ; preds = %copy_address_wmem.e
   %.094 = phi i32 [ %63, %71 ], [ %4, %62 ], [ 0, %120 ]
   %.093 = phi ptr [ %61, %71 ], [ %61, %62 ], [ %78, %120 ]
   %124 = icmp eq i32 %5, 0
-  %125 = icmp eq i32 %.094, %4
+  %125 = icmp eq i32 %4, %.094
   %or.cond = and i1 %124, %125
   br i1 %or.cond, label %126, label %.thread
 

@@ -8150,7 +8150,7 @@ for.body.i.i.i.i.i.i75:                           ; preds = %if.then.i70, %for.b
   br i1 %cmp.i.i.i.i.i.i81, label %for.body.i.i.i.i.i.i75, label %_ZSt30__move_merge_adaptive_backwardIPSt4pairIP3appS2_ES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt11app_pair_ltEEEEvT_SB_T0_SC_T1_T2_.exit, !llvm.loop !48
 
 if.else.i64:                                      ; preds = %_ZSt4moveIPSt4pairIP3appS2_ES4_ET0_T_S6_S5_.exit61
-  %cmp2.i65 = icmp eq ptr %__result.addr.0.lcssa.i.i.i.i.i50, %__buffer
+  %cmp2.i65 = icmp eq ptr %__buffer, %__result.addr.0.lcssa.i.i.i.i.i50
   br i1 %cmp2.i65, label %_ZSt30__move_merge_adaptive_backwardIPSt4pairIP3appS2_ES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt11app_pair_ltEEEEvT_SB_T0_SC_T1_T2_.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.else.i64
@@ -8178,7 +8178,7 @@ if.then7.i:                                       ; preds = %while.body.i68
   %second.i.i = getelementptr inbounds i8, ptr %__last1.addr.0.i.ph.pn, i64 -8
   %11 = load ptr, ptr %second.i.i, align 8
   store ptr %11, ptr %second3.i.i, align 8
-  %cmp10.i = icmp eq ptr %__last1.addr.0.i.ph, %__first
+  %cmp10.i = icmp eq ptr %__first, %__last1.addr.0.i.ph
   br i1 %cmp10.i, label %if.then11.i, label %while.body.i68.outer, !llvm.loop !61
 
 if.then11.i:                                      ; preds = %if.then7.i
@@ -8212,7 +8212,7 @@ if.else16.i:                                      ; preds = %while.body.i68
   %second.i37.i = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 8
   %15 = load ptr, ptr %second.i37.i, align 8
   store ptr %15, ptr %second3.i.i, align 8
-  %cmp19.i = icmp eq ptr %__last2.addr.0.i, %__buffer
+  %cmp19.i = icmp eq ptr %__buffer, %__last2.addr.0.i
   br i1 %cmp19.i, label %_ZSt30__move_merge_adaptive_backwardIPSt4pairIP3appS2_ES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt11app_pair_ltEEEEvT_SB_T0_SC_T1_T2_.exit, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else16.i
@@ -8621,7 +8621,7 @@ while.end:                                        ; preds = %_ZSt12__move_mergeI
   %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %__result.addr.0.lcssa.i.i.i.i.i21.i, %_ZSt12__move_mergeIPSt4pairIP3appS2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt11app_pair_ltEEEET0_T_SC_SC_SC_SB_T1_.exit ]
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr3, %_ZSt12__move_mergeIPSt4pairIP3appS2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt11app_pair_ltEEEET0_T_SC_SC_SC_SB_T1_.exit ]
   %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div91, %entry ], [ %sub.ptr.div, %_ZSt12__move_mergeIPSt4pairIP3appS2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt11app_pair_ltEEEET0_T_SC_SC_SC_SB_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa, i64 %__step_size)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %__step_size, i64 %sub.ptr.div.lcssa)
   %add.ptr12 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i16)
   store ptr %__comp.coerce, ptr %__comp.i16, align 8
@@ -12188,7 +12188,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %if.
 
 if.then6:                                         ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %tobool.not.i.i.i.i.i48 = icmp eq ptr %__middle.tr169, %__last
+  %tobool.not.i.i.i.i.i48 = icmp eq ptr %__last, %__middle.tr169
   br i1 %tobool.not.i.i.i.i.i48, label %if.end50, label %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit51.thread
 
 _ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit51.thread: ; preds = %if.then6
@@ -12255,7 +12255,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S
 
 if.then7.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i70
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr8.i, ptr noundef nonnull align 8 dereferenceable(24) %__last1.addr.0.i.ph, i64 24, i1 false)
-  %cmp9.i = icmp eq ptr %__last1.addr.0.i.ph, %__first.tr168
+  %cmp9.i = icmp eq ptr %__first.tr168, %__last1.addr.0.i.ph
   br i1 %cmp9.i, label %if.then10.i, label %while.body.i55.outer, !llvm.loop !107
 
 if.then10.i:                                      ; preds = %if.then7.i
@@ -12274,7 +12274,7 @@ if.then.i.i.i.i.i25.i:                            ; preds = %if.then10.i
 
 if.else15.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i70
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr8.i, ptr noundef nonnull align 8 dereferenceable(24) %__last2.addr.0.i, i64 24, i1 false)
-  %cmp17.i = icmp eq ptr %__last2.addr.0.i, %__buffer
+  %cmp17.i = icmp eq ptr %__buffer, %__last2.addr.0.i
   br i1 %cmp17.i, label %if.end50, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.else15.i
@@ -12728,7 +12728,7 @@ while.end.i.loopexit:                             ; preds = %if.end.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %__first1.addr.1.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %__first1.addr.1.i, %add.ptr
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr, %__first1.addr.1.i
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.loopexit
@@ -12740,7 +12740,7 @@ _ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit.i: ; preds = %if.then.i.i.i.
   %sub.ptr.lhs.cast.i.i.i.i.i14.i = ptrtoint ptr %add.ptr3 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i15.i = ptrtoint ptr %__first2.addr.1.i to i64
   %sub.ptr.sub.i.i.i.i.i16.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i14.i, %sub.ptr.rhs.cast.i.i.i.i.i15.i
-  %tobool.not.i.i.i.i.i17.i = icmp eq ptr %__first2.addr.1.i, %add.ptr3
+  %tobool.not.i.i.i.i.i17.i = icmp eq ptr %add.ptr3, %__first2.addr.1.i
   br i1 %tobool.not.i.i.i.i.i17.i, label %_ZSt12__move_mergeIP6tripleIP3appS2_S2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEET0_T_SC_SC_SC_SB_T1_.exit, label %if.then.i.i.i.i.i18.i
 
 if.then.i.i.i.i.i18.i:                            ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit.i
@@ -12758,7 +12758,7 @@ while.end:                                        ; preds = %_ZSt12__move_mergeI
   %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIP6tripleIP3appS2_S2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEET0_T_SC_SC_SC_SB_T1_.exit ]
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr3, %_ZSt12__move_mergeIP6tripleIP3appS2_S2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEET0_T_SC_SC_SC_SB_T1_.exit ]
   %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div153, %entry ], [ %sub.ptr.div, %_ZSt12__move_mergeIP6tripleIP3appS2_S2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEET0_T_SC_SC_SC_SB_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa, i64 %__step_size)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %__step_size, i64 %sub.ptr.div.lcssa)
   %add.ptr12 = getelementptr inbounds %struct.triple, ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
   %cmp22.i16 = icmp ne i64 %.sroa.speculated, 0
   %cmp223.i17 = icmp ne ptr %add.ptr12, %__last
@@ -12830,7 +12830,7 @@ while.end.i18:                                    ; preds = %if.end.i58, %while.
   %sub.ptr.lhs.cast.i.i.i.i.i.i22 = ptrtoint ptr %add.ptr12 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i23 = ptrtoint ptr %__first1.addr.0.lcssa.i20 to i64
   %sub.ptr.sub.i.i.i.i.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i22, %sub.ptr.rhs.cast.i.i.i.i.i.i23
-  %tobool.not.i.i.i.i.i.i25 = icmp eq ptr %__first1.addr.0.lcssa.i20, %add.ptr12
+  %tobool.not.i.i.i.i.i.i25 = icmp eq ptr %add.ptr12, %__first1.addr.0.lcssa.i20
   br i1 %tobool.not.i.i.i.i.i.i25, label %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit.i27, label %if.then.i.i.i.i.i.i26
 
 if.then.i.i.i.i.i.i26:                            ; preds = %while.end.i18
@@ -12838,7 +12838,7 @@ if.then.i.i.i.i.i.i26:                            ; preds = %while.end.i18
   br label %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit.i27
 
 _ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit.i27: ; preds = %if.then.i.i.i.i.i.i26, %while.end.i18
-  %tobool.not.i.i.i.i.i17.i32 = icmp eq ptr %__first2.addr.0.lcssa.i19, %__last
+  %tobool.not.i.i.i.i.i17.i32 = icmp eq ptr %__last, %__first2.addr.0.lcssa.i19
   br i1 %tobool.not.i.i.i.i.i17.i32, label %_ZSt12__move_mergeIP6tripleIP3appS2_S2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEET0_T_SC_SC_SC_SB_T1_.exit66, label %if.then.i.i.i.i.i18.i33
 
 if.then.i.i.i.i.i18.i33:                          ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit.i27

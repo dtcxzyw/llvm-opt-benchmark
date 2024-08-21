@@ -15767,7 +15767,7 @@ for.end.i:                                        ; preds = %for.cond.i, %if.end
   %228 = load ptr, ptr %stack, align 8
   %229 = getelementptr i8, ptr %228, i64 16
   %self.val.i.i806 = load i64, ptr %229, align 8
-  %cmp.not.i.i = icmp sgt i64 %self.val.i.i806, %208
+  %cmp.not.i.i = icmp slt i64 %208, %self.val.i.i806
   br i1 %cmp.not.i.i, label %while.cond.preheader.i.i, label %Pdata_clear.exit.i
 
 while.cond.preheader.i.i:                         ; preds = %for.end.i
@@ -16009,7 +16009,7 @@ lor.lhs.false14.if.then18_crit_edge.i:            ; preds = %lor.lhs.false14.i
 if.then18.i895:                                   ; preds = %lor.lhs.false14.if.then18_crit_edge.i, %if.end11.i
   %264 = phi i64 [ %.pre63.i, %lor.lhs.false14.if.then18_crit_edge.i ], [ %258, %if.end11.i ]
   %265 = phi ptr [ %.pre.i894, %lor.lhs.false14.if.then18_crit_edge.i ], [ %256, %if.end11.i ]
-  %cmp.i48.i = icmp sgt i64 %264, %249
+  %cmp.i48.i = icmp slt i64 %249, %264
   br i1 %cmp.i48.i, label %if.then.i53.i, label %if.end.i49.i
 
 if.then.i53.i:                                    ; preds = %if.then18.i895
@@ -16189,7 +16189,7 @@ if.end.i933:                                      ; preds = %marker.exit.i929
   %292 = load ptr, ptr %stack, align 8
   %fence.i12.i = getelementptr inbounds i8, ptr %292, i64 40
   %293 = load i64, ptr %fence.i12.i, align 8
-  %cmp.i13.i = icmp sgt i64 %293, %285
+  %cmp.i13.i = icmp slt i64 %285, %293
   br i1 %cmp.i13.i, label %if.then.i18.i, label %if.end.i14.i
 
 if.then.i18.i:                                    ; preds = %if.end.i933
@@ -16363,7 +16363,7 @@ if.end6.i:                                        ; preds = %if.end.i1003
   %add.i1007 = add nuw i64 %309, 1
   %fence.i25.i = getelementptr inbounds i8, ptr %316, i64 40
   %319 = load i64, ptr %fence.i25.i, align 8
-  %cmp.i26.i = icmp sgt i64 %319, %add.i1007
+  %cmp.i26.i = icmp slt i64 %add.i1007, %319
   br i1 %cmp.i26.i, label %if.then.i31.i, label %if.end.i27.i
 
 if.then.i31.i:                                    ; preds = %if.end6.i
@@ -16696,7 +16696,7 @@ if.end29.i:                                       ; preds = %Py_DECREF.exit60.i
   %360 = load ptr, ptr %stack, align 8
   %fence.i37.i = getelementptr inbounds i8, ptr %360, i64 40
   %361 = load i64, ptr %fence.i37.i, align 8
-  %cmp.i38.i = icmp sgt i64 %361, %345
+  %cmp.i38.i = icmp slt i64 %345, %361
   br i1 %cmp.i38.i, label %if.then.i43.i, label %if.end.i39.i
 
 if.then.i43.i:                                    ; preds = %if.end29.i
@@ -18011,7 +18011,7 @@ for.body6.i.i1487:                                ; preds = %for.body6.i.i1487, 
 calc_binsize.exit.i1497:                          ; preds = %for.body6.i.i1487
   %.x.0.i.i1498 = call range(i64 -1, -9223372036854775808) i64 @llvm.smax.i64(i64 %or.i.i1494, i64 -1)
   %532 = load i64, ptr %memo_size.i.i1564, align 8
-  %cmp.not.i.i1500 = icmp ugt i64 %532, %.x.0.i.i1498
+  %cmp.not.i.i1500 = icmp ult i64 %.x.0.i.i1498, %532
   br i1 %cmp.not.i.i1500, label %_Unpickler_MemoGet.exit.i1512, label %if.then7.i1501
 
 _Unpickler_MemoGet.exit.i1512:                    ; preds = %calc_binsize.exit.i1497
@@ -18131,7 +18131,7 @@ if.end8.i1561:                                    ; preds = %if.end4.i1558
 
 if.end8.split.i:                                  ; preds = %if.end8.i1561
   %546 = load i64, ptr %memo_size.i.i1564, align 8
-  %cmp.not.i.i1565 = icmp ugt i64 %546, %call9.i1562
+  %cmp.not.i.i1565 = icmp ult i64 %call9.i1562, %546
   br i1 %cmp.not.i.i1565, label %if.end13.i1575, label %if.then16.i1566
 
 land.lhs.true.i1610:                              ; preds = %if.end8.i1561
@@ -18740,7 +18740,7 @@ if.end.i1816:                                     ; preds = %marker.exit.i1812
   %643 = load ptr, ptr %stack, align 8
   %644 = getelementptr i8, ptr %643, i64 16
   %self.val.i.i1817 = load i64, ptr %644, align 8
-  %cmp.not.i.i1818 = icmp sgt i64 %self.val.i.i1817, %636
+  %cmp.not.i.i1818 = icmp slt i64 %636, %self.val.i.i1817
   br i1 %cmp.not.i.i1818, label %while.cond.preheader.i.i1820, label %while.body.backedge
 
 while.cond.preheader.i.i1820:                     ; preds = %if.end.i1816
@@ -19660,7 +19660,7 @@ define internal fastcc void @Pdata_clear(ptr nocapture noundef %self, i64 nounde
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load i64, ptr %0, align 8
-  %cmp.not = icmp sgt i64 %self.val, %clearto
+  %cmp.not = icmp slt i64 %clearto, %self.val
   br i1 %cmp.not, label %do.body.lr.ph, label %return
 
 do.body.lr.ph:                                    ; preds = %entry
@@ -20575,7 +20575,7 @@ if.end:                                           ; preds = %entry
   %sub = sub i64 %.val8, %len
   %fence.i = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %fence.i, align 8
-  %cmp.i = icmp sgt i64 %4, %sub
+  %cmp.i = icmp slt i64 %sub, %4
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -21566,7 +21566,7 @@ if.then1.i45:                                     ; preds = %if.end.i42
 
 Py_DECREF.exit47:                                 ; preds = %_Unpickler_SetStringInput.exit, %if.then1.i45, %if.end.i42
   store i64 0, ptr %prefetched_idx.i, align 8
-  %cmp24.not = icmp slt i64 %retval.0.i42, %n
+  %cmp24.not = icmp sgt i64 %n, %retval.0.i42
   br i1 %cmp24.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end17, %if.then20, %if.then1.i54, %if.end.i51, %Py_DECREF.exit47, %if.else
@@ -22180,13 +22180,13 @@ entry:
   %0 = load ptr, ptr %stack, align 8
   %1 = getelementptr i8, ptr %0, i64 16
   %.val52 = load i64, ptr %1, align 8
-  %cmp = icmp slt i64 %.val52, %x
+  %cmp = icmp sgt i64 %x, %.val52
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %fence = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load i64, ptr %fence, align 8
-  %cmp2.not = icmp slt i64 %2, %x
+  %cmp2.not = icmp sgt i64 %x, %2
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -22339,7 +22339,7 @@ if.else33:                                        ; preds = %if.end21
   br i1 %cmp35, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.else33
-  %cmp3859 = icmp sgt i64 %.val52, %x
+  %cmp3859 = icmp slt i64 %x, %.val52
   br i1 %cmp3859, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -22449,7 +22449,7 @@ define internal fastcc range(i32 -1, 1) i32 @_Unpickler_MemoPut(ptr nocapture no
 entry:
   %memo_size = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i64, ptr %memo_size, align 8
-  %cmp.not = icmp ugt i64 %0, %idx
+  %cmp.not = icmp ult i64 %idx, %0
   br i1 %cmp.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -22545,13 +22545,13 @@ entry:
   %0 = load ptr, ptr %stack, align 8
   %1 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %1, align 8
-  %cmp = icmp slt i64 %.val, %x
+  %cmp = icmp sgt i64 %x, %.val
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %fence = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load i64, ptr %fence, align 8
-  %cmp2.not = icmp slt i64 %2, %x
+  %cmp2.not = icmp sgt i64 %x, %2
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -22620,7 +22620,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %15 = phi ptr [ %0, %if.end10 ], [ %.pre, %for.end.loopexit ]
   %status.0 = phi i32 [ 0, %if.end10 ], [ %status.0.ph, %for.end.loopexit ]
   %16 = getelementptr i8, ptr %15, i64 16
-  %cmp.not.i = icmp sgt i64 %self.val.i, %x
+  %cmp.not.i = icmp slt i64 %x, %self.val.i
   br i1 %cmp.not.i, label %while.cond.preheader.i, label %return
 
 while.cond.preheader.i:                           ; preds = %for.end

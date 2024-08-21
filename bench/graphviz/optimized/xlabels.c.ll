@@ -1030,7 +1030,7 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nocaptur
   %19 = phi i32 [ %48, %lblenclosing.exit.thread ], [ 0, %.lr.ph.split.split.preheader ]
   %.0117 = phi i64 [ %49, %lblenclosing.exit.thread ], [ 0, %.lr.ph.split.split.preheader ]
   %20 = getelementptr inbounds %struct.object_t, ptr %16, i64 %.0117
-  %21 = icmp eq ptr %20, %2
+  %21 = icmp eq ptr %2, %20
   br i1 %21, label %lblenclosing.exit.thread, label %22
 
 22:                                               ; preds = %.lr.ph.split.split

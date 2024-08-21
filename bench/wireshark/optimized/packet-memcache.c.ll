@@ -1505,7 +1505,7 @@ get_response_dissector.exit:                      ; preds = %18, %20, %23, %28, 
   %130 = ptrtoint ptr %4 to i64
   %131 = sub i64 %129, %130
   %132 = trunc i64 %131 to i32
-  %133 = add i32 %132, %3
+  %133 = add i32 %3, %132
   %134 = load i32, ptr @hf_version, align 4
   %135 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %134, ptr noundef %0, i32 noundef %133, i32 noundef %126, i32 noundef 0) #8
   %136 = load ptr, ptr %16, align 8
@@ -1793,7 +1793,7 @@ sub_180:                                          ; preds = %sub_079
   %275 = ptrtoint ptr %4 to i64
   %276 = sub i64 %274, %275
   %277 = trunc i64 %276 to i32
-  %278 = add i32 %277, %3
+  %278 = add i32 %3, %277
   br label %282
 
 .thread77:                                        ; preds = %sub_180, %sub_079, %sub_0, %243, %251, %248, %.tail, %257, %254, %.tail78
@@ -1825,7 +1825,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   %17 = ptrtoint ptr %4 to i64
   %18 = sub i64 %16, %17
   %19 = trunc i64 %18 to i32
-  %20 = add i32 %19, %3
+  %20 = add i32 %3, %19
   switch i8 %6, label %.loopexit [
     i8 1, label %21
     i8 2, label %21

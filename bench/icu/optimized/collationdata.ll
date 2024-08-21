@@ -99,7 +99,7 @@ cond.false17.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false17.i
   %highStart.i = getelementptr inbounds i8, ptr %1, i64 44
   %3 = load i32, ptr %highStart.i, align 4
-  %cmp22.not.i = icmp sgt i32 %3, %c
+  %cmp22.not.i = icmp slt i32 %c, %3
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
@@ -225,7 +225,7 @@ cond.false17.i29:                                 ; preds = %if.then3
 cond.false20.i31:                                 ; preds = %cond.false17.i29
   %highStart.i32 = getelementptr inbounds i8, ptr %26, i64 44
   %33 = load i32, ptr %highStart.i32, align 4
-  %cmp22.not.i33 = icmp sgt i32 %33, %c
+  %cmp22.not.i33 = icmp slt i32 %c, %33
   br i1 %cmp22.not.i33, label %cond.false25.i39, label %cond.true23.i34
 
 cond.true23.i34:                                  ; preds = %cond.false20.i31
@@ -419,7 +419,7 @@ entry:
 if.else.i:                                        ; preds = %entry
   %numScripts.i = getelementptr inbounds i8, ptr %this, i64 100
   %0 = load i32, ptr %numScripts.i, align 4
-  %cmp2.i = icmp sgt i32 %0, %script
+  %cmp2.i = icmp slt i32 %script, %0
   br i1 %cmp2.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -473,7 +473,7 @@ entry:
 if.else:                                          ; preds = %entry
   %numScripts = getelementptr inbounds i8, ptr %this, i64 100
   %0 = load i32, ptr %numScripts, align 4
-  %cmp2 = icmp sgt i32 %0, %script
+  %cmp2 = icmp slt i32 %script, %0
   br i1 %cmp2, label %if.then3, label %if.else4
 
 if.then3:                                         ; preds = %if.else
@@ -517,7 +517,7 @@ entry:
 if.else.i:                                        ; preds = %entry
   %numScripts.i = getelementptr inbounds i8, ptr %this, i64 100
   %0 = load i32, ptr %numScripts.i, align 4
-  %cmp2.i = icmp sgt i32 %0, %script
+  %cmp2.i = icmp slt i32 %script, %0
   br i1 %cmp2.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -668,7 +668,7 @@ entry:
 if.else.i:                                        ; preds = %entry
   %numScripts.i = getelementptr inbounds i8, ptr %this, i64 100
   %1 = load i32, ptr %numScripts.i, align 4
-  %cmp2.i = icmp sgt i32 %1, %script
+  %cmp2.i = icmp slt i32 %script, %1
   br i1 %cmp2.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -1000,7 +1000,7 @@ if.end95:                                         ; preds = %while.body
   br i1 %cmp.i77, label %_ZNK6icu_7513CollationData14getScriptIndexEi.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end95
-  %cmp2.i = icmp sgt i32 %5, %30
+  %cmp2.i = icmp slt i32 %30, %5
   br i1 %cmp2.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -1066,7 +1066,7 @@ if.end112:                                        ; preds = %for.body82
   br i1 %cmp.i93, label %_ZNK6icu_7513CollationData14getScriptIndexEi.exit112, label %if.else.i94
 
 if.else.i94:                                      ; preds = %if.end112
-  %cmp2.i96 = icmp sgt i32 %5, %27
+  %cmp2.i96 = icmp slt i32 %27, %5
   br i1 %cmp2.i96, label %if.then3.i108, label %if.else4.i97
 
 if.then3.i108:                                    ; preds = %if.else.i94

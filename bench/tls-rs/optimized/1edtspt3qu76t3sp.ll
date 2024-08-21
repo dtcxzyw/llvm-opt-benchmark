@@ -1525,7 +1525,7 @@ common.resume.i:                                  ; preds = %213, %173, %57
   %82 = getelementptr inbounds i8, ptr %.sroa.0.0110.i, i64 8
   %83 = load i16, ptr %82, align 8, !noalias !308
   %84 = zext i16 %83 to i64
-  %85 = icmp eq i64 %.sroa.5.0109.i, %.sroa.8.0107.i
+  %85 = icmp eq i64 %.sroa.8.0107.i, %.sroa.5.0109.i
   br i1 %85, label %87, label %86
 
 86:                                               ; preds = %.lr.ph.i
@@ -1753,7 +1753,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h95f8a337c8ddb0bdE.exit.i17.i.i
   %186 = add nuw nsw i64 %176, 2
   %187 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 40
   %188 = add nsw i64 %.sroa.7.0.i.i, 2
-  %189 = icmp ult i64 %188, %186
+  %189 = icmp ugt i64 %186, %188
   br i1 %189, label %190, label %_ZN5alloc11collections5btree4node12slice_insert17he04a6bfe9be25271E.exit.i18.i.i
 
 190:                                              ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h95f8a337c8ddb0bdE.exit.i17.i.i
@@ -1843,7 +1843,7 @@ _ZN5alloc11collections5btree3mem7replace17hf138db0273e0eb93E.exit.i.i: ; preds =
   store ptr %210, ptr %.val9, align 8, !alias.scope !359, !noalias !356
   store i64 %219, ptr %208, align 8, !alias.scope !359, !noalias !356
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !356
-  %221 = icmp eq i64 %209, %.sroa.8.0.lcssa.i
+  %221 = icmp eq i64 %.sroa.8.0.lcssa.i, %209
   br i1 %221, label %223, label %222
 
 222:                                              ; preds = %_ZN5alloc11collections5btree3mem7replace17hf138db0273e0eb93E.exit.i.i
@@ -2078,7 +2078,7 @@ common.resume.i:                                  ; preds = %207, %168, %56
   %79 = getelementptr inbounds i8, ptr %.sroa.0.0110.i, i64 8
   %80 = load i16, ptr %79, align 8, !noalias !402
   %81 = zext i16 %80 to i64
-  %82 = icmp eq i64 %.sroa.5.0109.i, %.sroa.8.0107.i
+  %82 = icmp eq i64 %.sroa.8.0107.i, %.sroa.5.0109.i
   br i1 %82, label %84, label %83
 
 83:                                               ; preds = %.lr.ph.i
@@ -2303,7 +2303,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hda67d109c4eae166E.exit.i17.i.i
   %180 = add nuw nsw i64 %171, 2
   %181 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 24
   %182 = add nsw i64 %.sroa.7.0.i.i, 2
-  %183 = icmp ult i64 %182, %180
+  %183 = icmp ugt i64 %180, %182
   br i1 %183, label %184, label %_ZN5alloc11collections5btree4node12slice_insert17h66dd253e5f3b216eE.exit.i18.i.i
 
 184:                                              ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hda67d109c4eae166E.exit.i17.i.i
@@ -2393,7 +2393,7 @@ _ZN5alloc11collections5btree3mem7replace17h1d989b6563ad2b29E.exit.i.i: ; preds =
   store ptr %204, ptr %.val9, align 8, !alias.scope !453, !noalias !450
   store i64 %213, ptr %202, align 8, !alias.scope !453, !noalias !450
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !450
-  %215 = icmp eq i64 %203, %.sroa.8.0.lcssa.i
+  %215 = icmp eq i64 %.sroa.8.0.lcssa.i, %203
   br i1 %215, label %217, label %216
 
 216:                                              ; preds = %_ZN5alloc11collections5btree3mem7replace17h1d989b6563ad2b29E.exit.i.i
@@ -4151,7 +4151,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !4
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -4232,8 +4232,8 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   br label %78
 
 84:                                               ; preds = %78
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload14.i18 = load i16, ptr %86, align 1, !alias.scope !609
   %87 = zext i16 %.0.copyload14.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -5102,7 +5102,7 @@ define hidden void @"_ZN118_$LT$rustls..msgs..message..outbound..PrefixedPayload
   %9 = load i64, ptr %8, align 8, !alias.scope !705, !noundef !4
   %10 = load i64, ptr %0, align 8, !alias.scope !708, !noundef !4
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %7
+  %12 = icmp ugt i64 %7, %11
   br i1 %12, label %13, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hd1df5eb6d4c95839E.exit"
 
 13:                                               ; preds = %3
@@ -5128,7 +5128,7 @@ define hidden void @"_ZN118_$LT$rustls..msgs..message..outbound..PrefixedPayload
   %5 = load i64, ptr %4, align 8, !alias.scope !711, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !714, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hd1df5eb6d4c95839E.exit"
 
 9:                                                ; preds = %3

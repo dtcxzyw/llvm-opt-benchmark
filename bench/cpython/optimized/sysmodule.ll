@@ -2231,7 +2231,7 @@ if.end:                                           ; preds = %entry
   %_finalizing.i = getelementptr inbounds i8, ptr %1, i64 320
   %2 = load atomic i64, ptr %_finalizing.i monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  %cmp.not = icmp eq ptr %3, %ts
+  %cmp.not = icmp eq ptr %ts, %3
   br i1 %cmp.not, label %if.end3, label %while.end
 
 if.end3:                                          ; preds = %if.end
@@ -7246,8 +7246,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1923 = phi i64 [ %cond18, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1923, %add
+  %add = sub i64 0, %cond1923
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end

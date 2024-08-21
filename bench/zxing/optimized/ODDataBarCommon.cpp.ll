@@ -64,7 +64,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit.preheader: ; pre
   %27 = sub nsw i32 %26, %16
   %..i = tail call i32 @llvm.smax.i32(i32 %27, i32 %16)
   %.37.i = tail call i32 @llvm.smin.i32(i32 %27, i32 %16)
-  %28 = icmp slt i32 %..i, %26
+  %28 = icmp sgt i32 %26, %..i
   br i1 %28, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %33, %24
@@ -115,7 +115,7 @@ _ZN5ZXing4OneD7DataBarL7combinsEii.exit:          ; preds = %.lr.ph45.i, %.prehe
   %42 = sub nsw i32 %41, %16
   %..i71 = tail call i32 @llvm.smax.i32(i32 %42, i32 %16)
   %.37.i72 = tail call i32 @llvm.smin.i32(i32 %42, i32 %16)
-  %43 = icmp slt i32 %..i71, %41
+  %43 = icmp sgt i32 %41, %..i71
   br i1 %43, label %.lr.ph.i82, label %.preheader.i73
 
 .preheader.i73:                                   ; preds = %48, %40
@@ -174,7 +174,7 @@ _ZN5ZXing4OneD7DataBarL7combinsEii.exit89:        ; preds = %.lr.ph45.i77, %.pre
   %60 = sub nsw i32 %59, %20
   %..i90 = tail call i32 @llvm.smax.i32(i32 %60, i32 %20)
   %.37.i91 = tail call i32 @llvm.smin.i32(i32 %60, i32 %20)
-  %61 = icmp slt i32 %..i90, %59
+  %61 = icmp sgt i32 %59, %..i90
   br i1 %61, label %.lr.ph.i101, label %.preheader.i92
 
 .preheader.i92:                                   ; preds = %66, %.lr.ph
@@ -381,7 +381,7 @@ define void @_ZN5ZXing4OneD7DataBar16EstimatePositionERKNS1_4PairES4_(ptr dead_o
 _ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit: ; preds = %3
   %16 = add nsw i32 %13, %11
   %17 = sdiv i32 %16, 2
-  %18 = icmp sgt i32 %17, %.val
+  %18 = icmp slt i32 %.val, %17
   br i1 %18, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread, label %19
 
 19:                                               ; preds = %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit
@@ -454,7 +454,7 @@ define noundef i32 @_ZN5ZXing4OneD7DataBar17EstimateLineCountERKNS1_4PairES4_(pt
   %.val = load i32, ptr %19, align 4
   %20 = add nsw i32 %15, %13
   %21 = sdiv i32 %20, 2
-  %22 = icmp sgt i32 %21, %.val
+  %22 = icmp slt i32 %.val, %21
   %23 = zext i1 %22 to i32
   br label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit
 

@@ -138,7 +138,7 @@ if.end10.i:                                       ; preds = %if.then8.i, %while.
 if.end11:                                         ; preds = %while.cond.i, %if.end.i, %if.end4
   %8 = load i32, ptr %size, align 8
   %conv = zext i32 %8 to i64
-  %cmp13 = icmp ugt i64 %conv, %len
+  %cmp13 = icmp ult i64 %len, %conv
   %strm = getelementptr inbounds i8, ptr %state, i64 128
   %avail_in = getelementptr inbounds i8, ptr %state, i64 136
   br i1 %cmp13, label %do.body.preheader, label %if.else
@@ -1136,13 +1136,13 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
 if.end6:                                          ; preds = %lor.lhs.false4
   %level7 = getelementptr inbounds i8, ptr %file, i64 88
   %3 = load i32, ptr %level7, align 8
-  %cmp8 = icmp eq i32 %3, %level
+  %cmp8 = icmp eq i32 %level, %3
   br i1 %cmp8, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %if.end6
   %strategy9 = getelementptr inbounds i8, ptr %file, i64 92
   %4 = load i32, ptr %strategy9, align 4
-  %cmp10 = icmp eq i32 %4, %strategy
+  %cmp10 = icmp eq i32 %strategy, %4
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %land.lhs.true, %if.end6

@@ -172,7 +172,7 @@ define i32 @cli_scangpt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 21:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %3)
   %22 = add i64 %.092, -66
-  %or.cond.not.i = icmp ugt i64 %18, %22
+  %or.cond.not.i = icmp ult i64 %22, %18
   br i1 %or.cond.not.i, label %23, label %gpt_check_mbr.exit
 
 23:                                               ; preds = %21
@@ -242,7 +242,7 @@ gpt_check_mbr.exit:                               ; preds = %21, %23, %fmap_read
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 88
   %42 = load i64, ptr %41, align 8
-  %or.cond.not = icmp ugt i64 %42, %.092
+  %or.cond.not = icmp ult i64 %.092, %42
   br i1 %or.cond.not, label %43, label %fmap_readn.exit.thread
 
 43:                                               ; preds = %.loopexit
@@ -275,7 +275,7 @@ fmap_readn.exit.thread:                           ; preds = %43, %.loopexit, %fm
   %52 = load ptr, ptr %7, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 88
   %54 = load i64, ptr %53, align 8
-  %or.cond101.not = icmp ugt i64 %54, %49
+  %or.cond101.not = icmp ult i64 %49, %54
   br i1 %or.cond101.not, label %55, label %fmap_readn.exit85.thread
 
 55:                                               ; preds = %51
@@ -311,7 +311,7 @@ fmap_readn.exit85.thread:                         ; preds = %55, %51, %fmap_read
   %64 = load ptr, ptr %7, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 88
   %66 = load i64, ptr %65, align 8
-  %or.cond102.not = icmp ugt i64 %66, %49
+  %or.cond102.not = icmp ult i64 %49, %66
   br i1 %or.cond102.not, label %67, label %.sink.split
 
 67:                                               ; preds = %63
@@ -641,7 +641,7 @@ define internal fastcc i32 @gpt_partition_intersection(ptr noundef %0, ptr nocap
   %29 = load ptr, ptr %7, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 88
   %31 = load i64, ptr %30, align 8
-  %or.cond38.not = icmp ugt i64 %31, %.01940
+  %or.cond38.not = icmp ult i64 %.01940, %31
   br i1 %or.cond38.not, label %32, label %fmap_readn.exit.thread
 
 32:                                               ; preds = %28
@@ -838,7 +838,7 @@ define internal fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr nocapture no
   %114 = load ptr, ptr %62, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 88
   %116 = load i64, ptr %115, align 8
-  %or.cond62.not = icmp ugt i64 %116, %.03766
+  %or.cond62.not = icmp ult i64 %.03766, %116
   br i1 %or.cond62.not, label %117, label %fmap_readn.exit.thread
 
 117:                                              ; preds = %113

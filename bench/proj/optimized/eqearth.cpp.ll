@@ -171,7 +171,7 @@ define internal { double, double } @_ZL17eqearth_e_forward5PJ_LPP8PJconsts(doubl
   %26 = fmul double %25, %25
   %27 = fmul double %25, %26
   %28 = tail call double @cos(double noundef %24) #7
-  %29 = fmul double %28, %0
+  %29 = fmul double %0, %28
   %30 = tail call double @llvm.fmuladd.f64(double %25, double 0xBFCF250B524399B2, double 0x3FF571B8AA00192A)
   %31 = tail call double @llvm.fmuladd.f64(double %25, double 3.416400e-02, double 0x3F799AA60913A4F9)
   %32 = tail call double @llvm.fmuladd.f64(double %27, double %31, double %30)

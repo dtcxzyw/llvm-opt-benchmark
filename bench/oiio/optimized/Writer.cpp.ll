@@ -1190,7 +1190,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul13 = mul i32 %mul12, %call10
   %idx.ext = zext i32 %mul13 to i64
   %add.ptr = getelementptr i8, ptr %src_buf, i64 %idx.ext
-  %mul14 = mul i32 %0, %eolnPad
+  %mul14 = mul i32 %eolnPad, %0
   %idx.ext15 = zext i32 %mul14 to i64
   %add.ptr16 = getelementptr i8, ptr %add.ptr, i64 %idx.ext15
   switch i32 %src_size, label %if.end23 [
@@ -1440,7 +1440,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul13 = mul i32 %mul12, %call10
   %idx.ext = zext i32 %mul13 to i64
   %add.ptr = getelementptr i8, ptr %src_buf, i64 %idx.ext
-  %mul14 = mul i32 %4, %eolnPad
+  %mul14 = mul i32 %eolnPad, %4
   %idx.ext15 = zext i32 %mul14 to i64
   %add.ptr16 = getelementptr i8, ptr %add.ptr, i64 %idx.ext15
   switch i32 %src_size, label %if.end23 [
@@ -1838,7 +1838,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul13 = mul i32 %mul12, %call10
   %idx.ext = zext i32 %mul13 to i64
   %add.ptr = getelementptr inbounds i8, ptr %src_buf, i64 %idx.ext
-  %mul14 = mul i32 %4, %eolnPad
+  %mul14 = mul i32 %eolnPad, %4
   %idx.ext15 = zext i32 %mul14 to i64
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext15
   %spec.select125 = select i1 %rle, ptr %call, ptr %add.ptr16
@@ -2170,7 +2170,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul13 = mul i32 %mul12, %call10
   %idx.ext = zext i32 %mul13 to i64
   %add.ptr = getelementptr i8, ptr %src_buf, i64 %idx.ext
-  %mul14 = mul i32 %3, %eolnPad
+  %mul14 = mul i32 %eolnPad, %3
   %idx.ext15 = zext i32 %mul14 to i64
   %add.ptr16 = getelementptr i8, ptr %add.ptr, i64 %idx.ext15
   switch i32 %src_size, label %if.end23 [
@@ -2443,7 +2443,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul13 = mul i32 %mul12, %call10
   %idx.ext = zext i32 %mul13 to i64
   %add.ptr = getelementptr inbounds i8, ptr %src_buf, i64 %idx.ext
-  %mul14 = mul i32 %3, %eolnPad
+  %mul14 = mul i32 %eolnPad, %3
   %idx.ext15 = zext i32 %mul14 to i64
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext15
   %spec.select = select i1 %rle, ptr %call, ptr %add.ptr16
@@ -2657,7 +2657,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul13 = mul i32 %mul12, %call10
   %idx.ext = zext i32 %mul13 to i64
   %add.ptr = getelementptr i8, ptr %src_buf, i64 %idx.ext
-  %mul14 = mul i32 %4, %eolnPad
+  %mul14 = mul i32 %eolnPad, %4
   %idx.ext15 = zext i32 %mul14 to i64
   %add.ptr16 = getelementptr i8, ptr %add.ptr, i64 %idx.ext15
   switch i32 %src_size, label %if.end23 [
@@ -2845,7 +2845,7 @@ if.end37.loopexit.us.us:                          ; preds = %for.body.i.i22.i.us
   br i1 %cmp.i.us.us, label %if.end46.us.us, label %delete.notnull.sink.split
 
 for.body.lr.ph.split.us.split:                    ; preds = %for.body.lr.ph.split.us
-  %invariant.op62 = add i32 %1, %eolnPad
+  %invariant.op62 = add i32 %eolnPad, %1
   %9 = mul i32 %invariant.op62, %height
   br label %for.body.us
 
@@ -2920,7 +2920,7 @@ if.end46.us51:                                    ; preds = %for.body.us42
   br i1 %exitcond76.not, label %delete.notnull, label %for.body.us42, !llvm.loop !29
 
 for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.split
-  %invariant.op = add i32 %1, %eolnPad
+  %invariant.op = add i32 %eolnPad, %1
   %18 = mul i32 %invariant.op, %height
   br label %for.body
 
@@ -3050,7 +3050,7 @@ if.end30.loopexit.us.us:                          ; preds = %_ZN3dpx9SwapBytesIj
   br i1 %cmp.i.us.us, label %if.end39.us.us, label %delete.notnull.sink.split
 
 for.body.lr.ph.split.us.split:                    ; preds = %for.body.lr.ph.split.us
-  %invariant.op61 = add i32 %1, %eolnPad
+  %invariant.op61 = add i32 %eolnPad, %1
   %9 = mul i32 %invariant.op61, %height
   br label %for.body.us
 
@@ -3138,7 +3138,7 @@ if.end39.us50:                                    ; preds = %for.body.us41
   br i1 %exitcond75.not, label %delete.notnull, label %for.body.us41, !llvm.loop !30
 
 for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.split
-  %invariant.op = add i32 %1, %eolnPad
+  %invariant.op = add i32 %eolnPad, %1
   %18 = mul i32 %invariant.op, %height
   br label %for.body
 
@@ -3226,7 +3226,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul8 = mul i32 %mul7, %call5
   %idx.ext = zext i32 %mul8 to i64
   %add.ptr = getelementptr i8, ptr %src_buf, i64 %idx.ext
-  %mul9 = mul i32 %4, %eolnPad
+  %mul9 = mul i32 %eolnPad, %4
   %idx.ext10 = zext i32 %mul9 to i64
   %add.ptr11 = getelementptr i8, ptr %add.ptr, i64 %idx.ext10
   switch i32 %src_size, label %if.end [
@@ -3439,7 +3439,7 @@ if.end30.loopexit.us.us:                          ; preds = %_ZN3dpx9SwapBytesIj
   br i1 %cmp.i.us.us, label %if.end39.us.us, label %delete.notnull.sink.split
 
 for.body.lr.ph.split.us.split:                    ; preds = %for.body.lr.ph.split.us
-  %invariant.op61 = add i32 %1, %eolnPad
+  %invariant.op61 = add i32 %eolnPad, %1
   %9 = mul i32 %invariant.op61, %height
   br label %for.body.us
 
@@ -3527,7 +3527,7 @@ if.end39.us50:                                    ; preds = %for.body.us41
   br i1 %exitcond75.not, label %delete.notnull, label %for.body.us41, !llvm.loop !35
 
 for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.split
-  %invariant.op = add i32 %1, %eolnPad
+  %invariant.op = add i32 %eolnPad, %1
   %18 = mul i32 %invariant.op, %height
   br label %for.body
 
@@ -3617,7 +3617,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul8 = mul i32 %mul7, %call5
   %idx.ext = zext i32 %mul8 to i64
   %add.ptr = getelementptr i8, ptr %src_buf, i64 %idx.ext
-  %mul9 = mul i32 %4, %eolnPad
+  %mul9 = mul i32 %eolnPad, %4
   %idx.ext10 = zext i32 %mul9 to i64
   %add.ptr11 = getelementptr i8, ptr %add.ptr, i64 %idx.ext10
   switch i32 %src_size, label %if.end [

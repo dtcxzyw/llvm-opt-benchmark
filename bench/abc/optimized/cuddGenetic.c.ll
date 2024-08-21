@@ -234,7 +234,7 @@ define i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed
   %105 = trunc nsw i64 %99 to i32
   store i32 1, ptr %104, align 4
   %106 = load ptr, ptr %89, align 8
-  %107 = add nsw i32 %105, %1
+  %107 = add nsw i32 %1, %105
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i32, ptr %106, i64 %108
   %110 = load i32, ptr %109, align 4

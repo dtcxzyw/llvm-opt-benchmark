@@ -633,7 +633,7 @@ define dso_local void @PortalSetResultFormat(ptr nocapture noundef %0, i32 nound
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %7
-  %.not = icmp eq i32 %8, %1
+  %.not = icmp eq i32 %1, %8
   br i1 %.not, label %21, label %17
 
 17:                                               ; preds = %16
@@ -1440,7 +1440,7 @@ define internal fastcc i64 @DoPortalRunFetch(ptr nocapture noundef %0, i32 nound
   %23 = and i8 %22, 1
   %24 = zext nneg i8 %23 to i64
   %spec.select94 = add nuw nsw i64 %13, %24
-  %.not88 = icmp ult i64 %spec.select94, %2
+  %.not88 = icmp ugt i64 %2, %spec.select94
   br i1 %.not88, label %29, label %25
 
 25:                                               ; preds = %20
@@ -1452,12 +1452,12 @@ define internal fastcc i64 @DoPortalRunFetch(ptr nocapture noundef %0, i32 nound
 
 29:                                               ; preds = %20
   %30 = add nuw nsw i64 %spec.select94, 1
-  %31 = icmp ult i64 %30, %2
+  %31 = icmp ugt i64 %2, %30
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %29
   %33 = xor i64 %spec.select94, -1
-  %34 = add nsw i64 %33, %2
+  %34 = add nsw i64 %2, %33
   %35 = load ptr, ptr @None_Receiver, align 8
   %36 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %34, ptr noundef %35)
   br label %37
@@ -1797,7 +1797,7 @@ define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef %7) #10
   %43 = add nuw i64 %.1, 1
-  %44 = icmp eq i64 %43, %2
+  %44 = icmp eq i64 %2, %43
   br i1 %44, label %.loopexit, label %.split
 
 .loopexit:                                        ; preds = %36, %.split, %39, %23, %.lr.ph, %.split.us, %4

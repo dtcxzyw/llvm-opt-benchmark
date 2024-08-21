@@ -947,7 +947,7 @@ define hidden void @_ZN10vfs_notify11NotifyActor3run17h62ca90388ebb12efE(ptr noa
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %35), !noalias !139
   %149 = load ptr, ptr %82, align 8, !alias.scope !146, !noalias !149, !noundef !5
-  %150 = icmp eq ptr %149, %73
+  %150 = icmp eq ptr %73, %149
   br i1 %150, label %156, label %151
 
 151:                                              ; preds = %148
@@ -1027,7 +1027,7 @@ define hidden void @_ZN10vfs_notify11NotifyActor3run17h62ca90388ebb12efE(ptr noa
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %33), !noalias !139
   %168 = load ptr, ptr %80, align 8, !alias.scope !161, !noalias !164, !noundef !5
-  %169 = icmp eq ptr %168, %..020.i
+  %169 = icmp eq ptr %..020.i, %168
   br i1 %169, label %175, label %170
 
 170:                                              ; preds = %167

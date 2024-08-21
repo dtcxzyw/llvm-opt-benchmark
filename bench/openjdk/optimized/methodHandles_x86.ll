@@ -480,7 +480,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit85: ; preds = %_ZN12Disa
   %75 = load i8, ptr @VerifyMethodHandles, align 1
   %76 = trunc i8 %75 to i1
   %.not = xor i1 %76, true
-  %brmerge = or i1 %.not, %4
+  %brmerge = or i1 %4, %.not
   br i1 %brmerge, label %124, label %77
 
 77:                                               ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit85

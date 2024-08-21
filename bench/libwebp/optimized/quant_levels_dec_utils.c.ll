@@ -182,7 +182,7 @@ CountLevels.exit.i:                               ; preds = %68
   %94 = udiv i32 262144, %40
   store i16 0, ptr %70, align 2
   %95 = icmp sgt i32 %.sroa.49.1, 2
-  %96 = icmp slt i32 %19, %2
+  %96 = icmp sgt i32 %2, %19
   %or.cond99 = select i1 %95, i1 %96, i1 false
   br i1 %or.cond99, label %.lr.ph.preheader.i.lr.ph, label %.loopexit
 

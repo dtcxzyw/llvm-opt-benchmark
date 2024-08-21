@@ -284,7 +284,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %3 = and i16 %0, 16
   %4 = icmp eq i16 %3, 0
-  %cmp12 = xor i1 %4, %internal
+  %cmp12 = xor i1 %internal, %4
   br i1 %cmp12, label %return, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %land.lhs.true, %if.then

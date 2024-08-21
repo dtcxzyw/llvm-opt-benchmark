@@ -334,7 +334,7 @@ if.end66:                                         ; preds = %if.end, %land.lhs.t
   %arrayidx69 = getelementptr inbounds [101 x i16], ptr %chain, i64 0, i64 %idxprom68
   %cref.0.in104 = load i16, ptr %arrayidx69, align 2
   %cref.0105 = zext i16 %cref.0.in104 to i32
-  %cmp71106 = icmp ugt i32 %cref.0105, %ref
+  %cmp71106 = icmp ult i32 %ref, %cref.0105
   br i1 %cmp71106, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end66
@@ -348,7 +348,7 @@ while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
   %arrayidx76.us111 = getelementptr inbounds %union.IRIns, ptr %1, i64 %idxprom75.us110
   %17 = load i16, ptr %arrayidx76.us111, align 8
   %conv78.us112 = zext i16 %17 to i32
-  %cmp79.us113 = icmp eq i32 %conv78.us112, %ref
+  %cmp79.us113 = icmp eq i32 %ref, %conv78.us112
   br i1 %cmp79.us113, label %if.then107, label %if.end111.us.preheader
 
 if.end111.us.preheader:                           ; preds = %while.body.lr.ph.split.us
@@ -360,7 +360,7 @@ while.body.us:                                    ; preds = %if.end111.us
   %arrayidx76.us = getelementptr inbounds %union.IRIns, ptr %1, i64 %idxprom75.us
   %18 = load i16, ptr %arrayidx76.us, align 8
   %conv78.us = zext i16 %18 to i32
-  %cmp79.us = icmp eq i32 %conv78.us, %ref
+  %cmp79.us = icmp eq i32 %ref, %conv78.us
   br i1 %cmp79.us, label %if.then107, label %if.end111.us, !llvm.loop !5
 
 if.end111.us:                                     ; preds = %if.end111.us.preheader, %while.body.us
@@ -368,7 +368,7 @@ if.end111.us:                                     ; preds = %if.end111.us.prehea
   %gep = getelementptr inbounds %union.IRIns, ptr %invariant.gep, i64 %19
   %cref.0.in.us = load i16, ptr %gep, align 2
   %cref.0.us = zext i16 %cref.0.in.us to i32
-  %cmp71.us = icmp ugt i32 %cref.0.us, %ref
+  %cmp71.us = icmp ult i32 %ref, %cref.0.us
   br i1 %cmp71.us, label %while.body.us, label %while.end, !llvm.loop !5
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end111
@@ -378,7 +378,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx76 = getelementptr inbounds %union.IRIns, ptr %1, i64 %idxprom75
   %20 = load i16, ptr %arrayidx76, align 8
   %conv78 = zext i16 %20 to i32
-  %cmp79 = icmp eq i32 %conv78, %ref
+  %cmp79 = icmp eq i32 %ref, %conv78
   br i1 %cmp79, label %land.lhs.true81, label %if.end111
 
 land.lhs.true81:                                  ; preds = %while.body
@@ -411,7 +411,7 @@ if.end111:                                        ; preds = %land.lhs.true95, %l
   %prev = getelementptr inbounds i8, ptr %arrayidx76, i64 6
   %cref.0.in = load i16, ptr %prev, align 2
   %cref.0 = zext i16 %cref.0.in to i32
-  %cmp71 = icmp ugt i32 %cref.0, %ref
+  %cmp71 = icmp ult i32 %ref, %cref.0
   br i1 %cmp71, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end111, %if.end111.us, %if.end66
@@ -684,7 +684,7 @@ entry:
   %1 = load i8, ptr %o, align 1
   %conv3 = zext i8 %1 to i32
   %cmp = icmp ult i8 %1, 53
-  %cmp5.not = icmp sgt i32 %conv3, %lastop
+  %cmp5.not = icmp slt i32 %lastop, %conv3
   %or.cond = or i1 %cmp, %cmp5.not
   br i1 %or.cond, label %if.else30, label %if.then
 

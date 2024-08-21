@@ -3491,7 +3491,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit33:               ; preds = %if.then.i.i31, %if.
   %sub.ptr.lhs.cast.i7.i38 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i39 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i9.i40 = sub i64 %sub.ptr.lhs.cast.i7.i38, %sub.ptr.rhs.cast.i8.i39
-  %cmp.i.i41 = icmp ult i64 %sub.ptr.sub.i9.i40, %call.i.i35
+  %cmp.i.i41 = icmp ugt i64 %call.i.i35, %sub.ptr.sub.i9.i40
   br i1 %cmp.i.i41, label %if.then.i.i47, label %if.then4.i.i44
 
 if.then.i.i47:                                    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit33
@@ -3622,7 +3622,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %5 = phi i64 [ %0, %entry.if.end_crit_edge ], [ %.sroa.speculated.i, %if.then.i ], [ %.sroa.speculated.i, %_ZN4llvh9BitVector4growEj.exit ]
   %6 = phi i32 [ %.pre, %entry.if.end_crit_edge ], [ %2, %if.then.i ], [ %2, %_ZN4llvh9BitVector4growEj.exit ]
   %Size = getelementptr inbounds i8, ptr %this, i64 16
-  %cmp7 = icmp ult i32 %6, %N
+  %cmp7 = icmp ugt i32 %N, %6
   br i1 %cmp7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end
@@ -3679,7 +3679,7 @@ if.else.i:                                        ; preds = %if.then8.i
 if.end10:                                         ; preds = %if.else.i, %if.end.i, %if.end
   %14 = phi i32 [ %.pre19, %if.else.i ], [ %9, %if.end.i ], [ %6, %if.end ]
   store i32 %N, ptr %Size, align 8
-  %cmp14 = icmp ugt i32 %14, %N
+  %cmp14 = icmp ult i32 %N, %14
   %or.cond = select i1 %t, i1 true, i1 %cmp14
   br i1 %or.cond, label %if.then15, label %if.end16
 
@@ -3882,7 +3882,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12

@@ -1602,7 +1602,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6google8prot
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -1666,7 +1666,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZN6google8proto
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -1957,7 +1957,7 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIbE8CapacityEv(p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE6ResizeEiRKb(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %0, align 8
-  %5 = icmp slt i32 %4, %1
+  %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPbbEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
@@ -2078,7 +2078,7 @@ _ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   br label %_ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS2_.exit
-  %45 = icmp eq ptr %3, %1
+  %45 = icmp eq ptr %1, %3
   br i1 %45, label %_ZN6google8protobuf13RepeatedFieldIbE15UnsafeArenaSwapEPS2_.exit, label %46
 
 46:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit
@@ -2852,7 +2852,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -2916,7 +2916,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -3200,7 +3200,7 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE8CapacityEv(p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE6ResizeEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %0, align 8
-  %5 = icmp slt i32 %4, %1
+  %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
@@ -3328,7 +3328,7 @@ _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   br label %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit
-  %47 = icmp eq ptr %3, %1
+  %47 = icmp eq ptr %1, %3
   br i1 %47, label %_ZN6google8protobuf13RepeatedFieldIiE15UnsafeArenaSwapEPS2_.exit, label %48
 
 48:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit
@@ -4101,7 +4101,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -4165,7 +4165,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -4449,7 +4449,7 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIjE8CapacityEv(p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE6ResizeEiRKj(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %0, align 8
-  %5 = icmp slt i32 %4, %1
+  %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
@@ -4577,7 +4577,7 @@ _ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   br label %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit
-  %47 = icmp eq ptr %3, %1
+  %47 = icmp eq ptr %1, %3
   br i1 %47, label %_ZN6google8protobuf13RepeatedFieldIjE15UnsafeArenaSwapEPS2_.exit, label %48
 
 48:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit
@@ -5350,7 +5350,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -5414,7 +5414,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -5698,7 +5698,7 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE8CapacityEv(p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE6ResizeEiRKl(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %0, align 8
-  %5 = icmp slt i32 %4, %1
+  %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPllEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
@@ -5826,7 +5826,7 @@ _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   br label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit
-  %47 = icmp eq ptr %3, %1
+  %47 = icmp eq ptr %1, %3
   br i1 %47, label %_ZN6google8protobuf13RepeatedFieldIlE15UnsafeArenaSwapEPS2_.exit, label %48
 
 48:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
@@ -6599,7 +6599,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -6663,7 +6663,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -6947,7 +6947,7 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldImE8CapacityEv(p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE6ResizeEiRKm(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %0, align 8
-  %5 = icmp slt i32 %4, %1
+  %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
@@ -7075,7 +7075,7 @@ _ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   br label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit
-  %47 = icmp eq ptr %3, %1
+  %47 = icmp eq ptr %1, %3
   br i1 %47, label %_ZN6google8protobuf13RepeatedFieldImE15UnsafeArenaSwapEPS2_.exit, label %48
 
 48:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
@@ -7848,7 +7848,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -7912,7 +7912,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -8196,7 +8196,7 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE8CapacityEv(p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE6ResizeEiRKf(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %0, align 8
-  %5 = icmp slt i32 %4, %1
+  %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPffEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
@@ -8324,7 +8324,7 @@ _ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   br label %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit
-  %47 = icmp eq ptr %3, %1
+  %47 = icmp eq ptr %1, %3
   br i1 %47, label %_ZN6google8protobuf13RepeatedFieldIfE15UnsafeArenaSwapEPS2_.exit, label %48
 
 48:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit
@@ -9097,7 +9097,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -9161,7 +9161,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
 
 .critedge:                                        ; preds = %2, %11
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %.critedge14, label %13
 
 13:                                               ; preds = %.critedge
@@ -9445,7 +9445,7 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIdE8CapacityEv(p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE6ResizeEiRKd(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %0, align 8
-  %5 = icmp slt i32 %4, %1
+  %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPddEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
@@ -9573,7 +9573,7 @@ _ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   br label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit
-  %47 = icmp eq ptr %3, %1
+  %47 = icmp eq ptr %1, %3
   br i1 %47, label %_ZN6google8protobuf13RepeatedFieldIdE15UnsafeArenaSwapEPS2_.exit, label %48
 
 48:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
@@ -10364,7 +10364,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 .thread:                                          ; preds = %..thread_crit_edge, %16
   %20 = phi i32 [ %.pre11, %..thread_crit_edge ], [ %7, %16 ]
   %21 = phi i32 [ %.pre, %..thread_crit_edge ], [ %8, %16 ]
-  %.not9 = icmp sgt i32 %20, %21
+  %.not9 = icmp slt i32 %21, %20
   br i1 %.not9, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit, label %22
 
 22:                                               ; preds = %.thread
@@ -10474,7 +10474,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3Add
 .thread:                                          ; preds = %..thread_crit_edge, %17
   %21 = phi i32 [ %.pre9, %..thread_crit_edge ], [ %7, %17 ]
   %22 = phi i32 [ %.pre, %..thread_crit_edge ], [ %8, %17 ]
-  %.not7 = icmp sgt i32 %21, %22
+  %.not7 = icmp slt i32 %22, %21
   br i1 %.not7, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit, label %23
 
 23:                                               ; preds = %.thread
@@ -10590,7 +10590,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google
 .critedge:                                        ; preds = %2, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
-  %.not = icmp sgt i32 %13, %1
+  %.not = icmp slt i32 %1, %13
   br i1 %.not, label %.critedge14, label %14
 
 14:                                               ; preds = %.critedge
@@ -10663,7 +10663,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8
 .critedge:                                        ; preds = %2, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
-  %.not = icmp sgt i32 %13, %1
+  %.not = icmp slt i32 %1, %13
   br i1 %.not, label %.critedge14, label %14
 
 14:                                               ; preds = %.critedge
@@ -10847,7 +10847,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = icmp slt i32 %4, %1
+  %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
 
 6:                                                ; preds = %2
@@ -10863,7 +10863,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %2,
 define void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = icmp slt i32 %4, %1
+  %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
@@ -11352,7 +11352,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase23Un
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.phi.trans.insert6 = getelementptr inbounds i8, ptr %0, i64 8
   %.pre7 = load i32, ptr %.phi.trans.insert6, align 8
-  %.not5 = icmp sle i32 %.pre7, %.pre
+  %.not5 = icmp sge i32 %.pre, %.pre7
   tail call void @llvm.assume(i1 %.not5)
   br label %.thread
 
@@ -11721,7 +11721,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %11 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %6, %5 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
-  %.not2.i = icmp sgt i32 %13, %11
+  %.not2.i = icmp slt i32 %11, %13
   br i1 %.not2.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase10AddClearedINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPNT_4TypeE.exit, label %14
 
 14:                                               ; preds = %10
@@ -12087,7 +12087,7 @@ define noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7AddWeakEP
 .thread:                                          ; preds = %..thread_crit_edge, %16
   %20 = phi i32 [ %.pre30, %..thread_crit_edge ], [ %7, %16 ]
   %21 = phi i32 [ %.pre, %..thread_crit_edge ], [ %8, %16 ]
-  %.not28 = icmp sgt i32 %20, %21
+  %.not28 = icmp slt i32 %21, %20
   br i1 %.not28, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit, label %22
 
 22:                                               ; preds = %.thread
@@ -12286,7 +12286,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ;
   store ptr %34, ptr %36, align 8
   %indvars.iv.next33 = add nsw i64 %indvars.iv32, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next33 to i32
-  %exitcond35.not = icmp eq i32 %lftr.wideiv, %3
+  %exitcond35.not = icmp eq i32 %3, %lftr.wideiv
   br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !34
 
 ._crit_edge29:                                    ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us, %._crit_edge

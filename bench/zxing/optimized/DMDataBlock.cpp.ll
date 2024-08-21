@@ -219,7 +219,7 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
 
 112:                                              ; preds = %109
   %113 = icmp sgt i32 %14, 0
-  %114 = and i1 %81, %3
+  %114 = and i1 %3, %81
   br label %128
 
 115:                                              ; preds = %115, %84

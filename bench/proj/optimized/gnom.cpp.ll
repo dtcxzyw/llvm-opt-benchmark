@@ -230,7 +230,7 @@ define internal { double, double } @_ZL14gnom_s_inverse5PJ_XYP8PJconsts(double %
 
 20:                                               ; preds = %17
   %21 = load double, ptr %5, align 8
-  %22 = fmul double %8, %1
+  %22 = fmul double %1, %8
   %23 = getelementptr inbounds i8, ptr %5, i64 8
   %24 = load double, ptr %23, align 8
   %25 = fmul double %22, %24
@@ -259,11 +259,11 @@ define internal { double, double } @_ZL14gnom_s_inverse5PJ_XYP8PJconsts(double %
   %40 = fmul double %6, %39
   %41 = load double, ptr %23, align 8
   %42 = fmul double %8, %41
-  %43 = fmul double %42, %0
+  %43 = fmul double %0, %42
   br label %62
 
 44:                                               ; preds = %17
-  %45 = fmul double %8, %1
+  %45 = fmul double %1, %8
   %46 = fdiv double %45, %6
   %47 = tail call double @llvm.fabs.f64(double %46)
   %48 = fcmp ult double %47, 1.000000e+00
@@ -281,7 +281,7 @@ define internal { double, double } @_ZL14gnom_s_inverse5PJ_XYP8PJconsts(double %
 54:                                               ; preds = %52, %49
   %.sroa.4.3 = phi double [ %51, %49 ], [ %53, %52 ]
   %55 = fmul double %6, %11
-  %56 = fmul double %8, %0
+  %56 = fmul double %0, %8
   br label %62
 
 57:                                               ; preds = %17
@@ -372,9 +372,9 @@ define internal { double, double } @_ZL14gnom_s_forward5PJ_LPP8PJconsts(double %
   %34 = getelementptr inbounds i8, ptr %5, i64 8
   %35 = load double, ptr %34, align 8
   %36 = load double, ptr %5, align 8
-  %37 = fneg double %36
-  %38 = fmul double %7, %37
-  %39 = fmul double %8, %38
+  %37 = fmul double %7, %36
+  %38 = fneg double %8
+  %39 = fmul double %37, %38
   %40 = tail call double @llvm.fmuladd.f64(double %35, double %6, double %39)
   %41 = fmul double %26, %40
   br label %47

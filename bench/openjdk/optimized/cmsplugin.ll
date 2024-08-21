@@ -837,7 +837,7 @@ define hidden ptr @_cmsPluginMalloc(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not.i, label %_cmsGetContext.exit, label %7
 
 7:                                                ; preds = %6
-  %8 = icmp eq ptr %.0.i, %0
+  %8 = icmp eq ptr %0, %.0.i
   br i1 %8, label %_cmsGetContext.exit, label %6, !llvm.loop !10
 
 _cmsGetContext.exit:                              ; preds = %6, %7
@@ -889,7 +889,7 @@ define hidden ptr @_cmsGetContext(ptr noundef readnone %0) local_unnamed_addr #2
   br i1 %.not, label %.sink.split, label %6
 
 6:                                                ; preds = %5
-  %7 = icmp eq ptr %.0, %0
+  %7 = icmp eq ptr %0, %.0
   br i1 %7, label %.sink.split, label %5, !llvm.loop !10
 
 .sink.split:                                      ; preds = %5, %6
@@ -1103,7 +1103,7 @@ define hidden ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef %1) loc
   br i1 %.not.i, label %.sink.split.i, label %10
 
 10:                                               ; preds = %9
-  %11 = icmp eq ptr %.0.i, %0
+  %11 = icmp eq ptr %0, %.0.i
   br i1 %11, label %.sink.split.i, label %9, !llvm.loop !10
 
 .sink.split.i:                                    ; preds = %10, %9
@@ -1443,7 +1443,7 @@ define hidden ptr @cmsDupContext(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not.i, label %.sink.split.i, label %9
 
 9:                                                ; preds = %8
-  %10 = icmp eq ptr %.0.i, %0
+  %10 = icmp eq ptr %0, %.0.i
   br i1 %10, label %.sink.split.i, label %8, !llvm.loop !10
 
 .sink.split.i:                                    ; preds = %9, %8
@@ -1636,7 +1636,7 @@ define hidden ptr @cmsGetContextUserData(ptr noundef readnone %0) local_unnamed_
   br i1 %.not.i.i, label %.sink.split.i.i, label %6
 
 6:                                                ; preds = %5
-  %7 = icmp eq ptr %.0.i.i, %0
+  %7 = icmp eq ptr %0, %.0.i.i
   br i1 %7, label %.sink.split.i.i, label %5, !llvm.loop !10
 
 .sink.split.i.i:                                  ; preds = %6, %5

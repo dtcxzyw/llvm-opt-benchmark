@@ -108,7 +108,7 @@ entry:
   %sub.ptr.rhs.cast.i.i4 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i5 = sub i64 %sub.ptr.lhs.cast.i.i3, %sub.ptr.rhs.cast.i.i4
   %sub.ptr.div.i.i6 = sdiv exact i64 %sub.ptr.sub.i.i5, 72
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i6, %conv
+  %cmp.i = icmp ugt i64 %conv, %sub.ptr.div.i.i6
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -117,7 +117,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i6, %conv
+  %cmp4.i = icmp ult i64 %conv, %sub.ptr.div.i.i6
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -853,7 +853,7 @@ for.body.i.i:                                     ; preds = %_ZZN5arrow7compute1
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZZN5arrow7compute13EncoderBinary9DecodeImpILb1EEEvjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEENKUlPhPKhlE_clES8_SA_l.exit.loopexit.i.i ]
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %9 = trunc nuw i64 %indvars.iv.i.i to i32
-  %add.i.i = add i32 %9, %start_row
+  %add.i.i = add i32 %start_row, %9
   %mul.i.i = mul i32 %add.i.i, %7
   %idx.ext.i.i = zext i32 %mul.i.i to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %idx.ext.i.i
@@ -904,7 +904,7 @@ for.body.i.i46:                                   ; preds = %_ZZN5arrow7compute1
   %indvars.iv.i.i47 = phi i64 [ 0, %for.body.preheader.i.i44 ], [ %indvars.iv.next.i.i60, %_ZZN5arrow7compute13EncoderBinary9DecodeImpILb0EEEvjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEENKUlPhPKhlE_clES8_SA_l.exit.loopexit.i.i ]
   %13 = load ptr, ptr %arrayidx.i.i.i39, align 8
   %14 = trunc nuw i64 %indvars.iv.i.i47 to i32
-  %add.i.i48 = add i32 %14, %start_row
+  %add.i.i48 = add i32 %start_row, %14
   %idxprom.i.i = zext i32 %add.i.i48 to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %12, i64 %idxprom.i.i
   %15 = load i32, ptr %arrayidx.i.i, align 4
@@ -1204,7 +1204,7 @@ if.end64.us:                                      ; preds = %if.then60.us, %if.e
 for.body67.us:                                    ; preds = %if.end64.us, %for.inc79.us
   %indvars.iv = phi i64 [ 0, %if.end64.us ], [ %indvars.iv.next, %for.inc79.us ]
   %15 = trunc nuw i64 %indvars.iv to i32
-  %add68.us = add i32 %15, %start_row
+  %add68.us = add i32 %start_row, %15
   %mul.us = mul i32 %add68.us, %3
   %16 = add i32 %mul.us, %13
   %17 = and i32 %16, 536870911

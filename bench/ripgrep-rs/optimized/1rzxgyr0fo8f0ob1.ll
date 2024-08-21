@@ -298,7 +298,7 @@ define void @_ZN13grep_searcher11line_buffer10LineBuffer7consume17h1d9f088ff06f5
 
 _ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a4f9537719fE.exit: ; preds = %10
   %14 = sub nuw i64 %6, %4
-  %.not = icmp ult i64 %14, %1
+  %.not = icmp ugt i64 %1, %14
   br i1 %.not, label %15, label %16
 
 15:                                               ; preds = %_ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a4f9537719fE.exit
@@ -431,7 +431,7 @@ _ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exi
 .thread:                                          ; preds = %16, %24
   %.039 = phi i64 [ %25, %24 ], [ %.0.sroa.speculated.i5, %16 ]
   %32 = add i64 %.039, %7
-  %33 = icmp ult i64 %7, %32
+  %33 = icmp ugt i64 %32, %7
   br i1 %33, label %34, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8de0378bf96c9949E.llvm.12743913752286771008.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8de0378bf96c9949E.llvm.12743913752286771008.exit.i": ; preds = %.thread

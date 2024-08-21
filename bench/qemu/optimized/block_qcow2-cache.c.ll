@@ -252,7 +252,7 @@ if.else7:                                         ; preds = %if.end3
 if.end8:                                          ; preds = %if.end3
   %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %2 = load i32, ptr %cluster_size, align 4
-  %cmp9.not = icmp ult i32 %2, %table_size
+  %cmp9.not = icmp ugt i32 %table_size, %2
   br i1 %cmp9.not, label %if.else12, label %if.end13
 
 if.else12:                                        ; preds = %if.end8
@@ -355,7 +355,7 @@ entry:
   %call = tail call ptr @qemu_coroutine_self() #13
   %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %l2_table_cache, align 8
-  %cmp = icmp eq ptr %1, %c
+  %cmp = icmp eq ptr %c, %1
   %conv = zext i1 %cmp to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -439,7 +439,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %call = tail call ptr @qemu_coroutine_self() #13
   %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %l2_table_cache, align 8
-  %cmp = icmp eq ptr %4, %c
+  %cmp = icmp eq ptr %c, %4
   %conv = zext i1 %cmp to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -520,7 +520,7 @@ if.end22.sink.split:                              ; preds = %if.then9, %if.end.i
 if.end22:                                         ; preds = %if.end22.sink.split, %if.else
   %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %17 = load ptr, ptr %refcount_block_cache, align 8
-  %cmp23 = icmp eq ptr %17, %c
+  %cmp23 = icmp eq ptr %c, %17
   br i1 %cmp23, label %if.then25, label %if.else32
 
 if.then25:                                        ; preds = %if.end22
@@ -535,7 +535,7 @@ if.then25:                                        ; preds = %if.end22
 
 if.else32:                                        ; preds = %if.end22
   %21 = load ptr, ptr %l2_table_cache, align 8
-  %cmp34 = icmp eq ptr %21, %c
+  %cmp34 = icmp eq ptr %c, %21
   %22 = load ptr, ptr %c, align 8
   %arrayidx39 = getelementptr %struct.Qcow2CachedTable, ptr %22, i64 %idxprom
   %23 = load i64, ptr %arrayidx39, align 8
@@ -559,7 +559,7 @@ if.end53:                                         ; preds = %if.then36, %if.else
 
 if.end57:                                         ; preds = %if.end53
   %25 = load ptr, ptr %refcount_block_cache, align 8
-  %cmp59 = icmp eq ptr %25, %c
+  %cmp59 = icmp eq ptr %c, %25
   br i1 %cmp59, label %do.body, label %if.else68
 
 do.body:                                          ; preds = %if.end57
@@ -570,7 +570,7 @@ do.body:                                          ; preds = %if.end57
 
 if.else68:                                        ; preds = %if.end57
   %27 = load ptr, ptr %l2_table_cache, align 8
-  %cmp70 = icmp eq ptr %27, %c
+  %cmp70 = icmp eq ptr %c, %27
   br i1 %cmp70, label %do.body73, label %if.end82
 
 do.body73:                                        ; preds = %if.else68
@@ -823,7 +823,7 @@ if.end:                                           ; preds = %entry
   %call = tail call ptr @qemu_coroutine_self() #13
   %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %l2_table_cache, align 8
-  %cmp1 = icmp eq ptr %1, %c
+  %cmp1 = icmp eq ptr %c, %1
   %conv = zext i1 %cmp1 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -872,12 +872,12 @@ trace_qcow2_cache_get.exit:                       ; preds = %if.end, %land.lhs.t
 if.then5:                                         ; preds = %trace_qcow2_cache_get.exit
   %refcount_block_cache.i = getelementptr inbounds i8, ptr %0, i64 88
   %9 = load ptr, ptr %refcount_block_cache.i, align 8
-  %cmp.i = icmp eq ptr %9, %c
+  %cmp.i = icmp eq ptr %c, %9
   br i1 %cmp.i, label %qcow2_cache_get_name.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then5
   %10 = load ptr, ptr %l2_table_cache, align 8
-  %cmp1.i = icmp eq ptr %10, %c
+  %cmp1.i = icmp eq ptr %c, %10
   %.str.17..str.18.i = select i1 %cmp1.i, ptr @.str.17, ptr @.str.18
   br label %qcow2_cache_get_name.exit
 
@@ -940,7 +940,7 @@ if.then34:                                        ; preds = %do.end
 if.end35:                                         ; preds = %do.end
   %call36 = tail call ptr @qemu_coroutine_self() #13
   %16 = load ptr, ptr %l2_table_cache, align 8
-  %cmp38 = icmp eq ptr %16, %c
+  %cmp38 = icmp eq ptr %c, %16
   %conv39 = zext i1 %cmp38 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i60)
   %17 = load i32, ptr @trace_events_enabled_count, align 4
@@ -983,7 +983,7 @@ trace_qcow2_cache_get_replace_entry.exit:         ; preds = %if.end35, %land.lhs
 if.end44:                                         ; preds = %trace_qcow2_cache_get_replace_entry.exit
   %call45 = tail call ptr @qemu_coroutine_self() #13
   %23 = load ptr, ptr %l2_table_cache, align 8
-  %cmp47 = icmp eq ptr %23, %c
+  %cmp47 = icmp eq ptr %c, %23
   %conv48 = zext i1 %cmp47 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i74)
   %24 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1027,7 +1027,7 @@ trace_qcow2_cache_get_read.exit:                  ; preds = %if.end44, %land.lhs
 
 if.then54:                                        ; preds = %trace_qcow2_cache_get_read.exit
   %31 = load ptr, ptr %l2_table_cache, align 8
-  %cmp56 = icmp eq ptr %31, %c
+  %cmp56 = icmp eq ptr %c, %31
   br i1 %cmp56, label %do.body59, label %if.end67
 
 do.body59:                                        ; preds = %if.then54
@@ -1078,7 +1078,7 @@ found:                                            ; preds = %do.body, %if.end77
   store ptr %add.ptr.i91, ptr %table, align 8
   %call88 = tail call ptr @qemu_coroutine_self() #13
   %41 = load ptr, ptr %l2_table_cache, align 8
-  %cmp90 = icmp eq ptr %41, %c
+  %cmp90 = icmp eq ptr %c, %41
   %conv91 = zext i1 %cmp90 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i92)
   %42 = load i32, ptr @trace_events_enabled_count, align 4

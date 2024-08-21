@@ -49,7 +49,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %cmp = icmp eq i32 %format, 1
-  %or.cond = and i1 %cmp, %has_format
+  %or.cond = and i1 %has_format, %cmp
   br i1 %or.cond, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end4
@@ -243,7 +243,7 @@ if.end6:                                          ; preds = %if.end4
   %cons.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   %1 = load i64, ptr %cons.i, align 8
   %sub.i = sub i64 %0, %1
-  %cond = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %size)
+  %cond = tail call i64 @llvm.umin.i64(i64 %size, i64 %sub.i)
   %add = add nuw i64 %cond, 1
   %call9 = tail call noalias ptr @g_malloc(i64 noundef %add) #9
   %conv = trunc i64 %cond to i32
@@ -289,7 +289,7 @@ for.body.i:                                       ; preds = %land.rhs.i
 ringbuf_chr_read.exit:                            ; preds = %land.rhs.i, %for.body.i, %if.end6
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str, i32 noundef 83) #7
   %cmp13 = icmp eq i32 %format, 1
-  %or.cond = and i1 %cmp13, %has_format
+  %or.cond = and i1 %has_format, %cmp13
   br i1 %or.cond, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %ringbuf_chr_read.exit

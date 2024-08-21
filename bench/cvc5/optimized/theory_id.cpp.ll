@@ -966,7 +966,7 @@ define hidden noundef i32 @_ZN4cvc58internal6theory15TheoryIdSetUtil9setRemoveEN
 entry:
   %shl.i = shl nuw i32 1, %theory
   %not.i = xor i32 %shl.i, -1
-  %and.i = and i32 %not.i, %set
+  %and.i = and i32 %set, %not.i
   ret i32 %and.i
 }
 
@@ -1029,7 +1029,7 @@ while.end:                                        ; preds = %_ZN4cvc58internal6t
 define hidden noundef i32 @_ZN4cvc58internal6theory15TheoryIdSetUtil9setInsertENS1_8TheoryIdEj(i32 noundef %theory, i32 noundef %set) local_unnamed_addr #4 align 2 {
 entry:
   %shl = shl nuw i32 1, %theory
-  %or = or i32 %shl, %set
+  %or = or i32 %set, %shl
   ret i32 %or
 }
 
@@ -1037,7 +1037,7 @@ entry:
 define hidden noundef i32 @_ZN4cvc58internal6theory15TheoryIdSetUtil13setDifferenceEjj(i32 noundef %a, i32 noundef %b) local_unnamed_addr #4 align 2 {
 entry:
   %not = xor i32 %b, -1
-  %and = and i32 %not, %a
+  %and = and i32 %a, %not
   ret i32 %and
 }
 
@@ -1045,7 +1045,7 @@ entry:
 define hidden noundef zeroext i1 @_ZN4cvc58internal6theory15TheoryIdSetUtil11setContainsENS1_8TheoryIdEj(i32 noundef %theory, i32 noundef %set) local_unnamed_addr #4 align 2 {
 entry:
   %shl = shl nuw i32 1, %theory
-  %and = and i32 %shl, %set
+  %and = and i32 %set, %shl
   %tobool = icmp ne i32 %and, 0
   ret i1 %tobool
 }

@@ -20274,7 +20274,7 @@ _ZN5faissL23write_binary_ivf_headerEPKNS_14IndexBinaryIVFEPNS_8IOWriterE.exit: ;
 645:                                              ; preds = %645, %641
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %645 ], [ 0, %641 ]
   %646 = shl nuw i64 1, %indvars.iv.i
-  %647 = icmp ult i64 %646, %644
+  %647 = icmp ugt i64 %644, %646
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %647, label %645, label %648, !llvm.loop !15
 
@@ -20451,7 +20451,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.i:             ; preds = %725, %.noexc.i, %71
   %737 = and i64 %.sroa.11.0123.i, 7
   %738 = trunc nuw nsw i64 %737 to i32
   %739 = sub nuw nsw i32 8, %738
-  %.not.i.i = icmp slt i32 %739, %643
+  %.not.i.i = icmp sgt i32 %643, %739
   br i1 %.not.i.i, label %747, label %740
 
 740:                                              ; preds = %734
@@ -20504,7 +20504,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit.i:       ; preds = %.lr.ph.i.i, %747, %
   %769 = and i64 %.sroa.11.2.i, 7
   %770 = trunc nuw nsw i64 %769 to i32
   %771 = sub nuw nsw i32 8, %770
-  %.not.i60.i = icmp slt i32 %771, %711
+  %.not.i60.i = icmp sgt i32 %711, %771
   br i1 %.not.i60.i, label %779, label %772
 
 772:                                              ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit.i
@@ -20558,7 +20558,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit67.i:     ; preds = %.lr.ph.i62.i, %779,
   %796 = and i64 %.sroa.11.1119.i, 7
   %797 = trunc nuw nsw i64 %796 to i32
   %798 = sub nuw nsw i32 8, %797
-  %.not.i68.i = icmp slt i32 %798, %711
+  %.not.i68.i = icmp sgt i32 %711, %798
   br i1 %.not.i68.i, label %806, label %799
 
 799:                                              ; preds = %.lr.ph.i
@@ -21281,7 +21281,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %100, %.noexc, %88
   %112 = and i64 %.sroa.8.0173, 7
   %113 = trunc nuw nsw i64 %112 to i32
   %114 = sub nuw nsw i32 8, %113
-  %.not.i = icmp slt i32 %114, %1
+  %.not.i = icmp sgt i32 %1, %114
   br i1 %.not.i, label %122, label %115
 
 115:                                              ; preds = %109
@@ -21334,7 +21334,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %115, %12
   %144 = and i64 %.sroa.8.1, 7
   %145 = trunc nuw nsw i64 %144 to i32
   %146 = sub nuw nsw i32 8, %145
-  %.not.i105 = icmp slt i32 %146, %89
+  %.not.i105 = icmp sgt i32 %89, %146
   br i1 %.not.i105, label %154, label %147
 
 147:                                              ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit

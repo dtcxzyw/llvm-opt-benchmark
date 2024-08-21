@@ -221,7 +221,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   store ptr %47, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %49, align 8
-  %50 = icmp ult i64 %46, %.sroa.01.0.i10139
+  %50 = icmp ugt i64 %.sroa.01.0.i10139, %46
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %44
@@ -372,7 +372,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
 ._crit_edge141:                                   ; preds = %.noexc8.thread
   %110 = load i64, ptr %5, align 8, !alias.scope !45, !noalias !52, !noundef !5
   %111 = sub i64 %110, %69
-  %112 = icmp ult i64 %111, %.sroa.9.0150
+  %112 = icmp ugt i64 %.sroa.9.0150, %111
   br i1 %112, label %113, label %._crit_edge141.thread
 
 113:                                              ; preds = %._crit_edge141
@@ -392,7 +392,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
 117:                                              ; preds = %108
   %118 = load i64, ptr %5, align 8, !alias.scope !55, !noalias !62, !noundef !5
   %119 = sub i64 %118, %69
-  %120 = icmp ult i64 %119, %.sroa.01.0.i140
+  %120 = icmp ugt i64 %.sroa.01.0.i140, %119
   br i1 %120, label %121, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3a0f6c98f1f40015E.exit62"
 
 121:                                              ; preds = %117

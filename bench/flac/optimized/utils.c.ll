@@ -514,7 +514,7 @@ entry.split.i:                                    ; preds = %if.then
   %start_track73 = getelementptr inbounds i8, ptr %spec, i64 8
   %start_index74 = getelementptr inbounds i8, ptr %spec, i64 12
   %end80.i75 = ptrtoint ptr %call to i64
-  %cmp38.i = icmp ugt ptr %call, %s
+  %cmp38.i = icmp ult ptr %s, %call
   br i1 %cmp38.i, label %while.bodythread-pre-split.preheader.i, label %while.end.split.i
 
 while.bodythread-pre-split.preheader.i:           ; preds = %entry.split.i

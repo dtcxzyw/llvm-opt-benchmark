@@ -2904,13 +2904,13 @@ if.end:                                           ; preds = %for.body.i.i.i, %fo
   %73 = load ptr, ptr %m, align 8
   %m_true.i = getelementptr inbounds i8, ptr %73, i64 856
   %74 = load ptr, ptr %m_true.i, align 8
-  %cmp.i128 = icmp eq ptr %74, %51
+  %cmp.i128 = icmp eq ptr %51, %74
   br i1 %cmp.i128, label %if.then94, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %m_false.i = getelementptr inbounds i8, ptr %73, i64 864
   %75 = load ptr, ptr %m_false.i, align 8
-  %cmp.i129 = icmp eq ptr %75, %51
+  %cmp.i129 = icmp eq ptr %51, %75
   br i1 %cmp.i129, label %if.then94, label %if.end97
 
 if.then94:                                        ; preds = %lor.lhs.false, %if.end
@@ -4254,7 +4254,7 @@ entry:
   %0 = load ptr, ptr %m, align 8
   %m_bool_sort.i = getelementptr inbounds i8, ptr %0, i64 840
   %1 = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i = icmp eq ptr %1, %s
+  %cmp.i = icmp eq ptr %s, %1
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry

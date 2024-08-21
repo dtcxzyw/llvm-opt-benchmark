@@ -1480,7 +1480,7 @@ sub_1:                                            ; preds = %sub_0
 509:                                              ; preds = %505
   %510 = load i8, ptr %485, align 1
   %511 = trunc i8 %510 to i1
-  %brmerge = or i1 %511, %7
+  %brmerge = or i1 %7, %511
   br i1 %brmerge, label %.critedge595, label %512
 
 512:                                              ; preds = %509
@@ -2147,7 +2147,7 @@ define dso_local ptr @Curl_cookie_getlist(ptr noundef %0, ptr noundef %1, ptr no
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
   %.not88 = xor i1 %14, true
-  %brmerge = or i1 %.not88, %4
+  %brmerge = or i1 %4, %.not88
   br i1 %brmerge, label %15, label %pathmatch.exit.thread
 
 15:                                               ; preds = %.lr.ph

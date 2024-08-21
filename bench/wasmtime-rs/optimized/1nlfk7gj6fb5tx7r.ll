@@ -577,7 +577,7 @@ define { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he4c2
 define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h88a58bd621640934E"(ptr align 8 %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = load i64, ptr %0, align 8, !noundef !3
   %5 = sub i64 %4, %1
-  %6 = icmp ult i64 %5, %2
+  %6 = icmp ugt i64 %2, %5
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
@@ -594,7 +594,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h88a5
 
 12:                                               ; preds = %._crit_edge, %3
   %.pre-phi = phi i64 [ %.pre11, %._crit_edge ], [ %5, %3 ]
-  %13 = icmp uge i64 %.pre-phi, %2
+  %13 = icmp ule i64 %2, %.pre-phi
   tail call void @llvm.assume(i1 %13)
   br label %14
 
@@ -1501,7 +1501,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = load i64, ptr %0, align 8, !noundef !3
   %7 = sub i64 %6, %1
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %34
 
 9:                                                ; preds = %3
@@ -1570,7 +1570,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit._crit_edge", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread", %3
   %35 = phi i64 [ %.pre, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit._crit_edge" ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread" ], [ %6, %3 ]
   %36 = sub i64 %35, %1
-  %37 = icmp uge i64 %36, %2
+  %37 = icmp ule i64 %2, %36
   call void @llvm.assume(i1 %37)
   br label %38
 
@@ -1588,7 +1588,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = load i64, ptr %0, align 8, !noundef !3
   %7 = sub i64 %6, %1
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %34
 
 9:                                                ; preds = %3
@@ -1657,7 +1657,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit._crit_edge", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread", %3
   %35 = phi i64 [ %.pre, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit._crit_edge" ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread" ], [ %6, %3 ]
   %36 = sub i64 %35, %1
-  %37 = icmp uge i64 %36, %2
+  %37 = icmp ule i64 %2, %36
   call void @llvm.assume(i1 %37)
   br label %38
 
@@ -1675,7 +1675,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = load i64, ptr %0, align 8, !noundef !3
   %7 = sub i64 %6, %1
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %34
 
 9:                                                ; preds = %3
@@ -1744,7 +1744,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit._crit_edge", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread", %3
   %35 = phi i64 [ %.pre, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit._crit_edge" ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread" ], [ %6, %3 ]
   %36 = sub i64 %35, %1
-  %37 = icmp uge i64 %36, %2
+  %37 = icmp ule i64 %2, %36
   call void @llvm.assume(i1 %37)
   br label %38
 

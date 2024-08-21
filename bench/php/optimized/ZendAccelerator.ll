@@ -319,13 +319,13 @@ define hidden ptr @accel_new_interned_string(ptr noundef %0) #0 {
   %5 = load ptr, ptr @accel_shared_globals, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 176
   %7 = load ptr, ptr %6, align 8
-  %.not = icmp ugt ptr %7, %0
+  %.not = icmp ult ptr %0, %7
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %5, i64 184
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp ugt ptr %10, %0
+  %11 = icmp ult ptr %0, %10
   br i1 %11, label %114, label %12
 
 12:                                               ; preds = %8, %4
@@ -6428,13 +6428,13 @@ define internal ptr @accel_new_interned_string_for_php(ptr noundef %0) #0 {
   %10 = load ptr, ptr @accel_shared_globals, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 176
   %12 = load ptr, ptr %11, align 8
-  %.not45 = icmp ugt ptr %12, %0
+  %.not45 = icmp ult ptr %0, %12
   br i1 %.not45, label %17, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %10, i64 184
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp ugt ptr %15, %0
+  %16 = icmp ult ptr %0, %15
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %9, %13
@@ -8487,13 +8487,13 @@ define internal ptr @accel_replace_string_by_shm_permanent(ptr noundef %0) #0 {
   %3 = load ptr, ptr @accel_shared_globals, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 176
   %5 = load ptr, ptr %4, align 8
-  %.not = icmp ugt ptr %5, %0
+  %.not = icmp ult ptr %0, %5
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %3, i64 184
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp ugt ptr %8, %0
+  %9 = icmp ult ptr %0, %8
   br i1 %9, label %62, label %10
 
 10:                                               ; preds = %6, %1

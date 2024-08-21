@@ -247,7 +247,7 @@ if.end.i:                                         ; preds = %if.then75.i
   %13 = load i64, ptr %n.i, align 8
   call void @Curl_debug(ptr noundef nonnull %data, i32 noundef 2, ptr noundef nonnull %call32.i, i64 noundef %13) #8
   %14 = load i64, ptr %n.i, align 8
-  %cmp.not.i = icmp eq i64 %14, %add28.i
+  %cmp.not.i = icmp eq i64 %add28.i, %14
   br i1 %cmp.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
@@ -366,7 +366,7 @@ if.end.i:                                         ; preds = %if.then
   %7 = load i64, ptr %n.i, align 8
   call void @Curl_debug(ptr noundef nonnull %data, i32 noundef 2, ptr noundef %5, i64 noundef %7) #8
   %8 = load i64, ptr %n.i, align 8
-  %cmp.not.i = icmp eq i64 %8, %4
+  %cmp.not.i = icmp eq i64 %4, %8
   br i1 %cmp.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
@@ -1077,7 +1077,7 @@ if.end.i:                                         ; preds = %if.end16
   %14 = load i64, ptr %n.i, align 8
   call void @Curl_debug(ptr noundef nonnull %data, i32 noundef 2, ptr noundef nonnull %call13, i64 noundef %14) #8
   %15 = load i64, ptr %n.i, align 8
-  %cmp.not.i = icmp eq i64 %15, %add30
+  %cmp.not.i = icmp eq i64 %add30, %15
   br i1 %cmp.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
@@ -1270,7 +1270,7 @@ if.end.i:                                         ; preds = %if.end8
   %16 = load i64, ptr %n.i, align 8
   call void @Curl_debug(ptr noundef nonnull %data, i32 noundef 2, ptr noundef nonnull %call5, i64 noundef %16) #8
   %17 = load i64, ptr %n.i, align 8
-  %cmp.not.i = icmp eq i64 %17, %add4
+  %cmp.not.i = icmp eq i64 %add4, %17
   br i1 %cmp.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i

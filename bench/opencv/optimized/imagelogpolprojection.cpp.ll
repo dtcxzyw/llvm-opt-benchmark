@@ -1212,7 +1212,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
-  %brmerge.demorgan = and i1 %6, %2
+  %brmerge.demorgan = and i1 %2, %6
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8

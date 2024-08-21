@@ -333,7 +333,7 @@ define dso_local ptr @phy_lookup_setting(i32 noundef %0, i32 noundef %1, ptr nou
   %19 = getelementptr inbounds i8, ptr %6, i64 4
   %20 = load i8, ptr %19, align 4
   %21 = zext i8 %20 to i32
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   br i1 %22, label %.split3.us, label %23
 
 23:                                               ; preds = %15, %18, %10, %.split.us
@@ -369,7 +369,7 @@ define dso_local ptr @phy_lookup_setting(i32 noundef %0, i32 noundef %1, ptr nou
   %43 = getelementptr inbounds i8, ptr %30, i64 4
   %44 = load i8, ptr %43, align 4
   %45 = zext i8 %44 to i32
-  %46 = icmp eq i32 %45, %1
+  %46 = icmp eq i32 %1, %45
   br i1 %46, label %.split3.us, label %47
 
 47:                                               ; preds = %42, %39
@@ -863,7 +863,7 @@ define dso_local i32 @__phy_package_read_mmd(ptr nocapture noundef readonly %0, 
   %8 = zext i8 %7 to i32
   %9 = sub nsw i32 32, %8
   %10 = icmp ugt i32 %9, %1
-  %11 = add i32 %8, %1
+  %11 = add i32 %1, %8
   %12 = select i1 %10, i32 %11, i32 -5
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %35, label %14
@@ -910,7 +910,7 @@ define dso_local i32 @phy_package_read_mmd(ptr nocapture noundef readonly %0, i3
   %8 = zext i8 %7 to i32
   %9 = sub nsw i32 32, %8
   %10 = icmp ugt i32 %9, %1
-  %11 = add i32 %8, %1
+  %11 = add i32 %1, %8
   %12 = select i1 %10, i32 %11, i32 -5
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %41, label %14
@@ -967,7 +967,7 @@ define dso_local i32 @__phy_package_write_mmd(ptr nocapture noundef readonly %0,
   %9 = zext i8 %8 to i32
   %10 = sub nsw i32 32, %9
   %11 = icmp ugt i32 %10, %1
-  %12 = add i32 %9, %1
+  %12 = add i32 %1, %9
   %13 = select i1 %11, i32 %12, i32 -5
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %36, label %15
@@ -1014,7 +1014,7 @@ define dso_local i32 @phy_package_write_mmd(ptr nocapture noundef readonly %0, i
   %9 = zext i8 %8 to i32
   %10 = sub nsw i32 32, %9
   %11 = icmp ugt i32 %10, %1
-  %12 = add i32 %9, %1
+  %12 = add i32 %1, %9
   %13 = select i1 %11, i32 %12, i32 -5
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %42, label %15

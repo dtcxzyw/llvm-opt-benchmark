@@ -169,7 +169,7 @@ _ZN17NativeInstruction11is_call_regEv.exit.thread28: ; preds = %11, %_ZN17Native
   %48 = ptrtoint ptr %1 to i64
   %49 = sub i64 %47, %48
   %50 = trunc i64 %49 to i32
-  %51 = add nsw i32 %50, %2
+  %51 = add nsw i32 %2, %50
   br label %53
 
 52:                                               ; preds = %_ZN17NativeInstruction11is_call_regEv.exit.thread28

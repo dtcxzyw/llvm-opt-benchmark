@@ -879,7 +879,7 @@ if.then4:                                         ; preds = %do.body
   br label %return
 
 if.else:                                          ; preds = %do.body
-  %cmp5 = icmp sgt i64 %call2, %ofs
+  %cmp5 = icmp slt i64 %ofs, %call2
   %add8 = add i32 %add1, 1
   %hi.1 = select i1 %cmp5, i32 %add1, i32 %hi.0
   %lo.1 = select i1 %cmp5, i32 %lo.0, i32 %add8
@@ -936,7 +936,7 @@ if.then6:                                         ; preds = %if.end.thread
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %cmp9 = icmp eq i32 %2, %pos
+  %cmp9 = icmp eq i32 %pos, %2
   br i1 %cmp9, label %if.then10, label %if.end.i
 
 if.then10:                                        ; preds = %if.else

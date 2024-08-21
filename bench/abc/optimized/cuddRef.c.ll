@@ -1212,7 +1212,7 @@ define i32 @cuddIsInDeathRow(ptr nocapture noundef readonly %0, ptr noundef read
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %9 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %._crit_edge.loopexit.split.loop.exit12, label %12
 
 12:                                               ; preds = %8
@@ -1247,7 +1247,7 @@ define i32 @cuddTimesInDeathRow(ptr nocapture noundef readonly %0, ptr noundef r
   %.078 = phi i32 [ 0, %.lr.ph ], [ %13, %8 ]
   %9 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   %12 = zext i1 %11 to i32
   %13 = add nuw nsw i32 %.078, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

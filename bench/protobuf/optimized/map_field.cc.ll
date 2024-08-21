@@ -1251,7 +1251,7 @@ if.then.i:                                        ; preds = %entry
   %3 = load ptr, ptr %m_.i.i, align 8
   %num_buckets_.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %num_buckets_.i.i, align 4
-  %cmp8.i.i = icmp ugt i32 %4, %add.i
+  %cmp8.i.i = icmp ult i32 %add.i, %4
   br i1 %cmp8.i.i, label %for.body.lr.ph.i.i, label %for.end.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then.i
@@ -2400,7 +2400,7 @@ if.then.i.i102:                                   ; preds = %for.inc
   %52 = load ptr, ptr %ref.tmp.sroa.3.0.it.sroa_idx, align 8
   %num_buckets_.i.i.i = getelementptr inbounds i8, ptr %52, i64 4
   %53 = load i32, ptr %num_buckets_.i.i.i, align 4
-  %cmp8.i.i.i = icmp ugt i32 %53, %add.i.i
+  %cmp8.i.i.i = icmp ult i32 %add.i.i, %53
   br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %for.end.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i.i102
@@ -5560,7 +5560,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 if.then.i.i:                                      ; preds = %for.body
   %add.i.i = add i32 %__begin3.sroa.11.022, 1
   %14 = load i32, ptr %num_buckets_.i.i.i, align 4
-  %cmp8.i.i.i = icmp ugt i32 %14, %add.i.i
+  %cmp8.i.i.i = icmp ult i32 %add.i.i, %14
   br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %if.end
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i.i
@@ -5835,7 +5835,7 @@ for.inc:                                          ; preds = %_ZNK6google8protobu
 if.then.i.i35:                                    ; preds = %for.inc
   %add.i.i = add i32 %other_it.sroa.22.063, 1
   %25 = load i32, ptr %num_buckets_.i.i.i, align 4
-  %cmp8.i.i.i = icmp ugt i32 %25, %add.i.i
+  %cmp8.i.i.i = icmp ult i32 %add.i.i, %25
   br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %for.end
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i.i35
@@ -6166,7 +6166,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then.i.i:                                      ; preds = %while.body
   %add.i.i45 = add i32 %it.sroa.13.065, 1
   %27 = load i32, ptr %num_buckets_.i.i.i, align 4
-  %cmp8.i.i.i = icmp ugt i32 %27, %add.i.i45
+  %cmp8.i.i.i = icmp ult i32 %add.i.i45, %27
   br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %if.end51
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i.i
@@ -6278,7 +6278,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 if.then.i.i:                                      ; preds = %for.body
   %add.i.i = add i32 %__begin2.sroa.11.018, 1
   %11 = load i32, ptr %num_buckets_.i.i.i, align 4
-  %cmp8.i.i.i = icmp ugt i32 %11, %add.i.i
+  %cmp8.i.i.i = icmp ult i32 %add.i.i, %11
   br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %for.end.loopexit
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i.i
@@ -8332,7 +8332,7 @@ for.body.i.i.i:                                   ; preds = %_ZN6google8protobuf
 if.then.i.i.i6.i.i:                               ; preds = %for.body.i.i.i
   %add.i.i.i.i.i = add i32 %agg.tmp3.sroa.6.0.i.i, 1
   %24 = load i32, ptr %num_buckets_.i.i.i.i.i, align 4
-  %cmp8.i.i.i.i.i.i = icmp ugt i32 %24, %add.i.i.i.i.i
+  %cmp8.i.i.i.i.i.i = icmp ult i32 %add.i.i.i.i.i, %24
   br i1 %cmp8.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit
 
 for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i6.i.i
@@ -8384,7 +8384,7 @@ _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit: ; preds = 
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit
-  %cmp.not.i = icmp eq ptr %copy, %other
+  %cmp.not.i = icmp eq ptr %other, %copy
   br i1 %cmp.not.i, label %invoke.cont4, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
@@ -8452,7 +8452,7 @@ for.body.i.i:                                     ; preds = %_ZN6google8protobuf
 if.then.i.i.i6.i:                                 ; preds = %.noexc15
   %add.i.i.i.i = add i32 %agg.tmp3.sroa.6.0.i, 1
   %47 = load i32, ptr %num_buckets_.i.i.i.i, align 4
-  %cmp8.i.i.i.i.i = icmp ugt i32 %47, %add.i.i.i.i
+  %cmp8.i.i.i.i.i = icmp ult i32 %add.i.i.i.i, %47
   br i1 %cmp8.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i6.i
@@ -8609,7 +8609,7 @@ for.body.i:                                       ; preds = %_ZN6google8protobuf
 if.then.i.i.i6:                                   ; preds = %for.body.i
   %add.i.i.i = add i32 %agg.tmp3.sroa.6.0, 1
   %12 = load i32, ptr %num_buckets_.i.i.i, align 4
-  %cmp8.i.i.i.i = icmp ugt i32 %12, %add.i.i.i
+  %cmp8.i.i.i.i = icmp ult i32 %add.i.i.i, %12
   br i1 %cmp8.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.then.i.i.i6
@@ -8776,7 +8776,7 @@ if.then.i12:                                      ; preds = %if.end21
   store i64 %12, ptr %arrayidx14.i.i, align 8
   %index_of_first_non_null_.i = getelementptr inbounds i8, ptr %this, i64 12
   %14 = load i32, ptr %index_of_first_non_null_.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %14, i32 %p.sroa.4.0)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %p.sroa.4.0, i32 %14)
   store i32 %.sroa.speculated.i, ptr %index_of_first_non_null_.i, align 4
   br label %_ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit
 
@@ -9100,7 +9100,7 @@ if.then.i:                                        ; preds = %_ZNK6google8protobu
   %arrayidx14.i.i = getelementptr inbounds i64, ptr %9, i64 %idxprom.i.i
   store i64 %8, ptr %arrayidx14.i.i, align 8
   %10 = load i32, ptr %index_of_first_non_null_.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %10, i32 %conv3.i.i)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %conv3.i.i, i32 %10)
   store i32 %.sroa.speculated.i, ptr %index_of_first_non_null_.i, align 4
   br label %_ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit
 
@@ -9301,7 +9301,7 @@ if.then.i12:                                      ; preds = %if.end21
   store i64 %12, ptr %arrayidx14.i.i, align 8
   %index_of_first_non_null_.i = getelementptr inbounds i8, ptr %this, i64 12
   %14 = load i32, ptr %index_of_first_non_null_.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %14, i32 %p.sroa.4.0)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %p.sroa.4.0, i32 %14)
   store i32 %.sroa.speculated.i, ptr %index_of_first_non_null_.i, align 4
   br label %_ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit
 

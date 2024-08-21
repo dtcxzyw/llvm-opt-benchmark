@@ -157,7 +157,7 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
   store i32 2, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %20, i64 76
   store i32 2, ptr %29, align 4
-  %30 = icmp ult ptr %.ptr69.i, %5
+  %30 = icmp ugt ptr %5, %.ptr69.i
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %26
@@ -310,7 +310,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_encode(ptr noundef %0, i1
   %6 = load i32, ptr %4, align 8
   %7 = add i32 %6, -3
   %switch = icmp ult i32 %7, -2
-  %brmerge = or i1 %switch, %1
+  %brmerge = or i1 %1, %switch
   br i1 %brmerge, label %15, label %8
 
 8:                                                ; preds = %5
@@ -587,7 +587,7 @@ define internal i64 @H5O__fill_shared_size(ptr noundef %0, i1 noundef zeroext %1
   %4 = load i32, ptr %2, align 8
   %5 = add i32 %4, -3
   %switch = icmp ult i32 %5, -2
-  %brmerge = or i1 %switch, %1
+  %brmerge = or i1 %1, %switch
   br i1 %brmerge, label %13, label %6
 
 6:                                                ; preds = %3
@@ -817,7 +817,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
   br label %H5O__fill_new_decode.exit
 
 26:                                               ; preds = %18
-  %27 = icmp ult ptr %.ptr132.i, %5
+  %27 = icmp ugt ptr %5, %.ptr132.i
   br i1 %27, label %33, label %28
 
 28:                                               ; preds = %26
@@ -1122,7 +1122,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_encode(ptr noundef %0
   %6 = load i32, ptr %4, align 8
   %7 = add i32 %6, -3
   %switch = icmp ult i32 %7, -2
-  %brmerge = or i1 %switch, %1
+  %brmerge = or i1 %1, %switch
   br i1 %brmerge, label %15, label %8
 
 8:                                                ; preds = %5
@@ -1266,7 +1266,7 @@ define internal i64 @H5O__fill_new_shared_size(ptr noundef %0, i1 noundef zeroex
   %4 = load i32, ptr %2, align 8
   %5 = add i32 %4, -3
   %switch = icmp ult i32 %5, -2
-  %brmerge = or i1 %switch, %1
+  %brmerge = or i1 %1, %switch
   br i1 %brmerge, label %13, label %6
 
 6:                                                ; preds = %3

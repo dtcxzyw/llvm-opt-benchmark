@@ -1550,8 +1550,8 @@ opal_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %316
   br label %.loopexit291
 
 .thread268:                                       ; preds = %97, %.thread385, %69, %find_option.exit193.thread260, %76
-  %brmerge182 = or i1 %.not170.not.not, %2
-  %or.cond183 = and i1 %brmerge182, %1
+  %brmerge182 = or i1 %2, %.not170.not.not
+  %or.cond183 = and i1 %1, %brmerge182
   br i1 %or.cond183, label %364, label %351
 
 351:                                              ; preds = %.thread268
@@ -2710,7 +2710,7 @@ define ptr @opal_cmd_line_get_param(ptr noundef %0, ptr nocapture noundef readon
 30:                                               ; preds = %11, %17, %23
   %31 = getelementptr inbounds i8, ptr %.022.i, i64 64
   %32 = load i32, ptr %31, align 8
-  %33 = icmp sgt i32 %32, %3
+  %33 = icmp slt i32 %3, %32
   br i1 %33, label %34, label %find_option.exit
 
 34:                                               ; preds = %30
@@ -2790,7 +2790,7 @@ define ptr @opal_cmd_line_get_argv(ptr noundef readonly %0, i32 noundef %1) loca
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
-  %7 = icmp sle i32 %6, %1
+  %7 = icmp sge i32 %1, %6
   %8 = icmp slt i32 %1, 0
   %or.cond = or i1 %8, %7
   br i1 %or.cond, label %15, label %9

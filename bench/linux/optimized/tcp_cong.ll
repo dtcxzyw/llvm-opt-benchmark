@@ -1258,7 +1258,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 1
   %34 = icmp ne i32 %33, 0
-  %35 = or i1 %34, %3
+  %35 = or i1 %3, %34
   br i1 %35, label %36, label %.thread5
 
 36:                                               ; preds = %30

@@ -183,7 +183,7 @@ openF.exit.i:                                     ; preds = %openF.exit.i.outer1
 
 45:                                               ; preds = %openF.exit.i
   %46 = load i32, ptr @optind, align 4
-  %47 = icmp slt i32 %46, %0
+  %47 = icmp sgt i32 %0, %46
   br i1 %47, label %48, label %init.exit
 
 48:                                               ; preds = %45

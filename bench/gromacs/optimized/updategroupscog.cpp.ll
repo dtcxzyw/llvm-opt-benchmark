@@ -267,7 +267,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %103
   br i1 %.not.i.i.i.i.i.i.i77.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79.i, label %.lr.ph.i.i.i.i.i.i.i75.i, !llvm.loop !7
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79.i: ; preds = %.lr.ph.i.i.i.i.i.i.i75.i
-  %.not.i.i.i.i.i.i.i.i.i80.i = icmp eq ptr %90, %80
+  %.not.i.i.i.i.i.i.i.i.i80.i = icmp eq ptr %80, %90
   br i1 %.not.i.i.i.i.i.i.i.i.i80.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i, label %120
 
 120:                                              ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79.i
@@ -642,7 +642,7 @@ _ZNSt12_Vector_baseIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE11_M_allocateEm
 _ZNSt6vectorIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE11_M_allocateEm.exit ], [ %46, %.lr.ph.i.i.i ]
   %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i17
@@ -819,13 +819,13 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %29, %_ZNSt12_Vector
   %77 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %74, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
-  %80 = icmp sgt i32 %79, %62
+  %80 = icmp slt i32 %62, %79
   br i1 %80, label %84, label %81
 
 81:                                               ; preds = %75
   %82 = getelementptr inbounds i8, ptr %77, i64 8
   %83 = load i32, ptr %82, align 4
-  %.not.i = icmp sgt i32 %83, %62
+  %.not.i = icmp slt i32 %62, %83
   br i1 %.not.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit, label %84
 
 84:                                               ; preds = %81, %75

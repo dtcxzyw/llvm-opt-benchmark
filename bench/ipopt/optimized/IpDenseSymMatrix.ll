@@ -486,7 +486,7 @@ define void @_ZN5Ipopt14DenseSymMatrix9AddMatrixEdRKS0_d(ptr noundef nonnull ali
   %19 = add nuw nsw i64 %indvars.iv94, %17
   %20 = getelementptr inbounds double, ptr %8, i64 %19
   %21 = load double, ptr %20, align 8
-  %22 = fmul double %21, %1
+  %22 = fmul double %1, %21
   %23 = load ptr, ptr %15, align 8
   %24 = getelementptr inbounds double, ptr %23, i64 %19
   store double %22, ptr %24, align 8
@@ -557,7 +557,7 @@ define void @_ZN5Ipopt14DenseSymMatrix9AddMatrixEdRKS0_d(ptr noundef nonnull ali
   %48 = load ptr, ptr %29, align 8
   %49 = getelementptr inbounds double, ptr %48, i64 %45
   %50 = load double, ptr %49, align 8
-  %51 = fmul double %50, %3
+  %51 = fmul double %3, %50
   %52 = tail call double @llvm.fmuladd.f64(double %1, double %47, double %51)
   store double %52, ptr %49, align 8
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
@@ -796,7 +796,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc, %._crit_edg
 93:                                               ; preds = %.noexc61, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i
   %.0.i = phi double [ %68, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i ], [ %92, %.noexc61 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %94 = fmul double %.0.i, %1
+  %94 = fmul double %1, %.0.i
   %95 = load ptr, ptr %32, align 8
   %96 = getelementptr inbounds double, ptr %95, i64 %indvars.iv169
   %97 = getelementptr inbounds double, ptr %96, i64 %34
@@ -1059,7 +1059,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i85:                ; preds = %.noexc89, %._crit_e
   %194 = getelementptr inbounds double, ptr %193, i64 %indvars.iv161
   %195 = getelementptr inbounds double, ptr %194, i64 %133
   %196 = load double, ptr %195, align 8
-  %197 = fmul double %196, %4
+  %197 = fmul double %4, %196
   %198 = call double @llvm.fmuladd.f64(double %1, double %.0.i83, double %197)
   store double %198, ptr %195, align 8
   %.not.i.i94 = icmp eq ptr %.0.i4.i79, null

@@ -6086,7 +6086,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %20
 
 51:                                               ; preds = %46
   %.sroa.0.0.extract.trunc = trunc i64 %50 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %.sroa.0.0.extract.trunc, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %.sroa.0.0.extract.trunc)
   store i32 %.sroa.speculated, ptr %9, align 4
   %52 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %2, ptr %52, align 4
@@ -6501,7 +6501,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %20
 51:                                               ; preds = %46
   %.sroa.1.0.extract.shift = lshr i64 %50, 32
   %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.sroa.1.0.extract.trunc, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %2, i32 %.sroa.1.0.extract.trunc)
   store i32 %2, ptr %9, align 4
   %52 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %.sroa.speculated, ptr %52, align 4
@@ -9790,7 +9790,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.020.lcssa32.i, %._crit_edge.thread.i ], [ %.020.lcssa33.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ]
-  %26 = icmp eq ptr %7, %.sroa.4.0.i.ph
+  %26 = icmp eq ptr %.sroa.4.0.i.ph, %7
   br i1 %26, label %.thread16, label %27
 
 27:                                               ; preds = %select.unfold
@@ -10164,7 +10164,7 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEEE
 _ZNSt6vectorISt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit ], [ %42, %.lr.ph.i.i.i.i ]
   %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorISt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i.i17
@@ -10271,7 +10271,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.020.lcssa32.i, %._crit_edge.thread.i ], [ %.020.lcssa33.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ]
-  %26 = icmp eq ptr %7, %.sroa.4.0.i.ph
+  %26 = icmp eq ptr %.sroa.4.0.i.ph, %7
   br i1 %26, label %.thread16, label %27
 
 27:                                               ; preds = %select.unfold

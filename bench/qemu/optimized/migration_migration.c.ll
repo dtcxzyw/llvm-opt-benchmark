@@ -920,7 +920,7 @@ entry:
   store i32 %1, ptr %add.ptr, align 8
   %last_rb = getelementptr inbounds i8, ptr %mis, i64 336
   %2 = load ptr, ptr %last_rb, align 8
-  %cmp.not = icmp eq ptr %2, %rb
+  %cmp.not = icmp eq ptr %rb, %2
   br i1 %cmp.not, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1038,7 +1038,7 @@ for.body.us:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @qemu_ram_pagesize(ptr noundef %rb) #19
   %sub = sub i64 0, %call
-  %and = and i64 %sub, %haddr
+  %and = and i64 %haddr, %sub
   %0 = inttoptr i64 %and to ptr
   %page_request_mutex = getelementptr inbounds i8, ptr %mis, i64 1072
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -1108,7 +1108,7 @@ if.end10:                                         ; preds = %land.lhs.true.us, %
   store i32 %14, ptr %add.ptr.i, align 8
   %last_rb.i = getelementptr inbounds i8, ptr %mis, i64 336
   %15 = load ptr, ptr %last_rb.i, align 8
-  %cmp.not.i = icmp eq ptr %15, %rb
+  %cmp.not.i = icmp eq ptr %rb, %15
   br i1 %cmp.not.i, label %migrate_send_rp_message_req_pages.exit, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.end10
@@ -4100,7 +4100,7 @@ entry:
   %iteration_start_time = getelementptr inbounds i8, ptr %s, i64 504
   %0 = load i64, ptr %iteration_start_time, align 8
   %add = add i64 %0, 100
-  %cmp = icmp sgt i64 %add, %current_time
+  %cmp = icmp slt i64 %current_time, %add
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

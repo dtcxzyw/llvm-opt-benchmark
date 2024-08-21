@@ -3904,7 +3904,7 @@ define internal fastcc void @_ZN4http6header3map18remove_extra_value17hf38cbd07c
   %8 = load ptr, ptr %7, align 8, !nonnull !21, !noundef !21
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !21
-  %11 = icmp ugt i64 %10, %4
+  %11 = icmp ult i64 %4, %10
   br i1 %11, label %12, label %21, !prof !93
 
 12:                                               ; preds = %5
@@ -4095,7 +4095,7 @@ define internal fastcc void @_ZN4http6header3map18remove_extra_value17hf38cbd07c
   br label %91
 
 91:                                               ; preds = %85, %90
-  %.not = icmp eq i64 %79, %4
+  %.not = icmp eq i64 %4, %79
   br i1 %.not, label %92, label %93
 
 .sink.split:                                      ; preds = %119, %121
@@ -4109,7 +4109,7 @@ define internal fastcc void @_ZN4http6header3map18remove_extra_value17hf38cbd07c
   ret void
 
 93:                                               ; preds = %91
-  %94 = icmp ugt i64 %79, %4
+  %94 = icmp ult i64 %4, %79
   br i1 %94, label %95, label %.invoke, !prof !93
 
 95:                                               ; preds = %93
@@ -5603,7 +5603,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
   %39 = load i64, ptr %38, align 8, !alias.scope !843, !noalias !846, !noundef !21
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8, !alias.scope !843, !noalias !846
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %50, %3
@@ -5684,8 +5684,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14.i
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa.i
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa.i
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14.i
   %.0.copyload15.i18.i = load i16, ptr %86, align 1, !alias.scope !857, !noalias !843
   %87 = zext i16 %.0.copyload15.i18.i to i64
   %88 = shl nuw nsw i64 %.0.i14.i, 3
@@ -5784,7 +5784,7 @@ define hidden void @"_ZN72_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !21
-  %.not = icmp ult i64 %8, %1
+  %.not = icmp ugt i64 %1, %8
   br i1 %.not, label %9, label %17
 
 9:                                                ; preds = %2
@@ -7341,7 +7341,7 @@ common.resume:                                    ; preds = %229, %202, %.body.t
   store i64 %86, ptr %24, align 8, !noalias !1146
   %93 = getelementptr inbounds i8, ptr %26, i64 16
   %94 = load i64, ptr %93, align 8, !noalias !1139, !noundef !21
-  %.not.i.i = icmp ult i64 %94, %86
+  %.not.i.i = icmp ugt i64 %86, %94
   br i1 %.not.i.i, label %95, label %111
 
 95:                                               ; preds = %85
@@ -7461,7 +7461,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit: ; preds = %81, %11
   store i64 %126, ptr %18, align 8, !noalias !1170
   %133 = getelementptr inbounds i8, ptr %20, i64 16
   %134 = load i64, ptr %133, align 8, !noalias !1163, !noundef !21
-  %.not.i.i26 = icmp ult i64 %134, %126
+  %.not.i.i26 = icmp ugt i64 %126, %134
   br i1 %.not.i.i26, label %135, label %151
 
 135:                                              ; preds = %125
@@ -7604,7 +7604,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit29: ; preds = %121, 
   store i64 %167, ptr %12, align 8, !noalias !1193
   %175 = getelementptr inbounds i8, ptr %14, i64 16
   %176 = load i64, ptr %175, align 8, !noalias !1186, !noundef !21
-  %.not.i.i38 = icmp ult i64 %176, %167
+  %.not.i.i38 = icmp ugt i64 %167, %176
   br i1 %.not.i.i38, label %177, label %193
 
 177:                                              ; preds = %.noexc41
@@ -7741,7 +7741,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit29: ; preds = %121, 
   store i64 %212, ptr %6, align 8, !noalias !1216
   %219 = getelementptr inbounds i8, ptr %8, i64 16
   %220 = load i64, ptr %219, align 8, !noalias !1209, !noundef !21
-  %.not.i.i54 = icmp ult i64 %220, %212
+  %.not.i.i54 = icmp ugt i64 %212, %220
   br i1 %.not.i.i54, label %221, label %237
 
 221:                                              ; preds = %211
@@ -9868,7 +9868,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store i64 %131, ptr %14, align 8, !noalias !1351
   %139 = getelementptr inbounds i8, ptr %16, i64 16
   %140 = load i64, ptr %139, align 8, !noalias !1347, !noundef !21
-  %.not.i.i = icmp ult i64 %140, %131
+  %.not.i.i = icmp ugt i64 %131, %140
   br i1 %.not.i.i, label %141, label %157
 
 141:                                              ; preds = %130
@@ -9987,7 +9987,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit: ; preds = %128, %1
   store i64 %171, ptr %8, align 8, !noalias !1375
   %179 = getelementptr inbounds i8, ptr %10, i64 16
   %180 = load i64, ptr %179, align 8, !noalias !1371, !noundef !21
-  %.not.i.i89 = icmp ult i64 %180, %171
+  %.not.i.i89 = icmp ugt i64 %171, %180
   br i1 %.not.i.i89, label %181, label %197
 
 181:                                              ; preds = %170
@@ -10954,7 +10954,7 @@ define void @_ZN10actix_http2h210dispatcher16prepare_response17h072919c43fd4f54f
   store i64 %224, ptr %19, align 8, !noalias !1535
   %232 = getelementptr inbounds i8, ptr %21, i64 16
   %233 = load i64, ptr %232, align 8, !noalias !1531, !noundef !21
-  %.not.i.i = icmp ult i64 %233, %224
+  %.not.i.i = icmp ugt i64 %224, %233
   br i1 %.not.i.i, label %234, label %250
 
 234:                                              ; preds = %.noexc41

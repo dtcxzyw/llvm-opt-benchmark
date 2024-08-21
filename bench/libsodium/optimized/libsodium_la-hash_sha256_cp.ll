@@ -38,7 +38,7 @@ if.end:                                           ; preds = %entry
   %add = add i64 %0, %shl
   store i64 %add, ptr %count, align 8
   %sub = sub nuw nsw i64 64, %and
-  %cmp2 = icmp ugt i64 %sub, %inlen
+  %cmp2 = icmp ult i64 %inlen, %sub
   %buf = getelementptr inbounds i8, ptr %state, i64 40
   br i1 %cmp2, label %for.body, label %for.body11
 

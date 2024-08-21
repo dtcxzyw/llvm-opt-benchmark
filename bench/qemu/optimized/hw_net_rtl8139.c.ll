@@ -3214,7 +3214,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
 
 if.then9:                                         ; preds = %land.lhs.true6, %land.lhs.true
   %sub10 = sub i32 %size, %and
-  %cmp12 = icmp slt i32 %and, %size
+  %cmp12 = icmp sgt i32 %size, %and
   br i1 %cmp12, label %if.then13, label %if.then9.if.end_crit_edge
 
 if.then9.if.end_crit_edge:                        ; preds = %if.then9

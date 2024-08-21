@@ -1237,7 +1237,7 @@ is_valid_args.exit.thread._crit_edge:             ; preds = %is_valid_args.exit.
 .backedge:                                        ; preds = %._crit_edge408, %354, %._crit_edge
   %.0176.be = phi i32 [ 1, %._crit_edge ], [ %spec.select, %354 ], [ %.0176411, %._crit_edge408 ]
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %0
+  %exitcond.not = icmp eq i32 %0, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge414, label %258
 
 .critedge2:                                       ; preds = %269, %.split

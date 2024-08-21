@@ -1502,7 +1502,7 @@ define dso_local void @lzma_mf_bt2_skip(ptr nocapture noundef %0, i32 noundef %1
   %78 = trunc nuw nsw i64 %77 to i32
   %79 = lshr i32 %78, 3
   %80 = add i32 %79, %.06796.i
-  %.not86.i = icmp ult i32 %80, %.025
+  %.not86.i = icmp ugt i32 %.025, %80
   br i1 %.not86.i, label %._crit_edge125.i, label %.thread.i
 
 ._crit_edge125.i:                                 ; preds = %75
@@ -1824,7 +1824,7 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
   %127 = trunc nuw nsw i64 %126 to i32
   %128 = lshr i32 %127, 3
   %129 = add i32 %128, %.06796.i
-  %.not86.i = icmp ult i32 %129, %.085
+  %.not86.i = icmp ugt i32 %.085, %129
   br i1 %.not86.i, label %._crit_edge125.i, label %.thread.i
 
 ._crit_edge125.i:                                 ; preds = %124
@@ -2300,7 +2300,7 @@ define dso_local void @lzma_mf_bt3_skip(ptr nocapture noundef %0, i32 noundef %1
   %100 = trunc nuw nsw i64 %99 to i32
   %101 = lshr i32 %100, 3
   %102 = add i32 %101, %.06796.i
-  %.not86.i = icmp ult i32 %102, %.033
+  %.not86.i = icmp ugt i32 %.033, %102
   br i1 %.not86.i, label %._crit_edge125.i, label %.thread.i
 
 ._crit_edge125.i:                                 ; preds = %97
@@ -2682,7 +2682,7 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
   %165 = trunc nuw nsw i64 %164 to i32
   %166 = lshr i32 %165, 3
   %167 = add i32 %166, %.06796.i
-  %.not86.i = icmp ult i32 %167, %.0111
+  %.not86.i = icmp ugt i32 %.0111, %167
   br i1 %.not86.i, label %._crit_edge125.i, label %.thread.i
 
 ._crit_edge125.i:                                 ; preds = %162
@@ -3176,7 +3176,7 @@ define dso_local void @lzma_mf_bt4_skip(ptr nocapture noundef %0, i32 noundef %1
   %112 = trunc nuw nsw i64 %111 to i32
   %113 = lshr i32 %112, 3
   %114 = add i32 %113, %.06796.i
-  %.not86.i = icmp ult i32 %114, %.039
+  %.not86.i = icmp ugt i32 %.039, %114
   br i1 %.not86.i, label %._crit_edge125.i, label %.thread.i
 
 ._crit_edge125.i:                                 ; preds = %109

@@ -3837,7 +3837,7 @@ define hidden ptr @ieee802154_decrypt_payload(ptr noundef %0, i32 noundef %1, pt
 32:                                               ; preds = %27
   %33 = call i32 @tvb_reported_length(ptr noundef %0) #16
   %34 = load i32, ptr %7, align 4
-  %35 = add i32 %34, %1
+  %35 = add i32 %1, %34
   %36 = sub i32 %33, %35
   %37 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %36) #16
   br label %38

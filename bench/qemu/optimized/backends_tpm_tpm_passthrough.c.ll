@@ -363,7 +363,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %tpm_buffersize = getelementptr inbounds i8, ptr %call.i, i64 120
   %0 = load i64, ptr %tpm_buffersize, align 8
-  %cmp = icmp ugt i64 %0, %buffersize
+  %cmp = icmp ult i64 %buffersize, %0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true

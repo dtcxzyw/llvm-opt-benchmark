@@ -3430,7 +3430,7 @@ define hidden void @"_ZN4core3ptr497drop_in_place$LT$itertools..groupbylazy..Gro
   %9 = getelementptr inbounds i8, ptr %3, i64 160
   %10 = load i64, ptr %9, align 8, !noalias !1019, !noundef !4
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i.i = or i1 %11, %12
   br i1 %or.cond.i.i, label %14, label %20
 
@@ -10133,7 +10133,7 @@ define hidden void @"_ZN88_$LT$itertools..groupbylazy..Group$LT$K$C$I$C$F$GT$$u2
   %9 = getelementptr inbounds i8, ptr %3, i64 160
   %10 = load i64, ptr %9, align 8, !noundef !4
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i = or i1 %11, %12
   br i1 %or.cond.i, label %14, label %"_ZN9itertools11groupbylazy24GroupBy$LT$K$C$I$C$F$GT$10drop_group17h90f896c4a28a1338E.exit"
 

@@ -1191,7 +1191,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 82:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit52
   %83 = load ptr, ptr %2, align 8
-  %.not.i = icmp ugt ptr %83, %.1
+  %.not.i = icmp ult ptr %.1, %83
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %84
 
 84:                                               ; preds = %82
@@ -1418,7 +1418,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 223:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit65
   %224 = load ptr, ptr %2, align 8
-  %.not.i66 = icmp ugt ptr %224, %.5
+  %.not.i66 = icmp ult ptr %.5, %224
   br i1 %.not.i66, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit68, label %225
 
 225:                                              ; preds = %223
@@ -3140,7 +3140,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 84:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit80
   %85 = load ptr, ptr %2, align 8
-  %.not.i81 = icmp ugt ptr %85, %.1
+  %.not.i81 = icmp ult ptr %.1, %85
   br i1 %.not.i81, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %86
 
 86:                                               ; preds = %84
@@ -3237,7 +3237,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 141:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit87
   %142 = load ptr, ptr %2, align 8
-  %.not.i88 = icmp ugt ptr %142, %.3
+  %.not.i88 = icmp ult ptr %.3, %142
   br i1 %.not.i88, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit90, label %143
 
 143:                                              ; preds = %141
@@ -3264,7 +3264,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit90: ; preds = %1
 
 152:                                              ; preds = %149
   %153 = load ptr, ptr %2, align 8
-  %.not.i93 = icmp ugt ptr %153, %.4
+  %.not.i93 = icmp ult ptr %.4, %153
   br i1 %.not.i93, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit95, label %154
 
 154:                                              ; preds = %152
@@ -3326,7 +3326,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit: ; pred
 
 179:                                              ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit
   %180 = load ptr, ptr %2, align 8
-  %.not.i99 = icmp ugt ptr %180, %.5
+  %.not.i99 = icmp ult ptr %.5, %180
   br i1 %.not.i99, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit101, label %181
 
 181:                                              ; preds = %179
@@ -4775,7 +4775,7 @@ _ZN17opencv_tensorflow5OpDef23_internal_add_input_argEv.exit: ; preds = %91, %_Z
 
 116:                                              ; preds = %_ZN17opencv_tensorflow5OpDef23_internal_add_input_argEv.exit
   %117 = load ptr, ptr %2, align 8
-  %118 = icmp ugt ptr %117, %115
+  %118 = icmp ult ptr %115, %117
   br i1 %118, label %119, label %.backedge
 
 119:                                              ; preds = %116
@@ -4864,7 +4864,7 @@ _ZN17opencv_tensorflow5OpDef24_internal_add_output_argEv.exit: ; preds = %134, %
 
 159:                                              ; preds = %_ZN17opencv_tensorflow5OpDef24_internal_add_output_argEv.exit
   %160 = load ptr, ptr %2, align 8
-  %161 = icmp ugt ptr %160, %158
+  %161 = icmp ult ptr %158, %160
   br i1 %161, label %162, label %.backedge
 
 162:                                              ; preds = %159
@@ -4945,7 +4945,7 @@ _ZN17opencv_tensorflow5OpDef18_internal_add_attrEv.exit: ; preds = %177, %_ZN6go
 
 200:                                              ; preds = %_ZN17opencv_tensorflow5OpDef18_internal_add_attrEv.exit
   %201 = load ptr, ptr %2, align 8
-  %202 = icmp ugt ptr %201, %199
+  %202 = icmp ult ptr %199, %201
   br i1 %202, label %203, label %.backedge
 
 203:                                              ; preds = %200
@@ -5398,7 +5398,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %.1204 = phi ptr [ %.0149, %.lr.ph ], [ %63, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit ]
   %.0151203 = phi i32 [ 0, %.lr.ph ], [ %64, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit ]
   %46 = load ptr, ptr %2, align 8
-  %.not.i = icmp ugt ptr %46, %.1204
+  %.not.i = icmp ult ptr %.1204, %46
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %47
 
 47:                                               ; preds = %45
@@ -5451,7 +5451,7 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
   %.2206 = phi ptr [ %.1.lcssa, %.lr.ph208 ], [ %86, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit159 ]
   %.0150205 = phi i32 [ 0, %.lr.ph208 ], [ %87, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit159 ]
   %69 = load ptr, ptr %2, align 8
-  %.not.i154 = icmp ugt ptr %69, %.2206
+  %.not.i154 = icmp ult ptr %.2206, %69
   br i1 %.not.i154, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit156, label %70
 
 70:                                               ; preds = %68
@@ -5504,7 +5504,7 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
   %.0148212 = phi i32 [ 0, %.lr.ph214 ], [ %110, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit165 ]
   %.3211 = phi ptr [ %.2.lcssa, %.lr.ph214 ], [ %109, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit165 ]
   %92 = load ptr, ptr %2, align 8
-  %.not.i160 = icmp ugt ptr %92, %.3211
+  %.not.i160 = icmp ult ptr %.3211, %92
   br i1 %.not.i160, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit162, label %93
 
 93:                                               ; preds = %91
@@ -5663,7 +5663,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 191:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit173
   %192 = load ptr, ptr %2, align 8
-  %.not.i175 = icmp ugt ptr %192, %.5
+  %.not.i175 = icmp ult ptr %.5, %192
   br i1 %.not.i175, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit177, label %193
 
 193:                                              ; preds = %191
@@ -5705,7 +5705,7 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 
 210:                                              ; preds = %206
   %211 = load ptr, ptr %2, align 8
-  %.not.i181 = icmp ugt ptr %211, %.6
+  %.not.i181 = icmp ult ptr %.6, %211
   br i1 %.not.i181, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit183, label %212
 
 212:                                              ; preds = %210
@@ -5734,7 +5734,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit183: ; preds = %
 
 223:                                              ; preds = %219
   %224 = load ptr, ptr %2, align 8
-  %.not.i186 = icmp ugt ptr %224, %.7
+  %.not.i186 = icmp ult ptr %.7, %224
   br i1 %.not.i186, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit188, label %225
 
 225:                                              ; preds = %223
@@ -5763,7 +5763,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit188: ; preds = %
 
 236:                                              ; preds = %232
   %237 = load ptr, ptr %2, align 8
-  %.not.i191 = icmp ugt ptr %237, %.8
+  %.not.i191 = icmp ult ptr %.8, %237
   br i1 %.not.i191, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit193, label %238
 
 238:                                              ; preds = %236
@@ -5792,7 +5792,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit193: ; preds = %
 
 249:                                              ; preds = %245
   %250 = load ptr, ptr %2, align 8
-  %.not.i196 = icmp ugt ptr %250, %.9
+  %.not.i196 = icmp ult ptr %.9, %250
   br i1 %.not.i196, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit198, label %251
 
 251:                                              ; preds = %249
@@ -7142,7 +7142,7 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow13OpDeprecation18_InternalSeri
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8
-  %.not.i = icmp ugt ptr %7, %1
+  %.not.i = icmp ult ptr %1, %7
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %8
 
 8:                                                ; preds = %6
@@ -7880,7 +7880,7 @@ _ZN17opencv_tensorflow6OpList16_internal_add_opEv.exit: ; preds = %59, %_ZN6goog
 
 89:                                               ; preds = %_ZN17opencv_tensorflow6OpList16_internal_add_opEv.exit
   %90 = load ptr, ptr %2, align 8
-  %91 = icmp ugt ptr %90, %88
+  %91 = icmp ult ptr %88, %90
   br i1 %91, label %92, label %.backedge
 
 92:                                               ; preds = %89
@@ -7976,7 +7976,7 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow6OpList18_InternalSerializeEPh
   %.03035 = phi i32 [ 0, %.lr.ph ], [ %26, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit ]
   %.03134 = phi ptr [ %1, %.lr.ph ], [ %25, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit ]
   %8 = load ptr, ptr %2, align 8
-  %.not.i = icmp ugt ptr %8, %.03134
+  %.not.i = icmp ult ptr %.03134, %8
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %9
 
 9:                                                ; preds = %7

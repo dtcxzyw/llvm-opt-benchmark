@@ -506,7 +506,7 @@ define internal fastcc range(i32 -1, 1) i32 @siftdown(ptr nocapture noundef read
 entry:
   %0 = getelementptr i8, ptr %heap, i64 16
   %heap.val = load i64, ptr %0, align 8
-  %cmp1.not = icmp sgt i64 %heap.val, %pos
+  %cmp1.not = icmp slt i64 %pos, %heap.val
   br i1 %cmp1.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
@@ -627,7 +627,7 @@ define internal range(i32 -1, 1) i32 @siftup(ptr nocapture noundef readonly %hea
 entry:
   %0 = getelementptr i8, ptr %heap, i64 16
   %heap.val38 = load i64, ptr %0, align 8
-  %cmp1.not = icmp sgt i64 %heap.val38, %pos
+  %cmp1.not = icmp slt i64 %pos, %heap.val38
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -638,7 +638,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %ob_item = getelementptr inbounds i8, ptr %heap, i64 24
   %shr = ashr i64 %heap.val38, 1
-  %cmp241 = icmp sgt i64 %shr, %pos
+  %cmp241 = icmp slt i64 %pos, %shr
   br i1 %cmp241, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %if.end
@@ -944,13 +944,13 @@ define internal range(i32 -1, 1) i32 @siftup_max(ptr nocapture noundef readonly 
 entry:
   %0 = getelementptr i8, ptr %heap, i64 16
   %heap.val38 = load i64, ptr %0, align 8
-  %cmp1.not = icmp sgt i64 %heap.val38, %pos
+  %cmp1.not = icmp slt i64 %pos, %heap.val38
   br i1 %cmp1.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
   %ob_item = getelementptr inbounds i8, ptr %heap, i64 24
   %shr = ashr i64 %heap.val38, 1
-  %cmp243 = icmp sgt i64 %shr, %pos
+  %cmp243 = icmp slt i64 %pos, %shr
   br i1 %cmp243, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %if.end
@@ -1055,7 +1055,7 @@ while.end.loopexit:                               ; preds = %if.end19
 while.end:                                        ; preds = %while.end.loopexit, %if.end
   %heap.val30.i = phi i64 [ %heap.val38, %if.end ], [ %heap.val30.i.pre, %while.end.loopexit ]
   %pos.addr.0.lcssa = phi i64 [ %pos, %if.end ], [ %childpos.0, %while.end.loopexit ]
-  %cmp1.not.i = icmp sgt i64 %heap.val30.i, %pos.addr.0.lcssa
+  %cmp1.not.i = icmp slt i64 %pos.addr.0.lcssa, %heap.val30.i
   br i1 %cmp1.not.i, label %if.end.i39, label %return.sink.split
 
 if.end.i39:                                       ; preds = %while.end

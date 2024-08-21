@@ -96,7 +96,7 @@ define hidden void @_ZN11BoxLockNodeC2Ei(ptr noundef nonnull align 8 dereference
   %26 = tail call noundef i32 @_ZNK7Compile16sync_stack_slotsEv(ptr noundef nonnull align 8 dereferenceable(2316) %25) #8
   %27 = tail call noundef i32 @llvm.umax.i32(i32 %26, i32 1)
   %28 = sub i32 704, %27
-  %29 = icmp sgt i32 %28, %20
+  %29 = icmp slt i32 %20, %28
   br i1 %29, label %38, label %30
 
 30:                                               ; preds = %2

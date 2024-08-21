@@ -623,7 +623,7 @@ autofs_mount_busy.exit.thread:                    ; preds = %26, %42, %18
   %56 = load volatile i64, ptr @jiffies, align 64
   %57 = getelementptr inbounds i8, ptr %48, i64 88
   %58 = load i64, ptr %57, align 8
-  %59 = add i64 %58, %2
+  %59 = add i64 %2, %58
   %60 = sub i64 %56, %59
   %61 = icmp slt i64 %60, 0
   br i1 %61, label %.thread14, label %62
@@ -658,7 +658,7 @@ autofs_mount_busy.exit.thread:                    ; preds = %26, %42, %18
   %77 = load volatile i64, ptr @jiffies, align 64
   %78 = getelementptr inbounds i8, ptr %9, i64 88
   %79 = load i64, ptr %78, align 8
-  %80 = add i64 %79, %2
+  %80 = add i64 %2, %79
   %81 = sub i64 %77, %80
   %82 = icmp slt i64 %81, 0
   br i1 %82, label %.thread14, label %83
@@ -807,7 +807,7 @@ autofs_mount_busy.exit11:                         ; preds = %132, %133
   %166 = load volatile i64, ptr @jiffies, align 64
   %167 = getelementptr inbounds i8, ptr %158, i64 88
   %168 = load i64, ptr %167, align 8
-  %169 = add i64 %168, %2
+  %169 = add i64 %2, %168
   %170 = sub i64 %166, %169
   %171 = icmp slt i64 %170, 0
   br i1 %171, label %.thread13, label %.thread14
@@ -890,7 +890,7 @@ autofs_mount_busy.exit11:                         ; preds = %132, %133
   %215 = load volatile i64, ptr @jiffies, align 64
   %216 = getelementptr inbounds i8, ptr %212, i64 88
   %217 = load i64, ptr %216, align 8
-  %218 = add i64 %217, %2
+  %218 = add i64 %2, %217
   %219 = sub i64 %215, %218
   %220 = icmp slt i64 %219, 0
   br i1 %220, label %226, label %.loopexit23

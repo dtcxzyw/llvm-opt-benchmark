@@ -318,7 +318,7 @@ define internal ptr @composite_get_ptr(ptr noundef %0, i32 noundef %1, i32 nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %10 = getelementptr i32, ptr %8, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
-  %.not = icmp ult i32 %11, %1
+  %.not = icmp ugt i32 %1, %11
   br i1 %.not, label %12, label %13
 
 12:                                               ; preds = %9
@@ -337,7 +337,7 @@ define internal ptr @composite_get_ptr(ptr noundef %0, i32 noundef %1, i32 nound
 .thread:                                          ; preds = %12, %3, %13
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = icmp eq i32 %2, 0
   %or.cond = and i1 %21, %20
   br i1 %or.cond, label %48, label %22
@@ -418,7 +418,7 @@ define internal ptr @composite_memcpy(ptr nocapture noundef readonly %0, ptr nou
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %13 = getelementptr i32, ptr %11, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %.not = icmp ult i32 %14, %.tr60109
+  %.not = icmp ugt i32 %.tr60109, %14
   br i1 %.not, label %15, label %16
 
 15:                                               ; preds = %12
@@ -442,7 +442,7 @@ define internal ptr @composite_memcpy(ptr nocapture noundef readonly %0, ptr nou
   %ret.known.tr70 = phi i1 [ false, %4 ], [ %ret.known.tr112, %15 ], [ true, %tailrecurse ], [ %ret.known.tr112, %16 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8
-  %23 = icmp eq i32 %22, %.tr6086
+  %23 = icmp eq i32 %.tr6086, %22
   %24 = icmp eq i32 %.tr6181, 0
   %or.cond = and i1 %24, %23
   br i1 %or.cond, label %.loopexit, label %25
@@ -488,7 +488,7 @@ define internal ptr @composite_memcpy(ptr nocapture noundef readonly %0, ptr nou
 43:                                               ; preds = %40
   %44 = zext i32 %41 to i64
   %45 = tail call ptr @tvb_memcpy(ptr noundef nonnull %20, ptr noundef %.tr59108, i32 noundef %31, i64 noundef %44) #7
-  %.not55 = icmp eq i32 %41, %.tr61110
+  %.not55 = icmp eq i32 %.tr61110, %41
   br i1 %.not55, label %.loopexit, label %tailrecurse
 
 tailrecurse:                                      ; preds = %43

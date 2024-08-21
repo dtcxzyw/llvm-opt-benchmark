@@ -710,7 +710,7 @@ if.then298:                                       ; preds = %if.end293.tail
 
 if.then302:                                       ; preds = %if.then298
   %sub304 = add i64 %82, -1
-  %cmp.i = icmp ult i64 %spec.select.i229, %sub304
+  %cmp.i = icmp ugt i64 %sub304, %spec.select.i229
   br i1 %cmp.i, label %if.then.i232, label %if.end.i
 
 if.then.i232:                                     ; preds = %if.then302
@@ -724,7 +724,7 @@ if.end.i:                                         ; preds = %if.then302
 
 if.else305:                                       ; preds = %if.then298
   %sub307 = add i64 %82, -2
-  %cmp.i234 = icmp ult i64 %spec.select.i229, %sub307
+  %cmp.i234 = icmp ugt i64 %sub307, %spec.select.i229
   br i1 %cmp.i234, label %if.then.i241, label %if.end.i235
 
 if.then.i241:                                     ; preds = %if.else305
@@ -803,7 +803,7 @@ if.then336:                                       ; preds = %while.end333
   %sub.ptr.rhs.cast339 = ptrtoint ptr %76 to i64
   %sub.ptr.sub340 = sub i64 %sub.ptr.lhs.cast338, %sub.ptr.rhs.cast339
   %add341 = add nsw i64 %sub.ptr.sub340, 1
-  %cmp.i250 = icmp ult i64 %spec.select.i249, %add341
+  %cmp.i250 = icmp ugt i64 %add341, %spec.select.i249
   br i1 %cmp.i250, label %if.then.i257, label %if.end.i251
 
 if.then.i257:                                     ; preds = %if.then336
@@ -819,7 +819,7 @@ if.else342:                                       ; preds = %while.end333
   %sub.ptr.lhs.cast344 = ptrtoint ptr %incdec.ptr328 to i64
   %sub.ptr.rhs.cast345 = ptrtoint ptr %76 to i64
   %sub.ptr.sub346 = sub i64 %sub.ptr.lhs.cast344, %sub.ptr.rhs.cast345
-  %cmp.i260 = icmp ult i64 %spec.select.i249, %sub.ptr.sub346
+  %cmp.i260 = icmp ugt i64 %sub.ptr.sub346, %spec.select.i249
   br i1 %cmp.i260, label %if.then.i267, label %if.end.i261
 
 if.then.i267:                                     ; preds = %if.else342
@@ -1641,7 +1641,7 @@ if.end12:                                         ; preds = %if.end, %land.lhs.t
   %3 = load i8, ptr %arrayidx, align 1
   %cmp14 = icmp eq i8 %3, 47
   %dec = sext i1 %cmp14 to i64
-  %spec.select = add i64 %dec, %url_prefix_len
+  %spec.select = add i64 %url_prefix_len, %dec
   %call = tail call i32 @strncmp(ptr noundef nonnull %url, ptr noundef nonnull %url_prefix, i64 noundef %spec.select) #14
   %tobool18.not = icmp eq i32 %call, 0
   br i1 %tobool18.not, label %if.end20, label %return

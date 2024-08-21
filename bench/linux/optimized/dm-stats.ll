@@ -403,7 +403,7 @@ define dso_local void @dm_stats_account_io(ptr noundef %0, i64 noundef %1, i64 n
 
 9:                                                ; preds = %7
   %10 = zext i32 %3 to i64
-  %11 = add i64 %10, %2
+  %11 = add i64 %2, %10
   br i1 %4, label %32, label %12
 
 12:                                               ; preds = %9
@@ -464,7 +464,7 @@ define dso_local void @dm_stats_account_io(ptr noundef %0, i64 noundef %1, i64 n
   %51 = and i8 %46, 1
   %52 = icmp eq i8 %51, 0
   %.not19 = select i1 %50, i1 %52, i1 false
-  %.not16 = and i1 %.not19, %4
+  %.not16 = and i1 %4, %.not19
   %53 = select i1 %.not19, i8 1, i8 %46
   br i1 %.not16, label %54, label %58
 

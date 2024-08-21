@@ -1605,14 +1605,14 @@ Abc_Clock.exit:                                   ; preds = %2, %16
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 32
   %.val61 = load ptr, ptr %25, align 8
-  %26 = icmp eq ptr %.val61, %1
+  %26 = icmp eq ptr %1, %.val61
   br i1 %26, label %174, label %27
 
 27:                                               ; preds = %Abc_Clock.exit
   %28 = ptrtoint ptr %.val61 to i64
   %29 = xor i64 %28, 1
   %30 = inttoptr i64 %29 to ptr
-  %31 = icmp eq ptr %30, %1
+  %31 = icmp eq ptr %1, %30
   br i1 %31, label %174, label %32
 
 32:                                               ; preds = %27

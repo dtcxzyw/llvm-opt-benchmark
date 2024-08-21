@@ -34,7 +34,7 @@ define dso_local noundef ptr @MD5FileChunk(ptr nocapture noundef readonly %0, pt
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %8, i64 48
   %16 = load i64, ptr %15, align 8
-  %spec.select = call i64 @llvm.smin.i64(i64 %16, i64 %2)
+  %spec.select = call i64 @llvm.smin.i64(i64 %2, i64 %16)
   %17 = call i64 @lseek(i32 noundef %9, i64 noundef %spec.select, i32 noundef 0) #9
   %18 = icmp slt i64 %17, 0
   br i1 %18, label %55, label %.preheader
@@ -42,7 +42,7 @@ define dso_local noundef ptr @MD5FileChunk(ptr nocapture noundef readonly %0, pt
 .preheader:                                       ; preds = %14
   %19 = icmp eq i64 %3, 0
   %20 = sub nsw i64 %16, %spec.select
-  %21 = call i64 @llvm.smin.i64(i64 %20, i64 %3)
+  %21 = call i64 @llvm.smin.i64(i64 %3, i64 %20)
   %.027 = select i1 %19, i64 %20, i64 %21
   %22 = icmp sgt i64 %.027, 0
   br i1 %22, label %.lr.ph, label %._crit_edge

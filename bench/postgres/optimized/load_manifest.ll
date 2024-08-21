@@ -432,35 +432,35 @@ define dso_local noundef ptr @manifest_files_lookup(ptr nocapture noundef readon
   %5 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %4) #17
   %6 = getelementptr i8, ptr %0, i64 12
   %.val.i = load i32, ptr %6, align 4
-  %7 = and i32 %.val.i, %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = zext i32 %7 to i64
-  %11 = getelementptr %struct.manifest_file, ptr %9, i64 %10
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %.01214.i = and i32 %.val.i, %5
+  %9 = zext i32 %.01214.i to i64
+  %10 = getelementptr %struct.manifest_file, ptr %8, i64 %9
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %2, %19
-  %14 = phi ptr [ %23, %19 ], [ %11, %2 ]
-  %.01214.i = phi i32 [ %21, %19 ], [ %7, %2 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %1) #19
+13:                                               ; preds = %.lr.ph.i
+  %14 = add i32 %.01215.i, 1
+  %.012.i = and i32 %14, %.val.i
+  %15 = zext i32 %.012.i to i64
+  %16 = getelementptr %struct.manifest_file, ptr %8, i64 %15
+  %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %manifest_files_lookup_hash_internal.exit, label %19
+  br i1 %18, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i
 
-19:                                               ; preds = %.lr.ph.i
-  %20 = add i32 %.01214.i, 1
-  %21 = and i32 %20, %.val.i
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr %struct.manifest_file, ptr %9, i64 %22
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %2, %13
+  %19 = phi ptr [ %16, %13 ], [ %10, %2 ]
+  %.01215.i = phi i32 [ %.012.i, %13 ], [ %.01214.i, %2 ]
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %1) #19
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %manifest_files_lookup_hash_internal.exit, label %13
 
-manifest_files_lookup_hash_internal.exit:         ; preds = %.lr.ph.i, %19, %2
-  %.0.i = phi ptr [ null, %2 ], [ null, %19 ], [ %14, %.lr.ph.i ]
+manifest_files_lookup_hash_internal.exit:         ; preds = %13, %.lr.ph.i, %2
+  %.0.i = phi ptr [ null, %2 ], [ null, %13 ], [ %19, %.lr.ph.i ]
   ret ptr %.0.i
 }
 
@@ -468,35 +468,35 @@ manifest_files_lookup_hash_internal.exit:         ; preds = %.lr.ph.i, %19, %2
 define dso_local noundef ptr @manifest_files_lookup_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr i8, ptr %0, i64 12
   %.val.i = load i32, ptr %4, align 4
-  %5 = and i32 %.val.i, %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8
-  %8 = zext i32 %5 to i64
-  %9 = getelementptr %struct.manifest_file, ptr %7, i64 %8
-  %10 = load i32, ptr %9, align 8
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = load ptr, ptr %5, align 8
+  %.01214.i = and i32 %.val.i, %2
+  %7 = zext i32 %.01214.i to i64
+  %8 = getelementptr %struct.manifest_file, ptr %6, i64 %7
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %3, %17
-  %12 = phi ptr [ %21, %17 ], [ %9, %3 ]
-  %.01214.i = phi i32 [ %19, %17 ], [ %5, %3 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %1) #19
+11:                                               ; preds = %.lr.ph.i
+  %12 = add i32 %.01215.i, 1
+  %.012.i = and i32 %12, %.val.i
+  %13 = zext i32 %.012.i to i64
+  %14 = getelementptr %struct.manifest_file, ptr %6, i64 %13
+  %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %manifest_files_lookup_hash_internal.exit, label %17
+  br i1 %16, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i
 
-17:                                               ; preds = %.lr.ph.i
-  %18 = add i32 %.01214.i, 1
-  %19 = and i32 %18, %.val.i
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr %struct.manifest_file, ptr %7, i64 %20
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %3, %11
+  %17 = phi ptr [ %14, %11 ], [ %8, %3 ]
+  %.01215.i = phi i32 [ %.012.i, %11 ], [ %.01214.i, %3 ]
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %1) #19
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %manifest_files_lookup_hash_internal.exit, label %11
 
-manifest_files_lookup_hash_internal.exit:         ; preds = %.lr.ph.i, %17, %3
-  %.0.i = phi ptr [ null, %3 ], [ null, %17 ], [ %12, %.lr.ph.i ]
+manifest_files_lookup_hash_internal.exit:         ; preds = %11, %.lr.ph.i, %3
+  %.0.i = phi ptr [ null, %3 ], [ null, %11 ], [ %17, %.lr.ph.i ]
   ret ptr %.0.i
 }
 

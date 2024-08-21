@@ -925,7 +925,7 @@ entry:
   %1 = load i32, ptr %n_leafs, align 8
   %add = add nsw i32 %1, %0
   %conv = sext i32 %add to i64
-  %cmp.not = icmp ugt i64 %conv, %hash_set.coerce0
+  %cmp.not = icmp ult i64 %hash_set.coerce0, %conv
   br i1 %cmp.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry

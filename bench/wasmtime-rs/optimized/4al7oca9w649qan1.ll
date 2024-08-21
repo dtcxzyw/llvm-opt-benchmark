@@ -541,7 +541,7 @@ define hidden void @_ZN4core4hash6Hasher10write_u12817hb42ca33e38f31e75E.llvm.12
 define hidden void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h70079d2bec147f21E.llvm.12584902720330826042(ptr noundef nonnull readnone %0, ptr noundef readonly %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %1, %0
+  %5 = icmp eq ptr %0, %1
   br i1 %5, label %._crit_edge8, label %.lr.ph
 
 ._crit_edge8:                                     ; preds = %3
@@ -570,7 +570,7 @@ define hidden void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfol
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %13, i64 4
   store i32 %12, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 4, !noalias !182
   %14 = add i64 %10, 1
-  %15 = icmp eq ptr %11, %0
+  %15 = icmp eq ptr %0, %11
   br i1 %15, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %9
@@ -786,7 +786,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !4
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -867,8 +867,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !220
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -1138,7 +1138,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %1, %0
+  %5 = icmp eq ptr %0, %1
   br i1 %5, label %._crit_edge8.i, label %.lr.ph.i
 
 ._crit_edge8.i:                                   ; preds = %3
@@ -1167,7 +1167,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %13, i64 4
   store i32 %12, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i, align 4, !noalias !260
   %14 = add i64 %10, 1
-  %15 = icmp eq ptr %11, %0
+  %15 = icmp eq ptr %0, %11
   br i1 %15, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %9

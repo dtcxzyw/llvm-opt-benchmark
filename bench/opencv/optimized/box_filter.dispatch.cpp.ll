@@ -3709,7 +3709,7 @@ define void @_ZN2cv9boxFilterERKNS_11_InputArrayERKNS_12_OutputArrayEiNS_5Size_I
 _ZNK2cv11_InputArray6getMatEi.exit55:             ; preds = %52, %55
   %56 = and i32 %6, 16
   %.not39 = icmp ne i32 %56, 0
-  %or.cond.not = and i1 %.not39, %5
+  %or.cond.not = and i1 %5, %.not39
   br i1 %or.cond.not, label %.thread, label %65
 
 .thread:                                          ; preds = %_ZNK2cv11_InputArray6getMatEi.exit55
@@ -4120,7 +4120,7 @@ define void @_ZN2cv12sqrBoxFilterERKNS_11_InputArrayERKNS_12_OutputArrayEiNS_5Si
   %43 = select i1 %42, i32 5, i32 6
   %.0 = select i1 %41, i32 %43, i32 %2
   %.not = icmp ne i32 %6, 0
-  %brmerge.not = and i1 %.not, %5
+  %brmerge.not = and i1 %5, %.not
   br i1 %brmerge.not, label %44, label %48
 
 44:                                               ; preds = %40
@@ -9794,7 +9794,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEclEPPKhPhi
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 2
   %21 = trunc i64 %20 to i32
-  %.not = icmp eq i32 %21, %5
+  %.not = icmp eq i32 %5, %21
   br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %6
@@ -10311,7 +10311,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEclEPPKhPhi
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 1
   %25 = trunc i64 %24 to i32
-  %.not = icmp eq i32 %25, %5
+  %.not = icmp eq i32 %5, %25
   br i1 %.not, label %39, label %26
 
 26:                                               ; preds = %6
@@ -10814,7 +10814,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEclEPPKhPhi
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
   %21 = trunc i64 %20 to i32
-  %.not = icmp eq i32 %21, %5
+  %.not = icmp eq i32 %5, %21
   br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %6
@@ -11408,7 +11408,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEclEPPKhPhi
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 2
   %21 = trunc i64 %20 to i32
-  %.not = icmp eq i32 %21, %5
+  %.not = icmp eq i32 %5, %21
   br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %6
@@ -11808,7 +11808,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEclEPPKhPhi
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
   %21 = trunc i64 %20 to i32
-  %.not = icmp eq i32 %21, %5
+  %.not = icmp eq i32 %5, %21
   br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %6
@@ -12304,7 +12304,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEclEPPKhPhi
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 2
   %21 = trunc i64 %20 to i32
-  %.not = icmp eq i32 %21, %5
+  %.not = icmp eq i32 %5, %21
   br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %6
@@ -12704,7 +12704,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEclEPPKhPhi
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
   %21 = trunc i64 %20 to i32
-  %.not = icmp eq i32 %21, %5
+  %.not = icmp eq i32 %5, %21
   br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %6
@@ -13200,7 +13200,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEclEPPKhPhi
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 2
   %21 = trunc i64 %20 to i32
-  %.not = icmp eq i32 %21, %5
+  %.not = icmp eq i32 %5, %21
   br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %6
@@ -13594,7 +13594,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEclEPPKhPhi
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 2
   %21 = trunc i64 %20 to i32
-  %.not = icmp eq i32 %21, %5
+  %.not = icmp eq i32 %5, %21
   br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %6
@@ -13988,7 +13988,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEclEPPKhPhi
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
   %21 = trunc i64 %20 to i32
-  %.not = icmp eq i32 %21, %5
+  %.not = icmp eq i32 %5, %21
   br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %6
@@ -14460,7 +14460,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEclEPPKhPhi
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 2
   %21 = trunc i64 %20 to i32
-  %.not = icmp eq i32 %21, %5
+  %.not = icmp eq i32 %5, %21
   br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %6
@@ -14932,7 +14932,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEclEPPKhPhi
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
   %21 = trunc i64 %20 to i32
-  %.not = icmp eq i32 %21, %5
+  %.not = icmp eq i32 %5, %21
   br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %6
@@ -15707,7 +15707,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEclEPKhPhii
   %25 = load i8, ptr %24, align 1
   %26 = uitofp i8 %25 to double
   %27 = fneg double %22
-  %28 = fmul double %27, %22
+  %28 = fmul double %22, %27
   %29 = call double @llvm.fmuladd.f64(double %26, double %26, double %28)
   %30 = fadd double %.149.us.us, %29
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, %15
@@ -15758,7 +15758,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEclEPKhPhii
   %50 = load i8, ptr %49, align 1
   %51 = uitofp i8 %50 to double
   %52 = fneg double %47
-  %53 = fmul double %52, %47
+  %53 = fmul double %47, %52
   %54 = call double @llvm.fmuladd.f64(double %51, double %51, double %53)
   %55 = fadd double %.149.us, %54
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, %15
@@ -15950,7 +15950,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEclEPKhPhii
   %25 = load i16, ptr %24, align 2
   %26 = uitofp i16 %25 to double
   %27 = fneg double %22
-  %28 = fmul double %27, %22
+  %28 = fmul double %22, %27
   %29 = call double @llvm.fmuladd.f64(double %26, double %26, double %28)
   %30 = fadd double %.149.us.us, %29
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, %15
@@ -16001,7 +16001,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEclEPKhPhii
   %50 = load i16, ptr %49, align 2
   %51 = uitofp i16 %50 to double
   %52 = fneg double %47
-  %53 = fmul double %52, %47
+  %53 = fmul double %47, %52
   %54 = call double @llvm.fmuladd.f64(double %51, double %51, double %53)
   %55 = fadd double %.149.us, %54
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, %15
@@ -16190,7 +16190,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEclEPKhPhii
   %25 = load i16, ptr %24, align 2
   %26 = sitofp i16 %25 to double
   %27 = fneg double %22
-  %28 = fmul double %27, %22
+  %28 = fmul double %22, %27
   %29 = call double @llvm.fmuladd.f64(double %26, double %26, double %28)
   %30 = fadd double %.149.us.us, %29
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, %15
@@ -16241,7 +16241,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEclEPKhPhii
   %50 = load i16, ptr %49, align 2
   %51 = sitofp i16 %50 to double
   %52 = fneg double %47
-  %53 = fmul double %52, %47
+  %53 = fmul double %47, %52
   %54 = call double @llvm.fmuladd.f64(double %51, double %51, double %53)
   %55 = fadd double %.149.us, %54
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, %15
@@ -16430,7 +16430,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEclEPKhPhii
   %25 = load float, ptr %24, align 4
   %26 = fpext float %25 to double
   %27 = fneg double %22
-  %28 = fmul double %27, %22
+  %28 = fmul double %22, %27
   %29 = call double @llvm.fmuladd.f64(double %26, double %26, double %28)
   %30 = fadd double %.149.us.us, %29
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, %15
@@ -16481,7 +16481,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIfdEclEPKhPhii
   %50 = load float, ptr %49, align 4
   %51 = fpext float %50 to double
   %52 = fneg double %47
-  %53 = fmul double %52, %47
+  %53 = fmul double %47, %52
   %54 = call double @llvm.fmuladd.f64(double %51, double %51, double %53)
   %55 = fadd double %.149.us, %54
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, %15

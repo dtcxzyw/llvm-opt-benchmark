@@ -605,7 +605,7 @@ pop.exit54:                                       ; preds = %36, %42
   %.065101.i = phi ptr [ %.166.lcssa.i, %._crit_edge.i ], [ null, %.preheader81.preheader.i ]
   %.068100.i = phi ptr [ %.169.lcssa.i, %._crit_edge.i ], [ null, %.preheader81.preheader.i ]
   %.07199.i = phi ptr [ %.172.lcssa.i, %._crit_edge.i ], [ null, %.preheader81.preheader.i ]
-  %53 = icmp ugt ptr %.050107.i, %4
+  %53 = icmp ult ptr %4, %.050107.i
   br i1 %53, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader81.i, %88
@@ -1201,7 +1201,7 @@ rfc2231.exit.thread54:                            ; preds = %69
   br i1 %82, label %rfc2231.exit.thread, label %.preheader107.i
 
 .preheader107.i:                                  ; preds = %.thread.i
-  %.not86114.i = icmp eq ptr %.068103.i, %.0
+  %.not86114.i = icmp eq ptr %.0, %.068103.i
   br i1 %.not86114.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader107.i, %.lr.ph.i

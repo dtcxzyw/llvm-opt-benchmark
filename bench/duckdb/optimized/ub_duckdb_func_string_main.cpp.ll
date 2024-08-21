@@ -40339,7 +40339,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp3.i, label %if.then4.i, label %if.else6.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %add.i = add nsw i64 %conv.i, %offset
+  %add.i = add nsw i64 %offset, %conv.i
   %cond.i42.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 0)
   br label %if.end11.i
 
@@ -41053,7 +41053,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp3.i, label %if.then4.i, label %if.else6.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %add.i = add nsw i64 %conv.i, %offset
+  %add.i = add nsw i64 %offset, %conv.i
   %cond.i42.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 0)
   br label %if.end11.i
 
@@ -75728,7 +75728,7 @@ entry:
   %call3 = call noundef zeroext i1 @_ZN6duckdb23grapheme_break_extendedEiiPi(i32 noundef 0, i32 noundef %bf.cast, ptr noundef nonnull %boundclass)
   %0 = load i32, ptr %sz, align 4, !tbaa !6
   %conv32 = sext i32 %0 to i64
-  %cmp.not33 = icmp ult i64 %conv32, %len
+  %cmp.not33 = icmp ugt i64 %len, %conv32
   br i1 %cmp.not33, label %if.end, label %cleanup17
 
 if.end:                                           ; preds = %entry, %cleanup

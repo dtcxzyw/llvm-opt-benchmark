@@ -155,7 +155,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 60:                                               ; preds = %57
   %.not325 = xor i1 %4, true
-  %brmerge = or i1 %.not325, %5
+  %brmerge = or i1 %5, %.not325
   br i1 %brmerge, label %61, label %.thread366
 
 61:                                               ; preds = %60
@@ -1017,7 +1017,7 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.0.lcssa = phi i32 [ %47, %.lr.ph.split.us ], [ %57, %.lr.ph.split ]
   %.not56 = icmp eq i32 %.0.lcssa, 0
-  %brmerge = or i1 %.not56, %5
+  %brmerge = or i1 %5, %.not56
   br i1 %brmerge, label %._crit_edge.thread, label %62
 
 62:                                               ; preds = %._crit_edge

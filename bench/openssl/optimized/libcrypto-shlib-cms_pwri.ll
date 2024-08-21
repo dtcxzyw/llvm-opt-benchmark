@@ -667,7 +667,7 @@ entry:
   %call = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %ctx) #4
   %conv = sext i32 %call to i64
   %mul = shl nsw i64 %conv, 1
-  %cmp = icmp ugt i64 %mul, %inlen
+  %cmp = icmp ult i64 %inlen, %mul
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -740,7 +740,7 @@ if.end55:                                         ; preds = %if.end37
   %7 = load i8, ptr %call4, align 1
   %conv57 = zext i8 %7 to i64
   %sub58 = add nsw i64 %conv57, -4
-  %cmp60 = icmp ugt i64 %sub58, %inlen
+  %cmp60 = icmp ult i64 %inlen, %sub58
   br i1 %cmp60, label %err, label %if.end63
 
 if.end63:                                         ; preds = %if.end55

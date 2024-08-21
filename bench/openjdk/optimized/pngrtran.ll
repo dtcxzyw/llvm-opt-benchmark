@@ -655,7 +655,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %60 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv546
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
-  %.not428 = icmp slt i32 %62, %3
+  %.not428 = icmp sgt i32 %3, %62
   br i1 %.not428, label %70, label %.preheader449.preheader
 
 .preheader449.preheader:                          ; preds = %59
@@ -702,7 +702,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %77 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv554
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
-  %.not425 = icmp slt i32 %79, %3
+  %.not425 = icmp sgt i32 %3, %79
   br i1 %.not425, label %93, label %.preheader447.preheader
 
 .preheader447.preheader:                          ; preds = %75
@@ -746,7 +746,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %96 = getelementptr inbounds i8, ptr %95, i64 %indvars.iv564
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
-  %.not424 = icmp slt i32 %98, %3
+  %.not424 = icmp sgt i32 %3, %98
   br i1 %.not424, label %144, label %99
 
 99:                                               ; preds = %94

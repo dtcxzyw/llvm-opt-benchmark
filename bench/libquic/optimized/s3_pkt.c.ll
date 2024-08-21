@@ -17,7 +17,7 @@ entry:
   %1 = load i32, ptr %wnum.i, align 4
   store i32 0, ptr %wnum.i, align 4
   %cmp.i = icmp slt i32 %len, 0
-  %cmp4.i = icmp ugt i32 %1, %len
+  %cmp4.i = icmp ult i32 %len, %1
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp4.i
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
@@ -92,7 +92,7 @@ entry:
   %1 = load i32, ptr %wnum, align 4
   store i32 0, ptr %wnum, align 4
   %cmp = icmp slt i32 %len, 0
-  %cmp4 = icmp ugt i32 %1, %len
+  %cmp4 = icmp ult i32 %len, %1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp4
   br i1 %or.cond, label %if.then, label %if.end
 
@@ -494,7 +494,7 @@ if.end19:                                         ; preds = %if.end15
 
 land.lhs.true22:                                  ; preds = %if.end19
   %conv24 = zext i8 %.pr.pre to i32
-  %cmp25 = icmp eq i32 %conv24, %type
+  %cmp25 = icmp eq i32 %type, %conv24
   br i1 %cmp25, label %if.then27, label %if.end72
 
 if.then27:                                        ; preds = %land.lhs.true22
@@ -528,7 +528,7 @@ if.end45:                                         ; preds = %if.end39
 
 if.end49:                                         ; preds = %if.end45
   %conv41.le = zext i16 %20 to i32
-  %conv41.len = call i32 @llvm.umin.i32(i32 %conv41.le, i32 %len)
+  %conv41.len = call i32 @llvm.umin.i32(i32 %len, i32 %conv41.le)
   %data = getelementptr inbounds i8, ptr %0, i64 128
   %21 = load ptr, ptr %data, align 8
   %conv58 = zext nneg i32 %conv41.len to i64

@@ -927,7 +927,7 @@ parse_block_header.exit.i:                        ; preds = %177
   %223 = getelementptr inbounds i8, ptr %222, i64 %.045.i361
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %223, ptr noundef nonnull align 1 dereferenceable(1) %216, i64 %..i72362, i1 false)
   %224 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %..i72362) #13
-  %225 = icmp eq i64 %224, %..i72362
+  %225 = icmp eq i64 %..i72362, %224
   br i1 %225, label %226, label %do_unpack.exit.thread195
 
 226:                                              ; preds = %221
@@ -2215,7 +2215,7 @@ do_uncompress_block.exit.i.thread:                ; preds = %645, %880, %842, %8
 
 911:                                              ; preds = %907
   %912 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %909) #13
-  %913 = icmp eq i64 %912, %909
+  %913 = icmp eq i64 %909, %912
   br i1 %913, label %914, label %do_unpack.exit.thread195
 
 914:                                              ; preds = %911
@@ -2704,8 +2704,8 @@ cdeque_pop_front.exit.i:                          ; preds = %1157, %1151
 
 1193:                                             ; preds = %1169
   %1194 = getelementptr inbounds i8, ptr %1171, i64 %1177
-  %1195 = sub nsw i64 %1178, %1176
-  %1196 = and i64 %1195, %1173
+  %1195 = sub i64 %942, %954
+  %1196 = and i64 %1173, %1195
   %1197 = call fastcc i32 @push_data_ready(ptr noundef nonnull %0, ptr noundef nonnull %.val.val.i, ptr noundef %1194, i64 noundef %1196, i64 noundef %954)
   %1198 = load i64, ptr %953, align 8
   %1199 = add nsw i64 %1198, %1195
@@ -2780,8 +2780,8 @@ push_window_data.exit.i:                          ; preds = %1193, %1181
 
 1243:                                             ; preds = %1221
   %1244 = getelementptr inbounds i8, ptr %1224, i64 %1230
-  %1245 = sub nsw i64 %1231, %1229
-  %1246 = and i64 %1245, %1226
+  %1245 = sub i64 %.0.i.i, %1219
+  %1246 = and i64 %1226, %1245
   %1247 = call fastcc i32 @push_data_ready(ptr noundef nonnull %0, ptr noundef nonnull %.val.val.i.i, ptr noundef %1244, i64 noundef %1246, i64 noundef %1219)
   br label %push_window_data.exit
 
@@ -2960,7 +2960,7 @@ advance_multivolume.exit.i:                       ; preds = %skip_base_block.exi
 
 1307:                                             ; preds = %1304
   %1308 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %spec.select94.i) #13
-  %1309 = icmp eq i64 %1308, %spec.select94.i
+  %1309 = icmp eq i64 %spec.select94.i, %1308
   br i1 %1309, label %1310, label %do_unpack.exit.thread195
 
 1310:                                             ; preds = %1307
@@ -3099,7 +3099,7 @@ define internal i32 @rar5_read_data_skip(ptr noundef %0) #0 {
 19:                                               ; preds = %1
   %20 = load i64, ptr %6, align 8
   %21 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %20) #13
-  %22 = icmp eq i64 %21, %20
+  %22 = icmp eq i64 %20, %21
   br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %19
@@ -3225,7 +3225,7 @@ define internal fastcc i32 @process_base_block(ptr noundef %0, ptr noundef %1) u
 
 14:                                               ; preds = %11
   %15 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %10) #13
-  %16 = icmp eq i64 %15, %10
+  %16 = icmp eq i64 %10, %15
   br i1 %16, label %skip_unprocessed_bytes.exit.thread.sink.split, label %read_var_sized.exit
 
 17:                                               ; preds = %11
@@ -3259,7 +3259,7 @@ define internal fastcc i32 @process_base_block(ptr noundef %0, ptr noundef %1) u
 
 33:                                               ; preds = %17
   %34 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %10) #13
-  %35 = icmp eq i64 %34, %10
+  %35 = icmp eq i64 %10, %34
   br i1 %35, label %skip_unprocessed_bytes.exit.thread.sink.split, label %read_var_sized.exit
 
 rar5_read_data_skip.exit:                         ; preds = %25
@@ -3352,7 +3352,7 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
 
 65:                                               ; preds = %60
   %66 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i.ph) #13
-  %67 = icmp eq i64 %66, %.02428.i.ph
+  %67 = icmp eq i64 %.02428.i.ph, %66
   br i1 %67, label %68, label %read_var_sized.exit
 
 68:                                               ; preds = %65
@@ -3537,7 +3537,7 @@ define internal fastcc range(i32 0, 2) i32 @read_var_sized(ptr noundef %0, ptr n
 
 28:                                               ; preds = %.preheader.i11
   %29 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %27) #13
-  %30 = icmp eq i64 %29, %27
+  %30 = icmp eq i64 %27, %29
   br i1 %30, label %read_var.exit, label %read_var.exit.thread
 
 31:                                               ; preds = %.preheader.i11
@@ -3613,7 +3613,7 @@ define internal fastcc i32 @process_head_main(ptr noundef %0, ptr nocapture noun
 
 20:                                               ; preds = %.preheader.i11.i
   %21 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %19) #13
-  %22 = icmp eq i64 %21, %19
+  %22 = icmp eq i64 %19, %21
   br i1 %22, label %read_var_sized.exit, label %read_var_sized.exit.thread
 
 23:                                               ; preds = %.preheader.i11.i
@@ -3651,7 +3651,7 @@ read_var_sized.exit:                              ; preds = %3, %25, %20
 
 37:                                               ; preds = %.preheader.i11.i34
   %38 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %36) #13
-  %39 = icmp eq i64 %38, %36
+  %39 = icmp eq i64 %36, %38
   br i1 %39, label %read_var_sized.exit41, label %read_var_sized.exit.thread
 
 40:                                               ; preds = %.preheader.i11.i34
@@ -3704,7 +3704,7 @@ read_var_sized.exit41:                            ; preds = %42, %37
 
 66:                                               ; preds = %.preheader.i11.i43
   %67 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %65) #13
-  %68 = icmp eq i64 %67, %65
+  %68 = icmp eq i64 %65, %67
   br i1 %68, label %read_var_sized.exit50, label %read_var_sized.exit.thread
 
 69:                                               ; preds = %.preheader.i11.i43
@@ -3768,7 +3768,7 @@ read_var_sized.exit50:                            ; preds = %71, %66
 
 94:                                               ; preds = %.preheader.i11.i52
   %95 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %93) #13
-  %96 = icmp eq i64 %95, %93
+  %96 = icmp eq i64 %93, %95
   br i1 %96, label %read_var_sized.exit59, label %read_var_sized.exit.thread
 
 97:                                               ; preds = %.preheader.i11.i52
@@ -3805,7 +3805,7 @@ read_var_sized.exit59:                            ; preds = %99, %94
 
 111:                                              ; preds = %.preheader.i11.i61
   %112 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %110) #13
-  %113 = icmp eq i64 %112, %110
+  %113 = icmp eq i64 %110, %112
   br i1 %113, label %read_var_sized.exit68, label %read_var_sized.exit.thread
 
 114:                                              ; preds = %.preheader.i11.i61
@@ -3891,7 +3891,7 @@ define internal fastcc i32 @process_head_service(ptr noundef %0, ptr noundef %1,
 27:                                               ; preds = %6
   %28 = load i64, ptr %14, align 8
   %29 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %28) #13
-  %30 = icmp eq i64 %29, %28
+  %30 = icmp eq i64 %28, %29
   br i1 %30, label %31, label %rar5_read_data_skip.exit.thread16
 
 31:                                               ; preds = %27
@@ -4033,7 +4033,7 @@ reset_file_context.exit:                          ; preds = %cdeque_pop_front.ex
 
 67:                                               ; preds = %.preheader.i11.i
   %68 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %66) #13
-  %69 = icmp eq i64 %68, %66
+  %69 = icmp eq i64 %66, %68
   br i1 %69, label %read_var_sized.exit, label %read_var_sized.exit.thread
 
 70:                                               ; preds = %.preheader.i11.i
@@ -4076,7 +4076,7 @@ read_var_sized.exit:                              ; preds = %67, %72, %55
 
 86:                                               ; preds = %.preheader.i11.i147
   %87 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %85) #13
-  %88 = icmp eq i64 %87, %85
+  %88 = icmp eq i64 %85, %87
   br i1 %88, label %read_var_sized.exit154, label %read_var_sized.exit.thread
 
 89:                                               ; preds = %.preheader.i11.i147
@@ -4115,7 +4115,7 @@ read_var_sized.exit154:                           ; preds = %91, %86
 
 104:                                              ; preds = %.preheader.i11.i156
   %105 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %103) #13
-  %106 = icmp eq i64 %105, %103
+  %106 = icmp eq i64 %103, %105
   br i1 %106, label %read_var_sized.exit163, label %read_var_sized.exit.thread
 
 107:                                              ; preds = %.preheader.i11.i156
@@ -4158,7 +4158,7 @@ read_var_sized.exit163:                           ; preds = %109, %104
 
 123:                                              ; preds = %.preheader.i
   %124 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %122) #13
-  %125 = icmp eq i64 %124, %122
+  %125 = icmp eq i64 %122, %124
   br i1 %125, label %read_var.exit, label %read_var_sized.exit.thread
 
 126:                                              ; preds = %.preheader.i
@@ -4212,7 +4212,7 @@ read_var.exit:                                    ; preds = %128, %123
 
 150:                                              ; preds = %.preheader.i11.i165
   %151 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %149) #13
-  %152 = icmp eq i64 %151, %149
+  %152 = icmp eq i64 %149, %151
   br i1 %152, label %read_var_sized.exit173, label %read_var_sized.exit.thread
 
 153:                                              ; preds = %.preheader.i11.i165
@@ -4269,7 +4269,7 @@ read_var_sized.exit173:                           ; preds = %155, %150
 
 175:                                              ; preds = %.preheader.i11.i175
   %176 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %174) #13
-  %177 = icmp eq i64 %176, %174
+  %177 = icmp eq i64 %174, %176
   br i1 %177, label %read_var_sized.exit183, label %read_var_sized.exit.thread
 
 178:                                              ; preds = %.preheader.i11.i175
@@ -4513,7 +4513,7 @@ read_var_sized.exit183:                           ; preds = %180, %175
   %281 = getelementptr inbounds [8192 x i8], ptr %16, i64 0, i64 %274
   store i8 0, ptr %281, align 1
   %282 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %274) #13
-  %283 = icmp eq i64 %282, %274
+  %283 = icmp eq i64 %274, %282
   br i1 %283, label %284, label %read_var_sized.exit.thread
 
 284:                                              ; preds = %280
@@ -4668,7 +4668,7 @@ define internal fastcc range(i32 0, 2) i32 @process_main_locator_extra_block(ptr
 
 15:                                               ; preds = %.preheader.i
   %16 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %14) #13
-  %17 = icmp eq i64 %16, %14
+  %17 = icmp eq i64 %14, %16
   br i1 %17, label %read_var.exit, label %read_var.exit24
 
 18:                                               ; preds = %.preheader.i
@@ -4712,7 +4712,7 @@ read_var.exit:                                    ; preds = %20, %15
   store i64 %32, ptr %25, align 8
   %35 = add nuw nsw i64 %.02340.i11, 1
   %36 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %35) #13
-  %37 = icmp eq i64 %36, %35
+  %37 = icmp eq i64 %35, %36
   br i1 %37, label %read_var.exit16, label %read_var.exit24
 
 38:                                               ; preds = %.preheader.i10
@@ -4758,7 +4758,7 @@ read_var.exit16:                                  ; preds = %41, %34, %read_var.
   store i64 %53, ptr %46, align 8
   %56 = add nuw nsw i64 %.02340.i19, 1
   %57 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %56) #13
-  %58 = icmp eq i64 %57, %56
+  %58 = icmp eq i64 %56, %57
   br i1 %58, label %read_var.exit24, label %read_var.exit24.thread
 
 59:                                               ; preds = %.preheader.i18
@@ -4864,7 +4864,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
 .loopexit145:                                     ; preds = %49, %.preheader.i.i
   %.02428.i.ph = phi i64 [ %48, %.preheader.i.i ], [ 9, %49 ]
   %50 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i.ph) #13
-  %51 = icmp eq i64 %50, %.02428.i.ph
+  %51 = icmp eq i64 %.02428.i.ph, %50
   br i1 %51, label %52, label %read_var_sized.exit
 
 52:                                               ; preds = %.loopexit145
@@ -4899,7 +4899,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
   %64 = add i64 %.02428.i.ph, %.02428.i32.ph
   %65 = sub i64 %.0132184, %64
   %66 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i32.ph) #13
-  %67 = icmp eq i64 %66, %.02428.i32.ph
+  %67 = icmp eq i64 %.02428.i32.ph, %66
   br i1 %67, label %68, label %read_var_sized.exit
 
 68:                                               ; preds = %.loopexit
@@ -4942,7 +4942,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
   %.02428.i.ph.i = phi i64 [ %78, %.preheader.i.i.i ], [ 9, %79 ]
   %81 = sub i64 %65, %.02428.i.ph.i
   %82 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i.ph.i) #13
-  %83 = icmp eq i64 %82, %.02428.i.ph.i
+  %83 = icmp eq i64 %.02428.i.ph.i, %82
   br i1 %83, label %84, label %parse_file_extra_hash.exit
 
 84:                                               ; preds = %.loopexit.i
@@ -5003,7 +5003,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
   %.02428.i.ph.i42 = phi i64 [ %103, %.preheader.i.i.i36 ], [ 9, %104 ]
   %106 = sub i64 %65, %.02428.i.ph.i42
   %107 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i.ph.i42) #13
-  %108 = icmp eq i64 %107, %.02428.i.ph.i42
+  %108 = icmp eq i64 %.02428.i.ph.i42, %107
   br i1 %108, label %109, label %parse_file_extra_hash.exit
 
 109:                                              ; preds = %.loopexit.i41
@@ -5242,7 +5242,7 @@ read_u32.exit.i:                                  ; preds = %167
 187:                                              ; preds = %186, %181
   %.046.ph.i = phi i64 [ 9, %186 ], [ %182, %181 ]
   %188 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.046.ph.i) #13
-  %189 = icmp eq i64 %188, %.046.ph.i
+  %189 = icmp eq i64 %.046.ph.i, %188
   br i1 %189, label %190, label %parse_file_extra_redir.exit
 
 190:                                              ; preds = %187
@@ -5285,7 +5285,7 @@ read_u32.exit.i:                                  ; preds = %167
 206:                                              ; preds = %205, %200
   %.1.ph.i = phi i64 [ 9, %205 ], [ %201, %200 ]
   %207 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.1.ph.i) #13
-  %208 = icmp eq i64 %207, %.1.ph.i
+  %208 = icmp eq i64 %.1.ph.i, %207
   br i1 %208, label %209, label %parse_file_extra_redir.exit
 
 209:                                              ; preds = %206
@@ -5313,7 +5313,7 @@ read_u32.exit.i:                                  ; preds = %167
 
 220:                                              ; preds = %.preheader.i11.i.i
   %221 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %219) #13
-  %222 = icmp eq i64 %221, %219
+  %222 = icmp eq i64 %219, %221
   br i1 %222, label %read_var_sized.exit.i, label %parse_file_extra_redir.exit
 
 223:                                              ; preds = %.preheader.i11.i.i
@@ -5357,7 +5357,7 @@ read_var_sized.exit.i:                            ; preds = %225, %220
   %237 = getelementptr inbounds [8192 x i8], ptr %27, i64 0, i64 %217
   store i8 0, ptr %237, align 1
   %238 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %217) #13
-  %239 = icmp eq i64 %238, %217
+  %239 = icmp eq i64 %217, %238
   br i1 %239, label %240, label %parse_file_extra_redir.exit
 
 240:                                              ; preds = %236
@@ -5426,7 +5426,7 @@ parse_file_extra_redir.exit:                      ; preds = %172, %187, %190, %2
 .loopexit125.i:                                   ; preds = %260, %.preheader.i.i55
   %.197.ph.i = phi i64 [ %259, %.preheader.i.i55 ], [ 9, %260 ]
   %262 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.197.ph.i) #13
-  %263 = icmp eq i64 %262, %.197.ph.i
+  %263 = icmp eq i64 %.197.ph.i, %262
   br i1 %263, label %264, label %parse_file_extra_owner.exit
 
 264:                                              ; preds = %.loopexit125.i
@@ -5459,7 +5459,7 @@ parse_file_extra_redir.exit:                      ; preds = %172, %187, %190, %2
 
 277:                                              ; preds = %.preheader.i11.i.i63
   %278 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %276) #13
-  %279 = icmp eq i64 %278, %276
+  %279 = icmp eq i64 %276, %278
   br i1 %279, label %read_var_sized.exit.i68, label %parse_file_extra_owner.exit
 
 280:                                              ; preds = %.preheader.i11.i.i63
@@ -5488,7 +5488,7 @@ read_var_sized.exit.i68:                          ; preds = %282, %277
   %288 = getelementptr inbounds [256 x i8], ptr %22, i64 0, i64 %..i
   store i8 0, ptr %288, align 1
   %289 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %274) #13
-  %290 = icmp eq i64 %289, %274
+  %290 = icmp eq i64 %274, %289
   br i1 %290, label %291, label %parse_file_extra_owner.exit
 
 291:                                              ; preds = %287
@@ -5525,7 +5525,7 @@ read_var_sized.exit.i68:                          ; preds = %282, %277
 
 304:                                              ; preds = %.preheader.i11.i48.i
   %305 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %303) #13
-  %306 = icmp eq i64 %305, %303
+  %306 = icmp eq i64 %303, %305
   br i1 %306, label %read_var_sized.exit56.i, label %parse_file_extra_owner.exit
 
 307:                                              ; preds = %.preheader.i11.i48.i
@@ -5554,7 +5554,7 @@ read_var_sized.exit56.i:                          ; preds = %309, %304
   %315 = getelementptr inbounds [256 x i8], ptr %22, i64 0, i64 %.44.i
   store i8 0, ptr %315, align 1
   %316 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %301) #13
-  %317 = icmp eq i64 %316, %301
+  %317 = icmp eq i64 %301, %316
   br i1 %317, label %318, label %parse_file_extra_owner.exit
 
 318:                                              ; preds = %314
@@ -5597,7 +5597,7 @@ read_var_sized.exit56.i:                          ; preds = %309, %304
 .loopexit124.i:                                   ; preds = %331, %.preheader.i60.i
   %.298.ph.i = phi i64 [ %330, %.preheader.i60.i ], [ 9, %331 ]
   %333 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.298.ph.i) #13
-  %334 = icmp eq i64 %333, %.298.ph.i
+  %334 = icmp eq i64 %.298.ph.i, %333
   br i1 %334, label %335, label %parse_file_extra_owner.exit
 
 335:                                              ; preds = %.loopexit124.i
@@ -5641,7 +5641,7 @@ read_var_sized.exit56.i:                          ; preds = %309, %304
 .loopexit.i71:                                    ; preds = %349, %.preheader.i68.i
   %.399.ph.i = phi i64 [ %348, %.preheader.i68.i ], [ 9, %349 ]
   %351 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.399.ph.i) #13
-  %352 = icmp eq i64 %351, %.399.ph.i
+  %352 = icmp eq i64 %.399.ph.i, %351
   br i1 %352, label %353, label %parse_file_extra_owner.exit
 
 353:                                              ; preds = %.loopexit.i71
@@ -5681,7 +5681,7 @@ parse_file_extra_owner.exit:                      ; preds = %250, %.loopexit125.
   %.02428.i.ph.i76 = phi i64 [ %360, %.preheader.i.i.i73 ], [ 9, %361 ]
   %362 = sub i64 %65, %.02428.i.ph.i76
   %363 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i.ph.i76) #13
-  %364 = icmp eq i64 %363, %.02428.i.ph.i76
+  %364 = icmp eq i64 %.02428.i.ph.i76, %363
   br i1 %364, label %365, label %parse_file_extra_version.exit
 
 365:                                              ; preds = %.loopexit36.i
@@ -5715,7 +5715,7 @@ parse_file_extra_owner.exit:                      ; preds = %250, %.loopexit125.
   %.02428.i23.ph.i = phi i64 [ %374, %.preheader.i.i16.i ], [ 9, %375 ]
   %377 = sub i64 %362, %.02428.i23.ph.i
   %378 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i23.ph.i) #13
-  %379 = icmp eq i64 %378, %.02428.i23.ph.i
+  %379 = icmp eq i64 %.02428.i23.ph.i, %378
   br i1 %379, label %380, label %parse_file_extra_version.exit
 
 380:                                              ; preds = %.loopexit.i79
@@ -5749,7 +5749,7 @@ parse_file_extra_version.exit:                    ; preds = %355, %.loopexit36.i
 
 390:                                              ; preds = %68
   %391 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %65) #13
-  %392 = icmp eq i64 %391, %65
+  %392 = icmp eq i64 %65, %391
   %393 = select i1 %392, i32 0, i32 -30
   br label %read_var_sized.exit
 
@@ -6260,7 +6260,7 @@ define internal fastcc range(i32 -30, 1) i32 @push_data_ready(ptr noundef %0, pt
   %11 = getelementptr inbounds i8, ptr %1, i64 19392
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %12, %10
-  %.not28 = icmp eq i64 %13, %4
+  %.not28 = icmp eq i64 %4, %13
   br i1 %.not28, label %.preheader, label %15
 
 .preheader:                                       ; preds = %8

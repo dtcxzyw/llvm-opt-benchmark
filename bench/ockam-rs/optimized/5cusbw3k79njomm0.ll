@@ -2416,7 +2416,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
   call void @llvm.assume(i1 %253)
   %254 = getelementptr i8, ptr %.fca.1.extract.i.i, i64 16
   %.fca.1.extract.val6.i.i = load i64, ptr %254, align 8, !noundef !4
-  %.not.i.i.i.i.i = icmp eq i64 %.val2.i.i.i.i, %.fca.1.extract.val6.i.i
+  %.not.i.i.i.i.i = icmp eq i64 %.fca.1.extract.val6.i.i, %.val2.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hdf5c3b63911b2c6cE.exit.i.i", label %.critedge.backedge.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hdf5c3b63911b2c6cE.exit.i.i": ; preds = %251
@@ -2604,7 +2604,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
   %305 = getelementptr i8, ptr %.fca.1.extract.i62.i, i64 40
   %.fca.1.extract.val6.i64.i = load i64, ptr %305, align 8
   %306 = icmp ne ptr %.fca.1.extract.val.i63.i, null
-  %.not.i.i.i.i65.i = icmp eq i64 %.val4.i.i.i.i, %.fca.1.extract.val6.i64.i
+  %.not.i.i.i.i65.i = icmp eq i64 %.fca.1.extract.val6.i64.i, %.val4.i.i.i.i
   %or.cond.i.i = select i1 %306, i1 %.not.i.i.i.i65.i, i1 false
   br i1 %or.cond.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hf5e778b3d5c38b37E.exit.i.i", label %.critedge.backedge.i66.i
 
@@ -3383,7 +3383,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
   call void @llvm.assume(i1 %527)
   %528 = getelementptr i8, ptr %.fca.1.extract.i.i.i, i64 16
   %.fca.1.extract.val6.i.i.i = load i64, ptr %528, align 8, !noundef !4
-  %.not.i.i.i.i.i49.i = icmp eq i64 %.val1.i.i.i.i.i, %.fca.1.extract.val6.i.i.i
+  %.not.i.i.i.i.i49.i = icmp eq i64 %.fca.1.extract.val6.i.i.i, %.val1.i.i.i.i.i
   br i1 %.not.i.i.i.i.i49.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h47e5103135e2c275E.exit.i.i.i", label %.critedge.backedge.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h47e5103135e2c275E.exit.i.i.i": ; preds = %525
@@ -3542,7 +3542,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
   %564 = getelementptr i8, ptr %.fca.1.extract.i35.i.i, i64 40
   %.fca.1.extract.val6.i37.i.i = load i64, ptr %564, align 8
   %565 = icmp ne ptr %.fca.1.extract.val.i36.i.i, null
-  %.not.i.i.i.i39.i.i = icmp eq i64 %.val1.i.i.i38.i.i, %.fca.1.extract.val6.i37.i.i
+  %.not.i.i.i.i39.i.i = icmp eq i64 %.fca.1.extract.val6.i37.i.i, %.val1.i.i.i38.i.i
   %or.cond.i.i80 = select i1 %565, i1 %.not.i.i.i.i39.i.i, i1 false
   br i1 %or.cond.i.i80, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h31fda07a05f34886E.exit.i.i.i", label %.backedge.i.i.i
 
@@ -3886,7 +3886,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
   call void @llvm.assume(i1 %652)
   %653 = getelementptr i8, ptr %.fca.1.extract.i.i102, i64 16
   %.fca.1.extract.val6.i.i103 = load i64, ptr %653, align 8, !noundef !4
-  %.not.i.i.i.i.i104 = icmp eq i64 %.val2.i.i.i.i100, %.fca.1.extract.val6.i.i103
+  %.not.i.i.i.i.i104 = icmp eq i64 %.fca.1.extract.val6.i.i103, %.val2.i.i.i.i100
   br i1 %.not.i.i.i.i.i104, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h3a98d3877e18402cE.exit.i.i", label %.critedge.backedge.i.i105
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h3a98d3877e18402cE.exit.i.i": ; preds = %650

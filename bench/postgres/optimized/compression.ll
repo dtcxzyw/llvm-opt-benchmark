@@ -127,7 +127,7 @@ define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef 
   %20 = call i64 @strtol(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 10) #9
   %21 = trunc i64 %20 to i32
   %22 = load ptr, ptr %6, align 8
-  %.not = icmp eq ptr %22, %1
+  %.not = icmp eq ptr %1, %22
   br i1 %.not, label %28, label %23
 
 23:                                               ; preds = %19

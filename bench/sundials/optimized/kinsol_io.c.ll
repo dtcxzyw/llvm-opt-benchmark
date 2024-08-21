@@ -191,7 +191,7 @@ define range(i32 -2, 1) i32 @KINSetMAA(ptr noundef %0, i64 noundef %1) local_unn
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load i64, ptr %9, align 8
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %10, i64 %1)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %1, i64 %10)
   %11 = getelementptr inbounds i8, ptr %0, i64 448
   store i64 %spec.select, ptr %11, align 8
   br label %12

@@ -1222,7 +1222,7 @@ cond.true.i.split.i:                              ; preds = %hermesCompileResult
   %sub.ptr.lhs.cast.i7.i39 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i8.i40 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i9.i41 = sub i64 %sub.ptr.lhs.cast.i7.i39, %sub.ptr.rhs.cast.i8.i40
-  %cmp.i.i42 = icmp ult i64 %sub.ptr.sub.i9.i41, %call.i.i36
+  %cmp.i.i42 = icmp ugt i64 %call.i.i36, %sub.ptr.sub.i9.i41
   br i1 %cmp.i.i42, label %if.then.i.i48, label %if.end.i.i43
 
 if.then.i.i48:                                    ; preds = %cond.true.i.split.i

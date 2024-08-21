@@ -863,7 +863,7 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv2DEPKfiiiiiiiiS2_S2_S2_iiPfiii
   %36 = load float, ptr %35, align 4
   %.neg230 = sub i32 1, %2
   %.neg231 = mul i32 %.neg230, %6
-  %37 = add i32 %.neg231, %8
+  %37 = add i32 %8, %.neg231
   %38 = add i32 %37, %13
   %39 = sdiv i32 %38, %4
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %39, i32 %17)
@@ -889,7 +889,7 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv2DEPKfiiiiiiiiS2_S2_S2_iiPfiii
   %.reass = shl i32 %factor.op.mul, 1
   %48 = sext i32 %.reass to i64
   %49 = add nsw i32 %1, -1
-  %50 = mul nsw i32 %49, %5
+  %50 = mul nsw i32 %5, %49
   %51 = icmp sgt i32 %8, 0
   %52 = sext i32 %6 to i64
   %53 = shl nsw i32 %6, 1

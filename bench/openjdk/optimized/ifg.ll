@@ -1362,7 +1362,7 @@ define hidden void @_ZN12PhaseChaitin17build_ifg_virtualEv(ptr nocapture noundef
   %34 = add i32 %33, -1
   %35 = getelementptr inbounds i8, ptr %23, i64 24
   %36 = load i32, ptr %35, align 8
-  %37 = icmp ugt i32 %36, %34
+  %37 = icmp ult i32 %34, %36
   call void @llvm.assume(i1 %37)
   %38 = getelementptr inbounds i8, ptr %23, i64 32
   %39 = load ptr, ptr %38, align 8
@@ -1390,7 +1390,7 @@ define hidden void @_ZN12PhaseChaitin17build_ifg_virtualEv(ptr nocapture noundef
   %.05587 = phi i32 [ %51, %.lr.ph88 ], [ %56, %.loopexit ]
   %56 = add i32 %.05587, -1
   %57 = load i32, ptr %35, align 8
-  %58 = icmp ugt i32 %57, %56
+  %58 = icmp ult i32 %56, %57
   br i1 %58, label %59, label %_ZNK5Block8get_nodeEj.exit
 
 59:                                               ; preds = %55
@@ -2320,7 +2320,7 @@ _ZN16IndexSetIterator4nextEv.exit:                ; preds = %10
   %29 = getelementptr inbounds %class.LRG, ptr %27, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load double, ptr %30, align 8
-  %32 = fadd double %31, %5
+  %32 = fadd double %5, %31
   store double %32, ptr %30, align 8
   call void @_ZN12PhaseChaitin14raise_pressureEP5BlockR3LRGRNS_8PressureES5_(ptr nonnull align 8 poison, ptr poison, ptr noundef nonnull align 8 dereferenceable(168) %29, ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %4)
   %33 = load i64, ptr %7, align 8
@@ -2736,7 +2736,7 @@ define hidden noundef zeroext i1 @_ZN12PhaseChaitin23remove_node_if_not_usedEP5B
   %63 = getelementptr inbounds i8, ptr %3, i64 40
   %64 = load i32, ptr %63, align 8
   %65 = load i32, ptr %62, align 8
-  %.not.i.i = icmp ugt i32 %65, %64
+  %.not.i.i = icmp ult i32 %64, %65
   br i1 %.not.i.i, label %_ZN8PhaseCFG21unmap_node_from_blockEPK4Node.exit, label %66
 
 66:                                               ; preds = %57
@@ -2909,7 +2909,7 @@ define hidden void @_ZN12PhaseChaitin37assign_high_score_to_immediate_copiesEP5B
 
 39:                                               ; preds = %34
   %40 = load i32, ptr %32, align 8
-  %41 = icmp ugt i32 %40, %.023
+  %41 = icmp ult i32 %.023, %40
   br i1 %41, label %42, label %_ZNK5Block8get_nodeEj.exit
 
 42:                                               ; preds = %39
@@ -3388,7 +3388,7 @@ define hidden void @_ZN12PhaseChaitin20add_input_to_liveoutEP5BlockP4NodeP8Index
   store i32 %77, ptr %3, align 8
   %78 = getelementptr inbounds i8, ptr %46, i64 8
   %79 = load double, ptr %78, align 8
-  %80 = fadd double %79, %4
+  %80 = fadd double %4, %79
   store double %80, ptr %78, align 8
   tail call void @_ZN12PhaseChaitin14raise_pressureEP5BlockR3LRGRNS_8PressureES5_(ptr nonnull align 8 poison, ptr poison, ptr noundef nonnull align 8 dereferenceable(168) %46, ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %6)
   br label %_ZN8IndexSet6insertEj.exit
@@ -3438,7 +3438,7 @@ define hidden void @_ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8
   %11 = add i32 %8, -1
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
-  %14 = icmp ugt i32 %13, %11
+  %14 = icmp ult i32 %11, %13
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %1, i64 32
   %16 = load ptr, ptr %15, align 8
@@ -3459,7 +3459,7 @@ define hidden void @_ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8
 
 _ZNK5Block8get_nodeEj.exit:                       ; preds = %10
   %30 = load i32, ptr %12, align 8
-  %31 = icmp ugt i32 %30, %6
+  %31 = icmp ult i32 %6, %30
   tail call void @llvm.assume(i1 %31)
   %32 = load ptr, ptr %15, align 8
   %33 = zext i32 %6 to i64
@@ -3480,7 +3480,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %10
 .critedge:                                        ; preds = %_ZNK5Block8get_nodeEj.exit, %.critedge
   %.122 = phi i32 [ %44, %.critedge ], [ %6, %_ZNK5Block8get_nodeEj.exit ]
   %44 = add i32 %.122, -1
-  %45 = icmp ugt i32 %30, %44
+  %45 = icmp ult i32 %44, %30
   tail call void @llvm.assume(i1 %45)
   %46 = zext i32 %44 to i64
   %47 = getelementptr inbounds ptr, ptr %32, i64 %46
@@ -3600,7 +3600,7 @@ define hidden noundef i32 @_ZN12PhaseChaitin18build_ifg_physicalEP12ResourceArea
   %54 = add i32 %53, -1
   %55 = getelementptr inbounds i8, ptr %43, i64 24
   %56 = load i32, ptr %55, align 8
-  %57 = icmp ugt i32 %56, %54
+  %57 = icmp ult i32 %54, %56
   call void @llvm.assume(i1 %57)
   %58 = getelementptr inbounds i8, ptr %43, i64 32
   %59 = load ptr, ptr %58, align 8
@@ -3651,7 +3651,7 @@ _ZL18first_nonphi_indexP5Block.exit:              ; preds = %81, %38, %_ZNK5Bloc
   %.0.lcssa.i = phi i32 [ 1, %38 ], [ %82, %_ZNK5Block8get_nodeEj.exit._crit_edge.loopexit.split.loop.exit.i ], [ %71, %81 ]
   %83 = load i32, ptr %52, align 8
   %84 = add i32 %83, -1
-  %85 = icmp ugt i32 %.pre, %84
+  %85 = icmp ult i32 %84, %.pre
   call void @llvm.assume(i1 %85)
   %86 = zext i32 %84 to i64
   %87 = getelementptr inbounds ptr, ptr %.pre255, i64 %86
@@ -3901,7 +3901,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %143, %147
   %238 = getelementptr inbounds i8, ptr %237, i64 104
   %239 = load i32, ptr %152, align 8
   %240 = load i32, ptr %238, align 8
-  %.not.i.i.i = icmp ugt i32 %240, %239
+  %.not.i.i.i = icmp ult i32 %239, %240
   br i1 %.not.i.i.i, label %242, label %241
 
 241:                                              ; preds = %235
@@ -4134,7 +4134,7 @@ _ZN12PhaseChaitin45check_for_high_pressure_transition_at_fatprojERjjR3LRGRNS_8Pr
 
 356:                                              ; preds = %.lr.ph.i113
   %357 = load i32, ptr %55, align 8
-  %358 = icmp ugt i32 %357, %.023.i
+  %358 = icmp ult i32 %.023.i, %357
   br i1 %358, label %359, label %_ZNK5Block8get_nodeEj.exit.i114
 
 359:                                              ; preds = %356
@@ -4922,7 +4922,7 @@ _ZN12PhaseChaitin29check_for_high_pressure_blockERNS_8PressureE.exit137: ; preds
 811:                                              ; preds = %_ZN12PhaseChaitin29check_for_high_pressure_blockERNS_8PressureE.exit137
   %812 = add i32 %809, -1
   %813 = load i32, ptr %55, align 8
-  %814 = icmp ugt i32 %813, %812
+  %814 = icmp ult i32 %812, %813
   call void @llvm.assume(i1 %814)
   %815 = load ptr, ptr %58, align 8
   %816 = zext i32 %812 to i64
@@ -4941,7 +4941,7 @@ _ZN12PhaseChaitin29check_for_high_pressure_blockERNS_8PressureE.exit137: ; preds
 
 _ZNK5Block8get_nodeEj.exit.i138:                  ; preds = %811
   %828 = load i32, ptr %55, align 8
-  %829 = icmp ugt i32 %828, %808
+  %829 = icmp ult i32 %808, %828
   call void @llvm.assume(i1 %829)
   %830 = load ptr, ptr %58, align 8
   %831 = zext i32 %808 to i64
@@ -4962,7 +4962,7 @@ _ZNK5Block8get_nodeEj.exit.i138:                  ; preds = %811
 .critedge.i139:                                   ; preds = %_ZNK5Block8get_nodeEj.exit.i138, %.critedge.i139
   %.122.i = phi i32 [ %842, %.critedge.i139 ], [ %808, %_ZNK5Block8get_nodeEj.exit.i138 ]
   %842 = add i32 %.122.i, -1
-  %843 = icmp ugt i32 %828, %842
+  %843 = icmp ult i32 %842, %828
   call void @llvm.assume(i1 %843)
   %844 = zext i32 %842 to i64
   %845 = getelementptr inbounds ptr, ptr %830, i64 %844
@@ -4991,7 +4991,7 @@ _ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8PressureE.exit: ; pr
 859:                                              ; preds = %_ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8PressureE.exit
   %860 = add i32 %857, -1
   %861 = load i32, ptr %55, align 8
-  %862 = icmp ugt i32 %861, %860
+  %862 = icmp ult i32 %860, %861
   call void @llvm.assume(i1 %862)
   %863 = load ptr, ptr %58, align 8
   %864 = zext i32 %860 to i64
@@ -5010,7 +5010,7 @@ _ZN12PhaseChaitin26adjust_high_pressure_indexEP5BlockRjRNS_8PressureE.exit: ; pr
 
 _ZNK5Block8get_nodeEj.exit.i142:                  ; preds = %859
   %876 = load i32, ptr %55, align 8
-  %877 = icmp ugt i32 %876, %856
+  %877 = icmp ult i32 %856, %876
   call void @llvm.assume(i1 %877)
   %878 = load ptr, ptr %58, align 8
   %879 = zext i32 %856 to i64
@@ -5031,7 +5031,7 @@ _ZNK5Block8get_nodeEj.exit.i142:                  ; preds = %859
 .critedge.i145:                                   ; preds = %_ZNK5Block8get_nodeEj.exit.i142, %.critedge.i145
   %.122.i146 = phi i32 [ %890, %.critedge.i145 ], [ %856, %_ZNK5Block8get_nodeEj.exit.i142 ]
   %890 = add i32 %.122.i146, -1
-  %891 = icmp ugt i32 %876, %890
+  %891 = icmp ult i32 %890, %876
   call void @llvm.assume(i1 %891)
   %892 = zext i32 %890 to i64
   %893 = getelementptr inbounds ptr, ptr %878, i64 %892

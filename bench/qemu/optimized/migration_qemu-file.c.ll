@@ -544,7 +544,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %3 = load i64, ptr %iov_len.i, align 8
   %add.ptr.i = getelementptr i8, ptr %2, i64 %3
-  %cmp7.i = icmp eq ptr %add.ptr.i, %buf
+  %cmp7.i = icmp eq ptr %buf, %add.ptr.i
   br i1 %cmp7.i, label %land.lhs.true8.i, label %if.else.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
@@ -555,7 +555,7 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
   %and.i.i = and i64 %idxprom.i, 63
   %shr.i.i = lshr i64 %4, %and.i.i
   %5 = trunc i64 %shr.i.i to i1
-  %6 = xor i1 %5, %may_free
+  %6 = xor i1 %may_free, %5
   br i1 %6, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true8.i
@@ -659,7 +659,7 @@ land.lhs.true.i.i:                                ; preds = %while.body
   %iov_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %6 = load i64, ptr %iov_len.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %5, i64 %6
-  %cmp7.i.i = icmp eq ptr %add.ptr.i.i, %add.ptr.i
+  %cmp7.i.i = icmp eq ptr %add.ptr.i, %add.ptr.i.i
   br i1 %cmp7.i.i, label %land.lhs.true8.i.i, label %if.else.i.i
 
 land.lhs.true8.i.i:                               ; preds = %land.lhs.true.i.i
@@ -772,7 +772,7 @@ land.lhs.true.i.i:                                ; preds = %if.end
   %iov_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %5 = load i64, ptr %iov_len.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %4, i64 %5
-  %cmp7.i.i = icmp eq ptr %add.ptr.i.i, %add.ptr.i
+  %cmp7.i.i = icmp eq ptr %add.ptr.i, %add.ptr.i.i
   br i1 %cmp7.i.i, label %land.lhs.true8.i.i, label %if.else.i.i
 
 land.lhs.true8.i.i:                               ; preds = %land.lhs.true.i.i
@@ -883,7 +883,7 @@ if.else2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %sub = sub nuw nsw i64 32768, %offset
-  %cmp4.not = icmp ult i64 %sub, %size
+  %cmp4.not = icmp ugt i64 %size, %sub
   br i1 %cmp4.not, label %if.else6, label %if.end7
 
 if.else6:                                         ; preds = %if.end3
@@ -894,7 +894,7 @@ if.end7:                                          ; preds = %if.end3
   %buf_index = getelementptr inbounds i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index, align 4
   %conv = sext i32 %1 to i64
-  %add = add nsw i64 %conv, %offset
+  %add = add nsw i64 %offset, %conv
   %buf_size = getelementptr inbounds i8, ptr %f, i64 16
   %2 = load i32, ptr %buf_size, align 8
   %conv8 = sext i32 %2 to i64
@@ -915,7 +915,7 @@ while.body:                                       ; preds = %if.end17
 if.end17:                                         ; preds = %while.body.preheader, %while.body
   %3 = load i32, ptr %buf_index, align 4
   %conv19 = sext i32 %3 to i64
-  %add20 = add nsw i64 %conv19, %offset
+  %add20 = add nsw i64 %offset, %conv19
   %4 = load i32, ptr %buf_size, align 8
   %conv22 = sext i32 %4 to i64
   %sub23 = sub nsw i64 %conv22, %add20
@@ -1884,7 +1884,7 @@ land.lhs.true.i.i:                                ; preds = %if.end10
   %iov_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %6 = load i64, ptr %iov_len.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %5, i64 %6
-  %cmp7.i.i = icmp eq ptr %add.ptr.i.i, %add.ptr.i
+  %cmp7.i.i = icmp eq ptr %add.ptr.i, %add.ptr.i.i
   br i1 %cmp7.i.i, label %land.lhs.true8.i.i, label %if.else.i.i
 
 land.lhs.true8.i.i:                               ; preds = %land.lhs.true.i.i

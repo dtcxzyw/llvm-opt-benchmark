@@ -216,7 +216,7 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
   unreachable
 
 20:                                               ; preds = %15
-  %21 = icmp ugt i32 %13, %8
+  %21 = icmp ult i32 %8, %13
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20

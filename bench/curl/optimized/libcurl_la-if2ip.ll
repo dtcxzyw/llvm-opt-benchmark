@@ -260,7 +260,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then2:                                         ; preds = %for.body
   %37 = load i16, ptr %36, align 2
   %conv = zext i16 %37 to i32
-  %cmp4 = icmp eq i32 %conv, %af
+  %cmp4 = icmp eq i32 %af, %conv
   br i1 %cmp4, label %if.then6, label %if.else45
 
 if.then6:                                         ; preds = %if.then2

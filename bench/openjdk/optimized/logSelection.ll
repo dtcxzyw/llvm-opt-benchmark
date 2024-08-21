@@ -144,7 +144,7 @@ _ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us: ; preds = %_ZNK12LogSele
   br i1 %.not.i.i.us, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us20, label %35
 
 35:                                               ; preds = %32
-  %36 = icmp eq i32 %34, %31
+  %36 = icmp eq i32 %31, %34
   br i1 %36, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i.us, label %37
 
 37:                                               ; preds = %35
@@ -199,7 +199,7 @@ _ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit.us: ; preds = %_ZNK9LogTag
   br i1 %.not.i.i, label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread, label %54
 
 54:                                               ; preds = %51
-  %55 = icmp eq i32 %53, %48
+  %55 = icmp eq i32 %48, %53
   br i1 %55, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i, label %49
 
 _ZNK9LogTagSet8containsEN6LogTag4typeE.exit.i:    ; preds = %54
@@ -262,7 +262,7 @@ define hidden noundef zeroext i1 @_ZNK12LogSelection7selectsERK9LogTagSet(ptr no
   br i1 %.not.i, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = icmp eq i32 %18, %13
+  %20 = icmp eq i32 %13, %18
   br i1 %20, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit, label %14
 
 _ZNK9LogTagSet8containsEN6LogTag4typeE.exit:      ; preds = %19

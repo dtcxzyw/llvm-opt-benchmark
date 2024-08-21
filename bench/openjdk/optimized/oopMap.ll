@@ -729,7 +729,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   %58 = add nuw nsw i32 %.014.i.i.i.i17, 1
   %59 = shl i32 12414, %.01013.i.i.i.i18
   %60 = add i32 %59, %.01112.i.i.i.i19
-  %61 = icmp uge i32 %60, %49
+  %61 = icmp ule i32 %49, %60
   %62 = icmp eq i32 %58, 4
   %or.cond.i.i.i.i20 = select i1 %61, i1 true, i1 %62
   br i1 %or.cond.i.i.i.i20, label %._crit_edge.loopexit.i.i.i.i21, label %.lr.ph.i.i.i.i16, !llvm.loop !9
@@ -1233,7 +1233,7 @@ _ZN12OopMapStream7is_doneEv.exit27.thread:        ; preds = %_ZN20CompressedRead
   %.sroa.5258.0.insert.shift260 = shl nuw i32 %.sroa.5258.0.insert.ext259, 16
   %.sroa.0253.0.insert.ext255 = zext i16 %.sroa.26276.2351 to i32
   %.sroa.0253.0.insert.insert257 = or disjoint i32 %.sroa.5258.0.insert.shift260, %.sroa.0253.0.insert.ext255
-  %227 = icmp sgt i32 %158, %149
+  %227 = icmp slt i32 %149, %158
   br i1 %227, label %.lr.ph.i29, label %_ZN10OopMapSort13find_positionE11OopMapValuei.exit
 
 .lr.ph.i29:                                       ; preds = %226
@@ -1284,7 +1284,7 @@ _ZN12OopMapStream7is_doneEv.exit27.thread:        ; preds = %_ZN20CompressedRead
 
 _ZN10OopMapSort13find_positionE11OopMapValuei.exit: ; preds = %226, %._crit_edge.loopexit.split.loop.exit16.i
   %.09.lcssa.i = phi i32 [ %149, %226 ], [ %254, %._crit_edge.loopexit.split.loop.exit16.i ]
-  %255 = icmp sgt i32 %158, %.09.lcssa.i
+  %255 = icmp slt i32 %.09.lcssa.i, %158
   br i1 %255, label %.lr.ph.preheader.i35, label %..loopexit_crit_edge12.i32
 
 ..loopexit_crit_edge12.i32:                       ; preds = %253, %_ZN10OopMapSort13find_positionE11OopMapValuei.exit
@@ -1583,7 +1583,7 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
   %.sroa.4.0.insert.shift241 = shl nuw i32 %.sroa.4.0.insert.ext240, 16
   %.sroa.0.0.insert.ext237 = zext i16 %.sroa.26.2368 to i32
   %.sroa.0.0.insert.insert239 = or disjoint i32 %.sroa.4.0.insert.shift241, %.sroa.0.0.insert.ext237
-  %414 = icmp sgt i32 %344, %149
+  %414 = icmp slt i32 %149, %344
   br i1 %414, label %.lr.ph.i50, label %_ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit
 
 .lr.ph.i50:                                       ; preds = %413
@@ -1661,7 +1661,7 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
 
 _ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit: ; preds = %451, %436, %438, %413, %.preheader.split.i
   %.0.i = phi i32 [ %spec.select.i, %.preheader.split.i ], [ -1, %413 ], [ %.017.us.i, %438 ], [ %.017.us.i, %436 ], [ -1, %451 ]
-  %452 = icmp sgt i32 %344, %.0.i
+  %452 = icmp slt i32 %.0.i, %344
   br i1 %452, label %.lr.ph.preheader.i58, label %..loopexit_crit_edge12.i55
 
 ..loopexit_crit_edge12.i55:                       ; preds = %.preheader.split.us.i, %_ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit
@@ -2202,30 +2202,29 @@ define hidden noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnu
 8:                                                ; preds = %3
   %9 = add nsw i32 %4, 1
   %10 = icmp sgt i32 %4, -1
-  %11 = xor i32 %4, -2147483648
-  %12 = and i32 %11, %9
-  %13 = icmp eq i32 %12, 0
-  %14 = and i1 %10, %13
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
-  %16 = sub nuw nsw i32 32, %15
-  %17 = shl nuw i32 1, %16
-  %.0.i.i.i.i.i = select i1 %14, i32 %9, i32 %17
+  %11 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
+  %12 = icmp ult i32 %11, 2
+  %or.cond.i.i.i.i.i = select i1 %10, i1 %12, i1 false
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
+  %14 = sub nuw nsw i32 32, %13
+  %15 = shl nuw i32 1, %14
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %9, i32 %15
   tail call void @_ZN26GrowableArrayWithAllocatorIP6OopMap13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN9OopMapSet3addEP6OopMap.exit
 
 _ZN9OopMapSet3addEP6OopMap.exit:                  ; preds = %3, %8
-  %18 = phi i32 [ %.pre.i.i, %8 ], [ %4, %3 ]
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = sext i32 %18 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
-  store ptr %2, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 12
-  store i32 %18, ptr %24, align 4
-  ret i32 %18
+  %16 = phi i32 [ %.pre.i.i, %8 ], [ %4, %3 ]
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %0, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = sext i32 %16 to i64
+  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  store ptr %2, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 %16, ptr %22, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2701,7 +2700,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   %.sroa.26.246 = phi i16 [ %.sroa.26.0, %_ZN12OopMapStream4nextEv.exit ], [ %38, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %38, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %58 = and i16 %.sroa.26.246, 3
   %59 = zext nneg i16 %58 to i32
-  %60 = icmp eq i32 %59, %2
+  %60 = icmp eq i32 %2, %59
   br i1 %60, label %61, label %68
 
 61:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -4191,7 +4190,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   %.sroa.17.142 = phi i32 [ %.sroa.17.0, %_ZN12OopMapStream4nextEv.exit ], [ %6, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %6, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %53 = and i16 %.sroa.26.244, 3
   %54 = zext nneg i16 %53 to i32
-  %55 = icmp eq i32 %54, %1
+  %55 = icmp eq i32 %1, %54
   br i1 %55, label %_ZN12OopMapStream7is_doneEv.exit, label %56
 
 56:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -6048,6 +6047,9 @@ declare void @_ZNK5frame8print_onEP12outputStream(ptr noundef nonnull align 8 de
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16

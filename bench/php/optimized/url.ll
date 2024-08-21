@@ -323,7 +323,7 @@ define noundef ptr @php_url_parse_ex2(ptr noundef %0, i64 noundef %1, ptr nocapt
   br i1 %or.cond851, label %168, label %.preheader933
 
 .preheader933:                                    ; preds = %3
-  %12 = icmp ugt ptr %10, %0
+  %12 = icmp ult ptr %0, %10
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader933

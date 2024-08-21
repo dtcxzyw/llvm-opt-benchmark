@@ -392,7 +392,7 @@ define internal fastcc ptr @opal_argv_split_inter(ptr noundef %0, i32 noundef %1
   %.0108132195 = phi ptr [ %.0108.be, %.backedge ], [ null, %.lr.ph134 ]
   %.033133194 = phi ptr [ %.033.be, %.backedge ], [ %0, %.lr.ph134 ]
   %7 = sext i8 %6 to i32
-  %.not38126 = icmp eq i32 %7, %1
+  %.not38126 = icmp eq i32 %1, %7
   br i1 %.not38126, label %.critedge2.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -403,7 +403,7 @@ define internal fastcc ptr @opal_argv_split_inter(ptr noundef %0, i32 noundef %1
   %.pr = load i8, ptr %8, align 1
   %.not37 = icmp eq i8 %.pr, 0
   %10 = sext i8 %.pr to i32
-  %.not38 = icmp eq i32 %10, %1
+  %.not38 = icmp eq i32 %1, %10
   %or.cond = or i1 %.not37, %.not38
   br i1 %or.cond, label %.critedge2, label %.lr.ph, !llvm.loop !9
 
@@ -963,7 +963,7 @@ define range(i32 -5, 1) i32 @opal_argv_delete(ptr nocapture noundef %0, ptr noun
 
 opal_argv_count.exit:                             ; preds = %.lr.ph.i, %.preheader.i
   %.07.i = phi i32 [ 0, %.preheader.i ], [ %11, %.lr.ph.i ]
-  %14 = icmp slt i32 %.07.i, %2
+  %14 = icmp sgt i32 %2, %.07.i
   br i1 %14, label %47, label %15
 
 15:                                               ; preds = %opal_argv_count.exit
@@ -976,7 +976,7 @@ opal_argv_count.exit:                             ; preds = %.lr.ph.i, %.prehead
   %19 = sub nsw i32 %.07.i, %18
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %19, i32 0)
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %.07.i, i32 %18)
-  %or.cond5051 = icmp sgt i32 %invariant.smin, %2
+  %or.cond5051 = icmp slt i32 %2, %invariant.smin
   br i1 %or.cond5051, label %.lr.ph.preheader, label %.critedge.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
@@ -1096,11 +1096,11 @@ define range(i32 -5, 1) i32 @opal_argv_insert(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not.i53, label %opal_argv_count.exit55, label %.lr.ph.i50, !llvm.loop !4
 
 opal_argv_count.exit55:                           ; preds = %.lr.ph.i50
-  %19 = icmp slt i32 %.07.i, %1
+  %19 = icmp sgt i32 %1, %.07.i
   br i1 %19, label %.lr.ph65.preheader, label %44
 
 opal_argv_count.exit55.thread:                    ; preds = %.preheader.i48
-  %20 = icmp slt i32 %.07.i, %1
+  %20 = icmp sgt i32 %1, %.07.i
   br i1 %20, label %.loopexit, label %44
 
 .lr.ph65.preheader:                               ; preds = %opal_argv_count.exit55
@@ -1265,7 +1265,7 @@ define range(i32 -5, 1) i32 @opal_argv_insert_element(ptr noundef %0, i32 nounde
   br i1 %.not.i, label %opal_argv_count.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_argv_count.exit:                             ; preds = %.lr.ph.i
-  %15 = icmp slt i32 %12, %1
+  %15 = icmp sgt i32 %1, %12
   br i1 %15, label %.preheader.i.i.i, label %30
 
 opal_argv_count.exit.thread:                      ; preds = %.preheader.i

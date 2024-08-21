@@ -6204,21 +6204,21 @@ define dso_local i32 @partition_hash_bsearch(ptr nocapture noundef readonly %0, 
   %19 = getelementptr i8, ptr %16, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
-  %22 = icmp slt i32 %18, %1
+  %22 = icmp sgt i32 %1, %18
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %10
-  %24 = icmp sgt i32 %18, %1
+  %24 = icmp slt i32 %1, %18
   br i1 %24, label %partition_hbound_cmp.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ne i32 %18, %1
-  %.not.i = icmp eq i32 %21, %2
+  %26 = icmp ne i32 %1, %18
+  %.not.i = icmp eq i32 %2, %21
   %or.cond.i = or i1 %26, %.not.i
   br i1 %or.cond.i, label %._crit_edge, label %27
 
 27:                                               ; preds = %25
-  %28 = icmp sgt i32 %21, %2
+  %28 = icmp slt i32 %2, %21
   br i1 %28, label %partition_hbound_cmp.exit, label %.thread
 
 partition_hbound_cmp.exit:                        ; preds = %27, %23
@@ -6427,7 +6427,7 @@ define internal fastcc i32 @partition_rbound_cmp(i32 noundef %0, ptr noundef %1,
 ._crit_edge:                                      ; preds = %15, %._crit_edge.loopexit.split.loop.exit, %7
   %.1.ph = phi i32 [ 0, %7 ], [ %indvars.le, %._crit_edge.loopexit.split.loop.exit ], [ %0, %15 ]
   %36 = trunc i8 %13 to i1
-  %37 = xor i1 %36, %5
+  %37 = xor i1 %5, %36
   %38 = select i1 %5, i32 1, i32 -1
   %spec.select48 = select i1 %37, i32 %38, i32 0
   br label %.loopexit53

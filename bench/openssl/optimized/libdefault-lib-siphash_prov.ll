@@ -136,7 +136,7 @@ entry:
   %call.i = tail call i64 @SipHash_hash_size(ptr noundef nonnull %siphash.i) #4
   %call1 = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call1, 0
-  %cmp = icmp ugt i64 %call.i, %outsize
+  %cmp = icmp ult i64 %outsize, %call.i
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp
   br i1 %or.cond, label %return, label %if.end
 

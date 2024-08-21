@@ -1220,7 +1220,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %17 = load ptr, ptr %12, align 8, !noalias !275, !nonnull !8, !align !67, !noundef !8
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8, !noalias !275, !noundef !8
-  %20 = icmp ugt i64 %19, %.sroa.0.07.i
+  %20 = icmp ult i64 %.sroa.0.07.i, %19
   br i1 %20, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hd8fda89cd48752c3E.exit.i", label %21, !prof !178
 
 21:                                               ; preds = %16
@@ -1291,7 +1291,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf5c464dd18bd1b5eE.exit: ; preds = 
   %44 = load ptr, ptr %.sroa.10.0.copyload, align 8, !noalias !288, !nonnull !8, !align !67, !noundef !8
   %45 = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8, !noalias !288, !noundef !8
-  %47 = icmp ugt i64 %46, %39
+  %47 = icmp ult i64 %39, %46
   br i1 %47, label %48, label %70, !prof !178
 
 48:                                               ; preds = %43
@@ -20086,7 +20086,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !1721, !noalias !1726, !noundef !8
   %45 = load i64, ptr %0, align 8, !alias.scope !1728, !noalias !1726, !noundef !8
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3284dcacd0b3f923E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -20143,7 +20143,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !1734, !noalias !1739, !noundef !8
   %6 = load i64, ptr %0, align 8, !alias.scope !1741, !noalias !1739, !noundef !8
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3284dcacd0b3f923E.exit"
 
 9:                                                ; preds = %3
@@ -22895,7 +22895,7 @@ common.resume:                                    ; preds = %98, %73
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %1, i64 368
   %86 = load i64, ptr %85, align 8, !noalias !2412, !noundef !8
-  %87 = icmp ugt i64 %86, %82
+  %87 = icmp ult i64 %82, %86
   br i1 %87, label %88, label %_ZN14ide_completion11completions11Completions17add_super_keyword17h9e78b8269658578aE.exit
 
 88:                                               ; preds = %84

@@ -2410,7 +2410,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   %5 = extractvalue { ptr, i32 } %lpad.phi, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #20
-  %cmp.not3.i.i = icmp eq ptr %__cur.015, %__result
+  %cmp.not3.i.i = icmp eq ptr %__result, %__cur.015
   br i1 %cmp.not3.i.i, label %invoke.cont5, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lpad, %_ZSt8_DestroyISt6vectorIN3ue212PositionInfoESaIS2_EEEvPT_.exit.i.i
@@ -2648,7 +2648,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInf
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr %"class.ue2::PositionInfo", ptr %4, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
-  %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i33, label %_ZSt22__uninitialized_move_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5_S4_RT1_.exit41, label %for.body.i.i.i.i.i34
 
 for.body.i.i.i.i.i34:                             ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, %for.body.i.i.i.i.i34
@@ -2733,7 +2733,7 @@ for.body.i.i.i.i60:                               ; preds = %for.body.i.i.i.i60.
   br i1 %cmp.i.not.i.i.i.i65, label %invoke.cont83, label %for.body.i.i.i.i60, !llvm.loop !16
 
 invoke.cont83:                                    ; preds = %for.body.i.i.i.i60
-  %cmp.i.i.not7.i.i.i.i.i68 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i68 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i68, label %invoke.cont87, label %for.body.i.i.i.i.i69
 
 for.body.i.i.i.i.i69:                             ; preds = %invoke.cont83, %for.body.i.i.i.i.i69
@@ -2853,7 +2853,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfo
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr %"class.ue2::PositionInfo", ptr %4, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
-  %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i33, label %_ZSt22__uninitialized_move_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5_S4_RT1_.exit41, label %for.body.i.i.i.i.i34
 
 for.body.i.i.i.i.i34:                             ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit, %for.body.i.i.i.i.i34
@@ -2938,7 +2938,7 @@ for.body.i.i.i.i60:                               ; preds = %for.body.i.i.i.i60.
   br i1 %cmp.i.not.i.i.i.i65, label %invoke.cont83, label %for.body.i.i.i.i60, !llvm.loop !33
 
 invoke.cont83:                                    ; preds = %for.body.i.i.i.i60
-  %cmp.i.i.not7.i.i.i.i.i68 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i68 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i68, label %invoke.cont87, label %for.body.i.i.i.i.i69
 
 for.body.i.i.i.i.i69:                             ; preds = %invoke.cont83, %for.body.i.i.i.i.i69
@@ -3359,7 +3359,7 @@ while.body.us:                                    ; preds = %if.end, %_ZSt13__ad
   %__parent.0.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us ], [ %div1617, %if.end ]
   %phi.call.us = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.coerce, i64 %__parent.0.us
   %__value.sroa.0.0.copyload.us = load i64, ptr %phi.call.us, align 4
-  %cmp27.i.us = icmp sgt i64 %div.i2224, %__parent.0.us
+  %cmp27.i.us = icmp slt i64 %__parent.0.us, %div.i2224
   br i1 %cmp27.i.us, label %while.body.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us
 
 while.body.i.us:                                  ; preds = %while.body.us, %while.body.i.us
@@ -3413,7 +3413,7 @@ while.body:                                       ; preds = %while.body.preheade
   %__parent.0 = phi i64 [ %dec, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ], [ %div1617, %while.body.preheader ]
   %phi.call = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.coerce, i64 %__parent.0
   %__value.sroa.0.0.copyload = load i64, ptr %phi.call, align 4
-  %cmp27.i = icmp sgt i64 %div.i2224, %__parent.0
+  %cmp27.i = icmp slt i64 %__parent.0, %div.i2224
   br i1 %cmp27.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %while.body.i

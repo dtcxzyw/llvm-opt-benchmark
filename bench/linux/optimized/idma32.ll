@@ -303,7 +303,7 @@ define internal i32 @idma32_bytes2block(ptr nocapture noundef readonly %0, i64 n
   %5 = getelementptr inbounds i8, ptr %0, i64 188
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %7, %1
+  %8 = icmp ugt i64 %1, %7
   %9 = trunc i64 %1 to i32
   %10 = tail call i64 @llvm.umin.i64(i64 %7, i64 %1)
   %11 = select i1 %8, i32 %6, i32 %9

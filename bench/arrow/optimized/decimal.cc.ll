@@ -5019,7 +5019,7 @@ if.end:                                           ; preds = %entry
   %22 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %21
   %arrayidx.i = getelementptr i8, ptr %22, i64 304
   %23 = load float, ptr %arrayidx.i, align 4
-  %cmp1 = fcmp olt float %23, %real
+  %cmp1 = fcmp ogt float %real, %23
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -5722,7 +5722,7 @@ if.then:                                          ; preds = %entry
   %1 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %0
   %arrayidx.i.i = getelementptr i8, ptr %1, i64 608
   %2 = load double, ptr %arrayidx.i.i, align 8, !noalias !180
-  %mul.i = fmul double %2, %real
+  %mul.i = fmul double %real, %2
   %3 = tail call double @llvm.nearbyint.f64(double %mul.i)
   %4 = sext i32 %precision to i64
   %5 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %4
@@ -5872,7 +5872,7 @@ if.end:                                           ; preds = %entry
   %22 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %21
   %arrayidx.i = getelementptr i8, ptr %22, i64 608
   %23 = load double, ptr %arrayidx.i, align 8
-  %cmp1 = fcmp olt double %23, %real
+  %cmp1 = fcmp ogt double %real, %23
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -7972,7 +7972,7 @@ if.end:                                           ; preds = %entry
   %24 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %23
   %arrayidx.i = getelementptr i8, ptr %24, i64 304
   %25 = load float, ptr %arrayidx.i, align 4
-  %cmp1 = fcmp olt float %25, %real
+  %cmp1 = fcmp ogt float %real, %25
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -8469,7 +8469,7 @@ if.then:                                          ; preds = %entry
   %1 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %0
   %arrayidx.i.i = getelementptr i8, ptr %1, i64 608
   %2 = load double, ptr %arrayidx.i.i, align 8, !noalias !267
-  %mul.i = fmul double %2, %real
+  %mul.i = fmul double %real, %2
   %3 = tail call double @llvm.nearbyint.f64(double %mul.i)
   %4 = sext i32 %precision to i64
   %5 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %4
@@ -8630,7 +8630,7 @@ if.end:                                           ; preds = %entry
   %24 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %23
   %arrayidx.i = getelementptr i8, ptr %24, i64 608
   %25 = load double, ptr %arrayidx.i, align 8
-  %cmp1 = fcmp olt double %25, %real
+  %cmp1 = fcmp ogt double %real, %25
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end

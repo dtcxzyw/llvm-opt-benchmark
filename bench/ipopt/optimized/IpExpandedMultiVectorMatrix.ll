@@ -524,7 +524,7 @@ _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc, %_ZN5Ipopt8
   %69 = getelementptr inbounds i8, ptr %2, i64 240
   %70 = load double, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 80
-  %72 = fmul double %70, %1
+  %72 = fmul double %1, %70
   br label %73
 
 73:                                               ; preds = %.lr.ph109, %_ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit
@@ -586,7 +586,7 @@ _ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit:      ; preds = %.noexc42._ZN5Ipopt6
 101:                                              ; preds = %96
   %102 = getelementptr inbounds double, ptr %89, i64 %indvars.iv
   %103 = load double, ptr %102, align 8
-  %104 = fmul double %103, %1
+  %104 = fmul double %1, %103
   %105 = load ptr, ptr %.sroa.058.1, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 192
   %107 = load ptr, ptr %106, align 8
@@ -1012,7 +1012,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc54, %._crit_e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %145 = getelementptr inbounds double, ptr %106, i64 %indvars.iv129
   %146 = load double, ptr %145, align 8
-  %147 = fmul double %146, %3
+  %147 = fmul double %3, %146
   %148 = call double @llvm.fmuladd.f64(double %1, double %.0.i, double %147)
   store double %148, ptr %145, align 8
   br label %153
@@ -1020,7 +1020,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc54, %._crit_e
 149:                                              ; preds = %115
   %150 = getelementptr inbounds double, ptr %106, i64 %indvars.iv129
   %151 = load double, ptr %150, align 8
-  %152 = fmul double %151, %3
+  %152 = fmul double %3, %151
   store double %152, ptr %150, align 8
   br label %153
 
@@ -1105,7 +1105,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i60:                ; preds = %.noexc64, %._crit_e
 188:                                              ; preds = %.noexc67, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i60
   %.0.i58 = phi double [ %178, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i60 ], [ %187, %.noexc67 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %189 = fmul double %.0.i58, %1
+  %189 = fmul double %1, %.0.i58
   br label %190
 
 190:                                              ; preds = %159, %188

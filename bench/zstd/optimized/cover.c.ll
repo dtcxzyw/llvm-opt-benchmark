@@ -109,7 +109,7 @@ define i64 @COVER_computeEpochs(i32 noundef %maxDictSize, i32 noundef %nbDmers, 
 entry:
   %mul = mul i32 %k, 10
   %div = udiv i32 %maxDictSize, %k
-  %cmp = icmp ult i32 %div, %passes
+  %cmp = icmp ugt i32 %passes, %div
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -154,7 +154,7 @@ entry:
   %2 = load i32, ptr %parameters, align 8
   %cmp1.i = icmp eq i32 %2, 0
   %conv.i = zext i32 %2 to i64
-  %cmp3.i = icmp ugt i64 %conv.i, %dictBufferCapacity
+  %cmp3.i = icmp ult i64 %dictBufferCapacity, %conv.i
   %3 = or i1 %cmp1.i, %cmp3.i
   %cmp9.i = icmp ugt i32 %1, %2
   %4 = or i1 %cmp9.i, %3
@@ -413,7 +413,7 @@ COVER_sum.exit:                                   ; preds = %for.body.i, %entry
   %sum.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
   %cmp = fcmp olt double %splitPoint, 1.000000e+00
   %conv = uitofp i32 %nbSamples to double
-  %mul = fmul double %conv, %splitPoint
+  %mul = fmul double %splitPoint, %conv
   %conv1 = fptoui double %mul to i32
   %sub = select i1 %cmp, i32 %conv1, i32 0
   %cond = select i1 %cmp, i32 %conv1, i32 %nbSamples
@@ -442,7 +442,7 @@ cond.true17:                                      ; preds = %for.body.i79, %cond
   %idx.ext.pre-phi = phi i64 [ 0, %cond.true10 ], [ %wide.trip.count.i78, %for.body.i79 ]
   %cond14103 = phi i64 [ 0, %cond.true10 ], [ %add.i83, %for.body.i79 ]
   %add.ptr = getelementptr inbounds i64, ptr %samplesSizes, i64 %idx.ext.pre-phi
-  %cmp4.not.i88 = icmp eq i32 %sub, %nbSamples
+  %cmp4.not.i88 = icmp eq i32 %nbSamples, %sub
   br i1 %cmp4.not.i88, label %cond.end20, label %for.body.preheader.i89
 
 for.body.preheader.i89:                           ; preds = %cond.true17
@@ -500,7 +500,7 @@ if.then46:                                        ; preds = %if.then43
   br label %return
 
 if.end50:                                         ; preds = %if.end40
-  %cmp51 = icmp eq i32 %sub, %nbSamples
+  %cmp51 = icmp eq i32 %nbSamples, %sub
   br i1 %cmp51, label %if.then53, label %if.end60
 
 if.then53:                                        ; preds = %if.end50
@@ -2087,7 +2087,7 @@ if.end142:                                        ; preds = %if.end133
   %notificationLevel159 = getelementptr inbounds i8, ptr %call127, i64 60
   store i32 %43, ptr %notificationLevel159, align 4
   %conv.i100 = zext i32 %k49.0132 to i64
-  %cmp3.i101 = icmp ugt i64 %conv.i100, %dictBufferCapacity
+  %cmp3.i101 = icmp ult i64 %dictBufferCapacity, %conv.i100
   %44 = icmp uge i32 %30, %k49.0132
   %or.cond4.i = or i1 %cmp3.i101, %44
   br i1 %or.cond4.i, label %if.then163, label %if.end170

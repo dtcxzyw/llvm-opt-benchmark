@@ -203,7 +203,7 @@ define hidden void @rp_data_n_ms(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -554,7 +554,7 @@ define internal void @rp_data_ms_n(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -657,7 +657,7 @@ define internal void @rp_ack_ms_n(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -702,7 +702,7 @@ define internal void @rp_ack_n_ms(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -747,7 +747,7 @@ define internal void @rp_error_ms_n(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -814,7 +814,7 @@ define internal void @rp_error_n_ms(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -879,7 +879,7 @@ define internal void @rp_smma(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 

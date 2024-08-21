@@ -610,7 +610,7 @@ define noundef zeroext i1 @isprint_utf8_string(ptr noundef %0, i32 noundef %1) l
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %6 = icmp ugt ptr %4, %0
+  %6 = icmp ult ptr %0, %4
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
@@ -900,7 +900,7 @@ define internal fastcc ptr @escape_string_len(ptr noundef %0, ptr nocapture noun
   %spec.select = select i1 %4, i64 %13, i64 %.054
   %14 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %spec.select) #19
   %15 = icmp ne i8 %5, 0
-  %or.cond = and i1 %15, %4
+  %or.cond = and i1 %4, %15
   br i1 %or.cond, label %16, label %17
 
 16:                                               ; preds = %12
@@ -1133,7 +1133,7 @@ define ptr @ws_strdup_underline(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   tail call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext 32) #19
   %8 = add i32 %.01417, 1
   %9 = sext i32 %8 to i64
-  %10 = icmp slt i64 %9, %1
+  %10 = icmp sgt i64 %1, %9
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1171,7 +1171,7 @@ define ptr @format_text(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
 define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 128) #19
   %6 = getelementptr i8, ptr %1, i64 %2
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   br i1 %7, label %.lr.ph368, label %._crit_edge369
 
 .lr.ph368:                                        ; preds = %4
@@ -1216,7 +1216,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 27:                                               ; preds = %9
   %28 = and i32 %15, 256
   %.not297 = icmp ne i32 %28, 0
-  %or.cond.not = and i1 %.not297, %3
+  %or.cond.not = and i1 %3, %.not297
   br i1 %or.cond.not, label %29, label %39
 
 29:                                               ; preds = %27
@@ -1849,7 +1849,7 @@ define ptr @format_text_chr(ptr noundef %0, ptr noundef readonly %1, i64 noundef
   %5 = add i64 %2, 1
   %6 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %5) #19
   %7 = getelementptr i8, ptr %1, i64 %2
-  %8 = icmp ugt ptr %7, %1
+  %8 = icmp ult ptr %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4

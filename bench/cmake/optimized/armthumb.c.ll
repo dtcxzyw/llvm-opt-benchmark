@@ -122,7 +122,7 @@ define internal i64 @armthumb_code(ptr nocapture readnone %0, i32 noundef %1, i1
   %78 = or disjoint i32 %73, %77
   %79 = shl nuw nsw i32 %78, 1
   %80 = trunc i64 %.03742 to i32
-  %81 = add i32 %80, %1
+  %81 = add i32 %1, %80
   %reass.sub = sub i32 %79, %81
   %82 = add i32 %reass.sub, -4
   %83 = lshr i32 %82, 1

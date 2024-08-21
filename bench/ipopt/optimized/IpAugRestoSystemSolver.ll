@@ -1919,7 +1919,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit.i: ; preds = %_ZNK5Ipopt14Compou
 
 449:                                              ; preds = %448
   %450 = load double, ptr %33, align 8
-  %451 = fmul double %450, %2
+  %451 = fmul double %2, %450
   store ptr null, ptr %34, align 8
   invoke void @_ZNK5Ipopt12SumSymMatrix7GetTermEiRdRNS_8SmartPtrIKNS_9SymMatrixEEE(ptr noundef nonnull align 8 dereferenceable(136) %434, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %34)
           to label %452 unwind label %489

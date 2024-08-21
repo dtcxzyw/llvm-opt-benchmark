@@ -636,7 +636,7 @@ define hidden ptr @commonRef_idToRef(ptr noundef %0, i64 noundef %1) local_unnam
 .lr.ph.i:                                         ; preds = %2, %19
   %.03.i = phi ptr [ %.0.i, %19 ], [ %.01.i, %2 ]
   %17 = load i64, ptr %.03.i, align 8
-  %18 = icmp eq i64 %17, %1
+  %18 = icmp eq i64 %1, %17
   br i1 %18, label %findNodeByID.exit, label %19
 
 19:                                               ; preds = %.lr.ph.i
@@ -703,12 +703,12 @@ isStrong.exit.thread:                             ; preds = %findNodeByID.exit, 
 
 .lr.ph.i21.preheader:                             ; preds = %40
   %52 = load i64, ptr %.01925.i, align 8
-  %53 = icmp eq i64 %52, %41
+  %53 = icmp eq i64 %41, %52
   br i1 %53, label %56, label %.lr.ph
 
 .lr.ph.i21:                                       ; preds = %.lr.ph
   %54 = load i64, ptr %.019.i, align 8
-  %55 = icmp eq i64 %54, %41
+  %55 = icmp eq i64 %41, %54
   br i1 %55, label %60, label %.lr.ph, !llvm.loop !12
 
 56:                                               ; preds = %.lr.ph.i21.preheader
@@ -795,12 +795,12 @@ define internal fastcc void @deleteNodeByID(ptr noundef %0, i64 noundef %1, i32 
 
 .lr.ph.preheader:                                 ; preds = %3
   %14 = load i64, ptr %.01925, align 8
-  %15 = icmp eq i64 %14, %1
+  %15 = icmp eq i64 %1, %14
   br i1 %15, label %.lr.ph._crit_edge, label %.lr.ph37
 
 .lr.ph:                                           ; preds = %.lr.ph37
   %16 = load i64, ptr %.019, align 8
-  %17 = icmp eq i64 %16, %1
+  %17 = icmp eq i64 %1, %16
   br i1 %17, label %.lr.ph._crit_edge, label %.lr.ph37, !llvm.loop !12
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
@@ -911,7 +911,7 @@ define hidden range(i32 0, 206) i32 @commonRef_pin(i64 noundef %0) local_unnamed
 .lr.ph.i:                                         ; preds = %3, %20
   %.03.i = phi ptr [ %.0.i, %20 ], [ %.01.i, %3 ]
   %18 = load i64, ptr %.03.i, align 8
-  %19 = icmp eq i64 %18, %0
+  %19 = icmp eq i64 %0, %18
   br i1 %19, label %findNodeByID.exit, label %20
 
 20:                                               ; preds = %.lr.ph.i
@@ -941,12 +941,12 @@ findNodeByID.exit:                                ; preds = %.lr.ph.i
 
 .lr.ph.i14.preheader:                             ; preds = %24
   %33 = load i64, ptr %.01925.i, align 8
-  %34 = icmp eq i64 %33, %0
+  %34 = icmp eq i64 %0, %33
   br i1 %34, label %37, label %.lr.ph
 
 .lr.ph.i14:                                       ; preds = %.lr.ph
   %35 = load i64, ptr %.019.i, align 8
-  %36 = icmp eq i64 %35, %0
+  %36 = icmp eq i64 %0, %35
   br i1 %36, label %41, label %.lr.ph, !llvm.loop !12
 
 37:                                               ; preds = %.lr.ph.i14.preheader
@@ -1112,7 +1112,7 @@ define hidden range(i32 0, 189) i32 @commonRef_unpin(i64 noundef %0) local_unnam
 .lr.ph.i:                                         ; preds = %1, %18
   %.03.i = phi ptr [ %.0.i, %18 ], [ %.01.i, %1 ]
   %16 = load i64, ptr %.03.i, align 8
-  %17 = icmp eq i64 %16, %0
+  %17 = icmp eq i64 %0, %16
   br i1 %17, label %findNodeByID.exit, label %18
 
 18:                                               ; preds = %.lr.ph.i

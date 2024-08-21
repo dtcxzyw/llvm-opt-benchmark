@@ -280,7 +280,7 @@ define i32 @mca_base_framework_open(ptr noundef %0, i32 noundef %1) local_unname
   %.not26 = icmp eq i32 %10, 0
   %spec.select.v = select i1 %.not26, i32 1, i32 3
   %spec.select = select i1 %.not25, i32 0, i32 %spec.select.v
-  %.021 = or i32 %spec.select, %1
+  %.021 = or i32 %1, %spec.select
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8

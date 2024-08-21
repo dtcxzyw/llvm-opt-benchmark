@@ -1203,7 +1203,7 @@ if.end23:                                         ; preds = %_ZN6hermes2vm15Hand
   %shl.i = shl i64 %conv4.i, 1
   %shr.i = ashr exact i64 %shl.i, 1
   %conv5.i = sitofp i64 %shr.i to double
-  %cmp6.i = fcmp oeq double %conv5.i, %7
+  %cmp6.i = fcmp oeq double %7, %conv5.i
   br i1 %cmp6.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end23
@@ -1376,7 +1376,7 @@ if.end23:                                         ; preds = %_ZN6hermes2vm15Hand
   %shl.i = shl i64 %conv4.i, 1
   %shr.i = ashr exact i64 %shl.i, 1
   %conv5.i = sitofp i64 %shr.i to double
-  %cmp6.i = fcmp oeq double %conv5.i, %7
+  %cmp6.i = fcmp oeq double %7, %conv5.i
   br i1 %cmp6.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end23
@@ -1547,7 +1547,7 @@ if.end23:                                         ; preds = %_ZN6hermes2vm15Hand
   %shl.i = shl i64 %conv4.i, 1
   %shr.i = ashr exact i64 %shl.i, 1
   %conv5.i = sitofp i64 %shr.i to double
-  %cmp6.i = fcmp oeq double %conv5.i, %7
+  %cmp6.i = fcmp oeq double %7, %conv5.i
   br i1 %cmp6.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end23
@@ -3225,7 +3225,7 @@ if.then7:                                         ; preds = %if.end
   %shl.i = shl i64 %conv4.i, 1
   %shr.i = ashr exact i64 %shl.i, 1
   %conv5.i = sitofp i64 %shr.i to double
-  %cmp6.i = fcmp oeq double %conv5.i, %2
+  %cmp6.i = fcmp oeq double %2, %conv5.i
   br i1 %cmp6.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.then7
@@ -3432,7 +3432,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6hermes14ScopeChainItemESaIS1_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6hermes14ScopeChainItemESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i12

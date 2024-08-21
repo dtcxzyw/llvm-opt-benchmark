@@ -244,7 +244,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %65 = phi i64 [ %6, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17h2da6ffed3a0ce068E.exit.thread.i" ], [ %59, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17h2da6ffed3a0ce068E.exit.i" ]
   %66 = phi ptr [ %29, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17h2da6ffed3a0ce068E.exit.thread.i" ], [ %spec.select.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17h2da6ffed3a0ce068E.exit.i" ]
   %.03.i.i = load i32, ptr %66, align 4, !noalias !45, !noundef !15
-  %.not.i2.i = icmp ult i32 %.03.i.i, %17
+  %.not.i2.i = icmp ugt i32 %17, %.03.i.i
   br i1 %.not.i2.i, label %67, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$24make_owned_with_capacity17h56e9ae05d15f2fa0E.exit"
 
 67:                                               ; preds = %62

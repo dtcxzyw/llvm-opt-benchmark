@@ -80,7 +80,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4copyEPcmm(ptr
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %6, %3
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %7, i64 %2)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %2, i64 %7)
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %9, i64 %.sroa.speculated, i1 false)
@@ -94,7 +94,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = icmp ult i64 %5, %2
+  %6 = icmp ugt i64 %2, %5
   br i1 %6, label %24, label %7
 
 7:                                                ; preds = %3
@@ -126,7 +126,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(p
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %.not = icmp ugt i64 %5, %2
+  %.not = icmp ult i64 %2, %5
   br i1 %.not, label %6, label %53
 
 6:                                                ; preds = %3
@@ -258,13 +258,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece5rfindERKS1_m(
   br i1 %15, label %16, label %_ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit
 
 16:                                               ; preds = %14
-  %.sroa.speculated17 = tail call i64 @llvm.umin.i64(i64 %10, i64 %2)
+  %.sroa.speculated17 = tail call i64 @llvm.umin.i64(i64 %2, i64 %10)
   br label %31
 
 _ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit:         ; preds = %14
   %17 = load ptr, ptr %0, align 8
   %18 = sub i64 %10, %12
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %18, i64 %2)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %2, i64 %18)
   %19 = getelementptr inbounds i8, ptr %17, i64 %.sroa.speculated
   %20 = getelementptr inbounds i8, ptr %19, i64 %12
   %21 = load ptr, ptr %1, align 8
@@ -354,7 +354,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece13find_first_o
 11:                                               ; preds = %8
   %12 = load ptr, ptr %1, align 8
   %13 = load i8, ptr %12, align 1
-  %.not.i.i = icmp ugt i64 %6, %2
+  %.not.i.i = icmp ult i64 %2, %6
   br i1 %.not.i.i, label %14, label %_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit
 
 14:                                               ; preds = %11
@@ -479,7 +479,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i:            ; preds = %22, %_ZSt4findIPKcc
   br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !8
 
 _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i
-  %67 = icmp ugt i64 %6, %2
+  %67 = icmp ult i64 %2, %6
   br i1 %67, label %.lr.ph, label %_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit
 
 .lr.ph:                                           ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader
@@ -528,7 +528,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_n
 11:                                               ; preds = %8
   %12 = load ptr, ptr %1, align 8
   %13 = load i8, ptr %12, align 1
-  %14 = icmp ugt i64 %6, %2
+  %14 = icmp ult i64 %2, %6
   br i1 %14, label %.lr.ph.i, label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit
 
 .lr.ph.i:                                         ; preds = %11
@@ -564,7 +564,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_n
   br i1 %exitcond.not.i16, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i15, !llvm.loop !8
 
 _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i15
-  %27 = icmp ugt i64 %6, %2
+  %27 = icmp ult i64 %2, %6
   br i1 %27, label %.lr.ph, label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit
 
 .lr.ph:                                           ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader
@@ -595,7 +595,7 @@ _ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit: ; preds = %19, 
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = icmp ugt i64 %5, %2
+  %6 = icmp ult i64 %2, %5
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
@@ -828,9 +828,9 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
 define dso_local { ptr, i64 } @_ZNK4i18n12phonenumbers11StringPiece6substrEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %5, i64 %1)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %5)
   %6 = sub i64 %5, %spec.select
-  %.0 = tail call i64 @llvm.umin.i64(i64 %6, i64 %2)
+  %.0 = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %spec.select
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %8, 0

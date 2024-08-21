@@ -178,7 +178,7 @@ default.unreachable:                              ; preds = %39
   %55 = load i64, ptr %7, align 8, !alias.scope !31, !noalias !36, !noundef !4
   %56 = load i64, ptr %1, align 8, !alias.scope !38, !noalias !36, !noundef !4
   %57 = sub i64 %56, %55
-  %58 = icmp ult i64 %57, %33
+  %58 = icmp ugt i64 %33, %57
   br i1 %58, label %59, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h916957df3495dcf1E.exit.i.i"
 
 59:                                               ; preds = %54
@@ -230,7 +230,7 @@ default.unreachable:                              ; preds = %39
   %73 = load i64, ptr %7, align 8, !alias.scope !41, !noalias !46, !noundef !4
   %74 = load i64, ptr %1, align 8, !alias.scope !48, !noalias !46, !noundef !4
   %75 = sub i64 %74, %73
-  %.not.i.i = icmp ugt i64 %75, %67
+  %.not.i.i = icmp ult i64 %67, %75
   br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h916957df3495dcf1E.exit14.i.i", label %76
 
 76:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h649a4e4e370a20caE.exit.i.i"
@@ -1112,7 +1112,7 @@ default.unreachable:                              ; preds = %15
   %34 = load i64, ptr %33, align 8, !alias.scope !110, !noalias !115, !noundef !4
   %35 = load i64, ptr %2, align 8, !alias.scope !117, !noalias !115, !noundef !4
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %12
+  %37 = icmp ugt i64 %12, %36
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %32
@@ -1270,7 +1270,7 @@ default.unreachable:                              ; preds = %15
   %34 = load i64, ptr %33, align 8, !alias.scope !130, !noalias !135, !noundef !4
   %35 = load i64, ptr %2, align 8, !alias.scope !137, !noalias !135, !noundef !4
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %12
+  %37 = icmp ugt i64 %12, %36
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %32
@@ -1952,7 +1952,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.13009
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -2235,7 +2235,7 @@ define hidden void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5pars
   %.val65.us = load i32, ptr %43, align 8, !noundef !4
   %44 = tail call i32 @llvm.bswap.i32(i32 %.val65.us)
   %45 = zext i32 %44 to i64
-  %46 = icmp eq i64 %45, %5
+  %46 = icmp eq i64 %5, %45
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %42
@@ -2322,7 +2322,7 @@ define hidden void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5pars
   %63 = getelementptr i8, ptr %.sroa.083.0129, i64 40
   %.val65 = load i32, ptr %63, align 8, !noundef !4
   %64 = zext i32 %.val65 to i64
-  %65 = icmp eq i64 %64, %5
+  %65 = icmp eq i64 %5, %64
   br i1 %65, label %68, label %66
 
 66:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb1d4985de4201eb6E.exit.thread", %62, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a2820d1d6fc96f0E.exit"
@@ -2442,7 +2442,7 @@ define hidden void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5pars
   %.val67.us = load i32, ptr %43, align 4, !noundef !4
   %44 = tail call i32 @llvm.bswap.i32(i32 %.val67.us)
   %45 = zext i32 %44 to i64
-  %46 = icmp eq i64 %45, %5
+  %46 = icmp eq i64 %5, %45
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %42
@@ -2529,7 +2529,7 @@ define hidden void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5pars
   %63 = getelementptr i8, ptr %.sroa.083.0129, i64 24
   %.val67 = load i32, ptr %63, align 4, !noundef !4
   %64 = zext i32 %.val67 to i64
-  %65 = icmp eq i64 %64, %5
+  %65 = icmp eq i64 %5, %64
   br i1 %65, label %68, label %66
 
 66:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb1d4985de4201eb6E.exit.thread", %62, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2afaad205abc84eE.exit"

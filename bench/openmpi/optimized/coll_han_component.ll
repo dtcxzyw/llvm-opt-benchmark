@@ -754,7 +754,7 @@ define ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %0) local_unnamed_addr #2 {
 3:                                                ; preds = %.lr.ph
   %4 = getelementptr inbounds [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv.next
   %5 = load i32, ptr %4, align 16
-  %6 = icmp eq i32 %5, %0
+  %6 = icmp eq i32 %0, %5
   br i1 %6, label %._crit_edge10, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge10:                                    ; preds = %3

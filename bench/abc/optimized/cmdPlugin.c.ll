@@ -1865,7 +1865,7 @@ define i32 @Cmd_CommandAbcLoadPlugIn(ptr noundef %0, i32 noundef %1, ptr noundef
 12:                                               ; preds = %6
   %13 = load i32, ptr @globalUtilOptind, align 4
   %14 = add nsw i32 %13, 2
-  %.not48 = icmp eq i32 %14, %1
+  %.not48 = icmp eq i32 %1, %14
   br i1 %.not48, label %15, label %.loopexit
 
 15:                                               ; preds = %12

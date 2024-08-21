@@ -1043,7 +1043,7 @@ define internal fastcc range(i64 0, 65536) i64 @get_mpc_size(i64 noundef %0) unn
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = add nuw nsw i64 %5, %0
+  %9 = add nuw nsw i64 %0, %5
   %10 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, i64 noundef %0, i64 noundef %9) #11
   br label %11
 
@@ -1519,7 +1519,7 @@ define internal fastcc void @check_irq_src(ptr noundef %0, ptr nocapture noundef
 define internal fastcc noundef range(i32 -1, 1) i32 @check_slot(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = icmp ne i64 %0, 0
   %5 = sext i32 %2 to i64
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   %7 = and i1 %4, %6
   br i1 %7, label %9, label %8
 

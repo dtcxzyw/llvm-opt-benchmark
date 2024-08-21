@@ -732,7 +732,7 @@ updateUB.exit:                                    ; preds = %293, %.thread, %285
   %352 = zext nneg i32 %.2.lcssa.i to i64
   %353 = getelementptr inbounds i32, ptr %.1215521, i64 %352
   %354 = load i32, ptr %353, align 4
-  %355 = icmp sgt i32 %354, %328
+  %355 = icmp slt i32 %328, %354
   br i1 %355, label %.lr.ph79.i, label %updateEntry.exit
 
 .lr.ph79.i:                                       ; preds = %._crit_edge.i305, %.preheader.thread.i, %._crit_edge70.i, %351
@@ -776,7 +776,7 @@ updateEntry.exit:                                 ; preds = %351, %._crit_edge80
 
 .lr.ph.i307:                                      ; preds = %366, %377
   %.018.i = phi i32 [ %.0.i310, %377 ], [ %.016.i, %366 ]
-  %370 = icmp sgt i32 %.018.i, %369
+  %370 = icmp slt i32 %369, %.018.i
   br i1 %370, label %371, label %.lr.ph._crit_edge.i
 
 .lr.ph._crit_edge.i:                              ; preds = %.lr.ph.i307
@@ -1198,7 +1198,7 @@ define internal fastcc i32 @ddCountRoots(ptr noundef readonly %0, i32 noundef %1
   %74 = ptrtoint ptr %73 to i64
   %75 = and i64 %74, -2
   %76 = inttoptr i64 %75 to ptr
-  %.not52 = icmp eq ptr %76, %0
+  %.not52 = icmp eq ptr %0, %76
   br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %72, %.lr.ph66
@@ -1217,7 +1217,7 @@ define internal fastcc i32 @ddCountRoots(ptr noundef readonly %0, i32 noundef %1
   br i1 %exitcond83.not, label %._crit_edge76, label %9, !llvm.loop !30
 
 ._crit_edge76:                                    ; preds = %._crit_edge67
-  %.not27.i = icmp slt i32 %.1.lcssa, %1
+  %.not27.i = icmp sgt i32 %1, %.1.lcssa
   br i1 %.not27.i, label %ddClearGlobal.exit, label %.lr.ph30.i
 
 .lr.ph30.i:                                       ; preds = %3, %._crit_edge76
@@ -1257,7 +1257,7 @@ define internal fastcc i32 @ddCountRoots(ptr noundef readonly %0, i32 noundef %1
   %92 = and i64 %91, -2
   %93 = inttoptr i64 %92 to ptr
   store ptr %93, ptr %89, align 8
-  %.not20.i = icmp eq ptr %93, %0
+  %.not20.i = icmp eq ptr %0, %93
   br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph25.i

@@ -342,7 +342,7 @@ if.then:                                          ; preds = %invoke.cont7
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.then
-  %cmp15 = icmp ugt i32 %call14, %recvCapacity
+  %cmp15 = icmp ult i32 %recvCapacity, %call14
   br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %invoke.cont13
@@ -401,7 +401,7 @@ if.else:                                          ; preds = %invoke.cont13
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %if.else
-  %cmp42 = icmp ult i32 %call41, %recvCapacity
+  %cmp42 = icmp ugt i32 %recvCapacity, %call41
   br i1 %cmp42, label %if.then43, label %if.end110
 
 if.then43:                                        ; preds = %invoke.cont40
@@ -572,7 +572,7 @@ entry:
   %ref.tmp100 = alloca %"class.google::LogMessage", align 8
   %recvWindow_ = getelementptr inbounds i8, ptr %this, i64 80
   %call = tail call noundef i32 @_ZNK8proxygen6Window11getCapacityEv(ptr noundef nonnull align 4 dereferenceable(8) %recvWindow_)
-  %cmp = icmp ugt i32 %call, %capacity
+  %cmp = icmp ult i32 %capacity, %call
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1174,7 +1174,7 @@ for.body.i.i.i.i5.i.i.i:                          ; preds = %if.end.i.i.i.i9.i.i
   %i.i.06.i.i.i6.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIiEENSt9enable_ifIXaaaaaa13is_integral_vIT_E11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i ], [ %inc.i.i.i.i10.i.i.i, %if.end.i.i.i.i9.i.i.i ]
   %arrayidx.i.i.i.i7.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i6.i.i.i
   %4 = load i64, ptr %arrayidx.i.i.i.i7.i.i.i, align 8
-  %cmp1.i.i.i.i8.i.i.i = icmp ugt i64 %4, %3
+  %cmp1.i.i.i.i8.i.i.i = icmp ult i64 %3, %4
   br i1 %cmp1.i.i.i.i8.i.i.i, label %if.then.i.i.i.i13.i.i.i, label %if.end.i.i.i.i9.i.i.i
 
 if.then.i.i.i.i13.i.i.i:                          ; preds = %for.body.i.i.i.i5.i.i.i
@@ -2972,7 +2972,7 @@ for.body.i.i.i.i.i.i14:                           ; preds = %if.end.i.i.i.i.i.i1
   %i.i.i.015.i.i.i.i15 = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit ], [ %inc.i.i.i.i.i.i19, %if.end.i.i.i.i.i.i18 ]
   %arrayidx.i.i.i.i.i.i16 = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i15
   %8 = load i64, ptr %arrayidx.i.i.i.i.i.i16, align 8
-  %cmp1.i.i.i.i.i.i17 = icmp ugt i64 %8, %7
+  %cmp1.i.i.i.i.i.i17 = icmp ult i64 %7, %8
   br i1 %cmp1.i.i.i.i.i.i17, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41, label %if.end.i.i.i.i.i.i18
 
 if.end.i.i.i.i.i.i18:                             ; preds = %for.body.i.i.i.i.i.i14

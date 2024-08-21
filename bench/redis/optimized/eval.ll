@@ -2701,7 +2701,7 @@ define dso_local ptr @ldbGetSourceLine(i32 noundef %line) local_unnamed_addr #11
 entry:
   %cmp = icmp slt i32 %line, 1
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @ldb, i64 320), align 8
-  %cmp1.not.not = icmp slt i32 %0, %line
+  %cmp1.not.not = icmp sgt i32 %line, %0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp1.not.not
   br i1 %or.cond, label %return, label %if.end
 
@@ -2751,7 +2751,7 @@ define dso_local range(i32 0, 2) i32 @ldbAddBreakpoint(i32 noundef %line) local_
 entry:
   %cmp = icmp slt i32 %line, 1
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @ldb, i64 320), align 8
-  %cmp1 = icmp slt i32 %0, %line
+  %cmp1 = icmp sgt i32 %line, %0
   %or.cond5 = select i1 %cmp, i1 true, i1 %cmp1
   br i1 %or.cond5, label %return, label %if.end
 
@@ -3052,7 +3052,7 @@ define dso_local void @ldbLogSourceLine(i32 noundef %lnum) local_unnamed_addr #0
 entry:
   %cmp.i = icmp slt i32 %lnum, 1
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @ldb, i64 320), align 8
-  %cmp1.not.not.i = icmp slt i32 %0, %lnum
+  %cmp1.not.not.i = icmp sgt i32 %lnum, %0
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp1.not.not.i
   br i1 %or.cond.i, label %ldbGetSourceLine.exit, label %if.end.i
 
@@ -4110,7 +4110,7 @@ for.body:                                         ; preds = %if.else, %ldbLogSou
   %6 = load i32, ptr %arrayidx, align 4
   %cmp.i.i = icmp slt i32 %6, 1
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @ldb, i64 320), align 8
-  %cmp1.not.not.i.i = icmp slt i32 %7, %6
+  %cmp1.not.not.i.i = icmp sgt i32 %6, %7
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp1.not.not.i.i
   br i1 %or.cond.i.i, label %ldbGetSourceLine.exit.i, label %if.end.i.i
 
@@ -4615,7 +4615,7 @@ if.then:                                          ; preds = %while.body
   %2 = load i32, ptr %currentline, align 8
   %cmp.i.i = icmp slt i32 %2, 1
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @ldb, i64 320), align 8
-  %cmp1.not.not.i.i = icmp slt i32 %3, %2
+  %cmp1.not.not.i.i = icmp sgt i32 %2, %3
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp1.not.not.i.i
   br i1 %or.cond.i.i, label %ldbGetSourceLine.exit.i, label %if.end.i.i
 
@@ -5283,7 +5283,7 @@ if.then30:                                        ; preds = %if.then17, %if.end2
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @ldb, i64 324), align 4
   %cmp.i.i = icmp slt i32 %13, 1
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @ldb, i64 320), align 8
-  %cmp1.not.not.i.i = icmp slt i32 %14, %13
+  %cmp1.not.not.i.i = icmp sgt i32 %13, %14
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp1.not.not.i.i
   br i1 %or.cond.i.i, label %ldbGetSourceLine.exit.i, label %if.end.i.i
 

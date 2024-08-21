@@ -341,7 +341,7 @@ define internal fastcc range(i32 -29184, 1) i32 @ssl_parse_record_header(ptr nou
   %8 = icmp eq i8 %7, 1
   %. = select i1 %8, i64 11, i64 3
   %9 = add nuw nsw i64 %., 2
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %4
@@ -451,7 +451,7 @@ define internal fastcc range(i32 -29184, 1) i32 @ssl_parse_record_header(ptr nou
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = or disjoint i32 %76, %79
-  %81 = icmp ugt i64 %65, %2
+  %81 = icmp ult i64 %2, %65
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %73
@@ -1450,7 +1450,7 @@ define hidden i32 @mbedtls_ssl_fetch_input(ptr noundef %0, i64 noundef %1) local
   %17 = ptrtoint ptr %15 to i64
   %reass.sub = sub i64 %17, %16
   %18 = add i64 %reass.sub, 16717
-  %19 = icmp ult i64 %18, %1
+  %19 = icmp ugt i64 %1, %18
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %11
@@ -1504,7 +1504,7 @@ define hidden i32 @mbedtls_ssl_fetch_input(ptr noundef %0, i64 noundef %1) local
   %44 = load i64, ptr %43, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1855, ptr noundef nonnull @.str.49, i64 noundef %44, i64 noundef %1) #17
   %45 = load i64, ptr %43, align 8
-  %.not127 = icmp ult i64 %45, %1
+  %.not127 = icmp ugt i64 %1, %45
   br i1 %.not127, label %47, label %46
 
 46:                                               ; preds = %42
@@ -6022,7 +6022,7 @@ mbedtls_ssl_set_timer.exit115:                    ; preds = %163, %160, %158
   %.lcssa126 = phi ptr [ %55, %53 ], [ %176, %.backedge ]
   %178 = getelementptr inbounds i8, ptr %0, i64 240
   %179 = load i64, ptr %178, align 8
-  %. = tail call i64 @llvm.umin.i64(i64 %179, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %179)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %.lcssa126, i64 %., i1 false)
   %180 = load i64, ptr %178, align 8
   %181 = sub i64 %180, %.
@@ -6141,7 +6141,7 @@ ssl_check_ctr_renegotiate.exit.thread.thread:     ; preds = %16, %12, %20, %ssl_
   br label %ssl_write_real.exit
 
 42:                                               ; preds = %ssl_check_ctr_renegotiate.exit.thread.thread
-  %43 = icmp ult i64 %39, %2
+  %43 = icmp ugt i64 %2, %39
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %42
@@ -6443,7 +6443,7 @@ ssl_free_buffered_record.exit:                    ; preds = %2, %7, %10
   %16 = getelementptr inbounds i8, ptr %4, i64 872
   %17 = load i64, ptr %16, align 8
   %18 = sub i64 32768, %17
-  %.not = icmp ult i64 %18, %1
+  %.not = icmp ugt i64 %1, %18
   br i1 %.not, label %.preheader, label %19
 
 19:                                               ; preds = %ssl_free_buffered_record.exit
@@ -6490,7 +6490,7 @@ ssl_free_buffered_record.exit:                    ; preds = %2, %7, %10
 ssl_buffering_free_slot.exit:                     ; preds = %.preheader, %26, %29
   %37 = load i64, ptr %16, align 8
   %38 = sub i64 32768, %37
-  %.not18 = icmp ult i64 %38, %1
+  %.not18 = icmp ugt i64 %1, %38
   br i1 %.not18, label %20, label %39
 
 39:                                               ; preds = %ssl_buffering_free_slot.exit
@@ -6513,7 +6513,7 @@ define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 nound
 7:                                                ; preds = %3
   %8 = lshr i64 %1, 3
   %9 = zext nneg i32 %6 to i64
-  %.not41 = icmp ult i64 %9, %2
+  %.not41 = icmp ugt i64 %2, %9
   br i1 %.not41, label %19, label %.preheader
 
 .preheader:                                       ; preds = %7
@@ -6538,7 +6538,7 @@ define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 nound
   br i1 %.not45, label %..loopexit47_crit_edge, label %11, !llvm.loop !19
 
 19:                                               ; preds = %7
-  %20 = add nuw nsw i64 %9, %1
+  %20 = add nuw nsw i64 %1, %9
   %21 = getelementptr inbounds i8, ptr %0, i64 %8
   %.promoted50 = load i8, ptr %21, align 1
   br label %22

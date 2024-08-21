@@ -1696,7 +1696,7 @@ entry:
   %notmask.i = shl nsw i32 -1, %add.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i27 = and i32 %sub.i, %in_slot_id
+  %and.i27 = and i32 %in_slot_id, %sub.i
   %and.i = zext nneg i32 %and.i27 to i64
   %add = add nuw nsw i64 %cond7.i, 8
   %blocks_ = getelementptr inbounds i8, ptr %this, i64 16

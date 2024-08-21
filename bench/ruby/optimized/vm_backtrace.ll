@@ -118,7 +118,7 @@ define hidden i32 @rb_vm_get_sourceline(ptr nocapture noundef readonly %0) local
   %24 = ashr exact i64 %23, 3
   %25 = icmp sgt i64 %24, -1
   tail call void @llvm.assume(i1 %25)
-  %.not.i.i = icmp eq ptr %20, %8
+  %.not.i.i = icmp eq ptr %8, %20
   %26 = add nsw i64 %24, -1
   %spec.select.i.i = select i1 %.not.i.i, i64 0, i64 %26
   %27 = tail call i32 @rb_iseq_line_no(ptr noundef nonnull %6, i64 noundef %spec.select.i.i) #4
@@ -178,7 +178,7 @@ calc_node_id.exit.i:                              ; preds = %6
   %16 = ashr exact i64 %15, 3
   %17 = icmp sgt i64 %16, -1
   tail call void @llvm.assume(i1 %17)
-  %.not.i.i.i = icmp eq ptr %12, %8
+  %.not.i.i.i = icmp eq ptr %8, %12
   %18 = add nsw i64 %16, -1
   %spec.select.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %18
   %19 = tail call i32 @rb_iseq_node_id(ptr noundef nonnull %5, i64 noundef %spec.select.i.i.i) #4
@@ -233,7 +233,7 @@ define internal fastcc noundef i64 @rb_ec_partial_backtrace_object(ptr nocapture
   %19 = sdiv exact i64 %16, 56
   %20 = add nsw i64 %19, 1
   %21 = icmp slt i64 %2, 0
-  %22 = tail call i64 @llvm.umin.i64(i64 %20, i64 %2)
+  %22 = tail call i64 @llvm.umin.i64(i64 %2, i64 %20)
   %spec.select = select i1 %21, i64 %20, i64 %22
   br label %23
 
@@ -836,7 +836,7 @@ oldbt_iter_iseq.exit:                             ; preds = %23
   %35 = ashr exact i64 %34, 3
   %36 = icmp sgt i64 %35, -1
   tail call void @llvm.assume(i1 %36)
-  %.not.i.i.i = icmp eq ptr %31, %24
+  %.not.i.i.i = icmp eq ptr %24, %31
   %37 = add nsw i64 %35, -1
   %spec.select.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %37
   %38 = tail call i32 @rb_iseq_line_no(ptr noundef nonnull %22, i64 noundef %spec.select.i.i.i) #4
@@ -1024,7 +1024,7 @@ oldbt_iter_iseq.exit.i:                           ; preds = %23
   %35 = ashr exact i64 %34, 3
   %36 = icmp sgt i64 %35, -1
   tail call void @llvm.assume(i1 %36)
-  %.not.i.i.i.i = icmp eq ptr %31, %24
+  %.not.i.i.i.i = icmp eq ptr %24, %31
   %37 = add nsw i64 %35, -1
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, i64 0, i64 %37
   %38 = tail call i32 @rb_iseq_line_no(ptr noundef nonnull %22, i64 noundef %spec.select.i.i.i.i) #4
@@ -1199,7 +1199,7 @@ oldbt_iter_iseq.exit:                             ; preds = %24
   %36 = ashr exact i64 %35, 3
   %37 = icmp sgt i64 %36, -1
   tail call void @llvm.assume(i1 %37)
-  %.not.i.i.i = icmp eq ptr %32, %25
+  %.not.i.i.i = icmp eq ptr %25, %32
   %38 = add nsw i64 %36, -1
   %spec.select.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %38
   %39 = tail call i32 @rb_iseq_line_no(ptr noundef nonnull %23, i64 noundef %spec.select.i.i.i) #4
@@ -1768,7 +1768,7 @@ define internal range(i64 1, 0) i64 @location_lineno_m(i64 noundef %0) #0 {
   %24 = ashr exact i64 %23, 3
   %25 = icmp sgt i64 %24, -1
   tail call void @llvm.assume(i1 %25)
-  %.not.i.i.i = icmp eq ptr %20, %8
+  %.not.i.i.i = icmp eq ptr %8, %20
   %26 = add nsw i64 %24, -1
   %spec.select.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %26
   %27 = tail call i32 @rb_iseq_line_no(ptr noundef nonnull %5, i64 noundef %spec.select.i.i.i) #4
@@ -2328,7 +2328,7 @@ define dso_local i64 @rb_debug_inspector_frame_self_get(ptr nocapture noundef re
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
-  %.not.i = icmp sgt i64 %6, %1
+  %.not.i = icmp slt i64 %1, %6
   br i1 %.not.i, label %frame_get.exit, label %7
 
 7:                                                ; preds = %4, %2
@@ -2355,7 +2355,7 @@ define dso_local i64 @rb_debug_inspector_frame_class_get(ptr nocapture noundef r
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
-  %.not.i = icmp sgt i64 %6, %1
+  %.not.i = icmp slt i64 %1, %6
   br i1 %.not.i, label %frame_get.exit, label %7
 
 7:                                                ; preds = %4, %2
@@ -2379,7 +2379,7 @@ define dso_local i64 @rb_debug_inspector_frame_binding_get(ptr nocapture noundef
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
-  %.not.i = icmp sgt i64 %6, %1
+  %.not.i = icmp slt i64 %1, %6
   br i1 %.not.i, label %frame_get.exit, label %7
 
 7:                                                ; preds = %4, %2
@@ -2403,7 +2403,7 @@ define dso_local i64 @rb_debug_inspector_frame_iseq_get(ptr nocapture noundef re
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
-  %.not.i = icmp sgt i64 %6, %1
+  %.not.i = icmp slt i64 %1, %6
   br i1 %.not.i, label %frame_get.exit, label %7
 
 7:                                                ; preds = %4, %2
@@ -2440,7 +2440,7 @@ define dso_local i64 @rb_debug_inspector_frame_depth(ptr nocapture noundef reado
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
-  %.not.i = icmp sgt i64 %6, %1
+  %.not.i = icmp slt i64 %1, %6
   br i1 %.not.i, label %frame_get.exit, label %7
 
 7:                                                ; preds = %4, %2
@@ -2609,7 +2609,7 @@ define internal fastcc i32 @thread_profile_frames(ptr nocapture noundef readonly
   %63 = ashr exact i64 %62, 3
   %64 = icmp sgt i64 %63, -1
   tail call void @llvm.assume(i1 %64)
-  %.not.i.i = icmp eq ptr %59, %47
+  %.not.i.i = icmp eq ptr %47, %59
   %65 = add nsw i64 %63, -1
   %spec.select.i.i = select i1 %.not.i.i, i64 0, i64 %65
   %66 = tail call i32 @rb_iseq_line_no(ptr noundef nonnull %46, i64 noundef %spec.select.i.i) #4
@@ -3807,7 +3807,7 @@ define internal fastcc i64 @location_to_str(ptr nocapture noundef readonly %0) u
   %34 = ashr exact i64 %33, 3
   %35 = icmp sgt i64 %34, -1
   tail call void @llvm.assume(i1 %35)
-  %.not.i.i = icmp eq ptr %30, %18
+  %.not.i.i = icmp eq ptr %18, %30
   %36 = add nsw i64 %34, -1
   %spec.select.i.i = select i1 %.not.i.i, i64 0, i64 %36
   %37 = tail call i32 @rb_iseq_line_no(ptr noundef nonnull %17, i64 noundef %spec.select.i.i) #4
@@ -3866,7 +3866,7 @@ calc_lineno.exit:                                 ; preds = %28, %25, %22, %38
   %73 = ashr exact i64 %72, 3
   %74 = icmp sgt i64 %73, -1
   tail call void @llvm.assume(i1 %74)
-  %.not.i.i28 = icmp eq ptr %69, %57
+  %.not.i.i28 = icmp eq ptr %57, %69
   %75 = add nsw i64 %73, -1
   %spec.select.i.i29 = select i1 %.not.i.i28, i64 0, i64 %75
   %76 = tail call i32 @rb_iseq_line_no(ptr noundef nonnull %55, i64 noundef %spec.select.i.i29) #4

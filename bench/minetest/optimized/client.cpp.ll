@@ -9033,7 +9033,7 @@ call2.i10.i.noexc:                                ; preds = %entry
 
 invoke.cont4:                                     ; preds = %call2.i10.i.noexc
   %not.call = xor i1 %call, true
-  %4 = or i1 %not.call, %is_local_server
+  %4 = or i1 %is_local_server, %not.call
   %5 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
   %cmp.i.i.i = icmp eq ptr %5, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i150
@@ -15339,7 +15339,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.then
 if.else:                                          ; preds = %invoke.cont
   %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 64
   %8 = load float, ptr %second, align 8, !tbaa !692
-  %add = fadd nsz float %8, %value
+  %add = fadd nsz float %value, %8
   store float %add, ptr %second, align 8, !tbaa !692
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit21
 

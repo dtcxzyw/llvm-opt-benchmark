@@ -3728,7 +3728,7 @@ land.lhs.true79:                                  ; preds = %if.end71
 if.end86:                                         ; preds = %land.lhs.true79, %if.end71
   %cond77.sink = phi i64 [ %cond77, %if.end71 ], [ %spec.select228, %land.lhs.true79 ]
   tail call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %cond77.sink) #10
-  %cmp87.not = icmp ugt i64 %length.0.i, %l
+  %cmp87.not = icmp ult i64 %l, %length.0.i
   br i1 %cmp87.not, label %if.end107, label %if.then89
 
 if.then89:                                        ; preds = %if.end86
@@ -3830,7 +3830,7 @@ if.end122:                                        ; preds = %if.then119, %if.the
   %conv124 = trunc i64 %l to i32
   %call125 = tail call i32 @lpRandomPairsUnique(ptr noundef %35, i32 noundef %conv124, ptr noundef %call117, ptr noundef %vals115.0) #10
   %conv126 = zext i32 %call125 to i64
-  %cmp127 = icmp eq i64 %conv126, %l
+  %cmp127 = icmp eq i64 %l, %conv126
   br i1 %cmp127, label %cond.end134, label %cond.false133
 
 cond.false133:                                    ; preds = %if.end122

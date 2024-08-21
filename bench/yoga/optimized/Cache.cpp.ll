@@ -143,13 +143,13 @@ lor.rhs:                                          ; preds = %if.then.i.i, %if.en
   %or.cond.i72 = and i1 %cmp.i70, %cmp.i59142.ph
   %6 = fcmp ord float %sub, %lastAvailableWidth
   %or.cond12.i = and i1 %6, %or.cond.i72
-  %cmp8.i = fcmp olt float %sub, %lastAvailableWidth
+  %cmp8.i = fcmp ogt float %lastAvailableWidth, %sub
   %or.cond7.i = and i1 %cmp.i.i44, %cmp8.i
   %or.cond = and i1 %or.cond7.i, %or.cond12.i
   br i1 %or.cond, label %land.rhs.i73, label %lor.end
 
 land.rhs.i73:                                     ; preds = %lor.rhs
-  %cmp9.i = fcmp ult float %sub, %lastComputedWidth
+  %cmp9.i = fcmp ugt float %lastComputedWidth, %sub
   br i1 %cmp9.i, label %lor.rhs.i74, label %lor.end
 
 lor.rhs.i74:                                      ; preds = %land.rhs.i73
@@ -224,13 +224,13 @@ lor.rhs59:                                        ; preds = %if.then.i.i86, %if.
   %or.cond.i107 = and i1 %cmp.i105, %cmp.i90163.ph
   %11 = fcmp ord float %sub54, %lastAvailableHeight
   %or.cond12.i108 = and i1 %11, %or.cond.i107
-  %cmp8.i111 = fcmp olt float %sub54, %lastAvailableHeight
+  %cmp8.i111 = fcmp ogt float %lastAvailableHeight, %sub54
   %or.cond7.i112 = and i1 %cmp.i.i, %cmp8.i111
   %or.cond181 = and i1 %or.cond7.i112, %or.cond12.i108
   br i1 %or.cond181, label %land.rhs.i113, label %lor.end62
 
 land.rhs.i113:                                    ; preds = %lor.rhs59
-  %cmp9.i114 = fcmp ult float %sub54, %lastComputedHeight
+  %cmp9.i114 = fcmp ugt float %lastComputedHeight, %sub54
   br i1 %cmp9.i114, label %lor.rhs.i115, label %lor.end62
 
 lor.rhs.i115:                                     ; preds = %land.rhs.i113

@@ -314,7 +314,7 @@ define internal fastcc ptr @GLXGC_InitFBConfig(i32 noundef %0, i64 noundef %1) u
   %30 = getelementptr inbounds i8, ptr %27, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = call i32 @XFree(ptr noundef nonnull %27) #8
-  %33 = icmp eq i64 %31, %1
+  %33 = icmp eq i64 %1, %31
   %or.cond41 = select i1 %21, i1 true, i1 %33
   br i1 %or.cond41, label %34, label %77
 

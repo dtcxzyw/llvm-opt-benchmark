@@ -1555,7 +1555,7 @@ _ZNSt5queueIP21AstNodeUOrStructDTypeSt5dequeIS1_SaIS1_EEE3popEv.exit: ; preds = 
 
 select.unfold.i.i:                                ; preds = %146, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %146 ]
-  %149 = icmp eq ptr %108, %.sroa.4.0.i.ph.i.i
+  %149 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %108
   br i1 %149, label %_ZNSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %150
 
 150:                                              ; preds = %select.unfold.i.i
@@ -3933,7 +3933,7 @@ _ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.thr
   %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02022.i.i.i, %22 ]
   %25 = getelementptr inbounds i8, ptr %.02024.i.i.i, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = icmp ugt ptr %26, %1
+  %27 = icmp ult ptr %1, %26
   %.in.v.i.i.i = select i1 %27, i64 16, i64 24
   %.in.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
   %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8
@@ -3964,13 +3964,13 @@ _ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.thr
 
 select.unfold.i.i:                                ; preds = %33, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %33 ]
-  %36 = icmp eq ptr %24, %.sroa.4.0.i.ph.i.i
+  %36 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %24
   br i1 %36, label %_ZNSt8_Rb_treeIP10AstTypedefS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %37
 
 37:                                               ; preds = %select.unfold.i.i
   %38 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
   %39 = load ptr, ptr %38, align 8
-  %40 = icmp ugt ptr %39, %1
+  %40 = icmp ult ptr %1, %39
   br label %_ZNSt8_Rb_treeIP10AstTypedefS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIP10AstTypedefS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %37, %select.unfold.i.i
@@ -4790,7 +4790,7 @@ _ZNSt11_Deque_baseIP21AstNodeUOrStructDTypeSaIS1_EE16_M_allocate_nodeEv.exit.i: 
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #17
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIP21AstNodeUOrStructDTypeSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -5077,7 +5077,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12ClassVisitor17recurseImpl
   %8 = getelementptr inbounds i8, ptr %1, i64 259
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
-  %narrow = or i1 %10, %2
+  %narrow = or i1 %2, %10
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not30 = icmp eq ptr %12, null
@@ -5506,7 +5506,7 @@ define linkonce_odr dso_local void @_ZN12ClassVisitor16setStructModulepEP21AstNo
   %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02022.i.i.i, %32 ]
   %35 = getelementptr inbounds i8, ptr %.02024.i.i.i, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = icmp ugt ptr %36, %1
+  %37 = icmp ult ptr %1, %36
   %.in.v.i.i.i = select i1 %37, i64 16, i64 24
   %.in.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
   %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8
@@ -5537,13 +5537,13 @@ define linkonce_odr dso_local void @_ZN12ClassVisitor16setStructModulepEP21AstNo
 
 select.unfold.i.i:                                ; preds = %43, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %43 ]
-  %46 = icmp eq ptr %34, %.sroa.4.0.i.ph.i.i
+  %46 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %34
   br i1 %46, label %_ZNSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %47
 
 47:                                               ; preds = %select.unfold.i.i
   %48 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
   %49 = load ptr, ptr %48, align 8
-  %50 = icmp ugt ptr %49, %1
+  %50 = icmp ult ptr %1, %49
   br label %_ZNSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %47, %select.unfold.i.i
@@ -6290,7 +6290,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -6338,7 +6338,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_j
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

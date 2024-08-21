@@ -560,7 +560,7 @@ if.end:                                           ; preds = %entry
   %0 = load i32, ptr %num_pages, align 8
   %conv = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv, 12
-  %cmp1 = icmp ult i64 %mul, %addr
+  %cmp1 = icmp ugt i64 %addr, %mul
   br i1 %cmp1, label %do.body, label %return
 
 do.body:                                          ; preds = %entry, %if.end
@@ -589,7 +589,7 @@ if.end:                                           ; preds = %entry
   %0 = load i32, ptr %num_pages, align 8
   %conv = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv, 12
-  %cmp1 = icmp ult i64 %mul, %addr
+  %cmp1 = icmp ugt i64 %addr, %mul
   br i1 %cmp1, label %do.body, label %if.end4
 
 if.end4:                                          ; preds = %if.end
@@ -605,7 +605,7 @@ land.lhs.true:                                    ; preds = %if.end4
   %num_irqs = getelementptr inbounds i8, ptr %opaque, i64 1148
   %1 = load i32, ptr %num_irqs, align 4
   %conv10 = zext i32 %1 to i64
-  %cmp11 = icmp ugt i64 %conv10, %value
+  %cmp11 = icmp ult i64 %value, %conv10
   br i1 %cmp11, label %if.then13, label %if.end18
 
 if.then13:                                        ; preds = %land.lhs.true
@@ -613,8 +613,8 @@ if.then13:                                        ; preds = %land.lhs.true
   %2 = load ptr, ptr %eistate, align 8
   %mul15 = mul i32 %1, %conv5
   %conv16 = zext i32 %mul15 to i64
-  %3 = getelementptr i32, ptr %2, i64 %conv16
-  %arrayidx = getelementptr i32, ptr %3, i64 %value
+  %3 = getelementptr i32, ptr %2, i64 %value
+  %arrayidx = getelementptr i32, ptr %3, i64 %conv16
   %4 = load i32, ptr %arrayidx, align 4
   %or = or i32 %4, 1
   store i32 %or, ptr %arrayidx, align 4

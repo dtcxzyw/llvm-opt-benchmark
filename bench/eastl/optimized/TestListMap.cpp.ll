@@ -1379,7 +1379,7 @@ for.body.i454:                                    ; preds = %for.cond.i450
   br i1 %cmp.i2.i455, label %invoke.cont315, label %for.cond.i450, !llvm.loop !65
 
 for.end.i457:                                     ; preds = %for.cond.i450
-  %cmp.i4.i458 = icmp eq ptr %mNode2.i, %storemerge.i445
+  %cmp.i4.i458 = icmp eq ptr %storemerge.i445, %mNode2.i
   br label %invoke.cont315
 
 invoke.cont315:                                   ; preds = %for.body.i454, %for.end.i457
@@ -1398,7 +1398,7 @@ for.body.i466:                                    ; preds = %for.cond.i462
   br i1 %cmp.i2.i467, label %invoke.cont323, label %for.cond.i462, !llvm.loop !65
 
 for.end.i469:                                     ; preds = %for.cond.i462
-  %cmp.i4.i470 = icmp eq ptr %mNode2.i, %storemerge.i347
+  %cmp.i4.i470 = icmp eq ptr %storemerge.i347, %mNode2.i
   %..i471 = select i1 %cmp.i4.i470, i32 3, i32 0
   br label %invoke.cont323
 

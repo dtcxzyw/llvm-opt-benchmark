@@ -190,7 +190,7 @@ define internal fastcc i32 @ecdsa_sign_det_restartable(ptr noundef %0, ptr nound
   %22 = load i64, ptr %13, align 8
   %23 = add i64 %22, 7
   %24 = lshr i64 %23, 3
-  %25 = call i64 @llvm.umin.i64(i64 %24, i64 %5)
+  %25 = call i64 @llvm.umin.i64(i64 %5, i64 %24)
   %26 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %12, ptr noundef %4, i64 noundef %25) #7
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %27, label %derive_mpi.exit.thread
@@ -297,7 +297,7 @@ define internal fastcc i32 @ecdsa_verify_restartable(ptr noundef %0, ptr noundef
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, 7
   %35 = lshr i64 %34, 3
-  %36 = call i64 @llvm.umin.i64(i64 %35, i64 %2)
+  %36 = call i64 @llvm.umin.i64(i64 %2, i64 %35)
   %37 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %36) #7
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %38, label %derive_mpi.exit.thread
@@ -641,7 +641,7 @@ define internal fastcc i32 @derive_mpi(ptr noundef %0, ptr noundef %1, ptr nound
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 7
   %8 = lshr i64 %7, 3
-  %9 = tail call i64 @llvm.umin.i64(i64 %8, i64 %3)
+  %9 = tail call i64 @llvm.umin.i64(i64 %3, i64 %8)
   %10 = tail call i32 @mbedtls_mpi_read_binary(ptr noundef %1, ptr noundef %2, i64 noundef %9) #7
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %24

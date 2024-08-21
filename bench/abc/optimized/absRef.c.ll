@@ -1239,7 +1239,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %89 = load ptr, ptr %8, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 4
   %91 = load i32, ptr %90, align 4
-  %92 = icmp eq i32 %91, %.tr153
+  %92 = icmp eq i32 %.tr153, %91
   br i1 %92, label %.critedge, label %Gia_ObjIsPo.exit
 
 .critedge155.preheader:                           ; preds = %84

@@ -573,7 +573,7 @@ define hidden noundef i32 @_ZN5zxing15HybridBinarizer10initBlocksEv(ptr nocaptur
   br label %_ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit.i.us
 
 _ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit.i.us: ; preds = %74, %56
-  %78 = icmp sgt i32 %71, %spec.select97.us
+  %78 = icmp slt i32 %spec.select97.us, %71
   %spec.select.i.us = select i1 %78, i32 %71, i32 %47
   br label %_ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us
 
@@ -1681,7 +1681,7 @@ define hidden void @_ZN5zxing15HybridBinarizer14thresholdBlockERNS_3RefINS_10Byt
   %28 = getelementptr inbounds i8, ptr %.12728, i64 1
   %29 = load i8, ptr %.12728, align 1
   %30 = zext i8 %29 to i32
-  %31 = icmp sle i32 %30, %4
+  %31 = icmp sge i32 %4, %30
   %32 = getelementptr inbounds i8, ptr %.129, i64 1
   %33 = zext i1 %31 to i8
   store i8 %33, ptr %.129, align 1
@@ -1744,7 +1744,7 @@ define hidden void @_ZN5zxing15HybridBinarizer23thresholdIrregularBlockERNS_3Ref
   %24 = getelementptr inbounds i8, ptr %.02123.us, i64 1
   %25 = load i8, ptr %.02123.us, align 1
   %26 = zext i8 %25 to i32
-  %.not22.us = icmp sgt i32 %26, %6
+  %.not22.us = icmp slt i32 %6, %26
   br i1 %.not22.us, label %43, label %27
 
 27:                                               ; preds = %23
@@ -1865,7 +1865,7 @@ define hidden noundef i32 @_ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiii
   br label %_ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit
 
 _ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit: ; preds = %25, %49
-  %53 = icmp sgt i32 %46, %5
+  %53 = icmp slt i32 %5, %46
   %spec.select = select i1 %53, i32 %46, i32 %14
   br label %54
 

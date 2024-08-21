@@ -860,7 +860,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %42
   %.0.i.i = phi i64 [ %86, %.preheader.i ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h7e5843c5caea386cE.exit.i" ]
   %84 = getelementptr inbounds i64, ptr %74, i64 %.0.i.i
   %.val.i40.i = load i64, ptr %84, align 8, !noalias !81, !noundef !4
-  %85 = icmp ugt i64 %.val.i40.i, %.sroa.67.0.i.i
+  %85 = icmp ult i64 %.sroa.67.0.i.i, %.val.i40.i
   %.0.i.i.i = and i1 %.sroa.05.0.i.i, %85
   %86 = add nuw i64 %.0.i.i, 1
   %87 = icmp eq i64 %86, %75
@@ -2569,7 +2569,7 @@ define internal fastcc void @_ZN11uu_unexpand10write_tabs17h63910aa56f4f72ecE(pt
   %narrow = or i1 %6, %7
   %.not36 = xor i1 %5, true
   %21 = add i64 %3, 1
-  %22 = icmp ult i64 %21, %4
+  %22 = icmp ugt i64 %4, %21
   %23 = and i1 %22, %.not36
   %or.cond = and i1 %23, %narrow
   br i1 %or.cond, label %.preheader, label %24
@@ -2577,7 +2577,7 @@ define internal fastcc void @_ZN11uu_unexpand10write_tabs17h63910aa56f4f72ecE(pt
 24:                                               ; preds = %8
   %25 = icmp ugt i64 %4, %3
   %26 = and i1 %5, %7
-  %or.cond28 = or i1 %26, %6
+  %or.cond28 = or i1 %6, %26
   %or.cond29 = and i1 %25, %or.cond28
   br i1 %or.cond29, label %.preheader, label %_ZN11uu_unexpand12next_tabstop17hc89086dd79392bcdE.exit
 
@@ -2604,7 +2604,7 @@ define internal fastcc void @_ZN11uu_unexpand10write_tabs17h63910aa56f4f72ecE(pt
   %33 = urem i64 %.0.us, %31
   %34 = sub i64 %31, %33
   %35 = add i64 %34, %.0.us
-  %36 = icmp ugt i64 %35, %4
+  %36 = icmp ult i64 %4, %35
   br i1 %36, label %_ZN11uu_unexpand12next_tabstop17hc89086dd79392bcdE.exit, label %37
 
 37:                                               ; preds = %.preheader.split.us.split
@@ -2649,12 +2649,12 @@ define internal fastcc void @_ZN11uu_unexpand10write_tabs17h63910aa56f4f72ecE(pt
   br i1 %55, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hcc617876f5222e1fE.exit.i", label %49
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hcc617876f5222e1fE.exit.i": ; preds = %52
-  %56 = icmp ugt i64 %54, %4
+  %56 = icmp ult i64 %4, %54
   br i1 %56, label %_ZN11uu_unexpand12next_tabstop17hc89086dd79392bcdE.exit, label %60
 
 _ZN11uu_unexpand12next_tabstop17hc89086dd79392bcdE.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hcc617876f5222e1fE.exit.i", %49, %.preheader.split.us.split, %24
   %.1 = phi i64 [ %3, %24 ], [ %.0.us, %.preheader.split.us.split ], [ %.0, %49 ], [ %.0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hcc617876f5222e1fE.exit.i" ]
-  %57 = icmp ult i64 %.1, %4
+  %57 = icmp ugt i64 %4, %.1
   br i1 %57, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN11uu_unexpand12next_tabstop17hc89086dd79392bcdE.exit
@@ -3467,7 +3467,7 @@ _ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread21.i: ; preds = 
 
 192:                                              ; preds = %188
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !653
-  %193 = icmp ult i64 %190, %.091144.i
+  %193 = icmp ugt i64 %.091144.i, %190
   br i1 %193, label %.invoke, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he2e1b4d133a71720E.exit.i.i"
 
 .invoke:                                          ; preds = %313, %.noexc66, %192
@@ -3671,7 +3671,7 @@ _ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread.i: ; preds = %_
   %287 = load i64, ptr %22, align 8, !alias.scope !662, !noalias !663, !noundef !4
   %288 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !662, !noalias !663, !noundef !4
   %289 = sub i64 %287, %288
-  %290 = icmp ugt i64 %289, %.0.i11120.i
+  %290 = icmp ult i64 %.0.i11120.i, %289
   br i1 %290, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h721ac343ed803f57E.exit.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h721ac343ed803f57E.exit.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h721ac343ed803f57E.exit.thread.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he2e1b4d133a71720E.exit.i"
@@ -3800,7 +3800,7 @@ _ZN11uu_unexpand12next_tabstop17hc89086dd79392bcdE.exit.thread._crit_edge.i: ; p
   %336 = load i64, ptr %22, align 8, !alias.scope !681, !noalias !682, !noundef !4
   %337 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !681, !noalias !682, !noundef !4
   %338 = sub i64 %336, %337
-  %339 = icmp ugt i64 %338, %334
+  %339 = icmp ult i64 %334, %338
   br i1 %339, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h721ac343ed803f57E.exit117.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h721ac343ed803f57E.exit117.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h721ac343ed803f57E.exit117.thread.i": ; preds = %.noexc74

@@ -443,7 +443,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit: ; 
 define { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
-  %6 = icmp slt i32 %5, %1
+  %6 = icmp sgt i32 %1, %5
   br i1 %6, label %31, label %.preheader
 
 .preheader:                                       ; preds = %3
@@ -4773,7 +4773,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
   %.04048 = trunc i64 %10 to i32
-  %11 = icmp slt i32 %.04048, %2
+  %11 = icmp sgt i32 %2, %.04048
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -4873,7 +4873,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
   %.04048 = trunc i64 %10 to i32
-  %11 = icmp slt i32 %.04048, %2
+  %11 = icmp sgt i32 %2, %.04048
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -4973,7 +4973,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
   %.04048 = trunc i64 %10 to i32
-  %11 = icmp slt i32 %.04048, %2
+  %11 = icmp sgt i32 %2, %.04048
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -5073,7 +5073,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
   %.04048 = trunc i64 %10 to i32
-  %11 = icmp slt i32 %.04048, %2
+  %11 = icmp sgt i32 %2, %.04048
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -5173,7 +5173,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
   %.04048 = trunc i64 %10 to i32
-  %11 = icmp slt i32 %.04048, %2
+  %11 = icmp sgt i32 %2, %.04048
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -5273,7 +5273,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
   %.04048 = trunc i64 %10 to i32
-  %11 = icmp slt i32 %.04048, %2
+  %11 = icmp sgt i32 %2, %.04048
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4

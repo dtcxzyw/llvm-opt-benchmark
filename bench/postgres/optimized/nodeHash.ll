@@ -278,7 +278,7 @@ ExecParallelHashMergeCounters.exit.i:             ; preds = %.lr.ph.i.i, %._crit
 
 MultiExecParallelHash.exit:                       ; preds = %135, %148
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %421
+  br label %419
 
 149:                                              ; preds = %8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -324,14 +324,14 @@ ExecProcNode.exit.i12:                            ; preds = %179, %177
   %180 = load ptr, ptr %155, align 8
   %181 = call ptr %180(ptr noundef nonnull %150) #16
   %182 = icmp eq ptr %181, null
-  br i1 %182, label %370, label %183
+  br i1 %182, label %368, label %183
 
 183:                                              ; preds = %ExecProcNode.exit.i12
   %184 = getelementptr inbounds i8, ptr %181, i64 4
   %185 = load i16, ptr %184, align 4
   %186 = and i16 %185, 2
   %.not.i13 = icmp eq i16 %186, 0
-  br i1 %.not.i13, label %187, label %370
+  br i1 %.not.i13, label %187, label %368
 
 187:                                              ; preds = %183
   store ptr %181, ptr %156, align 8
@@ -349,450 +349,450 @@ ExecProcNode.exit.i12:                            ; preds = %179, %177
 195:                                              ; preds = %191
   %196 = load i32, ptr %159, align 8
   %197 = add i32 %196, -1
-  %198 = and i32 %197, %192
-  %199 = load ptr, ptr %160, align 8
-  %200 = sext i32 %198 to i64
-  %201 = getelementptr ptr, ptr %199, i64 %200
-  %202 = load ptr, ptr %201, align 8
-  %.not17.i.i = icmp eq ptr %202, null
-  br i1 %.not17.i.i, label %ExecHashGetSkewBucket.exit.thread.i, label %.lr.ph.i.i14
+  %198 = load ptr, ptr %160, align 8
+  %.017.i.i = and i32 %197, %192
+  %199 = sext i32 %.017.i.i to i64
+  %200 = getelementptr ptr, ptr %198, i64 %199
+  %201 = load ptr, ptr %200, align 8
+  %.not18.i.i = icmp eq ptr %201, null
+  br i1 %.not18.i.i, label %ExecHashGetSkewBucket.exit.thread.i, label %.lr.ph.i.i14
 
-.lr.ph.i.i14:                                     ; preds = %195, %205
-  %203 = phi ptr [ %210, %205 ], [ %202, %195 ]
-  %.018.i.i = phi i32 [ %207, %205 ], [ %198, %195 ]
-  %204 = load i32, ptr %203, align 8
-  %.not15.i.i = icmp eq i32 %204, %192
-  br i1 %.not15.i.i, label %ExecHashGetSkewBucket.exit.i, label %205
+.lr.ph.i.i14:                                     ; preds = %195, %204
+  %202 = phi ptr [ %208, %204 ], [ %201, %195 ]
+  %.019.i.i = phi i32 [ %.0.i.i, %204 ], [ %.017.i.i, %195 ]
+  %203 = load i32, ptr %202, align 8
+  %.not15.i.i = icmp eq i32 %203, %192
+  br i1 %.not15.i.i, label %ExecHashGetSkewBucket.exit.i, label %204
 
-205:                                              ; preds = %.lr.ph.i.i14
-  %206 = add i32 %.018.i.i, 1
-  %207 = and i32 %206, %197
-  %208 = sext i32 %207 to i64
-  %209 = getelementptr ptr, ptr %199, i64 %208
-  %210 = load ptr, ptr %209, align 8
-  %.not.i36.i = icmp eq ptr %210, null
+204:                                              ; preds = %.lr.ph.i.i14
+  %205 = add i32 %.019.i.i, 1
+  %.0.i.i = and i32 %205, %197
+  %206 = sext i32 %.0.i.i to i64
+  %207 = getelementptr ptr, ptr %198, i64 %206
+  %208 = load ptr, ptr %207, align 8
+  %.not.i36.i = icmp eq ptr %208, null
   br i1 %.not.i36.i, label %ExecHashGetSkewBucket.exit.thread.i, label %.lr.ph.i.i14, !llvm.loop !8
 
 ExecHashGetSkewBucket.exit.i:                     ; preds = %.lr.ph.i.i14
-  %.not34.i = icmp eq i32 %.018.i.i, -1
-  br i1 %.not34.i, label %ExecHashGetSkewBucket.exit.thread.i, label %211
+  %.not34.i = icmp eq i32 %.019.i.i, -1
+  br i1 %.not34.i, label %ExecHashGetSkewBucket.exit.thread.i, label %209
 
-211:                                              ; preds = %ExecHashGetSkewBucket.exit.i
+209:                                              ; preds = %ExecHashGetSkewBucket.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %212 = call ptr @ExecFetchSlotMinimalTuple(ptr noundef nonnull %181, ptr noundef nonnull %2) #16
-  %213 = load i32, ptr %212, align 4
-  %214 = add i32 %213, 16
-  %215 = load ptr, ptr %161, align 8
-  %216 = sext i32 %214 to i64
-  %217 = call ptr @MemoryContextAlloc(ptr noundef %215, i64 noundef %216) #16
-  %218 = getelementptr inbounds i8, ptr %217, i64 8
-  store i32 %192, ptr %218, align 8
-  %219 = getelementptr i8, ptr %217, i64 16
-  %220 = load i32, ptr %212, align 4
-  %221 = zext i32 %220 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %219, ptr nonnull align 4 %212, i64 %221, i1 false)
-  %222 = getelementptr i8, ptr %217, i64 26
-  %223 = load i16, ptr %222, align 2
-  %224 = and i16 %223, 32767
-  store i16 %224, ptr %222, align 2
-  %225 = load ptr, ptr %160, align 8
-  %226 = sext i32 %.018.i.i to i64
-  %227 = getelementptr ptr, ptr %225, i64 %226
+  %210 = call ptr @ExecFetchSlotMinimalTuple(ptr noundef nonnull %181, ptr noundef nonnull %2) #16
+  %211 = load i32, ptr %210, align 4
+  %212 = add i32 %211, 16
+  %213 = load ptr, ptr %161, align 8
+  %214 = sext i32 %212 to i64
+  %215 = call ptr @MemoryContextAlloc(ptr noundef %213, i64 noundef %214) #16
+  %216 = getelementptr inbounds i8, ptr %215, i64 8
+  store i32 %192, ptr %216, align 8
+  %217 = getelementptr i8, ptr %215, i64 16
+  %218 = load i32, ptr %210, align 4
+  %219 = zext i32 %218 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %217, ptr nonnull align 4 %210, i64 %219, i1 false)
+  %220 = getelementptr i8, ptr %215, i64 26
+  %221 = load i16, ptr %220, align 2
+  %222 = and i16 %221, 32767
+  store i16 %222, ptr %220, align 2
+  %223 = load ptr, ptr %160, align 8
+  %224 = sext i32 %.019.i.i to i64
+  %225 = getelementptr ptr, ptr %223, i64 %224
+  %226 = load ptr, ptr %225, align 8
+  %227 = getelementptr inbounds i8, ptr %226, i64 8
   %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 8
-  %230 = load ptr, ptr %229, align 8
-  store ptr %230, ptr %217, align 8
-  %231 = load ptr, ptr %160, align 8
-  %232 = getelementptr ptr, ptr %231, i64 %226
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 8
-  store ptr %217, ptr %234, align 8
-  %235 = load i64, ptr %162, align 8
-  %236 = add i64 %235, %216
-  store i64 %236, ptr %162, align 8
-  %237 = load i64, ptr %163, align 8
-  %238 = add i64 %237, %216
-  store i64 %238, ptr %163, align 8
-  %239 = load i64, ptr %164, align 8
-  %240 = icmp ugt i64 %236, %239
-  br i1 %240, label %241, label %242
+  store ptr %228, ptr %215, align 8
+  %229 = load ptr, ptr %160, align 8
+  %230 = getelementptr ptr, ptr %229, i64 %224
+  %231 = load ptr, ptr %230, align 8
+  %232 = getelementptr inbounds i8, ptr %231, i64 8
+  store ptr %215, ptr %232, align 8
+  %233 = load i64, ptr %162, align 8
+  %234 = add i64 %233, %214
+  store i64 %234, ptr %162, align 8
+  %235 = load i64, ptr %163, align 8
+  %236 = add i64 %235, %214
+  store i64 %236, ptr %163, align 8
+  %237 = load i64, ptr %164, align 8
+  %238 = icmp ugt i64 %234, %237
+  br i1 %238, label %239, label %240
 
-241:                                              ; preds = %211
-  store i64 %236, ptr %164, align 8
-  br label %242
+239:                                              ; preds = %209
+  store i64 %234, ptr %164, align 8
+  br label %240
 
-242:                                              ; preds = %241, %211
-  %243 = load i64, ptr %165, align 8
-  %244 = icmp ugt i64 %238, %243
-  br i1 %244, label %.lr.ph.i37.preheader.i, label %._crit_edge.i.i
+240:                                              ; preds = %239, %209
+  %241 = load i64, ptr %165, align 8
+  %242 = icmp ugt i64 %236, %241
+  br i1 %242, label %.lr.ph.i37.preheader.i, label %._crit_edge.i.i
 
-.lr.ph.i37.preheader.i:                           ; preds = %242
+.lr.ph.i37.preheader.i:                           ; preds = %240
   %.pre.i = load i32, ptr %167, align 4
   br label %.lr.ph.i37.i
 
 .lr.ph.i37.i:                                     ; preds = %ExecHashRemoveNextSkewBucket.exit.i.i, %.lr.ph.i37.preheader.i
-  %245 = phi i32 [ %.pre.i, %.lr.ph.i37.preheader.i ], [ %348, %ExecHashRemoveNextSkewBucket.exit.i.i ]
-  %246 = load ptr, ptr %166, align 8
-  %247 = add i32 %245, -1
-  %248 = sext i32 %247 to i64
-  %249 = getelementptr i32, ptr %246, i64 %248
-  %250 = load i32, ptr %249, align 4
-  %251 = load ptr, ptr %160, align 8
-  %252 = sext i32 %250 to i64
-  %253 = getelementptr ptr, ptr %251, i64 %252
-  %254 = load ptr, ptr %253, align 8
-  %255 = load i32, ptr %254, align 8
-  %256 = load i32, ptr %151, align 8
-  %257 = load i32, ptr %168, align 8
-  %258 = icmp ugt i32 %257, 1
-  %259 = add i32 %256, -1
-  %260 = and i32 %259, %255
-  br i1 %258, label %261, label %ExecHashGetBucketAndBatch.exit.i.i.i
+  %243 = phi i32 [ %.pre.i, %.lr.ph.i37.preheader.i ], [ %346, %ExecHashRemoveNextSkewBucket.exit.i.i ]
+  %244 = load ptr, ptr %166, align 8
+  %245 = add i32 %243, -1
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr i32, ptr %244, i64 %246
+  %248 = load i32, ptr %247, align 4
+  %249 = load ptr, ptr %160, align 8
+  %250 = sext i32 %248 to i64
+  %251 = getelementptr ptr, ptr %249, i64 %250
+  %252 = load ptr, ptr %251, align 8
+  %253 = load i32, ptr %252, align 8
+  %254 = load i32, ptr %151, align 8
+  %255 = load i32, ptr %168, align 8
+  %256 = icmp ugt i32 %255, 1
+  %257 = add i32 %254, -1
+  %258 = and i32 %257, %253
+  br i1 %256, label %259, label %ExecHashGetBucketAndBatch.exit.i.i.i
 
-261:                                              ; preds = %.lr.ph.i37.i
-  %262 = load i32, ptr %169, align 4
-  %263 = lshr i32 %255, %262
-  %264 = sub i32 32, %262
-  %265 = shl i32 %255, %264
-  %266 = or i32 %265, %263
-  %267 = add i32 %257, -1
-  %268 = and i32 %266, %267
+259:                                              ; preds = %.lr.ph.i37.i
+  %260 = load i32, ptr %169, align 4
+  %261 = lshr i32 %253, %260
+  %262 = sub i32 32, %260
+  %263 = shl i32 %253, %262
+  %264 = or i32 %263, %261
+  %265 = add i32 %255, -1
+  %266 = and i32 %264, %265
   br label %ExecHashGetBucketAndBatch.exit.i.i.i
 
-ExecHashGetBucketAndBatch.exit.i.i.i:             ; preds = %261, %.lr.ph.i37.i
-  %storemerge.i.i.i.i = phi i32 [ %268, %261 ], [ 0, %.lr.ph.i37.i ]
-  %269 = getelementptr inbounds i8, ptr %254, i64 8
-  %270 = load ptr, ptr %269, align 8
-  %.not52.i.i.i = icmp eq ptr %270, null
+ExecHashGetBucketAndBatch.exit.i.i.i:             ; preds = %259, %.lr.ph.i37.i
+  %storemerge.i.i.i.i = phi i32 [ %266, %259 ], [ 0, %.lr.ph.i37.i ]
+  %267 = getelementptr inbounds i8, ptr %252, i64 8
+  %268 = load ptr, ptr %267, align 8
+  %.not52.i.i.i = icmp eq ptr %268, null
   br i1 %.not52.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %ExecHashGetBucketAndBatch.exit.i.i.i
-  %271 = sext i32 %storemerge.i.i.i.i to i64
-  %272 = sext i32 %260 to i64
-  br label %273
+  %269 = sext i32 %storemerge.i.i.i.i to i64
+  %270 = sext i32 %258 to i64
+  br label %271
 
-273:                                              ; preds = %339, %.lr.ph.i.i.i
-  %.053.i.i.i = phi ptr [ %270, %.lr.ph.i.i.i ], [ %274, %339 ]
-  %274 = load ptr, ptr %.053.i.i.i, align 8
-  %275 = getelementptr i8, ptr %.053.i.i.i, i64 16
-  %276 = load i32, ptr %275, align 4
-  %277 = zext i32 %276 to i64
-  %278 = add nuw nsw i64 %277, 16
-  %279 = load i32, ptr %170, align 4
-  %280 = icmp eq i32 %storemerge.i.i.i.i, %279
-  br i1 %280, label %281, label %331
+271:                                              ; preds = %337, %.lr.ph.i.i.i
+  %.053.i.i.i = phi ptr [ %268, %.lr.ph.i.i.i ], [ %272, %337 ]
+  %272 = load ptr, ptr %.053.i.i.i, align 8
+  %273 = getelementptr i8, ptr %.053.i.i.i, i64 16
+  %274 = load i32, ptr %273, align 4
+  %275 = zext i32 %274 to i64
+  %276 = add nuw nsw i64 %275, 16
+  %277 = load i32, ptr %170, align 4
+  %278 = icmp eq i32 %storemerge.i.i.i.i, %277
+  br i1 %278, label %279, label %329
 
-281:                                              ; preds = %273
-  %282 = add nuw nsw i64 %277, 23
-  %283 = and i64 %282, 8589934584
-  %284 = icmp ugt i64 %283, 8192
-  br i1 %284, label %285, label %301
+279:                                              ; preds = %271
+  %280 = add nuw nsw i64 %275, 23
+  %281 = and i64 %280, 8589934584
+  %282 = icmp ugt i64 %281, 8192
+  br i1 %282, label %283, label %299
 
-285:                                              ; preds = %281
-  %286 = load ptr, ptr %161, align 8
-  %287 = add nuw nsw i64 %283, 32
-  %288 = call ptr @MemoryContextAlloc(ptr noundef %286, i64 noundef %287) #16
-  %289 = getelementptr inbounds i8, ptr %288, i64 8
-  store i64 %283, ptr %289, align 8
-  %290 = getelementptr inbounds i8, ptr %288, i64 16
-  store i64 %283, ptr %290, align 8
-  store i32 1, ptr %288, align 8
-  %291 = load ptr, ptr %172, align 8
-  %.not.i.i.i.i = icmp eq ptr %291, null
-  %292 = getelementptr inbounds i8, ptr %288, i64 24
-  br i1 %.not.i.i.i.i, label %298, label %293
+283:                                              ; preds = %279
+  %284 = load ptr, ptr %161, align 8
+  %285 = add nuw nsw i64 %281, 32
+  %286 = call ptr @MemoryContextAlloc(ptr noundef %284, i64 noundef %285) #16
+  %287 = getelementptr inbounds i8, ptr %286, i64 8
+  store i64 %281, ptr %287, align 8
+  %288 = getelementptr inbounds i8, ptr %286, i64 16
+  store i64 %281, ptr %288, align 8
+  store i32 1, ptr %286, align 8
+  %289 = load ptr, ptr %172, align 8
+  %.not.i.i.i.i = icmp eq ptr %289, null
+  %290 = getelementptr inbounds i8, ptr %286, i64 24
+  br i1 %.not.i.i.i.i, label %296, label %291
 
-293:                                              ; preds = %285
-  %294 = getelementptr inbounds i8, ptr %291, i64 24
-  %295 = load i64, ptr %294, align 8
-  store i64 %295, ptr %292, align 8
-  %296 = load ptr, ptr %172, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 24
-  br label %299
+291:                                              ; preds = %283
+  %292 = getelementptr inbounds i8, ptr %289, i64 24
+  %293 = load i64, ptr %292, align 8
+  store i64 %293, ptr %290, align 8
+  %294 = load ptr, ptr %172, align 8
+  %295 = getelementptr inbounds i8, ptr %294, i64 24
+  br label %297
 
-298:                                              ; preds = %285
-  store ptr null, ptr %292, align 8
-  br label %299
+296:                                              ; preds = %283
+  store ptr null, ptr %290, align 8
+  br label %297
 
-299:                                              ; preds = %298, %293
-  %.sink.i.i.i.i = phi ptr [ %172, %298 ], [ %297, %293 ]
-  store ptr %288, ptr %.sink.i.i.i.i, align 8
-  %300 = getelementptr i8, ptr %288, i64 32
+297:                                              ; preds = %296, %291
+  %.sink.i.i.i.i = phi ptr [ %172, %296 ], [ %295, %291 ]
+  store ptr %286, ptr %.sink.i.i.i.i, align 8
+  %298 = getelementptr i8, ptr %286, i64 32
   br label %dense_alloc.exit.i.i.i
 
-301:                                              ; preds = %281
-  %302 = load ptr, ptr %172, align 8
-  %303 = icmp eq ptr %302, null
-  br i1 %303, label %311, label %304
+299:                                              ; preds = %279
+  %300 = load ptr, ptr %172, align 8
+  %301 = icmp eq ptr %300, null
+  br i1 %301, label %309, label %302
 
-304:                                              ; preds = %301
-  %305 = getelementptr inbounds i8, ptr %302, i64 8
+302:                                              ; preds = %299
+  %303 = getelementptr inbounds i8, ptr %300, i64 8
+  %304 = load i64, ptr %303, align 8
+  %305 = getelementptr inbounds i8, ptr %300, i64 16
   %306 = load i64, ptr %305, align 8
-  %307 = getelementptr inbounds i8, ptr %302, i64 16
-  %308 = load i64, ptr %307, align 8
-  %309 = sub i64 %306, %308
-  %310 = icmp ult i64 %309, %283
-  br i1 %310, label %311, label %319
+  %307 = sub i64 %304, %306
+  %308 = icmp ult i64 %307, %281
+  br i1 %308, label %309, label %317
 
-311:                                              ; preds = %304, %301
-  %312 = load ptr, ptr %161, align 8
-  %313 = call ptr @MemoryContextAlloc(ptr noundef %312, i64 noundef 32800) #16
-  %314 = getelementptr inbounds i8, ptr %313, i64 8
-  store i64 32768, ptr %314, align 8
-  %315 = getelementptr inbounds i8, ptr %313, i64 16
-  store i64 %283, ptr %315, align 8
-  store i32 1, ptr %313, align 8
-  %316 = load ptr, ptr %172, align 8
-  %317 = getelementptr inbounds i8, ptr %313, i64 24
-  store ptr %316, ptr %317, align 8
-  store ptr %313, ptr %172, align 8
-  %318 = getelementptr i8, ptr %313, i64 32
+309:                                              ; preds = %302, %299
+  %310 = load ptr, ptr %161, align 8
+  %311 = call ptr @MemoryContextAlloc(ptr noundef %310, i64 noundef 32800) #16
+  %312 = getelementptr inbounds i8, ptr %311, i64 8
+  store i64 32768, ptr %312, align 8
+  %313 = getelementptr inbounds i8, ptr %311, i64 16
+  store i64 %281, ptr %313, align 8
+  store i32 1, ptr %311, align 8
+  %314 = load ptr, ptr %172, align 8
+  %315 = getelementptr inbounds i8, ptr %311, i64 24
+  store ptr %314, ptr %315, align 8
+  store ptr %311, ptr %172, align 8
+  %316 = getelementptr i8, ptr %311, i64 32
   br label %dense_alloc.exit.i.i.i
 
-319:                                              ; preds = %304
-  %320 = getelementptr i8, ptr %302, i64 32
-  %321 = getelementptr i8, ptr %320, i64 %308
-  %322 = add i64 %308, %283
-  store i64 %322, ptr %307, align 8
-  %323 = load ptr, ptr %172, align 8
-  %324 = load i32, ptr %323, align 8
-  %325 = add i32 %324, 1
-  store i32 %325, ptr %323, align 8
+317:                                              ; preds = %302
+  %318 = getelementptr i8, ptr %300, i64 32
+  %319 = getelementptr i8, ptr %318, i64 %306
+  %320 = add i64 %306, %281
+  store i64 %320, ptr %305, align 8
+  %321 = load ptr, ptr %172, align 8
+  %322 = load i32, ptr %321, align 8
+  %323 = add i32 %322, 1
+  store i32 %323, ptr %321, align 8
   br label %dense_alloc.exit.i.i.i
 
-dense_alloc.exit.i.i.i:                           ; preds = %319, %311, %299
-  %.0.i.i.i.i = phi ptr [ %300, %299 ], [ %318, %311 ], [ %321, %319 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %.053.i.i.i, i64 %278, i1 false)
+dense_alloc.exit.i.i.i:                           ; preds = %317, %309, %297
+  %.0.i.i.i.i = phi ptr [ %298, %297 ], [ %316, %309 ], [ %319, %317 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %.053.i.i.i, i64 %276, i1 false)
   call void @pfree(ptr noundef nonnull %.053.i.i.i) #16
-  %326 = load ptr, ptr %173, align 8
-  %327 = getelementptr ptr, ptr %326, i64 %272
-  %328 = load ptr, ptr %327, align 8
-  store ptr %328, ptr %.0.i.i.i.i, align 8
-  %329 = load ptr, ptr %173, align 8
-  %330 = getelementptr ptr, ptr %329, i64 %272
-  store ptr %.0.i.i.i.i, ptr %330, align 8
-  br label %336
+  %324 = load ptr, ptr %173, align 8
+  %325 = getelementptr ptr, ptr %324, i64 %270
+  %326 = load ptr, ptr %325, align 8
+  store ptr %326, ptr %.0.i.i.i.i, align 8
+  %327 = load ptr, ptr %173, align 8
+  %328 = getelementptr ptr, ptr %327, i64 %270
+  store ptr %.0.i.i.i.i, ptr %328, align 8
+  br label %334
 
-331:                                              ; preds = %273
-  %332 = load ptr, ptr %171, align 8
-  %333 = getelementptr ptr, ptr %332, i64 %271
-  call void @ExecHashJoinSaveTuple(ptr noundef nonnull %275, i32 noundef %255, ptr noundef %333, ptr noundef nonnull %151) #16
+329:                                              ; preds = %271
+  %330 = load ptr, ptr %171, align 8
+  %331 = getelementptr ptr, ptr %330, i64 %269
+  call void @ExecHashJoinSaveTuple(ptr noundef nonnull %273, i32 noundef %253, ptr noundef %331, ptr noundef nonnull %151) #16
   call void @pfree(ptr noundef nonnull %.053.i.i.i) #16
-  %334 = load i64, ptr %162, align 8
-  %335 = sub i64 %334, %278
-  store i64 %335, ptr %162, align 8
-  br label %336
+  %332 = load i64, ptr %162, align 8
+  %333 = sub i64 %332, %276
+  store i64 %333, ptr %162, align 8
+  br label %334
 
-336:                                              ; preds = %331, %dense_alloc.exit.i.i.i
+334:                                              ; preds = %329, %dense_alloc.exit.i.i.i
   %.pn.i.i.i = load i64, ptr %163, align 8
-  %storemerge.i.i.i = sub i64 %.pn.i.i.i, %278
+  %storemerge.i.i.i = sub i64 %.pn.i.i.i, %276
   store i64 %storemerge.i.i.i, ptr %163, align 8
-  %337 = load volatile i32, ptr @InterruptPending, align 4
-  %.not50.i.i.i = icmp eq i32 %337, 0
-  br i1 %.not50.i.i.i, label %339, label %338
+  %335 = load volatile i32, ptr @InterruptPending, align 4
+  %.not50.i.i.i = icmp eq i32 %335, 0
+  br i1 %.not50.i.i.i, label %337, label %336
 
-338:                                              ; preds = %336
+336:                                              ; preds = %334
   call void @ProcessInterrupts() #16
-  br label %339
+  br label %337
 
-339:                                              ; preds = %338, %336
-  %.not.i.i.i = icmp eq ptr %274, null
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %273, !llvm.loop !9
+337:                                              ; preds = %336, %334
+  %.not.i.i.i = icmp eq ptr %272, null
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %271, !llvm.loop !9
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %339
+._crit_edge.loopexit.i.i.i:                       ; preds = %337
   %.pre.i.i.i = load ptr, ptr %160, align 8
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %ExecHashGetBucketAndBatch.exit.i.i.i
-  %340 = phi ptr [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %251, %ExecHashGetBucketAndBatch.exit.i.i.i ]
-  %341 = getelementptr ptr, ptr %340, i64 %252
-  store ptr null, ptr %341, align 8
-  %342 = load i32, ptr %167, align 4
-  %343 = add i32 %342, -1
-  store i32 %343, ptr %167, align 4
-  call void @pfree(ptr noundef nonnull %254) #16
-  %344 = load i64, ptr %162, align 8
+  %338 = phi ptr [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %249, %ExecHashGetBucketAndBatch.exit.i.i.i ]
+  %339 = getelementptr ptr, ptr %338, i64 %250
+  store ptr null, ptr %339, align 8
+  %340 = load i32, ptr %167, align 4
+  %341 = add i32 %340, -1
+  store i32 %341, ptr %167, align 4
+  call void @pfree(ptr noundef nonnull %252) #16
+  %342 = load i64, ptr %162, align 8
+  %343 = add i64 %342, -16
+  store i64 %343, ptr %162, align 8
+  %344 = load i64, ptr %163, align 8
   %345 = add i64 %344, -16
-  store i64 %345, ptr %162, align 8
-  %346 = load i64, ptr %163, align 8
-  %347 = add i64 %346, -16
-  store i64 %347, ptr %163, align 8
-  %348 = load i32, ptr %167, align 4
-  %349 = icmp eq i32 %348, 0
-  br i1 %349, label %ExecHashRemoveNextSkewBucket.exit.thread.i.i, label %ExecHashRemoveNextSkewBucket.exit.i.i
+  store i64 %345, ptr %163, align 8
+  %346 = load i32, ptr %167, align 4
+  %347 = icmp eq i32 %346, 0
+  br i1 %347, label %ExecHashRemoveNextSkewBucket.exit.thread.i.i, label %ExecHashRemoveNextSkewBucket.exit.i.i
 
 ExecHashRemoveNextSkewBucket.exit.thread.i.i:     ; preds = %._crit_edge.i.i.i
   store i8 0, ptr %158, align 1
-  %350 = load ptr, ptr %160, align 8
-  call void @pfree(ptr noundef %350) #16
-  %351 = load ptr, ptr %166, align 8
-  call void @pfree(ptr noundef %351) #16
+  %348 = load ptr, ptr %160, align 8
+  call void @pfree(ptr noundef %348) #16
+  %349 = load ptr, ptr %166, align 8
+  call void @pfree(ptr noundef %349) #16
   store ptr null, ptr %160, align 8
   store ptr null, ptr %166, align 8
-  %352 = load i64, ptr %163, align 8
-  %353 = load i64, ptr %162, align 8
-  %354 = sub i64 %353, %352
-  store i64 %354, ptr %162, align 8
+  %350 = load i64, ptr %163, align 8
+  %351 = load i64, ptr %162, align 8
+  %352 = sub i64 %351, %350
+  store i64 %352, ptr %162, align 8
   store i64 0, ptr %163, align 8
   br label %._crit_edge.i.i
 
 ExecHashRemoveNextSkewBucket.exit.i.i:            ; preds = %._crit_edge.i.i.i
-  %355 = load i64, ptr %165, align 8
-  %356 = icmp ugt i64 %347, %355
-  br i1 %356, label %.lr.ph.i37.i, label %._crit_edge.i.i, !llvm.loop !10
+  %353 = load i64, ptr %165, align 8
+  %354 = icmp ugt i64 %345, %353
+  br i1 %354, label %.lr.ph.i37.i, label %._crit_edge.i.i, !llvm.loop !10
 
-._crit_edge.i.i:                                  ; preds = %ExecHashRemoveNextSkewBucket.exit.i.i, %ExecHashRemoveNextSkewBucket.exit.thread.i.i, %242
-  %357 = phi i64 [ %236, %242 ], [ %354, %ExecHashRemoveNextSkewBucket.exit.thread.i.i ], [ %345, %ExecHashRemoveNextSkewBucket.exit.i.i ]
-  %358 = load i64, ptr %174, align 8
-  %359 = icmp ugt i64 %357, %358
-  br i1 %359, label %360, label %361
+._crit_edge.i.i:                                  ; preds = %ExecHashRemoveNextSkewBucket.exit.i.i, %ExecHashRemoveNextSkewBucket.exit.thread.i.i, %240
+  %355 = phi i64 [ %234, %240 ], [ %352, %ExecHashRemoveNextSkewBucket.exit.thread.i.i ], [ %343, %ExecHashRemoveNextSkewBucket.exit.i.i ]
+  %356 = load i64, ptr %174, align 8
+  %357 = icmp ugt i64 %355, %356
+  br i1 %357, label %358, label %359
 
-360:                                              ; preds = %._crit_edge.i.i
+358:                                              ; preds = %._crit_edge.i.i
   call fastcc void @ExecHashIncreaseNumBatches(ptr noundef nonnull %151)
-  br label %361
+  br label %359
 
-361:                                              ; preds = %360, %._crit_edge.i.i
-  %362 = load i8, ptr %2, align 1
-  %363 = trunc i8 %362 to i1
-  br i1 %363, label %364, label %ExecHashSkewTableInsert.exit.i
+359:                                              ; preds = %358, %._crit_edge.i.i
+  %360 = load i8, ptr %2, align 1
+  %361 = trunc i8 %360 to i1
+  br i1 %361, label %362, label %ExecHashSkewTableInsert.exit.i
 
-364:                                              ; preds = %361
-  call void @heap_free_minimal_tuple(ptr noundef nonnull %212) #16
+362:                                              ; preds = %359
+  call void @heap_free_minimal_tuple(ptr noundef nonnull %210) #16
   br label %ExecHashSkewTableInsert.exit.i
 
-ExecHashSkewTableInsert.exit.i:                   ; preds = %364, %361
+ExecHashSkewTableInsert.exit.i:                   ; preds = %362, %359
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %365 = load double, ptr %175, align 8
-  %366 = fadd double %365, 1.000000e+00
-  store double %366, ptr %175, align 8
-  br label %367
+  %363 = load double, ptr %175, align 8
+  %364 = fadd double %363, 1.000000e+00
+  store double %364, ptr %175, align 8
+  br label %365
 
-ExecHashGetSkewBucket.exit.thread.i:              ; preds = %205, %ExecHashGetSkewBucket.exit.i, %195, %191
+ExecHashGetSkewBucket.exit.thread.i:              ; preds = %204, %ExecHashGetSkewBucket.exit.i, %195, %191
   call void @ExecHashTableInsert(ptr noundef %151, ptr noundef nonnull %181, i32 noundef %192)
-  br label %367
+  br label %365
 
-367:                                              ; preds = %ExecHashGetSkewBucket.exit.thread.i, %ExecHashSkewTableInsert.exit.i
-  %368 = load double, ptr %176, align 8
-  %369 = fadd double %368, 1.000000e+00
-  store double %369, ptr %176, align 8
+365:                                              ; preds = %ExecHashGetSkewBucket.exit.thread.i, %ExecHashSkewTableInsert.exit.i
+  %366 = load double, ptr %176, align 8
+  %367 = fadd double %366, 1.000000e+00
+  store double %367, ptr %176, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %367, %187
+.backedge:                                        ; preds = %365, %187
   br label %177
 
-370:                                              ; preds = %183, %ExecProcNode.exit.i12
-  %371 = load i32, ptr %151, align 8
-  %372 = getelementptr inbounds i8, ptr %151, i64 12
-  %373 = load i32, ptr %372, align 4
-  %.not.i38.i = icmp slt i32 %371, %373
-  br i1 %.not.i38.i, label %374, label %ExecHashIncreaseNumBuckets.exit.i
+368:                                              ; preds = %183, %ExecProcNode.exit.i12
+  %369 = load i32, ptr %151, align 8
+  %370 = getelementptr inbounds i8, ptr %151, i64 12
+  %371 = load i32, ptr %370, align 4
+  %.not.i38.i = icmp slt i32 %369, %371
+  br i1 %.not.i38.i, label %372, label %ExecHashIncreaseNumBuckets.exit.i
 
-374:                                              ; preds = %370
-  store i32 %373, ptr %151, align 8
-  %375 = getelementptr inbounds i8, ptr %151, i64 16
-  %376 = load i32, ptr %375, align 8
-  store i32 %376, ptr %169, align 4
-  %377 = load ptr, ptr %173, align 8
-  %378 = sext i32 %373 to i64
-  %379 = shl nsw i64 %378, 3
-  %380 = call ptr @repalloc(ptr noundef %377, i64 noundef %379) #16
-  store ptr %380, ptr %173, align 8
-  %381 = load i32, ptr %151, align 8
-  %382 = sext i32 %381 to i64
-  %383 = shl nsw i64 %382, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %380, i8 0, i64 %383, i1 false)
+372:                                              ; preds = %368
+  store i32 %371, ptr %151, align 8
+  %373 = getelementptr inbounds i8, ptr %151, i64 16
+  %374 = load i32, ptr %373, align 8
+  store i32 %374, ptr %169, align 4
+  %375 = load ptr, ptr %173, align 8
+  %376 = sext i32 %371 to i64
+  %377 = shl nsw i64 %376, 3
+  %378 = call ptr @repalloc(ptr noundef %375, i64 noundef %377) #16
+  store ptr %378, ptr %173, align 8
+  %379 = load i32, ptr %151, align 8
+  %380 = sext i32 %379 to i64
+  %381 = shl nsw i64 %380, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %378, i8 0, i64 %381, i1 false)
   %.030.i.i = load ptr, ptr %172, align 8
   %.not2731.i.i = icmp eq ptr %.030.i.i, null
   br i1 %.not2731.i.i, label %ExecHashIncreaseNumBuckets.exit.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %374, %409
-  %.032.i.i = phi ptr [ %.0.i.i, %409 ], [ %.030.i.i, %374 ]
-  %384 = getelementptr inbounds i8, ptr %.032.i.i, i64 16
-  %385 = load i64, ptr %384, align 8
-  %.not33.i.i = icmp eq i64 %385, 0
+.preheader.i.i:                                   ; preds = %372, %407
+  %.032.i.i = phi ptr [ %.0.i40.i, %407 ], [ %.030.i.i, %372 ]
+  %382 = getelementptr inbounds i8, ptr %.032.i.i, i64 16
+  %383 = load i64, ptr %382, align 8
+  %.not33.i.i = icmp eq i64 %383, 0
   br i1 %.not33.i.i, label %._crit_edge.i39.i, label %ExecHashGetBucketAndBatch.exit.lr.ph.i.i
 
 ExecHashGetBucketAndBatch.exit.lr.ph.i.i:         ; preds = %.preheader.i.i
-  %386 = getelementptr i8, ptr %.032.i.i, i64 32
+  %384 = getelementptr i8, ptr %.032.i.i, i64 32
   br label %ExecHashGetBucketAndBatch.exit.i.i
 
 ExecHashGetBucketAndBatch.exit.i.i:               ; preds = %ExecHashGetBucketAndBatch.exit.i.i, %ExecHashGetBucketAndBatch.exit.lr.ph.i.i
-  %.02529.i.i = phi i64 [ 0, %ExecHashGetBucketAndBatch.exit.lr.ph.i.i ], [ %404, %ExecHashGetBucketAndBatch.exit.i.i ]
-  %387 = getelementptr i8, ptr %386, i64 %.02529.i.i
-  %388 = getelementptr inbounds i8, ptr %387, i64 8
-  %389 = load i32, ptr %388, align 8
-  %390 = load i32, ptr %151, align 8
-  %391 = add i32 %390, -1
-  %392 = and i32 %391, %389
-  %393 = load ptr, ptr %173, align 8
-  %394 = sext i32 %392 to i64
-  %395 = getelementptr ptr, ptr %393, i64 %394
-  %396 = load ptr, ptr %395, align 8
-  store ptr %396, ptr %387, align 8
-  %397 = load ptr, ptr %173, align 8
-  %398 = getelementptr ptr, ptr %397, i64 %394
-  store ptr %387, ptr %398, align 8
-  %399 = getelementptr i8, ptr %387, i64 16
-  %400 = load i32, ptr %399, align 4
-  %401 = zext i32 %400 to i64
-  %402 = add nuw nsw i64 %401, 23
-  %403 = and i64 %402, 8589934584
-  %404 = add i64 %403, %.02529.i.i
-  %405 = load i64, ptr %384, align 8
-  %406 = icmp ult i64 %404, %405
-  br i1 %406, label %ExecHashGetBucketAndBatch.exit.i.i, label %._crit_edge.i39.i, !llvm.loop !11
+  %.02529.i.i = phi i64 [ 0, %ExecHashGetBucketAndBatch.exit.lr.ph.i.i ], [ %402, %ExecHashGetBucketAndBatch.exit.i.i ]
+  %385 = getelementptr i8, ptr %384, i64 %.02529.i.i
+  %386 = getelementptr inbounds i8, ptr %385, i64 8
+  %387 = load i32, ptr %386, align 8
+  %388 = load i32, ptr %151, align 8
+  %389 = add i32 %388, -1
+  %390 = and i32 %389, %387
+  %391 = load ptr, ptr %173, align 8
+  %392 = sext i32 %390 to i64
+  %393 = getelementptr ptr, ptr %391, i64 %392
+  %394 = load ptr, ptr %393, align 8
+  store ptr %394, ptr %385, align 8
+  %395 = load ptr, ptr %173, align 8
+  %396 = getelementptr ptr, ptr %395, i64 %392
+  store ptr %385, ptr %396, align 8
+  %397 = getelementptr i8, ptr %385, i64 16
+  %398 = load i32, ptr %397, align 4
+  %399 = zext i32 %398 to i64
+  %400 = add nuw nsw i64 %399, 23
+  %401 = and i64 %400, 8589934584
+  %402 = add i64 %401, %.02529.i.i
+  %403 = load i64, ptr %382, align 8
+  %404 = icmp ult i64 %402, %403
+  br i1 %404, label %ExecHashGetBucketAndBatch.exit.i.i, label %._crit_edge.i39.i, !llvm.loop !11
 
 ._crit_edge.i39.i:                                ; preds = %ExecHashGetBucketAndBatch.exit.i.i, %.preheader.i.i
-  %407 = load volatile i32, ptr @InterruptPending, align 4
-  %.not28.i.i = icmp eq i32 %407, 0
-  br i1 %.not28.i.i, label %409, label %408
+  %405 = load volatile i32, ptr @InterruptPending, align 4
+  %.not28.i.i = icmp eq i32 %405, 0
+  br i1 %.not28.i.i, label %407, label %406
 
-408:                                              ; preds = %._crit_edge.i39.i
+406:                                              ; preds = %._crit_edge.i39.i
   call void @ProcessInterrupts() #16
-  br label %409
+  br label %407
 
-409:                                              ; preds = %408, %._crit_edge.i39.i
-  %410 = getelementptr inbounds i8, ptr %.032.i.i, i64 24
-  %.0.i.i = load ptr, ptr %410, align 8
-  %.not27.i.i = icmp eq ptr %.0.i.i, null
+407:                                              ; preds = %406, %._crit_edge.i39.i
+  %408 = getelementptr inbounds i8, ptr %.032.i.i, i64 24
+  %.0.i40.i = load ptr, ptr %408, align 8
+  %.not27.i.i = icmp eq ptr %.0.i40.i, null
   br i1 %.not27.i.i, label %ExecHashIncreaseNumBuckets.exit.i, label %.preheader.i.i, !llvm.loop !12
 
-ExecHashIncreaseNumBuckets.exit.i:                ; preds = %409, %374, %370
-  %411 = load i32, ptr %151, align 8
-  %412 = sext i32 %411 to i64
-  %413 = shl nsw i64 %412, 3
-  %414 = load i64, ptr %162, align 8
-  %415 = add i64 %413, %414
-  store i64 %415, ptr %162, align 8
-  %416 = load i64, ptr %164, align 8
-  %417 = icmp ugt i64 %415, %416
-  br i1 %417, label %418, label %MultiExecPrivateHash.exit
+ExecHashIncreaseNumBuckets.exit.i:                ; preds = %407, %372, %368
+  %409 = load i32, ptr %151, align 8
+  %410 = sext i32 %409 to i64
+  %411 = shl nsw i64 %410, 3
+  %412 = load i64, ptr %162, align 8
+  %413 = add i64 %411, %412
+  store i64 %413, ptr %162, align 8
+  %414 = load i64, ptr %164, align 8
+  %415 = icmp ugt i64 %413, %414
+  br i1 %415, label %416, label %MultiExecPrivateHash.exit
 
-418:                                              ; preds = %ExecHashIncreaseNumBuckets.exit.i
-  store i64 %415, ptr %164, align 8
+416:                                              ; preds = %ExecHashIncreaseNumBuckets.exit.i
+  store i64 %413, ptr %164, align 8
   br label %MultiExecPrivateHash.exit
 
-MultiExecPrivateHash.exit:                        ; preds = %ExecHashIncreaseNumBuckets.exit.i, %418
-  %419 = load double, ptr %176, align 8
-  %420 = getelementptr inbounds i8, ptr %151, i64 96
-  store double %419, ptr %420, align 8
+MultiExecPrivateHash.exit:                        ; preds = %ExecHashIncreaseNumBuckets.exit.i, %416
+  %417 = load double, ptr %176, align 8
+  %418 = getelementptr inbounds i8, ptr %151, i64 96
+  store double %417, ptr %418, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %421
+  br label %419
 
-421:                                              ; preds = %MultiExecPrivateHash.exit, %MultiExecParallelHash.exit
-  %422 = load ptr, ptr %5, align 8
-  %.not10 = icmp eq ptr %422, null
-  br i1 %.not10, label %428, label %423
+419:                                              ; preds = %MultiExecPrivateHash.exit, %MultiExecParallelHash.exit
+  %420 = load ptr, ptr %5, align 8
+  %.not10 = icmp eq ptr %420, null
+  br i1 %.not10, label %426, label %421
 
-423:                                              ; preds = %421
-  %424 = getelementptr inbounds i8, ptr %0, i64 200
-  %425 = load ptr, ptr %424, align 8
-  %426 = getelementptr inbounds i8, ptr %425, i64 96
-  %427 = load double, ptr %426, align 8
-  call void @InstrStopNode(ptr noundef nonnull %422, double noundef %427) #16
-  br label %428
+421:                                              ; preds = %419
+  %422 = getelementptr inbounds i8, ptr %0, i64 200
+  %423 = load ptr, ptr %422, align 8
+  %424 = getelementptr inbounds i8, ptr %423, i64 96
+  %425 = load double, ptr %424, align 8
+  call void @InstrStopNode(ptr noundef nonnull %420, double noundef %425) #16
+  br label %426
 
-428:                                              ; preds = %423, %421
+426:                                              ; preds = %421, %419
   ret ptr null
 }
 
@@ -1189,7 +1189,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
 204:                                              ; preds = %202
   %205 = getelementptr inbounds i8, ptr %5, i64 24
   %206 = load i32, ptr %205, align 8
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %206, i32 %188)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %188, i32 %206)
   %207 = icmp sgt i32 %spec.select.i, 0
   br i1 %207, label %.lr.ph.i122, label %.sink.split.sink.split.i
 
@@ -3614,33 +3614,33 @@ define dso_local i32 @ExecHashGetSkewBucket(ptr nocapture noundef readonly %0, i
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, -1
-  %10 = and i32 %9, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8
-  %13 = sext i32 %10 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
-  %15 = load ptr, ptr %14, align 8
-  %.not17 = icmp eq ptr %15, null
-  br i1 %.not17, label %.critedge, label %.lr.ph
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = load ptr, ptr %10, align 8
+  %.017 = and i32 %1, %9
+  %12 = sext i32 %.017 to i64
+  %13 = getelementptr ptr, ptr %11, i64 %12
+  %14 = load ptr, ptr %13, align 8
+  %.not18 = icmp eq ptr %14, null
+  br i1 %.not18, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %18
-  %16 = phi ptr [ %23, %18 ], [ %15, %6 ]
-  %.018 = phi i32 [ %20, %18 ], [ %10, %6 ]
-  %17 = load i32, ptr %16, align 8
-  %.not15 = icmp eq i32 %17, %1
-  br i1 %.not15, label %.critedge, label %18
+.lr.ph:                                           ; preds = %6, %17
+  %15 = phi ptr [ %21, %17 ], [ %14, %6 ]
+  %.019 = phi i32 [ %.0, %17 ], [ %.017, %6 ]
+  %16 = load i32, ptr %15, align 8
+  %.not15 = icmp eq i32 %16, %1
+  br i1 %.not15, label %.critedge, label %17
 
-18:                                               ; preds = %.lr.ph
-  %19 = add i32 %.018, 1
-  %20 = and i32 %19, %9
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr ptr, ptr %12, i64 %21
-  %23 = load ptr, ptr %22, align 8
-  %.not = icmp eq ptr %23, null
+17:                                               ; preds = %.lr.ph
+  %18 = add i32 %.019, 1
+  %.0 = and i32 %18, %9
+  %19 = sext i32 %.0 to i64
+  %20 = getelementptr ptr, ptr %11, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  %.not = icmp eq ptr %21, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
-.critedge:                                        ; preds = %18, %.lr.ph, %6, %2
-  %.013 = phi i32 [ -1, %2 ], [ -1, %6 ], [ -1, %18 ], [ %.018, %.lr.ph ]
+.critedge:                                        ; preds = %17, %.lr.ph, %6, %2
+  %.013 = phi i32 [ -1, %2 ], [ -1, %6 ], [ -1, %17 ], [ %.019, %.lr.ph ]
   ret i32 %.013
 }
 

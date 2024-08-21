@@ -352,7 +352,7 @@ if.end:                                           ; preds = %entry
   %cur_.i = getelementptr inbounds i8, ptr %output, i64 64
   %1 = load ptr, ptr %cur_.i, align 8
   %2 = load ptr, ptr %output, align 8
-  %cmp.not.i.i = icmp ugt ptr %2, %1
+  %cmp.not.i.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end

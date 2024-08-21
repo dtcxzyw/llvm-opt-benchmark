@@ -317,11 +317,11 @@ define void @Dar_LibAddNode(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   %30 = load i64, ptr %7, align 4
   %31 = lshr i64 %30, 34
   %32 = trunc nuw nsw i64 %31 to i32
-  %33 = xor i32 %32, %3
+  %33 = xor i32 %3, %32
   %34 = load i64, ptr %9, align 4
   %35 = lshr i64 %34, 34
   %36 = trunc nuw nsw i64 %35 to i32
-  %37 = xor i32 %36, %4
+  %37 = xor i32 %4, %36
   %38 = and i32 %33, 1
   %39 = and i32 %38, %37
   %40 = zext nneg i32 %39 to i64
@@ -352,7 +352,7 @@ define void @Dar_LibSetup_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   %.not = icmp ne i64 %6, 0
   %7 = lshr i64 %5, 36
   %8 = trunc nuw nsw i64 %7 to i32
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   %or.cond = select i1 %.not, i1 true, i1 %9
   br i1 %or.cond, label %45, label %10
 
@@ -831,7 +831,7 @@ define void @Dar_LibSetup0_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %.not = icmp ne i64 %6, 0
   %7 = lshr i64 %5, 36
   %8 = trunc nuw nsw i64 %7 to i32
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   %or.cond = select i1 %.not, i1 true, i1 %9
   br i1 %or.cond, label %45, label %10
 
@@ -1790,10 +1790,10 @@ define void @Dar_LibEvalAssignNums(ptr nocapture noundef readonly %0, i32 nounde
   %58 = ptrtoint ptr %54 to i64
   %59 = and i64 %57, -2
   %60 = inttoptr i64 %59 to ptr
-  %61 = icmp eq ptr %60, %2
+  %61 = icmp eq ptr %2, %60
   %62 = and i64 %58, -2
   %63 = inttoptr i64 %62 to ptr
-  %64 = icmp eq ptr %63, %2
+  %64 = icmp eq ptr %2, %63
   %or.cond = or i1 %61, %64
   br i1 %or.cond, label %106, label %65
 
@@ -2194,7 +2194,7 @@ Dar_LibCutMarkMffc.exit:                          ; preds = %47, %._crit_edge.th
   %106 = ptrtoint ptr %105 to i64
   %107 = and i64 %106, -2
   %108 = inttoptr i64 %107 to ptr
-  %109 = icmp eq ptr %108, %1
+  %109 = icmp eq ptr %1, %108
   br i1 %109, label %205, label %110
 
 110:                                              ; preds = %91
@@ -2723,8 +2723,8 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %63 = trunc nuw nsw i64 %62 to i32
   %64 = and i32 %63, 1
   %65 = xor i32 %64, %54
-  %66 = icmp eq i32 %60, %51
-  %67 = icmp eq i32 %64, %54
+  %66 = icmp eq i32 %51, %60
+  %67 = icmp eq i32 %54, %64
   %or.cond = select i1 %66, i1 true, i1 %67
   %68 = xor i32 %65, %61
   %69 = icmp eq i32 %68, 1
@@ -3404,13 +3404,13 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

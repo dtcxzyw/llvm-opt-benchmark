@@ -367,7 +367,7 @@ define internal fastcc void @MPIOI_Type_block(ptr nocapture noundef readonly %0,
 
 42:                                               ; preds = %27
   %43 = add nsw i32 %2, -1
-  %44 = icmp eq i32 %43, %1
+  %44 = icmp eq i32 %1, %43
   br i1 %44, label %47, label %.preheader71
 
 .preheader71:                                     ; preds = %42
@@ -459,7 +459,7 @@ define internal fastcc void @MPIOI_Type_cyclic(ptr nocapture noundef readonly %0
   %36 = srem i32 %.090, %.
   %37 = sext i32 %3 to i64
   %38 = zext nneg i32 %. to i64
-  %39 = mul i64 %37, %7
+  %39 = mul i64 %7, %37
   %40 = mul i64 %39, %38
   %41 = icmp eq i32 %6, 1
   br i1 %41, label %.preheader, label %.preheader99
@@ -536,7 +536,7 @@ define internal fastcc void @MPIOI_Type_cyclic(ptr nocapture noundef readonly %0
 67:                                               ; preds = %65
   %68 = icmp eq i32 %6, 0
   %69 = add nsw i32 %2, -1
-  %70 = icmp eq i32 %69, %1
+  %70 = icmp eq i32 %1, %69
   %or.cond98 = select i1 %68, i1 %70, i1 false
   br i1 %or.cond98, label %71, label %85
 
@@ -544,12 +544,12 @@ define internal fastcc void @MPIOI_Type_cyclic(ptr nocapture noundef readonly %0
   %72 = load ptr, ptr %9, align 8
   store ptr %72, ptr %15, align 16
   %73 = sext i32 %4 to i64
-  %74 = mul i64 %73, %7
+  %74 = mul i64 %7, %73
   %75 = mul i64 %74, %38
   store i64 %75, ptr %13, align 16
   %76 = load i32, ptr %24, align 4
   %77 = sext i32 %76 to i64
-  %78 = mul nsw i64 %77, %7
+  %78 = mul nsw i64 %7, %77
   store i32 1, ptr %12, align 4
   %79 = call i32 @PMPI_Type_create_struct(i32 noundef 1, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %16) #3
   %80 = load ptr, ptr %16, align 8

@@ -837,9 +837,9 @@ _ZN3dap3any5resetEv.exit:                         ; preds = %2, %4, %12
   store ptr %33, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %21
   %35 = getelementptr inbounds i8, ptr %34, i64 -1
-  %36 = icmp ule ptr %27, %35
+  %36 = icmp uge ptr %35, %27
   %37 = getelementptr inbounds i8, ptr %0, i64 56
-  %38 = icmp ugt ptr %37, %35
+  %38 = icmp ult ptr %35, %37
   %39 = select i1 %36, i1 %38, i1 false
   br i1 %39, label %_ZN3dap3any5allocEmm.exit, label %40
 
@@ -960,9 +960,9 @@ _ZN3dap3any5resetEv.exit:                         ; preds = %8, %9, %16
   store ptr %33, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %21
   %35 = getelementptr inbounds i8, ptr %34, i64 -1
-  %36 = icmp ule ptr %27, %35
+  %36 = icmp uge ptr %35, %27
   %37 = getelementptr inbounds i8, ptr %0, i64 56
-  %38 = icmp ugt ptr %37, %35
+  %38 = icmp ult ptr %35, %37
   %39 = select i1 %36, i1 %38, i1 false
   br i1 %39, label %_ZN3dap3any5allocEmm.exit, label %40
 
@@ -1051,9 +1051,9 @@ _ZN3dap3any5resetEv.exit:                         ; preds = %8, %9, %16
   store ptr %33, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %21
   %35 = getelementptr inbounds i8, ptr %34, i64 -1
-  %36 = icmp ule ptr %27, %35
+  %36 = icmp uge ptr %35, %27
   %37 = getelementptr inbounds i8, ptr %0, i64 56
-  %38 = icmp ugt ptr %37, %35
+  %38 = icmp ult ptr %35, %37
   %39 = select i1 %36, i1 %38, i1 false
   br i1 %39, label %_ZN3dap3any5allocEmm.exit, label %40
 
@@ -1140,9 +1140,9 @@ _ZN3dap3any5resetEv.exit:                         ; preds = %8, %9, %16
   store ptr %33, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %21
   %35 = getelementptr inbounds i8, ptr %34, i64 -1
-  %36 = icmp ule ptr %27, %35
+  %36 = icmp uge ptr %35, %27
   %37 = getelementptr inbounds i8, ptr %0, i64 56
-  %38 = icmp ugt ptr %37, %35
+  %38 = icmp ult ptr %35, %37
   %39 = select i1 %36, i1 %38, i1 false
   br i1 %39, label %_ZN3dap3any5allocEmm.exit, label %40
 
@@ -1229,9 +1229,9 @@ _ZN3dap3any5resetEv.exit:                         ; preds = %8, %9, %16
   store ptr %33, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %21
   %35 = getelementptr inbounds i8, ptr %34, i64 -1
-  %36 = icmp ule ptr %27, %35
+  %36 = icmp uge ptr %35, %27
   %37 = getelementptr inbounds i8, ptr %0, i64 56
-  %38 = icmp ugt ptr %37, %35
+  %38 = icmp ult ptr %35, %37
   %39 = select i1 %36, i1 %38, i1 false
   br i1 %39, label %_ZN3dap3any5allocEmm.exit, label %40
 
@@ -1319,9 +1319,9 @@ _ZN3dap3any5resetEv.exit:                         ; preds = %8, %9, %16
   store ptr %33, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %21
   %35 = getelementptr inbounds i8, ptr %34, i64 -1
-  %36 = icmp ule ptr %27, %35
+  %36 = icmp uge ptr %35, %27
   %37 = getelementptr inbounds i8, ptr %0, i64 56
-  %38 = icmp ugt ptr %37, %35
+  %38 = icmp ult ptr %35, %37
   %39 = select i1 %36, i1 %38, i1 false
   br i1 %39, label %_ZN3dap3any5allocEmm.exit, label %40
 
@@ -1348,7 +1348,7 @@ _ZN3dap3any5allocEmm.exit:                        ; preds = %_ZN3dap3any5resetEv
   br label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3dap3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEaSERKSG_.exit
 
 54:                                               ; preds = %2
-  %55 = icmp eq ptr %7, %1
+  %55 = icmp eq ptr %1, %7
   br i1 %55, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3dap3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEaSERKSG_.exit, label %56
 
 56:                                               ; preds = %54
@@ -1413,9 +1413,9 @@ _ZN3dap3any5resetEv.exit:                         ; preds = %8, %9, %16
   store ptr %33, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %21
   %35 = getelementptr inbounds i8, ptr %34, i64 -1
-  %36 = icmp ule ptr %27, %35
+  %36 = icmp uge ptr %35, %27
   %37 = getelementptr inbounds i8, ptr %0, i64 56
-  %38 = icmp ugt ptr %37, %35
+  %38 = icmp ult ptr %35, %37
   %39 = select i1 %36, i1 %38, i1 false
   br i1 %39, label %_ZN3dap3any5allocEmm.exit, label %40
 
@@ -2339,7 +2339,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 48
-  %26 = icmp eq ptr %25, %24
+  %26 = icmp eq ptr %24, %25
   br i1 %26, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3dap3anyEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %27
 
 27:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3dap3anyEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit
@@ -2508,7 +2508,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableINSt7__cxx1112basic_stringI
   %12 = fdiv double %9, %11
   %13 = tail call double @llvm.ceil.f64(double %12)
   %14 = fptoui double %13 to i64
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %14, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %1, i64 %14)
   %15 = tail call noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %.sroa.speculated)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
@@ -2642,7 +2642,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3dap3anyEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3dap3anyEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge
@@ -2901,7 +2901,7 @@ define linkonce_odr dso_local noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic
   %.013 = phi ptr [ %7, %8 ], [ %.0, %26 ]
   %.0 = phi ptr [ %9, %8 ], [ %25, %26 ]
   %13 = getelementptr inbounds i8, ptr %.0, i64 8
-  %14 = icmp eq i64 %12, %3
+  %14 = icmp eq i64 %3, %12
   br i1 %14, label %15, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N3dap3anyEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread
 
 15:                                               ; preds = %11
@@ -3034,7 +3034,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 33:                                               ; preds = %25
   %.not18 = icmp eq ptr %.0, null
   %34 = getelementptr inbounds i8, ptr %0, i64 48
-  %35 = icmp eq ptr %34, %.0
+  %35 = icmp eq ptr %.0, %34
   %or.cond = select i1 %.not18, i1 true, i1 %35
   br i1 %or.cond, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3dap3anyEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEPPNSC_15_Hash_node_baseEm.exit, label %36
 
@@ -3058,7 +3058,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %0, i64 48
-  %43 = icmp eq ptr %42, %.pre
+  %43 = icmp eq ptr %.pre, %42
   br i1 %43, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3dap3anyEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %44
 
 44:                                               ; preds = %41
@@ -3268,7 +3268,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 49:                                               ; preds = %46
   %50 = load ptr, ptr %0, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 48
-  %52 = icmp eq ptr %51, %50
+  %52 = icmp eq ptr %50, %51
   br i1 %52, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3dap3anyEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %53
 
 53:                                               ; preds = %49
@@ -3517,9 +3517,9 @@ define linkonce_odr dso_local void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11c
   store ptr %28, ptr %3, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %14
   %30 = getelementptr inbounds i8, ptr %29, i64 -1
-  %31 = icmp ule ptr %22, %30
+  %31 = icmp uge ptr %30, %22
   %32 = getelementptr inbounds i8, ptr %0, i64 88
-  %33 = icmp ugt ptr %32, %30
+  %33 = icmp ult ptr %30, %32
   %34 = select i1 %31, i1 %33, i1 false
   br i1 %34, label %_ZN3dap3any5allocEmm.exit.i, label %35
 
@@ -3578,7 +3578,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 56
-  %17 = icmp ult i64 %16, %9
+  %17 = icmp ugt i64 %9, %16
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %2
@@ -3587,7 +3587,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br label %_ZNSt6vectorIN3dap3anyESaIS1_EE6resizeEm.exit
 
 20:                                               ; preds = %2
-  %21 = icmp ugt i64 %16, %9
+  %21 = icmp ult i64 %9, %16
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap3anyESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
@@ -3823,9 +3823,9 @@ define linkonce_odr dso_local void @_ZN3dap3anyC2EOS0_(ptr noundef nonnull align
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 24
-  %9 = icmp ule ptr %8, %7
+  %9 = icmp uge ptr %7, %8
   %10 = getelementptr inbounds i8, ptr %1, i64 56
-  %11 = icmp ugt ptr %10, %7
+  %11 = icmp ult ptr %7, %10
   %12 = select i1 %9, i1 %11, i1 false
   br i1 %12, label %13, label %52
 
@@ -3855,9 +3855,9 @@ define linkonce_odr dso_local void @_ZN3dap3anyC2EOS0_(ptr noundef nonnull align
   store ptr %31, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 %17
   %33 = getelementptr inbounds i8, ptr %32, i64 -1
-  %34 = icmp ule ptr %25, %33
+  %34 = icmp uge ptr %33, %25
   %35 = getelementptr inbounds i8, ptr %0, i64 56
-  %36 = icmp ugt ptr %35, %33
+  %36 = icmp ult ptr %33, %35
   %37 = select i1 %34, i1 %36, i1 false
   br i1 %37, label %_ZN3dap3any5allocEmm.exit, label %38
 
@@ -4282,9 +4282,9 @@ _ZSt4copyIPN3dap3anyES2_ET0_T_S4_S3_.exit:        ; preds = %_ZSt4copyIPN3dap3an
   store ptr %105, ptr %.012.i.i.i.i, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 %91
   %107 = getelementptr inbounds i8, ptr %106, i64 -1
-  %108 = icmp ule ptr %99, %107
+  %108 = icmp uge ptr %107, %99
   %109 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 56
-  %110 = icmp ugt ptr %109, %107
+  %110 = icmp ult ptr %107, %109
   %111 = select i1 %108, i1 %110, i1 false
   br i1 %111, label %_ZN3dap3any5allocEmm.exit.i.i.i.i.i.i, label %112
 
@@ -4630,9 +4630,9 @@ _ZNSt16allocator_traitsISaIN3dap3anyEEE8allocateERS2_m.exit.i.i.i: ; preds = %10
   store ptr %43, ptr %.010.i.i.i.i, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 %29
   %45 = getelementptr inbounds i8, ptr %44, i64 -1
-  %46 = icmp ule ptr %37, %45
+  %46 = icmp uge ptr %45, %37
   %47 = getelementptr inbounds i8, ptr %.010.i.i.i.i, i64 56
-  %48 = icmp ugt ptr %47, %45
+  %48 = icmp ult ptr %45, %47
   %49 = select i1 %46, i1 %48, i1 false
   br i1 %49, label %_ZN3dap3any5allocEmm.exit.i.i.i.i.i.i, label %50
 
@@ -4794,9 +4794,9 @@ _ZNSt12_Vector_baseIN3dap3anyESaIS1_EE11_M_allocateEm.exit: ; preds = %4, %_ZNSt
   store ptr %37, ptr %.010.i.i.i.i, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 %23
   %39 = getelementptr inbounds i8, ptr %38, i64 -1
-  %40 = icmp ule ptr %31, %39
+  %40 = icmp uge ptr %39, %31
   %41 = getelementptr inbounds i8, ptr %.010.i.i.i.i, i64 56
-  %42 = icmp ugt ptr %41, %39
+  %42 = icmp ult ptr %39, %41
   %43 = select i1 %40, i1 %42, i1 false
   br i1 %43, label %_ZN3dap3any5allocEmm.exit.i.i.i.i.i.i, label %44
 

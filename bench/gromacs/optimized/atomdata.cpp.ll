@@ -3883,7 +3883,7 @@ _ZNSt16allocator_traitsISaI23nbnxn_atomdata_output_tEE9constructIS0_JRKN5Nbnxm10
 _ZNSt6vectorI23nbnxn_atomdata_output_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaI23nbnxn_atomdata_output_tEE9constructIS0_JRKN5Nbnxm10KernelTypeERKiRKN3gmx13PinningPolicyEEEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %25, %_ZNSt16allocator_traitsISaI23nbnxn_atomdata_output_tEE9constructIS0_JRKN5Nbnxm10KernelTypeERKiRKN3gmx13PinningPolicyEEEEvRS1_PT_DpOT0_.exit ], [ %31, %.lr.ph.i.i.i ]
   %32 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 144
-  %.not10.i.i.i28 = icmp eq ptr %7, %1
+  %.not10.i.i.i28 = icmp eq ptr %1, %7
   br i1 %.not10.i.i.i28, label %_ZNSt6vectorI23nbnxn_atomdata_output_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit34, label %.lr.ph.i.i.i29
 
 .lr.ph.i.i.i29:                                   ; preds = %_ZNSt6vectorI23nbnxn_atomdata_output_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i29

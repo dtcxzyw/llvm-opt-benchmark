@@ -163,7 +163,7 @@ define internal fastcc noundef zeroext i1 @nf_nat_ipv4_manip_pkt(ptr noundef %0,
   %14 = shl i8 %13, 2
   %15 = and i8 %14, 60
   %16 = zext nneg i8 %15 to i32
-  %17 = add nuw nsw i32 %16, %1
+  %17 = add nuw nsw i32 %1, %16
   %18 = tail call fastcc zeroext i1 @l4proto_manip_pkt(ptr noundef %0, i32 noundef %1, i32 noundef %17, ptr noundef %2, i32 noundef %3)
   br i1 %18, label %19, label %59
 
@@ -276,7 +276,7 @@ define dso_local void @nf_nat_csum_recalc(ptr noundef %0, i8 noundef zeroext %1,
   %44 = getelementptr inbounds i8, ptr %19, i64 16
   %45 = load i32, ptr %44, align 4
   %46 = zext i8 %2 to i32
-  %47 = add i32 %46, %5
+  %47 = add i32 %5, %46
   %48 = shl i32 %47, 8
   %49 = tail call i32 asm "  addl $1, $0\0A  adcl $2, $0\0A  adcl $3, $0\0A  adcl $$0, $0\0A", "=r,imr,imr,imr,0,~{dirflag},~{fpsr},~{flags}"(i32 %45, i32 %43, i32 %48, i32 0) #9, !srcloc !11
   %50 = shl i32 %49, 16

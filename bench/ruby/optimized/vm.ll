@@ -1826,7 +1826,7 @@ define internal fastcc void @vm_setinstancevariable(i64 noundef %0, i64 noundef 
 18:                                               ; preds = %10
   %19 = lshr i64 %16, 32
   %20 = trunc nuw i64 %19 to i32
-  %21 = icmp eq i64 %19, %11
+  %21 = icmp eq i64 %11, %19
   br i1 %21, label %44, label %22
 
 22:                                               ; preds = %18
@@ -2019,7 +2019,7 @@ define internal fastcc i64 @vm_throw(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not.i.i, label %rb_vm_search_cf_from_ep.exit.i, label %39
 
 39:                                               ; preds = %33
-  %40 = icmp ugt ptr %10, %.1126216.i
+  %40 = icmp ult ptr %.1126216.i, %10
   br i1 %40, label %.lr.ph.i.i, label %rb_vm_search_cf_from_ep.exit.i
 
 .lr.ph.i.i:                                       ; preds = %39, %44
@@ -2157,7 +2157,7 @@ rb_vm_search_cf_from_ep.exit.i:                   ; preds = %44, %.lr.ph.i.i, %3
   %105 = and i64 %.val.i, -4
   %106 = inttoptr i64 %105 to ptr
   %.not.i166.i = icmp ne i64 %105, 0
-  %107 = icmp ugt ptr %10, %1
+  %107 = icmp ult ptr %1, %10
   %or.cond180.i = select i1 %.not.i166.i, i1 %107, i1 false
   br i1 %or.cond180.i, label %.lr.ph.i170.i, label %vm_throw_start.exit
 
@@ -2184,7 +2184,7 @@ rb_vm_search_cf_from_ep.exit.i:                   ; preds = %44, %.lr.ph.i.i, %3
 .preheader185.i:                                  ; preds = %.lr.ph.i, %114
   %.0123.lcssa.i = phi ptr [ null, %114 ], [ %spec.select154.i, %.lr.ph.i ]
   %.0120.lcssa.i = phi ptr [ %116, %114 ], [ %124, %.lr.ph.i ]
-  %118 = icmp ugt ptr %10, %1
+  %118 = icmp ult ptr %1, %10
   br i1 %118, label %.lr.ph213.i, label %.loopexit186.i
 
 .lr.ph.i:                                         ; preds = %114, %.lr.ph.i
@@ -6075,7 +6075,7 @@ rb_ractor_main_p.exit.thread.i.i:                 ; preds = %rb_ractor_main_p.ex
   unreachable
 
 vm_get_cref.exit.i.i:                             ; preds = %12
-  %15 = icmp eq ptr %13, %7
+  %15 = icmp eq ptr %7, %13
   br label %vm_ic_hit_p.exit
 
 vm_ic_hit_p.exit:                                 ; preds = %vm_get_cref.exit.i.i, %rb_ractor_main_p.exit.thread.i.i, %rb_ractor_main_p.exit.i.i, %2
@@ -6124,7 +6124,7 @@ rb_ractor_main_p.exit.thread.i.i:                 ; preds = %rb_ractor_main_p.ex
   unreachable
 
 vm_ic_hit_p.exit:                                 ; preds = %19
-  %22 = icmp eq ptr %20, %14
+  %22 = icmp eq ptr %14, %20
   br i1 %22, label %vm_ic_hit_p.exit.thread, label %vm_ic_hit_p.exit.thread27
 
 vm_ic_hit_p.exit.thread:                          ; preds = %rb_ractor_main_p.exit.thread.i.i, %vm_ic_hit_p.exit
@@ -8163,8 +8163,8 @@ rb_array_len.exit.i:                              ; preds = %879, %875, %871
   %.082.i = phi i64 [ 1, %871 ], [ %878, %875 ], [ %883, %879 ]
   %.078.i = phi ptr [ %4, %871 ], [ %876, %875 ], [ %881, %879 ]
   %884 = and i64 %850, 1
-  %885 = sub i64 0, %848
-  %886 = icmp eq i64 %884, %885
+  %885 = sub nsw i64 0, %884
+  %886 = icmp eq i64 %848, %885
   br i1 %886, label %vm_expandarray.exit, label %887
 
 887:                                              ; preds = %rb_array_len.exit.i
@@ -8232,7 +8232,7 @@ rb_array_len.exit.i:                              ; preds = %879, %875, %871
   br i1 %.not86.i, label %922, label %912
 
 912:                                              ; preds = %911
-  %913 = icmp ult i64 %.082.i, %848
+  %913 = icmp ugt i64 %848, %.082.i
   br i1 %913, label %914, label %916
 
 914:                                              ; preds = %912
@@ -8254,7 +8254,7 @@ rb_array_len.exit.i:                              ; preds = %879, %875, %871
   br label %922
 
 922:                                              ; preds = %.sink.split.i, %911
-  %923 = icmp ult i64 %.082.i, %848
+  %923 = icmp ugt i64 %848, %.082.i
   br i1 %923, label %.lr.ph106.i, label %.preheader94.i
 
 .preheader94.i:                                   ; preds = %922
@@ -21651,7 +21651,7 @@ search_method.exit.thread:                        ; preds = %33, %27
   unreachable
 
 63:                                               ; preds = %50, %59
-  %64 = icmp eq i64 %.0120, %2
+  %64 = icmp eq i64 %2, %.0120
   %65 = icmp eq i64 %9, %.0120
   %or.cond = select i1 %64, i1 true, i1 %65
   br i1 %or.cond, label %66, label %123
@@ -22929,7 +22929,7 @@ define hidden i64 @rb_make_no_method_exception(i64 noundef %0, i64 noundef %1, i
 10:                                               ; preds = %8, %6
   %.013 = phi i64 [ %1, %6 ], [ %9, %8 ]
   %11 = load i64, ptr @rb_eNoMethodError, align 8
-  %12 = icmp eq i64 %11, %0
+  %12 = icmp eq i64 %0, %11
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %10
@@ -31371,7 +31371,7 @@ next_not_local_frame.exit:                        ; preds = %5
   %14 = getelementptr i8, ptr %0, i64 8
   %.val11.i = load i64, ptr %14, align 8
   %15 = getelementptr i64, ptr %.val.i11, i64 %.val11.i
-  %16 = icmp ugt ptr %15, %.0.i
+  %16 = icmp ult ptr %.0.i, %15
   br i1 %16, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %13, %20
@@ -31444,36 +31444,36 @@ declare i32 @rb_st_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_vm_check_redefinition_by_prepend(i64 noundef %0) local_unnamed_addr #2 {
   %2 = load i64, ptr @rb_cInteger, align 8
-  %3 = icmp eq i64 %2, %0
+  %3 = icmp eq i64 %0, %2
   %4 = load i64, ptr @rb_cFloat, align 8
-  %5 = icmp eq i64 %4, %0
+  %5 = icmp eq i64 %0, %4
   %or.cond = select i1 %3, i1 true, i1 %5
   %6 = load i64, ptr @rb_cString, align 8
-  %7 = icmp eq i64 %6, %0
+  %7 = icmp eq i64 %0, %6
   %or.cond7 = select i1 %or.cond, i1 true, i1 %7
   %8 = load i64, ptr @rb_cArray, align 8
-  %9 = icmp eq i64 %8, %0
+  %9 = icmp eq i64 %0, %8
   %or.cond9 = select i1 %or.cond7, i1 true, i1 %9
   %10 = load i64, ptr @rb_cHash, align 8
-  %11 = icmp eq i64 %10, %0
+  %11 = icmp eq i64 %0, %10
   %or.cond11 = select i1 %or.cond9, i1 true, i1 %11
   %12 = load i64, ptr @rb_cSymbol, align 8
-  %13 = icmp eq i64 %12, %0
+  %13 = icmp eq i64 %0, %12
   %or.cond13 = select i1 %or.cond11, i1 true, i1 %13
   %14 = load i64, ptr @rb_cRegexp, align 8
-  %15 = icmp eq i64 %14, %0
+  %15 = icmp eq i64 %0, %14
   %or.cond15 = select i1 %or.cond13, i1 true, i1 %15
   %16 = load i64, ptr @rb_cNilClass, align 8
-  %17 = icmp eq i64 %16, %0
+  %17 = icmp eq i64 %0, %16
   %or.cond17 = select i1 %or.cond15, i1 true, i1 %17
   %18 = load i64, ptr @rb_cTrueClass, align 8
-  %19 = icmp eq i64 %18, %0
+  %19 = icmp eq i64 %0, %18
   %or.cond19 = select i1 %or.cond17, i1 true, i1 %19
   %20 = load i64, ptr @rb_cFalseClass, align 8
-  %21 = icmp eq i64 %20, %0
+  %21 = icmp eq i64 %0, %20
   %or.cond21 = select i1 %or.cond19, i1 true, i1 %21
   %22 = load i64, ptr @rb_cProc, align 8
-  %23 = icmp eq i64 %22, %0
+  %23 = icmp eq i64 %0, %22
   %or.cond23 = select i1 %or.cond21, i1 true, i1 %23
   br i1 %or.cond23, label %select.unfold, label %vm_redefinition_check_flag.exit
 
@@ -33160,7 +33160,7 @@ define hidden void @rb_execution_context_mark(ptr noundef %0) local_unnamed_addr
   %.not54 = icmp eq ptr %49, null
   %50 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %51 = load ptr, ptr %50, align 8
-  %.not55 = icmp eq ptr %51, %0
+  %.not55 = icmp eq ptr %0, %51
   %or.cond = select i1 %.not54, i1 true, i1 %.not55
   br i1 %or.cond, label %55, label %52
 
@@ -35546,7 +35546,7 @@ define internal fastcc noundef i64 @vm_setivar_default(i64 noundef %0, i64 nound
   %9 = lshr i64 %8, 32
   %10 = trunc nuw i64 %9 to i32
   store ptr null, ptr %6, align 8
-  %11 = icmp eq i32 %10, %3
+  %11 = icmp eq i32 %3, %10
   br i1 %11, label %.thread, label %13
 
 .thread:                                          ; preds = %5
@@ -39094,7 +39094,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %23, %3
 31:                                               ; preds = %30
   %32 = lshr i64 %25, 32
   %33 = trunc nuw i64 %32 to i32
-  %34 = icmp eq i64 %32, %12
+  %34 = icmp eq i64 %12, %32
   br i1 %34, label %57, label %35
 
 35:                                               ; preds = %31
@@ -45306,7 +45306,7 @@ rb_array_const_ptr.exit:                          ; preds = %29, %31
   %40 = sext i32 %24 to i64
   %41 = getelementptr i64, ptr %35, i64 %40
   %42 = getelementptr i8, ptr %41, i64 56
-  %.not = icmp ult ptr %42, %1
+  %.not = icmp ugt ptr %1, %42
   br i1 %.not, label %.preheader, label %44
 
 .preheader:                                       ; preds = %rb_array_const_ptr.exit
@@ -45494,7 +45494,7 @@ vm_push_frame.exit:                               ; preds = %71
   br i1 %85, label %86, label %rb_check_arity.exit
 
 86:                                               ; preds = %vm_push_frame.exit
-  %87 = icmp sgt i32 %84, %3
+  %87 = icmp slt i32 %3, %84
   br i1 %87, label %.split.i, label %88
 
 .split.i:                                         ; preds = %86
@@ -45502,7 +45502,7 @@ vm_push_frame.exit:                               ; preds = %71
   unreachable
 
 88:                                               ; preds = %86
-  %89 = icmp ult i32 %84, %3
+  %89 = icmp ugt i32 %3, %84
   br i1 %89, label %.split9.i, label %rb_check_arity.exit
 
 .split9.i:                                        ; preds = %88
@@ -45518,7 +45518,7 @@ rb_check_arity.exit:                              ; preds = %88, %vm_push_frame.
   %94 = call i64 %92(i64 noundef %19, i32 noundef %3, ptr noundef %4, ptr noundef %93) #20
   %95 = load ptr, ptr %72, align 8
   %96 = getelementptr i8, ptr %95, i64 56
-  %97 = icmp eq ptr %96, %1
+  %97 = icmp eq ptr %1, %96
   br i1 %97, label %104, label %98
 
 98:                                               ; preds = %rb_check_arity.exit
@@ -45752,7 +45752,7 @@ rb_array_len.exit:                                ; preds = %12, %16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr i64, ptr %62, i64 %.046
   %64 = getelementptr i8, ptr %63, i64 56
-  %.not = icmp ult ptr %64, %0
+  %.not = icmp ugt ptr %0, %64
   br i1 %.not, label %.preheader, label %66
 
 .preheader:                                       ; preds = %59
@@ -46134,7 +46134,7 @@ rb_array_len.exit.i:                              ; preds = %38, %35
   %46 = sext i32 %45 to i64
   %47 = getelementptr i64, ptr %42, i64 %46
   %48 = getelementptr i8, ptr %47, i64 56
-  %.not.i = icmp ult ptr %48, %15
+  %.not.i = icmp ugt ptr %15, %48
   br i1 %.not.i, label %.preheader.i, label %52
 
 .preheader.i:                                     ; preds = %rb_array_len.exit.i
@@ -47228,7 +47228,7 @@ rb_method_basic_definition_p.exit.thread:         ; preds = %56, %51, %53, %rb_m
   %87 = getelementptr inbounds i8, ptr %1, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr i8, ptr %88, i64 64
-  %.not76 = icmp ult ptr %89, %1
+  %.not76 = icmp ugt ptr %1, %89
   br i1 %.not76, label %rbimpl_size_mul_or_raise.exit, label %90
 
 90:                                               ; preds = %86
@@ -48017,7 +48017,7 @@ vm_ci_flag.exit:                                  ; preds = %18, %21
   store i32 %25, ptr %11, align 8
   %26 = load ptr, ptr %9, align 8
   %27 = getelementptr i8, ptr %26, i64 64
-  %.not = icmp ult ptr %27, %1
+  %.not = icmp ugt ptr %1, %27
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %vm_ci_flag.exit
@@ -48266,7 +48266,7 @@ stack_check.exit:                                 ; preds = %RB_SYMBOL_P.exit.th
   %.027 = phi i64 [ %.0, %51 ], [ %.028, %54 ]
   %.013.i = phi i64 [ %.016, %51 ], [ %57, %54 ]
   %61 = load i64, ptr @rb_eNoMethodError, align 8
-  %62 = icmp eq i64 %61, %.027
+  %62 = icmp eq i64 %.027, %61
   br i1 %62, label %63, label %69
 
 63:                                               ; preds = %58
@@ -49319,7 +49319,7 @@ define internal fastcc ptr @jit_compile(ptr noundef %0) unnamed_addr #2 {
   br label %32
 
 32:                                               ; preds = %29, %20
-  %33 = icmp eq i64 %27, %23
+  %33 = icmp eq i64 %23, %27
   br i1 %33, label %34, label %rb_yjit_threshold_hit.exit
 
 34:                                               ; preds = %32
@@ -50588,7 +50588,7 @@ declare void @rb_obj_info_dump(i64 noundef) local_unnamed_addr #3
 define internal noundef i32 @vm_cme_dump_i(i64 noundef %0, i64 noundef %1, ptr noundef %2) #2 {
   %4 = icmp eq ptr %2, null
   %5 = ptrtoint ptr %2 to i64
-  %6 = icmp eq i64 %5, %0
+  %6 = icmp eq i64 %0, %5
   %or.cond = or i1 %4, %6
   br i1 %or.cond, label %7, label %10
 
@@ -51700,57 +51700,57 @@ vm_redefinition_check_method_type.exit.thread58:  ; preds = %30, %vm_redefinitio
 
 39:                                               ; preds = %vm_redefinition_check_method_type.exit.thread58
   %40 = load i64, ptr @rb_cInteger, align 8
-  %41 = icmp eq i64 %40, %.046
+  %41 = icmp eq i64 %.046, %40
   br i1 %41, label %select.unfold, label %42
 
 42:                                               ; preds = %39
   %43 = load i64, ptr @rb_cFloat, align 8
-  %44 = icmp eq i64 %43, %.046
+  %44 = icmp eq i64 %.046, %43
   br i1 %44, label %select.unfold, label %45
 
 45:                                               ; preds = %42
   %46 = load i64, ptr @rb_cString, align 8
-  %47 = icmp eq i64 %46, %.046
+  %47 = icmp eq i64 %.046, %46
   br i1 %47, label %select.unfold, label %48
 
 48:                                               ; preds = %45
   %49 = load i64, ptr @rb_cArray, align 8
-  %50 = icmp eq i64 %49, %.046
+  %50 = icmp eq i64 %.046, %49
   br i1 %50, label %select.unfold, label %51
 
 51:                                               ; preds = %48
   %52 = load i64, ptr @rb_cHash, align 8
-  %53 = icmp eq i64 %52, %.046
+  %53 = icmp eq i64 %.046, %52
   br i1 %53, label %select.unfold, label %54
 
 54:                                               ; preds = %51
   %55 = load i64, ptr @rb_cSymbol, align 8
-  %56 = icmp eq i64 %55, %.046
+  %56 = icmp eq i64 %.046, %55
   br i1 %56, label %select.unfold, label %57
 
 57:                                               ; preds = %54
   %58 = load i64, ptr @rb_cRegexp, align 8
-  %59 = icmp eq i64 %58, %.046
+  %59 = icmp eq i64 %.046, %58
   br i1 %59, label %select.unfold, label %60
 
 60:                                               ; preds = %57
   %61 = load i64, ptr @rb_cNilClass, align 8
-  %62 = icmp eq i64 %61, %.046
+  %62 = icmp eq i64 %.046, %61
   br i1 %62, label %select.unfold, label %63
 
 63:                                               ; preds = %60
   %64 = load i64, ptr @rb_cTrueClass, align 8
-  %65 = icmp eq i64 %64, %.046
+  %65 = icmp eq i64 %.046, %64
   br i1 %65, label %select.unfold, label %66
 
 66:                                               ; preds = %63
   %67 = load i64, ptr @rb_cFalseClass, align 8
-  %68 = icmp eq i64 %67, %.046
+  %68 = icmp eq i64 %.046, %67
   br i1 %68, label %select.unfold, label %69
 
 69:                                               ; preds = %66
   %70 = load i64, ptr @rb_cProc, align 8
-  %71 = icmp eq i64 %70, %.046
+  %71 = icmp eq i64 %.046, %70
   br i1 %71, label %select.unfold, label %vm_redefinition_check_flag.exit
 
 select.unfold:                                    ; preds = %69, %39, %42, %45, %48, %51, %54, %57, %60, %63, %66
@@ -51786,36 +51786,36 @@ define internal void @check_override_opt_method_i(i64 noundef %0, i64 noundef %1
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = load i64, ptr @rb_cInteger, align 8
-  %6 = icmp eq i64 %5, %0
+  %6 = icmp eq i64 %0, %5
   %7 = load i64, ptr @rb_cFloat, align 8
-  %8 = icmp eq i64 %7, %0
+  %8 = icmp eq i64 %0, %7
   %or.cond = select i1 %6, i1 true, i1 %8
   %9 = load i64, ptr @rb_cString, align 8
-  %10 = icmp eq i64 %9, %0
+  %10 = icmp eq i64 %0, %9
   %or.cond19 = select i1 %or.cond, i1 true, i1 %10
   %11 = load i64, ptr @rb_cArray, align 8
-  %12 = icmp eq i64 %11, %0
+  %12 = icmp eq i64 %0, %11
   %or.cond21 = select i1 %or.cond19, i1 true, i1 %12
   %13 = load i64, ptr @rb_cHash, align 8
-  %14 = icmp eq i64 %13, %0
+  %14 = icmp eq i64 %0, %13
   %or.cond23 = select i1 %or.cond21, i1 true, i1 %14
   %15 = load i64, ptr @rb_cSymbol, align 8
-  %16 = icmp eq i64 %15, %0
+  %16 = icmp eq i64 %0, %15
   %or.cond25 = select i1 %or.cond23, i1 true, i1 %16
   %17 = load i64, ptr @rb_cRegexp, align 8
-  %18 = icmp eq i64 %17, %0
+  %18 = icmp eq i64 %0, %17
   %or.cond27 = select i1 %or.cond25, i1 true, i1 %18
   %19 = load i64, ptr @rb_cNilClass, align 8
-  %20 = icmp eq i64 %19, %0
+  %20 = icmp eq i64 %0, %19
   %or.cond29 = select i1 %or.cond27, i1 true, i1 %20
   %21 = load i64, ptr @rb_cTrueClass, align 8
-  %22 = icmp eq i64 %21, %0
+  %22 = icmp eq i64 %0, %21
   %or.cond31 = select i1 %or.cond29, i1 true, i1 %22
   %23 = load i64, ptr @rb_cFalseClass, align 8
-  %24 = icmp eq i64 %23, %0
+  %24 = icmp eq i64 %0, %23
   %or.cond33 = select i1 %or.cond31, i1 true, i1 %24
   %25 = load i64, ptr @rb_cProc, align 8
-  %26 = icmp eq i64 %25, %0
+  %26 = icmp eq i64 %0, %25
   %or.cond35 = select i1 %or.cond33, i1 true, i1 %26
   br i1 %or.cond35, label %select.unfold, label %vm_redefinition_check_flag.exit
 
@@ -52289,7 +52289,7 @@ search_method0.exit.thread.i:                     ; preds = %search_method0.exit
 
 69:                                               ; preds = %64
   call fastcc void @rb_vm_check_redefinition_opt_method(ptr noundef nonnull %.04977.i, i64 noundef %0)
-  %70 = icmp eq i64 %.076.i, %0
+  %70 = icmp eq i64 %0, %.076.i
   %71 = icmp eq i64 %13, %.076.i
   %or.cond.i = or i1 %70, %71
   br i1 %or.cond.i, label %72, label %86
@@ -52816,7 +52816,7 @@ rb_check_arity.exit.i.i:                          ; preds = %168, %vm_push_frame
   %173 = call i64 %171(i64 noundef %71, i32 noundef %.080.i.i, ptr noundef %2, ptr noundef %172) #20
   %174 = load ptr, ptr %154, align 8
   %175 = getelementptr i8, ptr %174, i64 56
-  %176 = icmp eq ptr %175, %155
+  %176 = icmp eq ptr %155, %175
   br i1 %176, label %183, label %177
 
 177:                                              ; preds = %rb_check_arity.exit.i.i
@@ -55908,7 +55908,7 @@ define internal noundef i32 @collect_outer_variable_names(i64 noundef %0, i64 no
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %3
   %.lcssa.i = phi i64 [ %.pr.i, %3 ], [ %4, %.lr.ph.i ]
-  %5 = icmp eq i64 %.lcssa.i, %0
+  %5 = icmp eq i64 %0, %.lcssa.i
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %rbimpl_intern_const.exit

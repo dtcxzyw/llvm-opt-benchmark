@@ -146,7 +146,7 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   %.052.ph.lcssa80 = phi i32 [ %.052.ph100, %.thread ], [ %33, %.outer ]
   %.051.ph.lcssa77 = phi i64 [ %.051.ph101, %.thread ], [ %48, %.outer ]
   %.not = icmp eq ptr %.054.ph.lcssa86, null
-  %.not60 = icmp ult i32 %.052.ph.lcssa80, %1
+  %.not60 = icmp ugt i32 %1, %.052.ph.lcssa80
   %or.cond69 = select i1 %.not, i1 true, i1 %.not60
   br i1 %or.cond69, label %51, label %50
 

@@ -1100,7 +1100,7 @@ if.then:                                          ; preds = %formatf.specialized
   %retval.0.i450 = phi i32 [ %retval.0.i.ph, %formatf.specialized.2.exit.thread ], [ %retval.0.i, %formatf.specialized.2.exit ]
   %info.sroa.0.26449 = phi ptr [ %info.sroa.0.26.ph, %formatf.specialized.2.exit.thread ], [ %info.sroa.0.26, %formatf.specialized.2.exit ]
   %info.sroa.49.26448 = phi i64 [ %info.sroa.49.26.ph, %formatf.specialized.2.exit.thread ], [ %info.sroa.49.26, %formatf.specialized.2.exit ]
-  %cmp = icmp eq i64 %info.sroa.49.26448, %maxlength
+  %cmp = icmp eq i64 %maxlength, %info.sroa.49.26448
   br i1 %cmp, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.then

@@ -446,7 +446,7 @@ define void @_ZN11BigUnsigned8setBlockEjm(ptr nocapture noundef nonnull align 8 
   %4 = icmp eq i64 %2, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = icmp ugt i32 %6, %1
+  %7 = icmp ult i32 %1, %6
   br i1 %4, label %8, label %22
 
 8:                                                ; preds = %3
@@ -488,7 +488,7 @@ define void @_ZN11BigUnsigned8setBlockEjm(ptr nocapture noundef nonnull align 8 
 23:                                               ; preds = %22
   %24 = add i32 %1, 1
   %25 = load i32, ptr %0, align 8
-  %26 = icmp ult i32 %25, %24
+  %26 = icmp ugt i32 %24, %25
   br i1 %26, label %27, label %_ZN15NumberlikeArrayImE15allocateAndCopyEj.exit
 
 27:                                               ; preds = %23
@@ -594,7 +594,7 @@ define void @_ZN11BigUnsigned6setBitEjb(ptr nocapture noundef nonnull align 8 de
   %4 = lshr i32 %1, 6
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not.i = icmp ugt i32 %6, %4
+  %.not.i = icmp ult i32 %4, %6
   br i1 %.not.i, label %7, label %_ZNK11BigUnsigned8getBlockEj.exit
 
 7:                                                ; preds = %3
@@ -677,7 +677,7 @@ define void @_ZN11BigUnsigned3addERKS_S1_(ptr noundef nonnull align 8 dereferenc
           to label %8 unwind label %41
 
 8:                                                ; preds = %7
-  %9 = icmp eq ptr %4, %0
+  %9 = icmp eq ptr %0, %4
   br i1 %9, label %_ZN11BigUnsignedaSERKS_.exit, label %10
 
 10:                                               ; preds = %8
@@ -686,7 +686,7 @@ define void @_ZN11BigUnsigned3addERKS_S1_(ptr noundef nonnull align 8 dereferenc
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %12, ptr %13, align 4
   %14 = load i32, ptr %0, align 8
-  %15 = icmp ult i32 %14, %12
+  %15 = icmp ugt i32 %12, %14
   br i1 %15, label %16, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 16:                                               ; preds = %10
@@ -773,7 +773,7 @@ _ZN11BigUnsignedD2Ev.exit64:                      ; preds = %41, %46
   %54 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %52, ptr %54, align 4
   %55 = load i32, ptr %0, align 8
-  %56 = icmp ult i32 %55, %52
+  %56 = icmp ugt i32 %52, %55
   br i1 %56, label %57, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i65
 
 57:                                               ; preds = %53
@@ -828,7 +828,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i65:    ; preds = %62, %53
   %81 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %49, ptr %81, align 4
   %82 = load i32, ptr %0, align 8
-  %83 = icmp ult i32 %82, %49
+  %83 = icmp ugt i32 %49, %82
   br i1 %83, label %84, label %.lr.ph.i.i75
 
 84:                                               ; preds = %80
@@ -885,7 +885,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i73:    ; preds = %84
   %110 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %109, ptr %110, align 4
   %111 = load i32, ptr %0, align 8
-  %112 = icmp ult i32 %111, %109
+  %112 = icmp ugt i32 %109, %111
   br i1 %112, label %113, label %_ZN15NumberlikeArrayImE8allocateEj.exit
 
 113:                                              ; preds = %106
@@ -1054,7 +1054,7 @@ define void @_ZN11BigUnsigned8subtractERKS_S1_(ptr noundef nonnull align 8 deref
           to label %8 unwind label %41
 
 8:                                                ; preds = %7
-  %9 = icmp eq ptr %4, %0
+  %9 = icmp eq ptr %0, %4
   br i1 %9, label %_ZN11BigUnsignedaSERKS_.exit, label %10
 
 10:                                               ; preds = %8
@@ -1063,7 +1063,7 @@ define void @_ZN11BigUnsigned8subtractERKS_S1_(ptr noundef nonnull align 8 deref
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %12, ptr %13, align 4
   %14 = load i32, ptr %0, align 8
-  %15 = icmp ult i32 %14, %12
+  %15 = icmp ugt i32 %12, %14
   br i1 %15, label %16, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 16:                                               ; preds = %10
@@ -1150,7 +1150,7 @@ _ZN11BigUnsignedD2Ev.exit54:                      ; preds = %41, %46
   %54 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %52, ptr %54, align 4
   %55 = load i32, ptr %0, align 8
-  %56 = icmp ult i32 %55, %52
+  %56 = icmp ugt i32 %52, %55
   br i1 %56, label %57, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i55
 
 57:                                               ; preds = %53
@@ -1211,7 +1211,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i55:    ; preds = %62, %53
   %83 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %52, ptr %83, align 4
   %84 = load i32, ptr %0, align 8
-  %85 = icmp ult i32 %84, %52
+  %85 = icmp ugt i32 %52, %84
   br i1 %85, label %86, label %_ZN15NumberlikeArrayImE8allocateEj.exit
 
 86:                                               ; preds = %82
@@ -1397,7 +1397,7 @@ define void @_ZN11BigUnsigned8multiplyERKS_S1_(ptr noundef nonnull align 8 deref
           to label %8 unwind label %41
 
 8:                                                ; preds = %7
-  %9 = icmp eq ptr %4, %0
+  %9 = icmp eq ptr %0, %4
   br i1 %9, label %_ZN11BigUnsignedaSERKS_.exit, label %10
 
 10:                                               ; preds = %8
@@ -1406,7 +1406,7 @@ define void @_ZN11BigUnsigned8multiplyERKS_S1_(ptr noundef nonnull align 8 deref
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %12, ptr %13, align 4
   %14 = load i32, ptr %0, align 8
-  %15 = icmp ult i32 %14, %12
+  %15 = icmp ugt i32 %12, %14
   br i1 %15, label %16, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 16:                                               ; preds = %10
@@ -1503,7 +1503,7 @@ _ZN11BigUnsignedD2Ev.exit57:                      ; preds = %41, %46
   %59 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %58, ptr %59, align 4
   %60 = load i32, ptr %0, align 8
-  %61 = icmp ult i32 %60, %58
+  %61 = icmp ugt i32 %58, %60
   br i1 %61, label %62, label %_ZN15NumberlikeArrayImE8allocateEj.exit
 
 62:                                               ; preds = %57
@@ -1610,7 +1610,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %57, %67
 
 109:                                              ; preds = %102, %95
   %110 = phi i64 [ %108, %102 ], [ 0, %95 ]
-  %111 = icmp eq i32 %96, %.04962
+  %111 = icmp eq i32 %.04962, %96
   br i1 %111, label %_Z15getShiftedBlockRK11BigUnsignedjj.exit, label %112
 
 112:                                              ; preds = %109
@@ -1774,7 +1774,7 @@ _ZN11BigUnsignedD2Ev.exit87:                      ; preds = %_ZN11BigUnsignedC2E
 40:                                               ; preds = %34
   %41 = add i32 %36, 1
   %42 = load i32, ptr %0, align 8
-  %43 = icmp ult i32 %42, %41
+  %43 = icmp ugt i32 %41, %42
   br i1 %43, label %44, label %_ZN15NumberlikeArrayImE15allocateAndCopyEj.exit
 
 44:                                               ; preds = %40
@@ -1824,7 +1824,7 @@ _ZN15NumberlikeArrayImE15allocateAndCopyEj.exit:  ; preds = %40, %._crit_edge.th
   %68 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %67, ptr %68, align 4
   %69 = load i32, ptr %2, align 8
-  %70 = icmp ult i32 %69, %67
+  %70 = icmp ugt i32 %67, %69
   br i1 %70, label %71, label %_ZN15NumberlikeArrayImE8allocateEj.exit
 
 71:                                               ; preds = %_ZN15NumberlikeArrayImE15allocateAndCopyEj.exit
@@ -2083,7 +2083,7 @@ define void @_ZN11BigUnsigned6bitAndERKS_S1_(ptr noundef nonnull align 8 derefer
           to label %8 unwind label %41
 
 8:                                                ; preds = %7
-  %9 = icmp eq ptr %4, %0
+  %9 = icmp eq ptr %0, %4
   br i1 %9, label %_ZN11BigUnsignedaSERKS_.exit, label %10
 
 10:                                               ; preds = %8
@@ -2092,7 +2092,7 @@ define void @_ZN11BigUnsigned6bitAndERKS_S1_(ptr noundef nonnull align 8 derefer
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %12, ptr %13, align 4
   %14 = load i32, ptr %0, align 8
-  %15 = icmp ult i32 %14, %12
+  %15 = icmp ugt i32 %12, %14
   br i1 %15, label %16, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 16:                                               ; preds = %10
@@ -2176,7 +2176,7 @@ _ZN11BigUnsignedD2Ev.exit23:                      ; preds = %41, %46
   %52 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %., ptr %52, align 4
   %53 = load i32, ptr %0, align 8
-  %54 = icmp ult i32 %53, %.
+  %54 = icmp ugt i32 %., %53
   br i1 %54, label %55, label %_ZN15NumberlikeArrayImE8allocateEj.exit
 
 55:                                               ; preds = %47
@@ -2271,7 +2271,7 @@ define void @_ZN11BigUnsigned5bitOrERKS_S1_(ptr noundef nonnull align 8 derefere
           to label %8 unwind label %41
 
 8:                                                ; preds = %7
-  %9 = icmp eq ptr %4, %0
+  %9 = icmp eq ptr %0, %4
   br i1 %9, label %_ZN11BigUnsignedaSERKS_.exit, label %10
 
 10:                                               ; preds = %8
@@ -2280,7 +2280,7 @@ define void @_ZN11BigUnsigned5bitOrERKS_S1_(ptr noundef nonnull align 8 derefere
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %12, ptr %13, align 4
   %14 = load i32, ptr %0, align 8
-  %15 = icmp ult i32 %14, %12
+  %15 = icmp ugt i32 %12, %14
   br i1 %15, label %16, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 16:                                               ; preds = %10
@@ -2366,7 +2366,7 @@ _ZN11BigUnsignedD2Ev.exit36:                      ; preds = %41, %46
   %52 = getelementptr inbounds i8, ptr %., i64 4
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %0, align 8
-  %55 = icmp ult i32 %54, %53
+  %55 = icmp ugt i32 %53, %54
   br i1 %55, label %56, label %_ZN15NumberlikeArrayImE8allocateEj.exit
 
 56:                                               ; preds = %47
@@ -2471,7 +2471,7 @@ define void @_ZN11BigUnsigned6bitXorERKS_S1_(ptr noundef nonnull align 8 derefer
           to label %8 unwind label %41
 
 8:                                                ; preds = %7
-  %9 = icmp eq ptr %4, %0
+  %9 = icmp eq ptr %0, %4
   br i1 %9, label %_ZN11BigUnsignedaSERKS_.exit, label %10
 
 10:                                               ; preds = %8
@@ -2480,7 +2480,7 @@ define void @_ZN11BigUnsigned6bitXorERKS_S1_(ptr noundef nonnull align 8 derefer
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %12, ptr %13, align 4
   %14 = load i32, ptr %0, align 8
-  %15 = icmp ult i32 %14, %12
+  %15 = icmp ugt i32 %12, %14
   br i1 %15, label %16, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 16:                                               ; preds = %10
@@ -2566,7 +2566,7 @@ _ZN11BigUnsignedD2Ev.exit36:                      ; preds = %41, %46
   %52 = getelementptr inbounds i8, ptr %., i64 4
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %0, align 8
-  %55 = icmp ult i32 %54, %53
+  %55 = icmp ugt i32 %53, %54
   br i1 %55, label %56, label %_ZN15NumberlikeArrayImE8allocateEj.exit
 
 56:                                               ; preds = %47
@@ -2691,7 +2691,7 @@ define void @_ZN11BigUnsigned12bitShiftLeftERKS_i(ptr noundef nonnull align 8 de
           to label %7 unwind label %40
 
 7:                                                ; preds = %6
-  %8 = icmp eq ptr %4, %0
+  %8 = icmp eq ptr %0, %4
   br i1 %8, label %_ZN11BigUnsignedaSERKS_.exit, label %9
 
 9:                                                ; preds = %7
@@ -2700,7 +2700,7 @@ define void @_ZN11BigUnsigned12bitShiftLeftERKS_i(ptr noundef nonnull align 8 de
   %12 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %11, ptr %12, align 4
   %13 = load i32, ptr %0, align 8
-  %14 = icmp ult i32 %13, %11
+  %14 = icmp ugt i32 %11, %13
   br i1 %14, label %15, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 15:                                               ; preds = %9
@@ -2805,7 +2805,7 @@ _ZN11BigUnsignedD2Ev.exit34:                      ; preds = %40, %45
   %61 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %60, ptr %61, align 4
   %62 = load i32, ptr %0, align 8
-  %63 = icmp ult i32 %62, %60
+  %63 = icmp ugt i32 %60, %62
   br i1 %63, label %64, label %_ZN15NumberlikeArrayImE8allocateEj.exit
 
 64:                                               ; preds = %54
@@ -2849,7 +2849,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %54, %69
   %81 = phi i32 [ %94, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us ], [ %76, %.preheader ]
   %.037.us = phi i32 [ %92, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us ], [ 0, %.preheader ]
   %.136.us = phi i32 [ %93, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us ], [ %55, %.preheader ]
-  %82 = icmp eq i32 %81, %.037.us
+  %82 = icmp eq i32 %.037.us, %81
   br i1 %82, label %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us, label %83
 
 83:                                               ; preds = %.preheader.split.us
@@ -2898,7 +2898,7 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit.us:     ; preds = %83, %.preheader.spl
 
 107:                                              ; preds = %100, %.preheader.split
   %108 = phi i64 [ %106, %100 ], [ 0, %.preheader.split ]
-  %109 = icmp eq i32 %98, %.037
+  %109 = icmp eq i32 %.037, %98
   br i1 %109, label %_Z15getShiftedBlockRK11BigUnsignedjj.exit, label %110
 
 110:                                              ; preds = %107
@@ -2952,7 +2952,7 @@ define void @_ZN11BigUnsigned13bitShiftRightERKS_i(ptr noundef nonnull align 8 d
           to label %7 unwind label %40
 
 7:                                                ; preds = %6
-  %8 = icmp eq ptr %4, %0
+  %8 = icmp eq ptr %0, %4
   br i1 %8, label %_ZN11BigUnsignedaSERKS_.exit, label %9
 
 9:                                                ; preds = %7
@@ -2961,7 +2961,7 @@ define void @_ZN11BigUnsigned13bitShiftRightERKS_i(ptr noundef nonnull align 8 d
   %12 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %11, ptr %12, align 4
   %13 = load i32, ptr %0, align 8
-  %14 = icmp ult i32 %13, %11
+  %14 = icmp ugt i32 %11, %13
   br i1 %14, label %15, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 15:                                               ; preds = %9
@@ -3077,7 +3077,7 @@ _ZN11BigUnsignedD2Ev.exit34:                      ; preds = %40, %45
   %66 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %65, ptr %66, align 4
   %67 = load i32, ptr %0, align 8
-  %68 = icmp ult i32 %67, %65
+  %68 = icmp ugt i32 %65, %67
   br i1 %68, label %69, label %_ZN15NumberlikeArrayImE8allocateEj.exit
 
 69:                                               ; preds = %64
@@ -3116,7 +3116,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %64, %74
   %85 = phi i32 [ %99, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us ], [ %78, %.lr.ph ]
   %.037.us = phi i32 [ %97, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us ], [ %56, %.lr.ph ]
   %.02536.us = phi i32 [ %98, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us ], [ 0, %.lr.ph ]
-  %86 = icmp eq i32 %85, %.037.us
+  %86 = icmp eq i32 %.037.us, %85
   br i1 %86, label %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us, label %87
 
 87:                                               ; preds = %.lr.ph.split.us
@@ -3157,7 +3157,7 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit.us:     ; preds = %87, %.lr.ph.split.u
 
 109:                                              ; preds = %102, %.lr.ph.split
   %110 = phi i64 [ %108, %102 ], [ 0, %.lr.ph.split ]
-  %111 = icmp eq i32 %100, %.037
+  %111 = icmp eq i32 %.037, %100
   br i1 %111, label %_Z15getShiftedBlockRK11BigUnsignedjj.exit, label %112
 
 112:                                              ; preds = %109
@@ -3238,7 +3238,7 @@ define void @_ZN11BigUnsignedppEv(ptr nocapture noundef nonnull align 8 derefere
   %18 = phi i32 [ %14, %._crit_edge ], [ 0, %1 ]
   %19 = add i32 %18, 1
   %20 = load i32, ptr %0, align 8
-  %21 = icmp ult i32 %20, %19
+  %21 = icmp ugt i32 %19, %20
   br i1 %21, label %22, label %_ZN15NumberlikeArrayImE15allocateAndCopyEj.exit
 
 22:                                               ; preds = %._crit_edge.thread
@@ -3326,7 +3326,7 @@ define void @_ZN11BigUnsignedppEi(ptr nocapture noundef nonnull align 8 derefere
   %19 = phi i32 [ %15, %._crit_edge.i ], [ 0, %2 ]
   %20 = add i32 %19, 1
   %21 = load i32, ptr %0, align 8
-  %22 = icmp ult i32 %21, %20
+  %22 = icmp ugt i32 %20, %21
   br i1 %22, label %23, label %_ZN15NumberlikeArrayImE15allocateAndCopyEj.exit.i
 
 23:                                               ; preds = %._crit_edge.thread.i

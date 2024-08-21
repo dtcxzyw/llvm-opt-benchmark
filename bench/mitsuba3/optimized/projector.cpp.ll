@@ -430,14 +430,14 @@ _ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.ex
 61:                                               ; preds = %59
   %62 = getelementptr inbounds i8, ptr %8, i64 8
   %63 = load ptr, ptr %62, align 8
-  %.not6.i.i.i.i = icmp eq ptr %63, %60
+  %.not6.i.i.i.i = icmp eq ptr %60, %63
   br i1 %.not6.i.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %61, %.lr.ph.i.i.i.i
   %.07.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i ], [ %63, %61 ]
   %64 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -24
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %64) #24
-  %.not.i.i.i.i = icmp eq ptr %64, %60
+  %.not.i.i.i.i = icmp eq ptr %60, %64
   br i1 %.not.i.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i
@@ -651,14 +651,14 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_t
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not6.i.i.i = icmp eq ptr %5, %2
+  %.not6.i.i.i = icmp eq ptr %2, %5
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.07.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %5, %3 ]
   %6 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 -24
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
-  %.not.i.i.i = icmp eq ptr %6, %2
+  %.not.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit: ; preds = %.lr.ph.i.i.i
@@ -823,8 +823,8 @@ _ZN5drjit5scaleINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !44
   %66 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %59, <4 x float> zeroinitializer, i8 -1)
   %67 = fadd contract <4 x float> %66, %66
-  %68 = fneg contract <4 x float> %66
-  %69 = fmul contract <4 x float> %59, %68
+  %68 = fneg contract <4 x float> %59
+  %69 = fmul contract <4 x float> %66, %68
   %70 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %69, <4 x float> %66, <4 x float> %67)
   %71 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %70, <4 x float> %59, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
@@ -1018,8 +1018,8 @@ _ZN5drjit5scaleINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !108
   %157 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %150, <4 x float> zeroinitializer, i8 -1)
   %158 = fadd contract <4 x float> %157, %157
-  %159 = fneg contract <4 x float> %157
-  %160 = fmul contract <4 x float> %150, %159
+  %159 = fneg contract <4 x float> %150
+  %160 = fmul contract <4 x float> %157, %159
   %161 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %160, <4 x float> %157, <4 x float> %158)
   %162 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %161, <4 x float> %150, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
@@ -1301,7 +1301,7 @@ _ZN5drjitmlIffLm4EEENS_6MatrixINS_6detail14replace_scalarINS2_7deepestIJT_T0_EE4
   %310 = xor i32 %308, %309
   %311 = bitcast i32 %310 to float
   %312 = fdiv contract float 1.000000e+00, %311
-  %313 = fmul contract float %275, %6
+  %313 = fmul contract float %6, %275
   %314 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %312, i64 0
   %315 = insertelement <4 x float> %314, float %312, i64 1
   %316 = insertelement <4 x float> %315, float %313, i64 2
@@ -1323,7 +1323,7 @@ _ZN5drjitmlIffLm4EEENS_6MatrixINS_6detail14replace_scalarINS2_7deepestIJT_T0_EE4
 
 _ZN5drjit4diagIN7mitsuba6VectorIfLm4EEETnNSt3__19enable_ifIXnt11is_matrix_vIT_EEiE4typeELi0EEENS_6MatrixINS_6detail5valueIS6_iE4typeEXsrS6_4SizeEEERKS6_.exit.i: ; preds = %317
   %323 = fneg contract float %5
-  %324 = fmul contract float %323, %6
+  %324 = fmul contract float %6, %323
   %325 = fmul contract float %324, %275
   %326 = getelementptr inbounds i8, ptr %7, i64 56
   store float %325, ptr %326, align 8, !noalias !177
@@ -1666,8 +1666,8 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   %106 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> zeroinitializer
   %107 = call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %106, <4 x float> zeroinitializer, i8 -1)
   %108 = fadd contract <4 x float> %107, %107
-  %109 = fneg contract <4 x float> %107
-  %110 = fmul contract <4 x float> %106, %109
+  %109 = fneg contract <4 x float> %106
+  %110 = fmul contract <4 x float> %107, %109
   %111 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %110, <4 x float> %107, <4 x float> %108)
   %112 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %111, <4 x float> %106, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !235
@@ -5137,7 +5137,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63

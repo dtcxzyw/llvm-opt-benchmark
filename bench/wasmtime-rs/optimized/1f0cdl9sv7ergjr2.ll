@@ -481,7 +481,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.72528
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -2105,7 +2105,7 @@ define { i64, ptr } @_ZN16wasmtime_runtime9component9resources13ResourceTable7ge
 define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN16wasmtime_runtime9component9resources13ResourceTable7get_mut28_$u7b$$u7b$closure$u7d$$u7d$17haefadecd7c078702E.llvm.7252875092725274804"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !14
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !14
   %8 = getelementptr inbounds { i32, [3 x i32] }, ptr %7, i64 %1
@@ -5846,7 +5846,7 @@ default.unreachable:                              ; preds = %232, %113, %"_ZN106
 
 .split:                                           ; preds = %.split8.i.i.i, %.split4.i.i.i, %23
   %.0.i.i.i = phi i32 [ %34, %.split4.i.i.i ], [ %35, %.split8.i.i.i ], [ %25, %23 ]
-  %36 = icmp ult i32 %.0.i.i.i, %20
+  %36 = icmp ugt i32 %20, %.0.i.i.i
   br i1 %36, label %_ZN16wasmtime_runtime5table5Table13copy_elements17h6c65b010ebe9a70dE.exit, label %37
 
 37:                                               ; preds = %.split
@@ -5901,7 +5901,7 @@ default.unreachable:                              ; preds = %232, %113, %"_ZN106
 
 .split16:                                         ; preds = %.split8.i.i.i25, %.split4.i.i.i28, %42
   %.0.i.i.i26 = phi i32 [ %53, %.split4.i.i.i28 ], [ %54, %.split8.i.i.i25 ], [ %44, %42 ]
-  %55 = icmp ult i32 %.0.i.i.i26, %39
+  %55 = icmp ugt i32 %39, %.0.i.i.i26
   br i1 %55, label %_ZN16wasmtime_runtime5table5Table13copy_elements17h6c65b010ebe9a70dE.exit, label %56
 
 56:                                               ; preds = %.split16
@@ -5951,7 +5951,7 @@ default.unreachable:                              ; preds = %232, %113, %"_ZN106
 
 _ZN16wasmtime_runtime5table5Table12funcrefs_mut17h66f8518076e65e45E.exit.i: ; preds = %74, %69
   %.sroa.3.0.i.i = phi i64 [ %72, %69 ], [ %76, %74 ]
-  %77 = icmp ult i64 %.sroa.3.0.i.i, %61
+  %77 = icmp ugt i64 %61, %.sroa.3.0.i.i
   br i1 %77, label %78, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2bbf1ee812b88bd9E.exit.i"
 
 78:                                               ; preds = %_ZN16wasmtime_runtime5table5Table12funcrefs_mut17h66f8518076e65e45E.exit.i
@@ -6006,7 +6006,7 @@ _ZN16wasmtime_runtime5table5Table12funcrefs_mut17h66f8518076e65e45E.exit.i: ; pr
 
 _ZN16wasmtime_runtime5table5Table8funcrefs17h64b50384a6a1b2f6E.exit.i: ; preds = %91, %86
   %.sroa.3.0.i11.i = phi i64 [ %89, %86 ], [ %93, %91 ]
-  %94 = icmp ult i64 %.sroa.3.0.i11.i, %59
+  %94 = icmp ugt i64 %59, %.sroa.3.0.i11.i
   br i1 %94, label %95, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8f12f046be150280E.exit.i"
 
 95:                                               ; preds = %_ZN16wasmtime_runtime5table5Table8funcrefs17h64b50384a6a1b2f6E.exit.i
@@ -6054,7 +6054,7 @@ _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit.i: ; preds = 
   %.sroa.3.0.i16.i = phi i64 [ %110, %108 ], [ %104, %99 ]
   %.sroa.0.0.in.i17.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.0.0.i18.i = load ptr, ptr %.sroa.0.0.in.i17.i, align 8, !alias.scope !809, !noalias !813, !nonnull !14, !noundef !14
-  %.not.i = icmp ult i64 %.sroa.3.0.i16.i, %61
+  %.not.i = icmp ugt i64 %61, %.sroa.3.0.i16.i
   br i1 %.not.i, label %112, label %113
 
 112:                                              ; preds = %_ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit.i
@@ -6116,7 +6116,7 @@ _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit28.i: ; preds 
   %.sroa.3.0.i22.i = phi i64 [ %130, %128 ], [ %124, %119 ]
   %.sroa.0.0.in.i23.i = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.0.0.i24.i = load ptr, ptr %.sroa.0.0.in.i23.i, align 8, !alias.scope !811, !noalias !827, !nonnull !14, !noundef !14
-  %.not8.i = icmp ult i64 %.sroa.3.0.i22.i, %59
+  %.not8.i = icmp ugt i64 %59, %.sroa.3.0.i22.i
   br i1 %.not8.i, label %132, label %133
 
 132:                                              ; preds = %_ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit28.i
@@ -6181,14 +6181,14 @@ _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit28.i: ; preds 
   br i1 %.not.i39.i, label %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us.us.us.i, label %.lr.ph.split.us.split.us.split.split.split.us.split.us.split.i
 
 _ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us.us.us.i: ; preds = %.lr.ph.split.us.split.us.split.split.split.us.split.us.i
-  %148 = icmp ugt i32 %137, %3
+  %148 = icmp ult i32 %3, %137
   br i1 %148, label %.split100.us.split.us.split.us.split.us.split.us.i, label %.split94.us.i, !prof !102
 
 .lr.ph.split.us.split.us.split.split.split.us.split.us.split.i: ; preds = %.lr.ph.split.us.split.us.split.split.split.us.split.us.i
   br i1 %145, label %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us.us.us177.i, label %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us.us.i
 
 _ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us.us.us177.i: ; preds = %.lr.ph.split.us.split.us.split.split.split.us.split.us.split.i
-  %149 = icmp ugt i32 %137, %3
+  %149 = icmp ult i32 %3, %137
   br i1 %149, label %.split102.us.split.us.split.us.split.us.split.us.i, label %.split94.us.i, !prof !102
 
 _ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us.us.i: ; preds = %.lr.ph.split.us.split.us.split.split.split.us.split.us.split.i, %_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit.us.us.us.us.i
@@ -6241,7 +6241,7 @@ _ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit.us.us.us
   br i1 %exitcond219.not.i, label %_ZN16wasmtime_runtime5table5Table13copy_elements17h6c65b010ebe9a70dE.exit, label %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us.us.i
 
 _ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us.i: ; preds = %.lr.ph.split.us.split.us.split.split.split.us.i
-  %169 = icmp ugt i32 %137, %3
+  %169 = icmp ult i32 %3, %137
   br i1 %169, label %.split98.us.split.us.split.us.i, label %.split94.us.i, !prof !102
 
 _ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.i: ; preds = %.lr.ph.split.us.split.us.split.split.i, %_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit.us.us.i

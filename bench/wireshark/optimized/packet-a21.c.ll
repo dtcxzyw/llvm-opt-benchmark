@@ -368,7 +368,7 @@ define void @dissect_a21_ie_common(ptr noundef %0, ptr noundef %1, ptr noundef %
   %18 = alloca i32, align 4
   %19 = alloca ptr, align 8
   %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %21 = icmp sgt i32 %20, %4
+  %21 = icmp slt i32 %4, %20
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %dissect_a21_mobile_identity.exit

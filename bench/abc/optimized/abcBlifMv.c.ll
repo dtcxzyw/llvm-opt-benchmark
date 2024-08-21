@@ -97,7 +97,7 @@ Abc_NtkMvVarMan.exit:                             ; preds = %6, %11
   %19 = getelementptr i8, ptr %.val8.val.val, i64 96
   %.val8.val.val.val = load ptr, ptr %19, align 8
   %20 = load i32, ptr %.val8.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %20, %.val9
+  %.not.i.i = icmp slt i32 %.val9, %20
   br i1 %.not.i.i, label %Abc_ObjSetMvVar.exit, label %21
 
 21:                                               ; preds = %Abc_NtkMvVarMan.exit
@@ -166,7 +166,7 @@ define internal fastcc ptr @Abc_ObjMvVar(ptr nocapture noundef readonly %0) unna
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr %.val.val.val, align 8
-  %.not.i = icmp sgt i32 %9, %8
+  %.not.i = icmp slt i32 %8, %9
   br i1 %.not.i, label %Vec_AttGrow.exit.i, label %10
 
 10:                                               ; preds = %6
@@ -3642,13 +3642,13 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

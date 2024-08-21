@@ -339,7 +339,7 @@ define internal i64 @usbdev_read(ptr nocapture noundef readonly %0, ptr noundef 
   %25 = trunc nuw nsw i64 %10 to i32
   %26 = sub nuw nsw i32 18, %25
   %27 = zext nneg i32 %26 to i64
-  %28 = icmp ugt i64 %27, %2
+  %28 = icmp ult i64 %2, %27
   %29 = trunc i64 %2 to i32
   %30 = select i1 %28, i32 %29, i32 %26
   %31 = zext nneg i32 %30 to i64

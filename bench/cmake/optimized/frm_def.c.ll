@@ -66,7 +66,7 @@ Associate_Fields.exit:                            ; preds = %3
   %.021.i.i = phi ptr [ %28, %27 ], [ %20, %.preheader.i.i ]
   %23 = getelementptr inbounds i8, ptr %22, i64 80
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, %2
+  %25 = icmp eq ptr %2, %24
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %.lr.ph.i.i
@@ -159,7 +159,7 @@ define dso_local range(i32 -3, 1) i32 @free_form(ptr noundef %0) local_unnamed_a
   %.021.i = phi ptr [ %15, %14 ], [ %7, %.preheader.i ]
   %10 = getelementptr inbounds i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %0
+  %12 = icmp eq ptr %0, %11
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %.lr.ph.i
@@ -242,7 +242,7 @@ define dso_local range(i32 -4, 1) i32 @set_form_fields(ptr noundef %0, ptr nound
   %.021.i = phi ptr [ %16, %15 ], [ %8, %.preheader.i ]
   %11 = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %0
+  %13 = icmp eq ptr %0, %12
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %.lr.ph.i

@@ -1913,7 +1913,7 @@ test_independent_groups.exit.us.i.i:              ; preds = %.lr.ph.i192.i, %520
 independent_groups.exit.us.i.i.i:                 ; preds = %539
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %546 = trunc nuw i64 %indvars.iv.next.i.i.i to i32
-  %547 = icmp slt i32 %546, %436
+  %547 = icmp sgt i32 %436, %546
   br i1 %547, label %.preheader20.lr.ph.i.us.i.i.i, label %test_independent_groups.exit.i.i, !llvm.loop !36
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i
@@ -3229,7 +3229,7 @@ define internal fastcc void @create_dumb_tree(ptr noundef %0, i32 noundef %1, pt
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, -1
-  %7 = icmp eq i32 %6, %1
+  %7 = icmp eq i32 %1, %6
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
@@ -3433,7 +3433,7 @@ add_to_list.exit:                                 ; preds = %._crit_edge.thread.
   %68 = add nsw i32 %9, %4
   %69 = add nsw i32 %3, %2
   %.not = icmp sge i32 %68, %69
-  %70 = icmp sgt i32 %9, %2
+  %70 = icmp slt i32 %2, %9
   %or.cond = and i1 %.not, %70
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
@@ -3907,7 +3907,7 @@ tailrecurse.us:                                   ; preds = %17, %.lr.ph.us
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %25 = trunc nsw i64 %indvars.iv.next to i32
-  %26 = icmp eq i32 %25, %5
+  %26 = icmp eq i32 %5, %25
   br i1 %26, label %tailrecurse._crit_edge, label %.preheader.us
 
 .lr.ph.us:                                        ; preds = %.preheader.us
@@ -3999,7 +3999,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.us, %ta
 
 58:                                               ; preds = %57, %tailrecurse._crit_edge
   %59 = load double, ptr %7, align 8
-  %60 = fcmp ogt double %59, %.tr54.lcssa
+  %60 = fcmp olt double %.tr54.lcssa, %59
   br i1 %60, label %61, label %.loopexit
 
 61:                                               ; preds = %58
@@ -4046,7 +4046,7 @@ tailrecurse:                                      ; preds = %70, %.loopexit58.sp
   %77 = add nsw i32 %.163, 1
   %indvars.iv.next92 = add nsw i64 %indvars.iv91, 1
   %78 = trunc nsw i64 %indvars.iv.next92 to i32
-  %79 = icmp eq i32 %78, %5
+  %79 = icmp eq i32 %5, %78
   br i1 %79, label %tailrecurse._crit_edge, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader.us, %.preheader, %independent_groups.exit.us, %.lr.ph73, %61, %58
@@ -4538,7 +4538,7 @@ define internal fastcc ptr @generate_work_units(ptr noundef %0, i32 noundef %1, 
   %8 = getelementptr inbounds i32, ptr %3, i64 %7
   store i32 %2, ptr %8, align 4
   %9 = add nsw i32 %4, -1
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %6
@@ -4558,7 +4558,7 @@ define internal fastcc ptr @generate_work_units(ptr noundef %0, i32 noundef %1, 
 
 19:                                               ; preds = %6
   %20 = add nsw i32 %5, -1
-  %21 = icmp eq i32 %20, %2
+  %21 = icmp eq i32 %2, %20
   br i1 %21, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %19

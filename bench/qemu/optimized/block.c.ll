@@ -1527,7 +1527,7 @@ if.end3:                                          ; preds = %for.cond.preheader.
   %add.ptr.i = getelementptr i8, ptr %filename, i64 %call.i19
   %1 = load i8, ptr %add.ptr.i, align 1
   %cmp.i20 = icmp eq i8 %1, 58
-  %brmerge.not = and i1 %cmp.i20, %allow_protocol_prefix
+  %brmerge.not = and i1 %allow_protocol_prefix, %cmp.i20
   br i1 %brmerge.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end3
@@ -2278,11 +2278,11 @@ if.else19:                                        ; preds = %do.end
 if.end20:                                         ; preds = %if.else19, %if.then18
   %and12 = and i32 %role, 2
   %tobool13.not = icmp ne i32 %and12, 0
-  %or.cond25 = and i1 %tobool11.not, %parent_is_format
+  %or.cond25 = and i1 %parent_is_format, %tobool11.not
   %or.cond26.not = or i1 %tobool13.not, %or.cond25
   %0 = and i32 %role, 7
   %1 = icmp ne i32 %0, 1
-  %or.cond24.not = or i1 %1, %parent_is_format
+  %or.cond24.not = or i1 %parent_is_format, %1
   %and6 = and i32 %parent_flags, -32769
   %flags.0 = select i1 %or.cond24.not, i32 %parent_flags, i32 %and6
   %or = or i32 %flags.0, 32768
@@ -2826,10 +2826,10 @@ if.end7:                                          ; preds = %if.end, %if.then1
   %backing = getelementptr inbounds i8, ptr %0, i64 16832
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %backing, align 8
-  %cmp16 = icmp eq ptr %7, %child
+  %cmp16 = icmp eq ptr %child, %7
   %file = getelementptr inbounds i8, ptr %0, i64 16840
   %8 = load ptr, ptr %file, align 8
-  %cmp18.not = icmp eq ptr %8, %child
+  %cmp18.not = icmp eq ptr %child, %8
   br i1 %cmp16, label %if.then17, label %if.else22
 
 if.then17:                                        ; preds = %if.end7
@@ -4090,7 +4090,7 @@ if.then3:                                         ; preds = %bdrv_child_set_perm
   call void @tran_abort(ptr noundef %call) #31
   %3 = load i64, ptr %perm2.i, align 8
   %not = xor i64 %3, -1
-  %and = and i64 %not, %perm
+  %and = and i64 %perm, %not
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then8
 
@@ -7985,7 +7985,7 @@ for.body:                                         ; preds = %if.end13, %for.inc
   %bs_entry.0142 = phi ptr [ %bs_entry.0, %for.inc ], [ %bs_entry.0140, %if.end13 ]
   %state = getelementptr inbounds i8, ptr %bs_entry.0142, i64 8
   %0 = load ptr, ptr %state, align 8
-  %cmp16 = icmp eq ptr %0, %bs
+  %cmp16 = icmp eq ptr %bs, %0
   br i1 %cmp16, label %if.then22, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -11212,7 +11212,7 @@ bdrv_chain_contains.exit:                         ; preds = %bdrv_filter_or_cow_
 if.end7:                                          ; preds = %while.cond.preheader.i, %bdrv_chain_contains.exit
   %call8 = tail call ptr @bdrv_skip_implicit_filters(ptr noundef %top)
   %tobool4.i33 = icmp ne ptr %base, null
-  %cmp5.i34 = icmp ne ptr %call8, %base
+  %cmp5.i34 = icmp ne ptr %base, %call8
   %5 = and i1 %tobool4.i33, %cmp5.i34
   br i1 %5, label %while.body.i36, label %bdrv_inherits_from_recursive.exit
 
@@ -16233,7 +16233,7 @@ land.end.i:                                       ; preds = %rcu_read_auto_lock.
   %6 = load i64, ptr %data_end.i, align 8
   %sub.i4.i.i = add i64 %6, -1
   %cmp.i.i = icmp uge i64 %sub.i4.i.i, %offset
-  %cmp2.i.i = icmp ule i64 %5, %offset
+  %cmp2.i.i = icmp uge i64 %offset, %5
   %.not.i.i = and i1 %cmp2.i.i, %cmp.i.i
   %tobool12.i = icmp ne ptr %pnum, null
   %or.cond.i = and i1 %tobool12.i, %.not.i.i

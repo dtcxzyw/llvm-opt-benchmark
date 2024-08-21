@@ -13455,7 +13455,7 @@ define weak_odr hidden void @_ZN16interval_managerIN13dep_intervals9im_configEE2
 entry:
   %m_pi_n = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load i32, ptr %m_pi_n, align 8
-  %cmp = icmp ult i32 %0, %n
+  %cmp = icmp ugt i32 %n, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

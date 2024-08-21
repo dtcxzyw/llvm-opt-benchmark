@@ -1817,7 +1817,7 @@ define internal fastcc ptr @ddSymmSiftingDown(ptr noundef %0, i32 noundef %1, i3
   %16 = getelementptr inbounds i8, ptr %0, i64 304
   %17 = load i32, ptr %16, align 8
   %18 = sub i32 %15, %17
-  %19 = icmp slt i32 %13, %2
+  %19 = icmp sgt i32 %2, %13
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -2328,7 +2328,7 @@ define internal fastcc ptr @ddSymmSiftingUp(ptr noundef %0, i32 noundef %1, i32 
 
 .preheader:                                       ; preds = %16
   %21 = sub i32 %11, %13
-  %.not.not150 = icmp sgt i32 %.0124, %2
+  %.not.not150 = icmp slt i32 %2, %.0124
   br i1 %.not.not150, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader

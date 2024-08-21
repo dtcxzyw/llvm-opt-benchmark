@@ -519,7 +519,7 @@ define void @_Z11duAppendArcP11duDebugDrawfffffffffj(ptr noundef %0, float nound
   %21 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %20)
   %22 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %21)
   %sqrt = tail call float @llvm.sqrt.f32(float %22)
-  %23 = fmul float %sqrt, %7
+  %23 = fmul float %7, %sqrt
   %24 = tail call float @llvm.fmuladd.f32(float %17, float 0x3FA99999A0000000, float %1)
   %25 = tail call float @llvm.fmuladd.f32(float %18, float 0x3FA99999A0000000, float %2)
   %26 = tail call float @llvm.fmuladd.f32(float %23, float 0x3FC851EBE0000000, float %25)
@@ -1516,17 +1516,17 @@ define void @_Z15appendArrowHeadP11duDebugDrawPKfS2_fj(ptr noundef %0, ptr nound
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, i32 noundef %4)
   %44 = load float, ptr %1, align 4
   %45 = tail call float @llvm.fmuladd.f32(float %32, float %3, float %44)
-  %46 = fmul float %36, %3
+  %46 = fmul float %3, %36
   %47 = fdiv float %46, 3.000000e+00
   %48 = fadd float %47, %45
   %49 = load float, ptr %10, align 4
   %50 = tail call float @llvm.fmuladd.f32(float %33, float %3, float %49)
-  %51 = fmul float %38, %3
+  %51 = fmul float %3, %38
   %52 = fdiv float %51, 3.000000e+00
   %53 = fadd float %52, %50
   %54 = load float, ptr %15, align 4
   %55 = tail call float @llvm.fmuladd.f32(float %34, float %3, float %54)
-  %56 = fmul float %40, %3
+  %56 = fmul float %3, %40
   %57 = fdiv float %56, 3.000000e+00
   %58 = fadd float %57, %55
   %59 = load ptr, ptr %0, align 8

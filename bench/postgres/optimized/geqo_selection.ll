@@ -11,112 +11,115 @@ define dso_local void @geqo_selection(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = load i32, ptr %6, align 8
   %8 = sitofp i32 %7 to double
   %9 = fadd double %4, -1.000000e+00
-  %10 = fmul double %9, -4.000000e+00
+  %10 = fmul double %9, 4.000000e+00
   br label %11
 
-11:                                               ; preds = %18, %5
+11:                                               ; preds = %19, %5
   %12 = tail call double @geqo_rand(ptr noundef %0) #4
-  %13 = fmul double %10, %12
-  %14 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %13)
-  %15 = fcmp ogt double %14, 0.000000e+00
-  br i1 %15, label %16, label %18
+  %13 = fneg double %12
+  %14 = fmul double %10, %13
+  %15 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %14)
+  %16 = fcmp ogt double %15, 0.000000e+00
+  br i1 %16, label %17, label %19
 
-16:                                               ; preds = %11
-  %17 = tail call double @sqrt(double noundef %14) #4
-  br label %18
+17:                                               ; preds = %11
+  %18 = tail call double @sqrt(double noundef %15) #4
+  br label %19
 
-18:                                               ; preds = %16, %11
-  %.0.i = phi double [ %17, %16 ], [ %14, %11 ]
-  %19 = fsub double %4, %.0.i
-  %20 = fmul double %19, %8
-  %21 = fmul double %20, 5.000000e-01
-  %22 = fdiv double %21, %9
-  %23 = fcmp olt double %22, 0.000000e+00
-  %24 = fcmp oge double %22, %8
-  %25 = or i1 %23, %24
-  br i1 %25, label %11, label %linear_rand.exit, !llvm.loop !5
+19:                                               ; preds = %17, %11
+  %.0.i = phi double [ %18, %17 ], [ %15, %11 ]
+  %20 = fsub double %4, %.0.i
+  %21 = fmul double %20, %8
+  %22 = fmul double %21, 5.000000e-01
+  %23 = fdiv double %22, %9
+  %24 = fcmp olt double %23, 0.000000e+00
+  %25 = fcmp oge double %23, %8
+  %26 = or i1 %24, %25
+  br i1 %26, label %11, label %linear_rand.exit, !llvm.loop !5
 
-linear_rand.exit:                                 ; preds = %18
-  %26 = load i32, ptr %6, align 8
-  %27 = sitofp i32 %26 to double
-  br label %28
+linear_rand.exit:                                 ; preds = %19
+  %27 = load i32, ptr %6, align 8
+  %28 = sitofp i32 %27 to double
+  br label %29
 
-28:                                               ; preds = %35, %linear_rand.exit
-  %29 = tail call double @geqo_rand(ptr noundef %0) #4
-  %30 = fmul double %10, %29
-  %31 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %30)
-  %32 = fcmp ogt double %31, 0.000000e+00
-  br i1 %32, label %33, label %35
+29:                                               ; preds = %37, %linear_rand.exit
+  %30 = tail call double @geqo_rand(ptr noundef %0) #4
+  %31 = fneg double %30
+  %32 = fmul double %10, %31
+  %33 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %32)
+  %34 = fcmp ogt double %33, 0.000000e+00
+  br i1 %34, label %35, label %37
 
-33:                                               ; preds = %28
-  %34 = tail call double @sqrt(double noundef %31) #4
-  br label %35
+35:                                               ; preds = %29
+  %36 = tail call double @sqrt(double noundef %33) #4
+  br label %37
 
-35:                                               ; preds = %33, %28
-  %.0.i21 = phi double [ %34, %33 ], [ %31, %28 ]
-  %36 = fsub double %4, %.0.i21
-  %37 = fmul double %36, %27
-  %38 = fmul double %37, 5.000000e-01
-  %39 = fdiv double %38, %9
-  %40 = fcmp olt double %39, 0.000000e+00
-  %41 = fcmp oge double %39, %27
-  %42 = or i1 %40, %41
-  br i1 %42, label %28, label %linear_rand.exit22, !llvm.loop !5
+37:                                               ; preds = %35, %29
+  %.0.i21 = phi double [ %36, %35 ], [ %33, %29 ]
+  %38 = fsub double %4, %.0.i21
+  %39 = fmul double %38, %28
+  %40 = fmul double %39, 5.000000e-01
+  %41 = fdiv double %40, %9
+  %42 = fcmp olt double %41, 0.000000e+00
+  %43 = fcmp oge double %41, %28
+  %44 = or i1 %42, %43
+  br i1 %44, label %29, label %linear_rand.exit22, !llvm.loop !5
 
-linear_rand.exit22:                               ; preds = %35
-  %43 = fptosi double %22 to i32
-  %44 = fptosi double %39 to i32
-  %45 = load i32, ptr %6, align 8
-  %46 = icmp sgt i32 %45, 1
-  %47 = icmp eq i32 %44, %43
-  %or.cond = select i1 %46, i1 %47, i1 false
+linear_rand.exit22:                               ; preds = %37
+  %45 = fptosi double %23 to i32
+  %46 = fptosi double %41 to i32
+  %47 = load i32, ptr %6, align 8
+  %48 = icmp sgt i32 %47, 1
+  %49 = icmp eq i32 %46, %45
+  %or.cond = select i1 %48, i1 %49, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %linear_rand.exit22, %linear_rand.exit24
-  %48 = load i32, ptr %6, align 8
-  %49 = sitofp i32 %48 to double
-  br label %50
+  %50 = load i32, ptr %6, align 8
+  %51 = sitofp i32 %50 to double
+  br label %52
 
-50:                                               ; preds = %57, %.lr.ph
-  %51 = tail call double @geqo_rand(ptr noundef %0) #4
-  %52 = fmul double %10, %51
-  %53 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %52)
-  %54 = fcmp ogt double %53, 0.000000e+00
-  br i1 %54, label %55, label %57
+52:                                               ; preds = %60, %.lr.ph
+  %53 = tail call double @geqo_rand(ptr noundef %0) #4
+  %54 = fneg double %53
+  %55 = fmul double %10, %54
+  %56 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %55)
+  %57 = fcmp ogt double %56, 0.000000e+00
+  br i1 %57, label %58, label %60
 
-55:                                               ; preds = %50
-  %56 = tail call double @sqrt(double noundef %53) #4
-  br label %57
+58:                                               ; preds = %52
+  %59 = tail call double @sqrt(double noundef %56) #4
+  br label %60
 
-57:                                               ; preds = %55, %50
-  %.0.i23 = phi double [ %56, %55 ], [ %53, %50 ]
-  %58 = fsub double %4, %.0.i23
-  %59 = fmul double %58, %49
-  %60 = fmul double %59, 5.000000e-01
-  %61 = fdiv double %60, %9
-  %62 = fcmp olt double %61, 0.000000e+00
-  %63 = fcmp oge double %61, %49
-  %64 = or i1 %62, %63
-  br i1 %64, label %50, label %linear_rand.exit24, !llvm.loop !5
+60:                                               ; preds = %58, %52
+  %.0.i23 = phi double [ %59, %58 ], [ %56, %52 ]
+  %61 = fsub double %4, %.0.i23
+  %62 = fmul double %61, %51
+  %63 = fmul double %62, 5.000000e-01
+  %64 = fdiv double %63, %9
+  %65 = fcmp olt double %64, 0.000000e+00
+  %66 = fcmp oge double %64, %51
+  %67 = or i1 %65, %66
+  br i1 %67, label %52, label %linear_rand.exit24, !llvm.loop !5
 
-linear_rand.exit24:                               ; preds = %57
-  %65 = fptosi double %61 to i32
-  %66 = icmp eq i32 %65, %43
-  br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !7
+linear_rand.exit24:                               ; preds = %60
+  %68 = fptosi double %64 to i32
+  %69 = icmp eq i32 %68, %45
+  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %linear_rand.exit24, %linear_rand.exit22
-  %.0 = phi i32 [ %44, %linear_rand.exit22 ], [ %65, %linear_rand.exit24 ]
-  %67 = load ptr, ptr %3, align 8
-  %68 = sext i32 %43 to i64
-  %69 = getelementptr %struct.Chromosome, ptr %67, i64 %68
-  %70 = getelementptr inbounds i8, ptr %3, i64 12
-  %71 = load i32, ptr %70, align 4
-  tail call void @geqo_copy(ptr noundef %0, ptr noundef %1, ptr noundef %69, i32 noundef %71) #4
-  %72 = load ptr, ptr %3, align 8
-  %73 = sext i32 %.0 to i64
-  %74 = getelementptr %struct.Chromosome, ptr %72, i64 %73
-  %75 = load i32, ptr %70, align 4
-  tail call void @geqo_copy(ptr noundef %0, ptr noundef %2, ptr noundef %74, i32 noundef %75) #4
+  %.0 = phi i32 [ %46, %linear_rand.exit22 ], [ %68, %linear_rand.exit24 ]
+  %70 = load ptr, ptr %3, align 8
+  %71 = sext i32 %45 to i64
+  %72 = getelementptr %struct.Chromosome, ptr %70, i64 %71
+  %73 = getelementptr inbounds i8, ptr %3, i64 12
+  %74 = load i32, ptr %73, align 4
+  tail call void @geqo_copy(ptr noundef %0, ptr noundef %1, ptr noundef %72, i32 noundef %74) #4
+  %75 = load ptr, ptr %3, align 8
+  %76 = sext i32 %.0 to i64
+  %77 = getelementptr %struct.Chromosome, ptr %75, i64 %76
+  %78 = load i32, ptr %73, align 4
+  tail call void @geqo_copy(ptr noundef %0, ptr noundef %2, ptr noundef %77, i32 noundef %78) #4
   ret void
 }
 

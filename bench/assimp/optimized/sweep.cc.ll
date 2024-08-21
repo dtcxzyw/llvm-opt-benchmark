@@ -53,8 +53,8 @@ entry:
   %y7 = getelementptr inbounds i8, ptr %pa, i64 8
   %5 = load double, ptr %y7, align 8
   %sub9 = fsub double %5, %3
-  %6 = fneg double %sub6
-  %neg = fmul double %sub9, %6
+  %6 = fneg double %sub9
+  %neg = fmul double %sub6, %6
   %7 = tail call double @llvm.fmuladd.f64(double %sub, double %sub3, double %neg)
   %cmp = fcmp ult double %7, 0xBD719799812DEA11
   br i1 %cmp, label %if.end, label %return
@@ -67,8 +67,8 @@ if.end:                                           ; preds = %entry
   %sub16 = fsub double %2, %9
   %sub19 = fsub double %4, %8
   %sub22 = fsub double %5, %9
-  %10 = fneg double %sub19
-  %neg24 = fmul double %sub22, %10
+  %10 = fneg double %sub22
+  %neg24 = fmul double %sub19, %10
   %11 = tail call double @llvm.fmuladd.f64(double %sub13, double %sub16, double %neg24)
   %cmp25 = fcmp ugt double %11, 0x3D719799812DEA11
   br label %return
@@ -1518,22 +1518,22 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
 if.then4:                                         ; preds = %if.end
   %points_.i.i = getelementptr inbounds i8, ptr %triangle.tr102, i64 8
   %8 = load ptr, ptr %points_.i.i, align 8
-  %cmp.i.i = icmp eq ptr %8, %eq.tr.ph110
+  %cmp.i.i = icmp eq ptr %eq.tr.ph110, %8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %triangle.tr102, i64 16
   %9 = load ptr, ptr %arrayidx3.i.i, align 8
-  %cmp4.i.i = icmp eq ptr %9, %eq.tr.ph110
+  %cmp4.i.i = icmp eq ptr %eq.tr.ph110, %9
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %triangle.tr102, i64 24
   %10 = load ptr, ptr %arrayidx6.i.i, align 8
-  %cmp7.i.i = icmp eq ptr %10, %eq.tr.ph110
+  %cmp7.i.i = icmp eq ptr %eq.tr.ph110, %10
   %or.cond.i55 = select i1 %or.cond.i.i, i1 true, i1 %cmp7.i.i
   br i1 %or.cond.i55, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit, label %if.else
 
 _ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit:   ; preds = %if.then4
-  %cmp.i2.i = icmp eq ptr %8, %call2
-  %cmp4.i4.i = icmp eq ptr %9, %call2
+  %cmp.i2.i = icmp eq ptr %call2, %8
+  %cmp4.i4.i = icmp eq ptr %call2, %9
   %or.cond.i5.i = select i1 %cmp.i2.i, i1 true, i1 %cmp4.i4.i
-  %cmp7.i8.i = icmp eq ptr %10, %call2
+  %cmp7.i8.i = icmp eq ptr %call2, %10
   %spec.select.i = select i1 %or.cond.i5.i, i1 true, i1 %cmp7.i8.i
   br i1 %spec.select.i, label %tailrecurse.outer.backedge, label %if.else
 
@@ -1585,22 +1585,22 @@ if.end9:                                          ; preds = %if.end
 if.then13:                                        ; preds = %if.end9
   %points_.i.i70 = getelementptr inbounds i8, ptr %triangle.tr102, i64 8
   %20 = load ptr, ptr %points_.i.i70, align 8
-  %cmp.i.i71 = icmp eq ptr %20, %eq.tr.ph110
+  %cmp.i.i71 = icmp eq ptr %eq.tr.ph110, %20
   %arrayidx3.i.i72 = getelementptr inbounds i8, ptr %triangle.tr102, i64 16
   %21 = load ptr, ptr %arrayidx3.i.i72, align 8
-  %cmp4.i.i73 = icmp eq ptr %21, %eq.tr.ph110
+  %cmp4.i.i73 = icmp eq ptr %eq.tr.ph110, %21
   %or.cond.i.i74 = select i1 %cmp.i.i71, i1 true, i1 %cmp4.i.i73
   %arrayidx6.i.i75 = getelementptr inbounds i8, ptr %triangle.tr102, i64 24
   %22 = load ptr, ptr %arrayidx6.i.i75, align 8
-  %cmp7.i.i76 = icmp eq ptr %22, %eq.tr.ph110
+  %cmp7.i.i76 = icmp eq ptr %eq.tr.ph110, %22
   %or.cond.i77 = select i1 %or.cond.i.i74, i1 true, i1 %cmp7.i.i76
   br i1 %or.cond.i77, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit84, label %if.else20
 
 _ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit84: ; preds = %if.then13
-  %cmp.i2.i79 = icmp eq ptr %20, %call10
-  %cmp4.i4.i80 = icmp eq ptr %21, %call10
+  %cmp.i2.i79 = icmp eq ptr %call10, %20
+  %cmp4.i4.i80 = icmp eq ptr %call10, %21
   %or.cond.i5.i81 = select i1 %cmp.i2.i79, i1 true, i1 %cmp4.i4.i80
-  %cmp7.i8.i82 = icmp eq ptr %22, %call10
+  %cmp7.i8.i82 = icmp eq ptr %call10, %22
   %spec.select.i83 = select i1 %or.cond.i5.i81, i1 true, i1 %cmp7.i8.i82
   br i1 %spec.select.i83, label %tailrecurse.outer.backedge, label %if.else20
 
@@ -1704,8 +1704,8 @@ tailrecurse:                                      ; preds = %if.else18, %entry
   %sub6.i = fsub double %4, %1
   %5 = load double, ptr %y7.i, align 8
   %sub9.i = fsub double %5, %3
-  %6 = fneg double %sub6.i
-  %neg.i = fmul double %sub9.i, %6
+  %6 = fneg double %sub9.i
+  %neg.i = fmul double %sub6.i, %6
   %7 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub3.i, double %neg.i)
   %cmp.i = fcmp ult double %7, 0xBD719799812DEA11
   br i1 %cmp.i, label %_ZN3p2t10InScanAreaERKNS_5PointES2_S2_S2_.exit, label %if.else22
@@ -1718,8 +1718,8 @@ _ZN3p2t10InScanAreaERKNS_5PointES2_S2_S2_.exit:   ; preds = %tailrecurse
   %sub16.i = fsub double %2, %9
   %sub19.i = fsub double %4, %8
   %sub22.i = fsub double %5, %9
-  %10 = fneg double %sub19.i
-  %neg24.i = fmul double %sub22.i, %10
+  %10 = fneg double %sub22.i
+  %neg24.i = fmul double %sub19.i, %10
   %11 = tail call double @llvm.fmuladd.f64(double %sub13.i, double %sub16.i, double %neg24.i)
   %cmp25.i = fcmp ugt double %11, 0x3D719799812DEA11
   br i1 %cmp25.i, label %if.then, label %if.else22
@@ -1984,8 +1984,8 @@ entry:
   %y7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load double, ptr %y7.i.i, align 8
   %sub8.i.i = fsub double %10, %6
-  %11 = fneg double %sub4.i.i
-  %neg.i.i = fmul double %sub6.i.i, %11
+  %11 = fneg double %sub6.i.i
+  %neg.i.i = fmul double %sub4.i.i, %11
   %12 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double %sub8.i.i, double %neg.i.i)
   %mul12.i.i = fmul double %sub4.i.i, %sub8.i.i
   %13 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double %sub6.i.i, double %mul12.i.i)
@@ -2017,8 +2017,8 @@ land.lhs.true:                                    ; preds = %if.end
   %y7.i.i17 = getelementptr inbounds i8, ptr %19, i64 8
   %25 = load double, ptr %y7.i.i17, align 8
   %sub8.i.i18 = fsub double %25, %21
-  %26 = fneg double %sub4.i.i15
-  %neg.i.i19 = fmul double %sub6.i.i16, %26
+  %26 = fneg double %sub6.i.i16
+  %neg.i.i19 = fmul double %sub4.i.i15, %26
   %27 = tail call double @llvm.fmuladd.f64(double %sub.i.i13, double %sub8.i.i18, double %neg.i.i19)
   %mul12.i.i20 = fmul double %sub4.i.i15, %sub8.i.i18
   %28 = tail call double @llvm.fmuladd.f64(double %sub.i.i13, double %sub6.i.i16, double %mul12.i.i20)
@@ -2051,8 +2051,8 @@ land.lhs.true13:                                  ; preds = %if.end10
   %y7.i.i27 = getelementptr inbounds i8, ptr %33, i64 8
   %39 = load double, ptr %y7.i.i27, align 8
   %sub8.i.i28 = fsub double %39, %35
-  %40 = fneg double %sub4.i.i25
-  %neg.i.i29 = fmul double %sub6.i.i26, %40
+  %40 = fneg double %sub6.i.i26
+  %neg.i.i29 = fmul double %sub4.i.i25, %40
   %41 = tail call double @llvm.fmuladd.f64(double %sub.i.i23, double %sub8.i.i28, double %neg.i.i29)
   %mul12.i.i30 = fmul double %sub4.i.i25, %sub8.i.i28
   %42 = tail call double @llvm.fmuladd.f64(double %sub.i.i23, double %sub6.i.i26, double %mul12.i.i30)
@@ -2216,8 +2216,8 @@ entry:
   %y7.i = getelementptr inbounds i8, ptr %pb, i64 8
   %5 = load double, ptr %y7.i, align 8
   %sub8.i = fsub double %5, %1
-  %6 = fneg double %sub4.i
-  %neg.i = fmul double %sub6.i, %6
+  %6 = fneg double %sub6.i
+  %neg.i = fmul double %sub4.i, %6
   %7 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub8.i, double %neg.i)
   %mul12.i = fmul double %sub4.i, %sub8.i
   %8 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub6.i, double %mul12.i)
@@ -2243,8 +2243,8 @@ entry:
   %y7.i = getelementptr inbounds i8, ptr %pb, i64 8
   %5 = load double, ptr %y7.i, align 8
   %sub8.i = fsub double %5, %1
-  %6 = fneg double %sub4.i
-  %neg.i = fmul double %sub6.i, %6
+  %6 = fneg double %sub6.i
+  %neg.i = fmul double %sub4.i, %6
   %7 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub8.i, double %neg.i)
   %mul12.i = fmul double %sub4.i, %sub8.i
   %8 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub6.i, double %mul12.i)
@@ -2271,8 +2271,8 @@ entry:
   %y7 = getelementptr inbounds i8, ptr %pb, i64 8
   %5 = load double, ptr %y7, align 8
   %sub8 = fsub double %5, %1
-  %6 = fneg double %sub4
-  %neg = fmul double %sub6, %6
+  %6 = fneg double %sub6
+  %neg = fmul double %sub4, %6
   %7 = tail call double @llvm.fmuladd.f64(double %sub, double %sub8, double %neg)
   %mul12 = fmul double %sub4, %sub8
   %8 = tail call double @llvm.fmuladd.f64(double %sub, double %sub6, double %mul12)
@@ -2306,8 +2306,8 @@ entry:
   %y16 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load double, ptr %y16, align 8
   %sub19 = fsub double %10, %6
-  %11 = fneg double %sub8
-  %neg = fmul double %sub13, %11
+  %11 = fneg double %sub13
+  %neg = fmul double %sub8, %11
   %12 = tail call double @llvm.fmuladd.f64(double %sub, double %sub19, double %neg)
   %mul21 = fmul double %sub8, %sub19
   %13 = tail call double @llvm.fmuladd.f64(double %sub, double %sub13, double %mul21)
@@ -3476,8 +3476,8 @@ tailrecurse:                                      ; preds = %if.else, %entry
   %sub6.i = fsub double %4, %1
   %5 = load double, ptr %y7.i, align 8
   %sub9.i = fsub double %5, %3
-  %6 = fneg double %sub6.i
-  %neg.i = fmul double %sub9.i, %6
+  %6 = fneg double %sub9.i
+  %neg.i = fmul double %sub6.i, %6
   %7 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub3.i, double %neg.i)
   %cmp.i = fcmp ult double %7, 0xBD719799812DEA11
   br i1 %cmp.i, label %_ZN3p2t10InScanAreaERKNS_5PointES2_S2_S2_.exit, label %if.else
@@ -3490,8 +3490,8 @@ _ZN3p2t10InScanAreaERKNS_5PointES2_S2_S2_.exit:   ; preds = %tailrecurse
   %sub16.i = fsub double %2, %9
   %sub19.i = fsub double %4, %8
   %sub22.i = fsub double %5, %9
-  %10 = fneg double %sub19.i
-  %neg24.i = fmul double %sub22.i, %10
+  %10 = fneg double %sub22.i
+  %neg24.i = fmul double %sub19.i, %10
   %11 = tail call double @llvm.fmuladd.f64(double %sub13.i, double %sub16.i, double %neg24.i)
   %cmp25.i = fcmp ugt double %11, 0x3D719799812DEA11
   br i1 %cmp25.i, label %if.then, label %if.else

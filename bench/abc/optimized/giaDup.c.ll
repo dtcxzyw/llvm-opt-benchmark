@@ -1792,7 +1792,7 @@ Abc_UtilStrsav.exit20:                            ; preds = %Abc_UtilStrsav.exit
   %33 = tail call i32 @Gia_ManDupOrderDfs_rec(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef %32)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %27, %Abc_UtilStrsav.exit20
@@ -14567,7 +14567,7 @@ define void @Gia_ManDupConeSupp_rec(ptr noundef %0, ptr noundef %1, ptr noundef 
   %41 = lshr i64 %.val35, 61
   %42 = trunc nuw nsw i64 %41 to i32
   %43 = and i32 %42, 1
-  %44 = xor i32 %43, %36
+  %44 = xor i32 %36, %43
   %45 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %40, i32 noundef %44)
   %.val37 = load ptr, ptr %11, align 8
   %46 = getelementptr inbounds i32, ptr %.val37, i64 %12
@@ -14829,13 +14829,13 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4, %83
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not = icmp slt i32 %5, %1
+  %.not = icmp sgt i32 %1, %5
   br i1 %.not, label %6, label %41
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
   %8 = shl nsw i32 %7, 1
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   %.not.i = icmp slt i32 %7, %1
   br i1 %9, label %10, label %22
 
@@ -15755,7 +15755,7 @@ define range(i32 0, 2) i32 @Gia_ManPoIsToRemove(ptr nocapture noundef readnone %
   %11 = trunc i64 %5 to i32
   %12 = lshr i32 %11, 29
   %13 = and i32 %12, 1
-  %14 = icmp eq i32 %13, %2
+  %14 = icmp eq i32 %2, %13
   br label %15
 
 15:                                               ; preds = %3, %10
@@ -16060,7 +16060,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %78, %Gia_ObjIsRo.ex
   %140 = trunc i64 %134 to i32
   %141 = lshr i32 %140, 29
   %142 = and i32 %141, 1
-  %143 = icmp eq i32 %142, %4
+  %143 = icmp eq i32 %4, %142
   br i1 %143, label %144, label %.critedge13.loopexit
 
 Gia_ManPoIsToRemove.exit.us:                      ; preds = %129
@@ -16259,7 +16259,7 @@ Gia_ManPoIsToRemove.exit.us:                      ; preds = %129
   %243 = trunc i64 %.pre278 to i32
   %244 = lshr i32 %243, 29
   %245 = and i32 %244, 1
-  %246 = icmp eq i32 %245, %4
+  %246 = icmp eq i32 %4, %245
   br i1 %246, label %247, label %._crit_edge
 
 Gia_ManPoIsToRemove.exit188:                      ; preds = %239
@@ -25240,7 +25240,7 @@ Abc_UtilStrsav.exit135:                           ; preds = %Abc_UtilStrsav.exit
 
 .critedge4:                                       ; preds = %.lr.ph160, %118, %.lr.ph166, %.critedge2, %.preheader
   %.val123168 = load i32, ptr %14, align 4
-  %129 = icmp sgt i32 %.val123168, %2
+  %129 = icmp slt i32 %2, %.val123168
   br i1 %129, label %.lr.ph170, label %.critedge8.preheader
 
 .lr.ph170:                                        ; preds = %.critedge4
@@ -33619,7 +33619,7 @@ Vec_IntAlloc.exit:                                ; preds = %2, %7
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv, %24
   %26 = zext i1 %25 to i32
-  %.not = icmp eq i32 %26, %1
+  %.not = icmp eq i32 %1, %26
   br i1 %.not, label %36, label %27
 
 27:                                               ; preds = %.lr.ph

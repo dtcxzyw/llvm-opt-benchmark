@@ -501,7 +501,7 @@ define range(i32 -2, 1) i32 @deflateSetDictionary(ptr noundef %0, ptr noundef %1
   %narrow = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 %23)
   %.056.idx = zext i32 %narrow to i64
   %.056 = getelementptr inbounds i8, ptr %1, i64 %.056.idx
-  %.054 = tail call i32 @llvm.umin.i32(i32 %23, i32 %2)
+  %.054 = tail call i32 @llvm.umin.i32(i32 %2, i32 %23)
   %24 = getelementptr inbounds i8, ptr %7, i64 80
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %.054 to i64
@@ -627,7 +627,7 @@ define range(i32 -2, 1) i32 @deflatePrime(ptr noundef readonly %0, i32 noundef %
   store i32 %1, ptr %10, align 4
   %notmask = shl nsw i32 -1, %1
   %11 = xor i32 %notmask, -1
-  %12 = and i32 %11, %2
+  %12 = and i32 %2, %11
   %13 = trunc i32 %12 to i16
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 5920
@@ -662,7 +662,7 @@ define range(i32 -5, 2) i32 @deflateParams(ptr noundef %0, i32 noundef %1, i32 n
   %13 = getelementptr inbounds i8, ptr %7, i64 180
   %14 = getelementptr inbounds i8, ptr %7, i64 184
   %15 = load i32, ptr %14, align 8
-  %.not = icmp eq i32 %15, %2
+  %.not = icmp eq i32 %2, %15
   br i1 %.not, label %16, label %24
 
 16:                                               ; preds = %12
@@ -1837,7 +1837,7 @@ flush_pending.exit397:                            ; preds = %flush_pending.exit3
   %693 = getelementptr inbounds i8, ptr %0, i64 8
   %694 = load i32, ptr %693, align 8
   %695 = icmp eq i32 %694, 0
-  %696 = icmp sge i32 %36, %1
+  %696 = icmp sle i32 %1, %36
   %or.cond7 = and i1 %23, %696
   %or.cond391 = select i1 %695, i1 %or.cond7, i1 false
   br i1 %or.cond391, label %697, label %700

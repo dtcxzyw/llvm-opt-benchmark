@@ -89,7 +89,7 @@ define hidden noundef zeroext i1 @_ZN21ZVirtualMemoryManager7reserveEm(ptr nound
   %13 = add nuw nsw i64 %12, 2097151
   %14 = and i64 %13, 4503599625273344
   %15 = tail call noundef i64 @llvm.umax.i64(i64 %14, i64 2097152)
-  %.not13.not.i.i = icmp ult i64 %10, %9
+  %.not13.not.i.i = icmp ugt i64 %9, %10
   br i1 %.not13.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
@@ -289,7 +289,7 @@ define hidden noundef zeroext i1 @_ZN21ZVirtualMemoryManager18reserve_contiguous
   %6 = add nuw nsw i64 %5, 2097151
   %7 = and i64 %6, 4503599625273344
   %8 = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 2097152)
-  %.not13.not = icmp ult i64 %3, %1
+  %.not13.not = icmp ugt i64 %1, %3
   br i1 %.not13.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -347,7 +347,7 @@ define hidden noundef zeroext i1 @_ZNK21ZVirtualMemoryManager14is_initializedEv(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZN21ZVirtualMemoryManager5allocEmb(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = icmp ult i64 %1, 2097153
-  %or.cond = or i1 %4, %2
+  %or.cond = or i1 %2, %4
   br i1 %or.cond, label %5, label %7
 
 5:                                                ; preds = %3

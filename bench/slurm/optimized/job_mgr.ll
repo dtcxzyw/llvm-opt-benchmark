@@ -3172,7 +3172,7 @@ define internal fastcc ptr @_determine_and_validate_qos(ptr noundef readonly %0,
   %19 = icmp eq i16 %18, 0
   %20 = icmp eq ptr %1, null
   %or.cond.not43 = or i1 %20, %19
-  %brmerge = or i1 %or.cond.not43, %2
+  %brmerge = or i1 %2, %or.cond.not43
   br i1 %brmerge, label %42, label %21
 
 21:                                               ; preds = %16
@@ -8760,7 +8760,7 @@ find_job_record.exit69:                           ; preds = %.lr.ph.i64
 72:                                               ; preds = %69
   %73 = tail call i64 @bit_size(ptr noundef nonnull %71) #28
   %74 = trunc i64 %73 to i32
-  %75 = icmp ugt i32 %74, %1
+  %75 = icmp ult i32 %1, %74
   br i1 %75, label %76, label %find_job_record.exit69.thread
 
 76:                                               ; preds = %72
@@ -9808,7 +9808,7 @@ _job_array_comp.exit:                             ; preds = %55, %32, %44, %find
 91:                                               ; preds = %_job_array_comp.exit
   %92 = and i32 %89, 255
   %93 = icmp ne i32 %92, 0
-  %brmerge = or i1 %93, %1
+  %brmerge = or i1 %1, %93
   %94 = and i32 %89, 524288
   %.not73 = icmp eq i32 %94, 0
   %or.cond105 = and i1 %.not73, %brmerge
@@ -10002,7 +10002,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i99
   %186 = icmp eq i16 %185, 0
   %187 = icmp ult i32 %182, 5
   %.not77 = icmp eq i32 %182, 8
-  %brmerge90.not = and i1 %.not77, %1
+  %brmerge90.not = and i1 %1, %.not77
   %188 = or i1 %187, %brmerge90.not
   %or.cond106 = select i1 %186, i1 true, i1 %188
   br i1 %or.cond106, label %189, label %.sink.split
@@ -19099,7 +19099,7 @@ define internal fastcc i32 @_part_access_check(ptr noundef %0, ptr nocapture nou
   %25 = icmp eq i32 %3, 0
   %or.cond.not136 = or i1 %25, %24
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %.not108 = icmp eq i32 %26, %3
+  %.not108 = icmp eq i32 %3, %26
   %or.cond127 = select i1 %or.cond.not136, i1 true, i1 %.not108
   br i1 %or.cond127, label %33, label %27
 
@@ -42494,7 +42494,7 @@ define internal fastcc range(i32 0, 4004) i32 @_validate_job_desc(ptr nocapture 
   %96 = icmp eq i32 %3, 0
   %or.cond.not94 = or i1 %96, %95
   %97 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %.not80 = icmp eq i32 %97, %3
+  %.not80 = icmp eq i32 %3, %97
   %or.cond85 = select i1 %or.cond.not94, i1 true, i1 %.not80
   br i1 %or.cond85, label %103, label %98
 
@@ -45450,7 +45450,7 @@ _job_resume_test.exit:                            ; preds = %45
 
 50:                                               ; preds = %14
   %51 = icmp eq i32 %10, 2
-  %brmerge.not = and i1 %51, %2
+  %brmerge.not = and i1 %2, %51
   br i1 %brmerge.not, label %52, label %58
 
 52:                                               ; preds = %50
@@ -46024,7 +46024,7 @@ define internal fastcc i32 @_job_requeue_op(i32 noundef %0, ptr noundef %1, i1 n
 14:                                               ; preds = %8, %4
   %15 = getelementptr inbounds i8, ptr %1, i64 1064
   %16 = load i32, ptr %15, align 8
-  %.not128 = icmp eq i32 %16, %0
+  %.not128 = icmp eq i32 %0, %16
   br i1 %.not128, label %24, label %17
 
 17:                                               ; preds = %14

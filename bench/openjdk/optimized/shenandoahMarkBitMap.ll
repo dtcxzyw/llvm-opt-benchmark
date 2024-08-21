@@ -199,7 +199,7 @@ define hidden void @_ZN20ShenandoahMarkBitMap11clear_rangeEmm(ptr nocapture noun
   br i1 %7, label %9, label %28
 
 9:                                                ; preds = %3
-  %.not.i = icmp eq i64 %8, %1
+  %.not.i = icmp eq i64 %1, %8
   br i1 %.not.i, label %_ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit, label %10
 
 10:                                               ; preds = %9
@@ -235,7 +235,7 @@ _ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit: ; preds = %9, %10
 
 28:                                               ; preds = %3
   %29 = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %2)
-  %.not.i24 = icmp eq i64 %29, %1
+  %.not.i24 = icmp eq i64 %1, %29
   br i1 %.not.i24, label %_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit29, label %30
 
 30:                                               ; preds = %28
@@ -257,7 +257,7 @@ _ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit: ; preds = %9, %10
   br label %_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit29
 
 _ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit29: ; preds = %28, %30
-  %.not.i30.not = icmp ult i64 %8, %2
+  %.not.i30.not = icmp ugt i64 %2, %8
   br i1 %.not.i30.not, label %41, label %_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit23
 
 41:                                               ; preds = %_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit29
@@ -309,7 +309,7 @@ define hidden void @_ZN20ShenandoahMarkBitMap17clear_large_rangeEmm(ptr nocaptur
   br i1 %9, label %11, label %30
 
 11:                                               ; preds = %8
-  %.not.i.i = icmp eq i64 %10, %1
+  %.not.i.i = icmp eq i64 %1, %10
   br i1 %.not.i.i, label %_ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit.i, label %12
 
 12:                                               ; preds = %11
@@ -345,7 +345,7 @@ _ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit.i: ; preds = %12, %11
 
 30:                                               ; preds = %8
   %31 = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %2)
-  %.not.i24.i = icmp eq i64 %31, %1
+  %.not.i24.i = icmp eq i64 %1, %31
   br i1 %.not.i24.i, label %_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit29.i, label %32
 
 32:                                               ; preds = %30
@@ -367,7 +367,7 @@ _ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit.i: ; preds = %12, %11
   br label %_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit29.i
 
 _ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit29.i: ; preds = %32, %30
-  %.not.i30.not.i = icmp ult i64 %10, %2
+  %.not.i30.not.i = icmp ugt i64 %2, %10
   br i1 %.not.i30.not.i, label %43, label %_ZN20ShenandoahMarkBitMap11clear_rangeEmm.exit
 
 43:                                               ; preds = %_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit29.i
@@ -387,7 +387,7 @@ _ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit29.i: ; preds = %32, %
 
 52:                                               ; preds = %3
   %53 = and i64 %4, -64
-  %.not.i = icmp eq i64 %53, %1
+  %.not.i = icmp eq i64 %1, %53
   br i1 %.not.i, label %_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit, label %54
 
 54:                                               ; preds = %52

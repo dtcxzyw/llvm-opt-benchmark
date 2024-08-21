@@ -305,7 +305,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14defau
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %managed_objects_, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 344
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i = icmp eq ptr %7, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS3_EESt4hashIiESt8equal_toIiESaISt4pairIKiS6_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -1342,7 +1342,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp eq i32 %1, %id
+  %cmp.i.i.i.i.i = icmp eq i32 %id, %1
   br i1 %cmp.i.i.i.i.i, label %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit, label %for.cond.i.i.i, !llvm.loop !28
 
 if.end15.i.i.i:                                   ; preds = %entry
@@ -1361,11 +1361,11 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end15.i.i.i
   %5 = load ptr, ptr %4, align 8
   %add.ptr8.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %add.ptr8.i.i.i.i.i, align 4
-  %cmp.i.i.i9.i.i.i.i.i = icmp eq i32 %6, %id
+  %cmp.i.i.i9.i.i.i.i.i = icmp eq i32 %id, %6
   br i1 %cmp.i.i.i9.i.i.i.i.i, label %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit, label %if.end3.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %8, %id
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %id, %8
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit, label %if.end3.i.i.i.i.i, !llvm.loop !29
 
 if.end3.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i, %for.cond.i.i.i.i.i
@@ -1419,7 +1419,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
-  %cmp.i.i.i.i = icmp eq i32 %1, %id
+  %cmp.i.i.i.i = icmp eq i32 %id, %1
   br i1 %cmp.i.i.i.i, label %if.end, label %for.cond.i.i, !llvm.loop !28
 
 if.end15.i.i:                                     ; preds = %entry
@@ -1438,11 +1438,11 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %5 = load ptr, ptr %4, align 8
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %add.ptr8.i.i.i.i, align 4
-  %cmp.i.i.i9.i.i.i.i = icmp eq i32 %6, %id
+  %cmp.i.i.i9.i.i.i.i = icmp eq i32 %id, %6
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.end, label %if.end3.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %8, %id
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %id, %8
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end, label %if.end3.i.i.i.i, !llvm.loop !29
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
@@ -2753,7 +2753,7 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i, i64 8
   %2 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %2, %0
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %0, %2
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit.i.i, label %for.cond.i.i.i.i.i, !llvm.loop !28
 
 if.end15.i.i.i.i.i:                               ; preds = %entry
@@ -2772,11 +2772,11 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end15.i.i.i.i.i
   %6 = load ptr, ptr %5, align 8
   %add.ptr8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %add.ptr8.i.i.i.i.i.i.i, align 4
-  %cmp.i.i.i9.i.i.i.i.i.i.i = icmp eq i32 %7, %0
+  %cmp.i.i.i9.i.i.i.i.i.i.i = icmp eq i32 %0, %7
   br i1 %cmp.i.i.i9.i.i.i.i.i.i.i, label %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit.i.i, label %if.end3.i.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i.i:                           ; preds = %lor.lhs.false.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %9, %0
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %0, %9
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit.i.i, label %if.end3.i.i.i.i.i.i.i, !llvm.loop !29
 
 if.end3.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i
@@ -2981,7 +2981,7 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i, i64 8
   %2 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %2, %0
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %0, %2
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit.i.i, label %for.cond.i.i.i.i.i, !llvm.loop !28
 
 if.end15.i.i.i.i.i:                               ; preds = %entry
@@ -3000,11 +3000,11 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end15.i.i.i.i.i
   %6 = load ptr, ptr %5, align 8
   %add.ptr8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %add.ptr8.i.i.i.i.i.i.i, align 4
-  %cmp.i.i.i9.i.i.i.i.i.i.i = icmp eq i32 %7, %0
+  %cmp.i.i.i9.i.i.i.i.i.i.i = icmp eq i32 %0, %7
   br i1 %cmp.i.i.i9.i.i.i.i.i.i.i, label %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit.i.i, label %if.end3.i.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i.i:                           ; preds = %lor.lhs.false.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %9, %0
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %0, %9
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit.i.i, label %if.end3.i.i.i.i.i.i.i, !llvm.loop !29
 
 if.end3.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i
@@ -3396,7 +3396,7 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i, i64 8
   %2 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %2, %0
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %0, %2
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit.i.i, label %for.cond.i.i.i.i.i, !llvm.loop !28
 
 if.end15.i.i.i.i.i:                               ; preds = %entry
@@ -3415,11 +3415,11 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end15.i.i.i.i.i
   %6 = load ptr, ptr %5, align 8
   %add.ptr8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %add.ptr8.i.i.i.i.i.i.i, align 4
-  %cmp.i.i.i9.i.i.i.i.i.i.i = icmp eq i32 %7, %0
+  %cmp.i.i.i9.i.i.i.i.i.i.i = icmp eq i32 %0, %7
   br i1 %cmp.i.i.i9.i.i.i.i.i.i.i, label %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit.i.i, label %if.end3.i.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i.i:                           ; preds = %lor.lhs.false.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %9, %0
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %0, %9
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit.i.i, label %if.end3.i.i.i.i.i.i.i, !llvm.loop !29
 
 if.end3.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i
@@ -4374,7 +4374,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -4482,7 +4482,7 @@ if.end13:                                         ; preds = %for.cond.i, %if.end
   %__n.0 = phi ptr [ %6, %if.end ], [ %15, %for.cond.i ]
   %__bkt.0 = phi i64 [ %rem.i.i.i, %if.end ], [ %rem.i.i.i11, %for.cond.i ]
   %__prev_n.0 = phi ptr [ %__prev_p.06.i.lcssa, %if.end ], [ %__p.010.i, %for.cond.i ]
-  %cmp.i = icmp eq ptr %18, %__prev_n.0
+  %cmp.i = icmp eq ptr %__prev_n.0, %18
   %20 = load ptr, ptr %__n.0, align 8
   %tobool.not.i16 = icmp eq ptr %20, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i

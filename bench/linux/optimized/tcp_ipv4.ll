@@ -1651,7 +1651,7 @@ define dso_local ptr @__tcp_md5_do_lookup(ptr noundef %0, i32 noundef %1, ptr no
   %17 = getelementptr inbounds i8, ptr %15, i64 17
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
-  %20 = icmp eq i32 %19, %3
+  %20 = icmp eq i32 %3, %19
   br i1 %20, label %21, label %.thread7
 
 21:                                               ; preds = %14
@@ -1967,7 +1967,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__tcp_md5_do_add(ptr nound
   %19 = getelementptr inbounds i8, ptr %18, i64 17
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
-  %22 = icmp eq i32 %21, %2
+  %22 = icmp eq i32 %2, %21
   br i1 %22, label %23, label %41
 
 23:                                               ; preds = %.preheader
@@ -2163,7 +2163,7 @@ define dso_local noundef range(i32 -2, 1) i32 @tcp_md5_do_del(ptr noundef %0, pt
   %16 = getelementptr inbounds i8, ptr %15, i64 17
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
-  %19 = icmp eq i32 %18, %2
+  %19 = icmp eq i32 %2, %18
   br i1 %19, label %20, label %38
 
 20:                                               ; preds = %.preheader

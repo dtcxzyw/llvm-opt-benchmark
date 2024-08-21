@@ -2121,7 +2121,7 @@ opal_pointer_array_get_item.exit:                 ; preds = %17, %24
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 131072
   %.not15 = icmp ne i32 %30, 0
-  %brmerge.not = and i1 %.not15, %2
+  %brmerge.not = and i1 %2, %.not15
   br i1 %brmerge.not, label %31, label %57
 
 31:                                               ; preds = %27

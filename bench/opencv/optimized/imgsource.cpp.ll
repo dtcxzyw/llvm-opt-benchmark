@@ -570,7 +570,7 @@ define hidden void @_ZNK2cv13wechat_qrcode9ImgSource6getRowEiN5zxing8ArrayRefIcE
   %7 = icmp sgt i32 %2, -1
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8
-  %.not = icmp sgt i32 %9, %2
+  %.not = icmp slt i32 %2, %9
   %or.cond = select i1 %7, i1 %.not, i1 false
   br i1 %or.cond, label %20, label %10
 

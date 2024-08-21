@@ -2509,7 +2509,7 @@ if.then11:                                        ; preds = %if.end5
   br label %return
 
 if.end12:                                         ; preds = %if.end5
-  %cmp13 = icmp sgt i32 %.pre, %len
+  %cmp13 = icmp slt i32 %len, %.pre
   br i1 %cmp13, label %for.cond.preheader, label %if.end18
 
 for.cond.preheader:                               ; preds = %if.end12

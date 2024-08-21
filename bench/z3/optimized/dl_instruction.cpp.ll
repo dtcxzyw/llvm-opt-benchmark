@@ -1146,7 +1146,7 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i39: ; preds = %for.body27
   %arrayidx.i.i40 = getelementptr inbounds i8, ptr %20, i64 -4
   %21 = load i32, ptr %arrayidx.i.i40, align 4
-  %cmp.not.i41 = icmp ugt i32 %21, %19
+  %cmp.not.i41 = icmp ult i32 %19, %21
   br i1 %cmp.not.i41, label %invoke.cont33, label %cond.end44
 
 invoke.cont33:                                    ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i39
@@ -4658,7 +4658,7 @@ if.then:                                          ; preds = %_ZN7datalog11instru
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %if.then
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %3, %1
+  %cmp.not.i = icmp ult i32 %1, %3
   br i1 %cmp.not.i, label %_ZNK7datalog17execution_context3regEj.exit, label %if.else
 
 _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -4775,7 +4775,7 @@ if.else40:                                        ; preds = %_ZN7datalog17execut
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %if.else40
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %33, i64 -4
   %34 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %34, %31
+  %cmp.not.i.i = icmp ult i32 %31, %34
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %if.end43
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -4935,7 +4935,7 @@ entry:
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit: ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not = icmp ugt i32 %1, %i
+  %cmp.not = icmp ult i32 %i, %1
   br i1 %cmp.not, label %if.end, label %if.then.thread
 
 if.then:                                          ; preds = %entry
@@ -4975,10 +4975,10 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i: ; preds = %while.cond.i
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %3, i64 -8
   %4 = load i32, ptr %arrayidx.i12.i, align 4
-  %cmp3.i.not = icmp ugt i32 %4, %i
+  %cmp3.i.not = icmp ult i32 %i, %4
   br i1 %cmp3.i.not, label %while.end.i, label %while.body.i
 
-while.body.i:                                     ; preds = %while.cond.i, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i
+while.body.i:                                     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i, %while.cond.i
   tail call void @_ZN6vectorIPN7datalog13relation_baseELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_registers)
   %.pr.pre.i = load ptr, ptr %m_registers, align 8
   br label %while.cond.i, !llvm.loop !14
@@ -4986,9 +4986,9 @@ while.body.i:                                     ; preds = %while.cond.i, %_ZNK
 while.end.i:                                      ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i
   %arrayidx.i8 = getelementptr inbounds i8, ptr %3, i64 -4
   store i32 %add20.ph, ptr %arrayidx.i8, align 4
-  %cmp8.not17.i = icmp eq i32 %retval.0.i16.i.ph, %add20.ph
+  %cmp8.not19.i = icmp eq i32 %retval.0.i16.i.ph, %add20.ph
   %.pre22 = load ptr, ptr %m_registers, align 8
-  br i1 %cmp8.not17.i, label %if.end, label %for.body.preheader.i
+  br i1 %cmp8.not19.i, label %if.end, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %while.end.i
   %idx.ext6.i = zext i32 %add20.ph to i64
@@ -5493,7 +5493,7 @@ entry:
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %2, %0
+  %cmp.not.i.i = icmp ult i32 %0, %2
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %_ZN7datalog17execution_context10make_emptyEj.exit
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -5629,7 +5629,7 @@ entry:
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %2, %0
+  %cmp.not.i = icmp ult i32 %0, %2
   br i1 %cmp.not.i, label %_ZNK7datalog17execution_context3regEj.exit, label %if.end
 
 _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -5677,7 +5677,7 @@ if.then3:                                         ; preds = %if.end
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i10: ; preds = %if.then3
   %arrayidx.i.i11 = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx.i.i11, align 4
-  %cmp.not.i12 = icmp ugt i32 %8, %6
+  %cmp.not.i12 = icmp ult i32 %6, %8
   br i1 %cmp.not.i12, label %_ZNK7datalog17execution_context3regEj.exit17, label %if.end20
 
 _ZNK7datalog17execution_context3regEj.exit17:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i10
@@ -5700,7 +5700,7 @@ if.else:                                          ; preds = %if.end
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i30: ; preds = %if.else
   %arrayidx.i.i31 = getelementptr inbounds i8, ptr %7, i64 -4
   %11 = load i32, ptr %arrayidx.i.i31, align 4
-  %cmp.not.i32 = icmp ugt i32 %11, %6
+  %cmp.not.i32 = icmp ult i32 %6, %11
   br i1 %cmp.not.i32, label %_ZNK7datalog17execution_context3regEj.exit37, label %if.end20
 
 _ZNK7datalog17execution_context3regEj.exit37:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i30
@@ -6125,7 +6125,7 @@ for.body.i:                                       ; preds = %_ZNK6vectorIjLb1EjE
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %for.body.i
   %arrayidx.i.i7.i = getelementptr inbounds i8, ptr %5, i64 -4
   %7 = load i32, ptr %arrayidx.i.i7.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %7, %6
+  %cmp.not.i.i = icmp ult i32 %6, %7
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %for.inc.i
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -6628,7 +6628,7 @@ _ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit: ; preds = %
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %_ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %3, %1
+  %cmp.not.i = icmp ult i32 %1, %3
   br i1 %cmp.not.i, label %_ZNK7datalog17execution_context3regEj.exit, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
 
 _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -6641,7 +6641,7 @@ _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7data
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i23: ; preds = %_ZNK7datalog17execution_context3regEj.exit
   %m_rel2 = getelementptr inbounds i8, ptr %this, i64 76
   %5 = load i32, ptr %m_rel2, align 4
-  %cmp.not.i25 = icmp ugt i32 %3, %5
+  %cmp.not.i25 = icmp ult i32 %5, %3
   br i1 %cmp.not.i25, label %_ZNK7datalog17execution_context3regEj.exit30, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
 
 _ZNK7datalog17execution_context3regEj.exit30:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i23
@@ -6654,7 +6654,7 @@ _ZNK7datalog17execution_context3regEj.exit30:     ; preds = %_ZNK6vectorIPN7data
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i23, %_ZNK7datalog17execution_context3regEj.exit, %_ZNK7datalog17execution_context3regEj.exit30
   %.in = getelementptr inbounds i8, ptr %this, i64 96
   %7 = load i32, ptr %.in, align 8
-  %cmp.not.i.i = icmp ugt i32 %3, %7
+  %cmp.not.i.i = icmp ult i32 %7, %3
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -6847,7 +6847,7 @@ if.end31:                                         ; preds = %_ZNK7datalog11instr
   %35 = load ptr, ptr %m_registers.i, align 8, !nonnull !26, !noundef !26
   %arrayidx.i.i67 = getelementptr inbounds i8, ptr %35, i64 -4
   %36 = load i32, ptr %arrayidx.i.i67, align 4
-  %cmp.not.i68 = icmp ugt i32 %36, %34
+  %cmp.not.i68 = icmp ult i32 %34, %36
   call void @llvm.assume(i1 %cmp.not.i68)
   %idxprom.i.i71 = zext i32 %34 to i64
   %arrayidx.i2.i72 = getelementptr inbounds ptr, ptr %35, i64 %idxprom.i.i71
@@ -6867,7 +6867,7 @@ if.then39:                                        ; preds = %if.end31
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i76: ; preds = %if.then39
   %arrayidx.i.i.i77 = getelementptr inbounds i8, ptr %40, i64 -4
   %41 = load i32, ptr %arrayidx.i.i.i77, align 4
-  %cmp.not.i.i78 = icmp ugt i32 %41, %39
+  %cmp.not.i.i78 = icmp ult i32 %39, %41
   br i1 %cmp.not.i.i78, label %_ZNK7datalog17execution_context3regEj.exit.i80, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i80:   ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i76
@@ -7637,7 +7637,7 @@ _ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit: ; preds = %
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %_ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %3, %1
+  %cmp.not.i = icmp ult i32 %1, %3
   br i1 %cmp.not.i, label %_ZNK7datalog17execution_context3regEj.exit, label %return
 
 _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -7806,7 +7806,7 @@ if.then22:                                        ; preds = %if.end18
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %if.then22
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %27, i64 -4
   %28 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %28, %26
+  %cmp.not.i.i = icmp ult i32 %26, %28
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -8135,7 +8135,7 @@ _ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit: ; preds = %
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %_ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %3, %1
+  %cmp.not.i = icmp ult i32 %1, %3
   br i1 %cmp.not.i, label %_ZNK7datalog17execution_context3regEj.exit, label %return
 
 _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -8311,7 +8311,7 @@ if.then23:                                        ; preds = %if.end19
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %if.then23
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %27, i64 -4
   %28 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %28, %26
+  %cmp.not.i.i = icmp ult i32 %26, %28
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -8526,7 +8526,7 @@ entry:
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %2, %0
+  %cmp.not.i = icmp ult i32 %0, %2
   br i1 %cmp.not.i, label %_ZNK7datalog17execution_context3regEj.exit, label %return
 
 _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -8570,7 +8570,7 @@ _ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit: ; preds = %
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i14: ; preds = %_ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit
   %arrayidx.i.i15 = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx.i.i15, align 4
-  %cmp.not.i16 = icmp ugt i32 %7, %5
+  %cmp.not.i16 = icmp ult i32 %5, %7
   br i1 %cmp.not.i16, label %if.end.i18, label %_ZNK7datalog17execution_context3regEj.exit21
 
 if.end.i18:                                       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i14
@@ -8736,7 +8736,7 @@ if.then21:                                        ; preds = %if.end17
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %if.then21
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %30, i64 -4
   %31 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %31, %29
+  %cmp.not.i.i = icmp ult i32 %29, %31
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -9069,7 +9069,7 @@ _ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit: ; preds = %
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %_ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %2, %0
+  %cmp.not.i = icmp ult i32 %0, %2
   br i1 %cmp.not.i, label %_ZNK7datalog17execution_context3regEj.exit, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
 
 _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -9082,7 +9082,7 @@ _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7data
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i, %_ZNK7datalog17execution_context3regEj.exit
   %.in = getelementptr inbounds i8, ptr %this, i64 104
   %4 = load i32, ptr %.in, align 8
-  %cmp.not.i.i = icmp ugt i32 %2, %4
+  %cmp.not.i.i = icmp ult i32 %4, %2
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -9103,7 +9103,7 @@ _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i18: ; preds = %_ZNK7da
   store i32 %inc, ptr %m_filter_interp_project, align 4
   %7 = load i32, ptr %m_src, align 8
   %8 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i20 = icmp ugt i32 %8, %7
+  %cmp.not.i20 = icmp ult i32 %7, %8
   br i1 %cmp.not.i20, label %if.end.i22, label %_ZNK7datalog17execution_context3regEj.exit25
 
 if.end.i22:                                       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i18
@@ -9273,7 +9273,7 @@ if.end20:                                         ; preds = %_ZNK7datalog11instr
   %33 = load ptr, ptr %m_registers.i, align 8, !nonnull !26, !noundef !26
   %arrayidx.i.i34 = getelementptr inbounds i8, ptr %33, i64 -4
   %34 = load i32, ptr %arrayidx.i.i34, align 4
-  %cmp.not.i35 = icmp ugt i32 %34, %32
+  %cmp.not.i35 = icmp ult i32 %32, %34
   call void @llvm.assume(i1 %cmp.not.i35)
   %idxprom.i.i38 = zext i32 %32 to i64
   %arrayidx.i2.i39 = getelementptr inbounds ptr, ptr %33, i64 %idxprom.i.i38
@@ -9293,7 +9293,7 @@ if.then28:                                        ; preds = %if.end20
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i43: ; preds = %if.then28
   %arrayidx.i.i.i44 = getelementptr inbounds i8, ptr %38, i64 -4
   %39 = load i32, ptr %arrayidx.i.i.i44, align 4
-  %cmp.not.i.i45 = icmp ugt i32 %39, %37
+  %cmp.not.i.i45 = icmp ult i32 %37, %39
   br i1 %cmp.not.i.i45, label %_ZNK7datalog17execution_context3regEj.exit.i47, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i47:   ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i43
@@ -9517,7 +9517,7 @@ entry:
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %2, %0
+  %cmp.not.i = icmp ult i32 %0, %2
   br i1 %cmp.not.i, label %_ZNK7datalog17execution_context3regEj.exit, label %return
 
 _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -9557,7 +9557,7 @@ _ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit: ; preds = %
   %6 = load ptr, ptr %m_registers.i, align 8, !nonnull !26, !noundef !26
   %arrayidx.i.i60 = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx.i.i60, align 4
-  %cmp.not.i61 = icmp ugt i32 %7, %5
+  %cmp.not.i61 = icmp ult i32 %5, %7
   br i1 %cmp.not.i61, label %if.end.i63, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i69
 
 if.end.i63:                                       ; preds = %_ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit
@@ -9570,7 +9570,7 @@ _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i69: ; preds = %_ZN7dat
   %retval.0.i62.ph = phi ptr [ null, %_ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit ], [ %8, %if.end.i63 ]
   %m_tgt188 = getelementptr inbounds i8, ptr %this, i64 76
   %9 = load i32, ptr %m_tgt188, align 4
-  %cmp.not.i71 = icmp ugt i32 %7, %9
+  %cmp.not.i71 = icmp ult i32 %9, %7
   br i1 %cmp.not.i71, label %_ZNK7datalog17execution_context3regEj.exit76, label %if.end10
 
 _ZNK7datalog17execution_context3regEj.exit76:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i69
@@ -9599,7 +9599,7 @@ _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i79: ; preds = %_ZNK7da
   %15 = phi ptr [ %.pre276, %if.end10 ], [ %6, %_ZNK7datalog17execution_context3regEj.exit76 ]
   %arrayidx.i.i80 = getelementptr inbounds i8, ptr %15, i64 -4
   %16 = load i32, ptr %arrayidx.i.i80, align 4
-  %cmp.not.i81 = icmp ugt i32 %16, %14
+  %cmp.not.i81 = icmp ult i32 %14, %16
   br i1 %cmp.not.i81, label %if.end.i83, label %_ZNK7datalog17execution_context3regEj.exit86
 
 if.end.i83:                                       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i79
@@ -9623,7 +9623,7 @@ _ZNK7datalog17execution_context3regEj.exit86.thread: ; preds = %if.end10
   br label %if.else70
 
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i89: ; preds = %_ZNK7datalog17execution_context3regEj.exit86
-  %cmp.not.i91 = icmp ugt i32 %16, %18
+  %cmp.not.i91 = icmp ult i32 %18, %16
   br i1 %cmp.not.i91, label %_ZNK7datalog17execution_context3regEj.exit96, label %if.end22
 
 _ZNK7datalog17execution_context3regEj.exit96:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i89
@@ -9655,7 +9655,7 @@ cond.true:                                        ; preds = %_ZNK7datalog17execu
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i100: ; preds = %cond.true
   %arrayidx.i.i101 = getelementptr inbounds i8, ptr %24, i64 -4
   %25 = load i32, ptr %arrayidx.i.i101, align 4
-  %cmp.not.i102 = icmp ugt i32 %25, %.pr281
+  %cmp.not.i102 = icmp ult i32 %.pr281, %25
   br i1 %cmp.not.i102, label %cond.end, label %if.else70
 
 cond.end:                                         ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i100
@@ -10063,7 +10063,7 @@ if.then126:                                       ; preds = %land.lhs.true122
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %if.then126
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %78, i64 -4
   %79 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %79, %77
+  %cmp.not.i.i = icmp ult i32 %77, %79
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -10393,7 +10393,7 @@ entry:
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %2, %0
+  %cmp.not.i = icmp ult i32 %0, %2
   br i1 %cmp.not.i, label %_ZNK7datalog17execution_context3regEj.exit, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
 
 _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -10406,7 +10406,7 @@ _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7data
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i, %_ZNK7datalog17execution_context3regEj.exit
   %.in = getelementptr inbounds i8, ptr %this, i64 88
   %4 = load i32, ptr %.in, align 8
-  %cmp.not.i.i = icmp ugt i32 %2, %4
+  %cmp.not.i.i = icmp ult i32 %4, %2
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -10454,7 +10454,7 @@ _ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit: ; preds = %
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i19: ; preds = %_ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit
   %arrayidx.i.i20 = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i20, align 4
-  %cmp.not.i21 = icmp ugt i32 %9, %7
+  %cmp.not.i21 = icmp ult i32 %7, %9
   br i1 %cmp.not.i21, label %if.end.i23, label %_ZNK7datalog17execution_context3regEj.exit26
 
 if.end.i23:                                       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i19
@@ -10807,7 +10807,7 @@ entry:
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %2, %0
+  %cmp.not.i = icmp ult i32 %0, %2
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i18
 
 if.end.i:                                         ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -10824,7 +10824,7 @@ _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i18: ; preds = %_ZNK6ve
   %retval.0.i.ph = phi ptr [ null, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i ], [ %3, %if.end.i ]
   %m_rel274 = getelementptr inbounds i8, ptr %this, i64 76
   %4 = load i32, ptr %m_rel274, align 4
-  %cmp.not.i20 = icmp ugt i32 %2, %4
+  %cmp.not.i20 = icmp ult i32 %4, %2
   br i1 %cmp.not.i20, label %if.end.i22, label %_ZNK7datalog17execution_context3regEj.exit25
 
 if.end.i22:                                       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i18
@@ -11120,7 +11120,7 @@ _ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit: ; preds = %
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %_ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %2, %0
+  %cmp.not.i = icmp ult i32 %0, %2
   br i1 %cmp.not.i, label %_ZNK7datalog17execution_context3regEj.exit, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
 
 _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -11133,7 +11133,7 @@ _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7data
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i23: ; preds = %_ZNK7datalog17execution_context3regEj.exit
   %m_rel2 = getelementptr inbounds i8, ptr %this, i64 76
   %4 = load i32, ptr %m_rel2, align 4
-  %cmp.not.i25 = icmp ugt i32 %2, %4
+  %cmp.not.i25 = icmp ult i32 %4, %2
   br i1 %cmp.not.i25, label %_ZNK7datalog17execution_context3regEj.exit30, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
 
 _ZNK7datalog17execution_context3regEj.exit30:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i23
@@ -11146,7 +11146,7 @@ _ZNK7datalog17execution_context3regEj.exit30:     ; preds = %_ZNK6vectorIPN7data
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i23, %_ZNK7datalog17execution_context3regEj.exit, %_ZNK7datalog17execution_context3regEj.exit30
   %.in = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load i32, ptr %.in, align 8
-  %cmp.not.i.i = icmp ugt i32 %2, %6
+  %cmp.not.i.i = icmp ult i32 %6, %2
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -11167,7 +11167,7 @@ _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i35: ; preds = %_ZNK7da
   store i32 %inc, ptr %m_join_project, align 8
   %9 = load i32, ptr %m_rel1, align 8
   %10 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i37 = icmp ugt i32 %10, %9
+  %cmp.not.i37 = icmp ult i32 %9, %10
   br i1 %cmp.not.i37, label %if.end.i39, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i45
 
 if.end.i39:                                       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i35
@@ -11179,7 +11179,7 @@ if.end.i39:                                       ; preds = %_ZNK6vectorIPN7data
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i45: ; preds = %if.end.i39, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i35
   %retval.0.i38 = phi ptr [ %11, %if.end.i39 ], [ null, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i35 ]
   %12 = load i32, ptr %m_rel2, align 4
-  %cmp.not.i47 = icmp ugt i32 %10, %12
+  %cmp.not.i47 = icmp ult i32 %12, %10
   br i1 %cmp.not.i47, label %if.end.i49, label %_ZNK7datalog17execution_context3regEj.exit52
 
 if.end.i49:                                       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i45
@@ -11380,7 +11380,7 @@ if.end27:                                         ; preds = %_ZNK7datalog11instr
   %42 = load ptr, ptr %m_registers.i, align 8, !nonnull !26, !noundef !26
   %arrayidx.i.i66 = getelementptr inbounds i8, ptr %42, i64 -4
   %43 = load i32, ptr %arrayidx.i.i66, align 4
-  %cmp.not.i67 = icmp ugt i32 %43, %41
+  %cmp.not.i67 = icmp ult i32 %41, %43
   call void @llvm.assume(i1 %cmp.not.i67)
   %idxprom.i.i70 = zext i32 %41 to i64
   %arrayidx.i2.i71 = getelementptr inbounds ptr, ptr %42, i64 %idxprom.i.i70
@@ -11400,7 +11400,7 @@ if.then35:                                        ; preds = %if.end27
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i75: ; preds = %if.then35
   %arrayidx.i.i.i76 = getelementptr inbounds i8, ptr %47, i64 -4
   %48 = load i32, ptr %arrayidx.i.i.i76, align 4
-  %cmp.not.i.i77 = icmp ugt i32 %48, %46
+  %cmp.not.i.i77 = icmp ult i32 %46, %48
   br i1 %cmp.not.i.i77, label %_ZNK7datalog17execution_context3regEj.exit.i79, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i79:   ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i75
@@ -11751,7 +11751,7 @@ entry:
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %2, %0
+  %cmp.not.i = icmp ult i32 %0, %2
   br i1 %cmp.not.i, label %_ZNK7datalog17execution_context3regEj.exit, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
 
 _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -11764,7 +11764,7 @@ _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7data
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i, %_ZNK7datalog17execution_context3regEj.exit
   %.in = getelementptr inbounds i8, ptr %this, i64 76
   %4 = load i32, ptr %.in, align 4
-  %cmp.not.i.i = icmp ugt i32 %2, %4
+  %cmp.not.i.i = icmp ult i32 %4, %2
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -11812,7 +11812,7 @@ _ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit: ; preds = %
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i18: ; preds = %_ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit
   %arrayidx.i.i19 = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i19, align 4
-  %cmp.not.i20 = icmp ugt i32 %9, %7
+  %cmp.not.i20 = icmp ult i32 %7, %9
   br i1 %cmp.not.i20, label %if.end.i22, label %_ZNK7datalog17execution_context3regEj.exit25
 
 if.end.i22:                                       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i18
@@ -11973,7 +11973,7 @@ if.end18:                                         ; preds = %_ZNK7datalog11instr
   %33 = load ptr, ptr %m_registers.i, align 8, !nonnull !26, !noundef !26
   %arrayidx.i.i31 = getelementptr inbounds i8, ptr %33, i64 -4
   %34 = load i32, ptr %arrayidx.i.i31, align 4
-  %cmp.not.i32 = icmp ugt i32 %34, %32
+  %cmp.not.i32 = icmp ult i32 %32, %34
   call void @llvm.assume(i1 %cmp.not.i32)
   %idxprom.i.i35 = zext i32 %32 to i64
   %arrayidx.i2.i36 = getelementptr inbounds ptr, ptr %33, i64 %idxprom.i.i35
@@ -11993,7 +11993,7 @@ if.then26:                                        ; preds = %if.end18
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i40: ; preds = %if.then26
   %arrayidx.i.i.i41 = getelementptr inbounds i8, ptr %38, i64 -4
   %39 = load i32, ptr %arrayidx.i.i.i41, align 4
-  %cmp.not.i.i42 = icmp ugt i32 %39, %37
+  %cmp.not.i.i42 = icmp ult i32 %37, %39
   br i1 %cmp.not.i.i42, label %_ZNK7datalog17execution_context3regEj.exit.i44, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i44:   ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i40
@@ -12408,7 +12408,7 @@ _ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit: ; preds = %
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i: ; preds = %_ZN7datalog11instruction11log_verboseERNS_17execution_contextE.exit
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i = icmp ugt i32 %2, %0
+  %cmp.not.i = icmp ult i32 %0, %2
   br i1 %cmp.not.i, label %_ZNK7datalog17execution_context3regEj.exit, label %return
 
 _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i
@@ -12421,7 +12421,7 @@ _ZNK7datalog17execution_context3regEj.exit:       ; preds = %_ZNK6vectorIPN7data
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i21: ; preds = %_ZNK7datalog17execution_context3regEj.exit
   %m_neg_rel = getelementptr inbounds i8, ptr %this, i64 76
   %4 = load i32, ptr %m_neg_rel, align 4
-  %cmp.not.i23 = icmp ugt i32 %2, %4
+  %cmp.not.i23 = icmp ult i32 %4, %2
   br i1 %cmp.not.i23, label %_ZNK7datalog17execution_context3regEj.exit28, label %return
 
 _ZNK7datalog17execution_context3regEj.exit28:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i21
@@ -12438,7 +12438,7 @@ _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i31: ; preds = %_ZNK7da
   store i32 %inc, ptr %m_filter_by_negation, align 8
   %7 = load i32, ptr %m_tgt, align 8
   %8 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not.i33 = icmp ugt i32 %8, %7
+  %cmp.not.i33 = icmp ult i32 %7, %8
   br i1 %cmp.not.i33, label %if.end.i35, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i41
 
 if.end.i35:                                       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i31
@@ -12450,7 +12450,7 @@ if.end.i35:                                       ; preds = %_ZNK6vectorIPN7data
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i41: ; preds = %if.end.i35, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i31
   %retval.0.i34 = phi ptr [ %9, %if.end.i35 ], [ null, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i31 ]
   %10 = load i32, ptr %m_neg_rel, align 4
-  %cmp.not.i43 = icmp ugt i32 %8, %10
+  %cmp.not.i43 = icmp ult i32 %10, %8
   br i1 %cmp.not.i43, label %if.end.i45, label %_ZNK7datalog17execution_context3regEj.exit48
 
 if.end.i45:                                       ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i41
@@ -12658,7 +12658,7 @@ if.then42:                                        ; preds = %if.end38
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i: ; preds = %if.then42
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %38, i64 -4
   %39 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %39, %37
+  %cmp.not.i.i = icmp ult i32 %37, %39
   br i1 %cmp.not.i.i, label %_ZNK7datalog17execution_context3regEj.exit.i, label %return
 
 _ZNK7datalog17execution_context3regEj.exit.i:     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i
@@ -15307,7 +15307,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load i64, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6769 = lshr i64 %sub.i, 1
-  %cmp25.i = icmp ugt i64 %div.i6769, %div13
+  %cmp25.i = icmp ult i64 %div13, %div.i6769
   br i1 %cmp25.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -15406,7 +15406,7 @@ if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph
   %dec.us = add nsw i64 %__parent.071.us, -1
   %add.ptr11.us = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load i64, ptr %add.ptr11.us, align 4
-  %cmp25.i16.not.us = icmp slt i64 %div.i6769, %__parent.071.us
+  %cmp25.i16.not.us = icmp sgt i64 %__parent.071.us, %div.i6769
   br i1 %cmp25.i16.not.us, label %while.end.i17.us.thread, label %while.body.i52.us
 
 while.end.i17.us.thread:                          ; preds = %if.end8.split.us
@@ -15477,7 +15477,7 @@ if.end8.split:                                    ; preds = %if.end8.split.prehe
   %dec = add nsw i64 %__parent.071, -1
   %add.ptr11 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load i64, ptr %add.ptr11, align 4
-  %cmp25.i16.not = icmp slt i64 %div.i6769, %__parent.071
+  %cmp25.i16.not = icmp sgt i64 %__parent.071, %div.i6769
   br i1 %cmp25.i16.not, label %while.end.i17, label %while.body.i52
 
 while.body.i52:                                   ; preds = %if.end8.split, %while.body.i52

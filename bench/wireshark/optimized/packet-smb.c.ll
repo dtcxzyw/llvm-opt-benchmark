@@ -4350,7 +4350,7 @@ define hidden i32 @dissect_file_data(ptr noundef %0, ptr noundef %1, i32 noundef
   %narrow = sub nuw i16 %3, %5
   %10 = zext i16 %narrow to i32
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %2, i32 noundef %10, i32 noundef 0) #15
-  %12 = add i32 %10, %2
+  %12 = add i32 %2, %10
   br label %13
 
 13:                                               ; preds = %8, %6
@@ -4375,7 +4375,7 @@ define hidden i32 @dissect_file_data(ptr noundef %0, ptr noundef %1, i32 noundef
 24:                                               ; preds = %22, %20
   %.sink = phi i32 [ %17, %22 ], [ %16, %20 ]
   %25 = icmp eq i32 %4, -1
-  %26 = icmp eq i32 %.0, %4
+  %26 = icmp eq i32 %4, %.0
   %or.cond = or i1 %25, %26
   %27 = select i1 %or.cond, i32 %.sink, i32 0
   %.1 = add i32 %27, %.0
@@ -4644,7 +4644,7 @@ define internal fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noca
   %32 = load i32, ptr %1, align 4
   %33 = zext i16 %22 to i32
   %34 = tail call i32 @tvb_captured_length(ptr noundef %0) #15
-  %35 = icmp ult i32 %34, %32
+  %35 = icmp ugt i32 %32, %34
   br i1 %35, label %smb_find_unicode_null_offset.exit.i, label %36
 
 36:                                               ; preds = %31
@@ -5106,7 +5106,7 @@ define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0
 
 46:                                               ; preds = %38
   %47 = load i32, ptr @hf_smb_dfs_referral_domain_name, align 4
-  %48 = add i32 %23, %2
+  %48 = add i32 %2, %23
   tail call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %47, i32 noundef %48, i32 noundef %2, i32 noundef %43, i16 noundef zeroext %45, i32 noundef %6, ptr noundef %7)
   br label %49
 
@@ -5120,7 +5120,7 @@ define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0
   %53 = load i32, ptr @ett_smb_dfs_referral_expnames, align 4
   %54 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %43, i32 noundef %52, i32 noundef %53, ptr noundef null, ptr noundef nonnull @.str.1777) #15
   %55 = load i32, ptr @hf_smb_dfs_referral_expname, align 4
-  %56 = add i32 %41, %2
+  %56 = add i32 %2, %41
   %57 = load i16, ptr %5, align 2
   tail call fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr noundef %54, i32 noundef %55, i32 noundef %32, i32 noundef %56, i32 noundef %2, i32 noundef %43, i16 noundef zeroext %57, i32 noundef %6, ptr noundef %7)
   br label %105
@@ -5176,7 +5176,7 @@ define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0
 
 92:                                               ; preds = %86
   %93 = load i32, ptr @hf_smb_dfs_referral_path, align 4
-  %94 = add i32 %62, %2
+  %94 = add i32 %2, %62
   tail call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %93, i32 noundef %94, i32 noundef %2, i32 noundef %89, i16 noundef zeroext %91, i32 noundef %6, ptr noundef %7)
   br label %95
 
@@ -5186,7 +5186,7 @@ define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0
 
 96:                                               ; preds = %95
   %97 = load i32, ptr @hf_smb_dfs_referral_alt_path, align 4
-  %98 = add i32 %71, %2
+  %98 = add i32 %2, %71
   %99 = load i16, ptr %5, align 2
   tail call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %97, i32 noundef %98, i32 noundef %2, i32 noundef %89, i16 noundef zeroext %99, i32 noundef %6, ptr noundef %7)
   br label %100
@@ -5197,7 +5197,7 @@ define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0
 
 101:                                              ; preds = %100
   %102 = load i32, ptr @hf_smb_dfs_referral_node, align 4
-  %103 = add i32 %80, %2
+  %103 = add i32 %2, %80
   %104 = load i16, ptr %5, align 2
   tail call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %102, i32 noundef %103, i32 noundef %2, i32 noundef %89, i16 noundef zeroext %104, i32 noundef %6, ptr noundef %7)
   br label %105
@@ -7736,7 +7736,7 @@ define internal fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr nou
 13:                                               ; preds = %9
   %.neg.i = sub i32 %5, %3
   %14 = trunc i32 %.neg.i to i16
-  %15 = add i16 %14, %6
+  %15 = add i16 %6, %14
   store i16 %15, ptr %11, align 2
   %16 = icmp sgt i16 %15, 0
   br i1 %16, label %.lr.ph.split.i.preheader, label %dissect_dfs_referral_strings.exit
@@ -7792,7 +7792,7 @@ define internal fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr no
 14:                                               ; preds = %10
   %.neg = sub i32 %6, %4
   %15 = trunc i32 %.neg to i16
-  %16 = add i16 %15, %7
+  %16 = add i16 %7, %15
   store i16 %16, ptr %12, align 2
   %17 = icmp sgt i32 %3, 0
   br i1 %17, label %.lr.ph, label %.loopexit
@@ -22610,7 +22610,7 @@ define internal fastcc i32 @dissect_file_data_maybe_dcerpc(ptr noundef %0, ptr n
   %narrow.i = sub nuw i16 %5, %7
   %24 = zext i16 %narrow.i to i32
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %4, i32 noundef %24, i32 noundef 0) #15
-  %26 = add i32 %24, %4
+  %26 = add i32 %4, %24
   br label %dissect_file_data_dcerpc.exit
 
 dissect_file_data_dcerpc.exit:                    ; preds = %20, %22
@@ -23591,7 +23591,7 @@ dissect_sfi_SMB_FILE_PIPE_INFO.exit:              ; preds = %10
   %156 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_info_level_not_understood, ptr noundef %0, i32 noundef %4, i32 noundef %155) #15
   %157 = load i16, ptr %5, align 2
   %158 = zext i16 %157 to i32
-  %159 = add i32 %158, %4
+  %159 = add i32 %4, %158
   store i16 0, ptr %5, align 2
   br label %dissect_4_2_16_4.exit.thread
 
@@ -23600,7 +23600,7 @@ dissect_sfi_SMB_FILE_PIPE_INFO.exit:              ; preds = %10
   %162 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_info_level_unknown, ptr noundef %0, i32 noundef %4, i32 noundef %161) #15
   %163 = load i16, ptr %5, align 2
   %164 = zext i16 %163 to i32
-  %165 = add i32 %164, %4
+  %165 = add i32 %4, %164
   store i16 0, ptr %5, align 2
   br label %dissect_4_2_16_4.exit.thread
 
@@ -24401,7 +24401,7 @@ define internal fastcc ptr @smb_trans_defragment(ptr noundef %0, ptr noundef %1,
   unreachable
 
 15:                                               ; preds = %11
-  %16 = icmp ult i32 %12, %5
+  %16 = icmp ugt i32 %5, %12
   %17 = zext i1 %16 to i32
   %18 = getelementptr inbounds i8, ptr %6, i64 48
   %19 = load ptr, ptr %18, align 8
@@ -27953,7 +27953,7 @@ define internal fastcc void @dissect_nt_trans_data_request(ptr noundef %0, ptr n
 
 23:                                               ; preds = %9
   %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #15
-  %25 = icmp sgt i32 %24, %4
+  %25 = icmp slt i32 %4, %24
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %23
@@ -28379,7 +28379,7 @@ define internal fastcc void @dissect_nt_trans_data_response(ptr noundef %0, ptr 
 
 18:                                               ; preds = %16
   %19 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #15
-  %20 = icmp sgt i32 %19, %4
+  %20 = icmp slt i32 %4, %19
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %18

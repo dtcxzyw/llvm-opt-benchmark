@@ -4332,14 +4332,14 @@ gtk3_get_arrow.exit:                              ; preds = %10, %13
 
 26:                                               ; preds = %gtk3_get_arrow.exit
   %27 = shl nsw i32 %6, 1
-  %28 = tail call i32 @llvm.smin.i32(i32 %27, i32 %7)
+  %28 = tail call i32 @llvm.smin.i32(i32 %7, i32 %27)
   %29 = sitofp i32 %28 to double
   %30 = tail call double @llvm.fmuladd.f64(double %29, double 5.000000e-01, double 5.000000e-01)
   br label %62
 
 31:                                               ; preds = %gtk3_get_arrow.exit
   %32 = shl nsw i32 %6, 1
-  %33 = tail call i32 @llvm.smin.i32(i32 %32, i32 %7)
+  %33 = tail call i32 @llvm.smin.i32(i32 %7, i32 %32)
   %34 = sitofp i32 %33 to double
   %35 = tail call double @llvm.fmuladd.f64(double %34, double 5.000000e-01, double 5.000000e-01)
   br label %62
@@ -6461,7 +6461,7 @@ define internal noundef i32 @gtk3_get_drawable_data(ptr noundef %0, ptr noundef 
   %79 = mul nsw i64 %78, %76
   %80 = getelementptr inbounds i8, ptr %69, i64 %79
   %81 = trunc i64 %indvars.iv91 to i32
-  %82 = add i32 %81, %8
+  %82 = add i32 %8, %81
   %83 = mul i32 %82, %6
   %84 = add i32 %83, %7
   br label %85
@@ -8396,7 +8396,7 @@ define internal fastcc void @gtk3_style_shade(ptr nocapture noundef readonly %0,
 rgb_to_hls.exit:                                  ; preds = %18, %44, %47
   %.063.i = phi double [ %48, %47 ], [ %45, %44 ], [ 0.000000e+00, %18 ]
   %.060.i = phi double [ %27, %47 ], [ %27, %44 ], [ 0.000000e+00, %18 ]
-  %49 = fmul double %20, %2
+  %49 = fmul double %2, %20
   %50 = fcmp ogt double %49, 1.000000e+00
   br i1 %50, label %54, label %51
 
@@ -8409,7 +8409,7 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
 
 54:                                               ; preds = %rgb_to_hls.exit, %51, %53
   %.019 = phi double [ 0.000000e+00, %53 ], [ %49, %51 ], [ 1.000000e+00, %rgb_to_hls.exit ]
-  %55 = fmul double %.060.i, %2
+  %55 = fmul double %2, %.060.i
   %56 = fcmp ogt double %55, 1.000000e+00
   br i1 %56, label %60, label %57
 

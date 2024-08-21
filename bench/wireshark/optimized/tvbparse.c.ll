@@ -54,7 +54,7 @@ define internal range(i32 -1, 2) i32 @cond_char(ptr noundef %0, i32 noundef %1, 
 
 .lr.ph:                                           ; preds = %9
   %16 = load i32, ptr %6, align 4
-  %.not19 = icmp slt i32 %16, %1
+  %.not19 = icmp sgt i32 %1, %16
   br i1 %.not19, label %.critedge, label %.lr.ph.split
 
 17:                                               ; preds = %.lr.ph.split
@@ -252,7 +252,7 @@ define noalias noundef ptr @tvbparse_not_char(i32 noundef %0, ptr noundef %1, pt
 define internal range(i32 -1, 2) i32 @cond_not_char(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
-  %.not = icmp sgt i32 %6, %1
+  %.not = icmp slt i32 %1, %6
   br i1 %.not, label %7, label %32
 
 7:                                                ; preds = %4
@@ -570,7 +570,7 @@ define internal range(i32 -1, -2147483648) i32 @cond_one_of(ptr noundef %0, i32 
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   br i1 %8, label %59, label %9
 
 9:                                                ; preds = %4
@@ -776,7 +776,7 @@ define internal i32 @cond_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   br i1 %9, label %83, label %10
 
 10:                                               ; preds = %4
@@ -1034,7 +1034,7 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   br i1 %9, label %107, label %10
 
 10:                                               ; preds = %4
@@ -1246,7 +1246,7 @@ define internal i32 @cond_some(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   br i1 %8, label %100, label %9
 
 9:                                                ; preds = %4

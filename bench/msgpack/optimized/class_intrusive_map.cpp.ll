@@ -1719,7 +1719,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail9parse_impINS1_2
   %6 = alloca %"struct.msgpack::v2::detail::parse_helper", align 8
   %7 = load i64, ptr %2, align 8
   store i64 %7, ptr %5, align 8
-  %.not = icmp ult i64 %7, %1
+  %.not = icmp ugt i64 %1, %7
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %4

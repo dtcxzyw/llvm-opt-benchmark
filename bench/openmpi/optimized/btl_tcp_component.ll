@@ -1738,7 +1738,7 @@ mca_btl_tcp_component_exchange.exit._crit_edge:   ; preds = %mca_btl_tcp_compone
 .loopexit38:                                      ; preds = %.lr.ph54, %415
   %427 = phi i32 [ %410, %415 ], [ %424, %.lr.ph54 ]
   %428 = icmp ugt i32 %427, 1
-  %or.cond = or i1 %417, %2
+  %or.cond = or i1 %2, %417
   %or.cond36 = and i1 %or.cond, %428
   br i1 %or.cond36, label %.lr.ph56, label %.loopexit38..loopexit_crit_edge
 
@@ -2172,7 +2172,7 @@ define internal fastcc void @mca_btl_tcp_create(i32 noundef %0, ptr noundef %1) 
   %5 = getelementptr inbounds i8, ptr %.091114.us, i64 76
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
-  %.not94.us = icmp eq i32 %7, %0
+  %.not94.us = icmp eq i32 %0, %7
   br i1 %.not94.us, label %8, label %12
 
 8:                                                ; preds = %.lr.ph.split.us.split
@@ -2196,7 +2196,7 @@ define internal fastcc void @mca_btl_tcp_create(i32 noundef %0, ptr noundef %1) 
   %14 = getelementptr inbounds i8, ptr %.091114.us117, i64 76
   %15 = load i16, ptr %14, align 4
   %16 = zext i16 %15 to i32
-  %.not94.us118 = icmp eq i32 %16, %0
+  %.not94.us118 = icmp eq i32 %0, %16
   br i1 %.not94.us118, label %17, label %21
 
 17:                                               ; preds = %.lr.ph.split.split.us
@@ -2220,7 +2220,7 @@ define internal fastcc void @mca_btl_tcp_create(i32 noundef %0, ptr noundef %1) 
   %23 = getelementptr inbounds i8, ptr %.091114, i64 76
   %24 = load i16, ptr %23, align 4
   %25 = zext i16 %24 to i32
-  %.not94 = icmp eq i32 %25, %0
+  %.not94 = icmp eq i32 %0, %25
   br i1 %.not94, label %26, label %30
 
 26:                                               ; preds = %.lr.ph.split.split

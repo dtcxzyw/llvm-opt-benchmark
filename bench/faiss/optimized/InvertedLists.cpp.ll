@@ -569,7 +569,7 @@ define noundef i64 @_ZN5faiss18ArrayInvertedLists11add_entriesEmmPKlPKh(ptr noca
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
   %18 = add i64 %17, %2
-  %19 = icmp ult i64 %17, %18
+  %19 = icmp ugt i64 %18, %17
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %7
@@ -577,7 +577,7 @@ define noundef i64 @_ZN5faiss18ArrayInvertedLists11add_entriesEmmPKlPKh(ptr noca
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 21:                                               ; preds = %7
-  %22 = icmp ugt i64 %17, %18
+  %22 = icmp ult i64 %18, %17
   br i1 %22, label %23, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 23:                                               ; preds = %21
@@ -652,7 +652,7 @@ define void @_ZN5faiss18ArrayInvertedLists6resizeEmm(ptr nocapture noundef nonnu
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
-  %14 = icmp ult i64 %13, %2
+  %14 = icmp ugt i64 %2, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
@@ -661,7 +661,7 @@ define void @_ZN5faiss18ArrayInvertedLists6resizeEmm(ptr nocapture noundef nonnu
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 17:                                               ; preds = %3
-  %18 = icmp ugt i64 %13, %2
+  %18 = icmp ult i64 %2, %13
   br i1 %18, label %19, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 19:                                               ; preds = %17
@@ -3381,7 +3381,7 @@ _ZNK5faiss13InvertedLists14compute_ntotalEv.exit: ; preds = %.lr.ph.i, %66
   %.0133309.us = phi i64 [ %109, %108 ], [ 0, %.preheader.us ]
   %86 = getelementptr inbounds i64, ptr %85, i64 %.0133309.us
   %87 = load i64, ptr %86, align 8
-  %.not145.us = icmp sge i64 %87, %3
+  %.not145.us = icmp sle i64 %3, %87
   %88 = icmp slt i64 %87, %4
   %or.cond149.us = and i1 %.not145.us, %88
   br i1 %or.cond149.us, label %89, label %108
@@ -4181,7 +4181,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %3, %._ZNSt6vectorIS
   %14 = ptrtoint ptr %10 to i64
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 24
-  %17 = icmp ult i64 %16, %1
+  %17 = icmp ugt i64 %1, %16
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
@@ -4190,7 +4190,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %3, %._ZNSt6vectorIS
           to label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit unwind label %27
 
 20:                                               ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
-  %21 = icmp ugt i64 %16, %1
+  %21 = icmp ult i64 %1, %16
   br i1 %21, label %22, label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
@@ -4510,7 +4510,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -4593,7 +4593,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -5307,7 +5307,7 @@ define void @_ZN5faiss18SliceInvertedListsC2EPKNS_13InvertedListsEll(ptr nocaptu
 define internal fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_18SliceInvertedListsEl(i64 %.8.val, i64 %.40.val, i64 noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = icmp sgt i64 %0, -1
-  %4 = icmp ugt i64 %.8.val, %0
+  %4 = icmp ult i64 %0, %.8.val
   %or.cond = select i1 %3, i1 %4, i1 false
   br i1 %or.cond, label %21, label %5
 
@@ -5636,7 +5636,7 @@ define internal fastcc noundef range(i32 0, 1073741824) i32 @_ZN5faiss12_GLOBAL_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   br i1 %8, label %25, label %9
 
 9:                                                ; preds = %2, %5
@@ -5701,7 +5701,7 @@ define internal fastcc noundef range(i32 0, 1073741824) i32 @_ZN5faiss12_GLOBAL_
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds i64, ptr %36, i64 %40
   %42 = load i64, ptr %41, align 8
-  %.not = icmp sgt i64 %42, %1
+  %.not = icmp slt i64 %1, %42
   %.019. = select i1 %.not, i32 %.01923, i32 %39
   %..018 = select i1 %.not, i32 %39, i32 %.01824
   %43 = add nuw nsw i32 %.019., 1

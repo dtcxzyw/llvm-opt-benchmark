@@ -56,8 +56,8 @@ define internal fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalia
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %12
-  %16 = getelementptr i8, ptr %1, i64 %.017.i11.i.i.i
-  %17 = getelementptr i8, ptr %16, i64 %.1.lcssa.i.i.i
+  %16 = getelementptr i8, ptr %1, i64 %.1.lcssa.i.i.i
+  %17 = getelementptr i8, ptr %16, i64 %.017.i11.i.i.i
   %.0.copyload15.i16.i.i.i = load i16, ptr %17, align 1, !alias.scope !4, !noalias !13
   %18 = zext i16 %.0.copyload15.i16.i.i.i to i64
   %19 = shl nuw nsw i64 %.017.i11.i.i.i, 3

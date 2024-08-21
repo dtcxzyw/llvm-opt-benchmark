@@ -4596,7 +4596,7 @@ entry:
   %agg.tmp = alloca %class.ref_vector, align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp25 = icmp sgt i64 %div, %__holeIndex
+  %cmp25 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp25, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt3lns11relax_coresEvE3$_0EclIP10ref_vectorI4expr11ast_managerESB_EEbT_T0_.exit"

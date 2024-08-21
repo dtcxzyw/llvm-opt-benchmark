@@ -1511,7 +1511,7 @@ define hidden void @"_ZN140_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A
 
 74:                                               ; preds = %70
   %75 = sub i64 %72, %66
-  %.not34 = icmp ugt i64 %75, %.0.sroa.speculated.i.sink.i
+  %.not34 = icmp ult i64 %.0.sroa.speculated.i.sink.i, %75
   br i1 %.not34, label %76, label %95
 
 76:                                               ; preds = %95, %74
@@ -3301,7 +3301,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
 define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17hf5dd1035025ae214E.llvm.687266931824691263"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
@@ -3672,7 +3672,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h2
   %.sroa.451.0.copyload = load ptr, ptr %.sroa.451.0..sroa_idx, align 8
   %.sroa.552.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   %.sroa.552.0.copyload = load i64, ptr %.sroa.552.0..sroa_idx, align 8
-  %.not.i.i = icmp ult i64 %.sroa.552.0.copyload, %19
+  %.not.i.i = icmp ugt i64 %19, %.sroa.552.0.copyload
   br i1 %.not.i.i, label %34, label %"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hcd8410a12ba62f5fE.exit"
 
 34:                                               ; preds = %29
@@ -6382,7 +6382,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9itertools8pe
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @"_ZN140_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$alloc..collections..vec_deque..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17ha768dba858a27f7eE.llvm.687266931824691263"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %6)
   %8 = load i64, ptr %4, align 8, !alias.scope !1262, !noundef !4
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %10, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17hf5dd1035025ae214E.llvm.687266931824691263.exit"
 
 10:                                               ; preds = %2
@@ -6453,7 +6453,7 @@ define hidden noundef zeroext i1 @_ZN7uu_sort14custom_str_cmp11filter_char17h375
 ; Function Attrs: nofree nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef range(i8 -1, 2) i8 @_ZN7uu_sort14custom_str_cmp14custom_str_cmp17hf2d5e6001b071730E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #22 personality ptr @rust_eh_personality {
   %brmerge = or i1 %5, %6
-  %brmerge56 = or i1 %brmerge, %4
+  %brmerge56 = or i1 %4, %brmerge
   br i1 %brmerge56, label %8, label %11
 
 8:                                                ; preds = %7
@@ -6546,7 +6546,7 @@ _ZN7uu_sort14custom_str_cmp9cmp_chars17he0f1c5b59ec3755fE.exit.thread: ; preds =
 .critedge.i.i.i.i.i:                              ; preds = %63, %63, %63, %63, %63, %57, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i"
   %56 = add nsw i32 %55, -127
   %or.cond3.i.i.i.i.i = icmp ult i32 %56, -95
-  %or.cond.not.i.i = and i1 %or.cond3.i.i.i.i.i, %4
+  %or.cond.not.i.i = and i1 %4, %or.cond3.i.i.i.i.i
   %spec.select = select i1 %or.cond.not.i.i, i32 1114112, i32 %55
   br label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hcc427e647b442347E.exit.i"
 
@@ -6645,7 +6645,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hc6a3e18cf55dceb3E.exit: ; pred
 .critedge.i.i.i.i.i34:                            ; preds = %113, %113, %113, %113, %113, %107, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i33"
   %106 = add nsw i32 %105, -127
   %or.cond3.i.i.i.i.i35 = icmp ult i32 %106, -95
-  %or.cond.not.i.i36 = and i1 %or.cond3.i.i.i.i.i35, %4
+  %or.cond.not.i.i36 = and i1 %4, %or.cond3.i.i.i.i.i35
   %spec.select62 = select i1 %or.cond.not.i.i36, i32 1114112, i32 %105
   br label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h7a64ac37ac43c47eE.exit.i"
 
@@ -6927,7 +6927,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.6872
   br i1 %85, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread.loopexit", label %11
 
 86:                                               ; preds = %.critedge60.thread
-  %87 = icmp eq i32 %.val, %.sroa.4.0.i.ph10.i77.fr
+  %87 = icmp eq i32 %.sroa.4.0.i.ph10.i77.fr, %.val
   br i1 %87, label %88, label %_ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17h9471ff473f7ea521E.exit
 
 88:                                               ; preds = %86

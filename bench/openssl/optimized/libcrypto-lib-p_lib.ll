@@ -1886,7 +1886,7 @@ if.end38:                                         ; preds = %if.then37, %lor.rhs
 land.lhs.true:                                    ; preds = %if.end38
   %save_type = getelementptr inbounds i8, ptr %pkey, i64 4
   %4 = load i32, ptr %save_type, align 4
-  %cmp42 = icmp eq i32 %4, %type
+  %cmp42 = icmp eq i32 %type, %4
   br i1 %cmp42, label %land.lhs.true44, label %if.end49
 
 land.lhs.true44:                                  ; preds = %land.lhs.true
@@ -2869,7 +2869,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %i.05 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
   %arrayidx = getelementptr inbounds [12 x %struct.ossl_item_st], ptr @standard_name2type, i64 0, i64 %i.05
   %0 = load i32, ptr %arrayidx, align 16
-  %cmp1 = icmp eq i32 %0, %type
+  %cmp1 = icmp eq i32 %type, %0
   br i1 %cmp1, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body

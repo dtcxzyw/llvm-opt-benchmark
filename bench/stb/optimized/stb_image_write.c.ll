@@ -800,7 +800,7 @@ entry:
   %0 = or i1 %cmp, %cmp1
   %lor.ext = zext i1 %0 to i32
   %sub = sext i1 %0 to i32
-  %cond = add nsw i32 %sub, %comp
+  %cond = add nsw i32 %comp, %sub
   %cmp2 = icmp slt i32 %cond, 2
   %cond3 = select i1 %cmp2, i32 3, i32 2
   %1 = or i32 %y, %x
@@ -1750,7 +1750,7 @@ for.body:                                         ; preds = %if.else, %for.body
   %4 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %tobool.not = icmp eq i32 %4, 0
   %5 = xor i32 %i.019, -1
-  %sub12 = add nsw i32 %5, %y
+  %sub12 = add nsw i32 %y, %5
   %cond = select i1 %tobool.not, i32 %i.019, i32 %sub12
   %mul13 = mul nsw i32 %mul11, %cond
   %idx.ext = sext i32 %mul13 to i64
@@ -3856,7 +3856,7 @@ entry:
   %1 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %tobool.not = icmp eq i32 %1, 0
   %2 = xor i32 %y, -1
-  %sub3 = add i32 %2, %height
+  %sub3 = add i32 %height, %2
   %cond6 = select i1 %tobool.not, i32 %y, i32 %sub3
   %mul = mul nsw i32 %cond6, %stride_bytes
   %idx.ext = sext i32 %mul to i64
@@ -3958,7 +3958,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 
 for.cond186.preheader:                            ; preds = %for.end
   %mul187 = mul nsw i32 %n, %width
-  %cmp188147 = icmp sgt i32 %mul187, %n
+  %cmp188147 = icmp slt i32 %n, %mul187
   br i1 %cmp188147, label %for.body190.preheader, label %sw.epilog207
 
 for.body190.preheader:                            ; preds = %for.cond186.preheader
@@ -3968,7 +3968,7 @@ for.body190.preheader:                            ; preds = %for.cond186.prehead
 
 for.cond165.preheader:                            ; preds = %for.end
   %mul166 = mul nsw i32 %n, %width
-  %cmp167149 = icmp sgt i32 %mul166, %n
+  %cmp167149 = icmp slt i32 %n, %mul166
   br i1 %cmp167149, label %for.body169.preheader, label %sw.epilog207
 
 for.body169.preheader:                            ; preds = %for.cond165.preheader
@@ -3978,7 +3978,7 @@ for.body169.preheader:                            ; preds = %for.cond165.prehead
 
 for.cond134.preheader:                            ; preds = %for.end
   %mul135 = mul nsw i32 %n, %width
-  %cmp136151 = icmp sgt i32 %mul135, %n
+  %cmp136151 = icmp slt i32 %n, %mul135
   br i1 %cmp136151, label %for.body138.preheader, label %sw.epilog207
 
 for.body138.preheader:                            ; preds = %for.cond134.preheader
@@ -3989,7 +3989,7 @@ for.body138.preheader:                            ; preds = %for.cond134.prehead
 
 for.cond109.preheader:                            ; preds = %for.end
   %mul110 = mul nsw i32 %n, %width
-  %cmp111153 = icmp sgt i32 %mul110, %n
+  %cmp111153 = icmp slt i32 %n, %mul110
   br i1 %cmp111153, label %for.body113.preheader, label %sw.epilog207
 
 for.body113.preheader:                            ; preds = %for.cond109.preheader
@@ -4000,7 +4000,7 @@ for.body113.preheader:                            ; preds = %for.cond109.prehead
 
 for.cond89.preheader:                             ; preds = %for.end
   %mul90 = mul nsw i32 %n, %width
-  %cmp91155 = icmp sgt i32 %mul90, %n
+  %cmp91155 = icmp slt i32 %n, %mul90
   br i1 %cmp91155, label %for.body93.preheader, label %sw.epilog207
 
 for.body93.preheader:                             ; preds = %for.cond89.preheader
@@ -4011,7 +4011,7 @@ for.body93.preheader:                             ; preds = %for.cond89.preheade
 
 for.cond69.preheader:                             ; preds = %for.end
   %mul70 = mul nsw i32 %n, %width
-  %cmp71157 = icmp sgt i32 %mul70, %n
+  %cmp71157 = icmp slt i32 %n, %mul70
   br i1 %cmp71157, label %for.body73.preheader, label %sw.epilog207
 
 for.body73.preheader:                             ; preds = %for.cond69.preheader

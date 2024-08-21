@@ -7397,8 +7397,8 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 
 16:                                               ; preds = %32, %10
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %10 ], [ %33, %32 ]
-  %.pn.i.i.i = phi i64 [ %12, %10 ], [ %34, %32 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i.i
+  %.pn.i.i.i.i.i = phi i64 [ %12, %10 ], [ %34, %32 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i
   %17 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i25.i.i.i.i = load <16 x i8>, ptr %17, align 1, !noalias !1121
   %18 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -7426,7 +7426,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %30 = sub nsw i64 0, %29
   %gep.i.i.i.i = getelementptr { i32, i32 }, ptr %invariant.gep.i.i.i.i, i64 %30
   %.val4.i.i.i.i.i = load i32, ptr %gep.i.i.i.i, align 4, !alias.scope !1130, !noalias !1135, !noundef !20
-  %31 = icmp eq i32 %.val4.i.i.i.i.i, %.sroa.3.0.copyload
+  %31 = icmp eq i32 %.sroa.3.0.copyload, %.val4.i.i.i.i.i
   br i1 %31, label %35, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i.i"
 
 32:                                               ; preds = %20
@@ -8505,7 +8505,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !1418, !noalias !1423, !noundef !20
   %45 = load i64, ptr %0, align 8, !alias.scope !1425, !noalias !1423, !noundef !20
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h099f3f6f22e5cfd4E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -8562,7 +8562,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %5 = load i64, ptr %4, align 8, !alias.scope !1431, !noalias !1436, !noundef !20
   %6 = load i64, ptr %0, align 8, !alias.scope !1438, !noalias !1436, !noundef !20
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h099f3f6f22e5cfd4E.exit"
 
 9:                                                ; preds = %3
@@ -8695,7 +8695,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h2b1bf878a49c
   %40 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1445, !noalias !1450, !noundef !20
   %41 = load i64, ptr %9, align 8, !alias.scope !1452, !noalias !1450, !noundef !20
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %39
+  %43 = icmp ugt i64 %39, %42
   br i1 %43, label %44, label %61
 
 44:                                               ; preds = %38
@@ -8721,7 +8721,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h2b1bf878a49c
   %53 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1455, !noalias !1460, !noundef !20
   %54 = load i64, ptr %9, align 8, !alias.scope !1462, !noalias !1460, !noundef !20
   %55 = sub i64 %54, %53
-  %56 = icmp ult i64 %55, %52
+  %56 = icmp ugt i64 %52, %55
   br i1 %56, label %57, label %68
 
 57:                                               ; preds = %48
@@ -8761,7 +8761,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h2b1bf878a49c
   store i64 %73, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1455, !noalias !1460
   %74 = load i64, ptr %9, align 8, !alias.scope !1465, !noalias !1472, !noundef !20
   %75 = sub i64 %74, %73
-  %76 = icmp ult i64 %75, %5
+  %76 = icmp ugt i64 %5, %75
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %68
@@ -13933,8 +13933,8 @@ define hidden void @_ZN13project_model13build_scripts21WorkspaceBuildScripts8run
 
 200:                                              ; preds = %221, %.noexc.i
   %.sroa.9.0.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %222, %221 ]
-  %.pn.i.i.i.i.i = phi i64 [ %197, %.noexc.i ], [ %223, %221 ]
-  %.sroa.01.0.i.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i.i.i
+  %.pn.i.i.i.i.i.i.i = phi i64 [ %197, %.noexc.i ], [ %223, %221 ]
+  %.sroa.01.0.i.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i.i.i, %.val5.i.i.i.i
   %201 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i.i
   %.0.copyload.i25.i.i.i.i.i.i = load <16 x i8>, ptr %201, align 1, !noalias !2605
   %202 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i.i.i, %.15.vec.insert.i.i.i.i.i.i.i
@@ -13964,7 +13964,7 @@ define hidden void @_ZN13project_model13build_scripts21WorkspaceBuildScripts8run
   %214 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32], i64 } }, ptr %.val.i.i.i.i, i64 %213
   %215 = getelementptr i8, ptr %214, i64 -24
   %.val5.i.i.i.i.i.i.i = load i64, ptr %215, align 8, !alias.scope !2614, !noalias !2621, !noundef !20
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.val5.i.i.i.i.i.i.i, %.val15.i.i.i
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.val15.i.i.i, %.val5.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %216, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h082107000d9d41fbE.exit.backedge.i.i.i.i.i.i"
 
 216:                                              ; preds = %.lr.ph.i.i.i.i.i.i
@@ -19086,8 +19086,8 @@ define hidden void @"_ZN13project_model9workspace22sysroot_to_crate_graph28_$u7b
 
 19:                                               ; preds = %35, %13
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %13 ], [ %36, %35 ]
-  %.pn.i.i = phi i64 [ %15, %13 ], [ %37, %35 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val5.i
+  %.pn.i.i.i.i = phi i64 [ %15, %13 ], [ %37, %35 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i
   %20 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i25.i.i.i = load <16 x i8>, ptr %20, align 1, !noalias !3496
   %21 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, %.15.vec.insert.i.i.i.i
@@ -19115,7 +19115,7 @@ define hidden void @"_ZN13project_model9workspace22sysroot_to_crate_graph28_$u7b
   %33 = sub nsw i64 0, %32
   %gep.i.i.i = getelementptr { i32, i32 }, ptr %invariant.gep.i.i.i, i64 %33
   %.val4.i.i.i.i = load i32, ptr %gep.i.i.i, align 4, !alias.scope !3505, !noalias !3510, !noundef !20
-  %34 = icmp eq i32 %.val4.i.i.i.i, %6
+  %34 = icmp eq i32 %6, %.val4.i.i.i.i
   br i1 %34, label %38, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
 
 35:                                               ; preds = %23

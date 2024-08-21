@@ -1552,11 +1552,11 @@ define internal void @_ZN2cvL15skip_input_dataEP22jpeg_decompress_structl(ptr no
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = icmp slt i64 %6, %1
+  %7 = icmp sgt i64 %1, %6
   %8 = sub i64 %6, %1
   %9 = sub i64 %1, %6
   %10 = trunc i64 %9 to i32
-  %.sink18 = tail call i64 @llvm.smin.i64(i64 %6, i64 %1)
+  %.sink18 = tail call i64 @llvm.smin.i64(i64 %1, i64 %6)
   %.sink16 = select i1 %7, i32 %10, i32 0
   %.sink = select i1 %7, i64 0, i64 %8
   %11 = load ptr, ptr %4, align 8
@@ -1660,7 +1660,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -1743,7 +1743,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40

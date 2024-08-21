@@ -859,7 +859,7 @@ do.body.preheader:                                ; preds = %lor.lhs.false56
   %3 = and i64 %2, 15
   %4 = add nuw nsw i64 %3, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 %conv15, i64 %4, i1 false)
-  %5 = add i64 %3, %len
+  %5 = add i64 %len, %3
   %call66 = call i32 @RAND_bytes(ptr noundef nonnull %iv, i32 noundef 16) #6
   %call67 = call i32 @test_int_gt(ptr noundef nonnull @.str.1, i32 noundef 334, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.18, i32 noundef %call66, i32 noundef 0) #6
   %tobool68.not = icmp eq i32 %call67, 0

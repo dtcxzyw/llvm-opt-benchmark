@@ -158,27 +158,26 @@ define hidden void @_ZN13ArrayCopyNodeC2EP7Compilebb(ptr noundef nonnull align 8
 53:                                               ; preds = %4
   %54 = add nsw i32 %49, 1
   %55 = icmp sgt i32 %49, -1
-  %56 = xor i32 %49, -2147483648
-  %57 = and i32 %56, %54
-  %58 = icmp eq i32 %57, 0
-  %59 = and i1 %55, %58
-  %60 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %54, i1 true)
-  %61 = sub nuw nsw i32 32, %60
-  %62 = shl nuw i32 1, %61
-  %.0.i.i.i.i.i = select i1 %59, i32 %54, i32 %62
+  %56 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %54)
+  %57 = icmp ult i32 %56, 2
+  %or.cond.i.i.i.i.i = select i1 %55, i1 %57, i1 false
+  %58 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %54, i1 true)
+  %59 = sub nuw nsw i32 32, %58
+  %60 = shl nuw i32 1, %59
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %54, i32 %60
   tail call void @_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %48, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %48, align 8
   br label %_ZN7Compile14add_macro_nodeEP4Node.exit
 
 _ZN7Compile14add_macro_nodeEP4Node.exit:          ; preds = %4, %53
-  %63 = phi i32 [ %.pre.i.i, %53 ], [ %49, %4 ]
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %48, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 424
-  %66 = load ptr, ptr %65, align 8
-  %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
-  store ptr %0, ptr %68, align 8
+  %61 = phi i32 [ %.pre.i.i, %53 ], [ %49, %4 ]
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %48, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 424
+  %64 = load ptr, ptr %63, align 8
+  %65 = sext i32 %61 to i64
+  %66 = getelementptr inbounds ptr, ptr %64, i64 %65
+  store ptr %0, ptr %66, align 8
   ret void
 }
 
@@ -1373,7 +1372,7 @@ _ZN9VectorSet8test_setEj.exit.i:                  ; preds = %53, %42
   store i32 %66, ptr %64, align 8
   %67 = getelementptr inbounds i8, ptr %47, i64 8
   %68 = load i32, ptr %67, align 8
-  %.not.i.i.i = icmp ugt i32 %68, %65
+  %.not.i.i.i = icmp ult i32 %65, %68
   br i1 %.not.i.i.i, label %_ZN9Node_List4pushEP4Node.exit.i, label %69
 
 69:                                               ; preds = %63
@@ -1738,7 +1737,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %2, %8
   store i32 %21, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8
-  %.not.i.i = icmp ugt i32 %23, %20
+  %.not.i.i = icmp ult i32 %20, %23
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %24
 
 24:                                               ; preds = %18
@@ -2551,7 +2550,7 @@ declare void @_ZN4Node8destructEP11PhaseValues(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN13ArrayCopyNode16get_address_typeEP8PhaseGVNPK7TypePtrP4Node(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN10TypeOopPtr6BOTTOME, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %3
@@ -2586,7 +2585,7 @@ define hidden void @_ZN13ArrayCopyNode23array_copy_test_overlapEP8PhaseGVNbbiRP4
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp slt i32 %4, 2
-  %or.cond.not = or i1 %11, %3
+  %or.cond.not = or i1 %3, %11
   br i1 %or.cond.not, label %153, label %12
 
 12:                                               ; preds = %7
@@ -3174,7 +3173,7 @@ _ZN9VectorSet8test_setEj.exit.i:                  ; preds = %192, %181
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %186, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i.i68 = icmp ugt i32 %207, %204
+  %.not.i.i.i68 = icmp ult i32 %204, %207
   br i1 %.not.i.i.i68, label %_ZN9Node_List4pushEP4Node.exit.i, label %208
 
 208:                                              ; preds = %202
@@ -3224,7 +3223,7 @@ _ZN9VectorSet8test_setEj.exit.i70:                ; preds = %219, %_ZN16Unique_N
   store i32 %232, ptr %230, align 8
   %233 = getelementptr inbounds i8, ptr %213, i64 8
   %234 = load i32, ptr %233, align 8
-  %.not.i.i.i72 = icmp ugt i32 %234, %231
+  %.not.i.i.i72 = icmp ult i32 %231, %234
   br i1 %.not.i.i.i72, label %_ZN9Node_List4pushEP4Node.exit.i73, label %235
 
 235:                                              ; preds = %229
@@ -3599,7 +3598,7 @@ _ZN9VectorSet8test_setEj.exit.i:                  ; preds = %192, %181
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %186, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i.i69 = icmp ugt i32 %207, %204
+  %.not.i.i.i69 = icmp ult i32 %204, %207
   br i1 %.not.i.i.i69, label %_ZN9Node_List4pushEP4Node.exit.i, label %208
 
 208:                                              ; preds = %202
@@ -3649,7 +3648,7 @@ _ZN9VectorSet8test_setEj.exit.i71:                ; preds = %219, %_ZN16Unique_N
   store i32 %232, ptr %230, align 8
   %233 = getelementptr inbounds i8, ptr %213, i64 8
   %234 = load i32, ptr %233, align 8
-  %.not.i.i.i73 = icmp ugt i32 %234, %231
+  %.not.i.i.i73 = icmp ult i32 %231, %234
   br i1 %.not.i.i.i73, label %_ZN9Node_List4pushEP4Node.exit.i74, label %235
 
 235:                                              ; preds = %229
@@ -3836,7 +3835,7 @@ define hidden noundef ptr @_ZN13ArrayCopyNode5IdealEP8PhaseGVNb(ptr noundef nonn
   %94 = getelementptr inbounds i8, ptr %0, i64 136
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr @_ZN10TypeOopPtr6BOTTOME, align 8
-  %97 = icmp eq ptr %96, %95
+  %97 = icmp eq ptr %95, %96
   br i1 %97, label %98, label %_ZN13ArrayCopyNode16get_address_typeEP8PhaseGVNPK7TypePtrP4Node.exit
 
 98:                                               ; preds = %90
@@ -3866,7 +3865,7 @@ _ZN13ArrayCopyNode16get_address_typeEP8PhaseGVNPK7TypePtrP4Node.exit: ; preds = 
   %117 = getelementptr inbounds i8, ptr %0, i64 144
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr @_ZN10TypeOopPtr6BOTTOME, align 8
-  %120 = icmp eq ptr %119, %118
+  %120 = icmp eq ptr %118, %119
   br i1 %120, label %121, label %_ZN13ArrayCopyNode16get_address_typeEP8PhaseGVNPK7TypePtrP4Node.exit81
 
 121:                                              ; preds = %_ZN13ArrayCopyNode16get_address_typeEP8PhaseGVNPK7TypePtrP4Node.exit
@@ -4640,8 +4639,8 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %64, %_ZN12ar
   %91 = add nsw i64 %90, %81
   %92 = mul nsw i64 %84, %80
   %93 = add nsw i64 %92, %81
-  %.not45 = icmp sle i64 %93, %1
-  %94 = icmp sgt i64 %91, %2
+  %.not45 = icmp sge i64 %1, %93
+  %94 = icmp slt i64 %2, %91
   %or.cond46 = select i1 %.not45, i1 %94, i1 false
   br i1 %or.cond46, label %106, label %105
 
@@ -4654,8 +4653,8 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %64, %_ZN12ar
   %101 = add nsw i64 %100, %81
   %102 = mul nsw i64 %79, %80
   %103 = add nsw i64 %102, %81
-  %.not = icmp sle i64 %103, %2
-  %104 = icmp sgt i64 %101, %1
+  %.not = icmp sge i64 %2, %103
+  %104 = icmp slt i64 %1, %101
   %or.cond47 = select i1 %.not, i1 %104, i1 false
   br i1 %or.cond47, label %106, label %105
 
@@ -4886,17 +4885,20 @@ declare void @_ZN12MergeMemNode13set_memory_atEjP4Node(ptr noundef nonnull align
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #7
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4905,9 +4907,9 @@ attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }
 

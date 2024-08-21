@@ -181,7 +181,7 @@ define hidden noundef i32 @"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$1
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 4, !noundef !4
-  %7 = icmp ugt i32 %6, %1
+  %7 = icmp ult i32 %1, %6
   br i1 %7, label %10, label %9
 
 8:                                                ; preds = %2
@@ -204,7 +204,7 @@ define hidden noundef i32 @"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$1
 define hidden noundef i32 @"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$20vmctx_vmtable_import17h750f311e0f13f2adE.llvm.3622975676230304285"(ptr noalias nocapture noundef readonly align 4 dereferenceable(116) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -223,7 +223,7 @@ define hidden noundef i32 @"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$2
 define hidden noundef i32 @"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$21vmctx_vmmemory_import17hcd317f2c0f593445E.llvm.3622975676230304285"(ptr noalias nocapture noundef readonly align 4 dereferenceable(116) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -242,7 +242,7 @@ define hidden noundef i32 @"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$2
 define hidden noundef i32 @"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$24vmctx_vmtable_definition17h1117cf764766ae8eE.llvm.3622975676230304285"(ptr noalias nocapture noundef readonly align 4 dereferenceable(116) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -601,7 +601,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.36229
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -971,7 +971,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout15from_size_align17h0921
   %7 = icmp ult i64 %1, -9223372036854775807
   tail call void @llvm.assume(i1 %7)
   %8 = sub nuw i64 -9223372036854775808, %1
-  %9 = icmp ult i64 %8, %0
+  %9 = icmp ugt i64 %0, %8
   %. = select i1 %9, i64 0, i64 %1
   br label %10
 
@@ -1915,7 +1915,7 @@ define noundef ptr @_ZN16wasmtime_runtime8instance8Instance3new17h82dd36e043d309
   %117 = load ptr, ptr %116, align 8, !invariant.load !4, !noalias !264, !nonnull !4
   %118 = call noundef align 8 dereferenceable(8) ptr %117(ptr noundef align 1 %115)
   %119 = load ptr, ptr %118, align 8, !noalias !261, !nonnull !4, !noundef !4
-  %120 = icmp eq ptr %119, %54
+  %120 = icmp eq ptr %54, %119
   br i1 %120, label %.noexc49, label %.noexc48
 
 121:                                              ; preds = %.thread108, %.thread101, %.thread115, %496
@@ -2289,7 +2289,7 @@ _ZN16wasmtime_runtime8instance8Instance10global_ptr17hb96321fb9af6f666E.exit.i.i
   %360 = call noundef align 4 dereferenceable(116) ptr %359(ptr noundef align 1 %357)
   %361 = getelementptr inbounds i8, ptr %360, i64 28
   %362 = load i32, ptr %361, align 4, !noalias !289, !noundef !4
-  %363 = icmp ugt i32 %362, %335
+  %363 = icmp ult i32 %335, %362
   br i1 %363, label %_ZN16wasmtime_runtime8instance8Instance6global17ha528d38594137c40E.exit.i.i, label %.noexc61
 
 .noexc61:                                         ; preds = %.noexc60
@@ -2324,7 +2324,7 @@ _ZN16wasmtime_runtime8instance8Instance6global17ha528d38594137c40E.exit.i.i: ; p
   %384 = call noundef align 4 dereferenceable(116) ptr %383(ptr noundef align 1 %381)
   %385 = getelementptr inbounds i8, ptr %384, i64 12
   %386 = load i32, ptr %385, align 4, !noalias !297, !noundef !4
-  %387 = icmp ugt i32 %386, %333
+  %387 = icmp ult i32 %333, %386
   br i1 %387, label %_ZN16wasmtime_runtime8instance8Instance15imported_global17h4707f19b158e1afaE.llvm.3622975676230304285.exit.i.i, label %.noexc63
 
 .noexc63:                                         ; preds = %.noexc62
@@ -2684,7 +2684,7 @@ define noundef align 8 dereferenceable(16) ptr @_ZN16wasmtime_runtime8instance8I
   tail call void @llvm.experimental.noalias.scope.decl(metadata !370)
   %15 = getelementptr inbounds i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !alias.scope !370, !noundef !4
-  %17 = icmp ugt i32 %16, %1
+  %17 = icmp ult i32 %1, %16
   br i1 %17, label %"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$20vmctx_vmtable_import17h750f311e0f13f2adE.llvm.3622975676230304285.exit", label %18
 
 18:                                               ; preds = %2
@@ -2725,7 +2725,7 @@ define hidden noundef align 8 dereferenceable(24) ptr @_ZN16wasmtime_runtime8ins
   tail call void @llvm.experimental.noalias.scope.decl(metadata !376)
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 4, !alias.scope !376, !noundef !4
-  %17 = icmp ugt i32 %16, %1
+  %17 = icmp ult i32 %1, %16
   br i1 %17, label %"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$21vmctx_vmmemory_import17hcd317f2c0f593445E.llvm.3622975676230304285.exit", label %18
 
 18:                                               ; preds = %2
@@ -2765,7 +2765,7 @@ define hidden noundef align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime8inst
   %14 = tail call noundef align 4 dereferenceable(116) ptr %13(ptr noundef align 1 %11)
   %15 = getelementptr inbounds i8, ptr %14, i64 12
   %16 = load i32, ptr %15, align 4, !noundef !4
-  %17 = icmp ugt i32 %16, %1
+  %17 = icmp ult i32 %1, %16
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %2
@@ -2806,7 +2806,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance9set_table17he5ccb206
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 4, !alias.scope !385, !noundef !4
-  %19 = icmp ugt i32 %18, %1
+  %19 = icmp ult i32 %1, %18
   br i1 %19, label %_ZN16wasmtime_runtime8instance8Instance9table_ptr17had503ab2c6bdfcddE.llvm.3622975676230304285.exit, label %20
 
 20:                                               ; preds = %4
@@ -2850,7 +2850,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance9table_ptr17ha
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 4, !alias.scope !388, !noundef !4
-  %17 = icmp ugt i32 %16, %1
+  %17 = icmp ult i32 %1, %16
   br i1 %17, label %"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$24vmctx_vmtable_definition17h1117cf764766ae8eE.llvm.3622975676230304285.exit", label %18
 
 18:                                               ; preds = %2
@@ -2903,7 +2903,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff7
   %25 = tail call noundef align 4 dereferenceable(116) ptr %24(ptr noundef align 1 %12), !noalias !394
   %26 = getelementptr inbounds i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !noalias !394, !noundef !4
-  %28 = icmp ugt i32 %27, %21
+  %28 = icmp ult i32 %21, %27
   br i1 %28, label %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit, label %29
 
 29:                                               ; preds = %22
@@ -2924,7 +2924,7 @@ _ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.36229756
   tail call void @llvm.experimental.noalias.scope.decl(metadata !403)
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 4, !alias.scope !403, !noalias !400, !noundef !4
-  %40 = icmp ugt i32 %39, %2
+  %40 = icmp ult i32 %2, %39
   br i1 %40, label %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit, label %41
 
 41:                                               ; preds = %34
@@ -3015,7 +3015,7 @@ _ZN16wasmtime_runtime8instance8Instance18get_defined_memory17h91d49c5efc0cadc5E.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !418)
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 4, !alias.scope !418, !noalias !415, !noundef !4
-  %42 = icmp ugt i32 %41, %1
+  %42 = icmp ult i32 %1, %41
   br i1 %42, label %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit, label %43
 
 43:                                               ; preds = %28
@@ -3112,7 +3112,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47
   %15 = tail call noundef align 4 dereferenceable(116) ptr %14(ptr noundef align 1 %12), !noalias !443
   %16 = getelementptr inbounds i8, ptr %15, i64 20
   %17 = load i32, ptr %16, align 4, !noalias !443, !noundef !4
-  %18 = icmp ugt i32 %17, %2
+  %18 = icmp ult i32 %2, %17
   br i1 %18, label %_ZN16wasmtime_runtime8instance8Instance10memory_ptr17ha2e7e2a9f2811eacE.llvm.3622975676230304285.exit, label %19
 
 19:                                               ; preds = %3
@@ -3161,7 +3161,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance10set_memory17h73018f
   %15 = tail call noundef align 4 dereferenceable(116) ptr %14(ptr noundef align 1 %12), !noalias !452
   %16 = getelementptr inbounds i8, ptr %15, i64 20
   %17 = load i32, ptr %16, align 4, !noalias !452, !noundef !4
-  %18 = icmp ugt i32 %17, %1
+  %18 = icmp ult i32 %1, %17
   br i1 %18, label %_ZN16wasmtime_runtime8instance8Instance10memory_ptr17ha2e7e2a9f2811eacE.llvm.3622975676230304285.exit, label %19
 
 19:                                               ; preds = %3
@@ -3203,7 +3203,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance10memory_ptr17
   %14 = tail call noundef align 4 dereferenceable(116) ptr %13(ptr noundef align 1 %11)
   %15 = getelementptr inbounds i8, ptr %14, i64 20
   %16 = load i32, ptr %15, align 4, !noundef !4
-  %17 = icmp ugt i32 %16, %1
+  %17 = icmp ult i32 %1, %16
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %2
@@ -3259,7 +3259,7 @@ define noundef ptr @_ZN16wasmtime_runtime8instance8Instance10global_ptr17hb96321
   %14 = tail call noundef align 4 dereferenceable(116) ptr %13(ptr noundef align 1 %11)
   %15 = getelementptr inbounds i8, ptr %14, i64 28
   %16 = load i32, ptr %15, align 4, !noundef !4
-  %17 = icmp ugt i32 %16, %1
+  %17 = icmp ult i32 %1, %16
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %2
@@ -3321,7 +3321,7 @@ define noundef ptr @_ZN16wasmtime_runtime8instance8Instance30defined_or_imported
   %32 = tail call noundef align 4 dereferenceable(116) ptr %31(ptr noundef align 1 %29)
   %33 = getelementptr inbounds i8, ptr %32, i64 28
   %34 = load i32, ptr %33, align 4, !noundef !4
-  %35 = icmp ugt i32 %34, %20
+  %35 = icmp ult i32 %20, %34
   br i1 %35, label %_ZN16wasmtime_runtime8instance8Instance10global_ptr17hb96321fb9af6f666E.exit, label %36
 
 36:                                               ; preds = %21
@@ -3359,7 +3359,7 @@ _ZN16wasmtime_runtime8instance8Instance10global_ptr17hb96321fb9af6f666E.exit: ; 
   %61 = tail call noundef align 4 dereferenceable(116) ptr %60(ptr noundef align 1 %58), !noalias !469
   %62 = getelementptr inbounds i8, ptr %61, i64 12
   %63 = load i32, ptr %62, align 4, !noalias !469, !noundef !4
-  %64 = icmp ugt i32 %63, %1
+  %64 = icmp ult i32 %1, %63
   br i1 %64, label %_ZN16wasmtime_runtime8instance8Instance15imported_global17h4707f19b158e1afaE.llvm.3622975676230304285.exit, label %65
 
 65:                                               ; preds = %50
@@ -4105,7 +4105,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance11memory_grow17h76e57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !510)
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 4, !alias.scope !510, !noalias !507, !noundef !4
-  %35 = icmp ugt i32 %34, %2
+  %35 = icmp ult i32 %2, %34
   br i1 %35, label %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit, label %36
 
 36:                                               ; preds = %21
@@ -4308,7 +4308,7 @@ _ZN16wasmtime_runtime6memory6Memory8vmmemory17h485ca645d75124f8E.exit: ; preds =
 .noexc6:                                          ; preds = %_ZN16wasmtime_runtime6memory6Memory8vmmemory17h485ca645d75124f8E.exit
   %89 = getelementptr inbounds i8, ptr %88, i64 20
   %90 = load i32, ptr %89, align 4, !noalias !580, !noundef !4
-  %91 = icmp ugt i32 %90, %2
+  %91 = icmp ult i32 %2, %90
   br i1 %91, label %_ZN16wasmtime_runtime8instance8Instance10set_memory17h73018f49c6468f88E.llvm.3622975676230304285.exit, label %92
 
 92:                                               ; preds = %.noexc6
@@ -4503,7 +4503,7 @@ _ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.362297567
 .noexc8:                                          ; preds = %64
   %76 = getelementptr inbounds i8, ptr %75, i64 16
   %77 = load i32, ptr %76, align 4, !alias.scope !610, !noundef !4
-  %78 = icmp ugt i32 %77, %2
+  %78 = icmp ult i32 %2, %77
   br i1 %78, label %80, label %79
 
 79:                                               ; preds = %.noexc8
@@ -4633,7 +4633,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance18construct_func_ref1
   %72 = load ptr, ptr %71, align 8, !invariant.load !4, !noalias !616, !nonnull !4
   %73 = tail call noundef align 4 dereferenceable(116) ptr %72(ptr noundef align 1 %70), !noalias !616
   %.val.i = load i32, ptr %73, align 4, !noalias !616, !noundef !4
-  %74 = icmp ugt i32 %.val.i, %1
+  %74 = icmp ult i32 %1, %.val.i
   br i1 %74, label %_ZN16wasmtime_runtime8instance8Instance17imported_function17hc1fb054dc987937bE.exit, label %75
 
 75:                                               ; preds = %62
@@ -4774,7 +4774,7 @@ define { i64, ptr } @_ZN16wasmtime_runtime8instance8Instance12get_func_ref17h1cd
 41:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h012bb8700eaeec18E.exit"
   %42 = getelementptr inbounds i8, ptr %37, i64 32
   %43 = load i32, ptr %42, align 4, !alias.scope !630, !noundef !4
-  %44 = icmp ugt i32 %43, %39
+  %44 = icmp ult i32 %39, %43
   br i1 %44, label %"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$14vmctx_func_ref17hb4707ffb66046bccE.llvm.3622975676230304285.exit", label %46
 
 45:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h012bb8700eaeec18E.exit"
@@ -5096,7 +5096,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance9elem_drop17hf2c6d58b
   %10 = lshr i64 %9, 6
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   %12 = load i64, ptr %11, align 16, !alias.scope !664, !noundef !4
-  %13 = icmp ult i64 %12, %10
+  %13 = icmp ugt i64 %10, %12
   br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i": ; preds = %7
@@ -5185,7 +5185,7 @@ define hidden noundef i8 @_ZN16wasmtime_runtime8instance8Instance11memory_copy17
 28:                                               ; preds = %6
   %29 = getelementptr inbounds i8, ptr %27, i64 20
   %30 = load i32, ptr %29, align 4, !noalias !687, !noundef !4
-  %31 = icmp ugt i32 %30, %24
+  %31 = icmp ult i32 %24, %30
   br i1 %31, label %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i, label %32
 
 32:                                               ; preds = %28
@@ -5203,7 +5203,7 @@ _ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.36229756
   tail call void @llvm.experimental.noalias.scope.decl(metadata !693)
   %38 = getelementptr inbounds i8, ptr %27, i64 8
   %39 = load i32, ptr %38, align 4, !alias.scope !693, !noalias !696, !noundef !4
-  %40 = icmp ugt i32 %39, %3
+  %40 = icmp ult i32 %3, %39
   br i1 %40, label %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i, label %41
 
 41:                                               ; preds = %37
@@ -5259,7 +5259,7 @@ _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit: ; 
 78:                                               ; preds = %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit
   %79 = getelementptr inbounds i8, ptr %77, i64 20
   %80 = load i32, ptr %79, align 4, !noalias !709, !noundef !4
-  %81 = icmp ugt i32 %80, %74
+  %81 = icmp ult i32 %74, %80
   br i1 %81, label %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i19, label %82
 
 82:                                               ; preds = %78
@@ -5277,7 +5277,7 @@ _ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.36229756
   tail call void @llvm.experimental.noalias.scope.decl(metadata !715)
   %88 = getelementptr inbounds i8, ptr %77, i64 8
   %89 = load i32, ptr %88, align 4, !alias.scope !715, !noalias !718, !noundef !4
-  %90 = icmp ugt i32 %89, %1
+  %90 = icmp ult i32 %1, %89
   br i1 %90, label %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i22, label %91
 
 91:                                               ; preds = %87
@@ -5392,7 +5392,7 @@ define hidden noundef i8 @_ZN16wasmtime_runtime8instance8Instance11memory_fill17
 27:                                               ; preds = %5
   %28 = getelementptr inbounds i8, ptr %26, i64 20
   %29 = load i32, ptr %28, align 4, !noalias !731, !noundef !4
-  %30 = icmp ugt i32 %29, %23
+  %30 = icmp ult i32 %23, %29
   br i1 %30, label %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i, label %31
 
 31:                                               ; preds = %27
@@ -5410,7 +5410,7 @@ _ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.36229756
   tail call void @llvm.experimental.noalias.scope.decl(metadata !737)
   %37 = getelementptr inbounds i8, ptr %26, i64 8
   %38 = load i32, ptr %37, align 4, !alias.scope !737, !noalias !740, !noundef !4
-  %39 = icmp ugt i32 %38, %1
+  %39 = icmp ult i32 %1, %38
   br i1 %39, label %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i, label %40
 
 40:                                               ; preds = %36
@@ -5617,7 +5617,7 @@ define hidden noundef i8 @_ZN16wasmtime_runtime8instance8Instance19memory_init_s
 29:                                               ; preds = %7
   %30 = getelementptr inbounds i8, ptr %28, i64 20
   %31 = load i32, ptr %30, align 4, !noalias !780, !noundef !4
-  %32 = icmp ugt i32 %31, %25
+  %32 = icmp ult i32 %25, %31
   br i1 %32, label %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i, label %33
 
 33:                                               ; preds = %29
@@ -5635,7 +5635,7 @@ _ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.36229756
   tail call void @llvm.experimental.noalias.scope.decl(metadata !786)
   %39 = getelementptr inbounds i8, ptr %28, i64 8
   %40 = load i32, ptr %39, align 4, !alias.scope !786, !noalias !789, !noundef !4
-  %41 = icmp ugt i32 %40, %1
+  %41 = icmp ult i32 %1, %40
   br i1 %41, label %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i, label %42
 
 42:                                               ; preds = %38
@@ -5738,7 +5738,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance9data_drop17h91dfe6f1
   %10 = lshr i64 %9, 6
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   %12 = load i64, ptr %11, align 16, !alias.scope !802, !noundef !4
-  %13 = icmp ult i64 %12, %10
+  %13 = icmp ugt i64 %10, %12
   br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i": ; preds = %7
@@ -5918,7 +5918,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle12instance_mut17h0af3356ed8925502E
   %36 = tail call noundef align 4 dereferenceable(116) ptr %35(ptr noundef align 1 %33), !noalias !825
   %37 = getelementptr inbounds i8, ptr %36, i64 28
   %38 = load i32, ptr %37, align 4, !noalias !825, !noundef !4
-  %39 = icmp ugt i32 %38, %24
+  %39 = icmp ult i32 %24, %38
   br i1 %39, label %_ZN16wasmtime_runtime8instance8Instance10global_ptr17hb96321fb9af6f666E.exit.i, label %40
 
 40:                                               ; preds = %25
@@ -5956,7 +5956,7 @@ _ZN16wasmtime_runtime8instance8Instance10global_ptr17hb96321fb9af6f666E.exit.i: 
   %65 = tail call noundef align 4 dereferenceable(116) ptr %64(ptr noundef align 1 %62), !noalias !835
   %66 = getelementptr inbounds i8, ptr %65, i64 12
   %67 = load i32, ptr %66, align 4, !noalias !835, !noundef !4
-  %68 = icmp ugt i32 %67, %2
+  %68 = icmp ult i32 %2, %67
   br i1 %68, label %_ZN16wasmtime_runtime8instance8Instance15imported_global17h4707f19b158e1afaE.llvm.3622975676230304285.exit.i, label %69
 
 69:                                               ; preds = %54
@@ -6073,7 +6073,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle12instance_mut17h0af3356ed8925502E
   %36 = tail call noundef align 4 dereferenceable(116) ptr %35(ptr noundef align 1 %33), !noalias !859
   %37 = getelementptr inbounds i8, ptr %36, i64 20
   %38 = load i32, ptr %37, align 4, !noalias !859, !noundef !4
-  %39 = icmp ugt i32 %38, %24
+  %39 = icmp ult i32 %24, %38
   br i1 %39, label %_ZN16wasmtime_runtime8instance8Instance10memory_ptr17ha2e7e2a9f2811eacE.llvm.3622975676230304285.exit.i, label %40
 
 40:                                               ; preds = %25
@@ -6112,7 +6112,7 @@ _ZN16wasmtime_runtime8instance8Instance10memory_ptr17ha2e7e2a9f2811eacE.llvm.362
   tail call void @llvm.experimental.noalias.scope.decl(metadata !864)
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 4, !alias.scope !864, !noalias !863, !noundef !4
-  %68 = icmp ugt i32 %67, %2
+  %68 = icmp ult i32 %2, %67
   br i1 %68, label %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i, label %69
 
 69:                                               ; preds = %54
@@ -6247,7 +6247,7 @@ _ZN16wasmtime_runtime8instance14InstanceHandle12instance_mut17h0af3356ed8925502E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !896)
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = load i32, ptr %37, align 4, !alias.scope !896, !noalias !889, !noundef !4
-  %39 = icmp ugt i32 %38, %24
+  %39 = icmp ult i32 %24, %38
   br i1 %39, label %_ZN16wasmtime_runtime8instance8Instance9table_ptr17had503ab2c6bdfcddE.llvm.3622975676230304285.exit.i, label %40
 
 40:                                               ; preds = %25
@@ -6286,7 +6286,7 @@ _ZN16wasmtime_runtime8instance8Instance9table_ptr17had503ab2c6bdfcddE.llvm.36229
   tail call void @llvm.experimental.noalias.scope.decl(metadata !904)
   %66 = getelementptr inbounds i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4, !alias.scope !904, !noalias !903, !noundef !4
-  %68 = icmp ugt i32 %67, %2
+  %68 = icmp ult i32 %2, %67
   br i1 %68, label %_ZN16wasmtime_runtime8instance8Instance14imported_table17h40c54e6f0125f88bE.exit.i, label %69
 
 69:                                               ; preds = %54
@@ -7038,7 +7038,7 @@ define void @_ZN16wasmtime_runtime8instance14InstanceHandle10wasm_fault17he9a262
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = extractvalue { i64, i64 } %23, 1
   %26 = icmp ule i64 %24, %2
-  %27 = icmp ugt i64 %25, %2
+  %27 = icmp ult i64 %2, %25
   %or.cond.i = select i1 %26, i1 %27, i1 false
   br i1 %or.cond.i, label %31, label %28
 
@@ -7659,8 +7659,8 @@ define void @_ZN16wasmtime_runtime12traphandlers3tls18AsyncWasmCallState11assert
 define void @_ZN16wasmtime_runtime12traphandlers3tls18AsyncWasmCallState33assert_current_state_not_in_range17hd2648f7363147841E(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
   %3 = tail call noundef ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3get17ha8eda36ee789e732E()
   %4 = ptrtoint ptr %3 to i64
-  %5 = icmp ult i64 %4, %0
-  %6 = icmp ugt i64 %4, %1
+  %5 = icmp ugt i64 %0, %4
+  %6 = icmp ult i64 %1, %4
   %or.cond = or i1 %5, %6
   br i1 %or.cond, label %8, label %7
 

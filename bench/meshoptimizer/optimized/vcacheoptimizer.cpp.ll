@@ -899,7 +899,7 @@ while.cond.i:                                     ; preds = %while.body.i
 
 while.cond3.preheader.i:                          ; preds = %while.cond.i, %if.then109
   %conv8.i = zext i32 %input_cursor.0137 to i64
-  %cmp49.i = icmp ult i64 %conv8.i, %vertex_count
+  %cmp49.i = icmp ugt i64 %vertex_count, %conv8.i
   br i1 %cmp49.i, label %while.body5.i, label %cleanup.loopexit
 
 while.body.i:                                     ; preds = %if.then109, %while.cond.i
@@ -925,7 +925,7 @@ while.body5.i:                                    ; preds = %while.cond3.prehead
 if.end10.i:                                       ; preds = %while.body5.i
   %inc.i110 = add i32 %input_cursor.2, 1
   %conv.i = zext i32 %inc.i110 to i64
-  %cmp4.i = icmp ult i64 %conv.i, %vertex_count
+  %cmp4.i = icmp ugt i64 %vertex_count, %conv.i
   br i1 %cmp4.i, label %while.body5.i, label %cleanup.loopexit, !llvm.loop !23
 
 if.end114.loopexit141:                            ; preds = %while.body.i

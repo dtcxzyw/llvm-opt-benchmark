@@ -474,7 +474,7 @@ addNodeEdges.exit160:                             ; preds = %178, %addNodeEdges.
   br i1 %206, label %217, label %225
 
 209:                                              ; preds = %._crit_edge.i
-  %210 = icmp eq ptr %.pre.i, %201
+  %210 = icmp eq ptr %201, %.pre.i
   %211 = getelementptr inbounds i8, ptr %197, i64 60
   %212 = load i8, ptr %211, align 4
   %213 = trunc i8 %212 to i1
@@ -592,7 +592,7 @@ cellOf.exit.i:                                    ; preds = %264, %260, %.lr.ph2
 278:                                              ; preds = %275
   %279 = getelementptr inbounds i8, ptr %.0110221.i, i64 40
   %280 = load ptr, ptr %279, align 8
-  %281 = icmp eq ptr %280, %.0.i.i
+  %281 = icmp eq ptr %.0.i.i, %280
   %282 = trunc i8 %272 to i1
   br i1 %281, label %283, label %300
 

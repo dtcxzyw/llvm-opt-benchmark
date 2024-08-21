@@ -1384,7 +1384,7 @@ _queues_remove.exit.thread:                       ; preds = %if.end.i.i, %entry
 if.end:                                           ; preds = %while.body.i.i, %while.body.i.preheader.i
   %ref.08.i.lcssa.i = phi ptr [ %1, %while.body.i.preheader.i ], [ %4, %while.body.i.i ]
   %prev.07.i.lcssa.i = phi ptr [ null, %while.body.i.preheader.i ], [ %ref.08.i8.i, %while.body.i.i ]
-  %cmp.i.i = icmp eq ptr %1, %ref.08.i.lcssa.i
+  %cmp.i.i = icmp eq ptr %ref.08.i.lcssa.i, %1
   %6 = load ptr, ptr %ref.08.i.lcssa.i, align 8
   %.prev.i.i = select i1 %cmp.i.i, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), ptr %prev.07.i.lcssa.i
   store ptr %6, ptr %.prev.i.i, align 8
@@ -1628,7 +1628,7 @@ if.end:                                           ; preds = %while.body.i, %whil
 
 if.then4:                                         ; preds = %if.end
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
-  %cmp.i = icmp eq ptr %6, %ref.08.i.lcssa
+  %cmp.i = icmp eq ptr %ref.08.i.lcssa, %6
   %7 = load ptr, ptr %ref.08.i.lcssa, align 8
   %.prev.i = select i1 %cmp.i, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), ptr %prev.07.i.lcssa
   store ptr %7, ptr %.prev.i, align 8

@@ -80,7 +80,7 @@ define internal range(i32 -1, 1) i32 @aes_ctr_update(ptr noundef %0, ptr nocaptu
   %9 = getelementptr inbounds i8, ptr %0, i64 84
   %10 = load i32, ptr %9, align 4
   %11 = load i64, ptr %4, align 8
-  %. = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %11)
   %12 = trunc i64 %. to i32
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph

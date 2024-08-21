@@ -560,7 +560,7 @@ agxblen.exit.i.i:                                 ; preds = %40, %agxbsizeof.exi
   %.0.i30.i.i = phi i64 [ 31, %agxbsizeof.exit.i.i ], [ %42, %40 ]
   %.0.i24.i.i = phi i64 [ %39, %agxbsizeof.exit.i.i ], [ %44, %40 ]
   %45 = sub i64 %.0.i30.i.i, %.0.i24.i.i
-  %46 = icmp ult i64 %45, %35
+  %46 = icmp ugt i64 %35, %45
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %agxblen.exit.i.i
@@ -664,7 +664,7 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
   br label %agxbuse.exit
 
 86:                                               ; preds = %32, %layerPagePrefix.exit
-  %87 = icmp ne ptr %6, %1
+  %87 = icmp ne ptr %1, %6
   %88 = icmp ne ptr %12, null
   %or.cond = select i1 %87, i1 %88, i1 false
   br i1 %or.cond, label %89, label %90
@@ -2872,7 +2872,7 @@ agxblen.exit.i.i.i:                               ; preds = %layerPagePrefix.exi
   %.0.i30.i.i.i = select i1 %.not.i.i.i.i, i64 %.fr.i117, i64 31
   %.0.i24.i.i.i = select i1 %.not.i.i.i.i, i64 %.pre255, i64 %279
   %281 = sub i64 %.0.i30.i.i.i, %.0.i24.i.i.i
-  %282 = icmp ult i64 %281, %277
+  %282 = icmp ugt i64 %277, %281
   br i1 %282, label %283, label %308
 
 283:                                              ; preds = %agxblen.exit.i.i.i
@@ -4478,7 +4478,7 @@ emit_page.exit:                                   ; preds = %931, %933
   %936 = load i64, ptr %229, align 4
   %.sroa.22.0.extract.shift.i.i = and i64 %935, -4294967296
   %937 = add i64 %936, %935
-  %.sroa.2.0.extract.shift5.i.i = add i64 %.sroa.22.0.extract.shift.i.i, %936
+  %.sroa.2.0.extract.shift5.i.i = add i64 %936, %.sroa.22.0.extract.shift.i.i
   %.sroa.24.0.insert.ext.i.i = and i64 %.sroa.2.0.extract.shift5.i.i, -4294967296
   %.sroa.03.0.insert.ext.i.i = and i64 %937, 4294967295
   %.sroa.03.0.insert.insert.i.i = or disjoint i64 %.sroa.24.0.insert.ext.i.i, %.sroa.03.0.insert.ext.i.i
@@ -4512,7 +4512,7 @@ validpage.exit.thread.i:                          ; preds = %validpage.exit.i, %
   %951 = load i64, ptr %230, align 4
   %.sroa.22.0.extract.shift.i13.i = and i64 %950, -4294967296
   %952 = add i64 %951, %950
-  %.sroa.2.0.extract.shift5.i14.i = add i64 %.sroa.22.0.extract.shift.i13.i, %951
+  %.sroa.2.0.extract.shift5.i14.i = add i64 %951, %.sroa.22.0.extract.shift.i13.i
   %.sroa.24.0.insert.ext.i15.i = and i64 %.sroa.2.0.extract.shift5.i14.i, -4294967296
   %.sroa.03.0.insert.ext.i16.i = and i64 %952, 4294967295
   %.sroa.03.0.insert.insert.i17.i = or disjoint i64 %.sroa.24.0.insert.ext.i15.i, %.sroa.03.0.insert.ext.i16.i
@@ -6348,7 +6348,7 @@ agxblen.exit.i.i61:                               ; preds = %agxbput.exit47
   %.0.i30.i.i62 = select i1 %.not.i.i.i59, i64 %153, i64 31
   %.0.i24.i.i63 = select i1 %.not.i.i.i59, i64 %155, i64 %151
   %156 = sub i64 %.0.i30.i.i62, %.0.i24.i.i63
-  %157 = icmp ult i64 %156, %149
+  %157 = icmp ugt i64 %149, %156
   br i1 %157, label %158, label %159
 
 158:                                              ; preds = %agxblen.exit.i.i61
@@ -9626,7 +9626,7 @@ agxblen.exit.i29:                                 ; preds = %44
   %.0.i30.i = select i1 %.not.i.i27, i64 %47, i64 31
   %.0.i24.i = select i1 %.not.i.i27, i64 %48, i64 %46
   %49 = sub i64 %.0.i30.i, %.0.i24.i
-  %50 = icmp ult i64 %49, %10
+  %50 = icmp ugt i64 %10, %49
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %agxblen.exit.i29
@@ -12230,7 +12230,7 @@ layer_index.exit63:                               ; preds = %63, %layer_index.ex
   %spec.select = call i32 @llvm.smax.i32(i32 %.012.i, i32 %.012.i61)
   %spec.select47 = call i32 @llvm.smin.i32(i32 %.012.i, i32 %.012.i61)
   %68 = icmp sle i32 %spec.select47, %1
-  %69 = icmp sge i32 %spec.select, %1
+  %69 = icmp sle i32 %1, %spec.select
   %70 = and i1 %68, %69
   br i1 %70, label %.critedge, label %.backedge
 
@@ -12356,11 +12356,11 @@ gv_calloc.exit.thread:                            ; preds = %3
   %.018 = phi i64 [ %25, %.lr.ph ], [ 0, %11 ]
   %.01517 = phi double [ %24, %.lr.ph ], [ 0.000000e+00, %11 ]
   %18 = tail call double @cos(double noundef %.01517) #29
-  %19 = fmul double %18, %0
+  %19 = fmul double %0, %18
   %20 = getelementptr inbounds %struct.pointf_s, ptr %12, i64 %.018
   store double %19, ptr %20, align 8
   %21 = tail call double @sin(double noundef %.01517) #29
-  %22 = fmul double %21, %1
+  %22 = fmul double %1, %21
   %23 = getelementptr inbounds i8, ptr %20, i64 8
   store double %22, ptr %23, align 8
   %24 = fadd double %5, %.01517
@@ -12771,7 +12771,7 @@ gv_calloc.exit88:                                 ; preds = %.thread92, %119
 define internal noundef double @forfunc(double noundef %0, double noundef %1, double noundef %2) #22 {
   %4 = fdiv double %0, %1
   %5 = fsub double 1.000000e+00, %4
-  %6 = fmul double %5, %2
+  %6 = fmul double %2, %5
   %7 = fmul double %6, 5.000000e-01
   ret double %7
 }
@@ -12790,7 +12790,7 @@ define internal noundef double @bothfunc(double noundef %0, double noundef %1, d
   %5 = fcmp ugt double %4, 5.000000e-01
   %6 = fsub double 1.000000e+00, %4
   %.pn = select i1 %5, double %6, double %4
-  %.0 = fmul double %.pn, %2
+  %.0 = fmul double %2, %.pn
   ret double %.0
 }
 

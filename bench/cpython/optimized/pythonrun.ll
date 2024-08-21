@@ -1576,7 +1576,7 @@ if.end:                                           ; preds = %entry
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr @stdin, align 8
-  %cmp.i17 = icmp eq ptr %2, %fp
+  %cmp.i17 = icmp eq ptr %fp, %2
   br i1 %cmp.i17, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %if.end

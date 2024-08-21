@@ -255,7 +255,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %127 = getelementptr inbounds i32, ptr %.val182, i64 %indvars.iv315
   %128 = load i32, ptr %127, align 4
   %.val198 = load i32, ptr %74, align 8
-  %.not = icmp sgt i32 %.val198, %128
+  %.not = icmp slt i32 %128, %.val198
   br i1 %.not, label %.critedge8, label %129
 
 129:                                              ; preds = %124

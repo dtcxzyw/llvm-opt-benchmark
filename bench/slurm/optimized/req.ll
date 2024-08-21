@@ -1975,13 +1975,13 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_request(i32 noundef %0, ptr
 308:                                              ; preds = %303, %.outer273._crit_edge.i
   %309 = getelementptr inbounds i8, ptr %1, i64 368
   %310 = load i32, ptr %309, align 8
-  %.not249.i = icmp eq i32 %310, %2
+  %.not249.i = icmp eq i32 %2, %310
   br i1 %.not249.i, label %320, label %311
 
 311:                                              ; preds = %308
   %312 = icmp eq i32 %2, 0
   %313 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %314 = icmp eq i32 %313, %2
+  %314 = icmp eq i32 %2, %313
   %315 = select i1 %312, i1 true, i1 %314
   br i1 %315, label %320, label %316
 
@@ -3643,7 +3643,7 @@ _handle_signal_container.exit:                    ; preds = %.split635.i, %545
 950:                                              ; preds = %946
   %951 = icmp eq i32 %2, 0
   %952 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %953 = icmp eq i32 %952, %2
+  %953 = icmp eq i32 %2, %952
   %954 = select i1 %951, i1 true, i1 %953
   br i1 %954, label %960, label %955
 
@@ -4554,7 +4554,7 @@ _handle_pid_in_container.exit:                    ; preds = %.split65.us.i110, %
 1296:                                             ; preds = %1294, %1291
   %1297 = icmp eq i32 %2, 0
   %1298 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %1299 = icmp eq i32 %1298, %2
+  %1299 = icmp eq i32 %2, %1298
   %1300 = select i1 %1297, i1 true, i1 %1299
   br i1 %1300, label %1307, label %1301
 
@@ -4828,7 +4828,7 @@ _handle_suspend.exit:                             ; preds = %.split90.i, %.split
 1407:                                             ; preds = %1405, %1402
   %1408 = icmp eq i32 %2, 0
   %1409 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %1410 = icmp eq i32 %1409, %2
+  %1410 = icmp eq i32 %2, %1409
   %1411 = select i1 %1408, i1 true, i1 %1410
   br i1 %1411, label %1418, label %1412
 
@@ -5071,13 +5071,13 @@ _handle_resume.exit:                              ; preds = %.split88.i, %.split
   store i32 0, ptr %55, align 4
   %1501 = getelementptr inbounds i8, ptr %1, i64 368
   %1502 = load i32, ptr %1501, align 8
-  %.not.i142 = icmp eq i32 %1502, %2
+  %.not.i142 = icmp eq i32 %2, %1502
   br i1 %.not.i142, label %1515, label %1503
 
 1503:                                             ; preds = %1500
   %1504 = icmp eq i32 %2, 0
   %1505 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %1506 = icmp eq i32 %1505, %2
+  %1506 = icmp eq i32 %2, %1505
   %1507 = select i1 %1504, i1 true, i1 %1506
   br i1 %1507, label %1515, label %1508
 
@@ -5404,7 +5404,7 @@ _handle_terminate.exit:                           ; preds = %.split99.i, %.split
 1634:                                             ; preds = %1633, %1630
   %1635 = icmp eq i32 %2, 0
   %1636 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %1637 = icmp eq i32 %1636, %2
+  %1637 = icmp eq i32 %2, %1636
   %1638 = select i1 %1635, i1 true, i1 %1637
   br i1 %1638, label %.lr.ph363.i, label %1639
 
@@ -6840,13 +6840,13 @@ _handle_completion.exit:                          ; preds = %.split347.i, %1988,
 2170:                                             ; preds = %2169, %2166
   %2171 = getelementptr inbounds i8, ptr %1, i64 368
   %2172 = load i32, ptr %2171, align 8
-  %.not.i178 = icmp eq i32 %2172, %2
+  %.not.i178 = icmp eq i32 %2, %2172
   br i1 %.not.i178, label %2186, label %2173
 
 2173:                                             ; preds = %2170
   %2174 = icmp eq i32 %2, 0
   %2175 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %2176 = icmp eq i32 %2175, %2
+  %2176 = icmp eq i32 %2, %2175
   %2177 = select i1 %2174, i1 true, i1 %2176
   br i1 %2177, label %2186, label %2178
 
@@ -7297,7 +7297,7 @@ _handle_list_pids.exit:                           ; preds = %.preheader.i199, %.
   store i32 0, ptr %34, align 4
   %2362 = icmp eq i32 %2, 0
   %2363 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %2364 = icmp eq i32 %2363, %2
+  %2364 = icmp eq i32 %2, %2363
   %2365 = select i1 %2362, i1 true, i1 %2364
   br i1 %2365, label %.lr.ph.i210, label %2366
 
@@ -7999,13 +7999,13 @@ _handle_reconfig.exit:                            ; preds = %.split255.i, %.spli
 2611:                                             ; preds = %2610, %.loopexit.i221
   %2612 = getelementptr inbounds i8, ptr %1, i64 368
   %2613 = load i32, ptr %2612, align 8
-  %.not71.i = icmp eq i32 %2613, %2
+  %.not71.i = icmp eq i32 %2, %2613
   br i1 %.not71.i, label %2626, label %2614
 
 2614:                                             ; preds = %2611
   %2615 = icmp eq i32 %2, 0
   %2616 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %2617 = icmp eq i32 %2616, %2
+  %2617 = icmp eq i32 %2, %2616
   %2618 = select i1 %2615, i1 true, i1 %2617
   br i1 %2618, label %2626, label %2619
 
@@ -8229,7 +8229,7 @@ _handle_notify_job.exit:                          ; preds = %.split207.us.i, %.s
 .outer44._crit_edge.i:                            ; preds = %.split61.us.i230
   %.pre.i233 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %2696 = icmp eq i32 %2, 0
-  %2697 = icmp eq i32 %.pre.i233, %2
+  %2697 = icmp eq i32 %2, %.pre.i233
   %2698 = select i1 %2696, i1 true, i1 %2697
   %2699 = load i32, ptr %28, align 4
   br i1 %2698, label %2703, label %2700

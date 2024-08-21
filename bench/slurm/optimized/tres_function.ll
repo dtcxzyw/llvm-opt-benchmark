@@ -276,7 +276,7 @@ _set_cond.exit.us:                                ; preds = %25, %20
 136:                                              ; preds = %132, %126, %114, %113, %104, %89, %80, %79
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %0
+  %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_set_cond.exit, label %49, !llvm.loop !9
 
 _set_cond.exit:                                   ; preds = %136, %46, %70

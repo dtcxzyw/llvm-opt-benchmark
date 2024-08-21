@@ -251,7 +251,7 @@ define internal { double, double } @_ZL15robin_s_forward5PJ_LPP8PJconsts(double 
   %30 = tail call double @llvm.fmuladd.f64(double %16, double %29, double %22)
   %31 = tail call double @llvm.fmuladd.f64(double %16, double %30, double %19)
   %32 = fmul double %31, 8.487000e-01
-  %33 = fmul double %32, %0
+  %33 = fmul double %0, %32
   %34 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %13
   %35 = load float, ptr %34, align 16
   %36 = fpext float %35 to double

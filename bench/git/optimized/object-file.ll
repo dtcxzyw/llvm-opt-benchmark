@@ -362,7 +362,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %for.inc ]
   %format_id1 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %indvars.iv, i32 1
   %0 = load i32, ptr %format_id1, align 8
-  %cmp2 = icmp eq i32 %0, %format_id
+  %cmp2 = icmp eq i32 %format_id, %0
   br i1 %cmp2, label %return.split.loop.exit6, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -1209,7 +1209,7 @@ land.rhs.i:                                       ; preds = %if.end12.i, %strbuf
 while.body.i:                                     ; preds = %land.rhs.i
   %26 = load i64, ptr %pathbuf.i, align 8
   %spec.select.i25 = call i64 @llvm.usub.sat.i64(i64 %26, i64 1)
-  %cmp.i26 = icmp ult i64 %spec.select.i25, %sub.i
+  %cmp.i26 = icmp ugt i64 %sub.i, %spec.select.i25
   br i1 %cmp.i26, label %if.then.i30, label %if.end.i27
 
 if.then.i30:                                      ; preds = %while.body.i
@@ -1717,7 +1717,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i, ptr %len.i.i, align 8
   %7 = load i64, ptr %path.i, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %7, i64 1)
-  %cmp.i4.i.i = icmp ult i64 %spec.select.i.i.i, %sub.i.i.i
+  %cmp.i4.i.i = icmp ugt i64 %sub.i.i.i, %spec.select.i.i.i
   br i1 %cmp.i4.i.i, label %if.then.i.i.i, label %if.end.i5.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -1744,7 +1744,7 @@ if.end5.i:                                        ; preds = %if.then4.i.i.i, %if
 if.end9.i:                                        ; preds = %if.end5.i
   %10 = load i64, ptr %path.i, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %8
+  %cmp.i.i = icmp ugt i64 %8, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i3.i, label %if.end.i.i
 
 if.then.i3.i:                                     ; preds = %if.end9.i
@@ -2087,7 +2087,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.then.i, %entry
   %1 = phi i64 [ %spec.store.select.i, %if.then.i ], [ %0, %entry ]
-  %cmp.i = icmp ult i64 %1, %length
+  %cmp.i = icmp ugt i64 %length, %1
   br i1 %cmp.i, label %if.then4.i, label %mmap_limit_check.exit
 
 if.then4.i:                                       ; preds = %if.end3.i
@@ -2134,7 +2134,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end3.i.i:                                      ; preds = %if.then.i.i, %entry
   %1 = phi i64 [ %spec.store.select.i.i, %if.then.i.i ], [ %0, %entry ]
-  %cmp.i.i = icmp ult i64 %1, %length
+  %cmp.i.i = icmp ugt i64 %length, %1
   br i1 %cmp.i.i, label %if.then4.i.i, label %xmmap_gently.exit
 
 if.then4.i.i:                                     ; preds = %if.end3.i.i
@@ -3401,7 +3401,7 @@ if.then50:                                        ; preds = %if.end47
 
 if.end55:                                         ; preds = %if.then50, %if.end47
   %53 = load ptr, ptr @the_repository, align 8
-  %cmp = icmp eq ptr %53, %r
+  %cmp = icmp eq ptr %r, %53
   br i1 %cmp, label %land.lhs.true, label %if.end59
 
 land.lhs.true:                                    ; preds = %if.end55
@@ -4164,7 +4164,7 @@ do.end:                                           ; preds = %write_loose_object_
   %total_in = getelementptr inbounds i8, ptr %stream, i64 128
   %13 = load i64, ptr %total_in, align 8
   %conv = sext i32 %add.i.i to i64
-  %add = add i64 %conv, %len
+  %add = add i64 %len, %conv
   %cmp23.not = icmp eq i64 %13, %add
   br i1 %cmp23.not, label %if.end30, label %if.then25
 
@@ -5636,7 +5636,7 @@ if.end9:                                          ; preds = %_.exit, %if.then1
   %r.0 = phi i32 [ -1, %_.exit ], [ 0, %if.then1 ]
   %13 = load i64, ptr %path, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %13, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %0
+  %cmp.i = icmp ugt i64 %0, %spec.select.i
   br i1 %cmp.i, label %if.then.i38, label %if.end.i
 
 if.then.i38:                                      ; preds = %if.end9
@@ -5697,7 +5697,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #26
   %22 = load i64, ptr %path, align 8
   %spec.select.i47 = call i64 @llvm.usub.sat.i64(i64 %22, i64 1)
-  %cmp.i48 = icmp ult i64 %spec.select.i47, %21
+  %cmp.i48 = icmp ugt i64 %21, %spec.select.i47
   br i1 %cmp.i48, label %if.then.i55, label %if.end.i49
 
 if.then.i55:                                      ; preds = %while.body
@@ -5771,7 +5771,7 @@ while.end:                                        ; preds = %while.cond.backedge
   %sub49 = add i64 %21, -1
   %32 = load i64, ptr %path, align 8
   %spec.select.i57 = call i64 @llvm.usub.sat.i64(i64 %32, i64 1)
-  %cmp.i58 = icmp ult i64 %spec.select.i57, %sub49
+  %cmp.i58 = icmp ugt i64 %sub49, %spec.select.i57
   br i1 %cmp.i58, label %if.then.i65, label %if.end.i59
 
 if.then.i65:                                      ; preds = %while.end
@@ -5804,7 +5804,7 @@ if.end56:                                         ; preds = %if.then53, %strbuf_
   %r.5 = phi i32 [ %call55, %if.then53 ], [ %r.2, %strbuf_setlen.exit66 ]
   %35 = load i64, ptr %path, align 8
   %spec.select.i67 = call i64 @llvm.usub.sat.i64(i64 %35, i64 1)
-  %cmp.i68 = icmp ult i64 %spec.select.i67, %0
+  %cmp.i68 = icmp ugt i64 %0, %spec.select.i67
   br i1 %cmp.i68, label %if.then.i75, label %if.end.i69
 
 if.then.i75:                                      ; preds = %if.end56

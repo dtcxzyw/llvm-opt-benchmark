@@ -1367,7 +1367,7 @@ _.exit:                                           ; preds = %if.then12, %if.end3
 if.end19:                                         ; preds = %for.end
   call void @strbuf_release(ptr noundef nonnull %gpg_status) #14
   %10 = load i64, ptr %len, align 8
-  %cmp12.i = icmp ugt i64 %10, %2
+  %cmp12.i = icmp ult i64 %2, %10
   br i1 %cmp12.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end19
@@ -1412,7 +1412,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end1
   %j.0.lcssa.i = phi i64 [ %2, %if.end19 ], [ %j.1.i, %for.inc.i ]
   %15 = load i64, ptr %signature, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %15, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %j.0.lcssa.i
+  %cmp.i.i = icmp ugt i64 %j.0.lcssa.i, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i
@@ -2412,7 +2412,7 @@ define internal fastcc void @remove_cr_after(ptr nocapture noundef %buffer, i64 
 entry:
   %len = getelementptr inbounds i8, ptr %buffer, i64 8
   %0 = load i64, ptr %len, align 8
-  %cmp12 = icmp ugt i64 %0, %offset
+  %cmp12 = icmp ult i64 %offset, %0
   br i1 %cmp12, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -2457,7 +2457,7 @@ for.end:                                          ; preds = %for.inc, %entry
   %j.0.lcssa = phi i64 [ %offset, %entry ], [ %j.1, %for.inc ]
   %5 = load i64, ptr %buffer, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %j.0.lcssa
+  %cmp.i = icmp ugt i64 %j.0.lcssa, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.end

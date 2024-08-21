@@ -389,7 +389,7 @@ define void @_ZNK3gmx20AbstractAnalysisData15tryGetDataFrameEi(ptr dead_on_unwin
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %.not = icmp sgt i32 %9, %2
+  %.not = icmp slt i32 %2, %9
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %5, %3
@@ -422,7 +422,7 @@ define void @_ZNK3gmx20AbstractAnalysisData12getDataFrameEi(ptr dead_on_unwind n
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !noalias !5
   %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(16) %1), !noalias !5
-  %.not.i = icmp sgt i32 %12, %2
+  %.not.i = icmp slt i32 %2, %12
   br i1 %.not.i, label %14, label %13
 
 13:                                               ; preds = %8, %3
@@ -1571,7 +1571,7 @@ define void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr nocapture noun
   %13 = sub i64 %11, %12
   %14 = lshr exact i64 %13, 2
   %15 = trunc i64 %14 to i32
-  %16 = icmp sgt i32 %15, %1
+  %16 = icmp slt i32 %1, %15
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %5, %3

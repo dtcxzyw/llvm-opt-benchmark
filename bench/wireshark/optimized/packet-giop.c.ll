@@ -7034,7 +7034,7 @@ find_fn_in_list.exit:                             ; preds = %.lr.ph.i
 
 .lr.ph.preheader.i82:                             ; preds = %8
   %91 = and i32 %1, 1
-  %spec.select = add i32 %91, %1
+  %spec.select = add i32 %1, %91
   %.not9.i84 = icmp eq i32 %4, 0
   br i1 %.not9.i84, label %94, label %92
 

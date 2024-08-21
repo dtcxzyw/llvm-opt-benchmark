@@ -12988,7 +12988,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEC2IRN5utils15LifetimeTracker7SessionE
   %29 = load ptr, ptr %5, align 8
   store ptr %29, ptr %28, align 8
   store i64 ptrtoint (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_25copyability_meta_providerILb0EEEEENS3_INS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEE13meta_providerIN5utils4spec8ToStringEEEEEEEEEEEE7storageINSM_15LifetimeTracker7SessionEEE to i64), ptr %4, align 8
-  %.not.i = icmp eq ptr %4, %0
+  %.not.i = icmp eq ptr %0, %4
   br i1 %.not.i, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEOS3_QL_ZNS_5proxy17HasMoveAssignmentEE.exit, label %30
 
 30:                                               ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEC2IRN5utils15LifetimeTracker7SessionEEEOT_Q18HasPolyConstructorINSt5decayITL0__E4typeESC_E.exit
@@ -37696,7 +37696,7 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit: ; pre
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %24
   %.0.lcssa.i.i.i = phi ptr [ %25, %24 ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
-  %.not10.i.i.i27 = icmp eq ptr %6, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i28
@@ -37791,7 +37791,7 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit: ; pre
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %24
   %.0.lcssa.i.i.i = phi ptr [ %25, %24 ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
-  %.not10.i.i.i27 = icmp eq ptr %6, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i28
@@ -39652,7 +39652,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   %21 = getelementptr inbounds i8, ptr %13, i64 %1
   %22 = add i64 %2, %1
   %23 = sub i64 %7, %22
-  %24 = icmp ugt ptr %13, %3
+  %24 = icmp ult ptr %3, %13
   %25 = getelementptr inbounds i8, ptr %13, i64 %7
   %26 = icmp ult ptr %25, %3
   %27 = select i1 %24, i1 true, i1 %26
@@ -39761,7 +39761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94: ; p
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
 
 57:                                               ; preds = %50
-  %.not87 = icmp ugt ptr %52, %3
+  %.not87 = icmp ult ptr %3, %52
   br i1 %.not87, label %67, label %58
 
 58:                                               ; preds = %57

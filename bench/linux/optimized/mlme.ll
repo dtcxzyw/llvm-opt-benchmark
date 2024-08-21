@@ -4418,7 +4418,7 @@ define internal fastcc void @ieee80211_sta_process_chanswitch(ptr noundef %0, i6
   %199 = getelementptr inbounds i8, ptr %6, i64 32
   %200 = load i8, ptr %199, align 8
   %201 = icmp ne i8 %200, 0
-  %202 = and i1 %201, %4
+  %202 = and i1 %4, %201
   br i1 %202, label %210, label %203
 
 203:                                              ; preds = %198
@@ -4830,7 +4830,7 @@ define internal fastcc void @ieee80211_set_disassoc(ptr noundef %0, i16 noundef 
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 64
   %.not = icmp eq ptr %4, null
-  %13 = and i1 %.not, %3
+  %13 = and i1 %3, %.not
   br i1 %13, label %14, label %15, !prof !6
 
 14:                                               ; preds = %5
@@ -9593,7 +9593,7 @@ define internal fastcc i32 @ieee80211_setup_assoc_link(ptr noundef %0, ptr nocap
 
 76:                                               ; preds = %68, %65
   %77 = zext i1 %37 to i32
-  %78 = or i32 %77, %3
+  %78 = or i32 %3, %77
   br label %79
 
 79:                                               ; preds = %76, %72
@@ -11242,7 +11242,7 @@ default.unreachable:                              ; preds = %.split.split.split,
   br label %.loopexit
 
 826:                                              ; preds = %818
-  %827 = and i1 %669, %3
+  %827 = and i1 %3, %669
   br i1 %827, label %828, label %831
 
 828:                                              ; preds = %826
@@ -15140,7 +15140,7 @@ define internal fastcc i32 @ieee80211_determine_chantype(ptr noundef %0, ptr noc
   %242 = getelementptr inbounds i8, ptr %14, i64 8
   %243 = load i32, ptr %242, align 8
   %244 = icmp eq i32 %241, %243
-  %245 = or i1 %244, %12
+  %245 = or i1 %12, %244
   br i1 %245, label %249, label %246
 
 246:                                              ; preds = %239

@@ -12717,7 +12717,7 @@ switch.edge:                                      ; preds = %switch.lookup95, %.
   %48 = icmp eq i8 %45, -125
   %49 = or i1 %47, %48
   %50 = zext i1 %49 to i32
-  %51 = add i32 %50, %2
+  %51 = add i32 %2, %50
   %52 = call fastcc i32 @find_firstassertedcu(ptr noundef nonnull %44, ptr noundef nonnull %4, i32 noundef %51)
   %53 = load i32, ptr %4, align 4
   %54 = icmp ugt i32 %53, -3
@@ -13833,7 +13833,7 @@ define internal fastcc i32 @check_posix_name(ptr noundef %0, i32 noundef %1) unn
   %5 = getelementptr inbounds [15 x i8], ptr @posix_name_lengths, i64 0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
-  %8 = icmp eq i32 %7, %1
+  %8 = icmp eq i32 %1, %7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
@@ -15059,7 +15059,7 @@ define internal fastcc i32 @add_to_class_internal(ptr noundef %0, ptr noundef %1
   br i1 %.not95, label %.preheader, label %15
 
 .preheader:                                       ; preds = %10
-  %.not96178 = icmp ult i32 %8, %5
+  %.not96178 = icmp ugt i32 %5, %8
   br i1 %.not96178, label %get_othercase_range.exit, label %.lr.ph181
 
 .lr.ph181:                                        ; preds = %.preheader

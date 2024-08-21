@@ -274,7 +274,7 @@ define dso_local void @makeTorus(i32 noundef %0, i32 noundef %1, ptr nocapture n
 .preheader.lr.ph:                                 ; preds = %.preheader41
   %13 = icmp sgt i32 %0, 1
   %14 = add nsw i32 %0, -1
-  %15 = mul nsw i32 %14, %1
+  %15 = mul nsw i32 %1, %14
   br i1 %13, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us51
@@ -602,7 +602,7 @@ ipow.exit:                                        ; preds = %.lr.ph.i, %3, %4
 .preheader.us:                                    ; preds = %ipow.exit, %._crit_edge.us
   %.01117.us = phi i32 [ %13, %._crit_edge.us ], [ 1, %ipow.exit ]
   %.01216.us = phi i32 [ %10, %._crit_edge.us ], [ 2, %ipow.exit ]
-  %10 = add i32 %.01216.us, %1
+  %10 = add i32 %1, %.01216.us
   br label %11
 
 11:                                               ; preds = %.preheader.us, %11

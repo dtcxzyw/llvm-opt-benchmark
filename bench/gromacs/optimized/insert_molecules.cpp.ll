@@ -1785,18 +1785,18 @@ define internal noundef i32 @_ZN3gmx12_GLOBAL__N_115InsertMolecules3runEv(ptr no
   %108 = getelementptr inbounds i8, ptr %0, i64 1016
   %109 = getelementptr inbounds i8, ptr %0, i64 1032
   %110 = getelementptr inbounds i8, ptr %0, i64 1048
-  %111 = fneg float %104
-  %112 = fmul float %103, %111
+  %111 = fneg float %103
+  %112 = fmul float %104, %111
   %113 = call float @llvm.fmuladd.f32(float %106, float %105, float %112)
-  %114 = fmul float %100, %111
-  %115 = call float @llvm.fmuladd.f32(float %101, float %105, float %114)
-  %116 = fneg float %102
-  %117 = fmul float %115, %116
-  %118 = call float @llvm.fmuladd.f32(float %107, float %113, float %117)
-  %119 = fneg float %106
-  %120 = fmul float %100, %119
+  %114 = fneg float %100
+  %115 = fmul float %104, %114
+  %116 = call float @llvm.fmuladd.f32(float %101, float %105, float %115)
+  %117 = fneg float %116
+  %118 = fmul float %102, %117
+  %119 = call float @llvm.fmuladd.f32(float %107, float %113, float %118)
+  %120 = fmul float %106, %114
   %121 = call float @llvm.fmuladd.f32(float %101, float %103, float %120)
-  %122 = call noundef float @llvm.fmuladd.f32(float %99, float %121, float %118)
+  %122 = call noundef float @llvm.fmuladd.f32(float %99, float %121, float %119)
   %123 = fcmp ogt float %122, 0.000000e+00
   br i1 %123, label %129, label %124
 
@@ -5007,7 +5007,7 @@ define linkonce_odr void @_ZNSt3setIiSt4lessIiESaIiEE6insertIN3gmx12ArrayRefIter
 
 select.unfold:                                    ; preds = %24, %11, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %12, %11 ], [ %.019.lcssa29.i.i, %24 ]
-  %27 = icmp eq ptr %4, %.sroa.12.0.i.ph
+  %27 = icmp eq ptr %.sroa.12.0.i.ph, %4
   br i1 %27, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %28
 
 28:                                               ; preds = %select.unfold
@@ -6014,7 +6014,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorI
   %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr %"class.gmx::BasicVector", ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
-  %.not11.i.i.i.i.i53 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_SaIS2_EET0_T_S6_S5_RT1_.exit59, label %.lr.ph.i.i.i.i.i54
 
 .lr.ph.i.i.i.i.i54:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit, %.lr.ph.i.i.i.i.i54
@@ -6096,7 +6096,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit: ; preds 
   br i1 %.not.i.i.i.i72, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit74, label %.lr.ph.i.i.i.i69, !llvm.loop !29
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit74: ; preds = %.lr.ph.i.i.i.i69
-  %.not11.i.i.i.i.i75 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i75 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i75, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_SaIS2_EET0_T_S6_S5_RT1_.exit81, label %.lr.ph.i.i.i.i.i76
 
 .lr.ph.i.i.i.i.i76:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit74, %.lr.ph.i.i.i.i.i76
@@ -6180,7 +6180,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %25, %_ZSt22__uninit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEmEvRT_T0_.exit: ; preds = %17
   %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %30, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEPffET0_T_SA_S9_RSaIT1_E.exit, label %31
 
 31:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEmEvRT_T0_.exit
@@ -6245,7 +6245,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIfSaIf
   %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit ]
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %60, label %59
 
 59:                                               ; preds = %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit

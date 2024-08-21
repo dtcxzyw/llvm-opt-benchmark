@@ -3377,7 +3377,7 @@ define internal i32 @af_autofitter_load_glyph(ptr noundef %0, ptr nocapture noun
   store i32 0, ptr %6, align 4
   %61 = getelementptr inbounds i8, ptr %60, i64 8
   %62 = load i32, ptr %61, align 8
-  %.not.i214.i = icmp ugt i32 %62, %3
+  %.not.i214.i = icmp ult i32 %3, %62
   br i1 %.not.i214.i, label %63, label %af_face_globals_get_metrics.exit.thread234.i
 
 63:                                               ; preds = %59
@@ -3863,7 +3863,7 @@ af_face_globals_get_metrics.exit.i:               ; preds = %92
   %334 = load ptr, ptr %53, align 8
   %335 = getelementptr inbounds i8, ptr %334, i64 8
   %336 = load i32, ptr %335, align 8
-  %337 = icmp ugt i32 %336, %3
+  %337 = icmp ult i32 %3, %336
   br i1 %337, label %af_face_globals_is_digit.exit.i, label %af_face_globals_is_digit.exit.thread.i
 
 af_face_globals_is_digit.exit.i:                  ; preds = %333
@@ -4441,7 +4441,7 @@ define hidden range(i64 0, 4294967296) i64 @af_shaper_get_elem(ptr nocapture nou
   %7 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %1, ptr noundef nonnull %6) #20
   %8 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %1, ptr noundef nonnull %6) #20
   %9 = load i32, ptr %6, align 4
-  %.not = icmp ugt i32 %9, %2
+  %.not = icmp ult i32 %2, %9
   br i1 %.not, label %10, label %24
 
 10:                                               ; preds = %5
@@ -5253,7 +5253,7 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef %0, ptr noundef %1
   br i1 %.not.i, label %279, label %278
 
 278:                                              ; preds = %269
-  %..i = call i64 @llvm.smax.i64(i64 %277, i64 %261)
+  %..i = call i64 @llvm.smax.i64(i64 %261, i64 %277)
   %.28.i = select i1 %.not25.i, i64 %261, i64 %253
   %.29.i = select i1 %.not25.i, i8 -1, i8 2
   %.pre377 = call i64 @llvm.abs.i64(i64 %.28.i, i1 true)
@@ -8995,16 +8995,16 @@ define internal fastcc i32 @af_axis_hints_new_edge(ptr noundef %0, i32 noundef %
   %54 = getelementptr inbounds i8, ptr %.161.us, i64 -88
   %55 = load i16, ptr %54, align 8
   %56 = sext i16 %55 to i32
-  %57 = icmp slt i32 %56, %1
+  %57 = icmp sgt i32 %1, %56
   br i1 %57, label %._crit_edge, label %58
 
 58:                                               ; preds = %.lr.ph.split.us
-  %59 = icmp eq i32 %56, %1
+  %59 = icmp eq i32 %1, %56
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %58
   %61 = load i32, ptr %53, align 8
-  %62 = icmp eq i32 %61, %2
+  %62 = icmp eq i32 %2, %61
   br i1 %62, label %._crit_edge, label %63
 
 63:                                               ; preds = %60, %58
@@ -9017,16 +9017,16 @@ define internal fastcc i32 @af_axis_hints_new_edge(ptr noundef %0, i32 noundef %
   %65 = getelementptr inbounds i8, ptr %.161, i64 -88
   %66 = load i16, ptr %65, align 8
   %67 = sext i16 %66 to i32
-  %68 = icmp sgt i32 %67, %1
+  %68 = icmp slt i32 %1, %67
   br i1 %68, label %._crit_edge, label %69
 
 69:                                               ; preds = %.lr.ph.split
-  %70 = icmp eq i32 %67, %1
+  %70 = icmp eq i32 %1, %67
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %69
   %72 = load i32, ptr %53, align 8
-  %73 = icmp eq i32 %72, %2
+  %73 = icmp eq i32 %2, %72
   br i1 %73, label %._crit_edge, label %74
 
 74:                                               ; preds = %71, %69
@@ -9305,20 +9305,20 @@ define internal fastcc i64 @af_cjk_compute_stem_width(i32 %.5148.val, ptr nocapt
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %51 = add nsw i64 %.1.i, 32
   %52 = and i64 %51, -64
-  %.not.i = icmp sgt i64 %.1.i, %spec.select
+  %.not.i = icmp slt i64 %spec.select, %.1.i
   br i1 %.not.i, label %57, label %53
 
 53:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %54 = phi i64 [ %46, %._crit_edge.thread.i ], [ %52, %._crit_edge.i ]
   %.025.lcssa40.i = phi i64 [ %spec.select, %._crit_edge.thread.i ], [ %.1.i, %._crit_edge.i ]
   %55 = or disjoint i64 %54, 48
-  %56 = icmp sgt i64 %55, %spec.select
+  %56 = icmp slt i64 %spec.select, %55
   %spec.select31.i = select i1 %56, i64 %.025.lcssa40.i, i64 %spec.select
   br label %af_cjk_snap_width.exit
 
 57:                                               ; preds = %._crit_edge.i
   %58 = add nsw i64 %52, -48
-  %59 = icmp slt i64 %58, %spec.select
+  %59 = icmp sgt i64 %spec.select, %58
   %spec.select32.i = select i1 %59, i64 %.1.i, i64 %spec.select
   br label %af_cjk_snap_width.exit
 
@@ -11077,7 +11077,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
 63:                                               ; preds = %61
   %narrow = sub nuw nsw i16 30, %.fr
   %64 = zext nneg i16 %narrow to i64
-  %65 = mul i64 %64, %2
+  %65 = mul i64 %2, %64
   %66 = sdiv i64 %65, 20
   br label %67
 
@@ -11127,20 +11127,20 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %81 = add nsw i64 %.1.i, 32
   %82 = and i64 %81, -64
-  %.not.i = icmp sgt i64 %.1.i, %spec.select
+  %.not.i = icmp slt i64 %spec.select, %.1.i
   br i1 %.not.i, label %87, label %83
 
 83:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %84 = phi i64 [ %76, %._crit_edge.thread.i ], [ %82, %._crit_edge.i ]
   %.025.lcssa40.i = phi i64 [ %spec.select, %._crit_edge.thread.i ], [ %.1.i, %._crit_edge.i ]
   %85 = or disjoint i64 %84, 48
-  %86 = icmp sgt i64 %85, %spec.select
+  %86 = icmp slt i64 %spec.select, %85
   %spec.select31.i = select i1 %86, i64 %.025.lcssa40.i, i64 %spec.select
   br label %af_latin_snap_width.exit
 
 87:                                               ; preds = %._crit_edge.i
   %88 = add nsw i64 %82, -48
-  %89 = icmp slt i64 %88, %spec.select
+  %89 = icmp sgt i64 %spec.select, %88
   %spec.select32.i = select i1 %89, i64 %.1.i, i64 %spec.select
   br label %af_latin_snap_width.exit
 

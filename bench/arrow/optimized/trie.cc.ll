@@ -637,11 +637,11 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph:                  ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2Ev.exit.lr.ph, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %parent.addr.0139 = phi ptr [ %parent, %_ZN5arrow6StatusD2Ev.exit.lr.ph ], [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
-  %ch.addr.0138 = phi i8 [ %ch, %_ZN5arrow6StatusD2Ev.exit.lr.ph ], [ %2, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
-  %storemerge137 = phi ptr [ %substring.coerce1, %_ZN5arrow6StatusD2Ev.exit.lr.ph ], [ %add.ptr.i44, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
-  %substring.sroa.0.0136 = phi i64 [ %substring.coerce0, %_ZN5arrow6StatusD2Ev.exit.lr.ph ], [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
+_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2Ev.exit.lr.ph, %do.end11
+  %parent.addr.0139 = phi ptr [ %parent, %_ZN5arrow6StatusD2Ev.exit.lr.ph ], [ %add.ptr.i.i, %do.end11 ]
+  %ch.addr.0138 = phi i8 [ %ch, %_ZN5arrow6StatusD2Ev.exit.lr.ph ], [ %2, %do.end11 ]
+  %storemerge137 = phi ptr [ %substring.coerce1, %_ZN5arrow6StatusD2Ev.exit.lr.ph ], [ %add.ptr.i44, %do.end11 ]
+  %substring.sroa.0.0136 = phi i64 [ %substring.coerce0, %_ZN5arrow6StatusD2Ev.exit.lr.ph ], [ %sub.i, %do.end11 ]
   store i16 -1, ptr %mid_node, align 2
   store i16 -1, ptr %child_lookup_, align 2
   store i8 11, ptr %substring_, align 2
@@ -652,9 +652,9 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2E
   store ptr %0, ptr %agg.result, align 8, !alias.scope !28
   store ptr null, ptr %ref.tmp3, align 8, !noalias !28
   %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, label %return
+  br i1 %cmp.i, label %do.end11, label %return
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit
+do.end11:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -16
   %add.ptr.i = getelementptr inbounds i8, ptr %storemerge137, i64 11
@@ -664,11 +664,11 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZN5ar
   %cmp = icmp ugt i64 %sub.i, 11
   br i1 %cmp, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6StatusD2Ev.exit88, !llvm.loop !31
 
-_ZN5arrow6StatusD2Ev.exit88:                      ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %entry
-  %substring.sroa.0.0.lcssa = phi i64 [ %substring.coerce0, %entry ], [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
-  %storemerge.lcssa = phi ptr [ %substring.coerce1, %entry ], [ %add.ptr.i44, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
-  %ch.addr.0.lcssa = phi i8 [ %ch, %entry ], [ %2, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
-  %parent.addr.0.lcssa = phi ptr [ %parent, %entry ], [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
+_ZN5arrow6StatusD2Ev.exit88:                      ; preds = %do.end11, %entry
+  %substring.sroa.0.0.lcssa = phi i64 [ %substring.coerce0, %entry ], [ %sub.i, %do.end11 ]
+  %storemerge.lcssa = phi ptr [ %substring.coerce1, %entry ], [ %add.ptr.i44, %do.end11 ]
+  %ch.addr.0.lcssa = phi i8 [ %ch, %entry ], [ %2, %do.end11 ]
+  %parent.addr.0.lcssa = phi ptr [ %parent, %entry ], [ %add.ptr.i.i, %do.end11 ]
   %size_ = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i16, ptr %size_, align 8
   store i16 %3, ptr %child_node, align 2
@@ -722,11 +722,11 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i:                ; preds = %entry
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %_ZN5arrow6StatusD2Ev.exit.i
 
-_ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i
-  %parent.addr.0139.i = phi ptr [ %parent, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i ], [ %add.ptr.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
-  %ch.addr.0138.i = phi i8 [ %ch, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i ], [ %2, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
-  %storemerge137.i = phi ptr [ %substring.coerce1, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i ], [ %add.ptr.i44.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
-  %substring.sroa.0.0136.i = phi i64 [ %substring.coerce0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i ], [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
+_ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %do.end11.i, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i
+  %parent.addr.0139.i = phi ptr [ %parent, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i ], [ %add.ptr.i.i.i, %do.end11.i ]
+  %ch.addr.0138.i = phi i8 [ %ch, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i ], [ %2, %do.end11.i ]
+  %storemerge137.i = phi ptr [ %substring.coerce1, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i ], [ %add.ptr.i44.i, %do.end11.i ]
+  %substring.sroa.0.0136.i = phi i64 [ %substring.coerce0, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i ], [ %sub.i.i, %do.end11.i ]
   store i16 -1, ptr %mid_node.i, align 2, !noalias !38
   store i16 -1, ptr %child_lookup_.i, align 2, !noalias !38
   store i8 11, ptr %substring_.i, align 2, !noalias !38
@@ -737,9 +737,9 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %_ZNKSt17basic_strin
   store ptr %0, ptr %agg.result, align 8, !alias.scope !44
   store ptr null, ptr %ref.tmp3.i, align 8, !noalias !44
   %cmp.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, label %_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEhSt17basic_string_viewIcSt11char_traitsIcEE.exit
+  br i1 %cmp.i.i, label %do.end11.i, label %_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEhSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i
+do.end11.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit.i
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !38
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 -16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %storemerge137.i, i64 11
@@ -749,11 +749,11 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZN5
   %cmp.i = icmp ugt i64 %sub.i.i, 11
   br i1 %cmp.i, label %_ZN5arrow6StatusD2Ev.exit.i, label %_ZN5arrow6StatusD2Ev.exit88.i, !llvm.loop !31
 
-_ZN5arrow6StatusD2Ev.exit88.i:                    ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %entry
-  %substring.sroa.0.0.lcssa.i = phi i64 [ %substring.coerce0, %entry ], [ %sub.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
-  %storemerge.lcssa.i = phi ptr [ %substring.coerce1, %entry ], [ %add.ptr.i44.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
-  %ch.addr.0.lcssa.i = phi i8 [ %ch, %entry ], [ %2, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
-  %parent.addr.0.lcssa.i = phi ptr [ %parent, %entry ], [ %add.ptr.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
+_ZN5arrow6StatusD2Ev.exit88.i:                    ; preds = %do.end11.i, %entry
+  %substring.sroa.0.0.lcssa.i = phi i64 [ %substring.coerce0, %entry ], [ %sub.i.i, %do.end11.i ]
+  %storemerge.lcssa.i = phi ptr [ %substring.coerce1, %entry ], [ %add.ptr.i44.i, %do.end11.i ]
+  %ch.addr.0.lcssa.i = phi i8 [ %ch, %entry ], [ %2, %do.end11.i ]
+  %parent.addr.0.lcssa.i = phi ptr [ %parent, %entry ], [ %add.ptr.i.i.i, %do.end11.i ]
   %size_.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i16, ptr %size_.i, align 8, !noalias !38
   store i16 %3, ptr %child_node.i, align 2, !noalias !38
@@ -1061,11 +1061,11 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i.i:              ; preds = %_ZNKSt17basic_strin
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %_ZN5arrow6StatusD2Ev.exit.i.i
 
-_ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i
-  %parent.addr.0139.i.i = phi ptr [ %add.ptr.i176, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %add.ptr.i.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %ch.addr.0138.i.i = phi i8 [ %16, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %19, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %storemerge137.i.i = phi ptr [ %add.ptr.i180, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %add.ptr.i44.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %substring.sroa.0.0136.i.i = phi i64 [ %sub.i, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %sub.i.i.i182, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+_ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %do.end11.i.i, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i
+  %parent.addr.0139.i.i = phi ptr [ %add.ptr.i176, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %add.ptr.i.i.i.i, %do.end11.i.i ]
+  %ch.addr.0138.i.i = phi i8 [ %16, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %19, %do.end11.i.i ]
+  %storemerge137.i.i = phi ptr [ %add.ptr.i180, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %add.ptr.i44.i.i, %do.end11.i.i ]
+  %substring.sroa.0.0136.i.i = phi i64 [ %sub.i, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %sub.i.i.i182, %do.end11.i.i ]
   store i16 -1, ptr %mid_node.i.i, align 2, !noalias !82
   store i16 -1, ptr %child_lookup_.i.i, align 2, !noalias !82
   store i8 11, ptr %substring_.i.i, align 2, !noalias !82
@@ -1076,9 +1076,9 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %_ZNKSt17basic_strin
   store ptr %17, ptr %agg.result, align 8, !alias.scope !86
   store ptr null, ptr %ref.tmp3.i.i, align 8, !noalias !86
   %cmp.i.i.i = icmp eq ptr %17, null
-  br i1 %cmp.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i, label %_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEcSt17basic_string_viewIcSt11char_traitsIcEE.exit
+  br i1 %cmp.i.i.i, label %do.end11.i.i, label %_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEcSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
+do.end11.i.i:                                     ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
   %18 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !82
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 -16
   %add.ptr.i.i.i181 = getelementptr inbounds i8, ptr %storemerge137.i.i, i64 11
@@ -1088,11 +1088,11 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %_Z
   %cmp.i.i183 = icmp ugt i64 %sub.i.i.i182, 11
   br i1 %cmp.i.i183, label %_ZN5arrow6StatusD2Ev.exit.i.i, label %_ZN5arrow6StatusD2Ev.exit88.i.i, !llvm.loop !31
 
-_ZN5arrow6StatusD2Ev.exit88.i.i:                  ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %substring.sroa.0.0.lcssa.i.i = phi i64 [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %sub.i.i.i182, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %storemerge.lcssa.i.i = phi ptr [ %add.ptr.i180, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr.i44.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %ch.addr.0.lcssa.i.i = phi i8 [ %16, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %19, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %parent.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i176, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr.i.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+_ZN5arrow6StatusD2Ev.exit88.i.i:                  ; preds = %do.end11.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+  %substring.sroa.0.0.lcssa.i.i = phi i64 [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %sub.i.i.i182, %do.end11.i.i ]
+  %storemerge.lcssa.i.i = phi ptr [ %add.ptr.i180, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr.i44.i.i, %do.end11.i.i ]
+  %ch.addr.0.lcssa.i.i = phi i8 [ %16, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %19, %do.end11.i.i ]
+  %parent.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i176, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr.i.i.i.i, %do.end11.i.i ]
   %size_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %20 = load i16, ptr %size_.i.i, align 8, !noalias !82
   store i16 %20, ptr %child_node.i.i, align 2, !noalias !82
@@ -1733,7 +1733,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !128
 
 if.else:                                          ; preds = %if.then4
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i, %__n
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, %sub.ptr.div.i
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
@@ -1817,7 +1817,7 @@ for.body.i.i.i.i.i.i.i67:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !128
 
 invoke.cont57:                                    ; preds = %for.body.i.i.i.i.i.i.i67
-  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %6, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %__position.coerce, %6
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i76, label %invoke.cont60, label %if.then.i.i.i.i.i.i.i.i.i77
 
 if.then.i.i.i.i.i.i.i.i.i77:                      ; preds = %invoke.cont57

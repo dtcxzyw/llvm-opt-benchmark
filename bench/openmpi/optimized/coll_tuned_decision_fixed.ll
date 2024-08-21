@@ -1819,7 +1819,7 @@ define i32 @ompi_coll_tuned_scatter_intra_dec_fixed(ptr noundef %0, i32 noundef 
   %.val.val = load i32, ptr %11, align 8
   %12 = getelementptr i8, ptr %7, i64 220
   %.val47 = load i32, ptr %12, align 4
-  %13 = icmp eq i32 %.val47, %6
+  %13 = icmp eq i32 %6, %.val47
   %.51 = select i1 %13, ptr %2, ptr %5
   %.52 = select i1 %13, i32 %1, i32 %4
   %14 = getelementptr i8, ptr %.51, i64 24

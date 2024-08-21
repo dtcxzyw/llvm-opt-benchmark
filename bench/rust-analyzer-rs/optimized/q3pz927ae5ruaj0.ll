@@ -722,7 +722,7 @@ define hidden noundef nonnull align 4 dereferenceable(28) ptr @"_ZN80_$LT$smallv
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !149, !noalias !152
   %.sink4.i = select i1 %5, i64 %7, i64 %4
-  %8 = icmp ugt i64 %.sink4.i, %1
+  %8 = icmp ult i64 %1, %.sink4.i
   br i1 %8, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd8a1898f4fed8100E.llvm.9790662432732335914.exit", label %9, !prof !148
 
 9:                                                ; preds = %3
@@ -1239,7 +1239,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h008a5a8e
   %.sink2.i = getelementptr inbounds i8, ptr %0, i64 %.sink2.idx.i
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %4, i64 3)
   %9 = load i64, ptr %.sink2.i, align 8, !noundef !4
-  %.not = icmp ugt i64 %9, %1
+  %.not = icmp ult i64 %1, %9
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %2
@@ -1347,7 +1347,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h07d0dde6
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 4)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %2
@@ -1454,7 +1454,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h97905589
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 1)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %2
@@ -1558,7 +1558,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17hd64e92a2
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 1)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %2

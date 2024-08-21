@@ -122,7 +122,7 @@ define hidden noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock20try_lo
   %4 = and i64 %3, 8
   %5 = icmp eq i64 %4, 0
   %6 = icmp ugt i64 %3, 15
-  %or.cond.not = and i1 %6, %1
+  %or.cond.not = and i1 %1, %6
   %or.cond = or i1 %5, %or.cond.not
   br i1 %or.cond, label %7, label %10
 
@@ -2849,7 +2849,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !4
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -2930,8 +2930,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !306
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -4163,7 +4163,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %52
   %.val12.i = load ptr, ptr %80, align 8, !alias.scope !401, !noalias !404, !nonnull !4, !align !72, !noundef !4
   %205 = getelementptr inbounds i8, ptr %78, i64 24
   %.val13.i = load i64, ptr %205, align 8, !alias.scope !401, !noalias !404, !noundef !4
-  %206 = icmp ugt i64 %.val13.i, %204
+  %206 = icmp ult i64 %204, %.val13.i
   call void @llvm.assume(i1 %206)
   %207 = getelementptr inbounds { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.val12.i, i64 %204
   %208 = cmpxchg weak ptr %207, i64 0, i64 -4 acquire monotonic, align 8, !noalias !406
@@ -4777,7 +4777,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %52
   %.val12.i60 = load ptr, ptr %405, align 8, !alias.scope !555, !noalias !558, !nonnull !4, !align !72, !noundef !4
   %518 = getelementptr inbounds i8, ptr %403, i64 24
   %.val13.i61 = load i64, ptr %518, align 8, !alias.scope !555, !noalias !558, !noundef !4
-  %519 = icmp ugt i64 %.val13.i61, %517
+  %519 = icmp ult i64 %517, %.val13.i61
   call void @llvm.assume(i1 %519)
   %520 = getelementptr inbounds { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.val12.i60, i64 %517
   %521 = cmpxchg weak ptr %520, i64 0, i64 -4 acquire monotonic, align 8, !noalias !560

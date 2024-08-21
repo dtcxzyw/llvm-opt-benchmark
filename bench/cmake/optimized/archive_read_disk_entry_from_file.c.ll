@@ -675,7 +675,7 @@ setup_sparse_fiemap.exit.i:                       ; preds = %._crit_edge.thread.
 setup_sparse.exit.thread:                         ; preds = %.critedge.i, %setup_sparse_fiemap.exit.i, %131, %136, %113, %115, %118, %109
   %.3 = phi i32 [ 0, %109 ], [ 0, %118 ], [ 0, %115 ], [ 0, %113 ], [ -25, %136 ], [ -25, %131 ], [ %.060.i.i, %setup_sparse_fiemap.exit.i ], [ %.056.i, %.critedge.i ]
   %276 = load i32, ptr %6, align 4
-  %.not114 = icmp eq i32 %276, %2
+  %.not114 = icmp eq i32 %2, %276
   br i1 %.not114, label %279, label %277
 
 277:                                              ; preds = %setup_sparse.exit.thread

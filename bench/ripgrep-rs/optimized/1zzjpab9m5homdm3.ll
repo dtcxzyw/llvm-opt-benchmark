@@ -2254,7 +2254,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !364, !noalias !369, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !371, !noalias !369, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e2cbe0a7cd5543fE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
@@ -2311,7 +2311,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !377, !noalias !382, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !384, !noalias !382, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e2cbe0a7cd5543fE.exit"
 
 9:                                                ; preds = %3
@@ -2794,7 +2794,7 @@ _ZN6ignore9gitignore9Gitignore7matched17h504d5d77e3b87c11E.exit: ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 80
   %18 = load i64, ptr %17, align 8, !alias.scope !403, !noundef !4
   %.not6 = icmp eq i64 %18, 0
-  %brmerge = or i1 %.not6, %3
+  %brmerge = or i1 %3, %.not6
   %spec.select = select i1 %brmerge, ptr %13, ptr null
   %not.brmerge = xor i1 %brmerge, true
   %spec.select15 = zext i1 %not.brmerge to i64

@@ -1465,7 +1465,7 @@ define internal i32 @WALDumpReadPage(ptr noundef %0, i64 noundef %1, i32 noundef
 
 13:                                               ; preds = %5
   %14 = sext i32 %2 to i64
-  %15 = add i64 %14, %1
+  %15 = add i64 %1, %14
   %.not23 = icmp ugt i64 %15, %11
   br i1 %.not23, label %19, label %16
 
@@ -1645,7 +1645,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
 
 23:                                               ; preds = %.lr.ph.split.us.split.us
   %24 = load i32, ptr %8, align 4
-  %25 = icmp eq i32 %24, %3
+  %25 = icmp eq i32 %3, %24
   %or.cond28.us.us = select i1 %20, i1 true, i1 %25
   br i1 %or.cond28.us.us, label %._crit_edge, label %26
 
@@ -1665,7 +1665,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   %31 = trunc i32 %.030.us.us58 to i8
   %32 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %31, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
   %33 = load i32, ptr %7, align 4
-  %34 = icmp eq i32 %33, %4
+  %34 = icmp eq i32 %4, %33
   %or.cond = select i1 %32, i1 %34, i1 false
   br i1 %or.cond, label %._crit_edge, label %35
 
@@ -1682,10 +1682,10 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   %40 = trunc i32 %.030.us to i8
   %41 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %40, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
   %42 = load i32, ptr %7, align 4
-  %43 = icmp eq i32 %42, %4
+  %43 = icmp eq i32 %4, %42
   %or.cond68 = select i1 %41, i1 %43, i1 false
   %44 = load i32, ptr %8, align 4
-  %45 = icmp eq i32 %44, %3
+  %45 = icmp eq i32 %3, %44
   %or.cond70 = select i1 %or.cond68, i1 %45, i1 false
   br i1 %or.cond70, label %._crit_edge, label %46
 
@@ -1708,7 +1708,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
 
 53:                                               ; preds = %.lr.ph.split.split.us
   %54 = load i32, ptr %18, align 4
-  %55 = icmp eq i32 %54, %2
+  %55 = icmp eq i32 %2, %54
   %56 = load i32, ptr %19, align 4
   %57 = icmp eq i32 %56, %.sroa.3.0.extract.trunc
   %or.cond24.us = select i1 %55, i1 %57, i1 false
@@ -1719,7 +1719,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
 
 60:                                               ; preds = %53
   %61 = load i32, ptr %8, align 4
-  %62 = icmp eq i32 %61, %3
+  %62 = icmp eq i32 %3, %61
   %or.cond28.us38 = select i1 %20, i1 true, i1 %62
   br i1 %or.cond28.us38, label %._crit_edge, label %63
 
@@ -1739,13 +1739,13 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   %68 = trunc i32 %.030.us45 to i8
   %69 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %68, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
   %70 = load i32, ptr %7, align 4
-  %71 = icmp eq i32 %70, %4
+  %71 = icmp eq i32 %4, %70
   %or.cond72 = select i1 %69, i1 %71, i1 false
   br i1 %or.cond72, label %72, label %79
 
 72:                                               ; preds = %.lr.ph.split.split.split.us
   %73 = load i32, ptr %18, align 4
-  %74 = icmp eq i32 %73, %2
+  %74 = icmp eq i32 %2, %73
   %75 = load i32, ptr %19, align 4
   %76 = icmp eq i32 %75, %.sroa.3.0.extract.trunc
   %or.cond24.us46 = select i1 %74, i1 %76, i1 false
@@ -1767,13 +1767,13 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   %84 = trunc i32 %.030 to i8
   %85 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %84, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
   %86 = load i32, ptr %7, align 4
-  %87 = icmp eq i32 %86, %4
+  %87 = icmp eq i32 %4, %86
   %or.cond74 = select i1 %85, i1 %87, i1 false
   br i1 %or.cond74, label %88, label %97
 
 88:                                               ; preds = %.lr.ph.split.split.split
   %89 = load i32, ptr %18, align 4
-  %90 = icmp eq i32 %89, %2
+  %90 = icmp eq i32 %2, %89
   %91 = load i32, ptr %19, align 4
   %92 = icmp eq i32 %91, %.sroa.3.0.extract.trunc
   %or.cond24 = select i1 %90, i1 %92, i1 false
@@ -1781,7 +1781,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   %94 = icmp eq i32 %93, %.sroa.013.0.extract.trunc
   %or.cond26 = select i1 %or.cond24, i1 %94, i1 false
   %95 = load i32, ptr %8, align 4
-  %96 = icmp eq i32 %95, %3
+  %96 = icmp eq i32 %3, %95
   %or.cond76 = select i1 %or.cond26, i1 %96, i1 false
   br i1 %or.cond76, label %._crit_edge, label %97
 

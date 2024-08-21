@@ -747,7 +747,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr @num_serial_hds, align 4
-  %cmp1 = icmp sgt i32 %0, %i
+  %cmp1 = icmp slt i32 %i, %0
   br i1 %cmp1, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end

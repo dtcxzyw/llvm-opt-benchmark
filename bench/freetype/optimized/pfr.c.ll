@@ -1321,11 +1321,11 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr nocapture noundef readonl
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i32
   %144 = or disjoint i32 %140, %143
-  %145 = icmp ugt i32 %144, %75
+  %145 = icmp ult i32 %75, %144
   br i1 %145, label %150, label %146
 
 146:                                              ; preds = %.lr.ph108.split.i.i
-  %147 = icmp ult i32 %144, %75
+  %147 = icmp ugt i32 %75, %144
   br i1 %147, label %148, label %.split110.i.i
 
 148:                                              ; preds = %146
@@ -3059,7 +3059,7 @@ define internal fastcc i32 @pfr_aux_name_load(ptr nocapture noundef readonly %0,
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   %15 = sext i1 %14 to i32
-  %spec.select = add nsw i32 %15, %1
+  %spec.select = add nsw i32 %1, %15
   %.not36 = icmp eq i32 %spec.select, 0
   br i1 %.not36, label %.thread, label %.lr.ph.preheader
 

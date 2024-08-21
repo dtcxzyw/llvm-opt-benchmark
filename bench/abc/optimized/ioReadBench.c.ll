@@ -95,7 +95,7 @@ define ptr @Io_ReadBench(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %17, align 4
-  %26 = icmp sgt i32 %25, %23
+  %26 = icmp slt i32 %23, %25
   br i1 %26, label %Extra_ProgressBarUpdate.exit.i, label %27
 
 27:                                               ; preds = %24, %20

@@ -34,7 +34,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, pt
   %.08651015 = phi i64 [ %21, %23 ], [ %.08651016, %.thread ]
   %.0866 = phi i64 [ %24, %23 ], [ %28, %.thread ]
   %30 = tail call i64 @llvm.smax.i64(i64 %.0866, i64 16)
-  %31 = tail call i64 @llvm.smin.i64(i64 %30, i64 %0)
+  %31 = tail call i64 @llvm.smin.i64(i64 %0, i64 %30)
   %32 = icmp slt i64 %0, 1
   br i1 %32, label %.preheader1039, label %.lr.ph
 

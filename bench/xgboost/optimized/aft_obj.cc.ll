@@ -902,7 +902,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -950,7 +950,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7xgboost14ObjFunctionRegEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -3425,7 +3425,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -3969,7 +3969,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRKS6_SC_EEEvRS8_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRKS6_SC_EEEvRS8_PT_DpOT0_.exit ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
-  %.not10.i.i.i27 = icmp eq ptr %6, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %.lr.ph.i.i.i28
@@ -4366,7 +4366,7 @@ _ZNK4dmlc9parameter12ParamManager4FindERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 select.unfold.i.i:                                ; preds = %52, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %52 ]
-  %55 = icmp eq ptr %13, %.sroa.4.0.i.ph.i.i
+  %55 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %13
   br i1 %55, label %_ZNSt8_Rb_treeIPN4dmlc9parameter16FieldAccessEntryES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %56
 
 56:                                               ; preds = %select.unfold.i.i
@@ -4689,7 +4689,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRKS7_EEEvRS8_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRKS7_EEEvRS8_PT_DpOT0_.exit ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %.lr.ph.i.i.i27
@@ -5367,7 +5367,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit ], [ %30, %.lr.ph.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %.lr.ph.i.i.i17
@@ -5489,7 +5489,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.020.lcssa32.i, %._crit_edge.thread.i ], [ %.020.lcssa33.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ]
-  %25 = icmp eq ptr %6, %.sroa.4.0.i.ph
+  %25 = icmp eq ptr %.sroa.4.0.i.ph, %6
   br i1 %25, label %.thread15, label %26
 
 26:                                               ; preds = %select.unfold
@@ -5696,7 +5696,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -5764,7 +5764,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -7005,7 +7005,7 @@ declare void @_ZSt17current_exceptionv(ptr dead_on_unwind writable sret(%"class.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZN7xgboost3obj6AFTObj15GetGradientImplINS_6common18NormalDistributionEEEvRKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEmNS_9DeviceOrdEbfENKUlmNS3_4SpanISG_Lm18446744073709551615EEENSK_IKfLm18446744073709551615EEESN_SN_SN_E_clEmSL_SN_SN_SN_SN_(ptr noundef nonnull align 4 dereferenceable(5) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 comdat align 2 {
   %8 = load i64, ptr %3, align 8
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit, label %10
 
 10:                                               ; preds = %7
@@ -7019,7 +7019,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit: ; preds = %7
   %14 = load float, ptr %13, align 4
   %15 = fpext float %14 to double
   %16 = load i64, ptr %4, align 8
-  %17 = icmp ugt i64 %16, %1
+  %17 = icmp ult i64 %1, %16
   br i1 %17, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15, label %18
 
 18:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit
@@ -7028,7 +7028,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit: ; preds = %7
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit
   %19 = load i64, ptr %5, align 8
-  %20 = icmp ugt i64 %19, %1
+  %20 = icmp ult i64 %1, %19
   br i1 %20, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16, label %21
 
 21:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15
@@ -7059,7 +7059,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16: ; preds = %_ZNK7
 
 41:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16
   %42 = load i64, ptr %6, align 8
-  %43 = icmp ugt i64 %42, %1
+  %43 = icmp ult i64 %1, %42
   br i1 %43, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit17, label %44
 
 44:                                               ; preds = %41
@@ -7076,7 +7076,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit17: ; preds = %41
 49:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit17
   %50 = phi float [ %48, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit17 ], [ 1.000000e+00, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16 ]
   %51 = load i64, ptr %2, align 8
-  %52 = icmp ugt i64 %51, %1
+  %52 = icmp ult i64 %1, %51
   br i1 %52, label %_ZNK7xgboost6common4SpanINS_6detail20GradientPairInternalIfEELm18446744073709551615EEixEm.exit, label %53
 
 53:                                               ; preds = %49
@@ -7176,7 +7176,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   %.048.in = phi i1 [ %19, %8 ], [ %52, %51 ]
   %.pn = phi double [ %15, %8 ], [ %54, %51 ]
   %.045 = phi double [ %18, %8 ], [ %53, %51 ]
-  %.046 = fmul double %.pn, %3
+  %.046 = fmul double %3, %.pn
   %56 = fdiv double %.045, %.046
   %57 = fcmp olt double %.046, 0x3D719799812DEA11
   %58 = tail call double @llvm.fabs.f64(double %56)
@@ -7311,7 +7311,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   %69 = fsub double %.061, %.060
   %70 = fsub double %.063, %.062
   %71 = fsub double %.065, %.064
-  %72 = fmul double %69, %3
+  %72 = fmul double %3, %69
   %73 = or i1 %.067, %.066
   %74 = fneg double %70
   %75 = fmul double %70, %74
@@ -8065,7 +8065,7 @@ _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj6AFTObj15GetGradientImplIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZN7xgboost3obj6AFTObj15GetGradientImplINS_6common20LogisticDistributionEEEvRKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEmNS_9DeviceOrdEbfENKUlmNS3_4SpanISG_Lm18446744073709551615EEENSK_IKfLm18446744073709551615EEESN_SN_SN_E_clEmSL_SN_SN_SN_SN_(ptr noundef nonnull align 4 dereferenceable(5) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 comdat align 2 {
   %8 = load i64, ptr %3, align 8
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit, label %10
 
 10:                                               ; preds = %7
@@ -8079,7 +8079,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit: ; preds = %7
   %14 = load float, ptr %13, align 4
   %15 = fpext float %14 to double
   %16 = load i64, ptr %4, align 8
-  %17 = icmp ugt i64 %16, %1
+  %17 = icmp ult i64 %1, %16
   br i1 %17, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15, label %18
 
 18:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit
@@ -8088,7 +8088,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit: ; preds = %7
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit
   %19 = load i64, ptr %5, align 8
-  %20 = icmp ugt i64 %19, %1
+  %20 = icmp ult i64 %1, %19
   br i1 %20, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16, label %21
 
 21:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15
@@ -8119,7 +8119,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16: ; preds = %_ZNK7
 
 41:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16
   %42 = load i64, ptr %6, align 8
-  %43 = icmp ugt i64 %42, %1
+  %43 = icmp ult i64 %1, %42
   br i1 %43, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit17, label %44
 
 44:                                               ; preds = %41
@@ -8136,7 +8136,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit17: ; preds = %41
 49:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit17
   %50 = phi float [ %48, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit17 ], [ 1.000000e+00, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16 ]
   %51 = load i64, ptr %2, align 8
-  %52 = icmp ugt i64 %51, %1
+  %52 = icmp ult i64 %1, %51
   br i1 %52, label %_ZNK7xgboost6common4SpanINS_6detail20GradientPairInternalIfEELm18446744073709551615EEixEm.exit, label %53
 
 53:                                               ; preds = %49
@@ -8312,7 +8312,7 @@ _ZN7xgboost6common20LogisticDistribution3PDFEd.exit55: ; preds = %69, %76, %80
   %.048.in = phi i1 [ %42, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %91, %90 ]
   %.pn = phi double [ %.0.i, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %93, %90 ]
   %.045 = phi double [ %41, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %92, %90 ]
-  %.046 = fmul double %.pn, %3
+  %.046 = fmul double %3, %.pn
   %95 = fdiv double %.045, %.046
   %96 = fcmp olt double %.046, 0x3D719799812DEA11
   %97 = tail call double @llvm.fabs.f64(double %95)
@@ -8610,7 +8610,7 @@ _ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit83: ; preds = %_ZN7xgboos
   %157 = fsub double %.061, %.060
   %158 = fsub double %.063, %.062
   %159 = fsub double %.065, %.064
-  %160 = fmul double %157, %3
+  %160 = fmul double %3, %157
   %161 = fneg double %158
   %162 = fmul double %158, %161
   %163 = tail call double @llvm.fmuladd.f64(double %157, double %159, double %162)
@@ -9312,7 +9312,7 @@ _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj6AFTObj15GetGradientImplIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZN7xgboost3obj6AFTObj15GetGradientImplINS_6common19ExtremeDistributionEEEvRKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEmNS_9DeviceOrdEbfENKUlmNS3_4SpanISG_Lm18446744073709551615EEENSK_IKfLm18446744073709551615EEESN_SN_SN_E_clEmSL_SN_SN_SN_SN_(ptr noundef nonnull align 4 dereferenceable(5) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 comdat align 2 {
   %8 = load i64, ptr %3, align 8
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit, label %10
 
 10:                                               ; preds = %7
@@ -9326,7 +9326,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit: ; preds = %7
   %14 = load float, ptr %13, align 4
   %15 = fpext float %14 to double
   %16 = load i64, ptr %4, align 8
-  %17 = icmp ugt i64 %16, %1
+  %17 = icmp ult i64 %1, %16
   br i1 %17, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15, label %18
 
 18:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit
@@ -9335,7 +9335,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit: ; preds = %7
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit
   %19 = load i64, ptr %5, align 8
-  %20 = icmp ugt i64 %19, %1
+  %20 = icmp ult i64 %1, %19
   br i1 %20, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16, label %21
 
 21:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15
@@ -9366,7 +9366,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16: ; preds = %_ZNK7
 
 41:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16
   %42 = load i64, ptr %6, align 8
-  %43 = icmp ugt i64 %42, %1
+  %43 = icmp ult i64 %1, %42
   br i1 %43, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit17, label %44
 
 44:                                               ; preds = %41
@@ -9383,7 +9383,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit17: ; preds = %41
 49:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit17
   %50 = phi float [ %48, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit17 ], [ 1.000000e+00, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16 ]
   %51 = load i64, ptr %2, align 8
-  %52 = icmp ugt i64 %51, %1
+  %52 = icmp ult i64 %1, %51
   br i1 %52, label %_ZNK7xgboost6common4SpanINS_6detail20GradientPairInternalIfEELm18446744073709551615EEixEm.exit, label %53
 
 53:                                               ; preds = %49
@@ -9529,7 +9529,7 @@ _ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53: ; preds = %56, %62
   %.048.in = phi i1 [ %34, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %73, %72 ]
   %.pn = phi double [ %18, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %75, %72 ]
   %.045 = phi double [ %33, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %74, %72 ]
-  %.046 = fmul double %.pn, %3
+  %.046 = fmul double %3, %.pn
   %77 = fdiv double %.045, %.046
   %78 = fcmp olt double %.046, 0x3D719799812DEA11
   %79 = tail call double @llvm.fabs.f64(double %77)
@@ -9786,7 +9786,7 @@ _ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77: ; preds = %_ZN7xgboost
   %130 = fsub double %.061, %.060
   %131 = fsub double %.063, %.062
   %132 = fsub double %.065, %.064
-  %133 = fmul double %130, %3
+  %133 = fmul double %3, %130
   %134 = or i1 %.067, %.066
   %135 = fneg double %131
   %136 = fmul double %131, %135
@@ -10212,7 +10212,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6common9Transfor
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj6AFTObj13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENS9_IT_Lm18446744073709551615EEEPNS6_ISE_EE.exit.i: ; preds = %.noexc8
-  %18 = icmp ugt i64 %13, %2
+  %18 = icmp ult i64 %2, %13
   br i1 %18, label %_ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj6AFTObj13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS7_EEEvSB_DpPT_ENKUlmE_clEm.exit, label %19
 
 19:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj6AFTObj13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENS9_IT_Lm18446744073709551615EEEPNS6_ISE_EE.exit.i

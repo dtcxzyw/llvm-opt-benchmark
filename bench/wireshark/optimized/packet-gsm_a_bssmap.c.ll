@@ -1473,7 +1473,7 @@ define hidden zeroext i16 @bssmap_dissect_cause(ptr noundef %0, ptr noundef %1, 
 39:                                               ; preds = %31, %35, %27, %24, %15
   %.0 = phi i32 [ %23, %24 ], [ %23, %15 ], [ %30, %27 ], [ %34, %35 ], [ %34, %31 ]
   %40 = sub i32 %.0, %3
-  %41 = icmp ult i32 %40, %4
+  %41 = icmp ugt i32 %4, %40
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %39
@@ -1763,7 +1763,7 @@ switch.lookup198:                                 ; preds = %87
 .loopexit:                                        ; preds = %35, %97, %125, %119
   %.1 = phi i32 [ %114, %97 ], [ %124, %119 ], [ %129, %125 ], [ %40, %35 ]
   %130 = sub i32 %.1, %3
-  %131 = icmp ult i32 %130, %4
+  %131 = icmp ugt i32 %4, %130
   br i1 %131, label %132, label %136
 
 132:                                              ; preds = %.loopexit
@@ -2013,7 +2013,7 @@ define hidden zeroext i16 @be_cell_id_list(ptr noundef %0, ptr noundef %1, ptr n
   %27 = add i32 %.0.us, %26
   %28 = add i8 %.064.us, 1
   %29 = sub i32 %27, %3
-  %30 = icmp ne i32 %29, %4
+  %30 = icmp ne i32 %4, %29
   %31 = icmp ne i16 %24, 0
   %32 = and i1 %31, %30
   br i1 %32, label %.thread.us, label %.split81.us, !llvm.loop !6
@@ -2044,7 +2044,7 @@ define hidden zeroext i16 @be_cell_id_list(ptr noundef %0, ptr noundef %1, ptr n
   %45 = add i32 %.0, %44
   %46 = add i8 %.064, 1
   %47 = sub i32 %45, %3
-  %48 = icmp ne i32 %47, %4
+  %48 = icmp ne i32 %4, %47
   %49 = icmp ne i16 %38, 0
   %50 = and i1 %49, %48
   br i1 %50, label %.split, label %.split81.us.thread, !llvm.loop !6
@@ -2074,7 +2074,7 @@ define hidden zeroext i16 @be_cell_id_list(ptr noundef %0, ptr noundef %1, ptr n
   %61 = phi i32 [ %54, %53 ], [ %52, %.split81.us ]
   %.us-phi82100 = phi i32 [ %.us-phi8299, %53 ], [ %27, %.split81.us ]
   %.us-phi98 = phi i32 [ %.us-phi97, %53 ], [ %29, %.split81.us ]
-  %62 = icmp ult i32 %.us-phi98, %4
+  %62 = icmp ugt i32 %4, %.us-phi98
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %60
@@ -2736,11 +2736,11 @@ define internal noundef zeroext i16 @be_trace_transaction_id(ptr noundef %0, ptr
   %9 = load i32, ptr @hf_gsm_a_bssmap_trace_reference, align 4
   %. = select i1 %8, i32 1, i32 2
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef %., i32 noundef 0) #3
-  %11 = icmp ult i32 %., %4
+  %11 = icmp ugt i32 %4, %.
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %7
-  %13 = add i32 %., %3
+  %13 = add i32 %3, %.
   %14 = sub nuw i32 %4, %.
   %15 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %13, i32 noundef %14) #3
   br label %16
@@ -3485,7 +3485,7 @@ define internal zeroext i16 @be_aoip_trans_lay_add(ptr noundef %0, ptr noundef %
 20:                                               ; preds = %15, %11
   %.sink45 = phi i32 [ 16, %15 ], [ 4, %11 ]
   %switch = phi i1 [ false, %15 ], [ true, %11 ]
-  %21 = add i32 %.sink45, %3
+  %21 = add i32 %3, %.sink45
   %22 = load i32, ptr @hf_gsm_a_bssmap_aoip_trans_port, align 4
   %23 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef 0) #3
   %24 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %21) #3
@@ -3941,7 +3941,7 @@ define hidden void @bssmap_reset(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -4002,7 +4002,7 @@ define hidden void @bssmap_conn_oriented(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -4043,12 +4043,12 @@ define hidden void @bssmap_perf_loc_abort(ptr noundef %0, ptr noundef %1, ptr no
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 71, i32 noundef 8, i32 noundef 8, i32 noundef %3, i32 noundef %4, ptr noundef null) #3
   %9 = zext i16 %8 to i32
-  %.not22 = icmp eq i32 %9, %4
+  %.not22 = icmp eq i32 %4, %9
   br i1 %.not22, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #3
   br label %14
 
@@ -4469,7 +4469,7 @@ define internal noundef zeroext i16 @be_fe_dtm_ho_command_ind(ptr noundef %0, pt
 define internal noundef zeroext i16 @be_fe_source_cell_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
   %8 = tail call zeroext i16 @de_emm_trac_area_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 5, ptr noundef null, i32 noundef 0) #3
   %9 = zext i16 %8 to i32
-  %10 = add i32 %9, %3
+  %10 = add i32 %3, %9
   %11 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %10) #3
   %12 = tail call i32 @dissect_s1ap_EUTRAN_CGI_PDU(ptr noundef %11, ptr noundef %2, ptr noundef %1, ptr noundef null) #3
   %13 = add i32 %10, %12
@@ -4521,7 +4521,7 @@ define internal void @bssmap_ass_req(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -4733,7 +4733,7 @@ define internal void @bssmap_ass_complete(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %11, label %92, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 1, i32 noundef %13, ptr noundef null) #3
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -4857,7 +4857,7 @@ define internal void @bssmap_ass_failure(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -4932,7 +4932,7 @@ define internal void @bssmap_vgcs_vbs_setup(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -4979,12 +4979,12 @@ define internal void @bssmap_vgcs_vbs_setup_ack(ptr noundef %0, ptr noundef %1, 
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 105, i32 noundef 0, i32 noundef 105, i32 noundef %3, i32 noundef %4, ptr noundef null) #3
   %9 = zext i16 %8 to i32
-  %.not22 = icmp eq i32 %9, %4
+  %.not22 = icmp eq i32 %4, %9
   br i1 %.not22, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #3
   br label %14
 
@@ -5004,7 +5004,7 @@ define internal void @bssmap_vgcs_vbs_setup_refuse(ptr noundef %0, ptr noundef %
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -5039,7 +5039,7 @@ define internal void @bssmap_vgcs_vbs_ass_req(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -5220,7 +5220,7 @@ define internal void @bssmap_chan_mod_req(ptr noundef %0, ptr noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -5255,7 +5255,7 @@ define internal void @bssmap_ho_req(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -5596,7 +5596,7 @@ define internal void @bssmap_ho_reqd(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -5749,7 +5749,7 @@ define internal void @bssmap_ho_req_ack(ptr noundef %0, ptr noundef %1, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -5888,7 +5888,7 @@ define internal void @bssmap_ho_cmd(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -5948,7 +5948,7 @@ define internal void @bssmap_ho_complete(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %11, label %50, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 106, i32 noundef 0, i32 noundef 106, i32 noundef %13, ptr noundef null) #3
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -6012,12 +6012,12 @@ define internal void @bssmap_ho_succ(ptr noundef %0, ptr noundef %1, ptr noundef
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 106, i32 noundef 0, i32 noundef 106, i32 noundef %3, ptr noundef null) #3
   %9 = zext i16 %8 to i32
-  %.not21 = icmp eq i32 %9, %4
+  %.not21 = icmp eq i32 %4, %9
   br i1 %.not21, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #3
   br label %14
 
@@ -6037,7 +6037,7 @@ define internal void @bssmap_ho_failure(ptr noundef %0, ptr noundef %1, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6136,7 +6136,7 @@ define internal void @bssmap_ho_performed(ptr noundef %0, ptr noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6257,7 +6257,7 @@ define internal void @bssmap_ho_cand_enq(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6336,7 +6336,7 @@ define internal void @bssmap_ho_cand_resp(ptr noundef %0, ptr noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6393,7 +6393,7 @@ define internal void @bssmap_ho_reqd_rej(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6440,12 +6440,12 @@ define internal void @bssmap_ho_det(ptr noundef %0, ptr noundef %1, ptr noundef 
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 106, i32 noundef 0, i32 noundef 106, i32 noundef %3, ptr noundef null) #3
   %9 = zext i16 %8 to i32
-  %.not21 = icmp eq i32 %9, %4
+  %.not21 = icmp eq i32 %4, %9
   br i1 %.not21, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #3
   br label %14
 
@@ -6465,7 +6465,7 @@ define internal void @bssmap_vgcs_vbs_ass_res(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6571,7 +6571,7 @@ define internal void @bssmap_vgcs_vbs_ass_fail(ptr noundef %0, ptr noundef %1, p
   br i1 %11, label %32, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 45, i32 noundef 0, i32 noundef 45, i32 noundef %13, ptr noundef null) #3
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -6611,7 +6611,7 @@ define internal void @bssmap_uplink_req(ptr noundef %0, ptr noundef %1, ptr noun
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 106, i32 noundef 0, i32 noundef 106, i32 noundef %3, ptr noundef null) #3
   %9 = zext i16 %8 to i32
-  %10 = add i32 %9, %3
+  %10 = add i32 %3, %9
   %11 = sub nsw i32 %4, %9
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %19
@@ -6670,7 +6670,7 @@ define internal void @bssmap_clear_cmd(ptr noundef %0, ptr noundef %1, ptr nound
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 7, i32 noundef 0, i32 noundef 7, i32 noundef %3, i32 noundef %4, ptr noundef null) #3
   %9 = zext i16 %8 to i32
-  %10 = add i32 %9, %3
+  %10 = add i32 %3, %9
   %11 = sub nsw i32 %4, %9
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %19
@@ -6725,7 +6725,7 @@ define internal void @bssmap_clear_req(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6760,7 +6760,7 @@ define internal void @bssmap_sapi_rej(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6817,7 +6817,7 @@ define internal void @bssmap_confusion(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6875,7 +6875,7 @@ define internal void @bssmap_uplink_req_ack(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %11, label %31, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 107, i32 noundef 0, i32 noundef 107, i32 noundef %13, ptr noundef null) #3
   %15 = zext i16 %14 to i32
   %16 = add i32 %13, %15
@@ -6925,7 +6925,7 @@ define internal void @bssmap_sus(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6960,7 +6960,7 @@ define internal void @bssmap_res(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6995,7 +6995,7 @@ define internal void @bssmap_perf_loc_req(ptr noundef %0, ptr noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7126,7 +7126,7 @@ define internal void @bssmap_lsa_info(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7162,7 +7162,7 @@ define internal void @bssmap_perf_loc_res(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %11, label %44, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 70, i32 noundef 0, i32 noundef 70, i32 noundef %13, i32 noundef %10, ptr noundef null) #3
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -7222,7 +7222,7 @@ define internal void @bssmap_common_id(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7282,7 +7282,7 @@ define internal void @bssmap_reset_ack(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -16, i32 noundef 0, i32 noundef 240, i32 noundef %13, ptr noundef null) #3
   %15 = zext i16 %14 to i32
   %.not33 = icmp eq i32 %10, %15
@@ -7310,7 +7310,7 @@ define internal void @bssmap_overload(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7353,7 +7353,7 @@ define internal void @bssmap_reset_cct(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7410,7 +7410,7 @@ define internal void @bssmap_reset_cct_ack(ptr noundef %0, ptr noundef %1, ptr n
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7445,7 +7445,7 @@ define internal void @bssmap_msc_invoke_trace(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7534,7 +7534,7 @@ define internal void @bssmap_bss_invoke_trace(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7624,7 +7624,7 @@ define internal void @bssmap_vgcs_vbs_assign_status(ptr noundef %0, ptr noundef 
   br i1 %11, label %38, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 114, i32 noundef 0, i32 noundef 114, i32 noundef %13, i32 noundef %10, ptr noundef null) #3
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -7672,7 +7672,7 @@ define internal void @bssmap_vgcs_vbs_area_cell_info(ptr noundef %0, ptr noundef
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 109, i32 noundef 0, i32 noundef 109, i32 noundef %3, i32 noundef %4, ptr noundef null) #3
   %9 = zext i16 %8 to i32
-  %10 = add i32 %9, %3
+  %10 = add i32 %3, %9
   %11 = sub nsw i32 %4, %9
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %19
@@ -7719,7 +7719,7 @@ define internal void @bssmap_reset_ip_res(ptr noundef %0, ptr noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7758,12 +7758,12 @@ define internal void @bssmap_reset_ip_res_ack(ptr noundef %0, ptr noundef %1, pt
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -128, i32 noundef 0, i32 noundef 128, i32 noundef %3, i32 noundef %4, ptr noundef null) #3
   %9 = zext i16 %8 to i32
-  %.not22 = icmp eq i32 %9, %4
+  %.not22 = icmp eq i32 %4, %9
   br i1 %.not22, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #3
   br label %14
 
@@ -7783,7 +7783,7 @@ define internal void @bssmap_block(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7848,7 +7848,7 @@ define internal void @bssmap_block_ack(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7883,7 +7883,7 @@ define internal void @bssmap_unblock(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7918,7 +7918,7 @@ define internal void @bssmap_unblock_ack(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7953,7 +7953,7 @@ define internal void @bssmap_cct_group_block(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8032,7 +8032,7 @@ define internal void @bssmap_cct_group_block_ack(ptr noundef %0, ptr noundef %1,
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8089,7 +8089,7 @@ define internal void @bssmap_cct_group_unblock(ptr noundef %0, ptr noundef %1, p
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8146,7 +8146,7 @@ define internal void @bssmap_cct_group_unblock_ack(ptr noundef %0, ptr noundef %
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8203,7 +8203,7 @@ define internal void @bssmap_unequipped_cct(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8246,7 +8246,7 @@ define internal void @bssmap_uplink_req_conf(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8311,7 +8311,7 @@ define internal void @bssmap_uplink_rel_ind(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8354,7 +8354,7 @@ define internal void @bssmap_uplink_rej_cmd(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8413,7 +8413,7 @@ define internal void @bssmap_uplink_rel_cmd(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8449,7 +8449,7 @@ define internal void @bssmap_uplink_seized_cmd(ptr noundef %0, ptr noundef %1, p
   br i1 %11, label %37, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 106, i32 noundef 0, i32 noundef 106, i32 noundef %13, ptr noundef null) #3
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -8507,7 +8507,7 @@ define internal void @bssmap_change_cct(ptr noundef %0, ptr noundef %1, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8542,7 +8542,7 @@ define internal void @bssmap_change_cct_ack(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8577,7 +8577,7 @@ define internal void @bssmap_res_req(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8678,7 +8678,7 @@ define internal void @bssmap_res_ind(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8779,7 +8779,7 @@ define internal void @bssmap_paging(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8864,7 +8864,7 @@ define internal void @bssmap_ciph_mode_cmd(ptr noundef %0, ptr noundef %1, ptr n
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 7, i32 noundef 0, i32 noundef 7, i32 noundef %3, i32 noundef %4, ptr noundef null) #3
   %9 = zext i16 %8 to i32
-  %10 = add i32 %9, %3
+  %10 = add i32 %3, %9
   %11 = sub nsw i32 %4, %9
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %19
@@ -8927,7 +8927,7 @@ define internal void @bssmap_cm_upd(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8979,7 +8979,7 @@ define internal void @bssmap_ciph_mode_complete(ptr noundef %0, ptr noundef %1, 
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 44, i32 noundef 0, i32 noundef 44, i32 noundef %13, ptr noundef null) #3
   %15 = zext i16 %14 to i32
   %.not34 = icmp eq i32 %10, %15
@@ -9007,7 +9007,7 @@ define internal void @bssmap_cl3_info(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9124,12 +9124,12 @@ define internal void @bssmap_cls_m_req(ptr noundef %0, ptr noundef %1, ptr nound
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 106, i32 noundef 0, i32 noundef 106, i32 noundef %3, ptr noundef null) #3
   %9 = zext i16 %8 to i32
-  %.not21 = icmp eq i32 %9, %4
+  %.not21 = icmp eq i32 %4, %9
   br i1 %.not21, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #3
   br label %14
 
@@ -9149,7 +9149,7 @@ define internal void @bssmap_ciph_mode_rej(ptr noundef %0, ptr noundef %1, ptr n
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9184,7 +9184,7 @@ define internal void @bssmap_load_ind(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9279,7 +9279,7 @@ define internal void @bssmap_vgcs_add_inf(ptr noundef %0, ptr noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9314,7 +9314,7 @@ define internal void @bssmap_vgcs_sms(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9349,7 +9349,7 @@ define internal void @bssmap_notification_data(ptr noundef %0, ptr noundef %1, p
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9428,7 +9428,7 @@ define internal void @bssmap_uplink_app_data(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9507,7 +9507,7 @@ define internal void @bssmap_int_ho_req(ptr noundef %0, ptr noundef %1, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9580,7 +9580,7 @@ define internal void @bssmap_int_ho_req_rej(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9624,7 +9624,7 @@ define internal void @bssmap_int_ho_cmd(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %11, label %44, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 1, i32 noundef %13, ptr noundef null) #3
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -9680,12 +9680,12 @@ define internal void @bssmap_int_ho_enq(ptr noundef %0, ptr noundef %1, ptr noun
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 126, i32 noundef 0, i32 noundef 126, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @.str.1070) #3
   %9 = zext i16 %8 to i32
-  %.not22 = icmp eq i32 %9, %4
+  %.not22 = icmp eq i32 %4, %9
   br i1 %.not22, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #3
   br label %14
 
@@ -9706,7 +9706,7 @@ define internal void @bssmap_lcls_conn_ctrl(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -117, i32 noundef 0, i32 noundef 139, i32 noundef %13, ptr noundef null) #3
   %15 = zext i16 %14 to i32
   %.not33 = icmp eq i32 %10, %15
@@ -9730,12 +9730,12 @@ define internal void @bssmap_lcls_conn_ctrl_ack(ptr noundef %0, ptr noundef %1, 
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -115, i32 noundef 0, i32 noundef 141, i32 noundef %3, ptr noundef null) #3
   %9 = zext i16 %8 to i32
-  %.not21 = icmp eq i32 %9, %4
+  %.not21 = icmp eq i32 %4, %9
   br i1 %.not21, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #3
   br label %14
 
@@ -9756,7 +9756,7 @@ define internal void @bssmap_lcls_notif(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -114, i32 noundef 0, i32 noundef 142, i32 noundef %13, ptr noundef null) #3
   %15 = zext i16 %14 to i32
   %.not33 = icmp eq i32 %10, %15
@@ -9784,7 +9784,7 @@ define internal void @bssmap_reroute_cmd(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9865,7 +9865,7 @@ define internal void @bssmap_reroute_complete(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 

@@ -242,7 +242,7 @@ define void @Unr_ManSetup_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   %26 = getelementptr inbounds i32, ptr %.val42, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = xor i32 %27, -1
-  %29 = add i32 %28, %2
+  %29 = add i32 %2, %28
   %30 = getelementptr i8, ptr %22, i64 8
   %.val50 = load ptr, ptr %30, align 8
   %31 = getelementptr inbounds i32, ptr %.val50, i64 %25
@@ -273,7 +273,7 @@ define void @Unr_ManSetup_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   %47 = getelementptr inbounds i32, ptr %.val, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = xor i32 %48, -1
-  %50 = add i32 %49, %2
+  %50 = add i32 %2, %49
   %51 = getelementptr i8, ptr %43, i64 8
   %.val51 = load ptr, ptr %51, align 8
   %52 = getelementptr inbounds i32, ptr %.val51, i64 %46

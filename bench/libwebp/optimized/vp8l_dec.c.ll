@@ -144,7 +144,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   br i1 %or.cond, label %29, label %24
 
 24:                                               ; preds = %16
-  %25 = mul nsw i32 %13, %1
+  %25 = mul nsw i32 %1, %13
   %26 = tail call i32 @VP8LHuffmanTablesAllocate(i32 noundef %25, ptr noundef %5) #7
   %.not126 = icmp eq i32 %26, 0
   br i1 %.not126, label %29, label %.preheader149
@@ -1644,7 +1644,7 @@ ReadSymbol.exit.i:                                ; preds = %90, %VP8LFillBitWin
   %131 = load i32, ptr %.in.i.i, align 4
   %132 = load i32, ptr %5, align 4
   %..i.i = tail call i32 @llvm.smax.i32(i32 %132, i32 %131)
-  %.not182.i = icmp sgt i32 %..i.i, %.0102203.i
+  %.not182.i = icmp slt i32 %.0102203.i, %..i.i
   br i1 %.not182.i, label %ExtractPalettedAlphaRows.exit.i, label %133
 
 133:                                              ; preds = %124
@@ -1963,7 +1963,7 @@ CopyBlock8b.exit.i:                               ; preds = %.lr.ph35.i.i.i, %.l
   %280 = load i32, ptr %.in.i155.i, align 4
   %281 = load i32, ptr %5, align 4
   %..i156.i = tail call i32 @llvm.smax.i32(i32 %281, i32 %280)
-  %.not181.i = icmp sgt i32 %..i156.i, %.2196.i
+  %.not181.i = icmp slt i32 %.2196.i, %..i156.i
   br i1 %.not181.i, label %ExtractPalettedAlphaRows.exit164.i, label %282
 
 282:                                              ; preds = %273
@@ -2099,7 +2099,7 @@ VP8LIsEndOfStream.exit.i:                         ; preds = %330, %326
   %346 = load i32, ptr %.in.i169.i, align 4
   %347 = load i32, ptr %5, align 4
   %..i170.i = tail call i32 @llvm.smax.i32(i32 %347, i32 %346)
-  %348 = icmp slt i32 %..i170.i, %338
+  %348 = icmp sgt i32 %338, %..i170.i
   br i1 %348, label %349, label %ExtractPalettedAlphaRows.exit178.i
 
 349:                                              ; preds = %._crit_edge206.i
@@ -3213,7 +3213,7 @@ define internal void @ExtractAlphaRows(ptr noundef %0, i32 noundef %1) #1 {
   br i1 %39, label %37, label %ApplyInverseTransforms.exit, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %18
-  %.not.i = icmp eq ptr %31, %.04145
+  %.not.i = icmp eq ptr %.04145, %31
   br i1 %.not.i, label %ApplyInverseTransforms.exit, label %40
 
 40:                                               ; preds = %._crit_edge.i
@@ -3612,7 +3612,7 @@ define internal void @ProcessRows(ptr noundef %0, i32 noundef %1) #1 {
   br i1 %29, label %27, label %ApplyInverseTransforms.exit, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %7
-  %.not.i = icmp eq ptr %18, %14
+  %.not.i = icmp eq ptr %14, %18
   br i1 %.not.i, label %ApplyInverseTransforms.exit, label %30
 
 30:                                               ; preds = %._crit_edge.i
@@ -3625,15 +3625,15 @@ ApplyInverseTransforms.exit:                      ; preds = %27, %._crit_edge.i,
   %33 = load i32, ptr %3, align 4
   %34 = getelementptr inbounds i8, ptr %16, i64 132
   %35 = load i32, ptr %34, align 4
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %35, i32 %1)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %1, i32 %35)
   %36 = getelementptr inbounds i8, ptr %16, i64 128
   %37 = load i32, ptr %36, align 8
-  %.024.i = tail call i32 @llvm.smax.i32(i32 %37, i32 %33)
+  %.024.i = tail call i32 @llvm.smax.i32(i32 %33, i32 %37)
   %.not.i50 = icmp slt i32 %.024.i, %spec.select.i
   br i1 %.not.i50, label %38, label %SetCropWindow.exit.thread
 
 38:                                               ; preds = %ApplyInverseTransforms.exit
-  %39 = icmp sgt i32 %37, %33
+  %39 = icmp slt i32 %33, %37
   %40 = sub nsw i32 %37, %33
   %41 = mul nsw i32 %40, %20
   %narrow = select i1 %39, i32 %41, i32 0

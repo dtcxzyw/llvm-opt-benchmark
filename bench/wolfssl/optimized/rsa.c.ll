@@ -126,7 +126,7 @@ if.then6.i:                                       ; preds = %if.then3.i
   %6 = trunc i64 %5 to i32
   %7 = sub i32 0, %6
   %conv.i.i = and i32 %7, 7
-  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %conv.i.i, i32 %4)
+  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %4, i32 %conv.i.i)
   %sub3.i.i = sub i32 %4, %spec.select.i.i
   %tobool.not12.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %tobool.not12.i.i, label %for.cond.preheader.i.i, label %while.body.i.i
@@ -354,7 +354,7 @@ if.end15.i:                                       ; preds = %if.end8.i21
 if.end21.i:                                       ; preds = %if.end15.i
   %sub.i23 = add i32 %pkcsBlockLen, -2
   %sub23.i = sub i32 %sub.i23, %mul.i
-  %cmp24.i = icmp ult i32 %sub23.i, %inputLen
+  %cmp24.i = icmp ugt i32 %inputLen, %sub23.i
   br i1 %cmp24.i, label %RsaPad_OAEP.exit, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.end21.i
@@ -366,7 +366,7 @@ if.end39.i:                                       ; preds = %if.end29.i
   %sub34.i = sub nsw i32 %sub32.i, %mul.i
   %sub35.i = add nsw i32 %sub34.i, -2
   %2 = xor i32 %inputLen, -1
-  %sub31.i = add i32 %2, %pkcsBlockLen
+  %sub31.i = add i32 %pkcsBlockLen, %2
   %idx.ext.i24 = zext i32 %sub32.i to i64
   %add.ptr.i25 = getelementptr inbounds i8, ptr %pkcsBlock, i64 %idx.ext.i24
   %conv41.i = zext i32 %inputLen to i64
@@ -394,7 +394,7 @@ if.end39.i:                                       ; preds = %if.end29.i
 
 if.end60.i:                                       ; preds = %if.end39.i
   %4 = xor i32 %call.i19, -1
-  %sub62.i = add i32 %4, %pkcsBlockLen
+  %sub62.i = add i32 %pkcsBlockLen, %4
   %cmp64.i = icmp ugt i32 %sub62.i, 520
   br i1 %cmp64.i, label %RsaPad_OAEP.exit, label %if.end67.i
 
@@ -437,7 +437,7 @@ if.end.i29:                                       ; preds = %do.end5
   br i1 %cmp1.i31, label %sw.epilog, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i29
-  %cmp4.not.i = icmp eq i32 %call.i30, %inputLen
+  %cmp4.not.i = icmp eq i32 %inputLen, %call.i30
   br i1 %cmp4.not.i, label %if.end6.i, label %sw.epilog
 
 if.end6.i:                                        ; preds = %if.end3.i
@@ -717,7 +717,7 @@ if.end.i11:                                       ; preds = %do.end
 lor.lhs.false.i:                                  ; preds = %if.end.i11
   %mul.i = shl nuw i32 %call.i, 1
   %add.i = add i32 %mul.i, 2
-  %cmp3.i = icmp ugt i32 %add.i, %pkcsBlockLen
+  %cmp3.i = icmp ult i32 %pkcsBlockLen, %add.i
   br i1 %cmp3.i, label %RsaUnPad_OAEP.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %lor.lhs.false.i
@@ -727,7 +727,7 @@ if.end5.i:                                        ; preds = %lor.lhs.false.i
   %idx.ext.i = zext i32 %add6.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %pkcsBlock, i64 %idx.ext.i
   %24 = xor i32 %call.i, -1
-  %sub7.i = add i32 %24, %pkcsBlockLen
+  %sub7.i = add i32 %pkcsBlockLen, %24
   switch i32 %mgf, label %RsaUnPad_OAEP.exit [
     i32 26, label %RsaMGF.exit.i
     i32 4, label %sw.bb1.i.i
@@ -1274,7 +1274,7 @@ wc_RsaEncryptSize.exit.i:                         ; preds = %do.end, %land.lhs.t
   br i1 %cmp.i, label %wc_RsaFunctionSync.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %wc_RsaEncryptSize.exit.i
-  %cmp1.i = icmp ult i32 %call.i.i, %inLen
+  %cmp1.i = icmp ugt i32 %inLen, %call.i.i
   br i1 %cmp1.i, label %wc_RsaFunctionSync.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
@@ -1334,7 +1334,7 @@ if.then6.i:                                       ; preds = %if.then3.i
   %11 = trunc i64 %10 to i32
   %12 = sub i32 0, %11
   %conv.i.i = and i32 %12, 7
-  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %conv.i.i, i32 %9)
+  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %9, i32 %conv.i.i)
   %sub3.i.i = sub i32 %9, %spec.select.i.i
   %tobool.not12.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %tobool.not12.i.i, label %for.cond.preheader.i.i, label %while.body.i.i
@@ -1432,7 +1432,7 @@ if.end8:                                          ; preds = %wc_RsaEncryptSize.e
 
 if.end13:                                         ; preds = %if.end8
   %sub = add nsw i32 %call.i, -11
-  %cmp14 = icmp ult i32 %sub, %inLen
+  %cmp14 = icmp ugt i32 %inLen, %sub
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end13
@@ -1508,7 +1508,7 @@ if.then6.i:                                       ; preds = %if.then3.i
   %9 = trunc i64 %8 to i32
   %10 = sub i32 0, %9
   %conv.i.i = and i32 %10, 7
-  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %conv.i.i, i32 %7)
+  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %7, i32 %conv.i.i)
   %sub3.i.i = sub i32 %7, %spec.select.i.i
   %tobool.not12.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %tobool.not12.i.i, label %for.cond.preheader.i.i, label %while.body.i.i
@@ -1796,7 +1796,7 @@ if.then6.i:                                       ; preds = %if.then3.i
   %22 = trunc i64 %21 to i32
   %23 = sub i32 0, %22
   %conv.i.i77 = and i32 %23, 7
-  %spec.select.i.i = call i32 @llvm.umin.i32(i32 %conv.i.i77, i32 %20)
+  %spec.select.i.i = call i32 @llvm.umin.i32(i32 %20, i32 %conv.i.i77)
   %sub3.i.i = sub i32 %20, %spec.select.i.i
   %tobool.not12.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %tobool.not12.i.i, label %for.cond.preheader.i.i, label %while.body.i.i
@@ -2023,7 +2023,7 @@ entry:
 
 lor.lhs.false2:                                   ; preds = %entry
   %call = tail call i32 @wc_HashGetDigestSize(i32 noundef %hashType) #11
-  %cmp3.not = icmp eq i32 %call, %inSz
+  %cmp3.not = icmp eq i32 %inSz, %call
   br i1 %cmp3.not, label %if.then5, label %if.end71
 
 if.then5:                                         ; preds = %lor.lhs.false2
@@ -2044,7 +2044,7 @@ if.else:                                          ; preds = %if.then5
 0:                                                ; preds = %if.then7, %if.else
   %saltLen.addr.0 = phi i32 [ %spec.store.select, %if.then7 ], [ %saltLen, %if.else ]
   %add = add i32 %saltLen.addr.0, %inSz
-  %cmp19.not = icmp eq i32 %add, %sigSz
+  %cmp19.not = icmp eq i32 %sigSz, %add
   br i1 %cmp19.not, label %land.lhs.true24, label %if.end71
 
 land.lhs.true24:                                  ; preds = %0
@@ -2389,7 +2389,7 @@ entry:
   %1 = trunc i64 %0 to i32
   %2 = sub i32 0, %1
   %conv = and i32 %2, 7
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %conv, i32 %len)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %len, i32 %conv)
   %sub3 = sub i32 %len, %spec.select
   %tobool.not12 = icmp eq i32 %spec.select, 0
   br i1 %tobool.not12, label %for.cond.preheader, label %while.body
@@ -2664,7 +2664,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   %3 = zext i32 %idx.0 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %3
   %4 = xor i32 %idx.0, -1
-  %5 = add i32 %4, %outSz
+  %5 = add i32 %outSz, %4
   %6 = call i32 @llvm.umin.i32(i32 %5, i32 %0)
   %umin = zext i32 %6 to i64
   %7 = add nuw nsw i64 %umin, 1

@@ -3074,7 +3074,7 @@ consume_const_name.exit:                          ; preds = %19
 27:                                               ; preds = %26
   %28 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef %17)
   %.not56 = xor i1 %28, true
-  %brmerge = or i1 %.not56, %2
+  %brmerge = or i1 %2, %.not56
   %.mux = select i1 %28, ptr %17, ptr null
   br i1 %brmerge, label %65, label %35
 

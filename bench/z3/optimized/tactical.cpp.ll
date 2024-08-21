@@ -10890,7 +10890,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
 _ZNK6vectorIP11sref_bufferI4goalLj16EELb0EjE4sizeEv.exit.i: ; preds = %invoke.cont62
   %arrayidx.i.i127 = getelementptr inbounds i8, ptr %62, i64 -4
   %63 = load i32, ptr %arrayidx.i.i127, align 4
-  %cmp.i = icmp ugt i32 %63, %61
+  %cmp.i = icmp ult i32 %61, %63
   br i1 %cmp.i, label %for.body.preheader.i, label %_ZNK6vectorIP11sref_bufferI4goalLj16EELb0EjE4sizeEv.exit18.i
 
 for.body.preheader.i:                             ; preds = %_ZNK6vectorIP11sref_bufferI4goalLj16EELb0EjE4sizeEv.exit.i
@@ -12649,7 +12649,7 @@ entry:
 _ZNK6vectorIP7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES2_ELb0EjE4sizeEv.exit: ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp = icmp ugt i32 %1, %sz
+  %cmp = icmp ult i32 %sz, %1
   br i1 %cmp, label %for.body.preheader, label %_ZNK6vectorIP7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES2_ELb0EjE4sizeEv.exit20
 
 for.body.preheader:                               ; preds = %_ZNK6vectorIP7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES2_ELb0EjE4sizeEv.exit

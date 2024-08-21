@@ -394,7 +394,7 @@ define internal fastcc void @free_frame_data_array(ptr noundef %0, i32 noundef %
   %9 = and i32 %8, 1023
   %notmask = shl nsw i32 -1, %7
   %10 = xor i32 %notmask, -1
-  %11 = and i32 %10, %1
+  %11 = and i32 %1, %10
   %.not31 = icmp ne i32 %11, 0
   %12 = zext i1 %.not31 to i32
   %spec.select = add nuw nsw i32 %9, %12

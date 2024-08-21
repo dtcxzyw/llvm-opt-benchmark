@@ -11830,7 +11830,7 @@ define internal fastcc range(i32 0, 2054) i32 @_valid_job_access_resv(ptr nounde
   %141 = load i32, ptr %140, align 8
   %.fr141 = freeze i32 %141
   %142 = trunc i32 %.fr141 to i1
-  %brmerge136.demorgan = and i1 %142, %2
+  %brmerge136.demorgan = and i1 %2, %142
   %brmerge136 = xor i1 %brmerge136.demorgan, true
   br i1 %142, label %148, label %147
 
@@ -12489,7 +12489,7 @@ _get_job_duration.exit:                           ; preds = %26, %29
   %37 = select i1 %or.cond20.i, i32 1, i32 %.0.i
   %.1.i = mul i32 %37, %.013.i
   %38 = zext i32 %.1.i to i64
-  %39 = add nsw i64 %38, %1
+  %39 = add nsw i64 %1, %38
   %40 = load ptr, ptr @resv_list, align 8
   %41 = tail call ptr @list_iterator_create(ptr noundef %40) #21
   %42 = tail call ptr @list_next(ptr noundef %41) #21
@@ -12860,7 +12860,7 @@ _get_job_duration.exit:                           ; preds = %17, %20
   %28 = select i1 %or.cond20.i, i32 1, i32 %.0.i
   %.1.i = mul i32 %28, %.013.i
   %29 = zext i32 %.1.i to i64
-  %30 = add nsw i64 %29, %2
+  %30 = add nsw i64 %2, %29
   %31 = load ptr, ptr @resv_list, align 8
   %32 = tail call ptr @list_iterator_create(ptr noundef %31) #21
   %33 = tail call ptr @list_next(ptr noundef %32) #21
@@ -13041,7 +13041,7 @@ _get_job_duration.exit:                           ; preds = %26, %29
   %37 = select i1 %or.cond20.i, i32 1, i32 %.0.i
   %.1.i = mul i32 %37, %.013.i
   %38 = zext i32 %.1.i to i64
-  %39 = add nsw i64 %38, %1
+  %39 = add nsw i64 %1, %38
   %40 = load ptr, ptr @resv_list, align 8
   %41 = tail call ptr @list_iterator_create(ptr noundef %40) #21
   %42 = tail call ptr @list_next(ptr noundef %41) #21
@@ -14285,7 +14285,7 @@ _addto_gres_list_exc.exit:                        ; preds = %408, %406, %.thread
   br label %423
 
 423:                                              ; preds = %419, %421, %.loopexit
-  %brmerge.not = and i1 %.not219307, %2
+  %brmerge.not = and i1 %2, %.not219307
   br i1 %brmerge.not, label %424, label %431
 
 424:                                              ; preds = %423
@@ -14422,7 +14422,7 @@ define dso_local i64 @find_resv_end(i64 noundef %0, i32 noundef %1) local_unname
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 104
   %10 = load i64, ptr %9, align 8
-  %11 = icmp slt i64 %10, %0
+  %11 = icmp sgt i64 %0, %10
   br i1 %11, label %6, label %12, !llvm.loop !93
 
 12:                                               ; preds = %8
@@ -15442,7 +15442,7 @@ define internal fastcc void @_set_nodes_flags(ptr noundef readonly %0, i64 nound
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 8
   %.not41 = icmp ne i32 %32, 0
-  %brmerge = or i1 %.not41, %3
+  %brmerge = or i1 %3, %.not41
   br i1 %brmerge, label %59, label %33
 
 33:                                               ; preds = %29
@@ -15465,7 +15465,7 @@ define internal fastcc void @_set_nodes_flags(ptr noundef readonly %0, i64 nound
 
 .lr.ph:                                           ; preds = %37, %57
   %44 = phi ptr [ %58, %57 ], [ %43, %37 ]
-  %.not44 = icmp eq ptr %44, %0
+  %.not44 = icmp eq ptr %0, %44
   br i1 %.not44, label %57, label %45
 
 45:                                               ; preds = %.lr.ph
@@ -15555,7 +15555,7 @@ define internal fastcc void @_set_nodes_flags(ptr noundef readonly %0, i64 nound
   %83 = xor i32 %82, %68
   %84 = and i32 %83, 32768
   %85 = icmp ne i32 %84, 0
-  %86 = or i1 %85, %3
+  %86 = or i1 %3, %85
   br i1 %86, label %87, label %95
 
 87:                                               ; preds = %81
@@ -15619,7 +15619,7 @@ define dso_local noundef zeroext i1 @is_node_in_maint_reservation(i32 noundef %0
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @node_record_count, align 4
-  %5 = icmp sgt i32 %4, %0
+  %5 = icmp slt i32 %0, %4
   %6 = load ptr, ptr @resv_list, align 8
   %7 = icmp ne ptr %6, null
   %or.cond = select i1 %5, i1 %7, i1 false
@@ -16564,7 +16564,7 @@ _get_advance_secs.exit:                           ; preds = %26
 29:                                               ; preds = %22, %24, %26
   %.08.i.ph = phi i64 [ 3600, %26 ], [ 86400, %24 ], [ 604800, %22 ]
   %30 = xor i64 %11, -1
-  %31 = add i64 %30, %1
+  %31 = add i64 %1, %30
   %32 = sdiv i64 %31, %.08.i.ph
   %sext = shl i64 %32, 32
   %33 = ashr exact i64 %sext, 32

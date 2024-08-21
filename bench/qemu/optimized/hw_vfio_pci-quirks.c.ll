@@ -2602,7 +2602,7 @@ entry:
   %address_offset = getelementptr inbounds i8, ptr %opaque, i64 12
   %2 = load i32, ptr %address_offset, align 4
   %conv = zext i32 %2 to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %call = tail call i64 @vfio_region_read(ptr noundef %arrayidx, i64 noundef %add, i32 noundef %size) #10
   ret i64 %call
 }
@@ -2622,7 +2622,7 @@ entry:
   %address_offset = getelementptr inbounds i8, ptr %opaque, i64 12
   %2 = load i32, ptr %address_offset, align 4
   %conv = zext i32 %2 to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   tail call void @vfio_region_write(ptr noundef %arrayidx, i64 noundef %add, i64 noundef %data, i32 noundef %size) #10
   %nr_matches = getelementptr inbounds i8, ptr %opaque, i64 40
   %3 = load i32, ptr %nr_matches, align 8
@@ -2646,7 +2646,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load i32, ptr %mask, align 4
   %not = xor i32 %4, -1
   %conv5 = zext i32 %not to i64
-  %and = and i64 %conv5, %data
+  %and = and i64 %data, %conv5
   %5 = load i32, ptr %arrayidx4, align 4
   %conv9 = zext i32 %5 to i64
   %cmp10 = icmp eq i64 %and, %conv9
@@ -2722,7 +2722,7 @@ entry:
   %data_offset = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load i32, ptr %data_offset, align 8
   %conv = zext i32 %2 to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %call = tail call i64 @vfio_region_read(ptr noundef %arrayidx, i64 noundef %add, i32 noundef %size) #10
   %window_enabled = getelementptr inbounds i8, ptr %opaque, i64 20
   %3 = load i8, ptr %window_enabled, align 4
@@ -2845,7 +2845,7 @@ if.end:                                           ; preds = %entry
   %data_offset = getelementptr inbounds i8, ptr %opaque, i64 16
   %12 = load i32, ptr %data_offset, align 8
   %conv2 = zext i32 %12 to i64
-  %add = add i64 %conv2, %addr
+  %add = add i64 %addr, %conv2
   tail call void @vfio_region_write(ptr noundef %arrayidx, i64 noundef %add, i64 noundef %data, i32 noundef %size) #10
   br label %return
 
@@ -2866,7 +2866,7 @@ entry:
   %offset = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load i32, ptr %offset, align 8
   %conv = zext i32 %2 to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %call = tail call i64 @vfio_region_read(ptr noundef %arrayidx, i64 noundef %add, i32 noundef %size) #10
   %conv2 = trunc i64 %addr to i32
   %call3 = tail call i32 @vfio_pci_read_config(ptr noundef %0, i32 noundef %conv2, i32 noundef %size) #10
@@ -3139,8 +3139,8 @@ land.lhs.true:                                    ; preds = %entry
   %msi_cap = getelementptr inbounds i8, ptr %0, i64 2160
   %2 = load i8, ptr %msi_cap, align 16
   %conv4 = zext i8 %2 to i64
-  %cmp.not.i = icmp ule i64 %conv4, %addr
-  %add.i = add i64 %conv, %addr
+  %cmp.not.i = icmp uge i64 %addr, %conv4
+  %add.i = add i64 %addr, %conv
   %add1.i = add nuw nsw i64 %conv4, 2
   %cmp2.i = icmp ule i64 %add.i, %add1.i
   %3 = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
@@ -3155,7 +3155,7 @@ if.then:                                          ; preds = %land.lhs.true
   %offset = getelementptr inbounds i8, ptr %opaque, i64 8
   %5 = load i32, ptr %offset, align 8
   %conv6 = zext i32 %5 to i64
-  %add = add i64 %conv6, %addr
+  %add = add i64 %addr, %conv6
   tail call void @vfio_region_write(ptr noundef %arrayidx, i64 noundef %add, i64 noundef %data, i32 noundef %size) #10
   %name = getelementptr inbounds i8, ptr %0, i64 2680
   %6 = load ptr, ptr %name, align 8
@@ -3212,19 +3212,19 @@ land.lhs.true10:                                  ; preds = %if.end
 if.then13:                                        ; preds = %land.lhs.true10
   %addr14 = getelementptr inbounds i8, ptr %opaque, i64 32
   %15 = load i64, ptr %addr14, align 8
-  %cmp15.not = icmp eq i64 %15, %addr
+  %cmp15.not = icmp eq i64 %addr, %15
   br i1 %cmp15.not, label %lor.lhs.false, label %if.then24
 
 lor.lhs.false:                                    ; preds = %if.then13
   %data17 = getelementptr inbounds i8, ptr %opaque, i64 40
   %16 = load i64, ptr %data17, align 8
-  %cmp18.not = icmp eq i64 %16, %data
+  %cmp18.not = icmp eq i64 %data, %16
   br i1 %cmp18.not, label %lor.lhs.false20, label %if.then24
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false
   %size21 = getelementptr inbounds i8, ptr %opaque, i64 48
   %17 = load i32, ptr %size21, align 8
-  %cmp22.not = icmp eq i32 %17, %size
+  %cmp22.not = icmp eq i32 %size, %17
   br i1 %cmp22.not, label %if.else, label %if.then24
 
 if.then24:                                        ; preds = %lor.lhs.false20, %lor.lhs.false, %if.then13
@@ -3260,7 +3260,7 @@ if.then35:                                        ; preds = %if.then31
   %offset41 = getelementptr inbounds i8, ptr %opaque, i64 8
   %21 = load i32, ptr %offset41, align 8
   %conv42 = zext i32 %21 to i64
-  %add43 = add i64 %conv42, %addr
+  %add43 = add i64 %addr, %conv42
   %call44 = tail call fastcc ptr @vfio_ioeventfd_init(ptr noundef nonnull %0, ptr noundef %19, i64 noundef %addr, i32 noundef %size, i64 noundef %data, ptr noundef %arrayidx39, i64 noundef %add43)
   %tobool45.not = icmp eq ptr %call44, null
   br i1 %tobool45.not, label %if.end74, label %if.then46

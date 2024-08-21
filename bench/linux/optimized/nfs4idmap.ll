@@ -1497,7 +1497,7 @@ define internal fastcc i64 @nfs_idmap_get_key(ptr nocapture noundef readonly %0,
   %60 = load i16, ptr %59, align 8
   %61 = zext i16 %60 to i64
   %62 = icmp eq i16 %60, 0
-  %63 = icmp ugt i64 %61, %4
+  %63 = icmp ult i64 %4, %61
   %64 = or i1 %62, %63
   br i1 %64, label %67, label %65
 

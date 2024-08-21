@@ -1188,7 +1188,7 @@ _ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !364, !noalias !371, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !373, !noalias !371, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha25a2622c1dece25E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i
@@ -1239,7 +1239,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !379, !noalias !386, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !388, !noalias !386, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha25a2622c1dece25E.exit"
 
 9:                                                ; preds = %3
@@ -1534,7 +1534,7 @@ _ZN4core4hash3sip9u8to64_le17h027e544bfbfec8d2E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !4
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -1615,8 +1615,8 @@ _ZN4core4hash3sip9u8to64_le17h027e544bfbfec8d2E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.sroa.0.0.i12
-  %86 = getelementptr i8, ptr %85, i64 %.sroa.04.0.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.sroa.04.0.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.sroa.0.0.i12
   %.sroa.015.0.copyload.i16 = load i16, ptr %86, align 1, !alias.scope !430
   %87 = zext i16 %.sroa.015.0.copyload.i16 to i64
   %88 = shl nuw nsw i64 %.sroa.0.0.i12, 3

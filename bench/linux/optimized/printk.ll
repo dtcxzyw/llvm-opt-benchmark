@@ -916,7 +916,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @devkmsg_read(ptr nocaptu
   %49 = getelementptr inbounds i8, ptr %5, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
-  %52 = icmp ugt i64 %51, %2
+  %52 = icmp ult i64 %2, %51
   br i1 %52, label %60, label %53
 
 53:                                               ; preds = %47

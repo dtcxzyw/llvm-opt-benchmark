@@ -383,7 +383,7 @@ Cba_ObjNtkId.exit.i:                              ; preds = %21
 Cba_ManNtkIsOk.exit.i.i.i:                        ; preds = %Cba_ObjNtkId.exit.i
   %26 = getelementptr i8, ptr %.val.i, i64 1564
   %.val.i.i.i.i = load i32, ptr %26, align 4
-  %.not.i.i.i = icmp sgt i32 %.val.i.i.i.i, %24
+  %.not.i.i.i = icmp slt i32 %24, %.val.i.i.i.i
   br i1 %.not.i.i.i, label %27, label %Cba_ObjNtk.exit
 
 27:                                               ; preds = %Cba_ManNtkIsOk.exit.i.i.i
@@ -432,13 +432,13 @@ Cba_ObjNtk.exit:                                  ; preds = %21, %Cba_ObjNtkId.e
   %53 = load i32, ptr %52, align 4
   %54 = add nsw i32 %53, 1
   %55 = load i32, ptr %46, align 4
-  %.not.i.not.i = icmp sgt i32 %55, %53
+  %.not.i.not.i = icmp slt i32 %53, %55
   br i1 %.not.i.not.i, label %Vec_IntGetEntry.exit, label %56
 
 56:                                               ; preds = %49
   %57 = load i32, ptr %45, align 8
   %58 = shl nsw i32 %57, 1
-  %.not.i147 = icmp sgt i32 %58, %53
+  %.not.i147 = icmp slt i32 %53, %58
   %.not.i.i.not.i = icmp sgt i32 %57, %53
   br i1 %.not.i147, label %68, label %59
 
@@ -520,13 +520,13 @@ Vec_IntGetEntry.exit:                             ; preds = %49, %._crit_edge.i.
   %86 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %84) #6
   %87 = add nsw i32 %51, 1
   %88 = load i32, ptr %9, align 4
-  %.not.i.not.i149 = icmp sgt i32 %88, %51
+  %.not.i.not.i149 = icmp slt i32 %51, %88
   br i1 %.not.i.not.i149, label %Vec_IntGetEntry.exit166, label %89
 
 89:                                               ; preds = %Vec_IntGetEntry.exit
   %90 = load i32, ptr %8, align 8
   %91 = shl nsw i32 %90, 1
-  %.not.i150 = icmp sgt i32 %91, %51
+  %.not.i150 = icmp slt i32 %51, %91
   %.not.i.i.not.i151 = icmp sgt i32 %90, %51
   br i1 %.not.i150, label %101, label %92
 
@@ -641,13 +641,13 @@ Vec_IntGetEntry.exit166:                          ; preds = %Vec_IntGetEntry.exi
   %137 = load i32, ptr %136, align 4
   %138 = add nsw i32 %137, 1
   %139 = load i32, ptr %132, align 4
-  %.not.i.not.i167 = icmp sgt i32 %139, %137
+  %.not.i.not.i167 = icmp slt i32 %137, %139
   br i1 %.not.i.not.i167, label %Vec_IntGetEntry.exit184, label %140
 
 140:                                              ; preds = %135
   %141 = load i32, ptr %131, align 8
   %142 = shl nsw i32 %141, 1
-  %.not.i168 = icmp sgt i32 %142, %137
+  %.not.i168 = icmp slt i32 %137, %142
   %.not.i.i.not.i169 = icmp sgt i32 %141, %137
   br i1 %.not.i168, label %152, label %143
 
@@ -864,13 +864,13 @@ Cba_ObjNtkId.exit:                                ; preds = %20
   %227 = tail call ptr @Mio_GateReadPinName(ptr noundef %216, i32 noundef %.2261) #6
   %228 = add nsw i32 %226, 1
   %229 = load i32, ptr %9, align 4
-  %.not.i.not.i203 = icmp sgt i32 %229, %226
+  %.not.i.not.i203 = icmp slt i32 %226, %229
   br i1 %.not.i.not.i203, label %Vec_IntGetEntry.exit220, label %230
 
 230:                                              ; preds = %.lr.ph
   %231 = load i32, ptr %8, align 8
   %232 = shl nsw i32 %231, 1
-  %.not.i204 = icmp sgt i32 %232, %226
+  %.not.i204 = icmp slt i32 %226, %232
   %.not.i.i.not.i205 = icmp sgt i32 %231, %226
   br i1 %.not.i204, label %242, label %233
 
@@ -1103,13 +1103,13 @@ Vec_IntGetEntry.exit238:                          ; preds = %.lr.ph264, %._crit_
   %323 = load i32, ptr %322, align 4
   %324 = add nsw i32 %323, 1
   %325 = load i32, ptr %9, align 4
-  %.not.i.not.i239 = icmp sgt i32 %325, %323
+  %.not.i.not.i239 = icmp slt i32 %323, %325
   br i1 %.not.i.not.i239, label %Vec_IntGetEntry.exit256, label %326
 
 326:                                              ; preds = %.lr.ph278
   %327 = load i32, ptr %8, align 8
   %328 = shl nsw i32 %327, 1
-  %.not.i240 = icmp sgt i32 %328, %323
+  %.not.i240 = icmp slt i32 %323, %328
   %.not.i.i.not.i241 = icmp sgt i32 %327, %323
   br i1 %.not.i240, label %338, label %329
 
@@ -1410,13 +1410,13 @@ define internal fastcc i32 @Vec_IntGetEntry(ptr nocapture noundef %0, i32 nounde
   %3 = add nsw i32 %1, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not.i.not = icmp sgt i32 %5, %1
+  %.not.i.not = icmp slt i32 %1, %5
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %0, align 8
   %8 = shl nsw i32 %7, 1
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   %.not.i.i.not = icmp sgt i32 %7, %1
   br i1 %.not, label %21, label %9
 

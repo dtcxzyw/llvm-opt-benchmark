@@ -5092,7 +5092,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ugt i32 %conv.i, %index
+  %cmp = icmp ult i32 %index, %conv.i
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry

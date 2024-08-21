@@ -2220,7 +2220,7 @@ entry:
   %code.val = load i64, ptr %0, align 8
   %interp.val102 = load i64, ptr %interp, align 8
   %conv.i.i = and i64 %interp.val102, 4294967040
-  %cmp.i = icmp eq i64 %conv.i.i, %code.val
+  %cmp.i = icmp eq i64 %code.val, %conv.i.i
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -4661,7 +4661,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   %arrayidx14 = getelementptr [10 x i8], ptr %active_monitors, i64 0, i64 %idxprom13
   %16 = load i8, ptr %arrayidx14, align 1
   %conv15 = zext i8 %16 to i32
-  %and16 = and i32 %conv15, %tools
+  %and16 = and i32 %tools, %conv15
   %cmp18 = icmp eq i32 %and16, %conv15
   br i1 %cmp18, label %if.then20, label %if.end22
 
@@ -5042,7 +5042,7 @@ set_local_events.exit:                            ; preds = %for.body.i23
   %code.val = load i64, ptr %26, align 8
   %call.val = load i64, ptr %2, align 8
   %conv.i.i = and i64 %call.val, 4294967040
-  %cmp.i28 = icmp eq i64 %conv.i.i, %code.val
+  %cmp.i28 = icmp eq i64 %code.val, %conv.i.i
   br i1 %cmp.i28, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %set_local_events.exit

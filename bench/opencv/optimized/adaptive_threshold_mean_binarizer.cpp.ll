@@ -892,7 +892,7 @@ define hidden noundef i32 @_ZN5zxing30AdaptiveThresholdMeanBinarizer16TransBuffe
   %15 = mul i64 %14, %indvars.iv
   %16 = getelementptr inbounds i8, ptr %12, i64 %15
   %17 = xor i64 %indvars.iv, -1
-  %18 = add nsw i64 %17, %10
+  %18 = add nsw i64 %10, %17
   %19 = mul nsw i64 %18, %9
   %20 = getelementptr inbounds i8, ptr %1, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %20, i64 %9, i1 false)

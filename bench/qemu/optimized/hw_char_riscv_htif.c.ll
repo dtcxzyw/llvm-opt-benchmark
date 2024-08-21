@@ -213,7 +213,7 @@ define internal range(i64 0, 4294967296) i64 @htif_mm_read(ptr nocapture noundef
 entry:
   %tohost_offset = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load i64, ptr %tohost_offset, align 8
-  %cmp = icmp eq i64 %0, %addr
+  %cmp = icmp eq i64 %addr, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -224,7 +224,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %add = add i64 %0, 4
-  %cmp2 = icmp eq i64 %add, %addr
+  %cmp2 = icmp eq i64 %addr, %add
   br i1 %cmp2, label %if.then3, label %if.else6
 
 if.then3:                                         ; preds = %if.else
@@ -236,7 +236,7 @@ if.then3:                                         ; preds = %if.else
 if.else6:                                         ; preds = %if.else
   %fromhost_offset = getelementptr inbounds i8, ptr %opaque, i64 32
   %3 = load i64, ptr %fromhost_offset, align 16
-  %cmp7 = icmp eq i64 %3, %addr
+  %cmp7 = icmp eq i64 %addr, %3
   br i1 %cmp7, label %if.then8, label %if.else10
 
 if.then8:                                         ; preds = %if.else6
@@ -247,7 +247,7 @@ if.then8:                                         ; preds = %if.else6
 
 if.else10:                                        ; preds = %if.else6
   %add12 = add i64 %3, 4
-  %cmp13 = icmp eq i64 %add12, %addr
+  %cmp13 = icmp eq i64 %addr, %add12
   br i1 %cmp13, label %if.then14, label %if.else18
 
 if.then14:                                        ; preds = %if.else10
@@ -273,7 +273,7 @@ entry:
   %ch139.i = alloca i8, align 1
   %tohost_offset = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load i64, ptr %tohost_offset, align 8
-  %cmp = icmp eq i64 %0, %addr
+  %cmp = icmp eq i64 %addr, %0
   br i1 %cmp, label %if.then, label %if.else5
 
 if.then:                                          ; preds = %entry
@@ -294,7 +294,7 @@ if.else:                                          ; preds = %if.then
 
 if.else5:                                         ; preds = %entry
   %add = add i64 %0, 4
-  %cmp7 = icmp eq i64 %add, %addr
+  %cmp7 = icmp eq i64 %addr, %add
   br i1 %cmp7, label %if.then8, label %if.else14
 
 if.then8:                                         ; preds = %if.else5
@@ -526,7 +526,7 @@ htif_handle_tohost_write.exit:                    ; preds = %if.end80.i, %if.the
 if.else14:                                        ; preds = %if.else5
   %fromhost_offset = getelementptr inbounds i8, ptr %opaque, i64 32
   %26 = load i64, ptr %fromhost_offset, align 16
-  %cmp15 = icmp eq i64 %26, %addr
+  %cmp15 = icmp eq i64 %addr, %26
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else14
@@ -539,7 +539,7 @@ if.then16:                                        ; preds = %if.else14
 
 if.else18:                                        ; preds = %if.else14
   %add20 = add i64 %26, 4
-  %cmp21 = icmp eq i64 %add20, %addr
+  %cmp21 = icmp eq i64 %addr, %add20
   br i1 %cmp21, label %if.then22, label %if.else27
 
 if.then22:                                        ; preds = %if.else18

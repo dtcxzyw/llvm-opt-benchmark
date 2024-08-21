@@ -1274,7 +1274,7 @@ if.else:                                          ; preds = %_ZN8proxygen17HPACK
 invoke.cont9:                                     ; preds = %if.else
   %cmp11 = icmp ugt i32 %requiredInsertCount, %baseIndex
   %12 = xor i32 %baseIndex, -1
-  %sub14 = add i32 %12, %requiredInsertCount
+  %sub14 = add i32 %requiredInsertCount, %12
   %sub20 = sub nuw i32 %baseIndex, %requiredInsertCount
   %sub14.sink = select i1 %cmp11, i32 %sub14, i32 %sub20
   %13 = select i1 %cmp11, i8 -128, i8 0
@@ -1376,11 +1376,11 @@ if.end.i.i.i.i:                                   ; preds = %if.end52
   %34 = load ptr, ptr %33, align 8
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load i64, ptr %add.ptr8.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i = icmp eq i64 %35, %streamId
+  %cmp.i.i.i9.i.i.i.i = icmp eq i64 %streamId, %35
   br i1 %cmp.i.i.i9.i.i.i.i, label %invoke.cont54, label %if.end3.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %37, %streamId
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %streamId, %37
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont54, label %if.end3.i.i.i.i, !llvm.loop !33
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
@@ -2138,7 +2138,7 @@ entry:
   %ref.tmp6 = alloca %"class.google::LogMessageFatal", align 8
   %insertCount_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %insertCount_, align 8
-  %cmp.not.i = icmp ult i32 %0, %absIndex
+  %cmp.not.i = icmp ugt i32 %absIndex, %0
   br i1 %cmp.not.i, label %if.else.i, label %while.end
 
 if.else.i:                                        ; preds = %entry
@@ -2334,14 +2334,14 @@ lpad:                                             ; preds = %while.body
 
 while.end:                                        ; preds = %_ZN6google12Check_NEImplIjiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, %_ZN6google12Check_NEImplIjiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   %3 = load i32, ptr %requiredInsertCount, align 4
-  %cmp = icmp ult i32 %3, %absoluteIndex
+  %cmp = icmp ugt i32 %absoluteIndex, %3
   br i1 %cmp, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %while.end
   store i32 %absoluteIndex, ptr %requiredInsertCount, align 4
   %ackedInsertCount_.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i32, ptr %ackedInsertCount_.i, align 8
-  %cmp.i4 = icmp ult i32 %4, %absoluteIndex
+  %cmp.i4 = icmp ugt i32 %absoluteIndex, %4
   br i1 %cmp.i4, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.then
@@ -2360,7 +2360,7 @@ while.body.i.i.i:                                 ; preds = %if.end10, %while.bo
   %__x.021.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.019.i.i.i, %if.end10 ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 32
   %5 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
-  %cmp.i.i.i.i = icmp ugt i32 %5, %absoluteIndex
+  %cmp.i.i.i.i = icmp ult i32 %absoluteIndex, %5
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
   %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
@@ -2391,13 +2391,13 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %add.ptr.i.i.i.i
   br i1 %cmp2.i.i.i, label %if.then13, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   %_M_storage.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i.i6.i.i, align 4
-  %cmp.i.i7.i.i = icmp ugt i32 %8, %absoluteIndex
+  %cmp.i.i7.i.i = icmp ult i32 %absoluteIndex, %8
   br label %if.then13
 
 if.then13:                                        ; preds = %if.then.i.i, %lor.rhs.i.i.i
@@ -2935,7 +2935,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i64, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i.i = icmp eq i64 %1, %streamId
+  %cmp.i.i.i.i = icmp eq i64 %streamId, %1
   br i1 %cmp.i.i.i.i, label %while.end, label %for.cond.i.i, !llvm.loop !37
 
 if.end15.i.i:                                     ; preds = %entry
@@ -2952,11 +2952,11 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %5 = load ptr, ptr %4, align 8
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %add.ptr8.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i = icmp eq i64 %6, %streamId
+  %cmp.i.i.i9.i.i.i.i = icmp eq i64 %streamId, %6
   br i1 %cmp.i.i.i9.i.i.i.i, label %while.end, label %if.end3.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %8, %streamId
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %streamId, %8
   br i1 %cmp.i.i.i.i.i.i.i, label %while.end, label %if.end3.i.i.i.i, !llvm.loop !33
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
@@ -3448,7 +3448,7 @@ entry:
   %ref.tmp27 = alloca %"class.google::LogMessageFatal", align 8
   %insertCount_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %insertCount_, align 8
-  %cmp = icmp ult i32 %0, %numInserts
+  %cmp = icmp ugt i32 %numInserts, %0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -3574,13 +3574,13 @@ entry:
   %ref.tmp6 = alloca %"class.google::LogMessageFatal", align 8
   %ackedInsertCount_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %ackedInsertCount_, align 8
-  %cmp = icmp ugt i32 %0, %ackInsertCount
+  %cmp = icmp ult i32 %ackInsertCount, %0
   br i1 %cmp, label %return, label %while.cond
 
 while.cond:                                       ; preds = %entry
   %insertCount_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %insertCount_, align 8
-  %cmp.not.i = icmp ult i32 %1, %ackInsertCount
+  %cmp.not.i = icmp ugt i32 %ackInsertCount, %1
   br i1 %cmp.not.i, label %if.else.i, label %while.end
 
 if.else.i:                                        ; preds = %while.cond
@@ -3735,7 +3735,7 @@ _ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16Outstand
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
+  %cmp.i.i.i = icmp eq ptr %9, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
@@ -4659,7 +4659,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -4699,7 +4699,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %__bkt
   %1 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp eq ptr %1, %__prev_n
+  %cmp = icmp eq ptr %__prev_n, %1
   %2 = load ptr, ptr %__n, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %if.else

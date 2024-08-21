@@ -424,7 +424,7 @@ if.end.i:                                         ; preds = %if.end24.i, %if.end
 if.then8.i:                                       ; preds = %if.end.i
   store i64 %sub.i, ptr %last5.i, align 8
   tail call void @interval_tree_insert(ptr noundef nonnull %call.i36.i, ptr noundef nonnull @pageflags_root) #16
-  %cmp12.i = icmp ugt i64 %6, %or
+  %cmp12.i = icmp ult i64 %or, %6
   br i1 %cmp12.i, label %if.then13.i, label %if.end24.i
 
 if.then13.i:                                      ; preds = %if.then8.i
@@ -663,7 +663,7 @@ if.then15:                                        ; preds = %lor.lhs.false, %lan
 if.end16:                                         ; preds = %if.then15, %lor.lhs.false, %if.end3
   %inval_tb.2 = phi i1 [ true, %if.then15 ], [ %inval_tb.0208, %lor.lhs.false ], [ %inval_tb.0208, %if.end3 ]
   %cmp = icmp eq i64 %start.addr.0.ph220, %3
-  %cmp18 = icmp eq i64 %4, %last
+  %cmp18 = icmp eq i64 %last, %4
   %or.cond102 = select i1 %cmp, i1 %cmp18, i1 false
   br i1 %or.cond102, label %if.then19, label %if.end25
 
@@ -682,7 +682,7 @@ if.else:                                          ; preds = %if.then19
   br label %done
 
 if.end25:                                         ; preds = %if.end16
-  %cmp26.not = icmp eq i32 %or, %set_flags
+  %cmp26.not = icmp eq i32 %set_flags, %or
   br i1 %cmp26.not, label %if.end81, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
@@ -694,7 +694,7 @@ if.then29:                                        ; preds = %if.then27
   tail call void @interval_tree_remove(ptr noundef nonnull %call.i209, ptr noundef nonnull @pageflags_root) #16
   store i64 %sub99, ptr %last6, align 8
   tail call void @interval_tree_insert(ptr noundef nonnull %call.i209, ptr noundef nonnull @pageflags_root) #16
-  %cmp34 = icmp ugt i64 %4, %last
+  %cmp34 = icmp ult i64 %last, %4
   %tobool36.not = icmp eq i32 %or, 0
   br i1 %cmp34, label %if.then35, label %if.else39
 
@@ -773,7 +773,7 @@ if.then52:                                        ; preds = %if.else48
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then52, %if.else48
-  %cmp55 = icmp ugt i64 %4, %last
+  %cmp55 = icmp ult i64 %last, %4
   br i1 %cmp55, label %if.then56, label %if.else65
 
 if.then56:                                        ; preds = %if.end54
@@ -815,7 +815,7 @@ if.end74:                                         ; preds = %if.else69, %if.then
   br i1 %cmp75, label %restart.outer.backedge, label %done
 
 if.end81:                                         ; preds = %if.end25
-  %cmp82 = icmp eq i32 %5, %set_flags
+  %cmp82 = icmp eq i32 %set_flags, %5
   br i1 %cmp82, label %if.then83, label %if.end95
 
 if.then83:                                        ; preds = %if.end81
@@ -845,7 +845,7 @@ if.then98:                                        ; preds = %if.end95
   br i1 %cmp103, label %restart.backedge, label %if.end105
 
 if.end105:                                        ; preds = %if.then98
-  %cmp106 = icmp ugt i64 %4, %last
+  %cmp106 = icmp ult i64 %last, %4
   br i1 %cmp106, label %if.then107, label %if.end122
 
 if.then107:                                       ; preds = %if.end105
@@ -854,7 +854,7 @@ if.then107:                                       ; preds = %if.end105
   br label %if.end122
 
 if.else110:                                       ; preds = %if.end95
-  %cmp111 = icmp ugt i64 %4, %last
+  %cmp111 = icmp ult i64 %last, %4
   br i1 %cmp111, label %if.then112, label %if.else117
 
 if.then112:                                       ; preds = %if.else110
@@ -951,7 +951,7 @@ if.end18:                                         ; preds = %if.end13
   %flags19 = getelementptr inbounds i8, ptr %p.0, i64 64
   %1 = load i32, ptr %flags19, align 8
   %not = xor i32 %1, -1
-  %and = and i32 %not, %flags
+  %and = and i32 %flags, %not
   %and20 = and i32 %and, -3
   %tobool21.not = icmp eq i32 %and20, 0
   br i1 %tobool21.not, label %if.end23, label %while.end
@@ -1083,7 +1083,7 @@ do.body:                                          ; preds = %if.end8
   br i1 %or.cond27, label %return, label %if.end22
 
 while.body:                                       ; preds = %if.end27
-  %add = add i64 %2, %align
+  %add = add i64 %align, %2
   %and = and i64 %add, %not
   %cmp16 = icmp ugt i64 %and, %max
   %sub19 = sub nuw i64 %max, %and
@@ -1104,7 +1104,7 @@ if.end22:                                         ; preds = %do.body, %while.bod
 if.end27:                                         ; preds = %if.end22
   %last = getelementptr i8, ptr %call.i, i64 32
   %2 = load i64, ptr %last, align 8
-  %cmp28.not = icmp ult i64 %2, %max
+  %cmp28.not = icmp ugt i64 %max, %2
   br i1 %cmp28.not, label %while.body, label %return
 
 return:                                           ; preds = %while.body, %if.end22, %if.end27, %do.body
@@ -1468,7 +1468,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cpu_mmu_lookup.exit, label %if.then.i
 
@@ -1513,7 +1513,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cpu_mmu_lookup.exit, label %if.then.i
 
@@ -1565,7 +1565,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cpu_mmu_lookup.exit, label %if.then.i
 
@@ -1617,7 +1617,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cpu_mmu_lookup.exit, label %if.then.i
 
@@ -1669,7 +1669,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %entry, %if.else4.i.
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %do_ld1_mmu.exit, label %if.then.i.i
 
@@ -1728,7 +1728,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cpu_mmu_lookup.exit, label %if.then.i
 
@@ -2019,7 +2019,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cpu_mmu_lookup.exit, label %if.then.i
 
@@ -2335,7 +2335,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cpu_mmu_lookup.exit, label %if.then.i
 
@@ -2597,7 +2597,7 @@ get_alignment_bits.exit.i.i.i:                    ; preds = %if.else4.i.i.i.i, %
   %notmask.i.i.i = shl nsw i32 -1, %a.0.i.i.i.i
   %sub.i.i.i = xor i32 %notmask.i.i.i, -1
   %conv.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %and.i.i.i = and i64 %conv.i.i.i, %addr
+  %and.i.i.i = and i64 %addr, %conv.i.i.i
   %tobool.not.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %helper_ldub_mmu.exit, label %if.then.i.i.i
 
@@ -2678,7 +2678,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cpu_mmu_lookup.exit, label %if.then.i
 
@@ -3026,7 +3026,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %entry, %if.else4.i.
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %do_st1_mmu.exit, label %if.then.i.i
 
@@ -3085,7 +3085,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cpu_mmu_lookup.exit, label %if.then.i
 
@@ -3306,7 +3306,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cpu_mmu_lookup.exit, label %if.then.i
 
@@ -3604,7 +3604,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cpu_mmu_lookup.exit, label %if.then.i
 
@@ -3930,7 +3930,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cpu_mmu_lookup.exit, label %if.then.i
 
@@ -4327,7 +4327,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %entry, %if.else4.i.
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %do_ld1_mmu.exit, label %if.then.i.i
 
@@ -4420,7 +4420,7 @@ get_alignment_bits.exit.i.i.i:                    ; preds = %if.else4.i.i.i.i, %
   %notmask.i.i.i = shl nsw i32 -1, %a.0.i.i.i.i
   %sub.i.i.i = xor i32 %notmask.i.i.i, -1
   %conv.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %and.i.i.i = and i64 %conv.i.i.i, %addr
+  %and.i.i.i = and i64 %addr, %conv.i.i.i
   %tobool.not.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %helper_stb_mmu.exit, label %if.then.i.i.i
 
@@ -4516,7 +4516,7 @@ get_alignment_bits.exit.i.i.i:                    ; preds = %if.else4.i.i.i.i, %
   %notmask.i.i.i = shl nsw i32 -1, %a.0.i.i.i.i
   %sub.i.i.i = xor i32 %notmask.i.i.i, -1
   %conv.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %and.i.i.i = and i64 %conv.i.i.i, %addr
+  %and.i.i.i = and i64 %addr, %conv.i.i.i
   %tobool.not.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cpu_ldb_mmu.exit, label %if.then.i.i.i
 
@@ -4563,7 +4563,7 @@ get_alignment_bits.exit.i.i.i.i:                  ; preds = %if.else4.i.i.i.i.i,
   %notmask.i.i.i.i = shl nsw i32 -1, %a.0.i.i.i.i.i
   %sub.i.i.i.i = xor i32 %notmask.i.i.i.i, -1
   %conv.i.i.i.i = zext nneg i32 %sub.i.i.i.i to i64
-  %and.i.i.i.i = and i64 %conv.i.i.i.i, %addr
+  %and.i.i.i.i = and i64 %addr, %conv.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %cpu_ldub_mmuidx_ra.exit, label %if.then.i.i.i.i
 
@@ -4717,7 +4717,7 @@ get_alignment_bits.exit.i.i.i.i:                  ; preds = %if.else4.i.i.i.i.i,
   %notmask.i.i.i.i = shl nsw i32 -1, %a.0.i.i.i.i.i
   %sub.i.i.i.i = xor i32 %notmask.i.i.i.i, -1
   %conv.i.i.i.i = zext nneg i32 %sub.i.i.i.i to i64
-  %and.i.i.i.i = and i64 %conv.i.i.i.i, %addr
+  %and.i.i.i.i = and i64 %addr, %conv.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %cpu_stb_mmu.exit, label %if.then.i.i.i.i
 
@@ -4847,7 +4847,7 @@ get_alignment_bits.exit.i.i.i.i:                  ; preds = %if.else4.i.i.i.i.i,
   %notmask.i.i.i.i = shl nsw i32 -1, %a.0.i.i.i.i.i
   %sub.i.i.i.i = xor i32 %notmask.i.i.i.i, -1
   %conv.i.i.i.i = zext nneg i32 %sub.i.i.i.i to i64
-  %and.i.i.i.i = and i64 %conv.i.i.i.i, %addr
+  %and.i.i.i.i = and i64 %addr, %conv.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %cpu_ldub_mmuidx_ra.exit, label %if.then.i.i.i.i
 
@@ -4897,7 +4897,7 @@ get_alignment_bits.exit.i.i.i.i.i:                ; preds = %if.else4.i.i.i.i.i.
   %notmask.i.i.i.i.i = shl nsw i32 -1, %a.0.i.i.i.i.i.i
   %sub.i.i.i.i.i = xor i32 %notmask.i.i.i.i.i, -1
   %conv.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i to i64
-  %and.i.i.i.i.i = and i64 %conv.i.i.i.i.i, %addr
+  %and.i.i.i.i.i = and i64 %addr, %conv.i.i.i.i.i
   %tobool.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %cpu_ldub_data_ra.exit, label %if.then.i.i.i.i.i
 
@@ -5060,7 +5060,7 @@ get_alignment_bits.exit.i.i.i.i.i:                ; preds = %if.else4.i.i.i.i.i.
   %notmask.i.i.i.i.i = shl nsw i32 -1, %a.0.i.i.i.i.i.i
   %sub.i.i.i.i.i = xor i32 %notmask.i.i.i.i.i, -1
   %conv.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i to i64
-  %and.i.i.i.i.i = and i64 %conv.i.i.i.i.i, %addr
+  %and.i.i.i.i.i = and i64 %addr, %conv.i.i.i.i.i
   %tobool.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %cpu_stb_mmuidx_ra.exit, label %if.then.i.i.i.i.i
 
@@ -5196,7 +5196,7 @@ get_alignment_bits.exit.i.i.i.i.i:                ; preds = %if.else4.i.i.i.i.i.
   %notmask.i.i.i.i.i = shl nsw i32 -1, %a.0.i.i.i.i.i.i
   %sub.i.i.i.i.i = xor i32 %notmask.i.i.i.i.i, -1
   %conv.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i to i64
-  %and.i.i.i.i.i = and i64 %conv.i.i.i.i.i, %addr
+  %and.i.i.i.i.i = and i64 %addr, %conv.i.i.i.i.i
   %tobool.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %cpu_ldub_data_ra.exit, label %if.then.i.i.i.i.i
 
@@ -5244,7 +5244,7 @@ get_alignment_bits.exit.i.i.i.i.i.i:              ; preds = %if.else4.i.i.i.i.i.
   %notmask.i.i.i.i.i.i = shl nsw i32 -1, %a.0.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i = xor i32 %notmask.i.i.i.i.i.i, -1
   %conv.i.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i.i to i64
-  %and.i.i.i.i.i.i = and i64 %conv.i.i.i.i.i.i, %addr
+  %and.i.i.i.i.i.i = and i64 %addr, %conv.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %cpu_ldub_data.exit, label %if.then.i.i.i.i.i.i
 
@@ -5407,7 +5407,7 @@ get_alignment_bits.exit.i.i.i.i.i.i:              ; preds = %if.else4.i.i.i.i.i.
   %notmask.i.i.i.i.i.i = shl nsw i32 -1, %a.0.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i = xor i32 %notmask.i.i.i.i.i.i, -1
   %conv.i.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i.i to i64
-  %and.i.i.i.i.i.i = and i64 %conv.i.i.i.i.i.i, %addr
+  %and.i.i.i.i.i.i = and i64 %addr, %conv.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %cpu_stb_data_ra.exit, label %if.then.i.i.i.i.i.i
 
@@ -5545,7 +5545,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %cpu_atomic_cmpxchgb_mmu.exit, label %if.then.i.i
 
@@ -5596,7 +5596,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -5649,7 +5649,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -5712,7 +5712,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -5777,7 +5777,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -5837,7 +5837,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -5899,7 +5899,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -5959,7 +5959,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -6021,7 +6021,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -6078,7 +6078,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -6137,7 +6137,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -6197,7 +6197,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -6259,7 +6259,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -6316,7 +6316,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -6382,7 +6382,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -6471,7 +6471,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -6554,7 +6554,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %cpu_atomic_fetch_addb_mmu.exit, label %if.then.i.i
 
@@ -6603,7 +6603,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -6661,7 +6661,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -6736,7 +6736,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -6794,7 +6794,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -6854,7 +6854,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -6925,7 +6925,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -6998,7 +6998,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -7054,7 +7054,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -7112,7 +7112,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -7183,7 +7183,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -7256,7 +7256,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -7312,7 +7312,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -7370,7 +7370,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %cpu_atomic_fetch_andb_mmu.exit, label %if.then.i.i
 
@@ -7419,7 +7419,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -7470,7 +7470,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -7530,7 +7530,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -7592,7 +7592,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -7650,7 +7650,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -7710,7 +7710,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -7768,7 +7768,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -7828,7 +7828,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -7884,7 +7884,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -7942,7 +7942,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -8000,7 +8000,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -8060,7 +8060,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -8116,7 +8116,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -8174,7 +8174,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %cpu_atomic_fetch_orb_mmu.exit, label %if.then.i.i
 
@@ -8223,7 +8223,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -8274,7 +8274,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -8334,7 +8334,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -8396,7 +8396,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -8454,7 +8454,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -8514,7 +8514,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -8572,7 +8572,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -8632,7 +8632,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -8688,7 +8688,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -8746,7 +8746,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -8804,7 +8804,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -8864,7 +8864,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -8920,7 +8920,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -8978,7 +8978,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %cpu_atomic_fetch_xorb_mmu.exit, label %if.then.i.i
 
@@ -9027,7 +9027,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -9078,7 +9078,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -9138,7 +9138,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -9200,7 +9200,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -9258,7 +9258,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -9318,7 +9318,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -9376,7 +9376,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -9436,7 +9436,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -9492,7 +9492,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -9550,7 +9550,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -9608,7 +9608,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -9668,7 +9668,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -9724,7 +9724,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -9782,7 +9782,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
@@ -9846,7 +9846,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -9919,7 +9919,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -9996,7 +9996,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -10069,7 +10069,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -10144,7 +10144,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -10215,7 +10215,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -10288,7 +10288,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -10357,7 +10357,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -10428,7 +10428,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -10499,7 +10499,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -10572,7 +10572,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -10641,7 +10641,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -10712,7 +10712,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
@@ -10775,7 +10775,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -10847,7 +10847,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -10923,7 +10923,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -10995,7 +10995,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -11069,7 +11069,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -11140,7 +11140,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -11213,7 +11213,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -11282,7 +11282,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -11353,7 +11353,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -11424,7 +11424,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -11497,7 +11497,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -11566,7 +11566,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -11637,7 +11637,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
@@ -11701,7 +11701,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -11774,7 +11774,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -11851,7 +11851,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -11924,7 +11924,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -11999,7 +11999,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -12070,7 +12070,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -12143,7 +12143,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -12212,7 +12212,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -12283,7 +12283,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -12354,7 +12354,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -12427,7 +12427,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -12496,7 +12496,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -12567,7 +12567,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
@@ -12630,7 +12630,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -12702,7 +12702,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -12778,7 +12778,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -12850,7 +12850,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -12924,7 +12924,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -12995,7 +12995,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -13068,7 +13068,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -13137,7 +13137,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -13208,7 +13208,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -13279,7 +13279,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -13352,7 +13352,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -13421,7 +13421,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -13492,7 +13492,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %cpu_atomic_add_fetchb_mmu.exit, label %if.then.i.i
 
@@ -13542,7 +13542,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -13601,7 +13601,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -13676,7 +13676,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -13735,7 +13735,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -13796,7 +13796,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -13867,7 +13867,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -13940,7 +13940,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -13997,7 +13997,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -14056,7 +14056,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -14127,7 +14127,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -14200,7 +14200,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -14257,7 +14257,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -14316,7 +14316,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %cpu_atomic_and_fetchb_mmu.exit, label %if.then.i.i
 
@@ -14366,7 +14366,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -14418,7 +14418,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -14479,7 +14479,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -14542,7 +14542,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -14601,7 +14601,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -14662,7 +14662,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -14721,7 +14721,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -14782,7 +14782,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -14839,7 +14839,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -14898,7 +14898,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -14957,7 +14957,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -15018,7 +15018,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -15075,7 +15075,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -15134,7 +15134,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %cpu_atomic_or_fetchb_mmu.exit, label %if.then.i.i
 
@@ -15184,7 +15184,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -15236,7 +15236,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -15297,7 +15297,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -15360,7 +15360,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -15419,7 +15419,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -15480,7 +15480,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -15539,7 +15539,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -15600,7 +15600,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -15657,7 +15657,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -15716,7 +15716,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -15775,7 +15775,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -15836,7 +15836,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -15893,7 +15893,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -15952,7 +15952,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %cpu_atomic_xor_fetchb_mmu.exit, label %if.then.i.i
 
@@ -16002,7 +16002,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -16054,7 +16054,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -16115,7 +16115,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -16178,7 +16178,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -16237,7 +16237,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -16298,7 +16298,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -16357,7 +16357,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -16418,7 +16418,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -16475,7 +16475,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -16534,7 +16534,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -16593,7 +16593,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -16654,7 +16654,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -16711,7 +16711,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -16770,7 +16770,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
@@ -16834,7 +16834,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -16907,7 +16907,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -16984,7 +16984,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -17057,7 +17057,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -17132,7 +17132,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -17203,7 +17203,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -17276,7 +17276,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -17345,7 +17345,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -17416,7 +17416,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -17487,7 +17487,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -17560,7 +17560,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -17629,7 +17629,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -17700,7 +17700,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
@@ -17763,7 +17763,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -17835,7 +17835,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -17911,7 +17911,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -17983,7 +17983,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -18057,7 +18057,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -18128,7 +18128,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -18201,7 +18201,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -18270,7 +18270,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -18341,7 +18341,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -18412,7 +18412,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -18485,7 +18485,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -18554,7 +18554,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -18625,7 +18625,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
@@ -18689,7 +18689,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -18762,7 +18762,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -18839,7 +18839,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -18912,7 +18912,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -18987,7 +18987,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -19058,7 +19058,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -19131,7 +19131,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -19200,7 +19200,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -19271,7 +19271,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -19342,7 +19342,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -19415,7 +19415,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -19484,7 +19484,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -19555,7 +19555,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
@@ -19618,7 +19618,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -19690,7 +19690,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -19766,7 +19766,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -19838,7 +19838,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -19912,7 +19912,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -19983,7 +19983,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -20056,7 +20056,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -20125,7 +20125,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -20196,7 +20196,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -20267,7 +20267,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -20340,7 +20340,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -20409,7 +20409,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -20480,7 +20480,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %cpu_atomic_xchgb_mmu.exit, label %if.then.i.i
 
@@ -20529,7 +20529,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %atomic_mmu_lookup.exit, label %if.then.i
 
@@ -20580,7 +20580,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -20640,7 +20640,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -20702,7 +20702,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -20760,7 +20760,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -20820,7 +20820,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -20878,7 +20878,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -20938,7 +20938,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -20994,7 +20994,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -21052,7 +21052,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -21110,7 +21110,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -21170,7 +21170,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
   %sub.i.i = xor i32 %notmask.i.i, -1
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
+  %and.i.i = and i64 %addr, %conv.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -21226,7 +21226,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
   %notmask.i = shl nsw i32 -1, %a.0.i.i
   %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %addr
+  %and.i = and i64 %addr, %conv.i
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 

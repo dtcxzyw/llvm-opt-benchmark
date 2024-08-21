@@ -46,7 +46,7 @@ define hidden void @_ZN11XMountPointC2EPKcPS1_(ptr nocapture noundef nonnull wri
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %4, i8 noundef zeroext 5) #11
+  %6 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %4, i8 noundef zeroext 5) #12
   br label %9
 
 7:                                                ; preds = %3
@@ -86,7 +86,7 @@ define hidden noundef ptr @_ZNK11XMountPoint15find_mountpointEPKcPS1_(ptr nocapt
   %11 = getelementptr inbounds i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %13, i8 noundef zeroext 5) #11
+  %14 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %13, i8 noundef zeroext 5) #12
   br label %38
 
 _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph.i: ; preds = %3
@@ -119,12 +119,12 @@ _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.i: ; preds = %_ZN18XArrayIterator
 25:                                               ; preds = %22, %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.i
   %26 = phi ptr [ %19, %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.i ], [ %24, %22 ]
   %.01033.i = phi ptr [ %2, %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.i ], [ %23, %22 ]
-  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %26) #12
+  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %26) #13
   %.not12.i = icmp eq i32 %27, 0
   br i1 %.not12.i, label %28, label %22
 
 28:                                               ; preds = %25
-  %29 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %20, i8 noundef zeroext 5) #11
+  %29 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %20, i8 noundef zeroext 5) #12
   br label %_ZNK11XMountPoint25find_preferred_mountpointEPKcP18GrowableArrayCHeapIPcL8MEMFLAGS5EEPS1_.exit
 
 ._crit_edge.i:                                    ; preds = %..loopexit_crit_edge.i, %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph.i
@@ -176,7 +176,7 @@ _ZNK11XMountPoint25find_preferred_mountpointEPKcP18GrowableArrayCHeapIPcL8MEMFLA
   %.sroa.0.08.i = phi ptr [ %46, %.lr.ph.i6 ], [ %42, %.lr.ph.preheader.i ]
   %45 = load ptr, ptr %.sroa.0.08.i, align 8
   %46 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 8
-  call void @free(ptr noundef %45) #11
+  call void @free(ptr noundef %45) #12
   %.not.i7 = icmp eq ptr %46, %44
   br i1 %.not.i7, label %_ZNK11XMountPoint16free_mountpointsEP18GrowableArrayCHeapIPcL8MEMFLAGS5EE.exit, label %.lr.ph.i6, !llvm.loop !10
 
@@ -195,7 +195,7 @@ _ZNK11XMountPoint16free_mountpointsEP18GrowableArrayCHeapIPcL8MEMFLAGS5EE.exit: 
   br i1 %.not.i.i.i, label %_ZN18GrowableArrayCHeapIPcL8MEMFLAGS5EED2Ev.exit, label %.loopexit.thread.i.i.i
 
 .loopexit.thread.i.i.i:                           ; preds = %.loopexit.i.i.i
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %51) #11
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %51) #12
   br label %_ZN18GrowableArrayCHeapIPcL8MEMFLAGS5EED2Ev.exit
 
 _ZN18GrowableArrayCHeapIPcL8MEMFLAGS5EED2Ev.exit: ; preds = %.loopexit.i.i.i, %.loopexit.thread.i.i.i, %_ZNK11XMountPoint16free_mountpointsEP18GrowableArrayCHeapIPcL8MEMFLAGS5EE.exit
@@ -205,7 +205,7 @@ _ZN18GrowableArrayCHeapIPcL8MEMFLAGS5EED2Ev.exit: ; preds = %.loopexit.i.i.i, %.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11XMountPointD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @_ZN2os4freeEPv(ptr noundef %2) #11
+  tail call void @_ZN2os4freeEPv(ptr noundef %2) #12
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -218,31 +218,31 @@ define hidden noundef ptr @_ZNK11XMountPoint14get_mountpointEPKcS1_(ptr nocaptur
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  %6 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
+  %6 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %.not = icmp eq i32 %6, 2
   br i1 %.not, label %7, label %13
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8
-  %9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %2) #12
+  %9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %2) #13
   %.not2 = icmp eq i32 %9, 0
   br i1 %.not2, label %10, label %13
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %4, align 8
-  %12 = call i32 @access(ptr noundef %11, i32 noundef 7) #11
+  %12 = call i32 @access(ptr noundef %11, i32 noundef 7) #12
   %.not3 = icmp eq i32 %12, 0
   br i1 %.not3, label %15, label %13
 
 13:                                               ; preds = %10, %7, %3
   %14 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %14) #11
+  call void @free(ptr noundef %14) #12
   store ptr null, ptr %4, align 8
   br label %15
 
 15:                                               ; preds = %13, %10
   %16 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %16) #11
+  call void @free(ptr noundef %16) #12
   %17 = load ptr, ptr %4, align 8
   ret ptr %17
 }
@@ -268,23 +268,23 @@ define hidden void @_ZNK11XMountPoint15get_mountpointsEPKcP18GrowableArrayCHeapI
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
-  %11 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #11
+  %11 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %3
-  call void @_ZN6XErrnoC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #11
+  call void @_ZN6XErrnoC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #12
   store i32 5, ptr %7, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
-  %14 = call noundef ptr @_ZNK6XErrno9to_stringEv(ptr noundef nonnull align 4 dereferenceable(4) %6) #11
+  %14 = call noundef ptr @_ZNK6XErrno9to_stringEv(ptr noundef nonnull align 4 dereferenceable(4) %6) #12
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4, ptr noundef %14)
   br label %35
 
 15:                                               ; preds = %3
   store ptr null, ptr %8, align 8
   store i64 0, ptr %9, align 8
-  %16 = call i64 @getline(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11) #11
+  %16 = call i64 @getline(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11) #12
   %.not7 = icmp eq i64 %16, -1
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -294,31 +294,31 @@ define hidden void @_ZNK11XMountPoint15get_mountpointsEPKcP18GrowableArrayCHeapI
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  %18 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %17, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
+  %18 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %17, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %.not.i = icmp eq i32 %18, 2
   br i1 %.not.i, label %19, label %25
 
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr %5, align 8
-  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %1) #12
+  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %1) #13
   %.not2.i = icmp eq i32 %21, 0
   br i1 %.not2.i, label %22, label %25
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %4, align 8
-  %24 = call i32 @access(ptr noundef %23, i32 noundef 7) #11
+  %24 = call i32 @access(ptr noundef %23, i32 noundef 7) #12
   %.not3.i = icmp eq i32 %24, 0
   br i1 %.not3.i, label %_ZNK11XMountPoint14get_mountpointEPKcS1_.exit, label %25
 
 25:                                               ; preds = %22, %19, %.lr.ph
   %26 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %26) #11
+  call void @free(ptr noundef %26) #12
   store ptr null, ptr %4, align 8
   br label %_ZNK11XMountPoint14get_mountpointEPKcS1_.exit
 
 _ZNK11XMountPoint14get_mountpointEPKcS1_.exit:    ; preds = %22, %25
   %27 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %27) #11
+  call void @free(ptr noundef %27) #12
   %28 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -331,13 +331,13 @@ _ZNK11XMountPoint14get_mountpointEPKcS1_.exit:    ; preds = %22, %25
   br label %31
 
 31:                                               ; preds = %29, %_ZNK11XMountPoint14get_mountpointEPKcS1_.exit
-  %32 = call i64 @getline(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11) #11
+  %32 = call i64 @getline(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11) #12
   %.not = icmp eq i64 %32, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %31, %15
   %33 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %33) #11
+  call void @free(ptr noundef %33) #12
   %34 = call i32 @fclose(ptr noundef nonnull %11)
   br label %35
 
@@ -356,7 +356,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
-  call void @_ZN13GCLogPrecious6vwriteE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #11
+  call void @_ZN13GCLogPrecious6vwriteE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -376,91 +376,90 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPc18Grow
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %40
+  br label %38
 
 7:                                                ; preds = %2
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
-  %10 = xor i32 %3, -2147483648
-  %11 = and i32 %10, %8
-  %12 = icmp eq i32 %11, 0
-  %13 = and i1 %9, %12
-  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
-  %15 = sub nuw nsw i32 32, %14
-  %16 = shl nuw i32 1, %15
-  %.0.i.i.i = select i1 %13, i32 %8, i32 %16
+  %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
+  %11 = icmp ult i32 %10, 2
+  %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
+  %13 = sub nuw nsw i32 32, %12
+  %14 = shl nuw i32 1, %13
+  %.0.i.i.i = select i1 %or.cond.i.i.i, i32 %8, i32 %14
   store i32 %.0.i.i.i, ptr %4, align 4
-  %17 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #11
-  %18 = load i32, ptr %0, align 8
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph.i.i, label %.preheader15.i.i
+  %15 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #12
+  %16 = load i32, ptr %0, align 8
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph.i.i, label %.preheader15.i.i
 
 .lr.ph.i.i:                                       ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %25
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %23
 
-.preheader15.loopexit.i.i:                        ; preds = %25
-  %21 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
+.preheader15.loopexit.i.i:                        ; preds = %23
+  %19 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %.preheader15.i.i
 
 .preheader15.i.i:                                 ; preds = %.preheader15.loopexit.i.i, %7
-  %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %21, %.preheader15.loopexit.i.i ]
-  %22 = load i32, ptr %4, align 4
-  %23 = icmp slt i32 %.0.lcssa.i.i, %22
-  br i1 %23, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %19, %.preheader15.loopexit.i.i ]
+  %20 = load i32, ptr %4, align 4
+  %21 = icmp slt i32 %.0.lcssa.i.i, %20
+  br i1 %21, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
 
 .lr.ph18.preheader.i.i:                           ; preds = %.preheader15.i.i
-  %24 = zext nneg i32 %.0.lcssa.i.i to i64
+  %22 = zext nneg i32 %.0.lcssa.i.i to i64
   br label %.lr.ph18.i.i
 
-25:                                               ; preds = %25, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i.i
-  %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i.i
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %26, align 8
+23:                                               ; preds = %23, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
+  %24 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv.i.i
+  %25 = load ptr, ptr %18, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i.i
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %30 = load i32, ptr %0, align 8
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next.i.i, %31
-  br i1 %32, label %25, label %.preheader15.loopexit.i.i, !llvm.loop !12
+  %28 = load i32, ptr %0, align 8
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next.i.i, %29
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %.not.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit, label %39
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit, label %37
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
-  %indvars.iv20.i.i = phi i64 [ %24, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %35 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv20.i.i
-  store ptr null, ptr %35, align 8
+  %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
+  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv20.i.i
+  store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %36 = load i32, ptr %4, align 4
-  %37 = trunc nuw i64 %indvars.iv.next21.i.i to i32
-  %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !13
+  %34 = load i32, ptr %4, align 4
+  %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
+  %36 = icmp sgt i32 %34, %35
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !13
 
-39:                                               ; preds = %.preheader.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #11
+37:                                               ; preds = %.preheader.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #12
   br label %_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit
 
-_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit: ; preds = %.preheader.i.i, %39
-  store ptr %17, ptr %33, align 8
+_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit: ; preds = %.preheader.i.i, %37
+  store ptr %15, ptr %31, align 8
   %.pre = load i32, ptr %0, align 8
-  br label %40
+  br label %38
 
-40:                                               ; preds = %._crit_edge, %_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit
-  %41 = phi ptr [ %17, %_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit ], [ %.pre3, %._crit_edge ]
-  %42 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit ], [ %3, %._crit_edge ]
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %0, align 8
-  %44 = load ptr, ptr %1, align 8
-  %45 = sext i32 %42 to i64
-  %46 = getelementptr inbounds ptr, ptr %41, i64 %45
-  store ptr %44, ptr %46, align 8
-  ret i32 %42
+38:                                               ; preds = %._crit_edge, %_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit
+  %39 = phi ptr [ %15, %_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit ], [ %.pre3, %._crit_edge ]
+  %40 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit ], [ %3, %._crit_edge ]
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %0, align 8
+  %42 = load ptr, ptr %1, align 8
+  %43 = sext i32 %40 to i64
+  %44 = getelementptr inbounds ptr, ptr %39, i64 %43
+  store ptr %42, ptr %44, align 8
+  ret i32 %40
 }
 
 ; Function Attrs: nofree nounwind
@@ -483,7 +482,7 @@ define hidden void @_ZNK11XMountPoint16free_mountpointsEP18GrowableArrayCHeapIPc
   %.sroa.0.08 = phi ptr [ %10, %.lr.ph ], [ %6, %.lr.ph.preheader ]
   %9 = load ptr, ptr %.sroa.0.08, align 8
   %10 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 8
-  tail call void @free(ptr noundef %9) #11
+  tail call void @free(ptr noundef %9) #12
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit, label %.lr.ph, !llvm.loop !10
 
@@ -528,12 +527,12 @@ _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit:   ; preds = %_ZN18XArrayIterator
 19:                                               ; preds = %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit, %16
   %20 = phi ptr [ %13, %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit ], [ %18, %16 ]
   %.01033 = phi ptr [ %3, %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit ], [ %17, %16 ]
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %20) #12
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %20) #13
   %.not12 = icmp eq i32 %21, 0
   br i1 %.not12, label %22, label %16
 
 22:                                               ; preds = %19
-  %23 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %14, i8 noundef zeroext 5) #11
+  %23 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %14, i8 noundef zeroext 5) #12
   br label %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit14
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge, %4, %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph
@@ -582,7 +581,7 @@ define internal void @__cxx_global_var_init.10() #6 section ".text.startup" comd
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -591,7 +590,7 @@ define internal void @__cxx_global_var_init.10() #6 section ".text.startup" comd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #11
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #12
   ret i64 %3
 }
 
@@ -614,14 +613,17 @@ declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #9
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -632,10 +634,11 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

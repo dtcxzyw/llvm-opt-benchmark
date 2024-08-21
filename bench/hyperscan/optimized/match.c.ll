@@ -1288,7 +1288,7 @@ if.end.i:                                         ; preds = %if.then7
   %7 = load i64, ptr %len.i, align 8
   %add.i = add i64 %7, %1
   %cmp.i = icmp ne i64 %6, %add.i
-  %cmp5.i.not = icmp eq i64 %7, %end
+  %cmp5.i.not = icmp eq i64 %end, %7
   %or.cond = and i1 %cmp5.i.not, %cmp.i
   br i1 %or.cond, label %if.end7.i, label %roseFlushLastByteHistory.exit
 
@@ -1817,7 +1817,7 @@ do.end30:                                         ; preds = %if.end
   %conv46 = and i32 %5, %10
   %conv48 = zext i32 %conv46 to i64
   %add49 = add i64 %0, 32
-  %cmp50 = icmp ult i64 %add49, %currEnd
+  %cmp50 = icmp ugt i64 %currEnd, %add49
   %add59 = add nuw nsw i32 %conv6, 1
   %sh_prom60 = zext nneg i32 %add59 to i64
   %notmask1102 = shl nsw i64 -1, %sh_prom60
@@ -3904,7 +3904,7 @@ anchored_leftovers:                               ; preds = %while.cond.i.crited
   %anchored_it.0 = phi i32 [ %retval.i.0, %anchored_it_begin.exit ], [ %retval.i.0, %if.end74 ], [ %anchored_it.21181, %while.cond.i.critedge ]
   %cmp.i1231292 = icmp ne i32 %anchored_it.0, -1
   %conv.i1631293 = zext i32 %anchored_it.0 to i64
-  %cmp2.i1641294 = icmp ult i64 %conv.i1631293, %currEnd
+  %cmp2.i1641294 = icmp ugt i64 %currEnd, %conv.i1631293
   %216 = and i1 %cmp.i1231292, %cmp2.i1641294
   br i1 %216, label %for.body.i126.lr.ph, label %flushAnchoredLiterals.exit165
 
@@ -4940,7 +4940,7 @@ if.then.i847:                                     ; preds = %if.end19.i379.i, %f
   %cast.i.i = trunc nuw nsw i64 %318 to i32
   %retval.i843.0 = select i1 %tobool.i846.not, i32 %cast.i.i, i32 -1
   %conv.i163 = zext i32 %retval.i843.0 to i64
-  %cmp2.i164 = icmp ult i64 %conv.i163, %currEnd
+  %cmp2.i164 = icmp ugt i64 %currEnd, %conv.i163
   %319 = and i1 %tobool.i846.not, %cmp2.i164
   br i1 %319, label %for.body.i126, label %flushAnchoredLiterals.exit165, !llvm.loop !17
 

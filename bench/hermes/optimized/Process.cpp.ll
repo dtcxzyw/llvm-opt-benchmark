@@ -468,7 +468,7 @@ sw.bb27.i.i.i.i.i.i:                              ; preds = %if.end25.i.i.i.i.i.
 
 "_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit": ; preds = %for.body.i.i.i.i.i.i, %if.end.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i ], [ %incdec.ptr5.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %__first.addr.0112.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %cmp.i.i.i.not = icmp eq ptr %retval.0.i.i.i.i.i.i, %add.ptr.i.i.i.i.i8
+  %cmp.i.i.i.not = icmp eq ptr %add.ptr.i.i.i.i.i8, %retval.0.i.i.i.i.i.i
   br i1 %cmp.i.i.i.not, label %if.end12, label %for.inc
 
 if.end12:                                         ; preds = %sw.bb27.i.i.i.i.i.i, %for.end.i.i.i.i.i.i, %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit"
@@ -1509,7 +1509,7 @@ if.then:                                          ; preds = %entry
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %result.0.copyload.i3.i = load i32, ptr %add.ptr1.i, align 1
   %conv3.i = zext i32 %result.0.copyload.i3.i to i64
-  %xor.i = xor i64 %conv3.i, %seed
+  %xor.i = xor i64 %seed, %conv3.i
   %xor.i.i = xor i64 %xor.i, %add.i
   %mul.i.i = mul i64 %xor.i.i, -7070675565921424023
   %shr.i.i = lshr i64 %mul.i.i, 47

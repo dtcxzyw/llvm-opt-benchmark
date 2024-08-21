@@ -1888,7 +1888,7 @@ if.end13.i.i:                                     ; preds = %.noexc441, %if.end.
 
 if.then19.i.i:                                    ; preds = %if.end13.i.i
   %add.i.i = add nsw i64 %sub15.i.i, 1
-  %cmp.i.i.i438 = icmp ult i64 %sub.ptr.div.i.i.i, %add.i.i
+  %cmp.i.i.i438 = icmp ugt i64 %add.i.i, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i.i438, label %if.then.i.i.i440, label %if.else.i.i.i439
 
 if.then.i.i.i440:                                 ; preds = %if.then19.i.i
@@ -1903,7 +1903,7 @@ if.then.i.i.i440:                                 ; preds = %if.then19.i.i
   br label %_ZN4cvc58internal13HistogramStatINS0_6theory4bags7RewriteEElsES4_.exit
 
 if.else.i.i.i439:                                 ; preds = %if.then19.i.i
-  %cmp4.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %add.i.i
+  %cmp4.i.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZN4cvc58internal13HistogramStatINS0_6theory4bags7RewriteEElsES4_.exit
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i439
@@ -17195,7 +17195,7 @@ if.end13.i.i:                                     ; preds = %.noexc376, %if.end.
 
 if.then19.i.i:                                    ; preds = %if.end13.i.i
   %add.i.i = add nsw i64 %sub15.i.i, 1
-  %cmp.i.i.i373 = icmp ult i64 %sub.ptr.div.i.i.i, %add.i.i
+  %cmp.i.i.i373 = icmp ugt i64 %add.i.i, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i.i373, label %if.then.i.i.i375, label %if.else.i.i.i374
 
 if.then.i.i.i375:                                 ; preds = %if.then19.i.i
@@ -17210,7 +17210,7 @@ if.then.i.i.i375:                                 ; preds = %if.then19.i.i
   br label %_ZN4cvc58internal13HistogramStatINS0_6theory4bags7RewriteEElsES4_.exit
 
 if.else.i.i.i374:                                 ; preds = %if.then19.i.i
-  %cmp4.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %add.i.i
+  %cmp4.i.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZN4cvc58internal13HistogramStatINS0_6theory4bags7RewriteEElsES4_.exit
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i374
@@ -19395,7 +19395,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !736
 
 if.else:                                          ; preds = %if.then4
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i, %__n
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, %sub.ptr.div.i
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
@@ -19479,7 +19479,7 @@ for.body.i.i.i.i.i.i.i67:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !736
 
 invoke.cont57:                                    ; preds = %for.body.i.i.i.i.i.i.i67
-  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %6, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %__position.coerce, %6
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i76, label %invoke.cont60, label %if.then.i.i.i.i.i.i.i.i.i77
 
 if.then.i.i.i.i.i.i.i.i.i77:                      ; preds = %invoke.cont57
@@ -19778,7 +19778,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa28.i, %if.then.i ], [ %__y.0.lcssa29.i, %if.end12.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
@@ -19972,7 +19972,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %7, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %8
+  %cmp2.i.i = icmp eq ptr %8, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -20054,7 +20054,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_8RationalEESt
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_8RationalEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

@@ -1073,7 +1073,7 @@ BufferGetPage.exit70.i:                           ; preds = %271, %265
   %291 = add i32 %290, -1
   store volatile i32 %291, ptr @CritSectionCount, align 4
   %292 = icmp sgt i32 %285, 0
-  %293 = and i1 %292, %2
+  %293 = and i1 %2, %292
   br i1 %293, label %.lr.ph94.split.i, label %._crit_edge95.i
 
 .lr.ph94.split.i:                                 ; preds = %._crit_edge91.i, %.lr.ph94.split.i
@@ -1308,7 +1308,7 @@ define internal fastcc void @processPendingPage(ptr noundef %0, ptr nocapture no
   store i16 -1, ptr %14, align 2
   %15 = getelementptr inbounds i8, ptr %5, i64 4
   store i16 0, ptr %15, align 2
-  %.not36 = icmp ult i16 %.0.i, %3
+  %.not36 = icmp ugt i16 %3, %.0.i
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4

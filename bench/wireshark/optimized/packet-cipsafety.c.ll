@@ -1135,7 +1135,7 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
   %.163 = phi i32 [ 2, %15 ], [ %37, %41 ]
   %.05562 = phi i16 [ 0, %15 ], [ %46, %41 ]
   %20 = add i32 %.163, 11
-  %21 = icmp sgt i32 %20, %5
+  %21 = icmp slt i32 %5, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
@@ -1157,7 +1157,7 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
   %35 = call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %33) #6
   %36 = zext i8 %35 to i32
   %37 = add i32 %20, %36
-  %38 = icmp sgt i32 %37, %5
+  %38 = icmp slt i32 %5, %37
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %24
@@ -1231,7 +1231,7 @@ define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_time_coord_
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 1
   %12 = or disjoint i32 %11, 1
-  %.not = icmp slt i32 %11, %5
+  %.not = icmp sgt i32 %5, %11
   br i1 %.not, label %.preheader, label %14
 
 .preheader:                                       ; preds = %6
@@ -1268,7 +1268,7 @@ define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_network_tim
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 1
   %12 = or disjoint i32 %11, 1
-  %.not = icmp slt i32 %11, %5
+  %.not = icmp sgt i32 %5, %11
   br i1 %.not, label %.preheader, label %14
 
 .preheader:                                       ; preds = %6
@@ -1304,7 +1304,7 @@ define internal range(i32 -2147483648, 257) i32 @dissect_s_validator_timeout_mul
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #6
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %10, 1
-  %.not = icmp slt i32 %10, %5
+  %.not = icmp sgt i32 %5, %10
   br i1 %.not, label %.preheader, label %13
 
 .preheader:                                       ; preds = %6
@@ -1341,7 +1341,7 @@ define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_coordinatio
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 1
   %12 = or disjoint i32 %11, 1
-  %.not = icmp slt i32 %11, %5
+  %.not = icmp sgt i32 %5, %11
   br i1 %.not, label %.preheader, label %14
 
 .preheader:                                       ; preds = %6
@@ -1387,7 +1387,7 @@ define internal range(i32 -2147483648, 257) i32 @dissect_s_validator_prod_cons_f
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #6
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %10, 1
-  %.not = icmp slt i32 %10, %5
+  %.not = icmp sgt i32 %5, %10
   br i1 %.not, label %.preheader, label %13
 
 .preheader:                                       ; preds = %6
@@ -1570,7 +1570,7 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   %.0146.i = phi i32 [ %38, %37 ], [ 0, %34 ], [ 0, %29 ]
   %.0145.i = phi i32 [ %40, %37 ], [ 0, %34 ], [ 0, %29 ]
   %45 = select i1 %24, i32 12, i32 6
-  %46 = icmp sgt i32 %45, %19
+  %46 = icmp slt i32 %19, %45
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %44
@@ -2924,7 +2924,7 @@ define internal fastcc ptr @get_timestamp_packet_data(ptr noundef %0, ptr nocapt
   %21 = load ptr, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 34
   %23 = load i16, ptr %22, align 2
-  %24 = icmp ugt i16 %23, %2
+  %24 = icmp ult i16 %2, %23
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %._crit_edge
@@ -3299,7 +3299,7 @@ define internal fastcc void @validate_crc_s5(ptr noundef %0, ptr noundef %1, ptr
   %13 = shl i32 %6, 16
   %14 = and i32 %13, 16711680
   %15 = add i32 %12, %14
-  %16 = icmp eq i32 %15, %7
+  %16 = icmp eq i32 %7, %15
   %17 = load i32, ptr @hf_cipsafety_crc_s5_status, align 4
   br i1 %16, label %18, label %20
 

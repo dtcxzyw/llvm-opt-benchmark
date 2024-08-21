@@ -925,7 +925,7 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18: ; preds = %
 
 196:                                              ; preds = %194
   %.sroa.019.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
-  %197 = icmp ugt i64 %.sroa.019.0.copyload.i.i, %184
+  %197 = icmp ult i64 %184, %.sroa.019.0.copyload.i.i
   %.str.97..str.93.i.i = select i1 %197, ptr @.str.97, ptr @.str.93
   %198 = sub nuw i64 %.sroa.019.0.copyload.i.i, %184
   %199 = sub nuw i64 %184, %.sroa.019.0.copyload.i.i
@@ -966,7 +966,7 @@ _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i: ; pre
 
 213:                                              ; preds = %211
   %.sroa.019.0.copyload.i28.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
-  %214 = icmp ugt i64 %.sroa.019.0.copyload.i28.i, %201
+  %214 = icmp ult i64 %201, %.sroa.019.0.copyload.i28.i
   %.str.97..str.93.i29.i = select i1 %214, ptr @.str.97, ptr @.str.93
   %215 = sub nuw i64 %.sroa.019.0.copyload.i28.i, %201
   %216 = sub nuw i64 %201, %.sroa.019.0.copyload.i28.i
@@ -1007,7 +1007,7 @@ _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i: ; p
 
 230:                                              ; preds = %228
   %.sroa.019.0.copyload.i37.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
-  %231 = icmp ugt i64 %.sroa.019.0.copyload.i37.i, %218
+  %231 = icmp ult i64 %218, %.sroa.019.0.copyload.i37.i
   %.str.97..str.93.i38.i = select i1 %231, ptr @.str.97, ptr @.str.93
   %232 = sub nuw i64 %.sroa.019.0.copyload.i37.i, %218
   %233 = sub nuw i64 %218, %.sroa.019.0.copyload.i37.i
@@ -1588,27 +1588,26 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet35parse_start_flight_recordin
 34:                                               ; preds = %25
   %35 = add nsw i32 %30, 1
   %36 = icmp sgt i32 %30, -1
-  %37 = xor i32 %30, -2147483648
-  %38 = and i32 %37, %35
-  %39 = icmp eq i32 %38, 0
-  %40 = and i1 %36, %39
-  %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %35, i1 true)
-  %42 = sub nuw nsw i32 32, %41
-  %43 = shl nuw i32 1, %42
-  %.0.i.i.i.i = select i1 %40, i32 %35, i32 %43
+  %37 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %35)
+  %38 = icmp ult i32 %37, 2
+  %or.cond.i.i.i.i = select i1 %36, i1 %38, i1 false
+  %39 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %35, i1 true)
+  %40 = sub nuw nsw i32 32, %39
+  %41 = shl nuw i32 1, %40
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %35, i32 %41
   tail call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %29, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %25, %34
-  %44 = phi i32 [ %.pre.i, %34 ], [ %30, %25 ]
-  %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %29, align 8
-  %46 = getelementptr inbounds i8, ptr %29, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = sext i32 %44 to i64
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
-  store ptr %27, ptr %49, align 8
+  %42 = phi i32 [ %.pre.i, %34 ], [ %30, %25 ]
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %29, align 8
+  %44 = getelementptr inbounds i8, ptr %29, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = sext i32 %42 to i64
+  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  store ptr %27, ptr %47, align 8
   ret i1 false
 }
 
@@ -2522,6 +2521,9 @@ define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.start
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15

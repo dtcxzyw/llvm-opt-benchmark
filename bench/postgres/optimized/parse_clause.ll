@@ -3606,12 +3606,12 @@ define dso_local ptr @addTargetToSortList(ptr noundef %0, ptr nocapture noundef 
 82:                                               ; preds = %.lr.ph42.i
   %83 = getelementptr inbounds i8, ptr %78, i64 12
   %84 = load i32, ptr %83, align 4
-  %85 = icmp eq i32 %84, %58
+  %85 = icmp eq i32 %58, %84
   br i1 %85, label %targetIsInSortList.exit, label %86
 
 86:                                               ; preds = %82
   %87 = call i32 @get_commutator(i32 noundef %84) #9
-  %88 = icmp eq i32 %87, %58
+  %88 = icmp eq i32 %58, %87
   br i1 %88, label %targetIsInSortList.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %86
@@ -5021,12 +5021,12 @@ define dso_local noundef zeroext i1 @targetIsInSortList(ptr nocapture noundef re
 26:                                               ; preds = %.lr.ph42
   %27 = getelementptr inbounds i8, ptr %22, i64 12
   %28 = load i32, ptr %27, align 4
-  %29 = icmp eq i32 %28, %1
+  %29 = icmp eq i32 %1, %28
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %26
   %31 = tail call i32 @get_commutator(i32 noundef %28) #9
-  %32 = icmp eq i32 %31, %1
+  %32 = icmp eq i32 %1, %31
   br i1 %32, label %.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30

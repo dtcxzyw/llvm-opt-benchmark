@@ -2276,7 +2276,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
 234:                                              ; preds = %232
   %235 = zext nneg i8 %5 to i32
   %236 = shl nuw nsw i32 %235, 2
-  %.not843 = icmp eq i32 %236, %4
+  %.not843 = icmp eq i32 %4, %236
   br i1 %.not843, label %.loopexit, label %237
 
 237:                                              ; preds = %234, %226
@@ -2875,7 +2875,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
 706:                                              ; preds = %701, %698
   %707 = zext nneg i8 %5 to i32
   %708 = shl nuw nsw i32 %707, 2
-  %.not829 = icmp eq i32 %708, %4
+  %.not829 = icmp eq i32 %4, %708
   br i1 %.not829, label %.loopexit, label %709
 
 709:                                              ; preds = %706

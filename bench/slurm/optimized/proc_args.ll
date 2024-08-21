@@ -902,7 +902,7 @@ define range(i64 -2, -9223372036854775808) i64 @str_to_mbytes(ptr noundef %0) lo
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %9 = icmp eq ptr %8, %0
+  %9 = icmp eq ptr %0, %8
   %10 = icmp slt i64 %4, 0
   %or.cond18 = select i1 %9, i1 true, i1 %10
   br i1 %or.cond18, label %_end_on_byte.exit20.thread, label %11
@@ -3101,7 +3101,7 @@ define ptr @signal_opts_to_cmdline(i16 noundef zeroext %0, i16 noundef zeroext %
   %15 = getelementptr inbounds [19 x %struct.anon], ptr @signals_mapping, i64 0, i64 %indvars.iv.next.i
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i16, ptr %16, align 8
-  %18 = icmp eq i16 %17, %0
+  %18 = icmp eq i16 %0, %17
   br i1 %18, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %14
@@ -3153,7 +3153,7 @@ define ptr @sig_num2name(i32 noundef %0) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i16, ptr %5, align 8
   %7 = zext i16 %6 to i32
-  %8 = icmp eq i32 %7, %0
+  %8 = icmp eq i32 %0, %7
   br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %3

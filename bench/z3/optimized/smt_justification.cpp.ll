@@ -1537,7 +1537,7 @@ entry:
 if.then:                                          ; preds = %entry
   %m_true.i = getelementptr inbounds i8, ptr %0, i64 856
   %5 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %5, %4
+  %cmp.i = icmp eq ptr %4, %5
   br i1 %cmp.i, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
@@ -2329,7 +2329,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 if.else:                                          ; preds = %entry
   %.b = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
   %6 = zext i1 %.b to i32
-  %cmp.i4 = icmp eq i32 %6, %l.coerce
+  %cmp.i4 = icmp eq i32 %l.coerce, %6
   br i1 %cmp.i4, label %if.then5, label %if.else9
 
 if.then5:                                         ; preds = %if.else

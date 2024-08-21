@@ -4426,7 +4426,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %entry
 for.body:                                         ; preds = %entry, %for.body
   %__begin1.sroa.0.011 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load float, ptr %__begin1.sroa.0.011, align 8, !tbaa !55
-  %add = fadd nsz float %2, %dtime
+  %add = fadd nsz float %dtime, %2
   store float %add, ptr %__begin1.sroa.0.011, align 8, !tbaa !55
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011, i64 168
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
@@ -4841,7 +4841,7 @@ if.then49:                                        ; preds = %if.end45
   br label %if.end53
 
 if.else50:                                        ; preds = %if.end45
-  %cmp2.not.i.i = icmp sgt i32 %conv.i.i118, %rows
+  %cmp2.not.i.i = icmp slt i32 %rows, %conv.i.i118
   %sub.i.i121 = sub nsw i32 %conv.i.i118, %rows
   %retval.0.i.i122 = select i1 %cmp2.not.i.i, i32 0, i32 %sub.i.i121
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %retval.0.i.i122, i32 %restore_scroll_formatted.2)
@@ -10237,7 +10237,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin1.sroa.0.011.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %0, %entry ]
   %2 = load float, ptr %__begin1.sroa.0.011.i, align 8, !tbaa !55
-  %add.i = fadd nsz float %2, %dtime
+  %add.i = fadd nsz float %dtime, %2
   store float %add.i, ptr %__begin1.sroa.0.011.i, align 8, !tbaa !55
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011.i, i64 168
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
@@ -13284,7 +13284,7 @@ _ZSt19__relocate_object_aIN10ChatPrompt12HistoryEntryES1_SaIS1_EEvPT_PT0_RT1_.ex
 _ZSt14__relocate_a_1IPN10ChatPrompt12HistoryEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt19__relocate_object_aIN10ChatPrompt12HistoryEntryES1_SaIS1_EEvPT_PT0_RT1_.exit.i, %_ZNSt16allocator_traitsISaIN10ChatPrompt12HistoryEntryEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
   %__cur.0.lcssa.i = phi ptr [ %cond.i31, %_ZNSt16allocator_traitsISaIN10ChatPrompt12HistoryEntryEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ], [ %incdec.ptr1.i, %_ZSt19__relocate_object_aIN10ChatPrompt12HistoryEntryES1_SaIS1_EEvPT_PT0_RT1_.exit.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i, i64 72
-  %cmp.not6.i7 = icmp eq ptr %0, %__position.coerce
+  %cmp.not6.i7 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not6.i7, label %_ZSt14__relocate_a_1IPN10ChatPrompt12HistoryEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit49, label %for.body.i8
 
 for.body.i8:                                      ; preds = %_ZSt14__relocate_a_1IPN10ChatPrompt12HistoryEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %_ZSt19__relocate_object_aIN10ChatPrompt12HistoryEntryES1_SaIS1_EEvPT_PT0_RT1_.exit.i30

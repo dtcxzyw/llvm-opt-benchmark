@@ -558,7 +558,7 @@ define void @Aig_ObjCollectMulti_rec(ptr noundef %0, ptr noundef %1, ptr nocaptu
 
 tailrecurse:                                      ; preds = %54, %3
   %.tr23 = phi ptr [ %1, %3 ], [ %.val21, %54 ]
-  %.not = icmp eq ptr %.tr23, %0
+  %.not = icmp eq ptr %0, %.tr23
   br i1 %.not, label %54, label %5
 
 5:                                                ; preds = %tailrecurse
@@ -4044,7 +4044,7 @@ define i64 @Aig_ManRandom64(i32 noundef %0) local_unnamed_addr #14 {
 define void @Aig_ManRandomInfo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 4
   %.val21 = load i32, ptr %5, align 4
-  %6 = icmp sgt i32 %.val21, %1
+  %6 = icmp slt i32 %1, %.val21
   br i1 %6, label %.lr.ph26, label %.critedge
 
 .lr.ph26:                                         ; preds = %4

@@ -199,7 +199,7 @@ define internal fastcc ptr @__lock_timer(i32 noundef %0, ptr nocapture noundef w
   %10 = lshr i64 %9, 32
   %11 = xor i64 %10, %9
   %12 = trunc i64 %11 to i32
-  %13 = xor i32 %12, %0
+  %13 = xor i32 %0, %12
   %14 = mul i32 %13, 1640531527
   %15 = lshr i32 %14, 23
   %16 = zext nneg i32 %15 to i64
@@ -528,8 +528,8 @@ define internal fastcc range(i64 -22, 1) i64 @__se_sys_timer_gettime(i64 noundef
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = lshr i64 %12, 32
-  %14 = xor i64 %13, %0
-  %15 = xor i64 %14, %12
+  %14 = xor i64 %13, %12
+  %15 = xor i64 %14, %0
   %16 = mul i64 %15, 1640531527
   %17 = lshr i64 %16, 23
   %18 = and i64 %17, 511
@@ -654,8 +654,8 @@ define internal fastcc range(i64 -22, 1) i64 @__se_sys_timer_gettime32(i64 nound
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = lshr i64 %12, 32
-  %14 = xor i64 %13, %0
-  %15 = xor i64 %14, %12
+  %14 = xor i64 %13, %12
+  %15 = xor i64 %14, %0
   %16 = mul i64 %15, 1640531527
   %17 = lshr i64 %16, 23
   %18 = and i64 %17, 511
@@ -1355,8 +1355,8 @@ define internal fastcc noundef range(i64 -22, 1) i64 @__se_sys_timer_delete(i64 
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = lshr i64 %10, 32
-  %12 = xor i64 %11, %0
-  %13 = xor i64 %12, %10
+  %12 = xor i64 %11, %10
+  %13 = xor i64 %12, %0
   %14 = mul i64 %13, 1640531527
   %15 = lshr i64 %14, 23
   %16 = and i64 %15, 511
@@ -1994,7 +1994,7 @@ define dso_local i32 @do_clock_adjtime(i32 noundef %0, ptr noundef %1) local_unn
   %10 = zext nneg i32 %0 to i64
   %11 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %10) #8, !srcloc !29
   %12 = trunc i64 %11 to i32
-  %13 = and i32 %12, %0
+  %13 = and i32 %0, %12
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
@@ -3204,7 +3204,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   %12 = zext nneg i32 %0 to i64
   %13 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %12) #8, !srcloc !29
   %14 = trunc i64 %13 to i32
-  %15 = and i32 %14, %0
+  %15 = and i32 %0, %14
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
@@ -3653,7 +3653,7 @@ define internal fastcc range(i32 2, 1) i32 @do_timer_settime(i32 noundef %0, i32
   %30 = lshr i64 %29, 32
   %31 = xor i64 %30, %29
   %32 = trunc i64 %31 to i32
-  %33 = xor i32 %32, %0
+  %33 = xor i32 %0, %32
   %34 = mul i32 %33, 1640531527
   %35 = lshr i32 %34, 23
   %36 = zext nneg i32 %35 to i64

@@ -422,7 +422,7 @@ define hidden noundef ptr @_ZN15G1ServiceThread13wait_for_taskEv(ptr noundef non
 
 6:                                                ; preds = %.lr.ph, %_ZN13MonitorLocker4waitEl.exit
   %7 = load ptr, ptr %5, align 8
-  %8 = icmp eq ptr %7, %4
+  %8 = icmp eq ptr %4, %7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %6
@@ -484,7 +484,7 @@ declare noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr nou
 define hidden noundef zeroext i1 @_ZN18G1ServiceTaskQueue8is_emptyEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = icmp eq ptr %3, %0
+  %4 = icmp eq ptr %0, %3
   ret i1 %4
 }
 

@@ -624,7 +624,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp.i2 = icmp sgt i64 %agg.tmp.sroa.0.0.copyload, %tick_phase.coerce
+  %cmp.i2 = icmp slt i64 %tick_phase.coerce, %agg.tmp.sroa.0.0.copyload
   br i1 %cmp.i2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true

@@ -127,14 +127,14 @@ define void @_ZN3gmx24createSimulationWorkloadERK10t_inputrecbRKNS_23Development
   %55 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 %14, ptr %55, align 1
   %56 = xor i1 %10, true
-  %57 = and i1 %56, %4
+  %57 = and i1 %4, %56
   %58 = getelementptr inbounds i8, ptr %0, i64 13
   %59 = zext i1 %57 to i8
   store i8 %59, ptr %58, align 1
   %60 = getelementptr inbounds i8, ptr %0, i64 14
   store i8 %18, ptr %60, align 1
   %61 = icmp eq i32 %7, 0
-  %brmerge.not = and i1 %61, %5
+  %brmerge.not = and i1 %5, %61
   br i1 %brmerge.not, label %62, label %63
 
 62:                                               ; preds = %33
@@ -147,11 +147,11 @@ define void @_ZN3gmx24createSimulationWorkloadERK10t_inputrecbRKNS_23Development
   %66 = getelementptr inbounds i8, ptr %0, i64 15
   store i8 %65, ptr %66, align 1
   %spec.select = and i1 %48, %11
-  %spec.select44 = and i1 %spec.select, %5
+  %spec.select44 = and i1 %5, %spec.select
   %67 = getelementptr inbounds i8, ptr %0, i64 17
   %68 = zext i1 %spec.select44 to i8
   store i8 %68, ptr %67, align 1
-  %69 = xor i1 %spec.select44, %5
+  %69 = xor i1 %5, %spec.select44
   %70 = getelementptr inbounds i8, ptr %0, i64 16
   %71 = zext i1 %69 to i8
   store i8 %71, ptr %70, align 1
@@ -172,7 +172,7 @@ define void @_ZN3gmx24createSimulationWorkloadERK10t_inputrecbRKNS_23Development
   %82 = trunc nuw i8 %73 to i1
   %83 = load i8, ptr %3, align 1
   %84 = trunc i8 %83 to i1
-  %85 = or i1 %84, %9
+  %85 = or i1 %9, %84
   %brmerge39 = select i1 %85, i1 true, i1 %82
   %86 = xor i8 %81, 1
   %87 = select i1 %brmerge39, i8 %86, i8 0
@@ -187,9 +187,9 @@ define void @_ZN3gmx24createSimulationWorkloadERK10t_inputrecbRKNS_23Development
   %brmerge46 = or i1 %spec.select, %.not45
   %93 = and i1 %brmerge46, %92
   %.not47 = xor i1 %4, true
-  %brmerge48 = or i1 %.not47, %10
+  %brmerge48 = or i1 %10, %.not47
   %94 = and i1 %brmerge48, %93
-  %or.cond49 = and i1 %94, %9
+  %or.cond49 = and i1 %9, %94
   %95 = zext i1 %or.cond49 to i8
   %96 = getelementptr inbounds i8, ptr %0, i64 22
   store i8 %95, ptr %96, align 1

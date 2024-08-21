@@ -213,7 +213,7 @@ define void @rb_Digest_SHA256_Update(ptr nocapture noundef %0, ptr nocapture nou
 11:                                               ; preds = %5
   %12 = sub nuw nsw i32 64, %10
   %13 = zext nneg i32 %12 to i64
-  %.not42 = icmp ugt i64 %13, %2
+  %.not42 = icmp ult i64 %2, %13
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = zext nneg i32 %10 to i64
   %16 = getelementptr inbounds [64 x i8], ptr %14, i64 0, i64 %15
@@ -715,7 +715,7 @@ define void @rb_Digest_SHA512_Update(ptr nocapture noundef %0, ptr nocapture nou
 11:                                               ; preds = %5
   %12 = sub nuw nsw i32 128, %10
   %13 = zext nneg i32 %12 to i64
-  %.not53 = icmp ugt i64 %13, %2
+  %.not53 = icmp ult i64 %2, %13
   %14 = getelementptr inbounds i8, ptr %0, i64 80
   %15 = zext nneg i32 %10 to i64
   %16 = getelementptr inbounds [128 x i8], ptr %14, i64 0, i64 %15

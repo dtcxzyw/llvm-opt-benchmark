@@ -356,8 +356,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(40) ptr @"_ZN9has
 
 43:                                               ; preds = %63, %9
   %.sroa.9.0.i.i.i = phi i64 [ 0, %9 ], [ %64, %63 ]
-  %.pn.i = phi i64 [ %39, %9 ], [ %65, %63 ]
-  %.sroa.01.0.i.i.i = and i64 %.pn.i, %.val5
+  %.pn.i.i.i = phi i64 [ %39, %9 ], [ %65, %63 ]
+  %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %.val5
   %44 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i25.i.i = load <16 x i8>, ptr %44, align 1, !noalias !79
   %45 = icmp eq <16 x i8> %.0.copyload.i25.i.i, %.15.vec.insert.i.i.i

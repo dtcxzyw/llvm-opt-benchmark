@@ -18160,7 +18160,7 @@ _ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %11
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %14, i64 64
   %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, %3
+  %27 = icmp eq ptr %3, %26
   br i1 %27, label %.loopexit.i.i, label %28
 
 28:                                               ; preds = %24
@@ -18263,7 +18263,7 @@ _ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit7: ; preds = %66
 78:                                               ; preds = %76
   %79 = getelementptr inbounds i8, ptr %69, i64 24
   %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %80, %2
+  %81 = icmp eq ptr %2, %80
   br i1 %81, label %.loopexit.i.i13, label %82
 
 82:                                               ; preds = %78
@@ -25694,7 +25694,7 @@ _ZSt10_ConstructIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFiel
           catch ptr null
   %203 = extractvalue { ptr, i32 } %202, 0
   %204 = call ptr @__cxa_begin_catch(ptr %203) #25
-  %.not4.i.i.i.i.i.i.i107 = icmp eq ptr %.014.i.i.i.i.i105, %191
+  %.not4.i.i.i.i.i.i.i107 = icmp eq ptr %191, %.014.i.i.i.i.i105
   br i1 %.not4.i.i.i.i.i.i.i107, label %_ZSt8_DestroyIPN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvT_SA_.exit.i.i.i.i.i112, label %.lr.ph.i.i.i.i.i.i.i108
 
 .lr.ph.i.i.i.i.i.i.i108:                          ; preds = %201, %_ZSt8_DestroyIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvPT_.exit.i.i.i.i.i.i.i110
@@ -25817,7 +25817,7 @@ _ZSt10_ConstructIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFiel
           catch ptr null
   %247 = extractvalue { ptr, i32 } %246, 0
   %248 = call ptr @__cxa_begin_catch(ptr %247) #25
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i.i, %235
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %235, %.014.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvT_SA_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %245, %_ZSt8_DestroyIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvPT_.exit.i.i.i.i.i.i.i
@@ -29301,7 +29301,7 @@ _ZSt10_ConstructIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFiel
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #25
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvT_SA_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %28, %_ZSt8_DestroyIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvPT_.exit.i.i.i.i.i.i
@@ -29587,7 +29587,7 @@ _ZNSt12_Vector_baseIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeF
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %.0913.i.i.i.i.i, i64 8
   call void %54(ptr noundef nonnull %49, ptr noundef nonnull %55)
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %4, %.0814.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %.0814.i.i.i.i.i, %4
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEaSEOS7_.exit.i.i.i.i.i.i, label %56
 
 56:                                               ; preds = %50
@@ -29712,7 +29712,7 @@ _ZSt8_DestroyIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldEN
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %.0913.i.i.i.i.i33, i64 8
   call void %106(ptr noundef nonnull %101, ptr noundef nonnull %107)
-  %.not.i.i.i.i.i.i.i34 = icmp eq ptr %3, %.0814.i.i.i.i.i32
+  %.not.i.i.i.i.i.i.i34 = icmp eq ptr %.0814.i.i.i.i.i32, %3
   br i1 %.not.i.i.i.i.i.i.i34, label %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEEaSEOS7_.exit.i.i.i.i.i.i37, label %108
 
 108:                                              ; preds = %102
@@ -29816,7 +29816,7 @@ _ZSt10_ConstructIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFiel
           catch ptr null
   %152 = extractvalue { ptr, i32 } %151, 0
   %153 = call ptr @__cxa_begin_catch(ptr %152) #25
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %139
+  %.not4.i.i.i.i.i.i = icmp eq ptr %139, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvT_SA_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %150, %_ZSt8_DestroyIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvPT_.exit.i.i.i.i.i.i
@@ -29927,7 +29927,7 @@ _ZSt10_ConstructIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFiel
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #25
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %13
+  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvT_SA_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %_ZSt8_DestroyIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvPT_.exit.i.i.i.i.i.i
@@ -30170,7 +30170,7 @@ _ZSt10_ConstructIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFiel
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   %26 = tail call ptr @__cxa_begin_catch(ptr %25) #25
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %12
+  %.not4.i.i.i.i.i.i = icmp eq ptr %12, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvT_SA_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %23, %_ZSt8_DestroyIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvPT_.exit.i.i.i.i.i.i
@@ -30290,7 +30290,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau19ApplyMappedGenerics7
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %_ZNK4Luau12DenseHashMapIPKNS_4TypeENS_20SubtypingEnvironment13GenericBoundsENS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit, label %12
 
 12:                                               ; preds = %8
@@ -30338,7 +30338,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau19ApplyMappedGenerics7
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %_ZNK4Luau12DenseHashMapIPKNS_11TypePackVarES3_NS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit, label %12
 
 12:                                               ; preds = %8
@@ -33080,7 +33080,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #25
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -33194,7 +33194,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = tail call ptr @__cxa_begin_catch(ptr %28) #25
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeEEEvT_SD_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %26, %.lr.ph.i.i.i.i.i.i
@@ -33278,7 +33278,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %.0913, i64 56
   call void %20(ptr noundef nonnull %10, ptr noundef nonnull %21)
-  %.not.i.i.i = icmp eq ptr %4, %15
+  %.not.i.i.i = icmp eq ptr %15, %4
   br i1 %.not.i.i.i, label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereC, label %22
 
 22:                                               ; preds = %11
@@ -34447,7 +34447,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %.0913, i64 56
   call void %20(ptr noundef nonnull %10, ptr noundef nonnull %21)
-  %.not.i.i.i = icmp eq ptr %4, %15
+  %.not.i.i.i = icmp eq ptr %15, %4
   br i1 %.not.i.i.i, label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereC, label %22
 
 22:                                               ; preds = %11
@@ -34603,7 +34603,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(82) ptr @_
 
 4:                                                ; preds = %2
   call void @_ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfaceSetIS2_EENS_22SubtypingReasoningHashESt8equal_toIS2_EEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(82) %3, ptr noundef nonnull align 8 dereferenceable(82) %1)
-  %.not.i = icmp eq ptr %3, %0
+  %.not.i = icmp eq ptr %0, %3
   br i1 %.not.i, label %_ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfaceSetIS2_EENS_22SubtypingReasoningHashESt8equal_toIS2_EEaSEOS8_.exit, label %5
 
 5:                                                ; preds = %4
@@ -37429,7 +37429,7 @@ _ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; pr
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #25
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %23
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %27, %.lr.ph.i.i.i.i.i.i.i
@@ -37467,7 +37467,7 @@ _ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph
 _ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN4Luau15SubtypingResultEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN4Luau15SubtypingResultEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %_ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 120
-  %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit43, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %_ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i37
@@ -37815,7 +37815,7 @@ _ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; pr
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
   %60 = tail call ptr @__cxa_begin_catch(ptr %59) #25
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %23
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %57, %.lr.ph.i.i.i.i.i.i.i
@@ -37848,7 +37848,7 @@ _ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph
 _ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %51
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %51 ], [ %56, %_ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 120
-  %.not14.i.i.i.i.i31 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i31 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i31, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit45, label %.lr.ph.i.i.i.i.i32
 
 .lr.ph.i.i.i.i.i32:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %_ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i40
@@ -40136,7 +40136,7 @@ _ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; pr
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
   %40 = tail call ptr @__cxa_begin_catch(ptr %39) #25
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %22
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %22, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %37, %.lr.ph.i.i.i.i.i.i.i
@@ -40169,7 +40169,7 @@ _ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph
 _ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %32
   %.0.lcssa.i.i.i.i.i = phi ptr [ %22, %32 ], [ %36, %_ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 120
-  %.not14.i.i.i.i.i30 = icmp eq ptr %4, %1
+  %.not14.i.i.i.i.i30 = icmp eq ptr %1, %4
   br i1 %.not14.i.i.i.i.i30, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit44, label %.lr.ph.i.i.i.i.i31
 
 .lr.ph.i.i.i.i.i31:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %_ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i39

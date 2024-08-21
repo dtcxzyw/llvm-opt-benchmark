@@ -479,7 +479,7 @@ define internal noundef i32 @xhci_pci_poweroff_late(ptr noundef %0, i1 noundef z
   %61 = load i8, ptr %60, align 8
   %62 = and i8 %61, 1
   %63 = icmp ne i8 %62, 0
-  %64 = and i1 %63, %1
+  %64 = and i1 %1, %63
   br i1 %64, label %69, label %65
 
 65:                                               ; preds = %57

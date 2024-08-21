@@ -222,18 +222,18 @@ entry:
   %0 = load ptr, ptr %_level.i, align 8
   %_dataWindow.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %_dataWindow.i, align 4
-  %cmp = icmp sgt i32 %1, %x
+  %cmp = icmp slt i32 %x, %1
   %max = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i32, ptr %max, align 4
-  %cmp5 = icmp slt i32 %2, %x
+  %cmp5 = icmp sgt i32 %x, %2
   %or.cond = select i1 %cmp, i1 true, i1 %cmp5
   %y8 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %y8, align 4
-  %cmp9 = icmp sgt i32 %3, %y
+  %cmp9 = icmp slt i32 %y, %3
   %or.cond20 = select i1 %or.cond, i1 true, i1 %cmp9
   %y12 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i32, ptr %y12, align 4
-  %cmp13 = icmp slt i32 %4, %y
+  %cmp13 = icmp sgt i32 %y, %4
   %or.cond21 = select i1 %or.cond20, i1 true, i1 %cmp13
   br i1 %or.cond21, label %do.body, label %if.end
 

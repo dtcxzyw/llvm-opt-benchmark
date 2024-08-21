@@ -50531,7 +50531,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.llvm.18141
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -70100,7 +70100,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i: ; preds = %26
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !alias.scope !9748, !noalias !9746, !noundef !10
   %47 = sub i64 %46, %44
-  %48 = icmp ult i64 %47, %42
+  %48 = icmp ugt i64 %42, %47
   br i1 %48, label %49, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3be6e5d26155f5E.exit.i"
 
 49:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
@@ -70154,7 +70154,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !9761, !noalias !9759, !noundef !10
   %8 = sub i64 %7, %5
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3be6e5d26155f5E.exit"
 
 10:                                               ; preds = %3
@@ -71077,7 +71077,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hadcdc284f2479f2cE(ptr noa
   %31 = load ptr, ptr %1, align 8, !alias.scope !9879, !nonnull !10, !align !98, !noundef !10
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load i64, ptr %32, align 8, !alias.scope !9879, !noundef !10
-  %34 = icmp ult i64 %28, %33
+  %34 = icmp ugt i64 %33, %28
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %25
@@ -71264,7 +71264,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hadcdc284f2479f2cE(ptr noa
   %.val.i157 = load ptr, ptr %.sroa.0225.0309, align 8, !alias.scope !9976, !noalias !9979, !nonnull !10, !align !98, !noundef !10
   %88 = getelementptr i8, ptr %.sroa.0225.0309, i64 8
   %.val3.i158 = load i64, ptr %88, align 8, !alias.scope !9976, !noalias !9979, !noundef !10
-  %.not.i162 = icmp ult i64 %.sroa.27.0311, %4
+  %.not.i162 = icmp ugt i64 %4, %.sroa.27.0311
   br i1 %.not.i162, label %.invoke, label %89
 
 89:                                               ; preds = %.lr.ph312
@@ -71361,7 +71361,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17he1e05baa98b42b42E(ptr noa
   %31 = load ptr, ptr %1, align 8, !alias.scope !9997, !nonnull !10, !noundef !10
   %32 = getelementptr inbounds i8, ptr %1, i64 16
   %33 = load i64, ptr %32, align 8, !alias.scope !9997, !noundef !10
-  %34 = icmp ult i64 %28, %33
+  %34 = icmp ugt i64 %33, %28
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %25
@@ -71548,7 +71548,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17he1e05baa98b42b42E(ptr noa
   %.val.i157 = load ptr, ptr %.sroa.0225.0309, align 8, !alias.scope !10094, !noalias !10097, !nonnull !10, !noundef !10
   %88 = getelementptr i8, ptr %.sroa.0225.0309, i64 16
   %.val3.i158 = load i64, ptr %88, align 8, !alias.scope !10094, !noalias !10097, !noundef !10
-  %.not.i162 = icmp ult i64 %.sroa.27.0311, %4
+  %.not.i162 = icmp ugt i64 %4, %.sroa.27.0311
   br i1 %.not.i162, label %.invoke, label %89
 
 89:                                               ; preds = %.lr.ph312
@@ -88397,7 +88397,7 @@ define void @"_ZN9ockam_api9cli_state8journeys8journeys59_$LT$impl$u20$ockam_api
   %.0.i = select i1 %77, i64 %79, i64 %81
   %82 = getelementptr inbounds i8, ptr %67, i64 16
   %83 = load i64, ptr %82, align 8, !alias.scope !12487, !noalias !12490, !noundef !10
-  %84 = icmp ult i64 %83, %.0.i
+  %84 = icmp ugt i64 %.0.i, %83
   br i1 %84, label %85, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hca3551e0c335de53E.llvm.18105196424206627646.exit.i"
 
 85:                                               ; preds = %.noexc

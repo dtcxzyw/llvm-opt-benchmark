@@ -652,7 +652,7 @@ define ptr @wtap_file_get_shb(ptr noundef readonly %0, i32 noundef %1) local_unn
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load i32, ptr %9, align 8
-  %.not = icmp ugt i32 %10, %1
+  %.not = icmp ult i32 %1, %10
   br i1 %.not, label %11, label %16
 
 11:                                               ; preds = %8
@@ -681,7 +681,7 @@ define i32 @wtap_file_get_shb_global_interface_id(ptr noundef readonly %0, i32 n
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load i32, ptr %10, align 8
-  %.not = icmp ugt i32 %11, %1
+  %.not = icmp ult i32 %1, %11
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %3, %5, %9
@@ -868,7 +868,7 @@ define ptr @wtap_file_get_dsb(ptr noundef readonly %0, i32 noundef %1) local_unn
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load i32, ptr %9, align 8
-  %.not = icmp ugt i32 %10, %1
+  %.not = icmp ult i32 %1, %10
   br i1 %.not, label %11, label %16
 
 11:                                               ; preds = %8
@@ -1095,7 +1095,7 @@ define ptr @wtap_get_debug_if_descr(ptr noundef %0, i32 noundef %1, ptr noundef 
   %23 = load i32, ptr %10, align 8
   %24 = icmp sgt i32 %23, -3
   %25 = load i32, ptr @wtap_num_encap_types, align 4
-  %.not.i = icmp sgt i32 %25, %23
+  %.not.i = icmp slt i32 %23, %25
   %or.cond.i = select i1 %24, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %26, label %wtap_encap_name.exit
 
@@ -1279,7 +1279,7 @@ declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unname
 define ptr @wtap_encap_description(i32 noundef %0) local_unnamed_addr #3 {
   %2 = icmp sgt i32 %0, -3
   %3 = load i32, ptr @wtap_num_encap_types, align 4
-  %.not = icmp sgt i32 %3, %0
+  %.not = icmp slt i32 %0, %3
   %or.cond = select i1 %2, i1 %.not, i1 false
   br i1 %or.cond, label %4, label %12
 
@@ -1309,7 +1309,7 @@ define ptr @wtap_encap_description(i32 noundef %0) local_unnamed_addr #3 {
 define ptr @wtap_encap_name(i32 noundef %0) local_unnamed_addr #3 {
   %2 = icmp sgt i32 %0, -3
   %3 = load i32, ptr @wtap_num_encap_types, align 4
-  %.not = icmp sgt i32 %3, %0
+  %.not = icmp slt i32 %0, %3
   %or.cond = select i1 %2, i1 %.not, i1 false
   br i1 %or.cond, label %4, label %12
 
@@ -2576,7 +2576,7 @@ wtap_file_size.exit:                              ; preds = %6, %10
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, -3
   %26 = load i32, ptr @wtap_num_encap_types, align 4
-  %.not.i = icmp sgt i32 %26, %24
+  %.not.i = icmp slt i32 %24, %26
   %or.cond.i = select i1 %25, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %27, label %wtap_encap_name.exit
 
@@ -2623,7 +2623,7 @@ wtap_encap_name.exit:                             ; preds = %22, %27, %28, %29
   %45 = load i32, ptr %44, align 8
   %46 = icmp sgt i32 %45, -3
   %47 = load i32, ptr @wtap_num_encap_types, align 4
-  %.not.i45 = icmp sgt i32 %47, %45
+  %.not.i45 = icmp slt i32 %45, %47
   %or.cond.i46 = select i1 %46, i1 %.not.i45, i1 false
   br i1 %or.cond.i46, label %48, label %wtap_encap_name.exit48
 

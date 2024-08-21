@@ -316,7 +316,7 @@ define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noun
 22:                                               ; preds = %19
   %23 = tail call i32 %17() #6
   %.not79 = icmp eq i32 %1, 3
-  %.not80 = icmp eq i32 %23, %1
+  %.not80 = icmp eq i32 %1, %23
   %or.cond = select i1 %.not79, i1 true, i1 %.not80
   br i1 %or.cond, label %24, label %103
 

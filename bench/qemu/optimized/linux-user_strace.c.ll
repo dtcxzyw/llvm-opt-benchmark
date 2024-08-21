@@ -3117,7 +3117,7 @@ if.then4.i:                                       ; preds = %if.then4.i.loopexit
   %.lcssa17 = phi ptr [ @.str.515, %for.body.i.preheader ], [ %1, %if.then4.i.loopexit ]
   %.lcssa = phi i64 [ -49153, %for.body.i.preheader ], [ %3, %if.then4.i.loopexit ]
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef nonnull %.lcssa17, ptr noundef nonnull @.str.18) #9
-  %and7.i = and i64 %.lcssa, %arg2
+  %and7.i = and i64 %arg2, %.lcssa
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.then4.i
@@ -4212,7 +4212,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   %1 = load i32, ptr %ie.0, align 8
   %cmp.not = icmp eq i32 %1, 0
   %conv = sext i32 %1 to i64
-  %cmp2 = icmp eq i64 %conv, %arg1
+  %cmp2 = icmp eq i64 %arg1, %conv
   %or.cond = or i1 %cmp.not, %cmp2
   %incdec.ptr = getelementptr i8, ptr %ie.0, i64 56
   br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !14
@@ -4401,7 +4401,7 @@ for.cond:                                         ; preds = %for.cond, %if.then
   %1 = load i32, ptr %ie.0, align 8
   %cmp.not = icmp eq i32 %1, 0
   %conv = sext i32 %1 to i64
-  %cmp2 = icmp eq i64 %conv, %arg1
+  %cmp2 = icmp eq i64 %arg1, %conv
   %or.cond = or i1 %cmp.not, %cmp2
   %incdec.ptr = getelementptr i8, ptr %ie.0, i64 56
   br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !15
@@ -4954,7 +4954,7 @@ if.then4.i:                                       ; preds = %if.then4.i.loopexit
   %.lcssa7 = phi ptr [ @.str.515, %for.body.i.preheader ], [ %1, %if.then4.i.loopexit ]
   %.lcssa = phi i64 [ -49153, %for.body.i.preheader ], [ %3, %if.then4.i.loopexit ]
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef nonnull %.lcssa7, ptr noundef nonnull @.str.18) #9
-  %and7.i = and i64 %.lcssa, %arg2
+  %and7.i = and i64 %arg2, %.lcssa
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.then4.i
@@ -5054,7 +5054,7 @@ if.then4.i:                                       ; preds = %if.then4.i.loopexit
   %.lcssa13 = phi ptr [ @.str.515, %for.body.i.preheader ], [ %1, %if.then4.i.loopexit ]
   %.lcssa = phi i64 [ -49153, %for.body.i.preheader ], [ %3, %if.then4.i.loopexit ]
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef nonnull %.lcssa13, ptr noundef nonnull @.str.18) #9
-  %and7.i = and i64 %.lcssa, %arg2
+  %and7.i = and i64 %arg2, %.lcssa
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.then4.i
@@ -5594,7 +5594,7 @@ if.then4.i:                                       ; preds = %if.then4.i.loopexit
   %.lcssa8 = phi ptr [ @.str.515, %for.body.i.preheader ], [ %2, %if.then4.i.loopexit ]
   %.lcssa = phi i64 [ -49153, %for.body.i.preheader ], [ %4, %if.then4.i.loopexit ]
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef nonnull %.lcssa8, ptr noundef nonnull @.str.18) #9
-  %and7.i = and i64 %.lcssa, %arg2
+  %and7.i = and i64 %arg2, %.lcssa
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.then4.i
@@ -5876,7 +5876,7 @@ if.then4.i:                                       ; preds = %if.then4.i.loopexit
   %.lcssa9 = phi ptr [ @.str.515, %for.body.i.preheader ], [ %2, %if.then4.i.loopexit ]
   %.lcssa = phi i64 [ -49153, %for.body.i.preheader ], [ %4, %if.then4.i.loopexit ]
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef nonnull %.lcssa9, ptr noundef nonnull @.str.18) #9
-  %and7.i = and i64 %.lcssa, %arg3
+  %and7.i = and i64 %arg3, %.lcssa
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.then4.i

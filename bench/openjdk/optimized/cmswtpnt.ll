@@ -31,7 +31,7 @@ declare void @cmsXYZ2xyY(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @cmsWhitePointFromTemp(ptr nocapture noundef writeonly %0, double noundef %1) local_unnamed_addr #1 {
   %3 = fmul double %1, %1
-  %4 = fmul double %3, %1
+  %4 = fmul double %1, %3
   %5 = fcmp oge double %1, 4.000000e+03
   %6 = fcmp ole double %1, 7.000000e+03
   %or.cond = and i1 %5, %6

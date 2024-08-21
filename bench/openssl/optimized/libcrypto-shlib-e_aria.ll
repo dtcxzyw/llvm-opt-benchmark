@@ -427,7 +427,7 @@ entry:
   %block_size = getelementptr inbounds i8, ptr %call, i64 4
   %0 = load i32, ptr %block_size, align 4
   %conv = sext i32 %0 to i64
-  %cmp = icmp ugt i64 %conv, %inl
+  %cmp = icmp ult i64 %inl, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -600,7 +600,7 @@ entry:
   %block_size = getelementptr inbounds i8, ptr %call, i64 4
   %0 = load i32, ptr %block_size, align 4
   %conv = sext i32 %0 to i64
-  %cmp = icmp ugt i64 %conv, %inl
+  %cmp = icmp ult i64 %inl, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -773,7 +773,7 @@ entry:
   %block_size = getelementptr inbounds i8, ptr %call, i64 4
   %0 = load i32, ptr %block_size, align 4
   %conv = sext i32 %0 to i64
-  %cmp = icmp ugt i64 %conv, %inl
+  %cmp = icmp ult i64 %inl, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1382,7 +1382,7 @@ if.end:                                           ; preds = %sw.bb5
 land.lhs.true:                                    ; preds = %if.end
   %ivlen7 = getelementptr inbounds i8, ptr %call, i64 744
   %2 = load i32, ptr %ivlen7, align 8
-  %cmp8 = icmp slt i32 %2, %arg
+  %cmp8 = icmp sgt i32 %arg, %2
   br i1 %cmp8, label %if.then9, label %if.end23
 
 if.then9:                                         ; preds = %land.lhs.true
@@ -1519,7 +1519,7 @@ if.end97:                                         ; preds = %lor.lhs.false92
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %gcm, ptr noundef %15, i64 noundef %conv100) #6
   %cmp101 = icmp slt i32 %arg, 1
   %.pre = load i32, ptr %ivlen99, align 8
-  %17 = tail call i32 @llvm.smin.i32(i32 %.pre, i32 %arg)
+  %17 = tail call i32 @llvm.smin.i32(i32 %arg, i32 %.pre)
   %arg.addr.0 = select i1 %cmp101, i32 %.pre, i32 %17
   %18 = load ptr, ptr %iv98, align 8
   %idx.ext112 = sext i32 %.pre to i64
@@ -1807,7 +1807,7 @@ lor.lhs.false.i:                                  ; preds = %if.then2
   %2 = load i32, ptr %M.i, align 4
   %conv.i = sext i32 %2 to i64
   %add.i = add nsw i64 %conv.i, 8
-  %cmp2.i = icmp ugt i64 %add.i, %len
+  %cmp2.i = icmp ult i64 %len, %add.i
   br i1 %cmp2.i, label %aria_ccm_tls_cipher.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i

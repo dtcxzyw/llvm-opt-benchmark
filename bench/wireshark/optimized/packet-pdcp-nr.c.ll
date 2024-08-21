@@ -2431,7 +2431,7 @@ proto_item_set_generated.exit425:                 ; preds = %proto_item_set_gene
   %663 = add i32 %662, 1
   %664 = add nsw i32 %.090.i, -1
   %665 = and i32 %663, %664
-  %666 = icmp eq i32 %665, %592
+  %666 = icmp eq i32 %592, %665
   %667 = zext i1 %666 to i32
   store i32 %667, ptr %646, align 4
   %668 = getelementptr inbounds i8, ptr %.0.i, i64 8
@@ -2983,7 +2983,7 @@ proto_item_set_generated.exit198.i:               ; preds = %939, %936, %929
   %972 = getelementptr [32 x %struct.key_entry_t], ptr %957, i64 0, i64 %indvars.iv.next.i.i
   %973 = getelementptr inbounds i8, ptr %972, i64 36
   %974 = load i32, ptr %973, align 4
-  %975 = icmp ult i32 %974, %944
+  %975 = icmp ugt i32 %944, %974
   br i1 %975, label %976, label %1010
 
 976:                                              ; preds = %971

@@ -634,7 +634,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx1
 
 140:                                              ; preds = %134
   %141 = shl nsw i32 %137, 2
-  %.not.i.i.i = icmp slt i32 %137, %141
+  %.not.i.i.i = icmp sgt i32 %141, %137
   br i1 %.not.i.i.i, label %142, label %150
 
 142:                                              ; preds = %140
@@ -774,7 +774,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i53.i: ; preds = %173
 
 200:                                              ; preds = %196
   %201 = shl nsw i32 %197, 2
-  %.not.i.i63.i = icmp slt i32 %197, %201
+  %.not.i.i63.i = icmp sgt i32 %201, %197
   br i1 %.not.i.i63.i, label %202, label %210
 
 202:                                              ; preds = %200
@@ -814,7 +814,7 @@ _ZN4pkpy6py_varINS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit.i: ; p
 
 219:                                              ; preds = %_ZN4pkpy6py_varINS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit.i
   %220 = shl nsw i32 %36, 2
-  %.not.i.i69.i = icmp slt i32 %36, %220
+  %.not.i.i69.i = icmp sgt i32 %220, %36
   br i1 %.not.i.i69.i, label %221, label %228
 
 221:                                              ; preds = %219
@@ -1143,7 +1143,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -1182,7 +1182,7 @@ _ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessItESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 2 dereferenceable(2) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -1997,7 +1997,7 @@ _ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %._crit_e
 
 108:                                              ; preds = %_ZN4pkpy6py_varINS_4DictEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
   %109 = shl nsw i32 %74, 2
-  %.not.i.i.i = icmp slt i32 %74, %109
+  %.not.i.i.i = icmp sgt i32 %109, %74
   br i1 %.not.i.i.i, label %110, label %117
 
 110:                                              ; preds = %108
@@ -2140,95 +2140,95 @@ define linkonce_odr noundef ptr @_ZNK4pkpy12NameDictImplIPNS_8PyObjectEEixENS_7S
   %37 = icmp eq i16 %27, 0
   br i1 %37, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.lr.ph.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i
-  %38 = icmp eq i16 %43, %1
-  br i1 %38, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !12
-
 .lr.ph.i.i:                                       ; preds = %36, %.lr.ph.i.i.i
-  %.011.i9.i.i = phi i16 [ %40, %.lr.ph.i.i.i ], [ %22, %36 ]
-  %39 = add i16 %.011.i9.i.i, 1
-  %40 = and i16 %39, %21
-  %41 = zext i16 %40 to i64
-  %42 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %24, i64 %41
-  %43 = load i16, ptr %42, align 2
-  %44 = icmp eq i16 %43, 0
-  br i1 %44, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !12
+  %.012.i9.i.i = phi i16 [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %22, %36 ]
+  %38 = add i16 %.012.i9.i.i, 1
+  %.0.i.i.i = and i16 %38, %21
+  %39 = zext i16 %.0.i.i.i to i64
+  %40 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %24, i64 %39
+  %41 = load i16, ptr %40, align 2
+  %42 = icmp eq i16 %41, 0
+  br i1 %42, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !12
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i
+  %43 = icmp eq i16 %41, %1
+  br i1 %43, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i: ; preds = %.lr.ph.i.i.i, %29, %19
-  %.lcssa12.sink.i.i = phi i64 [ %25, %19 ], [ %32, %29 ], [ %41, %.lr.ph.i.i.i ]
-  %45 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %24, i64 %.lcssa12.sink.i.i, i32 1
+  %.lcssa12.sink.i.i = phi i64 [ %25, %19 ], [ %32, %29 ], [ %39, %.lr.ph.i.i.i ]
+  %44 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %24, i64 %.lcssa12.sink.i.i, i32 1
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit: ; preds = %16, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i
-  %.sink.i = phi ptr [ %45, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i ], [ %18, %16 ]
-  %46 = load ptr, ptr %.sink.i, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %61
+  %.sink.i = phi ptr [ %44, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i ], [ %18, %16 ]
+  %45 = load ptr, ptr %.sink.i, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %60
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread: ; preds = %.lr.ph.i.i, %11, %36, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit
-  %48 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+  %47 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   invoke void @_ZNK4pkpy7StrName6escapeEv(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %6, ptr noundef nonnull align 2 dereferenceable(2) %3)
-          to label %49 unwind label %.thread
+          to label %48 unwind label %.thread
 
-49:                                               ; preds = %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread
+48:                                               ; preds = %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread
   invoke void @_ZN4pkpy2_SIJRA25_KcNS_3StrEEEES4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %5, ptr noundef nonnull align 1 dereferenceable(25) @.str.16, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %50 unwind label %.thread19
+          to label %49 unwind label %.thread19
+
+49:                                               ; preds = %48
+  invoke void @_ZNK4pkpy3Str3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %50 unwind label %54
 
 50:                                               ; preds = %49
-  invoke void @_ZNK4pkpy3Str3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %51 unwind label %55
+  invoke void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %51 unwind label %56
 
 51:                                               ; preds = %50
-  invoke void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %52 unwind label %57
-
-52:                                               ; preds = %51
-  invoke void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
-          to label %63 unwind label %57
+  invoke void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
+          to label %62 unwind label %56
 
 .thread:                                          ; preds = %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  br label %59
+
+.thread19:                                        ; preds = %48
   %53 = landingpad { ptr, i32 }
           cleanup
-  br label %60
-
-.thread19:                                        ; preds = %49
-  %54 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  br label %60
-
-55:                                               ; preds = %50
-  %56 = landingpad { ptr, i32 }
-          cleanup
   br label %59
 
-57:                                               ; preds = %52, %51
-  %.0 = phi i1 [ false, %52 ], [ true, %51 ]
-  %58 = landingpad { ptr, i32 }
+54:                                               ; preds = %49
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  br label %58
+
+56:                                               ; preds = %51, %50
+  %.0 = phi i1 [ false, %51 ], [ true, %50 ]
+  %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  br label %59
+  br label %58
 
-59:                                               ; preds = %55, %57
-  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
-  %.3 = phi i1 [ %.0, %57 ], [ true, %55 ]
+58:                                               ; preds = %54, %56
+  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
+  %.3 = phi i1 [ %.0, %56 ], [ true, %54 ]
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  br i1 %.3, label %60, label %62
+  br i1 %.3, label %59, label %61
 
-60:                                               ; preds = %.thread19, %.thread, %59
-  %.pn.pn.pn18 = phi { ptr, i32 } [ %53, %.thread ], [ %.pn, %59 ], [ %54, %.thread19 ]
-  call void @__cxa_free_exception(ptr %48) #17
-  br label %62
+59:                                               ; preds = %.thread19, %.thread, %58
+  %.pn.pn.pn18 = phi { ptr, i32 } [ %52, %.thread ], [ %.pn, %58 ], [ %53, %.thread19 ]
+  call void @__cxa_free_exception(ptr %47) #17
+  br label %61
 
-61:                                               ; preds = %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit
-  ret ptr %46
+60:                                               ; preds = %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit
+  ret ptr %45
 
-62:                                               ; preds = %59, %60
-  %.pn.pn.pn17 = phi { ptr, i32 } [ %.pn, %59 ], [ %.pn.pn.pn18, %60 ]
+61:                                               ; preds = %58, %59
+  %.pn.pn.pn17 = phi { ptr, i32 } [ %.pn, %58 ], [ %.pn.pn.pn18, %59 ]
   resume { ptr, i32 } %.pn.pn.pn17
 
-63:                                               ; preds = %52
+62:                                               ; preds = %51
   unreachable
 }
 

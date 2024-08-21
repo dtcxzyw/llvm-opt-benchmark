@@ -302,7 +302,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
-  %cmp.i = icmp ult i64 %1, %num
+  %cmp.i = icmp ugt i64 %num, %1
   br i1 %cmp.i, label %err, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end4
@@ -834,10 +834,10 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 define internal fastcc i64 @sh_actual_size(ptr noundef %ptr) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
-  %cmp.not = icmp ule ptr %0, %ptr
+  %cmp.not = icmp uge ptr %ptr, %0
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %1
-  %cmp1 = icmp ugt ptr %arrayidx, %ptr
+  %cmp1 = icmp ult ptr %ptr, %arrayidx
   %or.cond = select i1 %cmp.not, i1 %cmp1, i1 false
   br i1 %or.cond, label %if.end, label %cond.false
 
@@ -991,10 +991,10 @@ if.end:                                           ; preds = %entry
 
 CRYPTO_secure_allocated.exit:                     ; preds = %if.end
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
-  %cmp.i.i = icmp ugt ptr %0, %ptr
+  %cmp.i.i = icmp ult ptr %ptr, %0
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 %1
-  %cmp1.i.i = icmp ule ptr %arrayidx.i.i, %ptr
+  %cmp1.i.i = icmp uge ptr %ptr, %arrayidx.i.i
   %.not = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
   br i1 %.not, label %if.then1, label %if.end2
 
@@ -1031,10 +1031,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
-  %cmp.i = icmp ule ptr %0, %ptr
+  %cmp.i = icmp uge ptr %ptr, %0
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %1
-  %cmp1.i = icmp ugt ptr %arrayidx.i, %ptr
+  %cmp1.i = icmp ult ptr %ptr, %arrayidx.i
   %2 = select i1 %cmp.i, i1 %cmp1.i, i1 false
   %cond.i = zext i1 %2 to i32
   br label %return
@@ -1052,10 +1052,10 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 define internal fastcc void @sh_free(ptr noundef %ptr) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
-  %cmp1.not = icmp ule ptr %0, %ptr
+  %cmp1.not = icmp uge ptr %ptr, %0
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %1
-  %cmp2 = icmp ugt ptr %arrayidx, %ptr
+  %cmp2 = icmp ult ptr %ptr, %arrayidx
   %or.cond = select i1 %cmp1.not, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.end8, label %cond.false
 
@@ -1529,10 +1529,10 @@ if.end:                                           ; preds = %entry
 
 CRYPTO_secure_allocated.exit:                     ; preds = %if.end
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
-  %cmp.i.i = icmp ugt ptr %0, %ptr
+  %cmp.i.i = icmp ult ptr %ptr, %0
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 %1
-  %cmp1.i.i = icmp ule ptr %arrayidx.i.i, %ptr
+  %cmp1.i.i = icmp uge ptr %ptr, %arrayidx.i.i
   %.not = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
   br i1 %.not, label %if.then1, label %if.end2
 
@@ -1684,10 +1684,10 @@ cond.end31:                                       ; preds = %cond.end22
 define internal fastcc void @sh_add_to_list(ptr noundef %list, ptr noundef %ptr) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
-  %cmp.not = icmp ule ptr %0, %list
+  %cmp.not = icmp uge ptr %list, %0
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %1
-  %cmp1 = icmp ugt ptr %arrayidx, %list
+  %cmp1 = icmp ult ptr %list, %arrayidx
   %or.cond = select i1 %cmp.not, i1 %cmp1, i1 false
   br i1 %or.cond, label %cond.end, label %cond.false
 
@@ -1697,10 +1697,10 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
-  %cmp2.not = icmp ule ptr %2, %ptr
+  %cmp2.not = icmp uge ptr %ptr, %2
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %2, i64 %3
-  %cmp5 = icmp ugt ptr %arrayidx4, %ptr
+  %cmp5 = icmp ult ptr %ptr, %arrayidx4
   %or.cond21 = select i1 %cmp2.not, i1 %cmp5, i1 false
   br i1 %or.cond21, label %cond.end8, label %cond.false7
 

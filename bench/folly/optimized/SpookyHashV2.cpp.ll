@@ -656,7 +656,7 @@ entry:
   %m_remainder = getelementptr inbounds i8, ptr %this, i64 296
   %0 = load i8, ptr %m_remainder, align 8, !tbaa !19
   %conv = zext i8 %0 to i64
-  %add = add i64 %conv, %length
+  %add = add i64 %length, %conv
   %cmp = icmp ult i64 %add, 192
   br i1 %cmp, label %if.then, label %if.end
 

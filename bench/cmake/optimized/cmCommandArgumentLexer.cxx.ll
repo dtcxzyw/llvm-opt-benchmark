@@ -1293,72 +1293,64 @@ define dso_local noundef ptr @_Z34cmCommandArgument_yy_create_bufferP8_IO_FILEiP
   %22 = getelementptr inbounds i8, ptr %2, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not15.i.i = icmp eq ptr %23, null
-  br i1 %.not15.i.i, label %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i, label %.thread
+  br i1 %.not15.i.i, label %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i, label %24
 
-.thread:                                          ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds ptr, ptr %23, i64 %25
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, %4
-  br i1 %28, label %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i.thread, label %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i.thread15
+24:                                               ; preds = %13
+  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds ptr, ptr %23, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %4, %28
+  br i1 %29, label %30, label %45
 
-_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i.thread: ; preds = %.thread
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %23, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 28
-  %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 52
-  store i32 %34, ptr %35, align 4
-  %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 64
-  store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 128
-  store ptr %38, ptr %40, align 8
-  %41 = load ptr, ptr %31, align 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %42, ptr %43, align 8
-  %44 = load i8, ptr %38, align 1
-  %45 = getelementptr inbounds i8, ptr %2, i64 48
-  store i8 %44, ptr %45, align 8
-  br label %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i.thread15
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds i8, ptr %28, i64 28
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds i8, ptr %2, i64 52
+  store i32 %32, ptr %33, align 4
+  %34 = load ptr, ptr %27, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %2, i64 64
+  store ptr %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %2, i64 128
+  store ptr %36, ptr %38, align 8
+  %39 = load ptr, ptr %27, align 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %40, ptr %41, align 8
+  %42 = load i8, ptr %36, align 1
+  %43 = getelementptr inbounds i8, ptr %2, i64 48
+  store i8 %42, ptr %43, align 8
+  br label %45
 
 _Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i: ; preds = %13
   store ptr %0, ptr %4, align 8
+  %44 = getelementptr inbounds i8, ptr %4, i64 52
+  store i32 1, ptr %44, align 4
+  br label %.thread.i
+
+45:                                               ; preds = %30, %24
+  store ptr %0, ptr %4, align 8
   %46 = getelementptr inbounds i8, ptr %4, i64 52
   store i32 1, ptr %46, align 4
-  br label %52
+  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr inbounds ptr, ptr %23, i64 %48
+  %50 = load ptr, ptr %49, align 8
+  %.not14.i = icmp eq ptr %4, %50
+  br i1 %.not14.i, label %_ZL32cmCommandArgument_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit, label %.thread.i
 
-_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i.thread15: ; preds = %.thread, %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i.thread
-  store ptr %0, ptr %4, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 52
-  store i32 1, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %2, i64 24
-  %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds ptr, ptr %23, i64 %49
-  %51 = load ptr, ptr %50, align 8
-  br label %52
-
-52:                                               ; preds = %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i, %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i.thread15
-  %53 = phi ptr [ %51, %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i.thread15 ], [ null, %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i ]
-  %.not14.i = icmp eq ptr %53, %4
-  br i1 %.not14.i, label %_ZL32cmCommandArgument_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit, label %54
-
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %4, i64 44
-  store i32 1, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 0, ptr %56, align 8
+.thread.i:                                        ; preds = %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i, %45
+  %51 = getelementptr inbounds i8, ptr %4, i64 44
+  store i32 1, ptr %51, align 4
+  %52 = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 0, ptr %52, align 8
   br label %_ZL32cmCommandArgument_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit
 
-_ZL32cmCommandArgument_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit: ; preds = %52, %54
-  %57 = getelementptr inbounds i8, ptr %4, i64 36
-  store i32 0, ptr %57, align 4
+_ZL32cmCommandArgument_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit: ; preds = %45, %.thread.i
+  %53 = getelementptr inbounds i8, ptr %4, i64 36
+  store i32 0, ptr %53, align 4
   store i32 %16, ptr %15, align 4
   ret ptr %4
 }
@@ -1486,100 +1478,89 @@ define dso_local void @_Z27cmCommandArgument_yyrestartP8_IO_FILEPv(ptr noundef %
   store i32 0, ptr %54, align 8
   %55 = load ptr, ptr %3, align 8
   %.not15.i.i = icmp eq ptr %55, null
-  br i1 %.not15.i.i, label %60, label %56
+  br i1 %.not15.i.i, label %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i, label %56
 
 56:                                               ; preds = %45
   %57 = load i64, ptr %39, align 8
   %58 = getelementptr inbounds ptr, ptr %55, i64 %57
   %59 = load ptr, ptr %58, align 8
-  br label %60
+  %60 = icmp eq ptr %42, %59
+  br i1 %60, label %61, label %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i
 
-60:                                               ; preds = %56, %45
-  %61 = phi ptr [ %59, %56 ], [ null, %45 ]
-  %62 = icmp eq ptr %61, %42
-  br i1 %62, label %63, label %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i
-
-63:                                               ; preds = %60
-  %64 = load i64, ptr %39, align 8
-  %65 = getelementptr inbounds ptr, ptr %55, i64 %64
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 28
-  %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %1, i64 52
-  store i32 %68, ptr %69, align 4
-  %70 = load ptr, ptr %65, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 64
-  store ptr %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 128
-  store ptr %72, ptr %74, align 8
-  %75 = load ptr, ptr %65, align 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %76, ptr %77, align 8
-  %78 = load i8, ptr %72, align 1
-  %79 = getelementptr inbounds i8, ptr %1, i64 48
-  store i8 %78, ptr %79, align 8
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds i8, ptr %59, i64 28
+  %63 = load i32, ptr %62, align 4
+  %64 = getelementptr inbounds i8, ptr %1, i64 52
+  store i32 %63, ptr %64, align 4
+  %65 = load ptr, ptr %58, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %1, i64 64
+  store ptr %67, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %1, i64 128
+  store ptr %67, ptr %69, align 8
+  %70 = load ptr, ptr %58, align 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %71, ptr %72, align 8
+  %73 = load i8, ptr %67, align 1
+  %74 = getelementptr inbounds i8, ptr %1, i64 48
+  store i8 %73, ptr %74, align 8
   br label %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i
 
-_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i: ; preds = %.thread, %63, %60, %.thread20
-  %80 = phi i32 [ %37, %.thread ], [ %44, %63 ], [ %44, %60 ], [ %44, %.thread20 ]
-  %81 = phi ptr [ %36, %.thread ], [ %43, %63 ], [ %43, %60 ], [ %43, %.thread20 ]
-  %82 = phi ptr [ null, %.thread ], [ %42, %63 ], [ %42, %60 ], [ null, %.thread20 ]
-  store ptr %0, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 52
-  store i32 1, ptr %83, align 4
-  %84 = load ptr, ptr %3, align 8
-  %.not.i18 = icmp eq ptr %84, null
-  br i1 %.not.i18, label %90, label %85
+_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i: ; preds = %.thread, %61, %56, %45, %.thread20
+  %75 = phi i32 [ %37, %.thread ], [ %44, %61 ], [ %44, %56 ], [ %44, %45 ], [ %44, %.thread20 ]
+  %76 = phi ptr [ %36, %.thread ], [ %43, %61 ], [ %43, %56 ], [ %43, %45 ], [ %43, %.thread20 ]
+  %77 = phi ptr [ null, %.thread ], [ %42, %61 ], [ %42, %56 ], [ %42, %45 ], [ null, %.thread20 ]
+  store ptr %0, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 52
+  store i32 1, ptr %78, align 4
+  %79 = load ptr, ptr %3, align 8
+  %.not.i18 = icmp eq ptr %79, null
+  br i1 %.not.i18, label %.thread.i, label %80
 
-85:                                               ; preds = %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i
-  %86 = getelementptr inbounds i8, ptr %1, i64 24
-  %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds ptr, ptr %84, i64 %87
-  %89 = load ptr, ptr %88, align 8
-  br label %90
+80:                                               ; preds = %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i
+  %81 = getelementptr inbounds i8, ptr %1, i64 24
+  %82 = load i64, ptr %81, align 8
+  %83 = getelementptr inbounds ptr, ptr %79, i64 %82
+  %84 = load ptr, ptr %83, align 8
+  %.not14.i = icmp eq ptr %77, %84
+  br i1 %.not14.i, label %_ZL32cmCommandArgument_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit, label %.thread.i
 
-90:                                               ; preds = %85, %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i
-  %91 = phi ptr [ %89, %85 ], [ null, %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i ]
-  %.not14.i = icmp eq ptr %91, %82
-  br i1 %.not14.i, label %_ZL32cmCommandArgument_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit, label %92
-
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %82, i64 44
-  store i32 1, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %82, i64 48
-  store i32 0, ptr %94, align 8
+.thread.i:                                        ; preds = %80, %_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv.exit.i
+  %85 = getelementptr inbounds i8, ptr %77, i64 44
+  store i32 1, ptr %85, align 4
+  %86 = getelementptr inbounds i8, ptr %77, i64 48
+  store i32 0, ptr %86, align 8
   br label %_ZL32cmCommandArgument_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit
 
-_ZL32cmCommandArgument_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit: ; preds = %90, %92
-  %95 = getelementptr inbounds i8, ptr %82, i64 36
-  store i32 0, ptr %95, align 4
-  store i32 %80, ptr %81, align 4
-  %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 24
-  %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds ptr, ptr %96, i64 %98
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 28
-  %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %1, i64 52
-  store i32 %102, ptr %103, align 4
-  %104 = load ptr, ptr %99, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %1, i64 64
-  store ptr %106, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %1, i64 128
-  store ptr %106, ptr %108, align 8
-  %109 = load ptr, ptr %99, align 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %110, ptr %111, align 8
-  %112 = load i8, ptr %106, align 1
-  %113 = getelementptr inbounds i8, ptr %1, i64 48
-  store i8 %112, ptr %113, align 8
+_ZL32cmCommandArgument_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit: ; preds = %80, %.thread.i
+  %87 = getelementptr inbounds i8, ptr %77, i64 36
+  store i32 0, ptr %87, align 4
+  store i32 %75, ptr %76, align 4
+  %88 = load ptr, ptr %3, align 8
+  %89 = getelementptr inbounds i8, ptr %1, i64 24
+  %90 = load i64, ptr %89, align 8
+  %91 = getelementptr inbounds ptr, ptr %88, i64 %90
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 28
+  %94 = load i32, ptr %93, align 4
+  %95 = getelementptr inbounds i8, ptr %1, i64 52
+  store i32 %94, ptr %95, align 4
+  %96 = load ptr, ptr %91, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %1, i64 64
+  store ptr %98, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %1, i64 128
+  store ptr %98, ptr %100, align 8
+  %101 = load ptr, ptr %91, align 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %102, ptr %103, align 8
+  %104 = load i8, ptr %98, align 1
+  %105 = getelementptr inbounds i8, ptr %1, i64 48
+  store i8 %104, ptr %105, align 8
   ret void
 }
 
@@ -1718,50 +1699,43 @@ define dso_local noalias noundef ptr @_Z25cmCommandArgument_yyallocmPv(i64 nound
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %25, label %3
+  br i1 %.not, label %19, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not14 = icmp eq ptr %5, null
-  br i1 %.not14, label %11, label %6
+  br i1 %.not14, label %.thread, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
-  br label %11
+  %11 = icmp eq ptr %0, %10
+  br i1 %11, label %12, label %.thread
 
-11:                                               ; preds = %3, %6
-  %12 = phi ptr [ %10, %6 ], [ null, %3 ]
-  %13 = icmp eq ptr %12, %0
-  br i1 %13, label %14, label %18
+12:                                               ; preds = %6
+  store ptr null, ptr %9, align 8
+  br label %.thread
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds ptr, ptr %5, i64 %16
-  store ptr null, ptr %17, align 8
+.thread:                                          ; preds = %3, %12, %6
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = load i32, ptr %13, align 8
+  %.not15 = icmp eq i32 %14, 0
+  br i1 %.not15, label %18, label %15
+
+15:                                               ; preds = %.thread
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8
+  tail call void @free(ptr noundef %17) #29
   br label %18
 
-18:                                               ; preds = %14, %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  %20 = load i32, ptr %19, align 8
-  %.not15 = icmp eq i32 %20, 0
-  br i1 %.not15, label %24, label %21
-
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23) #29
-  br label %24
-
-24:                                               ; preds = %21, %18
+18:                                               ; preds = %15, %.thread
   tail call void @free(ptr noundef nonnull %0) #29
-  br label %25
+  br label %19
 
-25:                                               ; preds = %2, %24
+19:                                               ; preds = %2, %18
   ret void
 }
 
@@ -1774,7 +1748,7 @@ define dso_local void @_Z24cmCommandArgument_yyfreePvS_(ptr nocapture noundef %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %41, label %3
+  br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 28
@@ -1795,46 +1769,38 @@ define dso_local void @_Z33cmCommandArgument_yy_flush_bufferP15yy_buffer_statePv
   %13 = getelementptr inbounds i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %20, label %15
+  br i1 %.not15, label %.thread, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
-  br label %20
+  %20 = icmp eq ptr %0, %19
+  br i1 %20, label %21, label %.thread
 
-20:                                               ; preds = %3, %15
-  %21 = phi ptr [ %19, %15 ], [ null, %3 ]
-  %22 = icmp eq ptr %21, %0
-  br i1 %22, label %23, label %41
-
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds ptr, ptr %14, i64 %25
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds i8, ptr %19, i64 28
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %1, i64 52
+  store i32 %23, ptr %24, align 4
+  %25 = load ptr, ptr %18, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 28
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 52
-  store i32 %29, ptr %30, align 4
-  %31 = load ptr, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 64
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 128
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %26, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %37, ptr %38, align 8
-  %39 = load i8, ptr %33, align 1
-  %40 = getelementptr inbounds i8, ptr %1, i64 48
-  store i8 %39, ptr %40, align 8
-  br label %41
+  %28 = getelementptr inbounds i8, ptr %1, i64 64
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 128
+  store ptr %27, ptr %29, align 8
+  %30 = load ptr, ptr %18, align 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %31, ptr %32, align 8
+  %33 = load i8, ptr %27, align 1
+  %34 = getelementptr inbounds i8, ptr %1, i64 48
+  store i8 %33, ptr %34, align 8
+  br label %.thread
 
-41:                                               ; preds = %2, %23, %20
+.thread:                                          ; preds = %3, %2, %21, %15
   ret void
 }
 
@@ -1986,72 +1952,72 @@ define dso_local void @_Z36cmCommandArgument_yypop_buffer_statePv(ptr nocapture 
   %7 = getelementptr inbounds ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.critedge, label %10
+  br i1 %9, label %.critedge, label %.thread.i
 
-10:                                               ; preds = %4
+.thread.i:                                        ; preds = %4
   store ptr null, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = load i32, ptr %11, align 8
-  %.not15.i = icmp eq i32 %12, 0
-  br i1 %.not15.i, label %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit, label %13
+  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = load i32, ptr %10, align 8
+  %.not15.i = icmp eq i32 %11, 0
+  br i1 %.not15.i, label %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit, label %12
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = load ptr, ptr %14, align 8
-  tail call void @free(ptr noundef %15) #29
+12:                                               ; preds = %.thread.i
+  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = load ptr, ptr %13, align 8
+  tail call void @free(ptr noundef %14) #29
   br label %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit
 
-_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %10, %13
+_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.thread.i, %12
   tail call void @free(ptr noundef nonnull %8) #29
-  %16 = load ptr, ptr %2, align 8
-  %17 = load i64, ptr %5, align 8
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
-  store ptr null, ptr %18, align 8
-  %19 = load i64, ptr %5, align 8
-  %.not22 = icmp eq i64 %19, 0
-  br i1 %.not22, label %22, label %20
+  %15 = load ptr, ptr %2, align 8
+  %16 = load i64, ptr %5, align 8
+  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  store ptr null, ptr %17, align 8
+  %18 = load i64, ptr %5, align 8
+  %.not22 = icmp eq i64 %18, 0
+  br i1 %.not22, label %21, label %19
 
-20:                                               ; preds = %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit
-  %21 = add i64 %19, -1
-  store i64 %21, ptr %5, align 8
-  br label %22
+19:                                               ; preds = %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit
+  %20 = add i64 %18, -1
+  store i64 %20, ptr %5, align 8
+  br label %21
 
-22:                                               ; preds = %20, %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit
-  %23 = phi i64 [ %21, %20 ], [ 0, %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit ]
-  %24 = load ptr, ptr %2, align 8
-  %.not23 = icmp eq ptr %24, null
-  br i1 %.not23, label %.critedge, label %25
+21:                                               ; preds = %19, %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit
+  %22 = phi i64 [ %20, %19 ], [ 0, %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit ]
+  %23 = load ptr, ptr %2, align 8
+  %.not23 = icmp eq ptr %23, null
+  br i1 %.not23, label %.critedge, label %24
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %23
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %.critedge, label %29
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds ptr, ptr %23, i64 %22
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.critedge, label %28
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %27, i64 28
-  %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 %31, ptr %32, align 4
-  %33 = load ptr, ptr %26, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr %35, ptr %37, align 8
-  %38 = load ptr, ptr %26, align 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %39, ptr %40, align 8
-  %41 = load i8, ptr %35, align 1
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
-  store i8 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 1, ptr %43, align 8
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %26, i64 28
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 %30, ptr %31, align 4
+  %32 = load ptr, ptr %25, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %34, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 128
+  store ptr %34, ptr %36, align 8
+  %37 = load ptr, ptr %25, align 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %38, ptr %39, align 8
+  %40 = load i8, ptr %34, align 1
+  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  store i8 %40, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 1, ptr %42, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %22, %1, %4, %29, %25
+.critedge:                                        ; preds = %21, %1, %4, %28, %24
   ret void
 }
 
@@ -2438,24 +2404,24 @@ define dso_local noundef i32 @_Z31cmCommandArgument_yylex_destroyPv(ptr nocaptur
   %12 = getelementptr inbounds ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not2133 = icmp eq ptr %13, null
-  br i1 %.not2133, label %.thread, label %.lr.ph34
+  br i1 %.not2133, label %.thread, label %.thread.i
 
-.lr.ph34:                                         ; preds = %.lr.ph, %_Z36cmCommandArgument_yypop_buffer_statePv.exit
-  %14 = phi ptr [ %59, %_Z36cmCommandArgument_yypop_buffer_statePv.exit ], [ %13, %.lr.ph ]
-  %15 = phi ptr [ %58, %_Z36cmCommandArgument_yypop_buffer_statePv.exit ], [ %12, %.lr.ph ]
+.thread.i:                                        ; preds = %.lr.ph, %_Z36cmCommandArgument_yypop_buffer_statePv.exit
+  %14 = phi ptr [ %58, %_Z36cmCommandArgument_yypop_buffer_statePv.exit ], [ %13, %.lr.ph ]
+  %15 = phi ptr [ %57, %_Z36cmCommandArgument_yypop_buffer_statePv.exit ], [ %12, %.lr.ph ]
   store ptr null, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 32
   %17 = load i32, ptr %16, align 8
   %.not15.i = icmp eq i32 %17, 0
   br i1 %.not15.i, label %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit, label %18
 
-18:                                               ; preds = %.lr.ph34
+18:                                               ; preds = %.thread.i
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @free(ptr noundef %20) #29
   br label %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit
 
-_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.lr.ph34, %18
+_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.thread.i, %18
   tail call void @free(ptr noundef nonnull %14) #29
   %.pre31 = load i64, ptr %2, align 8
   %.pre = load ptr, ptr %3, align 8
@@ -2470,80 +2436,80 @@ _Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.lr.
   %25 = getelementptr inbounds ptr, ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %_Z36cmCommandArgument_yypop_buffer_statePv.exit, label %28
+  br i1 %27, label %_Z36cmCommandArgument_yypop_buffer_statePv.exit, label %.thread.i.i
 
-28:                                               ; preds = %23
+.thread.i.i:                                      ; preds = %23
   store ptr null, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 32
-  %30 = load i32, ptr %29, align 8
-  %.not15.i.i = icmp eq i32 %30, 0
-  br i1 %.not15.i.i, label %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit.i, label %31
+  %28 = getelementptr inbounds i8, ptr %26, i64 32
+  %29 = load i32, ptr %28, align 8
+  %.not15.i.i = icmp eq i32 %29, 0
+  br i1 %.not15.i.i, label %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit.i, label %30
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %26, i64 8
-  %33 = load ptr, ptr %32, align 8
-  tail call void @free(ptr noundef %33) #29
+30:                                               ; preds = %.thread.i.i
+  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %32 = load ptr, ptr %31, align 8
+  tail call void @free(ptr noundef %32) #29
   br label %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit.i
 
-_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %31, %28
+_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %30, %.thread.i.i
   tail call void @free(ptr noundef nonnull %26) #29
-  %34 = load ptr, ptr %3, align 8
-  %35 = load i64, ptr %2, align 8
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
-  store ptr null, ptr %36, align 8
-  %37 = load i64, ptr %2, align 8
-  %.not22.i = icmp eq i64 %37, 0
-  br i1 %.not22.i, label %40, label %38
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i64, ptr %2, align 8
+  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  store ptr null, ptr %35, align 8
+  %36 = load i64, ptr %2, align 8
+  %.not22.i = icmp eq i64 %36, 0
+  br i1 %.not22.i, label %39, label %37
 
-38:                                               ; preds = %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit.i
-  %39 = add i64 %37, -1
-  store i64 %39, ptr %2, align 8
-  br label %40
+37:                                               ; preds = %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit.i
+  %38 = add i64 %36, -1
+  store i64 %38, ptr %2, align 8
+  br label %39
 
-40:                                               ; preds = %38, %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit.i
-  %41 = phi i64 [ %39, %38 ], [ 0, %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit.i ]
-  %42 = load ptr, ptr %3, align 8
-  %.not23.i = icmp eq ptr %42, null
-  br i1 %.not23.i, label %.thread, label %43
+39:                                               ; preds = %37, %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit.i
+  %40 = phi i64 [ %38, %37 ], [ 0, %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit.i ]
+  %41 = load ptr, ptr %3, align 8
+  %.not23.i = icmp eq ptr %41, null
+  br i1 %.not23.i, label %.thread, label %42
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %41
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %_Z36cmCommandArgument_yypop_buffer_statePv.exit, label %47
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds ptr, ptr %41, i64 %40
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %_Z36cmCommandArgument_yypop_buffer_statePv.exit, label %46
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %45, i64 28
-  %49 = load i32, ptr %48, align 4
-  store i32 %49, ptr %5, align 4
-  %50 = load ptr, ptr %44, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %6, align 8
-  store ptr %52, ptr %7, align 8
-  %53 = load ptr, ptr %44, align 8
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %8, align 8
-  %55 = load i8, ptr %52, align 1
-  store i8 %55, ptr %9, align 8
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %44, i64 28
+  %48 = load i32, ptr %47, align 4
+  store i32 %48, ptr %5, align 4
+  %49 = load ptr, ptr %43, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %6, align 8
+  store ptr %51, ptr %7, align 8
+  %52 = load ptr, ptr %43, align 8
+  %53 = load ptr, ptr %52, align 8
+  store ptr %53, ptr %8, align 8
+  %54 = load i8, ptr %51, align 1
+  store i8 %54, ptr %9, align 8
   store i32 1, ptr %10, align 8
   br label %_Z36cmCommandArgument_yypop_buffer_statePv.exit
 
-_Z36cmCommandArgument_yypop_buffer_statePv.exit:  ; preds = %23, %43, %47
-  %56 = phi ptr [ %22, %23 ], [ %42, %43 ], [ %42, %47 ]
-  %57 = load i64, ptr %2, align 8
-  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
-  %59 = load ptr, ptr %58, align 8
-  %.not21 = icmp eq ptr %59, null
-  br i1 %.not21, label %.thread, label %.lr.ph34, !llvm.loop !16
+_Z36cmCommandArgument_yypop_buffer_statePv.exit:  ; preds = %23, %42, %46
+  %55 = phi ptr [ %22, %23 ], [ %41, %42 ], [ %41, %46 ]
+  %56 = load i64, ptr %2, align 8
+  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %58 = load ptr, ptr %57, align 8
+  %.not21 = icmp eq ptr %58, null
+  br i1 %.not21, label %.thread, label %.thread.i, !llvm.loop !16
 
-.thread:                                          ; preds = %_Z36cmCommandArgument_yypop_buffer_statePv.exit, %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit, %40, %.lr.ph, %1
-  %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %40 ], [ null, %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit ], [ %56, %_Z36cmCommandArgument_yypop_buffer_statePv.exit ]
+.thread:                                          ; preds = %_Z36cmCommandArgument_yypop_buffer_statePv.exit, %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit, %39, %.lr.ph, %1
+  %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %_Z34cmCommandArgument_yy_delete_bufferP15yy_buffer_statePv.exit ], [ %55, %_Z36cmCommandArgument_yypop_buffer_statePv.exit ]
   tail call void @free(ptr noundef %.lcssa) #29
   store ptr null, ptr %3, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 96
-  %61 = load ptr, ptr %60, align 8
-  tail call void @free(ptr noundef %61) #29
+  %59 = getelementptr inbounds i8, ptr %0, i64 96
+  %60 = load ptr, ptr %59, align 8
+  tail call void @free(ptr noundef %60) #29
   tail call void @free(ptr noundef nonnull %0) #29
   ret i32 0
 }

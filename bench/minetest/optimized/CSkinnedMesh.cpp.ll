@@ -869,7 +869,7 @@ for.body:                                         ; preds = %_ZN3irr4core10quate
   call void @_ZN3irr5scene12CSkinnedMesh12getFrameDataEfPNS0_12ISkinnedMesh6SJointERNS_4core8vector3dIfEERiS8_S9_RNS5_10quaternionES9_(ptr noundef nonnull align 8 dereferenceable(186) %this, float noundef %frame, ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(12) %position, ptr noundef nonnull align 4 dereferenceable(4) %positionHint, ptr noundef nonnull align 4 dereferenceable(12) %scale, ptr noundef nonnull align 4 dereferenceable(4) %scaleHint, ptr noundef nonnull align 4 dereferenceable(16) %rotation, ptr noundef nonnull align 4 dereferenceable(4) %rotationHint)
   %mul3.i.i = fmul float %sub.i, %oldPosition.sroa.6.0.copyload
   %21 = load float, ptr %oldPosition.sroa.6.0.position.sroa_idx, align 8, !tbaa !84
-  %mul3.i11.i = fmul float %21, %blend
+  %mul3.i11.i = fmul float %blend, %21
   %22 = fmul <2 x float> %6, %19
   %23 = load <2 x float>, ptr %position, align 8, !tbaa !27
   %24 = fmul <2 x float> %8, %23
@@ -879,7 +879,7 @@ for.body:                                         ; preds = %_ZN3irr4core10quate
   store float %add6.i.i, ptr %oldPosition.sroa.6.0.Animatedposition.sroa_idx, align 8, !tbaa !27
   %mul3.i.i52 = fmul float %sub.i, %oldScale.sroa.6.0.copyload
   %26 = load float, ptr %oldScale.sroa.6.0.scale.sroa_idx, align 8, !tbaa !84
-  %mul3.i11.i57 = fmul float %26, %blend
+  %mul3.i11.i57 = fmul float %blend, %26
   %27 = fmul <2 x float> %6, %20
   %28 = load <2 x float>, ptr %scale, align 8, !tbaa !27
   %29 = fmul <2 x float> %8, %28
@@ -917,7 +917,7 @@ if.then4.i:                                       ; preds = %for.body
   %mul9.i = fmul float %sub.i, %call5.i
   %call10.i = tail call float @sinf(float noundef %mul9.i) #31
   %mul11.i = fmul float %call10.i, %div.i.i
-  %mul12.i = fmul float %call5.i, %blend
+  %mul12.i = fmul float %blend, %call5.i
   %call13.i = tail call float @sinf(float noundef %mul12.i) #31
   %mul14.i = fmul float %div.i.i, %call13.i
   %43 = insertelement <2 x float> poison, float %mul11.i, i64 0
@@ -2670,7 +2670,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ugt i32 %conv.i, %nr
+  %cmp = icmp ult i32 %nr, %conv.i
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry

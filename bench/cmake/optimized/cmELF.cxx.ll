@@ -1521,7 +1521,7 @@ define linkonce_odr dso_local noundef i64 @_ZN17cmELFInternalImplI12cmELFTypes32
   %12 = sub i64 %10, %11
   %13 = lshr exact i64 %12, 3
   %14 = trunc i64 %13 to i32
-  %.not = icmp sgt i32 %14, %1
+  %.not = icmp slt i32 %1, %14
   br i1 %.not, label %15, label %29
 
 15:                                               ; preds = %5
@@ -1782,7 +1782,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEntryEESt10_Select1stIS4_ESt4lessIjESaI
 _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit: ; preds = %_ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEntryEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %15 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %16 = load i32, ptr %15, align 4
-  %17 = icmp ugt i32 %16, %1
+  %17 = icmp ult i32 %1, %16
   br i1 %17, label %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread, label %18
 
 18:                                               ; preds = %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit
@@ -1818,7 +1818,7 @@ _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.
 26:                                               ; preds = %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i
   %27 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %28 = load i32, ptr %27, align 4
-  %29 = icmp ugt i32 %28, %1
+  %29 = icmp ult i32 %1, %28
   br i1 %29, label %.critedge.i, label %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit
 
 .critedge.i:                                      ; preds = %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.thread, %26, %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i
@@ -2769,7 +2769,7 @@ _ZSt4copyIPcN9__gnu_cxx17__normal_iteratorIS0_St6vectorIcSaIcEEEEET0_T_S8_S7_.ex
 
 _ZSt7advanceIPcmEvRT_T0_.exit:                    ; preds = %16
   %27 = getelementptr inbounds i8, ptr %2, i64 %18
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %27, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %27
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPcS0_cET0_T_S2_S1_RSaIT1_E.exit, label %28
 
 28:                                               ; preds = %_ZSt7advanceIPcmEvRT_T0_.exit
@@ -2832,7 +2832,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %51 = phi ptr [ %50, %49 ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %52 = ptrtoint ptr %1 to i64
   %53 = sub i64 %52, %40
-  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %39, %1
+  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %1, %39
   br i1 %.not.i.i.i.i.i.i.i.i.i60, label %55, label %54
 
 54:                                               ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
@@ -2905,7 +2905,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEntr
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -2944,7 +2944,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEntryEESt10_Select1stIS4_ESt4lessIjESaI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEntryEESt10_Select1stIS4_ESt4lessIjESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -3676,7 +3676,7 @@ define linkonce_odr dso_local noundef i64 @_ZN17cmELFInternalImplI12cmELFTypes64
   %12 = sub i64 %10, %11
   %13 = lshr exact i64 %12, 4
   %14 = trunc i64 %13 to i32
-  %.not = icmp sgt i32 %14, %1
+  %.not = icmp slt i32 %1, %14
   br i1 %.not, label %15, label %29
 
 15:                                               ; preds = %5
@@ -3964,7 +3964,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEntryEESt10_Select1stIS4_ESt4lessIjESaI
 _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit: ; preds = %_ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEntryEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %15 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %16 = load i32, ptr %15, align 4
-  %17 = icmp ugt i32 %16, %1
+  %17 = icmp ult i32 %1, %16
   br i1 %17, label %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread, label %18
 
 18:                                               ; preds = %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit
@@ -4000,7 +4000,7 @@ _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.
 26:                                               ; preds = %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i
   %27 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %28 = load i32, ptr %27, align 4
-  %29 = icmp ugt i32 %28, %1
+  %29 = icmp ult i32 %1, %28
   br i1 %29, label %.critedge.i, label %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit
 
 .critedge.i:                                      ; preds = %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.thread.thread, %26, %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i

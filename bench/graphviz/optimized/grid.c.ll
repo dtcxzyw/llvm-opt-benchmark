@@ -57,12 +57,12 @@ declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #2
 define void @adjustGrid(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = icmp slt i32 %4, %1
+  %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = shl nsw i32 %4, 1
-  %. = tail call i32 @llvm.smax.i32(i32 %7, i32 %1)
+  %. = tail call i32 @llvm.smax.i32(i32 %1, i32 %7)
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null

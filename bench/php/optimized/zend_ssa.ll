@@ -6463,7 +6463,7 @@ define internal fastcc noundef ptr @add_pi(ptr nocapture noundef %0, ptr nocaptu
 
 dominates.exit.i.i:                               ; preds = %.lr.ph.i.i.i, %64
   %.0.lcssa.i.i.i = phi i32 [ %54, %64 ], [ %72, %.lr.ph.i.i.i ]
-  %77 = icmp eq i32 %.0.lcssa.i.i.i, %..i
+  %77 = icmp eq i32 %..i, %.0.lcssa.i.i.i
   br i1 %77, label %needs_pi.exit, label %78
 
 78:                                               ; preds = %dominates.exit.i.i, %56, %52
@@ -6608,7 +6608,7 @@ needs_pi.exit.thread3:                            ; preds = %21, %6, %113, %157,
 define internal fastcc range(i32 -5, 268435451) i32 @find_adjusted_tmp_var(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #12 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
-  %.not68 = icmp eq ptr %6, %1
+  %.not68 = icmp eq ptr %1, %6
   br i1 %.not68, label %.thread66, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %13

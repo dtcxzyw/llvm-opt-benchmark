@@ -400,7 +400,7 @@ for.body:                                         ; preds = %tr2_dst_too_many_fi
 if.then13:                                        ; preds = %for.body
   %26 = load i64, ptr %path, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %26, i64 1)
-  %cmp.i29 = icmp ult i64 %spec.select.i, %9
+  %cmp.i29 = icmp ugt i64 %9, %spec.select.i
   br i1 %cmp.i29, label %if.then.i33, label %if.end.i30
 
 if.then.i33:                                      ; preds = %if.then13

@@ -537,7 +537,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %11 = add i32 %4, -2
   %.0284 = select i1 %.not319, i32 %11, i32 %4
   %12 = zext i1 %.not319 to i32
-  %.0 = add i32 %12, %3
+  %.0 = add i32 %3, %12
   %13 = load i32, ptr @hf_json_3gpp_suppfeat, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef %.0, i32 noundef %.0284, i32 noundef 0) #5
   %15 = icmp slt i32 %.0284, 1

@@ -293,7 +293,7 @@ define i32 @dlp_get_cc_count(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
 .lr.ph.i:                                         ; preds = %6
   %9 = tail call ptr @__ctype_b_loc() #9
   %10 = ptrtoint ptr %0 to i64
-  %.neg.i = add i64 %10, %1
+  %.neg.i = add i64 %1, %10
   %11 = icmp ugt i64 %1, 15
   %12 = add nsw i64 %1, -1
   %13 = select i1 %11, i64 15, i64 %12
@@ -364,7 +364,7 @@ define noundef i32 @dlp_has_cc(ptr noundef %0, i64 noundef %1, i32 noundef %2) l
 .lr.ph.i:                                         ; preds = %6
   %9 = tail call ptr @__ctype_b_loc() #9
   %10 = ptrtoint ptr %0 to i64
-  %.neg.i = add i64 %10, %1
+  %.neg.i = add i64 %1, %10
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %30, %.lr.ph.i
@@ -421,11 +421,11 @@ define range(i32 0, 2) i32 @dlp_is_valid_ssn(ptr noundef readonly %0, i64 nounde
 9:                                                ; preds = %3
   %10 = icmp eq i32 %2, 0
   %11 = select i1 %10, i64 11, i64 9
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %56, label %13
 
 13:                                               ; preds = %9
-  %14 = icmp ult i64 %11, %1
+  %14 = icmp ugt i64 %1, %11
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %13
@@ -535,7 +535,7 @@ define i32 @dlp_get_stripped_ssn_count(ptr noundef %0, i64 noundef %1) local_unn
 .lr.ph.i:                                         ; preds = %5
   %8 = tail call ptr @__ctype_b_loc() #9
   %9 = ptrtoint ptr %0 to i64
-  %.neg.i = add i64 %9, %1
+  %.neg.i = add i64 %1, %9
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %32, %.lr.ph.i
@@ -603,7 +603,7 @@ define i32 @dlp_get_normal_ssn_count(ptr noundef %0, i64 noundef %1) local_unnam
 .lr.ph.i:                                         ; preds = %5
   %8 = tail call ptr @__ctype_b_loc() #9
   %9 = ptrtoint ptr %0 to i64
-  %.neg.i = add i64 %9, %1
+  %.neg.i = add i64 %1, %9
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %32, %.lr.ph.i
@@ -671,7 +671,7 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 .lr.ph.i.i:                                       ; preds = %5
   %8 = tail call ptr @__ctype_b_loc() #9
   %9 = ptrtoint ptr %0 to i64
-  %.neg.i.i = add i64 %9, %1
+  %.neg.i.i = add i64 %1, %9
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %32, %.lr.ph.i.i
@@ -786,7 +786,7 @@ define noundef i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_unnamed_ad
 .lr.ph.i:                                         ; preds = %5
   %8 = tail call ptr @__ctype_b_loc() #9
   %9 = ptrtoint ptr %0 to i64
-  %.neg.i = add i64 %9, %1
+  %.neg.i = add i64 %1, %9
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %29, %.lr.ph.i
@@ -889,7 +889,7 @@ define noundef i32 @dlp_has_stripped_ssn(ptr noundef %0, i64 noundef %1) local_u
 .lr.ph.i:                                         ; preds = %5
   %8 = tail call ptr @__ctype_b_loc() #9
   %9 = ptrtoint ptr %0 to i64
-  %.neg.i = add i64 %9, %1
+  %.neg.i = add i64 %1, %9
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %29, %.lr.ph.i
@@ -949,7 +949,7 @@ define noundef i32 @dlp_has_normal_ssn(ptr noundef %0, i64 noundef %1) local_unn
 .lr.ph.i:                                         ; preds = %5
   %8 = tail call ptr @__ctype_b_loc() #9
   %9 = ptrtoint ptr %0 to i64
-  %.neg.i = add i64 %9, %1
+  %.neg.i = add i64 %1, %9
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %29, %.lr.ph.i

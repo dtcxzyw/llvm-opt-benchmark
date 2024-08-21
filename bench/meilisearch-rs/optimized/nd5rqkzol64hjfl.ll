@@ -281,7 +281,7 @@ define hidden void @"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13dig
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha33db307e64c0f6aE.exit", label %11
 
 11:                                               ; preds = %4
@@ -291,7 +291,7 @@ define hidden void @"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13dig
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha33db307e64c0f6aE.exit": ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !61, !noalias !65
-  %14 = add nuw nsw i64 %7, %2
+  %14 = add nuw nsw i64 %2, %7
   br label %33
 
 15:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha33db307e64c0f6aE.exit24", %11
@@ -345,7 +345,7 @@ define hidden void @"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13dig
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha33db307e64c0f6aE.exit", label %11
 
 11:                                               ; preds = %4
@@ -355,7 +355,7 @@ define hidden void @"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13dig
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha33db307e64c0f6aE.exit": ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !102, !noalias !106
-  %14 = add nuw nsw i64 %7, %2
+  %14 = add nuw nsw i64 %2, %7
   br label %33
 
 15:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha33db307e64c0f6aE.exit24", %11
@@ -6212,7 +6212,7 @@ define void @"_ZN86_$LT$meilisearch_auth..store..KeyIdActionCodec$u20$as$u20$hee
   %33 = load i64, ptr %32, align 8, !noundef !4
   %34 = load i64, ptr %3, align 8, !alias.scope !1278, !noalias !1287, !noundef !4
   %35 = sub i64 %34, %27
-  %36 = icmp ult i64 %35, %33
+  %36 = icmp ugt i64 %33, %35
   br i1 %36, label %37, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha25a2622c1dece25E.exit7"
 
 37:                                               ; preds = %31

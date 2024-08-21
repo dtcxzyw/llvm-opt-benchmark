@@ -948,7 +948,7 @@ define hidden void @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drai
   %9 = add i64 %8, %6
   %10 = load i64, ptr %4, align 8, !noundef !18
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %20, label %13
 
 13:                                               ; preds = %20, %2
@@ -1126,7 +1126,7 @@ define hidden { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$c
 define hidden noundef nonnull align 8 dereferenceable(552) ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4a16483de566db52E.llvm.7008872586094235178"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !18
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h831017ec0df309dcE.llvm.7008872586094235178.exit", label %7, !prof !257
 
 7:                                                ; preds = %3
@@ -3371,7 +3371,7 @@ define hidden noundef align 8 dereferenceable_or_null(552) ptr @_ZN12clap_builde
   tail call void @llvm.experimental.noalias.scope.decl(metadata !999)
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8, !alias.scope !999, !noalias !1002, !noundef !18
-  %23 = icmp ugt i64 %22, %20
+  %23 = icmp ult i64 %20, %22
   br i1 %23, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4a16483de566db52E.llvm.7008872586094235178.exit", label %24, !prof !257
 
 24:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hbfbf19ca729c2d5cE.llvm.7008872586094235178.exit"
@@ -3489,7 +3489,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1033)
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load i64, ptr %47, align 8, !alias.scope !1033, !noalias !1036, !noundef !18
-  %49 = icmp ugt i64 %48, %46
+  %49 = icmp ult i64 %46, %48
   br i1 %49, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4a16483de566db52E.llvm.7008872586094235178.exit", label %50, !prof !257
 
 50:                                               ; preds = %.split.us
@@ -3554,7 +3554,7 @@ define hidden noundef align 8 dereferenceable_or_null(552) ptr @_ZN12clap_builde
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1062)
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   %27 = load i64, ptr %26, align 8, !alias.scope !1062, !noalias !1065, !noundef !18
-  %28 = icmp ugt i64 %27, %25
+  %28 = icmp ult i64 %25, %27
   br i1 %28, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4a16483de566db52E.llvm.7008872586094235178.exit", label %29, !prof !257
 
 29:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h96caf12e00dffbbdE.llvm.7008872586094235178.exit"
@@ -3611,7 +3611,7 @@ define hidden noundef align 8 dereferenceable_or_null(552) ptr @_ZN12clap_builde
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1091)
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8, !alias.scope !1091, !noalias !1094, !noundef !18
-  %24 = icmp ugt i64 %23, %21
+  %24 = icmp ult i64 %21, %23
   br i1 %24, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4a16483de566db52E.llvm.7008872586094235178.exit", label %25, !prof !257
 
 25:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hd3b4c9540098941fE.llvm.7008872586094235178.exit"
@@ -3660,7 +3660,7 @@ define hidden noundef align 8 dereferenceable_or_null(552) ptr @_ZN12clap_builde
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1110)
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8, !alias.scope !1110, !noalias !1113, !noundef !18
-  %23 = icmp ugt i64 %22, %20
+  %23 = icmp ult i64 %20, %22
   br i1 %23, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4a16483de566db52E.llvm.7008872586094235178.exit", label %24, !prof !257
 
 24:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h38c7ef73a7166163E.llvm.7008872586094235178.exit"
@@ -4841,7 +4841,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12remo
   %17 = getelementptr inbounds i8, ptr %14, i64 16
   %18 = getelementptr i8, ptr %14, i64 8
   %.val13.i.i = load i64, ptr %18, align 8, !alias.scope !1331, !noalias !1338, !noundef !18
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %10, %.val13.i.i
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val13.i.i, %10
   br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7953693b163d6e92E.llvm.7008872586094235178.exit.i.i.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hacd30be6cf680c35E.exit.i.i"
 
 "_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7953693b163d6e92E.llvm.7008872586094235178.exit.i.i.i.i.i": ; preds = %16
@@ -4865,7 +4865,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12remo
 
 24:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hacd30be6cf680c35E.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1359)
-  %.not.i = icmp ugt i64 %7, %13
+  %.not.i = icmp ult i64 %13, %7
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h39d34b36a9394c0bE.exit", label %25
 
 25:                                               ; preds = %24
@@ -4887,7 +4887,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12remo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1365)
   %35 = getelementptr inbounds i8, ptr %1, i64 40
   %36 = load i64, ptr %35, align 8, !alias.scope !1365, !noalias !1368, !noundef !18
-  %.not.i17 = icmp ugt i64 %36, %13
+  %.not.i17 = icmp ult i64 %13, %36
   br i1 %.not.i17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h237c4e2914152e93E.exit", label %37
 
 37:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h39d34b36a9394c0bE.exit"

@@ -511,9 +511,9 @@ define hidden noundef i32 @_ZN5zxing11GridSampler19checkAndNudgePointsEiiRSt6vec
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %34
-  %45 = icmp sgt i32 %38, %0
+  %45 = icmp slt i32 %0, %38
   %46 = icmp slt i32 %42, -1
-  %47 = icmp sgt i32 %42, %1
+  %47 = icmp slt i32 %1, %42
   %48 = or i1 %46, %47
   %or.cond67 = select i1 %45, i1 true, i1 %48
   br i1 %or.cond67, label %49, label %65
@@ -559,7 +559,7 @@ define hidden noundef i32 @_ZN5zxing11GridSampler19checkAndNudgePointsEiiRSt6vec
   br i1 %66, label %.sink.split, label %67
 
 67:                                               ; preds = %65
-  %.not64 = icmp slt i32 %38, %0
+  %.not64 = icmp sgt i32 %0, %38
   br i1 %.not64, label %69, label %.sink.split
 
 .sink.split:                                      ; preds = %67, %65
@@ -573,7 +573,7 @@ define hidden noundef i32 @_ZN5zxing11GridSampler19checkAndNudgePointsEiiRSt6vec
   br i1 %70, label %.sink.split74, label %71
 
 71:                                               ; preds = %69
-  %.not65 = icmp slt i32 %42, %1
+  %.not65 = icmp sgt i32 %1, %42
   br i1 %.not65, label %74, label %.sink.split74
 
 .sink.split74:                                    ; preds = %71, %69

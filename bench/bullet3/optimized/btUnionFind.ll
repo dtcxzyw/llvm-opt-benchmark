@@ -113,7 +113,7 @@ define dso_local void @_ZN11btUnionFind8allocateEi(ptr nocapture noundef nonnull
 entry:
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %0, %N
+  %cmp3.i = icmp sgt i32 %N, %0
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayI9btElementE6resizeEiRKS0_.exit
 
 if.then4.i:                                       ; preds = %entry
@@ -203,7 +203,7 @@ define dso_local void @_ZN11btUnionFind5resetEi(ptr nocapture noundef nonnull al
 entry:
   %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i.i.i, align 4
-  %cmp3.i.i = icmp slt i32 %0, %N
+  %cmp3.i.i = icmp sgt i32 %N, %0
   br i1 %cmp3.i.i, label %if.then4.i.i, label %_ZN11btUnionFind8allocateEi.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -446,7 +446,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !13
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo.tr
+  %cmp15 = icmp slt i32 %lo.tr, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end

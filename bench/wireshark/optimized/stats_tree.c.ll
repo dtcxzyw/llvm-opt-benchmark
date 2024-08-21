@@ -1107,7 +1107,7 @@ define internal fastcc noundef ptr @new_stat_node(ptr noundef %0, ptr noundef %1
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8
-  %47 = icmp sgt i32 %46, %2
+  %47 = icmp slt i32 %2, %46
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %42
@@ -1883,7 +1883,7 @@ define i32 @stats_tree_tick_range(ptr nocapture noundef readonly %0, ptr noundef
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = icmp sgt i32 %10, %2
+  %11 = icmp slt i32 %2, %10
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %6
@@ -1959,13 +1959,13 @@ define i32 @stats_tree_tick_range(ptr nocapture noundef readonly %0, ptr noundef
   %48 = getelementptr inbounds i8, ptr %.04757, i64 120
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 4
-  %.not52 = icmp sgt i32 %50, %3
+  %.not52 = icmp slt i32 %3, %50
   br i1 %.not52, label %74, label %51
 
 51:                                               ; preds = %.lr.ph
   %52 = getelementptr inbounds i8, ptr %49, i64 4
   %53 = load i32, ptr %52, align 4
-  %.not53 = icmp slt i32 %53, %3
+  %.not53 = icmp sgt i32 %3, %53
   br i1 %.not53, label %74, label %54
 
 54:                                               ; preds = %51

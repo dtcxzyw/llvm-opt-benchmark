@@ -92,7 +92,7 @@ define range(i32 -4, 1) i32 @KINBand(ptr noundef %0, i64 noundef %1, i64 noundef
 
 37:                                               ; preds = %27
   %38 = add nuw nsw i64 %3, %2
-  %.not69 = icmp slt i64 %38, %1
+  %.not69 = icmp sgt i64 %1, %38
   %39 = add nsw i64 %1, -1
   %40 = select i1 %.not69, i64 %38, i64 %39
   %41 = getelementptr inbounds i8, ptr %24, i64 32

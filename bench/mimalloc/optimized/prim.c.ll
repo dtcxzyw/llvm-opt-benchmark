@@ -138,7 +138,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call3 = tail call zeroext i1 @_mi_os_use_large_page(i64 noundef %size, i64 noundef %try_alignment) #8
-  %brmerge.demorgan = and i1 %call3, %allow_large
+  %brmerge.demorgan = and i1 %allow_large, %call3
   br i1 %brmerge.demorgan, label %if.then5, label %if.then46
 
 land.lhs.true:                                    ; preds = %entry
@@ -195,7 +195,7 @@ if.then46:                                        ; preds = %if.then8, %if.then3
   store i8 0, ptr %is_large, align 1
   %call47 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %protect_flags, i32 noundef %spec.select) #10
   %cmp48.not = icmp ne ptr %call47, null
-  %brmerge42.not = and i1 %cmp48.not, %allow_large
+  %brmerge42.not = and i1 %allow_large, %cmp48.not
   br i1 %brmerge42.not, label %land.lhs.true51, label %return
 
 land.lhs.true51:                                  ; preds = %if.then46
@@ -566,7 +566,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
-  %cmp3 = icmp eq i64 %call, %buf_len
+  %cmp3 = icmp eq i64 %buf_len, %call
   br label %return
 
 if.end:                                           ; preds = %if.then

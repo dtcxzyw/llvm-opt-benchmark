@@ -444,7 +444,7 @@ define hidden noundef ptr @tm_kpartition_build_tree_from_topology(ptr noundef %0
 
 29:                                               ; preds = %20
   %.not = icmp ne ptr %3, null
-  %30 = icmp slt i32 %14, %4
+  %30 = icmp sgt i32 %4, %14
   %or.cond63 = select i1 %.not, i1 %30, i1 false
   br i1 %or.cond63, label %31, label %37
 
@@ -565,7 +565,7 @@ define internal fastcc void @kpartition_build_level_topology(ptr noundef %0, ptr
   %14 = getelementptr inbounds i8, ptr %4, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %15, -1
-  %17 = icmp eq i32 %16, %3
+  %17 = icmp eq i32 %3, %16
   %18 = icmp sgt i32 %13, 5
   br i1 %17, label %19, label %26
 

@@ -637,7 +637,7 @@ _log_flush.exit:                                  ; preds = %4, %12, %15, %.sink
 define void @log_var(i32 noundef %0, ptr noundef %1, ...) #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load volatile i32, ptr @highest_log_level, align 4
-  %.not = icmp ult i32 %4, %0
+  %.not = icmp ugt i32 %0, %4
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
@@ -2785,7 +2785,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   %31 = getelementptr inbounds i8, ptr %29, i64 64
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
-  %brmerge.demorgan = and i1 %33, %1
+  %brmerge.demorgan = and i1 %1, %33
   br i1 %brmerge.demorgan, label %34, label %52
 
 34:                                               ; preds = %30
@@ -2817,7 +2817,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
 
 52:                                               ; preds = %30, %36, %34, %24
   %53 = load volatile i32, ptr @highest_log_level, align 4
-  %54 = icmp ult i32 %53, %0
+  %54 = icmp ugt i32 %0, %53
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %52
@@ -2906,7 +2906,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   %90 = phi ptr [ %.pre75, %87 ], [ %60, %85 ]
   %91 = getelementptr inbounds i8, ptr %90, i64 44
   %92 = load i32, ptr %91, align 4
-  %.not63 = icmp ult i32 %92, %0
+  %.not63 = icmp ugt i32 %0, %92
   br i1 %.not63, label %129, label %93
 
 93:                                               ; preds = %89
@@ -2980,7 +2980,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
 133:                                              ; preds = %129
   %134 = getelementptr inbounds i8, ptr %130, i64 52
   %135 = load i32, ptr %134, align 4
-  %136 = icmp ult i32 %135, %0
+  %136 = icmp ugt i32 %0, %135
   br i1 %136, label %185, label %137
 
 137:                                              ; preds = %133
@@ -2996,7 +2996,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   %144 = load ptr, ptr @log, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 44
   %146 = load i32, ptr %145, align 4
-  %.not66 = icmp ult i32 %146, %0
+  %.not66 = icmp ugt i32 %0, %146
   %.str.73..str.72 = select i1 %.not66, ptr @.str.73, ptr @.str.72
   %147 = call i64 @log_timestamp(ptr noundef nonnull %10, i64 noundef 50)
   store ptr null, ptr %12, align 8
@@ -3071,7 +3071,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   %186 = load ptr, ptr @log, align 8
   %187 = getelementptr inbounds i8, ptr %186, i64 48
   %188 = load i32, ptr %187, align 4
-  %.not70 = icmp ult i32 %188, %0
+  %.not70 = icmp ugt i32 %0, %188
   br i1 %.not70, label %200, label %189
 
 189:                                              ; preds = %185
@@ -3119,12 +3119,12 @@ declare void @abort() local_unnamed_addr #11
 define void @sched_log_var(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load volatile i32, ptr @highest_log_level, align 4
-  %.not = icmp ult i32 %4, %0
+  %.not = icmp ugt i32 %0, %4
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = load volatile i32, ptr @highest_sched_log_level, align 4
-  %.not4 = icmp ult i32 %6, %0
+  %.not4 = icmp ugt i32 %0, %6
   br i1 %.not4, label %8, label %7
 
 7:                                                ; preds = %5, %2

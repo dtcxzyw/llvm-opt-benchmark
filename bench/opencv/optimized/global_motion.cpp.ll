@@ -1050,8 +1050,8 @@ define internal void @_ZN2cv9videostabL38estimateGlobMotionLeastSquaresRotationE
   %14 = fmul float %10, %13
   %15 = tail call float @llvm.fmuladd.f32(float %9, float %12, float %14)
   %16 = fadd float %.03759, %15
-  %17 = fneg float %12
-  %18 = fmul float %10, %17
+  %17 = fneg float %10
+  %18 = fmul float %12, %17
   %19 = tail call float @llvm.fmuladd.f32(float %9, float %13, float %18)
   %20 = fadd float %.03858, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3439,7 +3439,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -3513,7 +3513,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; pre
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37

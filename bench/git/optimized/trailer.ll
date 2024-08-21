@@ -444,7 +444,7 @@ if.then.i15.i:                                    ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i, ptr %len.i.i, align 8
   %21 = load i64, ptr %val.i, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %21, i64 1)
-  %cmp.i4.i.i = icmp ult i64 %spec.select.i.i.i, %sub.i.i.i
+  %cmp.i4.i.i = icmp ugt i64 %sub.i.i.i, %spec.select.i.i.i
   br i1 %cmp.i4.i.i, label %if.then.i.i.i, label %if.end.i5.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i15.i
@@ -832,7 +832,7 @@ parse_trailers_from_command_line_args.exit:       ; preds = %for.inc.i53, %parse
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %conf.i35)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   %60 = load ptr, ptr %config_head, align 8
-  %cmp.not.i73 = icmp eq ptr %60, %config_head
+  %cmp.not.i73 = icmp eq ptr %config_head, %60
   %.pre180 = load ptr, ptr %arg_head, align 8
   br i1 %cmp.not.i73, label %list_splice.exit, label %if.then.i74
 
@@ -866,7 +866,7 @@ for.body.i78:                                     ; preds = %list_splice.exit, %
   %67 = and i32 %66, -2
   %68 = icmp eq i32 %67, 2
   %69 = load ptr, ptr %head, align 8
-  %cmp.i.not.i.i = icmp eq ptr %69, %head
+  %cmp.i.not.i.i = icmp eq ptr %head, %69
   br i1 %cmp.i.not.i.i, label %if.then.i83, label %if.end.i.i79
 
 if.end.i.i79:                                     ; preds = %for.body.i78

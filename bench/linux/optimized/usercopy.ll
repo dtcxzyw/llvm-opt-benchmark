@@ -17,7 +17,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_check_zeroed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @_copy_from_user(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = ptrtoint ptr %1 to i64
-  %5 = add i64 %4, %2
+  %5 = add i64 %2, %4
   %6 = icmp sgt i64 %5, -1
   %7 = icmp uge i64 %5, %4
   %8 = and i1 %6, %7
@@ -55,7 +55,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @_copy_to_user(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add i64 %4, %2
+  %5 = add i64 %2, %4
   %6 = icmp sgt i64 %5, -1
   %7 = icmp uge i64 %5, %4
   %8 = and i1 %6, %7

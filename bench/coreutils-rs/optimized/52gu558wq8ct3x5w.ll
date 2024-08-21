@@ -5239,7 +5239,7 @@ define internal fastcc void @_ZN5uu_ln18simple_backup_path17hb2142b67527defc9E(p
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %12, ptr %.sroa.5.0..sroa_idx, align 8
   %19 = sub i64 %16, %12
-  %20 = icmp ult i64 %19, %4
+  %20 = icmp ugt i64 %4, %19
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %14

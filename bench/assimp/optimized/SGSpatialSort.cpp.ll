@@ -200,7 +200,7 @@ entry:
   %6 = load float, ptr %z4.i, align 8
   %7 = tail call noundef float @llvm.fmuladd.f32(float %5, float %6, float %4)
   %sub = fsub float %7, %pRadius
-  %add = fadd float %7, %pRadius
+  %add = fadd float %pRadius, %7
   %8 = load ptr, ptr %poResults, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %poResults, i64 8
   %9 = load ptr, ptr %_M_finish.i.i, align 8
@@ -1126,7 +1126,7 @@ while.body.i:                                     ; preds = %_ZSt13__adjust_heap
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp611.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(20) %phi.call.i, i64 20, i1 false)
   %__value.sroa.2.0.ref.tmp.sroa.0.0..sroa_idx.i = getelementptr inbounds i8, ptr %phi.call.i, i64 20
   %__value.sroa.2.0.copyload.i = load float, ptr %__value.sroa.2.0.ref.tmp.sroa.0.0..sroa_idx.i, align 4
-  %cmp29.i.i = icmp sgt i64 %div.i1920.i, %__parent.0.i
+  %cmp29.i.i = icmp slt i64 %__parent.0.i, %div.i1920.i
   br i1 %cmp29.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i, %while.body.i.i

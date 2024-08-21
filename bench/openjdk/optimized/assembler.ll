@@ -42,7 +42,7 @@ define hidden void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr nocapture noundef
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %1, align 8
-  tail call void (ptr, i32, i64, i32, ptr, ...) @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef nonnull @.str, i32 noundef 49, i64 noundef 0, i32 noundef -536870910, ptr noundef nonnull @.str.4, ptr noundef %10) #9
+  tail call void (ptr, i32, i64, i32, ptr, ...) @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef nonnull @.str, i32 noundef 49, i64 noundef 0, i32 noundef -536870910, ptr noundef nonnull @.str.4, ptr noundef %10) #10
   unreachable
 
 11:                                               ; preds = %4
@@ -85,13 +85,13 @@ define hidden noundef ptr @_ZN17AbstractAssembler12start_a_stubEi(ptr nocapture 
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = trunc i64 %14 to i32
-  %16 = icmp slt i32 %15, %1
+  %16 = icmp sgt i32 %1, %15
   br i1 %16, label %17, label %_ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %6, i64 264
   %19 = load ptr, ptr %18, align 8
-  tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %19, ptr noundef nonnull %7, i32 noundef %1) #10
+  tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %19, ptr noundef nonnull %7, i32 noundef %1) #11
   %20 = getelementptr inbounds i8, ptr %6, i64 280
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
@@ -148,7 +148,7 @@ define hidden noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr nocaptur
 23:                                               ; preds = %3
   %24 = getelementptr inbounds i8, ptr %7, i64 88
   %25 = load ptr, ptr %24, align 8
-  tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %25, ptr noundef nonnull %8, i32 noundef %16) #10
+  tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %25, ptr noundef nonnull %8, i32 noundef %16) #11
   %26 = getelementptr inbounds i8, ptr %7, i64 280
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
@@ -203,7 +203,7 @@ define hidden void @_ZN17AbstractAssembler5flushEv(ptr nocapture noundef nonnull
   %8 = ptrtoint ptr %4 to i64
   %9 = sub i64 %7, %8
   %10 = trunc i64 %9 to i32
-  tail call void @_ZN14AbstractICache16invalidate_rangeEPhi(ptr noundef %4, i32 noundef %10) #10
+  tail call void @_ZN14AbstractICache16invalidate_rangeEPhi(ptr noundef %4, i32 noundef %10) #11
   ret void
 }
 
@@ -236,7 +236,7 @@ define hidden void @_ZN17AbstractAssembler4bindER5Label(ptr nocapture noundef no
 21:                                               ; preds = %19
   %22 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %22, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 116, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #9
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 116, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #10
   unreachable
 
 23:                                               ; preds = %2
@@ -359,7 +359,7 @@ _ZNK10CodeBuffer15locator_addressEi.exit16:       ; preds = %40, %43
 66:                                               ; preds = %59
   %67 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %67, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.7, i32 noundef 122, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 0) #9
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.7, i32 noundef 122, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 0) #10
   unreachable
 
 68:                                               ; preds = %59
@@ -391,7 +391,7 @@ define hidden void @_ZN17AbstractAssembler29generate_stack_overflow_checkEi(ptr 
   %4 = trunc i64 %3 to i32
   %5 = load i64, ptr @_ZN13StackOverflow23_stack_shadow_zone_sizeE, align 8
   %6 = trunc i64 %5 to i32
-  %7 = icmp slt i32 %4, %1
+  %7 = icmp sgt i32 %1, %4
   %8 = select i1 %7, i32 %1, i32 0
   %spec.select = add nsw i32 %8, %6
   %.not13 = icmp slt i32 %8, 0
@@ -401,7 +401,7 @@ define hidden void @_ZN17AbstractAssembler29generate_stack_overflow_checkEi(ptr 
   %.014 = phi i32 [ %11, %.lr.ph ], [ %6, %2 ]
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.014) #10
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.014) #11
   %11 = add nsw i32 %.014, %4
   %.not = icmp sgt i32 %11, %spec.select
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -415,7 +415,7 @@ define hidden void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr nocapture nou
   %6 = getelementptr inbounds i8, ptr %1, i64 161
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %48, label %9
+  br i1 %8, label %46, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 20
@@ -427,7 +427,7 @@ define hidden void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr nocapture nou
   %14 = getelementptr inbounds i8, ptr %0, i64 4
   %15 = sext i32 %11 to i64
   %16 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 %15
-  br label %45
+  br label %43
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds i8, ptr %0, i64 24
@@ -436,7 +436,7 @@ define hidden void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr nocapture nou
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %17
-  %22 = tail call noundef ptr @_ZN10CodeBuffer21create_patch_overflowEv(ptr noundef nonnull align 8 dereferenceable(448) %1) #10
+  %22 = tail call noundef ptr @_ZN10CodeBuffer21create_patch_overflowEv(ptr noundef nonnull align 8 dereferenceable(448) %1) #11
   store ptr %22, ptr %18, align 8
   br label %23
 
@@ -451,37 +451,36 @@ define hidden void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr nocapture nou
 29:                                               ; preds = %23
   %30 = add nsw i32 %25, 1
   %31 = icmp sgt i32 %25, -1
-  %32 = xor i32 %25, -2147483648
-  %33 = and i32 %32, %30
-  %34 = icmp eq i32 %33, 0
-  %35 = and i1 %31, %34
-  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
-  %37 = sub nuw nsw i32 32, %36
-  %38 = shl nuw i32 1, %37
-  %.0.i.i.i.i.i = select i1 %35, i32 %30, i32 %38
+  %32 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %30)
+  %33 = icmp ult i32 %32, 2
+  %or.cond.i.i.i.i.i = select i1 %31, i1 %33, i1 false
+  %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
+  %35 = sub nuw nsw i32 32, %34
+  %36 = shl nuw i32 1, %35
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %30, i32 %36
   tail call void @_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %24, align 8
   br label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %23, %29
-  %39 = phi i32 [ %.pre.i.i, %29 ], [ %25, %23 ]
-  %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %24, align 8
-  %41 = getelementptr inbounds i8, ptr %24, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = sext i32 %39 to i64
-  %44 = getelementptr inbounds i32, ptr %42, i64 %43
-  br label %45
+  %37 = phi i32 [ %.pre.i.i, %29 ], [ %25, %23 ]
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %24, align 8
+  %39 = getelementptr inbounds i8, ptr %24, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = sext i32 %37 to i64
+  %42 = getelementptr inbounds i32, ptr %40, i64 %41
+  br label %43
 
-45:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit, %13
-  %.sink = phi ptr [ %44, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ %16, %13 ]
+43:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit, %13
+  %.sink = phi ptr [ %42, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ %16, %13 ]
   store i32 %2, ptr %.sink, align 4
-  %46 = load i32, ptr %10, align 4
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %10, align 4
-  br label %48
+  %44 = load i32, ptr %10, align 4
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %10, align 4
+  br label %46
 
-48:                                               ; preds = %5, %45
+46:                                               ; preds = %5, %43
   ret void
 }
 
@@ -511,7 +510,7 @@ define hidden noundef zeroext i1 @_ZN14MacroAssembler24uses_implicit_null_checkE
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
-  %.not10 = icmp ule ptr %7, %0
+  %.not10 = icmp uge ptr %0, %7
   %9 = ptrtoint ptr %7 to i64
   %10 = add i64 %3, %9
   %11 = icmp ugt i64 %10, %2
@@ -531,7 +530,7 @@ define hidden noundef zeroext i1 @_ZN14MacroAssembler24uses_implicit_null_checkE
 define hidden noundef zeroext i1 @_ZN14MacroAssembler25needs_explicit_null_checkEl(i64 noundef %0) local_unnamed_addr #6 align 2 {
   %2 = icmp slt i64 %0, 0
   %3 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %4 = icmp sle i64 %3, %0
+  %4 = icmp sge i64 %0, %3
   %5 = select i1 %2, i1 true, i1 %4
   ret i1 %5
 }
@@ -550,7 +549,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIi13GrowableArra
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 4) #10
+  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 4) #11
   br label %_ZN13GrowableArrayIiE8allocateEv.exit
 
 9:                                                ; preds = %2
@@ -561,12 +560,12 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIi13GrowableArra
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
   %13 = trunc i64 %12 to i8
-  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 4, i8 noundef zeroext %13) #10
+  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 4, i8 noundef zeroext %13) #11
   br label %_ZN13GrowableArrayIiE8allocateEv.exit
 
 15:                                               ; preds = %9
   %16 = inttoptr i64 %5 to ptr
-  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 4, ptr noundef nonnull %16) #10
+  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 4, ptr noundef nonnull %16) #11
   br label %_ZN13GrowableArrayIiE8allocateEv.exit
 
 _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
@@ -629,7 +628,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   br i1 %.not.i15, label %_ZN13GrowableArrayIiE10deallocateEPi.exit, label %42
 
 42:                                               ; preds = %39
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #10
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #11
   br label %_ZN13GrowableArrayIiE10deallocateEPi.exit
 
 _ZN13GrowableArrayIiE10deallocateEPi.exit:        ; preds = %42, %39, %.preheader
@@ -648,8 +647,11 @@ declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -659,9 +661,10 @@ attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

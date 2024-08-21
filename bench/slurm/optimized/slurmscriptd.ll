@@ -726,7 +726,7 @@ _incr_script_cnt.exit:                            ; preds = %43, %37
   %50 = load i32, ptr %35, align 8
   %51 = call fastcc i32 @_write_msg(i32 noundef %49, i32 noundef %50, ptr noundef %7)
   %52 = icmp eq i32 %51, 0
-  %brmerge.not = and i1 %52, %2
+  %brmerge.not = and i1 %2, %52
   br i1 %brmerge.not, label %53, label %_script_resp_map_remove.exit
 
 53:                                               ; preds = %_incr_script_cnt.exit

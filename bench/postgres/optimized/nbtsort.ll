@@ -1625,7 +1625,7 @@ define internal fastcc void @_bt_parallel_scan_and_sort(ptr noundef %0, ptr noun
   %27 = load ptr, ptr %12, align 8
   %28 = load ptr, ptr %14, align 8
   %29 = load i32, ptr @work_mem, align 4
-  %30 = tail call i32 @llvm.smin.i32(i32 %29, i32 %5)
+  %30 = tail call i32 @llvm.smin.i32(i32 %5, i32 %29)
   %31 = tail call ptr @tuplesort_begin_index_btree(ptr noundef %27, ptr noundef %28, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %30, ptr noundef nonnull %24, i32 noundef 0) #10
   store ptr %31, ptr %1, align 8
   br label %32

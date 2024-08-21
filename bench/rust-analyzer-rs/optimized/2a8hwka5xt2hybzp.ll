@@ -884,8 +884,8 @@ define void @"_ZN3mbe8expander11transcriber41_$LT$impl$u20$mbe..expander..Bindin
 
 17:                                               ; preds = %39, %9
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %9 ], [ %40, %39 ]
-  %.pn.i.i = phi i64 [ %13, %9 ], [ %41, %39 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val4.i
+  %.pn.i.i.i.i = phi i64 [ %13, %9 ], [ %41, %39 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %.val4.i
   %18 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i25.i.i.i = load <16 x i8>, ptr %18, align 1, !noalias !302
   %19 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, %.15.vec.insert.i.i.i.i
@@ -918,7 +918,7 @@ define void @"_ZN3mbe8expander11transcriber41_$LT$impl$u20$mbe..expander..Bindin
   %33 = extractvalue { ptr, i64 } %31, 1
   %34 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %34), !noalias !317
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %33, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %3, %33
   br i1 %.not.i.i.i.i.i.i.i.i, label %35, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h489ace089b124084E.exit.backedge.i.i.i"
 
 35:                                               ; preds = %.lr.ph.i.i.i

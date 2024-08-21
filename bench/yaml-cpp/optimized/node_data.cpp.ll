@@ -168,7 +168,7 @@ if.end:                                           ; preds = %entry
   store i8 1, ptr %this, align 8
   %m_type3 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %m_type3, align 8
-  %cmp4 = icmp eq i32 %0, %type
+  %cmp4 = icmp eq i32 %type, %0
   br i1 %cmp4, label %sw.epilog, label %if.end6
 
 if.end6:                                          ; preds = %if.end
@@ -567,7 +567,7 @@ sw.bb3:                                           ; preds = %if.end
   %m_mapIt.i3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %m_mapEnd.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %4, ptr %m_mapEnd.i, align 8
-  %cmp.i.not2.i.i = icmp eq ptr %4, %3
+  %cmp.i.not2.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.not2.i.i, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEC2EN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEESF_.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %sw.bb3, %while.body.i.i
@@ -650,7 +650,7 @@ sw.bb3:                                           ; preds = %if.end
   %m_mapIt.i3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %m_mapEnd.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %4, ptr %m_mapEnd.i, align 8
-  %cmp.i.not2.i.i = icmp eq ptr %4, %3
+  %cmp.i.not2.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.not2.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEEC2EN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEESD_.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %sw.bb3, %while.body.i.i

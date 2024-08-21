@@ -16582,7 +16582,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11M
   %35 = getelementptr inbounds i8, ptr %5, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %5, align 8
-  %.not.i.i = icmp ugt ptr %37, %36
+  %.not.i.i = icmp ult ptr %36, %37
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %38
 
 38:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit
@@ -16639,7 +16639,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %3
   %.0.i1.i = phi ptr [ %43, %42 ], [ %51, %48 ], [ %62, %60 ]
   store ptr %.0.i1.i, ptr %35, align 8
   %64 = load ptr, ptr %5, align 8
-  %.not.i.i7 = icmp ugt ptr %64, %.0.i1.i
+  %.not.i.i7 = icmp ult ptr %.0.i1.i, %64
   br i1 %.not.i.i7, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i8, label %65
 
 65:                                               ; preds = %63

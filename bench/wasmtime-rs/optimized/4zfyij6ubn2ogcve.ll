@@ -944,7 +944,7 @@ define ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6insert17h8a1a8ae6ad9
 define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de22cfc2eE"(ptr align 8 %0, i64 %1, ptr align 8 %2, i64 %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
@@ -962,7 +962,7 @@ define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de
 define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h3989da019db44874E"(ptr align 8 %0, i64 %1, ptr align 8 %2, i64 %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
@@ -980,7 +980,7 @@ define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h3989da019
 define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17ha427611a5a7735a2E"(ptr align 8 %0, i64 %1, ptr align 8 %2, i64 %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4

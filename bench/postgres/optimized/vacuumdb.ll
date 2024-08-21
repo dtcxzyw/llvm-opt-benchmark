@@ -1361,7 +1361,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture n
 ._crit_edge178:                                   ; preds = %.lr.ph177.split, %182, %174
   call void @termPQExpBuffer(ptr noundef nonnull %10) #9
   call void @PQclear(ptr noundef %169) #9
-  %spec.select = call i32 @llvm.smin.i32(i32 %171, i32 %4)
+  %spec.select = call i32 @llvm.smin.i32(i32 %4, i32 %171)
   %spec.store.select = call i32 @llvm.smax.i32(i32 %spec.select, i32 1)
   %190 = icmp eq i32 %2, -1
   br i1 %190, label %195, label %191

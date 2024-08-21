@@ -2259,27 +2259,27 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %1732 = add nsw i64 %1731, %1483
   %1733 = getelementptr inbounds double, ptr %9, i64 %1732
   %1734 = load double, ptr %1733, align 8, !tbaa !99
-  %1735 = fmul double %1734, %8
+  %1735 = fmul double %8, %1734
   %1736 = tail call double @llvm.fmuladd.f64(double %5, double %1730, double %1735)
   store double %1736, ptr %1733, align 8, !tbaa !99
   %1737 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1727)
   %1738 = or disjoint i64 %1732, 1
   %1739 = getelementptr inbounds double, ptr %9, i64 %1738
   %1740 = load double, ptr %1739, align 8, !tbaa !99
-  %1741 = fmul double %1740, %8
+  %1741 = fmul double %8, %1740
   %1742 = tail call double @llvm.fmuladd.f64(double %5, double %1737, double %1741)
   store double %1742, ptr %1739, align 8, !tbaa !99
   %1743 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1728)
   %1744 = mul nsw i64 %.pre-phi515, %10
   %1745 = getelementptr double, ptr %1505, i64 %1744
   %1746 = load double, ptr %1745, align 8, !tbaa !99
-  %1747 = fmul double %1746, %8
+  %1747 = fmul double %8, %1746
   %1748 = tail call double @llvm.fmuladd.f64(double %5, double %1743, double %1747)
   store double %1748, ptr %1745, align 8, !tbaa !99
   %1749 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1729)
   %1750 = getelementptr i8, ptr %1745, i64 8
   %1751 = load double, ptr %1750, align 8, !tbaa !99
-  %1752 = fmul double %1751, %8
+  %1752 = fmul double %8, %1751
   %1753 = tail call double @llvm.fmuladd.f64(double %5, double %1749, double %1752)
   store double %1753, ptr %1750, align 8, !tbaa !99
   %1754 = add nuw nsw i64 %1668, 2
@@ -2344,13 +2344,13 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %1800 = mul nsw i64 %1757, %10
   %1801 = getelementptr double, ptr %1505, i64 %1800
   %1802 = load double, ptr %1801, align 8, !tbaa !99
-  %1803 = fmul double %1802, %8
+  %1803 = fmul double %8, %1802
   %1804 = tail call double @llvm.fmuladd.f64(double %5, double %1799, double %1803)
   store double %1804, ptr %1801, align 8, !tbaa !99
   %1805 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1798)
   %1806 = getelementptr i8, ptr %1801, i64 8
   %1807 = load double, ptr %1806, align 8, !tbaa !99
-  %1808 = fmul double %1807, %8
+  %1808 = fmul double %8, %1807
   %1809 = tail call double @llvm.fmuladd.f64(double %5, double %1805, double %1808)
   store double %1809, ptr %1806, align 8, !tbaa !99
   %1810 = add nuw nsw i64 %1757, 1
@@ -2577,14 +2577,14 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %1982 = mul nsw i64 %1933, %10
   %1983 = getelementptr double, ptr %1818, i64 %1982
   %1984 = load double, ptr %1983, align 8, !tbaa !99
-  %1985 = fmul double %1984, %8
+  %1985 = fmul double %8, %1984
   %1986 = tail call double @llvm.fmuladd.f64(double %5, double %1981, double %1985)
   store double %1986, ptr %1983, align 8, !tbaa !99
   %1987 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1980)
   %1988 = mul nsw i64 %.pre-phi517, %10
   %1989 = getelementptr double, ptr %1818, i64 %1988
   %1990 = load double, ptr %1989, align 8, !tbaa !99
-  %1991 = fmul double %1990, %8
+  %1991 = fmul double %8, %1990
   %1992 = tail call double @llvm.fmuladd.f64(double %5, double %1987, double %1991)
   store double %1992, ptr %1989, align 8, !tbaa !99
   %1993 = add nuw nsw i64 %1933, 2
@@ -2640,7 +2640,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %2030 = mul nsw i64 %1996, %10
   %2031 = getelementptr double, ptr %1818, i64 %2030
   %2032 = load double, ptr %2031, align 8, !tbaa !99
-  %2033 = fmul double %2032, %8
+  %2033 = fmul double %8, %2032
   %2034 = tail call double @llvm.fmuladd.f64(double %5, double %2029, double %2033)
   store double %2034, ptr %2031, align 8, !tbaa !99
   %2035 = add nuw nsw i64 %1996, 1

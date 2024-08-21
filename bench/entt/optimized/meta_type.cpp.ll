@@ -73779,7 +73779,7 @@ if.end57:                                         ; preds = %for.cond, %cleanup.
   %conversion_helper = getelementptr inbounds i8, ptr %from, i64 48
   %21 = load ptr, ptr %conversion_helper, align 8, !tbaa !1412
   %tobool58.not = icmp ne ptr %21, null
-  %brmerge.not = and i1 %tobool58.not, %arithmetic_or_enum
+  %brmerge.not = and i1 %arithmetic_or_enum, %tobool58.not
   %spec.select = zext i1 %brmerge.not to i32
   br label %return
 
@@ -85171,7 +85171,7 @@ if.end55:                                         ; preds = %for.inc.critedge, %
   %conversion_helper = getelementptr inbounds i8, ptr %from, i64 48
   %36 = load ptr, ptr %conversion_helper, align 8, !tbaa !1412
   %tobool56.not = icmp ne ptr %36, null
-  %brmerge.not = and i1 %tobool56.not, %arithmetic_or_enum
+  %brmerge.not = and i1 %arithmetic_or_enum, %tobool56.not
   br i1 %brmerge.not, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %if.end55

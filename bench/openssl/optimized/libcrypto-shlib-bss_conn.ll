@@ -600,7 +600,7 @@ if.then146:                                       ; preds = %land.lhs.true141
   %call147 = tail call i32 @BIO_ADDR_sockaddr_size(ptr noundef nonnull %call143) #11
   %conv148 = zext i32 %call147 to i64
   %cmp149 = icmp eq i64 %num, 0
-  %28 = tail call i64 @llvm.smin.i64(i64 %conv148, i64 %num)
+  %28 = tail call i64 @llvm.smin.i64(i64 %num, i64 %conv148)
   %num.addr.0 = select i1 %cmp149, i64 %conv148, i64 %28
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ptr, ptr nonnull align 4 %call143, i64 %num.addr.0, i1 false)
   br label %sw.epilog246

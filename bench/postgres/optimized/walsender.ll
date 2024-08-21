@@ -3007,10 +3007,10 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
   %6 = alloca %struct.WALReadError, align 8
   %7 = alloca i32, align 4
   %8 = sext i32 %2 to i64
-  %9 = add i64 %8, %1
+  %9 = add i64 %1, %8
   %10 = load i64, ptr @WalSndWaitForWal.RecentFlushPtr, align 8
   %.not.i = icmp eq i64 %10, 0
-  %.not12.i = icmp ult i64 %10, %9
+  %.not12.i = icmp ugt i64 %9, %10
   %or.cond.i = or i1 %.not.i, %.not12.i
   br i1 %or.cond.i, label %11, label %WalSndWaitForWal.exit
 
@@ -3107,7 +3107,7 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
 
 49:                                               ; preds = %48, %47, %43, %37
   %50 = phi i64 [ %.pre.i, %48 ], [ %storemerge16.i, %47 ], [ %storemerge16.i, %43 ], [ %storemerge16.i, %37 ]
-  %.not19.i = icmp ult i64 %50, %9
+  %.not19.i = icmp ugt i64 %9, %50
   br i1 %.not19.i, label %51, label %103
 
 51:                                               ; preds = %49
@@ -3311,7 +3311,7 @@ define internal void @WalSndSegmentOpen(ptr nocapture noundef %0, i64 noundef %1
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = udiv i64 %10, %13
-  %15 = icmp eq i64 %14, %1
+  %15 = icmp eq i64 %1, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %9
@@ -3865,7 +3865,7 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
   %96 = getelementptr [8192 x %struct.WalTimeSample], ptr %94, i64 0, i64 %95
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %96, i64 8
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %97 = icmp ugt i64 %.sroa.02.0.copyload.i.i.i, %37
+  %97 = icmp ult i64 %37, %.sroa.02.0.copyload.i.i.i
   %98 = icmp sgt i64 %91, %.sroa.2.0.copyload.i.i.i
   %or.cond.i.i.i = select i1 %97, i1 true, i1 %98
   br i1 %or.cond.i.i.i, label %LagTrackerRead.exit.i.i, label %99
@@ -3970,7 +3970,7 @@ LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.
   %148 = getelementptr [8192 x %struct.WalTimeSample], ptr %146, i64 0, i64 %147
   %.sroa.2.0..sroa_idx.i68.i.i = getelementptr inbounds i8, ptr %148, i64 8
   %.sroa.2.0.copyload.i69.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i68.i.i, align 8
-  %149 = icmp ugt i64 %.sroa.02.0.copyload.i67.i.i, %38
+  %149 = icmp ult i64 %38, %.sroa.02.0.copyload.i67.i.i
   %150 = icmp sgt i64 %143, %.sroa.2.0.copyload.i69.i.i
   %or.cond.i70.i.i = select i1 %149, i1 true, i1 %150
   br i1 %or.cond.i70.i.i, label %LagTrackerRead.exit72.i.i, label %151
@@ -4075,7 +4075,7 @@ LagTrackerRead.exit72.i.i:                        ; preds = %167, %144, %.thread
   %200 = getelementptr [8192 x %struct.WalTimeSample], ptr %198, i64 0, i64 %199
   %.sroa.2.0..sroa_idx.i87.i.i = getelementptr inbounds i8, ptr %200, i64 8
   %.sroa.2.0.copyload.i88.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i87.i.i, align 8
-  %201 = icmp ugt i64 %.sroa.02.0.copyload.i86.i.i, %39
+  %201 = icmp ult i64 %39, %.sroa.02.0.copyload.i86.i.i
   %202 = icmp sgt i64 %195, %.sroa.2.0.copyload.i88.i.i
   %or.cond.i89.i.i = select i1 %201, i1 true, i1 %202
   br i1 %or.cond.i89.i.i, label %LagTrackerRead.exit91.i.i, label %203

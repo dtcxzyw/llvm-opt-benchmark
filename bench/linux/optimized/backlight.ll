@@ -118,7 +118,7 @@ define dso_local i32 @backlight_device_set_brightness(ptr noundef %0, i64 nounde
   %9 = getelementptr inbounds i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %26, label %13
 
 13:                                               ; preds = %8

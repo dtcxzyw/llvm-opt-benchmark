@@ -138,7 +138,7 @@ define noundef zeroext i1 @_ZN5draco27PointCloudSequentialDecoder23CreateAttribu
   %22 = sub i64 %20, %21
   %23 = lshr exact i64 %22, 3
   %24 = trunc i64 %23 to i32
-  %.not.i = icmp sgt i32 %24, %1
+  %.not.i = icmp slt i32 %1, %24
   br i1 %.not.i, label %28, label %25
 
 25:                                               ; preds = %15
@@ -381,7 +381,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoder
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -456,7 +456,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14defau
   br label %_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -583,7 +583,7 @@ define linkonce_odr void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_t
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -657,7 +657,7 @@ _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE13_M
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37

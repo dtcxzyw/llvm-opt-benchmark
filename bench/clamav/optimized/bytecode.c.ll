@@ -812,7 +812,7 @@ define i32 @cli_bytecode_context_getresult_file(ptr nocapture noundef %0, ptr no
 define range(i32 0, 21) i32 @cli_bytecode_context_setfuncid(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 60
   %5 = load i32, ptr %4, align 4
-  %.not = icmp ugt i32 %5, %2
+  %.not = icmp ult i32 %2, %5
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
@@ -1058,7 +1058,7 @@ thread-pre-split34:                               ; preds = %23, %thread-pre-spl
 define range(i32 0, 4) i32 @cli_bytecode_context_setparam_int(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not = icmp ugt i32 %5, %1
+  %.not = icmp ult i32 %1, %5
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
@@ -3769,7 +3769,7 @@ readNumber.exit.i68.i:                            ; preds = %1024, %.readNumber.
   %.5.i.lcssa = phi i32 [ %.3.i, %987 ], [ %1010, %readNumber.exit.i68.i ]
   %indvars.iv49.i.i.lcssa = phi i64 [ 0, %987 ], [ %indvars.iv.next50.i.i, %readNumber.exit.i68.i ]
   %1040 = trunc nuw nsw i64 %indvars.iv49.i.i.lcssa to i32
-  %.not33.i.i = icmp eq i32 %1040, %975
+  %.not33.i.i = icmp eq i32 %975, %1040
   br i1 %.not33.i.i, label %.critedge.thread.i.i, label %1041
 
 1041:                                             ; preds = %.critedge.i.i
@@ -4311,7 +4311,7 @@ thread-pre-split:                                 ; preds = %443
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %1250 = load i32, ptr %429, align 4
-  %.not.i237 = icmp ugt i32 %1250, %.0105.ph1036
+  %.not.i237 = icmp ult i32 %.0105.ph1036, %1250
   br i1 %.not.i237, label %1252, label %1251
 
 1251:                                             ; preds = %1249
@@ -5983,7 +5983,7 @@ readNumber.exit462.i:                             ; preds = %._crit_edge.i452.i,
   %1940 = load i16, ptr %1484, align 2
   %1941 = zext i16 %1940 to i32
   %1942 = add nuw nsw i32 %1941, %1939
-  %.not.i489.i = icmp ugt i32 %1942, %1935
+  %.not.i489.i = icmp ult i32 %1935, %1942
   br i1 %.not.i489.i, label %get_optype.exit.i, label %get_optype.exit.thread.i
 
 get_optype.exit.i:                                ; preds = %1934
@@ -6011,7 +6011,7 @@ get_optype.exit.thread.i:                         ; preds = %get_optype.exit.i, 
   %1953 = load i16, ptr %1484, align 2
   %1954 = zext i16 %1953 to i32
   %1955 = add nuw nsw i32 %1954, %1952
-  %.not.i491.i = icmp ugt i32 %1955, %1949
+  %.not.i491.i = icmp ult i32 %1949, %1955
   br i1 %.not.i491.i, label %1956, label %get_optype.exit493.i
 
 1956:                                             ; preds = %1947
@@ -11083,7 +11083,7 @@ common.ret42:                                     ; preds = %63, %._crit_edge, %
 define void @cli_bytevalue_describe(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4
-  %.not = icmp ugt i32 %4, %1
+  %.not = icmp ult i32 %1, %4
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -11977,7 +11977,7 @@ define void @cli_bytefunc_describe(ptr nocapture noundef readonly %0, i32 nounde
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
-  %.not = icmp ugt i32 %5, %1
+  %.not = icmp ult i32 %1, %5
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %2

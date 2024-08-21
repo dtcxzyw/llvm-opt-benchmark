@@ -3350,13 +3350,13 @@ Vec_IntFind.exit.thread:                          ; preds = %649, %653
   br i1 %671, label %Vec_IntFillExtra.exit.sink.split, label %672
 
 672:                                              ; preds = %.critedge8
-  %.not.i409 = icmp slt i32 %.val271, %.val292
+  %.not.i409 = icmp sgt i32 %.val292, %.val271
   br i1 %.not.i409, label %673, label %Vec_IntFillExtra.exit
 
 673:                                              ; preds = %672
   %674 = load i32, ptr %213, align 8
   %675 = shl nsw i32 %674, 1
-  %676 = icmp slt i32 %675, %.val292
+  %676 = icmp sgt i32 %.val292, %675
   %.not.i.i410 = icmp slt i32 %674, %.val292
   br i1 %676, label %677, label %686
 

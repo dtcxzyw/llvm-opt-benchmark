@@ -297,7 +297,7 @@ while.end.loopexit.i.i.i:                         ; preds = %while.body.i.i.i
 _ZN17double_conversionL10ReadUint64ENS_6VectorIKcEEPi.exit.i.i: ; preds = %while.end.loopexit.i.i.i, %lor.lhs.false
   %i.0.lcssa.i.i.i = phi i32 [ 0, %lor.lhs.false ], [ %19, %while.end.loopexit.i.i.i ]
   %result.0.lcssa.i.i.i = phi i64 [ 0, %lor.lhs.false ], [ %add.i.i.i, %while.end.loopexit.i.i.i ]
-  %cmp.i.i11 = icmp eq i32 %i.0.lcssa.i.i.i, %trimmed.coerce1
+  %cmp.i.i11 = icmp eq i32 %trimmed.coerce1, %i.0.lcssa.i.i.i
   br i1 %cmp.i.i11, label %_ZN17double_conversionL9ReadDiyFpENS_6VectorIKcEEPNS_5DiyFpEPi.exit.thread.i, label %_ZN17double_conversionL9ReadDiyFpENS_6VectorIKcEEPNS_5DiyFpEPi.exit.i
 
 _ZN17double_conversionL9ReadDiyFpENS_6VectorIKcEEPNS_5DiyFpEPi.exit.i: ; preds = %_ZN17double_conversionL10ReadUint64ENS_6VectorIKcEEPi.exit.i.i

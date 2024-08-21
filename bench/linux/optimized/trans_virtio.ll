@@ -1444,7 +1444,7 @@ define internal fastcc i32 @pack_sg_list(ptr nocapture noundef %0, i32 noundef %
 
 48:                                               ; preds = %29
   %49 = trunc i64 %39 to i32
-  %50 = icmp eq i32 %49, %1
+  %50 = icmp eq i32 %1, %49
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %48
@@ -1741,7 +1741,7 @@ define internal fastcc i32 @pack_sg_list_p(ptr nocapture noundef %0, i32 noundef
 
 48:                                               ; preds = %38
   %49 = trunc i64 %40 to i32
-  %50 = icmp eq i32 %49, %1
+  %50 = icmp eq i32 %1, %49
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %48

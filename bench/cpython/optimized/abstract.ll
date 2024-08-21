@@ -3062,7 +3062,7 @@ define dso_local range(i32 -1, 1) i32 @PyBuffer_FromContiguous(ptr nocapture nou
 entry:
   %len1 = getelementptr inbounds i8, ptr %view, i64 16
   %0 = load i64, ptr %len1, align 8
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %0, i64 %len)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %len, i64 %0)
   %call = tail call i32 @PyBuffer_IsContiguous(ptr noundef %view, i8 noundef signext %fort)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end5, label %if.then3

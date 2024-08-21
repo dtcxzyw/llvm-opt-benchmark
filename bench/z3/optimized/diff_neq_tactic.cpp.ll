@@ -2743,7 +2743,7 @@ _ZN6vectorIbLb0EjE5resetEv.exit.i:                ; preds = %for.end.i
 _ZNK6vectorIbLb0EjE4sizeEv.exit.thread.i.i:       ; preds = %_ZN6vectorIbLb0EjE5resetEv.exit.i
   %arrayidx.i.i9.i = getelementptr inbounds i8, ptr %.pr.i, i64 -4
   %5 = load i32, ptr %arrayidx.i.i9.i, align 4
-  %cmp.not15.i.i = icmp ult i32 %5, %max.0.lcssa.i
+  %cmp.not15.i.i = icmp ugt i32 %max.0.lcssa.i, %5
   br i1 %cmp.not15.i.i, label %while.cond.i.i.preheader, label %if.then.i.i.i
 
 while.cond.i.i.preheader:                         ; preds = %_ZN6vectorIbLb0EjE5resetEv.exit.i, %for.end.i, %_ZNK6vectorIbLb0EjE4sizeEv.exit.thread.i.i
@@ -2763,7 +2763,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.preh
 _ZNK6vectorIbLb0EjE8capacityEv.exit.i.i:          ; preds = %while.cond.i.i
   %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load i32, ptr %arrayidx.i12.i.i, align 4
-  %cmp3.i.i = icmp ult i32 %7, %max.0.lcssa.i
+  %cmp3.i.i = icmp ugt i32 %max.0.lcssa.i, %7
   br i1 %cmp3.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i, %while.cond.i.i
@@ -2774,8 +2774,8 @@ while.body.i.i:                                   ; preds = %_ZNK6vectorIbLb0EjE
 while.end.i.i:                                    ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i
   %arrayidx.i10.i = getelementptr inbounds i8, ptr %6, i64 -4
   store i32 %max.0.lcssa.i, ptr %arrayidx.i10.i, align 4
-  %cmp8.not17.i.i = icmp eq i32 %retval.0.i16.i.i.ph, %max.0.lcssa.i
-  br i1 %cmp8.not17.i.i, label %_ZN15diff_neq_tactic3imp14init_forbiddenEv.exit, label %for.body.preheader.i.i
+  %cmp8.not19.i.i = icmp eq i32 %retval.0.i16.i.i.ph, %max.0.lcssa.i
+  br i1 %cmp8.not19.i.i, label %_ZN15diff_neq_tactic3imp14init_forbiddenEv.exit, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %while.end.i.i
   %idx.ext6.i.i = zext nneg i32 %max.0.lcssa.i to i64
@@ -6238,7 +6238,7 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit:                  ; preds = %_ZN6vectorIiLb0EjE4
   %idxprom.i.i = zext i32 %retval.0.i to i64
   %arrayidx.i.i4 = getelementptr inbounds i32, ptr %8, i64 %idxprom.i.i
   %9 = load i32, ptr %arrayidx.i.i4, align 4
-  %cmp.i5.not = icmp sgt i32 %9, %5
+  %cmp.i5.not = icmp slt i32 %5, %9
   br i1 %cmp.i5.not, label %if.end.i6, label %_ZN15diff_neq_tactic3imp12choose_valueEji.exit
 
 if.end.i6:                                        ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit
@@ -6257,7 +6257,7 @@ _ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i: ; preds = %if.end.
   br i1 %cmp5.not44.i, label %_ZN15diff_neq_tactic3imp12choose_valueEji.exit, label %for.body.i
 
 for.cond30.preheader.i:                           ; preds = %for.inc.i
-  %cmp31.not.not49.i = icmp sgt i32 %max.1.i, %add
+  %cmp31.not.not49.i = icmp slt i32 %add, %max.1.i
   br i1 %cmp31.not.not49.i, label %for.body32.i, label %_ZN15diff_neq_tactic3imp12choose_valueEji.exit
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i, %for.inc.i

@@ -285,7 +285,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112b
 13:                                               ; preds = %10
   %.not.i.i = icmp ne ptr %11, null
   %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = icmp eq ptr %14, %12
+  %15 = icmp eq ptr %12, %14
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %15
   br i1 %or.cond.i.i, label %.thread, label %16
 

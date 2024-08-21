@@ -13794,7 +13794,7 @@ define hidden void @_Z12luau_poscallP9lua_StateP10lua_TValue(ptr nocapture nound
   %10 = getelementptr inbounds i8, ptr %4, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = icmp ne i32 %11, 0
-  %13 = icmp ugt ptr %9, %1
+  %13 = icmp ult ptr %1, %9
   %14 = select i1 %12, i1 %13, i1 false
   br i1 %14, label %.lr.ph, label %.preheader
 

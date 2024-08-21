@@ -39,7 +39,7 @@ define void @_Z13insertionSortPfPiiii(ptr nocapture noundef %0, ptr nocapture no
 .preheader47:                                     ; preds = %.preheader47.preheader, %.critedge
   %indvars.iv = phi i64 [ %7, %.preheader47.preheader ], [ %indvars.iv.next, %.critedge ]
   %indvars63 = trunc i64 %indvars.iv to i32
-  %8 = icmp sgt i32 %indvars63, %2
+  %8 = icmp slt i32 %2, %indvars63
   br i1 %8, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader47, %14
@@ -66,7 +66,7 @@ define void @_Z13insertionSortPfPiiii(ptr nocapture noundef %0, ptr nocapture no
 
 .critedge:                                        ; preds = %14, %.lr.ph, %.preheader47
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %.not.not = icmp slt i32 %indvars63, %3
+  %.not.not = icmp sgt i32 %3, %indvars63
   br i1 %.not.not, label %.preheader47, label %.loopexit49, !llvm.loop !8
 
 .loopexit49:                                      ; preds = %.critedge, %5
@@ -81,7 +81,7 @@ define void @_Z13insertionSortPfPiiii(ptr nocapture noundef %0, ptr nocapture no
 .preheader:                                       ; preds = %.preheader.preheader, %.critedge2
   %indvars.iv64 = phi i64 [ %21, %.preheader.preheader ], [ %indvars.iv.next65, %.critedge2 ]
   %indvars69 = trunc i64 %indvars.iv64 to i32
-  %22 = icmp sgt i32 %indvars69, %2
+  %22 = icmp slt i32 %2, %indvars69
   br i1 %22, label %.lr.ph55, label %.critedge2
 
 .lr.ph55:                                         ; preds = %.preheader, %28
@@ -108,7 +108,7 @@ define void @_Z13insertionSortPfPiiii(ptr nocapture noundef %0, ptr nocapture no
 
 .critedge2:                                       ; preds = %28, %.lr.ph55, %.preheader
   %indvars.iv.next65 = add nsw i64 %indvars.iv64, 1
-  %.not45.not = icmp slt i32 %indvars69, %3
+  %.not45.not = icmp sgt i32 %3, %indvars69
   br i1 %.not45.not, label %.preheader, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.critedge2, %.loopexit49
@@ -139,7 +139,7 @@ define noundef i32 @_Z12BinarySearchPKfiifi(ptr nocapture noundef readonly %0, i
   %13 = sext i32 %12 to i64
   %gep32 = getelementptr float, ptr %invariant.gep31, i64 %13
   %14 = load float, ptr %gep32, align 4
-  %15 = fcmp ogt float %14, %3
+  %15 = fcmp olt float %3, %14
   %..023 = select i1 %15, i32 %12, i32 %.02333
   %.0. = select i1 %15, i32 %.034, i32 %12
   %16 = sub nsw i32 %..023, %.0.
@@ -154,7 +154,7 @@ define noundef i32 @_Z12BinarySearchPKfiifi(ptr nocapture noundef readonly %0, i
   %20 = sext i32 %19 to i64
   %gep = getelementptr float, ptr %invariant.gep31, i64 %20
   %21 = load float, ptr %gep, align 4
-  %22 = fcmp olt float %21, %3
+  %22 = fcmp ogt float %3, %21
   %..225 = select i1 %22, i32 %19, i32 %.22529
   %.2. = select i1 %22, i32 %.230, i32 %19
   %23 = sub nsw i32 %..225, %.2.
@@ -280,7 +280,7 @@ _Z13insertionSortPfPiiii.exit:                    ; preds = %.critedge2.i, %.loo
   %43 = sext i32 %42 to i64
   %gep32.i = getelementptr float, ptr %invariant.gep31.i, i64 %43
   %44 = load float, ptr %gep32.i, align 4
-  %45 = fcmp ogt float %44, %4
+  %45 = fcmp olt float %4, %44
   %..023.i = select i1 %45, i32 %42, i32 %.02333.i
   %.0..i = select i1 %45, i32 %.034.i, i32 %42
   %46 = sub nsw i32 %..023.i, %.0..i
@@ -295,7 +295,7 @@ _Z13insertionSortPfPiiii.exit:                    ; preds = %.critedge2.i, %.loo
   %50 = sext i32 %49 to i64
   %gep.i = getelementptr float, ptr %invariant.gep31.i, i64 %50
   %51 = load float, ptr %gep.i, align 4
-  %52 = fcmp olt float %51, %4
+  %52 = fcmp ogt float %4, %51
   %..225.i = select i1 %52, i32 %49, i32 %.22529.i
   %.2..i = select i1 %52, i32 %.230.i, i32 %49
   %53 = sub nsw i32 %..225.i, %.2..i

@@ -3353,7 +3353,7 @@ declare ptr @agsubedge(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @lockGraph(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @agroot(ptr noundef %0) #24
-  %.not = icmp eq ptr %3, %0
+  %.not = icmp eq ptr %0, %3
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
@@ -3409,7 +3409,7 @@ define i32 @deleteObj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 6:                                                ; preds = %2
   %7 = tail call ptr @agroot(ptr noundef nonnull %1) #24
-  %.not18 = icmp eq ptr %7, %1
+  %.not18 = icmp eq ptr %1, %7
   br i1 %.not18, label %10, label %8
 
 8:                                                ; preds = %6
@@ -4179,7 +4179,7 @@ define ptr @colorx(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonl
   %75 = fdiv double %74, %68
   %76 = fsub double %66, %60
   %77 = fdiv double %76, %68
-  %78 = fcmp oeq double %66, %54
+  %78 = fcmp oeq double %54, %66
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %71
@@ -4187,7 +4187,7 @@ define ptr @colorx(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonl
   br label %91
 
 81:                                               ; preds = %71
-  %82 = fcmp oeq double %66, %57
+  %82 = fcmp oeq double %57, %66
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %81
@@ -4196,7 +4196,7 @@ define ptr @colorx(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonl
   br label %91
 
 86:                                               ; preds = %81
-  %87 = fcmp oeq double %66, %60
+  %87 = fcmp oeq double %60, %66
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %86

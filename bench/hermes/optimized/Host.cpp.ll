@@ -3498,7 +3498,7 @@ _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit11.i:     ; preds = %lor.rhs.i.i5.i
 
 if.then:                                          ; preds = %if.then.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit11.i, %if.end12.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa32.i, %if.end12.i ], [ %__y.0.lcssa32.i, %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit11.i ], [ %__y.0.lcssa33.i, %if.then.i ]
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then

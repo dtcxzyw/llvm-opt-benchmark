@@ -99,7 +99,7 @@ define dso_local i32 @pcmcia_read_config_byte(ptr nocapture noundef readonly %0,
   %13 = getelementptr inbounds i8, ptr %0, i64 120
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = add i64 %15, %1
+  %16 = add i64 %1, %15
   %17 = lshr i64 %16, 1
   %18 = trunc i64 %17 to i32
   %19 = tail call i32 @pcmcia_read_cis_mem(ptr noundef %4, i32 noundef 1, i32 noundef %18, i32 noundef 1, ptr noundef %2) #7, !callees !5
@@ -133,7 +133,7 @@ define dso_local i32 @pcmcia_write_config_byte(ptr nocapture noundef readonly %0
   %14 = getelementptr inbounds i8, ptr %0, i64 120
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = add i64 %16, %1
+  %17 = add i64 %1, %16
   %18 = lshr i64 %17, 1
   %19 = trunc i64 %18 to i32
   %20 = call i32 @pcmcia_write_cis_mem(ptr noundef %5, i32 noundef 1, i32 noundef %19, i32 noundef 1, ptr noundef nonnull %4) #7, !callees !5

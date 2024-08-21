@@ -122,8 +122,8 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %10 = alloca [4 x ptr], align 16
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %3
-  %14 = icmp eq ptr %12, %4
+  %13 = icmp eq ptr %3, %12
+  %14 = icmp eq ptr %4, %12
   %or.cond = and i1 %13, %14
   br i1 %or.cond, label %15, label %18
 
@@ -136,7 +136,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %19 = ptrtoint ptr %12 to i64
   %20 = xor i64 %19, 1
   %21 = inttoptr i64 %20 to ptr
-  %22 = icmp eq ptr %21, %1
+  %22 = icmp eq ptr %1, %21
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %18
@@ -147,7 +147,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   br label %276
 
 28:                                               ; preds = %18
-  %29 = icmp eq ptr %12, %1
+  %29 = icmp eq ptr %1, %12
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
@@ -155,7 +155,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   br label %276
 
 32:                                               ; preds = %28
-  %33 = icmp eq ptr %21, %2
+  %33 = icmp eq ptr %2, %21
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %32
@@ -166,7 +166,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   br label %276
 
 39:                                               ; preds = %32
-  %40 = icmp eq ptr %12, %2
+  %40 = icmp eq ptr %2, %12
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39

@@ -88,7 +88,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %call to i64
-  %cmp2 = icmp ult i64 %conv, %n
+  %cmp2 = icmp ugt i64 %n, %conv
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
@@ -226,7 +226,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv.i = zext nneg i32 %call.i to i64
-  %cmp2.i = icmp ult i64 %conv.i, %n
+  %cmp2.i = icmp ugt i64 %n, %conv.i
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
@@ -337,7 +337,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %call to i64
-  %cmp2 = icmp ult i64 %conv, %n
+  %cmp2 = icmp ugt i64 %n, %conv
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
@@ -463,7 +463,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv.i = zext nneg i32 %call.i to i64
-  %cmp2.i = icmp ult i64 %conv.i, %n
+  %cmp2.i = icmp ugt i64 %n, %conv.i
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
@@ -563,7 +563,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %call to i64
-  %cmp2 = icmp ult i64 %conv, %n
+  %cmp2 = icmp ugt i64 %n, %conv
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
@@ -689,7 +689,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv.i = zext nneg i32 %call.i to i64
-  %cmp2.i = icmp ult i64 %conv.i, %n
+  %cmp2.i = icmp ugt i64 %n, %conv.i
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
@@ -788,7 +788,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv.i = zext nneg i32 %call.i to i64
-  %cmp2.i = icmp ult i64 %conv.i, %n
+  %cmp2.i = icmp ugt i64 %n, %conv.i
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
@@ -913,7 +913,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %conv.i.i = zext nneg i32 %call.i.i to i64
-  %cmp2.i.i = icmp ult i64 %conv.i.i, %n
+  %cmp2.i.i = icmp ugt i64 %n, %conv.i.i
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.else.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i

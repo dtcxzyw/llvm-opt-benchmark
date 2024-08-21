@@ -3336,7 +3336,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef %0, ptr nounde
 
 128:                                              ; preds = %127
   %129 = load i32, ptr %113, align 4
-  %130 = icmp sgt i32 %129, %.3130
+  %130 = icmp slt i32 %.3130, %129
   br i1 %130, label %Extra_ProgressBarUpdate.exit, label %131
 
 131:                                              ; preds = %128, %127

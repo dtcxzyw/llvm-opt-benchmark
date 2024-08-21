@@ -126,7 +126,7 @@ if.then:                                          ; preds = %cond.end4
   call void @libdeflate_free_decompressor(ptr noundef nonnull %call) #3
   %cmp = icmp eq i32 %call7, 0
   %2 = load i64, ptr %actual_in_bytes, align 8
-  %cmp9 = icmp eq i64 %2, %in_bytes
+  %cmp9 = icmp eq i64 %in_bytes, %2
   %or.cond = select i1 %cmp, i1 %cmp9, i1 false
   %spec.select = select i1 %or.cond, i32 0, i32 23
   br label %return

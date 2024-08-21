@@ -35474,19 +35474,19 @@ define hidden ptr @pci_id_str(i16 noundef zeroext %0, i16 noundef zeroext %1, i1
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %.019, i64 2
   %20 = load i16, ptr %19, align 2
-  %21 = icmp eq i16 %20, %1
+  %21 = icmp eq i16 %1, %20
   br i1 %21, label %22, label %33
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %.019, i64 4
   %24 = load i16, ptr %23, align 4
-  %25 = icmp eq i16 %24, %2
+  %25 = icmp eq i16 %2, %24
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %.019, i64 6
   %28 = load i16, ptr %27, align 2
-  %29 = icmp eq i16 %28, %3
+  %29 = icmp eq i16 %3, %28
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %26

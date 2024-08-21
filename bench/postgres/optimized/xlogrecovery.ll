@@ -1874,7 +1874,7 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %42 = udiv i64 %1, %41
   store i64 %42, ptr @readSegNo, align 8
   %43 = sext i32 %2 to i64
-  %44 = add i64 %43, %1
+  %44 = add i64 %1, %43
   %45 = getelementptr inbounds i8, ptr %0, i64 1313
   %46 = getelementptr inbounds i8, ptr %10, i64 5
   %47 = getelementptr inbounds i8, ptr %10, i64 4
@@ -2176,7 +2176,7 @@ thread-pre-split.i:                               ; preds = %143, %141
   %186 = load i32, ptr @wal_segment_size, align 4
   %187 = sext i32 %186 to i64
   %188 = udiv i64 %184, %187
-  %189 = icmp ugt i64 %188, %162
+  %189 = icmp ult i64 %162, %188
   br i1 %189, label %194, label %190
 
 190:                                              ; preds = %185, %182
@@ -2230,7 +2230,7 @@ thread-pre-split.i:                               ; preds = %143, %141
   %210 = load i32, ptr @wal_segment_size, align 4
   %211 = sext i32 %210 to i64
   %212 = udiv i64 %208, %211
-  %213 = icmp ugt i64 %212, %162
+  %213 = icmp ult i64 %162, %212
   br i1 %213, label %216, label %214
 
 214:                                              ; preds = %209, %206
@@ -2284,7 +2284,7 @@ thread-pre-split.i:                               ; preds = %143, %141
   %234 = load i32, ptr @wal_segment_size, align 4
   %235 = sext i32 %234 to i64
   %236 = udiv i64 %232, %235
-  %237 = icmp ugt i64 %236, %162
+  %237 = icmp ult i64 %162, %236
   br i1 %237, label %240, label %238
 
 238:                                              ; preds = %233, %230
@@ -2441,13 +2441,13 @@ XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split64.us.i.i, %2
 
 303:                                              ; preds = %300
   %304 = load i64, ptr @flushedUpto, align 8
-  %305 = icmp ugt i64 %304, %44
+  %305 = icmp ult i64 %44, %304
   br i1 %305, label %.critedge.i, label %306
 
 306:                                              ; preds = %303
   %307 = call i64 @GetWalRcvFlushRecPtr(ptr noundef nonnull %7, ptr noundef nonnull @receiveTLI) #23
   store i64 %307, ptr @flushedUpto, align 8
-  %308 = icmp ugt i64 %307, %44
+  %308 = icmp ult i64 %44, %307
   br i1 %308, label %309, label %339
 
 309:                                              ; preds = %306
@@ -2653,7 +2653,7 @@ WaitForWALToBecomeAvailable.exit.thread64:        ; preds = %339, %92
 
 399:                                              ; preds = %396
   %400 = load i64, ptr @emode_for_corrupt_record.lastComplaint, align 8
-  %401 = icmp eq i64 %400, %44
+  %401 = icmp eq i64 %44, %400
   br i1 %401, label %emode_for_corrupt_record.exit, label %402
 
 402:                                              ; preds = %399
@@ -2680,7 +2680,7 @@ emode_for_corrupt_record.exit:                    ; preds = %396, %399, %402
 
 411:                                              ; preds = %408
   %412 = load i64, ptr @emode_for_corrupt_record.lastComplaint, align 8
-  %413 = icmp eq i64 %412, %44
+  %413 = icmp eq i64 %44, %412
   br i1 %413, label %emode_for_corrupt_record.exit58, label %414
 
 414:                                              ; preds = %411
@@ -2727,7 +2727,7 @@ emode_for_corrupt_record.exit58:                  ; preds = %408, %411, %414
 
 434:                                              ; preds = %430
   %435 = load i64, ptr @emode_for_corrupt_record.lastComplaint, align 8
-  %436 = icmp eq i64 %435, %431
+  %436 = icmp eq i64 %431, %435
   br i1 %436, label %emode_for_corrupt_record.exit61, label %437
 
 437:                                              ; preds = %434
@@ -2944,7 +2944,7 @@ define internal fastcc ptr @ReadRecord(ptr noundef %0, i32 noundef %1, i1 nounde
 
 46:                                               ; preds = %42
   %47 = load i64, ptr @emode_for_corrupt_record.lastComplaint, align 8
-  %48 = icmp eq i64 %47, %43
+  %48 = icmp eq i64 %43, %47
   br i1 %48, label %emode_for_corrupt_record.exit, label %49
 
 49:                                               ; preds = %46
@@ -2987,7 +2987,7 @@ emode_for_corrupt_record.exit:                    ; preds = %42, %46, %49
 
 73:                                               ; preds = %58
   %74 = load i64, ptr @emode_for_corrupt_record.lastComplaint, align 8
-  %75 = icmp eq i64 %74, %70
+  %75 = icmp eq i64 %70, %74
   br i1 %75, label %emode_for_corrupt_record.exit44, label %76
 
 76:                                               ; preds = %73
@@ -3026,7 +3026,7 @@ emode_for_corrupt_record.exit44:                  ; preds = %58, %73, %76
   %92 = load i8, ptr @ArchiveRecoveryRequested, align 1
   %93 = trunc i8 %92 to i1
   %.not41 = xor i1 %93, true
-  %brmerge = or i1 %.not41, %2
+  %brmerge = or i1 %2, %.not41
   br i1 %brmerge, label %103, label %94
 
 94:                                               ; preds = %91
@@ -3896,9 +3896,9 @@ recoveryApplyDelay.exit.thread:                   ; preds = %236, %239, %232, %2
 
 300:                                              ; preds = %294
   %301 = load i64, ptr @minRecoveryPoint, align 8
-  %302 = icmp ugt i64 %301, %288
+  %302 = icmp ult i64 %288, %301
   %303 = load i32, ptr @minRecoveryPointTLI, align 4
-  %304 = icmp ult i32 %303, %.039.i
+  %304 = icmp ugt i32 %.039.i, %303
   %or.cond16.i.i = select i1 %302, i1 %304, i1 false
   br i1 %or.cond16.i.i, label %305, label %.thread.i23
 
@@ -6390,7 +6390,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileRead(i64 noundef 
   %42 = tail call ptr @__errno_location() #25
   %43 = load i32, ptr %42, align 4
   %.not = icmp eq i32 %43, 2
-  %brmerge.not = and i1 %.not, %3
+  %brmerge.not = and i1 %3, %.not
   br i1 %brmerge.not, label %48, label %44
 
 44:                                               ; preds = %41

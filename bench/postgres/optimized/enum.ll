@@ -664,7 +664,7 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   %18 = getelementptr i8, ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = trunc nuw i8 %.031.us53 to i1
-  %21 = icmp ne i32 %19, %1
+  %21 = icmp ne i32 %1, %19
   %or.cond.not.us = select i1 %20, i1 true, i1 %21
   %.132.us = select i1 %or.cond.not.us, i8 %.031.us53, i8 1
   %22 = trunc nuw i8 %.132.us to i1
@@ -718,7 +718,7 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   %43 = getelementptr i8, ptr %39, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = trunc nuw i8 %.031 to i1
-  %46 = icmp ne i32 %44, %1
+  %46 = icmp ne i32 %1, %44
   %or.cond.not = select i1 %45, i1 true, i1 %46
   %.132 = select i1 %or.cond.not, i8 %.031, i8 1
   %47 = trunc nuw i8 %.132 to i1
@@ -750,7 +750,7 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   %.137 = phi i32 [ %.238, %54 ], [ %.036, %37 ]
   %.235 = phi i32 [ %56, %54 ], [ %.033, %37 ]
   %.2 = phi ptr [ %.3, %54 ], [ %.0, %37 ]
-  %60 = icmp eq i32 %44, %2
+  %60 = icmp eq i32 %2, %44
   br i1 %60, label %.split48.us, label %.split, !llvm.loop !5
 
 .split48.us:                                      ; preds = %.split, %59, %34, %.split.us

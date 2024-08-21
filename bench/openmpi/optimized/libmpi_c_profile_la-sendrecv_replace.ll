@@ -124,13 +124,13 @@ ompi_comm_peer_invalid.exit:                      ; preds = %41
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load i32, ptr %45, align 8
-  %.not.i.not = icmp sgt i32 %46, %3
+  %.not.i.not = icmp slt i32 %3, %46
   br i1 %.not.i.not, label %47, label %.thread
 
 47:                                               ; preds = %ompi_comm_peer_invalid.exit, %40
   %48 = icmp slt i32 %4, 0
   %49 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 172), align 4
-  %50 = icmp slt i32 %49, %4
+  %50 = icmp sgt i32 %4, %49
   %or.cond110 = select i1 %48, i1 true, i1 %50
   br i1 %or.cond110, label %.thread, label %51
 
@@ -147,12 +147,12 @@ ompi_comm_peer_invalid.exit121:                   ; preds = %52
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load i32, ptr %56, align 8
-  %.not.i119.not = icmp sgt i32 %57, %5
+  %.not.i119.not = icmp slt i32 %5, %57
   br i1 %.not.i119.not, label %58, label %.thread
 
 58:                                               ; preds = %ompi_comm_peer_invalid.exit121, %51
   %or.cond5 = icmp slt i32 %6, -1
-  %59 = icmp slt i32 %49, %6
+  %59 = icmp sgt i32 %6, %49
   %or.cond112 = select i1 %or.cond5, i1 true, i1 %59
   br i1 %or.cond112, label %.thread, label %60
 

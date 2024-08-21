@@ -2439,7 +2439,7 @@ define internal void @tele_param_srvc_cat_prog_results(ptr noundef %0, ptr nound
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
   %.lcssa31 = phi i32 [ 0, %6 ], [ %24, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %3, %6 ], [ %22, %._crit_edge.loopexit ]
-  %25 = icmp ult i32 %.lcssa31, %3
+  %25 = icmp ugt i32 %3, %.lcssa31
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %._crit_edge

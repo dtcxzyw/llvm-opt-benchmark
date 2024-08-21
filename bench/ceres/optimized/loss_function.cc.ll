@@ -113,7 +113,7 @@ define hidden void @_ZNK5ceres11TrivialLoss8EvaluateEdPd(ptr nocapture nonnull r
 define hidden void @_ZNK5ceres9HuberLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load double, ptr %4, align 8
-  %6 = fcmp olt double %5, %1
+  %6 = fcmp ogt double %1, %5
   br i1 %6, label %7, label %21
 
 7:                                                ; preds = %3
@@ -172,8 +172,8 @@ define hidden void @_ZNK5ceres12SoftLOneLoss8EvaluateEdPd(ptr nocapture noundef 
   %15 = getelementptr inbounds i8, ptr %2, i64 8
   store double %.sroa.speculated, ptr %15, align 8
   %16 = load double, ptr %4, align 8
-  %17 = fneg double %16
-  %18 = fmul double %.sroa.speculated, %17
+  %17 = fneg double %.sroa.speculated
+  %18 = fmul double %16, %17
   %19 = fmul double %6, 2.000000e+00
   %20 = fdiv double %18, %19
   %21 = getelementptr inbounds i8, ptr %2, i64 16
@@ -256,7 +256,7 @@ define hidden void @_ZN5ceres12TolerantLossC2Edd(ptr nocapture noundef nonnull w
   %15 = tail call double @exp(double noundef %14) #16
   %16 = fadd double %15, 1.000000e+00
   %17 = tail call double @log(double noundef %16) #16
-  %18 = fmul double %17, %2
+  %18 = fmul double %2, %17
   store double %18, ptr %12, align 8
   %19 = fcmp ult double %1, 0.000000e+00
   br i1 %19, label %.noexc, label %_ZN6google12Check_GEImplIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
@@ -435,7 +435,7 @@ declare double @cosh(double noundef) local_unnamed_addr #5
 define hidden void @_ZNK5ceres9TukeyLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
-  %6 = fcmp ult double %5, %1
+  %6 = fcmp ugt double %1, %5
   br i1 %6, label %19, label %7
 
 7:                                                ; preds = %3
@@ -724,7 +724,7 @@ define hidden void @_ZNK5ceres10ScaledLoss8EvaluateEdPd(ptr nocapture noundef no
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load double, ptr %8, align 8
-  %10 = fmul double %9, %1
+  %10 = fmul double %1, %9
   store double %10, ptr %2, align 8
   %11 = load double, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 8

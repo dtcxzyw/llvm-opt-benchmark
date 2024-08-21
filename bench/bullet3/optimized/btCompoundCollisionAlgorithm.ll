@@ -152,7 +152,7 @@ entry:
   %2 = load i32, ptr %m_size.i.i, align 4
   %m_size.i.i14 = getelementptr inbounds i8, ptr %this, i64 84
   %3 = load i32, ptr %m_size.i.i14, align 4
-  %cmp3.i = icmp slt i32 %3, %2
+  %cmp3.i = icmp sgt i32 %2, %3
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIP20btCollisionAlgorithmE6resizeEiRKS1_.exit
 
 if.then4.i:                                       ; preds = %entry

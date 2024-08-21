@@ -474,7 +474,7 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   %blob = getelementptr inbounds i8, ptr %config_source, i64 16
   store ptr %call10, ptr %blob, align 8
   %1 = load ptr, ptr @the_repository, align 8
-  %cmp11.not = icmp eq ptr %1, %repo
+  %cmp11.not = icmp eq ptr %repo, %1
   br i1 %cmp11.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %if.then8

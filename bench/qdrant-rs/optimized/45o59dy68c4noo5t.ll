@@ -130,7 +130,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   %63 = extractvalue { i64, i64 } %60, 1
   store i64 %63, ptr %15, align 8
   %64 = add nuw nsw i64 %25, 15
-  %65 = icmp ugt i64 %64, %2
+  %65 = icmp ult i64 %2, %64
   br i1 %65, label %.thread99.i.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %62

@@ -239,7 +239,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local range(i32 -1, 1) i32 @xbzrle_cache_resize(i64 noundef %new_size, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @migrate_xbzrle_cache_size() #18
-  %cmp1 = icmp eq i64 %call, %new_size
+  %cmp1 = icmp eq i64 %new_size, %call
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %entry
@@ -939,7 +939,7 @@ if.else13:                                        ; preds = %if.then9
 
 if.end14:                                         ; preds = %if.then9
   %7 = load ptr, ptr %last_sent_block, align 8
-  %cmp.i = icmp eq ptr %7, %2
+  %cmp.i = icmp eq ptr %2, %7
   %spec.select.i.v = select i1 %cmp.i, i64 34, i64 2
   %spec.select.i = or i64 %spec.select.i.v, %3
   tail call void @qemu_put_be64(ptr noundef %1, i64 noundef %spec.select.i) #18
@@ -982,7 +982,7 @@ if.else26:                                        ; preds = %if.then22
 
 if.end27:                                         ; preds = %if.then22
   %10 = load ptr, ptr %last_sent_block, align 8
-  %cmp.i27 = icmp eq ptr %10, %2
+  %cmp.i27 = icmp eq ptr %2, %10
   %spec.select.i29.v = select i1 %cmp.i27, i64 288, i64 256
   %spec.select.i29 = or i64 %spec.select.i29.v, %3
   tail call void @qemu_put_be64(ptr noundef %1, i64 noundef %spec.select.i29) #18
@@ -1875,7 +1875,7 @@ offset_in_ramblock.exit:                          ; preds = %land.lhs.true.i
   %sub = add i64 %add, %len
   %used_length.i = getelementptr inbounds i8, ptr %ramblock.0, i64 48
   %12 = load i64, ptr %used_length.i, align 8
-  %cmp.i = icmp ugt i64 %12, %sub
+  %cmp.i = icmp ult i64 %sub, %12
   br i1 %cmp.i, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %land.lhs.true.i.if.then10_crit_edge, %offset_in_ramblock.exit
@@ -2126,7 +2126,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.end2.i.i
 pss_within_range.exit.i:                          ; preds = %land.lhs.true.i.i.i
   %used_length.i.i.i = getelementptr inbounds i8, ptr %53, i64 48
   %55 = load i64, ptr %used_length.i.i.i, align 8
-  %cmp.i.i36.i = icmp ugt i64 %55, %shl.i.i
+  %cmp.i.i36.i = icmp ult i64 %shl.i.i, %55
   br i1 %cmp.i.i36.i, label %do.body.i, label %out.i, !llvm.loop !31
 
 out.i:                                            ; preds = %pss_within_range.exit.i, %land.lhs.true.i.i.i, %if.end2.i.i, %if.end.i.i
@@ -4765,7 +4765,7 @@ land.lhs.true.i63:                                ; preds = %if.end7.i, %if.end.
 
 offset_in_ramblock.exit:                          ; preds = %land.lhs.true.i63
   %29 = load i64, ptr %used_length.i, align 8
-  %cmp.i = icmp ugt i64 %29, %shl
+  %cmp.i = icmp ult i64 %shl, %29
   br i1 %cmp.i, label %for.cond48.preheader, label %if.then37
 
 for.cond48.preheader:                             ; preds = %offset_in_ramblock.exit
@@ -5217,7 +5217,7 @@ int128_get64.exit:                                ; preds = %entry
   %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   %1 = load i64, ptr %offset_within_region, align 16
   %add.i = add i64 %1, %coerce.sroa.0.0.extract.trunc
-  %cmp5.i = icmp ugt i64 %add.i, %1
+  %cmp5.i = icmp ult i64 %1, %add.i
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %populate_read_range.exit
 
 for.body.lr.ph.i:                                 ; preds = %int128_get64.exit
@@ -7170,7 +7170,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then23.i
 offset_in_ramblock.exit.i.i:                      ; preds = %land.lhs.true.i.i.i
   %used_length.i.i.i = getelementptr inbounds i8, ptr %call24.i, i64 48
   %16 = load i64, ptr %used_length.i.i.i, align 8
-  %cmp.i.i.i = icmp ugt i64 %16, %and11.i
+  %cmp.i.i.i = icmp ult i64 %and11.i, %16
   %add.ptr.i.i = getelementptr i8, ptr %15, i64 %and11.i
   %spec.select.i.i = select i1 %cmp.i.i.i, ptr %add.ptr.i.i, ptr null
   br label %host_from_ram_block_offset.exit.i
@@ -7196,7 +7196,7 @@ land.lhs.true.i.i53.i:                            ; preds = %if.then29.i
 offset_in_ramblock.exit.i56.i:                    ; preds = %land.lhs.true.i.i53.i
   %used_length.i.i57.i = getelementptr inbounds i8, ptr %call24.i, i64 48
   %18 = load i64, ptr %used_length.i.i57.i, align 8
-  %cmp.i.i58.i = icmp ugt i64 %18, %and11.i
+  %cmp.i.i58.i = icmp ult i64 %and11.i, %18
   br i1 %cmp.i.i58.i, label %if.end.i.i, label %if.then35.i
 
 if.end.i.i:                                       ; preds = %offset_in_ramblock.exit.i56.i
@@ -7252,7 +7252,7 @@ land.lhs.true.i.i62.i:                            ; preds = %if.else.i
 offset_in_ramblock.exit.i65.i:                    ; preds = %land.lhs.true.i.i62.i
   %used_length.i.i66.i = getelementptr inbounds i8, ptr %call24.i, i64 48
   %30 = load i64, ptr %used_length.i.i66.i, align 8
-  %cmp.i.i67.i = icmp ugt i64 %30, %and11.i
+  %cmp.i.i67.i = icmp ult i64 %and11.i, %30
   br i1 %cmp.i.i67.i, label %if.end.i69.i, label %if.end33.i
 
 if.end.i69.i:                                     ; preds = %offset_in_ramblock.exit.i65.i
@@ -7383,7 +7383,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i7
 if.end3.i.i.i:                                    ; preds = %if.then.i.i7
   %used_length.i.i78.i = getelementptr inbounds i8, ptr %call5.i.i, i64 48
   %41 = load i64, ptr %used_length.i.i78.i, align 8
-  %cmp.not.i.i.i = icmp eq i64 %41, %call3.i.i
+  %cmp.not.i.i.i = icmp eq i64 %call3.i.i, %41
   br i1 %cmp.not.i.i.i, label %if.end9.i.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end3.i.i.i
@@ -8168,7 +8168,7 @@ if.end.i15:                                       ; preds = %if.end4
   %7 = load ptr, ptr %block1, align 8
   %last_sent_block.i.i = getelementptr inbounds i8, ptr %pss, i64 8
   %8 = load ptr, ptr %last_sent_block.i.i, align 8
-  %cmp.i.i = icmp eq ptr %8, %7
+  %cmp.i.i = icmp eq ptr %7, %8
   %spec.select.i.v.i = select i1 %cmp.i.i, i64 34, i64 2
   %spec.select.i.i = or disjoint i64 %spec.select.i.v.i, %shl
   tail call void @qemu_put_be64(ptr noundef %6, i64 noundef %spec.select.i.i) #18
@@ -8471,7 +8471,7 @@ if.end23.i.i:                                     ; preds = %if.end15.i.i
   %63 = load ptr, ptr %pss, align 8
   %last_sent_block.i.i.i = getelementptr inbounds i8, ptr %pss, i64 8
   %64 = load ptr, ptr %last_sent_block.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %64, %23
+  %cmp.i.i.i = icmp eq ptr %23, %64
   %spec.select.i.v.i.i = select i1 %cmp.i.i.i, i64 96, i64 64
   %spec.select.i.i.i = or disjoint i64 %spec.select.i.v.i.i, %shl.i
   tail call void @qemu_put_be64(ptr noundef %63, i64 noundef %spec.select.i.i.i) #18
@@ -8527,7 +8527,7 @@ if.then7.i26:                                     ; preds = %if.end6.thread46.i,
   %70 = load ptr, ptr %pss, align 8
   %last_sent_block.i.i16.i = getelementptr inbounds i8, ptr %pss, i64 8
   %71 = load ptr, ptr %last_sent_block.i.i16.i, align 8
-  %cmp.i.i17.i = icmp eq ptr %71, %23
+  %cmp.i.i17.i = icmp eq ptr %23, %71
   %spec.select.i.v.i18.i = select i1 %cmp.i.i17.i, i64 40, i64 8
   %spec.select.i.i19.i = or disjoint i64 %spec.select.i.v.i18.i, %shl.i
   tail call void @qemu_put_be64(ptr noundef %70, i64 noundef %spec.select.i.i19.i) #18
@@ -8922,7 +8922,7 @@ land.lhs.true.i.i28:                              ; preds = %if.end.i
 offset_in_ramblock.exit.i:                        ; preds = %land.lhs.true.i.i28
   %used_length.i.i = getelementptr inbounds i8, ptr %39, i64 48
   %44 = load i64, ptr %used_length.i.i, align 8
-  %cmp.i.i29 = icmp ugt i64 %44, %shl.i
+  %cmp.i.i29 = icmp ult i64 %shl.i, %44
   br i1 %cmp.i.i29, label %if.end24, label %if.then5.i
 
 if.then5.i:                                       ; preds = %offset_in_ramblock.exit.i, %land.lhs.true.i.i28, %if.end.i
@@ -9132,7 +9132,7 @@ pss_within_range.exit.i:                          ; preds = %if.end2.i.i
   %shl.i.i = shl i64 %69, 12
   %used_length.i.i.i = getelementptr inbounds i8, ptr %.pre57.i, i64 48
   %72 = load i64, ptr %used_length.i.i.i, align 8
-  %cmp.i.i34.i = icmp ugt i64 %72, %shl.i.i
+  %cmp.i.i34.i = icmp ult i64 %shl.i.i, %72
   br i1 %cmp.i.i34.i, label %do.body.i, label %do.end31.i, !llvm.loop !125
 
 do.end31.i:                                       ; preds = %pss_within_range.exit.i, %if.end2.i.i, %if.end.i.i47

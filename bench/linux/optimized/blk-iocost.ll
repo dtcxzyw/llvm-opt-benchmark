@@ -6405,7 +6405,7 @@ define internal fastcc void @ioc_refresh_params_disk(ptr noundef %0, i1 noundef 
   %77 = getelementptr [5 x %struct.ioc_params], ptr @autop, i64 0, i64 %76
   %78 = load i32, ptr %4, align 8
   %79 = icmp ne i32 %75, %78
-  %80 = or i1 %79, %1
+  %80 = or i1 %1, %79
   br i1 %80, label %81, label %224
 
 81:                                               ; preds = %74

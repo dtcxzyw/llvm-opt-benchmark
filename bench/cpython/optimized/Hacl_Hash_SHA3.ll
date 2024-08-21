@@ -149,7 +149,7 @@ switch.lookup:                                    ; preds = %entry
   %3 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.Hacl_Streaming_Keccak_block_len, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
-  %cmp5 = icmp eq i32 %switch.load, %input_len
+  %cmp5 = icmp eq i32 %input_len, %switch.load
   br i1 %cmp5, label %if.then7, label %if.end18
 
 if.then7:                                         ; preds = %switch.lookup
@@ -908,7 +908,7 @@ block_len.exit139:                                ; preds = %if.then9, %if.end15
   %sz.0524 = phi i32 [ %conv14544, %if.end15.thread540 ], [ %conv14549, %if.end15.thread545 ], [ %conv14554, %if.end15.thread550 ], [ %conv14559, %if.end15.thread555 ], [ %conv14564, %if.end15.thread560 ], [ %conv14, %if.end15 ], [ %switch.load844, %if.then9 ]
   %retval.0.i132 = phi i32 [ 144, %if.end15.thread540 ], [ 136, %if.end15.thread545 ], [ 104, %if.end15.thread550 ], [ 72, %if.end15.thread555 ], [ 168, %if.end15.thread560 ], [ 136, %if.end15 ], [ %switch.load846, %if.then9 ]
   %sub17 = sub nsw i32 %retval.0.i132, %sz.0524
-  %cmp18.not = icmp ult i32 %sub17, %len
+  %cmp18.not = icmp ugt i32 %len, %sub17
   br i1 %cmp18.not, label %if.else47, label %if.then20
 
 if.then20:                                        ; preds = %block_len.exit139
@@ -1423,7 +1423,7 @@ switch.lookup895:                                 ; preds = %if.end195
   %switch.load898 = load i32, ptr %switch.gep897, align 4
   %49 = urem i32 %sub197, %switch.load898
   %cmp202 = icmp ne i32 %49, 0
-  %cmp207.not = icmp eq i32 %sub125699, %len
+  %cmp207.not = icmp eq i32 %len, %sub125699
   %or.cond112 = select i1 %cmp202, i1 true, i1 %cmp207.not
   br i1 %or.cond112, label %if.else211, label %if.then209
 
@@ -2250,7 +2250,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %1 = trunc nuw i64 %indvars.iv to i32
-  %mul = mul i32 %1, %rateInBytes
+  %mul = mul i32 %rateInBytes, %1
   %idx.ext3 = zext i32 %mul to i64
   %add.ptr4 = getelementptr i8, ptr %output, i64 %idx.ext3
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i)

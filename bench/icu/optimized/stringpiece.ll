@@ -37,7 +37,7 @@ entry:
   %cmp = icmp slt i32 %pos, 0
   %length_ = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load i32, ptr %length_, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %pos)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %pos, i32 %0)
   %pos.addr.0 = select i1 %cmp, i32 0, i32 %spec.select
   %1 = load ptr, ptr %x, align 8
   %idx.ext = sext i32 %pos.addr.0 to i64
@@ -56,11 +56,11 @@ entry:
   %cmp = icmp slt i32 %pos, 0
   %length_ = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load i32, ptr %length_, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %pos)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %pos, i32 %0)
   %pos.addr.0 = select i1 %cmp, i32 0, i32 %spec.select
   %cmp6 = icmp slt i32 %len, 0
   %sub = sub nsw i32 %0, %pos.addr.0
-  %spec.select11 = tail call i32 @llvm.smin.i32(i32 %sub, i32 %len)
+  %spec.select11 = tail call i32 @llvm.smin.i32(i32 %len, i32 %sub)
   %len.addr.0 = select i1 %cmp6, i32 0, i32 %spec.select11
   %1 = load ptr, ptr %x, align 8
   %idx.ext = sext i32 %pos.addr.0 to i64
@@ -101,7 +101,7 @@ entry:
   br i1 %or.cond, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp522 = icmp sgt i32 %0, %offset
+  %cmp522 = icmp slt i32 %offset, %0
   br i1 %cmp522, label %for.cond6.preheader.lr.ph, label %return
 
 for.cond6.preheader.lr.ph:                        ; preds = %for.cond.preheader

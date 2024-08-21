@@ -650,7 +650,7 @@ if.end55:                                         ; preds = %lor.lhs.false49
 
 if.end61:                                         ; preds = %if.end55
   %shr = lshr exact i32 %call, 3
-  %spec.select = call i32 @llvm.smin.i32(i32 %shr, i32 %dgst_len)
+  %spec.select = call i32 @llvm.smin.i32(i32 %dgst_len, i32 %shr)
   %call66 = call ptr @BN_bin2bn(ptr noundef %dgst, i32 noundef %spec.select, ptr noundef nonnull %call20) #7
   %cmp67 = icmp eq ptr %call66, null
   br i1 %cmp67, label %if.then123, label %if.end69

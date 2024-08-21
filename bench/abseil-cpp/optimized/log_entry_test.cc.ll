@@ -2956,7 +2956,7 @@ invoke.cont206:                                   ; preds = %_ZNKSt14default_del
   %agg.tmp205.sroa.2.0.text_message.sroa_idx = getelementptr inbounds i8, ptr %text_message, i64 8
   %agg.tmp205.sroa.2.0.copyload = load ptr, ptr %agg.tmp205.sroa.2.0.text_message.sroa_idx, align 8
   %63 = load i64, ptr %47, align 8
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %63, i64 %agg.tmp205.sroa.0.0.copyload)
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %agg.tmp205.sroa.0.0.copyload, i64 %63)
   %64 = load ptr, ptr %view, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %agg.tmp205.sroa.2.0.copyload, i64 %spec.select.i, i1 false)
   %65 = load ptr, ptr %view, align 8
@@ -5364,7 +5364,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -5447,7 +5447,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i: ; preds = %if.then.i32.
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -6498,7 +6498,7 @@ if.then8.i.i.i:                                   ; preds = %if.end.i.i
 
 if.end10.i.i.i:                                   ; preds = %if.then8.i.i.i, %if.end.i.i
   %3 = load i64, ptr %it, align 8, !alias.scope !114
-  %cmp.i.i.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %cmp.i.i.i.i.i = icmp ugt i64 %3, %retval.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end10.i.i.i
@@ -6560,7 +6560,7 @@ if.then8.i:                                       ; preds = %if.end.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %if.end.i
   %8 = load i64, ptr %it, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %8
+  %cmp.i.i.i = icmp ugt i64 %8, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i

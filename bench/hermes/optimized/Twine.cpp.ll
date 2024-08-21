@@ -402,7 +402,7 @@ cond.true.i.split.i:                              ; preds = %sw.bb4
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i8.i
-  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i9.i, %call.i.i
+  %cmp.i.i = icmp ugt i64 %call.i.i, %sub.ptr.sub.i9.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %cond.true.i.split.i
@@ -437,7 +437,7 @@ sw.bb7:                                           ; preds = %tailrecurse
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %agg.tmp.sroa.2.0.copyload
+  %cmp.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.bb7
@@ -732,7 +732,7 @@ cond.true.i.split.i:                              ; preds = %_ZN4llvh11raw_ostre
   %sub.ptr.lhs.cast.i7.i79 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i8.i80 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i9.i81 = sub i64 %sub.ptr.lhs.cast.i7.i79, %sub.ptr.rhs.cast.i8.i80
-  %cmp.i.i82 = icmp ult i64 %sub.ptr.sub.i9.i81, %call.i.i76
+  %cmp.i.i82 = icmp ugt i64 %call.i.i76, %sub.ptr.sub.i9.i81
   br i1 %cmp.i.i82, label %if.then.i.i88, label %if.end.i.i83
 
 if.then.i.i88:                                    ; preds = %cond.true.i.split.i

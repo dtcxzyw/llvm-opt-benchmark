@@ -367,7 +367,7 @@ define void @_ZN5faiss22IndexRowwiseMinMaxFP165trainElPKf(ptr nocapture noundef 
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = mul nsw i64 %13, %1
+  %14 = mul nsw i64 %1, %13
   %15 = icmp ugt i64 %14, 2305843009213693951
   br i1 %15, label %.noexc.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -1550,7 +1550,7 @@ define void @_ZN5faiss18IndexRowwiseMinMax5trainElPKf(ptr nocapture noundef nonn
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = mul nsw i64 %13, %1
+  %14 = mul nsw i64 %1, %13
   %15 = icmp ugt i64 %14, 2305843009213693951
   br i1 %15, label %.noexc.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
 

@@ -3223,7 +3223,7 @@ _ZNSt3__113__fill_n_boolB8ne190000ILb1ENS_6vectorIbNS_9allocatorIbEEEEEEvNS_14__
 16:                                               ; preds = %15
   %17 = sub i32 64, %14
   %18 = zext i32 %17 to i64
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %18, i64 %2)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %18)
   %19 = zext nneg i32 %14 to i64
   %20 = shl nsw i64 -1, %19
   %21 = sub nsw i64 %18, %.sroa.speculated.i
@@ -3268,7 +3268,7 @@ _ZNSt3__18__fill_nB8ne190000IPmmmEET_S2_T0_RKT1_.exit.i: ; preds = %.lr.ph.i.pre
 39:                                               ; preds = %38
   %40 = sub i32 64, %14
   %41 = zext i32 %40 to i64
-  %.sroa.speculated.i6 = tail call i64 @llvm.umin.i64(i64 %41, i64 %2)
+  %.sroa.speculated.i6 = tail call i64 @llvm.umin.i64(i64 %2, i64 %41)
   %42 = zext nneg i32 %14 to i64
   %43 = shl nsw i64 -1, %42
   %44 = sub nsw i64 %41, %.sroa.speculated.i6
@@ -3316,7 +3316,7 @@ _ZNSt3__113__fill_n_boolB8ne190000ILb1ENS_6vectorIbNS_9allocatorIbEEEEEEvNS_14__
   %65 = load i32, ptr %64, align 8, !noalias !35
   %66 = icmp sgt i64 %2, -1
   %67 = zext i32 %65 to i64
-  %68 = add nsw i64 %67, %2
+  %68 = add nsw i64 %2, %67
   br i1 %66, label %69, label %74
 
 69:                                               ; preds = %_ZNSt3__113__fill_n_boolB8ne190000ILb1ENS_6vectorIbNS_9allocatorIbEEEEEEvNS_14__bit_iteratorIT0_Lb0ELi0EEENS6_9size_typeE.exit.thread, %_ZNSt3__113__fill_n_boolB8ne190000ILb1ENS_6vectorIbNS_9allocatorIbEEEEEEvNS_14__bit_iteratorIT0_Lb0ELi0EEENS6_9size_typeE.exit
@@ -3587,7 +3587,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %41 = zext nneg i8 %40 to i64
   %42 = select i1 %.not.i.i.i, i64 %41, i64 %39
   %43 = trunc i64 %42 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %43, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %43)
   %44 = sext i32 %.sroa.speculated to i64
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %37, i64 noundef %44)
           to label %46 unwind label %54
@@ -3753,7 +3753,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63
@@ -4113,7 +4113,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %41 = zext nneg i8 %40 to i64
   %42 = select i1 %.not.i.i.i, i64 %41, i64 %39
   %43 = trunc i64 %42 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %43, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %43)
   %44 = sext i32 %.sroa.speculated to i64
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %37, i64 noundef %44)
           to label %46 unwind label %54

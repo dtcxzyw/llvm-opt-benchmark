@@ -2428,7 +2428,7 @@ define dso_local noundef range(i32 -14, 1) i32 @__bpf_skb_load_bytes(ptr noundef
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 116
   %10 = load i32, ptr %9, align 4
-  %11 = add i32 %10, %1
+  %11 = add i32 %1, %10
   %12 = sub i32 %8, %11
   %13 = icmp slt i32 %12, %3
   br i1 %13, label %19, label %14, !prof !14
@@ -7685,7 +7685,7 @@ define dso_local ptr @bpf_xdp_pointer(ptr nocapture noundef readonly %0, i32 nou
   br i1 %31, label %79, label %32, !prof !14
 
 32:                                               ; preds = %29
-  %33 = icmp ugt i32 %10, %1
+  %33 = icmp ult i32 %1, %10
   br i1 %33, label %.loopexit, label %34, !prof !9
 
 34:                                               ; preds = %32
@@ -7995,7 +7995,7 @@ define dso_local i32 @__bpf_xdp_load_bytes(ptr nocapture noundef readonly %0, i3
   br i1 %32, label %.thread16, label %33, !prof !14
 
 33:                                               ; preds = %30
-  %34 = icmp ugt i32 %11, %1
+  %34 = icmp ult i32 %1, %11
   br i1 %34, label %.loopexit19, label %35, !prof !9
 
 35:                                               ; preds = %33
@@ -8400,7 +8400,7 @@ define dso_local i32 @__bpf_xdp_store_bytes(ptr nocapture noundef readonly %0, i
   br i1 %32, label %.thread16, label %33, !prof !14
 
 33:                                               ; preds = %30
-  %34 = icmp ugt i32 %11, %1
+  %34 = icmp ult i32 %1, %11
   br i1 %34, label %.loopexit19, label %35, !prof !9
 
 35:                                               ; preds = %33
@@ -22842,7 +22842,7 @@ define dso_local range(i32 -22, 65536) i32 @sk_get_filter(ptr noundef %0, ptr %1
   br i1 %17, label %35, label %18
 
 18:                                               ; preds = %14
-  %19 = icmp ugt i32 %16, %3
+  %19 = icmp ult i32 %3, %16
   br i1 %19, label %35, label %20
 
 20:                                               ; preds = %18
@@ -26511,7 +26511,7 @@ define internal fastcc i32 @__bpf_skb_change_tail(ptr noundef %0, i32 noundef %1
   %87 = sub i64 %85, %86
   %88 = trunc i64 %87 to i32
   %89 = getelementptr inbounds i8, ptr %0, i64 184
-  %90 = add i32 %88, %1
+  %90 = add i32 %1, %88
   store i32 %90, ptr %89, align 8
   br label %91
 
@@ -26559,7 +26559,7 @@ define internal fastcc i32 @__bpf_skb_change_tail(ptr noundef %0, i32 noundef %1
   %114 = sub i64 %112, %113
   %115 = trunc i64 %114 to i32
   %116 = getelementptr inbounds i8, ptr %0, i64 184
-  %117 = add i32 %115, %1
+  %117 = add i32 %1, %115
   store i32 %117, ptr %116, align 8
   br label %118
 
@@ -27452,7 +27452,7 @@ define internal fastcc i32 @__bpf_getsockopt(ptr noundef %0, i32 noundef %1, i32
   %63 = getelementptr inbounds i8, ptr %56, i64 8
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %62, %64
-  %66 = icmp ult i32 %65, %4
+  %66 = icmp ugt i32 %4, %65
   br i1 %66, label %sol_tcp_sockopt.exit, label %67
 
 67:                                               ; preds = %58

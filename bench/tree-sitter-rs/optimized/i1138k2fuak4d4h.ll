@@ -459,7 +459,7 @@ define hidden { i32, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %60 = getelementptr inbounds { i32, { i32, i8 } }, ptr %.val.i, i64 %59
   %61 = getelementptr inbounds i8, ptr %60, i64 -12
   %.val4.i.i = load i32, ptr %61, align 4, !alias.scope !129, !noalias !134, !noundef !4
-  %62 = icmp eq i32 %.val4.i.i, %1
+  %62 = icmp eq i32 %1, %.val4.i.i
   br i1 %62, label %87, label %50
 
 63:                                               ; preds = %51

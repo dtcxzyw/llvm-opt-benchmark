@@ -320,7 +320,7 @@ define internal void @virtio_gpu_ui_info(ptr noundef %opaque, i32 noundef %idx, 
 entry:
   %conf = getelementptr inbounds i8, ptr %opaque, i64 528
   %0 = load i32, ptr %conf, align 16
-  %cmp.not = icmp ugt i32 %0, %idx
+  %cmp.not = icmp ult i32 %idx, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -408,7 +408,7 @@ if.else4:                                         ; preds = %entry
 
 if.end5:                                          ; preds = %entry
   %cmp8 = icmp ne i32 %dec, 0
-  %or.cond.not = or i1 %cmp8, %block
+  %or.cond.not = or i1 %block, %cmp8
   br i1 %or.cond.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end5
@@ -467,7 +467,7 @@ entry:
   %1 = and i32 %0, 130
   %or.cond = icmp ne i32 %1, 0
   %or = zext i1 %or.cond to i64
-  %features.addr.0 = or i64 %or, %features
+  %features.addr.0 = or i64 %features, %or
   %and7 = lshr i32 %0, 2
   %2 = and i32 %and7, 2
   %3 = zext nneg i32 %2 to i64

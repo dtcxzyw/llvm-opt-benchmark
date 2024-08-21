@@ -355,7 +355,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %44 = and i16 %43, 16383
   %45 = zext nneg i16 %44 to i32
   %46 = icmp eq i16 %44, 0
-  %47 = icmp sgt i32 %45, %2
+  %47 = icmp slt i32 %2, %45
   %48 = or i1 %46, %47
   br i1 %48, label %51, label %.thread51.us.us.us
 
@@ -392,7 +392,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %66 = and i16 %65, 16383
   %67 = zext nneg i16 %66 to i32
   %68 = icmp eq i16 %66, 0
-  %69 = icmp sgt i32 %67, %2
+  %69 = icmp slt i32 %2, %67
   %70 = or i1 %68, %69
   br i1 %70, label %.split.us, label %.thread51.us.us
 
@@ -428,7 +428,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %89 = and i16 %88, 16383
   %90 = zext nneg i16 %89 to i32
   %91 = icmp eq i16 %89, 0
-  %92 = icmp sgt i32 %90, %2
+  %92 = icmp slt i32 %2, %90
   %93 = or i1 %91, %92
   br i1 %93, label %98, label %.thread51.us.us121
 
@@ -468,7 +468,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %113 = and i16 %112, 16383
   %114 = zext nneg i16 %113 to i32
   %115 = icmp eq i16 %113, 0
-  %116 = icmp sgt i32 %114, %2
+  %116 = icmp slt i32 %2, %114
   %117 = or i1 %115, %116
   br i1 %117, label %.split.us, label %.thread51.us
 
@@ -504,7 +504,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %138 = and i16 %137, 16383
   %139 = zext nneg i16 %138 to i32
   %140 = icmp eq i16 %138, 0
-  %141 = icmp sgt i32 %139, %2
+  %141 = icmp slt i32 %2, %139
   %142 = or i1 %140, %141
   br i1 %142, label %143, label %145
 
@@ -537,7 +537,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %157 = icmp ult i16 %156, %154
   %158 = select i1 %157, i32 %26, i32 %4
   %159 = icmp eq i16 %154, 0
-  %160 = icmp ugt i32 %155, %2
+  %160 = icmp ult i32 %2, %155
   %161 = or i1 %159, %160
   br i1 %161, label %.thread51, label %162
 
@@ -1559,7 +1559,7 @@ define dso_local noundef ptr @nla_find(ptr noundef readonly %0, i32 noundef %1, 
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 16383
   %14 = zext nneg i16 %13 to i32
-  %15 = icmp eq i32 %14, %2
+  %15 = icmp eq i32 %2, %14
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %10
@@ -1672,7 +1672,7 @@ define dso_local range(i32 -2147483648, 65536) i32 @nla_memcpy(ptr nocapture nou
   %8 = getelementptr i8, ptr %1, i64 4
   %9 = sext i32 %7 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %8, i64 %9, i1 false)
-  %10 = icmp slt i32 %6, %2
+  %10 = icmp sgt i32 %2, %6
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %3

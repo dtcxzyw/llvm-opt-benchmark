@@ -4321,7 +4321,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = tail call ptr @__cxa_begin_catch(ptr %28) #26
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeEEEvT_SD_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %26, %.lr.ph.i.i.i.i.i.i
@@ -4705,7 +4705,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau26TypeFamilyReductionGuesser19opera
 9:                                                ; preds = %.thread
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %_ZN4Luau3getINS_22TypeFamilyInstanceTypeEEEPKT_PKNS_4TypeE.exit, label %13
 
 13:                                               ; preds = %9
@@ -4774,7 +4774,7 @@ _ZN4Luau3getINS_22TypeFamilyInstanceTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %4
 9:                                                ; preds = %_ZN4Luau3getINS_22TypeFamilyInstanceTypeEEEPKT_PKNS_4TypeE.exit
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread, label %13
 
 13:                                               ; preds = %9
@@ -4821,7 +4821,7 @@ _ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %4, %_ZN4Luau3ge
 36:                                               ; preds = %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit
   %37 = getelementptr inbounds i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, %1
+  %39 = icmp eq ptr %1, %38
   br i1 %39, label %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread, label %40
 
 40:                                               ; preds = %36
@@ -5379,7 +5379,7 @@ define dso_local void @_ZN4Luau26TypeFamilyReductionGuesser21inferComparisonFami
 32:                                               ; preds = %.thread.i
   %33 = getelementptr inbounds i8, ptr %1, i64 136
   %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, %.011
+  %35 = icmp eq ptr %.011, %34
   br i1 %35, label %_ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit21, label %36
 
 36:                                               ; preds = %32
@@ -5433,7 +5433,7 @@ _ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit: ; pr
 60:                                               ; preds = %.thread.i16
   %61 = getelementptr inbounds i8, ptr %1, i64 136
   %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, %.0
+  %63 = icmp eq ptr %.0, %62
   br i1 %63, label %.loopexit51, label %64
 
 64:                                               ; preds = %60
@@ -5512,7 +5512,7 @@ _ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit21.thr
 93:                                               ; preds = %.thread.i24
   %94 = getelementptr inbounds i8, ptr %1, i64 136
   %95 = load ptr, ptr %94, align 8
-  %96 = icmp eq ptr %95, %.0
+  %96 = icmp eq ptr %.0, %95
   br i1 %96, label %_ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit37, label %97
 
 97:                                               ; preds = %93
@@ -5565,7 +5565,7 @@ _ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit29: ; 
 121:                                              ; preds = %.thread.i32
   %122 = getelementptr inbounds i8, ptr %1, i64 136
   %123 = load ptr, ptr %122, align 8
-  %124 = icmp eq ptr %123, %.011
+  %124 = icmp eq ptr %.011, %123
   br i1 %124, label %.loopexit, label %125
 
 125:                                              ; preds = %121
@@ -5745,7 +5745,7 @@ _ZN4Luau26TypeFamilyReductionGuesser9normalizeEPKNS_4TypeE.exit60: ; preds = %_Z
 59:                                               ; preds = %.thread.i
   %60 = getelementptr inbounds i8, ptr %1, i64 136
   %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, %.0
+  %62 = icmp eq ptr %.0, %61
   br i1 %62, label %_ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit.thread, label %63
 
 63:                                               ; preds = %59
@@ -5799,7 +5799,7 @@ _ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit: ; pr
 87:                                               ; preds = %.thread.i64
   %88 = getelementptr inbounds i8, ptr %1, i64 136
   %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, %.050
+  %90 = icmp eq ptr %.050, %89
   br i1 %90, label %_ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit.thread, label %91
 
 91:                                               ; preds = %87
@@ -5875,7 +5875,7 @@ _ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit.threa
 122:                                              ; preds = %.thread.i72
   %123 = getelementptr inbounds i8, ptr %1, i64 136
   %124 = load ptr, ptr %123, align 8
-  %125 = icmp eq ptr %124, %.0
+  %125 = icmp eq ptr %.0, %124
   br i1 %125, label %.loopexit211, label %126
 
 126:                                              ; preds = %122
@@ -5952,7 +5952,7 @@ _ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit77: ; 
 157:                                              ; preds = %.thread.i85
   %158 = getelementptr inbounds i8, ptr %1, i64 136
   %159 = load ptr, ptr %158, align 8
-  %160 = icmp eq ptr %159, %.050
+  %160 = icmp eq ptr %.050, %159
   br i1 %160, label %.loopexit210, label %161
 
 161:                                              ; preds = %157
@@ -6096,7 +6096,7 @@ _ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit90: ; 
 223:                                              ; preds = %.thread.i108
   %224 = getelementptr inbounds i8, ptr %1, i64 136
   %225 = load ptr, ptr %224, align 8
-  %226 = icmp eq ptr %225, %.0
+  %226 = icmp eq ptr %.0, %225
   br i1 %226, label %_ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit113.thread, label %227
 
 227:                                              ; preds = %223
@@ -6150,7 +6150,7 @@ _ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit113: ;
 251:                                              ; preds = %.thread.i116
   %252 = getelementptr inbounds i8, ptr %1, i64 136
   %253 = load ptr, ptr %252, align 8
-  %254 = icmp eq ptr %253, %.050
+  %254 = icmp eq ptr %.050, %253
   br i1 %254, label %_ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit113.thread, label %255
 
 255:                                              ; preds = %251
@@ -6211,7 +6211,7 @@ _ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit113.th
 280:                                              ; preds = %.thread.i124
   %281 = getelementptr inbounds i8, ptr %1, i64 136
   %282 = load ptr, ptr %281, align 8
-  %283 = icmp eq ptr %282, %.0
+  %283 = icmp eq ptr %.0, %282
   br i1 %283, label %.loopexit208, label %284
 
 284:                                              ; preds = %280
@@ -6267,7 +6267,7 @@ _ZN4Luau26TypeFamilyReductionGuesser19operandIsAssignableEPKNS_4TypeE.exit129: ;
 305:                                              ; preds = %.thread.i132
   %306 = getelementptr inbounds i8, ptr %1, i64 136
   %307 = load ptr, ptr %306, align 8
-  %308 = icmp eq ptr %307, %.050
+  %308 = icmp eq ptr %.050, %307
   br i1 %308, label %.loopexit, label %309
 
 309:                                              ; preds = %305
@@ -7028,7 +7028,7 @@ _ZNSt10_HashtableIPKN4Luau11TypePackVarESt4pairIKS3_NSt7__cxx1112basic_stringIcS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 104
-  %13 = icmp eq ptr %12, %11
+  %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZNSt13unordered_mapIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S9_EEED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZNSt10_HashtableIPKN4Luau11TypePackVarESt4pairIKS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -7061,7 +7061,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NSt7__cxx1112basic_stringIcSt11char_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 48
-  %27 = icmp eq ptr %26, %25
+  %27 = icmp eq ptr %25, %26
   br i1 %27, label %_ZNSt13unordered_mapIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S9_EEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -8017,7 +8017,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12visit_detail7hasSeen
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   br i1 %9, label %.thread, label %12
@@ -8647,7 +8647,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeEESaISB_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeEESaISB_EE11_M_allocateEm.exit ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit, %.lr.ph.i.i.i17

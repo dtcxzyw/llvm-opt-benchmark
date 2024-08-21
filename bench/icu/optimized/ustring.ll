@@ -78,7 +78,7 @@ for.cond.preheader:                               ; preds = %while.body
 
 if.then29:                                        ; preds = %if.end42, %for.cond.preheader
   %p.0.lcssa = phi ptr [ %incdec.ptr20133, %for.cond.preheader ], [ %incdec.ptr43, %if.end42 ]
-  %cmp1.not.i = icmp eq ptr %s.addr.0132, %s
+  %cmp1.not.i = icmp eq ptr %s, %s.addr.0132
   %or.cond.i = or i1 %cmp1.not.i, %cmp.i78
   br i1 %or.cond.i, label %if.end.i79, label %land.lhs.true2.i
 
@@ -258,7 +258,7 @@ if.end99:                                         ; preds = %if.end90, %for.cond
   br i1 %cmp71.not, label %return, label %while.body72, !llvm.loop !10
 
 if.else101:                                       ; preds = %if.end65
-  %cmp102.not.not = icmp sgt i32 %subLength.addr.0, %length
+  %cmp102.not.not = icmp slt i32 %length, %subLength.addr.0
   br i1 %cmp102.not.not, label %return, label %if.end104
 
 if.end104:                                        ; preds = %if.else101
@@ -266,7 +266,7 @@ if.end104:                                        ; preds = %if.else101
   %add.ptr106 = getelementptr inbounds i16, ptr %s, i64 %idx.ext105
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr108 = getelementptr inbounds i16, ptr %add.ptr106, i64 %idx.neg
-  %cmp110.not142 = icmp eq ptr %add.ptr108, %s
+  %cmp110.not142 = icmp eq ptr %s, %add.ptr108
   br i1 %cmp110.not142, label %return, label %while.body111.lr.ph
 
 while.body111.lr.ph:                              ; preds = %if.end104
@@ -287,7 +287,7 @@ for.cond117.preheader:                            ; preds = %while.body111
 
 if.then119:                                       ; preds = %if.end131, %for.cond117.preheader
   %p.2.lcssa = phi ptr [ %incdec.ptr112, %for.cond117.preheader ], [ %incdec.ptr132, %if.end131 ]
-  %cmp1.not.i91 = icmp eq ptr %s.addr.2143, %s
+  %cmp1.not.i91 = icmp eq ptr %s, %s.addr.2143
   %or.cond.i92 = or i1 %cmp1.not.i91, %cmp.i90
   br i1 %or.cond.i92, label %if.end.i96, label %land.lhs.true2.i93
 
@@ -371,7 +371,7 @@ while.body72.i:                                   ; preds = %while.body72.i.preh
   br i1 %cmp75.i, label %for.cond77.i.preheader, label %if.end99.ithread-pre-split
 
 for.cond77.i.preheader:                           ; preds = %while.body72.i
-  %cmp1.not.i = icmp eq ptr %s.addr.1.i22, %s
+  %cmp1.not.i = icmp eq ptr %s, %s.addr.1.i22
   %or.cond.i = or i1 %cmp1.not.i, %cmp.i
   br i1 %or.cond.i, label %if.end.i, label %land.lhs.true2.i
 
@@ -597,7 +597,7 @@ while.body.i.us:                                  ; preds = %while.body.preheade
   br i1 %cmp25.i.us, label %for.cond.preheader.i.us, label %if.end45.i.us
 
 for.cond.preheader.i.us:                          ; preds = %while.body.i.us
-  %cmp1.not.i.i.us = icmp eq ptr %s.addr.0132.i.us, %s
+  %cmp1.not.i.i.us = icmp eq ptr %s, %s.addr.0132.i.us
   br i1 %cmp1.not.i.i.us, label %u_strFindFirst_75.exit, label %land.lhs.true2.i.i.us
 
 land.lhs.true2.i.i.us:                            ; preds = %for.cond.preheader.i.us
@@ -677,7 +677,7 @@ while.body.i:                                     ; preds = %while.body.preheade
   br i1 %cmp25.i, label %if.end33.i, label %if.end45.i
 
 if.then29.i.loopexit:                             ; preds = %if.end42.i
-  %cmp1.not.i.i = icmp eq ptr %s.addr.0132.i, %s
+  %cmp1.not.i.i = icmp eq ptr %s, %s.addr.0132.i
   br i1 %cmp1.not.i.i, label %if.end.i79.i, label %land.lhs.true2.i.i
 
 land.lhs.true2.i.i:                               ; preds = %if.then29.i.loopexit
@@ -795,7 +795,7 @@ while.body72.i.i:                                 ; preds = %while.body72.i.preh
   br i1 %cmp75.i.i, label %for.cond77.i.preheader.i, label %if.end99.ithread-pre-split.i
 
 for.cond77.i.preheader.i:                         ; preds = %while.body72.i.i
-  %cmp1.not.i.i = icmp eq ptr %s.addr.1.i22.i, %s
+  %cmp1.not.i.i = icmp eq ptr %s, %s.addr.1.i22.i
   br i1 %cmp1.not.i.i, label %return, label %land.lhs.true2.i.i
 
 land.lhs.true2.i.i:                               ; preds = %for.cond77.i.preheader.i
@@ -1021,7 +1021,7 @@ do.body.i:                                        ; preds = %do.cond.i, %if.else
   br i1 %cmp6.i43, label %return, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
-  %cmp8.not.i = icmp eq ptr %incdec.ptr.i42, %s
+  %cmp8.not.i = icmp eq ptr %s, %incdec.ptr.i42
   br i1 %cmp8.not.i, label %return, label %do.body.i, !llvm.loop !17
 
 if.end19:                                         ; preds = %if.end12
@@ -1080,7 +1080,7 @@ if.then38:                                        ; preds = %for.cond, %for.cond
   %p.0.lcssa = phi ptr [ %incdec.ptr32, %for.cond.preheader ], [ %incdec.ptr45, %for.cond ]
   %8 = and i16 %.lcssa, -1024
   %cmp.i56 = icmp ne i16 %8, -9216
-  %cmp1.not.i = icmp eq ptr %p.0.lcssa, %s
+  %cmp1.not.i = icmp eq ptr %s, %p.0.lcssa
   %or.cond.i = or i1 %cmp1.not.i, %cmp.i56
   br i1 %or.cond.i, label %if.end.i, label %land.lhs.true2.i
 
@@ -1165,7 +1165,7 @@ while.body.i.us.us:                               ; preds = %if.end26.i, %if.end
   br i1 %cmp35.i.us.us, label %return, label %if.end52.i.us.us
 
 if.end52.i.us.us:                                 ; preds = %while.body.i.us.us
-  %cmp31.not.i.us.us = icmp eq ptr %incdec.ptr32.i.us.us, %s
+  %cmp31.not.i.us.us = icmp eq ptr %s, %incdec.ptr32.i.us.us
   br i1 %cmp31.not.i.us.us, label %return, label %while.body.i.us.us, !llvm.loop !19
 
 while.body.i.us:                                  ; preds = %if.end26.i, %if.end52.i.us
@@ -1183,11 +1183,11 @@ land.lhs.true2.i.i.us:                            ; preds = %for.cond.i.preheade
   br i1 %cmp5.i.i.us, label %if.end52.i.us, label %return
 
 if.end52.i.us:                                    ; preds = %land.lhs.true2.i.i.us, %while.body.i.us
-  %cmp31.not.i.us = icmp eq ptr %incdec.ptr32.i.us, %s
+  %cmp31.not.i.us = icmp eq ptr %s, %incdec.ptr32.i.us
   br i1 %cmp31.not.i.us, label %return, label %while.body.i.us, !llvm.loop !19
 
 for.cond.i.preheader.us:                          ; preds = %while.body.i.us
-  %cmp1.not.i.i.us = icmp eq ptr %incdec.ptr32.i.us, %s
+  %cmp1.not.i.i.us = icmp eq ptr %s, %incdec.ptr32.i.us
   br i1 %cmp1.not.i.i.us, label %return, label %land.lhs.true2.i.i.us
 
 while.body.i.us12:                                ; preds = %if.end26.i, %if.end52.i.us17
@@ -1204,7 +1204,7 @@ land.lhs.true12.i.i.us:                           ; preds = %for.cond.i.preheade
   br i1 %cmp15.i.i.us, label %if.end52.i.us17, label %return
 
 if.end52.i.us17:                                  ; preds = %land.lhs.true12.i.i.us, %while.body.i.us12
-  %cmp31.not.i.us18 = icmp eq ptr %incdec.ptr32.i.us14, %s
+  %cmp31.not.i.us18 = icmp eq ptr %s, %incdec.ptr32.i.us14
   br i1 %cmp31.not.i.us18, label %return, label %while.body.i.us12, !llvm.loop !19
 
 for.cond.i.preheader.us19:                        ; preds = %while.body.i.us12
@@ -1256,7 +1256,7 @@ do.body:                                          ; preds = %do.cond, %if.else3
   br i1 %cmp6, label %return, label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %cmp8.not = icmp eq ptr %incdec.ptr, %s
+  %cmp8.not = icmp eq ptr %s, %incdec.ptr
   br i1 %cmp8.not, label %return, label %do.body, !llvm.loop !17
 
 return:                                           ; preds = %do.cond, %do.body, %entry, %if.then2
@@ -1320,7 +1320,7 @@ while.body.i.us.us.i:                             ; preds = %if.end26.i.i, %if.e
   br i1 %cmp35.i.us.us.i, label %return, label %if.end52.i.us.us.i
 
 if.end52.i.us.us.i:                               ; preds = %while.body.i.us.us.i
-  %cmp31.not.i.us.us.i = icmp eq ptr %incdec.ptr32.i.us.us.i, %s
+  %cmp31.not.i.us.us.i = icmp eq ptr %s, %incdec.ptr32.i.us.us.i
   br i1 %cmp31.not.i.us.us.i, label %return, label %while.body.i.us.us.i, !llvm.loop !19
 
 while.body.i.us.i:                                ; preds = %if.end26.i.i, %if.end52.i.us.i
@@ -1338,11 +1338,11 @@ land.lhs.true2.i.i.us.i:                          ; preds = %for.cond.i.preheade
   br i1 %cmp5.i.i.us.i, label %if.end52.i.us.i, label %return
 
 if.end52.i.us.i:                                  ; preds = %land.lhs.true2.i.i.us.i, %while.body.i.us.i
-  %cmp31.not.i.us.i = icmp eq ptr %incdec.ptr32.i.us.i, %s
+  %cmp31.not.i.us.i = icmp eq ptr %s, %incdec.ptr32.i.us.i
   br i1 %cmp31.not.i.us.i, label %return, label %while.body.i.us.i, !llvm.loop !19
 
 for.cond.i.preheader.us.i:                        ; preds = %while.body.i.us.i
-  %cmp1.not.i.i.us.i = icmp eq ptr %incdec.ptr32.i.us.i, %s
+  %cmp1.not.i.i.us.i = icmp eq ptr %s, %incdec.ptr32.i.us.i
   br i1 %cmp1.not.i.i.us.i, label %return, label %land.lhs.true2.i.i.us.i
 
 while.body.i.us12.i:                              ; preds = %if.end26.i.i, %if.end52.i.us17.i
@@ -1359,7 +1359,7 @@ land.lhs.true12.i.i.us.i:                         ; preds = %for.cond.i.preheade
   br i1 %cmp15.i.i.us.i, label %if.end52.i.us17.i, label %return
 
 if.end52.i.us17.i:                                ; preds = %land.lhs.true12.i.i.us.i, %while.body.i.us12.i
-  %cmp31.not.i.us18.i = icmp eq ptr %incdec.ptr32.i.us14.i, %s
+  %cmp31.not.i.us18.i = icmp eq ptr %s, %incdec.ptr32.i.us14.i
   br i1 %cmp31.not.i.us18.i, label %return, label %while.body.i.us12.i, !llvm.loop !19
 
 for.cond.i.preheader.us19.i:                      ; preds = %while.body.i.us12.i
@@ -1445,7 +1445,7 @@ do.body.i:                                        ; preds = %do.cond.i, %if.else
   br i1 %cmp6.i, label %u_memrchr_75.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
-  %cmp8.not.i = icmp eq ptr %incdec.ptr.i, %s
+  %cmp8.not.i = icmp eq ptr %s, %incdec.ptr.i
   br i1 %cmp8.not.i, label %u_memrchr_75.exit, label %do.body.i, !llvm.loop !17
 
 u_memrchr_75.exit:                                ; preds = %do.body.i, %do.cond.i, %if.then, %if.then2.i
@@ -1485,7 +1485,7 @@ land.lhs.true:                                    ; preds = %do.body
 
 do.cond:                                          ; preds = %do.body, %land.lhs.true
   %incdec.ptr = getelementptr inbounds i8, ptr %limit.0, i64 -2
-  %cmp18.not = icmp eq ptr %incdec.ptr, %s
+  %cmp18.not = icmp eq ptr %s, %incdec.ptr
   br i1 %cmp18.not, label %return, label %do.body, !llvm.loop !21
 
 return.loopexit.split.loop.exit:                  ; preds = %land.lhs.true
@@ -2097,7 +2097,7 @@ land.lhs.true91:                                  ; preds = %land.lhs.true88
 lor.lhs.false:                                    ; preds = %land.lhs.true91, %land.lhs.true88, %if.then85
   %14 = and i16 %c1.0, -1024
   %cmp97 = icmp ne i16 %14, -9216
-  %cmp99.not = icmp eq ptr %s1.addr.1, %s1
+  %cmp99.not = icmp eq ptr %s1, %s1.addr.1
   %or.cond = or i1 %cmp99.not, %cmp97
   br i1 %or.cond, label %if.else106, label %land.lhs.true100
 
@@ -2131,7 +2131,7 @@ land.lhs.true115:                                 ; preds = %land.lhs.true112
 lor.lhs.false120:                                 ; preds = %land.lhs.true115, %land.lhs.true112, %if.end109
   %19 = and i16 %c2.0, -1024
   %cmp123 = icmp ne i16 %19, -9216
-  %cmp125.not = icmp eq ptr %s2.addr.1, %s2
+  %cmp125.not = icmp eq ptr %s2, %s2.addr.1
   %or.cond72 = or i1 %cmp123, %cmp125.not
   br i1 %or.cond72, label %if.else132, label %land.lhs.true126
 
@@ -2346,7 +2346,7 @@ land.lhs.true88.i:                                ; preds = %if.then85.i
 lor.lhs.false.i:                                  ; preds = %land.lhs.true88.i, %if.then85.i
   %7 = and i16 %c1.0.i, -1024
   %cmp97.i = icmp ne i16 %7, -9216
-  %cmp99.not.i = icmp eq ptr %s1.addr.1.i, %s1
+  %cmp99.not.i = icmp eq ptr %s1, %s1.addr.1.i
   %or.cond.i = or i1 %cmp99.not.i, %cmp97.i
   br i1 %or.cond.i, label %if.else106.i, label %land.lhs.true100.i
 
@@ -2376,7 +2376,7 @@ land.lhs.true112.i:                               ; preds = %if.end109.i
 lor.lhs.false120.i:                               ; preds = %land.lhs.true112.i, %if.end109.i
   %12 = and i16 %c2.0.i, -1024
   %cmp123.i = icmp ne i16 %12, -9216
-  %cmp125.not.i = icmp eq ptr %s2.addr.1.i, %s2
+  %cmp125.not.i = icmp eq ptr %s2, %s2.addr.1.i
   %or.cond72.i = or i1 %cmp125.not.i, %cmp123.i
   br i1 %or.cond72.i, label %if.else132.i, label %land.lhs.true126.i
 
@@ -3170,7 +3170,7 @@ if.then4:                                         ; preds = %if.then
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv7 = trunc i64 %sub.ptr.sub to i32
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %sub, i32 0)
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %spec.store.select.i, i32 %conv7)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %conv7, i32 %spec.store.select.i)
   tail call void @u_charsToUChars_75(ptr noundef %src.addr.0.ph, ptr noundef nonnull %add.ptr, i32 noundef %spec.select.i)
   %add = add nsw i32 %i.0.ph, %conv7
   br label %if.end12
@@ -3263,7 +3263,7 @@ if.then49:                                        ; preds = %if.then47
   %sub.ptr.sub55 = sub i64 %sub.ptr.lhs.cast53, %sub.ptr.rhs.cast54
   %conv56 = trunc i64 %sub.ptr.sub55 to i32
   %spec.store.select.i55 = tail call i32 @llvm.smax.i32(i32 %sub52, i32 0)
-  %spec.select.i56 = tail call i32 @llvm.smin.i32(i32 %spec.store.select.i55, i32 %conv56)
+  %spec.select.i56 = tail call i32 @llvm.smin.i32(i32 %conv56, i32 %spec.store.select.i55)
   tail call void @u_charsToUChars_75(ptr noundef %.us-phi, ptr noundef nonnull %add.ptr51, i32 noundef %spec.select.i56)
   br label %if.end57
 

@@ -1955,7 +1955,7 @@ HistoQueuePush.exit.i:                            ; preds = %610, %600
   store ptr null, ptr %647, align 8
   %648 = load i32, ptr %7, align 8
   %649 = add nsw i32 %648, -1
-  %650 = icmp eq i32 %649, %644
+  %650 = icmp eq i32 %644, %649
   %651 = icmp sgt i32 %648, 0
   %or.cond.i.i120 = and i1 %651, %650
   br i1 %or.cond.i.i120, label %.lr.ph.i.i124, label %HistogramSetRemoveHistogram.exit.i121
@@ -2329,7 +2329,7 @@ HistoQueuePush.exit.i158:                         ; preds = %HistoQueueUpdateHea
   store ptr null, ptr %816, align 8
   %817 = load i32, ptr %7, align 8
   %818 = add nsw i32 %817, -1
-  %819 = icmp eq i32 %818, %800
+  %819 = icmp eq i32 %800, %818
   %820 = icmp sgt i32 %817, 0
   %or.cond.i.i144 = and i1 %820, %819
   br i1 %or.cond.i.i144, label %.lr.ph.i.i151, label %.lr.ph101.i.preheader

@@ -274,7 +274,7 @@ set_status_by_pages.exit:                         ; preds = %44, %108, %set_stat
 define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
   %9 = zext i16 %8 to i64
-  %10 = and i64 %9, %5
+  %10 = and i64 %5, %9
   %11 = load ptr, ptr @XactCtlData, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
@@ -285,7 +285,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %16 = load ptr, ptr @MyProc, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 52
   %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %18, %0
+  %19 = icmp eq i32 %0, %18
   %20 = icmp slt i32 %1, 6
   %or.cond = and i1 %20, %19
   br i1 %or.cond, label %21, label %131
@@ -294,7 +294,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %22 = getelementptr inbounds i8, ptr %16, i64 440
   %23 = load i8, ptr %22, align 8
   %24 = zext i8 %23 to i32
-  %25 = icmp eq i32 %24, %1
+  %25 = icmp eq i32 %1, %24
   br i1 %25, label %26, label %131
 
 26:                                               ; preds = %21

@@ -4108,7 +4108,7 @@ hwloc__xml_export_check_buffer.exit.thread:       ; preds = %21, %14, %13
 30:                                               ; preds = %29, %29, %29, %.lr.ph.i33
   %31 = add i32 %.017.i34, 1
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %32, %5
+  %33 = icmp ugt i64 %5, %32
   br i1 %33, label %.lr.ph.i33, label %.loopexit, !llvm.loop !25
 
 hwloc__xml_export_check_buffer.exit:              ; preds = %20, %29

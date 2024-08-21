@@ -1537,7 +1537,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %10 = load i64, ptr %buffer, align 8
   %spec.select.i13 = call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i13, %sub.ptr.sub
+  %cmp.i = icmp ugt i64 %sub.ptr.sub, %spec.select.i13
   br i1 %cmp.i, label %if.then.i19, label %if.end.i
 
 if.then.i19:                                      ; preds = %while.body
@@ -3013,9 +3013,9 @@ entry:
   %pattern.addr.0.idx = zext i1 %cmp to i64
   %pattern.addr.0 = getelementptr inbounds i8, ptr %pattern, i64 %pattern.addr.0.idx
   %dec2 = sext i1 %cmp to i32
-  %prefix.addr.0 = add nsw i32 %dec2, %prefix
-  %patternlen.addr.0 = add nsw i32 %dec2, %patternlen
-  %cmp3.not = icmp slt i32 %baselen, %pathlen
+  %prefix.addr.0 = add nsw i32 %prefix, %dec2
+  %patternlen.addr.0 = add nsw i32 %patternlen, %dec2
+  %cmp3.not = icmp sgt i32 %pathlen, %baselen
   br i1 %cmp3.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
@@ -3083,7 +3083,7 @@ fspathncmp.exit37:                                ; preds = %cond.true.i32, %con
 
 if.end27:                                         ; preds = %fspathncmp.exit37
   %add.ptr29 = getelementptr inbounds i8, ptr %pattern.addr.0, i64 %conv23
-  %sub30 = sub nsw i32 %patternlen.addr.0, %prefix.addr.0
+  %sub30 = sub i32 %patternlen, %prefix
   %add.ptr32 = getelementptr inbounds i8, ptr %add.ptr16, i64 %conv23
   %sub33 = sub nsw i32 %cond, %prefix.addr.0
   %tobool34 = icmp ne i32 %sub30, 0
@@ -3261,7 +3261,7 @@ if.end26:                                         ; preds = %hashmap_contains_pa
 if.end29:                                         ; preds = %if.end26
   %8 = load i64, ptr %parent_pathname, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %8, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %slash_pos.0
+  %cmp.i = icmp ugt i64 %slash_pos.0, %spec.select.i
   br i1 %cmp.i, label %if.then.i18, label %if.end.i
 
 if.then.i18:                                      ; preds = %if.end29
@@ -3340,7 +3340,7 @@ for.cond.preheader:                               ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %pathname to i64
   %sub.ptr.sub.neg = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
   %1 = trunc i64 %sub.ptr.sub.neg to i32
-  %conv14 = add i32 %1, %pathlen
+  %conv14 = add i32 %pathlen, %1
   %cmp27 = icmp sgt i32 %0, 0
   br i1 %cmp27, label %for.body.lr.ph, label %return
 
@@ -4367,7 +4367,7 @@ cleanup:                                          ; preds = %if.end15, %cleanup.
   %dtype.0 = phi i8 [ %0, %land.lhs.true7 ], [ 4, %if.then23 ], [ 10, %if.then29 ], [ %0, %land.lhs.true10 ], [ 8, %if.end15 ], [ %0, %cleanup.fold.split ]
   %5 = load i64, ptr %path, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %1
+  %cmp.i = icmp ugt i64 %1, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cleanup
@@ -4842,7 +4842,7 @@ strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %if.
   %sub45.i.i = add i64 %17, -1
   %18 = load i64, ptr %path, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %18, i64 1)
-  %cmp.i.i.i = icmp ult i64 %spec.select.i.i.i, %sub45.i.i
+  %cmp.i.i.i = icmp ugt i64 %sub45.i.i, %spec.select.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i26.i.i, label %if.end.i.i.i
 
 if.then.i26.i.i:                                  ; preds = %strbuf_addch.exit.i.i
@@ -5273,7 +5273,7 @@ define dso_local range(i32 0, 2) i32 @repo_file_exists(ptr noundef readnone %rep
 entry:
   %sb.i = alloca %struct.stat, align 8
   %0 = load ptr, ptr @the_repository, align 8
-  %cmp.not = icmp eq ptr %0, %repo
+  %cmp.not = icmp eq ptr %repo, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -5840,7 +5840,7 @@ entry:
 while.cond:                                       ; preds = %land.rhs, %entry
   %end.0 = phi ptr [ %add.ptr, %entry ], [ %add.ptr1, %land.rhs ]
   %add.ptr1 = getelementptr inbounds i8, ptr %end.0, i64 -1
-  %cmp = icmp ugt ptr %add.ptr1, %dir
+  %cmp = icmp ult ptr %dir, %add.ptr1
   br i1 %cmp, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %while.cond
@@ -6009,7 +6009,7 @@ while.body:                                       ; preds = %while.body.i, %land
   %d_name.i.le = getelementptr inbounds i8, ptr %call.i, i64 19
   %20 = load i64, ptr %path, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %20, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %conv33
+  %cmp.i = icmp ugt i64 %conv33, %spec.select.i
   br i1 %cmp.i, label %if.then.i37, label %if.end.i
 
 if.then.i37:                                      ; preds = %while.body
@@ -6074,7 +6074,7 @@ while.end:                                        ; preds = %if.then37, %if.else
   %conv66 = ashr exact i64 %sext32, 32
   %27 = load i64, ptr %path, align 8
   %spec.select.i39 = call i64 @llvm.usub.sat.i64(i64 %27, i64 1)
-  %cmp.i40 = icmp ult i64 %spec.select.i39, %conv66
+  %cmp.i40 = icmp ugt i64 %conv66, %spec.select.i39
   br i1 %cmp.i40, label %if.then.i47, label %if.end.i41
 
 if.then.i47:                                      ; preds = %while.end
@@ -7680,7 +7680,7 @@ if.then:                                          ; preds = %entry
   %call1 = tail call fastcc ptr @lookup_untracked(ptr noundef %uc, ptr noundef %dir, ptr noundef %path, i32 noundef %conv)
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 1
   %add.neg = xor i32 %conv, -1
-  %sub = add i32 %add.neg, %len
+  %sub = add i32 %len, %add.neg
   %call2 = tail call fastcc i32 @invalidate_one_component(ptr noundef %uc, ptr noundef %call1, ptr noundef nonnull %add.ptr, i32 noundef %sub)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.then4
@@ -8304,7 +8304,7 @@ land.lhs.true45.i:                                ; preds = %if.else.i
   %arrayidx48.i = getelementptr inbounds i8, ptr %add.ptr.i59, i64 %idxprom47.i
   %21 = load i8, ptr %arrayidx48.i, align 1
   %cmp50.i = icmp eq i8 %21, 47
-  %cmp54.i = icmp eq i32 %sub46.i, %sub
+  %cmp54.i = icmp eq i32 %sub, %sub46.i
   %or.cond.i = and i1 %cmp54.i, %cmp50.i
   br i1 %or.cond.i, label %land.lhs.true56.i, label %if.end62.i
 
@@ -8736,7 +8736,7 @@ land.lhs.true:                                    ; preds = %if.end
   %2 = load i8, ptr %arrayidx, align 1
   %cmp = icmp eq i8 %2, 47
   %dec = sext i1 %cmp to i32
-  %spec.select = add nsw i32 %dec, %len
+  %spec.select = add nsw i32 %len, %dec
   %3 = sext i32 %spec.select to i64
   br label %if.end4
 

@@ -156,7 +156,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -436,7 +436,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #17
   %cmp7 = icmp eq ptr %call, null
@@ -1646,7 +1646,7 @@ entry:
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %cmp = icmp slt i32 %add, %cond.i
-  %cmp.i.i5 = icmp ugt i32 %cond.i, %pos
+  %cmp.i.i5 = icmp ult i32 %pos, %cond.i
   %or.cond = and i1 %cmp, %cmp.i.i5
   br i1 %or.cond, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %lor.rhs
 
@@ -1685,7 +1685,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit.i.i:     ; preds = %lor.rhs
   ]
 
 land.rhs.i.i:                                     ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i
-  %cmp.i.i8.i.i = icmp ugt i32 %cond.i, %add
+  %cmp.i.i8.i.i = icmp ult i32 %add, %cond.i
   br i1 %cmp.i.i8.i.i, label %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i34.i
 
 _ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i: ; preds = %land.rhs.i.i
@@ -1696,7 +1696,7 @@ _ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i: ; preds = %
   br i1 %.not.i, label %lor.end, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i34.i
 
 land.rhs.i21.i:                                   ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i
-  %cmp.i.i8.i23.i = icmp ugt i32 %cond.i, %add
+  %cmp.i.i8.i23.i = icmp ult i32 %add, %cond.i
   br i1 %cmp.i.i8.i23.i, label %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit.i, label %lor.end
 
 _ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit.i: ; preds = %land.rhs.i21.i
@@ -1733,7 +1733,7 @@ entry:
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %cmp = icmp sle i32 %add, %cond.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i, %pos
+  %cmp.i.i.i = icmp ult i32 %pos, %cond.i
   %or.cond = and i1 %cmp, %cmp.i.i.i
   br i1 %or.cond, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %return
 
@@ -1754,7 +1754,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %entry
 
 land.rhs.i:                                       ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i
   %add.i = add nuw nsw i32 %pos, 1
-  %cmp.i.i8.i = icmp ugt i32 %cond.i, %add.i
+  %cmp.i.i8.i = icmp ult i32 %add.i, %cond.i
   br i1 %cmp.i.i8.i, label %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i34
 
 _ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit: ; preds = %land.rhs.i
@@ -1766,7 +1766,7 @@ _ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit: ; preds = %la
 
 land.rhs.i21:                                     ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i
   %add.i22 = add nuw nsw i32 %pos, 1
-  %cmp.i.i8.i23 = icmp ugt i32 %cond.i, %add.i22
+  %cmp.i.i8.i23 = icmp ult i32 %add.i22, %cond.i
   br i1 %cmp.i.i8.i23, label %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit, label %land.rhs.i42
 
 _ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit: ; preds = %land.rhs.i21
@@ -1782,7 +1782,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit.i34:     ; preds = %land.rhs.i, %_ZN6ic
 
 land.rhs.i42:                                     ; preds = %land.rhs.i21, %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit
   %add.i43 = add nuw nsw i32 %pos, 1
-  %cmp.i.i8.i44 = icmp ugt i32 %cond.i, %add.i43
+  %cmp.i.i8.i44 = icmp ult i32 %add.i43, %cond.i
   br i1 %cmp.i.i8.i44, label %if.then.i.i10.i45, label %return
 
 if.then.i.i10.i45:                                ; preds = %land.rhs.i42
@@ -2843,7 +2843,7 @@ do.body:                                          ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %cmp.i.i.i = icmp ugt i32 %cond.i, %0
+  %cmp.i.i.i = icmp ult i32 %0, %cond.i
   br i1 %cmp.i.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %do.body44
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %if.end5
@@ -2863,7 +2863,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %if.end5
 
 land.rhs.i:                                       ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i
   %add.i = add nuw nsw i32 %0, 1
-  %cmp.i.i8.i = icmp ugt i32 %cond.i, %add.i
+  %cmp.i.i8.i = icmp ult i32 %add.i, %cond.i
   br i1 %cmp.i.i8.i, label %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit, label %do.body44
 
 _ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit: ; preds = %land.rhs.i
@@ -2885,7 +2885,7 @@ if.then8:                                         ; preds = %_ZN6icu_7512_GLOBAL
   %11 = load i32, ptr %fLength.i, align 4
   %cond.i41 = select i1 %cmp.i.i38, i32 %11, i32 %shr.i.i39
   %cmp12 = icmp slt i32 %call10, %cond.i41
-  %cmp.i.i42 = icmp ugt i32 %cond.i41, %call10
+  %cmp.i.i42 = icmp ult i32 %call10, %cond.i41
   %or.cond204 = and i1 %cmp12, %cmp.i.i42
   br i1 %or.cond204, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %if.then49
 
@@ -2907,7 +2907,7 @@ if.then15:                                        ; preds = %_ZNK6icu_7513Unicod
 
 land.rhs.i57:                                     ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i
   %add.i58 = add nuw nsw i32 %0, 1
-  %cmp.i.i8.i59 = icmp ugt i32 %cond.i, %add.i58
+  %cmp.i.i8.i59 = icmp ult i32 %add.i58, %cond.i
   br i1 %cmp.i.i8.i59, label %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit, label %land.rhs.i78
 
 _ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit: ; preds = %land.rhs.i57
@@ -2920,7 +2920,7 @@ _ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit: ; preds = %lan
 
 land.rhs.i78:                                     ; preds = %land.rhs.i57, %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit
   %add.i79 = add nuw nsw i32 %0, 1
-  %cmp.i.i8.i80 = icmp ugt i32 %cond.i, %add.i79
+  %cmp.i.i8.i80 = icmp ult i32 %add.i79, %cond.i
   br i1 %cmp.i.i8.i80, label %_ZN6icu_7512_GLOBAL__N_110isNameOpenERKNS_13UnicodeStringEi.exit, label %do.body44
 
 _ZN6icu_7512_GLOBAL__N_110isNameOpenERKNS_13UnicodeStringEi.exit: ; preds = %land.rhs.i78
@@ -2950,7 +2950,7 @@ lor.lhs.false34:                                  ; preds = %_ZNK6icu_7513Unicod
   %conv26 = zext i1 %cmp25 to i8
   %inc35 = add nsw i32 %call31, 1
   store i32 %inc35, ptr %pos, align 4
-  %cmp.i.i109 = icmp ugt i32 %cond.i103, %call31
+  %cmp.i.i109 = icmp ult i32 %call31, %cond.i103
   br i1 %cmp.i.i109, label %_ZNK6icu_7513UnicodeString6charAtEi.exit118, label %do.body40
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit118:      ; preds = %lor.lhs.false34
@@ -2976,7 +2976,7 @@ if.then49:                                        ; preds = %_ZNK6icu_7513Unicod
   %25 = phi i32 [ %inc, %if.then15 ], [ %call10, %if.then8 ], [ %call10, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
   %invert.0.ph = phi i8 [ 1, %if.then15 ], [ 0, %if.then8 ], [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
   %cmp.i.i119 = icmp slt i32 %25, 0
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i41, i32 %25)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %25, i32 %cond.i41)
   %start.addr.0.i = select i1 %cmp.i.i119, i32 0, i32 %spec.select.i
   %sub.i = sub nsw i32 %cond.i41, %start.addr.0.i
   %call2.i = call noundef i32 @_ZNK6icu_7513UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull @.str.1, i32 noundef 0, i32 noundef 2, i32 noundef %start.addr.0.i, i32 noundef %sub.i)
@@ -2984,7 +2984,7 @@ if.then49:                                        ; preds = %_ZNK6icu_7513Unicod
 
 if.else51:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit118
   %cmp.i.i125 = icmp slt i32 %call31, -1
-  %spec.select.i133 = call i32 @llvm.smin.i32(i32 %cond.i103, i32 %inc35)
+  %spec.select.i133 = call i32 @llvm.smin.i32(i32 %inc35, i32 %cond.i103)
   %start.addr.0.i135 = select i1 %cmp.i.i125, i32 0, i32 %spec.select.i133
   %sub.i138 = sub nsw i32 %cond.i103, %start.addr.0.i135
   %call2.i139 = call noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %pattern, i16 noundef zeroext 125, i32 noundef %start.addr.0.i135, i32 noundef %sub.i138)
@@ -3018,7 +3018,7 @@ if.else.i.i148:                                   ; preds = %if.end58
   %cmp.i.i.i.i149 = icmp slt i16 %.pre.i147, 0
   %27 = load i32, ptr %fLength.i, align 4
   %cond.i.i.i152 = select i1 %cmp.i.i.i.i149, i32 %27, i32 %.pre5.i164
-  %spec.select.i153 = call i32 @llvm.smin.i32(i32 %cond.i.i.i152, i32 %26)
+  %spec.select.i153 = call i32 @llvm.smin.i32(i32 %26, i32 %cond.i.i.i152)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i148, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i160

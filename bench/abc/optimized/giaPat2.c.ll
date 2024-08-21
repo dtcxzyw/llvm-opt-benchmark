@@ -410,13 +410,13 @@ define signext range(i8 0, 4) i8 @Min_LitVerify_rec(ptr noundef %0, i32 noundef 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %.not.i = icmp sgt i32 %10, %1
+  %.not.i = icmp slt i32 %1, %10
   br i1 %.not.i, label %Min_LitIsNode.exit.thread, label %Min_LitIsNode.exit
 
 Min_LitIsNode.exit:                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %13, label %Min_LitIsNode.exit.thread
 
 13:                                               ; preds = %Min_LitIsNode.exit
@@ -777,7 +777,7 @@ define void @Min_LitMinimize(ptr noundef %0, i32 noundef %1, ptr nocapture nound
 
 Min_LitIsCi.exit:                                 ; preds = %38
   %40 = load i32, ptr %25, align 8
-  %.not = icmp sgt i32 %40, %31
+  %.not = icmp slt i32 %31, %40
   br i1 %.not, label %41, label %Min_LitIsCi.exit.thread
 
 41:                                               ; preds = %Min_LitIsCi.exit
@@ -1012,13 +1012,13 @@ define signext i8 @Min_LitIsImplied_rec(ptr noundef %0, i32 noundef %1, i32 noun
 21:                                               ; preds = %3
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8
-  %.not.i = icmp sgt i32 %23, %7
+  %.not.i = icmp slt i32 %7, %23
   br i1 %.not.i, label %Min_LitIsNode.exit.thread, label %Min_LitIsNode.exit
 
 Min_LitIsNode.exit:                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4
-  %.not = icmp sgt i32 %25, %7
+  %.not = icmp slt i32 %7, %25
   br i1 %.not, label %26, label %Min_LitIsNode.exit.thread
 
 26:                                               ; preds = %Min_LitIsNode.exit
@@ -1039,13 +1039,13 @@ Min_LitIsNode.exit.thread:                        ; preds = %21, %26, %Min_LitIs
 32:                                               ; preds = %Min_LitIsNode.exit.thread
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   %34 = load i32, ptr %33, align 8
-  %.not.i58 = icmp sgt i32 %34, %11
+  %.not.i58 = icmp slt i32 %11, %34
   br i1 %.not.i58, label %Min_LitIsNode.exit59.thread, label %Min_LitIsNode.exit59
 
 Min_LitIsNode.exit59:                             ; preds = %32
   %35 = getelementptr inbounds i8, ptr %0, i64 12
   %36 = load i32, ptr %35, align 4
-  %.not69 = icmp sgt i32 %36, %11
+  %.not69 = icmp slt i32 %11, %36
   br i1 %.not69, label %37, label %Min_LitIsNode.exit59.thread
 
 37:                                               ; preds = %Min_LitIsNode.exit59
@@ -1125,7 +1125,7 @@ define range(i32 0, 2) i32 @Min_LitJustify_rec(ptr noundef %0, i32 noundef %1) l
 Min_LitIsCi.exit:                                 ; preds = %14
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %18, label %Min_LitIsCi.exit.thread
 
 18:                                               ; preds = %Min_LitIsCi.exit
@@ -1318,13 +1318,13 @@ Min_LitIsCi.exit.thread:                          ; preds = %14, %Min_LitIsCi.ex
 116:                                              ; preds = %114
   %117 = getelementptr inbounds i8, ptr %0, i64 8
   %118 = load i32, ptr %117, align 8
-  %.not.i = icmp sgt i32 %118, %53
+  %.not.i = icmp slt i32 %53, %118
   br i1 %.not.i, label %Min_LitIsNode.exit.thread, label %Min_LitIsNode.exit
 
 Min_LitIsNode.exit:                               ; preds = %116
   %119 = getelementptr inbounds i8, ptr %0, i64 12
   %120 = load i32, ptr %119, align 4
-  %.not148 = icmp sgt i32 %120, %53
+  %.not148 = icmp slt i32 %53, %120
   br i1 %.not148, label %121, label %Min_LitIsNode.exit.thread
 
 121:                                              ; preds = %Min_LitIsNode.exit
@@ -1343,13 +1343,13 @@ Min_LitIsNode.exit.thread:                        ; preds = %116, %121, %Min_Lit
 126:                                              ; preds = %Min_LitIsNode.exit.thread
   %127 = getelementptr inbounds i8, ptr %0, i64 8
   %128 = load i32, ptr %127, align 8
-  %.not.i136 = icmp sgt i32 %128, %57
+  %.not.i136 = icmp slt i32 %57, %128
   br i1 %.not.i136, label %Min_LitIsNode.exit137.thread, label %Min_LitIsNode.exit137
 
 Min_LitIsNode.exit137:                            ; preds = %126
   %129 = getelementptr inbounds i8, ptr %0, i64 12
   %130 = load i32, ptr %129, align 4
-  %.not149 = icmp sgt i32 %130, %57
+  %.not149 = icmp slt i32 %57, %130
   br i1 %.not149, label %131, label %Min_LitIsNode.exit137.thread
 
 131:                                              ; preds = %Min_LitIsNode.exit137
@@ -1444,13 +1444,13 @@ define internal fastcc signext i8 @Min_LitIsImplied3(ptr nocapture noundef %0, i
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
-  %.not.i = icmp sgt i32 %21, %6
+  %.not.i = icmp slt i32 %6, %21
   br i1 %.not.i, label %Min_LitIsNode.exit.thread, label %Min_LitIsNode.exit
 
 Min_LitIsNode.exit:                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %0, i64 12
   %23 = load i32, ptr %22, align 4
-  %.not = icmp sgt i32 %23, %6
+  %.not = icmp slt i32 %6, %23
   br i1 %.not, label %24, label %Min_LitIsNode.exit.thread
 
 24:                                               ; preds = %Min_LitIsNode.exit
@@ -1465,13 +1465,13 @@ Min_LitIsNode.exit.thread:                        ; preds = %19, %24, %Min_LitIs
 27:                                               ; preds = %Min_LitIsNode.exit.thread
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
-  %.not.i39 = icmp sgt i32 %29, %10
+  %.not.i39 = icmp slt i32 %10, %29
   br i1 %.not.i39, label %Min_LitIsNode.exit40.thread, label %Min_LitIsNode.exit40
 
 Min_LitIsNode.exit40:                             ; preds = %27
   %30 = getelementptr inbounds i8, ptr %0, i64 12
   %31 = load i32, ptr %30, align 4
-  %.not50 = icmp sgt i32 %31, %10
+  %.not50 = icmp slt i32 %10, %31
   br i1 %.not50, label %32, label %Min_LitIsNode.exit40.thread
 
 32:                                               ; preds = %Min_LitIsNode.exit40
@@ -1741,7 +1741,7 @@ Hsh_VecManStart.exit:                             ; preds = %Abc_PrimeCudd.exit.
   br i1 %.not91.us, label %.lr.ph.us, label %474
 
 .lr.ph.us:                                        ; preds = %76, %77
-  %83 = add i32 %.sroa.030.0190.us, %2
+  %83 = add i32 %2, %.sroa.030.0190.us
   br label %84
 
 84:                                               ; preds = %.lr.ph.us, %462
@@ -3994,7 +3994,7 @@ define noundef i32 @Min_ManRemoveItem(ptr nocapture noundef readonly %0, i32 nou
   %.1 = phi ptr [ null, %4 ], [ %13, %.critedge.loopexit.split.loop.exit26 ], [ %13, %12 ]
   %17 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 0, ptr %17, align 4
-  %18 = icmp sgt i32 %.0.lcssa, %1
+  %18 = icmp slt i32 %1, %.0.lcssa
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %.critedge
@@ -4145,7 +4145,7 @@ Min_ManRemoveItem.exit:                           ; preds = %.critedge.i, %56
   %.1 = phi i32 [ %57, %Min_ManRemoveItem.exit ], [ %.041, %47 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !32
 
 .critedge:                                        ; preds = %Vec_IntTwoCountCommon.exit, %58, %4, %18
@@ -5330,7 +5330,7 @@ Abc_Clock.exit331:                                ; preds = %468, %471
   %506 = add nuw nsw i32 %indvars453, 1
   %507 = mul nsw i32 %506, %3
   %508 = trunc i64 %indvars.iv451 to i32
-  %509 = mul i32 %508, %3
+  %509 = mul i32 %3, %508
   br label %510
 
 510:                                              ; preds = %.preheader, %636
@@ -8137,13 +8137,13 @@ define internal fastcc signext i8 @Min_LitIsImplied2(ptr nocapture noundef %0, i
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
-  %.not.i = icmp sgt i32 %21, %6
+  %.not.i = icmp slt i32 %6, %21
   br i1 %.not.i, label %Min_LitIsImplied1.exit, label %Min_LitIsNode.exit
 
 Min_LitIsNode.exit:                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %0, i64 12
   %23 = load i32, ptr %22, align 4
-  %.not = icmp sgt i32 %23, %6
+  %.not = icmp slt i32 %6, %23
   br i1 %.not, label %24, label %Min_LitIsImplied1.exit
 
 24:                                               ; preds = %Min_LitIsNode.exit
@@ -8202,13 +8202,13 @@ Min_LitIsImplied1.exit:                           ; preds = %19, %.thread.i, %se
 53:                                               ; preds = %Min_LitIsImplied1.exit
   %54 = getelementptr inbounds i8, ptr %0, i64 8
   %55 = load i32, ptr %54, align 8
-  %.not.i40 = icmp sgt i32 %55, %10
+  %.not.i40 = icmp slt i32 %10, %55
   br i1 %.not.i40, label %Min_LitIsImplied1.exit54, label %Min_LitIsNode.exit41
 
 Min_LitIsNode.exit41:                             ; preds = %53
   %56 = getelementptr inbounds i8, ptr %0, i64 12
   %57 = load i32, ptr %56, align 4
-  %.not65 = icmp sgt i32 %57, %10
+  %.not65 = icmp slt i32 %10, %57
   br i1 %.not65, label %58, label %Min_LitIsImplied1.exit54
 
 58:                                               ; preds = %Min_LitIsNode.exit41

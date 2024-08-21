@@ -909,7 +909,7 @@ _Z11do_per_stepll.exit:                           ; preds = %11
 
 19:                                               ; preds = %_Z11do_per_stepll.exit
   %20 = sitofp i32 %13 to float
-  %21 = fmul float %20, %4
+  %21 = fmul float %4, %20
   %22 = getelementptr inbounds i8, ptr %5, i64 160
   %23 = getelementptr inbounds i8, ptr %5, i64 52
   %24 = getelementptr inbounds i8, ptr %5, i64 88
@@ -1384,7 +1384,7 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
   %265 = load float, ptr %264, align 4
   %266 = tail call float @llvm.fmuladd.f32(float %4, float %263, float %265)
   store float %266, ptr %264, align 4
-  %267 = fmul float %266, %4
+  %267 = fmul float %4, %266
   %268 = load float, ptr %260, align 4
   %269 = fdiv float %267, %268
   %270 = tail call noundef float @llvm.fabs.f32(float %269)
@@ -1607,7 +1607,7 @@ _Z11do_per_stepll.exit:                           ; preds = %27
 
 33:                                               ; preds = %_Z11do_per_stepll.exit
   %34 = sitofp i32 %29 to float
-  %35 = fmul float %34, %7
+  %35 = fmul float %7, %34
   %36 = getelementptr inbounds i8, ptr %14, i64 52
   %37 = getelementptr inbounds i8, ptr %14, i64 392
   tail call void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoupling1EEvP8_IO_FILElRK23PressureCouplingOptionslffPA3_KfS8_S8_S8_PN3gmx13MultiDimArrayISt5arrayIfLm9EENS9_7extentsIJLl3ELl3EEEENS9_12layout_rightEEEPd(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(92) %2, i64 noundef %3, float noundef %4, float noundef %35, ptr noundef %10, ptr noundef nonnull %36, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef nonnull %37)
@@ -1651,7 +1651,7 @@ _Z11do_per_stepll.exit141:                        ; preds = %56
 
 62:                                               ; preds = %_Z11do_per_stepll.exit141
   %63 = sitofp i32 %58 to float
-  %64 = fmul float %63, %7
+  %64 = fmul float %7, %63
   %65 = getelementptr inbounds i8, ptr %14, i64 52
   %66 = getelementptr inbounds i8, ptr %14, i64 392
   tail call void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoupling5EEvP8_IO_FILElRK23PressureCouplingOptionslffPA3_KfS8_S8_S8_PN3gmx13MultiDimArrayISt5arrayIfLm9EENS9_7extentsIJLl3ELl3EEEENS9_12layout_rightEEEPd(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(92) %2, i64 noundef %3, float noundef %4, float noundef %64, ptr noundef %10, ptr noundef nonnull %65, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef nonnull %66)
@@ -1707,7 +1707,7 @@ _Z11do_per_stepll.exit144:                        ; preds = %94
 
 102:                                              ; preds = %_Z11do_per_stepll.exit144
   %103 = sitofp i32 %96 to float
-  %104 = fmul float %103, %7
+  %104 = fmul float %7, %103
   %105 = getelementptr inbounds i8, ptr %14, i64 124
   %106 = getelementptr inbounds i8, ptr %14, i64 52
   br label %.preheader
@@ -1872,7 +1872,7 @@ _Z11do_per_stepll.exit144:                        ; preds = %94
   %201 = getelementptr inbounds i8, ptr %14, i64 52
   %202 = getelementptr inbounds i8, ptr %14, i64 400
   %203 = load float, ptr %202, align 8
-  %204 = fmul float %203, %7
+  %204 = fmul float %7, %203
   %205 = tail call noundef float @expf(float noundef %204) #21
   %206 = load float, ptr %201, align 4
   %207 = fmul float %205, %206
@@ -2046,7 +2046,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %indvars.iv109.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next110.i.i, %37 ]
   %38 = getelementptr inbounds [3 x [3 x float]], ptr %34, i64 0, i64 %indvars.iv109.i.i, i64 %indvars.iv109.i.i
   %39 = load float, ptr %38, align 4
-  %40 = fmul float %39, %5
+  %40 = fmul float %5, %39
   %41 = load float, ptr %35, align 4
   %42 = fdiv float %40, %41
   %43 = getelementptr inbounds [3 x [3 x float]], ptr %36, i64 0, i64 %indvars.iv109.i.i, i64 %indvars.iv109.i.i
@@ -2069,7 +2069,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %indvars.iv106.i.i = phi i64 [ 0, %.preheader86.i.i ], [ 1, %52 ]
   %54 = getelementptr inbounds [3 x [3 x float]], ptr %31, i64 0, i64 %indvars.iv106.i.i, i64 %indvars.iv106.i.i
   %55 = load float, ptr %54, align 4
-  %56 = fmul float %55, %5
+  %56 = fmul float %5, %55
   %57 = load float, ptr %32, align 4
   %58 = fdiv float %56, %57
   %59 = getelementptr inbounds [3 x [3 x float]], ptr %33, i64 0, i64 %indvars.iv106.i.i, i64 %indvars.iv106.i.i
@@ -2088,7 +2088,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
 68:                                               ; preds = %52
   %69 = getelementptr inbounds i8, ptr %2, i64 84
   %70 = load float, ptr %69, align 4
-  %71 = fmul float %70, %5
+  %71 = fmul float %5, %70
   %72 = load float, ptr %32, align 4
   %73 = fdiv float %71, %72
   %74 = getelementptr inbounds i8, ptr %2, i64 48
@@ -2115,7 +2115,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %86 = select i1 %85, double 1.000000e+00, double 0.000000e+00
   %87 = getelementptr inbounds [3 x [3 x float]], ptr %28, i64 0, i64 %indvars.iv102.i.i, i64 %indvars.iv99.i.i
   %88 = load float, ptr %87, align 4
-  %89 = fmul float %88, %5
+  %89 = fmul float %5, %88
   %90 = load float, ptr %29, align 4
   %91 = fdiv float %89, %90
   %92 = getelementptr inbounds [3 x [3 x float]], ptr %30, i64 0, i64 %indvars.iv102.i.i, i64 %indvars.iv99.i.i
@@ -2177,7 +2177,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %indvars.iv.i.i = phi i64 [ 0, %120 ], [ 1, %129 ]
   %131 = getelementptr inbounds [3 x [3 x float]], ptr %124, i64 0, i64 %indvars.iv.i.i, i64 %indvars.iv.i.i
   %132 = load float, ptr %131, align 4
-  %133 = fmul float %132, %5
+  %133 = fmul float %5, %132
   %134 = load float, ptr %125, align 4
   %135 = fdiv float %133, %134
   %136 = getelementptr inbounds [3 x [3 x float]], ptr %126, i64 0, i64 %indvars.iv.i.i, i64 %indvars.iv.i.i
@@ -2598,7 +2598,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %indvars.iv113.i.i = phi i64 [ 0, %125 ], [ %indvars.iv.next114.i.i, %134 ]
   %135 = getelementptr inbounds [3 x [3 x float]], ptr %127, i64 0, i64 %indvars.iv113.i.i, i64 %indvars.iv113.i.i
   %136 = load float, ptr %135, align 4
-  %137 = fmul float %136, %5
+  %137 = fmul float %5, %136
   %138 = load float, ptr %128, align 4
   %139 = fdiv float %137, %138
   %140 = fneg float %139
@@ -2644,7 +2644,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %indvars.iv110.i.i = phi i64 [ 0, %160 ], [ 1, %170 ]
   %172 = getelementptr inbounds [3 x [3 x float]], ptr %163, i64 0, i64 %indvars.iv110.i.i, i64 %indvars.iv110.i.i
   %173 = load float, ptr %172, align 4
-  %174 = fmul float %173, %5
+  %174 = fmul float %5, %173
   %175 = load float, ptr %164, align 4
   %176 = fdiv float %174, %175
   %177 = fneg float %176
@@ -2674,7 +2674,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
 197:                                              ; preds = %170
   %198 = getelementptr inbounds i8, ptr %2, i64 84
   %199 = load float, ptr %198, align 4
-  %200 = fmul float %199, %5
+  %200 = fmul float %5, %199
   %201 = load float, ptr %164, align 4
   %202 = fdiv float %200, %201
   %203 = fneg float %202
@@ -2711,7 +2711,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %indvars.iv107.i.i = phi i64 [ 0, %216 ], [ 1, %228 ]
   %230 = getelementptr inbounds [3 x [3 x float]], ptr %219, i64 0, i64 %indvars.iv107.i.i, i64 %indvars.iv107.i.i
   %231 = load float, ptr %230, align 4
-  %232 = fmul float %231, %5
+  %232 = fmul float %5, %231
   %233 = load float, ptr %220, align 4
   %234 = fdiv float %232, %233
   %235 = fneg float %234
@@ -2744,7 +2744,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
 258:                                              ; preds = %228
   %259 = getelementptr inbounds i8, ptr %2, i64 84
   %260 = load float, ptr %259, align 4
-  %261 = fmul float %260, %5
+  %261 = fmul float %5, %260
   %262 = load float, ptr %220, align 4
   %263 = fdiv float %261, %262
   %264 = fneg float %263
@@ -3480,24 +3480,24 @@ define noundef float @_Z9calc_pres7PbcTypeiPA3_KfS2_S2_PA3_f(i32 noundef %0, i32
   %21 = load float, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %2, i64 20
   %23 = load float, ptr %22, align 4
-  %24 = fneg float %21
-  %25 = fmul float %23, %24
+  %24 = fneg float %23
+  %25 = fmul float %21, %24
   %26 = tail call float @llvm.fmuladd.f32(float %16, float %19, float %25)
   %27 = load float, ptr %14, align 4
   %28 = getelementptr inbounds i8, ptr %2, i64 4
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds i8, ptr %2, i64 8
   %31 = load float, ptr %30, align 4
-  %32 = fmul float %31, %24
-  %33 = tail call float @llvm.fmuladd.f32(float %29, float %19, float %32)
-  %34 = fneg float %27
-  %35 = fmul float %33, %34
-  %36 = tail call float @llvm.fmuladd.f32(float %13, float %26, float %35)
-  %37 = load float, ptr %17, align 4
-  %38 = fneg float %16
-  %39 = fmul float %31, %38
+  %32 = fneg float %31
+  %33 = fmul float %21, %32
+  %34 = tail call float @llvm.fmuladd.f32(float %29, float %19, float %33)
+  %35 = fneg float %34
+  %36 = fmul float %27, %35
+  %37 = tail call float @llvm.fmuladd.f32(float %13, float %26, float %36)
+  %38 = load float, ptr %17, align 4
+  %39 = fmul float %16, %32
   %40 = tail call float @llvm.fmuladd.f32(float %29, float %23, float %39)
-  %41 = tail call noundef float @llvm.fmuladd.f32(float %37, float %40, float %36)
+  %41 = tail call noundef float @llvm.fmuladd.f32(float %38, float %40, float %37)
   %42 = fpext float %41 to double
   %43 = fdiv double 0x40409AFAE1F7C60E, %42
   %44 = fptrunc double %43 to float
@@ -5434,7 +5434,7 @@ define void @_Z14trotter_updatePK10t_inputreclP14gmx_ekindata_tPK14gmx_enerdata_
   %20 = sext i32 %18 to i64
   %21 = icmp slt i32 %11, 3
   %22 = sext i1 %21 to i64
-  %.080 = add nsw i64 %22, %1
+  %.080 = add nsw i64 %1, %22
   %23 = add nsw i64 %.080, %20
   %24 = srem i64 %23, %20
   %25 = icmp ne i64 %24, 0
@@ -5625,22 +5625,22 @@ _ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_fPK9t_extmass.exit:
   %139 = load float, ptr %83, align 4
   %140 = load float, ptr %84, align 4
   %141 = load float, ptr %85, align 4
-  %142 = fneg float %140
-  %143 = fmul float %141, %142
+  %142 = fneg float %141
+  %143 = fmul float %140, %142
   %144 = call float @llvm.fmuladd.f32(float %138, float %139, float %143)
   %145 = load float, ptr %80, align 4
   %146 = load float, ptr %86, align 4
   %147 = load float, ptr %87, align 4
-  %148 = fmul float %147, %142
-  %149 = call float @llvm.fmuladd.f32(float %146, float %139, float %148)
-  %150 = fneg float %145
-  %151 = fmul float %149, %150
-  %152 = call float @llvm.fmuladd.f32(float %137, float %144, float %151)
-  %153 = load float, ptr %82, align 4
-  %154 = fneg float %138
-  %155 = fmul float %147, %154
+  %148 = fneg float %147
+  %149 = fmul float %140, %148
+  %150 = call float @llvm.fmuladd.f32(float %146, float %139, float %149)
+  %151 = fneg float %150
+  %152 = fmul float %145, %151
+  %153 = call float @llvm.fmuladd.f32(float %137, float %144, float %152)
+  %154 = load float, ptr %82, align 4
+  %155 = fmul float %138, %148
   %156 = call float @llvm.fmuladd.f32(float %146, float %141, float %155)
-  %157 = call noundef float @llvm.fmuladd.f32(float %153, float %156, float %152)
+  %157 = call noundef float @llvm.fmuladd.f32(float %154, float %156, float %153)
   %158 = fpext float %157 to double
   %159 = load double, ptr %88, align 8
   %160 = fdiv double %159, 0x40309AFAE1F7C60E
@@ -6206,24 +6206,24 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %29, %27, %25, %23, 
   %65 = load float, ptr %64, align 4
   %66 = getelementptr inbounds i8, ptr %2, i64 72
   %67 = load float, ptr %66, align 4
-  %68 = fneg float %65
-  %69 = fmul float %67, %68
+  %68 = fneg float %67
+  %69 = fmul float %65, %68
   %70 = tail call float @llvm.fmuladd.f32(float %60, float %63, float %69)
   %71 = load float, ptr %58, align 4
   %72 = getelementptr inbounds i8, ptr %2, i64 56
   %73 = load float, ptr %72, align 4
   %74 = getelementptr inbounds i8, ptr %2, i64 60
   %75 = load float, ptr %74, align 4
-  %76 = fmul float %75, %68
-  %77 = tail call float @llvm.fmuladd.f32(float %73, float %63, float %76)
-  %78 = fneg float %71
-  %79 = fmul float %77, %78
-  %80 = tail call float @llvm.fmuladd.f32(float %57, float %70, float %79)
-  %81 = load float, ptr %61, align 4
-  %82 = fneg float %60
-  %83 = fmul float %75, %82
+  %76 = fneg float %75
+  %77 = fmul float %65, %76
+  %78 = tail call float @llvm.fmuladd.f32(float %73, float %63, float %77)
+  %79 = fneg float %78
+  %80 = fmul float %71, %79
+  %81 = tail call float @llvm.fmuladd.f32(float %57, float %70, float %80)
+  %82 = load float, ptr %61, align 4
+  %83 = fmul float %60, %76
   %84 = tail call float @llvm.fmuladd.f32(float %73, float %67, float %83)
-  %85 = tail call noundef float @llvm.fmuladd.f32(float %81, float %84, float %80)
+  %85 = tail call noundef float @llvm.fmuladd.f32(float %82, float %84, float %81)
   store float %85, ptr %52, align 4
   br label %._crit_edge
 
@@ -6967,7 +6967,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !115
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -7051,7 +7051,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !115
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -7107,24 +7107,24 @@ define noundef float @_Z10NPT_energyRK23PressureCouplingOptions19TemperatureCoup
   %21 = load float, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %6, i64 72
   %23 = load float, ptr %22, align 4
-  %24 = fneg float %21
-  %25 = fmul float %23, %24
+  %24 = fneg float %23
+  %25 = fmul float %21, %24
   %26 = tail call float @llvm.fmuladd.f32(float %16, float %19, float %25)
   %27 = load float, ptr %14, align 4
   %28 = getelementptr inbounds i8, ptr %6, i64 56
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds i8, ptr %6, i64 60
   %31 = load float, ptr %30, align 4
-  %32 = fmul float %31, %24
-  %33 = tail call float @llvm.fmuladd.f32(float %29, float %19, float %32)
-  %34 = fneg float %27
-  %35 = fmul float %33, %34
-  %36 = tail call float @llvm.fmuladd.f32(float %13, float %26, float %35)
-  %37 = load float, ptr %17, align 4
-  %38 = fneg float %16
-  %39 = fmul float %31, %38
+  %32 = fneg float %31
+  %33 = fmul float %21, %32
+  %34 = tail call float @llvm.fmuladd.f32(float %29, float %19, float %33)
+  %35 = fneg float %34
+  %36 = fmul float %27, %35
+  %37 = tail call float @llvm.fmuladd.f32(float %13, float %26, float %36)
+  %38 = load float, ptr %17, align 4
+  %39 = fmul float %16, %32
   %40 = tail call float @llvm.fmuladd.f32(float %29, float %23, float %39)
-  %41 = tail call noundef float @llvm.fmuladd.f32(float %37, float %40, float %36)
+  %41 = tail call noundef float @llvm.fmuladd.f32(float %38, float %40, float %37)
   switch i32 %10, label %182 [
     i32 2, label %42
     i32 4, label %95
@@ -7738,7 +7738,7 @@ _ZL18vrescale_sumnoisesfPN3gmx12ThreeFry2x64ILj64EEEPNS_18NormalDistributionIfEE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   %126 = call float @llvm.fmuladd.f32(float %101, float %101, float %.1.i)
-  %127 = fmul float %126, %1
+  %127 = fmul float %1, %126
   %128 = fdiv float %127, %2
   %129 = fsub float %128, %0
   %130 = fpext float %129 to double

@@ -312,7 +312,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body9.i
   store i32 %0, ptr %m_size.i, align 4
   %m_size.i.i18 = getelementptr inbounds i8, ptr %this, i64 84
   %4 = load i32, ptr %m_size.i.i18, align 4
-  %cmp4.i19 = icmp slt i32 %4, %0
+  %cmp4.i19 = icmp sgt i32 %0, %4
   br i1 %cmp4.i19, label %for.body9.lr.ph.i20, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit29
 
 for.body9.lr.ph.i20:                              ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
@@ -2284,7 +2284,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !25
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo.tr
+  %cmp15 = icmp slt i32 %lo.tr, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end

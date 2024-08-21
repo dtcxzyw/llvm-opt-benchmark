@@ -154,7 +154,7 @@ define noundef i32 @nxmq_do_send(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %14 = getelementptr inbounds i8, ptr %.05256, i64 17
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = icmp ult i32 %16, %4
+  %17 = icmp ugt i32 %4, %16
   br i1 %17, label %._crit_edge, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
@@ -168,7 +168,7 @@ define noundef i32 @nxmq_do_send(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %19 = getelementptr inbounds i8, ptr %.052, i64 17
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
-  %22 = icmp ult i32 %21, %4
+  %22 = icmp ugt i32 %4, %21
   br i1 %22, label %._crit_edge, label %.lr.ph77, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader

@@ -107,7 +107,7 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 p
 
 _ZL9parseArgsiPPc.exit:                           ; preds = %8
   %24 = load i32, ptr @optind, align 4
-  %.not11.i = icmp eq i32 %24, %0
+  %.not11.i = icmp eq i32 %0, %24
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %1, i64 %25
   %.0.i = select i1 %.not11.i, ptr null, ptr %26

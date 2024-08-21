@@ -144,7 +144,7 @@ define hidden void @dissect_mstp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 35:                                               ; preds = %.preheader, %35
   %indvars.iv = phi i32 [ %indvars.iv.next, %35 ], [ 0, %.preheader ]
   %.0132147 = phi i8 [ %56, %35 ], [ -1, %.preheader ]
-  %36 = add i32 %indvars.iv, %4
+  %36 = add i32 %4, %indvars.iv
   %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %36) #4
   %38 = xor i8 %37, %.0132147
   %39 = zext i8 %38 to i32

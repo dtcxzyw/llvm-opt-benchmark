@@ -1741,7 +1741,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp19, label %for.body, label %if.end49, !llvm.loop !19
 
 if.else37:                                        ; preds = %if.end
-  %cmp39.not = icmp ult i64 %conv, %srcSize
+  %cmp39.not = icmp ugt i64 %srcSize, %conv
   br i1 %cmp39.not, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.else37
@@ -3883,7 +3883,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %if.end.i.i, label %for.body.i.i, !llvm.loop !31
 
 if.end.i.i:                                       ; preds = %for.body.i.i, %if.then.i.i, %if.then.i
-  %cmp633.not.i.i = icmp eq i32 %18, %nextRankStart.0.lcssa
+  %cmp633.not.i.i = icmp eq i32 %nextRankStart.0.lcssa, %18
   br i1 %cmp633.not.i.i, label %HUFv06_fillDTableX4Level2.exit.i, label %for.body8.preheader.i.i
 
 for.body8.preheader.i.i:                          ; preds = %if.end.i.i
@@ -5636,7 +5636,7 @@ ZSTDv06_frameHeaderSize.exit:                     ; preds = %if.end
   %arrayidx1.i = getelementptr inbounds [4 x i64], ptr @ZSTDv06_fcs_fieldSize, i64 0, i64 %idxprom.i
   %2 = load i64, ptr %arrayidx1.i, align 8
   %add.i = add i64 %2, 5
-  %cmp5 = icmp ugt i64 %add.i, %srcSize
+  %cmp5 = icmp ult i64 %srcSize, %add.i
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %ZSTDv06_frameHeaderSize.exit
@@ -5696,7 +5696,7 @@ define i64 @ZSTDv06_decompressBlock(ptr noundef %dctx, ptr noundef %dst, i64 nou
 entry:
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 21520
   %0 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.not.i = icmp eq ptr %0, %dst
+  %cmp.not.i = icmp eq ptr %dst, %0
   br i1 %cmp.not.i, label %ZSTDv06_checkContinuity.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -6070,7 +6070,7 @@ if.end3:                                          ; preds = %if.end274.i, %if.en
   %flagRepeatTable.i12 = getelementptr inbounds i8, ptr %dctx, i64 21592
   %25 = load i32, ptr %flagRepeatTable.i12, align 8
   %add.ptr.i.i = getelementptr i8, ptr %src, i64 %srcSize
-  %cmp.i.i13 = icmp eq i64 %retval.0.i, %srcSize
+  %cmp.i.i13 = icmp eq i64 %srcSize, %retval.0.i
   br i1 %cmp.i.i13, label %ZSTDv06_decompressSequences.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end3
@@ -6607,7 +6607,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
 
 for.end.i:                                        ; preds = %for.body.i
   %gepdiff.i = sub nsw i64 %sub, %sub.ptr.sub65.i.i
-  %cmp.i40.i = icmp eq i64 %sub.ptr.sub65.i.i, %sub
+  %cmp.i40.i = icmp eq i64 %sub, %sub.ptr.sub65.i.i
   br i1 %cmp.i40.i, label %ZSTDv06_decompressSequences.exit, label %if.end.i41.i
 
 if.end.i41.i:                                     ; preds = %for.end.i
@@ -7480,7 +7480,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21619) %dctx, ptr noundef nonnull readonly align 8 dereferenceable(21619) %refDCtx, i64 21619, i1 false)
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 21520
   %0 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.not.i = icmp eq ptr %0, %dst
+  %cmp.not.i = icmp eq ptr %dst, %0
   br i1 %cmp.not.i, label %ZSTDv06_checkContinuity.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -7524,7 +7524,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %add = add i64 %2, 8
-  %cmp5 = icmp ugt i64 %add, %srcSize
+  %cmp5 = icmp ult i64 %srcSize, %add
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
@@ -7692,7 +7692,7 @@ entry:
   %call = tail call i64 @ZSTDv06_decompressBegin_usingDict(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize)
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 21520
   %0 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.not.i = icmp eq ptr %0, %dst
+  %cmp.not.i = icmp eq ptr %dst, %0
   br i1 %cmp.not.i, label %ZSTDv06_checkContinuity.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -7984,7 +7984,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %add = add i64 %2, 8
-  %cmp5 = icmp ugt i64 %add, %srcSize
+  %cmp5 = icmp ult i64 %srcSize, %add
   br i1 %cmp5, label %if.then6, label %if.end7.split
 
 if.then6:                                         ; preds = %if.end4
@@ -8112,7 +8112,7 @@ define i64 @ZSTDv06_decompressContinue(ptr noundef %dctx, ptr noundef %dst, i64 
 entry:
   %expected = getelementptr inbounds i8, ptr %dctx, i64 21552
   %0 = load i64, ptr %expected, align 8
-  %cmp.not = icmp eq i64 %0, %srcSize
+  %cmp.not = icmp eq i64 %srcSize, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -8122,7 +8122,7 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 21520
   %1 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.not.i = icmp eq ptr %1, %dst
+  %cmp.not.i = icmp eq ptr %dst, %1
   br i1 %cmp.not.i, label %if.end2, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then1
@@ -8210,7 +8210,7 @@ ZSTDv06_frameHeaderSize.exit.i.i:                 ; preds = %if.end.i.i
   %arrayidx1.i.i.i = getelementptr inbounds [4 x i64], ptr @ZSTDv06_fcs_fieldSize, i64 0, i64 %idxprom.i.i.i
   %11 = load i64, ptr %arrayidx1.i.i.i, align 8
   %add.i.i.i = add i64 %11, 5
-  %cmp5.i.i = icmp ugt i64 %add.i.i.i, %7
+  %cmp5.i.i = icmp ult i64 %7, %add.i.i.i
   br i1 %cmp5.i.i, label %ZSTDv06_decodeFrameHeader.exit, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %ZSTDv06_frameHeaderSize.exit.i.i
@@ -8523,7 +8523,7 @@ ZSTDv06_frameHeaderSize.exit.i:                   ; preds = %if.end.i
   %arrayidx1.i.i = getelementptr inbounds [4 x i64], ptr @ZSTDv06_fcs_fieldSize, i64 0, i64 %idxprom.i.i
   %6 = load i64, ptr %arrayidx1.i.i, align 8
   %add.i.i = add i64 %6, 5
-  %cmp5.i = icmp ugt i64 %add.i.i, %3
+  %cmp5.i = icmp ult i64 %3, %add.i.i
   br i1 %cmp5.i, label %if.then, label %if.end7.i
 
 if.end7.i:                                        ; preds = %ZSTDv06_frameHeaderSize.exit.i

@@ -176,7 +176,7 @@ if.then23:                                        ; preds = %if.end21
 if.end25:                                         ; preds = %if.end21
   %9 = load i8, ptr %rrec, align 8
   %conv27 = zext i8 %9 to i32
-  %cmp28 = icmp eq i32 %conv27, %type
+  %cmp28 = icmp eq i32 %type, %conv27
   br i1 %cmp28, label %if.then30, label %if.end75
 
 if.then30:                                        ; preds = %if.end25
@@ -207,7 +207,7 @@ if.end47:                                         ; preds = %if.end41
 
 if.end51:                                         ; preds = %if.end47
   %conv43.le = zext i16 %12 to i32
-  %conv43.len = call i32 @llvm.umin.i32(i32 %conv43.le, i32 %len)
+  %conv43.len = call i32 @llvm.umin.i32(i32 %len, i32 %conv43.le)
   %data = getelementptr inbounds i8, ptr %0, i64 128
   %13 = load ptr, ptr %data, align 8
   %conv61 = zext nneg i32 %conv43.len to i64

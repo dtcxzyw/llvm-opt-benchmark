@@ -3544,7 +3544,7 @@ define internal fastcc i32 @dissect_epl_payload(ptr noundef %0, ptr noundef %1, 
 
 13:                                               ; preds = %7
   %14 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %3) #18
-  %15 = tail call i32 @llvm.smin.i32(i32 %14, i32 %4)
+  %15 = tail call i32 @llvm.smin.i32(i32 %4, i32 %14)
   %16 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %3, i32 noundef %15) #18
   %17 = tail call i32 @tvb_captured_length_remaining(ptr noundef %16, i32 noundef 0) #18
   %18 = icmp slt i32 %17, %4
@@ -3689,7 +3689,7 @@ define internal fastcc i32 @dissect_epl_pdo(ptr nocapture noundef readonly %0, p
 
 14:                                               ; preds = %6
   %15 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef 10) #18
-  %16 = tail call i32 @llvm.umin.i32(i32 %15, i32 %4)
+  %16 = tail call i32 @llvm.umin.i32(i32 %4, i32 %15)
   %17 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef 10, i32 noundef %16) #18
   %18 = tail call i32 @tvb_captured_length_remaining(ptr noundef %17, i32 noundef 0) #18
   %19 = shl i32 %18, 3
@@ -4590,13 +4590,13 @@ epl_duplication_get.exit.i:                       ; preds = %29, %4
 .lr.ph.i.i:                                       ; preds = %40, %53
   %45 = load ptr, ptr %10, align 8
   %46 = load i8, ptr %45, align 1
-  %47 = icmp eq i8 %46, %42
+  %47 = icmp eq i8 %42, %46
   br i1 %47, label %48, label %53
 
 48:                                               ; preds = %.lr.ph.i.i
   %49 = getelementptr inbounds i8, ptr %45, i64 1
   %50 = load i8, ptr %49, align 1
-  %51 = icmp eq i8 %50, %43
+  %51 = icmp eq i8 %43, %50
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %48
@@ -4776,13 +4776,13 @@ epl_set_sequence_nr.exit148.i:                    ; preds = %117, %113
 .lr.ph.i150.i:                                    ; preds = %127, %140
   %132 = load ptr, ptr %6, align 8
   %133 = load i8, ptr %132, align 1
-  %134 = icmp eq i8 %133, %129
+  %134 = icmp eq i8 %129, %133
   br i1 %134, label %135, label %140
 
 135:                                              ; preds = %.lr.ph.i150.i
   %136 = getelementptr inbounds i8, ptr %132, i64 1
   %137 = load i8, ptr %136, align 1
-  %138 = icmp eq i8 %137, %130
+  %138 = icmp eq i8 %130, %137
   br i1 %138, label %139, label %140
 
 139:                                              ; preds = %135

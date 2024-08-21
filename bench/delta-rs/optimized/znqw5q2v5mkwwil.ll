@@ -3933,8 +3933,8 @@ common.resume:                                    ; preds = %107, %95, %27
 
 63:                                               ; preds = %84, %.noexc4
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %.noexc4 ], [ %85, %84 ]
-  %.pn.i.i = phi i64 [ %59, %.noexc4 ], [ %86, %84 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val4.i
+  %.pn.i.i.i.i = phi i64 [ %59, %.noexc4 ], [ %86, %84 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %.val4.i
   %64 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i21.i.i.i = load <16 x i8>, ptr %64, align 1, !noalias !1020
   %65 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i, %.15.vec.insert.i.i.i.i

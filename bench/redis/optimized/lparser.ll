@@ -2758,7 +2758,7 @@ land.rhs:                                         ; preds = %while.body, %land.r
   %arrayidx = getelementptr inbounds [15 x %struct.anon.1], ptr @priority, i64 0, i64 %idxprom
   %15 = load i8, ptr %arrayidx, align 2, !tbaa !98
   %conv = zext i8 %15 to i32
-  %cmp6 = icmp ugt i32 %conv, %limit
+  %cmp6 = icmp ult i32 %limit, %conv
   br i1 %cmp6, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
@@ -3413,7 +3413,7 @@ entry:
   %nactvar = getelementptr inbounds i8, ptr %0, i64 74
   %1 = load i8, ptr %nactvar, align 2, !tbaa !49
   %conv = zext i8 %1 to i32
-  %add = add nsw i32 %conv, %n
+  %add = add nsw i32 %n, %conv
   %cmp = icmp sgt i32 %add, 199
   br i1 %cmp, label %if.then, label %if.end
 
@@ -3546,7 +3546,7 @@ registerlocalvar.exit:                            ; preds = %if.then22.i, %land.
   %actvar = getelementptr inbounds i8, ptr %0, i64 196
   %24 = load i8, ptr %nactvar, align 2, !tbaa !49
   %conv6 = zext i8 %24 to i32
-  %add7 = add nsw i32 %conv6, %n
+  %add7 = add nsw i32 %n, %conv6
   %idxprom = sext i32 %add7 to i64
   %arrayidx = getelementptr inbounds [200 x i16], ptr %actvar, i64 0, i64 %idxprom
   store i16 %23, ptr %arrayidx, align 2, !tbaa !54

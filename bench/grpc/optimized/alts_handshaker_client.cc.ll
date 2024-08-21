@@ -1222,7 +1222,7 @@ do.body26:                                        ; preds = %do.end14, %do.body1
   %handshaker = getelementptr inbounds i8, ptr %c, i64 16
   %2 = load ptr, ptr %handshaker, align 8
   %call27 = tail call noundef zeroext i1 @_ZN9grpc_core8internal58alts_tsi_handshaker_get_has_sent_start_message_for_testingEP19alts_tsi_handshaker(ptr noundef %2)
-  %3 = xor i1 %call27, %has_sent_start_message
+  %3 = xor i1 %has_sent_start_message, %call27
   br i1 %3, label %if.then32, label %do.end34
 
 if.then32:                                        ; preds = %do.body26

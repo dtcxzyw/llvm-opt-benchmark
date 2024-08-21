@@ -1484,7 +1484,7 @@ define internal fastcc i32 @__sprint_symbol(ptr noundef %0, i64 noundef %1, i32 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
   store i64 0, ptr %8, align 8, !annotation !5
   %9 = sext i32 %2 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = call fastcc ptr @kallsyms_lookup_buildid(i64 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %0)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
@@ -1751,7 +1751,7 @@ define internal noundef i32 @s_show(ptr noundef %0, ptr nocapture readnone %1) #
 define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = load i32, ptr @kallsyms_num_syms, align 4
   %4 = zext i32 %3 to i64
-  %5 = icmp sgt i64 %4, %1
+  %5 = icmp slt i64 %1, %4
   br i1 %5, label %57, label %6
 
 6:                                                ; preds = %2

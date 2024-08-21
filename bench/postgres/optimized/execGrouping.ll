@@ -307,7 +307,7 @@ define internal fastcc i32 @TupleHashTableHash_internal(ptr nocapture readonly %
   %26 = tail call noundef i32 @llvm.fshl.i32(i32 %.02, i32 %.02, i32 1)
   %27 = sext i16 %25 to i32
   %28 = load i16, ptr %19, align 2
-  %29 = icmp slt i16 %28, %25
+  %29 = icmp sgt i16 %25, %28
   br i1 %29, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %23
@@ -420,7 +420,7 @@ define internal fastcc ptr @tuplehash_insert_hash_internal(ptr nocapture noundef
   %.081131 = phi i32 [ %101, %110 ], [ 0, %22 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 20
   %36 = load i32, ptr %35, align 4
-  %37 = icmp eq i32 %36, %2
+  %37 = icmp eq i32 %2, %36
   br i1 %37, label %38, label %61
 
 38:                                               ; preds = %.lr.ph
@@ -628,7 +628,7 @@ define internal fastcc ptr @tuplehash_lookup_hash_internal(ptr nocapture noundef
   %.0154 = phi i32 [ %5, %.lr.ph ], [ %46, %43 ]
   %17 = getelementptr inbounds i8, ptr %16, i64 20
   %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %18, %1
+  %19 = icmp eq i32 %1, %18
   br i1 %19, label %20, label %43
 
 20:                                               ; preds = %14
@@ -1261,7 +1261,7 @@ define dso_local ptr @BuildTupleHashTableExt(ptr noundef %0, ptr noundef %1, i32
   %37 = getelementptr inbounds i8, ptr %17, i64 104
   store i32 %.sink, ptr %37, align 8
   %38 = udiv i64 %15, %14
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %38, i64 %7)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %7, i64 %38)
   %39 = trunc i64 %spec.select to i32
   %40 = tail call ptr @tuplehash_create(ptr noundef %9, i32 noundef %39, ptr noundef nonnull %17)
   store ptr %40, ptr %17, align 8
@@ -1356,7 +1356,7 @@ define dso_local ptr @LookupTupleHashEntry(ptr nocapture noundef %0, ptr noundef
   %35 = tail call noundef i32 @llvm.fshl.i32(i32 %.02.i, i32 %.02.i, i32 1)
   %36 = sext i16 %34 to i32
   %37 = load i16, ptr %28, align 2
-  %38 = icmp slt i16 %37, %34
+  %38 = icmp sgt i16 %34, %37
   br i1 %38, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %32
@@ -1498,7 +1498,7 @@ define dso_local i32 @TupleHashTableHash(ptr nocapture noundef %0, ptr noundef %
   %29 = tail call noundef i32 @llvm.fshl.i32(i32 %.02.i, i32 %.02.i, i32 1)
   %30 = sext i16 %28 to i32
   %31 = load i16, ptr %22, align 2
-  %32 = icmp slt i16 %31, %28
+  %32 = icmp sgt i16 %28, %31
   br i1 %32, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %26
@@ -1649,7 +1649,7 @@ define dso_local ptr @FindTupleHashEntry(ptr nocapture noundef %0, ptr noundef %
   %30 = tail call noundef i32 @llvm.fshl.i32(i32 %.02.i, i32 %.02.i, i32 1)
   %31 = sext i16 %29 to i32
   %32 = load i16, ptr %23, align 2
-  %33 = icmp slt i16 %32, %29
+  %33 = icmp sgt i16 %29, %32
   br i1 %33, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %27

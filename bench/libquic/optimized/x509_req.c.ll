@@ -201,7 +201,7 @@ for.cond:                                         ; preds = %if.else
 if.else:                                          ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %entry ]
   %3 = phi i32 [ %2, %for.cond ], [ %1, %entry ]
-  %cmp1 = icmp eq i32 %3, %req_nid
+  %cmp1 = icmp eq i32 %req_nid, %3
   br i1 %cmp1, label %return, label %for.cond
 
 return:                                           ; preds = %for.cond, %if.else, %entry

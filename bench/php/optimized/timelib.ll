@@ -487,7 +487,7 @@ define hidden i32 @timelib_strncasecmp(ptr noundef readonly %0, ptr noundef read
 
 7:                                                ; preds = %3
   %8 = tail call i64 @llvm.umin.i64(i64 %4, i64 %5)
-  %. = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %8)
   br label %9
 
 9:                                                ; preds = %10, %7
@@ -519,8 +519,8 @@ define hidden i32 @timelib_strncasecmp(ptr noundef readonly %0, ptr noundef read
   br label %31
 
 26:                                               ; preds = %9
-  %27 = tail call i64 @llvm.umin.i64(i64 %4, i64 %2)
-  %28 = tail call i64 @llvm.umin.i64(i64 %5, i64 %2)
+  %27 = tail call i64 @llvm.umin.i64(i64 %2, i64 %4)
+  %28 = tail call i64 @llvm.umin.i64(i64 %2, i64 %5)
   %29 = sub i64 %27, %28
   %30 = trunc i64 %29 to i32
   br label %31

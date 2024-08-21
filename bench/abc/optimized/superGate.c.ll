@@ -3894,7 +3894,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %0, align 4
-  %23 = icmp sgt i32 %22, %20
+  %23 = icmp slt i32 %20, %22
   br i1 %23, label %Extra_ProgressBarUpdate.exit, label %24
 
 24:                                               ; preds = %21, %17

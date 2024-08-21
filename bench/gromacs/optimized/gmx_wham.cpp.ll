@@ -1893,7 +1893,7 @@ _ZL6fgets3P8_IO_FILEPcPi.exit.loopexit.i:         ; preds = %._crit_edge.i
 _ZL6fgets3P8_IO_FILEPcPi.exit.i:                  ; preds = %_ZL6fgets3P8_IO_FILEPcPi.exit.loopexit.i, %.noexc119
   %.061.lcssa.i = phi i32 [ 0, %.noexc119 ], [ %540, %_ZL6fgets3P8_IO_FILEPcPi.exit.loopexit.i ]
   store i32 %.061.lcssa.i, ptr getelementptr inbounds (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 56), align 8
-  %.not66.i = icmp eq i32 %.061.lcssa.i, %441
+  %.not66.i = icmp eq i32 %441, %.061.lcssa.i
   br i1 %.not66.i, label %547, label %541
 
 541:                                              ; preds = %_ZL6fgets3P8_IO_FILEPcPi.exit.i
@@ -8449,7 +8449,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %1077 = sext i32 %1076 to i64
   %1078 = getelementptr inbounds double, ptr %1074, i64 %1077
   %1079 = load double, ptr %1078, align 8
-  %1080 = fcmp ugt double %1079, %1071
+  %1080 = fcmp ult double %1071, %1079
   %..019.i.us.i = select i1 %1080, i32 %1076, i32 %.01922.i.us.i
   %.0..i.us.i = select i1 %1080, i32 %.023.i.us.i, i32 %1076
   %1081 = sub nsw i32 %..019.i.us.i, %.0..i.us.i
@@ -8460,7 +8460,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %1084 = getelementptr double, ptr %1074, i64 %974
   %1085 = getelementptr i8, ptr %1084, i64 -8
   %1086 = load double, ptr %1085, align 8
-  %1087 = fcmp oeq double %1086, %1071
+  %1087 = fcmp oeq double %1071, %1086
   br i1 %1087, label %1088, label %_ZL16searchCumulativePKdidPi.exit.us.i
 
 1088:                                             ; preds = %1083
@@ -8481,7 +8481,7 @@ _ZL16searchCumulativePKdidPi.exit.us.i:           ; preds = %._crit_edge.i.loope
 
 ._crit_edge.i.loopexit.us.i:                      ; preds = %.lr.ph.i.us.i
   %1096 = load double, ptr %1074, align 8
-  %1097 = fcmp oeq double %1096, %1071
+  %1097 = fcmp oeq double %1071, %1096
   br i1 %1097, label %_ZL16searchCumulativePKdidPi.exit.us.i, label %1083
 
 .lr.ph14.split.i:                                 ; preds = %.lr.ph14.i, %_ZL16searchCumulativePKdidPi.exit.i
@@ -8665,14 +8665,14 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %1194 = getelementptr inbounds ptr, ptr %1193, i64 %786
   %1195 = load ptr, ptr %1194, align 8
   %1196 = load double, ptr %1195, align 8
-  %1197 = fcmp oeq double %1196, %1192
+  %1197 = fcmp oeq double %1192, %1196
   br i1 %1197, label %_ZL16searchCumulativePKdidPi.exit.i, label %1198
 
 1198:                                             ; preds = %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfRT_.exit117.i
   %1199 = getelementptr double, ptr %1195, i64 %974
   %1200 = getelementptr i8, ptr %1199, i64 -8
   %1201 = load double, ptr %1200, align 8
-  %1202 = fcmp oeq double %1201, %1192
+  %1202 = fcmp oeq double %1192, %1201
   br i1 %1202, label %1203, label %_ZL16searchCumulativePKdidPi.exit.i
 
 1203:                                             ; preds = %1198
@@ -13419,7 +13419,7 @@ define linkonce_odr void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter_less_iter
   %12 = load double, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -13499,7 +13499,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds double, ptr %0, i64 %51
   %53 = load double, ptr %52, align 8
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -13551,7 +13551,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds double, ptr %0, i64 %73
   %75 = load double, ptr %74, align 8
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23

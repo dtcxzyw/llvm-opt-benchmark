@@ -940,7 +940,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -1590,7 +1590,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %151 = getelementptr inbounds ptr, ptr %147, i64 %150
   %152 = getelementptr inbounds i8, ptr %146, i64 12
   %153 = load i32, ptr %152, align 4
-  %.not4.i.i.i.i = icmp eq i32 %153, %149
+  %.not4.i.i.i.i = icmp eq i32 %149, %153
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -1623,7 +1623,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %156, %151
+  %.not.i.i.i.i = icmp eq ptr %151, %156
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -1793,7 +1793,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %10 = getelementptr inbounds ptr, ptr %6, i64 %9
   %11 = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4
-  %.not4.i.i.i = icmp eq i32 %12, %8
+  %.not4.i.i.i = icmp eq i32 %8, %12
   br i1 %.not4.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -1826,7 +1826,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   br label %_ZN7QStringD2Ev.exit.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i, %.lr.ph.i.i.i
-  %.not.i.i.i = icmp eq ptr %15, %10
+  %.not.i.i.i = icmp eq ptr %10, %15
   br i1 %.not.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -1926,7 +1926,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5:      ; preds = %_ZN5QListI7QStringE
   %33 = getelementptr inbounds ptr, ptr %29, i64 %32
   %34 = getelementptr inbounds i8, ptr %6, i64 12
   %35 = load i32, ptr %34, align 4
-  %.not4.i.i = icmp eq i32 %35, %31
+  %.not4.i.i = icmp eq i32 %31, %35
   br i1 %.not4.i.i, label %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread5
@@ -1959,7 +1959,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i: ; preds = %_ZN9QtPrivate8RefC
   br label %_ZN7QStringD2Ev.exit.i.i
 
 _ZN7QStringD2Ev.exit.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i, %.lr.ph.i.i
-  %.not.i.i = icmp eq ptr %38, %33
+  %.not.i.i = icmp eq ptr %33, %38
   br i1 %.not.i.i, label %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit: ; preds = %_ZN7QStringD2Ev.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread5
@@ -2355,7 +2355,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %126 = getelementptr inbounds ptr, ptr %122, i64 %125
   %127 = getelementptr inbounds i8, ptr %121, i64 12
   %128 = load i32, ptr %127, align 4
-  %.not4.i.i.i.i = icmp eq i32 %128, %124
+  %.not4.i.i.i.i = icmp eq i32 %124, %128
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -2388,7 +2388,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %131, %126
+  %.not.i.i.i.i = icmp eq ptr %126, %131
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -10185,7 +10185,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i96:  ; preds = %_ZN9QtPrivate8RefCo
   %205 = getelementptr inbounds ptr, ptr %201, i64 %204
   %206 = getelementptr inbounds i8, ptr %200, i64 12
   %207 = load i32, ptr %206, align 4
-  %.not4.i.i.i = icmp eq i32 %207, %203
+  %.not4.i.i.i = icmp eq i32 %203, %207
   br i1 %.not4.i.i.i, label %_ZN5QListI4QUrlE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i96
@@ -10197,7 +10197,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i96:  ; preds = %_ZN9QtPrivate8RefCo
   %.05.i.i.i = phi ptr [ %210, %.lr.ph.i.i.i ], [ %209, %.lr.ph.i.preheader.i.i ]
   %210 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -8
   call void @_ZN4QUrlD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %210) #28
-  %.not.i.i.i = icmp eq ptr %210, %205
+  %.not.i.i.i = icmp eq ptr %205, %210
   br i1 %.not.i.i.i, label %_ZN5QListI4QUrlE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !132
 
 _ZN5QListI4QUrlE13node_destructEPNS1_4NodeES3_.exit.i.i: ; preds = %.lr.ph.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i96
@@ -10799,7 +10799,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %84 = getelementptr inbounds ptr, ptr %80, i64 %83
   %85 = getelementptr inbounds i8, ptr %79, i64 12
   %86 = load i32, ptr %85, align 4
-  %.not4.i.i.i.i = icmp eq i32 %86, %82
+  %.not4.i.i.i.i = icmp eq i32 %82, %86
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -10832,7 +10832,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %89, %84
+  %.not.i.i.i.i = icmp eq ptr %84, %89
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -11581,7 +11581,7 @@ _ZN5QListIP13QMdiSubWindowED2Ev.exit:             ; preds = %283, %_ZN9QtPrivate
 
 296:                                              ; preds = %291
   %297 = icmp eq i32 %295, 0
-  %brmerge = or i1 %297, %2
+  %brmerge = or i1 %2, %297
   br i1 %brmerge, label %309, label %304
 
 .critedge88:                                      ; preds = %273
@@ -12195,7 +12195,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i273: ; preds = %_ZN9QtPrivate8Ref
   %498 = getelementptr inbounds ptr, ptr %494, i64 %497
   %499 = getelementptr inbounds i8, ptr %493, i64 12
   %500 = load i32, ptr %499, align 4
-  %.not4.i.i.i.i274 = icmp eq i32 %500, %496
+  %.not4.i.i.i.i274 = icmp eq i32 %496, %500
   br i1 %.not4.i.i.i.i274, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i280, label %.lr.ph.i.preheader.i.i.i275
 
 .lr.ph.i.preheader.i.i.i275:                      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i273
@@ -12228,7 +12228,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i281: ; preds = %_ZN9QtPriva
   br label %_ZN7QStringD2Ev.exit.i.i.i.i278
 
 _ZN7QStringD2Ev.exit.i.i.i.i278:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i281, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i282, %.lr.ph.i.i.i.i276
-  %.not.i.i.i.i279 = icmp eq ptr %503, %498
+  %.not.i.i.i.i279 = icmp eq ptr %498, %503
   br i1 %.not.i.i.i.i279, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i280, label %.lr.ph.i.i.i.i276, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i280: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i278, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i273
@@ -12546,7 +12546,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i: ; preds = %_ZN9QtPrivate8RefC
   %145 = getelementptr inbounds ptr, ptr %141, i64 %144
   %146 = getelementptr inbounds i8, ptr %138, i64 12
   %147 = load i32, ptr %146, align 4
-  %.not4.i.i.i.i.i = icmp eq i32 %147, %143
+  %.not4.i.i.i.i.i = icmp eq i32 %143, %147
   br i1 %.not4.i.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i
@@ -12579,7 +12579,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
   br label %_ZN7QStringD2Ev.exit.i.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i.i:                   ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq ptr %150, %145
+  %.not.i.i.i.i.i = icmp eq ptr %145, %150
   br i1 %.not.i.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i
@@ -12619,7 +12619,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %166 = getelementptr inbounds ptr, ptr %162, i64 %165
   %167 = getelementptr inbounds i8, ptr %161, i64 12
   %168 = load i32, ptr %167, align 4
-  %.not4.i.i.i.i = icmp eq i32 %168, %164
+  %.not4.i.i.i.i = icmp eq i32 %164, %168
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -12652,7 +12652,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %171, %166
+  %.not.i.i.i.i = icmp eq ptr %166, %171
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -12736,7 +12736,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i239: ; preds = %_ZN9QtPrivate8Ref
   %195 = getelementptr inbounds ptr, ptr %191, i64 %194
   %196 = getelementptr inbounds i8, ptr %190, i64 12
   %197 = load i32, ptr %196, align 4
-  %.not4.i.i.i.i240 = icmp eq i32 %197, %193
+  %.not4.i.i.i.i240 = icmp eq i32 %193, %197
   br i1 %.not4.i.i.i.i240, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i246, label %.lr.ph.i.preheader.i.i.i241
 
 .lr.ph.i.preheader.i.i.i241:                      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i239
@@ -12769,7 +12769,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i247: ; preds = %_ZN9QtPriva
   br label %_ZN7QStringD2Ev.exit.i.i.i.i244
 
 _ZN7QStringD2Ev.exit.i.i.i.i244:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i247, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i248, %.lr.ph.i.i.i.i242
-  %.not.i.i.i.i245 = icmp eq ptr %200, %195
+  %.not.i.i.i.i245 = icmp eq ptr %195, %200
   br i1 %.not.i.i.i.i245, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i246, label %.lr.ph.i.i.i.i242, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i246: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i244, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i239
@@ -16381,7 +16381,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i759: ; preds = %_ZN9QtPrivate8Ref
   %1150 = getelementptr inbounds ptr, ptr %1146, i64 %1149
   %1151 = getelementptr inbounds i8, ptr %1145, i64 12
   %1152 = load i32, ptr %1151, align 4
-  %.not4.i.i.i.i760 = icmp eq i32 %1152, %1148
+  %.not4.i.i.i.i760 = icmp eq i32 %1148, %1152
   br i1 %.not4.i.i.i.i760, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i766, label %.lr.ph.i.preheader.i.i.i761
 
 .lr.ph.i.preheader.i.i.i761:                      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i759
@@ -16414,7 +16414,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i767: ; preds = %_ZN9QtPriva
   br label %_ZN7QStringD2Ev.exit.i.i.i.i764
 
 _ZN7QStringD2Ev.exit.i.i.i.i764:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i767, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i768, %.lr.ph.i.i.i.i762
-  %.not.i.i.i.i765 = icmp eq ptr %1155, %1150
+  %.not.i.i.i.i765 = icmp eq ptr %1150, %1155
   br i1 %.not.i.i.i.i765, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i766, label %.lr.ph.i.i.i.i762, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i766: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i764, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i759
@@ -16601,7 +16601,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i: ; preds = %_ZN9QtPrivate8RefC
   %68 = getelementptr inbounds ptr, ptr %64, i64 %67
   %69 = getelementptr inbounds i8, ptr %61, i64 12
   %70 = load i32, ptr %69, align 4
-  %.not4.i.i.i.i.i = icmp eq i32 %70, %66
+  %.not4.i.i.i.i.i = icmp eq i32 %66, %70
   br i1 %.not4.i.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i
@@ -16634,7 +16634,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
   br label %_ZN7QStringD2Ev.exit.i.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i.i:                   ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq ptr %73, %68
+  %.not.i.i.i.i.i = icmp eq ptr %68, %73
   br i1 %.not.i.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i
@@ -16674,7 +16674,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %89 = getelementptr inbounds ptr, ptr %85, i64 %88
   %90 = getelementptr inbounds i8, ptr %84, i64 12
   %91 = load i32, ptr %90, align 4
-  %.not4.i.i.i.i = icmp eq i32 %91, %87
+  %.not4.i.i.i.i = icmp eq i32 %87, %91
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -16707,7 +16707,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %94, %89
+  %.not.i.i.i.i = icmp eq ptr %89, %94
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -16791,7 +16791,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i66: ; preds = %_ZN9QtPrivate8RefC
   %118 = getelementptr inbounds ptr, ptr %114, i64 %117
   %119 = getelementptr inbounds i8, ptr %113, i64 12
   %120 = load i32, ptr %119, align 4
-  %.not4.i.i.i.i67 = icmp eq i32 %120, %116
+  %.not4.i.i.i.i67 = icmp eq i32 %116, %120
   br i1 %.not4.i.i.i.i67, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i73, label %.lr.ph.i.preheader.i.i.i68
 
 .lr.ph.i.preheader.i.i.i68:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i66
@@ -16824,7 +16824,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i74: ; preds = %_ZN9QtPrivat
   br label %_ZN7QStringD2Ev.exit.i.i.i.i71
 
 _ZN7QStringD2Ev.exit.i.i.i.i71:                   ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i74, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i75, %.lr.ph.i.i.i.i69
-  %.not.i.i.i.i72 = icmp eq ptr %123, %118
+  %.not.i.i.i.i72 = icmp eq ptr %118, %123
   br i1 %.not.i.i.i.i72, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i73, label %.lr.ph.i.i.i.i69, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i73: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i71, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i66
@@ -17543,7 +17543,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i161: ; preds = %_ZN9QtPrivate8Ref
   %385 = getelementptr inbounds ptr, ptr %381, i64 %384
   %386 = getelementptr inbounds i8, ptr %380, i64 12
   %387 = load i32, ptr %386, align 4
-  %.not4.i.i.i.i162 = icmp eq i32 %387, %383
+  %.not4.i.i.i.i162 = icmp eq i32 %383, %387
   br i1 %.not4.i.i.i.i162, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i168, label %.lr.ph.i.preheader.i.i.i163
 
 .lr.ph.i.preheader.i.i.i163:                      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i161
@@ -17576,7 +17576,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i169: ; preds = %_ZN9QtPriva
   br label %_ZN7QStringD2Ev.exit.i.i.i.i166
 
 _ZN7QStringD2Ev.exit.i.i.i.i166:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i169, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i170, %.lr.ph.i.i.i.i164
-  %.not.i.i.i.i167 = icmp eq ptr %390, %385
+  %.not.i.i.i.i167 = icmp eq ptr %385, %390
   br i1 %.not.i.i.i.i167, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i168, label %.lr.ph.i.i.i.i164, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i168: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i166, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i161
@@ -17718,7 +17718,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2:      ; preds = %_ZN9QtPrivate8RefCo
   %10 = getelementptr inbounds ptr, ptr %6, i64 %9
   %11 = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4
-  %.not4.i.i = icmp eq i32 %12, %8
+  %.not4.i.i = icmp eq i32 %8, %12
   br i1 %.not4.i.i, label %_ZN5QListI4QUrlE13node_destructEPNS1_4NodeES3_.exit.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2
@@ -17730,7 +17730,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2:      ; preds = %_ZN9QtPrivate8RefCo
   %.05.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %14, %.lr.ph.i.preheader.i ]
   %15 = getelementptr inbounds i8, ptr %.05.i.i, i64 -8
   tail call void @_ZN4QUrlD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #28
-  %.not.i.i = icmp eq ptr %15, %10
+  %.not.i.i = icmp eq ptr %10, %15
   br i1 %.not.i.i, label %_ZN5QListI4QUrlE13node_destructEPNS1_4NodeES3_.exit.i, label %.lr.ph.i.i, !llvm.loop !132
 
 _ZN5QListI4QUrlE13node_destructEPNS1_4NodeES3_.exit.i: ; preds = %.lr.ph.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2
@@ -18738,7 +18738,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %193 = getelementptr inbounds ptr, ptr %189, i64 %192
   %194 = getelementptr inbounds i8, ptr %188, i64 12
   %195 = load i32, ptr %194, align 4
-  %.not4.i.i.i.i = icmp eq i32 %195, %191
+  %.not4.i.i.i.i = icmp eq i32 %191, %195
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -18771,7 +18771,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %198, %193
+  %.not.i.i.i.i = icmp eq ptr %193, %198
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -21623,7 +21623,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread9:      ; preds = %27, %_ZN9QtPrivate8
   %34 = getelementptr inbounds ptr, ptr %30, i64 %33
   %35 = getelementptr inbounds i8, ptr %9, i64 12
   %36 = load i32, ptr %35, align 4
-  %.not5.i.i = icmp eq i32 %36, %32
+  %.not5.i.i = icmp eq i32 %32, %36
   br i1 %.not5.i.i, label %_ZN5QListI29FilterNameParameterValuesPairE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread9
@@ -21646,7 +21646,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread9:      ; preds = %27, %_ZN9QtPrivate8
   br label %46
 
 46:                                               ; preds = %42, %.lr.ph.i.i
-  %.not.i.i = icmp eq ptr %39, %34
+  %.not.i.i = icmp eq ptr %34, %39
   br i1 %.not.i.i, label %_ZN5QListI29FilterNameParameterValuesPairE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.i, !llvm.loop !253
 
 _ZN5QListI29FilterNameParameterValuesPairE7deallocEPN9QListData4DataE.exit: ; preds = %46, %_ZN9QtPrivate8RefCount5derefEv.exit.thread9
@@ -21976,7 +21976,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE19CompactVertexVectorERS
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 3
-  %25 = icmp ult i64 %24, %13
+  %25 = icmp ugt i64 %13, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %16
@@ -21985,7 +21985,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE19CompactVertexVectorERS
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 28:                                               ; preds = %16
-  %29 = icmp ugt i64 %24, %13
+  %29 = icmp ult i64 %13, %24
   br i1 %29, label %30, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 30:                                               ; preds = %28
@@ -22615,7 +22615,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !265
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -22699,7 +22699,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !265
 
 _ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -22746,11 +22746,11 @@ define linkonce_odr void @_ZN3vcg6vertex10vector_ocfI8CVertexOE6resizeEm(ptr nou
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = sdiv exact i64 %10, 48
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP8CVertexOSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit, label %13
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %11, %1
+  %14 = icmp ult i64 %1, %11
   br i1 %14, label %15, label %_ZN3vcg6vertex10vector_ocfI8CVertexOE10_updateOVPEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESA_.exit
 
 15:                                               ; preds = %13
@@ -22805,7 +22805,7 @@ _ZN3vcg6vertex10vector_ocfI8CVertexOE10_updateOVPEN9__gnu_cxx17__normal_iterator
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = ashr exact i64 %38, 2
-  %40 = icmp ult i64 %39, %1
+  %40 = icmp ugt i64 %1, %39
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %31
@@ -22814,7 +22814,7 @@ _ZN3vcg6vertex10vector_ocfI8CVertexOE10_updateOVPEN9__gnu_cxx17__normal_iterator
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 43:                                               ; preds = %31
-  %44 = icmp ugt i64 %39, %1
+  %44 = icmp ult i64 %1, %39
   br i1 %44, label %45, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 45:                                               ; preds = %43
@@ -22841,7 +22841,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %47, %45, %43, %41, 
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
   %59 = ashr exact i64 %58, 2
-  %60 = icmp ult i64 %59, %1
+  %60 = icmp ugt i64 %1, %59
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
@@ -22850,7 +22850,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %47, %45, %43, %41, 
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 63:                                               ; preds = %51
-  %64 = icmp ugt i64 %59, %1
+  %64 = icmp ult i64 %1, %59
   br i1 %64, label %65, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 65:                                               ; preds = %63
@@ -22902,7 +22902,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %67, %65, %63, %61, 
   %90 = ptrtoint ptr %88 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 4
-  %93 = icmp ult i64 %92, %1
+  %93 = icmp ugt i64 %1, %92
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %83
@@ -22911,7 +22911,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %67, %65, %63, %61, 
   br label %_ZNSt6vectorIN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeESaIS5_EE6resizeEmRKS5_.exit
 
 96:                                               ; preds = %83
-  %97 = icmp ugt i64 %92, %1
+  %97 = icmp ult i64 %1, %92
   br i1 %97, label %98, label %_ZNSt6vectorIN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeESaIS5_EE6resizeEmRKS5_.exit
 
 98:                                               ; preds = %96
@@ -22960,7 +22960,7 @@ _ZNSt6vectorIN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeESaIS5_EE6resizeEmRKS5
   %122 = ptrtoint ptr %120 to i64
   %123 = sub i64 %121, %122
   %124 = ashr exact i64 %123, 2
-  %125 = icmp ult i64 %124, %1
+  %125 = icmp ugt i64 %1, %124
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %116
@@ -22969,7 +22969,7 @@ _ZNSt6vectorIN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeESaIS5_EE6resizeEmRKS5
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 128:                                              ; preds = %116
-  %129 = icmp ugt i64 %124, %1
+  %129 = icmp ult i64 %1, %124
   br i1 %129, label %130, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 130:                                              ; preds = %128
@@ -23256,7 +23256,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EE6resizeEm(ptr nou
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -23327,7 +23327,7 @@ _ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; pr
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -23352,7 +23352,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr nou
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -23420,7 +23420,7 @@ _ZNSt12_Vector_baseIN3vcg6Point3IfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; pr
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -23445,7 +23445,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg9TexCoord2IfLi1EEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -23513,7 +23513,7 @@ _ZNSt12_Vector_baseIN3vcg9TexCoord2IfLi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.
   br label %_ZNSt6vectorIN3vcg9TexCoord2IfLi1EEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3vcg9TexCoord2IfLi1EEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -23538,7 +23538,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE6resizeEm(ptr nou
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -23609,7 +23609,7 @@ _ZNSt12_Vector_baseIN3vcg6Point2IfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; pr
   br label %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -23634,7 +23634,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6vertex19CurvatureDirTypeOcfIfEESaIS
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 5
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -23702,7 +23702,7 @@ _ZNSt12_Vector_baseIN3vcg6vertex19CurvatureDirTypeOcfIfEESaIS3_EE13_M_deallocate
   br label %_ZNSt6vectorIN3vcg6vertex19CurvatureDirTypeOcfIfEESaIS3_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3vcg6vertex19CurvatureDirTypeOcfIfEESaIS3_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -23880,7 +23880,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !300
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -23964,7 +23964,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !300
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -24188,7 +24188,7 @@ _ZSt13move_backwardIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeES6_ET0_T_S8_S
 _ZSt24__uninitialized_fill_n_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %33
   %37 = phi ptr [ %9, %33 ], [ %36, %.lr.ph.i.i.i.i ]
   store ptr %37, ptr %8, align 8
-  %.not11.i.i.i.i.i69 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i69 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeES6_SaIS5_EET0_T_S9_S8_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeES6_SaIS5_EET0_T_S9_S8_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit
@@ -24279,7 +24279,7 @@ _ZSt24__uninitialized_fill_n_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeEmS
 _ZSt34__uninitialized_move_if_noexcept_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %61, %_ZSt24__uninitialized_fill_n_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit87 ], [ %66, %.lr.ph.i.i.i.i.i89 ]
   %67 = getelementptr %"struct.vcg::vertex::vector_ocf<CVertexO>::VFAdjType", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
-  %.not11.i.i.i.i.i94 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeES6_SaIS5_EET0_T_S9_S8_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
 .lr.ph.i.i.i.i.i95:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeES6_SaIS5_EET0_T_S9_S8_RT1_.exit, %.lr.ph.i.i.i.i.i95
@@ -24438,7 +24438,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE17CompactEdgeVectorERS2_
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 3
-  %27 = icmp ult i64 %26, %15
+  %27 = icmp ugt i64 %15, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %18
@@ -24447,7 +24447,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE17CompactEdgeVectorERS2_
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 30:                                               ; preds = %18
-  %31 = icmp ugt i64 %26, %15
+  %31 = icmp ult i64 %15, %26
   br i1 %31, label %32, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 32:                                               ; preds = %30
@@ -24919,7 +24919,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE17CompactFaceVectorERS2_
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 3
-  %27 = icmp ult i64 %26, %15
+  %27 = icmp ugt i64 %15, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %18
@@ -24928,7 +24928,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE17CompactFaceVectorERS2_
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 30:                                               ; preds = %18
-  %31 = icmp ugt i64 %26, %15
+  %31 = icmp ult i64 %15, %26
   br i1 %31, label %32, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 32:                                               ; preds = %30
@@ -25618,7 +25618,7 @@ _ZN3vcg4face10vector_ocfI6CFaceOE10_updateOVPEN9__gnu_cxx17__normal_iteratorIPS2
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 2
-  %28 = icmp ult i64 %27, %1
+  %28 = icmp ugt i64 %1, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %19
@@ -25627,7 +25627,7 @@ _ZN3vcg4face10vector_ocfI6CFaceOE10_updateOVPEN9__gnu_cxx17__normal_iteratorIPS2
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 31:                                               ; preds = %19
-  %32 = icmp ugt i64 %27, %1
+  %32 = icmp ult i64 %1, %27
   br i1 %32, label %33, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 33:                                               ; preds = %31
@@ -25665,7 +25665,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %35, %33, %31, %29, 
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 2
-  %54 = icmp ult i64 %53, %1
+  %54 = icmp ugt i64 %1, %53
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %45
@@ -25674,7 +25674,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %35, %33, %31, %29, 
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 57:                                               ; preds = %45
-  %58 = icmp ugt i64 %53, %1
+  %58 = icmp ult i64 %1, %53
   br i1 %58, label %59, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 59:                                               ; preds = %57
@@ -25723,7 +25723,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %61, %59, %57, %55, 
   %83 = ptrtoint ptr %81 to i64
   %84 = sub i64 %82, %83
   %85 = ashr exact i64 %84, 5
-  %86 = icmp ult i64 %85, %1
+  %86 = icmp ugt i64 %1, %85
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %77
@@ -25732,7 +25732,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %61, %59, %57, %55, 
   br label %_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE6resizeEm.exit
 
 89:                                               ; preds = %77
-  %90 = icmp ugt i64 %85, %1
+  %90 = icmp ult i64 %1, %85
   br i1 %90, label %91, label %_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE6resizeEm.exit
 
 91:                                               ; preds = %89
@@ -25759,7 +25759,7 @@ _ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE6resizeEm.exit
   %103 = ptrtoint ptr %101 to i64
   %104 = sub i64 %102, %103
   %105 = ashr exact i64 %104, 5
-  %106 = icmp ult i64 %105, %1
+  %106 = icmp ugt i64 %1, %105
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %97
@@ -25768,7 +25768,7 @@ _ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE6resizeEm.exit
   br label %_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE6resizeEm.exit18
 
 109:                                              ; preds = %97
-  %110 = icmp ugt i64 %105, %1
+  %110 = icmp ult i64 %1, %105
   br i1 %110, label %111, label %_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE6resizeEm.exit18
 
 111:                                              ; preds = %109
@@ -25812,7 +25812,7 @@ _ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE6resizeEm.exit
   %131 = ptrtoint ptr %129 to i64
   %132 = sub i64 %130, %131
   %133 = sdiv exact i64 %132, 36
-  %134 = icmp ult i64 %133, %1
+  %134 = icmp ugt i64 %1, %133
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %117
@@ -25821,7 +25821,7 @@ _ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE6resizeEm.exit
   br label %_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackESaIS5_EE6resizeEmRKS5_.exit
 
 137:                                              ; preds = %117
-  %138 = icmp ugt i64 %133, %1
+  %138 = icmp ult i64 %1, %133
   br i1 %138, label %139, label %_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackESaIS5_EE6resizeEmRKS5_.exit
 
 139:                                              ; preds = %137
@@ -25859,7 +25859,7 @@ _ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackESaIS5_EE6resizeEm
   %157 = ptrtoint ptr %155 to i64
   %158 = sub i64 %156, %157
   %159 = sdiv exact i64 %158, 36
-  %160 = icmp ult i64 %159, %1
+  %160 = icmp ugt i64 %1, %159
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %151
@@ -25868,7 +25868,7 @@ _ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackESaIS5_EE6resizeEm
   br label %_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE19WedgeNormalTypePackESaIS5_EE6resizeEm.exit
 
 163:                                              ; preds = %151
-  %164 = icmp ugt i64 %159, %1
+  %164 = icmp ult i64 %1, %159
   br i1 %164, label %165, label %_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE19WedgeNormalTypePackESaIS5_EE6resizeEm.exit
 
 165:                                              ; preds = %163
@@ -26127,7 +26127,7 @@ define linkonce_odr void @_ZNSt6vectorI6CFaceOSaIS0_EE6resizeEm(ptr noundef nonn
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 48
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -26198,7 +26198,7 @@ _ZNSt12_Vector_baseI6CFaceOSaIS0_EE13_M_deallocateEPS0_m.exit36.i: ; preds = %33
   br label %_ZNSt6vectorI6CFaceOSaIS0_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorI6CFaceOSaIS0_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -26223,7 +26223,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg4face23CurvatureDirOcfBaseTypeIfEESa
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 5
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -26291,7 +26291,7 @@ _ZNSt12_Vector_baseIN3vcg4face23CurvatureDirOcfBaseTypeIfEESaIS3_EE13_M_dealloca
   br label %_ZNSt6vectorIN3vcg4face23CurvatureDirOcfBaseTypeIfEESaIS3_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3vcg4face23CurvatureDirOcfBaseTypeIfEESaIS3_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -26316,7 +26316,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE18WedgeCol
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -26387,7 +26387,7 @@ _ZNSt12_Vector_baseIN3vcg4face10vector_ocfI6CFaceOE18WedgeColorTypePackESaIS5_EE
   br label %_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE18WedgeColorTypePackESaIS5_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE18WedgeColorTypePackESaIS5_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -26596,7 +26596,7 @@ _ZSt13move_backwardIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackES6_ET0_T_
 _ZSt24__uninitialized_fill_n_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %32
   %36 = phi ptr [ %9, %32 ], [ %35, %.lr.ph.i.i.i.i ]
   store ptr %36, ptr %8, align 8
-  %.not11.i.i.i.i.i69 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i69 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackES6_SaIS5_EET0_T_S9_S8_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackES6_SaIS5_EET0_T_S9_S8_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit
@@ -26687,7 +26687,7 @@ _ZSt24__uninitialized_fill_n_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePac
 _ZSt34__uninitialized_move_if_noexcept_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %60, %_ZSt24__uninitialized_fill_n_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit87 ], [ %65, %.lr.ph.i.i.i.i.i89 ]
   %66 = getelementptr %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
-  %.not11.i.i.i.i.i94 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackES6_SaIS5_EET0_T_S9_S8_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
 .lr.ph.i.i.i.i.i95:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackES6_SaIS5_EET0_T_S9_S8_RT1_.exit, %.lr.ph.i.i.i.i.i95
@@ -26873,7 +26873,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE18CompactTetraVectorERS2
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %26 = icmp ult i64 %25, %15
+  %26 = icmp ugt i64 %15, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %17
@@ -26882,7 +26882,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE18CompactTetraVectorERS2
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 29:                                               ; preds = %17
-  %30 = icmp ugt i64 %25, %15
+  %30 = icmp ult i64 %15, %25
   br i1 %30, label %31, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 31:                                               ; preds = %29
@@ -29814,7 +29814,7 @@ _ZN9QListData7disposeEv.exit:                     ; preds = %21
   br label %65
 
 65:                                               ; preds = %61, %.lr.ph.i
-  %.not.i = icmp eq ptr %58, %54
+  %.not.i = icmp eq ptr %54, %58
   br i1 %.not.i, label %_ZN5QListI29FilterNameParameterValuesPairE13node_destructEPNS1_4NodeES3_.exit.loopexit, label %.lr.ph.i, !llvm.loop !253
 
 _ZN5QListI29FilterNameParameterValuesPairE13node_destructEPNS1_4NodeES3_.exit.loopexit: ; preds = %65
@@ -29857,7 +29857,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread16:     ; preds = %69, %_ZN9QtPrivate8
   %76 = getelementptr inbounds ptr, ptr %72, i64 %75
   %77 = getelementptr inbounds i8, ptr %11, i64 12
   %78 = load i32, ptr %77, align 4
-  %.not5.i.i = icmp eq i32 %78, %74
+  %.not5.i.i = icmp eq i32 %74, %78
   br i1 %.not5.i.i, label %_ZN5QListI29FilterNameParameterValuesPairE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread16
@@ -29880,7 +29880,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread16:     ; preds = %69, %_ZN9QtPrivate8
   br label %88
 
 88:                                               ; preds = %84, %.lr.ph.i.i
-  %.not.i.i = icmp eq ptr %81, %76
+  %.not.i.i = icmp eq ptr %76, %81
   br i1 %.not.i.i, label %_ZN5QListI29FilterNameParameterValuesPairE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.i, !llvm.loop !253
 
 _ZN5QListI29FilterNameParameterValuesPairE7deallocEPN9QListData4DataE.exit: ; preds = %88, %_ZN9QtPrivate8RefCount5derefEv.exit.thread16
@@ -30116,7 +30116,7 @@ _ZN8QMapNodeIP7QActionP8EditToolE10lowerBoundERKS1_.exit.i.i.i: ; preds = %.preh
 35:                                               ; preds = %_ZN8QMapNodeIP7QActionP8EditToolE10lowerBoundERKS1_.exit.i.i.i
   %36 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp ugt ptr %37, %10
+  %38 = icmp ult ptr %10, %37
   br i1 %38, label %_ZN6GLArea21editorExistsForActionEP7QAction.exit, label %_ZN6GLArea21editorExistsForActionEP7QAction.exit.thread
 
 _ZN6GLArea21editorExistsForActionEP7QAction.exit: ; preds = %35, %_ZN8QMapNodeIP7QActionP8EditToolE10lowerBoundERKS1_.exit.i.i.i, %_ZNK10MainWindow3GLAEv.exit23
@@ -30182,7 +30182,7 @@ _ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i:  ; preds = %59, %_ZNK10MainWind
 66:                                               ; preds = %._crit_edge.i.i
   %67 = getelementptr inbounds i8, ptr %.121.i.i, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = icmp ugt ptr %68, %10
+  %69 = icmp ult ptr %10, %68
   br i1 %69, label %._crit_edge.thread.i.i, label %_ZN6GLArea13addMeshEditorEP7QActionP8EditTool.exit
 
 ._crit_edge.thread.i.i:                           ; preds = %66, %._crit_edge.i.i, %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i
@@ -33215,7 +33215,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i285: ; preds = %_ZN9QtPrivate8Ref
   %495 = getelementptr inbounds ptr, ptr %491, i64 %494
   %496 = getelementptr inbounds i8, ptr %490, i64 12
   %497 = load i32, ptr %496, align 4
-  %.not4.i.i.i.i = icmp eq i32 %497, %493
+  %.not4.i.i.i.i = icmp eq i32 %493, %497
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i285
@@ -33248,7 +33248,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %500, %495
+  %.not.i.i.i.i = icmp eq ptr %495, %500
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i285
@@ -33534,7 +33534,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i119: ; preds = %_ZN9QtPrivate8Ref
   %81 = getelementptr inbounds ptr, ptr %77, i64 %80
   %82 = getelementptr inbounds i8, ptr %76, i64 12
   %83 = load i32, ptr %82, align 4
-  %.not4.i.i.i.i = icmp eq i32 %83, %79
+  %.not4.i.i.i.i = icmp eq i32 %79, %83
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i119
@@ -33567,7 +33567,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %86, %81
+  %.not.i.i.i.i = icmp eq ptr %81, %86
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i119
@@ -34348,7 +34348,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i230: ; preds = %_ZN9QtPrivate8Ref
   %309 = getelementptr inbounds ptr, ptr %305, i64 %308
   %310 = getelementptr inbounds i8, ptr %304, i64 12
   %311 = load i32, ptr %310, align 4
-  %.not4.i.i.i.i231 = icmp eq i32 %311, %307
+  %.not4.i.i.i.i231 = icmp eq i32 %307, %311
   br i1 %.not4.i.i.i.i231, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i237, label %.lr.ph.i.preheader.i.i.i232
 
 .lr.ph.i.preheader.i.i.i232:                      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i230
@@ -34381,7 +34381,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i238: ; preds = %_ZN9QtPriva
   br label %_ZN7QStringD2Ev.exit.i.i.i.i235
 
 _ZN7QStringD2Ev.exit.i.i.i.i235:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i238, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i239, %.lr.ph.i.i.i.i233
-  %.not.i.i.i.i236 = icmp eq ptr %314, %309
+  %.not.i.i.i.i236 = icmp eq ptr %309, %314
   br i1 %.not.i.i.i.i236, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i237, label %.lr.ph.i.i.i.i233, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i237: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i235, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i230
@@ -35878,7 +35878,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i181: ; preds = %_ZN9QtPrivate8Ref
   %216 = getelementptr inbounds ptr, ptr %212, i64 %215
   %217 = getelementptr inbounds i8, ptr %211, i64 12
   %218 = load i32, ptr %217, align 4
-  %.not4.i.i.i.i = icmp eq i32 %218, %214
+  %.not4.i.i.i.i = icmp eq i32 %214, %218
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i181
@@ -35911,7 +35911,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %221, %216
+  %.not.i.i.i.i = icmp eq ptr %216, %221
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i181
@@ -36153,7 +36153,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i219: ; preds = %_ZN9QtPrivate8Ref
   %290 = getelementptr inbounds ptr, ptr %286, i64 %289
   %291 = getelementptr inbounds i8, ptr %285, i64 12
   %292 = load i32, ptr %291, align 4
-  %.not4.i.i.i.i220 = icmp eq i32 %292, %288
+  %.not4.i.i.i.i220 = icmp eq i32 %288, %292
   br i1 %.not4.i.i.i.i220, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i226, label %.lr.ph.i.preheader.i.i.i221
 
 .lr.ph.i.preheader.i.i.i221:                      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i219
@@ -36186,7 +36186,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i227: ; preds = %_ZN9QtPriva
   br label %_ZN7QStringD2Ev.exit.i.i.i.i224
 
 _ZN7QStringD2Ev.exit.i.i.i.i224:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i227, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i228, %.lr.ph.i.i.i.i222
-  %.not.i.i.i.i225 = icmp eq ptr %295, %290
+  %.not.i.i.i.i225 = icmp eq ptr %290, %295
   br i1 %.not.i.i.i.i225, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i226, label %.lr.ph.i.i.i.i222, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i226: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i224, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i219
@@ -37520,7 +37520,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i377: ; preds = %_ZN9QtPrivate8Ref
   %750 = getelementptr inbounds ptr, ptr %746, i64 %749
   %751 = getelementptr inbounds i8, ptr %745, i64 12
   %752 = load i32, ptr %751, align 4
-  %.not4.i.i.i.i378 = icmp eq i32 %752, %748
+  %.not4.i.i.i.i378 = icmp eq i32 %748, %752
   br i1 %.not4.i.i.i.i378, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i384, label %.lr.ph.i.preheader.i.i.i379
 
 .lr.ph.i.preheader.i.i.i379:                      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i377
@@ -37553,7 +37553,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i385: ; preds = %_ZN9QtPriva
   br label %_ZN7QStringD2Ev.exit.i.i.i.i382
 
 _ZN7QStringD2Ev.exit.i.i.i.i382:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i385, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i386, %.lr.ph.i.i.i.i380
-  %.not.i.i.i.i383 = icmp eq ptr %755, %750
+  %.not.i.i.i.i383 = icmp eq ptr %750, %755
   br i1 %.not.i.i.i.i383, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i384, label %.lr.ph.i.i.i.i380, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i384: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i382, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i377
@@ -37676,7 +37676,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i406: ; preds = %_ZN9QtPrivate8Ref
   %785 = getelementptr inbounds ptr, ptr %781, i64 %784
   %786 = getelementptr inbounds i8, ptr %780, i64 12
   %787 = load i32, ptr %786, align 4
-  %.not4.i.i.i.i407 = icmp eq i32 %787, %783
+  %.not4.i.i.i.i407 = icmp eq i32 %783, %787
   br i1 %.not4.i.i.i.i407, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i413, label %.lr.ph.i.preheader.i.i.i408
 
 .lr.ph.i.preheader.i.i.i408:                      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i406
@@ -37709,7 +37709,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i414: ; preds = %_ZN9QtPriva
   br label %_ZN7QStringD2Ev.exit.i.i.i.i411
 
 _ZN7QStringD2Ev.exit.i.i.i.i411:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i414, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i415, %.lr.ph.i.i.i.i409
-  %.not.i.i.i.i412 = icmp eq ptr %790, %785
+  %.not.i.i.i.i412 = icmp eq ptr %785, %790
   br i1 %.not.i.i.i.i412, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i413, label %.lr.ph.i.i.i.i409, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i413: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i411, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i406
@@ -37765,7 +37765,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i424: ; preds = %_ZN9QtPrivate8Ref
   %808 = getelementptr inbounds ptr, ptr %804, i64 %807
   %809 = getelementptr inbounds i8, ptr %803, i64 12
   %810 = load i32, ptr %809, align 4
-  %.not4.i.i.i.i425 = icmp eq i32 %810, %806
+  %.not4.i.i.i.i425 = icmp eq i32 %806, %810
   br i1 %.not4.i.i.i.i425, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i431, label %.lr.ph.i.preheader.i.i.i426
 
 .lr.ph.i.preheader.i.i.i426:                      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i424
@@ -37798,7 +37798,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i432: ; preds = %_ZN9QtPriva
   br label %_ZN7QStringD2Ev.exit.i.i.i.i429
 
 _ZN7QStringD2Ev.exit.i.i.i.i429:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i432, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i433, %.lr.ph.i.i.i.i427
-  %.not.i.i.i.i430 = icmp eq ptr %813, %808
+  %.not.i.i.i.i430 = icmp eq ptr %808, %813
   br i1 %.not.i.i.i.i430, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i431, label %.lr.ph.i.i.i.i427, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i431: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i429, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i424
@@ -37905,7 +37905,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i460: ; preds = %_ZN9QtPrivate8Ref
   %841 = getelementptr inbounds ptr, ptr %837, i64 %840
   %842 = getelementptr inbounds i8, ptr %836, i64 12
   %843 = load i32, ptr %842, align 4
-  %.not4.i.i.i.i461 = icmp eq i32 %843, %839
+  %.not4.i.i.i.i461 = icmp eq i32 %839, %843
   br i1 %.not4.i.i.i.i461, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i467, label %.lr.ph.i.preheader.i.i.i462
 
 .lr.ph.i.preheader.i.i.i462:                      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i460
@@ -37938,7 +37938,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i468: ; preds = %_ZN9QtPriva
   br label %_ZN7QStringD2Ev.exit.i.i.i.i465
 
 _ZN7QStringD2Ev.exit.i.i.i.i465:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i468, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i469, %.lr.ph.i.i.i.i463
-  %.not.i.i.i.i466 = icmp eq ptr %846, %841
+  %.not.i.i.i.i466 = icmp eq ptr %841, %846
   br i1 %.not.i.i.i.i466, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i467, label %.lr.ph.i.i.i.i463, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i467: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i465, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i460
@@ -38295,7 +38295,7 @@ _ZSt10_ConstructI15MLRenderingDataJRKS0_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %
 _ZSt34__uninitialized_move_if_noexcept_aIP15MLRenderingDataS1_SaIS0_EET0_T_S4_S3_RT1_.exit: ; preds = %_ZSt10_ConstructI15MLRenderingDataJRKS0_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaI15MLRenderingDataEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaI15MLRenderingDataEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ], [ %26, %_ZSt10_ConstructI15MLRenderingDataJRKS0_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 40
-  %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIP15MLRenderingDataS1_SaIS0_EET0_T_S4_S3_RT1_.exit38, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP15MLRenderingDataS1_SaIS0_EET0_T_S4_S3_RT1_.exit, %_ZSt10_ConstructI15MLRenderingDataJRKS0_EEvPT_DpOT0_.exit.i.i.i.i.i32
@@ -39280,7 +39280,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread15:     ; preds = %_ZN5QListI7QStringE
   %54 = getelementptr inbounds ptr, ptr %50, i64 %53
   %55 = getelementptr inbounds i8, ptr %11, i64 12
   %56 = load i32, ptr %55, align 4
-  %.not4.i.i = icmp eq i32 %56, %52
+  %.not4.i.i = icmp eq i32 %52, %56
   br i1 %.not4.i.i, label %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread15
@@ -39313,7 +39313,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i: ; preds = %_ZN9QtPrivate8RefC
   br label %_ZN7QStringD2Ev.exit.i.i
 
 _ZN7QStringD2Ev.exit.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i, %.lr.ph.i.i
-  %.not.i.i = icmp eq ptr %59, %54
+  %.not.i.i = icmp eq ptr %54, %59
   br i1 %.not.i.i, label %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit: ; preds = %_ZN7QStringD2Ev.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread15
@@ -39466,7 +39466,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %11 = getelementptr inbounds ptr, ptr %7, i64 %10
   %12 = getelementptr inbounds i8, ptr %6, i64 12
   %13 = load i32, ptr %12, align 4
-  %.not4.i.i.i.i = icmp eq i32 %13, %9
+  %.not4.i.i.i.i = icmp eq i32 %9, %13
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -39499,7 +39499,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %16, %11
+  %.not.i.i.i.i = icmp eq ptr %11, %16
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -39606,7 +39606,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i: ; preds = %_ZN9QtPrivate8RefC
   %34 = getelementptr inbounds ptr, ptr %30, i64 %33
   %35 = getelementptr inbounds i8, ptr %27, i64 12
   %36 = load i32, ptr %35, align 4
-  %.not4.i.i.i.i.i = icmp eq i32 %36, %32
+  %.not4.i.i.i.i.i = icmp eq i32 %32, %36
   br i1 %.not4.i.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i
@@ -39639,7 +39639,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
   br label %_ZN7QStringD2Ev.exit.i.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i.i:                   ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq ptr %39, %34
+  %.not.i.i.i.i.i = icmp eq ptr %34, %39
   br i1 %.not.i.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i
@@ -39679,7 +39679,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %55 = getelementptr inbounds ptr, ptr %51, i64 %54
   %56 = getelementptr inbounds i8, ptr %50, i64 12
   %57 = load i32, ptr %56, align 4
-  %.not4.i.i.i.i = icmp eq i32 %57, %53
+  %.not4.i.i.i.i = icmp eq i32 %53, %57
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -39712,7 +39712,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %60, %55
+  %.not.i.i.i.i = icmp eq ptr %55, %60
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -40222,7 +40222,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i81: ; preds = %_ZN9QtPrivate8RefC
   %224 = getelementptr inbounds ptr, ptr %220, i64 %223
   %225 = getelementptr inbounds i8, ptr %219, i64 12
   %226 = load i32, ptr %225, align 4
-  %.not4.i.i.i.i82 = icmp eq i32 %226, %222
+  %.not4.i.i.i.i82 = icmp eq i32 %222, %226
   br i1 %.not4.i.i.i.i82, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i88, label %.lr.ph.i.preheader.i.i.i83
 
 .lr.ph.i.preheader.i.i.i83:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i81
@@ -40255,7 +40255,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i89: ; preds = %_ZN9QtPrivat
   br label %_ZN7QStringD2Ev.exit.i.i.i.i86
 
 _ZN7QStringD2Ev.exit.i.i.i.i86:                   ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i89, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i90, %.lr.ph.i.i.i.i84
-  %.not.i.i.i.i87 = icmp eq ptr %229, %224
+  %.not.i.i.i.i87 = icmp eq ptr %224, %229
   br i1 %.not.i.i.i.i87, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i88, label %.lr.ph.i.i.i.i84, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i88: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i86, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i81
@@ -42287,7 +42287,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %10 = getelementptr inbounds ptr, ptr %6, i64 %9
   %11 = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4
-  %.not4.i.i.i = icmp eq i32 %12, %8
+  %.not4.i.i.i = icmp eq i32 %8, %12
   br i1 %.not4.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -42320,7 +42320,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   br label %_ZN7QStringD2Ev.exit.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i, %.lr.ph.i.i.i
-  %.not.i.i.i = icmp eq ptr %15, %10
+  %.not.i.i.i = icmp eq ptr %10, %15
   br i1 %.not.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -42668,7 +42668,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %107 = getelementptr inbounds ptr, ptr %103, i64 %106
   %108 = getelementptr inbounds i8, ptr %102, i64 12
   %109 = load i32, ptr %108, align 4
-  %.not4.i.i.i.i = icmp eq i32 %109, %105
+  %.not4.i.i.i.i = icmp eq i32 %105, %109
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -42701,7 +42701,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %112, %107
+  %.not.i.i.i.i = icmp eq ptr %107, %112
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -43361,7 +43361,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %106 = getelementptr inbounds ptr, ptr %102, i64 %105
   %107 = getelementptr inbounds i8, ptr %101, i64 12
   %108 = load i32, ptr %107, align 4
-  %.not4.i.i.i.i = icmp eq i32 %108, %104
+  %.not4.i.i.i.i = icmp eq i32 %104, %108
   br i1 %.not4.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -43394,7 +43394,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit.i.i.i.i
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %111, %106
+  %.not.i.i.i.i = icmp eq ptr %106, %111
   br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i

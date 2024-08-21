@@ -152,7 +152,7 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 define noundef i32 @H5HF__dtable_lookup(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ugt i64 %6, %1
+  %7 = icmp ult i64 %1, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
@@ -299,7 +299,7 @@ declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 define i32 @H5HF__dtable_size_to_row(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = icmp eq i64 %4, %1
+  %5 = icmp eq i64 %1, %4
   br i1 %5, label %19, label %6
 
 6:                                                ; preds = %2
@@ -431,7 +431,7 @@ define i64 @H5HF__dtable_span_size(ptr nocapture noundef readonly %0, i32 nounde
   %9 = add i32 %8, %6
   %10 = udiv i32 %9, %5
   %11 = urem i32 %9, %5
-  %.not = icmp eq i32 %10, %1
+  %.not = icmp eq i32 %1, %10
   br i1 %.not, label %44, label %12
 
 12:                                               ; preds = %4

@@ -477,7 +477,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader: ; preds = %144
   %148 = getelementptr inbounds i8, ptr %17, i64 24
   %149 = add nsw i32 %119, -1
   %150 = fcmp ogt float %6, 0.000000e+00
-  %151 = fmul float %.2135.us, %6
+  %151 = fmul float %6, %.2135.us
   %.not158 = icmp eq ptr %.0122, null
   call void @llvm.assume(i1 %147)
   br label %.preheader
@@ -2892,7 +2892,7 @@ define linkonce_odr void @_ZSt11__make_heapIP6t_distN9__gnu_cxx5__ops15_Iter_com
   %.sroa.01.0.copyload20 = load ptr, ptr %2, align 8
   %14 = add nsw i64 %9, -1
   %15 = sdiv i64 %14, 2
-  %16 = icmp sgt i64 %15, %12
+  %16 = icmp slt i64 %12, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -2973,7 +2973,7 @@ _ZSt13__adjust_heapIP6t_distlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EE
   %.sroa.25.0..sroa_idx24 = getelementptr inbounds i8, ptr %48, i64 8
   %.sroa.25.0.copyload25 = load float, ptr %.sroa.25.0..sroa_idx24, align 4
   %.sroa.01.0.copyload26 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %15, %.046
+  %.not = icmp sgt i64 %.046, %15
   br i1 %.not, label %._crit_edge.i28, label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %.split22, %.lr.ph.i37
@@ -3492,7 +3492,7 @@ define linkonce_odr void @_ZSt11__make_heapIP9t_clustidN9__gnu_cxx5__ops15_Iter_
   %.sroa.0.0.copyload15 = load ptr, ptr %2, align 8
   %14 = add nsw i64 %9, -1
   %15 = lshr i64 %14, 1
-  %16 = icmp ugt i64 %15, %12
+  %16 = icmp ult i64 %12, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -3580,7 +3580,7 @@ _ZSt13__adjust_heapIP9t_clustidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6
   %52 = getelementptr inbounds %struct.t_clustid, ptr %0, i64 %51
   %.sroa.02.0.copyload18.us = load i64, ptr %52, align 4
   %.sroa.0.0.copyload19.us = load ptr, ptr %2, align 8
-  %.not.us = icmp slt i64 %15, %.041.us
+  %.not.us = icmp sgt i64 %.041.us, %15
   br i1 %.not.us, label %._crit_edge.i21.us.thread, label %.lr.ph.i32.us
 
 ._crit_edge.i21.us.thread:                        ; preds = %.split17.us
@@ -3644,7 +3644,7 @@ _ZSt13__adjust_heapIP9t_clustidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6
   %72 = getelementptr inbounds %struct.t_clustid, ptr %0, i64 %71
   %.sroa.02.0.copyload18 = load i64, ptr %72, align 4
   %.sroa.0.0.copyload19 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %15, %.041
+  %.not = icmp sgt i64 %.041, %15
   br i1 %.not, label %._crit_edge.i21, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.split17, %.lr.ph.i32
@@ -5541,7 +5541,7 @@ define linkonce_odr void @_ZSt11__make_heapIP5t_nnbN9__gnu_cxx5__ops15_Iter_comp
   %.sroa.0.0.copyload20 = load ptr, ptr %2, align 8
   %14 = add nsw i64 %9, -1
   %15 = lshr i64 %14, 1
-  %16 = icmp ugt i64 %15, %12
+  %16 = icmp ult i64 %12, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -5622,7 +5622,7 @@ _ZSt13__adjust_heapIP5t_nnblS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEE
   %.sroa.3.0..sroa_idx25 = getelementptr inbounds i8, ptr %50, i64 8
   %.sroa.3.0.copyload26 = load ptr, ptr %.sroa.3.0..sroa_idx25, align 8
   %.sroa.0.0.copyload27 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %15, %.046
+  %.not = icmp sgt i64 %.046, %15
   br i1 %.not, label %._crit_edge.i29, label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %.split22, %.lr.ph.i37

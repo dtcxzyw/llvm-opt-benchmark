@@ -3995,7 +3995,7 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
   %288 = load i32, ptr %129, align 8
   %289 = getelementptr inbounds i8, ptr %137, i64 %280
   %290 = getelementptr inbounds i8, ptr %289, i64 -4
-  %291 = icmp ugt ptr %290, %137
+  %291 = icmp ult ptr %137, %290
   br i1 %291, label %.lr.ph.lr.ph.i, label %.._crit_edge_crit_edge.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %286
@@ -4557,7 +4557,7 @@ define internal fastcc i64 @get_uncompressed_data(ptr noundef %0, ptr nocapture 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds i8, ptr %8, i64 240
   %33 = load i64, ptr %32, align 8
-  %34 = icmp ult i64 %33, %3
+  %34 = icmp ugt i64 %3, %33
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %31
@@ -4573,7 +4573,7 @@ define internal fastcc i64 @get_uncompressed_data(ptr noundef %0, ptr nocapture 
 38:                                               ; preds = %._crit_edge, %31
   %39 = phi ptr [ %.pre31, %._crit_edge ], [ %28, %31 ]
   %40 = phi i64 [ %.pre, %._crit_edge ], [ %33, %31 ]
-  %. = tail call i64 @llvm.umin.i64(i64 %40, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %40)
   store ptr %39, ptr %1, align 8
   %41 = load ptr, ptr %27, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 %.
@@ -4954,7 +4954,7 @@ define internal fastcc i64 @Bcj2_Decode(ptr nocapture noundef %0, ptr nocapture 
 .lr.ph258.preheader:                              ; preds = %178
   %scevgep = getelementptr i8, ptr %1, i64 %.2173
   %209 = xor i64 %.2173, -1
-  %210 = add i64 %209, %2
+  %210 = add i64 %2, %209
   %umin = tail call i64 @llvm.umin.i64(i64 %210, i64 3)
   %211 = add nuw nsw i64 %umin, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %211, i1 false)
@@ -6899,7 +6899,7 @@ folder_uncompressed_size.exit.i:                  ; preds = %.loopexit.us.i.i, %
   %.2.i = phi i32 [ %.0103240.i, %843 ], [ %861, %.loopexit.loopexit.i ], [ %.0103240.i, %836 ]
   %indvars.iv.next270.i = add i64 %indvars.iv269.i, 1
   %862 = and i64 %indvars.iv.next270.i, 4294967295
-  %863 = icmp ult i64 %862, %658
+  %863 = icmp ugt i64 %658, %862
   br i1 %863, label %836, label %._crit_edge242.i, !llvm.loop !57
 
 ._crit_edge242.i:                                 ; preds = %.loopexit.i75, %.preheader.i74
@@ -7059,7 +7059,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_Digests(ptr noundef %0, ptr no
   %28 = lshr i32 %.112.i, 1
   %29 = add i32 %.01317.i, 1
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %30, %2
+  %31 = icmp ugt i64 %2, %30
   br i1 %31, label %.lr.ph.i, label %read_Bools.exit, !llvm.loop !58
 
 32:                                               ; preds = %12
@@ -7097,7 +7097,7 @@ read_Bools.exit:                                  ; preds = %24, %32
 47:                                               ; preds = %.preheader, %43
   %48 = add i32 %.031, 1
   %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %49, %2
+  %50 = icmp ugt i64 %2, %49
   br i1 %50, label %.preheader, label %read_Bools.exit.thread, !llvm.loop !59
 
 read_Bools.exit.thread:                           ; preds = %18, %47, %40, %read_Bools.exit, %9, %5, %3
@@ -7139,7 +7139,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_Bools(ptr noundef %0, ptr noca
   %16 = lshr i32 %.112, 1
   %17 = add i32 %.01317, 1
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %18, %2
+  %19 = icmp ugt i64 %2, %18
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %6, %12, %3

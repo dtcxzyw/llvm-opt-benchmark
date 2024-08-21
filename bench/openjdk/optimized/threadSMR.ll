@@ -829,7 +829,7 @@ define hidden noundef i32 @_ZN11ThreadsList24find_index_of_JavaThreadEP10JavaThr
   %9 = zext i32 %.09 to i64
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %8
@@ -876,7 +876,7 @@ define hidden noundef ptr @_ZNK11ThreadsList29find_JavaThread_from_java_tidEl(pt
   %17 = add nsw i64 %16, %15
   %18 = inttoptr i64 %17 to ptr
   %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, %1
+  %20 = icmp eq i64 %1, %19
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %13
@@ -996,7 +996,7 @@ define hidden noundef ptr @_ZN11ThreadsList13remove_threadEPS_P10JavaThread(ptr 
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.lr.ph.i ]
   %8 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %_ZN11ThreadsList24find_index_of_JavaThreadEP10JavaThread.exit.loopexit.split.loop.exit27, label %11
 
 11:                                               ; preds = %7
@@ -1508,7 +1508,7 @@ define hidden void @_ZN17ThreadsSMRSupport10add_threadEP10JavaThread(ptr noundef
   %9 = getelementptr inbounds i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = load i32, ptr @_ZN17ThreadsSMRSupport21_java_thread_list_maxE, align 4
-  %12 = icmp ult i32 %11, %10
+  %12 = icmp ugt i32 %10, %11
   br i1 %12, label %13, label %_ZN17ThreadsSMRSupport27update_java_thread_list_maxEj.exit
 
 13:                                               ; preds = %6
@@ -1650,7 +1650,7 @@ _ZN17ThreadsSMRSupport10threads_doEP13ThreadClosure.exit: ; preds = %.lr.ph.i.i.
 52:                                               ; preds = %.lr.ph.i.i.i.i
   %53 = getelementptr inbounds i8, ptr %49, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, %.02843
+  %55 = icmp eq ptr %.02843, %54
   br i1 %55, label %_ZN19ThreadScanHashtable9has_entryEPv.exit, label %56
 
 56:                                               ; preds = %52, %.lr.ph.i.i.i.i
@@ -1934,7 +1934,7 @@ _ZN17ThreadsSMRSupport10threads_doEP13ThreadClosure.exit: ; preds = %.lr.ph.i.i.
 42:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %43 = getelementptr inbounds i8, ptr %39, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, %30
+  %45 = icmp eq ptr %30, %44
   br i1 %45, label %_ZN19ThreadScanHashtable9has_entryEPv.exit.i.i.i, label %46
 
 46:                                               ; preds = %42, %.lr.ph.i.i.i.i.i.i.i
@@ -1961,7 +1961,7 @@ _ZN19ThreadScanHashtable9has_entryEPv.exit.i.i.i: ; preds = %42
 54:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %55 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.i, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, %30
+  %57 = icmp eq ptr %30, %56
   br i1 %57, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPviES1_iLN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZN19ThreadScanHashtable8ptr_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE11lookup_nodeEjS8_.exit.i.i.i.i.i, label %58
 
 58:                                               ; preds = %54, %.lr.ph.i.i.i.i.i.i
@@ -2035,7 +2035,7 @@ _ZNK11ThreadsList10threads_doI35AddThreadHazardPointerThreadClosureEEvPT_.exit: 
 86:                                               ; preds = %.lr.ph.i.i.i.i
   %87 = getelementptr inbounds i8, ptr %83, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, %0
+  %89 = icmp eq ptr %0, %88
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %86, %.lr.ph.i.i.i.i
@@ -2423,7 +2423,7 @@ define hidden void @_ZN18SafeThreadsListPtr8print_onEP12outputStream(ptr noundef
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 392
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %0
+  %7 = icmp eq ptr %0, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
@@ -2989,7 +2989,7 @@ define hidden void @_ZN17ThreadsSMRSupport13print_info_onEPK6ThreadP12outputStre
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 392
   %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, %.124
+  %31 = icmp eq ptr %.124, %30
   %32 = getelementptr inbounds i8, ptr %.124, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
@@ -3415,7 +3415,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp ugt ptr %21, %3
+  %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
@@ -3477,7 +3477,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %60, %39
+  %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
@@ -3554,7 +3554,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -4093,7 +4093,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp ugt ptr %21, %3
+  %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
@@ -4155,7 +4155,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %60, %39
+  %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
@@ -4729,7 +4729,7 @@ define linkonce_odr hidden void @_ZN42ScanHazardPtrGatherProtectedThreadsClosure
 36:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %37 = getelementptr inbounds i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, %24
+  %39 = icmp eq ptr %24, %38
   br i1 %39, label %_ZN19ThreadScanHashtable9has_entryEPv.exit.i.i.i, label %40
 
 40:                                               ; preds = %36, %.lr.ph.i.i.i.i.i.i.i
@@ -4756,7 +4756,7 @@ _ZN19ThreadScanHashtable9has_entryEPv.exit.i.i.i: ; preds = %36
 48:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %49 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.i, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = icmp eq ptr %50, %24
+  %51 = icmp eq ptr %24, %50
   br i1 %51, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPviES1_iLN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZN19ThreadScanHashtable8ptr_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE11lookup_nodeEjS8_.exit.i.i.i.i.i, label %52
 
 52:                                               ; preds = %48, %.lr.ph.i.i.i.i.i.i

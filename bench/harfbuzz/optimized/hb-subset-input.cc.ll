@@ -787,7 +787,7 @@ if.end:                                           ; preds = %entry
   %min_value = getelementptr inbounds i8, ptr %axis_info, i64 16
   %max_value = getelementptr inbounds i8, ptr %axis_info, i64 24
   %0 = load float, ptr %min_value, align 4
-  %cmp.i.i = fcmp ole float %0, %axis_value
+  %cmp.i.i = fcmp oge float %axis_value, %0
   %1 = select i1 %cmp.i.i, float %axis_value, float %0
   %2 = load float, ptr %max_value, align 4
   %cmp.i1.i = fcmp ole float %1, %2
@@ -973,7 +973,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end8.i.i.i.i.i, 
   %mul.i.i.i.i.i = shl nuw nsw i64 %conv1.i.i.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %mul.i.i.i.i.i
   %6 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
-  %cmp2.i.i.i.i.i = icmp sgt i32 %6, %shr.i.i1
+  %cmp2.i.i.i.i.i = icmp slt i32 %shr.i.i1, %6
   br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
@@ -981,7 +981,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.
   br label %if.end8.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
-  %cmp4.not.i.i.i.i.i = icmp eq i32 %6, %shr.i.i1
+  %cmp4.not.i.i.i.i.i = icmp eq i32 %shr.i.i1, %6
   br i1 %cmp4.not.i.i.i.i.i, label %if.end45.i, label %if.then5.i.i.i.i.i
 
 if.then5.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
@@ -1133,7 +1133,7 @@ while.body.i.i.i.i:                               ; preds = %if.end8.i.i.i.i, %w
   %mul.i.i.i.i = shl nuw nsw i64 %conv1.i.i.i.i, 3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %mul.i.i.i.i
   %7 = load i32, ptr %add.ptr.i.i.i.i, align 4
-  %cmp2.i.i.i.i = icmp sgt i32 %7, %shr.i
+  %cmp2.i.i.i.i = icmp slt i32 %shr.i, %7
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
@@ -1141,7 +1141,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   br label %if.end8.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp4.not.i.i.i.i = icmp eq i32 %7, %shr.i
+  %cmp4.not.i.i.i.i = icmp eq i32 %shr.i, %7
   br i1 %cmp4.not.i.i.i.i, label %if.end45, label %if.then5.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
@@ -1181,7 +1181,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %10 = load i32, ptr %length, align 4
-  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %10, i32 %cond.i)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %cond.i, i32 %10)
   %cmp.not.i.i = icmp ugt i32 %.sroa.speculated.i.i, %9
   %shr.i.i = lshr i32 %9, 2
   %cmp5.not.i.i = icmp ult i32 %.sroa.speculated.i.i, %shr.i.i
@@ -1189,7 +1189,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %or.cond12.i.i, label %lor.rhs.i.i, label %if.end.i3
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %cmp9.not.i.i = icmp slt i32 %9, %add
+  %cmp9.not.i.i = icmp sgt i32 %add, %9
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i3
 
 while.body.i.i:                                   ; preds = %if.else.i.i, %while.body.i.i
@@ -1197,7 +1197,7 @@ while.body.i.i:                                   ; preds = %if.else.i.i, %while
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %cond.i
+  %cmp13.i.i = icmp ugt i32 %cond.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !11
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i, %if.then2.i.i
@@ -1326,7 +1326,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %length.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %length.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %cond)
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %cond, i32 %1)
   %cmp.not.i = icmp ugt i32 %.sroa.speculated.i, %0
   %shr.i = lshr i32 %0, 2
   %cmp5.not.i = icmp ult i32 %.sroa.speculated.i, %shr.i
@@ -1334,7 +1334,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %or.cond12.i, label %lor.rhs.i, label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp9.not.i = icmp slt i32 %0, %size_
+  %cmp9.not.i = icmp sgt i32 %size_, %0
   br i1 %cmp9.not.i, label %while.body.i, label %if.end
 
 while.body.i:                                     ; preds = %if.else.i, %while.body.i
@@ -1342,7 +1342,7 @@ while.body.i:                                     ; preds = %if.else.i, %while.b
   %shr14.i = lshr i32 %new_allocated.133.i, 1
   %add.i = add i32 %new_allocated.133.i, 8
   %add15.i = add i32 %add.i, %shr14.i
-  %cmp13.i = icmp ult i32 %add15.i, %cond
+  %cmp13.i = icmp ugt i32 %cond, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !12
 
 lor.rhs.i:                                        ; preds = %while.body.i, %if.then2.i
@@ -1790,7 +1790,7 @@ land.lhs.true.i:                                  ; preds = %if.else4
   br i1 %cmp.i.i.i, label %if.then.i9, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %cmp9.not.i.i = icmp ult i32 %4, %add.i
+  %cmp9.not.i.i = icmp ugt i32 %add.i, %4
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -1798,7 +1798,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %add.i
+  %cmp13.i.i = icmp ugt i32 %add.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !21
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i

@@ -433,7 +433,7 @@ define linkonce_odr hidden void @_ZNSt3setIN4LIEF8Function5FLAGSESt4lessIS2_ESaI
 
 select.unfold:                                    ; preds = %22, %9, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %10, %9 ], [ %.019.lcssa29.i.i, %22 ]
-  %25 = icmp eq ptr %4, %.sroa.12.0.i.ph
+  %25 = icmp eq ptr %.sroa.12.0.i.ph, %4
   br i1 %25, label %_ZNSt8_Rb_treeIN4LIEF8Function5FLAGSES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %26
 
 26:                                               ; preds = %select.unfold
@@ -550,7 +550,7 @@ define noundef nonnull align 8 dereferenceable(104) ptr @_ZN4LIEF8Function3addEN
   %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02022.i.i.i, %2 ]
   %5 = getelementptr inbounds i8, ptr %.02024.i.i.i, i64 32
   %6 = load i32, ptr %5, align 4
-  %7 = icmp sgt i32 %6, %1
+  %7 = icmp slt i32 %1, %6
   %.in.v.i.i.i = select i1 %7, i64 16, i64 24
   %.in.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
   %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8
@@ -581,13 +581,13 @@ define noundef nonnull align 8 dereferenceable(104) ptr @_ZN4LIEF8Function3addEN
 
 select.unfold.i.i:                                ; preds = %13, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %13 ]
-  %16 = icmp eq ptr %4, %.sroa.4.0.i.ph.i.i
+  %16 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %4
   br i1 %16, label %_ZNSt8_Rb_treeIN4LIEF8Function5FLAGSES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %17
 
 17:                                               ; preds = %select.unfold.i.i
   %18 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
   %19 = load i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, %1
+  %20 = icmp slt i32 %1, %19
   br label %_ZNSt8_Rb_treeIN4LIEF8Function5FLAGSES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN4LIEF8Function5FLAGSES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i: ; preds = %17, %select.unfold.i.i

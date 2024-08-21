@@ -139,7 +139,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %conv = uitofp i32 %3 to double
   %mul = fmul double %conv, 5.000000e-01
   %conv5 = fptoui double %mul to i32
-  %cmp6 = icmp ule i32 %conv5, %size
+  %cmp6 = icmp uge i32 %size, %conv5
   %cmp8 = icmp slt i64 %indvars.iv, 25
   %4 = and i1 %cmp8, %cmp6
   br i1 %4, label %do.body, label %do.end, !llvm.loop !5
@@ -1742,7 +1742,7 @@ do.end3:                                          ; preds = %if.then, %entry
 if.end8:                                          ; preds = %do.end3
   %nactivequeues = getelementptr inbounds i8, ptr %base, i64 768
   %5 = load i32, ptr %nactivequeues, align 8
-  %cmp9 = icmp eq i32 %5, %npriorities
+  %cmp9 = icmp eq i32 %npriorities, %5
   br i1 %cmp9, label %do.body39, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
@@ -4361,7 +4361,7 @@ if.then225:                                       ; preds = %event_queue_insert_
   %arrayidx.i = getelementptr inbounds ptr, ptr %.val, i64 %shr.i
   %117 = load ptr, ptr %arrayidx.i, align 8
   %118 = load ptr, ptr %117, align 8
-  %cmp228 = icmp eq ptr %118, %ev
+  %cmp228 = icmp eq ptr %ev, %118
   br i1 %cmp228, label %if.then230, label %if.end263
 
 if.then230:                                       ; preds = %if.then225
@@ -5975,7 +5975,7 @@ lor.lhs.false:                                    ; preds = %event_debug_assert_
   %15 = load ptr, ptr %ev_base, align 8
   %nactivequeues = getelementptr inbounds i8, ptr %15, i64 768
   %16 = load i32, ptr %nactivequeues, align 8
-  %cmp2.not = icmp sgt i32 %16, %pri
+  %cmp2.not = icmp slt i32 %pri, %16
   br i1 %cmp2.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %lor.lhs.false

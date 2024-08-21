@@ -132,7 +132,7 @@ state_name.exit.i:                                ; preds = %31, %30, %29, %28, 
 write_all_states.exit:                            ; preds = %34, %21
   store i8 0, ptr %6, align 16
   %37 = sub i32 0, %2
-  %38 = and i32 %37, %2
+  %38 = and i32 %2, %37
   %.not11.i21 = icmp eq i32 %38, 0
   br i1 %.not11.i21, label %write_all_states.exit30, label %.lr.ph.i22
 

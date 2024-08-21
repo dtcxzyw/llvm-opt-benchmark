@@ -71,7 +71,7 @@ define i32 @cli_parsepng(ptr noundef %0) local_unnamed_addr #0 {
   %.0110 = phi i32 [ 1, %7 ], [ %.1111, %135 ]
   %.0 = phi i64 [ 8, %7 ], [ %137, %135 ]
   %14 = load i64, ptr %10, align 8
-  %or.cond189.not = icmp ugt i64 %14, %.0
+  %or.cond189.not = icmp ult i64 %.0, %14
   br i1 %or.cond189.not, label %15, label %fmap_readn.exit.thread
 
 15:                                               ; preds = %13
@@ -107,7 +107,7 @@ fmap_readn.exit:                                  ; preds = %15
 
 31:                                               ; preds = %20
   %32 = load i64, ptr %10, align 8
-  %or.cond190.not = icmp ugt i64 %32, %23
+  %or.cond190.not = icmp ult i64 %23, %32
   br i1 %or.cond190.not, label %33, label %fmap_readn.exit156.thread
 
 33:                                               ; preds = %31
@@ -362,7 +362,7 @@ fmap_readn.exit156.thread:                        ; preds = %33, %31, %fmap_read
   %.1113 = phi i64 [ %.0112, %101 ], [ %.2114, %113 ], [ %.0112, %118 ], [ %.0112, %123 ], [ %.0112, %119 ], [ %.0112, %121 ]
   %.1111 = phi i32 [ %78, %101 ], [ %spec.store.select, %113 ], [ %.0110, %118 ], [ %.0110, %123 ], [ %.0110, %119 ], [ %.0110, %121 ]
   %125 = load i64, ptr %10, align 8
-  %or.cond191.not = icmp ugt i64 %125, %.3172
+  %or.cond191.not = icmp ult i64 %.3172, %125
   br i1 %or.cond191.not, label %126, label %fmap_readn.exit161.thread
 
 126:                                              ; preds = %124

@@ -97,7 +97,7 @@ define internal ptr @opal_get_proc_hostname_using_pmix(ptr noundef readonly %0) 
 
 10:                                               ; preds = %1
   %11 = tail call ptr @opal_proc_local_get() #3
-  %12 = icmp eq ptr %11, %0
+  %12 = icmp eq ptr %0, %11
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10

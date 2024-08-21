@@ -10354,7 +10354,7 @@ list_length.exit.thread:                          ; preds = %13, %list_length.ex
 
 64:                                               ; preds = %50
   %65 = call i32 @get_typcollation(i32 noundef %62) #11
-  %.not27.i = icmp eq i32 %65, %58
+  %.not27.i = icmp eq i32 %58, %65
   br i1 %.not27.i, label %74, label %66
 
 66:                                               ; preds = %64
@@ -10377,7 +10377,7 @@ list_length.exit.thread:                          ; preds = %13, %list_length.ex
 74:                                               ; preds = %72, %64, %50
   %75 = getelementptr inbounds i8, ptr %63, i64 56
   %76 = load i32, ptr %75, align 8
-  %77 = icmp eq i32 %76, %56
+  %77 = icmp eq i32 %56, %76
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %74
@@ -10388,7 +10388,7 @@ list_length.exit.thread:                          ; preds = %13, %list_length.ex
 79:                                               ; preds = %74
   %80 = getelementptr inbounds i8, ptr %63, i64 52
   %81 = load i32, ptr %80, align 4
-  %.not28.i = icmp eq i32 %81, %56
+  %.not28.i = icmp eq i32 %56, %81
   br i1 %.not28.i, label %90, label %82
 
 82:                                               ; preds = %79

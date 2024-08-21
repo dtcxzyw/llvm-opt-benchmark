@@ -1931,7 +1931,7 @@ Gia_ObjSibl.exit.thread:                          ; preds = %._crit_edge, %51, %
 202:                                              ; preds = %151, %166
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next145 to i32
-  %exitcond147.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond147.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond147.not, label %.preheader, label %151, !llvm.loop !16
 
 .lr.ph134:                                        ; preds = %.lr.ph134.preheader, %.lr.ph134

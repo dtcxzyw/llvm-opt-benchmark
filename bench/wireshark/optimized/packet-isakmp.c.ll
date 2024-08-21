@@ -6806,7 +6806,7 @@ define internal fastcc void @dissect_sa_kek(ptr noundef %0, ptr noundef %1, i32 
   %9 = add i32 %2, 2
   %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %9) #17
   %11 = zext i16 %10 to i32
-  %12 = add i32 %11, %2
+  %12 = add i32 %2, %11
   %13 = load i32, ptr @hf_isakmp_sak_next_payload, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %13, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #17
   %15 = load i32, ptr @hf_isakmp_sak_reserved, align 4
@@ -6900,7 +6900,7 @@ define internal fastcc void @dissect_sa_tek(ptr noundef %0, ptr noundef %1, i32 
   %10 = add i32 %2, 2
   %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %10) #17
   %12 = zext i16 %11 to i32
-  %13 = add i32 %12, %2
+  %13 = add i32 %2, %12
   %14 = load i32, ptr @hf_isakmp_typepayload, align 4
   %15 = tail call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %14, ptr noundef %0, i32 noundef %2, i32 noundef %12, i32 noundef 16) #17
   %16 = load i32, ptr @ett_isakmp_payload, align 4

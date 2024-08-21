@@ -70,7 +70,7 @@ define noundef i32 @domatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
   %45 = phi i64 [ %51, %44 ], [ 0, %.preheader8 ]
   %46 = getelementptr inbounds double, ptr %41, i64 %45
   %47 = load double, ptr %46, align 8, !tbaa !3
-  %48 = fmul double %47, %2
+  %48 = fmul double %2, %47
   %49 = mul nsw i64 %45, %6
   %50 = getelementptr inbounds double, ptr %43, i64 %49
   store double %48, ptr %50, align 8, !tbaa !3

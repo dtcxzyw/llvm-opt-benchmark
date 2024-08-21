@@ -367,7 +367,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(88) %12, i64 88, i1 false), !noalias !16
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %45 = load ptr, ptr %30, align 8, !alias.scope !24, !noalias !27, !noundef !4
-  %46 = icmp eq ptr %45, %15
+  %46 = icmp eq ptr %15, %45
   br i1 %46, label %52, label %47
 
 47:                                               ; preds = %44
@@ -496,7 +496,7 @@ _ZN17crossbeam_channel6select17SelectedOperation4recv17h954de11e0f3e6dd4E.exit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %71 = getelementptr inbounds i8, ptr %7, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !36, !noalias !39, !noundef !4
-  %73 = icmp eq ptr %72, %0
+  %73 = icmp eq ptr %0, %72
   br i1 %73, label %79, label %74
 
 74:                                               ; preds = %70
@@ -738,7 +738,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(88) %12, i64 88, i1 false), !noalias !67
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %45 = load ptr, ptr %30, align 8, !alias.scope !74, !noalias !77, !noundef !4
-  %46 = icmp eq ptr %45, %15
+  %46 = icmp eq ptr %15, %45
   br i1 %46, label %52, label %47
 
 47:                                               ; preds = %44
@@ -867,7 +867,7 @@ _ZN17crossbeam_channel6select17SelectedOperation4recv17h954de11e0f3e6dd4E.exit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %71 = getelementptr inbounds i8, ptr %7, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !86, !noalias !89, !noundef !4
-  %73 = icmp eq ptr %72, %0
+  %73 = icmp eq ptr %0, %72
   br i1 %73, label %79, label %74
 
 74:                                               ; preds = %70
@@ -6843,7 +6843,7 @@ define noundef ptr @_ZN8mini_lsm3wal3Wal3put17h9b864a6bf320fbd2E(ptr noalias noc
   %48 = load i64, ptr %29, align 8, !alias.scope !1038, !noalias !1043, !noundef !4
   %49 = load i64, ptr %11, align 8, !alias.scope !1045, !noalias !1043, !noundef !4
   %50 = sub i64 %49, %48
-  %51 = icmp ult i64 %50, %2
+  %51 = icmp ugt i64 %2, %50
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %47
@@ -6895,7 +6895,7 @@ define noundef ptr @_ZN8mini_lsm3wal3Wal3put17h9b864a6bf320fbd2E(ptr noalias noc
   store i64 %72, ptr %29, align 8, !alias.scope !1048, !noalias !1053
   %73 = load i64, ptr %11, align 8, !alias.scope !1058, !noalias !1065, !noundef !4
   %74 = sub i64 %73, %72
-  %75 = icmp ult i64 %74, %4
+  %75 = icmp ugt i64 %4, %74
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %67
@@ -6950,7 +6950,7 @@ define noundef ptr @_ZN8mini_lsm3wal3Wal3put17h9b864a6bf320fbd2E(ptr noalias noc
   %101 = getelementptr inbounds i8, ptr %12, i64 40
   %102 = load i64, ptr %101, align 8, !alias.scope !1078, !noalias !1081, !noundef !4
   %103 = sub i64 %100, %102
-  %104 = icmp ugt i64 %103, %97
+  %104 = icmp ult i64 %97, %103
   br i1 %104, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h89df2e20cae1f130E.exit.thread", label %105
 
 105:                                              ; preds = %92

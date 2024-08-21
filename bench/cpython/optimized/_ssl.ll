@@ -5163,7 +5163,7 @@ if.end28:                                         ; preds = %if.end22, %if.then2
 land.lhs.true35:                                  ; preds = %if.end28
   %PySSLCertVerificationErrorObject = getelementptr inbounds i8, ptr %state, i64 48
   %8 = load ptr, ptr %PySSLCertVerificationErrorObject, align 8
-  %cmp36 = icmp eq ptr %8, %type
+  %cmp36 = icmp eq ptr %type, %8
   br i1 %cmp36, label %if.then38, label %if.end60.thread
 
 if.then38:                                        ; preds = %land.lhs.true35
@@ -5315,7 +5315,7 @@ if.end114:                                        ; preds = %if.end106
 land.lhs.true117:                                 ; preds = %if.end114
   %PySSLCertVerificationErrorObject118 = getelementptr inbounds i8, ptr %state, i64 48
   %17 = load ptr, ptr %PySSLCertVerificationErrorObject118, align 8
-  %cmp119 = icmp eq ptr %17, %type
+  %cmp119 = icmp eq ptr %type, %17
   br i1 %cmp119, label %if.then121, label %if.end130
 
 if.then121:                                       ; preds = %land.lhs.true117
@@ -6632,7 +6632,7 @@ entry:
   %call = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_sslmodule_def) #11
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %call) #11
   %0 = load ptr, ptr %call.i, align 8
-  %cmp = icmp eq ptr %0, %type
+  %cmp = icmp eq ptr %type, %0
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -8610,8 +8610,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1923 = phi i64 [ %cond18, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1923, %add
+  %add = sub i64 0, %cond1923
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -13602,7 +13602,7 @@ if.else.i:                                        ; preds = %if.end8.i, %if.end.
   %cmp19.i = icmp slt i64 %2, 1
   %len23.phi.trans.insert.i = getelementptr inbounds i8, ptr %buffer, i64 16
   %.pre.i = load i64, ptr %len23.phi.trans.insert.i, align 8
-  %cmp21.i = icmp slt i64 %.pre.i, %2
+  %cmp21.i = icmp sgt i64 %2, %.pre.i
   %or.cond187.i = select i1 %cmp19.i, i1 true, i1 %cmp21.i
   br i1 %or.cond187.i, label %if.then22.i, label %if.end35.i
 
@@ -14096,8 +14096,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1028 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond2327 = phi i64 [ %cond22, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond2327, %add
+  %add = sub i64 0, %cond2327
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -15559,7 +15559,7 @@ entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %call) #11
   %PySSLMemoryBIO_Type = getelementptr inbounds i8, ptr %call.i, i64 16
   %0 = load ptr, ptr %PySSLMemoryBIO_Type, align 8
-  %cmp = icmp eq ptr %0, %type
+  %cmp = icmp eq ptr %type, %0
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -15742,7 +15742,7 @@ cond.false.i:                                     ; preds = %skip_optional
 cond.end.i:                                       ; preds = %cond.false.i, %skip_optional
   %cond.i = phi i32 [ %3, %cond.false.i ], [ 2147483647, %skip_optional ]
   %cmp3.i = icmp slt i32 %len.0, 0
-  %4 = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 %len.0)
+  %4 = tail call i32 @llvm.smin.i32(i32 %len.0, i32 %cond.i)
   %len.addr.0.i = select i1 %cmp3.i, i32 %cond.i, i32 %4
   %conv7.i = sext i32 %len.addr.0.i to i64
   %call8.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %conv7.i) #11
@@ -16434,8 +16434,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1923 = phi i64 [ %cond18, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1923, %add
+  %add = sub i64 0, %cond1923
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end

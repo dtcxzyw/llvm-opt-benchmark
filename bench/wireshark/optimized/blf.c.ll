@@ -1496,7 +1496,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_bytes_or_eof(ptr nocapture 
   %41 = getelementptr %struct.blf_log_container, ptr %.pre110, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 24
   %43 = load i64, ptr %42, align 8
-  %44 = icmp ugt i64 %43, %1
+  %44 = icmp ult i64 %1, %43
   %45 = icmp ne i32 %39, 0
   %46 = and i1 %45, %44
   br i1 %46, label %37, label %.loopexit72, !llvm.loop !7
@@ -1642,7 +1642,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_ethernetframe(ptr nocapture
   %10 = alloca [18 x i8], align 16
   %reass.sub = sub i64 %4, %3
   %11 = add i64 %reass.sub, 32
-  %12 = icmp sgt i64 %11, %5
+  %12 = icmp slt i64 %5, %11
   %.sink52.sroa.gep = getelementptr inbounds i8, ptr %10, i64 13
   %.sink52.sroa.gep54 = getelementptr inbounds i8, ptr %10, i64 17
   br i1 %12, label %13, label %15
@@ -1832,7 +1832,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_ethernetframe_ext(ptr nocap
   %9 = alloca %struct.blf_ethernetframeheader_ex, align 8
   %10 = sub i64 %4, %3
   %11 = add i64 %10, 32
-  %12 = icmp sgt i64 %11, %5
+  %12 = icmp slt i64 %5, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8
@@ -1935,7 +1935,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_wlanframe(ptr nocapture nou
   %9 = alloca %struct.blf_wlanframeheader, align 4
   %10 = sub i64 %4, %3
   %11 = add i64 %10, 16
-  %12 = icmp sgt i64 %11, %5
+  %12 = icmp slt i64 %5, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8
@@ -2031,7 +2031,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_canmessage(ptr nocapture no
   %11 = alloca %struct.blf_canmessage2_trailer, align 4
   %12 = sub i64 %4, %3
   %13 = add i64 %12, 8
-  %14 = icmp sgt i64 %13, %5
+  %14 = icmp slt i64 %5, %13
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %9
@@ -2081,7 +2081,7 @@ blf_read_bytes.exit:                              ; preds = %18
 
 36:                                               ; preds = %35
   %37 = add i64 %12, 24
-  %38 = icmp sgt i64 %37, %5
+  %38 = icmp slt i64 %5, %37
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
@@ -2128,7 +2128,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_canerror(ptr nocapture noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %reass.sub = sub i64 %4, %3
   %12 = add i64 %reass.sub, 4
-  %13 = icmp sgt i64 %12, %5
+  %13 = icmp slt i64 %5, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
@@ -2192,7 +2192,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_canerrorext(ptr nocapture n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %reass.sub = sub i64 %4, %3
   %11 = add i64 %reass.sub, 24
-  %12 = icmp sgt i64 %11, %5
+  %12 = icmp slt i64 %5, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8
@@ -2325,7 +2325,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_canfdmessage(ptr nocapture 
   %9 = alloca %struct.blf_canfdmessage, align 4
   %10 = sub i64 %4, %3
   %11 = add i64 %10, 20
-  %12 = icmp sgt i64 %11, %5
+  %12 = icmp slt i64 %5, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8
@@ -2410,7 +2410,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_canfdmessage64(ptr nocaptur
   %9 = alloca %struct.blf_canfdmessage64, align 4
   %10 = sub i64 %4, %3
   %11 = add i64 %10, 40
-  %12 = icmp sgt i64 %11, %5
+  %12 = icmp slt i64 %5, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8
@@ -2522,7 +2522,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_canfderror64(ptr nocapture 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %reass.sub = sub i64 %4, %3
   %11 = add i64 %reass.sub, 44
-  %12 = icmp sgt i64 %11, %5
+  %12 = icmp slt i64 %5, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8
@@ -2657,7 +2657,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_flexraydata(ptr nocapture n
   %10 = alloca [7 x i8], align 1
   %11 = sub i64 %4, %3
   %12 = add i64 %11, 12
-  %13 = icmp sgt i64 %12, %5
+  %13 = icmp slt i64 %5, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %8
@@ -2798,7 +2798,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_flexraymessage(ptr nocaptur
   %10 = alloca [7 x i8], align 1
   %11 = sub i64 %4, %3
   %12 = add i64 %11, 32
-  %13 = icmp sgt i64 %12, %5
+  %13 = icmp slt i64 %5, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %8
@@ -2967,7 +2967,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_flexrayrcvmessageex(ptr noc
   %spec.select = select i1 %.not, i64 44, i64 84
   %12 = sub i64 %4, %3
   %13 = add i64 %spec.select, %12
-  %14 = icmp sgt i64 %13, %5
+  %14 = icmp slt i64 %5, %13
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %9
@@ -3151,7 +3151,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_linmessage(ptr nocapture no
   %11 = alloca [8 x i8], align 1
   %reass.sub = sub i64 %4, %3
   %12 = add i64 %reass.sub, 20
-  %13 = icmp sgt i64 %12, %5
+  %13 = icmp slt i64 %5, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %9
@@ -3252,7 +3252,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_linsenderror(ptr nocapture 
   %10 = alloca [8 x i8], align 1
   %reass.sub = sub i64 %4, %3
   %11 = add i64 %reass.sub, 8
-  %12 = icmp sgt i64 %11, %5
+  %12 = icmp slt i64 %5, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8
@@ -3317,7 +3317,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_linmessage2(ptr nocapture n
   %11 = alloca [8 x i8], align 1
   %reass.sub = sub i64 %4, %3
   %12 = add i64 %reass.sub, 136
-  %13 = icmp sgt i64 %12, %5
+  %13 = icmp slt i64 %5, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
@@ -3435,7 +3435,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_lincrcerror2(ptr nocapture 
   %11 = alloca [8 x i8], align 1
   %reass.sub = sub i64 %4, %3
   %12 = add i64 %reass.sub, 128
-  %13 = icmp sgt i64 %12, %5
+  %13 = icmp slt i64 %5, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
@@ -3553,7 +3553,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_linsenderror2(ptr nocapture
   %11 = alloca [8 x i8], align 1
   %reass.sub = sub i64 %4, %3
   %12 = add i64 %reass.sub, 56
-  %13 = icmp sgt i64 %12, %5
+  %13 = icmp slt i64 %5, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
@@ -3644,7 +3644,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_ethernet_status(ptr nocaptu
   %reass.sub = sub i64 %4, %3
   %14 = add i64 %reass.sub, 16
   %15 = add i64 %14, %13
-  %16 = icmp sgt i64 %15, %5
+  %16 = icmp slt i64 %5, %15
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %9
@@ -3836,7 +3836,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_ethernet_phystate(ptr nocap
   %10 = alloca [8 x i8], align 1
   %reass.sub = sub i64 %4, %3
   %11 = add i64 %reass.sub, 8
-  %12 = icmp sgt i64 %11, %5
+  %12 = icmp slt i64 %5, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8

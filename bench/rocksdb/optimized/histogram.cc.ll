@@ -222,7 +222,7 @@ entry:
   %1 = load ptr, ptr %_M_finish.i, align 8
   %maxBucketValue_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %maxBucketValue_, align 8
-  %cmp.not = icmp ugt i64 %2, %value
+  %cmp.not = icmp ult i64 %value, %2
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -380,7 +380,7 @@ entry:
   %0 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 8), align 8
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 24), align 8
-  %cmp.not.i = icmp ugt i64 %2, %value
+  %cmp.not.i = icmp ult i64 %value, %2
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
@@ -428,7 +428,7 @@ _ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm.exit: ; preds = %if.then.i,
   %add = add i64 %5, 1
   store atomic i64 %add, ptr %arrayidx monotonic, align 8
   %6 = load atomic i64, ptr %this monotonic, align 8
-  %cmp = icmp ugt i64 %6, %value
+  %cmp = icmp ult i64 %value, %6
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm.exit
@@ -438,7 +438,7 @@ if.then:                                          ; preds = %_ZNK7rocksdb21Histo
 if.end:                                           ; preds = %if.then, %_ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm.exit
   %max_.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load atomic i64, ptr %max_.i monotonic, align 8
-  %cmp7 = icmp ult i64 %7, %value
+  %cmp7 = icmp ugt i64 %value, %7
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
@@ -736,7 +736,7 @@ if.end:                                           ; preds = %entry
   %conv5 = uitofp i64 %2 to double
   %conv3 = uitofp i64 %1 to double
   %3 = fneg double %conv3
-  %neg = fmul double %3, %conv3
+  %neg = fmul double %conv3, %3
   %4 = tail call double @llvm.fmuladd.f64(double %conv5, double %conv, double %neg)
   %mul = fmul double %conv, %conv
   %div = fdiv double %4, %mul
@@ -777,7 +777,7 @@ if.end.i:                                         ; preds = %invoke.cont
   %conv5.i = uitofp i64 %5 to double
   %conv3.i22 = uitofp i64 %4 to double
   %6 = fneg double %conv3.i22
-  %neg.i = fmul double %6, %conv3.i22
+  %neg.i = fmul double %conv3.i22, %6
   %7 = tail call double @llvm.fmuladd.f64(double %conv5.i, double %conv.i21, double %neg.i)
   %mul.i = fmul double %conv.i21, %conv.i21
   %div.i23 = fdiv double %7, %mul.i
@@ -1626,7 +1626,7 @@ if.end.i:                                         ; preds = %_ZNK7rocksdb13Histo
   %conv5.i67 = uitofp i64 %32 to double
   %conv3.i68 = uitofp i64 %31 to double
   %33 = fneg double %conv3.i68
-  %neg.i = fmul double %33, %conv3.i68
+  %neg.i = fmul double %conv3.i68, %33
   %34 = tail call double @llvm.fmuladd.f64(double %conv5.i67, double %conv.i66, double %neg.i)
   %mul.i69 = fmul double %conv.i66, %conv.i66
   %div.i70 = fdiv double %34, %mul.i69
@@ -1717,7 +1717,7 @@ entry:
   %0 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 8), align 8
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 24), align 8
-  %cmp.not.i.i = icmp ugt i64 %2, %value
+  %cmp.not.i.i = icmp ult i64 %value, %2
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
@@ -1765,7 +1765,7 @@ _ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm.exit.i: ; preds = %_ZSt11lo
   %add.i = add i64 %5, 1
   store atomic i64 %add.i, ptr %arrayidx.i monotonic, align 8
   %6 = load atomic i64, ptr %stats_ monotonic, align 8
-  %cmp.i = icmp ugt i64 %6, %value
+  %cmp.i = icmp ult i64 %value, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm.exit.i
@@ -1775,7 +1775,7 @@ if.then.i:                                        ; preds = %_ZNK7rocksdb21Histo
 if.end.i:                                         ; preds = %if.then.i, %_ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm.exit.i
   %max_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load atomic i64, ptr %max_.i.i monotonic, align 8
-  %cmp7.i = icmp ult i64 %7, %value
+  %cmp7.i = icmp ugt i64 %value, %7
   br i1 %cmp7.i, label %if.then8.i, label %_ZN7rocksdb13HistogramStat3AddEm.exit
 
 if.then8.i:                                       ; preds = %if.end.i
@@ -2193,7 +2193,7 @@ if.end.i:                                         ; preds = %entry
   %conv5.i = uitofp i64 %2 to double
   %conv3.i = uitofp i64 %1 to double
   %3 = fneg double %conv3.i
-  %neg.i = fmul double %3, %conv3.i
+  %neg.i = fmul double %conv3.i, %3
   %4 = tail call double @llvm.fmuladd.f64(double %conv5.i, double %conv.i, double %neg.i)
   %mul.i = fmul double %conv.i, %conv.i
   %div.i = fdiv double %4, %mul.i

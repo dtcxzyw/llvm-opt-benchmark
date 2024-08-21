@@ -233,13 +233,13 @@ define void @Abc_NtkCollectCircle(ptr nocapture noundef readonly %0, ptr nocaptu
   %30 = add nsw i32 %.val3.i, 1
   %31 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %32 = load i32, ptr %31, align 4
-  %.not.i.not = icmp sgt i32 %32, %.val3.i
+  %.not.i.not = icmp slt i32 %.val3.i, %32
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %33
 
 33:                                               ; preds = %27
   %34 = load i32, ptr %29, align 8
   %35 = shl nsw i32 %34, 1
-  %.not111 = icmp sgt i32 %35, %.val3.i
+  %.not111 = icmp slt i32 %.val3.i, %35
   %.not.i.i.not = icmp sgt i32 %34, %.val3.i
   br i1 %.not111, label %48, label %36
 
@@ -340,13 +340,13 @@ Vec_IntFillExtra.exit:                            ; preds = %27, %._crit_edge.i
   %74 = add nsw i32 %.val39, 1
   %75 = getelementptr inbounds i8, ptr %.val.i, i64 228
   %76 = load i32, ptr %75, align 4
-  %.not.i63.not = icmp sgt i32 %76, %.val39
+  %.not.i63.not = icmp slt i32 %.val39, %76
   br i1 %.not.i63.not, label %Vec_IntFillExtra.exit76, label %77
 
 77:                                               ; preds = %72
   %78 = load i32, ptr %73, align 8
   %79 = shl nsw i32 %78, 1
-  %.not114 = icmp sgt i32 %79, %.val39
+  %.not114 = icmp slt i32 %.val39, %79
   %.not.i.i64.not = icmp sgt i32 %78, %.val39
   br i1 %.not114, label %92, label %80
 
@@ -532,13 +532,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %157 = add nsw i32 %.val3.i51, 1
   %158 = getelementptr inbounds i8, ptr %.val2.i50, i64 228
   %159 = load i32, ptr %158, align 4
-  %.not.i77.not = icmp sgt i32 %159, %.val3.i51
+  %.not.i77.not = icmp slt i32 %.val3.i51, %159
   br i1 %.not.i77.not, label %Vec_IntFillExtra.exit90, label %160
 
 160:                                              ; preds = %154
   %161 = load i32, ptr %156, align 8
   %162 = shl nsw i32 %161, 1
-  %.not105 = icmp sgt i32 %162, %.val3.i51
+  %.not105 = icmp slt i32 %.val3.i51, %162
   %.not.i.i78.not = icmp sgt i32 %161, %.val3.i51
   br i1 %.not105, label %175, label %163
 
@@ -639,13 +639,13 @@ Vec_IntFillExtra.exit90:                          ; preds = %154, %._crit_edge.i
   %201 = add nsw i32 %.val37, 1
   %202 = getelementptr inbounds i8, ptr %.val.i53, i64 228
   %203 = load i32, ptr %202, align 4
-  %.not.i91.not = icmp sgt i32 %203, %.val37
+  %.not.i91.not = icmp slt i32 %.val37, %203
   br i1 %.not.i91.not, label %Vec_IntFillExtra.exit104, label %204
 
 204:                                              ; preds = %199
   %205 = load i32, ptr %200, align 8
   %206 = shl nsw i32 %205, 1
-  %.not108 = icmp sgt i32 %206, %.val37
+  %.not108 = icmp slt i32 %.val37, %206
   %.not.i.i92.not = icmp sgt i32 %205, %.val37
   br i1 %.not108, label %219, label %207
 
@@ -1458,13 +1458,13 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge, %Vec_Int
   %87 = add nsw i32 %.val3.i, 1
   %88 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %89 = load i32, ptr %88, align 4
-  %.not.i76.not = icmp sgt i32 %89, %.val3.i
+  %.not.i76.not = icmp slt i32 %.val3.i, %89
   br i1 %.not.i76.not, label %Vec_IntFillExtra.exit, label %90
 
 90:                                               ; preds = %84
   %91 = load i32, ptr %86, align 8
   %92 = shl nsw i32 %91, 1
-  %.not99 = icmp sgt i32 %92, %.val3.i
+  %.not99 = icmp slt i32 %.val3.i, %92
   %.not.i.i.not = icmp sgt i32 %91, %.val3.i
   br i1 %.not99, label %105, label %93
 
@@ -1565,13 +1565,13 @@ Vec_IntFillExtra.exit:                            ; preds = %84, %._crit_edge.i
   %131 = add nsw i32 %.val52, 1
   %132 = getelementptr inbounds i8, ptr %.val.i73, i64 228
   %133 = load i32, ptr %132, align 4
-  %.not.i83.not = icmp sgt i32 %133, %.val52
+  %.not.i83.not = icmp slt i32 %.val52, %133
   br i1 %.not.i83.not, label %Vec_IntFillExtra.exit96, label %134
 
 134:                                              ; preds = %129
   %135 = load i32, ptr %130, align 8
   %136 = shl nsw i32 %135, 1
-  %.not102 = icmp sgt i32 %136, %.val52
+  %.not102 = icmp slt i32 %.val52, %136
   %.not.i.i84.not = icmp sgt i32 %135, %.val52
   br i1 %.not102, label %149, label %137
 
@@ -2246,13 +2246,13 @@ declare void @Nwk_ManGraphFree(ptr noundef) local_unnamed_addr #2
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

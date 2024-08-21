@@ -742,7 +742,7 @@ if.end10:                                         ; preds = %for.body, %entry
   %1 = load i8, ptr %len, align 4
   %conv = zext i8 %1 to i32
   %conv11 = zext i8 %1 to i64
-  %add = add i64 %conv11, %msg_len
+  %add = add i64 %msg_len, %conv11
   %conv12 = trunc i64 %add to i32
   %cmp13 = icmp ult i32 %conv12, %conv
   br i1 %cmp13, label %if.then15, label %if.end16

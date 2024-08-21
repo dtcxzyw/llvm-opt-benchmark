@@ -312,7 +312,7 @@ thread-pre-split:                                 ; preds = %36, %45, %56, %71
 133:                                              ; preds = %.lr.ph118, %115
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %0
+  %exitcond.not = icmp eq i32 %0, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph118
 
 ..loopexit_crit_edge:                             ; preds = %._crit_edge122
@@ -502,7 +502,7 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
 65:                                               ; preds = %.lr.ph244, %47
   %indvars.iv.next266 = add nsw i64 %indvars.iv265, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next266 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %0
+  %exitcond.not = icmp eq i32 %0, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph244
 
 66:                                               ; preds = %38

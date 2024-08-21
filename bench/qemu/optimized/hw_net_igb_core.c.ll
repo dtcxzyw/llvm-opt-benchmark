@@ -597,7 +597,7 @@ trace_e1000e_rx_has_buffers.exit:                 ; preds = %igb_rxbufsize.exit,
   %div2 = udiv i32 %call, %div
   %mul = mul i32 %div2, %retval.0.i
   %conv3 = zext i32 %mul to i64
-  %cmp = icmp uge i64 %conv3, %total_size
+  %cmp = icmp ule i64 %total_size, %conv3
   ret i1 %cmp
 }
 
@@ -745,7 +745,7 @@ if.else13:                                        ; preds = %if.end6
 
 land.lhs.true1.i68:                               ; preds = %if.else13
   %8 = load i64, ptr %iov.addr.0.sroa.gep267, align 8
-  %cmp.not.i70 = icmp ult i64 %8, %iov_ofs.0
+  %cmp.not.i70 = icmp ugt i64 %iov_ofs.0, %8
   %sub.i71 = sub nuw i64 %8, %iov_ofs.0
   %cmp5.not.i72 = icmp ult i64 %sub.i71, 22
   %or.cond13.i73 = select i1 %cmp.not.i70, i1 true, i1 %cmp5.not.i72
@@ -867,7 +867,7 @@ cond.true.i.i:                                    ; preds = %land.lhs.true43.i
 igb_rx_is_oversized.exit.i:                       ; preds = %land.lhs.true43.i
   %mul.i.i = shl nuw nsw i64 %vlan_num.0.i, 2
   %add3.i.i = add nuw nsw i64 %mul.i.i, 1514
-  %cmp4.i.i = icmp ult i64 %add3.i.i, %size.0
+  %cmp4.i.i = icmp ugt i64 %size.0, %add3.i.i
   br i1 %cmp4.i.i, label %if.then47.i, label %if.end48.i
 
 if.then47.i:                                      ; preds = %igb_rx_is_oversized.exit.i, %cond.true.i.i
@@ -953,7 +953,7 @@ land.lhs.true89.i:                                ; preds = %land.lhs.true79.i
 
 land.lhs.true1.i.i:                               ; preds = %land.lhs.true89.i
   %54 = load i64, ptr %iov.addr.0.sroa.phi, align 8
-  %cmp.not.i.i = icmp ult i64 %54, %add91.i
+  %cmp.not.i.i = icmp ugt i64 %add91.i, %54
   %sub.i.i = sub nuw i64 %54, %add91.i
   %cmp5.not.i.i = icmp ult i64 %sub.i.i, 40
   %or.cond13.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp5.not.i.i
@@ -1296,7 +1296,7 @@ for.cond404.preheader.i:                          ; preds = %if.end396.i
   %add1.i192.i = add i64 %size.0, 4
   %mul.i187.i = shl nuw nsw i64 %vlan_num.0.i, 2
   %add3.i188.i = add nuw nsw i64 %mul.i187.i, 1514
-  %cmp4.i189.i = icmp ult i64 %add3.i188.i, %size.0
+  %cmp4.i189.i = icmp ugt i64 %size.0, %add3.i188.i
   br label %for.body407.i
 
 for.body407.i:                                    ; preds = %for.inc439.i, %for.cond404.preheader.i

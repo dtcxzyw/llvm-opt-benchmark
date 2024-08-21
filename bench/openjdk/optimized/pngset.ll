@@ -916,7 +916,7 @@ define hidden void @png_set_PLTE(ptr noalias noundef %0, ptr noalias noundef %1,
   %14 = zext nneg i8 %13 to i32
   %15 = shl nuw i32 1, %14
   %16 = icmp slt i32 %3, 0
-  %17 = icmp slt i32 %15, %3
+  %17 = icmp sgt i32 %3, %15
   %or.cond34 = select i1 %16, i1 true, i1 %17
   br i1 %or.cond34, label %19, label %20
 
@@ -1175,12 +1175,12 @@ define hidden range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr no
   %12 = getelementptr inbounds i8, ptr %1, i64 148
   %13 = load i32, ptr %12, align 4
   %14 = sub nsw i32 %11, %13
-  %15 = icmp slt i32 %14, %3
+  %15 = icmp sgt i32 %3, %14
   br i1 %15, label %16, label %.lr.ph
 
 16:                                               ; preds = %9
   %17 = sub nsw i32 2147483647, %13
-  %.not = icmp ult i32 %17, %3
+  %.not = icmp ugt i32 %3, %17
   br i1 %.not, label %.thread, label %18
 
 18:                                               ; preds = %16
@@ -1857,7 +1857,7 @@ define hidden void @png_set_unknown_chunk_location(ptr noalias noundef %0, ptr n
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 296
   %10 = load i32, ptr %9, align 8
-  %11 = icmp sgt i32 %10, %2
+  %11 = icmp slt i32 %2, %10
   br i1 %11, label %12, label %37
 
 12:                                               ; preds = %8

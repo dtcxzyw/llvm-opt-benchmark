@@ -1046,7 +1046,7 @@ define internal fastcc void @strbuf_setlen(ptr nocapture noundef %sb, i64 nounde
 entry:
   %0 = load i64, ptr %sb, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 1)
-  %cmp = icmp ult i64 %spec.select, %len
+  %cmp = icmp ugt i64 %len, %spec.select
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1791,7 +1791,7 @@ if.then:                                          ; preds = %entry
   %call = tail call i64 @wt_status_locate_end(ptr noundef %0, i64 noundef %1) #19
   %2 = load i64, ptr %msgbuf, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %call
+  %cmp.i = icmp ugt i64 %call, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -9743,7 +9743,7 @@ _.exit324:                                        ; preds = %if.then156, %if.end
   %246 = load i32, ptr %current, align 8
   %add.i325 = add nsw i32 %246, 1
   %247 = load i32, ptr %nr, align 8
-  %cmp.i.i327 = icmp sgt i32 %247, %add.i325
+  %cmp.i.i327 = icmp slt i32 %add.i325, %247
   br i1 %cmp.i.i327, label %cond.true.i.i, label %get_item_line_offset.exit.i
 
 cond.true.i.i:                                    ; preds = %_.exit324
@@ -9755,7 +9755,7 @@ cond.true.i.i:                                    ; preds = %_.exit324
 get_item_line_offset.exit.i:                      ; preds = %_.exit324, %cond.true.i.i
   %cond.in.i.i = phi ptr [ %offset_in_buf.i.i, %cond.true.i.i ], [ %len.i.i, %_.exit324 ]
   %cond.i.i = load i64, ptr %cond.in.i.i, align 8
-  %cmp.i4.i = icmp sgt i32 %247, %246
+  %cmp.i4.i = icmp slt i32 %246, %247
   br i1 %cmp.i4.i, label %cond.true.i.i342, label %get_item_line.exit
 
 cond.true.i.i342:                                 ; preds = %get_item_line_offset.exit.i
@@ -9837,7 +9837,7 @@ if.end.i364:                                      ; preds = %get_todo_path.exit.
   %255 = load i32, ptr %current, align 8
   %add.i366 = add nsw i32 %255, 1
   %256 = load i32, ptr %nr, align 8
-  %cmp.i.i368 = icmp sgt i32 %256, %add.i366
+  %cmp.i.i368 = icmp slt i32 %add.i366, %256
   br i1 %cmp.i.i368, label %cond.true.i.i384, label %get_item_line_offset.exit.i371
 
 cond.true.i.i384:                                 ; preds = %if.end.i364
@@ -12636,7 +12636,7 @@ entry:
   %nr = getelementptr inbounds i8, ptr %todo_list, i64 32
   %0 = load i32, ptr %nr, align 8
   %cmp = icmp sgt i32 %num, 0
-  %1 = tail call i32 @llvm.smin.i32(i32 %0, i32 %num)
+  %1 = tail call i32 @llvm.smin.i32(i32 %num, i32 %0)
   %max.0 = select i1 %cmp, i32 %1, i32 %0
   %cmp267 = icmp sgt i32 %max.0, 0
   br i1 %cmp267, label %for.body.lr.ph, label %for.end
@@ -16281,7 +16281,7 @@ _.exit:                                           ; preds = %if.then4, %if.end3.
 if.end8:                                          ; preds = %get_todo_path.exit
   %nr.i = getelementptr inbounds i8, ptr %todo_list, i64 32
   %4 = load i32, ptr %nr.i, align 8
-  %cmp.i28 = icmp sgt i32 %4, %spec.select
+  %cmp.i28 = icmp slt i32 %spec.select, %4
   br i1 %cmp.i28, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end8
@@ -16371,7 +16371,7 @@ if.end42:                                         ; preds = %rebase_path_done.ex
   %sub43 = add nsw i32 %spec.select, -1
   %12 = load ptr, ptr %buf10, align 8
   %13 = load i32, ptr %nr.i, align 8
-  %cmp.i.i.not = icmp slt i32 %13, %spec.select
+  %cmp.i.i.not = icmp sgt i32 %spec.select, %13
   br i1 %cmp.i.i.not, label %get_item_line.exit, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end42
@@ -16387,7 +16387,7 @@ get_item_line.exit:                               ; preds = %if.end42, %cond.tru
   %sext.i = shl i64 %cond.i.i, 32
   %idx.ext.i = ashr exact i64 %sext.i, 32
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext.i
-  %cmp.i.i48 = icmp sgt i32 %13, %spec.select
+  %cmp.i.i48 = icmp slt i32 %spec.select, %13
   br i1 %cmp.i.i48, label %cond.true.i.i53, label %get_item_line_offset.exit.i
 
 cond.true.i.i53:                                  ; preds = %get_item_line.exit
@@ -21040,7 +21040,7 @@ if.then107:                                       ; preds = %lor.lhs.false102.if
   %51 = phi i64 [ %.pre165, %lor.lhs.false102.if.then107_crit_edge ], [ 1, %land.lhs.true98 ], [ %.pre166, %land.lhs.true91 ]
   %52 = load i64, ptr %buf, align 8
   %spec.select.i120153 = call i64 @llvm.usub.sat.i64(i64 %52, i64 1)
-  %cmp.i154 = icmp ult i64 %spec.select.i120153, %51
+  %cmp.i154 = icmp ugt i64 %51, %spec.select.i120153
   br i1 %cmp.i154, label %if.then.i126, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %if.then107
@@ -21052,7 +21052,7 @@ for.cond110:                                      ; preds = %strbuf_setlen.exit1
   %inc120 = add nuw nsw i32 %i.0155, 1
   %53 = load i64, ptr %buf, align 8
   %spec.select.i120 = call i64 @llvm.usub.sat.i64(i64 %53, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i120, %51
+  %cmp.i = icmp ugt i64 %51, %spec.select.i120
   br i1 %cmp.i, label %if.then.i126, label %if.end.i
 
 if.then.i126:                                     ; preds = %for.cond110, %if.then107

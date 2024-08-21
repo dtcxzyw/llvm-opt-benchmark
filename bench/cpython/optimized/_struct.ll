@@ -954,7 +954,7 @@ entry:
   %call1.val = load ptr, ptr %1, align 8
   %s_len = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %s_len, align 8
-  %cmp.not = icmp eq i64 %2, %nargs
+  %cmp.not = icmp eq i64 %nargs, %2
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1220,7 +1220,7 @@ entry:
   %s_len = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %s_len, align 8
   %add = add i64 %2, 2
-  %cmp.not = icmp eq i64 %add, %nargs
+  %cmp.not = icmp eq i64 %nargs, %add
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2048,7 +2048,7 @@ if.end54.i.i:                                     ; preds = %while.end.i.i, %if.
 for.body.i.i.i:                                   ; preds = %if.end54.i.i, %for.inc.i.i.i
   %34 = phi i8 [ %35, %for.inc.i.i.i ], [ %33, %if.end54.i.i ]
   %f.addr.06.i.i.i = phi ptr [ %incdec.ptr.i93.i.i, %for.inc.i.i.i ], [ %retval.0.i.i.i, %if.end54.i.i ]
-  %cmp4.i.i.i = icmp eq i8 %34, %c.0.i.i
+  %cmp4.i.i.i = icmp eq i8 %c.0.i.i, %34
   br i1 %cmp4.i.i.i, label %if.end60.i.i, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -2221,7 +2221,7 @@ if.end147.i.i:                                    ; preds = %while.body139.i.i, 
 for.body.i97.i.i:                                 ; preds = %if.end147.i.i, %for.inc.i101.i.i
   %53 = phi i8 [ %54, %for.inc.i101.i.i ], [ %52, %if.end147.i.i ]
   %f.addr.06.i98.i.i = phi ptr [ %incdec.ptr.i102.i.i, %for.inc.i101.i.i ], [ %retval.0.i.i.i, %if.end147.i.i ]
-  %cmp4.i100.i.i = icmp eq i8 %53, %c.1.i.i
+  %cmp4.i100.i.i = icmp eq i8 %c.1.i.i, %53
   br i1 %cmp4.i100.i.i, label %if.then.i110.i.i, label %for.inc.i101.i.i
 
 for.inc.i101.i.i:                                 ; preds = %for.body.i97.i.i

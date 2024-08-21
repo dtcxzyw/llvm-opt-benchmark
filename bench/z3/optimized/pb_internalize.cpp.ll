@@ -135,7 +135,7 @@ if.then:                                          ; preds = %_ZNK7pb_util5is_pbE
   %m_ctx = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %m_ctx, align 8
   %tobool5.not = icmp eq ptr %4, null
-  %brmerge = or i1 %tobool5.not, %root
+  %brmerge = or i1 %root, %tobool5.not
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %5 = select i1 %.b, i32 -2, i32 0
   %cmp.i4 = icmp eq i32 %call4, %5
@@ -354,7 +354,7 @@ if.then.i:                                        ; preds = %_ZNK7pb_util5is_pbE
   %m_ctx.i = getelementptr inbounds i8, ptr %this, i64 120
   %5 = load ptr, ptr %m_ctx.i, align 8
   %tobool5.not.i = icmp eq ptr %5, null
-  %brmerge.i = or i1 %tobool5.not.i, %root
+  %brmerge.i = or i1 %root, %tobool5.not.i
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %6 = select i1 %.b, i32 -2, i32 0
   %cmp.i4.i = icmp eq i32 %call4.i, %6
@@ -1396,7 +1396,7 @@ _ZN6vectorIN3sat7literalELb0EjE4backEv.exit.i:    ; preds = %if.end.i.i.i, %_ZN6
 
 invoke.cont:                                      ; preds = %.noexc18, %entry
   %root.not = xor i1 %root, true
-  %brmerge = or i1 %root.not, %sign
+  %brmerge = or i1 %sign, %root.not
   br i1 %brmerge, label %cond.false, label %cond.end18
 
 cond.false:                                       ; preds = %invoke.cont
@@ -1597,7 +1597,7 @@ entry:
 
 invoke.cont4:                                     ; preds = %entry
   %root.not = xor i1 %root, true
-  %brmerge = or i1 %root.not, %sign
+  %brmerge = or i1 %sign, %root.not
   br i1 %brmerge, label %cond.false, label %land.rhs
 
 land.rhs:                                         ; preds = %invoke.cont4

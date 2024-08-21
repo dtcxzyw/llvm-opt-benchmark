@@ -371,7 +371,7 @@ entry:
   %top = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %top, align 8
   store ptr %2, ptr %base, align 8
-  %cmp.not = icmp ugt ptr %2, %o
+  %cmp.not = icmp ult ptr %o, %2
   br i1 %cmp.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %entry

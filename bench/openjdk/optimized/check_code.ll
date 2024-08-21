@@ -924,7 +924,7 @@ read_all_code.exit:                               ; preds = %218
   %330 = add i32 %329, %325
   %331 = icmp sgt i32 %330, -1
   %332 = load i32, ptr %219, align 8
-  %333 = icmp sgt i32 %332, %330
+  %333 = icmp slt i32 %330, %332
   %or.cond = select i1 %331, i1 %333, i1 false
   br i1 %or.cond, label %isLegalTarget.exit.i.i, label %isLegalTarget.exit.thread.i.i
 
@@ -973,7 +973,7 @@ isLegalTarget.exit.thread.i.i:                    ; preds = %isLegalTarget.exit.
   %363 = add i32 %362, %359
   %364 = icmp sgt i32 %363, -1
   %365 = load i32, ptr %219, align 8
-  %366 = icmp sgt i32 %365, %363
+  %366 = icmp slt i32 %363, %365
   %or.cond168 = select i1 %364, i1 %366, i1 false
   br i1 %or.cond168, label %isLegalTarget.exit345.i.i, label %isLegalTarget.exit345.thread.i.i
 
@@ -1076,7 +1076,7 @@ isLegalTarget.exit345.thread.i.i:                 ; preds = %isLegalTarget.exit3
   %419 = add nsw i32 %418, %.2226.i
   %420 = icmp sgt i32 %419, -1
   %421 = load i32, ptr %219, align 8
-  %422 = icmp sgt i32 %421, %419
+  %422 = icmp slt i32 %419, %421
   %or.cond170 = select i1 %420, i1 %422, i1 false
   br i1 %or.cond170, label %isLegalTarget.exit346.i.i, label %isLegalTarget.exit346.thread.i.i
 
@@ -1116,7 +1116,7 @@ isLegalTarget.exit346.thread.i.i:                 ; preds = %isLegalTarget.exit3
   %440 = add nsw i32 %439, %.2226.i
   %441 = icmp sgt i32 %440, -1
   %442 = load i32, ptr %219, align 8
-  %443 = icmp sgt i32 %442, %440
+  %443 = icmp slt i32 %440, %442
   %or.cond172 = select i1 %441, i1 %443, i1 false
   br i1 %or.cond172, label %isLegalTarget.exit347.i.i, label %isLegalTarget.exit347.thread.i.i
 
@@ -1197,7 +1197,7 @@ isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit3
   store i32 %486, ptr %317, align 8
   %488 = icmp ne i32 %486, 0
   %489 = load i32, ptr %42, align 4
-  %.not.i148.i = icmp sgt i32 %489, %486
+  %.not.i148.i = icmp slt i32 %486, %489
   %or.cond174 = select i1 %488, i1 %.not.i148.i, i1 false
   br i1 %or.cond174, label %491, label %490
 
@@ -1238,7 +1238,7 @@ isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit3
   store i32 %513, ptr %317, align 8
   %514 = icmp ne i32 %513, 0
   %515 = load i32, ptr %42, align 4
-  %.not.i146.i = icmp sgt i32 %515, %513
+  %.not.i146.i = icmp slt i32 %513, %515
   %or.cond175 = select i1 %514, i1 %.not.i146.i, i1 false
   br i1 %or.cond175, label %517, label %516
 
@@ -1274,7 +1274,7 @@ isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit3
   store i32 %536, ptr %317, align 8
   %537 = icmp ne i32 %536, 0
   %538 = load i32, ptr %42, align 4
-  %.not.i.i.i = icmp sgt i32 %538, %536
+  %.not.i.i.i = icmp slt i32 %536, %538
   %or.cond176 = select i1 %537, i1 %.not.i.i.i, i1 false
   br i1 %or.cond176, label %540, label %539
 
@@ -1332,7 +1332,7 @@ verify_constant_pool_type.exit.i.i:               ; preds = %540
   %.0319.i.i = phi i32 [ 1024, %563 ], [ %562, %559 ], [ 2048, %548 ]
   %565 = icmp ne i32 %557, 0
   %566 = load i32, ptr %42, align 4
-  %.not.i348.i.i = icmp sgt i32 %566, %557
+  %.not.i348.i.i = icmp slt i32 %557, %566
   %or.cond177 = select i1 %565, i1 %.not.i348.i.i, i1 false
   br i1 %or.cond177, label %568, label %567
 
@@ -1715,7 +1715,7 @@ free_block.exit.i353.i.i:                         ; preds = %695, %694, %691
   %713 = or disjoint i32 %709, %712
   %714 = icmp ne i32 %713, 0
   %715 = load i32, ptr %42, align 4
-  %.not.i357.i.i = icmp sgt i32 %715, %713
+  %.not.i357.i.i = icmp slt i32 %713, %715
   %or.cond179 = select i1 %714, i1 %.not.i357.i.i, i1 false
   br i1 %or.cond179, label %717, label %716
 
@@ -2039,7 +2039,7 @@ CCalloc.exit.i.i:                                 ; preds = %847, %._crit_edge.i
 860:                                              ; preds = %CCalloc.exit.i.i
   %861 = load ptr, ptr %222, align 8
   %862 = load i32, ptr %219, align 8
-  %863 = icmp sgt i32 %862, %856
+  %863 = icmp slt i32 %856, %862
   br i1 %863, label %isLegalTarget.exit.i126.i, label %isLegalTarget.exit.thread.i125.i
 
 isLegalTarget.exit.i126.i:                        ; preds = %860
@@ -2054,7 +2054,7 @@ isLegalTarget.exit.i126.i:                        ; preds = %860
   br i1 %869, label %876, label %870
 
 870:                                              ; preds = %868
-  %871 = icmp sgt i32 %862, %857
+  %871 = icmp slt i32 %857, %862
   br i1 %871, label %isLegalTarget.exit67.i.i, label %isLegalTarget.exit.thread.i125.i
 
 isLegalTarget.exit67.i.i:                         ; preds = %870
@@ -2071,7 +2071,7 @@ isLegalTarget.exit.thread.i125.i:                 ; preds = %isLegalTarget.exit6
 876:                                              ; preds = %isLegalTarget.exit67.i.i, %868
   %877 = load i32, ptr %229, align 4
   %878 = icmp sgt i32 %877, 0
-  %879 = icmp ugt i32 %862, %877
+  %879 = icmp ult i32 %877, %862
   %or.cond80.i.i = and i1 %878, %879
   br i1 %or.cond80.i.i, label %isLegalTarget.exit68.i.i, label %isLegalTarget.exit68.thread.i.i
 
@@ -7351,11 +7351,11 @@ define internal fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %1,
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %0, i64 472
   %23 = load i32, ptr %22, align 8
-  %24 = icmp eq i32 %23, %2
+  %24 = icmp eq i32 %2, %23
   br i1 %24, label %244, label %25
 
 25:                                               ; preds = %21
-  %26 = icmp eq i32 %23, %1
+  %26 = icmp eq i32 %1, %23
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %25
@@ -7384,18 +7384,18 @@ define internal fastcc i32 @merge_fullinfo_types(ptr noundef %0, i32 noundef %1,
 34:                                               ; preds = %33
   %35 = getelementptr inbounds i8, ptr %0, i64 484
   %36 = load i32, ptr %35, align 4
-  %37 = icmp eq i32 %36, %2
+  %37 = icmp eq i32 %2, %36
   br i1 %37, label %244, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %0, i64 488
   %40 = load i32, ptr %39, align 8
-  %41 = icmp eq i32 %40, %2
+  %41 = icmp eq i32 %2, %40
   br i1 %41, label %244, label %42
 
 42:                                               ; preds = %38
-  %43 = icmp eq i32 %36, %1
-  %44 = icmp eq i32 %40, %1
+  %43 = icmp eq i32 %1, %36
+  %44 = icmp eq i32 %1, %40
   %or.cond279 = or i1 %43, %44
   br i1 %or.cond279, label %244, label %45
 
@@ -8113,7 +8113,7 @@ define internal fastcc void @merge_stack(ptr noundef %0, i32 noundef %1, ptr %.0
   br label %.critedge.sink.split
 
 12:                                               ; preds = %2
-  %.not = icmp eq i32 %9, %.8.val
+  %.not = icmp eq i32 %.8.val, %9
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %12

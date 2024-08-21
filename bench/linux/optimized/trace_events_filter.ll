@@ -88,7 +88,7 @@ define dso_local range(i32 0, 6) i32 @filter_parse_regex(ptr noundef %0, i32 nou
   %6 = icmp eq i8 %5, 33
   %.sink = zext i1 %6 to i32
   %7 = sext i1 %6 to i32
-  %8 = add i32 %7, %1
+  %8 = add i32 %1, %7
   %.idx = zext i1 %6 to i64
   %9 = getelementptr i8, ptr %0, i64 %.idx
   store i32 %.sink, ptr %3, align 4
@@ -1692,7 +1692,7 @@ define dso_local i32 @create_event_filter(ptr noundef %0, ptr noundef %1, ptr no
   %15 = load ptr, ptr %6, align 8
   %16 = tail call fastcc i32 @process_preds(ptr noundef %1, ptr noundef %2, ptr noundef %14, ptr noundef %15)
   %17 = icmp ne i32 %16, 0
-  %18 = and i1 %17, %3
+  %18 = and i1 %3, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %13

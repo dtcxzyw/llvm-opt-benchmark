@@ -2070,7 +2070,7 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
 
 if.end17.i:                                       ; preds = %Py_DECREF.exit.i
   %14 = load ptr, ptr %ma_keys, align 8
-  %cmp18.i = icmp eq ptr %14, %1
+  %cmp18.i = icmp eq ptr %1, %14
   br i1 %cmp18.i, label %land.lhs.true.i, label %start.backedge
 
 land.lhs.true.i:                                  ; preds = %if.end17.i
@@ -2227,7 +2227,7 @@ Py_DECREF.exit.i65:                               ; preds = %if.then1.i.i71, %if
 
 if.end15.i:                                       ; preds = %Py_DECREF.exit.i65
   %29 = load ptr, ptr %ma_keys, align 8
-  %cmp16.i = icmp eq ptr %29, %1
+  %cmp16.i = icmp eq ptr %1, %29
   br i1 %cmp16.i, label %land.lhs.true.i66, label %start.backedge
 
 land.lhs.true.i66:                                ; preds = %if.end15.i
@@ -4051,7 +4051,7 @@ if.end36:                                         ; preds = %if.then30.if.end36_
   %sh_prom.i = zext nneg i8 %33 to i64
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %and.i = and i64 %sub.i, %hash
+  %and.i = and i64 %hash, %sub.i
   %cmp.i.i = icmp ult i8 %33, 8
   br i1 %cmp.i.i, label %dictkeys_get_index.exit.thread.i, label %if.else.i.i
 
@@ -4789,7 +4789,7 @@ for.cond.i:                                       ; preds = %for.cond.i, %if.the
   %arrayidx.i = getelementptr i8, ptr %add.ptr.i, i64 %idxprom.i
   %5 = load i8, ptr %arrayidx.i, align 1
   %conv1.i = zext i8 %5 to i64
-  %cmp.not.i = icmp eq i64 %conv1.i, %ix
+  %cmp.not.i = icmp eq i64 %ix, %conv1.i
   %inc.i = add i32 %i.0.i, 1
   br i1 %cmp.not.i, label %for.cond3.preheader.i, label %for.cond.i, !llvm.loop !22
 
@@ -5059,11 +5059,11 @@ entry:
   br i1 %cmp.i, label %entry.split.us, label %entry.split
 
 entry.split.us:                                   ; preds = %entry
-  %i.0.us64 = and i64 %sub, %hash
+  %i.0.us64 = and i64 %hash, %sub
   %arrayidx.i.us65 = getelementptr i8, ptr %dk_indices16.i, i64 %i.0.us64
   %1 = load i8, ptr %arrayidx.i.us65, align 1
   %conv2.i.us66 = sext i8 %1 to i64
-  %cmp.us67 = icmp eq i64 %conv2.i.us66, %index
+  %cmp.us67 = icmp eq i64 %index, %conv2.i.us66
   br i1 %cmp.us67, label %return, label %if.end.us
 
 if.end.us:                                        ; preds = %entry.split.us, %if.end5.us
@@ -5082,19 +5082,19 @@ if.end5.us:                                       ; preds = %if.end.us
   %arrayidx.i.us = getelementptr i8, ptr %dk_indices16.i, i64 %i.0.us
   %2 = load i8, ptr %arrayidx.i.us, align 1
   %conv2.i.us = sext i8 %2 to i64
-  %cmp.us = icmp eq i64 %conv2.i.us, %index
+  %cmp.us = icmp eq i64 %index, %conv2.i.us
   br i1 %cmp.us, label %return, label %if.end.us
 
 entry.split:                                      ; preds = %entry
   %cmp3.i = icmp ult i8 %0, 16
-  %i.0.us1155 = and i64 %sub, %hash
+  %i.0.us1155 = and i64 %hash, %sub
   br i1 %cmp3.i, label %entry.split.split.us, label %entry.split.split
 
 entry.split.split.us:                             ; preds = %entry.split
   %arrayidx9.i.us56 = getelementptr i16, ptr %dk_indices16.i, i64 %i.0.us1155
   %3 = load i16, ptr %arrayidx9.i.us56, align 2
   %conv10.i.us57 = sext i16 %3 to i64
-  %cmp.us1458 = icmp eq i64 %conv10.i.us57, %index
+  %cmp.us1458 = icmp eq i64 %index, %conv10.i.us57
   br i1 %cmp.us1458, label %return, label %if.end.us15
 
 if.end.us15:                                      ; preds = %entry.split.split.us, %if.end5.us17
@@ -5113,7 +5113,7 @@ if.end5.us17:                                     ; preds = %if.end.us15
   %arrayidx9.i.us = getelementptr i16, ptr %dk_indices16.i, i64 %i.0.us11
   %4 = load i16, ptr %arrayidx9.i.us, align 2
   %conv10.i.us = sext i16 %4 to i64
-  %cmp.us14 = icmp eq i64 %conv10.i.us, %index
+  %cmp.us14 = icmp eq i64 %index, %conv10.i.us
   br i1 %cmp.us14, label %return, label %if.end.us15
 
 entry.split.split:                                ; preds = %entry.split
@@ -5147,7 +5147,7 @@ entry.split.split.split:                          ; preds = %entry.split.split
   %arrayidx23.i41 = getelementptr i32, ptr %dk_indices16.i, i64 %i.0.us1155
   %8 = load i32, ptr %arrayidx23.i41, align 4
   %conv24.i42 = sext i32 %8 to i64
-  %cmp43 = icmp eq i64 %conv24.i42, %index
+  %cmp43 = icmp eq i64 %index, %conv24.i42
   br i1 %cmp43, label %return, label %if.end
 
 if.end:                                           ; preds = %entry.split.split.split, %if.end5
@@ -5166,7 +5166,7 @@ if.end5:                                          ; preds = %if.end
   %arrayidx23.i = getelementptr i32, ptr %dk_indices16.i, i64 %i.0
   %9 = load i32, ptr %arrayidx23.i, align 4
   %conv24.i = sext i32 %9 to i64
-  %cmp = icmp eq i64 %conv24.i, %index
+  %cmp = icmp eq i64 %index, %conv24.i
   br i1 %cmp, label %return, label %if.end
 
 return:                                           ; preds = %if.end, %if.end5, %if.end.us31, %if.end5.us33, %if.end5.us17, %if.end.us15, %if.end.us, %if.end5.us, %entry.split.split.us, %entry.split.split.split, %entry.split.split.split.us, %entry.split.us

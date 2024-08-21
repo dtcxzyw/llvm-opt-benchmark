@@ -101,7 +101,7 @@ if.else:                                          ; preds = %_ZN8facebook5velox6
   br i1 %cmp.not.i19, label %if.else29.i, label %if.then.i20
 
 if.then.i20:                                      ; preds = %if.else
-  %cmp.i.i = icmp eq ptr %this.val7, %add.ptr.i15
+  %cmp.i.i = icmp eq ptr %add.ptr.i15, %this.val7
   br i1 %cmp.i.i, label %if.then10.i, label %if.else.i21
 
 if.then10.i:                                      ; preds = %if.then.i20
@@ -564,7 +564,7 @@ if.end51:                                         ; preds = %if.then22, %if.else
   %conv = sext i32 %leftPos.1 to i64
   %cmp2 = icmp ugt i64 %sub.ptr.div.i, %conv
   %conv3 = sext i32 %rightPos.1 to i64
-  %cmp4 = icmp ult i64 %conv3, %otherSize
+  %cmp4 = icmp ugt i64 %otherSize, %conv3
   %10 = select i1 %cmp2, i1 %cmp4, i1 false
   br i1 %10, label %while.body, label %while.cond52.preheader.loopexit, !llvm.loop !7
 
@@ -574,7 +574,7 @@ while.cond64.preheader.loopexit:                  ; preds = %while.body55
 
 while.cond64.preheader:                           ; preds = %while.cond64.preheader.loopexit, %while.cond52.preheader
   %pos.2.lcssa = phi i32 [ %pos.0.lcssa, %while.cond52.preheader ], [ %11, %while.cond64.preheader.loopexit ]
-  %cmp6684 = icmp ult i64 %rightPos.0.lcssa, %otherSize
+  %cmp6684 = icmp ugt i64 %otherSize, %rightPos.0.lcssa
   br i1 %cmp6684, label %while.body67.preheader, label %while.end74
 
 while.body67.preheader:                           ; preds = %while.cond64.preheader
@@ -602,7 +602,7 @@ while.body67:                                     ; preds = %while.body67.prehea
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %add.ptr.i46 = getelementptr inbounds i32, ptr %merged.sroa.0.0, i64 %indvars.iv99
   store i32 %14, ptr %add.ptr.i46, align 4
-  %cmp66 = icmp ult i64 %indvars.iv.next102, %otherSize
+  %cmp66 = icmp ugt i64 %otherSize, %indvars.iv.next102
   br i1 %cmp66, label %while.body67, label %while.end74.loopexit, !llvm.loop !9
 
 while.end74.loopexit:                             ; preds = %while.body67
@@ -891,7 +891,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 4
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit, %for.body.i.i.i12

@@ -2700,7 +2700,7 @@ define dso_local void @snd_hda_codec_setup_stream(ptr noundef %0, i16 noundef ze
   %43 = getelementptr inbounds i8, ptr %32, i64 4
   %44 = load i16, ptr %43, align 2
   %45 = zext i16 %44 to i32
-  %46 = icmp eq i32 %45, %4
+  %46 = icmp eq i32 %4, %45
   br i1 %46, label %54, label %47
 
 47:                                               ; preds = %42
@@ -2722,14 +2722,14 @@ define dso_local void @snd_hda_codec_setup_stream(ptr noundef %0, i16 noundef ze
   %55 = getelementptr inbounds i8, ptr %32, i64 2
   %56 = load i8, ptr %55, align 2
   %57 = zext i8 %56 to i32
-  %58 = icmp eq i32 %57, %2
+  %58 = icmp eq i32 %2, %57
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds i8, ptr %32, i64 3
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
-  %63 = icmp eq i32 %62, %3
+  %63 = icmp eq i32 %3, %62
   br i1 %63, label %75, label %64
 
 64:                                               ; preds = %59, %54
@@ -2761,7 +2761,7 @@ define dso_local void @snd_hda_codec_setup_stream(ptr noundef %0, i16 noundef ze
   %80 = getelementptr inbounds i8, ptr %32, i64 4
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
-  %83 = icmp eq i32 %82, %4
+  %83 = icmp eq i32 %4, %82
   br i1 %83, label %91, label %84
 
 84:                                               ; preds = %79
@@ -2852,7 +2852,7 @@ define dso_local void @snd_hda_codec_setup_stream(ptr noundef %0, i16 noundef ze
   %138 = getelementptr inbounds i8, ptr %132, i64 2
   %139 = load i8, ptr %138, align 2
   %140 = zext i8 %139 to i32
-  %141 = icmp eq i32 %140, %2
+  %141 = icmp eq i32 %2, %140
   br i1 %141, label %142, label %.thread14.us20
 
 142:                                              ; preds = %137
@@ -2956,7 +2956,7 @@ define dso_local void @snd_hda_codec_setup_stream(ptr noundef %0, i16 noundef ze
   %201 = getelementptr inbounds i8, ptr %195, i64 2
   %202 = load i8, ptr %201, align 2
   %203 = zext i8 %202 to i32
-  %204 = icmp eq i32 %203, %2
+  %204 = icmp eq i32 %2, %203
   br i1 %204, label %205, label %223
 
 205:                                              ; preds = %200

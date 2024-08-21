@@ -3341,7 +3341,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %2 = lshr i32 %1, 13
   %bf.cast = and i32 %2, 7
-  %cmp3.not = icmp ult i32 %bf.cast, %enc_level
+  %cmp3.not = icmp ugt i32 %enc_level, %bf.cast
   br i1 %cmp3.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then2
@@ -3363,7 +3363,7 @@ if.end8:                                          ; preds = %if.end5
 if.else:                                          ; preds = %if.end
   %5 = lshr i32 %1, 16
   %bf.cast15 = and i32 %5, 7
-  %cmp16.not = icmp ult i32 %bf.cast15, %enc_level
+  %cmp16.not = icmp ugt i32 %enc_level, %bf.cast15
   br i1 %cmp16.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.else

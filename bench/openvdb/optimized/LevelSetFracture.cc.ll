@@ -14672,15 +14672,15 @@ entry:
   %7 = load double, ptr %arrayidx30, align 8
   %arrayidx33 = getelementptr inbounds i8, ptr %this, i64 72
   %8 = load double, ptr %arrayidx33, align 8
-  %9 = fneg double %mul8
-  %neg = fmul double %8, %9
+  %9 = fneg double %8
+  %neg = fmul double %mul8, %9
   %10 = tail call double @llvm.fmuladd.f64(double %mul, double %7, double %neg)
   %neg38 = fneg double %mul13
   %11 = tail call double @llvm.fmuladd.f64(double %neg38, double %7, double %10)
   %12 = tail call double @llvm.fmuladd.f64(double %mul18, double %8, double %11)
   %13 = tail call double @llvm.fmuladd.f64(double %mul23, double %2, double %12)
-  %14 = fneg double %5
-  %neg48 = fmul double %6, %14
+  %14 = fneg double %6
+  %neg48 = fmul double %5, %14
   %15 = tail call double @llvm.fmuladd.f64(double %neg48, double %1, double %13)
   %arrayidx50 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load double, ptr %arrayidx50, align 8
@@ -14704,55 +14704,56 @@ if.then:                                          ; preds = %entry
   %20 = load double, ptr %arrayidx6.i.i, align 8
   %arrayidx15.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %21 = load double, ptr %arrayidx15.i.i, align 8
-  %22 = fneg double %8
-  %neg.i.i = fmul double %21, %22
+  %22 = fneg double %21
+  %neg.i.i = fmul double %8, %22
   %23 = tail call noundef double @llvm.fmuladd.f64(double %7, double %20, double %neg.i.i)
   %arrayidx6.i25.i = getelementptr inbounds i8, ptr %this, i64 96
   %24 = load double, ptr %arrayidx6.i25.i, align 8
-  %25 = fneg double %6
-  %neg.i32.i = fmul double %20, %25
+  %25 = fneg double %20
+  %neg.i32.i = fmul double %6, %25
   %26 = tail call noundef double @llvm.fmuladd.f64(double %8, double %24, double %neg.i32.i)
   %mul8.i = fmul double %2, %26
   %27 = tail call double @llvm.fmuladd.f64(double %4, double %23, double %mul8.i)
-  %28 = fneg double %7
-  %neg.i47.i = fmul double %24, %28
+  %28 = fneg double %24
+  %neg.i47.i = fmul double %7, %28
   %29 = tail call noundef double @llvm.fmuladd.f64(double %6, double %21, double %neg.i47.i)
   %30 = tail call noundef double @llvm.fmuladd.f64(double %1, double %29, double %27)
-  %31 = fneg double %3
-  %neg.i.i124 = fmul double %21, %31
-  %32 = tail call noundef double @llvm.fmuladd.f64(double %5, double %20, double %neg.i.i124)
-  %33 = fneg double %0
-  %neg.i32.i128 = fmul double %20, %33
-  %34 = tail call noundef double @llvm.fmuladd.f64(double %3, double %24, double %neg.i32.i128)
-  %mul8.i129 = fmul double %7, %34
-  %35 = tail call double @llvm.fmuladd.f64(double %6, double %32, double %mul8.i129)
-  %neg.i47.i131 = fmul double %24, %14
-  %36 = tail call noundef double @llvm.fmuladd.f64(double %0, double %21, double %neg.i47.i131)
-  %37 = tail call noundef double @llvm.fmuladd.f64(double %8, double %36, double %35)
-  %mul72 = fmul double %17, %37
-  %38 = tail call double @llvm.fmuladd.f64(double %16, double %30, double %mul72)
-  %neg.i.i138 = fmul double %2, %31
-  %39 = tail call noundef double @llvm.fmuladd.f64(double %5, double %1, double %neg.i.i138)
-  %neg.i32.i142 = fmul double %1, %33
+  %neg.i.i124 = fmul double %3, %22
+  %31 = tail call noundef double @llvm.fmuladd.f64(double %5, double %20, double %neg.i.i124)
+  %neg.i32.i128 = fmul double %0, %25
+  %32 = tail call noundef double @llvm.fmuladd.f64(double %3, double %24, double %neg.i32.i128)
+  %mul8.i129 = fmul double %7, %32
+  %33 = tail call double @llvm.fmuladd.f64(double %6, double %31, double %mul8.i129)
+  %neg.i47.i131 = fmul double %5, %28
+  %34 = tail call noundef double @llvm.fmuladd.f64(double %0, double %21, double %neg.i47.i131)
+  %35 = tail call noundef double @llvm.fmuladd.f64(double %8, double %34, double %33)
+  %mul72 = fmul double %17, %35
+  %36 = tail call double @llvm.fmuladd.f64(double %16, double %30, double %mul72)
+  %37 = fneg double %2
+  %neg.i.i138 = fmul double %3, %37
+  %38 = tail call noundef double @llvm.fmuladd.f64(double %5, double %1, double %neg.i.i138)
+  %39 = fneg double %1
+  %neg.i32.i142 = fmul double %0, %39
   %40 = tail call noundef double @llvm.fmuladd.f64(double %3, double %4, double %neg.i32.i142)
   %mul8.i143 = fmul double %21, %40
-  %41 = tail call double @llvm.fmuladd.f64(double %24, double %39, double %mul8.i143)
-  %neg.i47.i145 = fmul double %4, %14
-  %42 = tail call noundef double @llvm.fmuladd.f64(double %0, double %2, double %neg.i47.i145)
-  %43 = tail call noundef double @llvm.fmuladd.f64(double %20, double %42, double %41)
-  %44 = tail call double @llvm.fmuladd.f64(double %18, double %43, double %38)
-  %45 = tail call double @llvm.fmuladd.f64(double %19, double %15, double %44)
+  %41 = tail call double @llvm.fmuladd.f64(double %24, double %38, double %mul8.i143)
+  %42 = fneg double %4
+  %neg.i47.i145 = fmul double %5, %42
+  %43 = tail call noundef double @llvm.fmuladd.f64(double %0, double %2, double %neg.i47.i145)
+  %44 = tail call noundef double @llvm.fmuladd.f64(double %20, double %43, double %41)
+  %45 = tail call double @llvm.fmuladd.f64(double %18, double %44, double %36)
+  %46 = tail call double @llvm.fmuladd.f64(double %19, double %15, double %45)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
-  %storemerge = phi double [ %45, %if.then ], [ %15, %entry ]
-  %46 = tail call noundef double @llvm.fabs.f64(double %storemerge)
-  %cmp.i.i = fcmp ule double %46, %tolerance
+  %storemerge = phi double [ %46, %if.then ], [ %15, %entry ]
+  %47 = tail call noundef double @llvm.fabs.f64(double %storemerge)
+  %cmp.i.i = fcmp ule double %47, %tolerance
   br i1 %cmp.i.i, label %if.then448, label %if.else86
 
 if.else86:                                        ; preds = %if.end
-  %47 = tail call noundef double @llvm.fabs.f64(double %15)
-  %cmp.i.i149 = fcmp ule double %47, 1.000000e-08
+  %48 = tail call noundef double @llvm.fabs.f64(double %15)
+  %cmp.i.i149 = fcmp ule double %48, 1.000000e-08
   br i1 %cmp.i.i149, label %if.then90, label %if.else93
 
 if.then90:                                        ; preds = %if.else86
@@ -14761,8 +14762,7 @@ if.then90:                                        ; preds = %if.else86
 
 if.else93:                                        ; preds = %if.else86
   %div = fdiv double 1.000000e+00, %15
-  %48 = fneg double %2
-  %neg104 = fmul double %8, %48
+  %neg104 = fmul double %2, %9
   %49 = tail call double @llvm.fmuladd.f64(double %1, double %7, double %neg104)
   %mul105 = fmul double %49, %div
   store double %mul105, ptr %agg.result, align 8
@@ -14772,27 +14772,27 @@ if.else93:                                        ; preds = %if.else86
   %mul118 = fmul double %50, %div
   %arrayidx120 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store double %mul118, ptr %arrayidx120, align 8
-  %neg131 = fmul double %1, %14
-  %51 = tail call double @llvm.fmuladd.f64(double %3, double %2, double %neg131)
-  %mul132 = fmul double %51, %div
+  %51 = fneg double %1
+  %neg131 = fmul double %5, %51
+  %52 = tail call double @llvm.fmuladd.f64(double %3, double %2, double %neg131)
+  %mul132 = fmul double %52, %div
   %arrayidx134 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul132, ptr %arrayidx134, align 8
   %fneg137 = fneg double %4
   %mul145 = fmul double %2, %6
-  %52 = tail call double @llvm.fmuladd.f64(double %fneg137, double %7, double %mul145)
-  %mul146 = fmul double %52, %div
+  %53 = tail call double @llvm.fmuladd.f64(double %fneg137, double %7, double %mul145)
+  %mul146 = fmul double %53, %div
   %arrayidx.i169 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store double %mul146, ptr %arrayidx.i169, align 8
-  %53 = tail call double @llvm.fmuladd.f64(double %0, double %7, double %neg48)
-  %mul155 = fmul double %53, %div
+  %54 = tail call double @llvm.fmuladd.f64(double %0, double %7, double %neg48)
+  %mul155 = fmul double %54, %div
   %arrayidx157 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store double %mul155, ptr %arrayidx157, align 8
   %sub = fsub double %mul18, %mul8
   %mul158 = fmul double %sub, %div
   %arrayidx160 = getelementptr inbounds i8, ptr %agg.result, i64 48
   store double %mul158, ptr %arrayidx160, align 8
-  %54 = fneg double %1
-  %neg171 = fmul double %6, %54
+  %neg171 = fmul double %1, %14
   %55 = tail call double @llvm.fmuladd.f64(double %4, double %8, double %neg171)
   %mul172 = fmul double %55, %div
   %arrayidx.i178 = getelementptr inbounds i8, ptr %agg.result, i64 64
@@ -14989,18 +14989,18 @@ entry:
   %2 = load double, ptr %arrayidx5.i, align 8, !noalias !75
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load double, ptr %arrayidx7.i, align 8, !noalias !75
-  %4 = fneg double %2
-  %neg.i = fmul double %3, %4
+  %4 = fneg double %3
+  %neg.i = fmul double %2, %4
   %5 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %neg.i)
   %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load double, ptr %arrayidx10.i, align 8, !noalias !75
   %arrayidx14.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load double, ptr %arrayidx14.i, align 8, !noalias !75
-  %8 = fneg double %7
-  %neg18.i = fmul double %1, %8
+  %8 = fneg double %1
+  %neg18.i = fmul double %7, %8
   %9 = tail call double @llvm.fmuladd.f64(double %6, double %3, double %neg18.i)
-  %10 = fneg double %6
-  %neg28.i = fmul double %0, %10
+  %10 = fneg double %0
+  %neg28.i = fmul double %6, %10
   %11 = tail call double @llvm.fmuladd.f64(double %7, double %2, double %neg28.i)
   %arrayidx32.i = getelementptr inbounds i8, ptr %this, i64 48
   %12 = load double, ptr %arrayidx32.i, align 8
@@ -15065,20 +15065,20 @@ lpad19:                                           ; preds = %try.cont, %catch
   resume { ptr, i32 } %21
 
 if.end:                                           ; preds = %entry
-  %neg88.i = fmul double %13, %8
-  %22 = tail call double @llvm.fmuladd.f64(double %14, double %0, double %neg88.i)
-  %23 = fneg double %14
-  %neg78.i = fmul double %3, %23
+  %22 = fneg double %13
+  %neg88.i = fmul double %7, %22
+  %23 = tail call double @llvm.fmuladd.f64(double %14, double %0, double %neg88.i)
+  %neg78.i = fmul double %14, %4
   %24 = tail call double @llvm.fmuladd.f64(double %7, double %12, double %neg78.i)
-  %25 = fneg double %0
-  %neg68.i = fmul double %12, %25
+  %25 = fneg double %12
+  %neg68.i = fmul double %0, %25
   %26 = tail call double @llvm.fmuladd.f64(double %13, double %3, double %neg68.i)
-  %neg58.i = fmul double %2, %23
-  %27 = tail call double @llvm.fmuladd.f64(double %6, double %13, double %neg58.i)
-  %neg48.i = fmul double %12, %10
-  %28 = tail call double @llvm.fmuladd.f64(double %14, double %1, double %neg48.i)
-  %29 = fneg double %13
-  %neg38.i = fmul double %1, %29
+  %27 = fneg double %2
+  %neg58.i = fmul double %14, %27
+  %28 = tail call double @llvm.fmuladd.f64(double %6, double %13, double %neg58.i)
+  %neg48.i = fmul double %6, %25
+  %29 = tail call double @llvm.fmuladd.f64(double %14, double %1, double %neg48.i)
+  %neg38.i = fmul double %13, %8
   %30 = tail call double @llvm.fmuladd.f64(double %2, double %12, double %neg38.i)
   %div = fdiv double 1.000000e+00, %16
   %inv.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -15097,15 +15097,15 @@ if.end:                                           ; preds = %entry
   store double %mul7.i.i, ptr %inv.sroa.5.0.agg.result.sroa_idx, align 8, !alias.scope !78
   %mul10.i.i = fmul double %30, %div
   store double %mul10.i.i, ptr %inv.sroa.7.0.agg.result.sroa_idx, align 8, !alias.scope !78
-  %mul13.i.i = fmul double %28, %div
+  %mul13.i.i = fmul double %29, %div
   store double %mul13.i.i, ptr %inv.sroa.8.0.agg.result.sroa_idx, align 8, !alias.scope !78
-  %mul16.i.i = fmul double %27, %div
+  %mul16.i.i = fmul double %28, %div
   store double %mul16.i.i, ptr %inv.sroa.9.0.agg.result.sroa_idx, align 8, !alias.scope !78
   %mul19.i.i = fmul double %26, %div
   store double %mul19.i.i, ptr %inv.sroa.10.0.agg.result.sroa_idx, align 8, !alias.scope !78
   %mul22.i.i = fmul double %24, %div
   store double %mul22.i.i, ptr %inv.sroa.11.0.agg.result.sroa_idx, align 8, !alias.scope !78
-  %mul25.i.i = fmul double %22, %div
+  %mul25.i.i = fmul double %23, %div
   store double %mul25.i.i, ptr %inv.sroa.12.0.agg.result.sroa_idx, align 8, !alias.scope !78
   ret void
 
@@ -24422,7 +24422,7 @@ entry:
   %xor.i.i = xor i64 %0, 63
   %notmask = shl nsw i64 -1, %xor.i.i
   %sub = xor i64 %notmask, -1
-  %and = and i64 %sub, %hash
+  %and = and i64 %hash, %sub
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
   %xor.i.i.i.i.i = xor i64 %1, 63
@@ -26796,7 +26796,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -26859,7 +26859,7 @@ _ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12I
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(12) %__k) local_unnamed_addr #8 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -29911,7 +29911,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -34071,7 +34071,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #19
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPKN7openvdb5v11_04tree12InternalNodeINS2_8LeafNodeIfLj3EEELj4EEESaIS8_EE16_M_destroy_nodesEPPS8_SC_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -75006,12 +75006,12 @@ entry:
   %2 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, %0
+  %cmp.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp.i1.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.i1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -75542,7 +75542,7 @@ invoke.cont7.i:                                   ; preds = %if.then.i
 
 if.then.i161:                                     ; preds = %invoke.cont7.i
   %cmp.not.i.i.i = icmp ne ptr %38, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %39
+  %cmp2.i.i.i = icmp eq ptr %39, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -75729,7 +75729,7 @@ invoke.cont7.i181:                                ; preds = %if.then.i144
 
 if.then.i183:                                     ; preds = %invoke.cont7.i181
   %cmp.not.i.i.i184 = icmp ne ptr %57, null
-  %cmp2.i.i.i186 = icmp eq ptr %add.ptr.i.i.i, %58
+  %cmp2.i.i.i186 = icmp eq ptr %58, %add.ptr.i.i.i
   %or.cond.i.i.i187 = select i1 %cmp.not.i.i.i184, i1 true, i1 %cmp2.i.i.i186
   br i1 %or.cond.i.i.i187, label %cleanup.thread.i203, label %lor.rhs.i.i.i188
 
@@ -75902,7 +75902,7 @@ _ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit18.i.i: ; preds = %cond.
 
 if.then.i215:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit18.i.i, %cond.false7.i.i7.i.i, %if.end12.i.i, %if.then.i.i
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa48.i.i, %cond.false7.i.i7.i.i ], [ %__y.0.lcssa48.i.i, %if.end12.i.i ], [ %__y.0.lcssa48.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit18.i.i ], [ %__y.0.lcssa49.i.i, %if.then.i.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.sroa.4.0.i.ph.i
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %add.ptr.i.i.i
   br i1 %cmp2.i.i, label %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE10_M_insert_ISF_NSL_11_Alloc_nodeEEESt17_Rb_tree_iteratorISF_EPSt18_Rb_tree_node_baseSR_OT_RT0_.exit.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then.i215
@@ -77018,7 +77018,7 @@ _ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit18.i: ; preds = %cond.fa
 
 if.then:                                          ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit18.i, %if.end12.i, %cond.false7.i.i7.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa48.i, %cond.false7.i.i7.i ], [ %__y.0.lcssa48.i, %if.end12.i ], [ %__y.0.lcssa48.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit18.i ], [ %__y.0.lcssa49.i, %if.then.i ]
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then
@@ -88493,14 +88493,14 @@ for.body:                                         ; preds = %for.body.outer, %fo
   %mul77.i.i = fmul double %17, %64
   %78 = call double @llvm.fmuladd.f64(double %12, double %63, double %mul77.i.i)
   %79 = call double @llvm.fmuladd.f64(double %22, double %66, double %78)
-  %80 = fneg double %73
-  %neg.i = fmul double %77, %80
+  %80 = fneg double %77
+  %neg.i = fmul double %73, %80
   %81 = call double @llvm.fmuladd.f64(double %71, double %79, double %neg.i)
-  %82 = fneg double %69
-  %neg18.i = fmul double %79, %82
+  %82 = fneg double %79
+  %neg18.i = fmul double %69, %82
   %83 = call double @llvm.fmuladd.f64(double %73, double %75, double %neg18.i)
-  %84 = fneg double %71
-  %neg28.i = fmul double %75, %84
+  %84 = fneg double %75
+  %neg28.i = fmul double %71, %84
   %85 = call double @llvm.fmuladd.f64(double %69, double %77, double %neg28.i)
   %mul33.i = fmul double %62, %83
   %86 = call double @llvm.fmuladd.f64(double %57, double %81, double %mul33.i)
@@ -88532,9 +88532,9 @@ if.then12.i:                                      ; preds = %if.else.i
   br label %_ZN7openvdb5v11_04math11eulerAnglesINS1_4Mat3IdEEEENS1_4Vec3INT_10value_typeEEERKS6_NS1_13RotationOrderES7_.exit
 
 if.else22.i:                                      ; preds = %if.else.i
-  %call28.i = call double @atan2(double noundef %82, double noundef %57) #19, !noalias !1070
-  %fneg31.i = fneg double %77
-  %call34.i = call double @atan2(double noundef %fneg31.i, double noundef %79) #19, !noalias !1070
+  %fneg25.i = fneg double %69
+  %call28.i = call double @atan2(double noundef %fneg25.i, double noundef %57) #19, !noalias !1070
+  %call34.i = call double @atan2(double noundef %80, double noundef %79) #19, !noalias !1070
   %mul46.i = fmul double %79, %79
   %90 = call double @llvm.fmuladd.f64(double %77, double %77, double %mul46.i)
   %sqrt.i85 = call double @llvm.sqrt.f64(double %90)
@@ -92608,7 +92608,7 @@ entry:
   %xor.i.i = xor i64 %0, 63
   %notmask = shl nsw i64 -1, %xor.i.i
   %sub = xor i64 %notmask, -1
-  %and = and i64 %sub, %hash
+  %and = and i64 %hash, %sub
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
   %xor.i.i.i.i.i = xor i64 %1, 63
@@ -147561,7 +147561,7 @@ entry:
   %xor.i.i = xor i64 %0, 63
   %notmask = shl nsw i64 -1, %xor.i.i
   %sub = xor i64 %notmask, -1
-  %and = and i64 %sub, %hash
+  %and = and i64 %hash, %sub
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
   %xor.i.i.i.i.i = xor i64 %1, 63
@@ -149750,7 +149750,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -149813,7 +149813,7 @@ _ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12I
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(12) %__k) local_unnamed_addr #8 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -152842,7 +152842,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -156625,7 +156625,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #19
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPKN7openvdb5v11_04tree12InternalNodeINS2_8LeafNodeIdLj3EEELj4EEESaIS8_EE16_M_destroy_nodesEPPS8_SC_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -197542,12 +197542,12 @@ entry:
   %2 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, %0
+  %cmp.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp.i1.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.i1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -198071,7 +198071,7 @@ invoke.cont7.i:                                   ; preds = %if.then.i
 
 if.then.i161:                                     ; preds = %invoke.cont7.i
   %cmp.not.i.i.i = icmp ne ptr %38, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %39
+  %cmp2.i.i.i = icmp eq ptr %39, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -198254,7 +198254,7 @@ invoke.cont7.i179:                                ; preds = %if.then.i144
 
 if.then.i181:                                     ; preds = %invoke.cont7.i179
   %cmp.not.i.i.i182 = icmp ne ptr %57, null
-  %cmp2.i.i.i184 = icmp eq ptr %add.ptr.i.i.i, %58
+  %cmp2.i.i.i184 = icmp eq ptr %58, %add.ptr.i.i.i
   %or.cond.i.i.i185 = select i1 %cmp.not.i.i.i182, i1 true, i1 %cmp2.i.i.i184
   br i1 %or.cond.i.i.i185, label %cleanup.thread.i201, label %lor.rhs.i.i.i186
 
@@ -198427,7 +198427,7 @@ _ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit18.i.i: ; preds = %cond.
 
 if.then.i213:                                     ; preds = %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit18.i.i, %cond.false7.i.i7.i.i, %if.end12.i.i, %if.then.i.i
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa48.i.i, %cond.false7.i.i7.i.i ], [ %__y.0.lcssa48.i.i, %if.end12.i.i ], [ %__y.0.lcssa48.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit18.i.i ], [ %__y.0.lcssa49.i.i, %if.then.i.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.sroa.4.0.i.ph.i
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %add.ptr.i.i.i
   br i1 %cmp2.i.i, label %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE10_M_insert_ISF_NSL_11_Alloc_nodeEEESt17_Rb_tree_iteratorISF_EPSt18_Rb_tree_node_baseSR_OT_RT0_.exit.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then.i213
@@ -211657,7 +211657,7 @@ entry:
   %xor.i.i = xor i64 %0, 63
   %notmask = shl nsw i64 -1, %xor.i.i
   %sub = xor i64 %notmask, -1
-  %and = and i64 %sub, %hash
+  %and = and i64 %hash, %sub
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
   %xor.i.i.i.i.i = xor i64 %1, 63

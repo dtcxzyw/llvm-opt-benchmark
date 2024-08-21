@@ -3131,7 +3131,7 @@ if.end.i2378:                                     ; preds = %if.end.i2978
   %idx.ext.i2379 = zext i32 %447 to i64
   %add.ptr.i2380 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i2379
   %sub9.i2383 = add nsw i64 %sub.i3289, -256
-  %cond.i = tail call i64 @llvm.smax.i64(i64 %sub9.i2383, i64 %cond.i2976)
+  %cond.i = tail call i64 @llvm.smax.i64(i64 %cond.i2976, i64 %sub9.i2383)
   %448 = load i8, ptr %add.ptr.i2380, align 16
   %tobool15.not.i = icmp eq i8 %448, 0
   br i1 %tobool15.not.i, label %if.then16.i, label %if.else.i2384
@@ -6170,7 +6170,7 @@ entry:
   %0 = load i32, ptr %maxBiAnchoredWidth, align 8
   %cmp.not = icmp ne i32 %0, -1
   %conv = zext i32 %0 to i64
-  %cmp2 = icmp ult i64 %conv, %offset
+  %cmp2 = icmp ugt i64 %offset, %conv
   %or.cond = and i1 %cmp.not, %cmp2
   br i1 %or.cond, label %return, label %if.end
 

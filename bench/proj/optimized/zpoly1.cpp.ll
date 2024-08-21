@@ -40,9 +40,9 @@ define hidden { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double %0, double %1
   %.sroa.012.0.lcssa = phi double [ %.sroa.012.0.copyload, %4 ], [ %14, %9 ]
   %.sroa.6.0.lcssa = phi double [ %.sroa.6.0.copyload, %4 ], [ %18, %9 ]
   %20 = fneg double %.sroa.6.0.lcssa
-  %21 = fmul double %20, %1
+  %21 = fmul double %1, %20
   %22 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.012.0.lcssa, double %21)
-  %23 = fmul double %.sroa.012.0.lcssa, %1
+  %23 = fmul double %1, %.sroa.012.0.lcssa
   %24 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.6.0.lcssa, double %23)
   %.fca.0.insert = insertvalue { double, double } poison, double %22, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %24, 1
@@ -105,9 +105,9 @@ define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, doub
   %28 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.6.0.lcssa, double %.sroa.936.0.lcssa)
   %29 = tail call double @llvm.fmuladd.f64(double %1, double %.sroa.0.0.lcssa, double %28)
   %30 = fneg double %.sroa.936.0.lcssa
-  %31 = fmul double %30, %1
+  %31 = fmul double %1, %30
   %32 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.032.0.lcssa, double %31)
-  %33 = fmul double %.sroa.032.0.lcssa, %1
+  %33 = fmul double %1, %.sroa.032.0.lcssa
   %34 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.936.0.lcssa, double %33)
   store double %27, ptr %4, align 8
   %.sroa.6.0..sroa_idx6 = getelementptr inbounds i8, ptr %4, i64 8

@@ -457,7 +457,7 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEPh(ptr nocap
   %10 = getelementptr i8, ptr %6, i64 %7
   %11 = getelementptr i8, ptr %10, i64 %8
   %12 = getelementptr i8, ptr %11, i64 %9
-  %13 = icmp ult ptr %12, %1
+  %13 = icmp ugt ptr %1, %12
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %4
@@ -512,7 +512,7 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEv(ptr nocapt
   %10 = getelementptr i8, ptr %6, i64 %7
   %11 = getelementptr i8, ptr %10, i64 %8
   %12 = getelementptr i8, ptr %11, i64 %9
-  %13 = icmp ult ptr %12, %2
+  %13 = icmp ugt ptr %2, %12
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %4
@@ -572,7 +572,7 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow23reguard_stack_if_neededEv(
   %13 = getelementptr i8, ptr %9, i64 %10
   %14 = getelementptr i8, ptr %13, i64 %11
   %15 = getelementptr i8, ptr %14, i64 %12
-  %16 = icmp ult ptr %15, %5
+  %16 = icmp ugt ptr %5, %15
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %7

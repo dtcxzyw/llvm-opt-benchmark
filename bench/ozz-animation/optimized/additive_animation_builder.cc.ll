@@ -173,7 +173,7 @@ _ZN3ozz9animation7offline12RawAnimationD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3oz
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
   %57 = sdiv exact i64 %56, 72
-  %58 = icmp ult i64 %57, %50
+  %58 = icmp ugt i64 %50, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %38
@@ -182,7 +182,7 @@ _ZN3ozz9animation7offline12RawAnimationD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3oz
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 
 61:                                               ; preds = %38
-  %62 = icmp ugt i64 %57, %50
+  %62 = icmp ult i64 %50, %57
   br i1 %62, label %63, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 
 63:                                               ; preds = %61
@@ -980,7 +980,7 @@ _ZN3ozz9animation7offline12RawAnimationD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3oz
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
   %71 = sdiv exact i64 %70, 72
-  %72 = icmp ult i64 %71, %64
+  %72 = icmp ugt i64 %64, %71
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %53
@@ -989,7 +989,7 @@ _ZN3ozz9animation7offline12RawAnimationD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3oz
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 
 75:                                               ; preds = %53
-  %76 = icmp ugt i64 %71, %64
+  %76 = icmp ult i64 %64, %71
   br i1 %76, label %77, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 
 77:                                               ; preds = %75
@@ -1751,7 +1751,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAll
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation14TranslationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i, %31
   %.0.lcssa.i.i = phi ptr [ %32, %31 ], [ %35, %.lr.ph.i.i ]
   %36 = getelementptr i8, ptr %.0.lcssa.i.i, i64 16
-  %.not13.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation14TranslationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit34, label %.lr.ph.i.i29
 
 .lr.ph.i.i29:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation14TranslationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit, %.lr.ph.i.i29
@@ -1952,7 +1952,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAlloca
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation11RotationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i, %31
   %.0.lcssa.i.i = phi ptr [ %32, %31 ], [ %35, %.lr.ph.i.i ]
   %36 = getelementptr i8, ptr %.0.lcssa.i.i, i64 20
-  %.not13.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation11RotationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit34, label %.lr.ph.i.i29
 
 .lr.ph.i.i29:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation11RotationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit, %.lr.ph.i.i29
@@ -2153,7 +2153,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorI
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8ScaleKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i, %31
   %.0.lcssa.i.i = phi ptr [ %32, %31 ], [ %35, %.lr.ph.i.i ]
   %36 = getelementptr i8, ptr %.0.lcssa.i.i, i64 16
-  %.not13.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8ScaleKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit34, label %.lr.ph.i.i29
 
 .lr.ph.i.i29:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8ScaleKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit, %.lr.ph.i.i29

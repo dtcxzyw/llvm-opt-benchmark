@@ -648,7 +648,7 @@ wmem_block_realloc_jumbo.exit:                    ; preds = %8, %14
   %19 = lshr i32 %6, 3
   %20 = zext nneg i32 %19 to i64
   %21 = add nsw i64 %20, -16
-  %22 = icmp ult i64 %21, %2
+  %22 = icmp ugt i64 %2, %21
   br i1 %22, label %23, label %121
 
 23:                                               ; preds = %18
@@ -670,7 +670,7 @@ wmem_block_realloc_jumbo.exit:                    ; preds = %8, %14
   %31 = lshr i32 %28, 3
   %32 = zext nneg i32 %31 to i64
   %33 = add nsw i64 %21, %32
-  %34 = icmp ugt i64 %33, %2
+  %34 = icmp ult i64 %2, %33
   br i1 %34, label %35, label %78
 
 35:                                               ; preds = %30
@@ -821,7 +821,7 @@ wmem_block_free_jumbo.exit.i:                     ; preds = %92, %86
   br label %wmem_block_cycle_recycler.exit
 
 121:                                              ; preds = %18
-  %122 = icmp ugt i64 %21, %2
+  %122 = icmp ult i64 %2, %21
   br i1 %122, label %123, label %wmem_block_cycle_recycler.exit
 
 123:                                              ; preds = %121
@@ -1280,7 +1280,7 @@ define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, %1
+  %16 = icmp eq ptr %1, %15
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13

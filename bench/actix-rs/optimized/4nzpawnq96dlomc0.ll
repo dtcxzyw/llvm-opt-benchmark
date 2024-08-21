@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden i32 @"_ZN47_$LT$i32$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hd463db1cff1280a4E"(i32 %0, i64 %1) unnamed_addr #0 {
   %3 = trunc i64 %1 to i32
-  %4 = add nsw i32 %3, %0
+  %4 = add nsw i32 %0, %3
   ret i32 %4
 }
 

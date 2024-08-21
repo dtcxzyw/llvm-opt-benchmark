@@ -490,7 +490,7 @@ define internal noundef i32 @rapl_cpu_offline(i32 noundef %0) #2 align 16 {
   %38 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %35) #14, !srcloc !12
   %39 = trunc i64 %38 to i32
   %40 = icmp ult i32 %39, 64
-  %41 = icmp eq i32 %39, %0
+  %41 = icmp eq i32 %0, %39
   %42 = and i1 %40, %41
   %43 = add i64 %38, 1
   br i1 %42, label %28, label %.thread, !llvm.loop !16

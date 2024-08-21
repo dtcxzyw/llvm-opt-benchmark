@@ -250,7 +250,7 @@ if.then28:                                        ; preds = %if.end24
   %11 = getelementptr %"struct.re2::Job", ptr %9, i64 %10
   %arrayidx.i.i = getelementptr i8, ptr %11, i64 -16
   %12 = load i32, ptr %arrayidx.i.i, align 8
-  %cmp33 = icmp eq i32 %12, %id
+  %cmp33 = icmp eq i32 %id, %12
   br i1 %cmp33, label %land.lhs.true34, label %if.end45
 
 land.lhs.true34:                                  ; preds = %if.then28
@@ -261,7 +261,7 @@ land.lhs.true34:                                  ; preds = %if.then28
   %idx.ext = sext i32 %14 to i64
   %add.ptr = getelementptr inbounds i8, ptr %13, i64 %idx.ext
   %add.ptr36 = getelementptr inbounds i8, ptr %add.ptr, i64 1
-  %cmp37 = icmp eq ptr %add.ptr36, %p
+  %cmp37 = icmp eq ptr %p, %add.ptr36
   %cmp41 = icmp ne i32 %14, 2147483647
   %or.cond = and i1 %cmp41, %cmp37
   br i1 %or.cond, label %if.then42, label %if.end45

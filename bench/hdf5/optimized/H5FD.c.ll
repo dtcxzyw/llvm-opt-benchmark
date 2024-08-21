@@ -2061,7 +2061,7 @@ define range(i32 -1, 1) i32 @H5FDset_eoa(ptr noundef %0, i32 noundef %1, i64 nou
 42:                                               ; preds = %41
   %43 = getelementptr inbounds i8, ptr %0, i64 40
   %44 = load i64, ptr %43, align 8
-  %45 = icmp ult i64 %44, %2
+  %45 = icmp ugt i64 %2, %44
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %41, %42

@@ -147,7 +147,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 81:                                               ; preds = %76, %.thread782
   %82 = and i32 %4, -237361
-  %83 = icmp ult i64 %.0511, %3
+  %83 = icmp ugt i64 %3, %.0511
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %81

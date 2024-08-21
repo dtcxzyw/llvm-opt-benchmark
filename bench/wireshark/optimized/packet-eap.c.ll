@@ -2297,7 +2297,7 @@ define internal fastcc void @dissect_eap_mschapv2(ptr noundef %0, ptr noundef %1
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef 7, i32 noundef 2, i32 noundef 0) #6
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 7) #6
   %17 = zext i16 %16 to i32
-  %.not = icmp eq i32 %17, %3
+  %.not = icmp eq i32 %3, %17
   br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %13
@@ -3135,7 +3135,7 @@ define internal fastcc noundef i32 @dissect_eap_gpsk_csuite_list(ptr noundef %0,
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.540) #6
   %9 = load i32, ptr @hf_eap_gpsk_csuite_list_len, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0) #6
-  %11 = add i32 %6, %2
+  %11 = add i32 %2, %6
   %.025 = add i32 %2, 2
   %12 = icmp slt i32 %.025, %11
   br i1 %12, label %.lr.ph, label %._crit_edge

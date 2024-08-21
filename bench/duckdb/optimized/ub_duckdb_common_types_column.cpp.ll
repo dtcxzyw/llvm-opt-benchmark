@@ -1790,7 +1790,7 @@ lor.lhs.false:                                    ; preds = %entry
   %3 = load i32, ptr %size.i, align 8, !tbaa !56
   %sub.i = sub i32 %2, %3
   %conv = zext i32 %sub.i to i64
-  %cmp = icmp ult i64 %conv, %size
+  %cmp = icmp ugt i64 %size, %conv
   br i1 %cmp, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -1979,7 +1979,7 @@ lor.lhs.false:                                    ; preds = %entry
   %3 = load i32, ptr %size.i, align 8, !tbaa !56
   %sub.i = sub i32 %2, %3
   %conv = zext i32 %sub.i to i64
-  %cmp = icmp ult i64 %conv, %size
+  %cmp = icmp ugt i64 %size, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -2351,7 +2351,7 @@ invoke.cont3:                                     ; preds = %entry
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !79
   %conv = trunc i64 %v_offset to i32
   %conv5 = zext i16 %count to i64
-  %add = add i64 %conv5, %v_offset
+  %add = add i64 %v_offset, %conv5
   %conv6 = trunc i64 %add to i32
   %cmp106 = icmp ult i32 %conv, %conv6
   br i1 %cmp106, label %for.body.lr.ph, label %for.end

@@ -35,7 +35,7 @@ define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %.lr.ph
   %11 = add nuw nsw i32 %.02635, 1
   %12 = icmp ult i32 %.02635, 5
-  %13 = icmp ugt ptr %7, %0
+  %13 = icmp ult ptr %0, %7
   %or.cond = and i1 %12, %13
   br i1 %or.cond, label %.lr.ph, label %.critedge.thread54, !llvm.loop !6
 

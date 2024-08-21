@@ -3200,7 +3200,7 @@ exp2.i.i.i.noexc:                                 ; preds = %114
   %279 = ptrtoint ptr %277 to i64
   %280 = sub i64 %278, %279
   %281 = sdiv exact i64 %280, 96
-  %282 = icmp ult i64 %281, %275
+  %282 = icmp ugt i64 %275, %281
   br i1 %282, label %283, label %285
 
 283:                                              ; preds = %274
@@ -3209,7 +3209,7 @@ exp2.i.i.i.noexc:                                 ; preds = %114
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 285:                                              ; preds = %274
-  %286 = icmp ugt i64 %281, %275
+  %286 = icmp ult i64 %275, %281
   br i1 %286, label %287, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i
 
 287:                                              ; preds = %285
@@ -3666,7 +3666,7 @@ _ZN12_GLOBAL__N_123AdaptiveManifoldFilterN12RFFilterPassERSt6vectorIN2cv3MatESaI
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #24
   %435 = getelementptr inbounds i8, ptr %0, i64 576
   %436 = load i32, ptr %435, align 8
-  %437 = icmp sgt i32 %436, %3
+  %437 = icmp slt i32 %3, %436
   br i1 %437, label %438, label %517
 
 438:                                              ; preds = %434
@@ -4151,7 +4151,7 @@ _ZSt10_ConstructIN2cv3MatEJRS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
   %61 = tail call ptr @__cxa_begin_catch(ptr %60) #24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %53
+  %.not4.i.i.i.i.i.i = icmp eq ptr %53, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %58, %.lr.ph.i.i.i.i.i.i
@@ -4252,7 +4252,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %13
+  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -6168,7 +6168,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN11mapPara
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = sdiv exact i64 %19, 96
-  %21 = icmp ult i64 %20, %13
+  %21 = icmp ugt i64 %13, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %4
@@ -6177,7 +6177,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN11mapPara
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 24:                                               ; preds = %4
-  %25 = icmp ugt i64 %20, %13
+  %25 = icmp ult i64 %13, %20
   br i1 %25, label %26, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 26:                                               ; preds = %24

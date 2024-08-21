@@ -3371,7 +3371,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nocapt
 245:                                              ; preds = %240
   %246 = add nuw nsw i8 %242, 4
   %247 = zext nneg i8 %246 to i64
-  %248 = icmp ugt i64 %247, %2
+  %248 = icmp ult i64 %2, %247
   br i1 %248, label %307, label %.preheader6
 
 .preheader6:                                      ; preds = %245, %.preheader6

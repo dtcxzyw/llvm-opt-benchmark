@@ -1698,7 +1698,7 @@ define internal fastcc range(i32 0, 2) i32 @k12_dump_record(ptr noundef %0, i32 
   %8 = load i32, ptr %7, align 4
   %9 = sub i32 512, %8
   %10 = and i32 %9, 8191
-  %11 = icmp ult i32 %10, %1
+  %11 = icmp ugt i32 %1, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %4

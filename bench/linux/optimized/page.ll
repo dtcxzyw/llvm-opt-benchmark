@@ -276,7 +276,7 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
 139:                                              ; preds = %133
   %140 = add nsw i64 %.fr20, -1
   %141 = inttoptr i64 %140 to ptr
-  %.not = icmp eq ptr %141, %0
+  %.not = icmp eq ptr %0, %141
   %142 = or disjoint i64 %120, 32768
   br i1 %.not, label %143, label %.thread3
 
@@ -321,7 +321,7 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
 163:                                              ; preds = %158
   %164 = add nsw i64 %.fr24, -1
   %165 = inttoptr i64 %164 to ptr
-  %.not21 = icmp eq ptr %165, %0
+  %.not21 = icmp eq ptr %0, %165
   %166 = or disjoint i64 %144, 65536
   br i1 %.not21, label %.thread11, label %167
 
@@ -484,7 +484,7 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
   %271 = icmp eq i64 %270, 0
   %272 = add nsw i64 %269, -1
   %273 = inttoptr i64 %272 to ptr
-  %274 = icmp eq ptr %273, %0
+  %274 = icmp eq ptr %0, %273
   %or.cond = select i1 %271, i1 true, i1 %274
   br i1 %or.cond, label %.thread14, label %275
 

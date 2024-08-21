@@ -58,7 +58,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_imw_pP8PJconsts(ptr 
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %182
+  br label %183
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 88
@@ -73,7 +73,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_imw_pP8PJconsts(ptr 
 
 12:                                               ; preds = %6
   %13 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
-  br label %182
+  br label %183
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %7, align 8
@@ -136,7 +136,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_imw_pP8PJconsts(ptr 
 
 _ZL19pj_imw_p_destructorP8PJconstsi.exit:         ; preds = %46, %49, %52
   %53 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %182
+  br label %183
 
 54:                                               ; preds = %26
   %55 = getelementptr inbounds i8, ptr %2, i64 80
@@ -204,8 +204,8 @@ _ZL19pj_imw_p_destructorP8PJconstsi.exit:         ; preds = %46, %49, %52
   %91 = getelementptr inbounds i8, ptr %0, i64 216
   %92 = load double, ptr %91, align 8
   %93 = load double, ptr %87, align 8
-  %94 = fneg double %92
-  %95 = fmul double %93, %94
+  %94 = fneg double %93
+  %95 = fmul double %92, %94
   %96 = tail call double @llvm.fmuladd.f64(double %95, double %93, double 1.000000e+00)
   %97 = tail call double @sqrt(double noundef %96) #7
   %98 = fmul double %90, %97
@@ -244,8 +244,8 @@ _ZL19pj_imw_p_destructorP8PJconstsi.exit:         ; preds = %46, %49, %52
   %120 = getelementptr inbounds i8, ptr %0, i64 216
   %121 = load double, ptr %120, align 8
   %122 = load double, ptr %116, align 8
-  %123 = fneg double %121
-  %124 = fmul double %122, %123
+  %123 = fneg double %122
+  %124 = fmul double %121, %123
   %125 = tail call double @llvm.fmuladd.f64(double %124, double %122, double 1.000000e+00)
   %126 = tail call double @sqrt(double noundef %125) #7
   %127 = fmul double %119, %126
@@ -296,8 +296,8 @@ _ZL19pj_imw_p_destructorP8PJconstsi.exit:         ; preds = %46, %49, %52
   %164 = getelementptr inbounds i8, ptr %2, i64 64
   store double %163, ptr %164, align 8
   %165 = fdiv double 1.000000e+00, %156
-  %166 = fneg double %149
-  %167 = fmul double %162, %166
+  %166 = fneg double %162
+  %167 = fmul double %149, %166
   %168 = tail call double @llvm.fmuladd.f64(double %155, double %.095, double %167)
   %169 = fmul double %165, %168
   store double %169, ptr %2, align 8
@@ -305,23 +305,24 @@ _ZL19pj_imw_p_destructorP8PJconstsi.exit:         ; preds = %46, %49, %52
   %171 = fmul double %165, %170
   %172 = getelementptr inbounds i8, ptr %2, i64 16
   store double %171, ptr %172, align 8
-  %173 = fmul double %.097, %166
-  %174 = tail call double @llvm.fmuladd.f64(double %155, double %.098, double %173)
-  %175 = fmul double %174, %165
-  %176 = getelementptr inbounds i8, ptr %2, i64 8
-  store double %175, ptr %176, align 8
-  %177 = fmul double %157, %165
-  %178 = getelementptr inbounds i8, ptr %2, i64 24
-  store double %177, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr @_ZL15imw_p_e_forward5PJ_LPP8PJconsts, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr @_ZL19pj_imw_p_destructorP8PJconstsi, ptr %181, align 8
-  br label %182
+  %173 = fneg double %.097
+  %174 = fmul double %149, %173
+  %175 = tail call double @llvm.fmuladd.f64(double %155, double %.098, double %174)
+  %176 = fmul double %175, %165
+  %177 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %176, ptr %177, align 8
+  %178 = fmul double %157, %165
+  %179 = getelementptr inbounds i8, ptr %2, i64 24
+  store double %178, ptr %179, align 8
+  %180 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL15imw_p_e_forward5PJ_LPP8PJconsts, ptr %180, align 8
+  %181 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts, ptr %181, align 8
+  %182 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr @_ZL19pj_imw_p_destructorP8PJconstsi, ptr %182, align 8
+  br label %183
 
-182:                                              ; preds = %143, %_ZL19pj_imw_p_destructorP8PJconstsi.exit, %12, %4
+183:                                              ; preds = %143, %_ZL19pj_imw_p_destructorP8PJconstsi.exit, %12, %4
   %.0 = phi ptr [ %5, %4 ], [ %53, %_ZL19pj_imw_p_destructorP8PJconstsi.exit ], [ %0, %143 ], [ %13, %12 ]
   ret ptr %.0
 }
@@ -454,7 +455,7 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = fmul double %.sroa.018.0, %0
+  %42 = fmul double %0, %.sroa.018.0
   %43 = fdiv double %42, %15
   br label %44
 
@@ -531,8 +532,8 @@ define internal fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double 
   %23 = tail call double @tan(double noundef %1) #7
   %24 = getelementptr inbounds i8, ptr %2, i64 216
   %25 = load double, ptr %24, align 8
-  %26 = fneg double %25
-  %27 = fmul double %9, %26
+  %26 = fneg double %9
+  %27 = fmul double %25, %26
   %28 = tail call double @llvm.fmuladd.f64(double %27, double %9, double 1.000000e+00)
   %29 = tail call double @sqrt(double noundef %28) #7
   %30 = fmul double %23, %29
@@ -559,7 +560,7 @@ define internal fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double 
 45:                                               ; preds = %8
   %46 = getelementptr inbounds i8, ptr %6, i64 56
   %47 = load double, ptr %46, align 8
-  %48 = fmul double %47, %0
+  %48 = fmul double %0, %47
   %49 = getelementptr inbounds i8, ptr %6, i64 40
   %50 = load double, ptr %49, align 8
   %51 = tail call double @sin(double noundef %48) #7
@@ -579,7 +580,7 @@ define internal fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double 
   %.07681 = phi double [ %44, %.thread ], [ %58, %45 ]
   %61 = getelementptr inbounds i8, ptr %6, i64 48
   %62 = load double, ptr %61, align 8
-  %63 = fmul double %62, %0
+  %63 = fmul double %0, %62
   %64 = getelementptr inbounds i8, ptr %6, i64 32
   %65 = load double, ptr %64, align 8
   %66 = tail call double @sin(double noundef %63) #7

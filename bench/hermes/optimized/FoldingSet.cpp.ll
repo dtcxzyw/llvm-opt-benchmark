@@ -662,7 +662,7 @@ entry:
   %0 = load i32, ptr %Size.i, align 8
   %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i.i, align 8
-  %cmp.not.i.i = icmp eq i32 %1, %0
+  %cmp.not.i.i = icmp eq i32 %0, %1
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZNK4llvh16FoldingSetNodeIDeqENS_19FoldingSetNodeIDRefE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -685,7 +685,7 @@ entry:
   %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %0 to i64
-  %cmp.not.i = icmp eq i64 %conv.i, %RHS.coerce1
+  %cmp.not.i = icmp eq i64 %RHS.coerce1, %conv.i
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK4llvh19FoldingSetNodeIDRefeqES0_.exit
 
 if.end.i:                                         ; preds = %entry
@@ -710,11 +710,11 @@ entry:
   %0 = load i32, ptr %Size.i, align 8
   %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i.i, align 8
-  %cmp.not.i.i = icmp eq i32 %1, %0
+  %cmp.not.i.i = icmp eq i32 %0, %1
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp5.i.i = icmp ult i32 %1, %0
+  %cmp5.i.i = icmp ugt i32 %0, %1
   br label %_ZNK4llvh16FoldingSetNodeIDltENS_19FoldingSetNodeIDRefE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -737,11 +737,11 @@ entry:
   %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %0 to i64
-  %cmp.not.i = icmp eq i64 %conv.i, %RHS.coerce1
+  %cmp.not.i = icmp eq i64 %RHS.coerce1, %conv.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp5.i = icmp ult i64 %conv.i, %RHS.coerce1
+  %cmp5.i = icmp ugt i64 %RHS.coerce1, %conv.i
   br label %_ZNK4llvh19FoldingSetNodeIDRefltES0_.exit
 
 if.end.i:                                         ; preds = %entry
@@ -1104,7 +1104,7 @@ entry:
   %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets.i, align 8
   %mul.i = shl i32 %0, 1
-  %cmp = icmp ugt i32 %mul.i, %EltCount
+  %cmp = icmp ult i32 %EltCount, %mul.i
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1811,7 +1811,7 @@ if.then:                                          ; preds = %entry
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %result.0.copyload.i3.i = load i32, ptr %add.ptr1.i, align 1
   %conv3.i = zext i32 %result.0.copyload.i3.i to i64
-  %xor.i = xor i64 %conv3.i, %seed
+  %xor.i = xor i64 %seed, %conv3.i
   %xor.i.i = xor i64 %xor.i, %add.i
   %mul.i.i = mul i64 %xor.i.i, -7070675565921424023
   %shr.i.i = lshr i64 %mul.i.i, 47

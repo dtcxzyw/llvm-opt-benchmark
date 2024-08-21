@@ -16695,7 +16695,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -16704,7 +16704,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -18256,7 +18256,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorINSt7_
   %3 = load i64, ptr %m_size.i, align 8
   %add12 = add i64 %3, %n
   store i64 %add12, ptr %m_size.i, align 8
-  %cmp.not5.i = icmp eq ptr %add.ptr, %pos
+  %cmp.not5.i = icmp eq ptr %pos, %add.ptr
   br i1 %cmp.not5.i, label %_ZN5boost9container13move_backwardIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_3dtl38disable_if_memtransfer_copy_assignableIT_T0_SC_E4typeESB_SB_SC_.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvEvEEPS8_SB_EENS0_3dtl41disable_if_memtransfer_copy_constructibleIT0_T1_SF_E4typeERT_SE_SE_SF_.exit, %while.body.i
@@ -18265,7 +18265,7 @@ while.body.i:                                     ; preds = %_ZN5boost9container
   %incdec.ptr.i30 = getelementptr inbounds i8, ptr %l.addr.06.i, i64 -32
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %r.addr.07.i, i64 -32
   %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i30) #21
-  %cmp.not.i31 = icmp eq ptr %incdec.ptr.i30, %pos
+  %cmp.not.i31 = icmp eq ptr %pos, %incdec.ptr.i30
   br i1 %cmp.not.i31, label %_ZN5boost9container13move_backwardIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_3dtl38disable_if_memtransfer_copy_assignableIT_T0_SC_E4typeESB_SB_SC_.exit, label %while.body.i, !llvm.loop !251
 
 _ZN5boost9container13move_backwardIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_3dtl38disable_if_memtransfer_copy_assignableIT_T0_SC_E4typeESB_SB_SC_.exit: ; preds = %while.body.i, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvEvEEPS8_SB_EENS0_3dtl41disable_if_memtransfer_copy_constructibleIT0_T1_SF_E4typeERT_SE_SE_SF_.exit
@@ -18415,7 +18415,7 @@ if.then21:                                        ; preds = %invoke.cont14
   %m_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %m_size, align 8
   %add.ptr25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %2
-  %cmp.not9.i21 = icmp eq ptr %add.ptr25, %pos
+  %cmp.not9.i21 = icmp eq ptr %pos, %add.ptr25
   br i1 %cmp.not9.i21, label %invoke.cont26, label %invoke.cont2.i22
 
 invoke.cont2.i22:                                 ; preds = %if.then21, %invoke.cont2.i22

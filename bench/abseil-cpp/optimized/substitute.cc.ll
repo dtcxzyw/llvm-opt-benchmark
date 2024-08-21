@@ -69,7 +69,7 @@ if.end36:                                         ; preds = %for.end
   %call37 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #6
   %add38 = add i64 %call37, %size.1
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #6
-  %cmp.i = icmp ult i64 %call.i, %add38
+  %cmp.i = icmp ugt i64 %add38, %call.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end36

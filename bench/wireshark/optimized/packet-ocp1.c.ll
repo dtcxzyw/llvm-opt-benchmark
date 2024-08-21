@@ -1809,7 +1809,7 @@ decode_params_OcaRoot.exit:                       ; preds = %124, %137, %144, %1
 194:                                              ; preds = %185
   %195 = icmp eq i16 %5, 5
   %196 = icmp eq i8 %6, 1
-  %or.cond17.i = and i1 %196, %7
+  %or.cond17.i = and i1 %7, %196
   %or.cond343.i = and i1 %195, %or.cond17.i
   br i1 %or.cond343.i, label %197, label %204
 
@@ -1933,7 +1933,7 @@ decode_params_OcaRoot.exit:                       ; preds = %124, %137, %144, %1
   %271 = icmp eq i16 %5, 14
   %272 = icmp eq i8 %6, 2
   %273 = and i1 %271, %272
-  %or.cond352.i = and i1 %273, %7
+  %or.cond352.i = and i1 %7, %273
   br i1 %or.cond352.i, label %274, label %284
 
 274:                                              ; preds = %270
@@ -2102,8 +2102,8 @@ decode_params_OcaDeviceManager.exit:              ; preds = %.lr.ph368.i, %158, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94)
   %356 = icmp eq i16 %5, 3
   %357 = icmp eq i8 %6, 2
-  %or.cond.i113 = and i1 %357, %7
-  %or.cond70.i = and i1 %356, %or.cond.i113
+  %or.cond.i112 = and i1 %7, %357
+  %or.cond70.i = and i1 %356, %or.cond.i112
   br i1 %or.cond70.i, label %358, label %383
 
 358:                                              ; preds = %355
@@ -2136,7 +2136,7 @@ decode_params_OcaDeviceManager.exit:              ; preds = %.lr.ph368.i, %158, 
 
 383:                                              ; preds = %355
   %384 = icmp eq i16 %5, 4
-  %or.cond71.i = and i1 %384, %or.cond.i113
+  %or.cond71.i = and i1 %384, %or.cond.i112
   br i1 %or.cond71.i, label %385, label %410
 
 385:                                              ; preds = %383
@@ -2171,7 +2171,7 @@ decode_params_OcaDeviceManager.exit:              ; preds = %.lr.ph368.i, %158, 
   %411 = icmp eq i16 %5, 5
   %412 = icmp eq i8 %6, 1
   %413 = and i1 %411, %412
-  %or.cond72.i = and i1 %413, %7
+  %or.cond72.i = and i1 %7, %413
   br i1 %or.cond72.i, label %414, label %421
 
 414:                                              ; preds = %410
@@ -2208,8 +2208,8 @@ decode_params_OcaSecurityManager.exit:            ; preds = %358, %385, %414, %4
   %425 = icmp ne i16 %5, 1
   %426 = icmp ne i8 %6, 1
   %427 = or i1 %425, %426
-  %or.cond.i115 = or i1 %427, %7
-  br i1 %or.cond.i115, label %460, label %428
+  %or.cond.i114 = or i1 %7, %427
+  br i1 %or.cond.i114, label %460, label %428
 
 428:                                              ; preds = %424
   %429 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %1, i32 noundef 0) #6
@@ -2220,16 +2220,16 @@ decode_params_OcaSecurityManager.exit:            ; preds = %358, %385, %414, %4
   %434 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %432, i32 noundef %433, ptr noundef nonnull %82, ptr noundef nonnull @.str.371) #6
   %435 = load i32, ptr @hf_ocp1_params_list_count, align 4
   %436 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %435, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #6
-  %.not.i116 = icmp eq i16 %429, 0
-  br i1 %.not.i116, label %decode_params_OcaFirmwareManager.exit, label %.lr.ph.i117.preheader
+  %.not.i115 = icmp eq i16 %429, 0
+  br i1 %.not.i115, label %decode_params_OcaFirmwareManager.exit, label %.lr.ph.i116.preheader
 
-.lr.ph.i117.preheader:                            ; preds = %428
+.lr.ph.i116.preheader:                            ; preds = %428
   %437 = add i32 %1, 2
-  br label %.lr.ph.i117
+  br label %.lr.ph.i116
 
-.lr.ph.i117:                                      ; preds = %.lr.ph.i117.preheader, %.lr.ph.i117
-  %.0117125.i = phi i32 [ %459, %.lr.ph.i117 ], [ %437, %.lr.ph.i117.preheader ]
-  %.0118124.i = phi i32 [ %439, %.lr.ph.i117 ], [ 0, %.lr.ph.i117.preheader ]
+.lr.ph.i116:                                      ; preds = %.lr.ph.i116.preheader, %.lr.ph.i116
+  %.0117125.i = phi i32 [ %459, %.lr.ph.i116 ], [ %437, %.lr.ph.i116.preheader ]
+  %.0118124.i = phi i32 [ %439, %.lr.ph.i116 ], [ 0, %.lr.ph.i116.preheader ]
   %438 = load i32, ptr @ett_ocp1_params_compversion, align 4
   %439 = add nuw nsw i32 %.0118124.i, 1
   %440 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %434, ptr noundef %0, i32 noundef %.0117125.i, i32 noundef 14, i32 noundef %438, ptr noundef null, ptr noundef nonnull @.str.372, i32 noundef %439) #6
@@ -2254,13 +2254,13 @@ decode_params_OcaSecurityManager.exit:            ; preds = %358, %385, %414, %4
   %458 = call ptr @proto_tree_add_item(ptr noundef %450, i32 noundef %457, ptr noundef %0, i32 noundef %447, i32 noundef 2, i32 noundef 0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81)
   %459 = add i32 %.0117125.i, 14
-  %exitcond.not.i118 = icmp eq i32 %439, %430
-  br i1 %exitcond.not.i118, label %decode_params_OcaFirmwareManager.exit, label %.lr.ph.i117, !llvm.loop !11
+  %exitcond.not.i117 = icmp eq i32 %439, %430
+  br i1 %exitcond.not.i117, label %decode_params_OcaFirmwareManager.exit, label %.lr.ph.i116, !llvm.loop !11
 
 460:                                              ; preds = %424
   %461 = icmp eq i16 %5, 3
   %462 = icmp eq i8 %6, 1
-  %or.cond5.i = and i1 %462, %7
+  %or.cond5.i = and i1 %7, %462
   %or.cond120.i = and i1 %461, %or.cond5.i
   br i1 %or.cond120.i, label %463, label %468
 
@@ -2275,7 +2275,7 @@ decode_params_OcaSecurityManager.exit:            ; preds = %358, %385, %414, %4
   %469 = icmp eq i16 %5, 4
   %470 = icmp eq i8 %6, 2
   %471 = and i1 %469, %470
-  %or.cond121.i = and i1 %471, %7
+  %or.cond121.i = and i1 %7, %471
   br i1 %or.cond121.i, label %472, label %494
 
 472:                                              ; preds = %468
@@ -2333,7 +2333,7 @@ decode_params_OcaSecurityManager.exit:            ; preds = %358, %385, %414, %4
   %515 = icmp eq i16 %5, 7
   %516 = icmp eq i8 %6, 3
   %517 = and i1 %515, %516
-  %or.cond123.i = and i1 %517, %7
+  %or.cond123.i = and i1 %7, %517
   br i1 %or.cond123.i, label %518, label %548
 
 518:                                              ; preds = %514
@@ -2374,7 +2374,7 @@ decode_params_OcaSecurityManager.exit:            ; preds = %358, %385, %414, %4
   %550 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %549, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
   br label %decode_params_OcaFirmwareManager.exit
 
-decode_params_OcaFirmwareManager.exit:            ; preds = %.lr.ph.i117, %428, %463, %472, %496, %518, %548
+decode_params_OcaFirmwareManager.exit:            ; preds = %.lr.ph.i116, %428, %463, %472, %496, %518, %548
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84)
@@ -2406,7 +2406,7 @@ decode_params_OcaFirmwareManager.exit:            ; preds = %.lr.ph.i117, %428, 
   %552 = icmp eq i16 %5, 1
   %553 = icmp eq i8 %6, 5
   %554 = and i1 %552, %553
-  %or.cond166.i = and i1 %554, %7
+  %or.cond166.i = and i1 %7, %554
   br i1 %or.cond166.i, label %555, label %626
 
 555:                                              ; preds = %551
@@ -2488,7 +2488,7 @@ decode_params_OcaFirmwareManager.exit:            ; preds = %.lr.ph.i117, %428, 
   %627 = icmp eq i16 %5, 2
   %628 = icmp eq i8 %6, 2
   %629 = and i1 %627, %628
-  %or.cond167.i = and i1 %629, %7
+  %or.cond167.i = and i1 %7, %629
   br i1 %or.cond167.i, label %630, label %660
 
 630:                                              ; preds = %626
@@ -2527,7 +2527,7 @@ decode_params_OcaFirmwareManager.exit:            ; preds = %.lr.ph.i117, %428, 
   %661 = icmp eq i16 %5, 5
   %662 = icmp eq i8 %6, 6
   %663 = and i1 %661, %662
-  %or.cond168.i = and i1 %663, %7
+  %or.cond168.i = and i1 %7, %663
   br i1 %or.cond168.i, label %664, label %736
 
 664:                                              ; preds = %660
@@ -2610,7 +2610,7 @@ decode_params_OcaFirmwareManager.exit:            ; preds = %.lr.ph.i117, %428, 
   %737 = icmp eq i16 %5, 6
   %738 = icmp eq i8 %6, 3
   %739 = and i1 %737, %738
-  %or.cond169.i = and i1 %739, %7
+  %or.cond169.i = and i1 %7, %739
   br i1 %or.cond169.i, label %740, label %772
 
 740:                                              ; preds = %736
@@ -2651,7 +2651,7 @@ decode_params_OcaFirmwareManager.exit:            ; preds = %.lr.ph.i117, %428, 
   %773 = icmp ne i16 %5, 7
   %774 = icmp ne i8 %6, 1
   %775 = or i1 %773, %774
-  %or.cond170.i = or i1 %775, %7
+  %or.cond170.i = or i1 %7, %775
   br i1 %or.cond170.i, label %781, label %776
 
 776:                                              ; preds = %772
@@ -2697,9 +2697,9 @@ decode_params_OcaSubscriptionManager.exit:        ; preds = %555, %630, %664, %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
   %785 = icmp ne i16 %5, 1
   %786 = icmp ne i8 %6, 1
-  %or.cond.not.i121 = or i1 %786, %7
-  %or.cond.i122 = or i1 %785, %or.cond.not.i121
-  br i1 %or.cond.i122, label %792, label %787
+  %or.cond.not.i120 = or i1 %786, %7
+  %or.cond.i121 = or i1 %785, %or.cond.not.i120
+  br i1 %or.cond.i121, label %792, label %787
 
 787:                                              ; preds = %784
   %788 = load i32, ptr @ett_ocp1_params, align 4
@@ -2712,7 +2712,7 @@ decode_params_OcaSubscriptionManager.exit:        ; preds = %555, %630, %664, %7
   %793 = icmp eq i16 %5, 2
   %794 = icmp eq i8 %6, 1
   %795 = and i1 %793, %794
-  %or.cond137.i = and i1 %795, %7
+  %or.cond137.i = and i1 %7, %795
   br i1 %or.cond137.i, label %796, label %801
 
 796:                                              ; preds = %792
@@ -2724,7 +2724,7 @@ decode_params_OcaSubscriptionManager.exit:        ; preds = %555, %630, %664, %7
 
 801:                                              ; preds = %792
   %802 = icmp ne i16 %5, 3
-  %or.cond138.i = or i1 %802, %or.cond.not.i121
+  %or.cond138.i = or i1 %802, %or.cond.not.i120
   br i1 %or.cond138.i, label %819, label %803
 
 803:                                              ; preds = %801
@@ -2736,28 +2736,28 @@ decode_params_OcaSubscriptionManager.exit:        ; preds = %555, %630, %664, %7
   %809 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %807, i32 noundef %808, ptr noundef nonnull %58, ptr noundef nonnull @.str.396) #6
   %810 = load i32, ptr @hf_ocp1_params_list_count, align 4
   %811 = call ptr @proto_tree_add_item(ptr noundef %809, i32 noundef %810, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #6
-  %.not.i124 = icmp eq i16 %804, 0
-  br i1 %.not.i124, label %decode_params_OcaPowerManager.exit, label %.lr.ph.i125.preheader
+  %.not.i123 = icmp eq i16 %804, 0
+  br i1 %.not.i123, label %decode_params_OcaPowerManager.exit, label %.lr.ph.i124.preheader
 
-.lr.ph.i125.preheader:                            ; preds = %803
+.lr.ph.i124.preheader:                            ; preds = %803
   %812 = add i32 %1, 2
-  br label %.lr.ph.i125
+  br label %.lr.ph.i124
 
-.lr.ph.i125:                                      ; preds = %.lr.ph.i125.preheader, %.lr.ph.i125
-  %.1144.i = phi i32 [ %818, %.lr.ph.i125 ], [ %812, %.lr.ph.i125.preheader ]
-  %.0134143.i = phi i32 [ %814, %.lr.ph.i125 ], [ 0, %.lr.ph.i125.preheader ]
+.lr.ph.i124:                                      ; preds = %.lr.ph.i124.preheader, %.lr.ph.i124
+  %.1144.i = phi i32 [ %818, %.lr.ph.i124 ], [ %812, %.lr.ph.i124.preheader ]
+  %.0134143.i = phi i32 [ %814, %.lr.ph.i124 ], [ 0, %.lr.ph.i124.preheader ]
   %813 = load i32, ptr @ett_ocp1_params_compversion, align 4
   %814 = add nuw nsw i32 %.0134143.i, 1
   %815 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %809, ptr noundef %0, i32 noundef %.1144.i, i32 noundef 4, i32 noundef %813, ptr noundef null, ptr noundef nonnull @.str.397, i32 noundef %814) #6
   %816 = load i32, ptr @hf_ocp1_params_ono, align 4
   %817 = call ptr @proto_tree_add_item(ptr noundef %815, i32 noundef %816, ptr noundef %0, i32 noundef %.1144.i, i32 noundef 4, i32 noundef 0) #6
   %818 = add i32 %.1144.i, 4
-  %exitcond.not.i126 = icmp eq i32 %814, %805
-  br i1 %exitcond.not.i126, label %decode_params_OcaPowerManager.exit, label %.lr.ph.i125, !llvm.loop !12
+  %exitcond.not.i125 = icmp eq i32 %814, %805
+  br i1 %exitcond.not.i125, label %decode_params_OcaPowerManager.exit, label %.lr.ph.i124, !llvm.loop !12
 
 819:                                              ; preds = %801
   %820 = icmp ne i16 %5, 4
-  %or.cond139.i = or i1 %820, %or.cond.not.i121
+  %or.cond139.i = or i1 %820, %or.cond.not.i120
   br i1 %or.cond139.i, label %837, label %821
 
 821:                                              ; preds = %819
@@ -2792,7 +2792,7 @@ decode_params_OcaSubscriptionManager.exit:        ; preds = %555, %630, %664, %7
   %838 = icmp eq i16 %5, 5
   %839 = icmp eq i8 %6, 3
   %840 = and i1 %838, %839
-  %or.cond140.i = and i1 %840, %7
+  %or.cond140.i = and i1 %7, %840
   br i1 %or.cond140.i, label %841, label %856
 
 841:                                              ; preds = %837
@@ -2814,7 +2814,7 @@ decode_params_OcaSubscriptionManager.exit:        ; preds = %555, %630, %664, %7
 
 856:                                              ; preds = %837
   %857 = icmp ne i16 %5, 6
-  %or.cond141.i = or i1 %857, %or.cond.not.i121
+  %or.cond141.i = or i1 %857, %or.cond.not.i120
   br i1 %or.cond141.i, label %863, label %858
 
 858:                                              ; preds = %856
@@ -2829,7 +2829,7 @@ decode_params_OcaSubscriptionManager.exit:        ; preds = %555, %630, %664, %7
   %865 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %864, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
   br label %decode_params_OcaPowerManager.exit
 
-decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i125, %.lr.ph147.i, %787, %796, %803, %821, %841, %858, %863
+decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i124, %.lr.ph147.i, %787, %796, %803, %821, %841, %858, %863
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
@@ -2847,9 +2847,9 @@ decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i125, %.lr.p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
   %867 = icmp ne i16 %5, 1
   %868 = icmp ne i8 %6, 1
-  %or.cond.not.i127 = or i1 %868, %7
-  %or.cond.i128 = or i1 %867, %or.cond.not.i127
-  br i1 %or.cond.i128, label %885, label %869
+  %or.cond.not.i126 = or i1 %868, %7
+  %or.cond.i127 = or i1 %867, %or.cond.not.i126
+  br i1 %or.cond.i127, label %885, label %869
 
 869:                                              ; preds = %866
   %870 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %1, i32 noundef 0) #6
@@ -2860,28 +2860,28 @@ decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i125, %.lr.p
   %875 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %873, i32 noundef %874, ptr noundef nonnull %52, ptr noundef nonnull @.str.401) #6
   %876 = load i32, ptr @hf_ocp1_params_list_count, align 4
   %877 = call ptr @proto_tree_add_item(ptr noundef %875, i32 noundef %876, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #6
-  %.not.i129 = icmp eq i16 %870, 0
-  br i1 %.not.i129, label %decode_params_OcaNetworkManager.exit, label %.lr.ph.i130.preheader
+  %.not.i128 = icmp eq i16 %870, 0
+  br i1 %.not.i128, label %decode_params_OcaNetworkManager.exit, label %.lr.ph.i129.preheader
 
-.lr.ph.i130.preheader:                            ; preds = %869
+.lr.ph.i129.preheader:                            ; preds = %869
   %878 = add i32 %1, 2
-  br label %.lr.ph.i130
+  br label %.lr.ph.i129
 
-.lr.ph.i130:                                      ; preds = %.lr.ph.i130.preheader, %.lr.ph.i130
-  %.0138.i = phi i32 [ %884, %.lr.ph.i130 ], [ %878, %.lr.ph.i130.preheader ]
-  %.0127137.i = phi i32 [ %880, %.lr.ph.i130 ], [ 0, %.lr.ph.i130.preheader ]
+.lr.ph.i129:                                      ; preds = %.lr.ph.i129.preheader, %.lr.ph.i129
+  %.0138.i = phi i32 [ %884, %.lr.ph.i129 ], [ %878, %.lr.ph.i129.preheader ]
+  %.0127137.i = phi i32 [ %880, %.lr.ph.i129 ], [ 0, %.lr.ph.i129.preheader ]
   %879 = load i32, ptr @ett_ocp1_params_compversion, align 4
   %880 = add nuw nsw i32 %.0127137.i, 1
   %881 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %875, ptr noundef %0, i32 noundef %.0138.i, i32 noundef 4, i32 noundef %879, ptr noundef null, ptr noundef nonnull @.str.402, i32 noundef %880) #6
   %882 = load i32, ptr @hf_ocp1_params_ono, align 4
   %883 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %882, ptr noundef %0, i32 noundef %.0138.i, i32 noundef 4, i32 noundef 0) #6
   %884 = add i32 %.0138.i, 4
-  %exitcond.not.i131 = icmp eq i32 %880, %871
-  br i1 %exitcond.not.i131, label %decode_params_OcaNetworkManager.exit, label %.lr.ph.i130, !llvm.loop !14
+  %exitcond.not.i130 = icmp eq i32 %880, %871
+  br i1 %exitcond.not.i130, label %decode_params_OcaNetworkManager.exit, label %.lr.ph.i129, !llvm.loop !14
 
 885:                                              ; preds = %866
   %886 = icmp ne i16 %5, 2
-  %or.cond131.i = or i1 %886, %or.cond.not.i127
+  %or.cond131.i = or i1 %886, %or.cond.not.i126
   br i1 %or.cond131.i, label %903, label %887
 
 887:                                              ; preds = %885
@@ -2914,7 +2914,7 @@ decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i125, %.lr.p
 
 903:                                              ; preds = %885
   %904 = icmp ne i16 %5, 3
-  %or.cond132.i = or i1 %904, %or.cond.not.i127
+  %or.cond132.i = or i1 %904, %or.cond.not.i126
   br i1 %or.cond132.i, label %921, label %905
 
 905:                                              ; preds = %903
@@ -2947,7 +2947,7 @@ decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i125, %.lr.p
 
 921:                                              ; preds = %903
   %922 = icmp ne i16 %5, 4
-  %or.cond133.i = or i1 %922, %or.cond.not.i127
+  %or.cond133.i = or i1 %922, %or.cond.not.i126
   br i1 %or.cond133.i, label %939, label %923
 
 923:                                              ; preds = %921
@@ -2983,7 +2983,7 @@ decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i125, %.lr.p
   %941 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %940, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
   br label %decode_params_OcaNetworkManager.exit
 
-decode_params_OcaNetworkManager.exit:             ; preds = %.lr.ph.i130, %.lr.ph141.i, %.lr.ph145.i, %.lr.ph149.i, %869, %887, %905, %923, %939
+decode_params_OcaNetworkManager.exit:             ; preds = %.lr.ph.i129, %.lr.ph141.i, %.lr.ph145.i, %.lr.ph149.i, %869, %887, %905, %923, %939
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
@@ -2996,9 +2996,9 @@ decode_params_OcaNetworkManager.exit:             ; preds = %.lr.ph.i130, %.lr.p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51)
   %943 = icmp ne i16 %5, 1
   %944 = icmp ne i8 %6, 1
-  %or.cond.not.i133 = or i1 %944, %7
-  %or.cond.i134 = or i1 %943, %or.cond.not.i133
-  br i1 %or.cond.i134, label %961, label %945
+  %or.cond.not.i132 = or i1 %944, %7
+  %or.cond.i133 = or i1 %943, %or.cond.not.i132
+  br i1 %or.cond.i133, label %961, label %945
 
 945:                                              ; preds = %942
   %946 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %1, i32 noundef 0) #6
@@ -3009,28 +3009,28 @@ decode_params_OcaNetworkManager.exit:             ; preds = %.lr.ph.i130, %.lr.p
   %951 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %949, i32 noundef %950, ptr noundef nonnull %49, ptr noundef nonnull @.str.406) #6
   %952 = load i32, ptr @hf_ocp1_params_list_count, align 4
   %953 = call ptr @proto_tree_add_item(ptr noundef %951, i32 noundef %952, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #6
-  %.not.i135 = icmp eq i16 %946, 0
-  br i1 %.not.i135, label %decode_params_OcaMediaClockManager.exit, label %.lr.ph.i136.preheader
+  %.not.i134 = icmp eq i16 %946, 0
+  br i1 %.not.i134, label %decode_params_OcaMediaClockManager.exit, label %.lr.ph.i135.preheader
 
-.lr.ph.i136.preheader:                            ; preds = %945
+.lr.ph.i135.preheader:                            ; preds = %945
   %954 = add i32 %1, 2
-  br label %.lr.ph.i136
+  br label %.lr.ph.i135
 
-.lr.ph.i136:                                      ; preds = %.lr.ph.i136.preheader, %.lr.ph.i136
-  %.0105.i = phi i32 [ %960, %.lr.ph.i136 ], [ %954, %.lr.ph.i136.preheader ]
-  %.097104.i = phi i32 [ %956, %.lr.ph.i136 ], [ 0, %.lr.ph.i136.preheader ]
+.lr.ph.i135:                                      ; preds = %.lr.ph.i135.preheader, %.lr.ph.i135
+  %.0105.i = phi i32 [ %960, %.lr.ph.i135 ], [ %954, %.lr.ph.i135.preheader ]
+  %.097104.i = phi i32 [ %956, %.lr.ph.i135 ], [ 0, %.lr.ph.i135.preheader ]
   %955 = load i32, ptr @ett_ocp1_params_compversion, align 4
   %956 = add nuw nsw i32 %.097104.i, 1
   %957 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %951, ptr noundef %0, i32 noundef %.0105.i, i32 noundef 4, i32 noundef %955, ptr noundef null, ptr noundef nonnull @.str.407, i32 noundef %956) #6
   %958 = load i32, ptr @hf_ocp1_params_ono, align 4
   %959 = call ptr @proto_tree_add_item(ptr noundef %957, i32 noundef %958, ptr noundef %0, i32 noundef %.0105.i, i32 noundef 4, i32 noundef 0) #6
   %960 = add i32 %.0105.i, 4
-  %exitcond.not.i137 = icmp eq i32 %956, %947
-  br i1 %exitcond.not.i137, label %decode_params_OcaMediaClockManager.exit, label %.lr.ph.i136, !llvm.loop !18
+  %exitcond.not.i136 = icmp eq i32 %956, %947
+  br i1 %exitcond.not.i136, label %decode_params_OcaMediaClockManager.exit, label %.lr.ph.i135, !llvm.loop !18
 
 961:                                              ; preds = %942
   %962 = icmp ne i16 %5, 2
-  %or.cond100.i = or i1 %962, %or.cond.not.i133
+  %or.cond100.i = or i1 %962, %or.cond.not.i132
   br i1 %or.cond100.i, label %978, label %963
 
 963:                                              ; preds = %961
@@ -3062,7 +3062,7 @@ decode_params_OcaNetworkManager.exit:             ; preds = %.lr.ph.i130, %.lr.p
 
 978:                                              ; preds = %961
   %979 = icmp ne i16 %5, 3
-  %or.cond101.i = or i1 %979, %or.cond.not.i133
+  %or.cond101.i = or i1 %979, %or.cond.not.i132
   br i1 %or.cond101.i, label %996, label %980
 
 980:                                              ; preds = %978
@@ -3098,7 +3098,7 @@ decode_params_OcaNetworkManager.exit:             ; preds = %.lr.ph.i130, %.lr.p
   %998 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %997, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
   br label %decode_params_OcaMediaClockManager.exit
 
-decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i136, %.lr.ph108.i, %.lr.ph112.i, %945, %963, %980, %996
+decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i135, %.lr.ph108.i, %.lr.ph112.i, %945, %963, %980, %996
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
@@ -3116,8 +3116,8 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i136, %.lr.p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
   %1000 = icmp eq i16 %5, 1
   %1001 = icmp eq i8 %6, 1
-  %or.cond.i139 = and i1 %1001, %7
-  %or.cond145.i = and i1 %1000, %or.cond.i139
+  %or.cond.i138 = and i1 %7, %1001
+  %or.cond145.i = and i1 %1000, %or.cond.i138
   br i1 %or.cond145.i, label %1002, label %1009
 
 1002:                                             ; preds = %999
@@ -3131,10 +3131,10 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i136, %.lr.p
   br label %decode_params_OcaLibraryManager.exit
 
 1009:                                             ; preds = %999
-  %.not.i140 = xor i1 %1000, true
+  %.not.i139 = xor i1 %1000, true
   %1010 = icmp ne i8 %6, 1
   %or.cond5.not.i = or i1 %1010, %7
-  %or.cond146.i = or i1 %or.cond5.not.i, %.not.i140
+  %or.cond146.i = or i1 %or.cond5.not.i, %.not.i139
   br i1 %or.cond146.i, label %1021, label %1011
 
 1011:                                             ; preds = %1009
@@ -3152,7 +3152,7 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i136, %.lr.p
 
 1021:                                             ; preds = %1009
   %1022 = icmp eq i16 %5, 2
-  %or.cond147.i = and i1 %1022, %or.cond.i139
+  %or.cond147.i = and i1 %1022, %or.cond.i138
   br i1 %or.cond147.i, label %1023, label %1028
 
 1023:                                             ; preds = %1021
@@ -3164,7 +3164,7 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i136, %.lr.p
 
 1028:                                             ; preds = %1021
   %1029 = icmp eq i16 %5, 3
-  %or.cond148.i = and i1 %1029, %or.cond.i139
+  %or.cond148.i = and i1 %1029, %or.cond.i138
   br i1 %or.cond148.i, label %1030, label %1037
 
 1030:                                             ; preds = %1028
@@ -3178,8 +3178,8 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i136, %.lr.p
   br label %decode_params_OcaLibraryManager.exit
 
 1037:                                             ; preds = %1028
-  %.not149.i142 = xor i1 %1029, true
-  %or.cond150.i = or i1 %or.cond5.not.i, %.not149.i142
+  %.not149.i141 = xor i1 %1029, true
+  %or.cond150.i = or i1 %or.cond5.not.i, %.not149.i141
   br i1 %or.cond150.i, label %1043, label %1038
 
 1038:                                             ; preds = %1037
@@ -3191,7 +3191,7 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i136, %.lr.p
 
 1043:                                             ; preds = %1037
   %1044 = icmp eq i16 %5, 4
-  %or.cond151.i = and i1 %1044, %or.cond.i139
+  %or.cond151.i = and i1 %1044, %or.cond.i138
   br i1 %or.cond151.i, label %1045, label %1048
 
 1045:                                             ; preds = %1043
@@ -3201,8 +3201,8 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i136, %.lr.p
   br label %decode_params_OcaLibraryManager.exit
 
 1048:                                             ; preds = %1043
-  %.not152.i143 = xor i1 %1044, true
-  %or.cond153.i = or i1 %or.cond5.not.i, %.not152.i143
+  %.not152.i142 = xor i1 %1044, true
+  %or.cond153.i = or i1 %or.cond5.not.i, %.not152.i142
   br i1 %or.cond153.i, label %1070, label %1049
 
 1049:                                             ; preds = %1048
@@ -3215,15 +3215,15 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i136, %.lr.p
   %1056 = load i32, ptr @hf_ocp1_params_list_count, align 4
   %1057 = call ptr @proto_tree_add_item(ptr noundef %1055, i32 noundef %1056, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #6
   %.not158.i = icmp eq i16 %1050, 0
-  br i1 %.not158.i, label %decode_params_OcaLibraryManager.exit, label %.lr.ph.i144.preheader
+  br i1 %.not158.i, label %decode_params_OcaLibraryManager.exit, label %.lr.ph.i143.preheader
 
-.lr.ph.i144.preheader:                            ; preds = %1049
+.lr.ph.i143.preheader:                            ; preds = %1049
   %1058 = add i32 %1, 2
-  br label %.lr.ph.i144
+  br label %.lr.ph.i143
 
-.lr.ph.i144:                                      ; preds = %.lr.ph.i144.preheader, %.lr.ph.i144
-  %.1157.i = phi i32 [ %1069, %.lr.ph.i144 ], [ %1058, %.lr.ph.i144.preheader ]
-  %.0143156.i = phi i32 [ %1060, %.lr.ph.i144 ], [ 0, %.lr.ph.i144.preheader ]
+.lr.ph.i143:                                      ; preds = %.lr.ph.i143.preheader, %.lr.ph.i143
+  %.1157.i = phi i32 [ %1069, %.lr.ph.i143 ], [ %1058, %.lr.ph.i143.preheader ]
+  %.0143156.i = phi i32 [ %1060, %.lr.ph.i143 ], [ 0, %.lr.ph.i143.preheader ]
   %1059 = load i32, ptr @ett_ocp1_params_compversion, align 4
   %1060 = add nuw nsw i32 %.0143156.i, 1
   %1061 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1055, ptr noundef %0, i32 noundef %.1157.i, i32 noundef 11, i32 noundef %1059, ptr noundef null, ptr noundef nonnull @.str.415, i32 noundef %1060) #6
@@ -3236,8 +3236,8 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i136, %.lr.p
   %1067 = load i32, ptr @hf_ocp1_params_ono, align 4
   %1068 = call ptr @proto_tree_add_item(ptr noundef %1061, i32 noundef %1067, ptr noundef %0, i32 noundef %1066, i32 noundef 4, i32 noundef 0) #6
   %1069 = add i32 %.1157.i, 11
-  %exitcond.not.i145 = icmp eq i32 %1060, %1051
-  br i1 %exitcond.not.i145, label %decode_params_OcaLibraryManager.exit, label %.lr.ph.i144, !llvm.loop !21
+  %exitcond.not.i144 = icmp eq i32 %1060, %1051
+  br i1 %exitcond.not.i144, label %decode_params_OcaLibraryManager.exit, label %.lr.ph.i143, !llvm.loop !21
 
 1070:                                             ; preds = %1048
   %1071 = icmp ne i16 %5, 5
@@ -3252,7 +3252,7 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i136, %.lr.p
 
 1075:                                             ; preds = %1070
   %1076 = icmp eq i16 %5, 6
-  %or.cond155.i = and i1 %1076, %or.cond.i139
+  %or.cond155.i = and i1 %1076, %or.cond.i138
   br i1 %or.cond155.i, label %1077, label %1080
 
 1077:                                             ; preds = %1075
@@ -3266,7 +3266,7 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i136, %.lr.p
   %1082 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1081, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
   br label %decode_params_OcaLibraryManager.exit
 
-decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i144, %1002, %1011, %1023, %1030, %1038, %1045, %1049, %1072, %1077, %1080
+decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i143, %1002, %1011, %1023, %1030, %1038, %1045, %1049, %1072, %1077, %1080
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
@@ -3293,9 +3293,9 @@ decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i144, %1002,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
   %1087 = icmp ne i16 %5, 1
   %1088 = icmp ne i8 %6, 1
-  %or.cond.not.i146 = or i1 %1088, %7
-  %or.cond.i147 = or i1 %1087, %or.cond.not.i146
-  br i1 %or.cond.i147, label %1094, label %1089
+  %or.cond.not.i145 = or i1 %1088, %7
+  %or.cond.i146 = or i1 %1087, %or.cond.not.i145
+  br i1 %or.cond.i146, label %1094, label %1089
 
 1089:                                             ; preds = %1086
   %1090 = load i32, ptr @ett_ocp1_params, align 4
@@ -3307,8 +3307,8 @@ decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i144, %1002,
 1094:                                             ; preds = %1086
   %1095 = icmp eq i16 %5, 2
   %1096 = icmp eq i8 %6, 1
-  %or.cond5.i149 = and i1 %1096, %7
-  %or.cond119.i = and i1 %1095, %or.cond5.i149
+  %or.cond5.i148 = and i1 %7, %1096
+  %or.cond119.i = and i1 %1095, %or.cond5.i148
   br i1 %or.cond119.i, label %1097, label %1102
 
 1097:                                             ; preds = %1094
@@ -3320,8 +3320,8 @@ decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i144, %1002,
 
 1102:                                             ; preds = %1094
   %1103 = icmp ne i16 %5, 3
-  %or.cond120.i150 = or i1 %1103, %or.cond.not.i146
-  br i1 %or.cond120.i150, label %1120, label %1104
+  %or.cond120.i149 = or i1 %1103, %or.cond.not.i145
+  br i1 %or.cond120.i149, label %1120, label %1104
 
 1104:                                             ; preds = %1102
   %1105 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %1, i32 noundef 0) #6
@@ -3332,29 +3332,29 @@ decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i144, %1002,
   %1110 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1108, i32 noundef %1109, ptr noundef nonnull %35, ptr noundef nonnull @.str.418) #6
   %1111 = load i32, ptr @hf_ocp1_params_list_count, align 4
   %1112 = call ptr @proto_tree_add_item(ptr noundef %1110, i32 noundef %1111, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #6
-  %.not.i151 = icmp eq i16 %1105, 0
-  br i1 %.not.i151, label %decode_params_OcaDeviceTimeManager.exit, label %.lr.ph.i152.preheader
+  %.not.i150 = icmp eq i16 %1105, 0
+  br i1 %.not.i150, label %decode_params_OcaDeviceTimeManager.exit, label %.lr.ph.i151.preheader
 
-.lr.ph.i152.preheader:                            ; preds = %1104
+.lr.ph.i151.preheader:                            ; preds = %1104
   %1113 = add i32 %1, 2
-  br label %.lr.ph.i152
+  br label %.lr.ph.i151
 
-.lr.ph.i152:                                      ; preds = %.lr.ph.i152.preheader, %.lr.ph.i152
-  %.1126.i = phi i32 [ %1119, %.lr.ph.i152 ], [ %1113, %.lr.ph.i152.preheader ]
-  %.0117125.i153 = phi i32 [ %1115, %.lr.ph.i152 ], [ 0, %.lr.ph.i152.preheader ]
+.lr.ph.i151:                                      ; preds = %.lr.ph.i151.preheader, %.lr.ph.i151
+  %.1126.i = phi i32 [ %1119, %.lr.ph.i151 ], [ %1113, %.lr.ph.i151.preheader ]
+  %.0117125.i152 = phi i32 [ %1115, %.lr.ph.i151 ], [ 0, %.lr.ph.i151.preheader ]
   %1114 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %1115 = add nuw nsw i32 %.0117125.i153, 1
+  %1115 = add nuw nsw i32 %.0117125.i152, 1
   %1116 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1110, ptr noundef %0, i32 noundef %.1126.i, i32 noundef 4, i32 noundef %1114, ptr noundef null, ptr noundef nonnull @.str.419, i32 noundef %1115) #6
   %1117 = load i32, ptr @hf_ocp1_params_ono, align 4
   %1118 = call ptr @proto_tree_add_item(ptr noundef %1116, i32 noundef %1117, ptr noundef %0, i32 noundef %.1126.i, i32 noundef 4, i32 noundef 0) #6
   %1119 = add i32 %.1126.i, 4
-  %exitcond.not.i154 = icmp eq i32 %1115, %1106
-  br i1 %exitcond.not.i154, label %decode_params_OcaDeviceTimeManager.exit, label %.lr.ph.i152, !llvm.loop !22
+  %exitcond.not.i153 = icmp eq i32 %1115, %1106
+  br i1 %exitcond.not.i153, label %decode_params_OcaDeviceTimeManager.exit, label %.lr.ph.i151, !llvm.loop !22
 
 1120:                                             ; preds = %1102
   %1121 = icmp ne i16 %5, 4
-  %or.cond121.i155 = or i1 %1121, %or.cond.not.i146
-  br i1 %or.cond121.i155, label %1127, label %1122
+  %or.cond121.i154 = or i1 %1121, %or.cond.not.i145
+  br i1 %or.cond121.i154, label %1127, label %1122
 
 1122:                                             ; preds = %1120
   %1123 = load i32, ptr @ett_ocp1_params, align 4
@@ -3365,8 +3365,8 @@ decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i144, %1002,
 
 1127:                                             ; preds = %1120
   %1128 = icmp eq i16 %5, 5
-  %or.cond122.i156 = and i1 %1128, %or.cond5.i149
-  br i1 %or.cond122.i156, label %1129, label %1134
+  %or.cond122.i155 = and i1 %1128, %or.cond5.i148
+  br i1 %or.cond122.i155, label %1129, label %1134
 
 1129:                                             ; preds = %1127
   %1130 = load i32, ptr @ett_ocp1_params, align 4
@@ -3377,8 +3377,8 @@ decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i144, %1002,
 
 1134:                                             ; preds = %1127
   %1135 = icmp ne i16 %5, 6
-  %or.cond123.i157 = or i1 %1135, %or.cond.not.i146
-  br i1 %or.cond123.i157, label %1139, label %1136
+  %or.cond123.i156 = or i1 %1135, %or.cond.not.i145
+  br i1 %or.cond123.i156, label %1139, label %1136
 
 1136:                                             ; preds = %1134
   %1137 = load i32, ptr @ett_ocp1_params, align 4
@@ -3388,7 +3388,7 @@ decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i144, %1002,
 
 1139:                                             ; preds = %1134
   %1140 = icmp eq i16 %5, 7
-  %or.cond124.i = and i1 %1140, %or.cond5.i149
+  %or.cond124.i = and i1 %1140, %or.cond5.i148
   br i1 %or.cond124.i, label %1141, label %1144
 
 1141:                                             ; preds = %1139
@@ -3402,7 +3402,7 @@ decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i144, %1002,
   %1146 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1145, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
   br label %decode_params_OcaDeviceTimeManager.exit
 
-decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089, %1097, %1104, %1122, %1129, %1136, %1141, %1144
+decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i151, %1089, %1097, %1104, %1122, %1129, %1136, %1141, %1144
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
@@ -3435,8 +3435,8 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   %1148 = icmp eq i16 %5, 1
   %1149 = icmp eq i8 %6, 1
-  %or.cond.i158 = and i1 %1149, %7
-  %or.cond361.i = and i1 %1148, %or.cond.i158
+  %or.cond.i157 = and i1 %7, %1149
+  %or.cond361.i = and i1 %1148, %or.cond.i157
   br i1 %or.cond361.i, label %1150, label %1155
 
 1150:                                             ; preds = %1147
@@ -3449,8 +3449,8 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
 1155:                                             ; preds = %1147
   %1156 = icmp eq i16 %5, 2
   %1157 = icmp eq i8 %6, 2
-  %or.cond5.i159 = and i1 %1157, %7
-  %or.cond362.i = and i1 %1156, %or.cond5.i159
+  %or.cond5.i158 = and i1 %7, %1157
+  %or.cond362.i = and i1 %1156, %or.cond5.i158
   br i1 %or.cond362.i, label %1158, label %1181
 
 1158:                                             ; preds = %1155
@@ -3482,7 +3482,7 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
 1181:                                             ; preds = %1155
   %1182 = icmp eq i16 %5, 3
   %1183 = icmp eq i8 %6, 3
-  %or.cond8.i = and i1 %1183, %7
+  %or.cond8.i = and i1 %7, %1183
   %or.cond363.i = and i1 %1182, %or.cond8.i
   br i1 %or.cond363.i, label %1184, label %1212
 
@@ -3569,7 +3569,7 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
 
 1250:                                             ; preds = %1242
   %1251 = icmp eq i16 %5, 6
-  %or.cond366.i = and i1 %1251, %or.cond.i158
+  %or.cond366.i = and i1 %1251, %or.cond.i157
   br i1 %or.cond366.i, label %1252, label %1255
 
 1252:                                             ; preds = %1250
@@ -3580,7 +3580,7 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
 
 1255:                                             ; preds = %1250
   %1256 = icmp eq i16 %5, 7
-  %or.cond367.i = and i1 %1256, %or.cond.i158
+  %or.cond367.i = and i1 %1256, %or.cond.i157
   br i1 %or.cond367.i, label %1257, label %1262
 
 1257:                                             ; preds = %1255
@@ -3591,8 +3591,8 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
   br label %decode_params_OcaTaskManager.exit
 
 1262:                                             ; preds = %1255
-  %.not.i161 = xor i1 %1256, true
-  %or.cond368.i = or i1 %or.cond14.not.i, %.not.i161
+  %.not.i160 = xor i1 %1256, true
+  %or.cond368.i = or i1 %or.cond14.not.i, %.not.i160
   br i1 %or.cond368.i, label %1266, label %1263
 
 1263:                                             ; preds = %1262
@@ -3643,17 +3643,17 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
 1292:                                             ; preds = %1290
   %1293 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %1, i32 noundef 0) #6
   %1294 = zext i16 %1293 to i32
-  %invariant.op.i162 = add i32 %1, 8
+  %invariant.op.i161 = add i32 %1, 8
   %invariant.op384.i = add i32 %1, 11
   %invariant.op386.i = add i32 %1, 17
   %.not400.i = icmp eq i16 %1293, 0
-  br i1 %.not400.i, label %._crit_edge.i166, label %.lr.ph.i163
+  br i1 %.not400.i, label %._crit_edge.i165, label %.lr.ph.i162
 
-.lr.ph.i163:                                      ; preds = %1292, %1303
+.lr.ph.i162:                                      ; preds = %1292, %1303
   %.0354391.i = phi i32 [ %1306, %1303 ], [ 2, %1292 ]
   %.0356390.i = phi i32 [ %1307, %1303 ], [ 0, %1292 ]
-  %.reass.i164 = add i32 %invariant.op.i162, %.0354391.i
-  %1295 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.reass.i164, i32 noundef 0) #6
+  %.reass.i163 = add i32 %invariant.op.i161, %.0354391.i
+  %1295 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.reass.i163, i32 noundef 0) #6
   %1296 = zext i16 %1295 to i32
   %.reass383.i = add i32 %.0354391.i, 10
   %1297 = add i32 %.reass383.i, %1296
@@ -3667,17 +3667,17 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
   %1302 = icmp eq i8 %1301, 2
   br i1 %1302, label %1303, label %decode_params_OcaTaskManager.exit
 
-1303:                                             ; preds = %.lr.ph.i163
+1303:                                             ; preds = %.lr.ph.i162
   %.reass387.i = add i32 %invariant.op386.i, %spec.select370.i
   %1304 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.reass387.i, i32 noundef 0) #6
   %1305 = zext i16 %1304 to i32
   %.reass389.i = add i32 %spec.select370.i, 19
   %1306 = add i32 %.reass389.i, %1305
   %1307 = add nuw nsw i32 %.0356390.i, 1
-  %exitcond.not.i165 = icmp eq i32 %1307, %1294
-  br i1 %exitcond.not.i165, label %._crit_edge.i166, label %.lr.ph.i163, !llvm.loop !23
+  %exitcond.not.i164 = icmp eq i32 %1307, %1294
+  br i1 %exitcond.not.i164, label %._crit_edge.i165, label %.lr.ph.i162, !llvm.loop !23
 
-._crit_edge.i166:                                 ; preds = %1303, %1292
+._crit_edge.i165:                                 ; preds = %1303, %1292
   %.0354.lcssa.i = phi i32 [ 2, %1292 ], [ %1306, %1303 ]
   %1308 = load i32, ptr @ett_ocp1_params, align 4
   %1309 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %.0354.lcssa.i, i32 noundef %1308, ptr noundef nonnull %27, ptr noundef nonnull @.str.433) #6
@@ -3685,7 +3685,7 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
   %1311 = call ptr @proto_tree_add_item(ptr noundef %1309, i32 noundef %1310, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #6
   br i1 %.not400.i, label %decode_params_OcaTaskManager.exit, label %.lr.ph398.i.preheader
 
-.lr.ph398.i.preheader:                            ; preds = %._crit_edge.i166
+.lr.ph398.i.preheader:                            ; preds = %._crit_edge.i165
   %1312 = add i32 %1, 2
   br label %.lr.ph398.i
 
@@ -3724,7 +3724,7 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
 
 1336:                                             ; preds = %1290
   %1337 = icmp eq i16 %5, 10
-  %or.cond372.i = and i1 %1337, %or.cond.i158
+  %or.cond372.i = and i1 %1337, %or.cond.i157
   br i1 %or.cond372.i, label %1338, label %1343
 
 1338:                                             ; preds = %1336
@@ -3767,7 +3767,7 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
 
 1366:                                             ; preds = %1343
   %1367 = icmp eq i16 %5, 11
-  %or.cond375.i = and i1 %1367, %or.cond5.i159
+  %or.cond375.i = and i1 %1367, %or.cond5.i158
   br i1 %or.cond375.i, label %1368, label %1394
 
 1368:                                             ; preds = %1366
@@ -3803,7 +3803,7 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
 
 1394:                                             ; preds = %1366
   %1395 = icmp eq i16 %5, 12
-  %or.cond377.i = and i1 %1395, %or.cond.i158
+  %or.cond377.i = and i1 %1395, %or.cond.i157
   br i1 %or.cond377.i, label %1396, label %1401
 
 1396:                                             ; preds = %1394
@@ -3818,7 +3818,7 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i152, %1089,
   %1403 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1402, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
   br label %decode_params_OcaTaskManager.exit
 
-decode_params_OcaTaskManager.exit:                ; preds = %.lr.ph.i163, %1324, %.lr.ph398.i, %1150, %1158, %1184, %1214, %1245, %1252, %1257, %1263, %1280, %._crit_edge.i166, %1338, %1356, %1385, %1396, %1401, %1268, %1344, %1368
+decode_params_OcaTaskManager.exit:                ; preds = %.lr.ph.i162, %1324, %.lr.ph398.i, %1150, %1158, %1184, %1214, %1245, %1252, %1257, %1263, %1280, %._crit_edge.i165, %1338, %1356, %1385, %1396, %1401, %1268, %1344, %1368
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
@@ -3844,40 +3844,40 @@ decode_params_OcaTaskManager.exit:                ; preds = %.lr.ph.i163, %1324,
 1404:                                             ; preds = %154
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %1405 = add i16 %5, -3
-  %or.cond.i167 = icmp ult i16 %1405, -2
+  %or.cond.i166 = icmp ult i16 %1405, -2
   %1406 = icmp ne i8 %6, 1
-  %1407 = or i1 %1406, %or.cond.i167
-  %or.cond55.i169 = or i1 %1407, %7
-  br i1 %or.cond55.i169, label %1428, label %1408
+  %1407 = or i1 %1406, %or.cond.i166
+  %or.cond55.i168 = or i1 %7, %1407
+  br i1 %or.cond55.i168, label %1428, label %1408
 
 1408:                                             ; preds = %1404
   %1409 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %1, i32 noundef 0) #6
   %1410 = zext i16 %1409 to i32
-  %invariant.op.i170 = add i32 %1, 4
-  %.not.i171 = icmp eq i16 %1409, 0
-  br i1 %.not.i171, label %._crit_edge.i175, label %.lr.ph.i172
+  %invariant.op.i169 = add i32 %1, 4
+  %.not.i170 = icmp eq i16 %1409, 0
+  br i1 %.not.i170, label %._crit_edge.i174, label %.lr.ph.i171
 
-.lr.ph.i172:                                      ; preds = %1408, %.lr.ph.i172
-  %.05159.i = phi i32 [ %1414, %.lr.ph.i172 ], [ 0, %1408 ]
-  %.05258.i = phi i32 [ %1413, %.lr.ph.i172 ], [ 2, %1408 ]
-  %.reass.i173 = add i32 %invariant.op.i170, %.05258.i
-  %1411 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.reass.i173, i32 noundef 0) #6
+.lr.ph.i171:                                      ; preds = %1408, %.lr.ph.i171
+  %.05159.i = phi i32 [ %1414, %.lr.ph.i171 ], [ 0, %1408 ]
+  %.05258.i = phi i32 [ %1413, %.lr.ph.i171 ], [ 2, %1408 ]
+  %.reass.i172 = add i32 %invariant.op.i169, %.05258.i
+  %1411 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.reass.i172, i32 noundef 0) #6
   %1412 = zext i16 %1411 to i32
   %.reass57.i = add i32 %.05258.i, 6
   %1413 = add i32 %.reass57.i, %1412
   %1414 = add nuw nsw i32 %.05159.i, 1
-  %exitcond.not.i174 = icmp eq i32 %1414, %1410
-  br i1 %exitcond.not.i174, label %._crit_edge.i175, label %.lr.ph.i172, !llvm.loop !25
+  %exitcond.not.i173 = icmp eq i32 %1414, %1410
+  br i1 %exitcond.not.i173, label %._crit_edge.i174, label %.lr.ph.i171, !llvm.loop !25
 
-._crit_edge.i175:                                 ; preds = %.lr.ph.i172, %1408
-  %.052.lcssa.i = phi i32 [ 2, %1408 ], [ %1413, %.lr.ph.i172 ]
+._crit_edge.i174:                                 ; preds = %.lr.ph.i171, %1408
+  %.052.lcssa.i = phi i32 [ 2, %1408 ], [ %1413, %.lr.ph.i171 ]
   %1415 = load i32, ptr @ett_ocp1_params, align 4
   %1416 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %.052.lcssa.i, i32 noundef %1415, ptr noundef nonnull %12, ptr noundef nonnull @.str.438) #6
   %1417 = load i32, ptr @hf_ocp1_params_map_count, align 4
   %1418 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1417, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #6
-  br i1 %.not.i171, label %decode_params_OcaCodingManager.exit, label %.lr.ph64.i.preheader
+  br i1 %.not.i170, label %decode_params_OcaCodingManager.exit, label %.lr.ph64.i.preheader
 
-.lr.ph64.i.preheader:                             ; preds = %._crit_edge.i175
+.lr.ph64.i.preheader:                             ; preds = %._crit_edge.i174
   %1419 = add i32 %1, 2
   br label %.lr.ph64.i
 
@@ -3900,7 +3900,7 @@ decode_params_OcaTaskManager.exit:                ; preds = %.lr.ph.i163, %1324,
   %1430 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1429, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
   br label %decode_params_OcaCodingManager.exit
 
-decode_params_OcaCodingManager.exit:              ; preds = %.lr.ph64.i, %._crit_edge.i175, %1428
+decode_params_OcaCodingManager.exit:              ; preds = %.lr.ph64.i, %._crit_edge.i174, %1428
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %1458
 
@@ -3909,8 +3909,8 @@ decode_params_OcaCodingManager.exit:              ; preds = %.lr.ph64.i, %._crit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %1432 = icmp eq i16 %5, 1
   %1433 = icmp eq i8 %6, 1
-  %or.cond.i178 = and i1 %1433, %7
-  %or.cond36.i = and i1 %1432, %or.cond.i178
+  %or.cond.i177 = and i1 %7, %1433
+  %or.cond36.i = and i1 %1432, %or.cond.i177
   br i1 %or.cond36.i, label %1434, label %1439
 
 1434:                                             ; preds = %1431
@@ -3921,10 +3921,10 @@ decode_params_OcaCodingManager.exit:              ; preds = %.lr.ph64.i, %._crit
   br label %decode_params_OcaDiagnosticManager.exit
 
 1439:                                             ; preds = %1431
-  %.not.i179 = xor i1 %1432, true
+  %.not.i178 = xor i1 %1432, true
   %1440 = icmp ne i8 %6, 1
-  %1441 = or i1 %1440, %.not.i179
-  %or.cond37.i = or i1 %1441, %7
+  %1441 = or i1 %1440, %.not.i178
+  %or.cond37.i = or i1 %7, %1441
   br i1 %or.cond37.i, label %1449, label %1442
 
 1442:                                             ; preds = %1439

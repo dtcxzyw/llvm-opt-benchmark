@@ -1391,7 +1391,7 @@ define hidden noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc
 define hidden noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h620d20f7270d4e2cE(i64 noundef %0, i64 noundef %1) unnamed_addr #11 {
   %.not = icmp ne i64 %0, 0
   %3 = shl i64 %1, 1
-  %4 = icmp ne i64 %3, %0
+  %4 = icmp ne i64 %0, %3
   %.0 = and i1 %.not, %4
   ret i1 %.0
 }

@@ -347,7 +347,7 @@ define noundef double @"_ZN126_$LT$statrs..distribution..fisher_snedecor..Fisher
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load double, ptr %11, align 8, !noundef !5
   %13 = fmul double %12, 5.000000e-01
-  %14 = fmul double %9, %1
+  %14 = fmul double %1, %9
   %15 = fadd double %14, %12
   %16 = fdiv double %14, %15
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -391,7 +391,7 @@ define noundef double @"_ZN126_$LT$statrs..distribution..fisher_snedecor..Fisher
   %11 = fmul double %10, 5.000000e-01
   %12 = load double, ptr %0, align 8, !noundef !5
   %13 = fmul double %12, 5.000000e-01
-  %14 = fmul double %12, %1
+  %14 = fmul double %1, %12
   %15 = fadd double %10, %14
   %16 = fdiv double %14, %15
   %17 = fsub double 1.000000e+00, %16
@@ -537,7 +537,7 @@ define noundef double @"_ZN123_$LT$statrs..distribution..fisher_snedecor..Fisher
 
 4:                                                ; preds = %2
   %5 = load double, ptr %0, align 8, !noundef !5
-  %6 = fmul double %5, %1
+  %6 = fmul double %1, %5
   %7 = tail call double @llvm.pow.f64(double %6, double %5)
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load double, ptr %8, align 8, !noundef !5
@@ -576,7 +576,7 @@ _ZN6statrs8function4beta4beta17h85c22bb6a61a7ba5E.exit: ; preds = %20
   %27 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %26), !noalias !30
   %28 = fsub double %25, %27
   %29 = tail call noundef double @llvm.exp.f64(double %28)
-  %30 = fmul double %29, %1
+  %30 = fmul double %1, %29
   %31 = fdiv double %16, %30
   br label %32
 
@@ -1128,7 +1128,7 @@ define noundef double @"_ZN125_$LT$statrs..distribution..negative_binomial..Nega
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef double @"_ZN47_$LT$f64$u20$as$u20$statrs..euclid..Modulus$GT$7modulus17ha2f53309ff8440adE"(double noundef %0, double noundef %1) unnamed_addr #6 {
   %3 = frem double %0, %1
-  %4 = fadd double %3, %1
+  %4 = fadd double %1, %3
   %5 = frem double %4, %1
   ret double %5
 }
@@ -1136,7 +1136,7 @@ define noundef double @"_ZN47_$LT$f64$u20$as$u20$statrs..euclid..Modulus$GT$7mod
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef float @"_ZN47_$LT$f32$u20$as$u20$statrs..euclid..Modulus$GT$7modulus17he63f5514805a38b5E"(float noundef %0, float noundef %1) unnamed_addr #6 {
   %3 = frem float %0, %1
-  %4 = fadd float %3, %1
+  %4 = fadd float %1, %3
   %5 = frem float %4, %1
   ret float %5
 }
@@ -1601,11 +1601,11 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   %35 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %2)
   %36 = fsub double %34, %35
   %37 = tail call noundef double @llvm.log.f64(double %3)
-  %38 = fmul double %37, %1
+  %38 = fmul double %1, %37
   %39 = fadd double %38, %36
   %40 = fsub double 1.000000e+00, %3
   %41 = tail call noundef double @llvm.log.f64(double %40)
-  %42 = fmul double %41, %2
+  %42 = fmul double %2, %41
   %43 = fadd double %42, %39
   %44 = tail call double @llvm.exp.f64(double %43)
   br label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread"
@@ -1616,7 +1616,7 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   %46 = fadd double %1, %2
   %47 = fadd double %46, 2.000000e+00
   %48 = fdiv double %45, %47
-  %49 = fcmp ole double %48, %3
+  %49 = fcmp oge double %3, %48
   %50 = fsub double 1.000000e+00, %3
   %.sroa.034.0 = select i1 %49, double %50, double %3
   %.sroa.017.0 = select i1 %49, double %1, double %2

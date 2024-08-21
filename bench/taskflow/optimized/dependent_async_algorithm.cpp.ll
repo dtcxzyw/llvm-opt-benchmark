@@ -2659,7 +2659,7 @@ _ZNSt10_HashtableINSt6thread2idESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %_wids, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %14
+  %cmp.i.i.i.i.i = icmp eq ptr %14, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapINSt6thread2idEmSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableINSt6thread2idESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -2741,7 +2741,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #29
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.09.i.i.i.i, %call5.i.i.i.i2.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i.i2.i, %__cur.09.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont2.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -3511,7 +3511,7 @@ _ZNSt10_HashtableINSt6thread2idESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
+  %cmp.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableINSt6thread2idESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableINSt6thread2idESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -4556,7 +4556,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableINSt6thread2idESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
+  %cmp.i.i.i = icmp eq ptr %9, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableINSt6thread2idESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -7180,7 +7180,7 @@ for.end26:                                        ; preds = %if.end.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 112
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.not.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   br i1 %cmp.not.i, label %for.body.i, label %if.then.i72
 
 if.then.i72:                                      ; preds = %for.end26
@@ -9679,7 +9679,7 @@ for.end:                                          ; preds = %for.body, %_ZSt9par
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %.lcssa to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i2 = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
+  %cmp.i2 = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
   br i1 %cmp.i2, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
@@ -9688,7 +9688,7 @@ if.then.i:                                        ; preds = %for.end
   br label %_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %for.end
-  %cmp4.i = icmp ule i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
+  %cmp4.i = icmp uge i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
   %tobool.not.i.i = icmp eq ptr %.lcssa, %__first.sroa.0.119.i.i
   %or.cond = or i1 %tobool.not.i.i, %cmp4.i
   br i1 %or.cond, label %_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit, label %invoke.cont.i.i
@@ -9795,7 +9795,7 @@ for.end:                                          ; preds = %if.end.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 112
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.not.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   br i1 %cmp.not.i, label %for.body.i, label %if.then.i35
 
 if.then.i35:                                      ; preds = %for.end
@@ -11035,7 +11035,7 @@ if.then27:                                        ; preds = %_ZNSt13__atomic_bas
   %.us-phi = phi i64 [ %shr.us, %if.end.us ], [ %shr, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit ]
   %.us-phi53 = phi i64 [ %state.0.us, %if.end.us ], [ %state.0, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit ]
   %tobool30 = icmp eq i64 %.us-phi, 0
-  %or.cond.not = or i1 %tobool30, %all
+  %or.cond.not = or i1 %all, %tobool30
   br i1 %or.cond.not, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.then27
@@ -11807,7 +11807,7 @@ entry:
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %EndX.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %EndX.i, align 8
-  %cmp = icmp eq ptr %1, %I
+  %cmp = icmp eq ptr %I, %1
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %To.coerce to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %From.coerce to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -12022,7 +12022,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body, %if.end39
   %From.sroa.0.0.lcssa = phi ptr [ %From.coerce, %if.end39 ], [ %incdec.ptr.i, %for.body ]
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %From.sroa.0.0.lcssa, %To.coerce
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %To.coerce, %From.sroa.0.0.lcssa
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.end
@@ -14795,7 +14795,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN2tf8TimelineESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN2tf8TimelineESaIS1_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN2tf8TimelineESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN2tf8TimelineESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN2tf8TimelineESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i12
@@ -16160,7 +16160,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN2tf14TFProfObserverEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN2tf14TFProfObserverEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN2tf14TFProfObserverEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN2tf14TFProfObserverEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN2tf14TFProfObserverEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -16218,7 +16218,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 80
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %num_workers
+  %cmp.i = icmp ugt i64 %num_workers, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -16227,7 +16227,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorISt5stackINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEESt5dequeIS9_SaIS9_EEESaISD_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %num_workers
+  %cmp4.i = icmp ult i64 %num_workers, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorISt5stackINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEESt5dequeIS9_SaIS9_EEESaISD_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -17250,7 +17250,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN2tf7SegmentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 56
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN2tf7SegmentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit28, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN2tf7SegmentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i19
@@ -17341,7 +17341,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -17350,7 +17350,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -17788,7 +17788,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #29
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEESaIS8_EE16_M_destroy_nodesEPPS8_SC_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -18475,7 +18475,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
+  %cmp.i.i.i = icmp eq ptr %9, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -18587,7 +18587,7 @@ _ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %15
+  %cmp.i.i.i = icmp eq ptr %15, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZNSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit
@@ -18888,7 +18888,7 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body7.prehead
   %ref.tmp.sroa.0.2.i.i.i.i = phi i64 [ %.sroa.speculated81.i.i.i.i.i, %"_ZZZZN2tf18make_for_each_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES7_Z4mainE3$_0NS_17GuidedPartitionerEEEDaT_T0_T1_OT2_ENUlRNS_7RuntimeEE_clESG_ENUlvE_clEvENUlmmE_clEmm.exit.i.i.i.i.i" ], [ %ref.tmp.sroa.0.0.i.i.i.i, %while.body7.preheader.i.i.i.i.i ]
   %11 = phi i64 [ %12, %"_ZZZZN2tf18make_for_each_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES7_Z4mainE3$_0NS_17GuidedPartitionerEEEDaT_T0_T1_OT2_ENUlRNS_7RuntimeEE_clESG_ENUlvE_clEvENUlmmE_clEmm.exit.i.i.i.i.i" ], [ %10, %while.body7.preheader.i.i.i.i.i ]
   %add11.i.i.i.i.i = add i64 %11, %spec.select.i.i.i.i.i
-  %.sroa.speculated81.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %add11.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i)
+  %.sroa.speculated81.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 %add11.i.i.i.i.i)
   %sub.i.i.i.i.i.i = sub i64 %11, %ref.tmp.sroa.0.2.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %ref.tmp.sroa.10.4.i.i.i, i64 %sub.i.i.i.i.i.i
   %cmp4.i.i.i.i.i.i = icmp ult i64 %11, %.sroa.speculated81.i.i.i.i.i
@@ -18915,7 +18915,7 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.
   %conv15.i.i.i.i.i = fptoui float %mul14.i.i.i.i.i to i64
   %spec.select55.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %spec.select.i.i.i.i.i, i64 %conv15.i.i.i.i.i)
   %add20.i.i.i.i.i = add i64 %spec.select55.i.i.i.i.i, %curr_b.090.i.i.i.i.i
-  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %add20.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i)
+  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 %add20.i.i.i.i.i)
   %13 = cmpxchg ptr %next.i.i.i, i64 %curr_b.090.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i monotonic monotonic, align 8
   %14 = extractvalue { i64, i1 } %13, 1
   %15 = extractvalue { i64, i1 } %13, 0
@@ -19418,7 +19418,7 @@ if.end.i:                                         ; preds = %while.body7.prehead
   %ref.tmp.sroa.0.2 = phi i64 [ %.sroa.speculated81.i, %"_ZZZZN2tf18make_for_each_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES7_Z4mainE3$_0NS_17GuidedPartitionerEEEDaT_T0_T1_OT2_ENUlRNS_7RuntimeEE_clESG_ENUlvE_clEvENUlmmE_clEmm.exit.i" ], [ %ref.tmp.sroa.0.0, %while.body7.preheader.i ]
   %12 = phi i64 [ %15, %"_ZZZZN2tf18make_for_each_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES7_Z4mainE3$_0NS_17GuidedPartitionerEEEDaT_T0_T1_OT2_ENUlRNS_7RuntimeEE_clESG_ENUlvE_clEvENUlmmE_clEmm.exit.i" ], [ %11, %while.body7.preheader.i ]
   %add11.i = add i64 %12, %spec.select.i
-  %.sroa.speculated81.i = tail call i64 @llvm.umin.i64(i64 %add11.i, i64 %3)
+  %.sroa.speculated81.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %add11.i)
   %sub.i.i = sub i64 %12, %ref.tmp.sroa.0.2
   %13 = load ptr, ptr %8, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %13, i64 %sub.i.i
@@ -19447,7 +19447,7 @@ if.else.i:                                        ; preds = %while.body.i
   %conv15.i = fptoui float %mul14.i to i64
   %spec.select55.i = tail call i64 @llvm.umax.i64(i64 %spec.select.i, i64 %conv15.i)
   %add20.i = add i64 %spec.select55.i, %curr_b.090.i
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %add20.i, i64 %3)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %add20.i)
   %16 = cmpxchg ptr %7, i64 %curr_b.090.i, i64 %.sroa.speculated.i monotonic monotonic, align 8
   %17 = extractvalue { i64, i1 } %16, 1
   %18 = extractvalue { i64, i1 } %16, 0
@@ -19797,7 +19797,7 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body7.prehead
   %ref.tmp.sroa.0.2.i.i.i.i = phi i64 [ %.sroa.speculated98.i.i.i.i.i, %"_ZZZZN2tf19make_transform_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES7_S7_Z4mainE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT3_E4typeEEEvE4typeELPv0EEEDaT_T0_T1_T2_OSC_ENUlRNS_7RuntimeEE_clESP_ENUlvE_clEvENUlmmE_clEmm.exit.i.i.i.i.i" ], [ %ref.tmp.sroa.0.0.i.i.i.i, %while.body7.preheader.i.i.i.i.i ]
   %11 = phi i64 [ %12, %"_ZZZZN2tf19make_transform_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES7_S7_Z4mainE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT3_E4typeEEEvE4typeELPv0EEEDaT_T0_T1_T2_OSC_ENUlRNS_7RuntimeEE_clESP_ENUlvE_clEvENUlmmE_clEmm.exit.i.i.i.i.i" ], [ %10, %while.body7.preheader.i.i.i.i.i ]
   %add11.i.i.i.i.i = add i64 %11, %spec.select.i.i.i.i.i
-  %.sroa.speculated98.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %add11.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i)
+  %.sroa.speculated98.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 %add11.i.i.i.i.i)
   %sub.i.i.i.i.i.i = sub i64 %11, %ref.tmp.sroa.0.2.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %ref.tmp.sroa.9.4.i.i.i, i64 %sub.i.i.i.i.i.i
   %add.ptr.i.i.i11.i.i.i.i.i.i = getelementptr inbounds i32, ptr %ref.tmp.sroa.20.4.i.i.i, i64 %sub.i.i.i.i.i.i
@@ -19830,7 +19830,7 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.
   %conv15.i.i.i.i.i = fptoui float %mul14.i.i.i.i.i to i64
   %spec.select55.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %spec.select.i.i.i.i.i, i64 %conv15.i.i.i.i.i)
   %add20.i.i.i.i.i = add i64 %spec.select55.i.i.i.i.i, %curr_b.0107.i.i.i.i.i
-  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %add20.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i)
+  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 %add20.i.i.i.i.i)
   %13 = cmpxchg ptr %next.i.i.i, i64 %curr_b.0107.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i monotonic monotonic, align 8
   %14 = extractvalue { i64, i1 } %13, 1
   %15 = extractvalue { i64, i1 } %13, 0
@@ -20340,7 +20340,7 @@ if.end.i:                                         ; preds = %while.body7.prehead
   %ref.tmp.sroa.0.2 = phi i64 [ %.sroa.speculated98.i, %"_ZZZZN2tf19make_transform_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES7_S7_Z4mainE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT3_E4typeEEEvE4typeELPv0EEEDaT_T0_T1_T2_OSC_ENUlRNS_7RuntimeEE_clESP_ENUlvE_clEvENUlmmE_clEmm.exit.i" ], [ %ref.tmp.sroa.0.0, %while.body7.preheader.i ]
   %12 = phi i64 [ %17, %"_ZZZZN2tf19make_transform_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES7_S7_Z4mainE3$_1NS_17GuidedPartitionerETnPNSt9enable_ifIX16is_partitioner_vINSt5decayIT3_E4typeEEEvE4typeELPv0EEEDaT_T0_T1_T2_OSC_ENUlRNS_7RuntimeEE_clESP_ENUlvE_clEvENUlmmE_clEmm.exit.i" ], [ %11, %while.body7.preheader.i ]
   %add11.i = add i64 %12, %spec.select.i
-  %.sroa.speculated98.i = tail call i64 @llvm.umin.i64(i64 %add11.i, i64 %3)
+  %.sroa.speculated98.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %add11.i)
   %sub.i.i = sub i64 %12, %ref.tmp.sroa.0.2
   %13 = load ptr, ptr %7, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %13, i64 %sub.i.i
@@ -20377,7 +20377,7 @@ if.else.i:                                        ; preds = %while.body.i
   %conv15.i = fptoui float %mul14.i to i64
   %spec.select55.i = tail call i64 @llvm.umax.i64(i64 %spec.select.i, i64 %conv15.i)
   %add20.i = add i64 %spec.select55.i, %curr_b.0107.i
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %add20.i, i64 %3)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %add20.i)
   %18 = cmpxchg ptr %6, i64 %curr_b.0107.i, i64 %.sroa.speculated.i monotonic monotonic, align 8
   %19 = extractvalue { i64, i1 } %18, 1
   %20 = extractvalue { i64, i1 } %18, 0
@@ -21311,7 +21311,7 @@ while.body7.preheader:                            ; preds = %while.body
 if.end:                                           ; preds = %while.body7.preheader, %_ZZZZN2tf16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES7_iSt4plusIiENS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_ENUlRNS_7RuntimeEE_clESJ_ENUlvE_clEvENUlmmE_clEmm.exit
   %5 = phi i64 [ %16, %_ZZZZN2tf16make_reduce_taskIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES7_iSt4plusIiENS_17GuidedPartitionerEEEDaT_T0_RT1_T2_OT3_ENUlRNS_7RuntimeEE_clESJ_ENUlvE_clEvENUlmmE_clEmm.exit ], [ %4, %while.body7.preheader ]
   %add11 = add i64 %5, %spec.select
-  %.sroa.speculated83 = tail call i64 @llvm.umin.i64(i64 %add11, i64 %N)
+  %.sroa.speculated83 = tail call i64 @llvm.umin.i64(i64 %N, i64 %add11)
   %6 = load ptr, ptr %2, align 8
   %7 = load i64, ptr %func, align 8
   %sub.i = sub i64 %5, %7
@@ -21350,7 +21350,7 @@ if.else:                                          ; preds = %while.body
   %conv15 = fptoui float %mul14 to i64
   %spec.select55 = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 %conv15)
   %add20 = add i64 %spec.select55, %curr_b.092
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %add20, i64 %N)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %N, i64 %add20)
   %17 = cmpxchg ptr %next, i64 %curr_b.092, i64 %.sroa.speculated monotonic monotonic, align 8
   %18 = extractvalue { i64, i1 } %17, 1
   %19 = extractvalue { i64, i1 } %17, 0

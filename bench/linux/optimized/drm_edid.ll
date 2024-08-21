@@ -455,7 +455,7 @@ define dso_local zeroext i1 @drm_edid_block_valid(ptr noundef %0, i32 noundef %1
   %110 = and i1 %108, %109
   %111 = xor i1 %110, true
   %112 = icmp ne i32 %95, 3
-  %113 = and i1 %111, %2
+  %113 = and i1 %2, %111
   %114 = select i1 %113, i1 %112, i1 false
   br i1 %114, label %115, label %.thread13
 
@@ -3254,14 +3254,14 @@ define dso_local ptr @drm_mode_find_dmt(ptr noundef %0, i32 noundef %1, i32 noun
   %8 = getelementptr inbounds i8, ptr %7, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i32
-  %11 = icmp eq i32 %10, %1
+  %11 = icmp eq i32 %1, %10
   br i1 %11, label %12, label %.thr_comm.us
 
 12:                                               ; preds = %.split.us
   %13 = getelementptr inbounds i8, ptr %7, i64 14
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
-  %16 = icmp eq i32 %15, %2
+  %16 = icmp eq i32 %2, %15
   br i1 %16, label %17, label %.thr_comm.us
 
 17:                                               ; preds = %12
@@ -3317,14 +3317,14 @@ define dso_local ptr @drm_mode_find_dmt(ptr noundef %0, i32 noundef %1, i32 noun
   %50 = getelementptr inbounds i8, ptr %49, i64 4
   %51 = load i16, ptr %50, align 4
   %52 = zext i16 %51 to i32
-  %53 = icmp eq i32 %52, %1
+  %53 = icmp eq i32 %1, %52
   br i1 %53, label %54, label %45
 
 54:                                               ; preds = %.split
   %55 = getelementptr inbounds i8, ptr %49, i64 14
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
-  %58 = icmp eq i32 %57, %2
+  %58 = icmp eq i32 %2, %57
   br i1 %58, label %59, label %45
 
 59:                                               ; preds = %54
@@ -3551,7 +3551,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly %0, i
   %95 = getelementptr %struct.edid, ptr %7, i64 %94
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
-  %98 = icmp eq i32 %97, %1
+  %98 = icmp eq i32 %1, %97
   br i1 %98, label %.split18.us, label %91, !llvm.loop !47
 
 .split:                                           ; preds = %66
@@ -3574,7 +3574,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly %0, i
   %106 = getelementptr %struct.edid, ptr %7, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i32
-  %109 = icmp eq i32 %108, %1
+  %109 = icmp eq i32 %1, %108
   br i1 %109, label %.split18.us, label %.thread9.us, !llvm.loop !47
 
 .split.split:                                     ; preds = %.split
@@ -3604,7 +3604,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly %0, i
   %121 = getelementptr %struct.edid, ptr %7, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
-  %124 = icmp eq i32 %123, %1
+  %124 = icmp eq i32 %1, %123
   br i1 %124, label %.split18.us, label %.thread9.us23.us, !llvm.loop !47
 
 .split.split.split.us.split:                      ; preds = %.split.split.split.us
@@ -3633,7 +3633,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly %0, i
   %138 = getelementptr %struct.edid, ptr %7, i64 %137
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i32
-  %141 = icmp eq i32 %140, %1
+  %141 = icmp eq i32 %1, %140
   br i1 %141, label %.split18.us, label %.thread9.us23.us32, !llvm.loop !47
 
 .split.split.split.us.split.split:                ; preds = %.split.split.split.us.split
@@ -3661,7 +3661,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly %0, i
   %154 = getelementptr %struct.edid, ptr %7, i64 %153
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
-  %157 = icmp eq i32 %156, %1
+  %157 = icmp eq i32 %1, %156
   br i1 %157, label %.split18.us, label %.thread9.us23.us36, !llvm.loop !47
 
 .split.split.split.us.split.split.split:          ; preds = %.split.split.split.us.split.split
@@ -3694,7 +3694,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly %0, i
   %173 = getelementptr %struct.edid, ptr %7, i64 %172
   %174 = load i8, ptr %173, align 1
   %175 = zext i8 %174 to i32
-  %176 = icmp eq i32 %175, %1
+  %176 = icmp eq i32 %1, %175
   br i1 %176, label %.split18.us, label %.thread9.us23.us40, !llvm.loop !47
 
 .split.split.split.us.split.split.split.split:    ; preds = %.split.split.split.us.split.split.split
@@ -3714,7 +3714,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly %0, i
   %184 = getelementptr %struct.edid, ptr %7, i64 %183
   %185 = load i8, ptr %184, align 1
   %186 = zext i8 %185 to i32
-  %187 = icmp eq i32 %186, %1
+  %187 = icmp eq i32 %1, %186
   br i1 %187, label %.split18.us, label %.thread9.us23, !llvm.loop !47
 
 .split.split.split:                               ; preds = %.split.split
@@ -3734,7 +3734,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly %0, i
   %195 = getelementptr %struct.edid, ptr %7, i64 %194
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i32
-  %198 = icmp eq i32 %197, %1
+  %198 = icmp eq i32 %1, %197
   br i1 %198, label %.split18.us, label %.thread9, !llvm.loop !47
 
 .split18.us:                                      ; preds = %.lr.ph, %.thread9, %.lr.ph44, %.thread9.us23, %.lr.ph147, %.thread9.us23.us40, %.thread9.us23.us36, %.lr.ph49, %.lr.ph54, %.thread9.us23.us32, %.thread9.us23.us, %.lr.ph59, %.thread9.us, %.lr.ph64, %.lr.ph69, %91, %.split.split.split.us.split.split.split.split.us
@@ -9132,14 +9132,14 @@ define dso_local void @drm_set_preferred_mode(ptr noundef readonly %0, i32 nound
   %8 = getelementptr i8, ptr %7, i64 -60
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i32
-  %11 = icmp eq i32 %10, %1
+  %11 = icmp eq i32 %1, %10
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %.preheader
   %13 = getelementptr i8, ptr %7, i64 -50
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
-  %16 = icmp eq i32 %15, %2
+  %16 = icmp eq i32 %2, %15
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %12
@@ -9767,7 +9767,7 @@ define internal fastcc void @connector_bad_edid(ptr nocapture noundef %0, ptr no
   %4 = getelementptr inbounds i8, ptr %1, i64 126
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
-  %7 = icmp slt i32 %6, %2
+  %7 = icmp sgt i32 %2, %6
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %3

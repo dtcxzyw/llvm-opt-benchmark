@@ -22389,7 +22389,7 @@ ngap_get_private_data.exit:                       ; preds = %3, %8
 34:                                               ; preds = %27, %25
   %35 = getelementptr inbounds i8, ptr %14, i64 24
   %36 = load i32, ptr %35, align 8
-  %37 = icmp eq i32 %36, %1
+  %37 = icmp eq i32 %1, %36
   br i1 %37, label %addresses_equal.exit18.sink.split, label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %27, %19, %15, %34
@@ -22423,7 +22423,7 @@ addresses_equal.exit:                             ; preds = %27, %19, %15, %34
 56:                                               ; preds = %49, %47
   %57 = getelementptr inbounds i8, ptr %14, i64 56
   %58 = load i32, ptr %57, align 8
-  %59 = icmp eq i32 %58, %1
+  %59 = icmp eq i32 %1, %58
   br i1 %59, label %addresses_equal.exit18.sink.split, label %addresses_equal.exit18
 
 addresses_equal.exit18.sink.split:                ; preds = %56, %34

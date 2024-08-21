@@ -36,7 +36,7 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
   %9 = shl nuw nsw i32 %8, 24
   %sext = add nuw i32 %9, 16777216
   %10 = icmp sgt i32 %sext, 33554431
-  %brmerge.not = and i1 %10, %2
+  %brmerge.not = and i1 %2, %10
   br i1 %brmerge.not, label %11, label %13
 
 11:                                               ; preds = %7

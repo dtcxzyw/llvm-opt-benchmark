@@ -1071,12 +1071,12 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
   %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i10
-  %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %agg.tmp27.sroa.0.0.copyload
+  %cmp1.i.i.i = icmp sgt i64 %agg.tmp27.sroa.0.0.copyload, %sub.i.i.i
   br i1 %cmp1.i.i.i, label %invoke.cont31, label %if.end7.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end11.i.i
   %sub3.i.i.i = sub nsw i64 -9223372036854775808, %call.i10
-  %cmp4.i.i.i = icmp sgt i64 %sub3.i.i.i, %agg.tmp27.sroa.0.0.copyload
+  %cmp4.i.i.i = icmp slt i64 %agg.tmp27.sroa.0.0.copyload, %sub3.i.i.i
   br i1 %cmp4.i.i.i, label %invoke.cont31, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -6026,7 +6026,7 @@ entry:
 _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %entry, %0
   %1 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %2 = load ptr, ptr %1, align 8
-  %cmp.i = icmp eq ptr %2, %this
+  %cmp.i = icmp eq ptr %this, %2
   %mu_.i = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp.i, label %if.then, label %if.end
 
@@ -6201,7 +6201,7 @@ entry:
 _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %entry, %0
   %1 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %2 = load ptr, ptr %1, align 8
-  %cmp.i = icmp eq ptr %2, %this
+  %cmp.i = icmp eq ptr %this, %2
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK9grpc_core8Activity10is_currentEv.exit
@@ -6507,7 +6507,7 @@ entry:
 _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %entry, %0
   %1 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %2 = load ptr, ptr %1, align 8
-  %cmp.i = icmp eq ptr %2, %this
+  %cmp.i = icmp eq ptr %this, %2
   br i1 %cmp.i, label %while.body.preheader, label %if.then
 
 while.body.preheader:                             ; preds = %_ZNK9grpc_core8Activity10is_currentEv.exit
@@ -6703,12 +6703,12 @@ if.end11.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end11.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i.i.i.i29.i.i.i
-  %cmp1.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i.i.i.i.i.i, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i.i
+  %cmp1.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp1.i.i.i.i.i.i.i.i.i.i, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvZNS_18LegacyMaxAgeFilter8PostInitEvE3$_2E4MakeEv.exit.i.i.i.i", label %if.end7.i.i.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end11.i.i.i.i.i.i.i.i.i
   %sub3.i.i.i.i.i.i.i.i.i.i = sub nsw i64 -9223372036854775808, %call.i.i.i.i.i29.i.i.i
-  %cmp4.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %sub3.i.i.i.i.i.i.i.i.i.i, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i.i
+  %cmp4.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i.i, %sub3.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp4.i.i.i.i.i.i.i.i.i.i, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvZNS_18LegacyMaxAgeFilter8PostInitEvE3$_2E4MakeEv.exit.i.i.i.i", label %if.end7.i.i.i.i.i.i.i.i.i.i
 
 if.end7.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
@@ -7750,7 +7750,7 @@ entry:
 _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %entry, %0
   %1 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %2 = load ptr, ptr %1, align 8
-  %cmp.i = icmp eq ptr %2, %this
+  %cmp.i = icmp eq ptr %this, %2
   %mu_.i = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp.i, label %if.then, label %if.end
 
@@ -7880,7 +7880,7 @@ entry:
 _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %entry, %0
   %1 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %2 = load ptr, ptr %1, align 8
-  %cmp.i = icmp eq ptr %2, %this
+  %cmp.i = icmp eq ptr %this, %2
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK9grpc_core8Activity10is_currentEv.exit
@@ -8177,7 +8177,7 @@ entry:
 _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %entry, %0
   %1 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %2 = load ptr, ptr %1, align 8
-  %cmp.i = icmp eq ptr %2, %this
+  %cmp.i = icmp eq ptr %this, %2
   br i1 %cmp.i, label %while.body.preheader, label %if.then
 
 while.body.preheader:                             ; preds = %_ZNK9grpc_core8Activity10is_currentEv.exit
@@ -8282,12 +8282,12 @@ if.end11.i.i.i.i.i97:                             ; preds = %if.end.i.i.i.i.i93
 
 if.then.i.i.i.i.i.i123:                           ; preds = %if.end11.i.i.i.i.i97
   %sub.i.i.i.i.i.i124 = sub nuw nsw i64 9223372036854775807, %call.i.i.i.i
-  %cmp1.i.i.i.i.i.i125 = icmp slt i64 %sub.i.i.i.i.i.i124, %agg.tmp4.sroa.0.0.copyload.i.i.i89
+  %cmp1.i.i.i.i.i.i125 = icmp sgt i64 %agg.tmp4.sroa.0.0.copyload.i.i.i89, %sub.i.i.i.i.i.i124
   br i1 %cmp1.i.i.i.i.i.i125, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i.i.i104, label %if.end7.i.i.i.i.i.i102
 
 if.else.i.i.i.i.i.i99:                            ; preds = %if.end11.i.i.i.i.i97
   %sub3.i.i.i.i.i.i100 = sub nsw i64 -9223372036854775808, %call.i.i.i.i
-  %cmp4.i.i.i.i.i.i101 = icmp sgt i64 %sub3.i.i.i.i.i.i100, %agg.tmp4.sroa.0.0.copyload.i.i.i89
+  %cmp4.i.i.i.i.i.i101 = icmp slt i64 %agg.tmp4.sroa.0.0.copyload.i.i.i89, %sub3.i.i.i.i.i.i100
   br i1 %cmp4.i.i.i.i.i.i101, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i.i.i104, label %if.end7.i.i.i.i.i.i102
 
 if.end7.i.i.i.i.i.i102:                           ; preds = %if.else.i.i.i.i.i.i99, %if.then.i.i.i.i.i.i123
@@ -8719,12 +8719,12 @@ if.end11.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end11.i.i.i.i.i
   %sub.i.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i.i.i19
-  %cmp1.i.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i.i, %agg.tmp4.sroa.0.0.copyload.i.i.i
+  %cmp1.i.i.i.i.i.i = icmp sgt i64 %agg.tmp4.sroa.0.0.copyload.i.i.i, %sub.i.i.i.i.i.i
   br i1 %cmp1.i.i.i.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i.i.i, label %if.end7.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end11.i.i.i.i.i
   %sub3.i.i.i.i.i.i = sub nsw i64 -9223372036854775808, %call.i.i.i.i19
-  %cmp4.i.i.i.i.i.i = icmp sgt i64 %sub3.i.i.i.i.i.i, %agg.tmp4.sroa.0.0.copyload.i.i.i
+  %cmp4.i.i.i.i.i.i = icmp slt i64 %agg.tmp4.sroa.0.0.copyload.i.i.i, %sub3.i.i.i.i.i.i
   br i1 %cmp4.i.i.i.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i.i.i, label %if.end7.i.i.i.i.i.i
 
 if.end7.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i

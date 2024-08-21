@@ -497,7 +497,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 353:                                              ; preds = %345
   %354 = fadd reassoc nsz arcp contract afn float %336, %340
-  %355 = fmul reassoc nsz arcp contract afn float %336, %340
+  %355 = fmul reassoc nsz arcp contract afn float %340, %336
   %356 = fsub reassoc nsz arcp contract afn float %354, %355
   br label %357
 

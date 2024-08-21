@@ -102,8 +102,8 @@ entry:
   %arrayidx.i.i.i47 = getelementptr inbounds i8, ptr %node, i64 496
   %4 = load float, ptr %arrayidx.i.i.i47, align 4
   %conv12 = fpext float %4 to double
-  %add = fadd double %conv, %absoluteLeft
-  %add13 = fadd double %conv6, %absoluteTop
+  %add = fadd double %absoluteLeft, %conv
+  %add13 = fadd double %absoluteTop, %conv6
   %add14 = fadd double %add, %conv9
   %add15 = fadd double %add13, %conv12
   %cmp = fcmp une float %call1, 0.000000e+00

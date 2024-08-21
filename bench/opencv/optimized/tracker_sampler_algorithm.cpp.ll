@@ -595,13 +595,13 @@ define void @_ZN2cv6detail8tracking17TrackerSamplerCSC11sampleImageERKNS_3MatEii
   %.sroa.speculated93 = tail call i32 @llvm.smax.i32(i32 %20, i32 0)
   %reass.sub = sub i32 %14, %6
   %21 = add i32 %reass.sub, -2
-  %22 = add nsw i32 %19, %4
+  %22 = add nsw i32 %4, %19
   %.sroa.speculated87 = tail call i32 @llvm.smin.i32(i32 %22, i32 %21)
   %23 = sub nsw i32 %3, %19
   %.sroa.speculated81 = tail call i32 @llvm.smax.i32(i32 %23, i32 0)
   %reass.sub114 = sub i32 %16, %5
   %24 = add i32 %reass.sub114, -2
-  %25 = add nsw i32 %19, %3
+  %25 = add nsw i32 %3, %19
   %.sroa.speculated75 = tail call i32 @llvm.smin.i32(i32 %25, i32 %24)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %reass.sub115 = sub i32 %.sroa.speculated87, %.sroa.speculated93
@@ -737,7 +737,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %64
   %76 = phi ptr [ %.pre122, %._crit_edge112.loopexit117 ], [ %32, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit ], [ %32, %.preheader.lr.ph ]
   %77 = phi ptr [ %.pre121, %._crit_edge112.loopexit117 ], [ %33, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit ], [ %33, %.preheader.lr.ph ]
   %.0101.lcssa = phi i32 [ %.2, %._crit_edge112.loopexit117 ], [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit ], [ 0, %.preheader.lr.ph ]
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %.0101.lcssa, i32 %9)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %9, i32 %.0101.lcssa)
   %78 = sext i32 %.sroa.speculated to i64
   %79 = icmp ult i64 %.pre-phi129, %78
   br i1 %79, label %80, label %82

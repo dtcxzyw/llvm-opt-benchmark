@@ -15,12 +15,12 @@ define void @_Z10calc_rffacP8_IO_FILEfffPfS1_(ptr noundef %0, float noundef %1, 
   %11 = fmul float %3, 2.000000e+00
   %.sink33 = select i1 %7, float %11, float %3
   %.sink = select i1 %7, float 1.000000e+00, float %10
-  %12 = fmul float %.sink33, %3
-  %13 = fmul float %12, %3
+  %12 = fmul float %3, %.sink33
+  %13 = fmul float %3, %12
   %14 = fdiv float %.sink, %13
   store float %14, ptr %4, align 4
   %15 = fdiv float 1.000000e+00, %3
-  %16 = fmul float %14, %3
+  %16 = fmul float %3, %14
   %17 = tail call float @llvm.fmuladd.f32(float %16, float %3, float %15)
   store float %17, ptr %5, align 4
   %.not = icmp eq ptr %0, null

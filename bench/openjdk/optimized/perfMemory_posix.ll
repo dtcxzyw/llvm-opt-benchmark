@@ -814,7 +814,7 @@ define hidden void @_ZN10PerfMemory6attachEiPPcPmP10JavaThread(i32 noundef %0, p
 
 12:                                               ; preds = %4
   %13 = tail call noundef i32 @_ZN2os18current_process_idEv() #13
-  %14 = icmp eq i32 %13, %0
+  %14 = icmp eq i32 %0, %13
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12, %4
@@ -1109,19 +1109,19 @@ define hidden void @_ZN10PerfMemory6detachEPcm(ptr noundef %0, i64 noundef %1) l
   %3 = alloca %class.ThreadCritical, align 1
   %4 = load ptr, ptr @_ZN10PerfMemory6_startE, align 8
   %.not.i = icmp eq ptr %4, null
-  %.not3.i = icmp ugt ptr %4, %0
+  %.not3.i = icmp ult ptr %0, %4
   %or.cond.i = or i1 %.not.i, %.not3.i
   %5 = load ptr, ptr @_ZN10PerfMemory4_endE, align 8
-  %6 = icmp ule ptr %5, %0
+  %6 = icmp uge ptr %0, %5
   %or.cond.not = select i1 %or.cond.i, i1 true, i1 %6
   br i1 %or.cond.not, label %_ZN10PerfMemory8containsEPc.exit.thread, label %28
 
 _ZN10PerfMemory8containsEPc.exit.thread:          ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 -1
-  %.not3.i5 = icmp ugt ptr %4, %8
+  %.not3.i5 = icmp ult ptr %8, %4
   %or.cond.i6 = or i1 %.not.i, %.not3.i5
-  %9 = icmp ule ptr %5, %8
+  %9 = icmp uge ptr %8, %5
   %or.cond11.not = select i1 %or.cond.i6, i1 true, i1 %9
   br i1 %or.cond11.not, label %_ZN10PerfMemory8containsEPc.exit7.thread, label %28
 

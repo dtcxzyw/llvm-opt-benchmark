@@ -1678,7 +1678,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread: ; preds = %5
 24:                                               ; preds = %22
   %25 = load ptr, ptr %3, align 8
   %26 = load ptr, ptr %0, align 8
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %23, i64 %.07.i36)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.07.i36, i64 %23)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %26, i64 %.sroa.speculated.i, i1 false)
   br label %28
 
@@ -2742,7 +2742,7 @@ define linkonce_odr void @_ZNK5faiss13IndexFastScan16search_implem_12INS_4CMaxIt
 38:                                               ; preds = %32, %36
   %39 = phi i32 [ %37, %36 ], [ 11, %32 ]
   %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %40, %1
+  %41 = icmp sgt i64 %1, %40
   br i1 %41, label %.preheader, label %55
 
 .preheader:                                       ; preds = %38
@@ -2756,7 +2756,7 @@ define linkonce_odr void @_ZNK5faiss13IndexFastScan16search_implem_12INS_4CMaxIt
 44:                                               ; preds = %.lr.ph, %44
   %.042113 = phi i64 [ 0, %.lr.ph ], [ %45, %44 ]
   %45 = add nsw i64 %.042113, %40
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %45, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %1, i64 %45)
   %46 = sub nsw i64 %.sroa.speculated, %.042113
   %47 = load i32, ptr %43, align 8
   %48 = sext i32 %47 to i64
@@ -2892,7 +2892,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i66: ; preds = %86
 
 99:                                               ; preds = %96
   %100 = sext i32 %98 to i64
-  %.not49 = icmp eq i64 %100, %1
+  %.not49 = icmp eq i64 %1, %100
   br i1 %.not49, label %106, label %101
 
 101:                                              ; preds = %99
@@ -2914,7 +2914,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i66: ; preds = %86
 
 110:                                              ; preds = %106
   %111 = sext i32 %109 to i64
-  %112 = icmp eq i64 %111, %1
+  %112 = icmp eq i64 %1, %111
   br i1 %112, label %129, label %113
 
 113:                                              ; preds = %110
@@ -3104,7 +3104,7 @@ define linkonce_odr void @_ZNK5faiss13IndexFastScan16search_implem_14INS_4CMaxIt
   %35 = icmp eq i32 %34, 0
   %narrow = select i1 %35, i32 4, i32 %34
   %spec.select = sext i32 %narrow to i64
-  %36 = icmp slt i64 %spec.select, %1
+  %36 = icmp sgt i64 %1, %spec.select
   br i1 %36, label %.preheader, label %50
 
 .preheader:                                       ; preds = %32
@@ -3118,7 +3118,7 @@ define linkonce_odr void @_ZNK5faiss13IndexFastScan16search_implem_14INS_4CMaxIt
 39:                                               ; preds = %.lr.ph, %39
   %.035102 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
   %40 = add nsw i64 %.035102, %spec.select
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %40, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %1, i64 %40)
   %41 = sub nsw i64 %.sroa.speculated, %.035102
   %42 = load i32, ptr %38, align 8
   %43 = sext i32 %42 to i64
@@ -3936,13 +3936,13 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %187, %_Z
   %198 = getelementptr inbounds float, ptr %49, i64 %197
   %199 = load float, ptr %198, align 4
   %200 = getelementptr inbounds i64, ptr %50, i64 %197
-  %201 = fcmp olt float %199, %.1.i
+  %201 = fcmp ogt float %.1.i, %199
   br i1 %201, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i69.i, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i68.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit.i68.i:          ; preds = %.lr.ph.i67.i
   %202 = load i64, ptr %200, align 8
-  %203 = fcmp oeq float %199, %.1.i
-  %204 = icmp slt i64 %202, %.088.i
+  %203 = fcmp oeq float %.1.i, %199
+  %204 = icmp sgt i64 %.088.i, %202
   %205 = and i1 %203, %204
   br i1 %205, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i69.i, label %_ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i
 
@@ -4123,7 +4123,7 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %6, %_ZN5fa
   %53 = getelementptr inbounds i64, ptr %5, i64 %.0.lcssa.i
   store i64 %52, ptr %53, align 8
   %54 = xor i64 %.03740, -1
-  %55 = add i64 %54, %0
+  %55 = add i64 %0, %54
   %56 = getelementptr inbounds float, ptr %1, i64 %55
   store float %7, ptr %56, align 4
   %57 = getelementptr inbounds i64, ptr %2, i64 %55
@@ -5195,12 +5195,12 @@ _ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %94, %_ZN5f
   %147 = getelementptr inbounds i16, ptr %84, i64 %146
   %148 = load i16, ptr %147, align 2
   %149 = getelementptr inbounds i32, ptr %85, i64 %146
-  %150 = icmp ult i16 %148, %91
+  %150 = icmp ugt i16 %91, %148
   br i1 %150, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i30, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i29
 
 _ZN5faiss4CMaxItiE4cmp2Ettii.exit.i29:            ; preds = %.lr.ph.i28
   %151 = load i32, ptr %149, align 4
-  %152 = icmp eq i16 %148, %91
+  %152 = icmp eq i16 %91, %148
   %153 = icmp slt i32 %151, %144
   %154 = and i1 %152, %153
   br i1 %154, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i30, label %_ZN5faiss9heap_pushINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
@@ -5467,7 +5467,7 @@ _ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %6, %_ZN5fa
   %53 = getelementptr inbounds i32, ptr %5, i64 %.0.lcssa.i
   store i32 %52, ptr %53, align 4
   %54 = xor i64 %.03740, -1
-  %55 = add i64 %54, %0
+  %55 = add i64 %0, %54
   %56 = getelementptr inbounds i16, ptr %1, i64 %55
   store i16 %7, ptr %56, align 2
   %57 = getelementptr inbounds i32, ptr %2, i64 %55
@@ -5566,7 +5566,7 @@ _ZN5faiss12AlignedTableItLi32EE14round_capacityEm.exit.thread: ; preds = %5
 25:                                               ; preds = %23
   %26 = load ptr, ptr %3, align 8
   %27 = load ptr, ptr %0, align 8
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %24, i64 %.07.i36)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.07.i36, i64 %24)
   %28 = shl i64 %.sroa.speculated.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %26, ptr align 2 %27, i64 %28, i1 false)
   br label %30
@@ -6359,7 +6359,7 @@ _ZNKSt6vectorIN5faiss13ReservoirTopNINS0_4CMaxItiEEEESaIS4_EE12_M_check_lenEmPKc
 _ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMaxItiEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %26
   %.0.lcssa.i.i.i = phi ptr [ %27, %26 ], [ %48, %.lr.ph.i.i.i ]
   %49 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 56
-  %.not10.i.i.i29 = icmp eq ptr %8, %1
+  %.not10.i.i.i29 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i29, label %_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMaxItiEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit35, label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMaxItiEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i30
@@ -7166,7 +7166,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
   %phi.call.us = getelementptr inbounds i32, ptr %0, i64 %.0.us
   %19 = load i32, ptr %phi.call.us, align 4
   %.sroa.0.0.copyload.us = load ptr, ptr %2, align 8
-  %20 = icmp sgt i64 %12, %.0.us
+  %20 = icmp slt i64 %.0.us, %12
   br i1 %20, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_T0_SI_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.split.us
@@ -7241,7 +7241,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %phi.call = getelementptr inbounds i32, ptr %0, i64 %.0
   %61 = load i32, ptr %phi.call, align 4
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %62 = icmp sgt i64 %12, %.0
+  %62 = icmp slt i64 %.0, %12
   br i1 %62, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split
@@ -7610,7 +7610,7 @@ define linkonce_odr void @_ZNK5faiss13IndexFastScan16search_implem_12INS_4CMinIt
 38:                                               ; preds = %32, %36
   %39 = phi i32 [ %37, %36 ], [ 11, %32 ]
   %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %40, %1
+  %41 = icmp sgt i64 %1, %40
   br i1 %41, label %.preheader, label %55
 
 .preheader:                                       ; preds = %38
@@ -7624,7 +7624,7 @@ define linkonce_odr void @_ZNK5faiss13IndexFastScan16search_implem_12INS_4CMinIt
 44:                                               ; preds = %.lr.ph, %44
   %.042113 = phi i64 [ 0, %.lr.ph ], [ %45, %44 ]
   %45 = add nsw i64 %.042113, %40
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %45, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %1, i64 %45)
   %46 = sub nsw i64 %.sroa.speculated, %.042113
   %47 = load i32, ptr %43, align 8
   %48 = sext i32 %47 to i64
@@ -7760,7 +7760,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i66: ; preds = %86
 
 99:                                               ; preds = %96
   %100 = sext i32 %98 to i64
-  %.not49 = icmp eq i64 %100, %1
+  %.not49 = icmp eq i64 %1, %100
   br i1 %.not49, label %106, label %101
 
 101:                                              ; preds = %99
@@ -7782,7 +7782,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i66: ; preds = %86
 
 110:                                              ; preds = %106
   %111 = sext i32 %109 to i64
-  %112 = icmp eq i64 %111, %1
+  %112 = icmp eq i64 %1, %111
   br i1 %112, label %129, label %113
 
 113:                                              ; preds = %110
@@ -7972,7 +7972,7 @@ define linkonce_odr void @_ZNK5faiss13IndexFastScan16search_implem_14INS_4CMinIt
   %35 = icmp eq i32 %34, 0
   %narrow = select i1 %35, i32 4, i32 %34
   %spec.select = sext i32 %narrow to i64
-  %36 = icmp slt i64 %spec.select, %1
+  %36 = icmp sgt i64 %1, %spec.select
   br i1 %36, label %.preheader, label %50
 
 .preheader:                                       ; preds = %32
@@ -7986,7 +7986,7 @@ define linkonce_odr void @_ZNK5faiss13IndexFastScan16search_implem_14INS_4CMinIt
 39:                                               ; preds = %.lr.ph, %39
   %.035102 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
   %40 = add nsw i64 %.035102, %spec.select
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %40, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %1, i64 %40)
   %41 = sub nsw i64 %.sroa.speculated, %.035102
   %42 = load i32, ptr %38, align 8
   %43 = sext i32 %42 to i64
@@ -8689,13 +8689,13 @@ _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %187, %_Z
   %198 = getelementptr inbounds float, ptr %49, i64 %197
   %199 = load float, ptr %198, align 4
   %200 = getelementptr inbounds i64, ptr %50, i64 %197
-  %201 = fcmp ogt float %199, %.1.i
+  %201 = fcmp olt float %.1.i, %199
   br i1 %201, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i69.i, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.i68.i
 
 _ZN5faiss4CMinIflE4cmp2Effll.exit.i68.i:          ; preds = %.lr.ph.i67.i
   %202 = load i64, ptr %200, align 8
-  %203 = fcmp oeq float %199, %.1.i
-  %204 = icmp sgt i64 %202, %.088.i
+  %203 = fcmp oeq float %.1.i, %199
+  %204 = icmp slt i64 %.088.i, %202
   %205 = and i1 %203, %204
   br i1 %205, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i69.i, label %_ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i
 
@@ -8873,7 +8873,7 @@ _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %6, %_ZN5fa
   %53 = getelementptr inbounds i64, ptr %5, i64 %.0.lcssa.i
   store i64 %52, ptr %53, align 8
   %54 = xor i64 %.03740, -1
-  %55 = add i64 %54, %0
+  %55 = add i64 %0, %54
   %56 = getelementptr inbounds float, ptr %1, i64 %55
   store float %7, ptr %56, align 4
   %57 = getelementptr inbounds i64, ptr %2, i64 %55
@@ -9912,12 +9912,12 @@ _ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %94, %_ZN5f
   %147 = getelementptr inbounds i16, ptr %84, i64 %146
   %148 = load i16, ptr %147, align 2
   %149 = getelementptr inbounds i32, ptr %85, i64 %146
-  %150 = icmp ugt i16 %148, %91
+  %150 = icmp ult i16 %91, %148
   br i1 %150, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i30, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.i29
 
 _ZN5faiss4CMinItiE4cmp2Ettii.exit.i29:            ; preds = %.lr.ph.i28
   %151 = load i32, ptr %149, align 4
-  %152 = icmp eq i16 %148, %91
+  %152 = icmp eq i16 %91, %148
   %153 = icmp sgt i32 %151, %144
   %154 = and i1 %152, %153
   br i1 %154, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i30, label %_ZN5faiss9heap_pushINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
@@ -10184,7 +10184,7 @@ _ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %6, %_ZN5fa
   %53 = getelementptr inbounds i32, ptr %5, i64 %.0.lcssa.i
   store i32 %52, ptr %53, align 4
   %54 = xor i64 %.03740, -1
-  %55 = add i64 %54, %0
+  %55 = add i64 %0, %54
   %56 = getelementptr inbounds i16, ptr %1, i64 %55
   store i16 %7, ptr %56, align 2
   %57 = getelementptr inbounds i32, ptr %2, i64 %55
@@ -10893,7 +10893,7 @@ _ZNKSt6vectorIN5faiss13ReservoirTopNINS0_4CMinItiEEEESaIS4_EE12_M_check_lenEmPKc
 _ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMinItiEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %26
   %.0.lcssa.i.i.i = phi ptr [ %27, %26 ], [ %48, %.lr.ph.i.i.i ]
   %49 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 56
-  %.not10.i.i.i29 = icmp eq ptr %8, %1
+  %.not10.i.i.i29 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i29, label %_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMinItiEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit35, label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMinItiEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i30
@@ -11700,7 +11700,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
   %phi.call.us = getelementptr inbounds i32, ptr %0, i64 %.0.us
   %19 = load i32, ptr %phi.call.us, align 4
   %.sroa.0.0.copyload.us = load ptr, ptr %2, align 8
-  %20 = icmp sgt i64 %12, %.0.us
+  %20 = icmp slt i64 %.0.us, %12
   br i1 %20, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_T0_SI_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.split.us
@@ -11775,7 +11775,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %phi.call = getelementptr inbounds i32, ptr %0, i64 %.0
   %61 = load i32, ptr %phi.call, align 4
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %62 = icmp sgt i64 %12, %.0
+  %62 = icmp slt i64 %.0, %12
   br i1 %62, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split

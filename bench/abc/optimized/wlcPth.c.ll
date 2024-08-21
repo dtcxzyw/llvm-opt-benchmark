@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable
 define range(i32 0, 2) i32 @Wla_CallBackToStop(i32 noundef %0) #0 {
   %2 = load volatile i32, ptr @g_nRunIds, align 4
-  %3 = icmp sgt i32 %2, %0
+  %3 = icmp slt i32 %0, %2
   %4 = zext i1 %3 to i32
   ret i32 %4
 }
@@ -33,7 +33,7 @@ define i32 @Wla_GetGlobalRunId() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @Wla_ManJoinThread(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load volatile i32, ptr @g_nRunIds, align 4
-  %4 = icmp eq i32 %3, %1
+  %4 = icmp eq i32 %1, %3
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2

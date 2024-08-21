@@ -3081,7 +3081,7 @@ _ZNSt11_Deque_baseIPN4Luau12AstStatBlockESaIS2_EE16_M_allocate_nodeEv.exit.i: ; 
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #23
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIPN4Luau12AstStatBlockESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -3934,7 +3934,7 @@ define linkonce_odr dso_local { i8, i64 } @_ZN7Reducer21deleteChildStatementsEPN
   %.sroa.10.1200 = phi ptr [ null, %10 ], [ %.sroa.10.5, %_ZZN7Reducer13generateSpansEmmENKUlSt4pairImmES1_E_clES1_S1_.exit57 ]
   %.sroa.0.1199 = phi ptr [ null, %10 ], [ %.sroa.0.6, %_ZZN7Reducer13generateSpansEmmENKUlSt4pairImmES1_E_clES1_S1_.exit57 ]
   %13 = add i64 %storemerge.i202, %.sroa.speculated28.i
-  %.sroa.speculated20.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %8)
+  %.sroa.speculated20.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %13)
   %14 = icmp eq i64 %storemerge.i202, 0
   %15 = icmp ule i64 %8, %13
   %or.cond.i = select i1 %14, i1 %15, i1 false
@@ -4074,7 +4074,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %.sroa.10.2204 = phi ptr [ %.sroa.10.4, %_ZZN7Reducer13generateSpansEmmENKUlSt4pairImmES1_E_clES1_S1_.exit ], [ %.sroa.10.5, %_ZZN7Reducer13generateSpansEmmENKUlSt4pairImmES1_E_clES1_S1_.exit57 ]
   %.sroa.0.2203 = phi ptr [ %.sroa.0.5, %_ZZN7Reducer13generateSpansEmmENKUlSt4pairImmES1_E_clES1_S1_.exit ], [ %.sroa.0.6, %_ZZN7Reducer13generateSpansEmmENKUlSt4pairImmES1_E_clES1_S1_.exit57 ]
   %46 = add i64 %storemerge6.i206, %.sroa.speculated28.i
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %8)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %46)
   %.not.i.i32 = icmp eq ptr %.sroa.10.2204, %.sroa.19.2205
   br i1 %.not.i.i32, label %49, label %47
 
@@ -4535,7 +4535,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i: ; p
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %18, ptr %19, align 8
   %20 = ptrtoint ptr %18 to i64
-  %.not.i.i = icmp ugt i64 %9, %2
+  %.not.i.i = icmp ult i64 %2, %9
   br i1 %.not.i.i, label %22, label %21
 
 21:                                               ; preds = %16
@@ -5024,7 +5024,7 @@ _ZSt4copyIPPN4Luau7AstStatEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_
 
 _ZSt7advanceIPPN4Luau7AstStatEmEvRT_T0_.exit:     ; preds = %17
   %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %30, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPPN4Luau7AstStatES3_S2_ET0_T_S5_S4_RSaIT1_E.exit, label %31
 
 31:                                               ; preds = %_ZSt7advanceIPPN4Luau7AstStatEmEvRT_T0_.exit
@@ -5089,7 +5089,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZN
   %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorIPN4Luau7AstStatESaIS2_EE12_M_check_lenEmPKc.exit ]
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i60, label %60, label %59
 
 59:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit
@@ -5181,7 +5181,7 @@ _ZSt13move_backwardIPPN4Luau7AstStatES3_ET0_T_S5_S4_.exit: ; preds = %25, %_ZSt2
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4Luau7AstStatESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %17
   %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %30, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN4Luau7AstStatESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit, label %31
 
 31:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4Luau7AstStatESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
@@ -5246,7 +5246,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZN
   %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorIPN4Luau7AstStatESaIS2_EE12_M_check_lenEmPKc.exit ]
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %60, label %59
 
 59:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit

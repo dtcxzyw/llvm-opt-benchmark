@@ -990,7 +990,7 @@ define noundef ptr @php_resolve_path(ptr noundef %0, i64 noundef %1, ptr noundef
 
 8:                                                ; preds = %3
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
-  %.not258 = icmp eq i64 %9, %1
+  %.not258 = icmp eq i64 %1, %9
   br i1 %.not258, label %.preheader315, label %tsrm_realpath_str.exit
 
 .preheader315:                                    ; preds = %8

@@ -689,10 +689,10 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap5is_inEPKv(ptr nocap
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
-  %.not.i.i = icmp ule ptr %7, %1
+  %.not.i.i = icmp uge ptr %1, %7
   %8 = getelementptr inbounds i8, ptr %5, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp ugt ptr %9, %1
+  %10 = icmp ult ptr %1, %9
   %11 = select i1 %.not.i.i, i1 %10, i1 false
   br i1 %11, label %22, label %12
 
@@ -702,10 +702,10 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap5is_inEPKv(ptr nocap
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
-  %.not.i.i2 = icmp ule ptr %17, %1
+  %.not.i.i2 = icmp uge ptr %1, %17
   %18 = getelementptr inbounds i8, ptr %15, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp ugt ptr %19, %1
+  %20 = icmp ult ptr %1, %19
   %21 = select i1 %.not.i.i2, i1 %20, i1 false
   br label %22
 
@@ -721,9 +721,9 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap14is_in_reservedEPKv
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.not.i.i = icmp ule ptr %.sroa.0.0.copyload.i.i, %1
+  %.not.i.i = icmp uge ptr %1, %.sroa.0.0.copyload.i.i
   %5 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
-  %6 = icmp ugt ptr %5, %1
+  %6 = icmp ult ptr %1, %5
   %7 = select i1 %.not.i.i, i1 %6, i1 false
   br i1 %7, label %18, label %8
 
@@ -733,10 +733,10 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap14is_in_reservedEPKv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  %.not.i.i2 = icmp ule ptr %13, %1
+  %.not.i.i2 = icmp uge ptr %1, %13
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp ugt ptr %15, %1
+  %16 = icmp ult ptr %1, %15
   %17 = select i1 %.not.i.i2, i1 %16, i1 false
   br label %18
 
@@ -750,7 +750,7 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap17requires_barriersE
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8
-  %.not = icmp ugt ptr %.sroa.0.0.copyload.i.i, %1
+  %.not = icmp ult ptr %1, %.sroa.0.0.copyload.i.i
   ret i1 %.not
 }
 
@@ -1000,7 +1000,7 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap20mem_allocate_old_genEm(ptr
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = lshr i64 %12, 4
-  %14 = icmp ugt i64 %13, %1
+  %14 = icmp ult i64 %1, %13
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %2
@@ -1169,7 +1169,7 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap24expand_heap_and_allocateEm
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %1) #15
   %11 = icmp ne ptr %10, null
-  %brmerge = or i1 %11, %2
+  %brmerge = or i1 %2, %11
   br i1 %brmerge, label %_ZN8PSOldGen8allocateEm.exit, label %12
 
 12:                                               ; preds = %3
@@ -1234,7 +1234,7 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %3
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef %1) #15
   %17 = icmp ne ptr %16, null
-  %brmerge.i = or i1 %17, %2
+  %brmerge.i = or i1 %2, %17
   br i1 %brmerge.i, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit, label %18
 
 18:                                               ; preds = %9
@@ -1296,7 +1296,7 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %3, %_ZN8GCLocker2
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = lshr i64 %55, 4
-  %.not36 = icmp ugt i64 %56, %1
+  %.not36 = icmp ult i64 %1, %56
   %57 = getelementptr inbounds i8, ptr %0, i64 80
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 17
@@ -1323,7 +1323,7 @@ _ZN20ParallelScavengeHeap20collect_at_safepointEb.exit: ; preds = %61, %63
   %70 = load ptr, ptr %69, align 8
   %71 = tail call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(56) %67, i64 noundef %1) #15
   %72 = icmp ne ptr %71, null
-  %brmerge.i18 = or i1 %72, %2
+  %brmerge.i18 = or i1 %2, %72
   br i1 %brmerge.i18, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22, label %73
 
 73:                                               ; preds = %_ZN20ParallelScavengeHeap20collect_at_safepointEb.exit
@@ -1379,7 +1379,7 @@ _ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33: ; preds 
   %103 = load ptr, ptr %102, align 8
   %104 = tail call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(56) %100, i64 noundef %1) #15
   %105 = icmp ne ptr %104, null
-  %brmerge.i23 = or i1 %105, %2
+  %brmerge.i23 = or i1 %2, %105
   br i1 %brmerge.i23, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit, label %106
 
 106:                                              ; preds = %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33
@@ -1770,9 +1770,9 @@ define hidden noundef ptr @_ZNK20ParallelScavengeHeap11block_startEPKv(ptr nocap
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.not.i.i = icmp ule ptr %.sroa.0.0.copyload.i.i, %1
+  %.not.i.i = icmp uge ptr %1, %.sroa.0.0.copyload.i.i
   %5 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
-  %6 = icmp ugt ptr %5, %1
+  %6 = icmp ult ptr %1, %5
   %7 = select i1 %.not.i.i, i1 %6, i1 false
   br i1 %7, label %8, label %15
 
@@ -1797,10 +1797,10 @@ define hidden noundef ptr @_ZNK20ParallelScavengeHeap11block_startEPKv(ptr nocap
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %.not.i.i4 = icmp ule ptr %20, %1
+  %.not.i.i4 = icmp uge ptr %1, %20
   %21 = getelementptr inbounds i8, ptr %18, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp ugt ptr %22, %1
+  %23 = icmp ult ptr %1, %22
   %24 = select i1 %.not.i.i4, i1 %23, i1 false
   br i1 %24, label %25, label %28
 
@@ -1957,9 +1957,9 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap12block_is_objEPKP12
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %.not.i.i.i = icmp ule ptr %.sroa.0.0.copyload.i.i.i, %1
+  %.not.i.i.i = icmp uge ptr %1, %.sroa.0.0.copyload.i.i.i
   %5 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
-  %6 = icmp ugt ptr %5, %1
+  %6 = icmp ult ptr %1, %5
   %7 = select i1 %.not.i.i.i, i1 %6, i1 false
   br i1 %7, label %8, label %15
 
@@ -1984,10 +1984,10 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap12block_is_objEPKP12
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %.not.i.i4.i = icmp ule ptr %20, %1
+  %.not.i.i4.i = icmp uge ptr %1, %20
   %21 = getelementptr inbounds i8, ptr %18, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp ugt ptr %22, %1
+  %23 = icmp ult ptr %1, %22
   %24 = select i1 %.not.i.i4.i, i1 %23, i1 false
   br i1 %24, label %25, label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit
 
@@ -2166,9 +2166,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20BlockLocationPrinterI20Paral
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %.not.i.i.i = icmp ule ptr %.sroa.0.0.copyload.i.i.i, %1
+  %.not.i.i.i = icmp uge ptr %1, %.sroa.0.0.copyload.i.i.i
   %16 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
-  %17 = icmp ugt ptr %16, %1
+  %17 = icmp ult ptr %1, %16
   %18 = select i1 %.not.i.i.i, i1 %17, i1 false
   br i1 %18, label %_ZNK20ParallelScavengeHeap14is_in_reservedEPKv.exit.thread, label %_ZNK20ParallelScavengeHeap14is_in_reservedEPKv.exit
 
@@ -2178,10 +2178,10 @@ _ZNK20ParallelScavengeHeap14is_in_reservedEPKv.exit: ; preds = %13
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  %.not.i.i2.i = icmp ule ptr %23, %1
+  %.not.i.i2.i = icmp uge ptr %1, %23
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = icmp ugt ptr %25, %1
+  %26 = icmp ult ptr %1, %25
   %27 = select i1 %.not.i.i2.i, i1 %26, i1 false
   br i1 %27, label %_ZNK20ParallelScavengeHeap14is_in_reservedEPKv.exit.thread, label %29
 
@@ -2829,7 +2829,7 @@ declare void @_ZN19ScavengableNMethods14verify_nmethodEP7nmethod(ptr noundef) lo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ParallelScavengeHeap15memory_managersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) unnamed_addr #0 align 2 {
-_ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit4:
+_ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit5:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 2, ptr %3, align 4
@@ -2842,16 +2842,16 @@ _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendER
   %.pre = load ptr, ptr %6, align 8
   store ptr %.pre, ptr %2, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 112
-  %.pre5 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre6 = load ptr, ptr %.phi.trans.insert, align 8
   store i32 2, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %.pre5, ptr %7, align 8
+  store ptr %.pre6, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ParallelScavengeHeap12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.3) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) unnamed_addr #0 align 2 {
-_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit7:
+_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit9:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 3, i32 noundef 8) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 3, ptr %3, align 4
@@ -2864,14 +2864,14 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.
   %.pre = load ptr, ptr %6, align 8
   store ptr %.pre, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 128
-  %.pre8 = load ptr, ptr %7, align 8
+  %.pre10 = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %.pre8, ptr %8, align 8
+  store ptr %.pre10, ptr %8, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 136
-  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
   store i32 3, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %.pre9, ptr %9, align 8
+  store ptr %.pre11, ptr %9, align 8
   ret void
 }
 
@@ -3198,7 +3198,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN15PSIsScavengable11do_object_b
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8
-  %5 = icmp ule ptr %.sroa.0.0.copyload.i.i, %1
+  %5 = icmp uge ptr %1, %.sroa.0.0.copyload.i.i
   ret i1 %5
 }
 
@@ -3278,9 +3278,9 @@ define linkonce_odr hidden noundef ptr @_ZN20BlockLocationPrinterI20ParallelScav
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %.not.i.i.i = icmp ule ptr %.sroa.0.0.copyload.i.i.i, %0
+  %.not.i.i.i = icmp uge ptr %0, %.sroa.0.0.copyload.i.i.i
   %6 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
-  %7 = icmp ugt ptr %6, %0
+  %7 = icmp ult ptr %0, %6
   %8 = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %8, label %9, label %16
 
@@ -3305,10 +3305,10 @@ define linkonce_odr hidden noundef ptr @_ZN20BlockLocationPrinterI20ParallelScav
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i4.i = icmp ule ptr %21, %0
+  %.not.i.i4.i = icmp uge ptr %0, %21
   %22 = getelementptr inbounds i8, ptr %19, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = icmp ugt ptr %23, %0
+  %24 = icmp ult ptr %0, %23
   %25 = select i1 %.not.i.i4.i, i1 %24, i1 false
   br i1 %25, label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit, label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread
 
@@ -3324,9 +3324,9 @@ _ZNK20ParallelScavengeHeap11block_startEPKv.exit: ; preds = %16
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 16
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
-  %.not.i.i.i.i = icmp ule ptr %.sroa.0.0.copyload.i.i.i.i, %27
+  %.not.i.i.i.i = icmp uge ptr %27, %.sroa.0.0.copyload.i.i.i.i
   %31 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i
-  %32 = icmp ugt ptr %31, %27
+  %32 = icmp ult ptr %27, %31
   %33 = select i1 %.not.i.i.i.i, i1 %32, i1 false
   br i1 %33, label %34, label %41
 
@@ -3351,10 +3351,10 @@ _ZNK20ParallelScavengeHeap11block_startEPKv.exit: ; preds = %16
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  %.not.i.i4.i.i = icmp ule ptr %46, %27
+  %.not.i.i4.i.i = icmp uge ptr %27, %46
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8
-  %49 = icmp ugt ptr %48, %27
+  %49 = icmp ult ptr %27, %48
   %50 = select i1 %.not.i.i4.i.i, i1 %49, i1 false
   br i1 %50, label %51, label %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit
 

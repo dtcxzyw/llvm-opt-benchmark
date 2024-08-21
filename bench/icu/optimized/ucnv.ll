@@ -611,13 +611,13 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %staticData, align 8
   %maxBytesPerChar = getelementptr inbounds i8, ptr %2, i64 71
   %3 = load i8, ptr %maxBytesPerChar, align 1
-  %cmp = icmp slt i8 %3, %len
+  %cmp = icmp sgt i8 %len, %3
   br i1 %cmp, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %minBytesPerChar = getelementptr inbounds i8, ptr %2, i64 70
   %4 = load i8, ptr %minBytesPerChar, align 2
-  %cmp6 = icmp sgt i8 %4, %len
+  %cmp6 = icmp slt i8 %len, %4
   br i1 %cmp6, label %if.then7, label %do.body
 
 if.then7:                                         ; preds = %lor.lhs.false, %if.end
@@ -928,7 +928,7 @@ if.end.i:                                         ; preds = %if.then20
   %spec.store.select.i = select i1 %cmp1.i, i64 4294967295, i64 %add.i
   %sub.i = sub i64 %spec.store.select.i, %.pre
   %conv.i28 = trunc i64 %sub.i to i32
-  %cond.i = call i32 @llvm.smin.i32(i32 %conv.i28, i32 %destCapacity)
+  %cond.i = call i32 @llvm.smin.i32(i32 %destCapacity, i32 %conv.i28)
   br label %_Z11pinCapacityIcEiPT_i.exit
 
 _Z11pinCapacityIcEiPT_i.exit:                     ; preds = %if.then20, %if.end.i
@@ -1479,7 +1479,7 @@ if.end7:                                          ; preds = %if.end
   %spec.select.idx = sext i1 %cmp10 to i64
   %spec.select = getelementptr inbounds i8, ptr %sourceLimit, i64 %spec.select.idx
   %cmp13 = icmp ult ptr %spec.select, %1
-  %cmp15 = icmp ugt ptr %2, %targetLimit
+  %cmp15 = icmp ult ptr %targetLimit, %2
   %or.cond40 = select i1 %cmp13, i1 true, i1 %cmp15
   br i1 %or.cond40, label %if.then31, label %lor.lhs.false16
 
@@ -1497,7 +1497,7 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false16
   %sub.ptr.rhs.cast21 = ptrtoint ptr %2 to i64
   %sub.ptr.sub22 = sub i64 %sub.ptr.lhs.cast20, %sub.ptr.rhs.cast21
   %cmp23 = icmp ult i64 %sub.ptr.sub22, 2147483648
-  %cmp25 = icmp uge ptr %2, %targetLimit
+  %cmp25 = icmp ule ptr %targetLimit, %2
   %or.cond42.not45 = select i1 %cmp23, i1 true, i1 %cmp25
   %and = and i64 %sub.ptr.sub, 1
   %cmp30.not = icmp eq i64 %and, 0
@@ -2060,7 +2060,7 @@ if.end7:                                          ; preds = %if.end
   %cmp10 = icmp eq ptr %5, %targetLimit
   %spec.select.idx = sext i1 %cmp10 to i64
   %spec.select = getelementptr inbounds i8, ptr %targetLimit, i64 %spec.select.idx
-  %cmp13 = icmp ugt ptr %1, %sourceLimit
+  %cmp13 = icmp ult ptr %sourceLimit, %1
   %cmp15 = icmp ult ptr %spec.select, %2
   %or.cond40 = select i1 %cmp13, i1 true, i1 %cmp15
   br i1 %or.cond40, label %if.then31, label %lor.lhs.false16
@@ -2070,7 +2070,7 @@ lor.lhs.false16:                                  ; preds = %if.end7
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp17 = icmp ugt i64 %sub.ptr.sub, 2147483647
-  %cmp18 = icmp ult ptr %1, %sourceLimit
+  %cmp18 = icmp ugt ptr %sourceLimit, %1
   %or.cond41 = and i1 %cmp18, %cmp17
   br i1 %or.cond41, label %if.then31, label %lor.lhs.false19
 
@@ -2755,7 +2755,7 @@ if.end.i:                                         ; preds = %if.then20
   %sub.i = sub i64 %spec.store.select.i, %.pre
   %div8.i = lshr i64 %sub.i, 1
   %conv.i28 = trunc i64 %div8.i to i32
-  %cond.i = call i32 @llvm.smin.i32(i32 %conv.i28, i32 %destCapacity)
+  %cond.i = call i32 @llvm.smin.i32(i32 %destCapacity, i32 %conv.i28)
   br label %_Z11pinCapacityIDsEiPT_i.exit
 
 _Z11pinCapacityIDsEiPT_i.exit:                    ; preds = %if.then20, %if.end.i
@@ -2833,7 +2833,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %1 = load ptr, ptr %source, align 8
-  %cmp6 = icmp ugt ptr %1, %sourceLimit
+  %cmp6 = icmp ult ptr %sourceLimit, %1
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end5
@@ -2845,7 +2845,7 @@ if.end8:                                          ; preds = %if.end5
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp9 = icmp ugt i64 %sub.ptr.sub, 2147483647
-  %cmp10 = icmp ult ptr %1, %sourceLimit
+  %cmp10 = icmp ugt ptr %sourceLimit, %1
   %or.cond88 = and i1 %cmp10, %cmp9
   br i1 %or.cond88, label %if.then11, label %if.end12
 
@@ -3194,9 +3194,9 @@ if.then14:                                        ; preds = %lor.lhs.false10, %l
 
 if.end15:                                         ; preds = %lor.lhs.false10
   %cmp16.not = icmp ne ptr %sourceLimit, null
-  %cmp17 = icmp ugt ptr %1, %sourceLimit
+  %cmp17 = icmp ult ptr %sourceLimit, %1
   %or.cond143 = and i1 %cmp16.not, %cmp17
-  %cmp19 = icmp ugt ptr %2, %targetLimit
+  %cmp19 = icmp ult ptr %targetLimit, %2
   %or.cond144 = or i1 %or.cond143, %cmp19
   br i1 %or.cond144, label %if.then20, label %if.end21
 
@@ -3209,7 +3209,7 @@ if.end21:                                         ; preds = %if.end15
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp24 = icmp ugt i64 %sub.ptr.sub, 2147483647
-  %cmp26 = icmp ult ptr %1, %sourceLimit
+  %cmp26 = icmp ugt ptr %sourceLimit, %1
   %or.cond147 = and i1 %cmp26, %cmp24
   br i1 %or.cond147, label %if.then34, label %lor.lhs.false27
 
@@ -3218,7 +3218,7 @@ lor.lhs.false27:                                  ; preds = %if.end21
   %sub.ptr.rhs.cast29 = ptrtoint ptr %2 to i64
   %sub.ptr.sub30 = sub i64 %sub.ptr.lhs.cast28, %sub.ptr.rhs.cast29
   %cmp31 = icmp ugt i64 %sub.ptr.sub30, 2147483647
-  %cmp33 = icmp ult ptr %2, %targetLimit
+  %cmp33 = icmp ugt ptr %targetLimit, %2
   %or.cond148 = and i1 %cmp33, %cmp31
   br i1 %or.cond148, label %if.then34, label %if.end35
 

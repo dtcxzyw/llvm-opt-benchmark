@@ -1357,7 +1357,7 @@ if.then:                                          ; preds = %entry
   %2 = and i16 %old_slt_sta, 31
   %3 = xor i16 %2, 31
   %and = zext nneg i16 %3 to i32
-  %and8 = and i32 %and, %val
+  %and8 = and i32 %val, %and
   %tobool9.not = icmp eq i32 %and8, 0
   br i1 %tobool9.not, label %if.end, label %if.then10
 
@@ -1752,7 +1752,7 @@ if.end10.i:                                       ; preds = %if.end4.i
   %add.ptr13.i = getelementptr i8, ptr %dev.val, i64 %idx.ext.i
   %add.ptr13.val.i = load i32, ptr %add.ptr13.i, align 1
   %1 = trunc i32 %add.ptr13.val.i to i16
-  %cmp15.i = icmp eq i16 %1, %cap_id
+  %cmp15.i = icmp eq i16 %cap_id, %1
   br i1 %cmp15.i, label %pcie_find_capability_list.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end10.i
@@ -1779,7 +1779,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %add = add i16 %size, %offset
-  %cmp7 = icmp ugt i16 %add, %offset
+  %cmp7 = icmp ult i16 %offset, %add
   br i1 %cmp7, label %if.end11, label %if.else10
 
 if.else10:                                        ; preds = %if.end

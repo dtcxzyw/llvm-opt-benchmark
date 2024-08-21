@@ -109,33 +109,32 @@ define hidden void @_ZN24ShenandoahEvacOOMHandlerC2Ev(ptr nocapture noundef nonn
   %2 = tail call noundef i32 @_ZN2os22active_processor_countEv() #8
   %3 = tail call noundef i32 @llvm.smin.i32(i32 %2, i32 128)
   %4 = tail call noundef i32 @llvm.smax.i32(i32 %3, i32 1)
-  %5 = add nuw i32 %4, 2147483647
-  %6 = and i32 %5, %4
-  %7 = icmp eq i32 %6, 0
-  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %4, i1 true)
-  %9 = sub nuw nsw i32 32, %8
-  %10 = shl nuw nsw i32 1, %9
-  %.0.i.i = select i1 %7, i32 %4, i32 %10
+  %5 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %4)
+  %6 = icmp ult i32 %5, 2
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %4, i1 true)
+  %8 = sub nuw nsw i32 32, %7
+  %9 = shl nuw nsw i32 1, %8
+  %.0.i.i = select i1 %6, i32 %4, i32 %9
   store i32 %.0.i.i, ptr %0, align 8
-  %11 = zext nneg i32 %.0.i.i to i64
-  %12 = shl nuw nsw i64 %11, 6
-  %13 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %12, i8 noundef zeroext 5, i32 noundef 0) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %13, ptr %14, align 8
-  %15 = load i32, ptr %0, align 8
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph, label %._crit_edge
+  %10 = zext nneg i32 %.0.i.i to i64
+  %11 = shl nuw nsw i64 %10, 6
+  %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %11, i8 noundef zeroext 5, i32 noundef 0) #8
+  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %12, ptr %13, align 8
+  %14 = load i32, ptr %0, align 8
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds %class.ShenandoahEvacOOMCounter, ptr %17, i64 %indvars.iv
-  store volatile i32 0, ptr %18, align 4
+  %16 = load ptr, ptr %13, align 8
+  %17 = getelementptr inbounds %class.ShenandoahEvacOOMCounter, ptr %16, i64 %indvars.iv
+  store volatile i32 0, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %0, align 8
-  %20 = sext i32 %19 to i64
-  %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  %18 = load i32, ptr %0, align 8
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -146,13 +145,12 @@ define hidden noundef i32 @_ZN24ShenandoahEvacOOMHandler17calc_num_countersEv() 
   %1 = tail call noundef i32 @_ZN2os22active_processor_countEv() #8
   %2 = tail call noundef i32 @llvm.smin.i32(i32 %1, i32 128)
   %3 = tail call noundef i32 @llvm.smax.i32(i32 %2, i32 1)
-  %4 = add nuw i32 %3, 2147483647
-  %5 = and i32 %4, %3
-  %6 = icmp eq i32 %5, 0
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
-  %8 = sub nuw nsw i32 32, %7
-  %9 = shl nuw nsw i32 1, %8
-  %.0.i = select i1 %6, i32 %3, i32 %9
+  %4 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %3)
+  %5 = icmp ult i32 %4, 2
+  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
+  %7 = sub nuw nsw i32 32, %6
+  %8 = shl nuw nsw i32 1, %7
+  %.0.i = select i1 %5, i32 %3, i32 %8
   ret i32 %.0.i
 }
 
@@ -575,6 +573,9 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

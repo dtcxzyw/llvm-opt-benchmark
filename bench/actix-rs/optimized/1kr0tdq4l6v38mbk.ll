@@ -1746,7 +1746,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h57
   %34 = phi i64 [ %.pre.i, %29 ], [ %4, %26 ]
   %.sink3.i.i = phi ptr [ %32, %29 ], [ %28, %26 ]
   %.sink.i.i = phi i64 [ %4, %29 ], [ 4, %26 ]
-  %.not.i = icmp ugt i64 %34, %23
+  %.not.i = icmp ult i64 %23, %34
   br i1 %.not.i, label %35, label %36
 
 35:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h00c581c79d47fca1E.llvm.8925420951046425970.exit.i"
@@ -1758,7 +1758,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h57
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %36
-  %.not73.i = icmp eq i64 %.sink.i.i, %23
+  %.not73.i = icmp eq i64 %23, %.sink.i.i
   br i1 %.not73.i, label %_ZN8smallvec10infallible17hab804a69e4a73d7dE.exit, label %40
 
 39:                                               ; preds = %36
@@ -1978,7 +1978,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17hb0aefcaf511aa1fd
   %15 = phi i64 [ %.pre, %10 ], [ %4, %7 ]
   %.sink3.i = phi ptr [ %13, %10 ], [ %9, %7 ]
   %.sink2.i = phi ptr [ %14, %10 ], [ %3, %7 ]
-  %16 = icmp ugt i64 %15, %1
+  %16 = icmp ult i64 %1, %15
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..rc..Rc$LT$actix_http..extensions..Extensions$GT$$GT$17h332b48d305812ac5E.exit", %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h00c581c79d47fca1E.llvm.8925420951046425970.exit"
@@ -2025,7 +2025,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17hb0aefcaf511aa1fd
 
 "_ZN4core3ptr76drop_in_place$LT$alloc..rc..Rc$LT$actix_http..extensions..Extensions$GT$$GT$17h332b48d305812ac5E.exit": ; preds = %.lr.ph, %"_ZN4core3ptr55drop_in_place$LT$actix_http..extensions..Extensions$GT$17he275cc584494e7a5E.exit.i.i", %35
   %36 = load i64, ptr %.sink2.i, align 8, !noundef !4
-  %37 = icmp ugt i64 %36, %1
+  %37 = icmp ult i64 %1, %36
   br i1 %37, label %.lr.ph, label %._crit_edge
 }
 

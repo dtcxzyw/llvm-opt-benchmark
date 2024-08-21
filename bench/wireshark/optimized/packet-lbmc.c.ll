@@ -8241,7 +8241,7 @@ lbm_stream_istream_substream_add.exit:            ; preds = %3175, %copy_address
   store i32 %3241, ptr %3239, align 8
   %3242 = getelementptr inbounds i8, ptr %.0747, i64 76
   %3243 = load i32, ptr %3242, align 4
-  %3244 = icmp ugt i32 %3243, %3226
+  %3244 = icmp ult i32 %3226, %3243
   br i1 %3244, label %3245, label %3246
 
 3245:                                             ; preds = %3225
@@ -8252,7 +8252,7 @@ lbm_stream_istream_substream_add.exit:            ; preds = %3175, %copy_address
   %3247 = load ptr, ptr %3230, align 8
   %3248 = getelementptr inbounds i8, ptr %3247, i64 28
   %3249 = load i32, ptr %3248, align 4
-  %3250 = icmp ugt i32 %3249, %3226
+  %3250 = icmp ult i32 %3226, %3249
   br i1 %3250, label %3251, label %3252
 
 3251:                                             ; preds = %3246
@@ -8262,7 +8262,7 @@ lbm_stream_istream_substream_add.exit:            ; preds = %3175, %copy_address
 3252:                                             ; preds = %3251, %3246
   %3253 = getelementptr inbounds i8, ptr %.0747, i64 80
   %3254 = load i32, ptr %3253, align 8
-  %3255 = icmp ult i32 %3254, %3226
+  %3255 = icmp ugt i32 %3226, %3254
   br i1 %3255, label %3256, label %3257
 
 3256:                                             ; preds = %3252
@@ -8273,7 +8273,7 @@ lbm_stream_istream_substream_add.exit:            ; preds = %3175, %copy_address
   %3258 = load ptr, ptr %3230, align 8
   %3259 = getelementptr inbounds i8, ptr %3258, i64 32
   %3260 = load i32, ptr %3259, align 8
-  %3261 = icmp ult i32 %3260, %3226
+  %3261 = icmp ugt i32 %3226, %3260
   br i1 %3261, label %3262, label %lbm_stream_istream_substream_update.exit
 
 3262:                                             ; preds = %3257
@@ -8769,7 +8769,7 @@ lbm_stream_dstream_substream_add.exit:            ; preds = %3389, %copy_address
   store i32 %3455, ptr %3453, align 8
   %3456 = getelementptr inbounds i8, ptr %.0760, i64 76
   %3457 = load i32, ptr %3456, align 4
-  %3458 = icmp ugt i32 %3457, %3440
+  %3458 = icmp ult i32 %3440, %3457
   br i1 %3458, label %3459, label %3460
 
 3459:                                             ; preds = %3439
@@ -8780,7 +8780,7 @@ lbm_stream_dstream_substream_add.exit:            ; preds = %3389, %copy_address
   %3461 = load ptr, ptr %3444, align 8
   %3462 = getelementptr inbounds i8, ptr %3461, i64 84
   %3463 = load i32, ptr %3462, align 4
-  %3464 = icmp ugt i32 %3463, %3440
+  %3464 = icmp ult i32 %3440, %3463
   br i1 %3464, label %3465, label %3466
 
 3465:                                             ; preds = %3460
@@ -8790,7 +8790,7 @@ lbm_stream_dstream_substream_add.exit:            ; preds = %3389, %copy_address
 3466:                                             ; preds = %3465, %3460
   %3467 = getelementptr inbounds i8, ptr %.0760, i64 80
   %3468 = load i32, ptr %3467, align 8
-  %3469 = icmp ult i32 %3468, %3440
+  %3469 = icmp ugt i32 %3440, %3468
   br i1 %3469, label %3470, label %3471
 
 3470:                                             ; preds = %3466
@@ -8801,7 +8801,7 @@ lbm_stream_dstream_substream_add.exit:            ; preds = %3389, %copy_address
   %3472 = load ptr, ptr %3444, align 8
   %3473 = getelementptr inbounds i8, ptr %3472, i64 88
   %3474 = load i32, ptr %3473, align 8
-  %3475 = icmp ult i32 %3474, %3440
+  %3475 = icmp ugt i32 %3440, %3474
   br i1 %3475, label %3476, label %lbm_stream_dstream_substream_update.exit
 
 3476:                                             ; preds = %3471

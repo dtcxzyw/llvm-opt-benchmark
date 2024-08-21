@@ -2299,7 +2299,7 @@ if.else.i.i:                                      ; preds = %land.rhs.i.i.i, %lo
 
 days_in_month.exit.i:                             ; preds = %if.else.i.i, %land.rhs.i.i.i
   %retval.0.i.i = phi i32 [ %4, %if.else.i.i ], [ 29, %land.rhs.i.i.i ]
-  %cmp10.i = icmp slt i32 %retval.0.i.i, %day
+  %cmp10.i = icmp sgt i32 %day, %retval.0.i.i
   br i1 %cmp10.i, label %if.then11.i, label %if.end
 
 if.then11.i:                                      ; preds = %days_in_month.exit.i, %if.end6.i
@@ -2503,7 +2503,7 @@ if.else.i.i:                                      ; preds = %land.rhs.i.i.i, %lo
 
 days_in_month.exit.i:                             ; preds = %if.else.i.i, %land.rhs.i.i.i
   %retval.0.i.i = phi i32 [ %4, %if.else.i.i ], [ 29, %land.rhs.i.i.i ]
-  %cmp10.i = icmp slt i32 %retval.0.i.i, %day
+  %cmp10.i = icmp sgt i32 %day, %retval.0.i.i
   br i1 %cmp10.i, label %if.then11.i, label %if.end
 
 if.then11.i:                                      ; preds = %days_in_month.exit.i, %if.end6.i
@@ -4320,7 +4320,7 @@ entry:
   %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %1 = load ptr, ptr %tp_name, align 8
   %2 = load ptr, ptr @_datetime_global_state.7, align 8
-  %cmp = icmp eq ptr %2, %self
+  %cmp = icmp eq ptr %self, %2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -4412,7 +4412,7 @@ if.end.i.i:                                       ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr @_datetime_global_state.7, align 8
-  %cmp2 = icmp eq ptr %2, %self
+  %cmp2 = icmp eq ptr %self, %2
   br i1 %cmp2, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
@@ -10352,8 +10352,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1023 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1822 = phi i64 [ %cond17, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1822, %add
+  %add = sub i64 0, %cond1822
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %if.end.i, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
@@ -12720,7 +12720,7 @@ utc_to_seconds.exit:                              ; preds = %if.end.i, %is_leap.
   %div1.neg.i.i8.zext.i = zext nneg i16 %div1.neg.i.i89.i to i32
   %div3.i.i1011.i = udiv i16 %div1.neg.i.i8.lhs.trunc.i, 400
   %div3.i.i10.zext.i = zext nneg i16 %div3.i.i1011.i to i32
-  %add.i.i.i = add i32 %mul.i.i.i, %2
+  %add.i.i.i = add i32 %2, %mul.i.i.i
   %sub2.i.i.i = add i32 %add.i.i.i, %div.i.i6712.i
   %add4.i.i.i = sub i32 %sub2.i.i.i, %div1.neg.i.i8.zext.i
   %add.i.i = add i32 %add4.i.i.i, %div3.i.i10.zext.i
@@ -13217,7 +13217,7 @@ for.end:                                          ; preds = %if.else20, %for.inc
   %sub.ptr.rhs.cast = ptrtoint ptr %p.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub, i64 6)
-  %cmp5.not.i = icmp eq ptr %p.1, %tstr_end
+  %cmp5.not.i = icmp eq ptr %tstr_end, %p.1
   br i1 %cmp5.not.i, label %parse_digits.exit42, label %for.body.i29
 
 for.body.i29:                                     ; preds = %for.end, %if.end.i35
@@ -13362,7 +13362,7 @@ ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread
   %div1.neg.i.i8.zext.i = zext nneg i16 %div1.neg.i.i89.i to i32
   %div3.i.i1011.i = udiv i16 %div1.neg.i.i8.lhs.trunc.i, 400
   %div3.i.i10.zext.i = zext nneg i16 %div3.i.i1011.i to i32
-  %add.i.i.i = add i32 %mul.i.i.i, %day
+  %add.i.i.i = add i32 %day, %mul.i.i.i
   %sub2.i.i.i = add i32 %add.i.i.i, %div.i.i6712.i
   %add4.i.i.i = sub i32 %sub2.i.i.i, %div1.neg.i.i8.zext.i
   %add.i.i = add i32 %add4.i.i.i, %div3.i.i10.zext.i

@@ -229,7 +229,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = load ptr, ptr %7, align 8
   %m_false.i = getelementptr inbounds i8, ptr %6, i64 864
   %9 = load ptr, ptr %m_false.i, align 8
-  %cmp.i = icmp eq ptr %9, %8
+  %cmp.i = icmp eq ptr %8, %9
   br i1 %cmp.i, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body

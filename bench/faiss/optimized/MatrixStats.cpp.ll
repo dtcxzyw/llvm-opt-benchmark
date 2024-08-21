@@ -88,7 +88,7 @@ define void @_ZN5faiss11MatrixStats11PerDimStats3addEf(ptr nocapture noundef non
 23:                                               ; preds = %19, %17
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   %25 = load float, ptr %24, align 8
-  %26 = fcmp ogt float %25, %1
+  %26 = fcmp olt float %1, %25
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
@@ -98,7 +98,7 @@ define void @_ZN5faiss11MatrixStats11PerDimStats3addEf(ptr nocapture noundef non
 28:                                               ; preds = %27, %23
   %29 = getelementptr inbounds i8, ptr %0, i64 36
   %30 = load float, ptr %29, align 4
-  %31 = fcmp olt float %30, %1
+  %31 = fcmp ogt float %1, %30
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
@@ -271,7 +271,7 @@ define void @_ZN5faiss11MatrixStatsC2EmmPKf(ptr noundef nonnull align 8 derefere
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %47, %48
   %50 = sdiv exact i64 %49, 80
-  %51 = icmp ult i64 %50, %2
+  %51 = icmp ugt i64 %2, %50
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %42
@@ -280,7 +280,7 @@ define void @_ZN5faiss11MatrixStatsC2EmmPKf(ptr noundef nonnull align 8 derefere
           to label %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp
 
 54:                                               ; preds = %42
-  %55 = icmp ugt i64 %50, %2
+  %55 = icmp ult i64 %2, %50
   br i1 %55, label %56, label %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE6resizeEm.exit
 
 56:                                               ; preds = %54
@@ -353,7 +353,7 @@ _ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE6resizeEm.exit: ; preds =
 87:                                               ; preds = %83, %81
   %88 = getelementptr inbounds i8, ptr %64, i64 32
   %89 = load float, ptr %88, align 8
-  %90 = fcmp ogt float %89, %66
+  %90 = fcmp olt float %66, %89
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %87
@@ -363,7 +363,7 @@ _ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE6resizeEm.exit: ; preds =
 92:                                               ; preds = %91, %87
   %93 = getelementptr inbounds i8, ptr %64, i64 36
   %94 = load float, ptr %93, align 4
-  %95 = fcmp olt float %94, %66
+  %95 = fcmp ogt float %66, %94
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %92
@@ -939,7 +939,7 @@ _ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__deta
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = icmp eq ptr %10, %9
+  %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -1299,7 +1299,7 @@ _ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__deta
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge

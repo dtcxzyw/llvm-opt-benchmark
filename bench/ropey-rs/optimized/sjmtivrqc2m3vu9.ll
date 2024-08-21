@@ -374,7 +374,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$smallve
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hff352671a5492543E.llvm.16952314824741166450.exit": ; preds = %7, %14
   %.sink8.i = phi ptr [ %11, %7 ], [ %15, %14 ]
   %.sink7.i = phi i64 [ %13, %7 ], [ %5, %14 ]
-  %16 = icmp ugt i64 %.sink7.i, %1
+  %16 = icmp ult i64 %1, %.sink7.i
   br i1 %16, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbeb9c33922d8d8bcE.llvm.16952314824741166450.exit", label %17, !prof !42
 
 17:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hff352671a5492543E.llvm.16952314824741166450.exit"
@@ -410,7 +410,7 @@ define hidden { ptr, i64 } @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$co
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.16952314824741166450.exit": ; preds = %7, %14
   %.sink8.i = phi ptr [ %11, %7 ], [ %15, %14 ]
   %.sink7.i = phi i64 [ %13, %7 ], [ %5, %14 ]
-  %16 = icmp ult i64 %.sink7.i, %1
+  %16 = icmp ugt i64 %1, %.sink7.i
   br i1 %16, label %17, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.llvm.16952314824741166450.exit"
 
 17:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.16952314824741166450.exit"
@@ -513,7 +513,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$smallve
   %.sink13.i = phi ptr [ %11, %8 ], [ %15, %13 ]
   %.sink12.i = phi ptr [ %12, %8 ], [ %4, %13 ]
   %16 = load i64, ptr %.sink12.i, align 8, !noundef !4
-  %17 = icmp ugt i64 %16, %1
+  %17 = icmp ult i64 %1, %16
   br i1 %17, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45ec3214435d9227E.llvm.16952314824741166450.exit", label %18, !prof !42
 
 18:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc2d58eb60de132d3E.llvm.16952314824741166450.exit"
@@ -951,7 +951,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6insert17h999ac5928038a5a5E"
   %26 = phi i64 [ %.pre10, %28 ], [ %22, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc2d58eb60de132d3E.llvm.16952314824741166450.exit" ]
   %.sroa.05.0 = phi ptr [ %33, %28 ], [ %.sink12.i, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc2d58eb60de132d3E.llvm.16952314824741166450.exit" ]
   %.sroa.04.0 = phi ptr [ %32, %28 ], [ %.sink13.i, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc2d58eb60de132d3E.llvm.16952314824741166450.exit" ]
-  %27 = icmp ult i64 %26, %1
+  %27 = icmp ugt i64 %1, %26
   br i1 %27, label %37, label %34
 
 28:                                               ; preds = %24
@@ -966,7 +966,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6insert17h999ac5928038a5a5E"
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds ptr, ptr %.sroa.04.0, i64 %1
-  %36 = icmp ugt i64 %26, %1
+  %36 = icmp ult i64 %1, %26
   br i1 %36, label %41, label %38
 
 37:                                               ; preds = %25
@@ -1117,7 +1117,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h5e63882184e2c3eb
 "_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit": ; preds = %7, %10
   %.sink12.i = phi ptr [ %9, %7 ], [ %3, %10 ]
   %.sink12.i.promoted = load i64, ptr %.sink12.i, align 8
-  %12 = icmp ugt i64 %.sink12.i.promoted, %1
+  %12 = icmp ult i64 %1, %.sink12.i.promoted
   br i1 %12, label %.lr.ph.preheader, label %13
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit"
@@ -1157,7 +1157,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h0a833344
   %.sink12.i = phi ptr [ %13, %9 ], [ %4, %14 ]
   %.sink.i = phi i64 [ %5, %9 ], [ 4, %14 ]
   %17 = load i64, ptr %.sink12.i, align 8, !noundef !4
-  %.not = icmp ugt i64 %17, %1
+  %.not = icmp ult i64 %1, %17
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc2d58eb60de132d3E.llvm.16952314824741166450.exit"
@@ -1169,7 +1169,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h0a833344
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %19
-  %.not68 = icmp eq i64 %.sink.i, %1
+  %.not68 = icmp eq i64 %1, %.sink.i
   br i1 %.not68, label %45, label %23
 
 22:                                               ; preds = %19
@@ -1270,7 +1270,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %.sink12.i = phi ptr [ %11, %7 ], [ %4, %12 ]
   %.sink.i = phi i64 [ %5, %7 ], [ 984, %12 ]
   %15 = load i64, ptr %.sink12.i, align 8, !noundef !4
-  %.not70 = icmp ugt i64 %15, %1
+  %.not70 = icmp ult i64 %1, %15
   br i1 %.not70, label %16, label %17
 
 16:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit"
@@ -1282,7 +1282,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   br i1 %.not71, label %18, label %19
 
 18:                                               ; preds = %17
-  %.not72 = icmp eq i64 %.sink.i, %1
+  %.not72 = icmp eq i64 %1, %.sink.i
   br i1 %.not72, label %38, label %20
 
 19:                                               ; preds = %17

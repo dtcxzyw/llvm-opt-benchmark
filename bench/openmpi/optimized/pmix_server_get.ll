@@ -2693,7 +2693,7 @@ define internal fastcc noundef i32 @defer_response(ptr noundef %0, i32 noundef %
 26:                                               ; preds = %.lr.ph.i
   %27 = getelementptr inbounds i8, ptr %.070100.i, i64 400
   %28 = load i32, ptr %27, align 8
-  %.not81.i = icmp eq i32 %28, %1
+  %.not81.i = icmp eq i32 %1, %28
   br i1 %.not81.i, label %31, label %29
 
 29:                                               ; preds = %26, %.lr.ph.i
@@ -3045,7 +3045,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %30
   call void @PMIx_Load_nspace(ptr noundef nonnull %12, ptr noundef %40) #13
   %41 = load i32, ptr %9, align 4
   %42 = icmp eq i32 %41, -2
-  %brmerge = or i1 %42, %4
+  %brmerge = or i1 %4, %42
   br i1 %brmerge, label %43, label %54
 
 43:                                               ; preds = %pmix_obj_run_constructors.exit
@@ -3288,7 +3288,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %108, %114
 pmix_obj_run_constructors.exit143:                ; preds = %.lr.ph.i140, %152
   %161 = load i32, ptr %9, align 4
   %162 = icmp eq i32 %161, -1
-  %brmerge129 = or i1 %162, %4
+  %brmerge129 = or i1 %4, %162
   br i1 %brmerge129, label %163, label %187
 
 163:                                              ; preds = %pmix_obj_run_constructors.exit143
@@ -4209,7 +4209,7 @@ define noundef i32 @pmix_pending_resolve(ptr nocapture noundef readonly %0, i32 
   %15 = getelementptr inbounds i8, ptr %.05168, i64 400
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, -1
-  %18 = icmp eq i32 %16, %1
+  %18 = icmp eq i32 %1, %16
   %or.cond = or i1 %17, %18
   br i1 %or.cond, label %19, label %20
 

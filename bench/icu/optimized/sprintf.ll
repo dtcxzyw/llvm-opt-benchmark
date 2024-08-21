@@ -325,7 +325,7 @@ entry:
 if.end:                                           ; preds = %entry
   %available = getelementptr inbounds i8, ptr %context, i64 8
   %1 = load i32, ptr %available, align 8
-  %count. = tail call i32 @llvm.smin.i32(i32 %1, i32 %count)
+  %count. = tail call i32 @llvm.smin.i32(i32 %count, i32 %1)
   %len = getelementptr inbounds i8, ptr %context, i64 12
   %2 = load i32, ptr %len, align 4
   %sub = sub nsw i32 %2, %1
@@ -353,14 +353,14 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %cmp1.not = icmp ne i32 %1, -1
-  %cmp4 = icmp sgt i32 %1, %resultLen
+  %cmp4 = icmp slt i32 %resultLen, %1
   %or.cond = and i1 %cmp1.not, %cmp4
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true
   %available = getelementptr inbounds i8, ptr %context, i64 8
   %2 = load i32, ptr %available, align 8
-  %resultLen. = tail call i32 @llvm.smin.i32(i32 %2, i32 %resultLen)
+  %resultLen. = tail call i32 @llvm.smin.i32(i32 %resultLen, i32 %2)
   %cmp9.not = icmp ne i32 %1, -1
   %cmp12 = icmp slt i32 %resultLen., %1
   %or.cond51 = select i1 %cmp9.not, i1 %cmp12, i1 false
@@ -369,7 +369,7 @@ if.end:                                           ; preds = %land.lhs.true
 if.end.thread:                                    ; preds = %entry
   %available79 = getelementptr inbounds i8, ptr %context, i64 8
   %3 = load i32, ptr %available79, align 8
-  %resultLen.80 = tail call i32 @llvm.smin.i32(i32 %3, i32 %resultLen)
+  %resultLen.80 = tail call i32 @llvm.smin.i32(i32 %resultLen, i32 %3)
   %cmp9.not81 = icmp ne i32 %1, -1
   %cmp1282 = icmp slt i32 %resultLen.80, %1
   %or.cond5183 = select i1 %cmp9.not81, i1 %cmp1282, i1 false
@@ -433,7 +433,7 @@ if.else:                                          ; preds = %if.then13
   br i1 %cmp.i53, label %_ZL15u_sprintf_writePvPKDsi.exit64, label %if.end.i54
 
 if.end.i54:                                       ; preds = %if.else
-  %count..i56 = tail call i32 @llvm.smin.i32(i32 %sub40, i32 %resultLen.86)
+  %count..i56 = tail call i32 @llvm.smin.i32(i32 %resultLen.86, i32 %sub40)
   %14 = load i32, ptr %len, align 4
   %sub.i58 = sub nsw i32 %14, %sub40
   %idx.ext.i59 = sext i32 %sub.i58 to i64
@@ -463,7 +463,7 @@ if.end.i66:                                       ; preds = %if.end.thread
 
 if.end46:                                         ; preds = %if.end, %if.end.i66, %_ZL15u_sprintf_writePvPKDsi.exit, %_ZL15u_sprintf_writePvPKDsi.exit64
   %written.0 = phi i32 [ %add28, %_ZL15u_sprintf_writePvPKDsi.exit ], [ %add42, %_ZL15u_sprintf_writePvPKDsi.exit64 ], [ %resultLen.80, %if.end.i66 ], [ %resultLen., %if.end ]
-  %18 = tail call i32 @llvm.smax.i32(i32 %written.0, i32 %resultLen)
+  %18 = tail call i32 @llvm.smax.i32(i32 %resultLen, i32 %written.0)
   %cmp4777 = icmp slt i32 %written.0, 0
   %spec.select = select i1 %cmp4777, i32 %written.0, i32 %18
   br label %return

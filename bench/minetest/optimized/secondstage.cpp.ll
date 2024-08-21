@@ -1320,7 +1320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit961: ; preds = %if
   %conv116 = uitofp i16 %cond2025 to float
   %49 = insertelement <2 x float> poison, float %conv116, i64 0
   %50 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> zeroinitializer
-  %51 = fmul nsz <2 x float> %50, %scale.coerce
+  %51 = fmul nsz <2 x float> %scale.coerce, %50
   br label %if.end121
 
 lpad17:                                           ; preds = %if.then.i.i860, %if.end15

@@ -198,7 +198,7 @@ LeftRotate.exit:                                  ; preds = %57, %60
   store ptr %62, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %62, i64 24
   %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, %.pre72
+  %66 = icmp eq ptr %.pre72, %65
   %67 = getelementptr inbounds i8, ptr %62, i64 32
   %.sink.i = select i1 %66, ptr %64, ptr %67
   store ptr %55, ptr %.sink.i, align 8
@@ -226,7 +226,7 @@ LeftRotate.exit:                                  ; preds = %57, %60
   %80 = getelementptr inbounds i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8
   store ptr %81, ptr %78, align 8
-  %.not.i56 = icmp eq ptr %81, %.val53
+  %.not.i56 = icmp eq ptr %.val53, %81
   br i1 %.not.i56, label %RightRotate.exit, label %82
 
 82:                                               ; preds = %._crit_edge70
@@ -241,7 +241,7 @@ RightRotate.exit:                                 ; preds = %._crit_edge70, %82
   store ptr %85, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %85, i64 24
   %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, %77
+  %89 = icmp eq ptr %77, %88
   %90 = getelementptr inbounds i8, ptr %85, i64 32
   %.sink.i57 = select i1 %89, ptr %87, ptr %90
   store ptr %79, ptr %.sink.i57, align 8
@@ -279,7 +279,7 @@ RightRotate.exit:                                 ; preds = %._crit_edge70, %82
   %107 = getelementptr inbounds i8, ptr %104, i64 32
   %108 = load ptr, ptr %107, align 8
   store ptr %108, ptr %103, align 8
-  %.not.i58 = icmp eq ptr %108, %.val54
+  %.not.i58 = icmp eq ptr %.val54, %108
   br i1 %.not.i58, label %RightRotate.exit60, label %109
 
 109:                                              ; preds = %106
@@ -294,7 +294,7 @@ RightRotate.exit60:                               ; preds = %106, %109
   store ptr %111, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %111, i64 24
   %114 = load ptr, ptr %113, align 8
-  %115 = icmp eq ptr %114, %.pre72
+  %115 = icmp eq ptr %.pre72, %114
   %116 = getelementptr inbounds i8, ptr %111, i64 32
   %.sink.i59 = select i1 %115, ptr %113, ptr %116
   store ptr %104, ptr %.sink.i59, align 8
@@ -337,7 +337,7 @@ LeftRotate.exit63:                                ; preds = %._crit_edge67, %131
   store ptr %134, ptr %135, align 8
   %136 = getelementptr inbounds i8, ptr %134, i64 24
   %137 = load ptr, ptr %136, align 8
-  %138 = icmp eq ptr %137, %126
+  %138 = icmp eq ptr %126, %137
   %139 = getelementptr inbounds i8, ptr %134, i64 32
   %.sink.i62 = select i1 %138, ptr %136, ptr %139
   store ptr %128, ptr %.sink.i62, align 8
@@ -459,7 +459,7 @@ define void @RBTreeDestroy(ptr noundef %0) local_unnamed_addr #3 {
 define internal fastcc void @TreeDestHelper(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %.not = icmp eq ptr %4, %1
+  %.not = icmp eq ptr %1, %4
   br i1 %.not, label %common.ret12, label %5
 
 common.ret12:                                     ; preds = %2, %5
@@ -625,7 +625,7 @@ TreeSuccessor.exit:                               ; preds = %.preheader24.i, %2,
   %61 = load ptr, ptr %53, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %1
+  %64 = icmp eq ptr %1, %63
   %65 = getelementptr inbounds i8, ptr %61, i64 32
   %.sink65 = select i1 %64, ptr %62, ptr %65
   store ptr %17, ptr %.sink65, align 8
@@ -717,7 +717,7 @@ LeftRotate.exit:                                  ; preds = %23, %31
   store ptr %34, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %34, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %26
+  %38 = icmp eq ptr %26, %37
   %39 = getelementptr inbounds i8, ptr %34, i64 32
   %.sink.i = select i1 %38, ptr %36, ptr %39
   store ptr %28, ptr %.sink.i, align 8
@@ -757,7 +757,7 @@ LeftRotate.exit:                                  ; preds = %23, %31
   %59 = getelementptr inbounds i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
   store ptr %60, ptr %55, align 8
-  %.not.i71 = icmp eq ptr %60, %.val70
+  %.not.i71 = icmp eq ptr %.val70, %60
   br i1 %.not.i71, label %RightRotate.exit, label %61
 
 61:                                               ; preds = %54
@@ -772,7 +772,7 @@ RightRotate.exit:                                 ; preds = %54, %61
   store ptr %64, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %64, i64 24
   %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, %.0
+  %68 = icmp eq ptr %.0, %67
   %69 = getelementptr inbounds i8, ptr %64, i64 32
   %.sink.i72 = select i1 %68, ptr %66, ptr %69
   store ptr %58, ptr %.sink.i72, align 8
@@ -819,7 +819,7 @@ LeftRotate.exit75:                                ; preds = %.loopexit, %87
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %90, i64 24
   %93 = load ptr, ptr %92, align 8
-  %94 = icmp eq ptr %93, %82
+  %94 = icmp eq ptr %82, %93
   %95 = getelementptr inbounds i8, ptr %90, i64 32
   %.sink.i74 = select i1 %94, ptr %92, ptr %95
   store ptr %84, ptr %.sink.i74, align 8
@@ -845,7 +845,7 @@ LeftRotate.exit75:                                ; preds = %.loopexit, %87
   %105 = getelementptr inbounds i8, ptr %104, i64 32
   %106 = load ptr, ptr %105, align 8
   store ptr %106, ptr %103, align 8
-  %.not.i76 = icmp eq ptr %106, %.val69
+  %.not.i76 = icmp eq ptr %.val69, %106
   br i1 %.not.i76, label %RightRotate.exit78, label %107
 
 107:                                              ; preds = %99
@@ -860,7 +860,7 @@ RightRotate.exit78:                               ; preds = %99, %107
   store ptr %110, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %110, i64 24
   %113 = load ptr, ptr %112, align 8
-  %114 = icmp eq ptr %113, %102
+  %114 = icmp eq ptr %102, %113
   %115 = getelementptr inbounds i8, ptr %110, i64 32
   %.sink.i77 = select i1 %114, ptr %112, ptr %115
   store ptr %104, ptr %.sink.i77, align 8
@@ -918,7 +918,7 @@ LeftRotate.exit81:                                ; preds = %131, %138
   store ptr %141, ptr %142, align 8
   %143 = getelementptr inbounds i8, ptr %141, i64 24
   %144 = load ptr, ptr %143, align 8
-  %145 = icmp eq ptr %144, %.2
+  %145 = icmp eq ptr %.2, %144
   %146 = getelementptr inbounds i8, ptr %141, i64 32
   %.sink.i80 = select i1 %145, ptr %143, ptr %146
   store ptr %135, ptr %.sink.i80, align 8
@@ -950,7 +950,7 @@ LeftRotate.exit81:                                ; preds = %131, %138
   %162 = getelementptr inbounds i8, ptr %161, i64 32
   %163 = load ptr, ptr %162, align 8
   store ptr %163, ptr %160, align 8
-  %.not.i82 = icmp eq ptr %163, %.val68
+  %.not.i82 = icmp eq ptr %.val68, %163
   br i1 %.not.i82, label %RightRotate.exit84, label %164
 
 164:                                              ; preds = %.thread
@@ -965,7 +965,7 @@ RightRotate.exit84:                               ; preds = %.thread, %164
   store ptr %167, ptr %168, align 8
   %169 = getelementptr inbounds i8, ptr %167, i64 24
   %170 = load ptr, ptr %169, align 8
-  %171 = icmp eq ptr %170, %159
+  %171 = icmp eq ptr %159, %170
   %172 = getelementptr inbounds i8, ptr %167, i64 32
   %.sink.i83 = select i1 %171, ptr %169, ptr %172
   store ptr %161, ptr %.sink.i83, align 8

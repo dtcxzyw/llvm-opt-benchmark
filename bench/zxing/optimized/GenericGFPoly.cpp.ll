@@ -718,7 +718,7 @@ _ZN5ZXing13GenericGFPoly12Coefficients7reserveEm.exit: ; preds = %._ZN5ZXing13Ge
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %28, %.pre-phi
   %30 = ashr exact i64 %29, 2
-  %31 = icmp ult i64 %30, %1
+  %31 = icmp ugt i64 %1, %30
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %_ZN5ZXing13GenericGFPoly12Coefficients7reserveEm.exit
@@ -727,7 +727,7 @@ _ZN5ZXing13GenericGFPoly12Coefficients7reserveEm.exit: ; preds = %._ZN5ZXing13Ge
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 34:                                               ; preds = %_ZN5ZXing13GenericGFPoly12Coefficients7reserveEm.exit
-  %35 = icmp ugt i64 %30, %1
+  %35 = icmp ult i64 %1, %30
   br i1 %35, label %36, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 36:                                               ; preds = %34
@@ -972,7 +972,7 @@ _ZN5ZXing13GenericGFPoly12Coefficients7reserveEm.exit: ; preds = %._ZN5ZXing13Ge
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %30, %.pre-phi
   %32 = ashr exact i64 %31, 2
-  %33 = icmp ult i64 %32, %1
+  %33 = icmp ugt i64 %1, %32
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %_ZN5ZXing13GenericGFPoly12Coefficients7reserveEm.exit
@@ -981,7 +981,7 @@ _ZN5ZXing13GenericGFPoly12Coefficients7reserveEm.exit: ; preds = %._ZN5ZXing13Ge
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 36:                                               ; preds = %_ZN5ZXing13GenericGFPoly12Coefficients7reserveEm.exit
-  %37 = icmp ugt i64 %32, %1
+  %37 = icmp ult i64 %1, %32
   br i1 %37, label %38, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 38:                                               ; preds = %36
@@ -1839,7 +1839,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !14
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -1923,7 +1923,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !14
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79

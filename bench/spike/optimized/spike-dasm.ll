@@ -431,7 +431,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit: ; preds =
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
   %154 = load i64, ptr %21, align 8
   %155 = load ptr, ptr %6, align 8
-  %spec.select.i.i = call noundef i64 @llvm.umin.i64(i64 %154, i64 %127)
+  %spec.select.i.i = call noundef i64 @llvm.umin.i64(i64 %127, i64 %154)
   %156 = icmp ugt i64 %spec.select.i.i, 15
   br i1 %156, label %157, label %._crit_edge.i.i
 
@@ -674,7 +674,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %225 = sub i64 %223, %224
   %226 = add nsw i64 %225, 1
   %227 = load i64, ptr %21, align 8, !noalias !9
-  %228 = icmp ult i64 %227, %226
+  %228 = icmp ugt i64 %226, %227
   br i1 %228, label %229, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
 
 229:                                              ; preds = %220
@@ -691,7 +691,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; p
   store ptr %101, ptr %19, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   %230 = load i64, ptr %21, align 8
-  %231 = icmp ult i64 %230, %226
+  %231 = icmp ugt i64 %226, %230
   br i1 %231, label %232, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i95
 
 232:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
@@ -830,7 +830,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i122
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i122: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i, %273
-  %275 = icmp ugt ptr %.pre.i55, %257
+  %275 = icmp ult ptr %257, %.pre.i55
   %276 = getelementptr inbounds i8, ptr %.pre.i55, i64 %255
   %277 = icmp ult ptr %276, %257
   %278 = select i1 %275, i1 true, i1 %277
@@ -1274,7 +1274,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
 .backedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79, %143, %147
   %.020.be = phi i64 [ %.121, %147 ], [ %400, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ %.121, %143 ]
   %404 = load i64, ptr %21, align 8
-  %.not.i.i48 = icmp ugt i64 %404, %.020.be
+  %.not.i.i48 = icmp ult i64 %.020.be, %404
   br i1 %.not.i.i48, label %.lr.ph195, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit.thread, !llvm.loop !15
 
 .loopexit145:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i

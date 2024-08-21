@@ -24,7 +24,7 @@ define hidden ptr @pm_memchr(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 
   %11 = getelementptr i8, ptr %0, i64 %.02327
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
-  %14 = icmp eq i32 %13, %1
+  %14 = icmp eq i32 %1, %13
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %.lr.ph

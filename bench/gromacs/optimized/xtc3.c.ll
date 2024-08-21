@@ -3822,7 +3822,7 @@ define internal fastcc void @base_compress(ptr nocapture noundef readonly %0, i3
   %.091170 = phi i32 [ 0, %4 ], [ %.495, %.loopexit140 ]
   %indvars190 = trunc i64 %indvars.iv to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %9, i8 0, i64 100, i1 false)
-  %14 = icmp slt i32 %indvars190, %1
+  %14 = icmp sgt i32 %1, %indvars190
   br i1 %14, label %.lr.ph160, label %.loopexit140
 
 .lr.ph160:                                        ; preds = %13, %71
@@ -3854,7 +3854,7 @@ define internal fastcc void @base_compress(ptr nocapture noundef readonly %0, i3
   %22 = icmp ne i32 %21, 192
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 3
   %23 = trunc nuw i64 %indvars.iv.next180 to i32
-  %24 = icmp slt i32 %23, %1
+  %24 = icmp sgt i32 %1, %23
   %or.cond = select i1 %22, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
@@ -3995,7 +3995,7 @@ define internal fastcc void @base_compress(ptr nocapture noundef readonly %0, i3
   %.5 = phi i32 [ %.4.lcssa, %._crit_edge150 ], [ %.277133, %.loopexit ]
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 3
   %72 = trunc nuw i64 %indvars.iv.next178 to i32
-  %73 = icmp slt i32 %72, %1
+  %73 = icmp sgt i32 %1, %72
   br i1 %73, label %.lr.ph160, label %._crit_edge161, !llvm.loop !48
 
 ._crit_edge161:                                   ; preds = %71

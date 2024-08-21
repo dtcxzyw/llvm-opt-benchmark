@@ -5500,7 +5500,7 @@ if.then.i.i8.i:                                   ; preds = %lpad.i
 _ZN9ItemStackC2ERKS_.exit:                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %17 = load i16, ptr %count, align 8, !tbaa !17
   %conv4 = zext i16 %17 to i32
-  %cmp5.not = icmp ugt i32 %conv4, %takecount
+  %cmp5.not = icmp ult i32 %takecount, %conv4
   br i1 %cmp5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %_ZN9ItemStackC2ERKS_.exit
@@ -5690,7 +5690,7 @@ if.then.i.i8.i:                                   ; preds = %lpad.i
 _ZN9ItemStackC2ERKS_.exit:                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %17 = load i16, ptr %count, align 8, !tbaa !17
   %conv4 = zext i16 %17 to i32
-  %cmp5 = icmp ugt i32 %conv4, %peekcount
+  %cmp5 = icmp ult i32 %peekcount, %conv4
   br i1 %cmp5, label %if.then6, label %return
 
 if.then6:                                         ; preds = %_ZN9ItemStackC2ERKS_.exit
@@ -10100,7 +10100,7 @@ call3.i.i.i.noexc:                                ; preds = %_ZN9ItemStackD2Ev.e
 invoke.cont34:                                    ; preds = %call3.i.i.i.noexc
   %47 = load i16, ptr %count.i, align 8, !tbaa !17
   %cmp.i182 = icmp eq i16 %47, 0
-  %brmerge.not = and i1 %cmp.i182, %swap_if_needed
+  %brmerge.not = and i1 %swap_if_needed, %cmp.i182
   br i1 %brmerge.not, label %if.then38, label %if.end63
 
 if.then38:                                        ; preds = %invoke.cont34

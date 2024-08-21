@@ -535,7 +535,7 @@ if.end13:                                         ; preds = %lor.lhs.false9
   %notmask = shl nsw i64 -1, %sh_prom
   %2 = trunc i64 %notmask to i32
   %3 = xor i32 %2, -1
-  %conv14 = and i32 %3, %value
+  %conv14 = and i32 %value, %3
   %shl16 = shl i32 %conv14, %1
   %conv17 = sext i32 %shl16 to i64
   %hold18 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3290,7 +3290,7 @@ if.then8.i:                                       ; preds = %if.end6.i
 
 if.end12.i:                                       ; preds = %if.then8.i, %if.end6.i
   %255 = phi i32 [ %shl10.i, %if.then8.i ], [ %253, %if.end6.i ]
-  %cmp14.not.i = icmp ugt i32 %255, %sub1842
+  %cmp14.not.i = icmp ult i32 %sub1842, %255
   br i1 %cmp14.not.i, label %if.else.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end12.i
@@ -3317,7 +3317,7 @@ if.else.i:                                        ; preds = %if.end12.i
   %add.ptr34.i = getelementptr inbounds i8, ptr %246, i64 %idx.neg33.i
   %conv35.i = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr31.i, ptr readonly align 1 %add.ptr34.i, i64 %conv35.i, i1 false)
-  %tobool.not.not.i = icmp ult i32 %sub.i, %sub1842
+  %tobool.not.not.i = icmp ugt i32 %sub1842, %sub.i
   br i1 %tobool.not.not.i, label %if.then37.i, label %if.else46.i
 
 if.then37.i:                                      ; preds = %if.else.i
@@ -3627,7 +3627,7 @@ if.then8.i:                                       ; preds = %if.end6.i
 
 if.end12.i:                                       ; preds = %if.then8.i, %if.end6.i
   %11 = phi i32 [ %shl10.i, %if.then8.i ], [ %9, %if.end6.i ]
-  %cmp14.not.i = icmp ugt i32 %11, %dictLength
+  %cmp14.not.i = icmp ult i32 %dictLength, %11
   br i1 %cmp14.not.i, label %if.else.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end12.i
@@ -3651,7 +3651,7 @@ if.else.i:                                        ; preds = %if.end12.i
   %add.ptr31.i = getelementptr inbounds i8, ptr %8, i64 %idx.ext30.i
   %conv35.i = zext i32 %spec.select.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr31.i, ptr readonly align 1 %dictionary, i64 %conv35.i, i1 false)
-  %tobool.not.not.i = icmp ult i32 %sub.i, %dictLength
+  %tobool.not.not.i = icmp ugt i32 %dictLength, %sub.i
   br i1 %tobool.not.not.i, label %if.then37.i, label %if.else46.i
 
 if.then37.i:                                      ; preds = %if.else.i

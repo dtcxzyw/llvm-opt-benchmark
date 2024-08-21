@@ -422,7 +422,7 @@ define range(i32 -1, 1) i32 @H5PLreplace(ptr noundef %0, i32 noundef %1) local_u
   br label %.thread36
 
 42:                                               ; preds = %35
-  %.not = icmp ugt i32 %36, %1
+  %.not = icmp ult i32 %1, %36
   br i1 %.not, label %48, label %43
 
 43:                                               ; preds = %42
@@ -603,7 +603,7 @@ define range(i32 -1, 1) i32 @H5PLremove(i32 noundef %0) local_unnamed_addr #0 {
   br label %.thread31
 
 29:                                               ; preds = %21
-  %.not = icmp ugt i32 %23, %0
+  %.not = icmp ult i32 %0, %23
   br i1 %.not, label %35, label %30
 
 30:                                               ; preds = %29
@@ -687,7 +687,7 @@ define i64 @H5PLget(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unname
   br label %.thread46
 
 31:                                               ; preds = %23
-  %.not = icmp ugt i32 %25, %0
+  %.not = icmp ult i32 %0, %25
   br i1 %.not, label %37, label %32
 
 32:                                               ; preds = %31

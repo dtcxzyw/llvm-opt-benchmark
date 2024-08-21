@@ -278,7 +278,7 @@ if.then13:                                        ; preds = %land.lhs.true11
   %idxprom.i15.i.i = sext i32 %11 to i64
   %arrayidx.i16.i.i = getelementptr inbounds %struct.btElement, ptr %13, i64 %idxprom.i15.i.i
   %14 = load i32, ptr %arrayidx.i16.i.i, align 4
-  %cmp.not17.i.i = icmp eq i32 %14, %11
+  %cmp.not17.i.i = icmp eq i32 %11, %14
   br i1 %cmp.not17.i.i, label %_ZN11btUnionFind4findEi.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then13, %while.body.i.i
@@ -302,7 +302,7 @@ _ZN11btUnionFind4findEi.exit.i:                   ; preds = %while.body.i.i, %if
   %idxprom.i15.i6.i = sext i32 %12 to i64
   %arrayidx.i16.i7.i = getelementptr inbounds %struct.btElement, ptr %20, i64 %idxprom.i15.i6.i
   %21 = load i32, ptr %arrayidx.i16.i7.i, align 4
-  %cmp.not17.i8.i = icmp eq i32 %21, %12
+  %cmp.not17.i8.i = icmp eq i32 %12, %21
   br i1 %cmp.not17.i8.i, label %_ZN11btUnionFind4findEi.exit17.i, label %while.body.i9.i
 
 while.body.i9.i:                                  ; preds = %_ZN11btUnionFind4findEi.exit.i, %while.body.i9.i
@@ -429,7 +429,7 @@ if.then:                                          ; preds = %for.body
   %idxprom.i15.i = sext i32 %index.019 to i64
   %arrayidx.i16.i = getelementptr inbounds %struct.btElement, ptr %4, i64 %idxprom.i15.i
   %5 = load i32, ptr %arrayidx.i16.i, align 4
-  %cmp.not17.i = icmp eq i32 %5, %index.019
+  %cmp.not17.i = icmp eq i32 %index.019, %5
   br i1 %cmp.not17.i, label %_ZN11btUnionFind4findEi.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then, %while.body.i
@@ -1633,7 +1633,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !24
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo.tr
+  %cmp15 = icmp slt i32 %lo.tr, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end
@@ -1824,7 +1824,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !27
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo.tr
+  %cmp15 = icmp slt i32 %lo.tr, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end

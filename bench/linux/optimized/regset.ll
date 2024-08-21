@@ -43,7 +43,7 @@ define dso_local i32 @regset_xregset_fpregs_active(ptr nocapture noundef readnon
 define dso_local i32 @xfpregs_get(ptr noundef %0, ptr nocapture noundef readnone %1, ptr %2, i64 %3) local_unnamed_addr #1 align 16 {
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = icmp eq ptr %6, %0
+  %7 = icmp eq ptr %0, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
@@ -129,7 +129,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfpregs_set(ptr noundef %0, ptr 
 28:                                               ; preds = %21
   %29 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %30 = inttoptr i64 %29 to ptr
-  %31 = icmp eq ptr %30, %0
+  %31 = icmp eq ptr %0, %30
   br i1 %31, label %32, label %33, !prof !12
 
 32:                                               ; preds = %28
@@ -188,7 +188,7 @@ define dso_local noundef range(i32 -19, 1) i32 @xstateregs_get(ptr noundef %0, p
 5:                                                ; preds = %4, %4
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %7 = inttoptr i64 %6 to ptr
-  %8 = icmp eq ptr %7, %0
+  %8 = icmp eq ptr %0, %7
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
@@ -248,7 +248,7 @@ define dso_local i32 @xstateregs_set(ptr noundef %0, ptr nocapture noundef readn
   %27 = phi ptr [ null, %13 ], [ %17, %22 ]
   %28 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %29 = inttoptr i64 %28 to ptr
-  %30 = icmp eq ptr %29, %0
+  %30 = icmp eq ptr %0, %29
   br i1 %30, label %31, label %32, !prof !12
 
 31:                                               ; preds = %25
@@ -408,7 +408,7 @@ define internal fastcc void @__convert_from_fxsr(ptr nocapture noundef writeonly
   store i32 %83, ptr %84, align 4
   %85 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %86 = inttoptr i64 %85 to ptr
-  %87 = icmp eq ptr %86, %1
+  %87 = icmp eq ptr %1, %86
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %65
@@ -510,7 +510,7 @@ define dso_local i32 @fpregs_get(ptr noundef %0, ptr nocapture noundef readnone 
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #12
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %0
+  %9 = icmp eq ptr %0, %8
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %4
@@ -587,7 +587,7 @@ define dso_local noundef range(i32 -22, 1) i32 @fpregs_set(ptr noundef %0, ptr n
 21:                                               ; preds = %14, %15
   %22 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %23 = inttoptr i64 %22 to ptr
-  %24 = icmp eq ptr %23, %0
+  %24 = icmp eq ptr %0, %23
   br i1 %24, label %25, label %26, !prof !12
 
 25:                                               ; preds = %21

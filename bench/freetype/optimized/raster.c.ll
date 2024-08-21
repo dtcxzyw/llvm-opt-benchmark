@@ -513,7 +513,7 @@ define internal void @Vertical_Sweep_Span(ptr nocapture noundef readonly %0, i32
   %14 = zext i32 %13 to i64
   %15 = ashr i64 %12, %14
   %16 = trunc i64 %15 to i32
-  %17 = and i64 %11, %3
+  %17 = and i64 %3, %11
   %18 = ashr i64 %17, %14
   %19 = trunc i64 %18 to i32
   %20 = icmp sgt i32 %19, -1
@@ -1641,8 +1641,8 @@ define internal void @Horizontal_Sweep_Span(ptr nocapture noundef readonly %0, i
   %10 = sub nsw i32 0, %6
   %11 = sext i32 %10 to i64
   %12 = and i64 %9, %11
-  %13 = and i64 %11, %3
-  %14 = icmp eq i64 %12, %2
+  %13 = and i64 %3, %11
+  %14 = icmp eq i64 %2, %12
   br i1 %14, label %15, label %41
 
 15:                                               ; preds = %4
@@ -1680,7 +1680,7 @@ define internal void @Horizontal_Sweep_Span(ptr nocapture noundef readonly %0, i
   br label %41
 
 41:                                               ; preds = %15, %20, %24, %4
-  %42 = icmp eq i64 %13, %3
+  %42 = icmp eq i64 %3, %13
   br i1 %42, label %43, label %69
 
 43:                                               ; preds = %41
@@ -2027,7 +2027,7 @@ Insert_Y_Turns.exit:                              ; preds = %.critedge.thread.i
 define internal fastcc signext range(i8 0, 2) i8 @Line_To(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load i64, ptr %4, align 8
-  %6 = icmp eq i64 %5, %2
+  %6 = icmp eq i64 %2, %5
   br i1 %6, label %33, label %7
 
 7:                                                ; preds = %3
@@ -2928,7 +2928,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_Up(ptr nocapture noundef 
   %14 = load i32, ptr %13, align 4
   %15 = sub nsw i32 0, %14
   %16 = sext i32 %15 to i64
-  %17 = and i64 %16, %4
+  %17 = and i64 %4, %16
   br label %18
 
 18:                                               ; preds = %10, %12
@@ -2949,14 +2949,14 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_Up(ptr nocapture noundef 
 
 30:                                               ; preds = %18, %21
   %31 = phi i64 [ %29, %21 ], [ %5, %18 ]
-  %32 = icmp eq i64 %31, %2
+  %32 = icmp eq i64 %2, %31
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %0, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
-  %37 = add nsw i64 %36, %2
+  %37 = add nsw i64 %2, %36
   br label %38
 
 38:                                               ; preds = %33, %30
@@ -3020,7 +3020,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_Up(ptr nocapture noundef 
   %74 = sdiv i64 %73, %57
   %75 = mul nsw i64 %74, %57
   %.recomposed = srem i64 %73, %57
-  %76 = icmp sgt i64 %64, %3
+  %76 = icmp slt i64 %3, %64
   %77 = sub nsw i64 0, %69
   %78 = sub nsw i64 0, %.recomposed
   %.085 = select i1 %76, i64 -1, i64 1

@@ -630,7 +630,7 @@ OGLTR_DisableGlyphModeState.exit.i130:            ; preds = %232, %230
 247:                                              ; preds = %._crit_edge.i, %OGLTR_DisableGlyphModeState.exit.i130
   %.pre3.i = phi ptr [ %.pre3.pre.i, %._crit_edge.i ], [ %243, %OGLTR_DisableGlyphModeState.exit.i130 ]
   %248 = load i8, ptr @lastRGBOrder, align 1
-  %.not77.i = icmp eq i8 %248, %6
+  %.not77.i = icmp eq i8 %6, %248
   br i1 %.not77.i, label %250, label %249
 
 249:                                              ; preds = %247
@@ -717,16 +717,16 @@ OGLTR_AddToGlyphCache.exit.i132:                  ; preds = %273, %267, %260
   %.b.i.i = load i1, ptr @isCachedDestValid, align 1
   %.b.not.i.i = xor i1 %.b.i.i, true
   %297 = load i32, ptr @cachedDestBounds.0, align 4
-  %.not.i80.i = icmp sgt i32 %297, %.3142
+  %.not.i80.i = icmp slt i32 %.3142, %297
   %or.cond.i.i = select i1 %.b.not.i.i, i1 true, i1 %.not.i80.i
   %298 = load i32, ptr @cachedDestBounds.1, align 4
   %.not64.i.i = icmp sgt i32 %298, %.0102
   %or.cond67.i.i = select i1 %or.cond.i.i, i1 true, i1 %.not64.i.i
   %299 = load i32, ptr @cachedDestBounds.2, align 4
-  %.not65.i.i = icmp slt i32 %299, %292
+  %.not65.i.i = icmp sgt i32 %292, %299
   %or.cond68.i.i = select i1 %or.cond67.i.i, i1 true, i1 %.not65.i.i
   %300 = load i32, ptr @cachedDestBounds.3, align 4
-  %.not66.i.i = icmp slt i32 %300, %295
+  %.not66.i.i = icmp sgt i32 %295, %300
   %or.cond69.i.i = select i1 %or.cond68.i.i, i1 true, i1 %.not66.i.i
   br i1 %or.cond69.i.i, label %328, label %301
 

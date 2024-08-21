@@ -568,7 +568,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
   %137 = phi i8 [ %108, %135 ], [ %134, %133 ], [ %124, %122 ], [ %60, %88 ], [ %60, %65 ]
   %138 = and i8 %137, 7
   %139 = icmp ne i8 %138, 0
-  %140 = and i1 %139, %4
+  %140 = and i1 %4, %139
   br i1 %140, label %143, label %141
 
 141:                                              ; preds = %136

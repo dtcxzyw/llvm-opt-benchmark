@@ -27,7 +27,7 @@ define i64 @nrand(i64 noundef %0) local_unnamed_addr #1 {
   %9 = fdiv double %8, 9.995630e+05
   %10 = fmul double %9, %2
   %11 = fptoui double %10 to i64
-  %.not.i = icmp ult i64 %11, %0
+  %.not.i = icmp ugt i64 %0, %11
   br i1 %.not.i, label %nrand_r.exit, label %3, !llvm.loop !6
 
 nrand_r.exit:                                     ; preds = %3

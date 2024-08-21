@@ -245,7 +245,7 @@ define dso_local void @blkdev_show(ptr noundef %0, i64 noundef %1) local_unnamed
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = icmp eq i64 %12, %1
+  %13 = icmp eq i64 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.preheader

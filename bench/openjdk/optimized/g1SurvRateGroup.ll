@@ -424,7 +424,7 @@ _ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit: ; preds = %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef double @_ZNK15G1SurvRateGroup20accum_surv_rate_predEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load i32, ptr %0, align 8
-  %4 = icmp ugt i32 %3, %1
+  %4 = icmp ult i32 %1, %3
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2

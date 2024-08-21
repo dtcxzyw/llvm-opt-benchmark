@@ -9047,7 +9047,7 @@ define internal fastcc i32 @hub_port_init(ptr noundef %0, ptr noundef %1, i32 no
   %29 = getelementptr inbounds i8, ptr %28, i64 33
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = icmp eq i32 %31, %2
+  %32 = icmp eq i32 %2, %31
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %27

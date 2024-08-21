@@ -1857,7 +1857,7 @@ common.resume:                                    ; preds = %.body, %12
 14:                                               ; preds = %2
   %15 = fptosi double %1 to i64
   %16 = sitofp i64 %15 to double
-  %17 = fcmp oeq double %16, %1
+  %17 = fcmp oeq double %1, %16
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %14
@@ -3246,7 +3246,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %89 = ptrtoint ptr %87 to i64
   %90 = sub i64 %88, %89
   %91 = ashr exact i64 %90, 3
-  %92 = icmp ult i64 %91, %84
+  %92 = icmp ugt i64 %84, %91
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
@@ -3257,7 +3257,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
 95:                                               ; preds = %83
-  %96 = icmp ugt i64 %91, %84
+  %96 = icmp ult i64 %84, %91
   br i1 %96, label %97, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
 97:                                               ; preds = %95
@@ -4639,7 +4639,7 @@ _ZN6casadi10ConstantMXC2ERKNS_8SparsityE.exit:    ; preds = %3
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 3
-  %42 = icmp ult i64 %41, %33
+  %42 = icmp ugt i64 %33, %41
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %34
@@ -4648,7 +4648,7 @@ _ZN6casadi10ConstantMXC2ERKNS_8SparsityE.exit:    ; preds = %3
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %.loopexit.split-lp
 
 45:                                               ; preds = %34
-  %46 = icmp ugt i64 %41, %33
+  %46 = icmp ult i64 %33, %41
   br i1 %46, label %47, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 47:                                               ; preds = %45
@@ -7988,8 +7988,8 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_16CompiletimeConstILi0E
   %35 = getelementptr inbounds i8, ptr %1, i64 56
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %37 = tail call noundef zeroext i1 @_ZNK6casadi8Sparsity8is_equalERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %36)
-  %brmerge = or i1 %37, %4
-  %brmerge87 = or i1 %brmerge, %5
+  %brmerge = or i1 %4, %37
+  %brmerge87 = or i1 %5, %brmerge
   br i1 %brmerge87, label %72, label %38
 
 38:                                               ; preds = %6
@@ -8614,7 +8614,7 @@ _ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #27
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %23
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi8SparsityEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %27, %.lr.ph.i.i.i.i.i.i.i
@@ -8652,7 +8652,7 @@ _ZSt8_DestroyIPN6casadi8SparsityEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 _ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8SparsityES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN6casadi8SparsityEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN6casadi8SparsityEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %_ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8SparsityES2_SaIS1_EET0_T_S5_S4_RT1_.exit43, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8SparsityES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %_ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i37
@@ -9305,7 +9305,7 @@ define linkonce_odr hidden noundef double @_ZN6casadi6erfinvEd(double noundef %0
   %30 = tail call double @llvm.fmuladd.f64(double %29, double 0xBFC1FD52E9286F82, double 0x3FED449B6C715C28)
   %31 = tail call double @llvm.fmuladd.f64(double %30, double %29, double 0xBFFA535A1FCAE55B)
   %32 = tail call double @llvm.fmuladd.f64(double %31, double %29, double 0x3FEC5BF883814BBC)
-  %33 = fmul double %32, %0
+  %33 = fmul double %0, %32
   %34 = tail call double @llvm.fmuladd.f64(double %29, double 0xBFD50FEF0607ABF1, double 0x3F890BF01AA717A9)
   %35 = tail call double @llvm.fmuladd.f64(double %34, double %29, double 0x3FF7155790BE315C)
   %36 = tail call double @llvm.fmuladd.f64(double %35, double %29, double 0xC000F270054B995C)
@@ -10950,8 +10950,8 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_16CompiletimeConstILi1E
   %34 = getelementptr inbounds i8, ptr %1, i64 56
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %36 = tail call noundef zeroext i1 @_ZNK6casadi8Sparsity8is_equalERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %35)
-  %brmerge = or i1 %36, %4
-  %brmerge76 = or i1 %brmerge, %5
+  %brmerge = or i1 %4, %36
+  %brmerge76 = or i1 %5, %brmerge
   br i1 %brmerge76, label %71, label %37
 
 37:                                               ; preds = %6
@@ -12618,8 +12618,8 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_16CompiletimeConstILin1
   %35 = getelementptr inbounds i8, ptr %1, i64 56
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %37 = tail call noundef zeroext i1 @_ZNK6casadi8Sparsity8is_equalERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %36)
-  %brmerge = or i1 %37, %4
-  %brmerge77 = or i1 %brmerge, %5
+  %brmerge = or i1 %4, %37
+  %brmerge77 = or i1 %5, %brmerge
   br i1 %brmerge77, label %72, label %38
 
 38:                                               ; preds = %6
@@ -13113,7 +13113,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6casadi8ConstantINS_12Runtime
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = sitofp i64 %4 to double
-  %6 = fcmp oeq double %5, %1
+  %6 = fcmp oeq double %1, %5
   ret i1 %6
 }
 
@@ -14423,8 +14423,8 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_12RuntimeConstIxEEE11_g
   %36 = getelementptr inbounds i8, ptr %1, i64 56
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %38 = tail call noundef zeroext i1 @_ZNK6casadi8Sparsity8is_equalERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %37)
-  %brmerge = or i1 %38, %4
-  %brmerge97 = or i1 %brmerge, %5
+  %brmerge = or i1 %4, %38
+  %brmerge97 = or i1 %5, %brmerge
   br i1 %brmerge97, label %73, label %39
 
 39:                                               ; preds = %6
@@ -16444,8 +16444,8 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_12RuntimeConstIdEEE11_g
   %36 = getelementptr inbounds i8, ptr %1, i64 56
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %38 = tail call noundef zeroext i1 @_ZNK6casadi8Sparsity8is_equalERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %37)
-  %brmerge = or i1 %38, %4
-  %brmerge97 = or i1 %brmerge, %5
+  %brmerge = or i1 %4, %38
+  %brmerge97 = or i1 %5, %brmerge
   br i1 %brmerge97, label %73, label %39
 
 39:                                               ; preds = %6

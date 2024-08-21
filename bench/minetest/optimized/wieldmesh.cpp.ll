@@ -3283,7 +3283,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %wield_image, i64 8
   %20 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !14
   %cmp.i = icmp ne i64 %20, 0
-  %brmerge.not = and i1 %cmp.i, %check_wield_image
+  %brmerge.not = and i1 %check_wield_image, %cmp.i
   br i1 %brmerge.not, label %if.then36, label %if.end57
 
 if.then36:                                        ; preds = %invoke.cont32

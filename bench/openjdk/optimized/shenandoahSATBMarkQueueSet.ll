@@ -96,7 +96,7 @@ define linkonce_odr hidden void @_ZN16SATBMarkQueueSet12apply_filterI31Shenandoa
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i.i.i = icmp ugt ptr %24, %17
+  %.not.i.i.i = icmp ult ptr %17, %24
   br i1 %.not.i.i.i, label %_ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit, label %_ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit.thread
 
 _ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit: ; preds = %15
@@ -132,7 +132,7 @@ _ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit: ; preds = %15
   %47 = lshr i64 %46, %16
   %48 = getelementptr inbounds ptr, ptr %22, i64 %47
   %49 = load ptr, ptr %48, align 8
-  %.not.i.i.i23 = icmp ugt ptr %49, %45
+  %.not.i.i.i23 = icmp ult ptr %45, %49
   br i1 %.not.i.i.i23, label %_ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit24, label %_ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit24.thread
 
 _ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit24: ; preds = %44

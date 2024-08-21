@@ -604,7 +604,7 @@ if.then:                                          ; preds = %_ZN19OpenColorIO_v2
   %.sroa.speculated24.i = select i1 %cmp.i1.i, float %13, float %0
   %cmp.i3.i = fcmp olt float %1, %2
   %14 = select i1 %cmp.i3.i, float %2, float %1
-  %cmp.i5.i = fcmp ogt float %14, %0
+  %cmp.i5.i = fcmp olt float %0, %14
   %.sroa.speculated21.i = select i1 %cmp.i5.i, float %14, float %0
   %cmp.i7.i = fcmp ogt float %.sroa.speculated21.i, 0x3DDB7CDFE0000000
   %.sroa.speculated14.i = select i1 %cmp.i7.i, float %.sroa.speculated21.i, float 0x3DDB7CDFE0000000
@@ -739,17 +739,18 @@ if.then:                                          ; preds = %_ZN19OpenColorIO_v2
   %14 = tail call float @llvm.fmuladd.f32(float %12, float %13, float -1.000000e+00)
   %15 = load float, ptr %m_pivot, align 4
   %add = fadd float %cond, %15
-  %16 = fneg float %12
-  %neg = fmul float %add, %16
+  %16 = fneg float %add
+  %neg = fmul float %12, %16
   %17 = tail call float @llvm.fmuladd.f32(float %neg, float %13, float %0)
   %mul9 = fmul float %12, %15
   %mul10 = fmul float %cond, %mul9
-  %mul12 = fmul float %13, %mul10
   %fneg = fneg float %17
-  %18 = fmul float %14, -4.000000e+00
-  %neg16 = fmul float %18, %mul12
-  %19 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %neg16)
-  %call.i = tail call noundef float @sqrtf(float noundef %19) #18
+  %mul14 = fmul float %14, 4.000000e+00
+  %18 = fneg float %13
+  %19 = fmul float %mul10, %18
+  %neg16 = fmul float %mul14, %19
+  %20 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %neg16)
+  %call.i = tail call noundef float @sqrtf(float noundef %20) #18
   %sub = fsub float %fneg, %call.i
   %mul18 = fmul float %14, 2.000000e+00
   %div = fdiv float %sub, %mul18
@@ -762,7 +763,7 @@ if.then20:                                        ; preds = %if.then
   %.sroa.speculated45 = select i1 %cmp.i, float %sub23, float 0x3DDB7CDFE0000000
   %div25 = fdiv float %sub.i, %.sroa.speculated45
   %sub26 = fsub float %div, %2
-  %20 = tail call float @llvm.fmuladd.f32(float %div25, float %sub26, float %2)
+  %21 = tail call float @llvm.fmuladd.f32(float %div25, float %sub26, float %2)
   br label %if.end37
 
 if.else:                                          ; preds = %if.then
@@ -772,12 +773,12 @@ if.else:                                          ; preds = %if.then
   %.sroa.speculated = select i1 %cmp.i43, float %sub32, float 0x3DDB7CDFE0000000
   %div34 = fdiv float %sub29, %.sroa.speculated
   %sub35 = fsub float %div, %1
-  %21 = tail call float @llvm.fmuladd.f32(float %div34, float %sub35, float %1)
+  %22 = tail call float @llvm.fmuladd.f32(float %div34, float %sub35, float %1)
   br label %if.end37
 
 if.end37:                                         ; preds = %for.body, %if.then20, %if.else, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit
-  %blu.0 = phi float [ %2, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %2, %if.then20 ], [ %21, %if.else ], [ %2, %for.body ]
-  %grn.0 = phi float [ %1, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %20, %if.then20 ], [ %1, %if.else ], [ %1, %for.body ]
+  %blu.0 = phi float [ %2, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %2, %if.then20 ], [ %22, %if.else ], [ %2, %for.body ]
+  %grn.0 = phi float [ %1, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %21, %if.then20 ], [ %1, %if.else ], [ %1, %for.body ]
   %red.0 = phi float [ %0, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %div, %if.then20 ], [ %div, %if.else ], [ %0, %for.body ]
   store float %red.0, ptr %out.050, align 4
   %arrayidx39 = getelementptr inbounds i8, ptr %out.050, i64 4
@@ -785,9 +786,9 @@ if.end37:                                         ; preds = %for.body, %if.then2
   %arrayidx40 = getelementptr inbounds i8, ptr %out.050, i64 8
   store float %blu.0, ptr %arrayidx40, align 4
   %arrayidx41 = getelementptr inbounds i8, ptr %in.051, i64 12
-  %22 = load float, ptr %arrayidx41, align 4
+  %23 = load float, ptr %arrayidx41, align 4
   %arrayidx42 = getelementptr inbounds i8, ptr %out.050, i64 12
-  store float %22, ptr %arrayidx42, align 4
+  store float %23, ptr %arrayidx42, align 4
   %add.ptr = getelementptr inbounds i8, ptr %in.051, i64 16
   %add.ptr43 = getelementptr inbounds i8, ptr %out.050, i64 16
   %inc = add nuw nsw i64 %idx.049, 1
@@ -869,7 +870,7 @@ if.then:                                          ; preds = %_ZN19OpenColorIO_v2
   %.sroa.speculated24.i = select i1 %cmp.i1.i, float %13, float %0
   %cmp.i3.i = fcmp olt float %1, %2
   %14 = select i1 %cmp.i3.i, float %2, float %1
-  %cmp.i5.i = fcmp ogt float %14, %0
+  %cmp.i5.i = fcmp olt float %0, %14
   %.sroa.speculated21.i = select i1 %cmp.i5.i, float %14, float %0
   %cmp.i7.i = fcmp ogt float %.sroa.speculated21.i, 0x3DDB7CDFE0000000
   %.sroa.speculated14.i = select i1 %cmp.i7.i, float %.sroa.speculated21.i, float 0x3DDB7CDFE0000000
@@ -979,17 +980,18 @@ if.then:                                          ; preds = %_ZN19OpenColorIO_v2
   %14 = tail call float @llvm.fmuladd.f32(float %12, float %13, float -1.000000e+00)
   %15 = load float, ptr %m_pivot, align 4
   %add = fadd float %cond, %15
-  %16 = fneg float %12
-  %neg = fmul float %add, %16
+  %16 = fneg float %add
+  %neg = fmul float %12, %16
   %17 = tail call float @llvm.fmuladd.f32(float %neg, float %13, float %0)
   %mul9 = fmul float %12, %15
   %mul10 = fmul float %cond, %mul9
-  %mul12 = fmul float %13, %mul10
   %fneg = fneg float %17
-  %18 = fmul float %14, -4.000000e+00
-  %neg16 = fmul float %18, %mul12
-  %19 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %neg16)
-  %call.i = tail call noundef float @sqrtf(float noundef %19) #18
+  %mul14 = fmul float %14, 4.000000e+00
+  %18 = fneg float %13
+  %19 = fmul float %mul10, %18
+  %neg16 = fmul float %mul14, %19
+  %20 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %neg16)
+  %call.i = tail call noundef float @sqrtf(float noundef %20) #18
   %sub = fsub float %fneg, %call.i
   %mul18 = fmul float %14, 2.000000e+00
   %div = fdiv float %sub, %mul18
@@ -1003,9 +1005,9 @@ if.end:                                           ; preds = %for.body, %if.then,
   %arrayidx21 = getelementptr inbounds i8, ptr %out.029, i64 8
   store float %2, ptr %arrayidx21, align 4
   %arrayidx22 = getelementptr inbounds i8, ptr %in.030, i64 12
-  %20 = load float, ptr %arrayidx22, align 4
+  %21 = load float, ptr %arrayidx22, align 4
   %arrayidx23 = getelementptr inbounds i8, ptr %out.029, i64 12
-  store float %20, ptr %arrayidx23, align 4
+  store float %21, ptr %arrayidx23, align 4
   %add.ptr = getelementptr inbounds i8, ptr %in.030, i64 16
   %add.ptr24 = getelementptr inbounds i8, ptr %out.029, i64 16
   %inc = add nuw nsw i64 %idx.028, 1
@@ -1064,7 +1066,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %.sroa.speculated24.i = select i1 %cmp.i1.i, float %6, float %0
   %cmp.i3.i = fcmp olt float %1, %2
   %7 = select i1 %cmp.i3.i, float %2, float %1
-  %cmp.i5.i = fcmp ogt float %7, %0
+  %cmp.i5.i = fcmp olt float %0, %7
   %.sroa.speculated21.i = select i1 %cmp.i5.i, float %7, float %0
   %cmp.i7.i = fcmp ogt float %.sroa.speculated21.i, 0x3DDB7CDFE0000000
   %.sroa.speculated14.i = select i1 %cmp.i7.i, float %.sroa.speculated21.i, float 0x3DDB7CDFE0000000
@@ -1176,7 +1178,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %.sroa.speculated24.i = select i1 %cmp.i1.i, float %6, float %0
   %cmp.i3.i = fcmp olt float %1, %2
   %7 = select i1 %cmp.i3.i, float %2, float %1
-  %cmp.i5.i = fcmp ogt float %7, %0
+  %cmp.i5.i = fcmp olt float %0, %7
   %.sroa.speculated21.i = select i1 %cmp.i5.i, float %7, float %0
   %cmp.i7.i = fcmp ogt float %.sroa.speculated21.i, 0x3DDB7CDFE0000000
   %.sroa.speculated14.i = select i1 %cmp.i7.i, float %.sroa.speculated21.i, float 0x3DDB7CDFE0000000
@@ -1314,12 +1316,12 @@ entry:
   %sub = fsub float %dist, %thr
   %div = fdiv float %sub, %scale
   %call.i = tail call noundef float @powf(float noundef %div, float noundef %power) #18
-  %mul = fmul float %div, %scale
+  %mul = fmul float %scale, %div
   %add = fadd float %call.i, 1.000000e+00
   %div1 = fdiv float 1.000000e+00, %power
   %call.i5 = tail call noundef float @powf(float noundef %add, float noundef %div1) #18
   %div3 = fdiv float %mul, %call.i5
-  %add4 = fadd float %div3, %thr
+  %add4 = fadd float %thr, %div3
   ret float %add4
 }
 
@@ -1327,7 +1329,7 @@ entry:
 define hidden noundef float @_ZN19OpenColorIO_v2_4dev10uncompressEffff(float noundef %dist, float noundef %thr, float noundef %scale, float noundef %power) local_unnamed_addr #6 {
 entry:
   %add = fadd float %thr, %scale
-  %cmp = fcmp ugt float %add, %dist
+  %cmp = fcmp ult float %dist, %add
   br i1 %cmp, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
@@ -1733,7 +1735,7 @@ if.end.i:                                         ; preds = %for.body
 
 if.end3.i:                                        ; preds = %if.end.i
   %add.i = fadd float %4, %5
-  %cmp.i35 = fcmp ugt float %add.i, %div.i
+  %cmp.i35 = fcmp ult float %div.i, %add.i
   br i1 %cmp.i35, label %if.else.i, label %_ZN19OpenColorIO_v2_4dev10uncompressEffff.exit
 
 if.else.i:                                        ; preds = %if.end3.i
@@ -1767,7 +1769,7 @@ if.end.i16:                                       ; preds = %if.end.i, %_ZN19Ope
 
 if.end3.i20:                                      ; preds = %if.end.i16
   %add.i39 = fadd float %11, %12
-  %cmp.i40 = fcmp ugt float %add.i39, %div.i18
+  %cmp.i40 = fcmp ult float %div.i18, %add.i39
   br i1 %cmp.i40, label %if.else.i42, label %_ZN19OpenColorIO_v2_4dev10uncompressEffff.exit50
 
 if.else.i42:                                      ; preds = %if.end3.i20
@@ -1808,7 +1810,7 @@ if.end.i26:                                       ; preds = %if.end.i16, %_ZN19O
 
 if.end3.i30:                                      ; preds = %if.end.i26
   %add.i51 = fadd float %17, %18
-  %cmp.i52 = fcmp ugt float %add.i51, %div.i28
+  %cmp.i52 = fcmp ult float %div.i28, %add.i51
   br i1 %cmp.i52, label %if.else.i54, label %_ZN19OpenColorIO_v2_4dev10uncompressEffff.exit62
 
 if.else.i54:                                      ; preds = %if.end3.i30

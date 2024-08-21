@@ -40,7 +40,7 @@ define internal fastcc i32 @fastlz1_compress(ptr noundef %0, i32 noundef %1, ptr
   %11 = add i8 %10, -1
   store i8 %11, ptr %2, align 1
   %12 = getelementptr inbounds i8, ptr %.ptr, i64 -1
-  %.not191219 = icmp ult ptr %12, %0
+  %.not191219 = icmp ugt ptr %0, %12
   br i1 %.not191219, label %._crit_edge224, label %.lr.ph223
 
 .lr.ph223:                                        ; preds = %9, %.lr.ph223
@@ -464,7 +464,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %11 = add i8 %10, -1
   store i8 %11, ptr %2, align 1
   %12 = getelementptr inbounds i8, ptr %.ptr, i64 -1
-  %.not232284 = icmp ult ptr %12, %0
+  %.not232284 = icmp ugt ptr %0, %12
   br i1 %.not232284, label %._crit_edge289, label %.lr.ph288
 
 .lr.ph288:                                        ; preds = %9, %.lr.ph288

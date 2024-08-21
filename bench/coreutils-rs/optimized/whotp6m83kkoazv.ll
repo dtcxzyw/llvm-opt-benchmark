@@ -58,7 +58,7 @@ define hidden noundef i64 @"_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u
 "_ZN118_$LT$rand..distributions..uniform..UniformInt$LT$usize$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$13sample_single17h8d11b0b3f092a8b0E.llvm.5489380481392814572.exit": ; preds = %12
   %17 = lshr i128 %15, 64
   %18 = trunc nuw i128 %17 to i64
-  %19 = add i64 %18, %0
+  %19 = add i64 %0, %18
   ret i64 %19
 }
 
@@ -245,7 +245,7 @@ _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8:   ; preds = %49, %"_ZN84_$LT$ran
 73:                                               ; preds = %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8
   %74 = lshr i64 %71, 32
   %75 = trunc nuw i64 %74 to i32
-  %76 = add i32 %75, %0
+  %76 = add i32 %0, %75
   br label %77
 
 77:                                               ; preds = %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit, %73
@@ -283,7 +283,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
 "_ZN118_$LT$rand..distributions..uniform..UniformInt$LT$usize$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17hc774a070f7a0c39bE.llvm.5489380481392814572.exit": ; preds = %12
   %17 = lshr i128 %15, 64
   %18 = trunc nuw i128 %17 to i64
-  %19 = add i64 %18, %0
+  %19 = add i64 %0, %18
   ret i64 %19
 }
 
@@ -326,7 +326,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
 21:                                               ; preds = %16
   %22 = lshr i128 %19, 64
   %23 = trunc nuw i128 %22 to i64
-  %24 = add i64 %23, %0
+  %24 = add i64 %0, %23
   br label %25
 
 25:                                               ; preds = %9, %21
@@ -503,7 +503,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng9gen_range17h049e68daa6e4f7acE(ptr no
 "_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$rand..distributions..uniform..SampleRange$LT$T$GT$$GT$13sample_single17hb533e4eed05052bbE.llvm.5489380481392814572.exit": ; preds = %10
   %15 = lshr i128 %13, 64
   %16 = trunc nuw i128 %15 to i64
-  %17 = add i64 %16, %1
+  %17 = add i64 %1, %16
   ret i64 %17
 
 18:                                               ; preds = %3

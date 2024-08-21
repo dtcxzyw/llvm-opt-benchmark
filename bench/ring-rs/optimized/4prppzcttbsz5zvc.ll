@@ -506,7 +506,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint10elem_widen17h27713e316e
   store i64 %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %switch.not = icmp ugt i64 %10, %3
+  %switch.not = icmp ult i64 %3, %10
   br i1 %switch.not, label %11, label %.critedge
 
 11:                                               ; preds = %4
@@ -593,7 +593,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint10elem_widen17hc5bbfc549d
   store i64 %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %switch.not = icmp ugt i64 %10, %3
+  %switch.not = icmp ult i64 %3, %10
   br i1 %switch.not, label %11, label %.critedge
 
 11:                                               ; preds = %4
@@ -1390,7 +1390,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
 56:                                               ; preds = %52
   %57 = shl i64 %1, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull readonly align 8 %0, i64 %57, i1 false), !alias.scope !91, !noalias !95
-  %58 = icmp ult i64 %54, %1
+  %58 = icmp ugt i64 %1, %54
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %56
@@ -1751,7 +1751,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
 56:                                               ; preds = %52
   %57 = shl i64 %1, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull readonly align 8 %0, i64 %57, i1 false), !alias.scope !131, !noalias !135
-  %58 = icmp ult i64 %54, %1
+  %58 = icmp ugt i64 %1, %54
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %56
@@ -2118,7 +2118,7 @@ define noundef zeroext i1 @"_ZN74_$LT$ring..io..writer..Writer$u20$as$u20$ring..
   %5 = load i64, ptr %4, align 8, !alias.scope !179, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !182, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h990e6d3b594ef7ccE.exit"
 
 9:                                                ; preds = %3

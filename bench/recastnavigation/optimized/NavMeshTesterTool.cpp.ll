@@ -4119,8 +4119,8 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit377:         ; preds = %_ZL13getPolyCenterP
   %978 = fsub float %935, %977
   %979 = fsub float %957, %975
   %980 = fsub float %954, %977
-  %981 = fneg float %976
-  %982 = fmul float %980, %981
+  %981 = fneg float %980
+  %982 = fmul float %976, %981
   %983 = call noundef float @llvm.fmuladd.f32(float %979, float %978, float %982)
   %984 = fcmp olt float %983, 0.000000e+00
   %.0271 = select i1 %984, i32 -1072684960, i32 -1072684864
@@ -4296,13 +4296,13 @@ define dso_local void @_ZN17NavMeshTesterTool9drawAgentEPKffffj(ptr nocapture no
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load float, ptr %18, align 4
   %20 = fsub float %19, %2
-  %21 = fadd float %13, %2
-  %22 = fadd float %16, %3
-  %23 = fadd float %19, %2
+  %21 = fadd float %2, %13
+  %22 = fadd float %3, %16
+  %23 = fadd float %2, %19
   tail call void @_Z23duDebugDrawCylinderWireP11duDebugDrawffffffjf(ptr noundef nonnull %9, float noundef %14, float noundef %17, float noundef %20, float noundef %21, float noundef %22, float noundef %23, i32 noundef %5, float noundef 2.000000e+00)
   %24 = load float, ptr %1, align 4
   %25 = load float, ptr %15, align 4
-  %26 = fadd float %25, %4
+  %26 = fadd float %4, %25
   %27 = load float, ptr %18, align 4
   tail call void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef nonnull %9, float noundef %24, float noundef %26, float noundef %27, float noundef %2, i32 noundef 1073741824, float noundef 1.000000e+00)
   %28 = load ptr, ptr %9, align 8
@@ -4319,7 +4319,7 @@ define dso_local void @_ZN17NavMeshTesterTool9drawAgentEPKffffj(ptr nocapture no
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %9, float noundef %31, float noundef %33, float noundef %34, i32 noundef -1006632960)
   %38 = load float, ptr %1, align 4
   %39 = load float, ptr %15, align 4
-  %40 = fadd float %39, %4
+  %40 = fadd float %4, %39
   %41 = load float, ptr %18, align 4
   %42 = load ptr, ptr %9, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 48

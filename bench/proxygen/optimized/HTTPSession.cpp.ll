@@ -6302,7 +6302,7 @@ if.else93:                                        ; preds = %invoke.cont49
 if.end100:                                        ; preds = %if.else93, %cleanup.done
   %error.addr.0 = phi i32 [ 22, %cleanup.done ], [ %spec.select, %if.else93 ]
   %shutdownReads.not = xor i1 %shutdownReads, true
-  %brmerge = or i1 %shutdownReads.not, %shutdownWrites
+  %brmerge = or i1 %shutdownWrites, %shutdownReads.not
   br i1 %brmerge, label %if.end141, label %land.lhs.true103
 
 land.lhs.true103:                                 ; preds = %if.end100
@@ -9201,7 +9201,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i.i
   %10 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %11 = load i64, ptr %10, align 8
-  %cmp.i.i36 = icmp eq i64 %11, %streamID
+  %cmp.i.i36 = icmp eq i64 %streamID, %11
   br i1 %cmp.i.i36, label %do.body9, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -9533,7 +9533,7 @@ if.then124:                                       ; preds = %land.lhs.true
   %75 = load i32, ptr %outgoingStreams_.i, align 8
   %historicalMaxOutgoingStreams_.i.i = getelementptr inbounds i8, ptr %this, i64 1544
   %76 = load i32, ptr %historicalMaxOutgoingStreams_.i.i, align 8
-  %cmp.i.i62 = icmp ult i32 %76, %75
+  %cmp.i.i62 = icmp ugt i32 %75, %76
   br i1 %cmp.i.i62, label %if.then.i.i, label %if.end130
 
 if.then.i.i:                                      ; preds = %if.then124
@@ -9981,7 +9981,7 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
 land.lhs.true.i:                                  ; preds = %cleanup.done
   %id_.i.i = getelementptr inbounds i8, ptr %2, i64 248
   %3 = load i64, ptr %id_.i.i, align 8
-  %cmp.i = icmp eq i64 %3, %streamID
+  %cmp.i = icmp eq i64 %streamID, %3
   br i1 %cmp.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %cleanup.done
@@ -10039,7 +10039,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %11 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %12 = load i64, ptr %11, align 8
-  %cmp.i.i36.i = icmp eq i64 %12, %streamID
+  %cmp.i.i36.i = icmp eq i64 %streamID, %12
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -10452,7 +10452,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %id_.i = getelementptr inbounds i8, ptr %0, i64 248
   %1 = load i64, ptr %id_.i, align 8
-  %cmp = icmp eq i64 %1, %streamID
+  %cmp = icmp eq i64 %streamID, %1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -10510,7 +10510,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %10 = load i64, ptr %9, align 8
-  %cmp.i.i36 = icmp eq i64 %10, %streamID
+  %cmp.i.i36 = icmp eq i64 %streamID, %10
   br i1 %cmp.i.i36, label %while.end45, label %while.cond.i, !llvm.loop !39
 
 while.end.i:                                      ; preds = %while.cond.i
@@ -10627,7 +10627,7 @@ invoke.cont5.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont5.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %4, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %5
+  %cmp2.i.i.i.i = icmp eq ptr %5, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -10897,7 +10897,7 @@ if.end103:                                        ; preds = %if.end69
 land.lhs.true.i:                                  ; preds = %if.end103
   %id_.i.i = getelementptr inbounds i8, ptr %13, i64 248
   %14 = load i64, ptr %id_.i.i, align 8
-  %cmp.i16 = icmp eq i64 %14, %assocStreamID
+  %cmp.i16 = icmp eq i64 %assocStreamID, %14
   br i1 %cmp.i16, label %lor.lhs.false, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end103
@@ -10955,7 +10955,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %23 = load i64, ptr %22, align 8
-  %cmp.i.i36.i = icmp eq i64 %23, %assocStreamID
+  %cmp.i.i36.i = icmp eq i64 %assocStreamID, %23
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -11507,7 +11507,7 @@ if.end47:                                         ; preds = %if.end
 land.lhs.true.i:                                  ; preds = %if.end47
   %id_.i.i = getelementptr inbounds i8, ptr %6, i64 248
   %7 = load i64, ptr %id_.i.i, align 8
-  %cmp.i = icmp eq i64 %7, %controlStream
+  %cmp.i = icmp eq i64 %controlStream, %7
   br i1 %cmp.i, label %if.end63, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end47
@@ -11565,7 +11565,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %15 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %16 = load i64, ptr %15, align 8
-  %cmp.i.i36.i = icmp eq i64 %16, %controlStream
+  %cmp.i.i36.i = icmp eq i64 %controlStream, %16
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -11898,7 +11898,7 @@ if.end44:                                         ; preds = %if.end.i.i, %_ZN5fo
 land.lhs.true.i:                                  ; preds = %if.end44
   %id_.i.i = getelementptr inbounds i8, ptr %17, i64 248
   %18 = load i64, ptr %id_.i.i, align 8
-  %cmp.i23 = icmp eq i64 %18, %streamID
+  %cmp.i23 = icmp eq i64 %streamID, %18
   br i1 %cmp.i23, label %if.end48, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end44
@@ -11956,7 +11956,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %26 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %27 = load i64, ptr %26, align 8
-  %cmp.i.i36.i = icmp eq i64 %27, %streamID
+  %cmp.i.i36.i = icmp eq i64 %streamID, %27
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -12054,7 +12054,7 @@ invoke.cont70:                                    ; preds = %_ZNK5folly8Optional
 land.lhs.true.i33:                                ; preds = %invoke.cont70
   %id_.i.i34 = getelementptr inbounds i8, ptr %38, i64 248
   %39 = load i64, ptr %id_.i.i34, align 8
-  %cmp.i35 = icmp eq i64 %39, %37
+  %cmp.i35 = icmp eq i64 %37, %39
   br i1 %cmp.i35, label %if.end130, label %if.end.i36
 
 if.end.i36:                                       ; preds = %land.lhs.true.i33, %invoke.cont70
@@ -12112,7 +12112,7 @@ while.body.i.i70:                                 ; preds = %while.cond.i.i67
   %arrayidx.i.i.i.i.i74 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i63, i64 0, i64 %conv9.i.i73
   %47 = load ptr, ptr %arrayidx.i.i.i.i.i74, align 8
   %48 = load i64, ptr %47, align 8
-  %cmp.i.i36.i75 = icmp eq i64 %48, %37
+  %cmp.i.i36.i75 = icmp eq i64 %37, %48
   br i1 %cmp.i.i36.i75, label %while.end45.i76, label %while.cond.i.i67, !llvm.loop !39
 
 while.end.i.i79:                                  ; preds = %while.cond.i.i67
@@ -12610,7 +12610,7 @@ invoke.cont:                                      ; preds = %entry
 land.lhs.true.i:                                  ; preds = %invoke.cont
   %id_.i.i = getelementptr inbounds i8, ptr %2, i64 248
   %3 = load i64, ptr %id_.i.i, align 8
-  %cmp.i = icmp eq i64 %3, %streamID
+  %cmp.i = icmp eq i64 %streamID, %3
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %invoke.cont
@@ -12668,7 +12668,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %11 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %12 = load i64, ptr %11, align 8
-  %cmp.i.i36.i = icmp eq i64 %12, %streamID
+  %cmp.i.i36.i = icmp eq i64 %streamID, %12
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -12916,7 +12916,7 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %id_.i.i = getelementptr inbounds i8, ptr %0, i64 248
   %1 = load i64, ptr %id_.i.i, align 8
-  %cmp.i = icmp eq i64 %1, %streamID
+  %cmp.i = icmp eq i64 %streamID, %1
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
@@ -12974,7 +12974,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %10 = load i64, ptr %9, align 8
-  %cmp.i.i36.i = icmp eq i64 %10, %streamID
+  %cmp.i.i36.i = icmp eq i64 %streamID, %10
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -13027,7 +13027,7 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %id_.i.i = getelementptr inbounds i8, ptr %0, i64 248
   %1 = load i64, ptr %id_.i.i, align 8
-  %cmp.i = icmp eq i64 %1, %streamID
+  %cmp.i = icmp eq i64 %streamID, %1
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
@@ -13085,7 +13085,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %10 = load i64, ptr %9, align 8
-  %cmp.i.i36.i = icmp eq i64 %10, %streamID
+  %cmp.i.i36.i = icmp eq i64 %streamID, %10
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -13139,7 +13139,7 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %id_.i.i = getelementptr inbounds i8, ptr %0, i64 248
   %1 = load i64, ptr %id_.i.i, align 8
-  %cmp.i = icmp eq i64 %1, %streamID
+  %cmp.i = icmp eq i64 %streamID, %1
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
@@ -13197,7 +13197,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %10 = load i64, ptr %9, align 8
-  %cmp.i.i36.i = icmp eq i64 %10, %streamID
+  %cmp.i.i36.i = icmp eq i64 %streamID, %10
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -13342,7 +13342,7 @@ cleanup.done:                                     ; preds = %cond.false, %cond.e
 land.lhs.true.i:                                  ; preds = %cleanup.done
   %id_.i.i = getelementptr inbounds i8, ptr %3, i64 248
   %4 = load i64, ptr %id_.i.i, align 8
-  %cmp.i = icmp eq i64 %4, %streamID
+  %cmp.i = icmp eq i64 %streamID, %4
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %cleanup.done
@@ -13400,7 +13400,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %12 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %13 = load i64, ptr %12, align 8
-  %cmp.i.i36.i = icmp eq i64 %13, %streamID
+  %cmp.i.i36.i = icmp eq i64 %streamID, %13
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -13873,7 +13873,7 @@ if.end54:                                         ; preds = %if.end38
 land.lhs.true.i:                                  ; preds = %if.end54
   %id_.i.i = getelementptr inbounds i8, ptr %11, i64 248
   %12 = load i64, ptr %id_.i.i, align 8
-  %cmp.i30 = icmp eq i64 %12, %streamID
+  %cmp.i30 = icmp eq i64 %streamID, %12
   br i1 %cmp.i30, label %if.end119, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end54
@@ -13931,7 +13931,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %20 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %21 = load i64, ptr %20, align 8
-  %cmp.i.i36.i = icmp eq i64 %21, %streamID
+  %cmp.i.i36.i = icmp eq i64 %streamID, %21
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -14645,7 +14645,7 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
 land.lhs.true.i:                                  ; preds = %cleanup.done
   %id_.i.i = getelementptr inbounds i8, ptr %4, i64 248
   %5 = load i64, ptr %id_.i.i, align 8
-  %cmp.i = icmp eq i64 %5, %3
+  %cmp.i = icmp eq i64 %3, %5
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %cleanup.done
@@ -14703,7 +14703,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %14 = load i64, ptr %13, align 8
-  %cmp.i.i36.i = icmp eq i64 %14, %3
+  %cmp.i.i36.i = icmp eq i64 %3, %14
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -14882,7 +14882,7 @@ for.body:                                         ; preds = %for.cond
 land.lhs.true.i26:                                ; preds = %for.body
   %id_.i.i27 = getelementptr inbounds i8, ptr %30, i64 248
   %31 = load i64, ptr %id_.i.i27, align 8
-  %cmp.i28 = icmp eq i64 %31, %29
+  %cmp.i28 = icmp eq i64 %29, %31
   br i1 %cmp.i28, label %invoke.cont122, label %if.end.i29
 
 if.end.i29:                                       ; preds = %land.lhs.true.i26, %for.body
@@ -14938,7 +14938,7 @@ while.body.i.i63:                                 ; preds = %while.cond.i.i60
   %arrayidx.i.i.i.i.i67 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i56, i64 0, i64 %conv9.i.i66
   %39 = load ptr, ptr %arrayidx.i.i.i.i.i67, align 8
   %40 = load i64, ptr %39, align 8
-  %cmp.i.i36.i68 = icmp eq i64 %40, %29
+  %cmp.i.i36.i68 = icmp eq i64 %29, %40
   br i1 %cmp.i.i36.i68, label %while.end45.i69, label %while.cond.i.i60, !llvm.loop !39
 
 while.end.i.i72:                                  ; preds = %while.cond.i.i60
@@ -15051,7 +15051,7 @@ for.body157:                                      ; preds = %for.body157.lr.ph, 
 land.lhs.true.i87:                                ; preds = %for.body157
   %id_.i.i88 = getelementptr inbounds i8, ptr %49, i64 248
   %50 = load i64, ptr %id_.i.i88, align 8
-  %cmp.i89 = icmp eq i64 %50, %48
+  %cmp.i89 = icmp eq i64 %48, %50
   br i1 %cmp.i89, label %if.then163, label %if.end.i90
 
 if.end.i90:                                       ; preds = %land.lhs.true.i87, %for.body157
@@ -15107,7 +15107,7 @@ while.body.i.i124:                                ; preds = %while.cond.i.i121
   %arrayidx.i.i.i.i.i128 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i117, i64 0, i64 %conv9.i.i127
   %58 = load ptr, ptr %arrayidx.i.i.i.i.i128, align 8
   %59 = load i64, ptr %58, align 8
-  %cmp.i.i36.i129 = icmp eq i64 %59, %48
+  %cmp.i.i36.i129 = icmp eq i64 %48, %59
   br i1 %cmp.i.i36.i129, label %while.end45.i130, label %while.cond.i.i121, !llvm.loop !39
 
 while.end.i.i133:                                 ; preds = %while.cond.i.i121
@@ -15254,7 +15254,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %i.i.06.i.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i.i = icmp ugt i64 %1, %0
+  %cmp1.i.i.i.i.i.i.i = icmp ult i64 %0, %1
   br i1 %cmp1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
@@ -15474,7 +15474,7 @@ invoke.cont38.lr.ph:                              ; preds = %_ZN5folly8FunctionI
   %_M_end_of_storage.i61 = getelementptr inbounds i8, ptr %errorIds, i64 16
   %8 = load i32, ptr @_ZN8proxygen5http212kMaxStreamIDE, align 4
   %conv51 = zext i32 %8 to i64
-  %cmp52 = icmp ugt i64 %conv51, %lastGoodStreamID
+  %cmp52 = icmp ult i64 %lastGoodStreamID, %conv51
   %controlStreamIds_ = getelementptr inbounds i8, ptr %this, i64 1968
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds i8, ptr %this, i64 1976
   %_M_finish.i108 = getelementptr inbounds i8, ptr %pubSubControlIds, i64 8
@@ -16270,7 +16270,7 @@ for.body:                                         ; preds = %land.rhs
 land.lhs.true.i:                                  ; preds = %for.body
   %id_.i.i = getelementptr inbounds i8, ptr %9, i64 248
   %10 = load i64, ptr %id_.i.i, align 8
-  %cmp.i4 = icmp eq i64 %10, %8
+  %cmp.i4 = icmp eq i64 %8, %10
   br i1 %cmp.i4, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %for.body
@@ -16325,7 +16325,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %18 = load i64, ptr %17, align 8
-  %cmp.i.i36.i = icmp eq i64 %18, %8
+  %cmp.i.i36.i = icmp eq i64 %8, %18
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -16539,7 +16539,7 @@ invoke.cont17:                                    ; preds = %invoke.cont14
 land.lhs.true.i.i:                                ; preds = %invoke.cont17
   %id_.i.i.i = getelementptr inbounds i8, ptr %7, i64 248
   %8 = load i64, ptr %id_.i.i.i, align 8
-  %cmp.i.i = icmp eq i64 %8, %6
+  %cmp.i.i = icmp eq i64 %6, %8
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %invoke.cont17
@@ -16595,7 +16595,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %conv9.i.i.i
   %16 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %17 = load i64, ptr %16, align 8
-  %cmp.i.i36.i.i = icmp eq i64 %17, %6
+  %cmp.i.i36.i.i = icmp eq i64 %6, %17
   br i1 %cmp.i.i36.i.i, label %while.end45.i.i, label %while.cond.i.i.i, !llvm.loop !39
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
@@ -17418,7 +17418,7 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
 land.lhs.true.i:                                  ; preds = %cleanup.done
   %id_.i.i = getelementptr inbounds i8, ptr %2, i64 248
   %3 = load i64, ptr %id_.i.i, align 8
-  %cmp.i = icmp eq i64 %3, %streamID
+  %cmp.i = icmp eq i64 %streamID, %3
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %cleanup.done
@@ -17476,7 +17476,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %11 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %12 = load i64, ptr %11, align 8
-  %cmp.i.i36.i = icmp eq i64 %12, %streamID
+  %cmp.i.i36.i = icmp eq i64 %streamID, %12
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -17913,7 +17913,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true.i:                                  ; preds = %if.end
   %id_.i.i = getelementptr inbounds i8, ptr %4, i64 248
   %5 = load i64, ptr %id_.i.i, align 8
-  %cmp.i = icmp eq i64 %5, %streamID
+  %cmp.i = icmp eq i64 %streamID, %5
   br i1 %cmp.i, label %if.then7, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end
@@ -17971,7 +17971,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %14 = load i64, ptr %13, align 8
-  %cmp.i.i36.i = icmp eq i64 %14, %streamID
+  %cmp.i.i36.i = icmp eq i64 %streamID, %14
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -18780,7 +18780,7 @@ while.end:                                        ; preds = %_ZN6google12Check_E
 land.lhs.true.i:                                  ; preds = %while.end
   %id_.i.i = getelementptr inbounds i8, ptr %3, i64 248
   %4 = load i64, ptr %id_.i.i, align 8
-  %cmp.i8 = icmp eq i64 %4, %streamID
+  %cmp.i8 = icmp eq i64 %streamID, %4
   br i1 %cmp.i8, label %cleanup.done, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %while.end
@@ -18838,7 +18838,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %12 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %13 = load i64, ptr %12, align 8
-  %cmp.i.i36.i = icmp eq i64 %13, %streamID
+  %cmp.i.i36.i = icmp eq i64 %streamID, %13
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -19462,7 +19462,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 land.lhs.true.i:                                  ; preds = %for.body
   %id_.i.i = getelementptr inbounds i8, ptr %14, i64 248
   %15 = load i64, ptr %id_.i.i, align 8
-  %cmp.i7 = icmp eq i64 %15, %13
+  %cmp.i7 = icmp eq i64 %13, %15
   br i1 %cmp.i7, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %for.body
@@ -19518,7 +19518,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %23 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %24 = load i64, ptr %23, align 8
-  %cmp.i.i36.i = icmp eq i64 %24, %13
+  %cmp.i.i36.i = icmp eq i64 %13, %24
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -19763,7 +19763,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 land.lhs.true.i:                                  ; preds = %for.body
   %id_.i.i = getelementptr inbounds i8, ptr %11, i64 248
   %12 = load i64, ptr %id_.i.i, align 8
-  %cmp.i5 = icmp eq i64 %12, %10
+  %cmp.i5 = icmp eq i64 %10, %12
   br i1 %cmp.i5, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %for.body
@@ -19819,7 +19819,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %20 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %21 = load i64, ptr %20, align 8
-  %cmp.i.i36.i = icmp eq i64 %21, %10
+  %cmp.i.i36.i = icmp eq i64 %10, %21
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -20654,7 +20654,7 @@ if.then128:                                       ; preds = %land.lhs.true125
   %71 = load i32, ptr %outgoingStreams_.i, align 8
   %historicalMaxOutgoingStreams_.i.i = getelementptr inbounds i8, ptr %this, i64 1544
   %72 = load i32, ptr %historicalMaxOutgoingStreams_.i.i, align 8
-  %cmp.i.i = icmp ult i32 %72, %71
+  %cmp.i.i = icmp ugt i32 %71, %72
   br i1 %cmp.i.i, label %if.then.i.i126, label %if.end130
 
 if.then.i.i126:                                   ; preds = %if.then128
@@ -21110,7 +21110,7 @@ entry:
   %1 = load i32, ptr %outgoingStreams_, align 8
   %historicalMaxOutgoingStreams_.i = getelementptr inbounds i8, ptr %this, i64 1544
   %2 = load i32, ptr %historicalMaxOutgoingStreams_.i, align 8
-  %cmp.i = icmp ult i32 %2, %1
+  %cmp.i = icmp ugt i32 %1, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN8proxygen15HTTPSessionBase19onNewOutgoingStreamEj.exit
 
 if.then.i:                                        ; preds = %entry
@@ -23244,7 +23244,7 @@ invoke.cont139:                                   ; preds = %while.end132
 land.lhs.true.i:                                  ; preds = %invoke.cont139
   %id_.i.i = getelementptr inbounds i8, ptr %24, i64 248
   %25 = load i64, ptr %id_.i.i, align 8
-  %cmp.i95 = icmp eq i64 %25, %23
+  %cmp.i95 = icmp eq i64 %23, %25
   br i1 %cmp.i95, label %if.then144, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %invoke.cont139
@@ -23300,7 +23300,7 @@ while.body.i.i101:                                ; preds = %while.cond.i.i100
   %arrayidx.i.i.i.i.i102 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i98, i64 0, i64 %conv9.i.i
   %33 = load ptr, ptr %arrayidx.i.i.i.i.i102, align 8
   %34 = load i64, ptr %33, align 8
-  %cmp.i.i36.i = icmp eq i64 %34, %23
+  %cmp.i.i36.i = icmp eq i64 %23, %34
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i100, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i100
@@ -23357,7 +23357,7 @@ invoke.cont154:                                   ; preds = %cond.false.i, %_ZNK
 land.lhs.true.i128:                               ; preds = %invoke.cont154
   %id_.i.i129 = getelementptr inbounds i8, ptr %38, i64 248
   %39 = load i64, ptr %id_.i.i129, align 8
-  %cmp.i130 = icmp eq i64 %39, %37
+  %cmp.i130 = icmp eq i64 %37, %39
   br i1 %cmp.i130, label %if.then159, label %if.end.i131
 
 if.end.i131:                                      ; preds = %land.lhs.true.i128, %invoke.cont154
@@ -23413,7 +23413,7 @@ while.body.i.i165:                                ; preds = %while.cond.i.i162
   %arrayidx.i.i.i.i.i169 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i158, i64 0, i64 %conv9.i.i168
   %47 = load ptr, ptr %arrayidx.i.i.i.i.i169, align 8
   %48 = load i64, ptr %47, align 8
-  %cmp.i.i36.i170 = icmp eq i64 %48, %37
+  %cmp.i.i36.i170 = icmp eq i64 %37, %48
   br i1 %cmp.i.i36.i170, label %while.end45.i171, label %while.cond.i.i162, !llvm.loop !39
 
 while.end.i.i174:                                 ; preds = %while.cond.i.i162
@@ -27440,7 +27440,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i,
   %i.i.06.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i = icmp ugt i64 %1, %0
+  %cmp1.i.i.i.i.i.i = icmp ult i64 %0, %1
   br i1 %cmp1.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
@@ -27466,7 +27466,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %i.i.i.015.i.i.i.i.i = phi i64 [ 0, %.noexc ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i.i = icmp ugt i64 %3, %2
+  %cmp1.i.i.i.i.i.i.i = icmp ult i64 %2, %3
   br i1 %cmp1.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.i
@@ -28878,7 +28878,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %i.i.06.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i.i = icmp ugt i64 %2, %1
+  %cmp1.i.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
@@ -28940,7 +28940,7 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %id_.i.i = getelementptr inbounds i8, ptr %0, i64 248
   %1 = load i64, ptr %id_.i.i, align 8
-  %cmp.i = icmp eq i64 %1, %id
+  %cmp.i = icmp eq i64 %id, %1
   br i1 %cmp.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
@@ -28998,7 +28998,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %10 = load i64, ptr %9, align 8
-  %cmp.i.i36.i = icmp eq i64 %10, %id
+  %cmp.i.i36.i = icmp eq i64 %id, %10
   br i1 %cmp.i.i36.i, label %while.end45.i, label %while.cond.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -30265,7 +30265,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 if.then.i:                                        ; preds = %while.body.i
   %3 = load ptr, ptr %__to_destroy.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %3, %__first.sroa.0.04.i
-  %cmp.i3.i.i.i = icmp eq ptr %1, %3
+  %cmp.i3.i.i.i = icmp eq ptr %3, %1
   %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i3.i.i.i
   br i1 %or.cond.i.i.i, label %if.end.i, label %if.end8.i.i.i
 
@@ -30504,7 +30504,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
 if.then.i.i:                                      ; preds = %while.body.i.i
   %3 = load ptr, ptr %__to_destroy.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %3, %__first.sroa.0.04.i.i
-  %cmp.i3.i.i.i.i = icmp eq ptr %1, %3
+  %cmp.i3.i.i.i.i = icmp eq ptr %3, %1
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp.i3.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.end.i.i, label %if.end8.i.i.i.i
 
@@ -32923,7 +32923,7 @@ for.body.us:                                      ; preds = %invoke.cont34.split
   %idx.0.us13 = phi i64 [ %inc.us, %for.inc.us ], [ 0, %invoke.cont34.split.us ]
   %4 = load i64, ptr %observers_, align 8
   %and.i.i.i.us = and i64 %4, 4611686018427387903
-  %cmp.not.i.us = icmp ugt i64 %and.i.i.i.us, %idx.0.us13
+  %cmp.not.i.us = icmp ult i64 %idx.0.us13, %and.i.i.i.us
   br i1 %cmp.not.i.us, label %invoke.cont46.us, label %if.then.i
 
 invoke.cont46.us:                                 ; preds = %for.body.us
@@ -32954,7 +32954,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %.pre2035 = phi i64 [ %.pre20, %for.inc ], [ %.pre2030, %for.cond.preheader ]
   %idx.034 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %.pre15.pre1733 = phi i64 [ %.pre15.pre, %for.inc ], [ %2, %for.cond.preheader ]
-  %cmp.not.i = icmp ugt i64 %.pre2035, %idx.034
+  %cmp.not.i = icmp ult i64 %idx.034, %.pre2035
   br i1 %cmp.not.i, label %invoke.cont46, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.us, %for.body
@@ -33798,7 +33798,7 @@ entry:
   %cond.i.i = select i1 %tobool.not1.i.i, ptr %1, ptr %u.i.i
   %and.i.i.i = and i64 %0, 4611686018427387903
   %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr.629", ptr %cond.i.i, i64 %and.i.i.i
-  %cmp = icmp eq ptr %add.ptr.i, %constp
+  %cmp = icmp eq ptr %constp, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -34172,7 +34172,7 @@ _ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28H
   %div1.i = lshr i64 %4, 1
   %5 = tail call i64 @llvm.umin.i64(i64 %div1.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
-  %.sroa.speculated53 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
+  %.sroa.speculated53 = tail call i64 @llvm.umax.i64(i64 %newSize, i64 %.sroa.speculated.i)
   %6 = icmp ult i64 %.sroa.speculated53, 1152921504606846976
   br i1 %6, label %if.end8, label %if.then7
 
@@ -34269,7 +34269,7 @@ for.body.i.i:                                     ; preds = %if.then.i22, %for.b
   br i1 %cmp.not.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS7_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS8_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISF_Lm2EvE12emplace_backIJSF_EEERSF_DpOT_EUlPvE_EEvPT_SQ_SQ_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %for.body.i.i, !llvm.loop !230
 
 _ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS7_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS8_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISF_Lm2EvE12emplace_backIJSF_EEERSF_DpOT_EUlPvE_EEvPT_SQ_SQ_mOT0_EUlvE_Lb1EED2Ev.exit.i: ; preds = %for.body.i.i, %if.then.i22, %invoke.cont
-  %cmp.i23 = icmp sgt i64 %and.i.i.i, %pos
+  %cmp.i23 = icmp slt i64 %pos, %and.i.i.i
   br i1 %cmp.i23, label %if.then6.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS5_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS6_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSE_12emplace_backIJSD_EEERSD_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
 if.then6.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS7_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS8_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISF_Lm2EvE12emplace_backIJSF_EEERSF_DpOT_EUlPvE_EEvPT_SQ_SQ_mOT0_EUlvE_Lb1EED2Ev.exit.i
@@ -34503,7 +34503,7 @@ _ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28H
   %div1.i = lshr i64 %4, 1
   %5 = tail call i64 @llvm.umin.i64(i64 %div1.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
-  %.sroa.speculated53 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
+  %.sroa.speculated53 = tail call i64 @llvm.umax.i64(i64 %newSize, i64 %.sroa.speculated.i)
   %6 = icmp ult i64 %.sroa.speculated53, 1152921504606846976
   br i1 %6, label %if.end8, label %if.then7
 
@@ -34600,7 +34600,7 @@ for.body.i.i:                                     ; preds = %if.then.i22, %for.b
   br i1 %cmp.not.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS7_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS8_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISF_Lm2EvE6insertEPKSF_OSF_EUlPvE_EEvPT_SO_SO_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %for.body.i.i, !llvm.loop !230
 
 _ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS7_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS8_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISF_Lm2EvE6insertEPKSF_OSF_EUlPvE_EEvPT_SO_SO_mOT0_EUlvE_Lb1EED2Ev.exit.i: ; preds = %for.body.i.i, %if.then.i22, %invoke.cont
-  %cmp.i23 = icmp sgt i64 %and.i.i.i, %pos
+  %cmp.i23 = icmp slt i64 %pos, %and.i.i.i
   br i1 %cmp.i23, label %if.then6.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS5_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS6_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSE_6insertEPKSD_OSD_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
 if.then6.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS7_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS8_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISF_Lm2EvE6insertEPKSF_OSF_EUlPvE_EEvPT_SO_SO_mOT0_EUlvE_Lb1EED2Ev.exit.i
@@ -36684,8 +36684,8 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit: ; preds 
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_left.i.i1, align 8
-  %cmp.i.i2 = icmp eq ptr %7, %retval.sroa.0.0.i
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.3.0.i
+  %cmp.i.i2 = icmp eq ptr %retval.sroa.0.0.i, %7
+  %cmp.i1.i = icmp eq ptr %retval.sroa.3.0.i, %add.ptr.i.i
   %or.cond = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
   br i1 %or.cond, label %if.then.i, label %if.else.i3
 
@@ -37096,7 +37096,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImvvvvEEE16reserveForIns
   %12 = phi ptr [ %.pre, %if.end5 ], [ %.pre82, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImvvvvEEE20reserveForInsertImplEmmmm.exit.i ]
   %notmask.i41 = shl nsw i64 -1, %sh_prom.i40.pre-phi
   %sub.i42 = xor i64 %notmask.i41, -1
-  %and.i43 = and i64 %sub.i42, %hp.coerce0
+  %and.i43 = and i64 %hp.coerce0, %sub.i42
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %12, i64 %and.i43
   %13 = load <16 x i8>, ptr %add.ptr, align 16
   %14 = icmp slt <16 x i8> %13, zeroinitializer
@@ -37699,7 +37699,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #27
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmPN8proxygen15HTTPTransactionEESt10_Select1stIS5_ESt4lessImESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -37930,7 +37930,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i,
   %i.i.06.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i = icmp ugt i64 %2, %1
+  %cmp1.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
@@ -37972,7 +37972,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
   %i.i.i.015.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly6detail15reserveInTargetIA34_cmJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit ], [ %inc.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i.i.i = icmp ugt i64 %6, %5
+  %cmp1.i.i.i.i.i.i.i.i = icmp ult i64 %5, %6
   br i1 %cmp1.i.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i.i
@@ -38393,7 +38393,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i,
   %i.i.06.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i = icmp ugt i64 %2, %1
+  %cmp1.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
@@ -38435,7 +38435,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
   %i.i.i.015.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly6detail15reserveInTargetIA19_cmJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit ], [ %inc.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i.i.i = icmp ugt i64 %6, %5
+  %cmp1.i.i.i.i.i.i.i.i = icmp ult i64 %5, %6
   br i1 %cmp1.i.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i.i
@@ -38504,7 +38504,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i,
   %i.i.i.015.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i = icmp ugt i64 %2, %1
+  %cmp1.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i
@@ -38847,7 +38847,7 @@ if.then.i1:                                       ; preds = %_ZN5folly3f146detai
   %sh_prom.i23.i = and i64 %14, 255
   %notmask.i24.i = shl nsw i64 -1, %sh_prom.i23.i
   %sub.i25.i = xor i64 %notmask.i24.i, -1
-  %and.i26.i = and i64 %sub.i25.i, %hp.coerce0
+  %and.i26.i = and i64 %hp.coerce0, %sub.i25.i
   %add.ptr27.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %13, i64 %and.i26.i
   %cmp828.i = icmp eq ptr %add.ptr27.i, %add.ptr1.i.i.i
   br i1 %cmp828.i, label %if.then9.i, label %if.end.i2
@@ -39014,7 +39014,7 @@ if.then.i2:                                       ; preds = %_ZN5folly3f146detai
   %sh_prom.i23.i = and i64 %16, 255
   %notmask.i24.i = shl nsw i64 -1, %sh_prom.i23.i
   %sub.i25.i = xor i64 %notmask.i24.i, -1
-  %and.i26.i = and i64 %sub.i25.i, %hp.coerce0
+  %and.i26.i = and i64 %hp.coerce0, %sub.i25.i
   %add.ptr27.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.702", ptr %15, i64 %and.i26.i
   %cmp828.i = icmp eq ptr %add.ptr27.i, %add.ptr1.i.i.i
   br i1 %cmp828.i, label %if.then9.i, label %if.end.i3
@@ -39092,7 +39092,7 @@ if.then:                                          ; preds = %_ZN5folly3f146detai
   %sh_prom.i23 = and i64 %3, 255
   %notmask.i24 = shl nsw i64 -1, %sh_prom.i23
   %sub.i25 = xor i64 %notmask.i24, -1
-  %and.i26 = and i64 %sub.i25, %hp.coerce0
+  %and.i26 = and i64 %hp.coerce0, %sub.i25
   %add.ptr27 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.702", ptr %2, i64 %and.i26
   %cmp828 = icmp eq ptr %add.ptr27, %add.ptr1.i.i
   br i1 %cmp828, label %if.then9, label %if.end
@@ -39363,7 +39363,7 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransac
   %13 = phi ptr [ %.pre, %if.end9 ], [ %.pre78, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE20reserveForInsertImplEmmmm.exit.i ]
   %notmask.i41 = shl nsw i64 -1, %sh_prom.i40.pre-phi
   %sub.i42 = xor i64 %notmask.i41, -1
-  %and.i43 = and i64 %sub.i42, %hp.coerce0
+  %and.i43 = and i64 %hp.coerce0, %sub.i42
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.702", ptr %13, i64 %and.i43
   %14 = load <16 x i8>, ptr %add.ptr, align 16
   %15 = icmp slt <16 x i8> %14, zeroinitializer
@@ -40252,7 +40252,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %i.i.06.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i.i = icmp ugt i64 %2, %1
+  %cmp1.i.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
@@ -40324,7 +40324,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i,
   %i.i.i.015.i.i.i.i = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i = icmp ugt i64 %3, %2
+  %cmp1.i.i.i.i.i.i = icmp ult i64 %2, %3
   br i1 %cmp1.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i
@@ -40552,7 +40552,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i,
   %i.i.i.015.i.i.i.i = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i = icmp ugt i64 %3, %2
+  %cmp1.i.i.i.i.i.i = icmp ult i64 %2, %3
   br i1 %cmp1.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i
@@ -40624,7 +40624,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i,
   %i.i.06.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i = icmp ugt i64 %2, %1
+  %cmp1.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
@@ -40666,7 +40666,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
   %i.i.i.015.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly6detail15reserveInTargetIA16_cmJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit ], [ %inc.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i.i.i = icmp ugt i64 %6, %5
+  %cmp1.i.i.i.i.i.i.i.i = icmp ult i64 %5, %6
   br i1 %cmp1.i.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i.i

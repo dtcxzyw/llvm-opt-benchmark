@@ -26,7 +26,7 @@ define range(i32 -17, 1) i32 @opal_os_dirpath_create(ptr noundef %0, i32 noundef
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, %1
-  %12 = icmp eq i32 %11, %1
+  %12 = icmp eq i32 %1, %11
   br i1 %12, label %74, label %13
 
 13:                                               ; preds = %8
@@ -125,7 +125,7 @@ define range(i32 -17, 1) i32 @opal_os_dirpath_create(ptr noundef %0, i32 noundef
 61:                                               ; preds = %59
   %62 = load i32, ptr %34, align 8
   %63 = and i32 %62, %1
-  %.not55 = icmp eq i32 %63, %1
+  %.not55 = icmp eq i32 %1, %63
   br i1 %.not55, label %73, label %64
 
 64:                                               ; preds = %61
@@ -308,7 +308,7 @@ sub_2.us.us:                                      ; preds = %sub_152.us.us
   %49 = load i32, ptr %18, align 8
   %50 = and i32 %49, 61440
   %51 = icmp ne i32 %50, 16384
-  %brmerge.us.us = or i1 %51, %1
+  %brmerge.us.us = or i1 %1, %51
   br i1 %brmerge.us.us, label %.split62.us.us, label %.outer.backedge.us.sink.split
 
 .split62.us.us:                                   ; preds = %48
@@ -372,7 +372,7 @@ sub_2:                                            ; preds = %sub_152
   %76 = load i32, ptr %18, align 8
   %77 = and i32 %76, 61440
   %78 = icmp ne i32 %77, 16384
-  %brmerge = or i1 %78, %1
+  %brmerge = or i1 %1, %78
   br i1 %brmerge, label %79, label %.outer.backedge.sink.split
 
 79:                                               ; preds = %75

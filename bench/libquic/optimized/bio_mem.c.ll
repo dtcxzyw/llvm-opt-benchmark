@@ -154,7 +154,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %err, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %add = add nsw i32 %conv, %inl
+  %add = add nsw i32 %inl, %conv
   %conv4 = sext i32 %add to i64
   %call = tail call i64 @BUF_MEM_grow_clean(ptr noundef nonnull %0, i64 noundef %conv4) #9
   %sext = shl i64 %2, 32
@@ -185,7 +185,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %cmp = icmp ult i64 %1, 2147483647
   %conv = trunc nuw nsw i64 %1 to i32
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %conv, i32 %outl)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %outl, i32 %conv)
   %ret.0 = select i1 %cmp, i32 %spec.select, i32 %outl
   %cmp6 = icmp sgt i32 %ret.0, 0
   br i1 %cmp6, label %if.then8, label %if.else18
@@ -291,7 +291,7 @@ entry:
   tail call void @BIO_clear_retry_flags(ptr noundef %bio) #9
   %1 = load i64, ptr %0, align 8
   %conv = trunc i64 %1 to i32
-  %cmp.not = icmp slt i32 %conv, %size
+  %cmp.not = icmp sgt i32 %size, %conv
   %sub = add nsw i32 %size, -1
   %spec.select = select i1 %cmp.not, i32 %conv, i32 %sub
   %cmp3 = icmp slt i32 %spec.select, 1
@@ -331,7 +331,7 @@ for.end:                                          ; preds = %for.inc, %if.then16
   %6 = load i64, ptr %5, align 8
   %cmp.i = icmp ult i64 %6, 2147483647
   %conv.i = trunc nuw nsw i64 %6 to i32
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %conv.i, i32 %i.1)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %i.1, i32 %conv.i)
   %ret.0.i = select i1 %cmp.i, i32 %spec.select.i, i32 %i.1
   %cmp6.i = icmp sgt i32 %ret.0.i, 0
   br i1 %cmp6.i, label %if.then8.i, label %if.else18.i

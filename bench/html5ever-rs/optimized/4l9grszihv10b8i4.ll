@@ -81,7 +81,7 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
   %.0.i = phi i64 [ %11, %10 ], [ %15, %12 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !8, !noalias !11, !noundef !4
-  %19 = icmp ult i64 %18, %.0.i
+  %19 = icmp ugt i64 %.0.i, %18
   br i1 %19, label %20, label %"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17h14a7c3e091b73c96E.exit"
 
 20:                                               ; preds = %16

@@ -443,7 +443,7 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %33, %_ZNK5Ipopt16De
 57:                                               ; preds = %_ZN5Ipopt11DenseVector6ValuesEv.exit
   %58 = getelementptr inbounds i8, ptr %2, i64 240
   %59 = load double, ptr %58, align 8
-  %60 = fmul double %59, %1
+  %60 = fmul double %1, %59
   br i1 %56, label %.lr.ph49, label %.loopexit
 
 .lr.ph49:                                         ; preds = %57, %.lr.ph49
@@ -478,7 +478,7 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %33, %_ZNK5Ipopt16De
   %.13843 = phi ptr [ %89, %.lr.ph ], [ %24, %74 ]
   %.03942 = phi ptr [ %91, %.lr.ph ], [ %22, %74 ]
   %78 = load double, ptr %.13843, align 8
-  %79 = fmul double %78, %1
+  %79 = fmul double %1, %78
   %80 = load i32, ptr %.03942, align 4
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds double, ptr %77, i64 %81
@@ -599,7 +599,7 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %33, %_ZNK5Ipopt16De
 57:                                               ; preds = %_ZN5Ipopt11DenseVector6ValuesEv.exit
   %58 = getelementptr inbounds i8, ptr %2, i64 240
   %59 = load double, ptr %58, align 8
-  %60 = fmul double %59, %1
+  %60 = fmul double %1, %59
   br i1 %56, label %.lr.ph49, label %.loopexit
 
 .lr.ph49:                                         ; preds = %57, %.lr.ph49
@@ -634,7 +634,7 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %33, %_ZNK5Ipopt16De
   %.143 = phi ptr [ %89, %.lr.ph ], [ %24, %74 ]
   %.13942 = phi ptr [ %91, %.lr.ph ], [ %22, %74 ]
   %78 = load double, ptr %.143, align 8
-  %79 = fmul double %78, %1
+  %79 = fmul double %1, %78
   %80 = load i32, ptr %.03644, align 4
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds double, ptr %77, i64 %81

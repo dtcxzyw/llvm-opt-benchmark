@@ -693,7 +693,7 @@ define dso_local noundef range(i32 -1, 1) i32 @seq_buf_hex_dump(ptr nocapture no
   %25 = sub i32 %16, %11
   %26 = add i32 %17, %11
   %27 = sext i32 %26 to i64
-  %28 = icmp ult i64 %27, %6
+  %28 = icmp ugt i64 %6, %27
   br i1 %28, label %.split.us, label %.loopexit, !llvm.loop !47
 
 .split.us3:                                       ; preds = %13, %38
@@ -712,14 +712,14 @@ define dso_local noundef range(i32 -1, 1) i32 @seq_buf_hex_dump(ptr nocapture no
   %39 = sub i32 %30, %11
   %40 = add i32 %31, %11
   %41 = sext i32 %40 to i64
-  %42 = icmp ult i64 %41, %6
+  %42 = icmp ugt i64 %6, %41
   br i1 %42, label %.split.us3, label %.loopexit, !llvm.loop !47
 
 43:                                               ; preds = %.split
   %44 = sub i32 %49, %11
   %45 = add i32 %50, %11
   %46 = sext i32 %45 to i64
-  %47 = icmp ult i64 %46, %6
+  %47 = icmp ugt i64 %6, %46
   br i1 %47, label %.split, label %.loopexit, !llvm.loop !47
 
 .split:                                           ; preds = %13, %43

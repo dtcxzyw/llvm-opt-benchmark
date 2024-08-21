@@ -1870,7 +1870,7 @@ define internal fastcc void @_ZN3cfg3dnf11Conjunction3new17h1b59c7a9a11d0eb7E(pt
   %101 = load i64, ptr %19, align 8, !alias.scope !284, !noalias !287, !noundef !5
   %102 = load i64, ptr %17, align 8, !alias.scope !289, !noalias !287, !noundef !5
   %103 = sub i64 %102, %101
-  %104 = icmp ult i64 %103, %97
+  %104 = icmp ugt i64 %97, %103
   br i1 %104, label %105, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ab78e5124a2226fE.llvm.2694494082933310555.exit.i"
 
 105:                                              ; preds = %100

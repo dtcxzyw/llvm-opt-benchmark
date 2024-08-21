@@ -164,7 +164,7 @@ opal_obj_new.exit.thread192:                      ; preds = %.lr.ph.i.i, %52
   %62 = sext i32 %61 to i64
   %63 = mul nsw i64 %45, %62
   %64 = getelementptr inbounds i8, ptr %.0120182, i64 %63
-  %or.cond3.not = and i1 %.not133186, %10
+  %or.cond3.not = and i1 %10, %.not133186
   br i1 %or.cond3.not, label %65, label %90
 
 65:                                               ; preds = %opal_obj_new.exit.thread192

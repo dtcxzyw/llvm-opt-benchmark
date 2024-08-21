@@ -65,7 +65,7 @@ define i64 @png_safecat(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2
   %7 = add i64 %1, -1
   %8 = load i8, ptr %3, align 1
   %9 = icmp ne i8 %8, 0
-  %10 = icmp ugt i64 %7, %2
+  %10 = icmp ult i64 %2, %7
   %11 = and i1 %9, %10
   br i1 %11, label %.lr.ph, label %.loopexit
 

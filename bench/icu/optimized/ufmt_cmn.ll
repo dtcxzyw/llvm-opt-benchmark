@@ -102,7 +102,7 @@ do.end:                                           ; preds = %do.body, %do.body.u
   %.us-phi.in = phi i64 [ %indvars.iv.next33, %do.body.us ], [ %indvars.iv.next, %do.body ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %cmp17.not = icmp ne i32 %minDigits, -1
-  %cmp18 = icmp slt i32 %.us-phi, %minDigits
+  %cmp18 = icmp sgt i32 %minDigits, %.us-phi
   %or.cond = select i1 %cmp17.not, i1 %cmp18, i1 false
   br i1 %or.cond, label %land.rhs.preheader, label %if.end
 
@@ -122,7 +122,7 @@ while.body:                                       ; preds = %land.rhs
   %arrayidx23 = getelementptr inbounds i16, ptr %buffer, i64 %indvars.iv35
   store i16 48, ptr %arrayidx23, align 2
   %3 = trunc nuw i64 %indvars.iv.next36 to i32
-  %cmp19 = icmp slt i32 %3, %minDigits
+  %cmp19 = icmp sgt i32 %minDigits, %3
   br i1 %cmp19, label %land.rhs, label %if.end, !llvm.loop !6
 
 if.end:                                           ; preds = %land.rhs, %while.body, %do.end
@@ -130,7 +130,7 @@ if.end:                                           ; preds = %land.rhs, %while.bo
   %idx.ext = sext i32 %length.1 to i64
   %add.ptr = getelementptr inbounds i16, ptr %buffer, i64 %idx.ext
   %incdec.ptr26 = getelementptr inbounds i8, ptr %add.ptr, i64 -2
-  %cmp2527 = icmp ugt ptr %incdec.ptr26, %buffer
+  %cmp2527 = icmp ult ptr %buffer, %incdec.ptr26
   br i1 %cmp2527, label %while.body26, label %while.end28
 
 while.body26:                                     ; preds = %if.end, %while.body26

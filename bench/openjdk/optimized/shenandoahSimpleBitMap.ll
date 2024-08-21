@@ -216,7 +216,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap28is_backward_cons
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap31find_first_consecutive_set_bitsEllm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = sub i64 %2, %3
-  %6 = icmp slt i64 %5, %1
+  %6 = icmp sgt i64 %1, %5
   br i1 %6, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, label %7
 
 7:                                                ; preds = %4
@@ -369,7 +369,7 @@ _ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread: ; pred
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap30find_last_consecutive_set_bitsEllm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = add i64 %3, %1
-  %6 = icmp sgt i64 %5, %2
+  %6 = icmp slt i64 %2, %5
   br i1 %6, label %.loopexit69, label %7
 
 7:                                                ; preds = %4

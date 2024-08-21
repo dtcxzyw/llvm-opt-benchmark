@@ -1133,7 +1133,7 @@ addrrange_contains.exit.i:                        ; preds = %for.body9
   %b.sroa.2.0.insert.shift.i8.i.i = shl nuw i128 %b.sroa.2.0.insert.ext.i7.i.i, 64
   %b.sroa.0.0.insert.ext.i9.i.i = and i128 %a.sroa.0.0.insert.insert.i.i.i.i, 18446744073709551615
   %b.sroa.0.0.insert.insert.i10.i.i = or disjoint i128 %b.sroa.2.0.insert.shift.i8.i.i, %b.sroa.0.0.insert.ext.i9.i.i
-  %cmp.i11.i.i = icmp sgt i128 %b.sroa.0.0.insert.insert.i10.i.i, %add.i.i
+  %cmp.i11.i.i = icmp slt i128 %add.i.i, %b.sroa.0.0.insert.insert.i10.i.i
   br i1 %cmp.i11.i.i, label %if.then22, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %addrrange_contains.exit.i, %for.body9
@@ -1152,7 +1152,7 @@ addrrange_intersects.exit:                        ; preds = %lor.rhs.i
   %b.sroa.2.0.insert.shift.i8.i16.i = shl nuw i128 %b.sroa.2.0.insert.ext.i7.i15.i, 64
   %b.sroa.0.0.insert.ext.i9.i17.i = and i128 %a.sroa.0.0.insert.insert.i.i.i12.i, 18446744073709551615
   %b.sroa.0.0.insert.insert.i10.i18.i = or disjoint i128 %b.sroa.2.0.insert.shift.i8.i16.i, %b.sroa.0.0.insert.ext.i9.i17.i
-  %cmp.i11.i19.i = icmp sgt i128 %b.sroa.0.0.insert.insert.i10.i18.i, %11
+  %cmp.i11.i19.i = icmp slt i128 %11, %b.sroa.0.0.insert.insert.i10.i18.i
   br i1 %cmp.i11.i19.i, label %if.then22, label %for.inc
 
 if.then22:                                        ; preds = %addrrange_contains.exit.i, %addrrange_intersects.exit
@@ -1737,7 +1737,7 @@ if.end13:                                         ; preds = %land.lhs.true.if.en
 land.lhs.true17:                                  ; preds = %if.end13
   %sub = add i32 %size, -1
   %conv18 = zext i32 %sub to i64
-  %and = and i64 %conv18, %addr
+  %and = and i64 %addr, %conv18
   %tobool19.not = icmp eq i64 %and, 0
   br i1 %tobool19.not, label %if.end36, label %do.body21
 
@@ -1773,12 +1773,12 @@ if.end36:                                         ; preds = %land.lhs.true17, %i
   br i1 %tobool39.not, label %return, label %if.end41
 
 if.end41:                                         ; preds = %if.end36
-  %cmp = icmp ult i32 %11, %size
+  %cmp = icmp ugt i32 %size, %11
   br i1 %cmp, label %do.body51, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end41
   %12 = load i32, ptr %valid38, align 8
-  %cmp48 = icmp ugt i32 %12, %size
+  %cmp48 = icmp ult i32 %size, %12
   br i1 %cmp48, label %do.body51, label %return
 
 do.body51:                                        ; preds = %if.end41, %lor.lhs.false
@@ -2044,7 +2044,7 @@ land.lhs.true24.i.i:                              ; preds = %lor.lhs.false11.i.i
 land.lhs.true28.i.i:                              ; preds = %land.lhs.true24.i.i
   %data29.i.i = getelementptr inbounds i8, ptr %arrayidx17.i, i64 40
   %16 = load i64, ptr %data29.i.i, align 8
-  %cmp30.i.i = icmp eq i64 %16, %9
+  %cmp30.i.i = icmp eq i64 %9, %16
   br i1 %cmp30.i.i, label %if.then.i30, label %for.inc.i
 
 if.then.i30:                                      ; preds = %land.lhs.true28.i.i, %land.lhs.true24.i.i, %land.lhs.true.i.i
@@ -2134,7 +2134,7 @@ if.end20:                                         ; preds = %if.then14
 
 if.end24:                                         ; preds = %if.end20, %land.lhs.true12, %land.lhs.true10, %land.lhs.true8, %land.lhs.true6, %land.lhs.true, %entry
   %reentrancy_guard_applied.0.not = phi i1 [ true, %land.lhs.true ], [ true, %land.lhs.true6 ], [ true, %land.lhs.true8 ], [ true, %land.lhs.true10 ], [ true, %land.lhs.true12 ], [ false, %if.end20 ], [ true, %entry ]
-  %cond = tail call i32 @llvm.umin.i32(i32 %spec.store.select1, i32 %size)
+  %cond = tail call i32 @llvm.umin.i32(i32 %size, i32 %spec.store.select1)
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %access_size_min, i32 %cond)
   %cond31 = tail call i32 @llvm.umax.i32(i32 %spec.store.select, i32 1)
   %mul = shl i32 %cond31, 3
@@ -2159,7 +2159,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.051 = phi i32 [ %9, %for.body ], [ 0, %for.cond.preheader ]
   %r.050 = phi i32 [ %or, %for.body ], [ 0, %for.cond.preheader ]
   %conv = zext nneg i32 %i.051 to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %9 = add i32 %i.051, %cond31
   %sub36 = sub i32 %size, %9
   %mul37 = shl i32 %sub36, 3
@@ -2172,7 +2172,7 @@ for.body44:                                       ; preds = %for.cond41.preheade
   %i.148 = phi i32 [ %add52, %for.body44 ], [ 0, %for.cond41.preheader ]
   %r.247 = phi i32 [ %or50, %for.body44 ], [ 0, %for.cond41.preheader ]
   %conv45 = zext nneg i32 %i.148 to i64
-  %add46 = add i64 %conv45, %addr
+  %add46 = add i64 %addr, %conv45
   %mul47 = shl nuw nsw i32 %i.148, 3
   %call49 = tail call i32 %access_fn(ptr noundef %mr, i64 noundef %add46, ptr noundef %value, i32 noundef %cond31, i32 noundef %mul47, i64 noundef %shr, i32 %attrs.coerce) #19, !callees !28
   %or50 = or i32 %call49, %r.247
@@ -5053,7 +5053,7 @@ entry:
   %readonly1 = getelementptr inbounds i8, ptr %mr, i64 43
   %0 = load i8, ptr %readonly1, align 1
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %readonly
+  %2 = xor i1 %readonly, %1
   br i1 %2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -5082,7 +5082,7 @@ entry:
   %nonvolatile1 = getelementptr inbounds i8, ptr %mr, i64 44
   %0 = load i8, ptr %nonvolatile1, align 4
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %nonvolatile
+  %2 = xor i1 %nonvolatile, %1
   br i1 %2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -5111,7 +5111,7 @@ entry:
   %romd_mode1 = getelementptr inbounds i8, ptr %mr, i64 40
   %0 = load i8, ptr %romd_mode1, align 8
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %romd_mode
+  %2 = xor i1 %romd_mode, %1
   br i1 %2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -5753,7 +5753,7 @@ if.else53.i.us:                                   ; preds = %if.else45.i.us
 memory_region_ioeventfd_before.exit.us:           ; preds = %if.else53.i.us
   %e67.i.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 48
   %13 = load ptr, ptr %e67.i.us, align 16
-  %cmp68.i.us = icmp ugt ptr %13, %e
+  %cmp68.i.us = icmp ult ptr %e, %13
   br i1 %cmp68.i.us, label %for.end.loopexit.split.loop.exit83, label %for.inc.us
 
 for.inc.us:                                       ; preds = %memory_region_ioeventfd_before.exit.us, %if.else53.i.us, %if.else35.i.us, %if.else20.i.us, %if.else.i.us
@@ -5796,7 +5796,7 @@ if.else35.i:                                      ; preds = %if.else29.i
 if.else45.i:                                      ; preds = %if.else35.i
   %e67.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %18 = load ptr, ptr %e67.i, align 16
-  %cmp68.i = icmp ugt ptr %18, %e
+  %cmp68.i = icmp ult ptr %e, %18
   br i1 %cmp68.i, label %for.end.loopexit64.split.loop.exit70, label %for.inc
 
 for.inc:                                          ; preds = %if.else35.i, %if.else20.i, %if.else.i, %if.else45.i
@@ -5999,7 +5999,7 @@ land.lhs.true24.i.us:                             ; preds = %land.lhs.true19.i.u
 land.lhs.true35.i.us:                             ; preds = %land.lhs.true24.i.us
   %e36.i.us = getelementptr inbounds i8, ptr %arrayidx.us44, i64 48
   %14 = load ptr, ptr %e36.i.us, align 16
-  %cmp37.i.us = icmp eq ptr %14, %e
+  %cmp37.i.us = icmp eq ptr %e, %14
   br i1 %cmp37.i.us, label %for.end.loopexit74, label %for.inc.us47
 
 for.inc.us47:                                     ; preds = %land.lhs.true35.i.us, %land.lhs.true24.i.us, %land.lhs.true19.i.us, %lor.lhs.false11.i.us, %for.body.us41
@@ -6033,7 +6033,7 @@ land.lhs.true19.i:                                ; preds = %lor.lhs.false11.i
 land.lhs.true24.i:                                ; preds = %land.lhs.true19.i
   %e36.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %18 = load ptr, ptr %e36.i, align 16
-  %cmp37.i = icmp eq ptr %18, %e
+  %cmp37.i = icmp eq ptr %e, %18
   br i1 %cmp37.i, label %for.end.loopexit76, label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true24.i, %land.lhs.true19.i, %lor.lhs.false11.i, %for.body
@@ -6328,7 +6328,7 @@ entry:
   %enabled1 = getelementptr inbounds i8, ptr %mr, i64 154
   %0 = load i8, ptr %enabled1, align 2
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %enabled
+  %2 = xor i1 %enabled, %1
   br i1 %2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -6376,7 +6376,7 @@ define dso_local void @memory_region_set_address(ptr noundef %mr, i64 noundef %a
 entry:
   %addr1 = getelementptr inbounds i8, ptr %mr, i64 128
   %0 = load i64, ptr %addr1, align 16
-  %cmp.not = icmp eq i64 %0, %addr
+  %cmp.not = icmp eq i64 %addr, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -6435,7 +6435,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %alias_offset = getelementptr inbounds i8, ptr %mr, i64 168
   %1 = load i64, ptr %alias_offset, align 8
-  %cmp = icmp eq i64 %1, %offset
+  %cmp = icmp eq i64 %offset, %1
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
@@ -6463,7 +6463,7 @@ entry:
   %unmergeable1 = getelementptr inbounds i8, ptr %mr, i64 47
   %0 = load i8, ptr %unmergeable1, align 1
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %unmergeable
+  %2 = xor i1 %unmergeable, %1
   br i1 %2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -6696,7 +6696,7 @@ addrrange_contains.exit.i:                        ; preds = %land.rhs
 
 lor.rhs.i:                                        ; preds = %addrrange_contains.exit.i, %land.rhs
   %cmp.i.not.i7.i = icmp sge i128 %addr16.val, %start.sroa.0.0.insert.ext.i
-  %cmp.i11.i19.i = icmp sgt i128 %a.sroa.0.0.insert.insert.i.i.i12.i, %addr16.val
+  %cmp.i11.i19.i = icmp slt i128 %addr16.val, %a.sroa.0.0.insert.insert.i.i.i12.i
   %or.cond = select i1 %cmp.i.not.i7.i, i1 %cmp.i11.i19.i, i1 false
   br i1 %or.cond, label %while.body, label %while.end
 
@@ -6985,7 +6985,7 @@ memory_global_dirty_log_stop_postponed_run.exit:  ; preds = %if.end.i, %if.then2
 if.end5:                                          ; preds = %memory_global_dirty_log_stop_postponed_run.exit, %if.end
   %4 = load i32, ptr @global_dirty_tracking, align 4
   %not6 = xor i32 %4, -1
-  %and7 = and i32 %not6, %flags
+  %and7 = and i32 %flags, %not6
   %tobool8.not = icmp eq i32 %and7, 0
   br i1 %tobool8.not, label %if.end18, label %if.end10
 
@@ -8747,7 +8747,7 @@ addrrange_contains.exit.i:                        ; preds = %if.end
   %b.sroa.2.0.insert.shift.i8.i.i = shl nuw i128 %b.sroa.2.0.insert.ext.i7.i.i, 64
   %b.sroa.0.0.insert.ext.i9.i.i = and i128 %a.sroa.0.0.insert.insert.i.i.i.i, 18446744073709551615
   %b.sroa.0.0.insert.insert.i10.i.i = or disjoint i128 %b.sroa.2.0.insert.shift.i8.i.i, %b.sroa.0.0.insert.ext.i9.i.i
-  %cmp.i11.i.i = icmp sgt i128 %b.sroa.0.0.insert.insert.i10.i.i, %cond.i.i373
+  %cmp.i11.i.i = icmp slt i128 %cond.i.i373, %b.sroa.0.0.insert.insert.i10.i.i
   br i1 %cmp.i11.i.i, label %addrrange_contains.exit.i.if.end32_crit_edge, label %lor.rhs.i
 
 addrrange_contains.exit.i.if.end32_crit_edge:     ; preds = %addrrange_contains.exit.i
@@ -8780,7 +8780,7 @@ addrrange_intersects.exit:                        ; preds = %lor.rhs.i
   %b.sroa.2.0.insert.shift.i8.i16.i = shl nuw i128 %b.sroa.2.0.insert.ext.i7.i15.i, 64
   %b.sroa.0.0.insert.ext.i9.i17.i = and i128 %a.sroa.0.0.insert.insert.i.i.i12.i, 18446744073709551615
   %b.sroa.0.0.insert.insert.i10.i18.i = or disjoint i128 %b.sroa.2.0.insert.shift.i8.i16.i, %b.sroa.0.0.insert.ext.i9.i17.i
-  %cmp.i11.i19.i = icmp sgt i128 %b.sroa.0.0.insert.insert.i10.i18.i, %add.i
+  %cmp.i11.i19.i = icmp slt i128 %add.i, %b.sroa.0.0.insert.insert.i10.i18.i
   br i1 %cmp.i11.i19.i, label %addrrange_intersects.exit.if.end32_crit_edge, label %if.end160.loopexit
 
 addrrange_intersects.exit.if.end32_crit_edge:     ; preds = %addrrange_intersects.exit
@@ -9869,7 +9869,7 @@ addrrange_contains.exit.i:                        ; preds = %entry
   %b.sroa.2.0.insert.shift.i8.i.i = shl nuw i128 %b.sroa.2.0.insert.ext.i7.i.i, 64
   %b.sroa.0.0.insert.ext.i9.i.i = and i128 %a.sroa.0.0.insert.insert.i.i.i.i, 18446744073709551615
   %b.sroa.0.0.insert.insert.i10.i.i = or disjoint i128 %b.sroa.2.0.insert.shift.i8.i.i, %b.sroa.0.0.insert.ext.i9.i.i
-  %cmp.i11.i.i = icmp sgt i128 %b.sroa.0.0.insert.insert.i10.i.i, %0
+  %cmp.i11.i.i = icmp slt i128 %0, %b.sroa.0.0.insert.insert.i10.i.i
   br i1 %cmp.i11.i.i, label %addrrange_contains.exit.i.if.end_crit_edge, label %lor.rhs.i
 
 addrrange_contains.exit.i.if.end_crit_edge:       ; preds = %addrrange_contains.exit.i
@@ -9902,7 +9902,7 @@ addrrange_intersects.exit:                        ; preds = %lor.rhs.i
   %b.sroa.2.0.insert.shift.i8.i16.i = shl nuw i128 %b.sroa.2.0.insert.ext.i7.i15.i, 64
   %b.sroa.0.0.insert.ext.i9.i17.i = and i128 %a.sroa.0.0.insert.insert.i.i.i12.i, 18446744073709551615
   %b.sroa.0.0.insert.insert.i10.i18.i = or disjoint i128 %b.sroa.2.0.insert.shift.i8.i16.i, %b.sroa.0.0.insert.ext.i9.i17.i
-  %cmp.i11.i19.i = icmp sgt i128 %b.sroa.0.0.insert.insert.i10.i18.i, %add.i.i
+  %cmp.i11.i19.i = icmp slt i128 %add.i.i, %b.sroa.0.0.insert.insert.i10.i18.i
   br i1 %cmp.i11.i19.i, label %addrrange_intersects.exit.if.end_crit_edge, label %if.end54
 
 addrrange_intersects.exit.if.end_crit_edge:       ; preds = %addrrange_intersects.exit
@@ -11406,7 +11406,7 @@ if.end35:                                         ; preds = %if.then25, %for.end
   %enabled = getelementptr inbounds i8, ptr %mr, i64 154
   %7 = load i8, ptr %enabled, align 2
   %tobool36 = trunc i8 %7 to i1
-  %brmerge = or i1 %tobool36, %display_disabled
+  %brmerge = or i1 %display_disabled, %tobool36
   br i1 %brmerge, label %for.cond40.preheader, label %do.body107
 
 for.cond40.preheader:                             ; preds = %if.end35
@@ -11555,7 +11555,7 @@ if.else:                                          ; preds = %if.end15
   %enabled79 = getelementptr inbounds i8, ptr %mr, i64 154
   %27 = load i8, ptr %enabled79, align 2
   %tobool80 = trunc i8 %27 to i1
-  %brmerge85 = or i1 %tobool80, %display_disabled
+  %brmerge85 = or i1 %display_disabled, %tobool80
   br i1 %brmerge85, label %for.cond84.preheader, label %do.body107
 
 for.cond84.preheader:                             ; preds = %if.else

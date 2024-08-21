@@ -6409,7 +6409,7 @@ default.unreachable1.i.i:                         ; preds = %4
 
 _ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i: ; preds = %12, %11, %10, %9, %7, %4
   %.0.i.i = phi i64 [ 65, %12 ], [ 32, %11 ], [ 32, %10 ], [ 32, %9 ], [ %8, %7 ], [ 16, %4 ]
-  %.not.i = icmp eq i64 %.0.i.i, %.val
+  %.not.i = icmp eq i64 %.val, %.0.i.i
   br i1 %.not.i, label %28, label %13
 
 13:                                               ; preds = %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i

@@ -459,7 +459,7 @@ define weak_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE7
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -1
-  %8 = icmp eq i32 %7, %3
+  %8 = icmp eq i32 %3, %7
   %9 = add i32 %3, 1
   %10 = select i1 %8, i32 0, i32 %9
   ret i32 %10
@@ -470,7 +470,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12Decode
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = sub i32 32, %5
-  %.not.i = icmp slt i32 %6, %1
+  %.not.i = icmp sgt i32 %1, %6
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   br i1 %.not.i, label %24, label %8
 
@@ -866,7 +866,7 @@ define weak_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE7
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -1
-  %8 = icmp eq i32 %7, %3
+  %8 = icmp eq i32 %3, %7
   %9 = add i32 %3, 1
   %10 = select i1 %8, i32 0, i32 %9
   ret i32 %10
@@ -1282,7 +1282,7 @@ define weak_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE7
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -1
-  %8 = icmp eq i32 %7, %3
+  %8 = icmp eq i32 %3, %7
   %9 = add i32 %3, 1
   %10 = select i1 %8, i32 0, i32 %9
   ret i32 %10
@@ -1921,7 +1921,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %12
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %30 = extractvalue { ptr, i32 } %lpad.phi, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #15
-  %.not4.i.i = icmp eq ptr %.018, %0
+  %.not4.i.i = icmp eq ptr %0, %.018
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPSt6vectorIjSaIjEEEvT_S4_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %_ZSt8_DestroyISt6vectorIjSaIjEEEvPT_.exit.i.i

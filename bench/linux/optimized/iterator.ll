@@ -390,7 +390,7 @@ define dso_local i64 @netfs_limit_iter(ptr nocapture noundef readonly %0, i64 no
   %140 = add i32 %96, 1
   %141 = icmp ult i64 %139, %92
   %142 = zext i32 %140 to i64
-  %143 = icmp ult i64 %142, %3
+  %143 = icmp ugt i64 %3, %142
   %144 = select i1 %141, i1 %143, i1 false
   br i1 %144, label %select.unfold, label %.thread20
 

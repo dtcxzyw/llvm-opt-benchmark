@@ -1634,7 +1634,7 @@ _ZNK10StringView4findEcm.exit:                    ; preds = %if.then.i47
 
 if.end16:                                         ; preds = %_ZNK10StringView4findEcm.exit
   %add = add nuw i64 %sub.ptr.sub.i, 1
-  %spec.select.i62 = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i45, i64 %add)
+  %spec.select.i62 = tail call i64 @llvm.umin.i64(i64 %add, i64 %sub.ptr.sub.i.i45)
   %add.ptr.i63 = getelementptr inbounds i8, ptr %17, i64 %spec.select.i62
   store ptr %add.ptr.i63, ptr %MangledName, align 8
   %cmp.i67 = icmp eq ptr %add.ptr.i63, %16
@@ -6692,7 +6692,7 @@ if.then.i106:                                     ; preds = %_ZNK10StringView4fi
   br label %_ZN12_GLOBAL__N_19Demangler22demangleNameScopePieceER10StringView.exit
 
 if.end.i102:                                      ; preds = %_ZNK10StringView4findEcm.exit.i98
-  %cmp.not.i.i103 = icmp ugt i64 %sub.ptr.sub.i.i.i95, %sub.ptr.sub.i.i100
+  %cmp.not.i.i103 = icmp ult i64 %sub.ptr.sub.i.i100, %sub.ptr.sub.i.i.i95
   %sub.i20.i = add i64 %sub.ptr.sub.i.i.i95, -1
   %spec.select.i.i104 = select i1 %cmp.not.i.i103, i64 %sub.ptr.sub.i.i100, i64 %sub.i20.i
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %33, i64 %spec.select.i.i104
@@ -6734,7 +6734,7 @@ _ZNK10StringView4findEcm.exit.i:                  ; preds = %if.then.i.i67
   br i1 %cmp5.i, label %if.end17.i, label %if.end7.i68
 
 if.end7.i68:                                      ; preds = %_ZNK10StringView4findEcm.exit.i
-  %cmp.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i5.i
+  %cmp.not.i.i = icmp ult i64 %sub.ptr.sub.i5.i, %sub.ptr.sub.i.i
   %sub.i.i69 = add i64 %sub.ptr.sub.i.i, -1
   %spec.select.i.i = select i1 %cmp.not.i.i, i64 %sub.ptr.sub.i5.i, i64 %sub.i.i69
   %38 = getelementptr i8, ptr %19, i64 %spec.select.i.i

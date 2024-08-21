@@ -262,7 +262,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph159:                                        ; preds = %.preheader
   %106 = xor i32 %.1175, -1
-  %107 = add nsw i32 %106, %1
+  %107 = add nsw i32 %1, %106
   %.val116218 = load ptr, ptr %21, align 8
   %.not93219 = icmp eq ptr %.val116218, null
   br i1 %.not93219, label %.critedge4, label %.lr.ph223
@@ -886,7 +886,7 @@ define ptr @Bmc_CexBuildNetwork2(ptr nocapture noundef readonly %0, ptr nocaptur
   %55 = getelementptr i8, ptr %0, i64 64
   %56 = getelementptr inbounds i8, ptr %1, i64 4
   %57 = load i32, ptr %56, align 4
-  %.not142220 = icmp slt i32 %57, %2
+  %.not142220 = icmp sgt i32 %2, %57
   br i1 %.not142220, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.critedge
@@ -1360,7 +1360,7 @@ define ptr @Bmc_CexBuildNetwork2_(ptr nocapture noundef readonly %0, ptr nocaptu
   %53 = getelementptr i8, ptr %0, i64 64
   %54 = getelementptr inbounds i8, ptr %1, i64 4
   %55 = load i32, ptr %54, align 4
-  %.not116191 = icmp slt i32 %55, %2
+  %.not116191 = icmp sgt i32 %2, %55
   br i1 %.not116191, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.critedge

@@ -21,7 +21,7 @@ define i32 @nxsched_set_param(i32 noundef %0, ptr noundef readonly %1) local_unn
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load i32, ptr %9, align 8
-  %11 = icmp eq i32 %10, %0
+  %11 = icmp eq i32 %0, %10
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %8
@@ -67,7 +67,7 @@ define range(i32 -1, -2147483648) i32 @sched_setparam(i32 noundef %0, ptr nounde
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load i32, ptr %9, align 8
-  %11 = icmp eq i32 %10, %0
+  %11 = icmp eq i32 %0, %10
   br i1 %11, label %nxsched_set_param.exit, label %12
 
 12:                                               ; preds = %8

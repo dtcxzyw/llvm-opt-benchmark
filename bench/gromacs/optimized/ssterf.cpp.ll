@@ -319,8 +319,8 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %155 = getelementptr inbounds float, ptr %17, i64 %indvars.iv470
   %156 = load float, ptr %155, align 4
   %157 = fsub float %156, %138
-  %158 = fneg float %154
-  %159 = fmul float %.0318413, %158
+  %158 = fneg float %.0318413
+  %159 = fmul float %154, %158
   %160 = call float @llvm.fmuladd.f32(float %153, float %157, float %159)
   %161 = fsub float %156, %160
   %162 = fadd float %.0318413, %161
@@ -482,8 +482,8 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %242 = getelementptr float, ptr %1, i64 %indvars.iv476
   %243 = load float, ptr %242, align 4
   %244 = fsub float %243, %226
-  %245 = fneg float %241
-  %246 = fmul float %.1319424, %245
+  %245 = fneg float %.1319424
+  %246 = fmul float %241, %245
   %247 = call float @llvm.fmuladd.f32(float %240, float %244, float %246)
   %248 = fsub float %243, %247
   %249 = fadd float %.1319424, %248

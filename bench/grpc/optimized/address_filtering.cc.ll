@@ -233,7 +233,7 @@ cond.false.i17:                                   ; preds = %_ZNK9grpc_core21Ref
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit24: ; preds = %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit, %cond.false.i17
   %retval.sroa.0.0.i20 = phi i64 [ %7, %cond.false.i17 ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit ]
   %retval.sroa.3.0.i21 = phi ptr [ %payload_.i.i18, %cond.false.i17 ], [ null, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit ]
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i, i64 %retval.sroa.0.0.i20)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i20, i64 %retval.sroa.0.0.i)
   %cmp.i2.i = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %cmp.i2.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
 
@@ -805,7 +805,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.i.i.i: ; preds = %cond.false.i.i.i.i.i.i, %while.body.i.i.i
   %retval.sroa.0.0.i.i.i.i.i.i = phi i64 [ %6, %cond.false.i.i.i.i.i.i ], [ 0, %while.body.i.i.i ]
   %retval.sroa.3.0.i.i.i.i.i.i = phi ptr [ %payload_.i.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ null, %while.body.i.i.i ]
-  %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i.i.i.i, i64 %4)
+  %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %retval.sroa.0.0.i.i.i.i.i.i)
   %cmp.i2.i.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
 
@@ -861,7 +861,7 @@ cond.false.i2.i.i:                                ; preds = %_ZNK9grpc_core21Ref
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i: ; preds = %cond.false.i2.i.i, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i
   %retval.sroa.0.0.i5.i.i = phi i64 [ %9, %cond.false.i2.i.i ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i ]
   %retval.sroa.3.0.i6.i.i = phi ptr [ %payload_.i.i3.i.i, %cond.false.i2.i.i ], [ null, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i ]
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i, i64 %retval.sroa.0.0.i5.i.i)
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i5.i.i, i64 %retval.sroa.0.0.i.i.i)
   %cmp.i2.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -933,7 +933,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %5, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %6
+  %cmp2.i.i = icmp eq ptr %6, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -965,7 +965,7 @@ cond.false.i2.i.i.i.i:                            ; preds = %_ZNK9grpc_core21Ref
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i.i.i: ; preds = %cond.false.i2.i.i.i.i, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.i.i
   %retval.sroa.0.0.i5.i.i.i.i = phi i64 [ %10, %cond.false.i2.i.i.i.i ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.i.i ]
   %retval.sroa.3.0.i6.i.i.i.i = phi ptr [ %payload_.i.i3.i.i.i.i, %cond.false.i2.i.i.i.i ], [ null, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.i.i ]
-  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i.i.i, i64 %retval.sroa.0.0.i5.i.i.i.i)
+  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i5.i.i.i.i, i64 %retval.sroa.0.0.i.i.i.i.i)
   %cmp.i2.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
@@ -1015,7 +1015,7 @@ _ZNSt8_Rb_treeIN9grpc_core21RefCountedStringValueESt4pairIKS1_St10shared_ptrINS0
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN9grpc_core21RefCountedStringValueESt4pairIKS1_St10shared_ptrINS0_25EndpointAddressesIteratorEEESt10_Select1stIS7_ENS0_29RefCountedStringValueLessThanESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -1054,7 +1054,7 @@ cond.false.i2.i.i:                                ; preds = %_ZNK9grpc_core21Ref
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i: ; preds = %cond.false.i2.i.i, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i
   %retval.sroa.0.0.i5.i.i = phi i64 [ %5, %cond.false.i2.i.i ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i ]
   %retval.sroa.3.0.i6.i.i = phi ptr [ %payload_.i.i3.i.i, %cond.false.i2.i.i ], [ null, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i ]
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i, i64 %retval.sroa.0.0.i5.i.i)
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i5.i.i, i64 %retval.sroa.0.0.i.i.i)
   %cmp.i2.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -1109,7 +1109,7 @@ cond.false.i2.i.i19:                              ; preds = %_ZNK9grpc_core21Ref
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i22: ; preds = %cond.false.i2.i.i19, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i15
   %retval.sroa.0.0.i5.i.i23 = phi i64 [ %11, %cond.false.i2.i.i19 ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i15 ]
   %retval.sroa.3.0.i6.i.i24 = phi ptr [ %payload_.i.i3.i.i20, %cond.false.i2.i.i19 ], [ null, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i15 ]
-  %.sroa.speculated.i.i.i.i25 = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i16, i64 %retval.sroa.0.0.i5.i.i23)
+  %.sroa.speculated.i.i.i.i25 = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i5.i.i23, i64 %retval.sroa.0.0.i.i.i16)
   %cmp.i2.i.i.i.i26 = icmp eq i64 %.sroa.speculated.i.i.i.i25, 0
   br i1 %cmp.i2.i.i.i.i26, label %if.then.i.i.i.i32, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i27
 
@@ -1163,7 +1163,7 @@ cond.false.i2.i.i50:                              ; preds = %_ZNK9grpc_core21Ref
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i53: ; preds = %cond.false.i2.i.i50, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i46
   %retval.sroa.0.0.i5.i.i54 = phi i64 [ %15, %cond.false.i2.i.i50 ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i46 ]
   %retval.sroa.3.0.i6.i.i55 = phi ptr [ %payload_.i.i3.i.i51, %cond.false.i2.i.i50 ], [ null, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i46 ]
-  %.sroa.speculated.i.i.i.i56 = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i47, i64 %retval.sroa.0.0.i5.i.i54)
+  %.sroa.speculated.i.i.i.i56 = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i5.i.i54, i64 %retval.sroa.0.0.i.i.i47)
   %cmp.i2.i.i.i.i57 = icmp eq i64 %.sroa.speculated.i.i.i.i56, 0
   br i1 %cmp.i2.i.i.i.i57, label %if.then.i.i.i.i63, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i58
 
@@ -1221,7 +1221,7 @@ cond.false.i2.i.i81:                              ; preds = %_ZNK9grpc_core21Ref
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i84: ; preds = %cond.false.i2.i.i81, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i77
   %retval.sroa.0.0.i5.i.i85 = phi i64 [ %20, %cond.false.i2.i.i81 ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i77 ]
   %retval.sroa.3.0.i6.i.i86 = phi ptr [ %payload_.i.i3.i.i82, %cond.false.i2.i.i81 ], [ null, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i77 ]
-  %.sroa.speculated.i.i.i.i87 = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i78, i64 %retval.sroa.0.0.i5.i.i85)
+  %.sroa.speculated.i.i.i.i87 = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i5.i.i85, i64 %retval.sroa.0.0.i.i.i78)
   %cmp.i2.i.i.i.i88 = icmp eq i64 %.sroa.speculated.i.i.i.i87, 0
   br i1 %cmp.i2.i.i.i.i88, label %if.then.i.i.i.i94, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i89
 
@@ -1275,7 +1275,7 @@ cond.false.i2.i.i113:                             ; preds = %_ZNK9grpc_core21Ref
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i116: ; preds = %cond.false.i2.i.i113, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i109
   %retval.sroa.0.0.i5.i.i117 = phi i64 [ %24, %cond.false.i2.i.i113 ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i109 ]
   %retval.sroa.3.0.i6.i.i118 = phi ptr [ %payload_.i.i3.i.i114, %cond.false.i2.i.i113 ], [ null, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i109 ]
-  %.sroa.speculated.i.i.i.i119 = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i110, i64 %retval.sroa.0.0.i5.i.i117)
+  %.sroa.speculated.i.i.i.i119 = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i5.i.i117, i64 %retval.sroa.0.0.i.i.i110)
   %cmp.i2.i.i.i.i120 = icmp eq i64 %.sroa.speculated.i.i.i.i119, 0
   br i1 %cmp.i2.i.i.i.i120, label %if.then.i.i.i.i126, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i121
 
@@ -1400,7 +1400,7 @@ cond.false.i2.i.i:                                ; preds = %while.body
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i: ; preds = %cond.false.i2.i.i, %while.body
   %retval.sroa.0.0.i5.i.i = phi i64 [ %5, %cond.false.i2.i.i ], [ 0, %while.body ]
   %retval.sroa.3.0.i6.i.i = phi ptr [ %payload_.i.i3.i.i, %cond.false.i2.i.i ], [ null, %while.body ]
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %retval.sroa.0.0.i5.i.i)
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i5.i.i, i64 %3)
   %cmp.i2.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -1471,7 +1471,7 @@ cond.false.i2.i.i12:                              ; preds = %_ZNK9grpc_core21Ref
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i15: ; preds = %cond.false.i2.i.i12, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i8
   %retval.sroa.0.0.i5.i.i16 = phi i64 [ %10, %cond.false.i2.i.i12 ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i8 ]
   %retval.sroa.3.0.i6.i.i17 = phi ptr [ %payload_.i.i3.i.i13, %cond.false.i2.i.i12 ], [ null, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i8 ]
-  %.sroa.speculated.i.i.i.i18 = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i9, i64 %retval.sroa.0.0.i5.i.i16)
+  %.sroa.speculated.i.i.i.i18 = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i5.i.i16, i64 %retval.sroa.0.0.i.i.i9)
   %cmp.i2.i.i.i.i19 = icmp eq i64 %.sroa.speculated.i.i.i.i18, 0
   br i1 %cmp.i2.i.i.i.i19, label %if.then.i.i.i.i25, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i20
 
@@ -2543,7 +2543,7 @@ cond.false.i17.i.i:                               ; preds = %_ZNK9grpc_core21Ref
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit24.i.i: ; preds = %cond.false.i17.i.i, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i
   %retval.sroa.0.0.i20.i.i = phi i64 [ %7, %cond.false.i17.i.i ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i ]
   %retval.sroa.3.0.i21.i.i = phi ptr [ %payload_.i.i18.i.i, %cond.false.i17.i.i ], [ null, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i ]
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i, i64 %retval.sroa.0.0.i20.i.i)
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i20.i.i, i64 %retval.sroa.0.0.i.i.i)
   %cmp.i2.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i, 0
   br i1 %cmp.i2.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 

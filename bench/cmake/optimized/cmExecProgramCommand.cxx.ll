@@ -598,7 +598,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110RunCommandENSt7__c
   %23 = load i8, ptr @_ZN13cmSystemTools25s_DisableRunCommandOutputE, align 1
   %24 = trunc i8 %23 to i1
   %not. = xor i1 %24, true
-  %spec.select = and i1 %not., %4
+  %spec.select = and i1 %4, %not.
   %25 = tail call ptr @cmsysProcess_New()
   %.not = icmp ne ptr %25, null
   br i1 %.not, label %35, label %26

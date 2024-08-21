@@ -439,7 +439,7 @@ if.then6.i:                                       ; preds = %if.then4.i39, %whil
   %top1.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %43 = load ptr, ptr %top1.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %43, i64 -8
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %.us-phi117368.i
+  %cmp.i.i = icmp ult ptr %.us-phi117368.i, %add.ptr.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %unwindstack.exit.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
@@ -495,7 +495,7 @@ if.then25.i:                                      ; preds = %sw.bb66.i, %if.end1
   tail call void @lj_func_closeuv(ptr noundef %2, ptr noundef nonnull %add.ptr33.i) #11
   %top1.i75.i = getelementptr inbounds i8, ptr %2, i64 40
   %49 = load ptr, ptr %top1.i75.i, align 8
-  %cmp.i77.i = icmp ugt ptr %49, %frame.0.lcssa92.i
+  %cmp.i77.i = icmp ult ptr %frame.0.lcssa92.i, %49
   br i1 %cmp.i77.i, label %if.then.i78.i, label %unwindstack.exit80.i
 
 if.then.i78.i:                                    ; preds = %if.then25.i
@@ -595,7 +595,7 @@ if.end96.i:                                       ; preds = %if.then91.i, %if.en
   %top1.i81.i = getelementptr inbounds i8, ptr %2, i64 40
   %63 = load ptr, ptr %top1.i81.i, align 8
   %add.ptr.i82.i = getelementptr inbounds i8, ptr %63, i64 -8
-  %cmp.i83.i = icmp ugt ptr %add.ptr.i82.i, %add.ptr100.i
+  %cmp.i83.i = icmp ult ptr %add.ptr100.i, %add.ptr.i82.i
   br i1 %cmp.i83.i, label %if.then.i84.i, label %unwindstack.exit86.i
 
 if.then.i84.i:                                    ; preds = %if.end96.i
@@ -1724,7 +1724,7 @@ entry:
   %top1 = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 -8
-  %cmp = icmp ugt ptr %add.ptr, %top
+  %cmp = icmp ult ptr %top, %add.ptr
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

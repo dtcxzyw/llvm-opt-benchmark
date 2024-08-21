@@ -2913,7 +2913,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:  ; preds = %entry, %_ZN11ast_ma
   %2 = phi ptr [ %0, %entry ], [ %.pre, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ]
   %m_true.i = getelementptr inbounds i8, ptr %2, i64 856
   %3 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %3, %e
+  %cmp.i = icmp eq ptr %e, %3
   br i1 %cmp.i, label %cleanup, label %if.end
 
 lpad:                                             ; preds = %invoke.cont26, %.noexc, %invoke.cont22, %if.end20, %if.then14, %if.end9
@@ -3109,7 +3109,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit:    ; preds = %entry, %if.end.i.i.i.i
   %retval.0.i.i.i.i = phi i32 [ %3, %if.end.i.i.i.i ], [ 0, %entry ]
-  %cmp.not.i.i.i = icmp ugt i32 %retval.0.i.i.i.i, %1
+  %cmp.not.i.i.i = icmp ult i32 %1, %retval.0.i.i.i.i
   %idxprom.i.i.i = zext i32 %1 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.not.i.i.i, ptr %arrayidx.i.i.i, ptr @_ZN3smtL13null_bool_varE
@@ -3356,7 +3356,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %entry
   %4 = load i32, ptr %term, align 4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %5 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %5, %4
+  %cmp.not.i.i = icmp ult i32 %4, %5
   br i1 %cmp.not.i.i, label %_ZNK3smt7context14e_internalizedEPK4expr.exit, label %cond.false
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i
@@ -6194,7 +6194,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %land.rhs
   %9 = load i32, ptr %e.addr.029, align 4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %8, i64 -4
   %10 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %10, %9
+  %cmp.not.i.i = icmp ult i32 %9, %10
   br i1 %cmp.not.i.i, label %_ZNK3smt7context14e_internalizedEPK4expr.exit, label %while.end
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i
@@ -6298,7 +6298,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i.i: ; preds = %land.rhs.i
   %11 = load i32, ptr %e.addr.029.i, align 4
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %12 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %12, %11
+  %cmp.not.i.i.i = icmp ult i32 %11, %12
   br i1 %cmp.not.i.i.i, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, label %invoke.cont4
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit.i:  ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i.i
@@ -6718,7 +6718,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %if.else130
   %92 = load i32, ptr %28, align 4
   %arrayidx.i.i.i279 = getelementptr inbounds i8, ptr %91, i64 -4
   %93 = load i32, ptr %arrayidx.i.i.i279, align 4
-  %cmp.not.i.i280 = icmp ugt i32 %93, %92
+  %cmp.not.i.i280 = icmp ult i32 %92, %93
   br i1 %cmp.not.i.i280, label %invoke.cont134, label %if.else188
 
 invoke.cont134:                                   ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i

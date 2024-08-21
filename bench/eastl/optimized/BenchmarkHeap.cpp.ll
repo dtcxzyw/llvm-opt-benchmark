@@ -2942,7 +2942,7 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp51 = icmp sgt i64 %div, %__holeIndex
+  %cmp51 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp51, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %entry
@@ -3381,7 +3381,7 @@ for.end.i.i:                                      ; preds = %_ZN10TestObjectaSEO
   %26 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i11.i.i = add nsw i64 %26, 1
   store i64 %inc.i11.i.i, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %cmp.not.i12.i.i = icmp eq ptr %add.ptr8.i.i, %value
+  %cmp.not.i12.i.i = icmp eq ptr %value, %add.ptr8.i.i
   br i1 %cmp.not.i12.i.i, label %_ZN5eastl12promote_heapIP10TestObjectlOS1_EEvT_T0_S5_OT1_.exit, label %if.then.i13.i.i
 
 if.then.i13.i.i:                                  ; preds = %for.end.i.i

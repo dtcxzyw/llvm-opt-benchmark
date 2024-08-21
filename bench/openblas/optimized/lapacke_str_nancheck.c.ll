@@ -54,7 +54,7 @@ define noundef range(i32 0, 2) i32 @LAPACKE_str_nancheck(i32 noundef %0, i8 noun
   br label %67
 
 37:                                               ; preds = %24
-  %38 = icmp slt i32 %25, %3
+  %38 = icmp sgt i32 %3, %25
   br i1 %38, label %39, label %.loopexit
 
 39:                                               ; preds = %37

@@ -81,7 +81,7 @@ _ZN6icu_7517double_conversionL18NormalizedExponentEmi.exit: ; preds = %while.bod
   %conv1.i = fptosi double %10 to i32
   %cmp20 = icmp eq i32 %mode, 2
   %sub21 = xor i32 %conv1.i, -1
-  %cmp22 = icmp sgt i32 %sub21, %requested_digits
+  %cmp22 = icmp slt i32 %requested_digits, %sub21
   %or.cond = and i1 %cmp20, %cmp22
   br i1 %or.cond, label %if.then23, label %if.end26
 
@@ -365,7 +365,7 @@ return.sink.split.i:                              ; preds = %if.else55.i, %if.el
 sw.bb30:                                          ; preds = %_ZN6icu_7517double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit
   %24 = load i32, ptr %decimal_point, align 4
   %sub.i61 = sub nsw i32 0, %24
-  %cmp.i62 = icmp sgt i32 %sub.i61, %requested_digits
+  %cmp.i62 = icmp slt i32 %requested_digits, %sub.i61
   br i1 %cmp.i62, label %if.then.i69, label %if.else.i63
 
 if.then.i69:                                      ; preds = %sw.bb30
@@ -375,7 +375,7 @@ if.then.i69:                                      ; preds = %sw.bb30
   br label %sw.epilog
 
 if.else.i63:                                      ; preds = %sw.bb30
-  %cmp3.i64 = icmp eq i32 %sub.i61, %requested_digits
+  %cmp3.i64 = icmp eq i32 %requested_digits, %sub.i61
   br i1 %cmp3.i64, label %if.then4.i, label %if.else9.i
 
 if.then4.i:                                       ; preds = %if.else.i63

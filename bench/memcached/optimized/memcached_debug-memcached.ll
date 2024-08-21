@@ -622,7 +622,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %0 = load i64, ptr @process_started, align 8
-  %cmp3.not = icmp slt i64 %0, %exptime
+  %cmp3.not = icmp sgt i64 %exptime, %0
   br i1 %cmp3.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then2
@@ -842,7 +842,7 @@ define dso_local void @conn_set_state(ptr nocapture noundef %c, i32 noundef %sta
 entry:
   %state1 = getelementptr inbounds i8, ptr %c, i64 20
   %0 = load i32, ptr %state1, align 4
-  %cmp.not = icmp eq i32 %0, %state
+  %cmp.not = icmp eq i32 %state, %0
   br i1 %cmp.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -887,7 +887,7 @@ entry:
   %event = getelementptr inbounds i8, ptr %c, i64 32
   %transport388 = getelementptr inbounds i8, ptr %c, i64 320
   %io_queues = getelementptr inbounds i8, ptr %c, i64 240
-  %type774 = getelementptr inbounds i8, ptr %c, i64 260
+  %type775 = getelementptr inbounds i8, ptr %c, i64 260
   %thread349 = getelementptr inbounds i8, ptr %c, i64 456
   %io_queues_submitted = getelementptr inbounds i8, ptr %c, i64 236
   %msg_iov.i = getelementptr inbounds i8, ptr %msg.i, i64 16
@@ -935,7 +935,7 @@ entry:
   br label %while.body.preheader
 
 while.body.preheader:                             ; preds = %while.body.preheader.backedge, %entry
-  %nreqs.0.ph781 = phi i32 [ %0, %entry ], [ %nreqs.0.ph781.be, %while.body.preheader.backedge ]
+  %nreqs.0.ph782 = phi i32 [ %0, %entry ], [ %nreqs.0.ph782.be, %while.body.preheader.backedge ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.then11
@@ -991,8 +991,8 @@ if.then11:                                        ; preds = %land.lhs.true
   br label %while.body
 
 if.end12:                                         ; preds = %if.then7, %land.lhs.true
-  %.us-phi771.ph = phi ptr [ @.str.395, %if.then7 ], [ @.str.394, %land.lhs.true ]
-  call void @perror(ptr noundef nonnull %.us-phi771.ph) #38
+  %.us-phi772.ph = phi ptr [ @.str.395, %if.then7 ], [ @.str.394, %land.lhs.true ]
+  call void @perror(ptr noundef nonnull %.us-phi772.ph) #38
   %call14 = tail call ptr @__errno_location() #39
   %5 = load i32, ptr %call14, align 4
   switch i32 %5, label %if.else27 [
@@ -1568,8 +1568,8 @@ if.end.i297:                                      ; preds = %if.then3.i298, %if.
   br label %while.body.preheader.backedge
 
 sw.bb90:                                          ; preds = %while.body
-  %dec = add nsw i32 %nreqs.0.ph781, -1
-  %cmp91 = icmp sgt i32 %nreqs.0.ph781, 0
+  %dec = add nsw i32 %nreqs.0.ph782, -1
+  %cmp91 = icmp sgt i32 %nreqs.0.ph782, 0
   br i1 %cmp91, label %if.then93, label %if.else94
 
 if.then93:                                        ; preds = %sw.bb90
@@ -1683,15 +1683,15 @@ if.else94:                                        ; preds = %sw.bb90
 if.then.i314:                                     ; preds = %if.else94
   %134 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp2.i315 = icmp sgt i32 %134, 2
-  br i1 %cmp2.i315, label %if.then3.i317, label %conn_set_state.exit322
+  br i1 %cmp2.i315, label %if.then3.i317, label %if.end.i316
 
 if.then3.i317:                                    ; preds = %if.then.i314
   %135 = load ptr, ptr @stderr, align 8
   %136 = load i32, ptr %sfd2, align 8
   %call6.i321 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.15, i32 noundef %136, ptr noundef nonnull @.str.364, ptr noundef nonnull @.str.372) #38
-  br label %conn_set_state.exit322
+  br label %if.end.i316
 
-conn_set_state.exit322:                           ; preds = %if.then.i314, %if.then3.i317
+if.end.i316:                                      ; preds = %if.then3.i317, %if.then.i314
   store i32 9, ptr %state, align 4
   br label %while.body.preheader.backedge
 
@@ -1796,19 +1796,19 @@ if.then129:                                       ; preds = %if.end125
 if.end134:                                        ; preds = %if.then129
   %156 = load ptr, ptr @stderr, align 8
   %call133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str.400, i32 noundef %153) #38
-  %.pre = load i32, ptr %state, align 4
-  %cmp.not.i352 = icmp eq i32 %.pre, 8
+  %.pre840 = load i32, ptr %state, align 4
+  %cmp.not.i352 = icmp eq i32 %.pre840, 8
   br i1 %cmp.not.i352, label %while.body.preheader.backedge, label %if.then.i353
 
 if.then.i353:                                     ; preds = %if.end134
-  %.pr844 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
-  %cmp2.i354 = icmp sgt i32 %.pr844, 2
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
+  %cmp2.i354 = icmp sgt i32 %.pr, 2
   br i1 %cmp2.i354, label %if.then3.i356, label %if.end.i355
 
 if.then3.i356:                                    ; preds = %if.then.i353
   %157 = load ptr, ptr @stderr, align 8
   %158 = load i32, ptr %sfd2, align 8
-  %idxprom.i.i358 = zext i32 %.pre to i64
+  %idxprom.i.i358 = zext i32 %.pre840 to i64
   %arrayidx.i.i359 = getelementptr inbounds [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %idxprom.i.i358
   %159 = load ptr, ptr %arrayidx.i.i359, align 8
   %call6.i360 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.15, i32 noundef %158, ptr noundef %159, ptr noundef nonnull @.str.371) #38
@@ -1941,11 +1941,11 @@ if.else.i382:                                     ; preds = %if.then.i378
   br i1 %tobool9.not.i, label %while.endthread-pre-split.i, label %while.cond.i, !llvm.loop !7
 
 if.end12.i.loopexit:                              ; preds = %while.body.i370
-  %used.i.le890 = getelementptr inbounds i8, ptr %182, i64 28
+  %used.i.le891 = getelementptr inbounds i8, ptr %182, i64 28
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end12.i.loopexit, %if.then2.i380
-  %used.i862 = phi ptr [ %used.i.le, %if.then2.i380 ], [ %used.i.le890, %if.end12.i.loopexit ]
+  %used.i863 = phi ptr [ %used.i.le, %if.then2.i380 ], [ %used.i.le891, %if.end12.i.loopexit ]
   %187 = phi ptr [ %185, %if.then2.i380 ], [ %182, %if.end12.i.loopexit ]
   %188 = phi i32 [ %.pre120.i, %if.then2.i380 ], [ %184, %if.end12.i.loopexit ]
   %189 = phi i32 [ %.pre.i381, %if.then2.i380 ], [ %183, %if.end12.i.loopexit ]
@@ -1987,9 +1987,9 @@ if.end38.i:                                       ; preds = %if.then34.i, %if.th
   store ptr %add.ptr44.i, ptr %rcurr273, align 8
   %sub46.i = sub nsw i32 %192, %cond30.i
   store i32 %sub46.i, ptr %rbytes256, align 4
-  %195 = load i32, ptr %used.i862, align 4
+  %195 = load i32, ptr %used.i863, align 4
   %add48.i = add nsw i32 %195, %cond30.i
-  store i32 %add48.i, ptr %used.i862, align 4
+  store i32 %add48.i, ptr %used.i863, align 4
   %196 = load i32, ptr %rlbytes, align 8
   %cmp50.i = icmp eq i32 %196, 0
   br i1 %cmp50.i, label %land.lhs.true.i368, label %while.cond.outer.i.backedge
@@ -2019,9 +2019,9 @@ if.then73.i:                                      ; preds = %if.else54.i
   %201 = load ptr, ptr %thread349, align 8
   %stats80.i = getelementptr inbounds i8, ptr %201, i64 352
   %call82.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %stats80.i) #36
-  %202 = load i32, ptr %used.i862, align 4
+  %202 = load i32, ptr %used.i863, align 4
   %add84.i = add nsw i32 %202, %conv70.i
-  store i32 %add84.i, ptr %used.i862, align 4
+  store i32 %add84.i, ptr %used.i863, align 4
   %add85.i = add nsw i32 %total.0.ph.i, %conv70.i
   %203 = load i32, ptr %rlbytes, align 8
   %sub87.i = sub nsw i32 %203, %conv70.i
@@ -2236,15 +2236,15 @@ sw.bb250:                                         ; preds = %while.body
 if.then.i446:                                     ; preds = %sw.bb250
   %242 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp2.i447 = icmp sgt i32 %242, 2
-  br i1 %cmp2.i447, label %if.then3.i450, label %conn_set_state.exit455
+  br i1 %cmp2.i447, label %if.then3.i450, label %if.end.i448
 
 if.then3.i450:                                    ; preds = %if.then.i446
   %243 = load ptr, ptr @stderr, align 8
   %244 = load i32, ptr %sfd2, align 8
   %call6.i454 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef nonnull @.str.15, i32 noundef %244, ptr noundef nonnull @.str.370, ptr noundef nonnull @.str.364) #38
-  br label %conn_set_state.exit455
+  br label %if.end.i448
 
-conn_set_state.exit455:                           ; preds = %if.then.i446, %if.then3.i450
+if.end.i448:                                      ; preds = %if.then3.i450, %if.then.i446
   store i32 1, ptr %state, align 4
   br label %while.body.preheader.backedge
 
@@ -2398,14 +2398,14 @@ if.end.i487:                                      ; preds = %if.then3.i489, %if.
   br label %while.body.preheader.backedge
 
 sw.bb343:                                         ; preds = %while.body, %while.body
-  %275 = load i32, ptr %type774, align 4
-  %cmp344.not775 = icmp eq i32 %275, 0
-  br i1 %cmp344.not775, label %for.end, label %for.body
+  %275 = load i32, ptr %type775, align 4
+  %cmp344.not776 = icmp eq i32 %275, 0
+  br i1 %cmp344.not776, label %for.end, label %for.body
 
 for.body:                                         ; preds = %sw.bb343, %for.inc
   %276 = phi i32 [ %283, %for.inc ], [ %275, %sw.bb343 ]
-  %q.0776 = phi ptr [ %incdec.ptr, %for.inc ], [ %io_queues, %sw.bb343 ]
-  %stack_ctx = getelementptr inbounds i8, ptr %q.0776, i64 8
+  %q.0777 = phi ptr [ %incdec.ptr, %for.inc ], [ %io_queues, %sw.bb343 ]
+  %stack_ctx = getelementptr inbounds i8, ptr %q.0777, i64 8
   %277 = load ptr, ptr %stack_ctx, align 8
   %cmp346.not = icmp eq ptr %277, null
   br i1 %cmp346.not, label %for.inc, label %if.then348
@@ -2417,13 +2417,13 @@ if.then348:                                       ; preds = %for.body
   %cmp.not5.i = icmp ne i32 %279, 0
   call void @llvm.assume(i1 %cmp.not5.i)
   %io_queues.i = getelementptr inbounds i8, ptr %278, i64 6800
-  %cmp3.i496772 = icmp eq i32 %279, %276
-  br i1 %cmp3.i496772, label %thread_io_queue_get.exit, label %if.end.i497
+  %cmp3.i496773 = icmp eq i32 %279, %276
+  br i1 %cmp3.i496773, label %thread_io_queue_get.exit, label %if.end.i497
 
 if.end.i497:                                      ; preds = %if.then348, %if.end.i497
-  %q.06.i773 = phi ptr [ %incdec.ptr.i, %if.end.i497 ], [ %io_queues.i, %if.then348 ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %q.06.i773, i64 24
-  %type1.i = getelementptr inbounds i8, ptr %q.06.i773, i64 40
+  %q.06.i774 = phi ptr [ %incdec.ptr.i, %if.end.i497 ], [ %io_queues.i, %if.then348 ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %q.06.i774, i64 24
+  %type1.i = getelementptr inbounds i8, ptr %q.06.i774, i64 40
   %280 = load i32, ptr %type1.i, align 8
   %cmp.not.i498 = icmp ne i32 %280, 0
   call void @llvm.assume(i1 %cmp.not.i498)
@@ -2434,15 +2434,15 @@ thread_io_queue_get.exit:                         ; preds = %if.end.i497, %if.th
   %q.06.i.lcssa = phi ptr [ %io_queues.i, %if.then348 ], [ %incdec.ptr.i, %if.end.i497 ]
   %submit_cb = getelementptr inbounds i8, ptr %q.06.i.lcssa, i64 8
   %281 = load ptr, ptr %submit_cb, align 8
-  call void %281(ptr noundef nonnull %q.0776) #36
+  call void %281(ptr noundef nonnull %q.0777) #36
   %282 = load i32, ptr %io_queues_submitted, align 4
   %inc352 = add nsw i32 %282, 1
   store i32 %inc352, ptr %io_queues_submitted, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %thread_io_queue_get.exit
-  %incdec.ptr = getelementptr inbounds i8, ptr %q.0776, i64 24
-  %type = getelementptr inbounds i8, ptr %q.0776, i64 44
+  %incdec.ptr = getelementptr inbounds i8, ptr %q.0777, i64 24
+  %type = getelementptr inbounds i8, ptr %q.0777, i64 44
   %283 = load i32, ptr %type, align 4
   %cmp344.not = icmp eq i32 %283, 0
   br i1 %cmp344.not, label %for.end, label %for.body, !llvm.loop !8
@@ -2957,11 +2957,11 @@ if.else376:                                       ; preds = %sw.bb368
 if.then379:                                       ; preds = %if.else376
   %368 = load ptr, ptr @stderr, align 8
   %call381 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %368, ptr noundef nonnull @.str.404, i32 noundef %357) #38
-  %.pr = load i32, ptr %state, align 4
+  %.pre = load i32, ptr %state, align 4
   br label %if.end382
 
 if.end382:                                        ; preds = %if.then379, %if.else376
-  %369 = phi i32 [ %.pr, %if.then379 ], [ %357, %if.else376 ]
+  %369 = phi i32 [ %.pre, %if.then379 ], [ %357, %if.else376 ]
   %cmp.not.i611 = icmp eq i32 %369, 8
   br i1 %cmp.not.i611, label %while.body.preheader.backedge, label %if.then.i612
 
@@ -2982,10 +2982,6 @@ if.then3.i616:                                    ; preds = %if.then.i612
 if.end.i614:                                      ; preds = %if.then3.i616, %if.then.i612
   store i32 8, ptr %state, align 4
   br label %while.body.preheader.backedge
-
-while.body.preheader.backedge:                    ; preds = %while.body, %if.end.i614, %if.end382, %if.end.i602, %if.end.i487, %if.end342, %if.end.i460, %if.then315, %if.end.i436, %if.end249, %if.end.i390, %if.then212, %if.end.i355, %if.end134, %if.then3.i349, %if.then.i350, %if.then124, %if.end.i342, %if.end116, %if.end.i28.i, %if.else12.i, %if.end.i17.i, %if.then11.i, %if.end.i.i, %if.then8.i, %if.end.i297, %if.else87, %if.end.i286, %if.then86, %if.end.i275, %sw.bb78, %if.end.i264, %sw.bb77, %if.end.i253, %sw.bb76, %if.end75.thread674, %if.end.i207, %if.then70, %if.end.i181, %if.end62, %cond.end366, %conn_set_state.exit597, %read_into_chunked_item.exit, %if.then146, %conn_set_state.exit322, %sw.bb80, %conn_set_state.exit662, %if.end335, %if.then296, %if.then259, %conn_set_state.exit455, %conn_set_state.exit431, %if.end231, %if.end196, %if.then36
-  %nreqs.0.ph781.be = phi i32 [ %nreqs.0.ph781, %conn_set_state.exit662 ], [ %nreqs.0.ph781, %cond.end366 ], [ %nreqs.0.ph781, %conn_set_state.exit597 ], [ %nreqs.0.ph781, %conn_set_state.exit455 ], [ %nreqs.0.ph781, %if.then259 ], [ %nreqs.0.ph781, %if.then296 ], [ %nreqs.0.ph781, %if.end335 ], [ %nreqs.0.ph781, %if.then146 ], [ %nreqs.0.ph781, %if.end196 ], [ %nreqs.0.ph781, %if.end231 ], [ %nreqs.0.ph781, %conn_set_state.exit431 ], [ %nreqs.0.ph781, %read_into_chunked_item.exit ], [ %dec, %conn_set_state.exit322 ], [ %nreqs.0.ph781, %sw.bb80 ], [ %nreqs.0.ph781, %if.then36 ], [ %nreqs.0.ph781, %if.end62 ], [ %nreqs.0.ph781, %if.end.i181 ], [ %nreqs.0.ph781, %if.then70 ], [ %nreqs.0.ph781, %if.end.i207 ], [ %nreqs.0.ph781, %if.end75.thread674 ], [ %nreqs.0.ph781, %sw.bb76 ], [ %nreqs.0.ph781, %if.end.i253 ], [ %nreqs.0.ph781, %sw.bb77 ], [ %nreqs.0.ph781, %if.end.i264 ], [ %nreqs.0.ph781, %sw.bb78 ], [ %nreqs.0.ph781, %if.end.i275 ], [ %nreqs.0.ph781, %if.then86 ], [ %nreqs.0.ph781, %if.end.i286 ], [ %nreqs.0.ph781, %if.else87 ], [ %nreqs.0.ph781, %if.end.i297 ], [ %dec, %if.then8.i ], [ %dec, %if.end.i.i ], [ %dec, %if.then11.i ], [ %dec, %if.end.i17.i ], [ %dec, %if.else12.i ], [ %dec, %if.end.i28.i ], [ %dec, %if.end116 ], [ %dec, %if.end.i342 ], [ %nreqs.0.ph781, %if.then124 ], [ %nreqs.0.ph781, %if.then.i350 ], [ %nreqs.0.ph781, %if.then3.i349 ], [ %nreqs.0.ph781, %if.end134 ], [ %nreqs.0.ph781, %if.end.i355 ], [ %nreqs.0.ph781, %if.then212 ], [ %nreqs.0.ph781, %if.end.i390 ], [ %nreqs.0.ph781, %if.end249 ], [ %nreqs.0.ph781, %if.end.i436 ], [ %nreqs.0.ph781, %if.then315 ], [ %nreqs.0.ph781, %if.end.i460 ], [ %nreqs.0.ph781, %if.end342 ], [ %nreqs.0.ph781, %if.end.i487 ], [ %nreqs.0.ph781, %if.end.i602 ], [ %nreqs.0.ph781, %if.end382 ], [ %nreqs.0.ph781, %if.end.i614 ], [ %nreqs.0.ph781, %while.body ]
-  br label %while.body.preheader, !llvm.loop !5
 
 sw.bb387:                                         ; preds = %while.body
   %374 = load i32, ptr %transport388, align 8
@@ -3065,17 +3061,21 @@ if.end.i643:                                      ; preds = %if.then3.i645, %if.
 if.then.i653:                                     ; preds = %while.body
   %387 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp2.i654 = icmp sgt i32 %387, 2
-  br i1 %cmp2.i654, label %if.then3.i657, label %conn_set_state.exit662
+  br i1 %cmp2.i654, label %if.then3.i657, label %if.end.i655
 
 if.then3.i657:                                    ; preds = %if.then.i653
   %388 = load ptr, ptr @stderr, align 8
   %389 = load i32, ptr %sfd2, align 8
   %call6.i661 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %388, ptr noundef nonnull @.str.15, i32 noundef %389, ptr noundef nonnull @.str.376, ptr noundef nonnull @.str.372) #38
-  br label %conn_set_state.exit662
+  br label %if.end.i655
 
-conn_set_state.exit662:                           ; preds = %if.then.i653, %if.then3.i657
+if.end.i655:                                      ; preds = %if.then3.i657, %if.then.i653
   store i32 9, ptr %state, align 4
   br label %while.body.preheader.backedge
+
+while.body.preheader.backedge:                    ; preds = %while.body, %if.end.i655, %if.end.i614, %if.end382, %if.end.i602, %if.end.i487, %if.end342, %if.end.i460, %if.then315, %if.end.i448, %if.end.i436, %if.end249, %if.end.i390, %if.then212, %if.end.i355, %if.end134, %if.then3.i349, %if.then.i350, %if.then124, %if.end.i342, %if.end116, %if.end.i316, %if.end.i28.i, %if.else12.i, %if.end.i17.i, %if.then11.i, %if.end.i.i, %if.then8.i, %if.end.i297, %if.else87, %if.end.i286, %if.then86, %if.end.i275, %sw.bb78, %if.end.i264, %sw.bb77, %if.end.i253, %sw.bb76, %if.end75.thread674, %if.end.i207, %if.then70, %if.end.i181, %if.end62, %cond.end366, %conn_set_state.exit597, %read_into_chunked_item.exit, %if.then146, %sw.bb80, %if.end335, %if.then296, %if.then259, %conn_set_state.exit431, %if.end231, %if.end196, %if.then36
+  %nreqs.0.ph782.be = phi i32 [ %nreqs.0.ph782, %cond.end366 ], [ %nreqs.0.ph782, %conn_set_state.exit597 ], [ %nreqs.0.ph782, %if.then259 ], [ %nreqs.0.ph782, %if.then296 ], [ %nreqs.0.ph782, %if.end335 ], [ %nreqs.0.ph782, %if.then146 ], [ %nreqs.0.ph782, %if.end196 ], [ %nreqs.0.ph782, %if.end231 ], [ %nreqs.0.ph782, %conn_set_state.exit431 ], [ %nreqs.0.ph782, %read_into_chunked_item.exit ], [ %nreqs.0.ph782, %sw.bb80 ], [ %nreqs.0.ph782, %if.then36 ], [ %nreqs.0.ph782, %if.end62 ], [ %nreqs.0.ph782, %if.end.i181 ], [ %nreqs.0.ph782, %if.then70 ], [ %nreqs.0.ph782, %if.end.i207 ], [ %nreqs.0.ph782, %if.end75.thread674 ], [ %nreqs.0.ph782, %sw.bb76 ], [ %nreqs.0.ph782, %if.end.i253 ], [ %nreqs.0.ph782, %sw.bb77 ], [ %nreqs.0.ph782, %if.end.i264 ], [ %nreqs.0.ph782, %sw.bb78 ], [ %nreqs.0.ph782, %if.end.i275 ], [ %nreqs.0.ph782, %if.then86 ], [ %nreqs.0.ph782, %if.end.i286 ], [ %nreqs.0.ph782, %if.else87 ], [ %nreqs.0.ph782, %if.end.i297 ], [ %dec, %if.then8.i ], [ %dec, %if.end.i.i ], [ %dec, %if.then11.i ], [ %dec, %if.end.i17.i ], [ %dec, %if.else12.i ], [ %dec, %if.end.i28.i ], [ %dec, %if.end.i316 ], [ %dec, %if.end116 ], [ %dec, %if.end.i342 ], [ %nreqs.0.ph782, %if.then124 ], [ %nreqs.0.ph782, %if.then.i350 ], [ %nreqs.0.ph782, %if.then3.i349 ], [ %nreqs.0.ph782, %if.end134 ], [ %nreqs.0.ph782, %if.end.i355 ], [ %nreqs.0.ph782, %if.then212 ], [ %nreqs.0.ph782, %if.end.i390 ], [ %nreqs.0.ph782, %if.end249 ], [ %nreqs.0.ph782, %if.end.i436 ], [ %nreqs.0.ph782, %if.end.i448 ], [ %nreqs.0.ph782, %if.then315 ], [ %nreqs.0.ph782, %if.end.i460 ], [ %nreqs.0.ph782, %if.end342 ], [ %nreqs.0.ph782, %if.end.i487 ], [ %nreqs.0.ph782, %if.end.i602 ], [ %nreqs.0.ph782, %if.end382 ], [ %nreqs.0.ph782, %if.end.i614 ], [ %nreqs.0.ph782, %if.end.i655 ], [ %nreqs.0.ph782, %while.body ]
+  br label %while.body.preheader, !llvm.loop !5
 
 while.end:                                        ; preds = %cond.end366, %if.then328, %if.then224, %if.then109, %update_event.exit482, %update_event.exit412, %if.else98, %update_event.exit337, %while.body, %if.end.i643, %sw.bb396, %if.end.i.i633, %if.then2.i628, %if.end.i624, %if.end.i504, %if.then357, %if.end.i187, %if.end63, %if.else392, %if.then44, %if.else53, %if.end12, %if.else27, %if.end26
   ret void
@@ -3772,7 +3772,7 @@ entry:
   store i16 %which, ptr %which1, align 2
   %sfd = getelementptr inbounds i8, ptr %arg, i64 8
   %0 = load i32, ptr %sfd, align 8
-  %cmp.not = icmp eq i32 %0, %fd
+  %cmp.not = icmp eq i32 %fd, %0
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -4871,7 +4871,7 @@ if.end:                                           ; preds = %entry
   %protocol = getelementptr inbounds i8, ptr %cookie, i64 316
   %0 = load i32, ptr %protocol, align 4
   %cmp4 = icmp eq i32 %0, 4
-  %add = add i32 %conv, %vlen
+  %add = add i32 %vlen, %conv
   %stats.i = getelementptr inbounds i8, ptr %cookie, i64 368
   %size.i = getelementptr inbounds i8, ptr %cookie, i64 376
   %1 = load i64, ptr %size.i, align 8
@@ -4892,7 +4892,7 @@ if.end.i.thread:                                  ; preds = %if.then6
   br label %while.body.i.preheader
 
 if.end.i:                                         ; preds = %if.then6
-  %cmp716.i = icmp ult i64 %sub.i, %add9
+  %cmp716.i = icmp ugt i64 %add9, %sub.i
   br i1 %cmp716.i, label %while.body.i.preheader, label %while.end.i
 
 while.body.i.preheader:                           ; preds = %if.end.i.thread, %if.end.i
@@ -4905,7 +4905,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %nsize.117.i = phi i64 [ %shl.i, %while.body.i ], [ %nsize.0.i61, %while.body.i.preheader ]
   %shl.i = shl i64 %nsize.117.i, 1
   %sub10.i = sub i64 %shl.i, %4
-  %cmp7.i = icmp ult i64 %sub10.i, %add9
+  %cmp7.i = icmp ugt i64 %add9, %sub10.i
   br i1 %cmp7.i, label %while.body.i, label %while.end.i, !llvm.loop !19
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.i
@@ -10712,7 +10712,7 @@ if.then143:                                       ; preds = %while.body94
 
 if.end152:                                        ; preds = %if.then143, %while.body94
   %dch.4 = phi ptr [ %dch.378, %while.body94 ], [ %call147, %if.then143 ]
-  %cmp89 = icmp slt i32 %add136, %len
+  %cmp89 = icmp sgt i32 %len, %add136
   br i1 %cmp89, label %while.body94, label %return, !llvm.loop !32
 
 return:                                           ; preds = %if.then73, %if.end85, %if.then143, %if.end152, %if.then17, %while.cond88.preheader

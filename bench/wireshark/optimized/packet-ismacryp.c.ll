@@ -360,7 +360,7 @@ declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_ismacryp_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @version_type, align 4
-  %6 = icmp ne i32 %5, %3
+  %6 = icmp ne i32 %3, %5
   %7 = load i32, ptr @override_flag, align 4
   %8 = icmp ne i32 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false

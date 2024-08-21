@@ -4601,7 +4601,7 @@ lpLength.exit:                                    ; preds = %entry, %while.end.i
   %retval.0.in.i = phi i32 [ %or.i, %entry ], [ %count.0.lcssa19.i, %do.body.i ], [ %inc.i, %while.end.i ]
   %5 = lshr i32 %retval.0.in.i, 1
   store i32 0, ptr %index, align 4
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %5, i32 %count)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %count, i32 %5)
   %add.ptr.i = getelementptr inbounds i8, ptr %lp, i64 6
   %6 = load i8, ptr %add.ptr.i, align 1
   %cmp.i = icmp eq i8 %6, -1

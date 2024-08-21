@@ -133,7 +133,7 @@ define range(i32 -1, 1) i32 @H5B2__split1(ptr noundef %0, i16 noundef zeroext %1
   %8 = getelementptr inbounds i8, ptr %4, i64 272
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i32
-  %11 = icmp ugt i32 %10, %6
+  %11 = icmp ult i32 %6, %10
   br i1 %11, label %12, label %43
 
 12:                                               ; preds = %7

@@ -157,9 +157,9 @@ define internal fastcc zeroext range(i8 0, 2) i8 @OGLSD_InitTextureObject(ptr no
   %12 = load ptr, ptr @j2d_glGetIntegerv, align 8
   call void %12(i32 noundef 3379, ptr noundef nonnull %10) #3
   %13 = load i32, ptr %10, align 4
-  %.not61 = icmp slt i32 %13, %4
+  %.not61 = icmp sgt i32 %4, %13
   %14 = select i1 %.not61, i32 0, i32 %4
-  %.not62 = icmp slt i32 %13, %5
+  %.not62 = icmp sgt i32 %5, %13
   %15 = select i1 %.not62, i32 0, i32 %5
   br label %OGLSD_NextPowerOfTwo.exit69
 
@@ -171,16 +171,16 @@ define internal fastcc zeroext range(i8 0, 2) i8 @OGLSD_InitTextureObject(ptr no
 18:                                               ; preds = %16
   call void %17(i32 noundef 34040, ptr noundef nonnull %10) #3
   %19 = load i32, ptr %10, align 4
-  %.not59 = icmp slt i32 %19, %4
+  %.not59 = icmp sgt i32 %4, %19
   %20 = select i1 %.not59, i32 0, i32 %4
-  %.not60 = icmp slt i32 %19, %5
+  %.not60 = icmp sgt i32 %5, %19
   %21 = select i1 %.not60, i32 0, i32 %5
   br label %OGLSD_NextPowerOfTwo.exit69
 
 22:                                               ; preds = %16
   call void %17(i32 noundef 3379, ptr noundef nonnull %10) #3
   %23 = load i32, ptr %10, align 4
-  %24 = icmp slt i32 %23, %4
+  %24 = icmp sgt i32 %4, %23
   br i1 %24, label %OGLSD_NextPowerOfTwo.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %22, %.preheader.i
@@ -191,7 +191,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @OGLSD_InitTextureObject(ptr no
 
 OGLSD_NextPowerOfTwo.exit:                        ; preds = %.preheader.i, %22
   %.07.i = phi i32 [ 0, %22 ], [ %.0.i, %.preheader.i ]
-  %27 = icmp slt i32 %23, %5
+  %27 = icmp sgt i32 %5, %23
   br i1 %27, label %OGLSD_NextPowerOfTwo.exit69.thread, label %.preheader.i66
 
 .preheader.i66:                                   ; preds = %OGLSD_NextPowerOfTwo.exit, %.preheader.i66

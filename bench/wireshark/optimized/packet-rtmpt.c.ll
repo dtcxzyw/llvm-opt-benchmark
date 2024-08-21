@@ -1244,7 +1244,7 @@ define internal fastcc void @dissect_rtmpt_common(ptr noundef %0, ptr noundef %1
 77:                                               ; preds = %72
   %78 = getelementptr inbounds i8, ptr %71, i64 4
   %79 = load i32, ptr %78, align 4
-  %80 = icmp ugt i32 %79, %5
+  %80 = icmp ult i32 %5, %79
   br i1 %80, label %.thread618, label %81
 
 81:                                               ; preds = %77
@@ -1252,7 +1252,7 @@ define internal fastcc void @dissect_rtmpt_common(ptr noundef %0, ptr noundef %1
   %83 = load i32, ptr %82, align 4
   %84 = sub i32 %76, %74
   %85 = add i32 %84, %83
-  %86 = icmp ult i32 %85, %5
+  %86 = icmp ugt i32 %5, %85
   br i1 %86, label %.thread618, label %87
 
 87:                                               ; preds = %81
@@ -2231,7 +2231,7 @@ switch.lookup:                                    ; preds = %141
   %612 = tail call ptr @wmem_file_scope() #8
   %613 = tail call noalias ptr @wmem_alloc(ptr noundef %612, i64 noundef 40) #8
   store i32 0, ptr %613, align 4
-  %614 = add i32 %.2, %5
+  %614 = add i32 %5, %.2
   %615 = getelementptr inbounds i8, ptr %613, i64 4
   store i32 %614, ptr %615, align 4
   %616 = add i32 %.2508, -1
@@ -2589,7 +2589,7 @@ rtmpt_get_amf_txid.exit:                          ; preds = %72
   %178 = load i32, ptr %177, align 8
   %179 = select i1 %switch.selectcmp.i, i32 4, i32 3
   %.not.i222 = icmp ult i32 %178, %179
-  %.not165.i = icmp ugt i32 %179, %.0200.ph
+  %.not165.i = icmp ult i32 %.0200.ph, %179
   %or.cond170.i = or i1 %.not165.i, %.not.i222
   br i1 %or.cond170.i, label %rtmpt_get_packet_desc.exit, label %180
 
@@ -3162,7 +3162,7 @@ define internal fastcc void @dissect_rtmpt_body_command(ptr noundef %0, i32 noun
   store i32 0, ptr %5, align 4
   %.not = icmp ne i32 %3, 0
   %6 = zext i1 %.not to i32
-  %spec.select = add i32 %6, %1
+  %spec.select = add i32 %1, %6
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %spec.select) #8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.split, label %._crit_edge
@@ -3267,7 +3267,7 @@ define internal fastcc void @dissect_rtmpt_body_video(ptr noundef %0, i32 nounde
 36:                                               ; preds = %25, %8
   %.sink48 = phi i32 [ 1, %25 ], [ 5, %8 ]
   %37 = load i32, ptr @hf_rtmpt_video_data, align 4
-  %38 = add i32 %.sink48, %1
+  %38 = add i32 %1, %.sink48
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef -1, i32 noundef 0) #8
   ret void
 }

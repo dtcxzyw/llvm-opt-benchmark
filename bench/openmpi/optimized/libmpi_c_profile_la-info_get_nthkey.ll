@@ -140,7 +140,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %32, %28, %.preheade
 
 58:                                               ; preds = %26
   %59 = load i32, ptr %4, align 4
-  %.not26 = icmp sgt i32 %59, %1
+  %.not26 = icmp slt i32 %1, %59
   br i1 %.not26, label %62, label %60
 
 60:                                               ; preds = %58

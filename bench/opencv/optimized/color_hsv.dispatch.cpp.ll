@@ -2571,7 +2571,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %63 = add nsw i32 %62, %60
   store float %50, ptr %3, align 16
   %64 = fsub float 1.000000e+00, %46
-  %65 = fmul float %64, %50
+  %65 = fmul float %50, %64
   store float %65, ptr %25, align 4
   %66 = fneg float %46
   %67 = call float @llvm.fmuladd.f32(float %66, float %59, float 1.000000e+00)
@@ -2804,7 +2804,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %62 = add nsw i32 %61, %59
   store float %51, ptr %3, align 16
   %63 = fsub float 1.000000e+00, %49
-  %64 = fmul float %63, %51
+  %64 = fmul float %51, %63
   store float %64, ptr %25, align 4
   %65 = fneg float %49
   %66 = call float @llvm.fmuladd.f32(float %65, float %58, float 1.000000e+00)

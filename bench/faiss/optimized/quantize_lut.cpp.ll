@@ -982,8 +982,8 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit403.loopexit: ; preds = %
   br i1 %.not.i410, label %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit415.us.preheader, label %.lr.ph.i411.preheader
 
 _ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit415.us.preheader: ; preds = %.lr.ph683
-  %196 = add i64 %.2250689, %1
-  %197 = add i64 %.0244690, %1
+  %196 = add i64 %1, %.2250689
+  %197 = add i64 %1, %.0244690
   br label %._crit_edge684
 
 .lr.ph.i411.preheader:                            ; preds = %.lr.ph683, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit415.loopexit
@@ -1313,8 +1313,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit470:                 ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %.not.i472, label %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit477.us.preheader, label %.lr.ph.i473.preheader
 
 _ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit477.us.preheader: ; preds = %.lr.ph734
-  %284 = add i64 %.2740, %1
-  %285 = add i64 %.0226741, %1
+  %284 = add i64 %1, %.2740
+  %285 = add i64 %1, %.0226741
   br label %._crit_edge735
 
 .lr.ph.i473.preheader:                            ; preds = %.lr.ph734, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit477.loopexit
@@ -1739,7 +1739,7 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit: ; preds = %.lr
   %.064.lcssa = phi float [ 0xFFF0000000000000, %4 ], [ %.sroa.speculated59, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit ]
   %sext = shl i64 %5, 32
   %16 = ashr exact i64 %sext, 32
-  %17 = icmp uge i64 %16, %0
+  %17 = icmp ule i64 %0, %16
   %.not.i38 = icmp eq i64 %1, 0
   %or.cond = or i1 %17, %.not.i38
   br i1 %or.cond, label %._crit_edge78, label %.lr.ph.i39.preheader
@@ -1778,7 +1778,7 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit55.loopexit: ; preds = %.
   %27 = fcmp olt float %.06574, %26
   %.sroa.speculated = select i1 %27, float %26, float %.06574
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %28 = icmp ult i64 %indvars.iv.next88, %0
+  %28 = icmp ugt i64 %0, %indvars.iv.next88
   br i1 %28, label %.lr.ph.i39.preheader, label %._crit_edge78, !llvm.loop !37
 
 ._crit_edge78:                                    ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit55.loopexit, %.lr.ph, %._crit_edge

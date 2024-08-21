@@ -92,7 +92,7 @@ if.end:                                           ; preds = %entry
   %add = add i32 %0, 12
   %idx.ext.i = sext i32 %add to i64
   %add.ptr.i = getelementptr i8, ptr %call.i, i64 %idx.ext.i
-  %cmp4.i = icmp ugt ptr %add.ptr.i, %call.i
+  %cmp4.i = icmp ult ptr %call.i, %add.ptr.i
   br i1 %cmp4.i, label %for.body.i, label %return
 
 for.body.i:                                       ; preds = %if.end, %for.body.i
@@ -163,7 +163,7 @@ if.end:                                           ; preds = %fdt_node_end_offset
   %sub = sub nsw i32 %call.i, %nodeoffset
   %idx.ext.i = sext i32 %sub to i64
   %add.ptr.i = getelementptr i8, ptr %call.i6, i64 %idx.ext.i
-  %cmp4.i = icmp ugt ptr %add.ptr.i, %call.i6
+  %cmp4.i = icmp ult ptr %call.i6, %add.ptr.i
   br i1 %cmp4.i, label %for.body.i, label %return
 
 for.body.i:                                       ; preds = %if.end, %for.body.i

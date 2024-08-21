@@ -5889,7 +5889,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit44: ; preds = %_ZN5zxing3RefIN
   %64 = call noundef float @sqrtf(float noundef %63) #23
   %65 = fcmp olt float %62, %60
   %.sroa.speculated1.i = select i1 %65, float %62, float %60
-  %66 = fcmp ogt float %.sroa.speculated1.i, %64
+  %66 = fcmp olt float %64, %.sroa.speculated1.i
   %.sroa.speculated.i = select i1 %66, float %64, float %.sroa.speculated1.i
   %67 = load ptr, ptr %1, align 8
   %68 = call noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %67)
@@ -9564,7 +9564,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.
   %862 = getelementptr inbounds i8, ptr %860, i64 24
   %863 = ptrtoint ptr %862 to i64
   %864 = load ptr, ptr %13, align 8
-  %.not11.i.i288 = icmp eq ptr %864, %862
+  %.not11.i.i288 = icmp eq ptr %862, %864
   br i1 %.not11.i.i288, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i289, label %865
 
 865:                                              ; preds = %859
@@ -10771,10 +10771,10 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   br i1 %12, label %.critedge.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = icmp sgt i32 %9, %1
+  %14 = icmp slt i32 %1, %9
   %15 = icmp sgt i32 %2, -1
   %or.cond.not199 = and i1 %15, %14
-  %.not = icmp sgt i32 %11, %2
+  %.not = icmp slt i32 %2, %11
   %or.cond179 = and i1 %or.cond.not199, %.not
   br i1 %or.cond179, label %16, label %.critedge.thread
 
@@ -10866,7 +10866,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge.split.loop.exit350
   %.0136212.lcssa = phi i32 [ %64, %.critedge.split.loop.exit350 ], [ %54, %.lr.ph ]
-  %65 = icmp sgt i32 %.0136212.lcssa, %2
+  %65 = icmp slt i32 %2, %.0136212.lcssa
   br i1 %65, label %.critedge.thread, label %.preheader204
 
 .preheader204:                                    ; preds = %.critedge
@@ -10909,7 +10909,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
 .critedge3:                                       ; preds = %73, %.lr.ph217
   %80 = trunc nsw i64 %indvars.iv285 to i32
   store i32 %70, ptr %17, align 4
-  %81 = icmp sgt i32 %80, %2
+  %81 = icmp slt i32 %2, %80
   %82 = icmp sgt i32 %70, %3
   %or.cond183 = select i1 %81, i1 true, i1 %82
   br i1 %or.cond183, label %.critedge.thread, label %.preheader203
@@ -10983,7 +10983,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
 .critedge7:                                       ; preds = %97, %101
   %108 = trunc nuw nsw i64 %indvars.iv303 to i32
   store i32 %98, ptr %18, align 8
-  %109 = add nuw nsw i32 %108, %2
+  %109 = add nuw nsw i32 %2, %108
   %.not172 = icmp slt i32 %109, %11
   %110 = add nuw nsw i32 %.0134, %108
   %111 = icmp slt i32 %110, %9
@@ -11019,7 +11019,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
 .critedge9:                                       ; preds = %115, %.lr.ph240
   %124 = trunc nuw nsw i64 %indvars.iv314 to i32
   store i32 %112, ptr %19, align 4
-  %125 = add nuw nsw i32 %124, %2
+  %125 = add nuw nsw i32 %2, %124
   %.not175 = icmp slt i32 %125, %11
   %.not176 = icmp slt i32 %112, %3
   %or.cond186 = select i1 %.not175, i1 %.not176, i1 false
@@ -12188,7 +12188,7 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatt
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  %.not11.i = icmp eq ptr %14, %2
+  %.not11.i = icmp eq ptr %2, %14
   br i1 %.not11.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i, label %15
 
 15:                                               ; preds = %12
@@ -13928,7 +13928,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit14: ; preds = %_ZN5zxing3R
 define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
-  %7 = icmp sgt i64 %6, %1
+  %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEaSERKS3_.exit
@@ -14735,7 +14735,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE11_M_alloca
 _ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode13FinderPatternEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %36, %30
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %30 ], [ %38, %36 ]
   %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode13FinderPatternEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode13FinderPatternEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit, %54
@@ -14903,7 +14903,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEESaIS4_EE11_M_al
 _ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %36, %30
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %30 ], [ %38, %36 ]
   %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit, %54
@@ -16289,7 +16289,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit14: ; preds = %_ZN5zxing3RefIN
 define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
-  %7 = icmp sgt i64 %6, %1
+  %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit
@@ -17129,7 +17129,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %34
 _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %41
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %41 ], [ %53, %.lr.ph.i.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i28
@@ -17275,7 +17275,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %11
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %29 = extractvalue { ptr, i32 } %lpad.phi, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #23
-  %.not4.i.i = icmp eq ptr %.017, %2
+  %.not4.i.i = icmp eq ptr %2, %.017
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPSt6vectorIdSaIdEEEvT_S4_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %28, %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i
@@ -18752,7 +18752,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %6 = alloca %"class.zxing::Ref.21", align 8
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
-  %9 = icmp sgt i64 %8, %1
+  %9 = icmp slt i64 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit
@@ -20851,7 +20851,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit14: ; preds = %_ZN5zxing3RefIN
 define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
-  %7 = icmp sgt i64 %6, %1
+  %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit
@@ -22891,7 +22891,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   store float %4, ptr %6, align 4
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
-  %9 = icmp sgt i64 %8, %1
+  %9 = icmp slt i64 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit
@@ -24951,7 +24951,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit14: ; preds = %_ZN5zxing3RefIN
 define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
-  %7 = icmp sgt i64 %6, %1
+  %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit
@@ -27021,7 +27021,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit14: ; preds = %_ZN5zxing3RefIN
 define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
-  %7 = icmp sgt i64 %6, %1
+  %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit
@@ -29165,7 +29165,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   store float %4, ptr %6, align 4
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
-  %9 = icmp sgt i64 %8, %1
+  %9 = icmp slt i64 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit
@@ -31335,7 +31335,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19: ; preds = %_ZN5zxing3RefIN
 define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_T0_SI_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
-  %7 = icmp sgt i64 %6, %1
+  %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit

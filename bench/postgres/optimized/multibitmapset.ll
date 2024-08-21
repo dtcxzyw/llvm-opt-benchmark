@@ -251,7 +251,7 @@ define dso_local zeroext i1 @mbms_is_member(i32 noundef %0, i32 noundef %1, ptr 
 
 list_length.exit:                                 ; preds = %8, %9
   %12 = phi i32 [ %11, %9 ], [ 0, %8 ]
-  %.not = icmp sgt i32 %12, %0
+  %.not = icmp slt i32 %0, %12
   br i1 %.not, label %13, label %19
 
 13:                                               ; preds = %list_length.exit

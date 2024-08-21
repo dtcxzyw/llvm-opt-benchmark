@@ -8009,7 +8009,7 @@ cond.false4.i:                                    ; preds = %cond.end.i
 Py_SIZE.exit:                                     ; preds = %cond.end.i
   %ob_size.i = getelementptr inbounds i8, ptr %op, i64 16
   %3 = load i64, ptr %ob_size.i, align 8
-  %cmp6 = icmp sgt i64 %3, %index
+  %cmp6 = icmp slt i64 %index, %3
   br i1 %cmp6, label %cond.end9, label %cond.false8
 
 cond.false8:                                      ; preds = %Py_SIZE.exit

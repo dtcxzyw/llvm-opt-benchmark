@@ -1973,7 +1973,7 @@ define internal i64 @archive_write_zip_data(ptr noundef %0, ptr noundef %1, i64 
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 40
   %21 = load i64, ptr %20, align 8
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %21, i64 %2)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %2, i64 %21)
   %22 = getelementptr inbounds i8, ptr %19, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, %spec.select

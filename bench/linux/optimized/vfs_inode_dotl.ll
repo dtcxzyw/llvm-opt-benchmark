@@ -1170,7 +1170,7 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr nocapture readnone %0, ptr noundef 
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %1, align 8
   %13 = and i16 %12, 1024
-  %14 = or i16 %13, %3
+  %14 = or i16 %3, %13
   %15 = or i16 %14, 16384
   %16 = getelementptr inbounds i8, ptr %2, i64 24
   %17 = load ptr, ptr %16, align 8

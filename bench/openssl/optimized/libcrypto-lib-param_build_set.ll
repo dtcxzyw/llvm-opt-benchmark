@@ -138,7 +138,7 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %data_size = getelementptr inbounds i8, ptr %call1, i64 24
   %0 = load i64, ptr %data_size, align 8
-  %cmp4 = icmp ult i64 %0, %sz
+  %cmp4 = icmp ugt i64 %sz, %0
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.then3

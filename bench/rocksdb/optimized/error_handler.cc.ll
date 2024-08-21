@@ -221,7 +221,7 @@ call3.i.i.noexc:                                  ; preds = %for.body.i
 if.then.i.i:                                      ; preds = %call3.i.i.noexc
   %2 = extractvalue { ptr, ptr } %call3.i.i2, 0
   %cmp.not.i.i.i = icmp ne ptr %2, null
-  %cmp2.i.i.i = icmp eq ptr %0, %1
+  %cmp2.i.i.i = icmp eq ptr %1, %0
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
@@ -336,7 +336,7 @@ call3.i.i.noexc:                                  ; preds = %for.body.i
 if.then.i.i:                                      ; preds = %call3.i.i.noexc
   %2 = extractvalue { ptr, ptr } %call3.i.i2, 0
   %cmp.not.i.i.i = icmp ne ptr %2, null
-  %cmp2.i.i.i = icmp eq ptr %0, %1
+  %cmp2.i.i.i = icmp eq ptr %1, %0
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
@@ -592,7 +592,7 @@ while.body.i.i.i:                                 ; preds = %if.end8, %if.end.i.
   br i1 %cmp.i.i.i.i.i.i, label %if.else.i.i.i, label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i
-  %cmp4.i.i.i.i.i.i = icmp sgt i32 %13, %reason
+  %cmp4.i.i.i.i.i.i = icmp slt i32 %reason, %13
   br i1 %cmp4.i.i.i.i.i.i, label %if.end.i.i.i, label %land.rhs.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i.i:                             ; preds = %lor.rhs.i.i.i.i.i.i
@@ -640,7 +640,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeISt5t
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %add.ptr.i.i.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 36
   %18 = load i32, ptr %add.ptr.i.i.i5.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp sgt i32 %18, %reason
+  %cmp.i.i.i.i.i = icmp slt i32 %reason, %18
   br i1 %cmp.i.i.i.i.i, label %if.then29, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %lor.lhs.false.i.i
@@ -693,7 +693,7 @@ while.body.i.i.i17:                               ; preds = %if.then29, %if.end.
   br i1 %cmp.i.i.i.i.i.i22, label %if.else.i.i.i51, label %lor.rhs.i.i.i.i.i.i23
 
 lor.rhs.i.i.i.i.i.i23:                            ; preds = %while.body.i.i.i17
-  %cmp4.i.i.i.i.i.i24 = icmp sgt i32 %25, %reason
+  %cmp4.i.i.i.i.i.i24 = icmp slt i32 %reason, %25
   br i1 %cmp4.i.i.i.i.i.i24, label %if.end.i.i.i31, label %land.rhs.i.i.i.i.i.i25
 
 land.rhs.i.i.i.i.i.i25:                           ; preds = %lor.rhs.i.i.i.i.i.i23
@@ -731,7 +731,7 @@ lor.lhs.false.i.i38:                              ; preds = %_ZNSt8_Rb_treeISt5t
   %_M_storage.i.i.i3.i.i39 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i33, i64 32
   %add.ptr.i.i.i5.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i33, i64 36
   %29 = load i32, ptr %add.ptr.i.i.i5.i.i.i.i.i40, align 4
-  %cmp.i.i.i.i.i41 = icmp sgt i32 %29, %reason
+  %cmp.i.i.i.i.i41 = icmp slt i32 %reason, %29
   br i1 %cmp.i.i.i.i.i41, label %if.then49, label %lor.rhs.i.i.i.i.i42
 
 lor.rhs.i.i.i.i.i42:                              ; preds = %lor.lhs.false.i.i38
@@ -769,7 +769,7 @@ while.body.i.i.i56:                               ; preds = %if.then49, %if.end.
   br i1 %cmp.i.i.i.i.i.i59, label %if.else.i.i.i78, label %lor.rhs.i.i.i.i.i.i60
 
 lor.rhs.i.i.i.i.i.i60:                            ; preds = %while.body.i.i.i56
-  %cmp4.i.i.i.i.i.i61 = icmp sgt i32 %34, %reason
+  %cmp4.i.i.i.i.i.i61 = icmp slt i32 %reason, %34
   br i1 %cmp4.i.i.i.i.i.i61, label %if.end.i.i.i63, label %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i.i.i
 
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i60
@@ -797,7 +797,7 @@ lor.lhs.false.i.i70:                              ; preds = %_ZNSt8_Rb_treeISt5t
   %_M_storage.i.i.i3.i.i71 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i65, i64 32
   %add.ptr.i.i.i5.i.i.i.i.i72 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i65, i64 36
   %37 = load i32, ptr %add.ptr.i.i.i5.i.i.i.i.i72, align 4
-  %cmp.i.i.i.i.i73 = icmp sgt i32 %37, %reason
+  %cmp.i.i.i.i.i73 = icmp slt i32 %reason, %37
   br i1 %cmp.i.i.i.i.i73, label %if.end64, label %lor.rhs.i.i.i.i.i74
 
 lor.rhs.i.i.i.i.i74:                              ; preds = %lor.lhs.false.i.i70
@@ -3808,7 +3808,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 if.then.i:                                        ; preds = %for.body
   %1 = extractvalue { ptr, ptr } %call3.i, 0
   %cmp.not.i.i = icmp ne ptr %1, null
-  %cmp2.i.i = icmp eq ptr %add.ptr.i, %0
+  %cmp2.i.i = icmp eq ptr %0, %add.ptr.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE10_M_insert_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit.i, label %lor.rhs.i.i
 
@@ -3881,7 +3881,7 @@ for.end:                                          ; preds = %_ZNSt8_Rb_treeISt5t
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS8_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(8) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -4310,7 +4310,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(8) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -4829,7 +4829,7 @@ return:                                           ; preds = %if.end18.i192, %_ZN
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(8) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

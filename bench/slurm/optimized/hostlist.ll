@@ -602,7 +602,7 @@ define range(i32 -1, 2) i32 @hostlist_delete_nth(ptr noundef %0, i32 noundef %1)
   br i1 %19, label %hostrange_count.exit, label %hostrange_count.exit.thread
 
 hostrange_count.exit:                             ; preds = %14
-  %.not43 = icmp slt i32 %.03658, %1
+  %.not43 = icmp sgt i32 %1, %.03658
   br i1 %.not43, label %45, label %29
 
 hostrange_count.exit.thread:                      ; preds = %14
@@ -615,7 +615,7 @@ hostrange_count.exit.thread:                      ; preds = %14
   %26 = trunc i64 %25 to i32
   %27 = add i32 %.03658, -1
   %28 = add i32 %27, %26
-  %.not4349 = icmp slt i32 %28, %1
+  %.not4349 = icmp sgt i32 %1, %28
   br i1 %.not4349, label %45, label %31
 
 29:                                               ; preds = %hostrange_count.exit
@@ -728,7 +728,7 @@ define range(i64 -1, 2147483648) i64 @hostlist_deranged_string_dims(ptr noundef 
 20:                                               ; preds = %17, %15
   %.1 = phi i32 [ %18, %17 ], [ %.03346, %15 ]
   %21 = zext nneg i32 %.1 to i64
-  %.not43 = icmp ult i64 %21, %1
+  %.not43 = icmp ugt i64 %1, %21
   br i1 %.not43, label %22, label %42
 
 22:                                               ; preds = %20
@@ -749,7 +749,7 @@ define range(i64 -1, 2147483648) i64 @hostlist_deranged_string_dims(ptr noundef 
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
   %36 = zext nneg i32 %32 to i64
-  %37 = icmp ult i64 %36, %1
+  %37 = icmp ugt i64 %1, %36
   %38 = select i1 %35, i1 %37, i1 false
   br i1 %38, label %15, label %._crit_edge, !llvm.loop !13
 
@@ -1186,7 +1186,7 @@ hostrange_count.exit:                             ; preds = %13, %19
   %26 = trunc i64 %.0.i to i32
   %27 = add i32 %.02433, -1
   %28 = add i32 %27, %26
-  %.not30 = icmp slt i32 %28, %1
+  %.not30 = icmp sgt i32 %1, %28
   br i1 %.not30, label %32, label %29
 
 29:                                               ; preds = %hostrange_count.exit
@@ -1727,7 +1727,7 @@ define range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_dims(ptr n
   %99 = icmp sgt i32 %98, -1
   %100 = add nuw nsw i32 %98, %.0
   %101 = zext nneg i32 %100 to i64
-  %.not143 = icmp ult i64 %101, %1
+  %.not143 = icmp ugt i64 %1, %101
   %or.cond160 = select i1 %99, i1 %.not143, i1 false
   br i1 %or.cond160, label %.lr.ph218.preheader, label %183
 
@@ -1787,7 +1787,7 @@ _test_box.exit.thread:                            ; preds = %.lr.ph.i, %_test_bo
 123:                                              ; preds = %_test_box.exit.thread
   %124 = add nuw nsw i32 %121, 1
   %125 = zext nneg i32 %124 to i64
-  %.not145 = icmp ult i64 %125, %1
+  %.not145 = icmp ugt i64 %1, %125
   br i1 %.not145, label %126, label %183
 
 126:                                              ; preds = %123
@@ -1830,7 +1830,7 @@ _test_box.exit.thread:                            ; preds = %.lr.ph.i, %_test_bo
   %147 = add nuw nsw i32 %146, 3
   %148 = add nuw nsw i32 %147, %143
   %149 = zext nneg i32 %148 to i64
-  %.not147 = icmp ult i64 %149, %1
+  %.not147 = icmp ugt i64 %1, %149
   br i1 %.not147, label %150, label %183
 
 150:                                              ; preds = %145
@@ -1913,7 +1913,7 @@ _test_box.exit.thread:                            ; preds = %.lr.ph.i, %_test_bo
   %.2 = phi i32 [ %176, %174 ], [ %173, %._crit_edge213 ], [ %137, %136 ], [ %179, %.loopexit183.loopexit ]
   %180 = icmp slt i32 %.2, 0
   %181 = zext nneg i32 %.2 to i64
-  %182 = icmp ugt i64 %181, %1
+  %182 = icmp ult i64 %1, %181
   %or.cond162 = select i1 %180, i1 true, i1 %182
   br i1 %or.cond162, label %183, label %185
 
@@ -1943,7 +1943,7 @@ _test_box.exit.thread:                            ; preds = %.lr.ph.i, %_test_bo
   %191 = load i32, ptr %190, align 4
   %192 = icmp sgt i32 %191, 0
   %193 = sext i32 %.0110181 to i64
-  %194 = icmp ult i64 %193, %1
+  %194 = icmp ugt i64 %1, %193
   %195 = and i1 %192, %194
   br i1 %195, label %.lr.ph222, label %.loopexit
 
@@ -1983,7 +1983,7 @@ _test_box.exit.thread:                            ; preds = %.lr.ph.i, %_test_bo
   %209 = getelementptr inbounds ptr, ptr %206, i64 %208
   %210 = load ptr, ptr %209, align 8
   %211 = add nsw i32 %.val.i, -1
-  %212 = icmp sgt i32 %211, %.0176220
+  %212 = icmp slt i32 %.0176220, %211
   br i1 %212, label %213, label %216
 
 213:                                              ; preds = %207
@@ -2171,7 +2171,7 @@ _get_bracketed_list.exit:                         ; preds = %252, %280, %311
   %314 = load i32, ptr %190, align 4
   %315 = icmp slt i32 %.1177, %314
   %316 = sext i32 %313 to i64
-  %317 = icmp ult i64 %316, %1
+  %317 = icmp ugt i64 %1, %316
   %318 = select i1 %315, i1 %317, i1 false
   br i1 %318, label %197, label %.loopexit, !llvm.loop !28
 
@@ -2189,7 +2189,7 @@ _get_bracketed_list.exit:                         ; preds = %252, %280, %311
 
 322:                                              ; preds = %.loopexit
   %323 = sext i32 %.11 to i64
-  %.not156 = icmp ult i64 %323, %1
+  %.not156 = icmp ugt i64 %1, %323
   br i1 %.not156, label %328, label %324
 
 324:                                              ; preds = %322
@@ -2646,14 +2646,14 @@ _zero_padded.exit.thread.i.i.i.i:                 ; preds = %82
 
 _zero_padded.exit28.loopexit.i.i.i.i:             ; preds = %.lr.ph.i23.i.i.i.i
   %90 = sub nsw i32 %79, %87
-  %91 = icmp slt i32 %87, %79
+  %91 = icmp sgt i32 %79, %87
   %92 = select i1 %91, i32 %90, i32 0
   br label %_zero_padded.exit28.i.i.i.i
 
 _zero_padded.exit28.i.i.i.i:                      ; preds = %_zero_padded.exit28.loopexit.i.i.i.i, %_zero_padded.exit.thread.i.i.i.i
   %93 = phi i32 [ %85, %_zero_padded.exit.thread.i.i.i.i ], [ %92, %_zero_padded.exit28.loopexit.i.i.i.i ]
   %.0.lcssa.i27.i.i.i.i = phi i32 [ 1, %_zero_padded.exit.thread.i.i.i.i ], [ %89, %_zero_padded.exit28.loopexit.i.i.i.i ]
-  %94 = icmp slt i32 %.0.lcssa.i27.i.i.i.i, %80
+  %94 = icmp sgt i32 %80, %.0.lcssa.i27.i.i.i.i
   %95 = sub nsw i32 %80, %.0.lcssa.i27.i.i.i.i
   %96 = select i1 %94, i32 %95, i32 0
   %.not8.i29.i.i.i.i = icmp ult i64 %77, 10
@@ -2683,14 +2683,14 @@ _zero_padded.exit35.thread.i.i.i.i:               ; preds = %_zero_padded.exit28
 
 _zero_padded.exit42.loopexit.i.i.i.i:             ; preds = %.lr.ph.i37.i.i.i.i
   %104 = sub nsw i32 %80, %101
-  %105 = icmp slt i32 %101, %80
+  %105 = icmp sgt i32 %80, %101
   %106 = select i1 %105, i32 %104, i32 0
   br label %_zero_padded.exit42.i.i.i.i
 
 _zero_padded.exit42.i.i.i.i:                      ; preds = %_zero_padded.exit42.loopexit.i.i.i.i, %_zero_padded.exit35.thread.i.i.i.i
   %107 = phi i32 [ %99, %_zero_padded.exit35.thread.i.i.i.i ], [ %106, %_zero_padded.exit42.loopexit.i.i.i.i ]
   %.0.lcssa.i41.i.i.i.i = phi i32 [ 1, %_zero_padded.exit35.thread.i.i.i.i ], [ %103, %_zero_padded.exit42.loopexit.i.i.i.i ]
-  %108 = icmp slt i32 %.0.lcssa.i41.i.i.i.i, %79
+  %108 = icmp sgt i32 %79, %.0.lcssa.i41.i.i.i.i
   %109 = sub nsw i32 %79, %.0.lcssa.i41.i.i.i.i
   %110 = select i1 %108, i32 %109, i32 0
   %.not.i.i.i.i = icmp eq i32 %93, %96
@@ -2823,7 +2823,7 @@ _zero_padded.exit42.i.i.i.i:                      ; preds = %_zero_padded.exit42
 175:                                              ; preds = %162
   %176 = add nuw nsw i32 %.050132.i, 1
   %177 = load i32, ptr %9, align 4
-  %178 = icmp slt i32 %177, %.050132.i
+  %178 = icmp sgt i32 %.050132.i, %177
   br i1 %178, label %hostlist_insert_range.exit.i, label %179
 
 179:                                              ; preds = %175
@@ -2896,7 +2896,7 @@ hostrange_copy.exit.i62.i:                        ; preds = %200, %195
   %216 = getelementptr inbounds ptr, ptr %215, i64 %214
   store ptr %.0.i.i.i, ptr %216, align 8
   %217 = load i32, ptr %9, align 4
-  %218 = icmp sgt i32 %217, %.050132.i
+  %218 = icmp slt i32 %.050132.i, %217
   br i1 %218, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %hostrange_copy.exit.i62.i, %.lr.ph.i.i
@@ -2957,7 +2957,7 @@ hostlist_insert_range.exit.i:                     ; preds = %238, %._crit_edge.i
 243:                                              ; preds = %hostlist_insert_range.exit.i
   %244 = add nuw nsw i32 %.151.i, 1
   %245 = load i32, ptr %9, align 4
-  %246 = icmp slt i32 %245, %.151.i
+  %246 = icmp sgt i32 %.151.i, %245
   br i1 %246, label %hostrange_destroy.exit.i, label %247
 
 247:                                              ; preds = %243
@@ -3015,7 +3015,7 @@ hostrange_copy.exit.i63.i:                        ; preds = %267, %262
   %278 = getelementptr inbounds ptr, ptr %277, i64 %256
   store ptr %.0.i.i64.i, ptr %278, align 8
   %279 = load i32, ptr %9, align 4
-  %280 = icmp sgt i32 %279, %.151.i
+  %280 = icmp slt i32 %.151.i, %279
   br i1 %280, label %.lr.ph.i75.i, label %._crit_edge.i65.i
 
 .lr.ph.i75.i:                                     ; preds = %hostrange_copy.exit.i63.i, %.lr.ph.i75.i
@@ -3198,14 +3198,14 @@ _zero_padded.exit.thread.i.i.i117.i:              ; preds = %352
 
 _zero_padded.exit28.loopexit.i.i.i97.i:           ; preds = %.lr.ph.i23.i.i.i93.i
   %360 = sub nsw i32 %349, %357
-  %361 = icmp slt i32 %357, %349
+  %361 = icmp sgt i32 %349, %357
   %362 = select i1 %361, i32 %360, i32 0
   br label %_zero_padded.exit28.i.i.i98.i
 
 _zero_padded.exit28.i.i.i98.i:                    ; preds = %_zero_padded.exit28.loopexit.i.i.i97.i, %_zero_padded.exit.thread.i.i.i117.i
   %363 = phi i32 [ %355, %_zero_padded.exit.thread.i.i.i117.i ], [ %362, %_zero_padded.exit28.loopexit.i.i.i97.i ]
   %.0.lcssa.i27.i.i.i99.i = phi i32 [ 1, %_zero_padded.exit.thread.i.i.i117.i ], [ %359, %_zero_padded.exit28.loopexit.i.i.i97.i ]
-  %364 = icmp slt i32 %.0.lcssa.i27.i.i.i99.i, %350
+  %364 = icmp sgt i32 %350, %.0.lcssa.i27.i.i.i99.i
   %365 = sub nsw i32 %350, %.0.lcssa.i27.i.i.i99.i
   %366 = select i1 %364, i32 %365, i32 0
   %.not8.i29.i.i.i100.i = icmp ult i64 %347, 10
@@ -3235,14 +3235,14 @@ _zero_padded.exit35.thread.i.i.i116.i:            ; preds = %_zero_padded.exit28
 
 _zero_padded.exit42.loopexit.i.i.i110.i:          ; preds = %.lr.ph.i37.i.i.i106.i
   %374 = sub nsw i32 %350, %371
-  %375 = icmp slt i32 %371, %350
+  %375 = icmp sgt i32 %350, %371
   %376 = select i1 %375, i32 %374, i32 0
   br label %_zero_padded.exit42.i.i.i111.i
 
 _zero_padded.exit42.i.i.i111.i:                   ; preds = %_zero_padded.exit42.loopexit.i.i.i110.i, %_zero_padded.exit35.thread.i.i.i116.i
   %377 = phi i32 [ %369, %_zero_padded.exit35.thread.i.i.i116.i ], [ %376, %_zero_padded.exit42.loopexit.i.i.i110.i ]
   %.0.lcssa.i41.i.i.i112.i = phi i32 [ 1, %_zero_padded.exit35.thread.i.i.i116.i ], [ %373, %_zero_padded.exit42.loopexit.i.i.i110.i ]
-  %378 = icmp slt i32 %.0.lcssa.i41.i.i.i112.i, %349
+  %378 = icmp sgt i32 %349, %.0.lcssa.i41.i.i.i112.i
   %379 = sub nsw i32 %349, %.0.lcssa.i41.i.i.i112.i
   %380 = select i1 %378, i32 %379, i32 0
   %.not.i.i.i113.i = icmp eq i32 %363, %366
@@ -3647,14 +3647,14 @@ _zero_padded.exit.thread.i.i.i:                   ; preds = %72
 
 _zero_padded.exit28.loopexit.i.i.i:               ; preds = %.lr.ph.i23.i.i.i
   %80 = sub nsw i32 %69, %77
-  %81 = icmp slt i32 %77, %69
+  %81 = icmp sgt i32 %69, %77
   %82 = select i1 %81, i32 %80, i32 0
   br label %_zero_padded.exit28.i.i.i
 
 _zero_padded.exit28.i.i.i:                        ; preds = %_zero_padded.exit28.loopexit.i.i.i, %_zero_padded.exit.thread.i.i.i
   %83 = phi i32 [ %75, %_zero_padded.exit.thread.i.i.i ], [ %82, %_zero_padded.exit28.loopexit.i.i.i ]
   %.0.lcssa.i27.i.i.i = phi i32 [ 1, %_zero_padded.exit.thread.i.i.i ], [ %79, %_zero_padded.exit28.loopexit.i.i.i ]
-  %84 = icmp slt i32 %.0.lcssa.i27.i.i.i, %70
+  %84 = icmp sgt i32 %70, %.0.lcssa.i27.i.i.i
   %85 = sub nsw i32 %70, %.0.lcssa.i27.i.i.i
   %86 = select i1 %84, i32 %85, i32 0
   %.not8.i29.i.i.i = icmp ult i64 %67, 10
@@ -3684,14 +3684,14 @@ _zero_padded.exit35.thread.i.i.i:                 ; preds = %_zero_padded.exit28
 
 _zero_padded.exit42.loopexit.i.i.i:               ; preds = %.lr.ph.i37.i.i.i
   %94 = sub nsw i32 %70, %91
-  %95 = icmp slt i32 %91, %70
+  %95 = icmp sgt i32 %70, %91
   %96 = select i1 %95, i32 %94, i32 0
   br label %_zero_padded.exit42.i.i.i
 
 _zero_padded.exit42.i.i.i:                        ; preds = %_zero_padded.exit42.loopexit.i.i.i, %_zero_padded.exit35.thread.i.i.i
   %97 = phi i32 [ %89, %_zero_padded.exit35.thread.i.i.i ], [ %96, %_zero_padded.exit42.loopexit.i.i.i ]
   %.0.lcssa.i41.i.i.i = phi i32 [ 1, %_zero_padded.exit35.thread.i.i.i ], [ %93, %_zero_padded.exit42.loopexit.i.i.i ]
-  %98 = icmp slt i32 %.0.lcssa.i41.i.i.i, %69
+  %98 = icmp sgt i32 %69, %.0.lcssa.i41.i.i.i
   %99 = sub nsw i32 %69, %.0.lcssa.i41.i.i.i
   %100 = select i1 %98, i32 %99, i32 0
   %.not.i.i.i = icmp eq i32 %83, %86
@@ -4048,14 +4048,14 @@ _zero_padded.exit.thread.i.i:                     ; preds = %31
 
 _zero_padded.exit28.loopexit.i.i:                 ; preds = %.lr.ph.i23.i.i
   %39 = sub nsw i32 %28, %36
-  %40 = icmp slt i32 %36, %28
+  %40 = icmp sgt i32 %28, %36
   %41 = select i1 %40, i32 %39, i32 0
   br label %_zero_padded.exit28.i.i
 
 _zero_padded.exit28.i.i:                          ; preds = %_zero_padded.exit28.loopexit.i.i, %_zero_padded.exit.thread.i.i
   %42 = phi i32 [ %34, %_zero_padded.exit.thread.i.i ], [ %41, %_zero_padded.exit28.loopexit.i.i ]
   %.0.lcssa.i27.i.i = phi i32 [ 1, %_zero_padded.exit.thread.i.i ], [ %38, %_zero_padded.exit28.loopexit.i.i ]
-  %43 = icmp slt i32 %.0.lcssa.i27.i.i, %29
+  %43 = icmp sgt i32 %29, %.0.lcssa.i27.i.i
   %44 = sub nsw i32 %29, %.0.lcssa.i27.i.i
   %45 = select i1 %43, i32 %44, i32 0
   %.not8.i29.i.i = icmp ult i64 %26, 10
@@ -4085,14 +4085,14 @@ _zero_padded.exit35.thread.i.i:                   ; preds = %_zero_padded.exit28
 
 _zero_padded.exit42.loopexit.i.i:                 ; preds = %.lr.ph.i37.i.i
   %53 = sub nsw i32 %29, %50
-  %54 = icmp slt i32 %50, %29
+  %54 = icmp sgt i32 %29, %50
   %55 = select i1 %54, i32 %53, i32 0
   br label %_zero_padded.exit42.i.i
 
 _zero_padded.exit42.i.i:                          ; preds = %_zero_padded.exit42.loopexit.i.i, %_zero_padded.exit35.thread.i.i
   %56 = phi i32 [ %48, %_zero_padded.exit35.thread.i.i ], [ %55, %_zero_padded.exit42.loopexit.i.i ]
   %.0.lcssa.i41.i.i = phi i32 [ 1, %_zero_padded.exit35.thread.i.i ], [ %52, %_zero_padded.exit42.loopexit.i.i ]
-  %57 = icmp slt i32 %.0.lcssa.i41.i.i, %28
+  %57 = icmp sgt i32 %28, %.0.lcssa.i41.i.i
   %58 = sub nsw i32 %28, %.0.lcssa.i41.i.i
   %59 = select i1 %57, i32 %58, i32 0
   %.not.i.i = icmp eq i32 %42, %45
@@ -4442,14 +4442,14 @@ _zero_padded.exit.thread.i.i:                     ; preds = %56
 
 _zero_padded.exit28.loopexit.i.i:                 ; preds = %.lr.ph.i23.i.i
   %64 = sub nsw i32 %53, %61
-  %65 = icmp slt i32 %61, %53
+  %65 = icmp sgt i32 %53, %61
   %66 = select i1 %65, i32 %64, i32 0
   br label %_zero_padded.exit28.i.i
 
 _zero_padded.exit28.i.i:                          ; preds = %_zero_padded.exit28.loopexit.i.i, %_zero_padded.exit.thread.i.i
   %67 = phi i32 [ %59, %_zero_padded.exit.thread.i.i ], [ %66, %_zero_padded.exit28.loopexit.i.i ]
   %.0.lcssa.i27.i.i = phi i32 [ 1, %_zero_padded.exit.thread.i.i ], [ %63, %_zero_padded.exit28.loopexit.i.i ]
-  %68 = icmp slt i32 %.0.lcssa.i27.i.i, %54
+  %68 = icmp sgt i32 %54, %.0.lcssa.i27.i.i
   %69 = sub nsw i32 %54, %.0.lcssa.i27.i.i
   %70 = select i1 %68, i32 %69, i32 0
   %.not8.i29.i.i = icmp ult i64 %51, 10
@@ -4479,14 +4479,14 @@ _zero_padded.exit35.thread.i.i:                   ; preds = %_zero_padded.exit28
 
 _zero_padded.exit42.loopexit.i.i:                 ; preds = %.lr.ph.i37.i.i
   %78 = sub nsw i32 %54, %75
-  %79 = icmp slt i32 %75, %54
+  %79 = icmp sgt i32 %54, %75
   %80 = select i1 %79, i32 %78, i32 0
   br label %_zero_padded.exit42.i.i
 
 _zero_padded.exit42.i.i:                          ; preds = %_zero_padded.exit42.loopexit.i.i, %_zero_padded.exit35.thread.i.i
   %81 = phi i32 [ %73, %_zero_padded.exit35.thread.i.i ], [ %80, %_zero_padded.exit42.loopexit.i.i ]
   %.0.lcssa.i41.i.i = phi i32 [ 1, %_zero_padded.exit35.thread.i.i ], [ %77, %_zero_padded.exit42.loopexit.i.i ]
-  %82 = icmp slt i32 %.0.lcssa.i41.i.i, %53
+  %82 = icmp sgt i32 %53, %.0.lcssa.i41.i.i
   %83 = sub nsw i32 %53, %.0.lcssa.i41.i.i
   %84 = select i1 %82, i32 %83, i32 0
   %.not.i.i = icmp eq i32 %67, %70
@@ -4876,7 +4876,7 @@ define internal fastcc void @hostlist_delete_range(ptr nocapture noundef %0, i32
   %9 = getelementptr inbounds i8, ptr %0, i64 52
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, -1
-  %12 = icmp sgt i32 %11, %1
+  %12 = icmp slt i32 %1, %11
   br i1 %12, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %2
@@ -5010,7 +5010,7 @@ define internal fastcc noalias ptr @_hostrange_string(ptr nocapture noundef read
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = trunc i64 %24 to i32
-  %26 = add i32 %25, %1
+  %26 = add i32 %1, %25
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -5078,7 +5078,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
 define internal fastcc ptr @hostrange_delete_host(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = icmp eq i64 %4, %1
+  %5 = icmp eq i64 %1, %4
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
@@ -5089,7 +5089,7 @@ define internal fastcc ptr @hostrange_delete_host(ptr nocapture noundef %0, i64 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = icmp eq i64 %10, %1
+  %11 = icmp eq i64 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
@@ -5148,7 +5148,7 @@ hostrange_copy.exit:                              ; preds = %19, %24
 define internal fastcc void @hostlist_insert_range(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4
-  %6 = icmp slt i32 %5, %2
+  %6 = icmp sgt i32 %2, %5
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
@@ -5213,7 +5213,7 @@ hostrange_copy.exit:                              ; preds = %26, %31
   %45 = getelementptr inbounds ptr, ptr %44, i64 %19
   store ptr %.0.i, ptr %45, align 8
   %46 = load i32, ptr %4, align 4
-  %47 = icmp sgt i32 %46, %2
+  %47 = icmp slt i32 %2, %46
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %hostrange_copy.exit, %.lr.ph
@@ -5563,7 +5563,7 @@ _zero_padded.exit.thread.i:                       ; preds = %69
 
 _zero_padded.exit28.loopexit.i:                   ; preds = %.lr.ph.i23.i
   %77 = sub nsw i32 %67, %74
-  %78 = icmp slt i32 %74, %67
+  %78 = icmp sgt i32 %67, %74
   %79 = select i1 %78, i32 %77, i32 0
   br label %_zero_padded.exit28.i
 
@@ -5607,7 +5607,7 @@ _zero_padded.exit42.loopexit.i:                   ; preds = %.lr.ph.i37.i
 _zero_padded.exit42.i:                            ; preds = %_zero_padded.exit42.loopexit.i, %_zero_padded.exit35.thread.i
   %94 = phi i32 [ %86, %_zero_padded.exit35.thread.i ], [ %93, %_zero_padded.exit42.loopexit.i ]
   %.0.lcssa.i41.i = phi i32 [ 1, %_zero_padded.exit35.thread.i ], [ %90, %_zero_padded.exit42.loopexit.i ]
-  %95 = icmp slt i32 %.0.lcssa.i41.i, %67
+  %95 = icmp sgt i32 %67, %.0.lcssa.i41.i
   %96 = sub nsw i32 %67, %.0.lcssa.i41.i
   %97 = select i1 %95, i32 %96, i32 0
   %.not.i56 = icmp eq i32 %80, %83
@@ -5666,7 +5666,7 @@ define internal fastcc range(i64 -1, 2147483648) i64 @hostrange_to_string(ptr no
   %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef %1, ptr noundef nonnull @.str.11, ptr noundef %15) #22
   %17 = icmp sgt i32 %16, -1
   %18 = zext nneg i32 %16 to i64
-  %.not82 = icmp ult i64 %18, %1
+  %.not82 = icmp ugt i64 %1, %18
   %or.cond86 = select i1 %17, i1 %.not82, i1 false
   br i1 %or.cond86, label %99, label %.loopexit
 
@@ -5702,7 +5702,7 @@ define internal fastcc range(i64 -1, 2147483648) i64 @hostrange_to_string(ptr no
 34:                                               ; preds = %30, %.lr.ph13.split.us
   %.1.us = phi i32 [ %31, %30 ], [ %.0689.us, %.lr.ph13.split.us ]
   %35 = zext nneg i32 %.1.us to i64
-  %.not78.us = icmp ult i64 %35, %1
+  %.not78.us = icmp ugt i64 %1, %35
   br i1 %.not78.us, label %36, label %.loopexit
 
 36:                                               ; preds = %34
@@ -5718,7 +5718,7 @@ define internal fastcc range(i64 -1, 2147483648) i64 @hostrange_to_string(ptr no
   %44 = icmp sgt i32 %43, -1
   %45 = add nuw nsw i32 %43, %.1.us
   %46 = zext nneg i32 %45 to i64
-  %.not79.us = icmp ult i64 %46, %1
+  %.not79.us = icmp ugt i64 %1, %46
   %or.cond85.us = select i1 %44, i1 %.not79.us, i1 false
   br i1 %or.cond85.us, label %65, label %.loopexit
 
@@ -5750,10 +5750,10 @@ hostlist_parse_int_to_array.exit.us:              ; preds = %.lr.ph.i.us
 59:                                               ; preds = %hostlist_parse_int_to_array.exit.us
   %60 = add nuw nsw i32 %57, %.1.us
   %61 = zext nneg i32 %60 to i64
-  %.not80.us = icmp ult i64 %61, %1
+  %.not80.us = icmp ugt i64 %1, %61
   %62 = add nuw nsw i32 %60, %.065
   %63 = zext nneg i32 %62 to i64
-  %.not81.us = icmp ult i64 %63, %1
+  %.not81.us = icmp ugt i64 %1, %63
   %or.cond.us = select i1 %.not80.us, i1 %.not81.us, i1 false
   br i1 %or.cond.us, label %.preheader.us, label %.thread
 
@@ -5809,7 +5809,7 @@ hostlist_parse_int_to_array.exit.us:              ; preds = %.lr.ph.i.us
 81:                                               ; preds = %77, %.lr.ph13.split
   %.1 = phi i32 [ %78, %77 ], [ %.0689, %.lr.ph13.split ]
   %82 = zext nneg i32 %.1 to i64
-  %.not78 = icmp ult i64 %82, %1
+  %.not78 = icmp ugt i64 %1, %82
   br i1 %.not78, label %83, label %.loopexit
 
 83:                                               ; preds = %81
@@ -5821,7 +5821,7 @@ hostlist_parse_int_to_array.exit.us:              ; preds = %.lr.ph.i.us
   %89 = icmp sgt i32 %88, -1
   %90 = add nuw nsw i32 %88, %.1
   %91 = zext nneg i32 %90 to i64
-  %.not79 = icmp ult i64 %91, %1
+  %.not79 = icmp ugt i64 %1, %91
   %or.cond85 = select i1 %89, i1 %.not79, i1 false
   br i1 %or.cond85, label %92, label %.loopexit
 
@@ -6105,7 +6105,7 @@ define internal fastcc i32 @_get_boxes(ptr nocapture noundef writeonly %0, i32 n
 
 ._crit_edge:                                      ; preds = %28
   %36 = trunc nsw i64 %indvars.iv.next to i32
-  %.not56 = icmp slt i32 %36, %1
+  %.not56 = icmp sgt i32 %1, %36
   br i1 %.not56, label %39, label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %.preheader61
@@ -7275,7 +7275,7 @@ define internal fastcc range(i32 0, 2) i32 @_parse_single_range(ptr noundef %0, 
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 %23, ptr %24, align 8
-  %.not50 = icmp eq i32 %23, %2
+  %.not50 = icmp eq i32 %2, %23
   %25 = select i1 %.not50, i32 36, i32 10
   %.0 = select i1 %6, i32 10, i32 %25
   %26 = call i64 @strtoul(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %.0) #22
@@ -7365,7 +7365,7 @@ define internal fastcc noundef i32 @_add_box_ranges(i32 noundef %0, i32 noundef 
 
 .lr.ph75:                                         ; preds = %9
   %16 = add nsw i32 %8, -2
-  %17 = icmp eq i32 %16, %0
+  %17 = icmp eq i32 %0, %16
   %18 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %10
   %19 = add nsw i32 %0, 1
   %20 = shl nuw nsw i32 %8, 1
@@ -7592,14 +7592,14 @@ _zero_padded.exit.thread.i.i:                     ; preds = %27
 
 _zero_padded.exit28.loopexit.i.i:                 ; preds = %.lr.ph.i23.i.i
   %35 = sub nsw i32 %24, %32
-  %36 = icmp slt i32 %32, %24
+  %36 = icmp sgt i32 %24, %32
   %37 = select i1 %36, i32 %35, i32 0
   br label %_zero_padded.exit28.i.i
 
 _zero_padded.exit28.i.i:                          ; preds = %_zero_padded.exit28.loopexit.i.i, %_zero_padded.exit.thread.i.i
   %38 = phi i32 [ %30, %_zero_padded.exit.thread.i.i ], [ %37, %_zero_padded.exit28.loopexit.i.i ]
   %.0.lcssa.i27.i.i = phi i32 [ 1, %_zero_padded.exit.thread.i.i ], [ %34, %_zero_padded.exit28.loopexit.i.i ]
-  %39 = icmp slt i32 %.0.lcssa.i27.i.i, %25
+  %39 = icmp sgt i32 %25, %.0.lcssa.i27.i.i
   %40 = sub nsw i32 %25, %.0.lcssa.i27.i.i
   %41 = select i1 %39, i32 %40, i32 0
   %.not8.i29.i.i = icmp ult i64 %22, 10
@@ -7629,14 +7629,14 @@ _zero_padded.exit35.thread.i.i:                   ; preds = %_zero_padded.exit28
 
 _zero_padded.exit42.loopexit.i.i:                 ; preds = %.lr.ph.i37.i.i
   %49 = sub nsw i32 %25, %46
-  %50 = icmp slt i32 %46, %25
+  %50 = icmp sgt i32 %25, %46
   %51 = select i1 %50, i32 %49, i32 0
   br label %_zero_padded.exit42.i.i
 
 _zero_padded.exit42.i.i:                          ; preds = %_zero_padded.exit42.loopexit.i.i, %_zero_padded.exit35.thread.i.i
   %52 = phi i32 [ %44, %_zero_padded.exit35.thread.i.i ], [ %51, %_zero_padded.exit42.loopexit.i.i ]
   %.0.lcssa.i41.i.i = phi i32 [ 1, %_zero_padded.exit35.thread.i.i ], [ %48, %_zero_padded.exit42.loopexit.i.i ]
-  %53 = icmp slt i32 %.0.lcssa.i41.i.i, %24
+  %53 = icmp sgt i32 %24, %.0.lcssa.i41.i.i
   %54 = sub nsw i32 %24, %.0.lcssa.i41.i.i
   %55 = select i1 %53, i32 %54, i32 0
   %.not.i.i = icmp eq i32 %38, %41
@@ -7724,7 +7724,7 @@ define internal fastcc void @_set_box_in_grid(i32 noundef %0, i32 noundef %1, pt
 .lr.ph:                                           ; preds = %6
   %12 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %7
   %13 = add nsw i32 %5, -1
-  %14 = icmp eq i32 %13, %0
+  %14 = icmp eq i32 %0, %13
   %15 = add nsw i32 %0, 1
   br i1 %14, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -7789,7 +7789,7 @@ define internal fastcc noundef zeroext i1 @_test_box_in_grid(i32 noundef %0, i32
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %4
   %10 = add nsw i32 %2, -1
-  %11 = icmp eq i32 %10, %0
+  %11 = icmp eq i32 %0, %10
   %12 = add nsw i32 %0, 1
   %13 = load i32, ptr %9, align 4
   %14 = mul nsw i32 %13, %6
@@ -7918,7 +7918,7 @@ define internal fastcc range(i32 0, 2) i32 @_tell_if_used(i32 noundef %0, i32 no
 .lr.ph:                                           ; preds = %6
   %13 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %7
   %14 = add nsw i32 %5, -1
-  %15 = icmp eq i32 %14, %0
+  %15 = icmp eq i32 %0, %14
   %16 = add nsw i32 %0, 1
   %17 = getelementptr inbounds [5 x i32], ptr @grid_start, i64 0, i64 %7
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
@@ -8048,7 +8048,7 @@ define internal fastcc void @_set_min_max_of_grid(i32 noundef %0, i32 noundef %1
 .lr.ph4:                                          ; preds = %6
   %13 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %7
   %14 = add nsw i32 %5, -1
-  %15 = icmp eq i32 %14, %0
+  %15 = icmp eq i32 %0, %14
   %16 = add nsw i32 %0, 1
   br i1 %15, label %.lr.ph4.split.us, label %.lr.ph4.split
 
@@ -8141,7 +8141,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @hostrange_numstr(
 
 10:                                               ; preds = %3
   %11 = zext i16 %4 to i64
-  %.not = icmp ult i64 %11, %1
+  %.not = icmp ugt i64 %1, %11
   br i1 %.not, label %12, label %87
 
 12:                                               ; preds = %10
@@ -8201,7 +8201,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef %1, ptr noundef nonnull @.str.12, i32 noundef %15, i64 noundef %36) #22
   %38 = icmp sgt i32 %37, -1
   %39 = zext nneg i32 %37 to i64
-  %.not66 = icmp ult i64 %39, %1
+  %.not66 = icmp ugt i64 %1, %39
   %or.cond68 = select i1 %38, i1 %.not66, i1 false
   br i1 %or.cond68, label %40, label %87
 
@@ -8218,7 +8218,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   %47 = add nuw nsw i32 %5, 2
   %48 = add nuw nsw i32 %47, %.1
   %49 = zext nneg i32 %48 to i64
-  %50 = icmp ugt i64 %49, %1
+  %50 = icmp ult i64 %1, %49
   br i1 %50, label %87, label %51
 
 51:                                               ; preds = %46
@@ -8287,7 +8287,7 @@ hostlist_parse_int_to_array.exit76:               ; preds = %.lr.ph.i72
   %82 = icmp sgt i32 %81, -1
   %83 = add nuw nsw i32 %81, %.1
   %84 = zext nneg i32 %83 to i64
-  %.not67 = icmp ult i64 %84, %1
+  %.not67 = icmp ugt i64 %1, %84
   %or.cond70 = select i1 %82, i1 %.not67, i1 false
   br i1 %or.cond70, label %85, label %87
 

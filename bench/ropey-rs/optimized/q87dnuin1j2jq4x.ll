@@ -29,7 +29,7 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
   %9 = load i64, ptr %8, align 8, !alias.scope !4, !noundef !7
   %10 = load i64, ptr %0, align 8, !alias.scope !8, !noundef !7
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %7
+  %12 = icmp ugt i64 %7, %11
   br i1 %12, label %13, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hab39dd1fb96859a6E.llvm.11761237816275622986.exit"
 
 13:                                               ; preds = %3
@@ -264,7 +264,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within1
   %10 = extractvalue { i64, i64 } %8, 1
   %11 = sub i64 %10, %9
   %12 = sub i64 %1, %11
-  %.not = icmp ult i64 %12, %4
+  %.not = icmp ugt i64 %4, %12
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %6
@@ -347,7 +347,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hab39dd1f
   %5 = load i64, ptr %4, align 8, !noundef !7
   %6 = load i64, ptr %0, align 8, !alias.scope !56, !noundef !7
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd6ffe1f49b64818eE.llvm.11761237816275622986.exit"
 
 9:                                                ; preds = %3
@@ -373,7 +373,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hbe066a
   %5 = load i64, ptr %4, align 8, !alias.scope !59, !noundef !7
   %6 = load i64, ptr %0, align 8, !alias.scope !64, !noundef !7
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h436592eca368d2f9E.llvm.11761237816275622986.exit"
 
 9:                                                ; preds = %3
@@ -399,7 +399,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd6ffe1f49b64818eE
   %4 = load i64, ptr %3, align 8, !noundef !7
   %5 = load i64, ptr %0, align 8, !noundef !7
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2

@@ -59,7 +59,7 @@ opal_vasprintf.exit._crit_edge.i:                 ; preds = %opal_vasprintf.exit
 
 8:                                                ; preds = %opal_vasprintf.exit.i
   %9 = zext nneg i32 %6 to i64
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   %11 = load ptr, ptr %4, align 8
   br i1 %10, label %12, label %14
 
@@ -102,7 +102,7 @@ opal_vasprintf.exit._crit_edge:                   ; preds = %opal_vasprintf.exit
 
 8:                                                ; preds = %opal_vasprintf.exit
   %9 = zext nneg i32 %6 to i64
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   %11 = load ptr, ptr %5, align 8
   br i1 %10, label %12, label %14
 

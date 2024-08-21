@@ -82,7 +82,7 @@ define void @_ZN5faiss15IndexBinaryFlat3addElPKh(ptr noundef nonnull align 8 der
   %7 = getelementptr inbounds i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = mul nsw i64 %9, %1
+  %10 = mul nsw i64 %1, %9
   %11 = getelementptr inbounds i8, ptr %2, i64 %10
   %12 = load ptr, ptr %4, align 8
   %13 = ptrtoint ptr %6 to i64
@@ -406,7 +406,7 @@ define void @_ZNK5faiss15IndexBinaryFlat11reconstructElPh(ptr nocapture noundef 
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
-  %8 = mul nsw i64 %7, %1
+  %8 = mul nsw i64 %1, %7
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %10, i64 %7, i1 false)
@@ -487,7 +487,7 @@ _ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.ex
 
 _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %27 = getelementptr inbounds i8, ptr %2, i64 %18
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %27, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %27
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit, label %28
 
 28:                                               ; preds = %_ZSt7advanceIPKhmEvRT_T0_.exit
@@ -550,7 +550,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIhSaIh
   %51 = phi ptr [ %50, %49 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit ]
   %52 = ptrtoint ptr %1 to i64
   %53 = sub i64 %52, %40
-  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %39, %1
+  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %1, %39
   br i1 %.not.i.i.i.i.i.i.i.i.i60, label %55, label %54
 
 54:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit
@@ -655,7 +655,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -738,7 +738,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40

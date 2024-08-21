@@ -567,7 +567,7 @@ define internal range(i32 -1, 1) i32 @qcrypto_gnutls_cipher_setiv(ptr nocapture 
 entry:
   %blocksize = getelementptr inbounds i8, ptr %cipher, i64 48
   %0 = load i64, ptr %blocksize, align 8
-  %cmp.not = icmp eq i64 %0, %niv
+  %cmp.not = icmp eq i64 %niv, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

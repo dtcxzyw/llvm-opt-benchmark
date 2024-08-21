@@ -1821,7 +1821,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %if.then.i.i.i, %invoke.cont
   %4 = load i64, ptr %0, align 8
   %cond.i.i = select i1 %cmp.i.i.i, i64 15, i64 %4
-  %cmp.not.i = icmp ult i64 %cond.i.i, %add
+  %cmp.not.i = icmp ugt i64 %add, %cond.i.i
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont4
 
 if.end.i:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -1830,7 +1830,7 @@ if.end.i:                                         ; preds = %_ZNKSt7__cxx1112bas
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
   %mul.i.i = shl nuw i64 %cond.i.i, 1
-  %cmp3.i.i = icmp ugt i64 %mul.i.i, %add
+  %cmp3.i.i = icmp ult i64 %add, %mul.i.i
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i, i64 9223372036854775807)
   %__res.addr.0.i = select i1 %cmp3.i.i, i64 %spec.store.select.i.i, i64 %add
   %add.i.i = add nuw i64 %__res.addr.0.i, 1
@@ -10934,7 +10934,7 @@ if.then:                                          ; preds = %_ZNKSt7__cxx1112bas
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %__pos
   %4 = add i64 %__len1, %__pos
   %sub5 = sub i64 %0, %4
-  %cmp.i.i68 = icmp ugt ptr %1, %__s
+  %cmp.i.i68 = icmp ult ptr %__s, %1
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %0
   %cmp.i2.i = icmp ult ptr %add.ptr.i, %__s
   %5 = select i1 %cmp.i.i68, i1 true, i1 %cmp.i2.i
@@ -11043,7 +11043,7 @@ if.end.i.i80:                                     ; preds = %if.then32
   br label %if.end53
 
 if.else33:                                        ; preds = %if.then28
-  %cmp35.not = icmp ugt ptr %add.ptr30, %__s
+  %cmp35.not = icmp ult ptr %__s, %add.ptr30
   br i1 %cmp35.not, label %if.else40, label %if.then36
 
 if.then36:                                        ; preds = %if.else33
@@ -11217,7 +11217,7 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp.not.i = icmp ne ptr %0, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp2.i = icmp eq ptr %1, %add.ptr.i.i
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit, label %lor.rhs.i
 
@@ -11271,7 +11271,7 @@ return:                                           ; preds = %entry, %_ZNSt8_Rb_t
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

@@ -35,7 +35,7 @@ define range(i32 -1, 65536) i32 @FT_Get_Gasp(ptr noundef readonly %0, i32 nounde
   %.015 = phi ptr [ %13, %11 ], [ %21, %20 ]
   %17 = load i16, ptr %.015, align 2
   %18 = zext i16 %17 to i32
-  %19 = icmp ult i32 %18, %1
+  %19 = icmp ugt i32 %1, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16

@@ -2830,7 +2830,7 @@ if.then:                                          ; preds = %_ZNKSt7__cxx1112bas
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %__pos
   %4 = add i64 %__len1, %__pos
   %sub5 = sub i64 %0, %4
-  %cmp.i.i68 = icmp ugt ptr %1, %__s
+  %cmp.i.i68 = icmp ult ptr %__s, %1
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %0
   %cmp.i2.i = icmp ult ptr %add.ptr.i, %__s
   %5 = select i1 %cmp.i.i68, i1 true, i1 %cmp.i2.i
@@ -2939,7 +2939,7 @@ if.end.i.i80:                                     ; preds = %if.then32
   br label %if.end53
 
 if.else33:                                        ; preds = %if.then28
-  %cmp35.not = icmp ugt ptr %add.ptr30, %__s
+  %cmp35.not = icmp ult ptr %__s, %add.ptr30
   br i1 %cmp35.not, label %if.else40, label %if.then36
 
 if.then36:                                        ; preds = %if.else33

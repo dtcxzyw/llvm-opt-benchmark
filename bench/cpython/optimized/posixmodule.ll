@@ -5289,8 +5289,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1025 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond2024 = phi i64 [ %cond19, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond2024, %add
+  %add = sub i64 0, %cond2024
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -10892,7 +10892,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not.i = icmp eq ptr %5, %2
+  %cmp.i.not.i = icmp eq ptr %2, %5
   br i1 %cmp.i.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -18268,8 +18268,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1028 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond2327 = phi i64 [ %cond22, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond2327, %add
+  %add = sub i64 0, %cond2327
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -26108,8 +26108,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1025 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond2024 = phi i64 [ %cond19, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond2024, %add
+  %add = sub i64 0, %cond2024
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_kwonly, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -26166,8 +26166,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1025 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond2024 = phi i64 [ %cond19, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond2024, %add
+  %add = sub i64 0, %cond2024
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_kwonly, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -26274,8 +26274,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1923 = phi i64 [ %cond18, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1923, %add
+  %add = sub i64 0, %cond1923
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_kwonly, label %if.end14
 
 if.end14:                                         ; preds = %if.end

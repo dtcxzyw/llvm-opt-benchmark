@@ -1498,7 +1498,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !121, !noalias !126, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !128, !noalias !126, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h00d36753719ea29aE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
@@ -1552,7 +1552,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !134, !noalias !139, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !141, !noalias !139, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h00d36753719ea29aE.exit"
 
 9:                                                ; preds = %3
@@ -2679,7 +2679,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hcf59f97fcbdbbc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN8bitflags6traits5Flags10difference17h176fee2addb2fa3fE.llvm.7456726251399703923(i32 noundef %0, i32 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = xor i32 %1, -1
-  %4 = and i32 %3, %0
+  %4 = and i32 %0, %3
   ret i32 %4
 }
 
@@ -2799,8 +2799,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
 
 43:                                               ; preds = %61, %10
   %.sroa.9.0.i.i.i = phi i64 [ 0, %10 ], [ %62, %61 ]
-  %.pn.i = phi i64 [ %39, %10 ], [ %63, %61 ]
-  %.sroa.01.0.i.i.i = and i64 %.pn.i, %.val4
+  %.pn.i.i = phi i64 [ %39, %10 ], [ %63, %61 ]
+  %.sroa.01.0.i.i.i = and i64 %.pn.i.i, %.val4
   %44 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i30.i.i = load <16 x i8>, ptr %44, align 1, !noalias !404
   %45 = icmp eq <16 x i8> %.0.copyload.i30.i.i, %.15.vec.insert.i.i.i
@@ -2826,7 +2826,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
   %56 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 } } }, ptr %.val, i64 %55
   %57 = getelementptr i8, ptr %56, i64 -32
   %.val6.i.i.i = load i64, ptr %57, align 8, !alias.scope !414, !noalias !419, !noundef !4
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %.val6.i.i.i, %2
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %2, %.val6.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %58, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h68003b7214c6c87aE.exit.backedge.i.i"
 
 58:                                               ; preds = %.lr.ph.i.i

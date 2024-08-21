@@ -3136,7 +3136,7 @@ common.ret:                                       ; preds = %507, %500, %146
   %.val.i = load ptr, ptr %297, align 8, !noalias !495, !noundef !46
   %298 = getelementptr i8, ptr %1, i64 376
   %.val28.i = load i64, ptr %298, align 8, !noalias !495, !noundef !46
-  %299 = icmp ult i64 %292, %.val28.i
+  %299 = icmp ugt i64 %.val28.i, %292
   br i1 %299, label %300, label %306
 
 300:                                              ; preds = %291
@@ -3173,7 +3173,7 @@ common.ret:                                       ; preds = %507, %500, %146
   %.val30.i = load i64, ptr %313, align 8, !noalias !495, !noundef !46
   %314 = load i64, ptr %232, align 8, !alias.scope !601, !noalias !608, !noundef !46
   %315 = sub i64 %314, %311
-  %316 = icmp ult i64 %315, %.val30.i
+  %316 = icmp ugt i64 %.val30.i, %315
   br i1 %316, label %317, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h07cd243488fc58e8E.exit40.i"
 
 317:                                              ; preds = %306
@@ -3310,7 +3310,7 @@ common.ret:                                       ; preds = %507, %500, %146
   %371 = load i64, ptr %370, align 8, !alias.scope !635, !noalias !640, !noundef !46
   %372 = load i64, ptr %366, align 8, !alias.scope !642, !noalias !640, !noundef !46
   %373 = sub i64 %372, %371
-  %374 = icmp ult i64 %373, %.val32.i
+  %374 = icmp ugt i64 %.val32.i, %373
   br i1 %374, label %375, label %387
 
 375:                                              ; preds = %368
@@ -5686,7 +5686,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.45162
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -12680,7 +12680,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h71d1a74a2df15915E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !2452, !noundef !46
-  %.not.i.i = icmp eq i64 %5, %1
+  %.not.i.i = icmp eq i64 %1, %5
   br i1 %.not.i.i, label %6, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.4516252085333527013.exit"
 
 6:                                                ; preds = %3
@@ -12871,7 +12871,7 @@ define internal fastcc void @_ZN5regex5regex6string5Regex8captures17h823218e7d74
 21:                                               ; preds = %4
   %22 = getelementptr inbounds i8, ptr %.pre.i, i64 8
   %23 = load i64, ptr %22, align 8, !noalias !2499
-  %24 = icmp ugt i64 %23, %3
+  %24 = icmp ult i64 %3, %23
   br i1 %24, label %.thread.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i.i: ; preds = %21
@@ -12896,7 +12896,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.i.i: ; preds = %32
   %35 = getelementptr inbounds i8, ptr %.pre.i, i64 24
   %36 = load i64, ptr %35, align 8, !noalias !2487
-  %37 = icmp ult i64 %36, %3
+  %37 = icmp ugt i64 %3, %36
   br i1 %37, label %.thread.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.i.i, %32, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i.i, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i.i, %4

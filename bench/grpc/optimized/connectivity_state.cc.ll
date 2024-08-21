@@ -537,7 +537,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load atomic i32, ptr %state_ monotonic, align 8
-  %cmp.not = icmp eq i32 %3, %initial_state
+  %cmp.not = icmp eq i32 %initial_state, %3
   br i1 %cmp.not, label %if.end13, label %if.then4
 
 if.then4:                                         ; preds = %if.end
@@ -706,7 +706,7 @@ while.body.i.i.i:                                 ; preds = %if.end, %if.end19.i
   br i1 %cmp.i.i.i.i, label %if.end19.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %cmp.i18.i.i.i = icmp ugt ptr %2, %watcher
+  %cmp.i18.i.i.i = icmp ult ptr %watcher, %2
   br i1 %cmp.i18.i.i.i, label %if.end19.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
@@ -740,7 +740,7 @@ while.body.i23.i.i.i:                             ; preds = %_ZNSt8_Rb_treeIPN9g
   %__y.addr.06.i25.i.i.i = phi ptr [ %__y.addr.1.i28.i.i.i, %while.body.i23.i.i.i ], [ %__y.040.i.i.i, %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i ]
   %_M_storage.i.i.i26.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i, i64 32
   %6 = load ptr, ptr %_M_storage.i.i.i26.i.i.i, align 8
-  %cmp.i.i27.i.i.i = icmp ugt ptr %6, %watcher
+  %cmp.i.i27.i.i.i = icmp ult ptr %watcher, %6
   %__y.addr.1.i28.i.i.i = select i1 %cmp.i.i27.i.i.i, ptr %__x.addr.07.i24.i.i.i, ptr %__y.addr.06.i25.i.i.i
   %__x.addr.1.in.v.i29.i.i.i = select i1 %cmp.i.i27.i.i.i, i64 16, i64 24
   %__x.addr.1.in.i30.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i, i64 %__x.addr.1.in.v.i29.i.i.i
@@ -770,7 +770,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i32, ptr %state_ monotonic, align 8
-  %cmp = icmp eq i32 %0, %state
+  %cmp = icmp eq i32 %state, %0
   br i1 %cmp, label %if.end26, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1460,7 +1460,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont3
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -1517,7 +1517,7 @@ _ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10u
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -1772,12 +1772,12 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherI
 entry:
   %_M_left.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i, align 8
-  %cmp.i = icmp eq ptr %0, %__first.coerce
+  %cmp.i = icmp eq ptr %__first.coerce, %0
   br i1 %cmp.i, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1 = icmp eq ptr %add.ptr.i, %__last.coerce
+  %cmp.i1 = icmp eq ptr %__last.coerce, %add.ptr.i
   br i1 %cmp.i1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.rhs

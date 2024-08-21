@@ -340,7 +340,7 @@ _ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i.i: ; preds = %_ZNK5frame21
   %80 = load i32, ptr %79, align 8
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i8, ptr %71, i64 %81
-  %83 = icmp eq ptr %82, %78
+  %83 = icmp eq ptr %78, %82
   br i1 %83, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %84
 
 84:                                               ; preds = %77
@@ -348,7 +348,7 @@ _ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i.i: ; preds = %_ZNK5frame21
   %86 = load i8, ptr %85, align 1
   %87 = icmp eq i8 %86, 3
   %88 = getelementptr inbounds i8, ptr %82, i64 5
-  %89 = icmp eq ptr %88, %78
+  %89 = icmp eq ptr %78, %88
   %or.cond.i.i.i.i.i = select i1 %87, i1 %89, i1 false
   br i1 %or.cond.i.i.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
 
@@ -357,13 +357,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i: ; preds = %84
   %91 = load i32, ptr %90, align 4
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %71, i64 %92
-  %94 = icmp ne ptr %93, %78
+  %94 = icmp ne ptr %78, %93
   %brmerge.i.not.i.i.i.i = and i1 %87, %94
   br i1 %brmerge.i.not.i.i.i.i, label %95, label %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i
 
 95:                                               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
   %96 = getelementptr inbounds i8, ptr %93, i64 5
-  %97 = icmp eq ptr %96, %78
+  %97 = icmp eq ptr %78, %96
   br i1 %97, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i:         ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
@@ -545,7 +545,7 @@ define hidden void @_ZN2os22get_sender_for_C_frameEP5frame(ptr dead_on_unwind no
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %14, i64 %23
-  %25 = icmp eq ptr %24, %8
+  %25 = icmp eq ptr %8, %24
   br i1 %25, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %26
 
 26:                                               ; preds = %20
@@ -553,7 +553,7 @@ define hidden void @_ZN2os22get_sender_for_C_frameEP5frame(ptr dead_on_unwind no
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 3
   %30 = getelementptr inbounds i8, ptr %24, i64 5
-  %31 = icmp eq ptr %30, %8
+  %31 = icmp eq ptr %8, %30
   %or.cond.i.i.i.i.i = select i1 %29, i1 %31, i1 false
   br i1 %or.cond.i.i.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
 
@@ -562,13 +562,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i: ; preds = %26
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %14, i64 %34
-  %36 = icmp ne ptr %35, %8
+  %36 = icmp ne ptr %8, %35
   %brmerge.i.not.i.i.i.i = and i1 %29, %36
   br i1 %brmerge.i.not.i.i.i.i, label %37, label %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i
 
 37:                                               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
   %38 = getelementptr inbounds i8, ptr %35, i64 5
-  %39 = icmp eq ptr %38, %8
+  %39 = icmp eq ptr %8, %38
   br i1 %39, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i:         ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
@@ -754,7 +754,7 @@ _ZN5frameC2EPlS0_Ph.exit:                         ; preds = %39, %45, %46
   %72 = load i32, ptr %71, align 8, !noalias !10
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i8, ptr %64, i64 %73
-  %75 = icmp eq ptr %74, %58
+  %75 = icmp eq ptr %58, %74
   br i1 %75, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i.i, label %76
 
 76:                                               ; preds = %70
@@ -762,7 +762,7 @@ _ZN5frameC2EPlS0_Ph.exit:                         ; preds = %39, %45, %46
   %78 = load i8, ptr %77, align 1, !noalias !10
   %79 = icmp eq i8 %78, 3
   %80 = getelementptr inbounds i8, ptr %74, i64 5
-  %81 = icmp eq ptr %80, %58
+  %81 = icmp eq ptr %58, %80
   %or.cond.i.i.i.i.i.i = select i1 %79, i1 %81, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i.i, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i.i
 
@@ -771,13 +771,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i.i: ; preds = %76
   %83 = load i32, ptr %82, align 4, !noalias !10
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr %64, i64 %84
-  %86 = icmp ne ptr %85, %58
+  %86 = icmp ne ptr %58, %85
   %brmerge.i.not.i.i.i.i.i = and i1 %79, %86
   br i1 %brmerge.i.not.i.i.i.i.i, label %87, label %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i.i
 
 87:                                               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i.i
   %88 = getelementptr inbounds i8, ptr %85, i64 5
-  %89 = icmp eq ptr %88, %58
+  %89 = icmp eq ptr %58, %88
   br i1 %89, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i.i
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i.i:       ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i.i
@@ -858,7 +858,7 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
   %27 = sub i64 0, %26
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
   %29 = icmp ugt ptr %24, %16
-  %30 = icmp ule ptr %28, %16
+  %30 = icmp uge ptr %16, %28
   %31 = select i1 %29, i1 %30, i1 false
   br i1 %31, label %32, label %.critedge
 
@@ -891,10 +891,10 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
 44:                                               ; preds = %.critedge85
   %45 = load ptr, ptr %15, align 8
   %46 = load ptr, ptr @_ZN18SafepointMechanism13_polling_pageE, align 8
-  %.not.i = icmp ule ptr %46, %45
+  %.not.i = icmp uge ptr %45, %46
   %47 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %48 = getelementptr inbounds i8, ptr %46, i64 %47
-  %49 = icmp ugt ptr %48, %45
+  %49 = icmp ult ptr %45, %48
   %50 = select i1 %.not.i, i1 %49, i1 false
   br i1 %50, label %51, label %86
 

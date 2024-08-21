@@ -5381,7 +5381,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit.i: ; preds = %27, %25
   %39 = load i64, ptr %38, align 8, !alias.scope !996, !noalias !999, !noundef !8
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8, !alias.scope !996, !noalias !999
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %50, %3
@@ -5462,8 +5462,8 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit.i: ; preds = %27, %25
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.017.i11.i
-  %86 = getelementptr i8, ptr %85, i64 %.1.lcssa.i
+  %85 = getelementptr i8, ptr %1, i64 %.1.lcssa.i
+  %86 = getelementptr i8, ptr %85, i64 %.017.i11.i
   %.0.copyload15.i16.i = load i16, ptr %86, align 1, !alias.scope !1010, !noalias !996
   %87 = zext i16 %.0.copyload15.i16.i to i64
   %88 = shl nuw nsw i64 %.017.i11.i, 3

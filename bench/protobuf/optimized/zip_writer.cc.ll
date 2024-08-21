@@ -234,7 +234,7 @@ invoke.cont12:                                    ; preds = %call.i.i.noexc.invo
   %16 = phi ptr [ %.pre, %call.i.i.noexc.invoke.cont12_crit_edge ], [ %retval.0.i.i.i, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
-  %cmp.not.i.i = icmp ugt ptr %15, %16
+  %cmp.not.i.i = icmp ult ptr %16, %15
   br i1 %cmp.not.i.i, label %invoke.cont14, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %invoke.cont12
@@ -373,7 +373,7 @@ invoke.cont19:                                    ; preds = %if.end.i.i.i67, %if
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i60)
   %27 = load i32, ptr %crc32, align 8
   %28 = load ptr, ptr %output, align 8
-  %cmp.not.i.i75 = icmp ugt ptr %28, %retval.0.i.i.i69
+  %cmp.not.i.i75 = icmp ult ptr %retval.0.i.i.i69, %28
   br i1 %cmp.not.i.i75, label %invoke.cont21, label %if.then.i.i76
 
 if.then.i.i76:                                    ; preds = %invoke.cont19
@@ -387,7 +387,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19, %if.
   store ptr %add.ptr.i.i78, ptr %cur_.i, align 8
   %29 = load i32, ptr %size, align 4
   %30 = load ptr, ptr %output, align 8
-  %cmp.not.i.i83 = icmp ugt ptr %30, %add.ptr.i.i78
+  %cmp.not.i.i83 = icmp ult ptr %add.ptr.i.i78, %30
   br i1 %cmp.not.i.i83, label %invoke.cont23, label %if.then.i.i84
 
 if.then.i.i84:                                    ; preds = %invoke.cont21
@@ -401,7 +401,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21, %if.
   store ptr %add.ptr.i.i86, ptr %cur_.i, align 8
   %31 = load i32, ptr %size, align 4
   %32 = load ptr, ptr %output, align 8
-  %cmp.not.i.i91 = icmp ugt ptr %32, %add.ptr.i.i86
+  %cmp.not.i.i91 = icmp ult ptr %add.ptr.i.i86, %32
   br i1 %cmp.not.i.i91, label %invoke.cont25, label %if.then.i.i92
 
 if.then.i.i92:                                    ; preds = %invoke.cont23
@@ -685,7 +685,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %15 = load i32, ptr %offset22, align 8
   %16 = load ptr, ptr %cur_.i, align 8
   %17 = load ptr, ptr %output, align 8
-  %cmp.not.i.i = icmp ugt ptr %17, %16
+  %cmp.not.i.i = icmp ult ptr %16, %17
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %for.body
@@ -842,7 +842,7 @@ invoke.cont28:                                    ; preds = %if.end.i.i.i84, %if
   store ptr %retval.0.i.i.i86, ptr %cur_.i, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i77)
   %30 = load ptr, ptr %output, align 8
-  %cmp.not.i.i92 = icmp ugt ptr %30, %retval.0.i.i.i86
+  %cmp.not.i.i92 = icmp ult ptr %retval.0.i.i.i86, %30
   br i1 %cmp.not.i.i92, label %invoke.cont29, label %if.then.i.i93
 
 if.then.i.i93:                                    ; preds = %invoke.cont28
@@ -855,7 +855,7 @@ invoke.cont29:                                    ; preds = %invoke.cont28, %if.
   %add.ptr.i.i96 = getelementptr inbounds i8, ptr %retval.0.i.i95, i64 4
   store ptr %add.ptr.i.i96, ptr %cur_.i, align 8
   %31 = load ptr, ptr %output, align 8
-  %cmp.not.i.i100 = icmp ugt ptr %31, %add.ptr.i.i96
+  %cmp.not.i.i100 = icmp ult ptr %add.ptr.i.i96, %31
   br i1 %cmp.not.i.i100, label %invoke.cont30, label %if.then.i.i101
 
 if.then.i.i101:                                   ; preds = %invoke.cont29
@@ -868,7 +868,7 @@ invoke.cont30:                                    ; preds = %invoke.cont29, %if.
   %add.ptr.i.i104 = getelementptr inbounds i8, ptr %retval.0.i.i103, i64 4
   store ptr %add.ptr.i.i104, ptr %cur_.i, align 8
   %32 = load ptr, ptr %output, align 8
-  %cmp.not.i.i108 = icmp ugt ptr %32, %add.ptr.i.i104
+  %cmp.not.i.i108 = icmp ult ptr %add.ptr.i.i104, %32
   br i1 %cmp.not.i.i108, label %invoke.cont31, label %if.then.i.i109
 
 if.then.i.i109:                                   ; preds = %invoke.cont30
@@ -1004,7 +1004,7 @@ invoke.cont36:                                    ; preds = %if.end.i.i.i178, %i
   store ptr %retval.0.i.i.i180, ptr %cur_.i, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i171)
   %44 = load ptr, ptr %output, align 8
-  %cmp.not.i.i186 = icmp ugt ptr %44, %retval.0.i.i.i180
+  %cmp.not.i.i186 = icmp ult ptr %retval.0.i.i.i180, %44
   br i1 %cmp.not.i.i186, label %invoke.cont37, label %if.then.i.i187
 
 if.then.i.i187:                                   ; preds = %invoke.cont36
@@ -1017,7 +1017,7 @@ invoke.cont37:                                    ; preds = %invoke.cont36, %if.
   %add.ptr.i.i190 = getelementptr inbounds i8, ptr %retval.0.i.i189, i64 4
   store ptr %add.ptr.i.i190, ptr %cur_.i, align 8
   %45 = load ptr, ptr %output, align 8
-  %cmp.not.i.i194 = icmp ugt ptr %45, %add.ptr.i.i190
+  %cmp.not.i.i194 = icmp ult ptr %add.ptr.i.i190, %45
   br i1 %cmp.not.i.i194, label %invoke.cont38, label %if.then.i.i195
 
 if.then.i.i195:                                   ; preds = %invoke.cont37
@@ -1085,7 +1085,7 @@ invoke.cont40:                                    ; preds = %for.end
   %conv.i217 = trunc i64 %sub.i to i32
   %50 = load ptr, ptr %cur_.i, align 8
   %51 = load ptr, ptr %output, align 8
-  %cmp.not.i.i220 = icmp ugt ptr %51, %50
+  %cmp.not.i.i220 = icmp ult ptr %50, %51
   br i1 %cmp.not.i.i220, label %invoke.cont42, label %if.then.i.i221
 
 if.then.i.i221:                                   ; preds = %invoke.cont40
@@ -1201,7 +1201,7 @@ invoke.cont46:                                    ; preds = %if.end.i.i.i280, %i
   store ptr %retval.0.i.i.i282, ptr %cur_.i, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %p.i271)
   %61 = load ptr, ptr %output, align 8
-  %cmp.not.i.i288 = icmp ugt ptr %61, %retval.0.i.i.i282
+  %cmp.not.i.i288 = icmp ult ptr %retval.0.i.i.i282, %61
   br i1 %cmp.not.i.i288, label %invoke.cont47, label %if.then.i.i289
 
 if.then.i.i289:                                   ; preds = %invoke.cont46
@@ -1214,7 +1214,7 @@ invoke.cont47:                                    ; preds = %invoke.cont46, %if.
   %add.ptr.i.i292 = getelementptr inbounds i8, ptr %retval.0.i.i291, i64 4
   store ptr %add.ptr.i.i292, ptr %cur_.i, align 8
   %62 = load ptr, ptr %output, align 8
-  %cmp.not.i.i296 = icmp ugt ptr %62, %add.ptr.i.i292
+  %cmp.not.i.i296 = icmp ult ptr %add.ptr.i.i292, %62
   br i1 %cmp.not.i.i296, label %invoke.cont48, label %if.then.i.i297
 
 if.then.i.i297:                                   ; preds = %invoke.cont47
@@ -1363,7 +1363,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 48
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %for.body.i.i.i19

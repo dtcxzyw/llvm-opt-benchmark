@@ -2075,7 +2075,7 @@ while.body.i984:                                  ; preds = %while.body.i633, %i
 if.then.i1000:                                    ; preds = %while.body.i984
   %277 = load ptr, ptr %__to_destroy.i, align 8
   %cmp.i.i.i.i1001 = icmp eq ptr %277, %__first.sroa.0.05.i
-  %cmp.i3.i.i.i1002 = icmp eq ptr %274, %277
+  %cmp.i3.i.i.i1002 = icmp eq ptr %277, %274
   %or.cond.i.i.i1003 = select i1 %cmp.i.i.i.i1001, i1 true, i1 %cmp.i3.i.i.i1002
   br i1 %or.cond.i.i.i1003, label %if.end.i, label %if.end8.i.i.i1004
 
@@ -2436,7 +2436,7 @@ while.body.i737:                                  ; preds = %_ZN2EA4StdC9Stopwat
   %341 = load ptr, ptr %listCopyStd, align 8
   %342 = load ptr, ptr %341, align 8
   %cmp.i.i.i8.i = icmp eq ptr %335, %341
-  %cmp.i3.i.i.i = icmp eq ptr %342, %335
+  %cmp.i3.i.i.i = icmp eq ptr %335, %342
   %or.cond.i.i.i = select i1 %cmp.i.i.i8.i, i1 true, i1 %cmp.i3.i.i.i
   br i1 %or.cond.i.i.i, label %_ZNSt7__cxx114listI10TestObjectSaIS1_EE6spliceESt20_List_const_iteratorIS1_ERS3_S5_.exit.i, label %if.end8.i.i.i
 
@@ -2513,7 +2513,7 @@ while.body.i765:                                  ; preds = %_ZN5eastl4listI10Te
   %354 = load ptr, ptr %listCopyEa, align 8, !noalias !45
   %355 = load ptr, ptr %354, align 8
   %cmp.i.i8.i = icmp ne ptr %347, %354
-  %cmp.i3.i.i = icmp ne ptr %355, %347
+  %cmp.i3.i.i = icmp ne ptr %347, %355
   %or.cond.i.i = select i1 %cmp.i.i8.i, i1 %cmp.i3.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then8.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_S8_.exit.i
 

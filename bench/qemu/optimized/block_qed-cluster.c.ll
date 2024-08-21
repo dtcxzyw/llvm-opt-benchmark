@@ -57,17 +57,17 @@ if.end.i.i:                                       ; preds = %if.end.i
   %conv.i.i = zext i32 %6 to i64
   %conv3.i.i = zext i32 %5 to i64
   %mul.i.i = mul nuw i64 %conv.i.i, %conv3.i.i
-  %cmp.not.i.i = icmp ugt i64 %mul.i.i, %3
+  %cmp.not.i.i = icmp ult i64 %3, %mul.i.i
   br i1 %cmp.not.i.i, label %return.sink.split, label %qed_check_table_offset.exit
 
 qed_check_table_offset.exit:                      ; preds = %if.end.i.i
   %file_size.i.i = getelementptr inbounds i8, ptr %s, i64 168
   %7 = load i64, ptr %file_size.i.i, align 8
-  %cmp8.i.i = icmp ugt i64 %7, %3
+  %cmp8.i.i = icmp ult i64 %3, %7
   %and.i10.i = and i64 %add.i, %conv6.i.i
   %tobool.not.i11.i = icmp eq i64 %and.i10.i, 0
   %or.cond.not25.not26.i = and i1 %tobool.not.i11.i, %cmp8.i.i
-  %cmp8.i21.i = icmp ugt i64 %7, %add.i
+  %cmp8.i21.i = icmp ult i64 %add.i, %7
   %spec.select.i = and i1 %cmp8.i21.i, %or.cond.not25.not26.i
   br i1 %spec.select.i, label %if.end6, label %return.sink.split
 
@@ -88,7 +88,7 @@ if.end9:                                          ; preds = %if.end6
   %s.val36 = load i32, ptr %cluster_size.i, align 4
   %sub.i42 = add i32 %s.val36, -1
   %conv.i43 = zext i32 %sub.i42 to i64
-  %and.i = and i64 %conv.i43, %pos
+  %and.i = and i64 %pos, %conv.i43
   %11 = load i64, ptr %len, align 8
   %add12 = add i64 %11, %conv.i43
   %add.i46 = add i64 %add12, %and.i
@@ -174,12 +174,12 @@ if.end.i58:                                       ; preds = %if.else19
   %conv.i59 = zext i32 %21 to i64
   %conv3.i = zext i32 %s.val36 to i64
   %mul.i60 = mul nuw i64 %conv.i59, %conv3.i
-  %cmp.not.i61 = icmp ugt i64 %mul.i60, %15
+  %cmp.not.i61 = icmp ult i64 %15, %mul.i60
   br i1 %cmp.not.i61, label %if.end25, label %qed_check_cluster_offset.exit
 
 qed_check_cluster_offset.exit:                    ; preds = %if.end.i58
   %22 = load i64, ptr %file_size.i.i, align 8
-  %cmp8.i = icmp ugt i64 %22, %15
+  %cmp8.i = icmp ult i64 %15, %22
   %cond.fr = freeze i1 %cmp8.i
   %spec.select = select i1 %cond.fr, i32 0, i32 -22
   br label %if.end25

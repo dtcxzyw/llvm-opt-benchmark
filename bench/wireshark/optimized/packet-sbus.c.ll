@@ -2388,10 +2388,10 @@ define internal fastcc i32 @add_media_access_to_tree(i32 noundef %0, ptr noundef
   %.sink134 = phi i32 [ 3, %73 ], [ 1, %11 ], [ 1, %5 ]
   %hf_sbus_addr_base_element.sink = phi ptr [ @hf_sbus_addr_base_element, %73 ], [ @hf_sbus_addr_iof, %11 ], [ @hf_sbus_addr_rtc, %5 ]
   %.sink = phi i32 [ 5, %73 ], [ 3, %11 ], [ 3, %5 ]
-  %82 = add nsw i32 %.sink134, %3
+  %82 = add nsw i32 %3, %.sink134
   %83 = load i32, ptr %hf_sbus_addr_base_element.sink, align 4
   %84 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %83, ptr noundef %1, i32 noundef %82, i32 noundef 2, i32 noundef 0) #4
-  %85 = add nsw i32 %.sink, %3
+  %85 = add nsw i32 %3, %.sink
   br label %.loopexit
 
 .loopexit:                                        ; preds = %67, %.lr.ph126, %.loopexit.sink.split, %38, %17, %4

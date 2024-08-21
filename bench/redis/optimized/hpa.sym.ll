@@ -326,7 +326,7 @@ entry:
   %oom.i = alloca i8, align 1
   %opts = getelementptr inbounds i8, ptr %self, i64 5624
   %0 = load i64, ptr %opts, align 8
-  %cmp = icmp ult i64 %0, %size
+  %cmp = icmp ugt i64 %size, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1171,7 +1171,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   %tobool = trunc i8 %3 to i1
   store i8 %frombool, ptr %deferral_allowed1, align 4
   %tobool.not = xor i1 %tobool, true
-  %brmerge = or i1 %tobool.not, %deferral_allowed
+  %brmerge = or i1 %deferral_allowed, %tobool.not
   br i1 %brmerge, label %if.end, label %if.then
 
 if.then:                                          ; preds = %malloc_mutex_lock.exit

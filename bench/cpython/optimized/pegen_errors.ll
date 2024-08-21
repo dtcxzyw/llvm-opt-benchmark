@@ -703,7 +703,7 @@ if.then27:                                        ; preds = %if.end25.if.then27_
   %lineno29 = getelementptr inbounds i8, ptr %11, i64 512
   %12 = load i32, ptr %lineno29, align 8
   %conv30 = sext i32 %12 to i64
-  %cmp31.not = icmp sgt i64 %conv30, %lineno
+  %cmp31.not = icmp slt i64 %lineno, %conv30
   br i1 %cmp31.not, label %if.else49, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %if.then27

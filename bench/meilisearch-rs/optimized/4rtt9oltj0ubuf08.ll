@@ -832,7 +832,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %.sroa.719.0.copyload = load i64, ptr %.sroa.719.0..sroa_idx, align 8
   %.sroa.820.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.820.0.copyload = load ptr, ptr %.sroa.820.0..sroa_idx, align 8
-  %.not.i.i.i = icmp ult i64 %.sroa.517.0.copyload, %2
+  %.not.i.i.i = icmp ugt i64 %2, %.sroa.517.0.copyload
   br i1 %.not.i.i.i, label %4, label %"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i.i"
 
 4:                                                ; preds = %3
@@ -840,7 +840,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   unreachable
 
 "_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i.i": ; preds = %3
-  %.not.i10.i.i = icmp ult i64 %.sroa.719.0.copyload, %2
+  %.not.i10.i.i = icmp ugt i64 %2, %.sroa.719.0.copyload
   br i1 %.not.i10.i.i, label %5, label %"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$core..option..Option$LT$T$GT$$GT$$GT$8split_at17h45f5d17ccd7cbc08E.llvm.8265446259410684974.exit"
 
 5:                                                ; preds = %"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i.i"
@@ -903,7 +903,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %.sroa.822.0.copyload = load ptr, ptr %.sroa.822.0..sroa_idx, align 8
   %.sroa.923.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.923.0.copyload = load ptr, ptr %.sroa.923.0..sroa_idx, align 8
-  %.not.i.i.i.i = icmp ult i64 %.sroa.519.0.copyload, %2
+  %.not.i.i.i.i = icmp ugt i64 %2, %.sroa.519.0.copyload
   br i1 %.not.i.i.i.i, label %4, label %"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i.i.i"
 
 4:                                                ; preds = %3
@@ -911,7 +911,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   unreachable
 
 "_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i.i.i": ; preds = %3
-  %.not.i10.i.i.i = icmp ult i64 %.sroa.721.0.copyload, %2
+  %.not.i10.i.i.i = icmp ugt i64 %2, %.sroa.721.0.copyload
   br i1 %.not.i10.i.i.i, label %5, label %"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h205d4243e156caf1E.llvm.8265446259410684974.exit"
 
 5:                                                ; preds = %"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i.i.i"
@@ -969,7 +969,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
 define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h3e438a85cd2ca22bE.llvm.8265446259410684974"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.513.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.513.0.copyload = load i64, ptr %.sroa.513.0..sroa_idx, align 8
-  %.not.i.i.i = icmp ult i64 %.sroa.513.0.copyload, %2
+  %.not.i.i.i = icmp ugt i64 %2, %.sroa.513.0.copyload
   br i1 %.not.i.i.i, label %4, label %"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$core..option..Option$LT$T$GT$$GT$$GT$8split_at17h902a53a2a6a3475aE.llvm.8265446259410684974.exit"
 
 4:                                                ; preds = %3
@@ -1039,7 +1039,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
 define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h643f251a44928419E.llvm.8265446259410684974"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.513.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.513.0.copyload = load i64, ptr %.sroa.513.0..sroa_idx, align 8
-  %.not.i.i.i = icmp ult i64 %.sroa.513.0.copyload, %2
+  %.not.i.i.i = icmp ugt i64 %2, %.sroa.513.0.copyload
   br i1 %.not.i.i.i, label %4, label %"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$core..option..Option$LT$T$GT$$GT$$GT$8split_at17h00f28100f7280f4cE.llvm.8265446259410684974.exit"
 
 4:                                                ; preds = %3
@@ -1093,7 +1093,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %.sroa.822.0.copyload = load ptr, ptr %.sroa.822.0..sroa_idx, align 8
   %.sroa.923.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.923.0.copyload = load ptr, ptr %.sroa.923.0..sroa_idx, align 8
-  %.not.i.i.i.i = icmp ult i64 %.sroa.519.0.copyload, %2
+  %.not.i.i.i.i = icmp ugt i64 %2, %.sroa.519.0.copyload
   br i1 %.not.i.i.i.i, label %4, label %"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i.i.i"
 
 4:                                                ; preds = %3
@@ -1101,7 +1101,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   unreachable
 
 "_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i.i.i": ; preds = %3
-  %.not.i10.i.i.i = icmp ult i64 %.sroa.721.0.copyload, %2
+  %.not.i10.i.i.i = icmp ugt i64 %2, %.sroa.721.0.copyload
   br i1 %.not.i10.i.i.i, label %5, label %"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h205d4243e156caf1E.llvm.8265446259410684974.exit"
 
 5:                                                ; preds = %"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i.i.i"
@@ -1180,7 +1180,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
 define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17ha412c7b2ee31504eE.llvm.8265446259410684974"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([96 x i8]) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.515.0.copyload = load i64, ptr %.sroa.515.0..sroa_idx, align 8
-  %.not.i.i.i.i = icmp ult i64 %.sroa.515.0.copyload, %2
+  %.not.i.i.i.i = icmp ugt i64 %2, %.sroa.515.0.copyload
   br i1 %.not.i.i.i.i, label %4, label %"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h3e438a85cd2ca22bE.llvm.8265446259410684974.exit"
 
 4:                                                ; preds = %3
@@ -1256,7 +1256,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
 define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hd800559a95470c42E.llvm.8265446259410684974"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([96 x i8]) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.515.0.copyload = load i64, ptr %.sroa.515.0..sroa_idx, align 8
-  %.not.i.i.i.i = icmp ult i64 %.sroa.515.0.copyload, %2
+  %.not.i.i.i.i = icmp ugt i64 %2, %.sroa.515.0.copyload
   br i1 %.not.i.i.i.i, label %4, label %"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h643f251a44928419E.llvm.8265446259410684974.exit"
 
 4:                                                ; preds = %3
@@ -1305,7 +1305,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
 define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hd84cb46644c4c9ccE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([96 x i8]) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.515.0.copyload = load i64, ptr %.sroa.515.0..sroa_idx, align 8
-  %.not.i.i.i.i = icmp ult i64 %.sroa.515.0.copyload, %2
+  %.not.i.i.i.i = icmp ugt i64 %2, %.sroa.515.0.copyload
   br i1 %.not.i.i.i.i, label %4, label %"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h3e438a85cd2ca22bE.llvm.8265446259410684974.exit"
 
 4:                                                ; preds = %3
@@ -1354,7 +1354,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
 define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hfdbc6d187d59ee24E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([96 x i8]) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.515.0.copyload = load i64, ptr %.sroa.515.0..sroa_idx, align 8
-  %.not.i.i.i.i = icmp ult i64 %.sroa.515.0.copyload, %2
+  %.not.i.i.i.i = icmp ugt i64 %2, %.sroa.515.0.copyload
   br i1 %.not.i.i.i.i, label %4, label %"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h643f251a44928419E.llvm.8265446259410684974.exit"
 
 4:                                                ; preds = %3
@@ -13873,7 +13873,7 @@ define hidden void @"_ZN123_$LT$rayon..iter..take_any_while..TakeAnyWhileConsume
   %.sroa.927.0.copyload = load ptr, ptr %.sroa.927.0..sroa_idx, align 8
   %.sroa.1028.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
   %.sroa.1028.0.copyload = load ptr, ptr %.sroa.1028.0..sroa_idx, align 8
-  %.not.i.i.i.i.i = icmp ult i64 %.sroa.523.0.copyload, %2
+  %.not.i.i.i.i.i = icmp ugt i64 %2, %.sroa.523.0.copyload
   br i1 %.not.i.i.i.i.i, label %4, label %"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i.i.i.i"
 
 4:                                                ; preds = %3
@@ -13881,7 +13881,7 @@ define hidden void @"_ZN123_$LT$rayon..iter..take_any_while..TakeAnyWhileConsume
   unreachable
 
 "_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i.i.i.i": ; preds = %3
-  %.not.i10.i.i.i.i = icmp ult i64 %.sroa.725.0.copyload, %2
+  %.not.i10.i.i.i.i = icmp ugt i64 %2, %.sroa.725.0.copyload
   br i1 %.not.i10.i.i.i.i, label %5, label %"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h281edeb6c7086333E.llvm.8265446259410684974.exit"
 
 5:                                                ; preds = %"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i.i.i.i"
@@ -13990,7 +13990,7 @@ define hidden void @"_ZN123_$LT$rayon..iter..take_any_while..TakeAnyWhileConsume
 define hidden void @"_ZN123_$LT$rayon..iter..take_any_while..TakeAnyWhileConsumer$LT$C$C$P$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17ha1253e36310a6682E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([128 x i8]) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.519.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.519.0.copyload = load i64, ptr %.sroa.519.0..sroa_idx, align 8
-  %.not.i.i.i.i.i = icmp ult i64 %.sroa.519.0.copyload, %2
+  %.not.i.i.i.i.i = icmp ugt i64 %2, %.sroa.519.0.copyload
   br i1 %.not.i.i.i.i.i, label %4, label %"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17ha412c7b2ee31504eE.llvm.8265446259410684974.exit"
 
 4:                                                ; preds = %3
@@ -14051,7 +14051,7 @@ define hidden void @"_ZN123_$LT$rayon..iter..take_any_while..TakeAnyWhileConsume
 define hidden void @"_ZN123_$LT$rayon..iter..take_any_while..TakeAnyWhileConsumer$LT$C$C$P$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17he6f28ab111f1c507E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([128 x i8]) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.519.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.519.0.copyload = load i64, ptr %.sroa.519.0..sroa_idx, align 8
-  %.not.i.i.i.i.i = icmp ult i64 %.sroa.519.0.copyload, %2
+  %.not.i.i.i.i.i = icmp ugt i64 %2, %.sroa.519.0.copyload
   br i1 %.not.i.i.i.i.i, label %4, label %"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hd800559a95470c42E.llvm.8265446259410684974.exit"
 
 4:                                                ; preds = %3
@@ -14947,7 +14947,7 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit87: ; preds = %"_Z
   %.val299 = load ptr, ptr %107, align 8, !nonnull !4, !noundef !4
   %112 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %.val299, i64 0, i64 %109
   %.sroa.04.0.copyload.i.i = load i8, ptr %112, align 1, !noalias !2258
-  %.not.i.i = icmp ult i8 %.sroa.04.0.copyload.i.i, %93
+  %.not.i.i = icmp ugt i8 %93, %.sroa.04.0.copyload.i.i
   br i1 %.not.i.i, label %113, label %115
 
 113:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit"
@@ -14958,7 +14958,7 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit87: ; preds = %"_Z
 
 115:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit"
   %.sroa.55.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %112, i64 1
-  %116 = icmp eq i8 %.sroa.04.0.copyload.i.i, %93
+  %116 = icmp eq i8 %93, %.sroa.04.0.copyload.i.i
   br i1 %116, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i, label %.thread
 
 117:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3de90b52502736a2E.exit"
@@ -15324,7 +15324,7 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit83: ; preds = %"_Z
   %.val297 = load ptr, ptr %256, align 8, !nonnull !4, !noundef !4
   %261 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %.val297, i64 0, i64 %258
   %.sroa.04.0.copyload.i.i109 = load i8, ptr %261, align 1, !noalias !2353
-  %.not.i.i112 = icmp ult i8 %.sroa.04.0.copyload.i.i109, %240
+  %.not.i.i112 = icmp ugt i8 %240, %.sroa.04.0.copyload.i.i109
   br i1 %.not.i.i112, label %262, label %264
 
 262:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit313"
@@ -15335,7 +15335,7 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit83: ; preds = %"_Z
 
 264:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit313"
   %.sroa.55.0..sroa_idx.i.i110 = getelementptr inbounds i8, ptr %261, i64 1
-  %265 = icmp eq i8 %.sroa.04.0.copyload.i.i109, %240
+  %265 = icmp eq i8 %240, %.sroa.04.0.copyload.i.i109
   br i1 %265, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i104, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i104.thread
 
 266:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3de90b52502736a2E.exit312"
@@ -15708,7 +15708,7 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit79: ; preds = %"_Z
   %.val295 = load ptr, ptr %399, align 8, !nonnull !4, !noundef !4
   %404 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %.val295, i64 0, i64 %401
   %.sroa.04.0.copyload.i.i125 = load i8, ptr %404, align 1, !noalias !2453
-  %.not.i.i128 = icmp ult i8 %.sroa.04.0.copyload.i.i125, %383
+  %.not.i.i128 = icmp ugt i8 %383, %.sroa.04.0.copyload.i.i125
   br i1 %.not.i.i128, label %405, label %407
 
 405:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit327"
@@ -15719,7 +15719,7 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit79: ; preds = %"_Z
 
 407:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit327"
   %.sroa.55.0..sroa_idx.i.i126 = getelementptr inbounds i8, ptr %404, i64 1
-  %408 = icmp eq i8 %.sroa.04.0.copyload.i.i125, %383
+  %408 = icmp eq i8 %383, %.sroa.04.0.copyload.i.i125
   br i1 %408, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i120, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i120.thread
 
 409:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3de90b52502736a2E.exit326"
@@ -16055,7 +16055,7 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit75: ; preds = %"_Z
   %.val293 = load ptr, ptr %527, align 8, !nonnull !4, !noundef !4
   %532 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %.val293, i64 0, i64 %529
   %.sroa.04.0.copyload.i.i141 = load i8, ptr %532, align 1, !noalias !2542
-  %.not.i.i144 = icmp ult i8 %.sroa.04.0.copyload.i.i141, %511
+  %.not.i.i144 = icmp ugt i8 %511, %.sroa.04.0.copyload.i.i141
   br i1 %.not.i.i144, label %533, label %535
 
 533:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit333"
@@ -16066,7 +16066,7 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit75: ; preds = %"_Z
 
 535:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit333"
   %.sroa.55.0..sroa_idx.i.i142 = getelementptr inbounds i8, ptr %532, i64 1
-  %536 = icmp eq i8 %.sroa.04.0.copyload.i.i141, %511
+  %536 = icmp eq i8 %511, %.sroa.04.0.copyload.i.i141
   br i1 %536, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i136, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i136.thread
 
 537:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3de90b52502736a2E.exit332"
@@ -16375,7 +16375,7 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit: ; preds = %"_ZN8
   %.val291 = load ptr, ptr %647, align 8, !nonnull !4, !noundef !4
   %652 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %.val291, i64 0, i64 %649
   %.sroa.04.0.copyload.i.i157 = load i8, ptr %652, align 1, !noalias !2638
-  %.not.i.i160 = icmp ult i8 %.sroa.04.0.copyload.i.i157, %631
+  %.not.i.i160 = icmp ugt i8 %631, %.sroa.04.0.copyload.i.i157
   br i1 %.not.i.i160, label %653, label %655
 
 653:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit347"
@@ -16386,7 +16386,7 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit: ; preds = %"_ZN8
 
 655:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit347"
   %.sroa.55.0..sroa_idx.i.i158 = getelementptr inbounds i8, ptr %652, i64 1
-  %656 = icmp eq i8 %.sroa.04.0.copyload.i.i157, %631
+  %656 = icmp eq i8 %631, %.sroa.04.0.copyload.i.i157
   br i1 %656, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i152, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i152.thread
 
 657:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3de90b52502736a2E.exit346"
@@ -20942,7 +20942,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf4fbdbc3c55371d8E.exit: ; preds = 
   br i1 %exitcond.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h4a782e32c65ddeefE.exit.thread.i, label %71
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h4a782e32c65ddeefE.exit.i: ; preds = %71
-  %81 = icmp ne i64 %.sroa.02.015.i.i, %.sroa.042.0.i
+  %81 = icmp ne i64 %.sroa.042.0.i, %.sroa.02.015.i.i
   tail call void @llvm.assume(i1 %81), !noalias !3752
   br label %90
 
@@ -21133,7 +21133,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf4fbdbc3c55371d8E.exit136.thread: 
   br i1 %exitcond.not.i.i145, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h4a782e32c65ddeefE.exit.thread.i146, label %157
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h4a782e32c65ddeefE.exit.i152: ; preds = %157
-  %167 = icmp ne i64 %.sroa.02.015.i.i141, %110
+  %167 = icmp ne i64 %110, %.sroa.02.015.i.i141
   tail call void @llvm.assume(i1 %167), !noalias !3801
   br label %176
 
@@ -21270,11 +21270,11 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit37: ; preds = %"_Z
   %.val124.us = load ptr, ptr %230, align 8, !nonnull !4, !noundef !4
   %222 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %.val124.us, i64 0, i64 %220
   %.sroa.04.0.copyload.i.i.us = load i8, ptr %222, align 1, !noalias !3836
-  %.not.i.i.us = icmp ult i8 %.sroa.04.0.copyload.i.i.us, %200
+  %.not.i.i.us = icmp ugt i8 %200, %.sroa.04.0.copyload.i.i.us
   br i1 %.not.i.i.us, label %225, label %223
 
 223:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit.us"
-  %224 = icmp eq i8 %.sroa.04.0.copyload.i.i.us, %200
+  %224 = icmp eq i8 %200, %.sroa.04.0.copyload.i.i.us
   br i1 %224, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i.us.loopexit, label %.thread
 
 _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i.us.loopexit: ; preds = %223
@@ -21342,7 +21342,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.
   %.val124 = load ptr, ptr %242, align 8, !nonnull !4, !noundef !4
   %246 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %.val124, i64 0, i64 %244
   %.sroa.04.0.copyload.i.i = load i8, ptr %246, align 1, !noalias !3836
-  %.not.i.i = icmp ult i8 %.sroa.04.0.copyload.i.i, %200
+  %.not.i.i = icmp ugt i8 %200, %.sroa.04.0.copyload.i.i
   br i1 %.not.i.i, label %247, label %249
 
 247:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit"
@@ -21353,7 +21353,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.
 
 249:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit"
   %.sroa.55.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %246, i64 1
-  %250 = icmp eq i8 %.sroa.04.0.copyload.i.i, %200
+  %250 = icmp eq i8 %200, %.sroa.04.0.copyload.i.i
   br i1 %250, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i.thread
 
 251:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3de90b52502736a2E.exit"
@@ -21853,7 +21853,7 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit31: ; preds = %"_Z
   %.val122 = load ptr, ptr %439, align 8, !nonnull !4, !noundef !4
   %444 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %.val122, i64 0, i64 %441
   %.sroa.04.0.copyload.i.i55 = load i8, ptr %444, align 1, !noalias !3971
-  %.not.i.i58 = icmp ult i8 %.sroa.04.0.copyload.i.i55, %423
+  %.not.i.i58 = icmp ugt i8 %423, %.sroa.04.0.copyload.i.i55
   br i1 %.not.i.i58, label %445, label %447
 
 445:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit179"
@@ -21864,7 +21864,7 @@ _ZN12aho_corasick9automaton9get_match17hafa2f1db67a69edfE.exit31: ; preds = %"_Z
 
 447:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit179"
   %.sroa.55.0..sroa_idx.i.i56 = getelementptr inbounds i8, ptr %444, i64 1
-  %448 = icmp eq i8 %.sroa.04.0.copyload.i.i55, %423
+  %448 = icmp eq i8 %423, %.sroa.04.0.copyload.i.i55
   br i1 %448, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i48, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.i48.thread
 
 449:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3de90b52502736a2E.exit178"
@@ -26041,7 +26041,7 @@ define hidden noundef zeroext i1 @"_ZN140_$LT$rayon..iter..while_some..WhileSome
 define hidden void @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$core..option..Option$LT$T$GT$$GT$$GT$8split_at17h00f28100f7280f4cE.llvm.8265446259410684974"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.511.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.511.0.copyload = load i64, ptr %.sroa.511.0..sroa_idx, align 8
-  %.not.i.i = icmp ult i64 %.sroa.511.0.copyload, %2
+  %.not.i.i = icmp ugt i64 %2, %.sroa.511.0.copyload
   br i1 %.not.i.i, label %4, label %"_ZN114_$LT$rayon..iter..unzip..UnzipConsumer$LT$OP$C$CA$C$CB$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h4d8536f72621675dE.exit"
 
 4:                                                ; preds = %3
@@ -26085,7 +26085,7 @@ define hidden void @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$
   %.sroa.616.0.copyload = load ptr, ptr %.sroa.616.0..sroa_idx, align 8
   %.sroa.717.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.717.0.copyload = load i64, ptr %.sroa.717.0..sroa_idx, align 8
-  %.not.i.i = icmp ult i64 %.sroa.515.0.copyload, %2
+  %.not.i.i = icmp ugt i64 %2, %.sroa.515.0.copyload
   br i1 %.not.i.i, label %4, label %"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i"
 
 4:                                                ; preds = %3
@@ -26093,7 +26093,7 @@ define hidden void @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$
   unreachable
 
 "_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i": ; preds = %3
-  %.not.i10.i = icmp ult i64 %.sroa.717.0.copyload, %2
+  %.not.i10.i = icmp ugt i64 %2, %.sroa.717.0.copyload
   br i1 %.not.i10.i, label %5, label %"_ZN114_$LT$rayon..iter..unzip..UnzipConsumer$LT$OP$C$CA$C$CB$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17he90cec2ba07d2752E.exit"
 
 5:                                                ; preds = %"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit.i"
@@ -26139,7 +26139,7 @@ define hidden void @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$
 define hidden void @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$core..option..Option$LT$T$GT$$GT$$GT$8split_at17h902a53a2a6a3475aE.llvm.8265446259410684974"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.511.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.511.0.copyload = load i64, ptr %.sroa.511.0..sroa_idx, align 8
-  %.not.i.i = icmp ult i64 %.sroa.511.0.copyload, %2
+  %.not.i.i = icmp ugt i64 %2, %.sroa.511.0.copyload
   br i1 %.not.i.i, label %4, label %"_ZN114_$LT$rayon..iter..unzip..UnzipConsumer$LT$OP$C$CA$C$CB$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hbc0dd9e7112e53f1E.exit"
 
 4:                                                ; preds = %3
@@ -127756,7 +127756,7 @@ define internal fastcc { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth1
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h4a782e32c65ddeefE.exit.thread, label %6
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h4a782e32c65ddeefE.exit: ; preds = %6
-  %16 = icmp ne i64 %.sroa.02.015.i, %1
+  %16 = icmp ne i64 %1, %.sroa.02.015.i
   tail call void @llvm.assume(i1 %16)
   br label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he58b5f416d231049E.exit"
 
@@ -133850,7 +133850,7 @@ define hidden void @"_ZN75_$LT$serde_json..value..de..KeyClassifier$u20$as$u20$s
 define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10is_special17h9536f38d6ff0e98bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i32 noundef %1) unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 400
   %4 = load i32, ptr %3, align 8, !noundef !4
-  %switch = icmp uge i32 %4, %1
+  %switch = icmp ule i32 %1, %4
   ret i1 %switch
 }
 
@@ -133868,7 +133868,7 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
   %7 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %5
   %8 = load i8, ptr %7, align 1, !noundef !4
   %9 = zext i8 %8 to i32
-  %10 = add i32 %9, %2
+  %10 = add i32 %2, %9
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %.val1 = load i64, ptr %12, align 8, !noundef !4
@@ -134008,7 +134008,7 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
   %14 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %.val, i64 0, i64 %9
   %15 = getelementptr i8, ptr %14, i64 16
   %.val3 = load i64, ptr %15, align 8, !noundef !4
-  %16 = icmp ugt i64 %.val3, %2
+  %16 = icmp ult i64 %2, %.val3
   br i1 %16, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h7b2808194c0feb67E.exit", label %17, !prof !2238
 
 17:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h824f76df8605a902E.exit"
@@ -134057,10 +134057,10 @@ define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20
 define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_start17h9107133eda46bff6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i32 noundef %1) unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   %4 = load i32, ptr %3, align 8, !noundef !4
-  %5 = icmp eq i32 %4, %1
+  %5 = icmp eq i32 %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 412
   %7 = load i32, ptr %6, align 4
-  %8 = icmp eq i32 %7, %1
+  %8 = icmp eq i32 %1, %7
   %.sroa.0.0 = select i1 %5, i1 true, i1 %8
   ret i1 %.sroa.0.0
 }
@@ -135610,7 +135610,7 @@ define hidden void @"_ZN84_$LT$rayon..iter..map..Map$LT$I$C$F$GT$$u20$as$u20$ray
 define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10is_special17h1b76d39361f28683E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %4 = load i32, ptr %3, align 8, !noundef !4
-  %switch = icmp uge i32 %4, %1
+  %switch = icmp ule i32 %1, %4
   ret i1 %switch
 }
 
@@ -136118,10 +136118,10 @@ define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NF
 define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_start17h60fad61896cdfa16E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i32, ptr %3, align 8, !noundef !4
-  %5 = icmp eq i32 %4, %1
+  %5 = icmp eq i32 %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 372
   %7 = load i32, ptr %6, align 4
-  %8 = icmp eq i32 %7, %1
+  %8 = icmp eq i32 %1, %7
   %.sroa.0.0 = select i1 %5, i1 true, i1 %8
   ret i1 %.sroa.0.0
 }
@@ -136356,7 +136356,7 @@ _ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E.llvm.8265446259410684974.ex
 define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10is_special17hafab29b005794ff3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 416
   %4 = load i32, ptr %3, align 8, !noundef !4
-  %switch = icmp uge i32 %4, %1
+  %switch = icmp ule i32 %1, %4
   ret i1 %switch
 }
 
@@ -136421,11 +136421,11 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   %.val11.us = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %.val11.us, i64 0, i64 %29
   %.sroa.04.0.copyload.i.us = load i8, ptr %31, align 1
-  %.not.i.us = icmp ult i8 %.sroa.04.0.copyload.i.us, %3
+  %.not.i.us = icmp ugt i8 %3, %.sroa.04.0.copyload.i.us
   br i1 %.not.i.us, label %35, label %32
 
 32:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit.us"
-  %33 = icmp eq i8 %.sroa.04.0.copyload.i.us, %3
+  %33 = icmp eq i8 %3, %.sroa.04.0.copyload.i.us
   br i1 %33, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.us.loopexit, label %.split.loop.exit28
 
 _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit.us.loopexit: ; preds = %32
@@ -136499,7 +136499,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.
   %.val11 = load ptr, ptr %53, align 8, !nonnull !4, !noundef !4
   %57 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %.val11, i64 0, i64 %55
   %.sroa.04.0.copyload.i = load i8, ptr %57, align 1
-  %.not.i = icmp ult i8 %.sroa.04.0.copyload.i, %3
+  %.not.i = icmp ugt i8 %3, %.sroa.04.0.copyload.i
   br i1 %.not.i, label %58, label %60
 
 58:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit"
@@ -136510,7 +136510,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.
 
 60:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9cb773cebc28ef00E.exit"
   %.sroa.55.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 1
-  %61 = icmp eq i8 %.sroa.04.0.copyload.i, %3
+  %61 = icmp eq i8 %3, %.sroa.04.0.copyload.i
   br i1 %61, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h5c3b92b9abe77356E.exit, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3de90b52502736a2E.exit13"
 
 62:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3de90b52502736a2E.exit"
@@ -136656,7 +136656,7 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   br i1 %exitcond.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h4a782e32c65ddeefE.exit.thread.i, label %9
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h4a782e32c65ddeefE.exit.i: ; preds = %9
-  %19 = icmp ne i64 %.sroa.02.015.i.i, %2
+  %19 = icmp ne i64 %2, %.sroa.02.015.i.i
   tail call void @llvm.assume(i1 %19)
   br label %28
 
@@ -136724,10 +136724,10 @@ define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous.
 define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_start17h30223a2812ed7e7dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8, !noundef !4
-  %5 = icmp eq i32 %4, %1
+  %5 = icmp eq i32 %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 428
   %7 = load i32, ptr %6, align 4
-  %8 = icmp eq i32 %7, %1
+  %8 = icmp eq i32 %1, %7
   %.sroa.0.0 = select i1 %5, i1 true, i1 %8
   ret i1 %.sroa.0.0
 }

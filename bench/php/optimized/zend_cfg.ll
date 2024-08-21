@@ -2498,7 +2498,7 @@ define void @zend_cfg_identify_loops(ptr nocapture noundef readnone %0, ptr noca
 
 .lr.ph:                                           ; preds = %52, %78
   %.0160247 = phi i32 [ %.0160, %78 ], [ %.0160246, %52 ]
-  %60 = icmp ugt i32 %22, %.0160247
+  %60 = icmp ult i32 %.0160247, %22
   tail call void @llvm.assume(i1 %60)
   %61 = zext nneg i32 %.0160247 to i64
   %62 = lshr i64 %61, 6
@@ -2547,7 +2547,7 @@ define void @zend_cfg_identify_loops(ptr nocapture noundef readnone %0, ptr noca
 88:                                               ; preds = %81
   %89 = icmp sgt i32 %83, -1
   tail call void @llvm.assume(i1 %89)
-  %90 = icmp ugt i32 %22, %83
+  %90 = icmp ult i32 %83, %22
   tail call void @llvm.assume(i1 %90)
   %91 = zext nneg i32 %83 to i64
   %92 = lshr i64 %91, 6
@@ -2708,7 +2708,7 @@ zend_worklist_push.exit188.thread:                ; preds = %88, %81
 
 dominates.exit:                                   ; preds = %.lr.ph.i, %142
   %.0.lcssa.i = phi i32 [ %140, %142 ], [ %150, %.lr.ph.i ]
-  %155 = icmp eq i32 %.0.lcssa.i, %122
+  %155 = icmp eq i32 %122, %.0.lcssa.i
   br i1 %155, label %156, label %189
 
 156:                                              ; preds = %dominates.exit
@@ -2731,7 +2731,7 @@ dominates.exit:                                   ; preds = %.lr.ph.i, %142
 166:                                              ; preds = %160, %156
   %167 = icmp sgt i32 %140, -1
   tail call void @llvm.assume(i1 %167)
-  %168 = icmp ugt i32 %22, %140
+  %168 = icmp ult i32 %140, %22
   tail call void @llvm.assume(i1 %168)
   %169 = zext nneg i32 %140 to i64
   %170 = lshr i64 %169, 6
@@ -2842,7 +2842,7 @@ zend_worklist_push.exit190:                       ; preds = %176, %166, %199, %1
   %233 = load i32, ptr %232, align 4
   %234 = icmp sgt i32 %233, -1
   tail call void @llvm.assume(i1 %234)
-  %235 = icmp ugt i32 %22, %233
+  %235 = icmp ult i32 %233, %22
   tail call void @llvm.assume(i1 %235)
   %236 = zext nneg i32 %233 to i64
   %237 = lshr i64 %236, 6

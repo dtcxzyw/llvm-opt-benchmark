@@ -909,18 +909,18 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit122.i.
 _ZN18OpenImageIO_v2_6_013spin_rw_mutex15read_lock_guardC2ERS0_.exit.i.i: ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit122.i.i.i.i, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113ustring_tableEv.exit
   %mask.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %11 = load i64, ptr %mask.i.i, align 8
-  %and.i.i = and i64 %11, %hash
   %entries.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %12 = load ptr, ptr %entries.i.i, align 16
-  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %12, i64 %and.i.i
-  %13 = load ptr, ptr %arrayidx7.i.i, align 8
-  %cmp8.i.i = icmp eq ptr %13, null
-  br i1 %cmp8.i.i, label %_ZN18OpenImageIO_v2_6_012UstringTable6lookupEm.exit, label %if.end.i.i
+  %pos.07.i.i = and i64 %11, %hash
+  %arrayidx8.i.i = getelementptr inbounds ptr, ptr %12, i64 %pos.07.i.i
+  %13 = load ptr, ptr %arrayidx8.i.i, align 8
+  %cmp9.i.i = icmp eq ptr %13, null
+  br i1 %cmp9.i.i, label %_ZN18OpenImageIO_v2_6_012UstringTable6lookupEm.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN18OpenImageIO_v2_6_013spin_rw_mutex15read_lock_guardC2ERS0_.exit.i.i, %if.end8.i.i
   %14 = phi ptr [ %16, %if.end8.i.i ], [ %13, %_ZN18OpenImageIO_v2_6_013spin_rw_mutex15read_lock_guardC2ERS0_.exit.i.i ]
+  %pos.011.i.i = phi i64 [ %pos.0.i.i, %if.end8.i.i ], [ %pos.07.i.i, %_ZN18OpenImageIO_v2_6_013spin_rw_mutex15read_lock_guardC2ERS0_.exit.i.i ]
   %dist.010.i.i = phi i64 [ %inc.i.i, %if.end8.i.i ], [ 0, %_ZN18OpenImageIO_v2_6_013spin_rw_mutex15read_lock_guardC2ERS0_.exit.i.i ]
-  %pos.09.i.i = phi i64 [ %and10.i.i, %if.end8.i.i ], [ %and.i.i, %_ZN18OpenImageIO_v2_6_013spin_rw_mutex15read_lock_guardC2ERS0_.exit.i.i ]
   %15 = load i64, ptr %14, align 8
   %cmp4.i.i = icmp eq i64 %15, %hash
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end8.i.i
@@ -931,9 +931,9 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
   %inc.i.i = add i64 %dist.010.i.i, 1
-  %add.i.i = add i64 %inc.i.i, %pos.09.i.i
-  %and10.i.i = and i64 %add.i.i, %11
-  %arrayidx.i2.i = getelementptr inbounds ptr, ptr %12, i64 %and10.i.i
+  %add.i.i = add i64 %inc.i.i, %pos.011.i.i
+  %pos.0.i.i = and i64 %add.i.i, %11
+  %arrayidx.i2.i = getelementptr inbounds ptr, ptr %12, i64 %pos.0.i.i
   %16 = load ptr, ptr %arrayidx.i2.i, align 8
   %cmp.i.i = icmp eq ptr %16, null
   br i1 %cmp.i.i, label %_ZN18OpenImageIO_v2_6_012UstringTable6lookupEm.exit, label %if.end.i.i, !llvm.loop !25
@@ -2234,7 +2234,7 @@ if.then:                                          ; preds = %entry
   %xor.i.i.i = xor i64 %sub.i, %seed1
   %mul.i.i.i = mul i64 %xor.i.i.i, -7070675565921424023
   %shr.i.i.i = lshr i64 %mul.i.i.i, 47
-  %0 = xor i64 %shr.i.i.i, %seed1
+  %0 = xor i64 %seed1, %shr.i.i.i
   %xor6.i.i.i = xor i64 %0, %mul.i.i.i
   %mul7.i.i.i = mul i64 %xor6.i.i.i, -7070675565921424023
   %shr8.i.i.i = lshr i64 %mul7.i.i.i, 47
@@ -2481,13 +2481,13 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit122.i.
 _ZN18OpenImageIO_v2_6_013spin_rw_mutex15read_lock_guardC2ERS0_.exit: ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit122.i.i, %entry, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i
   %mask = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %mask, align 8
-  %and = and i64 %8, %hash
   %entries = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %entries, align 16
-  %arrayidx10 = getelementptr inbounds ptr, ptr %9, i64 %and
-  %10 = load ptr, ptr %arrayidx10, align 8
-  %cmp11 = icmp eq ptr %10, null
-  br i1 %cmp11, label %cleanup, label %if.end.lr.ph
+  %pos.010 = and i64 %hash, %8
+  %arrayidx11 = getelementptr inbounds ptr, ptr %9, i64 %pos.010
+  %10 = load ptr, ptr %arrayidx11, align 8
+  %cmp12 = icmp eq ptr %10, null
+  br i1 %cmp12, label %cleanup, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %_ZN18OpenImageIO_v2_6_013spin_rw_mutex15read_lock_guardC2ERS0_.exit
   %m_len.i = getelementptr inbounds i8, ptr %str, i64 8
@@ -2495,8 +2495,8 @@ if.end.lr.ph:                                     ; preds = %_ZN18OpenImageIO_v2
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end20
   %11 = phi ptr [ %10, %if.end.lr.ph ], [ %16, %if.end20 ]
+  %pos.014 = phi i64 [ %pos.010, %if.end.lr.ph ], [ %pos.0, %if.end20 ]
   %dist.013 = phi i64 [ 0, %if.end.lr.ph ], [ %inc, %if.end20 ]
-  %pos.012 = phi i64 [ %and, %if.end.lr.ph ], [ %and22, %if.end20 ]
   %12 = load i64, ptr %11, align 8
   %cmp4 = icmp eq i64 %12, %hash
   br i1 %cmp4, label %land.lhs.true, label %if.end20
@@ -2517,9 +2517,9 @@ land.lhs.true8:                                   ; preds = %land.lhs.true
 
 if.end20:                                         ; preds = %land.lhs.true8, %land.lhs.true, %if.end
   %inc = add i64 %dist.013, 1
-  %add = add i64 %inc, %pos.012
-  %and22 = and i64 %add, %8
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %and22
+  %add = add i64 %inc, %pos.014
+  %pos.0 = and i64 %add, %8
+  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %pos.0
   %16 = load ptr, ptr %arrayidx, align 8
   %cmp = icmp eq ptr %16, null
   br i1 %cmp, label %cleanup, label %if.end, !llvm.loop !37
@@ -2564,7 +2564,7 @@ _ZNSt10_HashtableImSt4pairIKmPKcESaIS4_ENSt8__detail10_Select1stESt8equal_toImEN
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %map.i, align 8
   %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr, i64 56
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentImPKcNS_8identityImEESt8equal_toImELm256ESt13unordered_mapImS2_S4_S6_SaISt4pairIKmS2_EEEE3BinD2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableImSt4pairIKmPKcESaIS4_ENSt8__detail10_Select1stESt8equal_toImEN18OpenImageIO_v2_6_08identityImEENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -2623,13 +2623,13 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit94.i.i
 _ZN18OpenImageIO_v2_6_013spin_rw_mutex16write_lock_guardC2ERS0_.exit: ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit94.i.i, %entry
   %mask = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mask, align 8
-  %and = and i64 %4, %hash
   %entries = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %entries, align 16
-  %arrayidx20 = getelementptr inbounds ptr, ptr %5, i64 %and
-  %6 = load ptr, ptr %arrayidx20, align 8
-  %cmp21 = icmp eq ptr %6, null
-  br i1 %cmp21, label %for.end, label %if.end.lr.ph
+  %pos.020 = and i64 %hash, %4
+  %arrayidx21 = getelementptr inbounds ptr, ptr %5, i64 %pos.020
+  %6 = load ptr, ptr %arrayidx21, align 8
+  %cmp22 = icmp eq ptr %6, null
+  br i1 %cmp22, label %for.end, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %_ZN18OpenImageIO_v2_6_013spin_rw_mutex16write_lock_guardC2ERS0_.exit
   %m_len.i = getelementptr inbounds i8, ptr %str, i64 8
@@ -2637,8 +2637,8 @@ if.end.lr.ph:                                     ; preds = %_ZN18OpenImageIO_v2
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end19
   %7 = phi ptr [ %6, %if.end.lr.ph ], [ %12, %if.end19 ]
-  %pos.023 = phi i64 [ %and, %if.end.lr.ph ], [ %and21, %if.end19 ]
-  %dist.022 = phi i64 [ 0, %if.end.lr.ph ], [ %inc, %if.end19 ]
+  %pos.024 = phi i64 [ %pos.020, %if.end.lr.ph ], [ %pos.0, %if.end19 ]
+  %dist.023 = phi i64 [ 0, %if.end.lr.ph ], [ %inc, %if.end19 ]
   %8 = load i64, ptr %7, align 8
   %cmp4 = icmp eq i64 %8, %hash
   br i1 %cmp4, label %land.lhs.true, label %if.end19
@@ -2658,16 +2658,16 @@ land.lhs.true8:                                   ; preds = %land.lhs.true
   br i1 %tobool.not, label %cleanup, label %if.end19
 
 if.end19:                                         ; preds = %land.lhs.true8, %land.lhs.true, %if.end
-  %inc = add i64 %dist.022, 1
-  %add = add i64 %pos.023, %inc
-  %and21 = and i64 %add, %4
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %and21
+  %inc = add i64 %dist.023, 1
+  %add = add i64 %pos.024, %inc
+  %pos.0 = and i64 %add, %4
+  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %pos.0
   %12 = load ptr, ptr %arrayidx, align 8
   %cmp = icmp eq ptr %12, null
   br i1 %cmp, label %for.end, label %if.end, !llvm.loop !39
 
 for.end:                                          ; preds = %if.end19, %_ZN18OpenImageIO_v2_6_013spin_rw_mutex16write_lock_guardC2ERS0_.exit
-  %pos.0.lcssa = phi i64 [ %and, %_ZN18OpenImageIO_v2_6_013spin_rw_mutex16write_lock_guardC2ERS0_.exit ], [ %and21, %if.end19 ]
+  %pos.0.lcssa = phi i64 [ %pos.020, %_ZN18OpenImageIO_v2_6_013spin_rw_mutex16write_lock_guardC2ERS0_.exit ], [ %pos.0, %if.end19 ]
   %13 = load ptr, ptr %str, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %str, i64 8
   %14 = load i64, ptr %m_len.i.i, align 8
@@ -3127,7 +3127,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableImSt4pairIKmPKcESaIS4_ENSt8__detail10_Select1stESt8equal_toImEN18OpenImageIO_v2_6_08identityImEENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmPKcESaIS4_ENSt8__detail10_Select1stESt8equal_toImEN18OpenImageIO_v2_6_08identityImEENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end

@@ -105,7 +105,7 @@ if.end:                                           ; preds = %entry
   %appended_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %appended_, align 8
   %sub = sub nsw i32 2147483647, %0
-  %cmp2 = icmp ult i32 %sub, %n
+  %cmp2 = icmp ugt i32 %n, %sub
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
@@ -122,7 +122,7 @@ if.end5:                                          ; preds = %if.end
   %size_ = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %size_, align 4
   %sub7 = sub nsw i32 %1, %2
-  %cmp8 = icmp slt i32 %sub7, %n
+  %cmp8 = icmp sgt i32 %n, %sub7
   br i1 %cmp8, label %if.end11, label %land.lhs.true
 
 if.end11:                                         ; preds = %if.end5
@@ -137,7 +137,7 @@ land.lhs.true:                                    ; preds = %if.end5, %if.end11
   %3 = load ptr, ptr %outbuf_, align 8
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %idx.ext
-  %cmp14.not = icmp eq ptr %add.ptr, %bytes
+  %cmp14.not = icmp eq ptr %bytes, %add.ptr
   br i1 %cmp14.not, label %if.end20, label %do.body
 
 do.body:                                          ; preds = %land.lhs.true

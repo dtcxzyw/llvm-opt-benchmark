@@ -772,7 +772,7 @@ if.end7:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %depths.0.val to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.not.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %conv10
+  %cmp.not.i.i = icmp ult i64 %conv10, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i, label %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end7

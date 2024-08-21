@@ -413,7 +413,7 @@ define i32 @opal_free_list_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds i8, ptr %3, i64 56
   %24 = load i64, ptr %23, align 8
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 %1)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %1, i64 %24)
   br label %25
 
 25:                                               ; preds = %22, %21
@@ -892,7 +892,7 @@ define i32 @opal_free_list_resize_mt(ptr noundef %0, i64 noundef %1) local_unnam
 
 13:                                               ; preds = %10
   %14 = load i64, ptr %3, align 8
-  %15 = icmp slt i64 %14, %1
+  %15 = icmp sgt i64 %1, %14
   br i1 %15, label %10, label %16, !llvm.loop !10
 
 16:                                               ; preds = %10, %13

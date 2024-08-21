@@ -38,7 +38,7 @@ define noundef i32 @dimatcopy_k_rn(i64 noundef %0, i64 noundef %1, double nounde
   %24 = phi i64 [ %28, %23 ], [ 0, %.preheader ]
   %25 = getelementptr inbounds double, ptr %21, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !3
-  %27 = fmul double %26, %2
+  %27 = fmul double %2, %26
   store double %27, ptr %25, align 8, !tbaa !3
   %28 = add nuw nsw i64 %24, 1
   %29 = icmp eq i64 %28, %1

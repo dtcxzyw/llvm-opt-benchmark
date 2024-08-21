@@ -500,13 +500,13 @@ agxblen.exit.i.i:                                 ; preds = %124
   %125 = load i64, ptr %39, align 8, !noalias !4
   %126 = load i64, ptr %38, align 8, !noalias !4
   %127 = sub i64 %125, %126
-  %128 = icmp ult i64 %127, %122
+  %128 = icmp ugt i64 %122, %127
   br i1 %128, label %agxbsizeof.exit.i.i64.i, label %._crit_edge.i62.i
 
 agxblen.exit.thread.i.i:                          ; preds = %124
   %129 = zext i8 %.val.i.i56.i to i64
   %130 = sub nsw i64 31, %129
-  %131 = icmp ult i64 %130, %122
+  %131 = icmp ugt i64 %122, %130
   br i1 %131, label %.thread.i58.i, label %144
 
 agxbsizeof.exit.i.i64.i:                          ; preds = %agxblen.exit.i.i
@@ -584,13 +584,13 @@ agxblen.exit.i:                                   ; preds = %158
   %159 = load i64, ptr %39, align 8, !noalias !4
   %160 = load i64, ptr %38, align 8, !noalias !4
   %161 = sub i64 %159, %160
-  %162 = icmp ult i64 %161, %156
+  %162 = icmp ugt i64 %156, %161
   br i1 %162, label %agxbsizeof.exit.i.i183, label %._crit_edge.i181
 
 agxblen.exit.thread.i:                            ; preds = %158
   %163 = zext i8 %.val.i.i to i64
   %164 = sub nsw i64 31, %163
-  %165 = icmp ult i64 %164, %156
+  %165 = icmp ugt i64 %156, %164
   br i1 %165, label %.thread.i180, label %178
 
 agxbsizeof.exit.i.i183:                           ; preds = %agxblen.exit.i

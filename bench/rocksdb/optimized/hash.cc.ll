@@ -1213,7 +1213,7 @@ define void @_ZN7rocksdb17BijectiveHash2x64EmmmPmS0_(i64 noundef %in_high64, i64
 entry:
   %sub = sub i64 6455697860950631241, %seed
   %add = add i64 %seed, -4466874330221494952
-  %0 = xor i64 %sub, %in_low64
+  %0 = xor i64 %in_low64, %sub
   %xor1 = xor i64 %0, %in_high64
   %and1.i = and i64 %xor1, 4294967295
   %mul.i = mul nuw i64 %and1.i, 2246822535

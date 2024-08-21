@@ -41,7 +41,7 @@ tailrecurse.preheader:                            ; preds = %4
 tailrecurse:                                      ; preds = %tailrecurse.preheader, %54
   %7 = phi i32 [ %.lcssa310, %54 ], [ %.pre, %tailrecurse.preheader ]
   %.tr = phi ptr [ %.0173244.lcssa, %54 ], [ %0, %tailrecurse.preheader ]
-  %8 = icmp ugt i32 %7, %1
+  %8 = icmp ult i32 %1, %7
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %tailrecurse
@@ -73,7 +73,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %24 = getelementptr inbounds i8, ptr %20, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, %23
-  %.not190325 = icmp ugt i32 %26, %1
+  %.not190325 = icmp ult i32 %1, %26
   br i1 %.not190325, label %.critedge, label %.lr.ph
 
 27:                                               ; preds = %18
@@ -101,7 +101,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %38 = getelementptr inbounds i8, ptr %42, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = add i32 %39, %37
-  %.not190 = icmp ugt i32 %40, %1
+  %.not190 = icmp ult i32 %1, %40
   br i1 %.not190, label %.critedge, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader212.preheader, %.preheader212
@@ -139,7 +139,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %.0173244.lcssa = phi ptr [ %20, %.preheader212.preheader ], [ %42, %.preheader212 ]
   %.lcssa310 = phi i32 [ %23, %.preheader212.preheader ], [ %37, %.preheader212 ]
   %.lcssa307 = phi i32 [ %26, %.preheader212.preheader ], [ %40, %.preheader212 ]
-  %.not191 = icmp ugt i32 %.lcssa310, %1
+  %.not191 = icmp ult i32 %1, %.lcssa310
   br i1 %.not191, label %55, label %54
 
 54:                                               ; preds = %.critedge
@@ -153,7 +153,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
 
 .thread:                                          ; preds = %54
   %57 = getelementptr inbounds i8, ptr %.tr, i64 24
-  %.old = icmp ult i32 %.lcssa310, %1
+  %.old = icmp ugt i32 %1, %.lcssa310
   br i1 %.old, label %.loopexit, label %.preheader
 
 58:                                               ; preds = %55
@@ -370,7 +370,7 @@ define ptr @Mtr_DissolveGroup(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %26, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %3, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, %0
+  %31 = icmp eq ptr %0, %30
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %26, i64 40
   %.sink = select i1 %31, ptr %29, ptr %33
@@ -395,7 +395,7 @@ tailrecurse:                                      ; preds = %3, %._crit_edge
   %.tr = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %3 ]
   %6 = getelementptr inbounds i8, ptr %.tr, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = icmp ugt i32 %7, %1
+  %8 = icmp ult i32 %1, %7
   br i1 %8, label %.split39, label %9
 
 9:                                                ; preds = %tailrecurse
@@ -423,7 +423,7 @@ tailrecurse:                                      ; preds = %3, %._crit_edge
   %23 = getelementptr inbounds i8, ptr %19, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, %22
-  %.not36 = icmp ugt i32 %25, %1
+  %.not36 = icmp ult i32 %1, %25
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -435,7 +435,7 @@ tailrecurse:                                      ; preds = %3, %._crit_edge
   %30 = getelementptr inbounds i8, ptr %27, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, %29
-  %.not = icmp ugt i32 %32, %1
+  %.not = icmp ult i32 %1, %32
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader

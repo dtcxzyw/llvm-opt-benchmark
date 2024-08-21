@@ -405,7 +405,7 @@ if.else:                                          ; preds = %entry
   %default_value = getelementptr inbounds i8, ptr %map, i64 64
   %1 = load i32, ptr %default_value, align 8
   %conv = sext i32 %1 to i64
-  %add3 = add nsw i64 %conv, %amt
+  %add3 = add nsw i64 %amt, %conv
   %2 = inttoptr i64 %add3 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %entry1.i.i.i)
   %call.i.i.i = call i32 @strhash(ptr noundef %str) #10

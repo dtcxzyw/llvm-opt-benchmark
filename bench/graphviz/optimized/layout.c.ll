@@ -860,7 +860,7 @@ copyAttr.exit197.i:                               ; preds = %71, %69, %copyAttr.
 
 99:                                               ; preds = %96
   %100 = load ptr, ptr %1, align 8
-  %.not20.i.i = icmp eq ptr %100, %86
+  %.not20.i.i = icmp eq ptr %86, %100
   br i1 %.not20.i.i, label %105, label %101
 
 101:                                              ; preds = %99
@@ -1703,7 +1703,7 @@ getEdgeList.exit.i:                               ; preds = %.loopexit.i.i, %._c
   %600 = sitofp i16 %582 to double
   %601 = fdiv double %599, %600
   %602 = call double @llvm.minnum.f64(double %601, double 0x3FA1DF46A2529D39)
-  %603 = icmp ugt ptr %.060.i.i, %.1144
+  %603 = icmp ult ptr %.1144, %.060.i.i
   br i1 %603, label %610, label %604
 
 604:                                              ; preds = %596
@@ -1854,7 +1854,7 @@ expandCluster.exit:                               ; preds = %483, %._crit_edge.i
 
 690:                                              ; preds = %._crit_edge147
   %691 = load ptr, ptr %1, align 8
-  %692 = icmp eq ptr %691, %0
+  %692 = icmp eq ptr %0, %691
   br i1 %692, label %693, label %695
 
 693:                                              ; preds = %690
@@ -1902,7 +1902,7 @@ expandCluster.exit:                               ; preds = %483, %._crit_edge.i
 
 .thread:                                          ; preds = %709
   %711 = load ptr, ptr %1, align 8
-  %712 = icmp eq ptr %711, %0
+  %712 = icmp eq ptr %0, %711
   br label %772
 
 713:                                              ; preds = %709
@@ -1914,7 +1914,7 @@ expandCluster.exit:                               ; preds = %483, %._crit_edge.i
   %.084.ph = phi ptr [ null, %713 ], [ %708, %704 ]
   %.pr = load i64, ptr %7, align 8
   %716 = load ptr, ptr %1, align 8
-  %717 = icmp eq ptr %716, %0
+  %717 = icmp eq ptr %0, %716
   %.not.i110 = icmp eq i64 %.pr, 0
   br i1 %.not.i110, label %772, label %718
 

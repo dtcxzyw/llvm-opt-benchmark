@@ -202,7 +202,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %34 = load i64, ptr %10, align 8, !alias.scope !6, !noalias !11, !noundef !4
   %35 = load i64, ptr %3, align 8, !alias.scope !13, !noalias !11, !noundef !4
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %16
+  %37 = icmp ugt i64 %16, %36
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h886c86e5fe23bea7E.exit"
 
 38:                                               ; preds = %33
@@ -242,7 +242,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %52 = load i64, ptr %10, align 8, !alias.scope !23, !noalias !28, !noundef !4
   %53 = load i64, ptr %3, align 8, !alias.scope !30, !noalias !28, !noundef !4
   %54 = sub i64 %53, %52
-  %.not = icmp ugt i64 %54, %46
+  %.not = icmp ult i64 %46, %54
   br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h886c86e5fe23bea7E.exit13", label %55
 
 55:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haa6c2e6f44423445E.exit"
@@ -385,7 +385,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %34 = load i64, ptr %10, align 8, !alias.scope !47, !noalias !52, !noundef !4
   %35 = load i64, ptr %3, align 8, !alias.scope !54, !noalias !52, !noundef !4
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %16
+  %37 = icmp ugt i64 %16, %36
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h886c86e5fe23bea7E.exit"
 
 38:                                               ; preds = %33
@@ -425,7 +425,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %52 = load i64, ptr %10, align 8, !alias.scope !64, !noalias !69, !noundef !4
   %53 = load i64, ptr %3, align 8, !alias.scope !71, !noalias !69, !noundef !4
   %54 = sub i64 %53, %52
-  %.not = icmp ugt i64 %54, %46
+  %.not = icmp ult i64 %46, %54
   br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h886c86e5fe23bea7E.exit13", label %55
 
 55:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haa6c2e6f44423445E.exit"
@@ -1411,7 +1411,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %38 = load i64, ptr %2, align 8, !alias.scope !150, !noalias !153, !noundef !4
   %39 = load i64, ptr %10, align 8, !alias.scope !150, !noalias !153, !noundef !4
   %40 = sub i64 %38, %39
-  %41 = icmp ugt i64 %40, %16
+  %41 = icmp ult i64 %16, %40
   br i1 %41, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf06991242c42650dE.exit20"
@@ -1551,7 +1551,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %38 = load i64, ptr %2, align 8, !alias.scope !168, !noalias !171, !noundef !4
   %39 = load i64, ptr %10, align 8, !alias.scope !168, !noalias !171, !noundef !4
   %40 = sub i64 %38, %39
-  %41 = icmp ugt i64 %40, %16
+  %41 = icmp ult i64 %16, %40
   br i1 %41, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf06991242c42650dE.exit20"
@@ -2346,7 +2346,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !242, !noalias !247, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !249, !noalias !247, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h886c86e5fe23bea7E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -2403,7 +2403,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !255, !noalias !260, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !262, !noalias !260, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h886c86e5fe23bea7E.exit"
 
 9:                                                ; preds = %3
@@ -2628,7 +2628,7 @@ define internal fastcc noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..Buf
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = sub i64 %4, %6
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3
@@ -3156,7 +3156,7 @@ define void @_ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E(ptr 
   %4 = alloca [8192 x i8], align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 8192
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %.not = icmp ugt i64 %6, %2
+  %.not = icmp ult i64 %2, %6
   br i1 %.not, label %7, label %13
 
 7:                                                ; preds = %3
@@ -3206,7 +3206,7 @@ define { ptr, i64 } @_ZN7uu_tail6chunks10BytesChunk10get_buffer17hcbb4dd09726de4
 define { ptr, i64 } @_ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE(ptr noalias noundef readonly align 8 dereferenceable(8200) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8192
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
@@ -3295,7 +3295,7 @@ define void @_ZN7uu_tail6chunks10LinesChunk10from_chunk17h3bb0dd871f51c231E(ptr 
   %4 = alloca [8192 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8200
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = icmp ult i64 %6, %2
+  %7 = icmp ugt i64 %2, %6
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %3
@@ -3338,7 +3338,7 @@ _ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i: ; preds =
 
 _ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit: ; preds = %18, %_ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i
   %.08.lcssa.i = phi i64 [ 0, %_ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i ], [ %23, %18 ]
-  %.not.i = icmp ugt i64 %10, %.08.lcssa.i
+  %.not.i = icmp ult i64 %.08.lcssa.i, %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8192) %4, i8 0, i64 8192, i1 false)
   br i1 %.not.i, label %_ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i, label %_ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit
 
@@ -3405,7 +3405,7 @@ define { ptr, i64 } @_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !403)
   %3 = getelementptr inbounds i8, ptr %0, i64 8192
   %4 = load i64, ptr %3, align 8, !alias.scope !403, !noundef !4
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
@@ -3751,7 +3751,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
   %53 = load i64, ptr %16, align 8, !alias.scope !470, !noalias !475, !noundef !4
   %54 = load i64, ptr %9, align 8, !alias.scope !477, !noalias !475, !noundef !4
   %55 = sub i64 %54, %53
-  %56 = icmp ult i64 %55, %35
+  %56 = icmp ugt i64 %35, %55
   br i1 %56, label %57, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h886c86e5fe23bea7E.exit.i"
 
 57:                                               ; preds = %52
@@ -3803,7 +3803,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
   %71 = load i64, ptr %16, align 8, !alias.scope !480, !noalias !485, !noundef !4
   %72 = load i64, ptr %9, align 8, !alias.scope !487, !noalias !485, !noundef !4
   %73 = sub i64 %72, %71
-  %.not.i = icmp ugt i64 %73, %65
+  %.not.i = icmp ult i64 %65, %73
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h886c86e5fe23bea7E.exit13.i", label %74
 
 74:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haa6c2e6f44423445E.exit.i"
@@ -4400,7 +4400,7 @@ _ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i: ; preds =
 
 _ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit: ; preds = %164
   call void @llvm.experimental.noalias.scope.decl(metadata !542)
-  %.not182 = icmp ugt i64 %157, %.0814.i
+  %.not182 = icmp ult i64 %.0814.i, %157
   br i1 %.not182, label %_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i, label %173
 
 173:                                              ; preds = %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit
@@ -4418,7 +4418,7 @@ _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; pr
   %176 = load i64, ptr %14, align 8, !alias.scope !548, !noalias !549, !noundef !4
   %177 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !548, !noalias !549, !noundef !4
   %178 = sub i64 %176, %177
-  %179 = icmp ugt i64 %178, %174
+  %179 = icmp ult i64 %174, %178
   br i1 %179, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit.thread.i": ; preds = %_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i
@@ -4986,7 +4986,7 @@ _ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i: ; preds =
 
 _ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit: ; preds = %175
   call void @llvm.experimental.noalias.scope.decl(metadata !604)
-  %.not191 = icmp ugt i64 %168, %.0814.i
+  %.not191 = icmp ult i64 %.0814.i, %168
   br i1 %.not191, label %_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i, label %184
 
 184:                                              ; preds = %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit
@@ -5004,7 +5004,7 @@ _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; pr
   %187 = load i64, ptr %14, align 8, !alias.scope !610, !noalias !611, !noundef !4
   %188 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !610, !noalias !611, !noundef !4
   %189 = sub i64 %187, %188
-  %190 = icmp ugt i64 %189, %185
+  %190 = icmp ult i64 %185, %189
   br i1 %190, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit.thread.i": ; preds = %_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i

@@ -741,7 +741,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %48
   %73 = extractvalue { i64, i32 } %71, 0
   %74 = getelementptr inbounds i8, ptr %67, i64 %73
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15), !noalias !72
-  %75 = icmp eq i64 %73, %69
+  %75 = icmp eq i64 %69, %73
   br i1 %75, label %76, label %.split.i
 
 76:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_matches17h12237eb3938fd6e4E.exit.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_matches17h12237eb3938fd6e4E.exit.thread.i"
@@ -3708,7 +3708,7 @@ _ZN9uu_expand12next_tabstop17h98e46899a1efeb36E.exit.i: ; preds = %.preheader.i,
   %356 = load i64, ptr %29, align 8, !alias.scope !623, !noalias !624, !noundef !4
   %357 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !623, !noalias !624, !noundef !4
   %358 = sub i64 %356, %357
-  %359 = icmp ugt i64 %358, %.0111312.i
+  %359 = icmp ult i64 %.0111312.i, %358
   br i1 %359, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17heefed088db755224E.exit.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17heefed088db755224E.exit.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17heefed088db755224E.exit.thread.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd48bfbe81aefa5cdE.exit152.i"
@@ -3739,7 +3739,7 @@ _ZN9uu_expand12next_tabstop17h98e46899a1efeb36E.exit.i: ; preds = %.preheader.i,
   %368 = load i64, ptr %29, align 8, !alias.scope !630, !noalias !631, !noundef !4
   %369 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !630, !noalias !631, !noundef !4
   %370 = sub i64 %368, %369
-  %371 = icmp ugt i64 %370, %367
+  %371 = icmp ult i64 %367, %370
   br i1 %371, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17heefed088db755224E.exit155.thread.i", label %372
 
 372:                                              ; preds = %.noexc75
@@ -3778,7 +3778,7 @@ _ZN9uu_expand12next_tabstop17h98e46899a1efeb36E.exit.i: ; preds = %.preheader.i,
   %383 = load i64, ptr %29, align 8, !alias.scope !642, !noalias !643, !noundef !4
   %384 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !642, !noalias !643, !noundef !4
   %385 = sub i64 %383, %384
-  %386 = icmp ugt i64 %385, %.0.i151.i
+  %386 = icmp ult i64 %.0.i151.i, %385
   br i1 %386, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17heefed088db755224E.exit157.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17heefed088db755224E.exit157.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17heefed088db755224E.exit157.thread.i": ; preds = %"_ZN111_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeTo$LT$usize$GT$$GT$$GT$5index17h39d2eda1f97fbe40E.exit.i"
@@ -3902,7 +3902,7 @@ _ZN9uu_expand12next_tabstop17h98e46899a1efeb36E.exit.i: ; preds = %.preheader.i,
   %425 = load i64, ptr %29, align 8, !alias.scope !667, !noalias !668, !noundef !4
   %426 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !667, !noalias !668, !noundef !4
   %427 = sub i64 %425, %426
-  %428 = icmp ugt i64 %427, %.0111169.i
+  %428 = icmp ult i64 %.0111169.i, %427
   br i1 %428, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17heefed088db755224E.exit162.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17heefed088db755224E.exit162.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17heefed088db755224E.exit162.thread.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd48bfbe81aefa5cdE.exit160.i"

@@ -1550,24 +1550,24 @@ define noundef zeroext i1 @_Z16replica_exchangeP8_IO_FILEPK9t_commrecPK14gmx_mul
   %39 = load float, ptr %38, align 4
   %40 = getelementptr inbounds i8, ptr %6, i64 72
   %41 = load float, ptr %40, align 4
-  %42 = fneg float %39
-  %43 = fmul float %41, %42
+  %42 = fneg float %41
+  %43 = fmul float %39, %42
   %44 = tail call float @llvm.fmuladd.f32(float %34, float %37, float %43)
   %45 = load float, ptr %32, align 4
   %46 = getelementptr inbounds i8, ptr %6, i64 56
   %47 = load float, ptr %46, align 4
   %48 = getelementptr inbounds i8, ptr %6, i64 60
   %49 = load float, ptr %48, align 4
-  %50 = fmul float %49, %42
-  %51 = tail call float @llvm.fmuladd.f32(float %47, float %37, float %50)
-  %52 = fneg float %45
-  %53 = fmul float %51, %52
-  %54 = tail call float @llvm.fmuladd.f32(float %31, float %44, float %53)
-  %55 = load float, ptr %35, align 4
-  %56 = fneg float %34
-  %57 = fmul float %49, %56
+  %50 = fneg float %49
+  %51 = fmul float %39, %50
+  %52 = tail call float @llvm.fmuladd.f32(float %47, float %37, float %51)
+  %53 = fneg float %52
+  %54 = fmul float %45, %53
+  %55 = tail call float @llvm.fmuladd.f32(float %31, float %44, float %54)
+  %56 = load float, ptr %35, align 4
+  %57 = fmul float %34, %50
   %58 = tail call float @llvm.fmuladd.f32(float %47, float %41, float %57)
-  %59 = tail call noundef float @llvm.fmuladd.f32(float %55, float %58, float %54)
+  %59 = tail call noundef float @llvm.fmuladd.f32(float %56, float %58, float %55)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19)
   %60 = getelementptr inbounds i8, ptr %3, i64 168
   %61 = load ptr, ptr %60, align 8
@@ -3460,7 +3460,7 @@ _ZL22compute_exchange_orderPPiS0_ii.exit.i:       ; preds = %._crit_edge70.i.i, 
   %indvars.iv77.i = phi i64 [ 0, %.lr.ph64.i ], [ %indvars.iv.next78.i, %1160 ]
   %1162 = getelementptr inbounds i32, ptr %1159, i64 %indvars.iv77.i
   %1163 = load i32, ptr %1162, align 4
-  %.not41.i = icmp eq i32 %1163, %29
+  %.not41.i = icmp eq i32 %29, %1163
   br i1 %.not41.i, label %1160, label %1164
 
 1164:                                             ; preds = %1161
@@ -3868,8 +3868,8 @@ define internal fastcc noundef float @_ZL10calc_deltaP8_IO_FILEbP11gmx_repl_exii
   %124 = load float, ptr %123, align 4
   %125 = getelementptr inbounds float, ptr %119, i64 %122
   %126 = load float, ptr %125, align 4
-  %127 = fneg float %124
-  %128 = fmul float %126, %127
+  %127 = fneg float %126
+  %128 = fmul float %124, %127
   %129 = tail call float @llvm.fmuladd.f32(float %117, float %121, float %128)
   %130 = sext i32 %4 to i64
   %131 = getelementptr inbounds float, ptr %14, i64 %130

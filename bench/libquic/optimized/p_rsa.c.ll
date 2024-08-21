@@ -209,7 +209,7 @@ if.end5:                                          ; preds = %if.end
 
 if.then7:                                         ; preds = %if.end5
   %call9 = tail call i64 @EVP_MD_size(ptr noundef nonnull %4) #8
-  %cmp10.not = icmp eq i64 %call9, %tbslen
+  %cmp10.not = icmp eq i64 %tbslen, %call9
   br i1 %cmp10.not, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %if.then7

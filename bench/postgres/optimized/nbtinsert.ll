@@ -777,7 +777,7 @@ BufferGetPage.exit.i55:                           ; preds = %323, %317
   %356 = load i16, ptr %355, align 2
   %357 = load i16, ptr %32, align 8
   %358 = icmp ult i16 %356, %357
-  %spec.select.i62 = or i1 %358, %3
+  %spec.select.i62 = or i1 %3, %358
   br label %359
 
 359:                                              ; preds = %BufferGetPage.exit85.i, %354
@@ -1190,7 +1190,7 @@ BufferGetPage.exit.i:                             ; preds = %96, %90
   %139 = load i8, ptr %15, align 1
   %140 = trunc i8 %139 to i1
   %.not276.i = xor i1 %140, true
-  %141 = icmp eq i16 %119, %.0133
+  %141 = icmp eq i16 %.0133, %119
   %or.cond277.i = select i1 %.not276.i, i1 %141, i1 false
   br i1 %or.cond277.i, label %154, label %142
 
@@ -3471,7 +3471,7 @@ _bt_simpledel_pass.exit:                          ; preds = %.loopexit.i, %_bt_d
 242:                                              ; preds = %._crit_edge.thread
   %243 = getelementptr inbounds i8, ptr %2, i64 28
   store i8 0, ptr %243, align 4
-  %brmerge52 = or i1 %.0, %6
+  %brmerge52 = or i1 %6, %.0
   br i1 %brmerge52, label %244, label %248
 
 244:                                              ; preds = %242

@@ -4190,7 +4190,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118AstVisitorTrackingixEm(pt
 
 select.unfold.i.i:                                ; preds = %58, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %58 ]
-  %61 = icmp eq ptr %49, %.sroa.4.0.i.ph.i.i
+  %61 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %49
   br i1 %61, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %62
 
 62:                                               ; preds = %select.unfold.i.i

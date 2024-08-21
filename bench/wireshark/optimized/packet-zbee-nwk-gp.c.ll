@@ -2470,7 +2470,7 @@ define internal fastcc i32 @dissect_zbee_nwk_gp_cmd_multi_cluster_reporting(ptr 
   %5 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #11
-  %7 = icmp ugt i32 %6, %2
+  %7 = icmp ult i32 %2, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph

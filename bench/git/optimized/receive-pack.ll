@@ -1534,7 +1534,7 @@ for.body.i51.i:                                   ; preds = %for.inc.i54.i, %for
 if.end.i56.i:                                     ; preds = %for.body.i51.i
   %132 = load i64, ptr %refname_full.i.i, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %132, i64 1)
-  %cmp.i.i.i = icmp ult i64 %spec.select.i.i.i, %130
+  %cmp.i.i.i = icmp ugt i64 %130, %spec.select.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i116, label %if.end.i.i.i112
 
 if.then.i.i.i116:                                 ; preds = %if.end.i56.i
@@ -3710,7 +3710,7 @@ entry:
   br i1 %tobool.not, label %if.else32, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %cmp27 = icmp ugt ptr %call1, %prefix
+  %cmp27 = icmp ult ptr %prefix, %call1
   br i1 %cmp27, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %while.cond.preheader
@@ -4037,7 +4037,7 @@ if.end:                                           ; preds = %lor.lhs.false5
   %sub.ptr.rhs.cast = ptrtoint ptr %line to i64
   %sub.ptr.sub.neg = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
   %4 = trunc i64 %sub.ptr.sub.neg to i32
-  %conv11 = add i32 %4, %linelen
+  %conv11 = add i32 %linelen, %4
   %conv12 = sext i32 %conv11 to i64
   %cmp.i = icmp ugt i32 %conv11, -105
   br i1 %cmp.i, label %if.then.i, label %st_add.exit

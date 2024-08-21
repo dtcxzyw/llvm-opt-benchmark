@@ -275,7 +275,7 @@ define noundef range(i32 0, 7) i32 @_ZN4pkpy7utf8lenEhb(i8 noundef zeroext %0, i
 19:                                               ; preds = %16
   %20 = and i32 %5, 254
   %21 = icmp eq i32 %20, 252
-  %brmerge = or i1 %21, %1
+  %brmerge = or i1 %1, %21
   %.mux = select i1 %21, i32 6, i32 0
   br i1 %brmerge, label %31, label %22
 
@@ -1193,7 +1193,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pkpylsERSoRKNS_3StrE(
 define noundef zeroext i1 @_ZN4pkpyltESt17basic_string_viewIcSt11char_traitsIcEERKNS_3StrE(i64 %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %2, align 8
   %5 = sext i32 %4 to i64
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %5)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %0)
   %6 = icmp eq i64 %.sroa.speculated.i.i, 0
   br i1 %6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
@@ -1449,7 +1449,7 @@ _ZNK4pkpy3StrneESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %2, %
 define noundef zeroext i1 @_ZNK4pkpy3StrltERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
-  %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
+  %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 %3)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
@@ -1477,7 +1477,7 @@ _ZStltIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %_ZN
 define noundef zeroext i1 @_ZNK4pkpy3StrltESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %1, ptr nocapture readonly %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %0, align 8
   %5 = sext i32 %4 to i64
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %1)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %5)
   %6 = icmp eq i64 %.sroa.speculated.i.i, 0
   br i1 %6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
@@ -1505,7 +1505,7 @@ _ZStltIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %_ZN
 define noundef zeroext i1 @_ZNK4pkpy3StrgtERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
-  %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
+  %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 %3)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
@@ -1533,7 +1533,7 @@ _ZStgtIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %_ZN
 define noundef zeroext i1 @_ZNK4pkpy3StrleERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
-  %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
+  %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 %3)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
@@ -1561,7 +1561,7 @@ _ZStleIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %_ZN
 define noundef zeroext i1 @_ZNK4pkpy3StrgeERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
-  %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
+  %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 %3)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
@@ -2429,7 +2429,7 @@ _ZN4pkpy7SStreamlsERKNS_3StrE.exit:               ; preds = %_ZN4pkpy7SStreamlsE
   %.sroa.21.2 = phi ptr [ %.sroa.21.4, %.loopexit.loopexit ], [ %.sroa.21.7, %_ZN4pkpy7SStreamlsERKNS_3StrE.exit ]
   %.sroa.14.1 = phi i32 [ %.sroa.14.3, %.loopexit.loopexit ], [ %.sroa.14.6, %_ZN4pkpy7SStreamlsERKNS_3StrE.exit ]
   %.sroa.0.1 = phi i32 [ %112, %.loopexit.loopexit ], [ %.sroa.0.4, %_ZN4pkpy7SStreamlsERKNS_3StrE.exit ]
-  %.not.i.not.i = icmp sgt i32 %.sroa.14.1, %.sroa.0.1
+  %.not.i.not.i = icmp slt i32 %.sroa.0.1, %.sroa.14.1
   br i1 %.not.i.not.i, label %_ZN4pkpy10pod_vectorIcLi2EE7reserveEi.exit.i, label %113
 
 113:                                              ; preds = %.loopexit
@@ -2719,7 +2719,7 @@ define void @_ZNK4pkpy3Str6escapeEb(ptr dead_on_unwind noalias writable sret(%"s
   call void @_ZNK4pkpy3Str7escape_ERNS_7SStreamEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(20) %4, i1 noundef zeroext %2)
   %9 = load i32, ptr %4, align 8, !noalias !63
   %10 = load i32, ptr %5, align 4, !noalias !63
-  %.not.i.not.i = icmp sgt i32 %10, %9
+  %.not.i.not.i = icmp slt i32 %9, %10
   %.pre5 = load ptr, ptr %7, align 8, !noalias !63
   br i1 %.not.i.not.i, label %_ZN4pkpy10pod_vectorIcLi2EE7reserveEi.exit.i, label %11
 
@@ -2792,7 +2792,7 @@ define void @_ZNK4pkpy3Str7escape_ERNS_7SStreamEb(ptr nocapture noundef nonnull 
 
 9:                                                ; preds = %3
   %10 = shl nsw i32 %5, 1
-  %.not.i.i.i = icmp slt i32 %5, %10
+  %.not.i.i.i = icmp sgt i32 %10, %5
   br i1 %.not.i.i.i, label %11, label %_ZN4pkpy7SStreamlsEc.exit
 
 11:                                               ; preds = %9
@@ -2857,7 +2857,7 @@ _ZN4pkpy7SStreamlsEc.exit:                        ; preds = %3, %9, %11, %16
 
 37:                                               ; preds = %33
   %38 = shl nsw i32 %34, 1
-  %.not.i.i.i31 = icmp slt i32 %34, %38
+  %.not.i.i.i31 = icmp sgt i32 %38, %34
   br i1 %.not.i.i.i31, label %39, label %_ZN4pkpy7SStreamlsEc.exit35
 
 39:                                               ; preds = %37
@@ -2895,7 +2895,7 @@ _ZN4pkpy7SStreamlsEc.exit35:                      ; preds = %33, %37, %39, %43
 
 54:                                               ; preds = %50
   %55 = shl nsw i32 %51, 1
-  %.not.i.i.i36 = icmp slt i32 %51, %55
+  %.not.i.i.i36 = icmp sgt i32 %55, %51
   br i1 %.not.i.i.i36, label %56, label %_ZN4pkpy7SStreamlsEPKc.exit.sink.split
 
 56:                                               ; preds = %54
@@ -2924,7 +2924,7 @@ _ZN4pkpy7SStreamlsEc.exit35:                      ; preds = %33, %37, %39, %43
 
 67:                                               ; preds = %63
   %68 = shl nsw i32 %64, 1
-  %.not.i.i.i41 = icmp slt i32 %64, %68
+  %.not.i.i.i41 = icmp sgt i32 %68, %64
   br i1 %.not.i.i.i41, label %69, label %_ZN4pkpy7SStreamlsEc.exit45
 
 69:                                               ; preds = %67
@@ -2962,7 +2962,7 @@ _ZN4pkpy7SStreamlsEc.exit45:                      ; preds = %63, %67, %69, %73
 
 84:                                               ; preds = %80
   %85 = shl nsw i32 %81, 1
-  %.not.i.i.i46 = icmp slt i32 %81, %85
+  %.not.i.i.i46 = icmp sgt i32 %85, %81
   br i1 %.not.i.i.i46, label %86, label %_ZN4pkpy7SStreamlsEPKc.exit.sink.split
 
 86:                                               ; preds = %84
@@ -2988,7 +2988,7 @@ _ZN4pkpy7SStreamlsEc.exit45:                      ; preds = %63, %67, %69, %73
 
 96:                                               ; preds = %92
   %97 = shl nsw i32 %93, 1
-  %.not.i.i.i51 = icmp slt i32 %93, %97
+  %.not.i.i.i51 = icmp sgt i32 %97, %93
   br i1 %.not.i.i.i51, label %98, label %_ZN4pkpy7SStreamlsEc.exit55
 
 98:                                               ; preds = %96
@@ -3023,7 +3023,7 @@ _ZN4pkpy7SStreamlsEc.exit55:                      ; preds = %92, %96, %98, %102
 
 112:                                              ; preds = %_ZN4pkpy7SStreamlsEc.exit55
   %113 = shl nsw i32 %109, 1
-  %.not.i.i.i56 = icmp slt i32 %109, %113
+  %.not.i.i.i56 = icmp sgt i32 %113, %109
   br i1 %.not.i.i.i56, label %114, label %_ZN4pkpy7SStreamlsEPKc.exit.sink.split
 
 114:                                              ; preds = %112
@@ -3051,7 +3051,7 @@ _ZN4pkpy7SStreamlsEc.exit55:                      ; preds = %92, %96, %98, %102
 
 123:                                              ; preds = %.lr.ph.i.i
   %124 = shl nsw i32 %120, 1
-  %.not.i.i.i.i = icmp slt i32 %120, %124
+  %.not.i.i.i.i = icmp sgt i32 %124, %120
   br i1 %.not.i.i.i.i, label %125, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i
 
 125:                                              ; preds = %123
@@ -3094,7 +3094,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i: ; preds = %129, %125, 
 
 140:                                              ; preds = %.lr.ph.i.i62
   %141 = shl nsw i32 %137, 1
-  %.not.i.i.i.i66 = icmp slt i32 %137, %141
+  %.not.i.i.i.i66 = icmp sgt i32 %141, %137
   br i1 %.not.i.i.i.i66, label %142, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i64
 
 142:                                              ; preds = %140
@@ -3137,7 +3137,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i64: ; preds = %146, %142
 
 157:                                              ; preds = %.lr.ph.i.i72
   %158 = shl nsw i32 %154, 1
-  %.not.i.i.i.i76 = icmp slt i32 %154, %158
+  %.not.i.i.i.i76 = icmp sgt i32 %158, %154
   br i1 %.not.i.i.i.i76, label %159, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i74
 
 159:                                              ; preds = %157
@@ -3180,7 +3180,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i74: ; preds = %163, %159
 
 174:                                              ; preds = %.lr.ph.i.i82
   %175 = shl nsw i32 %171, 1
-  %.not.i.i.i.i86 = icmp slt i32 %171, %175
+  %.not.i.i.i.i86 = icmp sgt i32 %175, %171
   br i1 %.not.i.i.i.i86, label %176, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i84
 
 176:                                              ; preds = %174
@@ -3227,7 +3227,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i84: ; preds = %180, %176
 
 192:                                              ; preds = %.lr.ph.i.i92
   %193 = shl nsw i32 %189, 1
-  %.not.i.i.i.i96 = icmp slt i32 %189, %193
+  %.not.i.i.i.i96 = icmp sgt i32 %193, %189
   br i1 %.not.i.i.i.i96, label %194, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i94
 
 194:                                              ; preds = %192
@@ -3273,7 +3273,7 @@ _ZN4pkpy7SStreamlsEPKc.exit100:                   ; preds = %_ZN4pkpy10pod_vecto
 
 214:                                              ; preds = %_ZN4pkpy7SStreamlsEPKc.exit100
   %215 = shl nsw i32 %211, 1
-  %.not.i.i.i101 = icmp slt i32 %211, %215
+  %.not.i.i.i101 = icmp sgt i32 %215, %211
   br i1 %.not.i.i.i101, label %216, label %_ZN4pkpy7SStreamlsEc.exit105
 
 216:                                              ; preds = %214
@@ -3313,7 +3313,7 @@ _ZN4pkpy7SStreamlsEc.exit105:                     ; preds = %_ZN4pkpy7SStreamlsE
 
 235:                                              ; preds = %_ZN4pkpy7SStreamlsEc.exit105
   %236 = shl nsw i32 %232, 1
-  %.not.i.i.i106 = icmp slt i32 %232, %236
+  %.not.i.i.i106 = icmp sgt i32 %236, %232
   br i1 %.not.i.i.i106, label %237, label %_ZN4pkpy7SStreamlsEPKc.exit.sink.split
 
 237:                                              ; preds = %235
@@ -3339,7 +3339,7 @@ _ZN4pkpy7SStreamlsEc.exit105:                     ; preds = %_ZN4pkpy7SStreamlsE
 
 247:                                              ; preds = %243
   %248 = shl nsw i32 %244, 1
-  %.not.i.i.i111 = icmp slt i32 %244, %248
+  %.not.i.i.i111 = icmp sgt i32 %248, %244
   br i1 %.not.i.i.i111, label %249, label %_ZN4pkpy7SStreamlsEPKc.exit.sink.split
 
 249:                                              ; preds = %247
@@ -3390,7 +3390,7 @@ _ZN4pkpy7SStreamlsEPKc.exit:                      ; preds = %_ZN4pkpy10pod_vecto
 
 265:                                              ; preds = %._crit_edge
   %266 = shl nsw i32 %262, 1
-  %.not.i.i.i116 = icmp slt i32 %262, %266
+  %.not.i.i.i116 = icmp sgt i32 %266, %262
   br i1 %.not.i.i.i116, label %267, label %_ZN4pkpy7SStreamlsEc.exit120
 
 267:                                              ; preds = %265
@@ -3426,7 +3426,7 @@ define void @_ZN4pkpy7SStream3strEv(ptr dead_on_unwind noalias writable sret(%"s
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not.i.not = icmp sgt i32 %5, %3
+  %.not.i.not = icmp slt i32 %3, %5
   br i1 %.not.i.not, label %_ZN4pkpy10pod_vectorIcLi2EE7reserveEi.exit, label %6
 
 6:                                                ; preds = %2
@@ -3473,7 +3473,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEc(ptr
 
 7:                                                ; preds = %2
   %8 = shl nsw i32 %3, 1
-  %.not.i.i = icmp slt i32 %3, %8
+  %.not.i.i = icmp sgt i32 %8, %3
   br i1 %.not.i.i, label %9, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRcEEvOT_.exit
 
 9:                                                ; preds = %7
@@ -3527,7 +3527,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEPKc(p
 
 11:                                               ; preds = %7
   %12 = shl nsw i32 %8, 1
-  %.not.i.i.i = icmp slt i32 %8, %12
+  %.not.i.i.i = icmp sgt i32 %12, %8
   br i1 %.not.i.i.i, label %13, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i
 
 13:                                               ; preds = %11
@@ -3895,7 +3895,7 @@ _ZN4pkpy7SStreamlsERKNS_3StrE.exit42:             ; preds = %_ZN4pkpy7SStreamlsE
   %.sroa.18.10 = phi i32 [ %.sroa.18.1, %95 ], [ %.sroa.18.9, %_ZN4pkpy7SStreamlsERKNS_3StrE.exit42.loopexit ]
   %.sroa.0.7 = phi i32 [ %.sroa.0.1, %95 ], [ %121, %_ZN4pkpy7SStreamlsERKNS_3StrE.exit42.loopexit ]
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  %.not.i.not.i = icmp sgt i32 %.sroa.18.10, %.sroa.0.7
+  %.not.i.not.i = icmp slt i32 %.sroa.0.7, %.sroa.18.10
   br i1 %.not.i.not.i, label %_ZN4pkpy10pod_vectorIcLi2EE7reserveEi.exit.i, label %122
 
 122:                                              ; preds = %_ZN4pkpy7SStreamlsERKNS_3StrE.exit42
@@ -3954,7 +3954,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsERKNS_
 
 14:                                               ; preds = %10
   %15 = shl nsw i32 %11, 1
-  %.not.i.i.i = icmp slt i32 %11, %15
+  %.not.i.i.i = icmp sgt i32 %15, %11
   br i1 %.not.i.i.i, label %16, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i
 
 16:                                               ; preds = %14
@@ -4130,7 +4130,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EED2Ev.exit: ;
   resume { ptr, i32 } %lpad.phi
 
 38:                                               ; preds = %24
-  %39 = icmp ult i32 %26, %.0
+  %39 = icmp ugt i32 %.0, %26
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %38
@@ -4161,7 +4161,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EED2Ev.exit: ;
 
 49:                                               ; preds = %47
   %50 = shl nsw i32 %12, 1
-  %.not.i.i = icmp slt i32 %12, %50
+  %.not.i.i = icmp sgt i32 %50, %12
   br i1 %.not.i.i, label %51, label %_ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE9push_backIRS4_EEvOT_.exit
 
 51:                                               ; preds = %49
@@ -4201,7 +4201,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE9push_backIR
   store i32 %13, ptr %0, align 8
   store i32 %12, ptr %4, align 4
   store ptr %11, ptr %6, align 8
-  %70 = icmp ult i32 %26, %.0
+  %70 = icmp ugt i32 %.0, %26
   br i1 %70, label %.invoke, label %71
 
 71:                                               ; preds = %69
@@ -4219,7 +4219,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE9push_backIR
 
 79:                                               ; preds = %77
   %80 = shl nsw i32 %12, 1
-  %.not.i.i25 = icmp slt i32 %12, %80
+  %.not.i.i25 = icmp sgt i32 %80, %12
   br i1 %.not.i.i25, label %81, label %_ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE9push_backIRS4_EEvOT_.exit29
 
 81:                                               ; preds = %79
@@ -4308,7 +4308,7 @@ define void @_ZNK4pkpy3Str5splitEc(ptr dead_on_unwind noalias nocapture writable
 
 27:                                               ; preds = %22
   %28 = shl nsw i32 %12, 1
-  %.not.i.i = icmp slt i32 %12, %28
+  %.not.i.i = icmp sgt i32 %28, %12
   br i1 %.not.i.i, label %29, label %_ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE12emplace_backIJPciEEEvDpOT_.exit
 
 29:                                               ; preds = %27
@@ -4377,7 +4377,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE12emplace_ba
 
 64:                                               ; preds = %57
   %65 = shl nsw i32 %52, 1
-  %.not.i.i16 = icmp slt i32 %52, %65
+  %.not.i.i16 = icmp sgt i32 %65, %52
   br i1 %.not.i.i16, label %66, label %_ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE12emplace_backIJPciEEEvDpOT_.exit20
 
 66:                                               ; preds = %64
@@ -5024,7 +5024,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsERKNSt
 
 13:                                               ; preds = %9
   %14 = shl nsw i32 %10, 1
-  %.not.i.i.i = icmp slt i32 %10, %14
+  %.not.i.i.i = icmp sgt i32 %14, %10
   br i1 %.not.i.i.i, label %15, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i
 
 15:                                               ; preds = %13
@@ -5084,7 +5084,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsESt17b
 
 11:                                               ; preds = %7
   %12 = shl nsw i32 %8, 1
-  %.not.i.i.i = icmp slt i32 %8, %12
+  %.not.i.i.i = icmp sgt i32 %12, %8
   br i1 %.not.i.i.i, label %13, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i
 
 13:                                               ; preds = %11
@@ -5146,7 +5146,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsENS_7S
 
 14:                                               ; preds = %10
   %15 = shl nsw i32 %11, 1
-  %.not.i.i.i.i = icmp slt i32 %11, %15
+  %.not.i.i.i.i = icmp sgt i32 %15, %11
   br i1 %.not.i.i.i.i, label %16, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i
 
 16:                                               ; preds = %14
@@ -5420,7 +5420,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEl(ptr
   %4 = add nsw i32 %3, 24
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not.i = icmp slt i32 %6, %4
+  %.not.i = icmp sgt i32 %4, %6
   br i1 %.not.i, label %7, label %_ZN4pkpy10pod_vectorIcLi2EE7reserveEi.exit
 
 7:                                                ; preds = %2
@@ -5452,7 +5452,7 @@ _ZN4pkpy10pod_vectorIcLi2EE7reserveEi.exit:       ; preds = %2, %7, %12
 
 20:                                               ; preds = %16
   %21 = shl nsw i32 %17, 1
-  %.not.i.i = icmp slt i32 %17, %21
+  %.not.i.i = icmp sgt i32 %21, %17
   br i1 %.not.i.i, label %22, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIcEEvOT_.exit
 
 22:                                               ; preds = %20
@@ -5496,7 +5496,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIcEEvOT_.exit: ; preds = %16, %20, %22, %27
 
 40:                                               ; preds = %37
   %41 = shl nsw i32 %.pre21, 1
-  %.not.i.i9 = icmp slt i32 %.pre21, %41
+  %.not.i.i9 = icmp sgt i32 %41, %.pre21
   br i1 %.not.i.i9, label %42, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIcEEvOT_.exit13
 
 42:                                               ; preds = %40
@@ -5549,7 +5549,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIcEEvOT_.exit13: ; preds = %37, %40, %42, %
 
 67:                                               ; preds = %61
   %68 = shl nsw i32 %64, 1
-  %.not.i.i14 = icmp slt i32 %64, %68
+  %.not.i.i14 = icmp sgt i32 %68, %64
   br i1 %.not.i.i14, label %69, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit
 
 69:                                               ; preds = %67
@@ -5590,7 +5590,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit: ; preds = %61, %67, %69, %73
   %87 = getelementptr inbounds i8, ptr %84, i64 %86
   %88 = icmp ne ptr %83, %87
   %.012.i.i = getelementptr inbounds i8, ptr %87, i64 -1
-  %89 = icmp ugt ptr %.012.i.i, %83
+  %89 = icmp ult ptr %83, %.012.i.i
   %or.cond.i.i = select i1 %88, i1 %89, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPcEvT_S1_.exit
 
@@ -5635,7 +5635,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEd(ptr
 
 16:                                               ; preds = %12
   %17 = shl nsw i32 %13, 1
-  %.not.i.i.i.i = icmp slt i32 %13, %17
+  %.not.i.i.i.i = icmp sgt i32 %17, %13
   br i1 %.not.i.i.i.i, label %18, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i
 
 18:                                               ; preds = %16
@@ -5687,7 +5687,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i: ; preds = %22, %18, %1
 
 39:                                               ; preds = %35
   %40 = shl nsw i32 %36, 1
-  %.not.i.i.i.i14 = icmp slt i32 %36, %40
+  %.not.i.i.i.i14 = icmp sgt i32 %40, %36
   br i1 %.not.i.i.i.i14, label %41, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i12
 
 41:                                               ; preds = %39
@@ -5754,7 +5754,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i12: ; preds = %45, %41, 
 
 70:                                               ; preds = %66
   %71 = shl nsw i32 %67, 1
-  %.not.i.i.i.i24 = icmp slt i32 %67, %71
+  %.not.i.i.i.i24 = icmp sgt i32 %71, %67
   br i1 %.not.i.i.i.i24, label %72, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i22
 
 72:                                               ; preds = %70
@@ -5897,7 +5897,7 @@ _ZSt6all_ofIPcPDoFiiEEbT_S3_T0_.exit.loopexit.split.loop.exit66: ; preds = %106
 
 _ZSt6all_ofIPcPDoFiiEEbT_S3_T0_.exit:             ; preds = %.lr.ph.i.i.i.i, %_ZSt6all_ofIPcPDoFiiEEbT_S3_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPcPDoFiiEEbT_S3_T0_.exit.loopexit.split.loop.exit64, %_ZSt6all_ofIPcPDoFiiEEbT_S3_T0_.exit.loopexit.split.loop.exit66, %116, %122, %128
   %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %116 ], [ %.1.i.i.i.i, %122 ], [ %.2.i.i.i.i, %128 ], [ %132, %_ZSt6all_ofIPcPDoFiiEEbT_S3_T0_.exit.loopexit.split.loop.exit ], [ %133, %_ZSt6all_ofIPcPDoFiiEEbT_S3_T0_.exit.loopexit.split.loop.exit64 ], [ %134, %_ZSt6all_ofIPcPDoFiiEEbT_S3_T0_.exit.loopexit.split.loop.exit66 ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %135 = icmp eq ptr %.028.i.i.i.i, %87
+  %135 = icmp eq ptr %87, %.028.i.i.i.i
   br i1 %135, label %.lr.ph.i.i30, label %_ZN4pkpy7SStreamlsEPKc.exit
 
 .lr.ph.i.i30:                                     ; preds = %_ZSt6all_ofIPcPDoFiiEEbT_S3_T0_.exit, %._crit_edge.i.i.i.i, %128
@@ -5915,7 +5915,7 @@ _ZSt6all_ofIPcPDoFiiEEbT_S3_T0_.exit:             ; preds = %.lr.ph.i.i.i.i, %_Z
 
 142:                                              ; preds = %138
   %143 = shl nsw i32 %139, 1
-  %.not.i.i.i.i34 = icmp slt i32 %139, %143
+  %.not.i.i.i.i34 = icmp sgt i32 %143, %139
   br i1 %.not.i.i.i.i34, label %144, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i32
 
 144:                                              ; preds = %142
@@ -5978,7 +5978,7 @@ define void @_ZN4pkpy7SStream9write_hexEhb(ptr nocapture noundef nonnull align 8
 
 17:                                               ; preds = %8
   %18 = shl nsw i32 %13, 1
-  %.not.i.i.i = icmp slt i32 %13, %18
+  %.not.i.i.i = icmp sgt i32 %18, %13
   br i1 %.not.i.i.i, label %19, label %.thread
 
 19:                                               ; preds = %17
@@ -6027,7 +6027,7 @@ define void @_ZN4pkpy7SStream9write_hexEhb(ptr nocapture noundef nonnull align 8
 
 42:                                               ; preds = %33
   %43 = shl nsw i32 %38, 1
-  %.not.i.i.i11 = icmp slt i32 %38, %43
+  %.not.i.i.i11 = icmp sgt i32 %43, %38
   br i1 %.not.i.i.i11, label %44, label %_ZN4pkpy7SStreamlsEc.exit15
 
 44:                                               ; preds = %42
@@ -6066,7 +6066,7 @@ _ZN4pkpy7SStreamlsEc.exit15:                      ; preds = %33, %42, %44, %49
 
 62:                                               ; preds = %53
   %63 = shl nsw i32 %58, 1
-  %.not.i.i.i16 = icmp slt i32 %58, %63
+  %.not.i.i.i16 = icmp sgt i32 %63, %58
   br i1 %.not.i.i.i16, label %64, label %_ZN4pkpy7SStreamlsEc.exit20
 
 64:                                               ; preds = %62
@@ -6107,7 +6107,7 @@ _ZN4pkpy7SStreamlsEc.exit20:                      ; preds = %53, %62, %64, %69
 
 84:                                               ; preds = %_ZN4pkpy7SStreamlsEc.exit20
   %85 = shl nsw i32 %81, 1
-  %.not.i.i.i21 = icmp slt i32 %81, %85
+  %.not.i.i.i21 = icmp sgt i32 %85, %81
   br i1 %.not.i.i.i21, label %86, label %.sink.split
 
 86:                                               ; preds = %84
@@ -6160,7 +6160,7 @@ define void @_ZN4pkpy7SStream9write_hexEPv(ptr nocapture noundef nonnull align 8
 
 9:                                                ; preds = %.lr.ph.i.i
   %10 = shl nsw i32 %6, 1
-  %.not.i.i.i.i = icmp slt i32 %6, %10
+  %.not.i.i.i.i = icmp sgt i32 %10, %6
   br i1 %.not.i.i.i.i, label %11, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i
 
 11:                                               ; preds = %9
@@ -6203,7 +6203,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i: ; preds = %15, %11, %9
 
 26:                                               ; preds = %.lr.ph.i.i12
   %27 = shl nsw i32 %23, 1
-  %.not.i.i.i.i16 = icmp slt i32 %23, %27
+  %.not.i.i.i.i16 = icmp sgt i32 %27, %23
   br i1 %.not.i.i.i.i16, label %28, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i14
 
 28:                                               ; preds = %26
@@ -6278,7 +6278,7 @@ define void @_ZN4pkpy7SStream9write_hexEl(ptr nocapture noundef nonnull align 8 
 
 10:                                               ; preds = %6
   %11 = shl nsw i32 %7, 1
-  %.not.i.i.i.i = icmp slt i32 %7, %11
+  %.not.i.i.i.i = icmp sgt i32 %11, %7
   br i1 %.not.i.i.i.i, label %12, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i
 
 12:                                               ; preds = %10
@@ -6325,7 +6325,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i: ; preds = %16, %12, %1
 
 31:                                               ; preds = %.lr.ph.i.i14
   %32 = shl nsw i32 %28, 1
-  %.not.i.i.i.i18 = icmp slt i32 %28, %32
+  %.not.i.i.i.i18 = icmp sgt i32 %32, %28
   br i1 %.not.i.i.i.i18, label %33, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i16
 
 33:                                               ; preds = %31
@@ -6372,7 +6372,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i16: ; preds = %37, %33, 
 
 51:                                               ; preds = %47
   %52 = shl nsw i32 %48, 1
-  %.not.i.i.i.i28 = icmp slt i32 %48, %52
+  %.not.i.i.i.i28 = icmp sgt i32 %52, %48
   br i1 %.not.i.i.i.i28, label %53, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIRKcEEvOT_.exit.i.i26
 
 53:                                               ; preds = %51
@@ -6524,7 +6524,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -6563,7 +6563,7 @@ _ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessItESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 2 dereferenceable(2) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -7179,7 +7179,7 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %7 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   %8 = extractvalue { i64, ptr } %7, 0
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %1, align 8
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %.sroa.0.0.copyload.i.i.i)
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.0.0.copyload.i.i.i, i64 %8)
   %9 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %9, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
@@ -7216,7 +7216,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %.sroa.22.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %17 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   %18 = extractvalue { i64, ptr } %17, 0
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.0.0.copyload.i.i.i, i64 %18)
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %18, i64 %.sroa.0.0.copyload.i.i.i)
   %19 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %19, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -7277,7 +7277,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 17:                                               ; preds = %14
   %.not.i.i = icmp ne ptr %15, null
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = icmp eq ptr %18, %16
+  %19 = icmp eq ptr %16, %18
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %19
   br i1 %or.cond.i.i, label %.thread, label %20
 
@@ -7327,7 +7327,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_tESt10_Select1stIS8_ESt4lessIvESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

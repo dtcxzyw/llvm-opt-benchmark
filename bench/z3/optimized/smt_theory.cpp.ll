@@ -983,7 +983,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i.i: ; preds = %entry
   %2 = load i32, ptr %a, align 4
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %3 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %3, %2
+  %cmp.not.i.i.i = icmp ult i32 %2, %3
   br i1 %cmp.not.i.i.i, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, label %if.then.i
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit.i:  ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i.i
@@ -1034,7 +1034,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i.i7: ; preds = %_ZN3smt6theory1
   %16 = load i32, ptr %b, align 4
   %arrayidx.i.i.i.i8 = getelementptr inbounds i8, ptr %15, i64 -4
   %17 = load i32, ptr %arrayidx.i.i.i.i8, align 4
-  %cmp.not.i.i.i9 = icmp ugt i32 %17, %16
+  %cmp.not.i.i.i9 = icmp ult i32 %16, %17
   br i1 %cmp.not.i.i.i9, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.i24, label %if.then.i10
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit.i24: ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i.i7
@@ -1107,7 +1107,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %entry
   %2 = load i32, ptr %e, align 4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %3 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %3, %2
+  %cmp.not.i.i = icmp ult i32 %2, %3
   br i1 %cmp.not.i.i, label %_ZNK3smt7context14e_internalizedEPK4expr.exit, label %if.then
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i
@@ -1219,7 +1219,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %invoke.cont
   %11 = load i32, ptr %_e.addr.0, align 4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %12 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %12, %11
+  %cmp.not.i.i = icmp ult i32 %11, %12
   br i1 %cmp.not.i.i, label %invoke.cont3, label %if.then
 
 invoke.cont3:                                     ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i
@@ -1723,7 +1723,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 if.else:                                          ; preds = %entry
   %.b = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
   %6 = zext i1 %.b to i32
-  %cmp.i4 = icmp eq i32 %6, %l.coerce
+  %cmp.i4 = icmp eq i32 %l.coerce, %6
   br i1 %cmp.i4, label %if.then5, label %if.else9
 
 if.then5:                                         ; preds = %if.else
@@ -2219,16 +2219,12 @@ land.lhs.true.i.i:                                ; preds = %entry
   %m_names.i.i = getelementptr inbounds i8, ptr %0, i64 608
   %3 = load ptr, ptr %m_names.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.i.i.i, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_ZNK11ast_manager15get_family_nameEi.exit, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
 
-if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
+_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i:        ; preds = %land.lhs.true.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i.i, align 4
-  br label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
-
-_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i:        ; preds = %if.end.i.i.i, %land.lhs.true.i.i
-  %retval.0.i.i.i = phi i32 [ %4, %if.end.i.i.i ], [ 0, %land.lhs.true.i.i ]
-  %cmp2.i.i = icmp sgt i32 %retval.0.i.i.i, %2
+  %cmp2.i.i = icmp slt i32 %2, %4
   br i1 %cmp2.i.i, label %cond.true.i.i, label %_ZNK11ast_manager15get_family_nameEi.exit
 
 cond.true.i.i:                                    ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
@@ -2236,8 +2232,8 @@ cond.true.i.i:                                    ; preds = %_ZNK6vectorI6symbol
   %arrayidx.i3.i.i = getelementptr inbounds %class.symbol, ptr %3, i64 %idxprom.i.i.i
   br label %_ZNK11ast_manager15get_family_nameEi.exit
 
-_ZNK11ast_manager15get_family_nameEi.exit:        ; preds = %entry, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, %cond.true.i.i
-  %cond-lvalue.i.i = phi ptr [ %arrayidx.i3.i.i, %cond.true.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i ], [ @_ZN6symbol4nullE, %entry ]
+_ZNK11ast_manager15get_family_nameEi.exit:        ; preds = %entry, %land.lhs.true.i.i, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, %cond.true.i.i
+  %cond-lvalue.i.i = phi ptr [ %arrayidx.i3.i.i, %cond.true.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i ], [ @_ZN6symbol4nullE, %entry ], [ @_ZN6symbol4nullE, %land.lhs.true.i.i ]
   %cmp = icmp eq i32 %pattern_id, -1
   br i1 %cmp, label %if.then, label %if.else
 

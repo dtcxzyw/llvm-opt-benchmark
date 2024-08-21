@@ -161,7 +161,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %76 = getelementptr inbounds double, ptr %47, i64 %75
   %77 = load double, ptr %76, align 8
   %78 = fsub double %77, %72
-  %79 = fadd double %78, %8
+  %79 = fadd double %8, %78
   %80 = fcmp olt double %79, 0.000000e+00
   %81 = select i1 %80, double 0.000000e+00, double %79
   %82 = fadd double %.0451564, %81
@@ -692,7 +692,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %.3653 = phi i32 [ %.4.lcssa, %._crit_edge649 ], [ 0, %264 ]
   %265 = trunc nuw nsw i64 %indvars.iv827 to i32
   %266 = xor i32 %265, -1
-  %267 = add nsw i32 %266, %1
+  %267 = add nsw i32 %1, %266
   call void @set_vector_valf(i32 noundef %1, float noundef 0.000000e+00, ptr noundef %252) #11
   br i1 %189, label %.lr.ph639, label %._crit_edge640
 

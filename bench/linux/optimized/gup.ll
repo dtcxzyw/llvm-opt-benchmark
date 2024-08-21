@@ -801,7 +801,7 @@ define dso_local void @unpin_user_pages_dirty_lock(ptr nocapture noundef readonl
   %38 = phi i32 [ %36, %34 ], [ %39, %71 ]
   %39 = add i32 %38, 1
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %40, %1
+  %41 = icmp ugt i64 %1, %40
   br i1 %41, label %42, label %75
 
 42:                                               ; preds = %37
@@ -1000,7 +1000,7 @@ define dso_local void @unpin_user_pages(ptr nocapture noundef readonly %0, i64 n
   %38 = phi i32 [ %36, %34 ], [ %39, %71 ]
   %39 = add i32 %38, 1
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %40, %1
+  %41 = icmp ugt i64 %1, %40
   br i1 %41, label %42, label %75
 
 42:                                               ; preds = %37
@@ -2995,7 +2995,7 @@ define dso_local i64 @fault_in_writeable(ptr noundef %0, i64 noundef %1) #0 alig
 
 4:                                                ; preds = %2
   %5 = ptrtoint ptr %0 to i64
-  %6 = add i64 %5, %1
+  %6 = add i64 %1, %5
   %7 = icmp sgt i64 %6, -1
   %8 = icmp uge i64 %6, %5
   %9 = and i1 %7, %8
@@ -3024,7 +3024,7 @@ define dso_local i64 @fault_in_writeable(ptr noundef %0, i64 noundef %1) #0 alig
   %21 = add i64 %20, %5
   %22 = and i64 %21, -4096
   %23 = inttoptr i64 %22 to ptr
-  %24 = icmp ult ptr %23, %0
+  %24 = icmp ugt ptr %0, %23
   br i1 %24, label %25, label %26, !prof !5
 
 25:                                               ; preds = %18
@@ -3065,7 +3065,7 @@ define dso_local i64 @fault_in_subpage_writeable(ptr noundef %0, i64 noundef %1)
 
 4:                                                ; preds = %2
   %5 = ptrtoint ptr %0 to i64
-  %6 = add i64 %5, %1
+  %6 = add i64 %1, %5
   %7 = icmp sgt i64 %6, -1
   %8 = icmp uge i64 %6, %5
   %9 = and i1 %7, %8
@@ -3094,7 +3094,7 @@ define dso_local i64 @fault_in_subpage_writeable(ptr noundef %0, i64 noundef %1)
   %21 = add i64 %20, %5
   %22 = and i64 %21, -4096
   %23 = inttoptr i64 %22 to ptr
-  %24 = icmp ult ptr %23, %0
+  %24 = icmp ugt ptr %0, %23
   br i1 %24, label %25, label %26, !prof !5
 
 25:                                               ; preds = %18
@@ -3210,7 +3210,7 @@ define dso_local i64 @fault_in_readable(ptr noundef %0, i64 noundef %1) #0 align
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %0 to i64
-  %7 = add i64 %6, %1
+  %7 = add i64 %1, %6
   %8 = icmp sgt i64 %7, -1
   %9 = icmp uge i64 %7, %6
   %10 = and i1 %8, %9
@@ -3240,7 +3240,7 @@ define dso_local i64 @fault_in_readable(ptr noundef %0, i64 noundef %1) #0 align
   %23 = add i64 %22, %6
   %24 = and i64 %23, -4096
   %25 = inttoptr i64 %24 to ptr
-  %26 = icmp ult ptr %25, %0
+  %26 = icmp ugt ptr %0, %25
   br i1 %26, label %27, label %28, !prof !5
 
 27:                                               ; preds = %20
@@ -7491,7 +7491,7 @@ define internal fastcc zeroext i1 @gup_must_unshare(ptr noundef readonly %0, i32
   %65 = icmp eq i64 %64, 0
   %66 = add nsw i64 %63, -1
   %67 = inttoptr i64 %66 to ptr
-  %68 = icmp eq ptr %67, %2
+  %68 = icmp eq ptr %2, %67
   %or.cond = select i1 %65, i1 true, i1 %68
   br i1 %or.cond, label %.thread, label %69
 
@@ -7628,7 +7628,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @gup_huge_pud(i64 %0, ptr noc
   %35 = icmp eq i64 %34, 0
   %36 = and i1 %33, %35
   %37 = sext i1 %36 to i64
-  %38 = xor i64 %37, %0
+  %38 = xor i64 %0, %37
   %39 = and i64 %0, 128
   %40 = icmp eq i64 %39, 0
   %41 = select i1 %40, i64 4503599627366400, i64 4503598553628672

@@ -404,7 +404,7 @@ define internal fastcc i32 @block(ptr nocapture noundef readonly %0, i32 noundef
   %24 = icmp eq i32 %6, 0
   %25 = add nsw i32 %2, -1
   %.064 = select i1 %24, i32 %25, i32 0
-  %26 = icmp eq i32 %.064, %1
+  %26 = icmp eq i32 %1, %.064
   br i1 %26, label %28, label %.preheader79.preheader
 
 .preheader79.preheader:                           ; preds = %20
@@ -426,7 +426,7 @@ define internal fastcc i32 @block(ptr nocapture noundef readonly %0, i32 noundef
   %33 = mul nsw i64 %.06281, %32
   %indvars.iv.next = add nsw i64 %indvars.iv, %.063
   %34 = trunc nsw i64 %indvars.iv.next to i32
-  %.not = icmp eq i32 %34, %1
+  %.not = icmp eq i32 %1, %34
   br i1 %.not, label %35, label %.preheader79, !llvm.loop !12
 
 35:                                               ; preds = %.preheader79

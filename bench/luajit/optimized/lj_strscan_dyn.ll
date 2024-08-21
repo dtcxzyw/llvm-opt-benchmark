@@ -699,7 +699,7 @@ for.cond14.preheader:                             ; preds = %cond.end7
 
 for.body17.preheader:                             ; preds = %for.cond14.preheader
   %0 = shl i32 %dig, 2
-  %1 = add i32 %0, %ex2
+  %1 = add i32 %ex2, %0
   br label %for.body17
 
 for.body:                                         ; preds = %for.body.preheader, %cond.end7

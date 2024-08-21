@@ -466,7 +466,7 @@ define noundef i32 @SUNMatScaleAdd_Band(double noundef %0, ptr nocapture noundef
   %.075.i = phi i64 [ %66, %.lr.ph.i ], [ %59, %.lr.ph78.i ]
   %62 = getelementptr inbounds double, ptr %48, i64 %.075.i
   %63 = load double, ptr %62, align 8
-  %64 = fmul double %63, %0
+  %64 = fmul double %0, %63
   %65 = getelementptr inbounds double, ptr %56, i64 %.075.i
   store double %64, ptr %65, align 8
   %66 = add nsw i64 %.075.i, 1
@@ -659,7 +659,7 @@ define noundef i32 @SUNMatScaleAddI_Band(double noundef %0, ptr nocapture nounde
   %.020 = phi i64 [ %23, %.lr.ph ], [ %17, %.lr.ph23 ]
   %20 = getelementptr inbounds double, ptr %14, i64 %.020
   %21 = load double, ptr %20, align 8
-  %22 = fmul double %21, %0
+  %22 = fmul double %0, %21
   store double %22, ptr %20, align 8
   %23 = add nsw i64 %.020, 1
   %24 = load ptr, ptr %1, align 8

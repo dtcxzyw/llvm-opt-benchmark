@@ -308,7 +308,7 @@ _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit: ; p
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 2
   %17 = trunc i64 %16 to i32
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %_ZNSt6vectorIN5draco4Mesh13AttributeDataESaIS2_EE6resizeEm.exit, label %18
 
 18:                                               ; preds = %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit
@@ -369,7 +369,7 @@ define linkonce_odr void @_ZN5draco4Mesh15DeleteAttributeEi(ptr noundef nonnull 
   %11 = sub i64 %9, %10
   %12 = lshr exact i64 %11, 2
   %13 = trunc i64 %12 to i32
-  %14 = icmp sgt i32 %13, %1
+  %14 = icmp slt i32 %1, %13
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %4

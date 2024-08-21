@@ -1523,7 +1523,7 @@ lpad.i.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i.
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
   %28 = call ptr @__cxa_begin_catch(ptr %27) #14
-  %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i.i, %call5.i.i.i.i319.i
+  %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i.i319.i, %__cur.010.i.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %lpad.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
@@ -2018,7 +2018,7 @@ lpad.i.i.i.i.i330.i:                              ; preds = %for.body.i.i.i.i.i3
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
   %67 = call ptr @__cxa_begin_catch(ptr %66) #14
-  %cmp.not3.i.i.i.i.i.i.i331.i = icmp eq ptr %__cur.010.i.i.i.i.i328.i, %call5.i.i.i.i348.i
+  %cmp.not3.i.i.i.i.i.i.i331.i = icmp eq ptr %call5.i.i.i.i348.i, %__cur.010.i.i.i.i.i328.i
   br i1 %cmp.not3.i.i.i.i.i.i.i331.i, label %invoke.cont3.i.i.i.i.i336.i, label %for.body.i.i.i.i.i.i.i332.i
 
 for.body.i.i.i.i.i.i.i332.i:                      ; preds = %lpad.i.i.i.i.i330.i, %for.body.i.i.i.i.i.i.i332.i
@@ -2804,7 +2804,7 @@ lpad.i.i.i.i.i.i77:                               ; preds = %for.body.i.i.i.i.i.
           catch ptr null
   %143 = extractvalue { ptr, i32 } %142, 0
   %144 = call ptr @__cxa_begin_catch(ptr %143) #14
-  %cmp.not3.i.i.i.i.i.i.i.i78 = icmp eq ptr %__cur.010.i.i.i.i.i.i74, %call5.i.i.i.i87.i
+  %cmp.not3.i.i.i.i.i.i.i.i78 = icmp eq ptr %call5.i.i.i.i87.i, %__cur.010.i.i.i.i.i.i74
   br i1 %cmp.not3.i.i.i.i.i.i.i.i78, label %invoke.cont3.i.i.i.i.i.i83, label %for.body.i.i.i.i.i.i.i.i79
 
 for.body.i.i.i.i.i.i.i.i79:                       ; preds = %lpad.i.i.i.i.i.i77, %for.body.i.i.i.i.i.i.i.i79
@@ -5639,7 +5639,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #14
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.09.i.i.i.i, %call5.i.i.i.i2.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i.i2.i, %__cur.09.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont2.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -5860,7 +5860,7 @@ entry:
   br i1 %cmp.not, label %if.else21, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp.i = icmp eq ptr %1, %__position.coerce
+  %cmp.i = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then
@@ -5971,7 +5971,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #14
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %cond.i19
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %cond.i19, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -6009,7 +6009,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
-  %cmp.not8.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
+  %cmp.not8.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not8.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i35
@@ -6421,7 +6421,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = call ptr @__cxa_begin_catch(ptr %4) #14
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %cond.i19
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %cond.i19, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -6459,7 +6459,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
-  %cmp.not8.i.i.i.i.i23 = icmp eq ptr %0, %__position.coerce
+  %cmp.not8.i.i.i.i.i23 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not8.i.i.i.i.i23, label %invoke.cont14, label %for.body.i.i.i.i.i24
 
 for.body.i.i.i.i.i24:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i38

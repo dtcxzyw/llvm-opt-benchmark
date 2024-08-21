@@ -2493,7 +2493,7 @@ define internal fastcc range(i32 -1, 2) i32 @_is_a_lwp(i32 noundef %0) unnamed_a
 
 33:                                               ; preds = %31, %28
   %.0 = phi i32 [ %30, %28 ], [ -1, %31 ]
-  %.not28 = icmp eq i32 %.0, %0
+  %.not28 = icmp eq i32 %0, %.0
   %34 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %35 = and i64 %34, 18014398509481984
   %.not29 = icmp eq i64 %35, 0

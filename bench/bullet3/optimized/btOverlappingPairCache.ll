@@ -301,7 +301,7 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body8.i
   store i32 %0, ptr %m_size.i, align 4
   %m_size.i.i18 = getelementptr inbounds i8, ptr %this, i64 84
   %10 = load i32, ptr %m_size.i.i18, align 4
-  %cmp3.i21 = icmp slt i32 %10, %0
+  %cmp3.i21 = icmp sgt i32 %0, %10
   br i1 %cmp3.i21, label %if.then4.i22, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit62
 
 if.then4.i22:                                     ; preds = %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit
@@ -1360,7 +1360,7 @@ invoke.cont:                                      ; preds = %if.then
   %m_size.i = getelementptr inbounds i8, ptr %call, i64 4
   %2 = load i32, ptr %m_size.i, align 4
   %3 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %3, %2
+  %cmp3.i = icmp sgt i32 %2, %3
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayI11MyPairIndexE6resizeEiRKS0_.exit
 
 if.then4.i:                                       ; preds = %invoke.cont
@@ -2897,7 +2897,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !29
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo.tr
+  %cmp15 = icmp slt i32 %lo.tr, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end
@@ -3113,7 +3113,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !32
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo.tr
+  %cmp15 = icmp slt i32 %lo.tr, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end

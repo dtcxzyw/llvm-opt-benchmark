@@ -35,7 +35,7 @@ define noundef i32 @dtpmv_NLN(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
 
 23:                                               ; preds = %19
   %24 = xor i64 %20, -1
-  %25 = add nsw i64 %24, %0
+  %25 = add nsw i64 %0, %24
   %26 = getelementptr inbounds double, ptr %10, i64 %25
   %27 = load double, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds i8, ptr %21, i64 8

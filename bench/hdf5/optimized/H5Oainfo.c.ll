@@ -52,7 +52,7 @@ define internal ptr @H5O__ainfo_decode(ptr noundef %0, ptr nocapture readnone %1
   %8 = getelementptr i8, ptr %5, i64 %4
   %.ptr89 = getelementptr i8, ptr %8, i64 -1
   %9 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #6
-  %10 = icmp ult ptr %.ptr89, %5
+  %10 = icmp ugt ptr %5, %.ptr89
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %6

@@ -71,7 +71,7 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
 
 .loopexit:                                        ; preds = %.preheader.preheader.i, %2
   %20 = load i32, ptr @MyDatabaseTableSpace, align 4
-  %21 = icmp eq i32 %20, %0
+  %21 = icmp eq i32 %0, %20
   %spec.store.select = select i1 %21, i32 0, i32 %0
   store i32 %spec.store.select, ptr %4, align 4
   %22 = getelementptr inbounds i8, ptr %4, i64 4

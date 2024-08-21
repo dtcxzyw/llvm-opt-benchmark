@@ -178,7 +178,7 @@ define void @_ZN5draco17PointCloudBuilder30SetAttributeValuesForAllPointsEiPKvi(
   %16 = zext i8 %15 to i32
   %17 = mul nsw i32 %13, %16
   %18 = icmp eq i32 %3, 0
-  %19 = icmp eq i32 %17, %3
+  %19 = icmp eq i32 %3, %17
   %20 = select i1 %18, i1 true, i1 %19
   br i1 %20, label %27, label %.preheader
 
@@ -222,7 +222,7 @@ define void @_ZN5draco17PointCloudBuilder30SetAttributeValuesForAllPointsEiPKvi(
 
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %36, %40
   %.sroa.02.0.i = phi i32 [ %43, %40 ], [ %39, %36 ]
-  %44 = mul i32 %39, %3
+  %44 = mul i32 %3, %39
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %2, i64 %45
   %47 = zext i32 %.sroa.02.0.i to i64

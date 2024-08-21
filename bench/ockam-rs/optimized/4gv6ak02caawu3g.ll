@@ -205,7 +205,7 @@ _ZN10serde_json3ser9Formatter12begin_string17hc5056dab08bd610cE.exit: ; preds = 
   %39 = getelementptr inbounds i8, ptr %0, i64 %.sroa.7.0.ph.i
   %40 = load i64, ptr %6, align 8, !alias.scope !28, !noalias !37, !noundef !16
   %41 = sub i64 %40, %16
-  %42 = icmp ult i64 %41, %38
+  %42 = icmp ugt i64 %38, %41
   br i1 %42, label %43, label %_ZN10serde_json3ser9Formatter21write_string_fragment17hb7df81cbc0605be9E.exit.i
 
 43:                                               ; preds = %37
@@ -366,7 +366,7 @@ _ZN10serde_json3ser9Formatter17write_char_escape17h719861c695eeef04E.exit.i: ; p
   %102 = sub i64 %.sroa.7.0.i, %.sroa.7.0.ph.i
   %103 = load i64, ptr %6, align 8, !alias.scope !86, !noalias !95, !noundef !16
   %104 = sub i64 %103, %16
-  %105 = icmp ult i64 %104, %102
+  %105 = icmp ugt i64 %102, %104
   br i1 %105, label %106, label %_ZN10serde_json3ser9Formatter21write_string_fragment17hb7df81cbc0605be9E.exit40.i
 
 106:                                              ; preds = %100
@@ -3927,7 +3927,7 @@ define void @_ZN10ockam_core3env11from_string14parse_duration17haef3139f925a7b06
 31:                                               ; preds = %.noexc17.i
   %32 = getelementptr inbounds i8, ptr %29, i64 8
   %33 = load i64, ptr %32, align 8, !noalias !755
-  %34 = icmp ugt i64 %33, %2
+  %34 = icmp ult i64 %2, %33
   br i1 %34, label %.thread.i, label %35
 
 35:                                               ; preds = %31
@@ -3974,7 +3974,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.i.i: ; preds = %.noexc20.i
   %53 = getelementptr inbounds i8, ptr %50, i64 24
   %54 = load i64, ptr %53, align 8, !noalias !767
-  %55 = icmp ult i64 %54, %2
+  %55 = icmp ugt i64 %2, %54
   br i1 %55, label %.thread.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.i.i, %.noexc20.i, %.noexc19.i, %.noexc18.i, %.noexc17.i

@@ -4716,7 +4716,7 @@ for.body36:                                       ; preds = %for.inc, %for.body2
   %0 = tail call nsz noundef float @llvm.sqrt.f32(float %conv.i.i.i)
   %conv1.i.i.i = fptosi float %0 to i32
   %conv13.i.i = trunc i32 %conv1.i.i.i to i16
-  %cmp39.not = icmp sgt i16 %conv13.i.i, %r
+  %cmp39.not = icmp slt i16 %r, %conv13.i.i
   br i1 %cmp39.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body36
@@ -19456,7 +19456,7 @@ lpad10:                                           ; preds = %for.body
 if.then17:                                        ; preds = %invoke.cont11
   %timer = getelementptr inbounds i8, ptr %__begin1.sroa.0.0321, i64 8
   %8 = load float, ptr %timer, align 8, !tbaa !18
-  %add = fadd nsz float %8, %dtime_s
+  %add = fadd nsz float %dtime_s, %8
   store float %add, ptr %timer, align 8, !tbaa !18
   %cmp19 = fcmp nsz olt float %add, %trigger_interval.0
   br i1 %cmp19, label %cleanup171, label %if.end21
@@ -21543,7 +21543,7 @@ _ZN17ServerEnvironment15getActiveObjectEt.exit:   ; preds = %_ZNKSt3mapItSt10uni
   %retval.1.i.i.i = phi ptr [ %second.i.i.i, %cleanup.i.i.i ], [ @_ZN13ModifySafeMapItSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS1_EEE10null_valueE, %_ZNKSt8_Rb_treeItSt4pairIKtSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS3_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i35.i.i.i ], [ @_ZN13ModifySafeMapItSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS1_EEE10null_valueE, %if.end8.i.i.i ], [ %spec.select.i.i.i, %_ZNKSt3mapItSt10unique_ptrI18ServerActiveObjectSt14default_deleteIS1_EESt4lessItESaISt4pairIKtS4_EEE4findERS8_.exit42.i.i.i ]
   %20 = load ptr, ptr %retval.1.i.i.i, align 8, !tbaa !21
   %cmp.not = icmp ne ptr %20, null
-  %brmerge.not = and i1 %cmp.not, %remove_from_object
+  %brmerge.not = and i1 %remove_from_object, %cmp.not
   br i1 %brmerge.not, label %if.then12, label %if.end
 
 if.then12:                                        ; preds = %_ZN17ServerEnvironment15getActiveObjectEt.exit

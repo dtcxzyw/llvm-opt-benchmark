@@ -2500,7 +2500,7 @@ If_CutTruthWR.exit755:                            ; preds = %._crit_edge876, %11
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
   %1208 = icmp ult i32 %1203, 117440512
   %1209 = add nsw i32 %1207, 1
-  %.not.i756 = icmp slt i32 %1209, %1204
+  %.not.i756 = icmp sgt i32 %1204, %1209
   %1210 = icmp ugt i32 %1203, 16777215
   %or.cond826 = and i1 %1210, %.not.i756
   br i1 %or.cond826, label %.lr.ph108.i, label %Abc_TtCheckCondDep.exit
@@ -5008,7 +5008,7 @@ Abc_TtCofactor1p.exit.i54:                        ; preds = %._crit_edge.us.i62.
   %.pre-phi204.i = phi i32 [ %.pre203.i, %Abc_TtCofactor1p.exit135..loopexit_crit_edge.i ], [ %351, %377 ]
   %indvars.iv.next181.i = add nuw nsw i64 %indvars.iv180.i, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next181.i to i32
-  %exitcond = icmp eq i32 %lftr.wideiv, %1
+  %exitcond = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond, label %Abc_TtComputeGraph.exit.loopexit, label %225, !llvm.loop !37
 
 225:                                              ; preds = %.loopexit.i, %.lr.ph172.i

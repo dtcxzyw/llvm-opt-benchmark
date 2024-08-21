@@ -192,7 +192,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   %35 = load i64, ptr %7, align 8, !alias.scope !20, !noalias !25, !noundef !4
   %36 = load i64, ptr %1, align 8, !alias.scope !27, !noalias !25, !noundef !4
   %37 = sub i64 %36, %35
-  %38 = icmp ult i64 %37, %17
+  %38 = icmp ugt i64 %17, %37
   br i1 %38, label %39, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit.i.i"
 
 39:                                               ; preds = %34
@@ -238,7 +238,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   %50 = load i64, ptr %7, align 8, !alias.scope !30, !noalias !35, !noundef !4
   %51 = load i64, ptr %1, align 8, !alias.scope !37, !noalias !35, !noundef !4
   %52 = sub i64 %51, %50
-  %.not.i.i = icmp ugt i64 %52, %44
+  %.not.i.i = icmp ult i64 %44, %52
   br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit13.i.i", label %53
 
 53:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5cfbae87ac977123E.exit.i.i"
@@ -684,7 +684,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.39509
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -1829,7 +1829,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !207, !noalias !212, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !214, !noalias !212, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -1883,7 +1883,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %5 = load i64, ptr %4, align 8, !alias.scope !220, !noalias !225, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !227, !noalias !225, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit"
 
 9:                                                ; preds = %3
@@ -2054,12 +2054,12 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3950917620001345818.ex
 define hidden void @_ZN5alloc6string6String8truncate17ha32b28e51c269527E.llvm.3950917620001345818(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %.not = icmp ult i64 %4, %1
+  %.not = icmp ugt i64 %1, %4
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
   %6 = icmp ne i64 %1, 0
-  %.not.i = icmp ugt i64 %4, %1
+  %.not.i = icmp ult i64 %1, %4
   %or.cond = and i1 %6, %.not.i
   br i1 %or.cond, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3950917620001345818.exit", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8a8861d81afed50fE.exit"
 
@@ -4129,12 +4129,12 @@ common.resume:                                    ; preds = %26, %16
 
 32:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !483)
-  %.not.i = icmp ult i64 %25, %31
+  %.not.i = icmp ugt i64 %31, %25
   br i1 %.not.i, label %_ZN5alloc6string6String8truncate17ha32b28e51c269527E.llvm.3950917620001345818.exit, label %33
 
 33:                                               ; preds = %32
   %34 = icmp ne i64 %31, 0
-  %.not.i.i = icmp ugt i64 %25, %31
+  %.not.i.i = icmp ult i64 %31, %25
   %or.cond.i = and i1 %34, %.not.i.i
   br i1 %or.cond.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3950917620001345818.exit.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8a8861d81afed50fE.exit.i"
 

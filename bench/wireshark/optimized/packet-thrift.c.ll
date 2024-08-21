@@ -5182,9 +5182,9 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #7
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %5, i32 %2)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %5)
   %6 = add i32 %spec.select, %1
-  %7 = icmp sgt i32 %6, %1
+  %7 = icmp slt i32 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4

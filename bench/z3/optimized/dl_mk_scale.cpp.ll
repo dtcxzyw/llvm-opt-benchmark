@@ -1602,7 +1602,7 @@ _ZNK6vectorIbLb0EjE4sizeEv.exit.i:                ; preds = %_ZNK15ref_vector_co
 _ZNK6vectorIbLb0EjE4sizeEv.exit.thread.i:         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %arrayidx.i.i182 = getelementptr inbounds i8, ptr %115, i64 -4
   %118 = load i32, ptr %arrayidx.i.i182, align 4
-  %cmp.not15.i = icmp ult i32 %118, %114
+  %cmp.not15.i = icmp ugt i32 %114, %118
   br i1 %cmp.not15.i, label %while.cond.i.preheader, label %if.then.i.i183
 
 while.cond.i.preheader:                           ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit.i, %_ZNK6vectorIbLb0EjE4sizeEv.exit.thread.i
@@ -1619,13 +1619,13 @@ if.then.i.i183:                                   ; preds = %_ZNK6vectorIbLb0EjE
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %.noexc186
   %119 = phi ptr [ %.pr.pre.i, %.noexc186 ], [ %.ph, %while.cond.i.preheader ]
   %cmp.i10.i = icmp eq ptr %119, null
-  br i1 %cmp.i10.i, label %if.then.i466, label %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.thread
+  br i1 %cmp.i10.i, label %if.then.i466, label %_ZNK6vectorIbLb0EjE8capacityEv.exit.i
 
-_ZNK6vectorIbLb0EjE8capacityEv.exit.i.thread:     ; preds = %while.cond.i
+_ZNK6vectorIbLb0EjE8capacityEv.exit.i:            ; preds = %while.cond.i
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %119, i64 -8
   %120 = load i32, ptr %arrayidx.i12.i, align 4
-  %cmp3.i533 = icmp ult i32 %120, %114
-  br i1 %cmp3.i533, label %if.else.i446, label %while.end.i
+  %cmp3.i = icmp ugt i32 %114, %120
+  br i1 %cmp3.i, label %if.else.i446, label %while.end.i
 
 if.then.i466:                                     ; preds = %while.cond.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i443)
@@ -1641,7 +1641,7 @@ call.i.noexc469:                                  ; preds = %if.then.i466
   store ptr %incdec.ptr2.i468, ptr %neg, align 8
   br label %.noexc186
 
-if.else.i446:                                     ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.thread
+if.else.i446:                                     ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i443)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i444)
   %arrayidx.i447 = getelementptr inbounds i8, ptr %119, i64 -8
@@ -1703,11 +1703,11 @@ unreachable.i462:                                 ; preds = %invoke.cont.i459
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i444)
   br label %while.cond.i, !llvm.loop !14
 
-while.end.i:                                      ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.thread
+while.end.i:                                      ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i
   %arrayidx.i184 = getelementptr inbounds i8, ptr %119, i64 -4
   store i32 %114, ptr %arrayidx.i184, align 4
-  %cmp8.not17.i = icmp eq i32 %retval.0.i16.i.ph, %114
-  br i1 %cmp8.not17.i, label %invoke.cont96, label %for.body.preheader.i
+  %cmp8.not19.i = icmp eq i32 %retval.0.i16.i.ph, %114
+  br i1 %cmp8.not19.i, label %invoke.cont96, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %while.end.i
   %idx.ext6.i = zext i32 %114 to i64
@@ -1894,12 +1894,12 @@ lpad76.loopexit:                                  ; preds = %if.then.i434, %if.e
   br label %ehcleanup
 
 lpad76.loopexit.split-lp.loopexit:                ; preds = %if.end.i463, %if.then.i466
-  %lpad.loopexit540 = landingpad { ptr, i32 }
+  %lpad.loopexit538 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad76.loopexit.split-lp.loopexit.split-lp:       ; preds = %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i, %if.then.i.i.i227, %if.then.i.i200, %if.then.i196, %invoke.cont82, %invoke.cont77, %invoke.cont109, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit193, %invoke.cont80
-  %lpad.loopexit.split-lp541 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp539 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -1939,7 +1939,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit241:       ; preds = %if.end128, %if.then
   br i1 %exitcond527.not, label %for.end131.loopexit, label %invoke.cont34, !llvm.loop !17
 
 ehcleanup:                                        ; preds = %lpad76.loopexit.split-lp.loopexit, %lpad76.loopexit.split-lp.loopexit.split-lp, %lpad76.loopexit, %cleanup.action.i420, %ehcleanup.i425, %ehcleanup.i461, %cleanup.action.i456, %lpad87
-  %.pn = phi { ptr, i32 } [ %154, %lpad87 ], [ %90, %ehcleanup.i425 ], [ %91, %cleanup.action.i420 ], [ %122, %ehcleanup.i461 ], [ %123, %cleanup.action.i456 ], [ %lpad.loopexit492, %lpad76.loopexit ], [ %lpad.loopexit540, %lpad76.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp541, %lpad76.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %154, %lpad87 ], [ %90, %ehcleanup.i425 ], [ %91, %cleanup.action.i420 ], [ %122, %ehcleanup.i461 ], [ %123, %cleanup.action.i456 ], [ %lpad.loopexit492, %lpad76.loopexit ], [ %lpad.loopexit538, %lpad76.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp539, %lpad76.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_pred) #18
   br label %ehcleanup144
 

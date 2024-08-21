@@ -212,7 +212,7 @@ declare void @exitFromChild(i32 noundef) local_unnamed_addr #1
 define dso_local void @updateChildInfo(i32 noundef %information_type, i64 noundef %cow, i64 noundef %cow_updated, i64 noundef %keys, double noundef %progress) local_unnamed_addr #5 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2304), align 8
-  %cmp = icmp ult i64 %0, %cow
+  %cmp = icmp ugt i64 %cow, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -358,7 +358,7 @@ while.body:                                       ; preds = %if.end7.i
   %9 = load i64, ptr @readChildInfo.buffer, align 8
   %10 = load double, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 24), align 8
   %11 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2304), align 8
-  %cmp.i1 = icmp ult i64 %11, %7
+  %cmp.i1 = icmp ugt i64 %7, %11
   br i1 %cmp.i1, label %if.then.i3, label %if.end.i2
 
 if.then.i3:                                       ; preds = %while.body

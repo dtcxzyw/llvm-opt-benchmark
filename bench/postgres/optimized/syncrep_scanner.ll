@@ -1247,7 +1247,7 @@ define dso_local noundef ptr @syncrep_yy_create_buffer(ptr noundef %0, i32 nound
   store i32 1, ptr %13, align 8
   %14 = tail call ptr @__errno_location() #25
   %15 = load i32, ptr %14, align 4
-  %.pre.i = load ptr, ptr @yy_buffer_stack, align 8
+  %.pr.pre.i = load ptr, ptr @yy_buffer_stack, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 28
   store i32 0, ptr %16, align 4
   store i8 0, ptr %9, align 1
@@ -1259,50 +1259,56 @@ define dso_local noundef ptr @syncrep_yy_create_buffer(ptr noundef %0, i32 nound
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 0, ptr %20, align 8
-  %.not10.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not10.i.i, label %syncrep_yy_flush_buffer.exit.i.thread, label %21
+  %.not10.i.i = icmp eq ptr %.pr.pre.i, null
+  br i1 %.not10.i.i, label %syncrep_yy_flush_buffer.exit.thread.i, label %22
 
-21:                                               ; preds = %12
-  %22 = load i64, ptr @yy_buffer_stack_top, align 8
-  %23 = getelementptr ptr, ptr %.pre.i, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, %3
-  br i1 %25, label %syncrep_yy_flush_buffer.exit.thread.i, label %syncrep_yy_flush_buffer.exit.i.thread
-
-syncrep_yy_flush_buffer.exit.thread.i:            ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %24, i64 28
-  %27 = load i32, ptr %26, align 4
-  store i32 %27, ptr @yy_n_chars, align 4
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr @yy_c_buf_p, align 8
-  store ptr %29, ptr @syncrep_yytext, align 8
-  %30 = load ptr, ptr %23, align 8
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr @syncrep_yyin, align 8
-  %32 = load i8, ptr %29, align 1
-  store i8 %32, ptr @yy_hold_char, align 1
-  %.pre = load ptr, ptr %23, align 8
-  br label %syncrep_yy_flush_buffer.exit.i.thread
-
-syncrep_yy_flush_buffer.exit.i.thread:            ; preds = %syncrep_yy_flush_buffer.exit.thread.i, %21, %12
-  %33 = phi ptr [ null, %12 ], [ %.pre, %syncrep_yy_flush_buffer.exit.thread.i ], [ %24, %21 ]
+syncrep_yy_flush_buffer.exit.thread.i:            ; preds = %12
   store ptr %0, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 1, ptr %34, align 4
-  %.not9.i = icmp eq ptr %33, %3
-  br i1 %.not9.i, label %syncrep_yy_init_buffer.exit, label %35
+  %21 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %21, align 4
+  br label %.thread.i
 
-35:                                               ; preds = %syncrep_yy_flush_buffer.exit.i.thread
-  %36 = getelementptr inbounds i8, ptr %3, i64 44
-  store i32 1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 0, ptr %37, align 8
+22:                                               ; preds = %12
+  %23 = load i64, ptr @yy_buffer_stack_top, align 8
+  %24 = getelementptr ptr, ptr %.pr.pre.i, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %3, %25
+  br i1 %26, label %27, label %35
+
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds i8, ptr %25, i64 28
+  %29 = load i32, ptr %28, align 4
+  store i32 %29, ptr @yy_n_chars, align 4
+  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr @yy_c_buf_p, align 8
+  store ptr %31, ptr @syncrep_yytext, align 8
+  %32 = load ptr, ptr %24, align 8
+  %33 = load ptr, ptr %32, align 8
+  store ptr %33, ptr @syncrep_yyin, align 8
+  %34 = load i8, ptr %31, align 1
+  store i8 %34, ptr @yy_hold_char, align 1
+  %.pre = load ptr, ptr %24, align 8
+  br label %35
+
+35:                                               ; preds = %22, %27
+  %36 = phi ptr [ %25, %22 ], [ %.pre, %27 ]
+  store ptr %0, ptr %3, align 8
+  %37 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %37, align 4
+  %.not9.i = icmp eq ptr %3, %36
+  br i1 %.not9.i, label %syncrep_yy_init_buffer.exit, label %.thread.i
+
+.thread.i:                                        ; preds = %35, %syncrep_yy_flush_buffer.exit.thread.i
+  %38 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 1, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 0, ptr %39, align 8
   br label %syncrep_yy_init_buffer.exit
 
-syncrep_yy_init_buffer.exit:                      ; preds = %syncrep_yy_flush_buffer.exit.i.thread, %35
-  %38 = getelementptr inbounds i8, ptr %3, i64 36
-  store i32 0, ptr %38, align 4
+syncrep_yy_init_buffer.exit:                      ; preds = %35, %.thread.i
+  %40 = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 0, ptr %40, align 4
   store i32 %15, ptr %14, align 4
   ret ptr %3
 }
@@ -1436,71 +1442,66 @@ define dso_local void @syncrep_yyrestart(ptr noundef %0) local_unnamed_addr #0 {
   store i32 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %27, i64 56
   store i32 0, ptr %41, align 8
-  br i1 %.not38, label %syncrep_yy_flush_buffer.exit.i, label %.thread
+  br i1 %.not38, label %syncrep_yy_flush_buffer.exit.thread.i, label %43
 
-.thread:                                          ; preds = %26
-  %42 = load ptr, ptr %30, align 8
-  %43 = icmp eq ptr %42, %27
-  br i1 %43, label %syncrep_yy_flush_buffer.exit.thread.i, label %syncrep_yy_flush_buffer.exit.i.thread
+syncrep_yy_flush_buffer.exit.thread.i:            ; preds = %26
+  store ptr %0, ptr %27, align 8
+  %42 = getelementptr inbounds i8, ptr %27, i64 52
+  store i32 1, ptr %42, align 4
+  br label %.thread.i
 
-syncrep_yy_flush_buffer.exit.thread.i:            ; preds = %.thread
+43:                                               ; preds = %26
   %44 = load ptr, ptr %30, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 28
-  %46 = load i32, ptr %45, align 4
-  store i32 %46, ptr @yy_n_chars, align 4
-  %47 = getelementptr inbounds i8, ptr %44, i64 16
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr @yy_c_buf_p, align 8
-  store ptr %48, ptr @syncrep_yytext, align 8
-  %49 = load ptr, ptr %30, align 8
+  %45 = icmp eq ptr %27, %44
+  br i1 %45, label %46, label %syncrep_yy_flush_buffer.exit.thread12.i
+
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %44, i64 28
+  %48 = load i32, ptr %47, align 4
+  store i32 %48, ptr @yy_n_chars, align 4
+  %49 = getelementptr inbounds i8, ptr %44, i64 16
   %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr @syncrep_yyin, align 8
-  %51 = load i8, ptr %48, align 1
-  store i8 %51, ptr @yy_hold_char, align 1
-  br label %syncrep_yy_flush_buffer.exit.i.thread
+  store ptr %50, ptr @yy_c_buf_p, align 8
+  store ptr %50, ptr @syncrep_yytext, align 8
+  %51 = load ptr, ptr %30, align 8
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr @syncrep_yyin, align 8
+  %53 = load i8, ptr %50, align 1
+  store i8 %53, ptr @yy_hold_char, align 1
+  br label %syncrep_yy_flush_buffer.exit.thread12.i
 
-syncrep_yy_flush_buffer.exit.i:                   ; preds = %26
+syncrep_yy_flush_buffer.exit.thread12.i:          ; preds = %46, %43
   store ptr %0, ptr %27, align 8
-  %52 = getelementptr inbounds i8, ptr %27, i64 52
-  store i32 1, ptr %52, align 4
-  br label %55
+  %54 = getelementptr inbounds i8, ptr %27, i64 52
+  store i32 1, ptr %54, align 4
+  %55 = load ptr, ptr %30, align 8
+  %.not9.i4 = icmp eq ptr %27, %55
+  br i1 %.not9.i4, label %syncrep_yy_init_buffer.exit, label %.thread.i
 
-syncrep_yy_flush_buffer.exit.i.thread:            ; preds = %.thread, %syncrep_yy_flush_buffer.exit.thread.i
-  store ptr %0, ptr %27, align 8
-  %53 = getelementptr inbounds i8, ptr %27, i64 52
-  store i32 1, ptr %53, align 4
-  %54 = load ptr, ptr %30, align 8
-  br label %55
-
-55:                                               ; preds = %syncrep_yy_flush_buffer.exit.i, %syncrep_yy_flush_buffer.exit.i.thread
-  %56 = phi ptr [ %54, %syncrep_yy_flush_buffer.exit.i.thread ], [ null, %syncrep_yy_flush_buffer.exit.i ]
-  %.not9.i5 = icmp eq ptr %56, %27
-  br i1 %.not9.i5, label %syncrep_yy_init_buffer.exit, label %57
-
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %27, i64 44
-  store i32 1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %27, i64 48
-  store i32 0, ptr %59, align 8
+.thread.i:                                        ; preds = %syncrep_yy_flush_buffer.exit.thread12.i, %syncrep_yy_flush_buffer.exit.thread.i
+  %56 = getelementptr inbounds i8, ptr %27, i64 44
+  store i32 1, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %27, i64 48
+  store i32 0, ptr %57, align 8
   br label %syncrep_yy_init_buffer.exit
 
-syncrep_yy_init_buffer.exit:                      ; preds = %55, %57
-  %60 = getelementptr inbounds i8, ptr %27, i64 36
-  store i32 0, ptr %60, align 4
+syncrep_yy_init_buffer.exit:                      ; preds = %syncrep_yy_flush_buffer.exit.thread12.i, %.thread.i
+  %58 = getelementptr inbounds i8, ptr %27, i64 36
+  store i32 0, ptr %58, align 4
   store i32 %32, ptr %31, align 4
-  %61 = load ptr, ptr %30, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 28
-  %63 = load i32, ptr %62, align 4
-  store i32 %63, ptr @yy_n_chars, align 4
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  %59 = load ptr, ptr %30, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 28
+  %61 = load i32, ptr %60, align 4
+  store i32 %61, ptr @yy_n_chars, align 4
+  %62 = getelementptr inbounds i8, ptr %59, i64 16
+  %63 = load ptr, ptr %62, align 8
+  store ptr %63, ptr @yy_c_buf_p, align 8
+  store ptr %63, ptr @syncrep_yytext, align 8
+  %64 = load ptr, ptr %30, align 8
   %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr @yy_c_buf_p, align 8
-  store ptr %65, ptr @syncrep_yytext, align 8
-  %66 = load ptr, ptr %30, align 8
-  %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr @syncrep_yyin, align 8
-  %68 = load i8, ptr %65, align 1
-  store i8 %68, ptr @yy_hold_char, align 1
+  store ptr %65, ptr @syncrep_yyin, align 8
+  %66 = load i8, ptr %63, align 1
+  store i8 %66, ptr @yy_hold_char, align 1
   ret void
 }
 
@@ -1607,47 +1608,41 @@ define dso_local noalias noundef ptr @syncrep_yyalloc(i64 noundef %0) local_unna
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @syncrep_yy_delete_buffer(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %21, label %2
+  br i1 %.not, label %16, label %2
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @yy_buffer_stack, align 8
   %.not6 = icmp eq ptr %3, null
-  br i1 %.not6, label %8, label %4
+  br i1 %.not6, label %.thread, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @yy_buffer_stack_top, align 8
   %6 = getelementptr ptr, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
-  br label %8
+  %8 = icmp eq ptr %0, %7
+  br i1 %8, label %9, label %.thread
 
-8:                                                ; preds = %2, %4
-  %9 = phi ptr [ %7, %4 ], [ null, %2 ]
-  %10 = icmp eq ptr %9, %0
-  br i1 %10, label %11, label %14
+9:                                                ; preds = %4
+  store ptr null, ptr %6, align 8
+  br label %.thread
 
-11:                                               ; preds = %8
-  %12 = load i64, ptr @yy_buffer_stack_top, align 8
-  %13 = getelementptr ptr, ptr %3, i64 %12
-  store ptr null, ptr %13, align 8
-  br label %14
+.thread:                                          ; preds = %2, %9, %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = load i32, ptr %10, align 8
+  %.not7 = icmp eq i32 %11, 0
+  br i1 %.not7, label %15, label %12
 
-14:                                               ; preds = %11, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load i32, ptr %15, align 8
-  %.not7 = icmp eq i32 %16, 0
-  br i1 %.not7, label %20, label %17
+12:                                               ; preds = %.thread
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  tail call void @free(ptr noundef %14) #24
+  br label %15
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8
-  tail call void @free(ptr noundef %19) #24
-  br label %20
-
-20:                                               ; preds = %17, %14
+15:                                               ; preds = %12, %.thread
   tail call void @free(ptr noundef nonnull %0) #24
-  br label %21
+  br label %16
 
-21:                                               ; preds = %1, %20
+16:                                               ; preds = %1, %15
   ret void
 }
 
@@ -1660,7 +1655,7 @@ define dso_local void @syncrep_yyfree(ptr nocapture noundef %0) local_unnamed_ad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @syncrep_yy_flush_buffer(ptr noundef %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %31, label %2
+  br i1 %.not, label %.thread, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -1680,38 +1675,31 @@ define dso_local void @syncrep_yy_flush_buffer(ptr noundef %0) local_unnamed_add
   store i32 0, ptr %11, align 8
   %12 = load ptr, ptr @yy_buffer_stack, align 8
   %.not10 = icmp eq ptr %12, null
-  br i1 %.not10, label %17, label %13
+  br i1 %.not10, label %.thread, label %13
 
 13:                                               ; preds = %2
   %14 = load i64, ptr @yy_buffer_stack_top, align 8
   %15 = getelementptr ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
-  br label %17
+  %17 = icmp eq ptr %0, %16
+  br i1 %17, label %18, label %.thread
 
-17:                                               ; preds = %2, %13
-  %18 = phi ptr [ %16, %13 ], [ null, %2 ]
-  %19 = icmp eq ptr %18, %0
-  br i1 %19, label %20, label %31
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %16, i64 28
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr @yy_n_chars, align 4
+  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr @yy_c_buf_p, align 8
+  store ptr %22, ptr @syncrep_yytext, align 8
+  %23 = load ptr, ptr %15, align 8
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr @syncrep_yyin, align 8
+  %25 = load i8, ptr %22, align 1
+  store i8 %25, ptr @yy_hold_char, align 1
+  br label %.thread
 
-20:                                               ; preds = %17
-  %21 = load i64, ptr @yy_buffer_stack_top, align 8
-  %22 = getelementptr ptr, ptr %12, i64 %21
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 28
-  %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr @yy_n_chars, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr @yy_c_buf_p, align 8
-  store ptr %27, ptr @syncrep_yytext, align 8
-  %28 = load ptr, ptr %22, align 8
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr @syncrep_yyin, align 8
-  %30 = load i8, ptr %27, align 1
-  store i8 %30, ptr @yy_hold_char, align 1
-  br label %31
-
-31:                                               ; preds = %1, %20, %17
+.thread:                                          ; preds = %2, %1, %18, %13
   ret void
 }
 
@@ -1828,52 +1816,52 @@ define dso_local void @syncrep_yypop_buffer_state() local_unnamed_addr #4 {
   %4 = getelementptr ptr, ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8
   %.not4 = icmp eq ptr %5, null
-  br i1 %.not4, label %.thread, label %6
+  br i1 %.not4, label %.thread, label %.thread.i
 
-6:                                                ; preds = %2
+.thread.i:                                        ; preds = %2
   store ptr null, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
-  %8 = load i32, ptr %7, align 8
-  %.not7.i = icmp eq i32 %8, 0
-  br i1 %.not7.i, label %syncrep_yy_delete_buffer.exit, label %9
+  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = load i32, ptr %6, align 8
+  %.not7.i = icmp eq i32 %7, 0
+  br i1 %.not7.i, label %syncrep_yy_delete_buffer.exit, label %8
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void @free(ptr noundef %11) #24
+8:                                                ; preds = %.thread.i
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void @free(ptr noundef %10) #24
   br label %syncrep_yy_delete_buffer.exit
 
-syncrep_yy_delete_buffer.exit:                    ; preds = %6, %9
+syncrep_yy_delete_buffer.exit:                    ; preds = %.thread.i, %8
   tail call void @free(ptr noundef nonnull %5) #24
   store ptr null, ptr %4, align 8
   %.not5 = icmp eq i64 %3, 0
-  br i1 %.not5, label %.thread, label %12
+  br i1 %.not5, label %.thread, label %11
 
-12:                                               ; preds = %syncrep_yy_delete_buffer.exit
-  %13 = add i64 %3, -1
-  store i64 %13, ptr @yy_buffer_stack_top, align 8
-  %.phi.trans.insert = getelementptr ptr, ptr %1, i64 %13
+11:                                               ; preds = %syncrep_yy_delete_buffer.exit
+  %12 = add i64 %3, -1
+  store i64 %12, ptr @yy_buffer_stack_top, align 8
+  %.phi.trans.insert = getelementptr ptr, ptr %1, i64 %12
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not7 = icmp eq ptr %.pre, null
-  br i1 %.not7, label %.thread, label %14
+  br i1 %.not7, label %.thread, label %13
 
-14:                                               ; preds = %12
-  %15 = getelementptr ptr, ptr %1, i64 %13
-  %16 = getelementptr inbounds i8, ptr %.pre, i64 28
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr @yy_n_chars, align 4
-  %18 = getelementptr inbounds i8, ptr %.pre, i64 16
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr @yy_c_buf_p, align 8
-  store ptr %19, ptr @syncrep_yytext, align 8
-  %20 = load ptr, ptr %15, align 8
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr @syncrep_yyin, align 8
-  %22 = load i8, ptr %19, align 1
-  store i8 %22, ptr @yy_hold_char, align 1
+13:                                               ; preds = %11
+  %14 = getelementptr ptr, ptr %1, i64 %12
+  %15 = getelementptr inbounds i8, ptr %.pre, i64 28
+  %16 = load i32, ptr %15, align 4
+  store i32 %16, ptr @yy_n_chars, align 4
+  %17 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr @yy_c_buf_p, align 8
+  store ptr %18, ptr @syncrep_yytext, align 8
+  %19 = load ptr, ptr %14, align 8
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr @syncrep_yyin, align 8
+  %21 = load i8, ptr %18, align 1
+  store i8 %21, ptr @yy_hold_char, align 1
   br label %.thread
 
-.thread:                                          ; preds = %syncrep_yy_delete_buffer.exit, %2, %0, %14, %12
+.thread:                                          ; preds = %syncrep_yy_delete_buffer.exit, %2, %0, %13, %11
   ret void
 }
 
@@ -2100,41 +2088,41 @@ define dso_local void @syncrep_yyset_debug(i32 noundef %0) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @syncrep_yylex_destroy() local_unnamed_addr #0 {
   %.pr = load ptr, ptr @yy_buffer_stack, align 8
-  %.not7 = icmp eq ptr %.pr, null
-  br i1 %.not7, label %.thread, label %.lr.ph.preheader
+  %.not8 = icmp eq ptr %.pr, null
+  br i1 %.not8, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @yy_buffer_stack_top, align 8
   %.phi.trans.insert = getelementptr ptr, ptr %.pr, i64 %.pre
-  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8
-  %.not218 = icmp eq ptr %.pre10, null
-  br i1 %.not218, label %.thread, label %.lr.ph19
+  %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
+  %.not219 = icmp eq ptr %.pre11, null
+  br i1 %.not219, label %.thread, label %.thread.i
 
-.lr.ph19:                                         ; preds = %.lr.ph.preheader
+.thread.i:                                        ; preds = %.lr.ph.preheader
   %1 = getelementptr ptr, ptr %.pr, i64 %.pre
   store ptr null, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %.pre10, i64 32
+  %2 = getelementptr inbounds i8, ptr %.pre11, i64 32
   %3 = load i32, ptr %2, align 8
   %.not7.i = icmp eq i32 %3, 0
   br i1 %.not7.i, label %syncrep_yypop_buffer_state.exit, label %4
 
-4:                                                ; preds = %.lr.ph19
-  %5 = getelementptr inbounds i8, ptr %.pre10, i64 8
+4:                                                ; preds = %.thread.i
+  %5 = getelementptr inbounds i8, ptr %.pre11, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #24
-  %.pre11.pre = load ptr, ptr @yy_buffer_stack, align 8
+  %.pre12.pre = load ptr, ptr @yy_buffer_stack, align 8
   br label %syncrep_yypop_buffer_state.exit
 
-syncrep_yypop_buffer_state.exit:                  ; preds = %.lr.ph19, %4
-  %.pre11 = phi ptr [ %.pre11.pre, %4 ], [ %.pr, %.lr.ph19 ]
-  tail call void @free(ptr noundef nonnull %.pre10) #24
-  %.pre12 = load i64, ptr @yy_buffer_stack_top, align 8
-  %7 = getelementptr ptr, ptr %.pre11, i64 %.pre12
+syncrep_yypop_buffer_state.exit:                  ; preds = %.thread.i, %4
+  %.pre12 = phi ptr [ %.pre12.pre, %4 ], [ %.pr, %.thread.i ]
+  tail call void @free(ptr noundef nonnull %.pre11) #24
+  %.pre13 = load i64, ptr @yy_buffer_stack_top, align 8
+  %7 = getelementptr ptr, ptr %.pre12, i64 %.pre13
   store ptr null, ptr %7, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.preheader, %syncrep_yypop_buffer_state.exit, %0
-  %.lcssa = phi ptr [ null, %0 ], [ %.pre11, %syncrep_yypop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
+  %.lcssa = phi ptr [ null, %0 ], [ %.pre12, %syncrep_yypop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
   tail call void @free(ptr noundef %.lcssa) #24
   store ptr null, ptr @yy_buffer_stack, align 8
   store i64 0, ptr @yy_buffer_stack_top, align 8
@@ -2169,78 +2157,78 @@ define dso_local void @syncrep_scanner_init(ptr nocapture noundef readonly %0) l
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #26
   %3 = load ptr, ptr @yy_buffer_stack, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %14, label %4
+  br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @yy_buffer_stack_top, align 8
   %6 = getelementptr ptr, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not11 = icmp eq ptr %7, null
-  br i1 %.not11, label %14, label %8
+  br i1 %.not11, label %13, label %.thread.i
 
-8:                                                ; preds = %4
+.thread.i:                                        ; preds = %4
   store ptr null, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
-  %10 = load i32, ptr %9, align 8
-  %.not7.i = icmp eq i32 %10, 0
-  br i1 %.not7.i, label %syncrep_yy_delete_buffer.exit, label %11
+  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = load i32, ptr %8, align 8
+  %.not7.i = icmp eq i32 %9, 0
+  br i1 %.not7.i, label %syncrep_yy_delete_buffer.exit, label %10
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  %13 = load ptr, ptr %12, align 8
-  tail call void @free(ptr noundef %13) #24
+10:                                               ; preds = %.thread.i
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = load ptr, ptr %11, align 8
+  tail call void @free(ptr noundef %12) #24
   br label %syncrep_yy_delete_buffer.exit
 
-syncrep_yy_delete_buffer.exit:                    ; preds = %8, %11
+syncrep_yy_delete_buffer.exit:                    ; preds = %.thread.i, %10
   tail call void @free(ptr noundef nonnull %7) #24
-  br label %14
+  br label %13
 
-14:                                               ; preds = %1, %syncrep_yy_delete_buffer.exit, %4
-  %15 = add i64 %2, 2
-  %16 = tail call ptr @palloc(i64 noundef %15) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %0, i64 %2, i1 false)
-  %17 = getelementptr i8, ptr %16, i64 %2
-  %18 = getelementptr i8, ptr %17, i64 1
-  store i8 0, ptr %18, align 1
+13:                                               ; preds = %1, %syncrep_yy_delete_buffer.exit, %4
+  %14 = add i64 %2, 2
+  %15 = tail call ptr @palloc(i64 noundef %14) #24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %0, i64 %2, i1 false)
+  %16 = getelementptr i8, ptr %15, i64 %2
+  %17 = getelementptr i8, ptr %16, i64 1
   store i8 0, ptr %17, align 1
-  %19 = icmp ugt i64 %2, -3
-  br i1 %19, label %syncrep_yy_scan_buffer.exit, label %20
+  store i8 0, ptr %16, align 1
+  %18 = icmp ugt i64 %2, -3
+  br i1 %18, label %syncrep_yy_scan_buffer.exit, label %19
 
-20:                                               ; preds = %14
-  %21 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
-  %.not24.i = icmp eq ptr %21, null
-  br i1 %.not24.i, label %22, label %23
+19:                                               ; preds = %13
+  %20 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
+  %.not24.i = icmp eq ptr %20, null
+  br i1 %.not24.i, label %21, label %22
 
-22:                                               ; preds = %20
+21:                                               ; preds = %19
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #22
   unreachable
 
-23:                                               ; preds = %20
-  %24 = trunc i64 %2 to i32
-  %25 = getelementptr inbounds i8, ptr %21, i64 24
-  store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr %16, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr %16, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 32
-  store i32 0, ptr %28, align 8
-  store ptr null, ptr %21, align 8
-  %29 = getelementptr inbounds i8, ptr %21, i64 28
-  store i32 %24, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %21, i64 36
-  store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %21, i64 40
-  store i32 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %21, i64 52
-  store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %21, i64 56
-  store i32 0, ptr %33, align 8
-  tail call void @syncrep_yy_switch_to_buffer(ptr noundef nonnull %21)
+22:                                               ; preds = %19
+  %23 = trunc i64 %2 to i32
+  %24 = getelementptr inbounds i8, ptr %20, i64 24
+  store i32 %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr %15, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %20, i64 16
+  store ptr %15, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %20, i64 32
+  store i32 0, ptr %27, align 8
+  store ptr null, ptr %20, align 8
+  %28 = getelementptr inbounds i8, ptr %20, i64 28
+  store i32 %23, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %20, i64 36
+  store i32 0, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %20, i64 40
+  store i32 1, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %20, i64 52
+  store i32 0, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %20, i64 56
+  store i32 0, ptr %32, align 8
+  tail call void @syncrep_yy_switch_to_buffer(ptr noundef nonnull %20)
   br label %syncrep_yy_scan_buffer.exit
 
-syncrep_yy_scan_buffer.exit:                      ; preds = %14, %23
-  %.0.i = phi ptr [ %21, %23 ], [ null, %14 ]
+syncrep_yy_scan_buffer.exit:                      ; preds = %13, %22
+  %.0.i = phi ptr [ %20, %22 ], [ null, %13 ]
   store ptr %.0.i, ptr @scanbufhandle, align 8
   store i32 1, ptr @yy_start, align 4
   ret void
@@ -2260,42 +2248,36 @@ define dso_local void @syncrep_scanner_finish() local_unnamed_addr #4 {
 2:                                                ; preds = %0
   %3 = load ptr, ptr @yy_buffer_stack, align 8
   %.not6.i = icmp eq ptr %3, null
-  br i1 %.not6.i, label %8, label %4
+  br i1 %.not6.i, label %.thread.i, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @yy_buffer_stack_top, align 8
   %6 = getelementptr ptr, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
-  br label %8
+  %8 = icmp eq ptr %1, %7
+  br i1 %8, label %9, label %.thread.i
 
-8:                                                ; preds = %4, %2
-  %9 = phi ptr [ %7, %4 ], [ null, %2 ]
-  %10 = icmp eq ptr %9, %1
-  br i1 %10, label %11, label %14
+9:                                                ; preds = %4
+  store ptr null, ptr %6, align 8
+  br label %.thread.i
 
-11:                                               ; preds = %8
-  %12 = load i64, ptr @yy_buffer_stack_top, align 8
-  %13 = getelementptr ptr, ptr %3, i64 %12
-  store ptr null, ptr %13, align 8
-  br label %14
+.thread.i:                                        ; preds = %9, %4, %2
+  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = load i32, ptr %10, align 8
+  %.not7.i = icmp eq i32 %11, 0
+  br i1 %.not7.i, label %15, label %12
 
-14:                                               ; preds = %11, %8
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load i32, ptr %15, align 8
-  %.not7.i = icmp eq i32 %16, 0
-  br i1 %.not7.i, label %20, label %17
+12:                                               ; preds = %.thread.i
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8
+  tail call void @free(ptr noundef %14) #24
+  br label %15
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
-  %19 = load ptr, ptr %18, align 8
-  tail call void @free(ptr noundef %19) #24
-  br label %20
-
-20:                                               ; preds = %17, %14
+15:                                               ; preds = %12, %.thread.i
   tail call void @free(ptr noundef nonnull %1) #24
   br label %syncrep_yy_delete_buffer.exit
 
-syncrep_yy_delete_buffer.exit:                    ; preds = %0, %20
+syncrep_yy_delete_buffer.exit:                    ; preds = %0, %15
   store ptr null, ptr @scanbufhandle, align 8
   ret void
 }

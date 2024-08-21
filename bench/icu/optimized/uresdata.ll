@@ -291,14 +291,14 @@ if.end26:                                         ; preds = %if.else
 land.lhs.true28:                                  ; preds = %if.end26
   %add = shl nuw nsw i32 %and, 2
   %shl = add nuw nsw i32 %add, 4
-  %cmp29 = icmp ugt i32 %shl, %length
+  %cmp29 = icmp ult i32 %length, %shl
   br i1 %cmp29, label %if.then34, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %land.lhs.true28
   %arrayidx31 = getelementptr inbounds i8, ptr %inBytes, i64 16
   %12 = load i32, ptr %arrayidx31, align 4
   %shl32 = shl i32 %12, 2
-  %cmp33 = icmp sgt i32 %shl32, %length
+  %cmp33 = icmp slt i32 %length, %shl32
   br i1 %cmp33, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %lor.lhs.false30, %land.lhs.true28
@@ -2504,7 +2504,7 @@ if.then2:                                         ; preds = %sw.bb
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %1 = load i16, ptr %add.ptr, align 2
   %conv = zext i16 %1 to i32
-  %cmp3 = icmp ugt i32 %conv, %indexR
+  %cmp3 = icmp ult i32 %indexR, %conv
   br i1 %cmp3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then2
@@ -2560,7 +2560,7 @@ sw.bb33:                                          ; preds = %if.end
   %incdec.ptr37 = getelementptr inbounds i8, ptr %add.ptr36, i64 2
   %7 = load i16, ptr %add.ptr36, align 2
   %conv38 = zext i16 %7 to i32
-  %cmp39 = icmp ugt i32 %conv38, %indexR
+  %cmp39 = icmp ult i32 %indexR, %conv38
   br i1 %cmp39, label %if.then40, label %return
 
 if.then40:                                        ; preds = %sw.bb33
@@ -2599,7 +2599,7 @@ cond.end66:                                       ; preds = %cond.false55, %cond
   br label %if.end68
 
 if.end68:                                         ; preds = %cond.end66, %if.then40
-  %add = add nuw nsw i32 %conv38, %indexR
+  %add = add nuw nsw i32 %indexR, %conv38
   %idxprom69 = zext nneg i32 %add to i64
   %arrayidx70 = getelementptr inbounds i16, ptr %incdec.ptr37, i64 %idxprom69
   %12 = load i16, ptr %arrayidx70, align 2
@@ -2632,7 +2632,7 @@ if.then75:                                        ; preds = %sw.bb73
   %add.ptr79 = getelementptr inbounds i32, ptr %15, i64 %idx.ext78
   %incdec.ptr80 = getelementptr inbounds i8, ptr %add.ptr79, i64 4
   %16 = load i32, ptr %add.ptr79, align 4
-  %cmp81 = icmp sgt i32 %16, %indexR
+  %cmp81 = icmp slt i32 %indexR, %16
   br i1 %cmp81, label %if.then82, label %return
 
 if.then82:                                        ; preds = %if.then75
@@ -2690,7 +2690,7 @@ entry:
   %cmp = icmp sgt i32 %i, -1
   %length = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %length, align 8
-  %cmp2 = icmp sgt i32 %0, %i
+  %cmp2 = icmp slt i32 %i, %0
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then, label %return
 
@@ -3073,7 +3073,7 @@ if.then2:                                         ; preds = %sw.bb
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i32, ptr %0, i64 %idx.ext
   %1 = load i32, ptr %add.ptr, align 4
-  %cmp3 = icmp sgt i32 %1, %indexR
+  %cmp3 = icmp slt i32 %indexR, %1
   br i1 %cmp3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then2
@@ -3090,7 +3090,7 @@ sw.bb7:                                           ; preds = %if.end
   %add.ptr10 = getelementptr inbounds i16, ptr %5, i64 %idx.ext9
   %6 = load i16, ptr %add.ptr10, align 2
   %conv = zext i16 %6 to i32
-  %cmp11 = icmp ugt i32 %conv, %indexR
+  %cmp11 = icmp ult i32 %indexR, %conv
   br i1 %cmp11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %sw.bb7
@@ -3127,7 +3127,7 @@ entry:
   %cmp = icmp sgt i32 %i, -1
   %length = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %length, align 8
-  %cmp2 = icmp sgt i32 %0, %i
+  %cmp2 = icmp slt i32 %i, %0
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then, label %return
 
@@ -3311,7 +3311,7 @@ sw.bb7.i:                                         ; preds = %if.end.i
   %add.ptr10.i = getelementptr inbounds i16, ptr %13, i64 %idx.ext9.i
   %14 = load i16, ptr %add.ptr10.i, align 2
   %conv.i = zext i16 %14 to i32
-  %cmp11.i = icmp ugt i32 %conv.i, %conv
+  %cmp11.i = icmp ult i32 %conv, %conv.i
   br i1 %cmp11.i, label %if.then12.i, label %if.end51
 
 if.then12.i:                                      ; preds = %sw.bb7.i

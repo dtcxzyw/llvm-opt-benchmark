@@ -701,7 +701,7 @@ define i32 @ompi_errhandler_proc_failed_internal(ptr noundef %0, i32 noundef %1,
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr @ompi_proc_local_proc, align 8
-  %19 = icmp eq ptr %18, %0
+  %19 = icmp eq ptr %0, %18
   br i1 %19, label %20, label %ompi_proc_mark_as_failed.exit
 
 20:                                               ; preds = %17

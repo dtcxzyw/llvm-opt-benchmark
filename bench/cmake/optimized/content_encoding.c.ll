@@ -69,7 +69,7 @@ define dso_local void @Curl_all_content_encodings(ptr noundef %0, i64 noundef %1
   br label %36
 
 19:                                               ; preds = %15
-  %20 = icmp ult i64 %.126, %1
+  %20 = icmp ugt i64 %1, %.126
   br i1 %20, label %.preheader, label %36
 
 .preheader:                                       ; preds = %19, %31

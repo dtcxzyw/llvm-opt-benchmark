@@ -4964,7 +4964,7 @@ default.unreachable:                              ; preds = %5
 define internal fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resolve_index17h2afea1259a233ff0E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 %2, i64 %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.not = icmp ne ptr %2, null
   %6 = load i64, ptr %4, align 8
-  %7 = icmp ugt i64 %6, %3
+  %7 = icmp ult i64 %3, %6
   %or.cond = select i1 %.not, i1 %7, i1 false
   br i1 %or.cond, label %.critedge, label %8
 
@@ -5317,7 +5317,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h0773e7eb51c8a39eE.exit: ; pred
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h929db8b89e69b21eE.exit.i: ; preds = %170, %.lr.ph.i.i
   %191 = phi ptr [ %150, %.lr.ph.i.i ], [ %175, %170 ]
-  %192 = icmp eq i64 %.sroa.01.013.i.i, %151
+  %192 = icmp eq i64 %151, %.sroa.01.013.i.i
   br i1 %192, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h929db8b89e69b21eE.exit.thread.i, label %_ZN4core4iter6traits8iterator8Iterator3nth17he9c792244d01e32dE.exit
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h929db8b89e69b21eE.exit.thread.i: ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i.i", %.thread97, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h929db8b89e69b21eE.exit.i

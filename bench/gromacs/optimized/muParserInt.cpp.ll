@@ -927,7 +927,7 @@ declare double @llvm.fabs.f64(double) #6
 define noundef double @_ZN2mu9ParserInt4SignEd(double noundef %0) #2 align 2 {
   %2 = fcmp oge double %0, 0.000000e+00
   %3 = select i1 %2, double 5.000000e-01, double -5.000000e-01
-  %4 = fadd double %3, %0
+  %4 = fadd double %0, %3
   %5 = fptosi double %4 to i32
   %6 = icmp slt i32 %5, 0
   %7 = icmp ne i32 %5, 0
@@ -940,13 +940,13 @@ define noundef double @_ZN2mu9ParserInt4SignEd(double noundef %0) #2 align 2 {
 define noundef double @_ZN2mu9ParserInt3IteEddd(double noundef %0, double noundef %1, double noundef %2) #2 align 2 {
   %4 = fcmp oge double %0, 0.000000e+00
   %5 = select i1 %4, double 5.000000e-01, double -5.000000e-01
-  %6 = fadd double %5, %0
+  %6 = fadd double %0, %5
   %7 = fptosi double %6 to i32
   %8 = icmp eq i32 %7, 1
   %. = select i1 %8, double %1, double %2
   %9 = fcmp oge double %., 0.000000e+00
   %10 = select i1 %9, double 5.000000e-01, double -5.000000e-01
-  %11 = fadd double %10, %.
+  %11 = fadd double %., %10
   %12 = fptosi double %11 to i32
   %13 = sitofp i32 %12 to double
   ret double %13
@@ -956,11 +956,11 @@ define noundef double @_ZN2mu9ParserInt3IteEddd(double noundef %0, double nounde
 define noundef double @_ZN2mu9ParserInt3AddEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = add nsw i32 %10, %6
   %12 = sitofp i32 %11 to double
@@ -971,11 +971,11 @@ define noundef double @_ZN2mu9ParserInt3AddEdd(double noundef %0, double noundef
 define noundef double @_ZN2mu9ParserInt3SubEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = sub nsw i32 %6, %10
   %12 = sitofp i32 %11 to double
@@ -986,11 +986,11 @@ define noundef double @_ZN2mu9ParserInt3SubEdd(double noundef %0, double noundef
 define noundef double @_ZN2mu9ParserInt3MulEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = mul nsw i32 %10, %6
   %12 = sitofp i32 %11 to double
@@ -1001,11 +1001,11 @@ define noundef double @_ZN2mu9ParserInt3MulEdd(double noundef %0, double noundef
 define noundef double @_ZN2mu9ParserInt3DivEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = sdiv i32 %6, %10
   %12 = sitofp i32 %11 to double
@@ -1016,11 +1016,11 @@ define noundef double @_ZN2mu9ParserInt3DivEdd(double noundef %0, double noundef
 define noundef double @_ZN2mu9ParserInt3ModEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = srem i32 %6, %10
   %12 = sitofp i32 %11 to double
@@ -1031,11 +1031,11 @@ define noundef double @_ZN2mu9ParserInt3ModEdd(double noundef %0, double noundef
 define noundef double @_ZN2mu9ParserInt3ShrEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = ashr i32 %6, %10
   %12 = sitofp i32 %11 to double
@@ -1046,11 +1046,11 @@ define noundef double @_ZN2mu9ParserInt3ShrEdd(double noundef %0, double noundef
 define noundef double @_ZN2mu9ParserInt3ShlEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = shl i32 %6, %10
   %12 = sitofp i32 %11 to double
@@ -1061,11 +1061,11 @@ define noundef double @_ZN2mu9ParserInt3ShlEdd(double noundef %0, double noundef
 define noundef double @_ZN2mu9ParserInt6LogAndEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = and i32 %10, %6
   %12 = sitofp i32 %11 to double
@@ -1076,11 +1076,11 @@ define noundef double @_ZN2mu9ParserInt6LogAndEdd(double noundef %0, double noun
 define noundef double @_ZN2mu9ParserInt5LogOrEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = or i32 %10, %6
   %12 = sitofp i32 %11 to double
@@ -1091,7 +1091,7 @@ define noundef double @_ZN2mu9ParserInt5LogOrEdd(double noundef %0, double nound
 define noundef double @_ZN2mu9ParserInt3AndEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %14, label %7
@@ -1099,7 +1099,7 @@ define noundef double @_ZN2mu9ParserInt3AndEdd(double noundef %0, double noundef
 7:                                                ; preds = %2
   %8 = fcmp oge double %1, 0.000000e+00
   %9 = select i1 %8, double 5.000000e-01, double -5.000000e-01
-  %10 = fadd double %9, %1
+  %10 = fadd double %1, %9
   %11 = fptosi double %10 to i32
   %12 = icmp ne i32 %11, 0
   %13 = uitofp i1 %12 to double
@@ -1114,7 +1114,7 @@ define noundef double @_ZN2mu9ParserInt3AndEdd(double noundef %0, double noundef
 define noundef double @_ZN2mu9ParserInt2OrEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %14
@@ -1122,7 +1122,7 @@ define noundef double @_ZN2mu9ParserInt2OrEdd(double noundef %0, double noundef 
 7:                                                ; preds = %2
   %8 = fcmp oge double %1, 0.000000e+00
   %9 = select i1 %8, double 5.000000e-01, double -5.000000e-01
-  %10 = fadd double %9, %1
+  %10 = fadd double %1, %9
   %11 = fptosi double %10 to i32
   %12 = icmp ne i32 %11, 0
   %13 = uitofp i1 %12 to double
@@ -1137,11 +1137,11 @@ define noundef double @_ZN2mu9ParserInt2OrEdd(double noundef %0, double noundef 
 define noundef double @_ZN2mu9ParserInt4LessEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = icmp slt i32 %6, %10
   %12 = uitofp i1 %11 to double
@@ -1152,11 +1152,11 @@ define noundef double @_ZN2mu9ParserInt4LessEdd(double noundef %0, double nounde
 define noundef double @_ZN2mu9ParserInt7GreaterEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = icmp sgt i32 %6, %10
   %12 = uitofp i1 %11 to double
@@ -1167,11 +1167,11 @@ define noundef double @_ZN2mu9ParserInt7GreaterEdd(double noundef %0, double nou
 define noundef double @_ZN2mu9ParserInt6LessEqEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = icmp sle i32 %6, %10
   %12 = uitofp i1 %11 to double
@@ -1182,11 +1182,11 @@ define noundef double @_ZN2mu9ParserInt6LessEqEdd(double noundef %0, double noun
 define noundef double @_ZN2mu9ParserInt9GreaterEqEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = icmp sge i32 %6, %10
   %12 = uitofp i1 %11 to double
@@ -1197,11 +1197,11 @@ define noundef double @_ZN2mu9ParserInt9GreaterEqEdd(double noundef %0, double n
 define noundef double @_ZN2mu9ParserInt5EqualEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = icmp eq i32 %6, %10
   %12 = uitofp i1 %11 to double
@@ -1212,11 +1212,11 @@ define noundef double @_ZN2mu9ParserInt5EqualEdd(double noundef %0, double nound
 define noundef double @_ZN2mu9ParserInt8NotEqualEdd(double noundef %0, double noundef %1) #2 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = fcmp oge double %1, 0.000000e+00
   %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fptosi double %9 to i32
   %11 = icmp ne i32 %6, %10
   %12 = uitofp i1 %11 to double
@@ -1227,7 +1227,7 @@ define noundef double @_ZN2mu9ParserInt8NotEqualEdd(double noundef %0, double no
 define noundef double @_ZN2mu9ParserInt3NotEd(double noundef %0) #2 align 2 {
   %2 = fcmp oge double %0, 0.000000e+00
   %3 = select i1 %2, double 5.000000e-01, double -5.000000e-01
-  %4 = fadd double %3, %0
+  %4 = fadd double %0, %3
   %5 = fptosi double %4 to i32
   %.not = icmp eq i32 %5, 0
   %6 = uitofp i1 %.not to double
@@ -1238,12 +1238,12 @@ define noundef double @_ZN2mu9ParserInt3NotEd(double noundef %0) #2 align 2 {
 define noundef double @_ZN2mu9ParserInt3PowEdd(double noundef %0, double noundef %1) #7 align 2 {
   %3 = fcmp oge double %0, 0.000000e+00
   %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
-  %5 = fadd double %4, %0
+  %5 = fadd double %0, %4
   %6 = fptosi double %5 to i32
   %7 = sitofp i32 %6 to double
   %8 = fcmp oge double %1, 0.000000e+00
   %9 = select i1 %8, double 5.000000e-01, double -5.000000e-01
-  %10 = fadd double %9, %1
+  %10 = fadd double %1, %9
   %11 = fptosi double %10 to i32
   %12 = sitofp i32 %11 to double
   %13 = tail call double @pow(double noundef %7, double noundef %12) #13
@@ -1257,7 +1257,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #8
 define noundef double @_ZN2mu9ParserInt10UnaryMinusEd(double noundef %0) #2 align 2 {
   %2 = fcmp oge double %0, 0.000000e+00
   %3 = select i1 %2, double 5.000000e-01, double -5.000000e-01
-  %4 = fadd double %3, %0
+  %4 = fadd double %0, %3
   %5 = fptosi double %4 to i32
   %6 = sub nsw i32 0, %5
   %7 = sitofp i32 %6 to double

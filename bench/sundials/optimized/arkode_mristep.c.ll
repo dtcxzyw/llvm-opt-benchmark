@@ -3855,7 +3855,7 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr nocapture noundef reado
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %5, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = icmp sgt i32 %15, %2
+  %16 = icmp slt i32 %2, %15
   %17 = icmp ne ptr %7, null
   %or.cond.i = and i1 %17, %16
   %18 = icmp ne ptr %9, null
@@ -4122,7 +4122,7 @@ define i32 @mriStep_StageDIRKNoFast(ptr noundef %0, ptr nocapture noundef %1, i3
 31:                                               ; preds = %21
   %32 = getelementptr inbounds i8, ptr %23, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = icmp sgt i32 %33, %2
+  %34 = icmp slt i32 %2, %33
   %35 = icmp ne ptr %25, null
   %or.cond.i = and i1 %35, %34
   %36 = icmp ne ptr %27, null
@@ -4516,7 +4516,7 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr nocapture noundef readonly %0
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = icmp sgt i32 %9, %1
+  %10 = icmp slt i32 %1, %9
   %11 = icmp ne ptr %2, null
   %or.cond = and i1 %11, %10
   %12 = icmp ne ptr %3, null

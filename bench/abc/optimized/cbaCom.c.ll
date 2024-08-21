@@ -171,7 +171,7 @@ define internal range(i32 0, 2) i32 @Cba_CommandRead(ptr nocapture noundef %0, i
   %.033.lcssa = phi i32 [ 0, %3 ], [ %.134, %15 ]
   %17 = load i32, ptr @globalUtilOptind, align 4
   %18 = add nsw i32 %17, 1
-  %.not42 = icmp eq i32 %18, %1
+  %.not42 = icmp eq i32 %1, %18
   br i1 %.not42, label %20, label %19
 
 19:                                               ; preds = %._crit_edge
@@ -1814,13 +1814,13 @@ Vec_IntPush.exit68.i.i.i.i.i:                     ; preds = %748, %Vec_IntGrow.e
 Cba_ObjDup.exit.i.i.i:                            ; preds = %Vec_IntPush.exit68.i.i.i.i.i, %._crit_edge73.i.i.i.i.i
   %755 = add nsw i32 %544, 1
   %756 = load i32, ptr %510, align 4
-  %.not.i53.not.i = icmp sgt i32 %756, %544
+  %.not.i53.not.i = icmp slt i32 %544, %756
   br i1 %.not.i53.not.i, label %Vec_IntFillExtra.exit66.i, label %757
 
 757:                                              ; preds = %Cba_ObjDup.exit.i.i.i
   %758 = load i32, ptr %491, align 8
   %759 = shl nsw i32 %758, 1
-  %.not.i = icmp sgt i32 %759, %544
+  %.not.i = icmp slt i32 %544, %759
   %.not.i.i54.not.i = icmp sgt i32 %758, %544
   br i1 %.not.i, label %769, label %760
 
@@ -1943,13 +1943,13 @@ Vec_IntFillExtra.exit66.i:                        ; preds = %._crit_edge.i56.i, 
   %806 = load i32, ptr %805, align 4
   %807 = add nsw i32 %806, 1
   %808 = load i32, ptr %510, align 4
-  %.not.i48.not.i = icmp sgt i32 %808, %806
+  %.not.i48.not.i = icmp slt i32 %806, %808
   br i1 %.not.i48.not.i, label %Vec_IntFillExtra.exit.i, label %809
 
 809:                                              ; preds = %804
   %810 = load i32, ptr %491, align 8
   %811 = shl nsw i32 %810, 1
-  %.not2.i = icmp sgt i32 %811, %806
+  %.not2.i = icmp slt i32 %806, %811
   %.not.i.i49.not.i = icmp sgt i32 %810, %806
   br i1 %.not2.i, label %821, label %812
 
@@ -2146,13 +2146,13 @@ Cba_NtkAdd.exit.i:                                ; preds = %876, %Cba_NtkDupOrd
   %890 = load i32, ptr %889, align 4
   %891 = add nsw i32 %890, 1
   %892 = load i32, ptr %887, align 4
-  %.not.i67.not.i = icmp sgt i32 %892, %890
+  %.not.i67.not.i = icmp slt i32 %890, %892
   br i1 %.not.i67.not.i, label %Vec_IntFillExtra.exit80.i, label %893
 
 893:                                              ; preds = %888
   %894 = load i32, ptr %884, align 8
   %895 = shl nsw i32 %894, 1
-  %.not4.i = icmp sgt i32 %895, %890
+  %.not4.i = icmp slt i32 %890, %895
   %.not.i.i68.not.i = icmp sgt i32 %894, %890
   br i1 %.not4.i, label %905, label %896
 
@@ -3151,7 +3151,7 @@ define internal range(i32 0, 2) i32 @Cba_CommandWrite(ptr nocapture noundef read
 14:                                               ; preds = %11
   %15 = load i32, ptr @globalUtilOptind, align 4
   %16 = add nsw i32 %15, 1
-  %17 = icmp eq i32 %16, %1
+  %17 = icmp eq i32 %1, %16
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %14
@@ -3161,7 +3161,7 @@ define internal range(i32 0, 2) i32 @Cba_CommandWrite(ptr nocapture noundef read
   br label %32
 
 22:                                               ; preds = %14
-  %23 = icmp eq i32 %15, %1
+  %23 = icmp eq i32 %1, %15
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %22
@@ -3340,7 +3340,7 @@ define internal range(i32 0, 2) i32 @Cba_CommandPs(ptr nocapture noundef readonl
 32:                                               ; preds = %28
   %33 = getelementptr i8, ptr %.val, i64 1564
   %.val.i.i.i.i = load i32, ptr %33, align 4
-  %.not.i.i.i = icmp sgt i32 %.val.i.i.i.i, %30
+  %.not.i.i.i = icmp slt i32 %30, %.val.i.i.i.i
   %or.cond.i = select i1 %31, i1 %.not.i.i.i, i1 false
   br i1 %or.cond.i, label %34, label %Cba_ManBoxNumRec.exit.i
 
@@ -3761,7 +3761,7 @@ Cba_ManNtkIsOk.exit.i.i.i.i:                      ; preds = %Cba_NtkBoxUserNum.e
   tail call void @llvm.assume(i1 %347)
   %348 = getelementptr i8, ptr %.val11.i.i, i64 1564
   %.val.i.i.i.i27.i = load i32, ptr %348, align 4
-  %.not.i.i.i28.i = icmp sgt i32 %.val.i.i.i.i27.i, %346
+  %.not.i.i.i28.i = icmp slt i32 %346, %.val.i.i.i.i27.i
   tail call void @llvm.assume(i1 %.not.i.i.i28.i)
   %349 = getelementptr i8, ptr %.val11.i.i, i64 1568
   %.val.i.i.i29.i = load ptr, ptr %349, align 8
@@ -3791,7 +3791,7 @@ Cba_NtkPrintStats.exit.i:                         ; preds = %Cba_ManNtkIsOk.exit
 Cba_ManNtkIsOk.exit.i.i:                          ; preds = %358
   %359 = getelementptr i8, ptr %.val, i64 1564
   %.val.i.i.i51 = load i32, ptr %359, align 4
-  %.not.i.i52 = icmp sgt i32 %.val.i.i.i51, %30
+  %.not.i.i52 = icmp slt i32 %30, %.val.i.i.i51
   br i1 %.not.i.i52, label %360, label %Cba_ManRoot.exit
 
 360:                                              ; preds = %Cba_ManNtkIsOk.exit.i.i
@@ -3816,7 +3816,7 @@ Cba_ManRoot.exit:                                 ; preds = %358, %Cba_ManNtkIsO
 Cba_ManNtkIsOk.exit.i.i55:                        ; preds = %366
   %369 = getelementptr i8, ptr %.val, i64 1564
   %.val.i.i.i56 = load i32, ptr %369, align 4
-  %.not.i.i57 = icmp sgt i32 %.val.i.i.i56, %367
+  %.not.i.i57 = icmp slt i32 %367, %.val.i.i.i56
   br i1 %.not.i.i57, label %370, label %Cba_ManRoot.exit59
 
 370:                                              ; preds = %Cba_ManNtkIsOk.exit.i.i55
@@ -3844,7 +3844,7 @@ Cba_ManRoot.exit59:                               ; preds = %366, %Cba_ManNtkIsO
 Cba_ManNtkIsOk.exit.i.i61:                        ; preds = %377
   %380 = getelementptr i8, ptr %.val, i64 1564
   %.val.i.i.i62 = load i32, ptr %380, align 4
-  %.not.i.i63 = icmp sgt i32 %.val.i.i.i62, %378
+  %.not.i.i63 = icmp slt i32 %378, %.val.i.i.i62
   br i1 %.not.i.i63, label %381, label %Cba_ManRoot.exit65
 
 381:                                              ; preds = %Cba_ManNtkIsOk.exit.i.i61
@@ -5216,13 +5216,13 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not = icmp slt i32 %5, %1
+  %.not = icmp sgt i32 %1, %5
   br i1 %.not, label %6, label %41
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
   %8 = shl nsw i32 %7, 1
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   %.not.i = icmp slt i32 %7, %1
   br i1 %9, label %10, label %22
 
@@ -5379,7 +5379,7 @@ Cba_ObjNtkId.exit.i:                              ; preds = %20
 Cba_ManNtkIsOk.exit.i.i.i:                        ; preds = %Cba_ObjNtkId.exit.i
   %27 = getelementptr i8, ptr %.val.i, i64 1564
   %.val.i.i.i2.i = load i32, ptr %27, align 4
-  %.not.i.i.i = icmp sgt i32 %.val.i.i.i2.i, %25
+  %.not.i.i.i = icmp slt i32 %25, %.val.i.i.i2.i
   br i1 %.not.i.i.i, label %28, label %Cba_ObjNtk.exit
 
 28:                                               ; preds = %Cba_ManNtkIsOk.exit.i.i.i

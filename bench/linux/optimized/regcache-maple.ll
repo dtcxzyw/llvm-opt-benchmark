@@ -602,7 +602,7 @@ define internal fastcc i32 @regcache_maple_insert_block(ptr nocapture noundef re
 33:                                               ; preds = %33, %30
   %34 = phi i64 [ 0, %30 ], [ %42, %33 ]
   %35 = trunc i64 %34 to i32
-  %36 = add i32 %35, %1
+  %36 = add i32 %1, %35
   %37 = sext i32 %36 to i64
   %38 = getelementptr %struct.reg_default, ptr %32, i64 %37, i32 1
   %39 = load i32, ptr %38, align 4

@@ -1410,7 +1410,7 @@ cond.end:                                         ; preds = %cond.true, %entry
   %4 = load i32, ptr %freq, align 8, !tbaa !110
   %conv = sitofp i32 %4 to float
   %conv22 = fptoui float %conv to i32
-  %add = add i32 %conv22, %offset
+  %add = add i32 %offset, %conv22
   %cmp = icmp ugt i32 %add, %cond20
   br i1 %cmp, label %if.then, label %if.end33
 

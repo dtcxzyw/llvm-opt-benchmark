@@ -492,7 +492,7 @@ define hidden void @_ZN5zxing24GlobalHistogramBinarizer10initArraysEi(ptr nocapt
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = trunc i64 %11 to i32
-  %13 = icmp slt i32 %12, %1
+  %13 = icmp sgt i32 %1, %12
   br i1 %13, label %14, label %_ZN5zxing8ArrayRefIcED2Ev.exit
 
 14:                                               ; preds = %2

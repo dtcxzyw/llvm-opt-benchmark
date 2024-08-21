@@ -635,7 +635,7 @@ entry:
   %EndFrame = getelementptr inbounds i8, ptr %this, i64 292
   %1 = load i32, ptr %EndFrame, align 4, !tbaa !90
   %conv3 = sitofp i32 %1 to float
-  %cmp.i.i = fcmp ogt float %conv, %frame
+  %cmp.i.i = fcmp olt float %frame, %conv
   %2 = select i1 %cmp.i.i, float %conv, float %frame
   %cmp.i2.i = fcmp olt float %2, %conv3
   %3 = select i1 %cmp.i2.i, float %2, float %conv3
@@ -2499,7 +2499,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 184
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i, %i
+  %cmp.not = icmp ult i32 %i, %conv.i
   %conv.i7 = zext i32 %i to i64
   %add.ptr.i.i = getelementptr inbounds %"class.irr::video::SMaterial", ptr %1, i64 %conv.i7
   %retval.0 = select i1 %cmp.not, ptr %add.ptr.i.i, ptr @_ZN3irr5video16IdentityMaterialE
@@ -2774,7 +2774,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp4.not = icmp ugt i32 %conv.i, %jointID
+  %cmp4.not = icmp ult i32 %jointID, %conv.i
   br i1 %cmp4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end

@@ -272,12 +272,12 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
   %82 = load ptr, ptr %6, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 88
   %84 = load i64, ptr %83, align 8
-  %.not.i266 = icmp ugt i64 %84, %34
+  %.not.i266 = icmp ult i64 %34, %84
   br i1 %.not.i266, label %fmap_need_off_once_len.exit, label %fmap_need_off_once_len.exit.thread
 
 fmap_need_off_once_len.exit:                      ; preds = %81
   %85 = sub nuw i64 %84, %34
-  %spec.select.i268 = tail call i64 @llvm.umin.i64(i64 %85, i64 %37)
+  %spec.select.i268 = tail call i64 @llvm.umin.i64(i64 %37, i64 %85)
   %86 = getelementptr inbounds i8, ptr %82, i64 104
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr %87(ptr noundef nonnull %82, i64 noundef %34, i64 noundef %spec.select.i268, i32 noundef 0) #14
@@ -839,13 +839,13 @@ define internal fastcc range(i32 0, 21) i32 @dmg_extract_xml(ptr %.96.val, ptr n
   %6 = getelementptr inbounds i8, ptr %1, i64 224
   %7 = getelementptr inbounds i8, ptr %.96.val, i64 88
   %8 = load i64, ptr %7, align 8
-  %.not.i = icmp ugt i64 %8, %5
+  %.not.i = icmp ult i64 %5, %8
   %.pre = load i64, ptr %6, align 1
   br i1 %.not.i, label %fmap_need_off_once_len.exit, label %fmap_need_off_once_len.exit.thread
 
 fmap_need_off_once_len.exit:                      ; preds = %2
   %9 = sub nuw i64 %8, %5
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %.pre)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.pre, i64 %9)
   %10 = getelementptr inbounds i8, ptr %.96.val, i64 104
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %.96.val, i64 noundef %5, i64 noundef %spec.select.i, i32 noundef 0) #14

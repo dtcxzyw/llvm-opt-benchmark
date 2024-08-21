@@ -97,7 +97,7 @@ define range(i32 -4, 1) i32 @IDABand(ptr noundef %0, i64 noundef %1, i64 noundef
   %39 = getelementptr inbounds i8, ptr %29, i64 24
   store i64 %2, ptr %39, align 8
   %40 = add nuw nsw i64 %3, %2
-  %.not69 = icmp slt i64 %40, %1
+  %.not69 = icmp sgt i64 %1, %40
   %41 = add nsw i64 %1, -1
   %42 = select i1 %.not69, i64 %40, i64 %41
   %43 = getelementptr inbounds i8, ptr %29, i64 32
@@ -314,7 +314,7 @@ define range(i32 -101, 1) i32 @IDABandB(ptr noundef %0, i32 noundef %1, i64 noun
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load i32, ptr %16, align 8
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
@@ -330,7 +330,7 @@ define range(i32 -101, 1) i32 @IDABandB(ptr noundef %0, i32 noundef %1, i64 noun
 .lr.ph:                                           ; preds = %19, %23
   %.02836 = phi ptr [ %.028, %23 ], [ %.02834, %19 ]
   %21 = load i32, ptr %.02836, align 8
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   br i1 %22, label %._crit_edge, label %23
 
 23:                                               ; preds = %.lr.ph

@@ -209,7 +209,7 @@ define dso_local ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef %1, ptr
   %47 = phi ptr [ %43, %42 ], [ %2, %.thread ]
   %48 = add i32 %46, 1
   %49 = sext i32 %48 to i64
-  %50 = icmp ult i64 %49, %3
+  %50 = icmp ugt i64 %3, %49
   br i1 %50, label %42, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %42, %.thread, %.loopexit4

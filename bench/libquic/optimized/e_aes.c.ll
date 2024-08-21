@@ -552,7 +552,7 @@ entry:
   %block_size = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %block_size, align 4
   %conv = zext i32 %1 to i64
-  %cmp = icmp ugt i64 %conv, %len
+  %cmp = icmp ult i64 %len, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -578,7 +578,7 @@ entry:
   %conv = zext i32 %1 to i64
   %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %cipher_data, align 8
-  %cmp = icmp ugt i64 %conv, %len
+  %cmp = icmp ult i64 %len, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -876,7 +876,7 @@ if.end:                                           ; preds = %sw.bb2
 land.lhs.true:                                    ; preds = %if.end
   %ivlen4 = getelementptr inbounds i8, ptr %0, i64 648
   %3 = load i32, ptr %ivlen4, align 8
-  %cmp5 = icmp slt i32 %3, %arg
+  %cmp5 = icmp sgt i32 %arg, %3
   br i1 %cmp5, label %if.then6, label %if.end18
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -1017,7 +1017,7 @@ if.end93:                                         ; preds = %lor.lhs.false88
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %gcm, ptr noundef nonnull %0, ptr noundef %19, i64 noundef %conv96) #10
   %cmp97 = icmp slt i32 %arg, 1
   %.pre = load i32, ptr %ivlen95, align 8
-  %21 = tail call i32 @llvm.smin.i32(i32 %.pre, i32 %arg)
+  %21 = tail call i32 @llvm.smin.i32(i32 %arg, i32 %.pre)
   %arg.addr.0 = select i1 %cmp97, i32 %.pre, i32 %21
   %22 = load ptr, ptr %iv94, align 8
   %idx.ext108 = sext i32 %.pre to i64
@@ -1348,7 +1348,7 @@ entry:
   %tag_len = getelementptr inbounds i8, ptr %0, i64 640
   %1 = load i8, ptr %tag_len, align 8
   %conv = zext i8 %1 to i64
-  %add = add i64 %conv, %in_len
+  %add = add i64 %in_len, %conv
   %cmp = icmp ult i64 %add, %in_len
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1357,7 +1357,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp5 = icmp ugt i64 %add, %max_out_len
+  %cmp5 = icmp ult i64 %max_out_len, %add
   br i1 %cmp5, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
@@ -1399,7 +1399,7 @@ if.end25:                                         ; preds = %if.else, %if.then15
   call void @CRYPTO_gcm128_tag(ptr noundef nonnull %gcm, ptr noundef %add.ptr, i64 noundef %conv27) #10
   %4 = load i8, ptr %tag_len, align 8
   %conv29 = zext i8 %4 to i64
-  %add30 = add i64 %conv29, %in_len
+  %add30 = add i64 %in_len, %conv29
   store i64 %add30, ptr %out_len, align 8
   br label %return
 
@@ -1418,7 +1418,7 @@ entry:
   %tag_len = getelementptr inbounds i8, ptr %0, i64 640
   %1 = load i8, ptr %tag_len, align 8
   %conv = zext i8 %1 to i64
-  %cmp = icmp ugt i64 %conv, %in_len
+  %cmp = icmp ult i64 %in_len, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1427,7 +1427,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %sub = sub nuw i64 %in_len, %conv
-  %cmp4 = icmp ugt i64 %sub, %max_out_len
+  %cmp4 = icmp ult i64 %max_out_len, %sub
   br i1 %cmp4, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
@@ -1596,7 +1596,7 @@ if.then15:                                        ; preds = %if.end12
 
 if.end16:                                         ; preds = %if.end12
   %add = add nuw nsw i64 %in_len, 8
-  %cmp22 = icmp ugt i64 %add, %max_out_len
+  %cmp22 = icmp ult i64 %max_out_len, %add
   br i1 %cmp22, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.end16
@@ -1735,7 +1735,7 @@ if.end15:                                         ; preds = %if.end12
   %div22 = lshr exact i64 %in_len, 3
   %conv = add nuw nsw i64 %div22, 4294967295
   %sub16 = add nsw i64 %in_len, -8
-  %cmp17 = icmp ugt i64 %sub16, %max_out_len
+  %cmp17 = icmp ult i64 %max_out_len, %sub16
   br i1 %cmp17, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end15
@@ -1975,7 +1975,7 @@ entry:
   %tag_len = getelementptr inbounds i8, ptr %0, i64 488
   %1 = load i8, ptr %tag_len, align 8
   %conv = zext i8 %1 to i64
-  %add = add i64 %conv, %in_len
+  %add = add i64 %in_len, %conv
   %cmp = icmp ult i64 %add, %in_len
   %cmp2 = icmp ugt i64 %in_len, 68719476735
   %or.cond = or i1 %cmp2, %cmp
@@ -1986,7 +1986,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp7 = icmp ugt i64 %add, %max_out_len
+  %cmp7 = icmp ult i64 %max_out_len, %add
   br i1 %cmp7, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
@@ -2038,7 +2038,7 @@ aead_aes_ctr_hmac_sha256_crypt.exit:              ; preds = %if.then.i, %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 16 %hmac_result, i64 %conv17, i1 false)
   %5 = load i8, ptr %tag_len, align 8
   %conv19 = zext i8 %5 to i64
-  %add20 = add nuw nsw i64 %conv19, %in_len
+  %add20 = add nuw nsw i64 %in_len, %conv19
   store i64 %add20, ptr %out_len, align 8
   br label %return
 
@@ -2059,7 +2059,7 @@ entry:
   %tag_len = getelementptr inbounds i8, ptr %0, i64 488
   %1 = load i8, ptr %tag_len, align 8
   %conv = zext i8 %1 to i64
-  %cmp = icmp ugt i64 %conv, %in_len
+  %cmp = icmp ult i64 %in_len, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2068,7 +2068,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %sub = sub nuw i64 %in_len, %conv
-  %cmp4 = icmp ugt i64 %sub, %max_out_len
+  %cmp4 = icmp ult i64 %max_out_len, %sub
   br i1 %cmp4, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end

@@ -130,7 +130,7 @@ define internal fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr nocaptur
   %14 = getelementptr inbounds i8, ptr %1, i64 40
   store ptr null, ptr %14, align 8
   %15 = load i32, ptr @fmgr_last_builtin_oid, align 4
-  %16 = icmp ult i32 %15, %0
+  %16 = icmp ugt i32 %0, %15
   %.pre = zext i32 %0 to i64
   br i1 %16, label %fmgr_isbuiltin.exit.thread, label %17
 
@@ -3196,60 +3196,54 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %10 = getelementptr inbounds i8, ptr %5, i64 %switch.load
   %.023.i = load ptr, ptr %10, align 8
   %11 = icmp slt i32 %1, 0
-  br i1 %11, label %get_call_expr_argtype.exit, label %12
-
-12:                                               ; preds = %switch.lookup
   %.not.i.i = icmp eq ptr %.023.i, null
-  br i1 %.not.i.i, label %list_length.exit.i, label %13
+  %or.cond29.i = select i1 %11, i1 true, i1 %.not.i.i
+  br i1 %or.cond29.i, label %get_call_expr_argtype.exit, label %list_length.exit.i
 
-13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %.023.i, i64 4
-  %15 = load i32, ptr %14, align 4
-  br label %list_length.exit.i
+list_length.exit.i:                               ; preds = %switch.lookup
+  %12 = getelementptr inbounds i8, ptr %.023.i, i64 4
+  %13 = load i32, ptr %12, align 4
+  %.not.i = icmp slt i32 %1, %13
+  br i1 %.not.i, label %14, label %get_call_expr_argtype.exit
 
-list_length.exit.i:                               ; preds = %13, %12
-  %16 = phi i32 [ %15, %13 ], [ 0, %12 ]
-  %.not.i = icmp sgt i32 %16, %1
-  br i1 %.not.i, label %17, label %get_call_expr_argtype.exit
+14:                                               ; preds = %list_length.exit.i
+  %15 = getelementptr i8, ptr %.023.i, i64 16
+  %.023.val.i = load ptr, ptr %15, align 8
+  %16 = zext nneg i32 %1 to i64
+  %17 = getelementptr %union.ListCell, ptr %.023.val.i, i64 %16
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call i32 @exprType(ptr noundef %18) #13
+  %20 = load i32, ptr %5, align 4
+  %21 = icmp eq i32 %20, 18
+  %22 = icmp eq i32 %1, 1
+  %or.cond.i = and i1 %22, %21
+  br i1 %or.cond.i, label %23, label %get_call_expr_argtype.exit
 
-17:                                               ; preds = %list_length.exit.i
-  %18 = getelementptr i8, ptr %.023.i, i64 16
-  %.023.val.i = load ptr, ptr %18, align 8
-  %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr %union.ListCell, ptr %.023.val.i, i64 %19
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 @exprType(ptr noundef %21) #13
-  %23 = load i32, ptr %5, align 4
-  %24 = icmp eq i32 %23, 18
-  %25 = icmp eq i32 %1, 1
-  %or.cond.i = and i1 %25, %24
-  br i1 %or.cond.i, label %26, label %get_call_expr_argtype.exit
-
-26:                                               ; preds = %17
-  %27 = tail call i32 @get_base_element_type(i32 noundef %22) #13
+23:                                               ; preds = %14
+  %24 = tail call i32 @get_base_element_type(i32 noundef %19) #13
   br label %get_call_expr_argtype.exit
 
-get_call_expr_argtype.exit:                       ; preds = %switch.hole_check, %6, %26, %17, %list_length.exit.i, %switch.lookup, %2, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 0, %6 ], [ 0, %list_length.exit.i ], [ 0, %switch.lookup ], [ %27, %26 ], [ %22, %17 ], [ 0, %switch.hole_check ]
+get_call_expr_argtype.exit:                       ; preds = %switch.hole_check, %6, %23, %14, %list_length.exit.i, %switch.lookup, %2, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 0, %6 ], [ 0, %list_length.exit.i ], [ 0, %switch.lookup ], [ %24, %23 ], [ %19, %14 ], [ 0, %switch.hole_check ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_call_expr_argtype(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %26, label %4
+  br i1 %3, label %list_length.exit.thread, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4
   %switch.tableidx = add i32 %5, -11
   %6 = icmp ult i32 %switch.tableidx, 8
-  br i1 %6, label %switch.hole_check, label %26
+  br i1 %6, label %switch.hole_check, label %list_length.exit.thread
 
 switch.hole_check:                                ; preds = %4
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -11, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %26
+  br i1 %switch.lobit, label %switch.lookup, label %list_length.exit.thread
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %7 = zext nneg i32 %switch.tableidx to i64
@@ -3258,41 +3252,35 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %8 = getelementptr inbounds i8, ptr %0, i64 %switch.load
   %.023 = load ptr, ptr %8, align 8
   %9 = icmp slt i32 %1, 0
-  br i1 %9, label %26, label %10
-
-10:                                               ; preds = %switch.lookup
   %.not.i = icmp eq ptr %.023, null
-  br i1 %.not.i, label %list_length.exit, label %11
+  %or.cond29 = select i1 %9, i1 true, i1 %.not.i
+  br i1 %or.cond29, label %list_length.exit.thread, label %list_length.exit
 
-11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %.023, i64 4
-  %13 = load i32, ptr %12, align 4
-  br label %list_length.exit
+list_length.exit:                                 ; preds = %switch.lookup
+  %10 = getelementptr inbounds i8, ptr %.023, i64 4
+  %11 = load i32, ptr %10, align 4
+  %.not = icmp slt i32 %1, %11
+  br i1 %.not, label %12, label %list_length.exit.thread
 
-list_length.exit:                                 ; preds = %10, %11
-  %14 = phi i32 [ %13, %11 ], [ 0, %10 ]
-  %.not = icmp sgt i32 %14, %1
-  br i1 %.not, label %15, label %26
+12:                                               ; preds = %list_length.exit
+  %13 = getelementptr i8, ptr %.023, i64 16
+  %.023.val = load ptr, ptr %13, align 8
+  %14 = zext nneg i32 %1 to i64
+  %15 = getelementptr %union.ListCell, ptr %.023.val, i64 %14
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 @exprType(ptr noundef %16) #13
+  %18 = load i32, ptr %0, align 4
+  %19 = icmp eq i32 %18, 18
+  %20 = icmp eq i32 %1, 1
+  %or.cond = and i1 %20, %19
+  br i1 %or.cond, label %21, label %list_length.exit.thread
 
-15:                                               ; preds = %list_length.exit
-  %16 = getelementptr i8, ptr %.023, i64 16
-  %.023.val = load ptr, ptr %16, align 8
-  %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr %union.ListCell, ptr %.023.val, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @exprType(ptr noundef %19) #13
-  %21 = load i32, ptr %0, align 4
-  %22 = icmp eq i32 %21, 18
-  %23 = icmp eq i32 %1, 1
-  %or.cond = and i1 %23, %22
-  br i1 %or.cond, label %24, label %26
+21:                                               ; preds = %12
+  %22 = tail call i32 @get_base_element_type(i32 noundef %17) #13
+  br label %list_length.exit.thread
 
-24:                                               ; preds = %15
-  %25 = tail call i32 @get_base_element_type(i32 noundef %20) #13
-  br label %26
-
-26:                                               ; preds = %switch.hole_check, %4, %15, %24, %switch.lookup, %list_length.exit, %2
-  %.024 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %list_length.exit ], [ 0, %switch.lookup ], [ %25, %24 ], [ %20, %15 ], [ 0, %switch.hole_check ]
+list_length.exit.thread:                          ; preds = %switch.hole_check, %4, %12, %21, %switch.lookup, %list_length.exit, %2
+  %.024 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %list_length.exit ], [ 0, %switch.lookup ], [ %22, %21 ], [ %17, %12 ], [ 0, %switch.hole_check ]
   ret i32 %.024
 }
 
@@ -3328,64 +3316,58 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %10 = getelementptr inbounds i8, ptr %5, i64 %switch.load
   %.021.i = load ptr, ptr %10, align 8
   %11 = icmp slt i32 %1, 0
-  br i1 %11, label %get_call_expr_arg_stable.exit, label %12
-
-12:                                               ; preds = %switch.lookup
   %.not.i.i = icmp eq ptr %.021.i, null
-  br i1 %.not.i.i, label %list_length.exit.i, label %13
+  %or.cond.i = select i1 %11, i1 true, i1 %.not.i.i
+  br i1 %or.cond.i, label %get_call_expr_arg_stable.exit, label %list_length.exit.i
 
-13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %.021.i, i64 4
-  %15 = load i32, ptr %14, align 4
-  br label %list_length.exit.i
+list_length.exit.i:                               ; preds = %switch.lookup
+  %12 = getelementptr inbounds i8, ptr %.021.i, i64 4
+  %13 = load i32, ptr %12, align 4
+  %.not.i = icmp slt i32 %1, %13
+  br i1 %.not.i, label %14, label %get_call_expr_arg_stable.exit
 
-list_length.exit.i:                               ; preds = %13, %12
-  %16 = phi i32 [ %15, %13 ], [ 0, %12 ]
-  %.not.i = icmp sgt i32 %16, %1
-  br i1 %.not.i, label %17, label %get_call_expr_arg_stable.exit
-
-17:                                               ; preds = %list_length.exit.i
-  %18 = getelementptr i8, ptr %.021.i, i64 16
-  %.021.val.i = load ptr, ptr %18, align 8
-  %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr %union.ListCell, ptr %.021.val.i, i64 %19
-  %21 = load ptr, ptr %20, align 8
-  %22 = load i32, ptr %21, align 4
-  switch i32 %22, label %27 [
+14:                                               ; preds = %list_length.exit.i
+  %15 = getelementptr i8, ptr %.021.i, i64 16
+  %.021.val.i = load ptr, ptr %15, align 8
+  %16 = zext nneg i32 %1 to i64
+  %17 = getelementptr %union.ListCell, ptr %.021.val.i, i64 %16
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i32, ptr %18, align 4
+  switch i32 %19, label %24 [
     i32 7, label %get_call_expr_arg_stable.exit
-    i32 8, label %23
+    i32 8, label %20
   ]
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %21, i64 4
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %get_call_expr_arg_stable.exit, label %27
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds i8, ptr %18, i64 4
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %get_call_expr_arg_stable.exit, label %24
 
-27:                                               ; preds = %23, %17
+24:                                               ; preds = %20, %14
   br label %get_call_expr_arg_stable.exit
 
-get_call_expr_arg_stable.exit:                    ; preds = %switch.hole_check, %6, %27, %23, %17, %list_length.exit.i, %switch.lookup, %2, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %2 ], [ false, %27 ], [ false, %6 ], [ false, %list_length.exit.i ], [ false, %switch.lookup ], [ true, %17 ], [ true, %23 ], [ false, %switch.hole_check ]
+get_call_expr_arg_stable.exit:                    ; preds = %switch.hole_check, %6, %24, %20, %14, %list_length.exit.i, %switch.lookup, %2, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %2 ], [ false, %24 ], [ false, %6 ], [ false, %list_length.exit.i ], [ false, %switch.lookup ], [ true, %14 ], [ true, %20 ], [ false, %switch.hole_check ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @get_call_expr_arg_stable(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %26, label %4
+  br i1 %3, label %list_length.exit.thread, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4
   %switch.tableidx = add i32 %5, -11
   %6 = icmp ult i32 %switch.tableidx, 8
-  br i1 %6, label %switch.hole_check, label %26
+  br i1 %6, label %switch.hole_check, label %list_length.exit.thread
 
 switch.hole_check:                                ; preds = %4
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -11, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %26
+  br i1 %switch.lobit, label %switch.lookup, label %list_length.exit.thread
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %7 = zext nneg i32 %switch.tableidx to i64
@@ -3394,45 +3376,39 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %8 = getelementptr inbounds i8, ptr %0, i64 %switch.load
   %.021 = load ptr, ptr %8, align 8
   %9 = icmp slt i32 %1, 0
-  br i1 %9, label %26, label %10
-
-10:                                               ; preds = %switch.lookup
   %.not.i = icmp eq ptr %.021, null
-  br i1 %.not.i, label %list_length.exit, label %11
+  %or.cond = select i1 %9, i1 true, i1 %.not.i
+  br i1 %or.cond, label %list_length.exit.thread, label %list_length.exit
 
-11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %.021, i64 4
-  %13 = load i32, ptr %12, align 4
-  br label %list_length.exit
+list_length.exit:                                 ; preds = %switch.lookup
+  %10 = getelementptr inbounds i8, ptr %.021, i64 4
+  %11 = load i32, ptr %10, align 4
+  %.not = icmp slt i32 %1, %11
+  br i1 %.not, label %12, label %list_length.exit.thread
 
-list_length.exit:                                 ; preds = %10, %11
-  %14 = phi i32 [ %13, %11 ], [ 0, %10 ]
-  %.not = icmp sgt i32 %14, %1
-  br i1 %.not, label %15, label %26
-
-15:                                               ; preds = %list_length.exit
-  %16 = getelementptr i8, ptr %.021, i64 16
-  %.021.val = load ptr, ptr %16, align 8
-  %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr %union.ListCell, ptr %.021.val, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %19, align 4
-  switch i32 %20, label %25 [
-    i32 7, label %26
-    i32 8, label %21
+12:                                               ; preds = %list_length.exit
+  %13 = getelementptr i8, ptr %.021, i64 16
+  %.021.val = load ptr, ptr %13, align 8
+  %14 = zext nneg i32 %1 to i64
+  %15 = getelementptr %union.ListCell, ptr %.021.val, i64 %14
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i32, ptr %16, align 4
+  switch i32 %17, label %22 [
+    i32 7, label %list_length.exit.thread
+    i32 8, label %18
   ]
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %19, i64 4
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %26, label %25
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds i8, ptr %16, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %list_length.exit.thread, label %22
 
-25:                                               ; preds = %15, %21
-  br label %26
+22:                                               ; preds = %12, %18
+  br label %list_length.exit.thread
 
-26:                                               ; preds = %switch.hole_check, %4, %21, %15, %switch.lookup, %list_length.exit, %2, %25
-  %.0 = phi i1 [ false, %25 ], [ false, %2 ], [ false, %4 ], [ false, %list_length.exit ], [ false, %switch.lookup ], [ true, %15 ], [ true, %21 ], [ false, %switch.hole_check ]
+list_length.exit.thread:                          ; preds = %switch.hole_check, %4, %18, %12, %switch.lookup, %list_length.exit, %2, %22
+  %.0 = phi i1 [ false, %22 ], [ false, %2 ], [ false, %4 ], [ false, %list_length.exit ], [ false, %switch.lookup ], [ true, %12 ], [ true, %18 ], [ false, %switch.hole_check ]
   ret i1 %.0
 }
 

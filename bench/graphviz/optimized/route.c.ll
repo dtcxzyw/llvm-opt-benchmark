@@ -181,16 +181,16 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %56 = fmul double %54, 3.000000e+00
   %57 = fmul double %56, %55
   %58 = fmul double %55, %57
-  %59 = fmul double %58, %4
-  %60 = fmul double %58, %5
+  %59 = fmul double %4, %58
+  %60 = fmul double %5, %58
   store double %59, ptr %53, align 8
   %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 16
   store double %60, ptr %.sroa.223.0..sroa_idx, align 8
   %61 = getelementptr inbounds i8, ptr %52, i64 24
   %62 = fmul double %54, %56
   %63 = fmul double %55, %62
-  %64 = fmul double %63, %6
-  %65 = fmul double %63, %7
+  %64 = fmul double %6, %63
+  %65 = fmul double %7, %63
   store double %64, ptr %61, align 8
   %.sroa.221.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 32
   store double %65, ptr %.sroa.221.0..sroa_idx, align 8
@@ -282,12 +282,12 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   br i1 %124, label %.thread.i, label %125
 
 125:                                              ; preds = %._crit_edge.i
-  %126 = fneg double %.sroa.5.0.lcssa.i
-  %127 = fmul double %.sroa.12.0.lcssa.i, %126
-  %128 = tail call double @llvm.fmuladd.f64(double %.sroa.037.0.lcssa.i, double %.sroa.15.0.lcssa.i, double %127)
-  %129 = fmul double %.sroa.037.0.lcssa.i, %120
+  %126 = fmul double %.sroa.5.0.lcssa.i, %120
+  %127 = tail call double @llvm.fmuladd.f64(double %.sroa.037.0.lcssa.i, double %.sroa.15.0.lcssa.i, double %126)
+  %128 = fneg double %.sroa.037.0.lcssa.i
+  %129 = fmul double %.sroa.12.0.lcssa.i, %128
   %130 = tail call double @llvm.fmuladd.f64(double %.sroa.042.0.lcssa.i, double %.sroa.5.0.lcssa.i, double %129)
-  %131 = fdiv double %128, %122
+  %131 = fdiv double %127, %122
   %132 = fdiv double %130, %122
   %133 = fcmp olt double %123, 0x3EB0C6F7A0B5ED8D
   %134 = fcmp ole double %131, 0.000000e+00
@@ -323,15 +323,15 @@ mkspline.exit:                                    ; preds = %._crit_edge118.i, %
   %.sroa.0169.0.copyload = load double, ptr %2, align 8
   %.sroa.4172.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.4172.0.copyload = load double, ptr %.sroa.4172.0..sroa_idx, align 8
-  %149 = fmul double %.1.i, %4
-  %150 = fmul double %.1.i, %5
+  %149 = fmul double %4, %.1.i
+  %150 = fmul double %5, %.1.i
   %151 = getelementptr %struct.Pxy_t, ptr %2, i64 %.pre-phi.i
   %152 = getelementptr i8, ptr %151, i64 -16
   %.sroa.0164.0.copyload = load double, ptr %152, align 8
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %151, i64 -8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
-  %153 = fmul double %.185.i, %6
-  %154 = fmul double %.185.i, %7
+  %153 = fmul double %6, %.185.i
+  %154 = fmul double %7, %.185.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
   %155 = icmp eq i32 %3, 2
   %156 = getelementptr inbounds i8, ptr %13, i64 8
@@ -785,7 +785,7 @@ splineintersectsline.exit.i.i:                    ; preds = %326, %289, %addroot
   %364 = load i32, ptr @opl, align 4
   %365 = add nsw i32 %364, 4
   %366 = load i32, ptr @opn, align 4
-  %.not.i.i = icmp slt i32 %366, %365
+  %.not.i.i = icmp sgt i32 %365, %366
   %.pre92.i = load ptr, ptr @ops, align 8
   br i1 %.not.i.i, label %367, label %growops.exit.i
 
@@ -834,7 +834,7 @@ growops.exit.i:                                   ; preds = %371, %.loopexit.i
   %385 = load i32, ptr @opl, align 4
   %386 = add nsw i32 %385, 4
   %387 = load i32, ptr @opn, align 4
-  %.not.i49.i = icmp slt i32 %387, %386
+  %.not.i49.i = icmp sgt i32 %386, %387
   %.pre.i128 = load ptr, ptr @ops, align 8
   br i1 %.not.i49.i, label %388, label %growops.exit52.i
 

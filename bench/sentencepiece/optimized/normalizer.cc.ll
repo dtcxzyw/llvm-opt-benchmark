@@ -466,7 +466,7 @@ define void @_ZN13sentencepiece10normalizer10Normalizer25DecodePrecompiledCharsM
 9:                                                ; preds = %6
   %10 = load i32, ptr %2, align 1
   %11 = zext i32 %10 to i64
-  %.not = icmp ult i64 %11, %1
+  %.not = icmp ugt i64 %1, %11
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %9
@@ -965,11 +965,11 @@ _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = 
   %220 = ptrtoint ptr %218 to i64
   %221 = sub i64 %219, %220
   %222 = ashr exact i64 %221, 3
-  %223 = icmp ult i64 %222, %209
+  %223 = icmp ugt i64 %209, %222
   br i1 %223, label %229, label %224
 
 224:                                              ; preds = %.lr.ph138
-  %225 = icmp ugt i64 %222, %209
+  %225 = icmp ult i64 %209, %222
   br i1 %225, label %226, label %_ZNSt6vectorImSaImEE6resizeEm.exit.us
 
 226:                                              ; preds = %224
@@ -1093,7 +1093,7 @@ _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit: ; preds = %_ZN13se
   %277 = ptrtoint ptr %275 to i64
   %278 = sub i64 %276, %277
   %279 = ashr exact i64 %278, 3
-  %280 = icmp ult i64 %279, %266
+  %280 = icmp ugt i64 %266, %279
   br i1 %280, label %281, label %283
 
 281:                                              ; preds = %264
@@ -1102,7 +1102,7 @@ _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit: ; preds = %_ZN13se
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 283:                                              ; preds = %264
-  %284 = icmp ugt i64 %279, %266
+  %284 = icmp ult i64 %266, %279
   br i1 %284, label %285, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 285:                                              ; preds = %283
@@ -1807,7 +1807,7 @@ define linkonce_odr noundef i64 @_ZNK5Darts15DoubleArrayImplIvvivE18commonPrefix
   %13 = and i32 %12, 8
   %14 = shl nuw nsw i32 %11, %13
   %15 = zext nneg i32 %14 to i64
-  %16 = xor i64 %15, %5
+  %16 = xor i64 %5, %15
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.preheader, label %.preheader59
 
@@ -2921,7 +2921,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolIhE10resize_bufEm(ptr nounde
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = shl i64 %4, 1
-  %.not = icmp ugt i64 %5, %1
+  %.not = icmp ult i64 %1, %5
   br i1 %.not, label %.preheader, label %.loopexit30
 
 .preheader:                                       ; preds = %2, %.preheader
@@ -3051,7 +3051,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolINS0_22DoubleArrayBuilderUni
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = shl i64 %4, 1
-  %.not = icmp ugt i64 %5, %1
+  %.not = icmp ult i64 %1, %5
   br i1 %.not, label %.preheader, label %.loopexit30
 
 .preheader:                                       ; preds = %2, %.preheader
@@ -3157,7 +3157,7 @@ define linkonce_odr void @_ZN5Darts7Details18DoubleArrayBuilder15build_from_dawg
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
-  %12 = icmp ult i64 %11, %.013
+  %12 = icmp ugt i64 %.013, %11
   br i1 %12, label %13, label %_ZN5Darts7Details8AutoPoolINS0_22DoubleArrayBuilderUnitEE7reserveEm.exit
 
 13:                                               ; preds = %8
@@ -3734,7 +3734,7 @@ define linkonce_odr void @_ZN5Darts7Details18DoubleArrayBuilder17build_from_keys
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = icmp ult i64 %10, %.0
+  %11 = icmp ugt i64 %.0, %10
   br i1 %11, label %12, label %_ZN5Darts7Details8AutoPoolINS0_22DoubleArrayBuilderUnitEE7reserveEm.exit
 
 12:                                               ; preds = %7
@@ -3891,7 +3891,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolIjE10resize_bufEm(ptr nounde
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = shl i64 %4, 1
-  %.not = icmp ugt i64 %5, %1
+  %.not = icmp ult i64 %1, %5
   br i1 %.not, label %.preheader, label %.loopexit30
 
 .preheader:                                       ; preds = %2, %.preheader
@@ -3986,7 +3986,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolINS0_8DawgUnitEE10resize_buf
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = shl i64 %4, 1
-  %.not = icmp ugt i64 %5, %1
+  %.not = icmp ult i64 %1, %5
   br i1 %.not, label %.preheader, label %.loopexit30
 
 .preheader:                                       ; preds = %2, %.preheader
@@ -4081,7 +4081,7 @@ define linkonce_odr void @_ZN5Darts7Details8AutoPoolINS0_8DawgNodeEE10resize_buf
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = shl i64 %4, 1
-  %.not = icmp ugt i64 %5, %1
+  %.not = icmp ult i64 %1, %5
   br i1 %.not, label %.preheader, label %.loopexit30
 
 .preheader:                                       ; preds = %2, %.preheader
@@ -4835,7 +4835,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder5flushEj(ptr noundef non
 65:                                               ; preds = %61
   %66 = add i64 %62, 1
   %67 = shl i64 %62, 1
-  %.not.i54 = icmp ugt i64 %67, %66
+  %.not.i54 = icmp ult i64 %66, %67
   br i1 %.not.i54, label %.preheader.i67, label %.loopexit30.i55
 
 .preheader.i67:                                   ; preds = %65, %.preheader.i67
@@ -4942,7 +4942,7 @@ _ZN5Darts7Details9BitVector6appendEv.exit.i:      ; preds = %_ZN5Darts7Details8A
 102:                                              ; preds = %_ZN5Darts7Details9BitVector6appendEv.exit.i
   %103 = add i64 %99, 1
   %104 = shl i64 %99, 1
-  %.not.i39 = icmp ugt i64 %104, %103
+  %.not.i39 = icmp ult i64 %103, %104
   br i1 %.not.i39, label %.preheader.i52, label %.loopexit30.i40
 
 .preheader.i52:                                   ; preds = %102, %.preheader.i52
@@ -5038,7 +5038,7 @@ _ZN5Darts7Details8AutoPoolINS0_8DawgUnitEE6appendEv.exit.i: ; preds = %125, %.lo
 137:                                              ; preds = %_ZN5Darts7Details8AutoPoolINS0_8DawgUnitEE6appendEv.exit.i
   %138 = add i64 %134, 1
   %139 = shl i64 %134, 1
-  %.not.i = icmp ugt i64 %139, %138
+  %.not.i = icmp ult i64 %138, %139
   br i1 %.not.i, label %.preheader.i, label %.loopexit30.i
 
 .preheader.i:                                     ; preds = %137, %.preheader.i
@@ -5206,7 +5206,7 @@ _ZNK5Darts7Details8DawgNode4unitEv.exit:          ; preds = %174, %176
 215:                                              ; preds = %.lr.ph119
   %216 = add i64 %212, 1
   %217 = shl i64 %212, 1
-  %.not.i69 = icmp ugt i64 %217, %216
+  %.not.i69 = icmp ult i64 %216, %217
   br i1 %.not.i69, label %.preheader.i82, label %.loopexit30.i70
 
 .preheader.i82:                                   ; preds = %215, %.preheader.i82
@@ -6523,7 +6523,7 @@ _ZN5Darts7Details22DoubleArrayBuilderUnit10set_offsetEj.exit: ; preds = %_ZNK5Da
 
 121:                                              ; preds = %120, %112
   %122 = load i32, ptr %34, align 8
-  %123 = icmp eq i32 %122, %117
+  %123 = icmp eq i32 %117, %122
   br i1 %123, label %124, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %121
@@ -6667,7 +6667,7 @@ _ZNK5Darts7Details6KeysetIiE4keysEmm.exit.thread.us: ; preds = %_ZNK5Darts7Detai
   %.067 = phi i64 [ %24, %_ZNK5Darts7Details6KeysetIiE4keysEmm.exit.thread ], [ %.tr63, %.lr.ph ]
   %18 = getelementptr inbounds i64, ptr %11, i64 %.067
   %19 = load i64, ptr %18, align 8
-  %.not.i = icmp ugt i64 %19, %.tr65
+  %.not.i = icmp ult i64 %.tr65, %19
   br i1 %.not.i, label %_ZNK5Darts7Details6KeysetIiE4keysEmm.exit, label %_ZNK5Darts7Details6KeysetIiE4keysEmm.exit.thread
 
 _ZNK5Darts7Details6KeysetIiE4keysEmm.exit:        ; preds = %.lr.ph.split
@@ -6696,7 +6696,7 @@ _ZNK5Darts7Details6KeysetIiE4keysEmm.exit._crit_edge: ; preds = %_ZNK5Darts7Deta
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i64, ptr %27, i64 %.0.lcssa
   %30 = load i64, ptr %29, align 8
-  %.not.i49 = icmp ugt i64 %30, %.tr65
+  %.not.i49 = icmp ult i64 %.tr65, %30
   br i1 %.not.i49, label %31, label %_ZNK5Darts7Details6KeysetIiE4keysEmm.exit51
 
 31:                                               ; preds = %28, %26
@@ -6725,7 +6725,7 @@ _ZNK5Darts7Details6KeysetIiE4keysEmm.exit51:      ; preds = %28, %31
 42:                                               ; preds = %.lr.ph72
   %43 = getelementptr inbounds i64, ptr %40, i64 %41
   %44 = load i64, ptr %43, align 8
-  %.not.i53 = icmp ugt i64 %44, %.tr65
+  %.not.i53 = icmp ult i64 %.tr65, %44
   br i1 %.not.i53, label %45, label %_ZNK5Darts7Details6KeysetIiE4keysEmm.exit55
 
 45:                                               ; preds = %42, %.lr.ph72
@@ -6752,7 +6752,7 @@ _ZNK5Darts7Details6KeysetIiE4keysEmm.exit55:      ; preds = %42, %45
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i64, ptr %54, i64 %41
   %57 = load i64, ptr %56, align 8
-  %.not.i57 = icmp ugt i64 %57, %.tr65
+  %.not.i57 = icmp ult i64 %.tr65, %57
   br i1 %.not.i57, label %58, label %_ZNK5Darts7Details6KeysetIiE4keysEmm.exit59
 
 58:                                               ; preds = %55, %51
@@ -6815,7 +6815,7 @@ _ZN5Darts7Details8AutoPoolIhE6resizeEm.exit:      ; preds = %6, %.lr.ph.preheade
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i64, ptr %15, i64 %.03676
   %18 = load i64, ptr %17, align 8
-  %.not.i = icmp ugt i64 %18, %4
+  %.not.i = icmp ult i64 %4, %18
   br i1 %.not.i, label %_ZNK5Darts7Details6KeysetIiE4keysEmm.exit, label %.thread64
 
 _ZNK5Darts7Details6KeysetIiE4keysEmm.exit:        ; preds = %16
@@ -7138,7 +7138,7 @@ _ZN5Darts7Details22DoubleArrayBuilderUnit10set_offsetEj.exit: ; preds = %_ZNK5Da
 
 173:                                              ; preds = %172, %164
   %174 = load i32, ptr %91, align 8
-  %175 = icmp eq i32 %174, %169
+  %175 = icmp eq i32 %169, %174
   br i1 %175, label %176, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %173

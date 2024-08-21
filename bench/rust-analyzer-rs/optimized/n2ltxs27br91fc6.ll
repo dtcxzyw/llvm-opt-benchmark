@@ -3261,7 +3261,7 @@ _ZN4core3cmp9PartialEq2ne17h7e1bd64a0a4259fbE.llvm.16482350066526367222.exit.i.i
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h0fa675be7561113eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !1097, !noundef !9
-  %.not.i.i = icmp eq i64 %5, %1
+  %.not.i.i = icmp eq i64 %1, %5
   br i1 %.not.i.i, label %6, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.11299677790444244242.exit"
 
 6:                                                ; preds = %3
@@ -3884,7 +3884,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17ha2fab8a7c598a22dE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1438, !noundef !9
-  %.not.i.i = icmp eq i64 %5, %1
+  %.not.i.i = icmp eq i64 %1, %5
   br i1 %.not.i.i, label %6, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.11299677790444244242.exit"
 
 6:                                                ; preds = %3
@@ -5102,7 +5102,7 @@ default.unreachable:                              ; preds = %.lr.ph, %.lr.ph354,
 62:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91c77369db111d87E.llvm.11299677790444244242.exit.i", %52, %46
   %.sroa.4.0.i = phi i64 [ %58, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91c77369db111d87E.llvm.11299677790444244242.exit.i" ], [ %56, %52 ], [ %50, %46 ]
   %.sroa.0.0.i = phi ptr [ %59, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91c77369db111d87E.llvm.11299677790444244242.exit.i" ], [ %54, %52 ], [ %51, %46 ]
-  %63 = icmp ult i64 %40, %.sroa.4.0.i
+  %63 = icmp ugt i64 %.sroa.4.0.i, %40
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %62
@@ -5526,7 +5526,7 @@ default.unreachable:                              ; preds = %.lr.ph, %.lr.ph354,
 225:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91c77369db111d87E.llvm.11299677790444244242.exit.i.i.i.i179", %217, %211
   %.sroa.3.0.i180.ph = phi i64 [ %215, %211 ], [ %221, %217 ], [ %223, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91c77369db111d87E.llvm.11299677790444244242.exit.i.i.i.i179" ]
   %.sroa.0.0.i181.ph = phi ptr [ %216, %211 ], [ %219, %217 ], [ %224, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91c77369db111d87E.llvm.11299677790444244242.exit.i.i.i.i179" ]
-  %.not.i.i184 = icmp ult i64 %.sroa.27.0373, %4
+  %.not.i.i184 = icmp ugt i64 %4, %.sroa.27.0373
   br i1 %.not.i.i184, label %226, label %227
 
 226:                                              ; preds = %225

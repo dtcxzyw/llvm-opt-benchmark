@@ -940,7 +940,7 @@ define internal void @Ppmd7_EncodeSymbol(ptr noundef %0, ptr noundef %1, i32 nou
   %14 = getelementptr inbounds i8, ptr %10, i64 %13
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i32
-  %17 = icmp eq i32 %16, %2
+  %17 = icmp eq i32 %2, %16
   br i1 %17, label %18, label %100
 
 18:                                               ; preds = %8
@@ -1097,7 +1097,7 @@ RangeEnc_Encode.exit:                             ; preds = %RangeEnc_ShiftLow.e
   %109 = getelementptr inbounds i8, ptr %.0, i64 6
   %110 = load i8, ptr %109, align 2
   %111 = zext i8 %110 to i32
-  %112 = icmp eq i32 %111, %2
+  %112 = icmp eq i32 %2, %111
   %113 = getelementptr inbounds i8, ptr %.0, i64 7
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
@@ -1407,7 +1407,7 @@ RangeEnc_ShiftLow.exit.i175:                      ; preds = %254, %._crit_edge.i
   %308 = zext i32 %307 to i64
   %309 = getelementptr inbounds [128 x [64 x i16]], ptr %264, i64 0, i64 %268, i64 %308
   %310 = zext i8 %296 to i32
-  %311 = icmp eq i32 %310, %2
+  %311 = icmp eq i32 %2, %310
   %312 = load i16, ptr %309, align 2
   %313 = zext i16 %312 to i32
   %314 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1724,7 +1724,7 @@ Ppmd7_MakeEscFreq.exit:                           ; preds = %456, %457
   %.0140 = phi i32 [ %503, %Ppmd7_MakeEscFreq.exit ], [ %599, %589 ]
   %505 = load i8, ptr %.0144, align 2
   %506 = zext i8 %505 to i32
-  %507 = icmp eq i32 %506, %2
+  %507 = icmp eq i32 %2, %506
   br i1 %507, label %.preheader, label %589
 
 .preheader:                                       ; preds = %504, %.preheader

@@ -3211,7 +3211,7 @@ define hidden void @_ZN2cv7details10Chessboard15getObjectPointsERKNS_5Size_IiEEf
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = uitofp nneg i32 %.01821 to float
-  %18 = fmul float %17, %2
+  %18 = fmul float %2, %17
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
@@ -3226,7 +3226,7 @@ define hidden void @_ZN2cv7details10Chessboard15getObjectPointsERKNS_5Size_IiEEf
   %27 = mul i64 %25, %26
   %28 = getelementptr inbounds i8, ptr %23, i64 %27
   %29 = uitofp nneg i32 %.020 to float
-  %30 = fmul float %29, %2
+  %30 = fmul float %2, %29
   store float %30, ptr %28, align 4
   %31 = getelementptr inbounds i8, ptr %28, i64 4
   store float %18, ptr %31, align 4
@@ -3314,22 +3314,22 @@ _ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit: ; preds = %33
   %41 = getelementptr inbounds i8, ptr %1, i64 4
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %8
-  %44 = fneg float %40
-  %45 = fmul float %43, %44
+  %44 = fneg float %43
+  %45 = fmul float %40, %44
   %46 = tail call float @llvm.fmuladd.f32(float %38, float %39, float %45)
   %47 = fsub float %37, %13
   %48 = fsub float %8, %17
   %49 = fsub float %4, %13
   %50 = fsub float %42, %17
-  %51 = fneg float %49
-  %52 = fmul float %50, %51
+  %51 = fneg float %50
+  %52 = fmul float %49, %51
   %53 = tail call float @llvm.fmuladd.f32(float %47, float %48, float %52)
   %54 = fsub float %37, %31
   %55 = fsub float %17, %35
   %56 = fsub float %13, %31
   %57 = fsub float %42, %35
-  %58 = fneg float %56
-  %59 = fmul float %57, %58
+  %58 = fneg float %57
+  %59 = fmul float %56, %58
   %60 = tail call float @llvm.fmuladd.f32(float %54, float %55, float %59)
   %61 = fcmp ogt float %46, 0.000000e+00
   %62 = fcmp ogt float %53, 0.000000e+00
@@ -3349,31 +3349,30 @@ _ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit: ; preds = %33
 68:                                               ; preds = %64
   %69 = fsub float %26, %8
   %70 = fsub float %22, %4
-  %71 = fneg float %70
-  %72 = fmul float %43, %71
-  %73 = tail call float @llvm.fmuladd.f32(float %38, float %69, float %72)
-  %74 = fsub float %37, %22
-  %75 = fsub float %17, %26
-  %76 = fsub float %13, %22
-  %77 = fsub float %42, %26
-  %78 = fneg float %76
-  %79 = fmul float %77, %78
-  %80 = tail call float @llvm.fmuladd.f32(float %74, float %75, float %79)
-  %81 = fcmp ogt float %73, 0.000000e+00
-  %or.cond9 = select i1 %81, i1 %62, i1 false
-  %82 = fcmp ogt float %80, 0.000000e+00
-  %or.cond11 = select i1 %or.cond9, i1 %82, i1 false
-  br i1 %or.cond11, label %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit.thread, label %83
+  %71 = fmul float %70, %44
+  %72 = tail call float @llvm.fmuladd.f32(float %38, float %69, float %71)
+  %73 = fsub float %37, %22
+  %74 = fsub float %17, %26
+  %75 = fsub float %13, %22
+  %76 = fsub float %42, %26
+  %77 = fneg float %76
+  %78 = fmul float %75, %77
+  %79 = tail call float @llvm.fmuladd.f32(float %73, float %74, float %78)
+  %80 = fcmp ogt float %72, 0.000000e+00
+  %or.cond9 = select i1 %80, i1 %62, i1 false
+  %81 = fcmp ogt float %79, 0.000000e+00
+  %or.cond11 = select i1 %or.cond9, i1 %81, i1 false
+  br i1 %or.cond11, label %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit.thread, label %82
 
-83:                                               ; preds = %68
-  %84 = fcmp olt float %73, 0.000000e+00
-  %or.cond13 = select i1 %84, i1 %66, i1 false
-  %85 = fcmp olt float %80, 0.000000e+00
-  %spec.select = select i1 %or.cond13, i1 %85, i1 false
+82:                                               ; preds = %68
+  %83 = fcmp olt float %72, 0.000000e+00
+  %or.cond13 = select i1 %83, i1 %66, i1 false
+  %84 = fcmp olt float %79, 0.000000e+00
+  %spec.select = select i1 %or.cond13, i1 %84, i1 false
   br label %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit.thread
 
-_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit.thread: ; preds = %28, %33, %19, %24, %10, %15, %2, %6, %83, %68, %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit, %64
-  %.0 = phi i1 [ true, %64 ], [ true, %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit ], [ true, %68 ], [ %spec.select, %83 ], [ false, %6 ], [ false, %2 ], [ false, %15 ], [ false, %10 ], [ false, %24 ], [ false, %19 ], [ false, %33 ], [ false, %28 ]
+_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit.thread: ; preds = %28, %33, %19, %24, %10, %15, %2, %6, %82, %68, %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit, %64
+  %.0 = phi i1 [ true, %64 ], [ true, %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit ], [ true, %68 ], [ %spec.select, %82 ], [ false, %6 ], [ false, %2 ], [ false, %15 ], [ false, %10 ], [ false, %24 ], [ false, %19 ], [ false, %33 ], [ false, %28 ]
   ret i1 %.0
 }
 
@@ -7602,7 +7601,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board14addColumnRightERKSt6vector
   %35 = ashr exact i64 %sext, 32
   %36 = add nsw i64 %13, -1
   %37 = add nsw i64 %36, %35
-  %38 = icmp ult i64 %33, %37
+  %38 = icmp ugt i64 %37, %33
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %25
@@ -7614,7 +7613,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board14addColumnRightERKSt6vector
   br label %_ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE6resizeEm.exit
 
 41:                                               ; preds = %25
-  %42 = icmp ugt i64 %33, %37
+  %42 = icmp ult i64 %37, %33
   br i1 %42, label %43, label %_ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE6resizeEm.exit
 
 43:                                               ; preds = %41
@@ -7995,7 +7994,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board12addRowBottomERKSt6vectorIN
   %35 = ashr exact i64 %sext, 32
   %36 = add nsw i64 %13, -1
   %37 = add nsw i64 %36, %35
-  %38 = icmp ult i64 %33, %37
+  %38 = icmp ugt i64 %37, %33
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %25
@@ -8007,7 +8006,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board12addRowBottomERKSt6vectorIN
   br label %_ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE6resizeEm.exit
 
 41:                                               ; preds = %25
-  %42 = icmp ugt i64 %33, %37
+  %42 = icmp ult i64 %37, %33
   br i1 %42, label %43, label %_ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE6resizeEm.exit
 
 43:                                               ; preds = %41
@@ -8731,7 +8730,7 @@ define hidden void @_ZNK2cv7details10Chessboard5Board15getObjectPointsEf(ptr dea
   %indvars.iv35 = phi i64 [ 0, %.preheader.i.preheader ], [ %indvars.iv.next36, %._crit_edge.i ]
   %14 = trunc nuw nsw i64 %indvars.iv35 to i32
   %15 = uitofp nneg i32 %14 to float
-  %16 = fmul float %15, %2
+  %16 = fmul float %2, %15
   %17 = mul nuw nsw i64 %indvars.iv35, %13
   br label %18
 
@@ -8745,7 +8744,7 @@ define hidden void @_ZNK2cv7details10Chessboard5Board15getObjectPointsEf(ptr dea
   %24 = getelementptr inbounds i8, ptr %20, i64 %23
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = uitofp nneg i32 %25 to float
-  %27 = fmul float %26, %2
+  %27 = fmul float %2, %26
   store float %27, ptr %24, align 4
   %28 = getelementptr inbounds i8, ptr %24, i64 4
   store float %16, ptr %28, align 4
@@ -8805,9 +8804,9 @@ _ZNK2cv7details10Chessboard5Board4Cell6getColEv.exit: ; preds = %.preheader
   br i1 %.not.i15, label %_ZNK2cv7details10Chessboard5Board4Cell6getRowEv.exit, label %46, !llvm.loop !42
 
 _ZNK2cv7details10Chessboard5Board4Cell6getRowEv.exit: ; preds = %46
-  %50 = fmul float %45, %2
+  %50 = fmul float %2, %45
   %51 = uitofp nneg i32 %.04.i13 to float
-  %52 = fmul float %51, %2
+  %52 = fmul float %2, %51
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = icmp sgt i32 %54, 0
@@ -9728,9 +9727,9 @@ define hidden void @_ZNK2cv7details10Chessboard5Board8getCellsEfbb(ptr dead_on_u
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %26 = load i32, ptr %11, align 8
-  %27 = icmp sle i32 %26, %.037131.us
+  %27 = icmp sge i32 %.037131.us, %26
   %28 = load i32, ptr %9, align 4
-  %29 = icmp sle i32 %28, %.036130.us
+  %29 = icmp sge i32 %.036130.us, %28
   %or.cond122.us = select i1 %27, i1 true, i1 %29
   br i1 %or.cond122.us, label %.split.us, label %30
 
@@ -10063,8 +10062,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit.us: ; preds = %177, %.noexc8
   %.val41.us = load float, ptr %214, align 4
   %215 = fsub float %.val.us, %170
   %216 = fsub float %.val41.us, %171
-  %217 = fmul float %215, %2
-  %218 = fmul float %216, %2
+  %217 = fmul float %2, %215
+  %218 = fmul float %2, %216
   %219 = fadd float %170, %217
   %220 = fadd float %171, %218
   %.sroa.0.0.vec.insert.i84.us = insertelement <2 x float> poison, float %219, i64 0
@@ -10134,7 +10133,7 @@ define hidden noundef ptr @_ZNK2cv7details10Chessboard5Board7getCellEii(ptr noca
   %6 = alloca %"class.cv::details::Chessboard::Board::PointIter", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load i32, ptr %7, align 8
-  %9 = icmp sle i32 %8, %1
+  %9 = icmp sge i32 %1, %8
   %10 = icmp slt i32 %1, 0
   %or.cond = or i1 %10, %9
   br i1 %or.cond, label %16, label %11
@@ -10142,7 +10141,7 @@ define hidden noundef ptr @_ZNK2cv7details10Chessboard5Board7getCellEii(ptr noca
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 68
   %13 = load i32, ptr %12, align 4
-  %14 = icmp sle i32 %13, %2
+  %14 = icmp sge i32 %2, %13
   %15 = icmp slt i32 %2, 0
   %or.cond3 = or i1 %15, %14
   br i1 %or.cond3, label %16, label %24
@@ -10684,9 +10683,9 @@ _ZNK2cv7details7Ellipse4drawERKNS_17_InputOutputArrayERKNS_7Scalar_IdEE.exit.us:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
   %199 = load i32, ptr %110, align 8
-  %200 = icmp sle i32 %199, %.070310.us
+  %200 = icmp sge i32 %.070310.us, %199
   %201 = load i32, ptr %108, align 4
-  %202 = icmp sle i32 %201, %.071308.us
+  %202 = icmp sge i32 %.071308.us, %201
   %or.cond263.us = select i1 %200, i1 true, i1 %202
   br i1 %or.cond263.us, label %.split.us313, label %203
 
@@ -10853,9 +10852,9 @@ _ZNK2cv7details7Ellipse4drawERKNS_17_InputOutputArrayERKNS_7Scalar_IdEE.exit.us:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   %273 = load i32, ptr %110, align 8
-  %274 = icmp sle i32 %273, %.070310.us
+  %274 = icmp sge i32 %.070310.us, %273
   %275 = load i32, ptr %108, align 4
-  %276 = icmp sle i32 %275, %272
+  %276 = icmp sge i32 %272, %275
   %or.cond268.us = select i1 %274, i1 true, i1 %276
   br i1 %or.cond268.us, label %.split325.us, label %277
 
@@ -10977,9 +10976,9 @@ _ZNK2cv7details7Ellipse4drawERKNS_17_InputOutputArrayERKNS_7Scalar_IdEE.exit.us:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   %334 = load i32, ptr %110, align 8
-  %335 = icmp sle i32 %334, %197
+  %335 = icmp sge i32 %197, %334
   %336 = load i32, ptr %108, align 4
-  %337 = icmp sle i32 %336, %.071308.us
+  %337 = icmp sge i32 %.071308.us, %336
   %or.cond275.us = select i1 %335, i1 true, i1 %337
   br i1 %or.cond275.us, label %.split332.us, label %338
 
@@ -11843,18 +11842,18 @@ define hidden void @_ZN2cv7details10Chessboard5Board18estimateSearchAreaENS_3Mat
   %12 = alloca %"class.cv::Matx.42", align 8
   %13 = alloca %"class.cv::Matx.42", align 8
   %14 = add nsw i32 %3, 1
-  %15 = mul nsw i32 %14, %5
+  %15 = mul nsw i32 %5, %14
   %16 = sitofp i32 %15 to double
   store double %16, ptr %9, align 8
   %17 = add nsw i32 %2, 1
-  %18 = mul nsw i32 %17, %5
+  %18 = mul nsw i32 %5, %17
   %19 = sitofp i32 %18 to double
   %20 = getelementptr inbounds i8, ptr %9, i64 8
   store double %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %9, i64 16
   store double 1.000000e+00, ptr %21, align 8
   %22 = sitofp i32 %5 to float
-  %23 = fmul float %22, %4
+  %23 = fmul float %4, %22
   %24 = fpext float %23 to double
   %25 = fsub double %16, %24
   store double %25, ptr %7, align 8
@@ -12630,7 +12629,7 @@ _ZNSt3mapIPN2cv6Point_IfEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEE11lower_boundERS7_
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -12719,7 +12718,7 @@ _ZNSt3mapIPN2cv6Point_IfEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEE11lower_boundERS7_
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -12805,7 +12804,7 @@ _ZNSt3mapIPN2cv7details10Chessboard5Board4CellES5_St4lessIS5_ESaISt4pairIKS5_S5_
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -12891,7 +12890,7 @@ _ZNSt3mapIPN2cv7details10Chessboard5Board4CellES5_St4lessIS5_ESaISt4pairIKS5_S5_
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -12992,7 +12991,7 @@ define hidden noundef zeroext i1 @_ZN2cv7details10Chessboard5Board26normalizeMar
   %14 = phi i32 [ %227, %.loopexit ], [ %9, %.preheader148.preheader ]
   %15 = phi i32 [ %228, %.loopexit ], [ %7, %.preheader148.preheader ]
   %.028171 = phi i32 [ %229, %.loopexit ], [ 0, %.preheader148.preheader ]
-  %16 = icmp sle i32 %15, %.028171
+  %16 = icmp sge i32 %.028171, %15
   %.not.i63 = icmp eq i32 %.028171, 0
   %.fr = freeze i1 %16
   br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split.preheader
@@ -13862,8 +13861,8 @@ define hidden void @_ZN2cv7details10Chessboard5Board20normalizeOrientationEb(ptr
   %.val36 = load float, ptr %27, align 4
   %28 = fsub float %.val, %.val35
   %29 = fsub float %.val34, %.val36
-  %30 = fneg float %29
-  %31 = fmul float %22, %30
+  %30 = fneg float %22
+  %31 = fmul float %29, %30
   %32 = tail call float @llvm.fmuladd.f32(float %28, float %23, float %31)
   %33 = fcmp ogt float %32, 0.000000e+00
   br i1 %33, label %34, label %68
@@ -13979,7 +13978,7 @@ _ZNK2cv7details10Chessboard5Board7getCellEii.exit: ; preds = %72
   %85 = getelementptr inbounds i8, ptr %84, i64 64
   %86 = load i8, ptr %85, align 8
   %87 = trunc i8 %86 to i1
-  %88 = xor i1 %87, %1
+  %88 = xor i1 %1, %87
   br i1 %88, label %89, label %219
 
 89:                                               ; preds = %_ZNK2cv7details10Chessboard5Board7getCellEii.exit
@@ -14679,8 +14678,8 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN2cv7details10Ch
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 68
   %17 = load i32, ptr %16, align 4
-  %.not = icmp sgt i32 %15, %1
-  %.not30 = icmp sgt i32 %17, %2
+  %.not = icmp slt i32 %1, %15
+  %.not30 = icmp slt i32 %2, %17
   %or.cond = select i1 %.not, i1 %.not30, i1 false
   br i1 %or.cond, label %25, label %18
 
@@ -15549,7 +15548,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIdSaIdEE6resizeEmRKd(ptr noundef no
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %3
@@ -15558,7 +15557,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIdSaIdEE6resizeEmRKd(ptr noundef no
   br label %_ZNSt6vectorIdSaIdEE15_M_erase_at_endEPd.exit
 
 14:                                               ; preds = %3
-  %15 = icmp ugt i64 %10, %1
+  %15 = icmp ult i64 %1, %10
   br i1 %15, label %16, label %_ZNSt6vectorIdSaIdEE15_M_erase_at_endEPd.exit
 
 16:                                               ; preds = %14
@@ -18033,7 +18032,7 @@ define hidden noundef zeroext i1 @_ZN2cv7details10Chessboard5Board18estimateSear
   %35 = tail call double @llvm.fmuladd.f64(double %32, double %32, double %34)
   %sqrt.i47 = tail call noundef double @llvm.sqrt.f64(double %35)
   %36 = fptrunc double %sqrt.i47 to float
-  %37 = fmul float %36, %3
+  %37 = fmul float %3, %36
   %38 = fcmp ogt float %37, 3.000000e+00
   %.sroa.speculated55 = select i1 %38, float %37, float 3.000000e+00
   %39 = fpext float %.sroa.speculated55 to double
@@ -18888,9 +18887,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %252, %250, %249, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %320 = load i32, ptr %256, align 8
-  %321 = icmp sle i32 %320, %.068312.us
+  %321 = icmp sge i32 %.068312.us, %320
   %322 = load i32, ptr %253, align 4
-  %323 = icmp sle i32 %322, %.069310.us
+  %323 = icmp sge i32 %.069310.us, %322
   %or.cond.us = select i1 %321, i1 true, i1 %323
   br i1 %or.cond.us, label %.split.us, label %324
 
@@ -19034,9 +19033,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %252, %250, %249, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %366 = load i32, ptr %256, align 8
-  %367 = icmp sle i32 %366, %.068312.us
+  %367 = icmp sge i32 %.068312.us, %366
   %368 = load i32, ptr %253, align 4
-  %369 = icmp slt i32 %368, %.069310.us
+  %369 = icmp sgt i32 %.069310.us, %368
   %or.cond270.us = select i1 %367, i1 true, i1 %369
   br i1 %or.cond270.us, label %.split335.us, label %370
 
@@ -20738,7 +20737,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board13addColumnLeftERKSt6vectorI
   %35 = ashr exact i64 %sext, 32
   %36 = add nsw i64 %13, -1
   %37 = add nsw i64 %36, %35
-  %38 = icmp ult i64 %33, %37
+  %38 = icmp ugt i64 %37, %33
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %25
@@ -20750,7 +20749,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board13addColumnLeftERKSt6vectorI
   br label %_ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE6resizeEm.exit
 
 41:                                               ; preds = %25
-  %42 = icmp ugt i64 %33, %37
+  %42 = icmp ult i64 %37, %33
   br i1 %42, label %43, label %_ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE6resizeEm.exit
 
 43:                                               ; preds = %41
@@ -22294,7 +22293,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board9addRowTopERKSt6vectorINS_6P
   %35 = ashr exact i64 %sext, 32
   %36 = add nsw i64 %13, -1
   %37 = add nsw i64 %36, %35
-  %38 = icmp ult i64 %33, %37
+  %38 = icmp ugt i64 %37, %33
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %25
@@ -22306,7 +22305,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board9addRowTopERKSt6vectorINS_6P
   br label %_ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE6resizeEm.exit
 
 41:                                               ; preds = %25
-  %42 = icmp ugt i64 %33, %37
+  %42 = icmp ult i64 %37, %33
   br i1 %42, label %43, label %_ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE6resizeEm.exit
 
 43:                                               ; preds = %41
@@ -25934,7 +25933,7 @@ _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56: ; preds = %_ZNK2cv7detai
   %86 = load float, ptr %27, align 8
   %87 = load float, ptr %28, align 4
   %88 = call noundef float @_ZN2cv7details10Chessboard5Board12findMaxPointERNS_5flann5IndexERKNS_3MatERKNS0_7EllipseEffRNS_6Point_IfEE(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(28) %12, float noundef %86, float noundef %87, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  %89 = fcmp ult float %88, %4
+  %89 = fcmp ugt float %4, %88
   br i1 %89, label %95, label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit60
 
 _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit60: ; preds = %85
@@ -27605,7 +27604,7 @@ define hidden noundef zeroext i1 @_ZN2cv7details10Chessboard5Board13findNextPoin
 12:                                               ; preds = %9
   %13 = call noundef float @_ZN2cv7details10Chessboard5Board12findMaxPointERNS_5flann5IndexERKNS_3MatERKNS0_7EllipseEffRNS_6Point_IfEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(28) %10, float noundef %5, float noundef %6, ptr noundef nonnull align 4 dereferenceable(8) %8)
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
-  %15 = fcmp uge float %14, %7
+  %15 = fcmp ule float %7, %14
   br label %16
 
 16:                                               ; preds = %12, %9
@@ -27876,7 +27875,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit: ; preds = %.lr.p
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -29772,7 +29771,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE5clearEv.exit:     ; preds = %_ZNSt6vectorIN2cv8K
   %.sroa.495.0.copyload = load float, ptr %.sroa.495.0.phi.call.i.i.sroa_idx, align 4
   %.sroa.596.0.phi.call.i.i.sroa_idx = getelementptr inbounds i8, ptr %phi.call.i.i, i64 20
   %85 = load i64, ptr %.sroa.596.0.phi.call.i.i.sroa_idx, align 4
-  %86 = icmp sgt i64 %78, %.0.i.i
+  %86 = icmp slt i64 %.0.i.i, %78
   br i1 %86, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %84, %.lr.ph.i.i.i
@@ -31552,8 +31551,8 @@ _ZNSt6vectorISt4pairIN2cv8KeyPointES2_ESaIS3_EE9push_backEOS3_.exit: ; preds = %
   %.val73 = load float, ptr %195, align 4
   %227 = fsub float %.val72, %.val70
   %228 = fsub float %.val73, %.val71
-  %229 = fneg float %228
-  %230 = fmul float %211, %229
+  %229 = fneg float %211
+  %230 = fmul float %228, %229
   %231 = call float @llvm.fmuladd.f32(float %227, float %212, float %230)
   %232 = fcmp ogt float %231, 0.000000e+00
   br i1 %232, label %233, label %234
@@ -37545,7 +37544,7 @@ _ZSt10_ConstructIN2cv4UMatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
   %36 = tail call ptr @__cxa_begin_catch(ptr %35) #34
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %27
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %27, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv4UMatEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %33, %.lr.ph.i.i.i.i.i.i.i
@@ -37697,7 +37696,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 96
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i27
@@ -37770,7 +37769,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit35: ; preds = %39
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIPN2cv6Point_IfEESt4pairIKS3_S3_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -37991,7 +37990,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIPN2cv7details10Chessboard5Board4CellESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -38453,7 +38452,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !566
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -38537,7 +38536,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !566
 
 _ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -38665,7 +38664,7 @@ declare void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -39107,7 +39106,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %34
 _ZNSt6vectorIS_IfSaIfEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %41
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %41 ], [ %53, %.lr.ph.i.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IfSaIfEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IfSaIfEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i28
@@ -39261,7 +39260,7 @@ _ZSt13move_backwardIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit: ; preds = %28, %_ZSt22
 _ZSt24__uninitialized_fill_n_aIPN2cv6Point_IfEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %35
   %39 = phi ptr [ %9, %35 ], [ %38, %.lr.ph.i.i.i.i ]
   store ptr %39, ptr %8, align 8
-  %.not11.i.i.i.i.i69 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i69 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN2cv6Point_IfEES3_SaIS2_EET0_T_S6_S5_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN2cv6Point_IfEES3_SaIS2_EET0_T_S6_S5_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN2cv6Point_IfEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit
@@ -39353,7 +39352,7 @@ _ZSt24__uninitialized_fill_n_aIPN2cv6Point_IfEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exi
 _ZSt34__uninitialized_move_if_noexcept_aIPN2cv6Point_IfEES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN2cv6Point_IfEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %64, %_ZSt24__uninitialized_fill_n_aIPN2cv6Point_IfEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit87 ], [ %71, %.lr.ph.i.i.i.i.i89 ]
   %72 = getelementptr %"class.cv::Point_", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
-  %.not11.i.i.i.i.i94 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv6Point_IfEES3_SaIS2_EET0_T_S6_S5_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
 .lr.ph.i.i.i.i.i95:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv6Point_IfEES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %.lr.ph.i.i.i.i.i95
@@ -39595,7 +39594,7 @@ _ZSt10_ConstructIN2cv7details10Chessboard5BoardEJRKS3_EEvPT_DpOT0_.exit: ; preds
 .body:                                            ; preds = %_ZNSt6vectorIPN2cv6Point_IfEESaIS3_EED2Ev.exit.i.i, %12
   %15 = extractvalue { ptr, i32 } %7, 0
   %16 = tail call ptr @__cxa_begin_catch(ptr %15) #34
-  %.not4.i.i = icmp eq ptr %.016, %2
+  %.not4.i.i = icmp eq ptr %2, %.016
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN2cv7details10Chessboard5BoardEEvT_S5_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.body, %.lr.ph.i.i
@@ -39730,7 +39729,7 @@ _ZSt13move_backwardIPN2cv8KeyPointES2_ET0_T_S4_S3_.exit: ; preds = %26, %_ZSt22_
 _ZSt24__uninitialized_fill_n_aIPN2cv8KeyPointEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %32
   %36 = phi ptr [ %9, %32 ], [ %35, %.lr.ph.i.i.i.i ]
   store ptr %36, ptr %8, align 8
-  %.not11.i.i.i.i.i69 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i69 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN2cv8KeyPointES2_SaIS1_EET0_T_S5_S4_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN2cv8KeyPointES2_SaIS1_EET0_T_S5_S4_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN2cv8KeyPointEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit
@@ -39821,7 +39820,7 @@ _ZSt24__uninitialized_fill_n_aIPN2cv8KeyPointEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit
 _ZSt34__uninitialized_move_if_noexcept_aIPN2cv8KeyPointES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN2cv8KeyPointEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %60, %_ZSt24__uninitialized_fill_n_aIPN2cv8KeyPointEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit87 ], [ %65, %.lr.ph.i.i.i.i.i89 ]
   %66 = getelementptr %"class.cv::KeyPoint", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
-  %.not11.i.i.i.i.i94 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv8KeyPointES2_SaIS1_EET0_T_S5_S4_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
 .lr.ph.i.i.i.i.i95:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv8KeyPointES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %.lr.ph.i.i.i.i.i95

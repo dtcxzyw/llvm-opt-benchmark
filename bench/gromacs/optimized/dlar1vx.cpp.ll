@@ -463,7 +463,7 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %253 = shl nsw i64 %250, 3
   %scevgep636 = getelementptr i8, ptr %10, i64 %253
   %bound0638 = icmp ult ptr %scevgep635, %scevgep637
-  %bound1639 = icmp ugt ptr %scevgep636, %11
+  %bound1639 = icmp ult ptr %11, %scevgep636
   %found.conflict640 = and i1 %bound0638, %bound1639
   br i1 %found.conflict640, label %.lr.ph499.lver.orig, label %.lr.ph499.ph
 
@@ -474,8 +474,8 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %255 = load double, ptr %254, align 8
   %256 = getelementptr inbounds double, ptr %18, i64 %indvars.iv558.lver.orig
   %257 = load double, ptr %256, align 8
-  %258 = fneg double %255
-  %259 = fmul double %257, %258
+  %258 = fneg double %257
+  %259 = fmul double %255, %258
   %260 = getelementptr inbounds double, ptr %18, i64 %indvars.iv.next559.lver.orig
   store double %259, ptr %260, align 8
   %261 = load double, ptr %11, align 8
@@ -496,8 +496,8 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %indvars.iv.next559 = add nsw i64 %indvars.iv558, -1
   %264 = getelementptr inbounds double, ptr %17, i64 %indvars.iv.next559
   %265 = load double, ptr %264, align 8
-  %266 = fneg double %265
-  %267 = fmul double %store_forwarded645, %266
+  %266 = fneg double %store_forwarded645
+  %267 = fmul double %265, %266
   %268 = getelementptr inbounds double, ptr %18, i64 %indvars.iv.next559
   store double %267, ptr %268, align 8
   %269 = load double, ptr %11, align 8
@@ -565,7 +565,7 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %290 = shl nsw i64 %wide.trip.count564, 3
   %scevgep629 = getelementptr i8, ptr %10, i64 %290
   %bound0 = icmp ult ptr %scevgep628, %scevgep630
-  %bound1 = icmp ugt ptr %scevgep629, %11
+  %bound1 = icmp ult ptr %11, %scevgep629
   %found.conflict = and i1 %bound0, %bound1
   %291 = xor i64 %288, -1
   %292 = add nsw i64 %291, %wide.trip.count564
@@ -588,8 +588,8 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %303 = load double, ptr %302, align 8
   %304 = getelementptr inbounds double, ptr %18, i64 %indvars.iv561.lver.orig
   %305 = load double, ptr %304, align 8
-  %306 = fneg double %303
-  %307 = fmul double %305, %306
+  %306 = fneg double %305
+  %307 = fmul double %303, %306
   %308 = getelementptr double, ptr %10, i64 %indvars.iv561.lver.orig
   store double %307, ptr %308, align 8
   %309 = load double, ptr %11, align 8
@@ -613,8 +613,8 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %314 = sext i32 %313 to i64
   %315 = getelementptr inbounds double, ptr %17, i64 %314
   %316 = load double, ptr %315, align 8
-  %317 = fneg double %316
-  %318 = fmul double %store_forwarded, %317
+  %317 = fneg double %store_forwarded
+  %318 = fmul double %316, %317
   %319 = getelementptr double, ptr %10, i64 %indvars.iv561
   store double %318, ptr %319, align 8
   %320 = load double, ptr %11, align 8
@@ -684,8 +684,8 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 355:                                              ; preds = %.lr.ph492
   %356 = getelementptr inbounds double, ptr %17, i64 %indvars.iv.next551
   %357 = load double, ptr %356, align 8
-  %358 = fneg double %357
-  %359 = fmul double %342, %358
+  %358 = fneg double %342
+  %359 = fmul double %357, %358
   br label %360
 
 360:                                              ; preds = %355, %345
@@ -748,8 +748,8 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 390:                                              ; preds = %.lr.ph496
   %gep603 = getelementptr double, ptr %invariant.gep602, i64 %indvars.iv553
   %391 = load double, ptr %gep603, align 8
-  %392 = fneg double %391
-  %393 = fmul double %376, %392
+  %392 = fneg double %376
+  %393 = fmul double %391, %392
   br label %394
 
 394:                                              ; preds = %390, %379

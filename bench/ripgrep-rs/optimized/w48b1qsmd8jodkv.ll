@@ -3518,7 +3518,7 @@ _ZN6ignore8pathutil12strip_prefix17hc5eeaa1b2c141ed9E.exit: ; preds = %54, %"_ZN
 72:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he055145884a405c0E.exit.i156"
   %73 = sub nuw i64 %3, %spec.select
   %74 = getelementptr inbounds i8, ptr %2, i64 %spec.select
-  %75 = icmp eq i64 %spec.select, %3
+  %75 = icmp eq i64 %3, %spec.select
   br i1 %75, label %_ZN6ignore8pathutil12strip_prefix17hc5eeaa1b2c141ed9E.exit164, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he055145884a405c0E.exit.i160"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he055145884a405c0E.exit.i160": ; preds = %72

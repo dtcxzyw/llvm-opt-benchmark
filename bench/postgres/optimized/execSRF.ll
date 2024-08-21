@@ -178,7 +178,7 @@ list_length.exit57.thread:                        ; preds = %25, %list_length.ex
   %54 = load i8, ptr %53, align 1
   %55 = trunc i8 %54 to i1
   %.not52 = xor i1 %55, true
-  %brmerge = or i1 %.not52, %6
+  %brmerge = or i1 %6, %.not52
   br i1 %brmerge, label %66, label %56
 
 56:                                               ; preds = %list_length.exit57.thread
@@ -201,7 +201,7 @@ list_length.exit57.thread:                        ; preds = %25, %list_length.ex
   unreachable
 
 66:                                               ; preds = %list_length.exit57.thread
-  %brmerge55.not = and i1 %55, %7
+  %brmerge55.not = and i1 %7, %55
   br i1 %brmerge55.not, label %67, label %90
 
 67:                                               ; preds = %66

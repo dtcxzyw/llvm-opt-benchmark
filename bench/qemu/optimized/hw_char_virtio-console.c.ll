@@ -195,7 +195,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_virtio_console_flush_buf.exit:              ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %cmp = icmp slt i64 %conv4, %len
+  %cmp = icmp sgt i64 %len, %conv4
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %trace_virtio_console_flush_buf.exit

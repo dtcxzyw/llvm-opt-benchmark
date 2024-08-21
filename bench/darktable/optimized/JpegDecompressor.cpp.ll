@@ -309,7 +309,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   call void @llvm.assume(i1 %182)
   %183 = getelementptr inbounds i8, ptr %55, i64 %179
   %184 = trunc nuw nsw i64 %177 to i32
-  %185 = add i32 %184, %2
+  %185 = add i32 %2, %184
   %186 = icmp sgt i32 %185, -1
   call void @llvm.assume(i1 %186)
   %187 = icmp ugt i32 %116, %185

@@ -1020,7 +1020,7 @@ define range(i32 -1, 1) i32 @H5C__flush_single_entry(ptr noundef %0, ptr noundef
   store ptr %1, ptr %514, align 8
   %515 = getelementptr inbounds i8, ptr %8, i64 524616
   %516 = load ptr, ptr %515, align 8
-  %517 = icmp eq ptr %516, %1
+  %517 = icmp eq ptr %1, %516
   br i1 %517, label %518, label %519
 
 518:                                              ; preds = %510
@@ -1835,7 +1835,7 @@ define range(i32 -1, 1) i32 @H5C_insert_entry(ptr noundef %0, ptr noundef %1, i6
   %.0230260 = phi ptr [ %.0230, %38 ], [ %.0230258, %.lr.ph ]
   %23 = getelementptr inbounds i8, ptr %.0230260, i64 8
   %24 = load i64, ptr %23, align 8
-  %25 = icmp eq i64 %24, %2
+  %25 = icmp eq i64 %2, %24
   br i1 %25, label %26, label %38
 
 26:                                               ; preds = %.lr.ph.split
@@ -3121,7 +3121,7 @@ define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone
   %.0296 = phi ptr [ %.0, %26 ], [ %.0294, %.lr.ph ]
   %10 = getelementptr inbounds i8, ptr %.0296, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = icmp eq i64 %11, %2
+  %12 = icmp eq i64 %2, %11
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %.lr.ph.split
@@ -3204,7 +3204,7 @@ define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone
   %.0255299 = phi ptr [ %.0255, %59 ], [ %.0255297, %.lr.ph300 ]
   %44 = getelementptr inbounds i8, ptr %.0255299, i64 8
   %45 = load i64, ptr %44, align 8
-  %46 = icmp eq i64 %45, %3
+  %46 = icmp eq i64 %3, %45
   br i1 %46, label %47, label %59
 
 47:                                               ; preds = %.lr.ph300.split
@@ -3935,7 +3935,7 @@ H5C__mark_flush_dep_unserialized.exit:            ; preds = %52, %31, %24
   %69 = load i8, ptr %68, align 1
   %70 = trunc i8 %69 to i1
   %.pre136.pre138.pre140 = load i64, ptr %22, align 8
-  %71 = icmp ult i64 %.pre136.pre138.pre140, %1
+  %71 = icmp ugt i64 %1, %.pre136.pre138.pre140
   %or.cond = select i1 %70, i1 %71, i1 false
   br i1 %or.cond, label %72, label %83
 
@@ -4324,13 +4324,13 @@ define ptr @H5C_protect(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noun
 .lr.ph.split:                                     ; preds = %.lr.ph
   %36 = getelementptr inbounds i8, ptr %storemerge328, i64 8
   %37 = load i64, ptr %36, align 8
-  %38 = icmp eq i64 %37, %2
+  %38 = icmp eq i64 %2, %37
   br i1 %38, label %._crit_edge334.thread, label %.lr.ph333
 
 39:                                               ; preds = %.lr.ph333
   %40 = getelementptr inbounds i8, ptr %storemerge, i64 8
   %41 = load i64, ptr %40, align 8
-  %42 = icmp eq i64 %41, %2
+  %42 = icmp eq i64 %2, %41
   br i1 %42, label %._crit_edge334, label %.lr.ph333
 
 ._crit_edge334:                                   ; preds = %39
@@ -4484,7 +4484,7 @@ define ptr @H5C_protect(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noun
   %113 = load ptr, ptr %108, align 8
   %114 = getelementptr inbounds ptr, ptr %113, i64 %110
   %115 = load ptr, ptr %114, align 8
-  %116 = icmp eq ptr %115, %storemerge.lcssa327371
+  %116 = icmp eq ptr %storemerge.lcssa327371, %115
   %117 = add i32 %.029.i.i, 1
   br i1 %116, label %.critedge27.i.i, label %109
 
@@ -4633,7 +4633,7 @@ H5C__destroy_pf_entry_child_flush_deps.exit.thread.i: ; preds = %.critedge.i.i, 
   %.0334402.i = phi ptr [ %.0334.i, %218 ], [ %.0334400.i, %203 ]
   %204 = getelementptr inbounds i8, ptr %.0334402.i, i64 8
   %205 = load i64, ptr %204, align 8
-  %206 = icmp eq i64 %205, %2
+  %206 = icmp eq i64 %2, %205
   br i1 %206, label %207, label %218
 
 207:                                              ; preds = %.lr.ph404.split.i
@@ -7086,7 +7086,7 @@ H5C__unpin_entry_from_client.exit225:             ; preds = %263, %267
   %.0187236 = phi ptr [ %.0187, %402 ], [ %.0187234, %.lr.ph ]
   %387 = getelementptr inbounds i8, ptr %.0187236, i64 8
   %388 = load i64, ptr %387, align 8
-  %389 = icmp eq i64 %388, %1
+  %389 = icmp eq i64 %1, %388
   br i1 %389, label %390, label %402
 
 390:                                              ; preds = %.lr.ph.split
@@ -7769,7 +7769,7 @@ define range(i32 -1, 1) i32 @H5C_expunge_entry(ptr noundef %0, ptr noundef readn
   %.04253 = phi ptr [ %.042, %29 ], [ %.04251, %.lr.ph ]
   %14 = getelementptr inbounds i8, ptr %.04253, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = icmp eq i64 %15, %2
+  %16 = icmp eq i64 %2, %15
   br i1 %16, label %17, label %29
 
 17:                                               ; preds = %.lr.ph.split
@@ -8177,7 +8177,7 @@ define range(i32 -1, 1) i32 @H5C_remove_entry(ptr noundef %0) local_unnamed_addr
   store ptr %0, ptr %193, align 8
   %194 = getelementptr inbounds i8, ptr %2, i64 524616
   %195 = load ptr, ptr %194, align 8
-  %196 = icmp eq ptr %195, %0
+  %196 = icmp eq ptr %0, %195
   br i1 %196, label %197, label %198
 
 197:                                              ; preds = %189
@@ -8225,7 +8225,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__verify_len_eoa(ptr noundef %0,
 
 11:                                               ; preds = %4
   %.not31 = icmp ne i64 %1, -1
-  %12 = icmp ult i64 %6, %1
+  %12 = icmp ugt i64 %1, %6
   %or.cond = and i1 %.not31, %12
   br i1 %or.cond, label %13, label %17
 

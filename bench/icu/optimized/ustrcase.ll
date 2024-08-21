@@ -242,7 +242,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.en
 
 if.end2.i.i:                                      ; preds = %if.end.i.i
   %sub.i.i = sub nsw i32 2147483647, %destIndex.0197
-  %cmp3.i.i = icmp ult i32 %sub.i.i, %sub69
+  %cmp3.i.i = icmp ugt i32 %sub69, %sub.i.i
   br i1 %cmp3.i.i, label %if.then72, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end2.i.i
@@ -422,7 +422,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 if.end2.i.i.i:                                    ; preds = %if.end.i.i.i
   %sub.i.i.i = sub nuw nsw i32 2147483647, %call80
-  %cmp3.i.i.i = icmp ult i32 %sub.i.i.i, %unchanged1.2.i
+  %cmp3.i.i.i = icmp ugt i32 %unchanged1.2.i, %sub.i.i.i
   br i1 %cmp3.i.i.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end2.i.i.i
@@ -491,7 +491,7 @@ if.end.i.i57.i:                                   ; preds = %if.then.i.i56.i, %i
 
 if.end2.i.i61.i:                                  ; preds = %if.end.i.i57.i
   %sub.i.i62.i = sub nsw i32 2147483647, %16
-  %cmp3.i.i63.i = icmp ult i32 %sub.i.i62.i, %unchanged2.0.i
+  %cmp3.i.i63.i = icmp ugt i32 %unchanged2.0.i, %sub.i.i62.i
   br i1 %cmp3.i.i63.i, label %if.end99, label %if.end5.i.i64.i
 
 if.end5.i.i64.i:                                  ; preds = %if.end2.i.i61.i
@@ -552,7 +552,7 @@ if.end.i.i122:                                    ; preds = %if.then.i.i121, %if
 
 if.end2.i.i126:                                   ; preds = %if.end.i.i122
   %sub.i.i127 = sub nsw i32 2147483647, %destIndex.3
-  %cmp3.i.i128 = icmp ult i32 %sub.i.i127, %sub125
+  %cmp3.i.i128 = icmp ugt i32 %sub125, %sub.i.i127
   br i1 %cmp3.i.i128, label %if.then128, label %if.end5.i.i129
 
 if.end5.i.i129:                                   ; preds = %if.end2.i.i126
@@ -1031,7 +1031,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.en
 
 if.end2.i.i:                                      ; preds = %if.end.i.i
   %sub.i.i = xor i32 %destIndex.1.ph.ph, 2147483647
-  %cmp3.i.i = icmp ult i32 %sub.i.i, %sub56
+  %cmp3.i.i = icmp ugt i32 %sub56, %sub.i.i
   br i1 %cmp3.i.i, label %return.sink.split, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end2.i.i
@@ -1148,7 +1148,7 @@ if.end.i.i91:                                     ; preds = %if.then.i.i90, %if.
 
 if.end2.i.i95:                                    ; preds = %if.end.i.i91
   %sub.i.i96 = xor i32 %destIndex.1.ph.ph, 2147483647
-  %cmp3.i.i97 = icmp ult i32 %sub.i.i96, %sub103
+  %cmp3.i.i97 = icmp ugt i32 %sub103, %sub.i.i96
   br i1 %cmp3.i.i97, label %return.sink.split, label %if.end5.i.i98
 
 if.end5.i.i98:                                    ; preds = %if.end2.i.i95
@@ -1194,7 +1194,7 @@ if.end.i.i110:                                    ; preds = %if.then.i.i109, %if
 
 if.end2.i.i114:                                   ; preds = %if.end.i.i110
   %sub.i.i115 = xor i32 %destIndex.1.ph.ph, 2147483647
-  %cmp3.i.i116 = icmp ult i32 %sub.i.i115, %sub116
+  %cmp3.i.i116 = icmp ugt i32 %sub116, %sub.i.i115
   br i1 %cmp3.i.i116, label %return.sink.split, label %if.end5.i.i117
 
 if.end5.i.i117:                                   ; preds = %if.end2.i.i114
@@ -1996,7 +1996,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 if.end2.i.i.i:                                    ; preds = %if.end.i.i.i
   %sub.i.i.i = xor i32 %destIndex.1.ph.i.ph, 2147483647
-  %cmp3.i.i.i = icmp ult i32 %sub.i.i.i, %sub49.i
+  %cmp3.i.i.i = icmp ugt i32 %sub49.i, %sub.i.i.i
   br i1 %cmp3.i.i.i, label %return.sink.split.i, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end2.i.i.i
@@ -2102,7 +2102,7 @@ if.end.i.i81.i:                                   ; preds = %if.then.i.i80.i, %i
 
 if.end2.i.i85.i:                                  ; preds = %if.end.i.i81.i
   %sub.i.i86.i = xor i32 %destIndex.1.ph.i.ph, 2147483647
-  %cmp3.i.i87.i = icmp ult i32 %sub.i.i86.i, %sub91.i
+  %cmp3.i.i87.i = icmp ugt i32 %sub91.i, %sub.i.i86.i
   br i1 %cmp3.i.i87.i, label %return.sink.split.i, label %if.end5.i.i88.i
 
 if.end5.i.i88.i:                                  ; preds = %if.end2.i.i85.i
@@ -2148,7 +2148,7 @@ if.end.i.i100.i:                                  ; preds = %if.then.i.i99.i, %i
 
 if.end2.i.i104.i:                                 ; preds = %if.end.i.i100.i
   %sub.i.i105.i = xor i32 %destIndex.1.ph.i.ph, 2147483647
-  %cmp3.i.i106.i = icmp ult i32 %sub.i.i105.i, %sub104.i
+  %cmp3.i.i106.i = icmp ugt i32 %sub104.i, %sub.i.i105.i
   br i1 %cmp3.i.i106.i, label %return.sink.split.i, label %if.end5.i.i107.i
 
 if.end5.i.i107.i:                                 ; preds = %if.end2.i.i104.i
@@ -2266,7 +2266,7 @@ land.lhs.true14:                                  ; preds = %if.end12
   %cmp15.not = icmp uge ptr %src, %dest
   %idx.ext = zext nneg i32 %destCapacity to i64
   %add.ptr = getelementptr inbounds i16, ptr %dest, i64 %idx.ext
-  %cmp17 = icmp ugt ptr %add.ptr, %src
+  %cmp17 = icmp ult ptr %src, %add.ptr
   %or.cond30 = select i1 %cmp15.not, i1 %cmp17, i1 false
   br i1 %or.cond30, label %if.then24, label %lor.lhs.false18
 
@@ -2274,7 +2274,7 @@ lor.lhs.false18:                                  ; preds = %land.lhs.true14
   %cmp19.not = icmp uge ptr %dest, %src
   %idx.ext21 = sext i32 %srcLength.addr.0 to i64
   %add.ptr22 = getelementptr inbounds i16, ptr %src, i64 %idx.ext21
-  %cmp23 = icmp ugt ptr %add.ptr22, %dest
+  %cmp23 = icmp ult ptr %dest, %add.ptr22
   %or.cond31 = select i1 %cmp19.not, i1 %cmp23, i1 false
   br i1 %or.cond31, label %if.then24, label %if.end25
 
@@ -2352,7 +2352,7 @@ land.lhs.true14:                                  ; preds = %if.end12
   %cmp15.not = icmp uge ptr %src, %dest
   %idx.ext = zext nneg i32 %destCapacity to i64
   %add.ptr = getelementptr inbounds i16, ptr %dest, i64 %idx.ext
-  %cmp17 = icmp ugt ptr %add.ptr, %src
+  %cmp17 = icmp ult ptr %src, %add.ptr
   %or.cond42 = select i1 %cmp15.not, i1 %cmp17, i1 false
   br i1 %or.cond42, label %if.then24, label %lor.lhs.false18
 
@@ -2360,7 +2360,7 @@ lor.lhs.false18:                                  ; preds = %land.lhs.true14
   %cmp19.not = icmp uge ptr %dest, %src
   %idx.ext21 = sext i32 %srcLength.addr.0 to i64
   %add.ptr22 = getelementptr inbounds i16, ptr %src, i64 %idx.ext21
-  %cmp23 = icmp ugt ptr %add.ptr22, %dest
+  %cmp23 = icmp ult ptr %dest, %add.ptr22
   %or.cond43 = select i1 %cmp19.not, i1 %cmp23, i1 false
   br i1 %or.cond43, label %if.then24, label %if.end33.thread
 
@@ -2475,7 +2475,7 @@ land.lhs.true14.i:                                ; preds = %if.end12.i
   %cmp15.not.i = icmp uge ptr %src, %dest
   %idx.ext.i = zext nneg i32 %destCapacity to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %dest, i64 %idx.ext.i
-  %cmp17.i = icmp ugt ptr %add.ptr.i, %src
+  %cmp17.i = icmp ult ptr %src, %add.ptr.i
   %or.cond30.i = select i1 %cmp15.not.i, i1 %cmp17.i, i1 false
   br i1 %or.cond30.i, label %if.then24.i, label %lor.lhs.false18.i
 
@@ -2483,7 +2483,7 @@ lor.lhs.false18.i:                                ; preds = %land.lhs.true14.i
   %cmp19.not.i = icmp uge ptr %dest, %src
   %idx.ext21.i = sext i32 %srcLength.addr.0.i to i64
   %add.ptr22.i = getelementptr inbounds i16, ptr %src, i64 %idx.ext21.i
-  %cmp23.i = icmp ugt ptr %add.ptr22.i, %dest
+  %cmp23.i = icmp ult ptr %dest, %add.ptr22.i
   %or.cond31.i = select i1 %cmp19.not.i, i1 %cmp23.i, i1 false
   br i1 %or.cond31.i, label %if.then24.i, label %if.end25.i
 

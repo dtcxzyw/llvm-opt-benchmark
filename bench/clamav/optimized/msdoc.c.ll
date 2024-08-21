@@ -637,7 +637,7 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef %0, i64 nounde
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, i32 noundef %.067, i32 noundef %.0.copyload24, i32 noundef 25) #10
   %36 = load i32, ptr %27, align 4
   %37 = zext i32 %36 to i64
-  %38 = add nuw nsw i64 %37, %1
+  %38 = add nuw nsw i64 %1, %37
   %39 = load i64, ptr %9, align 8
   %40 = icmp ugt i64 %38, %39
   br i1 %40, label %41, label %45
@@ -1724,11 +1724,11 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   %92 = load i64, ptr %8, align 8
   %93 = sub i64 %78, %92
   %94 = add nuw nsw i64 %79, 2
-  %95 = mul nsw i64 %94, %2
+  %95 = mul nsw i64 %2, %94
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.99, i64 noundef %78, i64 noundef %95) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv196, 1
   %96 = shl nuw nsw i64 %indvars.iv.next, 1
-  %97 = mul nsw i64 %96, %2
+  %97 = mul nsw i64 %2, %96
   %98 = or disjoint i64 %97, 1
   %99 = call ptr @cli_max_realloc(ptr noundef nonnull %77, i64 noundef %98) #10
   %.not117 = icmp eq ptr %99, null

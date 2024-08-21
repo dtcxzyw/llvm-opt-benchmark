@@ -269,7 +269,7 @@ get_byte.exit.thread:                             ; preds = %34
   %69 = add i32 %68, %66
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds i16, ptr %0, i64 %70
-  %.not52.i = icmp ugt ptr %57, %71
+  %.not52.i = icmp ult ptr %71, %57
   br i1 %.not52.i, label %.thread501, label %72
 
 72:                                               ; preds = %67
@@ -431,7 +431,7 @@ getbit_from_table.exit:                           ; preds = %get_byte.exit.i, %8
   %153 = shl nuw nsw i32 %.05.i, 1
   %154 = zext nneg i32 %.05.i to i64
   %155 = getelementptr inbounds i16, ptr %148, i64 %154
-  %.not52.i441 = icmp ugt ptr %57, %155
+  %.not52.i441 = icmp ult ptr %155, %57
   br i1 %.not52.i441, label %161, label %156
 
 156:                                              ; preds = %149
@@ -573,7 +573,7 @@ getbit_from_table.exit452:                        ; preds = %161, %168, %get_byt
   %.pn.in = add i32 %.0273, 192
   %.pn = zext i32 %.pn.in to i64
   %221 = getelementptr inbounds i16, ptr %0, i64 %.pn
-  %.not52.i362 = icmp ugt ptr %57, %221
+  %.not52.i362 = icmp ult ptr %221, %57
   br i1 %.not52.i362, label %.thread507, label %222
 
 222:                                              ; preds = %.thread499
@@ -677,7 +677,7 @@ get_byte.exit57.i368:                             ; preds = %257, %256
   %.pn522.in = add i32 %.0273, 204
   %.pn522 = zext i32 %.pn522.in to i64
   %269 = getelementptr inbounds i16, ptr %0, i64 %.pn522
-  %.not52.i375 = icmp ugt ptr %57, %269
+  %.not52.i375 = icmp ult ptr %269, %57
   br i1 %.not52.i375, label %.thread515, label %270
 
 270:                                              ; preds = %.thread505
@@ -779,7 +779,7 @@ get_byte.exit57.i381:                             ; preds = %307, %306
   %320 = add i32 %319, %68
   %321 = zext i32 %320 to i64
   %322 = getelementptr inbounds i16, ptr %0, i64 %321
-  %.not52.i388 = icmp ugt ptr %57, %322
+  %.not52.i388 = icmp ult ptr %322, %57
   br i1 %.not52.i388, label %328, label %323
 
 323:                                              ; preds = %314
@@ -928,7 +928,7 @@ getbit_from_table.exit399:                        ; preds = %get_byte.exit.i397,
   %.pn523.in = add i32 %.0273, 216
   %.pn523 = zext i32 %.pn523.in to i64
   %395 = getelementptr inbounds i16, ptr %0, i64 %.pn523
-  %.not52.i401 = icmp ugt ptr %57, %395
+  %.not52.i401 = icmp ult ptr %395, %57
   br i1 %.not52.i401, label %.thread521, label %396
 
 396:                                              ; preds = %.thread513
@@ -1030,7 +1030,7 @@ get_byte.exit57.i407:                             ; preds = %431, %430
   %.pn524.in = add i32 %.0273, 228
   %.pn524 = zext i32 %.pn524.in to i64
   %441 = getelementptr inbounds i16, ptr %0, i64 %.pn524
-  %.not52.i414 = icmp ugt ptr %57, %441
+  %.not52.i414 = icmp ult ptr %441, %57
   br i1 %.not52.i414, label %447, label %442
 
 442:                                              ; preds = %.thread519
@@ -1174,7 +1174,7 @@ get_n_bits_from_table.exit.thread:                ; preds = %getbit_from_table.e
   %507 = shl i32 %.079.i, 1
   %508 = zext i32 %.079.i to i64
   %509 = getelementptr inbounds i16, ptr %496, i64 %508
-  %.not52.i454 = icmp ugt ptr %499, %509
+  %.not52.i454 = icmp ult ptr %509, %499
   br i1 %.not52.i454, label %515, label %510
 
 510:                                              ; preds = %.lr.ph.i
@@ -1316,7 +1316,7 @@ get_n_bits_from_table.exit:                       ; preds = %getbit_from_table.e
   %.01517.i = phi i32 [ %626, %getbit_from_table.exit478 ], [ 1, %569 ]
   %576 = zext i32 %.01517.i to i64
   %577 = getelementptr inbounds i16, ptr %572, i64 %576
-  %.not52.i467 = icmp ugt ptr %499, %577
+  %.not52.i467 = icmp ult ptr %577, %499
   %or.cond686 = select i1 %switch.i453, i1 true, i1 %.not52.i467
   br i1 %or.cond686, label %583, label %578
 
@@ -1504,7 +1504,7 @@ get_bitmap.exit:                                  ; preds = %655
   %.01517.i436 = phi i32 [ %710, %getbit_from_table.exit491 ], [ 1, %get_bitmap.exit ]
   %660 = zext i32 %.01517.i436 to i64
   %661 = getelementptr inbounds i16, ptr %50, i64 %660
-  %.not52.i480 = icmp ugt ptr %499, %661
+  %.not52.i480 = icmp ult ptr %661, %499
   %or.cond687 = select i1 %switch.i453, i1 true, i1 %.not52.i480
   br i1 %or.cond687, label %667, label %662
 
@@ -1741,7 +1741,7 @@ define range(i32 0, 256) i32 @getbit_from_table(ptr noundef %0, ptr nocapture no
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
-  %.not52 = icmp ugt ptr %8, %0
+  %.not52 = icmp ult ptr %0, %8
   br i1 %.not52, label %16, label %9
 
 9:                                                ; preds = %6
@@ -1924,7 +1924,7 @@ getbit_from_table.exit.us:                        ; preds = %getbit_from_table.e
 
 34:                                               ; preds = %.preheader.split
   %35 = load ptr, ptr %5, align 8
-  %.not52.i = icmp ugt ptr %35, %32
+  %.not52.i = icmp ult ptr %32, %35
   br i1 %.not52.i, label %43, label %36
 
 36:                                               ; preds = %34

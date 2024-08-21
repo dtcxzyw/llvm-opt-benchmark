@@ -2308,7 +2308,7 @@ _ZNSt6vectorIhSaIhEEaSERKS1_.exit:                ; preds = %_ZNSt12_Vector_base
   %203 = ptrtoint ptr %.sroa.12.0590 to i64
   %204 = ptrtoint ptr %.sroa.0.0589 to i64
   %205 = sub i64 %203, %204
-  %206 = icmp ult i64 %205, %202
+  %206 = icmp ugt i64 %202, %205
   br i1 %206, label %207, label %235
 
 207:                                              ; preds = %201
@@ -2387,7 +2387,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %232, %_ZNS
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
 
 235:                                              ; preds = %201
-  %236 = icmp ugt i64 %205, %202
+  %236 = icmp ult i64 %202, %205
   %237 = getelementptr inbounds i8, ptr %.sroa.0.0589, i64 %202
   %spec.select328 = select i1 %236, ptr %237, ptr %.sroa.12.0590
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
@@ -6376,7 +6376,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl11setVarTypesERKNSt7__
 
 54:                                               ; preds = %52, %52
   %55 = icmp sgt i32 %42, -1
-  %56 = icmp slt i32 %42, %2
+  %56 = icmp sgt i32 %2, %42
   %or.cond = and i1 %55, %56
   br i1 %or.cond, label %64, label %57
 
@@ -6448,7 +6448,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl11setVarTypesERKNSt7__
   %82 = getelementptr inbounds i8, ptr %72, i64 1
   %83 = icmp sgt i32 %42, -1
   %.not85 = icmp sle i32 %42, %71
-  %84 = icmp slt i32 %71, %2
+  %84 = icmp sgt i32 %2, %71
   %85 = and i1 %.not85, %84
   %or.cond103 = select i1 %83, i1 %85, i1 false
   br i1 %or.cond103, label %.preheader108.preheader, label %87
@@ -6576,7 +6576,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -6659,7 +6659,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -6881,7 +6881,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 17:                                               ; preds = %14
   %.not.i.i = icmp ne ptr %15, null
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = icmp eq ptr %18, %16
+  %19 = icmp eq ptr %16, %18
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %19
   br i1 %or.cond.i.i, label %.thread, label %20
 
@@ -6929,7 +6929,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -8052,7 +8052,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit: ; preds = %.lr.p
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -8471,7 +8471,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_le
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -8551,7 +8551,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds i32, ptr %0, i64 %51
   %53 = load i32, ptr %52, align 4
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -8603,7 +8603,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds i32, ptr %0, i64 %73
   %75 = load i32, ptr %74, align 4
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -9259,7 +9259,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.2.0.copyload15 = load i32, ptr %.sroa.2.0..sroa_idx14, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -9357,7 +9357,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml13TrainDataImp
   %69 = load i32, ptr %68, align 4
   %.sroa.0.0.copyload19 = load ptr, ptr %2, align 8
   %.sroa.2.0.copyload21 = load i32, ptr %.sroa.2.0..sroa_idx14, align 8
-  %.not = icmp slt i64 %14, %.042
+  %.not = icmp sgt i64 %.042, %14
   br i1 %.not, label %._crit_edge.i24, label %.lr.ph.i33
 
 .lr.ph.i33:                                       ; preds = %.split18, %.lr.ph.i33
@@ -9445,7 +9445,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #6 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -10054,7 +10054,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl9getSampleERKNS_11_Inp
 
 _ZNK2cv2ml13TrainDataImpl11getNSamplesEv.exit:    ; preds = %17, %24, %27
   %30 = phi i32 [ %19, %17 ], [ %26, %24 ], [ %29, %27 ]
-  %31 = icmp sgt i32 %30, %2
+  %31 = icmp slt i32 %2, %30
   br i1 %31, label %40, label %32
 
 32:                                               ; preds = %_ZNK2cv2ml13TrainDataImpl11getNSamplesEv.exit, %4
@@ -11048,7 +11048,7 @@ _ZNK2cv2ml13TrainDataImpl11getNSamplesEv.exit:    ; preds = %32, %29, %.noexc51
   %.in.v.i = select i1 %40, i64 36, i64 32
   %.in.i = getelementptr inbounds i8, ptr %0, i64 %.in.v.i
   %41 = load i32, ptr %.in.i, align 4
-  %42 = icmp sgt i32 %41, %1
+  %42 = icmp slt i32 %1, %41
   br i1 %42, label %53, label %45
 
 43:                                               ; preds = %22, %19, %_ZNK2cv11_InputArray6getMatEi.exit
@@ -11579,7 +11579,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv2ml13TrainDataImpl11getCatCountEi
   %6 = tail call noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
   %7 = icmp sgt i32 %1, -1
   %8 = trunc i64 %6 to i32
-  %9 = icmp sgt i32 %8, %1
+  %9 = icmp slt i32 %1, %8
   %or.cond = and i1 %7, %9
   br i1 %or.cond, label %18, label %10
 
@@ -11729,7 +11729,7 @@ define linkonce_odr hidden void @_ZN2cv2ml13TrainDataImpl17setTrainTestSplitEib(
 _ZNK2cv2ml13TrainDataImpl11getNSamplesEv.exit:    ; preds = %9, %16, %19
   %22 = phi i32 [ %11, %9 ], [ %18, %16 ], [ %21, %19 ]
   %23 = icmp sgt i32 %1, -1
-  %24 = icmp sgt i32 %22, %1
+  %24 = icmp slt i32 %1, %22
   %or.cond = and i1 %23, %24
   br i1 %or.cond, label %33, label %25
 
@@ -11975,7 +11975,7 @@ define linkonce_odr hidden void @_ZN2cv2ml13TrainDataImpl22setTrainTestSplitRati
 _ZNK2cv2ml13TrainDataImpl11getNSamplesEv.exit:    ; preds = %19, %26, %29
   %32 = phi i32 [ %21, %19 ], [ %28, %26 ], [ %31, %29 ]
   %33 = sitofp i32 %32 to double
-  %34 = fmul double %33, %1
+  %34 = fmul double %1, %33
   %35 = insertelement <2 x double> poison, double %34, i64 0
   %36 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %35)
   tail call void @_ZN2cv2ml13TrainDataImpl17setTrainTestSplitEib(ptr noundef nonnull align 8 dereferenceable(1608) %0, i32 noundef %36, i1 noundef zeroext %2)
@@ -12269,7 +12269,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl8getNamesERSt6vectorIN
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 5
-  %19 = icmp ult i64 %18, %11
+  %19 = icmp ugt i64 %11, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %2
@@ -12278,7 +12278,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl8getNamesERSt6vectorIN
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
 22:                                               ; preds = %2
-  %23 = icmp ugt i64 %18, %11
+  %23 = icmp ult i64 %11, %18
   br i1 %23, label %24, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
 24:                                               ; preds = %22

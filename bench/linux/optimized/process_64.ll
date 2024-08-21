@@ -518,7 +518,7 @@ define internal fastcc void @__wrgsbase_inactive(i64 noundef %0) unnamed_addr #4
 define dso_local i64 @x86_fsbase_read_task(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !31
   %3 = inttoptr i64 %2 to ptr
-  %4 = icmp eq ptr %3, %0
+  %4 = icmp eq ptr %0, %3
   %5 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 72), align 8
   %6 = and i64 %5, 4294967296
   %7 = icmp eq i64 %6, 0
@@ -638,7 +638,7 @@ define dso_local i64 @x86_gsbase_read_task(ptr noundef readonly %0) local_unname
   %2 = alloca i64, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !31
   %4 = inttoptr i64 %3 to ptr
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   %6 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 72), align 8
   %7 = and i64 %6, 4294967296
   %8 = icmp eq i64 %7, 0
@@ -769,7 +769,7 @@ define dso_local i64 @x86_gsbase_read_task(ptr noundef readonly %0) local_unname
 define dso_local void @x86_fsbase_write_task(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !31
   %4 = inttoptr i64 %3 to ptr
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   br i1 %5, label %6, label %7, !prof !37
 
 6:                                                ; preds = %2
@@ -788,7 +788,7 @@ define dso_local void @x86_fsbase_write_task(ptr noundef writeonly %0, i64 nound
 define dso_local void @x86_gsbase_write_task(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !31
   %4 = inttoptr i64 %3 to ptr
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   br i1 %5, label %6, label %7, !prof !37
 
 6:                                                ; preds = %2
@@ -1484,7 +1484,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @do_arch_prctl_64(ptr no
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !86
   %10 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !31
   %11 = inttoptr i64 %10 to ptr
-  %12 = icmp eq ptr %11, %0
+  %12 = icmp eq ptr %0, %11
   br i1 %12, label %13, label %35
 
 13:                                               ; preds = %9
@@ -1575,7 +1575,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @do_arch_prctl_64(ptr no
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !89
   %49 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !31
   %50 = inttoptr i64 %49 to ptr
-  %51 = icmp eq ptr %50, %0
+  %51 = icmp eq ptr %0, %50
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %48

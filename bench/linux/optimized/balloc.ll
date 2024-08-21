@@ -329,7 +329,7 @@ ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.pr
   %124 = add i64 %122, %103
   %125 = trunc i64 %124 to i32
   %126 = add i32 %125, -1
-  %127 = icmp eq i32 %123, %1
+  %127 = icmp eq i32 %1, %123
   %128 = add i32 %123, 1
   %129 = icmp eq i32 %128, %1
   %130 = or i1 %127, %129
@@ -412,7 +412,7 @@ ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.pr
 195:                                              ; preds = %190, %180
   %196 = phi i64 [ %194, %190 ], [ %189, %180 ]
   %197 = trunc i64 %196 to i32
-  %198 = icmp eq i32 %197, %1
+  %198 = icmp eq i32 %1, %197
   br i1 %198, label %199, label %213
 
 199:                                              ; preds = %195
@@ -472,7 +472,7 @@ ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.pr
 243:                                              ; preds = %238, %228
   %244 = phi i64 [ %242, %238 ], [ %237, %228 ]
   %245 = trunc i64 %244 to i32
-  %246 = icmp eq i32 %245, %1
+  %246 = icmp eq i32 %1, %245
   br i1 %246, label %247, label %263
 
 247:                                              ; preds = %243
@@ -1121,7 +1121,7 @@ ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.pr
   %110 = add i64 %108, %89
   %111 = trunc i64 %110 to i32
   %112 = add i32 %111, -1
-  %113 = icmp eq i32 %109, %2
+  %113 = icmp eq i32 %2, %109
   %114 = add i32 %109, 1
   %115 = icmp eq i32 %114, %2
   %116 = or i1 %113, %115
@@ -1213,7 +1213,7 @@ ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.pr
 179:                                              ; preds = %174, %164
   %180 = phi i64 [ %178, %174 ], [ %173, %164 ]
   %181 = trunc i64 %180 to i32
-  %182 = icmp eq i32 %181, %2
+  %182 = icmp eq i32 %2, %181
   br i1 %182, label %183, label %192
 
 183:                                              ; preds = %179
@@ -1265,7 +1265,7 @@ ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.pr
 220:                                              ; preds = %215, %205
   %221 = phi i64 [ %219, %215 ], [ %214, %205 ]
   %222 = trunc i64 %221 to i32
-  %223 = icmp eq i32 %222, %2
+  %223 = icmp eq i32 %2, %222
   br i1 %223, label %224, label %233
 
 224:                                              ; preds = %220
@@ -1330,7 +1330,7 @@ ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.pr
 270:                                              ; preds = %265, %256
   %271 = phi i64 [ %269, %265 ], [ %264, %256 ]
   %272 = trunc i64 %271 to i32
-  %273 = icmp eq i32 %272, %2
+  %273 = icmp eq i32 %2, %272
   br i1 %273, label %274, label %282
 
 274:                                              ; preds = %270
@@ -2460,7 +2460,7 @@ ext4_bg_has_super.exit.thread:                    ; preds = %.preheader7.i, %.pr
   %81 = add i64 %79, %10
   %82 = trunc i64 %81 to i32
   %83 = add i32 %82, -1
-  %84 = icmp eq i32 %80, %1
+  %84 = icmp eq i32 %1, %80
   %85 = add i32 %80, 1
   %86 = icmp eq i32 %85, %1
   %87 = or i1 %84, %86
@@ -2617,7 +2617,7 @@ ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.pr
   %93 = add i64 %91, %72
   %94 = trunc i64 %93 to i32
   %95 = add i32 %94, -1
-  %96 = icmp eq i32 %92, %1
+  %96 = icmp eq i32 %1, %92
   %97 = add i32 %92, 1
   %98 = icmp eq i32 %97, %1
   %99 = or i1 %96, %98

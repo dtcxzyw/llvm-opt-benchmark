@@ -204,18 +204,18 @@ define i32 @cli_bcapi_read(ptr nocapture noundef %0, ptr noundef %1, i32 noundef
   %17 = zext nneg i32 %2 to i64
   %18 = getelementptr inbounds i8, ptr %5, i64 88
   %19 = load i64, ptr %18, align 8
-  %20 = icmp ne i64 %19, %16
+  %20 = icmp ne i64 %16, %19
   %21 = icmp ne i32 %2, 0
   %or.cond.i = and i1 %21, %20
   br i1 %or.cond.i, label %22, label %fmap_readn.exit.thread
 
 22:                                               ; preds = %14
-  %23 = icmp ult i64 %19, %16
+  %23 = icmp ugt i64 %16, %19
   br i1 %23, label %fmap_readn.exit.thread, label %24
 
 24:                                               ; preds = %22
   %25 = sub nuw i64 %19, %16
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %25, i64 %17)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %25)
   %26 = getelementptr inbounds i8, ptr %5, i64 104
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %5, i64 noundef %16, i64 noundef %spec.select.i, i32 noundef 0) #28
@@ -937,18 +937,18 @@ define i32 @cli_bcapi_file_find_limit(ptr nocapture noundef readonly %0, ptr nou
 36:                                               ; preds = %34, %.split.us
   %.0.us = phi i64 [ %35, %34 ], [ 4096, %.split.us ]
   %37 = load i64, ptr %24, align 8
-  %38 = icmp ne i64 %37, %29
+  %38 = icmp ne i64 %29, %37
   %39 = icmp ne i64 %.0.us, 0
   %or.cond.i.us = and i1 %39, %38
   br i1 %or.cond.i.us, label %40, label %fmap_readn.exit.us
 
 40:                                               ; preds = %36
-  %41 = icmp ult i64 %37, %29
+  %41 = icmp ugt i64 %29, %37
   br i1 %41, label %fmap_readn.exit.thread, label %42
 
 42:                                               ; preds = %40
   %43 = sub nuw i64 %37, %29
-  %spec.select.i.us = tail call i64 @llvm.umin.i64(i64 %43, i64 %.0.us)
+  %spec.select.i.us = tail call i64 @llvm.umin.i64(i64 %.0.us, i64 %43)
   %44 = load ptr, ptr %25, align 8
   %45 = tail call ptr %44(ptr noundef nonnull %7, i64 noundef %29, i64 noundef %spec.select.i.us, i32 noundef 0) #28
   %.not.i.us = icmp eq ptr %45, null
@@ -989,18 +989,18 @@ fmap_readn.exit.us:                               ; preds = %46, %36
 60:                                               ; preds = %58, %.split.split.us
   %.0.us71 = phi i64 [ %59, %58 ], [ 4096, %.split.split.us ]
   %61 = load i64, ptr %24, align 8
-  %62 = icmp ne i64 %61, %53
+  %62 = icmp ne i64 %53, %61
   %63 = icmp ne i64 %.0.us71, 0
   %or.cond.i.us72 = and i1 %63, %62
   br i1 %or.cond.i.us72, label %64, label %fmap_readn.exit.us75
 
 64:                                               ; preds = %60
-  %65 = icmp ult i64 %61, %53
+  %65 = icmp ugt i64 %53, %61
   br i1 %65, label %fmap_readn.exit.thread, label %66
 
 66:                                               ; preds = %64
   %67 = sub nuw i64 %61, %53
-  %spec.select.i.us73 = call i64 @llvm.umin.i64(i64 %67, i64 %.0.us71)
+  %spec.select.i.us73 = call i64 @llvm.umin.i64(i64 %.0.us71, i64 %67)
   %68 = load ptr, ptr %25, align 8
   %69 = call ptr %68(ptr noundef nonnull %7, i64 noundef %53, i64 noundef %spec.select.i.us73, i32 noundef 0) #28
   %.not.i.us74 = icmp eq ptr %69, null
@@ -1045,18 +1045,18 @@ cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us7
 86:                                               ; preds = %84, %.split.split
   %.0 = phi i64 [ %85, %84 ], [ 4096, %.split.split ]
   %87 = load i64, ptr %24, align 8
-  %88 = icmp ne i64 %87, %79
+  %88 = icmp ne i64 %79, %87
   %89 = icmp ne i64 %.0, 0
   %or.cond.i = and i1 %89, %88
   br i1 %or.cond.i, label %90, label %fmap_readn.exit
 
 90:                                               ; preds = %86
-  %91 = icmp ult i64 %87, %79
+  %91 = icmp ugt i64 %79, %87
   br i1 %91, label %fmap_readn.exit.thread, label %92
 
 92:                                               ; preds = %90
   %93 = sub nuw i64 %87, %79
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %93, i64 %.0)
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %.0, i64 %93)
   %94 = load ptr, ptr %25, align 8
   %95 = call ptr %94(ptr noundef nonnull %7, i64 noundef %79, i64 noundef %spec.select.i, i32 noundef 0) #28
   %.not.i = icmp eq ptr %95, null
@@ -1079,7 +1079,7 @@ fmap_readn.exit:                                  ; preds = %86, %96
   %101 = trunc i64 %.0.i to i32
   %102 = load i8, ptr %1, align 1
   %103 = zext i8 %102 to i32
-  %.not34.i = icmp ult i32 %101, %2
+  %.not34.i = icmp ugt i32 %2, %101
   br i1 %.not34.i, label %cli_memmem.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %109
@@ -1225,7 +1225,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_get_pe_section(ptr nocapture noundef read
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i16, ptr %6, align 8
   %8 = zext i16 %7 to i32
-  %9 = icmp ugt i32 %8, %2
+  %9 = icmp ult i32 %2, %8
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %3
@@ -1693,7 +1693,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_hashset_add(ptr nocapture noundef readonl
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 1236
   %7 = load i32, ptr %6, align 4
-  %.not.i = icmp ugt i32 %7, %1
+  %.not.i = icmp ult i32 %1, %7
   br i1 %.not.i, label %8, label %get_hashset.exit.thread
 
 8:                                                ; preds = %5
@@ -1731,7 +1731,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_hashset_remove(ptr nocapture noundef read
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 1236
   %7 = load i32, ptr %6, align 4
-  %.not.i = icmp ugt i32 %7, %1
+  %.not.i = icmp ult i32 %1, %7
   br i1 %.not.i, label %8, label %get_hashset.exit.thread
 
 8:                                                ; preds = %5
@@ -1769,7 +1769,7 @@ define range(i32 -1, 2) i32 @cli_bcapi_hashset_contains(ptr nocapture noundef re
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 1236
   %7 = load i32, ptr %6, align 4
-  %.not.i = icmp ugt i32 %7, %1
+  %.not.i = icmp ult i32 %1, %7
   br i1 %.not.i, label %8, label %get_hashset.exit.thread
 
 8:                                                ; preds = %5
@@ -1806,7 +1806,7 @@ define range(i32 0, 2) i32 @cli_bcapi_hashset_empty(ptr nocapture noundef readon
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 1236
   %6 = load i32, ptr %5, align 4
-  %.not.i = icmp ugt i32 %6, %1
+  %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_hashset.exit.thread
 
 7:                                                ; preds = %4
@@ -1842,7 +1842,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_hashset_done(ptr nocapture noundef %0, i3
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 1236
   %6 = load i32, ptr %5, align 4
-  %.not.i = icmp ugt i32 %6, %1
+  %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_hashset.exit.thread
 
 7:                                                ; preds = %4
@@ -1863,7 +1863,7 @@ get_hashset.exit:                                 ; preds = %7
   tail call void @cli_hashset_destroy(ptr noundef nonnull %13) #28
   %14 = load i32, ptr %5, align 4
   %15 = add i32 %14, -1
-  %16 = icmp eq i32 %15, %1
+  %16 = icmp eq i32 %1, %15
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %get_hashset.exit
@@ -1945,7 +1945,7 @@ define i32 @cli_bcapi_buffer_pipe_new_fromfile(ptr nocapture noundef %0, i32 nou
   %5 = add i32 %4, 1
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
-  %.not = icmp ugt i32 %7, %1
+  %.not = icmp ult i32 %1, %7
   br i1 %.not, label %8, label %20
 
 8:                                                ; preds = %2
@@ -1988,7 +1988,7 @@ define i32 @cli_bcapi_buffer_pipe_read_avail(ptr nocapture noundef readonly %0, 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 1232
   %9 = load i32, ptr %8, align 8
-  %.not.i = icmp ugt i32 %9, %1
+  %.not.i = icmp ult i32 %1, %9
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
 
 get_buffer.exit.thread:                           ; preds = %2, %7
@@ -2048,7 +2048,7 @@ define ptr @cli_bcapi_buffer_pipe_read_get(ptr nocapture noundef readonly %0, i3
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 1232
   %10 = load i32, ptr %9, align 8
-  %.not.i = icmp ugt i32 %10, %1
+  %.not.i = icmp ult i32 %1, %10
   br i1 %.not.i, label %get_buffer.exit.i, label %get_buffer.exit.thread
 
 get_buffer.exit.thread:                           ; preds = %3, %8
@@ -2131,7 +2131,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_buffer_pipe_read_stopped(ptr nocapture no
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 1232
   %10 = load i32, ptr %9, align 8
-  %.not.i = icmp ugt i32 %10, %1
+  %.not.i = icmp ult i32 %1, %10
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
 
 get_buffer.exit.thread:                           ; preds = %3, %8
@@ -2191,7 +2191,7 @@ define i32 @cli_bcapi_buffer_pipe_write_avail(ptr nocapture noundef readonly %0,
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 1232
   %9 = load i32, ptr %8, align 8
-  %.not.i = icmp ugt i32 %9, %1
+  %.not.i = icmp ult i32 %1, %9
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
 
 get_buffer.exit.thread:                           ; preds = %2, %7
@@ -2230,7 +2230,7 @@ define ptr @cli_bcapi_buffer_pipe_write_get(ptr nocapture noundef readonly %0, i
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 1232
   %10 = load i32, ptr %9, align 8
-  %.not.i = icmp ugt i32 %10, %1
+  %.not.i = icmp ult i32 %1, %10
   br i1 %.not.i, label %get_buffer.exit.i, label %get_buffer.exit.thread
 
 get_buffer.exit.thread:                           ; preds = %3, %8
@@ -2276,7 +2276,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_buffer_pipe_write_stopped(ptr nocapture n
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 1232
   %10 = load i32, ptr %9, align 8
-  %.not.i = icmp ugt i32 %10, %1
+  %.not.i = icmp ult i32 %1, %10
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
 
 get_buffer.exit.thread:                           ; preds = %3, %8
@@ -2317,7 +2317,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_buffer_pipe_done(ptr nocapture noundef re
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 1232
   %9 = load i32, ptr %8, align 8
-  %.not.i = icmp ugt i32 %9, %1
+  %.not.i = icmp ult i32 %1, %9
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
 
 get_buffer.exit.thread:                           ; preds = %2, %7
@@ -2352,12 +2352,12 @@ define i32 @cli_bcapi_inflate_init(ptr nocapture noundef %0, i32 noundef %1, i32
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 1232
   %14 = load i32, ptr %13, align 8
-  %.not.i = icmp ugt i32 %14, %1
+  %.not.i = icmp ult i32 %1, %14
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
 
 get_buffer.exit:                                  ; preds = %12
   %15 = icmp sgt i32 %2, -1
-  %.not.i29 = icmp ugt i32 %14, %2
+  %.not.i29 = icmp ult i32 %2, %14
   %or.cond = and i1 %15, %.not.i29
   br i1 %or.cond, label %get_buffer.exit31, label %get_buffer.exit.thread
 
@@ -2430,7 +2430,7 @@ define i32 @cli_bcapi_inflate_process(ptr nocapture noundef readonly %0, i32 nou
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 1108
   %6 = load i32, ptr %5, align 4
-  %.not.i = icmp ugt i32 %6, %1
+  %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_inflate.exit.thread
 
 7:                                                ; preds = %4
@@ -2464,7 +2464,7 @@ get_inflate.exit:                                 ; preds = %7
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %0, i64 1232
   %26 = load i32, ptr %25, align 8
-  %.not.i.i = icmp ugt i32 %26, %13
+  %.not.i.i = icmp ult i32 %13, %26
   br i1 %.not.i.i, label %get_buffer.exit.i, label %get_buffer.exit.thread.i
 
 get_buffer.exit.thread.i:                         ; preds = %24, %19
@@ -2522,7 +2522,7 @@ cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thr
 51:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit
   %52 = getelementptr inbounds i8, ptr %0, i64 1232
   %53 = load i32, ptr %52, align 8
-  %.not.i.i65 = icmp ugt i32 %53, %46
+  %.not.i.i65 = icmp ult i32 %46, %53
   br i1 %.not.i.i65, label %get_buffer.exit.i.i, label %get_buffer.exit.thread.i66
 
 get_buffer.exit.thread.i66:                       ; preds = %51, %cli_bcapi_buffer_pipe_read_avail.exit
@@ -2595,7 +2595,7 @@ cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thr
 85:                                               ; preds = %cli_bcapi_buffer_pipe_read_get.exit
   %86 = getelementptr inbounds i8, ptr %0, i64 1232
   %87 = load i32, ptr %86, align 8
-  %.not.i.i69 = icmp ugt i32 %87, %81
+  %.not.i.i69 = icmp ult i32 %81, %87
   br i1 %.not.i.i69, label %get_buffer.exit.i72, label %get_buffer.exit.thread.i70
 
 get_buffer.exit.thread.i70:                       ; preds = %85, %cli_bcapi_buffer_pipe_read_get.exit
@@ -2632,7 +2632,7 @@ cli_bcapi_buffer_pipe_write_avail.exit:           ; preds = %get_buffer.exit.thr
 101:                                              ; preds = %cli_bcapi_buffer_pipe_write_avail.exit
   %102 = getelementptr inbounds i8, ptr %0, i64 1232
   %103 = load i32, ptr %102, align 8
-  %.not.i.i75 = icmp ugt i32 %103, %96
+  %.not.i.i75 = icmp ult i32 %96, %103
   br i1 %.not.i.i75, label %get_buffer.exit.i.i78, label %get_buffer.exit.thread.i76
 
 get_buffer.exit.thread.i76:                       ; preds = %101, %cli_bcapi_buffer_pipe_write_avail.exit
@@ -2730,7 +2730,7 @@ cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thr
 141:                                              ; preds = %134
   %142 = getelementptr inbounds i8, ptr %0, i64 1232
   %143 = load i32, ptr %142, align 8
-  %.not.i.i82 = icmp ugt i32 %143, %135
+  %.not.i.i82 = icmp ult i32 %135, %143
   br i1 %.not.i.i82, label %get_buffer.exit.i85, label %get_buffer.exit.thread.i83
 
 get_buffer.exit.thread.i83:                       ; preds = %141, %134
@@ -2786,7 +2786,7 @@ cli_bcapi_buffer_pipe_read_stopped.exit:          ; preds = %get_buffer.exit.thr
 167:                                              ; preds = %cli_bcapi_buffer_pipe_read_stopped.exit
   %168 = getelementptr inbounds i8, ptr %0, i64 1232
   %169 = load i32, ptr %168, align 8
-  %.not.i.i87 = icmp ugt i32 %169, %161
+  %.not.i.i87 = icmp ult i32 %161, %169
   br i1 %.not.i.i87, label %get_buffer.exit.i90, label %get_buffer.exit.thread.i88
 
 get_buffer.exit.thread.i88:                       ; preds = %167, %cli_bcapi_buffer_pipe_read_stopped.exit
@@ -2847,7 +2847,7 @@ define i32 @cli_bcapi_inflate_done(ptr nocapture noundef readonly %0, i32 nounde
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 1108
   %6 = load i32, ptr %5, align 4
-  %.not.i = icmp ugt i32 %6, %1
+  %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_inflate.exit.thread
 
 7:                                                ; preds = %4
@@ -2908,12 +2908,12 @@ define i32 @cli_bcapi_lzma_init(ptr nocapture noundef %0, i32 noundef %1, i32 no
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 1232
   %13 = load i32, ptr %12, align 8
-  %.not.i = icmp ugt i32 %13, %1
+  %.not.i = icmp ult i32 %1, %13
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
 
 get_buffer.exit:                                  ; preds = %11
   %14 = icmp sgt i32 %2, -1
-  %.not.i47 = icmp ugt i32 %13, %2
+  %.not.i47 = icmp ult i32 %2, %13
   %or.cond = and i1 %14, %.not.i47
   br i1 %or.cond, label %get_buffer.exit.i, label %get_buffer.exit.thread
 
@@ -2996,7 +2996,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread76:   ; preds = %31, %cli_bcapi_buff
 
 49:                                               ; preds = %40
   %50 = load i32, ptr %12, align 8
-  %.not.i.i52 = icmp ugt i32 %50, %1
+  %.not.i.i52 = icmp ult i32 %1, %50
   br i1 %.not.i.i52, label %get_buffer.exit.i.i, label %get_buffer.exit.thread.i53
 
 get_buffer.exit.thread.i53:                       ; preds = %49, %40
@@ -3076,7 +3076,7 @@ cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thr
 
 86:                                               ; preds = %78
   %87 = load i32, ptr %12, align 8
-  %.not.i.i57 = icmp ugt i32 %87, %79
+  %.not.i.i57 = icmp ult i32 %79, %87
   br i1 %.not.i.i57, label %get_buffer.exit.i60, label %get_buffer.exit.thread.i58
 
 get_buffer.exit.thread.i58:                       ; preds = %86, %78
@@ -3132,7 +3132,7 @@ get_buffer.exit.i60:                              ; preds = %86
 
 113:                                              ; preds = %105
   %114 = load i32, ptr %12, align 8
-  %.not.i.i62 = icmp ugt i32 %114, %106
+  %.not.i.i62 = icmp ult i32 %106, %114
   br i1 %.not.i.i62, label %get_buffer.exit.i65, label %get_buffer.exit.thread.i63
 
 get_buffer.exit.thread.i63:                       ; preds = %113, %105
@@ -3190,7 +3190,7 @@ define i32 @cli_bcapi_lzma_process(ptr nocapture noundef readonly %0, i32 nounde
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 1112
   %6 = load i32, ptr %5, align 8
-  %.not.i = icmp ugt i32 %6, %1
+  %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %cli_bcapi_lzma_done.exit
 
 7:                                                ; preds = %4
@@ -3224,7 +3224,7 @@ get_lzma.exit:                                    ; preds = %7
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %0, i64 1232
   %26 = load i32, ptr %25, align 8
-  %.not.i.i = icmp ugt i32 %26, %13
+  %.not.i.i = icmp ult i32 %13, %26
   br i1 %.not.i.i, label %get_buffer.exit.i, label %get_buffer.exit.thread.i
 
 get_buffer.exit.thread.i:                         ; preds = %24, %19
@@ -3283,7 +3283,7 @@ cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thr
 52:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit
   %53 = getelementptr inbounds i8, ptr %0, i64 1232
   %54 = load i32, ptr %53, align 8
-  %.not.i.i48 = icmp ugt i32 %54, %46
+  %.not.i.i48 = icmp ult i32 %46, %54
   br i1 %.not.i.i48, label %get_buffer.exit.i.i, label %get_buffer.exit.thread.i49
 
 get_buffer.exit.thread.i49:                       ; preds = %52, %cli_bcapi_buffer_pipe_read_avail.exit
@@ -3356,7 +3356,7 @@ cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thr
 86:                                               ; preds = %cli_bcapi_buffer_pipe_read_get.exit
   %87 = getelementptr inbounds i8, ptr %0, i64 1232
   %88 = load i32, ptr %87, align 8
-  %.not.i.i52 = icmp ugt i32 %88, %82
+  %.not.i.i52 = icmp ult i32 %82, %88
   br i1 %.not.i.i52, label %get_buffer.exit.i55, label %get_buffer.exit.thread.i53
 
 get_buffer.exit.thread.i53:                       ; preds = %86, %cli_bcapi_buffer_pipe_read_get.exit
@@ -3394,7 +3394,7 @@ cli_bcapi_buffer_pipe_write_avail.exit:           ; preds = %get_buffer.exit.thr
 103:                                              ; preds = %cli_bcapi_buffer_pipe_write_avail.exit
   %104 = getelementptr inbounds i8, ptr %0, i64 1232
   %105 = load i32, ptr %104, align 8
-  %.not.i.i58 = icmp ugt i32 %105, %97
+  %.not.i.i58 = icmp ult i32 %97, %105
   br i1 %.not.i.i58, label %get_buffer.exit.i.i61, label %get_buffer.exit.thread.i59
 
 get_buffer.exit.thread.i59:                       ; preds = %103, %cli_bcapi_buffer_pipe_write_avail.exit
@@ -3458,7 +3458,7 @@ cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thr
 132:                                              ; preds = %123
   %133 = getelementptr inbounds i8, ptr %0, i64 1232
   %134 = load i32, ptr %133, align 8
-  %.not.i.i65 = icmp ugt i32 %134, %125
+  %.not.i.i65 = icmp ult i32 %125, %134
   br i1 %.not.i.i65, label %get_buffer.exit.i68, label %get_buffer.exit.thread.i66
 
 get_buffer.exit.thread.i66:                       ; preds = %132, %123
@@ -3515,7 +3515,7 @@ cli_bcapi_buffer_pipe_read_stopped.exit:          ; preds = %get_buffer.exit.thr
 159:                                              ; preds = %cli_bcapi_buffer_pipe_read_stopped.exit
   %160 = getelementptr inbounds i8, ptr %0, i64 1232
   %161 = load i32, ptr %160, align 8
-  %.not.i.i70 = icmp ugt i32 %161, %152
+  %.not.i.i70 = icmp ult i32 %152, %161
   br i1 %.not.i.i70, label %get_buffer.exit.i73, label %get_buffer.exit.thread.i71
 
 get_buffer.exit.thread.i71:                       ; preds = %159, %cli_bcapi_buffer_pipe_read_stopped.exit
@@ -3547,7 +3547,7 @@ cli_bcapi_buffer_pipe_write_stopped.exit:         ; preds = %get_buffer.exit.thr
 172:                                              ; preds = %cli_bcapi_buffer_pipe_write_stopped.exit
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.63, i32 noundef %124) #28
   %173 = load i32, ptr %5, align 8
-  %.not.i.i75 = icmp ugt i32 %173, %1
+  %.not.i.i75 = icmp ult i32 %1, %173
   br i1 %.not.i.i75, label %174, label %cli_bcapi_lzma_done.exit
 
 174:                                              ; preds = %172
@@ -3589,7 +3589,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_lzma_done(ptr nocapture noundef readonly 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 1112
   %6 = load i32, ptr %5, align 8
-  %.not.i = icmp ugt i32 %6, %1
+  %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_lzma.exit.thread
 
 7:                                                ; preds = %4
@@ -3640,12 +3640,12 @@ define i32 @cli_bcapi_bzip2_init(ptr nocapture noundef %0, i32 noundef %1, i32 n
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 1232
   %13 = load i32, ptr %12, align 8
-  %.not.i = icmp ugt i32 %13, %1
+  %.not.i = icmp ult i32 %1, %13
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
 
 get_buffer.exit:                                  ; preds = %11
   %14 = icmp sgt i32 %2, -1
-  %.not.i27 = icmp ugt i32 %13, %2
+  %.not.i27 = icmp ult i32 %2, %13
   %or.cond = and i1 %14, %.not.i27
   br i1 %or.cond, label %get_buffer.exit29, label %get_buffer.exit.thread
 
@@ -3713,7 +3713,7 @@ define i32 @cli_bcapi_bzip2_process(ptr nocapture noundef readonly %0, i32 nound
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 1116
   %6 = load i32, ptr %5, align 4
-  %.not.i = icmp ugt i32 %6, %1
+  %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_bzip2.exit.thread
 
 7:                                                ; preds = %4
@@ -3747,7 +3747,7 @@ get_bzip2.exit:                                   ; preds = %7
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %0, i64 1232
   %26 = load i32, ptr %25, align 8
-  %.not.i.i = icmp ugt i32 %26, %13
+  %.not.i.i = icmp ult i32 %13, %26
   br i1 %.not.i.i, label %get_buffer.exit.i, label %get_buffer.exit.thread.i
 
 get_buffer.exit.thread.i:                         ; preds = %24, %19
@@ -3805,7 +3805,7 @@ cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thr
 51:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit
   %52 = getelementptr inbounds i8, ptr %0, i64 1232
   %53 = load i32, ptr %52, align 8
-  %.not.i.i45 = icmp ugt i32 %53, %46
+  %.not.i.i45 = icmp ult i32 %46, %53
   br i1 %.not.i.i45, label %get_buffer.exit.i.i, label %get_buffer.exit.thread.i46
 
 get_buffer.exit.thread.i46:                       ; preds = %51, %cli_bcapi_buffer_pipe_read_avail.exit
@@ -3878,7 +3878,7 @@ cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thr
 85:                                               ; preds = %cli_bcapi_buffer_pipe_read_get.exit
   %86 = getelementptr inbounds i8, ptr %0, i64 1232
   %87 = load i32, ptr %86, align 8
-  %.not.i.i49 = icmp ugt i32 %87, %81
+  %.not.i.i49 = icmp ult i32 %81, %87
   br i1 %.not.i.i49, label %get_buffer.exit.i52, label %get_buffer.exit.thread.i50
 
 get_buffer.exit.thread.i50:                       ; preds = %85, %cli_bcapi_buffer_pipe_read_get.exit
@@ -3915,7 +3915,7 @@ cli_bcapi_buffer_pipe_write_avail.exit:           ; preds = %get_buffer.exit.thr
 101:                                              ; preds = %cli_bcapi_buffer_pipe_write_avail.exit
   %102 = getelementptr inbounds i8, ptr %0, i64 1232
   %103 = load i32, ptr %102, align 8
-  %.not.i.i55 = icmp ugt i32 %103, %96
+  %.not.i.i55 = icmp ult i32 %96, %103
   br i1 %.not.i.i55, label %get_buffer.exit.i.i58, label %get_buffer.exit.thread.i56
 
 get_buffer.exit.thread.i56:                       ; preds = %101, %cli_bcapi_buffer_pipe_write_avail.exit
@@ -3978,7 +3978,7 @@ cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thr
 129:                                              ; preds = %121
   %130 = getelementptr inbounds i8, ptr %0, i64 1232
   %131 = load i32, ptr %130, align 8
-  %.not.i.i62 = icmp ugt i32 %131, %123
+  %.not.i.i62 = icmp ult i32 %123, %131
   br i1 %.not.i.i62, label %get_buffer.exit.i65, label %get_buffer.exit.thread.i63
 
 get_buffer.exit.thread.i63:                       ; preds = %129, %121
@@ -4034,7 +4034,7 @@ cli_bcapi_buffer_pipe_read_stopped.exit:          ; preds = %get_buffer.exit.thr
 155:                                              ; preds = %cli_bcapi_buffer_pipe_read_stopped.exit
   %156 = getelementptr inbounds i8, ptr %0, i64 1232
   %157 = load i32, ptr %156, align 8
-  %.not.i.i67 = icmp ugt i32 %157, %149
+  %.not.i.i67 = icmp ult i32 %149, %157
   br i1 %.not.i.i67, label %get_buffer.exit.i70, label %get_buffer.exit.thread.i68
 
 get_buffer.exit.thread.i68:                       ; preds = %155, %cli_bcapi_buffer_pipe_read_stopped.exit
@@ -4088,7 +4088,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_bzip2_done(ptr nocapture noundef readonly
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 1116
   %6 = load i32, ptr %5, align 4
-  %.not.i = icmp ugt i32 %6, %1
+  %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_bzip2.exit.thread
 
 7:                                                ; preds = %4
@@ -4147,7 +4147,7 @@ define i32 @cli_bcapi_jsnorm_init(ptr nocapture noundef %0, i32 noundef %1) loca
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 1232
   %12 = load i32, ptr %11, align 8
-  %.not.i = icmp ugt i32 %12, %1
+  %.not.i = icmp ult i32 %1, %12
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
 
 get_buffer.exit.thread:                           ; preds = %2, %10
@@ -4240,7 +4240,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_jsnorm_process(ptr nocapture noundef read
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 1240
   %8 = load i32, ptr %7, align 8
-  %.not.i = icmp ugt i32 %8, %1
+  %.not.i = icmp ult i32 %1, %8
   br i1 %.not.i, label %9, label %get_jsnorm.exit.thread
 
 9:                                                ; preds = %6
@@ -4273,7 +4273,7 @@ get_jsnorm.exit:                                  ; preds = %9
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %0, i64 1232
   %26 = load i32, ptr %25, align 8
-  %.not.i.i = icmp ugt i32 %26, %15
+  %.not.i.i = icmp ult i32 %15, %26
   br i1 %.not.i.i, label %get_buffer.exit.i, label %get_buffer.exit.thread.i
 
 get_buffer.exit.thread.i:                         ; preds = %24, %19
@@ -4330,7 +4330,7 @@ cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thr
 50:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit
   %51 = getelementptr inbounds i8, ptr %0, i64 1232
   %52 = load i32, ptr %51, align 8
-  %.not.i.i34 = icmp ugt i32 %52, %47
+  %.not.i.i34 = icmp ult i32 %47, %52
   br i1 %.not.i.i34, label %get_buffer.exit.i.i, label %get_buffer.exit.thread.i35
 
 get_buffer.exit.thread.i35:                       ; preds = %50, %cli_bcapi_buffer_pipe_read_avail.exit
@@ -4418,7 +4418,7 @@ cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %.thread.i, %74
 
 92:                                               ; preds = %87
   %93 = load i32, ptr %51, align 8
-  %.not.i.i38 = icmp ugt i32 %93, %88
+  %.not.i.i38 = icmp ult i32 %88, %93
   br i1 %.not.i.i38, label %get_buffer.exit.i41, label %get_buffer.exit.thread.i39
 
 get_buffer.exit.thread.i39:                       ; preds = %92, %87
@@ -4482,7 +4482,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_jsnorm_done(ptr nocapture noundef %0, i32
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 1240
   %6 = load i32, ptr %5, align 8
-  %.not.i = icmp ugt i32 %6, %1
+  %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_jsnorm.exit.thread
 
 7:                                                ; preds = %4
@@ -4937,7 +4937,7 @@ define range(i32 -1, 2) i32 @cli_bcapi_map_addkey(ptr nocapture noundef readonly
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 1280
   %8 = load i32, ptr %7, align 8
-  %.not.i = icmp ugt i32 %8, %3
+  %.not.i = icmp ult i32 %3, %8
   br i1 %.not.i, label %9, label %get_hashtab.exit.thread
 
 9:                                                ; preds = %6
@@ -4971,7 +4971,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_map_setvalue(ptr nocapture noundef readon
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 1280
   %8 = load i32, ptr %7, align 8
-  %.not.i = icmp ugt i32 %8, %3
+  %.not.i = icmp ult i32 %3, %8
   br i1 %.not.i, label %9, label %get_hashtab.exit.thread
 
 9:                                                ; preds = %6
@@ -5003,7 +5003,7 @@ define range(i32 -1, 2) i32 @cli_bcapi_map_remove(ptr nocapture noundef readonly
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 1280
   %8 = load i32, ptr %7, align 8
-  %.not.i = icmp ugt i32 %8, %3
+  %.not.i = icmp ult i32 %3, %8
   br i1 %.not.i, label %9, label %get_hashtab.exit.thread
 
 9:                                                ; preds = %6
@@ -5037,7 +5037,7 @@ define range(i32 -1, 2) i32 @cli_bcapi_map_find(ptr nocapture noundef readonly %
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 1280
   %8 = load i32, ptr %7, align 8
-  %.not.i = icmp ugt i32 %8, %3
+  %.not.i = icmp ult i32 %3, %8
   br i1 %.not.i, label %9, label %get_hashtab.exit.thread
 
 9:                                                ; preds = %6
@@ -5071,7 +5071,7 @@ define i32 @cli_bcapi_map_getvaluesize(ptr nocapture noundef readonly %0, i32 no
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 1280
   %6 = load i32, ptr %5, align 8
-  %.not.i = icmp ugt i32 %6, %1
+  %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_hashtab.exit.thread
 
 7:                                                ; preds = %4
@@ -5101,7 +5101,7 @@ define ptr @cli_bcapi_map_getvalue(ptr nocapture noundef readonly %0, i32 nounde
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 1280
   %7 = load i32, ptr %6, align 8
-  %.not.i = icmp ugt i32 %7, %1
+  %.not.i = icmp ult i32 %1, %7
   br i1 %.not.i, label %8, label %get_hashtab.exit.thread
 
 8:                                                ; preds = %5
@@ -5136,7 +5136,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_map_done(ptr nocapture noundef %0, i32 no
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 1280
   %6 = load i32, ptr %5, align 8
-  %.not.i = icmp ugt i32 %6, %1
+  %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_hashtab.exit.thread
 
 7:                                                ; preds = %4
@@ -5151,7 +5151,7 @@ get_hashtab.exit:                                 ; preds = %7
   tail call void @cli_map_delete(ptr noundef nonnull %11) #28
   %12 = load i32, ptr %5, align 8
   %13 = add i32 %12, -1
-  %14 = icmp eq i32 %13, %1
+  %14 = icmp eq i32 %1, %13
   br i1 %14, label %15, label %get_hashtab.exit.thread
 
 15:                                               ; preds = %get_hashtab.exit
@@ -6369,7 +6369,7 @@ define i32 @cli_bcapi_pdf_getobjsize(ptr nocapture noundef readonly %0, i32 noun
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 1024
   %7 = load i32, ptr %6, align 8
-  %.not17 = icmp ule i32 %7, %1
+  %.not17 = icmp uge i32 %1, %7
   %8 = icmp eq i32 %4, 2
   %or.cond = or i1 %8, %.not17
   br i1 %or.cond, label %35, label %9
@@ -6421,7 +6421,7 @@ define ptr @cli_bcapi_pdf_getobj(ptr nocapture noundef readonly %0, i32 noundef 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 1024
   %8 = load i32, ptr %7, align 8
-  %.not17.i = icmp ule i32 %8, %1
+  %.not17.i = icmp uge i32 %1, %8
   %9 = icmp eq i32 %5, 2
   %or.cond.i = or i1 %9, %.not17.i
   br i1 %or.cond.i, label %cli_bcapi_pdf_getobjsize.exit, label %10
@@ -6460,7 +6460,7 @@ define ptr @cli_bcapi_pdf_getobj(ptr nocapture noundef readonly %0, i32 noundef 
 
 cli_bcapi_pdf_getobjsize.exit:                    ; preds = %3, %6, %13, %23
   %.0.i = phi i32 [ %22, %13 ], [ %35, %23 ], [ 0, %6 ], [ 0, %3 ]
-  %36 = icmp ult i32 %.0.i, %2
+  %36 = icmp ugt i32 %2, %.0.i
   br i1 %36, label %51, label %37
 
 37:                                               ; preds = %cli_bcapi_pdf_getobjsize.exit
@@ -6494,7 +6494,7 @@ define i32 @cli_bcapi_pdf_getobjid(ptr nocapture noundef readonly %0, i32 nounde
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 1024
   %7 = load i32, ptr %6, align 8
-  %.not6 = icmp ugt i32 %7, %1
+  %.not6 = icmp ult i32 %1, %7
   br i1 %.not6, label %8, label %16
 
 8:                                                ; preds = %5
@@ -6522,7 +6522,7 @@ define i32 @cli_bcapi_pdf_getobjflags(ptr nocapture noundef readonly %0, i32 nou
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 1024
   %7 = load i32, ptr %6, align 8
-  %.not6 = icmp ugt i32 %7, %1
+  %.not6 = icmp ult i32 %1, %7
   br i1 %.not6, label %8, label %16
 
 8:                                                ; preds = %5
@@ -6550,7 +6550,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_pdf_setobjflags(ptr nocapture noundef rea
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 1024
   %8 = load i32, ptr %7, align 8
-  %.not10 = icmp ugt i32 %8, %1
+  %.not10 = icmp ult i32 %1, %8
   br i1 %.not10, label %9, label %21
 
 9:                                                ; preds = %6
@@ -6584,7 +6584,7 @@ define i32 @cli_bcapi_pdf_get_offset(ptr nocapture noundef readonly %0, i32 noun
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 1024
   %7 = load i32, ptr %6, align 8
-  %.not7 = icmp ugt i32 %7, %1
+  %.not7 = icmp ult i32 %1, %7
   br i1 %.not7, label %8, label %18
 
 8:                                                ; preds = %5
@@ -6709,7 +6709,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %14
 
 25:                                               ; preds = %21
   %26 = load i32, ptr %11, align 8
-  %.not44 = icmp ugt i32 %26, %3
+  %.not44 = icmp ult i32 %3, %26
   br i1 %.not44, label %28, label %27
 
 27:                                               ; preds = %25, %21
@@ -6835,7 +6835,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %11
 
 22:                                               ; preds = %18
   %23 = load i32, ptr %8, align 8
-  %.not13 = icmp ugt i32 %23, %1
+  %.not13 = icmp ult i32 %1, %23
   br i1 %.not13, label %25, label %24
 
 24:                                               ; preds = %22, %18
@@ -6904,7 +6904,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %11
 
 22:                                               ; preds = %18
   %23 = load i32, ptr %8, align 8
-  %.not14 = icmp ugt i32 %23, %1
+  %.not14 = icmp ult i32 %1, %23
   br i1 %.not14, label %25, label %24
 
 24:                                               ; preds = %22, %18
@@ -6975,7 +6975,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %12
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %9, align 8
-  %.not40 = icmp ugt i32 %24, %2
+  %.not40 = icmp ult i32 %2, %24
   br i1 %.not40, label %26, label %25
 
 25:                                               ; preds = %23, %19
@@ -6998,7 +6998,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %12
   %33 = tail call i64 @json_object_array_length(ptr noundef nonnull %29) #28
   %34 = icmp sgt i32 %1, -1
   %35 = trunc i64 %33 to i32
-  %36 = icmp sgt i32 %35, %1
+  %36 = icmp slt i32 %1, %35
   %or.cond = select i1 %34, i1 %36, i1 false
   br i1 %or.cond, label %37, label %52
 
@@ -7082,7 +7082,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %11
 
 22:                                               ; preds = %18
   %23 = load i32, ptr %8, align 8
-  %.not18 = icmp ugt i32 %23, %1
+  %.not18 = icmp ult i32 %1, %23
   br i1 %.not18, label %25, label %24
 
 24:                                               ; preds = %22, %18
@@ -7157,7 +7157,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %10, align 8
-  %.not33 = icmp ugt i32 %25, %3
+  %.not33 = icmp ult i32 %3, %25
   br i1 %.not33, label %27, label %26
 
 26:                                               ; preds = %24, %20
@@ -7180,7 +7180,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
   %34 = tail call ptr @json_object_get_string(ptr noundef nonnull %30) #28
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #29
   %36 = trunc i64 %35 to i32
-  %.not36 = icmp slt i32 %36, %2
+  %.not36 = icmp sgt i32 %2, %36
   br i1 %.not36, label %42, label %37
 
 37:                                               ; preds = %33
@@ -7248,7 +7248,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %11
 
 22:                                               ; preds = %18
   %23 = load i32, ptr %8, align 8
-  %.not12 = icmp ugt i32 %23, %1
+  %.not12 = icmp ult i32 %1, %23
   br i1 %.not12, label %25, label %24
 
 24:                                               ; preds = %22, %18
@@ -7312,7 +7312,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %11
 
 22:                                               ; preds = %18
   %23 = load i32, ptr %8, align 8
-  %.not12 = icmp ugt i32 %23, %1
+  %.not12 = icmp ult i32 %1, %23
   br i1 %.not12, label %25, label %24
 
 24:                                               ; preds = %22, %18

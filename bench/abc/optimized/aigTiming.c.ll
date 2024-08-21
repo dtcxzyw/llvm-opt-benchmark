@@ -250,13 +250,13 @@ Aig_ManObj.exit.i:                                ; preds = %45, %41
   %55 = add nsw i32 %54, 1
   %56 = getelementptr inbounds i8, ptr %52, i64 4
   %57 = load i32, ptr %56, align 4
-  %.not.i21.not = icmp sgt i32 %57, %54
+  %.not.i21.not = icmp slt i32 %54, %57
   br i1 %.not.i21.not, label %Vec_IntFillExtra.exit, label %58
 
 58:                                               ; preds = %Aig_ManObj.exit.i
   %59 = load i32, ptr %52, align 8
   %60 = shl nsw i32 %59, 1
-  %.not = icmp sgt i32 %60, %54
+  %.not = icmp slt i32 %54, %60
   %.not.i.i22.not = icmp sgt i32 %59, %54
   br i1 %.not, label %73, label %61
 
@@ -1214,13 +1214,13 @@ Vec_VecClear.exit:                                ; preds = %Vec_VecClear.exit.l
   %110 = add nsw i32 %109, 1
   %111 = getelementptr inbounds i8, ptr %107, i64 4
   %112 = load i32, ptr %111, align 4
-  %.not.i116.not = icmp sgt i32 %112, %109
+  %.not.i116.not = icmp slt i32 %109, %112
   br i1 %.not.i116.not, label %Vec_IntFillExtra.exit, label %113
 
 113:                                              ; preds = %.lr.ph
   %114 = load i32, ptr %107, align 8
   %115 = shl nsw i32 %114, 1
-  %.not195 = icmp sgt i32 %115, %109
+  %.not195 = icmp slt i32 %109, %115
   %.not.i.i117.not = icmp sgt i32 %114, %109
   br i1 %.not195, label %128, label %116
 
@@ -1361,13 +1361,13 @@ Aig_ManObj.exit.i79:                              ; preds = %162, %158
   %172 = add nsw i32 %171, 1
   %173 = getelementptr inbounds i8, ptr %169, i64 4
   %174 = load i32, ptr %173, align 4
-  %.not.i124.not = icmp sgt i32 %174, %171
+  %.not.i124.not = icmp slt i32 %171, %174
   br i1 %.not.i124.not, label %Vec_IntFillExtra.exit137, label %175
 
 175:                                              ; preds = %Aig_ManObj.exit.i79
   %176 = load i32, ptr %169, align 8
   %177 = shl nsw i32 %176, 1
-  %.not197 = icmp sgt i32 %177, %171
+  %.not197 = icmp slt i32 %171, %177
   %.not.i.i125.not = icmp sgt i32 %176, %171
   br i1 %.not197, label %190, label %178
 
@@ -1479,13 +1479,13 @@ Aig_ObjReverseLevelNew.exit83:                    ; preds = %Vec_IntFillExtra.ex
   %223 = add nsw i32 %222, 1
   %224 = getelementptr inbounds i8, ptr %221, i64 4
   %225 = load i32, ptr %224, align 4
-  %.not.i138.not = icmp sgt i32 %225, %222
+  %.not.i138.not = icmp slt i32 %222, %225
   br i1 %.not.i138.not, label %Vec_IntFillExtra.exit151, label %226
 
 226:                                              ; preds = %Aig_ObjReverseLevelNew.exit83
   %227 = load i32, ptr %221, align 8
   %228 = shl nsw i32 %227, 1
-  %.not199 = icmp sgt i32 %228, %222
+  %.not199 = icmp slt i32 %222, %228
   %.not.i.i139.not = icmp sgt i32 %227, %222
   br i1 %.not199, label %241, label %229
 
@@ -1582,13 +1582,13 @@ Vec_IntFillExtra.exit151:                         ; preds = %Aig_ObjReverseLevel
   %266 = add nsw i32 %265, 1
   %267 = getelementptr inbounds i8, ptr %264, i64 4
   %268 = load i32, ptr %267, align 4
-  %.not.i152.not = icmp sgt i32 %268, %265
+  %.not.i152.not = icmp slt i32 %265, %268
   br i1 %.not.i152.not, label %Vec_IntFillExtra.exit165, label %269
 
 269:                                              ; preds = %Vec_IntFillExtra.exit151
   %270 = load i32, ptr %264, align 8
   %271 = shl nsw i32 %270, 1
-  %.not201 = icmp sgt i32 %271, %265
+  %.not201 = icmp slt i32 %265, %271
   %.not.i.i153.not = icmp sgt i32 %270, %265
   br i1 %.not201, label %284, label %272
 
@@ -1706,7 +1706,7 @@ Vec_IntFillExtra.exit165:                         ; preds = %Vec_IntFillExtra.ex
   %322 = add nsw i32 %321, 1
   %323 = getelementptr inbounds i8, ptr %303, i64 4
   %324 = load i32, ptr %323, align 4
-  %.not.i166.not = icmp sgt i32 %324, %321
+  %.not.i166.not = icmp slt i32 %321, %324
   br i1 %.not.i166.not, label %Vec_IntFillExtra.exit179, label %325
 
 325:                                              ; preds = %319
@@ -1716,7 +1716,7 @@ Vec_IntFillExtra.exit165:                         ; preds = %Vec_IntFillExtra.ex
 
 Vec_IntGrow.exit.sink.split.i176:                 ; preds = %325
   %327 = shl nsw i32 %326, 1
-  %.not = icmp sgt i32 %327, %321
+  %.not = icmp slt i32 %321, %327
   %. = select i1 %.not, i32 %327, i32 %322
   %328 = sext i32 %. to i64
   %329 = shl nsw i64 %328, 2
@@ -1921,13 +1921,13 @@ Vec_VecPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %415 = add nsw i32 %414, 1
   %416 = getelementptr inbounds i8, ptr %412, i64 4
   %417 = load i32, ptr %416, align 4
-  %.not.i180.not = icmp sgt i32 %417, %414
+  %.not.i180.not = icmp slt i32 %414, %417
   br i1 %.not.i180.not, label %Vec_IntFillExtra.exit193, label %418
 
 418:                                              ; preds = %411
   %419 = load i32, ptr %412, align 8
   %420 = shl nsw i32 %419, 1
-  %.not204 = icmp sgt i32 %420, %414
+  %.not204 = icmp slt i32 %414, %420
   %.not.i.i181.not = icmp sgt i32 %419, %414
   br i1 %.not204, label %433, label %421
 
@@ -2442,13 +2442,13 @@ Aig_ManObj.exit.i:                                ; preds = %76, %72
   %86 = add nsw i32 %85, 1
   %87 = getelementptr inbounds i8, ptr %83, i64 4
   %88 = load i32, ptr %87, align 4
-  %.not.i25.not = icmp sgt i32 %88, %85
+  %.not.i25.not = icmp slt i32 %85, %88
   br i1 %.not.i25.not, label %Vec_IntFillExtra.exit, label %89
 
 89:                                               ; preds = %Aig_ManObj.exit.i
   %90 = load i32, ptr %83, align 8
   %91 = shl nsw i32 %90, 1
-  %.not28 = icmp sgt i32 %91, %85
+  %.not28 = icmp slt i32 %85, %91
   %.not.i.i26.not = icmp sgt i32 %90, %85
   br i1 %.not28, label %104, label %92
 
@@ -2598,13 +2598,13 @@ Aig_ObjReverseLevelNew.exit:                      ; preds = %.Aig_ObjReverseLeve
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

@@ -177,7 +177,7 @@ define dso_local noundef ptr @archive_string_ensure(ptr noundef %0, i64 noundef 
   %.not = icmp eq ptr %3, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.not30 = icmp ult i64 %.pre, %1
+  %.not30 = icmp ugt i64 %1, %.pre
   %or.cond = select i1 %.not, i1 true, i1 %.not30
   br i1 %or.cond, label %._crit_edge, label %25
 
@@ -3271,7 +3271,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef %0,
   %.0446 = phi ptr [ @utf16be_to_unicode, %25 ], [ %cesu8_to_unicode.utf16le_to_unicode, %29 ]
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   %34 = load i64, ptr %33, align 8
-  %35 = mul i64 %.0447, %2
+  %35 = mul i64 %2, %.0447
   %36 = zext nneg i32 %.0448 to i64
   %37 = add i64 %35, %36
   %38 = add i64 %37, %34
@@ -4208,7 +4208,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_C(ptr noundef %0,
   %.0660 = phi ptr [ @utf16be_to_unicode, %26 ], [ %cesu8_to_unicode.utf16le_to_unicode, %30 ]
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8
-  %36 = mul i64 %.0661, %2
+  %36 = mul i64 %2, %.0661
   %37 = zext nneg i32 %.0662 to i64
   %38 = add i64 %36, %37
   %39 = add i64 %38, %35

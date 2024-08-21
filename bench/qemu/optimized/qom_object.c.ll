@@ -676,7 +676,7 @@ if.else5:                                         ; preds = %do.body1
   unreachable
 
 do.body8:                                         ; preds = %do.body1
-  %cmp10.not = icmp ugt i64 %0, %size
+  %cmp10.not = icmp ult i64 %size, %0
   br i1 %cmp10.not, label %if.else13, label %if.end.i
 
 if.else13:                                        ; preds = %do.body8
@@ -2000,7 +2000,7 @@ while.end:                                        ; preds = %while.end.lr.ph, %f
   %arrayidx = getelementptr [4 x ptr], ptr %object_cast_cache, i64 0, i64 %indvars.iv
   %10 = load atomic i64, ptr %arrayidx monotonic, align 8
   %11 = inttoptr i64 %10 to ptr
-  %cmp3 = icmp eq ptr %11, %typename
+  %cmp3 = icmp eq ptr %typename, %11
   br i1 %cmp3, label %out, label %for.cond
 
 for.end:                                          ; preds = %for.cond
@@ -2019,17 +2019,17 @@ if.then6:                                         ; preds = %land.lhs.true.i
   unreachable
 
 while.end24:                                      ; preds = %land.lhs.true.i, %while.end24
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %while.end24 ], [ 1, %land.lhs.true.i ]
+  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %while.end24 ], [ 1, %land.lhs.true.i ]
   %14 = load ptr, ptr %obj, align 8
   %object_cast_cache26 = getelementptr inbounds i8, ptr %14, i64 16
-  %15 = add nsw i64 %indvars.iv43, -1
+  %15 = add nsw i64 %indvars.iv42, -1
   %arrayidx28 = getelementptr [4 x ptr], ptr %object_cast_cache26, i64 0, i64 %15
-  %arrayidx38 = getelementptr [4 x ptr], ptr %object_cast_cache26, i64 0, i64 %indvars.iv43
+  %arrayidx38 = getelementptr [4 x ptr], ptr %object_cast_cache26, i64 0, i64 %indvars.iv42
   %16 = load atomic i64, ptr %arrayidx38 monotonic, align 8
   store atomic i64 %16, ptr %arrayidx28 monotonic, align 8
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %exitcond47.not = icmp eq i64 %indvars.iv.next44, 4
-  br i1 %exitcond47.not, label %while.end49, label %while.end24, !llvm.loop !19
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %exitcond46.not = icmp eq i64 %indvars.iv.next43, 4
+  br i1 %exitcond46.not, label %while.end49, label %while.end24, !llvm.loop !19
 
 while.end49:                                      ; preds = %while.end24
   %17 = load ptr, ptr %obj, align 8
@@ -2178,7 +2178,7 @@ while.end:                                        ; preds = %while.end.lr.ph, %f
   %arrayidx = getelementptr [4 x ptr], ptr %class_cast_cache, i64 0, i64 %indvars.iv
   %8 = load atomic i64, ptr %arrayidx monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
-  %cmp2 = icmp eq ptr %9, %typename
+  %cmp2 = icmp eq ptr %typename, %9
   br i1 %cmp2, label %out, label %for.cond
 
 for.end:                                          ; preds = %for.cond
@@ -3802,7 +3802,7 @@ if.then.i:                                        ; preds = %entry
 
 object_get_root.exit:                             ; preds = %entry, %if.then.i
   %1 = phi ptr [ %call.i, %if.then.i ], [ %0, %entry ]
-  %cmp = icmp eq ptr %1, %obj
+  %cmp = icmp eq ptr %obj, %1
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %object_get_root.exit

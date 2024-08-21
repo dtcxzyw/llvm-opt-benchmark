@@ -1352,8 +1352,8 @@ define dso_local i64 @perf_output_copy_aux(ptr nocapture noundef readonly %0, pt
   %9 = shl i32 %8, 12
   %10 = add i32 %9, -1
   %11 = sext i32 %10 to i64
-  %12 = and i64 %11, %2
-  %13 = and i64 %11, %3
+  %12 = and i64 %2, %11
+  %13 = and i64 %3, %11
   %14 = getelementptr inbounds i8, ptr %6, i64 216
   %15 = getelementptr inbounds i8, ptr %1, i64 24
   %16 = getelementptr inbounds i8, ptr %1, i64 40
@@ -2174,7 +2174,7 @@ define dso_local ptr @perf_mmap_to_page(ptr nocapture noundef readonly %0, i64 n
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = icmp ult i64 %27, %1
+  %28 = icmp ugt i64 %1, %27
   br i1 %28, label %49, label %29
 
 29:                                               ; preds = %24

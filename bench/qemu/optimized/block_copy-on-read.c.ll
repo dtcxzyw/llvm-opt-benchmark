@@ -295,7 +295,7 @@ if.then5:                                         ; preds = %while.body
   %call10 = call i32 @bdrv_co_is_allocated_above(ptr noundef %call8, ptr noundef %7, i1 noundef zeroext true, i64 noundef %offset.addr.026, i64 noundef %8, ptr noundef nonnull %n) #4
   %or.cond.not = icmp ne i32 %call10, 0
   %or14 = zext i1 %or.cond.not to i32
-  %spec.select = or i32 %or14, %flags
+  %spec.select = or i32 %flags, %or14
   %9 = load i64, ptr %n, align 8
   %cmp16 = icmp eq i64 %9, 0
   br i1 %cmp16, label %return, label %if.end19

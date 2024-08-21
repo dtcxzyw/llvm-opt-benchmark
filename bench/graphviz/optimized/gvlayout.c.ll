@@ -48,7 +48,7 @@ define range(i32 -1, 1) i32 @gvLayoutJobs(ptr noundef %0, ptr noundef %1) local_
   %6 = getelementptr inbounds i8, ptr %5, i64 168
   store ptr %0, ptr %6, align 8
   %7 = tail call ptr @agroot(ptr noundef %1) #2
-  %.not = icmp eq ptr %7, %1
+  %.not = icmp eq ptr %1, %7
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %2

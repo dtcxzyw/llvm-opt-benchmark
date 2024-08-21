@@ -2026,7 +2026,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @tcp_out_of_resources(ptr nou
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 240001
-  %9 = and i1 %8, %1
+  %9 = and i1 %1, %8
   %10 = xor i1 %9, true
   %11 = zext i1 %10 to i32
   %12 = getelementptr inbounds i8, ptr %0, i64 548
@@ -2055,7 +2055,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @tcp_out_of_resources(ptr nou
   %29 = getelementptr inbounds i8, ptr %0, i64 1676
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
-  %32 = or i1 %31, %1
+  %32 = or i1 %1, %31
   br i1 %32, label %34, label %35
 
 33:                                               ; preds = %24

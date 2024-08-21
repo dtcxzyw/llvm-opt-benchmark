@@ -157,7 +157,7 @@ for.body:                                         ; preds = %if.end10, %for.body
   %add17 = add i16 %cond, %adjustedLen.051
   %inc = add i16 %i.052, 1
   %conv11 = sext i16 %inc to i32
-  %cmp12 = icmp slt i32 %conv11, %length
+  %cmp12 = icmp sgt i32 %length, %conv11
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
@@ -248,7 +248,7 @@ for.inc108:                                       ; preds = %if.else92, %if.then
   store i16 %conv103.sink, ptr %arrayidx106, align 2
   %inc109 = add i16 %i.154, 1
   %conv77 = sext i16 %inc109 to i32
-  %cmp78 = icmp slt i32 %conv77, %length
+  %cmp78 = icmp sgt i32 %length, %conv77
   br i1 %cmp78, label %do.body, label %for.end110, !llvm.loop !7
 
 for.end110:                                       ; preds = %for.inc108, %if.end71

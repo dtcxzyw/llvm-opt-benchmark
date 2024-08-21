@@ -572,7 +572,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %gep348.us = getelementptr inbounds %struct.t_atom, ptr %invariant.gep347, i64 %indvars.iv454
   %.0.in.i.us = load i16, ptr %gep348.us, align 2
   %.0.i.us = zext i16 %.0.in.i.us to i32
-  %232 = mul nuw nsw i32 %.0.i.us, %4
+  %232 = mul nuw nsw i32 %4, %.0.i.us
   br label %233
 
 233:                                              ; preds = %245, %.lr.ph.us
@@ -627,7 +627,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %gep348 = getelementptr inbounds %struct.t_atom, ptr %invariant.gep347, i64 %indvars.iv449
   %.0.in.i = load i16, ptr %gep348, align 2
   %.0.i = zext i16 %.0.in.i to i32
-  %255 = mul nuw nsw i32 %.0.i, %4
+  %255 = mul nuw nsw i32 %4, %.0.i
   br label %256
 
 256:                                              ; preds = %.lr.ph, %276
@@ -797,7 +797,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %gep374.us.us = getelementptr inbounds %struct.t_atom, ptr %invariant.gep373.us, i64 %indvars.iv469
   %.0.in.i245.us.us = load i16, ptr %gep374.us.us, align 2
   %.0.i246.us.us = zext i16 %.0.in.i245.us.us to i32
-  %327 = mul nsw i32 %.0.i246.us.us, %4
+  %327 = mul nsw i32 %4, %.0.i246.us.us
   %328 = add nsw i32 %327, %.0.i242.us
   %329 = mul nsw i32 %328, 3
   %330 = sext i32 %329 to i64
@@ -860,7 +860,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %gep374 = getelementptr inbounds %struct.t_atom, ptr %invariant.gep373, i64 %indvars.iv459
   %.0.in.i245 = load i16, ptr %gep374, align 2
   %.0.i246 = zext i16 %.0.in.i245 to i32
-  %346 = mul nsw i32 %.0.i246, %4
+  %346 = mul nsw i32 %4, %.0.i246
   %347 = add nsw i32 %346, %.0.i242
   %348 = shl nsw i32 %347, 1
   %349 = sext i32 %348 to i64
@@ -1795,24 +1795,24 @@ define { <2 x float>, <2 x float> } @_ZNK20DispersionCorrection9calculateEPA3_Kf
   %16 = load float, ptr %15, align 4
   %17 = getelementptr inbounds i8, ptr %1, i64 20
   %18 = load float, ptr %17, align 4
-  %19 = fneg float %16
-  %20 = fmul float %18, %19
+  %19 = fneg float %18
+  %20 = fmul float %16, %19
   %21 = tail call float @llvm.fmuladd.f32(float %11, float %14, float %20)
   %22 = load float, ptr %9, align 4
   %23 = getelementptr inbounds i8, ptr %1, i64 4
   %24 = load float, ptr %23, align 4
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   %26 = load float, ptr %25, align 4
-  %27 = fmul float %26, %19
-  %28 = tail call float @llvm.fmuladd.f32(float %24, float %14, float %27)
-  %29 = fneg float %22
-  %30 = fmul float %28, %29
-  %31 = tail call float @llvm.fmuladd.f32(float %8, float %21, float %30)
-  %32 = load float, ptr %12, align 4
-  %33 = fneg float %11
-  %34 = fmul float %26, %33
+  %27 = fneg float %26
+  %28 = fmul float %16, %27
+  %29 = tail call float @llvm.fmuladd.f32(float %24, float %14, float %28)
+  %30 = fneg float %29
+  %31 = fmul float %22, %30
+  %32 = tail call float @llvm.fmuladd.f32(float %8, float %21, float %31)
+  %33 = load float, ptr %12, align 4
+  %34 = fmul float %11, %27
   %35 = tail call float @llvm.fmuladd.f32(float %24, float %18, float %34)
-  %36 = tail call noundef float @llvm.fmuladd.f32(float %32, float %35, float %31)
+  %36 = tail call noundef float @llvm.fmuladd.f32(float %33, float %35, float %32)
   %37 = fdiv float 1.000000e+00, %36
   %38 = getelementptr inbounds i8, ptr %0, i64 12
   %39 = load i32, ptr %38, align 4
@@ -1840,13 +1840,13 @@ define { <2 x float>, <2 x float> } @_ZNK20DispersionCorrection9calculateEPA3_Kf
   %55 = load float, ptr %54, align 4
   %56 = getelementptr inbounds i8, ptr %0, i64 24
   %57 = load float, ptr %56, align 8
-  %58 = fmul float %57, %2
+  %58 = fmul float %2, %57
   %59 = tail call float @llvm.fmuladd.f32(float %53, float %55, float %58)
   %60 = getelementptr inbounds i8, ptr %0, i64 28
   %61 = load float, ptr %60, align 4
   %62 = getelementptr inbounds i8, ptr %0, i64 32
   %63 = load float, ptr %62, align 8
-  %64 = fmul float %63, %2
+  %64 = fmul float %2, %63
   %65 = tail call float @llvm.fmuladd.f32(float %53, float %61, float %64)
   br label %66
 

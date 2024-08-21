@@ -230,7 +230,7 @@ for.body:                                         ; preds = %if.else, %for.cond
           to label %invoke.cont25 unwind label %lpad9.loopexit
 
 invoke.cont25:                                    ; preds = %for.body
-  %cmp27 = icmp eq ptr %call26, %l
+  %cmp27 = icmp eq ptr %l, %call26
   br i1 %cmp27, label %cleanup33, label %for.cond
 
 if.end30.loopexit:                                ; preds = %for.cond
@@ -323,7 +323,7 @@ for.body:                                         ; preds = %if.then4, %for.inc
           to label %invoke.cont9 unwind label %lpad.loopexit
 
 invoke.cont9:                                     ; preds = %for.body
-  %cmp11 = icmp eq ptr %call10, %l
+  %cmp11 = icmp eq ptr %l, %call10
   br i1 %cmp11, label %if.then12, label %for.inc
 
 if.then12:                                        ; preds = %invoke.cont9

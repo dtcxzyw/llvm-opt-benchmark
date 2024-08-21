@@ -341,7 +341,7 @@ define hidden noundef ptr @time_shift_settime(ptr noundef %0, i32 noundef %1, pt
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %0, i64 80
   %13 = load i32, ptr %12, align 8
-  %14 = icmp ult i32 %13, %1
+  %14 = icmp ugt i32 %1, %13
   br i1 %14, label %38, label %15
 
 15:                                               ; preds = %11
@@ -509,7 +509,7 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef %0, i32 noundef %1, pt
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 80
   %21 = load i32, ptr %20, align 8
-  %22 = icmp ult i32 %21, %1
+  %22 = icmp ugt i32 %1, %21
   %23 = add i32 %3, -1
   %24 = icmp uge i32 %23, %21
   %or.cond55 = or i1 %22, %24

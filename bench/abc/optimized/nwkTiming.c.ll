@@ -1496,9 +1496,9 @@ define noundef i32 @Nwk_ManVerifyTiming(ptr nocapture noundef readonly %0) local
   %20 = getelementptr i8, ptr %9, i64 48
   %.val24 = load float, ptr %20, align 8
   %21 = fadd float %.val24, 0x3F847AE140000000
-  %22 = fcmp ule float %21, %18
+  %22 = fcmp uge float %18, %21
   %23 = fadd float %18, 0x3F847AE140000000
-  %24 = fcmp ule float %23, %.val24
+  %24 = fcmp uge float %.val24, %23
   %narrow.i.not = or i1 %24, %22
   br i1 %narrow.i.not, label %25, label %31
 
@@ -1514,9 +1514,9 @@ define noundef i32 @Nwk_ManVerifyTiming(ptr nocapture noundef readonly %0) local
   %32 = getelementptr i8, ptr %9, i64 52
   %.val27 = load float, ptr %32, align 4
   %33 = fadd float %.val27, 0x3F847AE140000000
-  %34 = fcmp ule float %33, %19
+  %34 = fcmp uge float %19, %33
   %35 = fadd float %19, 0x3F847AE140000000
-  %36 = fcmp ule float %35, %.val27
+  %36 = fcmp uge float %.val27, %35
   %narrow.i29.not = or i1 %36, %34
   br i1 %narrow.i29.not, label %37, label %43
 
@@ -1933,9 +1933,9 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
   %45 = getelementptr i8, ptr %34, i64 48
   %.val82 = load float, ptr %45, align 8
   %46 = fadd float %.val82, 0x3F847AE140000000
-  %47 = fcmp ule float %46, %.066
+  %47 = fcmp uge float %.066, %46
   %48 = fadd float %.066, 0x3F847AE140000000
-  %49 = fcmp ule float %48, %.val82
+  %49 = fcmp uge float %.val82, %48
   %narrow.i.not = or i1 %49, %47
   br i1 %narrow.i.not, label %50, label %.critedge3
 
@@ -2172,9 +2172,9 @@ define void @Nwk_NodeUpdateRequired(ptr noundef %0) local_unnamed_addr #3 {
   %46 = getelementptr i8, ptr %35, i64 52
   %.val96 = load float, ptr %46, align 4
   %47 = fadd float %.val96, 0x3F847AE140000000
-  %48 = fcmp ule float %47, %.073
+  %48 = fcmp uge float %.073, %47
   %49 = fadd float %.073, 0x3F847AE140000000
-  %50 = fcmp ule float %49, %.val96
+  %50 = fcmp uge float %.val96, %49
   %narrow.i.not = or i1 %50, %48
   br i1 %narrow.i.not, label %51, label %.critedge5
 

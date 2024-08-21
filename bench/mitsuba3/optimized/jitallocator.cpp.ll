@@ -2514,7 +2514,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %28 = icmp sgt i32 %27, -1
   %29 = lshr i32 %27, 31
   %30 = zext nneg i32 %29 to i64
-  %31 = icmp eq ptr %20, %1
+  %31 = icmp eq ptr %1, %20
   %32 = select i1 %31, ptr %14, ptr %18
   %33 = select i1 %31, ptr %20, ptr %16
   %34 = load i64, ptr %20, align 8, !tbaa !51

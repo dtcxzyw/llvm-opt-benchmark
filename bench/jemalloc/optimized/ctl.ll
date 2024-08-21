@@ -1413,7 +1413,7 @@ sw.bb2.i.i.i:                                     ; preds = %tsd_fetch_impl.exit
 sw.default.i.i.i:                                 ; preds = %tsd_fetch_impl.exit.i
   %narenas.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %narenas.i.i.i, align 8
-  %cmp.i.i.i = icmp eq i32 %3, %i
+  %cmp.i.i.i = icmp eq i32 %i, %3
   br i1 %cmp.i.i.i, label %arenas_i.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %sw.default.i.i.i
@@ -6528,7 +6528,7 @@ sw.default:                                       ; preds = %malloc_mutex_lock.e
   %narenas = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %narenas, align 8
   %conv = zext i32 %5 to i64
-  %cmp = icmp ult i64 %conv, %i
+  %cmp = icmp ugt i64 %i, %conv
   br i1 %cmp, label %label_return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %malloc_mutex_lock.exit, %sw.default
@@ -6742,7 +6742,7 @@ lor.lhs.false15.i:                                ; preds = %if.end9.i
   %3 = getelementptr i8, ptr %2, i64 78944
   %call12.val.i = load i32, ptr %3, align 32
   %4 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i7.i = icmp ugt i32 %4, %call12.val.i
+  %cmp.i7.i = icmp ult i32 %call12.val.i, %4
   br i1 %cmp.i7.i, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false15.i
@@ -6860,7 +6860,7 @@ lor.lhs.false15.i:                                ; preds = %if.end9.i
   %6 = getelementptr i8, ptr %5, i64 78944
   %call12.val.i = load i32, ptr %6, align 32
   %7 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i7.i = icmp ugt i32 %7, %call12.val.i
+  %cmp.i7.i = icmp ult i32 %call12.val.i, %7
   br i1 %cmp.i7.i, label %label_return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false15.i
@@ -7774,7 +7774,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   %narenas1 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %narenas1, align 8
   %cmp = icmp eq i32 %arena_ind, 4096
-  %cmp2 = icmp eq i32 %4, %arena_ind
+  %cmp2 = icmp eq i32 %arena_ind, %4
   %or.cond = select i1 %cmp, i1 true, i1 %cmp2
   br i1 %or.cond, label %if.then, label %do.end
 
@@ -14621,11 +14621,11 @@ sw.default.i.i:                                   ; preds = %malloc_mutex_lock.e
   %narenas.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %narenas.i.i, align 8
   %conv.i.i = zext i32 %4 to i64
-  %cmp.i.i = icmp eq i64 %conv.i.i, %i
+  %cmp.i.i = icmp eq i64 %i, %conv.i.i
   br i1 %cmp.i.i, label %ctl_arenas_i_verify.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %sw.default.i.i
-  %cmp9.not.i.i = icmp ule i64 %conv.i.i, %i
+  %cmp9.not.i.i = icmp uge i64 %i, %conv.i.i
   %conv13.i.i = trunc i64 %i to i32
   %add.i.i = add i32 %conv13.i.i, 2
   %cmp.i = icmp eq i32 %add.i.i, -1
@@ -33604,11 +33604,11 @@ sw.default.i.i:                                   ; preds = %malloc_mutex_lock.e
   %narenas.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %narenas.i.i, align 8
   %conv.i.i = zext i32 %4 to i64
-  %cmp.i.i = icmp eq i64 %conv.i.i, %i
+  %cmp.i.i = icmp eq i64 %i, %conv.i.i
   br i1 %cmp.i.i, label %ctl_arenas_i_verify.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %sw.default.i.i
-  %cmp9.not.i.i = icmp ule i64 %conv.i.i, %i
+  %cmp9.not.i.i = icmp uge i64 %i, %conv.i.i
   %conv13.i.i = trunc i64 %i to i32
   %add.i.i = add i32 %conv13.i.i, 2
   %cmp.i = icmp eq i32 %add.i.i, -1

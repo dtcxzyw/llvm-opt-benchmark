@@ -1297,7 +1297,7 @@ for.end:                                          ; preds = %if.end28, %dynamic_
   %41 = load ptr, ptr %path, align 8
   %cmp.i.i.i = icmp ne ptr %41, %40
   %__last.sroa.0.09.i.i = getelementptr inbounds i8, ptr %40, i64 -8
-  %cmp.i110.i.i = icmp ugt ptr %__last.sroa.0.09.i.i, %41
+  %cmp.i110.i.i = icmp ult ptr %41, %__last.sroa.0.09.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %cmp.i110.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %invoke.cont49
 
@@ -6992,7 +6992,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %"_Z
   %call.val.i16.i.i.i.i.i = load ptr, ptr %__next.sroa.0.014.i.i.i.i.i, align 8
   %36 = getelementptr i8, ptr %call.val.i16.i.i.i.i.i, i64 16
   %call.val.val.i17.i.i.i.i.i = load i64, ptr %36, align 8
-  %cmp.i.i18.i.i.i.i.i = icmp sgt i64 %call.val.val.i17.i.i.i.i.i, %__val.val.val15.i.i.i.i.i
+  %cmp.i.i18.i.i.i.i.i = icmp slt i64 %__val.val.val15.i.i.i.i.i, %call.val.val.i17.i.i.i.i.i
   br i1 %cmp.i.i18.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.thread.i.i.i.i.i
 
 while.end.thread.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i
@@ -7019,7 +7019,7 @@ _ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EEa
   %call.val.i.i.i.i.i.i = load ptr, ptr %__next.sroa.0.0.i.i.i.i.i, align 8
   %38 = getelementptr i8, ptr %call.val.i.i.i.i.i.i, i64 16
   %call.val.val.i.i.i.i.i.i = load i64, ptr %38, align 8
-  %cmp.i.i.i.i.i.i.i = icmp sgt i64 %call.val.val.i.i.i.i.i.i, %__val.val.val.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i = icmp slt i64 %__val.val.val.i.i.i.i.i, %call.val.val.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i, !llvm.loop !322
 
 while.end.i.i.i.i.i:                              ; preds = %_ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EEaSEOS6_.exit.i.i.i.i.i
@@ -9699,7 +9699,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !341
 
 if.else:                                          ; preds = %if.then4
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i, %__n
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, %sub.ptr.div.i
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
@@ -9783,7 +9783,7 @@ for.body.i.i.i.i.i.i.i67:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !341
 
 invoke.cont57:                                    ; preds = %for.body.i.i.i.i.i.i.i67
-  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %6, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %__position.coerce, %6
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i76, label %invoke.cont60, label %if.then.i.i.i.i.i.i.i.i.i77
 
 if.then.i.i.i.i.i.i.i.i.i77:                      ; preds = %invoke.cont57
@@ -9885,7 +9885,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox6common6FilterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox6common6FilterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox6common6FilterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox6common6FilterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN8facebook5velox6common6FilterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %for.body.i.i.i12
@@ -11274,7 +11274,7 @@ if.end5:                                          ; preds = %if.end20.i, %while.
   %chunkMask_ = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load i32, ptr %chunkMask_, align 8
   %conv = zext i32 %14 to i64
-  %and = and i64 %conv, %hp.coerce0
+  %and = and i64 %hp.coerce0, %conv
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %13, i64 %and
   %15 = load <16 x i8>, ptr %add.ptr, align 16
   %16 = icmp slt <16 x i8> %15, zeroinitializer
@@ -11409,7 +11409,7 @@ entry:
   %sizeAndPackedBegin_.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %sizeAndPackedBegin_.i, align 4
   %conv = zext i32 %0 to i64
-  %add = add i64 %conv, %incoming
+  %add = add i64 %incoming, %conv
   %chunkMask_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %chunkMask_, align 8
   %add2 = add i32 %1, 1
@@ -12067,7 +12067,7 @@ if.then:                                          ; preds = %_ZN5folly3f146detai
   %2 = load ptr, ptr %chunks_, align 8
   %3 = load i32, ptr %chunkMask_, align 8
   %conv23 = zext i32 %3 to i64
-  %and24 = and i64 %conv23, %hp.coerce0
+  %and24 = and i64 %hp.coerce0, %conv23
   %add.ptr25 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %and24
   %cmp726 = icmp eq ptr %add.ptr25, %add.ptr1.i.i
   br i1 %cmp726, label %if.then8, label %if.end
@@ -12467,7 +12467,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %lower_.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load double, ptr %lower_.i, align 8
-  %cmp.i = fcmp ogt double %2, %value
+  %cmp.i = fcmp olt double %value, %2
   br i1 %cmp.i, label %_ZNK8facebook5velox6common18FloatingPointRangeIdE17testFloatingPointEd.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then2.i
@@ -12487,14 +12487,14 @@ if.end10.i:                                       ; preds = %if.end4.i, %if.end.
 if.then12.i:                                      ; preds = %if.end10.i
   %upper_.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load double, ptr %upper_.i, align 8
-  %cmp13.i = fcmp olt double %5, %value
+  %cmp13.i = fcmp ogt double %value, %5
   br i1 %cmp13.i, label %_ZNK8facebook5velox6common18FloatingPointRangeIdE17testFloatingPointEd.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i
   %upperExclusive_.i = getelementptr inbounds i8, ptr %this, i64 19
   %6 = load i8, ptr %upperExclusive_.i, align 1
   %tobool16.i = trunc i8 %6 to i1
-  %cmp19.i = fcmp oeq double %5, %value
+  %cmp19.i = fcmp oeq double %value, %5
   %or.cond6.i = and i1 %cmp19.i, %tobool16.i
   br i1 %or.cond6.i, label %_ZNK8facebook5velox6common18FloatingPointRangeIdE17testFloatingPointEd.exit, label %if.end22.i
 
@@ -12698,12 +12698,12 @@ if.then23.i:                                      ; preds = %if.then.i
   br i1 %tobool29.i, label %if.then30.i, label %if.else43.i
 
 if.then30.i:                                      ; preds = %if.then23.i
-  %7 = fcmp ogt <4 x double> %vecinit3.i.i.i.i.i2.i, %x.coerce
+  %7 = fcmp olt <4 x double> %x.coerce, %vecinit3.i.i.i.i.i2.i
   %and.i.i.i24.i = and <4 x i1> %storemerge.in.in.i, %7
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else43.i:                                      ; preds = %if.then23.i
-  %8 = fcmp oge <4 x double> %vecinit3.i.i.i.i.i2.i, %x.coerce
+  %8 = fcmp ole <4 x double> %x.coerce, %vecinit3.i.i.i.i.i2.i
   %and.i.i.i323.i = and <4 x i1> %storemerge.in.in.i, %8
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
@@ -12718,11 +12718,11 @@ if.else58.i:                                      ; preds = %entry
   br i1 %tobool67.i, label %if.then68.i, label %if.else75.i
 
 if.then68.i:                                      ; preds = %if.else58.i
-  %11 = fcmp ogt <4 x double> %vecinit3.i.i.i.i.i5.i, %x.coerce
+  %11 = fcmp olt <4 x double> %x.coerce, %vecinit3.i.i.i.i.i5.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else75.i:                                      ; preds = %if.else58.i
-  %12 = fcmp oge <4 x double> %vecinit3.i.i.i.i.i5.i, %x.coerce
+  %12 = fcmp ole <4 x double> %x.coerce, %vecinit3.i.i.i.i.i5.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
 _ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit: ; preds = %if.then.i, %if.then30.i, %if.else43.i, %if.then68.i, %if.else75.i
@@ -12830,10 +12830,10 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %upper_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load double, ptr %upper_, align 8
-  %cmp = fcmp uge double %1, %min
+  %cmp = fcmp ule double %min, %1
   %lower_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load double, ptr %lower_, align 8
-  %cmp3 = fcmp ule double %2, %max
+  %cmp3 = fcmp uge double %max, %2
   %lnot = select i1 %cmp, i1 %cmp3, i1 false
   br label %return
 
@@ -13008,7 +13008,7 @@ if.end.i.i12:                                     ; preds = %land.rhs29
   br i1 %tobool15, label %if.end10.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i12
-  %cmp.i.i = fcmp ogt double %13, %15
+  %cmp.i.i = fcmp olt double %15, %13
   br i1 %cmp.i.i, label %land.end34, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then2.i.i
@@ -13023,14 +13023,14 @@ if.end10.i.i:                                     ; preds = %if.end4.i.i, %if.en
   br i1 %tobool22, label %lor.rhs, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.end10.i.i
-  %cmp13.i.i = fcmp olt double %17, %15
+  %cmp13.i.i = fcmp ogt double %15, %17
   br i1 %cmp13.i.i, label %land.end34, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then12.i.i
   %upperExclusive_.i.i = getelementptr inbounds i8, ptr %this, i64 19
   %27 = load i8, ptr %upperExclusive_.i.i, align 1
   %tobool16.i.i = trunc i8 %27 to i1
-  %cmp19.i.i = fcmp oeq double %17, %15
+  %cmp19.i.i = fcmp oeq double %15, %17
   %or.cond6.i.i = and i1 %cmp19.i.i, %tobool16.i.i
   br i1 %or.cond6.i.i, label %land.end34, label %lor.rhs
 
@@ -13059,7 +13059,7 @@ if.end.i.i15:                                     ; preds = %land.rhs37
 
 if.then2.i.i18:                                   ; preds = %if.end.i.i15
   %32 = load double, ptr %lower_8, align 8
-  %cmp.i.i20 = fcmp ogt double %32, %18
+  %cmp.i.i20 = fcmp olt double %18, %32
   br i1 %cmp.i.i20, label %land.end45, label %if.end4.i.i21
 
 if.end4.i.i21:                                    ; preds = %if.then2.i.i18
@@ -13077,14 +13077,14 @@ if.end10.i.i26:                                   ; preds = %if.end4.i.i21, %if.
 
 if.then12.i.i29:                                  ; preds = %if.end10.i.i26
   %35 = load double, ptr %upper_11, align 8
-  %cmp13.i.i31 = fcmp olt double %35, %18
+  %cmp13.i.i31 = fcmp ogt double %18, %35
   br i1 %cmp13.i.i31, label %land.end45, label %if.end15.i.i32
 
 if.end15.i.i32:                                   ; preds = %if.then12.i.i29
   %upperExclusive_.i.i33 = getelementptr inbounds i8, ptr %this, i64 19
   %36 = load i8, ptr %upperExclusive_.i.i33, align 1
   %tobool16.i.i34 = trunc i8 %36 to i1
-  %cmp19.i.i35 = fcmp oeq double %35, %18
+  %cmp19.i.i35 = fcmp oeq double %18, %35
   %or.cond6.i.i36 = and i1 %cmp19.i.i35, %tobool16.i.i34
   br i1 %or.cond6.i.i36, label %land.end45, label %lor.rhs39
 
@@ -13979,7 +13979,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %lower_.i = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load float, ptr %lower_.i, align 4
-  %cmp.i = fcmp ogt float %2, %value
+  %cmp.i = fcmp olt float %value, %2
   br i1 %cmp.i, label %_ZNK8facebook5velox6common18FloatingPointRangeIfE17testFloatingPointEf.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then2.i
@@ -13999,14 +13999,14 @@ if.end10.i:                                       ; preds = %if.end4.i, %if.end.
 if.then12.i:                                      ; preds = %if.end10.i
   %upper_.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load float, ptr %upper_.i, align 8
-  %cmp13.i = fcmp olt float %5, %value
+  %cmp13.i = fcmp ogt float %value, %5
   br i1 %cmp13.i, label %_ZNK8facebook5velox6common18FloatingPointRangeIfE17testFloatingPointEf.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i
   %upperExclusive_.i = getelementptr inbounds i8, ptr %this, i64 19
   %6 = load i8, ptr %upperExclusive_.i, align 1
   %tobool16.i = trunc i8 %6 to i1
-  %cmp19.i = fcmp oeq float %5, %value
+  %cmp19.i = fcmp oeq float %value, %5
   %or.cond6.i = and i1 %cmp19.i, %tobool16.i
   br i1 %or.cond6.i, label %_ZNK8facebook5velox6common18FloatingPointRangeIfE17testFloatingPointEf.exit, label %if.end22.i
 
@@ -14060,12 +14060,12 @@ if.then23.i:                                      ; preds = %if.then.i
   br i1 %tobool29.i, label %if.then30.i, label %if.else43.i
 
 if.then30.i:                                      ; preds = %if.then23.i
-  %8 = fcmp ogt <8 x float> %vecinit7.i.i.i.i.i2.i, %x.coerce
+  %8 = fcmp olt <8 x float> %x.coerce, %vecinit7.i.i.i.i.i2.i
   %and.i.i.i24.i = and <8 x i1> %8, %storemerge.in.in.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else43.i:                                      ; preds = %if.then23.i
-  %9 = fcmp oge <8 x float> %vecinit7.i.i.i.i.i2.i, %x.coerce
+  %9 = fcmp ole <8 x float> %x.coerce, %vecinit7.i.i.i.i.i2.i
   %and.i.i.i323.i = and <8 x i1> %9, %storemerge.in.in.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit
 
@@ -14080,11 +14080,11 @@ if.else58.i:                                      ; preds = %entry
   br i1 %tobool67.i, label %if.then68.i, label %if.else75.i
 
 if.then68.i:                                      ; preds = %if.else58.i
-  %12 = fcmp ogt <8 x float> %vecinit7.i.i.i.i.i5.i, %x.coerce
+  %12 = fcmp olt <8 x float> %x.coerce, %vecinit7.i.i.i.i.i5.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else75.i:                                      ; preds = %if.else58.i
-  %13 = fcmp oge <8 x float> %vecinit7.i.i.i.i.i5.i, %x.coerce
+  %13 = fcmp ole <8 x float> %x.coerce, %vecinit7.i.i.i.i.i5.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit
 
 _ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit: ; preds = %if.then.i, %if.then30.i, %if.else43.i, %if.then68.i, %if.else75.i
@@ -14109,11 +14109,11 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %upper_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load float, ptr %upper_, align 8
   %conv = fpext float %1 to double
-  %cmp = fcmp uge double %conv, %min
+  %cmp = fcmp ule double %min, %conv
   %lower_ = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load float, ptr %lower_, align 4
   %conv3 = fpext float %2 to double
-  %cmp4 = fcmp ule double %conv3, %max
+  %cmp4 = fcmp uge double %max, %conv3
   %lnot = select i1 %cmp, i1 %cmp4, i1 false
   br label %return
 
@@ -15344,7 +15344,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12
@@ -15811,7 +15811,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp35 = icmp sgt i64 %div, %__holeIndex
+  %cmp35 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp35, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EEaSEOS6_.exit
@@ -16006,7 +16006,7 @@ if.else:                                          ; preds = %for.body
   %call.val.i16.i = load ptr, ptr %__first.coerce.pn16, align 8
   %5 = getelementptr i8, ptr %call.val.i16.i, i64 16
   %call.val.val.i17.i = load i64, ptr %5, align 8
-  %cmp.i.i18.i = icmp sgt i64 %call.val.val.i17.i, %__val.val.val15.i
+  %cmp.i.i18.i = icmp slt i64 %__val.val.val15.i, %call.val.val.i17.i
   br i1 %cmp.i.i18.i, label %while.body.i, label %while.end.thread.i
 
 while.end.thread.i:                               ; preds = %if.else
@@ -16033,7 +16033,7 @@ _ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EEa
   %call.val.i.i = load ptr, ptr %__next.sroa.0.0.i, align 8
   %7 = getelementptr i8, ptr %call.val.i.i, i64 16
   %call.val.val.i.i = load i64, ptr %7, align 8
-  %cmp.i.i.i = icmp sgt i64 %call.val.val.i.i, %__val.val.val.i
+  %cmp.i.i.i = icmp slt i64 %__val.val.val.i, %call.val.val.i.i
   br i1 %cmp.i.i.i, label %while.body.i, label %while.end.i, !llvm.loop !322
 
 while.end.i:                                      ; preds = %_ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EEaSEOS6_.exit.i

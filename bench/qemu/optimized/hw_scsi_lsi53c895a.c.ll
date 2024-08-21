@@ -8251,7 +8251,7 @@ entry:
   store ptr null, ptr %hba_private, align 8
   %current.i = getelementptr inbounds i8, ptr %call.i, i64 3736
   %3 = load ptr, ptr %current.i, align 8
-  %cmp.i = icmp eq ptr %3, %2
+  %cmp.i = icmp eq ptr %2, %3
   br i1 %cmp.i, label %if.then.i, label %do.body.i
 
 if.then.i:                                        ; preds = %entry

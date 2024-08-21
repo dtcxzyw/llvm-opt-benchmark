@@ -110,7 +110,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then
-  %add = fadd nsz float %6, %start_time
+  %add = fadd nsz float %start_time, %6
   %8 = tail call nsz noundef float @llvm.maxnum.f32(float %add, float 0.000000e+00)
   br label %if.end21.thread
 

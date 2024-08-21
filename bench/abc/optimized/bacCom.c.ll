@@ -248,7 +248,7 @@ define internal range(i32 0, 2) i32 @Bac_CommandRead(ptr nocapture noundef %0, i
 12:                                               ; preds = %4
   %13 = load i32, ptr @globalUtilOptind, align 4
   %14 = add nsw i32 %13, 1
-  %.not74 = icmp eq i32 %14, %1
+  %.not74 = icmp eq i32 %1, %14
   br i1 %.not74, label %16, label %15
 
 15:                                               ; preds = %12
@@ -490,7 +490,7 @@ define internal range(i32 0, 2) i32 @Bac_CommandWrite(ptr nocapture noundef read
 16:                                               ; preds = %13
   %17 = load i32, ptr @globalUtilOptind, align 4
   %18 = add nsw i32 %17, 1
-  %19 = icmp eq i32 %18, %1
+  %19 = icmp eq i32 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
@@ -500,7 +500,7 @@ define internal range(i32 0, 2) i32 @Bac_CommandWrite(ptr nocapture noundef read
   br label %29
 
 24:                                               ; preds = %16
-  %25 = icmp eq i32 %17, %1
+  %25 = icmp eq i32 %1, %17
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
@@ -652,7 +652,7 @@ define internal range(i32 0, 2) i32 @Bac_CommandPs(ptr nocapture noundef readonl
 Bac_ManNtkIsOk.exit.i.i.i:                        ; preds = %22
   %26 = getelementptr i8, ptr %.val, i64 36
   %.val.i.i.i.i = load i32, ptr %26, align 4
-  %.not4.i.i.i = icmp slt i32 %.val.i.i.i.i, %24
+  %.not4.i.i.i = icmp sgt i32 %24, %.val.i.i.i.i
   br i1 %.not4.i.i.i, label %Bac_ManRoot.exit.i, label %27
 
 27:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i.i
@@ -898,7 +898,7 @@ Bac_ManNtk.exit.i39.i:                            ; preds = %Bac_ManNtk.exit.i39
   %.val.lcssa.i.i = phi i32 [ %.val6.i.i, %Bac_ManMemory.exit.i ], [ %.val.i42.i, %Bac_ManNtk.exit.i39.i ]
   %163 = load i32, ptr %23, align 8
   %164 = icmp slt i32 %163, 1
-  %.not4.i.i.i.i = icmp slt i32 %.val.lcssa.i.i, %163
+  %.not4.i.i.i.i = icmp sgt i32 %163, %.val.lcssa.i.i
   %or.cond.i.i = or i1 %164, %.not4.i.i.i.i
   br i1 %or.cond.i.i, label %Bac_ManBoxNum.exit.i, label %165
 
@@ -986,7 +986,7 @@ Bac_ManNtkIsOk.exit.i.i.i.i:                      ; preds = %Bac_NtkBoxNum.exit.
   %208 = load ptr, ptr %176, align 8
   %209 = getelementptr i8, ptr %208, i64 36
   %.val.i.i.i.i.i = load i32, ptr %209, align 4
-  %.not4.i.i.i49.i = icmp slt i32 %.val.i.i.i.i.i, %206
+  %.not4.i.i.i49.i = icmp sgt i32 %206, %.val.i.i.i.i.i
   br i1 %.not4.i.i.i49.i, label %Bac_NtkPrintStats.exit.i, label %Bac_ManNtkIsOk.exit.i.i14.i.i
 
 Bac_ManNtkIsOk.exit.i.i14.i.i:                    ; preds = %Bac_ManNtkIsOk.exit.i.i.i.i
@@ -2191,7 +2191,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @Bac_ManBoxNum_rec(ptr noca
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %17
   %21 = getelementptr i8, ptr %.val20, i64 36
   %.val.i.i.i = load i32, ptr %21, align 4
-  %.not4.i.i = icmp slt i32 %.val.i.i.i, %19
+  %.not4.i.i = icmp sgt i32 %19, %.val.i.i.i
   br i1 %.not4.i.i, label %Bac_BoxNtk.exit, label %22
 
 22:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i

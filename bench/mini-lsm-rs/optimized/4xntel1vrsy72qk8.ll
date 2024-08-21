@@ -3136,7 +3136,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %1
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !5, !noundef !4
@@ -3331,7 +3331,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %1
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !5, !noundef !4
@@ -3526,7 +3526,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %1
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !5, !noundef !4
@@ -3943,7 +3943,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %60
 76:                                               ; preds = %60
   %77 = getelementptr i8, ptr %64, i64 8
   %.val13.i.i.i = load i64, ptr %77, align 8, !noalias !878
-  %.not15.i.i.i = icmp ugt i64 %.val13.i.i.i, %14
+  %.not15.i.i.i = icmp ult i64 %14, %.val13.i.i.i
   br i1 %.not15.i.i.i, label %.thread12.i.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17ha12e688016bf4400E.exit.i"
 
 .thread12.i.i.i:                                  ; preds = %76, %60
@@ -4337,7 +4337,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %60
 76:                                               ; preds = %60
   %77 = getelementptr i8, ptr %64, i64 8
   %.val13.i.i.i = load i64, ptr %77, align 8, !noalias !978
-  %.not15.i.i.i = icmp ugt i64 %.val13.i.i.i, %14
+  %.not15.i.i.i = icmp ult i64 %14, %.val13.i.i.i
   br i1 %.not15.i.i.i, label %.thread12.i.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hfd48608076e60186E.exit.i"
 
 .thread12.i.i.i:                                  ; preds = %76, %60
@@ -4416,7 +4416,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$
 define internal fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17h70e78faaa0445c94E"(ptr %.8.val, i64 %.16.val, i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
-  %3 = icmp ugt i64 %.16.val, %0
+  %3 = icmp ult i64 %0, %.16.val
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds { ptr, i64 }, ptr %.8.val, i64 %0
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !5, !noundef !4
@@ -6031,7 +6031,7 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator
   store i64 %57, ptr %.sroa.528.0..sroa_idx, align 8, !alias.scope !1220, !noalias !1221
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1217
   %.val.i43 = load ptr, ptr %.sroa.427.0..sroa_idx, align 8, !alias.scope !1209, !noalias !1212, !nonnull !4, !noundef !4
-  %58 = icmp ugt i64 %57, %44
+  %58 = icmp ult i64 %44, %57
   call void @llvm.assume(i1 %58)
   %59 = getelementptr inbounds { ptr, i64 }, ptr %.val.i43, i64 %44
   %60 = load ptr, ptr %59, align 8, !nonnull !4, !align !5, !noundef !4
@@ -6408,7 +6408,7 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator
   store i64 %68, ptr %.sroa.528.0..sroa_idx, align 8, !alias.scope !1313, !noalias !1314
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1310
   %.val.i43 = load ptr, ptr %.sroa.427.0..sroa_idx, align 8, !alias.scope !1302, !noalias !1305, !nonnull !4, !noundef !4
-  %69 = icmp ugt i64 %68, %55
+  %69 = icmp ult i64 %55, %68
   call void @llvm.assume(i1 %69)
   %70 = getelementptr inbounds { ptr, i64 }, ptr %.val.i43, i64 %55
   %71 = load ptr, ptr %70, align 8, !nonnull !4, !align !5, !noundef !4

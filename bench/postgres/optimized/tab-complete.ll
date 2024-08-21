@@ -12396,7 +12396,7 @@ define internal noundef zeroext i1 @TailMatchesImpl(i1 noundef zeroext %0, i32 n
   %24 = load ptr, ptr %23, align 8
   %25 = trunc i64 %indvars.iv to i32
   %26 = xor i32 %25, -1
-  %27 = add i32 %26, %3
+  %27 = add i32 %3, %26
   %28 = sext i32 %27 to i64
   %29 = getelementptr ptr, ptr %2, i64 %28
   %30 = load ptr, ptr %29, align 8
@@ -12458,7 +12458,7 @@ define internal noundef zeroext i1 @HeadMatchesImpl(i1 noundef zeroext %0, i32 n
   %24 = load ptr, ptr %23, align 8
   %25 = trunc i64 %indvars.iv to i32
   %26 = xor i32 %25, -1
-  %27 = add i32 %26, %1
+  %27 = add i32 %1, %26
   %28 = sext i32 %27 to i64
   %29 = getelementptr ptr, ptr %2, i64 %28
   %30 = load ptr, ptr %29, align 8
@@ -12582,7 +12582,7 @@ define internal noundef zeroext i1 @MatchesImpl(i1 zeroext %0, i32 noundef %1, p
   %23 = load ptr, ptr %22, align 8
   %24 = trunc i64 %indvars.iv to i32
   %25 = xor i32 %24, -1
-  %26 = add i32 %25, %1
+  %26 = add i32 %1, %25
   %27 = sext i32 %26 to i64
   %28 = getelementptr ptr, ptr %2, i64 %27
   %29 = load ptr, ptr %28, align 8

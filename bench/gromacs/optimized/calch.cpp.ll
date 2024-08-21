@@ -87,19 +87,19 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   %36 = load float, ptr %35, align 4
   %37 = getelementptr inbounds i8, ptr %6, i64 4
   %38 = load float, ptr %37, align 4
-  %39 = fneg float %36
-  %40 = fmul float %38, %39
+  %39 = fneg float %38
+  %40 = fmul float %36, %39
   %41 = tail call float @llvm.fmuladd.f32(float %32, float %34, float %40)
   store float %41, ptr %5, align 4
   %42 = load float, ptr %6, align 4
   %43 = load float, ptr %7, align 4
-  %44 = fneg float %43
-  %45 = fmul float %34, %44
+  %44 = fneg float %34
+  %45 = fmul float %43, %44
   %46 = tail call float @llvm.fmuladd.f32(float %36, float %42, float %45)
   %47 = getelementptr inbounds i8, ptr %5, i64 4
   store float %46, ptr %47, align 4
-  %48 = fneg float %32
-  %49 = fmul float %42, %48
+  %48 = fneg float %42
+  %49 = fmul float %32, %48
   %50 = tail call float @llvm.fmuladd.f32(float %43, float %38, float %49)
   %51 = getelementptr inbounds i8, ptr %5, i64 8
   store float %50, ptr %51, align 4
@@ -139,18 +139,18 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   %68 = load float, ptr %35, align 4
   %69 = load float, ptr %51, align 4
   %70 = load float, ptr %31, align 4
-  %71 = fneg float %69
-  %72 = fmul float %70, %71
+  %71 = fneg float %70
+  %72 = fmul float %69, %71
   %73 = tail call float @llvm.fmuladd.f32(float %67, float %68, float %72)
   store float %73, ptr %6, align 4
   %74 = load float, ptr %7, align 4
   %75 = load float, ptr %5, align 4
-  %76 = fneg float %75
-  %77 = fmul float %68, %76
+  %76 = fneg float %68
+  %77 = fmul float %75, %76
   %78 = tail call float @llvm.fmuladd.f32(float %69, float %74, float %77)
   store float %78, ptr %37, align 4
-  %79 = fneg float %67
-  %80 = fmul float %74, %79
+  %79 = fneg float %74
+  %80 = fmul float %67, %79
   %81 = tail call float @llvm.fmuladd.f32(float %75, float %70, float %80)
   store float %81, ptr %33, align 4
   switch i32 %0, label %507 [
@@ -477,17 +477,17 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   %293 = getelementptr inbounds i8, ptr %1, i64 32
   %294 = load float, ptr %293, align 4
   %295 = fsub float %284, %294
-  %296 = fneg float %287
-  %297 = fmul float %292, %296
+  %296 = fneg float %292
+  %297 = fmul float %287, %296
   %298 = tail call float @llvm.fmuladd.f32(float %282, float %295, float %297)
   store float %298, ptr %10, align 4
-  %299 = fneg float %277
-  %300 = fmul float %295, %299
+  %299 = fneg float %295
+  %300 = fmul float %277, %299
   %301 = tail call float @llvm.fmuladd.f32(float %287, float %289, float %300)
   %302 = getelementptr inbounds i8, ptr %10, i64 4
   store float %301, ptr %302, align 4
-  %303 = fneg float %282
-  %304 = fmul float %289, %303
+  %303 = fneg float %289
+  %304 = fmul float %282, %303
   %305 = tail call float @llvm.fmuladd.f32(float %277, float %292, float %304)
   %306 = getelementptr inbounds i8, ptr %10, i64 8
   store float %305, ptr %306, align 4

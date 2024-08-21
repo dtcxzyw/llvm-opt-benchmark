@@ -2564,7 +2564,7 @@ if.then13:                                        ; preds = %Py_DecodeLocale.exi
 
 if.end15:                                         ; preds = %Py_DecodeLocale.exit
   %2 = load i64, ptr %r1, align 8
-  %cmp16.not = icmp ult i64 %2, %buflen
+  %cmp16.not = icmp ugt i64 %buflen, %2
   br i1 %cmp16.not, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
@@ -2641,7 +2641,7 @@ if.then9:                                         ; preds = %Py_DecodeLocale.exi
 
 if.end11:                                         ; preds = %Py_DecodeLocale.exit
   %2 = load i64, ptr %r, align 8
-  %cmp12.not = icmp ult i64 %2, %resolved_path_len
+  %cmp12.not = icmp ugt i64 %resolved_path_len, %2
   br i1 %cmp12.not, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
@@ -2859,7 +2859,7 @@ Py_DecodeLocale.exit:                             ; preds = %if.end
 
 if.end5:                                          ; preds = %Py_DecodeLocale.exit
   %1 = load i64, ptr %len, align 8
-  %cmp6.not = icmp ult i64 %1, %buflen
+  %cmp6.not = icmp ugt i64 %buflen, %1
   br i1 %cmp6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
@@ -2913,7 +2913,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp6.i, label %join_relfile.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp9.not.i = icmp eq ptr %call4, %dirname
+  %cmp9.not.i = icmp eq ptr %dirname, %call4
   br i1 %cmp9.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.else.i

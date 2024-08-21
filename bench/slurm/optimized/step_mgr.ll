@@ -4636,7 +4636,7 @@ _step_test_gres.exit:                             ; preds = %426, %416
   %838 = icmp sgt i32 %..i594, %798
   %839 = sub nsw i32 %..i594, %798
   %.1.i = select i1 %838, i32 %839, i32 0
-  %.2.i = call i32 @llvm.smin.i32(i32 %.1.i, i32 %.1)
+  %.2.i = call i32 @llvm.smin.i32(i32 %.1, i32 %.1.i)
   %840 = load ptr, ptr %9, align 8
   %841 = load ptr, ptr %14, align 8
   %842 = call fastcc ptr @_pick_step_nodes_cpus(ptr noundef %840, i32 noundef %.2.i, i32 noundef %834, ptr noundef %841)
@@ -4695,7 +4695,7 @@ _step_test_gres.exit:                             ; preds = %426, %416
   %865 = icmp sgt i32 %..i596, %.1372
   %866 = sub nsw i32 %..i596, %.1372
   %.1.i597 = select i1 %865, i32 %866, i32 0
-  %.2.i598 = call i32 @llvm.smin.i32(i32 %.1.i597, i32 %.2)
+  %.2.i598 = call i32 @llvm.smin.i32(i32 %.2, i32 %.1.i597)
   %867 = load ptr, ptr %8, align 8
   %868 = load ptr, ptr %14, align 8
   %869 = call fastcc ptr @_pick_step_nodes_cpus(ptr noundef %867, i32 noundef %.2.i598, i32 noundef %861, ptr noundef %868)
@@ -5686,7 +5686,7 @@ _use_one_thread_per_core.exit:                    ; preds = %133, %130, %127, %1
 
 156:                                              ; preds = %.thread172, %.thread176, %145, %149
   %.0121 = phi i16 [ %155, %.thread176 ], [ %.val160, %145 ], [ %151, %149 ], [ %.val160, %.thread172 ]
-  %157 = call i16 @llvm.umax.i16(i16 %.0121, i16 %4)
+  %157 = call i16 @llvm.umax.i16(i16 %4, i16 %.0121)
   %.3.in = select i1 %75, i16 %157, i16 %4
   %158 = icmp eq i32 %.0125186, -1
   br i1 %158, label %163, label %159
@@ -6693,7 +6693,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   br i1 %403, label %404, label %415
 
 404:                                              ; preds = %399, %395
-  %.not102.i = icmp ult i16 %.094.i, %134
+  %.not102.i = icmp ugt i16 %134, %.094.i
   %405 = and i32 %397, 4
   %.not103.i = icmp eq i32 %405, 0
   %or.cond125.i = and i1 %.not102.i, %.not103.i
@@ -8059,7 +8059,7 @@ define dso_local range(i32 0, 2025) i32 @step_partial_comp(ptr noundef %0, i32 n
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %8, i64 1064
   %27 = load i32, ptr %26, align 8
-  %.not = icmp eq i32 %27, %1
+  %.not = icmp eq i32 %1, %27
   br i1 %.not, label %find_step_record.exit, label %28
 
 28:                                               ; preds = %25
@@ -8312,7 +8312,7 @@ define internal fastcc range(i32 0, 2018) i32 @_step_partial_comp(ptr noundef %0
 121:                                              ; preds = %118, %117
   %122 = load i32, ptr %3, align 4
   %.not86 = icmp eq i32 %122, 0
-  %brmerge.not = and i1 %.not86, %2
+  %brmerge.not = and i1 %2, %.not86
   br i1 %brmerge.not, label %123, label %125
 
 123:                                              ; preds = %121

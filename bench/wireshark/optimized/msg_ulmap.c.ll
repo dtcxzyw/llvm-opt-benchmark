@@ -4283,7 +4283,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @PHYMOD_UL_IE(ptr no
 define internal fastcc noundef i32 @MIMO_UL_IE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = sdiv i32 %2, 2
   %7 = and i32 %2, 1
-  %8 = add i32 %7, %3
+  %8 = add i32 %3, %7
   %9 = add nuw nsw i32 %8, 1
   %10 = lshr i32 %9, 1
   %11 = load i32, ptr @ett_299, align 4

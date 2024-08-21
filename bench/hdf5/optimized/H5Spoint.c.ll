@@ -959,7 +959,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
 
 197:                                              ; preds = %.loopexit
   %198 = icmp eq i64 %190, 0
-  %or.cond5.not = or i1 %198, %3
+  %or.cond5.not = or i1 %3, %198
   br i1 %or.cond5.not, label %211, label %199
 
 199:                                              ; preds = %197
@@ -2202,7 +2202,7 @@ define range(i32 -1, 1) i32 @H5S_select_elements(ptr noundef %0, i32 noundef %1,
   %81 = phi i32 [ 0, %66 ], [ %78, %.lr.ph.i ]
   %82 = add i32 %.07292.i, 1
   %83 = zext i32 %82 to i64
-  %84 = icmp ult i64 %83, %2
+  %84 = icmp ugt i64 %2, %83
   br i1 %84, label %50, label %._crit_edge96.i
 
 ._crit_edge96.i:                                  ; preds = %._crit_edge.i, %46
@@ -2479,7 +2479,7 @@ define range(i32 -1, 1) i32 @H5Sget_select_elem_pointlist(i64 noundef %0, i64 no
 53:                                               ; preds = %46
   %54 = getelementptr inbounds i8, ptr %50, i64 528
   %55 = load i64, ptr %54, align 8
-  %56 = icmp eq i64 %55, %1
+  %56 = icmp eq i64 %1, %55
   br i1 %56, label %.loopexit.i, label %57
 
 57:                                               ; preds = %53, %46

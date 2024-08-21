@@ -10105,7 +10105,7 @@ for.end:                                          ; preds = %_ZSt4nextIN9__gnu_c
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
   %sub = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
-  %cmp.i23 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp.i23 = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   br i1 %cmp.i23, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
@@ -10114,7 +10114,7 @@ if.then.i:                                        ; preds = %for.end
   br label %_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %for.end
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i, %sub
+  %cmp4.i = icmp ult i64 %sub, %sub.ptr.div.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -10499,7 +10499,7 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp.not.i = icmp ne ptr %0, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp2.i = icmp eq ptr %1, %add.ptr.i.i
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit, label %lor.rhs.i
 
@@ -10540,7 +10540,7 @@ return:                                           ; preds = %entry, %_ZNSt8_Rb_t
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

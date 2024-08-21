@@ -32746,7 +32746,7 @@ cleanup225:                                       ; preds = %invoke.cont207
 for.end232:                                       ; preds = %for.inc223
   %137 = and i8 %is_successful.1.ph, 1
   %138 = icmp ne i8 %137, 0
-  %brmerge.not = and i1 %138, %is_root
+  %brmerge.not = and i1 %is_root, %138
   %. = select i1 %138, i32 1, i32 2
   br i1 %brmerge.not, label %if.then236, label %cleanup271
 
@@ -50264,7 +50264,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEE
 
 if.else:                                          ; preds = %_ZNKSt8__detail15_Hashtable_baseIN6duckdb13ColumnBindingESt4pairIKS2_NS1_6vectorIPNS1_24BoundColumnRefExpressionELb1EEEENS_10_Select1stENS1_21ColumnBindingEqualityENS1_25ColumnBindingHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i.i.i, %for.body.i.i
   %cmp19.not = icmp ne i64 %offset.066, 0
-  %brmerge.not = and i1 %cmp19.not, %replace
+  %brmerge.not = and i1 %replace, %cmp19.not
   br i1 %brmerge.not, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %if.else
@@ -50539,7 +50539,7 @@ _ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EE.exit: ; preds
 
 if.else:                                          ; preds = %_ZNKSt8__detail15_Hashtable_baseIN6duckdb13ColumnBindingESt4pairIKS2_NS1_6vectorIPNS1_24BoundColumnRefExpressionELb1EEEENS_10_Select1stENS1_21ColumnBindingEqualityENS1_25ColumnBindingHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i.i.i, %for.body.i.i
   %cmp19.not = icmp ne i64 %offset.063, 0
-  %brmerge.not = and i1 %cmp19.not, %replace
+  %brmerge.not = and i1 %replace, %cmp19.not
   br i1 %brmerge.not, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %if.else

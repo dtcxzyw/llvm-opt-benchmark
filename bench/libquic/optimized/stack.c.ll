@@ -115,7 +115,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load i64, ptr %sk, align 8
-  %cmp.not = icmp ugt i64 %0, %i
+  %cmp.not = icmp ult i64 %i, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -138,7 +138,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load i64, ptr %sk, align 8
-  %cmp.not = icmp ugt i64 %0, %i
+  %cmp.not = icmp ult i64 %i, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -271,7 +271,7 @@ if.end22:                                         ; preds = %if.end18
 
 if.end25:                                         ; preds = %if.end22, %if.end
   %3 = phi i64 [ %.pre, %if.end22 ], [ %1, %if.end ]
-  %cmp27.not = icmp ugt i64 %3, %where
+  %cmp27.not = icmp ult i64 %where, %3
   %data31 = getelementptr inbounds i8, ptr %sk, i64 8
   %4 = load ptr, ptr %data31, align 8
   br i1 %cmp27.not, label %if.else, label %if.then28
@@ -319,7 +319,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load i64, ptr %sk, align 8
-  %cmp.not = icmp ugt i64 %0, %where
+  %cmp.not = icmp ult i64 %where, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -328,7 +328,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %where
   %2 = load ptr, ptr %arrayidx, align 8
   %sub = add i64 %0, -1
-  %cmp2.not = icmp eq i64 %sub, %where
+  %cmp2.not = icmp eq i64 %where, %sub
   br i1 %cmp2.not, label %if.end11, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -376,7 +376,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.end.i:                                         ; preds = %for.body
   %sub.i = add i64 %0, -1
-  %cmp2.not.i = icmp eq i64 %sub.i, %i.011
+  %cmp2.not.i = icmp eq i64 %i.011, %sub.i
   br i1 %cmp2.not.i, label %sk_delete.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -633,7 +633,7 @@ if.end25.i:                                       ; preds = %if.end18.i
   store ptr %call.i, ptr %data19.i, align 8
   store i64 %div1536.pre-phi.i, ptr %num_alloc.i, align 8
   %.pre.i = load i64, ptr %sk, align 8
-  %cmp27.not.i = icmp ugt i64 %.pre.i, %0
+  %cmp27.not.i = icmp ult i64 %0, %.pre.i
   br i1 %cmp27.not.i, label %if.else.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.end25.i.thread, %if.end25.i

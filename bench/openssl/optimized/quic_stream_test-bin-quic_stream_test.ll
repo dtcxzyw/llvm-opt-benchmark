@@ -1576,7 +1576,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body
-  %cmp1.not = icmp eq i64 %add, %ref_len
+  %cmp1.not = icmp eq i64 %ref_len, %add
   br i1 %cmp1.not, label %for.body4, label %return
 
 for.end.thread:                                   ; preds = %entry

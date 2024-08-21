@@ -221,7 +221,7 @@ if.then5:                                         ; preds = %if.end
   %call6 = tail call ptr @__errno_location() #6
   %1 = load i32, ptr %call6, align 4
   %cmp7 = icmp ne i32 %1, 2
-  %brmerge = or i1 %cmp7, %required
+  %brmerge = or i1 %required, %cmp7
   br i1 %brmerge, label %if.else10, label %if.end12
 
 if.else10:                                        ; preds = %if.then5

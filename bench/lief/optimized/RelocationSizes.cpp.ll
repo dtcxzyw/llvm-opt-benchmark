@@ -89,7 +89,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm43ESt4lessIS4_EE11lower_boundIS4_
 10:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm43ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.i.i
   %.ptr16.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9get_R_X64ENS0_10Relocation4TYPEE.SIZES, i64 %.add.i.i
   %11 = load i32, ptr %.ptr16.i.i, align 4
-  %.not23.i.i = icmp ugt i32 %11, %0
+  %.not23.i.i = icmp ult i32 %0, %11
   br i1 %.not23.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm43ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_iERKT_.exit.thread, label %12
 
 12:                                               ; preds = %10
@@ -177,7 +177,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE4findIS4_EEPKSt4p
   %17 = phi i32 [ 671088681, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i ], [ %.pre.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i ]
   %18 = phi ptr [ %7, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i ], [ %16, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i ]
   %.0.i.i.i.i14.i.i = phi ptr [ %6, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i ], [ %.ptr.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i ]
-  %.not28.i.i = icmp ugt i32 %17, %0
+  %.not28.i.i = icmp ult i32 %0, %17
   %spec.select.i.i = select i1 %.not28.i.i, ptr %18, ptr %.0.i.i.i.i14.i.i
   %19 = getelementptr inbounds i8, ptr %2, i64 324
   %20 = icmp eq ptr %spec.select.i.i, %19
@@ -281,7 +281,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE4findIS4_EEPKSt4
   %21 = phi i32 [ 402653437, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i ], [ %.pre.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i ]
   %22 = phi ptr [ %6, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i ], [ %20, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i ]
   %.0.i.i.i.i14.i.i = phi ptr [ %5, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i ], [ %.ptr.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i ]
-  %.not33.i.i = icmp ugt i32 %21, %0
+  %.not33.i.i = icmp ult i32 %0, %21
   %spec.select.i.i = select i1 %.not33.i.i, ptr %22, ptr %.0.i.i.i.i14.i.i
   %23 = getelementptr inbounds i8, ptr %2, i64 1108
   %24 = icmp eq ptr %spec.select.i.i, %23
@@ -397,7 +397,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm57ESt4lessIS4_EE11lower_boundIS4_
 17:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm57ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.i.i
   %.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9get_R_PPCENS0_10Relocation4TYPEE.SIZES, i64 %.sink14.i.i.i.i.add.i.i
   %18 = load i32, ptr %.ptr.i.i, align 4
-  %.not33.i.i = icmp ugt i32 %18, %0
+  %.not33.i.i = icmp ult i32 %0, %18
   br i1 %.not33.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm57ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_iERKT_.exit.thread, label %19
 
 19:                                               ; preds = %17
@@ -498,7 +498,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE4findIS4_EEPKSt4p
   %20 = phi i32 [ 1207959803, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i ], [ %.pre.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i ]
   %21 = phi ptr [ %7, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i ], [ %19, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i ]
   %.0.i.i.i.i14.i.i = phi ptr [ %6, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i ], [ %.ptr.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i ]
-  %.not34.i.i = icmp ugt i32 %20, %0
+  %.not34.i.i = icmp ult i32 %0, %20
   %spec.select.i.i = select i1 %.not34.i.i, ptr %21, ptr %.0.i.i.i.i14.i.i
   %22 = getelementptr inbounds i8, ptr %2, i64 676
   %23 = icmp eq ptr %spec.select.i.i, %22
@@ -633,7 +633,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm89ESt4lessIS4_EE11lower_boundIS4_
 19:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm89ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.i.i
   %.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF11get_R_LARCHENS0_10Relocation4TYPEE.SIZES, i64 %.sink14.i.i.i.i.add.i.i
   %20 = load i32, ptr %.ptr.i.i, align 4
-  %.not35.i.i = icmp ugt i32 %20, %0
+  %.not35.i.i = icmp ult i32 %0, %20
   br i1 %.not35.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm89ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_iERKT_.exit.thread, label %21
 
 21:                                               ; preds = %19
@@ -720,7 +720,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm43ESt4lessIS4_EE11lower_boundIS4_
 21:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm43ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.i.i.i
   %.ptr16.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9get_R_X64ENS0_10Relocation4TYPEE.SIZES, i64 %.add.i.i.i
   %22 = load i32, ptr %.ptr16.i.i.i, align 4
-  %.not23.i.i.i = icmp ugt i32 %22, %0
+  %.not23.i.i.i = icmp ult i32 %0, %22
   br i1 %.not23.i.i.i, label %_ZN4LIEF3ELF9get_R_X64ENS0_10Relocation4TYPEE.exit, label %23
 
 23:                                               ; preds = %21
@@ -799,7 +799,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE4findIS4_EEPKSt4p
   %41 = phi i32 [ 671088681, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i.i ], [ %.pre.i.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i.i ]
   %42 = phi ptr [ %31, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i.i ], [ %40, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i.i ]
   %.0.i.i.i.i14.i.i.i = phi ptr [ %30, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i.i ], [ %.ptr.i.i.i31, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i.i ]
-  %.not28.i.i.i = icmp ugt i32 %41, %0
+  %.not28.i.i.i = icmp ult i32 %0, %41
   %spec.select.i.i.i = select i1 %.not28.i.i.i, ptr %42, ptr %.0.i.i.i.i14.i.i.i
   %43 = getelementptr inbounds i8, ptr %9, i64 324
   %44 = icmp eq ptr %spec.select.i.i.i, %43
@@ -923,7 +923,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE4findIS4_EEPKSt4
   %75 = phi i32 [ 402653437, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i.i ], [ %.pre.i.i.i49, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i.i ]
   %76 = phi ptr [ %60, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i.i ], [ %74, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i.i ]
   %.0.i.i.i.i14.i.i.i50 = phi ptr [ %59, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i.i ], [ %.ptr.i.i.i48, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i.i ]
-  %.not33.i.i.i = icmp ugt i32 %75, %0
+  %.not33.i.i.i = icmp ult i32 %0, %75
   %spec.select.i.i.i51 = select i1 %.not33.i.i.i, ptr %76, ptr %.0.i.i.i.i14.i.i.i50
   %77 = getelementptr inbounds i8, ptr %6, i64 1108
   %78 = icmp eq ptr %spec.select.i.i.i51, %77
@@ -1023,7 +1023,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm89ESt4lessIS4_EE11lower_boundIS4_
 100:                                              ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm89ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.i.i.i
   %.ptr.i.i.i80 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF11get_R_LARCHENS0_10Relocation4TYPEE.SIZES, i64 %.sink14.i.i.i.i.add.i.i.i
   %101 = load i32, ptr %.ptr.i.i.i80, align 4
-  %.not35.i.i.i = icmp ugt i32 %101, %0
+  %.not35.i.i.i = icmp ult i32 %0, %101
   br i1 %.not35.i.i.i, label %_ZN4LIEF3ELF9get_R_X64ENS0_10Relocation4TYPEE.exit, label %102
 
 102:                                              ; preds = %100
@@ -1140,7 +1140,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm57ESt4lessIS4_EE11lower_boundIS4_
 133:                                              ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm57ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.i.i.i
   %.ptr.i.i.i117 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9get_R_PPCENS0_10Relocation4TYPEE.SIZES, i64 %.sink14.i.i.i.i.add.i.i.i115
   %134 = load i32, ptr %.ptr.i.i.i117, align 4
-  %.not33.i.i.i118 = icmp ugt i32 %134, %0
+  %.not33.i.i.i118 = icmp ult i32 %0, %134
   br i1 %.not33.i.i.i118, label %_ZN4LIEF3ELF9get_R_X64ENS0_10Relocation4TYPEE.exit, label %135
 
 135:                                              ; preds = %133
@@ -1235,7 +1235,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE4findIS4_EEPKSt4p
   %156 = phi i32 [ 1207959803, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i.i ], [ %.pre.i.i.i161, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i.i ]
   %157 = phi ptr [ %143, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i.i ], [ %155, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i.i ]
   %.0.i.i.i.i14.i.i.i162 = phi ptr [ %142, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit.thread.i.i.i ], [ %.ptr.i.i.i160, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit._crit_edge.i.i.i ]
-  %.not34.i.i.i = icmp ugt i32 %156, %0
+  %.not34.i.i.i = icmp ult i32 %0, %156
   %spec.select.i.i.i163 = select i1 %.not34.i.i.i, ptr %157, ptr %.0.i.i.i.i14.i.i.i162
   %158 = getelementptr inbounds i8, ptr %2, i64 676
   %159 = icmp eq ptr %spec.select.i.i.i163, %158

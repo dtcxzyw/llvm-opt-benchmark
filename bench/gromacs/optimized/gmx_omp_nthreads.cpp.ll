@@ -728,7 +728,7 @@ define internal fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleM
 
 16:                                               ; preds = %14, %10
   %17 = icmp eq i32 %1, 5
-  %or.cond = and i1 %17, %2
+  %or.cond = and i1 %2, %17
   %.pre = load i32, ptr %4, align 4
   %or.cond.not = xor i1 %or.cond, true
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 4), align 4
@@ -774,7 +774,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %29
 
 35:                                               ; preds = %3
   %36 = icmp eq i32 %1, 5
-  %or.cond3 = and i1 %36, %2
+  %or.cond3 = and i1 %2, %36
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 4), align 4
   %38 = load i32, ptr @_ZL5modth, align 4
   %39 = select i1 %or.cond3, i32 %37, i32 %38

@@ -6004,7 +6004,7 @@ for.inc:                                          ; preds = %sw.bb, %sw.bb4, %sw
   %i.1 = phi i32 [ %i.054, %if.then ], [ %i.054, %invoke.cont ], [ %conv66, %if.end61 ], [ %i.054, %sw.bb14 ], [ %i.054, %sw.bb12 ], [ %i.054, %sw.bb10 ], [ %i.054, %sw.bb8 ], [ %i.054, %sw.bb6 ], [ %i.054, %sw.bb4 ], [ %i.054, %sw.bb ]
   %inc = add i32 %i.1, 1
   %conv = zext i32 %inc to i64
-  %cmp.not = icmp ult i64 %conv, %length
+  %cmp.not = icmp ugt i64 %length, %conv
   br i1 %cmp.not, label %for.body, label %for.end, !llvm.loop !207
 
 for.end:                                          ; preds = %for.inc, %entry

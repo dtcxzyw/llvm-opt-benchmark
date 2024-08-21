@@ -649,7 +649,7 @@ define internal i64 @uudecode_filter_read(ptr nocapture noundef readonly %0, ptr
   %32 = sext i32 %30 to i64
   %33 = add nsw i64 %25, %32
   %34 = load i64, ptr %15, align 8
-  %35 = icmp ult i64 %34, %33
+  %35 = icmp ugt i64 %33, %34
   br i1 %35, label %.preheader.i, label %._crit_edge653
 
 ._crit_edge653:                                   ; preds = %31
@@ -662,7 +662,7 @@ define internal i64 @uudecode_filter_read(ptr nocapture noundef readonly %0, ptr
   %37 = shl nuw nsw i64 %.0.i, 1
   %38 = add i64 %.0.i, 1024
   %.1.i = select i1 %36, i64 %37, i64 %38
-  %39 = icmp ult i64 %.1.i, %33
+  %39 = icmp ugt i64 %33, %.1.i
   br i1 %39, label %.preheader.i, label %40, !llvm.loop !10
 
 40:                                               ; preds = %.preheader.i
@@ -813,7 +813,7 @@ get_line.exit.thread:                             ; preds = %get_line.exit, %.lr
 
 100:                                              ; preds = %94
   %101 = load i64, ptr %15, align 8
-  %102 = icmp ult i64 %101, %.019.i
+  %102 = icmp ugt i64 %.019.i, %101
   br i1 %102, label %.preheader.i280, label %._crit_edge658
 
 ._crit_edge658:                                   ; preds = %100
@@ -826,7 +826,7 @@ get_line.exit.thread:                             ; preds = %get_line.exit, %.lr
   %104 = shl nuw nsw i64 %.0.i281, 1
   %105 = add i64 %.0.i281, 1024
   %.1.i282 = select i1 %103, i64 %104, i64 %105
-  %106 = icmp ult i64 %.1.i282, %.019.i
+  %106 = icmp ugt i64 %.019.i, %.1.i282
   br i1 %106, label %.preheader.i280, label %107, !llvm.loop !10
 
 107:                                              ; preds = %.preheader.i280

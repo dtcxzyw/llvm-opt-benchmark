@@ -549,7 +549,7 @@ encode_history.exit.i:                            ; preds = %25, %15, %6
 
 38:                                               ; preds = %36, %33
   %39 = load i32, ptr @history_lines_added, align 4
-  %40 = tail call i32 @llvm.smin.i32(i32 %39, i32 %4)
+  %40 = tail call i32 @llvm.smin.i32(i32 %4, i32 %39)
   %.016.i = select i1 %27, i32 %40, i32 %39
   %41 = tail call i32 @append_history(i32 noundef %.016.i, ptr noundef nonnull %1) #8
   %42 = icmp eq i32 %41, 0

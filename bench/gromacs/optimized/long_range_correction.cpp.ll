@@ -76,7 +76,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   %38 = load float, ptr %37, align 4
   %39 = getelementptr inbounds i8, ptr %15, i64 32
   %40 = load float, ptr %39, align 4
-  %41 = fmul float %40, %10
+  %41 = fmul float %10, %40
   %42 = fpext float %4 to double
   %43 = fdiv double 0x40615DEF44DEAD3D, %42
   %44 = fptrunc double %43 to float
@@ -183,7 +183,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   br label %109
 
 109:                                              ; preds = %100, %106
-  %110 = and i1 %101, %13
+  %110 = and i1 %13, %101
   br i1 %110, label %100, label %.loopexit160, !llvm.loop !8
 
 111:                                              ; preds = %62
@@ -232,7 +232,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   %.0131 = phi float [ %75, %77 ], [ %91, %109 ]
   %123 = fcmp une float %.0131, 0.000000e+00
   %.not = xor i1 %123, true
-  %brmerge = or i1 %.not, %13
+  %brmerge = or i1 %13, %.not
   br i1 %brmerge, label %154, label %.preheader158
 
 .preheader158:                                    ; preds = %.loopexit160
@@ -312,7 +312,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   %166 = fcmp une float %165, 0.000000e+00
   %or.cond154 = select i1 %163, i1 true, i1 %166
   %167 = fmul float %65, %162
-  %168 = fmul float %165, %19
+  %168 = fmul float %19, %165
   %169 = load i64, ptr %14, align 8
   %170 = inttoptr i64 %169 to ptr
   %171 = sext i32 %63 to i64
@@ -334,7 +334,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   %179 = load float, ptr %172, align 4
   %180 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %indvars.iv195
   %181 = load float, ptr %180, align 4
-  %182 = fmul float %181, %19
+  %182 = fmul float %19, %181
   %183 = load float, ptr %173, align 4
   %184 = fmul float %182, %183
   %185 = tail call float @llvm.fmuladd.f32(float %178, float %179, float %184)
@@ -393,6 +393,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   %212 = load i64, ptr %14, align 8
   %213 = inttoptr i64 %212 to ptr
   %214 = fpext float %.0131148 to double
+  %215 = fneg double %214
   br i1 %199, label %.split.us, label %.loopexit
 
 .split.us:                                        ; preds = %209
@@ -412,63 +413,62 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
 
 .split.us.split.us:                               ; preds = %.split.us.split.us.preheader, %.split.us.split.us
   %indvars.iv214 = phi i64 [ 0, %.split.us.split.us.preheader ], [ %indvars.iv.next215, %.split.us.split.us ]
-  %215 = getelementptr inbounds [2 x [3 x float]], ptr %21, i64 0, i64 %indvars.iv214
-  %216 = load float, ptr %215, align 4
-  %217 = getelementptr inbounds i8, ptr %215, i64 4
-  %218 = load float, ptr %217, align 4
-  %219 = fmul float %218, %218
-  %220 = tail call float @llvm.fmuladd.f32(float %216, float %216, float %219)
-  %221 = getelementptr inbounds i8, ptr %215, i64 8
-  %222 = load float, ptr %221, align 4
-  %223 = tail call noundef float @llvm.fmuladd.f32(float %222, float %222, float %220)
-  %224 = fmul float %.0131148, %223
-  %225 = getelementptr inbounds [2 x float], ptr %25, i64 0, i64 %indvars.iv214
-  store float %224, ptr %225, align 4
+  %216 = getelementptr inbounds [2 x [3 x float]], ptr %21, i64 0, i64 %indvars.iv214
+  %217 = load float, ptr %216, align 4
+  %218 = getelementptr inbounds i8, ptr %216, i64 4
+  %219 = load float, ptr %218, align 4
+  %220 = fmul float %219, %219
+  %221 = tail call float @llvm.fmuladd.f32(float %217, float %217, float %220)
+  %222 = getelementptr inbounds i8, ptr %216, i64 8
+  %223 = load float, ptr %222, align 4
+  %224 = tail call noundef float @llvm.fmuladd.f32(float %223, float %223, float %221)
+  %225 = fmul float %.0131148, %224
+  %226 = getelementptr inbounds [2 x float], ptr %25, i64 0, i64 %indvars.iv214
+  store float %225, ptr %226, align 4
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count218
   br i1 %exitcond219.not, label %.loopexit, label %.split.us.split.us, !llvm.loop !13
 
 .split.us.split.us172:                            ; preds = %.split.us.split.us172.preheader, %257
   %indvars.iv209 = phi i64 [ 0, %.split.us.split.us172.preheader ], [ %indvars.iv.next210, %257 ]
-  %226 = getelementptr inbounds [2 x [3 x float]], ptr %21, i64 0, i64 %indvars.iv209, i64 2
-  %227 = load float, ptr %226, align 4
-  %228 = fmul float %.0131148, %227
-  %229 = fmul float %227, %228
-  %230 = getelementptr inbounds [2 x float], ptr %25, i64 0, i64 %indvars.iv209
-  store float %229, ptr %230, align 4
-  %231 = getelementptr inbounds [2 x float], ptr %24, i64 0, i64 %indvars.iv209
-  %232 = load float, ptr %231, align 4
-  %233 = fcmp une float %232, 0.000000e+00
-  br i1 %233, label %234, label %257
+  %227 = getelementptr inbounds [2 x [3 x float]], ptr %21, i64 0, i64 %indvars.iv209, i64 2
+  %228 = load float, ptr %227, align 4
+  %229 = fmul float %.0131148, %228
+  %230 = fmul float %228, %229
+  %231 = getelementptr inbounds [2 x float], ptr %25, i64 0, i64 %indvars.iv209
+  store float %230, ptr %231, align 4
+  %232 = getelementptr inbounds [2 x float], ptr %24, i64 0, i64 %indvars.iv209
+  %233 = load float, ptr %232, align 4
+  %234 = fcmp une float %233, 0.000000e+00
+  br i1 %234, label %235, label %257
 
-234:                                              ; preds = %.split.us.split.us172
-  %235 = icmp eq i64 %indvars.iv209, 0
-  %236 = select i1 %235, ptr %.val, ptr %.val155
+235:                                              ; preds = %.split.us.split.us172
+  %236 = icmp eq i64 %indvars.iv209, 0
+  %237 = select i1 %236, ptr %.val, ptr %.val155
   br i1 %211, label %.lr.ph.us.us, label %._crit_edge.us.us
 
-._crit_edge.us.us:                                ; preds = %.lr.ph.us.us, %234
-  %.0119.lcssa.us.us = phi float [ 0.000000e+00, %234 ], [ %256, %.lr.ph.us.us ]
-  %237 = getelementptr inbounds double, ptr %5, i64 %indvars.iv209
-  %238 = load double, ptr %237, align 8
-  %239 = fpext float %.0119.lcssa.us.us to double
-  %240 = load float, ptr %39, align 4
-  %241 = fpext float %240 to double
-  %242 = fmul double %238, %241
-  %243 = fmul double %242, %241
-  %244 = fdiv double %243, 1.200000e+01
-  %245 = fadd double %244, %239
-  %246 = fpext float %229 to double
-  %247 = fneg double %238
-  %248 = fmul double %214, %247
-  %249 = tail call double @llvm.fmuladd.f64(double %248, double %245, double %246)
+._crit_edge.us.us:                                ; preds = %.lr.ph.us.us, %235
+  %.0119.lcssa.us.us = phi float [ 0.000000e+00, %235 ], [ %256, %.lr.ph.us.us ]
+  %238 = getelementptr inbounds double, ptr %5, i64 %indvars.iv209
+  %239 = load double, ptr %238, align 8
+  %240 = fpext float %.0119.lcssa.us.us to double
+  %241 = load float, ptr %39, align 4
+  %242 = fpext float %241 to double
+  %243 = fmul double %239, %242
+  %244 = fmul double %243, %242
+  %245 = fdiv double %244, 1.200000e+01
+  %246 = fadd double %245, %240
+  %247 = fpext float %230 to double
+  %248 = fmul double %239, %215
+  %249 = tail call double @llvm.fmuladd.f64(double %248, double %246, double %247)
   %250 = fptrunc double %249 to float
-  store float %250, ptr %230, align 4
+  store float %250, ptr %231, align 4
   br label %257
 
-.lr.ph.us.us:                                     ; preds = %234, %.lr.ph.us.us
-  %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.lr.ph.us.us ], [ 0, %234 ]
-  %.0119169.us.us = phi float [ %256, %.lr.ph.us.us ], [ 0.000000e+00, %234 ]
-  %251 = getelementptr inbounds float, ptr %236, i64 %indvars.iv204
+.lr.ph.us.us:                                     ; preds = %235, %.lr.ph.us.us
+  %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.lr.ph.us.us ], [ 0, %235 ]
+  %.0119169.us.us = phi float [ %256, %.lr.ph.us.us ], [ 0.000000e+00, %235 ]
+  %251 = getelementptr inbounds float, ptr %237, i64 %indvars.iv204
   %252 = load float, ptr %251, align 4
   %253 = getelementptr inbounds %"class.gmx::BasicVector", ptr %213, i64 %indvars.iv204, i32 0, i64 2
   %254 = load float, ptr %253, align 4
@@ -494,7 +494,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
 260:                                              ; preds = %.loopexit
   %261 = getelementptr inbounds i8, ptr %25, i64 4
   %262 = load float, ptr %261, align 4
-  %263 = fmul float %262, %19
+  %263 = fmul float %19, %262
   %264 = tail call float @llvm.fmuladd.f32(float %65, float %258, float %263)
   store float %264, ptr %18, align 4
   %265 = fsub float %262, %258

@@ -56,7 +56,7 @@ define i32 @H5DOappend(i64 noundef %0, i64 noundef %1, i32 noundef %2, i64 nound
 24:                                               ; preds = %21
   %25 = tail call i32 @H5Sget_simple_extent_ndims(i64 noundef %22) #4
   %26 = icmp sgt i32 %25, -1
-  %.not90 = icmp ugt i32 %25, %2
+  %.not90 = icmp ult i32 %2, %25
   %or.cond = and i1 %26, %.not90
   br i1 %or.cond, label %27, label %.thread
 

@@ -2581,7 +2581,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
   %.4790.i = phi i32 [ %.2779.i, %802 ], [ %.2788.i, %430 ]
   %.4781.i = phi i32 [ %799, %802 ], [ %.2779.i, %430 ]
   %.4.i = phi i32 [ %804, %802 ], [ %.3.i, %430 ]
-  %806 = icmp eq i64 %.0823.i, %.027
+  %806 = icmp eq i64 %.027, %.0823.i
   br i1 %806, label %LzmaDec_DecodeReal.exit.thread, label %807
 
 807:                                              ; preds = %805

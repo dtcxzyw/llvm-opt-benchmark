@@ -5310,7 +5310,7 @@ define i64 @Saig_ManBmcTimeToStop(ptr nocapture noundef readonly %0, i64 noundef
   br i1 %or.cond, label %23, label %25
 
 23:                                               ; preds = %19
-  %24 = call i64 @llvm.smin.i64(i64 %20, i64 %1)
+  %24 = call i64 @llvm.smin.i64(i64 %1, i64 %20)
   br label %28
 
 25:                                               ; preds = %.thread, %19
@@ -5720,7 +5720,7 @@ Abc_Clock.exit715:                                ; preds = %68, %73
   br i1 %or.cond.i, label %102, label %104
 
 102:                                              ; preds = %98
-  %103 = call i64 @llvm.smin.i64(i64 %99, i64 %82)
+  %103 = call i64 @llvm.smin.i64(i64 %82, i64 %99)
   br label %Saig_ManBmcTimeToStop.exit
 
 104:                                              ; preds = %98, %.thread.i
@@ -7426,7 +7426,7 @@ Abc_Clock.exit774:                                ; preds = %962, %965
   br i1 %or.cond.i777, label %Saig_ManBmcTimeToStop.exit781.thread, label %Saig_ManBmcTimeToStop.exit781
 
 Saig_ManBmcTimeToStop.exit781.thread:             ; preds = %983
-  %986 = call i64 @llvm.smin.i64(i64 %984, i64 %82)
+  %986 = call i64 @llvm.smin.i64(i64 %82, i64 %984)
   br label %988
 
 Saig_ManBmcTimeToStop.exit781:                    ; preds = %Abc_Clock.exit774, %983

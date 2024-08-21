@@ -267,7 +267,7 @@ if.end11:                                         ; preds = %for.body
 land.lhs.true:                                    ; preds = %if.end11
   %watcher_queue = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %watcher_queue, align 8
-  %cmp.i.not = icmp eq ptr %5, %watcher_queue
+  %cmp.i.not = icmp eq ptr %watcher_queue, %5
   br i1 %cmp.i.not, label %if.then15, label %for.inc
 
 if.then15:                                        ; preds = %land.lhs.true

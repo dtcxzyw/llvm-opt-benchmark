@@ -100,7 +100,7 @@ define noalias ptr @mi_pvalloc(i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @_mi_os_page_size() #7
   %sub = xor i64 %call, -1
-  %cmp.not = icmp ugt i64 %sub, %size
+  %cmp.not = icmp ult i64 %size, %sub
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

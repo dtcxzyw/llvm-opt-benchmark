@@ -186,7 +186,7 @@ define void @_ZN6google8protobuf2io16ArrayInputStream6BackUpEi(ptr nocapture nou
 
 .critedge:                                        ; preds = %2, %17
   %18 = phi i32 [ %10, %2 ], [ %.pre, %17 ]
-  %.not = icmp slt i32 %18, %1
+  %.not = icmp sgt i32 %1, %18
   br i1 %.not, label %19, label %.critedge17
 
 19:                                               ; preds = %.critedge
@@ -288,7 +288,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16ArrayInputStream4SkipEi(ptr n
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = sub nsw i32 %12, %14
-  %16 = icmp sge i32 %15, %1
+  %16 = icmp sle i32 %1, %15
   %17 = add nsw i32 %14, %1
   %storemerge = select i1 %16, i32 %17, i32 %12
   store i32 %storemerge, ptr %13, align 8
@@ -397,7 +397,7 @@ define void @_ZN6google8protobuf2io17ArrayOutputStream6BackUpEi(ptr nocapture no
 
 .critedge:                                        ; preds = %2, %17
   %18 = phi i32 [ %10, %2 ], [ %.pre, %17 ]
-  %.not = icmp slt i32 %18, %1
+  %.not = icmp sgt i32 %1, %18
   br i1 %.not, label %19, label %.critedge17
 
 19:                                               ; preds = %.critedge
@@ -957,7 +957,7 @@ define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor6BackUpEi(ptr noca
 .critedge:                                        ; preds = %2, %19
   %20 = getelementptr inbounds i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
-  %.not15 = icmp slt i32 %21, %1
+  %.not15 = icmp sgt i32 %1, %21
   br i1 %.not15, label %22, label %.critedge18
 
 22:                                               ; preds = %.critedge
@@ -1490,7 +1490,7 @@ define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor6BackUpEi(ptr noc
 
 .critedge18:                                      ; preds = %.critedge, %23
   %24 = phi i32 [ %15, %.critedge ], [ %.pre, %23 ]
-  %.not15 = icmp slt i32 %24, %1
+  %.not15 = icmp sgt i32 %1, %24
   br i1 %.not15, label %25, label %.critedge20
 
 25:                                               ; preds = %.critedge18
@@ -1556,7 +1556,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor15W
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
-  %.not = icmp sgt i32 %7, %2
+  %.not = icmp slt i32 %2, %7
   br i1 %.not, label %.preheader, label %12
 
 .preheader:                                       ; preds = %3

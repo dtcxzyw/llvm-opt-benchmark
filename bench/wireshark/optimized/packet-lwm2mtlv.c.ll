@@ -1221,13 +1221,13 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
   %indvars.iv.i37 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i38, %60 ]
   %37 = getelementptr %struct._lwm2m_resource_t, ptr %35, i64 %indvars.iv.i37
   %38 = load i32, ptr %37, align 8
-  %39 = icmp eq i32 %38, %3
+  %39 = icmp eq i32 %3, %38
   br i1 %39, label %40, label %60
 
 40:                                               ; preds = %.lr.ph.i36
   %41 = getelementptr inbounds i8, ptr %37, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = icmp eq i32 %42, %.1
+  %43 = icmp eq i32 %.1, %42
   br i1 %43, label %44, label %60
 
 44:                                               ; preds = %40
@@ -1252,13 +1252,13 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
   %indvars.iv.i.i44 = phi i64 [ 0, %.lr.ph.i.i42 ], [ %indvars.iv.next.i.i45, %59 ]
   %52 = getelementptr %struct._lwm2m_resource_t, ptr %uat_allocated_fields.val.i, i64 %indvars.iv.i.i44
   %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, %3
+  %54 = icmp eq i32 %3, %53
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i8, ptr %52, i64 4
   %57 = load i32, ptr %56, align 4
-  %58 = icmp eq i32 %57, %.1
+  %58 = icmp eq i32 %.1, %57
   br i1 %58, label %addTlvElement.exit.thread99, label %59
 
 59:                                               ; preds = %55, %51
@@ -1280,13 +1280,13 @@ lwm2m_search_fields.exit47.thread:                ; preds = %60, %59, %34, %50
   %indvars.iv.i = phi i64 [ 0, %lwm2m_search_fields.exit47.thread ], [ %indvars.iv.next.i, %84 ]
   %61 = getelementptr %struct._lwm2m_resource_t, ptr @lwm2m_oma_resources, i64 %indvars.iv.i
   %62 = load i32, ptr %61, align 16
-  %63 = icmp eq i32 %62, %3
+  %63 = icmp eq i32 %3, %62
   br i1 %63, label %64, label %84
 
 64:                                               ; preds = %.lr.ph.i
   %65 = getelementptr inbounds i8, ptr %61, i64 4
   %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, %.1
+  %67 = icmp eq i32 %.1, %66
   br i1 %67, label %68, label %84
 
 68:                                               ; preds = %64
@@ -1311,13 +1311,13 @@ lwm2m_search_fields.exit47.thread:                ; preds = %60, %59, %34, %50
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %83 ]
   %76 = getelementptr %struct._lwm2m_resource_t, ptr %oma_allocated_fields.val.i, i64 %indvars.iv.i.i
   %77 = load i32, ptr %76, align 8
-  %78 = icmp eq i32 %77, %3
+  %78 = icmp eq i32 %3, %77
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds i8, ptr %76, i64 4
   %81 = load i32, ptr %80, align 4
-  %82 = icmp eq i32 %81, %.1
+  %82 = icmp eq i32 %.1, %81
   br i1 %82, label %addTlvElement.exit.thread99, label %83
 
 83:                                               ; preds = %79, %75

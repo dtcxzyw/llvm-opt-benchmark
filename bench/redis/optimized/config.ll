@@ -3549,7 +3549,7 @@ entry:
   tail call void @sdsfree(ptr noundef %call) #25
   %default_value = getelementptr inbounds i8, ptr %config, i64 80
   %3 = load i32, ptr %default_value, align 8
-  %cmp = icmp ne i32 %3, %value
+  %cmp = icmp ne i32 %value, %3
   %conv5 = zext i1 %cmp to i32
   %call6 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %option, ptr noundef %call3, i32 noundef %conv5)
   ret void
@@ -3570,7 +3570,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
   %ce.addr.026.us = phi ptr [ %incdec.ptr.us, %if.end.us ], [ %ce, %for.body.lr.ph ]
   %val.us = getelementptr inbounds i8, ptr %ce.addr.026.us, i64 8
   %1 = load i32, ptr %val.us, align 8
-  %cmp1.us = icmp eq i32 %1, %values
+  %cmp1.us = icmp eq i32 %values, %1
   br i1 %cmp1.us, label %if.then, label %if.end.us
 
 if.end.us:                                        ; preds = %for.body.us
@@ -3586,7 +3586,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %ce.addr.026 = phi ptr [ %incdec.ptr, %for.inc ], [ %ce, %for.body.lr.ph ]
   %val = getelementptr inbounds i8, ptr %ce.addr.026, i64 8
   %4 = load i32, ptr %val, align 8
-  %cmp1 = icmp eq i32 %4, %values
+  %cmp1 = icmp eq i32 %values, %4
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body, %for.body.us
@@ -6226,7 +6226,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   tail call void @sdsfree(ptr noundef %call.i) #25
   %default_value.i = getelementptr inbounds i8, ptr %config, i64 80
   %8 = load i32, ptr %default_value.i, align 8
-  %cmp.i = icmp ne i32 %8, %cond
+  %cmp.i = icmp ne i32 %cond, %8
   %conv5.i = zext i1 %cmp.i to i32
   %call6.i = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef %name, ptr noundef %call3.i, i32 noundef %conv5.i)
   ret void
@@ -6663,8 +6663,8 @@ if.then.i33:                                      ; preds = %if.end, %if.end, %i
   %34 = load i64, ptr %upper_bound9.i, align 8
   %lower_bound11.i = getelementptr inbounds i8, ptr %config, i64 80
   %35 = load i64, ptr %lower_bound11.i, align 8
-  %cmp12.i = icmp ult i64 %34, %32
-  %cmp14.i = icmp ugt i64 %35, %32
+  %cmp12.i = icmp ugt i64 %32, %34
+  %cmp14.i = icmp ult i64 %32, %35
   %or.cond25.i = select i1 %cmp12.i, i1 true, i1 %cmp14.i
   br i1 %or.cond25.i, label %if.then15.i, label %if.end4
 
@@ -6687,7 +6687,7 @@ if.else20.i:                                      ; preds = %if.end
 if.then26.i:                                      ; preds = %if.else20.i
   %lower_bound28.i = getelementptr inbounds i8, ptr %config, i64 80
   %38 = load i64, ptr %lower_bound28.i, align 8
-  %cmp29.i = icmp sgt i64 %38, %32
+  %cmp29.i = icmp slt i64 %32, %38
   br i1 %cmp29.i, label %if.then30.i, label %if.end4
 
 if.then30.i:                                      ; preds = %if.then26.i
@@ -6698,10 +6698,10 @@ if.then30.i:                                      ; preds = %if.then26.i
 if.else35.i:                                      ; preds = %if.else20.i
   %upper_bound37.i = getelementptr inbounds i8, ptr %config, i64 88
   %39 = load i64, ptr %upper_bound37.i, align 8
-  %cmp38.i = icmp slt i64 %39, %32
+  %cmp38.i = icmp sgt i64 %32, %39
   %lower_bound45.phi.trans.insert.i = getelementptr inbounds i8, ptr %config, i64 80
   %.pre.i38 = load i64, ptr %lower_bound45.phi.trans.insert.i, align 8
-  %cmp42.i = icmp sgt i64 %.pre.i38, %32
+  %cmp42.i = icmp slt i64 %32, %.pre.i38
   %or.cond26.i = select i1 %cmp38.i, i1 true, i1 %cmp42.i
   br i1 %or.cond26.i, label %if.then43.i, label %if.end4
 
@@ -7788,7 +7788,7 @@ if.end36.i:                                       ; preds = %lor.lhs.false28.i
   store i32 1, ptr %arrayidx45.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %13 = trunc nuw i64 %indvars.iv.next.i to i32
-  %cmp.i = icmp slt i32 %13, %argc
+  %cmp.i = icmp sgt i32 %argc, %13
   br i1 %cmp.i, label %for.body.i, label %for.body50.i.preheader, !llvm.loop !50
 
 for.body50.i.preheader:                           ; preds = %if.end36.i, %for.cond.preheader.i

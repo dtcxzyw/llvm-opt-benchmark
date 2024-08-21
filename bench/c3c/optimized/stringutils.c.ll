@@ -460,7 +460,7 @@ scan_past_underscore.exit.thread:                 ; preds = %2, %.preheader, %sc
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @str_ellide_in_place(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
-  %4 = icmp ult i64 %3, %1
+  %4 = icmp ugt i64 %1, %3
   br i1 %4, label %8, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %2
@@ -832,7 +832,7 @@ define dso_local void @scratch_buffer_clear() local_unnamed_addr #14 {
 define dso_local void @scratch_buffer_append_len(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %4 = zext i32 %3 to i64
-  %5 = add i64 %4, %1
+  %5 = add i64 %1, %4
   %6 = icmp ugt i64 %5, 65535
   br i1 %6, label %7, label %8
 

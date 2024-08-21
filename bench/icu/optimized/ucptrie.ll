@@ -69,9 +69,9 @@ if.then27:                                        ; preds = %if.end17
 if.end28:                                         ; preds = %if.end17
   %cmp29 = icmp slt i32 %type, 0
   %cmp32 = icmp slt i32 %valueWidth, 0
-  %cmp35.not82 = icmp eq i32 %and19, %type
+  %cmp35.not82 = icmp eq i32 %type, %and19
   %cmp35.not = or i1 %cmp29, %cmp35.not82
-  %cmp37.not83 = icmp eq i32 %and20, %valueWidth
+  %cmp37.not83 = icmp eq i32 %valueWidth, %and20
   %cmp37.not = or i1 %cmp32, %cmp37.not83
   %or.cond79 = and i1 %cmp37.not, %cmp35.not
   br i1 %or.cond79, label %if.end39, label %if.then38
@@ -131,7 +131,7 @@ if.else72:                                        ; preds = %if.end39
 
 if.end76:                                         ; preds = %if.then68, %if.else72, %if.then63
   %actualLength.0 = phi i32 [ %add66, %if.then63 ], [ %add71, %if.then68 ], [ %add74, %if.else72 ]
-  %cmp77 = icmp ugt i32 %actualLength.0, %length
+  %cmp77 = icmp ult i32 %length, %actualLength.0
   br i1 %cmp77, label %if.then78, label %if.end79
 
 if.then78:                                        ; preds = %if.end76
@@ -543,7 +543,7 @@ if.else:                                          ; preds = %entry
   %0 = load i8, ptr %type, align 2
   %cmp1 = icmp eq i8 %0, 0
   %cond = select i1 %cmp1, i32 65535, i32 4095
-  %cmp2.not = icmp ult i32 %cond, %c
+  %cmp2.not = icmp ugt i32 %c, %cond
   br i1 %cmp2.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.else
@@ -564,7 +564,7 @@ cond.false:                                       ; preds = %if.else
 cond.true5:                                       ; preds = %cond.false
   %highStart = getelementptr inbounds i8, ptr %trie, i64 24
   %3 = load i32, ptr %highStart, align 8
-  %cmp6.not = icmp sgt i32 %3, %c
+  %cmp6.not = icmp slt i32 %c, %3
   br i1 %cmp6.not, label %cond.false8, label %cond.true7
 
 cond.true7:                                       ; preds = %cond.true5
@@ -694,7 +694,7 @@ if.end:                                           ; preds = %entry
   %cond = select i1 %cmp4, i32 57343, i32 56319
   %call5 = call noundef i32 %getRange(ptr noundef %trie, i32 noundef %start, ptr noundef %filter, ptr noundef %context, ptr noundef nonnull %spec.store.select)
   %cmp6 = icmp slt i32 %call5, 55295
-  %cmp7 = icmp slt i32 %cond, %start
+  %cmp7 = icmp sgt i32 %start, %cond
   %or.cond = or i1 %cmp7, %cmp6
   br i1 %or.cond, label %return, label %if.end9
 
@@ -750,7 +750,7 @@ if.end.i:                                         ; preds = %entry
   %cond.i = select i1 %cmp4.i, i32 57343, i32 56319
   %call5.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef %trie, i32 noundef %start, ptr noundef %filter, ptr noundef %context, ptr noundef nonnull %spec.store.select.i)
   %cmp6.i = icmp slt i32 %call5.i, 55295
-  %cmp7.i = icmp slt i32 %cond.i, %start
+  %cmp7.i = icmp sgt i32 %start, %cond.i
   %or.cond.i = or i1 %cmp7.i, %cmp6.i
   br i1 %or.cond.i, label %ucptrie_internalGetRange_75.exit, label %if.end9.i
 
@@ -798,7 +798,7 @@ if.end:                                           ; preds = %entry
   %0 = load i8, ptr %valueWidth1, align 1
   %highStart = getelementptr inbounds i8, ptr %t, i64 24
   %1 = load i32, ptr %highStart, align 8
-  %cmp2.not = icmp sgt i32 %1, %start
+  %cmp2.not = icmp slt i32 %start, %1
   br i1 %cmp2.not, label %if.end11, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -1458,7 +1458,7 @@ default.unreachable:                              ; preds = %if.end29, %if.end17
 
 sw.epilog:                                        ; preds = %sw.bb24, %sw.bb20, %sw.bb
   %length.0 = phi i32 [ %add26, %sw.bb24 ], [ %add23, %sw.bb20 ], [ %add19, %sw.bb ]
-  %cmp27 = icmp sgt i32 %length.0, %capacity
+  %cmp27 = icmp slt i32 %capacity, %length.0
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %sw.epilog
@@ -1581,7 +1581,7 @@ if.end.i.i:                                       ; preds = %entry
   %cond.i.i = select i1 %cmp4.i.i, i32 57343, i32 56319
   %call5.i.i = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %map, i32 noundef %start, ptr noundef %filter, ptr noundef %context, ptr noundef nonnull %spec.store.select.i.i)
   %cmp6.i.i = icmp slt i32 %call5.i.i, 55295
-  %cmp7.i.i = icmp slt i32 %cond.i.i, %start
+  %cmp7.i.i = icmp sgt i32 %start, %cond.i.i
   %or.cond.i.i = or i1 %cmp7.i.i, %cmp6.i.i
   br i1 %or.cond.i.i, label %ucptrie_getRange_75.exit, label %if.end9.i.i
 

@@ -238,7 +238,7 @@ strview.exit46:                                   ; preds = %42, %46
 51:                                               ; preds = %strview.exit46
   %52 = getelementptr inbounds i8, ptr %37, i64 16
   %53 = load i32, ptr %52, align 8
-  %.not35 = icmp sgt i32 %53, %3
+  %.not35 = icmp slt i32 %3, %53
   br i1 %.not35, label %strview_cmp.exit.thread, label %54
 
 54:                                               ; preds = %51, %strview.exit46, %strview_cmp.exit.thread
@@ -789,7 +789,7 @@ strview_str_eq.exit:                              ; preds = %71, %72
   %74 = tail call i64 @llvm.umin.i64(i64 %.sroa.4.0, i64 %.sroa.3.0.i.i)
   %75 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.024.0, ptr noundef readonly %70, i64 noundef %74) #22
   %.not.i.i.i = icmp eq i32 %75, 0
-  %76 = icmp eq i64 %.sroa.3.0.i.i, %.sroa.4.0
+  %76 = icmp eq i64 %.sroa.4.0, %.sroa.3.0.i.i
   %spec.select.i.i = and i1 %76, %.not.i.i.i
   br i1 %spec.select.i.i, label %77, label %82
 

@@ -27,7 +27,7 @@ cond.false.i:                                     ; preds = %entry
   %cmp.not.i.i = icmp ule i64 %sub.i.i, %..i.i
   %reass.sub = sub i64 %..i.i, %len
   %add.i.i = add i64 %reass.sub, 1
-  %cmp7.i.i = icmp uge i64 %add.i.i, %guest_addr
+  %cmp7.i.i = icmp ule i64 %guest_addr, %add.i.i
   %2 = and i1 %cmp.not.i.i, %cmp7.i.i
   br i1 %2, label %access_ok_untagged.exit, label %return
 
@@ -63,7 +63,7 @@ for.cond.i:                                       ; preds = %if.end8.i, %entry
   %cmp.not.i.i.i.i = icmp ule i64 %sub.i.i.i.i, %..i.i.i.i
   %reass.sub.i.i = add nsw i64 %sub.neg16.i, 1
   %add.i.i.i.i = add i64 %reass.sub.i.i, %..i.i.i.i
-  %cmp7.i.i.i.i = icmp uge i64 %add.i.i.i.i, %guest_addr.0.i
+  %cmp7.i.i.i.i = icmp ule i64 %guest_addr.0.i, %add.i.i.i.i
   %1 = and i1 %cmp.not.i.i.i.i, %cmp7.i.i.i.i
   br i1 %1, label %access_ok_untagged.exit.i.i, label %return
 
@@ -101,7 +101,7 @@ if.end:                                           ; preds = %if.end8.i
   %..i.i.i = select i1 %tobool.not.i5.i.i, i64 -1, i64 %4
   %cmp.not.i.i.i = icmp ule i64 %sub4.i, %..i.i.i
   %add.i.i.i3 = sub i64 %..i.i.i, %sub4.i
-  %cmp7.i.i.i = icmp uge i64 %add.i.i.i3, %guest_addr
+  %cmp7.i.i.i = icmp ule i64 %guest_addr, %add.i.i.i3
   %5 = and i1 %cmp.not.i.i.i, %cmp7.i.i.i
   br i1 %5, label %access_ok_untagged.exit.i, label %return
 
@@ -138,7 +138,7 @@ for.cond:                                         ; preds = %if.end8, %entry
   %cmp.not.i.i.i = icmp ule i64 %sub.i.i.i, %..i.i.i
   %reass.sub.i = add nsw i64 %sub.neg16, 1
   %add.i.i.i = add i64 %reass.sub.i, %..i.i.i
-  %cmp7.i.i.i = icmp uge i64 %add.i.i.i, %guest_addr.0
+  %cmp7.i.i.i = icmp ule i64 %guest_addr.0, %add.i.i.i
   %1 = and i1 %cmp.not.i.i.i, %cmp7.i.i.i
   br i1 %1, label %access_ok_untagged.exit.i, label %return
 
@@ -196,7 +196,7 @@ cond.false.i.i:                                   ; preds = %entry
   %cmp.not.i.i.i = icmp ule i64 %sub.i.i.i, %..i.i.i
   %reass.sub = sub i64 %..i.i.i, %len
   %add.i.i.i = add i64 %reass.sub, 1
-  %cmp7.i.i.i = icmp uge i64 %add.i.i.i, %gaddr
+  %cmp7.i.i.i = icmp ule i64 %gaddr, %add.i.i.i
   %2 = and i1 %cmp.not.i.i.i, %cmp7.i.i.i
   br i1 %2, label %access_ok_untagged.exit.i, label %if.end
 
@@ -244,7 +244,7 @@ cond.false.i.i:                                   ; preds = %entry
   %cmp.not.i.i.i = icmp ule i64 %sub.i.i.i, %..i.i.i
   %reass.sub = sub i64 %..i.i.i, %len
   %add.i.i.i = add i64 %reass.sub, 1
-  %cmp7.i.i.i = icmp uge i64 %add.i.i.i, %gaddr
+  %cmp7.i.i.i = icmp ule i64 %gaddr, %add.i.i.i
   %2 = and i1 %cmp.not.i.i.i, %cmp7.i.i.i
   br i1 %2, label %access_ok_untagged.exit.i, label %if.end
 

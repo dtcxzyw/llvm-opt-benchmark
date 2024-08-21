@@ -449,7 +449,7 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %vreg = getelementptr inbounds i8, ptr %env, i64 512
-  %mul = mul i32 %conv3, %n
+  %mul = mul i32 %n, %conv3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -488,7 +488,7 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %vreg = getelementptr inbounds i8, ptr %env, i64 512
-  %mul = mul i32 %conv3, %n
+  %mul = mul i32 %n, %conv3
   %2 = zext nneg i16 %1 to i64
   br label %for.body
 

@@ -949,7 +949,7 @@ define internal i32 @dissect_edonkey_udp(ptr noundef %0, ptr noundef %1, ptr nou
 
 42:                                               ; preds = %39
   %43 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #7
-  %.045.i = tail call i32 @llvm.smin.i32(i32 %43, i32 %37)
+  %.045.i = tail call i32 @llvm.smin.i32(i32 %37, i32 %43)
   %44 = icmp slt i32 %.045.i, 1
   br i1 %44, label %dissect_emule_udp_message.exit, label %45
 
@@ -1230,7 +1230,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %3) #7
   %8 = icmp slt i32 %4, 0
-  %9 = tail call i32 @llvm.smin.i32(i32 %7, i32 %4)
+  %9 = tail call i32 @llvm.smin.i32(i32 %4, i32 %7)
   %.0218 = select i1 %8, i32 %7, i32 %9
   %10 = icmp slt i32 %.0218, 1
   br i1 %10, label %155, label %11
@@ -1526,7 +1526,7 @@ define internal void @dissect_emule_tcp_message(i8 noundef zeroext %0, ptr nound
   %7 = alloca ptr, align 8
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %3) #7
   %9 = icmp slt i32 %4, 0
-  %10 = tail call i32 @llvm.smin.i32(i32 %8, i32 %4)
+  %10 = tail call i32 @llvm.smin.i32(i32 %4, i32 %8)
   %.0 = select i1 %9, i32 %8, i32 %10
   %11 = icmp slt i32 %.0, 1
   br i1 %11, label %dissect_emule_multipacket.exit, label %12
@@ -3110,7 +3110,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef 2) #7
-  %.0187 = tail call i32 @llvm.smin.i32(i32 %6, i32 %3)
+  %.0187 = tail call i32 @llvm.smin.i32(i32 %3, i32 %6)
   %7 = icmp slt i32 %.0187, 1
   br i1 %7, label %136, label %8
 
@@ -3351,7 +3351,7 @@ define internal fastcc i32 @dissect_kademlia_udp_message(i8 noundef zeroext %0, 
   %12 = alloca [129 x i8], align 16
   %13 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %3) #7
   %14 = icmp slt i32 %4, 0
-  %15 = tail call i32 @llvm.smin.i32(i32 %13, i32 %4)
+  %15 = tail call i32 @llvm.smin.i32(i32 %4, i32 %13)
   %.0291 = select i1 %14, i32 %13, i32 %15
   %16 = icmp slt i32 %.0291, 1
   br i1 %16, label %254, label %17

@@ -1292,7 +1292,7 @@ define hidden void @"_ZN116_$LT$rayon..iter..map_with..MapWithConsumer$LT$C$C$U$
   %7 = load ptr, ptr %6, align 8, !noundef !7
   %8 = getelementptr inbounds i8, ptr %1, i64 80
   %9 = load i64, ptr %8, align 8, !noundef !7
-  %.not.i = icmp ult i64 %9, %2
+  %.not.i = icmp ugt i64 %2, %9
   br i1 %.not.i, label %10, label %13
 
 10:                                               ; preds = %3
@@ -1550,7 +1550,7 @@ define hidden void @"_ZN116_$LT$rayon..iter..map_with..MapWithConsumer$LT$C$C$U$
   %7 = load ptr, ptr %6, align 8, !noundef !7
   %8 = getelementptr inbounds i8, ptr %1, i64 80
   %9 = load i64, ptr %8, align 8, !noundef !7
-  %.not.i = icmp ult i64 %9, %2
+  %.not.i = icmp ugt i64 %2, %9
   br i1 %.not.i, label %10, label %13
 
 10:                                               ; preds = %3
@@ -3310,7 +3310,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.31545
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -5015,7 +5015,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !1011, !noalias !1016, !noundef !7
   %45 = load i64, ptr %0, align 8, !alias.scope !1018, !noalias !1016, !noundef !7
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3c3082c483033852E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -5072,7 +5072,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !1024, !noalias !1029, !noundef !7
   %6 = load i64, ptr %0, align 8, !alias.scope !1031, !noalias !1029, !noundef !7
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3c3082c483033852E.exit"
 
 9:                                                ; preds = %3
@@ -11988,7 +11988,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %242
   %426 = load i64, ptr %.sroa.5.0..sroa_idx.i65, align 8, !alias.scope !2571, !noalias !2576, !noundef !7
   %427 = load i64, ptr %9, align 8, !alias.scope !2578, !noalias !2576, !noundef !7
   %428 = sub i64 %427, %426
-  %429 = icmp ult i64 %428, %425
+  %429 = icmp ugt i64 %425, %428
   br i1 %429, label %430, label %479
 
 430:                                              ; preds = %424
@@ -12014,7 +12014,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %242
   %439 = load i64, ptr %.sroa.5.0..sroa_idx.i65, align 8, !alias.scope !2581, !noalias !2586, !noundef !7
   %440 = load i64, ptr %9, align 8, !alias.scope !2588, !noalias !2586, !noundef !7
   %441 = sub i64 %440, %439
-  %442 = icmp ult i64 %441, %438
+  %442 = icmp ugt i64 %438, %441
   br i1 %442, label %443, label %447
 
 443:                                              ; preds = %434
@@ -22605,7 +22605,7 @@ define void @"_ZN71_$LT$hir..ExternCrateDecl$u20$as$u20$ide_db..documentation..H
   %91 = load i64, ptr %90, align 8, !noundef !7
   %92 = load i64, ptr %7, align 8, !alias.scope !5001, !noalias !5008, !noundef !7
   %93 = sub i64 %92, %88
-  %94 = icmp ult i64 %93, %91
+  %94 = icmp ugt i64 %91, %93
   br i1 %94, label %95, label %.noexc52
 
 95:                                               ; preds = %83
@@ -33096,7 +33096,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i226.i: ; preds = %526, %
   %754 = phi ptr [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd18352c72a273928E.exit.i" ], [ null, %751 ]
   %755 = icmp ne ptr %754, null
   %756 = sext i1 %755 to i64
-  %.sroa.3.0 = add i64 %756, %5
+  %.sroa.3.0 = add i64 %5, %756
   %757 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hc918d5ba6071aca6E"(i64 noundef %.sroa.3.0, i1 noundef zeroext false)
           to label %758 unwind label %.loopexit.split-lp.loopexit
 

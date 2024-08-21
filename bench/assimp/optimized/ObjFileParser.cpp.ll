@@ -882,7 +882,7 @@ sw.bb158:                                         ; preds = %if.end26
 
 while.cond.preheader.i.i:                         ; preds = %sw.bb158
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i, i64 -1
-  %cmp.i1.i16.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %7
+  %cmp.i1.i16.i.i = icmp eq ptr %7, %incdec.ptr.i.i.i.i
   br i1 %cmp.i1.i16.i.i, label %while.end.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.cond.preheader.i.i, %while.body.i.i
@@ -898,7 +898,7 @@ land.rhs.i.i:                                     ; preds = %while.cond.preheade
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.117.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i.i
+  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i.i.i
   %retval.0.i.i.i = or i1 %cmp.i.i.i.i, %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !10
 
@@ -1024,7 +1024,7 @@ if.then208:                                       ; preds = %if.end205
 
 while.cond.preheader.i.i70:                       ; preds = %if.then208
   %incdec.ptr.i.i.i.i71 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i65, i64 -1
-  %cmp.i1.i16.i.i72 = icmp eq ptr %incdec.ptr.i.i.i.i71, %agg.tmp.sroa.0.0.copyload.i63
+  %cmp.i1.i16.i.i72 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i63, %incdec.ptr.i.i.i.i71
   br i1 %cmp.i1.i16.i.i72, label %while.end.i.i75, label %land.rhs.i.i73
 
 land.rhs.i.i73:                                   ; preds = %while.cond.preheader.i.i70, %while.body.i.i92
@@ -1040,7 +1040,7 @@ land.rhs.i.i73:                                   ; preds = %while.cond.preheade
 while.body.i.i92:                                 ; preds = %land.rhs.i.i73
   %incdec.ptr.i.i.i93 = getelementptr inbounds i8, ptr %it.sroa.0.117.i.i74, i64 1
   %cmp.i.i.i.i94 = icmp eq ptr %incdec.ptr.i.i.i93, %agg.tmp2.sroa.0.0.copyload.i65
-  %cmp.i1.i.i.i95 = icmp eq ptr %incdec.ptr.i.i.i.i71, %incdec.ptr.i.i.i93
+  %cmp.i1.i.i.i95 = icmp eq ptr %incdec.ptr.i.i.i93, %incdec.ptr.i.i.i.i71
   %retval.0.i.i.i96 = or i1 %cmp.i.i.i.i94, %cmp.i1.i.i.i95
   br i1 %retval.0.i.i.i96, label %while.end.i.i75, label %land.rhs.i.i73, !llvm.loop !10
 
@@ -1110,7 +1110,7 @@ sw.bb220:                                         ; preds = %if.end26
 
 while.cond.preheader.i.i106:                      ; preds = %sw.bb220
   %incdec.ptr.i.i.i.i107 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i101, i64 -1
-  %cmp.i1.i16.i.i108 = icmp eq ptr %incdec.ptr.i.i.i.i107, %7
+  %cmp.i1.i16.i.i108 = icmp eq ptr %7, %incdec.ptr.i.i.i.i107
   br i1 %cmp.i1.i16.i.i108, label %while.end.i.i111, label %land.rhs.i.i109
 
 land.rhs.i.i109:                                  ; preds = %while.cond.preheader.i.i106, %while.body.i.i128
@@ -1126,7 +1126,7 @@ land.rhs.i.i109:                                  ; preds = %while.cond.preheade
 while.body.i.i128:                                ; preds = %land.rhs.i.i109
   %incdec.ptr.i.i.i129 = getelementptr inbounds i8, ptr %it.sroa.0.117.i.i110, i64 1
   %cmp.i.i.i.i130 = icmp eq ptr %incdec.ptr.i.i.i129, %agg.tmp2.sroa.0.0.copyload.i101
-  %cmp.i1.i.i.i131 = icmp eq ptr %incdec.ptr.i.i.i.i107, %incdec.ptr.i.i.i129
+  %cmp.i1.i.i.i131 = icmp eq ptr %incdec.ptr.i.i.i129, %incdec.ptr.i.i.i.i107
   %retval.0.i.i.i132 = or i1 %cmp.i.i.i.i130, %cmp.i1.i.i.i131
   br i1 %retval.0.i.i.i132, label %while.end.i.i111, label %land.rhs.i.i109, !llvm.loop !10
 
@@ -1209,7 +1209,7 @@ pf_skip_line:                                     ; preds = %pf_skip_line.sink.s
 
 while.cond.preheader.i:                           ; preds = %pf_skip_line
   %incdec.ptr.i.i.i135 = getelementptr inbounds i8, ptr %agg.tmp245.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i135, %agg.tmp243.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp243.sroa.0.0.copyload, %incdec.ptr.i.i.i135
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i
@@ -1225,7 +1225,7 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp245.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i135, %incdec.ptr.i.i
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i.i.i135
   %retval.0.i.i = or i1 %cmp.i.i.i, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
@@ -1399,7 +1399,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   %15 = load ptr, ptr %m_cache, align 8
   %add.ptr.i = getelementptr i8, ptr %15, i64 %m_cachePos.promoted
   %16 = load i8, ptr %add.ptr.i, align 1
-  %cmp9 = icmp eq i8 %16, %continuationToken
+  %cmp9 = icmp eq i8 %continuationToken, %16
   br i1 %cmp9, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %for.cond
@@ -1538,7 +1538,7 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull @.str.26)
   %cmp.i.i = icmp eq ptr %it.coerce, %end.coerce
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %end.coerce, i64 -1
-  %cmp.i1.i = icmp eq ptr %incdec.ptr.i.i, %it.coerce
+  %cmp.i1.i = icmp eq ptr %it.coerce, %incdec.ptr.i.i
   %retval.0.i = select i1 %cmp.i.i, i1 true, i1 %cmp.i1.i
   br i1 %retval.0.i, label %return, label %land.lhs.true
 
@@ -1557,7 +1557,7 @@ land.lhs.true:                                    ; preds = %entry, %while.body
 while.body:                                       ; preds = %land.lhs.true
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.030, i64 1
   %cmp.i.i4 = icmp eq ptr %incdec.ptr.i, %end.coerce
-  %cmp.i1.i6 = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i
+  %cmp.i1.i6 = icmp eq ptr %incdec.ptr.i, %incdec.ptr.i.i
   %retval.0.i7 = select i1 %cmp.i.i4, i1 true, i1 %cmp.i1.i6
   br i1 %retval.0.i7, label %while.end, label %land.lhs.true, !llvm.loop !14
 
@@ -1571,7 +1571,7 @@ while.cond17:                                     ; preds = %while.body27, %whil
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body27 ], [ %1, %while.end ]
   %it.sroa.0.1 = phi ptr [ %incdec.ptr.i16, %while.body27 ], [ %it.sroa.0.0.lcssa, %while.end ]
   %cmp.i.i8 = icmp eq ptr %it.sroa.0.1, %end.coerce
-  %cmp.i1.i10 = icmp eq ptr %incdec.ptr.i.i, %it.sroa.0.1
+  %cmp.i1.i10 = icmp eq ptr %it.sroa.0.1, %incdec.ptr.i.i
   %retval.0.i11 = select i1 %cmp.i.i8, i1 true, i1 %cmp.i1.i10
   br i1 %retval.0.i11, label %while.body27, label %lor.lhs.false
 
@@ -1819,7 +1819,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i, i64 -1
   %cmp.i.i3.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i4.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %agg.tmp.sroa.0.0.copyload.i
+  %cmp.i1.i4.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %incdec.ptr.i.i.i.i
   %retval.0.i5.i.i = select i1 %cmp.i.i3.i.i, i1 true, i1 %cmp.i1.i4.i.i
   br i1 %retval.0.i5.i.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i, label %while.body.i.i
 
@@ -1834,7 +1834,7 @@ while.body.i.i:                                   ; preds = %entry, %if.end.i.i
 if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i.i
+  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i, label %while.body.i.i, !llvm.loop !19
 
@@ -1849,7 +1849,7 @@ if.then.i:                                        ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i, i64 2
   store ptr %incdec.ptr.i5.i, ptr %this, align 8
   %cmp.i.i3.i7.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i4.i8.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i5.i
+  %cmp.i1.i4.i8.i = icmp eq ptr %incdec.ptr.i5.i, %incdec.ptr.i.i.i.i
   %retval.0.i5.i9.i = select i1 %cmp.i.i3.i7.i, i1 true, i1 %cmp.i1.i4.i8.i
   br i1 %retval.0.i5.i9.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i, label %while.body.i10.i
 
@@ -1864,7 +1864,7 @@ while.body.i10.i:                                 ; preds = %if.then.i, %if.end.
 if.end.i12.i:                                     ; preds = %while.body.i10.i, %while.body.i10.i
   %incdec.ptr.i.i13.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i, i64 1
   %cmp.i.i.i14.i = icmp eq ptr %incdec.ptr.i.i13.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i.i15.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i13.i
+  %cmp.i1.i.i15.i = icmp eq ptr %incdec.ptr.i.i13.i, %incdec.ptr.i.i.i.i
   %retval.0.i.i16.i = select i1 %cmp.i.i.i14.i, i1 true, i1 %cmp.i1.i.i15.i
   br i1 %retval.0.i.i16.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i, label %while.body.i10.i, !llvm.loop !19
 
@@ -1917,7 +1917,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit: ; preds = %land.rhs.i, %land.r
   %agg.tmp2.sroa.0.0.copyload.i3 = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i4 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i3, i64 -1
   %cmp.i.i3.i.i5 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i1, %agg.tmp2.sroa.0.0.copyload.i3
-  %cmp.i1.i4.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i4, %agg.tmp.sroa.0.0.copyload.i1
+  %cmp.i1.i4.i.i6 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i1, %incdec.ptr.i.i.i.i4
   %retval.0.i5.i.i7 = select i1 %cmp.i.i3.i.i5, i1 true, i1 %cmp.i1.i4.i.i6
   br i1 %retval.0.i5.i.i7, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i15, label %while.body.i.i8
 
@@ -1932,7 +1932,7 @@ while.body.i.i8:                                  ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i10:                                     ; preds = %while.body.i.i8, %while.body.i.i8
   %incdec.ptr.i.i.i11 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i9, i64 1
   %cmp.i.i.i.i12 = icmp eq ptr %incdec.ptr.i.i.i11, %agg.tmp2.sroa.0.0.copyload.i3
-  %cmp.i1.i.i.i13 = icmp eq ptr %incdec.ptr.i.i.i.i4, %incdec.ptr.i.i.i11
+  %cmp.i1.i.i.i13 = icmp eq ptr %incdec.ptr.i.i.i11, %incdec.ptr.i.i.i.i4
   %retval.0.i.i.i14 = select i1 %cmp.i.i.i.i12, i1 true, i1 %cmp.i1.i.i.i13
   br i1 %retval.0.i.i.i14, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i15, label %while.body.i.i8, !llvm.loop !19
 
@@ -1947,7 +1947,7 @@ if.then.i32:                                      ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i33 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i16, i64 2
   store ptr %incdec.ptr.i5.i33, ptr %this, align 8
   %cmp.i.i3.i7.i34 = icmp eq ptr %incdec.ptr.i5.i33, %agg.tmp2.sroa.0.0.copyload.i3
-  %cmp.i1.i4.i8.i35 = icmp eq ptr %incdec.ptr.i.i.i.i4, %incdec.ptr.i5.i33
+  %cmp.i1.i4.i8.i35 = icmp eq ptr %incdec.ptr.i5.i33, %incdec.ptr.i.i.i.i4
   %retval.0.i5.i9.i36 = select i1 %cmp.i.i3.i7.i34, i1 true, i1 %cmp.i1.i4.i8.i35
   br i1 %retval.0.i5.i9.i36, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i44, label %while.body.i10.i37
 
@@ -1962,7 +1962,7 @@ while.body.i10.i37:                               ; preds = %if.then.i32, %if.en
 if.end.i12.i39:                                   ; preds = %while.body.i10.i37, %while.body.i10.i37
   %incdec.ptr.i.i13.i40 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i38, i64 1
   %cmp.i.i.i14.i41 = icmp eq ptr %incdec.ptr.i.i13.i40, %agg.tmp2.sroa.0.0.copyload.i3
-  %cmp.i1.i.i15.i42 = icmp eq ptr %incdec.ptr.i.i.i.i4, %incdec.ptr.i.i13.i40
+  %cmp.i1.i.i15.i42 = icmp eq ptr %incdec.ptr.i.i13.i40, %incdec.ptr.i.i.i.i4
   %retval.0.i.i16.i43 = select i1 %cmp.i.i.i14.i41, i1 true, i1 %cmp.i1.i.i15.i42
   br i1 %retval.0.i.i16.i43, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i44, label %while.body.i10.i37, !llvm.loop !19
 
@@ -2015,7 +2015,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit46: ; preds = %land.rhs.i21, %la
   %agg.tmp2.sroa.0.0.copyload.i51 = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i52 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i51, i64 -1
   %cmp.i.i3.i.i53 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i49, %agg.tmp2.sroa.0.0.copyload.i51
-  %cmp.i1.i4.i.i54 = icmp eq ptr %incdec.ptr.i.i.i.i52, %agg.tmp.sroa.0.0.copyload.i49
+  %cmp.i1.i4.i.i54 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i49, %incdec.ptr.i.i.i.i52
   %retval.0.i5.i.i55 = select i1 %cmp.i.i3.i.i53, i1 true, i1 %cmp.i1.i4.i.i54
   br i1 %retval.0.i5.i.i55, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i63, label %while.body.i.i56
 
@@ -2030,7 +2030,7 @@ while.body.i.i56:                                 ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i58:                                     ; preds = %while.body.i.i56, %while.body.i.i56
   %incdec.ptr.i.i.i59 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i57, i64 1
   %cmp.i.i.i.i60 = icmp eq ptr %incdec.ptr.i.i.i59, %agg.tmp2.sroa.0.0.copyload.i51
-  %cmp.i1.i.i.i61 = icmp eq ptr %incdec.ptr.i.i.i.i52, %incdec.ptr.i.i.i59
+  %cmp.i1.i.i.i61 = icmp eq ptr %incdec.ptr.i.i.i59, %incdec.ptr.i.i.i.i52
   %retval.0.i.i.i62 = select i1 %cmp.i.i.i.i60, i1 true, i1 %cmp.i1.i.i.i61
   br i1 %retval.0.i.i.i62, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i63, label %while.body.i.i56, !llvm.loop !19
 
@@ -2045,7 +2045,7 @@ if.then.i80:                                      ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i81 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i64, i64 2
   store ptr %incdec.ptr.i5.i81, ptr %this, align 8
   %cmp.i.i3.i7.i82 = icmp eq ptr %incdec.ptr.i5.i81, %agg.tmp2.sroa.0.0.copyload.i51
-  %cmp.i1.i4.i8.i83 = icmp eq ptr %incdec.ptr.i.i.i.i52, %incdec.ptr.i5.i81
+  %cmp.i1.i4.i8.i83 = icmp eq ptr %incdec.ptr.i5.i81, %incdec.ptr.i.i.i.i52
   %retval.0.i5.i9.i84 = select i1 %cmp.i.i3.i7.i82, i1 true, i1 %cmp.i1.i4.i8.i83
   br i1 %retval.0.i5.i9.i84, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i92, label %while.body.i10.i85
 
@@ -2060,7 +2060,7 @@ while.body.i10.i85:                               ; preds = %if.then.i80, %if.en
 if.end.i12.i87:                                   ; preds = %while.body.i10.i85, %while.body.i10.i85
   %incdec.ptr.i.i13.i88 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i86, i64 1
   %cmp.i.i.i14.i89 = icmp eq ptr %incdec.ptr.i.i13.i88, %agg.tmp2.sroa.0.0.copyload.i51
-  %cmp.i1.i.i15.i90 = icmp eq ptr %incdec.ptr.i.i.i.i52, %incdec.ptr.i.i13.i88
+  %cmp.i1.i.i15.i90 = icmp eq ptr %incdec.ptr.i.i13.i88, %incdec.ptr.i.i.i.i52
   %retval.0.i.i16.i91 = select i1 %cmp.i.i.i14.i89, i1 true, i1 %cmp.i1.i.i15.i90
   br i1 %retval.0.i.i16.i91, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i92, label %while.body.i10.i85, !llvm.loop !19
 
@@ -2201,7 +2201,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit: ;
 
 while.cond.preheader.i:                           ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit
   %incdec.ptr.i.i.i100 = getelementptr inbounds i8, ptr %agg.tmp15.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i100, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i100
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i101
 
 land.rhs.i101:                                    ; preds = %while.cond.preheader.i, %while.body.i104
@@ -2217,7 +2217,7 @@ land.rhs.i101:                                    ; preds = %while.cond.preheade
 while.body.i104:                                  ; preds = %land.rhs.i101
   %incdec.ptr.i.i105 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i106 = icmp eq ptr %incdec.ptr.i.i105, %agg.tmp15.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i100, %incdec.ptr.i.i105
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i105, %incdec.ptr.i.i.i100
   %retval.0.i.i = or i1 %cmp.i.i.i106, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i101, !llvm.loop !10
 
@@ -2276,7 +2276,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i, i64 -1
   %cmp.i.i3.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i4.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %agg.tmp.sroa.0.0.copyload.i
+  %cmp.i1.i4.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %incdec.ptr.i.i.i.i
   %retval.0.i5.i.i = select i1 %cmp.i.i3.i.i, i1 true, i1 %cmp.i1.i4.i.i
   br i1 %retval.0.i5.i.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i, label %while.body.i.i
 
@@ -2291,7 +2291,7 @@ while.body.i.i:                                   ; preds = %entry, %if.end.i.i
 if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i.i
+  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i, label %while.body.i.i, !llvm.loop !19
 
@@ -2306,7 +2306,7 @@ if.then.i:                                        ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i, i64 2
   store ptr %incdec.ptr.i5.i, ptr %this, align 8
   %cmp.i.i3.i7.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i4.i8.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i5.i
+  %cmp.i1.i4.i8.i = icmp eq ptr %incdec.ptr.i5.i, %incdec.ptr.i.i.i.i
   %retval.0.i5.i9.i = select i1 %cmp.i.i3.i7.i, i1 true, i1 %cmp.i1.i4.i8.i
   br i1 %retval.0.i5.i9.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i, label %while.body.i10.i
 
@@ -2321,7 +2321,7 @@ while.body.i10.i:                                 ; preds = %if.then.i, %if.end.
 if.end.i12.i:                                     ; preds = %while.body.i10.i, %while.body.i10.i
   %incdec.ptr.i.i13.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i, i64 1
   %cmp.i.i.i14.i = icmp eq ptr %incdec.ptr.i.i13.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i.i15.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i13.i
+  %cmp.i1.i.i15.i = icmp eq ptr %incdec.ptr.i.i13.i, %incdec.ptr.i.i.i.i
   %retval.0.i.i16.i = select i1 %cmp.i.i.i14.i, i1 true, i1 %cmp.i1.i.i15.i
   br i1 %retval.0.i.i16.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i, label %while.body.i10.i, !llvm.loop !19
 
@@ -2374,7 +2374,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit: ; preds = %land.rhs.i, %land.r
   %agg.tmp2.sroa.0.0.copyload.i6 = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i7 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i6, i64 -1
   %cmp.i.i3.i.i8 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i4, %agg.tmp2.sroa.0.0.copyload.i6
-  %cmp.i1.i4.i.i9 = icmp eq ptr %incdec.ptr.i.i.i.i7, %agg.tmp.sroa.0.0.copyload.i4
+  %cmp.i1.i4.i.i9 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i4, %incdec.ptr.i.i.i.i7
   %retval.0.i5.i.i10 = select i1 %cmp.i.i3.i.i8, i1 true, i1 %cmp.i1.i4.i.i9
   br i1 %retval.0.i5.i.i10, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i18, label %while.body.i.i11
 
@@ -2389,7 +2389,7 @@ while.body.i.i11:                                 ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i13:                                     ; preds = %while.body.i.i11, %while.body.i.i11
   %incdec.ptr.i.i.i14 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i12, i64 1
   %cmp.i.i.i.i15 = icmp eq ptr %incdec.ptr.i.i.i14, %agg.tmp2.sroa.0.0.copyload.i6
-  %cmp.i1.i.i.i16 = icmp eq ptr %incdec.ptr.i.i.i.i7, %incdec.ptr.i.i.i14
+  %cmp.i1.i.i.i16 = icmp eq ptr %incdec.ptr.i.i.i14, %incdec.ptr.i.i.i.i7
   %retval.0.i.i.i17 = select i1 %cmp.i.i.i.i15, i1 true, i1 %cmp.i1.i.i.i16
   br i1 %retval.0.i.i.i17, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i18, label %while.body.i.i11, !llvm.loop !19
 
@@ -2404,7 +2404,7 @@ if.then.i35:                                      ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i36 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i19, i64 2
   store ptr %incdec.ptr.i5.i36, ptr %this, align 8
   %cmp.i.i3.i7.i37 = icmp eq ptr %incdec.ptr.i5.i36, %agg.tmp2.sroa.0.0.copyload.i6
-  %cmp.i1.i4.i8.i38 = icmp eq ptr %incdec.ptr.i.i.i.i7, %incdec.ptr.i5.i36
+  %cmp.i1.i4.i8.i38 = icmp eq ptr %incdec.ptr.i5.i36, %incdec.ptr.i.i.i.i7
   %retval.0.i5.i9.i39 = select i1 %cmp.i.i3.i7.i37, i1 true, i1 %cmp.i1.i4.i8.i38
   br i1 %retval.0.i5.i9.i39, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i47, label %while.body.i10.i40
 
@@ -2419,7 +2419,7 @@ while.body.i10.i40:                               ; preds = %if.then.i35, %if.en
 if.end.i12.i42:                                   ; preds = %while.body.i10.i40, %while.body.i10.i40
   %incdec.ptr.i.i13.i43 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i41, i64 1
   %cmp.i.i.i14.i44 = icmp eq ptr %incdec.ptr.i.i13.i43, %agg.tmp2.sroa.0.0.copyload.i6
-  %cmp.i1.i.i15.i45 = icmp eq ptr %incdec.ptr.i.i.i.i7, %incdec.ptr.i.i13.i43
+  %cmp.i1.i.i15.i45 = icmp eq ptr %incdec.ptr.i.i13.i43, %incdec.ptr.i.i.i.i7
   %retval.0.i.i16.i46 = select i1 %cmp.i.i.i14.i44, i1 true, i1 %cmp.i1.i.i15.i45
   br i1 %retval.0.i.i16.i46, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i47, label %while.body.i10.i40, !llvm.loop !19
 
@@ -2472,7 +2472,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit49: ; preds = %land.rhs.i24, %la
   %agg.tmp2.sroa.0.0.copyload.i54 = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i55 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i54, i64 -1
   %cmp.i.i3.i.i56 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i52, %agg.tmp2.sroa.0.0.copyload.i54
-  %cmp.i1.i4.i.i57 = icmp eq ptr %incdec.ptr.i.i.i.i55, %agg.tmp.sroa.0.0.copyload.i52
+  %cmp.i1.i4.i.i57 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i52, %incdec.ptr.i.i.i.i55
   %retval.0.i5.i.i58 = select i1 %cmp.i.i3.i.i56, i1 true, i1 %cmp.i1.i4.i.i57
   br i1 %retval.0.i5.i.i58, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i66, label %while.body.i.i59
 
@@ -2487,7 +2487,7 @@ while.body.i.i59:                                 ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i61:                                     ; preds = %while.body.i.i59, %while.body.i.i59
   %incdec.ptr.i.i.i62 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i60, i64 1
   %cmp.i.i.i.i63 = icmp eq ptr %incdec.ptr.i.i.i62, %agg.tmp2.sroa.0.0.copyload.i54
-  %cmp.i1.i.i.i64 = icmp eq ptr %incdec.ptr.i.i.i.i55, %incdec.ptr.i.i.i62
+  %cmp.i1.i.i.i64 = icmp eq ptr %incdec.ptr.i.i.i62, %incdec.ptr.i.i.i.i55
   %retval.0.i.i.i65 = select i1 %cmp.i.i.i.i63, i1 true, i1 %cmp.i1.i.i.i64
   br i1 %retval.0.i.i.i65, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i66, label %while.body.i.i59, !llvm.loop !19
 
@@ -2502,7 +2502,7 @@ if.then.i83:                                      ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i84 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i67, i64 2
   store ptr %incdec.ptr.i5.i84, ptr %this, align 8
   %cmp.i.i3.i7.i85 = icmp eq ptr %incdec.ptr.i5.i84, %agg.tmp2.sroa.0.0.copyload.i54
-  %cmp.i1.i4.i8.i86 = icmp eq ptr %incdec.ptr.i.i.i.i55, %incdec.ptr.i5.i84
+  %cmp.i1.i4.i8.i86 = icmp eq ptr %incdec.ptr.i5.i84, %incdec.ptr.i.i.i.i55
   %retval.0.i5.i9.i87 = select i1 %cmp.i.i3.i7.i85, i1 true, i1 %cmp.i1.i4.i8.i86
   br i1 %retval.0.i5.i9.i87, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i95, label %while.body.i10.i88
 
@@ -2517,7 +2517,7 @@ while.body.i10.i88:                               ; preds = %if.then.i83, %if.en
 if.end.i12.i90:                                   ; preds = %while.body.i10.i88, %while.body.i10.i88
   %incdec.ptr.i.i13.i91 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i89, i64 1
   %cmp.i.i.i14.i92 = icmp eq ptr %incdec.ptr.i.i13.i91, %agg.tmp2.sroa.0.0.copyload.i54
-  %cmp.i1.i.i15.i93 = icmp eq ptr %incdec.ptr.i.i.i.i55, %incdec.ptr.i.i13.i91
+  %cmp.i1.i.i15.i93 = icmp eq ptr %incdec.ptr.i.i13.i91, %incdec.ptr.i.i.i.i55
   %retval.0.i.i16.i94 = select i1 %cmp.i.i.i14.i92, i1 true, i1 %cmp.i1.i.i15.i93
   br i1 %retval.0.i.i16.i94, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i95, label %while.body.i10.i88, !llvm.loop !19
 
@@ -2570,7 +2570,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit97: ; preds = %land.rhs.i72, %la
   %agg.tmp2.sroa.0.0.copyload.i102 = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i103 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i102, i64 -1
   %cmp.i.i3.i.i104 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i100, %agg.tmp2.sroa.0.0.copyload.i102
-  %cmp.i1.i4.i.i105 = icmp eq ptr %incdec.ptr.i.i.i.i103, %agg.tmp.sroa.0.0.copyload.i100
+  %cmp.i1.i4.i.i105 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i100, %incdec.ptr.i.i.i.i103
   %retval.0.i5.i.i106 = select i1 %cmp.i.i3.i.i104, i1 true, i1 %cmp.i1.i4.i.i105
   br i1 %retval.0.i5.i.i106, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i114, label %while.body.i.i107
 
@@ -2585,7 +2585,7 @@ while.body.i.i107:                                ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i109:                                    ; preds = %while.body.i.i107, %while.body.i.i107
   %incdec.ptr.i.i.i110 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i108, i64 1
   %cmp.i.i.i.i111 = icmp eq ptr %incdec.ptr.i.i.i110, %agg.tmp2.sroa.0.0.copyload.i102
-  %cmp.i1.i.i.i112 = icmp eq ptr %incdec.ptr.i.i.i.i103, %incdec.ptr.i.i.i110
+  %cmp.i1.i.i.i112 = icmp eq ptr %incdec.ptr.i.i.i110, %incdec.ptr.i.i.i.i103
   %retval.0.i.i.i113 = select i1 %cmp.i.i.i.i111, i1 true, i1 %cmp.i1.i.i.i112
   br i1 %retval.0.i.i.i113, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i114, label %while.body.i.i107, !llvm.loop !19
 
@@ -2600,7 +2600,7 @@ if.then.i131:                                     ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i132 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i115, i64 2
   store ptr %incdec.ptr.i5.i132, ptr %this, align 8
   %cmp.i.i3.i7.i133 = icmp eq ptr %incdec.ptr.i5.i132, %agg.tmp2.sroa.0.0.copyload.i102
-  %cmp.i1.i4.i8.i134 = icmp eq ptr %incdec.ptr.i.i.i.i103, %incdec.ptr.i5.i132
+  %cmp.i1.i4.i8.i134 = icmp eq ptr %incdec.ptr.i5.i132, %incdec.ptr.i.i.i.i103
   %retval.0.i5.i9.i135 = select i1 %cmp.i.i3.i7.i133, i1 true, i1 %cmp.i1.i4.i8.i134
   br i1 %retval.0.i5.i9.i135, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i143, label %while.body.i10.i136
 
@@ -2615,7 +2615,7 @@ while.body.i10.i136:                              ; preds = %if.then.i131, %if.e
 if.end.i12.i138:                                  ; preds = %while.body.i10.i136, %while.body.i10.i136
   %incdec.ptr.i.i13.i139 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i137, i64 1
   %cmp.i.i.i14.i140 = icmp eq ptr %incdec.ptr.i.i13.i139, %agg.tmp2.sroa.0.0.copyload.i102
-  %cmp.i1.i.i15.i141 = icmp eq ptr %incdec.ptr.i.i.i.i103, %incdec.ptr.i.i13.i139
+  %cmp.i1.i.i15.i141 = icmp eq ptr %incdec.ptr.i.i13.i139, %incdec.ptr.i.i.i.i103
   %retval.0.i.i16.i142 = select i1 %cmp.i.i.i14.i140, i1 true, i1 %cmp.i1.i.i15.i141
   br i1 %retval.0.i.i16.i142, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i143, label %while.body.i10.i136, !llvm.loop !19
 
@@ -2778,7 +2778,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJfffEEERS1_DpOT_.exit: ; pred
 
 while.cond.preheader.i:                           ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJfffEEERS1_DpOT_.exit
   %incdec.ptr.i.i.i151 = getelementptr inbounds i8, ptr %agg.tmp25.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i151, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i151
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i152
 
 land.rhs.i152:                                    ; preds = %while.cond.preheader.i, %while.body.i155
@@ -2794,7 +2794,7 @@ land.rhs.i152:                                    ; preds = %while.cond.preheade
 while.body.i155:                                  ; preds = %land.rhs.i152
   %incdec.ptr.i.i156 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i157 = icmp eq ptr %incdec.ptr.i.i156, %agg.tmp25.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i151, %incdec.ptr.i.i156
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i156, %incdec.ptr.i.i.i151
   %retval.0.i.i = or i1 %cmp.i.i.i157, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i152, !llvm.loop !10
 
@@ -2855,7 +2855,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i, i64 -1
   %cmp.i.i3.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i4.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %agg.tmp.sroa.0.0.copyload.i
+  %cmp.i1.i4.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %incdec.ptr.i.i.i.i
   %retval.0.i5.i.i = select i1 %cmp.i.i3.i.i, i1 true, i1 %cmp.i1.i4.i.i
   br i1 %retval.0.i5.i.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i, label %while.body.i.i
 
@@ -2870,7 +2870,7 @@ while.body.i.i:                                   ; preds = %entry, %if.end.i.i
 if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i.i
+  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i, label %while.body.i.i, !llvm.loop !19
 
@@ -2885,7 +2885,7 @@ if.then.i:                                        ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i, i64 2
   store ptr %incdec.ptr.i5.i, ptr %this, align 8
   %cmp.i.i3.i7.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i4.i8.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i5.i
+  %cmp.i1.i4.i8.i = icmp eq ptr %incdec.ptr.i5.i, %incdec.ptr.i.i.i.i
   %retval.0.i5.i9.i = select i1 %cmp.i.i3.i7.i, i1 true, i1 %cmp.i1.i4.i8.i
   br i1 %retval.0.i5.i9.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i, label %while.body.i10.i
 
@@ -2900,7 +2900,7 @@ while.body.i10.i:                                 ; preds = %if.then.i, %if.end.
 if.end.i12.i:                                     ; preds = %while.body.i10.i, %while.body.i10.i
   %incdec.ptr.i.i13.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i, i64 1
   %cmp.i.i.i14.i = icmp eq ptr %incdec.ptr.i.i13.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i.i15.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i13.i
+  %cmp.i1.i.i15.i = icmp eq ptr %incdec.ptr.i.i13.i, %incdec.ptr.i.i.i.i
   %retval.0.i.i16.i = select i1 %cmp.i.i.i14.i, i1 true, i1 %cmp.i1.i.i15.i
   br i1 %retval.0.i.i16.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i, label %while.body.i10.i, !llvm.loop !19
 
@@ -2953,7 +2953,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit: ; preds = %land.rhs.i, %land.r
   %agg.tmp2.sroa.0.0.copyload.i3 = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i4 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i3, i64 -1
   %cmp.i.i3.i.i5 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i1, %agg.tmp2.sroa.0.0.copyload.i3
-  %cmp.i1.i4.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i4, %agg.tmp.sroa.0.0.copyload.i1
+  %cmp.i1.i4.i.i6 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i1, %incdec.ptr.i.i.i.i4
   %retval.0.i5.i.i7 = select i1 %cmp.i.i3.i.i5, i1 true, i1 %cmp.i1.i4.i.i6
   br i1 %retval.0.i5.i.i7, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i15, label %while.body.i.i8
 
@@ -2968,7 +2968,7 @@ while.body.i.i8:                                  ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i10:                                     ; preds = %while.body.i.i8, %while.body.i.i8
   %incdec.ptr.i.i.i11 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i9, i64 1
   %cmp.i.i.i.i12 = icmp eq ptr %incdec.ptr.i.i.i11, %agg.tmp2.sroa.0.0.copyload.i3
-  %cmp.i1.i.i.i13 = icmp eq ptr %incdec.ptr.i.i.i.i4, %incdec.ptr.i.i.i11
+  %cmp.i1.i.i.i13 = icmp eq ptr %incdec.ptr.i.i.i11, %incdec.ptr.i.i.i.i4
   %retval.0.i.i.i14 = select i1 %cmp.i.i.i.i12, i1 true, i1 %cmp.i1.i.i.i13
   br i1 %retval.0.i.i.i14, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i15, label %while.body.i.i8, !llvm.loop !19
 
@@ -2983,7 +2983,7 @@ if.then.i32:                                      ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i33 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i16, i64 2
   store ptr %incdec.ptr.i5.i33, ptr %this, align 8
   %cmp.i.i3.i7.i34 = icmp eq ptr %incdec.ptr.i5.i33, %agg.tmp2.sroa.0.0.copyload.i3
-  %cmp.i1.i4.i8.i35 = icmp eq ptr %incdec.ptr.i.i.i.i4, %incdec.ptr.i5.i33
+  %cmp.i1.i4.i8.i35 = icmp eq ptr %incdec.ptr.i5.i33, %incdec.ptr.i.i.i.i4
   %retval.0.i5.i9.i36 = select i1 %cmp.i.i3.i7.i34, i1 true, i1 %cmp.i1.i4.i8.i35
   br i1 %retval.0.i5.i9.i36, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i44, label %while.body.i10.i37
 
@@ -2998,7 +2998,7 @@ while.body.i10.i37:                               ; preds = %if.then.i32, %if.en
 if.end.i12.i39:                                   ; preds = %while.body.i10.i37, %while.body.i10.i37
   %incdec.ptr.i.i13.i40 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i38, i64 1
   %cmp.i.i.i14.i41 = icmp eq ptr %incdec.ptr.i.i13.i40, %agg.tmp2.sroa.0.0.copyload.i3
-  %cmp.i1.i.i15.i42 = icmp eq ptr %incdec.ptr.i.i.i.i4, %incdec.ptr.i.i13.i40
+  %cmp.i1.i.i15.i42 = icmp eq ptr %incdec.ptr.i.i13.i40, %incdec.ptr.i.i.i.i4
   %retval.0.i.i16.i43 = select i1 %cmp.i.i.i14.i41, i1 true, i1 %cmp.i1.i.i15.i42
   br i1 %retval.0.i.i16.i43, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i44, label %while.body.i10.i37, !llvm.loop !19
 
@@ -3051,7 +3051,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit46: ; preds = %land.rhs.i21, %la
   %agg.tmp2.sroa.0.0.copyload.i51 = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i52 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i51, i64 -1
   %cmp.i.i3.i.i53 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i49, %agg.tmp2.sroa.0.0.copyload.i51
-  %cmp.i1.i4.i.i54 = icmp eq ptr %incdec.ptr.i.i.i.i52, %agg.tmp.sroa.0.0.copyload.i49
+  %cmp.i1.i4.i.i54 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i49, %incdec.ptr.i.i.i.i52
   %retval.0.i5.i.i55 = select i1 %cmp.i.i3.i.i53, i1 true, i1 %cmp.i1.i4.i.i54
   br i1 %retval.0.i5.i.i55, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i63, label %while.body.i.i56
 
@@ -3066,7 +3066,7 @@ while.body.i.i56:                                 ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i58:                                     ; preds = %while.body.i.i56, %while.body.i.i56
   %incdec.ptr.i.i.i59 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i57, i64 1
   %cmp.i.i.i.i60 = icmp eq ptr %incdec.ptr.i.i.i59, %agg.tmp2.sroa.0.0.copyload.i51
-  %cmp.i1.i.i.i61 = icmp eq ptr %incdec.ptr.i.i.i.i52, %incdec.ptr.i.i.i59
+  %cmp.i1.i.i.i61 = icmp eq ptr %incdec.ptr.i.i.i59, %incdec.ptr.i.i.i.i52
   %retval.0.i.i.i62 = select i1 %cmp.i.i.i.i60, i1 true, i1 %cmp.i1.i.i.i61
   br i1 %retval.0.i.i.i62, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i63, label %while.body.i.i56, !llvm.loop !19
 
@@ -3081,7 +3081,7 @@ if.then.i80:                                      ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i81 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i64, i64 2
   store ptr %incdec.ptr.i5.i81, ptr %this, align 8
   %cmp.i.i3.i7.i82 = icmp eq ptr %incdec.ptr.i5.i81, %agg.tmp2.sroa.0.0.copyload.i51
-  %cmp.i1.i4.i8.i83 = icmp eq ptr %incdec.ptr.i.i.i.i52, %incdec.ptr.i5.i81
+  %cmp.i1.i4.i8.i83 = icmp eq ptr %incdec.ptr.i5.i81, %incdec.ptr.i.i.i.i52
   %retval.0.i5.i9.i84 = select i1 %cmp.i.i3.i7.i82, i1 true, i1 %cmp.i1.i4.i8.i83
   br i1 %retval.0.i5.i9.i84, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i92, label %while.body.i10.i85
 
@@ -3096,7 +3096,7 @@ while.body.i10.i85:                               ; preds = %if.then.i80, %if.en
 if.end.i12.i87:                                   ; preds = %while.body.i10.i85, %while.body.i10.i85
   %incdec.ptr.i.i13.i88 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i86, i64 1
   %cmp.i.i.i14.i89 = icmp eq ptr %incdec.ptr.i.i13.i88, %agg.tmp2.sroa.0.0.copyload.i51
-  %cmp.i1.i.i15.i90 = icmp eq ptr %incdec.ptr.i.i.i.i52, %incdec.ptr.i.i13.i88
+  %cmp.i1.i.i15.i90 = icmp eq ptr %incdec.ptr.i.i13.i88, %incdec.ptr.i.i.i.i52
   %retval.0.i.i16.i91 = select i1 %cmp.i.i.i14.i89, i1 true, i1 %cmp.i1.i.i15.i90
   br i1 %retval.0.i.i16.i91, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i92, label %while.body.i10.i85, !llvm.loop !19
 
@@ -3232,7 +3232,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit: ;
   %agg.tmp2.sroa.0.0.copyload.i101 = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i102 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i101, i64 -1
   %cmp.i.i3.i.i103 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i99, %agg.tmp2.sroa.0.0.copyload.i101
-  %cmp.i1.i4.i.i104 = icmp eq ptr %incdec.ptr.i.i.i.i102, %agg.tmp.sroa.0.0.copyload.i99
+  %cmp.i1.i4.i.i104 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i99, %incdec.ptr.i.i.i.i102
   %retval.0.i5.i.i105 = select i1 %cmp.i.i3.i.i103, i1 true, i1 %cmp.i1.i4.i.i104
   br i1 %retval.0.i5.i.i105, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i113, label %while.body.i.i106
 
@@ -3247,7 +3247,7 @@ while.body.i.i106:                                ; preds = %_ZNSt6vectorI10aiVe
 if.end.i.i108:                                    ; preds = %while.body.i.i106, %while.body.i.i106
   %incdec.ptr.i.i.i109 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i107, i64 1
   %cmp.i.i.i.i110 = icmp eq ptr %incdec.ptr.i.i.i109, %agg.tmp2.sroa.0.0.copyload.i101
-  %cmp.i1.i.i.i111 = icmp eq ptr %incdec.ptr.i.i.i.i102, %incdec.ptr.i.i.i109
+  %cmp.i1.i.i.i111 = icmp eq ptr %incdec.ptr.i.i.i109, %incdec.ptr.i.i.i.i102
   %retval.0.i.i.i112 = select i1 %cmp.i.i.i.i110, i1 true, i1 %cmp.i1.i.i.i111
   br i1 %retval.0.i.i.i112, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i113, label %while.body.i.i106, !llvm.loop !19
 
@@ -3262,7 +3262,7 @@ if.then.i130:                                     ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i131 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i114, i64 2
   store ptr %incdec.ptr.i5.i131, ptr %this, align 8
   %cmp.i.i3.i7.i132 = icmp eq ptr %incdec.ptr.i5.i131, %agg.tmp2.sroa.0.0.copyload.i101
-  %cmp.i1.i4.i8.i133 = icmp eq ptr %incdec.ptr.i.i.i.i102, %incdec.ptr.i5.i131
+  %cmp.i1.i4.i8.i133 = icmp eq ptr %incdec.ptr.i5.i131, %incdec.ptr.i.i.i.i102
   %retval.0.i5.i9.i134 = select i1 %cmp.i.i3.i7.i132, i1 true, i1 %cmp.i1.i4.i8.i133
   br i1 %retval.0.i5.i9.i134, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i142, label %while.body.i10.i135
 
@@ -3277,7 +3277,7 @@ while.body.i10.i135:                              ; preds = %if.then.i130, %if.e
 if.end.i12.i137:                                  ; preds = %while.body.i10.i135, %while.body.i10.i135
   %incdec.ptr.i.i13.i138 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i136, i64 1
   %cmp.i.i.i14.i139 = icmp eq ptr %incdec.ptr.i.i13.i138, %agg.tmp2.sroa.0.0.copyload.i101
-  %cmp.i1.i.i15.i140 = icmp eq ptr %incdec.ptr.i.i.i.i102, %incdec.ptr.i.i13.i138
+  %cmp.i1.i.i15.i140 = icmp eq ptr %incdec.ptr.i.i13.i138, %incdec.ptr.i.i.i.i102
   %retval.0.i.i16.i141 = select i1 %cmp.i.i.i14.i139, i1 true, i1 %cmp.i1.i.i15.i140
   br i1 %retval.0.i.i16.i141, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i142, label %while.body.i10.i135, !llvm.loop !19
 
@@ -3330,7 +3330,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit144: ; preds = %land.rhs.i119, %
   %agg.tmp2.sroa.0.0.copyload.i149 = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i150 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i149, i64 -1
   %cmp.i.i3.i.i151 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i147, %agg.tmp2.sroa.0.0.copyload.i149
-  %cmp.i1.i4.i.i152 = icmp eq ptr %incdec.ptr.i.i.i.i150, %agg.tmp.sroa.0.0.copyload.i147
+  %cmp.i1.i4.i.i152 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i147, %incdec.ptr.i.i.i.i150
   %retval.0.i5.i.i153 = select i1 %cmp.i.i3.i.i151, i1 true, i1 %cmp.i1.i4.i.i152
   br i1 %retval.0.i5.i.i153, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i161, label %while.body.i.i154
 
@@ -3345,7 +3345,7 @@ while.body.i.i154:                                ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i156:                                    ; preds = %while.body.i.i154, %while.body.i.i154
   %incdec.ptr.i.i.i157 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i155, i64 1
   %cmp.i.i.i.i158 = icmp eq ptr %incdec.ptr.i.i.i157, %agg.tmp2.sroa.0.0.copyload.i149
-  %cmp.i1.i.i.i159 = icmp eq ptr %incdec.ptr.i.i.i.i150, %incdec.ptr.i.i.i157
+  %cmp.i1.i.i.i159 = icmp eq ptr %incdec.ptr.i.i.i157, %incdec.ptr.i.i.i.i150
   %retval.0.i.i.i160 = select i1 %cmp.i.i.i.i158, i1 true, i1 %cmp.i1.i.i.i159
   br i1 %retval.0.i.i.i160, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i161, label %while.body.i.i154, !llvm.loop !19
 
@@ -3360,7 +3360,7 @@ if.then.i178:                                     ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i179 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i162, i64 2
   store ptr %incdec.ptr.i5.i179, ptr %this, align 8
   %cmp.i.i3.i7.i180 = icmp eq ptr %incdec.ptr.i5.i179, %agg.tmp2.sroa.0.0.copyload.i149
-  %cmp.i1.i4.i8.i181 = icmp eq ptr %incdec.ptr.i.i.i.i150, %incdec.ptr.i5.i179
+  %cmp.i1.i4.i8.i181 = icmp eq ptr %incdec.ptr.i5.i179, %incdec.ptr.i.i.i.i150
   %retval.0.i5.i9.i182 = select i1 %cmp.i.i3.i7.i180, i1 true, i1 %cmp.i1.i4.i8.i181
   br i1 %retval.0.i5.i9.i182, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i190, label %while.body.i10.i183
 
@@ -3375,7 +3375,7 @@ while.body.i10.i183:                              ; preds = %if.then.i178, %if.e
 if.end.i12.i185:                                  ; preds = %while.body.i10.i183, %while.body.i10.i183
   %incdec.ptr.i.i13.i186 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i184, i64 1
   %cmp.i.i.i14.i187 = icmp eq ptr %incdec.ptr.i.i13.i186, %agg.tmp2.sroa.0.0.copyload.i149
-  %cmp.i1.i.i15.i188 = icmp eq ptr %incdec.ptr.i.i.i.i150, %incdec.ptr.i.i13.i186
+  %cmp.i1.i.i15.i188 = icmp eq ptr %incdec.ptr.i.i13.i186, %incdec.ptr.i.i.i.i150
   %retval.0.i.i16.i189 = select i1 %cmp.i.i.i14.i187, i1 true, i1 %cmp.i1.i.i15.i188
   br i1 %retval.0.i.i16.i189, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i190, label %while.body.i10.i183, !llvm.loop !19
 
@@ -3428,7 +3428,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit192: ; preds = %land.rhs.i167, %
   %agg.tmp2.sroa.0.0.copyload.i197 = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i198 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i197, i64 -1
   %cmp.i.i3.i.i199 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i195, %agg.tmp2.sroa.0.0.copyload.i197
-  %cmp.i1.i4.i.i200 = icmp eq ptr %incdec.ptr.i.i.i.i198, %agg.tmp.sroa.0.0.copyload.i195
+  %cmp.i1.i4.i.i200 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i195, %incdec.ptr.i.i.i.i198
   %retval.0.i5.i.i201 = select i1 %cmp.i.i3.i.i199, i1 true, i1 %cmp.i1.i4.i.i200
   br i1 %retval.0.i5.i.i201, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i209, label %while.body.i.i202
 
@@ -3443,7 +3443,7 @@ while.body.i.i202:                                ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i204:                                    ; preds = %while.body.i.i202, %while.body.i.i202
   %incdec.ptr.i.i.i205 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i203, i64 1
   %cmp.i.i.i.i206 = icmp eq ptr %incdec.ptr.i.i.i205, %agg.tmp2.sroa.0.0.copyload.i197
-  %cmp.i1.i.i.i207 = icmp eq ptr %incdec.ptr.i.i.i.i198, %incdec.ptr.i.i.i205
+  %cmp.i1.i.i.i207 = icmp eq ptr %incdec.ptr.i.i.i205, %incdec.ptr.i.i.i.i198
   %retval.0.i.i.i208 = select i1 %cmp.i.i.i.i206, i1 true, i1 %cmp.i1.i.i.i207
   br i1 %retval.0.i.i.i208, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i209, label %while.body.i.i202, !llvm.loop !19
 
@@ -3458,7 +3458,7 @@ if.then.i226:                                     ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i227 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i210, i64 2
   store ptr %incdec.ptr.i5.i227, ptr %this, align 8
   %cmp.i.i3.i7.i228 = icmp eq ptr %incdec.ptr.i5.i227, %agg.tmp2.sroa.0.0.copyload.i197
-  %cmp.i1.i4.i8.i229 = icmp eq ptr %incdec.ptr.i.i.i.i198, %incdec.ptr.i5.i227
+  %cmp.i1.i4.i8.i229 = icmp eq ptr %incdec.ptr.i5.i227, %incdec.ptr.i.i.i.i198
   %retval.0.i5.i9.i230 = select i1 %cmp.i.i3.i7.i228, i1 true, i1 %cmp.i1.i4.i8.i229
   br i1 %retval.0.i5.i9.i230, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i238, label %while.body.i10.i231
 
@@ -3473,7 +3473,7 @@ while.body.i10.i231:                              ; preds = %if.then.i226, %if.e
 if.end.i12.i233:                                  ; preds = %while.body.i10.i231, %while.body.i10.i231
   %incdec.ptr.i.i13.i234 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i232, i64 1
   %cmp.i.i.i14.i235 = icmp eq ptr %incdec.ptr.i.i13.i234, %agg.tmp2.sroa.0.0.copyload.i197
-  %cmp.i1.i.i15.i236 = icmp eq ptr %incdec.ptr.i.i.i.i198, %incdec.ptr.i.i13.i234
+  %cmp.i1.i.i15.i236 = icmp eq ptr %incdec.ptr.i.i13.i234, %incdec.ptr.i.i.i.i198
   %retval.0.i.i16.i237 = select i1 %cmp.i.i.i14.i235, i1 true, i1 %cmp.i1.i.i15.i236
   br i1 %retval.0.i.i16.i237, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i238, label %while.body.i10.i231, !llvm.loop !19
 
@@ -3614,7 +3614,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit286
 
 while.cond.preheader.i:                           ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit286
   %incdec.ptr.i.i.i288 = getelementptr inbounds i8, ptr %agg.tmp31.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i288, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i288
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i289
 
 land.rhs.i289:                                    ; preds = %while.cond.preheader.i, %while.body.i292
@@ -3630,7 +3630,7 @@ land.rhs.i289:                                    ; preds = %while.cond.preheade
 while.body.i292:                                  ; preds = %land.rhs.i289
   %incdec.ptr.i.i293 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i294 = icmp eq ptr %incdec.ptr.i.i293, %agg.tmp31.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i288, %incdec.ptr.i.i293
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i293, %incdec.ptr.i.i.i288
   %retval.0.i.i = or i1 %cmp.i.i.i294, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i289, !llvm.loop !10
 
@@ -3697,7 +3697,7 @@ if.then:                                          ; preds = %entry
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i, i64 -1
   %cmp.i.i3.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i4.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %agg.tmp.sroa.0.0.copyload.i
+  %cmp.i1.i4.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %incdec.ptr.i.i.i.i
   %retval.0.i5.i.i = select i1 %cmp.i.i3.i.i, i1 true, i1 %cmp.i1.i4.i.i
   br i1 %retval.0.i5.i.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i, label %while.body.i.i
 
@@ -3712,7 +3712,7 @@ while.body.i.i:                                   ; preds = %if.then, %if.end.i.
 if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i.i
+  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i, label %while.body.i.i, !llvm.loop !19
 
@@ -3727,7 +3727,7 @@ if.then.i:                                        ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i, i64 2
   store ptr %incdec.ptr.i5.i, ptr %this, align 8
   %cmp.i.i3.i7.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i4.i8.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i5.i
+  %cmp.i1.i4.i8.i = icmp eq ptr %incdec.ptr.i5.i, %incdec.ptr.i.i.i.i
   %retval.0.i5.i9.i = select i1 %cmp.i.i3.i7.i, i1 true, i1 %cmp.i1.i4.i8.i
   br i1 %retval.0.i5.i9.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i, label %while.body.i10.i
 
@@ -3742,7 +3742,7 @@ while.body.i10.i:                                 ; preds = %if.then.i, %if.end.
 if.end.i12.i:                                     ; preds = %while.body.i10.i, %while.body.i10.i
   %incdec.ptr.i.i13.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i, i64 1
   %cmp.i.i.i14.i = icmp eq ptr %incdec.ptr.i.i13.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i.i15.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i13.i
+  %cmp.i1.i.i15.i = icmp eq ptr %incdec.ptr.i.i13.i, %incdec.ptr.i.i.i.i
   %retval.0.i.i16.i = select i1 %cmp.i.i.i14.i, i1 true, i1 %cmp.i1.i.i15.i
   br i1 %retval.0.i.i16.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i, label %while.body.i10.i, !llvm.loop !19
 
@@ -3795,7 +3795,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit: ; preds = %land.rhs.i, %land.r
   %agg.tmp2.sroa.0.0.copyload.i5 = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i6 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i5, i64 -1
   %cmp.i.i3.i.i7 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i3, %agg.tmp2.sroa.0.0.copyload.i5
-  %cmp.i1.i4.i.i8 = icmp eq ptr %incdec.ptr.i.i.i.i6, %agg.tmp.sroa.0.0.copyload.i3
+  %cmp.i1.i4.i.i8 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i3, %incdec.ptr.i.i.i.i6
   %retval.0.i5.i.i9 = select i1 %cmp.i.i3.i.i7, i1 true, i1 %cmp.i1.i4.i.i8
   br i1 %retval.0.i5.i.i9, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i17, label %while.body.i.i10
 
@@ -3810,7 +3810,7 @@ while.body.i.i10:                                 ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i12:                                     ; preds = %while.body.i.i10, %while.body.i.i10
   %incdec.ptr.i.i.i13 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i11, i64 1
   %cmp.i.i.i.i14 = icmp eq ptr %incdec.ptr.i.i.i13, %agg.tmp2.sroa.0.0.copyload.i5
-  %cmp.i1.i.i.i15 = icmp eq ptr %incdec.ptr.i.i.i.i6, %incdec.ptr.i.i.i13
+  %cmp.i1.i.i.i15 = icmp eq ptr %incdec.ptr.i.i.i13, %incdec.ptr.i.i.i.i6
   %retval.0.i.i.i16 = select i1 %cmp.i.i.i.i14, i1 true, i1 %cmp.i1.i.i.i15
   br i1 %retval.0.i.i.i16, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i17, label %while.body.i.i10, !llvm.loop !19
 
@@ -3825,7 +3825,7 @@ if.then.i34:                                      ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i35 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i18, i64 2
   store ptr %incdec.ptr.i5.i35, ptr %this, align 8
   %cmp.i.i3.i7.i36 = icmp eq ptr %incdec.ptr.i5.i35, %agg.tmp2.sroa.0.0.copyload.i5
-  %cmp.i1.i4.i8.i37 = icmp eq ptr %incdec.ptr.i.i.i.i6, %incdec.ptr.i5.i35
+  %cmp.i1.i4.i8.i37 = icmp eq ptr %incdec.ptr.i5.i35, %incdec.ptr.i.i.i.i6
   %retval.0.i5.i9.i38 = select i1 %cmp.i.i3.i7.i36, i1 true, i1 %cmp.i1.i4.i8.i37
   br i1 %retval.0.i5.i9.i38, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i46, label %while.body.i10.i39
 
@@ -3840,7 +3840,7 @@ while.body.i10.i39:                               ; preds = %if.then.i34, %if.en
 if.end.i12.i41:                                   ; preds = %while.body.i10.i39, %while.body.i10.i39
   %incdec.ptr.i.i13.i42 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i40, i64 1
   %cmp.i.i.i14.i43 = icmp eq ptr %incdec.ptr.i.i13.i42, %agg.tmp2.sroa.0.0.copyload.i5
-  %cmp.i1.i.i15.i44 = icmp eq ptr %incdec.ptr.i.i.i.i6, %incdec.ptr.i.i13.i42
+  %cmp.i1.i.i15.i44 = icmp eq ptr %incdec.ptr.i.i13.i42, %incdec.ptr.i.i.i.i6
   %retval.0.i.i16.i45 = select i1 %cmp.i.i.i14.i43, i1 true, i1 %cmp.i1.i.i15.i44
   br i1 %retval.0.i.i16.i45, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i46, label %while.body.i10.i39, !llvm.loop !19
 
@@ -3898,7 +3898,7 @@ if.then11:                                        ; preds = %entry
   %agg.tmp2.sroa.0.0.copyload.i53 = load ptr, ptr %m_DataItEnd.i52, align 8
   %incdec.ptr.i.i.i.i54 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i53, i64 -1
   %cmp.i.i3.i.i55 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i51, %agg.tmp2.sroa.0.0.copyload.i53
-  %cmp.i1.i4.i.i56 = icmp eq ptr %incdec.ptr.i.i.i.i54, %agg.tmp.sroa.0.0.copyload.i51
+  %cmp.i1.i4.i.i56 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i51, %incdec.ptr.i.i.i.i54
   %retval.0.i5.i.i57 = select i1 %cmp.i.i3.i.i55, i1 true, i1 %cmp.i1.i4.i.i56
   br i1 %retval.0.i5.i.i57, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i65, label %while.body.i.i58
 
@@ -3913,7 +3913,7 @@ while.body.i.i58:                                 ; preds = %if.then11, %if.end.
 if.end.i.i60:                                     ; preds = %while.body.i.i58, %while.body.i.i58
   %incdec.ptr.i.i.i61 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i59, i64 1
   %cmp.i.i.i.i62 = icmp eq ptr %incdec.ptr.i.i.i61, %agg.tmp2.sroa.0.0.copyload.i53
-  %cmp.i1.i.i.i63 = icmp eq ptr %incdec.ptr.i.i.i.i54, %incdec.ptr.i.i.i61
+  %cmp.i1.i.i.i63 = icmp eq ptr %incdec.ptr.i.i.i61, %incdec.ptr.i.i.i.i54
   %retval.0.i.i.i64 = select i1 %cmp.i.i.i.i62, i1 true, i1 %cmp.i1.i.i.i63
   br i1 %retval.0.i.i.i64, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i65, label %while.body.i.i58, !llvm.loop !19
 
@@ -3928,7 +3928,7 @@ if.then.i82:                                      ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i83 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i66, i64 2
   store ptr %incdec.ptr.i5.i83, ptr %this, align 8
   %cmp.i.i3.i7.i84 = icmp eq ptr %incdec.ptr.i5.i83, %agg.tmp2.sroa.0.0.copyload.i53
-  %cmp.i1.i4.i8.i85 = icmp eq ptr %incdec.ptr.i.i.i.i54, %incdec.ptr.i5.i83
+  %cmp.i1.i4.i8.i85 = icmp eq ptr %incdec.ptr.i5.i83, %incdec.ptr.i.i.i.i54
   %retval.0.i5.i9.i86 = select i1 %cmp.i.i3.i7.i84, i1 true, i1 %cmp.i1.i4.i8.i85
   br i1 %retval.0.i5.i9.i86, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i94, label %while.body.i10.i87
 
@@ -3943,7 +3943,7 @@ while.body.i10.i87:                               ; preds = %if.then.i82, %if.en
 if.end.i12.i89:                                   ; preds = %while.body.i10.i87, %while.body.i10.i87
   %incdec.ptr.i.i13.i90 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i88, i64 1
   %cmp.i.i.i14.i91 = icmp eq ptr %incdec.ptr.i.i13.i90, %agg.tmp2.sroa.0.0.copyload.i53
-  %cmp.i1.i.i15.i92 = icmp eq ptr %incdec.ptr.i.i.i.i54, %incdec.ptr.i.i13.i90
+  %cmp.i1.i.i15.i92 = icmp eq ptr %incdec.ptr.i.i13.i90, %incdec.ptr.i.i.i.i54
   %retval.0.i.i16.i93 = select i1 %cmp.i.i.i14.i91, i1 true, i1 %cmp.i1.i.i15.i92
   br i1 %retval.0.i.i16.i93, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i94, label %while.body.i10.i87, !llvm.loop !19
 
@@ -3996,7 +3996,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit96: ; preds = %land.rhs.i71, %la
   %agg.tmp2.sroa.0.0.copyload.i101 = load ptr, ptr %m_DataItEnd.i52, align 8
   %incdec.ptr.i.i.i.i102 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i101, i64 -1
   %cmp.i.i3.i.i103 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i99, %agg.tmp2.sroa.0.0.copyload.i101
-  %cmp.i1.i4.i.i104 = icmp eq ptr %incdec.ptr.i.i.i.i102, %agg.tmp.sroa.0.0.copyload.i99
+  %cmp.i1.i4.i.i104 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i99, %incdec.ptr.i.i.i.i102
   %retval.0.i5.i.i105 = select i1 %cmp.i.i3.i.i103, i1 true, i1 %cmp.i1.i4.i.i104
   br i1 %retval.0.i5.i.i105, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i113, label %while.body.i.i106
 
@@ -4011,7 +4011,7 @@ while.body.i.i106:                                ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i108:                                    ; preds = %while.body.i.i106, %while.body.i.i106
   %incdec.ptr.i.i.i109 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i107, i64 1
   %cmp.i.i.i.i110 = icmp eq ptr %incdec.ptr.i.i.i109, %agg.tmp2.sroa.0.0.copyload.i101
-  %cmp.i1.i.i.i111 = icmp eq ptr %incdec.ptr.i.i.i.i102, %incdec.ptr.i.i.i109
+  %cmp.i1.i.i.i111 = icmp eq ptr %incdec.ptr.i.i.i109, %incdec.ptr.i.i.i.i102
   %retval.0.i.i.i112 = select i1 %cmp.i.i.i.i110, i1 true, i1 %cmp.i1.i.i.i111
   br i1 %retval.0.i.i.i112, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i113, label %while.body.i.i106, !llvm.loop !19
 
@@ -4026,7 +4026,7 @@ if.then.i130:                                     ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i131 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i114, i64 2
   store ptr %incdec.ptr.i5.i131, ptr %this, align 8
   %cmp.i.i3.i7.i132 = icmp eq ptr %incdec.ptr.i5.i131, %agg.tmp2.sroa.0.0.copyload.i101
-  %cmp.i1.i4.i8.i133 = icmp eq ptr %incdec.ptr.i.i.i.i102, %incdec.ptr.i5.i131
+  %cmp.i1.i4.i8.i133 = icmp eq ptr %incdec.ptr.i5.i131, %incdec.ptr.i.i.i.i102
   %retval.0.i5.i9.i134 = select i1 %cmp.i.i3.i7.i132, i1 true, i1 %cmp.i1.i4.i8.i133
   br i1 %retval.0.i5.i9.i134, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i142, label %while.body.i10.i135
 
@@ -4041,7 +4041,7 @@ while.body.i10.i135:                              ; preds = %if.then.i130, %if.e
 if.end.i12.i137:                                  ; preds = %while.body.i10.i135, %while.body.i10.i135
   %incdec.ptr.i.i13.i138 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i136, i64 1
   %cmp.i.i.i14.i139 = icmp eq ptr %incdec.ptr.i.i13.i138, %agg.tmp2.sroa.0.0.copyload.i101
-  %cmp.i1.i.i15.i140 = icmp eq ptr %incdec.ptr.i.i.i.i102, %incdec.ptr.i.i13.i138
+  %cmp.i1.i.i15.i140 = icmp eq ptr %incdec.ptr.i.i13.i138, %incdec.ptr.i.i.i.i102
   %retval.0.i.i16.i141 = select i1 %cmp.i.i.i14.i139, i1 true, i1 %cmp.i1.i.i15.i140
   br i1 %retval.0.i.i16.i141, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i142, label %while.body.i10.i135, !llvm.loop !19
 
@@ -4094,7 +4094,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit144: ; preds = %land.rhs.i119, %
   %agg.tmp2.sroa.0.0.copyload.i149 = load ptr, ptr %m_DataItEnd.i52, align 8
   %incdec.ptr.i.i.i.i150 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i149, i64 -1
   %cmp.i.i3.i.i151 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i147, %agg.tmp2.sroa.0.0.copyload.i149
-  %cmp.i1.i4.i.i152 = icmp eq ptr %incdec.ptr.i.i.i.i150, %agg.tmp.sroa.0.0.copyload.i147
+  %cmp.i1.i4.i.i152 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i147, %incdec.ptr.i.i.i.i150
   %retval.0.i5.i.i153 = select i1 %cmp.i.i3.i.i151, i1 true, i1 %cmp.i1.i4.i.i152
   br i1 %retval.0.i5.i.i153, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i161, label %while.body.i.i154
 
@@ -4109,7 +4109,7 @@ while.body.i.i154:                                ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i156:                                    ; preds = %while.body.i.i154, %while.body.i.i154
   %incdec.ptr.i.i.i157 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i155, i64 1
   %cmp.i.i.i.i158 = icmp eq ptr %incdec.ptr.i.i.i157, %agg.tmp2.sroa.0.0.copyload.i149
-  %cmp.i1.i.i.i159 = icmp eq ptr %incdec.ptr.i.i.i.i150, %incdec.ptr.i.i.i157
+  %cmp.i1.i.i.i159 = icmp eq ptr %incdec.ptr.i.i.i157, %incdec.ptr.i.i.i.i150
   %retval.0.i.i.i160 = select i1 %cmp.i.i.i.i158, i1 true, i1 %cmp.i1.i.i.i159
   br i1 %retval.0.i.i.i160, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i161, label %while.body.i.i154, !llvm.loop !19
 
@@ -4124,7 +4124,7 @@ if.then.i178:                                     ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i179 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i162, i64 2
   store ptr %incdec.ptr.i5.i179, ptr %this, align 8
   %cmp.i.i3.i7.i180 = icmp eq ptr %incdec.ptr.i5.i179, %agg.tmp2.sroa.0.0.copyload.i149
-  %cmp.i1.i4.i8.i181 = icmp eq ptr %incdec.ptr.i.i.i.i150, %incdec.ptr.i5.i179
+  %cmp.i1.i4.i8.i181 = icmp eq ptr %incdec.ptr.i5.i179, %incdec.ptr.i.i.i.i150
   %retval.0.i5.i9.i182 = select i1 %cmp.i.i3.i7.i180, i1 true, i1 %cmp.i1.i4.i8.i181
   br i1 %retval.0.i5.i9.i182, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i190, label %while.body.i10.i183
 
@@ -4139,7 +4139,7 @@ while.body.i10.i183:                              ; preds = %if.then.i178, %if.e
 if.end.i12.i185:                                  ; preds = %while.body.i10.i183, %while.body.i10.i183
   %incdec.ptr.i.i13.i186 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i184, i64 1
   %cmp.i.i.i14.i187 = icmp eq ptr %incdec.ptr.i.i13.i186, %agg.tmp2.sroa.0.0.copyload.i149
-  %cmp.i1.i.i15.i188 = icmp eq ptr %incdec.ptr.i.i.i.i150, %incdec.ptr.i.i13.i186
+  %cmp.i1.i.i15.i188 = icmp eq ptr %incdec.ptr.i.i13.i186, %incdec.ptr.i.i.i.i150
   %retval.0.i.i16.i189 = select i1 %cmp.i.i.i14.i187, i1 true, i1 %cmp.i1.i.i15.i188
   br i1 %retval.0.i.i16.i189, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i190, label %while.body.i10.i183, !llvm.loop !19
 
@@ -4311,7 +4311,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit: ;
 
 while.cond.preheader.i:                           ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit
   %incdec.ptr.i.i.i198 = getelementptr inbounds i8, ptr %agg.tmp39.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i198, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i198
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i199
 
 land.rhs.i199:                                    ; preds = %while.cond.preheader.i, %while.body.i202
@@ -4327,7 +4327,7 @@ land.rhs.i199:                                    ; preds = %while.cond.preheade
 while.body.i202:                                  ; preds = %land.rhs.i199
   %incdec.ptr.i.i203 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i204 = icmp eq ptr %incdec.ptr.i.i203, %agg.tmp39.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i198, %incdec.ptr.i.i203
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i203, %incdec.ptr.i.i.i198
   %retval.0.i.i = or i1 %cmp.i.i.i204, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i199, !llvm.loop !10
 
@@ -4387,7 +4387,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %m_DataItEnd, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload, i64 -1
   %cmp.i.i7.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i8.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i8.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i
   %retval.0.i9.i = select i1 %cmp.i.i7.i, i1 true, i1 %cmp.i1.i8.i
   br i1 %retval.0.i9.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i
 
@@ -4409,7 +4409,7 @@ while.body.i.i.preheader:                         ; preds = %while.body.i, %whil
 if.end.i:                                         ; preds = %while.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.010.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %retval.0.i.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i, !llvm.loop !42
 
@@ -4424,7 +4424,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
 if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.i
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i1.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i1.i
+  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i1.i, %incdec.ptr.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i.i, !llvm.loop !19
 
@@ -4819,7 +4819,7 @@ if.else111:                                       ; preds = %if.then97
 
 while.cond.preheader.i.i:                         ; preds = %if.else111
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i, i64 -1
-  %cmp.i1.i16.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %agg.tmp.sroa.0.0.copyload.i
+  %cmp.i1.i16.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %incdec.ptr.i.i.i.i
   br i1 %cmp.i1.i16.i.i, label %while.end.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.cond.preheader.i.i, %while.body.i.i116
@@ -4835,7 +4835,7 @@ land.rhs.i.i:                                     ; preds = %while.cond.preheade
 while.body.i.i116:                                ; preds = %land.rhs.i.i
   %incdec.ptr.i.i.i117 = getelementptr inbounds i8, ptr %it.sroa.0.117.i.i, i64 1
   %cmp.i.i.i.i118 = icmp eq ptr %incdec.ptr.i.i.i117, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i.i.i119 = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i.i117
+  %cmp.i1.i.i.i119 = icmp eq ptr %incdec.ptr.i.i.i117, %incdec.ptr.i.i.i.i
   %retval.0.i.i.i120 = or i1 %cmp.i.i.i.i118, %cmp.i1.i.i.i119
   br i1 %retval.0.i.i.i120, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !10
 
@@ -5108,7 +5108,7 @@ if.else134:                                       ; preds = %if.then117
 
 while.cond.preheader.i.i231:                      ; preds = %if.else134
   %incdec.ptr.i.i.i.i232 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i225, i64 -1
-  %cmp.i1.i16.i.i233 = icmp eq ptr %incdec.ptr.i.i.i.i232, %agg.tmp.sroa.0.0.copyload.i223
+  %cmp.i1.i16.i.i233 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i223, %incdec.ptr.i.i.i.i232
   br i1 %cmp.i1.i16.i.i233, label %while.end.i.i236, label %land.rhs.i.i234
 
 land.rhs.i.i234:                                  ; preds = %while.cond.preheader.i.i231, %while.body.i.i253
@@ -5124,7 +5124,7 @@ land.rhs.i.i234:                                  ; preds = %while.cond.preheade
 while.body.i.i253:                                ; preds = %land.rhs.i.i234
   %incdec.ptr.i.i.i254 = getelementptr inbounds i8, ptr %it.sroa.0.117.i.i235, i64 1
   %cmp.i.i.i.i255 = icmp eq ptr %incdec.ptr.i.i.i254, %agg.tmp2.sroa.0.0.copyload.i225
-  %cmp.i1.i.i.i256 = icmp eq ptr %incdec.ptr.i.i.i.i232, %incdec.ptr.i.i.i254
+  %cmp.i1.i.i.i256 = icmp eq ptr %incdec.ptr.i.i.i254, %incdec.ptr.i.i.i.i232
   %retval.0.i.i.i257 = or i1 %cmp.i.i.i.i255, %cmp.i1.i.i.i256
   br i1 %retval.0.i.i.i257, label %while.end.i.i236, label %land.rhs.i.i234, !llvm.loop !10
 
@@ -5220,7 +5220,7 @@ if.then151:                                       ; preds = %if.end, %while.end1
 
 while.cond.preheader.i:                           ; preds = %if.then151
   %incdec.ptr.i.i.i261 = getelementptr inbounds i8, ptr %agg.tmp156.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i261, %agg.tmp154.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp154.sroa.0.0.copyload, %incdec.ptr.i.i.i261
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i262
@@ -5236,7 +5236,7 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
 while.body.i262:                                  ; preds = %land.rhs.i
   %incdec.ptr.i.i263 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i264 = icmp eq ptr %incdec.ptr.i.i263, %agg.tmp156.sroa.0.0.copyload
-  %cmp.i1.i.i265 = icmp eq ptr %incdec.ptr.i.i.i261, %incdec.ptr.i.i263
+  %cmp.i1.i.i265 = icmp eq ptr %incdec.ptr.i.i263, %incdec.ptr.i.i.i261
   %retval.0.i.i266 = or i1 %cmp.i.i.i264, %cmp.i1.i.i265
   br i1 %retval.0.i.i266, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
@@ -5558,7 +5558,7 @@ if.end232:                                        ; preds = %_ZNSt6vectorIPN6Ass
 
 while.cond.preheader.i300:                        ; preds = %if.end232
   %incdec.ptr.i.i.i301 = getelementptr inbounds i8, ptr %agg.tmp236.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i302 = icmp eq ptr %incdec.ptr.i.i.i301, %agg.tmp234.sroa.0.0.copyload
+  %cmp.i1.i16.i302 = icmp eq ptr %agg.tmp234.sroa.0.0.copyload, %incdec.ptr.i.i.i301
   br i1 %cmp.i1.i16.i302, label %while.end.i305, label %land.rhs.i303
 
 land.rhs.i303:                                    ; preds = %while.cond.preheader.i300, %while.body.i322
@@ -5574,7 +5574,7 @@ land.rhs.i303:                                    ; preds = %while.cond.preheade
 while.body.i322:                                  ; preds = %land.rhs.i303
   %incdec.ptr.i.i323 = getelementptr inbounds i8, ptr %it.sroa.0.117.i304, i64 1
   %cmp.i.i.i324 = icmp eq ptr %incdec.ptr.i.i323, %agg.tmp236.sroa.0.0.copyload
-  %cmp.i1.i.i325 = icmp eq ptr %incdec.ptr.i.i.i301, %incdec.ptr.i.i323
+  %cmp.i1.i.i325 = icmp eq ptr %incdec.ptr.i.i323, %incdec.ptr.i.i.i301
   %retval.0.i.i326 = or i1 %cmp.i.i.i324, %cmp.i1.i.i325
   br i1 %retval.0.i.i326, label %while.end.i305, label %land.rhs.i303, !llvm.loop !10
 
@@ -5640,7 +5640,7 @@ entry:
 
 while.cond.preheader.i:                           ; preds = %entry
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i
@@ -5656,7 +5656,7 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i.i.i
   %retval.0.i.i = or i1 %cmp.i.i.i, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
@@ -5724,7 +5724,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %m_DataItEnd, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload, i64 -1
   %cmp.i.i7.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i8.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i8.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i
   %retval.0.i9.i = select i1 %cmp.i.i7.i, i1 true, i1 %cmp.i1.i8.i
   br i1 %retval.0.i9.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i
 
@@ -5746,7 +5746,7 @@ while.body.i.i.preheader:                         ; preds = %while.body.i, %whil
 if.end.i:                                         ; preds = %while.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.010.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %retval.0.i.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i, !llvm.loop !42
 
@@ -5761,7 +5761,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
 if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.i
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i1.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i1.i
+  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i1.i, %incdec.ptr.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i.i, !llvm.loop !19
 
@@ -6189,7 +6189,7 @@ if.end107:                                        ; preds = %_ZNK8aiStringeqERKS
 
 while.cond.preheader.i:                           ; preds = %if.end107
   %incdec.ptr.i.i.i27 = getelementptr inbounds i8, ptr %agg.tmp111.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i27, %agg.tmp109.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp109.sroa.0.0.copyload, %incdec.ptr.i.i.i27
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i28
 
 land.rhs.i28:                                     ; preds = %while.cond.preheader.i, %while.body.i29
@@ -6205,7 +6205,7 @@ land.rhs.i28:                                     ; preds = %while.cond.preheade
 while.body.i29:                                   ; preds = %land.rhs.i28
   %incdec.ptr.i.i30 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i31 = icmp eq ptr %incdec.ptr.i.i30, %agg.tmp111.sroa.0.0.copyload
-  %cmp.i1.i.i32 = icmp eq ptr %incdec.ptr.i.i.i27, %incdec.ptr.i.i30
+  %cmp.i1.i.i32 = icmp eq ptr %incdec.ptr.i.i30, %incdec.ptr.i.i.i27
   %retval.0.i.i33 = or i1 %cmp.i.i.i31, %cmp.i1.i.i32
   br i1 %retval.0.i.i33, label %while.end.i, label %land.rhs.i28, !llvm.loop !10
 
@@ -6277,7 +6277,7 @@ entry:
 
 while.cond.preheader.i:                           ; preds = %entry
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i
@@ -6293,7 +6293,7 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i.i.i
   %retval.0.i.i = or i1 %cmp.i.i.i, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
@@ -6360,7 +6360,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %m_DataItEnd, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload, i64 -1
   %cmp.i.i7.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i8.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i8.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i
   %retval.0.i9.i = select i1 %cmp.i.i7.i, i1 true, i1 %cmp.i1.i8.i
   br i1 %retval.0.i9.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i
 
@@ -6382,7 +6382,7 @@ while.body.i.i.preheader:                         ; preds = %while.body.i, %whil
 if.end.i:                                         ; preds = %while.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.010.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %retval.0.i.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i, !llvm.loop !42
 
@@ -6397,7 +6397,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
 if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.i
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i1.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i1.i
+  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i1.i, %incdec.ptr.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i.i, !llvm.loop !19
 
@@ -6652,7 +6652,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 
 while.cond.preheader.i:                           ; preds = %invoke.cont92
   %incdec.ptr.i.i.i39 = getelementptr inbounds i8, ptr %agg.tmp96.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i39, %agg.tmp94.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp94.sroa.0.0.copyload, %incdec.ptr.i.i.i39
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i40
@@ -6668,7 +6668,7 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
 while.body.i40:                                   ; preds = %land.rhs.i
   %incdec.ptr.i.i41 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i42 = icmp eq ptr %incdec.ptr.i.i41, %agg.tmp96.sroa.0.0.copyload
-  %cmp.i1.i.i43 = icmp eq ptr %incdec.ptr.i.i.i39, %incdec.ptr.i.i41
+  %cmp.i1.i.i43 = icmp eq ptr %incdec.ptr.i.i41, %incdec.ptr.i.i.i39
   %retval.0.i.i44 = or i1 %cmp.i.i.i42, %cmp.i1.i.i43
   br i1 %retval.0.i.i44, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
@@ -6836,7 +6836,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %m_DataItEnd, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload, i64 -1
   %cmp.i.i7.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i8.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i8.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i
   %retval.0.i9.i = select i1 %cmp.i.i7.i, i1 true, i1 %cmp.i1.i8.i
   br i1 %retval.0.i9.i, label %invoke.cont, label %while.body.i
 
@@ -6858,7 +6858,7 @@ while.body.i.i.preheader:                         ; preds = %while.body.i, %whil
 if.end.i:                                         ; preds = %while.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.010.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %retval.0.i.i, label %invoke.cont, label %while.body.i, !llvm.loop !42
 
@@ -6873,7 +6873,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
 if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.i
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i1.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i1.i
+  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i1.i, %incdec.ptr.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %invoke.cont, label %while.body.i.i, !llvm.loop !19
 
@@ -6888,7 +6888,7 @@ invoke.cont13:                                    ; preds = %invoke.cont
   %agg.tmp19.sroa.0.0.copyload = load ptr, ptr %m_DataItEnd, align 8
   %cmp.i.i = icmp eq ptr %call14, %agg.tmp19.sroa.0.0.copyload
   %incdec.ptr.i.i2 = getelementptr inbounds i8, ptr %agg.tmp19.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i = icmp eq ptr %incdec.ptr.i.i2, %call14
+  %cmp.i1.i = icmp eq ptr %call14, %incdec.ptr.i.i2
   %retval.0.i = select i1 %cmp.i.i, i1 true, i1 %cmp.i1.i
   br i1 %retval.0.i, label %cleanup, label %if.end
 
@@ -7022,7 +7022,7 @@ if.end63:                                         ; preds = %land.rhs.i.i, %if.e
 
 while.cond.preheader.i:                           ; preds = %if.end63
   %incdec.ptr.i.i.i7 = getelementptr inbounds i8, ptr %agg.tmp67.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i7, %agg.tmp65.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp65.sroa.0.0.copyload, %incdec.ptr.i.i.i7
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i8
@@ -7038,7 +7038,7 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
 while.body.i8:                                    ; preds = %land.rhs.i
   %incdec.ptr.i.i9 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i10 = icmp eq ptr %incdec.ptr.i.i9, %agg.tmp67.sroa.0.0.copyload
-  %cmp.i1.i.i11 = icmp eq ptr %incdec.ptr.i.i.i7, %incdec.ptr.i.i9
+  %cmp.i1.i.i11 = icmp eq ptr %incdec.ptr.i.i9, %incdec.ptr.i.i.i7
   %retval.0.i.i12 = or i1 %cmp.i.i.i10, %cmp.i1.i.i11
   br i1 %retval.0.i.i12, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
@@ -7101,7 +7101,7 @@ entry:
 
 while.cond.preheader.i:                           ; preds = %entry
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i
@@ -7117,7 +7117,7 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i.i.i
   %retval.0.i.i = or i1 %cmp.i.i.i, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
@@ -7173,7 +7173,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %m_DataItEnd, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload, i64 -1
   %cmp.i.i7.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i8.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i8.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i
   %retval.0.i9.i = select i1 %cmp.i.i7.i, i1 true, i1 %cmp.i1.i8.i
   br i1 %retval.0.i9.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i
 
@@ -7195,7 +7195,7 @@ while.body.i.i.preheader:                         ; preds = %while.body.i, %whil
 if.end.i:                                         ; preds = %while.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.010.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %retval.0.i.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i, !llvm.loop !42
 
@@ -7210,7 +7210,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
 if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.i
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i1.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i1.i
+  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i1.i, %incdec.ptr.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i.i, !llvm.loop !19
 
@@ -7351,7 +7351,7 @@ if.end53:                                         ; preds = %for.end, %if.then49
 
 while.cond.preheader.i:                           ; preds = %if.end53
   %incdec.ptr.i.i.i8 = getelementptr inbounds i8, ptr %agg.tmp57.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i8, %agg.tmp55.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp55.sroa.0.0.copyload, %incdec.ptr.i.i.i8
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i9
 
 land.rhs.i9:                                      ; preds = %while.cond.preheader.i, %while.body.i10
@@ -7367,7 +7367,7 @@ land.rhs.i9:                                      ; preds = %while.cond.preheade
 while.body.i10:                                   ; preds = %land.rhs.i9
   %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i12 = icmp eq ptr %incdec.ptr.i.i11, %agg.tmp57.sroa.0.0.copyload
-  %cmp.i1.i.i13 = icmp eq ptr %incdec.ptr.i.i.i8, %incdec.ptr.i.i11
+  %cmp.i1.i.i13 = icmp eq ptr %incdec.ptr.i.i11, %incdec.ptr.i.i.i8
   %retval.0.i.i14 = or i1 %cmp.i.i.i12, %cmp.i1.i.i13
   br i1 %retval.0.i.i14, label %while.end.i, label %land.rhs.i9, !llvm.loop !10
 
@@ -7445,7 +7445,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %m_DataItEnd, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload, i64 -1
   %cmp.i.i3.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i4.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i4.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i
   %retval.0.i5.i = select i1 %cmp.i.i3.i, i1 true, i1 %cmp.i1.i4.i
   br i1 %retval.0.i5.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i
 
@@ -7460,7 +7460,7 @@ while.body.i:                                     ; preds = %entry, %if.end.i
 if.end.i:                                         ; preds = %while.body.i, %while.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %retval.0.i.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i, !llvm.loop !19
 
@@ -7475,7 +7475,7 @@ if.then:                                          ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i, i64 2
   store ptr %incdec.ptr.i5, ptr %this, align 8
   %cmp.i.i3.i7 = icmp eq ptr %incdec.ptr.i5, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i4.i8 = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i5
+  %cmp.i1.i4.i8 = icmp eq ptr %incdec.ptr.i5, %incdec.ptr.i.i.i
   %retval.0.i5.i9 = select i1 %cmp.i.i3.i7, i1 true, i1 %cmp.i1.i4.i8
   br i1 %retval.0.i5.i9, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18, label %while.body.i10
 
@@ -7490,7 +7490,7 @@ while.body.i10:                                   ; preds = %if.then, %if.end.i1
 if.end.i12:                                       ; preds = %while.body.i10, %while.body.i10
   %incdec.ptr.i.i13 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11, i64 1
   %cmp.i.i.i14 = icmp eq ptr %incdec.ptr.i.i13, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i15 = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i13
+  %cmp.i1.i.i15 = icmp eq ptr %incdec.ptr.i.i13, %incdec.ptr.i.i.i
   %retval.0.i.i16 = select i1 %cmp.i.i.i14, i1 true, i1 %cmp.i1.i.i15
   br i1 %retval.0.i.i16, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18, label %while.body.i10, !llvm.loop !19
 
@@ -7590,7 +7590,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i, i64 -1
   %cmp.i.i3.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i4.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %agg.tmp.sroa.0.0.copyload.i
+  %cmp.i1.i4.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %incdec.ptr.i.i.i.i
   %retval.0.i5.i.i = select i1 %cmp.i.i3.i.i, i1 true, i1 %cmp.i1.i4.i.i
   br i1 %retval.0.i5.i.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i, label %while.body.i.i
 
@@ -7605,7 +7605,7 @@ while.body.i.i:                                   ; preds = %entry, %if.end.i.i
 if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i.i
+  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i, label %while.body.i.i, !llvm.loop !19
 
@@ -7620,7 +7620,7 @@ if.then.i:                                        ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i, i64 2
   store ptr %incdec.ptr.i5.i, ptr %this, align 8
   %cmp.i.i3.i7.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i4.i8.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i5.i
+  %cmp.i1.i4.i8.i = icmp eq ptr %incdec.ptr.i5.i, %incdec.ptr.i.i.i.i
   %retval.0.i5.i9.i = select i1 %cmp.i.i3.i7.i, i1 true, i1 %cmp.i1.i4.i8.i
   br i1 %retval.0.i5.i9.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i, label %while.body.i10.i
 
@@ -7635,7 +7635,7 @@ while.body.i10.i:                                 ; preds = %if.then.i, %if.end.
 if.end.i12.i:                                     ; preds = %while.body.i10.i, %while.body.i10.i
   %incdec.ptr.i.i13.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i, i64 1
   %cmp.i.i.i14.i = icmp eq ptr %incdec.ptr.i.i13.i, %agg.tmp2.sroa.0.0.copyload.i
-  %cmp.i1.i.i15.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i13.i
+  %cmp.i1.i.i15.i = icmp eq ptr %incdec.ptr.i.i13.i, %incdec.ptr.i.i.i.i
   %retval.0.i.i16.i = select i1 %cmp.i.i.i14.i, i1 true, i1 %cmp.i1.i.i15.i
   br i1 %retval.0.i.i16.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i, label %while.body.i10.i, !llvm.loop !19
 
@@ -7688,7 +7688,7 @@ _ZN6Assimp13ObjFileParser12copyNextWordEPcm.exit: ; preds = %land.rhs.i, %land.r
   %agg.tmp2.sroa.0.0.copyload.i3 = load ptr, ptr %m_DataItEnd.i, align 8
   %incdec.ptr.i.i.i.i4 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i3, i64 -1
   %cmp.i.i3.i.i5 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i1, %agg.tmp2.sroa.0.0.copyload.i3
-  %cmp.i1.i4.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i4, %agg.tmp.sroa.0.0.copyload.i1
+  %cmp.i1.i4.i.i6 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i1, %incdec.ptr.i.i.i.i4
   %retval.0.i5.i.i7 = select i1 %cmp.i.i3.i.i5, i1 true, i1 %cmp.i1.i4.i.i6
   br i1 %retval.0.i5.i.i7, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i15, label %while.body.i.i8
 
@@ -7703,7 +7703,7 @@ while.body.i.i8:                                  ; preds = %_ZN6Assimp13ObjFile
 if.end.i.i10:                                     ; preds = %while.body.i.i8, %while.body.i.i8
   %incdec.ptr.i.i.i11 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i9, i64 1
   %cmp.i.i.i.i12 = icmp eq ptr %incdec.ptr.i.i.i11, %agg.tmp2.sroa.0.0.copyload.i3
-  %cmp.i1.i.i.i13 = icmp eq ptr %incdec.ptr.i.i.i.i4, %incdec.ptr.i.i.i11
+  %cmp.i1.i.i.i13 = icmp eq ptr %incdec.ptr.i.i.i11, %incdec.ptr.i.i.i.i4
   %retval.0.i.i.i14 = select i1 %cmp.i.i.i.i12, i1 true, i1 %cmp.i1.i.i.i13
   br i1 %retval.0.i.i.i14, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit.i15, label %while.body.i.i8, !llvm.loop !19
 
@@ -7718,7 +7718,7 @@ if.then.i32:                                      ; preds = %_ZN6Assimp11getNext
   %incdec.ptr.i5.i33 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.0.lcssa.i.i16, i64 2
   store ptr %incdec.ptr.i5.i33, ptr %this, align 8
   %cmp.i.i3.i7.i34 = icmp eq ptr %incdec.ptr.i5.i33, %agg.tmp2.sroa.0.0.copyload.i3
-  %cmp.i1.i4.i8.i35 = icmp eq ptr %incdec.ptr.i.i.i.i4, %incdec.ptr.i5.i33
+  %cmp.i1.i4.i8.i35 = icmp eq ptr %incdec.ptr.i5.i33, %incdec.ptr.i.i.i.i4
   %retval.0.i5.i9.i36 = select i1 %cmp.i.i3.i7.i34, i1 true, i1 %cmp.i1.i4.i8.i35
   br i1 %retval.0.i5.i9.i36, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i44, label %while.body.i10.i37
 
@@ -7733,7 +7733,7 @@ while.body.i10.i37:                               ; preds = %if.then.i32, %if.en
 if.end.i12.i39:                                   ; preds = %while.body.i10.i37, %while.body.i10.i37
   %incdec.ptr.i.i13.i40 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i11.i38, i64 1
   %cmp.i.i.i14.i41 = icmp eq ptr %incdec.ptr.i.i13.i40, %agg.tmp2.sroa.0.0.copyload.i3
-  %cmp.i1.i.i15.i42 = icmp eq ptr %incdec.ptr.i.i.i.i4, %incdec.ptr.i.i13.i40
+  %cmp.i1.i.i15.i42 = icmp eq ptr %incdec.ptr.i.i13.i40, %incdec.ptr.i.i.i.i4
   %retval.0.i.i16.i43 = select i1 %cmp.i.i.i14.i41, i1 true, i1 %cmp.i1.i.i15.i42
   br i1 %retval.0.i.i16.i43, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit18.i44, label %while.body.i10.i37, !llvm.loop !19
 
@@ -7873,7 +7873,7 @@ _ZNSt6vectorI10aiVector2tIfESaIS1_EE12emplace_backIJRfS5_EEERS1_DpOT_.exit: ; pr
 
 while.cond.preheader.i:                           ; preds = %_ZNSt6vectorI10aiVector2tIfESaIS1_EE12emplace_backIJRfS5_EEERS1_DpOT_.exit
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %agg.tmp10.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i52, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i52
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i53
 
 land.rhs.i53:                                     ; preds = %while.cond.preheader.i, %while.body.i56
@@ -7889,7 +7889,7 @@ land.rhs.i53:                                     ; preds = %while.cond.preheade
 while.body.i56:                                   ; preds = %land.rhs.i53
   %incdec.ptr.i.i57 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i58 = icmp eq ptr %incdec.ptr.i.i57, %agg.tmp10.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i52, %incdec.ptr.i.i57
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i57, %incdec.ptr.i.i.i52
   %retval.0.i.i = or i1 %cmp.i.i.i58, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i53, !llvm.loop !10
 
@@ -7960,7 +7960,7 @@ entry:
 
 while.cond.preheader.i:                           ; preds = %entry
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i
@@ -7976,7 +7976,7 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i.i.i
   %retval.0.i.i = or i1 %cmp.i.i.i, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
@@ -8842,7 +8842,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %m_DataItEnd, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload, i64 -1
   %cmp.i.i7.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i8.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp.i1.i8.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %incdec.ptr.i.i.i
   %retval.0.i9.i = select i1 %cmp.i.i7.i, i1 true, i1 %cmp.i1.i8.i
   br i1 %retval.0.i9.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i
 
@@ -8864,7 +8864,7 @@ while.body.i.i.preheader:                         ; preds = %while.body.i, %whil
 if.end.i:                                         ; preds = %while.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.010.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
+  %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %retval.0.i.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i, !llvm.loop !42
 
@@ -8879,7 +8879,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
 if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.i
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i1.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i1.i
+  %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i1.i, %incdec.ptr.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i.i, !llvm.loop !19
 
@@ -8887,7 +8887,7 @@ _ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET
   %pBuffer.sroa.0.0.lcssa.i.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %entry ], [ %pBuffer.sroa.0.06.i.i, %while.body.i.i ], [ %incdec.ptr.i.i1.i, %if.end.i.i ], [ %incdec.ptr.i.i, %if.end.i ]
   store ptr %pBuffer.sroa.0.0.lcssa.i.i, ptr %this, align 8
   %cmp.i.i3.i = icmp eq ptr %pBuffer.sroa.0.0.lcssa.i.i, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i4.i = icmp eq ptr %incdec.ptr.i.i.i, %pBuffer.sroa.0.0.lcssa.i.i
+  %cmp.i1.i4.i = icmp eq ptr %pBuffer.sroa.0.0.lcssa.i.i, %incdec.ptr.i.i.i
   %retval.0.i5.i = select i1 %cmp.i.i3.i, i1 true, i1 %cmp.i1.i4.i
   br i1 %retval.0.i5.i, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i3
 
@@ -8902,7 +8902,7 @@ while.body.i3:                                    ; preds = %_ZN6Assimp12getNext
 if.end.i4:                                        ; preds = %while.body.i3, %while.body.i3
   %incdec.ptr.i.i5 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i, i64 1
   %cmp.i.i.i6 = icmp eq ptr %incdec.ptr.i.i5, %agg.tmp2.sroa.0.0.copyload
-  %cmp.i1.i.i7 = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i5
+  %cmp.i1.i.i7 = icmp eq ptr %incdec.ptr.i.i5, %incdec.ptr.i.i.i
   %retval.0.i.i8 = select i1 %cmp.i.i.i6, i1 true, i1 %cmp.i1.i.i7
   br i1 %retval.0.i.i8, label %_ZN6Assimp11getNextWordIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i3, !llvm.loop !19
 
@@ -9081,7 +9081,7 @@ if.end62:                                         ; preds = %if.end57, %invoke.c
 
 while.cond.preheader.i:                           ; preds = %if.end62
   %incdec.ptr.i.i.i16 = getelementptr inbounds i8, ptr %agg.tmp66.sroa.0.0.copyload, i64 -1
-  %cmp.i1.i16.i = icmp eq ptr %incdec.ptr.i.i.i16, %agg.tmp64.sroa.0.0.copyload
+  %cmp.i1.i16.i = icmp eq ptr %agg.tmp64.sroa.0.0.copyload, %incdec.ptr.i.i.i16
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i17
@@ -9097,7 +9097,7 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
 while.body.i17:                                   ; preds = %land.rhs.i
   %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i19 = icmp eq ptr %incdec.ptr.i.i18, %agg.tmp66.sroa.0.0.copyload
-  %cmp.i1.i.i20 = icmp eq ptr %incdec.ptr.i.i.i16, %incdec.ptr.i.i18
+  %cmp.i1.i.i20 = icmp eq ptr %incdec.ptr.i.i18, %incdec.ptr.i.i.i16
   %retval.0.i.i21 = or i1 %cmp.i.i.i19, %cmp.i1.i.i20
   br i1 %retval.0.i.i21, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
@@ -9205,7 +9205,7 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull @.str.26)
   %cmp.i.i = icmp eq ptr %it.coerce, %end.coerce
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %end.coerce, i64 -1
-  %cmp.i1.i = icmp eq ptr %incdec.ptr.i.i, %it.coerce
+  %cmp.i1.i = icmp eq ptr %it.coerce, %incdec.ptr.i.i
   %retval.0.i = select i1 %cmp.i.i, i1 true, i1 %cmp.i1.i
   br i1 %retval.0.i, label %return, label %land.rhs
 
@@ -9222,7 +9222,7 @@ land.rhs:                                         ; preds = %entry, %while.body
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.018, i64 1
   %cmp.i.i4 = icmp eq ptr %incdec.ptr.i, %end.coerce
-  %cmp.i1.i6 = icmp eq ptr %incdec.ptr.i.i, %incdec.ptr.i
+  %cmp.i1.i6 = icmp eq ptr %incdec.ptr.i, %incdec.ptr.i.i
   %retval.0.i7 = select i1 %cmp.i.i4, i1 true, i1 %cmp.i1.i6
   br i1 %retval.0.i7, label %while.end, label %land.rhs, !llvm.loop !61
 
@@ -9527,7 +9527,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i19
@@ -10068,7 +10068,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i19
@@ -10299,7 +10299,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -10350,7 +10350,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp7ObjFile8MaterialEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -10697,7 +10697,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -10780,7 +10780,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i: ; preds = %if.then.i32.
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -10897,7 +10897,7 @@ for.body.i.i.i.i:                                 ; preds = %if.else, %for.body.
 invoke.cont27:                                    ; preds = %for.body.i.i.i.i, %if.else
   %3 = phi ptr [ %1, %if.else ], [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ]
   store ptr %3, ptr %_M_finish, align 8
-  %cmp.i.i.not7.i.i.i.i.i49 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i49 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i49, label %invoke.cont35.thread, label %for.body.i.i.i.i.i50
 
 invoke.cont35.thread:                             ; preds = %invoke.cont27
@@ -10988,7 +10988,7 @@ for.body.i.i.i.i.i75:                             ; preds = %invoke.cont57, %for
 invoke.cont60:                                    ; preds = %for.body.i.i.i.i.i75, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i81 = phi ptr [ %cond.i64, %invoke.cont57 ], [ %incdec.ptr.i.i.i.i.i79, %for.body.i.i.i.i.i75 ]
   %add.ptr62 = getelementptr %class.aiVector3t, ptr %__cur.0.lcssa.i.i.i.i.i81, i64 %__n
-  %cmp.i.i.not7.i.i.i.i.i82 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i82 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i82, label %invoke.cont64, label %for.body.i.i.i.i.i83
 
 for.body.i.i.i.i.i83:                             ; preds = %invoke.cont60, %for.body.i.i.i.i.i83
@@ -11097,7 +11097,7 @@ if.end43:                                         ; preds = %if.end
 land.lhs.true51:                                  ; preds = %if.end13, %land.lhs.true21, %if.end43
   %cmp54 = icmp eq i8 %1, 46
   %cmp60 = icmp eq i8 %1, 44
-  %or.cond17 = and i1 %cmp60, %check_comma
+  %or.cond17 = and i1 %check_comma, %cmp60
   %or.cond = or i1 %cmp54, %or.cond17
   br i1 %or.cond, label %land.lhs.true61, label %if.then69
 
@@ -11148,7 +11148,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread35,
 if.end74:                                         ; preds = %if.end43, %land.lhs.true61
   %cmp76.not = icmp eq i8 %1, 46
   %cmp82.not = icmp eq i8 %1, 44
-  %or.cond19 = and i1 %cmp82.not, %check_comma
+  %or.cond19 = and i1 %check_comma, %cmp82.not
   %or.cond23 = or i1 %cmp76.not, %or.cond19
   br i1 %or.cond23, label %if.end86, label %if.then83
 
@@ -11165,7 +11165,7 @@ if.end86:                                         ; preds = %if.then83, %if.end7
   %f.0 = phi float [ %conv85, %if.then83 ], [ 0.000000e+00, %if.end74 ]
   %cmp88 = icmp eq i8 %10, 46
   %cmp94 = icmp eq i8 %10, 44
-  %or.cond20 = and i1 %cmp94, %check_comma
+  %or.cond20 = and i1 %check_comma, %cmp94
   %or.cond24 = or i1 %cmp88, %or.cond20
   br i1 %or.cond24, label %land.lhs.true95, label %if.end114
 
@@ -12199,7 +12199,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %8, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %9
+  %cmp2.i.i = icmp eq ptr %9, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -12406,7 +12406,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %8, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %9
+  %cmp2.i.i = icmp eq ptr %9, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -12455,7 +12455,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PSt6vectorIjSaIjEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

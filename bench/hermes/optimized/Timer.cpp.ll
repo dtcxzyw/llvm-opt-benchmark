@@ -1898,7 +1898,7 @@ if.then.i.i77:                                    ; preds = %_ZN4llvh11raw_ostre
 _ZL20getDefaultTimerGroupv.exit:                  ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit75, %if.then.i.i77
   %25 = load atomic i64, ptr @_ZL17DefaultTimerGroup monotonic, align 8
   %atomic-temp.i.0.i1.i.i = inttoptr i64 %25 to ptr
-  %cmp23.not = icmp eq ptr %atomic-temp.i.0.i1.i.i, %this
+  %cmp23.not = icmp eq ptr %this, %atomic-temp.i.0.i1.i.i
   br i1 %cmp23.not, label %if.end31, label %if.then24
 
 if.then24:                                        ; preds = %_ZL20getDefaultTimerGroupv.exit
@@ -2727,7 +2727,7 @@ cond.true.i.split.i:                              ; preds = %_ZN4llvh11raw_ostre
   %sub.ptr.lhs.cast.i7.i8 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i9 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i9.i10 = sub i64 %sub.ptr.lhs.cast.i7.i8, %sub.ptr.rhs.cast.i8.i9
-  %cmp.i.i11 = icmp ult i64 %sub.ptr.sub.i9.i10, %call.i.i5
+  %cmp.i.i11 = icmp ugt i64 %call.i.i5, %sub.ptr.sub.i9.i10
   br i1 %cmp.i.i11, label %if.then.i.i17, label %if.end.i.i12
 
 if.then.i.i17:                                    ; preds = %cond.true.i.split.i
@@ -2836,7 +2836,7 @@ cond.true.i.split.i:                              ; preds = %for.body
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i8.i
-  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i9.i, %call.i.i21
+  %cmp.i.i = icmp ugt i64 %call.i.i21, %sub.ptr.sub.i9.i
   br i1 %cmp.i.i, label %if.then.i.i22, label %if.end.i.i
 
 if.then.i.i22:                                    ; preds = %cond.true.i.split.i
@@ -3790,7 +3790,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 _ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i12, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
-  %cmp.not5.i.i.i.i.i13 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i.i13 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i.i13, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit25, label %for.body.i.i.i.i.i14
 
 for.body.i.i.i.i.i14:                             ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %for.body.i.i.i.i.i14
@@ -3958,7 +3958,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 _ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i12, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
-  %cmp.not5.i.i.i.i.i13 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i.i13 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i.i13, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit25, label %for.body.i.i.i.i.i14
 
 for.body.i.i.i.i.i14:                             ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %for.body.i.i.i.i.i14
@@ -4152,7 +4152,7 @@ entry:
   %agg.tmp38 = alloca %"struct.llvh::TimerGroup::PrintRecord", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp39 = icmp sgt i64 %div, %__holeIndex
+  %cmp39 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp39, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %while.body

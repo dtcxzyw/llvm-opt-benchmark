@@ -430,7 +430,7 @@ _ZL13dd_collect_cgP12gmx_domdec_tiiN3gmx8ArrayRefIKiEE.exit: ; preds = %7, %149
   %200 = load ptr, ptr %173, align 8
   %201 = getelementptr inbounds %"struct.AtomDistribution::DomainAtomGroups", ptr %200, i64 %indvars.iv70.i
   %202 = load ptr, ptr %180, align 8
-  %.not43.i = icmp eq ptr %202, %157
+  %.not43.i = icmp eq ptr %157, %202
   br i1 %.not43.i, label %203, label %204
 
 203:                                              ; preds = %199
@@ -913,7 +913,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -981,7 +981,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36

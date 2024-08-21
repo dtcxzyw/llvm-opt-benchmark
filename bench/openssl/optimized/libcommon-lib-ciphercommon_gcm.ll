@@ -90,7 +90,7 @@ if.end9:                                          ; preds = %if.end6, %if.end
 if.then11:                                        ; preds = %if.end9
   %keylen12 = getelementptr inbounds i8, ptr %vctx, i64 8
   %2 = load i64, ptr %keylen12, align 8
-  %cmp13.not = icmp eq i64 %2, %keylen
+  %cmp13.not = icmp eq i64 %keylen, %2
   br i1 %cmp13.not, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %if.then11

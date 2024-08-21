@@ -633,7 +633,7 @@ define hidden noundef ptr @DAUDIO_Open(i32 noundef %0, i32 noundef %1, i32 nound
   %42 = call i32 @snd_pcm_hw_params_get_buffer_size(ptr noundef %41, ptr noundef nonnull %14) #8
   %43 = load i64, ptr %14, align 8
   %44 = trunc i64 %43 to i32
-  %45 = mul nsw i32 %44, %6
+  %45 = mul nsw i32 %6, %44
   %46 = getelementptr inbounds i8, ptr %calloc, i64 24
   store i32 %45, ptr %46, align 8
   %47 = icmp eq i32 %37, 0
@@ -1212,13 +1212,13 @@ define hidden i64 @estimatePositionFromAvail(ptr nocapture noundef readonly %0, 
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = sext i32 %3 to i64
-  %10 = add i64 %9, %2
+  %10 = add i64 %2, %9
   %11 = sub i64 %10, %8
   br label %15
 
 12:                                               ; preds = %4
   %13 = sext i32 %3 to i64
-  %14 = add nsw i64 %13, %2
+  %14 = add nsw i64 %2, %13
   br label %15
 
 15:                                               ; preds = %12, %5
@@ -1260,13 +1260,13 @@ define hidden i64 @DAUDIO_GetBytePosition(ptr nocapture noundef readonly %0, i32
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
   %26 = sext i32 %21 to i64
-  %27 = add i64 %26, %2
+  %27 = add i64 %2, %26
   %28 = sub i64 %27, %25
   br label %estimatePositionFromAvail.exit
 
 29:                                               ; preds = %15
   %30 = sext i32 %21 to i64
-  %31 = add nsw i64 %30, %2
+  %31 = add nsw i64 %2, %30
   br label %estimatePositionFromAvail.exit
 
 estimatePositionFromAvail.exit:                   ; preds = %29, %22, %10, %3

@@ -3186,7 +3186,7 @@ Cba_ObjNtkId.exit.i:                              ; preds = %179
 Cba_ManNtkIsOk.exit.i.i.i:                        ; preds = %Cba_ObjNtkId.exit.i
   %184 = getelementptr i8, ptr %.val.i1007, i64 1564
   %.val.i.i.i.i = load i32, ptr %184, align 4
-  %.not.i.i.i = icmp sgt i32 %.val.i.i.i.i, %182
+  %.not.i.i.i = icmp slt i32 %182, %.val.i.i.i.i
   br i1 %.not.i.i.i, label %185, label %Cba_ObjNtk.exit
 
 185:                                              ; preds = %Cba_ManNtkIsOk.exit.i.i.i
@@ -3352,13 +3352,13 @@ Vec_StrPush.exit1014:                             ; preds = %.Vec_StrGrow.exit10
   %262 = load i32, ptr %261, align 4
   %263 = add nsw i32 %262, 1
   %264 = load i32, ptr %254, align 4
-  %.not.i.not.i = icmp sgt i32 %264, %262
+  %.not.i.not.i = icmp slt i32 %262, %264
   br i1 %.not.i.not.i, label %Vec_IntGetEntry.exit, label %265
 
 265:                                              ; preds = %257
   %266 = load i32, ptr %253, align 8
   %267 = shl nsw i32 %266, 1
-  %.not.i1156 = icmp sgt i32 %267, %262
+  %.not.i1156 = icmp slt i32 %262, %267
   %.not.i.i.not.i = icmp sgt i32 %266, %262
   br i1 %.not.i1156, label %277, label %268
 
@@ -3605,13 +3605,13 @@ Vec_StrPush.exit1026:                             ; preds = %.Vec_StrGrow.exit10
   %370 = load i32, ptr %369, align 4
   %371 = add nsw i32 %370, 1
   %372 = load i32, ptr %361, align 4
-  %.not.i.not.i1160 = icmp sgt i32 %372, %370
+  %.not.i.not.i1160 = icmp slt i32 %370, %372
   br i1 %.not.i.not.i1160, label %Vec_IntGetEntry.exit1177, label %373
 
 373:                                              ; preds = %363
   %374 = load i32, ptr %360, align 8
   %375 = shl nsw i32 %374, 1
-  %.not.i1161 = icmp sgt i32 %375, %370
+  %.not.i1161 = icmp slt i32 %370, %375
   %.not.i.i.not.i1162 = icmp sgt i32 %374, %370
   br i1 %.not.i1161, label %385, label %376
 
@@ -5802,13 +5802,13 @@ Vec_BitFree.exit:                                 ; preds = %.critedge27, %1332
 define internal fastcc void @Vec_StrFillExtra(ptr nocapture noundef %0, i32 noundef %1, i8 noundef signext %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not = icmp slt i32 %5, %1
+  %.not = icmp sgt i32 %1, %5
   br i1 %.not, label %6, label %39
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
   %8 = shl nsw i32 %7, 1
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   %.not.i = icmp slt i32 %7, %1
   br i1 %9, label %10, label %21
 
@@ -6370,13 +6370,13 @@ define internal fastcc i32 @Vec_IntGetEntry(ptr nocapture noundef %0, i32 nounde
   %3 = add nsw i32 %1, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not.i.not = icmp sgt i32 %5, %1
+  %.not.i.not = icmp slt i32 %1, %5
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %0, align 8
   %8 = shl nsw i32 %7, 1
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   %.not.i.i.not = icmp sgt i32 %7, %1
   br i1 %.not, label %21, label %9
 

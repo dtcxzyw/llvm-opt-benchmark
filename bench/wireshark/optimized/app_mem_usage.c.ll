@@ -37,7 +37,7 @@ define void @memory_usage_component_register(ptr noundef %0) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define ptr @memory_usage_get(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @memory_register_num, align 4
-  %.not = icmp ugt i32 %3, %0
+  %.not = icmp ult i32 %0, %3
   br i1 %.not, label %4, label %14
 
 4:                                                ; preds = %2

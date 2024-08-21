@@ -784,7 +784,7 @@ lxb_html_tree_current_node.exit:                  ; preds = %11, %6, %3
   %.val39 = load ptr, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %.val39, i64 16
   %50 = load i64, ptr %49, align 8
-  %.not.i.i = icmp ugt i64 %50, %47
+  %.not.i.i = icmp ult i64 %47, %50
   br i1 %.not.i.i, label %51, label %lxb_html_tree_open_elements_first.exit.thread44
 
 51:                                               ; preds = %45

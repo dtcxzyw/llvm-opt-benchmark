@@ -419,7 +419,7 @@ define dso_local ptr @uart_get_console(ptr noundef readonly %0, i32 noundef %1, 
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32
   %7 = icmp sgt i16 %5, -1
-  %8 = icmp slt i32 %6, %1
+  %8 = icmp sgt i32 %1, %6
   %9 = and i1 %7, %8
   br i1 %9, label %10, label %20
 
@@ -2832,7 +2832,7 @@ define dso_local void @uart_insert_char(ptr nocapture noundef %0, i32 noundef %1
 50:                                               ; preds = %46, %43, %39, %5
   %51 = load i32, ptr %12, align 8
   %52 = xor i32 %51, -1
-  %53 = and i32 %52, %1
+  %53 = and i32 %1, %52
   %54 = and i32 %53, %2
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %82, label %56
@@ -3428,7 +3428,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @uart_write(ptr nocapture
   %45 = sub i32 4096, %39
   %46 = select i1 %44, i32 %45, i32 %43
   %47 = sext i32 %46 to i64
-  %48 = icmp ugt i64 %47, %2
+  %48 = icmp ult i64 %2, %47
   %49 = trunc i64 %2 to i32
   %50 = select i1 %48, i32 %49, i32 %46
   %51 = icmp slt i32 %50, 1

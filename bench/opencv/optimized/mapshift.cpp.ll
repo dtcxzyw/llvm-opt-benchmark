@@ -442,11 +442,11 @@ define void @_ZN2cv3reg8MapShift5scaleEd(ptr nocapture noundef nonnull align 8 d
 _ZN2cvmLIdLi2EEERNS_3VecIT_XT0_EEES4_d.exit.critedge:
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load double, ptr %2, align 8
-  %4 = fmul double %3, %1
+  %4 = fmul double %1, %3
   store double %4, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load double, ptr %5, align 8
-  %7 = fmul double %6, %1
+  %7 = fmul double %1, %6
   store double %7, ptr %5, align 8
   ret void
 }

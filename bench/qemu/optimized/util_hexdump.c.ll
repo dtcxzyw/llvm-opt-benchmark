@@ -36,7 +36,7 @@ if.end4:                                          ; preds = %if.then3, %for.body
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end4
-  %add = add i32 %1, %b
+  %add = add i32 %b, %1
   %idxprom = zext i32 %add to i64
   %arrayidx = getelementptr i8, ptr %bufptr, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
@@ -69,7 +69,7 @@ for.body19:                                       ; preds = %if.then14, %for.bod
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %for.body19 ], [ 0, %if.then14 ]
   %line.addr.430 = phi ptr [ %line.addr.4, %for.body19 ], [ %line.addr.427, %if.then14 ]
   %3 = trunc nuw nsw i64 %indvars.iv32 to i32
-  %add20 = add i32 %3, %b
+  %add20 = add i32 %b, %3
   %idxprom21 = zext i32 %add20 to i64
   %arrayidx22 = getelementptr i8, ptr %bufptr, i64 %idxprom21
   %4 = load i8, ptr %arrayidx22, align 1
@@ -183,7 +183,7 @@ qemu_hexdump_line.exit:                           ; preds = %for.body19.i, %for.
   %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fp, ptr noundef nonnull @.str.3, ptr noundef %prefix, ptr noundef nonnull %line)
   %add = add i32 %b.06, 16
   %conv = zext i32 %add to i64
-  %cmp = icmp ult i64 %conv, %size
+  %cmp = icmp ugt i64 %size, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %qemu_hexdump_line.exit, %entry

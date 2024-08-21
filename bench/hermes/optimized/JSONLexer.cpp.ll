@@ -721,7 +721,7 @@ if.then38:                                        ; preds = %if.then36
   %19 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i5.i.i = zext i32 %19 to i64
   %sub.i.i = sub nsw i64 %conv.i.i.i, %conv.i5.i.i
-  %cmp.i.i8 = icmp ult i64 %sub.i.i, %17
+  %cmp.i.i8 = icmp ugt i64 %17, %sub.i.i
   br i1 %cmp.i.i8, label %if.end.i.thread.i, label %if.end.i.i
 
 if.end.i.thread.i:                                ; preds = %if.then38
@@ -1288,7 +1288,7 @@ if.then41:                                        ; preds = %if.then39
   %29 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i5.i.i = zext i32 %29 to i64
   %sub.i.i = sub nsw i64 %conv.i.i.i, %conv.i5.i.i
-  %cmp.i.i = icmp ult i64 %sub.i.i, %27
+  %cmp.i.i = icmp ugt i64 %27, %sub.i.i
   br i1 %cmp.i.i, label %if.end.i.thread.i, label %if.end.i.i
 
 if.end.i.thread.i:                                ; preds = %if.then41

@@ -3935,7 +3935,7 @@ for.body.lr.ph:                                   ; preds = %_ZN7obj_refI4expr11
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %j.021 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
   %__begin3.020 = phi ptr [ %m_args.i.ptr, %for.body.lr.ph ], [ %incdec.ptr, %if.end ]
-  %cmp5.not = icmp eq i32 %j.021, %i
+  %cmp5.not = icmp eq i32 %i, %j.021
   br i1 %cmp5.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body

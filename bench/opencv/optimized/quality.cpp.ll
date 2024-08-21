@@ -448,7 +448,7 @@ define hidden noundef i32 @_ZN2cv4usac7Quality10getInliersERKNS_3PtrINS0_5ErrorE
   %22 = getelementptr inbounds float, ptr %21, i64 %indvars.iv
   %23 = load float, ptr %22, align 4
   %24 = fpext float %23 to double
-  %25 = fcmp olt double %24, %3
+  %25 = fcmp ogt double %3, %24
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %.lr.ph
@@ -540,7 +540,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %_ZSt4fillISt13_Bit_
   %36 = getelementptr inbounds float, ptr %35, i64 %indvars.iv
   %37 = load float, ptr %36, align 4
   %38 = fpext float %37 to double
-  %39 = fcmp olt double %38, %3
+  %39 = fcmp ogt double %3, %38
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %.lr.ph
@@ -625,7 +625,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %_ZSt4fillISt13_Bit_
   %.sroa.017.024 = phi ptr [ %35, %33 ], [ %17, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit ]
   %20 = load float, ptr %.sroa.017.024, align 4
   %21 = fpext float %20 to double
-  %22 = fcmp olt double %21, %2
+  %22 = fcmp ogt double %2, %21
   br i1 %22, label %23, label %33
 
 23:                                               ; preds = %.lr.ph
@@ -668,7 +668,7 @@ define hidden noundef i32 @_ZN2cv4usac7Quality10getInliersERKSt6vectorIfSaIfEERS
   %.sroa.010.014 = phi ptr [ %17, %15 ], [ %4, %3 ]
   %7 = load float, ptr %.sroa.010.014, align 4
   %8 = fpext float %7 to double
-  %9 = fcmp olt double %8, %2
+  %9 = fcmp ogt double %2, %8
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %.lr.ph
@@ -1429,7 +1429,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac17RansacQualityImpl10getInli
   %23 = getelementptr inbounds float, ptr %22, i64 %indvars.iv.i
   %24 = load float, ptr %23, align 4
   %25 = fpext float %24 to double
-  %26 = fcmp olt double %25, %3
+  %26 = fcmp ogt double %3, %25
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %.lr.ph.i
@@ -2163,7 +2163,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac15MsacQualityImpl10getInlier
   %23 = getelementptr inbounds float, ptr %22, i64 %indvars.iv.i
   %24 = load float, ptr %23, align 4
   %25 = fpext float %24 to double
-  %26 = fcmp olt double %25, %3
+  %26 = fcmp ogt double %3, %25
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %.lr.ph.i
@@ -3127,7 +3127,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac17MagsacQualityImpl10getInli
   %23 = getelementptr inbounds float, ptr %22, i64 %indvars.iv.i
   %24 = load float, ptr %23, align 4
   %25 = fpext float %24 to double
-  %26 = fcmp olt double %25, %3
+  %26 = fcmp ogt double %3, %25
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %.lr.ph.i
@@ -3857,7 +3857,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac16LMedsQualityImpl10getInlie
   %23 = getelementptr inbounds float, ptr %22, i64 %indvars.iv.i
   %24 = load float, ptr %23, align 4
   %25 = fpext float %24 to double
-  %26 = fcmp olt double %25, %3
+  %26 = fcmp ogt double %3, %25
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %.lr.ph.i

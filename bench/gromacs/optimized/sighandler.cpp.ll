@@ -728,7 +728,7 @@ define noundef i32 @_Z22gmx_get_stop_conditionv() local_unnamed_addr #16 {
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
 define void @_Z22gmx_set_stop_condition13StopCondition(i32 noundef %0) local_unnamed_addr #2 {
   %2 = load volatile i32, ptr @_ZL14stop_condition, align 4
-  %3 = icmp slt i32 %2, %0
+  %3 = icmp sgt i32 %0, %2
   br i1 %3, label %4, label %12
 
 4:                                                ; preds = %1

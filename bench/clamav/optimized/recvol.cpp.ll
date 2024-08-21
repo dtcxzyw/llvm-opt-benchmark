@@ -4206,7 +4206,7 @@ declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #7
 define linkonce_odr void @_ZN5ArrayI10RecVolItemE5AllocEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %6, align 8
   br i1 %5, label %7, label %23
@@ -4215,7 +4215,7 @@ define linkonce_odr void @_ZN5ArrayI10RecVolItemE5AllocEm(ptr noundef nonnull al
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp ne i64 %9, 0
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   %or.cond.i = and i1 %.not.i, %10
   br i1 %or.cond.i, label %11, label %12
 

@@ -432,11 +432,11 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %mon_fdset.166 = phi ptr [ %mon_fdset.1, %for.inc ], [ %mon_fdset.164, %entry ]
   %2 = load i64, ptr %mon_fdset.166, align 8
-  %cmp.not = icmp slt i64 %2, %fdset_id
+  %cmp.not = icmp sgt i64 %fdset_id, %2
   br i1 %cmp.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %cmp5 = icmp sgt i64 %2, %fdset_id
+  %cmp5 = icmp slt i64 %fdset_id, %2
   br i1 %cmp5, label %if.then10, label %if.end104
 
 for.inc:                                          ; preds = %for.body
@@ -467,7 +467,7 @@ if.then14:                                        ; preds = %if.then12
 for.body18:                                       ; preds = %for.cond16.preheader, %for.inc23
   %mon_fdset.374 = phi ptr [ %4, %for.inc23 ], [ %mon_fdset.164, %for.cond16.preheader ]
   %3 = load i64, ptr %mon_fdset.374, align 8
-  %cmp20 = icmp sgt i64 %3, %fdset_id
+  %cmp20 = icmp slt i64 %fdset_id, %3
   br i1 %cmp20, label %if.else59, label %for.inc23
 
 for.inc23:                                        ; preds = %for.body18
@@ -625,7 +625,7 @@ for.body4.us:                                     ; preds = %for.body4.lr.ph, %f
   %mon_fdset_fd.023.us = phi ptr [ %mon_fdset_fd.0.us, %for.inc.us ], [ %mon_fdset_fd.021, %for.body4.lr.ph ]
   %3 = load i32, ptr %mon_fdset_fd.023.us, align 8
   %conv.us = sext i32 %3 to i64
-  %cmp8.not.us = icmp eq i64 %conv.us, %fd
+  %cmp8.not.us = icmp eq i64 %fd, %conv.us
   br i1 %cmp8.not.us, label %for.end.thread, label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body4.us

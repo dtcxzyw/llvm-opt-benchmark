@@ -10508,7 +10508,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %b_length = getelementptr inbounds i8, ptr %myself, i64 48
   %0 = load i64, ptr %b_length, align 16
-  %cmp1.not = icmp sgt i64 %0, %index
+  %cmp1.not = icmp slt i64 %index, %0
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -10599,7 +10599,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %length = getelementptr inbounds i8, ptr %call, i64 64
   %1 = load i64, ptr %length, align 8
-  %cmp2.not = icmp sgt i64 %1, %index
+  %cmp2.not = icmp slt i64 %index, %1
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end

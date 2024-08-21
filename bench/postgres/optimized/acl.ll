@@ -2459,7 +2459,7 @@ has_privs_of_role.exit.thread:                    ; preds = %16, %14, %has_privs
 
 .lr.ph92:                                         ; preds = %._crit_edge
   %62 = xor i64 %.1.lcssa, -1
-  %63 = and i64 %62, %3
+  %63 = and i64 %3, %62
   %64 = icmp eq i32 %4, 0
   %wide.trip.count120 = zext nneg i32 %24 to i64
   br i1 %64, label %.lr.ph92.split.us, label %.lr.ph92.split
@@ -2500,7 +2500,7 @@ has_privs_of_role.exit80.thread.us:               ; preds = %has_privs_of_role.e
 
 81:                                               ; preds = %has_privs_of_role.exit80.thread.us
   %82 = xor i64 %79, -1
-  %83 = and i64 %82, %3
+  %83 = and i64 %3, %82
   br label %84
 
 84:                                               ; preds = %81, %has_privs_of_role.exit80.us, %69, %.lr.ph92.split.us
@@ -6792,7 +6792,7 @@ define dso_local i32 @get_role_oid(ptr noundef %0, i1 noundef zeroext %1) local_
   %3 = ptrtoint ptr %0 to i64
   %4 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #15
   %.not = icmp ne i32 %4, 0
-  %brmerge = or i1 %.not, %1
+  %brmerge = or i1 %1, %.not
   br i1 %brmerge, label %9, label %5
 
 5:                                                ; preds = %2
@@ -7061,7 +7061,7 @@ define internal void @RoleMembershipCacheCallback(i64 %0, i32 noundef %1, i32 no
 
 5:                                                ; preds = %3
   %6 = load i32, ptr @cached_db_hash, align 4
-  %7 = icmp ne i32 %6, %2
+  %7 = icmp ne i32 %2, %6
   %8 = icmp ne i32 %2, 0
   %or.cond = and i1 %8, %7
   br i1 %or.cond, label %10, label %9
@@ -7858,7 +7858,7 @@ define dso_local i32 @get_rolespec_oid(ptr nocapture noundef readonly %0, i1 nou
   %8 = ptrtoint ptr %7 to i64
   %9 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %8, i64 noundef 0, i64 noundef 0, i64 noundef 0) #15
   %.not.i = icmp ne i32 %9, 0
-  %brmerge.i = or i1 %.not.i, %1
+  %brmerge.i = or i1 %1, %.not.i
   br i1 %brmerge.i, label %get_role_oid.exit, label %10
 
 10:                                               ; preds = %5

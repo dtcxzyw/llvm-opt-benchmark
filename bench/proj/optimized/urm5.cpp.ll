@@ -171,7 +171,7 @@ define internal { double, double } @_ZL14urm5_s_forward5PJ_LPP8PJconsts(double %
   %10 = fmul double %8, %9
   %11 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %6, double noundef %10)
   %12 = load double, ptr %5, align 8
-  %13 = fmul double %12, %0
+  %13 = fmul double %0, %12
   %14 = tail call double @cos(double noundef %11) #6
   %15 = fmul double %13, %14
   %16 = fmul double %11, %11

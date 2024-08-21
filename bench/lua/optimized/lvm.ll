@@ -88,7 +88,7 @@ return:                                           ; preds = %return.sink.split, 
 define hidden range(i32 0, 2) i32 @luaV_flttointeger(double noundef %n, ptr nocapture noundef writeonly %p, i32 noundef %mode) local_unnamed_addr #1 {
 entry:
   %0 = tail call double @llvm.floor.f64(double %n)
-  %cmp = fcmp une double %0, %n
+  %cmp = fcmp une double %n, %0
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
@@ -138,7 +138,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load double, ptr %obj, align 8
   %2 = tail call double @llvm.floor.f64(double %1)
-  %cmp.i = fcmp une double %2, %1
+  %cmp.i = fcmp une double %1, %2
   br i1 %cmp.i, label %if.then.i, label %if.end6.i
 
 if.then.i:                                        ; preds = %if.then
@@ -227,7 +227,7 @@ l_strton.exit:                                    ; preds = %cond.true.i, %cond.
 if.then.i:                                        ; preds = %5
   %8 = load double, ptr %7, align 8
   %9 = call double @llvm.floor.f64(double %8)
-  %cmp.i.i = fcmp une double %9, %8
+  %cmp.i.i = fcmp une double %8, %9
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end6.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -588,7 +588,7 @@ if.then.i.i:                                      ; preds = %if.else.i
 
 if.else.i.i:                                      ; preds = %if.else.i
   %7 = tail call double @llvm.floor.f64(double %6)
-  %cmp.i.i.i = fcmp une double %7, %6
+  %cmp.i.i.i = fcmp une double %6, %7
   %add.i.i.i = fadd double %7, 1.000000e+00
   %f.0.i.i.i = select i1 %cmp.i.i.i, double %add.i.i.i, double %7
   %cmp7.i.i.i = fcmp oge double %f.0.i.i.i, 0xC3E0000000000000
@@ -832,7 +832,7 @@ if.then.i23.i:                                    ; preds = %if.else21.i
 
 if.else.i12.i:                                    ; preds = %if.else21.i
   %11 = tail call double @llvm.floor.f64(double %8)
-  %cmp.i.i.i = fcmp une double %11, %8
+  %cmp.i.i.i = fcmp une double %8, %11
   %add.i.i.i = fadd double %11, 1.000000e+00
   %f.0.i.i.i = select i1 %cmp.i.i.i, double %add.i.i.i, double %11
   %cmp7.i.i13.i = fcmp oge double %f.0.i.i.i, 0xC3E0000000000000
@@ -996,7 +996,7 @@ if.else:                                          ; preds = %if.then
 if.then.i:                                        ; preds = %if.else
   %3 = load double, ptr %t1, align 8
   %4 = tail call double @llvm.floor.f64(double %3)
-  %cmp.i.i = fcmp une double %4, %3
+  %cmp.i.i = fcmp une double %3, %4
   br i1 %cmp.i.i, label %return, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then.i
@@ -1023,7 +1023,7 @@ land.lhs.true:                                    ; preds = %luaV_tointegerns.ex
 if.then.i59:                                      ; preds = %land.lhs.true
   %6 = load double, ptr %t2, align 8
   %7 = tail call double @llvm.floor.f64(double %6)
-  %cmp.i.i60 = fcmp une double %7, %6
+  %cmp.i.i60 = fcmp une double %6, %7
   br i1 %cmp.i.i60, label %return, label %if.end6.i.i61
 
 if.end6.i.i61:                                    ; preds = %if.then.i59
@@ -1698,7 +1698,7 @@ cond.false:                                       ; preds = %entry
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.false, %cond.true
-  %add = fadd double %call, %n
+  %add = fadd double %n, %call
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cond.false, %cond.true
@@ -4388,7 +4388,7 @@ cond.true1851:                                    ; preds = %L_OP_BANDK
 if.then.i1977:                                    ; preds = %L_OP_BANDK
   %336 = load double, ptr %add.ptr1834, align 8
   %337 = call double @llvm.floor.f64(double %336)
-  %cmp.i.i = fcmp une double %337, %336
+  %cmp.i.i = fcmp une double %336, %337
   br i1 %cmp.i.i, label %if.end1862, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then.i1977
@@ -4454,7 +4454,7 @@ cond.true1903:                                    ; preds = %L_OP_BORK
 if.then.i1981:                                    ; preds = %L_OP_BORK
   %342 = load double, ptr %add.ptr1886, align 8
   %343 = call double @llvm.floor.f64(double %342)
-  %cmp.i.i1982 = fcmp une double %343, %342
+  %cmp.i.i1982 = fcmp une double %342, %343
   br i1 %cmp.i.i1982, label %if.end1913, label %if.end6.i.i1983
 
 if.end6.i.i1983:                                  ; preds = %if.then.i1981
@@ -4520,7 +4520,7 @@ cond.true1954:                                    ; preds = %L_OP_BXORK
 if.then.i1996:                                    ; preds = %L_OP_BXORK
   %348 = load double, ptr %add.ptr1937, align 8
   %349 = call double @llvm.floor.f64(double %348)
-  %cmp.i.i1997 = fcmp une double %349, %348
+  %cmp.i.i1997 = fcmp une double %348, %349
   br i1 %cmp.i.i1997, label %if.end1964, label %if.end6.i.i1998
 
 if.end6.i.i1998:                                  ; preds = %if.then.i1996
@@ -4583,7 +4583,7 @@ cond.true2000:                                    ; preds = %L_OP_SHRI
 if.then.i2011:                                    ; preds = %L_OP_SHRI
   %353 = load double, ptr %add.ptr1988, align 8
   %354 = call double @llvm.floor.f64(double %353)
-  %cmp.i.i2012 = fcmp une double %354, %353
+  %cmp.i.i2012 = fcmp une double %353, %354
   br i1 %cmp.i.i2012, label %if.end2013, label %if.end6.i.i2013
 
 if.end6.i.i2013:                                  ; preds = %if.then.i2011
@@ -4668,7 +4668,7 @@ cond.true2051:                                    ; preds = %L_OP_SHLI
 if.then.i2034:                                    ; preds = %L_OP_SHLI
   %358 = load double, ptr %add.ptr2037, align 8
   %359 = call double @llvm.floor.f64(double %358)
-  %cmp.i.i2035 = fcmp une double %359, %358
+  %cmp.i.i2035 = fcmp une double %358, %359
   br i1 %cmp.i.i2035, label %if.end2063, label %if.end6.i.i2036
 
 if.end6.i.i2036:                                  ; preds = %if.then.i2034
@@ -5437,7 +5437,7 @@ cond.true2706:                                    ; preds = %L_OP_BAND
 if.then.i2107:                                    ; preds = %L_OP_BAND
   %431 = load double, ptr %add.ptr2690, align 8
   %432 = call double @llvm.floor.f64(double %431)
-  %cmp.i.i2108 = fcmp une double %432, %431
+  %cmp.i.i2108 = fcmp une double %431, %432
   br i1 %cmp.i.i2108, label %if.end2731, label %if.end6.i.i2109
 
 if.end6.i.i2109:                                  ; preds = %if.then.i2107
@@ -5466,7 +5466,7 @@ cond.true2720:                                    ; preds = %land.lhs.true2711
 if.then.i2122:                                    ; preds = %land.lhs.true2711
   %435 = load double, ptr %add.ptr2695, align 8
   %436 = call double @llvm.floor.f64(double %435)
-  %cmp.i.i2123 = fcmp une double %436, %435
+  %cmp.i.i2123 = fcmp une double %435, %436
   br i1 %cmp.i.i2123, label %if.end2731, label %if.end6.i.i2124
 
 if.end6.i.i2124:                                  ; preds = %if.then.i2122
@@ -5531,7 +5531,7 @@ cond.true2771:                                    ; preds = %L_OP_BOR
 if.then.i2137:                                    ; preds = %L_OP_BOR
   %440 = load double, ptr %add.ptr2755, align 8
   %441 = call double @llvm.floor.f64(double %440)
-  %cmp.i.i2138 = fcmp une double %441, %440
+  %cmp.i.i2138 = fcmp une double %440, %441
   br i1 %cmp.i.i2138, label %if.end2796, label %if.end6.i.i2139
 
 if.end6.i.i2139:                                  ; preds = %if.then.i2137
@@ -5560,7 +5560,7 @@ cond.true2785:                                    ; preds = %land.lhs.true2776
 if.then.i2152:                                    ; preds = %land.lhs.true2776
   %444 = load double, ptr %add.ptr2760, align 8
   %445 = call double @llvm.floor.f64(double %444)
-  %cmp.i.i2153 = fcmp une double %445, %444
+  %cmp.i.i2153 = fcmp une double %444, %445
   br i1 %cmp.i.i2153, label %if.end2796, label %if.end6.i.i2154
 
 if.end6.i.i2154:                                  ; preds = %if.then.i2152
@@ -5625,7 +5625,7 @@ cond.true2836:                                    ; preds = %L_OP_BXOR
 if.then.i2167:                                    ; preds = %L_OP_BXOR
   %449 = load double, ptr %add.ptr2820, align 8
   %450 = call double @llvm.floor.f64(double %449)
-  %cmp.i.i2168 = fcmp une double %450, %449
+  %cmp.i.i2168 = fcmp une double %449, %450
   br i1 %cmp.i.i2168, label %if.end2861, label %if.end6.i.i2169
 
 if.end6.i.i2169:                                  ; preds = %if.then.i2167
@@ -5654,7 +5654,7 @@ cond.true2850:                                    ; preds = %land.lhs.true2841
 if.then.i2182:                                    ; preds = %land.lhs.true2841
   %453 = load double, ptr %add.ptr2825, align 8
   %454 = call double @llvm.floor.f64(double %453)
-  %cmp.i.i2183 = fcmp une double %454, %453
+  %cmp.i.i2183 = fcmp une double %453, %454
   br i1 %cmp.i.i2183, label %if.end2861, label %if.end6.i.i2184
 
 if.end6.i.i2184:                                  ; preds = %if.then.i2182
@@ -5719,7 +5719,7 @@ cond.true2901:                                    ; preds = %L_OP_SHR
 if.then.i2197:                                    ; preds = %L_OP_SHR
   %458 = load double, ptr %add.ptr2885, align 8
   %459 = call double @llvm.floor.f64(double %458)
-  %cmp.i.i2198 = fcmp une double %459, %458
+  %cmp.i.i2198 = fcmp une double %458, %459
   br i1 %cmp.i.i2198, label %if.end2927, label %if.end6.i.i2199
 
 if.end6.i.i2199:                                  ; preds = %if.then.i2197
@@ -5748,7 +5748,7 @@ cond.true2915:                                    ; preds = %land.lhs.true2906
 if.then.i2212:                                    ; preds = %land.lhs.true2906
   %462 = load double, ptr %add.ptr2890, align 8
   %463 = call double @llvm.floor.f64(double %462)
-  %cmp.i.i2213 = fcmp une double %463, %462
+  %cmp.i.i2213 = fcmp une double %462, %463
   br i1 %cmp.i.i2213, label %if.end2927, label %if.end6.i.i2214
 
 if.end6.i.i2214:                                  ; preds = %if.then.i2212
@@ -5830,7 +5830,7 @@ cond.true2967:                                    ; preds = %L_OP_SHL
 if.then.i2239:                                    ; preds = %L_OP_SHL
   %467 = load double, ptr %add.ptr2951, align 8
   %468 = call double @llvm.floor.f64(double %467)
-  %cmp.i.i2240 = fcmp une double %468, %467
+  %cmp.i.i2240 = fcmp une double %467, %468
   br i1 %cmp.i.i2240, label %if.end2993, label %if.end6.i.i2241
 
 if.end6.i.i2241:                                  ; preds = %if.then.i2239
@@ -5859,7 +5859,7 @@ cond.true2981:                                    ; preds = %land.lhs.true2972
 if.then.i2254:                                    ; preds = %land.lhs.true2972
   %471 = load double, ptr %add.ptr2956, align 8
   %472 = call double @llvm.floor.f64(double %471)
-  %cmp.i.i2255 = fcmp une double %472, %471
+  %cmp.i.i2255 = fcmp une double %471, %472
   br i1 %cmp.i.i2255, label %if.end2993, label %if.end6.i.i2256
 
 if.end6.i.i2256:                                  ; preds = %if.then.i2254
@@ -6109,7 +6109,7 @@ cond.true3214:                                    ; preds = %L_OP_BNOT
 if.then.i2281:                                    ; preds = %L_OP_BNOT
   %494 = load double, ptr %add.ptr3204, align 8
   %495 = call double @llvm.floor.f64(double %494)
-  %cmp.i.i2282 = fcmp une double %495, %494
+  %cmp.i.i2282 = fcmp une double %494, %495
   br i1 %cmp.i.i2282, label %if.else3224, label %if.end6.i.i2283
 
 if.end6.i.i2283:                                  ; preds = %if.then.i2281
@@ -6509,7 +6509,7 @@ if.then.i.i2310:                                  ; preds = %if.else.i2307
 
 if.else.i.i:                                      ; preds = %if.else.i2307
   %547 = call double @llvm.floor.f64(double %546)
-  %cmp.i.i.i = fcmp une double %547, %546
+  %cmp.i.i.i = fcmp une double %546, %547
   %add.i.i.i = fadd double %547, 1.000000e+00
   %f.0.i.i.i = select i1 %cmp.i.i.i, double %add.i.i.i, double %547
   %cmp7.i.i.i = fcmp oge double %f.0.i.i.i, 0xC3E0000000000000
@@ -6798,7 +6798,7 @@ if.then.i23.i2344:                                ; preds = %if.else21.i2327
 
 if.else.i12.i2330:                                ; preds = %if.else21.i2327
   %581 = call double @llvm.floor.f64(double %578)
-  %cmp.i.i.i2331 = fcmp une double %581, %578
+  %cmp.i.i.i2331 = fcmp une double %578, %581
   %add.i.i.i2332 = fadd double %581, 1.000000e+00
   %f.0.i.i.i2333 = select i1 %cmp.i.i.i2331, double %add.i.i.i2332, double %581
   %cmp7.i.i13.i2334 = fcmp oge double %f.0.i.i.i2333, 0xC3E0000000000000
@@ -7958,7 +7958,7 @@ l_strton.exit.i.i.i:                              ; preds = %cond.false.i.i.i.i,
 if.then.i.i.i.i:                                  ; preds = %705
   %708 = load double, ptr %707, align 8
   %709 = call double @llvm.floor.f64(double %708)
-  %cmp.i.i.i.i.i = fcmp une double %709, %708
+  %cmp.i.i.i.i.i = fcmp une double %708, %709
   %or.cond.i.i2449 = and i1 %cmp.i.i2444, %cmp.i.i.i.i.i
   %add.i.i.i.i.i = fadd double %709, 1.000000e+00
   %f.0.i.i.i.i.i = select i1 %or.cond.i.i2449, double %add.i.i.i.i.i, double %709
@@ -8062,11 +8062,11 @@ if.end18.i.i:                                     ; preds = %luaV_tointeger.exit
   br i1 %cmp19.i.i, label %cond.true21.i.i, label %forlimit.exit.i
 
 cond.true21.i.i:                                  ; preds = %if.end18.i.i
-  %cmp22.i.i = icmp slt i64 %limit.0.i, %698
+  %cmp22.i.i = icmp sgt i64 %698, %limit.0.i
   br i1 %cmp22.i.i, label %forprep.exit.thread, label %if.then17.i2446
 
 forlimit.exit.i:                                  ; preds = %if.end18.i.i
-  %cmp25.i.i = icmp sgt i64 %limit.0.i, %698
+  %cmp25.i.i = icmp slt i64 %698, %limit.0.i
   br i1 %cmp25.i.i, label %forprep.exit.thread, label %if.else22.i
 
 if.then17.i2446:                                  ; preds = %cond.true21.i.i, %if.then8.i.i

@@ -257,7 +257,7 @@ if.end:                                           ; preds = %lor.lhs.false2
   %conv9 = trunc i64 %call8 to i32
   %modified = getelementptr inbounds i8, ptr %name, i64 8
   store i32 1, ptr %modified, align 8
-  %cmp10 = icmp eq i32 %conv9, %loc
+  %cmp10 = icmp eq i32 %loc, %conv9
   br i1 %cmp10, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end
@@ -284,7 +284,7 @@ if.end21:                                         ; preds = %if.else, %if.then16
   %set24 = getelementptr inbounds i8, ptr %call23, i64 16
   %5 = load i32, ptr %set24, align 8
   %cmp25 = icmp slt i32 %set_prev.0, %5
-  %cmp2820 = icmp sgt i32 %conv9, %loc
+  %cmp2820 = icmp slt i32 %loc, %conv9
   %or.cond22 = and i1 %cmp25, %cmp2820
   br i1 %or.cond22, label %for.body, label %return
 
@@ -427,7 +427,7 @@ if.end:                                           ; preds = %entry
   %call = tail call i64 @sk_num(ptr noundef %0) #7
   %conv = trunc i64 %call to i32
   %cmp4 = icmp slt i32 %loc, 0
-  %1 = tail call i32 @llvm.smin.i32(i32 %conv, i32 %loc)
+  %1 = tail call i32 @llvm.smin.i32(i32 %loc, i32 %conv)
   %loc.addr.0 = select i1 %cmp4, i32 %conv, i32 %1
   %modified = getelementptr inbounds i8, ptr %name, i64 8
   store i32 1, ptr %modified, align 8

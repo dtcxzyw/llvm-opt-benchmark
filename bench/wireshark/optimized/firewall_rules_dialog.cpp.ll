@@ -2872,7 +2872,7 @@ define void @_ZN19FirewallRulesDialog20on_buttonBox_clickedEP15QAbstractButton(p
   %28 = getelementptr inbounds i8, ptr %27, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %29, i32 noundef 2048)
-  %31 = icmp eq ptr %30, %1
+  %31 = icmp eq ptr %1, %30
   br i1 %31, label %32, label %265
 
 32:                                               ; preds = %2
@@ -3617,7 +3617,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i153:   ; preds = %_ZN10QByteArrayD2Ev
   %267 = getelementptr inbounds i8, ptr %266, i64 72
   %268 = load ptr, ptr %267, align 8
   %269 = tail call noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %268, i32 noundef 33554432)
-  %270 = icmp eq ptr %269, %1
+  %270 = icmp eq ptr %1, %269
   br i1 %270, label %271, label %_ZN7QStringD2Ev.exit147
 
 271:                                              ; preds = %265

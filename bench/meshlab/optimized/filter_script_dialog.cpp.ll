@@ -334,7 +334,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -3044,7 +3044,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %9 = getelementptr inbounds ptr, ptr %5, i64 %8
   %10 = getelementptr inbounds i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
-  %.not5.i.i.i.i = icmp eq i32 %11, %7
+  %.not5.i.i.i.i = icmp eq i32 %7, %11
   br i1 %.not5.i.i.i.i, label %_ZN5QListI29FilterNameParameterValuesPairE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -3067,7 +3067,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %21
 
 21:                                               ; preds = %17, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %14, %9
+  %.not.i.i.i.i = icmp eq ptr %9, %14
   br i1 %.not.i.i.i.i, label %_ZN5QListI29FilterNameParameterValuesPairE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !23
 
 _ZN5QListI29FilterNameParameterValuesPairE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %21, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -3098,7 +3098,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds ptr, ptr getelementptr inbounds (i8, ptr @_ZN9QListData11shared_nullE, i64 16), i64 %28
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN9QListData11shared_nullE, i64 12), align 4
-  %.not5.i.i.i = icmp eq i32 %30, %27
+  %.not5.i.i.i = icmp eq i32 %27, %30
   br i1 %.not5.i.i.i, label %_ZN5QListI29FilterNameParameterValuesPairE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -3121,7 +3121,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %40
 
 40:                                               ; preds = %36, %.lr.ph.i.i.i
-  %.not.i.i.i = icmp eq ptr %33, %29
+  %.not.i.i.i = icmp eq ptr %29, %33
   br i1 %.not.i.i.i, label %_ZN5QListI29FilterNameParameterValuesPairE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 _ZN5QListI29FilterNameParameterValuesPairE13node_destructEPNS1_4NodeES3_.exit.i.i: ; preds = %40, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -3958,7 +3958,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread9:      ; preds = %27, %_ZN9QtPrivate8
   %34 = getelementptr inbounds ptr, ptr %30, i64 %33
   %35 = getelementptr inbounds i8, ptr %9, i64 12
   %36 = load i32, ptr %35, align 4
-  %.not5.i.i = icmp eq i32 %36, %32
+  %.not5.i.i = icmp eq i32 %32, %36
   br i1 %.not5.i.i, label %_ZN5QListI29FilterNameParameterValuesPairE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread9
@@ -3981,7 +3981,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread9:      ; preds = %27, %_ZN9QtPrivate8
   br label %46
 
 46:                                               ; preds = %42, %.lr.ph.i.i
-  %.not.i.i = icmp eq ptr %39, %34
+  %.not.i.i = icmp eq ptr %34, %39
   br i1 %.not.i.i, label %_ZN5QListI29FilterNameParameterValuesPairE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.i, !llvm.loop !23
 
 _ZN5QListI29FilterNameParameterValuesPairE7deallocEPN9QListData4DataE.exit: ; preds = %46, %_ZN9QtPrivate8RefCount5derefEv.exit.thread9
@@ -4248,7 +4248,7 @@ _ZN9QListData7disposeEv.exit:                     ; preds = %21
   br label %65
 
 65:                                               ; preds = %61, %.lr.ph.i
-  %.not.i = icmp eq ptr %58, %54
+  %.not.i = icmp eq ptr %54, %58
   br i1 %.not.i, label %_ZN5QListI29FilterNameParameterValuesPairE13node_destructEPNS1_4NodeES3_.exit.loopexit, label %.lr.ph.i, !llvm.loop !23
 
 _ZN5QListI29FilterNameParameterValuesPairE13node_destructEPNS1_4NodeES3_.exit.loopexit: ; preds = %65
@@ -4291,7 +4291,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread16:     ; preds = %69, %_ZN9QtPrivate8
   %76 = getelementptr inbounds ptr, ptr %72, i64 %75
   %77 = getelementptr inbounds i8, ptr %11, i64 12
   %78 = load i32, ptr %77, align 4
-  %.not5.i.i = icmp eq i32 %78, %74
+  %.not5.i.i = icmp eq i32 %74, %78
   br i1 %.not5.i.i, label %_ZN5QListI29FilterNameParameterValuesPairE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread16
@@ -4314,7 +4314,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread16:     ; preds = %69, %_ZN9QtPrivate8
   br label %88
 
 88:                                               ; preds = %84, %.lr.ph.i.i
-  %.not.i.i = icmp eq ptr %81, %76
+  %.not.i.i = icmp eq ptr %76, %81
   br i1 %.not.i.i, label %_ZN5QListI29FilterNameParameterValuesPairE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.i, !llvm.loop !23
 
 _ZN5QListI29FilterNameParameterValuesPairE7deallocEPN9QListData4DataE.exit: ; preds = %88, %_ZN9QtPrivate8RefCount5derefEv.exit.thread16
@@ -4801,7 +4801,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %42, %_ZN9QtPrivate8
   %61 = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load i32, ptr %61, align 8
   %63 = sub nsw i32 %60, %62
-  %.not.i17 = icmp sgt i32 %63, %10
+  %.not.i17 = icmp slt i32 %10, %63
   br i1 %.not.i17, label %64, label %_ZN5QListI29FilterNameParameterValuesPairE8removeAtEi.exit
 
 64:                                               ; preds = %57

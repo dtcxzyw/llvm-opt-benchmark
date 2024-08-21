@@ -17576,7 +17576,7 @@ entry:
   %positive = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %positive, align 8, !tbaa !218, !range !55, !noundef !143
   %tobool4.not = icmp eq i8 %3, 0
-  %spec.select = xor i1 %tobool4.not, %r
+  %spec.select = xor i1 %r, %tobool4.not
   %4 = zext i1 %r to i8
   %cmp = icmp ne i8 %3, %4
   %m_recursive_result = getelementptr inbounds i8, ptr %this, i64 228

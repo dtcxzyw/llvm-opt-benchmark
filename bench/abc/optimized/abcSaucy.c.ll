@@ -742,7 +742,7 @@ add_induce.exit:                                  ; preds = %226, %230
   %239 = getelementptr inbounds i32, ptr %238, i64 %223
   %240 = load i32, ptr %239, align 4
   %241 = add i32 %240, %.10347
-  %.not10.i = icmp slt i32 %241, %.10347
+  %.not10.i = icmp sgt i32 %.10347, %241
   br i1 %.not10.i, label %fix_fronts.exit, label %.lr.ph.i192
 
 .lr.ph.i192:                                      ; preds = %add_induce.exit
@@ -898,7 +898,7 @@ fix_fronts.exit:                                  ; preds = %fix_fronts.exit.loo
   %.val.i.i = load ptr, ptr %319, align 8
   %320 = getelementptr i8, ptr %.val.i.i, i64 4
   %.val.val.i.i = load i32, ptr %320, align 4
-  %321 = icmp sgt i32 %.val.val.i.i, %318
+  %321 = icmp slt i32 %318, %.val.val.i.i
   br i1 %321, label %getVertexName.exit.i, label %322
 
 322:                                              ; preds = %313
@@ -924,7 +924,7 @@ getVertexName.exit.i:                             ; preds = %322, %313
   %.val.i41.i = load ptr, ptr %334, align 8
   %335 = getelementptr i8, ptr %.val.i41.i, i64 4
   %.val.val.i42.i = load i32, ptr %335, align 4
-  %336 = icmp sgt i32 %.val.val.i42.i, %333
+  %336 = icmp slt i32 %333, %.val.val.i42.i
   br i1 %336, label %getVertexName.exit47.i, label %337
 
 337:                                              ; preds = %getVertexName.exit.i
@@ -1130,7 +1130,7 @@ unprepare_permutation.exit.i:                     ; preds = %.lr.ph.i.i, %432
   %478 = getelementptr inbounds i32, ptr %477, i64 %473
   %479 = load i32, ptr %478, align 4
   %480 = add i32 %479, %464
-  %.not10.i.i.i.i = icmp slt i32 %480, %467
+  %.not10.i.i.i.i = icmp sgt i32 %467, %480
   br i1 %.not10.i.i.i.i, label %fix_fronts.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %461
@@ -1195,7 +1195,7 @@ backtrack.exit.i:                                 ; preds = %fix_fronts.exit.i.i
   %.val.i.i202 = load ptr, ptr %511, align 8
   %512 = getelementptr i8, ptr %.val.i.i202, i64 4
   %.val.val.i.i203 = load i32, ptr %512, align 4
-  %513 = icmp sgt i32 %.val.val.i.i203, %510
+  %513 = icmp slt i32 %510, %.val.val.i.i203
   br i1 %513, label %getVertexName.exit.i204, label %514
 
 514:                                              ; preds = %501
@@ -1222,7 +1222,7 @@ getVertexName.exit.i204:                          ; preds = %514, %501
   %.val.i70.i = load ptr, ptr %527, align 8
   %528 = getelementptr i8, ptr %.val.i70.i, i64 4
   %.val.val.i71.i = load i32, ptr %528, align 4
-  %529 = icmp sgt i32 %.val.val.i71.i, %526
+  %529 = icmp slt i32 %526, %.val.val.i71.i
   br i1 %529, label %getVertexName.exit76.i, label %530
 
 530:                                              ; preds = %getVertexName.exit.i204
@@ -1304,7 +1304,7 @@ getVertexName.exit76.i:                           ; preds = %530, %getVertexName
   %.val.i.i.i = load ptr, ptr %568, align 8
   %569 = getelementptr i8, ptr %.val.i.i.i, i64 4
   %.val.val.i.i.i = load i32, ptr %569, align 4
-  %570 = icmp sgt i32 %.val.val.i.i.i, %567
+  %570 = icmp slt i32 %567, %.val.val.i.i.i
   br i1 %570, label %getVertexName.exit.i.i, label %571
 
 571:                                              ; preds = %560
@@ -1332,7 +1332,7 @@ getVertexName.exit.i.i:                           ; preds = %571, %560
   %.val.i39.i.i = load ptr, ptr %585, align 8
   %586 = getelementptr i8, ptr %.val.i39.i.i, i64 4
   %.val.val.i40.i.i = load i32, ptr %586, align 4
-  %587 = icmp sgt i32 %.val.val.i40.i.i, %584
+  %587 = icmp slt i32 %584, %.val.val.i40.i.i
   br i1 %587, label %getVertexName.exit45.i.i, label %588
 
 588:                                              ; preds = %getVertexName.exit.i.i
@@ -2333,7 +2333,7 @@ backtrackBysatCounterExamples.exit.thread36.i.i:  ; preds = %896, %backtrackBysa
   %1128 = getelementptr inbounds i32, ptr %1127, i64 %1123
   %1129 = load i32, ptr %1128, align 4
   %1130 = add i32 %1129, %1114
-  %.not10.i.i.i100.i = icmp slt i32 %1130, %1117
+  %.not10.i.i.i100.i = icmp sgt i32 %1117, %1130
   br i1 %.not10.i.i.i100.i, label %fix_fronts.exit.i.i106.i, label %.lr.ph.i.i.i101.i
 
 .lr.ph.i.i.i101.i:                                ; preds = %1111
@@ -2389,7 +2389,7 @@ backtrack_bad.exit.i:                             ; preds = %rewind_coloring.exi
   %.val.i111.i = load ptr, ptr %1153, align 8
   %1154 = getelementptr i8, ptr %.val.i111.i, i64 4
   %.val.val.i112.i = load i32, ptr %1154, align 4
-  %1155 = icmp sgt i32 %.val.val.i112.i, %1152
+  %1155 = icmp slt i32 %1152, %.val.val.i112.i
   br i1 %1155, label %getVertexName.exit117.i, label %1156
 
 1156:                                             ; preds = %1142
@@ -2416,7 +2416,7 @@ getVertexName.exit117.i:                          ; preds = %1156, %1142
   %.val.i118.i = load ptr, ptr %1169, align 8
   %1170 = getelementptr i8, ptr %.val.i118.i, i64 4
   %.val.val.i119.i = load i32, ptr %1170, align 4
-  %1171 = icmp sgt i32 %.val.val.i119.i, %1168
+  %1171 = icmp slt i32 %1168, %.val.val.i119.i
   br i1 %1171, label %getVertexName.exit124.i, label %1172
 
 1172:                                             ; preds = %getVertexName.exit117.i
@@ -4254,7 +4254,7 @@ define internal range(i32 0, 2) i32 @split_other(ptr nocapture noundef %0, ptr n
   %30 = getelementptr inbounds i32, ptr %28, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = xor i32 %2, -1
-  %33 = add i32 %32, %3
+  %33 = add i32 %3, %32
   store i32 %33, ptr %30, align 4
   %34 = sub i32 %2, %3
   %35 = add i32 %34, %31
@@ -4266,7 +4266,7 @@ define internal range(i32 0, 2) i32 @split_other(ptr nocapture noundef %0, ptr n
   %40 = getelementptr inbounds i32, ptr %39, i64 %37
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %41, %3
-  %.not10.i.i.i = icmp slt i32 %42, %3
+  %.not10.i.i.i = icmp sgt i32 %3, %42
   br i1 %.not10.i.i.i, label %split_color.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %25
@@ -7613,13 +7613,13 @@ Abc_NtkIncrementTravId.exit.i:                    ; preds = %Vec_IntFill.exit.i.
   %533 = add nsw i32 %.val29.i, 1
   %534 = getelementptr inbounds i8, ptr %.val28.i, i64 228
   %535 = load i32, ptr %534, align 4
-  %.not.i.not.i.i.i.i = icmp sgt i32 %535, %.val29.i
+  %.not.i.not.i.i.i.i = icmp slt i32 %.val29.i, %535
   br i1 %.not.i.not.i.i.i.i, label %Abc_NodeSetTravIdCurrent.exit.i, label %536
 
 536:                                              ; preds = %Abc_NtkIncrementTravId.exit.i
   %537 = load i32, ptr %532, align 8
   %538 = shl nsw i32 %537, 1
-  %.not.i.i.i33.i = icmp sgt i32 %538, %.val29.i
+  %.not.i.i.i33.i = icmp slt i32 %.val29.i, %538
   %.not.i.i.not.i.i.i.i = icmp sgt i32 %537, %.val29.i
   br i1 %.not.i.i.i33.i, label %551, label %539
 
@@ -8025,7 +8025,7 @@ define internal noundef i32 @print_automorphism_ntk(ptr nocapture noundef %0, i3
   %.val.i = load ptr, ptr %9, align 8
   %18 = getelementptr i8, ptr %.val.i, i64 4
   %.val.val.i = load i32, ptr %18, align 4
-  %19 = icmp sgt i32 %.val.val.i, %13
+  %19 = icmp slt i32 %13, %.val.val.i
   br i1 %19, label %getVertexName.exit, label %20
 
 20:                                               ; preds = %17
@@ -8056,7 +8056,7 @@ getVertexName.exit:                               ; preds = %17, %20
   %.val.i34 = load ptr, ptr %9, align 8
   %29 = getelementptr i8, ptr %.val.i34, i64 4
   %.val.val.i35 = load i32, ptr %29, align 4
-  %30 = icmp sgt i32 %.val.val.i35, %.03044
+  %30 = icmp slt i32 %.03044, %.val.val.i35
   br i1 %30, label %getVertexName.exit40, label %31
 
 31:                                               ; preds = %.lr.ph
@@ -8523,7 +8523,7 @@ median.exit:                                      ; preds = %52, %53, %54, %55
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %64 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next31.i
   %65 = load i32, ptr %64, align 4
-  %.not18.i = icmp slt i32 %65, %.0.i
+  %.not18.i = icmp sgt i32 %.0.i, %65
   br i1 %.not18.i, label %66, label %63, !llvm.loop !112
 
 66:                                               ; preds = %63
@@ -8892,7 +8892,7 @@ ref_nonsingle_cell.exit.thread:                   ; preds = %._crit_edge133.i, %
   %.086.lcssa.i = phi i32 [ %155, %134 ], [ %.187.lcssa.i, %._crit_edge.i ]
   %.0.lcssa.i59 = phi i32 [ %155, %134 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %188 = icmp eq i32 %.086.lcssa.i, %.0.lcssa.i59
-  %189 = icmp eq i32 %147, %137
+  %189 = icmp eq i32 %137, %147
   %or.cond.i = and i1 %189, %188
   br i1 %or.cond.i, label %ref_nonsingle_cell.exit.thread, label %.preheader107.i
 
@@ -9010,7 +9010,7 @@ ref_nonsingle_cell.exit.thread:                   ; preds = %._crit_edge133.i, %
   %235 = load ptr, ptr %128, align 8
   %236 = getelementptr inbounds i32, ptr %235, i64 %.pre-phi159.i
   %237 = load i32, ptr %236, align 4
-  %238 = icmp eq i32 %237, %137
+  %238 = icmp eq i32 %137, %237
   br i1 %238, label %ref_nonsingle_cell.exit.thread, label %ref_nonsingle_cell.exit
 
 ref_nonsingle_cell.exit:                          ; preds = %._crit_edge133.i
@@ -9459,7 +9459,7 @@ define internal noundef i32 @split_left(ptr nocapture noundef %0, ptr nocapture 
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = xor i32 %2, -1
-  %24 = add i32 %23, %3
+  %24 = add i32 %3, %23
   store i32 %24, ptr %21, align 4
   %25 = sub i32 %2, %3
   %26 = add i32 %25, %22
@@ -9471,7 +9471,7 @@ define internal noundef i32 @split_left(ptr nocapture noundef %0, ptr nocapture 
   %31 = getelementptr inbounds i32, ptr %30, i64 %28
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, %3
-  %.not10.i.i.i = icmp slt i32 %33, %3
+  %.not10.i.i.i = icmp sgt i32 %3, %33
   br i1 %.not10.i.i.i, label %split_color.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4
@@ -10623,7 +10623,7 @@ define internal fastcc i32 @select_smallest_max_connected_cell(ptr nocapture nou
 .preheader:                                       ; preds = %10
   %13 = trunc nsw i64 %indvars.iv to i32
   %14 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = icmp slt i32 %13, %2
+  %15 = icmp sgt i32 %2, %13
   br i1 %15, label %.lr.ph78, label %._crit_edge79
 
 .lr.ph78:                                         ; preds = %.preheader
@@ -10840,7 +10840,7 @@ define internal fastcc range(i32 0, 2) i32 @descend(ptr noundef %0, ptr noundef 
 
 69:                                               ; preds = %.thread
   %70 = getelementptr inbounds i8, ptr %0, i64 40
-  %71 = icmp eq ptr %70, %1
+  %71 = icmp eq ptr %1, %70
   br i1 %71, label %check_OPP_only_has_swaps.exit.thread, label %72
 
 72:                                               ; preds = %69
@@ -11110,7 +11110,7 @@ check_OPP_only_has_swaps.exit.thread.sink.split:  ; preds = %Vec_IntFree.exit56.
 
 check_OPP_only_has_swaps.exit.thread:             ; preds = %check_OPP_only_has_swaps.exit.thread.sink.split, %69, %.thread
   %182 = getelementptr inbounds i8, ptr %0, i64 40
-  %183 = icmp eq ptr %182, %1
+  %183 = icmp eq ptr %1, %182
   br i1 %183, label %double_check_OPP_isomorphism.exit, label %184
 
 184:                                              ; preds = %check_OPP_only_has_swaps.exit.thread
@@ -11308,7 +11308,7 @@ double_check_OPP_isomorphism.exit:                ; preds = %200, %._crit_edge12
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @check_OPP_for_Boolean_matching(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   br i1 %4, label %.loopexit, label %.preheader49
 
 .preheader49:                                     ; preds = %2
@@ -11346,7 +11346,7 @@ define internal fastcc range(i32 0, 2) i32 @check_OPP_for_Boolean_matching(ptr n
   %.val.i = load ptr, ptr %18, align 8
   %19 = getelementptr i8, ptr %.val.i, i64 4
   %.val.val.i = load i32, ptr %19, align 4
-  %20 = icmp sgt i32 %.val.val.i, %17
+  %20 = icmp slt i32 %17, %.val.val.i
   br i1 %20, label %getVertexName.exit, label %21
 
 21:                                               ; preds = %.lr.ph
@@ -11380,7 +11380,7 @@ getVertexName.exit:                               ; preds = %.lr.ph, %21
   %.val.i41 = load ptr, ptr %38, align 8
   %39 = getelementptr i8, ptr %.val.i41, i64 4
   %.val.val.i42 = load i32, ptr %39, align 4
-  %40 = icmp sgt i32 %.val.val.i42, %37
+  %40 = icmp slt i32 %37, %.val.val.i42
   br i1 %40, label %getVertexName.exit47, label %41
 
 41:                                               ; preds = %getVertexName.exit
@@ -11610,7 +11610,7 @@ add_diff.exit35:                                  ; preds = %79, %83, %94
   %108 = load i32, ptr %107, align 4
   %109 = add nsw i32 %108, %74
   %110 = icmp sgt i32 %74, %106
-  %111 = icmp slt i32 %109, %106
+  %111 = icmp sgt i32 %106, %109
   %.not39 = select i1 %110, i1 true, i1 %111
   br i1 %.not39, label %add_pair.exit, label %112
 
@@ -11756,7 +11756,7 @@ define internal fastcc i32 @backtrack_loop(ptr noundef %0) unnamed_addr #2 {
   %64 = getelementptr inbounds i32, ptr %63, i64 %59
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, %50
-  %.not10.i.i.i = icmp slt i32 %66, %53
+  %.not10.i.i.i = icmp sgt i32 %53, %66
   br i1 %.not10.i.i.i, label %fix_fronts.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %47

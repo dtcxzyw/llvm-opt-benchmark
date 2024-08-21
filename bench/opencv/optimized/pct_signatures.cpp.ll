@@ -492,7 +492,7 @@ define hidden void @_ZNK2cv11xfeatures2d14pct_signatures18PCTSignatures_Impl17co
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %24 = sdiv exact i64 %23, 96
-  %25 = icmp ult i64 %24, %12
+  %25 = icmp ugt i64 %12, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %3
@@ -501,7 +501,7 @@ define hidden void @_ZNK2cv11xfeatures2d14pct_signatures18PCTSignatures_Impl17co
           to label %_ZN2cv11xfeatures2d14pct_signatures26Parallel_computeSignaturesC2EPKNS0_13PCTSignaturesEPKSt6vectorINS_3MatESaIS7_EEPS9_.exit unwind label %33
 
 28:                                               ; preds = %3
-  %29 = icmp ugt i64 %24, %12
+  %29 = icmp ult i64 %12, %24
   br i1 %29, label %30, label %_ZN2cv11xfeatures2d14pct_signatures26Parallel_computeSignaturesC2EPKNS0_13PCTSignaturesEPKSt6vectorINS_3MatESaIS7_EEPS9_.exit
 
 30:                                               ; preds = %28
@@ -995,7 +995,7 @@ _ZNK2cv11_InputArray6getMatEi.exit43:             ; preds = %60, %63
   %79 = load i32, ptr %78, align 4
   %80 = call i32 @llvm.smin.i32(i32 %77, i32 %79)
   %81 = sitofp i32 %80 to float
-  %82 = fmul float %81, %3
+  %82 = fmul float %3, %81
   %83 = getelementptr inbounds i8, ptr %9, i64 8
   %84 = load i32, ptr %83, align 8
   %85 = icmp sgt i32 %84, 0
@@ -1229,7 +1229,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -1303,7 +1303,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; pre
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -2794,7 +2794,7 @@ _ZN2cv3PtrINS_11xfeatures2d14pct_signatures10PCTSamplerEED2Ev.exit: ; preds = %_
   %125 = sub i64 %123, %124
   %126 = lshr exact i64 %125, 3
   %127 = trunc i64 %126 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %127, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %127)
   invoke void @_ZN2cv11xfeatures2d14pct_signatures18PCTSignatures_Impl28pickRandomClusterSeedIndexesEi(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.20") align 8 %9, i32 noundef %.sroa.speculated)
           to label %128 unwind label %216
 

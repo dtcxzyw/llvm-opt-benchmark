@@ -4029,7 +4029,7 @@ trace_megasas_mmio_writel.exit186:                ; preds = %sw.bb65, %land.lhs.
   %arrayidx69 = getelementptr [6 x i32], ptr @adp_reset_seq, i64 0, i64 %idxprom68
   %443 = load i32, ptr %arrayidx69, align 4
   %conv70 = sext i32 %443 to i64
-  %cmp71 = icmp eq i64 %conv70, %val
+  %cmp71 = icmp eq i64 %val, %conv70
   br i1 %cmp71, label %if.then73, label %if.else80
 
 if.then73:                                        ; preds = %trace_megasas_mmio_writel.exit186
@@ -8468,7 +8468,7 @@ if.then26:                                        ; preds = %trace_megasas_scsi_
   %44 = load ptr, ptr %frame.i.i, align 8
   %sense_len1.i.i = getelementptr inbounds i8, ptr %44, i64 1
   %45 = load i8, ptr %sense_len1.i.i, align 1
-  %spec.select.i.i = call i8 @llvm.umin.i8(i8 %45, i8 %conv.i34)
+  %spec.select.i.i = call i8 @llvm.umin.i8(i8 %conv.i34, i8 %45)
   %tobool.not.i.i = icmp eq i8 %spec.select.i.i, 0
   br i1 %tobool.not.i.i, label %megasas_copy_sense.exit, label %if.then5.i.i
 

@@ -155,7 +155,7 @@ if.then:                                          ; preds = %while.body
   %7 = load ptr, ptr %data1.i, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %mul.i2562
   %arrayidx2.i = getelementptr inbounds i8, ptr %8, i64 %conv.i2561
-  %cond.i2569 = tail call i64 @llvm.umin.i64(i64 %conv6, i64 %max_length)
+  %cond.i2569 = tail call i64 @llvm.umin.i64(i64 %max_length, i64 %conv6)
   %cmp.i33861547 = icmp ugt i64 %cond.i2569, 7
   br i1 %cmp.i33861547, label %for.body.i3403, label %while.cond.i3388.preheader
 
@@ -294,7 +294,7 @@ if.end62:                                         ; preds = %if.then30, %land.lh
   %has_found_match.2 = phi i32 [ %has_found_match.1, %if.end ], [ 1, %if.then57 ], [ 1, %land.lhs.true51 ], [ 1, %land.lhs.true45 ], [ 1, %land.lhs.true40 ], [ 1, %land.lhs.true ], [ 1, %if.then30 ]
   %cmp63 = icmp ugt i8 %3, 9
   %sub66 = add nsw i64 %conv6, -9
-  %cond.i = tail call i64 @llvm.umax.i64(i64 %sub66, i64 %min_length)
+  %cond.i = tail call i64 @llvm.umax.i64(i64 %min_length, i64 %sub66)
   %minlen.0 = select i1 %cmp63, i64 %cond.i, i64 %min_length
   %sub69 = add nsw i64 %conv6, -2
   %cond.i2575 = tail call i64 @llvm.umin.i64(i64 %retval.i3378.0, i64 %sub69)
@@ -1052,7 +1052,7 @@ if.then832:                                       ; preds = %land.lhs.true827
 
 if.else853:                                       ; preds = %while.body
   %cmp856.not = icmp eq i8 %w.sroa.5.0.copyload.fr, 10
-  %cmp.i2883 = icmp ugt i64 %conv6, %max_length
+  %cmp.i2883 = icmp ult i64 %max_length, %conv6
   br i1 %cmp.i2883, label %IsMatch.exit2968, label %if.else.i2884
 
 if.else.i2884:                                    ; preds = %if.else853

@@ -1526,7 +1526,7 @@ parse_msh.exit.i:                                 ; preds = %56, %30
   %135 = load i32, ptr %6, align 4
   %136 = sub i32 %135, %.010.i
   %137 = add i32 %130, %.010.i
-  %138 = icmp sgt i32 %137, %.010.i
+  %138 = icmp slt i32 %.010.i, %137
   br i1 %138, label %.lr.ph.lr.ph.i.i, label %dissect_hl7_segment.exit.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %134

@@ -42,7 +42,7 @@ define dso_local noundef zeroext i1 @icmp_pkt_to_tuple(ptr noundef %0, i32 nound
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 116
   %9 = load i32, ptr %8, align 4
-  %10 = add i32 %9, %1
+  %10 = add i32 %1, %9
   %11 = sub i32 %7, %10
   %12 = icmp sgt i32 %11, 7
   br i1 %12, label %18, label %13, !prof !6
@@ -300,7 +300,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmpv4_error(ptr noc
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 116
   %10 = load i32, ptr %9, align 4
-  %11 = add i32 %10, %2
+  %11 = add i32 %2, %10
   %12 = sub i32 %8, %11
   %13 = icmp sgt i32 %12, 7
   br i1 %13, label %19, label %14, !prof !6

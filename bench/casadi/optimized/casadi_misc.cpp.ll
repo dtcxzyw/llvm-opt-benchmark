@@ -2224,7 +2224,7 @@ define linkonce_odr hidden void @_ZNSt3setIxSt4lessIxESaIxEEC2IN9__gnu_cxx17__no
 
 select.unfold:                                    ; preds = %22, %9, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %10, %9 ], [ %.019.lcssa29.i.i, %22 ]
-  %25 = icmp eq ptr %4, %.sroa.12.0.i.ph
+  %25 = icmp eq ptr %.sroa.12.0.i.ph, %4
   br i1 %25, label %_ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE10_M_insert_IRKxNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIxEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %26
 
 26:                                               ; preds = %select.unfold
@@ -2851,7 +2851,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit.thread:             ; preds = %93
 .lr.ph204:                                        ; preds = %.lr.ph204.preheader, %117
   %.1202 = phi i64 [ %120, %117 ], [ %.060.lcssa, %.lr.ph204.preheader ]
   %.163201 = phi i64 [ %119, %117 ], [ %.062211, %.lr.ph204.preheader ]
-  %.not.i.i114 = icmp ugt i64 %104, %.163201
+  %.not.i.i114 = icmp ult i64 %.163201, %104
   br i1 %.not.i.i114, label %117, label %116
 
 116:                                              ; preds = %.lr.ph204
@@ -4695,7 +4695,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE11_M_allocateEm.exit: ; preds = %_Z
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE11_M_allocateEm.exit ], [ %40, %.lr.ph.i.i.i ]
   %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17

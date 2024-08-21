@@ -825,7 +825,7 @@ if.end12:                                         ; preds = %trace_job_state_tra
   store i32 %s1, ptr %status, align 4
   %10 = load ptr, ptr %job, align 8
   %cmp.i = icmp eq ptr %10, null
-  %cmp16.not = icmp eq i32 %0, %s1
+  %cmp16.not = icmp eq i32 %s1, %0
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp16.not
   br i1 %or.cond, label %if.end19, label %if.then17
 
@@ -2834,12 +2834,12 @@ if.end5:                                          ; preds = %do.end, %if.end2
 
 land.lhs.true:                                    ; preds = %if.end5
   %call.i = call ptr @qemu_get_current_aio_context() #16
-  %cmp.i = icmp eq ptr %call.i, %1
+  %cmp.i = icmp eq ptr %1, %call.i
   br i1 %cmp.i, label %while.cond.preheader, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true
   %call1.i = call ptr @qemu_get_aio_context() #16
-  %cmp2.i = icmp eq ptr %call1.i, %1
+  %cmp2.i = icmp eq ptr %1, %call1.i
   br i1 %cmp2.i, label %if.then3.i, label %if.else11
 
 if.then3.i:                                       ; preds = %if.end.i

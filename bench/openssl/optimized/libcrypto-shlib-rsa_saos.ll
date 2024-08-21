@@ -80,7 +80,7 @@ define range(i32 0, 2) i32 @RSA_verify_ASN1_OCTET_STRING(i32 noundef %dtype, ptr
 entry:
   %p = alloca ptr, align 8
   %call = tail call i32 @RSA_size(ptr noundef %rsa) #3
-  %cmp.not = icmp eq i32 %call, %siglen
+  %cmp.not = icmp eq i32 %siglen, %call
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

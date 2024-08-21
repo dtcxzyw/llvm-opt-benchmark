@@ -6239,7 +6239,7 @@ define dso_local void @intel_psr_invalidate(ptr noundef readonly %0, i32 noundef
   %34 = lshr i64 -1, %33
   %35 = and i64 %34, %31
   %36 = trunc i64 %35 to i32
-  %37 = and i32 %36, %1
+  %37 = and i32 %1, %36
   %38 = getelementptr inbounds i8, ptr %20, i64 3688
   %39 = load i32, ptr %38, align 8
   %40 = or i32 %37, %39
@@ -6403,7 +6403,7 @@ define dso_local void @intel_psr_flush(ptr noundef readonly %0, i32 noundef %1, 
   %34 = lshr i64 -1, %33
   %35 = and i64 %34, %31
   %36 = trunc i64 %35 to i32
-  %37 = and i32 %36, %1
+  %37 = and i32 %1, %36
   %38 = xor i32 %37, -1
   %39 = getelementptr inbounds i8, ptr %21, i64 3688
   %40 = load i32, ptr %39, align 8

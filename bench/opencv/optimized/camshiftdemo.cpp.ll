@@ -1543,10 +1543,10 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
 
 9:                                                ; preds = %5
   %10 = load i32, ptr @origin, align 8
-  %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 %1)
+  %11 = tail call i32 @llvm.smin.i32(i32 %1, i32 %10)
   store i32 %11, ptr @selection, align 4
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @origin, i64 4), align 4
-  %13 = tail call i32 @llvm.smin.i32(i32 %12, i32 %2)
+  %13 = tail call i32 @llvm.smin.i32(i32 %2, i32 %12)
   store i32 %13, ptr getelementptr inbounds (i8, ptr @selection, i64 4), align 4
   %14 = sub nsw i32 %1, %10
   %15 = tail call i32 @llvm.abs.i32(i32 %14, i1 true)

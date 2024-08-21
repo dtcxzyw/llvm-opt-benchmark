@@ -395,7 +395,7 @@ declare dso_local i32 @acpi_find_root_pointer(ptr noundef) local_unnamed_addr #5
 define dso_local ptr @acpi_os_get_iomem(i64 noundef %0, i32 noundef %1) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @acpi_ioremap_lock) #20
   %3 = zext i32 %1 to i64
-  %4 = add i64 %3, %0
+  %4 = add i64 %0, %3
   %5 = load volatile ptr, ptr @acpi_ioremaps, align 8
   %6 = icmp eq ptr %5, @acpi_ioremaps
   br i1 %6, label %.thread, label %.preheader
@@ -864,7 +864,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_os_install_interrupt_handl
   tail call void @acpi_irq_stats_init() #20
   %5 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %6 = zext i16 %5 to i32
-  %7 = icmp eq i32 %6, %0
+  %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %3
@@ -933,7 +933,7 @@ define internal noundef range(i32 0, 2) i32 @acpi_irq(i32 %0, ptr nocapture read
 define dso_local noundef range(i32 0, 4098) i32 @acpi_os_remove_interrupt_handler(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 16 {
   %3 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %4 = zext i16 %3 to i32
-  %5 = icmp eq i32 %4, %0
+  %5 = icmp eq i32 %0, %4
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
@@ -1122,7 +1122,7 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_os_read_memory(i64 noundef
   %4 = lshr i32 %2, 3
   tail call void @__rcu_read_lock() #20
   %5 = zext nneg i32 %4 to i64
-  %6 = add i64 %5, %0
+  %6 = add i64 %0, %5
   %7 = load volatile ptr, ptr @acpi_ioremaps, align 8
   %8 = icmp eq ptr %7, @acpi_ioremaps
   br i1 %8, label %.thread8, label %.preheader
@@ -1238,7 +1238,7 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_os_write_memory(i64 nounde
   %4 = lshr i32 %2, 3
   tail call void @__rcu_read_lock() #20
   %5 = zext nneg i32 %4 to i64
-  %6 = add i64 %5, %0
+  %6 = add i64 %0, %5
   %7 = load volatile ptr, ptr @acpi_ioremaps, align 8
   %8 = icmp eq ptr %7, @acpi_ioremaps
   br i1 %8, label %.thread7, label %.preheader

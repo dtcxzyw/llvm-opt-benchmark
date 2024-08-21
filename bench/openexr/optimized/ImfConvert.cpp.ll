@@ -159,13 +159,13 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @imath_half_to_float_table, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 126972
   %2 = load float, ptr %arrayidx.i.i, align 4
-  %cmp = fcmp olt float %2, %f
+  %cmp = fcmp ogt float %f, %2
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
   %arrayidx.i.i5 = getelementptr inbounds i8, ptr %1, i64 258044
   %3 = load float, ptr %arrayidx.i.i5, align 4
-  %cmp10 = fcmp ogt float %3, %f
+  %cmp10 = fcmp olt float %f, %3
   br i1 %cmp10, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end, %entry

@@ -3080,7 +3080,7 @@ if.then.i.i16.i.i:                                ; preds = %land.lhs.true.i.i11
   %14 = load i32, ptr %m_den.i.i, align 8
   %15 = load i32, ptr %m_den.i.i.i, align 8
   %cmp.i.i17.i.i = icmp eq i32 %14, %15
-  %brmerge.not = and i1 %cmp.i.i17.i.i, %strict
+  %brmerge.not = and i1 %strict, %cmp.i.i17.i.i
   br i1 %brmerge.not, label %land.lhs.true7, label %if.end34
 
 if.else.i.i7.i.i:                                 ; preds = %land.lhs.true.i.i11.i.i, %land.rhs.i.i
@@ -3089,7 +3089,7 @@ if.else.i.i7.i.i:                                 ; preds = %land.lhs.true.i.i11
 
 invoke.cont5:                                     ; preds = %if.else.i.i7.i.i
   %cmp5.i.i9.i.i = icmp eq i32 %call4.i.i8.i.i25, 0
-  %brmerge125.not = and i1 %cmp5.i.i9.i.i, %strict
+  %brmerge125.not = and i1 %strict, %cmp5.i.i9.i.i
   br i1 %brmerge125.not, label %land.lhs.true7, label %if.end34
 
 land.lhs.true7:                                   ; preds = %invoke.cont5, %if.then.i.i16.i.i
@@ -3646,7 +3646,7 @@ if.then.i.i16.i.i:                                ; preds = %land.lhs.true.i.i11
   %14 = load i32, ptr %m_den.i.i.i13, align 8
   %15 = load i32, ptr %m_den.i.i.i, align 8
   %cmp.i.i17.i.i = icmp eq i32 %14, %15
-  %brmerge.not = and i1 %cmp.i.i17.i.i, %strict
+  %brmerge.not = and i1 %strict, %cmp.i.i17.i.i
   br i1 %brmerge.not, label %land.lhs.true7, label %if.end34
 
 if.else.i.i7.i.i:                                 ; preds = %land.lhs.true.i.i11.i.i, %land.rhs.i.i
@@ -3655,7 +3655,7 @@ if.else.i.i7.i.i:                                 ; preds = %land.lhs.true.i.i11
 
 invoke.cont5:                                     ; preds = %if.else.i.i7.i.i
   %cmp5.i.i9.i.i = icmp eq i32 %call4.i.i8.i.i33, 0
-  %brmerge132.not = and i1 %cmp5.i.i9.i.i, %strict
+  %brmerge132.not = and i1 %strict, %cmp5.i.i9.i.i
   br i1 %brmerge132.not, label %land.lhs.true7, label %if.end34
 
 land.lhs.true7:                                   ; preds = %invoke.cont5, %if.then.i.i16.i.i

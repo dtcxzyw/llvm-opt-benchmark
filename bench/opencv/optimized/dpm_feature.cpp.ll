@@ -1194,12 +1194,12 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %103
 
 .preheader470:                                    ; preds = %._crit_edge, %.preheader471
   %285 = sub nsw i32 %81, %4
-  %286 = icmp sgt i32 %285, %4
+  %286 = icmp slt i32 %4, %285
   br i1 %286, label %.preheader469.lr.ph, label %.preheader467
 
 .preheader469.lr.ph:                              ; preds = %.preheader470
   %287 = sub nsw i32 %78, %3
-  %288 = icmp sgt i32 %287, %3
+  %288 = icmp slt i32 %3, %287
   %289 = zext nneg i32 %3 to i64
   %290 = sub nsw i64 0, %289
   br i1 %288, label %.preheader469.us.preheader, label %.preheader467
@@ -1622,7 +1622,7 @@ define hidden void @_ZN2cv3dpm7Feature21projectFeaturePyramidERKNS_3MatERKSt6vec
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = sdiv exact i64 %36, 96
-  %38 = icmp ult i64 %37, %30
+  %38 = icmp ugt i64 %30, %37
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %21
@@ -1631,7 +1631,7 @@ define hidden void @_ZN2cv3dpm7Feature21projectFeaturePyramidERKNS_3MatERKSt6vec
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 41:                                               ; preds = %21
-  %42 = icmp ugt i64 %37, %30
+  %42 = icmp ult i64 %30, %37
   br i1 %42, label %43, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 43:                                               ; preds = %41

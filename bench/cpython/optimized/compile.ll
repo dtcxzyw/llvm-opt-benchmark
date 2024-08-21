@@ -3503,18 +3503,18 @@ if.end7:                                          ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   %1 = load i32, ptr %alloc, align 4
-  %cmp8.not = icmp sgt i32 %1, %idx
+  %cmp8.not = icmp slt i32 %idx, %1
   br i1 %cmp8.not, label %if.end32, label %if.then10
 
 if.then10:                                        ; preds = %if.else
   %conv11 = sext i32 %1 to i64
-  %mul = mul i64 %conv11, %item_size
+  %mul = mul i64 %item_size, %conv11
   %shl = shl i32 %1, 1
-  %cmp13.not = icmp sgt i32 %shl, %idx
+  %cmp13.not = icmp slt i32 %idx, %shl
   %add16 = add i32 %default_alloc, %idx
   %spec.select27 = select i1 %cmp13.not, i32 %shl, i32 %add16
   %conv18 = sext i32 %spec.select27 to i64
-  %mul19 = mul i64 %conv18, %item_size
+  %mul19 = mul i64 %item_size, %conv18
   %cmp20 = icmp slt i64 %mul, 0
   br i1 %cmp20, label %if.then22, label %if.end24
 
@@ -3913,7 +3913,7 @@ if.then:                                          ; preds = %entry
   %arrayidx = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
-  %cmp2.not = icmp eq i32 %conv, %opcode
+  %cmp2.not = icmp eq i32 %opcode, %conv
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
@@ -5265,14 +5265,14 @@ if.then5.i41:                                     ; preds = %if.then.i33
   br label %instructions_to_instr_sequence.exit.thread50
 
 if.else.i8:                                       ; preds = %if.then56.i
-  %cmp8.not.i9 = icmp sgt i32 %spec.select.i3655, %i47.054.i
+  %cmp8.not.i9 = icmp slt i32 %i47.054.i, %spec.select.i3655
   br i1 %cmp8.not.i9, label %for.cond.preheader.i.i, label %if.then10.i10
 
 if.then10.i10:                                    ; preds = %if.else.i8
   %conv11.i11 = sext i32 %spec.select.i3655 to i64
   %mul.i12 = shl nsw i64 %conv11.i11, 2
   %shl.i13 = shl i32 %spec.select.i3655, 1
-  %cmp13.not.i14 = icmp sgt i32 %shl.i13, %i47.054.i
+  %cmp13.not.i14 = icmp slt i32 %i47.054.i, %shl.i13
   %add16.i15 = add i32 %i47.054.i, 10
   %spec.select27.i16 = select i1 %cmp13.not.i14, i32 %shl.i13, i32 %add16.i15
   %conv18.i17 = sext i32 %spec.select27.i16 to i64
@@ -5428,14 +5428,14 @@ if.then5.i:                                       ; preds = %if.then.i
   br label %instructions_to_instr_sequence.exit.thread50
 
 if.else.i:                                        ; preds = %if.end132.i
-  %cmp8.not.i = icmp sgt i32 %spec.select.i89, %add.i.i.i
+  %cmp8.not.i = icmp slt i32 %add.i.i.i, %spec.select.i89
   br i1 %cmp8.not.i, label %instr_sequence_next_inst.exit.i.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.else.i
   %conv11.i = sext i32 %spec.select.i89 to i64
   %mul.i = mul nsw i64 %conv11.i, 44
   %shl.i = shl i32 %spec.select.i89, 1
-  %cmp13.not.i = icmp sgt i32 %shl.i, %add.i.i.i
+  %cmp13.not.i = icmp slt i32 %add.i.i.i, %shl.i
   %add16.i = add i32 %13, 101
   %spec.select27.i = select i1 %cmp13.not.i, i32 %shl.i, i32 %add16.i
   %conv18.i = sext i32 %spec.select27.i to i64
@@ -21151,7 +21151,7 @@ if.else:                                          ; preds = %for.end38
   %21 = load ptr, ptr %u75, align 8
   %u_instr_sequence76 = getelementptr inbounds i8, ptr %21, i64 24
   %22 = trunc i64 %cond to i32
-  %conv.i244 = add i32 %22, %n
+  %conv.i244 = add i32 %n, %22
   %s_used.i.i.i245 = getelementptr inbounds i8, ptr %21, i64 36
   %23 = load i32, ptr %s_used.i.i.i245, align 4
   %add.i.i.i246 = add i32 %23, 1
@@ -21571,7 +21571,7 @@ _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i
   store ptr %1, ptr %arrayidx.i, align 8
   %inc = add i32 %i.016, 1
   %conv = sext i32 %inc to i64
-  %cmp1 = icmp slt i64 %conv, %nkwelts
+  %cmp1 = icmp sgt i64 %nkwelts, %conv
   br i1 %cmp1, label %for.body, label %if.end8, !llvm.loop !82
 
 if.end8:                                          ; preds = %_Py_NewRef.exit, %for.cond.preheader
@@ -22051,7 +22051,7 @@ if.then147:                                       ; preds = %if.then144
   %42 = load ptr, ptr %u180, align 8
   %u_instr_sequence149 = getelementptr inbounds i8, ptr %42, i64 24
   %43 = trunc i64 %i133.0276 to i32
-  %conv.i176 = add i32 %43, %pushed
+  %conv.i176 = add i32 %pushed, %43
   %s_used.i.i.i177 = getelementptr inbounds i8, ptr %42, i64 36
   %44 = load i32, ptr %s_used.i.i.i177, align 4
   %add.i.i.i178 = add i32 %44, 1

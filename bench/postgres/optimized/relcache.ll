@@ -4038,7 +4038,7 @@ define dso_local ptr @RelationBuildLocalRelation(ptr noundef %0, i32 noundef %1,
   %switch.masked = trunc i16 %switch.downshift to i1
   %.0121 = select i1 %15, i1 %switch.masked, i1 false
   %16 = tail call zeroext i1 @IsSharedRelation(i32 noundef %3) #12
-  %17 = xor i1 %16, %7
+  %17 = xor i1 %7, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %11
@@ -6421,7 +6421,7 @@ define internal fastcc void @write_relcache_init_file(i1 noundef zeroext %0) unn
   %42 = getelementptr inbounds i8, ptr %41, i64 113
   %43 = load i8, ptr %42, align 1
   %44 = trunc i8 %43 to i1
-  %45 = xor i1 %44, %0
+  %45 = xor i1 %0, %44
   br i1 %45, label %.backedge, label %46
 
 46:                                               ; preds = %.lr.ph75
@@ -8772,7 +8772,7 @@ define dso_local noundef i32 @errtablecol(ptr nocapture noundef readonly %0, i32
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %4, align 8
-  %.not = icmp slt i32 %7, %1
+  %.not = icmp sgt i32 %1, %7
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %6

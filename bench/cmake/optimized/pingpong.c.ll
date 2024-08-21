@@ -42,7 +42,7 @@ define dso_local i64 @Curl_pp_state_timeout(ptr nocapture noundef readonly %0, p
   %24 = getelementptr inbounds i8, ptr %0, i64 704
   %25 = load i32, ptr %24, align 8
   %.not18 = icmp eq i32 %25, 0
-  %brmerge = or i1 %.not18, %2
+  %brmerge = or i1 %2, %.not18
   br i1 %brmerge, label %38, label %26
 
 26:                                               ; preds = %13
@@ -102,7 +102,7 @@ define dso_local i32 @Curl_pp_statemach(ptr noundef %0, ptr nocapture noundef re
   %27 = getelementptr inbounds i8, ptr %0, i64 704
   %28 = load i32, ptr %27, align 8
   %.not18.i = icmp eq i32 %28, 0
-  %brmerge.i = or i1 %.not18.i, %3
+  %brmerge.i = or i1 %3, %.not18.i
   br i1 %brmerge.i, label %Curl_pp_state_timeout.exit, label %29
 
 29:                                               ; preds = %16

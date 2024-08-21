@@ -2833,7 +2833,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -3028,7 +3028,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i24, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i24
+  %cmp.i.i = icmp ugt ptr %add.ptr.i24, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -3231,7 +3231,7 @@ try.cont:                                         ; preds = %for.body55.preheade
   store ptr %add.ptr.i33, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i33
+  %cmp.i.i = icmp ugt ptr %add.ptr.i33, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -3529,7 +3529,7 @@ try.cont:                                         ; preds = %for.body26.preheade
   store ptr %add.ptr.i25, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i25
+  %cmp.i.i = icmp ugt ptr %add.ptr.i25, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -3814,7 +3814,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -4120,7 +4120,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -4344,7 +4344,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -4537,7 +4537,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -4769,7 +4769,7 @@ try.cont:                                         ; preds = %invoke.cont12, %cat
   store ptr %add.ptr.i24, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i24
+  %cmp.i.i = icmp ugt ptr %add.ptr.i24, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -4973,7 +4973,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %22, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %22
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -5320,7 +5320,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -5535,7 +5535,7 @@ if.then22:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %22, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %22
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end25
@@ -5793,7 +5793,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -6008,7 +6008,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %22, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %22
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -6235,7 +6235,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -6557,7 +6557,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %22, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %22
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -6741,7 +6741,7 @@ try.cont:                                         ; preds = %for.body26.preheade
   store ptr %add.ptr.i22, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i22
+  %cmp.i.i = icmp ugt ptr %add.ptr.i22, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -6978,7 +6978,7 @@ try.cont:                                         ; preds = %invoke.cont12, %cat
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -7158,7 +7158,7 @@ try.cont:                                         ; preds = %for.body26.preheade
   store ptr %add.ptr.i22, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i22
+  %cmp.i.i = icmp ugt ptr %add.ptr.i22, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -7397,7 +7397,7 @@ try.cont:                                         ; preds = %invoke.cont12, %cat
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -7575,7 +7575,7 @@ try.cont:                                         ; preds = %invoke.cont12, %cat
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -7761,7 +7761,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -8007,7 +8007,7 @@ try.cont:                                         ; preds = %for.body52.preheade
   store ptr %add.ptr.i30, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i30
+  %cmp.i.i = icmp ugt ptr %add.ptr.i30, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -8303,7 +8303,7 @@ try.cont:                                         ; preds = %for.body26.preheade
   store ptr %add.ptr.i22, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i22
+  %cmp.i.i = icmp ugt ptr %add.ptr.i22, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -8604,7 +8604,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -8803,7 +8803,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -8998,7 +8998,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -9368,7 +9368,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -9608,7 +9608,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i27, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i27
+  %cmp.i.i = icmp ugt ptr %add.ptr.i27, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -9834,7 +9834,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -9895,7 +9895,7 @@ entry:
   store ptr %add.ptr.i36, ptr %mCurrent.i, align 8
   %mLimit.i.i38 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %mLimit.i.i38, align 8
-  %cmp.i.i39 = icmp ult ptr %3, %add.ptr.i36
+  %cmp.i.i39 = icmp ugt ptr %add.ptr.i36, %3
   %cmp4.i.i40 = icmp slt i64 %conv34, 0
   %or.cond.i.i41 = or i1 %cmp4.i.i40, %cmp.i.i39
   br i1 %or.cond.i.i41, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -9950,7 +9950,7 @@ if.then:                                          ; preds = %land.lhs.true
   store ptr %add.ptr.i, ptr %mCurrent.i11, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %9 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %9, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %9
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit, !llvm.loop !14
@@ -9967,7 +9967,7 @@ for.end:                                          ; preds = %_ZN6Assimp12StreamR
   store ptr %add.ptr.i20, ptr %mCurrent.i.i21, align 8
   %mLimit.i.i22 = getelementptr inbounds i8, ptr %10, i64 40
   %13 = load ptr, ptr %mLimit.i.i22, align 8
-  %cmp.i.i23 = icmp ult ptr %13, %add.ptr.i20
+  %cmp.i.i23 = icmp ugt ptr %add.ptr.i20, %13
   %cmp4.i.i24 = icmp slt i64 %add, 0
   %or.cond.i.i25 = or i1 %cmp4.i.i24, %cmp.i.i23
   br i1 %or.cond.i.i25, label %if.then.i.i26, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit30
@@ -10171,7 +10171,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -10680,7 +10680,7 @@ if.then22:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %22, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %22
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end25
@@ -10916,7 +10916,7 @@ for.end47:                                        ; preds = %for.body41
   store ptr %add.ptr.i37, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %19, i64 40
   %21 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %21, %add.ptr.i37
+  %cmp.i.i = icmp ugt ptr %add.ptr.i37, %21
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -11262,7 +11262,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %22, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %22
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -11669,7 +11669,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %26, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %26
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -11903,7 +11903,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %25, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %25
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -12130,7 +12130,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %25, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %25
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -12366,7 +12366,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %26, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %26
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -12609,7 +12609,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %26, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %26
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -12843,7 +12843,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %25, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %25
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -13070,7 +13070,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %25, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %25
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -13297,7 +13297,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %25, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %25
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -13524,7 +13524,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %25, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %25
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -13751,7 +13751,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %25, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %25
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -13978,7 +13978,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %25, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %25
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -14205,7 +14205,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %25, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %25
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -14425,7 +14425,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i27, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i27
+  %cmp.i.i = icmp ugt ptr %add.ptr.i27, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -14618,7 +14618,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -14813,7 +14813,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -15097,7 +15097,7 @@ if.then27:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %26, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %26
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end30
@@ -15366,7 +15366,7 @@ try.cont:                                         ; preds = %invoke.cont12, %cat
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -15593,7 +15593,7 @@ try.cont:                                         ; preds = %for.body26.preheade
   store ptr %add.ptr.i22, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i22
+  %cmp.i.i = icmp ugt ptr %add.ptr.i22, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -15855,7 +15855,7 @@ try.cont:                                         ; preds = %for.body26.preheade
   store ptr %add.ptr.i25, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i25
+  %cmp.i.i = icmp ugt ptr %add.ptr.i25, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -16202,7 +16202,7 @@ try.cont:                                         ; preds = %try.cont.critedge, 
   store ptr %add.ptr.i22, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i22
+  %cmp.i.i = icmp ugt ptr %add.ptr.i22, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -16511,7 +16511,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -16915,7 +16915,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %22, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %22
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -17455,7 +17455,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -17693,7 +17693,7 @@ try.cont:                                         ; preds = %for.body26.preheade
   store ptr %add.ptr.i25, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i25
+  %cmp.i.i = icmp ugt ptr %add.ptr.i25, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -17990,7 +17990,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   store ptr %add.ptr.i23, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i23
+  %cmp.i.i = icmp ugt ptr %add.ptr.i23, %17
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -18306,7 +18306,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -18530,7 +18530,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -18772,7 +18772,7 @@ try.cont:                                         ; preds = %for.body26.preheade
   store ptr %add.ptr.i25, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i25
+  %cmp.i.i = icmp ugt ptr %add.ptr.i25, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -19028,7 +19028,7 @@ try.cont:                                         ; preds = %for.body26.preheade
   store ptr %add.ptr.i22, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i22
+  %cmp.i.i = icmp ugt ptr %add.ptr.i22, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -19313,7 +19313,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -19587,7 +19587,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %23, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %23
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -20131,7 +20131,7 @@ if.then26:                                        ; preds = %try.cont
   store ptr %add.ptr.i26, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %22, %add.ptr.i26
+  %cmp.i.i = icmp ugt ptr %add.ptr.i26, %22
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end29
@@ -20368,7 +20368,7 @@ try.cont:                                         ; preds = %for.body26.preheade
   store ptr %add.ptr.i25, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i25
+  %cmp.i.i = icmp ugt ptr %add.ptr.i25, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -20757,7 +20757,7 @@ if.then23:                                        ; preds = %try.cont
   store ptr %add.ptr.i32, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %36, i64 40
   %41 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %41, %add.ptr.i32
+  %cmp.i.i = icmp ugt ptr %add.ptr.i32, %41
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -20983,7 +20983,7 @@ if.end39:                                         ; preds = %_ZNSt10shared_ptrIN
   store ptr %add.ptr.i42, ptr %mCurrent.i.i43, align 8
   %mLimit.i.i44 = getelementptr inbounds i8, ptr %72, i64 40
   %74 = load ptr, ptr %mLimit.i.i44, align 8
-  %cmp.i.i45 = icmp ult ptr %74, %add.ptr.i42
+  %cmp.i.i45 = icmp ugt ptr %add.ptr.i42, %74
   %cmp4.i.i46 = icmp slt i64 %conv, 0
   %or.cond.i.i47 = or i1 %cmp4.i.i46, %cmp.i.i45
   br i1 %or.cond.i.i47, label %if.then.i.i48, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit52
@@ -21234,7 +21234,7 @@ try.cont:                                         ; preds = %for.body26.preheade
   store ptr %add.ptr.i25, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %16, %add.ptr.i25
+  %cmp.i.i = icmp ugt ptr %add.ptr.i25, %16
   %cmp4.i.i = icmp slt i64 %conv, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -21480,7 +21480,7 @@ if.then23:                                        ; preds = %try.cont
   store ptr %add.ptr.i19, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %13, i64 40
   %18 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %18, %add.ptr.i19
+  %cmp.i.i = icmp ugt ptr %add.ptr.i19, %18
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -21572,7 +21572,7 @@ if.end30:                                         ; preds = %_ZN6Assimp12StreamR
   store ptr %add.ptr.i30, ptr %mCurrent.i.i31, align 8
   %mLimit.i.i32 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i.i32, align 8
-  %cmp.i.i33 = icmp ult ptr %32, %add.ptr.i30
+  %cmp.i.i33 = icmp ugt ptr %add.ptr.i30, %32
   %cmp4.i.i34 = icmp slt i64 %conv, 0
   %or.cond.i.i35 = or i1 %cmp4.i.i34, %cmp.i.i33
   br i1 %or.cond.i.i35, label %if.then.i.i36, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit40
@@ -28896,7 +28896,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -28951,7 +28951,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %32, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %32
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -29524,7 +29524,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -29533,7 +29533,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -29886,7 +29886,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -29895,7 +29895,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -32248,7 +32248,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %3, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -32361,7 +32361,7 @@ _ZNSt8_Rb_treeIN6Assimp7Blender7PointerESt4pairIKS2_St10shared_ptrINS1_8ElemBase
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp7Blender7PointerESt4pairIKS2_St10shared_ptrINS1_8ElemBaseEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -33024,7 +33024,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -33115,7 +33115,7 @@ for.end:                                          ; preds = %_ZN6Assimp12StreamR
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %35, i64 40
   %37 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %37, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %37
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -33260,7 +33260,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -33269,7 +33269,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -33611,7 +33611,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -33620,7 +33620,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -34361,7 +34361,7 @@ if.end7:                                          ; preds = %_ZNK6Assimp7Blender
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %19, i64 40
   %25 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %25, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %25
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -34774,7 +34774,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender8ElemBaseEED2Ev.exit149: ; preds = %invoke.con
   store ptr %add.ptr.i151, ptr %mCurrent.i.i152, align 8
   %mLimit.i.i153 = getelementptr inbounds i8, ptr %88, i64 40
   %90 = load ptr, ptr %mLimit.i.i153, align 8
-  %cmp.i.i154 = icmp ult ptr %90, %add.ptr.i151
+  %cmp.i.i154 = icmp ugt ptr %add.ptr.i151, %90
   %cmp4.i.i155 = icmp slt i64 %conv10, 0
   %or.cond.i.i156 = or i1 %cmp4.i.i155, %cmp.i.i154
   br i1 %or.cond.i.i156, label %if.then.i.i157, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit161
@@ -34842,7 +34842,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -34851,7 +34851,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -35107,7 +35107,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -35116,7 +35116,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -36097,7 +36097,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -36188,7 +36188,7 @@ for.end:                                          ; preds = %_ZN6Assimp12StreamR
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %35, i64 40
   %37 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %37, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %37
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -36251,7 +36251,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -36260,7 +36260,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -36600,7 +36600,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -36609,7 +36609,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -37457,7 +37457,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -37512,7 +37512,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %32, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %32
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -37575,7 +37575,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -37584,7 +37584,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -37924,7 +37924,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -37933,7 +37933,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -38707,7 +38707,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -38762,7 +38762,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %32, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %32
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -38825,7 +38825,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -38834,7 +38834,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -39174,7 +39174,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -39183,7 +39183,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -40093,7 +40093,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -40148,7 +40148,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %32, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %32
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -40211,7 +40211,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -40220,7 +40220,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -40572,7 +40572,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -40581,7 +40581,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -41509,7 +41509,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -41564,7 +41564,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %32, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %32
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -41627,7 +41627,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -41636,7 +41636,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -41985,7 +41985,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -41994,7 +41994,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -43699,7 +43699,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -43754,7 +43754,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %32, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %32
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -43817,7 +43817,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -43826,7 +43826,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -44167,7 +44167,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -44176,7 +44176,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -45022,7 +45022,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -45077,7 +45077,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %32, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %32
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -45140,7 +45140,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -45149,7 +45149,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -45489,7 +45489,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -45498,7 +45498,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -46334,7 +46334,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -46389,7 +46389,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %32, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %32
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -46452,7 +46452,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -46461,7 +46461,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -46803,7 +46803,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -46812,7 +46812,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -47446,7 +47446,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -47478,7 +47478,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -47487,7 +47487,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MFaceEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MFaceEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -47534,7 +47534,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -47866,7 +47866,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -47898,7 +47898,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 56
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -47907,7 +47907,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_6MTFaceEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_6MTFaceEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -47954,7 +47954,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -48302,7 +48302,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -48334,7 +48334,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 72
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -48343,7 +48343,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5TFaceEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5TFaceEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -48390,7 +48390,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -48711,7 +48711,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -48743,7 +48743,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 56
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -48752,7 +48752,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MVertEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MVertEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -48799,7 +48799,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -49145,7 +49145,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -49177,7 +49177,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 5
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -49186,7 +49186,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MEdgeEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MEdgeEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -49233,7 +49233,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -49565,7 +49565,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -49597,7 +49597,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -49606,7 +49606,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MLoopEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MLoopEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -49653,7 +49653,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -49986,7 +49986,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -50018,7 +50018,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 5
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -50027,7 +50027,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_7MLoopUVEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_7MLoopUVEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -50074,7 +50074,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -50406,7 +50406,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -50438,7 +50438,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -50447,7 +50447,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_8MLoopColEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_8MLoopColEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -50494,7 +50494,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -50827,7 +50827,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -50859,7 +50859,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 5
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -50868,7 +50868,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MPolyEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MPolyEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -50915,7 +50915,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -51247,7 +51247,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -51279,7 +51279,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 5
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -51288,7 +51288,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_8MTexPolyEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_8MTexPolyEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -51335,7 +51335,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -51667,7 +51667,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -51699,7 +51699,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 48
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -51708,7 +51708,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_11MDeformVertEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_11MDeformVertEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -51755,7 +51755,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -52167,7 +52167,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -52199,7 +52199,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -52208,7 +52208,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_4MColEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_4MColEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -52255,7 +52255,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -52484,7 +52484,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %5, i64 40
   %11 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %11, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %11
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -52533,7 +52533,7 @@ for.end:                                          ; preds = %for.body, %_ZN6Assi
   store ptr %add.ptr.i21, ptr %mCurrent.i.i22, align 8
   %mLimit.i.i23 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i23, align 8
-  %cmp.i.i24 = icmp ult ptr %16, %add.ptr.i21
+  %cmp.i.i24 = icmp ugt ptr %add.ptr.i21, %16
   %cmp4.i.i25 = icmp slt i64 %conv5, 0
   %or.cond.i.i26 = or i1 %cmp4.i.i25, %cmp.i.i24
   br i1 %or.cond.i.i26, label %if.then.i.i27, label %return
@@ -52567,7 +52567,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -52576,7 +52576,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -52953,7 +52953,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -53008,7 +53008,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %32, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %32
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -53071,7 +53071,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -53080,7 +53080,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -53424,7 +53424,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -53433,7 +53433,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -54609,7 +54609,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %17 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %17, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %17
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -54641,7 +54641,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %cmp.i.i36 = icmp ult i64 %sub.ptr.div.i.i.i, %div
+  %cmp.i.i36 = icmp ugt i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -54650,7 +54650,7 @@ if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamR
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_13MDeformWeightEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %cmp4.i.i37 = icmp ugt i64 %sub.ptr.div.i.i.i, %div
+  %cmp4.i.i37 = icmp ult i64 %div, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i37, label %if.then5.i.i, label %_ZNK6Assimp7Blender9Structure9_allocateINS0_13MDeformWeightEEEPT_RNS0_6vectorIS4_EERm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -54697,7 +54697,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i49, ptr %mCurrent.i.i50, align 8
   %mLimit.i.i51 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load ptr, ptr %mLimit.i.i51, align 8
-  %cmp.i.i52 = icmp ult ptr %26, %add.ptr.i49
+  %cmp.i.i52 = icmp ugt ptr %add.ptr.i49, %26
   %cmp4.i.i53 = icmp slt i64 %conv15, 0
   %or.cond.i.i54 = or i1 %cmp4.i.i53, %cmp.i.i52
   br i1 %or.cond.i.i54, label %if.then.i.i55, label %for.end.if.end27_crit_edge
@@ -55782,7 +55782,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -55869,7 +55869,7 @@ for.end:                                          ; preds = %_ZNK6Assimp7Blender
   store ptr %add.ptr.i45, ptr %mCurrent.i.i46, align 8
   %mLimit.i.i47 = getelementptr inbounds i8, ptr %35, i64 40
   %37 = load ptr, ptr %mLimit.i.i47, align 8
-  %cmp.i.i48 = icmp ult ptr %37, %add.ptr.i45
+  %cmp.i.i48 = icmp ugt ptr %add.ptr.i45, %37
   %cmp4.i.i49 = icmp slt i64 %conv15, 0
   %or.cond.i.i50 = or i1 %cmp4.i.i49, %cmp.i.i48
   br i1 %or.cond.i.i50, label %if.then.i.i51, label %if.end27
@@ -55932,7 +55932,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -55941,7 +55941,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -56281,7 +56281,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -56290,7 +56290,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -57082,7 +57082,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -57137,7 +57137,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %32, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %32
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -57200,7 +57200,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -57209,7 +57209,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -57551,7 +57551,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -57560,7 +57560,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -58480,7 +58480,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %18, i64 40
   %24 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %24, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %24
   %cmp4.i.i = icmp slt i64 %add, 0
   %or.cond.i.i = or i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
@@ -58535,7 +58535,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   store ptr %add.ptr.i37, ptr %mCurrent.i.i38, align 8
   %mLimit.i.i39 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i.i39, align 8
-  %cmp.i.i40 = icmp ult ptr %32, %add.ptr.i37
+  %cmp.i.i40 = icmp ugt ptr %add.ptr.i37, %32
   %cmp4.i.i41 = icmp slt i64 %conv15, 0
   %or.cond.i.i42 = or i1 %cmp4.i.i41, %cmp.i.i40
   br i1 %or.cond.i.i42, label %if.then.i.i43, label %if.end27
@@ -58598,7 +58598,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -58607,7 +58607,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end23
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -58947,7 +58947,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %4
+  %cmp.i = icmp ugt i64 %4, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -58956,7 +58956,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %4
+  %cmp4.i = icmp ult i64 %4, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -59935,7 +59935,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
 _ZNSt6vectorISt10shared_ptrIN6Assimp7Blender15CustomDataLayerEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6Assimp7Blender15CustomDataLayerEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6Assimp7Blender15CustomDataLayerEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN6Assimp7Blender15CustomDataLayerEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN6Assimp7Blender15CustomDataLayerEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %for.body.i.i.i12
@@ -60104,7 +60104,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -60153,7 +60153,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S6_IMN6Assimp7Blender9StructureEKFSt10shared_ptrINS9_8ElemBaseEEvEMSA_KFvSD_RKNS9_12FileDatabaseEEEESt10_Select1stISM_ESt4lessIS5_ESaISM_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISM_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

@@ -46,11 +46,11 @@ define dso_local void @Curl_dyn_reset(ptr nocapture noundef %0) local_unnamed_ad
 define dso_local range(i32 0, 44) i32 @Curl_dyn_tail(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %2
-  %7 = icmp eq i64 %4, %1
+  %7 = icmp eq i64 %1, %4
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %6
@@ -319,7 +319,7 @@ define dso_local i64 @Curl_dyn_len(ptr nocapture noundef readonly %0) local_unna
 define dso_local range(i32 0, 44) i32 @Curl_dyn_setlen(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2

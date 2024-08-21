@@ -3748,7 +3748,7 @@ define internal fastcc range(i32 0, 3008) i32 @_global_to_local_id(ptr noundef r
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
-  %.not16 = icmp ugt i32 %6, %1
+  %.not16 = icmp ult i32 %1, %6
   br i1 %.not16, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4
@@ -5428,7 +5428,7 @@ define internal fastcc noundef ptr @_get_next_segment(ptr nocapture noundef %0, 
 7:                                                ; preds = %3
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
   %9 = trunc i64 %8 to i32
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %7

@@ -4676,7 +4676,7 @@ land.rhs:                                         ; preds = %_ZN7rocksdb6StatusD
   %5 = load i8, ptr %is_prev_set_, align 8
   %6 = and i8 %5, 1
   %cmp = icmp eq i8 %6, 0
-  %brmerge69 = or i1 %cmp, %seek_to_first
+  %brmerge69 = or i1 %seek_to_first, %cmp
   br i1 %brmerge69, label %if.then23, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
@@ -5583,7 +5583,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit.i:                 ; preds = %if.then237
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit.i, %if.then237
   %file_index_.i = getelementptr inbounds i8, ptr %148, i64 68
   %150 = load i32, ptr %file_index_.i, align 4
-  %cmp.not.i216 = icmp eq i32 %150, %f_idx.0
+  %cmp.not.i216 = icmp eq i32 %f_idx.0, %150
   br i1 %cmp.not.i216, label %if.end242, label %if.then.i217
 
 if.then.i217:                                     ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i
@@ -5889,7 +5889,7 @@ if.else339:                                       ; preds = %for.end335
   %201 = load i64, ptr %size_.i.i.i290, align 8
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 440
   %202 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i292 = icmp ult i64 %202, %201
+  %cmp.i.i.i292 = icmp ugt i64 %201, %202
   br i1 %cmp.i.i.i292, label %if.then.i.i.i295, label %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEb.exit
 
 if.then.i.i.i295:                                 ; preds = %if.else339
@@ -5935,7 +5935,7 @@ lor.lhs.false356:                                 ; preds = %if.else344, %if.the
   %208 = load i8, ptr %async_io, align 1
   %tobool358 = trunc i8 %208 to i1
   %tobool358.not = xor i1 %tobool358, true
-  %brmerge71 = or i1 %tobool358.not, %seek_after_async_io
+  %brmerge71 = or i1 %seek_after_async_io, %tobool358.not
   br i1 %brmerge71, label %if.then361, label %if.end362
 
 if.then361:                                       ; preds = %if.end354, %lor.lhs.false356
@@ -7122,7 +7122,7 @@ if.then55:                                        ; preds = %if.end53.if.then55_
   store i8 0, ptr %is_user_key_.i, align 1
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 440
   %40 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %40, %39
+  %cmp.i.i.i = icmp ugt i64 %39, %40
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEb.exit
 
 if.then.i.i.i:                                    ; preds = %if.then55
@@ -10407,7 +10407,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN7rocksdb19SuperVersionContextESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb19SuperVersionContextESaIS1_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN7rocksdb19SuperVersionContextESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 536
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN7rocksdb19SuperVersionContextESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN7rocksdb19SuperVersionContextESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i12
@@ -11943,7 +11943,7 @@ if.end15:                                         ; preds = %if.end11
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %if.end15
   call void @_ZdaPv(ptr noundef nonnull %13) #21
   %.pre = load i32, ptr %file_index_, align 4
-  %cmp.not.i = icmp eq i32 %.pre, %add
+  %cmp.not.i = icmp eq i32 %add, %.pre
   br i1 %cmp.not.i, label %_ZN7rocksdb20ForwardLevelIterator12SetFileIndexEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end15, %_ZN7rocksdb6StatusD2Ev.exit.i
@@ -12259,7 +12259,7 @@ entry:
   %ref.tmp2.i.i = alloca %"class.rocksdb::Slice", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp27 = icmp sgt i64 %div, %__holeIndex
+  %cmp27 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp27, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry

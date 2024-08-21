@@ -978,7 +978,7 @@ skiptonewline.exit:                               ; preds = %14, %21
 
 24:                                               ; preds = %.lr.ph
   %25 = sext i8 %9 to i32
-  %26 = icmp eq i32 %25, %2
+  %26 = icmp eq i32 %2, %25
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %24

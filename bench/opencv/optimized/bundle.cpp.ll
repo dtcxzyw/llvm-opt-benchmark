@@ -1014,16 +1014,16 @@ _ZN2cvdVIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit:      ; preds = %79
   %87 = load double, ptr %86, align 8, !noalias !63
   %88 = getelementptr inbounds i8, ptr %8, i64 8
   %89 = load double, ptr %88, align 8
-  %90 = fneg double %87
-  %91 = fmul double %89, %90
+  %90 = fneg double %89
+  %91 = fmul double %87, %90
   %92 = tail call double @llvm.fmuladd.f64(double %83, double %85, double %91)
   %93 = load double, ptr %8, align 8
   %94 = load double, ptr %31, align 8, !noalias !63
-  %95 = fneg double %94
-  %96 = fmul double %85, %95
+  %95 = fneg double %85
+  %96 = fmul double %94, %95
   %97 = tail call double @llvm.fmuladd.f64(double %87, double %93, double %96)
-  %98 = fneg double %83
-  %99 = fmul double %93, %98
+  %98 = fneg double %93
+  %99 = fmul double %83, %98
   %100 = tail call double @llvm.fmuladd.f64(double %94, double %89, double %99)
   store double %92, ptr %9, align 8, !alias.scope !63
   %101 = getelementptr inbounds i8, ptr %9, i64 8
@@ -1285,34 +1285,34 @@ _ZNK2cv4usac31RelativePoseJacobianAccumulator21essential_from_motionERKNS0_10Cam
   %220 = add nuw nsw i64 %indvars.iv281, 6
   %221 = getelementptr inbounds [9 x double], ptr %1, i64 0, i64 %220
   %222 = load double, ptr %221, align 8
-  %223 = mul nuw nsw i64 %indvars.iv281, 3
-  br label %224
+  %223 = fneg double %219
+  %224 = fneg double %222
+  %225 = fneg double %216
+  %226 = mul nuw nsw i64 %indvars.iv281, 3
+  br label %227
 
-224:                                              ; preds = %214, %245
-  %225 = phi i1 [ true, %214 ], [ false, %245 ]
+227:                                              ; preds = %214, %245
+  %228 = phi i1 [ true, %214 ], [ false, %245 ]
   %indvars.iv278 = phi i64 [ 0, %214 ], [ 1, %245 ]
-  %226 = select i1 %225, double %89, double %.val241
-  %227 = select i1 %225, double %85, double %.val243
-  %228 = fneg double %227
-  %229 = fmul double %219, %228
-  %230 = tail call double @llvm.fmuladd.f64(double %226, double %222, double %229)
-  %231 = select i1 %225, double %93, double %.val245
-  %232 = fneg double %231
-  %233 = fmul double %222, %232
-  %234 = tail call double @llvm.fmuladd.f64(double %227, double %216, double %233)
-  %235 = fneg double %226
-  %236 = fmul double %216, %235
-  %237 = tail call double @llvm.fmuladd.f64(double %231, double %219, double %236)
-  store double %230, ptr %13, align 8, !alias.scope !74
-  store double %234, ptr %175, align 8, !alias.scope !74
+  %229 = select i1 %228, double %89, double %.val241
+  %230 = select i1 %228, double %85, double %.val243
+  %231 = fmul double %230, %223
+  %232 = tail call double @llvm.fmuladd.f64(double %229, double %222, double %231)
+  %233 = select i1 %228, double %93, double %.val245
+  %234 = fmul double %233, %224
+  %235 = tail call double @llvm.fmuladd.f64(double %230, double %216, double %234)
+  %236 = fmul double %229, %225
+  %237 = tail call double @llvm.fmuladd.f64(double %233, double %219, double %236)
+  store double %232, ptr %13, align 8, !alias.scope !74
+  store double %235, ptr %175, align 8, !alias.scope !74
   store double %237, ptr %176, align 8, !alias.scope !74
   br label %238
 
-238:                                              ; preds = %224, %238
-  %indvars.iv274 = phi i64 [ 0, %224 ], [ %indvars.iv.next275, %238 ]
+238:                                              ; preds = %227, %238
+  %indvars.iv274 = phi i64 [ 0, %227 ], [ %indvars.iv.next275, %238 ]
   %239 = getelementptr inbounds [3 x double], ptr %13, i64 0, i64 %indvars.iv274
   %240 = load double, ptr %239, align 8
-  %241 = add nuw nsw i64 %indvars.iv274, %223
+  %241 = add nuw nsw i64 %indvars.iv274, %226
   %242 = shl nuw nsw i64 %241, 1
   %243 = or disjoint i64 %242, %indvars.iv278
   %244 = getelementptr inbounds [18 x double], ptr %12, i64 0, i64 %243
@@ -1322,7 +1322,7 @@ _ZNK2cv4usac31RelativePoseJacobianAccumulator21essential_from_motionERKNS0_10Cam
   br i1 %exitcond277.not, label %245, label %238, !llvm.loop !77
 
 245:                                              ; preds = %238
-  br i1 %225, label %224, label %246, !llvm.loop !78
+  br i1 %228, label %227, label %246, !llvm.loop !78
 
 246:                                              ; preds = %245
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
@@ -1561,8 +1561,8 @@ _ZN2cvL4normIdLi4ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %.lr.ph.i.i15
   store double 1.000000e+00, ptr %197, align 8
   %351 = fmul double %297, %266
   %352 = tail call double @llvm.fmuladd.f64(double %315, double %256, double %351)
-  %353 = fneg double %327
-  %354 = fmul double %326, %353
+  %353 = fneg double %326
+  %354 = fmul double %327, %353
   %355 = tail call double @llvm.fmuladd.f64(double %354, double %352, double %347)
   store double %355, ptr %24, align 8
   %356 = fmul double %297, %271

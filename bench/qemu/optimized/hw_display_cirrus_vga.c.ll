@@ -659,9 +659,9 @@ if.end:                                           ; preds = %entry
   %. = select i1 %tobool6.not, i32 32, i32 64
   %hw_cursor_y = getelementptr inbounds i8, ptr %s1, i64 2996
   %1 = load i32, ptr %hw_cursor_y, align 4
-  %cmp = icmp ule i32 %1, %scr_y
+  %cmp = icmp uge i32 %scr_y, %1
   %add = add i32 %1, %.
-  %cmp13.not = icmp ugt i32 %add, %scr_y
+  %cmp13.not = icmp ult i32 %scr_y, %add
   %or.cond = and i1 %cmp, %cmp13.not
   br i1 %or.cond, label %if.end16, label %return
 
@@ -2755,7 +2755,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 lor.lhs.false.i.i.i:                              ; preds = %if.then1.i.i.i
   %vram_size.i.i.i = getelementptr inbounds i8, ptr %s, i64 288
   %49 = load i32, ptr %vram_size.i.i.i, align 16
-  %cmp8.not.i.i.not.i = icmp ugt i32 %49, %48
+  %cmp8.not.i.i.not.i = icmp ult i32 %48, %49
   br i1 %cmp8.not.i.i.not.i, label %if.end.i, label %return
 
 blit_is_unsafe.exit.i:                            ; preds = %if.end.i.i.i
@@ -3202,7 +3202,7 @@ if.then1.i.i.i206:                                ; preds = %if.end.i.i.i188
 lor.lhs.false.i.i.i212:                           ; preds = %if.then1.i.i.i206
   %vram_size.i.i.i213 = getelementptr inbounds i8, ptr %s, i64 288
   %111 = load i32, ptr %vram_size.i.i.i213, align 16
-  %cmp8.not.i.i.not.i214 = icmp ugt i32 %111, %110
+  %cmp8.not.i.i.not.i214 = icmp ult i32 %110, %111
   br i1 %cmp8.not.i.i.not.i214, label %if.end.i202, label %bitblt_ignore
 
 blit_is_unsafe.exit.i194:                         ; preds = %if.end.i.i.i188
@@ -3353,7 +3353,7 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 lor.lhs.false.i.i.i.i:                            ; preds = %if.then1.i.i.i.i
   %vram_size.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 288
   %124 = load i32, ptr %vram_size.i.i.i.i, align 16
-  %cmp8.not.i.i.not.i.i = icmp ugt i32 %124, %123
+  %cmp8.not.i.i.not.i.i = icmp ult i32 %123, %124
   br i1 %cmp8.not.i.i.not.i.i, label %if.end12.i.i.i, label %bitblt_ignore
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
@@ -3385,7 +3385,7 @@ if.then1.i28.i.i.i:                               ; preds = %if.end.i10.i.i.i
   %add.i31.i.i.i = sub nsw i64 %conv.i12.i.i.i, %conv4.i.i.i.i
   %sub5.i32.i.i.i = add nsw i64 %add.i31.i.i.i, %mul.i30.i.i.i
   %cmp6.i33.i.i.i = icmp sgt i64 %sub5.i32.i.i.i, -2
-  %cmp8.not.i36.i.i.i = icmp ugt i32 %126, %128
+  %cmp8.not.i36.i.i.i = icmp ult i32 %128, %126
   %or.cond.i.i.i = select i1 %cmp6.i33.i.i.i, i1 %cmp8.not.i36.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.end.i.i235, label %bitblt_ignore
 
@@ -6850,7 +6850,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp637, label %for.body.us, label %for.end29
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -7106,7 +7106,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp654 = icmp slt i32 %and, %bltwidth
+  %cmp654 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp654, label %for.body.us, label %for.end35
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -7377,7 +7377,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   br i1 %cmp637, label %for.body.us, label %for.end29
 
@@ -7645,7 +7645,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp656 = icmp slt i32 %and, %bltwidth
+  %cmp656 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %shr23 = lshr i32 %col.0, 8
   %conv24 = trunc i32 %shr23 to i8
@@ -7938,7 +7938,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   br i1 %cmp637, label %for.body.us, label %for.end29
 
@@ -8208,7 +8208,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp658 = icmp slt i32 %and, %bltwidth
+  %cmp658 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %shr23 = lshr i32 %col.0, 8
   %conv24 = trunc i32 %shr23 to i8
@@ -8496,7 +8496,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp637, label %for.body.us, label %for.end29
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -8756,7 +8756,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp656 = icmp slt i32 %and, %bltwidth
+  %cmp656 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp656, label %for.body.us, label %for.end35
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -9035,7 +9035,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   br i1 %cmp637, label %for.body.us, label %for.end29
 
@@ -9299,7 +9299,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp654 = icmp slt i32 %and, %bltwidth
+  %cmp654 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %shr23 = lshr i32 %col.0, 8
   %conv24 = trunc i32 %shr23 to i8
@@ -9575,7 +9575,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp637, label %for.body.us, label %for.end29
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -9831,7 +9831,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp654 = icmp slt i32 %and, %bltwidth
+  %cmp654 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp654, label %for.body.us, label %for.end35
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -10102,7 +10102,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %not.i = xor i8 %conv21, -1
   br i1 %cmp637, label %for.body.us, label %for.end29
@@ -10372,7 +10372,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp658 = icmp slt i32 %and, %bltwidth
+  %cmp658 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %not.i = xor i8 %conv21, -1
   %shr23 = lshr i32 %col.0, 8
@@ -10663,7 +10663,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   br i1 %cmp637, label %for.body.us, label %for.end29
 
@@ -10931,7 +10931,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp656 = icmp slt i32 %and, %bltwidth
+  %cmp656 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %shr23 = lshr i32 %col.0, 8
   %conv24 = trunc i32 %shr23 to i8
@@ -11218,7 +11218,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   br i1 %cmp637, label %for.body.us, label %for.end29
 
@@ -11486,7 +11486,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp656 = icmp slt i32 %and, %bltwidth
+  %cmp656 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %shr23 = lshr i32 %col.0, 8
   %conv24 = trunc i32 %shr23 to i8
@@ -11773,7 +11773,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   br i1 %cmp637, label %for.body.us, label %for.end29
 
@@ -12043,7 +12043,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp658 = icmp slt i32 %and, %bltwidth
+  %cmp658 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %shr23 = lshr i32 %col.0, 8
   %conv24 = trunc i32 %shr23 to i8
@@ -12334,7 +12334,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   br i1 %cmp637, label %for.body.us, label %for.end29
 
@@ -12604,7 +12604,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp656 = icmp slt i32 %and, %bltwidth
+  %cmp656 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %shr23 = lshr i32 %col.0, 8
   %conv24 = trunc i32 %shr23 to i8
@@ -12895,7 +12895,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   br i1 %cmp637, label %for.body.us, label %for.end29
 
@@ -13165,7 +13165,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp658 = icmp slt i32 %and, %bltwidth
+  %cmp658 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %shr23 = lshr i32 %col.0, 8
   %conv24 = trunc i32 %shr23 to i8
@@ -13456,7 +13456,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %not.i = xor i8 %conv21, -1
   br i1 %cmp637, label %for.body.us, label %for.end29
@@ -13722,7 +13722,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp656 = icmp slt i32 %and, %bltwidth
+  %cmp656 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %not.i = xor i8 %conv21, -1
   %shr23 = lshr i32 %col.0, 8
@@ -14005,7 +14005,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %not.i = xor i8 %conv21, -1
   br i1 %cmp637, label %for.body.us, label %for.end29
@@ -14275,7 +14275,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp658 = icmp slt i32 %and, %bltwidth
+  %cmp658 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %not.i = xor i8 %conv21, -1
   %shr23 = lshr i32 %col.0, 8
@@ -14566,7 +14566,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp637 = icmp slt i32 %and, %bltwidth
+  %cmp637 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   br i1 %cmp637, label %for.body.us, label %for.end29
 
@@ -14836,7 +14836,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp658 = icmp slt i32 %and, %bltwidth
+  %cmp658 = icmp sgt i32 %bltwidth, %and
   %conv21 = trunc i32 %col.0 to i8
   %shr23 = lshr i32 %col.0, 8
   %conv24 = trunc i32 %shr23 to i8
@@ -15114,7 +15114,7 @@ entry:
   br i1 %cmp40, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp635, label %for.body.us, label %for.end25
@@ -15161,7 +15161,7 @@ entry:
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp636 = icmp slt i32 %mul, %bltwidth
+  %cmp636 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp636, label %for.body.us, label %for.end25
@@ -15209,7 +15209,7 @@ entry:
   br i1 %cmp56, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp651 = icmp slt i32 %mul, %bltwidth
+  %cmp651 = icmp sgt i32 %bltwidth, %mul
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp651, label %for.body.us, label %for.end31
@@ -15270,7 +15270,7 @@ entry:
   br i1 %cmp41, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp636 = icmp slt i32 %mul, %bltwidth
+  %cmp636 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp636, label %for.body.us, label %for.end24
@@ -15330,7 +15330,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp635, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -15864,7 +15864,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp635, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -16391,7 +16391,7 @@ entry:
   br i1 %cmp40, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp635, label %for.body.us, label %for.end25
@@ -16440,7 +16440,7 @@ entry:
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp636 = icmp slt i32 %mul, %bltwidth
+  %cmp636 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp636, label %for.body.us, label %for.end25
@@ -16490,7 +16490,7 @@ entry:
   br i1 %cmp58, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp653 = icmp slt i32 %mul, %bltwidth
+  %cmp653 = icmp sgt i32 %bltwidth, %mul
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp653, label %for.body.us, label %for.end31
@@ -16557,7 +16557,7 @@ entry:
   br i1 %cmp41, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp636 = icmp slt i32 %mul, %bltwidth
+  %cmp636 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp636, label %for.body.us, label %for.end24
@@ -16619,7 +16619,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp635, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -17128,7 +17128,7 @@ entry:
   br i1 %cmp40, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp635, label %for.body.us, label %for.end25
@@ -17175,7 +17175,7 @@ entry:
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp636 = icmp slt i32 %mul, %bltwidth
+  %cmp636 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp636, label %for.body.us, label %for.end25
@@ -17223,7 +17223,7 @@ entry:
   br i1 %cmp56, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp651 = icmp slt i32 %mul, %bltwidth
+  %cmp651 = icmp sgt i32 %bltwidth, %mul
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp651, label %for.body.us, label %for.end31
@@ -17284,7 +17284,7 @@ entry:
   br i1 %cmp41, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp636 = icmp slt i32 %mul, %bltwidth
+  %cmp636 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp636, label %for.body.us, label %for.end24
@@ -17344,7 +17344,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp635, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -17884,7 +17884,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp635, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -18418,7 +18418,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp635, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -18952,7 +18952,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp635, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -19492,7 +19492,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp635, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -20032,7 +20032,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp635, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -20572,7 +20572,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp635, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -21100,7 +21100,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp635, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -21640,7 +21640,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
-  %cmp635 = icmp slt i32 %and, %bltwidth
+  %cmp635 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp635, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -22177,7 +22177,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -22377,7 +22377,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp836 = icmp slt i32 %and, %bltwidth
+  %cmp836 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp836, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -22592,7 +22592,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
@@ -22804,7 +22804,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp838 = icmp slt i32 %and, %bltwidth
+  %cmp838 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %shr16 = lshr i32 %col.0, 8
   %conv17 = trunc i32 %shr16 to i8
@@ -23035,7 +23035,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
@@ -23249,7 +23249,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp840 = icmp slt i32 %and, %bltwidth
+  %cmp840 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %shr16 = lshr i32 %col.0, 8
   %conv17 = trunc i32 %shr16 to i8
@@ -23481,7 +23481,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -23685,7 +23685,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp838 = icmp slt i32 %and, %bltwidth
+  %cmp838 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp838, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -23908,7 +23908,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
@@ -24116,7 +24116,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp836 = icmp slt i32 %and, %bltwidth
+  %cmp836 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %shr16 = lshr i32 %col.0, 8
   %conv17 = trunc i32 %shr16 to i8
@@ -24336,7 +24336,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -24536,7 +24536,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp836 = icmp slt i32 %and, %bltwidth
+  %cmp836 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp836, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -24751,7 +24751,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %not.i = xor i8 %conv14, -1
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
@@ -24965,7 +24965,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp840 = icmp slt i32 %and, %bltwidth
+  %cmp840 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %not.i = xor i8 %conv14, -1
   %shr16 = lshr i32 %col.0, 8
@@ -25200,7 +25200,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
@@ -25412,7 +25412,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp838 = icmp slt i32 %and, %bltwidth
+  %cmp838 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %shr16 = lshr i32 %col.0, 8
   %conv17 = trunc i32 %shr16 to i8
@@ -25643,7 +25643,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
@@ -25855,7 +25855,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp838 = icmp slt i32 %and, %bltwidth
+  %cmp838 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %shr16 = lshr i32 %col.0, 8
   %conv17 = trunc i32 %shr16 to i8
@@ -26086,7 +26086,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
@@ -26300,7 +26300,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp840 = icmp slt i32 %and, %bltwidth
+  %cmp840 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %shr16 = lshr i32 %col.0, 8
   %conv17 = trunc i32 %shr16 to i8
@@ -26535,7 +26535,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
@@ -26749,7 +26749,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp838 = icmp slt i32 %and, %bltwidth
+  %cmp838 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %shr16 = lshr i32 %col.0, 8
   %conv17 = trunc i32 %shr16 to i8
@@ -26984,7 +26984,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
@@ -27198,7 +27198,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp840 = icmp slt i32 %and, %bltwidth
+  %cmp840 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %shr16 = lshr i32 %col.0, 8
   %conv17 = trunc i32 %shr16 to i8
@@ -27433,7 +27433,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %not.i = xor i8 %conv14, -1
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
@@ -27643,7 +27643,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp838 = icmp slt i32 %and, %bltwidth
+  %cmp838 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %not.i = xor i8 %conv14, -1
   %shr16 = lshr i32 %col.0, 8
@@ -27870,7 +27870,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %not.i = xor i8 %conv14, -1
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
@@ -28084,7 +28084,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp840 = icmp slt i32 %and, %bltwidth
+  %cmp840 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %not.i = xor i8 %conv14, -1
   %shr16 = lshr i32 %col.0, 8
@@ -28319,7 +28319,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp819 = icmp slt i32 %and, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
@@ -28533,7 +28533,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
-  %cmp840 = icmp slt i32 %and, %bltwidth
+  %cmp840 = icmp sgt i32 %bltwidth, %and
   %conv14 = trunc i32 %col.0 to i8
   %shr16 = lshr i32 %col.0, 8
   %conv17 = trunc i32 %shr16 to i8
@@ -28755,7 +28755,7 @@ entry:
   br i1 %cmp23, label %cirrus_src.exit.lr.ph, label %for.end22
 
 cirrus_src.exit.lr.ph:                            ; preds = %entry
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp818, label %cirrus_src.exit.us, label %for.end22
@@ -28802,7 +28802,7 @@ entry:
   br i1 %cmp24, label %cirrus_src.exit.lr.ph, label %for.end22
 
 cirrus_src.exit.lr.ph:                            ; preds = %entry
-  %cmp819 = icmp slt i32 %mul, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp819, label %cirrus_src.exit.us, label %for.end22
@@ -28850,7 +28850,7 @@ entry:
   br i1 %cmp39, label %cirrus_src.exit.lr.ph, label %for.end28
 
 cirrus_src.exit.lr.ph:                            ; preds = %entry
-  %cmp834 = icmp slt i32 %mul, %bltwidth
+  %cmp834 = icmp sgt i32 %bltwidth, %mul
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp834, label %cirrus_src.exit.us, label %for.end28
@@ -28911,7 +28911,7 @@ entry:
   br i1 %cmp24, label %cirrus_src.exit.lr.ph, label %for.end21
 
 cirrus_src.exit.lr.ph:                            ; preds = %entry
-  %cmp819 = icmp slt i32 %mul, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp819, label %cirrus_src.exit.us, label %for.end21
@@ -28971,7 +28971,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -29393,7 +29393,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -29808,7 +29808,7 @@ entry:
   br i1 %cmp23, label %cirrus_src.exit.lr.ph, label %for.end22
 
 cirrus_src.exit.lr.ph:                            ; preds = %entry
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp818, label %cirrus_src.exit.us, label %for.end22
@@ -29857,7 +29857,7 @@ entry:
   br i1 %cmp24, label %cirrus_src.exit.lr.ph, label %for.end22
 
 cirrus_src.exit.lr.ph:                            ; preds = %entry
-  %cmp819 = icmp slt i32 %mul, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp819, label %cirrus_src.exit.us, label %for.end22
@@ -29907,7 +29907,7 @@ entry:
   br i1 %cmp41, label %cirrus_src.exit.lr.ph, label %for.end28
 
 cirrus_src.exit.lr.ph:                            ; preds = %entry
-  %cmp836 = icmp slt i32 %mul, %bltwidth
+  %cmp836 = icmp sgt i32 %bltwidth, %mul
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp836, label %cirrus_src.exit.us, label %for.end28
@@ -29974,7 +29974,7 @@ entry:
   br i1 %cmp24, label %cirrus_src.exit.lr.ph, label %for.end21
 
 cirrus_src.exit.lr.ph:                            ; preds = %entry
-  %cmp819 = icmp slt i32 %mul, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp819, label %cirrus_src.exit.us, label %for.end21
@@ -30036,7 +30036,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -30433,7 +30433,7 @@ entry:
   br i1 %cmp23, label %cirrus_src.exit.lr.ph, label %for.end22
 
 cirrus_src.exit.lr.ph:                            ; preds = %entry
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp818, label %cirrus_src.exit.us, label %for.end22
@@ -30480,7 +30480,7 @@ entry:
   br i1 %cmp24, label %cirrus_src.exit.lr.ph, label %for.end22
 
 cirrus_src.exit.lr.ph:                            ; preds = %entry
-  %cmp819 = icmp slt i32 %mul, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp819, label %cirrus_src.exit.us, label %for.end22
@@ -30528,7 +30528,7 @@ entry:
   br i1 %cmp39, label %cirrus_src.exit.lr.ph, label %for.end28
 
 cirrus_src.exit.lr.ph:                            ; preds = %entry
-  %cmp834 = icmp slt i32 %mul, %bltwidth
+  %cmp834 = icmp sgt i32 %bltwidth, %mul
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp834, label %cirrus_src.exit.us, label %for.end28
@@ -30589,7 +30589,7 @@ entry:
   br i1 %cmp24, label %cirrus_src.exit.lr.ph, label %for.end21
 
 cirrus_src.exit.lr.ph:                            ; preds = %entry
-  %cmp819 = icmp slt i32 %mul, %bltwidth
+  %cmp819 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp819, label %cirrus_src.exit.us, label %for.end21
@@ -30649,7 +30649,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -31077,7 +31077,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -31499,7 +31499,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -31921,7 +31921,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -32349,7 +32349,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -32777,7 +32777,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -33205,7 +33205,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -33621,7 +33621,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -34049,7 +34049,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
-  %cmp818 = icmp slt i32 %and, %bltwidth
+  %cmp818 = icmp sgt i32 %bltwidth, %and
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -34464,7 +34464,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us, label %for.end20
@@ -34511,7 +34511,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us, label %for.end20
@@ -34558,7 +34558,7 @@ entry:
   br i1 %cmp79, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp574 = icmp slt i32 %and, %bltwidth
+  %cmp574 = icmp sgt i32 %bltwidth, %and
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp574, label %for.body.us, label %for.end33
@@ -34619,7 +34619,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us, label %for.end18
@@ -34666,7 +34666,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -34754,7 +34754,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -34843,7 +34843,7 @@ entry:
   br i1 %cmp90, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp585 = icmp slt i32 %and, %bltwidth
+  %cmp585 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -34970,7 +34970,7 @@ entry:
   br i1 %cmp22, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp617 = icmp slt i32 %mul, %bltwidth
+  %cmp617 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -35059,7 +35059,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -35148,7 +35148,7 @@ entry:
   br i1 %cmp22, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp617 = icmp slt i32 %mul, %bltwidth
+  %cmp617 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -35238,7 +35238,7 @@ entry:
   br i1 %cmp92, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp587 = icmp slt i32 %and, %bltwidth
+  %cmp587 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -35368,7 +35368,7 @@ entry:
   br i1 %cmp22, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp617 = icmp slt i32 %mul, %bltwidth
+  %cmp617 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -35458,7 +35458,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us, label %for.end20
@@ -35507,7 +35507,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us, label %for.end20
@@ -35556,7 +35556,7 @@ entry:
   br i1 %cmp81, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp576 = icmp slt i32 %and, %bltwidth
+  %cmp576 = icmp sgt i32 %bltwidth, %and
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp576, label %for.body.us, label %for.end33
@@ -35623,7 +35623,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us, label %for.end18
@@ -35672,7 +35672,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -35758,7 +35758,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -35845,7 +35845,7 @@ entry:
   br i1 %cmp88, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp583 = icmp slt i32 %and, %bltwidth
+  %cmp583 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -35966,7 +35966,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -36053,7 +36053,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us, label %for.end20
@@ -36100,7 +36100,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us, label %for.end20
@@ -36147,7 +36147,7 @@ entry:
   br i1 %cmp79, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp574 = icmp slt i32 %and, %bltwidth
+  %cmp574 = icmp sgt i32 %bltwidth, %and
   %2 = getelementptr i8, ptr %s, i64 8
   %3 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp574, label %for.body.us, label %for.end33
@@ -36208,7 +36208,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %3 = getelementptr i8, ptr %s, i64 8
   %4 = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us, label %for.end18
@@ -36255,7 +36255,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -36344,7 +36344,7 @@ entry:
   br i1 %cmp22, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp617 = icmp slt i32 %mul, %bltwidth
+  %cmp617 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -36434,7 +36434,7 @@ entry:
   br i1 %cmp92, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp587 = icmp slt i32 %and, %bltwidth
+  %cmp587 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -36564,7 +36564,7 @@ entry:
   br i1 %cmp22, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp617 = icmp slt i32 %mul, %bltwidth
+  %cmp617 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -36654,7 +36654,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -36742,7 +36742,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -36831,7 +36831,7 @@ entry:
   br i1 %cmp90, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp585 = icmp slt i32 %and, %bltwidth
+  %cmp585 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -36958,7 +36958,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -37047,7 +37047,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -37135,7 +37135,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -37224,7 +37224,7 @@ entry:
   br i1 %cmp90, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp585 = icmp slt i32 %and, %bltwidth
+  %cmp585 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -37351,7 +37351,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -37440,7 +37440,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -37529,7 +37529,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -37619,7 +37619,7 @@ entry:
   br i1 %cmp92, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp587 = icmp slt i32 %and, %bltwidth
+  %cmp587 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -37749,7 +37749,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -37839,7 +37839,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -37928,7 +37928,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -38018,7 +38018,7 @@ entry:
   br i1 %cmp90, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp585 = icmp slt i32 %and, %bltwidth
+  %cmp585 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -38148,7 +38148,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -38238,7 +38238,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -38327,7 +38327,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -38417,7 +38417,7 @@ entry:
   br i1 %cmp92, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp587 = icmp slt i32 %and, %bltwidth
+  %cmp587 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -38547,7 +38547,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -38637,7 +38637,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -38724,7 +38724,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -38812,7 +38812,7 @@ entry:
   br i1 %cmp90, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp585 = icmp slt i32 %and, %bltwidth
+  %cmp585 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -38936,7 +38936,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -39024,7 +39024,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -39113,7 +39113,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -39203,7 +39203,7 @@ entry:
   br i1 %cmp92, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp587 = icmp slt i32 %and, %bltwidth
+  %cmp587 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -39333,7 +39333,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -39423,7 +39423,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %and, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -39512,7 +39512,7 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp616 = icmp slt i32 %mul, %bltwidth
+  %cmp616 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -39602,7 +39602,7 @@ entry:
   br i1 %cmp92, label %for.body.lr.ph, label %for.end33
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp587 = icmp slt i32 %and, %bltwidth
+  %cmp587 = icmp sgt i32 %bltwidth, %and
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -39732,7 +39732,7 @@ entry:
   br i1 %cmp22, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cmp617 = icmp slt i32 %mul, %bltwidth
+  %cmp617 = icmp sgt i32 %bltwidth, %mul
   %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
   %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
@@ -46834,7 +46834,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 lor.lhs.false.i.i:                                ; preds = %if.then1.i.i
   %vram_size.i.i = getelementptr inbounds i8, ptr %s, i64 288
   %8 = load i32, ptr %vram_size.i.i, align 16
-  %cmp8.not.i.i.not = icmp ugt i32 %8, %7
+  %cmp8.not.i.i.not = icmp ult i32 %7, %8
   br i1 %cmp8.not.i.i.not, label %if.end11, label %return
 
 blit_is_unsafe.exit:                              ; preds = %if.end.i.i
@@ -48949,7 +48949,7 @@ entry:
   %cirrus_addr_mask = getelementptr inbounds i8, ptr %opaque, i64 70576
   %0 = load i32, ptr %cirrus_addr_mask, align 16
   %conv = zext i32 %0 to i64
-  %and = and i64 %conv, %addr
+  %and = and i64 %addr, %conv
   %arrayidx = getelementptr i8, ptr %opaque, i64 616
   %1 = load i8, ptr %arrayidx, align 1
   %2 = and i8 %1, 68
@@ -49010,7 +49010,7 @@ entry:
   %cirrus_addr_mask = getelementptr inbounds i8, ptr %opaque, i64 70576
   %0 = load i32, ptr %cirrus_addr_mask, align 16
   %conv = zext i32 %0 to i64
-  %and = and i64 %conv, %addr
+  %and = and i64 %addr, %conv
   %arrayidx = getelementptr i8, ptr %opaque, i64 616
   %1 = load i8, ptr %arrayidx, align 1
   %2 = and i8 %1, 68

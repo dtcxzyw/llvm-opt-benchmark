@@ -32784,7 +32784,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17he78cc5678
   tail call void @llvm.assume(i1 %11)
   %12 = sub nuw i64 -9223372036854775808, %1
   %13 = udiv i64 %12, %0
-  %14 = icmp ult i64 %13, %2
+  %14 = icmp ugt i64 %2, %13
   br i1 %14, label %15, label %5
 
 15:                                               ; preds = %9, %5
@@ -32926,7 +32926,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within1
   %10 = extractvalue { i64, i64 } %8, 1
   %11 = sub i64 %10, %9
   %12 = sub i64 %1, %11
-  %.not = icmp ult i64 %12, %4
+  %.not = icmp ugt i64 %4, %12
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %6
@@ -49157,8 +49157,8 @@ define internal fastcc { i32, i32 } @"_ZN9regalloc23ion5moves63_$LT$impl$u20$reg
   %.val3.i = load i32, ptr %59, align 4, !noalias !19064, !noundef !4
   %60 = getelementptr i8, ptr %56, i64 12
   %.val4.i = load i32, ptr %60, align 4, !noalias !19064
-  %61 = icmp eq i32 %46, %.val3.i
-  %62 = icmp eq i32 %46, %.val4.i
+  %61 = icmp eq i32 %.val3.i, %46
+  %62 = icmp eq i32 %.val4.i, %46
   %.0.i5.i = select i1 %61, i1 true, i1 %62
   br i1 %.0.i5.i, label %.backedge, label %55
 }
@@ -49499,7 +49499,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc
   %117 = icmp ugt i64 %116, 16
   %.val.i72 = load i64, ptr %73, align 8, !alias.scope !19177, !noalias !19180
   %118 = select i1 %117, i64 %.val.i72, i64 %116
-  %119 = icmp ugt i64 %118, %.011.i
+  %119 = icmp ult i64 %.011.i, %118
   br i1 %119, label %120, label %.invoke, !prof !5
 
 120:                                              ; preds = %111
@@ -49533,7 +49533,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc
   %135 = icmp ugt i64 %134, 16
   %136 = load i64, ptr %82, align 8, !alias.scope !19192, !noalias !19197
   %.sink4.i.i = select i1 %135, i64 %136, i64 %134
-  %137 = icmp ugt i64 %.sink4.i.i, %133
+  %137 = icmp ult i64 %133, %.sink4.i.i
   br i1 %137, label %138, label %.invoke, !prof !5
 
 138:                                              ; preds = %128
@@ -49548,7 +49548,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc
   %144 = icmp ugt i64 %143, 16
   %145 = load i64, ptr %73, align 8, !noalias !4
   %.sink4.i.i79 = select i1 %144, i64 %145, i64 %143
-  %146 = icmp ugt i64 %.sink4.i.i79, %140
+  %146 = icmp ult i64 %140, %.sink4.i.i79
   br i1 %146, label %147, label %.invoke, !prof !5
 
 147:                                              ; preds = %142
@@ -49567,7 +49567,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc
   %153 = icmp ugt i64 %152, 16
   %154 = load i64, ptr %17, align 8, !alias.scope !19200, !noalias !19205
   %.sink4.i.i82 = select i1 %153, i64 %154, i64 %152
-  %155 = icmp ugt i64 %.sink4.i.i82, %133
+  %155 = icmp ult i64 %133, %.sink4.i.i82
   br i1 %155, label %272, label %.invoke, !prof !5
 
 156:                                              ; preds = %147
@@ -49594,7 +49594,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i94: ; preds = %.noexc96
   br label %165
 
 163:                                              ; preds = %147
-  %164 = icmp ugt i64 %.sink4.i.i79, %133
+  %164 = icmp ult i64 %133, %.sink4.i.i79
   br i1 %164, label %177, label %.invoke, !prof !5
 
 165:                                              ; preds = %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i94, %156
@@ -49610,7 +49610,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i94: ; preds = %.noexc96
   %171 = icmp ugt i64 %170, 16
   %.val.i104 = load i64, ptr %73, align 8, !alias.scope !19211, !noalias !19214
   %172 = select i1 %171, i64 %.val.i104, i64 %170
-  %173 = icmp ugt i64 %172, %140
+  %173 = icmp ult i64 %140, %172
   br i1 %173, label %174, label %.invoke, !prof !5
 
 174:                                              ; preds = %165
@@ -49640,7 +49640,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i94: ; preds = %.noexc96
   %187 = icmp ugt i64 %186, 16
   %188 = load i64, ptr %17, align 8, !alias.scope !19229, !noalias !19234
   %.sink4.i.i111 = select i1 %187, i64 %188, i64 %186
-  %189 = icmp ugt i64 %.sink4.i.i111, %133
+  %189 = icmp ult i64 %133, %.sink4.i.i111
   br i1 %189, label %190, label %.invoke, !prof !5
 
 190:                                              ; preds = %185
@@ -49716,7 +49716,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i120: ; preds = %.noexc122
   %225 = icmp ugt i64 %224, 16
   %.val.i130 = load i64, ptr %73, align 8, !alias.scope !19255, !noalias !19258
   %226 = select i1 %225, i64 %.val.i130, i64 %224
-  %227 = icmp ugt i64 %226, %223
+  %227 = icmp ult i64 %223, %226
   br i1 %227, label %228, label %.invoke, !prof !5
 
 228:                                              ; preds = %219
@@ -49729,7 +49729,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i120: ; preds = %.noexc122
   %232 = icmp ugt i64 %231, 16
   %233 = load i64, ptr %17, align 8, !alias.scope !19265, !noalias !19270
   %.sink4.i.i134 = select i1 %232, i64 %233, i64 %231
-  %234 = icmp ugt i64 %.sink4.i.i134, %223
+  %234 = icmp ult i64 %223, %.sink4.i.i134
   br i1 %234, label %235, label %.invoke, !prof !5
 
 235:                                              ; preds = %228
@@ -49874,7 +49874,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i165: ; preds = %.noexc167
   %290 = icmp ugt i64 %289, 16
   %.val.i171 = load i64, ptr %73, align 8, !alias.scope !19303, !noalias !19306
   %291 = select i1 %290, i64 %.val.i171, i64 %289
-  %292 = icmp ugt i64 %291, %133
+  %292 = icmp ult i64 %133, %291
   br i1 %292, label %293, label %.invoke, !prof !5
 
 293:                                              ; preds = %284
@@ -49918,7 +49918,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i165: ; preds = %.noexc167
   %313 = icmp ugt i64 %312, 16
   %314 = load i64, ptr %17, align 8, !alias.scope !19324, !noalias !19329
   %.sink4.i.i185 = select i1 %313, i64 %314, i64 %312
-  %315 = icmp ugt i64 %.sink4.i.i185, %311
+  %315 = icmp ult i64 %311, %.sink4.i.i185
   br i1 %315, label %316, label %.invoke, !prof !5
 
 316:                                              ; preds = %.lr.ph
@@ -49983,7 +49983,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i194: ; preds = %.noexc196
   %336 = icmp ugt i64 %335, 16
   %.val.i200 = load i64, ptr %73, align 8, !alias.scope !19342, !noalias !19345
   %337 = select i1 %336, i64 %.val.i200, i64 %335
-  %338 = icmp ugt i64 %337, %311
+  %338 = icmp ult i64 %311, %337
   br i1 %338, label %342, label %.invoke, !prof !5
 
 .invoke:                                          ; preds = %111, %284, %185, %165, %163, %151, %142, %128, %228, %219, %330, %.lr.ph
@@ -52304,7 +52304,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph9inst_args17h25714fd5553fa2b9E.exit.
   %57 = getelementptr inbounds i8, ptr %48, i64 136
   %58 = tail call { ptr, i64 } @_ZN17cranelift_codegen2ir12instructions15InstructionData9arguments17h7f504047c7342d24E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %56, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %57), !noalias !19965
   %59 = extractvalue { ptr, i64 } %58, 1
-  %60 = icmp ugt i64 %59, %1
+  %60 = icmp ult i64 %1, %59
   br i1 %60, label %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$17put_input_in_regs17h406b51dbc0d40e6aE.exit.i", label %61, !prof !5
 
 61:                                               ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9inst_args17h25714fd5553fa2b9E.exit.i.i
@@ -52971,7 +52971,7 @@ _ZN17cranelift_codegen8machinst3abi6SigSet26have_abi_sig_for_signature17heefaa92
   %164 = sext i16 %sext.i to i64
   %.0.i61 = add nsw i64 %162, %164
   store i64 %.0.i61, ptr %21, align 8
-  %165 = icmp eq i64 %.0.i61, %6
+  %165 = icmp eq i64 %6, %.0.i61
   br i1 %165, label %167, label %166
 
 166:                                              ; preds = %161
@@ -53595,7 +53595,7 @@ _ZN17cranelift_codegen3isa3x645lower13matches_input17h33f749b6ac7a86caE.exit53: 
 
 "_ZN17cranelift_codegen3isa3x644inst4args81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$GT$10with_flags17h5108a0cfd50b1b16E.exit58": ; preds = %109
   %112 = trunc i64 %110 to i32
-  %113 = add i32 %112, %4
+  %113 = add i32 %4, %112
   %114 = xor i64 %.sroa.0.079, 1
   %115 = getelementptr inbounds [2 x { i64, i32, [1 x i32] }], ptr %11, i64 0, i64 %114
   %116 = load i64, ptr %115, align 8, !noundef !4

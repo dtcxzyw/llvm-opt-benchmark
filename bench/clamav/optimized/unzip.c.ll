@@ -2219,7 +2219,7 @@ define i32 @unzip_single_internal(ptr noundef %0, i64 noundef %1, ptr nocapture 
   %10 = sub i64 %9, %1
   %11 = trunc i64 %10 to i32
   %12 = icmp sgt i64 %1, -1
-  %13 = icmp uge i64 %9, %1
+  %13 = icmp ule i64 %1, %9
   %.not = icmp ult i64 %10, 4294967296
   %14 = and i1 %13, %.not
   %or.cond17 = select i1 %12, i1 %14, i1 false
@@ -2264,7 +2264,7 @@ define i32 @cli_unzip_single(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   %9 = sub i64 %8, %1
   %10 = trunc i64 %9 to i32
   %11 = icmp sgt i64 %1, -1
-  %12 = icmp uge i64 %8, %1
+  %12 = icmp ule i64 %1, %8
   %.not.i = icmp ult i64 %9, 4294967296
   %13 = and i1 %12, %.not.i
   %or.cond17.i = select i1 %11, i1 %13, i1 false

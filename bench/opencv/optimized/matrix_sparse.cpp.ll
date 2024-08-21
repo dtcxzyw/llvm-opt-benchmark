@@ -509,7 +509,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -592,7 +592,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -755,7 +755,7 @@ define void @_ZN2cv9SparseMat6createEiPKii(ptr nocapture noundef nonnull align 8
 
 ._crit_edge62:                                    ; preds = %48
   %54 = trunc nuw nsw i64 %indvars.iv68 to i32
-  %55 = icmp eq i32 %54, %1
+  %55 = icmp eq i32 %1, %54
   br i1 %55, label %._crit_edge62.thread, label %56
 
 ._crit_edge62.thread:                             ; preds = %53, %._crit_edge62
@@ -764,7 +764,7 @@ define void @_ZN2cv9SparseMat6createEiPKii(ptr nocapture noundef nonnull align 8
 
 56:                                               ; preds = %._crit_edge62, %44, %40, %36
   %57 = getelementptr inbounds i8, ptr %35, i64 88
-  %58 = icmp eq ptr %57, %2
+  %58 = icmp eq ptr %2, %57
   br i1 %58, label %.lr.ph66.preheader, label %.loopexit
 
 .lr.ph66.preheader:                               ; preds = %56
@@ -1044,7 +1044,7 @@ _ZN2cv9SparseMat7releaseEv.exit:                  ; preds = %8, %11, %14, %_ZN2c
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv9SparseMataSERKNS_3MatE(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::SparseMat", align 8
   call void @_ZN2cv9SparseMatC1ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(96) %1)
-  %.not.i = icmp eq ptr %3, %0
+  %.not.i = icmp eq ptr %0, %3
   br i1 %.not.i, label %_ZN2cv9SparseMataSERKS0_.exit, label %4
 
 4:                                                ; preds = %2
@@ -1222,7 +1222,7 @@ define void @_ZNK2cv9SparseMat9convertToERS0_id(ptr noundef nonnull align 8 dere
           to label %30 unwind label %53
 
 30:                                               ; preds = %29
-  %.not.i = icmp eq ptr %9, %1
+  %.not.i = icmp eq ptr %1, %9
   br i1 %.not.i, label %_ZN2cv9SparseMataSERKS0_.exit, label %31
 
 31:                                               ; preds = %30

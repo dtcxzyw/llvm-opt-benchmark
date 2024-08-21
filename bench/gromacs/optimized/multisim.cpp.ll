@@ -1201,7 +1201,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 define noundef zeroext i1 @_Z24findIsSimulationMainRankPK14gmx_multisim_tP10tmpi_comm_(ptr nocapture noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   %4 = load ptr, ptr @TMPI_COMM_WORLD, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   %or.cond = select i1 %3, i1 true, i1 %5
   br i1 %or.cond, label %7, label %6
 

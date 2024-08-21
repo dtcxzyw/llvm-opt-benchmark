@@ -4992,7 +4992,7 @@ if.then.i:                                        ; preds = %entry
 
 type_dealloc_common.exit:                         ; preds = %entry, %if.then.i
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i9.not.i = icmp eq ptr %1, %interp
+  %cmp.i9.not.i = icmp eq ptr %interp, %1
   br i1 %cmp.i9.not.i, label %do.body.i, label %if.end2.i
 
 do.body.i:                                        ; preds = %type_dealloc_common.exit
@@ -5089,7 +5089,7 @@ if.then.i13.i:                                    ; preds = %clear_tp_dict.exit.
   %interp.i.i14.i = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %interp.i.i14.i, align 8
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i17.not.i.i = icmp eq ptr %21, %20
+  %cmp.i17.not.i.i = icmp eq ptr %20, %21
   br i1 %cmp.i17.not.i.i, label %if.then3.i.i, label %clear_tp_bases.exit.i
 
 if.then3.i.i:                                     ; preds = %if.then.i13.i
@@ -5160,7 +5160,7 @@ if.then.i22.i:                                    ; preds = %clear_tp_bases.exit
   %interp.i.i23.i = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load ptr, ptr %interp.i.i23.i, align 8
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i17.not.i24.i = icmp eq ptr %33, %32
+  %cmp.i17.not.i24.i = icmp eq ptr %32, %33
   br i1 %cmp.i17.not.i24.i, label %if.then3.i25.i, label %clear_tp_mro.exit.i
 
 if.then3.i25.i:                                   ; preds = %if.then.i22.i
@@ -5281,7 +5281,7 @@ do.end11.sink.split.i.i.i:                        ; preds = %if.end.i.i.i.i, %if
 
 clear_static_type_objects.exit:                   ; preds = %lookup_tp_subclasses.exit.i.i, %lookup_tp_subclasses.exit.thread.i.i, %if.then2.i.i.i, %if.end.i15.i.i.i, %if.then9.i.i.i, %if.end.i.i.i.i, %do.end11.sink.split.i.i.i
   %51 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not = icmp eq ptr %51, %interp
+  %cmp.i.not = icmp eq ptr %interp, %51
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %clear_static_type_objects.exit
@@ -5302,7 +5302,7 @@ if.end:                                           ; preds = %if.then, %clear_sta
   %arrayidx.i.i = getelementptr [200 x %struct.static_builtin_state], ptr %builtins.i.i, i64 0, i64 %sub.i.i.i
   store ptr null, ptr %arrayidx.i.i, align 8
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not.i = icmp eq ptr %55, %interp
+  %cmp.i.not.i = icmp eq ptr %interp, %55
   br i1 %cmp.i.not.i, label %if.then.i11, label %static_builtin_state_clear.exit
 
 if.then.i11:                                      ; preds = %if.end
@@ -9137,7 +9137,7 @@ if.then.i39:                                      ; preds = %type_ready_set_type
   %interp.i.i40 = getelementptr inbounds i8, ptr %35, i64 16
   %36 = load ptr, ptr %interp.i.i40, align 8
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not.i = icmp eq ptr %37, %36
+  %cmp.i.not.i = icmp eq ptr %36, %37
   br i1 %cmp.i.not.i, label %if.end4.i42, label %if.then.i54
 
 if.end4.i42:                                      ; preds = %if.then.i39, %type_ready_set_type.exit
@@ -9199,7 +9199,7 @@ if.then.i54:                                      ; preds = %if.end16.if.then.i5
   %43 = load ptr, ptr %.pre-phi, align 8
   %interp.i = getelementptr inbounds i8, ptr %43, i64 16
   %44 = load ptr, ptr %interp.i, align 8
-  %cmp.i172.not = icmp eq ptr %41, %44
+  %cmp.i172.not = icmp eq ptr %44, %41
   br i1 %cmp.i172.not, label %if.end4.i57, label %if.end20
 
 if.end4.i57:                                      ; preds = %if.then.i54, %if.end16
@@ -10173,7 +10173,7 @@ return:                                           ; preds = %if.end.i146, %if.th
 define hidden range(i32 -1, 1) i32 @_PyStaticType_InitBuiltin(ptr noundef %interp, ptr noundef %self) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i = icmp ne ptr %0, %interp
+  %cmp.i = icmp ne ptr %interp, %0
   %tp_flags = getelementptr inbounds i8, ptr %self, i64 168
   %1 = load i64, ptr %tp_flags, align 8
   %and = and i64 %1, 4096
@@ -10230,7 +10230,7 @@ if.then8:                                         ; preds = %static_builtin_stat
   %arrayidx.i.i14 = getelementptr [200 x %struct.static_builtin_state], ptr %builtins.i.i, i64 0, i64 %sub.i.i.i13
   store ptr null, ptr %arrayidx.i.i14, align 8
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not.i15 = icmp eq ptr %10, %interp
+  %cmp.i.not.i15 = icmp eq ptr %interp, %10
   br i1 %cmp.i.not.i15, label %if.then.i17, label %static_builtin_state_clear.exit
 
 if.then.i17:                                      ; preds = %if.then8
@@ -10936,7 +10936,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %add.i = add nuw nsw i64 %i.0.i, 1
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %i.0.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %cmp3.i = icmp eq ptr %3, %su_type
+  %cmp3.i = icmp eq ptr %su_type, %3
   br i1 %cmp3.i, label %if.end9.i, label %for.cond.i, !llvm.loop !41
 
 if.end9.i:                                        ; preds = %for.body.i

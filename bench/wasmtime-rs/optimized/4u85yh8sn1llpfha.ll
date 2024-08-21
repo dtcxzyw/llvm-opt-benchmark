@@ -1954,7 +1954,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !4
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -2035,8 +2035,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !335
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -2301,7 +2301,7 @@ define hidden void @_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap1
   br i1 %11, label %16, label %15
 
 12:                                               ; preds = %4
-  %13 = add i64 %5, %1
+  %13 = add i64 %1, %5
   %14 = icmp ult i64 %13, %6
   br i1 %14, label %16, label %17
 
@@ -2325,12 +2325,12 @@ define hidden void @_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap1
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %4
-  %9 = add i64 %6, %3
+  %9 = add i64 %3, %6
   %10 = icmp ult i64 %9, %5
   br i1 %10, label %15, label %14
 
 11:                                               ; preds = %4
-  %12 = add i64 %5, %1
+  %12 = add i64 %1, %5
   %13 = icmp ult i64 %12, %6
   br i1 %13, label %15, label %16
 
@@ -2385,7 +2385,7 @@ define hidden void @_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap1
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %4
-  %9 = add i64 %6, %3
+  %9 = add i64 %3, %6
   %10 = icmp ult i64 %9, %5
   br i1 %10, label %16, label %15
 
@@ -2508,7 +2508,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit: ; preds
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.val25, i64 4294967295)
   %23 = tail call i64 @llvm.usub.sat.i64(i64 %.0.sroa.speculated.i.i, i64 8)
   %24 = and i64 %23, 4294967288
-  %.not = icmp ult i64 %24, %3
+  %.not = icmp ugt i64 %3, %24
   br i1 %.not, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$24checked_next_multiple_of17h4c8d55592f422462E.exit.thread"
 
 25:                                               ; preds = %"_ZN4core3num21_$LT$impl$u20$u32$GT$24checked_next_multiple_of17h4c8d55592f422462E.exit.thread", %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit
@@ -4265,7 +4265,7 @@ define noundef ptr @"_ZN102_$LT$wasmtime_runtime..memory..MmapMemory$u20$as$u20$
   %14 = load i64, ptr %13, align 8, !noundef !4
   %15 = add i64 %12, %14
   %16 = sub i64 %10, %15
-  %17 = icmp ult i64 %16, %1
+  %17 = icmp ugt i64 %1, %16
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %2
@@ -4283,7 +4283,7 @@ define noundef ptr @"_ZN102_$LT$wasmtime_runtime..memory..MmapMemory$u20$as$u20$
 26:                                               ; preds = %18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !590)
   %27 = load i64, ptr %22, align 8, !alias.scope !590, !noundef !4
-  %.not.i = icmp ult i64 %27, %1
+  %.not.i = icmp ugt i64 %1, %27
   br i1 %.not.i, label %28, label %29
 
 28:                                               ; preds = %26
@@ -4293,7 +4293,7 @@ define noundef ptr @"_ZN102_$LT$wasmtime_runtime..memory..MmapMemory$u20$as$u20$
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %0, i64 32
   %31 = load i64, ptr %30, align 8, !alias.scope !590, !noundef !4
-  %.not10.i = icmp ult i64 %31, %1
+  %.not10.i = icmp ugt i64 %1, %31
   br i1 %.not10.i, label %32, label %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit.thread
 
 32:                                               ; preds = %29
@@ -4308,7 +4308,7 @@ define noundef ptr @"_ZN102_$LT$wasmtime_runtime..memory..MmapMemory$u20$as$u20$
 36:                                               ; preds = %18
   %37 = getelementptr inbounds i8, ptr %0, i64 80
   %38 = load i64, ptr %37, align 8, !noundef !4
-  %39 = icmp ult i64 %38, %1
+  %39 = icmp ugt i64 %1, %38
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %36
@@ -4405,14 +4405,14 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.e
 
 81:                                               ; preds = %76
   %.val73 = load i64, ptr %9, align 8
-  %.not4.i = icmp ult i64 %.val73, %80
+  %.not4.i = icmp ugt i64 %80, %.val73
   br i1 %.not4.i, label %.invoke, label %82
 
 82:                                               ; preds = %81
   %83 = icmp ne ptr %.val72, null
   call void @llvm.assume(i1 %83)
   %84 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !593, !noundef !4
-  %.not4.i77 = icmp ult i64 %84, %80
+  %.not4.i77 = icmp ugt i64 %80, %84
   br i1 %.not4.i77, label %.invoke, label %88
 
 .invoke:                                          ; preds = %82, %81, %76
@@ -4546,7 +4546,7 @@ define { i64, i64 } @"_ZN104_$LT$wasmtime_runtime..memory..StaticMemory$u20$as$u
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @"_ZN104_$LT$wasmtime_runtime..memory..StaticMemory$u20$as$u20$wasmtime_runtime..memory..RuntimeLinearMemory$GT$7grow_to17h010cea8a4d76231aE"(ptr noalias noundef align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #3 {
   %3 = load i64, ptr %0, align 8, !noundef !4
-  %.not = icmp ult i64 %3, %1
+  %.not = icmp ugt i64 %1, %3
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %2
@@ -4557,7 +4557,7 @@ define noundef ptr @"_ZN104_$LT$wasmtime_runtime..memory..StaticMemory$u20$as$u2
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !605)
   %7 = load i64, ptr %6, align 8, !alias.scope !605, !noundef !4
-  %.not.i = icmp ult i64 %7, %1
+  %.not.i = icmp ugt i64 %1, %7
   br i1 %.not.i, label %8, label %9
 
 8:                                                ; preds = %5
@@ -4567,7 +4567,7 @@ define noundef ptr @"_ZN104_$LT$wasmtime_runtime..memory..StaticMemory$u20$as$u2
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8, !alias.scope !605, !noundef !4
-  %.not10.i = icmp ult i64 %11, %1
+  %.not10.i = icmp ugt i64 %1, %11
   br i1 %.not10.i, label %12, label %16
 
 12:                                               ; preds = %9
@@ -4779,7 +4779,7 @@ define void @_ZN16wasmtime_runtime6memory6Memory10new_static17h225ac2695649988aE
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store i64 %3, ptr %14, align 8, !noalias !617
   store i64 %.sroa.016.0.copyload.cast, ptr %13, align 8, !noalias !617
-  %25 = icmp ugt i64 %.sroa.016.0.copyload.cast, %3
+  %25 = icmp ult i64 %3, %.sroa.016.0.copyload.cast
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %24
@@ -5729,7 +5729,7 @@ _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit: ; preds = %3, %43
 45:                                               ; preds = %_ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
   %46 = add i64 %.0.i, -1
-  %47 = and i64 %46, %2
+  %47 = and i64 %2, %46
   store i64 %47, ptr %33, align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %49, label %52
@@ -5737,7 +5737,7 @@ _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit: ; preds = %3, %43
 49:                                               ; preds = %45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
-  %50 = and i64 %46, %1
+  %50 = and i64 %1, %46
   store i64 %50, ptr %31, align 8
   %51 = icmp eq i64 %50, 0
   br i1 %51, label %53, label %55
@@ -6160,7 +6160,7 @@ _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit: ; preds = %3, %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load i64, ptr %25, align 8, !noundef !4
-  %.not = icmp ult i64 %26, %2
+  %.not = icmp ugt i64 %2, %26
   br i1 %.not, label %28, label %29
 
 27:                                               ; preds = %20
@@ -6175,7 +6175,7 @@ _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit: ; preds = %3, %16
 
 29:                                               ; preds = %24
   %30 = sub nuw i64 %26, %2
-  %.not3 = icmp ult i64 %30, %1
+  %.not3 = icmp ugt i64 %1, %30
   br i1 %.not3, label %31, label %32
 
 31:                                               ; preds = %29
@@ -6199,7 +6199,7 @@ define { ptr, i64 } @_ZN16wasmtime_runtime4mmap4Mmap9slice_mut17h08e93c7ce83d20a
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %.not4 = icmp ult i64 %7, %2
+  %.not4 = icmp ugt i64 %2, %7
   br i1 %.not4, label %8, label %9
 
 8:                                                ; preds = %5
@@ -6231,7 +6231,7 @@ define noundef ptr @_ZN16wasmtime_runtime4mmap4Mmap15make_executable17hf99dce2b8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %.not = icmp ult i64 %10, %1
+  %.not = icmp ugt i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %4
@@ -6239,7 +6239,7 @@ define noundef ptr @_ZN16wasmtime_runtime4mmap4Mmap15make_executable17hf99dce2b8
   unreachable
 
 12:                                               ; preds = %4
-  %.not4 = icmp ult i64 %10, %2
+  %.not4 = icmp ugt i64 %2, %10
   br i1 %.not4, label %13, label %14
 
 13:                                               ; preds = %12
@@ -6342,7 +6342,7 @@ define noundef ptr @_ZN16wasmtime_runtime4mmap4Mmap13make_readonly17h5a1a461aa7e
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %.not = icmp ult i64 %9, %1
+  %.not = icmp ugt i64 %1, %9
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %3
@@ -6350,7 +6350,7 @@ define noundef ptr @_ZN16wasmtime_runtime4mmap4Mmap13make_readonly17h5a1a461aa7e
   unreachable
 
 11:                                               ; preds = %3
-  %.not4 = icmp ult i64 %9, %2
+  %.not4 = icmp ugt i64 %2, %9
   br i1 %.not4, label %12, label %13
 
 12:                                               ; preds = %11
@@ -6459,7 +6459,7 @@ define void @_ZN16wasmtime_runtime8mmap_vec7MmapVec3new17haeb9ab3df0fdc538E(ptr 
   %4 = alloca { { i64 }, { i64 }, { { { { { ptr, i64 } } } }, ptr } }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %.not = icmp ult i64 %6, %2
+  %.not = icmp ugt i64 %2, %6
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %3
@@ -6811,7 +6811,7 @@ define noundef ptr @_ZN16wasmtime_runtime8mmap_vec7MmapVec15make_executable17hc6
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %.val3 = load i64, ptr %8, align 8, !alias.scope !883, !noalias !886, !noundef !4
   %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val3, i64 %.val)
-  %.not2 = icmp ult i64 %spec.select.i.i, %2
+  %.not2 = icmp ugt i64 %2, %spec.select.i.i
   br i1 %.not2, label %9, label %10
 
 9:                                                ; preds = %6
@@ -6842,7 +6842,7 @@ define noundef ptr @_ZN16wasmtime_runtime8mmap_vec7MmapVec13make_readonly17h7636
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val3 = load i64, ptr %7, align 8, !alias.scope !883, !noalias !886, !noundef !4
   %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val3, i64 %.val)
-  %.not2 = icmp ult i64 %spec.select.i.i, %2
+  %.not2 = icmp ugt i64 %2, %spec.select.i.i
   br i1 %.not2, label %8, label %9
 
 8:                                                ; preds = %5
@@ -6894,7 +6894,7 @@ define { ptr, ptr } @_ZN16wasmtime_runtime8mmap_vec7MmapVec11image_range17hdd9ab
 7:                                                ; preds = %1
   %8 = getelementptr i8, ptr %2, i64 24
   %.val7 = load i64, ptr %8, align 8
-  %.not4.i = icmp ult i64 %.val7, %.val3
+  %.not4.i = icmp ugt i64 %.val3, %.val7
   br i1 %.not4.i, label %9, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.exit10
 
 9:                                                ; preds = %7

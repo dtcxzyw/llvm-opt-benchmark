@@ -7138,7 +7138,7 @@ define internal fastcc zeroext i1 @is_in(ptr nocapture noundef readonly %0, ptr 
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 1
   %66 = zext i1 %65 to i32
-  %67 = icmp ne i32 %66, %4
+  %67 = icmp ne i32 %4, %66
   br label %87
 
 68:                                               ; preds = %5

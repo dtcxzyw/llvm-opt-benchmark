@@ -303,7 +303,7 @@ define noundef zeroext i1 @_ZN2cv16structured_light20GrayCodePattern_Impl8genera
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 96
-  %15 = icmp ult i64 %14, %7
+  %15 = icmp ugt i64 %7, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %2
@@ -312,7 +312,7 @@ define noundef zeroext i1 @_ZN2cv16structured_light20GrayCodePattern_Impl8genera
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %2
-  %19 = icmp ugt i64 %14, %7
+  %19 = icmp ult i64 %7, %14
   br i1 %19, label %20, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 20:                                               ; preds = %18
@@ -1467,7 +1467,7 @@ define void @_ZNK2cv16structured_light20GrayCodePattern_Impl18computeShadowMasks
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = sdiv exact i64 %24, 96
-  %26 = icmp ult i64 %25, %18
+  %26 = icmp ugt i64 %18, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %4
@@ -1477,7 +1477,7 @@ define void @_ZNK2cv16structured_light20GrayCodePattern_Impl18computeShadowMasks
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 29:                                               ; preds = %4
-  %30 = icmp ugt i64 %25, %18
+  %30 = icmp ult i64 %18, %25
   br i1 %30, label %31, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 31:                                               ; preds = %29

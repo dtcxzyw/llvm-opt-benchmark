@@ -299,7 +299,7 @@ define dso_local ptr @SlabAlloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %.not = icmp eq i64 %6, %1
+  %.not = icmp eq i64 %1, %6
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %3
@@ -793,7 +793,7 @@ define dso_local noundef ptr @SlabRealloc(ptr noundef returned %0, i64 noundef %
   %18 = getelementptr inbounds i8, ptr %10, i64 80
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp eq i64 %20, %1
+  %21 = icmp eq i64 %1, %20
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %17

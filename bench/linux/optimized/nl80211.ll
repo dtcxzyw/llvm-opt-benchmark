@@ -2282,7 +2282,7 @@ define dso_local void @__cfg80211_send_event_skb(ptr noundef %0, i32 noundef %1)
 define internal fastcc void @genlmsg_multicast_netns(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #7 align 16 {
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @nl80211_fam, i64 32), align 8
   %6 = zext i8 %5 to i32
-  %7 = icmp ugt i32 %6, %2
+  %7 = icmp ult i32 %2, %6
   br i1 %7, label %9, label %8, !prof !6
 
 8:                                                ; preds = %4
@@ -8564,7 +8564,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_msg_put_channel(ptr nound
   %222 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %5) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #26
   %223 = icmp eq i32 %222, 0
-  %224 = and i1 %223, %3
+  %224 = and i1 %3, %223
   %225 = select i1 %223, i32 0, i32 -105
   br i1 %224, label %226, label %241
 
@@ -44418,7 +44418,7 @@ define internal fastcc range(i32 -95, 1) i32 @nl80211_crypto_settings(ptr nounde
   store i32 %77, ptr %78, align 8
   %79 = and i64 %75, 3
   %80 = icmp ne i64 %79, 0
-  %81 = icmp sgt i32 %77, %3
+  %81 = icmp slt i32 %3, %77
   %82 = or i1 %80, %81
   br i1 %82, label %select.unfold, label %83
 
@@ -50469,7 +50469,7 @@ define internal fastcc zeroext i1 @nl80211_parse_mcast_rate(ptr nocapture nounde
   %20 = getelementptr %struct.ieee80211_rate, ptr %17, i64 %indvars.iv, i32 1
   %21 = load i16, ptr %20, align 4
   %22 = zext i16 %21 to i32
-  %23 = icmp eq i32 %22, %2
+  %23 = icmp eq i32 %2, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %23, label %24, label %27
 

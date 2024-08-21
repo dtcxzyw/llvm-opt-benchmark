@@ -113,7 +113,7 @@ define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %57 = mul i64 %2, 6
   %58 = getelementptr inbounds i8, ptr %0, i64 %57
   %59 = getelementptr inbounds i8, ptr %0, i64 %2
-  %60 = icmp sgt i64 %57, %2
+  %60 = icmp slt i64 %2, %57
   br i1 %60, label %.lr.ph137, label %.preheader129
 
 .lr.ph137:                                        ; preds = %54

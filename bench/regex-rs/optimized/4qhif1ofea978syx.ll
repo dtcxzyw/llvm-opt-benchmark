@@ -622,7 +622,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN75_$LT$usize$u
 define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63818632375be9afE.llvm.14842887858627331974.exit", label %7, !prof !100
 
 7:                                                ; preds = %3
@@ -651,7 +651,7 @@ define hidden { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$c
 define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4194b0343084b578E.llvm.14842887858627331974.exit", label %7, !prof !100
 
 7:                                                ; preds = %3
@@ -2078,7 +2078,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3hir8interval20IntervalSet$L
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
   %13 = load i64, ptr %7, align 8, !alias.scope !272, !noalias !275, !noundef !4
-  %14 = icmp ugt i64 %13, %.sroa.01.012
+  %14 = icmp ult i64 %.sroa.01.012, %13
   br i1 %14, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit", label %15, !prof !100
 
 15:                                               ; preds = %11
@@ -2141,7 +2141,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3hir8interval20IntervalSet$L
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
   %13 = load i64, ptr %7, align 8, !alias.scope !280, !noalias !283, !noundef !4
-  %14 = icmp ugt i64 %13, %.sroa.01.012
+  %14 = icmp ult i64 %.sroa.01.012, %13
   br i1 %14, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit", label %15, !prof !100
 
 15:                                               ; preds = %11
@@ -2205,7 +2205,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$5union1
   %.idx = shl nuw nsw i64 %5, 1
   %17 = load i64, ptr %0, align 8, !alias.scope !296, !noundef !4
   %18 = sub i64 %17, %10
-  %19 = icmp ult i64 %18, %5
+  %19 = icmp ugt i64 %5, %18
   br i1 %19, label %20, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h197e6061c549a03dE.exit"
 
 20:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4b1905ad7f5c8f8bE.exit.thread"
@@ -2266,7 +2266,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$5union1
   %.idx = shl nuw nsw i64 %5, 3
   %17 = load i64, ptr %0, align 8, !alias.scope !309, !noundef !4
   %18 = sub i64 %17, %10
-  %19 = icmp ult i64 %18, %5
+  %19 = icmp ugt i64 %5, %18
   br i1 %19, label %20, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h1e4b5e18b72fc33cE.exit"
 
 20:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h04b5634d568e7e32E.exit.thread"
@@ -2335,7 +2335,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
   %.sroa.026.0 = phi i64 [ 1, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit.lr.ph" ], [ %.sroa.026.173, %.cont.cont ]
   %.sroa.0.0 = phi i64 [ 1, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit.lr.ph" ], [ %.sroa.0.175, %.cont.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !320)
-  %17 = icmp ugt i64 %9, %.069
+  %17 = icmp ult i64 %.069, %9
   br i1 %17, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit35", label %18, !prof !100
 
 18:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit"
@@ -2384,7 +2384,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
 
 40:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he980fd453e545d82E.llvm.14842887858627331974.exit", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit35"
   %41 = phi i64 [ %39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he980fd453e545d82E.llvm.14842887858627331974.exit" ], [ %.pre, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit35" ]
-  %42 = icmp ugt i64 %41, %.0
+  %42 = icmp ult i64 %.0, %41
   br i1 %42, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit37", label %43, !prof !100
 
 43:                                               ; preds = %40
@@ -2445,7 +2445,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
   %.sroa.026.173 = phi i64 [ %65, %.cont.else ], [ %.sroa.026.0, %64 ]
   %.170 = phi i64 [ %.sroa.026.0, %.cont.else ], [ %.069, %64 ]
   %.1 = phi i64 [ %.0, %.cont.else ], [ %.sroa.0.0, %64 ]
-  %66 = icmp ugt i64 %41, %.1
+  %66 = icmp ult i64 %.1, %41
   br i1 %66, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit", label %._crit_edge, !prof !360
 }
 
@@ -2488,7 +2488,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
   %.sroa.023.0 = phi i64 [ 1, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit.lr.ph" ], [ %.sroa.023.170, %.cont.cont ]
   %.sroa.0.0 = phi i64 [ 1, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit.lr.ph" ], [ %.sroa.0.172, %.cont.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !366)
-  %17 = icmp ugt i64 %9, %.066
+  %17 = icmp ult i64 %.066, %9
   br i1 %17, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit32", label %18, !prof !100
 
 18:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit"
@@ -2537,7 +2537,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
 
 40:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h131c3eb7ecad0db3E.llvm.14842887858627331974.exit", %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit32"
   %41 = phi i64 [ %39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h131c3eb7ecad0db3E.llvm.14842887858627331974.exit" ], [ %.pre, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit32" ]
-  %42 = icmp ugt i64 %41, %.0
+  %42 = icmp ult i64 %.0, %41
   br i1 %42, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit34", label %43, !prof !100
 
 43:                                               ; preds = %40
@@ -2598,7 +2598,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
   %.sroa.023.170 = phi i64 [ %65, %.cont.else ], [ %.sroa.023.0, %64 ]
   %.167 = phi i64 [ %.sroa.023.0, %.cont.else ], [ %.066, %64 ]
   %.1 = phi i64 [ %.0, %.cont.else ], [ %.sroa.0.0, %64 ]
-  %66 = icmp ugt i64 %41, %.1
+  %66 = icmp ult i64 %.1, %41
   br i1 %66, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit", label %._crit_edge, !prof !360
 }
 
@@ -2636,7 +2636,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
   %17 = getelementptr i8, ptr %16, i64 1
   %.val = load i8, ptr %17, align 1, !noundef !4
   %18 = load i64, ptr %5, align 8, !noundef !4
-  %19 = icmp ugt i64 %18, %.090
+  %19 = icmp ult i64 %.090, %18
   br i1 %19, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit54", label %20, !prof !100
 
 20:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit"
@@ -2686,7 +2686,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
 .lr.ph:                                           ; preds = %.preheader, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he980fd453e545d82E.llvm.14842887858627331974.exit"
   %41 = phi i64 [ %57, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he980fd453e545d82E.llvm.14842887858627331974.exit" ], [ %.pre110, %.preheader ]
   %.191 = phi i64 [ %58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he980fd453e545d82E.llvm.14842887858627331974.exit" ], [ %.0.be, %.preheader ]
-  %42 = icmp ugt i64 %41, %.191
+  %42 = icmp ult i64 %.191, %41
   br i1 %42, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit55", label %43, !prof !100
 
 43:                                               ; preds = %.lr.ph
@@ -2768,7 +2768,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !432)
   %77 = load i64, ptr %5, align 8, !noundef !4
-  %78 = icmp ugt i64 %77, %.090
+  %78 = icmp ult i64 %.090, %77
   br i1 %78, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit63", label %79, !prof !100
 
 79:                                               ; preds = %76
@@ -2955,7 +2955,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
   %21 = getelementptr i8, ptr %20, i64 4
   %.val = load i32, ptr %21, align 4, !range !288, !noundef !4
   %22 = load i64, ptr %6, align 8, !noundef !4
-  %23 = icmp ugt i64 %22, %.077
+  %23 = icmp ult i64 %.077, %22
   br i1 %23, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit41", label %24, !prof !100
 
 24:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit"
@@ -3005,7 +3005,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
 .lr.ph:                                           ; preds = %.preheader, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h131c3eb7ecad0db3E.llvm.14842887858627331974.exit"
   %45 = phi i64 [ %61, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h131c3eb7ecad0db3E.llvm.14842887858627331974.exit" ], [ %.pre97, %.preheader ]
   %.178 = phi i64 [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h131c3eb7ecad0db3E.llvm.14842887858627331974.exit" ], [ %.0.be, %.preheader ]
-  %46 = icmp ugt i64 %45, %.178
+  %46 = icmp ult i64 %.178, %45
   br i1 %46, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit42", label %47, !prof !100
 
 47:                                               ; preds = %.lr.ph
@@ -3087,7 +3087,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$10diffe
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !484)
   %81 = load i64, ptr %6, align 8, !noundef !4
-  %82 = icmp ugt i64 %81, %.077
+  %82 = icmp ult i64 %.077, %81
   br i1 %82, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit50", label %83, !prof !100
 
 83:                                               ; preds = %80
@@ -3459,7 +3459,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$6negate
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he980fd453e545d82E.llvm.14842887858627331974.exit19", %31
   %33 = phi i64 [ %32, %31 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he980fd453e545d82E.llvm.14842887858627331974.exit19" ]
   %34 = add i64 %4, -1
-  %35 = icmp ugt i64 %33, %34
+  %35 = icmp ult i64 %34, %33
   br i1 %35, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit13", label %36, !prof !100
 
 36:                                               ; preds = %._crit_edge
@@ -3478,7 +3478,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$6negate
   %.sroa.01.044 = phi i64 [ %40, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he980fd453e545d82E.llvm.14842887858627331974.exit19" ], [ 1, %31 ]
   %40 = add nuw i64 %.sroa.01.044, 1
   %41 = add i64 %.sroa.01.044, -1
-  %42 = icmp ugt i64 %39, %41
+  %42 = icmp ult i64 %41, %39
   br i1 %42, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit14", label %43, !prof !100
 
 43:                                               ; preds = %.lr.ph
@@ -3499,7 +3499,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$6negate
 
 "_ZN57_$LT$u8$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17h41aa266bf35d102aE.exit": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit14"
   %49 = extractvalue { i8, i1 } %46, 0
-  %50 = icmp ugt i64 %39, %.sroa.01.044
+  %50 = icmp ult i64 %.sroa.01.044, %39
   br i1 %50, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit15", label %51, !prof !100
 
 51:                                               ; preds = %"_ZN57_$LT$u8$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17h41aa266bf35d102aE.exit"
@@ -3683,7 +3683,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$6negate
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h131c3eb7ecad0db3E.llvm.14842887858627331974.exit22", %36
   %38 = phi i64 [ %37, %36 ], [ %77, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h131c3eb7ecad0db3E.llvm.14842887858627331974.exit22" ]
   %39 = add i64 %4, -1
-  %40 = icmp ugt i64 %38, %39
+  %40 = icmp ult i64 %39, %38
   br i1 %40, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit13", label %41, !prof !100
 
 41:                                               ; preds = %._crit_edge
@@ -3702,7 +3702,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$6negate
   %.sroa.01.051 = phi i64 [ %46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h131c3eb7ecad0db3E.llvm.14842887858627331974.exit22" ], [ 1, %36 ]
   %46 = add nuw i64 %.sroa.01.051, 1
   %47 = add i64 %.sroa.01.051, -1
-  %48 = icmp ugt i64 %45, %47
+  %48 = icmp ult i64 %47, %45
   br i1 %48, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit14", label %49, !prof !100
 
 49:                                               ; preds = %.lr.ph
@@ -3729,7 +3729,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$6negate
 
 "_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17hcc9ad0bc869411eeE.exit": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit14", %53
   %.0.i16 = phi i32 [ 57344, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit14" ], [ %54, %53 ]
-  %59 = icmp ugt i64 %45, %.sroa.01.051
+  %59 = icmp ult i64 %.sroa.01.051, %45
   br i1 %59, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit17", label %60, !prof !100
 
 60:                                               ; preds = %"_ZN59_$LT$char$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17hcc9ad0bc869411eeE.exit"
@@ -3964,7 +3964,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canon
 
 52:                                               ; preds = %_ZN12regex_syntax3hir8interval8Interval5union17h05ca9256de4be9e8E.exit._crit_edge, %.preheader.split
   %53 = phi i64 [ %.pre, %_ZN12regex_syntax3hir8interval8Interval5union17h05ca9256de4be9e8E.exit._crit_edge ], [ %36, %.preheader.split ]
-  %54 = icmp ugt i64 %53, %.sroa.01.035
+  %54 = icmp ult i64 %.sroa.01.035, %53
   br i1 %54, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit", label %55, !prof !100
 
 55:                                               ; preds = %52
@@ -4123,7 +4123,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canon
   br i1 %.not.i25, label %_ZN12regex_syntax3hir8interval8Interval5union17h4b6d7905db78619cE.exit.thread, label %_ZN12regex_syntax3hir8interval8Interval5union17h4b6d7905db78619cE.exit
 
 _ZN12regex_syntax3hir8interval8Interval5union17h4b6d7905db78619cE.exit.thread: ; preds = %36, %.preheader.split
-  %48 = icmp ugt i64 %34, %.sroa.01.036
+  %48 = icmp ult i64 %.sroa.01.036, %34
   br i1 %48, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit", label %49, !prof !100
 
 49:                                               ; preds = %_ZN12regex_syntax3hir8interval8Interval5union17h4b6d7905db78619cE.exit.thread

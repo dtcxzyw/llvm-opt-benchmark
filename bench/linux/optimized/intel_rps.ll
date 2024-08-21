@@ -991,7 +991,7 @@ define dso_local i32 @intel_gpu_freq(ptr nocapture noundef readonly %0, i32 noun
   %24 = getelementptr inbounds i8, ptr %0, i64 148
   %25 = load i16, ptr %24, align 4
   %26 = zext i16 %25 to i32
-  %27 = mul i32 %26, %1
+  %27 = mul i32 %1, %26
   %28 = icmp sgt i32 %27, 0
   %29 = select i1 %28, i32 2000, i32 -2000
   %30 = add i32 %29, %27

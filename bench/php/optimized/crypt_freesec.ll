@@ -698,7 +698,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
   %.081 = phi ptr [ %121, %._crit_edge ], [ %139, %125 ]
   %141 = getelementptr inbounds i8, ptr %2, i64 8
   %142 = load i32, ptr %141, align 4
-  %143 = icmp eq i32 %142, %.185
+  %143 = icmp eq i32 %.185, %142
   br i1 %143, label %setup_salt.exit, label %144
 
 144:                                              ; preds = %140

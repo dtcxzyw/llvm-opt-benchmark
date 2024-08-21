@@ -2508,7 +2508,7 @@ define internal fastcc noundef zeroext i1 @sendFile(ptr noundef %0, ptr noundef 
   %30 = tail call ptr @__errno_location() #23
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 2
-  %brmerge.not = and i1 %32, %4
+  %brmerge.not = and i1 %4, %32
   br i1 %brmerge.not, label %276, label %33
 
 33:                                               ; preds = %29
@@ -3121,7 +3121,7 @@ define internal fastcc range(i64 0, -9223372036854775808) i64 @basebackup_read_f
 
 15:                                               ; preds = %6
   %16 = icmp eq i64 %8, 0
-  %or.cond.not = or i1 %16, %5
+  %or.cond.not = or i1 %5, %16
   %.not = icmp eq i64 %8, %2
   %or.cond = or i1 %.not, %or.cond.not
   br i1 %or.cond, label %21, label %17
@@ -3228,7 +3228,7 @@ define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @read_fi
 basebackup_read_file.exit:                        ; preds = %8
   %21 = and i64 %14, 8191
   %.not = icmp eq i64 %21, 0
-  %or.cond = and i1 %.not, %6
+  %or.cond = and i1 %6, %.not
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %basebackup_read_file.exit
@@ -3271,7 +3271,7 @@ basebackup_read_file.exit:                        ; preds = %8
 verify_page_checksum.exit:                        ; preds = %37
   %42 = load ptr, ptr %9, align 8
   %43 = getelementptr i8, ptr %42, i64 %27
-  %44 = add i64 %27, %3
+  %44 = add i64 %3, %27
   %45 = tail call fastcc i64 @basebackup_read_file(i32 noundef %2, ptr noundef %43, i64 noundef 8192, i64 noundef %44, ptr noundef %1, i1 noundef zeroext false)
   %46 = and i64 %45, 4294967295
   %47 = icmp eq i64 %46, 0

@@ -1217,7 +1217,7 @@ define hidden void @_ZN2cv5utils5trace7details22RegionStatisticsStatus14enableSk
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv5utils5trace7details22RegionStatisticsStatus18checkResetSkipModeEi(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
   %3 = load i32, ptr %0, align 4
-  %.not = icmp slt i32 %3, %1
+  %.not = icmp sgt i32 %1, %3
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
@@ -5409,7 +5409,7 @@ _ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntry
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #19
-  %20 = icmp ugt ptr %.011.i, %11
+  %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i

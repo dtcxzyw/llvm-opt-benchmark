@@ -784,7 +784,7 @@ _ZSt19__relocate_object_aINSt10filesystem7__cxx114pathES2_SaIS2_EEvPT_PT0_RT1_.e
 _ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aINSt10filesystem7__cxx114pathES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit ], [ %38, %_ZSt19__relocate_object_aINSt10filesystem7__cxx114pathES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
   %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
-  %.not11.i.i.i26 = icmp eq ptr %5, %1
+  %.not11.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not11.i.i.i26, label %_ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %_ZSt19__relocate_object_aINSt10filesystem7__cxx114pathES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i32
@@ -1356,7 +1356,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNS
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
-  %9 = icmp sgt i64 %8, %1
+  %9 = icmp slt i64 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZNSt10filesystem7__cxx114pathaSEOS1_.exit
@@ -1549,7 +1549,7 @@ _ZNSt10filesystem7__cxx114pathaSEOS1_.exit:       ; preds = %10, %_ZNSt10filesys
 .critedge:                                        ; preds = %.lr.ph, %_ZNSt10filesystem7__cxx114pathaSEOS1_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0923, %_ZNSt10filesystem7__cxx114pathaSEOS1_.exit ], [ %.022, %.lr.ph ]
   %24 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %0, i64 %.0.lcssa
-  %25 = icmp eq ptr %24, %3
+  %25 = icmp eq ptr %3, %24
   br i1 %25, label %_ZNSt10filesystem7__cxx114pathaSEOS1_.exit12, label %26
 
 26:                                               ; preds = %.critedge

@@ -1093,7 +1093,7 @@ for.end57:                                        ; preds = %for.body49, %if.end
 
 if.then60:                                        ; preds = %for.end57
   %37 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %37, %target.addr.5.lcssa
+  %cmp.not.i = icmp ult ptr %target.addr.5.lcssa, %37
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i74
 
 if.then.i74:                                      ; preds = %if.then60
@@ -2064,7 +2064,7 @@ if.end18:                                         ; preds = %if.end.i45, %if.the
 
 if.then21:                                        ; preds = %if.end18
   %15 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %15, %target.addr.1
+  %cmp.not.i = icmp ult ptr %target.addr.1, %15
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i55
 
 if.then.i55:                                      ; preds = %if.then21
@@ -2138,7 +2138,7 @@ if.end36:                                         ; preds = %if.end.i72, %if.the
 
 if.then40:                                        ; preds = %if.end36
   %25 = load ptr, ptr %stream, align 8
-  %cmp.not.i84 = icmp ugt ptr %25, %target.addr.3
+  %cmp.not.i84 = icmp ult ptr %target.addr.3, %25
   br i1 %cmp.not.i84, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit88, label %if.then.i85
 
 if.then.i85:                                      ; preds = %if.then40
@@ -2197,7 +2197,7 @@ for.end:                                          ; preds = %for.body, %if.end44
 
 if.then53:                                        ; preds = %for.end
   %35 = load ptr, ptr %stream, align 8
-  %cmp.not.i95 = icmp ugt ptr %35, %target.addr.5.lcssa
+  %cmp.not.i95 = icmp ult ptr %target.addr.5.lcssa, %35
   br i1 %cmp.not.i95, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit99, label %if.then.i96
 
 if.then.i96:                                      ; preds = %if.then53

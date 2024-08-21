@@ -798,7 +798,7 @@ define range(i32 -1, 2147483647) i32 @Vec_IntLastNonZeroBeforeLimit(ptr noundef 
   %12 = and i64 %indvars.iv.next, 4294967295
   %13 = getelementptr inbounds i32, ptr %.val13, i64 %12
   %14 = load i32, ptr %13, align 4
-  %15 = icmp sle i32 %9, %1
+  %15 = icmp sge i32 %1, %9
   %16 = icmp ne i32 %14, 0
   %or.cond = select i1 %15, i1 %16, i1 false
   br i1 %or.cond, label %.critedge.loopexit.split.loop.exit, label %8, !llvm.loop !20

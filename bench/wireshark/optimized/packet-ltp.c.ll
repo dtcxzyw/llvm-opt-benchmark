@@ -2683,7 +2683,7 @@ declare i32 @tvb_get_varint(ptr noundef, i32 noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ltp_check_reception_gap(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
   %8 = add i64 %3, 1
-  %9 = icmp eq i64 %8, %4
+  %9 = icmp eq i64 %4, %8
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %7

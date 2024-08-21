@@ -251,7 +251,7 @@ define i32 @ompi_comm_ack_failed_internal(ptr noundef %0, i32 noundef %1, ptr no
   %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   %12 = getelementptr inbounds i8, ptr %0, i64 352
   %13 = load i32, ptr %12, align 8
-  %.not46 = icmp slt i32 %13, %1
+  %.not46 = icmp sgt i32 %1, %13
   br i1 %.not46, label %14, label %54
 
 14:                                               ; preds = %3
@@ -274,7 +274,7 @@ define i32 @ompi_comm_ack_failed_internal(ptr noundef %0, i32 noundef %1, ptr no
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr i8, ptr %24, i64 16
   %.val52 = load i32, ptr %25, align 8
-  %26 = call i32 @llvm.smin.i32(i32 %.val52, i32 %1)
+  %26 = call i32 @llvm.smin.i32(i32 %1, i32 %.val52)
   %27 = load i32, ptr %12, align 8
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %39

@@ -1179,7 +1179,7 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
   %11 = alloca %class.QSize, align 8
   %12 = alloca %class.QPainter, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   %15 = getelementptr inbounds i8, ptr %2, i64 8
   %16 = load i16, ptr %15, align 8
   %17 = icmp eq i16 %16, 12

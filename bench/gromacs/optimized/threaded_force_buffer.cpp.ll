@@ -559,7 +559,7 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit: ; preds = %16, %18, %20, %22
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 2
-  %35 = icmp ult i64 %34, %27
+  %35 = icmp ugt i64 %27, %34
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
@@ -568,7 +568,7 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit: ; preds = %16, %18, %20, %22
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
 38:                                               ; preds = %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
-  %39 = icmp ugt i64 %34, %27
+  %39 = icmp ult i64 %27, %34
   br i1 %39, label %40, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
 40:                                               ; preds = %38
@@ -1233,7 +1233,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN3gmx17ThreadForceBufferIN
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -1308,7 +1308,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ThreadForceBufferINS1_11BasicVectorIfE
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ThreadForceBufferINS1_11BasicVectorIfEEEESt14default_deleteIS5_EESaIS8_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorISt10unique_ptrIN3gmx17ThreadForceBufferINS1_11BasicVectorIfEEEESt14default_deleteIS5_EESaIS8_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -2129,12 +2129,12 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE6reduceE
   %72 = getelementptr inbounds i8, ptr %6, i64 10
   %73 = load i8, ptr %72, align 1
   %74 = trunc i8 %73 to i1
-  %75 = icmp sgt i32 %63, %7
+  %75 = icmp slt i32 %7, %63
   %or.cond = and i1 %75, %74
   br i1 %or.cond, label %77, label %.loopexit
 
 76:                                               ; preds = %67, %54
-  %.old = icmp sgt i32 %63, %7
+  %.old = icmp slt i32 %7, %63
   br i1 %.old, label %._crit_edge, label %.loopexit
 
 ._crit_edge:                                      ; preds = %76
@@ -2150,7 +2150,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE6reduceE
 80:                                               ; preds = %77
   %81 = getelementptr inbounds i8, ptr %1, i64 32
   %82 = load ptr, ptr %81, align 8
-  %83 = icmp sgt i32 %63, %7
+  %83 = icmp slt i32 %7, %63
   br i1 %83, label %.preheader100.us.preheader, label %.loopexit101
 
 .preheader100.us.preheader:                       ; preds = %80
@@ -2211,7 +2211,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE6reduceE
 107:                                              ; preds = %.loopexit101
   %108 = load i8, ptr %0, align 8
   %109 = trunc i8 %108 to i1
-  %110 = icmp sgt i32 %63, %7
+  %110 = icmp slt i32 %7, %63
   %or.cond164 = select i1 %109, i1 %110, i1 false
   br i1 %or.cond164, label %.preheader97.us.preheader, label %.loopexit99
 
@@ -2257,7 +2257,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE6reduceE
   br i1 %123, label %.preheader95, label %.loopexit96
 
 .preheader95:                                     ; preds = %.loopexit99
-  %124 = icmp sgt i32 %63, %7
+  %124 = icmp slt i32 %7, %63
   %125 = getelementptr inbounds i8, ptr %3, i64 8
   %126 = load ptr, ptr %58, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 128
@@ -2324,7 +2324,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE6reduceE
   %154 = getelementptr inbounds i8, ptr %6, i64 10
   %155 = load i8, ptr %154, align 1
   %156 = trunc i8 %155 to i1
-  %157 = icmp sgt i32 %63, %7
+  %157 = icmp slt i32 %7, %63
   %or.cond166 = select i1 %156, i1 %157, i1 false
   br i1 %or.cond166, label %.preheader.us.preheader, label %.loopexit
 
@@ -2805,7 +2805,7 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit: ; preds = %16, %18, %20, %22
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 2
-  %33 = icmp ult i64 %32, %25
+  %33 = icmp ugt i64 %25, %32
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
@@ -2814,7 +2814,7 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit: ; preds = %16, %18, %20, %22
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
 36:                                               ; preds = %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
-  %37 = icmp ugt i64 %32, %25
+  %37 = icmp ult i64 %25, %32
   br i1 %37, label %38, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
 38:                                               ; preds = %36
@@ -3261,7 +3261,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN3gmx17ThreadForceBufferIA
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -3336,7 +3336,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ThreadForceBufferIA4_fEESt14default_de
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ThreadForceBufferIA4_fEESt14default_deleteIS4_EESaIS7_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorISt10unique_ptrIN3gmx17ThreadForceBufferIA4_fEESt14default_deleteIS4_EESaIS7_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -4120,12 +4120,12 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE6reduceEPNS_20ForceWithS
   %72 = getelementptr inbounds i8, ptr %6, i64 10
   %73 = load i8, ptr %72, align 1
   %74 = trunc i8 %73 to i1
-  %75 = icmp sgt i32 %63, %7
+  %75 = icmp slt i32 %7, %63
   %or.cond = and i1 %75, %74
   br i1 %or.cond, label %77, label %.loopexit
 
 76:                                               ; preds = %67, %54
-  %.old = icmp sgt i32 %63, %7
+  %.old = icmp slt i32 %7, %63
   br i1 %.old, label %._crit_edge, label %.loopexit
 
 ._crit_edge:                                      ; preds = %76
@@ -4141,7 +4141,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE6reduceEPNS_20ForceWithS
 80:                                               ; preds = %77
   %81 = getelementptr inbounds i8, ptr %1, i64 32
   %82 = load ptr, ptr %81, align 8
-  %83 = icmp sgt i32 %63, %7
+  %83 = icmp slt i32 %7, %63
   br i1 %83, label %.preheader100.us.preheader, label %.loopexit101
 
 .preheader100.us.preheader:                       ; preds = %80
@@ -4202,7 +4202,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE6reduceEPNS_20ForceWithS
 107:                                              ; preds = %.loopexit101
   %108 = load i8, ptr %0, align 8
   %109 = trunc i8 %108 to i1
-  %110 = icmp sgt i32 %63, %7
+  %110 = icmp slt i32 %7, %63
   %or.cond164 = select i1 %109, i1 %110, i1 false
   br i1 %or.cond164, label %.preheader97.us.preheader, label %.loopexit99
 
@@ -4248,7 +4248,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE6reduceEPNS_20ForceWithS
   br i1 %123, label %.preheader95, label %.loopexit96
 
 .preheader95:                                     ; preds = %.loopexit99
-  %124 = icmp sgt i32 %63, %7
+  %124 = icmp slt i32 %7, %63
   %125 = getelementptr inbounds i8, ptr %3, i64 8
   %126 = load ptr, ptr %58, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 128
@@ -4315,7 +4315,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE6reduceEPNS_20ForceWithS
   %154 = getelementptr inbounds i8, ptr %6, i64 10
   %155 = load i8, ptr %154, align 1
   %156 = trunc i8 %155 to i1
-  %157 = icmp sgt i32 %63, %7
+  %157 = icmp slt i32 %7, %63
   %or.cond166 = select i1 %156, i1 %157, i1 false
   br i1 %or.cond166, label %.preheader.us.preheader, label %.loopexit
 

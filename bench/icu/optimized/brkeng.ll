@@ -180,7 +180,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -460,7 +460,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #15
   %cmp7 = icmp eq ptr %call, null
@@ -661,7 +661,7 @@ if.end:                                           ; preds = %entry
   %fHandled = getelementptr inbounds i8, ptr %this, i64 8
   %call45 = tail call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv56 = trunc i64 %call45 to i32
-  %cmp7 = icmp slt i32 %conv56, %endPos
+  %cmp7 = icmp sgt i32 %endPos, %conv56
   br i1 %cmp7, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end, %while.body
@@ -676,7 +676,7 @@ while.body:                                       ; preds = %land.rhs
   %call9 = tail call i32 @utext_current32_75(ptr noundef %text)
   %call4 = tail call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv5 = trunc i64 %call4 to i32
-  %cmp = icmp slt i32 %conv5, %endPos
+  %cmp = icmp sgt i32 %endPos, %conv5
   br i1 %cmp, label %land.rhs, label %return, !llvm.loop !4
 
 return:                                           ; preds = %while.body, %land.rhs, %if.end, %entry
@@ -1645,7 +1645,7 @@ if.end:                                           ; preds = %entry
   %call4 = tail call i32 @utext_current32_75(ptr noundef %text)
   %call531 = tail call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv632 = trunc i64 %call531 to i32
-  %cmp33 = icmp slt i32 %conv632, %endPos
+  %cmp33 = icmp sgt i32 %endPos, %conv632
   br i1 %cmp33, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %if.end
@@ -1670,7 +1670,7 @@ while.body:                                       ; preds = %land.rhs.lr.ph, %la
   %call10 = tail call i32 @utext_current32_75(ptr noundef %text)
   %call5 = tail call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv6 = trunc i64 %call5 to i32
-  %cmp = icmp slt i32 %conv6, %endPos
+  %cmp = icmp sgt i32 %endPos, %conv6
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body, %land.rhs, %land.rhs.lr.ph, %if.end

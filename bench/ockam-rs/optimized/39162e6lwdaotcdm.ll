@@ -126,7 +126,7 @@ define hidden void @"_ZN140_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A
 
 38:                                               ; preds = %33
   %39 = sub i64 %36, %29
-  %40 = icmp ult i64 %39, %27
+  %40 = icmp ugt i64 %27, %39
   br i1 %40, label %61, label %41
 
 41:                                               ; preds = %61, %38

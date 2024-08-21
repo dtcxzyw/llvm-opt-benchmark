@@ -296,7 +296,7 @@ define dso_local range(i32 -1, 1) i32 @devcgroup_check_permission(i16 noundef si
   %79 = getelementptr i8, ptr %66, i64 -6
   %80 = load i16, ptr %79, align 2
   %81 = xor i16 %80, -1
-  %82 = and i16 %81, %3
+  %82 = and i16 %3, %81
   %83 = icmp eq i16 %82, 0
   br i1 %83, label %.loopexit, label %84
 
@@ -333,7 +333,7 @@ define dso_local range(i32 -1, 1) i32 @devcgroup_check_permission(i16 noundef si
   %104 = getelementptr i8, ptr %86, i64 -6
   %105 = load i16, ptr %104, align 2
   %106 = xor i16 %105, -1
-  %107 = and i16 %106, %3
+  %107 = and i16 %3, %106
   %108 = icmp eq i16 %107, 0
   br i1 %108, label %.loopexit, label %109
 
@@ -373,7 +373,7 @@ define dso_local range(i32 -1, 1) i32 @devcgroup_check_permission(i16 noundef si
   %129 = getelementptr i8, ptr %111, i64 -6
   %130 = load i16, ptr %129, align 2
   %131 = xor i16 %130, -1
-  %132 = and i16 %131, %3
+  %132 = and i16 %3, %131
   %133 = icmp eq i16 %132, 0
   br i1 %133, label %.loopexit, label %134
 
@@ -410,7 +410,7 @@ define dso_local range(i32 -1, 1) i32 @devcgroup_check_permission(i16 noundef si
   %153 = getelementptr i8, ptr %136, i64 -6
   %154 = load i16, ptr %153, align 2
   %155 = xor i16 %154, -1
-  %156 = and i16 %155, %3
+  %156 = and i16 %3, %155
   %157 = icmp eq i16 %156, 0
   br i1 %157, label %.loopexit, label %158
 

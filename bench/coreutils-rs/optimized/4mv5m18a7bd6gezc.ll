@@ -90,7 +90,7 @@ define internal { i1, i8 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub nuw i64 %18, %19
-  %.not.i.i.i = icmp ugt i64 %20, %8
+  %.not.i.i.i = icmp ult i64 %8, %20
   %21 = getelementptr inbounds i8, ptr %17, i64 %8
   br i1 %.not.i.i.i, label %select.unfold, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit"
 
@@ -147,7 +147,7 @@ define internal { i1, i8 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub nuw i64 %18, %19
-  %.not.i.i.i = icmp ugt i64 %20, %8
+  %.not.i.i.i = icmp ult i64 %8, %20
   %21 = getelementptr inbounds i8, ptr %17, i64 %8
   br i1 %.not.i.i.i, label %select.unfold, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit"
 
@@ -468,7 +468,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   store i64 0, ptr %4, align 8, !alias.scope !89
   %19 = ptrtoint ptr %11 to i64
   %20 = sub nuw i64 %7, %19
-  %.not.i.i.i.i = icmp ugt i64 %20, %9
+  %.not.i.i.i.i = icmp ult i64 %9, %20
   %21 = getelementptr inbounds i8, ptr %11, i64 %9
   br i1 %.not.i.i.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65ba630709d425f0E.exit", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i"
 
@@ -565,7 +565,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   store i64 0, ptr %4, align 8, !alias.scope !102
   %19 = ptrtoint ptr %11 to i64
   %20 = sub nuw i64 %7, %19
-  %.not.i.i.i.i = icmp ugt i64 %20, %9
+  %.not.i.i.i.i = icmp ult i64 %9, %20
   %21 = getelementptr inbounds i8, ptr %11, i64 %9
   br i1 %.not.i.i.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a8eec0e508c2ca1E.exit", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i"
 
@@ -667,7 +667,7 @@ define internal { i1, i8 } @_ZN4core4iter6traits8iterator8Iterator3nth17h81fa2f7
   store i64 0, ptr %4, align 8, !alias.scope !120
   %19 = ptrtoint ptr %11 to i64
   %20 = sub nuw i64 %7, %19
-  %.not.i.i.i.i.i = icmp ugt i64 %20, %9
+  %.not.i.i.i.i.i = icmp ult i64 %9, %20
   %21 = getelementptr inbounds i8, ptr %11, i64 %9
   br i1 %.not.i.i.i.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a8eec0e508c2ca1E.exit.i", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i.i"
 
@@ -685,7 +685,7 @@ define internal { i1, i8 } @_ZN4core4iter6traits8iterator8Iterator3nth17h81fa2f7
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit: ; preds = %8, %16, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i.i"
   %22 = phi i64 [ %15, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i.i" ], [ %15, %16 ], [ 0, %8 ]
   %.sroa.01.01318.i = phi i64 [ %.sroa.01.013.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i.i" ], [ %.sroa.01.013.i, %16 ], [ %.promoted14.i, %8 ]
-  %23 = icmp eq i64 %.sroa.01.01318.i, %1
+  %23 = icmp eq i64 %1, %.sroa.01.01318.i
   br i1 %23, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit.thread, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a8eec0e508c2ca1E.exit"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit.thread: ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a8eec0e508c2ca1E.exit.i", %._ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit
@@ -718,7 +718,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hc44ae91ec8a57848E.exit.thre
   %40 = ptrtoint ptr %38 to i64
   %41 = ptrtoint ptr %39 to i64
   %42 = sub nuw i64 %40, %41
-  %.not.i.i.i.i4 = icmp ugt i64 %42, %30
+  %.not.i.i.i.i4 = icmp ult i64 %30, %42
   %43 = getelementptr inbounds i8, ptr %39, i64 %30
   br i1 %.not.i.i.i.i4, label %select.unfold.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i"
 
@@ -789,7 +789,7 @@ define internal { i1, i8 } @_ZN4core4iter6traits8iterator8Iterator3nth17h9416707
   store i64 0, ptr %4, align 8, !alias.scope !146
   %19 = ptrtoint ptr %11 to i64
   %20 = sub nuw i64 %7, %19
-  %.not.i.i.i.i.i = icmp ugt i64 %20, %9
+  %.not.i.i.i.i.i = icmp ult i64 %9, %20
   %21 = getelementptr inbounds i8, ptr %11, i64 %9
   br i1 %.not.i.i.i.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65ba630709d425f0E.exit.i", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i.i"
 
@@ -807,7 +807,7 @@ define internal { i1, i8 } @_ZN4core4iter6traits8iterator8Iterator3nth17h9416707
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit: ; preds = %8, %16, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i.i"
   %22 = phi i64 [ %15, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i.i" ], [ %15, %16 ], [ 0, %8 ]
   %.sroa.01.01318.i = phi i64 [ %.sroa.01.013.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i.i" ], [ %.sroa.01.013.i, %16 ], [ %.promoted14.i, %8 ]
-  %23 = icmp eq i64 %.sroa.01.01318.i, %1
+  %23 = icmp eq i64 %1, %.sroa.01.01318.i
   br i1 %23, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit.thread, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65ba630709d425f0E.exit"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit.thread: ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65ba630709d425f0E.exit.i", %._ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit
@@ -840,7 +840,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h91feb52bf23ea969E.exit.thre
   %40 = ptrtoint ptr %38 to i64
   %41 = ptrtoint ptr %39 to i64
   %42 = sub nuw i64 %40, %41
-  %.not.i.i.i.i4 = icmp ugt i64 %42, %30
+  %.not.i.i.i.i4 = icmp ult i64 %30, %42
   %43 = getelementptr inbounds i8, ptr %39, i64 %30
   br i1 %.not.i.i.i.i4, label %select.unfold.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit.i"
 
@@ -898,7 +898,7 @@ define internal { i1, i8 } @_ZN4core4iter6traits8iterator8Iterator3nth17h9967477
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit.thread, label %5
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit: ; preds = %5
-  %9 = icmp eq i64 %.sroa.01.011.i, %1
+  %9 = icmp eq i64 %1, %.sroa.01.011.i
   br i1 %9, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit.thread, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b7eede83a03e13fE.exit"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit.thread: ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b7eede83a03e13fE.exit.i", %._ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9d3a9314a5d94dfbE.exit
@@ -957,7 +957,7 @@ define internal { i1, i8 } @_ZN4core4iter6traits8iterator8Iterator3nth17hc511f07
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit.thread, label %5
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit: ; preds = %5
-  %9 = icmp eq i64 %.sroa.01.011.i, %1
+  %9 = icmp eq i64 %1, %.sroa.01.011.i
   br i1 %9, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit.thread, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24fb5742fd1945e7E.exit"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit.thread: ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24fb5742fd1945e7E.exit.i", %._ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf320911d58d29c00E.exit

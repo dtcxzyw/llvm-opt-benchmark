@@ -75,7 +75,7 @@ define dso_local range(i64 -2147483648, 1) i64 @drm_dp_dual_mode_read(ptr nounde
   store i16 1, ptr %10, align 2
   %11 = getelementptr inbounds i8, ptr %6, i64 20
   %12 = zext i8 %1 to i64
-  %13 = add i64 %12, %3
+  %13 = add i64 %3, %12
   %14 = trunc i64 %13 to i16
   store i16 %14, ptr %11, align 4
   %15 = getelementptr inbounds i8, ptr %6, i64 24

@@ -1362,7 +1362,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i4: 
 
 142:                                              ; preds = %137
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
-  %.not.i13.i.i = icmp ugt i64 %131, %134
+  %.not.i13.i.i = icmp ult i64 %134, %131
   br i1 %.not.i13.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h8d2f5eb289292eecE.exit.i.i", label %143
 
 143:                                              ; preds = %142
@@ -1815,7 +1815,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.15797
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 

@@ -267,7 +267,7 @@ define internal range(i32 0, 7) i32 @alone_decoder_memconfig(ptr nocapture nound
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %5, align 8
-  %11 = icmp ugt i64 %10, %3
+  %11 = icmp ult i64 %3, %10
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %9

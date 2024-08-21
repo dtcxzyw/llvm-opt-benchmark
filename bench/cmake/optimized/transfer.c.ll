@@ -500,7 +500,7 @@ define dso_local noundef zeroext i1 @Curl_meets_timecondition(ptr noundef %0, i6
   br i1 %cond, label %16, label %11
 
 11:                                               ; preds = %8
-  %.not = icmp slt i64 %6, %1
+  %.not = icmp sgt i64 %1, %6
   br i1 %.not, label %24, label %12
 
 12:                                               ; preds = %11
@@ -511,7 +511,7 @@ define dso_local noundef zeroext i1 @Curl_meets_timecondition(ptr noundef %0, i6
   br i1 %.not19, label %.sink.split, label %.sink.split.sink.split
 
 16:                                               ; preds = %8
-  %.not20 = icmp sgt i64 %6, %1
+  %.not20 = icmp slt i64 %1, %6
   br i1 %.not20, label %24, label %17
 
 17:                                               ; preds = %16
@@ -2771,7 +2771,7 @@ define dso_local i32 @Curl_xfer_write_resp(ptr noundef %0, ptr noundef %1, i64 n
 17:                                               ; preds = %14, %15, %12
   %.019 = phi i32 [ %13, %12 ], [ %16, %15 ], [ 0, %14 ]
   %.not22 = icmp eq i32 %.019, 0
-  %brmerge24.not = and i1 %.not22, %3
+  %brmerge24.not = and i1 %3, %.not22
   br i1 %brmerge24.not, label %18, label %22
 
 18:                                               ; preds = %17

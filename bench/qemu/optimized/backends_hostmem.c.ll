@@ -402,7 +402,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %merge, align 16
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %value
+  %2 = xor i1 %value, %1
   br i1 %2, label %if.then8, label %if.end18
 
 if.then8:                                         ; preds = %if.end
@@ -446,7 +446,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %dump, align 1
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %value
+  %2 = xor i1 %value, %1
   br i1 %2, label %if.then8, label %if.end18
 
 if.then8:                                         ; preds = %if.end
@@ -822,7 +822,7 @@ if.end:                                           ; preds = %entry
   %0 = load i8, ptr %prealloc, align 1
   %tobool = trunc i8 %0 to i1
   %tobool.not = xor i1 %tobool, true
-  %brmerge = or i1 %tobool.not, %value
+  %brmerge = or i1 %value, %tobool.not
   br i1 %brmerge, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end

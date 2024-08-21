@@ -343,28 +343,28 @@ define internal fastcc ptr @H5T__get_native_type(ptr noundef %0, i32 noundef %1,
   %39 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8
   %40 = tail call ptr @H5I_object(i64 noundef %39) #7
   %41 = tail call i64 @H5T_get_precision(ptr noundef %40) #7
-  %.not.i = icmp ult i64 %41, %37
+  %.not.i = icmp ugt i64 %37, %41
   br i1 %.not.i, label %42, label %80
 
 42:                                               ; preds = %38
   %43 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8
   %44 = tail call ptr @H5I_object(i64 noundef %43) #7
   %45 = tail call i64 @H5T_get_precision(ptr noundef %44) #7
-  %.not39.i = icmp ult i64 %45, %37
+  %.not39.i = icmp ugt i64 %37, %45
   br i1 %.not39.i, label %46, label %select.unfold.i
 
 46:                                               ; preds = %42
   %47 = load i64, ptr @H5T_NATIVE_INT_g, align 8
   %48 = tail call ptr @H5I_object(i64 noundef %47) #7
   %49 = tail call i64 @H5T_get_precision(ptr noundef %48) #7
-  %.not40.i = icmp ult i64 %49, %37
+  %.not40.i = icmp ugt i64 %37, %49
   br i1 %.not40.i, label %50, label %83
 
 50:                                               ; preds = %46
   %51 = load i64, ptr @H5T_NATIVE_LONG_g, align 8
   %52 = tail call ptr @H5I_object(i64 noundef %51) #7
   %53 = tail call i64 @H5T_get_precision(ptr noundef %52) #7
-  %.not41.i = icmp ult i64 %53, %37
+  %.not41.i = icmp ugt i64 %37, %53
   br i1 %.not41.i, label %54, label %85
 
 54:                                               ; preds = %50
@@ -381,28 +381,28 @@ define internal fastcc ptr @H5T__get_native_type(ptr noundef %0, i32 noundef %1,
   %61 = load i64, ptr @H5T_NATIVE_LONG_g, align 8
   %62 = tail call ptr @H5I_object(i64 noundef %61) #7
   %63 = tail call i64 @H5T_get_precision(ptr noundef %62) #7
-  %64 = icmp ult i64 %63, %37
+  %64 = icmp ugt i64 %37, %63
   br i1 %64, label %87, label %65
 
 65:                                               ; preds = %60
   %66 = load i64, ptr @H5T_NATIVE_INT_g, align 8
   %67 = tail call ptr @H5I_object(i64 noundef %66) #7
   %68 = tail call i64 @H5T_get_precision(ptr noundef %67) #7
-  %69 = icmp ult i64 %68, %37
+  %69 = icmp ugt i64 %37, %68
   br i1 %69, label %85, label %70
 
 70:                                               ; preds = %65
   %71 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8
   %72 = tail call ptr @H5I_object(i64 noundef %71) #7
   %73 = tail call i64 @H5T_get_precision(ptr noundef %72) #7
-  %74 = icmp ult i64 %73, %37
+  %74 = icmp ugt i64 %37, %73
   br i1 %74, label %83, label %75
 
 75:                                               ; preds = %70
   %76 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8
   %77 = tail call ptr @H5I_object(i64 noundef %76) #7
   %78 = tail call i64 @H5T_get_precision(ptr noundef %77) #7
-  %79 = icmp ult i64 %78, %37
+  %79 = icmp ugt i64 %37, %78
   br i1 %79, label %select.unfold.i, label %80
 
 80:                                               ; preds = %75, %38
@@ -689,7 +689,7 @@ H5T__get_native_float.exit:                       ; preds = %156, %149
   %217 = load i64, ptr @H5T_NATIVE_B8_g, align 8
   %218 = tail call ptr @H5I_object(i64 noundef %217) #7
   %219 = tail call i64 @H5T_get_precision(ptr noundef %218) #7
-  %.not.i341 = icmp ult i64 %219, %215
+  %.not.i341 = icmp ugt i64 %215, %219
   br i1 %.not.i341, label %223, label %220
 
 220:                                              ; preds = %216
@@ -701,7 +701,7 @@ H5T__get_native_float.exit:                       ; preds = %156, %149
   %224 = load i64, ptr @H5T_NATIVE_B16_g, align 8
   %225 = tail call ptr @H5I_object(i64 noundef %224) #7
   %226 = tail call i64 @H5T_get_precision(ptr noundef %225) #7
-  %.not28.i = icmp ult i64 %226, %215
+  %.not28.i = icmp ugt i64 %215, %226
   br i1 %.not28.i, label %230, label %227
 
 227:                                              ; preds = %223
@@ -713,7 +713,7 @@ H5T__get_native_float.exit:                       ; preds = %156, %149
   %231 = load i64, ptr @H5T_NATIVE_B32_g, align 8
   %232 = tail call ptr @H5I_object(i64 noundef %231) #7
   %233 = tail call i64 @H5T_get_precision(ptr noundef %232) #7
-  %.not29.i = icmp ult i64 %233, %215
+  %.not29.i = icmp ugt i64 %215, %233
   br i1 %.not29.i, label %237, label %234
 
 234:                                              ; preds = %230
@@ -737,7 +737,7 @@ H5T__get_native_float.exit:                       ; preds = %156, %149
   %246 = load i64, ptr @H5T_NATIVE_B32_g, align 8
   %247 = tail call ptr @H5I_object(i64 noundef %246) #7
   %248 = tail call i64 @H5T_get_precision(ptr noundef %247) #7
-  %249 = icmp ult i64 %248, %215
+  %249 = icmp ugt i64 %215, %248
   br i1 %249, label %250, label %253
 
 250:                                              ; preds = %245
@@ -749,7 +749,7 @@ H5T__get_native_float.exit:                       ; preds = %156, %149
   %254 = load i64, ptr @H5T_NATIVE_B16_g, align 8
   %255 = tail call ptr @H5I_object(i64 noundef %254) #7
   %256 = tail call i64 @H5T_get_precision(ptr noundef %255) #7
-  %257 = icmp ult i64 %256, %215
+  %257 = icmp ugt i64 %215, %256
   br i1 %257, label %258, label %261
 
 258:                                              ; preds = %253
@@ -761,7 +761,7 @@ H5T__get_native_float.exit:                       ; preds = %156, %149
   %262 = load i64, ptr @H5T_NATIVE_B8_g, align 8
   %263 = tail call ptr @H5I_object(i64 noundef %262) #7
   %264 = tail call i64 @H5T_get_precision(ptr noundef %263) #7
-  %265 = icmp ult i64 %264, %215
+  %265 = icmp ugt i64 %215, %264
   br i1 %265, label %266, label %269
 
 266:                                              ; preds = %261

@@ -208,7 +208,7 @@ define dso_local i64 @siphash_1u64(i64 noundef %0, ptr nocapture noundef readonl
   %6 = xor i64 %5, 7816392313619706465
   %7 = xor i64 %4, 7237128888997146477
   %8 = xor i64 %5, 8317987319222330741
-  %9 = xor i64 %4, %0
+  %9 = xor i64 %0, %4
   %10 = xor i64 %9, 8387220255154660723
   %11 = add i64 %8, %7
   %12 = tail call noundef i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 13)
@@ -336,7 +336,7 @@ define dso_local i64 @siphash_2u64(i64 noundef %0, i64 noundef %1, ptr nocapture
   %7 = xor i64 %6, 7816392313619706465
   %8 = xor i64 %5, 7237128888997146477
   %9 = xor i64 %6, 8317987319222330741
-  %10 = xor i64 %5, %0
+  %10 = xor i64 %0, %5
   %11 = xor i64 %10, 8387220255154660723
   %12 = add i64 %9, %8
   %13 = tail call noundef i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 13)
@@ -494,7 +494,7 @@ define dso_local i64 @siphash_3u64(i64 noundef %0, i64 noundef %1, i64 noundef %
   %8 = xor i64 %7, 7816392313619706465
   %9 = xor i64 %6, 7237128888997146477
   %10 = xor i64 %7, 8317987319222330741
-  %11 = xor i64 %6, %0
+  %11 = xor i64 %0, %6
   %12 = xor i64 %11, 8387220255154660723
   %13 = add i64 %10, %9
   %14 = tail call noundef i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 13)
@@ -682,7 +682,7 @@ define dso_local i64 @siphash_4u64(i64 noundef %0, i64 noundef %1, i64 noundef %
   %9 = xor i64 %8, 7816392313619706465
   %10 = xor i64 %7, 7237128888997146477
   %11 = xor i64 %8, 8317987319222330741
-  %12 = xor i64 %7, %0
+  %12 = xor i64 %0, %7
   %13 = xor i64 %12, 8387220255154660723
   %14 = add i64 %11, %10
   %15 = tail call noundef i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 13)

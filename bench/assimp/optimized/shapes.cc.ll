@@ -48,27 +48,27 @@ entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp eq ptr %0, %p1
+  %cmp = icmp eq ptr %p1, %0
   %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx3, align 8
-  %cmp4 = icmp eq ptr %1, %p2
+  %cmp4 = icmp eq ptr %p2, %1
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %or.cond, label %if.end52.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %cmp7 = icmp eq ptr %1, %p1
-  %cmp11 = icmp eq ptr %0, %p2
+  %cmp7 = icmp eq ptr %p1, %1
+  %cmp11 = icmp eq ptr %p2, %0
   %or.cond13 = and i1 %cmp11, %cmp7
   br i1 %or.cond13, label %if.end52.sink.split, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false
   %2 = load ptr, ptr %points_, align 8
-  %cmp15 = icmp eq ptr %2, %p1
+  %cmp15 = icmp eq ptr %p1, %2
   %or.cond14 = and i1 %cmp11, %cmp15
   br i1 %or.cond14, label %if.end52.sink.split, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %if.else
-  %cmp27 = icmp eq ptr %2, %p2
+  %cmp27 = icmp eq ptr %p2, %2
   %or.cond15 = and i1 %cmp, %cmp27
   br i1 %or.cond15, label %if.end52.sink.split, label %if.else31
 
@@ -98,22 +98,22 @@ entry:
   %1 = load ptr, ptr %arrayidx3, align 8
   %points_.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %2 = load ptr, ptr %points_.i.i, align 8
-  %cmp.i.i = icmp eq ptr %2, %0
+  %cmp.i.i = icmp eq ptr %0, %2
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %3 = load ptr, ptr %arrayidx3.i.i, align 8
-  %cmp4.i.i = icmp eq ptr %3, %0
+  %cmp4.i.i = icmp eq ptr %0, %3
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %t, i64 24
   %4 = load ptr, ptr %arrayidx6.i.i, align 8
-  %cmp7.i.i = icmp eq ptr %4, %0
+  %cmp7.i.i = icmp eq ptr %0, %4
   %or.cond.i = select i1 %or.cond.i.i, i1 true, i1 %cmp7.i.i
   br i1 %or.cond.i, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit, label %if.else
 
 _ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit:   ; preds = %entry
-  %cmp.i2.i = icmp eq ptr %2, %1
-  %cmp4.i4.i = icmp eq ptr %3, %1
+  %cmp.i2.i = icmp eq ptr %1, %2
+  %cmp4.i4.i = icmp eq ptr %1, %3
   %or.cond.i5.i = select i1 %cmp.i2.i, i1 true, i1 %cmp4.i4.i
-  %cmp7.i8.i = icmp eq ptr %4, %1
+  %cmp7.i8.i = icmp eq ptr %1, %4
   %spec.select.i = select i1 %or.cond.i5.i, i1 true, i1 %cmp7.i8.i
   br i1 %spec.select.i, label %if.then, label %if.else
 
@@ -121,26 +121,26 @@ if.then:                                          ; preds = %_ZN3p2t8Triangle8Co
   %neighbors_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %t, ptr %neighbors_, align 8
   %5 = load ptr, ptr %arrayidx6.i.i, align 8
-  %cmp.i = icmp eq ptr %5, %0
+  %cmp.i = icmp eq ptr %0, %5
   %6 = load ptr, ptr %arrayidx3.i.i, align 8
-  %cmp4.i = icmp eq ptr %6, %1
+  %cmp4.i = icmp eq ptr %1, %6
   %or.cond.i9 = select i1 %cmp.i, i1 %cmp4.i, i1 false
   br i1 %or.cond.i9, label %if.end35.sink.split, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then
-  %cmp7.i = icmp eq ptr %6, %0
-  %cmp11.i = icmp eq ptr %5, %1
+  %cmp7.i = icmp eq ptr %0, %6
+  %cmp11.i = icmp eq ptr %1, %5
   %or.cond13.i = and i1 %cmp11.i, %cmp7.i
   br i1 %or.cond13.i, label %if.end35.sink.split, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
   %7 = load ptr, ptr %points_.i.i, align 8
-  %cmp15.i = icmp eq ptr %7, %0
+  %cmp15.i = icmp eq ptr %0, %7
   %or.cond14.i = and i1 %cmp11.i, %cmp15.i
   br i1 %or.cond14.i, label %if.end35.sink.split, label %lor.lhs.false20.i
 
 lor.lhs.false20.i:                                ; preds = %if.else.i
-  %cmp27.i = icmp eq ptr %7, %1
+  %cmp27.i = icmp eq ptr %1, %7
   %or.cond15.i = and i1 %cmp.i, %cmp27.i
   br i1 %or.cond15.i, label %if.end35.sink.split, label %if.else31.i
 
@@ -152,18 +152,18 @@ if.else31.i:                                      ; preds = %lor.lhs.false20.i
 
 if.else:                                          ; preds = %entry, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit
   %8 = load ptr, ptr %points_, align 8
-  %cmp.i.i11 = icmp eq ptr %2, %8
-  %cmp4.i.i13 = icmp eq ptr %3, %8
+  %cmp.i.i11 = icmp eq ptr %8, %2
+  %cmp4.i.i13 = icmp eq ptr %8, %3
   %or.cond.i.i14 = select i1 %cmp.i.i11, i1 true, i1 %cmp4.i.i13
-  %cmp7.i.i16 = icmp eq ptr %4, %8
+  %cmp7.i.i16 = icmp eq ptr %8, %4
   %or.cond.i17 = select i1 %or.cond.i.i14, i1 true, i1 %cmp7.i.i16
   br i1 %or.cond.i17, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit24, label %if.end35
 
 _ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit24: ; preds = %if.else
-  %cmp.i2.i19 = icmp eq ptr %2, %1
-  %cmp4.i4.i20 = icmp eq ptr %3, %1
+  %cmp.i2.i19 = icmp eq ptr %1, %2
+  %cmp4.i4.i20 = icmp eq ptr %1, %3
   %or.cond.i5.i21 = select i1 %cmp.i2.i19, i1 true, i1 %cmp4.i4.i20
-  %cmp7.i8.i22 = icmp eq ptr %4, %1
+  %cmp7.i8.i22 = icmp eq ptr %1, %4
   %spec.select.i23 = select i1 %or.cond.i5.i21, i1 true, i1 %cmp7.i8.i22
   br i1 %spec.select.i23, label %if.then14, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit63
 
@@ -171,26 +171,26 @@ if.then14:                                        ; preds = %_ZN3p2t8Triangle8Co
   %arrayidx16 = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %t, ptr %arrayidx16, align 8
   %9 = load ptr, ptr %arrayidx6.i.i, align 8
-  %cmp.i27 = icmp eq ptr %9, %8
+  %cmp.i27 = icmp eq ptr %8, %9
   %10 = load ptr, ptr %arrayidx3.i.i, align 8
-  %cmp4.i29 = icmp eq ptr %10, %1
+  %cmp4.i29 = icmp eq ptr %1, %10
   %or.cond.i30 = select i1 %cmp.i27, i1 %cmp4.i29, i1 false
   br i1 %or.cond.i30, label %if.end35.sink.split, label %lor.lhs.false.i31
 
 lor.lhs.false.i31:                                ; preds = %if.then14
-  %cmp7.i32 = icmp eq ptr %10, %8
-  %cmp11.i33 = icmp eq ptr %9, %1
+  %cmp7.i32 = icmp eq ptr %8, %10
+  %cmp11.i33 = icmp eq ptr %1, %9
   %or.cond13.i34 = and i1 %cmp11.i33, %cmp7.i32
   br i1 %or.cond13.i34, label %if.end35.sink.split, label %if.else.i35
 
 if.else.i35:                                      ; preds = %lor.lhs.false.i31
   %11 = load ptr, ptr %points_.i.i, align 8
-  %cmp15.i36 = icmp eq ptr %11, %8
+  %cmp15.i36 = icmp eq ptr %8, %11
   %or.cond14.i37 = and i1 %cmp11.i33, %cmp15.i36
   br i1 %or.cond14.i37, label %if.end35.sink.split, label %lor.lhs.false20.i38
 
 lor.lhs.false20.i38:                              ; preds = %if.else.i35
-  %cmp27.i39 = icmp eq ptr %11, %1
+  %cmp27.i39 = icmp eq ptr %1, %11
   %or.cond15.i40 = and i1 %cmp.i27, %cmp27.i39
   br i1 %or.cond15.i40, label %if.end35.sink.split, label %if.else31.i41
 
@@ -207,26 +207,26 @@ if.then27:                                        ; preds = %_ZN3p2t8Triangle8Co
   %arrayidx29 = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %t, ptr %arrayidx29, align 8
   %12 = load ptr, ptr %arrayidx6.i.i, align 8
-  %cmp.i66 = icmp eq ptr %12, %8
+  %cmp.i66 = icmp eq ptr %8, %12
   %13 = load ptr, ptr %arrayidx3.i.i, align 8
-  %cmp4.i68 = icmp eq ptr %13, %0
+  %cmp4.i68 = icmp eq ptr %0, %13
   %or.cond.i69 = select i1 %cmp.i66, i1 %cmp4.i68, i1 false
   br i1 %or.cond.i69, label %if.end35.sink.split, label %lor.lhs.false.i70
 
 lor.lhs.false.i70:                                ; preds = %if.then27
-  %cmp7.i71 = icmp eq ptr %13, %8
-  %cmp11.i72 = icmp eq ptr %12, %0
+  %cmp7.i71 = icmp eq ptr %8, %13
+  %cmp11.i72 = icmp eq ptr %0, %12
   %or.cond13.i73 = and i1 %cmp11.i72, %cmp7.i71
   br i1 %or.cond13.i73, label %if.end35.sink.split, label %if.else.i74
 
 if.else.i74:                                      ; preds = %lor.lhs.false.i70
   %14 = load ptr, ptr %points_.i.i, align 8
-  %cmp15.i75 = icmp eq ptr %14, %8
+  %cmp15.i75 = icmp eq ptr %8, %14
   %or.cond14.i76 = and i1 %cmp11.i72, %cmp15.i75
   br i1 %or.cond14.i76, label %if.end35.sink.split, label %lor.lhs.false20.i77
 
 lor.lhs.false20.i77:                              ; preds = %if.else.i74
-  %cmp27.i78 = icmp eq ptr %14, %0
+  %cmp27.i78 = icmp eq ptr %0, %14
   %or.cond15.i79 = and i1 %cmp.i66, %cmp27.i78
   br i1 %or.cond15.i79, label %if.end35.sink.split, label %if.else31.i80
 
@@ -324,7 +324,7 @@ define hidden noundef ptr @_ZN3p2t8Triangle13OppositePointERS0_RKNS_5PointE(ptr 
 entry:
   %points_.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load ptr, ptr %points_.i, align 8
-  %cmp.i = icmp eq ptr %0, %p
+  %cmp.i = icmp eq ptr %p, %0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -335,13 +335,13 @@ if.then.i:                                        ; preds = %entry
 if.else.i:                                        ; preds = %entry
   %arrayidx5.i = getelementptr inbounds i8, ptr %t, i64 16
   %2 = load ptr, ptr %arrayidx5.i, align 8
-  %cmp6.i = icmp eq ptr %2, %p
+  %cmp6.i = icmp eq ptr %p, %2
   br i1 %cmp6.i, label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit, label %if.else10.i
 
 if.else10.i:                                      ; preds = %if.else.i
   %arrayidx12.i = getelementptr inbounds i8, ptr %t, i64 24
   %3 = load ptr, ptr %arrayidx12.i, align 8
-  %cmp13.i = icmp eq ptr %3, %p
+  %cmp13.i = icmp eq ptr %p, %3
   %..i = select i1 %cmp13.i, ptr %2, ptr null
   br label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit
 
@@ -349,7 +349,7 @@ _ZN3p2t8Triangle7PointCWERKNS_5PointE.exit:       ; preds = %if.then.i, %if.else
   %retval.0.i = phi ptr [ %1, %if.then.i ], [ %0, %if.else.i ], [ %..i, %if.else10.i ]
   %points_.i1 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %points_.i1, align 8
-  %cmp.i2 = icmp eq ptr %4, %retval.0.i
+  %cmp.i2 = icmp eq ptr %retval.0.i, %4
   br i1 %cmp.i2, label %if.then.i11, label %if.else.i3
 
 if.then.i11:                                      ; preds = %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit
@@ -360,13 +360,13 @@ if.then.i11:                                      ; preds = %_ZN3p2t8Triangle7Po
 if.else.i3:                                       ; preds = %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit
   %arrayidx5.i4 = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %arrayidx5.i4, align 8
-  %cmp6.i5 = icmp eq ptr %6, %retval.0.i
+  %cmp6.i5 = icmp eq ptr %retval.0.i, %6
   br i1 %cmp6.i5, label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit13, label %if.else10.i6
 
 if.else10.i6:                                     ; preds = %if.else.i3
   %arrayidx12.i7 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %arrayidx12.i7, align 8
-  %cmp13.i8 = icmp eq ptr %7, %retval.0.i
+  %cmp13.i8 = icmp eq ptr %retval.0.i, %7
   %..i9 = select i1 %cmp13.i8, ptr %6, ptr null
   br label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit13
 
@@ -380,7 +380,7 @@ define hidden noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr nocapture n
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %point
+  %cmp = icmp eq ptr %point, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -391,13 +391,13 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %arrayidx5, align 8
-  %cmp6 = icmp eq ptr %2, %point
+  %cmp6 = icmp eq ptr %point, %2
   br i1 %cmp6, label %return, label %if.else10
 
 if.else10:                                        ; preds = %if.else
   %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %arrayidx12, align 8
-  %cmp13 = icmp eq ptr %3, %point
+  %cmp13 = icmp eq ptr %point, %3
   %. = select i1 %cmp13, ptr %2, ptr null
   br label %return
 
@@ -425,7 +425,7 @@ define hidden void @_ZN3p2t8Triangle8LegalizeERNS_5PointES2_(ptr nocapture nound
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %opoint
+  %cmp = icmp eq ptr %opoint, %0
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %if.then, label %if.else
 
@@ -438,7 +438,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %2 = load ptr, ptr %arrayidx5, align 8
-  %cmp14 = icmp eq ptr %2, %opoint
+  %cmp14 = icmp eq ptr %opoint, %2
   %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 24
   br i1 %cmp14, label %if.then15, label %if.else26
 
@@ -449,7 +449,7 @@ if.then15:                                        ; preds = %if.else
 
 if.else26:                                        ; preds = %if.else
   %3 = load ptr, ptr %arrayidx19, align 8
-  %cmp29 = icmp eq ptr %3, %opoint
+  %cmp29 = icmp eq ptr %opoint, %3
   br i1 %cmp29, label %if.then30, label %if.end43
 
 if.then30:                                        ; preds = %if.else26
@@ -471,19 +471,19 @@ define hidden noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %p
+  %cmp = icmp eq ptr %p, %0
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx3, align 8
-  %cmp4 = icmp eq ptr %1, %p
+  %cmp4 = icmp eq ptr %p, %1
   br i1 %cmp4, label %return, label %if.else6
 
 if.else6:                                         ; preds = %if.else
   %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %arrayidx8, align 8
-  %cmp9 = icmp eq ptr %2, %p
+  %cmp9 = icmp eq ptr %p, %2
   %. = select i1 %cmp9, i32 2, i32 -1
   br label %return
 
@@ -563,16 +563,16 @@ entry:
   %1 = load ptr, ptr %q, align 8
   %points_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %points_.i, align 8
-  %cmp.i = icmp eq ptr %2, %1
+  %cmp.i = icmp eq ptr %1, %2
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %arrayidx3.i, align 8
-  %cmp4.i = icmp eq ptr %3, %0
+  %cmp4.i = icmp eq ptr %0, %3
   %or.cond.i = select i1 %cmp.i, i1 %cmp4.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %cmp7.i = icmp eq ptr %3, %1
-  %cmp11.i = icmp eq ptr %2, %0
+  %cmp7.i = icmp eq ptr %1, %3
+  %cmp11.i = icmp eq ptr %0, %2
   %or.cond11.i = and i1 %cmp11.i, %cmp7.i
   br i1 %or.cond11.i, label %if.then.i, label %if.else.i
 
@@ -584,12 +584,12 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
 if.else.i:                                        ; preds = %lor.lhs.false.i
   %arrayidx18.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %arrayidx18.i, align 8
-  %cmp19.i = icmp eq ptr %4, %0
+  %cmp19.i = icmp eq ptr %0, %4
   %or.cond12.i = select i1 %cmp.i, i1 %cmp19.i, i1 false
   br i1 %or.cond12.i, label %if.then28.i, label %lor.lhs.false20.i
 
 lor.lhs.false20.i:                                ; preds = %if.else.i
-  %cmp23.i = icmp eq ptr %4, %1
+  %cmp23.i = icmp eq ptr %1, %4
   %or.cond13.i = and i1 %cmp11.i, %cmp23.i
   br i1 %or.cond13.i, label %if.then28.i, label %if.else31.i
 
@@ -617,16 +617,16 @@ define hidden void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noc
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %q
+  %cmp = icmp eq ptr %q, %0
   %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx3, align 8
-  %cmp4 = icmp eq ptr %1, %p
+  %cmp4 = icmp eq ptr %p, %1
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %or.cond, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %cmp7 = icmp eq ptr %1, %q
-  %cmp11 = icmp eq ptr %0, %p
+  %cmp7 = icmp eq ptr %q, %1
+  %cmp11 = icmp eq ptr %p, %0
   %or.cond11 = and i1 %cmp11, %cmp7
   br i1 %or.cond11, label %if.then, label %if.else
 
@@ -638,12 +638,12 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.else:                                          ; preds = %lor.lhs.false
   %arrayidx18 = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %arrayidx18, align 8
-  %cmp19 = icmp eq ptr %2, %p
+  %cmp19 = icmp eq ptr %p, %2
   %or.cond12 = select i1 %cmp, i1 %cmp19, i1 false
   br i1 %or.cond12, label %if.then28, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %if.else
-  %cmp23 = icmp eq ptr %2, %q
+  %cmp23 = icmp eq ptr %q, %2
   %or.cond13 = and i1 %cmp11, %cmp23
   br i1 %or.cond13, label %if.then28, label %if.else31
 
@@ -671,19 +671,19 @@ define hidden noundef ptr @_ZN3p2t8Triangle8PointCCWERKNS_5PointE(ptr nocapture 
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %point
+  %cmp = icmp eq ptr %point, %0
   %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx3, align 8
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp6 = icmp eq ptr %1, %point
+  %cmp6 = icmp eq ptr %point, %1
   %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %arrayidx9, align 8
   br i1 %cmp6, label %return, label %if.else10
 
 if.else10:                                        ; preds = %if.else
-  %cmp13 = icmp eq ptr %2, %point
+  %cmp13 = icmp eq ptr %point, %2
   %. = select i1 %cmp13, ptr %0, ptr null
   br label %return
 
@@ -697,10 +697,10 @@ define hidden noundef ptr @_ZN3p2t8Triangle10NeighborCWERKNS_5PointE(ptr nocaptu
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %point
+  %cmp = icmp eq ptr %point, %0
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %1, %point
+  %cmp5 = icmp eq ptr %point, %1
   %. = select i1 %cmp5, i64 48, i64 32
   %.sink = select i1 %cmp, i64 40, i64 %.
   %neighbors_10 = getelementptr inbounds i8, ptr %this, i64 %.sink
@@ -713,10 +713,10 @@ define hidden noundef ptr @_ZN3p2t8Triangle11NeighborCCWERKNS_5PointE(ptr nocapt
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %point
+  %cmp = icmp eq ptr %point, %0
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %1, %point
+  %cmp5 = icmp eq ptr %point, %1
   %. = select i1 %cmp5, i64 32, i64 40
   %.sink = select i1 %cmp, i64 48, i64 %.
   %arrayidx11 = getelementptr inbounds i8, ptr %this, i64 %.sink
@@ -729,10 +729,10 @@ define hidden noundef zeroext i1 @_ZN3p2t8Triangle21GetConstrainedEdgeCCWERKNS_5
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %p
+  %cmp = icmp eq ptr %p, %0
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp ne ptr %1, %p
+  %cmp5 = icmp ne ptr %p, %1
   %spec.select.idx = zext i1 %cmp5 to i64
   %retval.0.in.in.v = select i1 %cmp, i64 2, i64 %spec.select.idx
   %retval.0.in.in = getelementptr inbounds i8, ptr %this, i64 %retval.0.in.in.v
@@ -746,10 +746,10 @@ define hidden noundef zeroext i1 @_ZN3p2t8Triangle20GetConstrainedEdgeCWERKNS_5P
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %p
+  %cmp = icmp eq ptr %p, %0
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %1, %p
+  %cmp5 = icmp eq ptr %p, %1
   %spec.select.idx = select i1 %cmp5, i64 2, i64 0
   %retval.0.in.in.v = select i1 %cmp, i64 1, i64 %spec.select.idx
   %retval.0.in.in = getelementptr inbounds i8, ptr %this, i64 %retval.0.in.in.v
@@ -764,7 +764,7 @@ entry:
   %frombool = zext i1 %ce to i8
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %p
+  %cmp = icmp eq ptr %p, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -775,7 +775,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx5, align 8
-  %cmp6 = icmp eq ptr %1, %p
+  %cmp6 = icmp eq ptr %p, %1
   br i1 %cmp6, label %if.then7, label %if.else12
 
 if.then7:                                         ; preds = %if.else
@@ -797,7 +797,7 @@ entry:
   %frombool = zext i1 %ce to i8
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %p
+  %cmp = icmp eq ptr %p, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -808,7 +808,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx5, align 8
-  %cmp6 = icmp eq ptr %1, %p
+  %cmp6 = icmp eq ptr %p, %1
   br i1 %cmp6, label %if.then7, label %if.else12
 
 if.then7:                                         ; preds = %if.else
@@ -829,10 +829,10 @@ define hidden noundef zeroext i1 @_ZN3p2t8Triangle17GetDelunayEdgeCCWERKNS_5Poin
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %p
+  %cmp = icmp eq ptr %p, %0
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %1, %p
+  %cmp5 = icmp eq ptr %p, %1
   %. = select i1 %cmp5, i64 3, i64 4
   %.sink = select i1 %cmp, i64 5, i64 %.
   %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 %.sink
@@ -846,10 +846,10 @@ define hidden noundef zeroext i1 @_ZN3p2t8Triangle16GetDelunayEdgeCWERKNS_5Point
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %p
+  %cmp = icmp eq ptr %p, %0
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %1, %p
+  %cmp5 = icmp eq ptr %p, %1
   %. = select i1 %cmp5, i64 5, i64 3
   %.sink = select i1 %cmp, i64 4, i64 %.
   %delaunay_edge11 = getelementptr inbounds i8, ptr %this, i64 %.sink
@@ -864,10 +864,10 @@ entry:
   %frombool = zext i1 %e to i8
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %p
+  %cmp = icmp eq ptr %p, %0
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx5, align 8
-  %cmp6 = icmp eq ptr %1, %p
+  %cmp6 = icmp eq ptr %p, %1
   %. = select i1 %cmp6, i64 3, i64 4
   %.sink = select i1 %cmp, i64 5, i64 %.
   %delaunay_edge9 = getelementptr inbounds i8, ptr %this, i64 %.sink
@@ -881,10 +881,10 @@ entry:
   %frombool = zext i1 %e to i8
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %p
+  %cmp = icmp eq ptr %p, %0
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx5, align 8
-  %cmp6 = icmp eq ptr %1, %p
+  %cmp6 = icmp eq ptr %p, %1
   %. = select i1 %cmp6, i64 5, i64 3
   %.sink = select i1 %cmp, i64 4, i64 %.
   %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 %.sink
@@ -897,10 +897,10 @@ define hidden noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t8Triangle1
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %cmp = icmp eq ptr %0, %opoint
+  %cmp = icmp eq ptr %opoint, %0
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %1, %opoint
+  %cmp5 = icmp eq ptr %opoint, %1
   %. = select i1 %cmp5, i64 40, i64 48
   %.sink = select i1 %cmp, i64 32, i64 %.
   %arrayidx11 = getelementptr inbounds i8, ptr %this, i64 %.sink

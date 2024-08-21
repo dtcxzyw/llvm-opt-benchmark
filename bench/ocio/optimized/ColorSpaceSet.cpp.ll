@@ -758,7 +758,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 4
   %conv.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
-  %cmp2.not.i = icmp sgt i32 %conv.i.i, %index
+  %cmp2.not.i = icmp slt i32 %index, %conv.i.i
   br i1 %cmp2.not.i, label %if.end.i, label %_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4Impl7getNameEi.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -790,7 +790,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 4
   %conv.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
-  %cmp2.not.i = icmp sgt i32 %conv.i.i, %index
+  %cmp2.not.i = icmp slt i32 %index, %conv.i.i
   br i1 %cmp2.not.i, label %if.end.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit.i: ; preds = %lor.lhs.false.i, %entry
@@ -2582,7 +2582,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev10ColorSpaceEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_4dev10ColorSpaceEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_4dev10ColorSpaceEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
-  %cmp.not5.i.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev10ColorSpaceEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i.i12
 
 for.body.i.i.i.i12:                               ; preds = %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev10ColorSpaceEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i.i12

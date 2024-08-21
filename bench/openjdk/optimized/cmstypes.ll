@@ -463,7 +463,7 @@ define hidden noundef ptr @_cmsGetTagTypeHandler(ptr noundef %0, i32 noundef %1)
 .lr.ph.i:                                         ; preds = %2, %7
   %.017.i = phi ptr [ %9, %7 ], [ %4, %2 ]
   %5 = load i32, ptr %.017.i, align 8
-  %6 = icmp eq i32 %5, %1
+  %6 = icmp eq i32 %1, %5
   br i1 %6, label %GetHandler.exit, label %7
 
 7:                                                ; preds = %.lr.ph.i
@@ -478,7 +478,7 @@ define hidden noundef ptr @_cmsGetTagTypeHandler(ptr noundef %0, i32 noundef %1)
 .lr.ph20.i:                                       ; preds = %.lr.ph20.i.preheader, %12
   %.119.i = phi ptr [ %14, %12 ], [ @SupportedTagTypes, %.lr.ph20.i.preheader ]
   %10 = load i32, ptr %.119.i, align 8
-  %11 = icmp eq i32 %10, %1
+  %11 = icmp eq i32 %1, %10
   br i1 %11, label %GetHandler.exit, label %12
 
 12:                                               ; preds = %.lr.ph20.i
@@ -614,7 +614,7 @@ define hidden ptr @_cmsGetTagDescriptor(ptr noundef %0, i32 noundef %1) local_un
 .lr.ph:                                           ; preds = %2, %8
   %.01218 = phi ptr [ %.012, %8 ], [ %.01216, %2 ]
   %4 = load i32, ptr %.01218, align 8
-  %5 = icmp eq i32 %4, %1
+  %5 = icmp eq i32 %1, %4
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph
@@ -633,7 +633,7 @@ define hidden ptr @_cmsGetTagDescriptor(ptr noundef %0, i32 noundef %1) local_un
 .preheader:                                       ; preds = %.preheader.preheader, %14
   %.119 = phi ptr [ %16, %14 ], [ @SupportedTags, %.preheader.preheader ]
   %10 = load i32, ptr %.119, align 8
-  %11 = icmp eq i32 %10, %1
+  %11 = icmp eq i32 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.preheader
@@ -5607,7 +5607,7 @@ define internal range(i32 0, 2) i32 @Type_MPE_Write(ptr noundef %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %41, %51
   %.017.i = phi ptr [ %53, %51 ], [ %48, %41 ]
   %49 = load i32, ptr %.017.i, align 8
-  %50 = icmp eq i32 %49, %47
+  %50 = icmp eq i32 %47, %49
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %.lr.ph.i
@@ -5622,7 +5622,7 @@ define internal range(i32 0, 2) i32 @Type_MPE_Write(ptr noundef %0, ptr noundef 
 .lr.ph20.i:                                       ; preds = %.lr.ph20.i.preheader, %56
   %.119.i = phi ptr [ %58, %56 ], [ @SupportedMPEtypes, %.lr.ph20.i.preheader ]
   %54 = load i32, ptr %.119.i, align 8
-  %55 = icmp eq i32 %54, %47
+  %55 = icmp eq i32 %47, %54
   br i1 %55, label %.loopexit, label %56
 
 56:                                               ; preds = %.lr.ph20.i
@@ -9326,7 +9326,7 @@ define internal range(i32 0, 2) i32 @ReadMPEElem(ptr noundef %0, ptr noundef %1,
 .lr.ph.i:                                         ; preds = %15, %20
   %.017.i = phi ptr [ %22, %20 ], [ %17, %15 ]
   %18 = load i32, ptr %.017.i, align 8
-  %19 = icmp eq i32 %18, %16
+  %19 = icmp eq i32 %16, %18
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %.lr.ph.i
@@ -9341,7 +9341,7 @@ define internal range(i32 0, 2) i32 @ReadMPEElem(ptr noundef %0, ptr noundef %1,
 .lr.ph20.i:                                       ; preds = %.lr.ph20.i.preheader, %25
   %.119.i = phi ptr [ %27, %25 ], [ @SupportedMPEtypes, %.lr.ph20.i.preheader ]
   %23 = load i32, ptr %.119.i, align 8
-  %24 = icmp eq i32 %23, %16
+  %24 = icmp eq i32 %16, %23
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %.lr.ph20.i

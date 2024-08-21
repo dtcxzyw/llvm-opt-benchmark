@@ -1284,7 +1284,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br i1 %99, label %100, label %104
 
 100:                                              ; preds = %97
-  %101 = add i64 %66, %3
+  %101 = add i64 %3, %66
   %102 = icmp ult i64 %101, %71
   %103 = select i1 %94, i1 true, i1 %102
   br i1 %103, label %165, label %104

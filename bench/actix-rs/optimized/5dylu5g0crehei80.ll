@@ -3914,7 +3914,7 @@ define internal fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b87
   store i64 %17, ptr %6, align 8, !noalias !627
   %25 = getelementptr inbounds i8, ptr %8, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !7
-  %.not.i = icmp ult i64 %26, %17
+  %.not.i = icmp ugt i64 %17, %26
   br i1 %.not.i, label %27, label %44
 
 27:                                               ; preds = %16
@@ -4373,7 +4373,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
   %39 = load i64, ptr %38, align 8, !alias.scope !650, !noalias !653, !noundef !7
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8, !alias.scope !650, !noalias !653
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %50, %3
@@ -4454,8 +4454,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14.i
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa.i
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa.i
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14.i
   %.0.copyload15.i18.i = load i16, ptr %86, align 1, !alias.scope !664, !noalias !650
   %87 = zext i16 %.0.copyload15.i18.i to i64
   %88 = shl nuw nsw i64 %.0.i14.i, 3
@@ -15746,7 +15746,7 @@ define void @_ZN3awc10middleware8redirect14build_next_uri17h6b3e675da6dce98bE(pt
   %186 = load i64, ptr %34, align 8, !noundef !7
   %187 = load i64, ptr %20, align 8, !alias.scope !1903, !noundef !7
   %188 = sub i64 %187, %184
-  %189 = icmp ult i64 %188, %186
+  %189 = icmp ugt i64 %186, %188
   br i1 %189, label %190, label %191
 
 190:                                              ; preds = %179

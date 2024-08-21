@@ -518,7 +518,7 @@ define hidden void @_ZN6G1NUMA17update_statisticsEN11G1NUMAStats13NodeDataItemsE
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
-  %. = tail call i32 @llvm.umin.i32(i32 %10, i32 %2)
+  %. = tail call i32 @llvm.umin.i32(i32 %2, i32 %10)
   tail call void @_ZN11G1NUMAStats6updateENS_13NodeDataItemsEjj(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %1, i32 noundef %., i32 noundef %3) #12
   br label %11
 

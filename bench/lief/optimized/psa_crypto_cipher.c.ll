@@ -255,7 +255,7 @@ define hidden i32 @mbedtls_psa_cipher_set_iv(ptr noundef %0, ptr noundef %1, i64
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = zext i8 %5 to i64
-  %.not = icmp eq i64 %6, %2
+  %.not = icmp eq i64 %2, %6
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %3
@@ -295,7 +295,7 @@ define hidden i32 @mbedtls_psa_cipher_update(ptr noundef %0, ptr noundef %1, i64
 
 20:                                               ; preds = %6, %11
   %.0 = phi i64 [ %19, %11 ], [ %2, %6 ]
-  %21 = icmp ugt i64 %.0, %4
+  %21 = icmp ult i64 %4, %.0
   br i1 %21, label %72, label %22
 
 22:                                               ; preds = %20
@@ -322,7 +322,7 @@ define hidden i32 @mbedtls_psa_cipher_update(ptr noundef %0, ptr noundef %1, i64
 
 34:                                               ; preds = %31
   %35 = sub i64 %29, %33
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %35, i64 %2)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %35)
   %36 = getelementptr inbounds i8, ptr %0, i64 40
   %37 = getelementptr inbounds [16 x i8], ptr %36, i64 0, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %1, i64 %spec.select.i, i1 false)
@@ -440,7 +440,7 @@ define hidden i32 @mbedtls_psa_cipher_finish(ptr noundef %0, ptr nocapture nound
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %14
-  %.not15 = icmp ugt i64 %15, %2
+  %.not15 = icmp ult i64 %2, %15
   br i1 %.not15, label %19, label %18
 
 18:                                               ; preds = %17
@@ -498,7 +498,7 @@ define hidden i32 @mbedtls_psa_cipher_encrypt(ptr nocapture noundef readonly %0,
   %19 = getelementptr inbounds i8, ptr %13, i64 4
   %20 = load i8, ptr %19, align 4
   %21 = zext i8 %20 to i64
-  %.not.i = icmp eq i64 %21, %5
+  %.not.i = icmp eq i64 %5, %21
   br i1 %.not.i, label %mbedtls_psa_cipher_set_iv.exit, label %mbedtls_psa_cipher_set_iv.exit.thread
 
 mbedtls_psa_cipher_set_iv.exit:                   ; preds = %18
@@ -543,7 +543,7 @@ mbedtls_psa_cipher_set_iv.exit:                   ; preds = %18
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %39
-  %.not15.i = icmp ugt i64 %40, %30
+  %.not15.i = icmp ult i64 %30, %40
   br i1 %.not15.i, label %mbedtls_psa_cipher_finish.exit.thread, label %43
 
 43:                                               ; preds = %42
@@ -660,7 +660,7 @@ mbedtls_psa_cipher_set_iv.exit._crit_edge:        ; preds = %mbedtls_psa_cipher_
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %39
-  %.not15.i = icmp ugt i64 %40, %30
+  %.not15.i = icmp ult i64 %30, %40
   br i1 %.not15.i, label %mbedtls_psa_cipher_finish.exit.thread, label %43
 
 43:                                               ; preds = %42

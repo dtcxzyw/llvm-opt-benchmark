@@ -2360,7 +2360,7 @@ if.else.i234.i:                                   ; preds = %if.end.i232.i
   %path27.i.i = getelementptr inbounds i8, ptr %.val143.val.val145.i, i64 40
   %347 = load ptr, ptr %path27.i.i, align 8
   %348 = load ptr, ptr %branch1.i115, align 8
-  %cmp29.i.i = icmp eq ptr %348, %.val143.val144.i
+  %cmp29.i.i = icmp eq ptr %.val143.val144.i, %348
   %cond33.i.i = select i1 %cmp29.i.i, ptr %.val143.val.val145.i, ptr null
   %cond39.i.i = select i1 %cmp29.i.i, ptr null, ptr %.val143.val.val145.i
   %call40.i.i = call fastcc i32 @update_stages(ptr noundef nonnull %opt, ptr noundef %347, ptr noundef null, ptr noundef %cond33.i.i, ptr noundef %cond39.i.i)
@@ -4798,7 +4798,7 @@ st_add.exit12:                                    ; preds = %st_add.exit
   %conv10 = ashr exact i64 %sext, 32
   %4 = load i64, ptr %base, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 1)
-  %cmp.i13 = icmp ult i64 %spec.select.i, %conv10
+  %cmp.i13 = icmp ugt i64 %conv10, %spec.select.i
   br i1 %cmp.i13, label %if.then.i14, label %if.end.i
 
 if.then.i14:                                      ; preds = %st_add.exit12
@@ -6950,7 +6950,7 @@ land.rhs:                                         ; preds = %lor.rhs
 while.body:                                       ; preds = %while.cond, %land.rhs
   %13 = load i64, ptr %newpath, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %13, i64 1)
-  %cmp.i7 = icmp ult i64 %spec.select.i, %6
+  %cmp.i7 = icmp ugt i64 %6, %spec.select.i
   br i1 %cmp.i7, label %if.then.i10, label %if.end.i
 
 if.then.i10:                                      ; preds = %while.body
@@ -7023,7 +7023,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %entry
   %branch2.tr = phi ptr [ %branch2, %entry ], [ %branch1.tr, %tailrecurse ]
   %a.tr = phi ptr [ %a, %entry ], [ %b.tr, %tailrecurse ]
   %b.tr = phi ptr [ %b, %entry ], [ %a.tr, %tailrecurse ]
-  %cmp.not = icmp eq ptr %0, %branch1.tr
+  %cmp.not = icmp eq ptr %branch1.tr, %0
   br i1 %cmp.not, label %if.end, label %tailrecurse
 
 if.end:                                           ; preds = %tailrecurse
@@ -9318,7 +9318,7 @@ _.exit71:                                         ; preds = %if.else31, %if.end3
 if.end34:                                         ; preds = %_.exit, %_.exit61
   %branch1 = getelementptr inbounds i8, ptr %opt, i64 16
   %17 = load ptr, ptr %branch1, align 8
-  %cmp.not = icmp eq ptr %17, %change_branch
+  %cmp.not = icmp eq ptr %change_branch, %17
   br i1 %cmp.not, label %if.end40, label %if.end40.sink.split
 
 if.end40.sink.split:                              ; preds = %if.end34, %_.exit66, %_.exit71, %if.then11

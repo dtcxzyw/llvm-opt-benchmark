@@ -335,7 +335,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %2) #8
   %conv = sext i32 %call2 to i64
-  %cmp.not = icmp eq i64 %conv, %tbslen
+  %cmp.not = icmp eq i64 %tbslen, %conv
   br i1 %cmp.not, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %if.then
@@ -510,7 +510,7 @@ if.then1:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then
   %call7 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %2) #8
   %conv8 = sext i32 %call7 to i64
-  %cmp9.not = icmp eq i64 %conv8, %tbslen
+  %cmp9.not = icmp eq i64 %tbslen, %conv8
   br i1 %cmp9.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.end
@@ -1061,7 +1061,7 @@ land.lhs.true55:                                  ; preds = %if.then47
 
 lor.lhs.false:                                    ; preds = %if.then47
   %cmp60 = icmp sgt i32 %p1, -1
-  %cmp63 = icmp sgt i32 %12, %p1
+  %cmp63 = icmp slt i32 %p1, %12
   %or.cond96 = and i1 %cmp60, %cmp63
   br i1 %or.cond96, label %if.then64, label %if.end66
 

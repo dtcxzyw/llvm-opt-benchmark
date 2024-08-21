@@ -939,7 +939,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14175771983566341859.exi
 
 136:                                              ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  %.not.i13.i = icmp ugt i64 %125, %128
+  %.not.i13.i = icmp ult i64 %128, %125
   br i1 %.not.i13.i, label %140, label %137
 
 137:                                              ; preds = %136
@@ -1127,7 +1127,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14175771983566341859.exi
 
 202:                                              ; preds = %197
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %.not.i13.i63 = icmp ugt i64 %191, %194
+  %.not.i13.i63 = icmp ult i64 %194, %191
   br i1 %.not.i13.i63, label %206, label %203
 
 203:                                              ; preds = %202
@@ -2173,7 +2173,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14175771983566341859.exi
 
 136:                                              ; preds = %131
   call void @llvm.experimental.noalias.scope.decl(metadata !349)
-  %.not.i13.i = icmp ugt i64 %125, %128
+  %.not.i13.i = icmp ult i64 %128, %125
   br i1 %.not.i13.i, label %140, label %137
 
 137:                                              ; preds = %136
@@ -2380,7 +2380,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14175771983566341859.exi
 
 204:                                              ; preds = %199
   call void @llvm.experimental.noalias.scope.decl(metadata !402)
-  %.not.i13.i71 = icmp ugt i64 %193, %196
+  %.not.i13.i71 = icmp ult i64 %196, %193
   br i1 %.not.i13.i71, label %208, label %205
 
 205:                                              ; preds = %204
@@ -2591,7 +2591,7 @@ _ZN3std4sync4mpmc7context7Context12store_packet17h71587165d6a8dce1E.exit.i.i: ; 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !441)
   %49 = load i64, ptr %5, align 8, !alias.scope !441, !noalias !444, !noundef !12
-  %.not.i = icmp ugt i64 %49, %.016.i
+  %.not.i = icmp ult i64 %.016.i, %49
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h325a1294c672be23E.exit", label %50
 
 50:                                               ; preds = %47

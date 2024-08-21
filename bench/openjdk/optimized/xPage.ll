@@ -69,7 +69,7 @@ define hidden void @_ZN5XPageC2ERK14XVirtualMemoryRK15XPhysicalMemory(ptr nounde
   %7 = sub i64 %5, %6
   %8 = icmp eq i64 %7, 2097152
   %9 = load i64, ptr @XPageSizeMedium, align 8
-  %10 = icmp eq i64 %9, %7
+  %10 = icmp eq i64 %7, %9
   %..i = select i1 %10, i8 1, i8 2
   %.0.i = select i1 %8, i8 0, i8 %..i
   store i8 %.0.i, ptr %0, align 8
@@ -283,7 +283,7 @@ declare void @_ZN8XLiveMap6resizeEj(ptr noundef nonnull align 8 dereferenceable(
 define hidden noundef ptr @_ZN5XPage5splitEm(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq i64 %1, 2097152
   %4 = load i64, ptr @XPageSizeMedium, align 8
-  %5 = icmp eq i64 %4, %1
+  %5 = icmp eq i64 %1, %4
   %..i = select i1 %5, i8 1, i8 2
   %.0.i = select i1 %3, i8 0, i8 %..i
   %6 = tail call noundef ptr @_ZN5XPage5splitEhm(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 noundef zeroext %.0.i, i64 noundef %1)
@@ -305,7 +305,7 @@ define hidden noundef ptr @_ZN5XPage5splitEhm(ptr noundef nonnull align 8 derefe
   %12 = sub i64 %10, %11
   %13 = icmp eq i64 %12, 2097152
   %14 = load i64, ptr @XPageSizeMedium, align 8
-  %15 = icmp eq i64 %14, %12
+  %15 = icmp eq i64 %12, %14
   %..i = select i1 %15, i8 1, i8 2
   %.0.i = select i1 %13, i8 0, i8 %..i
   store i8 %.0.i, ptr %0, align 8
@@ -422,7 +422,7 @@ define hidden noundef ptr @_ZN5XPage15split_committedEv(ptr noundef nonnull alig
   %13 = sub i64 %12, %10
   %14 = icmp eq i64 %13, 2097152
   %15 = load i64, ptr @XPageSizeMedium, align 8
-  %16 = icmp eq i64 %15, %13
+  %16 = icmp eq i64 %13, %15
   %..i = select i1 %16, i8 1, i8 2
   %.0.i = select i1 %14, i8 0, i8 %..i
   store i8 %.0.i, ptr %0, align 8
@@ -447,7 +447,7 @@ _ZNK5XPage16object_max_countEv.exit:              ; preds = %6, %_ZNK5XPage22obj
   %24 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 136, i8 noundef zeroext 5, i32 noundef 0) #8
   %25 = icmp eq i64 %8, 2097152
   %26 = load i64, ptr @XPageSizeMedium, align 8
-  %27 = icmp eq i64 %26, %8
+  %27 = icmp eq i64 %8, %26
   %..i.i = select i1 %27, i8 1, i8 2
   %.0.i.i5 = select i1 %25, i8 0, i8 %..i.i
   store i8 %.0.i.i5, ptr %24, align 8
@@ -569,7 +569,7 @@ define hidden void @_ZNK5XPage5printEv(ptr noundef nonnull align 8 dereferenceab
 define hidden void @_ZNK5XPage11verify_liveEjm(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   %5 = load volatile i32, ptr %4, align 4
-  %6 = icmp eq i32 %5, %1
+  %6 = icmp eq i32 %1, %5
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
@@ -581,7 +581,7 @@ define hidden void @_ZNK5XPage11verify_liveEjm(ptr noundef nonnull align 8 deref
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load volatile i64, ptr %10, align 8
-  %12 = icmp eq i64 %11, %2
+  %12 = icmp eq i64 %2, %11
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %9

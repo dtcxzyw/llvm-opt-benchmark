@@ -205,7 +205,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %46 = getelementptr inbounds i8, ptr %35, i64 2
   %47 = load i8, ptr %46, align 2
   %48 = zext i8 %47 to i32
-  %49 = and i32 %48, %5
+  %49 = and i32 %5, %48
   %.not209 = icmp eq i32 %49, %5
   br i1 %.not209, label %57, label %.thread237.preheader
 
@@ -333,7 +333,7 @@ print_sep.exit.thread:                            ; preds = %83, %print_sep.exit
   %.4198 = phi i32 [ %96, %102 ], [ %.4198.ph, %.outer ]
   %96 = add i32 %.4198, 1
   %97 = zext i32 %96 to i64
-  %98 = icmp ult i64 %97, %2
+  %98 = icmp ugt i64 %2, %97
   br i1 %98, label %99, label %.critedge2
 
 99:                                               ; preds = %95
@@ -601,7 +601,7 @@ print_sep.exit234.thread:                         ; preds = %184, %print_sep.exi
 .critedge:                                        ; preds = %54, %.thread237, %212, %220
   %.pre-phi274 = phi i64 [ %97, %212 ], [ %97, %220 ], [ %53, %.thread237 ], [ %53, %54 ]
   %.pre-phi = phi i32 [ %96, %212 ], [ %96, %220 ], [ %52, %.thread237 ], [ %52, %54 ]
-  %221 = icmp ult i64 %.pre-phi274, %2
+  %221 = icmp ugt i64 %2, %.pre-phi274
   br i1 %221, label %33, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader242
@@ -905,8 +905,8 @@ cvt_flip.exit:                                    ; preds = %71
 93:                                               ; preds = %79, %cvt_flip.exit
   %94 = add nsw i64 %67, %72
   %95 = and i64 %94, 4294967295
-  %96 = icmp ugt i64 %95, %4
-  %97 = icmp eq i64 %94, %4
+  %96 = icmp ult i64 %4, %95
+  %97 = icmp eq i64 %4, %94
   %or.cond = or i1 %97, %96
   br i1 %or.cond, label %mconvert.exit, label %98
 
@@ -926,7 +926,7 @@ cvt_flip.exit:                                    ; preds = %71
 104:                                              ; preds = %79, %cvt_flip.exit
   %105 = add nsw i64 %67, %72
   %106 = and i64 %105, 4294967295
-  %107 = icmp ugt i64 %106, %4
+  %107 = icmp ult i64 %4, %106
   %108 = sub i64 %4, %105
   %109 = icmp ult i64 %108, 2
   %or.cond528 = or i1 %107, %109
@@ -948,7 +948,7 @@ cvt_flip.exit:                                    ; preds = %71
 cvt_flip.exit.thread589:                          ; preds = %79, %cvt_flip.exit
   %116 = add nsw i64 %67, %72
   %117 = and i64 %116, 4294967295
-  %118 = icmp ugt i64 %117, %4
+  %118 = icmp ult i64 %4, %117
   %119 = sub i64 %4, %116
   %120 = icmp ult i64 %119, 2
   %or.cond530 = or i1 %118, %120
@@ -979,7 +979,7 @@ cvt_flip.exit.thread589:                          ; preds = %79, %cvt_flip.exit
 cvt_flip.exit.thread592:                          ; preds = %79, %cvt_flip.exit
   %136 = add nsw i64 %67, %72
   %137 = and i64 %136, 4294967295
-  %138 = icmp ugt i64 %137, %4
+  %138 = icmp ult i64 %4, %137
   %139 = sub i64 %4, %136
   %140 = icmp ult i64 %139, 2
   %or.cond532 = or i1 %138, %140
@@ -1001,7 +1001,7 @@ cvt_flip.exit.thread592:                          ; preds = %79, %cvt_flip.exit
 147:                                              ; preds = %79, %cvt_flip.exit
   %148 = add nsw i64 %67, %72
   %149 = and i64 %148, 4294967295
-  %150 = icmp ugt i64 %149, %4
+  %150 = icmp ult i64 %4, %149
   %151 = sub i64 %4, %148
   %152 = icmp ult i64 %151, 4
   %or.cond534 = or i1 %150, %152
@@ -1023,7 +1023,7 @@ cvt_flip.exit.thread592:                          ; preds = %79, %cvt_flip.exit
 cvt_flip.exit.thread595:                          ; preds = %79, %79, %cvt_flip.exit, %cvt_flip.exit
   %159 = add nsw i64 %67, %72
   %160 = and i64 %159, 4294967295
-  %161 = icmp ugt i64 %160, %4
+  %161 = icmp ult i64 %4, %160
   %162 = sub i64 %4, %159
   %163 = icmp ult i64 %162, 4
   %or.cond536 = or i1 %161, %163
@@ -1070,7 +1070,7 @@ cvt_flip.exit.thread595:                          ; preds = %79, %79, %cvt_flip.
 cvt_flip.exit.thread598:                          ; preds = %79, %79, %cvt_flip.exit, %cvt_flip.exit
   %195 = add nsw i64 %67, %72
   %196 = and i64 %195, 4294967295
-  %197 = icmp ugt i64 %196, %4
+  %197 = icmp ult i64 %4, %196
   %198 = sub i64 %4, %195
   %199 = icmp ult i64 %198, 4
   %or.cond538 = or i1 %197, %199
@@ -1092,7 +1092,7 @@ cvt_flip.exit.thread598:                          ; preds = %79, %79, %cvt_flip.
 206:                                              ; preds = %79, %cvt_flip.exit
   %207 = add nsw i64 %67, %72
   %208 = and i64 %207, 4294967295
-  %209 = icmp ugt i64 %208, %4
+  %209 = icmp ult i64 %4, %208
   %210 = sub i64 %4, %207
   %211 = icmp ult i64 %210, 4
   %or.cond540 = or i1 %209, %211
@@ -1131,7 +1131,7 @@ cvt_flip.exit.thread598:                          ; preds = %79, %79, %cvt_flip.
 cvt_flip.exit.thread601:                          ; preds = %79, %cvt_flip.exit
   %235 = add nsw i64 %67, %72
   %236 = and i64 %235, 4294967295
-  %237 = icmp ugt i64 %236, %4
+  %237 = icmp ult i64 %4, %236
   %238 = sub i64 %4, %235
   %239 = icmp ult i64 %238, 8
   %or.cond542 = or i1 %237, %239
@@ -1180,7 +1180,7 @@ cvt_flip.exit.thread601:                          ; preds = %79, %cvt_flip.exit
 cvt_flip.exit.thread604:                          ; preds = %79, %cvt_flip.exit
   %278 = add nsw i64 %67, %72
   %279 = and i64 %278, 4294967295
-  %280 = icmp ugt i64 %279, %4
+  %280 = icmp ult i64 %4, %279
   %281 = sub i64 %4, %278
   %282 = icmp ult i64 %281, 8
   %or.cond544 = or i1 %280, %282
@@ -1191,7 +1191,7 @@ cvt_flip.exit.thread604:                          ; preds = %79, %cvt_flip.exit
   br label %300
 
 285:                                              ; preds = %79, %cvt_flip.exit
-  %286 = icmp ugt i64 %72, %4
+  %286 = icmp ult i64 %4, %72
   br i1 %286, label %mconvert.exit, label %287
 
 287:                                              ; preds = %285
@@ -1330,7 +1330,7 @@ cvt_flip.exit578:                                 ; preds = %306
 
 325:                                              ; preds = %311, %cvt_flip.exit578
   %326 = zext i32 %23 to i64
-  %or.cond545.not = icmp ult i64 %326, %4
+  %or.cond545.not = icmp ugt i64 %4, %326
   br i1 %or.cond545.not, label %327, label %mconvert.exit
 
 327:                                              ; preds = %325
@@ -1345,7 +1345,7 @@ cvt_flip.exit578:                                 ; preds = %306
 
 cvt_flip.exit578.thread610:                       ; preds = %311, %cvt_flip.exit578
   %333 = zext i32 %23 to i64
-  %334 = icmp ugt i64 %333, %4
+  %334 = icmp ult i64 %4, %333
   %335 = sub nuw i64 %4, %333
   %336 = icmp ult i64 %335, 2
   %or.cond547 = select i1 %334, i1 true, i1 %336
@@ -1381,7 +1381,7 @@ cvt_flip.exit578.thread610:                       ; preds = %311, %cvt_flip.exit
 
 cvt_flip.exit578.thread613:                       ; preds = %311, %cvt_flip.exit578
   %355 = zext i32 %23 to i64
-  %356 = icmp ugt i64 %355, %4
+  %356 = icmp ult i64 %4, %355
   %357 = sub nuw i64 %4, %355
   %358 = icmp ult i64 %357, 2
   %or.cond549 = select i1 %356, i1 true, i1 %358
@@ -1399,7 +1399,7 @@ cvt_flip.exit578.thread613:                       ; preds = %311, %cvt_flip.exit
 
 365:                                              ; preds = %311, %cvt_flip.exit578
   %366 = zext i32 %23 to i64
-  %367 = icmp ugt i64 %366, %4
+  %367 = icmp ult i64 %4, %366
   %368 = sub nuw i64 %4, %366
   %369 = icmp ult i64 %368, 2
   %or.cond551 = select i1 %367, i1 true, i1 %369
@@ -1421,7 +1421,7 @@ cvt_flip.exit578.thread616.fold.split:            ; preds = %311, %cvt_flip.exit
 cvt_flip.exit578.thread616:                       ; preds = %311, %cvt_flip.exit578.thread616.fold.split
   %.0.i577619 = phi i32 [ 8, %311 ], [ %309, %cvt_flip.exit578.thread616.fold.split ]
   %376 = zext i32 %23 to i64
-  %377 = icmp ugt i64 %376, %4
+  %377 = icmp ult i64 %4, %376
   %378 = sub nuw i64 %4, %376
   %379 = icmp ult i64 %378, 4
   %or.cond553 = select i1 %377, i1 true, i1 %379
@@ -1469,7 +1469,7 @@ cvt_flip.exit578.thread620.fold.split:            ; preds = %311, %cvt_flip.exit
 cvt_flip.exit578.thread620:                       ; preds = %311, %cvt_flip.exit578.thread620.fold.split
   %.0.i577623 = phi i32 [ 11, %311 ], [ %309, %cvt_flip.exit578.thread620.fold.split ]
   %406 = zext i32 %23 to i64
-  %407 = icmp ugt i64 %406, %4
+  %407 = icmp ult i64 %4, %406
   %408 = sub nuw i64 %4, %406
   %409 = icmp ult i64 %408, 4
   %or.cond555 = select i1 %407, i1 true, i1 %409
@@ -1508,7 +1508,7 @@ cvt_flip.exit578.thread620:                       ; preds = %311, %cvt_flip.exit
 
 431:                                              ; preds = %311, %cvt_flip.exit578
   %432 = zext i32 %23 to i64
-  %433 = icmp ugt i64 %432, %4
+  %433 = icmp ult i64 %4, %432
   %434 = sub nuw i64 %4, %432
   %435 = icmp ult i64 %434, 4
   %or.cond557 = select i1 %433, i1 true, i1 %435
@@ -1552,7 +1552,7 @@ cvt_flip.exit578.thread620:                       ; preds = %311, %cvt_flip.exit
 
 462:                                              ; preds = %311, %cvt_flip.exit578
   %463 = zext i32 %23 to i64
-  %464 = icmp ugt i64 %463, %4
+  %464 = icmp ult i64 %4, %463
   %465 = sub nuw i64 %4, %463
   %466 = icmp ult i64 %465, 4
   %or.cond559 = select i1 %464, i1 true, i1 %466
@@ -1570,7 +1570,7 @@ cvt_flip.exit578.thread620:                       ; preds = %311, %cvt_flip.exit
 
 cvt_flip.exit578.thread624:                       ; preds = %311, %cvt_flip.exit578
   %473 = zext i32 %23 to i64
-  %474 = icmp ugt i64 %473, %4
+  %474 = icmp ult i64 %4, %473
   %475 = sub nuw i64 %4, %473
   %476 = icmp ult i64 %475, 8
   %or.cond561 = select i1 %474, i1 true, i1 %476
@@ -1584,7 +1584,7 @@ cvt_flip.exit578.thread624:                       ; preds = %311, %cvt_flip.exit
 
 cvt_flip.exit578.thread627:                       ; preds = %311, %cvt_flip.exit578
   %480 = zext i32 %23 to i64
-  %481 = icmp ugt i64 %480, %4
+  %481 = icmp ult i64 %4, %480
   %482 = sub nuw i64 %4, %480
   %483 = icmp ult i64 %482, 8
   %or.cond563 = select i1 %481, i1 true, i1 %483
@@ -1634,7 +1634,7 @@ cvt_flip.exit578.thread627:                       ; preds = %311, %cvt_flip.exit
 
 523:                                              ; preds = %311, %cvt_flip.exit578
   %524 = zext i32 %23 to i64
-  %525 = icmp ugt i64 %524, %4
+  %525 = icmp ult i64 %4, %524
   br i1 %525, label %mconvert.exit, label %526
 
 526:                                              ; preds = %523
@@ -1778,12 +1778,12 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
 
 581:                                              ; preds = %578
   %582 = zext i32 %579 to i64
-  %or.cond564.not = icmp ult i64 %582, %4
+  %or.cond564.not = icmp ugt i64 %4, %582
   br i1 %or.cond564.not, label %726, label %mconvert.exit
 
 583:                                              ; preds = %578, %578, %578
   %584 = zext i32 %579 to i64
-  %585 = icmp ugt i64 %584, %4
+  %585 = icmp ult i64 %4, %584
   %586 = sub nuw i64 %4, %584
   %587 = icmp ult i64 %586, 2
   %or.cond566 = select i1 %585, i1 true, i1 %587
@@ -1791,7 +1791,7 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
 
 588:                                              ; preds = %578, %578, %578, %578, %578, %578, %578, %578, %578, %578, %578, %578, %578, %578, %578
   %589 = zext i32 %579 to i64
-  %590 = icmp ugt i64 %589, %4
+  %590 = icmp ult i64 %4, %589
   %591 = sub nuw i64 %4, %589
   %592 = icmp ult i64 %591, 4
   %or.cond568 = select i1 %590, i1 true, i1 %592
@@ -1799,7 +1799,7 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
 
 593:                                              ; preds = %578, %578, %578
   %594 = zext i32 %579 to i64
-  %595 = icmp ugt i64 %594, %4
+  %595 = icmp ult i64 %4, %594
   %596 = sub nuw i64 %4, %594
   %597 = icmp ult i64 %596, 8
   %or.cond570 = select i1 %595, i1 true, i1 %597
@@ -1807,7 +1807,7 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
 
 598:                                              ; preds = %578
   %599 = zext i32 %579 to i64
-  %600 = icmp ugt i64 %599, %4
+  %600 = icmp ult i64 %4, %599
   %601 = sub nuw i64 %4, %599
   %602 = icmp ult i64 %601, 16
   %or.cond572 = select i1 %600, i1 true, i1 %602
@@ -1815,7 +1815,7 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
 
 603:                                              ; preds = %578, %578, %578, %578
   %604 = zext i32 %579 to i64
-  %605 = icmp ugt i64 %604, %4
+  %605 = icmp ult i64 %4, %604
   br i1 %605, label %mconvert.exit, label %606
 
 606:                                              ; preds = %603
@@ -1828,7 +1828,7 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
 
 612:                                              ; preds = %578
   %613 = zext i32 %579 to i64
-  %614 = icmp ugt i64 %613, %4
+  %614 = icmp ult i64 %4, %613
   br i1 %614, label %mconvert.exit, label %726
 
 615:                                              ; preds = %578
@@ -1840,7 +1840,7 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
   %spec.select = add i32 %579, %619
   %620 = icmp eq i32 %spec.select, 0
   %621 = zext i32 %spec.select to i64
-  %622 = icmp ugt i64 %621, %4
+  %622 = icmp ult i64 %4, %621
   %or.cond575 = or i1 %620, %622
   br i1 %or.cond575, label %mconvert.exit, label %623
 
@@ -1953,7 +1953,7 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
 
 672:                                              ; preds = %578
   %673 = zext i32 %579 to i64
-  %674 = icmp ugt i64 %673, %4
+  %674 = icmp ult i64 %4, %673
   br i1 %674, label %mconvert.exit, label %675
 
 675:                                              ; preds = %672
@@ -2014,7 +2014,7 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
   %702 = load ptr, ptr %21, align 8
   %703 = getelementptr inbounds i8, ptr %21, i64 8
   %704 = load i64, ptr %703, align 8
-  %705 = add i64 %673, %5
+  %705 = add i64 %5, %673
   %706 = call fastcc i32 @match(ptr noundef nonnull %0, ptr noundef %702, i64 noundef %704, ptr noundef %2, i64 noundef %705, i32 noundef %7, i32 noundef %8, i32 noundef %.0428, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %12, ptr noundef nonnull %13, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %20)
   %707 = load i32, ptr %20, align 4
   %708 = sext i32 %707 to i64
@@ -4681,7 +4681,7 @@ define internal fastcc range(i32 -1, 2) i32 @moffset(ptr noundef %0, ptr noundef
   %109 = tail call i32 @der_offs(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.160.val) #20
   %110 = icmp eq i32 %109, -1
   %111 = sext i32 %109 to i64
-  %112 = icmp ugt i64 %111, %.160.val
+  %112 = icmp ult i64 %.160.val, %111
   %or.cond = select i1 %110, i1 true, i1 %112
   br i1 %or.cond, label %113, label %124
 
@@ -4706,7 +4706,7 @@ define internal fastcc range(i32 -1, 2) i32 @moffset(ptr noundef %0, ptr noundef
 124:                                              ; preds = %3, %108, %97, %99, %84, %86, %25, %51, %40, %120, %105, %74, %70, %66, %62, %58, %54, %18, %14, %10, %6
   %.052 = phi i32 [ %123, %120 ], [ %107, %105 ], [ %98, %97 ], [ %104, %99 ], [ %85, %84 ], [ %90, %86 ], [ %77, %74 ], [ %73, %70 ], [ %69, %66 ], [ %65, %62 ], [ %61, %58 ], [ %57, %54 ], [ %31, %25 ], [ %53, %51 ], [ %46, %40 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %6 ], [ %109, %108 ], [ 0, %3 ]
   %125 = sext i32 %.052 to i64
-  %126 = icmp ugt i64 %125, %.160.val
+  %126 = icmp ult i64 %.160.val, %125
   br i1 %126, label %127, label %.sink.split
 
 .sink.split:                                      ; preds = %124, %113, %117
@@ -4752,7 +4752,7 @@ define internal fastcc void @mcopy(ptr nocapture noundef %0, ptr nocapture nound
 
 11:                                               ; preds = %10, %10
   %12 = zext i32 %5 to i64
-  %13 = icmp ugt i64 %12, %6
+  %13 = icmp ult i64 %6, %12
   %14 = trunc nuw i64 %6 to i32
   %spec.select = select i1 %13, i32 %14, i32 %5
   %15 = zext i32 %spec.select to i64
@@ -4772,7 +4772,7 @@ define internal fastcc void @mcopy(ptr nocapture noundef %0, ptr nocapture nound
 
 23:                                               ; preds = %21
   %24 = zext i32 %5 to i64
-  %25 = icmp ugt i64 %24, %6
+  %25 = icmp ult i64 %6, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %23, %21
@@ -4894,7 +4894,7 @@ define internal fastcc void @mcopy(ptr nocapture noundef %0, ptr nocapture nound
   %83 = icmp eq i32 %2, 18
   %spec.select162.idx = zext i1 %83 to i64
   %spec.select162 = getelementptr inbounds i8, ptr %80, i64 %spec.select162.idx
-  %.not149 = icmp ult i64 %79, %6
+  %.not149 = icmp ugt i64 %6, %79
   br i1 %.not149, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %78
@@ -4989,7 +4989,7 @@ define internal fastcc void @mcopy(ptr nocapture noundef %0, ptr nocapture nound
 .thread:                                          ; preds = %10, %78, %107, %111
   %.0129167 = phi i64 [ 128, %111 ], [ %spec.select165, %107 ], [ 128, %78 ], [ 128, %10 ]
   %116 = zext i32 %5 to i64
-  %.not156 = icmp ult i64 %116, %6
+  %.not156 = icmp ugt i64 %6, %116
   br i1 %.not156, label %118, label %117
 
 117:                                              ; preds = %.thread

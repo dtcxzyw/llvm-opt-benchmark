@@ -2630,7 +2630,7 @@ prepare_pseudo_header_atm.exit:                   ; preds = %43, %46
   %61 = load i32, ptr %5, align 4
   %62 = add i32 %61, 1
   store i32 %62, ptr %5, align 4
-  %63 = icmp slt i32 %.1, %3
+  %63 = icmp sgt i32 %3, %.1
   br i1 %63, label %22, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %60, %6

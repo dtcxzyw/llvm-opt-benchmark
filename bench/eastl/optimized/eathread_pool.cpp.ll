@@ -1479,7 +1479,7 @@ while.cond.i:                                     ; preds = %land.rhs.i, %entry
 
 land.rhs.i:                                       ; preds = %while.cond.i
   %2 = load ptr, ptr %storemerge.i, align 8, !noalias !52
-  %cmp.not.i = icmp eq ptr %2, %pThreadInfo
+  %cmp.not.i = icmp eq ptr %pThreadInfo, %2
   br i1 %cmp.not.i, label %if.then, label %while.cond.i, !llvm.loop !53
 
 if.then:                                          ; preds = %land.rhs.i

@@ -1214,7 +1214,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -1262,7 +1262,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7xgboost9MetricRegEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -2371,7 +2371,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i.us
   br i1 %175, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i.us, label %196
 
 196:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i.us
-  %197 = icmp ugt i64 %113, %.sink.i.i.i.i.us
+  %197 = icmp ult i64 %.sink.i.i.i.i.us, %113
   br i1 %197, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.us, label %.split.us
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.us: ; preds = %196
@@ -2446,7 +2446,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i: ;
   br i1 %175, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i, label %228
 
 228:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i
-  %229 = icmp ugt i64 %113, %.sink.i.i.i.i
+  %229 = icmp ult i64 %.sink.i.i.i.i, %113
   br i1 %229, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i, label %.split.us
 
 .split.us:                                        ; preds = %228, %196
@@ -3552,7 +3552,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -5793,7 +5793,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i: ;
   br i1 %176, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i, label %200
 
 200:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i
-  %201 = icmp ugt i64 %113, %.sink.i.i.i.i
+  %201 = icmp ult i64 %.sink.i.i.i.i, %113
   br i1 %201, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i, label %202
 
 202:                                              ; preds = %200
@@ -6588,7 +6588,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i.us
   br i1 %175, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i.us, label %196
 
 196:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i.us
-  %197 = icmp ugt i64 %113, %.sink.i.i.i.i.us
+  %197 = icmp ult i64 %.sink.i.i.i.i.us, %113
   br i1 %197, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.us, label %.split.us
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.us: ; preds = %196
@@ -6663,7 +6663,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i: ;
   br i1 %175, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i, label %228
 
 228:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i
-  %229 = icmp ugt i64 %113, %.sink.i.i.i.i
+  %229 = icmp ult i64 %.sink.i.i.i.i, %113
   br i1 %229, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i, label %.split.us
 
 .split.us:                                        ; preds = %228, %196
@@ -7455,7 +7455,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i.us
   br i1 %175, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i.us, label %196
 
 196:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i.us
-  %197 = icmp ugt i64 %113, %.sink.i.i.i.i.us
+  %197 = icmp ult i64 %.sink.i.i.i.i.us, %113
   br i1 %197, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.us, label %.split.us
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.us: ; preds = %196
@@ -7531,7 +7531,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i: ;
   br i1 %175, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i, label %229
 
 229:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i
-  %230 = icmp ugt i64 %113, %.sink.i.i.i.i
+  %230 = icmp ult i64 %.sink.i.i.i.i, %113
   br i1 %230, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i, label %.split.us
 
 .split.us:                                        ; preds = %229, %196
@@ -8328,7 +8328,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i: ;
   br i1 %176, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i, label %200
 
 200:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i
-  %201 = icmp ugt i64 %113, %.sink.i.i.i.i
+  %201 = icmp ult i64 %.sink.i.i.i.i, %113
   br i1 %201, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i, label %202
 
 202:                                              ; preds = %200
@@ -9560,7 +9560,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i.us
   br i1 %173, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i.us, label %195
 
 195:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i.us
-  %196 = icmp ugt i64 %94, %.sink.i.i.i.i.us
+  %196 = icmp ult i64 %.sink.i.i.i.i.us, %94
   br i1 %196, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.us, label %.split.us
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.us: ; preds = %195
@@ -9640,7 +9640,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i: ;
   br i1 %173, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i, label %231
 
 231:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i
-  %232 = icmp ugt i64 %94, %.sink.i.i.i.i
+  %232 = icmp ult i64 %.sink.i.i.i.i, %94
   br i1 %232, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i, label %.split.us
 
 .split.us:                                        ; preds = %231, %195
@@ -10425,7 +10425,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRKS6_SC_EEEvRS8_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRKS6_SC_EEEvRS8_PT_DpOT0_.exit ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
-  %.not10.i.i.i27 = icmp eq ptr %6, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %.lr.ph.i.i.i28
@@ -10822,7 +10822,7 @@ _ZNK4dmlc9parameter12ParamManager4FindERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 select.unfold.i.i:                                ; preds = %52, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %52 ]
-  %55 = icmp eq ptr %13, %.sroa.4.0.i.ph.i.i
+  %55 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %13
   br i1 %55, label %_ZNSt8_Rb_treeIPN4dmlc9parameter16FieldAccessEntryES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %56
 
 56:                                               ; preds = %select.unfold.i.i
@@ -11145,7 +11145,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRKS7_EEEvRS8_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRKS7_EEEvRS8_PT_DpOT0_.exit ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %.lr.ph.i.i.i27
@@ -11820,7 +11820,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit ], [ %30, %.lr.ph.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %.lr.ph.i.i.i17
@@ -11942,7 +11942,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.020.lcssa32.i, %._crit_edge.thread.i ], [ %.020.lcssa33.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ]
-  %25 = icmp eq ptr %6, %.sroa.4.0.i.ph
+  %25 = icmp eq ptr %.sroa.4.0.i.ph, %6
   br i1 %25, label %.thread15, label %26
 
 26:                                               ; preds = %select.unfold
@@ -12149,7 +12149,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -12217,7 +12217,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -13266,7 +13266,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i: ;
   br i1 %176, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i, label %200
 
 200:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i
-  %201 = icmp ugt i64 %113, %.sink.i.i.i.i
+  %201 = icmp ult i64 %.sink.i.i.i.i, %113
   br i1 %201, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i, label %202
 
 202:                                              ; preds = %200
@@ -14078,7 +14078,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i: ;
   br i1 %176, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i, label %200
 
 200:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i
-  %201 = icmp ugt i64 %113, %.sink.i.i.i.i
+  %201 = icmp ult i64 %.sink.i.i.i.i, %113
   br i1 %201, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i, label %202
 
 202:                                              ; preds = %200
@@ -14882,7 +14882,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i: ;
   br i1 %176, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i, label %200
 
 200:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i
-  %201 = icmp ugt i64 %113, %.sink.i.i.i.i
+  %201 = icmp ult i64 %.sink.i.i.i.i, %113
   br i1 %201, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i, label %202
 
 202:                                              ; preds = %200
@@ -15818,7 +15818,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i.us
   br i1 %177, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i.us, label %198
 
 198:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i.us
-  %199 = icmp ugt i64 %113, %.sink.i.i.i.i.us
+  %199 = icmp ult i64 %.sink.i.i.i.i.us, %113
   br i1 %199, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.us, label %.split.us
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.us: ; preds = %198
@@ -15839,7 +15839,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS3_13EvalEWi
   %206 = load float, ptr %.in.i.i.i.i.i.us, align 4, !noalias !456
   %207 = getelementptr inbounds float, ptr %130, i64 %.03368.i.i.i.us
   %208 = load float, ptr %207, align 4, !noalias !456
-  %209 = fcmp olt float %133, %208
+  %209 = fcmp ogt float %208, %133
   %210 = fsub float 1.000000e+00, %205
   %211 = select i1 %209, float %210, float %205
   %212 = fmul float %206, %211
@@ -15894,7 +15894,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i: ;
   br i1 %177, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.i.i.i.i, label %231
 
 231:                                              ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i.i.i
-  %232 = icmp ugt i64 %113, %.sink.i.i.i.i
+  %232 = icmp ult i64 %.sink.i.i.i.i, %113
   br i1 %232, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i, label %.split.us
 
 .split.us:                                        ; preds = %231, %198
@@ -15923,7 +15923,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS3_13EvalEWi
   %239 = load float, ptr %.in.i.i.i.i.i, align 4, !noalias !456
   %240 = getelementptr inbounds float, ptr %130, i64 %.03368.i.i.i
   %241 = load float, ptr %240, align 4, !noalias !456
-  %242 = fcmp olt float %133, %241
+  %242 = fcmp ogt float %241, %133
   %243 = fsub float 1.000000e+00, %238
   %244 = select i1 %242, float %243, float %238
   %245 = fmul float %239, %244
@@ -17369,7 +17369,7 @@ define linkonce_odr void @_ZZN7xgboost6metric13EvalEWiseBaseINS0_18EvalTweedieNL
   br label %_ZNK7xgboost6common15OptionalWeightsixEm.exit
 
 10:                                               ; preds = %5
-  %11 = icmp ugt i64 %6, %3
+  %11 = icmp ult i64 %3, %6
   br i1 %11, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %12
 
 12:                                               ; preds = %10
@@ -17386,7 +17386,7 @@ _ZNK7xgboost6common15OptionalWeightsixEm.exit:    ; preds = %8, %_ZNK7xgboost6co
   %.in.i = phi ptr [ %9, %8 ], [ %15, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i ]
   %16 = getelementptr inbounds i8, ptr %1, i64 104
   %17 = load i64, ptr %16, align 8
-  %18 = icmp ugt i64 %17, %2
+  %18 = icmp ult i64 %2, %17
   br i1 %18, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit, label %19
 
 19:                                               ; preds = %_ZNK7xgboost6common15OptionalWeightsixEm.exit
@@ -20182,7 +20182,7 @@ _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEZNK7xgboost6com
 
 _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEZNK7xgboost6common17QuantileLossParam8ValidateEvEUlT_E_EbSB_SB_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEZNK7xgboost6common17QuantileLossParam8ValidateEvEUlT_E_EbSB_SB_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEZNK7xgboost6common17QuantileLossParam8ValidateEvEUlT_E_EbSB_SB_T0_.exit.loopexit.split.loop.exit28, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEZNK7xgboost6common17QuantileLossParam8ValidateEvEUlT_E_EbSB_SB_T0_.exit.loopexit.split.loop.exit30, %77, %83, %89
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %77 ], [ %.sroa.031.1.i.i.i.i, %83 ], [ %spec.select.i.i.i.i, %89 ], [ %93, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEZNK7xgboost6common17QuantileLossParam8ValidateEvEUlT_E_EbSB_SB_T0_.exit.loopexit.split.loop.exit ], [ %94, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEZNK7xgboost6common17QuantileLossParam8ValidateEvEUlT_E_EbSB_SB_T0_.exit.loopexit.split.loop.exit28 ], [ %95, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEZNK7xgboost6common17QuantileLossParam8ValidateEvEUlT_E_EbSB_SB_T0_.exit.loopexit.split.loop.exit30 ], [ %.sroa.031.050.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %96 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %46
+  %96 = icmp eq ptr %46, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   br i1 %96, label %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEZNK7xgboost6common17QuantileLossParam8ValidateEvEUlT_E_EbSB_SB_T0_.exit.thread, label %97
 
 97:                                               ; preds = %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEZNK7xgboost6common17QuantileLossParam8ValidateEvEUlT_E_EbSB_SB_T0_.exit
@@ -20522,7 +20522,7 @@ _ZN7xgboost6linalg12UnravelIndexILm3EEEDamNS_6common4SpanIKmXT_EEE.exit: ; preds
   %.sroa.6.0 = phi i64 [ %.1.i.i, %26 ], [ %50, %49 ]
   %55 = getelementptr inbounds i8, ptr %1, i64 88
   %56 = load i64, ptr %55, align 8
-  %57 = icmp ugt i64 %56, %.sroa.3.0
+  %57 = icmp ult i64 %.sroa.3.0, %56
   br i1 %57, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit, label %58
 
 58:                                               ; preds = %_ZN7xgboost6linalg12UnravelIndexILm3EEEDamNS_6common4SpanIKmXT_EEE.exit
@@ -20544,7 +20544,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit: ; preds = %_ZN7xgb
   br label %_ZNK7xgboost6common15OptionalWeightsixEm.exit
 
 68:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit
-  %69 = icmp ugt i64 %64, %.sroa.6.0
+  %69 = icmp ult i64 %.sroa.6.0, %64
   br i1 %69, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %70
 
 70:                                               ; preds = %68
@@ -20591,9 +20591,9 @@ _ZNK7xgboost6common15OptionalWeightsixEm.exit:    ; preds = %66, %_ZNK7xgboost6c
   %103 = fmul float %62, %102
   %104 = fsub float 1.000000e+00, %62
   %105 = fsub float 1.000000e+00, %102
-  %106 = fneg float %104
-  %107 = fmul float %105, %106
-  %108 = fmul float %100, %107
+  %106 = fmul float %104, %105
+  %107 = fneg float %100
+  %108 = fmul float %106, %107
   %109 = tail call noundef float @llvm.fmuladd.f32(float %103, float %100, float %108)
   %110 = fmul float %74, %109
   store float %74, ptr %0, align 4, !alias.scope !616

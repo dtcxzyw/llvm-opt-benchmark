@@ -749,7 +749,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %indvars.iv697 = phi i64 [ %62, %.lr.ph512 ], [ %indvars.iv.next698, %180 ]
   %.1509 = phi i32 [ %.0381516, %.lr.ph512 ], [ %.2, %180 ]
   %135 = trunc nsw i64 %indvars.iv697 to i32
-  %136 = icmp eq i32 %135, %2
+  %136 = icmp eq i32 %2, %135
   %or.cond = and i1 %133, %136
   br i1 %or.cond, label %180, label %.lr.ph502
 
@@ -1310,7 +1310,7 @@ _ZN2cv11xfeatures2d16MSDDetector_Impl18computeAvgDistanceERSt6vectorIiSaIiEEi.ex
   %indvars.iv.next731 = add i32 %indvars.iv730, 1
   %indvars.iv.next737 = add i32 %indvars.iv736, 1
   %lftr.wideiv757 = trunc i64 %indvars.iv.next755 to i32
-  %exitcond758.not = icmp eq i32 %lftr.wideiv757, %3
+  %exitcond758.not = icmp eq i32 %3, %lftr.wideiv757
   br i1 %exitcond758.not, label %.preheader479, label %.preheader482, !llvm.loop !18
 
 .loopexit477:                                     ; preds = %_ZN2cv11xfeatures2d16MSDDetector_Impl18computeAvgDistanceERSt6vectorIiSaIiEEi.exit431, %_ZN2cv11xfeatures2d16MSDDetector_Impl18computeAvgDistanceERSt6vectorIiSaIiEEi.exit425
@@ -1858,7 +1858,7 @@ _ZN2cv11xfeatures2d16MSDDetector_Impl18computeAvgDistanceERSt6vectorIiSaIiEEi.ex
   %indvars.iv.next805 = add i32 %indvars.iv804, 1
   %indvars.iv.next811 = add i32 %indvars.iv810, 1
   %lftr.wideiv823 = trunc i64 %indvars.iv.next821 to i32
-  %exitcond824.not = icmp eq i32 %lftr.wideiv823, %3
+  %exitcond824.not = icmp eq i32 %3, %lftr.wideiv823
   br i1 %exitcond824.not, label %.loopexit477, label %.preheader476, !llvm.loop !29
 
 .lr.ph654:                                        ; preds = %.lr.ph654.preheader, %632
@@ -2002,10 +2002,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc125, %_ZNSt6v
   %41 = getelementptr inbounds i8, ptr %40, i64 4
   %42 = load float, ptr %41, align 4
   %43 = fptosi float %42 to i32
-  %44 = add nsw i32 %43, %3
+  %44 = add nsw i32 %3, %43
   %45 = load float, ptr %40, align 4
   %46 = fptosi float %45 to i32
-  %47 = add nsw i32 %46, %2
+  %47 = add nsw i32 %2, %46
   %48 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv184
   %49 = sext i32 %47 to i64
   %50 = sext i32 %44 to i64
@@ -5221,7 +5221,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #22
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i

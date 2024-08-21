@@ -1667,7 +1667,7 @@ _ZN3refI5modelEaSERS1_.exit:                      ; preds = %_ZN3refI5modelE7inc
   %5 = load ptr, ptr %m_model, align 8
   store ptr %5, ptr %mdl, align 8
   %m_labels = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i = icmp eq ptr %m_labels, %labels
+  %cmp.i.i = icmp eq ptr %labels, %m_labels
   br i1 %cmp.i.i, label %_ZN7svectorI6symboljEaSERKS1_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN3refI5modelEaSERS1_.exit

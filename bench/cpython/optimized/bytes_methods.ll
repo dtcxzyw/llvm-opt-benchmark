@@ -71,7 +71,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end6:                                          ; preds = %land.lhs.true, %entry
   %add.ptr = getelementptr i8, ptr %cptr, i64 %len
-  %cmp77 = icmp ugt ptr %add.ptr, %cptr
+  %cmp77 = icmp ult ptr %cptr, %add.ptr
   br i1 %cmp77, label %for.body, label %return
 
 for.cond:                                         ; preds = %for.body
@@ -113,7 +113,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end6:                                          ; preds = %land.lhs.true, %entry
   %add.ptr = getelementptr i8, ptr %cptr, i64 %len
-  %cmp77 = icmp ugt ptr %add.ptr, %cptr
+  %cmp77 = icmp ult ptr %cptr, %add.ptr
   br i1 %cmp77, label %for.body, label %return
 
 for.cond:                                         ; preds = %for.body
@@ -155,7 +155,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end6:                                          ; preds = %land.lhs.true, %entry
   %add.ptr = getelementptr i8, ptr %cptr, i64 %len
-  %cmp77 = icmp ugt ptr %add.ptr, %cptr
+  %cmp77 = icmp ult ptr %cptr, %add.ptr
   br i1 %cmp77, label %for.body, label %return
 
 for.cond:                                         ; preds = %for.body
@@ -182,7 +182,7 @@ return:                                           ; preds = %for.body, %for.cond
 define hidden noundef nonnull ptr @_Py_bytes_isascii(ptr noundef %cptr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %cptr, i64 %len
-  %cmp14 = icmp ugt ptr %add.ptr, %cptr
+  %cmp14 = icmp ult ptr %cptr, %add.ptr
   br i1 %cmp14, label %while.body, label %return
 
 while.cond:                                       ; preds = %if.end12
@@ -243,7 +243,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end6:                                          ; preds = %land.lhs.true, %entry
   %add.ptr = getelementptr i8, ptr %cptr, i64 %len
-  %cmp77 = icmp ugt ptr %add.ptr, %cptr
+  %cmp77 = icmp ult ptr %cptr, %add.ptr
   br i1 %cmp77, label %for.body, label %return
 
 for.cond:                                         ; preds = %for.body
@@ -284,7 +284,7 @@ if.then:                                          ; preds = %entry
 
 if.end7:                                          ; preds = %entry
   %add.ptr = getelementptr i8, ptr %cptr, i64 %len
-  %cmp810 = icmp ugt ptr %add.ptr, %cptr
+  %cmp810 = icmp ult ptr %cptr, %add.ptr
   br i1 %cmp810, label %for.body, label %return.sink.split
 
 for.body:                                         ; preds = %if.end7, %if.else
@@ -337,7 +337,7 @@ if.then:                                          ; preds = %entry
 
 if.end7:                                          ; preds = %entry
   %add.ptr = getelementptr i8, ptr %cptr, i64 %len
-  %cmp810 = icmp ugt ptr %add.ptr, %cptr
+  %cmp810 = icmp ult ptr %cptr, %add.ptr
   br i1 %cmp810, label %for.body, label %return.sink.split
 
 for.body:                                         ; preds = %if.end7, %if.else
@@ -391,7 +391,7 @@ if.then:                                          ; preds = %entry
 
 if.end8:                                          ; preds = %entry
   %add.ptr = getelementptr i8, ptr %cptr, i64 %len
-  %cmp910 = icmp ugt ptr %add.ptr, %cptr
+  %cmp910 = icmp ult ptr %cptr, %add.ptr
   br i1 %cmp910, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end8, %for.inc
@@ -767,7 +767,7 @@ if.then32:                                        ; preds = %if.then30
   br i1 %cmp.i, label %if.then.i, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.then32
-  %cmp514.i = icmp ugt ptr %add.ptr.i, %add.ptr
+  %cmp514.i = icmp ult ptr %add.ptr, %add.ptr.i
   br i1 %cmp514.i, label %while.body.i, label %if.end52
 
 if.then.i:                                        ; preds = %if.then32
@@ -1283,7 +1283,7 @@ if.then9:                                         ; preds = %if.end7
   br i1 %cmp.i, label %if.then.i, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.then9
-  %cmp514.i = icmp ugt ptr %add.ptr.i, %s
+  %cmp514.i = icmp ult ptr %s, %add.ptr.i
   br i1 %cmp514.i, label %while.body.i, label %return
 
 if.then.i:                                        ; preds = %if.then9
@@ -2092,7 +2092,7 @@ for.body55.lr.ph:                                 ; preds = %if.end34
 for.body55:                                       ; preds = %for.body55.lr.ph, %for.body55
   %i50.050 = phi i64 [ %sub51, %for.body55.lr.ph ], [ %inc65, %for.body55 ]
   %10 = xor i64 %i50.050, -1
-  %sub57 = add i64 %10, %len_needle
+  %sub57 = add i64 %len_needle, %10
   %conv58 = trunc i64 %sub57 to i8
   %arrayidx60 = getelementptr i8, ptr %needle, i64 %i50.050
   %11 = load i8, ptr %arrayidx60, align 1

@@ -762,7 +762,7 @@ ZSTDMT_expandCCtxPool.exit.thread.i:              ; preds = %56
 60:                                               ; preds = %56
   %61 = getelementptr inbounds i8, ptr %58, i64 4
   %62 = load i32, ptr %61, align 4
-  %.not.i.i = icmp slt i32 %62, %13
+  %.not.i.i = icmp sgt i32 %13, %62
   br i1 %.not.i.i, label %63, label %ZSTDMT_expandCCtxPool.exit.thread29.i
 
 63:                                               ; preds = %60
@@ -1512,7 +1512,7 @@ ZSTD_customFree.exit63.i:                         ; preds = %413, %412, %410
 425:                                              ; preds = %.thread72.i
   %426 = getelementptr inbounds i8, ptr %1, i64 %2
   %427 = load ptr, ptr %385, align 8
-  %.not.i67.i = icmp eq ptr %427, %1
+  %.not.i67.i = icmp eq ptr %1, %427
   br i1 %.not.i67.i, label %._crit_edge.i.i, label %428
 
 ._crit_edge.i.i:                                  ; preds = %425
@@ -1552,7 +1552,7 @@ ZSTD_customFree.exit63.i:                         ; preds = %413, %412, %410
   %446 = icmp ugt ptr %426, %445
   %447 = zext i32 %441 to i64
   %448 = getelementptr inbounds i8, ptr %443, i64 %447
-  %449 = icmp ugt ptr %448, %1
+  %449 = icmp ult ptr %1, %448
   %450 = and i1 %446, %449
   br i1 %450, label %451, label %ZSTD_window_update.exit.i
 
@@ -1730,8 +1730,8 @@ ZSTDMT_getInputDataInUse.exit.i:                  ; preds = %32, %45, %42, %22
 ZSTDMT_isOverlapped.exit.i:                       ; preds = %62
   %65 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i
   %66 = getelementptr inbounds i8, ptr %57, i64 %59
-  %67 = icmp ule ptr %65, %57
-  %68 = icmp ule ptr %66, %.sroa.0.0.i.i
+  %67 = icmp uge ptr %57, %65
+  %68 = icmp uge ptr %.sroa.0.0.i.i, %66
   %.not82.i = select i1 %67, i1 true, i1 %68
   br i1 %.not82.i, label %ZSTDMT_isOverlapped.exit.thread.i, label %ZSTDMT_tryGetInputRange.exit.thread103
 
@@ -1764,8 +1764,8 @@ ZSTDMT_isOverlapped.exit.thread.i:                ; preds = %ZSTDMT_isOverlapped
   %or.cond19.i.i.i.i = select i1 %79, i1 true, i1 %80
   %81 = getelementptr inbounds i8, ptr %75, i64 %77
   %82 = getelementptr inbounds i8, ptr %57, i64 %59
-  %83 = icmp ule ptr %81, %57
-  %84 = icmp ule ptr %82, %75
+  %83 = icmp uge ptr %57, %81
+  %84 = icmp uge ptr %75, %82
   %.not14.i.i.i = select i1 %83, i1 true, i1 %84
   %85 = zext i32 %.sroa.6.0.copyload.i.i to i64
   %86 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i36.i, i64 %85
@@ -1774,8 +1774,8 @@ ZSTDMT_isOverlapped.exit.thread.i:                ; preds = %ZSTDMT_isOverlapped
   %or.cond.i6.i.fr.i.i = freeze i1 %or.cond.i6.i.i.i
   %88 = icmp eq ptr %.sroa.0.0.copyload.i34.i, %86
   %or.cond19.i7.i.i.i = select i1 %79, i1 true, i1 %88
-  %89 = icmp ule ptr %.sroa.0.0.copyload.i34.i, %57
-  %90 = icmp ule ptr %82, %86
+  %89 = icmp uge ptr %57, %.sroa.0.0.copyload.i34.i
+  %90 = icmp uge ptr %86, %82
   %.not21.i.i = select i1 %89, i1 true, i1 %90
   br i1 %or.cond.i.i.i.i, label %.preheader.split.us.i.i, label %.preheader.split.i.i
 
@@ -1845,8 +1845,8 @@ ZSTDMT_waitForLdmComplete.exit.i:                 ; preds = %.preheader.split.sp
 ZSTDMT_isOverlapped.exit40.i:                     ; preds = %98
   %101 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i
   %102 = getelementptr inbounds i8, ptr %95, i64 %54
-  %103 = icmp ule ptr %101, %95
-  %104 = icmp ule ptr %102, %.sroa.0.0.i.i
+  %103 = icmp uge ptr %95, %101
+  %104 = icmp uge ptr %.sroa.0.0.i.i, %102
   %.not84.i = select i1 %103, i1 true, i1 %104
   br i1 %.not84.i, label %ZSTDMT_isOverlapped.exit40.thread.i, label %ZSTDMT_isOverlapped.exit40.i.ZSTDMT_tryGetInputRange.exitthread-pre-split_crit_edge
 
@@ -1882,8 +1882,8 @@ ZSTDMT_isOverlapped.exit40.thread.i:              ; preds = %ZSTDMT_isOverlapped
   %or.cond19.i.i.i52.i = select i1 %114, i1 true, i1 %115
   %116 = getelementptr inbounds i8, ptr %110, i64 %112
   %117 = getelementptr inbounds i8, ptr %95, i64 %54
-  %118 = icmp ule ptr %116, %95
-  %119 = icmp ule ptr %117, %110
+  %118 = icmp uge ptr %95, %116
+  %119 = icmp uge ptr %110, %117
   %.not14.i.i53.i = select i1 %118, i1 true, i1 %119
   %120 = zext i32 %.sroa.6.0.copyload.i48.i to i64
   %121 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i44.i, i64 %120
@@ -1892,8 +1892,8 @@ ZSTDMT_isOverlapped.exit40.thread.i:              ; preds = %ZSTDMT_isOverlapped
   %or.cond.i6.i.fr.i55.i = freeze i1 %or.cond.i6.i.i54.i
   %123 = icmp eq ptr %.sroa.0.0.copyload.i42.i, %121
   %or.cond19.i7.i.i56.i = select i1 %114, i1 true, i1 %123
-  %124 = icmp ule ptr %.sroa.0.0.copyload.i42.i, %95
-  %125 = icmp ule ptr %117, %121
+  %124 = icmp uge ptr %95, %.sroa.0.0.copyload.i42.i
+  %125 = icmp uge ptr %121, %117
   %.not21.i57.i = select i1 %124, i1 true, i1 %125
   br i1 %or.cond.i.i.i51.i, label %.preheader.split.us.i71.i, label %.preheader.split.i58.i
 
@@ -2287,7 +2287,7 @@ ZSTDMT_tryGetInputRange.exit.thread103:           ; preds = %ZSTDMT_isOverlapped
 321:                                              ; preds = %312
   %322 = getelementptr inbounds i8, ptr %0, i64 256
   %323 = load i64, ptr %322, align 8
-  %..i69 = tail call i64 @llvm.umin.i64(i64 %323, i64 %226)
+  %..i69 = tail call i64 @llvm.umin.i64(i64 %226, i64 %323)
   %324 = getelementptr inbounds i8, ptr %250, i64 %226
   %325 = sub i64 0, %..i69
   %326 = getelementptr inbounds i8, ptr %324, i64 %325
@@ -3298,7 +3298,7 @@ ZSTDMT_getBuffer.exit:                            ; preds = %64, %ZSTD_customMal
 
 159:                                              ; preds = %156
   %160 = load ptr, ptr %157, align 8
-  %.not.i.i141 = icmp eq ptr %160, %144
+  %.not.i.i141 = icmp eq ptr %144, %160
   br i1 %.not.i.i141, label %._crit_edge.i.i, label %161
 
 ._crit_edge.i.i:                                  ; preds = %159
@@ -3346,7 +3346,7 @@ ZSTDMT_getBuffer.exit:                            ; preds = %64, %ZSTD_customMal
   %184 = icmp ugt ptr %181, %183
   %185 = zext i32 %178 to i64
   %186 = getelementptr inbounds i8, ptr %180, i64 %185
-  %187 = icmp ugt ptr %186, %144
+  %187 = icmp ult ptr %144, %186
   %188 = and i1 %184, %187
   br i1 %188, label %189, label %ZSTD_window_update.exit.i
 

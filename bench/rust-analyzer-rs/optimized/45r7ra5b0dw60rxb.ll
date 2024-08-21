@@ -132,7 +132,7 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
   %.0.i = phi i64 [ %10, %9 ], [ %14, %11 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !15, !noalias !18, !noundef !4
-  %18 = icmp ult i64 %17, %.0.i
+  %18 = icmp ugt i64 %.0.i, %17
   br i1 %18, label %19, label %"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17h52bf028587baea2dE.exit"
 
 19:                                               ; preds = %15
@@ -188,7 +188,7 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
   %.0.i = phi i64 [ %11, %10 ], [ %15, %12 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !41, !noalias !44, !noundef !4
-  %19 = icmp ult i64 %18, %.0.i
+  %19 = icmp ugt i64 %.0.i, %18
   br i1 %19, label %20, label %"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17ha6251dc6f0b33118E.exit"
 
 20:                                               ; preds = %16
@@ -29656,7 +29656,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17he78cc5678
   tail call void @llvm.assume(i1 %11)
   %12 = sub nuw i64 -9223372036854775808, %1
   %13 = udiv i64 %12, %0
-  %14 = icmp ult i64 %13, %2
+  %14 = icmp ugt i64 %2, %13
   br i1 %14, label %15, label %5
 
 15:                                               ; preds = %9, %5

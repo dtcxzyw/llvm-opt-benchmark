@@ -114,7 +114,7 @@ entry:
   %call = tail call ptr @BIO_get_data(ptr noundef %bp) #3
   %call1 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %call) #3
   %call2 = tail call i32 @EVP_MD_get_size(ptr noundef %call1) #3
-  %cmp = icmp sgt i32 %call2, %size
+  %cmp = icmp slt i32 %size, %call2
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

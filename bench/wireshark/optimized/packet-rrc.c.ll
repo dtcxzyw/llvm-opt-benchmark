@@ -77491,7 +77491,7 @@ private_data_get_s_rnti.exit:                     ; preds = %private_data_set_s_
   %39 = shl i32 %36, 20
   %40 = or i32 %39, %38
   %41 = load i32, ptr @hf_rrc_u_RNTI, align 4
-  %.not = icmp eq i32 %41, %4
+  %.not = icmp eq i32 %4, %41
   br i1 %.not, label %private_data_set_current_u_rnti.exit, label %private_data_set_new_u_rnti.exit
 
 private_data_set_new_u_rnti.exit:                 ; preds = %private_data_get_s_rnti.exit

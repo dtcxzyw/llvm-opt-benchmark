@@ -95,7 +95,7 @@ define dso_local void @_ZN3tev10ThreadPoolC2Ev(ptr noundef nonnull align 8 deref
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %4, i8 0, i64 184, i1 false)
   %5 = tail call noundef i32 @_ZNSt3__16thread20hardware_concurrencyEv() #15
-  %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 %2)
+  %6 = tail call i32 @llvm.umin.i32(i32 %2, i32 %5)
   %.sroa.speculated.i = zext i32 %6 to i64
   invoke void @_ZN3tev10ThreadPool12startThreadsEm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %.sroa.speculated.i)
           to label %_ZN3tev10ThreadPoolC2Emb.exit unwind label %7
@@ -134,7 +134,7 @@ define dso_local void @_ZN3tev10ThreadPoolC2Emb(ptr noundef nonnull align 8 dere
 6:                                                ; preds = %3
   %7 = tail call noundef i32 @_ZNSt3__16thread20hardware_concurrencyEv() #15
   %8 = zext i32 %7 to i64
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %8, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %1, i64 %8)
   br label %15
 
 9:                                                ; preds = %15
@@ -353,7 +353,7 @@ define linkonce_odr dso_local void @_ZNSt3__114priority_queueIN3tev10ThreadPool1
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not6.i.i.i.i = icmp eq ptr %5, %2
+  %.not6.i.i.i.i = icmp eq ptr %2, %5
   br i1 %.not6.i.i.i.i, label %_ZNSt3__16vectorIN3tev10ThreadPool10QueuedTaskENS_9allocatorIS3_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10ThreadPool10QueuedTaskEEEE7destroyB8ne190000IS4_vTnNS_9enable_ifIXntsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i.i.i
@@ -378,7 +378,7 @@ define linkonce_odr dso_local void @_ZNSt3__114priority_queueIN3tev10ThreadPool1
   br label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10ThreadPool10QueuedTaskEEEE7destroyB8ne190000IS4_vTnNS_9enable_ifIXntsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorIN3tev10ThreadPool10QueuedTaskEEEE7destroyB8ne190000IS4_vTnNS_9enable_ifIXntsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i.i, %11
-  %.not.i.i.i.i = icmp eq ptr %6, %2
+  %.not.i.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i.i, label %_ZNSt3__16vectorIN3tev10ThreadPool10QueuedTaskENS_9allocatorIS3_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i
 
 _ZNSt3__16vectorIN3tev10ThreadPool10QueuedTaskENS_9allocatorIS3_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10ThreadPool10QueuedTaskEEEE7destroyB8ne190000IS4_vTnNS_9enable_ifIXntsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i.i.i
@@ -404,14 +404,14 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EE
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not6.i.i.i = icmp eq ptr %5, %2
+  %.not6.i.i.i = icmp eq ptr %2, %5
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.07.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %5, %3 ]
   %6 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 -8
   tail call void @_ZNSt3__16threadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
-  %.not.i.i.i = icmp eq ptr %6, %2
+  %.not.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE7__clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i
 
 _ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE7__clearB8ne190000Ev.exit.i.loopexit: ; preds = %.lr.ph.i.i.i
@@ -521,7 +521,7 @@ _ZN3tev10ThreadPool15shutdownThreadsEm.exit:      ; preds = %.noexc2, %.noexc1
 41:                                               ; preds = %_ZN3tev10ThreadPool15shutdownThreadsEm.exit
   %42 = getelementptr inbounds i8, ptr %0, i64 48
   %43 = load ptr, ptr %42, align 8
-  %.not6.i.i.i.i.i = icmp eq ptr %43, %40
+  %.not6.i.i.i.i.i = icmp eq ptr %40, %43
   br i1 %.not6.i.i.i.i.i, label %_ZNSt3__16vectorIN3tev10ThreadPool10QueuedTaskENS_9allocatorIS3_EEE7__clearB8ne190000Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %41, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10ThreadPool10QueuedTaskEEEE7destroyB8ne190000IS4_vTnNS_9enable_ifIXntsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i.i.i.i
@@ -546,7 +546,7 @@ _ZN3tev10ThreadPool15shutdownThreadsEm.exit:      ; preds = %.noexc2, %.noexc1
   br label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10ThreadPool10QueuedTaskEEEE7destroyB8ne190000IS4_vTnNS_9enable_ifIXntsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorIN3tev10ThreadPool10QueuedTaskEEEE7destroyB8ne190000IS4_vTnNS_9enable_ifIXntsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i.i.i, %49
-  %.not.i.i.i.i.i = icmp eq ptr %44, %40
+  %.not.i.i.i.i.i = icmp eq ptr %40, %44
   br i1 %.not.i.i.i.i.i, label %_ZNSt3__16vectorIN3tev10ThreadPool10QueuedTaskENS_9allocatorIS3_EEE7__clearB8ne190000Ev.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i
 
 _ZNSt3__16vectorIN3tev10ThreadPool10QueuedTaskENS_9allocatorIS3_EEE7__clearB8ne190000Ev.exit.i.loopexit.i.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10ThreadPool10QueuedTaskEEEE7destroyB8ne190000IS4_vTnNS_9enable_ifIXntsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i.i.i.i
@@ -566,14 +566,14 @@ _ZNSt3__114priority_queueIN3tev10ThreadPool10QueuedTaskENS_6vectorIS3_NS_9alloca
 
 55:                                               ; preds = %_ZNSt3__114priority_queueIN3tev10ThreadPool10QueuedTaskENS_6vectorIS3_NS_9allocatorIS3_EEEENS3_10ComparatorEED2Ev.exit
   %56 = load ptr, ptr %17, align 8
-  %.not6.i.i.i.i = icmp eq ptr %56, %54
+  %.not6.i.i.i.i = icmp eq ptr %54, %56
   br i1 %.not6.i.i.i.i, label %_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %55, %.lr.ph.i.i.i.i
   %.07.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i ], [ %56, %55 ]
   %57 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -8
   call void @_ZNSt3__16threadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #15
-  %.not.i.i.i.i = icmp eq ptr %57, %54
+  %.not.i.i.i.i = icmp eq ptr %54, %57
   br i1 %.not.i.i.i.i, label %_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i
 
 _ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i
@@ -1420,7 +1420,7 @@ define linkonce_odr hidden void @_ZNSt3__114__split_bufferINS_6threadERNS_9alloc
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %.not2.i.i.i = icmp eq ptr %5, %3
+  %.not2.i.i.i = icmp eq ptr %3, %5
   br i1 %.not2.i.i.i, label %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
@@ -1429,7 +1429,7 @@ define linkonce_odr hidden void @_ZNSt3__114__split_bufferINS_6threadERNS_9alloc
   store ptr %7, ptr %4, align 8
   tail call void @_ZNSt3__16threadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   %8 = load ptr, ptr %4, align 8
-  %.not.i.i.i = icmp eq ptr %8, %3
+  %.not.i.i.i = icmp eq ptr %3, %8
   br i1 %.not.i.i.i, label %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit, label %.lr.ph.i.i.i
 
 _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit: ; preds = %.lr.ph.i.i.i, %1

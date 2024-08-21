@@ -1449,7 +1449,7 @@ define internal ptr @float_from_string_inner(ptr noundef %s, i64 noundef %len, p
 entry:
   %end = alloca ptr, align 8
   %add.ptr = getelementptr i8, ptr %s, i64 %len
-  %cmp14 = icmp ugt ptr %add.ptr, %s
+  %cmp14 = icmp ult ptr %s, %add.ptr
   br i1 %cmp14, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %entry, %while.body
@@ -2239,7 +2239,7 @@ return:                                           ; preds = %lor.lhs.false4, %lo
 define hidden void @_PyFloat_InitState(ptr noundef readnone %interp) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not = icmp eq ptr %0, %interp
+  %cmp.i.not = icmp eq ptr %interp, %0
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

@@ -80,7 +80,7 @@ J2dTraceInit.exit:                                ; preds = %18, %22, %23
 
 25:                                               ; preds = %J2dTraceInit.exit, %3
   %26 = phi i32 [ %.pre, %J2dTraceInit.exit ], [ %6, %3 ]
-  %.not = icmp slt i32 %26, %0
+  %.not = icmp sgt i32 %0, %26
   br i1 %.not, label %42, label %27
 
 27:                                               ; preds = %25

@@ -153,7 +153,7 @@ if.then3.i.i:                                     ; preds = %if.then2.i.us38.i.i
   %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %.us-phi.i.i, i64 2
   %2 = load i16, ptr %.us-phi.i.i, align 2
   %conv5.i.i = zext i16 %2 to i32
-  %cmp6.i.i = icmp eq i32 %conv5.i.i, %cp
+  %cmp6.i.i = icmp eq i32 %cp, %conv5.i.i
   br i1 %cmp6.i.i, label %if.then7.i.i, label %for.end.i.i
 
 if.then7.i.i:                                     ; preds = %if.then3.i.i
@@ -322,7 +322,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end11
 
 if.then3:                                         ; preds = %if.end
-  %cmp4 = icmp eq i32 %conv, %uchar
+  %cmp4 = icmp eq i32 %uchar, %conv
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.then3
@@ -415,7 +415,7 @@ if.then3.i:                                       ; preds = %if.then2.i.us38.i, 
   %incdec.ptr4.i = getelementptr inbounds i8, ptr %.us-phi.i, i64 2
   %6 = load i16, ptr %.us-phi.i, align 2
   %conv5.i = zext i16 %6 to i32
-  %cmp6.i = icmp eq i32 %conv5.i, %uchar
+  %cmp6.i = icmp eq i32 %uchar, %conv5.i
   br i1 %cmp6.i, label %if.then7.i, label %for.end.i
 
 if.then7.i:                                       ; preds = %if.then3.i
@@ -500,7 +500,7 @@ while.body:                                       ; preds = %if.end, %if.end9
   %incdec.ptr3 = getelementptr inbounds i8, ptr %pos.addr.150, i64 2
   %1 = load i16, ptr %pos.addr.150, align 2
   %conv4 = zext i16 %1 to i32
-  %cmp5 = icmp sgt i32 %conv4, %uchar
+  %cmp5 = icmp slt i32 %uchar, %conv4
   %shr = lshr i32 %length.addr.149, 1
   br i1 %cmp5, label %if.then6, label %if.else
 
@@ -578,7 +578,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %incdec.ptr10 = getelementptr inbounds i8, ptr %pos.addr.3, i64 2
   %7 = load i16, ptr %pos.addr.3, align 2
   %conv11 = zext i16 %7 to i32
-  %cmp12 = icmp eq i32 %conv11, %uchar
+  %cmp12 = icmp eq i32 %uchar, %conv11
   br i1 %cmp12, label %if.then13, label %if.end39
 
 if.then13:                                        ; preds = %do.body
@@ -666,7 +666,7 @@ _ZN6icu_7510UCharsTrie9skipValueEPKDs.exit:       ; preds = %if.end39, %if.then2
 do.end:                                           ; preds = %_ZN6icu_7510UCharsTrie9skipValueEPKDs.exit
   %17 = load i16, ptr %pos.addr.0.i.i, align 2
   %conv43 = zext i16 %17 to i32
-  %cmp44 = icmp eq i32 %conv43, %uchar
+  %cmp44 = icmp eq i32 %uchar, %conv43
   br i1 %cmp44, label %if.then45, label %if.else55
 
 if.then45:                                        ; preds = %do.end
@@ -767,7 +767,7 @@ if.then3:                                         ; preds = %if.else.lr.ph.split
   %incdec.ptr4 = getelementptr inbounds i8, ptr %.us-phi, i64 2
   %1 = load i16, ptr %.us-phi, align 2
   %conv5 = zext i16 %1 to i32
-  %cmp6 = icmp eq i32 %conv5, %uchar
+  %cmp6 = icmp eq i32 %uchar, %conv5
   br i1 %cmp6, label %if.then7, label %for.end
 
 if.then7:                                         ; preds = %if.then3

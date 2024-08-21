@@ -1657,7 +1657,7 @@ _ZN6casadi8SparsityaSERKS0_.exit:                 ; preds = %357
   %378 = ptrtoint ptr %376 to i64
   %379 = sub i64 %377, %378
   %380 = ashr exact i64 %379, 3
-  %.not.i.i = icmp ugt i64 %380, %374
+  %.not.i.i = icmp ult i64 %374, %380
   br i1 %.not.i.i, label %382, label %381
 
 381:                                              ; preds = %373
@@ -6360,7 +6360,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %89 = ptrtoint ptr %87 to i64
   %90 = sub i64 %88, %89
   %91 = ashr exact i64 %90, 3
-  %92 = icmp ult i64 %91, %84
+  %92 = icmp ugt i64 %84, %91
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
@@ -6371,7 +6371,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZNSt6vectorIxSaIxEE6resizeEm.exit.i
 
 95:                                               ; preds = %83
-  %96 = icmp ugt i64 %91, %84
+  %96 = icmp ult i64 %84, %91
   br i1 %96, label %97, label %_ZNSt6vectorIxSaIxEE6resizeEm.exit.i
 
 97:                                               ; preds = %95
@@ -7521,7 +7521,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -7577,7 +7577,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -8273,7 +8273,7 @@ _ZN6casadi23casadi_cvx_givens_applyIdEEvxPT_S1_S1_x.exit: ; preds = %.lr.ph84.i,
 145:                                              ; preds = %.lr.ph165, %_ZN6casadi22casadi_cvx_house_applyIdEEvxxxPT_S2_PKS1_S1_.exit
   %.0124163 = phi i64 [ %144, %.lr.ph165 ], [ %198, %_ZN6casadi22casadi_cvx_house_applyIdEEvxxxPT_S2_PKS1_S1_.exit ]
   %146 = xor i64 %.0124163, -1
-  %147 = add i64 %146, %0
+  %147 = add i64 %0, %146
   %148 = mul nsw i64 %147, %0
   %149 = getelementptr inbounds double, ptr %1, i64 %148
   %150 = getelementptr inbounds [100 x double], ptr %9, i64 0, i64 %.0124163
@@ -8416,7 +8416,7 @@ define linkonce_odr hidden void @_ZN6casadi14casadi_cvx_triIdEEvPT_xS2_S2_(ptr n
   %9 = mul nuw nsw i64 %.027, %1
   %10 = getelementptr inbounds double, ptr %gep, i64 %9
   %11 = xor i64 %.027, -1
-  %12 = add nsw i64 %11, %1
+  %12 = add nsw i64 %1, %11
   %13 = mul nsw i64 %12, %1
   %14 = getelementptr inbounds double, ptr %0, i64 %13
   br i1 %.not.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, label %15
@@ -8547,7 +8547,7 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi21casadi_cvx_symm_schurIdEEixP
   %21 = load double, ptr %20, align 8
   %22 = tail call double @llvm.fabs.f64(double %21)
   %23 = fadd double %18, %22
-  %24 = fmul double %23, %3
+  %24 = fmul double %3, %23
   %25 = fcmp ugt double %15, %24
   br i1 %25, label %27, label %26
 
@@ -8634,7 +8634,7 @@ define linkonce_odr hidden void @_ZN6casadi27casadi_cvx_house_apply_symmIdEEvxxP
   %9 = getelementptr double, ptr %2, i64 %7
   %10 = getelementptr double, ptr %9, i64 %8
   %11 = xor i64 %1, -1
-  %12 = add i64 %11, %0
+  %12 = add i64 %0, %11
   %.not.i = icmp ne ptr %3, null
   %13 = icmp sgt i64 %12, 0
   %or.cond.i = and i1 %13, %.not.i
@@ -8656,7 +8656,7 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit:           ; preds = %6
   %.087 = phi ptr [ %43, %._crit_edge ], [ %15, %.lr.ph88.preheader ]
   %.07186 = phi i64 [ %23, %._crit_edge ], [ 0, %.lr.ph88.preheader ]
   %16 = load double, ptr %.087, align 8
-  %17 = fmul double %16, %5
+  %17 = fmul double %5, %16
   %18 = getelementptr inbounds double, ptr %4, i64 %.07186
   %19 = load double, ptr %18, align 8
   %20 = getelementptr inbounds double, ptr %3, i64 %.07186
@@ -8672,14 +8672,14 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit:           ; preds = %6
   %.07384 = phi i64 [ %37, %.lr.ph ], [ %23, %.lr.ph88 ]
   %.185 = getelementptr inbounds i8, ptr %.185.pn, i64 8
   %25 = load double, ptr %.185, align 8
-  %26 = fmul double %25, %5
+  %26 = fmul double %5, %25
   %27 = load double, ptr %18, align 8
   %28 = getelementptr inbounds double, ptr %3, i64 %.07384
   %29 = load double, ptr %28, align 8
   %30 = tail call double @llvm.fmuladd.f64(double %26, double %27, double %29)
   store double %30, ptr %28, align 8
   %31 = load double, ptr %.185, align 8
-  %32 = fmul double %31, %5
+  %32 = fmul double %5, %31
   %33 = getelementptr inbounds double, ptr %4, i64 %.07384
   %34 = load double, ptr %33, align 8
   %35 = load double, ptr %20, align 8
@@ -8825,11 +8825,11 @@ define linkonce_odr hidden void @_ZN6casadi22casadi_cvx_implicit_qrIdEEvxPT_S2_S
   %24 = fsub double %8, %23
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %83
-  %.082 = phi i64 [ %44, %83 ], [ 0, %.lr.ph.preheader ]
-  %.06481 = phi ptr [ %.1, %83 ], [ %3, %.lr.ph.preheader ]
-  %.06580 = phi double [ %78, %83 ], [ %24, %.lr.ph.preheader ]
-  %.06679 = phi double [ %79, %83 ], [ %7, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %81
+  %.082 = phi i64 [ %44, %81 ], [ 0, %.lr.ph.preheader ]
+  %.06481 = phi ptr [ %.1, %81 ], [ %3, %.lr.ph.preheader ]
+  %.06580 = phi double [ %76, %81 ], [ %24, %.lr.ph.preheader ]
+  %.06679 = phi double [ %77, %81 ], [ %7, %.lr.ph.preheader ]
   %25 = fcmp oeq double %.06679, 0.000000e+00
   br i1 %25, label %_ZN6casadi17casadi_cvx_givensIdEEvT_S1_PS1_S2_.exit, label %26
 
@@ -8869,61 +8869,59 @@ _ZN6casadi17casadi_cvx_givensIdEEvT_S1_PS1_S2_.exit: ; preds = %.lr.ph, %30, %36
   %48 = load double, ptr %47, align 8
   %49 = getelementptr inbounds double, ptr %2, i64 %44
   %50 = load double, ptr %49, align 8
-  %51 = fneg double %48
-  %52 = fmul double %.077, %51
+  %51 = fneg double %.077
+  %52 = fmul double %48, %51
   %53 = tail call double @llvm.fmuladd.f64(double %43, double %.078, double %52)
-  %54 = fneg double %46
-  %55 = fmul double %.077, %54
-  %56 = tail call double @llvm.fmuladd.f64(double %48, double %.078, double %55)
-  %57 = fneg double %.077
-  %58 = fmul double %56, %57
-  %59 = tail call double @llvm.fmuladd.f64(double %.078, double %53, double %58)
-  store double %59, ptr %42, align 8
-  %60 = fmul double %.078, %56
-  %61 = tail call double @llvm.fmuladd.f64(double %.077, double %53, double %60)
-  store double %61, ptr %47, align 8
-  %62 = fmul double %.077, %43
-  %63 = fmul double %.077, 2.000000e+00
-  %64 = fmul double %63, %48
-  %65 = fmul double %.078, %64
-  %66 = tail call double @llvm.fmuladd.f64(double %62, double %.077, double %65)
-  %67 = fmul double %.078, %46
-  %68 = tail call double @llvm.fmuladd.f64(double %67, double %.078, double %66)
-  store double %68, ptr %45, align 8
-  %69 = load double, ptr %49, align 8
-  %70 = fmul double %.078, %69
-  store double %70, ptr %49, align 8
+  %54 = fmul double %46, %51
+  %55 = tail call double @llvm.fmuladd.f64(double %48, double %.078, double %54)
+  %56 = fneg double %55
+  %57 = fmul double %.077, %56
+  %58 = tail call double @llvm.fmuladd.f64(double %.078, double %53, double %57)
+  store double %58, ptr %42, align 8
+  %59 = fmul double %.078, %55
+  %60 = tail call double @llvm.fmuladd.f64(double %.077, double %53, double %59)
+  store double %60, ptr %47, align 8
+  %61 = fmul double %.077, %43
+  %62 = fmul double %.077, 2.000000e+00
+  %63 = fmul double %62, %48
+  %64 = fmul double %.078, %63
+  %65 = tail call double @llvm.fmuladd.f64(double %61, double %.077, double %64)
+  %66 = fmul double %.078, %46
+  %67 = tail call double @llvm.fmuladd.f64(double %66, double %.078, double %65)
+  store double %67, ptr %45, align 8
+  %68 = load double, ptr %49, align 8
+  %69 = fmul double %.078, %68
+  store double %69, ptr %49, align 8
   %.not = icmp eq i64 %.082, 0
-  br i1 %.not, label %77, label %71
+  br i1 %.not, label %75, label %70
 
-71:                                               ; preds = %_ZN6casadi17casadi_cvx_givensIdEEvT_S1_PS1_S2_.exit
-  %72 = getelementptr i8, ptr %47, i64 -8
-  %73 = load double, ptr %72, align 8
-  %74 = fneg double %.06679
-  %75 = fmul double %.077, %74
-  %76 = tail call double @llvm.fmuladd.f64(double %73, double %.078, double %75)
-  store double %76, ptr %72, align 8
-  br label %77
+70:                                               ; preds = %_ZN6casadi17casadi_cvx_givensIdEEvT_S1_PS1_S2_.exit
+  %71 = getelementptr i8, ptr %47, i64 -8
+  %72 = load double, ptr %71, align 8
+  %73 = fmul double %.06679, %51
+  %74 = tail call double @llvm.fmuladd.f64(double %72, double %.078, double %73)
+  store double %74, ptr %71, align 8
+  br label %75
 
-77:                                               ; preds = %71, %_ZN6casadi17casadi_cvx_givensIdEEvT_S1_PS1_S2_.exit
-  %78 = load double, ptr %47, align 8
-  %79 = fmul double %50, %57
+75:                                               ; preds = %70, %_ZN6casadi17casadi_cvx_givensIdEEvT_S1_PS1_S2_.exit
+  %76 = load double, ptr %47, align 8
+  %77 = fmul double %50, %51
   %.not67 = icmp eq ptr %.06481, null
-  br i1 %.not67, label %83, label %80
+  br i1 %.not67, label %81, label %78
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %.06481, i64 8
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds i8, ptr %.06481, i64 8
   store double %.078, ptr %.06481, align 8
-  %82 = getelementptr inbounds i8, ptr %.06481, i64 16
-  store double %.077, ptr %81, align 8
-  br label %83
+  %80 = getelementptr inbounds i8, ptr %.06481, i64 16
+  store double %.077, ptr %79, align 8
+  br label %81
 
-83:                                               ; preds = %77, %80
-  %.1 = phi ptr [ %82, %80 ], [ null, %77 ]
+81:                                               ; preds = %75, %78
+  %.1 = phi ptr [ %80, %78 ], [ null, %75 ]
   %exitcond.not = icmp eq i64 %44, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
 
-._crit_edge:                                      ; preds = %83, %4
+._crit_edge:                                      ; preds = %81, %4
   ret void
 }
 
@@ -9137,7 +9135,7 @@ _ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #23
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %23
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi8SparsityEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %27, %.lr.ph.i.i.i.i.i.i.i
@@ -9175,7 +9173,7 @@ _ZSt8_DestroyIPN6casadi8SparsityEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 _ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8SparsityES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN6casadi8SparsityEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN6casadi8SparsityEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %_ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8SparsityES2_SaIS1_EET0_T_S5_S4_RT1_.exit43, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8SparsityES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %_ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i37

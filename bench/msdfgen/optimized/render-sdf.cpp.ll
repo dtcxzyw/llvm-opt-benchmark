@@ -25,7 +25,7 @@ entry:
   %add12 = add nsw i32 %2, %0
   %conv13 = sitofp i32 %add12 to double
   %div14 = fdiv double %conv9, %conv13
-  %mul = fmul double %div14, %pxRange
+  %mul = fmul double %pxRange, %div14
   %cmp32 = icmp sgt i32 %3, 0
   br i1 %cmp32, label %for.cond16.preheader.lr.ph, label %for.end30
 
@@ -130,7 +130,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   br i1 %tobool.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body19
-  %cmp.i = fcmp ogt float %conv3.i71.i, %midValue
+  %cmp.i = fcmp olt float %midValue, %conv3.i71.i
   %conv.i19 = uitofp i1 %cmp.i to float
   br label %_ZN7msdfgenL7distValEfdf.exit
 
@@ -197,7 +197,7 @@ entry:
   %add12 = add nsw i32 %2, %0
   %conv13 = sitofp i32 %add12 to double
   %div14 = fdiv double %conv9, %conv13
-  %mul = fmul double %div14, %pxRange
+  %mul = fmul double %pxRange, %div14
   %cmp52 = icmp sgt i32 %3, 0
   br i1 %cmp52, label %for.cond16.preheader.lr.ph, label %for.end34
 
@@ -302,7 +302,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   br i1 %tobool.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body19
-  %cmp.i = fcmp ogt float %conv3.i71.i, %midValue
+  %cmp.i = fcmp olt float %midValue, %conv3.i71.i
   %conv.i27 = uitofp i1 %cmp.i to float
   br label %_ZN7msdfgenL7distValEfdf.exit
 
@@ -389,7 +389,7 @@ entry:
   %add12 = add nsw i32 %2, %0
   %conv13 = sitofp i32 %add12 to double
   %div14 = fdiv double %conv9, %conv13
-  %mul = fmul double %div14, %pxRange
+  %mul = fmul double %pxRange, %div14
   %cmp34 = icmp sgt i32 %3, 0
   br i1 %cmp34, label %for.cond16.preheader.lr.ph, label %for.end33
 
@@ -519,7 +519,7 @@ _ZN7msdfgenL11interpolateIfLi3EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2
   %cond.i.i20 = select i1 %cmp.i.i19, float %21, float %20
   %cmp.i3.i = fcmp olt float %20, %21
   %cond.i4.i = select i1 %cmp.i3.i, float %21, float %20
-  %cmp.i5.i = fcmp ogt float %cond.i4.i, %22
+  %cmp.i5.i = fcmp olt float %22, %cond.i4.i
   %cond.i6.i = select i1 %cmp.i5.i, float %22, float %cond.i4.i
   %cmp.i7.i = fcmp olt float %cond.i.i20, %cond.i6.i
   %cond.i8.i = select i1 %cmp.i7.i, float %cond.i6.i, float %cond.i.i20
@@ -594,7 +594,7 @@ entry:
   %add12 = add nsw i32 %2, %0
   %conv13 = sitofp i32 %add12 to double
   %div14 = fdiv double %conv9, %conv13
-  %mul = fmul double %div14, %pxRange
+  %mul = fmul double %pxRange, %div14
   %cmp86 = icmp sgt i32 %3, 0
   br i1 %cmp86, label %for.cond16.preheader.lr.ph, label %for.end39
 
@@ -854,7 +854,7 @@ entry:
   %add12 = add nsw i32 %2, %0
   %conv13 = sitofp i32 %add12 to double
   %div14 = fdiv double %conv9, %conv13
-  %mul = fmul double %div14, %pxRange
+  %mul = fmul double %pxRange, %div14
   %cmp34 = icmp sgt i32 %3, 0
   br i1 %cmp34, label %for.cond16.preheader.lr.ph, label %for.end33
 
@@ -984,7 +984,7 @@ _ZN7msdfgenL11interpolateIfLi4EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2
   %cond.i.i20 = select i1 %cmp.i.i19, float %21, float %20
   %cmp.i3.i = fcmp olt float %20, %21
   %cond.i4.i = select i1 %cmp.i3.i, float %21, float %20
-  %cmp.i5.i = fcmp ogt float %cond.i4.i, %22
+  %cmp.i5.i = fcmp olt float %22, %cond.i4.i
   %cond.i6.i = select i1 %cmp.i5.i, float %22, float %cond.i4.i
   %cmp.i7.i = fcmp olt float %cond.i.i20, %cond.i6.i
   %cond.i8.i = select i1 %cmp.i7.i, float %cond.i6.i, float %cond.i.i20
@@ -1059,7 +1059,7 @@ entry:
   %add12 = add nsw i32 %2, %0
   %conv13 = sitofp i32 %add12 to double
   %div14 = fdiv double %conv9, %conv13
-  %mul = fmul double %div14, %pxRange
+  %mul = fmul double %pxRange, %div14
   %cmp113 = icmp sgt i32 %3, 0
   br i1 %cmp113, label %for.cond16.preheader.lr.ph, label %for.end43
 

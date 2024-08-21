@@ -1131,7 +1131,7 @@ define void @pmix_output_hexdump(i32 noundef %0, i32 noundef %1, ptr noundef %2,
 53:                                               ; preds = %48, %52
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 16
   %54 = trunc nuw i64 %indvars.iv.next94 to i32
-  %55 = icmp slt i32 %54, %3
+  %55 = icmp sgt i32 %3, %54
   br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %53, %20, %10, %6, %4

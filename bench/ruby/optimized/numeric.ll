@@ -2032,9 +2032,9 @@ define hidden double @ruby_float_mod(double noundef %0, double noundef %1) local
 
 ._crit_edge.i:                                    ; preds = %7, %14, %9
   %.0.i = phi double [ %0, %9 ], [ %15, %14 ], [ %0, %7 ]
-  %16 = fmul double %.0.i, %1
+  %16 = fmul double %1, %.0.i
   %17 = fcmp olt double %16, 0.000000e+00
-  %18 = fadd double %.0.i, %1
+  %18 = fadd double %1, %.0.i
   %.1.i = select i1 %17, double %18, double %.0.i
   br label %flodivmod.exit
 
@@ -3088,7 +3088,7 @@ rb_float_value_inline.exit.thread:                ; preds = %6, %rb_float_value_
 float_round_overflow.exit:                        ; preds = %45, %47
   %50 = phi i32 [ %46, %45 ], [ %49, %47 ]
   %51 = sub nsw i32 17, %50
-  %.not.i.not = icmp sgt i32 %51, %1
+  %.not.i.not = icmp slt i32 %1, %51
   br i1 %.not.i.not, label %52, label %rb_float_new_inline.exit
 
 52:                                               ; preds = %float_round_overflow.exit
@@ -3110,7 +3110,7 @@ float_round_overflow.exit:                        ; preds = %45, %47
 
 float_round_underflow.exit:                       ; preds = %55, %57
   %.neg7.i = phi i32 [ %.neg.i, %55 ], [ %.neg6910.i, %57 ]
-  %.not = icmp sgt i32 %.neg7.i, %1
+  %.not = icmp slt i32 %1, %.neg7.i
   br i1 %.not, label %rb_float_new_inline.exit, label %58
 
 58:                                               ; preds = %float_round_underflow.exit, %52
@@ -3246,7 +3246,7 @@ int_round_zero_p.exit:                            ; preds = %2, %16, %20, %22
   %30 = sext i32 %29 to i64
   %31 = tail call fastcc i64 @int_pow(i64 noundef 10, i64 noundef %30)
   %.fr = freeze i64 %31
-  %32 = and i64 %.fr, %0
+  %32 = and i64 %0, %.fr
   %33 = and i64 %32, 1
   %or.cond.not = icmp eq i64 %33, 0
   br i1 %or.cond.not, label %49, label %34
@@ -3431,7 +3431,7 @@ rb_float_value_inline.exit.thread:                ; preds = %6, %rb_float_value_
 float_round_overflow.exit:                        ; preds = %45, %47
   %50 = phi i32 [ %46, %45 ], [ %49, %47 ]
   %51 = sub nsw i32 17, %50
-  %.not.i.not = icmp sgt i32 %51, %1
+  %.not.i.not = icmp slt i32 %1, %51
   br i1 %.not.i.not, label %52, label %rb_float_new_inline.exit
 
 52:                                               ; preds = %float_round_overflow.exit
@@ -3453,7 +3453,7 @@ float_round_overflow.exit:                        ; preds = %45, %47
 
 float_round_underflow.exit:                       ; preds = %55, %57
   %.neg7.i = phi i32 [ %.neg.i, %55 ], [ %.neg6910.i, %57 ]
-  %.not = icmp sgt i32 %.neg7.i, %1
+  %.not = icmp slt i32 %1, %.neg7.i
   br i1 %.not, label %rb_float_new_inline.exit, label %58
 
 58:                                               ; preds = %float_round_underflow.exit, %52
@@ -6974,7 +6974,7 @@ rb_float_value_inline.exit.thread.i:              ; preds = %rb_float_value_inli
 
 78:                                               ; preds = %rb_float_value_inline.exit.thread.i
   %79 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.0.i3745.i)
-  %80 = fmul double %79, %76
+  %80 = fmul double %76, %79
   %81 = fmul double %80, 0x7FF0000000000000
   br label %.critedge
 
@@ -11915,7 +11915,7 @@ rb_integer_type_p.exit.thread:                    ; preds = %9, %rb_integer_type
 rb_long2num_inline.exit.i:                        ; preds = %57, %54
   %.0.i.i = phi i64 [ %56, %54 ], [ %58, %57 ]
   %59 = tail call i64 @rb_ary_push(i64 noundef %49, i64 noundef %.0.i.i) #23
-  %.not.i63 = icmp ult i64 %.01316.i, %.0
+  %.not.i63 = icmp ugt i64 %.0, %.01316.i
   br i1 %.not.i63, label %.critedge61, label %.lr.ph.i, !llvm.loop !33
 
 60:                                               ; preds = %41
@@ -13373,14 +13373,14 @@ round_half_down.exit:                             ; preds = %88
 float_round_overflow.exit:                        ; preds = %145
   %149 = lshr i32 %147, 2
   %150 = sub nsw i32 17, %149
-  %.not.i53.not = icmp sgt i32 %150, %.038
+  %.not.i53.not = icmp slt i32 %.038, %150
   br i1 %.not.i53.not, label %153, label %rb_float_new_inline.exit
 
 float_round_overflow.exit.thread:                 ; preds = %145
   %.nonneg.i = sub i32 0, %147
   %151 = udiv i32 %.nonneg.i, 3
   %152 = add nuw nsw i32 %151, 18
-  %.not.i5365.not = icmp ugt i32 %152, %.038
+  %.not.i5365.not = icmp ult i32 %.038, %152
   br i1 %.not.i5365.not, label %.thread, label %rb_float_new_inline.exit
 
 153:                                              ; preds = %float_round_overflow.exit
@@ -13394,7 +13394,7 @@ float_round_overflow.exit.thread:                 ; preds = %145
 
 float_round_underflow.exit:                       ; preds = %153, %.thread
   %.neg7.i = phi i32 [ %.neg.i, %153 ], [ %.neg6910.i, %.thread ]
-  %.not71 = icmp sgt i32 %.neg7.i, %.038
+  %.not71 = icmp slt i32 %.038, %.neg7.i
   br i1 %.not71, label %rb_float_new_inline.exit, label %155
 
 155:                                              ; preds = %float_round_underflow.exit
@@ -15769,7 +15769,7 @@ define internal fastcc i64 @rb_int_digits_bigbase(i64 noundef %0, i64 noundef %1
 rb_long2num_inline.exit.i:                        ; preds = %50, %47
   %.0.i.i = phi i64 [ %49, %47 ], [ %51, %50 ]
   %52 = tail call i64 @rb_ary_push(i64 noundef %42, i64 noundef %.0.i.i) #23
-  %.not.i103 = icmp ult i64 %.01316.i, %34
+  %.not.i103 = icmp ugt i64 %34, %.01316.i
   br i1 %.not.i103, label %rb_fix_digits.exit, label %.lr.ph.i, !llvm.loop !33
 
 53:                                               ; preds = %.critedge102
@@ -16096,8 +16096,8 @@ define internal fastcc double @round_half_even(double noundef %0, double noundef
   %3 = alloca double, align 8
   %4 = call double @modf(double noundef %0, ptr noundef nonnull %3) #23
   %5 = load double, ptr %3, align 8
-  %6 = fmul double %5, %1
-  %7 = fmul double %4, %1
+  %6 = fmul double %1, %5
+  %7 = fmul double %1, %4
   %8 = fcmp ogt double %0, 0.000000e+00
   br i1 %8, label %9, label %24
 

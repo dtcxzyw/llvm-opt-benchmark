@@ -297,7 +297,7 @@ entry:
   %cmp = icmp slt i32 %index, 0
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp2 = icmp slt i32 %0, %index
+  %cmp2 = icmp sgt i32 %index, %0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp2
   br i1 %or.cond, label %do.body, label %if.end
 
@@ -334,7 +334,7 @@ entry:
   %cmp = icmp slt i32 %index, 0
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 108
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp2 = icmp slt i32 %0, %index
+  %cmp2 = icmp sgt i32 %index, %0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp2
   br i1 %or.cond, label %do.body, label %if.end
 
@@ -363,7 +363,7 @@ entry:
   %cmp = icmp slt i32 %index, 0
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 140
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp2 = icmp slt i32 %0, %index
+  %cmp2 = icmp sgt i32 %index, %0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp2
   br i1 %or.cond, label %do.body, label %if.end
 
@@ -392,7 +392,7 @@ entry:
   %cmp = icmp slt i32 %index, 0
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp2 = icmp slt i32 %0, %index
+  %cmp2 = icmp sgt i32 %index, %0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp2
   br i1 %or.cond, label %do.body, label %if.end
 
@@ -433,7 +433,7 @@ entry:
   %0 = load i32, ptr %m_size.i.i, align 4
   %m_size.i.i4 = getelementptr inbounds i8, ptr %this, i64 76
   %1 = load i32, ptr %m_size.i.i4, align 4
-  %cmp4.i = icmp slt i32 %1, %0
+  %cmp4.i = icmp sgt i32 %0, %1
   br i1 %cmp4.i, label %for.body9.lr.ph.i, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
 
 for.body9.lr.ph.i:                                ; preds = %entry

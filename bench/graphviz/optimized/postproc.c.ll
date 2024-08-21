@@ -2014,7 +2014,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @place_flip_graph_label(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @agroot(ptr noundef %0) #17
-  %.not = icmp eq ptr %2, %0
+  %.not = icmp eq ptr %0, %2
   br i1 %.not, label %56, label %3
 
 3:                                                ; preds = %1
@@ -2139,7 +2139,7 @@ define internal fastcc void @place_flip_graph_label(ptr noundef %0) unnamed_addr
 ; Function Attrs: nounwind uwtable
 define void @place_graph_label(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @agroot(ptr noundef %0) #17
-  %.not = icmp eq ptr %2, %0
+  %.not = icmp eq ptr %0, %2
   br i1 %.not, label %54, label %3
 
 3:                                                ; preds = %1
@@ -2379,7 +2379,7 @@ declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @countClusterLabels(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @agroot(ptr noundef %0) #17
-  %.not = icmp eq ptr %2, %0
+  %.not = icmp eq ptr %0, %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %._crit_edge20, label %3
@@ -2500,7 +2500,7 @@ define internal fastcc void @addClusterObj(ptr dead_on_unwind noalias nocapture 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %18 = tail call ptr @agroot(ptr noundef nonnull %1) #17
-  %.not11 = icmp eq ptr %18, %1
+  %.not11 = icmp eq ptr %1, %18
   br i1 %.not11, label %53, label %19
 
 19:                                               ; preds = %._crit_edge

@@ -29,7 +29,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init
   %10 = getelementptr inbounds i8, ptr %1, i64 2
   %11 = load i16, ptr %10, align 1
   %12 = zext i16 %11 to i32
-  %13 = icmp sgt i32 %12, %2
+  %13 = icmp slt i32 %2, %12
   br i1 %13, label %.loopexit1, label %14
 
 14:                                               ; preds = %9

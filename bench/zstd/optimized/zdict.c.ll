@@ -358,7 +358,7 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
   %pos.0162 = phi i64 [ 0, %for.body67.lr.ph ], [ %add77, %ZDICT_countEStats.exit ]
   %arrayidx74 = getelementptr inbounds i64, ptr %fileSizes, i64 %indvars.iv185
   %7 = load i64, ptr %arrayidx74, align 8
-  %srcSize.addr.0.i = call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %7)
+  %srcSize.addr.0.i = call i64 @llvm.umin.i64(i64 %7, i64 %spec.select.i)
   %call.i = call i64 @ZSTD_compressBegin_usingCDict_deprecated(ptr noundef %call43, ptr noundef %call42) #16
   %cmp.i.i = icmp ult i64 %call.i, -119
   br i1 %cmp.i.i, label %if.end16.i, label %do.body.i
@@ -1630,7 +1630,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body.i.prehea
   %mergeId.024.i92.i.i = phi i32 [ %call2.i94.i.i, %if.end.i.i.i ], [ %call.i.i.i, %while.body.i.preheader.i.i ]
   %67 = load i32, ptr %call.i, align 4
   %sub.i.i.i.i = add i32 %67, -1
-  %cmp8.i.i.i.i = icmp ugt i32 %sub.i.i.i.i, %mergeId.024.i92.i.i
+  %cmp8.i.i.i.i = icmp ult i32 %mergeId.024.i92.i.i, %sub.i.i.i.i
   br i1 %cmp8.i.i.i.i, label %for.body.preheader.i.i.i.i, label %if.end.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %for.cond.preheader.i.i.i.i
@@ -1953,7 +1953,7 @@ for.body236.i:                                    ; preds = %for.body236.i.prehe
   %113 = load i32, ptr %length239.i, align 4
   %add240.i = add i32 %113, %currentSize.0171.i
   %conv241.i = zext i32 %add240.i to i64
-  %cmp242.i = icmp ugt i64 %conv241.i, %dictBufferCapacity
+  %cmp242.i = icmp ult i64 %dictBufferCapacity, %conv241.i
   br i1 %cmp242.i, label %for.end252.i, label %for.inc250.i
 
 for.inc250.i:                                     ; preds = %for.body236.i
@@ -2104,7 +2104,7 @@ if.then39:                                        ; preds = %if.end22
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then39, %if.end22
-  %cond52 = tail call i64 @llvm.umin.i64(i64 %add36, i64 %dictBufferCapacity)
+  %cond52 = tail call i64 @llvm.umin.i64(i64 %dictBufferCapacity, i64 %add36)
   br label %return
 
 return:                                           ; preds = %do.end16, %if.end44

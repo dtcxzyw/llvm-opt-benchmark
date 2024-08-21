@@ -499,10 +499,10 @@ define internal fastcc i32 @move_extent_per_page(ptr %.168.val, ptr noundef %0, 
   %22 = lshr i64 4096, %21
   %23 = mul nuw nsw i64 %22, %1
   %24 = trunc i64 %23 to i32
-  %25 = add i32 %24, %3
+  %25 = add i32 %3, %24
   %26 = mul nuw nsw i64 %22, %2
   %27 = trunc i64 %26 to i32
-  %28 = add i32 %27, %3
+  %28 = add i32 %3, %27
   %29 = getelementptr inbounds i8, ptr %.168.val.fr, i64 80
   %30 = add i64 %16, 4294967295
   %31 = trunc i64 %16 to i32

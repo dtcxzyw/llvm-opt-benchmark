@@ -262,7 +262,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %do.body.i, %if.else
   %0 = load ptr, ptr @__clewGetPlatformIDs, align 8
   %call1 = call i32 %0(i32 noundef 0, ptr noundef null, ptr noundef nonnull %numPlatforms)
   %1 = load i32, ptr %numPlatforms, align 4
-  %cmp = icmp ugt i32 %1, %platformIndex0
+  %cmp = icmp ult i32 %platformIndex0, %1
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %_Z22b3OpenCLUtils_clewInitv.exit
@@ -440,7 +440,7 @@ for.body:                                         ; preds = %if.end5, %for.cond
 
 if.else:                                          ; preds = %if.end5
   %cmp14 = icmp sgt i32 %preferredDeviceIndex, -1
-  %cmp15 = icmp ugt i32 %3, %preferredDeviceIndex
+  %cmp15 = icmp ult i32 %preferredDeviceIndex, %3
   %or.cond = and i1 %cmp14, %cmp15
   br i1 %or.cond, label %if.then16, label %if.else20
 
@@ -1097,7 +1097,7 @@ _ZL6strip2PKcS0_.exit72:                          ; preds = %for.body.i66, %_ZL6
 
 if.end11:                                         ; preds = %_ZL6strip2PKcS0_.exit72, %entry
   %tobool3.not = xor i1 %tobool3, true
-  %brmerge = or i1 %tobool3.not, %disableBinaryCaching
+  %brmerge = or i1 %disableBinaryCaching, %tobool3.not
   br i1 %brmerge, label %if.then55, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end11

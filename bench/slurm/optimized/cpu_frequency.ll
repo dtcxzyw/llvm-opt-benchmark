@@ -2499,7 +2499,7 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
 40:                                               ; preds = %9
   %41 = getelementptr inbounds i8, ptr %6, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = icmp ugt i32 %42, %0
+  %43 = icmp ult i32 %0, %42
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %40
@@ -2540,14 +2540,14 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
   br i1 %exitcond.not, label %.loopexit, label %67
 
 67:                                               ; preds = %65
-  %68 = icmp eq i32 %66, %0
+  %68 = icmp eq i32 %0, %66
   br i1 %68, label %.loopexit, label %69
 
 69:                                               ; preds = %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = getelementptr inbounds [64 x i32], ptr %41, i64 0, i64 %indvars.iv.next
   %71 = load i32, ptr %70, align 4
-  %72 = icmp ugt i32 %71, %0
+  %72 = icmp ult i32 %0, %71
   br i1 %72, label %73, label %65, !llvm.loop !26
 
 73:                                               ; preds = %69
@@ -3068,7 +3068,7 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
 .outer._crit_edge.i:                              ; preds = %.split54.i
   %.pre.i = load i32, ptr %3, align 4
   %103 = call i32 @fd_release_lock(i32 noundef %42) #11
-  %.not40.i = icmp eq i32 %.pre.i, %29
+  %.not40.i = icmp eq i32 %29, %.pre.i
   br i1 %.not40.i, label %110, label %104
 
 104:                                              ; preds = %.outer._crit_edge.i

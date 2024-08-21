@@ -5481,7 +5481,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
 define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17hb3a32769dadbaad4E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = alloca { i64, [2 x i64] }, align 8
   %.not = xor i1 %4, true
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %.preheader, label %13
 
 .preheader:                                       ; preds = %5
@@ -5541,7 +5541,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_e
   %7 = alloca i8, align 1
   %8 = alloca { i8, [15 x i8] }, align 8
   %.not = xor i1 %4, true
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   %9 = getelementptr inbounds i8, ptr %1, i64 80
   br i1 %brmerge, label %.preheader, label %34
 

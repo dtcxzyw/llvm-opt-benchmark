@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -19, 1) i32 @focaltech_detect(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @focaltech_pnp_ids) #8
-  %4 = and i1 %3, %1
+  %4 = and i1 %1, %3
   %5 = select i1 %3, i32 0, i32 -19
   br i1 %4, label %6, label %9
 

@@ -2114,7 +2114,7 @@ bio_wait.exit.thread6:                            ; preds = %if.end6.i
   br label %if.then
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %cmp11.i = icmp eq i64 %call7.i, %max_time
+  %cmp11.i = icmp eq i64 %max_time, %call7.i
   br i1 %cmp11.i, label %if.then12.i, label %if.else.i
 
 if.then12.i:                                      ; preds = %if.end10.i
@@ -2340,7 +2340,7 @@ bio_wait.exit.thread:                             ; preds = %if.end6.i
   br label %if.end40
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %cmp11.i = icmp eq i64 %call7.i, %cond
+  %cmp11.i = icmp eq i64 %cond, %call7.i
   br i1 %cmp11.i, label %if.end22.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end10.i

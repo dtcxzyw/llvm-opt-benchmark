@@ -207,7 +207,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp2.not = icmp sgt i32 %conv, %partNumber
+  %cmp2.not = icmp slt i32 %partNumber, %conv
   br i1 %cmp2.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %lor.lhs.false
@@ -306,7 +306,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4l
 invoke.cont20:                                    ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %11 = load i32, ptr %_M_storage.i.i.i3.i.i, align 4
-  %cmp.i4.i.i = icmp sgt i32 %11, %partNumber
+  %cmp.i4.i.i = icmp slt i32 %partNumber, %11
   br i1 %cmp.i4.i.i, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %invoke.cont20
@@ -454,7 +454,7 @@ invoke.cont3.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %4, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %5
+  %cmp2.i.i.i.i = icmp eq ptr %5, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -543,7 +543,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -601,7 +601,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp2.not = icmp sgt i32 %conv, %partNumber
+  %cmp2.not = icmp slt i32 %partNumber, %conv
   br i1 %cmp2.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %lor.lhs.false
@@ -700,7 +700,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4l
 invoke.cont20:                                    ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %11 = load i32, ptr %_M_storage.i.i.i3.i.i, align 4
-  %cmp.i4.i.i = icmp sgt i32 %11, %partNumber
+  %cmp.i4.i.i = icmp slt i32 %partNumber, %11
   br i1 %cmp.i4.i.i, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %invoke.cont20
@@ -786,7 +786,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp2.not = icmp sgt i32 %conv, %partNumber
+  %cmp2.not = icmp slt i32 %partNumber, %conv
   br i1 %cmp2.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %lor.lhs.false
@@ -885,7 +885,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4l
 invoke.cont20:                                    ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %11 = load i32, ptr %_M_storage.i.i.i3.i.i, align 4
-  %cmp.i4.i.i = icmp sgt i32 %11, %partNumber
+  %cmp.i4.i.i = icmp slt i32 %partNumber, %11
   br i1 %cmp.i4.i.i, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %invoke.cont20
@@ -971,7 +971,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp2.not = icmp sgt i32 %conv, %partNumber
+  %cmp2.not = icmp slt i32 %partNumber, %conv
   br i1 %cmp2.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %lor.lhs.false
@@ -1070,7 +1070,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4l
 invoke.cont20:                                    ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %11 = load i32, ptr %_M_storage.i.i.i3.i.i, align 4
-  %cmp.i4.i.i = icmp sgt i32 %11, %partNumber
+  %cmp.i4.i.i = icmp slt i32 %partNumber, %11
   br i1 %cmp.i4.i.i, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %invoke.cont20
@@ -3507,7 +3507,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp2.not = icmp sgt i32 %conv, %n
+  %cmp2.not = icmp slt i32 %n, %conv
   br i1 %cmp2.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %lor.lhs.false
@@ -3945,7 +3945,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #25
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %call5.i.i.i
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -4078,7 +4078,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = call ptr @__cxa_begin_catch(ptr %1) #25
-  %cmp.not3.i.i = icmp eq ptr %__cur.09, %__first
+  %cmp.not3.i.i = icmp eq ptr %__first, %__cur.09
   br i1 %cmp.not3.i.i, label %invoke.cont2, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lpad, %for.body.i.i
@@ -4142,7 +4142,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN7Imf_3_217GenericOutputFileEESt10_Select1stIS5_ESt4lessIiESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -4420,7 +4420,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12
@@ -4535,7 +4535,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 entry:
   %cmp.not = icmp ne ptr %__x, null
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2 = icmp eq ptr %add.ptr.i, %__p
+  %cmp2 = icmp eq ptr %__p, %add.ptr.i
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %lor.end, label %lor.rhs
 

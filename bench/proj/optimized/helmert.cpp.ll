@@ -708,13 +708,13 @@ define internal { double, double } @_ZL15helmert_forward5PJ_LPP8PJconsts(double 
   %13 = tail call double @sin(double noundef %12) #9
   %14 = load double, ptr %9, align 8
   %15 = fmul double %13, %14
-  %16 = fmul double %15, %1
+  %16 = fmul double %1, %15
   %17 = tail call double @llvm.fmuladd.f64(double %11, double %0, double %16)
   %18 = getelementptr inbounds i8, ptr %5, i64 24
   %19 = load double, ptr %18, align 8
   %20 = fadd double %19, %17
   %21 = fneg double %15
-  %22 = fmul double %11, %1
+  %22 = fmul double %1, %11
   %23 = tail call double @llvm.fmuladd.f64(double %21, double %0, double %22)
   %24 = getelementptr inbounds i8, ptr %5, i64 32
   %25 = load double, ptr %24, align 8
@@ -744,8 +744,8 @@ define internal { double, double } @_ZL15helmert_reverse5PJ_XYP8PJconsts(double 
   %19 = getelementptr inbounds i8, ptr %5, i64 32
   %20 = load double, ptr %19, align 8
   %21 = fsub double %1, %20
-  %22 = fneg double %21
-  %23 = fmul double %15, %22
+  %22 = fneg double %15
+  %23 = fmul double %21, %22
   %24 = tail call double @llvm.fmuladd.f64(double %18, double %11, double %23)
   %25 = fmul double %11, %21
   %26 = tail call double @llvm.fmuladd.f64(double %18, double %15, double %25)
@@ -974,8 +974,8 @@ define internal void @_ZL18helmert_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwin
   %21 = getelementptr inbounds i8, ptr %5, i64 32
   %22 = load double, ptr %21, align 8
   %23 = fsub double %.sroa.9.0.copyload, %22
-  %24 = fneg double %23
-  %25 = fmul double %17, %24
+  %24 = fneg double %17
+  %25 = fmul double %23, %24
   %26 = tail call double @llvm.fmuladd.f64(double %20, double %13, double %25)
   %27 = fmul double %13, %23
   %28 = tail call double @llvm.fmuladd.f64(double %20, double %17, double %27)
@@ -1259,8 +1259,8 @@ define internal fastcc void @_ZL16build_rot_matrixP8PJconsts(ptr noundef %0) unn
   %24 = getelementptr inbounds i8, ptr %3, i64 224
   store double %23, ptr %24, align 8
   %25 = fmul double %13, %16
-  %26 = fneg double %25
-  %27 = fmul double %17, %26
+  %26 = fneg double %17
+  %27 = fmul double %25, %26
   %28 = tail call double @llvm.fmuladd.f64(double %14, double %18, double %27)
   %29 = getelementptr inbounds i8, ptr %3, i64 232
   store double %28, ptr %29, align 8
@@ -1268,8 +1268,8 @@ define internal fastcc void @_ZL16build_rot_matrixP8PJconsts(ptr noundef %0) unn
   %31 = fmul double %18, %30
   %32 = getelementptr inbounds i8, ptr %3, i64 240
   store double %31, ptr %32, align 8
-  %33 = fneg double %21
-  %34 = fmul double %18, %33
+  %33 = fneg double %18
+  %34 = fmul double %21, %33
   %35 = tail call double @llvm.fmuladd.f64(double %13, double %17, double %34)
   %36 = fmul double %25, %18
   %37 = tail call double @llvm.fmuladd.f64(double %14, double %17, double %36)

@@ -441,7 +441,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -8175,7 +8175,7 @@ define linkonce_odr void @_ZN5QListI18KNOWN_EXTERNAL_TFSE7deallocEPN9QListData4D
   %7 = getelementptr inbounds ptr, ptr %3, i64 %6
   %8 = getelementptr inbounds i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
-  %.not5.i = icmp eq i32 %9, %5
+  %.not5.i = icmp eq i32 %5, %9
   br i1 %.not5.i, label %_ZN5QListI18KNOWN_EXTERNAL_TFSE13node_destructEPNS1_4NodeES3_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2
@@ -8240,7 +8240,7 @@ _ZN18KNOWN_EXTERNAL_TFSD2Ev.exit.i:               ; preds = %_ZN9QtPrivate8RefCo
   br label %25
 
 25:                                               ; preds = %_ZN18KNOWN_EXTERNAL_TFSD2Ev.exit.i, %.lr.ph.i
-  %.not.i = icmp eq ptr %12, %7
+  %.not.i = icmp eq ptr %7, %12
   br i1 %.not.i, label %_ZN5QListI18KNOWN_EXTERNAL_TFSE13node_destructEPNS1_4NodeES3_.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZN5QListI18KNOWN_EXTERNAL_TFSE13node_destructEPNS1_4NodeES3_.exit: ; preds = %25, %2
@@ -8250,7 +8250,7 @@ _ZN5QListI18KNOWN_EXTERNAL_TFSE13node_destructEPNS1_4NodeES3_.exit: ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5QListI18KNOWN_EXTERNAL_TFSE13node_destructEPNS1_4NodeES3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.not5 = icmp eq ptr %2, %1
+  %.not5 = icmp eq ptr %1, %2
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %17
@@ -8310,7 +8310,7 @@ _ZN18KNOWN_EXTERNAL_TFSD2Ev.exit:                 ; preds = %_ZN7QStringD2Ev.exi
   br label %17
 
 17:                                               ; preds = %_ZN18KNOWN_EXTERNAL_TFSD2Ev.exit, %.lr.ph
-  %.not = icmp eq ptr %4, %1
+  %.not = icmp eq ptr %1, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %17, %3
@@ -10401,7 +10401,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_
 _ZN3vcg9HistogramIfE8BinIndexEf.exit.i:           ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i.i, %32
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i.i ], [ %38, %32 ]
   %50 = load float, ptr %18, align 8
-  %51 = fcmp ogt float %50, %34
+  %51 = fcmp olt float %34, %50
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i
@@ -10410,7 +10410,7 @@ _ZN3vcg9HistogramIfE8BinIndexEf.exit.i:           ; preds = %_ZSt11lower_boundIN
 
 53:                                               ; preds = %52, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i
   %54 = load float, ptr %19, align 4
-  %55 = fcmp olt float %54, %34
+  %55 = fcmp ogt float %34, %54
   br i1 %55, label %56, label %_ZN3vcg9HistogramIfE3AddEff.exit
 
 56:                                               ; preds = %53
@@ -11595,7 +11595,7 @@ define void @_ZN19QualityMapperDialog15drawChartBasicsER14QGraphicsSceneP10CHART
 .invoke22:                                        ; preds = %35
   %36 = getelementptr inbounds i8, ptr %0, i64 696
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %2
+  %38 = icmp eq ptr %2, %37
   %. = select i1 %38, i64 768, i64 664
   %39 = getelementptr inbounds i8, ptr %0, i64 %.
   invoke void @_ZN5QListIP13QGraphicsItemE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -11645,7 +11645,7 @@ _ZN5QListIP13QGraphicsItemElsERKS1_.exit:         ; preds = %.invoke22
 
 .invoke:                                          ; preds = %60
   %61 = load ptr, ptr %36, align 8
-  %62 = icmp eq ptr %61, %2
+  %62 = icmp eq ptr %2, %61
   %.24 = select i1 %62, i64 768, i64 664
   %63 = getelementptr inbounds i8, ptr %0, i64 %.24
   invoke void @_ZN5QListIP13QGraphicsItemE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -12335,7 +12335,7 @@ _ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff.exit61: ; 
   %200 = getelementptr inbounds i8, ptr %0, i64 656
   %201 = load i8, ptr %200, align 8
   %202 = trunc i8 %201 to i1
-  %brmerge.demorgan = and i1 %202, %2
+  %brmerge.demorgan = and i1 %2, %202
   %or.cond = select i1 %1, i1 %brmerge.demorgan, i1 false
   br i1 %or.cond, label %203, label %207
 
@@ -13142,7 +13142,7 @@ define void @_ZN19QualityMapperDialog17drawHistogramBarsER14QGraphicsSceneP10CHA
   %35 = fmul double %34, 5.000000e-01
   %36 = getelementptr inbounds i8, ptr %2, i64 20
   %37 = getelementptr inbounds i8, ptr %0, i64 704
-  %38 = icmp eq ptr %37, %1
+  %38 = icmp eq ptr %1, %37
   %39 = fpext float %24 to double
   %40 = getelementptr inbounds i8, ptr %7, i64 8
   %41 = getelementptr inbounds i8, ptr %7, i64 16
@@ -17647,7 +17647,7 @@ define void @_ZN19QualityMapperDialog22on_resetButton_clickedEv(ptr noundef nonn
 define void @_ZN19QualityMapperDialog30on_EqHandle_crossing_histogramEP8EqHandleb(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef readnone %1, i1 noundef zeroext %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 624
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3

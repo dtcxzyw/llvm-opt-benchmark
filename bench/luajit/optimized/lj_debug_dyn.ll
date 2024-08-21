@@ -64,9 +64,9 @@ for.body.preheader:                               ; preds = %entry
   %3 = load i64, ptr %add.ptr231, align 8
   %and32 = and i64 %3, 140737488355327
   %4 = inttoptr i64 %and32 to ptr
-  %cmp333 = icmp eq ptr %4, %L
+  %cmp333 = icmp eq ptr %L, %4
   %inc34 = zext i1 %cmp333 to i32
-  %spec.select35 = add nsw i32 %inc34, %level
+  %spec.select35 = add nsw i32 %level, %inc34
   %cmp437 = icmp eq i32 %spec.select35, 0
   br i1 %cmp437, label %if.then5, label %if.end6
 
@@ -75,7 +75,7 @@ for.body:                                         ; preds = %if.end22
   %5 = load i64, ptr %add.ptr2, align 8
   %and = and i64 %5, 140737488355327
   %6 = inttoptr i64 %and to ptr
-  %cmp3 = icmp eq ptr %6, %L
+  %cmp3 = icmp eq ptr %L, %6
   %inc = zext i1 %cmp3 to i32
   %spec.select = add nsw i32 %level.addr.2, %inc
   %cmp4 = icmp eq i32 %spec.select, 0
@@ -142,7 +142,7 @@ entry:
   %1 = inttoptr i64 %0 to ptr
   %sizebc = getelementptr inbounds i8, ptr %pt, i64 12
   %2 = load i32, ptr %sizebc, align 4
-  %cmp = icmp uge i32 %2, %pc
+  %cmp = icmp ule i32 %pc, %2
   %tobool = icmp ne i64 %0, 0
   %or.cond = select i1 %cmp, i1 %tobool, i1 false
   br i1 %or.cond, label %if.then, label %return
@@ -150,7 +150,7 @@ entry:
 if.then:                                          ; preds = %entry
   %firstline = getelementptr inbounds i8, ptr %pt, i64 72
   %3 = load i32, ptr %firstline, align 8
-  %cmp3 = icmp eq i32 %2, %pc
+  %cmp3 = icmp eq i32 %pc, %2
   br i1 %cmp3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
@@ -259,7 +259,7 @@ if.then5:                                         ; preds = %if.then
   %sizeuv = getelementptr inbounds i8, ptr %4, i64 -44
   %5 = load i8, ptr %sizeuv, align 4
   %conv6 = zext i8 %5 to i32
-  %cmp7 = icmp ugt i32 %conv6, %idx
+  %cmp7 = icmp ult i32 %idx, %conv6
   br i1 %cmp7, label %if.then9, label %return
 
 if.then9:                                         ; preds = %if.then5
@@ -304,7 +304,7 @@ if.else:                                          ; preds = %if.then
   %nupvalues = getelementptr inbounds i8, ptr %1, i64 11
   %13 = load i8, ptr %nupvalues, align 1
   %conv12 = zext i8 %13 to i32
-  %cmp13 = icmp ugt i32 %conv12, %idx
+  %cmp13 = icmp ult i32 %idx, %conv12
   br i1 %cmp13, label %if.then15, label %return
 
 if.then15:                                        ; preds = %if.else
@@ -657,7 +657,7 @@ entry:
   %0 = load i64, ptr %stack, align 8
   %1 = inttoptr i64 %0 to ptr
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 8
-  %cmp.not = icmp ult ptr %add.ptr, %frame
+  %cmp.not = icmp ugt ptr %frame, %add.ptr
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1069,7 +1069,7 @@ if.then.i:                                        ; preds = %if.then2
   %6 = inttoptr i64 %5 to ptr
   %sizebc.i.i = getelementptr inbounds i8, ptr %4, i64 -92
   %7 = load i32, ptr %sizebc.i.i, align 4
-  %cmp.i.i = icmp uge i32 %7, %call.i
+  %cmp.i.i = icmp ule i32 %call.i, %7
   %tobool.i.i = icmp ne i64 %5, 0
   %or.cond.i.i = select i1 %cmp.i.i, i1 %tobool.i.i, i1 false
   %firstline.i.i = getelementptr inbounds i8, ptr %4, i64 -32
@@ -1077,7 +1077,7 @@ if.then.i:                                        ; preds = %if.then2
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.then5
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %cmp3.i.i = icmp eq i32 %7, %call.i
+  %cmp3.i.i = icmp eq i32 %call.i, %7
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
@@ -1161,7 +1161,7 @@ entry:
   %4 = inttoptr i64 %3 to ptr
   %sizebc.i = getelementptr inbounds i8, ptr %pt, i64 12
   %5 = load i32, ptr %sizebc.i, align 4
-  %cmp.i = icmp uge i32 %5, %pc
+  %cmp.i = icmp ule i32 %pc, %5
   %tobool.i = icmp ne i64 %3, 0
   %or.cond.i = select i1 %cmp.i, i1 %tobool.i, i1 false
   %firstline.i = getelementptr inbounds i8, ptr %pt, i64 72
@@ -1169,7 +1169,7 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %lj_debug_line.exit
 
 if.then.i:                                        ; preds = %entry
-  %cmp3.i = icmp eq i32 %5, %pc
+  %cmp3.i = icmp eq i32 %pc, %5
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -1551,7 +1551,7 @@ if.end7.i:                                        ; preds = %do.body.i, %if.then
 if.end12.i:                                       ; preds = %if.end7.i
   %call13.i = call i32 @lj_buf_ruleb128(ptr noundef nonnull %p.i) #11
   %add14.i = add i32 %call13.i, %add.i
-  %cmp15.i = icmp ugt i32 %add14.i, %call
+  %cmp15.i = icmp ult i32 %call, %add14.i
   br i1 %cmp15.i, label %land.lhs.true.i, label %if.end33.i
 
 land.lhs.true.i:                                  ; preds = %if.end12.i
@@ -1811,7 +1811,7 @@ if.then.i:                                        ; preds = %cond.true
   %22 = inttoptr i64 %21 to ptr
   %sizebc.i.i = getelementptr inbounds i8, ptr %20, i64 -92
   %23 = load i32, ptr %sizebc.i.i, align 4
-  %cmp.i.i = icmp uge i32 %23, %call.i
+  %cmp.i.i = icmp ule i32 %call.i, %23
   %tobool.i.i = icmp ne i64 %21, 0
   %or.cond.i.i = select i1 %cmp.i.i, i1 %tobool.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then.i.i, label %cond.end
@@ -1819,7 +1819,7 @@ if.then.i:                                        ; preds = %cond.true
 if.then.i.i:                                      ; preds = %if.then.i
   %firstline.i.i = getelementptr inbounds i8, ptr %20, i64 -32
   %24 = load i32, ptr %firstline.i.i, align 8
-  %cmp3.i.i = icmp eq i32 %23, %call.i
+  %cmp3.i.i = icmp eq i32 %call.i, %23
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
@@ -2135,9 +2135,9 @@ for.body.i.preheader:                             ; preds = %entry
   %3 = load i64, ptr %add.ptr2.i12, align 8
   %and.i13 = and i64 %3, 140737488355327
   %4 = inttoptr i64 %and.i13 to ptr
-  %cmp3.i14 = icmp eq ptr %4, %L
+  %cmp3.i14 = icmp eq ptr %L, %4
   %inc.i15 = zext i1 %cmp3.i14 to i32
-  %spec.select.i16 = add nsw i32 %inc.i15, %level
+  %spec.select.i16 = add nsw i32 %level, %inc.i15
   %cmp4.i18 = icmp eq i32 %spec.select.i16, 0
   br i1 %cmp4.i18, label %if.then, label %if.end6.i
 
@@ -2146,7 +2146,7 @@ for.body.i:                                       ; preds = %if.end22.i
   %5 = load i64, ptr %add.ptr2.i, align 8
   %and.i = and i64 %5, 140737488355327
   %6 = inttoptr i64 %and.i to ptr
-  %cmp3.i = icmp eq ptr %6, %L
+  %cmp3.i = icmp eq ptr %L, %6
   %inc.i = zext i1 %cmp3.i to i32
   %spec.select.i = add nsw i32 %level.addr.2.i, %inc.i
   %cmp4.i = icmp eq i32 %spec.select.i, 0
@@ -2254,7 +2254,7 @@ for.body.i.preheader:                             ; preds = %while.body
   %4 = load i64, ptr %add.ptr2.i308, align 8
   %and.i309 = and i64 %4, 140737488355327
   %5 = inttoptr i64 %and.i309 to ptr
-  %cmp3.i310 = icmp eq ptr %5, %L
+  %cmp3.i310 = icmp eq ptr %L, %5
   %inc.i311 = zext i1 %cmp3.i310 to i32
   %spec.select.i312 = add nsw i32 %level.1324, %inc.i311
   %cmp4.i314 = icmp eq i32 %spec.select.i312, 0
@@ -2265,7 +2265,7 @@ for.body.i:                                       ; preds = %if.end22.i
   %6 = load i64, ptr %add.ptr2.i, align 8
   %and.i = and i64 %6, 140737488355327
   %7 = inttoptr i64 %and.i to ptr
-  %cmp3.i = icmp eq ptr %7, %L
+  %cmp3.i = icmp eq ptr %L, %7
   %inc.i = zext i1 %cmp3.i to i32
   %spec.select.i = add nsw i32 %level.addr.2.i, %inc.i
   %cmp4.i = icmp eq i32 %spec.select.i, 0
@@ -2344,7 +2344,7 @@ sw.bb8:                                           ; preds = %while.cond5, %while
   %13 = load i64, ptr %stack.i, align 8
   %14 = inttoptr i64 %13 to ptr
   %add.ptr.i80 = getelementptr inbounds i8, ptr %14, i64 8
-  %cmp.not.i = icmp ult ptr %add.ptr.i80, %frame.023.i.lcssa
+  %cmp.not.i = icmp ugt ptr %frame.023.i.lcssa, %add.ptr.i80
   br i1 %cmp.not.i, label %if.end.i, label %sw.bb29
 
 if.end.i:                                         ; preds = %sw.bb8
@@ -2976,7 +2976,7 @@ if.then.i149:                                     ; preds = %debug_framepc.exit2
   %lineinfo1.i.i = getelementptr inbounds i8, ptr %116, i64 -24
   %120 = load i64, ptr %lineinfo1.i.i, align 8
   %121 = inttoptr i64 %120 to ptr
-  %cmp.i.i150 = icmp uge i32 %117, %retval.0.i176
+  %cmp.i.i150 = icmp ule i32 %retval.0.i176, %117
   %tobool.i.i = icmp ne i64 %120, 0
   %or.cond.i.i = select i1 %cmp.i.i150, i1 %tobool.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then.i.i152, label %cond.end48
@@ -2984,7 +2984,7 @@ if.then.i149:                                     ; preds = %debug_framepc.exit2
 if.then.i.i152:                                   ; preds = %if.then.i149
   %firstline.i.i = getelementptr inbounds i8, ptr %116, i64 -32
   %122 = load i32, ptr %firstline.i.i, align 8
-  %cmp3.i.i = icmp eq i32 %117, %retval.0.i176
+  %cmp3.i.i = icmp eq i32 %retval.0.i176, %117
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i152
@@ -3250,7 +3250,7 @@ for.body.i.preheader.i:                           ; preds = %for.body.i.preheade
   %9 = load i64, ptr %add.ptr2.i12.i, align 8
   %and.i13.i = and i64 %9, 140737488355327
   %10 = inttoptr i64 %and.i13.i to ptr
-  %cmp3.i14.i = icmp eq ptr %10, %L1
+  %cmp3.i14.i = icmp eq ptr %L1, %10
   %inc.i15.i = zext i1 %cmp3.i14.i to i32
   %spec.select.i16.i = add nsw i32 %level.addr.0194, %inc.i15.i
   %cmp4.i18.i = icmp eq i32 %spec.select.i16.i, 0
@@ -3261,7 +3261,7 @@ for.body.i.i:                                     ; preds = %if.end22.i.i
   %11 = load i64, ptr %add.ptr2.i.i, align 8
   %and.i.i = and i64 %11, 140737488355327
   %12 = inttoptr i64 %and.i.i to ptr
-  %cmp3.i.i = icmp eq ptr %12, %L1
+  %cmp3.i.i = icmp eq ptr %L1, %12
   %inc.i.i = zext i1 %cmp3.i.i to i32
   %spec.select.i.i = add nsw i32 %level.addr.2.i.i, %inc.i.i
   %cmp4.i.i = icmp eq i32 %spec.select.i.i, 0
@@ -3326,7 +3326,7 @@ if.end6.i.i51.preheader:                          ; preds = %while.body
   %18 = load i64, ptr %add.ptr2.i12.i.le, align 8
   %and.i13.i46 = and i64 %18, 140737488355327
   %19 = inttoptr i64 %and.i13.i46 to ptr
-  %cmp3.i14.i47 = icmp eq ptr %19, %L1
+  %cmp3.i14.i47 = icmp eq ptr %L1, %19
   %inc.i15.i48 = zext i1 %cmp3.i14.i47 to i32
   %spec.select.i16.i49 = add nuw nsw i32 %add, %inc.i15.i48
   br label %if.end6.i.i51
@@ -3336,7 +3336,7 @@ for.body.i.i68:                                   ; preds = %if.end22.i.i64
   %20 = load i64, ptr %add.ptr2.i.i69, align 8
   %and.i.i70 = and i64 %20, 140737488355327
   %21 = inttoptr i64 %and.i.i70 to ptr
-  %cmp3.i.i71 = icmp eq ptr %21, %L1
+  %cmp3.i.i71 = icmp eq ptr %L1, %21
   %inc.i.i72 = zext i1 %cmp3.i.i71 to i32
   %spec.select.i.i73 = add nsw i32 %level.addr.2.i.i65, %inc.i.i72
   %cmp4.i.i74 = icmp eq i32 %spec.select.i.i73, 0
@@ -3410,7 +3410,7 @@ for.body.i.preheader.i106:                        ; preds = %if.else
   %30 = load i64, ptr %add.ptr2.i12.i107, align 8
   %and.i13.i108 = and i64 %30, 140737488355327
   %31 = inttoptr i64 %and.i13.i108 to ptr
-  %cmp3.i14.i109 = icmp eq ptr %31, %L1
+  %cmp3.i14.i109 = icmp eq ptr %L1, %31
   %spec.select.i16.i111 = select i1 %cmp3.i14.i109, i32 -9, i32 -10
   br label %if.end6.i.i113
 
@@ -3419,7 +3419,7 @@ for.body.i.i130:                                  ; preds = %if.end22.i.i126
   %32 = load i64, ptr %add.ptr2.i.i131, align 8
   %and.i.i132 = and i64 %32, 140737488355327
   %33 = inttoptr i64 %and.i.i132 to ptr
-  %cmp3.i.i133 = icmp eq ptr %33, %L1
+  %cmp3.i.i133 = icmp eq ptr %L1, %33
   %inc.i.i134 = zext i1 %cmp3.i.i133 to i32
   %spec.select.i.i135 = add nsw i32 %level.addr.2.i.i127, %inc.i.i134
   %cmp4.i.i136 = icmp eq i32 %spec.select.i.i135, 0

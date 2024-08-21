@@ -3006,7 +3006,7 @@ define internal noundef i32 @uncore_event_cpu_offline(i32 noundef %0) #0 align 1
   %21 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %18) #20, !srcloc !9
   %22 = trunc i64 %21 to i32
   %23 = icmp ult i32 %22, 64
-  %24 = icmp eq i32 %22, %0
+  %24 = icmp eq i32 %0, %22
   %25 = and i1 %23, %24
   %26 = add i64 %21, 1
   br i1 %25, label %11, label %.thread, !llvm.loop !65

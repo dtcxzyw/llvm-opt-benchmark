@@ -869,7 +869,7 @@ define hidden void @"_ZN99_$LT$dashmap..iter..Iter$LT$K$C$V$C$S$C$M$GT$$u20$as$u
 45:                                               ; preds = %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b559ad038445f36E.exit.thread"
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %46 = load ptr, ptr %32, align 8, !alias.scope !47, !nonnull !4, !align !10, !noundef !4
-  %47 = icmp ugt i64 %.val21, %31
+  %47 = icmp ult i64 %31, %.val21
   call void @llvm.assume(i1 %47)
   %48 = getelementptr inbounds { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %46, i64 %31
   %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h6f1e7a0917245b19E.llvm.7530649560028716548(ptr noundef nonnull %48, i8 noundef 0), !noalias !47

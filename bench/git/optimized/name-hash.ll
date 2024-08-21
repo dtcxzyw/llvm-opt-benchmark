@@ -1154,7 +1154,7 @@ handle_range_dir.exit:                            ; preds = %if.end44.i, %strbuf
   %conv49.i = ashr exact i64 %sext.i, 32
   %35 = load i64, ptr %prefix, align 8
   %spec.select.i68 = call i64 @llvm.usub.sat.i64(i64 %35, i64 1)
-  %cmp.i69 = icmp ult i64 %spec.select.i68, %conv49.i
+  %cmp.i69 = icmp ugt i64 %conv49.i, %spec.select.i68
   br i1 %cmp.i69, label %if.then.i76, label %if.end.i70
 
 if.then.i76:                                      ; preds = %handle_range_dir.exit
@@ -1180,7 +1180,7 @@ if.then17:                                        ; preds = %strbuf_setlen.exit7
   %add = add nsw i32 %call48.i, %k.0114
   %37 = load i64, ptr %prefix, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %37, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %conv18
+  %cmp.i = icmp ugt i64 %conv18, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then17
@@ -1235,7 +1235,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %add21 = add nsw i32 %call20, %k.0114
   %45 = load i64, ptr %prefix, align 8
   %spec.select.i58 = call i64 @llvm.usub.sat.i64(i64 %45, i64 1)
-  %cmp.i59 = icmp ult i64 %spec.select.i58, %conv18
+  %cmp.i59 = icmp ugt i64 %conv18, %spec.select.i58
   br i1 %cmp.i59, label %if.then.i66, label %if.end.i60
 
 if.then.i66:                                      ; preds = %strbuf_addch.exit

@@ -1099,7 +1099,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_archive(ptr nocapture noundef %0, p
   %.not = icmp ne ptr %12, null
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 448), align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp eq i64 %14, %2
+  %15 = icmp eq i64 %2, %14
   %or.cond363 = select i1 %.not, i1 %15, i1 false
   br i1 %or.cond363, label %16, label %60
 
@@ -1128,7 +1128,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_archive(ptr nocapture noundef %0, p
 
 28:                                               ; preds = %21
   %29 = zext i32 %27 to i64
-  %.not315 = icmp eq i64 %29, %4
+  %.not315 = icmp eq i64 %4, %29
   br i1 %.not315, label %30, label %33
 
 30:                                               ; preds = %28
@@ -1202,7 +1202,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_archive(ptr nocapture noundef %0, p
 63:                                               ; preds = %60
   %64 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 464), align 8
   %65 = zext i32 %64 to i64
-  %66 = icmp eq i64 %65, %4
+  %66 = icmp eq i64 %4, %65
   %or.cond366 = select i1 %.not, i1 %66, i1 false
   br i1 %or.cond366, label %67, label %69
 
@@ -1231,7 +1231,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_archive(ptr nocapture noundef %0, p
   %74 = getelementptr inbounds i8, ptr %.0, i64 8
   %75 = load i32, ptr %74, align 8
   %76 = zext i32 %75 to i64
-  %.not359 = icmp eq i64 %76, %2
+  %.not359 = icmp eq i64 %2, %76
   br i1 %.not359, label %77, label %80
 
 77:                                               ; preds = %73
@@ -1331,7 +1331,7 @@ phar_free_alias.exit:                             ; preds = %91
 
 119:                                              ; preds = %113
   %120 = zext i32 %118 to i64
-  %.not351 = icmp eq i64 %120, %4
+  %.not351 = icmp eq i64 %4, %120
   br i1 %.not351, label %121, label %124
 
 121:                                              ; preds = %119
@@ -1423,7 +1423,7 @@ phar_free_alias.exit:                             ; preds = %91
   %164 = getelementptr inbounds i8, ptr %158, i64 40
   %165 = load i32, ptr %164, align 8
   %166 = zext i32 %165 to i64
-  %.not347 = icmp eq i64 %166, %4
+  %.not347 = icmp eq i64 %4, %166
   br i1 %.not347, label %167, label %170
 
 167:                                              ; preds = %163
@@ -4623,7 +4623,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_call_openssl_signverify(i32 no
   store i32 4, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %59, i64 16
   %64 = load i64, ptr %63, align 8
-  %.not359 = icmp eq i64 %64, %2
+  %.not359 = icmp eq i64 %2, %64
   br i1 %.not359, label %103, label %65
 
 65:                                               ; preds = %58

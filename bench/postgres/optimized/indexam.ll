@@ -1113,7 +1113,7 @@ define dso_local ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %1, 
   %36 = getelementptr inbounds i8, ptr %0, i64 336
   %37 = load ptr, ptr %36, align 8
   tail call void @fmgr_info_cxt(i32 noundef %28, ptr noundef %20, ptr noundef %37) #5
-  %.not27 = icmp eq i16 %10, %2
+  %.not27 = icmp eq i16 %2, %10
   br i1 %.not27, label %45, label %38
 
 38:                                               ; preds = %35

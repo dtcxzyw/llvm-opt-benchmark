@@ -1602,7 +1602,7 @@ if.end:                                           ; preds = %if.then, %entry
   %m_col.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i64, ptr %m_col.i, align 8
   %cmp.not = icmp ne i64 %1, 0
-  %brmerge.not = and i1 %cmp.not, %requireSpace
+  %brmerge.not = and i1 %requireSpace, %cmp.not
   br i1 %brmerge.not, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.end

@@ -1314,7 +1314,7 @@ invoke.cont12:                                    ; preds = %if.end
 invoke.cont14:                                    ; preds = %invoke.cont12
   %arrayidx.i.i = getelementptr inbounds i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp16 = icmp ugt i32 %10, %i
+  %cmp16 = icmp ult i32 %i, %10
   br i1 %cmp16, label %invoke.cont18, label %if.else
 
 invoke.cont18:                                    ; preds = %invoke.cont14
@@ -1494,7 +1494,7 @@ if.end:                                           ; preds = %entry
 _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %if.end
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp3.not = icmp ugt i32 %2, %i
+  %cmp3.not = icmp ult i32 %i, %2
   br i1 %cmp3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end, %_ZNK10model_core17get_num_functionsEv.exit
@@ -1581,7 +1581,7 @@ if.end.i:                                         ; preds = %if.end
 _ZNK10model_core17get_num_functionsEv.exit.i:     ; preds = %if.end.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp3.not.i = icmp ugt i32 %10, %i
+  %cmp3.not.i = icmp ult i32 %i, %10
   br i1 %cmp3.not.i, label %if.end6.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZNK10model_core17get_num_functionsEv.exit.i, %if.end.i
@@ -2092,7 +2092,7 @@ invoke.cont7:                                     ; preds = %entry, %if.then
           to label %invoke.cont9 unwind label %lpad1
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %cmp.not = icmp ugt i32 %call10, %i
+  %cmp.not = icmp ult i32 %i, %call10
   br i1 %cmp.not, label %invoke.cont21, label %if.then11
 
 if.then11:                                        ; preds = %invoke.cont9
@@ -3440,7 +3440,7 @@ if.end11:                                         ; preds = %if.end
 invoke.cont14:                                    ; preds = %if.end11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp16.not = icmp ugt i32 %10, %i
+  %cmp16.not = icmp ult i32 %i, %10
   br i1 %cmp16.not, label %if.end26, label %if.then17
 
 if.then17:                                        ; preds = %if.end11, %invoke.cont14
@@ -4331,7 +4331,7 @@ if.end:                                           ; preds = %if.then
   %8 = load ptr, ptr %m_func_interp, align 8
   %m_arity.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i32, ptr %m_arity.i, align 8
-  %cmp.not = icmp ugt i32 %9, %i
+  %cmp.not = icmp ult i32 %i, %9
   br i1 %cmp.not, label %if.then31, label %if.then11
 
 if.end.thread:                                    ; preds = %entry
@@ -4341,7 +4341,7 @@ if.end.thread:                                    ; preds = %entry
   %10 = load ptr, ptr %m_func_interp24, align 8
   %m_arity.i25 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i32, ptr %m_arity.i25, align 8
-  %cmp.not26 = icmp ugt i32 %11, %i
+  %cmp.not26 = icmp ult i32 %i, %11
   br i1 %cmp.not26, label %if.end20.thread, label %if.then11
 
 if.end20.thread:                                  ; preds = %if.end.thread

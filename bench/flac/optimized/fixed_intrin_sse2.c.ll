@@ -208,7 +208,7 @@ for.body193:                                      ; preds = %for.body193.prehead
   %add230 = add i32 %cond229, %total_error_4.1264
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %52 = trunc nuw i64 %indvars.iv.next289 to i32
-  %cmp192 = icmp slt i32 %52, %data_len
+  %cmp192 = icmp sgt i32 %data_len, %52
   br i1 %cmp192, label %for.body193, label %if.end, !llvm.loop !7
 
 if.end:                                           ; preds = %for.body193, %for.end117

@@ -94,7 +94,7 @@ define i32 @cs_scatter(ptr noundef readonly %0, i32 noundef %1, double noundef %
   store i32 %51, ptr %59, align 4
   %60 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
   %61 = load double, ptr %60, align 8
-  %62 = fmul double %61, %2
+  %62 = fmul double %2, %61
   %63 = getelementptr inbounds double, ptr %4, i64 %52
   store double %62, ptr %63, align 8
   br label %70

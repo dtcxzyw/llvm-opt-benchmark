@@ -75,7 +75,7 @@ define hidden noundef i64 @_ZNK11G1FreeIdSet9make_headEjm(ptr nocapture noundef 
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = xor i64 %6, -1
-  %8 = and i64 %7, %2
+  %8 = and i64 %2, %7
   %9 = add i64 %6, 1
   %10 = add i64 %9, %8
   %11 = or i64 %10, %4

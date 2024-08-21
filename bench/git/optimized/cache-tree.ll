@@ -143,7 +143,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %name = getelementptr inbounds i8, ptr %2, i64 20
   %namelen = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %namelen, align 4
-  %cmp.i = icmp sgt i32 %3, %pathlen
+  %cmp.i = icmp slt i32 %pathlen, %3
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -211,7 +211,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %name.i = getelementptr inbounds i8, ptr %2, i64 20
   %namelen.i = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %namelen.i, align 4
-  %cmp.i.i = icmp sgt i32 %3, %pathlen
+  %cmp.i.i = icmp slt i32 %pathlen, %3
   br i1 %cmp.i.i, label %if.end.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i
@@ -1942,7 +1942,7 @@ if.end:                                           ; preds = %if.then7, %if.else
 if.then12:                                        ; preds = %if.end
   %8 = load i64, ptr %tree_path, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %8, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %0
+  %cmp.i = icmp ugt i64 %0, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then12
@@ -2307,7 +2307,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %st
 if.end:                                           ; preds = %for.body
   %7 = load i64, ptr %path, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %conv6
+  %cmp.i = icmp ugt i64 %conv6, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -2605,7 +2605,7 @@ if.end91:                                         ; preds = %oideq.exit
   %conv92 = ashr exact i64 %sext, 32
   %49 = load i64, ptr %path, align 8
   %spec.select.i81 = call i64 @llvm.usub.sat.i64(i64 %49, i64 1)
-  %cmp.i82 = icmp ult i64 %spec.select.i81, %conv92
+  %cmp.i82 = icmp ugt i64 %conv92, %spec.select.i81
   br i1 %cmp.i82, label %if.then.i89, label %if.end.i83
 
 if.then.i89:                                      ; preds = %if.end91

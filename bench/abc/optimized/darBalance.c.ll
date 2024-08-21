@@ -594,7 +594,7 @@ define void @Dar_BalancePermute(ptr noundef %0, ptr nocapture noundef readonly %
   %5 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %5, align 4
   %6 = add nsw i32 %.val, -2
-  %7 = icmp eq i32 %6, %2
+  %7 = icmp eq i32 %2, %6
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4

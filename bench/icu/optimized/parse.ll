@@ -322,7 +322,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -602,7 +602,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #21
   %cmp7 = icmp eq ptr %call, null
@@ -5433,7 +5433,7 @@ if.end113:                                        ; preds = %invoke.cont109
           to label %call.i.noexc unwind label %lpad114
 
 call.i.noexc:                                     ; preds = %if.end113
-  %cmp.i49 = icmp eq ptr %call.i51, %44
+  %cmp.i49 = icmp eq ptr %44, %call.i51
   br i1 %cmp.i49, label %delete.notnull.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %call.i.noexc
@@ -5476,7 +5476,7 @@ if.then120:                                       ; preds = %while.body.i
           to label %call.i.noexc75 unwind label %lpad114
 
 call.i.noexc75:                                   ; preds = %if.then120
-  %cmp.i52 = icmp eq ptr %call.i76, %current.09.i
+  %cmp.i52 = icmp eq ptr %current.09.i, %call.i76
   br i1 %cmp.i52, label %cleanup, label %lor.lhs.false.i53
 
 lor.lhs.false.i53:                                ; preds = %call.i.noexc75
@@ -5605,7 +5605,7 @@ declare signext i8 @getShowWarning() local_unnamed_addr #6
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19resLookupEP9SResourcePKc(ptr noundef readonly %res, ptr nocapture noundef readonly %key) unnamed_addr #1 {
 entry:
   %call = tail call ptr @res_none()
-  %cmp = icmp eq ptr %call, %res
+  %cmp = icmp eq ptr %res, %call
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry

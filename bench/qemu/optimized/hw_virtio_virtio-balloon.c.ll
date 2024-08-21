@@ -981,7 +981,7 @@ entry:
   %host_features = getelementptr inbounds i8, ptr %call.i, i64 848
   %0 = load i32, ptr %host_features, align 8
   %conv = zext i32 %0 to i64
-  %or = or i64 %conv, %f
+  %or = or i64 %f, %conv
   %or.i = or i64 %or, 2
   ret i64 %or.i
 }
@@ -1096,7 +1096,7 @@ if.then.i:                                        ; preds = %entry
 
 get_current_ram_size.exit:                        ; preds = %entry, %if.then.i
   %retval.0.i = phi i64 [ %add.i, %if.then.i ], [ %1, %entry ]
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %retval.0.i, i64 %target)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %target, i64 %retval.0.i)
   %tobool.not = icmp eq i64 %spec.select, 0
   br i1 %tobool.not, label %if.end.split, label %if.then3
 
@@ -1267,7 +1267,7 @@ while.cond:                                       ; preds = %while.cond.backedge
 land.lhs.true1.i:                                 ; preds = %while.cond
   %iov_len.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i64, ptr %iov_len.i, align 8
-  %cmp.not.i = icmp ult i64 %2, %offset.0
+  %cmp.not.i = icmp ugt i64 %offset.0, %2
   %sub.i = sub nuw i64 %2, %offset.0
   %cmp5.not.i = icmp ult i64 %sub.i, 4
   %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i
@@ -1449,7 +1449,7 @@ virtio_balloon_inhibited.exit:                    ; preds = %lor.lhs.false.i
 
 if.then23:                                        ; preds = %virtio_balloon_inhibited.exit
   %27 = load ptr, ptr %ivq, align 8
-  %cmp24 = icmp eq ptr %27, %vq
+  %cmp24 = icmp eq ptr %vq, %27
   br i1 %cmp24, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %if.then23
@@ -1562,7 +1562,7 @@ balloon_inflate_page.exit:                        ; preds = %if.then.i70, %bitma
 
 if.else:                                          ; preds = %if.then23
   %36 = load ptr, ptr %dvq, align 8
-  %cmp28 = icmp eq ptr %36, %vq
+  %cmp28 = icmp eq ptr %vq, %36
   br i1 %cmp28, label %if.then30, label %do.body
 
 if.then30:                                        ; preds = %if.else
@@ -1661,7 +1661,7 @@ while.cond:                                       ; preds = %while.cond.backedge
 land.lhs.true1.i:                                 ; preds = %while.cond
   %iov_len.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %iov_len.i, align 8
-  %cmp.not.i = icmp ult i64 %4, %offset.0
+  %cmp.not.i = icmp ugt i64 %offset.0, %4
   %sub.i = sub nuw i64 %4, %offset.0
   %cmp5.not.i = icmp ult i64 %sub.i, 10
   %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i

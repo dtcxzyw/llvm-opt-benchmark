@@ -295,12 +295,12 @@ define hidden noundef i32 @"_ZN68_$LT$rand..rngs..thread..ThreadRng$u20$as$u20$r
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @_ZN6memchr4arch6x86_644avx210packedpair6Finder14with_pair_impl17h4b9fb90510220855E(ptr noalias nocapture noundef writeonly align 32 dereferenceable(160) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i8 noundef %3, i8 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = zext i8 %3 to i64
-  %7 = icmp ult i64 %6, %2
+  %7 = icmp ugt i64 %2, %6
   br i1 %7, label %8, label %11, !prof !84
 
 8:                                                ; preds = %5
   %9 = zext i8 %4 to i64
-  %10 = icmp ult i64 %9, %2
+  %10 = icmp ugt i64 %2, %9
   br i1 %10, label %"_ZN6memchr4arch7generic10packedpair15Finder$LT$V$GT$3new17hf9a191782e8e5523E.exit", label %12, !prof !84
 
 11:                                               ; preds = %5
@@ -514,7 +514,7 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit: ; preds = %16
   %46 = icmp ugt i64 %.sroa.20.0.i, %.sroa.26.0.i
   %47 = ptrtoint ptr %.sroa.0.0.i121 to i64
   %48 = sub nuw i64 %39, %47
-  %.not.i.not.i.i.i.i = icmp ugt i64 %48, %.sroa.26.0.i
+  %.not.i.not.i.i.i.i = icmp ult i64 %.sroa.26.0.i, %48
   %or.cond74.i = select i1 %46, i1 %.not.i.not.i.i.i.i, i1 false
   br i1 %or.cond74.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3f9678d327f03d2E.exit.i", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3f9678d327f03d2E.exit.thread.i"
 
@@ -626,12 +626,12 @@ _ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit: ; preds = %_ZN6memch
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %79 = zext i8 %.ph206.ph to i64
-  %80 = icmp ult i64 %79, %3
+  %80 = icmp ugt i64 %3, %79
   br i1 %80, label %81, label %84, !prof !84
 
 81:                                               ; preds = %78
   %82 = zext i8 %.ph to i64
-  %83 = icmp ult i64 %82, %3
+  %83 = icmp ugt i64 %3, %82
   br i1 %83, label %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17hd69567523f551d61E.exit, label %85, !prof !84
 
 84:                                               ; preds = %78
@@ -697,7 +697,7 @@ _ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17hd69567523f551d6
 
 107:                                              ; preds = %93
   %108 = zext i8 %.sroa.56.sroa.4.31.copyload to i64
-  %109 = icmp ult i64 %108, %3
+  %109 = icmp ugt i64 %3, %108
   br i1 %109, label %110, label %123, !prof !84
 
 110:                                              ; preds = %107

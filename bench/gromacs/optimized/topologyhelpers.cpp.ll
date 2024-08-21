@@ -59,7 +59,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_E
   br label %47
 
 21:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i
-  %22 = icmp sgt i32 %.val.i.i.i, %.val
+  %22 = icmp slt i32 %.val, %.val.i.i.i
   br i1 %22, label %47, label %23
 
 23:                                               ; preds = %21
@@ -100,7 +100,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_E
   %40 = getelementptr inbounds %"class.std::tuple", ptr %.sroa.02.03.i29.i.i, i64 %39
   %41 = getelementptr i8, ptr %40, i64 4
   %.val2.i.i.i.i = load i32, ptr %41, align 4
-  %42 = icmp sgt i32 %.val2.i.i.i.i, %.val
+  %42 = icmp slt i32 %.val, %.val2.i.i.i.i
   %43 = getelementptr inbounds i8, ptr %40, i64 8
   %44 = xor i64 %39, -1
   %45 = add nsw i64 %.04.i28.i.i, %44
@@ -327,7 +327,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_E
   %123 = getelementptr inbounds %"class.std::tuple", ptr %.sroa.02.03.i.i, i64 %122
   %124 = getelementptr i8, ptr %123, i64 4
   %.val2.i.i.i = load i32, ptr %124, align 4
-  %125 = icmp sgt i32 %.val2.i.i.i, %.val15
+  %125 = icmp slt i32 %.val15, %.val2.i.i.i
   %126 = getelementptr inbounds i8, ptr %123, i64 8
   %127 = xor i64 %122, -1
   %128 = add nsw i64 %.04.i.i, %127
@@ -540,7 +540,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %34
 _ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %41
   %.0.lcssa.i.i.i = phi ptr [ %23, %41 ], [ %53, %.lr.ph.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i28

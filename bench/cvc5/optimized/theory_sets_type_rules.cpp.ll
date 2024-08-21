@@ -635,7 +635,7 @@ entry:
   %call2.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i)
   %cmp.i = icmp eq i32 %call2.i.i, 2
   %inc.i = zext i1 %cmp.i to i32
-  %spec.select.i = add nsw i32 %inc.i, %i
+  %spec.select.i = add nsw i32 %i, %inc.i
   %d_children.i = getelementptr inbounds i8, ptr %0, i64 16
   %idxprom.i = sext i32 %spec.select.i to i64
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %d_children.i, i64 0, i64 %idxprom.i
@@ -7425,7 +7425,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit37:            ; preds = %invoke.cont28, %if.
   %22 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.i.i38 = icmp ne ptr %21, %22
   %__last.sroa.0.09.i.i = getelementptr inbounds i8, ptr %22, i64 -8
-  %cmp.i110.i.i = icmp ugt ptr %__last.sroa.0.09.i.i, %21
+  %cmp.i110.i.i = icmp ult ptr %21, %__last.sroa.0.09.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i38, i1 %cmp.i110.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %invoke.cont38
 

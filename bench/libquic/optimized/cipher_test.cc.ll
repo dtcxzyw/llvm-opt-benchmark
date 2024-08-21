@@ -978,7 +978,7 @@ if.then34:                                        ; preds = %invoke.cont30
           to label %cleanup190 unwind label %lpad
 
 if.end38:                                         ; preds = %invoke.cont21, %invoke.cont13
-  %brmerge = or i1 %cmp, %encrypt
+  %brmerge = or i1 %encrypt, %cmp
   br i1 %brmerge, label %if.end51, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.end38
@@ -1421,7 +1421,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1504,7 +1504,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i: ; preds = %if.then.i31.
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else

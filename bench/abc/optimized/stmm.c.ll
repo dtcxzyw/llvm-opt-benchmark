@@ -214,7 +214,7 @@ define range(i32 0, 2) i32 @stmm_lookup(ptr nocapture noundef readonly %0, ptr n
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %.lr.ph
-  %.not41 = icmp eq ptr %37, %1
+  %.not41 = icmp eq ptr %1, %37
   br i1 %.not41, label %.critedge, label %42
 
 39:                                               ; preds = %.lr.ph
@@ -352,7 +352,7 @@ define range(i32 0, 2) i32 @stmm_lookup_int(ptr nocapture noundef readonly %0, p
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %.lr.ph
-  %.not41 = icmp eq ptr %37, %1
+  %.not41 = icmp eq ptr %1, %37
   br i1 %.not41, label %.critedge, label %42
 
 39:                                               ; preds = %.lr.ph
@@ -459,7 +459,7 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr nocapture noundef %0, ptr nound
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %.lr.ph
-  %.not68 = icmp eq ptr %37, %1
+  %.not68 = icmp eq ptr %1, %37
   br i1 %.not68, label %.critedge, label %42
 
 39:                                               ; preds = %.lr.ph
@@ -858,7 +858,7 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr nocapture noundef %0, ptr 
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %.lr.ph
-  %.not72 = icmp eq ptr %37, %1
+  %.not72 = icmp eq ptr %1, %37
   br i1 %.not72, label %.critedge, label %42
 
 39:                                               ; preds = %.lr.ph
@@ -1041,7 +1041,7 @@ define range(i32 0, 2) i32 @stmm_find(ptr nocapture noundef readonly %0, ptr nou
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %.lr.ph
-  %.not41 = icmp eq ptr %37, %1
+  %.not41 = icmp eq ptr %1, %37
   br i1 %.not41, label %.critedge, label %42
 
 39:                                               ; preds = %.lr.ph

@@ -269,7 +269,7 @@ define dso_local ptr @hash_create(ptr nocapture noundef readonly %0, i64 noundef
 
 113:                                              ; preds = %108
   %114 = getelementptr i8, ptr %.val, i64 848
-  %115 = icmp ugt ptr %114, %.val
+  %115 = icmp ult ptr %.val, %114
   br i1 %115, label %.lr.ph.preheader.i, label %hdefault.exit
 
 .lr.ph.preheader.i:                               ; preds = %113
@@ -561,7 +561,7 @@ seg_alloc.exit.i:                                 ; preds = %228
   %273 = getelementptr inbounds i8, ptr %129, i64 844
   %274 = load i32, ptr %273, align 4
   %275 = sext i32 %274 to i64
-  %276 = icmp sgt i64 %275, %1
+  %276 = icmp slt i64 %1, %275
   br i1 %276, label %277, label %.loopexit
 
 277:                                              ; preds = %272, %270
@@ -577,7 +577,7 @@ seg_alloc.exit.i:                                 ; preds = %228
   %284 = select i1 %.not147, i32 0, i32 5
   %285 = shl i32 %spec.store.select, %284
   %286 = sext i32 %285 to i64
-  %287 = icmp slt i64 %286, %1
+  %287 = icmp sgt i64 %1, %286
   %288 = add nsw i32 %., -1
   %289 = mul i32 %spec.store.select, %288
   %290 = trunc i64 %1 to i32

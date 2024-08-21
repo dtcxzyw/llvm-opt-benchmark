@@ -1825,7 +1825,7 @@ if.then.i4:                                       ; preds = %_ZN5folly3f146detai
   %sh_prom.i.i = and i64 %14, 255
   %notmask.i.i = shl nsw i64 -1, %sh_prom.i.i
   %sub.i.i = xor i64 %notmask.i.i, -1
-  %and.i37.i = and i64 %sub.i.i, %hp.coerce0
+  %and.i37.i = and i64 %hp.coerce0, %sub.i.i
   %add.ptr38.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.121", ptr %13, i64 %and.i37.i
   %cmp839.i = icmp eq ptr %add.ptr38.i, %add.ptr1.i.i.i
   br i1 %cmp839.i, label %cleanup.thread.i, label %if.end.i5
@@ -2807,7 +2807,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPv
   %16 = phi ptr [ %11, %if.end7 ], [ %.pre118, %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit ]
   %notmask.i61 = shl nsw i64 -1, %sh_prom.i60.pre-phi
   %sub.i62 = xor i64 %notmask.i61, -1
-  %and.i63 = and i64 %sub.i62, %hp.coerce0
+  %and.i63 = and i64 %hp.coerce0, %sub.i62
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %16, i64 %and.i63
   %17 = load <16 x i8>, ptr %add.ptr, align 16, !tbaa !74
   %18 = icmp slt <16 x i8> %17, zeroinitializer
@@ -4103,7 +4103,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseL
   %11 = phi ptr [ %.pre, %if.end5 ], [ %.pre117, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE20reserveForInsertImplEmmmm.exit ]
   %notmask.i57 = shl nsw i64 -1, %sh_prom.i56.pre-phi
   %sub.i58 = xor i64 %notmask.i57, -1
-  %and.i59 = and i64 %sub.i58, %hp.coerce0
+  %and.i59 = and i64 %hp.coerce0, %sub.i58
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.121", ptr %11, i64 %and.i59
   %12 = load <16 x i8>, ptr %add.ptr, align 16, !tbaa !74
   %13 = icmp slt <16 x i8> %12, zeroinitializer

@@ -508,7 +508,7 @@ define internal fastcc i32 @x509_get_entries(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %34 = load ptr, ptr %0, align 8
-  %.not.i = icmp ult ptr %34, %27
+  %.not.i = icmp ugt ptr %27, %34
   br i1 %.not.i, label %35, label %x509_get_crl_entry_ext.exit.thread
 
 35:                                               ; preds = %33
@@ -823,7 +823,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
 
 9:                                                ; preds = %4
   %10 = zext nneg i32 %7 to i64
-  %.not = icmp ult i64 %10, %1
+  %.not = icmp ugt i64 %1, %10
   br i1 %.not, label %11, label %.loopexit
 
 11:                                               ; preds = %9

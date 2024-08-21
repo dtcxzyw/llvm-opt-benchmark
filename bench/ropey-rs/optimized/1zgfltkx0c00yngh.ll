@@ -3764,11 +3764,11 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %16
   br i1 %35, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.thread.i", label %36
 
 36:                                               ; preds = %34
-  %.not.i.i = icmp ugt i64 %33, %3
+  %.not.i.i = icmp ult i64 %3, %33
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i", label %37
 
 37:                                               ; preds = %36
-  %38 = icmp eq i64 %33, %3
+  %38 = icmp eq i64 %3, %33
   br i1 %38, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.thread.i", label %337
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i": ; preds = %36
@@ -3782,11 +3782,11 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %16
   br i1 %42, label %338, label %43
 
 43:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.thread.i"
-  %.not.i2.i = icmp ugt i64 %33, %4
+  %.not.i2.i = icmp ult i64 %4, %33
   br i1 %.not.i2.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit4.i", label %44
 
 44:                                               ; preds = %43
-  %45 = icmp eq i64 %33, %4
+  %45 = icmp eq i64 %4, %33
   br i1 %45, label %338, label %337
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit4.i": ; preds = %43
@@ -3858,12 +3858,12 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %16
   %66 = load i64, ptr %65, align 8, !noalias !310, !noundef !4
   %67 = add i64 %64, %.sroa.015.0.i488
   %68 = add i64 %66, %.sroa.11.0.i489
-  %.not.i171 = icmp ugt i64 %.sroa.0412.0501, %67
+  %.not.i171 = icmp ult i64 %67, %.sroa.0412.0501
   br i1 %.not.i171, label %69, label %_ZN5ropey4tree13node_children12NodeChildren9search_by17h1cbcc4123e18c078E.exit
 
 69:                                               ; preds = %.lr.ph
   %.not1.i = icmp ule i64 %.sroa.0408.0502, %68
-  %70 = icmp ult i64 %.sroa.0.0418503, %67
+  %70 = icmp ugt i64 %67, %.sroa.0.0418503
   %or.cond = select i1 %.not1.i, i1 %70, i1 false
   br i1 %or.cond, label %_ZN5ropey4tree13node_children12NodeChildren9search_by17h1cbcc4123e18c078E.exit, label %.noexc160.thread424
 
@@ -4834,7 +4834,7 @@ define void @_ZN5ropey4iter5Lines11from_str_at17h2ce6559dd1a6f370E(ptr dead_on_u
   %.sroa.12.1.i = phi i64 [ %.sroa.12.0.i, %.noexc1 ], [ %140, %.noexc6 ], [ %.sroa.12.2.i, %.noexc5 ]
   %142 = sub i64 %3, %.sroa.07.1.i
   %143 = icmp ne i64 %.sroa.12.1.i, 0
-  %144 = icmp ne i64 %.sroa.07.1.i, %3
+  %144 = icmp ne i64 %3, %.sroa.07.1.i
   %or.cond.i10364 = select i1 %143, i1 %144, i1 false
   br i1 %or.cond.i10364, label %.noexc11, label %.noexc8
 
@@ -9144,11 +9144,11 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %16
   br i1 %31, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.thread.i", label %32
 
 32:                                               ; preds = %30
-  %.not.i.i = icmp ugt i64 %29, %3
+  %.not.i.i = icmp ult i64 %3, %29
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i", label %33
 
 33:                                               ; preds = %32
-  %34 = icmp eq i64 %29, %3
+  %34 = icmp eq i64 %3, %29
   br i1 %34, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.thread.i", label %123
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i": ; preds = %32
@@ -9162,11 +9162,11 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %16
   br i1 %38, label %124, label %39
 
 39:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.thread.i"
-  %.not.i2.i = icmp ugt i64 %29, %4
+  %.not.i2.i = icmp ult i64 %4, %29
   br i1 %.not.i2.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit4.i", label %40
 
 40:                                               ; preds = %39
-  %41 = icmp eq i64 %29, %4
+  %41 = icmp eq i64 %4, %29
   br i1 %41, label %124, label %123
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit4.i": ; preds = %39
@@ -9235,7 +9235,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i: ; p
   %.sroa.04.012.i = phi ptr [ %71, %64 ], [ %.ptr.i, %.lr.ph.preheader.i ]
   %61 = load i64, ptr %.sroa.04.012.i, align 8, !alias.scope !750, !noalias !753, !noundef !4
   %62 = add i64 %61, %.sroa.015.0.i14.i
-  %63 = icmp ugt i64 %62, %.sroa.029.0356
+  %63 = icmp ult i64 %.sroa.029.0356, %62
   br i1 %63, label %_ZN5ropey4tree13node_children12NodeChildren15search_byte_idx17h459c817209a71249E.exit, label %64
 
 64:                                               ; preds = %.lr.ph.i

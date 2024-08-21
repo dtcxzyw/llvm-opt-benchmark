@@ -1510,7 +1510,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf_by_idx(ptr noundef %0, ptr nocapt
 
 12:                                               ; preds = %10
   %13 = and i32 %2, -3
-  %14 = or i32 %13, %4
+  %14 = or i32 %4, %13
   %or.cond77 = icmp eq i32 %14, 0
   br i1 %or.cond77, label %15, label %20
 
@@ -1530,7 +1530,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf_by_idx(ptr noundef %0, ptr nocapt
   %22 = load i16, ptr %21, align 8
   %23 = zext i16 %22 to i32
   %24 = add nsw i32 %23, -1
-  %25 = icmp eq i32 %24, %4
+  %25 = icmp eq i32 %4, %24
   %or.cond3 = icmp ult i32 %2, 2
   %or.cond78 = and i1 %or.cond3, %25
   br i1 %or.cond78, label %26, label %31
@@ -1603,7 +1603,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf_by_idx(ptr noundef %0, ptr nocapt
   %65 = phi i16 [ %.pre, %62 ], [ %50, %54 ]
   %.162 = phi i64 [ %63, %62 ], [ %11, %54 ]
   %66 = zext i16 %65 to i32
-  %67 = icmp ugt i32 %66, %4
+  %67 = icmp ult i32 %4, %66
   br i1 %67, label %68, label %88
 
 68:                                               ; preds = %64

@@ -3025,7 +3025,7 @@ define void @Supp_SetConvert(ptr nocapture noundef readonly %0, ptr nocapture no
 define void @Supp_PrintNodes(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val39 = load i32, ptr %5, align 4
-  %6 = icmp sgt i32 %.val39, %2
+  %6 = icmp slt i32 %2, %.val39
   br i1 %6, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4
@@ -8390,7 +8390,7 @@ define void @Supp_DeriveDumpSol(ptr nocapture noundef readonly %0, ptr nocapture
   %15 = getelementptr i8, ptr %1, i64 8
   %16 = shl nsw i32 %.val32, 1
   %17 = xor i32 %.val32, -1
-  %18 = add i32 %17, %2
+  %18 = add i32 %2, %17
   %19 = shl nsw i32 %18, 1
   %20 = getelementptr i8, ptr %0, i64 8
   br label %21

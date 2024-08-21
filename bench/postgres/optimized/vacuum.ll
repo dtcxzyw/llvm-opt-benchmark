@@ -1935,7 +1935,7 @@ define dso_local ptr @vacuum_open_relation(i32 noundef %0, ptr noundef readonly 
 12:                                               ; preds = %.thread
   %13 = tail call zeroext i1 @IsAutoVacuumWorkerProcess() #16
   %.not64 = xor i1 %13, true
-  %brmerge = or i1 %.not64, %3
+  %brmerge = or i1 %3, %.not64
   %.mux = select i1 %13, i32 15, i32 19
   br i1 %brmerge, label %14, label %26
 
@@ -2316,7 +2316,7 @@ define dso_local void @vac_update_relstats(ptr nocapture noundef readonly %0, i3
   %42 = load i8, ptr %41, align 4
   %43 = trunc i8 %42 to i1
   %.not92 = xor i1 %43, true
-  %brmerge = or i1 %.not92, %4
+  %brmerge = or i1 %4, %.not92
   br i1 %brmerge, label %45, label %44
 
 44:                                               ; preds = %40

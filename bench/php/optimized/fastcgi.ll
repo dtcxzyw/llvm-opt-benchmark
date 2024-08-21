@@ -2660,7 +2660,7 @@ define hidden range(i32 -1, -2147483648) i32 @fcgi_write(ptr noundef %0, i32 nou
   %10 = getelementptr inbounds i8, ptr %8, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  %.not109 = icmp eq i32 %12, %1
+  %.not109 = icmp eq i32 %1, %12
   br i1 %.not109, label %45, label %13
 
 13:                                               ; preds = %9
@@ -2733,7 +2733,7 @@ close_packet.exit:                                ; preds = %.fcgi_make_header.e
   %54 = add i32 %52, 8184
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %54, i32 0)
   %.0104 = select i1 %.not110, i32 %spec.store.select, i32 %53
-  %55 = icmp sgt i32 %.0104, %3
+  %55 = icmp slt i32 %3, %.0104
   br i1 %55, label %56, label %66
 
 56:                                               ; preds = %45
@@ -2793,7 +2793,7 @@ close_packet.exit:                                ; preds = %.fcgi_make_header.e
   br i1 %.not118, label %.loopexit, label %83
 
 83:                                               ; preds = %81
-  %84 = icmp slt i32 %.0104, %3
+  %84 = icmp sgt i32 %3, %.0104
   br i1 %84, label %85, label %.loopexit
 
 85:                                               ; preds = %83

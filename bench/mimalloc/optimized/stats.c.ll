@@ -982,7 +982,7 @@ define hidden i64 @_mi_clock_end(i64 noundef %start) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i64 @_mi_prim_clock_now() #9
   %0 = load i64, ptr @mi_clock_diff, align 8
-  %1 = add i64 %0, %start
+  %1 = add i64 %start, %0
   %sub1 = sub i64 %call.i, %1
   ret i64 %sub1
 }

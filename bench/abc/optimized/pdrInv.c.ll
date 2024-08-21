@@ -535,7 +535,7 @@ define noalias noundef ptr @Pdr_ManCollectCubes(ptr nocapture noundef readonly %
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 4
   %.val1621 = load i32, ptr %9, align 4
-  %10 = icmp sgt i32 %.val1621, %1
+  %10 = icmp slt i32 %1, %.val1621
   br i1 %10, label %.lr.ph23.preheader, label %.critedge
 
 .lr.ph23.preheader:                               ; preds = %2
@@ -955,7 +955,7 @@ define void @Pdr_ManPrintClauses(ptr nocapture noundef readonly %0, i32 noundef 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val1926 = load i32, ptr %5, align 4
-  %6 = icmp sgt i32 %.val1926, %1
+  %6 = icmp slt i32 %1, %.val1926
   br i1 %6, label %.lr.ph29, label %.critedge
 
 .lr.ph29:                                         ; preds = %2

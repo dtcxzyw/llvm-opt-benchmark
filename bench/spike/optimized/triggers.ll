@@ -192,7 +192,7 @@ define noundef range(i32 0, 5) i32 @_ZN8triggers9trigger_t15legalize_actionEmmm(
   %4 = and i64 %1, %0
   %5 = shl i64 %1, 1
   %6 = xor i64 %5, -1
-  %7 = and i64 %6, %1
+  %7 = and i64 %1, %6
   %8 = udiv i64 %4, %7
   %9 = icmp ugt i64 %8, 4
   br i1 %9, label %20, label %10
@@ -205,7 +205,7 @@ define noundef range(i32 0, 5) i32 @_ZN8triggers9trigger_t15legalize_actionEmmm(
   %13 = and i64 %2, %0
   %14 = shl i64 %2, 1
   %15 = xor i64 %14, -1
-  %16 = and i64 %15, %2
+  %16 = and i64 %2, %15
   %17 = icmp ugt i64 %16, %13
   br i1 %17, label %20, label %18
 
@@ -977,7 +977,7 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %26, 
   store i32 %38, ptr %39, align 8
   %40 = and i64 %2, 2048
   %41 = icmp ne i64 %40, 0
-  %42 = and i1 %41, %3
+  %42 = and i1 %3, %41
   %43 = getelementptr inbounds i8, ptr %0, i64 55
   %44 = zext i1 %42 to i8
   store i8 %44, ptr %43, align 1
@@ -1029,7 +1029,7 @@ define noundef zeroext i1 @_ZN8triggers17mcontrol_common_t15legalize_timingEmmmm
   %6 = and i64 %2, %0
   %7 = shl i64 %2, 1
   %8 = xor i64 %7, -1
-  %9 = and i64 %8, %2
+  %9 = and i64 %2, %8
   %.not = icmp ugt i64 %9, %6
   br i1 %.not, label %15, label %10
 
@@ -1037,7 +1037,7 @@ define noundef zeroext i1 @_ZN8triggers17mcontrol_common_t15legalize_timingEmmmm
   %11 = and i64 %4, %0
   %12 = shl i64 %4, 1
   %13 = xor i64 %12, -1
-  %14 = and i64 %13, %4
+  %14 = and i64 %4, %13
   %.not16 = icmp ugt i64 %14, %11
   br i1 %.not16, label %15, label %26
 
@@ -1045,7 +1045,7 @@ define noundef zeroext i1 @_ZN8triggers17mcontrol_common_t15legalize_timingEmmmm
   %16 = and i64 %3, %0
   %17 = shl i64 %3, 1
   %18 = xor i64 %17, -1
-  %19 = and i64 %18, %3
+  %19 = and i64 %3, %18
   %.not17 = icmp ugt i64 %19, %16
   br i1 %.not17, label %20, label %26
 
@@ -1053,7 +1053,7 @@ define noundef zeroext i1 @_ZN8triggers17mcontrol_common_t15legalize_timingEmmmm
   %21 = and i64 %1, %0
   %22 = shl i64 %1, 1
   %23 = xor i64 %22, -1
-  %24 = and i64 %23, %1
+  %24 = and i64 %1, %23
   %25 = icmp ule i64 %24, %21
   br label %26
 
@@ -1086,7 +1086,7 @@ define noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t12simple_matchEjm(ptr
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = icmp eq i64 %8, %2
+  %9 = icmp eq i64 %2, %8
   br label %50
 
 10:                                               ; preds = %3
@@ -1121,13 +1121,13 @@ _ZL3ctom.exit:                                    ; preds = %_ZL3ctom.exit.loope
 22:                                               ; preds = %3
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  %25 = icmp ule i64 %24, %2
+  %25 = icmp uge i64 %2, %24
   br label %50
 
 26:                                               ; preds = %3
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8
-  %29 = icmp ugt i64 %28, %2
+  %29 = icmp ult i64 %2, %28
   br label %50
 
 30:                                               ; preds = %3
@@ -1283,13 +1283,13 @@ _ZL3ctom.exit.i:                                  ; preds = %_ZL3ctom.exit.loope
 51:                                               ; preds = %32
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   %53 = load i64, ptr %52, align 8
-  %.not = icmp ugt i64 %53, %spec.select
+  %.not = icmp ult i64 %spec.select, %53
   br i1 %.not, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread, label %81
 
 54:                                               ; preds = %32
   %55 = getelementptr inbounds i8, ptr %0, i64 8
   %56 = load i64, ptr %55, align 8
-  %57 = icmp ugt i64 %56, %spec.select
+  %57 = icmp ult i64 %spec.select, %56
   br i1 %57, label %81, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 58:                                               ; preds = %32
@@ -1322,7 +1322,7 @@ _ZL3ctom.exit.i:                                  ; preds = %_ZL3ctom.exit.loope
 _ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit: ; preds = %32
   %78 = getelementptr inbounds i8, ptr %0, i64 8
   %79 = load i64, ptr %78, align 8
-  %80 = icmp eq i64 %79, %spec.select
+  %80 = icmp eq i64 %spec.select, %79
   br i1 %80, label %81, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 81:                                               ; preds = %_ZL3ctom.exit.i, %51, %54, %58, %67, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit
@@ -1613,7 +1613,7 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %34, 
   store i32 %47, ptr %48, align 8
   %49 = and i64 %2, 2048
   %50 = icmp ne i64 %49, 0
-  %51 = and i1 %50, %3
+  %51 = and i1 %3, %50
   %52 = getelementptr inbounds i8, ptr %0, i64 55
   %53 = zext i1 %51 to i8
   store i8 %53, ptr %52, align 1

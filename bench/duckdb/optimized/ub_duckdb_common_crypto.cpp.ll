@@ -49,7 +49,7 @@ if.then12:                                        ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %idx.ext
   %sub = sub nuw nsw i32 64, %and
   %conv13 = zext nneg i32 %sub to i64
-  %cmp14.not = icmp ugt i64 %conv13, %len
+  %cmp14.not = icmp ult i64 %len, %conv13
   br i1 %cmp14.not, label %cleanup.thread, label %if.end16
 
 cleanup.thread:                                   ; preds = %if.then12

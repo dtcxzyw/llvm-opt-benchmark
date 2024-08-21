@@ -538,7 +538,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e58
   %112 = add nuw nsw i64 %109, 1
   %113 = add nuw nsw i64 %109, 64
   %114 = lshr i64 %113, 6
-  %115 = icmp ult i64 %.pre37, %114
+  %115 = icmp ugt i64 %114, %.pre37
   br i1 %115, label %116, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h690a20d85a532a6cE.llvm.11489394707175253082.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h690a20d85a532a6cE.llvm.11489394707175253082.exit.i.i": ; preds = %111
@@ -2140,7 +2140,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder22emit_small_memor
 
 23:                                               ; preds = %10
   %24 = sub i64 0, %5
-  %25 = and i64 %24, %5
+  %25 = and i64 %5, %24
   %.0.sroa.speculated.i = tail call noundef i8 @llvm.umin.i8(i8 %7, i8 %6)
   %26 = zext i8 %.0.sroa.speculated.i to i64
   %.not = icmp ult i64 %25, %26
@@ -2662,7 +2662,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder17emit_small_memse
 
 19:                                               ; preds = %8
   %20 = sub i64 0, %5
-  %21 = and i64 %20, %5
+  %21 = and i64 %5, %20
   %22 = zext i8 %6 to i64
   %.not = icmp ult i64 %21, %22
   br i1 %.not, label %23, label %28
@@ -3505,7 +3505,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit24
   %78 = icmp ne i8 %7, 0
   tail call void @llvm.assume(i1 %78)
   %79 = zext i8 %7 to i64
-  %80 = icmp eq i64 %79, %6
+  %80 = icmp eq i64 %6, %79
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %77
@@ -3518,7 +3518,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit24
   %83 = icmp ne i8 %8, 0
   call void @llvm.assume(i1 %83)
   %84 = zext i8 %8 to i64
-  %85 = icmp eq i64 %84, %6
+  %85 = icmp eq i64 %6, %84
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %82

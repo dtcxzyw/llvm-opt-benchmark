@@ -501,12 +501,12 @@ define dso_local range(i32 0, 2) i32 @ext4_sb_block_valid(ptr nocapture noundef 
   %9 = getelementptr inbounds i8, ptr %8, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %11, %2
+  %12 = icmp ugt i64 %2, %11
   br i1 %12, label %13, label %70
 
 13:                                               ; preds = %4
   %14 = zext i32 %3 to i64
-  %15 = add i64 %14, %2
+  %15 = add i64 %2, %14
   %16 = icmp ult i64 %15, %2
   br i1 %16, label %70, label %17
 
@@ -606,12 +606,12 @@ define dso_local range(i32 0, 2) i32 @ext4_inode_block_valid(ptr noundef readonl
   %10 = getelementptr inbounds i8, ptr %9, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %71
 
 14:                                               ; preds = %3
   %15 = zext i32 %2 to i64
-  %16 = add i64 %15, %1
+  %16 = add i64 %1, %15
   %17 = icmp ult i64 %16, %1
   br i1 %17, label %71, label %18
 
@@ -750,7 +750,7 @@ define dso_local noundef range(i32 -117, 1) i32 @ext4_check_blockref(ptr noundef
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 20
   %41 = load i32, ptr %40, align 4
-  %42 = icmp ult i32 %41, %31
+  %42 = icmp ugt i32 %31, %41
   br i1 %42, label %43, label %ext4_inode_block_valid.exit.thread
 
 43:                                               ; preds = %33
@@ -834,7 +834,7 @@ ext4_inode_block_valid.exit.thread4.us:           ; preds = %76, %63, %59
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 20
   %95 = load i32, ptr %94, align 4
-  %96 = icmp ult i32 %95, %85
+  %96 = icmp ugt i32 %85, %95
   br i1 %96, label %97, label %ext4_inode_block_valid.exit.thread
 
 97:                                               ; preds = %87

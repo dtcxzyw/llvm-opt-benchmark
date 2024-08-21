@@ -8189,7 +8189,7 @@ if.else:                                          ; preds = %_ZN5eastl9hashtable
   %44 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %44, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %second, %obj
+  %cmp.not.i = icmp eq ptr %obj, %second
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -8428,7 +8428,7 @@ if.else:                                          ; preds = %_ZN5eastl9hashtable
   %44 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %44, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %second, %obj
+  %cmp.not.i = icmp eq ptr %obj, %second
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -9198,7 +9198,7 @@ if.else:                                          ; preds = %_ZN5eastl9hashtable
   %44 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %44, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %second, %obj
+  %cmp.not.i = icmp eq ptr %obj, %second
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -9437,7 +9437,7 @@ if.else:                                          ; preds = %_ZN5eastl9hashtable
   %44 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %44, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %second, %obj
+  %cmp.not.i = icmp eq ptr %obj, %second
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else

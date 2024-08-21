@@ -73,7 +73,7 @@ entry:
   %0 = load i32, ptr @hexblep, align 8
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @hexblep, i64 4), align 4
   %conv = sitofp i32 %1 to float
-  %mul = fmul float %conv, %time_since_transition
+  %mul = fmul float %time_since_transition, %conv
   %conv1 = fptosi float %mul to i32
   %cmp.not = icmp sgt i32 %1, %conv1
   %sub = add nsw i32 %1, -1
@@ -125,7 +125,7 @@ entry:
   %1 = load i32, ptr @hexblep, align 8
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @hexblep, i64 4), align 4
   %conv.i = sitofp i32 %2 to float
-  %mul.i = fmul float %conv.i, %time_since_transition
+  %mul.i = fmul float %time_since_transition, %conv.i
   %conv1.i = fptosi float %mul.i to i32
   %cmp.not.i = icmp sgt i32 %2, %conv1.i
   %sub.i = add nsw i32 %2, -1
@@ -174,7 +174,7 @@ entry:
   %1 = load i32, ptr @hexblep, align 8
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @hexblep, i64 4), align 4
   %conv.i = sitofp i32 %2 to float
-  %mul.i = fmul float %conv.i, %time_since_transition
+  %mul.i = fmul float %time_since_transition, %conv.i
   %conv1.i = fptosi float %mul.i to i32
   %cmp.not.i = icmp sgt i32 %2, %conv1.i
   %sub.i = add nsw i32 %2, -1
@@ -474,7 +474,7 @@ if.end28:                                         ; preds = %if.end26, %if.end
   %conv33 = sext i32 %mul32 to i64
   %mul34 = shl nsw i64 %conv33, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %temp_output, i8 0, i64 %mul34, i1 false)
-  %cmp35.not = icmp sgt i32 %14, %num_samples
+  %cmp35.not = icmp slt i32 %num_samples, %14
   %buffer41 = getelementptr inbounds i8, ptr %hex, i64 44
   %conv43 = sext i32 %mul to i64
   br i1 %cmp35.not, label %if.else, label %if.then37
@@ -503,7 +503,7 @@ for.body48:                                       ; preds = %if.end44, %for.inc1
   br i1 %cmp49, label %if.then51, label %if.else57
 
 if.then51:                                        ; preds = %for.body48
-  %cmp52 = icmp sgt i32 %16, %num_samples
+  %cmp52 = icmp slt i32 %num_samples, %16
   br i1 %cmp52, label %for.inc195, label %if.end55
 
 if.end55:                                         ; preds = %if.then51
@@ -511,7 +511,7 @@ if.end55:                                         ; preds = %if.then51
   br label %if.end64
 
 if.else57:                                        ; preds = %for.body48
-  %num_samples. = tail call i32 @llvm.smin.i32(i32 %16, i32 %num_samples)
+  %num_samples. = tail call i32 @llvm.smin.i32(i32 %num_samples, i32 %16)
   br label %if.end64
 
 if.end64:                                         ; preds = %if.else57, %if.end55
@@ -837,7 +837,7 @@ for.inc195:                                       ; preds = %while.body, %if.the
 
 for.end197:                                       ; preds = %for.inc195
   %73 = load i32, ptr @hexblep, align 8
-  %cmp198.not = icmp sgt i32 %73, %num_samples
+  %cmp198.not = icmp slt i32 %num_samples, %73
   br i1 %cmp198.not, label %for.end232, label %for.cond201.preheader
 
 for.cond201.preheader:                            ; preds = %for.end197
@@ -854,7 +854,7 @@ for.body204:                                      ; preds = %for.cond201.prehead
   %arrayidx206 = getelementptr inbounds [128 x float], ptr %temp_output, i64 0, i64 %indvars.iv251
   %75 = load float, ptr %arrayidx206, align 4
   %76 = trunc i64 %indvars.iv251 to i32
-  %77 = add i32 %76, %num_samples
+  %77 = add i32 %num_samples, %76
   %add208 = sub i32 %77, %74
   %idxprom209 = sext i32 %add208 to i64
   %arrayidx210 = getelementptr inbounds float, ptr %output, i64 %idxprom209
@@ -1126,7 +1126,7 @@ for.cond137.preheader.us.preheader:               ; preds = %for.cond137.prehead
 for.body152.us:                                   ; preds = %for.cond149.preheader.us, %for.body152.us
   %indvars.iv177 = phi i64 [ %24, %for.cond149.preheader.us ], [ %indvars.iv.next178, %for.body152.us ]
   %26 = trunc i64 %indvars.iv177 to i32
-  %27 = mul i32 %26, %oversample
+  %27 = mul i32 %oversample, %26
   %sub155.us = add i32 %add154.us, %27
   %conv156.us = sitofp i32 %sub155.us to float
   %28 = add nsw i64 %indvars.iv177, %34

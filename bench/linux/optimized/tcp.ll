@@ -13830,7 +13830,7 @@ define internal fastcc i32 @tcp_zerocopy_vm_insert_batch_error(ptr noundef %0, p
   %16 = load i32, ptr %4, align 4
   %17 = trunc i64 %2 to i32
   %18 = shl i32 %17, 12
-  %19 = add i32 %18, %7
+  %19 = add i32 %7, %18
   %20 = sub i32 %19, %16
   %21 = load i64, ptr %3, align 8
   %22 = zext i32 %20 to i64

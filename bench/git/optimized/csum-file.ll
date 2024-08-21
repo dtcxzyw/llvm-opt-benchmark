@@ -676,7 +676,7 @@ entry:
   %1 = load ptr, ptr %hash_algo, align 8
   %rawsz = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz, align 8
-  %cmp = icmp ugt i64 %2, %total_len
+  %cmp = icmp ult i64 %total_len, %2
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

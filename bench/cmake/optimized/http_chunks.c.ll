@@ -583,7 +583,7 @@ Curl_chunked_strerror.exit:                       ; preds = %17, %21, %22, %23, 
   %34 = load i16, ptr %33, align 1
   %35 = or i16 %34, 4
   store i16 %35, ptr %33, align 1
-  %36 = icmp ne i64 %27, %4
+  %36 = icmp ne i64 %4, %27
   %37 = icmp ne ptr %0, null
   %or.cond = and i1 %37, %36
   br i1 %or.cond, label %38, label %50

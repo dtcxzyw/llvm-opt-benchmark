@@ -423,7 +423,7 @@ pm_parser_local_add_owned.exit:                   ; preds = %71, %67, %65, %.lr.
 99:                                               ; preds = %94, %90, %86, %83, %.loopexit
   %.val = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %.val90 = load ptr, ptr %.sroa.13.0..sroa_idx, align 8
-  %100 = icmp ugt ptr %.val, %.val90
+  %100 = icmp ult ptr %.val90, %.val
   br i1 %100, label %peek.exit, label %peek.exit.thread
 
 peek.exit:                                        ; preds = %99
@@ -2915,7 +2915,7 @@ parser_lex_magic_comment.exit:                    ; preds = %.outer.split.us.i, 
   %340 = load ptr, ptr %22, align 8
   %341 = getelementptr i8, ptr %340, i64 -1
   %.val1683 = load ptr, ptr %23, align 8
-  %342 = icmp ugt ptr %.val1683, %341
+  %342 = icmp ult ptr %341, %.val1683
   br i1 %342, label %peek_at.exit.i, label %match_eol_at.exit
 
 peek_at.exit.i:                                   ; preds = %339
@@ -3078,7 +3078,7 @@ parser_lex_ignored_newline.exit:                  ; preds = %374, %372, %371
   %415 = call i64 @pm_strspn_inline_whitespace(ptr noundef %409, i64 noundef %414) #27
   %416 = getelementptr i8, ptr %409, i64 %415
   %.val1634 = load ptr, ptr %23, align 8
-  %417 = icmp ugt ptr %.val1634, %416
+  %417 = icmp ult ptr %416, %.val1634
   br i1 %417, label %peek_at.exit, label %.critedge
 
 peek_at.exit:                                     ; preds = %411
@@ -3110,7 +3110,7 @@ peek_at.exit:                                     ; preds = %411
 
 428:                                              ; preds = %.critedge
   %.not1600 = icmp ne ptr %.11464, null
-  %429 = icmp ugt ptr %.val1633, %.11464
+  %429 = icmp ult ptr %.11464, %.val1633
   %or.cond4039 = and i1 %.not1600, %429
   br i1 %or.cond4039, label %peek_at.exit1793, label %thread-pre-split
 
@@ -3123,7 +3123,7 @@ peek_at.exit1793:                                 ; preds = %428
 
 431:                                              ; preds = %peek_at.exit1793
   %432 = getelementptr i8, ptr %.11464, i64 1
-  %433 = icmp ugt ptr %.val1633, %432
+  %433 = icmp ult ptr %432, %.val1633
   br i1 %433, label %peek_at.exit1797, label %thread-pre-split
 
 peek_at.exit1797:                                 ; preds = %431
@@ -3159,7 +3159,7 @@ thread-pre-split:                                 ; preds = %peek_at.exit1793, %
 
 445:                                              ; preds = %.loopexit2793
   %446 = getelementptr i8, ptr %397, i64 1
-  %447 = icmp ugt ptr %.val1630, %446
+  %447 = icmp ult ptr %446, %.val1630
   br i1 %447, label %peek_at.exit1801, label %peek_at.exit1801.thread
 
 peek_at.exit1801:                                 ; preds = %445
@@ -3232,14 +3232,14 @@ parser_lex_ignored_newline.exit1805:              ; preds = %458, %peek_at.exit1
   br label %parser_lex_callback.exit
 
 467:                                              ; preds = %.loopexit2793
-  %468 = icmp ugt ptr %.val1630, %397
+  %468 = icmp ult ptr %397, %.val1630
   %469 = icmp eq i8 %443, 38
   %or.cond2714 = and i1 %469, %468
   br i1 %or.cond2714, label %470, label %peek_at.exit1809.thread
 
 470:                                              ; preds = %467
   %471 = getelementptr i8, ptr %397, i64 1
-  %472 = icmp ugt ptr %.val1630, %471
+  %472 = icmp ult ptr %471, %.val1630
   br i1 %472, label %peek_at.exit1811, label %peek_at.exit1809.thread
 
 peek_at.exit1811:                                 ; preds = %470
@@ -3403,7 +3403,7 @@ peek_at.exit1809.thread:                          ; preds = %390, %470, %467, %p
   br i1 %.not2774, label %559, label %537
 
 537:                                              ; preds = %532
-  %538 = icmp ugt ptr %82, %93
+  %538 = icmp ult ptr %93, %82
   br i1 %538, label %peek.exit.i, label %peek.exit.i.thread
 
 peek.exit.i:                                      ; preds = %537
@@ -3416,7 +3416,7 @@ peek.exit.i:                                      ; preds = %537
   store ptr %542, ptr %22, align 8
   store i32 %534, ptr %533, align 4
   store i32 16, ptr %0, align 8
-  %543 = icmp ugt ptr %82, %542
+  %543 = icmp ult ptr %542, %82
   br i1 %543, label %peek.exit.i1828, label %match.exit1830.thread
 
 peek.exit.i1828:                                  ; preds = %541
@@ -3611,7 +3611,7 @@ peek.exit.i.thread:                               ; preds = %537, %peek.exit.i
   br label %parser_lex_callback.exit
 
 633:                                              ; preds = %92
-  %634 = icmp ugt ptr %82, %93
+  %634 = icmp ult ptr %93, %82
   br i1 %634, label %peek.exit.i1847, label %peek.exit.i1861.thread
 
 peek.exit.i1847:                                  ; preds = %633
@@ -3622,7 +3622,7 @@ peek.exit.i1847:                                  ; preds = %633
 637:                                              ; preds = %peek.exit.i1847
   %638 = getelementptr i8, ptr %.ph, i64 2
   store ptr %638, ptr %22, align 8
-  %639 = icmp ugt ptr %82, %638
+  %639 = icmp ult ptr %638, %82
   br i1 %639, label %peek.exit.i1852, label %peek.exit.i1852.thread
 
 peek.exit.i1852:                                  ; preds = %637
@@ -3752,7 +3752,7 @@ peek.exit.i1861.thread:                           ; preds = %633, %peek.exit.i18
 
 694:                                              ; preds = %692
   store i32 16, ptr %0, align 8
-  %695 = icmp ugt ptr %82, %93
+  %695 = icmp ult ptr %93, %82
   br i1 %695, label %peek.exit.i1870, label %match.exit1872.thread
 
 peek.exit.i1870:                                  ; preds = %694
@@ -3780,7 +3780,7 @@ peek.exit.i1870:                                  ; preds = %694
   br label %match.exit1872.thread
 
 match.exit1872.thread:                            ; preds = %694, %peek.exit.i1870, %705
-  %706 = icmp ugt ptr %82, %93
+  %706 = icmp ult ptr %93, %82
   br i1 %706, label %peek.exit.i1877, label %peek.exit.i1877.thread.peek.exit.i1884.thread_crit_edge
 
 peek.exit.i1877:                                  ; preds = %match.exit1872.thread
@@ -4053,7 +4053,7 @@ lex_embdoc.exit.thread:                           ; preds = %parser_lex_callback
   %.not2764 = icmp eq i32 %815, 0
   %.2779 = select i1 %.not2764, i32 1, i32 16
   store i32 %.2779, ptr %0, align 8
-  %816 = icmp ugt ptr %.val.i1901, %.val3.i1916
+  %816 = icmp ult ptr %.val3.i1916, %.val.i1901
   br i1 %816, label %peek.exit.i1903, label %peek.exit.i1917.thread
 
 peek.exit.i1903:                                  ; preds = %814
@@ -4104,7 +4104,7 @@ peek.exit.i1917:                                  ; preds = %peek.exit.i1910
 837:                                              ; preds = %peek.exit.i1917
   %838 = getelementptr i8, ptr %.val3.i1916, i64 1
   store ptr %838, ptr %22, align 8
-  %839 = icmp ugt ptr %.val.i1901, %838
+  %839 = icmp ult ptr %838, %.val.i1901
   br i1 %839, label %peek.exit.i1922, label %match.exit1924.thread
 
 peek.exit.i1922:                                  ; preds = %837
@@ -4145,7 +4145,7 @@ peek.exit.i1917.thread:                           ; preds = %814, %peek.exit.i19
   br label %parser_lex_callback.exit
 
 855:                                              ; preds = %92
-  %856 = icmp ugt ptr %82, %93
+  %856 = icmp ult ptr %93, %82
   br i1 %856, label %peek.exit.i1931, label %.peek.exit.i1931.thread_crit_edge
 
 .peek.exit.i1931.thread_crit_edge:                ; preds = %855
@@ -4178,7 +4178,7 @@ peek.exit.i1931:                                  ; preds = %855
   br i1 %868, label %869, label %957
 
 869:                                              ; preds = %867, %862
-  %870 = icmp ugt ptr %82, %860
+  %870 = icmp ult ptr %860, %82
   br i1 %870, label %peek.exit.i1936, label %match.exit1943.thread
 
 peek.exit.i1936:                                  ; preds = %869
@@ -4200,7 +4200,7 @@ match.exit1943.thread.sink.split:                 ; preds = %peek.exit.i1941, %p
 match.exit1943.thread:                            ; preds = %match.exit1943.thread.sink.split, %869, %peek.exit.i1941
   %876 = phi ptr [ %860, %peek.exit.i1941 ], [ %860, %869 ], [ %875, %match.exit1943.thread.sink.split ]
   %.01475 = phi i32 [ 0, %peek.exit.i1941 ], [ 0, %869 ], [ %.01475.ph, %match.exit1943.thread.sink.split ]
-  %877 = icmp ugt ptr %82, %876
+  %877 = icmp ult ptr %876, %82
   br i1 %877, label %peek.exit.i1946, label %.thread2700
 
 peek.exit.i1946:                                  ; preds = %match.exit1943.thread
@@ -4286,7 +4286,7 @@ match.exit1948:                                   ; preds = %peek.exit.i1956, %p
   %910 = ptrtoint ptr %909 to i64
   %911 = ptrtoint ptr %884 to i64
   %912 = sub i64 %910, %911
-  %913 = icmp ugt ptr %82, %909
+  %913 = icmp ult ptr %909, %82
   br i1 %913, label %peek.exit.i1961, label %match.exit1963
 
 peek.exit.i1961:                                  ; preds = %._crit_edge3316
@@ -4402,7 +4402,7 @@ lex_mode_push.exit:                               ; preds = %926, %929, %930
 
 957:                                              ; preds = %.thread2700, %888, %867, %859
   %.val.i1967 = phi ptr [ %82, %.thread2700 ], [ %.val.i1967.pre, %888 ], [ %82, %867 ], [ %82, %859 ]
-  %958 = icmp ugt ptr %.val.i1967, %860
+  %958 = icmp ult ptr %860, %.val.i1967
   br i1 %958, label %peek.exit.i1969, label %peek.exit.i1969.thread
 
 peek.exit.i1969:                                  ; preds = %957
@@ -4484,7 +4484,7 @@ peek.exit.i1978:                                  ; preds = %982
 985:                                              ; preds = %peek.exit.i1978
   %986 = getelementptr i8, ptr %.ph, i64 2
   store ptr %986, ptr %22, align 8
-  %987 = icmp ugt ptr %82, %986
+  %987 = icmp ult ptr %986, %82
   br i1 %987, label %peek.exit.i1983, label %.peek.exit.i1983.thread_crit_edge
 
 .peek.exit.i1983.thread_crit_edge:                ; preds = %985
@@ -4538,7 +4538,7 @@ peek.exit.i1978.thread:                           ; preds = %982, %peek.exit.i19
   br label %parser_lex_callback.exit
 
 1006:                                             ; preds = %92
-  %1007 = icmp ugt ptr %82, %93
+  %1007 = icmp ult ptr %93, %82
   br i1 %1007, label %peek.exit.i1994, label %peek.exit.i1994.thread
 
 peek.exit.i1994:                                  ; preds = %1006
@@ -4554,7 +4554,7 @@ peek.exit.i1994:                                  ; preds = %1006
   %.not2756 = icmp eq i32 %1012, 0
   %.2780 = select i1 %.not2756, i32 1, i32 16
   store i32 %.2780, ptr %0, align 8
-  %1013 = icmp ugt ptr %82, %1011
+  %1013 = icmp ult ptr %1011, %82
   br i1 %1013, label %peek.exit.i1999, label %match.exit2001.thread
 
 peek.exit.i1999:                                  ; preds = %1010
@@ -4740,7 +4740,7 @@ match.exit2008.thread:                            ; preds = %peek.exit.i1994.thr
   br label %parser_lex_callback.exit
 
 1089:                                             ; preds = %92
-  %1090 = icmp ugt ptr %82, %93
+  %1090 = icmp ult ptr %93, %82
   br i1 %1090, label %peek.exit.i2025, label %peek.exit.i2046.thread
 
 peek.exit.i2025:                                  ; preds = %1089
@@ -4752,7 +4752,7 @@ peek.exit.i2025:                                  ; preds = %1089
   %1094 = getelementptr i8, ptr %.ph, i64 2
   store ptr %1094, ptr %22, align 8
   store i32 1, ptr %0, align 8
-  %1095 = icmp ugt ptr %82, %1094
+  %1095 = icmp ult ptr %1094, %82
   br i1 %1095, label %peek.exit.i2030, label %.peek.exit.i2030.thread_crit_edge
 
 .peek.exit.i2030.thread_crit_edge:                ; preds = %1093
@@ -4870,7 +4870,7 @@ peek.exit.i2046.thread:                           ; preds = %1089, %peek.exit.i2
   br label %parser_lex_callback.exit
 
 1143:                                             ; preds = %92
-  %1144 = icmp ugt ptr %82, %93
+  %1144 = icmp ult ptr %93, %82
   br i1 %1144, label %peek.exit.i2055, label %peek.exit.i2055.thread.peek.exit.i2071.thread_crit_edge
 
 peek.exit.i2055:                                  ; preds = %1143
@@ -4881,7 +4881,7 @@ peek.exit.i2055:                                  ; preds = %1143
 1147:                                             ; preds = %peek.exit.i2055
   %1148 = getelementptr i8, ptr %.ph, i64 2
   store ptr %1148, ptr %22, align 8
-  %1149 = icmp ugt ptr %82, %1148
+  %1149 = icmp ult ptr %1148, %82
   br i1 %1149, label %peek.exit.i2060, label %peek.exit.i2060.thread
 
 peek.exit.i2060:                                  ; preds = %1147
@@ -4991,7 +4991,7 @@ peek.exit.i2071.thread:                           ; preds = %peek.exit.i2055.thr
 
 1189:                                             ; preds = %1187
   store i32 16, ptr %0, align 8
-  %1190 = icmp ugt ptr %82, %93
+  %1190 = icmp ult ptr %93, %82
   br i1 %1190, label %peek.exit.i2080, label %.peek.exit.i2080.thread_crit_edge
 
 .peek.exit.i2080.thread_crit_edge:                ; preds = %1189
@@ -5032,7 +5032,7 @@ peek.exit.i2080.thread:                           ; preds = %.peek.exit.i2080.th
   br label %parser_lex_callback.exit
 
 1204:                                             ; preds = %1187
-  %1205 = icmp ugt ptr %82, %93
+  %1205 = icmp ult ptr %93, %82
   br i1 %1205, label %peek.exit.i2089, label %peek.exit.i2089.thread
 
 peek.exit.i2089:                                  ; preds = %1204
@@ -5082,7 +5082,7 @@ peek.exit.i2089.thread:                           ; preds = %1204, %peek.exit.i2
   %.val1672 = phi ptr [ %.val1672.pre, %1223 ], [ %93, %peek.exit.i2089.thread ]
   %.val1671 = phi ptr [ %.val1671.pre, %1223 ], [ %82, %peek.exit.i2089.thread ]
   store i32 1, ptr %0, align 8
-  %1227 = icmp ugt ptr %.val1671, %.val1672
+  %1227 = icmp ult ptr %.val1672, %.val1671
   br i1 %1227, label %1228, label %peek.exit
 
 1228:                                             ; preds = %1226
@@ -5147,7 +5147,7 @@ peek.exit:                                        ; preds = %1226, %1228
 
 1254:                                             ; preds = %1252
   store i32 16, ptr %0, align 8
-  %1255 = icmp ugt ptr %82, %93
+  %1255 = icmp ult ptr %93, %82
   br i1 %1255, label %peek.exit.i2104, label %.peek.exit.i2104.thread_crit_edge
 
 .peek.exit.i2104.thread_crit_edge:                ; preds = %1254
@@ -5188,7 +5188,7 @@ peek.exit.i2104.thread:                           ; preds = %.peek.exit.i2104.th
   br label %parser_lex_callback.exit
 
 1269:                                             ; preds = %1252
-  %1270 = icmp ugt ptr %82, %93
+  %1270 = icmp ult ptr %93, %82
   br i1 %1270, label %peek.exit.i2113, label %peek.exit.i2120.thread
 
 peek.exit.i2113:                                  ; preds = %1269
@@ -5261,7 +5261,7 @@ peek.exit.i2120.thread:                           ; preds = %1269, %peek.exit.i2
 1300:                                             ; preds = %1299
   %.val1669 = load ptr, ptr %23, align 8
   %.val1670 = load ptr, ptr %22, align 8
-  %1301 = icmp ugt ptr %.val1669, %.val1670
+  %1301 = icmp ult ptr %.val1670, %.val1669
   br i1 %1301, label %1302, label %peek.exit2127
 
 1302:                                             ; preds = %1300
@@ -5304,7 +5304,7 @@ peek.exit2127:                                    ; preds = %1300, %1302
   %1320 = and i32 %.val1738, 2064
   %1321 = icmp eq i32 %1320, 2064
   %1322 = or i1 %1319, %1321
-  %1323 = icmp ugt ptr %82, %93
+  %1323 = icmp ult ptr %93, %82
   br i1 %1323, label %peek.exit.i2134, label %peek.exit.i2134.thread
 
 peek.exit.i2134:                                  ; preds = %1317
@@ -5315,7 +5315,7 @@ peek.exit.i2134:                                  ; preds = %1317
 1326:                                             ; preds = %peek.exit.i2134
   %1327 = getelementptr i8, ptr %.ph, i64 2
   store ptr %1327, ptr %22, align 8
-  %1328 = icmp ugt ptr %82, %1327
+  %1328 = icmp ult ptr %1327, %82
   br i1 %1328, label %peek.exit.i2139, label %peek.exit.i2139.thread
 
 peek.exit.i2139:                                  ; preds = %1326
@@ -5432,7 +5432,7 @@ peek.exit.i2134.thread:                           ; preds = %1317, %peek.exit.i2
   br label %parser_lex_callback.exit
 
 1372:                                             ; preds = %92
-  %1373 = icmp ugt ptr %82, %93
+  %1373 = icmp ult ptr %93, %82
   br i1 %1373, label %peek.exit.i2166, label %peek.exit.i2166.thread.thread
 
 peek.exit.i2166:                                  ; preds = %1372
@@ -5511,7 +5511,7 @@ peek.exit2175:                                    ; preds = %peek.exit.i2166.thr
 1403:                                             ; preds = %peek.exit2175
   %.val1665 = load ptr, ptr %23, align 8
   %.val1666 = load ptr, ptr %22, align 8
-  %1404 = icmp ugt ptr %.val1665, %.val1666
+  %1404 = icmp ult ptr %.val1666, %.val1665
   br i1 %1404, label %peek.exit2178, label %peek.exit2186.thread
 
 peek.exit2178:                                    ; preds = %1403
@@ -5582,7 +5582,7 @@ peek.exit2186.thread:                             ; preds = %peek.exit2178, %140
   br label %parser_lex_callback.exit
 
 1432:                                             ; preds = %1420
-  %1433 = icmp ugt ptr %82, %93
+  %1433 = icmp ult ptr %93, %82
   br i1 %1433, label %peek.exit.i2196, label %peek.exit.i2196.thread
 
 peek.exit.i2196:                                  ; preds = %1432
@@ -5653,7 +5653,7 @@ peek.exit.i2196.thread:                           ; preds = %1432, %peek.exit.i2
   %.not2734 = icmp eq i32 %1461, 0
   %.2787 = select i1 %.not2734, i32 1, i32 16
   store i32 %.2787, ptr %0, align 8
-  %1462 = icmp ugt ptr %82, %93
+  %1462 = icmp ult ptr %93, %82
   br i1 %1462, label %peek.exit.i2207, label %match.exit2209.thread
 
 peek.exit.i2207:                                  ; preds = %1460
@@ -5687,7 +5687,7 @@ match.exit2209.thread:                            ; preds = %1460, %peek.exit.i2
   br i1 %.not2732, label %match.exit2216, label %1475
 
 1475:                                             ; preds = %1473
-  %1476 = icmp ugt ptr %82, %93
+  %1476 = icmp ult ptr %93, %82
   br i1 %1476, label %peek.exit.i2214, label %match.exit2216
 
 peek.exit.i2214:                                  ; preds = %1475
@@ -5837,7 +5837,7 @@ lex_state_spcarg_p.exit.lex_state_spcarg_p.exit.thread_crit_edge: ; preds = %lex
 1535:                                             ; preds = %1532, %1528
   %.val14.i = phi ptr [ %.val14.i.pre, %1532 ], [ %1529, %1528 ]
   %.val.i2234 = load ptr, ptr %23, align 8
-  %1536 = icmp ugt ptr %.val.i2234, %.val14.i
+  %1536 = icmp ult ptr %.val14.i, %.val.i2234
   br i1 %1536, label %peek_at.exit.i.i.i, label %match_eol.exit.i
 
 peek_at.exit.i.i.i:                               ; preds = %1535
@@ -6051,7 +6051,7 @@ peek_offset.exit2246:                             ; preds = %1583
 
 1595:                                             ; preds = %1588
   %.val1655 = load ptr, ptr %23, align 8
-  %1596 = icmp ugt ptr %.val1655, %.pre3625
+  %1596 = icmp ult ptr %.pre3625, %.val1655
   br i1 %1596, label %peek.exit2249, label %.outer.backedge
 
 peek.exit2249:                                    ; preds = %1595
@@ -6670,7 +6670,7 @@ current_token_starts_line.exit2296.thread:        ; preds = %1818, %current_toke
   br i1 %1826, label %match_eol.exit.thread, label %1827
 
 1827:                                             ; preds = %1824
-  %1828 = icmp ugt ptr %1825, %1812
+  %1828 = icmp ult ptr %1812, %1825
   br i1 %1828, label %peek_at.exit.i.i2299, label %match_eol.exit
 
 peek_at.exit.i.i2299:                             ; preds = %1827
@@ -7098,7 +7098,7 @@ pm_token_buffer_escape.exit:                      ; preds = %2012, %2015
   call void @pm_buffer_append_bytes(ptr noundef nonnull %4, ptr noundef %.0.i2324, i64 noundef %2022) #27
   %.val1653 = load ptr, ptr %1933, align 8
   %.val1654 = load ptr, ptr %1897, align 8
-  %2023 = icmp ugt ptr %.val1653, %.val1654
+  %2023 = icmp ult ptr %.val1654, %.val1653
   br i1 %2023, label %peek.exit2327, label %peek.exit2327.thread
 
 peek.exit2327:                                    ; preds = %pm_token_buffer_escape.exit
@@ -7123,7 +7123,7 @@ peek.exit2327:                                    ; preds = %pm_token_buffer_esc
 2028:                                             ; preds = %peek.exit2327
   %2029 = getelementptr i8, ptr %.val1654, i64 1
   store ptr %2029, ptr %1897, align 8
-  %2030 = icmp ugt ptr %.val1653, %2029
+  %2030 = icmp ult ptr %2029, %.val1653
   br i1 %2030, label %peek.exit2330, label %peek.exit2330.thread
 
 peek.exit2330:                                    ; preds = %2028
@@ -7527,7 +7527,7 @@ pm_token_buffer_escape.exit2346:                  ; preds = %2213, %2216
   call void @pm_buffer_append_bytes(ptr noundef nonnull %5, ptr noundef %.0.i2345, i64 noundef %2223) #27
   %.val1649 = load ptr, ptr %2123, align 8
   %.val1650 = load ptr, ptr %2122, align 8
-  %2224 = icmp ugt ptr %.val1649, %.val1650
+  %2224 = icmp ult ptr %.val1650, %.val1649
   br i1 %2224, label %peek.exit2349, label %.thread2658
 
 peek.exit2349:                                    ; preds = %pm_token_buffer_escape.exit2346
@@ -7545,7 +7545,7 @@ peek.exit2349:                                    ; preds = %pm_token_buffer_esc
 2226:                                             ; preds = %peek.exit2349
   %2227 = getelementptr i8, ptr %.val1650, i64 1
   store ptr %2227, ptr %2122, align 8
-  %2228 = icmp ugt ptr %.val1649, %2227
+  %2228 = icmp ult ptr %2227, %.val1649
   br i1 %2228, label %peek.exit2352, label %peek.exit2352.thread
 
 peek.exit2352:                                    ; preds = %2226
@@ -7926,7 +7926,7 @@ thread-pre-split2664:                             ; preds = %2368
 
 2403:                                             ; preds = %2393
   %.val1684 = load ptr, ptr %2346, align 8
-  %2404 = icmp ugt ptr %.val1684, %.014783277
+  %2404 = icmp ult ptr %.014783277, %.val1684
   br i1 %2404, label %peek_at.exit.i2371, label %match_eol_at.exit2373
 
 peek_at.exit.i2371:                               ; preds = %2403
@@ -7967,7 +7967,7 @@ match_eol_at.exit2373:                            ; preds = %peek_at.exit11.i237
 2419:                                             ; preds = %2415
   %.val1645 = load ptr, ptr %2346, align 8
   %.val1646 = load ptr, ptr %2345, align 8
-  %2420 = icmp ugt ptr %.val1645, %.val1646
+  %2420 = icmp ult ptr %.val1646, %.val1645
   br i1 %2420, label %peek.exit2376, label %peek.exit2376.thread
 
 peek.exit2376:                                    ; preds = %2419
@@ -8099,7 +8099,7 @@ pm_token_buffer_escape.exit2387:                  ; preds = %2470, %2473
   call void @pm_buffer_append_bytes(ptr noundef nonnull %6, ptr noundef %.0.i2386, i64 noundef %2480) #27
   %.val1643 = load ptr, ptr %2346, align 8
   %.val1644 = load ptr, ptr %2345, align 8
-  %2481 = icmp ugt ptr %.val1643, %.val1644
+  %2481 = icmp ult ptr %.val1644, %.val1643
   br i1 %2481, label %peek.exit2390, label %peek.exit2390.thread
 
 peek.exit2390:                                    ; preds = %pm_token_buffer_escape.exit2387
@@ -8120,7 +8120,7 @@ peek.exit2390:                                    ; preds = %pm_token_buffer_esc
 2486:                                             ; preds = %peek.exit2390
   %2487 = getelementptr i8, ptr %.val1644, i64 1
   store ptr %2487, ptr %2345, align 8
-  %2488 = icmp ugt ptr %.val1643, %2487
+  %2488 = icmp ult ptr %2487, %.val1643
   br i1 %2488, label %peek.exit2393, label %peek.exit2393.thread
 
 peek.exit2393:                                    ; preds = %2486
@@ -8571,7 +8571,7 @@ pm_heredoc_strspn_inline_whitespace.exit.thread:  ; preds = %.preheader.i2415, %
 
 2700:                                             ; preds = %pm_heredoc_strspn_inline_whitespace.exit.thread
   %.val1627 = load ptr, ptr %2604, align 8
-  %2701 = icmp ugt ptr %.val1627, %.125252679
+  %2701 = icmp ult ptr %.125252679, %.val1627
   br i1 %2701, label %peek_at.exit2418, label %peek_at.exit2418.thread
 
 peek_at.exit2418:                                 ; preds = %2700
@@ -8795,7 +8795,7 @@ pm_heredoc_strspn_inline_whitespace.exit2429.thread: ; preds = %.preheader.i2425
 
 2803:                                             ; preds = %pm_heredoc_strspn_inline_whitespace.exit2429.thread
   %.val = load ptr, ptr %2604, align 8
-  %2804 = icmp ugt ptr %.val, %.125232689
+  %2804 = icmp ult ptr %.125232689, %.val
   br i1 %2804, label %peek_at.exit2431, label %peek_at.exit2431.thread
 
 peek_at.exit2431:                                 ; preds = %2803
@@ -8863,7 +8863,7 @@ pm_token_buffer_escape.exit2435:                  ; preds = %2823, %2826
   call void @pm_buffer_append_bytes(ptr noundef nonnull %8, ptr noundef %.0.i2434, i64 noundef %2833) #27
   %.val1639 = load ptr, ptr %2604, align 8
   %.val1640 = load ptr, ptr %2603, align 8
-  %2834 = icmp ugt ptr %.val1639, %.val1640
+  %2834 = icmp ult ptr %.val1640, %.val1639
   br i1 %2834, label %2835, label %peek.exit2438
 
 2835:                                             ; preds = %pm_token_buffer_escape.exit2435
@@ -8883,7 +8883,7 @@ peek.exit2438:                                    ; preds = %pm_token_buffer_esc
 2838:                                             ; preds = %2837
   %2839 = getelementptr i8, ptr %.val1640, i64 1
   store ptr %2839, ptr %2603, align 8
-  %2840 = icmp ugt ptr %.val1639, %2839
+  %2840 = icmp ult ptr %2839, %.val1639
   br i1 %2840, label %peek.exit2441, label %peek.exit2441.thread
 
 peek.exit2441:                                    ; preds = %2838
@@ -8950,7 +8950,7 @@ pm_token_buffer_push_escaped.exit:                ; preds = %2847, %2856
 2868:                                             ; preds = %2867
   %2869 = getelementptr i8, ptr %.val1640, i64 1
   store ptr %2869, ptr %2603, align 8
-  %2870 = icmp ugt ptr %.val1639, %2869
+  %2870 = icmp ult ptr %2869, %.val1639
   br i1 %2870, label %peek.exit2445, label %peek.exit2445.thread
 
 peek.exit2445:                                    ; preds = %2868
@@ -9429,7 +9429,7 @@ define internal fastcc zeroext i1 @lex_state_spcarg_p(ptr nocapture noundef read
   %.val = load i32, ptr %0, align 8
   %8 = and i32 %.val, 48
   %.not7 = icmp ne i32 %8, 0
-  %brmerge.not = and i1 %.not7, %1
+  %brmerge.not = and i1 %1, %.not7
   br i1 %brmerge.not, label %9, label %13
 
 9:                                                ; preds = %7
@@ -9632,7 +9632,7 @@ define internal fastcc range(i32 23, 140) i32 @lex_question_mark(ptr noundef %0)
 22:                                               ; preds = %19
   %.val.i = load ptr, ptr %8, align 8
   %.val3.i = load ptr, ptr %6, align 8
-  %23 = icmp ugt ptr %.val.i, %.val3.i
+  %23 = icmp ult ptr %.val3.i, %.val.i
   br i1 %23, label %peek.exit.i, label %peek.exit.i.thread
 
 peek.exit.i:                                      ; preds = %22
@@ -9676,7 +9676,7 @@ peek.exit.i.thread:                               ; preds = %22, %peek.exit.i
   br i1 %.not38, label %49, label %53
 
 49:                                               ; preds = %peek.exit.i.thread
-  %50 = icmp ugt ptr %.pre51, %.pre
+  %50 = icmp ult ptr %.pre, %.pre51
   br i1 %50, label %peek.exit, label %peek.exit.thread
 
 peek.exit:                                        ; preds = %49
@@ -9830,7 +9830,7 @@ peek_offset.exit.i:                               ; preds = %15
 22:                                               ; preds = %20, %20
   %23 = getelementptr i8, ptr %11, i64 1
   store ptr %23, ptr %10, align 8
-  %24 = icmp ugt ptr %13, %23
+  %24 = icmp ult ptr %23, %13
   br i1 %24, label %25, label %peek.exit.i
 
 25:                                               ; preds = %22
@@ -9879,7 +9879,7 @@ pm_strspn_decimal_number_validate.exit.i:         ; preds = %36, %28
 48:                                               ; preds = %20, %20
   %49 = getelementptr i8, ptr %11, i64 1
   store ptr %49, ptr %10, align 8
-  %50 = icmp ugt ptr %13, %49
+  %50 = icmp ult ptr %49, %13
   br i1 %50, label %51, label %peek.exit54.i
 
 51:                                               ; preds = %48
@@ -9932,7 +9932,7 @@ pm_strspn_binary_number_validate.exit.i:          ; preds = %62, %54
 75:                                               ; preds = %20, %20
   %76 = getelementptr i8, ptr %11, i64 1
   store ptr %76, ptr %10, align 8
-  %77 = icmp ugt ptr %13, %76
+  %77 = icmp ult ptr %76, %13
   br i1 %77, label %78, label %peek.exit57.i
 
 78:                                               ; preds = %75
@@ -10010,7 +10010,7 @@ pm_strspn_octal_number_validate.exit60.i:         ; preds = %108, %102
 114:                                              ; preds = %20, %20
   %115 = getelementptr i8, ptr %11, i64 1
   store ptr %115, ptr %10, align 8
-  %116 = icmp ugt ptr %13, %115
+  %116 = icmp ult ptr %115, %13
   br i1 %116, label %117, label %peek.exit62.i
 
 117:                                              ; preds = %114
@@ -10099,7 +10099,7 @@ lex_numeric_prefix.exit:                          ; preds = %20, %20, %20, %pm_s
 156:                                              ; preds = %lex_numeric_prefix.exit.thread, %lex_numeric_prefix.exit
   %.val.i = phi ptr [ %.val.i.pre, %lex_numeric_prefix.exit.thread ], [ %.val.i.pre77, %lex_numeric_prefix.exit ]
   %.val3.i47 = phi ptr [ %152, %lex_numeric_prefix.exit.thread ], [ %154, %lex_numeric_prefix.exit ]
-  %157 = icmp ugt ptr %.val.i, %.val3.i47
+  %157 = icmp ult ptr %.val3.i47, %.val.i
   br i1 %157, label %peek.exit.i40, label %match.exit45.thread
 
 peek.exit.i40:                                    ; preds = %156
@@ -10110,7 +10110,7 @@ peek.exit.i40:                                    ; preds = %156
 160:                                              ; preds = %peek.exit.i40
   %161 = getelementptr i8, ptr %.val3.i47, i64 1
   store ptr %161, ptr %10, align 8
-  %162 = icmp ugt ptr %.val.i, %161
+  %162 = icmp ult ptr %161, %.val.i
   br i1 %162, label %peek.exit.i43, label %match.exit45.thread
 
 peek.exit.i43:                                    ; preds = %160
@@ -10134,7 +10134,7 @@ peek.exit.i48:                                    ; preds = %peek.exit.i40
 171:                                              ; preds = %lex_numeric_prefix.exit
   %172 = load i8, ptr %8, align 1
   %173 = trunc i8 %172 to i1
-  %174 = icmp ule ptr %.val.i.pre77, %154
+  %174 = icmp uge ptr %154, %.val.i.pre77
   %or.cond82.not = select i1 %173, i1 true, i1 %174
   br i1 %or.cond82.not, label %match.exit55.thread, label %peek.exit.i53
 
@@ -10146,7 +10146,7 @@ peek.exit.i53:                                    ; preds = %171
 177:                                              ; preds = %peek.exit.i53
   %178 = getelementptr i8, ptr %154, i64 1
   store ptr %178, ptr %10, align 8
-  %179 = icmp ugt ptr %.val.i.pre77, %178
+  %179 = icmp ult ptr %178, %.val.i.pre77
   br i1 %179, label %peek.exit.i58, label %match.exit45.thread
 
 peek.exit.i58:                                    ; preds = %177
@@ -10159,7 +10159,7 @@ peek.exit.i58:                                    ; preds = %177
   br label %match.exit45.thread.sink.split
 
 match.exit55.thread:                              ; preds = %peek.exit.i53, %171
-  %184 = icmp ugt ptr %.val.i.pre77, %154
+  %184 = icmp ult ptr %154, %.val.i.pre77
   br i1 %184, label %peek.exit.i63, label %match.exit45.thread
 
 peek.exit.i63:                                    ; preds = %match.exit55.thread
@@ -10186,7 +10186,7 @@ match.exit45.thread:                              ; preds = %match.exit45.thread
   %189 = phi ptr [ %.val3.i47, %peek.exit.i43 ], [ %.val3.i47, %160 ], [ %.val3.i47, %peek.exit.i48 ], [ %154, %peek.exit.i58 ], [ %154, %177 ], [ %154, %peek.exit.i63 ], [ %154, %match.exit55.thread ], [ %.val3.i47, %156 ], [ %.ph, %match.exit45.thread.sink.split ]
   %.0.i67 = phi i32 [ 58, %peek.exit.i43 ], [ 58, %160 ], [ 58, %peek.exit.i48 ], [ %153, %peek.exit.i58 ], [ %153, %177 ], [ %153, %peek.exit.i63 ], [ %153, %match.exit55.thread ], [ 58, %156 ], [ %.0.i67.ph, %match.exit45.thread.sink.split ]
   %.032 = phi i32 [ 60, %peek.exit.i43 ], [ 60, %160 ], [ 58, %peek.exit.i48 ], [ 46, %peek.exit.i58 ], [ 46, %177 ], [ %153, %peek.exit.i63 ], [ %153, %match.exit55.thread ], [ 58, %156 ], [ %.032.ph, %match.exit45.thread.sink.split ]
-  %190 = icmp ugt ptr %.val, %.val39
+  %190 = icmp ult ptr %.val39, %.val
   br i1 %190, label %peek.exit, label %peek.exit.thread
 
 peek.exit:                                        ; preds = %match.exit45.thread
@@ -10289,7 +10289,7 @@ define internal fastcc zeroext i8 @pm_lex_percent_delimiter(ptr noundef %0) unna
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 320
   %.val14 = load ptr, ptr %3, align 8
-  %4 = icmp ugt ptr %.val, %.val14
+  %4 = icmp ult ptr %.val14, %.val
   br i1 %4, label %peek_at.exit.i.i, label %match_eol.exit
 
 peek_at.exit.i.i:                                 ; preds = %1
@@ -10947,7 +10947,7 @@ define internal fastcc noundef range(i32 24, 58) i32 @lex_at_variable(ptr nounde
   %.val.i = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 320
   %.val3.i = load ptr, ptr %3, align 8
-  %4 = icmp ugt ptr %.val.i, %.val3.i
+  %4 = icmp ult ptr %.val3.i, %.val.i
   br i1 %4, label %peek.exit.i, label %match.exit
 
 peek.exit.i:                                      ; preds = %1
@@ -11425,7 +11425,7 @@ char_is_identifier_utf8.exit.thread:              ; preds = %61, %char_is_identi
 
 83:                                               ; preds = %81, %79
   %.val.i = load ptr, ptr %3, align 8
-  %84 = icmp ugt ptr %.val.i, %.val329
+  %84 = icmp ult ptr %.val329, %.val.i
   br i1 %84, label %peek.exit.i, label %match.exit354.thread
 
 peek.exit.i:                                      ; preds = %83
@@ -11443,11 +11443,11 @@ match.exit:                                       ; preds = %peek.exit.i352, %pe
   %.val346 = load i32, ptr %0, align 8
   %89 = and i32 %.val346, 1032
   %.not815 = icmp eq i32 %89, 0
-  %brmerge = or i1 %.not815, %1
+  %brmerge = or i1 %1, %.not815
   %90 = and i32 %.val346, 48
   %91 = icmp eq i32 %90, 0
   %or.cond810.not = and i1 %91, %brmerge
-  %92 = icmp ule ptr %.val.i, %80
+  %92 = icmp uge ptr %80, %.val.i
   %or.cond835.not = or i1 %92, %or.cond810.not
   br i1 %or.cond835.not, label %peek.exit.thread, label %peek.exit
 
@@ -11527,12 +11527,12 @@ peek_offset.exit364:                              ; preds = %110
 peek_offset.exit370:                              ; preds = %113
   %116 = load i8, ptr %114, align 1
   %117 = icmp eq i8 %116, 62
-  %118 = icmp ugt ptr %.val340, %.val329
+  %118 = icmp ult ptr %.val329, %.val340
   %or.cond811 = and i1 %118, %117
   br i1 %or.cond811, label %peek.exit.i373, label %peek_offset.exit370.thread
 
 peek_offset.exit368.thread:                       ; preds = %peek_offset.exit364, %110
-  %.old = icmp ugt ptr %.val340, %.val329
+  %.old = icmp ult ptr %.val329, %.val340
   br i1 %.old, label %peek.exit.i373, label %peek_offset.exit370.thread
 
 peek.exit.i373:                                   ; preds = %peek_offset.exit370, %peek_offset.exit368.thread
@@ -11547,7 +11547,7 @@ match.exit375:                                    ; preds = %peek.exit.i373
 peek_offset.exit370.thread:                       ; preds = %peek_offset.exit364, %peek_offset.exit364, %peek_offset.exit368.thread, %peek.exit.i373, %113, %peek_offset.exit370, %match.exit354.thread
   %121 = and i32 %.val345, 1032
   %.not818 = icmp eq i32 %121, 0
-  %brmerge328 = or i1 %.not818, %1
+  %brmerge328 = or i1 %1, %.not818
   %122 = and i32 %.val345, 48
   %123 = icmp eq i32 %122, 0
   %or.cond814.not = and i1 %123, %brmerge328
@@ -11555,7 +11555,7 @@ peek_offset.exit370.thread:                       ; preds = %peek_offset.exit364
 
 124:                                              ; preds = %peek_offset.exit370.thread
   %.val = load ptr, ptr %3, align 8
-  %125 = icmp ugt ptr %.val, %.val329
+  %125 = icmp ult ptr %.val329, %.val
   br i1 %125, label %peek.exit377, label %peek.exit377.thread
 
 peek.exit377:                                     ; preds = %124
@@ -12481,7 +12481,7 @@ define internal fastcc void @escape_read(ptr noundef %0, ptr noundef %1, i8 noun
   %.val283 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 320
   %.promoted = load ptr, ptr %5, align 8
-  %6 = icmp ugt ptr %.val283, %.promoted
+  %6 = icmp ult ptr %.promoted, %.val283
   br i1 %6, label %peek.exit, label %escape_write_escape_encoded.exit
 
 peek.exit:                                        ; preds = %3, %tailrecurse.backedge
@@ -12969,7 +12969,7 @@ escape_write_byte_encoded.exit336:                ; preds = %234, %253
   %257 = add nsw i8 %8, -48
   %258 = getelementptr i8, ptr %7, i64 1
   store ptr %258, ptr %5, align 8
-  %259 = icmp ugt ptr %.val283, %258
+  %259 = icmp ult ptr %258, %.val283
   br i1 %259, label %260, label %peek.exit338
 
 260:                                              ; preds = %256
@@ -12990,7 +12990,7 @@ peek.exit338:                                     ; preds = %256, %260
   %269 = getelementptr i8, ptr %265, i64 1
   store ptr %269, ptr %5, align 8
   %.val279 = load ptr, ptr %4, align 8
-  %270 = icmp ugt ptr %.val279, %269
+  %270 = icmp ult ptr %269, %.val279
   br i1 %270, label %271, label %peek.exit340
 
 271:                                              ; preds = %263
@@ -13054,7 +13054,7 @@ escape_write_byte_encoded.exit342:                ; preds = %peek.exit338, %281,
   %302 = getelementptr i8, ptr %7, i64 -1
   %303 = getelementptr i8, ptr %7, i64 1
   store ptr %303, ptr %5, align 8
-  %304 = icmp ugt ptr %.val283, %303
+  %304 = icmp ult ptr %303, %.val283
   br i1 %304, label %305, label %peek.exit344
 
 305:                                              ; preds = %301
@@ -13076,7 +13076,7 @@ peek.exit344:                                     ; preds = %301, %305
   %315 = getelementptr i8, ptr %314, i64 1
   store ptr %315, ptr %5, align 8
   %.val275 = load ptr, ptr %4, align 8
-  %316 = icmp ugt ptr %.val275, %315
+  %316 = icmp ult ptr %315, %.val275
   br i1 %316, label %317, label %peek.exit346
 
 317:                                              ; preds = %308
@@ -13207,7 +13207,7 @@ escape_unicode.exit:                              ; preds = %.lr.ph.i
 384:                                              ; preds = %359, %355, %351, %348, %344
   %.val274 = phi ptr [ %.val274.pre, %359 ], [ %.val274.pre745, %355 ], [ %.val274.pre746, %351 ], [ %.val274.pre747, %348 ], [ %346, %344 ]
   %.val273 = load ptr, ptr %4, align 8
-  %385 = icmp ugt ptr %.val273, %.val274
+  %385 = icmp ult ptr %.val274, %.val273
   br i1 %385, label %peek.exit350, label %peek.exit350.thread
 
 peek.exit350:                                     ; preds = %384
@@ -13343,7 +13343,7 @@ escape_unicode.exit357:                           ; preds = %.lr.ph.i351
   %.pre-phi765 = phi i32 [ %400, %449 ], [ %400, %.critedge ], [ %.pre753, %.critedge.thread ]
   %.val272 = phi ptr [ %.val272.pre, %449 ], [ %storemerge.lcssa.ph, %.critedge ], [ %396, %.critedge.thread ]
   %.val271 = phi ptr [ %.val271.pre, %449 ], [ %.val271751, %.critedge ], [ %397, %.critedge.thread ]
-  %454 = icmp ugt ptr %.val271, %.val272
+  %454 = icmp ult ptr %.val272, %.val271
   br i1 %454, label %peek.exit359, label %peek.exit359.thread
 
 peek.exit359:                                     ; preds = %453
@@ -13395,7 +13395,7 @@ peek.exit350.thread:                              ; preds = %384, %peek.exit350
   br label %escape_write_escape_encoded.exit
 
 480:                                              ; preds = %472
-  %481 = icmp ugt ptr %.val283, %473
+  %481 = icmp ult ptr %473, %.val283
   br i1 %481, label %peek.exit361, label %char_is_ascii_printable.exit
 
 peek.exit361:                                     ; preds = %480
@@ -13435,7 +13435,7 @@ tailrecurse.backedge:                             ; preds = %488, %579, %537
   %495 = getelementptr i8, ptr %7, i64 %.sink904
   store ptr %495, ptr %5, align 8
   %496 = or disjoint i8 %.tr422631, %.sink
-  %497 = icmp ugt ptr %.val283, %495
+  %497 = icmp ult ptr %495, %.val283
   br i1 %497, label %peek.exit, label %escape_write_escape_encoded.exit
 
 498:                                              ; preds = %peek.exit361
@@ -13470,7 +13470,7 @@ char_is_ascii_printable.exit.thread:              ; preds = %498, %char_is_ascii
 513:                                              ; preds = %peek.exit
   %514 = getelementptr i8, ptr %7, i64 1
   store ptr %514, ptr %5, align 8
-  %515 = icmp ugt ptr %.val283, %514
+  %515 = icmp ult ptr %514, %.val283
   br i1 %515, label %peek.exit369, label %peek.exit369.thread
 
 peek.exit369:                                     ; preds = %513
@@ -13499,7 +13499,7 @@ peek.exit369.thread:                              ; preds = %513, %peek.exit369
   br label %escape_write_escape_encoded.exit
 
 529:                                              ; preds = %521
-  %530 = icmp ugt ptr %.val283, %522
+  %530 = icmp ult ptr %522, %.val283
   br i1 %530, label %peek.exit371, label %char_is_ascii_printable.exit375
 
 peek.exit371:                                     ; preds = %529
@@ -13565,7 +13565,7 @@ char_is_ascii_printable.exit375.thread:           ; preds = %544, %char_is_ascii
 559:                                              ; preds = %peek.exit
   %560 = getelementptr i8, ptr %7, i64 1
   store ptr %560, ptr %5, align 8
-  %561 = icmp ugt ptr %.val283, %560
+  %561 = icmp ult ptr %560, %.val283
   br i1 %561, label %peek.exit380, label %peek.exit380.thread
 
 peek.exit380:                                     ; preds = %559
@@ -13594,7 +13594,7 @@ peek.exit380.thread:                              ; preds = %559, %peek.exit380
   br label %escape_write_escape_encoded.exit
 
 575:                                              ; preds = %567
-  %576 = icmp ugt ptr %.val283, %568
+  %576 = icmp ult ptr %568, %.val283
   br i1 %576, label %peek.exit382, label %char_is_ascii_printable.exit383
 
 peek.exit382:                                     ; preds = %575
@@ -13887,7 +13887,7 @@ char_is_identifier_start.exit:                    ; preds = %36, %46, %53
 char_is_identifier_start.exit.thread:             ; preds = %31, %22, %char_is_identifier_start.exit
   %58 = getelementptr inbounds i8, ptr %0, i64 312
   %59 = load ptr, ptr %58, align 8
-  %60 = icmp ult ptr %59, %1
+  %60 = icmp ugt ptr %1, %59
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %char_is_identifier_start.exit.thread
@@ -14063,7 +14063,7 @@ char_is_global_name_punctuation.exit:             ; preds = %135
 char_is_identifier_start.exit82.thread:           ; preds = %105, %96, %char_is_global_name_punctuation.exit, %133, %char_is_identifier_start.exit82
   %147 = getelementptr inbounds i8, ptr %0, i64 312
   %148 = load ptr, ptr %147, align 8
-  %149 = icmp ult ptr %148, %1
+  %149 = icmp ugt ptr %1, %148
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %char_is_identifier_start.exit82.thread
@@ -14121,7 +14121,7 @@ char_is_global_name_punctuation.exit.thread:      ; preds = %135, %char_is_globa
 170:                                              ; preds = %8
   %171 = getelementptr inbounds i8, ptr %0, i64 312
   %172 = load ptr, ptr %171, align 8
-  %173 = icmp ult ptr %172, %1
+  %173 = icmp ugt ptr %1, %172
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %170
@@ -14225,7 +14225,7 @@ define internal fastcc range(i32 44, 59) i32 @lex_optional_float_suffix(ptr noun
   %.val21 = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 320
   %.val22 = load ptr, ptr %6, align 8
-  %7 = icmp ugt ptr %.val21, %.val22
+  %7 = icmp ult ptr %.val22, %.val21
   br i1 %7, label %peek.exit, label %peek.exit.thread
 
 peek.exit:                                        ; preds = %2
@@ -14280,7 +14280,7 @@ peek.exit.thread:                                 ; preds = %2, %pm_strspn_decim
   %.val3.i27 = phi ptr [ %30, %pm_strspn_decimal_number_validate.exit ], [ %.val22, %peek.exit ], [ %.val22, %2 ]
   %.val.i = phi ptr [ %.val.i.pre, %pm_strspn_decimal_number_validate.exit ], [ %.val21, %peek.exit ], [ %.val21, %2 ]
   %.0 = phi i32 [ 44, %pm_strspn_decimal_number_validate.exit ], [ 58, %peek.exit ], [ 58, %2 ]
-  %31 = icmp ugt ptr %.val.i, %.val3.i27
+  %31 = icmp ult ptr %.val3.i27, %.val.i
   br i1 %31, label %peek.exit.i, label %match.exit30.thread
 
 peek.exit.i:                                      ; preds = %peek.exit.thread
@@ -14296,7 +14296,7 @@ peek.exit.i28:                                    ; preds = %peek.exit.i
 match.exit:                                       ; preds = %peek.exit.i28, %peek.exit.i
   %storemerge = getelementptr i8, ptr %.val3.i27, i64 1
   store ptr %storemerge, ptr %6, align 8
-  %36 = icmp ugt ptr %.val.i, %storemerge
+  %36 = icmp ult ptr %storemerge, %.val.i
   br i1 %36, label %peek.exit.i33, label %match.exit40
 
 peek.exit.i33:                                    ; preds = %match.exit
@@ -14318,7 +14318,7 @@ match.exit40:                                     ; preds = %match.exit40.sink.s
   store i8 1, ptr %1, align 1
   %.val = load ptr, ptr %5, align 8
   %.val20 = load ptr, ptr %6, align 8
-  %42 = icmp ugt ptr %.val, %.val20
+  %42 = icmp ult ptr %.val20, %.val
   br i1 %42, label %43, label %peek.exit42
 
 43:                                               ; preds = %match.exit40
@@ -14814,7 +14814,7 @@ define internal fastcc ptr @parse_expression(ptr noundef %0, i32 noundef %1, i1 
   %.sroa.0.0.copyload60 = load i32, ptr %29, align 4
   %.sroa.4.0..sroa_idx61 = getelementptr inbounds i8, ptr %29, i64 8
   %.sroa.4.0.copyload62 = load i8, ptr %.sroa.4.0..sroa_idx61, align 4
-  %30 = icmp uge i32 %.sroa.0.0.copyload60, %1
+  %30 = icmp ule i32 %1, %.sroa.0.0.copyload60
   %31 = trunc i8 %.sroa.4.0.copyload62 to i1
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph, label %.loopexit
@@ -14945,7 +14945,7 @@ define internal fastcc ptr @parse_expression(ptr noundef %0, i32 noundef %1, i1 
   %.sroa.0.0.copyload = load i32, ptr %96, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %96, i64 8
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 4
-  %97 = icmp uge i32 %.sroa.0.0.copyload, %1
+  %97 = icmp ule i32 %1, %.sroa.0.0.copyload
   %98 = trunc i8 %.sroa.4.0.copyload to i1
   %99 = select i1 %97, i1 %98, i1 false
   br i1 %99, label %.lr.ph, label %.loopexit, !llvm.loop !54
@@ -32519,7 +32519,7 @@ pm_implicit_rest_node_create.exit:                ; preds = %593
 624:                                              ; preds = %284, %570, %577, %491, %498, %324, %308, %199, %update_parameter_state.exit290, %124, %131, %47, %update_parameter_state.exit.thread, %436
   %.1571 = phi i32 [ %.11, %570 ], [ %.11, %577 ], [ %.10, %491 ], [ %.10, %498 ], [ %.9, %436 ], [ %.2572, %284 ], [ %.2572, %308 ], [ %.2572, %324 ], [ %.5, %199 ], [ %.0570, %update_parameter_state.exit290 ], [ %.4, %124 ], [ %.4, %131 ], [ 7, %47 ], [ %.3574, %update_parameter_state.exit.thread ]
   %.1 = phi i1 [ %.0198, %570 ], [ %.0198, %577 ], [ %.0198, %491 ], [ %.0198, %498 ], [ %.2, %436 ], [ %spec.select, %284 ], [ %.0198, %308 ], [ %.0198, %324 ], [ %.0198, %199 ], [ %.0198, %update_parameter_state.exit290 ], [ %.0198, %124 ], [ %.0198, %131 ], [ %.0198, %47 ], [ %.0198, %update_parameter_state.exit.thread ]
-  %brmerge.demorgan = and i1 %.1, %2
+  %brmerge.demorgan = and i1 %2, %.1
   br i1 %brmerge.demorgan, label %625, label %accept1.exit492
 
 625:                                              ; preds = %624

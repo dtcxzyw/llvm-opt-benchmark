@@ -1157,22 +1157,22 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 define internal fastcc noundef ptr @_ZL15get_signal_nameiPcm(i32 noundef %0, ptr noundef returned %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.__sigset_t, align 8
   %5 = tail call i32 @__libc_current_sigrtmin() #20
-  %.not = icmp sgt i32 %5, %0
+  %.not = icmp slt i32 %0, %5
   br i1 %.not, label %18, label %6
 
 6:                                                ; preds = %3
   %7 = tail call i32 @__libc_current_sigrtmax() #20
-  %.not31 = icmp slt i32 %7, %0
+  %.not31 = icmp sgt i32 %0, %7
   br i1 %.not31, label %18, label %8
 
 8:                                                ; preds = %6
   %9 = tail call i32 @__libc_current_sigrtmin() #20
-  %10 = icmp eq i32 %9, %0
+  %10 = icmp eq i32 %0, %9
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %8
   %12 = tail call i32 @__libc_current_sigrtmax() #20
-  %13 = icmp eq i32 %12, %0
+  %13 = icmp eq i32 %0, %12
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %11

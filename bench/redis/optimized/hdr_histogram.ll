@@ -678,12 +678,12 @@ counts_inc_normalised.exit.i:                     ; preds = %if.end.i.i.i, %if.e
   %min_value.i.i = getelementptr inbounds i8, ptr %h, i64 48
   %12 = load i64, ptr %min_value.i.i, align 8
   %cmp1.not.i.i = icmp eq i64 %value, 0
-  %13 = tail call i64 @llvm.smin.i64(i64 %12, i64 %value)
+  %13 = tail call i64 @llvm.smin.i64(i64 %value, i64 %12)
   %value..i.i = select i1 %cmp1.not.i.i, i64 %12, i64 %13
   store i64 %value..i.i, ptr %min_value.i.i, align 8
   %max_value.i.i = getelementptr inbounds i8, ptr %h, i64 56
   %14 = load i64, ptr %max_value.i.i, align 8
-  %cond9.i.i = tail call i64 @llvm.smax.i64(i64 %14, i64 %value)
+  %cond9.i.i = tail call i64 @llvm.smax.i64(i64 %value, i64 %14)
   store i64 %cond9.i.i, ptr %max_value.i.i, align 8
   br label %hdr_record_values.exit
 
@@ -762,12 +762,12 @@ counts_inc_normalised.exit:                       ; preds = %if.end4, %if.end.i.
   %min_value.i = getelementptr inbounds i8, ptr %h, i64 48
   %12 = load i64, ptr %min_value.i, align 8
   %cmp1.not.i = icmp eq i64 %value, 0
-  %13 = tail call i64 @llvm.smin.i64(i64 %12, i64 %value)
+  %13 = tail call i64 @llvm.smin.i64(i64 %value, i64 %12)
   %value..i = select i1 %cmp1.not.i, i64 %12, i64 %13
   store i64 %value..i, ptr %min_value.i, align 8
   %max_value.i = getelementptr inbounds i8, ptr %h, i64 56
   %14 = load i64, ptr %max_value.i, align 8
-  %cond9.i = tail call i64 @llvm.smax.i64(i64 %14, i64 %value)
+  %cond9.i = tail call i64 @llvm.smax.i64(i64 %value, i64 %14)
   store i64 %cond9.i, ptr %max_value.i, align 8
   br label %return
 
@@ -863,7 +863,7 @@ do.end.i.i:                                       ; preds = %do.cond.i.i, %do.bo
 
 do.body3.i.i:                                     ; preds = %do.cond8.i.i, %do.end.i.i
   %16 = load atomic i64, ptr %max_value.i.i seq_cst, align 8
-  %cmp5.not.i.i = icmp slt i64 %16, %value
+  %cmp5.not.i.i = icmp sgt i64 %value, %16
   br i1 %cmp5.not.i.i, label %do.cond8.i.i, label %hdr_record_values_atomic.exit
 
 do.cond8.i.i:                                     ; preds = %do.body3.i.i
@@ -963,7 +963,7 @@ do.end.i:                                         ; preds = %do.cond.i, %do.body
 
 do.body3.i:                                       ; preds = %do.cond8.i, %do.end.i
   %16 = load atomic i64, ptr %max_value.i seq_cst, align 8
-  %cmp5.not.i = icmp slt i64 %16, %value
+  %cmp5.not.i = icmp sgt i64 %value, %16
   br i1 %cmp5.not.i, label %do.cond8.i, label %return
 
 do.cond8.i:                                       ; preds = %do.body3.i
@@ -1053,12 +1053,12 @@ if.end:                                           ; preds = %if.end.i.i.i, %if.e
   %min_value.i.i = getelementptr inbounds i8, ptr %h, i64 48
   %12 = load i64, ptr %min_value.i.i, align 8
   %cmp1.not.i.i = icmp eq i64 %value, 0
-  %13 = tail call i64 @llvm.smin.i64(i64 %12, i64 %value)
+  %13 = tail call i64 @llvm.smin.i64(i64 %value, i64 %12)
   %value..i.i = select i1 %cmp1.not.i.i, i64 %12, i64 %13
   store i64 %value..i.i, ptr %min_value.i.i, align 8
   %max_value.i.i = getelementptr inbounds i8, ptr %h, i64 56
   %14 = load i64, ptr %max_value.i.i, align 8
-  %cond9.i.i = tail call i64 @llvm.smax.i64(i64 %14, i64 %value)
+  %cond9.i.i = tail call i64 @llvm.smax.i64(i64 %value, i64 %14)
   store i64 %cond9.i.i, ptr %max_value.i.i, align 8
   %cmp = icmp slt i64 %expected_interval, 1
   %cmp1.not = icmp sle i64 %value, %expected_interval
@@ -1123,10 +1123,10 @@ hdr_record_values.exit57:                         ; preds = %if.end4.i33, %if.en
   %add1.i.i51 = add nsw i64 %25, %count
   store i64 %add1.i.i51, ptr %total_count.i.i, align 8
   %26 = load i64, ptr %min_value.i.i, align 8
-  %27 = tail call i64 @llvm.smin.i64(i64 %26, i64 %missing_value.063)
+  %27 = tail call i64 @llvm.smin.i64(i64 %missing_value.063, i64 %26)
   store i64 %27, ptr %min_value.i.i, align 8
   %28 = load i64, ptr %max_value.i.i, align 8
-  %cond9.i.i56 = tail call i64 @llvm.smax.i64(i64 %28, i64 %missing_value.063)
+  %cond9.i.i56 = tail call i64 @llvm.smax.i64(i64 %missing_value.063, i64 %28)
   store i64 %cond9.i.i56, ptr %max_value.i.i, align 8
   %missing_value.0 = sub nsw i64 %missing_value.063, %expected_interval
   %cmp4.not = icmp slt i64 %missing_value.0, %expected_interval
@@ -1231,7 +1231,7 @@ do.end.i.i:                                       ; preds = %do.cond.i.i, %do.bo
 
 do.body3.i.i:                                     ; preds = %do.cond8.i.i, %do.end.i.i
   %16 = load atomic i64, ptr %max_value.i.i seq_cst, align 8
-  %cmp5.not.i.i = icmp slt i64 %16, %value
+  %cmp5.not.i.i = icmp sgt i64 %value, %16
   br i1 %cmp5.not.i.i, label %do.cond8.i.i, label %if.end
 
 do.cond8.i.i:                                     ; preds = %do.body3.i.i
@@ -1315,7 +1315,7 @@ do.body3.i.i56.preheader:                         ; preds = %do.body.i.i52, %do.
 
 do.body3.i.i56:                                   ; preds = %do.body3.i.i56.preheader, %do.cond8.i.i58
   %33 = load atomic i64, ptr %max_value.i.i seq_cst, align 8
-  %cmp5.not.i.i57 = icmp slt i64 %33, %missing_value.067
+  %cmp5.not.i.i57 = icmp sgt i64 %missing_value.067, %33
   br i1 %cmp5.not.i.i57, label %do.cond8.i.i58, label %hdr_record_values_atomic.exit61
 
 do.cond8.i.i58:                                   ; preds = %do.body3.i.i56
@@ -1433,11 +1433,11 @@ hdr_record_values.exit.thread:                    ; preds = %while.body, %lor.lh
   store i64 %add1.i.i, ptr %total_count.i.i3, align 8
   %16 = load i64, ptr %min_value.i.i, align 8
   %cmp1.not.i.i = icmp eq i64 %2, 0
-  %17 = call i64 @llvm.smin.i64(i64 %16, i64 %2)
+  %17 = call i64 @llvm.smin.i64(i64 %2, i64 %16)
   %value..i.i = select i1 %cmp1.not.i.i, i64 %16, i64 %17
   store i64 %value..i.i, ptr %min_value.i.i, align 8
   %18 = load i64, ptr %max_value.i.i, align 8
-  %cond9.i.i = call i64 @llvm.smax.i64(i64 %18, i64 %2)
+  %cond9.i.i = call i64 @llvm.smax.i64(i64 %2, i64 %18)
   store i64 %cond9.i.i, ptr %max_value.i.i, align 8
   br label %while.cond
 
@@ -2563,7 +2563,7 @@ lor.lhs.false:                                    ; preds = %entry
   %iter.val18 = load i32, ptr %2, align 8
   %counts_len.i = getelementptr inbounds i8, ptr %iter.val17, i64 80
   %3 = load i32, ptr %counts_len.i, align 8
-  %cmp.not.i = icmp sgt i32 %3, %iter.val18
+  %cmp.not.i = icmp slt i32 %iter.val18, %3
   br i1 %cmp.not.i, label %next_value_greater_than_reporting_level_upper_bound.exit, label %return
 
 next_value_greater_than_reporting_level_upper_bound.exit: ; preds = %lor.lhs.false
@@ -2725,7 +2725,7 @@ lor.lhs.false:                                    ; preds = %entry
   %iter.val18 = load i32, ptr %2, align 8
   %counts_len.i = getelementptr inbounds i8, ptr %iter.val17, i64 80
   %3 = load i32, ptr %counts_len.i, align 8
-  %cmp.not.i = icmp sgt i32 %3, %iter.val18
+  %cmp.not.i = icmp slt i32 %iter.val18, %3
   br i1 %cmp.not.i, label %next_value_greater_than_reporting_level_upper_bound.exit, label %return
 
 next_value_greater_than_reporting_level_upper_bound.exit: ; preds = %lor.lhs.false

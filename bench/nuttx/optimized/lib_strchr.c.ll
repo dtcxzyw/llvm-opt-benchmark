@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef ptr @strchr(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1
   %4 = sext i8 %3 to i32
-  %5 = icmp eq i32 %4, %1
+  %5 = icmp eq i32 %1, %4
   br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %8
@@ -20,7 +20,7 @@ define noundef ptr @strchr(ptr noundef readonly %0, i32 noundef %1) local_unname
   %9 = getelementptr inbounds i8, ptr %.057, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = sext i8 %10 to i32
-  %12 = icmp eq i32 %11, %1
+  %12 = icmp eq i32 %1, %11
   br i1 %12, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %8, %.lr.ph, %2

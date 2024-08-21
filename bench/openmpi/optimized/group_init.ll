@@ -936,7 +936,7 @@ declare i32 @ompi_group_div_ceil(i32 noundef, i32 noundef) local_unnamed_addr #5
 define noundef ptr @ompi_group_flatten(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %. = tail call i32 @llvm.smin.i32(i32 %4, i32 %1)
+  %. = tail call i32 @llvm.smin.i32(i32 %1, i32 %4)
   %5 = sext i32 %. to i64
   %6 = shl nsw i64 %5, 3
   %7 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_group_t_class, i64 56), align 8

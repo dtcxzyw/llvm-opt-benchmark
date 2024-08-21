@@ -1830,7 +1830,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
   %461 = zext i8 %460 to i64
   %462 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %461
   %463 = load i32, ptr %462, align 4
-  %464 = icmp ne i32 %463, %432
+  %464 = icmp ne i32 %432, %463
   %465 = xor i1 %433, %464
   %466 = zext i1 %465 to i32
   br label %check_char_prop.exit
@@ -1964,7 +1964,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
 539:                                              ; preds = %544, %534
   %.041.i = phi ptr [ %538, %534 ], [ %545, %544 ]
   %540 = load i32, ptr %.041.i, align 4
-  %541 = icmp ugt i32 %540, %360
+  %541 = icmp ult i32 %360, %540
   br i1 %541, label %542, label %544
 
 542:                                              ; preds = %539
@@ -1974,7 +1974,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
 
 544:                                              ; preds = %539
   %545 = getelementptr inbounds i8, ptr %.041.i, i64 4
-  %546 = icmp eq i32 %540, %360
+  %546 = icmp eq i32 %360, %540
   br i1 %546, label %check_char_prop.exit, label %539
 
 check_char_prop.exit:                             ; preds = %544, %454, %458, %467, %474, %497, %501, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %511, %512, %530, %542

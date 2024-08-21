@@ -586,7 +586,7 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph
   %.0.not.not.lcssa = xor i1 %8, true
-  %brmerge.not = and i1 %.0.not.not.lcssa, %0
+  %brmerge.not = and i1 %0, %.0.not.not.lcssa
   br i1 %brmerge.not, label %25, label %._crit_edge.thread
 
 25:                                               ; preds = %._crit_edge
@@ -687,7 +687,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
 
 ._crit_edge:                                      ; preds = %.lr.ph59, %.lr.ph, %25, %.lr.ph.preheader
   %.0.not.not.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %.0.not.not4258, %.lr.ph59 ], [ true, %.lr.ph ], [ true, %25 ]
-  %brmerge.not = and i1 %.0.not.not.lcssa, %0
+  %brmerge.not = and i1 %0, %.0.not.not.lcssa
   br i1 %brmerge.not, label %39, label %._crit_edge.thread
 
 39:                                               ; preds = %._crit_edge
@@ -704,7 +704,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge, %41, %39
   %45 = load ptr, ptr @_SPI_current, align 8
   %.not30 = icmp eq ptr %45, null
-  %brmerge38 = or i1 %.not30, %0
+  %brmerge38 = or i1 %0, %.not30
   br i1 %brmerge38, label %.loopexit, label %46
 
 46:                                               ; preds = %._crit_edge.thread
@@ -3101,7 +3101,7 @@ declare ptr @SystemAttributeByName(ptr noundef) local_unnamed_addr #2
 define dso_local ptr @SPI_fname(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr @SPI_result, align 4
   %3 = load i32, ptr %0, align 8
-  %4 = icmp slt i32 %3, %1
+  %4 = icmp sgt i32 %1, %3
   %5 = icmp eq i32 %1, 0
   %or.cond = or i1 %5, %4
   %6 = icmp slt i32 %1, -6
@@ -3150,7 +3150,7 @@ define dso_local ptr @SPI_getvalue(ptr noundef %0, ptr noundef %1, i32 noundef %
   %6 = alloca i8, align 1
   store i32 0, ptr @SPI_result, align 4
   %7 = load i32, ptr %1, align 8
-  %8 = icmp slt i32 %7, %2
+  %8 = icmp sgt i32 %2, %7
   %9 = icmp eq i32 %2, 0
   %or.cond = or i1 %9, %8
   %10 = icmp slt i32 %2, -6
@@ -3209,7 +3209,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
   %12 = zext nneg i16 %11 to i32
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
@@ -3331,7 +3331,7 @@ declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr 
 define dso_local i64 @SPI_getbinval(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   store i32 0, ptr @SPI_result, align 4
   %5 = load i32, ptr %1, align 8
-  %6 = icmp slt i32 %5, %2
+  %6 = icmp sgt i32 %2, %5
   %7 = icmp eq i32 %2, 0
   %or.cond = or i1 %7, %6
   %8 = icmp slt i32 %2, -6
@@ -3356,7 +3356,7 @@ define dso_local i64 @SPI_getbinval(ptr noundef %0, ptr noundef %1, i32 noundef 
 define dso_local ptr @SPI_gettype(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr @SPI_result, align 4
   %3 = load i32, ptr %0, align 8
-  %4 = icmp slt i32 %3, %1
+  %4 = icmp sgt i32 %1, %3
   %5 = icmp eq i32 %1, 0
   %or.cond = or i1 %5, %4
   %6 = icmp slt i32 %1, -6
@@ -3421,7 +3421,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
 define dso_local i32 @SPI_gettypeid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr @SPI_result, align 4
   %3 = load i32, ptr %0, align 8
-  %4 = icmp slt i32 %3, %1
+  %4 = icmp sgt i32 %1, %3
   %5 = icmp eq i32 %1, 0
   %or.cond = or i1 %5, %4
   %6 = icmp slt i32 %1, -6
@@ -3577,7 +3577,7 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load ptr, ptr @_SPI_current, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %0
+  %17 = icmp eq ptr %0, %16
   br i1 %17, label %22, label %23
 
 .lr.ph31:                                         ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3601,7 +3601,7 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %22, %.critedge
   %24 = load ptr, ptr @SPI_tuptable, align 8
-  %25 = icmp eq ptr %24, %0
+  %25 = icmp eq ptr %0, %24
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %23
@@ -4398,7 +4398,7 @@ define dso_local i32 @SPI_getargtypeid(ptr noundef readonly %0, i32 noundef %1) 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
-  %.not = icmp sgt i32 %10, %1
+  %.not = icmp slt i32 %1, %10
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %8, %4, %2

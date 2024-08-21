@@ -904,7 +904,7 @@ imemo_type_p.exit.thread:                         ; preds = %2, %imemo_type_p.ex
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = icmp ugt i32 %14, %1
+  %15 = icmp ult i32 %1, %14
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %10
@@ -2245,7 +2245,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 RB_SYMBOL_P.exit:                                 ; preds = %7, %15, %17, %switch.lookup
   %.0.i25.i = phi i32 [ %11, %7 ], [ 21, %15 ], [ %spec.select.i.i, %17 ], [ %switch.load, %switch.lookup ]
-  %20 = icmp eq i32 %.0.i25.i, %1
+  %20 = icmp eq i32 %1, %.0.i25.i
   ret i1 %20
 }
 
@@ -2290,7 +2290,7 @@ define hidden zeroext i1 @rb_BASIC_OP_UNREDEFINED_P(i32 noundef %0, i32 noundef 
   %4 = getelementptr [32 x i16], ptr @ruby_vm_redefined_flag, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32
-  %7 = and i32 %6, %1
+  %7 = and i32 %1, %6
   %8 = icmp eq i32 %7, 0
   ret i1 %8
 }

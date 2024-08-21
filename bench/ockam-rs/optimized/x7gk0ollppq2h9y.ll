@@ -620,7 +620,7 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h7b1dccedb4c
   %9 = load i16, ptr %8, align 2, !noundef !4
   %10 = zext i16 %9 to i64
   %11 = sub nsw i64 28, %10
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %22, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha5e62140a0098bdeE.exit"
 
 13:                                               ; preds = %2
@@ -629,7 +629,7 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h7b1dccedb4c
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !83, !noundef !4
   %18 = sub i64 %17, %15
-  %19 = icmp ult i64 %18, %1
+  %19 = icmp ugt i64 %1, %18
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha5e62140a0098bdeE.exit"
 
 20:                                               ; preds = %13
@@ -639,7 +639,7 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$7reserve17h7b1dccedb4c
 
 22:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  %23 = add i64 %10, %1
+  %23 = add i64 %1, %10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !89
   %24 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb7ee974697ca325fE"(i64 noundef %23, i1 noundef zeroext false), !noalias !89
   %25 = extractvalue { ptr, i64 } %24, 0
@@ -760,7 +760,7 @@ define hidden void @"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$ock
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !115
   %12 = load i16, ptr %9, align 2, !alias.scope !116, !noalias !117, !noundef !4
   %13 = zext i16 %12 to i64
-  %14 = add i64 %13, %2
+  %14 = add i64 %2, %13
   store i64 %14, ptr %6, align 8, !noalias !115
   %15 = icmp ult i64 %14, 29
   br i1 %15, label %24, label %16
@@ -811,7 +811,7 @@ define hidden void @"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$ock
   %34 = getelementptr inbounds i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !alias.scope !148, !noalias !146, !noundef !4
   %36 = sub i64 %35, %33
-  %37 = icmp ult i64 %36, %2
+  %37 = icmp ugt i64 %2, %36
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h68790ac863436014E.exit.i"
 
 38:                                               ; preds = %30

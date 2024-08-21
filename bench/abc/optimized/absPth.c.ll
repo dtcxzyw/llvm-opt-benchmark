@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable
 define range(i32 0, 2) i32 @Abs_CallBackToStop(i32 noundef %0) #0 {
   %2 = load volatile i32, ptr @g_nRunIds, align 4
-  %3 = icmp sgt i32 %2, %0
+  %3 = icmp slt i32 %0, %2
   %4 = zext i1 %3 to i32
   ret i32 %4
 }

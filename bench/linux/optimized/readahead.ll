@@ -692,7 +692,7 @@ define internal fastcc void @ondemand_readahead(ptr noundef %0, ptr noundef %1, 
 
 24:                                               ; preds = %20, %16, %3
   %25 = phi i64 [ 0, %3 ], [ %23, %20 ], [ 0, %16 ]
-  %26 = icmp ult i64 %12, %2
+  %26 = icmp ugt i64 %2, %12
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %24

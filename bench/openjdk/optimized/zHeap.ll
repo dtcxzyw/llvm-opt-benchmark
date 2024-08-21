@@ -436,7 +436,7 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap5is_inEm(ptr nocapture noundef nonnu
 _Z8is_valid8zaddressb.exit:                       ; preds = %5
   %9 = load i64, ptr @ZAddressOffsetMax, align 8
   %10 = add i64 %9, %6
-  %.not6.i = icmp ugt i64 %10, %1
+  %.not6.i = icmp ult i64 %1, %10
   br i1 %.not6.i, label %11, label %_ZNK5ZHeap18is_in_page_relaxedEPK5ZPage8zaddress.exit
 
 11:                                               ; preds = %_Z8is_valid8zaddressb.exit
@@ -453,13 +453,13 @@ _Z8is_valid8zaddressb.exit:                       ; preds = %5
 20:                                               ; preds = %11
   %21 = getelementptr inbounds i8, ptr %18, i64 16
   %22 = load i64, ptr %21, align 8
-  %.not.i.i.i = icmp ugt i64 %22, %13
+  %.not.i.i.i = icmp ult i64 %13, %22
   br i1 %.not.i.i.i, label %_ZNK5ZPage5is_inE8zaddress.exit.thread.i, label %_ZNK5ZPage5is_inE8zaddress.exit.i
 
 _ZNK5ZPage5is_inE8zaddress.exit.i:                ; preds = %20
   %23 = getelementptr inbounds i8, ptr %18, i64 32
   %24 = load volatile i64, ptr %23, align 8
-  %25 = icmp ugt i64 %24, %13
+  %25 = icmp ult i64 %13, %24
   br i1 %25, label %_ZNK5ZHeap18is_in_page_relaxedEPK5ZPage8zaddress.exit, label %_ZNK5ZPage5is_inE8zaddress.exit.thread.i
 
 _ZNK5ZPage5is_inE8zaddress.exit.thread.i:         ; preds = %_ZNK5ZPage5is_inE8zaddress.exit.i, %20
@@ -515,13 +515,13 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap18is_in_page_relaxedEPK5ZPage8zaddre
   %5 = and i64 %4, %2
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
-  %.not.i.i = icmp ugt i64 %7, %5
+  %.not.i.i = icmp ult i64 %5, %7
   br i1 %.not.i.i, label %_ZNK5ZPage5is_inE8zaddress.exit.thread, label %_ZNK5ZPage5is_inE8zaddress.exit
 
 _ZNK5ZPage5is_inE8zaddress.exit:                  ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load volatile i64, ptr %8, align 8
-  %10 = icmp ugt i64 %9, %5
+  %10 = icmp ult i64 %5, %9
   br i1 %10, label %37, label %_ZNK5ZPage5is_inE8zaddress.exit.thread
 
 _ZNK5ZPage5is_inE8zaddress.exit.thread:           ; preds = %3, %_ZNK5ZPage5is_inE8zaddress.exit
@@ -1038,97 +1038,92 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStreamm(pt
 11:                                               ; preds = %7
   %12 = load i64, ptr @ZAddressOffsetMax, align 8
   %13 = add i64 %12, %8
-  %.not6.i = icmp ugt i64 %13, %2
+  %.not6.i = icmp ult i64 %2, %13
   br label %14
 
 14:                                               ; preds = %5, %7, %11
   %.0.i.ph = phi i1 [ %.not6.i, %11 ], [ false, %7 ], [ false, %5 ]
   %15 = and i64 %2, -65521
   %.not.i12 = icmp eq i64 %15, 0
-  br i1 %.not.i12, label %37, label %16
+  br i1 %.not.i12, label %35, label %16
 
 16:                                               ; preds = %14
   %17 = trunc i64 %2 to i32
   %18 = lshr i32 %17, 12
   %19 = and i32 %18, 15
-  %.not29.i = icmp eq i32 %19, 0
-  br i1 %.not29.i, label %24, label %20
+  %20 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %19)
+  %21 = icmp ult i32 %20, 2
+  br i1 %21, label %22, label %.thread
 
-20:                                               ; preds = %16
-  %21 = add nuw nsw i32 %18, 15
-  %22 = and i32 %21, %19
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %.thread
+22:                                               ; preds = %16
+  %23 = lshr i64 %2, 12
+  %24 = and i64 %23, 15
+  %25 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %24
+  %26 = load i32, ptr %25, align 4
+  %27 = load i64, ptr @ZAddressHeapBase, align 8
+  %28 = zext i32 %26 to i64
+  %29 = shl i64 %27, %28
+  %30 = and i64 %29, %2
+  %31 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %30)
+  %or.cond45.i = icmp eq i64 %31, 1
+  br i1 %or.cond45.i, label %32, label %.thread
 
-24:                                               ; preds = %20, %16
-  %25 = lshr i64 %2, 12
-  %26 = and i64 %25, 15
-  %27 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %26
-  %28 = load i32, ptr %27, align 4
-  %29 = load i64, ptr @ZAddressHeapBase, align 8
-  %30 = zext i32 %28 to i64
-  %31 = shl i64 %29, %30
-  %32 = and i64 %31, %2
-  %33 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %32)
-  %or.cond43.i = icmp eq i64 %33, 1
-  br i1 %or.cond43.i, label %34, label %.thread
+32:                                               ; preds = %22
+  %33 = shl i64 7, %28
+  %34 = and i64 %33, %2
+  %.not30.i = icmp eq i64 %34, 0
+  br i1 %.not30.i, label %35, label %.thread
 
-34:                                               ; preds = %24
-  %35 = shl i64 7, %30
-  %36 = and i64 %35, %2
-  %.not30.i = icmp eq i64 %36, 0
-  br i1 %.not30.i, label %37, label %.thread
+35:                                               ; preds = %32, %14
+  %36 = and i64 %2, 61440
+  %37 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %36)
+  %or.cond47.i = icmp eq i64 %37, 1
+  br i1 %or.cond47.i, label %38, label %.thread
 
-37:                                               ; preds = %34, %14
-  %38 = and i64 %2, 61440
-  %39 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %38)
-  %or.cond45.i = icmp eq i64 %39, 1
-  br i1 %or.cond45.i, label %40, label %.thread
+38:                                               ; preds = %35
+  %39 = and i64 %2, 768
+  %40 = and i64 %2, 48
+  %41 = tail call range(i64 1, 3) i64 @llvm.ctpop.i64(i64 %39)
+  %or.cond49.i = icmp eq i64 %41, 1
+  br i1 %or.cond49.i, label %42, label %.thread
 
-40:                                               ; preds = %37
-  %41 = and i64 %2, 768
-  %42 = and i64 %2, 48
-  %43 = tail call range(i64 1, 3) i64 @llvm.ctpop.i64(i64 %41)
-  %or.cond47.i = icmp eq i64 %43, 1
-  br i1 %or.cond47.i, label %44, label %.thread
-
-44:                                               ; preds = %40
-  %45 = and i64 %2, 3264
-  %.not.i38.i = icmp eq i64 %45, 0
+42:                                               ; preds = %38
+  %43 = and i64 %2, 3264
+  %.not.i38.i = icmp eq i64 %43, 0
   br i1 %.not.i38.i, label %.thread, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i
 
-_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i: ; preds = %44
-  %46 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %45)
-  %47 = icmp ugt i64 %46, 1
-  %48 = icmp eq i64 %42, 0
-  %or.cond.i = or i1 %48, %47
+_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i: ; preds = %42
+  %44 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %43)
+  %45 = icmp ugt i64 %44, 1
+  %46 = icmp eq i64 %40, 0
+  %or.cond.i = or i1 %46, %45
   br i1 %or.cond.i, label %.thread, label %_Z8is_valid8zpointerb.exit
 
-.thread:                                          ; preds = %44, %40, %37, %24, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i, %34, %20
-  br i1 %.0.i.ph, label %.thread.thread, label %55
+.thread:                                          ; preds = %16, %42, %38, %35, %22, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i, %32
+  br i1 %.0.i.ph, label %.thread.thread, label %53
 
 _Z8is_valid8zpointerb.exit:                       ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i
-  %49 = and i64 %2, 15
-  %.not32.i = icmp eq i64 %49, 0
+  %47 = and i64 %2, 15
+  %.not32.i = icmp eq i64 %47, 0
   %brmerge.not = and i1 %.not32.i, %.0.i.ph
-  br i1 %brmerge.not, label %55, label %50
+  br i1 %brmerge.not, label %53, label %48
 
-50:                                               ; preds = %_Z8is_valid8zpointerb.exit
-  br i1 %.not32.i, label %51, label %53
+48:                                               ; preds = %_Z8is_valid8zpointerb.exit
+  br i1 %.not32.i, label %49, label %51
 
-51:                                               ; preds = %50
-  %52 = tail call noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStream8zpointer(ptr noundef nonnull align 64 dereferenceable(15937) %0, ptr noundef %1, i64 noundef %2)
-  br label %55
+49:                                               ; preds = %48
+  %50 = tail call noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStream8zpointer(ptr noundef nonnull align 64 dereferenceable(15937) %0, ptr noundef %1, i64 noundef %2)
+  br label %53
 
-53:                                               ; preds = %50
-  br i1 %.0.i.ph, label %.thread.thread, label %55
+51:                                               ; preds = %48
+  br i1 %.0.i.ph, label %.thread.thread, label %53
 
-.thread.thread:                                   ; preds = %3, %.thread, %53
-  %54 = tail call noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStream8zaddress(ptr noundef nonnull align 64 dereferenceable(15937) %0, ptr noundef %1, i64 noundef %2)
-  br label %55
+.thread.thread:                                   ; preds = %3, %.thread, %51
+  %52 = tail call noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStream8zaddress(ptr noundef nonnull align 64 dereferenceable(15937) %0, ptr noundef %1, i64 noundef %2)
+  br label %53
 
-55:                                               ; preds = %.thread, %53, %_Z8is_valid8zpointerb.exit, %.thread.thread, %51
-  %.0 = phi i1 [ %52, %51 ], [ %54, %.thread.thread ], [ false, %_Z8is_valid8zpointerb.exit ], [ false, %53 ], [ false, %.thread ]
+53:                                               ; preds = %.thread, %51, %_Z8is_valid8zpointerb.exit, %.thread.thread, %49
+  %.0 = phi i1 [ %50, %49 ], [ %52, %.thread.thread ], [ false, %_Z8is_valid8zpointerb.exit ], [ false, %51 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -1621,7 +1616,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZLiveMap13find_base_bitEm(ptr nounde
   %16 = lshr i64 %15, 6
   %17 = mul i64 %16, %5
   %18 = add i64 %1, 1
-  %19 = icmp ugt i64 %18, %17
+  %19 = icmp ult i64 %17, %18
   br i1 %19, label %20, label %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread
 
 20:                                               ; preds = %13
@@ -1702,7 +1697,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread: ; preds = %36, %.loopexit
   %60 = lshr i64 %59, 6
   %61 = mul i64 %60, %51
   %62 = mul i64 %60, %.01452
-  %63 = icmp ugt i64 %62, %61
+  %63 = icmp ult i64 %61, %62
   br i1 %63, label %64, label %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread
 
 64:                                               ; preds = %58
@@ -1882,6 +1877,9 @@ define internal void @_GLOBAL__sub_I_zHeap.cpp() #5 section ".text.startup" {
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #9

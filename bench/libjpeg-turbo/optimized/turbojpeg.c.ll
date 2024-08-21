@@ -889,7 +889,7 @@ define noundef i32 @tj3Set(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   %263 = getelementptr inbounds i8, ptr %0, i64 1768
   %264 = load i32, ptr %263, align 8
   %265 = icmp slt i32 %264, 2
-  %.not256 = icmp sgt i32 %264, %2
+  %.not256 = icmp slt i32 %2, %264
   %or.cond270 = or i1 %265, %.not256
   br i1 %or.cond270, label %271, label %266
 
@@ -1829,7 +1829,7 @@ define range(i32 0, -2147483648) i32 @tj3YUVPlaneWidth(i32 noundef %0, i32 nound
 7:                                                ; preds = %3
   %8 = icmp eq i32 %2, 3
   %9 = select i1 %8, i32 1, i32 3
-  %.not = icmp ugt i32 %9, %0
+  %.not = icmp ult i32 %0, %9
   br i1 %.not, label %10, label %.sink.split
 
 10:                                               ; preds = %7
@@ -1882,7 +1882,7 @@ define range(i32 0, -2147483648) i32 @tj3YUVPlaneHeight(i32 noundef %0, i32 noun
 7:                                                ; preds = %3
   %8 = icmp eq i32 %2, 3
   %9 = select i1 %8, i32 1, i32 3
-  %.not = icmp ugt i32 %9, %0
+  %.not = icmp ult i32 %0, %9
   br i1 %.not, label %10, label %.sink.split
 
 10:                                               ; preds = %7
@@ -1959,7 +1959,7 @@ define range(i32 -1, -2147483648) i32 @tjPlaneWidth(i32 noundef %0, i32 noundef 
 7:                                                ; preds = %3
   %8 = icmp eq i32 %2, 3
   %9 = select i1 %8, i32 1, i32 3
-  %.not.i = icmp ugt i32 %9, %0
+  %.not.i = icmp ult i32 %0, %9
   br i1 %.not.i, label %10, label %tj3YUVPlaneWidth.exit.thread
 
 10:                                               ; preds = %7
@@ -2020,7 +2020,7 @@ define range(i32 -1, -2147483648) i32 @tjPlaneHeight(i32 noundef %0, i32 noundef
 7:                                                ; preds = %3
   %8 = icmp eq i32 %2, 3
   %9 = select i1 %8, i32 1, i32 3
-  %.not.i = icmp ugt i32 %9, %0
+  %.not.i = icmp ult i32 %0, %9
   br i1 %.not.i, label %10, label %tj3YUVPlaneHeight.exit.thread
 
 10:                                               ; preds = %7
@@ -2090,7 +2090,7 @@ define range(i64 0, 4611686014132420610) i64 @tj3YUVPlaneSize(i32 noundef %0, i3
 14:                                               ; preds = %12
   %15 = icmp eq i32 %4, 3
   %16 = select i1 %15, i32 1, i32 3
-  %.not.i = icmp ugt i32 %16, %0
+  %.not.i = icmp ult i32 %0, %16
   br i1 %.not.i, label %17, label %tj3YUVPlaneHeight.exit.thread.sink.split
 
 17:                                               ; preds = %14
@@ -2374,7 +2374,7 @@ define range(i32 -1, 1) i32 @tj3Compress8(ptr noundef %0, ptr noundef %1, i32 no
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %99 = xor i64 %indvars.iv, -1
-  %100 = add nsw i64 %99, %91
+  %100 = add nsw i64 %91, %99
   %101 = mul nsw i64 %100, %90
   %102 = getelementptr inbounds i8, ptr %1, i64 %101
   %103 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv
@@ -3865,7 +3865,7 @@ tj3Init.exit:                                     ; preds = %25
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %133 = phi i32 [ %140, %.lr.ph.split ], [ %116, %.lr.ph ]
   %134 = xor i32 %133, -1
-  %135 = add i32 %134, %5
+  %135 = add i32 %5, %134
   %.pn.in = mul i32 %135, %.098
   %.pn = zext i32 %.pn.in to i64
   %.0 = getelementptr inbounds i8, ptr %2, i64 %.pn
@@ -4096,7 +4096,7 @@ define range(i32 -1, 1) i32 @tj3Compress12(ptr noundef %0, ptr noundef %1, i32 n
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %99 = xor i64 %indvars.iv, -1
-  %100 = add nsw i64 %99, %91
+  %100 = add nsw i64 %91, %99
   %101 = mul nsw i64 %100, %90
   %102 = getelementptr inbounds i16, ptr %1, i64 %101
   %103 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv
@@ -5313,7 +5313,7 @@ tj3Init.exit:                                     ; preds = %25
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %134 = phi i32 [ %141, %.lr.ph.split ], [ %116, %.lr.ph ]
   %135 = xor i32 %134, -1
-  %136 = add i32 %135, %5
+  %136 = add i32 %5, %135
   %.pn.in = mul i32 %136, %.098
   %.pn = zext i32 %.pn.in to i64
   %.0 = getelementptr inbounds i16, ptr %2, i64 %.pn
@@ -5536,7 +5536,7 @@ define range(i32 -1, 1) i32 @tj3Compress16(ptr noundef %0, ptr noundef %1, i32 n
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %99 = xor i64 %indvars.iv, -1
-  %100 = add nsw i64 %99, %91
+  %100 = add nsw i64 %91, %99
   %101 = mul nsw i64 %100, %90
   %102 = getelementptr inbounds i16, ptr %1, i64 %101
   %103 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv
@@ -6582,7 +6582,7 @@ tj3Init.exit:                                     ; preds = %25
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %134 = phi i32 [ %141, %.lr.ph.split ], [ %116, %.lr.ph ]
   %135 = xor i32 %134, -1
-  %136 = add i32 %135, %5
+  %136 = add i32 %5, %135
   %.pn.in = mul i32 %136, %.098
   %.pn = zext i32 %.pn.in to i64
   %.0 = getelementptr inbounds i16, ptr %2, i64 %.pn
@@ -7060,7 +7060,7 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %126 = xor i64 %indvars.iv, -1
-  %127 = add nsw i64 %126, %wide.trip.count314
+  %127 = add nsw i64 %wide.trip.count314, %126
   %128 = mul nsw i64 %127, %117
   %129 = getelementptr inbounds i8, ptr %1, i64 %128
   %130 = getelementptr inbounds ptr, ptr %113, i64 %indvars.iv
@@ -7070,7 +7070,7 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %131 = icmp sgt i32 %110, %4
+  %131 = icmp slt i32 %4, %110
   br i1 %131, label %.preheader267, label %.loopexit
 
 .preheader267:                                    ; preds = %._crit_edge
@@ -10069,7 +10069,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %150 = xor i64 %indvars.iv, -1
-  %151 = add nsw i64 %150, %wide.trip.count282
+  %151 = add nsw i64 %wide.trip.count282, %150
   %152 = mul nsw i64 %151, %141
   %153 = getelementptr inbounds i8, ptr %3, i64 %152
   %154 = getelementptr inbounds ptr, ptr %137, i64 %indvars.iv
@@ -10079,7 +10079,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %155 = icmp sgt i32 %126, %6
+  %155 = icmp slt i32 %6, %126
   br i1 %155, label %.preheader241, label %.loopexit
 
 .preheader241:                                    ; preds = %._crit_edge
@@ -11222,7 +11222,7 @@ setDecompParameters.exit:                         ; preds = %65, %switch.lookup
 179:                                              ; preds = %166
   %180 = icmp eq i32 %176, 3
   %181 = select i1 %180, i64 1, i64 3
-  %.not.i = icmp ugt i64 %181, %indvars.iv307
+  %.not.i = icmp ult i64 %indvars.iv307, %181
   br i1 %.not.i, label %182, label %.sink.split.i
 
 182:                                              ; preds = %179
@@ -11272,7 +11272,7 @@ tj3YUVPlaneWidth.exit:                            ; preds = %199, %.sink.split.i
 208:                                              ; preds = %tj3YUVPlaneWidth.exit
   %209 = icmp eq i32 %202, 3
   %210 = select i1 %209, i64 1, i64 3
-  %.not.i242 = icmp ugt i64 %210, %indvars.iv307
+  %.not.i242 = icmp ult i64 %indvars.iv307, %210
   br i1 %.not.i242, label %211, label %.sink.split.i243
 
 211:                                              ; preds = %208

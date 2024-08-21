@@ -126,7 +126,7 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_recv_timeout(i32 noundef 
 .outer:                                           ; preds = %107
   %19 = add nuw nsw i32 %.0.ph67, %91
   %20 = zext nneg i32 %19 to i64
-  %21 = icmp ult i64 %20, %2
+  %21 = icmp ugt i64 %2, %20
   br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -636,7 +636,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef
 .outer:                                           ; preds = %109
   %118 = add nuw nsw i32 %.0.ph66, %92
   %119 = zext nneg i32 %118 to i64
-  %120 = icmp ult i64 %119, %2
+  %120 = icmp ugt i64 %2, %119
   br i1 %120, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit.sink.split:                             ; preds = %104, %47, %50, %35, %38, %66, %82
@@ -1142,7 +1142,7 @@ _slurm_connect.exit:                              ; preds = %65, %84, %105
   %114 = and i32 %.0.i39, -2
   %or.cond = icmp eq i32 %114, 110
   %115 = icmp ult i32 %.02650, 3
-  %116 = and i1 %or.cond, %1
+  %116 = and i1 %1, %or.cond
   %or.cond32 = and i1 %116, %115
   br i1 %or.cond32, label %120, label %117
 

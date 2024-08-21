@@ -153,7 +153,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %47 = load i64, ptr %7, align 8
   %48 = icmp eq i64 %47, 0
   %49 = zext i1 %48 to i32
-  %50 = xor i32 %49, %1
+  %50 = xor i32 %1, %49
   %51 = load i32, ptr %15, align 4
   %52 = load i32, ptr %3, align 8
   %53 = icmp eq i32 %51, %52
@@ -231,7 +231,7 @@ Vec_IntPush.exit48:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %84, label %.lr.ph82, label %.critedge
 
 .lr.ph82:                                         ; preds = %81
-  %85 = xor i32 %.03283, %1
+  %85 = xor i32 %1, %.03283
   br label %86
 
 86:                                               ; preds = %.lr.ph82, %._crit_edge
@@ -5756,7 +5756,7 @@ Jf_CutIsContainedOrder.exit.thread.i:             ; preds = %494, %.lr.ph.i156.i
   br i1 %exitcond288.not.i, label %.loopexit225.i, label %465, !llvm.loop !64
 
 .loopexit225.i:                                   ; preds = %Jf_CutIsContained1.exit.thread208.i, %Jf_CutIsContained1.exit.thread208.us.i, %Jf_CutIsContained1.exit.thread208.us.us.i, %Jf_CutIsContainedOrder.exit.thread.i, %.preheader.i374, %.preheader228.i
-  %495 = icmp slt i32 %.0132.in.lcssa.i, %.1484
+  %495 = icmp sgt i32 %.1484, %.0132.in.lcssa.i
   %496 = sext i32 %.0132.in.lcssa.i to i64
   br i1 %495, label %.lr.ph240.i, label %._crit_edge.thread.i
 
@@ -9349,13 +9349,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -10795,7 +10795,7 @@ Jf_ManPropagateFlow.exit:                         ; preds = %40, %66, %33
 91:                                               ; preds = %84
   %92 = call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull @.str.43)
   %.pre.i = load ptr, ptr @stdout, align 8
-  %93 = icmp eq ptr %.pre.i, %92
+  %93 = icmp eq ptr %92, %.pre.i
   br i1 %93, label %94, label %98
 
 94:                                               ; preds = %91, %.thread.i

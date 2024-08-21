@@ -7382,7 +7382,7 @@ decode_MPLS_stack.exit942:                        ; preds = %483, %482
 define internal fastcc void @dissect_bgp_update_ext_com(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = zext i16 %2 to i32
-  %8 = add i32 %7, %3
+  %8 = add i32 %3, %7
   %9 = load i32, ptr @hf_bgp_ext_communities, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %3, i32 noundef %7, i32 noundef 0) #4
   %11 = load i32, ptr @ett_bgp_extended_communities, align 4
@@ -7391,7 +7391,7 @@ define internal fastcc void @dissect_bgp_update_ext_com(ptr noundef %0, ptr noun
   %14 = icmp eq i32 %13, 1
   %15 = select i1 %14, ptr @.str.1882, ptr @.str.1883
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.1881, i32 noundef %13, ptr noundef nonnull %15) #4
-  %16 = icmp sgt i32 %8, %3
+  %16 = icmp slt i32 %3, %8
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -8850,7 +8850,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %218 = add i32 %2, 7
   %219 = tail call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %217, ptr noundef %1, i32 noundef %218, i32 noundef 1, i32 noundef 0) #4
   %220 = add i32 %2, 8
-  %221 = add i32 %199, %2
+  %221 = add i32 %2, %199
   %222 = icmp slt i32 %220, %221
   br i1 %222, label %.lr.ph1482, label %.loopexit
 
@@ -9578,7 +9578,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %251, %.preheader.i
   %717 = add i32 %2, 10
   %718 = tail call ptr @proto_tree_add_item(ptr noundef %691, i32 noundef %716, ptr noundef %1, i32 noundef %717, i32 noundef 16, i32 noundef 0) #4
   %719 = add i32 %2, 26
-  %720 = add i32 %687, %2
+  %720 = add i32 %2, %687
   %721 = icmp slt i32 %719, %720
   br i1 %721, label %.lr.ph1470, label %.loopexit
 
@@ -9640,11 +9640,11 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %251, %.preheader.i
   %hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_isis.val = load i32, ptr @hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_isis, align 4
   %762 = select i1 %736, i32 %hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_ospf.val, i32 %hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_isis.val
   %763 = tail call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %762, ptr noundef %1, i32 noundef %761, i32 noundef 6, i32 noundef 0) #4
-  %764 = add i32 %.1550, %2
+  %764 = add i32 %2, %.1550
   %765 = load i32, ptr @hf_bgp_ls_sr_tlv_srv6_endx_sid_sid, align 4
   %766 = tail call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %765, ptr noundef %1, i32 noundef %764, i32 noundef 16, i32 noundef 0) #4
   %767 = add i32 %764, 16
-  %768 = add i32 %727, %2
+  %768 = add i32 %2, %727
   %769 = icmp slt i32 %767, %768
   br i1 %769, label %.lr.ph1468, label %.loopexit
 
@@ -9739,7 +9739,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %251, %.preheader.i
 818:                                              ; preds = %._crit_edge, %813
   %.pre-phi1517 = phi i32 [ %.pre1516, %._crit_edge ], [ %816, %813 ]
   %819 = add i32 %.pre-phi1517, %796
-  %820 = add i32 %775, %2
+  %820 = add i32 %2, %775
   %821 = icmp slt i32 %819, %820
   br i1 %821, label %.lr.ph1466, label %.loopexit
 
@@ -11371,7 +11371,7 @@ define internal fastcc range(i32 0, 2) i32 @detect_add_path_prefix46(ptr noundef
   %.052 = phi i32 [ %.0, %26 ], [ %.051, %4 ]
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.052) #4
   %10 = zext i8 %9 to i32
-  %11 = icmp sgt i32 %10, %3
+  %11 = icmp slt i32 %3, %10
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %.lr.ph
@@ -11407,7 +11407,7 @@ define internal fastcc range(i32 0, 2) i32 @detect_add_path_prefix46(ptr noundef
   %30 = zext i8 %29 to i32
   %31 = icmp eq i8 %29, 0
   %or.cond = and i1 %8, %31
-  %32 = icmp sgt i32 %30, %3
+  %32 = icmp slt i32 %3, %30
   %or.cond49 = or i1 %or.cond, %32
   br i1 %or.cond49, label %.loopexit, label %33
 
@@ -13024,7 +13024,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_bgp_link_node_nlri_tlvs(p
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %2) #4
   %7 = add i32 %2, 2
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #4
-  %.not = icmp eq i16 %6, %4
+  %.not = icmp eq i16 %4, %6
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %5
@@ -13592,7 +13592,7 @@ define internal fastcc noundef i32 @decode_mcast_vpn_nlri_addresses(ptr noundef 
   %.sink = phi i32 [ 17, %9 ], [ 5, %7 ]
   %10 = load i32, ptr %hf_bgp_mcast_vpn_nlri_source_addr_ipv6.sink, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef %8, i32 noundef %.sink50, i32 noundef 0) #4
-  %12 = add i32 %.sink, %2
+  %12 = add i32 %2, %.sink
   br label %13
 
 13:                                               ; preds = %.sink.split, %7

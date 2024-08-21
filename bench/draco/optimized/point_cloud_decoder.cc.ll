@@ -1334,7 +1334,7 @@ define noundef ptr @_ZN5draco17PointCloudDecoder20GetPortableAttributeEi(ptr noc
   %13 = sub i64 %11, %12
   %14 = lshr exact i64 %13, 3
   %15 = trunc i64 %14 to i32
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %16, label %31
 
 16:                                               ; preds = %4

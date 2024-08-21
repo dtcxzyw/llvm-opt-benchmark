@@ -1866,7 +1866,7 @@ define dso_local i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2
 
 35:                                               ; preds = %34
   %.not.i = icmp eq ptr %10, null
-  %.not7.i = icmp ugt ptr %10, %0
+  %.not7.i = icmp ult ptr %0, %10
   %or.cond.i = or i1 %.not.i, %.not7.i
   br i1 %or.cond.i, label %37, label %36
 

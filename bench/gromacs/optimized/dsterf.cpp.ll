@@ -316,8 +316,8 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %152 = getelementptr inbounds double, ptr %17, i64 %indvars.iv470
   %153 = load double, ptr %152, align 8
   %154 = fsub double %153, %135
-  %155 = fneg double %151
-  %156 = fmul double %.0318413, %155
+  %155 = fneg double %.0318413
+  %156 = fmul double %151, %155
   %157 = call double @llvm.fmuladd.f64(double %150, double %154, double %156)
   %158 = fsub double %153, %157
   %159 = fadd double %.0318413, %158
@@ -476,8 +476,8 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %236 = getelementptr double, ptr %1, i64 %indvars.iv476
   %237 = load double, ptr %236, align 8
   %238 = fsub double %237, %220
-  %239 = fneg double %235
-  %240 = fmul double %.1319424, %239
+  %239 = fneg double %.1319424
+  %240 = fmul double %235, %239
   %241 = call double @llvm.fmuladd.f64(double %234, double %238, double %240)
   %242 = fsub double %237, %241
   %243 = fadd double %.1319424, %242

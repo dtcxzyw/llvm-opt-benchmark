@@ -4040,7 +4040,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_get_phys_port_name(ptr no
 10:                                               ; preds = %3
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.35) #25
   %12 = sext i32 %11 to i64
-  %13 = icmp ult i64 %12, %2
+  %13 = icmp ugt i64 %2, %12
   %14 = select i1 %13, i32 0, i32 -95
   br label %15
 
@@ -7967,7 +7967,7 @@ define internal noundef range(i32 -22, 1) i32 @virtnet_get_per_queue_coalesce(pt
   %4 = getelementptr i8, ptr %0, i64 2348
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i32
-  %7 = icmp ugt i32 %6, %1
+  %7 = icmp ult i32 %1, %6
   br i1 %7, label %8, label %51
 
 8:                                                ; preds = %3
@@ -8040,7 +8040,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_per_queue_coalesce(ptr nounde
   %7 = getelementptr i8, ptr %0, i64 2348
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i32
-  %10 = icmp ugt i32 %9, %1
+  %10 = icmp ult i32 %1, %9
   br i1 %10, label %11, label %.thread7
 
 11:                                               ; preds = %3
@@ -11180,7 +11180,7 @@ define internal fastcc ptr @page_to_skb(ptr nocapture noundef readonly %0, ptr n
   br i1 %31, label %32, label %69
 
 32:                                               ; preds = %7
-  %33 = add i32 %27, %6
+  %33 = add i32 %6, %27
   %34 = add i32 %33, %23
   %35 = sub i32 %5, %34
   %36 = icmp sgt i32 %35, 319
@@ -12213,7 +12213,7 @@ define internal fastcc void @xdp_update_skb_shared_info(ptr nocapture noundef %0
   %23 = load i8, ptr %22, align 2
   %24 = and i8 %23, 64
   %25 = icmp ne i8 %24, 0
-  %26 = or i1 %25, %4
+  %26 = or i1 %4, %25
   %27 = select i1 %26, i8 64, i8 0
   %28 = and i8 %23, -65
   %29 = or disjoint i8 %27, %28
@@ -12328,7 +12328,7 @@ define internal fastcc ptr @receive_small_xdp(ptr noundef %0, ptr nocapture noun
   %78 = add i32 %13, %77
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #25
   %79 = zext i8 %.pre6 to i32
-  %80 = add nuw nsw i32 %79, %6
+  %80 = add nuw nsw i32 %6, %79
   store i32 %80, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #25
   store i32 1, ptr %12, align 4

@@ -4344,7 +4344,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %.sroa.05.0.copyload.i = load i64, ptr %phi.call.i, align 4
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %phi.call.i, i64 8
   %.sroa.26.0.copyload.i = load i32, ptr %.sroa.26.0..sroa_idx.i, align 4
-  %22 = icmp sgt i64 %15, %.0.i
+  %22 = icmp slt i64 %.0.i, %15
   br i1 %22, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %21, %.lr.ph.i.i
@@ -4971,7 +4971,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %.sroa.03.0.copyload.i = load i64, ptr %phi.call.i, align 4
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %phi.call.i, i64 8
   %.sroa.24.0.copyload.i = load i64, ptr %.sroa.24.0..sroa_idx.i, align 4
-  %23 = icmp sgt i64 %15, %.0.i
+  %23 = icmp slt i64 %.0.i, %15
   br i1 %23, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.i.i
@@ -5499,7 +5499,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %phi.call.i = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.0.i
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.017.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.017.i, ptr noundef nonnull align 4 dereferenceable(20) %phi.call.i, i64 20, i1 false)
-  %22 = icmp sgt i64 %15, %.0.i
+  %22 = icmp slt i64 %.0.i, %15
   br i1 %22, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %21, %.lr.ph.i.i
@@ -6000,7 +6000,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %phi.call.i = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.0.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.017.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.017.i, ptr noundef nonnull align 4 dereferenceable(24) %phi.call.i, i64 24, i1 false)
-  %22 = icmp sgt i64 %15, %.0.i
+  %22 = icmp slt i64 %.0.i, %15
   br i1 %22, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %21, %.lr.ph.i.i

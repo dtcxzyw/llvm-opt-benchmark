@@ -419,7 +419,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr nocapture 
 
 8:                                                ; preds = %4
   %9 = zext i1 %3 to i64
-  %10 = add i64 %9, %2
+  %10 = add i64 %2, %9
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = ptrtoint ptr %11 to i64
   %13 = getelementptr inbounds i8, ptr %0, i64 8

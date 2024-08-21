@@ -17,7 +17,7 @@ define dso_local zeroext i1 @TransactionIdDidCommit(i32 noundef %0) local_unname
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load i32, ptr @cachedFetchXid, align 4
-  %4 = icmp eq i32 %3, %0
+  %4 = icmp eq i32 %0, %3
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
@@ -69,7 +69,7 @@ TransactionLogFetch.exit:                         ; preds = %5, %10, %10, %12
   br i1 %20, label %TransactionLogFetch.exit.thread12, label %22
 
 TransactionIdPrecedes.exit:                       ; preds = %14
-  %21 = icmp ugt i32 %15, %0
+  %21 = icmp ult i32 %0, %15
   br i1 %21, label %TransactionLogFetch.exit.thread12, label %22
 
 22:                                               ; preds = %18, %TransactionIdPrecedes.exit
@@ -132,7 +132,7 @@ define dso_local zeroext i1 @TransactionIdDidAbort(i32 noundef %0) local_unnamed
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load i32, ptr @cachedFetchXid, align 4
-  %4 = icmp eq i32 %3, %0
+  %4 = icmp eq i32 %0, %3
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
@@ -184,7 +184,7 @@ TransactionLogFetch.exit:                         ; preds = %5, %10, %10, %12
   br i1 %20, label %TransactionLogFetch.exit.thread12, label %22
 
 TransactionIdPrecedes.exit:                       ; preds = %14
-  %21 = icmp ugt i32 %15, %0
+  %21 = icmp ult i32 %0, %15
   br i1 %21, label %TransactionLogFetch.exit.thread12, label %22
 
 22:                                               ; preds = %18, %TransactionIdPrecedes.exit
@@ -343,7 +343,7 @@ TransactionIdPrecedes.exit:                       ; preds = %.lr.ph
 define dso_local i64 @TransactionIdGetCommitLSN(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = load i32, ptr @cachedFetchXid, align 4
-  %4 = icmp eq i32 %3, %0
+  %4 = icmp eq i32 %0, %3
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1

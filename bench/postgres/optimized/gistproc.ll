@@ -1707,12 +1707,12 @@ define internal fastcc void @g_box_consider_split(ptr nocapture noundef %0, i32 
   %7 = load i32, ptr %0, align 8
   %8 = add i32 %7, 1
   %9 = sdiv i32 %8, 2
-  %.not = icmp sgt i32 %9, %3
+  %.not = icmp slt i32 %3, %9
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %6
   %11 = sdiv i32 %7, 2
-  %. = tail call i32 @llvm.smin.i32(i32 %11, i32 %5)
+  %. = tail call i32 @llvm.smin.i32(i32 %5, i32 %11)
   br label %12
 
 12:                                               ; preds = %10, %6
@@ -2439,7 +2439,7 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr nocapture nounde
   %28 = load double, ptr %17, align 8
   %29 = load double, ptr %20, align 8
   %30 = fadd double %29, 0x3EB0C6F7A0B5ED8D
-  %31 = fcmp olt double %30, %28
+  %31 = fcmp ogt double %28, %30
   br label %.sink.split
 
 32:                                               ; preds = %15
@@ -2448,7 +2448,7 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr nocapture nounde
   %35 = getelementptr inbounds i8, ptr %20, i64 8
   %36 = load double, ptr %35, align 8
   %37 = fadd double %36, 0x3EB0C6F7A0B5ED8D
-  %38 = fcmp olt double %37, %34
+  %38 = fcmp ogt double %34, %37
   br label %.sink.split
 
 39:                                               ; preds = %15
@@ -2500,7 +2500,7 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr nocapture nounde
   %76 = load double, ptr %20, align 8
   %77 = load double, ptr %17, align 8
   %78 = fadd double %77, 0x3EB0C6F7A0B5ED8D
-  %79 = fcmp ult double %78, %76
+  %79 = fcmp ugt double %76, %78
   br i1 %79, label %.sink.split, label %80
 
 80:                                               ; preds = %75
@@ -2516,7 +2516,7 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr nocapture nounde
   %88 = getelementptr inbounds i8, ptr %17, i64 8
   %89 = load double, ptr %88, align 8
   %90 = fadd double %89, 0x3EB0C6F7A0B5ED8D
-  %91 = fcmp ult double %90, %87
+  %91 = fcmp ugt double %87, %90
   br i1 %91, label %.sink.split, label %92
 
 92:                                               ; preds = %85

@@ -260,7 +260,7 @@ isNotVarNameSymbol.exit.thread:                   ; preds = %3, %3, %3, %3, %3, 
 define range(i32 0, 2) i32 @isUnexpectedEOS(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
   %4 = trunc i64 %3 to i32
-  %.not = icmp sgt i32 %4, %1
+  %.not = icmp slt i32 %1, %4
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -279,7 +279,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 define range(i32 0, 2) i32 @isTemporalOperator(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #22
   %4 = trunc i64 %3 to i32
-  %.not.i = icmp sgt i32 %4, %1
+  %.not.i = icmp slt i32 %1, %4
   br i1 %.not.i, label %6, label %isUnexpectedEOS.exit
 
 isUnexpectedEOS.exit:                             ; preds = %2

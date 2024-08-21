@@ -500,91 +500,90 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP7oopDes
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %40
+  br label %38
 
 7:                                                ; preds = %2
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
-  %10 = xor i32 %3, -2147483648
-  %11 = and i32 %10, %8
-  %12 = icmp eq i32 %11, 0
-  %13 = and i1 %9, %12
-  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
-  %15 = sub nuw nsw i32 32, %14
-  %16 = shl nuw i32 1, %15
-  %.0.i.i.i = select i1 %13, i32 %8, i32 %16
+  %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
+  %11 = icmp ult i32 %10, 2
+  %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
+  %13 = sub nuw nsw i32 32, %12
+  %14 = shl nuw i32 1, %13
+  %.0.i.i.i = select i1 %or.cond.i.i.i, i32 %8, i32 %14
   store i32 %.0.i.i.i, ptr %4, align 4
-  %17 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 8, i8 noundef zeroext 13) #18
-  %18 = load i32, ptr %0, align 8
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph.i.i, label %.preheader15.i.i
+  %15 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 8, i8 noundef zeroext 13) #18
+  %16 = load i32, ptr %0, align 8
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph.i.i, label %.preheader15.i.i
 
 .lr.ph.i.i:                                       ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %25
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %23
 
-.preheader15.loopexit.i.i:                        ; preds = %25
-  %21 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
+.preheader15.loopexit.i.i:                        ; preds = %23
+  %19 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %.preheader15.i.i
 
 .preheader15.i.i:                                 ; preds = %.preheader15.loopexit.i.i, %7
-  %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %21, %.preheader15.loopexit.i.i ]
-  %22 = load i32, ptr %4, align 4
-  %23 = icmp slt i32 %.0.lcssa.i.i, %22
-  br i1 %23, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %19, %.preheader15.loopexit.i.i ]
+  %20 = load i32, ptr %4, align 4
+  %21 = icmp slt i32 %.0.lcssa.i.i, %20
+  br i1 %21, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
 
 .lr.ph18.preheader.i.i:                           ; preds = %.preheader15.i.i
-  %24 = zext nneg i32 %.0.lcssa.i.i to i64
+  %22 = zext nneg i32 %.0.lcssa.i.i to i64
   br label %.lr.ph18.i.i
 
-25:                                               ; preds = %25, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i.i
-  %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i.i
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %26, align 8
+23:                                               ; preds = %23, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
+  %24 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv.i.i
+  %25 = load ptr, ptr %18, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i.i
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %30 = load i32, ptr %0, align 8
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next.i.i, %31
-  br i1 %32, label %25, label %.preheader15.loopexit.i.i, !llvm.loop !6
+  %28 = load i32, ptr %0, align 8
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next.i.i, %29
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !6
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %.not.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit, label %39
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit, label %37
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
-  %indvars.iv20.i.i = phi i64 [ %24, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %35 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv20.i.i
-  store ptr null, ptr %35, align 8
+  %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
+  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv20.i.i
+  store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %36 = load i32, ptr %4, align 4
-  %37 = trunc nuw i64 %indvars.iv.next21.i.i to i32
-  %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !8
+  %34 = load i32, ptr %4, align 4
+  %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
+  %36 = icmp sgt i32 %34, %35
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !8
 
-39:                                               ; preds = %.preheader.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #18
+37:                                               ; preds = %.preheader.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #18
   br label %_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit
 
-_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit: ; preds = %.preheader.i.i, %39
-  store ptr %17, ptr %33, align 8
+_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit: ; preds = %.preheader.i.i, %37
+  store ptr %15, ptr %31, align 8
   %.pre = load i32, ptr %0, align 8
-  br label %40
+  br label %38
 
-40:                                               ; preds = %._crit_edge, %_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit
-  %41 = phi ptr [ %17, %_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %.pre3, %._crit_edge ]
-  %42 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %3, %._crit_edge ]
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %0, align 8
-  %44 = load ptr, ptr %1, align 8
-  %45 = sext i32 %42 to i64
-  %46 = getelementptr inbounds ptr, ptr %41, i64 %45
-  store ptr %44, ptr %46, align 8
-  ret i32 %42
+38:                                               ; preds = %._crit_edge, %_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit
+  %39 = phi ptr [ %15, %_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %.pre3, %._crit_edge ]
+  %40 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %3, %._crit_edge ]
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %0, align 8
+  %42 = load ptr, ptr %1, align 8
+  %43 = sext i32 %40 to i64
+  %44 = getelementptr inbounds ptr, ptr %39, i64 %43
+  store ptr %42, ptr %44, align 8
+  ret i32 %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1675,7 +1674,7 @@ define hidden noundef zeroext i1 @_ZN17ArchiveHeapWriter21is_in_requested_rangeE
   %2 = load ptr, ptr @_ZN17ArchiveHeapWriter17_requested_bottomE, align 8
   %3 = icmp ule ptr %2, %0
   %4 = load ptr, ptr @_ZN17ArchiveHeapWriter14_requested_topE, align 8
-  %5 = icmp ugt ptr %4, %0
+  %5 = icmp ult ptr %0, %4
   %6 = select i1 %3, i1 %5, i1 false
   ret i1 %6
 }
@@ -1837,125 +1836,124 @@ define hidden void @_ZN17ArchiveHeapWriter19ensure_buffer_spaceEm(i64 noundef %0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE7at_growEiRKh(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %4, %1
-  br i1 %.not, label %49, label %5
+  %.not = icmp slt i32 %1, %4
+  br i1 %.not, label %47, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %.not11 = icmp sgt i32 %7, %1
-  br i1 %.not11, label %41, label %8
+  %.not11 = icmp slt i32 %1, %7
+  br i1 %.not11, label %39, label %8
 
 8:                                                ; preds = %5
   %9 = add nsw i32 %1, 1
   %10 = icmp sgt i32 %1, -1
-  %11 = xor i32 %1, -2147483648
-  %12 = and i32 %11, %9
-  %13 = icmp eq i32 %12, 0
-  %14 = and i1 %10, %13
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
-  %16 = sub nuw nsw i32 32, %15
-  %17 = shl nuw i32 1, %16
-  %.0.i.i.i = select i1 %14, i32 %9, i32 %17
+  %11 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
+  %12 = icmp ult i32 %11, 2
+  %or.cond.i.i.i = select i1 %10, i1 %12, i1 false
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
+  %14 = sub nuw nsw i32 32, %13
+  %15 = shl nuw i32 1, %14
+  %.0.i.i.i = select i1 %or.cond.i.i.i, i32 %9, i32 %15
   store i32 %.0.i.i.i, ptr %6, align 4
-  %18 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 1, i8 noundef zeroext 13) #18
-  %19 = load i32, ptr %0, align 8
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph.i.i, label %.preheader15.i.i
+  %16 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 1, i8 noundef zeroext 13) #18
+  %17 = load i32, ptr %0, align 8
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %.lr.ph.i.i, label %.preheader15.i.i
 
 .lr.ph.i.i:                                       ; preds = %8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %26
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %24
 
-.preheader15.loopexit.i.i:                        ; preds = %26
-  %22 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
+.preheader15.loopexit.i.i:                        ; preds = %24
+  %20 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %.preheader15.i.i
 
 .preheader15.i.i:                                 ; preds = %.preheader15.loopexit.i.i, %8
-  %.0.lcssa.i.i = phi i32 [ 0, %8 ], [ %22, %.preheader15.loopexit.i.i ]
-  %23 = load i32, ptr %6, align 4
-  %24 = icmp slt i32 %.0.lcssa.i.i, %23
-  br i1 %24, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %8 ], [ %20, %.preheader15.loopexit.i.i ]
+  %21 = load i32, ptr %6, align 4
+  %22 = icmp slt i32 %.0.lcssa.i.i, %21
+  br i1 %22, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
 
 .lr.ph18.preheader.i.i:                           ; preds = %.preheader15.i.i
-  %25 = zext nneg i32 %.0.lcssa.i.i to i64
+  %23 = zext nneg i32 %.0.lcssa.i.i to i64
   br label %.lr.ph18.i.i
 
-26:                                               ; preds = %26, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
-  %27 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv.i.i
-  %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv.i.i
-  %30 = load i8, ptr %29, align 1
-  store i8 %30, ptr %27, align 1
+24:                                               ; preds = %24, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %24 ]
+  %25 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i.i
+  %26 = load ptr, ptr %19, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 %indvars.iv.i.i
+  %28 = load i8, ptr %27, align 1
+  store i8 %28, ptr %25, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %31 = load i32, ptr %0, align 8
-  %32 = sext i32 %31 to i64
-  %33 = icmp slt i64 %indvars.iv.next.i.i, %32
-  br i1 %33, label %26, label %.preheader15.loopexit.i.i, !llvm.loop !9
+  %29 = load i32, ptr %0, align 8
+  %30 = sext i32 %29 to i64
+  %31 = icmp slt i64 %indvars.iv.next.i.i, %30
+  br i1 %31, label %24, label %.preheader15.loopexit.i.i, !llvm.loop !9
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %.not.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE4growEi.exit, label %40
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %.not.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE4growEi.exit, label %38
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
-  %indvars.iv20.i.i = phi i64 [ %25, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %36 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv20.i.i
-  store i8 0, ptr %36, align 1
+  %indvars.iv20.i.i = phi i64 [ %23, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
+  %34 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv20.i.i
+  store i8 0, ptr %34, align 1
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %37 = load i32, ptr %6, align 4
-  %38 = trunc nuw i64 %indvars.iv.next21.i.i to i32
-  %39 = icmp sgt i32 %37, %38
-  br i1 %39, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !10
+  %35 = load i32, ptr %6, align 4
+  %36 = trunc nuw i64 %indvars.iv.next21.i.i to i32
+  %37 = icmp sgt i32 %35, %36
+  br i1 %37, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !10
 
-40:                                               ; preds = %.preheader.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %35) #18
+38:                                               ; preds = %.preheader.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %33) #18
   br label %_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE4growEi.exit
 
-_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE4growEi.exit: ; preds = %.preheader.i.i, %40
-  store ptr %18, ptr %34, align 8
+_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE4growEi.exit: ; preds = %.preheader.i.i, %38
+  store ptr %16, ptr %32, align 8
   %.pre = load i32, ptr %0, align 8
-  br label %41
+  br label %39
 
-41:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE4growEi.exit, %5
-  %42 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE4growEi.exit ], [ %4, %5 ]
-  %.not1213 = icmp sgt i32 %42, %1
+39:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE4growEi.exit, %5
+  %40 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE4growEi.exit ], [ %4, %5 ]
+  %.not1213 = icmp sgt i32 %40, %1
   br i1 %.not1213, label %.._crit_edge_crit_edge, label %.lr.ph
 
-.._crit_edge_crit_edge:                           ; preds = %41
+.._crit_edge_crit_edge:                           ; preds = %39
   %.pre17 = add nsw i32 %1, 1
   br label %._crit_edge
 
-.lr.ph:                                           ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = sext i32 %42 to i64
-  %45 = add i32 %1, 1
+.lr.ph:                                           ; preds = %39
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = sext i32 %40 to i64
+  %43 = add i32 %1, 1
   %.pre16 = load i8, ptr %2, align 1
-  br label %46
+  br label %44
 
-46:                                               ; preds = %.lr.ph, %46
-  %indvars.iv = phi i64 [ %44, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %47 = load ptr, ptr %43, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv
-  store i8 %.pre16, ptr %48, align 1
+44:                                               ; preds = %.lr.ph, %44
+  %indvars.iv = phi i64 [ %42, %.lr.ph ], [ %indvars.iv.next, %44 ]
+  %45 = load ptr, ptr %41, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 %indvars.iv
+  store i8 %.pre16, ptr %46, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %45, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !11
+  %exitcond.not = icmp eq i32 %43, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %46, %.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre17, %.._crit_edge_crit_edge ], [ %45, %46 ]
+._crit_edge:                                      ; preds = %44, %.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre17, %.._crit_edge_crit_edge ], [ %43, %44 ]
   store i32 %.pre-phi, ptr %0, align 8
-  br label %49
+  br label %47
 
-49:                                               ; preds = %._crit_edge, %3
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = sext i32 %1 to i64
-  %53 = getelementptr inbounds i8, ptr %51, i64 %52
-  ret ptr %53
+47:                                               ; preds = %._crit_edge, %3
+  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = sext i32 %1 to i64
+  %51 = getelementptr inbounds i8, ptr %49, i64 %50
+  ret ptr %51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2508,91 +2506,90 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIN17Archi
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %40
+  br label %38
 
 7:                                                ; preds = %2
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
-  %10 = xor i32 %3, -2147483648
-  %11 = and i32 %10, %8
-  %12 = icmp eq i32 %11, 0
-  %13 = and i1 %9, %12
-  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
-  %15 = sub nuw nsw i32 32, %14
-  %16 = shl nuw i32 1, %15
-  %.0.i.i.i = select i1 %13, i32 %8, i32 %16
+  %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
+  %11 = icmp ult i32 %10, 2
+  %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
+  %13 = sub nuw nsw i32 32, %12
+  %14 = shl nuw i32 1, %13
+  %.0.i.i.i = select i1 %or.cond.i.i.i, i32 %8, i32 %14
   store i32 %.0.i.i.i, ptr %4, align 4
-  %17 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 8, i8 noundef zeroext 13) #18
-  %18 = load i32, ptr %0, align 8
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph.i.i, label %.preheader15.i.i
+  %15 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 8, i8 noundef zeroext 13) #18
+  %16 = load i32, ptr %0, align 8
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph.i.i, label %.preheader15.i.i
 
 .lr.ph.i.i:                                       ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %25
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %23
 
-.preheader15.loopexit.i.i:                        ; preds = %25
-  %21 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
+.preheader15.loopexit.i.i:                        ; preds = %23
+  %19 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %.preheader15.i.i
 
 .preheader15.i.i:                                 ; preds = %.preheader15.loopexit.i.i, %7
-  %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %21, %.preheader15.loopexit.i.i ]
-  %22 = load i32, ptr %4, align 4
-  %23 = icmp slt i32 %.0.lcssa.i.i, %22
-  br i1 %23, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %19, %.preheader15.loopexit.i.i ]
+  %20 = load i32, ptr %4, align 4
+  %21 = icmp slt i32 %.0.lcssa.i.i, %20
+  br i1 %21, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
 
 .lr.ph18.preheader.i.i:                           ; preds = %.preheader15.i.i
-  %24 = zext nneg i32 %.0.lcssa.i.i to i64
+  %22 = zext nneg i32 %.0.lcssa.i.i to i64
   br label %.lr.ph18.i.i
 
-25:                                               ; preds = %25, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %25 ]
-  %26 = getelementptr inbounds %"struct.ArchiveHeapWriter::HeapObjOrder", ptr %17, i64 %indvars.iv.i.i
-  %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds %"struct.ArchiveHeapWriter::HeapObjOrder", ptr %27, i64 %indvars.iv.i.i
-  %29 = load i64, ptr %28, align 4
-  store i64 %29, ptr %26, align 4
+23:                                               ; preds = %23, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
+  %24 = getelementptr inbounds %"struct.ArchiveHeapWriter::HeapObjOrder", ptr %15, i64 %indvars.iv.i.i
+  %25 = load ptr, ptr %18, align 8
+  %26 = getelementptr inbounds %"struct.ArchiveHeapWriter::HeapObjOrder", ptr %25, i64 %indvars.iv.i.i
+  %27 = load i64, ptr %26, align 4
+  store i64 %27, ptr %24, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %30 = load i32, ptr %0, align 8
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next.i.i, %31
-  br i1 %32, label %25, label %.preheader15.loopexit.i.i, !llvm.loop !26
+  %28 = load i32, ptr %0, align 8
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next.i.i, %29
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !26
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %.not.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit, label %39
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit, label %37
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
-  %indvars.iv20.i.i = phi i64 [ %24, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %35 = getelementptr inbounds %"struct.ArchiveHeapWriter::HeapObjOrder", ptr %17, i64 %indvars.iv20.i.i
-  store i64 0, ptr %35, align 4
+  %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
+  %33 = getelementptr inbounds %"struct.ArchiveHeapWriter::HeapObjOrder", ptr %15, i64 %indvars.iv20.i.i
+  store i64 0, ptr %33, align 4
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %36 = load i32, ptr %4, align 4
-  %37 = trunc nuw i64 %indvars.iv.next21.i.i to i32
-  %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !27
+  %34 = load i32, ptr %4, align 4
+  %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
+  %36 = icmp sgt i32 %34, %35
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !27
 
-39:                                               ; preds = %.preheader.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #18
+37:                                               ; preds = %.preheader.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #18
   br label %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit
 
-_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit: ; preds = %.preheader.i.i, %39
-  store ptr %17, ptr %33, align 8
+_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit: ; preds = %.preheader.i.i, %37
+  store ptr %15, ptr %31, align 8
   %.pre = load i32, ptr %0, align 8
-  br label %40
+  br label %38
 
-40:                                               ; preds = %._crit_edge, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit
-  %41 = phi ptr [ %17, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %.pre3, %._crit_edge ]
-  %42 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %3, %._crit_edge ]
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %0, align 8
-  %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds %"struct.ArchiveHeapWriter::HeapObjOrder", ptr %41, i64 %44
-  %46 = load i64, ptr %1, align 4
-  store i64 %46, ptr %45, align 4
-  ret i32 %42
+38:                                               ; preds = %._crit_edge, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit
+  %39 = phi ptr [ %15, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %.pre3, %._crit_edge ]
+  %40 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %3, %._crit_edge ]
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %0, align 8
+  %42 = sext i32 %40 to i64
+  %43 = getelementptr inbounds %"struct.ArchiveHeapWriter::HeapObjOrder", ptr %39, i64 %42
+  %44 = load i64, ptr %1, align 4
+  store i64 %44, ptr %43, align 4
+  ret i32 %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3285,89 +3282,88 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIN17Archi
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %39
+  br label %37
 
 7:                                                ; preds = %2
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
-  %10 = xor i32 %3, -2147483648
-  %11 = and i32 %10, %8
-  %12 = icmp eq i32 %11, 0
-  %13 = and i1 %9, %12
-  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
-  %15 = sub nuw nsw i32 32, %14
-  %16 = shl nuw i32 1, %15
-  %.0.i.i.i = select i1 %13, i32 %8, i32 %16
+  %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
+  %11 = icmp ult i32 %10, 2
+  %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
+  %13 = sub nuw nsw i32 32, %12
+  %14 = shl nuw i32 1, %13
+  %.0.i.i.i = select i1 %or.cond.i.i.i, i32 %8, i32 %14
   store i32 %.0.i.i.i, ptr %4, align 4
-  %17 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 16, i8 noundef zeroext 13) #18
-  %18 = load i32, ptr %0, align 8
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph.i.i, label %.preheader15.i.i
+  %15 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 16, i8 noundef zeroext 13) #18
+  %16 = load i32, ptr %0, align 8
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph.i.i, label %.preheader15.i.i
 
 .lr.ph.i.i:                                       ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %25
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %23
 
-.preheader15.loopexit.i.i:                        ; preds = %25
-  %21 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
+.preheader15.loopexit.i.i:                        ; preds = %23
+  %19 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %.preheader15.i.i
 
 .preheader15.i.i:                                 ; preds = %.preheader15.loopexit.i.i, %7
-  %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %21, %.preheader15.loopexit.i.i ]
-  %22 = load i32, ptr %4, align 4
-  %23 = icmp slt i32 %.0.lcssa.i.i, %22
-  br i1 %23, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %19, %.preheader15.loopexit.i.i ]
+  %20 = load i32, ptr %4, align 4
+  %21 = icmp slt i32 %.0.lcssa.i.i, %20
+  br i1 %21, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
 
 .lr.ph18.preheader.i.i:                           ; preds = %.preheader15.i.i
-  %24 = zext nneg i32 %.0.lcssa.i.i to i64
+  %22 = zext nneg i32 %.0.lcssa.i.i to i64
   br label %.lr.ph18.i.i
 
-25:                                               ; preds = %25, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %25 ]
-  %26 = getelementptr inbounds %"struct.ArchiveHeapWriter::NativePointerInfo", ptr %17, i64 %indvars.iv.i.i
-  %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds %"struct.ArchiveHeapWriter::NativePointerInfo", ptr %27, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
+23:                                               ; preds = %23, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
+  %24 = getelementptr inbounds %"struct.ArchiveHeapWriter::NativePointerInfo", ptr %15, i64 %indvars.iv.i.i
+  %25 = load ptr, ptr %18, align 8
+  %26 = getelementptr inbounds %"struct.ArchiveHeapWriter::NativePointerInfo", ptr %25, i64 %indvars.iv.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %29 = load i32, ptr %0, align 8
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next.i.i, %30
-  br i1 %31, label %25, label %.preheader15.loopexit.i.i, !llvm.loop !29
+  %27 = load i32, ptr %0, align 8
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next.i.i, %28
+  br i1 %29, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !29
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter17NativePointerInfoE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit, label %38
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %.not.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter17NativePointerInfoE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit, label %36
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
-  %indvars.iv20.i.i = phi i64 [ %24, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %34 = getelementptr inbounds %"struct.ArchiveHeapWriter::NativePointerInfo", ptr %17, i64 %indvars.iv20.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
+  %32 = getelementptr inbounds %"struct.ArchiveHeapWriter::NativePointerInfo", ptr %15, i64 %indvars.iv20.i.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %35 = load i32, ptr %4, align 4
-  %36 = trunc nuw i64 %indvars.iv.next21.i.i to i32
-  %37 = icmp sgt i32 %35, %36
-  br i1 %37, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !30
+  %33 = load i32, ptr %4, align 4
+  %34 = trunc nuw i64 %indvars.iv.next21.i.i to i32
+  %35 = icmp sgt i32 %33, %34
+  br i1 %35, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !30
 
-38:                                               ; preds = %.preheader.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %33) #18
+36:                                               ; preds = %.preheader.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %31) #18
   br label %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter17NativePointerInfoE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit
 
-_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter17NativePointerInfoE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit: ; preds = %.preheader.i.i, %38
-  store ptr %17, ptr %32, align 8
+_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter17NativePointerInfoE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit: ; preds = %.preheader.i.i, %36
+  store ptr %15, ptr %30, align 8
   %.pre = load i32, ptr %0, align 8
-  br label %39
+  br label %37
 
-39:                                               ; preds = %._crit_edge, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter17NativePointerInfoE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit
-  %40 = phi ptr [ %17, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter17NativePointerInfoE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %.pre3, %._crit_edge ]
-  %41 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter17NativePointerInfoE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %3, %._crit_edge ]
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %0, align 8
-  %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds %"struct.ArchiveHeapWriter::NativePointerInfo", ptr %40, i64 %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  ret i32 %41
+37:                                               ; preds = %._crit_edge, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter17NativePointerInfoE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit
+  %38 = phi ptr [ %15, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter17NativePointerInfoE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %.pre3, %._crit_edge ]
+  %39 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter17NativePointerInfoE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %3, %._crit_edge ]
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %0, align 8
+  %41 = sext i32 %39 to i64
+  %42 = getelementptr inbounds %"struct.ArchiveHeapWriter::NativePointerInfo", ptr %38, i64 %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  ret i32 %39
 }
 
 declare void @_ZN10HeapShared23set_has_native_pointersEP7oopDesc(ptr noundef) local_unnamed_addr #2
@@ -3675,7 +3671,7 @@ _ZN14AccessInternal15BarrierResolverILm282694EPFP7oopDescS2_lELNS_11BarrierTypeE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm282726ES1_EELNS_11BarrierTypeE3ELm282726EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -3694,7 +3690,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm282726ES1_EELNS_11BarrierTypeE3ELm282726EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -3713,7 +3709,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm282726ES1_EELNS_11BarrierTypeE3ELm282726EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -3738,7 +3734,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm282726ES1_EELNS_11BarrierTypeE3ELm282726EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -3807,7 +3803,7 @@ _ZN11XBarrierSet13AccessBarrierILm282726ES_E19oop_load_in_heap_atEP7oopDescl.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm282726ES1_EELNS_11BarrierTypeE3ELm282726EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %5, i64 noundef %6)
@@ -3825,7 +3821,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
 define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrierILm282726ES_E19oop_load_in_heap_atEP7oopDescl(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
@@ -3943,7 +3939,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -3993,7 +3989,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -4043,7 +4039,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -4137,7 +4133,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -4347,7 +4343,7 @@ declare noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGenera
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm282694ES1_EELNS_11BarrierTypeE3ELm282694EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -4356,7 +4352,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm282694ES1_EELNS_11BarrierTypeE3ELm282694EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -4365,7 +4361,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm282694ES1_EELNS_11BarrierTypeE3ELm282694EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -4375,7 +4371,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm282694ES1_EELNS_11BarrierTypeE3ELm282694EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -4402,7 +4398,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %21
   %25 = load ptr, ptr %24, align 8
-  %.not.i25.i.i = icmp ugt ptr %25, %7
+  %.not.i25.i.i = icmp ult ptr %7, %25
   br i1 %.not.i25.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread.i.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.i.i: ; preds = %15
@@ -4443,7 +4439,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm282694ES_E19oop_load_in_heap_atEP7oop
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm282694ES1_EELNS_11BarrierTypeE3ELm282694EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -4502,7 +4498,7 @@ _ZN11XBarrierSet13AccessBarrierILm282694ES_E19oop_load_in_heap_atEP7oopDescl.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm282694ES1_EELNS_11BarrierTypeE3ELm282694EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %5, i64 noundef %6)
@@ -4541,7 +4537,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -4591,7 +4587,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -4641,7 +4637,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -9393,6 +9389,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchIN17ArchiveHeapWriter
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15

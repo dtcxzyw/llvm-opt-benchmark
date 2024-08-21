@@ -33,7 +33,7 @@ define noalias noundef ptr @ellipticWedge(double %0, double %1, double noundef %
   %25 = fadd double %20, 0x401921FB54442D18
   %storemerge.i = select i1 %or.cond.i, double %25, double %20
   %26 = fneg double %3
-  %27 = fmul double %26, %3
+  %27 = fmul double %3, %26
   %28 = tail call double @llvm.fmuladd.f64(double %2, double %2, double %27)
   %29 = fcmp olt double %28, 0.000000e+00
   br i1 %29, label %cdce.call, label %cdce.end, !prof !4
@@ -211,7 +211,7 @@ gv_alloc.exit.preheader.i.preheader:              ; preds = %initEllipse.exit
   %153 = tail call double @llvm.fmuladd.f64(double %39, double %152, double 2.070000e-01)
   %154 = fadd double %39, 6.700000e-03
   %155 = fdiv double %153, %154
-  %156 = fmul double %155, %2
+  %156 = fmul double %2, %155
   br label %gv_alloc.exit.preheader.i
 
 157:                                              ; preds = %initEllipse.exit
@@ -279,12 +279,12 @@ gv_alloc.exit.i:                                  ; preds = %.lr.ph.i, %gv_alloc
   unreachable
 
 lineTo.exit.i:                                    ; preds = %188
-  %198 = fmul double %192, %3
-  %199 = fmul double %191, %2
+  %198 = fmul double %3, %192
+  %199 = fmul double %2, %191
   %200 = tail call double @llvm.fmuladd.f64(double %199, double 0.000000e+00, double %1)
   %201 = fadd double %198, %200
   %202 = fneg double %198
-  %203 = fadd double %199, %0
+  %203 = fadd double %0, %199
   %204 = tail call double @llvm.fmuladd.f64(double %202, double 0.000000e+00, double %203)
   store ptr %193, ptr %84, align 8
   store double %0, ptr %193, align 8
@@ -318,12 +318,12 @@ lineTo.exit.i:                                    ; preds = %188
 
 lineTo.exit._crit_edge.i:                         ; preds = %lineTo.exit.i
   %.pre.i = load i32, ptr @bufsize, align 4
-  br label %270
+  br label %271
 
 .lr.ph138.i:                                      ; preds = %lineTo.exit.i
-  %223 = fneg double %2
-  %224 = fmul double %192, %223
-  %225 = fmul double %191, %3
+  %223 = fneg double %192
+  %224 = fmul double %2, %223
+  %225 = fmul double %3, %191
   %226 = fmul double %225, 0.000000e+00
   %227 = fsub double %224, %226
   %228 = tail call double @llvm.fmuladd.f64(double %224, double 0.000000e+00, double %225)
@@ -332,125 +332,126 @@ lineTo.exit._crit_edge.i:                         ; preds = %lineTo.exit.i
 
 230:                                              ; preds = %curveTo.exit.i, %.lr.ph138.i
   %indvars.iv.i = phi i64 [ 4, %.lr.ph138.i ], [ %indvars.iv.next.i, %curveTo.exit.i ]
-  %231 = phi ptr [ %193, %.lr.ph138.i ], [ %259, %curveTo.exit.i ]
+  %231 = phi ptr [ %193, %.lr.ph138.i ], [ %260, %curveTo.exit.i ]
   %.0137.i = phi double [ %11, %.lr.ph138.i ], [ %232, %curveTo.exit.i ]
-  %.1136.i = phi i32 [ 0, %.lr.ph138.i ], [ %268, %curveTo.exit.i ]
+  %.1136.i = phi i32 [ 0, %.lr.ph138.i ], [ %269, %curveTo.exit.i ]
   %.0118135.i = phi double [ %204, %.lr.ph138.i ], [ %240, %curveTo.exit.i ]
   %.0119134.i = phi double [ %201, %.lr.ph138.i ], [ %242, %curveTo.exit.i ]
-  %.0120133.i = phi double [ %228, %.lr.ph138.i ], [ %246, %curveTo.exit.i ]
-  %.0121132.i = phi double [ %227, %.lr.ph138.i ], [ %245, %curveTo.exit.i ]
+  %.0120133.i = phi double [ %228, %.lr.ph138.i ], [ %247, %curveTo.exit.i ]
+  %.0121132.i = phi double [ %227, %.lr.ph138.i ], [ %246, %curveTo.exit.i ]
   %232 = fadd double %190, %.0137.i
   %233 = tail call double @cos(double noundef %232) #8
   %234 = tail call double @sin(double noundef %232) #8
-  %235 = fmul double %233, %2
-  %236 = fmul double %234, %3
-  %237 = fmul double %233, %3
-  %238 = fadd double %235, %0
+  %235 = fmul double %2, %233
+  %236 = fmul double %3, %234
+  %237 = fmul double %3, %233
+  %238 = fadd double %0, %235
   %239 = fneg double %236
   %240 = tail call double @llvm.fmuladd.f64(double %239, double 0.000000e+00, double %238)
   %241 = tail call double @llvm.fmuladd.f64(double %235, double 0.000000e+00, double %1)
   %242 = fadd double %236, %241
-  %243 = fmul double %234, %223
-  %244 = fmul double %237, 0.000000e+00
-  %245 = fsub double %243, %244
-  %246 = tail call double @llvm.fmuladd.f64(double %243, double 0.000000e+00, double %237)
-  %247 = tail call double @llvm.fmuladd.f64(double %221, double %.0121132.i, double %.0118135.i)
-  %248 = tail call double @llvm.fmuladd.f64(double %221, double %.0120133.i, double %.0119134.i)
-  %249 = tail call double @llvm.fmuladd.f64(double %229, double %245, double %240)
-  %250 = tail call double @llvm.fmuladd.f64(double %229, double %246, double %242)
+  %243 = fneg double %234
+  %244 = fmul double %2, %243
+  %245 = fmul double %237, 0.000000e+00
+  %246 = fsub double %244, %245
+  %247 = tail call double @llvm.fmuladd.f64(double %244, double 0.000000e+00, double %237)
+  %248 = tail call double @llvm.fmuladd.f64(double %221, double %.0121132.i, double %.0118135.i)
+  %249 = tail call double @llvm.fmuladd.f64(double %221, double %.0120133.i, double %.0119134.i)
+  %250 = tail call double @llvm.fmuladd.f64(double %229, double %246, double %240)
+  %251 = tail call double @llvm.fmuladd.f64(double %229, double %247, double %242)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
-  %251 = load i32, ptr @bufsize, align 4
-  %252 = sext i32 %251 to i64
-  %.not.i.i = icmp slt i64 %indvars.iv.next.i, %252
-  br i1 %.not.i.i, label %curveTo.exit.i, label %253
+  %252 = load i32, ptr @bufsize, align 4
+  %253 = sext i32 %252 to i64
+  %.not.i.i = icmp slt i64 %indvars.iv.next.i, %253
+  br i1 %.not.i.i, label %curveTo.exit.i, label %254
 
-253:                                              ; preds = %230
-  %254 = shl nsw i32 %251, 1
-  store i32 %254, ptr @bufsize, align 4
-  %255 = sext i32 %254 to i64
-  %256 = shl nsw i64 %255, 4
-  %257 = tail call ptr @realloc(ptr noundef nonnull %231, i64 noundef %256) #12
+254:                                              ; preds = %230
+  %255 = shl nsw i32 %252, 1
+  store i32 %255, ptr @bufsize, align 4
+  %256 = sext i32 %255 to i64
+  %257 = shl nsw i64 %256, 4
+  %258 = tail call ptr @realloc(ptr noundef nonnull %231, i64 noundef %257) #12
   br label %curveTo.exit.i
 
-curveTo.exit.i:                                   ; preds = %253, %230
-  %258 = phi i32 [ %254, %253 ], [ %251, %230 ]
-  %259 = phi ptr [ %257, %253 ], [ %231, %230 ]
-  %260 = getelementptr inbounds %struct.pointf_s, ptr %259, i64 %indvars.iv.i
-  store double %247, ptr %260, align 8
-  %261 = add nuw nsw i64 %indvars.iv.i, 1
-  %262 = getelementptr inbounds %struct.pointf_s, ptr %259, i64 %indvars.iv.i, i32 1
-  store double %248, ptr %262, align 8
-  %263 = getelementptr inbounds %struct.pointf_s, ptr %259, i64 %261
+curveTo.exit.i:                                   ; preds = %254, %230
+  %259 = phi i32 [ %255, %254 ], [ %252, %230 ]
+  %260 = phi ptr [ %258, %254 ], [ %231, %230 ]
+  %261 = getelementptr inbounds %struct.pointf_s, ptr %260, i64 %indvars.iv.i
+  store double %248, ptr %261, align 8
+  %262 = add nuw nsw i64 %indvars.iv.i, 1
+  %263 = getelementptr inbounds %struct.pointf_s, ptr %260, i64 %indvars.iv.i, i32 1
   store double %249, ptr %263, align 8
-  %264 = add nuw nsw i64 %indvars.iv.i, 2
-  %265 = getelementptr inbounds %struct.pointf_s, ptr %259, i64 %261, i32 1
-  store double %250, ptr %265, align 8
-  %266 = getelementptr inbounds %struct.pointf_s, ptr %259, i64 %264
-  store double %240, ptr %266, align 8
-  %267 = getelementptr inbounds %struct.pointf_s, ptr %259, i64 %264, i32 1
-  store double %242, ptr %267, align 8
-  %268 = add nuw nsw i32 %.1136.i, 1
-  %exitcond.not.i = icmp eq i32 %268, %186
+  %264 = getelementptr inbounds %struct.pointf_s, ptr %260, i64 %262
+  store double %250, ptr %264, align 8
+  %265 = add nuw nsw i64 %indvars.iv.i, 2
+  %266 = getelementptr inbounds %struct.pointf_s, ptr %260, i64 %262, i32 1
+  store double %251, ptr %266, align 8
+  %267 = getelementptr inbounds %struct.pointf_s, ptr %260, i64 %265
+  store double %240, ptr %267, align 8
+  %268 = getelementptr inbounds %struct.pointf_s, ptr %260, i64 %265, i32 1
+  store double %242, ptr %268, align 8
+  %269 = add nuw nsw i32 %.1136.i, 1
+  %exitcond.not.i = icmp eq i32 %269, %186
   br i1 %exitcond.not.i, label %._crit_edge.i, label %230
 
 ._crit_edge.i:                                    ; preds = %curveTo.exit.i
-  %269 = trunc nsw i64 %indvars.iv.next.i to i32
-  store i32 %269, ptr %206, align 8
-  store ptr %259, ptr %84, align 8
-  br label %270
+  %270 = trunc nsw i64 %indvars.iv.next.i to i32
+  store i32 %270, ptr %206, align 8
+  store ptr %260, ptr %84, align 8
+  br label %271
 
-270:                                              ; preds = %._crit_edge.i, %lineTo.exit._crit_edge.i
-  %271 = phi i32 [ %258, %._crit_edge.i ], [ %.pre.i, %lineTo.exit._crit_edge.i ]
-  %272 = phi i32 [ %269, %._crit_edge.i ], [ 4, %lineTo.exit._crit_edge.i ]
-  %273 = phi ptr [ %259, %._crit_edge.i ], [ %193, %lineTo.exit._crit_edge.i ]
-  %.sroa.0.0.copyload.i125.i = load double, ptr %273, align 8
-  %.sroa.2.0..sroa_idx.i126.i = getelementptr inbounds i8, ptr %273, i64 8
+271:                                              ; preds = %._crit_edge.i, %lineTo.exit._crit_edge.i
+  %272 = phi i32 [ %259, %._crit_edge.i ], [ %.pre.i, %lineTo.exit._crit_edge.i ]
+  %273 = phi i32 [ %270, %._crit_edge.i ], [ 4, %lineTo.exit._crit_edge.i ]
+  %274 = phi ptr [ %260, %._crit_edge.i ], [ %193, %lineTo.exit._crit_edge.i ]
+  %.sroa.0.0.copyload.i125.i = load double, ptr %274, align 8
+  %.sroa.2.0..sroa_idx.i126.i = getelementptr inbounds i8, ptr %274, i64 8
   %.sroa.2.0.copyload.i127.i = load double, ptr %.sroa.2.0..sroa_idx.i126.i, align 8
-  %274 = sext i32 %272 to i64
-  %275 = getelementptr %struct.pointf_s, ptr %273, i64 %274
-  %276 = getelementptr i8, ptr %275, i64 -16
-  %.sroa.0.0.copyload.i.i.i = load double, ptr %276, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr i8, ptr %275, i64 -8
+  %275 = sext i32 %273 to i64
+  %276 = getelementptr %struct.pointf_s, ptr %274, i64 %275
+  %277 = getelementptr i8, ptr %276, i64 -16
+  %.sroa.0.0.copyload.i.i.i = load double, ptr %277, align 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr i8, ptr %276, i64 -8
   %.sroa.2.0.copyload.i.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %277 = add nsw i32 %272, 3
-  %.not.i.i.i.i = icmp slt i32 %277, %271
-  br i1 %.not.i.i.i.i, label %genEllipticPath.exit, label %278
+  %278 = add nsw i32 %273, 3
+  %.not.i.i.i.i = icmp slt i32 %278, %272
+  br i1 %.not.i.i.i.i, label %genEllipticPath.exit, label %279
 
-278:                                              ; preds = %270
-  %279 = shl nsw i32 %271, 1
-  %280 = sext i32 %279 to i64
-  %281 = shl nsw i64 %280, 4
-  %282 = tail call ptr @realloc(ptr noundef nonnull %273, i64 noundef %281) #12
-  store ptr %282, ptr %84, align 8
+279:                                              ; preds = %271
+  %280 = shl nsw i32 %272, 1
+  %281 = sext i32 %280 to i64
+  %282 = shl nsw i64 %281, 4
+  %283 = tail call ptr @realloc(ptr noundef nonnull %274, i64 noundef %282) #12
+  store ptr %283, ptr %84, align 8
   br label %genEllipticPath.exit
 
-genEllipticPath.exit:                             ; preds = %270, %278
-  %283 = phi ptr [ %273, %270 ], [ %282, %278 ]
-  %284 = getelementptr inbounds %struct.pointf_s, ptr %283, i64 %274
-  store double %.sroa.0.0.copyload.i.i.i, ptr %284, align 8
-  %285 = load ptr, ptr %84, align 8
-  %286 = load i32, ptr %206, align 8
-  %287 = add nsw i32 %286, 1
-  %288 = sext i32 %286 to i64
-  %289 = getelementptr inbounds %struct.pointf_s, ptr %285, i64 %288, i32 1
-  store double %.sroa.2.0.copyload.i.i.i, ptr %289, align 8
-  %290 = sext i32 %287 to i64
-  %291 = getelementptr inbounds %struct.pointf_s, ptr %285, i64 %290
-  store double %.sroa.0.0.copyload.i125.i, ptr %291, align 8
-  %292 = add nsw i32 %286, 2
-  %293 = getelementptr inbounds %struct.pointf_s, ptr %285, i64 %290, i32 1
-  store double %.sroa.2.0.copyload.i127.i, ptr %293, align 8
-  %294 = sext i32 %292 to i64
-  %295 = getelementptr inbounds %struct.pointf_s, ptr %285, i64 %294
-  store double %.sroa.0.0.copyload.i125.i, ptr %295, align 8
-  %296 = add nsw i32 %286, 3
-  store i32 %296, ptr %206, align 8
-  %297 = getelementptr inbounds %struct.pointf_s, ptr %285, i64 %294, i32 1
-  store double %.sroa.2.0.copyload.i127.i, ptr %297, align 8
-  %298 = sext i32 %296 to i64
-  %299 = shl nsw i64 %298, 4
-  %300 = tail call ptr @realloc(ptr noundef %285, i64 noundef %299) #12
-  store ptr %300, ptr %84, align 8
+genEllipticPath.exit:                             ; preds = %271, %279
+  %284 = phi ptr [ %274, %271 ], [ %283, %279 ]
+  %285 = getelementptr inbounds %struct.pointf_s, ptr %284, i64 %275
+  store double %.sroa.0.0.copyload.i.i.i, ptr %285, align 8
+  %286 = load ptr, ptr %84, align 8
+  %287 = load i32, ptr %206, align 8
+  %288 = add nsw i32 %287, 1
+  %289 = sext i32 %287 to i64
+  %290 = getelementptr inbounds %struct.pointf_s, ptr %286, i64 %289, i32 1
+  store double %.sroa.2.0.copyload.i.i.i, ptr %290, align 8
+  %291 = sext i32 %288 to i64
+  %292 = getelementptr inbounds %struct.pointf_s, ptr %286, i64 %291
+  store double %.sroa.0.0.copyload.i125.i, ptr %292, align 8
+  %293 = add nsw i32 %287, 2
+  %294 = getelementptr inbounds %struct.pointf_s, ptr %286, i64 %291, i32 1
+  store double %.sroa.2.0.copyload.i127.i, ptr %294, align 8
+  %295 = sext i32 %293 to i64
+  %296 = getelementptr inbounds %struct.pointf_s, ptr %286, i64 %295
+  store double %.sroa.0.0.copyload.i125.i, ptr %296, align 8
+  %297 = add nsw i32 %287, 3
+  store i32 %297, ptr %206, align 8
+  %298 = getelementptr inbounds %struct.pointf_s, ptr %286, i64 %295, i32 1
+  store double %.sroa.2.0.copyload.i127.i, ptr %298, align 8
+  %299 = sext i32 %297 to i64
+  %300 = shl nsw i64 %299, 4
+  %301 = tail call ptr @realloc(ptr noundef %286, i64 noundef %300) #12
+  store ptr %301, ptr %84, align 8
   store i32 0, ptr @bufsize, align 4
   ret ptr %84
 }

@@ -654,13 +654,13 @@ for.body:                                         ; preds = %if.end, %for.inc
   %i.020 = phi i64 [ %add, %for.inc ], [ 0, %if.end ]
   %sent_sigs.019 = phi ptr [ %add.ptr, %for.inc ], [ @tls12_sigalgs, %if.end ]
   %3 = load i8, ptr %sent_sigs.019, align 1
-  %cmp10 = icmp eq i8 %3, %hash
+  %cmp10 = icmp eq i8 %hash, %3
   br i1 %cmp10, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
   %arrayidx13 = getelementptr inbounds i8, ptr %sent_sigs.019, i64 1
   %4 = load i8, ptr %arrayidx13, align 1
-  %cmp15 = icmp eq i8 %4, %signature
+  %cmp15 = icmp eq i8 %signature, %4
   br i1 %cmp15, label %if.end22, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
@@ -1675,7 +1675,7 @@ if.end29:                                         ; preds = %if.end9, %lor.lhs.f
   %call31 = call i64 @HMAC_size(ptr noundef nonnull %hmac_ctx) #20
   %add32 = add i64 %call31, %conv
   %add33 = add i64 %add32, 17
-  %cmp34 = icmp ugt i64 %add33, %ticket_len
+  %cmp34 = icmp ult i64 %ticket_len, %add33
   br i1 %cmp34, label %done, label %if.end37
 
 if.end37:                                         ; preds = %if.end29

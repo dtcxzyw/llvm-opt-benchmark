@@ -247,7 +247,7 @@ make_empty_cache_entry.exit:                      ; preds = %if.end.i.i, %if.the
   %10 = load i32, ptr %cache_nr.i, align 4
   %dec.i = add i32 %10, -1
   store i32 %dec.i, ptr %cache_nr.i, align 4
-  %cmp.not.i = icmp ugt i32 %dec.i, %nr
+  %cmp.not.i = icmp ult i32 %nr, %dec.i
   br i1 %cmp.not.i, label %if.then.i.i, label %remove_index_entry_at.exit
 
 if.then.i.i:                                      ; preds = %make_empty_cache_entry.exit
@@ -377,7 +377,7 @@ entry:
   %3 = load i32, ptr %cache_nr, align 4
   %dec = add i32 %3, -1
   store i32 %dec, ptr %cache_nr, align 4
-  %cmp.not = icmp ugt i32 %dec, %pos
+  %cmp.not = icmp ult i32 %pos, %dec
   br i1 %cmp.not, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %entry
@@ -842,7 +842,7 @@ if.end52.i.i.i:                                   ; preds = %if.then49.i.i.i
   %60 = load i32, ptr %cache_nr.i, align 4
   %dec.i.i22.i.i = add i32 %60, -1
   store i32 %dec.i.i22.i.i, ptr %cache_nr.i, align 4
-  %cmp.not.i.i23.i.i = icmp ugt i32 %dec.i.i22.i.i, %call40.i.i.i
+  %cmp.not.i.i23.i.i = icmp ult i32 %call40.i.i.i, %dec.i.i22.i.i
   br i1 %cmp.not.i.i23.i.i, label %if.then.i.i.i25.i.i, label %for.cond.outer.i.i.i.backedge
 
 if.then.i.i.i25.i.i:                              ; preds = %if.end52.i.i.i
@@ -1261,7 +1261,7 @@ land.rhs:                                         ; preds = %entry
 land.rhs.i:                                       ; preds = %land.rhs
   %sd_mtime.i = getelementptr inbounds i8, ptr %ce, i64 24
   %2 = load i32, ptr %sd_mtime.i, align 4
-  %cmp.i = icmp uge i32 %2, %istate.val
+  %cmp.i = icmp ule i32 %istate.val, %2
   %3 = zext i1 %cmp.i to i32
   br label %land.end
 
@@ -1281,7 +1281,7 @@ entry:
 is_racy_stat.exit:                                ; preds = %entry
   %sd_mtime.i = getelementptr inbounds i8, ptr %sd, i64 8
   %1 = load i32, ptr %sd_mtime.i, align 4
-  %cmp.i.not = icmp ult i32 %1, %istate.val
+  %cmp.i.not = icmp ugt i32 %istate.val, %1
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %is_racy_stat.exit
@@ -1365,7 +1365,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true29
 is_racy_timestamp.exit:                           ; preds = %land.rhs.i
   %sd_mtime.i.i = getelementptr inbounds i8, ptr %ce, i64 24
   %5 = load i32, ptr %sd_mtime.i.i, align 4
-  %cmp.i.i.not = icmp ult i32 %5, %istate.val.i
+  %cmp.i.i.not = icmp ugt i32 %istate.val.i, %5
   br i1 %cmp.i.i.not, label %return, label %if.then32
 
 if.then32:                                        ; preds = %is_racy_timestamp.exit
@@ -1878,11 +1878,11 @@ while.body:                                       ; preds = %tailrecurse, %if.en
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %while.body
-  %cmp2.i = icmp sgt i32 %shr3, %stage
+  %cmp2.i = icmp slt i32 %stage, %shr3
   br i1 %cmp2.i, label %if.end, label %cache_name_stage_compare.exit
 
 cache_name_stage_compare.exit:                    ; preds = %if.end.i
-  %cmp6.i.not = icmp ult i32 %shr3, %stage
+  %cmp6.i.not = icmp ugt i32 %stage, %shr3
   br i1 %cmp6.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.end.i, %while.body, %cache_name_stage_compare.exit
@@ -2105,7 +2105,7 @@ while.body:                                       ; preds = %land.rhs
   %4 = load i32, ptr %cache_nr, align 4
   %dec.i = add i32 %4, -1
   store i32 %dec.i, ptr %cache_nr, align 4
-  %cmp.not.i = icmp ugt i32 %dec.i, %spec.select
+  %cmp.not.i = icmp ult i32 %spec.select, %dec.i
   br i1 %cmp.not.i, label %if.then.i.i, label %remove_index_entry_at.exit
 
 if.then.i.i:                                      ; preds = %while.body
@@ -2375,7 +2375,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i86
   %17 = load ptr, ptr %arrayidx.i, align 8
   %ce_namelen.i.i = getelementptr inbounds i8, ptr %17, i64 64
   %18 = load i32, ptr %ce_namelen.i.i, align 8
-  %cmp.not.i.i = icmp eq i32 %18, %namelen.0
+  %cmp.not.i.i = icmp eq i32 %namelen.0, %18
   br i1 %cmp.not.i.i, label %compare_name.exit.i, label %cond.end
 
 compare_name.exit.i:                              ; preds = %lor.lhs.false.i
@@ -2409,7 +2409,7 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
 land.lhs.true17.i:                                ; preds = %land.lhs.true8.i
   %ce_namelen.i18.i = getelementptr inbounds i8, ptr %21, i64 64
   %24 = load i32, ptr %ce_namelen.i18.i, align 8
-  %cmp.not.i19.i = icmp eq i32 %24, %namelen.0
+  %cmp.not.i19.i = icmp eq i32 %namelen.0, %24
   br i1 %cmp.not.i19.i, label %compare_name.exit26.i, label %cond.true
 
 compare_name.exit26.i:                            ; preds = %land.lhs.true17.i
@@ -2570,7 +2570,7 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true29.i
 is_racy_timestamp.exit.i:                         ; preds = %land.rhs.i.i
   %sd_mtime.i.i.i = getelementptr inbounds i8, ptr %call70, i64 24
   %40 = load i32, ptr %sd_mtime.i.i.i, align 4
-  %cmp.i.i.not.i = icmp ult i32 %40, %istate.val.i.i
+  %cmp.i.i.not.i = icmp ugt i32 %istate.val.i.i, %40
   br i1 %cmp.i.i.not.i, label %if.then79, label %if.end91
 
 if.then79:                                        ; preds = %land.lhs.true76.if.then79_crit_edge, %is_racy_timestamp.exit.i, %land.rhs.i.i
@@ -5143,7 +5143,7 @@ if.then67:                                        ; preds = %if.end64
   %rawsz.i84 = getelementptr inbounds i8, ptr %50, i64 16
   %51 = load i64, ptr %rawsz.i84, align 8
   %add.i = add i64 %51, 44
-  %cmp.i85 = icmp ugt i64 %add.i, %6
+  %cmp.i85 = icmp ult i64 %6, %add.i
   br i1 %cmp.i85, label %read_eoie_extension.exit.thread, label %if.end.i86
 
 if.end.i86:                                       ; preds = %if.then67
@@ -5491,7 +5491,7 @@ if.end.i142:                                      ; preds = %if.then88
   store ptr %call.i143, ptr %ce_mem_pool.i, align 8
   call void @mem_pool_init(ptr noundef %call.i143, i64 noundef 0) #28
   %103 = load i32, ptr %call47.i, align 4
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %103, i32 %102)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %102, i32 %103)
   %conv.i144 = sext i32 %spec.select.i to i64
   %call5.i = call ptr @xcalloc(i64 noundef %conv.i144, i64 noundef 64) #28
   %cmp772.i = icmp sgt i32 %spec.select.i, 0
@@ -6804,7 +6804,7 @@ land.rhs.i:                                       ; preds = %for.body
 is_racy_timestamp.exit:                           ; preds = %land.rhs.i
   %sd_mtime.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i32, ptr %sd_mtime.i.i, align 4
-  %cmp.i.i.not = icmp ult i32 %5, %istate.val.i
+  %cmp.i.i.not = icmp ugt i32 %istate.val.i, %5
   br i1 %cmp.i.i.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %land.rhs.i, %for.body, %is_racy_timestamp.exit
@@ -6859,7 +6859,7 @@ land.rhs.i.i:                                     ; preds = %for.body.i
 is_racy_timestamp.exit.i:                         ; preds = %land.rhs.i.i
   %sd_mtime.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %sd_mtime.i.i.i, align 4
-  %cmp.i.i.not.i = icmp ult i32 %7, %istate.val.i.i
+  %cmp.i.i.not.i = icmp ugt i32 %istate.val.i.i, %7
   br i1 %cmp.i.i.not.i, label %for.inc.i, label %land.lhs.true
 
 for.inc.i:                                        ; preds = %is_racy_timestamp.exit.i, %land.rhs.i.i, %for.body.i
@@ -7190,7 +7190,7 @@ land.lhs.true:                                    ; preds = %entry
   %2 = load i8, ptr %arrayidx, align 1
   %cmp = icmp eq i8 %2, 47
   %dec = sext i1 %cmp to i32
-  %spec.select = add nsw i32 %dec, %namelen
+  %spec.select = add nsw i32 %namelen, %dec
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -8801,7 +8801,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true87
 is_racy_timestamp.exit:                           ; preds = %land.rhs.i
   %sd_mtime.i.i = getelementptr inbounds i8, ptr %34, i64 24
   %37 = load i32, ptr %sd_mtime.i.i, align 4
-  %cmp.i.i.not = icmp ult i32 %37, %istate.val.i
+  %cmp.i.i.not = icmp ugt i32 %istate.val.i, %37
   br i1 %cmp.i.i.not, label %if.end91, label %if.then90
 
 if.then90:                                        ; preds = %is_racy_timestamp.exit

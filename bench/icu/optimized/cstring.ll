@@ -126,7 +126,7 @@ do.body:                                          ; preds = %do.body, %if.end
   %arrayidx12 = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
   store i8 %conv10, ptr %arrayidx12, align 1
   %div = udiv i32 %uval.1, %radix
-  %cmp13.not = icmp ult i32 %uval.1, %radix
+  %cmp13.not = icmp ugt i32 %radix, %uval.1
   br i1 %cmp13.not, label %do.end, label %do.body, !llvm.loop !7
 
 do.end:                                           ; preds = %do.body

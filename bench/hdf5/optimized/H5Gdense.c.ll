@@ -754,7 +754,7 @@ define range(i32 -1, 1) i32 @H5G__dense_lookup_by_idx(ptr noundef %0, ptr nocapt
 
 52:                                               ; preds = %45
   %53 = load i64, ptr %7, align 8
-  %.not46 = icmp ugt i64 %53, %4
+  %.not46 = icmp ult i64 %4, %53
   br i1 %.not46, label %58, label %54
 
 54:                                               ; preds = %52
@@ -1263,7 +1263,7 @@ define range(i32 -1, 1) i32 @H5G__dense_get_name_by_idx(ptr noundef %0, ptr noca
 
 58:                                               ; preds = %51
   %59 = load i64, ptr %9, align 8
-  %.not62 = icmp ugt i64 %59, %4
+  %.not62 = icmp ult i64 %4, %59
   br i1 %.not62, label %64, label %60
 
 60:                                               ; preds = %58
@@ -1624,7 +1624,7 @@ define range(i32 -1, 1) i32 @H5G__dense_remove_by_idx(ptr noundef %0, ptr nocapt
 
 55:                                               ; preds = %48
   %56 = load i64, ptr %7, align 8
-  %.not52 = icmp ugt i64 %56, %5
+  %.not52 = icmp ult i64 %5, %56
   br i1 %.not52, label %61, label %57
 
 57:                                               ; preds = %55

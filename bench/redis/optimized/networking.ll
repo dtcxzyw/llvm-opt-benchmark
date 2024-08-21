@@ -1656,7 +1656,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %bufpos, align 8
   %conv = sext i32 %3 to i64
   %sub = sub i64 %2, %conv
-  %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %len)
+  %cond = tail call i64 @llvm.umin.i64(i64 %len, i64 %sub)
   %buf = getelementptr inbounds i8, ptr %c, i64 768
   %4 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %conv
@@ -1915,7 +1915,7 @@ cond.end:                                         ; preds = %if.then1, %cond.tru
 if.end9:                                          ; preds = %if.end
   tail call void @reqresSaveClientReplyOffset(ptr noundef nonnull %c) #27
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
-  %cmp10 = icmp eq ptr %4, %c
+  %cmp10 = icmp eq ptr %c, %4
   br i1 %cmp10, label %land.lhs.true, label %if.end20
 
 land.lhs.true:                                    ; preds = %if.end9
@@ -1971,7 +1971,7 @@ if.end.i26:                                       ; preds = %if.end20
   %13 = load i32, ptr %bufpos.i, align 8
   %conv.i = sext i32 %13 to i64
   %sub.i = sub i64 %12, %conv.i
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %len)
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %len, i64 %sub.i)
   %buf.i = getelementptr inbounds i8, ptr %c, i64 768
   %14 = load ptr, ptr %buf.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 %conv.i
@@ -1992,7 +1992,7 @@ if.then13.i:                                      ; preds = %if.end.i26
 
 _addReplyToBuffer.exit:                           ; preds = %if.end20, %if.end.i26, %if.then13.i
   %retval.0.i25 = phi i64 [ 0, %if.end20 ], [ %cond.i, %if.then13.i ], [ %cond.i, %if.end.i26 ]
-  %cmp22 = icmp ult i64 %retval.0.i25, %len
+  %cmp22 = icmp ugt i64 %len, %retval.0.i25
   br i1 %cmp22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %_addReplyToBuffer.exit
@@ -8825,13 +8825,13 @@ land.lhs.true366.us.us.us.us.us:                  ; preds = %if.end364.us.us.us.
   %user367.us.us.us.us.us = getelementptr inbounds i8, ptr %81, i64 152
   %83 = load ptr, ptr %user367.us.us.us.us.us, align 8
   %cmp368.not.us.us.us.us.us = icmp ne ptr %83, %user.0.fr
-  %cmp372.us.us.us.us.us = icmp eq ptr %81, %c
+  %cmp372.us.us.us.us.us = icmp eq ptr %c, %81
   %or.cond6.us.us.us.us.us = and i1 %cmp372.us.us.us.us.us, %tobool375
   %or.cond709 = select i1 %cmp368.not.us.us.us.us.us, i1 true, i1 %or.cond6.us.us.us.us.us
   br i1 %or.cond709, label %while.cond328.backedge.us.us.us.us.us, label %if.end377.split.us.us.split.us.us
 
 if.end371.us.us.us.us.us:                         ; preds = %if.end364.us.us.us.us.us
-  %cmp372.us.us.us.us.us.old = icmp eq ptr %81, %c
+  %cmp372.us.us.us.us.us.old = icmp eq ptr %c, %81
   %or.cond6.us.us.us.us.us.old = and i1 %cmp372.us.us.us.us.us.old, %tobool375
   br i1 %or.cond6.us.us.us.us.us.old, label %while.cond328.backedge.us.us.us.us.us, label %if.end377.split.us.us.split.us.us
 
@@ -8853,7 +8853,7 @@ while.body332.us.us.us.us.us677.us:               ; preds = %while.body332.lr.ph
   %call343.us.us.us.us.us.us = call ptr @getClientSockname(ptr noundef %84)
   %call344.us.us.us.us.us.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call343.us.us.us.us.us.us, ptr noundef nonnull dereferenceable(1) %laddr.0.fr) #30
   %cmp345.not.us.us.us.us.us.us = icmp ne i32 %call344.us.us.us.us.us.us, 0
-  %cmp372.us.us.us.us.us686.us = icmp eq ptr %84, %c
+  %cmp372.us.us.us.us.us686.us = icmp eq ptr %c, %84
   %or.cond6.us.us.us.us.us687.us = and i1 %cmp372.us.us.us.us.us686.us, %tobool375
   %or.cond710 = or i1 %cmp345.not.us.us.us.us.us.us, %or.cond6.us.us.us.us.us687.us
   br i1 %or.cond710, label %while.cond328.backedge.us.us.us.us.us688.us, label %if.end377.split.us.us.split.us.us
@@ -8876,7 +8876,7 @@ if.end348.us.us.us.us.us680:                      ; preds = %while.body332.us.us
   %user367.us.us.us.us.us683 = getelementptr inbounds i8, ptr %85, i64 152
   %86 = load ptr, ptr %user367.us.us.us.us.us683, align 8
   %cmp368.not.us.us.us.us.us684 = icmp ne ptr %86, %user.0.fr
-  %cmp372.us.us.us.us.us686 = icmp eq ptr %85, %c
+  %cmp372.us.us.us.us.us686 = icmp eq ptr %c, %85
   %or.cond6.us.us.us.us.us687 = and i1 %cmp372.us.us.us.us.us686, %tobool375
   %or.cond711 = or i1 %cmp368.not.us.us.us.us.us684, %or.cond6.us.us.us.us.us687
   br i1 %or.cond711, label %while.cond328.backedge.us.us.us.us.us688, label %if.end377.split.us.us.split.us.us
@@ -8907,13 +8907,13 @@ land.lhs.true366.us.us.us.us:                     ; preds = %if.end364.us.us.us.
   %user367.us.us.us.us = getelementptr inbounds i8, ptr %87, i64 152
   %89 = load ptr, ptr %user367.us.us.us.us, align 8
   %cmp368.not.us.us.us.us = icmp ne ptr %89, %user.0.fr
-  %cmp372.us.us.us.us = icmp eq ptr %87, %c
+  %cmp372.us.us.us.us = icmp eq ptr %c, %87
   %or.cond6.us.us.us.us = and i1 %cmp372.us.us.us.us, %tobool375
   %or.cond712 = or i1 %cmp368.not.us.us.us.us, %or.cond6.us.us.us.us
   br i1 %or.cond712, label %while.cond328.backedge.us.us.us.us, label %if.end377.split.us.us.split.us.us
 
 if.end371.us.us.us.us:                            ; preds = %if.end364.us.us.us.us
-  %cmp372.us.us.us.us.old = icmp eq ptr %87, %c
+  %cmp372.us.us.us.us.old = icmp eq ptr %c, %87
   %or.cond6.us.us.us.us.old = and i1 %cmp372.us.us.us.us.old, %tobool375
   br i1 %or.cond6.us.us.us.us.old, label %while.cond328.backedge.us.us.us.us, label %if.end377.split.us.us.split.us.us
 
@@ -8964,7 +8964,7 @@ if.end340.us.us.us541.us.us.us619:                ; preds = %while.body332.us.us
   %user367.us.us.us547.us.us.us = getelementptr inbounds i8, ptr %90, i64 152
   %91 = load ptr, ptr %user367.us.us.us547.us.us.us, align 8
   %cmp368.not.us.us.us548.us.us.us = icmp ne ptr %91, %user.0.fr
-  %cmp372.us.us.us550.us.us.us620 = icmp eq ptr %90, %c
+  %cmp372.us.us.us550.us.us.us620 = icmp eq ptr %c, %90
   %or.cond923 = or i1 %cmp368.not.us.us.us548.us.us.us, %cmp372.us.us.us550.us.us.us620
   br i1 %or.cond923, label %while.cond328.backedge.us.us.us552.us.us.us622, label %if.else381.us.us571.us
 
@@ -8992,7 +8992,7 @@ if.end340.us.us.us541.us.us.us619.us:             ; preds = %while.body332.us.us
   br i1 %cmp368.not.us.us.us548.us.us.us.us, label %if.end371.us.us.us549.us.us.us.us, label %while.cond328.backedge.us.us.us552.us.us.us622.us
 
 if.end371.us.us.us549.us.us.us.us:                ; preds = %if.end340.us.us.us541.us.us.us619.us
-  %cmp372.us.us.us550.us.us.us620.us = icmp eq ptr %92, %c
+  %cmp372.us.us.us550.us.us.us620.us = icmp eq ptr %c, %92
   br i1 %cmp372.us.us.us550.us.us.us620.us, label %if.end382.us.us572.us, label %if.else381.us.us571.us
 
 while.cond328.backedge.us.us.us552.us.us.us622.us: ; preds = %if.end340.us.us.us541.us.us.us619.us, %while.body332.us.us.us538.us.us.us613.us
@@ -9001,7 +9001,7 @@ while.cond328.backedge.us.us.us552.us.us.us622.us: ; preds = %if.end340.us.us.us
   br i1 %cmp330.not.us.us.us554.us.us.us624.us, label %while.end384, label %while.body332.us.us.us538.us.us.us613.us, !llvm.loop !23
 
 if.end377.split.us.us.split.split.us.us.split.us.us: ; preds = %while.body332.us.us.us538.us.us.us.us.us
-  %cmp372.us.us.us550.us.us.us.us.us = icmp eq ptr %94, %c
+  %cmp372.us.us.us550.us.us.us.us.us = icmp eq ptr %c, %94
   br i1 %cmp372.us.us.us550.us.us.us.us.us, label %if.end382.us.us572.us, label %if.else381.us.us571.us
 
 while.body332.lr.ph.split.us.us.split.split.us.us.split.us.split.us.us: ; preds = %while.body332.lr.ph.us.us567.us
@@ -9028,7 +9028,7 @@ while.body332.us.us.us538.us.us.us.us:            ; preds = %while.body332.lr.ph
   %call335.us.us.us.us.us.us.us = call ptr @getClientPeerId(ptr noundef %95)
   %call336.us.us.us.us.us.us.us = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call335.us.us.us.us.us.us.us, ptr noundef nonnull dereferenceable(1) %addr.0) #30
   %cmp337.not.us.us.us.us.us.us.us = icmp ne i32 %call336.us.us.us.us.us.us.us, 0
-  %cmp372.us.us.us550.us.us.us.us = icmp eq ptr %95, %c
+  %cmp372.us.us.us550.us.us.us.us = icmp eq ptr %c, %95
   %or.cond924 = or i1 %cmp337.not.us.us.us.us.us.us.us, %cmp372.us.us.us550.us.us.us.us
   br i1 %or.cond924, label %while.cond328.backedge.us.us.us552.us.us.us.us, label %if.else381.us.us571.us
 
@@ -9089,7 +9089,7 @@ while.body332.us.us.us538.us.us586.us:            ; preds = %while.body332.lr.ph
 if.end340.us.us.us541.us.us592.us:                ; preds = %while.body332.us.us.us538.us.us586.us
   %99 = load i64, ptr %98, align 8
   %cmp361.not.us.us.us544.us.us.us = icmp ne i64 %99, %id168.0.fr
-  %cmp372.us.us.us550.us.us595.us = icmp eq ptr %98, %c
+  %cmp372.us.us.us550.us.us595.us = icmp eq ptr %c, %98
   %or.cond925 = or i1 %cmp361.not.us.us.us544.us.us.us, %cmp372.us.us.us550.us.us595.us
   br i1 %or.cond925, label %while.cond328.backedge.us.us.us552.us.us597.us, label %if.else381.us.us571.us641
 
@@ -9099,7 +9099,7 @@ while.cond328.backedge.us.us.us552.us.us597.us:   ; preds = %if.end340.us.us.us5
   br i1 %cmp330.not.us.us.us554.us.us599.us, label %while.end384, label %while.body332.us.us.us538.us.us586.us, !llvm.loop !23
 
 if.end377.split.us.us.split.split.us.us.split.split.us.us: ; preds = %if.end340.us.us.us541.us.us592.us.us
-  %cmp372.us.us.us550.us.us595.us.us = icmp eq ptr %96, %c
+  %cmp372.us.us.us550.us.us595.us.us = icmp eq ptr %c, %96
   br i1 %cmp372.us.us.us550.us.us595.us.us, label %if.end382.us.us572.us642, label %if.else381.us.us571.us641
 
 while.body332.lr.ph.us.us567:                     ; preds = %while.body332.lr.ph.lr.ph.split.us.split.split.us.split, %if.end382.us.us572
@@ -9137,7 +9137,7 @@ if.end364.us.us.us545.us:                         ; preds = %if.end340.us.us.us5
   %user367.us.us.us547.us = getelementptr inbounds i8, ptr %100, i64 152
   %102 = load ptr, ptr %user367.us.us.us547.us, align 8
   %cmp368.not.us.us.us548.us = icmp ne ptr %102, %user.0.fr
-  %cmp372.us.us.us550.us = icmp eq ptr %100, %c
+  %cmp372.us.us.us550.us = icmp eq ptr %c, %100
   %or.cond6.us.us.us551.us = and i1 %cmp372.us.us.us550.us, %tobool375
   %or.cond713 = or i1 %cmp368.not.us.us.us548.us, %or.cond6.us.us.us551.us
   br i1 %or.cond713, label %while.cond328.backedge.us.us.us552.us, label %if.end377.split.us.us.split.split.us.us.split.split
@@ -9197,13 +9197,13 @@ land.lhs.true366.us.us:                           ; preds = %if.end364.us.us
   %user367.us.us = getelementptr inbounds i8, ptr %103, i64 152
   %105 = load ptr, ptr %user367.us.us, align 8
   %cmp368.not.us.us = icmp ne ptr %105, %user.0.fr
-  %cmp372.us.us = icmp eq ptr %103, %c
+  %cmp372.us.us = icmp eq ptr %c, %103
   %or.cond6.us.us = and i1 %cmp372.us.us, %tobool375
   %or.cond714 = or i1 %cmp368.not.us.us, %or.cond6.us.us
   br i1 %or.cond714, label %while.cond328.backedge.us.us, label %if.end377.split.us.us.split.split
 
 if.end371.us.us:                                  ; preds = %if.end364.us.us
-  %cmp372.us.us.old = icmp eq ptr %103, %c
+  %cmp372.us.us.old = icmp eq ptr %c, %103
   %or.cond6.us.us.old = and i1 %cmp372.us.us.old, %tobool375
   br i1 %or.cond6.us.us.old, label %while.cond328.backedge.us.us, label %if.end377.split.us.us.split.split
 
@@ -9286,13 +9286,13 @@ land.lhs.true366:                                 ; preds = %if.end364
   %user367 = getelementptr inbounds i8, ptr %106, i64 152
   %112 = load ptr, ptr %user367, align 8
   %cmp368.not = icmp ne ptr %112, %user.0.fr
-  %cmp372 = icmp eq ptr %106, %c
+  %cmp372 = icmp eq ptr %c, %106
   %or.cond6 = and i1 %cmp372, %tobool375
   %or.cond715 = select i1 %cmp368.not, i1 true, i1 %or.cond6
   br i1 %or.cond715, label %while.cond328.backedge, label %if.end377.split
 
 if.end371:                                        ; preds = %if.end364
-  %cmp372.old = icmp eq ptr %106, %c
+  %cmp372.old = icmp eq ptr %c, %106
   %or.cond6.old = and i1 %cmp372.old, %tobool375
   br i1 %or.cond6.old, label %while.cond328.backedge, label %if.end377.split
 
@@ -13798,7 +13798,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 retainOriginalCommandVector.exit:                 ; preds = %for.body.i, %entry, %if.end.i
   %10 = phi i32 [ %2, %if.end.i ], [ %1, %entry ], [ %8, %for.body.i ]
   %argc = getelementptr inbounds i8, ptr %c, i64 88
-  %cmp.not = icmp sgt i32 %10, %i
+  %cmp.not = icmp slt i32 %i, %10
   br i1 %cmp.not, label %retainOriginalCommandVector.exit.if.end9_crit_edge, label %if.then
 
 retainOriginalCommandVector.exit.if.end9_crit_edge: ; preds = %retainOriginalCommandVector.exit
@@ -13808,7 +13808,7 @@ retainOriginalCommandVector.exit.if.end9_crit_edge: ; preds = %retainOriginalCom
 if.then:                                          ; preds = %retainOriginalCommandVector.exit
   %argv_len = getelementptr inbounds i8, ptr %c, i64 104
   %11 = load i32, ptr %argv_len, align 8
-  %cmp1.not = icmp sgt i32 %11, %i
+  %cmp1.not = icmp slt i32 %i, %11
   %argv8.phi.trans.insert = getelementptr inbounds i8, ptr %c, i64 96
   %.pre31 = load ptr, ptr %argv8.phi.trans.insert, align 8
   %.pre32 = add nsw i32 %i, 1

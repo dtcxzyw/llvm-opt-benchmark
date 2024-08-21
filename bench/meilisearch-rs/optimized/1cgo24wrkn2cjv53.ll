@@ -4407,7 +4407,7 @@ define hidden void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h5193d58b9e0
   ret void
 
 41:                                               ; preds = %.lr.ph.split
-  %42 = icmp eq i64 %.val1344, %2
+  %42 = icmp eq i64 %2, %.val1344
   %43 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %.val1445)
   %44 = tail call i8 @llvm.scmp.i8.i64(i64 %2, i64 %.val1344)
   %.sroa.0.0.i24 = select i1 %42, i8 %43, i8 %44
@@ -4479,7 +4479,7 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   %28 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
   %29 = extractvalue { i64, i32 } %28, 0
   %30 = extractvalue { i64, i32 } %28, 1
-  %31 = icmp eq i64 %26, %2
+  %31 = icmp eq i64 %2, %26
   %32 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %27)
   %33 = tail call i8 @llvm.scmp.i8.i64(i64 %2, i64 %26)
   %.sroa.0.0.i62 = select i1 %31, i8 %32, i8 %33
@@ -4557,7 +4557,7 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   %66 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
   %67 = extractvalue { i64, i32 } %66, 0
   %68 = extractvalue { i64, i32 } %66, 1
-  %69 = icmp eq i64 %64, %2
+  %69 = icmp eq i64 %2, %64
   %70 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %65)
   %71 = tail call i8 @llvm.scmp.i8.i64(i64 %2, i64 %64)
   %.sroa.0.0.i = select i1 %69, i8 %70, i8 %71
@@ -36208,7 +36208,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h829e6ad2a08e86f7E.exit: ; preds = %
   %.sroa.663.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.663.0.copyload = load i64, ptr %.sroa.663.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !11960
-  %.not.i.i = icmp ult i64 %.sroa.461.0.copyload, %29
+  %.not.i.i = icmp ugt i64 %29, %.sroa.461.0.copyload
   br i1 %.not.i.i, label %.noexc.i, label %.noexc.i37
 
 .noexc.i:                                         ; preds = %44
@@ -37180,7 +37180,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h829e6ad2a08e86f7E.exit: ; preds = %
   %.sroa.662.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.662.0.copyload = load i64, ptr %.sroa.662.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16), !noalias !12295
-  %.not.i.i = icmp ult i64 %.sroa.460.0.copyload, %33
+  %.not.i.i = icmp ugt i64 %33, %.sroa.460.0.copyload
   br i1 %.not.i.i, label %.noexc.i, label %.noexc.i36
 
 .noexc.i:                                         ; preds = %48
@@ -37550,7 +37550,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h829e6ad2a08e86f7E.exit: ; preds = %
   %.sroa.671.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.671.0.copyload = load i64, ptr %.sroa.671.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !12417
-  %.not.i.i = icmp ult i64 %.sroa.469.0.copyload, %33
+  %.not.i.i = icmp ugt i64 %33, %.sroa.469.0.copyload
   br i1 %.not.i.i, label %.noexc.i, label %.noexc.i36
 
 .noexc.i:                                         ; preds = %48
@@ -37964,7 +37964,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h829e6ad2a08e86f7E.exit: ; preds = %
   %.sroa.668.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.668.0.copyload = load i64, ptr %.sroa.668.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !12548
-  %.not.i.i = icmp ult i64 %.sroa.466.0.copyload, %33
+  %.not.i.i = icmp ugt i64 %33, %.sroa.466.0.copyload
   br i1 %.not.i.i, label %.noexc.i, label %.noexc.i36
 
 .noexc.i:                                         ; preds = %48

@@ -13,7 +13,7 @@ define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr n
   %10 = ptrtoint ptr %5 to i64
   %11 = sub i64 0, %10
   %12 = and i64 %11, 3
-  %.not.i = icmp ugt i64 %12, %6
+  %.not.i = icmp ult i64 %6, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 %12
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 %12)
   %.0.i = select i1 %.not.i, ptr null, ptr %13
@@ -93,7 +93,7 @@ define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr n
 46:                                               ; preds = %44
   %47 = getelementptr inbounds i8, ptr %43, i64 400
   %48 = call i32 @HIST_count_simple(ptr noundef nonnull %47, ptr noundef nonnull %8, ptr noundef nonnull %38, i64 noundef %39) #13
-  %49 = icmp eq i32 %48, %3
+  %49 = icmp eq i32 %3, %48
   %50 = icmp eq i32 %48, 1
   %or.cond = or i1 %49, %50
   br i1 %or.cond, label %.thread, label %51
@@ -172,7 +172,7 @@ HUF_compressWeights.exit:                         ; preds = %72
   %91 = lshr i32 %90, 1
   %92 = add nuw nsw i32 %91, 1
   %93 = zext nneg i32 %92 to i64
-  %94 = icmp ugt i64 %93, %1
+  %94 = icmp ult i64 %1, %93
   br i1 %94, label %.loopexit, label %95
 
 95:                                               ; preds = %89
@@ -399,7 +399,7 @@ define dso_local range(i64 -66, 13) i64 @HUF_buildCTable_wksp(ptr nocapture noun
   %10 = ptrtoint ptr %4 to i64
   %11 = sub i64 0, %10
   %12 = and i64 %11, 3
-  %.not.i = icmp ugt i64 %12, %5
+  %.not.i = icmp ult i64 %5, %12
   %13 = getelementptr inbounds i8, ptr %4, i64 %12
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %12)
   %.0.i = select i1 %.not.i, ptr null, ptr %13
@@ -1142,7 +1142,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %15 = mul i64 %14, %3
   %16 = lshr i64 %15, 3
   %17 = add nuw nsw i64 %16, 8
-  %18 = icmp ugt i64 %17, %1
+  %18 = icmp ult i64 %1, %17
   %19 = icmp ugt i32 %7, 11
   %or.cond = select i1 %18, i1 true, i1 %19
   %20 = trunc i64 %3 to i32
@@ -2866,7 +2866,7 @@ define internal fastcc i64 @HUF_compress_internal(ptr noundef %0, i64 noundef %1
   %16 = ptrtoint ptr %7 to i64
   %17 = sub i64 0, %16
   %18 = and i64 %17, 7
-  %.not.i = icmp ugt i64 %18, %8
+  %.not.i = icmp ult i64 %8, %18
   %19 = getelementptr inbounds i8, ptr %7, i64 %18
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %8, i64 %18)
   %.0.i = select i1 %.not.i, ptr null, ptr %19

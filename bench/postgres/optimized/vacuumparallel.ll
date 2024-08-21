@@ -108,7 +108,7 @@ define dso_local ptr @parallel_vacuum_init(ptr noundef %0, ptr noundef %1, i32 n
 
 parallel_vacuum_compute_workers.exit:             ; preds = %._crit_edge.i
   %36 = icmp sgt i32 %3, 0
-  %37 = tail call i32 @llvm.umin.i32(i32 %34, i32 %3)
+  %37 = tail call i32 @llvm.umin.i32(i32 %3, i32 %34)
   %38 = select i1 %36, i32 %37, i32 %34
   %39 = load i32, ptr @max_parallel_maintenance_workers, align 4
   %40 = tail call i32 @llvm.smin.i32(i32 %38, i32 %39)

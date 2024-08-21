@@ -1257,7 +1257,7 @@ define internal i32 @x86_vector_alloc_irqs(ptr noundef %0, i32 noundef %1, i32 n
 20:                                               ; preds = %219, %16
   %21 = phi i64 [ 0, %16 ], [ %220, %219 ]
   %22 = trunc i64 %21 to i32
-  %23 = add i32 %22, %1
+  %23 = add i32 %1, %22
   %24 = tail call ptr @irq_domain_get_irq_data(ptr noundef %0, i32 noundef %23) #15
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27, !prof !12
@@ -3133,7 +3133,7 @@ define internal fastcc void @print_local_APICs(i32 noundef %0) unnamed_addr #9 s
   %11 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %8) #16, !srcloc !73
   %12 = trunc i64 %11 to i32
   %13 = icmp ult i32 %12, 64
-  %14 = icmp slt i32 %12, %0
+  %14 = icmp sgt i32 %0, %12
   %15 = and i1 %13, %14
   br i1 %15, label %16, label %.thread
 

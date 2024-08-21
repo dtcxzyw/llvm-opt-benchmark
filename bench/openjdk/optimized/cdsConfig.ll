@@ -1002,7 +1002,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1
 40:                                               ; preds = %36, %27
   %41 = load i8, ptr @UseSharedSpaces, align 1
   %.not8 = icmp ne i8 %41, 0
-  %brmerge.not = and i1 %.not8, %0
+  %brmerge.not = and i1 %0, %.not8
   br i1 %brmerge.not, label %42, label %43
 
 42:                                               ; preds = %40

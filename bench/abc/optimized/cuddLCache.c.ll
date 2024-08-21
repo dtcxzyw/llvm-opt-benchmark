@@ -1403,7 +1403,7 @@ define ptr @cuddHashTableLookup1(ptr nocapture noundef %0, ptr noundef %1) local
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %.029, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, %1
+  %24 = icmp eq ptr %1, %23
   br i1 %24, label %25, label %20, !llvm.loop !28
 
 25:                                               ; preds = %21
@@ -1567,13 +1567,13 @@ define ptr @cuddHashTableLookup2(ptr nocapture noundef %0, ptr noundef %1, ptr n
   %.03237 = phi ptr [ %.03138, %64 ], [ null, %3 ]
   %32 = getelementptr inbounds i8, ptr %.03138, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, %1
+  %34 = icmp eq ptr %1, %33
   br i1 %34, label %35, label %64
 
 35:                                               ; preds = %.lr.ph
   %36 = getelementptr inbounds i8, ptr %.03138, i64 32
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %2
+  %38 = icmp eq ptr %2, %37
   br i1 %38, label %39, label %64
 
 39:                                               ; preds = %35
@@ -1764,19 +1764,19 @@ define ptr @cuddHashTableLookup3(ptr nocapture noundef %0, ptr noundef %1, ptr n
   %.03641 = phi ptr [ %.03542, %79 ], [ null, %4 ]
   %43 = getelementptr inbounds i8, ptr %.03542, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, %1
+  %45 = icmp eq ptr %1, %44
   br i1 %45, label %46, label %79
 
 46:                                               ; preds = %.lr.ph
   %47 = getelementptr inbounds i8, ptr %.03542, i64 32
   %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, %2
+  %49 = icmp eq ptr %2, %48
   br i1 %49, label %50, label %79
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds i8, ptr %.03542, i64 40
   %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, %3
+  %53 = icmp eq ptr %3, %52
   br i1 %53, label %54, label %79
 
 54:                                               ; preds = %50

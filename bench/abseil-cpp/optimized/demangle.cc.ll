@@ -2099,7 +2099,7 @@ for.body:                                         ; preds = %invoke.cont18, %for
   %18 = load i8, ptr %arrayidx24, align 1
   %cmp26 = icmp eq i8 %16, %18
   %cmp31.not = icmp ne i8 %18, 116
-  %or.cond.not = or i1 %cmp31.not, %accept_std
+  %or.cond.not = or i1 %accept_std, %cmp31.not
   %or.cond = and i1 %cmp26, %or.cond.not
   br i1 %or.cond, label %if.then32, label %for.inc
 

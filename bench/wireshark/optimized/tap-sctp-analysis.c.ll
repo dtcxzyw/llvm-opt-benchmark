@@ -99,7 +99,7 @@ define hidden noundef ptr @get_sctp_assoc_info(i16 noundef zeroext %0) local_unn
   %.0.i = phi ptr [ %9, %7 ], [ %3, %1 ]
   %4 = load ptr, ptr %.0.i, align 8
   %5 = load i16, ptr %4, align 8
-  %6 = icmp eq i16 %5, %0
+  %6 = icmp eq i16 %0, %5
   br i1 %6, label %find_assoc.exit, label %7
 
 7:                                                ; preds = %.preheader.i

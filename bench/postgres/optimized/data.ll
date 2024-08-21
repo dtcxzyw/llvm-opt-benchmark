@@ -37,7 +37,7 @@ define noundef range(i32 0, -2147483648) i32 @ecpg_hex_dec_len(i32 noundef %0) l
 define noundef i32 @ecpg_hex_encode(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr i8, ptr %0, i64 %4
-  %6 = icmp ugt ptr %5, %0
+  %6 = icmp ult ptr %0, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -119,7 +119,7 @@ define noundef zeroext i1 @ecpg_get_data(ptr noundef %0, i32 noundef %1, i32 nou
 36:                                               ; preds = %34, %34
   %37 = sext i1 %.not558.not.not to i16
   %38 = sext i32 %1 to i64
-  %39 = mul i64 %38, %10
+  %39 = mul i64 %10, %38
   %40 = getelementptr i8, ptr %7, i64 %39
   store i16 %37, ptr %40, align 2
   br label %63
@@ -127,7 +127,7 @@ define noundef zeroext i1 @ecpg_get_data(ptr noundef %0, i32 noundef %1, i32 nou
 41:                                               ; preds = %34, %34
   %spec.select = sext i1 %.not558.not.not to i32
   %42 = sext i32 %1 to i64
-  %43 = mul i64 %42, %10
+  %43 = mul i64 %10, %42
   %44 = getelementptr i8, ptr %7, i64 %43
   store i32 %spec.select, ptr %44, align 4
   br label %63
@@ -135,7 +135,7 @@ define noundef zeroext i1 @ecpg_get_data(ptr noundef %0, i32 noundef %1, i32 nou
 45:                                               ; preds = %34, %34
   %46 = sext i1 %.not558.not.not to i64
   %47 = sext i32 %1 to i64
-  %48 = mul i64 %47, %10
+  %48 = mul i64 %10, %47
   %49 = getelementptr i8, ptr %7, i64 %48
   store i64 %46, ptr %49, align 8
   br label %63
@@ -143,7 +143,7 @@ define noundef zeroext i1 @ecpg_get_data(ptr noundef %0, i32 noundef %1, i32 nou
 50:                                               ; preds = %34, %34
   %51 = sext i1 %.not558.not.not to i64
   %52 = sext i32 %1 to i64
-  %53 = mul i64 %52, %10
+  %53 = mul i64 %10, %52
   %54 = getelementptr i8, ptr %7, i64 %53
   store i64 %51, ptr %54, align 8
   br label %63
@@ -156,7 +156,7 @@ define noundef zeroext i1 @ecpg_get_data(ptr noundef %0, i32 noundef %1, i32 nou
 
 .thread:                                          ; preds = %56
   %57 = sext i32 %1 to i64
-  %58 = mul i64 %57, %9
+  %58 = mul i64 %9, %57
   %59 = getelementptr i8, ptr %6, i64 %58
   tail call void @ECPGset_noind_null(i32 noundef %4, ptr noundef %59) #11
   br label %.critedge31
@@ -209,11 +209,11 @@ define noundef zeroext i1 @ecpg_get_data(ptr noundef %0, i32 noundef %1, i32 nou
   %77 = add i32 %12, -1
   %or.cond23 = icmp ult i32 %77, 2
   %78 = icmp eq i32 %4, 16
-  %79 = icmp sgt i64 %73, %8
+  %79 = icmp slt i64 %8, %73
   %80 = trunc i64 %8 to i32
   %81 = icmp eq i64 %9, 8
   %or.cond = and i1 %71, %81
-  %82 = icmp slt i64 %73, %8
+  %82 = icmp sgt i64 %8, %73
   %83 = add i32 %21, 1
   %spec.select592 = select i1 %71, i32 %83, i32 %80
   %84 = sext i32 %spec.select592 to i64
@@ -257,7 +257,7 @@ array_boundary.exit687:                           ; preds = %array_delimiter.exi
 
 107:                                              ; preds = %array_boundary.exit687
   %108 = sext i32 %.0518 to i64
-  %109 = mul i64 %108, %9
+  %109 = mul i64 %9, %108
   %110 = getelementptr i8, ptr %6, i64 %109
   br i1 %brmerge, label %111, label %112
 
@@ -279,25 +279,25 @@ array_boundary.exit687:                           ; preds = %array_delimiter.exi
   ]
 
 113:                                              ; preds = %112, %112
-  %114 = mul i64 %108, %10
+  %114 = mul i64 %10, %108
   %115 = getelementptr i8, ptr %7, i64 %114
   store i16 %74, ptr %115, align 2
   br label %125
 
 116:                                              ; preds = %112, %112
-  %117 = mul i64 %108, %10
+  %117 = mul i64 %10, %108
   %118 = getelementptr i8, ptr %7, i64 %117
   store i32 %21, ptr %118, align 4
   br label %125
 
 119:                                              ; preds = %112, %112
-  %120 = mul i64 %108, %10
+  %120 = mul i64 %10, %108
   %121 = getelementptr i8, ptr %7, i64 %120
   store i64 %73, ptr %121, align 8
   br label %125
 
 122:                                              ; preds = %112, %112
-  %123 = mul i64 %108, %10
+  %123 = mul i64 %10, %108
   %124 = getelementptr i8, ptr %7, i64 %123
   store i64 %73, ptr %124, align 8
   br label %125
@@ -407,7 +407,7 @@ garbage_left.exit.thread694:                      ; preds = %array_delimiter.exi
 155:                                              ; preds = %garbage_left.exit.thread694
   %156 = trunc i64 %130 to i16
   %157 = sext i32 %.0518 to i64
-  %158 = mul i64 %157, %9
+  %158 = mul i64 %9, %157
   %159 = getelementptr i8, ptr %6, i64 %158
   store i16 %156, ptr %159, align 2
   br label %garbage_left.exit631.thread700
@@ -415,14 +415,14 @@ garbage_left.exit.thread694:                      ; preds = %array_delimiter.exi
 160:                                              ; preds = %garbage_left.exit.thread694
   %161 = trunc i64 %130 to i32
   %162 = sext i32 %.0518 to i64
-  %163 = mul i64 %162, %9
+  %163 = mul i64 %9, %162
   %164 = getelementptr i8, ptr %6, i64 %163
   store i32 %161, ptr %164, align 4
   br label %garbage_left.exit631.thread700
 
 165:                                              ; preds = %garbage_left.exit.thread694
   %166 = sext i32 %.0518 to i64
-  %167 = mul i64 %166, %9
+  %167 = mul i64 %9, %166
   %168 = getelementptr i8, ptr %6, i64 %167
   store i64 %130, ptr %168, align 8
   br label %garbage_left.exit631.thread700
@@ -495,7 +495,7 @@ garbage_left.exit615.thread697:                   ; preds = %array_delimiter.exi
 195:                                              ; preds = %garbage_left.exit615.thread697
   %196 = trunc i64 %170 to i16
   %197 = sext i32 %.0518 to i64
-  %198 = mul i64 %197, %9
+  %198 = mul i64 %9, %197
   %199 = getelementptr i8, ptr %6, i64 %198
   store i16 %196, ptr %199, align 2
   br label %garbage_left.exit631.thread700
@@ -503,14 +503,14 @@ garbage_left.exit615.thread697:                   ; preds = %array_delimiter.exi
 200:                                              ; preds = %garbage_left.exit615.thread697
   %201 = trunc i64 %170 to i32
   %202 = sext i32 %.0518 to i64
-  %203 = mul i64 %202, %9
+  %203 = mul i64 %9, %202
   %204 = getelementptr i8, ptr %6, i64 %203
   store i32 %201, ptr %204, align 4
   br label %garbage_left.exit631.thread700
 
 205:                                              ; preds = %garbage_left.exit615.thread697
   %206 = sext i32 %.0518 to i64
-  %207 = mul i64 %206, %9
+  %207 = mul i64 %9, %206
   %208 = getelementptr i8, ptr %6, i64 %207
   store i64 %170, ptr %208, align 8
   br label %garbage_left.exit631.thread700
@@ -518,7 +518,7 @@ garbage_left.exit615.thread697:                   ; preds = %array_delimiter.exi
 209:                                              ; preds = %128
   %210 = call i64 @strtoll(ptr noundef %.1521, ptr noundef nonnull %15, i32 noundef 10) #11
   %211 = sext i32 %.0518 to i64
-  %212 = mul i64 %211, %9
+  %212 = mul i64 %9, %211
   %213 = getelementptr i8, ptr %6, i64 %212
   store i64 %210, ptr %213, align 8
   %.pre.i624 = load ptr, ptr %15, align 8
@@ -579,7 +579,7 @@ garbage_left.exit631.thread:                      ; preds = %array_delimiter.exi
 237:                                              ; preds = %128
   %238 = call i64 @strtoull(ptr noundef %.1521, ptr noundef nonnull %15, i32 noundef 10) #11
   %239 = sext i32 %.0518 to i64
-  %240 = mul i64 %239, %9
+  %240 = mul i64 %9, %239
   %241 = getelementptr i8, ptr %6, i64 %240
   store i64 %238, ptr %241, align 8
   %.pre.i640 = load ptr, ptr %15, align 8
@@ -729,14 +729,14 @@ garbage_left.exit663.thread710:                   ; preds = %280, %array_delimit
 297:                                              ; preds = %garbage_left.exit663.thread710
   %298 = fptrunc double %.2691 to float
   %299 = sext i32 %.0518 to i64
-  %300 = mul i64 %299, %9
+  %300 = mul i64 %9, %299
   %301 = getelementptr i8, ptr %6, i64 %300
   store float %298, ptr %301, align 4
   br label %garbage_left.exit631.thread700
 
 302:                                              ; preds = %garbage_left.exit663.thread710
   %303 = sext i32 %.0518 to i64
-  %304 = mul i64 %303, %9
+  %304 = mul i64 %9, %303
   %305 = getelementptr i8, ptr %6, i64 %304
   store double %.2691, ptr %305, align 8
   br label %garbage_left.exit631.thread700
@@ -757,7 +757,7 @@ garbage_left.exit663.thread710:                   ; preds = %280, %array_delimit
 
 312:                                              ; preds = %308
   %313 = sext i32 %.0518 to i64
-  %314 = mul i64 %313, %9
+  %314 = mul i64 %9, %313
   %315 = getelementptr i8, ptr %6, i64 %314
   store i8 0, ptr %315, align 1
   br label %garbage_left.exit631.thread700
@@ -770,7 +770,7 @@ garbage_left.exit663.thread710:                   ; preds = %280, %array_delimit
 
 320:                                              ; preds = %316
   %321 = sext i32 %.0518 to i64
-  %322 = mul i64 %321, %9
+  %322 = mul i64 %9, %321
   %323 = getelementptr i8, ptr %6, i64 %322
   store i8 1, ptr %323, align 1
   br label %garbage_left.exit631.thread700
@@ -786,12 +786,12 @@ garbage_left.exit663.thread710:                   ; preds = %280, %array_delimit
 
 326:                                              ; preds = %128
   %327 = sext i32 %.0518 to i64
-  %328 = mul i64 %327, %9
+  %328 = mul i64 %9, %327
   %329 = getelementptr i8, ptr %6, i64 %328
   %330 = getelementptr i8, ptr %.1521, i64 2
   %331 = getelementptr inbounds i8, ptr %329, i64 4
   %332 = getelementptr i8, ptr %330, i64 %100
-  %333 = icmp ugt ptr %332, %330
+  %333 = icmp ult ptr %330, %332
   br i1 %333, label %.lr.ph.i, label %.outer._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %326, %get_hex.exit27.i
@@ -879,25 +879,25 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   ]
 
 363:                                              ; preds = %362, %362
-  %364 = mul i64 %327, %10
+  %364 = mul i64 %10, %327
   %365 = getelementptr i8, ptr %7, i64 %364
   store i16 %104, ptr %365, align 2
   br label %375
 
 366:                                              ; preds = %362, %362
-  %367 = mul i64 %327, %10
+  %367 = mul i64 %10, %327
   %368 = getelementptr i8, ptr %7, i64 %367
   store i32 %102, ptr %368, align 4
   br label %375
 
 369:                                              ; preds = %362, %362
-  %370 = mul i64 %327, %10
+  %370 = mul i64 %10, %327
   %371 = getelementptr i8, ptr %7, i64 %370
   store i64 %103, ptr %371, align 8
   br label %375
 
 372:                                              ; preds = %362, %362
-  %373 = mul i64 %327, %10
+  %373 = mul i64 %10, %327
   %374 = getelementptr i8, ptr %7, i64 %373
   store i64 %103, ptr %374, align 8
   br label %375
@@ -913,7 +913,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
 
 378:                                              ; preds = %128, %128, %128
   %379 = sext i32 %.0518 to i64
-  %380 = mul i64 %379, %9
+  %380 = mul i64 %9, %379
   %381 = getelementptr i8, ptr %6, i64 %380
   br i1 %or.cond, label %382, label %384
 
@@ -948,25 +948,25 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   ]
 
 389:                                              ; preds = %388, %388
-  %390 = mul i64 %379, %10
+  %390 = mul i64 %10, %379
   %391 = getelementptr i8, ptr %7, i64 %390
   store i16 -1, ptr %391, align 2
   br label %.critedge
 
 392:                                              ; preds = %388, %388
-  %393 = mul i64 %379, %10
+  %393 = mul i64 %10, %379
   %394 = getelementptr i8, ptr %7, i64 %393
   store i32 -1, ptr %394, align 4
   br label %.critedge
 
 395:                                              ; preds = %388, %388
-  %396 = mul i64 %379, %10
+  %396 = mul i64 %10, %379
   %397 = getelementptr i8, ptr %7, i64 %396
   store i64 -1, ptr %397, align 8
   br label %.critedge
 
 398:                                              ; preds = %388, %388
-  %399 = mul i64 %379, %10
+  %399 = mul i64 %10, %379
   %400 = getelementptr i8, ptr %7, i64 %399
   store i64 -1, ptr %400, align 8
   br label %.critedge
@@ -1017,25 +1017,25 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   ]
 
 414:                                              ; preds = %413, %413
-  %415 = mul i64 %379, %10
+  %415 = mul i64 %10, %379
   %416 = getelementptr i8, ptr %7, i64 %415
   store i16 %74, ptr %416, align 2
   br label %426
 
 417:                                              ; preds = %413, %413
-  %418 = mul i64 %379, %10
+  %418 = mul i64 %10, %379
   %419 = getelementptr i8, ptr %7, i64 %418
   store i32 %21, ptr %419, align 4
   br label %426
 
 420:                                              ; preds = %413, %413
-  %421 = mul i64 %379, %10
+  %421 = mul i64 %10, %379
   %422 = getelementptr i8, ptr %7, i64 %421
   store i64 %73, ptr %422, align 8
   br label %426
 
 423:                                              ; preds = %413, %413
-  %424 = mul i64 %379, %10
+  %424 = mul i64 %10, %379
   %425 = getelementptr i8, ptr %7, i64 %424
   store i64 %73, ptr %425, align 8
   br label %426
@@ -1051,7 +1051,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
 
 428:                                              ; preds = %128
   %429 = sext i32 %.0518 to i64
-  %430 = mul i64 %429, %9
+  %430 = mul i64 %9, %429
   %431 = getelementptr i8, ptr %6, i64 %430
   store i32 %21, ptr %431, align 4
   %432 = getelementptr inbounds i8, ptr %431, i64 4
@@ -1078,25 +1078,25 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   ]
 
 438:                                              ; preds = %437, %437
-  %439 = mul i64 %429, %10
+  %439 = mul i64 %10, %429
   %440 = getelementptr i8, ptr %7, i64 %439
   store i16 %74, ptr %440, align 2
   br label %450
 
 441:                                              ; preds = %437, %437
-  %442 = mul i64 %429, %10
+  %442 = mul i64 %10, %429
   %443 = getelementptr i8, ptr %7, i64 %442
   store i32 %21, ptr %443, align 4
   br label %450
 
 444:                                              ; preds = %437, %437
-  %445 = mul i64 %429, %10
+  %445 = mul i64 %10, %429
   %446 = getelementptr i8, ptr %7, i64 %445
   store i64 %73, ptr %446, align 8
   br label %450
 
 447:                                              ; preds = %437, %437
-  %448 = mul i64 %429, %10
+  %448 = mul i64 %10, %429
   %449 = getelementptr i8, ptr %7, i64 %448
   store i64 %73, ptr %449, align 8
   br label %450
@@ -1158,7 +1158,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   %.0524 = phi ptr [ %463, %464 ], [ %457, %.critedge9 ]
   %468 = load ptr, ptr %15, align 8
   %469 = sext i32 %.0518 to i64
-  %470 = mul i64 %469, %9
+  %470 = mul i64 %9, %469
   %471 = getelementptr i8, ptr %6, i64 %470
   br i1 %78, label %472, label %474
 
@@ -1237,7 +1237,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   %500 = phi ptr [ %.pre813, %491 ], [ %498, %497 ], [ %494, %493 ]
   %.0529 = phi ptr [ %490, %491 ], [ %484, %497 ], [ %484, %493 ]
   %501 = sext i32 %.0518 to i64
-  %502 = mul i64 %501, %9
+  %502 = mul i64 %9, %501
   %503 = getelementptr i8, ptr %6, i64 %502
   %504 = call i32 @PGTYPESinterval_copy(ptr noundef nonnull %.0529, ptr noundef %503) #11
   call void @free(ptr noundef nonnull %.0529) #11
@@ -1302,7 +1302,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   %525 = phi ptr [ %519, %518 ], [ %523, %522 ], [ %.pre812, %516 ]
   %526 = load i64, ptr %16, align 8
   %527 = sext i32 %.0518 to i64
-  %528 = mul i64 %527, %9
+  %528 = mul i64 %9, %527
   %529 = getelementptr i8, ptr %6, i64 %528
   store i64 %526, ptr %529, align 8
   br label %garbage_left.exit631.thread700
@@ -1366,7 +1366,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   %550 = phi ptr [ %544, %543 ], [ %548, %547 ], [ %.pre, %541 ]
   %551 = load i64, ptr %17, align 8
   %552 = sext i32 %.0518 to i64
-  %553 = mul i64 %552, %9
+  %553 = mul i64 %9, %552
   %554 = getelementptr i8, ptr %6, i64 %553
   store i64 %551, ptr %554, align 8
   br label %garbage_left.exit631.thread700

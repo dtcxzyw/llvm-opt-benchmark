@@ -402,7 +402,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp437(i32 noundef %0, ptr nocapture
   %9 = getelementptr inbounds [128 x i16], ptr @zueci_cp437_u_u, i64 0, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
-  %12 = icmp ult i32 %11, %0
+  %12 = icmp ugt i32 %0, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %.preheader
@@ -410,7 +410,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp437(i32 noundef %0, ptr nocapture
   br label %22
 
 15:                                               ; preds = %.preheader
-  %16 = icmp ugt i32 %11, %0
+  %16 = icmp ult i32 %0, %11
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
@@ -484,7 +484,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_2(i32 noundef %0, ptr nocap
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_2_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -492,7 +492,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_2(i32 noundef %0, ptr nocap
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -566,7 +566,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_3(i32 noundef %0, ptr nocap
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_3_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -574,7 +574,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_3(i32 noundef %0, ptr nocap
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -648,7 +648,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_4(i32 noundef %0, ptr nocap
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_4_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -656,7 +656,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_4(i32 noundef %0, ptr nocap
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -730,7 +730,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_5(i32 noundef %0, ptr nocap
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_5_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -738,7 +738,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_5(i32 noundef %0, ptr nocap
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -812,7 +812,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_6(i32 noundef %0, ptr nocap
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_6_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -820,7 +820,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_6(i32 noundef %0, ptr nocap
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -894,7 +894,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_7(i32 noundef %0, ptr nocap
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_7_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -902,7 +902,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_7(i32 noundef %0, ptr nocap
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -976,7 +976,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_8(i32 noundef %0, ptr nocap
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_8_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -984,7 +984,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_8(i32 noundef %0, ptr nocap
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -1058,7 +1058,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_9(i32 noundef %0, ptr nocap
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_9_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -1066,7 +1066,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_9(i32 noundef %0, ptr nocap
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -1140,7 +1140,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_10(i32 noundef %0, ptr noca
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_10_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -1148,7 +1148,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_10(i32 noundef %0, ptr noca
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -1222,7 +1222,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_11(i32 noundef %0, ptr noca
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_11_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -1230,7 +1230,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_11(i32 noundef %0, ptr noca
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -1304,7 +1304,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_13(i32 noundef %0, ptr noca
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_13_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -1312,7 +1312,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_13(i32 noundef %0, ptr noca
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -1386,7 +1386,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_14(i32 noundef %0, ptr noca
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_14_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -1394,7 +1394,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_14(i32 noundef %0, ptr noca
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -1468,7 +1468,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_15(i32 noundef %0, ptr noca
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_15_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -1476,7 +1476,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_15(i32 noundef %0, ptr noca
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -1550,7 +1550,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_16(i32 noundef %0, ptr noca
   %25 = getelementptr inbounds i16, ptr @zueci_iso8859_16_u_u, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = icmp ult i32 %27, %0
+  %28 = icmp ugt i32 %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
@@ -1558,7 +1558,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_16(i32 noundef %0, ptr noca
   br label %38
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = icmp ugt i32 %27, %0
+  %32 = icmp ult i32 %0, %27
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -1663,7 +1663,7 @@ switch.early.test:                                ; preds = %2
   %49 = udiv i16 %.lhs.trunc, 188
   %narrow = mul nuw nsw i16 %49, 68
   %.neg = zext nneg i16 %narrow to i32
-  %50 = add nuw nsw i32 %.neg, %0
+  %50 = add nuw nsw i32 %0, %.neg
   %51 = trunc nuw i16 %49 to i8
   %52 = or disjoint i8 %51, -16
   store i8 %52, ptr %1, align 1
@@ -1696,7 +1696,7 @@ switch.early.test:                                ; preds = %2
   %66 = getelementptr inbounds [588 x i16], ptr @zueci_sjis_u_u, i64 0, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i32
-  %69 = icmp ult i32 %68, %0
+  %69 = icmp ugt i32 %0, %68
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %.preheader
@@ -1704,7 +1704,7 @@ switch.early.test:                                ; preds = %2
   br label %90
 
 72:                                               ; preds = %.preheader
-  %73 = icmp ugt i32 %68, %0
+  %73 = icmp ult i32 %0, %68
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %72
@@ -1787,7 +1787,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1250(i32 noundef %0, ptr nocaptur
   %22 = getelementptr inbounds i16, ptr @zueci_cp1250_u_u, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
-  %25 = icmp ult i32 %24, %0
+  %25 = icmp ugt i32 %0, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph.i
@@ -1795,7 +1795,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1250(i32 noundef %0, ptr nocaptur
   br label %35
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = icmp ugt i32 %24, %0
+  %29 = icmp ult i32 %0, %24
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
@@ -1865,7 +1865,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1251(i32 noundef %0, ptr nocaptur
   %22 = getelementptr inbounds i16, ptr @zueci_cp1251_u_u, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
-  %25 = icmp ult i32 %24, %0
+  %25 = icmp ugt i32 %0, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph.i
@@ -1873,7 +1873,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1251(i32 noundef %0, ptr nocaptur
   br label %35
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = icmp ugt i32 %24, %0
+  %29 = icmp ult i32 %0, %24
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
@@ -1928,7 +1928,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1252(i32 noundef %0, ptr nocaptur
   %13 = getelementptr inbounds i16, ptr @zueci_cp1252_u_u, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
-  %16 = icmp ult i32 %15, %0
+  %16 = icmp ugt i32 %0, %15
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %.lr.ph.i
@@ -1936,7 +1936,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1252(i32 noundef %0, ptr nocaptur
   br label %26
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = icmp ugt i32 %15, %0
+  %20 = icmp ult i32 %0, %15
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
@@ -2006,7 +2006,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1256(i32 noundef %0, ptr nocaptur
   %22 = getelementptr inbounds i16, ptr @zueci_cp1256_u_u, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
-  %25 = icmp ult i32 %24, %0
+  %25 = icmp ugt i32 %0, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph.i
@@ -2014,7 +2014,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1256(i32 noundef %0, ptr nocaptur
   br label %35
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = icmp ugt i32 %24, %0
+  %29 = icmp ult i32 %0, %24
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
@@ -2171,7 +2171,7 @@ define internal range(i32 0, 3) i32 @zueci_u_big5(i32 noundef %0, ptr nocapture 
   %52 = getelementptr inbounds [642 x i16], ptr @zueci_big5_u_u, i64 0, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
-  %55 = icmp ult i32 %54, %0
+  %55 = icmp ugt i32 %0, %54
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %.preheader
@@ -2179,7 +2179,7 @@ define internal range(i32 0, 3) i32 @zueci_u_big5(i32 noundef %0, ptr nocapture 
   br label %72
 
 58:                                               ; preds = %.preheader
-  %59 = icmp ugt i32 %54, %0
+  %59 = icmp ult i32 %0, %54
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %58
@@ -2297,7 +2297,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr nocaptur
   %59 = getelementptr inbounds [818 x i16], ptr @zueci_gb2312_u_u, i64 0, i64 %58
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i32
-  %62 = icmp ult i32 %61, %0
+  %62 = icmp ugt i32 %0, %61
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %.lr.ph
@@ -2305,7 +2305,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr nocaptur
   br label %80
 
 65:                                               ; preds = %.lr.ph
-  %66 = icmp ugt i32 %61, %0
+  %66 = icmp ult i32 %0, %61
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %65
@@ -2425,7 +2425,7 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr nocaptu
   %60 = getelementptr inbounds [3607 x i16], ptr @zueci_ksx1001_u_u, i64 0, i64 %59
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i32
-  %63 = icmp ult i32 %62, %0
+  %63 = icmp ugt i32 %0, %62
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %.lr.ph
@@ -2433,7 +2433,7 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr nocaptu
   br label %80
 
 66:                                               ; preds = %.lr.ph
-  %67 = icmp ugt i32 %62, %0
+  %67 = icmp ult i32 %0, %62
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %66
@@ -2520,7 +2520,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr nocapture n
   %23 = getelementptr inbounds [209 x i16], ptr @zueci_gbk_u_u, i64 0, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
-  %26 = icmp ult i32 %25, %0
+  %26 = icmp ugt i32 %0, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %.preheader
@@ -2528,7 +2528,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr nocapture n
   br label %43
 
 29:                                               ; preds = %.preheader
-  %30 = icmp ugt i32 %25, %0
+  %30 = icmp ult i32 %0, %25
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
@@ -2672,7 +2672,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   store i8 %51, ptr %1, align 1
   %narrow = mul nuw nsw i16 %47, 162
   %.neg91 = zext nneg i16 %narrow to i32
-  %52 = add nuw nsw i32 %.neg91, %0
+  %52 = add nuw nsw i32 %0, %.neg91
   %53 = trunc i32 %52 to i8
   %54 = add i8 %53, -95
   %55 = getelementptr inbounds i8, ptr %1, i64 1
@@ -2712,7 +2712,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   %73 = getelementptr inbounds [273 x i16], ptr @zueci_gb18030_2_u_u, i64 0, i64 %72
   %74 = load i16, ptr %73, align 2
   %75 = zext i16 %74 to i32
-  %76 = icmp ult i32 %75, %0
+  %76 = icmp ugt i32 %0, %75
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %.preheader98
@@ -2720,7 +2720,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   br label %90
 
 79:                                               ; preds = %.preheader98
-  %80 = icmp ugt i32 %75, %0
+  %80 = icmp ult i32 %0, %75
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %79
@@ -2767,7 +2767,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   %99 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_e, i64 0, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = zext i16 %100 to i32
-  %102 = icmp ult i32 %101, %0
+  %102 = icmp ugt i32 %0, %101
   %103 = add nsw i32 %97, 1
   %.186 = select i1 %102, i32 %.085101, i32 %97
   %.184 = select i1 %102, i32 %103, i32 %.083102

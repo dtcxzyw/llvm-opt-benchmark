@@ -134,7 +134,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
 
 49:                                               ; preds = %48
   store ptr %.us-phi, ptr %6, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %42, i32 %3)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %3, i32 %42)
   %50 = icmp sgt i32 %spec.select, 0
   br i1 %50, label %.lr.ph83, label %.loopexit
 
@@ -425,7 +425,7 @@ define internal fastcc range(i32 0, 2) i32 @onematch(ptr nocapture noundef %0, i
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %0, i64 168
   %30 = load i32, ptr %29, align 8
-  %.not362 = icmp sgt i32 %30, %1
+  %.not362 = icmp slt i32 %1, %30
   br i1 %.not362, label %.split.us.i.preheader, label %31
 
 31:                                               ; preds = %28, %27
@@ -799,7 +799,7 @@ gobble.exit:                                      ; preds = %39, %67
   %159 = getelementptr inbounds i8, ptr %0, i64 336
   %160 = load ptr, ptr %159, align 8
   %.not356 = icmp eq ptr %160, null
-  %161 = icmp ult ptr %160, %4
+  %161 = icmp ugt ptr %4, %160
   %or.cond418 = or i1 %.not356, %161
   br i1 %or.cond418, label %162, label %gobble.exit.thread
 
@@ -1331,7 +1331,7 @@ strview.exit:                                     ; preds = %4, %5
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 %.sroa.3.0.i)
   %8 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %7) #7
   %.not.i.i = icmp eq i32 %8, 0
-  %9 = icmp eq i64 %.sroa.3.0.i, %1
+  %9 = icmp eq i64 %1, %.sroa.3.0.i
   %spec.select.i = and i1 %9, %.not.i.i
   ret i1 %spec.select.i
 }

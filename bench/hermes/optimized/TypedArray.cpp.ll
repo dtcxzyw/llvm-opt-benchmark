@@ -5151,7 +5151,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEO
   %length_.i = getelementptr inbounds i8, ptr %.pre-phi, i64 24
   %12 = load i32, ptr %length_.i, align 4
   %conv = zext i32 %12 to i64
-  %cmp = icmp ult i64 %conv, %length
+  %cmp = icmp ugt i64 %length, %conv
   br i1 %cmp, label %if.then35, label %return
 
 if.then35:                                        ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -8967,10 +8967,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %79 = inttoptr i64 %and.i.i.i.i.i111 to ptr
   %beginIndex_.i = getelementptr inbounds i8, ptr %79, i64 20
   %80 = load i32, ptr %beginIndex_.i, align 4
-  %cmp.not.i = icmp ule i32 %80, %i.0137
+  %cmp.not.i = icmp uge i32 %i.0137, %80
   %endIndex_.i = getelementptr inbounds i8, ptr %79, i64 24
   %81 = load i32, ptr %endIndex_.i, align 4
-  %cmp2.i = icmp ugt i32 %81, %i.0137
+  %cmp2.i = icmp ult i32 %i.0137, %81
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %sw.bb36.i
 
@@ -9147,10 +9147,10 @@ define linkonce_odr hidden i32 @_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj(ptr 
 entry:
   %beginIndex_ = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %beginIndex_, align 4
-  %cmp.not = icmp ule i32 %0, %index
+  %cmp.not = icmp uge i32 %index, %0
   %endIndex_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %endIndex_, align 4
-  %cmp2 = icmp ugt i32 %1, %index
+  %cmp2 = icmp ult i32 %index, %1
   %or.cond = select i1 %cmp.not, i1 %cmp2, i1 false
   br i1 %or.cond, label %cond.true, label %cond.end
 
@@ -9546,10 +9546,10 @@ for.body122:                                      ; preds = %for.body122.prehead
   %43 = inttoptr i64 %and.i.i.i.i.i109 to ptr
   %beginIndex_.i = getelementptr inbounds i8, ptr %43, i64 20
   %44 = load i32, ptr %beginIndex_.i, align 4
-  %cmp.not.i = icmp ule i32 %44, %i119.0149
+  %cmp.not.i = icmp uge i32 %i119.0149, %44
   %endIndex_.i = getelementptr inbounds i8, ptr %43, i64 24
   %45 = load i32, ptr %endIndex_.i, align 4
-  %cmp2.i = icmp ugt i32 %45, %i119.0149
+  %cmp2.i = icmp ult i32 %i119.0149, %45
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i111, label %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
 
@@ -11781,10 +11781,10 @@ _ZN6hermes2vm13StringBuilder14appendASCIIRefEN4llvh8ArrayRefIcEE.exit: ; preds =
   %73 = inttoptr i64 %and.i.i.i.i.i127 to ptr
   %beginIndex_.i = getelementptr inbounds i8, ptr %73, i64 20
   %74 = load i32, ptr %beginIndex_.i, align 4
-  %cmp.not.i = icmp ule i32 %74, %i135.0158
+  %cmp.not.i = icmp uge i32 %i135.0158, %74
   %endIndex_.i = getelementptr inbounds i8, ptr %73, i64 24
   %75 = load i32, ptr %endIndex_.i, align 4
-  %cmp2.i = icmp ugt i32 %75, %i135.0158
+  %cmp2.i = icmp ult i32 %i135.0158, %75
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
 

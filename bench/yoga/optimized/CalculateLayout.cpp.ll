@@ -603,7 +603,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i.i1342: ; preds = %sw.epi
 
 sw.bb2.i.i38.i.i1258:                             ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i.i1342, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i.i1256
   %58 = phi float [ %56, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i.i1256 ], [ %57, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i.i1342 ]
-  %mul.i.i39.i.i1259 = fmul float %58, %ownerWidth
+  %mul.i.i39.i.i1259 = fmul float %ownerWidth, %58
   %mul4.i.i40.i.i1260 = fmul float %mul.i.i39.i.i1259, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i1261
 
@@ -654,20 +654,20 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1330: ; preds = %sw.epi
 
 sw.bb2.i.i62.i.i1267:                             ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1330, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i.i1265
   %64 = phi float [ %62, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i.i1265 ], [ %63, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1330 ]
-  %mul.i.i63.i.i1268 = fmul float %64, %ownerWidth
+  %mul.i.i63.i.i1268 = fmul float %ownerWidth, %64
   %mul4.i.i64.i.i1269 = fmul float %mul.i.i63.i.i1268, 0x3F847AE140000000
   br label %if.end33.i.i1270
 
 if.end33.i.i1270:                                 ; preds = %sw.bb2.i.i62.i.i1267, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1330, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i66.i.i1328
   %max.sroa.0.0.i.i1271 = phi float [ %mul4.i.i64.i.i1269, %sw.bb2.i.i62.i.i1267 ], [ %63, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1330 ], [ %61, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i66.i.i1328 ]
   %or.cond.i.i119.i = fcmp oge float %max.sroa.0.0.i.i1271, 0.000000e+00
-  %cmp.i.i120.i = fcmp olt float %max.sroa.0.0.i.i1271, %availableWidth.addr.0.i
+  %cmp.i.i120.i = fcmp ogt float %availableWidth.addr.0.i, %max.sroa.0.0.i.i1271
   %or.cond.i121.i = and i1 %or.cond.i.i119.i, %cmp.i.i120.i
   br i1 %or.cond.i121.i, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit.i1276, label %if.end45.i.i1272
 
 if.end45.i.i1272:                                 ; preds = %if.end33.i.i1270, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1330
   %or.cond.i80.i.i1273 = fcmp oge float %retval.sroa.0.0.i.i41.i.i1262, 0.000000e+00
-  %cmp.i86.i.i1274 = fcmp ogt float %retval.sroa.0.0.i.i41.i.i1262, %availableWidth.addr.0.i
+  %cmp.i86.i.i1274 = fcmp olt float %availableWidth.addr.0.i, %retval.sroa.0.0.i.i41.i.i1262
   %or.cond107.i.i1275 = and i1 %or.cond.i80.i.i1273, %cmp.i86.i.i1274
   br i1 %or.cond107.i.i1275, label %if.then57.i.i1327, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit.i1276
 
@@ -727,7 +727,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i.i1316: ; preds = %sw.epilo
 
 sw.bb2.i.i.i.i1290:                               ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i.i1316, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i.i1288
   %70 = phi float [ %68, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i.i1288 ], [ %69, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i.i1316 ]
-  %mul.i.i.i.i1291 = fmul float %70, %ownerHeight
+  %mul.i.i.i.i1291 = fmul float %ownerHeight, %70
   %mul4.i.i.i.i1292 = fmul float %mul.i.i.i.i1291, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i1293
 
@@ -778,20 +778,20 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1304: ; preds = %sw.epi
 
 sw.bb2.i.i14.i.i1299:                             ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1304, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i.i1297
   %76 = phi float [ %74, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i.i1297 ], [ %75, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1304 ]
-  %mul.i.i15.i.i1300 = fmul float %76, %ownerHeight
+  %mul.i.i15.i.i1300 = fmul float %ownerHeight, %76
   %mul4.i.i16.i.i1301 = fmul float %mul.i.i15.i.i1300, 0x3F847AE140000000
   br label %if.end33.i122.i
 
 if.end33.i122.i:                                  ; preds = %sw.bb2.i.i14.i.i1299, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1304, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i.i1302
   %max.sroa.0.0.i123.i = phi float [ %mul4.i.i16.i.i1301, %sw.bb2.i.i14.i.i1299 ], [ %75, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1304 ], [ %73, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i.i1302 ]
   %or.cond.i.i124.i = fcmp oge float %max.sroa.0.0.i123.i, 0.000000e+00
-  %cmp.i.i125.i = fcmp olt float %max.sroa.0.0.i123.i, %availableHeight.addr.0.i
+  %cmp.i.i125.i = fcmp ogt float %availableHeight.addr.0.i, %max.sroa.0.0.i123.i
   %or.cond.i126.i = and i1 %or.cond.i.i124.i, %cmp.i.i125.i
   br i1 %or.cond.i126.i, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit133.i, label %if.end45.i127.i
 
 if.end45.i127.i:                                  ; preds = %if.end33.i122.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1304
   %or.cond.i80.i128.i = fcmp oge float %retval.sroa.0.0.i.i.i.i1294, 0.000000e+00
-  %cmp.i86.i129.i = fcmp ogt float %retval.sroa.0.0.i.i.i.i1294, %availableHeight.addr.0.i
+  %cmp.i86.i129.i = fcmp olt float %availableHeight.addr.0.i, %retval.sroa.0.0.i.i.i.i1294
   %or.cond107.i130.i = and i1 %or.cond.i80.i128.i, %cmp.i86.i129.i
   br i1 %or.cond107.i130.i, label %if.then57.i132.i, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit133.i
 
@@ -922,7 +922,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i175.i: ; preds = %sw.epil
 
 sw.bb2.i.i38.i138.i:                              ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i175.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i136.i
   %89 = phi float [ %87, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i136.i ], [ %88, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i175.i ]
-  %mul.i.i39.i139.i = fmul float %89, %ownerWidth
+  %mul.i.i39.i139.i = fmul float %ownerWidth, %89
   %mul4.i.i40.i140.i = fmul float %mul.i.i39.i139.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i141.i
 
@@ -973,20 +973,20 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i163.i: ; preds = %sw.epil
 
 sw.bb2.i.i62.i147.i:                              ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i163.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i145.i
   %95 = phi float [ %93, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i145.i ], [ %94, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i163.i ]
-  %mul.i.i63.i148.i = fmul float %95, %ownerWidth
+  %mul.i.i63.i148.i = fmul float %ownerWidth, %95
   %mul4.i.i64.i149.i = fmul float %mul.i.i63.i148.i, 0x3F847AE140000000
   br label %if.end33.i150.i
 
 if.end33.i150.i:                                  ; preds = %sw.bb2.i.i62.i147.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i163.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i66.i161.i
   %max.sroa.0.0.i151.i = phi float [ %mul4.i.i64.i149.i, %sw.bb2.i.i62.i147.i ], [ %94, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i163.i ], [ %92, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i66.i161.i ]
   %or.cond.i.i152.i = fcmp oge float %max.sroa.0.0.i151.i, 0.000000e+00
-  %cmp.i.i153.i = fcmp olt float %max.sroa.0.0.i151.i, %cond53.i
+  %cmp.i.i153.i = fcmp ogt float %cond53.i, %max.sroa.0.0.i151.i
   %or.cond.i154.i = select i1 %or.cond.i.i152.i, i1 %cmp.i.i153.i, i1 false
   br i1 %or.cond.i154.i, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit186.i, label %if.end45.i155.i
 
 if.end45.i155.i:                                  ; preds = %if.end33.i150.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i163.i
   %or.cond.i80.i156.i = fcmp oge float %retval.sroa.0.0.i.i41.i142.i, 0.000000e+00
-  %cmp.i86.i157.i = fcmp ogt float %retval.sroa.0.0.i.i41.i142.i, %cond53.i
+  %cmp.i86.i157.i = fcmp olt float %cond53.i, %retval.sroa.0.0.i.i41.i142.i
   %or.cond107.i158.i = select i1 %or.cond.i80.i156.i, i1 %cmp.i86.i157.i, i1 false
   br i1 %or.cond107.i158.i, label %if.then57.i160.i, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit186.i
 
@@ -1050,7 +1050,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i228.i: ; preds = %sw.epilog
 
 sw.bb2.i.i.i191.i:                                ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i228.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i189.i
   %102 = phi float [ %100, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i189.i ], [ %101, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i228.i ]
-  %mul.i.i.i192.i = fmul float %102, %ownerHeight
+  %mul.i.i.i192.i = fmul float %ownerHeight, %102
   %mul4.i.i.i193.i = fmul float %mul.i.i.i192.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i194.i
 
@@ -1101,20 +1101,20 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i216.i: ; preds = %sw.epil
 
 sw.bb2.i.i14.i200.i:                              ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i216.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i198.i
   %108 = phi float [ %106, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i198.i ], [ %107, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i216.i ]
-  %mul.i.i15.i201.i = fmul float %108, %ownerHeight
+  %mul.i.i15.i201.i = fmul float %ownerHeight, %108
   %mul4.i.i16.i202.i = fmul float %mul.i.i15.i201.i, 0x3F847AE140000000
   br label %if.end33.i203.i
 
 if.end33.i203.i:                                  ; preds = %sw.bb2.i.i14.i200.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i216.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i214.i
   %max.sroa.0.0.i204.i = phi float [ %mul4.i.i16.i202.i, %sw.bb2.i.i14.i200.i ], [ %107, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i216.i ], [ %105, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i214.i ]
   %or.cond.i.i205.i = fcmp oge float %max.sroa.0.0.i204.i, 0.000000e+00
-  %cmp.i.i206.i = fcmp olt float %max.sroa.0.0.i204.i, %cond63.i
+  %cmp.i.i206.i = fcmp ogt float %cond63.i, %max.sroa.0.0.i204.i
   %or.cond.i207.i = select i1 %or.cond.i.i205.i, i1 %cmp.i.i206.i, i1 false
   br i1 %or.cond.i207.i, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit239.i, label %if.end45.i208.i
 
 if.end45.i208.i:                                  ; preds = %if.end33.i203.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i216.i
   %or.cond.i80.i209.i = fcmp oge float %retval.sroa.0.0.i.i.i195.i, 0.000000e+00
-  %cmp.i86.i210.i = fcmp ogt float %retval.sroa.0.0.i.i.i195.i, %cond63.i
+  %cmp.i86.i210.i = fcmp olt float %cond63.i, %retval.sroa.0.0.i.i.i195.i
   %or.cond107.i211.i = select i1 %or.cond.i80.i209.i, i1 %cmp.i86.i210.i, i1 false
   br i1 %or.cond107.i211.i, label %if.then57.i213.i, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit239.i
 
@@ -1220,7 +1220,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i.i1204: ; preds = %sw.epi
 
 sw.bb2.i.i38.i.i1117:                             ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i.i1204, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i.i1115
   %121 = phi float [ %119, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i.i1115 ], [ %120, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i.i1204 ]
-  %mul.i.i39.i.i1118 = fmul float %121, %ownerWidth
+  %mul.i.i39.i.i1118 = fmul float %ownerWidth, %121
   %mul4.i.i40.i.i1119 = fmul float %mul.i.i39.i.i1118, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i1120
 
@@ -1271,20 +1271,20 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1192: ; preds = %sw.epi
 
 sw.bb2.i.i62.i.i1126:                             ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1192, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i.i1124
   %127 = phi float [ %125, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i.i1124 ], [ %126, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1192 ]
-  %mul.i.i63.i.i1127 = fmul float %127, %ownerWidth
+  %mul.i.i63.i.i1127 = fmul float %ownerWidth, %127
   %mul4.i.i64.i.i1128 = fmul float %mul.i.i63.i.i1127, 0x3F847AE140000000
   br label %if.end33.i.i1129
 
 if.end33.i.i1129:                                 ; preds = %sw.bb2.i.i62.i.i1126, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1192, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i66.i.i1190
   %max.sroa.0.0.i.i1130 = phi float [ %mul4.i.i64.i.i1128, %sw.bb2.i.i62.i.i1126 ], [ %126, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1192 ], [ %124, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i66.i.i1190 ]
   %or.cond.i.i38.i = fcmp oge float %max.sroa.0.0.i.i1130, 0.000000e+00
-  %cmp.i.i.i1131 = fcmp olt float %max.sroa.0.0.i.i1130, %width.0.i
+  %cmp.i.i.i1131 = fcmp ogt float %width.0.i, %max.sroa.0.0.i.i1130
   %or.cond.i.i1132 = select i1 %or.cond.i.i38.i, i1 %cmp.i.i.i1131, i1 false
   br i1 %or.cond.i.i1132, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit.i1137, label %if.end45.i.i1133
 
 if.end45.i.i1133:                                 ; preds = %if.end33.i.i1129, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i1192
   %or.cond.i80.i.i1134 = fcmp oge float %retval.sroa.0.0.i.i41.i.i1121, 0.000000e+00
-  %cmp.i86.i.i1135 = fcmp ogt float %retval.sroa.0.0.i.i41.i.i1121, %width.0.i
+  %cmp.i86.i.i1135 = fcmp olt float %width.0.i, %retval.sroa.0.0.i.i41.i.i1121
   %or.cond107.i.i1136 = select i1 %or.cond.i80.i.i1134, i1 %cmp.i86.i.i1135, i1 false
   br i1 %or.cond107.i.i1136, label %if.then57.i.i1189, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit.i1137
 
@@ -1368,7 +1368,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i.i1178: ; preds = %sw.epilo
 
 sw.bb2.i.i.i.i1152:                               ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i.i1178, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i.i1150
   %138 = phi float [ %136, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i.i1150 ], [ %137, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i.i1178 ]
-  %mul.i.i.i.i1153 = fmul float %138, %ownerHeight
+  %mul.i.i.i.i1153 = fmul float %ownerHeight, %138
   %mul4.i.i.i.i1154 = fmul float %mul.i.i.i.i1153, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i1155
 
@@ -1419,20 +1419,20 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1166: ; preds = %sw.epi
 
 sw.bb2.i.i14.i.i1161:                             ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1166, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i.i1159
   %144 = phi float [ %142, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i.i1159 ], [ %143, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1166 ]
-  %mul.i.i15.i.i1162 = fmul float %144, %ownerHeight
+  %mul.i.i15.i.i1162 = fmul float %ownerHeight, %144
   %mul4.i.i16.i.i1163 = fmul float %mul.i.i15.i.i1162, 0x3F847AE140000000
   br label %if.end33.i39.i
 
 if.end33.i39.i:                                   ; preds = %sw.bb2.i.i14.i.i1161, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1166, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i.i1164
   %max.sroa.0.0.i40.i = phi float [ %mul4.i.i16.i.i1163, %sw.bb2.i.i14.i.i1161 ], [ %143, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1166 ], [ %141, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i.i1164 ]
   %or.cond.i.i41.i = fcmp oge float %max.sroa.0.0.i40.i, 0.000000e+00
-  %cmp.i.i42.i = fcmp olt float %max.sroa.0.0.i40.i, %height.0.i
+  %cmp.i.i42.i = fcmp ogt float %height.0.i, %max.sroa.0.0.i40.i
   %or.cond.i43.i = select i1 %or.cond.i.i41.i, i1 %cmp.i.i42.i, i1 false
   br i1 %or.cond.i43.i, label %_ZN8facebook4yogaL26measureNodeWithoutChildrenEPNS0_4NodeEffNS0_10SizingModeES3_ff.exit, label %if.end45.i44.i
 
 if.end45.i44.i:                                   ; preds = %if.end33.i39.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i1166
   %or.cond.i80.i45.i = fcmp oge float %retval.sroa.0.0.i.i.i.i1156, 0.000000e+00
-  %cmp.i86.i46.i = fcmp ogt float %retval.sroa.0.0.i.i.i.i1156, %height.0.i
+  %cmp.i86.i46.i = fcmp olt float %height.0.i, %retval.sroa.0.0.i.i.i.i1156
   %or.cond107.i47.i = select i1 %or.cond.i80.i45.i, i1 %cmp.i86.i46.i, i1 false
   br i1 %or.cond107.i47.i, label %if.then57.i49.i, label %_ZN8facebook4yogaL26measureNodeWithoutChildrenEPNS0_4NodeEffNS0_10SizingModeES3_ff.exit
 
@@ -1520,7 +1520,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i.i: ; preds = %sw.epilog.
 
 sw.bb2.i.i38.i.i:                                 ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i.i
   %151 = phi float [ %149, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i.i ], [ %150, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i.i ]
-  %mul.i.i39.i.i = fmul float %151, %ownerWidth
+  %mul.i.i39.i.i = fmul float %ownerWidth, %151
   %mul4.i.i40.i.i = fmul float %mul.i.i39.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i.i
 
@@ -1571,20 +1571,20 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i: ; preds = %sw.epilog.
 
 sw.bb2.i.i62.i.i:                                 ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i.i
   %157 = phi float [ %155, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i.i ], [ %156, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i ]
-  %mul.i.i63.i.i = fmul float %157, %ownerWidth
+  %mul.i.i63.i.i = fmul float %ownerWidth, %157
   %mul4.i.i64.i.i = fmul float %mul.i.i63.i.i, 0x3F847AE140000000
   br label %if.end33.i.i
 
 if.end33.i.i:                                     ; preds = %sw.bb2.i.i62.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i66.i.i
   %max.sroa.0.0.i.i = phi float [ %mul4.i.i64.i.i, %sw.bb2.i.i62.i.i ], [ %156, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i ], [ %154, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i66.i.i ]
   %or.cond.i.i36.i = fcmp oge float %max.sroa.0.0.i.i, 0.000000e+00
-  %cmp.i.i37.i = fcmp olt float %max.sroa.0.0.i.i, %cond.i1100
+  %cmp.i.i37.i = fcmp ogt float %cond.i1100, %max.sroa.0.0.i.i
   %or.cond.i.i1101 = and i1 %or.cond.i.i36.i, %cmp.i.i37.i
   br i1 %or.cond.i.i1101, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit.i, label %if.end45.i.i
 
 if.end45.i.i:                                     ; preds = %if.end33.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i.i
   %or.cond.i80.i.i = fcmp oge float %retval.sroa.0.0.i.i41.i.i, 0.000000e+00
-  %cmp.i86.i.i = fcmp ogt float %retval.sroa.0.0.i.i41.i.i, %cond.i1100
+  %cmp.i86.i.i = fcmp olt float %cond.i1100, %retval.sroa.0.0.i.i41.i.i
   %or.cond107.i.i = and i1 %or.cond.i80.i.i, %cmp.i86.i.i
   br i1 %or.cond107.i.i, label %if.then57.i.i, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit.i
 
@@ -1658,7 +1658,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i.i: ; preds = %sw.epilog.i.
 
 sw.bb2.i.i.i.i:                                   ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i.i
   %163 = phi float [ %161, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i.i ], [ %162, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i.i ]
-  %mul.i.i.i.i = fmul float %163, %ownerHeight
+  %mul.i.i.i.i = fmul float %ownerHeight, %163
   %mul4.i.i.i.i = fmul float %mul.i.i.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i.i
 
@@ -1709,20 +1709,20 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i: ; preds = %sw.epilog.
 
 sw.bb2.i.i14.i.i:                                 ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i.i
   %169 = phi float [ %167, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i.i ], [ %168, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i ]
-  %mul.i.i15.i.i = fmul float %169, %ownerHeight
+  %mul.i.i15.i.i = fmul float %ownerHeight, %169
   %mul4.i.i16.i.i = fmul float %mul.i.i15.i.i, 0x3F847AE140000000
   br label %if.end33.i38.i
 
 if.end33.i38.i:                                   ; preds = %sw.bb2.i.i14.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i.i
   %max.sroa.0.0.i39.i = phi float [ %mul4.i.i16.i.i, %sw.bb2.i.i14.i.i ], [ %168, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i ], [ %166, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i.i ]
   %or.cond.i.i40.i = fcmp oge float %max.sroa.0.0.i39.i, 0.000000e+00
-  %cmp.i.i41.i1108 = fcmp olt float %max.sroa.0.0.i39.i, %cond26.i
+  %cmp.i.i41.i1108 = fcmp ogt float %cond26.i, %max.sroa.0.0.i39.i
   %or.cond.i42.i = and i1 %or.cond.i.i40.i, %cmp.i.i41.i1108
   br i1 %or.cond.i42.i, label %_ZN8facebook4yogaL24measureNodeWithFixedSizeEPNS0_4NodeEffNS0_10SizingModeES3_ff.exit.thread, label %if.end45.i43.i
 
 if.end45.i43.i:                                   ; preds = %if.end33.i38.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i.i
   %or.cond.i80.i44.i = fcmp oge float %retval.sroa.0.0.i.i.i.i, 0.000000e+00
-  %cmp.i86.i45.i = fcmp ogt float %retval.sroa.0.0.i.i.i.i, %cond26.i
+  %cmp.i86.i45.i = fcmp olt float %cond26.i, %retval.sroa.0.0.i.i.i.i
   %or.cond107.i46.i = and i1 %or.cond.i80.i44.i, %cmp.i86.i45.i
   br i1 %or.cond107.i46.i, label %if.then57.i48.i, label %_ZN8facebook4yogaL24measureNodeWithFixedSizeEPNS0_4NodeEffNS0_10SizingModeES3_ff.exit.thread
 
@@ -2503,7 +2503,7 @@ for.body.i.lr.ph:                                 ; preds = %_ZN8facebook4yogaL2
   %cmp.i804 = icmp eq i32 %sizingModeMainDim.0.i, 2
   %mainDim.i807 = getelementptr inbounds i8, ptr %flexLine.i, i64 52
   %crossDim.i808 = getelementptr inbounds i8, ptr %flexLine.i, i64 56
-  %.not.i = or i1 %cmp88.i.i, %performLayout
+  %.not.i = or i1 %performLayout, %cmp88.i.i
   %221 = add i32 %cond77.i, -1
   %or.cond2.i = icmp ult i32 %221, 2
   %tobool267.not.i = xor i1 %cmp53.i, true
@@ -2597,7 +2597,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i1001: ; preds = %sw.epilog.i.
 
 sw.bb2.i.i995:                                    ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i1001, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i993
   %241 = phi float [ %239, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i993 ], [ %240, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i1001 ]
-  %mul.i.i996 = fmul float %241, %ownerWidth
+  %mul.i.i996 = fmul float %ownerWidth, %241
   %mul4.i.i997 = fmul float %mul.i.i996, 0x3F847AE140000000
   br label %invoke.cont134.i
 
@@ -2647,7 +2647,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i978: ; preds = %sw.epilog.i.i
 
 sw.bb2.i.i972:                                    ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i978, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i970
   %247 = phi float [ %245, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i970 ], [ %246, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i978 ]
-  %mul.i.i973 = fmul float %247, %ownerWidth
+  %mul.i.i973 = fmul float %ownerWidth, %247
   %mul4.i.i974 = fmul float %mul.i.i973, 0x3F847AE140000000
   br label %invoke.cont146.i
 
@@ -2697,7 +2697,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i956: ; preds = %sw.epilog.i.i
 
 sw.bb2.i.i950:                                    ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i956, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i948
   %253 = phi float [ %251, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i948 ], [ %252, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i956 ]
-  %mul.i.i951 = fmul float %253, %ownerHeight
+  %mul.i.i951 = fmul float %ownerHeight, %253
   %mul4.i.i952 = fmul float %mul.i.i951, 0x3F847AE140000000
   br label %invoke.cont158.i
 
@@ -2747,7 +2747,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i943
 
 sw.bb2.i.i941:                                    ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %259 = phi float [ %257, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %258, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i942 = fmul float %259, %ownerHeight
+  %mul.i.i942 = fmul float %ownerHeight, %259
   %mul4.i.i = fmul float %mul.i.i942, 0x3F847AE140000000
   br label %invoke.cont186.i
 
@@ -3583,7 +3583,7 @@ if.end44.sink.split.i:                            ; preds = %_ZN8facebook4yoga12
 
 if.end44.i805:                                    ; preds = %if.end44.sink.split.i, %land.lhs.true.i833, %call11.i803.noexc
   %330 = load i64, ptr %endOfLineIndex122.i, align 8
-  %cmp45345.i = icmp ugt i64 %330, %startOfLineIndex.0.i2282
+  %cmp45345.i = icmp ult i64 %startOfLineIndex.0.i2282, %330
   br i1 %cmp45345.i, label %for.body.i825, label %if.then68.i
 
 for.body.i825:                                    ; preds = %if.end44.i805, %for.inc.i832
@@ -3596,7 +3596,7 @@ for.body.i825:                                    ; preds = %if.end44.i805, %for
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %333 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %cmp.not.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i, %i.0346.i
+  %cmp.not.i.i.i.i = icmp ult i64 %i.0346.i, %sub.ptr.div.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZNK8facebook4yoga4Node8getChildEm.exit.i, label %if.then.i.i.i206.i.invoke
 
 _ZNK8facebook4yoga4Node8getChildEm.exit.i:        ; preds = %for.body.i825
@@ -3723,7 +3723,7 @@ if.end104.i:                                      ; preds = %sw.bb95.i, %sw.bb86
 
 call108.i.noexc:                                  ; preds = %if.end104.i
   %349 = load i64, ptr %endOfLineIndex122.i, align 8
-  %cmp113348.i = icmp ugt i64 %349, %startOfLineIndex.0.i2282
+  %cmp113348.i = icmp ult i64 %startOfLineIndex.0.i2282, %349
   br i1 %cmp113348.i, label %for.body114.lr.ph.i, label %for.end238.i
 
 for.body114.lr.ph.i:                              ; preds = %call108.i.noexc
@@ -3740,7 +3740,7 @@ for.body114.i:                                    ; preds = %for.inc236.i, %for.
   %sub.ptr.rhs.cast.i.i.i.i202.i = ptrtoint ptr %351 to i64
   %sub.ptr.sub.i.i.i.i203.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i201.i, %sub.ptr.rhs.cast.i.i.i.i202.i
   %sub.ptr.div.i.i.i.i204.i = ashr exact i64 %sub.ptr.sub.i.i.i.i203.i, 3
-  %cmp.not.i.i.i205.i = icmp ugt i64 %sub.ptr.div.i.i.i.i204.i, %i110.0349.i
+  %cmp.not.i.i.i205.i = icmp ult i64 %i110.0349.i, %sub.ptr.div.i.i.i.i204.i
   br i1 %cmp.not.i.i.i205.i, label %_ZNK8facebook4yoga4Node8getChildEm.exit208.i, label %if.then.i.i.i206.i.invoke
 
 if.then.i.i.i206.i.invoke:                        ; preds = %for.body.i825, %for.body114.i, %for.body289.i
@@ -4079,7 +4079,7 @@ for.body289.i:                                    ; preds = %if.end284.i, %for.i
   %sub.ptr.rhs.cast.i.i.i.i767 = ptrtoint ptr %380 to i64
   %sub.ptr.sub.i.i.i.i768 = sub i64 %sub.ptr.lhs.cast.i.i.i.i766, %sub.ptr.rhs.cast.i.i.i.i767
   %sub.ptr.div.i.i.i.i769 = ashr exact i64 %sub.ptr.sub.i.i.i.i768, 3
-  %cmp.not.i.i.i770 = icmp ugt i64 %sub.ptr.div.i.i.i.i769, %i.0.i2276
+  %cmp.not.i.i.i770 = icmp ult i64 %i.0.i2276, %sub.ptr.div.i.i.i.i769
   br i1 %cmp.not.i.i.i770, label %invoke.cont290.i, label %if.then.i.i.i206.i.invoke
 
 invoke.cont290.i:                                 ; preds = %for.body289.i
@@ -4563,7 +4563,7 @@ for.body609.i:                                    ; preds = %for.cond607.i.prehe
   %sub.ptr.rhs.cast.i.i.i.i629 = ptrtoint ptr %408 to i64
   %sub.ptr.sub.i.i.i.i630 = sub i64 %sub.ptr.lhs.cast.i.i.i.i628, %sub.ptr.rhs.cast.i.i.i.i629
   %sub.ptr.div.i.i.i.i631 = ashr exact i64 %sub.ptr.sub.i.i.i.i630, 3
-  %cmp.not.i.i.i632 = icmp ugt i64 %sub.ptr.div.i.i.i.i631, %ii.0.i2289
+  %cmp.not.i.i.i632 = icmp ult i64 %ii.0.i2289, %sub.ptr.div.i.i.i.i631
   br i1 %cmp.not.i.i.i632, label %_ZNK8facebook4yoga4Node8getChildEm.exit635, label %if.then.i.i.i633
 
 if.then.i.i.i633:                                 ; preds = %for.body609.i
@@ -4691,7 +4691,7 @@ for.body664.i:                                    ; preds = %for.body664.i.lr.ph
   %sub.ptr.rhs.cast.i.i.i.i559 = ptrtoint ptr %420 to i64
   %sub.ptr.sub.i.i.i.i560 = sub i64 %sub.ptr.lhs.cast.i.i.i.i558, %sub.ptr.rhs.cast.i.i.i.i559
   %sub.ptr.div.i.i.i.i561 = ashr exact i64 %sub.ptr.sub.i.i.i.i560, 3
-  %cmp.not.i.i.i562 = icmp ugt i64 %sub.ptr.div.i.i.i.i561, %ii.1.i2300
+  %cmp.not.i.i.i562 = icmp ult i64 %ii.1.i2300, %sub.ptr.div.i.i.i.i561
   br i1 %cmp.not.i.i.i562, label %_ZNK8facebook4yoga4Node8getChildEm.exit565, label %if.then.i.i.i563
 
 if.then.i.i.i563:                                 ; preds = %for.body664.i
@@ -4924,7 +4924,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i: ; preds = %sw.epilog.i.
 
 sw.bb2.i.i38.i:                                   ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i
   %439 = phi float [ %437, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36.i ], [ %438, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44.i ]
-  %mul.i.i39.i = fmul float %439, %ownerWidth
+  %mul.i.i39.i = fmul float %ownerWidth, %439
   %mul4.i.i40.i = fmul float %mul.i.i39.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55.i
 
@@ -4975,20 +4975,20 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i: ; preds = %sw.epilog.i.
 
 sw.bb2.i.i62.i:                                   ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i
   %445 = phi float [ %443, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60.i ], [ %444, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i ]
-  %mul.i.i63.i = fmul float %445, %ownerWidth
+  %mul.i.i63.i = fmul float %ownerWidth, %445
   %mul4.i.i64.i = fmul float %mul.i.i63.i, 0x3F847AE140000000
   br label %if.end33.i1395
 
 if.end33.i1395:                                   ; preds = %sw.bb2.i.i62.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i66.i
   %max.sroa.0.0.i1396 = phi float [ %mul4.i.i64.i, %sw.bb2.i.i62.i ], [ %444, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i ], [ %442, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i66.i ]
   %or.cond.i.i1397 = fcmp oge float %max.sroa.0.0.i1396, 0.000000e+00
-  %cmp.i.i1398 = fcmp olt float %max.sroa.0.0.i1396, %sub88.i
+  %cmp.i.i1398 = fcmp ogt float %sub88.i, %max.sroa.0.0.i1396
   %or.cond.i1399 = and i1 %or.cond.i.i1397, %cmp.i.i1398
   br i1 %or.cond.i1399, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit1406, label %if.end45.i1400
 
 if.end45.i1400:                                   ; preds = %if.end33.i1395, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68.i
   %or.cond.i80.i1401 = fcmp oge float %retval.sroa.0.0.i.i41.i, 0.000000e+00
-  %cmp.i86.i1402 = fcmp ogt float %retval.sroa.0.0.i.i41.i, %sub88.i
+  %cmp.i86.i1402 = fcmp olt float %sub88.i, %retval.sroa.0.0.i.i41.i
   %or.cond107.i1403 = and i1 %or.cond.i80.i1401, %cmp.i86.i1402
   br i1 %or.cond107.i1403, label %if.then57.i1405, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit1406
 
@@ -5048,7 +5048,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i1384: ; preds = %sw.epilog.
 
 sw.bb2.i.i.i1372:                                 ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i1384, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i1370
   %451 = phi float [ %449, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i1370 ], [ %450, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i1384 ]
-  %mul.i.i.i1373 = fmul float %451, %ownerHeight
+  %mul.i.i.i1373 = fmul float %ownerHeight, %451
   %mul4.i.i.i1374 = fmul float %mul.i.i.i1373, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i1375
 
@@ -5099,20 +5099,20 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i: ; preds = %sw.epilog.i.
 
 sw.bb2.i.i14.i:                                   ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i
   %457 = phi float [ %455, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i ], [ %456, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i ]
-  %mul.i.i15.i = fmul float %457, %ownerHeight
+  %mul.i.i15.i = fmul float %ownerHeight, %457
   %mul4.i.i16.i = fmul float %mul.i.i15.i, 0x3F847AE140000000
   br label %if.end33.i1377
 
 if.end33.i1377:                                   ; preds = %sw.bb2.i.i14.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i
   %max.sroa.0.0.i = phi float [ %mul4.i.i16.i, %sw.bb2.i.i14.i ], [ %456, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i ], [ %454, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i ]
   %or.cond.i.i1378 = fcmp oge float %max.sroa.0.0.i, 0.000000e+00
-  %cmp.i.i1379 = fcmp olt float %max.sroa.0.0.i, %sub90.i
+  %cmp.i.i1379 = fcmp ogt float %sub90.i, %max.sroa.0.0.i
   %or.cond.i1380 = and i1 %or.cond.i.i1378, %cmp.i.i1379
   br i1 %or.cond.i1380, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit, label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.end33.i1377, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i
   %or.cond.i80.i = fcmp oge float %retval.sroa.0.0.i.i.i1376, 0.000000e+00
-  %cmp.i86.i = fcmp ogt float %retval.sroa.0.0.i.i.i1376, %sub90.i
+  %cmp.i86.i = fcmp olt float %sub90.i, %retval.sroa.0.0.i.i.i1376
   %or.cond107.i = and i1 %or.cond.i80.i, %cmp.i86.i
   br i1 %or.cond107.i, label %if.then57.i, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit
 
@@ -5261,7 +5261,7 @@ for.body830.i:                                    ; preds = %for.body830.i.lr.ph
   %sub.ptr.rhs.cast.i.i.i.i381 = ptrtoint ptr %464 to i64
   %sub.ptr.sub.i.i.i.i382 = sub i64 %sub.ptr.lhs.cast.i.i.i.i380, %sub.ptr.rhs.cast.i.i.i.i381
   %sub.ptr.div.i.i.i.i383 = ashr exact i64 %sub.ptr.sub.i.i.i.i382, 3
-  %cmp.not.i.i.i384 = icmp ugt i64 %sub.ptr.div.i.i.i.i383, %i827.0.i2306
+  %cmp.not.i.i.i384 = icmp ult i64 %i827.0.i2306, %sub.ptr.div.i.i.i.i383
   br i1 %cmp.not.i.i.i384, label %_ZNK8facebook4yoga4Node8getChildEm.exit387, label %if.then.i.i.i385
 
 if.then.i.i.i385:                                 ; preds = %for.body830.i
@@ -5424,7 +5424,7 @@ for.body928.i:                                    ; preds = %for.body928.i.lr.ph
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %491 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
-  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %i925.0.i2310
+  %cmp.not.i.i.i = icmp ult i64 %i925.0.i2310, %sub.ptr.div.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZNK8facebook4yoga4Node8getChildEm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body928.i
@@ -5738,7 +5738,7 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb2.i:                                         ; preds = %if.then
-  %mul.i = fmul float %1, %ownerWidth
+  %mul.i = fmul float %ownerWidth, %1
   %mul4.i = fmul float %mul.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueE7YGValuef.exit
 
@@ -5794,7 +5794,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %7 = phi float [ %5, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %6, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %7, %ownerWidth
+  %mul.i.i = fmul float %ownerWidth, %7
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -5844,7 +5844,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i50: ; preds = %sw.epilog.i.i5
 
 sw.bb2.i.i44:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i50, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i42
   %13 = phi float [ %11, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i42 ], [ %12, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i50 ]
-  %mul.i.i45 = fmul float %13, %ownerWidth
+  %mul.i.i45 = fmul float %ownerWidth, %13
   %mul4.i.i46 = fmul float %mul.i.i45, 0x3F847AE140000000
   br label %if.end28
 
@@ -5875,7 +5875,7 @@ if.then30:                                        ; preds = %if.end28
   ]
 
 sw.bb2.i67:                                       ; preds = %if.then30
-  %mul.i68 = fmul float %14, %ownerHeight
+  %mul.i68 = fmul float %ownerHeight, %14
   %mul4.i69 = fmul float %mul.i68, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueE7YGValuef.exit72
 
@@ -5931,7 +5931,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i84: ; preds = %sw.epilog.i.i8
 
 sw.bb2.i.i78:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i84, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i76
   %20 = phi float [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i76 ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i84 ]
-  %mul.i.i79 = fmul float %20, %ownerHeight
+  %mul.i.i79 = fmul float %ownerHeight, %20
   %mul4.i.i80 = fmul float %mul.i.i79, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit95
 
@@ -5981,7 +5981,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i108: ; preds = %sw.epilog.i.i
 
 sw.bb2.i.i102:                                    ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i108, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i100
   %26 = phi float [ %24, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i100 ], [ %25, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i108 ]
-  %mul.i.i103 = fmul float %26, %ownerHeight
+  %mul.i.i103 = fmul float %ownerHeight, %26
   %mul4.i.i104 = fmul float %mul.i.i103, 0x3F847AE140000000
   br label %if.end62
 
@@ -6131,7 +6131,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %5 = phi float [ %3, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %4, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %5, %ownerDim
+  %mul.i.i = fmul float %ownerDim, %5
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -6189,7 +6189,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i21: ; preds = %sw.epilog.i.i2
 
 sw.bb2.i.i15:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i21, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i13
   %11 = phi float [ %9, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i13 ], [ %10, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i21 ]
-  %mul.i.i16 = fmul float %11, %ownerDim
+  %mul.i.i16 = fmul float %ownerDim, %11
   %mul4.i.i17 = fmul float %mul.i.i16, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit32
 
@@ -6296,7 +6296,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %7 = phi float [ %5, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %6, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %7, %ownerAxisSize
+  %mul.i.i = fmul float %ownerAxisSize, %7
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -6398,7 +6398,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %6 = phi float [ %4, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %5, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %6, %axisSize
+  %mul.i.i = fmul float %axisSize, %6
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -6449,7 +6449,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20: ; preds = %sw.epilog.i.i2
 
 sw.bb2.i.i14:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12
   %12 = phi float [ %10, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12 ], [ %11, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20 ]
-  %mul.i.i15 = fmul float %12, %axisSize
+  %mul.i.i15 = fmul float %axisSize, %12
   %mul4.i.i16 = fmul float %mul.i.i15, 0x3F847AE140000000
   br label %if.end33
 
@@ -6501,7 +6501,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44: ; preds = %sw.epilog.i.i4
 
 sw.bb2.i.i38:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36
   %20 = phi float [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i36 ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i44 ]
-  %mul.i.i39 = fmul float %20, %axisSize
+  %mul.i.i39 = fmul float %axisSize, %20
   %mul4.i.i40 = fmul float %mul.i.i39, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit55
 
@@ -6552,7 +6552,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68: ; preds = %sw.epilog.i.i7
 
 sw.bb2.i.i62:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60
   %26 = phi float [ %24, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i60 ], [ %25, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68 ]
-  %mul.i.i63 = fmul float %26, %axisSize
+  %mul.i.i63 = fmul float %axisSize, %26
   %mul4.i.i64 = fmul float %mul.i.i63, 0x3F847AE140000000
   br label %if.end33
 
@@ -6560,14 +6560,14 @@ if.end33:                                         ; preds = %sw.bb2.i.i62, %_ZNK
   %max.sroa.0.0 = phi float [ %mul4.i.i16, %sw.bb2.i.i14 ], [ %11, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20 ], [ %9, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18 ], [ %mul4.i.i64, %sw.bb2.i.i62 ], [ %25, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68 ], [ %23, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i66 ]
   %min.sroa.0.0 = phi float [ %retval.sroa.0.0.i.i, %sw.bb2.i.i14 ], [ %retval.sroa.0.0.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20 ], [ %retval.sroa.0.0.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18 ], [ %retval.sroa.0.0.i.i41, %sw.bb2.i.i62 ], [ %retval.sroa.0.0.i.i41, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68 ], [ %retval.sroa.0.0.i.i41, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i66 ]
   %or.cond.i = fcmp oge float %max.sroa.0.0, 0.000000e+00
-  %cmp.i = fcmp olt float %max.sroa.0.0, %value.coerce
+  %cmp.i = fcmp ogt float %value.coerce, %max.sroa.0.0
   %or.cond = select i1 %or.cond.i, i1 %cmp.i, i1 false
   br i1 %or.cond, label %return, label %if.end45
 
 if.end45:                                         ; preds = %if.end33, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68
   %min.sroa.0.092101 = phi float [ %retval.sroa.0.0.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20 ], [ %retval.sroa.0.0.i.i41, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i68 ], [ %min.sroa.0.0, %if.end33 ]
   %or.cond.i80 = fcmp oge float %min.sroa.0.092101, 0.000000e+00
-  %cmp.i86 = fcmp ogt float %min.sroa.0.092101, %value.coerce
+  %cmp.i86 = fcmp olt float %value.coerce, %min.sroa.0.092101
   %or.cond107 = select i1 %or.cond.i80, i1 %cmp.i86, i1 false
   br i1 %or.cond107, label %if.then57, label %return
 

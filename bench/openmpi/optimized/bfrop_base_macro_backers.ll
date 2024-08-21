@@ -665,7 +665,7 @@ define internal fastcc ptr @pmix_bfrops_base_tma_argv_split_inter(ptr noundef re
   %.052895 = phi ptr [ %.05.be, %.backedge ], [ null, %.lr.ph30.preheader ]
   %.0402994 = phi ptr [ %.040.be, %.backedge ], [ %0, %.lr.ph30.preheader ]
   %7 = sext i8 %6 to i32
-  %.not4522 = icmp eq i32 %7, %1
+  %.not4522 = icmp eq i32 %1, %7
   br i1 %.not4522, label %.critedge2.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -676,7 +676,7 @@ define internal fastcc ptr @pmix_bfrops_base_tma_argv_split_inter(ptr noundef re
   %.pr = load i8, ptr %8, align 1
   %.not44 = icmp eq i8 %.pr, 0
   %10 = sext i8 %.pr to i32
-  %.not45 = icmp eq i32 %10, %1
+  %.not45 = icmp eq i32 %1, %10
   %or.cond = or i1 %.not44, %.not45
   br i1 %or.cond, label %.critedge2, label %.lr.ph, !llvm.loop !11
 

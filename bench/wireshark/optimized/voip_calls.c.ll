@@ -3879,7 +3879,7 @@ define internal fastcc void @h245_add_to_graph(ptr nocapture noundef readonly %0
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
-  %.not = icmp eq i32 %5, %1
+  %.not = icmp eq i32 %1, %5
   br i1 %.not, label %.preheader, label %55
 
 .preheader:                                       ; preds = %2
@@ -4810,7 +4810,7 @@ append_to_frame_graph.exit:                       ; preds = %110
   %127 = getelementptr inbounds i8, ptr %8, i64 168
   %128 = load ptr, ptr %127, align 8
   %129 = load i32, ptr %128, align 8
-  %130 = icmp eq i32 %129, %124
+  %130 = icmp eq i32 %124, %129
   br i1 %130, label %h245_free_labels.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge

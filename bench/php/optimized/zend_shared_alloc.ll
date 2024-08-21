@@ -1241,14 +1241,14 @@ define hidden noundef zeroext i1 @zend_accel_in_shm(ptr noundef readnone %0) loc
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
-  %.not10 = icmp ugt ptr %11, %0
+  %.not10 = icmp ult ptr %0, %11
   br i1 %.not10, label %17, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %0
+  %16 = icmp ult ptr %0, %15
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %7, %12

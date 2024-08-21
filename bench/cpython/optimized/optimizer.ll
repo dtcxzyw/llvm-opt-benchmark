@@ -693,7 +693,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val.i = load i64, ptr %0, align 8
   %cmp = icmp sgt i64 %index, -1
-  %cmp1.not = icmp sgt i64 %self.val.i, %index
+  %cmp1.not = icmp slt i64 %index, %self.val.i
   %or.cond = select i1 %cmp, i1 %cmp1.not, i1 false
   br i1 %or.cond, label %if.end, label %if.then
 

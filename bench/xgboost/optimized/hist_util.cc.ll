@@ -712,7 +712,7 @@ define weak_odr void @_ZN7xgboost6common9BuildHistILb0EEEvNS0_4SpanIKNS_6detail2
   %20 = load i8, ptr %19, align 8
   store i8 %18, ptr %6, align 1
   %21 = getelementptr inbounds i8, ptr %6, i64 1
-  %22 = or i1 %14, %4
+  %22 = or i1 %4, %14
   %23 = zext i1 %22 to i8
   store i8 %23, ptr %21, align 1
   %24 = getelementptr inbounds i8, ptr %6, i64 2
@@ -1549,7 +1549,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i:  ; preds = %253
   %268 = add i64 %267, 8
   call void @llvm.memset.p0.i64(ptr align 8 %265, i8 0, i64 %268, i1 false), !noalias !25
   %269 = getelementptr inbounds i64, ptr %265, i64 %243
-  %.not.i.i.i.i.i.i.i.i.i80.i = icmp eq ptr %236, %235
+  %.not.i.i.i.i.i.i.i.i.i80.i = icmp eq ptr %235, %236
   br i1 %.not.i.i.i.i.i.i.i.i.i80.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit.i, label %270
 
 270:                                              ; preds = %.noexc210
@@ -4027,7 +4027,7 @@ _ZN7xgboost6common7Monitor4InitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58
   %60 = sdiv exact i64 %59, 48
-  %61 = icmp ult i64 %60, %53
+  %61 = icmp ugt i64 %53, %60
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %_ZN7xgboost6common7Monitor4InitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -4041,7 +4041,7 @@ _ZN7xgboost6common7Monitor4InitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   br label %_ZNSt6vectorIN7xgboost6common14SortedQuantileESaIS2_EE6resizeEm.exit
 
 64:                                               ; preds = %_ZN7xgboost6common7Monitor4InitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %65 = icmp ugt i64 %60, %53
+  %65 = icmp ult i64 %53, %60
   br i1 %65, label %66, label %_ZNSt6vectorIN7xgboost6common14SortedQuantileESaIS2_EE6resizeEm.exit
 
 66:                                               ; preds = %64
@@ -4936,7 +4936,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -6077,7 +6077,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
 
 15:                                               ; preds = %6
   %16 = uitofp i64 %.sroa.speculated26 to double
-  %17 = fmul double %16, %1
+  %17 = fmul double %1, %16
   %18 = fptoui double %17 to i64
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   %.not20 = icmp ugt i64 %12, %.sroa.speculated
@@ -9081,7 +9081,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   store ptr %46, ptr %44, align 8
   call void @_ZN7xgboost6common23RowsWiseBuildHistKernelILb1ENS0_20GHistBuildingManagerILb1ELb1ELb0EjEEEEvNS0_4SpanIKNS_6detail20GradientPairInternalIfEELm18446744073709551615EEENS4_IKmLm18446744073709551615EEERKNS_16GHistIndexMatrixENS4_INS6_IdEELm18446744073709551615EEE(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %10)
   %.pre = load i64, ptr %1, align 8
-  %.not8.i = icmp ult i64 %.pre, %.sroa.speculated.i
+  %.not8.i = icmp ugt i64 %.sroa.speculated.i, %.pre
   br i1 %.not8.i, label %47, label %.thread
 
 47:                                               ; preds = %36
@@ -9739,7 +9739,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   store ptr %46, ptr %44, align 8
   call void @_ZN7xgboost6common23RowsWiseBuildHistKernelILb1ENS0_20GHistBuildingManagerILb1ELb1ELb0EtEEEEvNS0_4SpanIKNS_6detail20GradientPairInternalIfEELm18446744073709551615EEENS4_IKmLm18446744073709551615EEERKNS_16GHistIndexMatrixENS4_INS6_IdEELm18446744073709551615EEE(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %10)
   %.pre = load i64, ptr %1, align 8
-  %.not8.i = icmp ult i64 %.pre, %.sroa.speculated.i
+  %.not8.i = icmp ugt i64 %.sroa.speculated.i, %.pre
   br i1 %.not8.i, label %47, label %.thread
 
 47:                                               ; preds = %36
@@ -10339,7 +10339,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   store ptr %46, ptr %44, align 8
   call void @_ZN7xgboost6common23RowsWiseBuildHistKernelILb1ENS0_20GHistBuildingManagerILb1ELb1ELb0EhEEEEvNS0_4SpanIKNS_6detail20GradientPairInternalIfEELm18446744073709551615EEENS4_IKmLm18446744073709551615EEERKNS_16GHistIndexMatrixENS4_INS6_IdEELm18446744073709551615EEE(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %10)
   %.pre = load i64, ptr %1, align 8
-  %.not8.i = icmp ult i64 %.pre, %.sroa.speculated.i
+  %.not8.i = icmp ugt i64 %.sroa.speculated.i, %.pre
   br i1 %.not8.i, label %47, label %.thread
 
 47:                                               ; preds = %36
@@ -11906,7 +11906,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   store ptr %46, ptr %44, align 8
   call void @_ZN7xgboost6common23RowsWiseBuildHistKernelILb1ENS0_20GHistBuildingManagerILb1ELb0ELb0EjEEEEvNS0_4SpanIKNS_6detail20GradientPairInternalIfEELm18446744073709551615EEENS4_IKmLm18446744073709551615EEERKNS_16GHistIndexMatrixENS4_INS6_IdEELm18446744073709551615EEE(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %10)
   %.pre = load i64, ptr %1, align 8
-  %.not8.i = icmp ult i64 %.pre, %.sroa.speculated.i
+  %.not8.i = icmp ugt i64 %.sroa.speculated.i, %.pre
   br i1 %.not8.i, label %47, label %.thread
 
 47:                                               ; preds = %36
@@ -12511,7 +12511,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   store ptr %46, ptr %44, align 8
   call void @_ZN7xgboost6common23RowsWiseBuildHistKernelILb1ENS0_20GHistBuildingManagerILb1ELb0ELb0EtEEEEvNS0_4SpanIKNS_6detail20GradientPairInternalIfEELm18446744073709551615EEENS4_IKmLm18446744073709551615EEERKNS_16GHistIndexMatrixENS4_INS6_IdEELm18446744073709551615EEE(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %10)
   %.pre = load i64, ptr %1, align 8
-  %.not8.i = icmp ult i64 %.pre, %.sroa.speculated.i
+  %.not8.i = icmp ugt i64 %.sroa.speculated.i, %.pre
   br i1 %.not8.i, label %47, label %.thread
 
 47:                                               ; preds = %36
@@ -13116,7 +13116,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   store ptr %46, ptr %44, align 8
   call void @_ZN7xgboost6common23RowsWiseBuildHistKernelILb1ENS0_20GHistBuildingManagerILb1ELb0ELb0EhEEEEvNS0_4SpanIKNS_6detail20GradientPairInternalIfEELm18446744073709551615EEENS4_IKmLm18446744073709551615EEERKNS_16GHistIndexMatrixENS4_INS6_IdEELm18446744073709551615EEE(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %10)
   %.pre = load i64, ptr %1, align 8
-  %.not8.i = icmp ult i64 %.pre, %.sroa.speculated.i
+  %.not8.i = icmp ugt i64 %.sroa.speculated.i, %.pre
   br i1 %.not8.i, label %47, label %.thread
 
 47:                                               ; preds = %36
@@ -15578,7 +15578,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   store ptr %46, ptr %44, align 8
   call void @_ZN7xgboost6common23RowsWiseBuildHistKernelILb1ENS0_20GHistBuildingManagerILb0ELb1ELb0EjEEEEvNS0_4SpanIKNS_6detail20GradientPairInternalIfEELm18446744073709551615EEENS4_IKmLm18446744073709551615EEERKNS_16GHistIndexMatrixENS4_INS6_IdEELm18446744073709551615EEE(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %10)
   %.pre = load i64, ptr %1, align 8
-  %.not8.i = icmp ult i64 %.pre, %.sroa.speculated.i
+  %.not8.i = icmp ugt i64 %.sroa.speculated.i, %.pre
   br i1 %.not8.i, label %47, label %.thread
 
 47:                                               ; preds = %36
@@ -16213,7 +16213,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   store ptr %46, ptr %44, align 8
   call void @_ZN7xgboost6common23RowsWiseBuildHistKernelILb1ENS0_20GHistBuildingManagerILb0ELb1ELb0EtEEEEvNS0_4SpanIKNS_6detail20GradientPairInternalIfEELm18446744073709551615EEENS4_IKmLm18446744073709551615EEERKNS_16GHistIndexMatrixENS4_INS6_IdEELm18446744073709551615EEE(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %10)
   %.pre = load i64, ptr %1, align 8
-  %.not8.i = icmp ult i64 %.pre, %.sroa.speculated.i
+  %.not8.i = icmp ugt i64 %.sroa.speculated.i, %.pre
   br i1 %.not8.i, label %47, label %.thread
 
 47:                                               ; preds = %36
@@ -16850,7 +16850,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   store ptr %46, ptr %44, align 8
   call void @_ZN7xgboost6common23RowsWiseBuildHistKernelILb1ENS0_20GHistBuildingManagerILb0ELb1ELb0EhEEEEvNS0_4SpanIKNS_6detail20GradientPairInternalIfEELm18446744073709551615EEENS4_IKmLm18446744073709551615EEERKNS_16GHistIndexMatrixENS4_INS6_IdEELm18446744073709551615EEE(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %10)
   %.pre = load i64, ptr %1, align 8
-  %.not8.i = icmp ult i64 %.pre, %.sroa.speculated.i
+  %.not8.i = icmp ugt i64 %.sroa.speculated.i, %.pre
   br i1 %.not8.i, label %47, label %.thread
 
 47:                                               ; preds = %36
@@ -18441,7 +18441,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   store ptr %46, ptr %44, align 8
   call void @_ZN7xgboost6common23RowsWiseBuildHistKernelILb1ENS0_20GHistBuildingManagerILb0ELb0ELb0EjEEEEvNS0_4SpanIKNS_6detail20GradientPairInternalIfEELm18446744073709551615EEENS4_IKmLm18446744073709551615EEERKNS_16GHistIndexMatrixENS4_INS6_IdEELm18446744073709551615EEE(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %10)
   %.pre = load i64, ptr %1, align 8
-  %.not8.i = icmp ult i64 %.pre, %.sroa.speculated.i
+  %.not8.i = icmp ugt i64 %.sroa.speculated.i, %.pre
   br i1 %.not8.i, label %47, label %.thread
 
 47:                                               ; preds = %36
@@ -19086,7 +19086,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   store ptr %46, ptr %44, align 8
   call void @_ZN7xgboost6common23RowsWiseBuildHistKernelILb1ENS0_20GHistBuildingManagerILb0ELb0ELb0EtEEEEvNS0_4SpanIKNS_6detail20GradientPairInternalIfEELm18446744073709551615EEENS4_IKmLm18446744073709551615EEERKNS_16GHistIndexMatrixENS4_INS6_IdEELm18446744073709551615EEE(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %10)
   %.pre = load i64, ptr %1, align 8
-  %.not8.i = icmp ult i64 %.pre, %.sroa.speculated.i
+  %.not8.i = icmp ugt i64 %.sroa.speculated.i, %.pre
   br i1 %.not8.i, label %47, label %.thread
 
 47:                                               ; preds = %36
@@ -19733,7 +19733,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   store ptr %46, ptr %44, align 8
   call void @_ZN7xgboost6common23RowsWiseBuildHistKernelILb1ENS0_20GHistBuildingManagerILb0ELb0ELb0EhEEEEvNS0_4SpanIKNS_6detail20GradientPairInternalIfEELm18446744073709551615EEENS4_IKmLm18446744073709551615EEERKNS_16GHistIndexMatrixENS4_INS6_IdEELm18446744073709551615EEE(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %10)
   %.pre = load i64, ptr %1, align 8
-  %.not8.i = icmp ult i64 %.pre, %.sroa.speculated.i
+  %.not8.i = icmp ugt i64 %.sroa.speculated.i, %.pre
   br i1 %.not8.i, label %47, label %.thread
 
 47:                                               ; preds = %36

@@ -72,7 +72,7 @@ while.end.i.i:                                    ; preds = %while.body
 while.end10.i.i:                                  ; preds = %while.end.i.i, %while.body
   %view.sroa.0.0.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %while.end.i.i ], [ %view.sroa.0.0.copyload.i.i449, %while.body ]
   %start.addr.0.i.i = phi i64 [ %sub.i.i, %while.end.i.i ], [ %1, %while.body ]
-  %cmp.i.i.i.i = icmp ult i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %start.addr.0.i.i, %view.sroa.0.0.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNK6google8protobuf13json_internal22ZeroCopyBufferedStream6UnreadEv.exit
 
 if.then.i.i.i.i:                                  ; preds = %while.end10.i.i
@@ -117,7 +117,7 @@ while.end.i.i19:                                  ; preds = %if.end
 while.end10.i.i9:                                 ; preds = %while.end.i.i19, %if.end
   %view.sroa.0.0.i.i10 = phi i64 [ %sub.ptr.sub.i.i.i26, %while.end.i.i19 ], [ %view.sroa.0.0.copyload.i.i4, %if.end ]
   %start.addr.0.i.i12 = phi i64 [ %sub.i.i21, %while.end.i.i19 ], [ %6, %if.end ]
-  %cmp.i.i.i.i13 = icmp ult i64 %view.sroa.0.0.i.i10, %start.addr.0.i.i12
+  %cmp.i.i.i.i13 = icmp ugt i64 %start.addr.0.i.i12, %view.sroa.0.0.i.i10
   br i1 %cmp.i.i.i.i13, label %if.then.i.i.i.i18, label %_ZNK6google8protobuf13json_internal22ZeroCopyBufferedStream6UnreadEv.exit27
 
 if.then.i.i.i.i18:                                ; preds = %while.end10.i.i9
@@ -168,7 +168,7 @@ while.end10.i:                                    ; preds = %land.lhs.true
   %3 = load i64, ptr %buffer_start_, align 8
   %last_chunk_.i = getelementptr inbounds i8, ptr %this, i64 8
   %view.sroa.0.0.copyload.i = load i64, ptr %last_chunk_.i, align 8
-  %cmp.i.i.i = icmp ult i64 %view.sroa.0.0.copyload.i, %3
+  %cmp.i.i.i = icmp ugt i64 %3, %view.sroa.0.0.copyload.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6google8protobuf13json_internal22ZeroCopyBufferedStream9RawBufferEmm.exit
 
 if.then.i.i.i:                                    ; preds = %while.end10.i
@@ -431,7 +431,7 @@ while.end.i.i:                                    ; preds = %while.cond
 while.end10.i.i:                                  ; preds = %while.end.i.i, %while.cond
   %view.sroa.0.0.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %while.end.i.i ], [ %view.sroa.0.0.copyload.i.i, %while.cond ]
   %start.addr.0.i.i = phi i64 [ %sub.i.i, %while.end.i.i ], [ %1, %while.cond ]
-  %cmp.i.i.i.i = icmp ult i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %start.addr.0.i.i, %view.sroa.0.0.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i.invoke, label %invoke.cont
 
 if.then.i.i.i.i.invoke:                           ; preds = %while.end10.i.i9, %while.end10.i.i
@@ -464,7 +464,7 @@ while.end.i.i19:                                  ; preds = %while.body
 while.end10.i.i9:                                 ; preds = %while.end.i.i19, %while.body
   %view.sroa.0.0.i.i10 = phi i64 [ %sub.ptr.sub.i.i.i26, %while.end.i.i19 ], [ %view.sroa.0.0.copyload.i.i, %while.body ]
   %start.addr.0.i.i12 = phi i64 [ %sub.i.i21, %while.end.i.i19 ], [ %1, %while.body ]
-  %cmp.i.i.i.i13 = icmp ult i64 %view.sroa.0.0.i.i10, %start.addr.0.i.i12
+  %cmp.i.i.i.i13 = icmp ugt i64 %start.addr.0.i.i12, %view.sroa.0.0.i.i10
   br i1 %cmp.i.i.i.i13, label %if.then.i.i.i.i.invoke, label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %while.end10.i.i9

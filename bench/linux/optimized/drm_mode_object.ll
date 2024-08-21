@@ -756,7 +756,7 @@ define dso_local i32 @drm_mode_object_get_properties(ptr noundef %0, i1 noundef 
   %17 = getelementptr inbounds i8, ptr %16, i64 48
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, -1
-  %20 = or i1 %19, %1
+  %20 = or i1 %1, %19
   br i1 %20, label %21, label %93
 
 21:                                               ; preds = %.preheader

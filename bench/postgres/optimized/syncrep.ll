@@ -81,7 +81,7 @@ define dso_local void @SyncRepWaitForLSN(i64 noundef %0, i1 noundef zeroext %1) 
   %25 = sext i32 %.0 to i64
   %26 = getelementptr [3 x i64], ptr %24, i64 0, i64 %25
   %27 = load i64, ptr %26, align 8
-  %.not = icmp ult i64 %27, %0
+  %.not = icmp ugt i64 %0, %27
   br i1 %.not, label %31, label %28
 
 28:                                               ; preds = %22, %13

@@ -26,13 +26,13 @@ define dso_local zeroext i1 @Curl_cert_hostcheck(ptr noundef %0, i64 noundef %1,
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 46
   %16 = sext i1 %15 to i64
-  %spec.select.i = add i64 %16, %3
+  %spec.select.i = add i64 %3, %16
   %17 = getelementptr i8, ptr %0, i64 %1
   %18 = getelementptr i8, ptr %17, i64 -1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 46
   %21 = sext i1 %20 to i64
-  %.036.i = add i64 %21, %1
+  %.036.i = add i64 %1, %21
   %.not49.i = icmp eq i8 %6, 42
   br i1 %.not49.i, label %.tail.i, label %.tail.thread.i
 

@@ -576,7 +576,7 @@ define i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noun
   store i32 0, ptr %75, align 4
   %76 = icmp eq i32 %4, 2
   %. = select i1 %76, i32 65536, i32 64
-  %77 = or i32 %., %3
+  %77 = or i32 %3, %.
   %78 = call fastcc i32 @cli_tgzload(i32 noundef %74, ptr noundef %1, ptr noundef %2, i32 noundef %77, ptr noundef nonnull %11, ptr noundef null)
   %.not94 = icmp eq i32 %78, 0
   br i1 %.not94, label %79, label %.loopexit

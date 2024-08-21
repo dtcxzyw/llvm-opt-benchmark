@@ -340,7 +340,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   %64 = and i64 %63, 31
   %65 = getelementptr inbounds [32 x i64], ptr %20, i64 0, i64 %64
   %66 = load i64, ptr %65, align 8
-  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %66, i64 %.sroa.042.0.copyload.i)
+  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %.sroa.042.0.copyload.i, i64 %66)
   %67 = getelementptr inbounds i8, ptr %19, i64 41104
   %68 = getelementptr inbounds [256 x i64], ptr %67, i64 0, i64 %27
   %69 = load i64, ptr %68, align 8
@@ -834,7 +834,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   %64 = and i64 %63, 31
   %65 = getelementptr inbounds [32 x i64], ptr %20, i64 0, i64 %64
   %66 = load i64, ptr %65, align 8
-  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %66, i64 %.sroa.042.0.copyload.i)
+  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %.sroa.042.0.copyload.i, i64 %66)
   %67 = getelementptr inbounds i8, ptr %19, i64 41104
   %68 = getelementptr inbounds [256 x i64], ptr %67, i64 0, i64 %27
   %69 = load i64, ptr %68, align 8
@@ -1417,7 +1417,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
 78:                                               ; preds = %69
   %79 = getelementptr inbounds [32 x i64], ptr %29, i64 0, i64 %71
   %80 = load i64, ptr %79, align 8
-  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %80, i64 %.sroa.042.0.copyload.i)
+  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %.sroa.042.0.copyload.i, i64 %80)
   %81 = getelementptr inbounds i8, ptr %19, i64 41104
   %82 = getelementptr inbounds [256 x i64], ptr %81, i64 0, i64 %34
   %83 = load i64, ptr %82, align 8
@@ -1959,7 +1959,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
 78:                                               ; preds = %69
   %79 = getelementptr inbounds [32 x i64], ptr %29, i64 0, i64 %71
   %80 = load i64, ptr %79, align 8
-  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %80, i64 %.sroa.042.0.copyload.i)
+  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %.sroa.042.0.copyload.i, i64 %80)
   %81 = getelementptr inbounds i8, ptr %19, i64 41104
   %82 = getelementptr inbounds [256 x i64], ptr %81, i64 0, i64 %34
   %83 = load i64, ptr %82, align 8
@@ -2779,7 +2779,7 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 ._crit_edge:                                      ; preds = %30, %_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 48
-  %33 = icmp eq ptr %32, %31
+  %33 = icmp eq ptr %31, %32
   br i1 %33, label %_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %34
 
 34:                                               ; preds = %._crit_edge
@@ -2889,7 +2889,7 @@ _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNK
 _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit ], [ %40, %.lr.ph.i.i.i ]
   %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17

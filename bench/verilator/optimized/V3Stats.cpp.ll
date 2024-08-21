@@ -3487,7 +3487,7 @@ _ZNK7AstNode5widthEv.exit14:                      ; preds = %30, %33
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = sdiv exact i64 %44, 48
-  %46 = icmp ult i64 %45, %38
+  %46 = icmp ugt i64 %38, %45
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %_ZNK7AstNode5widthEv.exit14
@@ -3496,7 +3496,7 @@ _ZNK7AstNode5widthEv.exit14:                      ; preds = %30, %33
   br label %_ZNSt6vectorISt3mapIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS7_ESaISt4pairIS7_jEEESaISD_EE6resizeEm.exit
 
 49:                                               ; preds = %_ZNK7AstNode5widthEv.exit14
-  %50 = icmp ugt i64 %45, %38
+  %50 = icmp ult i64 %38, %45
   br i1 %50, label %51, label %_ZNSt6vectorISt3mapIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS7_ESaISt4pairIS7_jEEESaISD_EE6resizeEm.exit
 
 51:                                               ; preds = %49
@@ -3546,7 +3546,7 @@ _ZNK7AstNode5widthEv.exit17:                      ; preds = %_ZNSt6vectorISt3map
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68
   %70 = ashr exact i64 %69, 3
-  %.not.i.i18 = icmp ugt i64 %70, %64
+  %.not.i.i18 = icmp ult i64 %64, %70
   br i1 %.not.i.i18, label %_ZNSt6vectorImSaImEE2atEm.exit, label %71
 
 71:                                               ; preds = %_ZNK7AstNode5widthEv.exit17
@@ -3583,7 +3583,7 @@ _ZNK7AstNode5widthEv.exit20:                      ; preds = %77, %80
   %89 = ptrtoint ptr %87 to i64
   %90 = sub i64 %88, %89
   %91 = sdiv exact i64 %90, 48
-  %.not.i.i21 = icmp ugt i64 %91, %84
+  %.not.i.i21 = icmp ult i64 %84, %91
   br i1 %.not.i.i21, label %_ZNSt6vectorISt3mapIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS7_ESaISt4pairIS7_jEEESaISD_EE2atEm.exit, label %92
 
 92:                                               ; preds = %_ZNK7AstNode5widthEv.exit20
@@ -4257,7 +4257,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -4307,7 +4307,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_jESt10_Select1stIS8_ESt4lessIS6_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

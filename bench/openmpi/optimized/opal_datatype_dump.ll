@@ -94,7 +94,7 @@ define i32 @opal_datatype_contain_basic_datatypes(ptr nocapture noundef readonly
 42:                                               ; preds = %34, %37, %21
   %.4 = phi i32 [ %36, %34 ], [ %41, %37 ], [ %.240, %21 ]
   %43 = sext i32 %.4 to i64
-  %.not38 = icmp ult i64 %43, %2
+  %.not38 = icmp ugt i64 %2, %43
   br i1 %.not38, label %44, label %46
 
 44:                                               ; preds = %42
@@ -338,7 +338,7 @@ opal_datatype_dump_data_flags.exit:               ; preds = %7, %47, %.sink.spli
   %.0.i = phi i32 [ 0, %7 ], [ 21, %47 ], [ 21, %.sink.split.i ]
   %50 = add nsw i32 %.0.i, %.062
   %51 = sext i32 %50 to i64
-  %.not = icmp ult i64 %51, %3
+  %.not = icmp ugt i64 %3, %51
   br i1 %.not, label %52, label %._crit_edge
 
 52:                                               ; preds = %opal_datatype_dump_data_flags.exit
@@ -353,7 +353,7 @@ opal_datatype_dump_data_flags.exit:               ; preds = %7, %47, %.sink.spli
   %61 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %53, i64 noundef %54, ptr noundef nonnull @.str.5, ptr noundef nonnull %60) #8
   %62 = add nsw i32 %61, %50
   %63 = sext i32 %62 to i64
-  %.not58 = icmp ult i64 %63, %3
+  %.not58 = icmp ugt i64 %3, %63
   br i1 %.not58, label %64, label %._crit_edge
 
 64:                                               ; preds = %52
@@ -409,7 +409,7 @@ opal_datatype_dump_data_flags.exit:               ; preds = %7, %47, %.sink.spli
   %.pn = phi i32 [ %75, %68 ], [ %83, %76 ], [ %101, %84 ]
   %.2 = add nsw i32 %.pn, %62
   %103 = sext i32 %.2 to i64
-  %.not59 = icmp ult i64 %103, %3
+  %.not59 = icmp ugt i64 %3, %103
   %104 = getelementptr inbounds i8, ptr %.05360, i64 32
   %105 = add nuw nsw i32 %.05261, 1
   %106 = icmp slt i32 %105, %1

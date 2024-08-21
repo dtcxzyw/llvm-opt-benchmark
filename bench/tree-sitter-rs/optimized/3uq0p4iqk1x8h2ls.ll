@@ -1893,7 +1893,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.7540957221847921196.exit
   %206 = getelementptr inbounds i8, ptr %205, i64 24
   %207 = getelementptr i8, ptr %205, i64 16
   %.val4.i.i = load i64, ptr %207, align 8, !noalias !388, !noundef !4
-  %.not.i.i.i.i.i = icmp eq i64 %.pre260.i, %.val4.i.i
+  %.not.i.i.i.i.i = icmp eq i64 %.val4.i.i, %.pre260.i
   br i1 %.not.i.i.i.i.i, label %208, label %"_ZN18tree_sitter_loader21LanguageConfiguration16highlight_config28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h15785312606fd193E.exit.backedge.i.i"
 
 208:                                              ; preds = %.lr.ph.i.i

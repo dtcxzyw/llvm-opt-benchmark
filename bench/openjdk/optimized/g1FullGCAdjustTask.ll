@@ -2215,7 +2215,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI14G1CMOopClosureE5Ta
   %57 = and i64 %54, 4294967295
   %58 = getelementptr inbounds ptr, ptr %56, i64 %57
   %59 = load volatile ptr, ptr %58, align 8
-  %.not.i = icmp ugt ptr %59, %35
+  %.not.i = icmp ult ptr %35, %59
   br i1 %.not.i, label %60, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 60:                                               ; preds = %37
@@ -2401,19 +2401,19 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %171, %168
   br i1 %.not.i.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, label %188
 
 188:                                              ; preds = %176
-  %189 = icmp ugt ptr %187, %35
+  %189 = icmp ult ptr %35, %187
   br i1 %189, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %190
 
 190:                                              ; preds = %188
   %191 = getelementptr inbounds i8, ptr %31, i64 152
   %192 = load ptr, ptr %191, align 8
-  %193 = icmp ule ptr %192, %35
-  %194 = icmp ugt ptr %185, %35
+  %193 = icmp uge ptr %35, %192
+  %194 = icmp ult ptr %35, %185
   %or.cond.i = select i1 %193, i1 %194, i1 false
   br i1 %or.cond.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i: ; preds = %176
-  %.old.i = icmp ugt ptr %185, %35
+  %.old.i = icmp ult ptr %35, %185
   br i1 %.old.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i: ; preds = %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %190, %188
@@ -2544,19 +2544,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8G1CMTask19make_reference_grey
   br i1 %.not.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit, label %14
 
 14:                                               ; preds = %8
-  %15 = icmp ugt ptr %13, %1
+  %15 = icmp ult ptr %1, %13
   br i1 %15, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %0, i64 152
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp ule ptr %18, %1
-  %20 = icmp ugt ptr %11, %1
+  %19 = icmp uge ptr %1, %18
+  %20 = icmp ult ptr %1, %11
   %or.cond = select i1 %19, i1 %20, i1 false
   br i1 %or.cond, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread, label %_ZN8G1CMTask23process_grey_task_entryILb0EEEv16G1TaskQueueEntry.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit: ; preds = %8
-  %.old = icmp ugt ptr %11, %1
+  %.old = icmp ult ptr %1, %11
   br i1 %.old, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread, label %_ZN8G1CMTask23process_grey_task_entryILb0EEEv16G1TaskQueueEntry.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread: ; preds = %16, %14, %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit
@@ -2680,7 +2680,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bi
   %19 = and i64 %16, 4294967295
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
-  %.not = icmp ugt ptr %21, %2
+  %.not = icmp ult ptr %2, %21
   br i1 %.not, label %22, label %_ZN10MarkBitMap8par_markEP7oopDesc.exit
 
 22:                                               ; preds = %3
@@ -3672,7 +3672,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -3722,7 +3722,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -3772,7 +3772,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -3866,7 +3866,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -4032,7 +4032,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -4082,7 +4082,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -4132,7 +4132,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -5050,7 +5050,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
   %58 = and i64 %55, 4294967295
   %59 = getelementptr inbounds ptr, ptr %57, i64 %58
   %60 = load volatile ptr, ptr %59, align 8
-  %.not.i = icmp ugt ptr %60, %36
+  %.not.i = icmp ult ptr %36, %60
   br i1 %.not.i, label %61, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 61:                                               ; preds = %38
@@ -5236,19 +5236,19 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %172, %169
   br i1 %.not.i.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, label %189
 
 189:                                              ; preds = %177
-  %190 = icmp ugt ptr %188, %36
+  %190 = icmp ult ptr %36, %188
   br i1 %190, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %191
 
 191:                                              ; preds = %189
   %192 = getelementptr inbounds i8, ptr %32, i64 152
   %193 = load ptr, ptr %192, align 8
-  %194 = icmp ule ptr %193, %36
-  %195 = icmp ugt ptr %186, %36
+  %194 = icmp uge ptr %36, %193
+  %195 = icmp ult ptr %36, %186
   %or.cond.i = select i1 %194, i1 %195, i1 false
   br i1 %or.cond.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i: ; preds = %177
-  %.old.i = icmp ugt ptr %186, %36
+  %.old.i = icmp ult ptr %36, %186
   br i1 %.old.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i: ; preds = %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %191, %189
@@ -6084,7 +6084,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   %57 = and i64 %54, 4294967295
   %58 = getelementptr inbounds ptr, ptr %56, i64 %57
   %59 = load volatile ptr, ptr %58, align 8
-  %.not.i = icmp ugt ptr %59, %35
+  %.not.i = icmp ult ptr %35, %59
   br i1 %.not.i, label %60, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 60:                                               ; preds = %37
@@ -6270,19 +6270,19 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %171, %168
   br i1 %.not.i.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, label %188
 
 188:                                              ; preds = %176
-  %189 = icmp ugt ptr %187, %35
+  %189 = icmp ult ptr %35, %187
   br i1 %189, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %190
 
 190:                                              ; preds = %188
   %191 = getelementptr inbounds i8, ptr %31, i64 152
   %192 = load ptr, ptr %191, align 8
-  %193 = icmp ule ptr %192, %35
-  %194 = icmp ugt ptr %185, %35
+  %193 = icmp uge ptr %35, %192
+  %194 = icmp ult ptr %35, %185
   %or.cond.i = select i1 %193, i1 %194, i1 false
   br i1 %or.cond.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i: ; preds = %176
-  %.old.i = icmp ugt ptr %185, %35
+  %.old.i = icmp ult ptr %35, %185
   br i1 %.old.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i: ; preds = %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %190, %188
@@ -6950,7 +6950,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %57 = and i64 %54, 4294967295
   %58 = getelementptr inbounds ptr, ptr %56, i64 %57
   %59 = load volatile ptr, ptr %58, align 8
-  %.not.i = icmp ugt ptr %59, %35
+  %.not.i = icmp ult ptr %35, %59
   br i1 %.not.i, label %60, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 60:                                               ; preds = %37
@@ -7136,19 +7136,19 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %171, %168
   br i1 %.not.i.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, label %188
 
 188:                                              ; preds = %176
-  %189 = icmp ugt ptr %187, %35
+  %189 = icmp ult ptr %35, %187
   br i1 %189, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %190
 
 190:                                              ; preds = %188
   %191 = getelementptr inbounds i8, ptr %31, i64 152
   %192 = load ptr, ptr %191, align 8
-  %193 = icmp ule ptr %192, %35
-  %194 = icmp ugt ptr %185, %35
+  %193 = icmp uge ptr %35, %192
+  %194 = icmp ult ptr %35, %185
   %or.cond.i = select i1 %193, i1 %194, i1 false
   br i1 %or.cond.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i: ; preds = %176
-  %.old.i = icmp ugt ptr %185, %35
+  %.old.i = icmp ult ptr %35, %185
   br i1 %.old.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i: ; preds = %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %190, %188
@@ -8095,9 +8095,9 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClos
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClosureE5Table23oop_oop_iterate_boundedI13InstanceKlass9narrowOopEEvPS0_P7oopDescP5Klass9MemRegion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) #0 comdat align 2 {
-  %.not.i = icmp ule ptr %3, %1
+  %.not.i = icmp uge ptr %1, %3
   %6 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i, i1 %7, i1 false
   br i1 %8, label %9, label %13
 
@@ -8141,7 +8141,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClos
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds i32, ptr %33, i64 %36
-  %38 = icmp ult ptr %33, %3
+  %38 = icmp ugt ptr %3, %33
   %spec.select = select i1 %38, ptr %3, ptr %33
   %39 = icmp ugt ptr %37, %6
   %.040 = select i1 %39, ptr %6, ptr %37
@@ -8503,9 +8503,9 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClosureE5Table23oop_oop_iterate_boundedI13InstanceKlassP7oopDescEEvPS0_S6_P5Klass9MemRegion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) #0 comdat align 2 {
-  %.not.i = icmp ule ptr %3, %1
+  %.not.i = icmp uge ptr %1, %3
   %6 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i, i1 %7, i1 false
   br i1 %8, label %9, label %13
 
@@ -8549,7 +8549,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClos
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds ptr, ptr %33, i64 %36
-  %38 = icmp ult ptr %33, %3
+  %38 = icmp ugt ptr %3, %33
   %spec.select = select i1 %38, ptr %3, ptr %33
   %39 = icmp ugt ptr %37, %6
   %.040 = select i1 %39, ptr %6, ptr %37
@@ -8590,7 +8590,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClos
   %67 = and i64 %64, 4294967295
   %68 = getelementptr inbounds ptr, ptr %66, i64 %67
   %69 = load volatile ptr, ptr %68, align 8
-  %.not.i46 = icmp ugt ptr %69, %45
+  %.not.i46 = icmp ult ptr %45, %69
   br i1 %.not.i46, label %70, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 70:                                               ; preds = %47
@@ -8776,19 +8776,19 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %181, %178
   br i1 %.not.i.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, label %198
 
 198:                                              ; preds = %186
-  %199 = icmp ugt ptr %197, %45
+  %199 = icmp ult ptr %45, %197
   br i1 %199, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %200
 
 200:                                              ; preds = %198
   %201 = getelementptr inbounds i8, ptr %41, i64 152
   %202 = load ptr, ptr %201, align 8
-  %203 = icmp ule ptr %202, %45
-  %204 = icmp ugt ptr %195, %45
+  %203 = icmp uge ptr %45, %202
+  %204 = icmp ult ptr %45, %195
   %or.cond.i = select i1 %203, i1 %204, i1 false
   br i1 %or.cond.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i: ; preds = %186
-  %.old.i = icmp ugt ptr %195, %45
+  %.old.i = icmp ult ptr %45, %195
   br i1 %.old.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i: ; preds = %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %200, %198
@@ -8925,9 +8925,9 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClos
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI9narrowOop14G1CMOopClosureEEvP7oopDescPT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) local_unnamed_addr #0 comdat align 2 {
   %6 = alloca %class.MrContains, align 8
-  %.not.i = icmp ule ptr %3, %1
+  %.not.i = icmp uge ptr %1, %3
   %7 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %8 = icmp ugt ptr %7, %1
+  %8 = icmp ult ptr %1, %7
   %9 = select i1 %.not.i, i1 %8, i1 false
   br i1 %9, label %10, label %14
 
@@ -8971,7 +8971,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds i32, ptr %34, i64 %37
-  %39 = icmp ult ptr %34, %3
+  %39 = icmp ugt ptr %3, %34
   %spec.select = select i1 %39, ptr %3, ptr %34
   %40 = icmp ugt ptr %38, %7
   %.044 = select i1 %40, ptr %7, ptr %38
@@ -9606,9 +9606,9 @@ _ZN16InstanceRefKlass13do_discoveredI9narrowOop14G1CMOopClosureK10MrContainsEEvP
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedIP7oopDesc14G1CMOopClosureEEvS2_PT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) local_unnamed_addr #0 comdat align 2 {
   %6 = alloca %class.MrContains, align 8
-  %.not.i = icmp ule ptr %3, %1
+  %.not.i = icmp uge ptr %1, %3
   %7 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %8 = icmp ugt ptr %7, %1
+  %8 = icmp ult ptr %1, %7
   %9 = select i1 %.not.i, i1 %8, i1 false
   br i1 %9, label %10, label %14
 
@@ -9652,7 +9652,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds ptr, ptr %34, i64 %37
-  %39 = icmp ult ptr %34, %3
+  %39 = icmp ugt ptr %3, %34
   %spec.select = select i1 %39, ptr %3, ptr %34
   %40 = icmp ugt ptr %38, %7
   %.044 = select i1 %40, ptr %7, ptr %38
@@ -9693,7 +9693,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %68 = and i64 %65, 4294967295
   %69 = getelementptr inbounds ptr, ptr %67, i64 %68
   %70 = load volatile ptr, ptr %69, align 8
-  %.not.i50 = icmp ugt ptr %70, %46
+  %.not.i50 = icmp ult ptr %46, %70
   br i1 %.not.i50, label %71, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 71:                                               ; preds = %48
@@ -9879,19 +9879,19 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %182, %179
   br i1 %.not.i.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, label %199
 
 199:                                              ; preds = %187
-  %200 = icmp ugt ptr %198, %46
+  %200 = icmp ult ptr %46, %198
   br i1 %200, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %201
 
 201:                                              ; preds = %199
   %202 = getelementptr inbounds i8, ptr %42, i64 152
   %203 = load ptr, ptr %202, align 8
-  %204 = icmp ule ptr %203, %46
-  %205 = icmp ugt ptr %196, %46
+  %204 = icmp uge ptr %46, %203
+  %205 = icmp ult ptr %46, %196
   %or.cond.i = select i1 %204, i1 %205, i1 false
   br i1 %or.cond.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i: ; preds = %187
-  %.old.i = icmp ugt ptr %196, %46
+  %.old.i = icmp ult ptr %46, %196
   br i1 %.old.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i: ; preds = %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %201, %199
@@ -10249,9 +10249,9 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClos
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_boundedI9narrowOop14G1CMOopClosureEEvP7oopDescPT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) local_unnamed_addr #0 comdat align 2 {
-  %.not.i = icmp ule ptr %3, %1
+  %.not.i = icmp uge ptr %1, %3
   %6 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i, i1 %7, i1 false
   br i1 %8, label %9, label %13
 
@@ -10295,7 +10295,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds i32, ptr %33, i64 %36
-  %38 = icmp ult ptr %33, %3
+  %38 = icmp ugt ptr %3, %33
   %spec.select = select i1 %38, ptr %3, ptr %33
   %39 = icmp ugt ptr %37, %6
   %.048 = select i1 %39, ptr %6, ptr %37
@@ -10677,7 +10677,7 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
   %287 = tail call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef %1) #9
   %288 = sext i32 %287 to i64
   %289 = getelementptr inbounds i32, ptr %286, i64 %288
-  %290 = icmp ult ptr %286, %3
+  %290 = icmp ugt ptr %3, %286
   %spec.select.i = select i1 %290, ptr %3, ptr %286
   %291 = icmp ugt ptr %289, %6
   %.014.i = select i1 %291, ptr %6, ptr %289
@@ -10730,9 +10730,9 @@ _ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedI9narrowOop14G1CMOopClo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_boundedIP7oopDesc14G1CMOopClosureEEvS2_PT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) local_unnamed_addr #0 comdat align 2 {
-  %.not.i = icmp ule ptr %3, %1
+  %.not.i = icmp uge ptr %1, %3
   %6 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i, i1 %7, i1 false
   br i1 %8, label %9, label %13
 
@@ -10776,7 +10776,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds ptr, ptr %33, i64 %36
-  %38 = icmp ult ptr %33, %3
+  %38 = icmp ugt ptr %3, %33
   %spec.select = select i1 %38, ptr %3, ptr %33
   %39 = icmp ugt ptr %37, %6
   %.048 = select i1 %39, ptr %6, ptr %37
@@ -10817,7 +10817,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %67 = and i64 %64, 4294967295
   %68 = getelementptr inbounds ptr, ptr %66, i64 %67
   %69 = load volatile ptr, ptr %68, align 8
-  %.not.i57 = icmp ugt ptr %69, %45
+  %.not.i57 = icmp ult ptr %45, %69
   br i1 %.not.i57, label %70, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 70:                                               ; preds = %47
@@ -11003,19 +11003,19 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %181, %178
   br i1 %.not.i.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, label %198
 
 198:                                              ; preds = %186
-  %199 = icmp ugt ptr %197, %45
+  %199 = icmp ult ptr %45, %197
   br i1 %199, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %200
 
 200:                                              ; preds = %198
   %201 = getelementptr inbounds i8, ptr %41, i64 152
   %202 = load ptr, ptr %201, align 8
-  %203 = icmp ule ptr %202, %45
-  %204 = icmp ugt ptr %195, %45
+  %203 = icmp uge ptr %45, %202
+  %204 = icmp ult ptr %45, %195
   %or.cond.i = select i1 %203, i1 %204, i1 false
   br i1 %or.cond.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i: ; preds = %186
-  %.old.i = icmp ugt ptr %195, %45
+  %.old.i = icmp ult ptr %45, %195
   br i1 %.old.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i: ; preds = %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %200, %198
@@ -11149,7 +11149,7 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %9
   %278 = tail call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef %1) #9
   %279 = sext i32 %278 to i64
   %280 = getelementptr inbounds ptr, ptr %277, i64 %279
-  %281 = icmp ult ptr %277, %3
+  %281 = icmp ugt ptr %3, %277
   %spec.select.i = select i1 %281, ptr %3, ptr %277
   %282 = icmp ugt ptr %280, %6
   %.014.i = select i1 %282, ptr %6, ptr %280
@@ -11208,9 +11208,9 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClos
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_boundedI9narrowOop14G1CMOopClosureEEvP7oopDescPT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) local_unnamed_addr #0 comdat align 2 {
-  %.not.i = icmp ule ptr %3, %1
+  %.not.i = icmp uge ptr %1, %3
   %6 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i, i1 %7, i1 false
   br i1 %8, label %9, label %13
 
@@ -11254,7 +11254,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds i32, ptr %33, i64 %36
-  %38 = icmp ult ptr %33, %3
+  %38 = icmp ugt ptr %3, %33
   %spec.select = select i1 %38, ptr %3, ptr %33
   %39 = icmp ugt ptr %37, %6
   %.044 = select i1 %39, ptr %6, ptr %37
@@ -11630,9 +11630,9 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_boundedIP7oopDesc14G1CMOopClosureEEvS2_PT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) local_unnamed_addr #0 comdat align 2 {
-  %.not.i = icmp ule ptr %3, %1
+  %.not.i = icmp uge ptr %1, %3
   %6 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i, i1 %7, i1 false
   br i1 %8, label %9, label %13
 
@@ -11676,7 +11676,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds ptr, ptr %33, i64 %36
-  %38 = icmp ult ptr %33, %3
+  %38 = icmp ugt ptr %3, %33
   %spec.select = select i1 %38, ptr %3, ptr %33
   %39 = icmp ugt ptr %37, %6
   %.044 = select i1 %39, ptr %6, ptr %37
@@ -11717,7 +11717,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %67 = and i64 %64, 4294967295
   %68 = getelementptr inbounds ptr, ptr %66, i64 %67
   %69 = load volatile ptr, ptr %68, align 8
-  %.not.i52 = icmp ugt ptr %69, %45
+  %.not.i52 = icmp ult ptr %45, %69
   br i1 %.not.i52, label %70, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 70:                                               ; preds = %47
@@ -11903,19 +11903,19 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %181, %178
   br i1 %.not.i.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, label %198
 
 198:                                              ; preds = %186
-  %199 = icmp ugt ptr %197, %45
+  %199 = icmp ult ptr %45, %197
   br i1 %199, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %200
 
 200:                                              ; preds = %198
   %201 = getelementptr inbounds i8, ptr %41, i64 152
   %202 = load ptr, ptr %201, align 8
-  %203 = icmp ule ptr %202, %45
-  %204 = icmp ugt ptr %195, %45
+  %203 = icmp uge ptr %45, %202
+  %204 = icmp ult ptr %45, %195
   %or.cond.i = select i1 %203, i1 %204, i1 false
   br i1 %or.cond.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i: ; preds = %186
-  %.old.i = icmp ugt ptr %195, %45
+  %.old.i = icmp ult ptr %45, %195
   br i1 %.old.i, label %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit
 
 _ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.thread.i: ; preds = %_ZNK8G1CMTask15is_below_fingerEP7oopDescPP12HeapWordImpl.exit.i, %200, %198
@@ -12065,9 +12065,9 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClos
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass23oop_oop_iterate_boundedI9narrowOop14G1CMOopClosureEEvP7oopDescPT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) local_unnamed_addr #0 comdat align 2 {
-  %.not.i = icmp ule ptr %3, %1
+  %.not.i = icmp uge ptr %1, %3
   %6 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i, i1 %7, i1 false
   br i1 %8, label %9, label %13
 
@@ -12110,7 +12110,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass23oop_oop_iterate_b
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i64, ptr %25, i64 %39
-  %41 = icmp ult ptr %33, %3
+  %41 = icmp ugt ptr %3, %33
   %spec.select.i = select i1 %41, ptr %3, ptr %33
   %42 = icmp ult ptr %6, %40
   %.012.i = select i1 %42, ptr %6, ptr %40
@@ -12130,7 +12130,7 @@ _ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedI9narrowOop14G1CMOopC
   %49 = sext i32 %48 to i64
   %50 = add nsw i64 %49, %15
   %51 = inttoptr i64 %50 to ptr
-  %.not.i.i = icmp uge ptr %47, %3
+  %.not.i.i = icmp ule ptr %3, %47
   %52 = icmp ugt ptr %6, %47
   %53 = select i1 %.not.i.i, i1 %52, i1 false
   br i1 %53, label %54, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit.i
@@ -12161,7 +12161,7 @@ _ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedI9narrowOop14G1CMOopC
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit.i
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit.i: ; preds = %71, %54, %_ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedI9narrowOop14G1CMOopClosureEEvP17stackChunkOopDescPT0_9MemRegion.exit
-  %.not.i8.i = icmp uge ptr %51, %3
+  %.not.i8.i = icmp ule ptr %3, %51
   %74 = icmp ugt ptr %6, %51
   %75 = select i1 %.not.i8.i, i1 %74, i1 false
   br i1 %75, label %76, label %_ZN23InstanceStackChunkKlass30oop_oop_iterate_header_boundedI9narrowOop14G1CMOopClosureEEvP17stackChunkOopDescPT0_9MemRegion.exit
@@ -12197,9 +12197,9 @@ _ZN23InstanceStackChunkKlass30oop_oop_iterate_header_boundedI9narrowOop14G1CMOop
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass23oop_oop_iterate_boundedIP7oopDesc14G1CMOopClosureEEvS2_PT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) local_unnamed_addr #0 comdat align 2 {
-  %.not.i = icmp ule ptr %3, %1
+  %.not.i = icmp uge ptr %1, %3
   %6 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i, i1 %7, i1 false
   br i1 %8, label %9, label %13
 
@@ -12242,7 +12242,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass23oop_oop_iterate_b
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i64, ptr %25, i64 %39
-  %41 = icmp ult ptr %33, %3
+  %41 = icmp ugt ptr %3, %33
   %spec.select.i = select i1 %41, ptr %3, ptr %33
   %42 = icmp ult ptr %6, %40
   %.012.i = select i1 %42, ptr %6, ptr %40
@@ -12262,7 +12262,7 @@ _ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedIP7oopDesc14G1CMOopCl
   %49 = sext i32 %48 to i64
   %50 = add nsw i64 %49, %15
   %51 = inttoptr i64 %50 to ptr
-  %.not.i.i = icmp uge ptr %47, %3
+  %.not.i.i = icmp ule ptr %3, %47
   %52 = icmp ugt ptr %6, %47
   %53 = select i1 %.not.i.i, i1 %52, i1 false
   br i1 %53, label %54, label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit.i
@@ -12283,7 +12283,7 @@ _ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedIP7oopDesc14G1CMOopCl
   br label %_ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit.i
 
 _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit.i: ; preds = %62, %54, %_ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedIP7oopDesc14G1CMOopClosureEEvP17stackChunkOopDescPT0_9MemRegion.exit
-  %.not.i8.i = icmp uge ptr %51, %3
+  %.not.i8.i = icmp ule ptr %3, %51
   %64 = icmp ugt ptr %6, %51
   %65 = select i1 %.not.i8.i, i1 %64, i1 false
   br i1 %65, label %66, label %_ZN23InstanceStackChunkKlass30oop_oop_iterate_header_boundedIP7oopDesc14G1CMOopClosureEEvP17stackChunkOopDescPT0_9MemRegion.exit
@@ -12365,7 +12365,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClos
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i32, ptr %36, i64 %40
-  %42 = icmp ult ptr %36, %3
+  %42 = icmp ugt ptr %3, %36
   %spec.select.i.i = select i1 %42, ptr %3, ptr %36
   %43 = icmp ugt ptr %41, %25
   %.0.i7.i = select i1 %43, ptr %25, ptr %41
@@ -12464,7 +12464,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClos
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds ptr, ptr %36, i64 %40
-  %42 = icmp ult ptr %36, %3
+  %42 = icmp ugt ptr %3, %36
   %spec.select.i.i = select i1 %42, ptr %3, ptr %36
   %43 = icmp ugt ptr %41, %25
   %.0.i7.i = select i1 %43, ptr %25, ptr %41
@@ -18221,7 +18221,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI15G1AdjustClo
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %26, i64 %29
-  %31 = icmp ult ptr %26, %3
+  %31 = icmp ugt ptr %3, %26
   %spec.select = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
   %.040 = select i1 %32, ptr %20, ptr %30
@@ -18318,7 +18318,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI15G1AdjustClo
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %26, i64 %29
-  %31 = icmp ult ptr %26, %3
+  %31 = icmp ugt ptr %3, %26
   %spec.select = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
   %.040 = select i1 %32, ptr %20, ptr %30
@@ -18417,7 +18417,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI15G1AdjustClo
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds i32, ptr %27, i64 %30
-  %32 = icmp ult ptr %27, %3
+  %32 = icmp ugt ptr %3, %27
   %spec.select.i = select i1 %32, ptr %3, ptr %27
   %33 = icmp ugt ptr %31, %21
   %.044.i = select i1 %33, ptr %21, ptr %31
@@ -18521,7 +18521,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI15G1AdjustClo
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %27, i64 %30
-  %32 = icmp ult ptr %27, %3
+  %32 = icmp ugt ptr %3, %27
   %spec.select.i = select i1 %32, ptr %3, ptr %27
   %33 = icmp ugt ptr %31, %21
   %.044.i = select i1 %33, ptr %21, ptr %31
@@ -19311,7 +19311,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds i32, ptr %25, i64 %28
-  %30 = icmp ult ptr %25, %3
+  %30 = icmp ugt ptr %3, %25
   %spec.select = select i1 %30, ptr %3, ptr %25
   %31 = icmp ugt ptr %29, %19
   %.048 = select i1 %31, ptr %19, ptr %29
@@ -19379,7 +19379,7 @@ _ZN13Devirtualizer6do_oopI15G1AdjustClosure9narrowOopEEvPT_PT0_.exit: ; preds = 
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %71, i64 %73
   %75 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %76 = icmp ult ptr %71, %3
+  %76 = icmp ugt ptr %3, %71
   %spec.select.i = select i1 %76, ptr %3, ptr %71
   %77 = icmp ugt ptr %74, %75
   %.014.i = select i1 %77, ptr %75, ptr %74
@@ -19475,7 +19475,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds ptr, ptr %25, i64 %28
-  %30 = icmp ult ptr %25, %3
+  %30 = icmp ugt ptr %3, %25
   %spec.select = select i1 %30, ptr %3, ptr %25
   %31 = icmp ugt ptr %29, %19
   %.048 = select i1 %31, ptr %19, ptr %29
@@ -19534,7 +19534,7 @@ _ZN13Devirtualizer6do_oopI15G1AdjustClosureP7oopDescEEvPT_PT0_.exit: ; preds = %
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds ptr, ptr %62, i64 %64
   %66 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %67 = icmp ult ptr %62, %3
+  %67 = icmp ugt ptr %3, %62
   %spec.select.i = select i1 %67, ptr %3, ptr %62
   %68 = icmp ugt ptr %65, %66
   %.014.i = select i1 %68, ptr %66, ptr %65
@@ -19631,7 +19631,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI15G1AdjustClo
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %26, i64 %29
-  %31 = icmp ult ptr %26, %3
+  %31 = icmp ugt ptr %3, %26
   %spec.select.i = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
   %.044.i = select i1 %32, ptr %20, ptr %30
@@ -19728,7 +19728,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI15G1AdjustClo
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %26, i64 %29
-  %31 = icmp ult ptr %26, %3
+  %31 = icmp ugt ptr %3, %26
   %spec.select.i = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
   %.044.i = select i1 %32, ptr %20, ptr %30
@@ -19810,7 +19810,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI15G1AdjustClo
   %12 = sext i32 %11 to i64
   %13 = add nsw i64 %12, %7
   %14 = inttoptr i64 %13 to ptr
-  %.not.i.i.i = icmp uge ptr %10, %3
+  %.not.i.i.i = icmp ule ptr %3, %10
   %15 = getelementptr inbounds ptr, ptr %3, i64 %4
   %16 = icmp ugt ptr %15, %10
   %17 = select i1 %.not.i.i.i, i1 %16, i1 false
@@ -19850,7 +19850,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI15G1AdjustClo
   br label %_ZN13Devirtualizer6do_oopI15G1AdjustClosureP7oopDescEEvPT_PT0_.exit.i.i
 
 _ZN13Devirtualizer6do_oopI15G1AdjustClosureP7oopDescEEvPT_PT0_.exit.i.i: ; preds = %38, %34, %21, %18, %5
-  %.not.i8.i.i = icmp uge ptr %14, %3
+  %.not.i8.i.i = icmp ule ptr %3, %14
   %42 = icmp ugt ptr %15, %14
   %43 = select i1 %.not.i8.i.i, i1 %42, i1 false
   br i1 %43, label %44, label %_ZN23InstanceStackChunkKlass23oop_oop_iterate_boundedIP7oopDesc15G1AdjustClosureEEvS2_PT0_9MemRegion.exit
@@ -19924,7 +19924,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass23oop_oop_iterate_b
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i64, ptr %17, i64 %31
-  %33 = icmp ult ptr %25, %3
+  %33 = icmp ugt ptr %3, %25
   %spec.select.i = select i1 %33, ptr %3, ptr %25
   %34 = getelementptr inbounds ptr, ptr %3, i64 %4
   %35 = icmp ult ptr %34, %32
@@ -19945,7 +19945,7 @@ _ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedI9narrowOop15G1Adjust
   %42 = sext i32 %41 to i64
   %43 = add nsw i64 %42, %7
   %44 = inttoptr i64 %43 to ptr
-  %.not.i.i = icmp uge ptr %40, %3
+  %.not.i.i = icmp ule ptr %3, %40
   %45 = getelementptr inbounds ptr, ptr %3, i64 %4
   %46 = icmp ugt ptr %45, %40
   %47 = select i1 %.not.i.i, i1 %46, i1 false
@@ -19994,7 +19994,7 @@ _ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedI9narrowOop15G1Adjust
   br label %_ZN13Devirtualizer6do_oopI15G1AdjustClosure9narrowOopEEvPT_PT0_.exit.i
 
 _ZN13Devirtualizer6do_oopI15G1AdjustClosure9narrowOopEEvPT_PT0_.exit.i: ; preds = %75, %71, %51, %48, %_ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedI9narrowOop15G1AdjustClosureEEvP17stackChunkOopDescPT0_9MemRegion.exit
-  %.not.i8.i = icmp uge ptr %44, %3
+  %.not.i8.i = icmp ule ptr %3, %44
   %81 = icmp ugt ptr %45, %44
   %82 = select i1 %.not.i8.i, i1 %81, i1 false
   br i1 %82, label %83, label %_ZN23InstanceStackChunkKlass30oop_oop_iterate_header_boundedI9narrowOop15G1AdjustClosureEEvP17stackChunkOopDescPT0_9MemRegion.exit
@@ -20077,7 +20077,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i64, ptr %17, i64 %31
-  %33 = icmp ult ptr %25, %3
+  %33 = icmp ugt ptr %3, %25
   %spec.select = select i1 %33, ptr %3, ptr %25
   %34 = getelementptr inbounds ptr, ptr %3, i64 %4
   %35 = icmp ult ptr %34, %32
@@ -20225,7 +20225,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI15G1AdjustClo
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i32, ptr %17, i64 %21
-  %23 = icmp ult ptr %17, %3
+  %23 = icmp ugt ptr %3, %17
   %spec.select.i.i = select i1 %23, ptr %3, ptr %17
   %24 = icmp ugt ptr %22, %6
   %.0.i7.i = select i1 %24, ptr %6, ptr %22
@@ -20307,7 +20307,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI15G1AdjustClo
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds ptr, ptr %17, i64 %21
-  %23 = icmp ult ptr %17, %3
+  %23 = icmp ugt ptr %3, %17
   %spec.select.i.i = select i1 %23, ptr %3, ptr %17
   %24 = icmp ugt ptr %22, %6
   %.0.i7.i = select i1 %24, ptr %6, ptr %22

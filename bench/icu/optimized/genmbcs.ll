@@ -148,7 +148,7 @@ land.lhs.true19:                                  ; preds = %if.end
   %utf8Max = getelementptr inbounds i8, ptr %mbcsData, i64 456520
   %3 = load i16, ptr %utf8Max, align 8
   %conv20 = zext i16 %3 to i32
-  %cmp21.not = icmp slt i32 %conv20, %c
+  %cmp21.not = icmp sgt i32 %c, %conv20
   br i1 %cmp21.not, label %if.end30, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %land.lhs.true19
@@ -2423,7 +2423,7 @@ land.lhs.true22:                                  ; preds = %if.end20
   %utf8Max = getelementptr inbounds i8, ptr %mbcsData, i64 456520
   %14 = load i16, ptr %utf8Max, align 8
   %conv23 = zext i16 %14 to i32
-  %cmp24.not = icmp slt i32 %conv23, %c
+  %cmp24.not = icmp sgt i32 %c, %conv23
   %shr28232 = lshr i32 %c, 4
   %stage1234 = getelementptr inbounds i8, ptr %mbcsData, i64 65592
   %idxprom235 = zext i32 %shr to i64
@@ -2563,7 +2563,7 @@ land.lhs.true67:                                  ; preds = %if.end59.thread, %i
   %utf8Max68 = getelementptr inbounds i8, ptr %mbcsData, i64 456520
   %30 = load i16, ptr %utf8Max68, align 8
   %conv69 = zext i16 %30 to i32
-  %cmp70.not = icmp slt i32 %conv69, %c
+  %cmp70.not = icmp sgt i32 %c, %conv69
   %spec.select = select i1 %cmp70.not, i32 4, i32 6
   %spec.select287 = select i1 %cmp70.not, i32 15, i32 63
   br label %if.end76
@@ -2574,7 +2574,7 @@ if.end76:                                         ; preds = %land.lhs.true67, %i
   %add64275 = phi i32 [ %add64282, %if.end59.thread278 ], [ %add64, %if.end59 ], [ %add64276, %land.lhs.true67 ]
   %.pre262266272 = phi i8 [ 0, %if.end59.thread278 ], [ 0, %if.end59 ], [ %.pre262266273, %land.lhs.true67 ]
   %mul74 = shl nsw i32 %1, %.sink286
-  %and75 = and i32 %.sink, %c
+  %and75 = and i32 %c, %.sink
   %stage277 = getelementptr inbounds i8, ptr %mbcsData, i64 196664
   %idxprom78 = zext nneg i32 %add64275 to i64
   %arrayidx79 = getelementptr inbounds [64448 x i32], ptr %stage277, i64 0, i64 %idxprom78
@@ -2708,7 +2708,7 @@ land.lhs.true134:                                 ; preds = %if.end125
   %utf8Max135 = getelementptr inbounds i8, ptr %mbcsData, i64 456520
   %42 = load i16, ptr %utf8Max135, align 8
   %conv136 = zext i16 %42 to i32
-  %cmp137.not = icmp slt i32 %conv136, %c
+  %cmp137.not = icmp sgt i32 %c, %conv136
   br i1 %cmp137.not, label %if.end148, label %if.then138
 
 if.then138:                                       ; preds = %land.lhs.true134

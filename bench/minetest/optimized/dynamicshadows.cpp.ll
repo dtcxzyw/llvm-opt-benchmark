@@ -768,7 +768,7 @@ entry:
   %dirty = getelementptr inbounds i8, ptr %this, i64 428
   %0 = load i8, ptr %dirty, align 4, !tbaa !69, !range !70, !noundef !71
   %tobool.not = icmp eq i8 %0, 0
-  %brmerge = or i1 %tobool.not, %force
+  %brmerge = or i1 %force, %tobool.not
   br i1 %brmerge, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

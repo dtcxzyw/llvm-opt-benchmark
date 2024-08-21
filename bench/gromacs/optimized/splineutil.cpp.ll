@@ -1050,8 +1050,8 @@ define noundef float @_ZN3gmx8internal48findSmallestQuotientOfFunctionAndThirdDe
 .lr.ph:                                           ; preds = %4
   %16 = add i64 %8, 2
   %17 = fmul double %2, 2.000000e+00
-  %18 = fmul double %17, %2
-  %19 = fmul double %18, %2
+  %18 = fmul double %2, %17
+  %19 = fmul double %2, %18
   %.phi.trans.insert = getelementptr inbounds double, ptr %0, i64 %16
   %.pre = load double, ptr %.phi.trans.insert, align 8
   br label %20
@@ -1192,7 +1192,7 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
   %44 = load double, ptr %1, align 8
   %45 = tail call double @llvm.fmuladd.f64(double %44, double 3.500000e+01, double %43)
   %46 = fmul double %3, 1.200000e+01
-  %47 = fmul double %46, %3
+  %47 = fmul double %3, %46
   %48 = fdiv double %45, %47
   store double %48, ptr %26, align 8
   %49 = fneg double %33

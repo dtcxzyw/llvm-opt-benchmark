@@ -2213,7 +2213,7 @@ define internal i32 @dissect_t124_T_assigned(ptr noundef %0, i32 noundef %1, ptr
 define internal i32 @dissect_t124_StaticChannelId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull @channelId, i32 noundef 0) #8
   %7 = load i32, ptr @hf_t124_channelId_03, align 4
-  %8 = icmp eq i32 %7, %4
+  %8 = icmp eq i32 %4, %7
   br i1 %8, label %9, label %dissect_t124_ChannelId.exit
 
 9:                                                ; preds = %5
@@ -2233,7 +2233,7 @@ dissect_t124_ChannelId.exit:                      ; preds = %5, %9
 define internal i32 @dissect_t124_ChannelId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull @channelId, i32 noundef 0) #8
   %7 = load i32, ptr @hf_t124_channelId_03, align 4
-  %8 = icmp eq i32 %7, %4
+  %8 = icmp eq i32 %4, %7
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %5
@@ -2255,7 +2255,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 define internal i32 @dissect_t124_UserId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull @channelId, i32 noundef 0) #8
   %7 = load i32, ptr @hf_t124_channelId_03, align 4
-  %8 = icmp eq i32 %7, %4
+  %8 = icmp eq i32 %4, %7
   br i1 %8, label %9, label %dissect_t124_DynamicChannelId.exit
 
 9:                                                ; preds = %5
@@ -2275,7 +2275,7 @@ dissect_t124_DynamicChannelId.exit:               ; preds = %5, %9
 define internal i32 @dissect_t124_PrivateChannelId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull @channelId, i32 noundef 0) #8
   %7 = load i32, ptr @hf_t124_channelId_03, align 4
-  %8 = icmp eq i32 %7, %4
+  %8 = icmp eq i32 %4, %7
   br i1 %8, label %9, label %dissect_t124_DynamicChannelId.exit
 
 9:                                                ; preds = %5
@@ -2302,7 +2302,7 @@ define internal i32 @dissect_t124_SET_OF_UserId(ptr noundef %0, i32 noundef %1, 
 define internal i32 @dissect_t124_AssignedChannelId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull @channelId, i32 noundef 0) #8
   %7 = load i32, ptr @hf_t124_channelId_03, align 4
-  %8 = icmp eq i32 %7, %4
+  %8 = icmp eq i32 %4, %7
   br i1 %8, label %9, label %dissect_t124_DynamicChannelId.exit
 
 9:                                                ; preds = %5

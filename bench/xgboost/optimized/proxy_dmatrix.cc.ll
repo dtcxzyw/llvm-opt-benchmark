@@ -1250,7 +1250,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %_ZNSt6vectorIN7xgbo
 
 .loopexit:                                        ; preds = %93, %.loopexit.split.loop.exit52.i.i.i.i, %.loopexit.split.loop.exit50.i.i.i.i, %.loopexit.split.loop.exit48.i.i.i.i, %123, %117, %110
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %110 ], [ %.sroa.032.1.i.i.i.i, %117 ], [ %spec.select.i.i.i.i, %123 ], [ %127, %.loopexit.split.loop.exit48.i.i.i.i ], [ %128, %.loopexit.split.loop.exit50.i.i.i.i ], [ %129, %.loopexit.split.loop.exit52.i.i.i.i ], [ %.sroa.032.057.i.i.i.i, %93 ]
-  %130 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %81
+  %130 = icmp eq ptr %81, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   br i1 %130, label %.critedge, label %131
 
 131:                                              ; preds = %.loopexit
@@ -1463,7 +1463,7 @@ _ZNSt3anyaSEOS_.exit.thread:                      ; preds = %18
 
 25:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
   %26 = phi ptr [ @_ZNSt3any17_Manager_externalISt10shared_ptrIN7xgboost4data15ColumnarAdapterEEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread ], [ %.pre, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit ]
-  %.not.i = icmp eq ptr %4, %0
+  %.not.i = icmp eq ptr %0, %4
   br i1 %.not.i, label %_ZNSt3anyaSEOS_.exit.thread4, label %27
 
 _ZNSt3anyaSEOS_.exit.thread4:                     ; preds = %25
@@ -2135,7 +2135,7 @@ _ZNSt3anyaSEOS_.exit.thread:                      ; preds = %18
 
 25:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
   %26 = phi ptr [ @_ZNSt3any17_Manager_externalISt10shared_ptrIN7xgboost4data12ArrayAdapterEEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread ], [ %.pre, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit ]
-  %.not.i = icmp eq ptr %4, %0
+  %.not.i = icmp eq ptr %0, %4
   br i1 %.not.i, label %_ZNSt3anyaSEOS_.exit.thread4, label %27
 
 _ZNSt3anyaSEOS_.exit.thread4:                     ; preds = %25
@@ -2976,7 +2976,7 @@ _ZNSt3anyaSEOS_.exit.thread:                      ; preds = %18
 
 25:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
   %26 = phi ptr [ @_ZNSt3any17_Manager_externalISt10shared_ptrIN7xgboost4data15CSRArrayAdapterEEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread ], [ %.pre, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit ]
-  %.not.i = icmp eq ptr %4, %0
+  %.not.i = icmp eq ptr %0, %4
   br i1 %.not.i, label %_ZNSt3anyaSEOS_.exit.thread4, label %27
 
 _ZNSt3anyaSEOS_.exit.thread4:                     ; preds = %25
@@ -5581,7 +5581,7 @@ _ZNSt16allocator_traitsISaIN7xgboost14ArrayInterfaceILi1ELb0EEEEE9constructIS2_J
 _ZNSt6vectorIN7xgboost14ArrayInterfaceILi1ELb0EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost14ArrayInterfaceILi1ELb0EEEEE9constructIS2_JRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4JsonESt4lessIvESaISt4pairIKSC_SD_EEEEEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN7xgboost14ArrayInterfaceILi1ELb0EEEEE9constructIS2_JRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4JsonESt4lessIvESaISt4pairIKSC_SD_EEEEEEvRS3_PT_DpOT0_.exit ], [ %27, %.lr.ph.i.i.i ]
   %28 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 56
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN7xgboost14ArrayInterfaceILi1ELb0EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN7xgboost14ArrayInterfaceILi1ELb0EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i27
@@ -12476,7 +12476,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17

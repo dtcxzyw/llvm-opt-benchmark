@@ -1867,7 +1867,7 @@ land.lhs.true9:                                   ; preds = %land.lhs.true5
   %sub.ptr.lhs.cast12 = ptrtoint ptr %call10 to i64
   %sub.ptr.rhs.cast13 = ptrtoint ptr %call11 to i64
   %sub.ptr.sub14 = sub i64 %sub.ptr.lhs.cast12, %sub.ptr.rhs.cast13
-  %cmp15.not = icmp slt i64 %sub.ptr.sub14, %off
+  %cmp15.not = icmp sgt i64 %off, %sub.ptr.sub14
   br i1 %cmp15.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true9

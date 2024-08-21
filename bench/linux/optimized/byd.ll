@@ -56,7 +56,7 @@ define dso_local range(i32 -19, 1) i32 @byd_detect(ptr noundef %0, i1 noundef ze
   %25 = load i8, ptr %6, align 1
   %26 = icmp eq i8 %25, 100
   %.not4 = select i1 %24, i1 %26, i1 false
-  %.not1 = and i1 %.not4, %1
+  %.not1 = and i1 %1, %.not4
   %27 = select i1 %.not4, i32 0, i32 -19
   br i1 %.not1, label %28, label %31
 

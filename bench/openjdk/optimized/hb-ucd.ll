@@ -58,7 +58,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tI18hb_unicode_func
 
 11:                                               ; preds = %10
   %12 = tail call noundef ptr @hb_unicode_funcs_get_empty()
-  %.not3.i = icmp eq ptr %12, %.1
+  %.not3.i = icmp eq ptr %.1, %12
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tI18hb_unicode_funcs_t34hb_ucd_unicode_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit, label %13
 
 13:                                               ; preds = %11
@@ -354,7 +354,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_fu
   %37 = getelementptr inbounds i8, ptr @_ZL19_hb_ucd_dm2_u32_map, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, -16384
-  %40 = icmp ugt i32 %39, %31
+  %40 = icmp ult i32 %31, %39
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %32
@@ -362,7 +362,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_fu
   br label %46
 
 43:                                               ; preds = %32
-  %.not1.i.i = icmp ult i32 %39, %31
+  %.not1.i.i = icmp ugt i32 %31, %39
   br i1 %.not1.i.i, label %44, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit
 
 44:                                               ; preds = %43
@@ -397,7 +397,7 @@ _ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %43
   %58 = getelementptr inbounds i8, ptr @_ZL19_hb_ucd_dm2_u64_map, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, 9223372036852678656
-  %61 = icmp ugt i64 %60, %52
+  %61 = icmp ult i64 %52, %60
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %53
@@ -405,7 +405,7 @@ _ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %43
   br label %67
 
 64:                                               ; preds = %53
-  %.not1.i.i25 = icmp ult i64 %60, %52
+  %.not1.i.i25 = icmp ugt i64 %52, %60
   br i1 %.not1.i.i25, label %65, label %_ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.exit
 
 65:                                               ; preds = %64

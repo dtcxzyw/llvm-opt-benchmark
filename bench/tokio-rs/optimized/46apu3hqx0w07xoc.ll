@@ -3338,7 +3338,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !16
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -3419,8 +3419,8 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   br label %78
 
 84:                                               ; preds = %78
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload14.i18 = load i16, ptr %86, align 1, !alias.scope !289
   %87 = zext i16 %.0.copyload14.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -5330,7 +5330,7 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readine
   %.0.fr.us = freeze i64 %.0.us
   %12 = lshr i64 %.0.fr.us, 16
   %13 = trunc i64 %12 to i8
-  %.not.us = icmp eq i8 %13, %2
+  %.not.us = icmp eq i8 %2, %13
   br i1 %.not.us, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us, label %.split15.us
 
 _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us: ; preds = %11
@@ -5381,7 +5381,7 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readine
   %.0.fr.us = freeze i64 %.0.us
   %11 = lshr i64 %.0.fr.us, 16
   %12 = trunc i64 %11 to i8
-  %.not.us = icmp eq i8 %12, %2
+  %.not.us = icmp eq i8 %2, %12
   br i1 %.not.us, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us, label %.split15.us
 
 _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us: ; preds = %10
@@ -5419,7 +5419,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime2io12scheduled_io11ScheduledIo15cle
   %3 = load ptr, ptr %0, align 8, !nonnull !16, !align !22, !noundef !16
   %4 = load i64, ptr %3, align 8, !noundef !16
   %5 = xor i64 %4, -1
-  %6 = and i64 %5, %1
+  %6 = and i64 %1, %5
   ret i64 %6
 }
 

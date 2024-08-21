@@ -390,7 +390,7 @@ entry:
   %block_size = getelementptr inbounds i8, ptr %call, i64 4
   %0 = load i32, ptr %block_size, align 4
   %conv = sext i32 %0 to i64
-  %cmp = icmp ugt i64 %conv, %inl
+  %cmp = icmp ult i64 %inl, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

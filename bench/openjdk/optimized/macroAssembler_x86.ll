@@ -13909,9 +13909,9 @@ define hidden void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(pt
 
 14:                                               ; preds = %8
   %.not104 = icmp ne i32 %7, %1
-  %brmerge.not = and i1 %.not104, %6
+  %brmerge.not = and i1 %6, %.not104
   %spec.select.v = select i1 %brmerge.not, i32 %4, i32 %1
-  %spec.select = icmp eq i32 %spec.select.v, %7
+  %spec.select = icmp eq i32 %7, %spec.select.v
   br label %15
 
 15:                                               ; preds = %14, %8
@@ -18636,7 +18636,7 @@ define hidden void @_ZN14MacroAssembler11repne_scanqE8RegisterS0_S0_S0_P5LabelS2
   call void @_ZN9Assembler4addlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 1) #18
   call void @_ZN9Assembler4cmplE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 %4) #18
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(33) %8, i1 noundef zeroext true) #18
-  %.not22 = icmp eq ptr %9, %6
+  %.not22 = icmp eq ptr %6, %9
   %.not = or i1 %18, %.not22
   br i1 %.not, label %28, label %27
 
@@ -22392,7 +22392,7 @@ define hidden void @_ZN14MacroAssembler13generate_fillE9BasicTypeb8RegisterS1_S1
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(33) %17, i1 noundef zeroext true) #18
   %77 = load i8, ptr @UseUnalignedLoadStores, align 1
   %78 = trunc i8 %77 to i1
-  %brmerge = or i1 %78, %2
+  %brmerge = or i1 %2, %78
   %or.cond.not = xor i1 %or.cond288, true
   %brmerge263 = or i1 %brmerge, %or.cond.not
   br i1 %brmerge263, label %129, label %79
@@ -34603,7 +34603,7 @@ define hidden void @_ZN14MacroAssembler12cache_wbsyncEb(ptr noundef nonnull alig
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 13194139533312
   %brmerge = icmp eq i64 %4, 0
-  %or.cond.not = or i1 %brmerge, %1
+  %or.cond.not = or i1 %1, %brmerge
   br i1 %or.cond.not, label %6, label %5
 
 5:                                                ; preds = %2

@@ -1523,7 +1523,7 @@ land.lhs.true776:                                 ; preds = %land.lhs.true773
 land.lhs.true780:                                 ; preds = %land.lhs.true776
   %129 = load i8, ptr %secure781, align 1
   %tobool782 = trunc i8 %129 to i1
-  %brmerge = or i1 %tobool782, %secure
+  %brmerge = or i1 %secure, %tobool782
   br i1 %brmerge, label %if.end823, label %if.then785
 
 if.then785:                                       ; preds = %land.lhs.true780
@@ -2070,7 +2070,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
 if.then3:                                         ; preds = %if.else
   %sub.ptr.lhs.cast = ptrtoint ptr %call1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %domain to i64
-  %sub.ptr.sub.neg = add i64 %sub.ptr.rhs.cast, %len
+  %sub.ptr.sub.neg = add i64 %len, %sub.ptr.rhs.cast
   %sub = sub i64 %sub.ptr.sub.neg, %sub.ptr.lhs.cast
   %cmp4 = icmp ugt i64 %sub, 1
   br i1 %cmp4, label %return, label %if.end7
@@ -2235,7 +2235,7 @@ while.body:                                       ; preds = %if.end, %if.end48
   %1 = load i8, ptr %secure7, align 1
   %tobool8 = trunc i8 %1 to i1
   %tobool8.not = xor i1 %tobool8, true
-  %brmerge = or i1 %tobool8.not, %secure
+  %brmerge = or i1 %secure, %tobool8.not
   br i1 %brmerge, label %if.then10, label %if.end48
 
 if.then10:                                        ; preds = %while.body

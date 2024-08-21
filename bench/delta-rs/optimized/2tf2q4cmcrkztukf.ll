@@ -3459,7 +3459,7 @@ common.ret:                                       ; preds = %723, %86, %37
   %.val.i.i = load ptr, ptr %488, align 8, !noalias !484, !noundef !8
   %489 = getelementptr i8, ptr %1, i64 560
   %.val28.i.i = load i64, ptr %489, align 8, !noalias !484, !noundef !8
-  %490 = icmp ult i64 %483, %.val28.i.i
+  %490 = icmp ugt i64 %.val28.i.i, %483
   br i1 %490, label %491, label %497
 
 491:                                              ; preds = %482
@@ -3496,7 +3496,7 @@ common.ret:                                       ; preds = %723, %86, %37
   %.val30.i.i = load i64, ptr %504, align 8, !noalias !484, !noundef !8
   %505 = load i64, ptr %419, align 8, !alias.scope !590, !noalias !597, !noundef !8
   %506 = sub i64 %505, %502
-  %507 = icmp ult i64 %506, %.val30.i.i
+  %507 = icmp ugt i64 %.val30.i.i, %506
   br i1 %507, label %508, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he0ad04300950d129E.exit40.i.i"
 
 508:                                              ; preds = %497
@@ -3637,7 +3637,7 @@ common.ret:                                       ; preds = %723, %86, %37
   %566 = load i64, ptr %565, align 8, !alias.scope !624, !noalias !629, !noundef !8
   %567 = load i64, ptr %561, align 8, !alias.scope !631, !noalias !629, !noundef !8
   %568 = sub i64 %567, %566
-  %569 = icmp ult i64 %568, %.val32.i.i
+  %569 = icmp ugt i64 %.val32.i.i, %568
   br i1 %569, label %570, label %582
 
 570:                                              ; preds = %563
@@ -4826,7 +4826,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.15961
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 

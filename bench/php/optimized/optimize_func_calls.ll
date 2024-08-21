@@ -610,7 +610,7 @@ zend_try_inline_call.exit:                        ; preds = %233, %.preheader.sp
   %312 = trunc i8 %311 to i1
   %313 = getelementptr inbounds i8, ptr %308, i64 32
   %314 = load i32, ptr %313, align 8
-  %.not6.i = icmp ult i32 %314, %306
+  %.not6.i = icmp ugt i32 %306, %314
   %or.cond543 = select i1 %312, i1 %.not6.i, i1 false
   br i1 %or.cond543, label %has_known_send_mode.exit, label %has_known_send_mode.exit.thread
 
@@ -732,7 +732,7 @@ has_known_send_mode.exit.thread:                  ; preds = %309, %has_known_sen
   %369 = trunc i8 %368 to i1
   %370 = getelementptr inbounds i8, ptr %365, i64 32
   %371 = load i32, ptr %370, align 8
-  %.not6.i470 = icmp ult i32 %371, %364
+  %.not6.i470 = icmp ugt i32 %364, %371
   %or.cond544 = select i1 %369, i1 %.not6.i470, i1 false
   br i1 %or.cond544, label %has_known_send_mode.exit471, label %has_known_send_mode.exit471.thread
 
@@ -802,7 +802,7 @@ has_known_send_mode.exit471.thread:               ; preds = %366, %has_known_sen
 406:                                              ; preds = %402
   %407 = getelementptr inbounds i8, ptr %401, i64 32
   %408 = load i32, ptr %407, align 8
-  %.not6.i474 = icmp ult i32 %408, %400
+  %.not6.i474 = icmp ugt i32 %400, %408
   br i1 %.not6.i474, label %has_known_send_mode.exit475, label %has_known_send_mode.exit475.thread
 
 has_known_send_mode.exit475:                      ; preds = %406
@@ -893,7 +893,7 @@ has_known_send_mode.exit475.thread:               ; preds = %402, %406, %has_kno
 458:                                              ; preds = %454
   %459 = getelementptr inbounds i8, ptr %453, i64 32
   %460 = load i32, ptr %459, align 8
-  %.not6.i478 = icmp ult i32 %460, %452
+  %.not6.i478 = icmp ugt i32 %452, %460
   br i1 %.not6.i478, label %has_known_send_mode.exit479, label %has_known_send_mode.exit479.thread
 
 has_known_send_mode.exit479:                      ; preds = %458
@@ -966,7 +966,7 @@ has_known_send_mode.exit479.thread:               ; preds = %454, %458, %has_kno
   %498 = trunc i8 %497 to i1
   %499 = getelementptr inbounds i8, ptr %494, i64 32
   %500 = load i32, ptr %499, align 8
-  %.not6.i482 = icmp ult i32 %500, %493
+  %.not6.i482 = icmp ugt i32 %493, %500
   %or.cond545 = select i1 %498, i1 %.not6.i482, i1 false
   br i1 %or.cond545, label %has_known_send_mode.exit483, label %has_known_send_mode.exit483.thread
 

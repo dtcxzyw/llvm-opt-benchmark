@@ -608,7 +608,7 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   %266 = lshr i32 %.153.i.i, 1
   %267 = add i32 %.153.i.i, 8
   %268 = add i32 %267, %266
-  %269 = icmp ult i32 %268, %265
+  %269 = icmp ugt i32 %265, %268
   br i1 %269, label %.preheader.i.i, label %.thread39.i.i, !llvm.loop !15
 
 .thread39.i.i:                                    ; preds = %.preheader.i.i

@@ -5830,7 +5830,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %conv = zext nneg i32 %0 to i64
-  %cmp5 = icmp ult i64 %conv, %s.coerce1
+  %cmp5 = icmp ugt i64 %s.coerce1, %conv
   br i1 %cmp5, label %for.body.i, label %if.end
 
 for.body.i:                                       ; preds = %land.lhs.true, %for.inc.i

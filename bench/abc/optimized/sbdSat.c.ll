@@ -557,7 +557,7 @@ Vec_IntPush.exit224.us:                           ; preds = %Vec_IntGrow.exit.i2
   %indvars.iv415 = phi i64 [ 0, %.lr.ph333 ], [ %indvars.iv.next416, %._crit_edge ]
   %186 = icmp ne i64 %indvars.iv415, 0
   %187 = zext i1 %186 to i32
-  %188 = icmp sge i32 %187, %2
+  %188 = icmp sle i32 %2, %187
   %brmerge = or i1 %188, %37
   br i1 %brmerge, label %._crit_edge, label %.preheader281.us.preheader
 
@@ -997,7 +997,7 @@ Vec_IntGrow.exit.i195.us.us:                      ; preds = %362, %360
   %indvars.iv446 = phi i64 [ 0, %.lr.ph347 ], [ %indvars.iv.next447, %._crit_edge345 ]
   %374 = icmp ne i64 %indvars.iv446, 0
   %375 = zext i1 %374 to i32
-  %376 = icmp sge i32 %375, %2
+  %376 = icmp sle i32 %2, %375
   %brmerge480 = or i1 %376, %37
   br i1 %brmerge480, label %._crit_edge345, label %.preheader274.us.preheader
 
@@ -3260,7 +3260,7 @@ define void @Sbd_SolverSynth(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %4 ]
   %.06689 = phi i32 [ %34, %33 ], [ %0, %4 ]
   %9 = trunc i64 %indvars.iv to i32
-  %10 = add i32 %9, %0
+  %10 = add i32 %0, %9
   br label %11
 
 11:                                               ; preds = %.preheader77, %11
@@ -3355,7 +3355,7 @@ define void @Sbd_SolverSynth(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %indvars.iv141 = phi i64 [ %48, %.preheader.preheader ], [ %indvars.iv.next142, %.loopexit ]
   %indvars.iv132 = phi i32 [ %47, %.preheader.preheader ], [ %indvars.iv.next133, %.loopexit ]
   %49 = trunc nuw i64 %indvars.iv141 to i32
-  %50 = add nsw i32 %49, %0
+  %50 = add nsw i32 %0, %49
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %.lr.ph97.preheader, label %.loopexit
 
@@ -3416,7 +3416,7 @@ define void @Sbd_SolverSynth(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr
   store i32 %.083, ptr %67, align 4
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %68 = trunc nuw i64 %indvars.iv.next142 to i32
-  %69 = icmp slt i32 %68, %1
+  %69 = icmp sgt i32 %1, %68
   %indvars.iv.next133 = add i32 %indvars.iv132, 1
   br i1 %69, label %.preheader, label %._crit_edge106, !llvm.loop !77
 
@@ -3440,7 +3440,7 @@ define void @Sbd_SolverSynth(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %78 = icmp eq i64 %indvars.iv144, %72
   %79 = select i1 %78, ptr @.str.19, ptr @.str.20
   %80 = trunc i64 %indvars.iv144 to i32
-  %81 = add i32 %80, %0
+  %81 = add i32 %0, %80
   %82 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %75, i32 noundef %77, ptr noundef nonnull %79, i32 noundef %81)
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
@@ -3656,7 +3656,7 @@ define ptr @Sbd_SolverTruthWord(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
 .lr.ph.preheader.i.us98.us:                       ; preds = %.lr.ph.preheader.i.us98.us.preheader, %._crit_edge75.split.us.us.split.us.us
   %indvars.iv129 = phi i64 [ 0, %.lr.ph.preheader.i.us98.us.preheader ], [ %indvars.iv.next130, %._crit_edge75.split.us.us.split.us.us ]
   %34 = trunc i64 %indvars.iv129 to i32
-  %35 = add i32 %34, %0
+  %35 = add i32 %0, %34
   %36 = shl i32 %35, %15
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i64, ptr %5, i64 %37
@@ -3756,7 +3756,7 @@ Abc_TtAndSharp.exit.us.us.us.us.us:               ; preds = %.lr.ph22.i.us.us.us
 .lr.ph.preheader.i.us101:                         ; preds = %.lr.ph.preheader.i.us101.preheader, %._crit_edge75.split.split.us.us
   %indvars.iv110 = phi i64 [ 0, %.lr.ph.preheader.i.us101.preheader ], [ %indvars.iv.next111, %._crit_edge75.split.split.us.us ]
   %70 = trunc i64 %indvars.iv110 to i32
-  %71 = add i32 %70, %0
+  %71 = add i32 %0, %70
   %72 = shl i32 %71, %15
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i64, ptr %5, i64 %73
@@ -3854,7 +3854,7 @@ Abc_Clock.exit:                                   ; preds = %6, %15
   %22 = select i1 %19, i32 1, i32 %.fr.i
   %notmask = shl nsw i32 -1, %2
   %23 = xor i32 %notmask, -1
-  %24 = mul i32 %23, %1
+  %24 = mul i32 %1, %23
   %25 = load i64, ptr %4, align 8
   %26 = trunc i64 %25 to i32
   %27 = and i32 %26, 1

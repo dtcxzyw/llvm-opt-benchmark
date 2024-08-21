@@ -512,7 +512,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hceb35ffb8cab8690E.exit: ; preds = %.
 
 194:                                              ; preds = %188, %.thread19.i
   %.sroa.4.0.i45.ph = phi i64 [ %.pre-phi.i, %.thread19.i ], [ %189, %188 ]
-  %195 = icmp ugt i64 %162, %.sroa.4.0.i45.ph
+  %195 = icmp ult i64 %.sroa.4.0.i45.ph, %162
   br i1 %195, label %198, label %196
 
 196:                                              ; preds = %194
@@ -543,7 +543,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hceb35ffb8cab8690E.exit: ; preds = %.
   %201 = getelementptr inbounds i8, ptr %199, i64 8
   %202 = load i64, ptr %201, align 8, !noundef !14
   %203 = add nuw i64 %.sroa.4.0.i45.ph, 1
-  %204 = icmp ugt i64 %162, %203
+  %204 = icmp ult i64 %203, %162
   br i1 %204, label %206, label %205
 
 205:                                              ; preds = %198
@@ -571,7 +571,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hceb35ffb8cab8690E.exit: ; preds = %.
   %218 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %217, i64 %200
   %219 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %0, i64 %211
   %220 = sub i64 %216, %200
-  %.not.i56 = icmp ult i64 %220, %200
+  %.not.i56 = icmp ugt i64 %200, %220
   %221 = icmp sgt i64 %200, 0
   br i1 %.not.i56, label %222, label %226
 
@@ -640,8 +640,8 @@ _ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit.i65: ; preds = %24
   %.026.i = select i1 %.0.in.i.i.i, ptr %247, ptr %249
   %250 = getelementptr inbounds i8, ptr %.02723.i, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %250, ptr noundef nonnull align 8 dereferenceable(32) %.026.i, i64 32, i1 false)
-  %251 = icmp ugt ptr %247, %217
-  %252 = icmp ugt ptr %249, %14
+  %251 = icmp ult ptr %217, %247
+  %252 = icmp ult ptr %14, %249
   %or.cond.i66 = select i1 %251, i1 %252, i1 false
   br i1 %or.cond.i66, label %.lr.ph24.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h5c20f672fed34d35E.exit"
 

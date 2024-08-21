@@ -6462,7 +6462,7 @@ define internal range(i32 256, 32769) i32 @cbObjectCounterFromRef(i32 %0, ptr no
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %8, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = icmp eq i64 %17, %2
+  %18 = icmp eq i64 %2, %17
   br i1 %18, label %40, label %19
 
 19:                                               ; preds = %15

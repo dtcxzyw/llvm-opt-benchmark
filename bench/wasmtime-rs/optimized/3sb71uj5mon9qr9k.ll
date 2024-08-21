@@ -5951,7 +5951,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within1
   %10 = extractvalue { i64, i64 } %8, 1
   %11 = sub i64 %10, %9
   %12 = sub i64 %1, %11
-  %.not = icmp ult i64 %12, %4
+  %.not = icmp ugt i64 %4, %12
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %6

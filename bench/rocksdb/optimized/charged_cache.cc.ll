@@ -2335,7 +2335,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.then
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont9
@@ -2413,7 +2413,7 @@ if.else:                                          ; preds = %invoke.cont
           to label %invoke.cont16 unwind label %lpad8
 
 invoke.cont16:                                    ; preds = %if.else
-  %cmp.not.i12 = icmp eq ptr %ref.tmp11, %agg.result
+  %cmp.not.i12 = icmp eq ptr %agg.result, %ref.tmp11
   br i1 %cmp.not.i12, label %_ZN7rocksdb6StatusaSEOS0_.exit30, label %if.then.i13
 
 if.then.i13:                                      ; preds = %invoke.cont16
@@ -2514,7 +2514,7 @@ invoke.cont3:                                     ; preds = %entry
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont5

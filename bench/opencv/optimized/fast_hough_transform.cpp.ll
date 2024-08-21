@@ -1171,7 +1171,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIhEbRSt6vectorIN2
   %51 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv212
   %52 = load i8, ptr %51, align 1
   %53 = uitofp i8 %52 to float
-  %54 = fcmp ult float %53, %3
+  %54 = fcmp ugt float %3, %53
   br i1 %54, label %._ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit_crit_edge, label %55
 
 ._ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit_crit_edge: ; preds = %50
@@ -1541,7 +1541,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Po
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit: ; preds = %176, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbRKS6_SF_EEEEvT_T0_.exit.i11.i, %.preheader.i18.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_.exit.i
   %177 = trunc i64 %105 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %177, i32 %4)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %4, i32 %177)
   %178 = sext i32 %.sroa.speculated to i64
   %179 = icmp ult i64 %105, %178
   br i1 %179, label %180, label %209
@@ -1820,7 +1820,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIaEbRSt6vectorIN2
   %51 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv212
   %52 = load i8, ptr %51, align 1
   %53 = sitofp i8 %52 to float
-  %54 = fcmp ult float %53, %3
+  %54 = fcmp ugt float %3, %53
   br i1 %54, label %._ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit_crit_edge, label %55
 
 ._ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit_crit_edge: ; preds = %50
@@ -2190,7 +2190,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Po
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit: ; preds = %176, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbRKS6_SF_EEEEvT_T0_.exit.i11.i, %.preheader.i18.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_.exit.i
   %177 = trunc i64 %105 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %177, i32 %4)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %4, i32 %177)
   %178 = sext i32 %.sroa.speculated to i64
   %179 = icmp ult i64 %105, %178
   br i1 %179, label %180, label %209
@@ -2469,7 +2469,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrItEbRSt6vectorIN2
   %51 = getelementptr inbounds i16, ptr %32, i64 %indvars.iv212
   %52 = load i16, ptr %51, align 2
   %53 = uitofp i16 %52 to float
-  %54 = fcmp ult float %53, %3
+  %54 = fcmp ugt float %3, %53
   br i1 %54, label %._ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit_crit_edge, label %55
 
 ._ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit_crit_edge: ; preds = %50
@@ -2839,7 +2839,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Po
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit: ; preds = %176, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbRKS6_SF_EEEEvT_T0_.exit.i11.i, %.preheader.i18.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_.exit.i
   %177 = trunc i64 %105 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %177, i32 %4)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %4, i32 %177)
   %178 = sext i32 %.sroa.speculated to i64
   %179 = icmp ult i64 %105, %178
   br i1 %179, label %180, label %209
@@ -3118,7 +3118,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIsEbRSt6vectorIN2
   %51 = getelementptr inbounds i16, ptr %32, i64 %indvars.iv212
   %52 = load i16, ptr %51, align 2
   %53 = sitofp i16 %52 to float
-  %54 = fcmp ult float %53, %3
+  %54 = fcmp ugt float %3, %53
   br i1 %54, label %._ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit_crit_edge, label %55
 
 ._ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit_crit_edge: ; preds = %50
@@ -3488,7 +3488,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Po
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit: ; preds = %176, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbRKS6_SF_EEEEvT_T0_.exit.i11.i, %.preheader.i18.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_.exit.i
   %177 = trunc i64 %105 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %177, i32 %4)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %4, i32 %177)
   %178 = sext i32 %.sroa.speculated to i64
   %179 = icmp ult i64 %105, %178
   br i1 %179, label %180, label %209
@@ -3767,7 +3767,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIiEbRSt6vectorIN2
   %51 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv202
   %52 = load i32, ptr %51, align 4
   %53 = sitofp i32 %52 to float
-  %54 = fcmp ult float %53, %3
+  %54 = fcmp ugt float %3, %53
   br i1 %54, label %._ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit_crit_edge, label %55
 
 ._ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit_crit_edge: ; preds = %50
@@ -4137,7 +4137,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Po
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit: ; preds = %176, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbRKS6_SF_EEEEvT_T0_.exit.i11.i, %.preheader.i18.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_.exit.i
   %177 = trunc i64 %105 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %177, i32 %4)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %4, i32 %177)
   %178 = sext i32 %.sroa.speculated to i64
   %179 = icmp ult i64 %105, %178
   br i1 %179, label %180, label %202
@@ -4756,7 +4756,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Po
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit: ; preds = %173, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbRKS6_SF_EEEEvT_T0_.exit.i11.i, %.preheader.i18.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_.exit.i
   %174 = trunc i64 %102 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %174, i32 %4)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %4, i32 %174)
   %175 = sext i32 %.sroa.speculated to i64
   %176 = icmp ult i64 %102, %175
   br i1 %176, label %177, label %199
@@ -5373,7 +5373,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Po
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit: ; preds = %175, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIPFbRKS6_SF_EEEEvT_T0_.exit.i11.i, %.preheader.i18.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_.exit.i
   %176 = trunc i64 %104 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %176, i32 %4)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %4, i32 %176)
   %177 = sext i32 %.sroa.speculated to i64
   %178 = icmp ult i64 %104, %177
   br i1 %178, label %179, label %201
@@ -5761,7 +5761,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %phi.call, i64 8
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 4
   %.sroa.01.0.copyload = load ptr, ptr %2, align 8
-  %24 = icmp sgt i64 %13, %.0
+  %24 = icmp slt i64 %.0, %13
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
@@ -6028,7 +6028,7 @@ _ZSt10_ConstructIN2cv3VecIiLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %2
 _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIiLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN2cv3VecIiLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv3VecIiLi4EEESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv3VecIiLi4EEESaIS2_EE11_M_allocateEm.exit ], [ %30, %_ZSt10_ConstructIN2cv3VecIiLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
-  %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIiLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38, label %.preheader.i.i.i.i.i29
 
 .preheader.i.i.i.i.i29:                           ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIiLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN2cv3VecIiLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i35
@@ -6276,7 +6276,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %phi.call, i64 8
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 4
   %.sroa.01.0.copyload = load ptr, ptr %2, align 8
-  %24 = icmp sgt i64 %13, %.0
+  %24 = icmp slt i64 %.0, %13
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
@@ -6682,7 +6682,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %phi.call, i64 8
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 4
   %.sroa.01.0.copyload = load ptr, ptr %2, align 8
-  %24 = icmp sgt i64 %13, %.0
+  %24 = icmp slt i64 %.0, %13
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
@@ -7088,7 +7088,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %phi.call, i64 8
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 4
   %.sroa.01.0.copyload = load ptr, ptr %2, align 8
-  %24 = icmp sgt i64 %13, %.0
+  %24 = icmp slt i64 %.0, %13
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
@@ -7494,7 +7494,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %phi.call, i64 8
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 4
   %.sroa.01.0.copyload = load ptr, ptr %2, align 8
-  %24 = icmp sgt i64 %13, %.0
+  %24 = icmp slt i64 %.0, %13
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
@@ -7900,7 +7900,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %phi.call, i64 8
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 4
   %.sroa.01.0.copyload = load ptr, ptr %2, align 8
-  %24 = icmp sgt i64 %13, %.0
+  %24 = icmp slt i64 %.0, %13
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
@@ -8308,7 +8308,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %phi.call, i64 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %24 = icmp sgt i64 %13, %.0
+  %24 = icmp slt i64 %.0, %13
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i

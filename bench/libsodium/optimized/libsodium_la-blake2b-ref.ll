@@ -699,7 +699,7 @@ while.body.lr.ph.i:                               ; preds = %if.end36
   %add.ptr10.i = getelementptr inbounds i8, ptr %S, i64 224
   %.pre.i = load i64, ptr %buflen.i, align 32
   %sub.i19 = sub i64 256, %.pre.i
-  %cmp1.i20 = icmp ult i64 %sub.i19, %inlen
+  %cmp1.i20 = icmp ugt i64 %inlen, %sub.i19
   br i1 %cmp1.i20, label %if.end.i15, label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %if.end.i15, %while.body.lr.ph.i
@@ -879,7 +879,7 @@ while.body.lr.ph.i:                               ; preds = %if.end36
   %add.ptr10.i = getelementptr inbounds i8, ptr %S, i64 224
   %.pre.i = load i64, ptr %buflen.i, align 32
   %sub.i21 = sub i64 256, %.pre.i
-  %cmp1.i22 = icmp ult i64 %sub.i21, %inlen
+  %cmp1.i22 = icmp ugt i64 %inlen, %sub.i21
   br i1 %cmp1.i22, label %if.end.i17, label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %if.end.i17, %while.body.lr.ph.i

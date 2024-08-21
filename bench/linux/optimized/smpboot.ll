@@ -518,7 +518,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   br label %72
 
 72:                                               ; preds = %71, %54, %44
-  %73 = icmp eq i32 %42, %0
+  %73 = icmp eq i32 %0, %42
   br i1 %73, label %.critedge, label %74
 
 74:                                               ; preds = %72
@@ -828,7 +828,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %264 = and i64 %260, 63
   %265 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %264
   %266 = load i64, ptr %265, align 8
-  %267 = icmp eq i32 %261, %0
+  %267 = icmp eq i32 %0, %261
   br i1 %267, label %275, label %268
 
 268:                                              ; preds = %263
@@ -923,7 +923,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %328 = and i64 %324, 63
   %329 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %328
   %330 = load i64, ptr %329, align 8
-  %331 = icmp eq i32 %325, %0
+  %331 = icmp eq i32 %0, %325
   br i1 %331, label %.critedge28, label %332
 
 332:                                              ; preds = %327

@@ -1241,13 +1241,13 @@ Tab_TabRehash.exit:                               ; preds = %Tab_TabRehash.exit.
   %101 = icmp eq i32 %100, %75
   %102 = lshr i64 %88, 62
   %103 = trunc nuw nsw i64 %102 to i32
-  %104 = icmp eq i32 %103, %2
+  %104 = icmp eq i32 %2, %103
   %or.cond = select i1 %101, i1 %104, i1 false
   br i1 %or.cond, label %105, label %Tab_TabEntry.exit45
 
 105:                                              ; preds = %97
   %106 = getelementptr inbounds i8, ptr %.04049, i64 8
-  %107 = add i32 %89, %3
+  %107 = add i32 %3, %89
   %108 = and i32 %107, 131071
   %109 = zext nneg i32 %108 to i64
   %110 = and i64 %88, -131072

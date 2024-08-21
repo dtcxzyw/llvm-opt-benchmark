@@ -184,7 +184,7 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers17RegexBasedMatcher1
           to label %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit.i unwind label %33
 
 _ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit.i: ; preds = %16
-  %27 = and i1 %26, %3
+  %27 = and i1 %3, %26
   %28 = icmp eq ptr %22, null
   br i1 %28, label %_ZNK4i18n12phonenumbers17RegexBasedMatcher5MatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_b.exit, label %29
 
@@ -244,7 +244,7 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers17RegexBasedMatcher5
           to label %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit unwind label %29
 
 _ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit: ; preds = %12
-  %23 = and i1 %22, %3
+  %23 = and i1 %3, %22
   %24 = icmp eq ptr %18, null
   br i1 %24, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit, label %25
 

@@ -364,7 +364,7 @@ define range(i32 -1, 1) i32 @H5RS_acat(ptr nocapture noundef %0, ptr nocapture n
   %17 = load i64, ptr %16, align 8
   %.not18 = icmp ult i64 %15, %17
   %18 = sub i64 %17, %14
-  %.not.i = icmp ugt i64 %18, %5
+  %.not.i = icmp ult i64 %5, %18
   %or.cond = or i1 %.not18, %.not.i
   br i1 %or.cond, label %.H5RS__resize_for_append.exit.thread_crit_edge, label %.lr.ph.i
 
@@ -377,7 +377,7 @@ define range(i32 -1, 1) i32 @H5RS_acat(ptr nocapture noundef %0, ptr nocapture n
   %19 = phi i64 [ %20, %.lr.ph.i ], [ %17, %12 ]
   %20 = shl i64 %19, 1
   %21 = sub i64 %20, %14
-  %.not15.i = icmp ugt i64 %21, %5
+  %.not15.i = icmp ult i64 %5, %21
   br i1 %.not15.i, label %22, label %.lr.ph.i
 
 22:                                               ; preds = %.lr.ph.i
@@ -456,7 +456,7 @@ define range(i32 -1, 1) i32 @H5RS_ancat(ptr nocapture noundef %0, ptr nocapture 
   %20 = load i64, ptr %19, align 8
   %.not25 = icmp ult i64 %18, %20
   %21 = sub i64 %20, %17
-  %.not.i = icmp ugt i64 %21, %8
+  %.not.i = icmp ult i64 %8, %21
   %or.cond = or i1 %.not25, %.not.i
   br i1 %or.cond, label %.H5RS__resize_for_append.exit.thread_crit_edge, label %.lr.ph.i
 
@@ -469,7 +469,7 @@ define range(i32 -1, 1) i32 @H5RS_ancat(ptr nocapture noundef %0, ptr nocapture 
   %22 = phi i64 [ %23, %.lr.ph.i ], [ %20, %15 ]
   %23 = shl i64 %22, 1
   %24 = sub i64 %23, %17
-  %.not15.i = icmp ugt i64 %24, %8
+  %.not15.i = icmp ult i64 %8, %24
   br i1 %.not15.i, label %25, label %.lr.ph.i
 
 25:                                               ; preds = %.lr.ph.i

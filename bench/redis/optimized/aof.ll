@@ -4044,7 +4044,7 @@ entry:
 lor.rhs:                                          ; preds = %entry
   %cmp1 = icmp sgt i32 %dictid, -1
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %cmp2 = icmp sgt i32 %0, %dictid
+  %cmp2 = icmp slt i32 %dictid, %0
   %1 = select i1 %cmp1, i1 %cmp2, i1 false
   br i1 %1, label %cond.end, label %cond.false
 
@@ -4114,7 +4114,7 @@ if.then8:                                         ; preds = %sdslen.exit.i, %con
 if.end10:                                         ; preds = %if.then, %if.then8, %cond.end
   %buf.0 = phi ptr [ %call9, %if.then8 ], [ %call, %cond.end ], [ %call, %if.then ]
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3996), align 4
-  %cmp13.not = icmp eq i32 %10, %dictid
+  %cmp13.not = icmp eq i32 %dictid, %10
   %or.cond = select i1 %cmp, i1 true, i1 %cmp13.not
   br i1 %or.cond, label %if.end21, label %if.then15
 

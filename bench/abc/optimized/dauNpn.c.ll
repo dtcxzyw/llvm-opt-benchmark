@@ -620,7 +620,7 @@ define i32 @Dau_AddFunction(i64 noundef %0, i32 noundef %1, ptr nocapture nounde
   %14 = and i64 %13, %0
   %.not = icmp ne i64 %14, 0
   %15 = sext i1 %.not to i64
-  %16 = xor i64 %15, %0
+  %16 = xor i64 %0, %15
   %17 = and i64 %11, 4294967295
   %18 = and i64 %17, %16
   %19 = getelementptr inbounds i32, ptr %2, i64 %18

@@ -1413,7 +1413,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 80
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i, %index
+  %cmp.not = icmp ult i32 %index, %conv.i
   %conv.i5 = zext i32 %index to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5
   %retval.0 = select i1 %cmp.not, ptr %add.ptr.i.i, ptr @_ZN3irr2ioL18emptyFileListEntryE
@@ -1432,7 +1432,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 80
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i, %index
+  %cmp.not = icmp ult i32 %index, %conv.i
   %conv.i5 = zext i32 %index to i64
   %FullName = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5, i32 1
   %retval.0 = select i1 %cmp.not, ptr %FullName, ptr @_ZN3irr2ioL18emptyFileListEntryE
@@ -2300,7 +2300,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 80
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ugt i32 %conv.i, %index
+  %cmp = icmp ult i32 %index, %conv.i
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
@@ -2326,7 +2326,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 80
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ugt i32 %conv.i, %index
+  %cmp = icmp ult i32 %index, %conv.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2353,7 +2353,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 80
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ugt i32 %conv.i, %index
+  %cmp = icmp ult i32 %index, %conv.i
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
@@ -2379,7 +2379,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 80
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ugt i32 %conv.i, %index
+  %cmp = icmp ult i32 %index, %conv.i
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry

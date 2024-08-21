@@ -580,7 +580,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %handshake_hash = getelementptr inbounds i8, ptr %0, i64 176
   %call = tail call i32 @EVP_MD_CTX_type(ptr noundef nonnull %handshake_hash) #8
-  %cmp2 = icmp eq i32 %call, %md_nid
+  %cmp2 = icmp eq i32 %md_nid, %call
   br i1 %cmp2, label %if.then3, label %if.else6
 
 if.then3:                                         ; preds = %if.else

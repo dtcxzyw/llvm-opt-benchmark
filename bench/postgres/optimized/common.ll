@@ -966,7 +966,7 @@ openQueryOutputFile.exit:                         ; preds = %149
   %162 = icmp ne ptr %.063, null
   %163 = and i1 %162, %161
   %164 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
-  %165 = icmp eq ptr %164, %.063
+  %165 = icmp eq ptr %.063, %164
   br i1 %165, label %166, label %HandleCopyResult.exit
 
 166:                                              ; preds = %159

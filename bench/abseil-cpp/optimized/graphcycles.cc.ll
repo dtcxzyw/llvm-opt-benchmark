@@ -587,7 +587,7 @@ entry:
   %idxprom.i5.i = zext i32 %i.04.i to i64
   %arrayidx.i6.i = getelementptr inbounds i32, ptr %this.val7, i64 %idxprom.i5.i
   %1 = load i32, ptr %arrayidx.i6.i, align 4
-  %cmp7.i = icmp eq i32 %1, %v
+  %cmp7.i = icmp eq i32 %v, %1
   br i1 %cmp7.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %entry, %if.end12.i
@@ -614,7 +614,7 @@ if.end12.i:                                       ; preds = %land.lhs.true.i, %i
   %idxprom.i.i = zext i32 %i.0.i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %this.val7, i64 %idxprom.i.i
   %3 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.i = icmp eq i32 %3, %v
+  %cmp.i = icmp eq i32 %v, %3
   br i1 %cmp.i, label %return, label %if.else.i, !llvm.loop !11
 
 _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit: ; preds = %if.else.i
@@ -744,7 +744,7 @@ invoke.cont.i:                                    ; preds = %_ZN4absl24synchroni
   store i32 0, ptr %occupied_10, align 8
   %mul.i = shl i32 %copy.val.i, 1
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 44
-  %cmp.i20 = icmp ult i32 %16, %mul.i
+  %cmp.i20 = icmp ugt i32 %mul.i, %16
   br i1 %cmp.i20, label %while.body.i.i, label %invoke.cont3.i
 
 while.body.i.i:                                   ; preds = %invoke.cont.i, %while.body.i.i
@@ -1251,7 +1251,7 @@ for.body:                                         ; preds = %while.body.i
   %idxprom.i5.i.i = zext i32 %i.04.i.i to i64
   %arrayidx.i6.i.i = getelementptr inbounds i32, ptr %in.val, i64 %idxprom.i5.i.i
   %23 = load i32, ptr %arrayidx.i6.i.i, align 4
-  %cmp7.i.i = icmp eq i32 %23, %.lcssa116
+  %cmp7.i.i = icmp eq i32 %.lcssa116, %23
   br i1 %cmp7.i.i, label %if.then.i17, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body, %if.end12.i.i
@@ -1278,7 +1278,7 @@ if.end12.i.i:                                     ; preds = %land.lhs.true.i.i, 
   %idxprom.i.i.i = zext i32 %i.0.i.i to i64
   %arrayidx.i.i.i16 = getelementptr inbounds i32, ptr %in.val, i64 %idxprom.i.i.i
   %25 = load i32, ptr %arrayidx.i.i.i16, align 4
-  %cmp.i.i = icmp eq i32 %25, %.lcssa116
+  %cmp.i.i = icmp eq i32 %.lcssa116, %25
   br i1 %cmp.i.i, label %if.then.i17, label %if.else.i.i, !llvm.loop !11
 
 _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i: ; preds = %if.else.i.i
@@ -1336,7 +1336,7 @@ for.body13:                                       ; preds = %while.body.i26
   %idxprom.i5.i.i39 = zext i32 %i.04.i.i38 to i64
   %arrayidx.i6.i.i40 = getelementptr inbounds i32, ptr %out17.val, i64 %idxprom.i5.i.i39
   %33 = load i32, ptr %arrayidx.i6.i.i40, align 4
-  %cmp7.i.i41 = icmp eq i32 %33, %.lcssa116
+  %cmp7.i.i41 = icmp eq i32 %.lcssa116, %33
   br i1 %cmp7.i.i41, label %if.then.i58, label %if.else.i.i42
 
 if.else.i.i42:                                    ; preds = %for.body13, %if.end12.i.i50
@@ -1363,7 +1363,7 @@ if.end12.i.i50:                                   ; preds = %land.lhs.true.i.i46
   %idxprom.i.i.i55 = zext i32 %i.0.i.i54 to i64
   %arrayidx.i.i.i56 = getelementptr inbounds i32, ptr %out17.val, i64 %idxprom.i.i.i55
   %35 = load i32, ptr %arrayidx.i.i.i56, align 4
-  %cmp.i.i57 = icmp eq i32 %35, %.lcssa116
+  %cmp.i.i57 = icmp eq i32 %.lcssa116, %35
   br i1 %cmp.i.i57, label %if.then.i58, label %if.else.i.i42, !llvm.loop !11
 
 _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i62: ; preds = %if.else.i.i42
@@ -2394,7 +2394,7 @@ for.body.i106:                                    ; preds = %while.body.i.i101
 
 land.lhs.true.i:                                  ; preds = %for.body.i106
   %77 = load i32, ptr %75, align 8
-  %cmp.i108 = icmp sgt i32 %77, %53
+  %cmp.i108 = icmp slt i32 %53, %77
   br i1 %cmp.i108, label %if.then14.i, label %for.cond.i93.backedge
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
@@ -2680,7 +2680,7 @@ _ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_G
   %add.i = add i32 %deltab_.val.i, %deltaf_.val.i
   %capacity_.i.i = getelementptr inbounds i8, ptr %0, i64 33012
   %123 = load i32, ptr %capacity_.i.i, align 4
-  %cmp.i.i123 = icmp ult i32 %123, %add.i
+  %cmp.i.i123 = icmp ugt i32 %add.i, %123
   br i1 %cmp.i.i123, label %while.body.i.i.i, label %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i
 
 _ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88._ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit_crit_edge.i: ; preds = %_ZN4absl24synchronization_internalL10MoveToListEPNS0_11GraphCycles3RepEPNS0_12_GLOBAL__N_13VecIiEES7_.exit88.i
@@ -2770,7 +2770,7 @@ while.end.i.i94.i:                                ; preds = %while.body.i.i95.i,
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %__first1.addr.0.lcssa.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %__first1.addr.0.lcssa.i.i.i, %add.ptr.i.i
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i, %__first1.addr.0.lcssa.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.end.i.i94.i
@@ -2778,7 +2778,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.end.i.i94.i
   br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i.i.i
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i.i.i:           ; preds = %if.then.i.i.i.i.i.i.i.i, %while.end.i.i94.i
-  %tobool.not.i.i.i.i.i17.i.i.i = icmp eq ptr %__first2.addr.0.lcssa.i.i.i, %add.ptr.i93.i
+  %tobool.not.i.i.i.i.i17.i.i.i = icmp eq ptr %add.ptr.i93.i, %__first2.addr.0.lcssa.i.i.i
   br i1 %tobool.not.i.i.i.i.i17.i.i.i, label %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i, label %if.then.i.i.i.i.i18.i.i.i
 
 if.then.i.i.i.i.i18.i.i.i:                        ; preds = %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i.i.i
@@ -3494,7 +3494,7 @@ if.then:                                          ; preds = %while.body
   %0 = load i32, ptr %add.ptr9.i.i.i, align 4
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i7173.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp24.i.i.i.i = icmp ugt i64 %div.i7173.i.i.i, %div13.i.i.i
+  %cmp24.i.i.i.i = icmp ult i64 %div13.i.i.i, %div.i7173.i.i.i
   br i1 %cmp24.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i
@@ -3592,7 +3592,7 @@ if.end8.split.i.i.i:                              ; preds = %_ZSt13__adjust_heap
   %dec.i.i.i = add nsw i64 %__parent.075.i.i.i, -1
   %add.ptr11.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %dec.i.i.i
   %12 = load i32, ptr %add.ptr11.i.i.i, align 4
-  %cmp24.i16.not.i.i.i = icmp slt i64 %div.i7173.i.i.i, %__parent.075.i.i.i
+  %cmp24.i16.not.i.i.i = icmp sgt i64 %__parent.075.i.i.i, %div.i7173.i.i.i
   br i1 %cmp24.i16.not.i.i.i, label %while.end.i17.i.i.i, label %while.body.i51.i.i.i
 
 while.body.i51.i.i.i:                             ; preds = %if.end8.split.i.i.i, %while.body.i51.i.i.i

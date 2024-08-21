@@ -2599,7 +2599,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %407 = getelementptr inbounds i8, ptr %405, i64 10
   %408 = load i8, ptr %407, align 1
   %409 = zext i8 %408 to i64
-  %410 = icmp sgt i64 %409, %406
+  %410 = icmp slt i64 %406, %409
   br i1 %410, label %.lr.ph.preheader.i.i.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE19transfer_n_backwardElllPS8_PS6_.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %403
@@ -6769,7 +6769,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %39 = shl nsw i64 %38, 2
   %40 = getelementptr i8, ptr %19, i64 %39
   %41 = getelementptr inbounds i32, ptr %40, i64 %37
-  %.not14.i46 = icmp eq i32 %35, %1
+  %.not14.i46 = icmp eq i32 %1, %35
   br i1 %.not14.i46, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit53, label %.lr.ph.i49
 
 .lr.ph.i49:                                       ; preds = %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit, %.lr.ph.i49
@@ -6801,7 +6801,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
 .preheader:                                       ; preds = %53, %.preheader55
   %50 = load i8, ptr %33, align 1
   %51 = zext i8 %50 to i32
-  %.not57 = icmp slt i32 %51, %1
+  %.not57 = icmp sgt i32 %1, %51
   br i1 %.not57, label %.loopexit, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %.preheader
@@ -7083,7 +7083,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %36 = getelementptr inbounds i32, ptr %22, i64 %35
   %37 = getelementptr inbounds i8, ptr %31, i64 10
   %38 = load i8, ptr %37, align 1
-  %39 = icmp ugt i8 %38, %33
+  %39 = icmp ult i8 %33, %38
   br i1 %39, label %.lr.ph.preheader.i.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE19transfer_n_backwardElllPS8_PS6_.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit

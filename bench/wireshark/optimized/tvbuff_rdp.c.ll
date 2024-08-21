@@ -116,7 +116,7 @@ define internal fastcc range(i32 0, 2) i32 @rdp8_decompress_segment(ptr noundef 
   %10 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef 1) #4
   %11 = getelementptr inbounds i8, ptr %0, i64 2500004
   %12 = load i32, ptr %11, align 4
-  %13 = icmp ult i32 %12, %8
+  %13 = icmp ugt i32 %8, %12
   br i1 %13, label %14, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %9
@@ -772,7 +772,7 @@ bitstream_getbits.exit151:                        ; preds = %bitstream_getbits.e
   %287 = zext i32 %286 to i64
   %288 = getelementptr [65536 x i8], ptr %62, i64 0, i64 %287
   %289 = load i32, ptr %64, align 4
-  %290 = icmp ult i32 %289, %.072
+  %290 = icmp ugt i32 %.072, %289
   br i1 %290, label %291, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i155
@@ -1024,7 +1024,7 @@ define internal fastcc range(i32 0, 2) i32 @zgfx_write_raw(ptr noundef %0, ptr n
   %48 = load i32, ptr %24, align 4
   %49 = urem i32 %47, %48
   store i32 %49, ptr %26, align 4
-  %.not38.not = icmp ult i32 %28, %2
+  %.not38.not = icmp ugt i32 %2, %28
   br i1 %.not38.not, label %50, label %bitstream_copyraw.exit.thread
 
 50:                                               ; preds = %33

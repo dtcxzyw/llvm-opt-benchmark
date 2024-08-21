@@ -470,7 +470,7 @@ thread-pre-split.thread:                          ; preds = %82, %thread-pre-spl
   %106 = load i32, ptr %9, align 4
   %107 = load i32, ptr %12, align 4
   %108 = call fastcc ptr @build_coercion_expression(ptr noundef nonnull %1, i32 noundef %103, i32 noundef %106, i32 noundef %105, i32 noundef %107, i32 noundef %5, i32 noundef %6, i32 noundef %7)
-  %.not223 = icmp eq i32 %105, %3
+  %.not223 = icmp eq i32 %3, %105
   br i1 %.not223, label %149, label %109
 
 109:                                              ; preds = %104
@@ -567,7 +567,7 @@ thread-pre-split.thread:                          ; preds = %82, %thread-pre-spl
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @coerce_type_typmod(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = tail call i32 @exprTypmod(ptr noundef %0) #5
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   br i1 %9, label %43, label %10
 
 10:                                               ; preds = %7
@@ -689,7 +689,7 @@ define dso_local noundef ptr @coerce_to_domain(ptr noundef %0, i32 noundef %1, i
 17:                                               ; preds = %16, %15
   %18 = load i32, ptr %9, align 4
   %19 = call i32 @exprTypmod(ptr noundef %0) #5
-  %20 = icmp eq i32 %19, %18
+  %20 = icmp eq i32 %18, %19
   br i1 %20, label %coerce_type_typmod.exit, label %21
 
 21:                                               ; preds = %17
@@ -837,7 +837,7 @@ define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 
 
 36:                                               ; preds = %21, %30
   %.042 = phi i32 [ 3, %30 ], [ 1, %21 ]
-  %.not57 = icmp ugt i32 %.042, %2
+  %.not57 = icmp ult i32 %2, %.042
   br i1 %.not57, label %48, label %.thread
 
 .thread:                                          ; preds = %21, %36
@@ -2312,7 +2312,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef %0, ptr noc
   %50 = phi i32 [ %24, %.sink.split ], [ %21, %.lr.ph25 ], [ %21, %44 ], [ %21, %42 ], [ %21, %39 ]
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %51 = trunc nuw i64 %indvars.iv.next29 to i32
-  %52 = icmp slt i32 %51, %0
+  %52 = icmp sgt i32 %0, %51
   br i1 %52, label %.lr.ph25, label %._crit_edge26.loopexit, !llvm.loop !14
 
 ._crit_edge26.loopexit:                           ; preds = %49
@@ -3542,7 +3542,7 @@ define dso_local zeroext i1 @IsPreferredType(i8 noundef signext %0, i32 noundef 
   %4 = alloca i8, align 1
   call void @get_type_category_preferred(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %5 = load i8, ptr %3, align 1
-  %6 = icmp eq i8 %5, %0
+  %6 = icmp eq i8 %0, %5
   %7 = icmp eq i8 %0, 0
   %or.cond = or i1 %7, %6
   br i1 %or.cond, label %8, label %11

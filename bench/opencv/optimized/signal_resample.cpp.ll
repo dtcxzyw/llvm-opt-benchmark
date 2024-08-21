@@ -281,7 +281,7 @@ _ZN2cv4Mat_IfEC2EONS_3MatE.exit69:                ; preds = %_ZNK2cv11_InputArra
 
 _ZN2cv6signalL16cubicInterpolateEPKfjPfj.exit:    ; preds = %.lr.ph.i, %_ZN2cv4Mat_IfEC2EONS_3MatE.exit69
   %130 = shl nuw nsw i32 %3, 1
-  %131 = icmp sgt i32 %130, %2
+  %131 = icmp slt i32 %2, %130
   br i1 %131, label %132, label %334
 
 132:                                              ; preds = %_ZN2cv6signalL16cubicInterpolateEPKfjPfj.exit

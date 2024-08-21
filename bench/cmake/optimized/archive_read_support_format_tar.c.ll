@@ -2242,7 +2242,7 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_add_sparse_entry(ptr noundef %
   %12 = or i64 %3, %2
   %or.cond.not = icmp slt i64 %12, 0
   %13 = sub nuw nsw i64 9223372036854775807, %3
-  %14 = icmp slt i64 %13, %2
+  %14 = icmp sgt i64 %2, %13
   %or.cond = select i1 %or.cond.not, i1 true, i1 %14
   br i1 %or.cond, label %15, label %16
 
@@ -4404,7 +4404,7 @@ gnu_clear_sparse_list.exit:                       ; preds = %.lr.ph.i, %3
   store ptr %23, ptr %.sink.i, align 8
   store ptr %23, ptr %10, align 8
   %28 = sub nuw nsw i64 9223372036854775807, %20
-  %29 = icmp ult i64 %28, %17
+  %29 = icmp ugt i64 %17, %28
   br i1 %29, label %30, label %gnu_add_sparse_entry.exit
 
 30:                                               ; preds = %26
@@ -4868,7 +4868,7 @@ tar_atol10.exit60.thread:                         ; preds = %.critedge2.i.i58, %
   store ptr %63, ptr %.sink.i, align 8
   store ptr %63, ptr %4, align 8
   %68 = xor i64 %.044.i.i4663, 9223372036854775807
-  %69 = icmp slt i64 %68, %.0
+  %69 = icmp sgt i64 %.0, %68
   br i1 %69, label %70, label %gnu_add_sparse_entry.exit
 
 70:                                               ; preds = %66
@@ -5123,7 +5123,7 @@ tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.c
   store ptr %43, ptr %.sink.i, align 8
   store ptr %43, ptr %6, align 8
   %48 = xor i64 %42, 9223372036854775807
-  %49 = icmp ult i64 %48, %.025
+  %49 = icmp ugt i64 %.025, %48
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %46
@@ -5412,7 +5412,7 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_old_parse(ptr noundef %
   %19 = or i64 %13, %11
   %or.cond.not.i = icmp slt i64 %19, 0
   %20 = sub nuw nsw i64 9223372036854775807, %13
-  %21 = icmp slt i64 %20, %11
+  %21 = icmp sgt i64 %11, %20
   %or.cond.i = select i1 %or.cond.not.i, i1 true, i1 %21
   br i1 %or.cond.i, label %22, label %23
 

@@ -67,7 +67,7 @@ cond.true.i.split.i:                              ; preds = %entry
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i8.i
-  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i9.i, %call.i.i
+  %cmp.i.i = icmp ugt i64 %call.i.i, %sub.ptr.sub.i9.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %cond.true.i.split.i
@@ -131,16 +131,16 @@ if.end:                                           ; preds = %entry
   %add = add nuw nsw i32 %call, 1
   %conv = zext nneg i32 %add to i64
   %0 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %cmp.i = icmp ugt i32 %0, %add
+  %cmp.i = icmp ult i32 %add, %0
   br i1 %cmp.i, label %if.end15.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
-  %cmp5.i.not = icmp ugt i32 %0, %call
+  %cmp5.i.not = icmp ult i32 %call, %0
   br i1 %cmp5.i.not, label %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %1 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp8.i.not = icmp ugt i32 %1, %call
+  %cmp8.i.not = icmp ult i32 %call, %1
   br i1 %cmp8.i.not, label %if.end.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then6.i
@@ -150,7 +150,7 @@ if.then9.i:                                       ; preds = %if.then6.i
 
 if.end.i:                                         ; preds = %if.then9.i, %if.then6.i
   %conv.i17.pre-phi.i.in = phi i32 [ %.pre.i, %if.then9.i ], [ %0, %if.then6.i ]
-  %cmp13.not20.i = icmp eq i32 %conv.i17.pre-phi.i.in, %add
+  %cmp13.not20.i = icmp eq i32 %add, %conv.i17.pre-phi.i.in
   br i1 %cmp13.not20.i, label %if.end15.sink.split.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
@@ -260,7 +260,7 @@ cond.true.i.split.i:                              ; preds = %for.body
   %sub.ptr.lhs.cast.i7.i8 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i8.i9 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i9.i10 = sub i64 %sub.ptr.lhs.cast.i7.i8, %sub.ptr.rhs.cast.i8.i9
-  %cmp.i.i11 = icmp ult i64 %sub.ptr.sub.i9.i10, %call.i.i5
+  %cmp.i.i11 = icmp ugt i64 %call.i.i5, %sub.ptr.sub.i9.i10
   br i1 %cmp.i.i11, label %if.then.i.i17, label %if.end.i.i12
 
 if.then.i.i17:                                    ; preds = %cond.true.i.split.i

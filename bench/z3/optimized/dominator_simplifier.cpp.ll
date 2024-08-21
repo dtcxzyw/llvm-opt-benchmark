@@ -687,7 +687,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   %13 = load ptr, ptr %new_c, align 8
   %m_true.i = getelementptr inbounds i8, ptr %12, i64 856
   %14 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %14, %13
+  %cmp.i = icmp eq ptr %13, %14
   br i1 %cmp.i, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %invoke.cont6
@@ -4608,13 +4608,13 @@ if.end17:                                         ; preds = %for.body
   %33 = load ptr, ptr %r, align 8
   %m_true.i = getelementptr inbounds i8, ptr %32, i64 856
   %34 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %34, %33
+  %cmp.i = icmp eq ptr %33, %34
   br i1 %cmp.i, label %if.end39, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end17
   %m_false.i = getelementptr inbounds i8, ptr %32, i64 864
   %35 = load ptr, ptr %m_false.i, align 8
-  %cmp.i53 = icmp ne ptr %35, %33
+  %cmp.i53 = icmp ne ptr %33, %35
   %tobool27.not = icmp eq ptr %30, null
   %or.cond = select i1 %cmp.i53, i1 %tobool27.not, i1 false
   br i1 %or.cond, label %land.lhs.true28, label %if.end39
@@ -4896,13 +4896,13 @@ if.end105:                                        ; preds = %for.body92
   %84 = load ptr, ptr %r106, align 8
   %m_true.i114 = getelementptr inbounds i8, ptr %83, i64 856
   %85 = load ptr, ptr %m_true.i114, align 8
-  %cmp.i115 = icmp eq ptr %85, %84
+  %cmp.i115 = icmp eq ptr %84, %85
   br i1 %cmp.i115, label %if.end132, label %land.lhs.true113
 
 land.lhs.true113:                                 ; preds = %if.end105
   %m_false.i116 = getelementptr inbounds i8, ptr %83, i64 864
   %86 = load ptr, ptr %m_false.i116, align 8
-  %cmp.i117 = icmp ne ptr %86, %84
+  %cmp.i117 = icmp ne ptr %84, %86
   %tobool120.not = icmp eq ptr %81, null
   %or.cond24 = select i1 %cmp.i117, i1 %tobool120.not, i1 false
   br i1 %or.cond24, label %land.lhs.true121, label %if.end132

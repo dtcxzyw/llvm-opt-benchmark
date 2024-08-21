@@ -1097,7 +1097,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !330, !noalias !335, !noundef !7
   %45 = load i64, ptr %0, align 8, !alias.scope !337, !noalias !335, !noundef !7
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h2265eeb3fb81cb69E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -1154,7 +1154,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !343, !noalias !348, !noundef !7
   %6 = load i64, ptr %0, align 8, !alias.scope !350, !noalias !348, !noundef !7
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h2265eeb3fb81cb69E.exit"
 
 9:                                                ; preds = %3
@@ -1485,7 +1485,7 @@ define hidden void @_ZN8bitflags6parser8from_str17hbbaeffa593c80f8fE(ptr noalias
   br label %33
 
 25:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %21, %2
+  %.not.i.i.i = icmp eq i64 %2, %21
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %25, %29
@@ -2106,8 +2106,8 @@ _ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit: ; preds = %26, %36
 
 49:                                               ; preds = %65, %_ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit
   %.sroa.9.0.i.i.i = phi i64 [ 0, %_ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit ], [ %66, %65 ]
-  %.pn.i = phi i64 [ %45, %_ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit ], [ %67, %65 ]
-  %.sroa.01.0.i.i.i = and i64 %.pn.i, %.val5
+  %.pn.i.i.i = phi i64 [ %45, %_ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit ], [ %67, %65 ]
+  %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %.val5
   %50 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i25.i.i = load <16 x i8>, ptr %50, align 1, !noalias !510
   %51 = icmp eq <16 x i8> %.0.copyload.i25.i.i, %.15.vec.insert.i.i.i

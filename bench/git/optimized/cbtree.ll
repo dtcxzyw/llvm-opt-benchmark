@@ -28,7 +28,7 @@ while.body.i:                                     ; preds = %if.end, %cond.end.i
   %byte.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %byte.i, align 8
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ult i64 %conv.i, %klen
+  %cmp.i = icmp ugt i64 %klen, %conv.i
   br i1 %cmp.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %while.body.i
@@ -186,7 +186,7 @@ while.body.i:                                     ; preds = %entry, %cond.end.i
   %byte.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %byte.i, align 8
   %conv.i = zext i32 %4 to i64
-  %cmp.i = icmp ult i64 %conv.i, %klen
+  %cmp.i = icmp ugt i64 %klen, %conv.i
   br i1 %cmp.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %while.body.i
@@ -257,7 +257,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %byte = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %byte, align 8
   %conv = zext i32 %4 to i64
-  %cmp = icmp ult i64 %conv, %klen
+  %cmp = icmp ugt i64 %klen, %conv
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %while.body

@@ -803,19 +803,19 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %0 = load ptr, ptr %dist, align 8
-  %invariant.gep = getelementptr %struct.qdist_entry, ptr %0, i64 %index
+  %1 = getelementptr %struct.qdist_entry, ptr %0, i64 %index
   %conv3 = uitofp i64 %count to double
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.019 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %ret.018 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add4, %for.body ]
-  %gep = getelementptr %struct.qdist_entry, ptr %invariant.gep, i64 %i.019
-  %1 = load double, ptr %gep, align 8
-  %count2 = getelementptr inbounds i8, ptr %gep, i64 8
-  %2 = load i64, ptr %count2, align 8
-  %conv = uitofp i64 %2 to double
-  %mul = fmul double %1, %conv
+  %arrayidx = getelementptr %struct.qdist_entry, ptr %1, i64 %i.019
+  %2 = load double, ptr %arrayidx, align 8
+  %count2 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %3 = load i64, ptr %count2, align 8
+  %conv = uitofp i64 %3 to double
+  %mul = fmul double %2, %conv
   %div = fdiv double %mul, %conv3
   %add4 = fadd double %ret.018, %div
   %inc = add nuw nsw i64 %i.019, 1

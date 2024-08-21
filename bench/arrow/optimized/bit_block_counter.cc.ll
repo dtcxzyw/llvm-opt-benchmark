@@ -17,7 +17,7 @@ define i32 @_ZN5arrow8internal15BitBlockCounter12GetBlockSlowEl(ptr nocapture no
 entry:
   %bits_remaining_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %bits_remaining_, align 8
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %0, i64 %block_size)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %block_size, i64 %0)
   %1 = load ptr, ptr %this, align 8
   %offset_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %offset_, align 8

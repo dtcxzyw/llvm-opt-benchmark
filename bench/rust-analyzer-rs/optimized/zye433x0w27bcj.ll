@@ -167,7 +167,7 @@ define hidden noundef i8 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT
   %14 = getelementptr inbounds i8, ptr %7, i64 28
   store ptr %14, ptr %1, align 8, !alias.scope !58, !noalias !50
   %15 = load i32, ptr %7, align 4, !range !9, !alias.scope !65, !noalias !70, !noundef !4
-  %.not.i.i.i.i = icmp eq i32 %15, %.val6.i
+  %.not.i.i.i.i = icmp eq i32 %.val6.i, %15
   br i1 %.not.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5b91472450878c6aE.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf418dc8dc15c3325E.llvm.4687055707153247929.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hf418dc8dc15c3325E.llvm.4687055707153247929.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5b91472450878c6aE.exit.i", %10, %13
@@ -378,7 +378,7 @@ define hidden noundef i8 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT
   %14 = getelementptr inbounds i8, ptr %7, i64 28
   store ptr %14, ptr %1, align 8, !alias.scope !127, !noalias !119
   %15 = load i32, ptr %7, align 4, !range !9, !alias.scope !134, !noalias !139, !noundef !4
-  %.not.i.i.i.i = icmp eq i32 %15, %.val6.i
+  %.not.i.i.i.i = icmp eq i32 %.val6.i, %15
   br i1 %.not.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf46cfae9fcb94ebbE.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hde7cf0353721d6e7E.llvm.4687055707153247929.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hde7cf0353721d6e7E.llvm.4687055707153247929.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf46cfae9fcb94ebbE.exit.i", %10, %13
@@ -416,7 +416,7 @@ define hidden noundef i8 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT
   %14 = getelementptr inbounds i8, ptr %7, i64 28
   store ptr %14, ptr %1, align 8, !alias.scope !148, !noalias !140
   %15 = load i32, ptr %7, align 4, !range !9, !alias.scope !155, !noalias !160, !noundef !4
-  %.not.i.i.i.i = icmp eq i32 %15, %.val6.i
+  %.not.i.i.i.i = icmp eq i32 %.val6.i, %15
   br i1 %.not.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e26e5d8e30778e2E.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3df379410f36ce8aE.llvm.4687055707153247929.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h3df379410f36ce8aE.llvm.4687055707153247929.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e26e5d8e30778e2E.exit.i", %10, %13
@@ -445,7 +445,7 @@ define hidden noundef range(i8 4, 3) i8 @_ZN4core4iter6traits8iterator12iter_com
   %11 = getelementptr inbounds i8, ptr %6, i64 28
   %12 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 28
   %13 = load i32, ptr %.sroa.07.0, align 4, !range !9, !alias.scope !171, !noalias !176, !noundef !4
-  %.not.i.i.i.i.i.i = icmp eq i32 %13, %.val6.i.i.i
+  %.not.i.i.i.i.i.i = icmp eq i32 %.val6.i.i.i, %13
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5b91472450878c6aE.exit.i.i.i", label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hdcb5caa8667bbd80E.llvm.4687055707153247929.exit.thread
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hdcb5caa8667bbd80E.llvm.4687055707153247929.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5b91472450878c6aE.exit.i.i.i"
@@ -481,7 +481,7 @@ define hidden noundef range(i8 4, 3) i8 @_ZN4core4iter6traits8iterator12iter_com
   %11 = getelementptr inbounds i8, ptr %6, i64 28
   %12 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 28
   %13 = load i32, ptr %.sroa.07.0, align 4, !range !9, !alias.scope !189, !noalias !194, !noundef !4
-  %.not.i.i.i.i.i.i = icmp eq i32 %13, %.val6.i.i.i
+  %.not.i.i.i.i.i.i = icmp eq i32 %.val6.i.i.i, %13
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf46cfae9fcb94ebbE.exit.i.i.i", label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hcdb196b1bcc4f402E.llvm.4687055707153247929.exit.thread
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hcdb196b1bcc4f402E.llvm.4687055707153247929.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf46cfae9fcb94ebbE.exit.i.i.i"
@@ -517,7 +517,7 @@ define hidden noundef range(i8 4, 3) i8 @_ZN4core4iter6traits8iterator12iter_com
   %11 = getelementptr inbounds i8, ptr %6, i64 28
   %12 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 28
   %13 = load i32, ptr %.sroa.07.0, align 4, !range !9, !alias.scope !207, !noalias !212, !noundef !4
-  %.not.i.i.i.i.i.i = icmp eq i32 %13, %.val6.i.i.i
+  %.not.i.i.i.i.i.i = icmp eq i32 %.val6.i.i.i, %13
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e26e5d8e30778e2E.exit.i.i.i", label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hdef6968273724c07E.llvm.4687055707153247929.exit.thread
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hdef6968273724c07E.llvm.4687055707153247929.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e26e5d8e30778e2E.exit.i.i.i"
@@ -564,7 +564,7 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator12try_for_each17
   %14 = getelementptr inbounds i8, ptr %7, i64 28
   store ptr %14, ptr %1, align 8, !alias.scope !229, !noalias !234
   %15 = load i32, ptr %7, align 4, !range !9, !alias.scope !237, !noalias !242, !noundef !4
-  %.not.i.i.i.i.i = icmp eq i32 %15, %.val6.i.i
+  %.not.i.i.i.i.i = icmp eq i32 %.val6.i.i, %15
   br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf46cfae9fcb94ebbE.exit.i.i", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hbb99ae8f81fcd17cE.llvm.4687055707153247929.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hbb99ae8f81fcd17cE.llvm.4687055707153247929.exit": ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf46cfae9fcb94ebbE.exit.i.i", %10, %13
@@ -604,7 +604,7 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator12try_for_each17
   %14 = getelementptr inbounds i8, ptr %7, i64 28
   store ptr %14, ptr %1, align 8, !alias.scope !257, !noalias !262
   %15 = load i32, ptr %7, align 4, !range !9, !alias.scope !265, !noalias !270, !noundef !4
-  %.not.i.i.i.i.i = icmp eq i32 %15, %.val6.i.i
+  %.not.i.i.i.i.i = icmp eq i32 %.val6.i.i, %15
   br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5b91472450878c6aE.exit.i.i", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2986da39c6347295E.llvm.4687055707153247929.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2986da39c6347295E.llvm.4687055707153247929.exit": ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5b91472450878c6aE.exit.i.i", %10, %13
@@ -644,7 +644,7 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator12try_for_each17
   %14 = getelementptr inbounds i8, ptr %7, i64 28
   store ptr %14, ptr %1, align 8, !alias.scope !285, !noalias !290
   %15 = load i32, ptr %7, align 4, !range !9, !alias.scope !293, !noalias !298, !noundef !4
-  %.not.i.i.i.i.i = icmp eq i32 %15, %.val6.i.i
+  %.not.i.i.i.i.i = icmp eq i32 %.val6.i.i, %15
   br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e26e5d8e30778e2E.exit.i.i", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hee64fae955ff6961E.llvm.4687055707153247929.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hee64fae955ff6961E.llvm.4687055707153247929.exit": ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e26e5d8e30778e2E.exit.i.i", %10, %13
@@ -770,7 +770,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   %11 = getelementptr inbounds i8, ptr %6, i64 28
   %12 = getelementptr inbounds i8, ptr %.sroa.07.0.i, i64 28
   %13 = load i32, ptr %.sroa.07.0.i, align 4, !range !9, !alias.scope !337, !noalias !342, !noundef !4
-  %.not.i.i.i.i.i.i.i = icmp eq i32 %13, %.val6.i.i.i.i
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %.val6.i.i.i.i, %13
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf46cfae9fcb94ebbE.exit.i.i.i.i", label %_ZN4core4iter6traits8iterator12iter_compare17h1c4832d161da93eaE.llvm.4687055707153247929.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hcdb196b1bcc4f402E.llvm.4687055707153247929.exit.i: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf46cfae9fcb94ebbE.exit.i.i.i.i"
@@ -805,7 +805,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   %11 = getelementptr inbounds i8, ptr %6, i64 28
   %12 = getelementptr inbounds i8, ptr %.sroa.07.0.i, i64 28
   %13 = load i32, ptr %.sroa.07.0.i, align 4, !range !9, !alias.scope !355, !noalias !360, !noundef !4
-  %.not.i.i.i.i.i.i.i = icmp eq i32 %13, %.val6.i.i.i.i
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %.val6.i.i.i.i, %13
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5b91472450878c6aE.exit.i.i.i.i", label %_ZN4core4iter6traits8iterator12iter_compare17h04ffe3ac1a47cff3E.llvm.4687055707153247929.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hdcb5caa8667bbd80E.llvm.4687055707153247929.exit.i: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5b91472450878c6aE.exit.i.i.i.i"
@@ -840,7 +840,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   %11 = getelementptr inbounds i8, ptr %6, i64 28
   %12 = getelementptr inbounds i8, ptr %.sroa.07.0.i, i64 28
   %13 = load i32, ptr %.sroa.07.0.i, align 4, !range !9, !alias.scope !373, !noalias !378, !noundef !4
-  %.not.i.i.i.i.i.i.i = icmp eq i32 %13, %.val6.i.i.i.i
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %.val6.i.i.i.i, %13
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e26e5d8e30778e2E.exit.i.i.i.i", label %_ZN4core4iter6traits8iterator12iter_compare17h53bb098632ec6edcE.llvm.4687055707153247929.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hdef6968273724c07E.llvm.4687055707153247929.exit.i: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e26e5d8e30778e2E.exit.i.i.i.i"
@@ -939,7 +939,7 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3df3
   %15 = getelementptr inbounds i8, ptr %8, i64 28
   store ptr %15, ptr %1, align 8, !alias.scope !397
   %16 = load i32, ptr %8, align 4, !range !9, !alias.scope !403, !noalias !402, !noundef !4
-  %.not.i.i.i = icmp eq i32 %16, %.val6
+  %.not.i.i.i = icmp eq i32 %.val6, %16
   br i1 %.not.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e26e5d8e30778e2E.exit", label %17
 
 17:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e26e5d8e30778e2E.exit", %11, %14
@@ -1148,7 +1148,7 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hde7c
   %15 = getelementptr inbounds i8, ptr %8, i64 28
   store ptr %15, ptr %1, align 8, !alias.scope !445
   %16 = load i32, ptr %8, align 4, !range !9, !alias.scope !451, !noalias !450, !noundef !4
-  %.not.i.i.i = icmp eq i32 %16, %.val6
+  %.not.i.i.i = icmp eq i32 %.val6, %16
   br i1 %.not.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf46cfae9fcb94ebbE.exit", label %17
 
 17:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf46cfae9fcb94ebbE.exit", %11, %14
@@ -1184,7 +1184,7 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf418
   %15 = getelementptr inbounds i8, ptr %8, i64 28
   store ptr %15, ptr %1, align 8, !alias.scope !459
   %16 = load i32, ptr %8, align 4, !range !9, !alias.scope !465, !noalias !464, !noundef !4
-  %.not.i.i.i = icmp eq i32 %16, %.val6
+  %.not.i.i.i = icmp eq i32 %.val6, %16
   br i1 %.not.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5b91472450878c6aE.exit", label %17
 
 17:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5b91472450878c6aE.exit", %11, %14
@@ -1328,7 +1328,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i: ; preds
   %54 = load i64, ptr %11, align 8, !alias.scope !476, !noalias !481, !noundef !4
   %55 = load i64, ptr %2, align 8, !alias.scope !483, !noalias !481, !noundef !4
   %56 = sub i64 %55, %54
-  %57 = icmp ult i64 %56, %53
+  %57 = icmp ugt i64 %53, %56
   br i1 %57, label %58, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h1c256c405c463076E.exit.i.i.i.i"
 
 58:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i

@@ -193,7 +193,7 @@ if.then4:                                         ; preds = %if.else
 
 if.else6:                                         ; preds = %if.else
   %call7 = tail call i32 @lua_getfield(ptr noundef %L, i32 noundef -1001000, ptr noundef nonnull @.str.23) #6
-  %cmp.not.i = icmp eq ptr %retval.0.i, %L
+  %cmp.not.i = icmp eq ptr %L, %retval.0.i
   br i1 %cmp.not.i, label %checkstack.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.else6
@@ -279,7 +279,7 @@ getthread.exit.thread:                            ; preds = %entry
 getthread.exit:                                   ; preds = %entry
   %call1.i = tail call ptr @lua_tothread(ptr noundef %L, i32 noundef 1) #6
   %call1 = tail call ptr @luaL_optlstring(ptr noundef %L, i32 noundef 3, ptr noundef nonnull @.str.30, ptr noundef null) #6
-  %cmp.not.i = icmp eq ptr %call1.i, %L
+  %cmp.not.i = icmp eq ptr %L, %call1.i
   br i1 %cmp.not.i, label %checkstack.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %getthread.exit
@@ -538,7 +538,7 @@ if.then16:                                        ; preds = %if.else
   br label %return
 
 if.end:                                           ; preds = %if.else
-  %cmp.not.i = icmp eq ptr %retval.0.i, %L
+  %cmp.not.i = icmp eq ptr %L, %retval.0.i
   br i1 %cmp.not.i, label %checkstack.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end
@@ -766,7 +766,7 @@ if.then10:                                        ; preds = %if.end
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.end
-  %cmp.not.i = icmp eq ptr %retval.0.i, %L
+  %cmp.not.i = icmp eq ptr %L, %retval.0.i
   br i1 %cmp.not.i, label %checkstack.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end13
@@ -820,7 +820,7 @@ if.end:                                           ; preds = %getthread.exit
   %add11 = add nuw nsw i32 %arg.0, 3
   call void @luaL_checkany(ptr noundef %L, i32 noundef %add11) #6
   call void @lua_settop(ptr noundef %L, i32 noundef %add11) #6
-  %cmp.not.i = icmp eq ptr %retval.0.i, %L
+  %cmp.not.i = icmp eq ptr %L, %retval.0.i
   br i1 %cmp.not.i, label %checkstack.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end
@@ -921,7 +921,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.else:                                          ; preds = %land.lhs.true, %getthread.exit
   %add6 = or disjoint i32 %arg.0, 2
-  %cmp7 = icmp eq ptr %retval.0.i, %L
+  %cmp7 = icmp eq ptr %L, %retval.0.i
   %conv = zext i1 %cmp7 to i64
   %call8 = tail call i64 @luaL_optinteger(ptr noundef %L, i32 noundef %add6, i64 noundef %conv) #6
   %conv9 = trunc i64 %call8 to i32

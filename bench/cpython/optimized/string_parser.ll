@@ -47,7 +47,7 @@ if.end3.i:                                        ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.end3.i
   %add.ptr.i = getelementptr i8, ptr %s, i64 %len
-  %cmp877.i = icmp ugt ptr %add.ptr.i, %s
+  %cmp877.i = icmp ult ptr %s, %add.ptr.i
   br i1 %cmp877.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end7.i

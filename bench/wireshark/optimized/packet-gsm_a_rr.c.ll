@@ -10673,12 +10673,12 @@ define hidden void @dtap_rr_cip_mode_cpte(ptr noundef %0, ptr noundef %1, ptr no
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 23, i32 noundef 4, i32 noundef 3, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @.str.82) #10
   %9 = zext i16 %8 to i32
-  %.not22 = icmp eq i32 %9, %4
+  %.not22 = icmp eq i32 %4, %9
   br i1 %.not22, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #10
   br label %14
 
@@ -10702,7 +10702,7 @@ define hidden void @dtap_rr_ho_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -11051,7 +11051,7 @@ define hidden void @dtap_rr_ho_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %
   %249 = zext i16 %248 to i32
   %250 = add i32 %247, %249
   %251 = sub i32 %250, %3
-  %252 = icmp ult i32 %251, %4
+  %252 = icmp ugt i32 %4, %251
   br i1 %252, label %253, label %256
 
 253:                                              ; preds = %246
@@ -15007,7 +15007,7 @@ define internal void @dtap_rr_add_ass(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -15749,7 +15749,7 @@ define internal void @dtap_rr_dtm_ass_fail(ptr noundef %0, ptr noundef %1, ptr n
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   br label %15
 
 12:                                               ; preds = %7, %5
@@ -15760,7 +15760,7 @@ define internal void @dtap_rr_dtm_ass_fail(ptr noundef %0, ptr noundef %1, ptr n
 15:                                               ; preds = %12, %9
   %.0 = phi i32 [ %11, %9 ], [ %3, %12 ]
   %16 = sub i32 %.0, %3
-  %17 = icmp ult i32 %16, %4
+  %17 = icmp ugt i32 %4, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
@@ -15784,7 +15784,7 @@ define internal void @dtap_rr_dtm_rej(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   br label %15
 
 12:                                               ; preds = %7, %5
@@ -15795,7 +15795,7 @@ define internal void @dtap_rr_dtm_rej(ptr noundef %0, ptr noundef %1, ptr nounde
 15:                                               ; preds = %12, %9
   %.0 = phi i32 [ %11, %9 ], [ %3, %12 ]
   %16 = sub i32 %.0, %3
-  %17 = icmp ult i32 %16, %4
+  %17 = icmp ugt i32 %4, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
@@ -15819,7 +15819,7 @@ define internal void @dtap_rr_dtm_req(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -15852,7 +15852,7 @@ define internal void @dtap_rr_dtm_req(ptr noundef %0, ptr noundef %1, ptr nounde
 26:                                               ; preds = %23, %20
   %.1 = phi i32 [ %22, %20 ], [ %.042, %23 ]
   %27 = sub i32 %.1, %3
-  %28 = icmp ult i32 %27, %4
+  %28 = icmp ugt i32 %4, %27
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
@@ -15876,7 +15876,7 @@ define internal void @dtap_rr_pkt_assign(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -15943,7 +15943,7 @@ define internal void @dtap_rr_pkt_assign(ptr noundef %0, ptr noundef %1, ptr nou
   %54 = zext i16 %53 to i32
   %55 = add i32 %52, %54
   %56 = sub i32 %55, %3
-  %57 = icmp ult i32 %56, %4
+  %57 = icmp ugt i32 %4, %56
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %51
@@ -15967,7 +15967,7 @@ define internal void @dtap_rr_dtm_ass_cmd(ptr noundef %0, ptr noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -16150,7 +16150,7 @@ define internal void @dtap_rr_dtm_info(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -16183,7 +16183,7 @@ define internal void @dtap_rr_dtm_info(ptr noundef %0, ptr noundef %1, ptr nound
 26:                                               ; preds = %23, %20
   %.1 = phi i32 [ %22, %20 ], [ %.042, %23 ]
   %27 = sub i32 %.1, %3
-  %28 = icmp ult i32 %27, %4
+  %28 = icmp ugt i32 %4, %27
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
@@ -16208,12 +16208,12 @@ define internal void @dtap_rr_pkt_notif(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %11, label %22, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 17, i32 noundef 4, i32 noundef 3, i32 noundef %13, i32 noundef %10, ptr noundef null) #10
   %15 = zext i16 %14 to i32
   %16 = add i32 %13, %15
   %17 = sub i32 %16, %3
-  %18 = icmp ult i32 %17, %4
+  %18 = icmp ugt i32 %4, %17
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %12
@@ -16269,7 +16269,7 @@ define internal void @dtap_rr_conf_change_cmd(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -16344,7 +16344,7 @@ define internal void @dtap_rr_conf_change_cmd(ptr noundef %0, ptr noundef %1, pt
   %60 = zext i16 %59 to i32
   %61 = add i32 %58, %60
   %62 = sub i32 %61, %3
-  %63 = icmp ult i32 %62, %4
+  %63 = icmp ugt i32 %4, %62
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %57
@@ -16368,7 +16368,7 @@ define internal void @dtap_rr_conf_change_rej(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -16403,7 +16403,7 @@ define internal void @dtap_rr_ass_cmd(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -16668,7 +16668,7 @@ define internal void @dtap_rr_ass_comp(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -16703,7 +16703,7 @@ define internal void @dtap_rr_ass_fail(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -16738,7 +16738,7 @@ define internal void @dtap_rr_ho_cpte(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -16758,7 +16758,7 @@ define internal void @dtap_rr_ho_cpte(ptr noundef %0, ptr noundef %1, ptr nounde
   %20 = zext i16 %19 to i32
   %21 = add i32 %.038, %20
   %22 = sub i32 %21, %3
-  %23 = icmp ult i32 %22, %4
+  %23 = icmp ugt i32 %4, %22
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
@@ -16782,7 +16782,7 @@ define internal void @dtap_rr_ho_fail(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -16817,7 +16817,7 @@ define internal void @dtap_rr_phy_info(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -16852,7 +16852,7 @@ define internal void @dtap_rr_ch_rel(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -16935,7 +16935,7 @@ define internal void @dtap_rr_partial_rel(ptr noundef %0, ptr noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -17341,7 +17341,7 @@ define internal void @dtap_rr_utran_classmark_change(ptr noundef %0, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -17376,7 +17376,7 @@ define internal void @dtap_rr_inter_syst_to_utran_ho_cmd(ptr noundef %0, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -17411,7 +17411,7 @@ define internal void @dtap_rr_sys_info_1(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -17474,7 +17474,7 @@ define internal void @dtap_rr_sys_info_2(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -17537,7 +17537,7 @@ define internal void @dtap_rr_sys_info_3(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -17688,7 +17688,7 @@ define internal void @dtap_rr_sys_info_4(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -17807,7 +17807,7 @@ define internal void @dtap_rr_sys_info_6(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -17914,7 +17914,7 @@ define internal void @dtap_rr_sys_info_2bis(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -17955,7 +17955,7 @@ define internal void @dtap_rr_sys_info_2ter(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -18091,7 +18091,7 @@ define internal void @dtap_rr_ch_mode_mod(ptr noundef %0, ptr noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -18172,7 +18172,7 @@ define internal void @dtap_rr_rr_status(ptr noundef %0, ptr noundef %1, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -18207,7 +18207,7 @@ define internal void @dtap_rr_ch_mode_mod_ack(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -18272,7 +18272,7 @@ define internal void @dtap_rr_freq_redef(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -18367,7 +18367,7 @@ define internal void @dtap_rr_freq_redef(ptr noundef %0, ptr noundef %1, ptr nou
   %64 = zext i16 %63 to i32
   %65 = add i32 %62, %64
   %66 = sub i32 %65, %3
-  %67 = icmp ult i32 %66, %4
+  %67 = icmp ugt i32 %4, %66
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %61
@@ -18410,7 +18410,7 @@ define internal void @dtap_rr_mm_cm_change(ptr noundef %0, ptr noundef %1, ptr n
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -18449,12 +18449,12 @@ define internal void @dtap_rr_cm_enq(ptr noundef %0, ptr noundef %1, ptr noundef
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 16, i32 noundef 3, i32 noundef 15, i32 noundef %3, i32 noundef %4, ptr noundef null) #10
   %9 = zext i16 %8 to i32
-  %.not22 = icmp eq i32 %9, %4
+  %.not22 = icmp eq i32 %4, %9
   br i1 %.not22, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #10
   br label %14
 
@@ -18512,7 +18512,7 @@ define internal void @dtap_rr_gprs_sus_req(ptr noundef %0, ptr noundef %1, ptr n
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -18576,7 +18576,7 @@ define internal void @dtap_rr_gprs_sus_req(ptr noundef %0, ptr noundef %1, ptr n
   %42 = zext i16 %41 to i32
   %43 = add i32 %.265, %42
   %44 = sub i32 %43, %3
-  %45 = icmp ult i32 %44, %4
+  %45 = icmp ugt i32 %4, %44
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %40
@@ -18600,7 +18600,7 @@ define internal void @dtap_rr_vgcs_upl_grant(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -18660,7 +18660,7 @@ define internal void @dtap_rr_talker_indication(ptr noundef %0, ptr noundef %1, 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 

@@ -307,7 +307,7 @@ common.resume:                                    ; preds = %50, %8
 35:                                               ; preds = %32
   %36 = icmp ult i64 %34, %16
   call void @llvm.assume(i1 %36)
-  %37 = icmp ult i64 %16, %.0.i.i.i.i
+  %37 = icmp ugt i64 %.0.i.i.i.i, %16
   br i1 %37, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9bbe595d087057b5E.exit.i.i.i", label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %29, %35
@@ -562,7 +562,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17ha0fa78d495d2c3a9E
 define hidden noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17h7eff25b31aa7ae42E.llvm.15310856661090120578"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull writeonly align 1 %1, i64 noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !7
-  %6 = icmp ult i64 %5, %2
+  %6 = icmp ugt i64 %2, %5
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %3
@@ -655,7 +655,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.15310
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -1371,7 +1371,7 @@ define hidden { ptr, ptr } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h7d6e7018be2cc9bdE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #14 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !97, !noundef !7
-  %.not.i.i = icmp eq i64 %5, %1
+  %.not.i.i = icmp eq i64 %1, %5
   br i1 %.not.i.i, label %6, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h256a3fdda6844c00E.llvm.15310856661090120578.exit"
 
 6:                                                ; preds = %3
@@ -1836,7 +1836,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @_ZN8bitflags6traits5Flags10difference17h7379f101c27cf4bdE.llvm.15310856661090120578(i8 noundef %0, i8 noundef %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = xor i8 %1, -1
-  %4 = and i8 %3, %0
+  %4 = and i8 %0, %3
   ret i8 %4
 }
 
@@ -4642,7 +4642,7 @@ default.unreachable120:                           ; preds = %"_ZN5alloc3vec16Vec
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h025dcdc37e468978E.exit": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hc4ede2809d2b5678E.exit.i.i.i.i", %.lr.ph.i.i.i.i
   %.1.i.i = phi i64 [ %112, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hc4ede2809d2b5678E.exit.i.i.i.i" ], [ %.023.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %114 = icmp ult i64 %90, %.1.i.i
+  %114 = icmp ugt i64 %.1.i.i, %90
   br i1 %114, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h75cab515a4685edcE.exit", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h025dcdc37e468978E.exit.thread"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h025dcdc37e468978E.exit.thread": ; preds = %.loopexit, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h025dcdc37e468978E.exit"
@@ -4858,7 +4858,7 @@ define hidden void @_ZN6diesel2pg5value7PgValue8subslice17he2b9d4488a516953E(ptr
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %4
-  %10 = icmp ult i64 %7, %3
+  %10 = icmp ugt i64 %3, %7
   br i1 %10, label %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h888bb32145694b9dE.llvm.15310856661090120578.exit"
 
 11:                                               ; preds = %4

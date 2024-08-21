@@ -324,7 +324,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit:    ; preds = %entry, %if.end.i.i.i.i
   %retval.0.i.i.i.i = phi i32 [ %3, %if.end.i.i.i.i ], [ 0, %entry ]
-  %cmp.not.i.i.i = icmp ugt i32 %retval.0.i.i.i.i, %1
+  %cmp.not.i.i.i = icmp ult i32 %1, %retval.0.i.i.i.i
   %idxprom.i.i.i = zext i32 %1 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.not.i.i.i, ptr %arrayidx.i.i.i, ptr @_ZN3smtL13null_bool_varE
@@ -354,7 +354,7 @@ if.then:                                          ; preds = %land.lhs.true, %_ZN
 
 land.rhs:                                         ; preds = %if.then
   %8 = icmp ne i32 %call5, 1
-  %cmp8 = xor i1 %8, %is_true
+  %cmp8 = xor i1 %is_true, %8
   br label %return
 
 if.end:                                           ; preds = %_ZNK3smt7context11is_relevantEP4expr.exit, %_ZNK3smt7context14b_internalizedEPK4expr.exit
@@ -583,7 +583,7 @@ sw.bb97:                                          ; preds = %_ZNK3app13get_decl_
   %43 = load ptr, ptr %m.i, align 8
   %m_false.i.i = getelementptr inbounds i8, ptr %43, i64 864
   %44 = load ptr, ptr %m_false.i.i, align 8
-  %cmp.i.i89 = icmp eq ptr %44, %42
+  %cmp.i.i89 = icmp eq ptr %42, %44
   br i1 %cmp.i.i89, label %land.lhs.true101, label %lor.rhs.i90
 
 lor.rhs.i90:                                      ; preds = %sw.bb97
@@ -626,7 +626,7 @@ if.end.i.i.i.i.i:                                 ; preds = %cond.true.i
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit.i:  ; preds = %if.end.i.i.i.i.i, %cond.true.i
   %retval.0.i.i.i.i.i = phi i32 [ %53, %if.end.i.i.i.i.i ], [ 0, %cond.true.i ]
-  %cmp.not.i.i.i.i = icmp ugt i32 %retval.0.i.i.i.i.i, %51
+  %cmp.not.i.i.i.i = icmp ult i32 %51, %retval.0.i.i.i.i.i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit
 
 cond.false.i:                                     ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i, %land.rhs.i.i.i97, %lor.rhs.i90
@@ -643,7 +643,7 @@ if.end.i.i.i.i7.i:                                ; preds = %cond.false.i
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit15.i: ; preds = %if.end.i.i.i.i7.i, %cond.false.i
   %retval.0.i.i.i.i9.i = phi i32 [ %56, %if.end.i.i.i.i7.i ], [ 0, %cond.false.i ]
-  %cmp.not.i.i.i10.i = icmp ugt i32 %retval.0.i.i.i.i9.i, %54
+  %cmp.not.i.i.i10.i = icmp ult i32 %54, %retval.0.i.i.i.i9.i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit:  ; preds = %_ZNK3smt7context14b_internalizedEPK4expr.exit.i, %_ZNK3smt7context14b_internalizedEPK4expr.exit15.i
@@ -742,7 +742,7 @@ if.then136:                                       ; preds = %land.lhs.true133, %
 
 land.rhs142:                                      ; preds = %if.then136
   %73 = icmp ne i32 %call140, 1
-  %cmp147 = xor i1 %73, %is_true
+  %cmp147 = xor i1 %is_true, %73
   br label %return
 
 return:                                           ; preds = %for.body.i143, %for.body.i, %cond.false34, %cond.true, %if.end128, %land.lhs.true131, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit132, %if.then136, %land.rhs142, %if.end118, %land.rhs122, %if.then105, %land.lhs.true86, %land.rhs92, %lor.rhs89, %land.lhs.true74, %land.rhs79, %lor.rhs, %land.lhs.true64, %land.lhs.true57, %cond.true32, %cond.false, %_ZNK3app13get_decl_kindEv.exit, %if.end, %if.then, %land.rhs, %sw.bb114, %sw.bb109, %if.end69, %sw.bb21, %sw.bb19
@@ -791,7 +791,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %if.end7
   %7 = load i32, ptr %n, align 4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %6, i64 -4
   %8 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %8, %7
+  %cmp.not.i.i = icmp ult i32 %7, %8
   br i1 %cmp.not.i.i, label %_ZNK3smt7context14e_internalizedEPK4expr.exit, label %if.end14
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i

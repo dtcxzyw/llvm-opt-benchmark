@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden i32 @getHBScriptCode(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp slt i32 %0, 0
   %3 = load i32, ptr @MAX_ICU_SCRIPTCODE, align 4
-  %4 = icmp slt i32 %3, %0
+  %4 = icmp sgt i32 %0, %3
   %or.cond = select i1 %2, i1 true, i1 %4
   br i1 %or.cond, label %9, label %5
 

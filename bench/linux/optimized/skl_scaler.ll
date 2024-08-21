@@ -157,7 +157,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_update_scaler(ptr noca
 
 49:                                               ; preds = %37, %32, %11
   %50 = xor i1 %28, true
-  %51 = or i1 %50, %1
+  %51 = or i1 %1, %50
   br i1 %51, label %52, label %74
 
 52:                                               ; preds = %49

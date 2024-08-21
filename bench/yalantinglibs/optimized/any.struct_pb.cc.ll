@@ -577,7 +577,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
   %32 = load i64, ptr %1, align 8
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 15, i64 %32
-  %cmp.not.i.i.i.i = icmp ult i64 %cond.i.i.i.i.i, %sz.0280
+  %cmp.not.i.i.i.i = icmp ugt i64 %sz.0280, %cond.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then12.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
@@ -600,7 +600,7 @@ if.end.i.i22.i.i.i.i:                             ; preds = %if.then12.i.i.i.i
   br label %if.end5.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.end5
-  %cmp3.i.i = icmp ugt i64 %30, %sz.0280
+  %cmp3.i.i = icmp ult i64 %sz.0280, %30
   br i1 %cmp3.i.i, label %if.end5.sink.split.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 if.end5.sink.split.i.i:                           ; preds = %if.else.i.i, %if.end.i.i22.i.i.i.i, %if.then.i21.i.i.i.i
@@ -807,7 +807,7 @@ if.then.i.i.i.i.i.i268:                           ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i258: ; preds = %if.then.i.i.i.i.i.i268, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i256
   %52 = load i64, ptr %0, align 8
   %cond.i.i.i.i.i259 = select i1 %cmp.i.i.i.i.i.i257, i64 15, i64 %52
-  %cmp.not.i.i.i.i260 = icmp ult i64 %cond.i.i.i.i.i259, %sz13.0286
+  %cmp.not.i.i.i.i260 = icmp ugt i64 %sz13.0286, %cond.i.i.i.i.i259
   br i1 %cmp.not.i.i.i.i260, label %if.else.i.i.i.i266, label %if.then12.i.i.i.i261
 
 if.else.i.i.i.i266:                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i258
@@ -830,7 +830,7 @@ if.end.i.i22.i.i.i.i264:                          ; preds = %if.then12.i.i.i.i26
   br label %if.end5.sink.split.i.i250
 
 if.else.i.i248:                                   ; preds = %if.end18
-  %cmp3.i.i249 = icmp ugt i64 %50, %sz13.0286
+  %cmp3.i.i249 = icmp ult i64 %sz13.0286, %50
   br i1 %cmp3.i.i249, label %if.end5.sink.split.i.i250, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit271
 
 if.end5.sink.split.i.i250:                        ; preds = %if.else.i.i248, %if.end.i.i22.i.i.i.i264, %if.then.i21.i.i.i.i265

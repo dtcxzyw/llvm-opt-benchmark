@@ -166,7 +166,7 @@ define internal fastcc i32 @crypto_lskcipher_crypt(ptr noundef %0, ptr noundef %
 
 37:                                               ; preds = %31
   %38 = sub i32 0, %27
-  %39 = icmp ugt i32 %25, %3
+  %39 = icmp ult i32 %3, %25
   br i1 %39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %50

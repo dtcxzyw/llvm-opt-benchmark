@@ -8699,27 +8699,26 @@ define internal fastcc noundef zeroext i1 @_equalVariableShowStmt(ptr readonly %
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not, label %._crit_edge, label %2
+  br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
   %.not9 = icmp eq ptr %.pre, null
-  br i1 %.not9, label %._crit_edge, label %3
+  br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %8, label %9
+  br i1 %5, label %8, label %.thread
 
-._crit_edge:                                      ; preds = %1, %2
-  %6 = phi ptr [ null, %2 ], [ %.pre, %1 ]
-  %7 = icmp eq ptr %6, %.8.val
-  br i1 %7, label %8, label %9
+6:                                                ; preds = %1
+  %7 = icmp eq ptr %.8.val, %.pre
+  br i1 %7, label %8, label %.thread
 
-8:                                                ; preds = %3, %._crit_edge
-  br label %9
+8:                                                ; preds = %3, %6
+  br label %.thread
 
-9:                                                ; preds = %3, %._crit_edge, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ false, %3 ]
+.thread:                                          ; preds = %2, %3, %6, %8
+  %.0 = phi i1 [ true, %8 ], [ false, %6 ], [ false, %3 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -11490,27 +11489,26 @@ define internal fastcc noundef zeroext i1 @_equalClosePortalStmt(ptr readonly %.
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not, label %._crit_edge, label %2
+  br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
   %.not9 = icmp eq ptr %.pre, null
-  br i1 %.not9, label %._crit_edge, label %3
+  br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %8, label %9
+  br i1 %5, label %8, label %.thread
 
-._crit_edge:                                      ; preds = %1, %2
-  %6 = phi ptr [ null, %2 ], [ %.pre, %1 ]
-  %7 = icmp eq ptr %6, %.8.val
-  br i1 %7, label %8, label %9
+6:                                                ; preds = %1
+  %7 = icmp eq ptr %.8.val, %.pre
+  br i1 %7, label %8, label %.thread
 
-8:                                                ; preds = %3, %._crit_edge
-  br label %9
+8:                                                ; preds = %3, %6
+  br label %.thread
 
-9:                                                ; preds = %3, %._crit_edge, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ false, %3 ]
+.thread:                                          ; preds = %2, %3, %6, %8
+  %.0 = phi i1 [ true, %8 ], [ false, %6 ], [ false, %3 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -12594,27 +12592,26 @@ define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly %.8.val
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not, label %._crit_edge, label %2
+  br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
   %.not9 = icmp eq ptr %.pre, null
-  br i1 %.not9, label %._crit_edge, label %3
+  br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %8, label %9
+  br i1 %5, label %8, label %.thread
 
-._crit_edge:                                      ; preds = %1, %2
-  %6 = phi ptr [ null, %2 ], [ %.pre, %1 ]
-  %7 = icmp eq ptr %6, %.8.val
-  br i1 %7, label %8, label %9
+6:                                                ; preds = %1
+  %7 = icmp eq ptr %.8.val, %.pre
+  br i1 %7, label %8, label %.thread
 
-8:                                                ; preds = %3, %._crit_edge
-  br label %9
+8:                                                ; preds = %3, %6
+  br label %.thread
 
-9:                                                ; preds = %3, %._crit_edge, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ false, %3 ]
+.thread:                                          ; preds = %2, %3, %6, %8
+  %.0 = phi i1 [ true, %8 ], [ false, %6 ], [ false, %3 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -12623,27 +12620,26 @@ define internal fastcc noundef zeroext i1 @_equalUnlistenStmt(ptr readonly %.8.v
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not, label %._crit_edge, label %2
+  br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
   %.not9 = icmp eq ptr %.pre, null
-  br i1 %.not9, label %._crit_edge, label %3
+  br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %8, label %9
+  br i1 %5, label %8, label %.thread
 
-._crit_edge:                                      ; preds = %1, %2
-  %6 = phi ptr [ null, %2 ], [ %.pre, %1 ]
-  %7 = icmp eq ptr %6, %.8.val
-  br i1 %7, label %8, label %9
+6:                                                ; preds = %1
+  %7 = icmp eq ptr %.8.val, %.pre
+  br i1 %7, label %8, label %.thread
 
-8:                                                ; preds = %3, %._crit_edge
-  br label %9
+8:                                                ; preds = %3, %6
+  br label %.thread
 
-9:                                                ; preds = %3, %._crit_edge, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ false, %3 ]
+.thread:                                          ; preds = %2, %3, %6, %8
+  %.0 = phi i1 [ true, %8 ], [ false, %6 ], [ false, %3 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -12945,27 +12941,26 @@ define internal fastcc noundef zeroext i1 @_equalLoadStmt(ptr readonly %.8.val, 
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not, label %._crit_edge, label %2
+  br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
   %.not9 = icmp eq ptr %.pre, null
-  br i1 %.not9, label %._crit_edge, label %3
+  br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %8, label %9
+  br i1 %5, label %8, label %.thread
 
-._crit_edge:                                      ; preds = %1, %2
-  %6 = phi ptr [ null, %2 ], [ %.pre, %1 ]
-  %7 = icmp eq ptr %6, %.8.val
-  br i1 %7, label %8, label %9
+6:                                                ; preds = %1
+  %7 = icmp eq ptr %.8.val, %.pre
+  br i1 %7, label %8, label %.thread
 
-8:                                                ; preds = %3, %._crit_edge
-  br label %9
+8:                                                ; preds = %3, %6
+  br label %.thread
 
-9:                                                ; preds = %3, %._crit_edge, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ false, %3 ]
+.thread:                                          ; preds = %2, %3, %6, %8
+  %.0 = phi i1 [ true, %8 ], [ false, %6 ], [ false, %3 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -13044,27 +13039,26 @@ define internal fastcc noundef zeroext i1 @_equalAlterDatabaseRefreshCollStmt(pt
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not, label %._crit_edge, label %2
+  br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
   %.not9 = icmp eq ptr %.pre, null
-  br i1 %.not9, label %._crit_edge, label %3
+  br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %8, label %9
+  br i1 %5, label %8, label %.thread
 
-._crit_edge:                                      ; preds = %1, %2
-  %6 = phi ptr [ null, %2 ], [ %.pre, %1 ]
-  %7 = icmp eq ptr %6, %.8.val
-  br i1 %7, label %8, label %9
+6:                                                ; preds = %1
+  %7 = icmp eq ptr %.8.val, %.pre
+  br i1 %7, label %8, label %.thread
 
-8:                                                ; preds = %3, %._crit_edge
-  br label %9
+8:                                                ; preds = %3, %6
+  br label %.thread
 
-9:                                                ; preds = %3, %._crit_edge, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ false, %3 ]
+.thread:                                          ; preds = %2, %3, %6, %8
+  %.0 = phi i1 [ true, %8 ], [ false, %6 ], [ false, %3 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -14694,27 +14688,26 @@ define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly %.8.val, ptr
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not, label %._crit_edge, label %2
+  br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
   %.not9 = icmp eq ptr %.pre, null
-  br i1 %.not9, label %._crit_edge, label %3
+  br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %8, label %9
+  br i1 %5, label %8, label %.thread
 
-._crit_edge:                                      ; preds = %1, %2
-  %6 = phi ptr [ null, %2 ], [ %.pre, %1 ]
-  %7 = icmp eq ptr %6, %.8.val
-  br i1 %7, label %8, label %9
+6:                                                ; preds = %1
+  %7 = icmp eq ptr %.8.val, %.pre
+  br i1 %7, label %8, label %.thread
 
-8:                                                ; preds = %3, %._crit_edge
-  br label %9
+8:                                                ; preds = %3, %6
+  br label %.thread
 
-9:                                                ; preds = %3, %._crit_edge, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ false, %3 ]
+.thread:                                          ; preds = %2, %3, %6, %8
+  %.0 = phi i1 [ true, %8 ], [ false, %6 ], [ false, %3 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -14723,27 +14716,26 @@ define internal fastcc noundef zeroext i1 @_equalString(ptr readonly %.8.val, pt
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not, label %._crit_edge, label %2
+  br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
   %.not9 = icmp eq ptr %.pre, null
-  br i1 %.not9, label %._crit_edge, label %3
+  br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %8, label %9
+  br i1 %5, label %8, label %.thread
 
-._crit_edge:                                      ; preds = %1, %2
-  %6 = phi ptr [ null, %2 ], [ %.pre, %1 ]
-  %7 = icmp eq ptr %6, %.8.val
-  br i1 %7, label %8, label %9
+6:                                                ; preds = %1
+  %7 = icmp eq ptr %.8.val, %.pre
+  br i1 %7, label %8, label %.thread
 
-8:                                                ; preds = %3, %._crit_edge
-  br label %9
+8:                                                ; preds = %3, %6
+  br label %.thread
 
-9:                                                ; preds = %3, %._crit_edge, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ false, %3 ]
+.thread:                                          ; preds = %2, %3, %6, %8
+  %.0 = phi i1 [ true, %8 ], [ false, %6 ], [ false, %3 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -14752,27 +14744,26 @@ define internal fastcc noundef zeroext i1 @_equalBitString(ptr readonly %.8.val,
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not, label %._crit_edge, label %2
+  br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
   %.not9 = icmp eq ptr %.pre, null
-  br i1 %.not9, label %._crit_edge, label %3
+  br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %8, label %9
+  br i1 %5, label %8, label %.thread
 
-._crit_edge:                                      ; preds = %1, %2
-  %6 = phi ptr [ null, %2 ], [ %.pre, %1 ]
-  %7 = icmp eq ptr %6, %.8.val
-  br i1 %7, label %8, label %9
+6:                                                ; preds = %1
+  %7 = icmp eq ptr %.8.val, %.pre
+  br i1 %7, label %8, label %.thread
 
-8:                                                ; preds = %3, %._crit_edge
-  br label %9
+8:                                                ; preds = %3, %6
+  br label %.thread
 
-9:                                                ; preds = %3, %._crit_edge, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ false, %3 ]
+.thread:                                          ; preds = %2, %3, %6, %8
+  %.0 = phi i1 [ true, %8 ], [ false, %6 ], [ false, %3 ], [ false, %2 ]
   ret i1 %.0
 }
 

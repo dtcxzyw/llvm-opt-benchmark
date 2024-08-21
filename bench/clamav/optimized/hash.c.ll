@@ -414,7 +414,7 @@ define dso_local range(i32 0, 4) i32 @onas_ht_get(ptr noundef readonly %0, ptr n
   %28 = xor i32 %27, %26
   %29 = add i32 %.011.i, 1
   %30 = zext i32 %29 to i64
-  %31 = icmp ult i64 %30, %2
+  %31 = icmp ugt i64 %2, %30
   br i1 %31, label %.lr.ph.i, label %onas_hash.exit
 
 onas_hash.exit:                                   ; preds = %.lr.ph.i
@@ -500,7 +500,7 @@ define dso_local range(i32 0, 4) i32 @onas_ht_remove(ptr noundef readonly %0, pt
   %26 = xor i32 %25, %24
   %27 = add i32 %.011.i, 1
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %28, %2
+  %29 = icmp ugt i64 %2, %28
   br i1 %29, label %.lr.ph.i, label %onas_hash.exit
 
 onas_hash.exit:                                   ; preds = %.lr.ph.i
@@ -510,162 +510,158 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i
   %33 = getelementptr inbounds ptr, ptr %9, i64 %32
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %onas_ht_get.exit.thread, label %.lr.ph.i.i.preheader
+  br i1 %.not, label %onas_ht_get.exit.thread, label %.lr.ph.i.i
 
-.lr.ph.i.i.preheader:                             ; preds = %onas_hash.exit
-  %35 = trunc i64 %2 to i32
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %36 = phi i64 [ %52, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %.011.i.i = phi i32 [ %51, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %.0810.i.i = phi i32 [ %50, %.lr.ph.i.i ], [ 1, %.lr.ph.i.i.preheader ]
-  %37 = getelementptr inbounds i8, ptr %1, i64 %36
-  %38 = load i8, ptr %37, align 1
-  %39 = sext i8 %38 to i32
-  %40 = add i32 %.0810.i.i, %39
-  %41 = xor i32 %40, -1
-  %42 = mul i32 %41, 32769
-  %43 = lshr i32 %42, 12
-  %44 = xor i32 %43, %42
-  %45 = mul i32 %44, 5
-  %46 = lshr i32 %45, 4
-  %47 = xor i32 %46, %45
-  %48 = mul i32 %47, 18441
-  %49 = lshr i32 %48, 16
-  %50 = xor i32 %49, %48
-  %51 = add nuw i32 %.011.i.i, 1
-  %52 = zext i32 %51 to i64
-  %53 = icmp ult i32 %51, %35
-  br i1 %53, label %.lr.ph.i.i, label %onas_hash.exit.i
+.lr.ph.i.i:                                       ; preds = %onas_hash.exit, %.lr.ph.i.i
+  %35 = phi i64 [ %51, %.lr.ph.i.i ], [ 0, %onas_hash.exit ]
+  %.011.i.i = phi i32 [ %50, %.lr.ph.i.i ], [ 0, %onas_hash.exit ]
+  %.0810.i.i = phi i32 [ %49, %.lr.ph.i.i ], [ 1, %onas_hash.exit ]
+  %36 = getelementptr inbounds i8, ptr %1, i64 %35
+  %37 = load i8, ptr %36, align 1
+  %38 = sext i8 %37 to i32
+  %39 = add i32 %.0810.i.i, %38
+  %40 = xor i32 %39, -1
+  %41 = mul i32 %40, 32769
+  %42 = lshr i32 %41, 12
+  %43 = xor i32 %42, %41
+  %44 = mul i32 %43, 5
+  %45 = lshr i32 %44, 4
+  %46 = xor i32 %45, %44
+  %47 = mul i32 %46, 18441
+  %48 = lshr i32 %47, 16
+  %49 = xor i32 %48, %47
+  %50 = add i32 %.011.i.i, 1
+  %51 = zext i32 %50 to i64
+  %52 = icmp ugt i64 %2, %51
+  br i1 %52, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
-  %54 = and i32 %50, %30
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %9, i64 %55
-  %57 = load ptr, ptr %56, align 8
-  %.not30.i = icmp eq ptr %57, null
-  br i1 %.not30.i, label %onas_ht_get.exit.thread, label %58
+  %53 = and i32 %49, %30
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds ptr, ptr %9, i64 %54
+  %56 = load ptr, ptr %55, align 8
+  %.not30.i = icmp eq ptr %56, null
+  br i1 %.not30.i, label %onas_ht_get.exit.thread, label %57
 
-58:                                               ; preds = %onas_hash.exit.i
-  %59 = load i32, ptr %57, align 8
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %onas_ht_get.exit.thread, label %61
+57:                                               ; preds = %onas_hash.exit.i
+  %58 = load i32, ptr %56, align 8
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %onas_ht_get.exit.thread, label %60
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %57, i64 8
-  %.035.i = load ptr, ptr %62, align 8
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds i8, ptr %56, i64 8
+  %.035.i = load ptr, ptr %61, align 8
   %.not3136.i = icmp eq ptr %.035.i, null
   br i1 %.not3136.i, label %onas_ht_get.exit.thread, label %.lr.ph.i27
 
-.lr.ph.i27:                                       ; preds = %61, %65
-  %.037.i = phi ptr [ %.0.i, %65 ], [ %.035.i, %61 ]
-  %63 = load ptr, ptr %.037.i, align 8
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull readonly dereferenceable(1) %1) #20
-  %.not32.i = icmp eq i32 %64, 0
-  br i1 %.not32.i, label %onas_ht_get.exit, label %65
+.lr.ph.i27:                                       ; preds = %60, %64
+  %.037.i = phi ptr [ %.0.i, %64 ], [ %.035.i, %60 ]
+  %62 = load ptr, ptr %.037.i, align 8
+  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull readonly dereferenceable(1) %1) #20
+  %.not32.i = icmp eq i32 %63, 0
+  br i1 %.not32.i, label %onas_ht_get.exit, label %64
 
-65:                                               ; preds = %.lr.ph.i27
-  %66 = getelementptr inbounds i8, ptr %.037.i, i64 24
-  %.0.i = load ptr, ptr %66, align 8
+64:                                               ; preds = %.lr.ph.i27
+  %65 = getelementptr inbounds i8, ptr %.037.i, i64 24
+  %.0.i = load ptr, ptr %65, align 8
   %.not31.i = icmp eq ptr %.0.i, null
   br i1 %.not31.i, label %onas_ht_get.exit.thread, label %.lr.ph.i27
 
 onas_ht_get.exit:                                 ; preds = %.lr.ph.i27
-  %67 = getelementptr inbounds i8, ptr %34, i64 8
-  br label %68
+  %66 = getelementptr inbounds i8, ptr %34, i64 8
+  br label %67
 
-68:                                               ; preds = %68, %onas_ht_get.exit
-  %.0.in.i = phi ptr [ %67, %onas_ht_get.exit ], [ %72, %68 ]
+67:                                               ; preds = %67, %onas_ht_get.exit
+  %.0.in.i = phi ptr [ %66, %onas_ht_get.exit ], [ %71, %67 ]
   %.0.i28 = load ptr, ptr %.0.in.i, align 8
-  %69 = icmp ne ptr %.0.i28, null
-  %70 = icmp ne ptr %.0.i28, %.037.i
-  %71 = and i1 %69, %70
-  %72 = getelementptr inbounds i8, ptr %.0.i28, i64 24
-  br i1 %71, label %68, label %73
+  %68 = icmp ne ptr %.0.i28, null
+  %69 = icmp ne ptr %.0.i28, %.037.i
+  %70 = and i1 %68, %69
+  %71 = getelementptr inbounds i8, ptr %.0.i28, i64 24
+  br i1 %70, label %67, label %72
 
-73:                                               ; preds = %68
-  br i1 %69, label %74, label %onas_bucket_remove.exit
+72:                                               ; preds = %67
+  br i1 %68, label %73, label %onas_bucket_remove.exit
 
-74:                                               ; preds = %73
-  %75 = load ptr, ptr %67, align 8
-  %76 = icmp eq ptr %75, %.037.i
-  br i1 %76, label %77, label %83
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %66, align 8
+  %75 = icmp eq ptr %74, %.037.i
+  br i1 %75, label %76, label %82
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %.037.i, i64 24
-  %79 = load ptr, ptr %78, align 8
-  store ptr %79, ptr %67, align 8
-  %.not40.i = icmp eq ptr %79, null
-  br i1 %.not40.i, label %82, label %80
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds i8, ptr %.037.i, i64 24
+  %78 = load ptr, ptr %77, align 8
+  store ptr %78, ptr %66, align 8
+  %.not40.i = icmp eq ptr %78, null
+  br i1 %.not40.i, label %81, label %79
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 32
-  store ptr null, ptr %81, align 8
-  br label %82
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %78, i64 32
+  store ptr null, ptr %80, align 8
+  br label %81
 
-82:                                               ; preds = %80, %77
-  store ptr null, ptr %78, align 8
-  br label %102
+81:                                               ; preds = %79, %76
+  store ptr null, ptr %77, align 8
+  br label %101
 
-83:                                               ; preds = %74
-  %84 = getelementptr inbounds i8, ptr %34, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, %.037.i
-  %87 = getelementptr inbounds i8, ptr %.037.i, i64 32
-  %88 = load ptr, ptr %87, align 8
-  br i1 %86, label %89, label %93
+82:                                               ; preds = %73
+  %83 = getelementptr inbounds i8, ptr %34, i64 16
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, %.037.i
+  %86 = getelementptr inbounds i8, ptr %.037.i, i64 32
+  %87 = load ptr, ptr %86, align 8
+  br i1 %85, label %88, label %92
 
-89:                                               ; preds = %83
-  store ptr %88, ptr %84, align 8
-  %.not39.i = icmp eq ptr %88, null
-  br i1 %.not39.i, label %92, label %90
+88:                                               ; preds = %82
+  store ptr %87, ptr %83, align 8
+  %.not39.i = icmp eq ptr %87, null
+  br i1 %.not39.i, label %91, label %89
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds i8, ptr %88, i64 24
-  store ptr null, ptr %91, align 8
-  br label %92
+89:                                               ; preds = %88
+  %90 = getelementptr inbounds i8, ptr %87, i64 24
+  store ptr null, ptr %90, align 8
+  br label %91
 
-92:                                               ; preds = %90, %89
-  store ptr null, ptr %87, align 8
-  br label %102
+91:                                               ; preds = %89, %88
+  store ptr null, ptr %86, align 8
+  br label %101
 
-93:                                               ; preds = %83
-  %.not.i29 = icmp eq ptr %88, null
-  br i1 %.not.i29, label %100, label %94
+92:                                               ; preds = %82
+  %.not.i29 = icmp eq ptr %87, null
+  br i1 %.not.i29, label %99, label %93
 
-94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %.037.i, i64 24
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %88, i64 24
-  store ptr %96, ptr %97, align 8
-  %98 = load ptr, ptr %87, align 8
-  %99 = getelementptr inbounds i8, ptr %96, i64 32
-  store ptr %98, ptr %99, align 8
-  br label %100
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds i8, ptr %.037.i, i64 24
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %87, i64 24
+  store ptr %95, ptr %96, align 8
+  %97 = load ptr, ptr %86, align 8
+  %98 = getelementptr inbounds i8, ptr %95, i64 32
+  store ptr %97, ptr %98, align 8
+  br label %99
 
-100:                                              ; preds = %94, %93
-  %101 = getelementptr inbounds i8, ptr %.037.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
-  br label %102
+99:                                               ; preds = %93, %92
+  %100 = getelementptr inbounds i8, ptr %.037.i, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, i8 0, i64 16, i1 false)
+  br label %101
 
-102:                                              ; preds = %100, %92, %82
-  %103 = load i32, ptr %34, align 8
-  %104 = add i32 %103, -1
-  store i32 %104, ptr %34, align 8
+101:                                              ; preds = %99, %91, %81
+  %102 = load i32, ptr %34, align 8
+  %103 = add i32 %102, -1
+  store i32 %103, ptr %34, align 8
   br label %onas_bucket_remove.exit
 
-onas_bucket_remove.exit:                          ; preds = %73, %102
-  %.033.i = phi i32 [ 0, %102 ], [ 3, %73 ]
+onas_bucket_remove.exit:                          ; preds = %72, %101
+  %.033.i = phi i32 [ 0, %101 ], [ 3, %72 ]
   %.not25 = icmp eq ptr %3, null
-  br i1 %.not25, label %onas_ht_get.exit.thread, label %105
+  br i1 %.not25, label %onas_ht_get.exit.thread, label %104
 
-105:                                              ; preds = %onas_bucket_remove.exit
+104:                                              ; preds = %onas_bucket_remove.exit
   store ptr %.037.i, ptr %3, align 8
   br label %onas_ht_get.exit.thread
 
-onas_ht_get.exit.thread:                          ; preds = %65, %61, %58, %onas_hash.exit.i, %onas_bucket_remove.exit, %105, %onas_hash.exit, %4
-  %.0 = phi i32 [ 2, %4 ], [ 3, %onas_hash.exit ], [ %.033.i, %105 ], [ %.033.i, %onas_bucket_remove.exit ], [ 3, %onas_hash.exit.i ], [ 3, %58 ], [ 3, %61 ], [ 3, %65 ]
+onas_ht_get.exit.thread:                          ; preds = %64, %60, %57, %onas_hash.exit.i, %onas_bucket_remove.exit, %104, %onas_hash.exit, %4
+  %.0 = phi i32 [ 2, %4 ], [ 3, %onas_hash.exit ], [ %.033.i, %104 ], [ %.033.i, %onas_bucket_remove.exit ], [ 3, %onas_hash.exit.i ], [ 3, %57 ], [ 3, %60 ], [ 3, %64 ]
   ret i32 %.0
 }
 
@@ -875,7 +871,7 @@ onas_get_dirname_idx.exit:                        ; preds = %.lr.ph.i, %18, %11
   %45 = xor i32 %44, %43
   %46 = add i32 %.011.i.i, 1
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %47, %2
+  %48 = icmp ugt i64 %2, %47
   br i1 %48, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
@@ -997,7 +993,7 @@ onas_get_dirname_idx.exit:                        ; preds = %.lr.ph.i, %18, %11
   %45 = xor i32 %44, %43
   %46 = add i32 %.011.i.i, 1
   %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %47, %2
+  %48 = icmp ugt i64 %2, %47
   br i1 %48, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
@@ -1449,7 +1445,7 @@ define dso_local range(i32 0, 21) i32 @onas_ht_rm_hierarchy(ptr noundef %0, ptr 
   %26 = xor i32 %25, %24
   %27 = add i32 %.011.i.i, 1
   %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %28, %2
+  %29 = icmp ugt i64 %2, %28
   br i1 %29, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i

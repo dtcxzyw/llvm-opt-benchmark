@@ -2103,7 +2103,7 @@ define dso_local ptr @sacctmgr_find_res_from_list(ptr noundef %0, i32 noundef %1
   %14 = phi ptr [ %27, %26 ], [ %11, %.lr.ph ]
   %15 = getelementptr inbounds i8, ptr %14, i64 44
   %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %16, %1
+  %17 = icmp eq i32 %1, %16
   br i1 %17, label %._crit_edge, label %18
 
 18:                                               ; preds = %.lr.ph.split.us
@@ -2129,7 +2129,7 @@ define dso_local ptr @sacctmgr_find_res_from_list(ptr noundef %0, i32 noundef %1
   %28 = phi ptr [ %33, %32 ], [ %11, %.lr.ph ]
   %29 = getelementptr inbounds i8, ptr %28, i64 44
   %30 = load i32, ptr %29, align 4
-  %31 = icmp eq i32 %30, %1
+  %31 = icmp eq i32 %1, %30
   br i1 %31, label %._crit_edge, label %32
 
 32:                                               ; preds = %.lr.ph.split

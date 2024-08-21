@@ -477,8 +477,8 @@ define weak_odr <4 x float> @_ZNK7mitsuba23SRGBReflectanceSpectrumIfN5drjit6Matr
   %19 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %13, <4 x float> %13, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
   %20 = tail call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %19, <4 x float> zeroinitializer, i8 -1)
   %21 = fmul contract <4 x float> %20, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %22 = fneg contract <4 x float> %20
-  %23 = fmul contract <4 x float> %19, %22
+  %22 = fneg contract <4 x float> %19
+  %23 = fmul contract <4 x float> %20, %22
   %24 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %23, <4 x float> %20, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
   %25 = fmul contract <4 x float> %21, %24
   %26 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %25, <4 x float> %19, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
@@ -611,8 +611,8 @@ define weak_odr void @_ZNK7mitsuba23SRGBReflectanceSpectrumIfN5drjit6MatrixINS_8
   %22 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %16, <4 x float> %16, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
   %23 = tail call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %22, <4 x float> zeroinitializer, i8 -1)
   %24 = fmul contract <4 x float> %23, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %25 = fneg contract <4 x float> %23
-  %26 = fmul contract <4 x float> %22, %25
+  %25 = fneg contract <4 x float> %22
+  %26 = fmul contract <4 x float> %23, %25
   %27 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %26, <4 x float> %23, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
   %28 = fmul contract <4 x float> %24, %27
   %29 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %28, <4 x float> %22, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
@@ -2754,7 +2754,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %49 = zext nneg i8 %48 to i64
   %50 = select i1 %.not.i.i.i, i64 %49, i64 %47
   %51 = trunc i64 %50 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %51, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %51)
   %52 = sext i32 %.sroa.speculated to i64
   %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %45, i64 noundef %52)
           to label %54 unwind label %62

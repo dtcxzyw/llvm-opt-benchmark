@@ -145,7 +145,7 @@ oideq.exit.i:                                     ; preds = %if.end.i.i.i, %if.t
 
 if.end18.i:                                       ; preds = %oideq.exit.i, %land.lhs.true.i, %if.end.i
   %16 = load ptr, ptr @the_repository, align 8
-  %cmp19.i = icmp eq ptr %16, %r
+  %cmp19.i = icmp eq ptr %r, %16
   br i1 %cmp19.i, label %land.lhs.true21.i, label %if.end25.i
 
 land.lhs.true21.i:                                ; preds = %if.end18.i

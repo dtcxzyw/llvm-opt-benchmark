@@ -219,7 +219,7 @@ ExecProcNode.exit.i:                              ; preds = %42, %40
   %.val.val.i = load i16, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %44, i64 6
   %53 = load i16, ptr %52, align 2
-  %54 = icmp slt i16 %53, %.val.val.i
+  %54 = icmp sgt i16 %.val.val.i, %53
   br i1 %54, label %slot_getsomeattrs.exit.i.i.i, label %fetch_tuple_flag.exit.i
 
 slot_getsomeattrs.exit.i.i.i:                     ; preds = %50
@@ -421,7 +421,7 @@ ExecProcNode.exit.i21:                            ; preds = %144, %142
   %162 = getelementptr i8, ptr %.val.i15, i64 144
   %.val.val.i16 = load i16, ptr %162, align 8
   %163 = load i16, ptr %131, align 2
-  %164 = icmp slt i16 %163, %.val.val.i16
+  %164 = icmp sgt i16 %.val.val.i16, %163
   br i1 %164, label %fetch_tuple_flag.exit.i17.sink.split, label %fetch_tuple_flag.exit.i17.preheader
 
 fetch_tuple_flag.exit.i17.sink.split:             ; preds = %200, %159
@@ -520,7 +520,7 @@ ExecQualAndReset.exit.i:                          ; preds = %184
   %.val45.val.i = load i16, ptr %201, align 8
   %202 = getelementptr inbounds i8, ptr %177, i64 6
   %203 = load i16, ptr %202, align 2
-  %204 = icmp slt i16 %203, %.val45.val.i
+  %204 = icmp sgt i16 %.val45.val.i, %203
   br i1 %204, label %fetch_tuple_flag.exit.i17.sink.split, label %fetch_tuple_flag.exit.i17
 
 205:                                              ; preds = %194, %183

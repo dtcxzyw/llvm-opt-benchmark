@@ -7168,7 +7168,7 @@ define internal i32 @dissect_p1_GlobalDomainIdentifier(i1 noundef zeroext %0, pt
   %32 = tail call ptr @wmem_strbuf_get_str(ptr noundef %31) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.1617, ptr noundef %32) #4
   %33 = load i32, ptr @hf_p1_subject_identifier, align 4
-  %34 = icmp eq i32 %33, %5
+  %34 = icmp eq i32 %5, %33
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %29
@@ -7218,7 +7218,7 @@ define internal i32 @dissect_p1_LocalIdentifier(i1 noundef zeroext %0, ptr nound
 
 24:                                               ; preds = %16, %14, %13
   %25 = load i32, ptr @hf_p1_subject_identifier, align 4
-  %26 = icmp eq i32 %25, %5
+  %26 = icmp eq i32 %5, %25
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %24

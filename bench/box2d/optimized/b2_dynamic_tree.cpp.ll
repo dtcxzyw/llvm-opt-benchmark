@@ -637,7 +637,7 @@ entry:
 define void @_ZN13b2DynamicTree10RemoveLeafEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %leaf) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
-  %cmp = icmp eq i32 %0, %leaf
+  %cmp = icmp eq i32 %leaf, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

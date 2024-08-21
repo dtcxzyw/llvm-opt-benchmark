@@ -308,7 +308,7 @@ entry:
   %0 = load ptr, ptr %hba_private, align 8
   %current_req = getelementptr inbounds i8, ptr %0, i64 400
   %1 = load ptr, ptr %current_req, align 8
-  %cmp = icmp eq ptr %1, %req
+  %cmp = icmp eq ptr %req, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -3285,7 +3285,7 @@ entry:
   %mig_version_id = getelementptr inbounds i8, ptr %call.i, i64 497
   %0 = load i8, ptr %mig_version_id, align 1
   %conv = zext i8 %0 to i32
-  %cond = tail call i32 @llvm.smin.i32(i32 %conv, i32 %version_id)
+  %cond = tail call i32 @llvm.smin.i32(i32 %version_id, i32 %conv)
   %cmp2 = icmp slt i32 %cond, 5
   br i1 %cmp2, label %if.then, label %if.end
 
@@ -3360,7 +3360,7 @@ entry:
   %mig_version_id = getelementptr inbounds i8, ptr %call.i, i64 497
   %0 = load i8, ptr %mig_version_id, align 1
   %conv = zext i8 %0 to i32
-  %cond = tail call i32 @llvm.smin.i32(i32 %conv, i32 %version_id)
+  %cond = tail call i32 @llvm.smin.i32(i32 %version_id, i32 %conv)
   %cmp2 = icmp slt i32 %cond, 5
   ret i1 %cmp2
 }
@@ -3372,7 +3372,7 @@ entry:
   %mig_version_id = getelementptr inbounds i8, ptr %call.i, i64 497
   %0 = load i8, ptr %mig_version_id, align 1
   %conv = zext i8 %0 to i32
-  %cond = tail call i32 @llvm.smin.i32(i32 %conv, i32 %version_id)
+  %cond = tail call i32 @llvm.smin.i32(i32 %version_id, i32 %conv)
   %cmp2 = icmp sgt i32 %cond, 4
   ret i1 %cmp2
 }
@@ -3384,7 +3384,7 @@ entry:
   %mig_version_id = getelementptr inbounds i8, ptr %call.i, i64 497
   %0 = load i8, ptr %mig_version_id, align 1
   %conv = zext i8 %0 to i32
-  %cond = tail call i32 @llvm.smin.i32(i32 %conv, i32 %version_id)
+  %cond = tail call i32 @llvm.smin.i32(i32 %version_id, i32 %conv)
   %cmp2 = icmp sgt i32 %cond, 5
   ret i1 %cmp2
 }
@@ -4136,7 +4136,7 @@ entry:
 
 lor.rhs:                                          ; preds = %entry
   %cmp1 = icmp eq i32 %size, 4
-  %0 = and i1 %cmp1, %is_write
+  %0 = and i1 %is_write, %cmp1
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry

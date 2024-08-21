@@ -5676,7 +5676,7 @@ define internal noundef range(i32 -22, 1) i32 @hugetlb_vm_op_split(ptr nocapture
   %13 = getelementptr inbounds i8, ptr %12, i64 48
   %14 = load i64, ptr %13, align 8
   %15 = xor i64 %14, -1
-  %16 = and i64 %15, %1
+  %16 = and i64 %1, %15
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %18, label %31
 
@@ -7587,7 +7587,7 @@ define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr nocapture noun
   %31 = getelementptr inbounds i8, ptr %20, i64 48
   %32 = load i64, ptr %31, align 8
   %33 = xor i64 %32, -1
-  %34 = and i64 %33, %2
+  %34 = and i64 %2, %33
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %37, label %36, !prof !24
 
@@ -7597,7 +7597,7 @@ define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr nocapture noun
   unreachable
 
 37:                                               ; preds = %30
-  %38 = and i64 %33, %3
+  %38 = and i64 %3, %33
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %41, label %40, !prof !24
 
@@ -9721,7 +9721,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
   %101 = getelementptr inbounds i8, ptr %92, i64 48
   %102 = getelementptr inbounds i8, ptr %92, i64 24
   %103 = getelementptr inbounds i8, ptr %1, i64 144
-  %104 = icmp eq ptr %92, %5
+  %104 = icmp eq ptr %5, %92
   %105 = getelementptr inbounds i8, ptr %92, i64 52
   %106 = getelementptr inbounds i8, ptr %27, i64 40
   %107 = getelementptr inbounds i8, ptr %1, i64 128
@@ -10764,7 +10764,7 @@ define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly %0, i64 noun
 .thread8:                                         ; preds = %125, %.thread10, %254, %179, %141, %136
   %258 = load i64, ptr %18, align 8
   %259 = xor i64 %258, -1
-  %260 = and i64 %259, %1
+  %260 = and i64 %1, %259
   %261 = lshr i64 %260, 12
   %262 = getelementptr %struct.page, ptr %132, i64 %261
   %263 = tail call i32 @try_grab_page(ptr noundef %262, i32 noundef %2) #22
@@ -12761,7 +12761,7 @@ define dso_local range(i32 -16, 2) i32 @get_hwpoison_hugetlb_folio(ptr noundef %
   %18 = load volatile i64, ptr %13, align 8
   %19 = and i64 %18, 2
   %20 = icmp ne i64 %19, 0
-  %21 = or i1 %20, %2
+  %21 = or i1 %2, %20
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %17

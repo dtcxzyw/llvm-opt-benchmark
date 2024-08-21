@@ -153,7 +153,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr nocapture noundef read
   %8 = alloca [8 x i32], align 16
   %9 = alloca [8 x i32], align 16
   %10 = xor i1 %6, true
-  %11 = or i1 %10, %2
+  %11 = or i1 %2, %10
   br i1 %11, label %81, label %.preheader30
 
 .preheader30:                                     ; preds = %7, %16
@@ -596,7 +596,7 @@ define dso_local nonnull ptr @snd_hdac_get_ch_alloc_from_ca(i32 noundef %0) #4 a
 define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5) #0 align 16 {
   %7 = alloca [80 x i8], align 16
   %8 = xor i1 %3, true
-  %9 = or i1 %8, %4
+  %9 = or i1 %4, %8
   br i1 %9, label %58, label %10
 
 10:                                               ; preds = %6

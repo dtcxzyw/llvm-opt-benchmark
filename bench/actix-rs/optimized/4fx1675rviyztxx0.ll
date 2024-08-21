@@ -14127,7 +14127,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$zstd_safe..OutBufferWrapper$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5496)
   %5 = load ptr, ptr %2, align 8, !alias.scope !5496, !noalias !5493, !nonnull !4, !align !22, !noundef !4
   %6 = load i64, ptr %5, align 8, !alias.scope !5499, !noalias !5502, !noundef !4
-  %7 = icmp ult i64 %6, %4
+  %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %"_ZN78_$LT$zstd_safe..OutBufferWrapper$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4df8023ffb8d485E.llvm.14998522591088738574.exit"
 
 8:                                                ; preds = %1
@@ -20433,7 +20433,7 @@ define hidden void @"_ZN78_$LT$zstd_safe..OutBufferWrapper$LT$C$GT$$u20$as$u20$c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6929)
   %5 = load ptr, ptr %2, align 8, !alias.scope !6929, !nonnull !4, !align !22, !noundef !4
   %6 = load i64, ptr %5, align 8, !alias.scope !6932, !noalias !6929, !noundef !4
-  %7 = icmp ult i64 %6, %4
+  %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %"_ZN9zstd_safe18OutBuffer$LT$C$GT$7set_pos17hb045cc386165c08dE.exit"
 
 8:                                                ; preds = %1

@@ -708,7 +708,7 @@ define dso_local i32 @rw_verify_area(i32 noundef %0, ptr noundef %1, ptr noundef
 
 18:                                               ; preds = %13
   %19 = sub i64 0, %11
-  %20 = icmp ugt i64 %19, %3
+  %20 = icmp ult i64 %3, %19
   br i1 %20, label %29, label %.thread
 
 21:                                               ; preds = %10
@@ -981,7 +981,7 @@ define dso_local i64 @kernel_read(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 16:                                               ; preds = %11
   %17 = sub i64 0, %9
-  %18 = icmp ugt i64 %17, %2
+  %18 = icmp ult i64 %2, %17
   br i1 %18, label %27, label %.thread6
 
 19:                                               ; preds = %8
@@ -1032,7 +1032,7 @@ define dso_local i64 @vfs_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
 
 14:                                               ; preds = %11
   %15 = ptrtoint ptr %1 to i64
-  %16 = add i64 %15, %2
+  %16 = add i64 %2, %15
   %17 = icmp sgt i64 %16, -1
   %18 = icmp uge i64 %16, %15
   %19 = and i1 %17, %18
@@ -1058,7 +1058,7 @@ define dso_local i64 @vfs_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
 
 30:                                               ; preds = %27
   %31 = sub i64 0, %25
-  %32 = icmp ugt i64 %31, %2
+  %32 = icmp ult i64 %2, %31
   br i1 %32, label %39, label %.thread14
 
 33:                                               ; preds = %24
@@ -1498,7 +1498,7 @@ define dso_local i64 @kernel_write(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 18:                                               ; preds = %13
   %19 = sub i64 0, %11
-  %20 = icmp ugt i64 %19, %2
+  %20 = icmp ult i64 %2, %19
   br i1 %20, label %29, label %.thread6
 
 21:                                               ; preds = %10
@@ -1645,7 +1645,7 @@ define dso_local i64 @vfs_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 
 14:                                               ; preds = %11
   %15 = ptrtoint ptr %1 to i64
-  %16 = add i64 %15, %2
+  %16 = add i64 %2, %15
   %17 = icmp sgt i64 %16, -1
   %18 = icmp uge i64 %16, %15
   %19 = and i1 %17, %18
@@ -1671,7 +1671,7 @@ define dso_local i64 @vfs_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 
 30:                                               ; preds = %27
   %31 = sub i64 0, %25
-  %32 = icmp ugt i64 %31, %2
+  %32 = icmp ult i64 %2, %31
   br i1 %32, label %39, label %.thread14
 
 33:                                               ; preds = %24
@@ -5168,9 +5168,9 @@ define dso_local i64 @vfs_copy_file_range(ptr noundef %0, i64 noundef %1, ptr no
 
 74:                                               ; preds = %68
   %75 = xor i64 %1, -1
-  %76 = icmp ult i64 %75, %4
+  %76 = icmp ugt i64 %4, %75
   %77 = xor i64 %3, -1
-  %78 = icmp ult i64 %77, %4
+  %78 = icmp ugt i64 %4, %77
   %79 = or i1 %76, %78
   br i1 %79, label %.thread, label %80
 
@@ -6841,7 +6841,7 @@ define internal fastcc i64 @do_sendfile(i32 noundef %0, i32 noundef %1, ptr noun
 
 34:                                               ; preds = %31
   %35 = sub i64 0, %27
-  %36 = icmp ugt i64 %35, %3
+  %36 = icmp ult i64 %3, %35
   br i1 %36, label %43, label %.thread12
 
 37:                                               ; preds = %29

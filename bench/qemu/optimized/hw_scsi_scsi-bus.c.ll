@@ -479,7 +479,7 @@ entry:
   %call = tail call i32 @scsi_cdb_length(ptr noundef %buf) #15
   %cmp = icmp slt i32 %call, 0
   %conv = zext nneg i32 %call to i64
-  %cmp1 = icmp ugt i64 %conv, %buf_len
+  %cmp1 = icmp ult i64 %buf_len, %conv
   %or.cond = select i1 %cmp, i1 true, i1 %cmp1
   br i1 %or.cond, label %return, label %if.end
 
@@ -1226,7 +1226,7 @@ land.lhs.true32:                                  ; preds = %land.lhs.true
 if.else:                                          ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true32, %lor.lhs.false
   %lun35 = getelementptr inbounds i8, ptr %d, i64 556
   %12 = load i32, ptr %lun35, align 4
-  %cmp36.not = icmp eq i32 %12, %lun
+  %cmp36.not = icmp eq i32 %lun, %12
   br i1 %cmp36.not, label %lor.lhs.false38, label %if.then58
 
 lor.lhs.false38:                                  ; preds = %if.else

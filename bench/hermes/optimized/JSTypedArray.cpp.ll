@@ -345,7 +345,7 @@ define hidden noundef zeroext i1 @_ZN6hermes2vm16JSTypedArrayBase19_haveOwnIndex
 entry:
   %length_.i = getelementptr inbounds i8, ptr %selfObj, i64 24
   %1 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %1, %index
+  %cmp = icmp ult i32 %index, %1
   ret i1 %cmp
 }
 
@@ -354,7 +354,7 @@ define hidden i32 @_ZN6hermes2vm16JSTypedArrayBase31_getOwnIndexedPropertyFlagsI
 entry:
   %length_.i = getelementptr inbounds i8, ptr %selfObj, i64 24
   %0 = load i32, ptr %length_.i, align 4
-  %cmp.not = icmp ugt i32 %0, %index
+  %cmp.not = icmp ult i32 %index, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -397,7 +397,7 @@ _ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit: ; preds = %entry
 if.end:                                           ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 24
   %4 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %4, %index
+  %cmp = icmp ult i32 %index, %4
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
@@ -504,7 +504,7 @@ if.then14:                                        ; preds = %_ZN6hermes2vm12JSTy
 if.end16:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %10, %index
+  %cmp = icmp ult i32 %index, %10
   br i1 %cmp, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end16
@@ -546,7 +546,7 @@ entry:
   %0 = inttoptr i64 %and.i.i.i.i.i to ptr
   %length_.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %length_.i.i, align 4
-  %cmp.i = icmp ule i32 %1, %index
+  %cmp.i = icmp uge i32 %index, %1
   ret i1 %cmp.i
 }
 
@@ -830,7 +830,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_13JSArrayBufferEEENS0_6HandleIT_E
   %conv = zext i8 %5 to i32
   %div = udiv i32 -1, %conv
   %conv14 = zext i32 %div to i64
-  %cmp = icmp ult i64 %conv14, %length
+  %cmp = icmp ugt i64 %length, %conv14
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_13JSArrayBufferEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -848,7 +848,7 @@ if.then:                                          ; preds = %_ZN6hermes2vm15Hand
 
 if.end:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_13JSArrayBufferEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
   %conv19 = zext i8 %5 to i64
-  %mul = mul nuw nsw i64 %conv19, %length
+  %mul = mul nuw nsw i64 %length, %conv19
   %conv20 = trunc i64 %mul to i32
   %call24 = tail call noundef i32 @_ZN6hermes2vm13JSArrayBuffer15createDataBlockERNS0_7RuntimeENS0_6HandleIS1_EEjb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i, i32 noundef %conv20, i1 noundef zeroext true) #10
   %cmp25 = icmp eq i32 %call24, 0
@@ -1242,7 +1242,7 @@ _ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit: ; preds = %entry
 if.end:                                           ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 24
   %4 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %4, %index
+  %cmp = icmp ult i32 %index, %4
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
@@ -1349,7 +1349,7 @@ if.then14:                                        ; preds = %_ZN6hermes2vm12JSTy
 if.end16:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %10, %index
+  %cmp = icmp ult i32 %index, %10
   br i1 %cmp, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end16
@@ -1842,7 +1842,7 @@ _ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit: ; preds = %entry
 if.end:                                           ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 24
   %4 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %4, %index
+  %cmp = icmp ult i32 %index, %4
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
@@ -1948,7 +1948,7 @@ if.then14:                                        ; preds = %_ZN6hermes2vm12JSTy
 if.end16:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %10, %index
+  %cmp = icmp ult i32 %index, %10
   br i1 %cmp, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end16
@@ -2440,7 +2440,7 @@ _ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit: ; preds = %entry
 if.end:                                           ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 24
   %4 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %4, %index
+  %cmp = icmp ult i32 %index, %4
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
@@ -2547,7 +2547,7 @@ if.then14:                                        ; preds = %_ZN6hermes2vm12JSTy
 if.end16:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %10, %index
+  %cmp = icmp ult i32 %index, %10
   br i1 %cmp, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end16
@@ -3040,7 +3040,7 @@ _ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit: ; preds = %entry
 if.end:                                           ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 24
   %4 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %4, %index
+  %cmp = icmp ult i32 %index, %4
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
@@ -3130,7 +3130,7 @@ if.then14:                                        ; preds = %if.end, %_ZNK6herme
 if.end16:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %10, %index
+  %cmp = icmp ult i32 %index, %10
   br i1 %cmp, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end16
@@ -3598,7 +3598,7 @@ _ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit: ; preds = %entry
 if.end:                                           ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 24
   %4 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %4, %index
+  %cmp = icmp ult i32 %index, %4
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
@@ -3705,7 +3705,7 @@ if.then14:                                        ; preds = %_ZN6hermes2vm12JSTy
 if.end16:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %10, %index
+  %cmp = icmp ult i32 %index, %10
   br i1 %cmp, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end16
@@ -4198,7 +4198,7 @@ _ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit: ; preds = %entry
 if.end:                                           ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 24
   %4 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %4, %index
+  %cmp = icmp ult i32 %index, %4
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
@@ -4304,7 +4304,7 @@ if.then14:                                        ; preds = %_ZN6hermes2vm12JSTy
 if.end16:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %10, %index
+  %cmp = icmp ult i32 %index, %10
   br i1 %cmp, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end16
@@ -4796,7 +4796,7 @@ _ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit: ; preds = %entry
 if.end:                                           ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 24
   %4 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %4, %index
+  %cmp = icmp ult i32 %index, %4
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
@@ -4888,7 +4888,7 @@ if.then14:                                        ; preds = %if.end, %_ZNK6herme
 if.end16:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %10, %index
+  %cmp = icmp ult i32 %index, %10
   br i1 %cmp, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end16
@@ -5356,7 +5356,7 @@ _ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit: ; preds = %entry
 if.end:                                           ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 24
   %4 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %4, %index
+  %cmp = icmp ult i32 %index, %4
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
@@ -5445,7 +5445,7 @@ if.then14:                                        ; preds = %if.end, %_ZNK6herme
 if.end16:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %3, i64 24
   %9 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %9, %index
+  %cmp = icmp ult i32 %index, %9
   br i1 %cmp, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end16
@@ -5925,7 +5925,7 @@ if.then:                                          ; preds = %entry, %_ZNK6hermes
 if.end:                                           ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 24
   %6 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %6, %index
+  %cmp = icmp ult i32 %index, %6
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
@@ -6075,7 +6075,7 @@ if.then14:                                        ; preds = %_ZN6hermes2vm12JSTy
 if.end16:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %7, i64 24
   %13 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %13, %index
+  %cmp = icmp ult i32 %index, %13
   br i1 %cmp, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end16
@@ -6576,7 +6576,7 @@ if.then:                                          ; preds = %entry, %_ZNK6hermes
 if.end:                                           ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 24
   %6 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %6, %index
+  %cmp = icmp ult i32 %index, %6
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
@@ -6728,7 +6728,7 @@ if.then14:                                        ; preds = %_ZN6hermes2vm12JSTy
 if.end16:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %length_.i = getelementptr inbounds i8, ptr %7, i64 24
   %13 = load i32, ptr %length_.i, align 4
-  %cmp = icmp ugt i32 %13, %index
+  %cmp = icmp ult i32 %index, %13
   br i1 %cmp, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end16
@@ -7304,7 +7304,7 @@ if.then17:                                        ; preds = %if.end, %_ZNK6herme
 
 if.end19:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %conv13 = zext i8 %3 to i32
-  %mul = mul i32 %conv13, %beginIndex
+  %mul = mul i32 %beginIndex, %conv13
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %call5.i, align 8
   %and.i.i.i.i.i23 = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
   %9 = inttoptr i64 %and.i.i.i.i.i23 to ptr
@@ -7484,7 +7484,7 @@ if.then8:                                         ; preds = %if.end
   %arrayidx.i.i = getelementptr inbounds [11 x i8], ptr @_ZZNK6hermes2vm16JSTypedArrayBase12getByteWidthEvE6widths, i64 0, i64 %sub.i.i
   %4 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i = zext i8 %4 to i32
-  %mul.i = mul i32 %conv.i, %dstIndex
+  %mul.i = mul i32 %dstIndex, %conv.i
   %offset_.i.i = getelementptr inbounds i8, ptr %0, i64 28
   %5 = load i32, ptr %offset_.i.i, align 4
   %add.i = add i32 %mul.i, %5
@@ -7495,11 +7495,11 @@ if.then8:                                         ; preds = %if.end
   %add.i.i.i.i.i.i13.i = add i64 %conv.i.i.i.i.i.i12.i, %2
   %6 = inttoptr i64 %add.i.i.i.i.i.i13.i to ptr
   %cond.i.i.i.i.i14.i = select i1 %cmp.i.not.i.i.i.i.i11.i, ptr null, ptr %6
-  %mul14.i = mul i32 %conv.i, %srcIndex
+  %mul14.i = mul i32 %srcIndex, %conv.i
   %offset_.i24.i = getelementptr inbounds i8, ptr %1, i64 28
   %7 = load i32, ptr %offset_.i24.i, align 4
   %add17.i = add i32 %mul14.i, %7
-  %mul21.i = mul i32 %conv.i, %count
+  %mul21.i = mul i32 %count, %conv.i
   tail call void @_ZN6hermes2vm13JSArrayBuffer18copyDataBlockBytesERNS0_7RuntimeEPS1_jS4_jj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %cond.i.i.i.i.i.i, i32 noundef %add.i, ptr noundef %cond.i.i.i.i.i14.i, i32 noundef %add17.i, i32 noundef %mul21.i) #10
   br label %return
 
@@ -7526,7 +7526,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.else
 _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %9, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %add = add i32 %count, %srcIndex
-  %cmp1826 = icmp ugt i32 %add, %srcIndex
+  %cmp1826 = icmp ult i32 %srcIndex, %add
   br i1 %cmp1826, label %for.body, label %return
 
 for.body:                                         ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit, %for.inc
@@ -7591,7 +7591,7 @@ entry:
   %arrayidx.i = getelementptr inbounds [11 x i8], ptr @_ZZNK6hermes2vm16JSTypedArrayBase12getByteWidthEvE6widths, i64 0, i64 %sub.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %3 to i32
-  %mul = mul i32 %conv, %dstIndex
+  %mul = mul i32 %dstIndex, %conv
   %offset_.i = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %offset_.i, align 4
   %add = add i32 %mul, %4
@@ -7612,11 +7612,11 @@ entry:
   %arrayidx.i21 = getelementptr inbounds [11 x i8], ptr @_ZZNK6hermes2vm16JSTypedArrayBase12getByteWidthEvE6widths, i64 0, i64 %sub.i20
   %7 = load i8, ptr %arrayidx.i21, align 1
   %conv13 = zext i8 %7 to i32
-  %mul14 = mul i32 %conv13, %srcIndex
+  %mul14 = mul i32 %srcIndex, %conv13
   %offset_.i24 = getelementptr inbounds i8, ptr %5, i64 28
   %8 = load i32, ptr %offset_.i24, align 4
   %add17 = add i32 %mul14, %8
-  %mul21 = mul i32 %conv, %count
+  %mul21 = mul i32 %count, %conv
   tail call void @_ZN6hermes2vm13JSArrayBuffer18copyDataBlockBytesERNS0_7RuntimeEPS1_jS4_jj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %cond.i.i.i.i.i, i32 noundef %add, ptr noundef %cond.i.i.i.i.i14, i32 noundef %add17, i32 noundef %mul21) #10
   ret void
 }
@@ -7967,19 +7967,34 @@ entry:
   %ref.tmp9.sink28.i.sroa.gep6 = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
   %ref.tmp9.sink28.i.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %ref.tmp9.sink28.i.sroa.gep8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  br i1 %cmp.i.i, label %if.then, label %if.end.i
+  br i1 %cmp.i.i, label %_ZN6hermes2vm15BigIntPrimitive32createUninitializedWithNumDigitsERNS0_7RuntimeEj.exit.thread, label %if.end.i
+
+_ZN6hermes2vm15BigIntPrimitive32createUninitializedWithNumDigitsERNS0_7RuntimeEj.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i.i)
+  %rightKind_.i3.i5.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 24
+  store i32 1, ptr %rightKind_.i3.i5.i.i, align 8
+  %leftSize_.i4.i6.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 32
+  store i64 28, ptr %leftSize_.i4.i6.i.i, align 8
+  %rightSize_.i5.i7.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 40
+  store i64 0, ptr %rightSize_.i5.i7.i.i, align 8
+  store ptr @.str.19, ptr %ref.tmp3.i.i, align 8
+  %0 = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  store i32 3, ptr %0, align 8
+  %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i.i) #10
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i.i)
+  br label %return
 
 if.end.i:                                         ; preds = %entry
   %call2.i = tail call noundef i32 @_ZN6hermes2vm15BigIntPrimitive19calcCellSizeInBytesEj(i32 noundef %div1.i) #10
   %sub.i.i.i.i.i = add i32 %call2.i, 7
   %div1.i.i.i.i.i = and i32 %sub.i.i.i.i.i, -8
   %level_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1656
-  %0 = load ptr, ptr %level_.i.i.i.i.i.i.i, align 8
+  %1 = load ptr, ptr %level_.i.i.i.i.i.i.i, align 8
   %idx.ext.i.i.i.i.i.i.i = zext i32 %div1.i.i.i.i.i to i64
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %idx.ext.i.i.i.i.i.i.i
   %effectiveEnd_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1664
-  %1 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i.i.i.i, %1
+  %2 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 cond.true.i.i.i.i.i.i:                            ; preds = %if.end.i
@@ -7991,23 +8006,8 @@ cond.false.i.i.i.i.i.i:                           ; preds = %if.end.i
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %level_.i.i.i.i.i.i.i, align 8
   br label %if.end
 
-if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i.i)
-  %rightKind_.i3.i5.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 24
-  store i32 1, ptr %rightKind_.i3.i5.i.i, align 8
-  %leftSize_.i4.i6.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 32
-  store i64 28, ptr %leftSize_.i4.i6.i.i, align 8
-  %rightSize_.i5.i7.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 40
-  store i64 0, ptr %rightSize_.i5.i7.i.i, align 8
-  store ptr @.str.19, ptr %ref.tmp3.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  store i32 3, ptr %2, align 8
-  %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i.i) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i.i)
-  br label %return
-
 if.end:                                           ; preds = %cond.false.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i
-  %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i.i ]
+  %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %1, %cond.false.i.i.i.i.i.i ]
   tail call void @_ZN6hermes2vm15BigIntPrimitiveC1Ej(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i.i.i.i.i, i32 noundef %div1.i) #10
   %bf.value.i.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i.i, 1291845632
@@ -8094,9 +8094,9 @@ if.end12:                                         ; preds = %_ZN6hermes2vm15BigI
   %or.i.i.i = or i64 %3, -562949953421312
   br label %return
 
-return:                                           ; preds = %_ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit, %if.end12, %if.then
-  %retval.sroa.0.0 = phi i32 [ 0, %if.then ], [ 1, %if.end12 ], [ %call10.i, %_ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit ]
-  %retval.sroa.4.0 = phi i64 [ undef, %if.then ], [ %or.i.i.i, %if.end12 ], [ undef, %_ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit ]
+return:                                           ; preds = %_ZN6hermes2vm15BigIntPrimitive32createUninitializedWithNumDigitsERNS0_7RuntimeEj.exit.thread, %_ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit, %if.end12
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end12 ], [ %call10.i, %_ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit ], [ 0, %_ZN6hermes2vm15BigIntPrimitive32createUninitializedWithNumDigitsERNS0_7RuntimeEj.exit.thread ]
+  %retval.sroa.4.0 = phi i64 [ %or.i.i.i, %if.end12 ], [ undef, %_ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit ], [ undef, %_ZN6hermes2vm15BigIntPrimitive32createUninitializedWithNumDigitsERNS0_7RuntimeEj.exit.thread ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert

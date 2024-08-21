@@ -1099,7 +1099,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i298, %402
   %453 = load i8, ptr @prte_managed_allocation, align 1
   %454 = trunc i8 %453 to i1
   %.not288 = xor i1 %454, true
-  %brmerge = or i1 %.not288, %2
+  %brmerge = or i1 %2, %.not288
   br i1 %brmerge, label %.loopexit, label %455
 
 455:                                              ; preds = %._crit_edge372

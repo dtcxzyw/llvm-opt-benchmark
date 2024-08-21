@@ -19,40 +19,41 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define hidden noundef range(i32 0, 3) i32 @_Z10solve_deg2dddRdS_(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4) local_unnamed_addr #3 {
-  %6 = fmul double %0, -4.000000e+00
-  %7 = fmul double %6, %2
-  %8 = tail call double @llvm.fmuladd.f64(double %1, double %1, double %7)
-  %9 = fcmp olt double %8, 0.000000e+00
-  br i1 %9, label %23, label %10
+  %6 = fmul double %0, 4.000000e+00
+  %7 = fneg double %2
+  %8 = fmul double %6, %7
+  %9 = tail call double @llvm.fmuladd.f64(double %1, double %1, double %8)
+  %10 = fcmp olt double %9, 0.000000e+00
+  br i1 %10, label %24, label %11
 
-10:                                               ; preds = %5
-  %11 = fdiv double 5.000000e-01, %0
-  %12 = fcmp oeq double %8, 0.000000e+00
-  br i1 %12, label %13, label %16
+11:                                               ; preds = %5
+  %12 = fdiv double 5.000000e-01, %0
+  %13 = fcmp oeq double %9, 0.000000e+00
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %10
-  %14 = fneg double %1
-  %15 = fmul double %11, %14
-  store double %15, ptr %3, align 8
+14:                                               ; preds = %11
+  %15 = fneg double %1
+  %16 = fmul double %12, %15
+  store double %16, ptr %3, align 8
   br label %.sink.split
 
-16:                                               ; preds = %10
-  %17 = tail call double @sqrt(double noundef %8) #8
-  %18 = fneg double %1
-  %19 = fsub double %17, %1
-  %20 = fmul double %11, %19
-  store double %20, ptr %3, align 8
-  %21 = fsub double %18, %17
-  %22 = fmul double %11, %21
+17:                                               ; preds = %11
+  %18 = tail call double @sqrt(double noundef %9) #8
+  %19 = fneg double %1
+  %20 = fsub double %18, %1
+  %21 = fmul double %12, %20
+  store double %21, ptr %3, align 8
+  %22 = fsub double %19, %18
+  %23 = fmul double %12, %22
   br label %.sink.split
 
-.sink.split:                                      ; preds = %13, %16
-  %.sink = phi double [ %22, %16 ], [ %15, %13 ]
-  %.0.ph = phi i32 [ 2, %16 ], [ 1, %13 ]
+.sink.split:                                      ; preds = %14, %17
+  %.sink = phi double [ %23, %17 ], [ %16, %14 ]
+  %.0.ph = phi i32 [ 2, %17 ], [ 1, %14 ]
   store double %.sink, ptr %4, align 8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %.sink.split, %5
+24:                                               ; preds = %.sink.split, %5
   %.0 = phi i32 [ 0, %5 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
@@ -66,7 +67,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define hidden noundef range(i32 0, 4) i32 @_Z10solve_deg3ddddRdS_S_(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6) local_unnamed_addr #3 {
   %8 = fcmp oeq double %0, 0.000000e+00
-  br i1 %8, label %9, label %34
+  br i1 %8, label %9, label %35
 
 9:                                                ; preds = %7
   %10 = fcmp oeq double %1, 0.000000e+00
@@ -84,132 +85,133 @@ define hidden noundef range(i32 0, 4) i32 @_Z10solve_deg3ddddRdS_S_(double nound
 
 16:                                               ; preds = %9
   store double 0.000000e+00, ptr %6, align 8
-  %17 = fmul double %1, -4.000000e+00
-  %18 = fmul double %17, %3
-  %19 = tail call double @llvm.fmuladd.f64(double %2, double %2, double %18)
-  %20 = fcmp olt double %19, 0.000000e+00
-  br i1 %20, label %_Z10solve_deg2dddRdS_.exit, label %21
+  %17 = fmul double %1, 4.000000e+00
+  %18 = fneg double %3
+  %19 = fmul double %17, %18
+  %20 = tail call double @llvm.fmuladd.f64(double %2, double %2, double %19)
+  %21 = fcmp olt double %20, 0.000000e+00
+  br i1 %21, label %_Z10solve_deg2dddRdS_.exit, label %22
 
-21:                                               ; preds = %16
-  %22 = fdiv double 5.000000e-01, %1
-  %23 = fcmp oeq double %19, 0.000000e+00
-  br i1 %23, label %24, label %27
+22:                                               ; preds = %16
+  %23 = fdiv double 5.000000e-01, %1
+  %24 = fcmp oeq double %20, 0.000000e+00
+  br i1 %24, label %25, label %28
 
-24:                                               ; preds = %21
-  %25 = fneg double %2
-  %26 = fmul double %22, %25
+25:                                               ; preds = %22
+  %26 = fneg double %2
+  %27 = fmul double %23, %26
   br label %.sink.split.i
 
-27:                                               ; preds = %21
-  %28 = tail call double @sqrt(double noundef %19) #8
-  %29 = fneg double %2
-  %30 = fsub double %28, %2
-  %31 = fmul double %22, %30
-  %32 = fsub double %29, %28
-  %33 = fmul double %22, %32
+28:                                               ; preds = %22
+  %29 = tail call double @sqrt(double noundef %20) #8
+  %30 = fneg double %2
+  %31 = fsub double %29, %2
+  %32 = fmul double %23, %31
+  %33 = fsub double %30, %29
+  %34 = fmul double %23, %33
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %27, %24
-  %.sink = phi double [ %26, %24 ], [ %31, %27 ]
-  %.sink.i = phi double [ %26, %24 ], [ %33, %27 ]
-  %.0.ph.i = phi i32 [ 1, %24 ], [ 2, %27 ]
+.sink.split.i:                                    ; preds = %28, %25
+  %.sink = phi double [ %27, %25 ], [ %32, %28 ]
+  %.sink.i = phi double [ %27, %25 ], [ %34, %28 ]
+  %.0.ph.i = phi i32 [ 1, %25 ], [ 2, %28 ]
   store double %.sink, ptr %4, align 8
   store double %.sink.i, ptr %5, align 8
   br label %_Z10solve_deg2dddRdS_.exit
 
-34:                                               ; preds = %7
-  %35 = fdiv double 1.000000e+00, %0
-  %36 = fmul double %35, %1
-  %37 = fmul double %36, %36
-  %38 = fmul double %35, %2
-  %39 = fmul double %35, %3
-  %40 = fneg double %37
-  %41 = tail call double @llvm.fmuladd.f64(double %38, double 3.000000e+00, double %40)
-  %42 = fdiv double %41, 9.000000e+00
-  %43 = fmul double %36, 9.000000e+00
-  %44 = fmul double %39, -2.700000e+01
-  %45 = tail call double @llvm.fmuladd.f64(double %43, double %38, double %44)
-  %46 = fmul double %36, -2.000000e+00
-  %47 = tail call double @llvm.fmuladd.f64(double %46, double %37, double %45)
-  %48 = fdiv double %47, 5.400000e+01
-  %49 = fmul double %42, %42
-  %50 = fmul double %42, %49
-  %51 = tail call double @llvm.fmuladd.f64(double %48, double %48, double %50)
-  %52 = fmul double %36, 0x3FD5555555555555
-  %53 = fcmp oeq double %42, 0.000000e+00
-  br i1 %53, label %54, label %62
+35:                                               ; preds = %7
+  %36 = fdiv double 1.000000e+00, %0
+  %37 = fmul double %36, %1
+  %38 = fmul double %37, %37
+  %39 = fmul double %36, %2
+  %40 = fmul double %36, %3
+  %41 = fneg double %38
+  %42 = tail call double @llvm.fmuladd.f64(double %39, double 3.000000e+00, double %41)
+  %43 = fdiv double %42, 9.000000e+00
+  %44 = fmul double %37, 9.000000e+00
+  %45 = fmul double %40, -2.700000e+01
+  %46 = tail call double @llvm.fmuladd.f64(double %44, double %39, double %45)
+  %47 = fmul double %37, -2.000000e+00
+  %48 = tail call double @llvm.fmuladd.f64(double %47, double %38, double %46)
+  %49 = fdiv double %48, 5.400000e+01
+  %50 = fmul double %43, %43
+  %51 = fmul double %43, %50
+  %52 = tail call double @llvm.fmuladd.f64(double %49, double %49, double %51)
+  %53 = fmul double %37, 0x3FD5555555555555
+  %54 = fcmp oeq double %43, 0.000000e+00
+  br i1 %54, label %55, label %63
 
-54:                                               ; preds = %34
-  %55 = fcmp oeq double %48, 0.000000e+00
-  br i1 %55, label %56, label %58
+55:                                               ; preds = %35
+  %56 = fcmp oeq double %49, 0.000000e+00
+  br i1 %56, label %57, label %59
 
-56:                                               ; preds = %54
-  %57 = fneg double %52
-  store double %57, ptr %6, align 8
-  store double %57, ptr %5, align 8
-  store double %57, ptr %4, align 8
+57:                                               ; preds = %55
+  %58 = fneg double %53
+  store double %58, ptr %6, align 8
+  store double %58, ptr %5, align 8
+  store double %58, ptr %4, align 8
   br label %_Z10solve_deg2dddRdS_.exit
 
-58:                                               ; preds = %54
-  %59 = fmul double %48, 2.000000e+00
-  %60 = tail call noundef double @cbrt(double noundef %59) #9
-  %61 = fsub double %60, %52
-  store double %61, ptr %4, align 8
+59:                                               ; preds = %55
+  %60 = fmul double %49, 2.000000e+00
+  %61 = tail call noundef double @cbrt(double noundef %60) #9
+  %62 = fsub double %61, %53
+  store double %62, ptr %4, align 8
   br label %_Z10solve_deg2dddRdS_.exit
 
-62:                                               ; preds = %34
-  %63 = fcmp ugt double %51, 0.000000e+00
-  br i1 %63, label %84, label %64
+63:                                               ; preds = %35
+  %64 = fcmp ugt double %52, 0.000000e+00
+  br i1 %64, label %85, label %65
 
-64:                                               ; preds = %62
-  %65 = fneg double %50
-  %66 = tail call double @sqrt(double noundef %65) #8
-  %67 = fdiv double %48, %66
-  %68 = tail call double @acos(double noundef %67) #8
-  %69 = fneg double %42
-  %70 = tail call double @sqrt(double noundef %69) #8
-  %71 = fmul double %70, 2.000000e+00
-  %72 = fdiv double %68, 3.000000e+00
-  %73 = tail call double @cos(double noundef %72) #8
-  %74 = fneg double %52
-  %75 = tail call double @llvm.fmuladd.f64(double %71, double %73, double %74)
-  store double %75, ptr %4, align 8
-  %76 = fadd double %68, 0x401921FB54442D18
-  %77 = fdiv double %76, 3.000000e+00
-  %78 = tail call double @cos(double noundef %77) #8
-  %79 = tail call double @llvm.fmuladd.f64(double %71, double %78, double %74)
-  store double %79, ptr %5, align 8
-  %80 = fadd double %68, 0x402921FB54442D18
-  %81 = fdiv double %80, 3.000000e+00
-  %82 = tail call double @cos(double noundef %81) #8
-  %83 = tail call double @llvm.fmuladd.f64(double %71, double %82, double %74)
-  store double %83, ptr %6, align 8
+65:                                               ; preds = %63
+  %66 = fneg double %51
+  %67 = tail call double @sqrt(double noundef %66) #8
+  %68 = fdiv double %49, %67
+  %69 = tail call double @acos(double noundef %68) #8
+  %70 = fneg double %43
+  %71 = tail call double @sqrt(double noundef %70) #8
+  %72 = fmul double %71, 2.000000e+00
+  %73 = fdiv double %69, 3.000000e+00
+  %74 = tail call double @cos(double noundef %73) #8
+  %75 = fneg double %53
+  %76 = tail call double @llvm.fmuladd.f64(double %72, double %74, double %75)
+  store double %76, ptr %4, align 8
+  %77 = fadd double %69, 0x401921FB54442D18
+  %78 = fdiv double %77, 3.000000e+00
+  %79 = tail call double @cos(double noundef %78) #8
+  %80 = tail call double @llvm.fmuladd.f64(double %72, double %79, double %75)
+  store double %80, ptr %5, align 8
+  %81 = fadd double %69, 0x402921FB54442D18
+  %82 = fdiv double %81, 3.000000e+00
+  %83 = tail call double @cos(double noundef %82) #8
+  %84 = tail call double @llvm.fmuladd.f64(double %72, double %83, double %75)
+  store double %84, ptr %6, align 8
   br label %_Z10solve_deg2dddRdS_.exit
 
-84:                                               ; preds = %62
-  %85 = tail call double @llvm.fabs.f64(double %48)
-  %86 = fcmp ogt double %85, 0x3CB0000000000000
-  br i1 %86, label %87, label %96
+85:                                               ; preds = %63
+  %86 = tail call double @llvm.fabs.f64(double %49)
+  %87 = fcmp ogt double %86, 0x3CB0000000000000
+  br i1 %87, label %88, label %97
 
-87:                                               ; preds = %84
-  %88 = tail call double @sqrt(double noundef %51) #8
-  %89 = fadd double %85, %88
-  %90 = tail call noundef double @cbrt(double noundef %89) #9
-  %91 = fcmp oge double %48, 0.000000e+00
-  %92 = fneg double %90
-  %93 = select i1 %91, double %90, double %92
-  %94 = fdiv double %42, %93
-  %95 = fsub double %93, %94
-  br label %96
+88:                                               ; preds = %85
+  %89 = tail call double @sqrt(double noundef %52) #8
+  %90 = fadd double %86, %89
+  %91 = tail call noundef double @cbrt(double noundef %90) #9
+  %92 = fcmp oge double %49, 0.000000e+00
+  %93 = fneg double %91
+  %94 = select i1 %92, double %91, double %93
+  %95 = fdiv double %43, %94
+  %96 = fsub double %94, %95
+  br label %97
 
-96:                                               ; preds = %87, %84
-  %97 = phi double [ %95, %87 ], [ 0.000000e+00, %84 ]
-  %98 = fsub double %97, %52
-  store double %98, ptr %4, align 8
+97:                                               ; preds = %88, %85
+  %98 = phi double [ %96, %88 ], [ 0.000000e+00, %85 ]
+  %99 = fsub double %98, %53
+  store double %99, ptr %4, align 8
   br label %_Z10solve_deg2dddRdS_.exit
 
-_Z10solve_deg2dddRdS_.exit:                       ; preds = %.sink.split.i, %16, %11, %96, %64, %58, %56, %13
-  %.0 = phi i32 [ 1, %13 ], [ 3, %56 ], [ 1, %58 ], [ 3, %64 ], [ 1, %96 ], [ 0, %11 ], [ 0, %16 ], [ %.0.ph.i, %.sink.split.i ]
+_Z10solve_deg2dddRdS_.exit:                       ; preds = %.sink.split.i, %16, %11, %97, %65, %59, %57, %13
+  %.0 = phi i32 [ 1, %13 ], [ 3, %57 ], [ 1, %59 ], [ 3, %65 ], [ 1, %97 ], [ 0, %11 ], [ 0, %16 ], [ %.0.ph.i, %.sink.split.i ]
   ret i32 %.0
 }
 
@@ -237,7 +239,7 @@ define hidden noundef range(i32 0, 5) i32 @_Z10solve_deg4dddddRdS_S_S_(double no
 
 16:                                               ; preds = %9
   %17 = fdiv double 1.000000e+00, %0
-  %18 = fmul double %17, %1
+  %18 = fmul double %1, %17
   %19 = fmul double %17, %2
   %20 = fmul double %17, %3
   %21 = fmul double %17, %4

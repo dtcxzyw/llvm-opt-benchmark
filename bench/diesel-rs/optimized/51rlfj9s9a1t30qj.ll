@@ -573,7 +573,7 @@ define hidden void @"_ZN6diesel10type_impls10primitives94_$LT$impl$u20$diesel..s
   %7 = load i64, ptr %6, align 8, !alias.scope !109, !noalias !114, !noundef !10
   %8 = load i64, ptr %5, align 8, !alias.scope !116, !noalias !114, !noundef !10
   %9 = sub i64 %8, %7
-  %10 = icmp ult i64 %9, %2
+  %10 = icmp ugt i64 %2, %9
   br i1 %10, label %11, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hff5e41da9015c7fbE.llvm.18224206758780750827.exit"
 
 11:                                               ; preds = %4

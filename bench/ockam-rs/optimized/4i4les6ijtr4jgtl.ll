@@ -11095,7 +11095,7 @@ _ZN4core4sync6atomic11atomic_load17habe1ada4a2a64817E.llvm.550936700588813936.ex
 
 "_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17hfb13f7836b5a4fdbE.exit": ; preds = %30
   %34 = load i32, ptr %26, align 4, !noalias !1482, !noundef !5
-  %.not.i.i.not = icmp ult i32 %34, %32
+  %.not.i.i.not = icmp ugt i32 %32, %34
   br i1 %.not.i.i.not, label %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17hfb13f7836b5a4fdbE.exit.thread", label %35
 
 35:                                               ; preds = %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17hfb13f7836b5a4fdbE.exit"
@@ -17297,7 +17297,7 @@ define hidden void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_incremen
 
 "_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17hfb13f7836b5a4fdbE.exit.i": ; preds = %14
   %18 = load i32, ptr %10, align 4, !noalias !2337, !noundef !5
-  %.not.i.i.not.i = icmp ult i32 %18, %16
+  %.not.i.i.not.i = icmp ugt i32 %16, %18
   br i1 %.not.i.i.not.i, label %24, label %.noexc
 
 .noexc:                                           ; preds = %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17hfb13f7836b5a4fdbE.exit.i"
@@ -18967,7 +18967,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19.i.i: ; pred
 
 "_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17hfb13f7836b5a4fdbE.exit.i.i": ; preds = %636
   %640 = load i32, ptr %632, align 4, !noalias !2546, !noundef !5
-  %.not.i.i.not.i.i = icmp ult i32 %640, %638
+  %.not.i.i.not.i.i = icmp ugt i32 %638, %640
   br i1 %.not.i.i.not.i.i, label %1311, label %.noexc.i154
 
 .noexc.i154:                                      ; preds = %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17hfb13f7836b5a4fdbE.exit.i.i"

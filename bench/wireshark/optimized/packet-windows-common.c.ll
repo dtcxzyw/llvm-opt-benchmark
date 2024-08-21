@@ -9850,7 +9850,7 @@ define internal fastcc i32 @dissect_nt_conditional_ace_token(ptr noundef %0, i32
   br i1 %79, label %77, label %.loopexit, !llvm.loop !10
 
 80:                                               ; preds = %70
-  %81 = add i32 %71, %1
+  %81 = add i32 %1, %71
   br label %.loopexit
 
 82:                                               ; preds = %13

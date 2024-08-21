@@ -689,7 +689,7 @@ dissect_octet_string.exit.i164:                   ; preds = %217, %215
   %231 = add i32 %.0.i165, 2
   %232 = tail call ptr @proto_tree_add_item(ptr noundef %212, i32 noundef %230, ptr noundef %0, i32 noundef %231, i32 noundef 2, i32 noundef %210) #6
   %233 = add i32 %.0.i165, 4
-  %.not2627.i = icmp sgt i32 %233, %23
+  %.not2627.i = icmp slt i32 %23, %233
   br i1 %.not2627.i, label %dissect_register_pdu.exit, label %.lr.ph.i166
 
 .lr.ph.i166:                                      ; preds = %227, %.lr.ph.i166
@@ -698,7 +698,7 @@ dissect_octet_string.exit.i164:                   ; preds = %217, %215
   %235 = add i32 %234, %.128.i
   %236 = tail call fastcc i32 @dissect_object_id(ptr noundef %0, ptr noundef %212, i32 noundef %235, i8 noundef zeroext %7, i32 noundef 1)
   %237 = add i32 %235, %236
-  %.not26.i = icmp sgt i32 %237, %23
+  %.not26.i = icmp slt i32 %23, %237
   br i1 %.not26.i, label %dissect_register_pdu.exit, label %.lr.ph.i166, !llvm.loop !7
 
 238:                                              ; preds = %29
@@ -732,14 +732,14 @@ dissect_octet_string.exit.i169:                   ; preds = %245, %243
 
 255:                                              ; preds = %dissect_octet_string.exit.i169, %238
   %.0.i170 = phi i32 [ %254, %dissect_octet_string.exit.i169 ], [ 20, %238 ]
-  %256 = icmp slt i32 %.0.i170, %23
+  %256 = icmp sgt i32 %23, %.0.i170
   br i1 %256, label %.lr.ph.i171, label %dissect_register_pdu.exit
 
 .lr.ph.i171:                                      ; preds = %255, %.lr.ph.i171
   %.118.i = phi i32 [ %258, %.lr.ph.i171 ], [ %.0.i170, %255 ]
   %257 = tail call fastcc i32 @dissect_varbind(ptr noundef %0, ptr noundef %240, i32 noundef %.118.i, i32 noundef %23, i8 noundef zeroext %7)
   %258 = add i32 %257, %.118.i
-  %259 = icmp slt i32 %258, %23
+  %259 = icmp sgt i32 %23, %258
   br i1 %259, label %.lr.ph.i171, label %dissect_register_pdu.exit, !llvm.loop !8
 
 260:                                              ; preds = %29
@@ -773,14 +773,14 @@ dissect_octet_string.exit.i174:                   ; preds = %267, %265
 
 277:                                              ; preds = %dissect_octet_string.exit.i174, %260
   %.0.i175 = phi i32 [ %276, %dissect_octet_string.exit.i174 ], [ 20, %260 ]
-  %278 = icmp slt i32 %.0.i175, %23
+  %278 = icmp sgt i32 %23, %.0.i175
   br i1 %278, label %.lr.ph.i176, label %dissect_register_pdu.exit
 
 .lr.ph.i176:                                      ; preds = %277, %.lr.ph.i176
   %.118.i177 = phi i32 [ %280, %.lr.ph.i176 ], [ %.0.i175, %277 ]
   %279 = tail call fastcc i32 @dissect_varbind(ptr noundef %0, ptr noundef %262, i32 noundef %.118.i177, i32 noundef %23, i8 noundef zeroext %7)
   %280 = add i32 %279, %.118.i177
-  %281 = icmp slt i32 %280, %23
+  %281 = icmp sgt i32 %23, %280
   br i1 %281, label %.lr.ph.i176, label %dissect_register_pdu.exit, !llvm.loop !9
 
 282:                                              ; preds = %29
@@ -840,14 +840,14 @@ dissect_octet_string.exit.i184:                   ; preds = %303, %301
 
 313:                                              ; preds = %dissect_octet_string.exit.i184, %296
   %.0.i185 = phi i32 [ %312, %dissect_octet_string.exit.i184 ], [ 20, %296 ]
-  %314 = icmp slt i32 %.0.i185, %23
+  %314 = icmp sgt i32 %23, %.0.i185
   br i1 %314, label %.lr.ph.i186, label %dissect_register_pdu.exit
 
 .lr.ph.i186:                                      ; preds = %313, %.lr.ph.i186
   %.118.i187 = phi i32 [ %316, %.lr.ph.i186 ], [ %.0.i185, %313 ]
   %315 = tail call fastcc i32 @dissect_varbind(ptr noundef %0, ptr noundef %298, i32 noundef %.118.i187, i32 noundef %23, i8 noundef zeroext %7)
   %316 = add i32 %315, %.118.i187
-  %317 = icmp slt i32 %316, %23
+  %317 = icmp sgt i32 %23, %316
   br i1 %317, label %.lr.ph.i186, label %dissect_register_pdu.exit, !llvm.loop !10
 
 318:                                              ; preds = %29
@@ -881,14 +881,14 @@ dissect_octet_string.exit.i190:                   ; preds = %325, %323
 
 335:                                              ; preds = %dissect_octet_string.exit.i190, %318
   %.0.i191 = phi i32 [ %334, %dissect_octet_string.exit.i190 ], [ 20, %318 ]
-  %336 = icmp slt i32 %.0.i191, %23
+  %336 = icmp sgt i32 %23, %.0.i191
   br i1 %336, label %.lr.ph.i192, label %dissect_register_pdu.exit
 
 .lr.ph.i192:                                      ; preds = %335, %.lr.ph.i192
   %.118.i193 = phi i32 [ %338, %.lr.ph.i192 ], [ %.0.i191, %335 ]
   %337 = tail call fastcc i32 @dissect_varbind(ptr noundef %0, ptr noundef %320, i32 noundef %.118.i193, i32 noundef %23, i8 noundef zeroext %7)
   %338 = add i32 %337, %.118.i193
-  %339 = icmp slt i32 %338, %23
+  %339 = icmp sgt i32 %23, %338
   br i1 %339, label %.lr.ph.i192, label %dissect_register_pdu.exit, !llvm.loop !11
 
 340:                                              ; preds = %29

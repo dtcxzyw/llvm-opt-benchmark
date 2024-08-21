@@ -445,7 +445,7 @@ define internal { double, double } @_ZL15stere_e_inverse5PJ_XYP8PJconsts(double 
   br label %30
 
 24:                                               ; preds = %9
-  %25 = fmul double %18, %1
+  %25 = fmul double %1, %18
   %26 = load double, ptr %10, align 8
   %27 = fmul double %25, %26
   %28 = fdiv double %27, %6
@@ -458,14 +458,14 @@ define internal { double, double } @_ZL15stere_e_inverse5PJ_XYP8PJconsts(double 
   %32 = fadd double %31, 0x3FF921FB54442D18
   %33 = fmul double %32, 5.000000e-01
   %34 = tail call double @tan(double noundef %33) #8
-  %35 = fmul double %18, %0
+  %35 = fmul double %0, %18
   %36 = load double, ptr %10, align 8
   %37 = fmul double %6, %36
   %38 = getelementptr inbounds i8, ptr %5, i64 8
   %39 = load double, ptr %38, align 8
-  %40 = fneg double %39
-  %41 = fmul double %40, %1
-  %42 = fmul double %18, %41
+  %40 = fmul double %1, %39
+  %41 = fneg double %18
+  %42 = fmul double %40, %41
   %43 = tail call double @llvm.fmuladd.f64(double %37, double %17, double %42)
   br label %.sink.split
 
@@ -624,9 +624,9 @@ define internal { double, double } @_ZL15stere_e_forward5PJ_LPP8PJconsts(double 
   %45 = getelementptr inbounds i8, ptr %6, i64 24
   %46 = load double, ptr %45, align 8
   %47 = fdiv double %46, %40
-  %48 = fneg double %36
-  %49 = fmul double %.052, %48
-  %50 = fmul double %7, %49
+  %48 = fmul double %.052, %36
+  %49 = fneg double %7
+  %50 = fmul double %48, %49
   %51 = tail call double @llvm.fmuladd.f64(double %34, double %.053, double %50)
   %52 = fmul double %51, %47
   %53 = fmul double %.052, %47
@@ -724,7 +724,7 @@ define internal { double, double } @_ZL15stere_s_inverse5PJ_XYP8PJconsts(double 
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
-  %20 = fmul double %12, %1
+  %20 = fmul double %1, %12
   %21 = fdiv double %20, %6
   %22 = tail call double @asin(double noundef %21) #8
   br label %23
@@ -737,7 +737,7 @@ define internal { double, double } @_ZL15stere_s_inverse5PJ_XYP8PJconsts(double 
   br i1 %or.cond, label %26, label %82
 
 26:                                               ; preds = %23
-  %27 = fmul double %12, %0
+  %27 = fmul double %0, %12
   %28 = fmul double %6, %13
   %29 = tail call double @atan2(double noundef %27, double noundef %28) #8
   br label %82
@@ -756,7 +756,7 @@ define internal { double, double } @_ZL15stere_s_inverse5PJ_XYP8PJconsts(double 
   %37 = load ptr, ptr %4, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load double, ptr %38, align 8
-  %40 = fmul double %12, %1
+  %40 = fmul double %1, %12
   %41 = getelementptr inbounds i8, ptr %37, i64 16
   %42 = load double, ptr %41, align 8
   %43 = fmul double %40, %42
@@ -779,7 +779,7 @@ define internal { double, double } @_ZL15stere_s_inverse5PJ_XYP8PJconsts(double 
   br i1 %or.cond5, label %56, label %82
 
 56:                                               ; preds = %47
-  %57 = fmul double %12, %0
+  %57 = fmul double %0, %12
   %58 = load ptr, ptr %4, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 16
   %60 = load double, ptr %59, align 8
@@ -867,9 +867,9 @@ define internal { double, double } @_ZL15stere_s_forward5PJ_LPP8PJconsts(double 
   %24 = getelementptr inbounds i8, ptr %5, i64 24
   %25 = load double, ptr %24, align 8
   %26 = fdiv double %25, %22
-  %27 = fneg double %17
-  %28 = fmul double %7, %27
-  %29 = fmul double %8, %28
+  %27 = fmul double %7, %17
+  %28 = fneg double %8
+  %29 = fmul double %27, %28
   %30 = tail call double @llvm.fmuladd.f64(double %20, double %6, double %29)
   br label %37
 

@@ -269,7 +269,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   br label %.loopexit2.i
 
 92:                                               ; preds = %76
-  %.not.i = icmp slt i32 %32, %37
+  %.not.i = icmp sgt i32 %37, %32
   br i1 %.not.i, label %.preheader5.i, label %96
 
 .preheader5.i:                                    ; preds = %92

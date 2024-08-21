@@ -419,7 +419,7 @@ define range(i32 -2, 1) i32 @inflatePrime(ptr noundef readonly %0, i32 noundef %
   %notmask = shl nsw i64 -1, %22
   %23 = trunc i64 %notmask to i32
   %24 = xor i32 %23, -1
-  %25 = and i32 %24, %2
+  %25 = and i32 %2, %24
   %26 = shl i32 %25, %18
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %7, i64 72
@@ -3477,7 +3477,7 @@ define range(i32 -4, 1) i32 @inflateSetDictionary(ptr noundef readonly %0, ptr n
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %7, i64 52
   %26 = load i32, ptr %25, align 4
-  %27 = icmp ult i32 %26, %2
+  %27 = icmp ugt i32 %2, %26
   %28 = getelementptr inbounds i8, ptr %7, i64 64
   %29 = load ptr, ptr %28, align 8
   br i1 %27, label %30, label %37

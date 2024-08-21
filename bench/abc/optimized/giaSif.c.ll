@@ -3783,7 +3783,7 @@ define i32 @Gia_ManSifArea_rec(ptr nocapture noundef readonly %0, ptr noundef %1
   %23 = sub i64 %8, %22
   %24 = sdiv exact i64 %23, 12
   %25 = trunc i64 %24 to i32
-  %26 = mul nsw i32 %25, %3
+  %26 = mul nsw i32 %3, %25
   %27 = getelementptr i8, ptr %2, i64 8
   %.val23 = load ptr, ptr %27, align 8
   %28 = sext i32 %26 to i64
@@ -3894,7 +3894,7 @@ define i32 @Gia_ManSifDelay_rec(ptr nocapture noundef readonly %0, ptr noundef %
   %24 = sub i64 %9, %23
   %25 = sdiv exact i64 %24, 12
   %26 = trunc i64 %25 to i32
-  %27 = mul nsw i32 %26, %4
+  %27 = mul nsw i32 %4, %26
   %28 = getelementptr i8, ptr %2, i64 8
   %.val37 = load ptr, ptr %28, align 8
   %29 = sext i32 %27 to i64
@@ -4043,13 +4043,13 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.val15 = phi ptr [ null, %Vec_IntAlloc.exit.thread.i ], [ null, %Vec_IntAlloc.exit.i ], [ %11, %13 ]
   %16 = getelementptr inbounds i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
-  %.not.i19 = icmp slt i32 %17, %.val17
+  %.not.i19 = icmp sgt i32 %.val17, %17
   br i1 %.not.i19, label %18, label %Vec_IntFillExtra.exit
 
 18:                                               ; preds = %Vec_IntStart.exit
   %19 = load i32, ptr %1, align 8
   %20 = shl nsw i32 %19, 1
-  %21 = icmp slt i32 %20, %.val17
+  %21 = icmp sgt i32 %.val17, %20
   %.not.i.i20 = icmp slt i32 %19, %.val17
   br i1 %21, label %22, label %34
 
@@ -4914,11 +4914,11 @@ Gia_ObjSibl.exit142:                              ; preds = %Gia_ObjSibl.exit
   %218 = sext i32 %213 to i64
   %219 = getelementptr inbounds i32, ptr %.val81, i64 %218
   %220 = load i32, ptr %219, align 4
-  %221 = icmp sgt i32 %220, %.065.lcssa
+  %221 = icmp slt i32 %.065.lcssa, %220
   br i1 %221, label %Gia_ManSifCutChoice.exit, label %222
 
 222:                                              ; preds = %Gia_ObjSibl.exit142
-  %223 = icmp eq i32 %220, %.065.lcssa
+  %223 = icmp eq i32 %.065.lcssa, %220
   %.pre.i = load i32, ptr %217, align 4
   br i1 %223, label %224, label %226
 
@@ -5645,7 +5645,7 @@ define i32 @Gia_ManSifDeriveMapping_rec(ptr nocapture noundef readonly %0, ptr n
   %23 = sub i64 %12, %22
   %24 = sdiv exact i64 %23, 12
   %25 = trunc i64 %24 to i32
-  %26 = mul nsw i32 %25, %3
+  %26 = mul nsw i32 %3, %25
   %27 = getelementptr i8, ptr %2, i64 8
   %.val43 = load ptr, ptr %27, align 8
   %28 = sext i32 %26 to i64

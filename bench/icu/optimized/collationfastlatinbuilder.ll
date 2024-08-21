@@ -203,7 +203,7 @@ if.else.i.i:                                      ; preds = %if.then15
   %fLength.i.i.i = getelementptr inbounds i8, ptr %this, i64 7316
   %8 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %8, i32 %shr.i.i.i.i
-  %cmp3.i.i = icmp ugt i32 %cond.i.i.i, %5
+  %cmp3.i.i = icmp ult i32 %5, %cond.i.i.i
   br i1 %cmp3.i.i, label %if.then4.i.i, label %_ZN6icu_7525CollationFastLatinBuilder8resetCEsEv.exit
 
 if.then4.i.i:                                     ; preds = %if.else.i.i
@@ -467,7 +467,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end4.i
   %idxprom18.i.i = sext i32 %div17.i.i to i64
   %arrayidx19.i.i = getelementptr inbounds i64, ptr %20, i64 %idxprom18.i.i
   %22 = load i64, ptr %arrayidx19.i.i, align 8
-  %cmp220.i.i = icmp eq i64 %22, %and.i48
+  %cmp220.i.i = icmp eq i64 %and.i48, %22
   br i1 %cmp220.i.i, label %_ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.cond.preheader.i.i, %if.end16.i.i
@@ -475,7 +475,7 @@ if.else.i.i:                                      ; preds = %for.cond.preheader.
   %div23.i.i = phi i32 [ %div.i.i, %if.end16.i.i ], [ %div17.i.i, %for.cond.preheader.i.i ]
   %limit.addr.022.i.i = phi i32 [ %limit.addr.1.i.i, %if.end16.i.i ], [ %21, %for.cond.preheader.i.i ]
   %start.021.i.i = phi i32 [ %start.1.i.i, %if.end16.i.i ], [ 0, %for.cond.preheader.i.i ]
-  %cmp.i.not.i.i = icmp ugt i64 %23, %and.i48
+  %cmp.i.not.i.i = icmp ult i64 %and.i48, %23
   %cmp6.i.i = icmp eq i32 %div23.i.i, %start.021.i.i
   br i1 %cmp.i.not.i.i, label %if.then5.i.i, label %if.else9.i.i
 
@@ -501,7 +501,7 @@ if.end16.i.i:                                     ; preds = %if.else9.i.i, %if.t
   %idxprom.i.i = sext i32 %div.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i64, ptr %20, i64 %idxprom.i.i
   %24 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp2.i.i = icmp eq i64 %24, %and.i48
+  %cmp2.i.i = icmp eq i64 %and.i48, %24
   br i1 %cmp2.i.i, label %_ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit.i, label %if.else.i.i, !llvm.loop !6
 
 _ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit.i: ; preds = %if.end16.i.i, %if.then11.i.i, %if.then7.i.i, %for.cond.preheader.i.i
@@ -540,7 +540,7 @@ for.cond.preheader.i.i61:                         ; preds = %if.end4.i55
   %idxprom18.i.i63 = sext i32 %div17.i.i62 to i64
   %arrayidx19.i.i64 = getelementptr inbounds i64, ptr %27, i64 %idxprom18.i.i63
   %29 = load i64, ptr %arrayidx19.i.i64, align 8
-  %cmp220.i.i65 = icmp eq i64 %29, %and.i56
+  %cmp220.i.i65 = icmp eq i64 %and.i56, %29
   br i1 %cmp220.i.i65, label %_ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit.i81, label %if.else.i.i66
 
 if.else.i.i66:                                    ; preds = %for.cond.preheader.i.i61, %if.end16.i.i73
@@ -548,7 +548,7 @@ if.else.i.i66:                                    ; preds = %for.cond.preheader.
   %div23.i.i67 = phi i32 [ %div.i.i77, %if.end16.i.i73 ], [ %div17.i.i62, %for.cond.preheader.i.i61 ]
   %limit.addr.022.i.i68 = phi i32 [ %limit.addr.1.i.i75, %if.end16.i.i73 ], [ %28, %for.cond.preheader.i.i61 ]
   %start.021.i.i69 = phi i32 [ %start.1.i.i74, %if.end16.i.i73 ], [ 0, %for.cond.preheader.i.i61 ]
-  %cmp.i.not.i.i70 = icmp ugt i64 %30, %and.i56
+  %cmp.i.not.i.i70 = icmp ult i64 %and.i56, %30
   %cmp6.i.i71 = icmp eq i32 %div23.i.i67, %start.021.i.i69
   br i1 %cmp.i.not.i.i70, label %if.then5.i.i89, label %if.else9.i.i72
 
@@ -574,7 +574,7 @@ if.end16.i.i73:                                   ; preds = %if.else9.i.i72, %if
   %idxprom.i.i78 = sext i32 %div.i.i77 to i64
   %arrayidx.i.i79 = getelementptr inbounds i64, ptr %27, i64 %idxprom.i.i78
   %31 = load i64, ptr %arrayidx.i.i79, align 8
-  %cmp2.i.i80 = icmp eq i64 %31, %and.i56
+  %cmp2.i.i80 = icmp eq i64 %and.i56, %31
   br i1 %cmp2.i.i80, label %_ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit.i81, label %if.else.i.i66, !llvm.loop !6
 
 _ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit.i81: ; preds = %if.end16.i.i73, %if.then11.i.i87, %if.then7.i.i90, %for.cond.preheader.i.i61
@@ -925,7 +925,7 @@ if.else.i:                                        ; preds = %entry
   %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 7316
   %3 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %3, i32 %shr.i.i.i
-  %cmp3.i = icmp ugt i32 %cond.i.i, %0
+  %cmp3.i = icmp ult i32 %0, %cond.i.i
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6icu_7513UnicodeString8truncateEi.exit
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -1185,7 +1185,7 @@ for.cond.preheader.i.i.i:                         ; preds = %if.end4.i
   %idxprom18.i.i.i = sext i32 %div17.i.i.i to i64
   %arrayidx19.i.i.i = getelementptr inbounds i64, ptr %25, i64 %idxprom18.i.i.i
   %27 = load i64, ptr %arrayidx19.i.i.i, align 8
-  %cmp220.i.i.i = icmp eq i64 %27, %and.i.i
+  %cmp220.i.i.i = icmp eq i64 %and.i.i, %27
   br i1 %cmp220.i.i.i, label %_ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.cond.preheader.i.i.i, %if.end16.i.i.i
@@ -1193,7 +1193,7 @@ if.else.i.i.i:                                    ; preds = %for.cond.preheader.
   %div23.i.i.i = phi i32 [ %div.i.i.i, %if.end16.i.i.i ], [ %div17.i.i.i, %for.cond.preheader.i.i.i ]
   %limit.addr.022.i.i.i = phi i32 [ %limit.addr.1.i.i.i, %if.end16.i.i.i ], [ %26, %for.cond.preheader.i.i.i ]
   %start.021.i.i.i = phi i32 [ %start.1.i.i.i, %if.end16.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
-  %cmp.i.not.i.i.i = icmp ugt i64 %28, %and.i.i
+  %cmp.i.not.i.i.i = icmp ult i64 %and.i.i, %28
   %cmp6.i.i.i = icmp eq i32 %div23.i.i.i, %start.021.i.i.i
   br i1 %cmp.i.not.i.i.i, label %if.then5.i.i.i, label %if.else9.i.i.i
 
@@ -1219,7 +1219,7 @@ if.end16.i.i.i:                                   ; preds = %if.else9.i.i.i, %if
   %idxprom.i.i.i = sext i32 %div.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %25, i64 %idxprom.i.i.i
   %29 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp2.i.i.i = icmp eq i64 %29, %and.i.i
+  %cmp2.i.i.i = icmp eq i64 %and.i.i, %29
   br i1 %cmp2.i.i.i, label %_ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit.i, label %if.else.i.i.i, !llvm.loop !6
 
 _ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit.i: ; preds = %if.end16.i.i.i, %if.then11.i.i.i, %if.then7.i.i.i, %for.cond.preheader.i.i.i, %if.end4.i
@@ -1252,7 +1252,7 @@ for.cond.preheader.i.i31.i:                       ; preds = %if.end13.i
   %idxprom18.i.i33.i = sext i32 %div17.i.i32.i to i64
   %arrayidx19.i.i34.i = getelementptr inbounds i64, ptr %25, i64 %idxprom18.i.i33.i
   %32 = load i64, ptr %arrayidx19.i.i34.i, align 8
-  %cmp220.i.i35.i = icmp eq i64 %32, %and.i27.i
+  %cmp220.i.i35.i = icmp eq i64 %and.i27.i, %32
   br i1 %cmp220.i.i35.i, label %_ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit61.i, label %if.else.i.i36.i
 
 if.else.i.i36.i:                                  ; preds = %for.cond.preheader.i.i31.i, %if.end16.i.i43.i
@@ -1260,7 +1260,7 @@ if.else.i.i36.i:                                  ; preds = %for.cond.preheader.
   %div23.i.i37.i = phi i32 [ %div.i.i47.i, %if.end16.i.i43.i ], [ %div17.i.i32.i, %for.cond.preheader.i.i31.i ]
   %limit.addr.022.i.i38.i = phi i32 [ %limit.addr.1.i.i45.i, %if.end16.i.i43.i ], [ %26, %for.cond.preheader.i.i31.i ]
   %start.021.i.i39.i = phi i32 [ %start.1.i.i44.i, %if.end16.i.i43.i ], [ 0, %for.cond.preheader.i.i31.i ]
-  %cmp.i.not.i.i40.i = icmp ugt i64 %33, %and.i27.i
+  %cmp.i.not.i.i40.i = icmp ult i64 %and.i27.i, %33
   %cmp6.i.i41.i = icmp eq i32 %div23.i.i37.i, %start.021.i.i39.i
   br i1 %cmp.i.not.i.i40.i, label %if.then5.i.i58.i, label %if.else9.i.i42.i
 
@@ -1286,7 +1286,7 @@ if.end16.i.i43.i:                                 ; preds = %if.else9.i.i42.i, %
   %idxprom.i.i48.i = sext i32 %div.i.i47.i to i64
   %arrayidx.i.i49.i = getelementptr inbounds i64, ptr %25, i64 %idxprom.i.i48.i
   %34 = load i64, ptr %arrayidx.i.i49.i, align 8
-  %cmp2.i.i50.i = icmp eq i64 %34, %and.i27.i
+  %cmp2.i.i50.i = icmp eq i64 %and.i27.i, %34
   br i1 %cmp2.i.i50.i, label %_ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit61.i, label %if.else.i.i36.i, !llvm.loop !6
 
 _ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit61.i: ; preds = %if.end16.i.i43.i, %if.then11.i.i56.i, %if.then7.i.i59.i, %for.cond.preheader.i.i31.i, %if.end13.i
@@ -1449,48 +1449,48 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7525CollationFastLatinBuilder
 entry:
   %firstShortPrimary = getelementptr inbounds i8, ptr %this, i64 7292
   %0 = load i32, ptr %firstShortPrimary, align 4
-  %cmp.not = icmp ugt i32 %0, %p
+  %cmp.not = icmp ult i32 %p, %0
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp3 = icmp ule i32 %0, %q
+  %cmp3 = icmp uge i32 %q, %0
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp5.not = icmp ugt i32 %0, %q
+  %cmp5.not = icmp ult i32 %q, %0
   br i1 %cmp5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.else
   %lastSpecialPrimaries = getelementptr inbounds i8, ptr %this, i64 7264
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 7276
   %1 = load i32, ptr %arrayidx, align 4
-  %cmp8 = icmp ult i32 %1, %p
-  %cmp10 = icmp ult i32 %1, %q
+  %cmp8 = icmp ugt i32 %p, %1
+  %cmp10 = icmp ugt i32 %q, %1
   %brmerge = or i1 %cmp8, %cmp10
   %cmp10.mux = and i1 %cmp8, %cmp10
   br i1 %brmerge, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end7
   %2 = load i32, ptr %lastSpecialPrimaries, align 8
-  %cmp19.not18 = icmp ult i32 %2, %p
+  %cmp19.not18 = icmp ugt i32 %p, %2
   br i1 %cmp19.not18, label %if.else23, label %if.then20
 
 for.cond:                                         ; preds = %if.else23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx18 = getelementptr inbounds [4 x i32], ptr %lastSpecialPrimaries, i64 0, i64 %indvars.iv.next
   %3 = load i32, ptr %arrayidx18, align 4
-  %cmp19.not = icmp ult i32 %3, %p
+  %cmp19.not = icmp ugt i32 %p, %3
   br i1 %cmp19.not, label %if.else23, label %if.then20, !llvm.loop !14
 
 if.then20:                                        ; preds = %for.cond, %for.cond.preheader
   %.lcssa = phi i32 [ %2, %for.cond.preheader ], [ %3, %for.cond ]
-  %cmp21 = icmp uge i32 %.lcssa, %q
+  %cmp21 = icmp ule i32 %q, %.lcssa
   br label %return
 
 if.else23:                                        ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %for.cond.preheader ]
   %4 = phi i32 [ %3, %for.cond ], [ %2, %for.cond.preheader ]
-  %cmp24.not = icmp ult i32 %4, %q
+  %cmp24.not = icmp ugt i32 %q, %4
   br i1 %cmp24.not, label %for.cond, label %return
 
 return:                                           ; preds = %if.else23, %if.end7, %if.else, %if.then20, %if.then
@@ -1763,7 +1763,7 @@ for.cond.preheader.i:                             ; preds = %if.end4
   %idxprom18.i = sext i32 %div17.i to i64
   %arrayidx19.i = getelementptr inbounds i64, ptr %1, i64 %idxprom18.i
   %3 = load i64, ptr %arrayidx19.i, align 8
-  %cmp220.i = icmp eq i64 %3, %and
+  %cmp220.i = icmp eq i64 %and, %3
   br i1 %cmp220.i, label %_ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.cond.preheader.i, %if.end16.i
@@ -1771,7 +1771,7 @@ if.else.i:                                        ; preds = %for.cond.preheader.
   %div23.i = phi i32 [ %div.i, %if.end16.i ], [ %div17.i, %for.cond.preheader.i ]
   %limit.addr.022.i = phi i32 [ %limit.addr.1.i, %if.end16.i ], [ %2, %for.cond.preheader.i ]
   %start.021.i = phi i32 [ %start.1.i, %if.end16.i ], [ 0, %for.cond.preheader.i ]
-  %cmp.i.not.i = icmp ugt i64 %4, %and
+  %cmp.i.not.i = icmp ult i64 %and, %4
   %cmp6.i = icmp eq i32 %div23.i, %start.021.i
   br i1 %cmp.i.not.i, label %if.then5.i, label %if.else9.i
 
@@ -1797,7 +1797,7 @@ if.end16.i:                                       ; preds = %if.else9.i, %if.the
   %idxprom.i = sext i32 %div.i to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %1, i64 %idxprom.i
   %5 = load i64, ptr %arrayidx.i, align 8
-  %cmp2.i = icmp eq i64 %5, %and
+  %cmp2.i = icmp eq i64 %and, %5
   br i1 %cmp2.i, label %_ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit, label %if.else.i, !llvm.loop !6
 
 _ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit: ; preds = %if.end16.i, %for.cond.preheader.i, %if.then7.i, %if.then11.i
@@ -1930,7 +1930,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end4.i
   %idxprom18.i.i = sext i32 %div17.i.i to i64
   %arrayidx19.i.i = getelementptr inbounds i64, ptr %16, i64 %idxprom18.i.i
   %18 = load i64, ptr %arrayidx19.i.i, align 8
-  %cmp220.i.i = icmp eq i64 %18, %and.i
+  %cmp220.i.i = icmp eq i64 %and.i, %18
   br i1 %cmp220.i.i, label %_ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.cond.preheader.i.i, %if.end16.i.i
@@ -1938,7 +1938,7 @@ if.else.i.i:                                      ; preds = %for.cond.preheader.
   %div23.i.i = phi i32 [ %div.i.i, %if.end16.i.i ], [ %div17.i.i, %for.cond.preheader.i.i ]
   %limit.addr.022.i.i = phi i32 [ %limit.addr.1.i.i, %if.end16.i.i ], [ %17, %for.cond.preheader.i.i ]
   %start.021.i.i = phi i32 [ %start.1.i.i, %if.end16.i.i ], [ 0, %for.cond.preheader.i.i ]
-  %cmp.i.not.i.i = icmp ugt i64 %19, %and.i
+  %cmp.i.not.i.i = icmp ult i64 %and.i, %19
   %cmp6.i.i = icmp eq i32 %div23.i.i, %start.021.i.i
   br i1 %cmp.i.not.i.i, label %if.then5.i.i, label %if.else9.i.i
 
@@ -1964,7 +1964,7 @@ if.end16.i.i:                                     ; preds = %if.else9.i.i, %if.t
   %idxprom.i.i = sext i32 %div.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i64, ptr %16, i64 %idxprom.i.i
   %20 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp2.i.i = icmp eq i64 %20, %and.i
+  %cmp2.i.i = icmp eq i64 %and.i, %20
   br i1 %cmp2.i.i, label %_ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit.i, label %if.else.i.i, !llvm.loop !6
 
 _ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit.i: ; preds = %if.end16.i.i, %if.then11.i.i, %if.then7.i.i, %for.cond.preheader.i.i
@@ -2004,7 +2004,7 @@ for.cond.preheader.i.i54:                         ; preds = %if.end4.i48
   %idxprom18.i.i56 = sext i32 %div17.i.i55 to i64
   %arrayidx19.i.i57 = getelementptr inbounds i64, ptr %22, i64 %idxprom18.i.i56
   %24 = load i64, ptr %arrayidx19.i.i57, align 8
-  %cmp220.i.i58 = icmp eq i64 %24, %and.i49
+  %cmp220.i.i58 = icmp eq i64 %and.i49, %24
   br i1 %cmp220.i.i58, label %_ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit.i74, label %if.else.i.i59
 
 if.else.i.i59:                                    ; preds = %for.cond.preheader.i.i54, %if.end16.i.i66
@@ -2012,7 +2012,7 @@ if.else.i.i59:                                    ; preds = %for.cond.preheader.
   %div23.i.i60 = phi i32 [ %div.i.i70, %if.end16.i.i66 ], [ %div17.i.i55, %for.cond.preheader.i.i54 ]
   %limit.addr.022.i.i61 = phi i32 [ %limit.addr.1.i.i68, %if.end16.i.i66 ], [ %23, %for.cond.preheader.i.i54 ]
   %start.021.i.i62 = phi i32 [ %start.1.i.i67, %if.end16.i.i66 ], [ 0, %for.cond.preheader.i.i54 ]
-  %cmp.i.not.i.i63 = icmp ugt i64 %25, %and.i49
+  %cmp.i.not.i.i63 = icmp ult i64 %and.i49, %25
   %cmp6.i.i64 = icmp eq i32 %div23.i.i60, %start.021.i.i62
   br i1 %cmp.i.not.i.i63, label %if.then5.i.i82, label %if.else9.i.i65
 
@@ -2038,7 +2038,7 @@ if.end16.i.i66:                                   ; preds = %if.else9.i.i65, %if
   %idxprom.i.i71 = sext i32 %div.i.i70 to i64
   %arrayidx.i.i72 = getelementptr inbounds i64, ptr %22, i64 %idxprom.i.i71
   %26 = load i64, ptr %arrayidx.i.i72, align 8
-  %cmp2.i.i73 = icmp eq i64 %26, %and.i49
+  %cmp2.i.i73 = icmp eq i64 %and.i49, %26
   br i1 %cmp2.i.i73, label %_ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit.i74, label %if.else.i.i59, !llvm.loop !6
 
 _ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit.i74: ; preds = %if.end16.i.i66, %if.then11.i.i80, %if.then7.i.i83, %for.cond.preheader.i.i54
@@ -2351,7 +2351,7 @@ for.cond.preheader.i:                             ; preds = %entry
   %idxprom18.i = sext i32 %div17.i to i64
   %arrayidx19.i = getelementptr inbounds i64, ptr %0, i64 %idxprom18.i
   %2 = load i64, ptr %arrayidx19.i, align 8
-  %cmp220.i = icmp eq i64 %2, %and
+  %cmp220.i = icmp eq i64 %and, %2
   br i1 %cmp220.i, label %_ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.cond.preheader.i, %if.end16.i
@@ -2359,7 +2359,7 @@ if.else.i:                                        ; preds = %for.cond.preheader.
   %div23.i = phi i32 [ %div.i, %if.end16.i ], [ %div17.i, %for.cond.preheader.i ]
   %limit.addr.022.i = phi i32 [ %limit.addr.1.i, %if.end16.i ], [ %1, %for.cond.preheader.i ]
   %start.021.i = phi i32 [ %start.1.i, %if.end16.i ], [ 0, %for.cond.preheader.i ]
-  %cmp.i.not.i = icmp ugt i64 %3, %and
+  %cmp.i.not.i = icmp ult i64 %and, %3
   %cmp6.i = icmp eq i32 %div23.i, %start.021.i
   br i1 %cmp.i.not.i, label %if.then5.i, label %if.else9.i
 
@@ -2385,7 +2385,7 @@ if.end16.i:                                       ; preds = %if.else9.i, %if.the
   %idxprom.i = sext i32 %div.i to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %0, i64 %idxprom.i
   %4 = load i64, ptr %arrayidx.i, align 8
-  %cmp2.i = icmp eq i64 %4, %and
+  %cmp2.i = icmp eq i64 %and, %4
   br i1 %cmp2.i, label %_ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit, label %if.else.i, !llvm.loop !6
 
 _ZN6icu_7512_GLOBAL__N_112binarySearchEPKlil.exit: ; preds = %if.end16.i, %entry, %for.cond.preheader.i, %if.then7.i, %if.then11.i
@@ -2429,7 +2429,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end4
   %idxprom18.i.i = sext i32 %div17.i.i to i64
   %arrayidx19.i.i = getelementptr inbounds i64, ptr %0, i64 %idxprom18.i.i
   %2 = load i64, ptr %arrayidx19.i.i, align 8
-  %cmp220.i.i = icmp eq i64 %2, %and.i
+  %cmp220.i.i = icmp eq i64 %and.i, %2
   br i1 %cmp220.i.i, label %_ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.cond.preheader.i.i, %if.end16.i.i
@@ -2437,7 +2437,7 @@ if.else.i.i:                                      ; preds = %for.cond.preheader.
   %div23.i.i = phi i32 [ %div.i.i, %if.end16.i.i ], [ %div17.i.i, %for.cond.preheader.i.i ]
   %limit.addr.022.i.i = phi i32 [ %limit.addr.1.i.i, %if.end16.i.i ], [ %1, %for.cond.preheader.i.i ]
   %start.021.i.i = phi i32 [ %start.1.i.i, %if.end16.i.i ], [ 0, %for.cond.preheader.i.i ]
-  %cmp.i.not.i.i = icmp ugt i64 %3, %and.i
+  %cmp.i.not.i.i = icmp ult i64 %and.i, %3
   %cmp6.i.i = icmp eq i32 %div23.i.i, %start.021.i.i
   br i1 %cmp.i.not.i.i, label %if.then5.i.i, label %if.else9.i.i
 
@@ -2463,7 +2463,7 @@ if.end16.i.i:                                     ; preds = %if.else9.i.i, %if.t
   %idxprom.i.i = sext i32 %div.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i64, ptr %0, i64 %idxprom.i.i
   %4 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp2.i.i = icmp eq i64 %4, %and.i
+  %cmp2.i.i = icmp eq i64 %and.i, %4
   br i1 %cmp2.i.i, label %_ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit, label %if.else.i.i, !llvm.loop !6
 
 _ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit: ; preds = %if.end16.i.i, %if.end4, %for.cond.preheader.i.i, %if.then7.i.i, %if.then11.i.i
@@ -2497,7 +2497,7 @@ for.cond.preheader.i.i31:                         ; preds = %if.end13
   %idxprom18.i.i33 = sext i32 %div17.i.i32 to i64
   %arrayidx19.i.i34 = getelementptr inbounds i64, ptr %0, i64 %idxprom18.i.i33
   %7 = load i64, ptr %arrayidx19.i.i34, align 8
-  %cmp220.i.i35 = icmp eq i64 %7, %and.i27
+  %cmp220.i.i35 = icmp eq i64 %and.i27, %7
   br i1 %cmp220.i.i35, label %_ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit61, label %if.else.i.i36
 
 if.else.i.i36:                                    ; preds = %for.cond.preheader.i.i31, %if.end16.i.i43
@@ -2505,7 +2505,7 @@ if.else.i.i36:                                    ; preds = %for.cond.preheader.
   %div23.i.i37 = phi i32 [ %div.i.i47, %if.end16.i.i43 ], [ %div17.i.i32, %for.cond.preheader.i.i31 ]
   %limit.addr.022.i.i38 = phi i32 [ %limit.addr.1.i.i45, %if.end16.i.i43 ], [ %1, %for.cond.preheader.i.i31 ]
   %start.021.i.i39 = phi i32 [ %start.1.i.i44, %if.end16.i.i43 ], [ 0, %for.cond.preheader.i.i31 ]
-  %cmp.i.not.i.i40 = icmp ugt i64 %8, %and.i27
+  %cmp.i.not.i.i40 = icmp ult i64 %and.i27, %8
   %cmp6.i.i41 = icmp eq i32 %div23.i.i37, %start.021.i.i39
   br i1 %cmp.i.not.i.i40, label %if.then5.i.i58, label %if.else9.i.i42
 
@@ -2531,7 +2531,7 @@ if.end16.i.i43:                                   ; preds = %if.else9.i.i42, %if
   %idxprom.i.i48 = sext i32 %div.i.i47 to i64
   %arrayidx.i.i49 = getelementptr inbounds i64, ptr %0, i64 %idxprom.i.i48
   %9 = load i64, ptr %arrayidx.i.i49, align 8
-  %cmp2.i.i50 = icmp eq i64 %9, %and.i27
+  %cmp2.i.i50 = icmp eq i64 %and.i27, %9
   br i1 %cmp2.i.i50, label %_ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit61, label %if.else.i.i36, !llvm.loop !6
 
 _ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit61: ; preds = %if.end16.i.i43, %if.end13, %for.cond.preheader.i.i31, %if.then7.i.i59, %if.then11.i.i56

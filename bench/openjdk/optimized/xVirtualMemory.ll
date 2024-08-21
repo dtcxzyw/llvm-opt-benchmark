@@ -59,7 +59,7 @@ define hidden void @_ZN21XVirtualMemoryManagerC2Em(ptr noundef nonnull align 8 d
   %6 = getelementptr inbounds i8, ptr %0, i64 120
   store i8 0, ptr %6, align 8
   %7 = load i64, ptr @XAddressOffsetMax, align 8
-  %8 = icmp ult i64 %7, %1
+  %8 = icmp ugt i64 %1, %7
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %2
@@ -122,7 +122,7 @@ define hidden noundef zeroext i1 @_ZN21XVirtualMemoryManager7reserveEm(ptr nound
   %13 = add nuw nsw i64 %12, 2097151
   %14 = and i64 %13, 4503599625273344
   %15 = tail call noundef i64 @llvm.umax.i64(i64 %14, i64 2097152)
-  %.not10.not.i = icmp ult i64 %10, %9
+  %.not10.not.i = icmp ugt i64 %9, %10
   br i1 %.not10.not.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2
@@ -384,7 +384,7 @@ define hidden noundef zeroext i1 @_ZN21XVirtualMemoryManager18reserve_contiguous
   %6 = add nuw nsw i64 %5, 2097151
   %7 = and i64 %6, 4503599625273344
   %8 = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 2097152)
-  %.not10.not = icmp ult i64 %3, %1
+  %.not10.not = icmp ugt i64 %1, %3
   br i1 %.not10.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
@@ -423,7 +423,7 @@ define hidden noundef zeroext i1 @_ZNK21XVirtualMemoryManager14is_initializedEv(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZN21XVirtualMemoryManager5allocEmb(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = icmp ult i64 %1, 2097153
-  %or.cond = or i1 %4, %2
+  %or.cond = or i1 %2, %4
   br i1 %or.cond, label %5, label %7
 
 5:                                                ; preds = %3

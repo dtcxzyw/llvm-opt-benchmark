@@ -1139,7 +1139,7 @@ define dso_local ptr @sgl_alloc_order(i64 noundef %0, i32 noundef %1, i1 noundef
   %15 = trunc i64 %14 to i32
   %16 = shl i32 %15, %12
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %17, %0
+  %18 = icmp ugt i64 %0, %17
   br i1 %18, label %98, label %19
 
 19:                                               ; preds = %5
@@ -2214,7 +2214,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr align 1 %99, i64 %97, i1 false)
   %100 = add i32 %90, %96
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %101, %3
+  %102 = icmp ugt i64 %3, %101
   br i1 %102, label %.preheader.split.us, label %.loopexit, !llvm.loop !56
 
 .preheader.split:                                 ; preds = %.preheader, %106
@@ -2234,7 +2234,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %112, ptr align 1 %113, i64 %111, i1 false)
   %114 = add i32 %104, %110
   %115 = zext i32 %114 to i64
-  %116 = icmp ult i64 %115, %3
+  %116 = icmp ugt i64 %3, %115
   br i1 %116, label %.preheader.split, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.preheader.split, %106, %92, %.preheader.split.us, %._crit_edge
@@ -2469,7 +2469,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i3
   tail call void @llvm.memset.p0.i64(ptr align 1 %93, i8 0, i64 %94, i1 false)
   %95 = add i32 %87, %92
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %96, %2
+  %97 = icmp ugt i64 %2, %96
   br i1 %97, label %.preheader, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %89, %.preheader

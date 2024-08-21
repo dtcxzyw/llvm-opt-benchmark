@@ -90,7 +90,7 @@ define void @TraceLog(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #1
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [256 x i8], align 16
   %5 = load i32, ptr @logTypeLevel, align 4
-  %6 = icmp sgt i32 %5, %0
+  %6 = icmp slt i32 %0, %5
   br i1 %6, label %29, label %7
 
 7:                                                ; preds = %2
@@ -354,7 +354,7 @@ define zeroext i1 @SaveFileData(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   br label %19
 
 16:                                               ; preds = %10
-  %.not26 = icmp eq i32 %13, %2
+  %.not26 = icmp eq i32 %2, %13
   br i1 %.not26, label %18, label %17
 
 17:                                               ; preds = %16

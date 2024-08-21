@@ -127,8 +127,8 @@ _ZL19pj_bonne_destructorP8PJconstsi.exit44:       ; preds = %33, %36
   store double %49, ptr %50, align 8
   %51 = load double, ptr %24, align 8
   %52 = load double, ptr %43, align 8
-  %53 = fneg double %51
-  %54 = fmul double %52, %53
+  %53 = fneg double %52
+  %54 = fmul double %51, %53
   %55 = tail call double @llvm.fmuladd.f64(double %54, double %52, double 1.000000e+00)
   %56 = tail call double @sqrt(double noundef %55) #9
   %57 = load double, ptr %43, align 8
@@ -248,8 +248,8 @@ define internal { double, double } @_ZL15bonne_e_inverse5PJ_XYP8PJconsts(double 
   %23 = tail call double @sin(double noundef %19) #9
   %24 = getelementptr inbounds i8, ptr %2, i64 216
   %25 = load double, ptr %24, align 8
-  %26 = fneg double %25
-  %27 = fmul double %23, %26
+  %26 = fneg double %23
+  %27 = fmul double %25, %26
   %28 = tail call double @llvm.fmuladd.f64(double %27, double %23, double 1.000000e+00)
   %29 = tail call double @sqrt(double noundef %28) #9
   %30 = fmul double %11, %29
@@ -307,11 +307,11 @@ define internal { double, double } @_ZL15bonne_e_forward5PJ_LPP8PJconsts(double 
   br i1 %18, label %19, label %35
 
 19:                                               ; preds = %3
-  %20 = fmul double %7, %0
+  %20 = fmul double %0, %7
   %21 = getelementptr inbounds i8, ptr %2, i64 216
   %22 = load double, ptr %21, align 8
-  %23 = fneg double %22
-  %24 = fmul double %6, %23
+  %23 = fneg double %6
+  %24 = fmul double %22, %23
   %25 = tail call double @llvm.fmuladd.f64(double %24, double %6, double 1.000000e+00)
   %26 = tail call double @sqrt(double noundef %25) #9
   %27 = fmul double %16, %26
@@ -402,7 +402,7 @@ define internal { double, double } @_ZL15bonne_s_forward5PJ_LPP8PJconsts(double 
 
 13:                                               ; preds = %3
   %14 = tail call double @cos(double noundef %1) #9
-  %15 = fmul double %14, %0
+  %15 = fmul double %0, %14
   %16 = fdiv double %15, %10
   %17 = tail call double @sin(double noundef %16) #9
   %18 = fmul double %10, %17

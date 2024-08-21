@@ -1415,7 +1415,7 @@ ir_add_tmp.exit:                                  ; preds = %581, %.critedge.i, 
 646:                                              ; preds = %597
   %647 = getelementptr inbounds i8, ptr %613, i64 16
   %648 = load i32, ptr %647, align 8
-  %649 = icmp sgt i32 %648, %605
+  %649 = icmp slt i32 %605, %648
   br i1 %649, label %650, label %683
 
 650:                                              ; preds = %646
@@ -1479,7 +1479,7 @@ ir_add_tmp.exit:                                  ; preds = %581, %.critedge.i, 
   br label %ir_add_fixed_live_range.exit
 
 683:                                              ; preds = %646
-  %684 = icmp eq i32 %648, %605
+  %684 = icmp eq i32 %605, %648
   br i1 %684, label %685, label %686
 
 685:                                              ; preds = %683
@@ -1950,7 +1950,7 @@ ir_add_use_pos.exit775:                           ; preds = %ir_add_use_pos.exit
 920:                                              ; preds = %879
   %921 = getelementptr inbounds i8, ptr %887, i64 16
   %922 = load i32, ptr %921, align 8
-  %923 = icmp sgt i32 %922, %854
+  %923 = icmp slt i32 %854, %922
   br i1 %923, label %924, label %957
 
 924:                                              ; preds = %920
@@ -2014,7 +2014,7 @@ ir_add_use_pos.exit775:                           ; preds = %ir_add_use_pos.exit
   br label %ir_add_fixed_live_range.exit782
 
 957:                                              ; preds = %920
-  %958 = icmp eq i32 %922, %854
+  %958 = icmp eq i32 %854, %922
   br i1 %958, label %959, label %960
 
 959:                                              ; preds = %957
@@ -2415,7 +2415,7 @@ ir_add_tmp.exit.i:                                ; preds = %1115, %.critedge.i.
 1167:                                             ; preds = %1118
   %1168 = getelementptr inbounds i8, ptr %1134, i64 16
   %1169 = load i32, ptr %1168, align 8
-  %1170 = icmp sgt i32 %1169, %1126
+  %1170 = icmp slt i32 %1126, %1169
   br i1 %1170, label %1171, label %1204
 
 1171:                                             ; preds = %1167
@@ -2479,7 +2479,7 @@ ir_add_tmp.exit.i:                                ; preds = %1115, %.critedge.i.
   br label %ir_add_fixed_live_range.exit.i
 
 1204:                                             ; preds = %1167
-  %1205 = icmp eq i32 %1169, %1126
+  %1205 = icmp eq i32 %1126, %1169
   br i1 %1205, label %1206, label %1207
 
 1206:                                             ; preds = %1204
@@ -2832,7 +2832,7 @@ ir_add_fusion_ranges.exit:                        ; preds = %._crit_edge.i792
 1390:                                             ; preds = %1349
   %1391 = getelementptr inbounds i8, ptr %1357, i64 16
   %1392 = load i32, ptr %1391, align 8
-  %1393 = icmp sgt i32 %1392, %854
+  %1393 = icmp slt i32 %854, %1392
   br i1 %1393, label %1394, label %1427
 
 1394:                                             ; preds = %1390
@@ -2896,7 +2896,7 @@ ir_add_fusion_ranges.exit:                        ; preds = %._crit_edge.i792
   br label %ir_add_fixed_live_range.exit812
 
 1427:                                             ; preds = %1390
-  %1428 = icmp eq i32 %1392, %854
+  %1428 = icmp eq i32 %854, %1392
   br i1 %1428, label %1429, label %1430
 
 1429:                                             ; preds = %1427
@@ -2984,7 +2984,7 @@ ir_add_fusion_ranges.exit:                        ; preds = %._crit_edge.i792
 1474:                                             ; preds = %1433
   %1475 = getelementptr inbounds i8, ptr %1441, i64 16
   %1476 = load i32, ptr %1475, align 8
-  %1477 = icmp sgt i32 %1476, %854
+  %1477 = icmp slt i32 %854, %1476
   br i1 %1477, label %1478, label %1511
 
 1478:                                             ; preds = %1474
@@ -3048,7 +3048,7 @@ ir_add_fusion_ranges.exit:                        ; preds = %._crit_edge.i792
   br label %ir_add_fixed_live_range.exit812
 
 1511:                                             ; preds = %1474
-  %1512 = icmp eq i32 %1476, %854
+  %1512 = icmp eq i32 %854, %1476
   br i1 %1512, label %1513, label %1514
 
 1513:                                             ; preds = %1511
@@ -3447,7 +3447,7 @@ define internal fastcc void @ir_add_fixed_live_range(ptr nocapture noundef %0, i
 48:                                               ; preds = %4
   %49 = getelementptr inbounds i8, ptr %14, i64 16
   %50 = load i32, ptr %49, align 8
-  %51 = icmp sgt i32 %50, %3
+  %51 = icmp slt i32 %3, %50
   br i1 %51, label %52, label %87
 
 52:                                               ; preds = %48
@@ -3513,7 +3513,7 @@ define internal fastcc void @ir_add_fixed_live_range(ptr nocapture noundef %0, i
   br label %92
 
 87:                                               ; preds = %48
-  %88 = icmp eq i32 %50, %3
+  %88 = icmp eq i32 %3, %50
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %87
@@ -3600,7 +3600,7 @@ ir_new_live_range.exit:                           ; preds = %20, %22
 42:                                               ; preds = %4
   %43 = getelementptr inbounds i8, ptr %9, i64 16
   %44 = load i32, ptr %43, align 8
-  %.not224 = icmp sgt i32 %44, %3
+  %.not224 = icmp slt i32 %3, %44
   br i1 %.not224, label %108, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %42
@@ -3620,7 +3620,7 @@ ir_new_live_range.exit:                           ; preds = %20, %22
   %.1208.lcssa = phi ptr [ %43, %.preheader.preheader ], [ %74, %.preheader ]
   %.lcssa = phi i32 [ %46, %.preheader.preheader ], [ %48, %.preheader ]
   %49 = getelementptr inbounds i8, ptr %.1208.lcssa, i64 4
-  %50 = icmp sgt i32 %.lcssa276, %2
+  %50 = icmp slt i32 %2, %.lcssa276
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %.preheader._crit_edge
@@ -3628,7 +3628,7 @@ ir_new_live_range.exit:                           ; preds = %20, %22
   br label %52
 
 52:                                               ; preds = %51, %.preheader._crit_edge
-  %53 = icmp slt i32 %.lcssa, %3
+  %53 = icmp sgt i32 %3, %.lcssa
   br i1 %53, label %54, label %.critedge
 
 54:                                               ; preds = %52
@@ -3685,7 +3685,7 @@ ir_new_live_range.exit:                           ; preds = %20, %22
 
 75:                                               ; preds = %.lr.ph283
   %76 = load i32, ptr %74, align 8
-  %.not228 = icmp sgt i32 %76, %3
+  %.not228 = icmp slt i32 %3, %76
   br i1 %.not228, label %.critedge2, label %.preheader
 
 .critedge233:                                     ; preds = %.lr.ph283
@@ -7452,13 +7452,13 @@ ir_block_from_live_pos.exit48.i.i.i:              ; preds = %533
 .preheader.i270.i:                                ; preds = %ir_block_from_live_pos.exit48.i.i.i, %542
   %.09.i.i.i.i = phi ptr [ %544, %542 ], [ %240, %ir_block_from_live_pos.exit48.i.i.i ]
   %537 = load i32, ptr %.09.i.i.i.i, align 8
-  %538 = icmp sgt i32 %537, %.08.lcssa.i.i.i
+  %538 = icmp slt i32 %.08.lcssa.i.i.i, %537
   br i1 %538, label %ir_find_optimal_split_position.exit.i.i, label %539
 
 539:                                              ; preds = %.preheader.i270.i
   %540 = getelementptr inbounds i8, ptr %.09.i.i.i.i, i64 4
   %541 = load i32, ptr %540, align 4
-  %.not8.i.i.i.i = icmp slt i32 %541, %.0189.lcssa.i.i
+  %.not8.i.i.i.i = icmp sgt i32 %.0189.lcssa.i.i, %541
   br i1 %.not8.i.i.i.i, label %542, label %545
 
 542:                                              ; preds = %539
@@ -8344,13 +8344,13 @@ ir_block_from_live_pos.exit48.i.i296.i:           ; preds = %926
 .preheader601.i.i:                                ; preds = %ir_block_from_live_pos.exit48.i.i296.i, %935
   %.09.i.i.i297.i = phi ptr [ %937, %935 ], [ %240, %ir_block_from_live_pos.exit48.i.i296.i ]
   %930 = load i32, ptr %.09.i.i.i297.i, align 8
-  %931 = icmp sgt i32 %930, %911
+  %931 = icmp slt i32 %911, %930
   br i1 %931, label %ir_find_optimal_split_position.exit.i304.i, label %932
 
 932:                                              ; preds = %.preheader601.i.i
   %933 = getelementptr inbounds i8, ptr %.09.i.i.i297.i, i64 4
   %934 = load i32, ptr %933, align 4
-  %.not8.i.i.i298.i = icmp slt i32 %934, %916
+  %.not8.i.i.i298.i = icmp sgt i32 %916, %934
   br i1 %.not8.i.i.i298.i, label %935, label %938
 
 935:                                              ; preds = %932
@@ -8757,13 +8757,13 @@ ir_block_from_live_pos.exit48.i431.i.i:           ; preds = %1134
 .preheader390.i:                                  ; preds = %ir_block_from_live_pos.exit48.i431.i.i, %1143
   %.09.i.i432.i.i = phi ptr [ %1145, %1143 ], [ %240, %ir_block_from_live_pos.exit48.i431.i.i ]
   %1138 = load i32, ptr %.09.i.i432.i.i, align 8
-  %1139 = icmp sgt i32 %1138, %.08.lcssa.i.i320.i
+  %1139 = icmp slt i32 %.08.lcssa.i.i320.i, %1138
   br i1 %1139, label %ir_find_optimal_split_position.exit446.i.i, label %1140
 
 1140:                                             ; preds = %.preheader390.i
   %1141 = getelementptr inbounds i8, ptr %.09.i.i432.i.i, i64 4
   %1142 = load i32, ptr %1141, align 4
-  %.not8.i.i433.i.i = icmp slt i32 %1142, %1034
+  %.not8.i.i433.i.i = icmp sgt i32 %1034, %1142
   br i1 %.not8.i.i433.i.i, label %1143, label %1146
 
 1143:                                             ; preds = %1140
@@ -9069,13 +9069,13 @@ ir_block_from_live_pos.exit48.i490.i.i:           ; preds = %1284
 1290:                                             ; preds = %1296, %1288
   %.09.i.i491.i.i = phi ptr [ %1289, %1288 ], [ %1298, %1296 ]
   %1291 = load i32, ptr %.09.i.i491.i.i, align 8
-  %1292 = icmp sgt i32 %1291, %.08.lcssa.i477.i.i
+  %1292 = icmp slt i32 %.08.lcssa.i477.i.i, %1291
   br i1 %1292, label %ir_find_optimal_split_position.exit505.i.i, label %1293
 
 1293:                                             ; preds = %1290
   %1294 = getelementptr inbounds i8, ptr %.09.i.i491.i.i, i64 4
   %1295 = load i32, ptr %1294, align 4
-  %.not8.i.i492.i.i = icmp slt i32 %1295, %1265
+  %.not8.i.i492.i.i = icmp sgt i32 %1265, %1295
   br i1 %.not8.i.i492.i.i, label %1296, label %1299
 
 1296:                                             ; preds = %1293
@@ -9270,13 +9270,13 @@ ir_block_from_live_pos.exit48.i530.i.i:           ; preds = %1380
 .preheader.i284.i:                                ; preds = %ir_block_from_live_pos.exit48.i530.i.i, %1389
   %.09.i.i531.i.i = phi ptr [ %1391, %1389 ], [ %240, %ir_block_from_live_pos.exit48.i530.i.i ]
   %1384 = load i32, ptr %.09.i.i531.i.i, align 8
-  %1385 = icmp sgt i32 %1384, %1265
+  %1385 = icmp slt i32 %1265, %1384
   br i1 %1385, label %ir_find_optimal_split_position.exit545.i.i, label %1386
 
 1386:                                             ; preds = %.preheader.i284.i
   %1387 = getelementptr inbounds i8, ptr %.09.i.i531.i.i, i64 4
   %1388 = load i32, ptr %1387, align 4
-  %.not8.i.i532.i.i = icmp slt i32 %1388, %1370
+  %.not8.i.i532.i.i = icmp sgt i32 %1370, %1388
   br i1 %.not8.i.i532.i.i, label %1389, label %1392
 
 1389:                                             ; preds = %1386
@@ -10385,7 +10385,7 @@ ir_linear_scan.exit:                              ; preds = %1
   %.0.i.i = phi ptr [ %1856, %1894 ], [ %1910, %1908 ]
   %1905 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
   %1906 = load i32, ptr %1905, align 4
-  %1907 = icmp sgt i32 %1906, %1903
+  %1907 = icmp slt i32 %1903, %1906
   br i1 %1907, label %ir_ival_covers.exit.i, label %1908
 
 1908:                                             ; preds = %1904
@@ -10396,7 +10396,7 @@ ir_linear_scan.exit:                              ; preds = %1
 
 ir_ival_covers.exit.i:                            ; preds = %1904
   %1911 = load i32, ptr %.0.i.i, align 8
-  %.not425.i = icmp sgt i32 %1911, %1903
+  %.not425.i = icmp slt i32 %1903, %1911
   br i1 %.not425.i, label %ir_ival_covers.exit.thread.i, label %1912
 
 1912:                                             ; preds = %ir_ival_covers.exit.i
@@ -10518,7 +10518,7 @@ ir_ival_covers.exit.thread.i:                     ; preds = %1908, %1912, %ir_iv
   %.0.i.i.i21 = phi ptr [ %1856, %.lr.ph.i.i20 ], [ %1981, %1979 ]
   %1976 = getelementptr inbounds i8, ptr %.0.i.i.i21, i64 4
   %1977 = load i32, ptr %1976, align 4
-  %1978 = icmp sgt i32 %1977, %1974
+  %1978 = icmp slt i32 %1974, %1977
   br i1 %1978, label %ir_ival_covers.exit.i.i, label %1979
 
 1979:                                             ; preds = %1975
@@ -10529,7 +10529,7 @@ ir_ival_covers.exit.thread.i:                     ; preds = %1908, %1912, %ir_iv
 
 ir_ival_covers.exit.i.i:                          ; preds = %1975
   %1982 = load i32, ptr %.0.i.i.i21, align 8
-  %.not156.i.i = icmp sgt i32 %1982, %1974
+  %.not156.i.i = icmp slt i32 %1974, %1982
   br i1 %.not156.i.i, label %ir_ival_covers.exit.thread.i.i, label %1983
 
 1983:                                             ; preds = %ir_ival_covers.exit.i.i
@@ -10686,7 +10686,7 @@ needs_spill_load.exit.thread.i:                   ; preds = %2016
   %.0.i409.i = phi ptr [ %1856, %2046 ], [ %2062, %2060 ]
   %2057 = getelementptr inbounds i8, ptr %.0.i409.i, i64 4
   %2058 = load i32, ptr %2057, align 4
-  %2059 = icmp sgt i32 %2058, %2055
+  %2059 = icmp slt i32 %2055, %2058
   br i1 %2059, label %ir_ival_covers.exit413.i, label %2060
 
 2060:                                             ; preds = %2056
@@ -10697,7 +10697,7 @@ needs_spill_load.exit.thread.i:                   ; preds = %2016
 
 ir_ival_covers.exit413.i:                         ; preds = %2056
   %2063 = load i32, ptr %.0.i409.i, align 8
-  %.not424.i = icmp sgt i32 %2063, %2055
+  %.not424.i = icmp slt i32 %2055, %2063
   br i1 %.not424.i, label %.thread421.i, label %2064
 
 2064:                                             ; preds = %ir_ival_covers.exit413.i
@@ -11553,13 +11553,13 @@ ir_block_from_live_pos.exit48:                    ; preds = %17
 23:                                               ; preds = %29, %21
   %.09.i = phi ptr [ %22, %21 ], [ %31, %29 ]
   %24 = load i32, ptr %.09.i, align 8
-  %25 = icmp sgt i32 %24, %2
+  %25 = icmp slt i32 %2, %24
   br i1 %25, label %ir_ival_has_hole_between.exit, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %.09.i, i64 4
   %28 = load i32, ptr %27, align 4
-  %.not8.i = icmp slt i32 %28, %3
+  %.not8.i = icmp sgt i32 %3, %28
   br i1 %.not8.i, label %29, label %33
 
 29:                                               ; preds = %26
@@ -11643,13 +11643,13 @@ define internal fastcc noundef ptr @ir_split_interval_at(ptr nocapture noundef %
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = getelementptr inbounds i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
-  %.not156199 = icmp sgt i32 %9, %2
+  %.not156199 = icmp slt i32 %2, %9
   br i1 %.not156199, label %.critedge, label %.lr.ph202
 
 10:                                               ; preds = %.lr.ph202
   %11 = getelementptr inbounds i8, ptr %14, i64 4
   %12 = load i32, ptr %11, align 4
-  %.not156 = icmp sgt i32 %12, %2
+  %.not156 = icmp slt i32 %2, %12
   br i1 %.not156, label %.critedge, label %.lr.ph202
 
 .lr.ph202:                                        ; preds = %3, %10
@@ -11663,7 +11663,7 @@ define internal fastcc noundef ptr @ir_split_interval_at(ptr nocapture noundef %
   %.0149.lcssa = phi ptr [ %7, %3 ], [ %14, %10 ], [ null, %.lr.ph202 ]
   %.0148.lcssa = phi ptr [ null, %3 ], [ %.0149168200, %.lr.ph202 ], [ %.0149168200, %10 ]
   %15 = load i32, ptr %.0149.lcssa, align 8
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %15, i32 %2)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %2, i32 %15)
   %16 = getelementptr inbounds i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 2

@@ -329,7 +329,7 @@ define dso_local ptr @intel_sprite_plane_create(ptr noundef %0, i32 noundef %1, 
   %68 = getelementptr [4 x i8], ptr %66, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
-  %71 = mul i32 %70, %1
+  %71 = mul i32 %1, %70
   %72 = add i32 %2, 65
   %73 = add i32 %72, %71
   %74 = and i32 %73, 255

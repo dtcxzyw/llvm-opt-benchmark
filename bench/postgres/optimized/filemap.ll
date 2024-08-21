@@ -566,84 +566,84 @@ datasegpath.exit:                                 ; preds = %4, %7
   %13 = tail call i32 @hash_bytes(ptr noundef %.0.i, i32 noundef %12) #11
   %14 = getelementptr i8, ptr %10, i64 12
   %.val.i.i.i = load i32, ptr %14, align 4
-  %15 = and i32 %.val.i.i.i, %13
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
-  %17 = load ptr, ptr %16, align 8
-  %18 = zext i32 %15 to i64
-  %19 = getelementptr %struct.file_entry_t, ptr %17, i64 %18
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %lookup_filehash_entry.exit.thread, label %.lr.ph.i.i.i
+  %15 = getelementptr inbounds i8, ptr %10, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %.01214.i.i.i = and i32 %.val.i.i.i, %13
+  %17 = zext i32 %.01214.i.i.i to i64
+  %18 = getelementptr %struct.file_entry_t, ptr %16, i64 %17
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %lookup_filehash_entry.exit.thread, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %datasegpath.exit, %27
-  %22 = phi ptr [ %31, %27 ], [ %19, %datasegpath.exit ]
-  %.01214.i.i.i = phi i32 [ %29, %27 ], [ %15, %datasegpath.exit ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %.0.i) #12
+21:                                               ; preds = %.lr.ph.i.i.i
+  %22 = add i32 %.01215.i.i.i, 1
+  %.012.i.i.i = and i32 %22, %.val.i.i.i
+  %23 = zext i32 %.012.i.i.i to i64
+  %24 = getelementptr %struct.file_entry_t, ptr %16, i64 %23
+  %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %34, label %27
+  br i1 %26, label %lookup_filehash_entry.exit.thread, label %.lr.ph.i.i.i
 
-27:                                               ; preds = %.lr.ph.i.i.i
-  %28 = add i32 %.01214.i.i.i, 1
-  %29 = and i32 %28, %.val.i.i.i
-  %30 = zext i32 %29 to i64
-  %31 = getelementptr %struct.file_entry_t, ptr %17, i64 %30
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %lookup_filehash_entry.exit.thread, label %.lr.ph.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %datasegpath.exit, %21
+  %27 = phi ptr [ %24, %21 ], [ %18, %datasegpath.exit ]
+  %.01215.i.i.i = phi i32 [ %.012.i.i.i, %21 ], [ %.01214.i.i.i, %datasegpath.exit ]
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %.0.i) #12
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %21
 
-lookup_filehash_entry.exit.thread:                ; preds = %27, %datasegpath.exit
+lookup_filehash_entry.exit.thread:                ; preds = %21, %datasegpath.exit
   tail call void @pfree(ptr noundef %.0.i) #11
-  br label %59
+  br label %57
 
-34:                                               ; preds = %.lr.ph.i.i.i
+32:                                               ; preds = %.lr.ph.i.i.i
   tail call void @pfree(ptr noundef %.0.i) #11
-  %35 = getelementptr inbounds i8, ptr %22, i64 17
-  %36 = load i8, ptr %35, align 1
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %38, label %59
+  %33 = getelementptr inbounds i8, ptr %27, i64 17
+  %34 = load i8, ptr %33, align 1
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %57
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %22, i64 20
-  %40 = load i32, ptr %39, align 4
-  %.not22 = icmp eq i32 %40, 1
-  br i1 %.not22, label %44, label %41
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds i8, ptr %27, i64 20
+  %38 = load i32, ptr %37, align 4
+  %.not22 = icmp eq i32 %38, 1
+  br i1 %.not22, label %42, label %39
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %22, i64 8
-  %43 = load ptr, ptr %42, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %43) #11
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %27, i64 8
+  %41 = load ptr, ptr %40, align 8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %41) #11
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
-44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %22, i64 56
-  %46 = load i8, ptr %45, align 8
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %59
+42:                                               ; preds = %36
+  %43 = getelementptr inbounds i8, ptr %27, i64 56
+  %44 = load i8, ptr %43, align 8
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %57
 
-48:                                               ; preds = %44
-  %49 = shl nuw nsw i32 %5, 13
-  %50 = add nuw nsw i32 %49, 8192
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %22, i64 64
-  %53 = load i64, ptr %52, align 8
-  %.not23 = icmp ult i64 %53, %51
-  br i1 %.not23, label %59, label %54
+46:                                               ; preds = %42
+  %47 = shl nuw nsw i32 %5, 13
+  %48 = add nuw nsw i32 %47, 8192
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds i8, ptr %27, i64 64
+  %51 = load i64, ptr %50, align 8
+  %.not23 = icmp ult i64 %51, %49
+  br i1 %.not23, label %57, label %52
 
-54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %22, i64 24
-  %56 = load i64, ptr %55, align 8
-  %.not24 = icmp ult i64 %56, %51
-  br i1 %.not24, label %59, label %57
+52:                                               ; preds = %46
+  %53 = getelementptr inbounds i8, ptr %27, i64 24
+  %54 = load i64, ptr %53, align 8
+  %.not24 = icmp ult i64 %54, %49
+  br i1 %.not24, label %57, label %55
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %22, i64 40
-  tail call void @datapagemap_add(ptr noundef nonnull %58, i32 noundef %5) #11
-  br label %59
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds i8, ptr %27, i64 40
+  tail call void @datapagemap_add(ptr noundef nonnull %56, i32 noundef %5) #11
+  br label %57
 
-59:                                               ; preds = %lookup_filehash_entry.exit.thread, %34, %48, %54, %57, %44
+57:                                               ; preds = %lookup_filehash_entry.exit.thread, %32, %46, %52, %55, %42
   ret void
 }
 

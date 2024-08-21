@@ -4462,14 +4462,14 @@ define internal fastcc noundef zeroext i1 @_ZL19contains_north_poleP8PJconsts12P
   %12 = sub nsw i32 0, %1
   %13 = call i64 @proj_trans_generic(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %9, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %8, i64 noundef 8, i64 noundef 1, ptr noundef null, i64 noundef 8, i64 noundef 0, ptr noundef null, i64 noundef 8, i64 noundef 0)
   %14 = load double, ptr %9, align 8
-  %15 = fcmp ogt double %14, %2
+  %15 = fcmp olt double %2, %14
   %16 = fcmp olt double %14, %4
   %or.cond = and i1 %15, %16
   br i1 %or.cond, label %17, label %21
 
 17:                                               ; preds = %11
   %18 = load double, ptr %8, align 8
-  %19 = fcmp olt double %18, %5
+  %19 = fcmp ogt double %5, %18
   %20 = fcmp ogt double %18, %3
   %or.cond9 = and i1 %19, %20
   br i1 %or.cond9, label %22, label %21
@@ -4499,14 +4499,14 @@ define internal fastcc noundef zeroext i1 @_ZL19contains_south_poleP8PJconsts12P
   %12 = sub nsw i32 0, %1
   %13 = call i64 @proj_trans_generic(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %9, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %8, i64 noundef 8, i64 noundef 1, ptr noundef null, i64 noundef 8, i64 noundef 0, ptr noundef null, i64 noundef 8, i64 noundef 0)
   %14 = load double, ptr %9, align 8
-  %15 = fcmp ogt double %14, %2
+  %15 = fcmp olt double %2, %14
   %16 = fcmp olt double %14, %4
   %or.cond = and i1 %15, %16
   br i1 %or.cond, label %17, label %21
 
 17:                                               ; preds = %11
   %18 = load double, ptr %8, align 8
-  %19 = fcmp olt double %18, %5
+  %19 = fcmp ogt double %5, %18
   %20 = fcmp ogt double %18, %3
   %or.cond9 = and i1 %19, %20
   br i1 %or.cond9, label %22, label %21

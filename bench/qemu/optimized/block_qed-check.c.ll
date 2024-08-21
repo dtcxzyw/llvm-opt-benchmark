@@ -246,16 +246,16 @@ if.end.i.i:                                       ; preds = %if.end.i
   %conv.i.i42 = zext i32 %15 to i64
   %conv3.i.i = zext i32 %14 to i64
   %mul.i.i = mul nuw i64 %conv.i.i42, %conv3.i.i
-  %cmp.not.i.i = icmp ugt i64 %mul.i.i, %12
+  %cmp.not.i.i = icmp ult i64 %12, %mul.i.i
   br i1 %cmp.not.i.i, label %if.then5, label %qed_check_table_offset.exit
 
 qed_check_table_offset.exit:                      ; preds = %if.end.i.i
   %16 = load i64, ptr %file_size.i.i, align 8
-  %cmp8.i.i = icmp ugt i64 %16, %12
+  %cmp8.i.i = icmp ult i64 %12, %16
   %and.i10.i = and i64 %add.i39, %conv6.i.i
   %tobool.not.i11.i = icmp eq i64 %and.i10.i, 0
   %or.cond.not25.not26.i = and i1 %tobool.not.i11.i, %cmp8.i.i
-  %cmp8.i21.i = icmp ugt i64 %16, %add.i39
+  %cmp8.i21.i = icmp ult i64 %add.i39, %16
   %spec.select.i43 = and i1 %cmp8.i21.i, %or.cond.not25.not26.i
   br i1 %spec.select.i43, label %if.end14, label %if.then5
 
@@ -402,12 +402,12 @@ if.end.i.i86:                                     ; preds = %if.end9.i
   %conv.i.i87 = zext i32 %42 to i64
   %conv3.i.i88 = zext i32 %41 to i64
   %mul.i.i89 = mul nuw i64 %conv.i.i87, %conv3.i.i88
-  %cmp.not.i.i90 = icmp ugt i64 %mul.i.i89, %36
+  %cmp.not.i.i90 = icmp ult i64 %36, %mul.i.i89
   br i1 %cmp.not.i.i90, label %if.then11.i, label %qed_check_cluster_offset.exit.i91
 
 qed_check_cluster_offset.exit.i91:                ; preds = %if.end.i.i86
   %43 = load i64, ptr %file_size.i.i76, align 8
-  %cmp8.i.i92 = icmp ugt i64 %43, %36
+  %cmp8.i.i92 = icmp ult i64 %36, %43
   br i1 %cmp8.i.i92, label %if.end23.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %qed_check_cluster_offset.exit.i91, %if.end.i.i86, %if.end9.i

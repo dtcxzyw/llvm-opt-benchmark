@@ -3116,11 +3116,11 @@ cond.end219:                                      ; preds = %cond.end199.thread,
   store float %sub233, ptr %arrayidx69, align 4
   %sub237 = fsub float %cond104, %margin
   store float %sub237, ptr %arrayidx107, align 4
-  %add = fadd float %cond145, %margin
+  %add = fadd float %margin, %cond145
   store float %add, ptr %m_max, align 4
-  %add244 = fadd float %cond182, %margin
+  %add244 = fadd float %margin, %cond182
   store float %add244, ptr %arrayidx185, align 4
-  %add248 = fadd float %cond220, %margin
+  %add248 = fadd float %margin, %cond220
   store float %add248, ptr %arrayidx223, align 4
   ret void
 }

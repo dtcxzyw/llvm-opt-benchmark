@@ -1474,7 +1474,7 @@ if.end:                                           ; preds = %land.lhs.true3, %en
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 184
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp15.not = icmp ugt i32 %conv.i, %i
+  %cmp15.not = icmp ult i32 %i, %conv.i
   br i1 %cmp15.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end

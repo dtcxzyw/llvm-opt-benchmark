@@ -93,7 +93,7 @@ if.end18.i:                                       ; preds = %strbuf_setlen.exit.
   %call19.i = call i64 @strcspn(ptr noundef %5, ptr noundef nonnull @.str.6) #12
   %6 = load i64, ptr @do_askpass.buffer, align 8
   %spec.select.i2.i = call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i2.i, %call19.i
+  %cmp.i.i = icmp ugt i64 %call19.i, %spec.select.i2.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end18.i

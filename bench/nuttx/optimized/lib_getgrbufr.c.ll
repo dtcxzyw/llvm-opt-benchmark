@@ -13,7 +13,7 @@ define range(i32 0, 35) i32 @getgrbuf_r(i32 noundef %0, ptr noundef %1, ptr noun
   %reass.sub = sub i64 %8, %12
   %13 = add i64 %reass.sub, 17
   %14 = add i64 %13, %10
-  %15 = icmp ugt i64 %14, %5
+  %15 = icmp ult i64 %5, %14
   br i1 %15, label %30, label %16
 
 16:                                               ; preds = %7

@@ -11824,7 +11824,7 @@ define internal fastcc range(i32 3, 65539) i32 @decode_gtp_gsn_addr_common(ptr n
   %22 = add i32 %1, 3
   %23 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %6, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0) #13
   %24 = load i32, ptr @hf_gtp_gsn_ipv4, align 4
-  %.not116 = icmp eq i32 %24, %6
+  %.not116 = icmp eq i32 %6, %24
   br i1 %.not116, label %proto_item_set_hidden.exit, label %25
 
 25:                                               ; preds = %19
@@ -11877,7 +11877,7 @@ proto_item_set_hidden.exit:                       ; preds = %30, %27, %25, %19
   %55 = add i32 %1, 4
   %56 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %6, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #13
   %57 = load i32, ptr @hf_gtp_gsn_ipv4, align 4
-  %.not115 = icmp eq i32 %57, %6
+  %.not115 = icmp eq i32 %6, %57
   br i1 %.not115, label %proto_item_set_hidden.exit121, label %58
 
 58:                                               ; preds = %41
@@ -11919,7 +11919,7 @@ proto_item_set_hidden.exit121:                    ; preds = %63, %60, %58, %41
   %77 = add i32 %1, 3
   %78 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %7, ptr noundef %0, i32 noundef %77, i32 noundef 16, i32 noundef 0) #13
   %79 = load i32, ptr @hf_gtp_gsn_ipv6, align 4
-  %.not114 = icmp eq i32 %79, %7
+  %.not114 = icmp eq i32 %7, %79
   br i1 %.not114, label %proto_item_set_hidden.exit124, label %80
 
 80:                                               ; preds = %74
@@ -11976,7 +11976,7 @@ proto_item_set_hidden.exit124:                    ; preds = %85, %82, %80, %74
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %110, ptr noundef nonnull @.str.1684, ptr noundef %113) #13
   %114 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %7, ptr noundef %0, i32 noundef %112, i32 noundef 16, i32 noundef 0) #13
   %115 = load i32, ptr @hf_gtp_gsn_ipv6, align 4
-  %.not = icmp eq i32 %115, %7
+  %.not = icmp eq i32 %7, %115
   br i1 %.not, label %proto_item_set_hidden.exit127, label %116
 
 116:                                              ; preds = %96
@@ -16384,48 +16384,48 @@ define internal fastcc range(i32 0, 65536) i32 @decode_quintuplet(ptr noundef %0
   %8 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.1726, i32 noundef %7) #13
   %9 = load i32, ptr @hf_gtp_rand, align 4
   %10 = zext i16 %.058 to i32
-  %11 = add i32 %10, %1
+  %11 = add i32 %1, %10
   %12 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %11, i32 noundef 16, i32 noundef 0) #13
   %13 = add i16 %.058, 16
   %14 = zext i16 %13 to i32
-  %15 = add i32 %14, %1
+  %15 = add i32 %1, %14
   %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %15) #13
   %17 = load i32, ptr @hf_gtp_xres_length, align 4
   %18 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %17, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef 0) #13
   %19 = add i16 %.058, 17
   %20 = load i32, ptr @hf_gtp_xres, align 4
   %21 = zext i16 %19 to i32
-  %22 = add i32 %21, %1
+  %22 = add i32 %1, %21
   %23 = zext i8 %16 to i32
   %24 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %20, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef 0) #13
   %25 = zext i8 %16 to i16
   %26 = add i16 %19, %25
   %27 = load i32, ptr @hf_gtp_quintuplet_ciphering_key, align 4
   %28 = zext i16 %26 to i32
-  %29 = add i32 %28, %1
+  %29 = add i32 %1, %28
   %30 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %27, ptr noundef %0, i32 noundef %29, i32 noundef 16, i32 noundef 0) #13
   %31 = add i16 %26, 16
   %32 = load i32, ptr @hf_gtp_quintuplet_integrity_key, align 4
   %33 = zext i16 %31 to i32
-  %34 = add i32 %33, %1
+  %34 = add i32 %1, %33
   %35 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %32, ptr noundef %0, i32 noundef %34, i32 noundef 16, i32 noundef 0) #13
   %36 = add i16 %26, 32
   %37 = zext i16 %36 to i32
-  %38 = add i32 %37, %1
+  %38 = add i32 %1, %37
   %39 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #13
   %40 = load i32, ptr @hf_gtp_authentication_length, align 4
   %41 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %40, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #13
   %42 = add i16 %26, 33
   %43 = load i32, ptr @hf_gtp_auth, align 4
   %44 = zext i16 %42 to i32
-  %45 = add i32 %44, %1
+  %45 = add i32 %1, %44
   %46 = zext i8 %39 to i32
   %47 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %43, ptr noundef %0, i32 noundef %45, i32 noundef %46, i32 noundef 0) #13
   %48 = zext i8 %39 to i16
   %49 = add i16 %42, %48
   %50 = load ptr, ptr %5, align 8
   %51 = zext i16 %49 to i32
-  %52 = add i32 %51, %1
+  %52 = add i32 %1, %51
   call void @proto_item_set_end(ptr noundef %50, ptr noundef %0, i32 noundef %52) #13
   %exitcond.not = icmp eq i32 %7, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !53

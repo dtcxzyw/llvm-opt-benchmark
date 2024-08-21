@@ -366,7 +366,7 @@ ps_check_extra_glyph_name.exit:                   ; preds = %20, %27, %31
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %35 ], [ 0, %ps_check_extra_glyph_name.exit ]
   %36 = getelementptr inbounds [10 x i32], ptr @ft_extra_glyph_unicodes, i64 0, i64 %indvars.iv.i62
   %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, %33
+  %38 = icmp eq i32 %33, %37
   br i1 %38, label %39, label %35
 
 39:                                               ; preds = %.preheader65

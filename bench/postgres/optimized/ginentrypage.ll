@@ -1105,7 +1105,7 @@ entryPreparePage.exit.i:                          ; preds = %88, %78
   %.081.lcssa.i = phi i64 [ 0, %entryPreparePage.exit.i ], [ %134, %120 ]
   %.076.lcssa.i = phi ptr [ %9, %entryPreparePage.exit.i ], [ %132, %120 ]
   %narrow.i15 = add nuw nsw i16 %.0.i.i, 1
-  %136 = icmp eq i16 %narrow.i15, %.val
+  %136 = icmp eq i16 %.val, %narrow.i15
   br i1 %136, label %137, label %146
 
 137:                                              ; preds = %._crit_edge.i

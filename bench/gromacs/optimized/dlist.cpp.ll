@@ -1047,7 +1047,7 @@ _ZNSt6vectorI7t_dlistSaIS0_EE6resizeEm.exit:      ; preds = %_ZSt8_DestroyIP7t_d
   %392 = select i1 %4, i32 %.0216.lcssa, i32 0
   %.2220 = add nsw i32 %spec.select252, %392
   %393 = icmp sgt i32 %7, 0
-  %or.cond477 = and i1 %393, %5
+  %or.cond477 = and i1 %5, %393
   br i1 %or.cond477, label %.lr.ph468.preheader, label %.loopexit346
 
 .lr.ph468.preheader:                              ; preds = %_ZNSt6vectorI7t_dlistSaIS0_EE6resizeEm.exit

@@ -68,7 +68,7 @@ Vec_IntFree.exit:                                 ; preds = %14
   tail call void @free(ptr noundef nonnull %15) #6
   %41 = icmp eq i32 %40, 1
   %42 = zext i1 %41 to i32
-  %.not45 = icmp eq i32 %42, %4
+  %.not45 = icmp eq i32 %4, %42
   %43 = getelementptr inbounds i8, ptr %31, i64 64
   %44 = load ptr, ptr %43, align 8
   br i1 %.not45, label %84, label %45

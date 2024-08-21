@@ -174,14 +174,14 @@ if.else:                                          ; preds = %if.end2
   %cap.i19 = getelementptr inbounds i8, ptr %15, i64 100
   %21 = load i16, ptr %cap.i19, align 4
   %conv.i = zext i16 %21 to i64
-  %cmp.i20 = icmp ult i64 %conv.i, %len
+  %cmp.i20 = icmp ugt i64 %len, %conv.i
   br i1 %cmp.i20, label %if.then.i28, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.else
   %len2.i = getelementptr inbounds i8, ptr %15, i64 98
   %22 = load i16, ptr %len2.i, align 2
   %conv313.i = zext i16 %22 to i64
-  %cmp414.i = icmp ult i64 %conv313.i, %len
+  %cmp414.i = icmp ugt i64 %len, %conv313.i
   br i1 %cmp414.i, label %while.body.lr.ph.i, label %return
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
@@ -217,7 +217,7 @@ if.end18.i:                                       ; preds = %while.body.i
   %conv23.i = add i16 %26, %27
   store i16 %conv23.i, ptr %len2.i, align 2
   %conv3.i = zext i16 %conv23.i to i64
-  %cmp4.i = icmp ult i64 %conv3.i, %len
+  %cmp4.i = icmp ugt i64 %len, %conv3.i
   br i1 %cmp4.i, label %while.body.i, label %return, !llvm.loop !7
 
 if.then9:                                         ; preds = %if.then.i12, %if.then7.i, %if.then.i28, %if.then17.i
@@ -273,7 +273,7 @@ entry:
   %len1.i = getelementptr inbounds i8, ptr %0, i64 98
   %1 = load i16, ptr %len1.i, align 2
   %conv.i = zext i16 %1 to i64
-  %cmp.i = icmp ult i64 %conv.i, %len
+  %cmp.i = icmp ugt i64 %len, %conv.i
   br i1 %cmp.i, label %if.then.i, label %consume_buffer.exit
 
 if.then.i:                                        ; preds = %entry
@@ -351,7 +351,7 @@ if.else:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.else, %if.end
   %cap.0 = phi i64 [ 16477, %if.end ], [ %spec.select, %if.else ]
-  %cmp9 = icmp ult i64 %cap.0, %max_len
+  %cmp9 = icmp ugt i64 %max_len, %cap.0
   br i1 %cmp9, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end8
@@ -411,7 +411,7 @@ entry:
   %cap = getelementptr inbounds i8, ptr %0, i64 116
   %1 = load i16, ptr %cap, align 4
   %conv = zext i16 %1 to i64
-  %cmp = icmp ult i64 %conv, %len
+  %cmp = icmp ugt i64 %len, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

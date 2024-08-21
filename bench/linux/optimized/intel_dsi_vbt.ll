@@ -179,7 +179,7 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
 37:                                               ; preds = %29
   %38 = load i8, ptr %35, align 1
   %39 = zext i8 %38 to i32
-  %40 = icmp eq i32 %39, %1
+  %40 = icmp eq i32 %1, %39
   br i1 %40, label %53, label %41, !prof !14
 
 41:                                               ; preds = %37

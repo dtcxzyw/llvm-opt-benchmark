@@ -3453,7 +3453,7 @@ for.cond.preheader:                               ; preds = %sw.bb1
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %client.056 = phi ptr [ %client.0, %for.inc ], [ %client.054, %for.cond.preheader ]
-  %cmp5 = icmp eq ptr %client.056, %vs
+  %cmp5 = icmp eq ptr %vs, %client.056
   br i1 %cmp5, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
@@ -6234,7 +6234,7 @@ trace_vnc_key_guest_leds.exit:                    ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %ledstate5 = getelementptr inbounds i8, ptr %opaque, i64 136
   %6 = load i32, ptr %ledstate5, align 8
-  %cmp = icmp eq i32 %6, %ledstate
+  %cmp = icmp eq i32 %ledstate, %6
   br i1 %cmp, label %for.end, label %if.end
 
 if.end:                                           ; preds = %trace_vnc_key_guest_leds.exit
@@ -7934,10 +7934,10 @@ if.else.i:                                        ; preds = %if.end58
   %vd.val25.val.i.i = load ptr, ptr %vd.val25.i.i, align 8
   %call.i.i26.i.i = tail call i32 @pixman_image_get_height(ptr noundef %vd.val25.val.i.i) #25
   %cond.i27.i.i = tail call i32 @llvm.smin.i32(i32 %call.i.i26.i.i, i32 2048)
-  %cond8.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i27.i.i, i32 %or.i188)
+  %cond8.i.i = tail call i32 @llvm.smin.i32(i32 %or.i188, i32 %cond.i27.i.i)
   %add17.i.i = add nsw i32 %cond8.i.i, %or.i200
   %cond23.i.i = tail call i32 @llvm.smin.i32(i32 %add17.i.i, i32 %cond.i27.i.i)
-  %cmp2428.i.i = icmp sgt i32 %cond23.i.i, %or.i188
+  %cmp2428.i.i = icmp slt i32 %or.i188, %cond23.i.i
   br i1 %cmp2428.i.i, label %for.body.lr.ph.i.i, label %vnc_set_area_dirty.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else.i
@@ -8474,7 +8474,7 @@ if.end246:                                        ; preds = %sw.bb242
   %mul249 = shl nuw nsw i32 %conv248, 4
   %add250 = or disjoint i32 %mul249, 8
   %conv251 = zext nneg i32 %add250 to i64
-  %cmp252 = icmp ugt i64 %conv251, %len
+  %cmp252 = icmp ult i64 %len, %conv251
   br i1 %cmp252, label %return, label %if.end256
 
 if.end256:                                        ; preds = %if.end246
@@ -11972,10 +11972,10 @@ entry:
   %vd.val25.val.i = load ptr, ptr %vd.val25.i, align 8
   %call.i.i26.i = tail call i32 @pixman_image_get_height(ptr noundef %vd.val25.val.i) #25
   %cond.i27.i = tail call i32 @llvm.smin.i32(i32 %call.i.i26.i, i32 2048)
-  %cond8.i = tail call i32 @llvm.smin.i32(i32 %cond.i27.i, i32 %y)
+  %cond8.i = tail call i32 @llvm.smin.i32(i32 %y, i32 %cond.i27.i)
   %add17.i = add i32 %cond8.i, %h
   %cond23.i = tail call i32 @llvm.smin.i32(i32 %add17.i, i32 %cond.i27.i)
-  %cmp2428.i = icmp sgt i32 %cond23.i, %y
+  %cmp2428.i = icmp slt i32 %y, %cond23.i
   br i1 %cmp2428.i, label %for.body.lr.ph.i, label %vnc_set_area_dirty.exit
 
 for.body.lr.ph.i:                                 ; preds = %entry
@@ -11985,7 +11985,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %and.i.i = and i32 %sub.i.i, -16
   %cond.i.i = tail call range(i32 0, -15) i32 @llvm.smin.i32(i32 %and.i.i, i32 2560)
   %cond.i = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %cond.i.i)
-  %add.i = add i32 %rem.i, %w
+  %add.i = add i32 %w, %rem.i
   %add9.i = add i32 %add.i, %cond.i
   %cond15.i = tail call i32 @llvm.smin.i32(i32 %add9.i, i32 %cond.i.i)
   %div.i = sdiv i32 %cond.i, 16
@@ -12538,7 +12538,7 @@ define internal void @vnc_listen_io(ptr noundef readnone %listener, ptr noundef 
 entry:
   %wslistener = getelementptr inbounds i8, ptr %opaque, i64 48
   %0 = load ptr, ptr %wslistener, align 8
-  %cmp = icmp eq ptr %0, %listener
+  %cmp = icmp eq ptr %listener, %0
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cioc, ptr noundef nonnull @.str.878, ptr noundef nonnull @.str.879, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #25
   %cond = select i1 %cmp, ptr @.str.851, ptr @.str.43
   tail call void @qio_channel_set_name(ptr noundef %call.i, ptr noundef nonnull %cond) #25
@@ -12746,7 +12746,7 @@ if.end83:                                         ; preds = %if.end74
 if.then89:                                        ; preds = %if.end83
   %has_to90 = getelementptr inbounds i8, ptr %call, i64 26
   store i8 1, ptr %has_to90, align 2
-  %add91 = add i32 %cond, %to
+  %add91 = add i32 %to, %cond
   %conv92 = trunc i32 %add91 to i16
   %to93 = getelementptr inbounds i8, ptr %call, i64 28
   store i16 %conv92, ptr %to93, align 4

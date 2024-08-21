@@ -184,7 +184,7 @@ if.else:                                          ; preds = %while.body
 if.then24:                                        ; preds = %if.else
   %add.ptr26 = getelementptr inbounds i8, ptr %5, i64 %idx.ext25
   %7 = load i64, ptr %5, align 8
-  %cmp.i = icmp eq i64 %7, %Name.coerce1
+  %cmp.i = icmp eq i64 %Name.coerce1, %7
   br i1 %cmp.i, label %land.rhs.i, label %if.end34
 
 land.rhs.i:                                       ; preds = %if.then24
@@ -264,7 +264,7 @@ if.else:                                          ; preds = %while.body
 if.then13:                                        ; preds = %if.else
   %add.ptr15 = getelementptr inbounds i8, ptr %4, i64 %idx.ext14
   %6 = load i64, ptr %4, align 8
-  %cmp.i = icmp eq i64 %6, %Key.coerce1
+  %cmp.i = icmp eq i64 %Key.coerce1, %6
   br i1 %cmp.i, label %land.rhs.i, label %if.end23
 
 land.rhs.i:                                       ; preds = %if.then13
@@ -397,7 +397,7 @@ if.else.i:                                        ; preds = %while.body.i
 
 if.then13.i:                                      ; preds = %if.else.i
   %13 = load i64, ptr %11, align 8
-  %cmp.i.i = icmp eq i64 %13, %Key.coerce1
+  %cmp.i.i = icmp eq i64 %Key.coerce1, %13
   br i1 %cmp.i.i, label %land.rhs.i.i, label %if.end23.i
 
 land.rhs.i.i:                                     ; preds = %if.then13.i

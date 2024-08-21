@@ -545,7 +545,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refIP7oopDesc
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds ptr, ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
-  %.not.i = icmp ugt ptr %14, %5
+  %.not.i = icmp ult ptr %5, %14
   br i1 %3, label %15, label %42
 
 15:                                               ; preds = %7

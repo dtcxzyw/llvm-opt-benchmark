@@ -232,7 +232,7 @@ _ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split: ; preds = %_ZN5ZXing11
   %71 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv.i
   %72 = load i16, ptr %71, align 2
   %73 = load i16, ptr %69, align 2
-  %.sroa.speculated8.i.i = call i16 @llvm.umin.i16(i16 %73, i16 %72)
+  %.sroa.speculated8.i.i = call i16 @llvm.umin.i16(i16 %72, i16 %73)
   store i16 %.sroa.speculated8.i.i, ptr %69, align 2
   %74 = load i16, ptr %70, align 2
   %.sroa.speculated.i.i = call i16 @llvm.umax.i16(i16 %74, i16 %72)

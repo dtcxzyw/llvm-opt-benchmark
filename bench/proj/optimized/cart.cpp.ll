@@ -87,8 +87,8 @@ define internal void @_ZL9cartesian6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias 
   br i1 %12, label %_ZL26normal_radius_of_curvatureddd.exit, label %13
 
 13:                                               ; preds = %3
-  %14 = fneg double %11
-  %15 = fmul double %7, %14
+  %14 = fneg double %7
+  %15 = fmul double %11, %14
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %7, double 1.000000e+00)
   %17 = tail call double @sqrt(double noundef %16) #7
   %18 = fdiv double %9, %17
@@ -153,9 +153,9 @@ define internal void @_ZL8geodetic6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias n
   %31 = tail call double @llvm.fmuladd.f64(double %30, double %.059, double %13)
   %32 = getelementptr inbounds i8, ptr %2, i64 216
   %33 = load double, ptr %32, align 8
-  %34 = fneg double %33
-  %35 = fmul double %.0, %34
-  %36 = fmul double %.0, %35
+  %34 = fmul double %33, %.0
+  %35 = fneg double %.0
+  %36 = fmul double %34, %35
   %37 = tail call double @llvm.fmuladd.f64(double %36, double %.0, double %sqrt71)
   %38 = fmul double %37, %37
   %39 = tail call double @llvm.fmuladd.f64(double %31, double %31, double %38)
@@ -214,8 +214,8 @@ define internal void @_ZL8geodetic6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias n
   br i1 %73, label %_ZL26normal_radius_of_curvatureddd.exit, label %74
 
 74:                                               ; preds = %69
-  %75 = fneg double %72
-  %76 = fmul double %.061, %75
+  %75 = fneg double %.061
+  %76 = fmul double %72, %75
   %77 = tail call double @llvm.fmuladd.f64(double %76, double %.061, double 1.000000e+00)
   %78 = tail call double @sqrt(double noundef %77) #7
   %79 = fdiv double %71, %78
@@ -249,8 +249,8 @@ define internal { double, double } @_ZL12cart_forward5PJ_LPP8PJconsts(double %0,
   br i1 %10, label %_ZL9cartesian6PJ_LPZP8PJconsts.exit, label %11
 
 11:                                               ; preds = %3
-  %12 = fneg double %9
-  %13 = fmul double %5, %12
+  %12 = fneg double %5
+  %13 = fmul double %9, %12
   %14 = tail call double @llvm.fmuladd.f64(double %13, double %5, double 1.000000e+00)
   %15 = tail call double @sqrt(double noundef %14) #7, !noalias !4
   %16 = fdiv double %7, %15

@@ -365,7 +365,7 @@ entry:
   %0 = load i32, ptr %shard_mask_.i, align 8
   %add.i = add i32 %0, 1
   %conv = zext i32 %0 to i64
-  %add = add i64 %conv, %capacity
+  %add = add i64 %capacity, %conv
   %conv2 = zext i32 %add.i to i64
   %div = udiv i64 %add, %conv2
   ret i64 %div

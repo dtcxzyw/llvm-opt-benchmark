@@ -416,7 +416,7 @@ define dso_local i64 @ZSTD_getFrameHeader_advanced(ptr nocapture noundef writeon
   br i1 %or.cond3, label %116, label %9
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %6, %2
+  %10 = icmp ult i64 %2, %6
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %9
@@ -492,14 +492,14 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %17, %ZSTD_frameHead
   %41 = zext nneg i32 %33 to i64
   %42 = getelementptr inbounds [4 x i64], ptr @ZSTD_fcs_fieldSize, i64 0, i64 %41
   %43 = load i64, ptr %42, align 8
-  %.not.i = icmp ult i8 %30, 64
-  %44 = and i1 %.not.i, %35
+  %.not.i112 = icmp ult i8 %30, 64
+  %44 = and i1 %.not.i112, %35
   %45 = zext i1 %44 to i64
   %46 = add i64 %40, %.sink120
   %47 = add i64 %46, %43
   %48 = add i64 %47, %37
   %49 = add i64 %48, %45
-  %50 = icmp ugt i64 %49, %2
+  %50 = icmp ult i64 %2, %49
   br i1 %50, label %116, label %51
 
 51:                                               ; preds = %ZSTD_frameHeaderSize_internal.exit
@@ -1086,7 +1086,7 @@ define internal fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef %0, ptr nounde
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   %17 = select i1 %16, i64 5, i64 1
-  %.not478894 = icmp ugt i64 %17, %4
+  %.not478894 = icmp ult i64 %4, %17
   br i1 %.not478894, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %13
@@ -1743,13 +1743,13 @@ define dso_local i64 @ZSTD_decompressContinue(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not.i, label %18, label %ZSTD_nextSrcSizeToDecompressWithInputSize.exit
 
 18:                                               ; preds = %13
-  %..i = tail call i64 @llvm.umin.i64(i64 %17, i64 %4)
+  %..i = tail call i64 @llvm.umin.i64(i64 %4, i64 %17)
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %..i, i64 1)
   br label %ZSTD_nextSrcSizeToDecompressWithInputSize.exit
 
 ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %10, %13, %18
   %.0.i = phi i64 [ %12, %10 ], [ %spec.select.i, %18 ], [ %17, %13 ]
-  %.not = icmp eq i64 %.0.i, %4
+  %.not = icmp eq i64 %4, %.0.i
   br i1 %.not, label %19, label %ZSTD_decodeFrameHeader.exit.thread
 
 19:                                               ; preds = %ZSTD_nextSrcSizeToDecompressWithInputSize.exit
@@ -1793,7 +1793,7 @@ ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %10, %13, %18
 
 35:                                               ; preds = %28, %24
   %36 = phi i64 [ 5, %28 ], [ 1, %24 ]
-  %37 = icmp ugt i64 %36, %4
+  %37 = icmp ult i64 %4, %36
   br i1 %37, label %ZSTD_frameHeaderSize_internal.exit.thread, label %ZSTD_frameHeaderSize_internal.exit
 
 ZSTD_frameHeaderSize_internal.exit.thread:        ; preds = %35
@@ -3726,7 +3726,7 @@ define dso_local noundef i64 @ZSTD_decodingBufferSize_min(i64 noundef %0, i64 no
   %3 = tail call i64 @llvm.umin.i64(i64 %0, i64 131072)
   %4 = add i64 %0, 131136
   %5 = add i64 %4, %3
-  %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 %1)
+  %6 = tail call i64 @llvm.umin.i64(i64 %1, i64 %5)
   ret i64 %6
 }
 
@@ -4203,7 +4203,7 @@ ZSTD_decompressBegin_usingDDict.exit:             ; preds = %174, %ZSTD_decompre
   %216 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 131072)
   %217 = add i64 %spec.select, 131136
   %218 = add i64 %217, %216
-  %219 = tail call noundef i64 @llvm.umin.i64(i64 %218, i64 %215)
+  %219 = tail call noundef i64 @llvm.umin.i64(i64 %215, i64 %218)
   br label %220
 
 220:                                              ; preds = %209, %214
@@ -4319,7 +4319,7 @@ ZSTD_customMalloc.exit:                           ; preds = %241, %243
   br i1 %.not.i343, label %ZSTD_nextSrcSizeToDecompressWithInputSize.exit.thread, label %ZSTD_nextSrcSizeToDecompressWithInputSize.exit
 
 ZSTD_nextSrcSizeToDecompressWithInputSize.exit.thread: ; preds = %255
-  %..i = tail call i64 @llvm.umin.i64(i64 %257, i64 %251)
+  %..i = tail call i64 @llvm.umin.i64(i64 %251, i64 %257)
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %..i, i64 1)
   br label %259
 

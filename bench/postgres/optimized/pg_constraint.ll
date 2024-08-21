@@ -891,7 +891,7 @@ define dso_local noundef zeroext i1 @AdjustNotNullInheritance1(i32 noundef %0, i
   %14 = getelementptr inbounds i8, ptr %13, i64 102
   %15 = load i8, ptr %14, align 2
   %16 = trunc i8 %15 to i1
-  %17 = xor i1 %16, %3
+  %17 = xor i1 %3, %16
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %6
@@ -1666,7 +1666,7 @@ define dso_local i32 @get_relation_constraint_oid(i32 noundef %0, ptr noundef %1
   %.0 = phi i32 [ %19, %12 ], [ 0, %3 ]
   call void @systable_endscan(ptr noundef %10) #10
   %.not13 = icmp ne i32 %.0, 0
-  %brmerge = or i1 %.not13, %2
+  %brmerge = or i1 %2, %.not13
   br i1 %brmerge, label %26, label %21
 
 21:                                               ; preds = %20
@@ -1774,7 +1774,7 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
   call void @systable_endscan(ptr noundef %12) #10
   %52 = load i32, ptr %3, align 4
   %.not40 = icmp ne i32 %52, 0
-  %brmerge = or i1 %.not40, %2
+  %brmerge = or i1 %2, %.not40
   br i1 %brmerge, label %58, label %53
 
 53:                                               ; preds = %.loopexit
@@ -1978,7 +1978,7 @@ define dso_local i32 @get_domain_constraint_oid(i32 noundef %0, ptr noundef %1, 
   %.0 = phi i32 [ %19, %12 ], [ 0, %3 ]
   call void @systable_endscan(ptr noundef %10) #10
   %.not13 = icmp ne i32 %.0, 0
-  %brmerge = or i1 %.not13, %2
+  %brmerge = or i1 %2, %.not13
   br i1 %brmerge, label %26, label %21
 
 21:                                               ; preds = %20
@@ -2029,7 +2029,7 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
   %.not43 = xor i1 %24, true
-  %brmerge = or i1 %.not43, %1
+  %brmerge = or i1 %1, %.not43
   br i1 %brmerge, label %25, label %.loopexit
 
 25:                                               ; preds = %20

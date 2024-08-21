@@ -1273,7 +1273,7 @@ _ZN7Minisat3vecINS_3LitEiE8capacityEi.exit:       ; preds = %59, %87, %94
   %109 = getelementptr inbounds i8, ptr %0, i64 576
   %110 = getelementptr inbounds i8, ptr %0, i64 600
   %111 = load i32, ptr %110, align 8
-  %112 = icmp sgt i32 %111, %.0
+  %112 = icmp slt i32 %.0, %111
   br i1 %112, label %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i, label %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i.i
 
 _ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i: ; preds = %107
@@ -2900,7 +2900,7 @@ define void @_ZN7Minisat6Solver11cancelUntilEi(ptr noundef nonnull align 8 deref
 
 51:                                               ; preds = %44, %35, %33
   %52 = load i32, ptr %19, align 8
-  %53 = icmp sgt i32 %52, %26
+  %53 = icmp slt i32 %26, %52
   br i1 %53, label %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i, label %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i
 
 _ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i: ; preds = %51
@@ -3482,7 +3482,7 @@ _ZN7Minisat6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i,
 
 135:                                              ; preds = %._crit_edge.i.i, %117
   %136 = load i32, ptr %50, align 8
-  %137 = icmp sgt i32 %136, %107
+  %137 = icmp slt i32 %107, %136
   br i1 %137, label %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i, label %_ZN7Minisat6Solver15varBumpActivityEi.exit
 
 _ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i: ; preds = %135

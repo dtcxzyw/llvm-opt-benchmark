@@ -1818,7 +1818,7 @@ entry:
   %2 = load i64, ptr %ctlen, align 8
   %cmp.not = icmp ule i64 %2, %1
   %sub = sub nuw i64 %2, %1
-  %cmp2 = icmp ult i64 %sub, %ptlen
+  %cmp2 = icmp ugt i64 %ptlen, %sub
   %or.cond30 = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond30, label %if.then, label %if.end
 
@@ -2112,7 +2112,7 @@ entry:
   %0 = load ptr, ptr %aead_info, align 8
   %taglen1 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %taglen1, align 8
-  %cmp.not = icmp ult i64 %1, %ctlen
+  %cmp.not = icmp ugt i64 %ctlen, %1
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry

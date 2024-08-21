@@ -832,10 +832,10 @@ _ZN11DwarfParser17get_decoded_valueEv.exit:       ; preds = %33, %.thread21.i
 
 _ZN11DwarfParser12get_pc_rangeEv.exit:            ; preds = %_ZN11DwarfParser17get_decoded_valueEv.exit, %62
   %.07.i = phi i64 [ %.0.i25, %62 ], [ 0, %_ZN11DwarfParser17get_decoded_valueEv.exit ]
-  %.not22 = icmp ule i64 %51, %1
+  %.not22 = icmp uge i64 %1, %51
   %64 = and i64 %.07.i, 4294967295
   %65 = add i64 %64, %51
-  %66 = icmp ugt i64 %65, %1
+  %66 = icmp ult i64 %1, %65
   %or.cond = and i1 %.not22, %66
   br i1 %or.cond, label %67, label %82
 

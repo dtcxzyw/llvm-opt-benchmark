@@ -3322,7 +3322,7 @@ define internal noundef i64 @rb_gzwriter_initialize(i32 noundef %0, ptr noundef 
   %14 = tail call i64 @rb_check_convert_type(i64 noundef %13, i32 noundef 8, ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171) #17
   %15 = icmp ne i64 %14, 4
   %16 = sext i1 %15 to i32
-  %spec.select = add nsw i32 %16, %0
+  %spec.select = add nsw i32 %0, %16
   br label %17
 
 17:                                               ; preds = %9, %3
@@ -9259,7 +9259,7 @@ define internal fastcc i64 @gzfile_read(ptr noundef %0, i64 noundef %1) unnamed_
   br i1 %28, label %.critedge23.i, label %gzfile_fill.exit.thread23
 
 gzfile_fill.exit.thread23:                        ; preds = %24
-  %spec.select.i24 = tail call i64 @llvm.smin.i64(i64 %27, i64 %1)
+  %spec.select.i24 = tail call i64 @llvm.smin.i64(i64 %1, i64 %27)
   br label %33
 
 .critedge23.i:                                    ; preds = %24, %.critedge.i
@@ -9478,7 +9478,7 @@ RSTRING_PTR.exit.i:                               ; preds = %18, %12
   %24 = getelementptr inbounds i8, ptr %0, i64 64
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %.not.i = icmp eq i64 %26, %2
+  %.not.i = icmp eq i64 %2, %26
   br i1 %.not.i, label %zstream_expand_buffer_into.exit, label %27
 
 27:                                               ; preds = %23
@@ -9536,7 +9536,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %zstream_expand_buff
 
 46:                                               ; preds = %rbimpl_rstring_getmem.exit
   %47 = zext i32 %45 to i64
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %47, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %47)
   %48 = getelementptr inbounds i8, ptr %0, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 %spec.select
@@ -9720,7 +9720,7 @@ rb_num2long_inline.exit:                          ; preds = %38, %40
 gzfile_fill.exit:                                 ; preds = %.thread165, %74
   %81 = phi i64 [ %.lcssa.i, %74 ], [ %61, %.thread165 ]
   %82 = phi i64 [ %77, %74 ], [ %66, %.thread165 ]
-  %spec.select.i = call i64 @llvm.smin.i64(i64 %82, i64 %.0108.ph)
+  %spec.select.i = call i64 @llvm.smin.i64(i64 %.0108.ph, i64 %82)
   %83 = icmp slt i64 %spec.select.i, 1
   br i1 %83, label %gzfile_newstr.exit156, label %84
 
@@ -10200,7 +10200,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %9
 30:                                               ; preds = %26
   %31 = xor i32 %28, -1
   %32 = zext nneg i32 %31 to i64
-  %33 = add nsw i64 %32, %1
+  %33 = add nsw i64 %1, %32
   %34 = icmp slt i64 %33, 0
   br i1 %34, label %35, label %37
 
@@ -10262,7 +10262,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %9
 
 gzfile_fill.exit:                                 ; preds = %.thread, %52
   %59 = phi i64 [ %55, %52 ], [ %45, %.thread ]
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %59, i64 %33)
+  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %33, i64 %59)
   %60 = icmp sgt i64 %59, 0
   br i1 %60, label %66, label %gzfile_fill.exit.thread
 

@@ -3559,7 +3559,7 @@ define internal fastcc noundef zeroext i1 @_ZN12typst_render16render_svg_glyph17
   %.val.i.i.i.i47.i.i.i.i.i.i = load i16, ptr %64, align 1, !noalias !668
   %65 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i47.i.i.i.i.i.i)
   %switch.selectcmp.i.not.i.i.i.i.i = icmp ule i16 %63, %3
-  %switch.selectcmp.i20.i.i.i.i.i = icmp uge i16 %65, %3
+  %switch.selectcmp.i20.i.i.i.i.i = icmp ule i16 %3, %65
   %spec.select.i.i.i.i = select i1 %switch.selectcmp.i.not.i.i.i.i.i, i1 %switch.selectcmp.i20.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i, label %69, label %66
 
@@ -3571,7 +3571,7 @@ define internal fastcc noundef zeroext i1 @_ZN12typst_render16render_svg_glyph17
 
 69:                                               ; preds = %"_ZN103_$LT$ttf_parser..parser..LazyArrayIter16$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4911c87654e9889eE.exit.i.i"
   %indvars.le.i = trunc i64 %57 to i16
-  %70 = icmp ugt i16 %55, %indvars.le.i
+  %70 = icmp ult i16 %indvars.le.i, %55
   br i1 %70, label %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he63e5c5b055c32a6E.exit.i.i", label %_ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.thread
 
 "_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he63e5c5b055c32a6E.exit.i.i": ; preds = %69
@@ -5004,7 +5004,7 @@ default.unreachable161:                           ; preds = %73
 238:                                              ; preds = %236
   %239 = lshr i64 %235, 1
   %240 = trunc i64 %239 to i16
-  %241 = icmp ugt i16 %240, %3
+  %241 = icmp ult i16 %3, %240
   br i1 %241, label %242, label %_ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i
 
 242:                                              ; preds = %238
@@ -5019,7 +5019,7 @@ default.unreachable161:                           ; preds = %73
 248:                                              ; preds = %236
   %249 = lshr i64 %235, 2
   %250 = trunc i64 %249 to i16
-  %251 = icmp ugt i16 %250, %3
+  %251 = icmp ult i16 %3, %250
   br i1 %251, label %252, label %_ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i
 
 252:                                              ; preds = %248
@@ -7181,12 +7181,12 @@ define internal fastcc void @_ZN12typst_render20render_pattern_frame17h2febabe5d
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %15 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %13)
   %16 = fptrunc double %15 to float
-  %17 = fmul float %16, %.72.val
+  %17 = fmul float %.72.val, %16
   %18 = tail call float @llvm.round.f32(float %17)
   %19 = tail call i32 @llvm.fptoui.sat.i32.f32(float %18)
   %20 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %14)
   %21 = fptrunc double %20 to float
-  %22 = fmul float %21, %.72.val
+  %22 = fmul float %.72.val, %21
   %23 = tail call float @llvm.round.f32(float %22)
   %24 = tail call i32 @llvm.fptoui.sat.i32.f32(float %23)
   call void @_ZN9tiny_skia6pixmap6Pixmap3new17hcd265c6525366ef5E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, i32 noundef %19, i32 noundef %24)
@@ -7424,11 +7424,11 @@ define void @_ZN12typst_render6render17h14b728e7249c3ce8E(ptr noalias nocapture 
 26:                                               ; preds = %24
   %27 = fptrunc double %23 to float
   %28 = fptrunc double %25 to float
-  %29 = fmul float %27, %2
+  %29 = fmul float %2, %27
   %30 = tail call float @llvm.round.f32(float %29)
   %31 = tail call float @llvm.maxnum.f32(float %30, float 1.000000e+00)
   %32 = tail call i32 @llvm.fptoui.sat.i32.f32(float %31)
-  %33 = fmul float %28, %2
+  %33 = fmul float %2, %28
   %34 = tail call float @llvm.round.f32(float %33)
   %35 = tail call float @llvm.maxnum.f32(float %34, float 1.000000e+00)
   %36 = tail call i32 @llvm.fptoui.sat.i32.f32(float %35)

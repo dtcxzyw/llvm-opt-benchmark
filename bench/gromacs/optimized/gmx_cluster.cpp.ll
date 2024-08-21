@@ -3082,7 +3082,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit452:    ; preds = %1134
   br label %1223
 
 1215:                                             ; preds = %1208
-  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %1209, i32 %1198)
+  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %1198, i32 %1209)
   %1216 = sitofp i32 %.sroa.speculated.i to float
   %1217 = call noundef float @logf(float noundef %1216) #18
   %1218 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1185, i32 noundef 46) #22
@@ -3163,7 +3163,7 @@ _ZL14parse_filenamePKci.exit.i:                   ; preds = %1215
   store i8 0, ptr %39, align 16
   store i8 0, ptr %38, align 16
   %1247 = load i32, ptr %62, align 8
-  %.not273.i = icmp sgt i32 %1247, %1198
+  %.not273.i = icmp slt i32 %1198, %1247
   br i1 %.not273.i, label %1249, label %1248
 
 1248:                                             ; preds = %1246

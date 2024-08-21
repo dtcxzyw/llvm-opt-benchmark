@@ -169,7 +169,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandReadGenlib(ptr noundef %0, i32 n
 30:                                               ; preds = %6
   %31 = load i32, ptr @globalUtilOptind, align 4
   %32 = add nsw i32 %31, 1
-  %.not69 = icmp eq i32 %32, %1
+  %.not69 = icmp eq i32 %1, %32
   br i1 %.not69, label %33, label %.loopexit
 
 33:                                               ; preds = %30
@@ -323,7 +323,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandWriteGenlib(ptr noundef %0, i32 
 18:                                               ; preds = %14
   %19 = load i32, ptr @globalUtilOptind, align 4
   %20 = add nsw i32 %19, 1
-  %.not37 = icmp eq i32 %20, %1
+  %.not37 = icmp eq i32 %1, %20
   br i1 %.not37, label %22, label %21
 
 21:                                               ; preds = %18
@@ -468,7 +468,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandReadProfile(ptr noundef %0, i32 
 7:                                                ; preds = %3
   %8 = load i32, ptr @globalUtilOptind, align 4
   %9 = add nsw i32 %8, 1
-  %.not25 = icmp eq i32 %9, %1
+  %.not25 = icmp eq i32 %1, %9
   br i1 %.not25, label %10, label %30
 
 10:                                               ; preds = %7
@@ -541,7 +541,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandWriteProfile(ptr noundef %0, i32
 11:                                               ; preds = %7
   %12 = load i32, ptr @globalUtilOptind, align 4
   %13 = add nsw i32 %12, 1
-  %.not17 = icmp eq i32 %13, %1
+  %.not17 = icmp eq i32 %1, %13
   br i1 %.not17, label %15, label %14
 
 14:                                               ; preds = %11

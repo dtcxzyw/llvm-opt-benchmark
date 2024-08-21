@@ -270,7 +270,7 @@ _ZN14StackMapStream6get_u1EP10JavaThread.exit:    ; preds = %13, %._crit_edge.i
   %63 = getelementptr inbounds i8, ptr %48, i64 40
   store ptr %54, ptr %63, align 8
   %64 = icmp ne ptr %.0261, null
-  %or.cond = and i1 %64, %2
+  %or.cond = and i1 %2, %64
   br i1 %or.cond, label %65, label %_ZN14StackMapStream6get_u2EP10JavaThread.exit.thread
 
 65:                                               ; preds = %47
@@ -386,7 +386,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit: ; 
   %126 = getelementptr inbounds i8, ptr %112, i64 40
   store ptr %117, ptr %126, align 8
   %127 = icmp ne ptr %.1262, null
-  %or.cond3 = and i1 %127, %2
+  %or.cond3 = and i1 %2, %127
   br i1 %or.cond3, label %128, label %_ZN14StackMapStream6get_u2EP10JavaThread.exit.thread
 
 128:                                              ; preds = %111
@@ -569,7 +569,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit294:
   %222 = getelementptr inbounds i8, ptr %208, i64 40
   store ptr %213, ptr %222, align 8
   %223 = icmp ne ptr %.2263, null
-  %or.cond5 = and i1 %223, %2
+  %or.cond5 = and i1 %2, %223
   br i1 %or.cond5, label %224, label %_ZN14StackMapStream6get_u2EP10JavaThread.exit.thread
 
 224:                                              ; preds = %207
@@ -686,7 +686,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.
   %278 = getelementptr inbounds i8, ptr %267, i64 40
   store ptr %269, ptr %278, align 8
   %279 = icmp ne ptr %.3264, null
-  %or.cond7 = and i1 %279, %2
+  %or.cond7 = and i1 %2, %279
   br i1 %or.cond7, label %280, label %_ZN14StackMapStream6get_u2EP10JavaThread.exit.thread
 
 280:                                              ; preds = %266
@@ -1104,7 +1104,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMa
   %9 = icmp sgt i32 %3, -1
   %10 = getelementptr inbounds i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
-  %.not = icmp sgt i32 %11, %3
+  %.not = icmp slt i32 %3, %11
   %or.cond = select i1 %9, i1 %.not, i1 false
   br i1 %or.cond, label %16, label %12
 
@@ -1269,7 +1269,7 @@ define hidden void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10J
   %15 = getelementptr inbounds i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph.i.i, label %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread
+  br i1 %17, label %.lr.ph.i.i, label %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit
 
 .lr.ph.i.i:                                       ; preds = %4
   %18 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1283,21 +1283,27 @@ define hidden void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10J
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, %2
-  br i1 %24, label %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit, label %25
+  br i1 %24, label %._crit_edge.loopexit.split.loop.exit12.i.i, label %25
 
 25:                                               ; preds = %20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread, label %20, !llvm.loop !16
 
-_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit: ; preds = %20
+._crit_edge.loopexit.split.loop.exit12.i.i:       ; preds = %20
   %26 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.not.i = icmp sgt i32 %16, %26
-  br i1 %.not.i, label %30, label %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread
+  br label %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit
 
-_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread: ; preds = %25, %4, %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit
-  %27 = load i32, ptr %1, align 8
-  store i32 %27, ptr %5, align 8
+_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit: ; preds = %4, %._crit_edge.loopexit.split.loop.exit12.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %4 ], [ %26, %._crit_edge.loopexit.split.loop.exit12.i.i ]
+  %27 = icmp sgt i32 %.0.lcssa.i.i, -1
+  %.not.i = icmp slt i32 %.0.lcssa.i.i, %16
+  %or.cond.i = and i1 %27, %.not.i
+  br i1 %or.cond.i, label %31, label %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread
+
+_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread: ; preds = %25, %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit
+  %28 = load i32, ptr %1, align 8
+  store i32 %28, ptr %5, align 8
   store i32 9, ptr %6, align 4
   store i32 9, ptr %7, align 8
   store i32 0, ptr %8, align 4
@@ -1307,46 +1313,48 @@ _ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThr
   store i32 0, ptr %12, align 4
   store ptr null, ptr %13, align 8
   store ptr inttoptr (i64 4294901761 to ptr), ptr %14, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
-  %29 = load ptr, ptr %28, align 8
-  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %29, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.4, i32 noundef %2) #9
+  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = load ptr, ptr %29, align 8
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %30, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.4, i32 noundef %2) #9
   br label %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameiibbP12ErrorContextP10JavaThread.exit
 
-30:                                               ; preds = %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit
-  %31 = and i64 %indvars.iv.i.i, 4294967295
-  %32 = getelementptr inbounds ptr, ptr %19, i64 %31
+31:                                               ; preds = %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = call noundef zeroext i1 @_ZNK13StackMapFrame16is_assignable_toEPKS_P12ErrorContextP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %33, ptr noundef nonnull %5, ptr noundef %3) #9
+  %34 = zext nneg i32 %.0.lcssa.i.i to i64
+  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %36 = load ptr, ptr %35, align 8
+  %37 = call noundef zeroext i1 @_ZNK13StackMapFrame16is_assignable_toEPKS_P12ErrorContextP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %36, ptr noundef nonnull %5, ptr noundef %3) #9
   br label %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameiibbP12ErrorContextP10JavaThread.exit
 
-_ZNK13StackMapTable14match_stackmapEP13StackMapFrameiibbP12ErrorContextP10JavaThread.exit: ; preds = %30, %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread
-  %.0.i = phi i1 [ false, %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread ], [ %34, %30 ]
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %.not15 = icmp eq ptr %36, null
-  br i1 %.not15, label %37, label %46
-
-37:                                               ; preds = %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameiibbP12ErrorContextP10JavaThread.exit
-  %38 = getelementptr inbounds i8, ptr %1, i64 40
+_ZNK13StackMapTable14match_stackmapEP13StackMapFrameiibbP12ErrorContextP10JavaThread.exit: ; preds = %31, %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread
+  %.0.i = phi i1 [ false, %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread ], [ %37, %31 ]
+  %38 = getelementptr inbounds i8, ptr %3, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
-  %41 = load ptr, ptr %40, align 8
-  %.not16 = icmp eq ptr %41, null
-  br i1 %.not16, label %42, label %46
+  %.not15 = icmp eq ptr %39, null
+  br i1 %.not15, label %40, label %49
 
-42:                                               ; preds = %37
-  %43 = icmp sgt i32 %2, -1
-  %or.cond.not = and i1 %43, %.0.i
-  %44 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %44, %2
+40:                                               ; preds = %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameiibbP12ErrorContextP10JavaThread.exit
+  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %.not16 = icmp eq ptr %44, null
+  br i1 %.not16, label %45, label %49
+
+45:                                               ; preds = %40
+  %46 = icmp sgt i32 %2, -1
+  %or.cond.not = and i1 %46, %.0.i
+  %47 = load i32, ptr %0, align 8
+  %.not = icmp slt i32 %2, %47
   %or.cond = select i1 %or.cond.not, i1 %.not, i1 false
-  br i1 %or.cond, label %46, label %45
+  br i1 %or.cond, label %49, label %48
 
-45:                                               ; preds = %42
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %39, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.5, i32 noundef %2) #9
-  br label %46
+48:                                               ; preds = %45
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %42, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.5, i32 noundef %2) #9
+  br label %49
 
-46:                                               ; preds = %42, %37, %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameiibbP12ErrorContextP10JavaThread.exit, %45
+49:                                               ; preds = %45, %40, %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameiibbP12ErrorContextP10JavaThread.exit, %48
   ret void
 }
 
@@ -1445,76 +1453,75 @@ define hidden void @_ZN14StackMapReaderC2EP13ClassVerifierP14StackMapStreamPciP1
 31:                                               ; preds = %24
   %32 = add nsw i32 %27, 1
   %33 = icmp sgt i32 %27, -1
-  %34 = xor i32 %27, -2147483648
-  %35 = and i32 %34, %32
-  %36 = icmp eq i32 %35, 0
-  %37 = and i1 %33, %36
-  %38 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %32, i1 true)
-  %39 = sub nuw nsw i32 32, %38
-  %40 = shl nuw i32 1, %39
-  %.0.i.i.i.i.i.i = select i1 %37, i32 %32, i32 %40
+  %34 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %32)
+  %35 = icmp ult i32 %34, 2
+  %or.cond.i.i.i.i.i.i = select i1 %33, i1 %35, i1 false
+  %36 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %32, i1 true)
+  %37 = sub nuw nsw i32 32, %36
+  %38 = shl nuw i32 1, %37
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %32, i32 %38
   call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %26, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %26, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
 
 _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i: ; preds = %31, %24
-  %41 = phi i32 [ %.pre.i.i.i, %31 ], [ %27, %24 ]
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %26, align 8
-  %43 = getelementptr inbounds i8, ptr %26, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = sext i32 %41 to i64
-  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
-  store ptr %22, ptr %46, align 8
+  %39 = phi i32 [ %.pre.i.i.i, %31 ], [ %27, %24 ]
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %26, align 8
+  %41 = getelementptr inbounds i8, ptr %26, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = sext i32 %39 to i64
+  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
+  store ptr %22, ptr %44, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
 _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %20, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
-  %47 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN18constantPoolHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8) #9
+  %45 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN18constantPoolHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8) #9
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #9
-  %48 = load ptr, ptr %11, align 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %56, label %51
+  %46 = load ptr, ptr %11, align 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %54, label %49
 
-51:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
-  %52 = getelementptr inbounds i8, ptr %48, i64 8
-  %53 = load i32, ptr %52, align 8
-  %54 = load i32, ptr %49, align 4
-  %55 = add nsw i32 %54, -1
-  %.not.i8 = icmp slt i32 %53, %55
-  br i1 %.not.i8, label %59, label %56
+49:                                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
+  %50 = getelementptr inbounds i8, ptr %46, i64 8
+  %51 = load i32, ptr %50, align 8
+  %52 = load i32, ptr %47, align 4
+  %53 = add nsw i32 %52, -1
+  %.not.i8 = icmp slt i32 %51, %53
+  br i1 %.not.i8, label %57, label %54
 
-56:                                               ; preds = %51, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
+54:                                               ; preds = %49, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   call void @_ZN14StackMapStream21stackmap_format_errorEPKcP10JavaThread(ptr noundef nonnull @.str.18, ptr noundef %5) #9
-  %57 = getelementptr inbounds i8, ptr %5, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %.not5.i = icmp eq ptr %58, null
+  %55 = getelementptr inbounds i8, ptr %5, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %.not5.i = icmp eq ptr %56, null
   br i1 %.not5.i, label %._crit_edge.i, label %_ZN14StackMapStream6get_u2EP10JavaThread.exit
 
-._crit_edge.i:                                    ; preds = %56
-  %.pre.i = load ptr, ptr %48, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %48, i64 8
+._crit_edge.i:                                    ; preds = %54
+  %.pre.i = load ptr, ptr %46, align 8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %46, i64 8
   %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 8
-  br label %59
+  br label %57
 
-59:                                               ; preds = %._crit_edge.i, %51
-  %60 = phi i32 [ %.pre6.i, %._crit_edge.i ], [ %53, %51 ]
-  %61 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %49, %51 ]
-  %62 = getelementptr inbounds i8, ptr %48, i64 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 4
-  %64 = sext i32 %60 to i64
-  %65 = getelementptr inbounds i8, ptr %63, i64 %64
-  %.0.i.i.i.i = load i16, ptr %65, align 1
-  %66 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i)
-  %67 = add nsw i32 %60, 2
-  store i32 %67, ptr %62, align 8
-  %68 = zext i16 %66 to i32
+57:                                               ; preds = %._crit_edge.i, %49
+  %58 = phi i32 [ %.pre6.i, %._crit_edge.i ], [ %51, %49 ]
+  %59 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %47, %49 ]
+  %60 = getelementptr inbounds i8, ptr %46, i64 8
+  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %62 = sext i32 %58 to i64
+  %63 = getelementptr inbounds i8, ptr %61, i64 %62
+  %.0.i.i.i.i = load i16, ptr %63, align 1
+  %64 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i)
+  %65 = add nsw i32 %58, 2
+  store i32 %65, ptr %60, align 8
+  %66 = zext i16 %64 to i32
   br label %_ZN14StackMapStream6get_u2EP10JavaThread.exit
 
-_ZN14StackMapStream6get_u2EP10JavaThread.exit:    ; preds = %6, %59, %56
-  %.0.i.sink = phi i32 [ %68, %59 ], [ 0, %56 ], [ 0, %6 ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 %.0.i.sink, ptr %69, align 4
+_ZN14StackMapStream6get_u2EP10JavaThread.exit:    ; preds = %6, %57, %54
+  %.0.i.sink = phi i32 [ %66, %57 ], [ 0, %54 ], [ 0, %6 ]
+  %67 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 %.0.i.sink, ptr %67, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #9
   ret void
 }
@@ -2058,6 +2065,9 @@ declare i16 @llvm.bswap.i16(i16) #6
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

@@ -431,7 +431,7 @@ sw.bb:                                            ; preds = %entry
   %cmp.i = icmp eq ptr %3, %cbpeer.i
   %cbinfo.i = getelementptr i8, ptr %notifier, i64 32
   %4 = load ptr, ptr %cbinfo.i, align 8
-  %cmp1.not.i = icmp eq ptr %4, %2
+  %cmp1.not.i = icmp eq ptr %2, %4
   br i1 %cmp1.not.i, label %if.end9.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb

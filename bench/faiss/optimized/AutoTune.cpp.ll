@@ -1859,7 +1859,7 @@ _ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit:     ; preds = %81, %83
   %139 = load i64, ptr %138, align 8
   %140 = shl i64 %139, 3
   %141 = uitofp i64 %140 to double
-  %142 = fcmp ugt double %141, %3
+  %142 = fcmp ult double %3, %141
   %143 = getelementptr inbounds i8, ptr %136, i64 384
   br i1 %142, label %145, label %144
 
@@ -1884,7 +1884,7 @@ _ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit:     ; preds = %81, %83
   %152 = load i64, ptr %151, align 8
   %153 = shl i64 %152, 3
   %154 = uitofp i64 %153 to double
-  %155 = fcmp ugt double %154, %3
+  %155 = fcmp ult double %3, %154
   br i1 %155, label %158, label %156
 
 156:                                              ; preds = %150
@@ -2308,7 +2308,7 @@ define void @_ZN5faiss17AutoTuneCriterion15set_groundtruthEiPKfPKl(ptr noundef n
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2
-  %19 = icmp ult i64 %18, %11
+  %19 = icmp ugt i64 %11, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %7
@@ -2319,7 +2319,7 @@ define void @_ZN5faiss17AutoTuneCriterion15set_groundtruthEiPKfPKl(ptr noundef n
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 22:                                               ; preds = %7
-  %23 = icmp ugt i64 %18, %11
+  %23 = icmp ult i64 %11, %18
   br i1 %23, label %24, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -2351,7 +2351,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %20, %22, %24, %26
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 3
-  %43 = icmp ult i64 %42, %35
+  %43 = icmp ugt i64 %35, %42
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %31
@@ -2362,7 +2362,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %20, %22, %24, %26
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 46:                                               ; preds = %31
-  %47 = icmp ugt i64 %42, %35
+  %47 = icmp ult i64 %35, %42
   br i1 %47, label %48, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 48:                                               ; preds = %46
@@ -3129,7 +3129,7 @@ _ZNSt12_Vector_baseIN5faiss14OperatingPointESaIS1_EE11_M_allocateEm.exit: ; pred
 _ZNSt6vectorIN5faiss14OperatingPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %27
   %.0.lcssa.i.i.i = phi ptr [ %23, %27 ], [ %37, %.lr.ph.i.i.i ]
   %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 56
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN5faiss14OperatingPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN5faiss14OperatingPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i27
@@ -3254,7 +3254,7 @@ _ZNSt6vectorIN5faiss14OperatingPointESaIS1_EE9push_backERKS1_.exit: ; preds = %.
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 -56
   %29 = load double, ptr %28, align 8
-  %30 = fcmp olt double %29, %1
+  %30 = fcmp ogt double %1, %29
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %24
@@ -3283,7 +3283,7 @@ _ZNSt6vectorIN5faiss14OperatingPointESaIS1_EE9push_backERKS1_.exit: ; preds = %.
           to label %_ZNSt6vectorIN5faiss14OperatingPointESaIS1_EE9push_backERKS1_.exit52 unwind label %22
 
 41:                                               ; preds = %24
-  %42 = fcmp oeq double %29, %1
+  %42 = fcmp oeq double %1, %29
   br i1 %42, label %48, label %.preheader
 
 .preheader:                                       ; preds = %41
@@ -3302,7 +3302,7 @@ _ZNSt6vectorIN5faiss14OperatingPointESaIS1_EE9push_backERKS1_.exit: ; preds = %.
 48:                                               ; preds = %41
   %49 = getelementptr inbounds i8, ptr %27, i64 -48
   %50 = load double, ptr %49, align 8
-  %51 = fcmp ogt double %50, %2
+  %51 = fcmp olt double %2, %50
   br i1 %51, label %52, label %.loopexit
 
 52:                                               ; preds = %48
@@ -3334,7 +3334,7 @@ _ZN5faiss14OperatingPointaSERKS0_.exit:           ; preds = %52
   %61 = getelementptr inbounds %"struct.faiss::OperatingPoint", ptr %43, i64 %.lcssa61
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   %63 = load double, ptr %62, align 8
-  %64 = fcmp ogt double %63, %2
+  %64 = fcmp olt double %2, %63
   br i1 %64, label %65, label %.loopexit
 
 65:                                               ; preds = %._crit_edge
@@ -3463,7 +3463,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN5faiss14OperatingPointESaIS1_EE6insertEN9
   br i1 %.not, label %59, label %13
 
 13:                                               ; preds = %3
-  %14 = icmp eq ptr %10, %1
+  %14 = icmp eq ptr %1, %10
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %13
@@ -3629,7 +3629,7 @@ define noundef double @_ZNK5faiss15OperatingPoints10t_for_perfEd(ptr nocapture n
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -56
   %6 = load double, ptr %5, align 8
-  %7 = fcmp olt double %6, %1
+  %7 = fcmp ogt double %1, %6
   br i1 %7, label %30, label %8
 
 8:                                                ; preds = %2
@@ -4304,7 +4304,7 @@ _ZNSt12_Vector_baseIN5faiss14ParameterRangeESaIS1_EE11_M_allocateEm.exit: ; pred
 _ZNSt6vectorIN5faiss14ParameterRangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN5faiss14ParameterRangeESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt12_Vector_baseIN5faiss14ParameterRangeESaIS1_EE11_M_allocateEm.exit ], [ %35, %.lr.ph.i.i.i ]
   %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 56
-  %.not10.i.i.i15 = icmp eq ptr %4, %1
+  %.not10.i.i.i15 = icmp eq ptr %1, %4
   br i1 %.not10.i.i.i15, label %_ZNSt6vectorIN5faiss14ParameterRangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %_ZNSt6vectorIN5faiss14ParameterRangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i16
@@ -6019,7 +6019,7 @@ _ZNSt12_Vector_baseISt6futureIbESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
 _ZNSt6vectorISt6futureIbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt6futureIbESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt6futureIbESaIS1_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i ]
   %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt6futureIbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt6futureIbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17
@@ -6539,7 +6539,7 @@ _ZNSt12_Vector_baseISt4pairIiNSt15__exception_ptr13exception_ptrEESaIS3_EE11_M_a
 _ZNSt6vectorISt4pairIiNSt15__exception_ptr13exception_ptrEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt4pairIiNSt15__exception_ptr13exception_ptrEESaIS3_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt4pairIiNSt15__exception_ptr13exception_ptrEESaIS3_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i ]
   %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt4pairIiNSt15__exception_ptr13exception_ptrEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt4pairIiNSt15__exception_ptr13exception_ptrEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i17
@@ -6907,7 +6907,7 @@ define void @_ZNK5faiss14ParameterSpace7exploreEPNS_5IndexEmPKfRKNS_17AutoTuneCr
   store ptr %3, ptr %9, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, %2
+  %20 = icmp eq i64 %2, %19
   br i1 %20, label %37, label %21
 
 21:                                               ; preds = %6
@@ -7507,7 +7507,7 @@ _ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPdS4_.exit: ; p
   %266 = load ptr, ptr %185, align 8
   %267 = getelementptr inbounds i8, ptr %266, i64 -56
   %268 = load double, ptr %267, align 8
-  %269 = fcmp olt double %268, %.0.lcssa
+  %269 = fcmp ogt double %.0.lcssa, %268
   br i1 %269, label %_ZNK5faiss15OperatingPoints10t_for_perfEd.exit, label %270
 
 270:                                              ; preds = %._crit_edge

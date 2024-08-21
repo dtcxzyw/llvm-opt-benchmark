@@ -249,13 +249,13 @@ add_y.exit22:                                     ; preds = %.preheader.i21, %12
 
 155:                                              ; preds = %152
   %156 = load double, ptr %153, align 8, !tbaa !3
-  %157 = fmul double %156, %3
+  %157 = fmul double %3, %156
   %158 = getelementptr inbounds double, ptr %153, i64 %7
   %159 = load double, ptr %158, align 8, !tbaa !3
-  %160 = fmul double %159, %3
+  %160 = fmul double %3, %159
   %161 = getelementptr inbounds double, ptr %158, i64 %7
   %162 = load double, ptr %161, align 8, !tbaa !3
-  %163 = fmul double %162, %3
+  %163 = fmul double %3, %162
   %164 = icmp eq i64 %5, 3
   %165 = and i1 %164, %43
   br i1 %165, label %166, label %243
@@ -476,10 +476,10 @@ add_y.exit22:                                     ; preds = %.preheader.i21, %12
 
 339:                                              ; preds = %152
   %340 = load double, ptr %153, align 8, !tbaa !3
-  %341 = fmul double %340, %3
+  %341 = fmul double %3, %340
   %342 = getelementptr inbounds double, ptr %153, i64 %7
   %343 = load double, ptr %342, align 8, !tbaa !3
-  %344 = fmul double %343, %3
+  %344 = fmul double %3, %343
   %345 = icmp eq i64 %5, 2
   %346 = and i1 %345, %43
   br i1 %346, label %347, label %409
@@ -670,7 +670,7 @@ default.unreachable111:                           ; preds = %152
 
 487:                                              ; preds = %152
   %488 = load double, ptr %153, align 8, !tbaa !3
-  %489 = fmul double %488, %3
+  %489 = fmul double %3, %488
   %490 = icmp eq i64 %5, 1
   %491 = and i1 %490, %43
   br i1 %491, label %492, label %531

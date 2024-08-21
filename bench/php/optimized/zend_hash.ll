@@ -1438,7 +1438,7 @@ define void @zend_hash_extend(ptr noundef %0, i32 noundef %1, i1 noundef zeroext
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %10
@@ -1478,7 +1478,7 @@ define void @zend_hash_extend(ptr noundef %0, i32 noundef %1, i1 noundef zeroext
   %30 = icmp ne i32 %27, 0
   tail call void @llvm.assume(i1 %30)
   %31 = load i32, ptr %28, align 8
-  %32 = icmp ult i32 %31, %1
+  %32 = icmp ugt i32 %1, %31
   br i1 %32, label %33, label %128
 
 33:                                               ; preds = %29
@@ -1555,7 +1555,7 @@ define void @zend_hash_extend(ptr noundef %0, i32 noundef %1, i1 noundef zeroext
   %.not180 = icmp eq i32 %27, 0
   tail call void @llvm.assume(i1 %.not180)
   %82 = load i32, ptr %28, align 8
-  %83 = icmp ult i32 %82, %1
+  %83 = icmp ugt i32 %1, %82
   br i1 %83, label %84, label %128
 
 84:                                               ; preds = %81
@@ -5227,7 +5227,7 @@ define void @zend_hash_iterator_del(i32 noundef %0) local_unnamed_addr #14 {
 17:                                               ; preds = %16, %13
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
   %19 = add i32 %18, -1
-  %20 = icmp eq i32 %19, %0
+  %20 = icmp eq i32 %0, %19
   br i1 %20, label %.preheader, label %29
 
 .preheader:                                       ; preds = %17
@@ -5312,7 +5312,7 @@ define internal fastcc void @zend_hash_remove_iterator_copies(i32 noundef %0) un
 23:                                               ; preds = %22, %19
   %24 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
   %25 = add i32 %24, -1
-  %26 = icmp eq i32 %25, %.015
+  %26 = icmp eq i32 %.015, %25
   br i1 %26, label %.preheader, label %zend_hash_iterator_del.exit
 
 .preheader:                                       ; preds = %23
@@ -7581,7 +7581,7 @@ define noundef ptr @zend_hash_index_add(ptr noundef %0, i64 noundef %1, ptr noca
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %7
@@ -7596,7 +7596,7 @@ define noundef ptr @zend_hash_index_add(ptr noundef %0, i64 noundef %1, ptr noca
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ugt i64 %20, %1
+  %21 = icmp ult i64 %1, %20
   br i1 %21, label %._crit_edge, label %38
 
 ._crit_edge:                                      ; preds = %17
@@ -7610,7 +7610,7 @@ define noundef ptr @zend_hash_index_add(ptr noundef %0, i64 noundef %1, ptr noca
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
-  %.not206 = icmp ult i64 %27, %1
+  %.not206 = icmp ugt i64 %1, %27
   br i1 %.not206, label %.lr.ph.preheader, label %.loopexit199
 
 .lr.ph.preheader:                                 ; preds = %22
@@ -7726,7 +7726,7 @@ zend_hash_packed_grow.exit:                       ; preds = %60, %66
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load i32, ptr %89, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ugt i64 %91, %1
+  %92 = icmp ult i64 %1, %91
   br i1 %92, label %93, label %119
 
 93:                                               ; preds = %88
@@ -7912,7 +7912,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %153, %134, %178, %.
   store i32 %180, ptr %195, align 4
   %196 = getelementptr inbounds i8, ptr %0, i64 40
   %197 = load i64, ptr %196, align 8
-  %.not196 = icmp sgt i64 %197, %1
+  %.not196 = icmp slt i64 %1, %197
   br i1 %.not196, label %201, label %198
 
 198:                                              ; preds = %zend_hash_real_init_mixed.exit
@@ -7988,7 +7988,7 @@ define noundef ptr @zend_hash_index_add_or_update(ptr noundef %0, i64 noundef %1
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
-  %14 = icmp eq i64 %13, %1
+  %14 = icmp eq i64 %1, %13
   tail call void @llvm.assume(i1 %14)
   %15 = tail call ptr @zend_hash_next_index_insert(ptr noundef %0, ptr noundef %2)
   br label %24
@@ -7996,7 +7996,7 @@ define noundef ptr @zend_hash_index_add_or_update(ptr noundef %0, i64 noundef %1
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load i64, ptr %17, align 8
-  %19 = icmp eq i64 %18, %1
+  %19 = icmp eq i64 %1, %18
   tail call void @llvm.assume(i1 %19)
   %20 = tail call ptr @zend_hash_next_index_insert_new(ptr noundef %0, ptr noundef %2)
   br label %24
@@ -8024,7 +8024,7 @@ define noundef ptr @zend_hash_index_add_new(ptr noundef %0, i64 noundef %1, ptr 
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %7
@@ -8039,7 +8039,7 @@ define noundef ptr @zend_hash_index_add_new(ptr noundef %0, i64 noundef %1, ptr 
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ugt i64 %20, %1
+  %21 = icmp ult i64 %1, %20
   br i1 %21, label %._crit_edge, label %38
 
 ._crit_edge:                                      ; preds = %17
@@ -8053,7 +8053,7 @@ define noundef ptr @zend_hash_index_add_new(ptr noundef %0, i64 noundef %1, ptr 
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
-  %.not198 = icmp ult i64 %27, %1
+  %.not198 = icmp ugt i64 %1, %27
   br i1 %.not198, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %22
@@ -8169,7 +8169,7 @@ zend_hash_packed_grow.exit:                       ; preds = %60, %66
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load i32, ptr %89, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ugt i64 %91, %1
+  %92 = icmp ult i64 %1, %91
   br i1 %92, label %93, label %119
 
 93:                                               ; preds = %88
@@ -8319,7 +8319,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %153, %134, %161, %1
   store i32 %163, ptr %178, align 4
   %179 = getelementptr inbounds i8, ptr %0, i64 40
   %180 = load i64, ptr %179, align 8
-  %.not193 = icmp sgt i64 %180, %1
+  %.not193 = icmp slt i64 %1, %180
   br i1 %.not193, label %184, label %181
 
 181:                                              ; preds = %zend_hash_real_init_mixed.exit
@@ -9061,7 +9061,7 @@ define noundef ptr @zend_hash_index_update(ptr noundef %0, i64 noundef %1, ptr n
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %7
@@ -9088,7 +9088,7 @@ define noundef ptr @zend_hash_index_update(ptr noundef %0, i64 noundef %1, ptr n
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
-  %25 = icmp ugt i64 %24, %1
+  %25 = icmp ult i64 %1, %24
   br i1 %25, label %._crit_edge211, label %42
 
 ._crit_edge211:                                   ; preds = %21
@@ -9102,7 +9102,7 @@ define noundef ptr @zend_hash_index_update(ptr noundef %0, i64 noundef %1, ptr n
   %29 = getelementptr inbounds i8, ptr %0, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
-  %.not209 = icmp ult i64 %31, %1
+  %.not209 = icmp ugt i64 %1, %31
   br i1 %.not209, label %.lr.ph.preheader, label %.loopexit202
 
 .lr.ph.preheader:                                 ; preds = %26
@@ -9218,7 +9218,7 @@ zend_hash_packed_grow.exit:                       ; preds = %64, %70
   %93 = getelementptr inbounds i8, ptr %0, i64 32
   %94 = load i32, ptr %93, align 8
   %95 = zext i32 %94 to i64
-  %96 = icmp ugt i64 %95, %1
+  %96 = icmp ult i64 %1, %95
   br i1 %96, label %97, label %123
 
 97:                                               ; preds = %92
@@ -9404,7 +9404,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %157, %138, %182, %.
   store i32 %184, ptr %199, align 4
   %200 = getelementptr inbounds i8, ptr %0, i64 40
   %201 = load i64, ptr %200, align 8
-  %.not196 = icmp sgt i64 %201, %1
+  %.not196 = icmp slt i64 %1, %201
   br i1 %.not196, label %205, label %202
 
 202:                                              ; preds = %zend_hash_real_init_mixed.exit
@@ -9448,7 +9448,7 @@ define ptr @zend_hash_index_lookup(ptr noundef %0, i64 noundef %1) local_unnamed
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
@@ -9464,7 +9464,7 @@ define ptr @zend_hash_index_lookup(ptr noundef %0, i64 noundef %1) local_unnamed
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ugt i64 %20, %1
+  %21 = icmp ult i64 %1, %20
   br i1 %21, label %._crit_edge209, label %38
 
 ._crit_edge209:                                   ; preds = %17
@@ -9478,7 +9478,7 @@ define ptr @zend_hash_index_lookup(ptr noundef %0, i64 noundef %1) local_unnamed
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
-  %.not207 = icmp ult i64 %27, %1
+  %.not207 = icmp ugt i64 %1, %27
   br i1 %.not207, label %.lr.ph.preheader, label %.loopexit200
 
 .lr.ph.preheader:                                 ; preds = %22
@@ -9594,7 +9594,7 @@ zend_hash_packed_grow.exit:                       ; preds = %60, %66
   %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load i32, ptr %89, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp ugt i64 %91, %1
+  %92 = icmp ult i64 %1, %91
   br i1 %92, label %93, label %119
 
 93:                                               ; preds = %88
@@ -9780,7 +9780,7 @@ zend_hash_real_init_mixed.exit:                   ; preds = %153, %134, %178, %.
   store i32 %180, ptr %195, align 4
   %196 = getelementptr inbounds i8, ptr %0, i64 40
   %197 = load i64, ptr %196, align 8
-  %.not195 = icmp sgt i64 %197, %1
+  %.not195 = icmp slt i64 %1, %197
   br i1 %.not195, label %201, label %198
 
 198:                                              ; preds = %zend_hash_real_init_mixed.exit
@@ -11485,7 +11485,7 @@ define range(i32 -1, 1) i32 @zend_hash_index_del(ptr noundef %0, i64 noundef %1)
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %13, label %.loopexit143
 
 13:                                               ; preds = %8
@@ -16613,7 +16613,7 @@ define ptr @zend_hash_index_find(ptr nocapture noundef readonly %0, i64 noundef 
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
@@ -17441,7 +17441,7 @@ define void @zend_hash_sort_ex(ptr noundef %0, ptr nocapture noundef readonly %1
   %6 = load i32, ptr %5, align 4
   %7 = icmp ugt i32 %6, 1
   %8 = icmp eq i32 %6, 1
-  %or.cond = and i1 %8, %3
+  %or.cond = and i1 %3, %8
   %or.cond180 = or i1 %7, %or.cond
   br i1 %or.cond180, label %9, label %145
 

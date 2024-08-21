@@ -607,7 +607,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net23QuicBufferedPacketSt
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %10
+  %cmp.i.i.i.i.i = icmp eq ptr %10, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net23QuicBufferedPacketStore18BufferedPacketListEEESt4hashImESt8equal_toImESaIS1_IKmS6_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net23QuicBufferedPacketStore18BufferedPacketListEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -656,7 +656,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_S
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %connections_with_chlo_, align 8
   %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %6
+  %cmp.i.i.i.i.i.i = icmp eq ptr %6, %_M_single_bucket.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN15linked_hash_mapImbSt4hashImEED2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -694,7 +694,7 @@ entry:
   %agg.tmp74 = alloca %"class.net::IPEndPoint", align 8
   %agg.tmp77 = alloca %"class.net::IPEndPoint", align 8
   %call = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  %brmerge.demorgan = and i1 %call, %is_chlo
+  %brmerge.demorgan = and i1 %is_chlo, %call
   br i1 %brmerge.demorgan, label %land.lhs.true2, label %cleanup.done
 
 land.lhs.true2:                                   ; preds = %entry
@@ -716,7 +716,7 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
   %1 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq i64 %1, %connection_id
+  %cmp.i.i.i.i.i.i = icmp eq i64 %connection_id, %1
   br i1 %cmp.i.i.i.i.i.i, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit, label %for.cond.i.i.i.i, !llvm.loop !11
 
 if.end15.i.i.i.i:                                 ; preds = %land.lhs.true2
@@ -734,11 +734,11 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end15.i.i.i.i
   %5 = load ptr, ptr %4, align 8
   %add.ptr8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %add.ptr8.i.i.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq i64 %6, %connection_id
+  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq i64 %connection_id, %6
   br i1 %cmp.i.i.i9.i.i.i.i.i.i, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit, label %if.end3.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %8, %connection_id
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %connection_id, %8
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit, label %if.end3.i.i.i.i.i.i, !llvm.loop !12
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i
@@ -795,7 +795,7 @@ for.cond.i.i.i.i44:                               ; preds = %for.body.i.i.i.i48,
 for.body.i.i.i.i48:                               ; preds = %for.cond.i.i.i.i44
   %add.ptr.i.i.i.i49 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i46, i64 8
   %11 = load i64, ptr %add.ptr.i.i.i.i49, align 8
-  %cmp.i.i.i.i.i.i50 = icmp eq i64 %11, %connection_id
+  %cmp.i.i.i.i.i.i50 = icmp eq i64 %connection_id, %11
   br i1 %cmp.i.i.i.i.i.i50, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit, label %for.cond.i.i.i.i44, !llvm.loop !13
 
 if.end15.i.i.i.i17:                               ; preds = %cleanup.done
@@ -812,11 +812,11 @@ if.end.i.i.i.i.i.i22:                             ; preds = %if.end15.i.i.i.i17
   %15 = load ptr, ptr %14, align 8
   %add.ptr8.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i64, ptr %add.ptr8.i.i.i.i.i.i23, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i24 = icmp eq i64 %16, %connection_id
+  %cmp.i.i.i9.i.i.i.i.i.i24 = icmp eq i64 %connection_id, %16
   br i1 %cmp.i.i.i9.i.i.i.i.i.i24, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit, label %if.end3.i.i.i.i.i.i25
 
 for.cond.i.i.i.i.i.i37:                           ; preds = %lor.lhs.false.i.i.i.i.i.i28
-  %cmp.i.i.i.i.i.i.i.i.i38 = icmp eq i64 %18, %connection_id
+  %cmp.i.i.i.i.i.i.i.i.i38 = icmp eq i64 %connection_id, %18
   br i1 %cmp.i.i.i.i.i.i.i.i.i38, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit, label %if.end3.i.i.i.i.i.i25, !llvm.loop !14
 
 if.end3.i.i.i.i.i.i25:                            ; preds = %if.end.i.i.i.i.i.i22, %for.cond.i.i.i.i.i.i37
@@ -888,7 +888,7 @@ for.cond.i.i.i.i80:                               ; preds = %for.body.i.i.i.i84,
 for.body.i.i.i.i84:                               ; preds = %for.cond.i.i.i.i80
   %add.ptr.i.i.i.i85 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i82, i64 8
   %26 = load i64, ptr %add.ptr.i.i.i.i85, align 8
-  %cmp.i.i.i.i.i.i86 = icmp eq i64 %26, %connection_id
+  %cmp.i.i.i.i.i.i86 = icmp eq i64 %connection_id, %26
   br i1 %cmp.i.i.i.i.i.i86, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit87, label %for.cond.i.i.i.i80, !llvm.loop !13
 
 if.end15.i.i.i.i53:                               ; preds = %if.else
@@ -905,11 +905,11 @@ if.end.i.i.i.i.i.i58:                             ; preds = %if.end15.i.i.i.i53
   %30 = load ptr, ptr %29, align 8
   %add.ptr8.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load i64, ptr %add.ptr8.i.i.i.i.i.i59, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i60 = icmp eq i64 %31, %connection_id
+  %cmp.i.i.i9.i.i.i.i.i.i60 = icmp eq i64 %connection_id, %31
   br i1 %cmp.i.i.i9.i.i.i.i.i.i60, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit87, label %if.end3.i.i.i.i.i.i61
 
 for.cond.i.i.i.i.i.i73:                           ; preds = %lor.lhs.false.i.i.i.i.i.i64
-  %cmp.i.i.i.i.i.i.i.i.i74 = icmp eq i64 %33, %connection_id
+  %cmp.i.i.i.i.i.i.i.i.i74 = icmp eq i64 %connection_id, %33
   br i1 %cmp.i.i.i.i.i.i.i.i.i74, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit87, label %if.end3.i.i.i.i.i.i61, !llvm.loop !14
 
 if.end3.i.i.i.i.i.i61:                            ; preds = %if.end.i.i.i.i.i.i58, %for.cond.i.i.i.i.i.i73
@@ -1033,7 +1033,7 @@ for.cond.i.i.i.i118:                              ; preds = %for.body.i.i.i.i122
 for.body.i.i.i.i122:                              ; preds = %for.cond.i.i.i.i118
   %add.ptr.i.i.i.i123 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i120, i64 8
   %45 = load i64, ptr %add.ptr.i.i.i.i123, align 8
-  %cmp.i.i.i.i.i.i124 = icmp eq i64 %45, %connection_id
+  %cmp.i.i.i.i.i.i124 = icmp eq i64 %connection_id, %45
   br i1 %cmp.i.i.i.i.i.i124, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit125, label %for.cond.i.i.i.i118, !llvm.loop !13
 
 if.end15.i.i.i.i91:                               ; preds = %if.end29
@@ -1050,11 +1050,11 @@ if.end.i.i.i.i.i.i96:                             ; preds = %if.end15.i.i.i.i91
   %49 = load ptr, ptr %48, align 8
   %add.ptr8.i.i.i.i.i.i97 = getelementptr inbounds i8, ptr %49, i64 8
   %50 = load i64, ptr %add.ptr8.i.i.i.i.i.i97, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i98 = icmp eq i64 %50, %connection_id
+  %cmp.i.i.i9.i.i.i.i.i.i98 = icmp eq i64 %connection_id, %50
   br i1 %cmp.i.i.i9.i.i.i.i.i.i98, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit125, label %if.end3.i.i.i.i.i.i99
 
 for.cond.i.i.i.i.i.i111:                          ; preds = %lor.lhs.false.i.i.i.i.i.i102
-  %cmp.i.i.i.i.i.i.i.i.i112 = icmp eq i64 %52, %connection_id
+  %cmp.i.i.i.i.i.i.i.i.i112 = icmp eq i64 %connection_id, %52
   br i1 %cmp.i.i.i.i.i.i.i.i.i112, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net23QuicBufferedPacketStore18BufferedPacketListESt4hashImEEmEEbRKT_RKT0_.exit125, label %if.end3.i.i.i.i.i.i99, !llvm.loop !14
 
 if.end3.i.i.i.i.i.i99:                            ; preds = %if.end.i.i.i.i.i.i96, %for.cond.i.i.i.i.i.i111
@@ -1101,7 +1101,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 8
   %55 = load i64, ptr %add.ptr.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq i64 %55, %connection_id
+  %cmp.i.i.i.i.i = icmp eq i64 %connection_id, %55
   br i1 %cmp.i.i.i.i.i, label %if.end.i129, label %for.cond.i.i.i, !llvm.loop !18
 
 if.end15.i.i.i:                                   ; preds = %cleanup.done44
@@ -1118,11 +1118,11 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end15.i.i.i
   %59 = load ptr, ptr %58, align 8
   %add.ptr8.i.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
   %60 = load i64, ptr %add.ptr8.i.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i.i = icmp eq i64 %60, %connection_id
+  %cmp.i.i.i9.i.i.i.i.i = icmp eq i64 %connection_id, %60
   br i1 %cmp.i.i.i9.i.i.i.i.i, label %if.end.i129, label %if.end3.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %62, %connection_id
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %connection_id, %62
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end.i129, label %if.end3.i.i.i.i.i, !llvm.loop !14
 
 if.end3.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i, %for.cond.i.i.i.i.i
@@ -1168,7 +1168,7 @@ for.cond.i.i.i.i160:                              ; preds = %for.body.i.i.i.i164
 for.body.i.i.i.i164:                              ; preds = %for.cond.i.i.i.i160
   %add.ptr.i.i.i.i165 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i162, i64 8
   %64 = load i64, ptr %add.ptr.i.i.i.i165, align 8
-  %cmp.i.i.i.i.i.i166 = icmp eq i64 %64, %connection_id
+  %cmp.i.i.i.i.i.i166 = icmp eq i64 %connection_id, %64
   br i1 %cmp.i.i.i.i.i.i166, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit167, label %for.cond.i.i.i.i160, !llvm.loop !11
 
 if.end15.i.i.i.i133:                              ; preds = %if.then54
@@ -1186,11 +1186,11 @@ if.end.i.i.i.i.i.i138:                            ; preds = %if.end15.i.i.i.i133
   %68 = load ptr, ptr %67, align 8
   %add.ptr8.i.i.i.i.i.i139 = getelementptr inbounds i8, ptr %68, i64 8
   %69 = load i64, ptr %add.ptr8.i.i.i.i.i.i139, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i140 = icmp eq i64 %69, %connection_id
+  %cmp.i.i.i9.i.i.i.i.i.i140 = icmp eq i64 %connection_id, %69
   br i1 %cmp.i.i.i9.i.i.i.i.i.i140, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit167, label %if.end3.i.i.i.i.i.i141
 
 for.cond.i.i.i.i.i.i153:                          ; preds = %lor.lhs.false.i.i.i.i.i.i144
-  %cmp.i.i.i.i.i.i.i.i.i154 = icmp eq i64 %71, %connection_id
+  %cmp.i.i.i.i.i.i.i.i.i154 = icmp eq i64 %connection_id, %71
   br i1 %cmp.i.i.i.i.i.i.i.i.i154, label %_ZN4base11ContainsKeyI15linked_hash_mapImbSt4hashImEEmEEbRKT_RKT0_.exit167, label %if.end3.i.i.i.i.i.i141, !llvm.loop !12
 
 if.end3.i.i.i.i.i.i141:                           ; preds = %if.end.i.i.i.i.i.i138, %for.cond.i.i.i.i.i.i153
@@ -1524,7 +1524,7 @@ if.end:                                           ; preds = %invoke.cont8
   %list_ = getelementptr inbounds i8, ptr %this, i64 56
   %11 = load ptr, ptr %call5.i.i.i.i.i1, align 8
   %cmp.i.i.i = icmp eq ptr %list_, %call5.i.i.i.i.i1
-  %cmp.i3.i.i = icmp eq ptr %11, %list_
+  %cmp.i3.i.i = icmp eq ptr %list_, %11
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i3.i.i
   br i1 %or.cond.i.i, label %cleanup, label %if.end8.i.i
 
@@ -1678,7 +1678,7 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
   %1 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq i64 %1, %connection_id
+  %cmp.i.i.i.i.i.i = icmp eq i64 %connection_id, %1
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i, label %for.cond.i.i.i.i, !llvm.loop !13
 
 if.end15.i.i.i.i:                                 ; preds = %entry
@@ -1695,11 +1695,11 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end15.i.i.i.i
   %5 = load ptr, ptr %4, align 8
   %add.ptr8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %add.ptr8.i.i.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq i64 %6, %connection_id
+  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq i64 %connection_id, %6
   br i1 %cmp.i.i.i9.i.i.i.i.i.i, label %if.end.i.i, label %if.end3.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %8, %connection_id
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %connection_id, %8
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end.i.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !14
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i
@@ -1769,7 +1769,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 8
   %1 = load i64, ptr %add.ptr.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq i64 %1, %connection_id
+  %cmp.i.i.i.i.i = icmp eq i64 %connection_id, %1
   br i1 %cmp.i.i.i.i.i, label %invoke.cont, label %for.cond.i.i.i, !llvm.loop !18
 
 if.end15.i.i.i:                                   ; preds = %entry
@@ -1786,11 +1786,11 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end15.i.i.i
   %5 = load ptr, ptr %4, align 8
   %add.ptr8.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %add.ptr8.i.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i.i = icmp eq i64 %6, %connection_id
+  %cmp.i.i.i9.i.i.i.i.i = icmp eq i64 %connection_id, %6
   br i1 %cmp.i.i.i9.i.i.i.i.i, label %invoke.cont, label %if.end3.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %8, %connection_id
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %connection_id, %8
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.end3.i.i.i.i.i, !llvm.loop !14
 
 if.end3.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i, %for.cond.i.i.i.i.i
@@ -1972,7 +1972,7 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.not.i.i.i.i2, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net23QuicBufferedPacketStore18BufferedPacketListEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !19
 
 _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net23QuicBufferedPacketStore18BufferedPacketListEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit.i.i.i: ; preds = %while.cond.i.i.i.i
-  %cmp.i.i.i.i3 = icmp eq ptr %20, %__prev_n.0.i.i.i.i
+  %cmp.i.i.i.i3 = icmp eq ptr %__prev_n.0.i.i.i.i, %20
   %22 = load ptr, ptr %retval.sroa.0.1.i.i, align 8
   %tobool.not.i.i.i.i4 = icmp eq ptr %22, null
   br i1 %cmp.i.i.i.i3, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -2261,7 +2261,7 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.not.i.i.i.i2, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net23QuicBufferedPacketStore18BufferedPacketListEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !19
 
 _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net23QuicBufferedPacketStore18BufferedPacketListEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit.i.i.i: ; preds = %while.cond.i.i.i.i
-  %cmp.i.i.i.i3 = icmp eq ptr %16, %__prev_n.0.i.i.i.i
+  %cmp.i.i.i.i3 = icmp eq ptr %__prev_n.0.i.i.i.i, %16
   %18 = load ptr, ptr %retval.sroa.0.1.i.i, align 8
   %tobool.not.i.i.i.i4 = icmp eq ptr %18, null
   br i1 %cmp.i.i.i.i3, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -2455,7 +2455,7 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.not.i.i.i.i2, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !23
 
 _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i: ; preds = %while.cond.i.i.i.i
-  %cmp.i.i.i.i3 = icmp eq ptr %16, %__prev_n.0.i.i.i.i
+  %cmp.i.i.i.i3 = icmp eq ptr %__prev_n.0.i.i.i.i, %16
   %18 = load ptr, ptr %retval.sroa.0.1.i.i, align 8
   %tobool.not.i.i.i.i4 = icmp eq ptr %18, null
   br i1 %cmp.i.i.i.i3, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -2646,7 +2646,7 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.not.i.i.i.i2, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !23
 
 _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i: ; preds = %while.cond.i.i.i.i
-  %cmp.i.i.i.i3 = icmp eq ptr %16, %__prev_n.0.i.i.i.i
+  %cmp.i.i.i.i3 = icmp eq ptr %__prev_n.0.i.i.i.i, %16
   %18 = load ptr, ptr %retval.sroa.0.1.i.i, align 8
   %tobool.not.i.i.i.i4 = icmp eq ptr %18, null
   br i1 %cmp.i.i.i.i3, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -2744,7 +2744,7 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
   %1 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq i64 %1, %connection_id
+  %cmp.i.i.i.i.i.i = icmp eq i64 %connection_id, %1
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i, label %for.cond.i.i.i.i, !llvm.loop !11
 
 if.end15.i.i.i.i:                                 ; preds = %entry
@@ -2762,11 +2762,11 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end15.i.i.i.i
   %5 = load ptr, ptr %4, align 8
   %add.ptr8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %add.ptr8.i.i.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq i64 %6, %connection_id
+  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq i64 %connection_id, %6
   br i1 %cmp.i.i.i9.i.i.i.i.i.i, label %if.end.i.i, label %if.end3.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %8, %connection_id
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %connection_id, %8
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end.i.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !12
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i
@@ -3294,7 +3294,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net23QuicBufferedPacketStore18BufferedPacketListEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net23QuicBufferedPacketStore18BufferedPacketListEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -3767,7 +3767,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end

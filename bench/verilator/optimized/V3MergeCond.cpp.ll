@@ -3665,7 +3665,7 @@ _ZNSt11_Deque_baseIP7AstNodeSaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #24
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIP7AstNodeSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -4833,7 +4833,7 @@ _ZN12_GLOBAL__N_125CodeMotionAnalysisVisitor16extractConditionEPK11AstNodeStmt.e
   br i1 %.not.i.i.i.i.i, label %81, label %.lr.ph.i.i.i.i.i, !llvm.loop !34
 
 81:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %82 = icmp eq ptr %66, %.0710.i.i.i.i.i
+  %82 = icmp eq ptr %.0710.i.i.i.i.i, %66
   %spec.select.i.i.i33.i = or i1 %82, %80
   br label %83
 
@@ -5009,7 +5009,7 @@ _ZN7AstNode11privateCastI9AstVarRefPS_EEPT_S2_.exit: ; preds = %_ZN7AstNode11pri
   %.02024.i.i.i.i = phi ptr [ %.020.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02022.i.i.i.i, %151 ]
   %156 = getelementptr inbounds i8, ptr %.02024.i.i.i.i, i64 32
   %157 = load ptr, ptr %156, align 8
-  %158 = icmp ugt ptr %157, %.val
+  %158 = icmp ult ptr %.val, %157
   %.in.v.i.i.i.i = select i1 %158, i64 16, i64 24
   %.in.i.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i.i, i64 %.in.v.i.i.i.i
   %.020.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8
@@ -5040,13 +5040,13 @@ _ZN7AstNode11privateCastI9AstVarRefPS_EEPT_S2_.exit: ; preds = %_ZN7AstNode11pri
 
 select.unfold.i.i.i:                              ; preds = %164, %._crit_edge.thread.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %164 ]
-  %167 = icmp eq ptr %155, %.sroa.4.0.i.ph.i.i.i
+  %167 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %155
   br i1 %167, label %_ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i, label %168
 
 168:                                              ; preds = %select.unfold.i.i.i
   %169 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
   %170 = load ptr, ptr %169, align 8
-  %171 = icmp ugt ptr %170, %.val
+  %171 = icmp ult ptr %.val, %170
   br label %_ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i
 
 _ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i: ; preds = %168, %select.unfold.i.i.i
@@ -5079,7 +5079,7 @@ _ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EE6insertERKS2_.exit.i: ; preds = %_ZNSt8_R
   %.02024.i.i.i10.i = phi ptr [ %.020.i.i.i13.i, %.lr.ph.i.i.i9.i ], [ %.02022.i.i.i6.i, %179 ]
   %184 = getelementptr inbounds i8, ptr %.02024.i.i.i10.i, i64 32
   %185 = load ptr, ptr %184, align 8
-  %186 = icmp ugt ptr %185, %.val
+  %186 = icmp ult ptr %.val, %185
   %.in.v.i.i.i11.i = select i1 %186, i64 16, i64 24
   %.in.i.i.i12.i = getelementptr inbounds i8, ptr %.02024.i.i.i10.i, i64 %.in.v.i.i.i11.i
   %.020.i.i.i13.i = load ptr, ptr %.in.i.i.i12.i, align 8
@@ -5110,13 +5110,13 @@ _ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EE6insertERKS2_.exit.i: ; preds = %_ZNSt8_R
 
 select.unfold.i.i22.i:                            ; preds = %192, %._crit_edge.thread.i.i.i25.i
   %.sroa.4.0.i.ph.i.i23.i = phi ptr [ %.019.lcssa28.i.i.i26.i, %._crit_edge.thread.i.i.i25.i ], [ %.019.lcssa29.i.i.i16.i, %192 ]
-  %195 = icmp eq ptr %183, %.sroa.4.0.i.ph.i.i23.i
+  %195 = icmp eq ptr %.sroa.4.0.i.ph.i.i23.i, %183
   br i1 %195, label %_ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i24.i, label %196
 
 196:                                              ; preds = %select.unfold.i.i22.i
   %197 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i23.i, i64 32
   %198 = load ptr, ptr %197, align 8
-  %199 = icmp ugt ptr %198, %.val
+  %199 = icmp ult ptr %.val, %198
   br label %_ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i24.i
 
 _ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i24.i: ; preds = %196, %select.unfold.i.i22.i
@@ -5939,7 +5939,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(120) ptr @_ZN20As
   %4 = getelementptr i8, ptr %1, i64 136
   %.val7 = load i32, ptr %4, align 8
   %5 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
-  %6 = icmp ne i32 %5, %.val7
+  %6 = icmp ne i32 %.val7, %5
   %7 = inttoptr i64 %.val to ptr
   %.not8 = icmp eq i64 %.val, 0
   %.not = select i1 %6, i1 true, i1 %.not8
@@ -6282,7 +6282,7 @@ define linkonce_odr dso_local void @_ZNSt3setIPK6AstVarSt4lessIS2_ESaIS2_EE6inse
 
 select.unfold:                                    ; preds = %25, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %25 ]
-  %28 = icmp eq ptr %4, %.sroa.12.0.i.ph
+  %28 = icmp eq ptr %.sroa.12.0.i.ph, %4
   br i1 %28, label %_ZNSt8_Rb_treeIPK6AstVarS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %29
 
 29:                                               ; preds = %select.unfold
@@ -6676,7 +6676,7 @@ define internal void @_ZN12_GLOBAL__N_125CodeMotionOptimizeVisitor5visitEP11AstN
   %12 = getelementptr i8, ptr %1, i64 136
   %.val5.i = load i32, ptr %12, align 8
   %13 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
-  %14 = icmp ne i32 %13, %.val5.i
+  %14 = icmp ne i32 %.val5.i, %13
   %.not1.i = icmp eq i64 %.val.i, 0
   %.not.i63 = select i1 %14, i1 true, i1 %.not1.i
   br i1 %.not.i63, label %15, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit
@@ -6816,7 +6816,7 @@ _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit74.thread: ; preds = %42, 
   %58 = getelementptr i8, ptr %.0105, i64 136
   %.val5.i81 = load i32, ptr %58, align 8
   %59 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
-  %60 = icmp ne i32 %59, %.val5.i81
+  %60 = icmp ne i32 %.val5.i81, %59
   %.not1.i82 = icmp eq i64 %.val.i80, 0
   %.not.i83 = select i1 %60, i1 true, i1 %.not1.i82
   br i1 %.not.i83, label %61, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit84
@@ -6846,7 +6846,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125CodeMotionOptimiz
   %4 = getelementptr i8, ptr %0, i64 136
   %.val5.i = load i32, ptr %4, align 8
   %5 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
-  %6 = icmp ne i32 %5, %.val5.i
+  %6 = icmp ne i32 %.val5.i, %5
   %.not1.i = icmp eq i64 %.val.i, 0
   %.not.i = select i1 %6, i1 true, i1 %.not1.i
   br i1 %.not.i, label %7, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit
@@ -6864,7 +6864,7 @@ _ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclE
   %.val.i12 = load i64, ptr %12, align 8
   %13 = getelementptr i8, ptr %1, i64 136
   %.val5.i13 = load i32, ptr %13, align 8
-  %14 = icmp ne i32 %.val5.i, %.val5.i13
+  %14 = icmp ne i32 %.val5.i13, %.val5.i
   %.not1.i14 = icmp eq i64 %.val.i12, 0
   %.not.i15 = select i1 %14, i1 true, i1 %.not1.i14
   br i1 %.not.i15, label %15, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit16
@@ -9078,7 +9078,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor20
   %4 = getelementptr i8, ptr %1, i64 136
   %.val5.i = load i32, ptr %4, align 8
   %5 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
-  %6 = icmp ne i32 %5, %.val5.i
+  %6 = icmp ne i32 %.val5.i, %5
   %.not1.i = icmp eq i64 %.val.i, 0
   %.not.i = select i1 %6, i1 true, i1 %.not1.i
   br i1 %.not.i, label %7, label %_ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclEPKS0_.exit
@@ -9294,7 +9294,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToList
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 3
   %54 = ashr exact i64 %52, 2
-  %55 = icmp ult i64 %53, %54
+  %55 = icmp ugt i64 %54, %53
   br i1 %55, label %56, label %87
 
 56:                                               ; preds = %49
@@ -9377,7 +9377,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i
 
 87:                                               ; preds = %49
-  %88 = icmp ugt i64 %53, %54
+  %88 = icmp ult i64 %54, %53
   %89 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %54
   %spec.select.i = select i1 %88, ptr %89, ptr %.sroa.12.1.i
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i

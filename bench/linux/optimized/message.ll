@@ -1761,7 +1761,7 @@ define dso_local void @usb_disable_endpoint(ptr noundef %0, i32 noundef %1, i1 n
   %8 = icmp eq i32 %7, 0
   %9 = zext nneg i32 %6 to i64
   %10 = icmp ne i32 %6, 0
-  %11 = and i1 %10, %2
+  %11 = and i1 %2, %10
   br i1 %8, label %12, label %16
 
 12:                                               ; preds = %5
@@ -3284,7 +3284,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   %25 = getelementptr inbounds i8, ptr %24, i64 5
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
-  %28 = icmp eq i32 %27, %1
+  %28 = icmp eq i32 %1, %27
   br i1 %28, label %.loopexit44, label %19
 
 .loopexit44:                                      ; preds = %22, %19, %11

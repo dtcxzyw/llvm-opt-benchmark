@@ -14874,7 +14874,7 @@ CC_DUP_WARN.exit:                                 ; preds = %40, %36, %30, %26, 
 
 71:                                               ; preds = %10
   %72 = load i32, ptr %7, align 4
-  %73 = icmp eq i32 %72, %6
+  %73 = icmp eq i32 %6, %72
   br i1 %73, label %74, label %115
 
 74:                                               ; preds = %71

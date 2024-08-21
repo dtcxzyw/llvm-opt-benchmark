@@ -366,7 +366,7 @@ if.end:                                           ; preds = %entry
   %msix_used = getelementptr [16 x %struct.XHCIInterrupter], ptr %intr, i64 0, i64 %idxprom, i32 7
   %0 = load i8, ptr %msix_used, align 4
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %enable
+  %2 = xor i1 %enable, %1
   br i1 %2, label %if.end7, label %if.end18
 
 if.end7:                                          ; preds = %if.end
@@ -482,7 +482,7 @@ if.then:                                          ; preds = %lor.lhs.false
 if.end:                                           ; preds = %if.then, %lor.lhs.false, %land.lhs.true, %entry
   %call4 = tail call i32 @msix_enabled(ptr noundef %call.i) #6
   %tobool5.not = icmp ne i32 %call4, 0
-  %brmerge.not = and i1 %tobool5.not, %level
+  %brmerge.not = and i1 %level, %tobool5.not
   br i1 %brmerge.not, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
@@ -491,7 +491,7 @@ if.then9:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.end
   %call11 = tail call zeroext i1 @msi_enabled(ptr noundef %call.i) #6
-  %brmerge12.demorgan = and i1 %call11, %level
+  %brmerge12.demorgan = and i1 %level, %call11
   br i1 %brmerge12.demorgan, label %if.then16, label %return
 
 if.then16:                                        ; preds = %if.end10

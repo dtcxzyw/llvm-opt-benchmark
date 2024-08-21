@@ -30,7 +30,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
   store ptr null, ptr %2, align 8
   store i64 0, ptr %3, align 8
   %6 = load i64, ptr @pmix_compress_base, align 8
-  %7 = icmp ugt i64 %6, %1
+  %7 = icmp ult i64 %1, %6
   %8 = icmp ugt i64 %1, 4294967294
   %or.cond = or i1 %8, %7
   br i1 %or.cond, label %46, label %9

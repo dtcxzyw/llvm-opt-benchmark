@@ -8815,7 +8815,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118medianBlur_SortNetINS1_9MinMax32fES3_EEvRKNS
   %5383 = fcmp olt double %5381, 4.000000e+00
   %5384 = select i1 %5383, i32 21, i32 9
   %5385 = select i1 %5382, i32 39, i32 %5384
-  %.not = icmp slt i32 %5385, %2
+  %.not = icmp sgt i32 %2, %5385
   br i1 %.not, label %5718, label %5386
 
 5386:                                             ; preds = %5379

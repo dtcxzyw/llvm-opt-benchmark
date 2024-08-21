@@ -5661,7 +5661,7 @@ define internal fastcc i32 @do_prlimit(ptr noundef %0, i32 noundef %1, ptr nound
   %7 = zext nneg i32 %1 to i64
   %8 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 16, i64 %7) #13, !srcloc !30
   %9 = trunc i64 %8 to i32
-  %10 = and i32 %9, %1
+  %10 = and i32 %1, %9
   %11 = icmp ne ptr %2, null
   br i1 %11, label %12, label %23
 

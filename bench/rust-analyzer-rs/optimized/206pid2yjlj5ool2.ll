@@ -614,7 +614,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !36, !noalias !41, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !43, !noalias !41, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hd83811b90a821bc4E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -671,7 +671,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !49, !noalias !54, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !56, !noalias !54, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hd83811b90a821bc4E.exit"
 
 9:                                                ; preds = %3
@@ -2708,8 +2708,8 @@ _ZN7ide_ssr8matching7Matcher24get_placeholder_for_node17h87813144b04db35eE.exit:
 
 114:                                              ; preds = %139, %100
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %100 ], [ %140, %139 ]
-  %.pn.i.i = phi i64 [ %110, %100 ], [ %141, %139 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val5.i
+  %.pn.i.i.i.i = phi i64 [ %110, %100 ], [ %141, %139 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i
   %115 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i25.i.i.i = load <16 x i8>, ptr %115, align 1, !noalias !292
   %116 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, %.15.vec.insert.i.i.i.i
@@ -5283,8 +5283,8 @@ _ZN7ide_ssr8matching7Matcher31attempt_match_record_field_list17hec34a94bb03eb523
 
 962:                                              ; preds = %987, %948
   %.sroa.9.0.i.i.i.i341 = phi i64 [ 0, %948 ], [ %988, %987 ]
-  %.pn.i.i342 = phi i64 [ %958, %948 ], [ %989, %987 ]
-  %.sroa.01.0.i.i.i.i343 = and i64 %.pn.i.i342, %.val5.i337
+  %.pn.i.i.i.i342 = phi i64 [ %958, %948 ], [ %989, %987 ]
+  %.sroa.01.0.i.i.i.i343 = and i64 %.pn.i.i.i.i342, %.val5.i337
   %963 = getelementptr inbounds i8, ptr %.val.i336, i64 %.sroa.01.0.i.i.i.i343
   %.0.copyload.i25.i.i.i344 = load <16 x i8>, ptr %963, align 1, !noalias !993
   %964 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i344, %.15.vec.insert.i.i.i.i339

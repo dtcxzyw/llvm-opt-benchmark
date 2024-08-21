@@ -1265,7 +1265,7 @@ define dso_local i64 @expanded_record_fetch_field(ptr noundef %0, i32 noundef %1
   tail call void @deconstruct_expanded_record(ptr noundef nonnull %0)
   %12 = getelementptr inbounds i8, ptr %0, i64 104
   %13 = load i32, ptr %12, align 8
-  %14 = icmp slt i32 %13, %1
+  %14 = icmp sgt i32 %1, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
@@ -1315,7 +1315,7 @@ define dso_local void @expanded_record_set_field_internal(ptr noundef %0, i32 no
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 64
   %.not = icmp ne i32 %10, 0
-  %brmerge.not = and i1 %.not, %5
+  %brmerge.not = and i1 %5, %.not
   br i1 %brmerge.not, label %11, label %98
 
 11:                                               ; preds = %6
@@ -1380,7 +1380,7 @@ define dso_local void @expanded_record_set_field_internal(ptr noundef %0, i32 no
 53:                                               ; preds = %48
   %54 = getelementptr inbounds i8, ptr %13, i64 104
   %55 = load i32, ptr %54, align 8
-  %56 = icmp slt i32 %55, %1
+  %56 = icmp sgt i32 %1, %55
   br i1 %56, label %.critedge.i, label %59
 
 .critedge.i:                                      ; preds = %53, %48
@@ -1469,7 +1469,7 @@ check_domain_for_new_field.exit:                  ; preds = %59, %68, %76, %80, 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds i8, ptr %0, i64 104
   %108 = load i32, ptr %107, align 8
-  %109 = icmp slt i32 %108, %1
+  %109 = icmp sgt i32 %1, %108
   br i1 %109, label %.critedge, label %112
 
 .critedge:                                        ; preds = %102, %106

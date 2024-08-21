@@ -108,7 +108,7 @@ if.then6:                                         ; preds = %if.end3
   %time_offset_.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i64, ptr %time_offset_.i, align 8
   %cmp.i = icmp eq i64 %4, 0
-  %cmp.i.i = icmp sgt i64 %4, %latest_rtt.coerce1
+  %cmp.i.i = icmp slt i64 %latest_rtt.coerce1, %4
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.i.i
   br i1 %or.cond, label %if.then10, label %if.end14
 

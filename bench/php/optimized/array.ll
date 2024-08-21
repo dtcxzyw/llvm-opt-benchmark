@@ -4650,7 +4650,7 @@ define noundef i32 @php_prefix_varname(ptr nocapture noundef writeonly %0, ptr n
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = zext i1 %4 to i64
-  %9 = add i64 %8, %3
+  %9 = add i64 %3, %8
   %10 = add i64 %9, %7
   %11 = and i64 %10, -8
   %12 = add i64 %11, 32
@@ -22331,7 +22331,7 @@ define noundef zeroext i1 @php_array_pick_keys(ptr nocapture readonly %0, ptr %1
 
 123:                                              ; preds = %121
   %124 = zext i32 %9 to i64
-  %125 = icmp ult i64 %124, %3
+  %125 = icmp ugt i64 %3, %124
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %123, %121
@@ -22349,7 +22349,7 @@ define noundef zeroext i1 @php_array_pick_keys(ptr nocapture readonly %0, ptr %1
   store i32 775, ptr %131, align 8
   %132 = lshr i32 %9, 1
   %133 = zext nneg i32 %132 to i64
-  %134 = icmp ult i64 %133, %3
+  %134 = icmp ugt i64 %3, %133
   %135 = sub nuw nsw i64 %124, %3
   %spec.select265 = select i1 %134, i64 %135, i64 %3
   %136 = add nuw nsw i64 %124, 63

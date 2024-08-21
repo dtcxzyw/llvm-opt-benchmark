@@ -271,7 +271,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -551,7 +551,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #21
   %cmp7 = icmp eq ptr %call, null
@@ -3807,7 +3807,7 @@ if.else.i:                                        ; preds = %entry
   %fLength.i.i = getelementptr inbounds i8, ptr %srcText, i64 12
   %1 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %1, i32 %shr.i.i.i
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 %srcStart)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %srcStart, i32 %cond.i.i)
   br label %_ZNK6icu_7513UnicodeString8pinIndexERi.exit
 
 _ZNK6icu_7513UnicodeString8pinIndexERi.exit:      ; preds = %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge, %if.else.i
@@ -3867,7 +3867,7 @@ if.else.i:                                        ; preds = %entry
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %cond.i6, i32 0)
   %cmp5.i.i = icmp slt i32 %cond.i6, 0
   %sub.i.i = sub nsw i32 %cond.i6, %spec.select.i
-  %spec.select9.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i, i32 %cond.i6)
+  %spec.select9.i = tail call i32 @llvm.smin.i32(i32 %cond.i6, i32 %sub.i.i)
   %srcLength.addr.0.i = select i1 %cmp5.i.i, i32 0, i32 %spec.select9.i
   %8 = and i16 %1, 2
   %tobool.not.i.i = icmp eq i16 %8, 0
@@ -4463,7 +4463,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then4.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %ptr, align 8
-  %cmp.not.i.i = icmp eq ptr %3, %1
+  %cmp.not.i.i = icmp eq ptr %1, %3
   br i1 %cmp.not.i.i, label %if.end5.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then4.i

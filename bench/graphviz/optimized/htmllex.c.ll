@@ -196,7 +196,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
   %.0.i30.i = phi i64 [ 31, %agxbsizeof.exit.i ], [ %14, %12 ]
   %.0.i24.i = phi i64 [ %11, %agxbsizeof.exit.i ], [ %16, %12 ]
   %17 = sub i64 %.0.i30.i, %.0.i24.i
-  %18 = icmp ult i64 %17, %6
+  %18 = icmp ugt i64 %6, %17
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %agxblen.exit.i
@@ -258,7 +258,7 @@ agxblen.exit.i4:                                  ; preds = %41, %agxbsizeof.exi
   %.0.i30.i5 = phi i64 [ 31, %agxbsizeof.exit.i3 ], [ %43, %41 ]
   %.0.i24.i6 = phi i64 [ %40, %agxbsizeof.exit.i3 ], [ %45, %41 ]
   %46 = sub i64 %.0.i30.i5, %.0.i24.i6
-  %47 = icmp ult i64 %46, %36
+  %47 = icmp ugt i64 %36, %46
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %agxblen.exit.i4
@@ -2908,7 +2908,7 @@ agxblen.exit.i.i:                                 ; preds = %gv_strdup.exit
   %.0.i30.i.i = select i1 %.not.i.i.i, i64 %12, i64 31
   %.0.i24.i.i = select i1 %.not.i.i.i, i64 %13, i64 %11
   %14 = sub i64 %.0.i30.i.i, %.0.i24.i.i
-  %15 = icmp ult i64 %14, %9
+  %15 = icmp ugt i64 %9, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %agxblen.exit.i.i

@@ -610,7 +610,7 @@ define hidden void @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = sub i64 %5, %7
-  %9 = icmp ugt i64 %8, %3
+  %9 = icmp ult i64 %3, %8
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %4
@@ -701,7 +701,7 @@ define hidden void @_ZN8uu_split12custom_write17h934ebbfa2cf8753cE(ptr noalias n
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !79, !noalias !81, !noundef !5
   %12 = sub i64 %9, %11
-  %13 = icmp ugt i64 %12, %2
+  %13 = icmp ult i64 %2, %12
   br i1 %13, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h8a8b1f6df4381b81E.llvm.130742526216703673.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h8a8b1f6df4381b81E.llvm.130742526216703673.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h8a8b1f6df4381b81E.llvm.130742526216703673.exit.thread": ; preds = %5
@@ -843,7 +843,7 @@ define internal fastcc void @_ZN8uu_split16custom_write_all17h1e5cd865edebd003E(
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !104, !noalias !107, !noundef !5
   %11 = sub i64 %8, %10
-  %12 = icmp ugt i64 %11, %2
+  %12 = icmp ult i64 %2, %11
   br i1 %12, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h029c5d82f4b28412E.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h029c5d82f4b28412E.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h029c5d82f4b28412E.exit.thread": ; preds = %4
@@ -1314,7 +1314,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   %54 = getelementptr inbounds i8, ptr %0, i64 161
   %55 = load i8, ptr %54, align 1, !range !47
   %56 = trunc nuw i8 %55 to i1
-  %57 = call i64 @llvm.umin.i64(i64 %.cast, i64 %2)
+  %57 = call i64 @llvm.umin.i64(i64 %2, i64 %.cast)
   %spec.select106 = select i1 %56, i64 %57, i64 %2
   %.0 = select i1 %48, i64 %2, i64 %spec.select106
   %58 = icmp eq i64 %.0, 0
@@ -1435,7 +1435,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   %100 = sub i64 %.085197.us, %99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %101 = load i64, ptr %65, align 8, !alias.scope !219, !noalias !222, !noundef !5
-  %102 = icmp ugt i64 %101, %90
+  %102 = icmp ult i64 %90, %101
   br i1 %102, label %103, label %.split199.us, !prof !225
 
 103:                                              ; preds = %98
@@ -1473,7 +1473,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   %115 = getelementptr inbounds i8, ptr %112, i64 16
   %116 = load i64, ptr %115, align 8, !alias.scope !226, !noalias !229, !noundef !5
   %117 = sub i64 %111, %116
-  %118 = icmp ugt i64 %117, %114
+  %118 = icmp ult i64 %114, %117
   br i1 %118, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h029c5d82f4b28412E.exit.thread.us", label %119
 
 119:                                              ; preds = %110
@@ -2484,7 +2484,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !374)
   %151 = load i64, ptr %64, align 8, !alias.scope !374, !noalias !377, !noundef !5
-  %152 = icmp ugt i64 %151, %150
+  %152 = icmp ult i64 %150, %151
   br i1 %152, label %153, label %157, !prof !225
 
 153:                                              ; preds = %149
@@ -3063,7 +3063,7 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us: ; preds = %.split.us
   %84 = urem i64 %.055.us, %2
   call void @llvm.experimental.noalias.scope.decl(metadata !451)
   %85 = load i64, ptr %23, align 8, !alias.scope !451, !noalias !454, !noundef !5
-  %86 = icmp ugt i64 %85, %84
+  %86 = icmp ult i64 %84, %85
   br i1 %86, label %87, label %.split127.us, !prof !225
 
 87:                                               ; preds = %81

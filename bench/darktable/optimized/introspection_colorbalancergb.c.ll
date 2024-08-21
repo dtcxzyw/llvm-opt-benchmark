@@ -3905,7 +3905,7 @@ define internal fastcc void @paint_chroma_slider(ptr nocapture noundef readonly 
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   %26 = load float, ptr %25, align 4, !tbaa !12
   %27 = fadd reassoc nsz arcp contract afn float %12, %11
-  %28 = fmul reassoc nsz arcp contract afn float %26, %27
+  %28 = fmul reassoc nsz arcp contract afn float %27, %26
   %29 = fsub reassoc nsz arcp contract afn float %24, %28
   %30 = fcmp reassoc nsz arcp contract afn oeq float %29, 0.000000e+00
   br i1 %30, label %40, label %31
@@ -3932,7 +3932,7 @@ define internal fastcc void @paint_chroma_slider(ptr nocapture noundef readonly 
   %48 = fadd reassoc nsz arcp contract afn float %47, %44
   %49 = getelementptr inbounds i8, ptr %1, i64 24
   %50 = load float, ptr %49, align 4, !tbaa !12
-  %51 = fmul reassoc nsz arcp contract afn float %50, %27
+  %51 = fmul reassoc nsz arcp contract afn float %27, %50
   %52 = fsub reassoc nsz arcp contract afn float %48, %51
   %53 = fcmp reassoc nsz arcp contract afn oeq float %52, 0.000000e+00
   br i1 %53, label %63, label %54
@@ -3959,7 +3959,7 @@ define internal fastcc void @paint_chroma_slider(ptr nocapture noundef readonly 
   %71 = fadd reassoc nsz arcp contract afn float %70, %67
   %72 = getelementptr inbounds i8, ptr %1, i64 40
   %73 = load float, ptr %72, align 4, !tbaa !12
-  %74 = fmul reassoc nsz arcp contract afn float %73, %27
+  %74 = fmul reassoc nsz arcp contract afn float %27, %73
   %75 = fsub reassoc nsz arcp contract afn float %71, %74
   %76 = fcmp reassoc nsz arcp contract afn oeq float %75, 0.000000e+00
   br i1 %76, label %86, label %77

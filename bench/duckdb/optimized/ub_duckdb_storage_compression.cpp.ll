@@ -19654,7 +19654,7 @@ for.body:                                         ; preds = %for.body, %for.body
 define void @_ZN6duckdb14BitUnpackRangeEPhS0_mmh(ptr noundef %src_ptr, ptr noundef %dst_ptr, i64 noundef %count, i64 noundef %row, i8 noundef zeroext %width) local_unnamed_addr #1 {
 entry:
   %conv = zext i8 %width to i64
-  %mul = mul i64 %conv, %row
+  %mul = mul i64 %row, %conv
   %div2 = lshr i64 %mul, 3
   %arrayidx = getelementptr inbounds i8, ptr %src_ptr, i64 %div2
   %cmp8.not.i = icmp eq i64 %count, 0
@@ -82253,7 +82253,7 @@ entry:
   %all_valid = getelementptr inbounds i8, ptr %this, i64 67744
   %1 = load i8, ptr %all_valid, align 8, !tbaa !2002, !range !594, !noundef !258
   %tobool3 = icmp ne i8 %1, 0
-  %2 = and i1 %tobool3, %is_valid
+  %2 = and i1 %is_valid, %tobool3
   %frombool6 = zext i1 %2 to i8
   store i8 %frombool6, ptr %all_valid, align 8, !tbaa !2002
   %all_invalid = getelementptr inbounds i8, ptr %this, i64 67745
@@ -83200,7 +83200,7 @@ entry:
   %all_valid = getelementptr inbounds i8, ptr %this, i64 67744
   %1 = load i8, ptr %all_valid, align 8, !tbaa !2002, !range !594, !noundef !258
   %tobool3 = icmp ne i8 %1, 0
-  %2 = and i1 %tobool3, %is_valid
+  %2 = and i1 %is_valid, %tobool3
   %frombool6 = zext i1 %2 to i8
   store i8 %frombool6, ptr %all_valid, align 8, !tbaa !2002
   %all_invalid = getelementptr inbounds i8, ptr %this, i64 67745
@@ -86434,10 +86434,10 @@ _ZN6duckdb5patas16PatasCompressionIjLb0EE15StoreCompressedEjRNS0_21PatasCompress
   %arrayidx.i77.i = getelementptr inbounds [128 x i64], ptr %ring_buffer.i8, i64 0, i64 %conv14.i
   %8 = load i64, ptr %arrayidx.i77.i, align 8, !tbaa !14
   %9 = trunc i64 %8 to i32
-  %conv17.i = xor i32 %9, %value
+  %conv17.i = xor i32 %value, %9
   %10 = tail call noundef i32 @llvm.cttz.i32(i32 %conv17.i, i1 false), !range !2038
   %11 = tail call noundef i32 @llvm.ctlz.i32(i32 %conv17.i, i1 false), !range !2038
-  %cmp22.i = icmp eq i32 %9, %value
+  %cmp22.i = icmp eq i32 %value, %9
   %12 = add nuw nsw i32 %10, %11
   %13 = trunc nuw nsw i32 %12 to i8
   %14 = sub nsw i8 32, %13

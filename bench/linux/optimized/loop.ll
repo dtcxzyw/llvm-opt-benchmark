@@ -2804,7 +2804,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %368 = getelementptr inbounds i8, ptr %367, i64 172
   %369 = load i32, ptr %368, align 4
   %370 = zext i32 %369 to i64
-  %371 = icmp eq i64 %370, %3
+  %371 = icmp eq i64 %3, %370
   br i1 %371, label %.thread42, label %372
 
 372:                                              ; preds = %365

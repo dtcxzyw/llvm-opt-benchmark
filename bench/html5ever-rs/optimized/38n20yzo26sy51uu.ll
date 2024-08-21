@@ -612,25 +612,25 @@ define internal fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$14try_sub
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit": ; preds = %9
   %11 = trunc nuw nsw i64 %7 to i32
-  %12 = icmp ult i32 %11, %2
+  %12 = icmp ugt i32 %2, %11
   %13 = sub i32 %11, %2
-  %14 = icmp ult i32 %13, %3
+  %14 = icmp ugt i32 %3, %13
   %or.cond = or i1 %12, %14
   br i1 %or.cond, label %23, label %34
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.thread11": ; preds = %9
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 8, !noundef !21
-  %17 = icmp ult i32 %16, %2
+  %17 = icmp ugt i32 %2, %16
   %18 = sub i32 %16, %2
-  %19 = icmp ult i32 %18, %3
+  %19 = icmp ugt i32 %3, %18
   %or.cond13 = or i1 %17, %19
   br i1 %or.cond13, label %23, label %.thread
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.thread": ; preds = %4
   %20 = icmp ne i32 %2, 0
   %21 = sub i32 0, %2
-  %22 = icmp ult i32 %21, %3
+  %22 = icmp ugt i32 %3, %21
   %or.cond7 = or i1 %20, %22
   br i1 %or.cond7, label %23, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit"
 
@@ -939,7 +939,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %65 = phi i64 [ %6, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17h88672c18fd356eddE.exit.thread.i" ], [ %59, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17h88672c18fd356eddE.exit.i" ]
   %66 = phi ptr [ %29, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17h88672c18fd356eddE.exit.thread.i" ], [ %spec.select.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17h88672c18fd356eddE.exit.i" ]
   %.03.i.i = load i32, ptr %66, align 4, !noalias !95, !noundef !21
-  %.not.i2.i = icmp ult i32 %.03.i.i, %17
+  %.not.i2.i = icmp ugt i32 %17, %.03.i.i
   br i1 %.not.i2.i, label %67, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$24make_owned_with_capacity17h6dfe7c80cbe9f6b1E.exit"
 
 67:                                               ; preds = %62

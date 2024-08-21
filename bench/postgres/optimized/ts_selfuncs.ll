@@ -110,7 +110,7 @@ define dso_local i64 @tsmatchsel(ptr nocapture noundef readonly %0) local_unname
   %64 = getelementptr inbounds i8, ptr %2, i64 40
   %65 = load i32, ptr %64, align 8
   %66 = add i32 %61, 2
-  %.not.i.i = icmp eq i32 %66, %65
+  %.not.i.i = icmp eq i32 %65, %66
   br i1 %.not.i.i, label %74, label %67
 
 67:                                               ; preds = %57

@@ -2697,7 +2697,7 @@ define internal fastcc void @dissect_attr_ndp(ptr noundef %0, ptr noundef %1, i3
   %.sink = phi i32 [ 15, %9 ], [ 20, %43 ]
   %45 = load i32, ptr %hf_nan_publish_id.sink, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef %40, i32 noundef %.sink63, i32 noundef 0) #4
-  %47 = add i32 %.sink, %2
+  %47 = add i32 %2, %.sink
   br label %48
 
 48:                                               ; preds = %.sink.split, %43
@@ -2770,7 +2770,7 @@ define internal fastcc void @dissect_attr_ndpe(ptr noundef %0, ptr noundef %1, i
   %.sink = phi i32 [ 15, %10 ], [ 20, %41 ]
   %43 = load i32, ptr %hf_nan_publish_id.sink, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %43, ptr noundef %1, i32 noundef %38, i32 noundef %.sink108, i32 noundef 0) #4
-  %45 = add i32 %.sink, %2
+  %45 = add i32 %2, %.sink
   br label %46
 
 46:                                               ; preds = %.sink.split, %41

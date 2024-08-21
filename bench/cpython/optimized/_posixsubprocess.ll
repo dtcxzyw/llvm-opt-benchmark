@@ -1891,11 +1891,11 @@ do.body.i.i:                                      ; preds = %_pos_int_from_ascii
   %div.i.i = sdiv i64 %add.i17.i, 2
   %arrayidx.i18.i = getelementptr i32, ptr %fds_to_keep, i64 %div.i.i
   %15 = load i32, ptr %arrayidx.i18.i, align 4
-  %cmp2.i.i = icmp eq i32 %15, %num.0..i.i
+  %cmp2.i.i = icmp eq i32 %num.0..i.i, %15
   br i1 %cmp2.i.i, label %for.inc.i5, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %do.body.i.i
-  %cmp7.i.i = icmp slt i32 %15, %num.0..i.i
+  %cmp7.i.i = icmp sgt i32 %num.0..i.i, %15
   %add10.i.i = add nsw i64 %div.i.i, 1
   %sub11.i.i = add nsw i64 %div.i.i, -1
   %search_max.1.i.i = select i1 %cmp7.i.i, i64 %search_max.0.i.i, i64 %sub11.i.i

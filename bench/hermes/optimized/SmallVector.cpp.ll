@@ -51,7 +51,7 @@ _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.then9, %if.then.
   %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %Size.i, align 8
   %conv.i10 = zext i32 %3 to i64
-  %mul14 = mul i64 %conv.i10, %TSize
+  %mul14 = mul i64 %TSize, %conv.i10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %2, i64 %mul14, i1 false)
   br label %if.end18
 

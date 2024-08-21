@@ -2518,7 +2518,7 @@ _PyBytesWriter_GetSize.exit:                      ; preds = %if.then.i.i, %if.th
   %sub.ptr.lhs.cast.i = ptrtoint ptr %str to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %retval.0.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp eq ptr %retval.0.i.i, %str
+  %cmp = icmp eq ptr %str, %retval.0.i.i
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %_PyBytesWriter_GetSize.exit
@@ -4447,7 +4447,7 @@ if.end:                                           ; preds = %entry, %_PyBytesWri
   store i32 1, ptr %overallocate, align 4
   store ptr null, ptr %first_invalid_escape, align 8
   %add.ptr = getelementptr i8, ptr %s, i64 %len
-  %cmp190 = icmp ugt ptr %add.ptr, %s
+  %cmp190 = icmp ult ptr %s, %add.ptr
   br i1 %cmp190, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -4939,7 +4939,7 @@ if.then5:                                         ; preds = %if.end3
   %add.ptr = getelementptr i8, ptr %haystack, i64 %sub6
   %bcmp = tail call i32 @bcmp(ptr %add.ptr, ptr %needle, i64 %len_needle)
   %cmp8 = icmp eq i32 %bcmp, 0
-  %add = add i64 %sub6, %offset
+  %add = add i64 %offset, %sub6
   %spec.select = select i1 %cmp8, i64 %add, i64 -1
   br label %return
 
@@ -7712,7 +7712,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %div = sdiv i64 %size, 4
   %sub = sub i64 9223372036854775807, %div
-  %cmp.not = icmp slt i64 %sub, %size
+  %cmp.not = icmp sgt i64 %size, %sub
   %add = select i1 %cmp.not, i64 0, i64 %div
   %spec.select = add i64 %add, %size
   br label %if.end
@@ -8000,7 +8000,7 @@ if.then9:                                         ; preds = %if.end7
   br i1 %cmp.i, label %if.then.i, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.then9
-  %cmp514.i = icmp ugt ptr %add.ptr.i, %s
+  %cmp514.i = icmp ult ptr %s, %add.ptr.i
   br i1 %cmp514.i, label %while.body.i, label %return
 
 if.then.i:                                        ; preds = %if.then9
@@ -8807,7 +8807,7 @@ for.body55.lr.ph:                                 ; preds = %if.end34
 for.body55:                                       ; preds = %for.body55.lr.ph, %for.body55
   %i50.050 = phi i64 [ %sub51, %for.body55.lr.ph ], [ %inc65, %for.body55 ]
   %10 = xor i64 %i50.050, -1
-  %sub57 = add i64 %10, %len_needle
+  %sub57 = add i64 %len_needle, %10
   %conv58 = trunc i64 %sub57 to i8
   %arrayidx60 = getelementptr i8, ptr %needle, i64 %i50.050
   %11 = load i8, ptr %arrayidx60, align 1
@@ -9401,7 +9401,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %return
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp3.not.i = icmp eq ptr %call17, %a
+  %cmp3.not.i = icmp eq ptr %a, %call17
   br i1 %cmp3.not.i, label %if.end6.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -9436,7 +9436,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %0 = getelementptr i8, ptr %a, i64 16
   %a.val = load i64, ptr %0, align 8
-  %cmp1.not = icmp sgt i64 %a.val, %i
+  %cmp1.not = icmp slt i64 %i, %a.val
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -10073,8 +10073,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1923 = phi i64 [ %cond18, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1923, %add
+  %add = sub i64 0, %cond1923
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -11071,12 +11071,12 @@ if.end.i56.i.i:                                   ; preds = %if.then12.i.i
   br label %exit
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i
-  %cmp.not.i.i.i = icmp slt i64 %self.val.i.i, %maxcount.addr.0.i.i
+  %cmp.not.i.i.i = icmp sgt i64 %maxcount.addr.0.i.i, %self.val.i.i
   %add.i.i.i = add nsw i64 %self.val.i.i, 1
   %count.0.i.i.i = select i1 %cmp.not.i.i.i, i64 %add.i.i.i, i64 %maxcount.addr.0.i.i
   %sub.i.i.i = sub i64 9223372036854775807, %self.val.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, %count.0.i.i.i
-  %cmp1.i.i.i = icmp slt i64 %div.i.i.i, %new.val12
+  %cmp1.i.i.i = icmp sgt i64 %new.val12, %div.i.i.i
   br i1 %cmp1.i.i.i, label %if.then2.i.i.i, label %if.end3.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end14.i.i
@@ -13768,8 +13768,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1923 = phi i64 [ %cond18, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1923, %add
+  %add = sub i64 0, %cond1923
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end

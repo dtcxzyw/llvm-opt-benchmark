@@ -1274,7 +1274,7 @@ define internal fastcc i32 @dissect_AllJoyn_message(ptr noundef %0, ptr noundef 
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_alljoyn_mess, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
-  %18 = icmp sgt i32 %10, %3
+  %18 = icmp slt i32 %3, %10
   %19 = icmp sgt i32 %3, -1
   %20 = and i1 %18, %19
   br i1 %20, label %.lr.ph, label %handle_message_sasl.exit._crit_edge
@@ -1528,7 +1528,7 @@ get_uint32.exit152.i:                             ; preds = %147, %145
   %158 = load i32, ptr @ett_alljoyn_mess_header, align 4
   %159 = call ptr @proto_item_add_subtree(ptr noundef %157, i32 noundef %158) #5
   %160 = add i32 %86, %155
-  %161 = icmp sgt i32 %160, %155
+  %161 = icmp slt i32 %155, %160
   br i1 %161, label %.lr.ph.i.i, label %handle_message_header_fields.exit.i
 
 .lr.ph.i.i:                                       ; preds = %get_uint32.exit152.i, %handle_message_field.exit.i.i
@@ -1591,7 +1591,7 @@ handle_message_header_expected_byte.exit54.i.i.i: ; preds = %188, %187
 
 196:                                              ; preds = %handle_message_header_expected_byte.exit54.i.i.i
   %197 = call i32 @tvb_reported_length(ptr noundef %0) #5
-  %198 = icmp sgt i32 %197, %194
+  %198 = icmp slt i32 %194, %197
   br i1 %198, label %199, label %add_padding_item.exit.i.i.i
 
 199:                                              ; preds = %196
@@ -1662,7 +1662,7 @@ handle_message_header_fields.exit.i:              ; preds = %._crit_edge.loopexi
   %229 = call ptr @proto_item_add_subtree(ptr noundef %227, i32 noundef %228) #5
   %230 = add i32 %213, %87
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %230, i32 %225)
-  %231 = icmp sgt i32 %spec.select.i.i, %213
+  %231 = icmp slt i32 %213, %spec.select.i.i
   br i1 %231, label %.lr.ph.i153.i, label %handle_message_body_parameters.exit.i
 
 .lr.ph.i153.i:                                    ; preds = %224, %234
@@ -1790,7 +1790,7 @@ define internal fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr nounde
 
 43:                                               ; preds = %36
   %44 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %45 = icmp sgt i32 %44, %41
+  %45 = icmp slt i32 %41, %44
   br i1 %45, label %46, label %add_padding_item.exit
 
 46:                                               ; preds = %43
@@ -1899,7 +1899,7 @@ get_uint32.exit:                                  ; preds = %53, %55
 
 98:                                               ; preds = %92
   %99 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %100 = icmp sgt i32 %99, %96
+  %100 = icmp slt i32 %96, %99
   br i1 %100, label %101, label %add_padding_item.exit443
 
 101:                                              ; preds = %98
@@ -1928,7 +1928,7 @@ add_padding_item.exit443:                         ; preds = %92, %98, %101, %104
 
 116:                                              ; preds = %110
   %117 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %118 = icmp sgt i32 %117, %114
+  %118 = icmp slt i32 %114, %117
   br i1 %118, label %119, label %add_padding_item.exit444
 
 119:                                              ; preds = %116
@@ -1998,7 +1998,7 @@ add_padding_item.exit444:                         ; preds = %110, %116, %119, %1
 
 162:                                              ; preds = %156
   %163 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %164 = icmp sgt i32 %163, %160
+  %164 = icmp slt i32 %160, %163
   br i1 %164, label %165, label %add_padding_item.exit445
 
 165:                                              ; preds = %162
@@ -2027,7 +2027,7 @@ add_padding_item.exit445:                         ; preds = %156, %162, %165, %1
 
 180:                                              ; preds = %174
   %181 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %182 = icmp sgt i32 %181, %178
+  %182 = icmp slt i32 %178, %181
   br i1 %182, label %183, label %add_padding_item.exit446
 
 183:                                              ; preds = %180
@@ -2056,7 +2056,7 @@ add_padding_item.exit446:                         ; preds = %174, %180, %183, %1
 
 198:                                              ; preds = %192
   %199 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %200 = icmp sgt i32 %199, %196
+  %200 = icmp slt i32 %196, %199
   br i1 %200, label %201, label %add_padding_item.exit447
 
 201:                                              ; preds = %198
@@ -2127,7 +2127,7 @@ get_uint32.exit448:                               ; preds = %212, %214
 
 241:                                              ; preds = %235
   %242 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %243 = icmp sgt i32 %242, %239
+  %243 = icmp slt i32 %239, %242
   br i1 %243, label %244, label %add_padding_item.exit449
 
 244:                                              ; preds = %241
@@ -2156,7 +2156,7 @@ add_padding_item.exit449:                         ; preds = %235, %241, %244, %2
 
 259:                                              ; preds = %253
   %260 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %261 = icmp sgt i32 %260, %257
+  %261 = icmp slt i32 %257, %260
   br i1 %261, label %262, label %add_padding_item.exit450
 
 262:                                              ; preds = %259
@@ -2232,7 +2232,7 @@ get_uint32.exit451:                               ; preds = %271, %273
 
 305:                                              ; preds = %299
   %306 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %307 = icmp sgt i32 %306, %303
+  %307 = icmp slt i32 %303, %306
   br i1 %307, label %308, label %add_padding_item.exit452
 
 308:                                              ; preds = %305
@@ -2261,7 +2261,7 @@ add_padding_item.exit452:                         ; preds = %299, %305, %308, %3
 
 323:                                              ; preds = %317
   %324 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %325 = icmp sgt i32 %324, %321
+  %325 = icmp slt i32 %321, %324
   br i1 %325, label %326, label %add_padding_item.exit453
 
 326:                                              ; preds = %323
@@ -2406,7 +2406,7 @@ get_uint32.exit454:                               ; preds = %334, %336
 
 409:                                              ; preds = %403
   %410 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %411 = icmp sgt i32 %410, %407
+  %411 = icmp slt i32 %407, %410
   br i1 %411, label %412, label %add_padding_item.exit455
 
 412:                                              ; preds = %409
@@ -2474,7 +2474,7 @@ add_padding_item.exit455:                         ; preds = %403, %409, %412, %4
   %447 = icmp eq i8 %442, %446
   %448 = zext i1 %447 to i32
   %spec.select.i = add nuw i32 %.018.i, %448
-  %449 = icmp eq i8 %446, %.0
+  %449 = icmp eq i8 %.0, %446
   %450 = sext i1 %449 to i32
   %.2.i = add i32 %spec.select.i, %450
   %451 = zext i8 %446 to i64
@@ -2512,7 +2512,7 @@ append_struct_signature.exit:                     ; preds = %.critedge.i, %.crit
 
 466:                                              ; preds = %append_struct_signature.exit
   %467 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %468 = icmp sgt i32 %467, %464
+  %468 = icmp slt i32 %464, %467
   br i1 %468, label %469, label %add_padding_item.exit456
 
 469:                                              ; preds = %466
@@ -2622,7 +2622,7 @@ define internal fastcc void @add_padding_item(i32 noundef %0, i32 noundef %1, pt
 
 6:                                                ; preds = %4
   %7 = tail call i32 @tvb_reported_length(ptr noundef %2) #5
-  %8 = icmp sgt i32 %7, %1
+  %8 = icmp slt i32 %1, %7
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %6

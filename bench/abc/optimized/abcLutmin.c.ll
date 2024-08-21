@@ -786,7 +786,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %19, %30
   %.027 = phi ptr [ %25, %19 ], [ %33, %30 ], [ %.tr3237, %.lr.ph ]
   %.0 = phi ptr [ %29, %19 ], [ %34, %30 ], [ %.tr3237, %.lr.ph ]
   %35 = xor i32 %.tr3438, -1
-  %36 = add i32 %35, %4
+  %36 = add i32 %4, %35
   %37 = shl nuw i32 1, %36
   %38 = and i32 %37, %2
   %.not31 = icmp eq i32 %38, 0
@@ -946,7 +946,7 @@ tailrecurse.backedge.i:                           ; preds = %61, %50, %.lr.ph.i
   %.027.i = phi ptr [ %56, %50 ], [ %64, %61 ], [ %.tr3237.i, %.lr.ph.i ]
   %.0.i = phi ptr [ %60, %50 ], [ %65, %61 ], [ %.tr3237.i, %.lr.ph.i ]
   %66 = xor i32 %.tr3438.i, -1
-  %67 = add i32 %66, %2
+  %67 = add i32 %2, %66
   %68 = shl nuw i32 1, %67
   %69 = and i32 %68, %.09
   %.not31.i = icmp eq i32 %69, 0
@@ -1037,7 +1037,7 @@ define ptr @Abc_NtkCreateCofLut(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %6 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
   %7 = getelementptr i8, ptr %3, i64 28
   %.val27 = load i32, ptr %7, align 4
-  %8 = icmp sgt i32 %.val27, %4
+  %8 = icmp slt i32 %4, %.val27
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5

@@ -205,7 +205,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %call to i64
-  %cmp1 = icmp ugt i64 %conv, %mask_size
+  %cmp1 = icmp ult i64 %mask_size, %conv
   br i1 %cmp1, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
@@ -220,7 +220,7 @@ if.then7:                                         ; preds = %if.end4
 
 if.end.i:                                         ; preds = %if.then7
   %conv.i = zext nneg i32 %call.i to i64
-  %cmp1.i = icmp ugt i64 %conv.i, %mask_size
+  %cmp1.i = icmp ult i64 %mask_size, %conv.i
   br i1 %cmp1.i, label %uv_thread_getaffinity.exit.thread, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i
@@ -330,7 +330,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %call to i64
-  %cmp1 = icmp ugt i64 %conv, %mask_size
+  %cmp1 = icmp ult i64 %mask_size, %conv
   br i1 %cmp1, label %return, label %do.body
 
 do.body:                                          ; preds = %if.end

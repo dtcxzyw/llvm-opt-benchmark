@@ -593,7 +593,7 @@ define dso_local { i64, i64 } @i128_add64(i64 %0, i64 %1, i64 noundef %2) local_
   %4 = add i64 %2, %1
   %5 = icmp ult i64 %4, %1
   %6 = zext i1 %5 to i64
-  %7 = add i64 %6, %0
+  %7 = add i64 %0, %6
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %7, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %4, 1
   ret { i64, i64 } %.fca.1.insert
@@ -768,7 +768,7 @@ define dso_local { i64, i64 } @i128_sub64(i64 %0, i64 %1, i64 noundef %2) local_
   %4 = sub i64 %1, %2
   %5 = icmp ugt i64 %2, %1
   %6 = sext i1 %5 to i64
-  %7 = add i64 %6, %0
+  %7 = add i64 %0, %6
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %7, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %4, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1328,7 +1328,7 @@ define dso_local { i64, i64 } @i128_add_swrap64(i64 %0, i64 %1, i64 noundef %2, 
   %5 = add i64 %2, %1
   %6 = icmp ult i64 %5, %1
   %7 = zext i1 %6 to i64
-  %8 = add i64 %7, %0
+  %8 = add i64 %0, %7
   %.not.unshifted.i = xor i64 %8, %0
   %.not.i = icmp sgt i64 %.not.unshifted.i, -1
   br i1 %.not.i, label %11, label %9
@@ -1400,7 +1400,7 @@ define dso_local { i64, i64 } @i128_add_uwrap64(i64 %0, i64 %1, i64 noundef %2, 
   %5 = add i64 %2, %1
   %6 = icmp ult i64 %5, %1
   %7 = zext i1 %6 to i64
-  %8 = add i64 %7, %0
+  %8 = add i64 %0, %7
   %9 = icmp ugt i64 %8, %0
   br i1 %9, label %i128_ucomp.exit, label %10
 
@@ -2900,7 +2900,7 @@ define dso_local void @int_sub64(ptr dead_on_unwind noalias nocapture writable w
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %6, %2
-  %8 = icmp ult i64 %6, %2
+  %8 = icmp ugt i64 %2, %6
   %9 = sext i1 %8 to i64
   %10 = add i64 %4, %9
   %11 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3768,7 +3768,7 @@ define dso_local zeroext i1 @i128_can_convert_from_double(double noundef %0) loc
 
 5:                                                ; preds = %1
   %6 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 128) #19
-  %7 = fcmp ogt double %6, %0
+  %7 = fcmp olt double %0, %6
   br label %8
 
 8:                                                ; preds = %5, %1
@@ -3785,12 +3785,12 @@ define dso_local zeroext i1 @i128_can_convert_from_double_signed(double noundef 
 4:                                                ; preds = %1
   %5 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 127) #19
   %6 = fneg double %5
-  %7 = fcmp ugt double %6, %0
+  %7 = fcmp ult double %0, %6
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %4
   %9 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 127) #19
-  %10 = fcmp ogt double %9, %0
+  %10 = fcmp olt double %0, %9
   br label %11
 
 11:                                               ; preds = %8, %4, %1
@@ -3801,7 +3801,7 @@ define dso_local zeroext i1 @i128_can_convert_from_double_signed(double noundef 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define dso_local { i64, i64 } @i128_from_double(double noundef %0) local_unnamed_addr #10 {
   %2 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 64) #19
-  %3 = fcmp ugt double %2, %0
+  %3 = fcmp ult double %0, %2
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1

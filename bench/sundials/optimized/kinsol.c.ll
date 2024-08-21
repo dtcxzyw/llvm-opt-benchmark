@@ -2683,28 +2683,28 @@ KINLinSolDrv.exit167:                             ; preds = %556
   %655 = fmul double %.0320.i, %.0320.i
   %656 = fdiv double 1.000000e+00, %655
   %657 = fmul double %.0334.i, %.0334.i
-  %658 = fdiv double -1.000000e+00, %657
-  %659 = fmul double %658, %654
-  %660 = tail call double @llvm.fmuladd.f64(double %656, double %651, double %659)
-  %661 = fdiv double %653, %655
-  %662 = fdiv double %.0320.i, %657
-  %663 = fmul double %662, %654
-  %664 = tail call double @llvm.fmuladd.f64(double %661, double %651, double %663)
-  %665 = fsub double %.0320.i, %.0334.i
-  %666 = fdiv double 1.000000e+00, %665
-  %667 = fmul double %666, %660
-  %668 = fmul double %666, %664
-  %669 = fmul double %667, 3.000000e+00
-  %670 = fneg double %669
-  %671 = fmul double %622, %670
-  %672 = tail call double @llvm.fmuladd.f64(double %668, double %668, double %671)
-  %673 = tail call double @llvm.fabs.f64(double %667)
+  %658 = fdiv double 1.000000e+00, %657
+  %659 = fneg double %654
+  %660 = fmul double %658, %659
+  %661 = tail call double @llvm.fmuladd.f64(double %656, double %651, double %660)
+  %662 = fdiv double %653, %655
+  %663 = fdiv double %.0320.i, %657
+  %664 = fmul double %663, %654
+  %665 = tail call double @llvm.fmuladd.f64(double %662, double %651, double %664)
+  %666 = fsub double %.0320.i, %.0334.i
+  %667 = fdiv double 1.000000e+00, %666
+  %668 = fmul double %667, %661
+  %669 = fmul double %667, %665
+  %670 = fmul double %668, 3.000000e+00
+  %671 = fmul double %670, %637
+  %672 = tail call double @llvm.fmuladd.f64(double %669, double %669, double %671)
+  %673 = tail call double @llvm.fabs.f64(double %668)
   %674 = load double, ptr %281, align 8
   %675 = fcmp olt double %673, %674
   br i1 %675, label %676, label %679
 
 676:                                              ; preds = %649
-  %677 = fmul double %668, 2.000000e+00
+  %677 = fmul double %669, 2.000000e+00
   %678 = fdiv double %637, %677
   br label %687
 
@@ -2718,8 +2718,8 @@ KINLinSolDrv.exit167:                             ; preds = %556
 
 683:                                              ; preds = %681, %679
   %684 = phi double [ %682, %681 ], [ 0.000000e+00, %679 ]
-  %685 = fsub double %684, %668
-  %686 = fdiv double %685, %669
+  %685 = fsub double %684, %669
+  %686 = fdiv double %685, %670
   br label %687
 
 687:                                              ; preds = %683, %676, %645
@@ -4125,7 +4125,7 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
 
 84:                                               ; preds = %46
   %85 = load i64, ptr %29, align 8
-  %.not322 = icmp slt i64 %85, %5
+  %.not322 = icmp sgt i64 %5, %85
   br i1 %.not322, label %.preheader339, label %88
 
 .preheader339:                                    ; preds = %84

@@ -1158,7 +1158,7 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   %23 = inttoptr i64 %22 to ptr
   %24 = trunc nuw nsw i64 %indvars.iv167 to i32
   %25 = xor i32 %24, -1
-  %26 = add i32 %25, %2
+  %26 = add i32 %2, %25
   %27 = zext i32 %26 to i64
   %28 = mul nsw i64 %18, %27
   %29 = add nsw i64 %28, %19
@@ -1259,7 +1259,7 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   %96 = inttoptr i64 %95 to ptr
   %97 = trunc nuw nsw i64 %indvars.iv157 to i32
   %98 = xor i32 %97, -1
-  %99 = add i32 %98, %2
+  %99 = add i32 %2, %98
   %100 = zext i32 %99 to i64
   %101 = mul nsw i64 %18, %100
   %102 = add nsw i64 %101, %19
@@ -1290,7 +1290,7 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   %111 = inttoptr i64 %110 to ptr
   %112 = trunc nuw nsw i64 %indvars.iv to i32
   %113 = xor i32 %112, -1
-  %114 = add i32 %113, %2
+  %114 = add i32 %2, %113
   %115 = zext i32 %114 to i64
   %116 = mul nsw i64 %115, %17
   %117 = add nsw i64 %116, %16

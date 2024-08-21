@@ -507,7 +507,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %.val1 = load i64, ptr %13, align 8, !noundef !4
   %.val.i = load ptr, ptr %.val, align 8, !nonnull !4, !align !5, !noundef !4
   %14 = load i64, ptr %.val.i, align 8, !noundef !4
-  %.not2 = icmp eq i64 %14, %.val1
+  %.not2 = icmp eq i64 %.val1, %14
   br i1 %.not2, label %15, label %24
 
 ._crit_edge:                                      ; preds = %.backedge, %3
@@ -569,7 +569,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %11 = getelementptr inbounds { ptr, i64, ptr }, ptr %7, i64 %10
   %12 = getelementptr i8, ptr %11, i64 8
   %.val1 = load i64, ptr %12, align 8, !noundef !4
-  %.not2 = icmp eq i64 %8, %.val1
+  %.not2 = icmp eq i64 %.val1, %8
   %13 = add i64 %10, 1
   br i1 %.not2, label %14, label %22
 
@@ -625,7 +625,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17ha2c41f9e0634d
   %10 = getelementptr inbounds { ptr, i64, ptr }, ptr %6, i64 %9
   %11 = getelementptr i8, ptr %10, i64 8
   %.val1.i = load i64, ptr %11, align 8, !noalias !132, !noundef !4
-  %.not2.i = icmp eq i64 %7, %.val1.i
+  %.not2.i = icmp eq i64 %.val1.i, %7
   %12 = add i64 %9, 1
   br i1 %.not2.i, label %13, label %18
 
@@ -670,7 +670,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17ha2c41f9e0634d
   %23 = getelementptr i8, ptr %22, i64 8
   %.val1.i4 = load i64, ptr %23, align 8, !noalias !150, !noundef !4
   %24 = load i64, ptr %.val.i.i5, align 8, !noalias !150, !noundef !4
-  %.not2.i6 = icmp eq i64 %24, %.val1.i4
+  %.not2.i6 = icmp eq i64 %.val1.i4, %24
   br i1 %.not2.i6, label %25, label %32
 
 25:                                               ; preds = %.lr.ph.i2
@@ -1056,7 +1056,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hdfaffab21dbf0d56E"(
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0c1b2f2d7f58225fE"(ptr noalias nocapture noundef writeonly sret({ ptr, i64, ptr }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %.not = icmp ugt i64 %6, %2
+  %.not = icmp ult i64 %2, %6
   br i1 %.not, label %7, label %16
 
 7:                                                ; preds = %4
@@ -1090,7 +1090,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain17h813ab0819bfb677bE"
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h533b110e71587152E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %"_ZN4core3ptr62drop_in_place$LT$$u5b$crossbeam_channel..waker..Entry$u5d$$GT$17h06660507e8bcc8e8E.llvm.7213935477003618358.exit", label %6
 
 6:                                                ; preds = %2
@@ -1435,7 +1435,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %23 = ptrtoint ptr %.val.i.i.i to i64
   %24 = sub nuw i64 %22, %23
   %25 = udiv exact i64 %24, 24
-  %26 = icmp ult i64 %16, %25
+  %26 = icmp ugt i64 %25, %16
   br i1 %26, label %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h9d14cb2855c4a9eaE.exit.i.i"
 
 27:                                               ; preds = %15

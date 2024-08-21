@@ -881,7 +881,7 @@ adjust_register_position.exit29:                  ; preds = %adjust_register_pos
   %67 = inttoptr i64 %66 to ptr
   %68 = getelementptr inbounds i8, ptr %67, i64 16
   %69 = load i64, ptr %68, align 8
-  %70 = icmp slt i64 %69, %.0.i33
+  %70 = icmp sgt i64 %.0.i33, %69
   br i1 %70, label %extract_range.exit, label %71
 
 71:                                               ; preds = %adjust_register_position.exit29
@@ -995,7 +995,7 @@ adjust_register_position.exit17:                  ; preds = %adjust_register_pos
   %50 = inttoptr i64 %49 to ptr
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   %52 = load i64, ptr %51, align 8
-  %53 = icmp slt i64 %52, %.0.i20
+  %53 = icmp sgt i64 %.0.i20, %52
   br i1 %53, label %extract_range.exit, label %54
 
 54:                                               ; preds = %adjust_register_position.exit17
@@ -1464,7 +1464,7 @@ adjust_register_position.exit9:                   ; preds = %adjust_register_pos
   %29 = inttoptr i64 %4 to ptr
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8
-  %32 = icmp slt i64 %31, %.0.i12
+  %32 = icmp sgt i64 %.0.i12, %31
   br i1 %32, label %extract_range.exit, label %33
 
 33:                                               ; preds = %adjust_register_position.exit9
@@ -1709,7 +1709,7 @@ adjust_register_position.exit38:                  ; preds = %adjust_register_pos
   %87 = inttoptr i64 %86 to ptr
   %88 = getelementptr inbounds i8, ptr %87, i64 16
   %89 = load i64, ptr %88, align 8
-  %90 = icmp slt i64 %89, %.0.i3647
+  %90 = icmp sgt i64 %.0.i3647, %89
   br i1 %90, label %extract_range.exit, label %91
 
 91:                                               ; preds = %adjust_register_position.exit38
@@ -1843,7 +1843,7 @@ adjust_register_position.exit:                    ; preds = %11, %18
   %22 = inttoptr i64 %4 to ptr
   %23 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = load i64, ptr %23, align 8
-  %25 = icmp slt i64 %24, %.0.i
+  %25 = icmp sgt i64 %.0.i, %24
   br i1 %25, label %extract_range.exit, label %26
 
 26:                                               ; preds = %adjust_register_position.exit
@@ -1973,7 +1973,7 @@ adjust_register_position.exit24:                  ; preds = %adjust_register_pos
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8
-  %43 = icmp slt i64 %42, %.0.i27
+  %43 = icmp sgt i64 %.0.i27, %42
   br i1 %43, label %extract_range.exit, label %44
 
 44:                                               ; preds = %adjust_register_position.exit24
@@ -2272,7 +2272,7 @@ inspect1.exit:                                    ; preds = %47, %53
   %60 = inttoptr i64 %.val25 to ptr
   %61 = getelementptr inbounds i8, ptr %60, i64 16
   %62 = load i64, ptr %61, align 8
-  %.not.i32 = icmp sgt i64 %62, %.val26
+  %.not.i32 = icmp slt i64 %.val26, %62
   br i1 %.not.i32, label %65, label %63
 
 63:                                               ; preds = %inspect1.exit
@@ -2659,7 +2659,7 @@ last_match_length.exit:                           ; preds = %set_registers.exit.
   %106 = inttoptr i64 %105 to ptr
   %107 = getelementptr inbounds i8, ptr %106, i64 16
   %108 = load i64, ptr %107, align 8
-  %109 = icmp slt i64 %108, %93
+  %109 = icmp sgt i64 %93, %108
   br i1 %109, label %extract_beg_len.exit, label %110
 
 110:                                              ; preds = %104

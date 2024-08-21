@@ -54,7 +54,7 @@ define noundef ptr @proj_context_errno_string(ptr noundef %0, i32 noundef %1) lo
   %.029.idx38 = phi i64 [ %.029.add, %8 ], [ 0, %6 ]
   %.029.ptr39 = getelementptr inbounds i8, ptr @_ZL13error_strings, i64 %.029.idx38
   %9 = load i32, ptr %.029.ptr39, align 16
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   br i1 %10, label %11, label %8
 
 11:                                               ; preds = %.preheader

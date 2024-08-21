@@ -907,7 +907,7 @@ ifstat.exit:                                      ; preds = %test_then_block.exi
 
 if.then.i158:                                     ; preds = %ifstat.exit
   %53 = load i32, ptr %linenumber, align 4
-  %cmp3.i160 = icmp eq i32 %53, %0
+  %cmp3.i160 = icmp eq i32 %0, %53
   br i1 %cmp3.i160, label %if.then5.i166, label %if.else.i161
 
 if.then5.i166:                                    ; preds = %if.then.i158
@@ -1071,7 +1071,7 @@ block.exit231:                                    ; preds = %while.cond.i.i219, 
 
 if.then.i187:                                     ; preds = %block.exit231
   %79 = load i32, ptr %linenumber, align 4
-  %cmp3.i189 = icmp eq i32 %79, %0
+  %cmp3.i189 = icmp eq i32 %0, %79
   br i1 %cmp3.i189, label %if.then5.i195, label %if.else.i190
 
 if.then5.i195:                                    ; preds = %if.then.i187
@@ -1166,7 +1166,7 @@ statlist.exit:                                    ; preds = %while.cond.i243, %w
 
 if.then.i38:                                      ; preds = %statlist.exit
   %91 = load i32, ptr %linenumber, align 4
-  %cmp3.i = icmp eq i32 %91, %0
+  %cmp3.i = icmp eq i32 %0, %91
   br i1 %cmp3.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i38
@@ -1749,7 +1749,7 @@ forstat.exit:                                     ; preds = %fornum.exit, %forli
 
 if.then.i274:                                     ; preds = %forstat.exit
   %203 = load i32, ptr %linenumber, align 4
-  %cmp3.i276 = icmp eq i32 %203, %0
+  %cmp3.i276 = icmp eq i32 %0, %203
   br i1 %cmp3.i276, label %if.then5.i282, label %if.else.i277
 
 if.then5.i282:                                    ; preds = %if.then.i274
@@ -1863,7 +1863,7 @@ statlist.exit425:                                 ; preds = %while.cond.i412, %w
 
 if.then.i401:                                     ; preds = %statlist.exit425
   %218 = load i32, ptr %linenumber, align 4
-  %cmp3.i403 = icmp eq i32 %218, %0
+  %cmp3.i403 = icmp eq i32 %0, %218
   br i1 %cmp3.i403, label %if.then5.i409, label %if.else.i404
 
 if.then5.i409:                                    ; preds = %if.then.i401
@@ -2524,7 +2524,7 @@ labelstat.exit:                                   ; preds = %while.cond.i74
   %ls.val.val.i604 = load i32, ptr %315, align 4
   %n.i.i605 = getelementptr inbounds i8, ptr %ls.val6.i, i64 40
   %316 = load i32, ptr %n.i.i605, align 8
-  %cmp1.i.i606 = icmp sgt i32 %316, %ls.val.val.i604
+  %cmp1.i.i606 = icmp slt i32 %ls.val.val.i604, %316
   br i1 %cmp1.i.i606, label %for.body.lr.ph.i.i608, label %checkrepeated.exit
 
 for.body.lr.ph.i.i608:                            ; preds = %labelstat.exit
@@ -2755,7 +2755,7 @@ str_checkname.exit.i:                             ; preds = %sw.bb12
   %ls.val.val.i = load i32, ptr %357, align 4
   %n.i.i = getelementptr inbounds i8, ptr %ls.val14.i, i64 40
   %358 = load i32, ptr %n.i.i, align 8
-  %cmp1.i.i = icmp sgt i32 %358, %ls.val.val.i
+  %cmp1.i.i = icmp slt i32 %ls.val.val.i, %358
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %if.then.i99
 
 for.body.lr.ph.i.i:                               ; preds = %str_checkname.exit.i
@@ -3045,7 +3045,7 @@ reglevel.exit:                                    ; preds = %reglevel.exit.loope
   %sub1.i = add i32 %sub.neg.i, %9
   store i32 %sub1.i, ptr %n.i, align 8
   %10 = load i8, ptr %nactvar.i, align 2
-  %cmp11.i = icmp ugt i8 %10, %2
+  %cmp11.i = icmp ult i8 %2, %10
   br i1 %cmp11.i, label %while.body.lr.ph.i, label %removevars.exit
 
 while.body.lr.ph.i:                               ; preds = %reglevel.exit
@@ -3527,7 +3527,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %arrayidx = getelementptr inbounds [21 x %struct.anon.13], ptr @priority, i64 0, i64 %idxprom
   %12 = load i8, ptr %arrayidx, align 2
   %conv = zext i8 %12 to i32
-  %cmp6 = icmp sgt i32 %conv, %limit
+  %cmp6 = icmp slt i32 %limit, %conv
   br i1 %cmp6, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
@@ -3691,7 +3691,7 @@ do.body.backedge:                                 ; preds = %field.exit, %field.
 
 if.then.i31:                                      ; preds = %field.exit
   %18 = load i32, ptr %linenumber, align 4
-  %cmp3.i = icmp eq i32 %18, %1
+  %cmp3.i = icmp eq i32 %1, %18
   br i1 %cmp3.i, label %if.then5.i33, label %if.else.i32
 
 if.then5.i33:                                     ; preds = %if.then.i31
@@ -4117,7 +4117,7 @@ statlist.exit:                                    ; preds = %while.cond.i, %whil
   br i1 %cmp.i.i43, label %check_match.exit, label %if.then.i44
 
 if.then.i44:                                      ; preds = %statlist.exit
-  %cmp3.i = icmp eq i32 %62, %line
+  %cmp3.i = icmp eq i32 %line, %62
   br i1 %cmp3.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i44
@@ -4179,7 +4179,7 @@ sw.bb.i:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.bb.i
   %4 = load i32, ptr %linenumber.i, align 4
-  %cmp3.i = icmp eq i32 %4, %2
+  %cmp3.i = icmp eq i32 %2, %4
   br i1 %cmp3.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
@@ -4613,7 +4613,7 @@ if.end9:                                          ; preds = %if.then8, %explist.
 
 if.then.i:                                        ; preds = %if.end9
   %9 = load i32, ptr %linenumber, align 4
-  %cmp3.i = icmp eq i32 %9, %1
+  %cmp3.i = icmp eq i32 %1, %9
   br i1 %cmp3.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
@@ -4788,7 +4788,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i.i = getelementptr inbounds %union.Vardesc, ptr %fs.val.val.val.i, i64 %idxprom.i.i
   %name.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %4 = load ptr, ptr %name.i, align 8
-  %cmp2.i = icmp eq ptr %4, %n
+  %cmp2.i = icmp eq ptr %n, %4
   br i1 %cmp2.i, label %if.then.i, label %for.cond.i, !llvm.loop !24
 
 if.then.i:                                        ; preds = %for.body.i
@@ -5165,7 +5165,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   %n.i.i = getelementptr inbounds i8, ptr %25, i64 24
   %32 = load i32, ptr %n.i.i, align 8
   %sub14.i.i = add nsw i32 %32, -1
-  %cmp915.i.i = icmp sgt i32 %sub14.i.i, %i.013.i
+  %cmp915.i.i = icmp slt i32 %i.013.i, %sub14.i.i
   br i1 %cmp915.i.i, label %for.body.i.i, label %solvegoto.exit.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.body.i.i

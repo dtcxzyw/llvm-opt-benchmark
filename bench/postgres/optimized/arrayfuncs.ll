@@ -1184,7 +1184,7 @@ define dso_local void @CopyArrayEls(ptr noundef %0, ptr nocapture noundef readon
   %26 = phi ptr [ %24, %17 ], [ null, %.thread ]
   %27 = getelementptr i8, ptr %0, i64 %.pn
   %not. = xor i1 %5, true
-  %spec.select = and i1 %not., %7
+  %spec.select = and i1 %7, %not.
   %28 = icmp sgt i32 %3, 0
   br i1 %28, label %.lr.ph, label %._crit_edge.thread
 
@@ -4834,7 +4834,7 @@ define dso_local i64 @array_set_element(i64 noundef %0, i32 noundef %1, ptr noun
 
 52:                                               ; preds = %46
   %53 = icmp ne i32 %6, -1
-  %brmerge = or i1 %53, %4
+  %brmerge = or i1 %4, %53
   br i1 %brmerge, label %58, label %54
 
 54:                                               ; preds = %52
@@ -4906,7 +4906,7 @@ define dso_local i64 @array_set_element(i64 noundef %0, i32 noundef %1, ptr noun
   %91 = getelementptr inbounds i8, ptr %69, i64 78
   %92 = load i8, ptr %91, align 2
   %93 = trunc i8 %92 to i1
-  %brmerge.i = or i1 %93, %4
+  %brmerge.i = or i1 %4, %93
   br i1 %brmerge.i, label %102, label %94
 
 94:                                               ; preds = %.loopexit196.i
@@ -11369,7 +11369,7 @@ define dso_local ptr @array_create_iterator(ptr noundef %0, i32 noundef %1, ptr 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6, %3
@@ -14233,7 +14233,7 @@ define internal fastcc noundef ptr @array_replace_internal(ptr noundef %0, i64 n
 
 17:                                               ; preds = %8
   %18 = icmp sgt i32 %13, 1
-  %or.cond = and i1 %18, %5
+  %or.cond = and i1 %5, %18
   br i1 %or.cond, label %19, label %23
 
 19:                                               ; preds = %17

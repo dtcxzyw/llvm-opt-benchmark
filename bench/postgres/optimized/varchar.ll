@@ -56,7 +56,7 @@ define internal fastcc noundef ptr @bpchar_input(ptr noundef %0, i64 noundef %1,
 11:                                               ; preds = %6
   %12 = tail call i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %8, i32 noundef %7) #12
   %13 = sext i32 %12 to i64
-  %14 = icmp ult i64 %13, %1
+  %14 = icmp ugt i64 %1, %13
   br i1 %14, label %.lr.ph, label %.loopexit
 
 15:                                               ; preds = %.lr.ph
@@ -84,7 +84,7 @@ define internal fastcc noundef ptr @bpchar_input(ptr noundef %0, i64 noundef %1,
 24:                                               ; preds = %6
   %narrow = sub nuw nsw i32 %7, %9
   %25 = zext nneg i32 %narrow to i64
-  %26 = add i64 %25, %1
+  %26 = add i64 %1, %25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %11, %4, %24
@@ -528,7 +528,7 @@ define internal fastcc ptr @varchar_input(ptr noundef %0, i64 noundef %1, i32 no
   %5 = add i32 %2, -4
   %6 = icmp sgt i32 %2, 3
   %7 = sext i32 %5 to i64
-  %8 = icmp ult i64 %7, %1
+  %8 = icmp ugt i64 %1, %7
   %or.cond = and i1 %6, %8
   br i1 %or.cond, label %9, label %.loopexit
 
@@ -536,7 +536,7 @@ define internal fastcc ptr @varchar_input(ptr noundef %0, i64 noundef %1, i32 no
   %10 = trunc i64 %1 to i32
   %11 = tail call i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %10, i32 noundef %5) #12
   %12 = sext i32 %11 to i64
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %.lr.ph, label %.loopexit
 
 14:                                               ; preds = %.lr.ph

@@ -52,7 +52,7 @@ if.end:                                           ; preds = %entry
 
 while.cond.preheader:                             ; preds = %if.end
   %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr2, i64 -3
-  %cmp683 = icmp ugt ptr %add.ptr5, %src
+  %cmp683 = icmp ult ptr %src, %add.ptr5
   br i1 %cmp683, label %while.body, label %if.end24
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body

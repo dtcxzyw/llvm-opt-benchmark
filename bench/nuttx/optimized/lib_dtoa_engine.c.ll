@@ -91,7 +91,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   %35 = tail call i32 @llvm.smax.i32(i32 %.372, i32 -1)
   %36 = add i32 %3, 1
   %37 = add i32 %36, %35
-  %. = tail call i32 @llvm.smin.i32(i32 %37, i32 %2)
+  %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %37)
   br label %38
 
 38:                                               ; preds = %34, %.loopexit91

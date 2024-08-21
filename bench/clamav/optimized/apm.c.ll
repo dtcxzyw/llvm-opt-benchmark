@@ -153,7 +153,7 @@ fmap_readn.exit137.thread:                        ; preds = %31, %30, %fmap_read
   %41 = phi ptr [ %20, %27 ], [ %.pre, %36 ]
   %.051 = phi i1 [ false, %27 ], [ %38, %36 ]
   %.050 = phi i64 [ %28, %27 ], [ %spec.select129, %36 ]
-  %or.cond162.not = icmp ugt i64 %40, %.050
+  %or.cond162.not = icmp ult i64 %.050, %40
   br i1 %or.cond162.not, label %42, label %fmap_readn.exit142.thread
 
 42:                                               ; preds = %39
@@ -282,7 +282,7 @@ fmap_readn.exit142.thread:                        ; preds = %42, %39, %fmap_read
   %103 = load ptr, ptr %6, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 88
   %105 = load i64, ptr %104, align 8
-  %or.cond163.not = icmp ugt i64 %105, %102
+  %or.cond163.not = icmp ult i64 %102, %105
   br i1 %or.cond163.not, label %106, label %fmap_readn.exit147.thread
 
 106:                                              ; preds = %100
@@ -473,11 +473,11 @@ define internal fastcc i32 @apm_partition_intersection(ptr noundef %0, ptr nocap
 19:                                               ; preds = %.lr.ph, %54
   %.02147 = phi i32 [ 1, %.lr.ph ], [ %55, %54 ]
   %20 = zext i32 %.02147 to i64
-  %21 = mul nuw nsw i64 %20, %2
+  %21 = mul nuw nsw i64 %2, %20
   %22 = load ptr, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 88
   %24 = load i64, ptr %23, align 8
-  %or.cond45.not = icmp ugt i64 %24, %21
+  %or.cond45.not = icmp ult i64 %21, %24
   br i1 %or.cond45.not, label %25, label %fmap_readn.exit.thread
 
 25:                                               ; preds = %19
@@ -508,7 +508,7 @@ fmap_readn.exit.thread:                           ; preds = %25, %19, %fmap_read
   store i32 %35, ptr %17, align 1
   %36 = and i32 %.02147, 3
   %37 = icmp eq i32 %36, 0
-  %or.cond = and i1 %37, %3
+  %or.cond = and i1 %3, %37
   br i1 %or.cond, label %38, label %46
 
 38:                                               ; preds = %31

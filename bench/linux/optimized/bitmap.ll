@@ -1040,7 +1040,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.fr12 = freeze i32 %42
   %43 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef 0) #12
   %44 = trunc i64 %43 to i32
-  %45 = icmp ult i32 %44, %4
+  %45 = icmp ugt i32 %4, %44
   br i1 %45, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %41
@@ -1097,7 +1097,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %77 = and i64 %76, 4294967295
   %78 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef %77) #12
   %79 = trunc i64 %78 to i32
-  %80 = icmp ult i32 %79, %4
+  %80 = icmp ugt i32 %4, %79
   br i1 %80, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %127
@@ -1179,7 +1179,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %129 = and i64 %128, 4294967295
   %130 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef %129) #12
   %131 = trunc i64 %130 to i32
-  %132 = icmp ult i32 %131, %4
+  %132 = icmp ugt i32 %4, %131
   br i1 %132, label %.lr.ph.split, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %127, %.thread.us, %41, %5
@@ -1319,7 +1319,7 @@ define dso_local void @bitmap_onto(ptr noundef %0, ptr noundef %1, ptr noundef %
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %10, i1 false)
   %11 = tail call i64 @_find_next_bit(ptr noundef %2, i64 noundef %7, i64 noundef 0) #12
   %12 = trunc i64 %11 to i32
-  %13 = icmp ult i32 %12, %3
+  %13 = icmp ugt i32 %3, %12
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6, %22
@@ -1343,7 +1343,7 @@ define dso_local void @bitmap_onto(ptr noundef %0, ptr noundef %1, ptr noundef %
   %25 = and i64 %24, 4294967295
   %26 = tail call i64 @_find_next_bit(ptr noundef %2, i64 noundef %7, i64 noundef %25) #12
   %27 = trunc i64 %26 to i32
-  %28 = icmp ult i32 %27, %3
+  %28 = icmp ugt i32 %3, %27
   br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %22, %6, %4
@@ -1363,7 +1363,7 @@ define dso_local void @bitmap_fold(ptr noundef %0, ptr noundef %1, i32 noundef %
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %10, i1 false)
   %11 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %7, i64 noundef 0) #12
   %12 = trunc i64 %11 to i32
-  %13 = icmp ult i32 %12, %3
+  %13 = icmp ugt i32 %3, %12
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
@@ -1376,7 +1376,7 @@ define dso_local void @bitmap_fold(ptr noundef %0, ptr noundef %1, i32 noundef %
   %19 = and i64 %18, 4294967295
   %20 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %7, i64 noundef %19) #12
   %21 = trunc i64 %20 to i32
-  %22 = icmp ult i32 %21, %3
+  %22 = icmp ugt i32 %3, %21
   br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %4

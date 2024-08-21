@@ -71,7 +71,7 @@ define dso_local ptr @load_external_function(ptr noundef %0, ptr noundef %1, i1 
 8:                                                ; preds = %7, %4
   %9 = tail call ptr @dlsym(ptr noundef %6, ptr noundef %1) #17
   %10 = icmp eq ptr %9, null
-  %brmerge.not = and i1 %10, %2
+  %brmerge.not = and i1 %2, %10
   br i1 %brmerge.not, label %11, label %15
 
 11:                                               ; preds = %8

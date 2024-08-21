@@ -642,7 +642,7 @@ define internal i64 @archive_write_ar_data(ptr noundef %0, ptr noundef %1, i64 n
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %6, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0

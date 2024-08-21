@@ -162,36 +162,35 @@ define noundef i64 @_Z17fast_rv64i_c_beqzP11processor_t6insn_tm(ptr nocapture no
   unreachable
 
 11:                                               ; preds = %3
-  %12 = add i64 %2, 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
-  %14 = lshr i64 %1, 7
-  %15 = and i64 %14, 7
-  %16 = or disjoint i64 %15, 8
-  %17 = getelementptr inbounds [32 x i64], ptr %13, i64 0, i64 %16
-  %18 = load i64, ptr %17, align 8
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %_ZN11processor_t18check_pc_alignmentEm.exit
+  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = lshr i64 %1, 7
+  %14 = and i64 %13, 7
+  %15 = or disjoint i64 %14, 8
+  %16 = getelementptr inbounds [32 x i64], ptr %12, i64 0, i64 %15
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %_ZN11processor_t18check_pc_alignmentEm.exit
 
-20:                                               ; preds = %11
-  %21 = lshr i64 %1, 2
-  %22 = and i64 %21, 6
-  %23 = and i64 %14, 24
-  %24 = or disjoint i64 %22, %23
-  %25 = shl i64 %1, 3
-  %26 = and i64 %25, 32
-  %27 = or disjoint i64 %24, %26
-  %28 = shl i64 %1, 1
-  %29 = and i64 %28, 192
-  %30 = or disjoint i64 %27, %29
-  %31 = shl i64 %1, 51
-  %32 = ashr i64 %31, 55
-  %33 = and i64 %32, -256
-  %34 = or disjoint i64 %30, %33
-  %35 = add i64 %34, %2
+19:                                               ; preds = %11
+  %20 = lshr i64 %1, 2
+  %21 = and i64 %20, 6
+  %22 = and i64 %13, 24
+  %23 = or disjoint i64 %21, %22
+  %24 = shl i64 %1, 3
+  %25 = and i64 %24, 32
+  %26 = or disjoint i64 %23, %25
+  %27 = shl i64 %1, 1
+  %28 = and i64 %27, 192
+  %29 = or disjoint i64 %26, %28
+  %30 = shl i64 %1, 51
+  %31 = ashr i64 %30, 55
+  %32 = and i64 %31, -256
+  %33 = or disjoint i64 %29, %32
   br label %_ZN11processor_t18check_pc_alignmentEm.exit
 
-_ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %20, %11
-  %.0 = phi i64 [ %12, %11 ], [ %35, %20 ]
+_ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %19, %11
+  %.pn = phi i64 [ %33, %19 ], [ 2, %11 ]
+  %.0 = add i64 %.pn, %2
   ret i64 %.0
 }
 
@@ -273,36 +272,35 @@ define noundef i64 @_Z19logged_rv64i_c_beqzP11processor_t6insn_tm(ptr nocapture 
   unreachable
 
 11:                                               ; preds = %3
-  %12 = add i64 %2, 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
-  %14 = lshr i64 %1, 7
-  %15 = and i64 %14, 7
-  %16 = or disjoint i64 %15, 8
-  %17 = getelementptr inbounds [32 x i64], ptr %13, i64 0, i64 %16
-  %18 = load i64, ptr %17, align 8
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %_ZN11processor_t18check_pc_alignmentEm.exit
+  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = lshr i64 %1, 7
+  %14 = and i64 %13, 7
+  %15 = or disjoint i64 %14, 8
+  %16 = getelementptr inbounds [32 x i64], ptr %12, i64 0, i64 %15
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %_ZN11processor_t18check_pc_alignmentEm.exit
 
-20:                                               ; preds = %11
-  %21 = lshr i64 %1, 2
-  %22 = and i64 %21, 6
-  %23 = and i64 %14, 24
-  %24 = or disjoint i64 %22, %23
-  %25 = shl i64 %1, 3
-  %26 = and i64 %25, 32
-  %27 = or disjoint i64 %24, %26
-  %28 = shl i64 %1, 1
-  %29 = and i64 %28, 192
-  %30 = or disjoint i64 %27, %29
-  %31 = shl i64 %1, 51
-  %32 = ashr i64 %31, 55
-  %33 = and i64 %32, -256
-  %34 = or disjoint i64 %30, %33
-  %35 = add i64 %34, %2
+19:                                               ; preds = %11
+  %20 = lshr i64 %1, 2
+  %21 = and i64 %20, 6
+  %22 = and i64 %13, 24
+  %23 = or disjoint i64 %21, %22
+  %24 = shl i64 %1, 3
+  %25 = and i64 %24, 32
+  %26 = or disjoint i64 %23, %25
+  %27 = shl i64 %1, 1
+  %28 = and i64 %27, 192
+  %29 = or disjoint i64 %26, %28
+  %30 = shl i64 %1, 51
+  %31 = ashr i64 %30, 55
+  %32 = and i64 %31, -256
+  %33 = or disjoint i64 %29, %32
   br label %_ZN11processor_t18check_pc_alignmentEm.exit
 
-_ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %20, %11
-  %.0 = phi i64 [ %12, %11 ], [ %35, %20 ]
+_ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %19, %11
+  %.pn = phi i64 [ %33, %19 ], [ 2, %11 ]
+  %.0 = add i64 %.pn, %2
   ret i64 %.0
 }
 
@@ -384,36 +382,35 @@ define noundef i64 @_Z17fast_rv64e_c_beqzP11processor_t6insn_tm(ptr nocapture no
   unreachable
 
 11:                                               ; preds = %3
-  %12 = add i64 %2, 2
-  %13 = lshr i64 %1, 7
-  %14 = and i64 %13, 7
-  %15 = or disjoint i64 %14, 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
-  %17 = getelementptr inbounds [32 x i64], ptr %16, i64 0, i64 %15
-  %18 = load i64, ptr %17, align 8
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %_ZN11processor_t18check_pc_alignmentEm.exit
+  %12 = lshr i64 %1, 7
+  %13 = and i64 %12, 7
+  %14 = or disjoint i64 %13, 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds [32 x i64], ptr %15, i64 0, i64 %14
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %_ZN11processor_t18check_pc_alignmentEm.exit
 
-20:                                               ; preds = %11
-  %21 = lshr i64 %1, 2
-  %22 = and i64 %21, 6
-  %23 = and i64 %13, 24
-  %24 = or disjoint i64 %22, %23
-  %25 = shl i64 %1, 3
-  %26 = and i64 %25, 32
-  %27 = or disjoint i64 %24, %26
-  %28 = shl i64 %1, 1
-  %29 = and i64 %28, 192
-  %30 = or disjoint i64 %27, %29
-  %31 = shl i64 %1, 51
-  %32 = ashr i64 %31, 55
-  %33 = and i64 %32, -256
-  %34 = or disjoint i64 %30, %33
-  %35 = add i64 %34, %2
+19:                                               ; preds = %11
+  %20 = lshr i64 %1, 2
+  %21 = and i64 %20, 6
+  %22 = and i64 %12, 24
+  %23 = or disjoint i64 %21, %22
+  %24 = shl i64 %1, 3
+  %25 = and i64 %24, 32
+  %26 = or disjoint i64 %23, %25
+  %27 = shl i64 %1, 1
+  %28 = and i64 %27, 192
+  %29 = or disjoint i64 %26, %28
+  %30 = shl i64 %1, 51
+  %31 = ashr i64 %30, 55
+  %32 = and i64 %31, -256
+  %33 = or disjoint i64 %29, %32
   br label %_ZN11processor_t18check_pc_alignmentEm.exit
 
-_ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %20, %11
-  %.0 = phi i64 [ %12, %11 ], [ %35, %20 ]
+_ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %19, %11
+  %.pn = phi i64 [ %33, %19 ], [ 2, %11 ]
+  %.0 = add i64 %.pn, %2
   ret i64 %.0
 }
 
@@ -495,36 +492,35 @@ define noundef i64 @_Z19logged_rv64e_c_beqzP11processor_t6insn_tm(ptr nocapture 
   unreachable
 
 11:                                               ; preds = %3
-  %12 = add i64 %2, 2
-  %13 = lshr i64 %1, 7
-  %14 = and i64 %13, 7
-  %15 = or disjoint i64 %14, 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
-  %17 = getelementptr inbounds [32 x i64], ptr %16, i64 0, i64 %15
-  %18 = load i64, ptr %17, align 8
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %_ZN11processor_t18check_pc_alignmentEm.exit
+  %12 = lshr i64 %1, 7
+  %13 = and i64 %12, 7
+  %14 = or disjoint i64 %13, 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds [32 x i64], ptr %15, i64 0, i64 %14
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %_ZN11processor_t18check_pc_alignmentEm.exit
 
-20:                                               ; preds = %11
-  %21 = lshr i64 %1, 2
-  %22 = and i64 %21, 6
-  %23 = and i64 %13, 24
-  %24 = or disjoint i64 %22, %23
-  %25 = shl i64 %1, 3
-  %26 = and i64 %25, 32
-  %27 = or disjoint i64 %24, %26
-  %28 = shl i64 %1, 1
-  %29 = and i64 %28, 192
-  %30 = or disjoint i64 %27, %29
-  %31 = shl i64 %1, 51
-  %32 = ashr i64 %31, 55
-  %33 = and i64 %32, -256
-  %34 = or disjoint i64 %30, %33
-  %35 = add i64 %34, %2
+19:                                               ; preds = %11
+  %20 = lshr i64 %1, 2
+  %21 = and i64 %20, 6
+  %22 = and i64 %12, 24
+  %23 = or disjoint i64 %21, %22
+  %24 = shl i64 %1, 3
+  %25 = and i64 %24, 32
+  %26 = or disjoint i64 %23, %25
+  %27 = shl i64 %1, 1
+  %28 = and i64 %27, 192
+  %29 = or disjoint i64 %26, %28
+  %30 = shl i64 %1, 51
+  %31 = ashr i64 %30, 55
+  %32 = and i64 %31, -256
+  %33 = or disjoint i64 %29, %32
   br label %_ZN11processor_t18check_pc_alignmentEm.exit
 
-_ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %20, %11
-  %.0 = phi i64 [ %12, %11 ], [ %35, %20 ]
+_ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %19, %11
+  %.pn = phi i64 [ %33, %19 ], [ 2, %11 ]
+  %.0 = add i64 %.pn, %2
   ret i64 %.0
 }
 

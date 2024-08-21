@@ -135,7 +135,7 @@ define hidden void @_ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb(ptr nocaptur
   %10 = getelementptr inbounds i8, ptr %1, i64 1848
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
-  %13 = xor i1 %12, %2
+  %13 = xor i1 %2, %12
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %9
@@ -279,7 +279,7 @@ define hidden noundef ptr @_ZN5JVMCI18get_shared_libraryERPcb(ptr nocapture noun
   %4 = alloca [1024 x i8], align 16
   %5 = load ptr, ptr @_ZN5JVMCI22_shared_library_handleE, align 8
   %.not = icmp eq ptr %5, null
-  %brmerge.not = and i1 %.not, %1
+  %brmerge.not = and i1 %1, %.not
   br i1 %brmerge.not, label %8, label %6
 
 6:                                                ; preds = %2
@@ -435,7 +435,7 @@ define hidden noundef ptr @_ZN5JVMCI16compiler_runtimeEP10JavaThreadb(ptr nounde
   %3 = getelementptr inbounds i8, ptr %0, i64 1176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  %brmerge.not = and i1 %5, %1
+  %brmerge.not = and i1 %1, %5
   br i1 %brmerge.not, label %6, label %8
 
 6:                                                ; preds = %2

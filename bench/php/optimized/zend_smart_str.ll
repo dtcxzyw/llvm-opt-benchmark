@@ -471,7 +471,7 @@ define void @_smart_string_alloc_persistent(ptr nocapture noundef %0, i64 nounde
 10:                                               ; preds = %2
   %11 = load i64, ptr %4, align 8
   %12 = xor i64 %11, -1
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
@@ -538,7 +538,7 @@ define void @_smart_string_alloc(ptr nocapture noundef %0, i64 noundef %1) local
 20:                                               ; preds = %2
   %21 = load i64, ptr %4, align 8
   %22 = xor i64 %21, -1
-  %23 = icmp ult i64 %22, %1
+  %23 = icmp ugt i64 %1, %22
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %20
@@ -574,7 +574,7 @@ define void @smart_str_append_escaped_truncated(ptr nocapture noundef %0, ptr no
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
-  %. = tail call i64 @llvm.umin.i64(i64 %6, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
   tail call void @smart_str_append_escaped(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %.)
   %7 = load i64, ptr %5, align 8
   %8 = icmp ugt i64 %7, %2
@@ -929,7 +929,7 @@ smart_str_erealloc.exit191:                       ; preds = %138, %132, %126
   %152 = getelementptr inbounds i8, ptr %151, i64 24
   %153 = getelementptr inbounds i8, ptr %151, i64 16
   %154 = load i64, ptr %153, align 8
-  %..i = tail call i64 @llvm.umin.i64(i64 %154, i64 %2)
+  %..i = tail call i64 @llvm.umin.i64(i64 %2, i64 %154)
   tail call void @smart_str_append_escaped(ptr noundef nonnull %0, ptr noundef nonnull readonly %152, i64 noundef %..i)
   %155 = load i64, ptr %153, align 8
   %156 = icmp ugt i64 %155, %2

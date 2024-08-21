@@ -140,7 +140,7 @@ entry:
 if.end:                                           ; preds = %entry
   %nentries = getelementptr inbounds i8, ptr %base, i64 816
   %1 = load i32, ptr %nentries, align 8
-  %cmp4.not = icmp sgt i32 %1, %fd
+  %cmp4.not = icmp slt i32 %fd, %1
   br i1 %cmp4.not, label %do.body10, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -349,7 +349,7 @@ entry:
 do.end:                                           ; preds = %entry
   %nentries = getelementptr inbounds i8, ptr %base, i64 816
   %1 = load i32, ptr %nentries, align 8
-  %cmp4.not = icmp sgt i32 %1, %fd
+  %cmp4.not = icmp slt i32 %fd, %1
   br i1 %cmp4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %do.end
@@ -463,7 +463,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %nentries = getelementptr inbounds i8, ptr %base, i64 816
   %0 = load i32, ptr %nentries, align 8
-  %cmp2.not = icmp sgt i32 %0, %fd
+  %cmp2.not = icmp slt i32 %fd, %0
   br i1 %cmp2.not, label %if.end, label %for.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -517,7 +517,7 @@ entry:
 if.end:                                           ; preds = %entry
   %nentries = getelementptr inbounds i8, ptr %base, i64 832
   %1 = load i32, ptr %nentries, align 8
-  %cmp2.not = icmp sgt i32 %1, %sig
+  %cmp2.not = icmp slt i32 %sig, %1
   br i1 %cmp2.not, label %do.body, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.end
@@ -643,7 +643,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %nentries = getelementptr inbounds i8, ptr %base, i64 832
   %1 = load i32, ptr %nentries, align 8
-  %cmp1.not = icmp sgt i32 %1, %sig
+  %cmp1.not = icmp slt i32 %sig, %1
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -698,7 +698,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %nentries = getelementptr inbounds i8, ptr %base, i64 832
   %0 = load i32, ptr %nentries, align 8
-  %cmp1.not = icmp sgt i32 %0, %sig
+  %cmp1.not = icmp slt i32 %sig, %0
   br i1 %cmp1.not, label %if.end, label %for.end
 
 if.end:                                           ; preds = %lor.lhs.false

@@ -4305,7 +4305,7 @@ define internal fastcc void @intel_pmu_pebs_event_update_no_drain(ptr noundef %0
   %4 = sext i32 %1 to i64
   %5 = tail call i64 @_find_next_bit(ptr noundef %3, i64 noundef %4, i64 noundef 0) #14
   %6 = trunc i64 %5 to i32
-  %7 = icmp slt i32 %6, %1
+  %7 = icmp sgt i32 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %18
@@ -4329,7 +4329,7 @@ define internal fastcc void @intel_pmu_pebs_event_update_no_drain(ptr noundef %0
   %20 = ashr exact i64 %19, 32
   %21 = tail call i64 @_find_next_bit(ptr noundef %3, i64 noundef %4, i64 noundef %20) #14
   %22 = trunc i64 %21 to i32
-  %23 = icmp slt i32 %22, %1
+  %23 = icmp sgt i32 %1, %22
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %18, %2

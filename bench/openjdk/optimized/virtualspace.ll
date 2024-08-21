@@ -236,7 +236,7 @@ define hidden void @_ZN13ReservedSpaceC2Emm(ptr nocapture noundef nonnull align 
   store i32 -1, ptr %4, align 4
   %5 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
   %6 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %.not = icmp eq i64 %6, %2
+  %.not = icmp eq i64 %2, %6
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %3
@@ -344,7 +344,7 @@ define hidden void @_ZN13ReservedSpace7reserveEmmmPcb(ptr nocapture noundef nonn
 14:                                               ; preds = %6
   %15 = tail call noundef zeroext i1 @_ZN2os28can_commit_large_page_memoryEv() #13
   %16 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %17 = icmp eq i64 %16, %3
+  %17 = icmp eq i64 %3, %16
   %.not48 = select i1 %15, i1 true, i1 %17
   br i1 %.not48, label %87, label %.preheader
 
@@ -851,7 +851,7 @@ define hidden noundef i64 @_ZN13ReservedSpace18page_align_size_upEm(i64 noundef 
 define hidden noundef i64 @_ZN13ReservedSpace20page_align_size_downEm(i64 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %3 = sub i64 0, %2
-  %4 = and i64 %3, %0
+  %4 = and i64 %0, %3
   ret i64 %4
 }
 
@@ -1154,7 +1154,7 @@ define hidden void @_ZN17ReservedHeapSpace26initialize_compressed_heapEmmm(ptr n
 
 11:                                               ; preds = %4
   %12 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %.not98 = icmp ugt i64 %12, %2
+  %.not98 = icmp ult i64 %2, %12
   br i1 %.not98, label %13, label %15
 
 13:                                               ; preds = %11
@@ -1551,7 +1551,7 @@ define hidden void @_ZN17ReservedHeapSpaceC2EmmmPKc(ptr nocapture noundef nonnul
 18:                                               ; preds = %16, %13
   %19 = call noundef zeroext i1 @_ZN2os28can_commit_large_page_memoryEv() #13
   %20 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %21 = icmp eq i64 %20, %3
+  %21 = icmp eq i64 %3, %20
   %.not20 = select i1 %19, i1 true, i1 %21
   br i1 %.not20, label %_ZL21large_pages_requestedv.exit.thread18, label %22
 
@@ -2171,7 +2171,7 @@ define hidden noundef zeroext i1 @_ZNK12VirtualSpace8containsEPKv(ptr nocapture 
   %.not = icmp ule ptr %4, %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not, i1 %7, i1 false
   ret i1 %8
 }

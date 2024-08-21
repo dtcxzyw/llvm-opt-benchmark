@@ -366,9 +366,9 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb5:                                           ; preds = %entry
   %1 = and i32 %frame_type_field, -2
-  %or.cond = icmp eq i32 %1, 10
+  %switch = icmp eq i32 %1, 10
   %cmp17 = icmp ult i32 %frame_type_field, 10
-  %spec.select15 = or i1 %or.cond, %cmp17
+  %spec.select15 = or i1 %switch, %cmp17
   br label %return
 
 sw.epilog:                                        ; preds = %entry

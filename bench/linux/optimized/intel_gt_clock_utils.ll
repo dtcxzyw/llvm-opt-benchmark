@@ -221,7 +221,7 @@ define dso_local range(i64 0, 18446744074) i64 @intel_gt_ns_to_clock_interval(pt
   %3 = getelementptr inbounds i8, ptr %0, i64 3584
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = mul i64 %5, %1
+  %6 = mul i64 %1, %5
   %7 = add i64 %6, 999999999
   %8 = udiv i64 %7, 1000000000
   ret i64 %8
@@ -233,7 +233,7 @@ define dso_local range(i64 0, 1152921530) i64 @intel_gt_ns_to_pm_interval(ptr no
   %4 = load i32, ptr %3, align 8
   %5 = freeze i32 %4
   %6 = zext i32 %5 to i64
-  %7 = mul i64 %6, %1
+  %7 = mul i64 %1, %6
   %8 = add i64 %7, 999999999
   %9 = udiv i64 %8, 1000000000
   %10 = add nuw nsw i64 %9, 15

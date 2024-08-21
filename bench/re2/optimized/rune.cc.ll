@@ -339,7 +339,7 @@ if.then2:                                         ; preds = %for.cond
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.then2
-  %cmp6 = icmp eq i32 %conv, %c
+  %cmp6 = icmp eq i32 %c, %conv
   br i1 %cmp6, label %return, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.end5, %_ZN3re210chartoruneEPiPKc.exit

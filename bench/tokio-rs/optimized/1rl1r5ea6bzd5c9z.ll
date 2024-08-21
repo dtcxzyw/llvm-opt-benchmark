@@ -1109,7 +1109,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.55429
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -3993,7 +3993,7 @@ define internal fastcc void @_ZN5tokio2io4util9read_line22put_back_original_data
   %.sroa.0.sroa.0 = alloca { i64, ptr }, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !5
-  %10 = icmp ult i64 %9, %2
+  %10 = icmp ugt i64 %2, %9
   br i1 %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h27a5e0b1b9878d04E.exit", label %11
 
 11:                                               ; preds = %3
@@ -4249,12 +4249,12 @@ _ZN5alloc6string6String8truncate17h3a054fa0b3278baeE.exit: ; preds = %"_ZN5alloc
   %53 = load i64, ptr %52, align 8, !noundef !5
   %54 = sub i64 %53, %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !381)
-  %.not.i = icmp ult i64 %53, %3
+  %.not.i = icmp ugt i64 %3, %53
   br i1 %.not.i, label %_ZN5alloc6string6String8truncate17h3a054fa0b3278baeE.exit, label %55
 
 55:                                               ; preds = %51
   %56 = icmp ne i64 %53, %3
-  %.not.i.i = icmp ugt i64 %53, %54
+  %.not.i.i = icmp ult i64 %54, %53
   %or.cond.i = and i1 %56, %.not.i.i
   br i1 %or.cond.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h27a5e0b1b9878d04E.exit.i"
 
@@ -7464,7 +7464,7 @@ _ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.55429615
   %.011.i.i = phi i64 [ 1, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit ], [ %38, %._crit_edge.i.loopexit.i ], [ 64, %._crit_edge.i.i ], [ 1, %26 ], [ 1, %.thread ], [ 64, %.thread28 ], [ 64, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit.thread20 ]
   %44 = and i64 %.in, 63
   %45 = sub i64 0, %.011.i.i.i19
-  %46 = and i64 %45, %2
+  %46 = and i64 %2, %45
   %47 = mul i64 %.011.i.i, %44
   %48 = add i64 %47, %46
   %.not = icmp ugt i64 %48, %2

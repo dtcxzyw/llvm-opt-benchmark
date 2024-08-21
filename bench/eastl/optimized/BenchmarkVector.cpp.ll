@@ -1156,7 +1156,7 @@ for.body.i313:                                    ; preds = %call.i.i.noexc, %_Z
   br i1 %cmp.not.i827, label %if.else21.i, label %if.then.i828
 
 if.then.i828:                                     ; preds = %for.body.i313
-  %cmp.i.i829 = icmp eq ptr %stdVectorUint64.sroa.17.4, %it.sroa.0.020.i
+  %cmp.i.i829 = icmp eq ptr %it.sroa.0.020.i, %stdVectorUint64.sroa.17.4
   br i1 %cmp.i.i829, label %if.then9.i, label %if.else.i830
 
 if.then9.i:                                       ; preds = %if.then.i828
@@ -1312,7 +1312,7 @@ for.body.i337:                                    ; preds = %_ZN5eastl6vectorImN
   %it.018.i = phi ptr [ %eaVectorUint64.sroa.0.4, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i334 ], [ %it.3.i, %_ZN5eastl6vectorImNS_9allocatorEE6insertEPKmOm.exit.i ]
   %j.017.i = phi i64 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i334 ], [ %inc.i345, %_ZN5eastl6vectorImNS_9allocatorEE6insertEPKmOm.exit.i ]
   %cmp.i.i13.i = icmp ne ptr %eaVectorUint64.sroa.20.4, %eaVectorUint64.sroa.43.4
-  %cmp3.not.i.i.i = icmp eq ptr %eaVectorUint64.sroa.20.4, %it.018.i
+  %cmp3.not.i.i.i = icmp eq ptr %it.018.i, %eaVectorUint64.sroa.20.4
   %or.cond.i.i.i = and i1 %cmp.i.i13.i, %cmp3.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.else.i.i14.i, label %if.then.i.i.i338
 
@@ -1643,7 +1643,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i25.i
   %sub.ptr.div.i10.i = ashr exact i64 %sub.ptr.sub.i9.i, 3
   %add.i440 = add nsw i64 %sub.ptr.div.i10.i, 1
-  %cmp.i.i441 = icmp ult i64 %sub.ptr.div.i27.i, %add.i440
+  %cmp.i.i441 = icmp ugt i64 %add.i440, %sub.ptr.div.i27.i
   br i1 %cmp.i.i441, label %if.then.i.i449, label %if.else.i.i442
 
 if.then.i.i449:                                   ; preds = %while.body.i
@@ -1679,7 +1679,7 @@ lpad.i.i.i869:                                    ; preds = %for.body.i.i.i868
           catch ptr null
   %118 = extractvalue { ptr, i32 } %117, 0
   %119 = call ptr @__cxa_begin_catch(ptr %118) #7
-  %cmp.not3.i.i.i.i.i870 = icmp eq ptr %__cur.010.i.i.i, %c.val428.i
+  %cmp.not3.i.i.i.i.i870 = icmp eq ptr %c.val428.i, %__cur.010.i.i.i
   br i1 %cmp.not3.i.i.i.i.i870, label %invoke.cont2.i.i.i, label %for.body.i.i.i.i.i871
 
 for.body.i.i.i.i.i871:                            ; preds = %lpad.i.i.i869, %_ZSt8_DestroyIN12_GLOBAL__N_111MovableTypeEEvPT_.exit.i.i.i.i.i
@@ -1810,7 +1810,7 @@ unreachable.i.i.i:                                ; preds = %lpad.i.i.i
   unreachable
 
 if.else.i.i442:                                   ; preds = %while.body.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i27.i, %add.i440
+  %cmp4.i.i = icmp ult i64 %add.i440, %sub.ptr.div.i27.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_111MovableTypeESaIS1_EE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i442
@@ -1905,14 +1905,14 @@ while.body.i472:                                  ; preds = %_ZN2EA4StdC9Stopwat
   %sub.ptr.sub.i9.i475 = sub i64 %sub.ptr.lhs.cast.i7.i474, %sub.ptr.rhs.cast.i27.i
   %sub.ptr.div.i10.i476 = ashr exact i64 %sub.ptr.sub.i9.i475, 3
   %add.i477 = add nsw i64 %sub.ptr.div.i10.i476, 1
-  %cmp.i.i478 = icmp ult i64 %sub.ptr.div.i29.i, %add.i477
+  %cmp.i.i478 = icmp ugt i64 %add.i477, %sub.ptr.div.i29.i
   br i1 %cmp.i.i478, label %if.then.i.i489, label %if.else.i.i479
 
 if.then.i.i489:                                   ; preds = %while.body.i472
   %sub.i.i490 = sub nuw nsw i64 %add.i477, %sub.ptr.div.i29.i
   %sub.ptr.sub.i.i.i491 = sub i64 %sub.ptr.lhs.cast.i7.i474, %sub.ptr.lhs.cast.i26.i
   %sub.ptr.div.i.i.i492 = ashr exact i64 %sub.ptr.sub.i.i.i491, 3
-  %cmp.i.i15.i = icmp ult i64 %sub.ptr.div.i.i.i492, %sub.i.i490
+  %cmp.i.i15.i = icmp ugt i64 %sub.i.i490, %sub.ptr.div.i.i.i492
   br i1 %cmp.i.i15.i, label %_ZN5eastl10VectorBaseIN12_GLOBAL__N_111MovableTypeENS_9allocatorEE10DoAllocateEm.exit.i.i.i, label %for.body.i19.i.i.i
 
 _ZN5eastl10VectorBaseIN12_GLOBAL__N_111MovableTypeENS_9allocatorEE10DoAllocateEm.exit.i.i.i: ; preds = %if.then.i.i489
@@ -4116,7 +4116,7 @@ lpad.i.i:                                         ; preds = %for.body.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #7
-  %cmp.not3.i.i.i.i = icmp eq ptr %__cur.010.i.i, %__first
+  %cmp.not3.i.i.i.i = icmp eq ptr %__first, %__cur.010.i.i
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont2.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %lpad.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_111MovableTypeEEvPT_.exit.i.i.i.i

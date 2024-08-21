@@ -218,8 +218,8 @@ define void @Java_sun_java2d_loops_MaskFill_FillAAPgram(ptr noundef %0, ptr noun
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %27
-  %30 = fadd double %.0, %9
-  %31 = fadd double %.0146, %10
+  %30 = fadd double %9, %.0
+  %31 = fadd double %10, %.0146
   %32 = fneg double %9
   %33 = fneg double %10
   br label %34
@@ -1580,8 +1580,8 @@ define void @Java_sun_java2d_loops_MaskFill_DrawAAPgram(ptr noundef %0, ptr noun
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %29
-  %32 = fadd double %.0, %9
-  %33 = fadd double %.0158, %10
+  %32 = fadd double %9, %.0
+  %33 = fadd double %10, %.0158
   %34 = fneg double %9
   %35 = fneg double %10
   br label %36
@@ -1802,16 +1802,16 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %31 = fadd double %11, %15
   %32 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %17, double noundef %6, double noundef %7, double noundef %28, double noundef %29, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
   %33 = getelementptr inbounds i8, ptr %17, i64 88
-  %34 = fadd double %28, %6
-  %35 = fadd double %29, %7
+  %34 = fadd double %6, %28
+  %35 = fadd double %7, %29
   %36 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %33, double noundef %34, double noundef %35, double noundef %30, double noundef %31, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 0)
   %37 = icmp eq i8 %36, 0
   %38 = icmp eq i8 %32, 0
   %39 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %27, double noundef %6, double noundef %7, double noundef %30, double noundef %31, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
   %40 = icmp eq i8 %39, 0
   %41 = getelementptr inbounds i8, ptr %17, i64 616
-  %42 = fadd double %30, %6
-  %43 = fadd double %31, %7
+  %42 = fadd double %6, %30
+  %43 = fadd double %7, %31
   %44 = call fastcc zeroext i8 @storeEdge(ptr noundef nonnull %41, double noundef %42, double noundef %43, double noundef %28, double noundef %29, i32 noundef %21, i32 noundef %23, i32 noundef %25, i8 noundef zeroext 1)
   %45 = icmp eq i8 %44, 0
   %.not1090 = select i1 %45, i1 %40, i1 false
@@ -3460,7 +3460,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge(ptr nocapture nounde
   %17 = sitofp i32 %5 to double
   %18 = fcmp ogt double %11, %17
   %19 = sitofp i32 %7 to double
-  %20 = fcmp ogt double %19, %2
+  %20 = fcmp olt double %2, %19
   %or.cond101 = and i1 %18, %20
   %21 = fcmp ord double %10, 0.000000e+00
   %or.cond102 = and i1 %21, %or.cond101
@@ -3468,7 +3468,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge(ptr nocapture nounde
 
 22:                                               ; preds = %16
   %23 = sitofp i32 %6 to double
-  %24 = fcmp ogt double %23, %1
+  %24 = fcmp olt double %1, %23
   %25 = fcmp olt double %10, %23
   %or.cond103 = or i1 %24, %25
   br i1 %or.cond103, label %26, label %64
@@ -3481,7 +3481,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge(ptr nocapture nounde
 28:                                               ; preds = %26
   %29 = fdiv double %3, %4
   %30 = fdiv double %4, %3
-  %31 = fcmp ogt double %17, %2
+  %31 = fcmp olt double %2, %17
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
@@ -3531,7 +3531,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge(ptr nocapture nounde
   br label %70
 
 56:                                               ; preds = %26
-  %57 = fcmp ogt double %17, %2
+  %57 = fcmp olt double %2, %17
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %56

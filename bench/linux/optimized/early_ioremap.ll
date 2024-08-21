@@ -289,7 +289,7 @@ define internal fastcc ptr @__early_ioremap(i64 noundef %0, i64 noundef %1, i64 
 19:                                               ; preds = %16
   %20 = icmp eq i64 %1, 0
   %21 = sub i64 0, %1
-  %22 = icmp ult i64 %21, %0
+  %22 = icmp ugt i64 %0, %21
   %23 = or i1 %20, %22
   br i1 %23, label %24, label %25, !prof !13
 

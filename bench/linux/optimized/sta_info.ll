@@ -7539,7 +7539,7 @@ define internal fastcc noundef i32 @rhltable_remove(ptr noundef %0, ptr noundef 
 
 90:                                               ; preds = %.loopexit18
   %91 = inttoptr i64 %87 to ptr
-  %92 = icmp eq ptr %91, %1
+  %92 = icmp eq ptr %1, %91
   br i1 %92, label %._crit_edge, label %.preheader
 
 93:                                               ; preds = %138
@@ -7555,7 +7555,7 @@ define internal fastcc noundef i32 @rhltable_remove(ptr noundef %0, ptr noundef 
   %98 = getelementptr inbounds i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = icmp ne ptr %99, null
-  %101 = icmp ne ptr %99, %1
+  %101 = icmp ne ptr %1, %99
   %102 = and i1 %100, %101
   br i1 %102, label %96, label %103, !llvm.loop !282
 

@@ -2095,7 +2095,7 @@ _ZN11DeadVisitor19shouldDeleteTypedefEP10AstTypedef.exit: ; preds = %_ZN7AstNode
   br label %_ZN11DeadVisitor8checkAllEP7AstNode.exit
 
 _ZN11DeadVisitor19shouldDeleteTypedefEP10AstTypedef.exit.thread: ; preds = %_ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.thread.i, %24, %_ZN11DeadVisitor19shouldDeleteTypedefEP10AstTypedef.exit
-  %.not.i = icmp eq ptr %10, %8
+  %.not.i = icmp eq ptr %8, %10
   %or.cond.i = or i1 %.not.i, %.not.i.i
   br i1 %or.cond.i, label %43, label %34
 
@@ -3356,7 +3356,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP7AstNode(ptr noundef
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %10 = getelementptr inbounds i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8
-  %.not.i = icmp eq ptr %11, %1
+  %.not.i = icmp eq ptr %1, %11
   %.not10.i = icmp eq ptr %11, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %21, label %12
@@ -3509,7 +3509,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP8AstCFunc(ptr nounde
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -3613,7 +3613,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP7AstCell(ptr noundef
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -3762,7 +3762,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP16AstClassRefDType(p
   tail call void @_ZN11DeadVisitor10checkDTypeEP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -3999,7 +3999,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP14AstEnumItemRef(ptr
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -4072,7 +4072,7 @@ _ZN11DeadVisitor8checkAllEP7AstNode.exit:         ; preds = %14, %19
 
 44:                                               ; preds = %34, %35, %_ZN11DeadVisitor8checkAllEP7AstNode.exit
   %45 = load ptr, ptr %3, align 8
-  %.not.i7 = icmp eq ptr %45, %1
+  %.not.i7 = icmp eq ptr %1, %45
   %.not10.i8 = icmp eq ptr %45, null
   %or.cond.i9 = or i1 %.not.i7, %.not10.i8
   br i1 %or.cond.i9, label %55, label %46
@@ -4231,7 +4231,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP16AstIfaceRefDType(p
   tail call void @_ZN11DeadVisitor10checkDTypeEP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -4443,7 +4443,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP12AstMemberSel(ptr n
 28:                                               ; preds = %19, %14
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not.i = icmp eq ptr %30, %1
+  %.not.i = icmp eq ptr %1, %30
   %.not10.i = icmp eq ptr %30, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %40, label %31
@@ -4493,7 +4493,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP13AstMethodCall(ptr 
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -4563,7 +4563,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP10AstModport(ptr nou
 10:                                               ; preds = %6, %2
   %11 = getelementptr inbounds i8, ptr %1, i64 72
   %12 = load ptr, ptr %11, align 8
-  %.not.i = icmp eq ptr %12, %1
+  %.not.i = icmp eq ptr %1, %12
   %.not10.i = icmp eq ptr %12, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %22, label %13
@@ -4673,7 +4673,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP13AstNodeAssign(ptr 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %12
   %13 = getelementptr inbounds i8, ptr %1, i64 72
   %14 = load ptr, ptr %13, align 8
-  %.not.i9 = icmp eq ptr %14, %1
+  %.not.i9 = icmp eq ptr %1, %14
   %.not10.i = icmp eq ptr %14, null
   %or.cond.i = or i1 %.not.i9, %.not10.i
   br i1 %or.cond.i, label %24, label %15
@@ -4772,7 +4772,7 @@ _ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit: ; preds = %40
   br i1 %.not.i.i.i, label %60, label %.lr.ph.i.i.i, !llvm.loop !24
 
 60:                                               ; preds = %.lr.ph.i.i.i
-  %61 = icmp eq ptr %56, %.0710.i.i.i
+  %61 = icmp eq ptr %.0710.i.i.i, %56
   %spec.select.i.i = or i1 %61, %59
   br label %62
 
@@ -4786,7 +4786,7 @@ _ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit: ; preds = %40
   store i64 %66, ptr %64, align 8
   %67 = getelementptr inbounds i8, ptr %39, i64 72
   %68 = load ptr, ptr %67, align 8
-  %.not.i13 = icmp eq ptr %68, %39
+  %.not.i13 = icmp eq ptr %39, %68
   %.not10.i14 = icmp eq ptr %68, null
   %or.cond.i15 = or i1 %.not.i13, %.not10.i14
   br i1 %or.cond.i15, label %78, label %69
@@ -4905,7 +4905,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP12AstNodeDType(ptr n
   tail call void @_ZN11DeadVisitor10checkDTypeEP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -4963,7 +4963,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP15AstNodeFTaskRef(pt
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -5084,7 +5084,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP13AstNodeModule(ptr 
 _ZN9VNVisitor15iterateChildrenEP7AstNode.exit:    ; preds = %19
   %20 = getelementptr inbounds i8, ptr %1, i64 72
   %21 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %21, %1
+  %.not.i = icmp eq ptr %1, %21
   %.not10.i = icmp eq ptr %21, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %31, label %22
@@ -5310,7 +5310,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP13AstNodeVarRef(ptr 
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -5543,7 +5543,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP11AstRefDType(ptr no
   tail call void @_ZN11DeadVisitor10checkDTypeEP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -5680,7 +5680,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP8AstScope(ptr nounde
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -5879,7 +5879,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP14AstSelLoopVars(ptr
 _ZN9VNVisitor15iterateChildrenEP7AstNode.exit:    ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 72
   %6 = load ptr, ptr %5, align 8
-  %.not.i = icmp eq ptr %6, %1
+  %.not.i = icmp eq ptr %1, %6
   %.not10.i = icmp eq ptr %6, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %16, label %7
@@ -6017,7 +6017,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP12AstStructSel(ptr n
 16:                                               ; preds = %7, %2
   %17 = getelementptr inbounds i8, ptr %1, i64 72
   %18 = load ptr, ptr %17, align 8
-  %.not.i = icmp eq ptr %18, %1
+  %.not.i = icmp eq ptr %1, %18
   %.not10.i = icmp eq ptr %18, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %28, label %19
@@ -6264,7 +6264,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP6AstVar(ptr noundef 
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -6477,7 +6477,7 @@ define linkonce_odr dso_local void @_ZN11DeadVisitor5visitEP11AstVarScope(ptr no
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   %.not10.i = icmp eq ptr %4, null
   %or.cond.i = or i1 %.not.i, %.not10.i
   br i1 %or.cond.i, label %14, label %5
@@ -7925,7 +7925,7 @@ _ZZN7AstNode11foreachImplI7AstCellZN11DeadVisitor12deadCheckModEvEUlPKS1_E_EEvPN
   %61 = sub i64 %59, %60
   %62 = ashr exact i64 %61, 3
   %63 = ashr exact i64 %61, 2
-  %64 = icmp ult i64 %62, %63
+  %64 = icmp ugt i64 %63, %62
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %56
@@ -7938,7 +7938,7 @@ _ZZN7AstNode11foreachImplI7AstCellZN11DeadVisitor12deadCheckModEvEUlPKS1_E_EEvPN
   br label %_ZZN7AstNode11foreachImplI7AstCellZN11DeadVisitor12deadCheckModEvEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 67:                                               ; preds = %56
-  %68 = icmp ugt i64 %62, %63
+  %68 = icmp ult i64 %63, %62
   br i1 %68, label %69, label %_ZZN7AstNode11foreachImplI7AstCellZN11DeadVisitor12deadCheckModEvEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 69:                                               ; preds = %67

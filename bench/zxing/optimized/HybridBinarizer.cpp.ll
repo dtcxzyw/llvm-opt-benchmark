@@ -189,7 +189,7 @@ define void @_ZNK5ZXing15HybridBinarizer14getBlackMatrixEv(ptr dead_on_unwind no
   %.14142.us.i = phi i8 [ %.sroa.speculated8.i.us.i, %46 ], [ %.04045.us.i, %42 ]
   %47 = getelementptr inbounds i8, ptr %gep.us.i, i64 %indvars.iv.i
   %48 = load i8, ptr %47, align 1
-  %.sroa.speculated8.i.us.i = call i8 @llvm.umin.i8(i8 %.14142.us.i, i8 %48)
+  %.sroa.speculated8.i.us.i = call i8 @llvm.umin.i8(i8 %48, i8 %.14142.us.i)
   %.sroa.speculated.i.us.i = call i8 @llvm.umax.i8(i8 %.143.us.i, i8 %48)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8

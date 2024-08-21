@@ -276,7 +276,7 @@ _ZN3gmx12_GLOBAL__N_115detectX86VendorEv.exit.thread: ; preds = %22
 
 select.unfold.i.i:                                ; preds = %39, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %39 ]
-  %42 = icmp eq ptr %30, %.sroa.4.0.i.ph.i.i
+  %42 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %30
   br i1 %42, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %43
 
 43:                                               ; preds = %select.unfold.i.i
@@ -359,7 +359,7 @@ _ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_
 
 select.unfold.i.i22:                              ; preds = %65, %._crit_edge.thread.i.i.i25
   %.sroa.4.0.i.ph.i.i23 = phi ptr [ %.019.lcssa28.i.i.i26, %._crit_edge.thread.i.i.i25 ], [ %.019.lcssa29.i.i.i16, %65 ]
-  %68 = icmp eq ptr %56, %.sroa.4.0.i.ph.i.i23
+  %68 = icmp eq ptr %.sroa.4.0.i.ph.i.i23, %56
   br i1 %68, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i24, label %69
 
 69:                                               ; preds = %select.unfold.i.i22
@@ -426,7 +426,7 @@ _ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_
 
 select.unfold.i.i47:                              ; preds = %90, %._crit_edge.thread.i.i.i50
   %.sroa.4.0.i.ph.i.i48 = phi ptr [ %.019.lcssa28.i.i.i51, %._crit_edge.thread.i.i.i50 ], [ %.019.lcssa29.i.i.i41, %90 ]
-  %93 = icmp eq ptr %81, %.sroa.4.0.i.ph.i.i48
+  %93 = icmp eq ptr %.sroa.4.0.i.ph.i.i48, %81
   br i1 %93, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i49, label %94
 
 94:                                               ; preds = %select.unfold.i.i47
@@ -537,7 +537,7 @@ _ZNSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE6insertEOS2_.exit: ; preds =
 
 select.unfold.i.i.i.i:                            ; preds = %141, %._crit_edge.thread.i.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i, %141 ]
-  %144 = icmp eq ptr %132, %.sroa.4.0.i.ph.i.i.i.i
+  %144 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i.i, %132
   br i1 %144, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i, label %145
 
 145:                                              ; preds = %select.unfold.i.i.i.i
@@ -608,7 +608,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i81.i:                          ; preds = %167, %._crit_edge.thread.i.i.i.i84.i
   %.sroa.4.0.i.ph.i.i.i82.i = phi ptr [ %.019.lcssa28.i.i.i.i85.i, %._crit_edge.thread.i.i.i.i84.i ], [ %.019.lcssa29.i.i.i.i80.i, %167 ]
-  %170 = icmp eq ptr %158, %.sroa.4.0.i.ph.i.i.i82.i
+  %170 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i82.i, %158
   br i1 %170, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i83.i, label %171
 
 171:                                              ; preds = %select.unfold.i.i.i81.i
@@ -679,7 +679,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i100.i:                         ; preds = %193, %._crit_edge.thread.i.i.i.i103.i
   %.sroa.4.0.i.ph.i.i.i101.i = phi ptr [ %.019.lcssa28.i.i.i.i104.i, %._crit_edge.thread.i.i.i.i103.i ], [ %.019.lcssa29.i.i.i.i99.i, %193 ]
-  %196 = icmp eq ptr %184, %.sroa.4.0.i.ph.i.i.i101.i
+  %196 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i101.i, %184
   br i1 %196, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i102.i, label %197
 
 197:                                              ; preds = %select.unfold.i.i.i100.i
@@ -750,7 +750,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i119.i:                         ; preds = %219, %._crit_edge.thread.i.i.i.i122.i
   %.sroa.4.0.i.ph.i.i.i120.i = phi ptr [ %.019.lcssa28.i.i.i.i123.i, %._crit_edge.thread.i.i.i.i122.i ], [ %.019.lcssa29.i.i.i.i118.i, %219 ]
-  %222 = icmp eq ptr %210, %.sroa.4.0.i.ph.i.i.i120.i
+  %222 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i120.i, %210
   br i1 %222, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i121.i, label %223
 
 223:                                              ; preds = %select.unfold.i.i.i119.i
@@ -821,7 +821,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i138.i:                         ; preds = %245, %._crit_edge.thread.i.i.i.i141.i
   %.sroa.4.0.i.ph.i.i.i139.i = phi ptr [ %.019.lcssa28.i.i.i.i142.i, %._crit_edge.thread.i.i.i.i141.i ], [ %.019.lcssa29.i.i.i.i137.i, %245 ]
-  %248 = icmp eq ptr %236, %.sroa.4.0.i.ph.i.i.i139.i
+  %248 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i139.i, %236
   br i1 %248, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i140.i, label %249
 
 249:                                              ; preds = %select.unfold.i.i.i138.i
@@ -892,7 +892,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i157.i:                         ; preds = %271, %._crit_edge.thread.i.i.i.i160.i
   %.sroa.4.0.i.ph.i.i.i158.i = phi ptr [ %.019.lcssa28.i.i.i.i161.i, %._crit_edge.thread.i.i.i.i160.i ], [ %.019.lcssa29.i.i.i.i156.i, %271 ]
-  %274 = icmp eq ptr %262, %.sroa.4.0.i.ph.i.i.i158.i
+  %274 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i158.i, %262
   br i1 %274, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i159.i, label %275
 
 275:                                              ; preds = %select.unfold.i.i.i157.i
@@ -963,7 +963,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i176.i:                         ; preds = %297, %._crit_edge.thread.i.i.i.i179.i
   %.sroa.4.0.i.ph.i.i.i177.i = phi ptr [ %.019.lcssa28.i.i.i.i180.i, %._crit_edge.thread.i.i.i.i179.i ], [ %.019.lcssa29.i.i.i.i175.i, %297 ]
-  %300 = icmp eq ptr %288, %.sroa.4.0.i.ph.i.i.i177.i
+  %300 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i177.i, %288
   br i1 %300, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i178.i, label %301
 
 301:                                              ; preds = %select.unfold.i.i.i176.i
@@ -1034,7 +1034,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i195.i:                         ; preds = %323, %._crit_edge.thread.i.i.i.i198.i
   %.sroa.4.0.i.ph.i.i.i196.i = phi ptr [ %.019.lcssa28.i.i.i.i199.i, %._crit_edge.thread.i.i.i.i198.i ], [ %.019.lcssa29.i.i.i.i194.i, %323 ]
-  %326 = icmp eq ptr %314, %.sroa.4.0.i.ph.i.i.i196.i
+  %326 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i196.i, %314
   br i1 %326, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i197.i, label %327
 
 327:                                              ; preds = %select.unfold.i.i.i195.i
@@ -1105,7 +1105,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i214.i:                         ; preds = %349, %._crit_edge.thread.i.i.i.i217.i
   %.sroa.4.0.i.ph.i.i.i215.i = phi ptr [ %.019.lcssa28.i.i.i.i218.i, %._crit_edge.thread.i.i.i.i217.i ], [ %.019.lcssa29.i.i.i.i213.i, %349 ]
-  %352 = icmp eq ptr %340, %.sroa.4.0.i.ph.i.i.i215.i
+  %352 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i215.i, %340
   br i1 %352, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i216.i, label %353
 
 353:                                              ; preds = %select.unfold.i.i.i214.i
@@ -1176,7 +1176,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i233.i:                         ; preds = %375, %._crit_edge.thread.i.i.i.i236.i
   %.sroa.4.0.i.ph.i.i.i234.i = phi ptr [ %.019.lcssa28.i.i.i.i237.i, %._crit_edge.thread.i.i.i.i236.i ], [ %.019.lcssa29.i.i.i.i232.i, %375 ]
-  %378 = icmp eq ptr %366, %.sroa.4.0.i.ph.i.i.i234.i
+  %378 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i234.i, %366
   br i1 %378, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i235.i, label %379
 
 379:                                              ; preds = %select.unfold.i.i.i233.i
@@ -1247,7 +1247,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i252.i:                         ; preds = %401, %._crit_edge.thread.i.i.i.i255.i
   %.sroa.4.0.i.ph.i.i.i253.i = phi ptr [ %.019.lcssa28.i.i.i.i256.i, %._crit_edge.thread.i.i.i.i255.i ], [ %.019.lcssa29.i.i.i.i251.i, %401 ]
-  %404 = icmp eq ptr %392, %.sroa.4.0.i.ph.i.i.i253.i
+  %404 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i253.i, %392
   br i1 %404, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i254.i, label %405
 
 405:                                              ; preds = %select.unfold.i.i.i252.i
@@ -1318,7 +1318,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i271.i:                         ; preds = %427, %._crit_edge.thread.i.i.i.i274.i
   %.sroa.4.0.i.ph.i.i.i272.i = phi ptr [ %.019.lcssa28.i.i.i.i275.i, %._crit_edge.thread.i.i.i.i274.i ], [ %.019.lcssa29.i.i.i.i270.i, %427 ]
-  %430 = icmp eq ptr %418, %.sroa.4.0.i.ph.i.i.i272.i
+  %430 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i272.i, %418
   br i1 %430, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i273.i, label %431
 
 431:                                              ; preds = %select.unfold.i.i.i271.i
@@ -1389,7 +1389,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i290.i:                         ; preds = %453, %._crit_edge.thread.i.i.i.i293.i
   %.sroa.4.0.i.ph.i.i.i291.i = phi ptr [ %.019.lcssa28.i.i.i.i294.i, %._crit_edge.thread.i.i.i.i293.i ], [ %.019.lcssa29.i.i.i.i289.i, %453 ]
-  %456 = icmp eq ptr %444, %.sroa.4.0.i.ph.i.i.i291.i
+  %456 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i291.i, %444
   br i1 %456, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i292.i, label %457
 
 457:                                              ; preds = %select.unfold.i.i.i290.i
@@ -1460,7 +1460,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i309.i:                         ; preds = %479, %._crit_edge.thread.i.i.i.i312.i
   %.sroa.4.0.i.ph.i.i.i310.i = phi ptr [ %.019.lcssa28.i.i.i.i313.i, %._crit_edge.thread.i.i.i.i312.i ], [ %.019.lcssa29.i.i.i.i308.i, %479 ]
-  %482 = icmp eq ptr %470, %.sroa.4.0.i.ph.i.i.i310.i
+  %482 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i310.i, %470
   br i1 %482, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i311.i, label %483
 
 483:                                              ; preds = %select.unfold.i.i.i309.i
@@ -1531,7 +1531,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i328.i:                         ; preds = %505, %._crit_edge.thread.i.i.i.i331.i
   %.sroa.4.0.i.ph.i.i.i329.i = phi ptr [ %.019.lcssa28.i.i.i.i332.i, %._crit_edge.thread.i.i.i.i331.i ], [ %.019.lcssa29.i.i.i.i327.i, %505 ]
-  %508 = icmp eq ptr %496, %.sroa.4.0.i.ph.i.i.i329.i
+  %508 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i329.i, %496
   br i1 %508, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i330.i, label %509
 
 509:                                              ; preds = %select.unfold.i.i.i328.i
@@ -1602,7 +1602,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i347.i:                         ; preds = %531, %._crit_edge.thread.i.i.i.i350.i
   %.sroa.4.0.i.ph.i.i.i348.i = phi ptr [ %.019.lcssa28.i.i.i.i351.i, %._crit_edge.thread.i.i.i.i350.i ], [ %.019.lcssa29.i.i.i.i346.i, %531 ]
-  %534 = icmp eq ptr %522, %.sroa.4.0.i.ph.i.i.i348.i
+  %534 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i348.i, %522
   br i1 %534, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i349.i, label %535
 
 535:                                              ; preds = %select.unfold.i.i.i347.i
@@ -1673,7 +1673,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i366.i:                         ; preds = %557, %._crit_edge.thread.i.i.i.i369.i
   %.sroa.4.0.i.ph.i.i.i367.i = phi ptr [ %.019.lcssa28.i.i.i.i370.i, %._crit_edge.thread.i.i.i.i369.i ], [ %.019.lcssa29.i.i.i.i365.i, %557 ]
-  %560 = icmp eq ptr %548, %.sroa.4.0.i.ph.i.i.i367.i
+  %560 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i367.i, %548
   br i1 %560, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i368.i, label %561
 
 561:                                              ; preds = %select.unfold.i.i.i366.i
@@ -1744,7 +1744,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i385.i:                         ; preds = %583, %._crit_edge.thread.i.i.i.i388.i
   %.sroa.4.0.i.ph.i.i.i386.i = phi ptr [ %.019.lcssa28.i.i.i.i389.i, %._crit_edge.thread.i.i.i.i388.i ], [ %.019.lcssa29.i.i.i.i384.i, %583 ]
-  %586 = icmp eq ptr %574, %.sroa.4.0.i.ph.i.i.i386.i
+  %586 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i386.i, %574
   br i1 %586, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i387.i, label %587
 
 587:                                              ; preds = %select.unfold.i.i.i385.i
@@ -1815,7 +1815,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i404.i:                         ; preds = %609, %._crit_edge.thread.i.i.i.i407.i
   %.sroa.4.0.i.ph.i.i.i405.i = phi ptr [ %.019.lcssa28.i.i.i.i408.i, %._crit_edge.thread.i.i.i.i407.i ], [ %.019.lcssa29.i.i.i.i403.i, %609 ]
-  %612 = icmp eq ptr %600, %.sroa.4.0.i.ph.i.i.i405.i
+  %612 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i405.i, %600
   br i1 %612, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i406.i, label %613
 
 613:                                              ; preds = %select.unfold.i.i.i404.i
@@ -1887,7 +1887,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i423.i:                         ; preds = %636, %._crit_edge.thread.i.i.i.i426.i
   %.sroa.4.0.i.ph.i.i.i424.i = phi ptr [ %.019.lcssa28.i.i.i.i427.i, %._crit_edge.thread.i.i.i.i426.i ], [ %.019.lcssa29.i.i.i.i422.i, %636 ]
-  %639 = icmp eq ptr %627, %.sroa.4.0.i.ph.i.i.i424.i
+  %639 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i424.i, %627
   br i1 %639, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i425.i, label %640
 
 640:                                              ; preds = %select.unfold.i.i.i423.i
@@ -1958,7 +1958,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i442.i:                         ; preds = %662, %._crit_edge.thread.i.i.i.i445.i
   %.sroa.4.0.i.ph.i.i.i443.i = phi ptr [ %.019.lcssa28.i.i.i.i446.i, %._crit_edge.thread.i.i.i.i445.i ], [ %.019.lcssa29.i.i.i.i441.i, %662 ]
-  %665 = icmp eq ptr %653, %.sroa.4.0.i.ph.i.i.i443.i
+  %665 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i443.i, %653
   br i1 %665, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i444.i, label %666
 
 666:                                              ; preds = %select.unfold.i.i.i442.i
@@ -2029,7 +2029,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i461.i:                         ; preds = %688, %._crit_edge.thread.i.i.i.i464.i
   %.sroa.4.0.i.ph.i.i.i462.i = phi ptr [ %.019.lcssa28.i.i.i.i465.i, %._crit_edge.thread.i.i.i.i464.i ], [ %.019.lcssa29.i.i.i.i460.i, %688 ]
-  %691 = icmp eq ptr %679, %.sroa.4.0.i.ph.i.i.i462.i
+  %691 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i462.i, %679
   br i1 %691, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i463.i, label %692
 
 692:                                              ; preds = %select.unfold.i.i.i461.i
@@ -2100,7 +2100,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i480.i:                         ; preds = %714, %._crit_edge.thread.i.i.i.i483.i
   %.sroa.4.0.i.ph.i.i.i481.i = phi ptr [ %.019.lcssa28.i.i.i.i484.i, %._crit_edge.thread.i.i.i.i483.i ], [ %.019.lcssa29.i.i.i.i479.i, %714 ]
-  %717 = icmp eq ptr %705, %.sroa.4.0.i.ph.i.i.i481.i
+  %717 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i481.i, %705
   br i1 %717, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i482.i, label %718
 
 718:                                              ; preds = %select.unfold.i.i.i480.i
@@ -2171,7 +2171,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i499.i:                         ; preds = %740, %._crit_edge.thread.i.i.i.i502.i
   %.sroa.4.0.i.ph.i.i.i500.i = phi ptr [ %.019.lcssa28.i.i.i.i503.i, %._crit_edge.thread.i.i.i.i502.i ], [ %.019.lcssa29.i.i.i.i498.i, %740 ]
-  %743 = icmp eq ptr %731, %.sroa.4.0.i.ph.i.i.i500.i
+  %743 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i500.i, %731
   br i1 %743, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i501.i, label %744
 
 744:                                              ; preds = %select.unfold.i.i.i499.i
@@ -2242,7 +2242,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i518.i:                         ; preds = %766, %._crit_edge.thread.i.i.i.i521.i
   %.sroa.4.0.i.ph.i.i.i519.i = phi ptr [ %.019.lcssa28.i.i.i.i522.i, %._crit_edge.thread.i.i.i.i521.i ], [ %.019.lcssa29.i.i.i.i517.i, %766 ]
-  %769 = icmp eq ptr %757, %.sroa.4.0.i.ph.i.i.i519.i
+  %769 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i519.i, %757
   br i1 %769, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i520.i, label %770
 
 770:                                              ; preds = %select.unfold.i.i.i518.i
@@ -2392,7 +2392,7 @@ _ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit.thread.i:
 
 select.unfold.i.i.i537.i:                         ; preds = %826, %._crit_edge.thread.i.i.i.i540.i
   %.sroa.4.0.i.ph.i.i.i538.i = phi ptr [ %.019.lcssa28.i.i.i.i541.i, %._crit_edge.thread.i.i.i.i540.i ], [ %.019.lcssa29.i.i.i.i536.i, %826 ]
-  %829 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i538.i
+  %829 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i538.i, %782
   br i1 %829, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i539.i, label %830
 
 830:                                              ; preds = %select.unfold.i.i.i537.i
@@ -2463,7 +2463,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i556.i:                         ; preds = %851, %._crit_edge.thread.i.i.i.i559.i
   %.sroa.4.0.i.ph.i.i.i557.i = phi ptr [ %.019.lcssa28.i.i.i.i560.i, %._crit_edge.thread.i.i.i.i559.i ], [ %.019.lcssa29.i.i.i.i555.i, %851 ]
-  %854 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i557.i
+  %854 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i557.i, %782
   br i1 %854, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i558.i, label %855
 
 855:                                              ; preds = %select.unfold.i.i.i556.i
@@ -2534,7 +2534,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i575.i:                         ; preds = %876, %._crit_edge.thread.i.i.i.i578.i
   %.sroa.4.0.i.ph.i.i.i576.i = phi ptr [ %.019.lcssa28.i.i.i.i579.i, %._crit_edge.thread.i.i.i.i578.i ], [ %.019.lcssa29.i.i.i.i574.i, %876 ]
-  %879 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i576.i
+  %879 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i576.i, %782
   br i1 %879, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i577.i, label %880
 
 880:                                              ; preds = %select.unfold.i.i.i575.i
@@ -2605,7 +2605,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i594.i:                         ; preds = %901, %._crit_edge.thread.i.i.i.i597.i
   %.sroa.4.0.i.ph.i.i.i595.i = phi ptr [ %.019.lcssa28.i.i.i.i598.i, %._crit_edge.thread.i.i.i.i597.i ], [ %.019.lcssa29.i.i.i.i593.i, %901 ]
-  %904 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i595.i
+  %904 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i595.i, %782
   br i1 %904, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i596.i, label %905
 
 905:                                              ; preds = %select.unfold.i.i.i594.i
@@ -2676,7 +2676,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i613.i:                         ; preds = %926, %._crit_edge.thread.i.i.i.i616.i
   %.sroa.4.0.i.ph.i.i.i614.i = phi ptr [ %.019.lcssa28.i.i.i.i617.i, %._crit_edge.thread.i.i.i.i616.i ], [ %.019.lcssa29.i.i.i.i612.i, %926 ]
-  %929 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i614.i
+  %929 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i614.i, %782
   br i1 %929, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i615.i, label %930
 
 930:                                              ; preds = %select.unfold.i.i.i613.i
@@ -2746,7 +2746,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i632.i:                         ; preds = %951, %._crit_edge.thread.i.i.i.i635.i
   %.sroa.4.0.i.ph.i.i.i633.i = phi ptr [ %.019.lcssa28.i.i.i.i636.i, %._crit_edge.thread.i.i.i.i635.i ], [ %.019.lcssa29.i.i.i.i631.i, %951 ]
-  %954 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i633.i
+  %954 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i633.i, %782
   br i1 %954, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i634.i, label %955
 
 955:                                              ; preds = %select.unfold.i.i.i632.i
@@ -2817,7 +2817,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i651.i:                         ; preds = %976, %._crit_edge.thread.i.i.i.i654.i
   %.sroa.4.0.i.ph.i.i.i652.i = phi ptr [ %.019.lcssa28.i.i.i.i655.i, %._crit_edge.thread.i.i.i.i654.i ], [ %.019.lcssa29.i.i.i.i650.i, %976 ]
-  %979 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i652.i
+  %979 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i652.i, %782
   br i1 %979, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i653.i, label %980
 
 980:                                              ; preds = %select.unfold.i.i.i651.i
@@ -3204,7 +3204,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i672.i:                         ; preds = %1145, %._crit_edge.thread.i.i.i.i675.i
   %.sroa.4.0.i.ph.i.i.i673.i = phi ptr [ %.019.lcssa28.i.i.i.i676.i, %._crit_edge.thread.i.i.i.i675.i ], [ %.019.lcssa29.i.i.i.i671.i, %1145 ]
-  %1148 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i673.i
+  %1148 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i673.i, %782
   br i1 %1148, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i674.i, label %1149
 
 1149:                                             ; preds = %select.unfold.i.i.i672.i
@@ -3275,7 +3275,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i691.i:                         ; preds = %1170, %._crit_edge.thread.i.i.i.i694.i
   %.sroa.4.0.i.ph.i.i.i692.i = phi ptr [ %.019.lcssa28.i.i.i.i695.i, %._crit_edge.thread.i.i.i.i694.i ], [ %.019.lcssa29.i.i.i.i690.i, %1170 ]
-  %1173 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i692.i
+  %1173 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i692.i, %782
   br i1 %1173, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i693.i, label %1174
 
 1174:                                             ; preds = %select.unfold.i.i.i691.i
@@ -3346,7 +3346,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i710.i:                         ; preds = %1195, %._crit_edge.thread.i.i.i.i713.i
   %.sroa.4.0.i.ph.i.i.i711.i = phi ptr [ %.019.lcssa28.i.i.i.i714.i, %._crit_edge.thread.i.i.i.i713.i ], [ %.019.lcssa29.i.i.i.i709.i, %1195 ]
-  %1198 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i711.i
+  %1198 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i711.i, %782
   br i1 %1198, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i712.i, label %1199
 
 1199:                                             ; preds = %select.unfold.i.i.i710.i
@@ -3417,7 +3417,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i729.i:                         ; preds = %1220, %._crit_edge.thread.i.i.i.i732.i
   %.sroa.4.0.i.ph.i.i.i730.i = phi ptr [ %.019.lcssa28.i.i.i.i733.i, %._crit_edge.thread.i.i.i.i732.i ], [ %.019.lcssa29.i.i.i.i728.i, %1220 ]
-  %1223 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i730.i
+  %1223 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i730.i, %782
   br i1 %1223, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i731.i, label %1224
 
 1224:                                             ; preds = %select.unfold.i.i.i729.i
@@ -3488,7 +3488,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i748.i:                         ; preds = %1245, %._crit_edge.thread.i.i.i.i751.i
   %.sroa.4.0.i.ph.i.i.i749.i = phi ptr [ %.019.lcssa28.i.i.i.i752.i, %._crit_edge.thread.i.i.i.i751.i ], [ %.019.lcssa29.i.i.i.i747.i, %1245 ]
-  %1248 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i749.i
+  %1248 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i749.i, %782
   br i1 %1248, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i750.i, label %1249
 
 1249:                                             ; preds = %select.unfold.i.i.i748.i
@@ -3559,7 +3559,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i767.i:                         ; preds = %1270, %._crit_edge.thread.i.i.i.i770.i
   %.sroa.4.0.i.ph.i.i.i768.i = phi ptr [ %.019.lcssa28.i.i.i.i771.i, %._crit_edge.thread.i.i.i.i770.i ], [ %.019.lcssa29.i.i.i.i766.i, %1270 ]
-  %1273 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i768.i
+  %1273 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i768.i, %782
   br i1 %1273, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i769.i, label %1274
 
 1274:                                             ; preds = %select.unfold.i.i.i767.i
@@ -3630,7 +3630,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i786.i:                         ; preds = %1295, %._crit_edge.thread.i.i.i.i789.i
   %.sroa.4.0.i.ph.i.i.i787.i = phi ptr [ %.019.lcssa28.i.i.i.i790.i, %._crit_edge.thread.i.i.i.i789.i ], [ %.019.lcssa29.i.i.i.i785.i, %1295 ]
-  %1298 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i787.i
+  %1298 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i787.i, %782
   br i1 %1298, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i788.i, label %1299
 
 1299:                                             ; preds = %select.unfold.i.i.i786.i
@@ -3701,7 +3701,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i805.i:                         ; preds = %1320, %._crit_edge.thread.i.i.i.i808.i
   %.sroa.4.0.i.ph.i.i.i806.i = phi ptr [ %.019.lcssa28.i.i.i.i809.i, %._crit_edge.thread.i.i.i.i808.i ], [ %.019.lcssa29.i.i.i.i804.i, %1320 ]
-  %1323 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i806.i
+  %1323 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i806.i, %782
   br i1 %1323, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i807.i, label %1324
 
 1324:                                             ; preds = %select.unfold.i.i.i805.i
@@ -3772,7 +3772,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i824.i:                         ; preds = %1345, %._crit_edge.thread.i.i.i.i827.i
   %.sroa.4.0.i.ph.i.i.i825.i = phi ptr [ %.019.lcssa28.i.i.i.i828.i, %._crit_edge.thread.i.i.i.i827.i ], [ %.019.lcssa29.i.i.i.i823.i, %1345 ]
-  %1348 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i825.i
+  %1348 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i825.i, %782
   br i1 %1348, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i826.i, label %1349
 
 1349:                                             ; preds = %select.unfold.i.i.i824.i
@@ -3842,7 +3842,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i843.i:                         ; preds = %1369, %._crit_edge.thread.i.i.i.i846.i
   %.sroa.4.0.i.ph.i.i.i844.i = phi ptr [ %.019.lcssa28.i.i.i.i847.i, %._crit_edge.thread.i.i.i.i846.i ], [ %.019.lcssa29.i.i.i.i842.i, %1369 ]
-  %1372 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i844.i
+  %1372 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i844.i, %782
   br i1 %1372, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i845.i, label %1373
 
 1373:                                             ; preds = %select.unfold.i.i.i843.i
@@ -3924,7 +3924,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
 
 select.unfold.i.i.i862.i:                         ; preds = %1398, %._crit_edge.thread.i.i.i.i865.i
   %.sroa.4.0.i.ph.i.i.i863.i = phi ptr [ %.019.lcssa28.i.i.i.i866.i, %._crit_edge.thread.i.i.i.i865.i ], [ %.019.lcssa29.i.i.i.i861.i, %1398 ]
-  %1401 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i863.i
+  %1401 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i863.i, %782
   br i1 %1401, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i864.i, label %1402
 
 1402:                                             ; preds = %select.unfold.i.i.i862.i
@@ -4084,7 +4084,7 @@ _ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_str
 
 select.unfold.i.i.i:                              ; preds = %1464, %._crit_edge.thread.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %1464 ]
-  %1467 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i
+  %1467 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %782
   br i1 %1467, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i.i, label %1468
 
 1468:                                             ; preds = %select.unfold.i.i.i
@@ -4170,7 +4170,7 @@ _ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit882.thread
 
 select.unfold.i.i.i896.i:                         ; preds = %1495, %._crit_edge.thread.i.i.i.i899.i
   %.sroa.4.0.i.ph.i.i.i897.i = phi ptr [ %.019.lcssa28.i.i.i.i900.i, %._crit_edge.thread.i.i.i.i899.i ], [ %.019.lcssa29.i.i.i.i895.i, %1495 ]
-  %1498 = icmp eq ptr %782, %.sroa.4.0.i.ph.i.i.i897.i
+  %1498 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i897.i, %782
   br i1 %1498, label %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i898.i, label %1499
 
 1499:                                             ; preds = %select.unfold.i.i.i896.i
@@ -4944,8 +4944,8 @@ _ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11e
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %.sroa.037.0.i
-  %30 = icmp eq ptr %4, %.sroa.3.0.i
+  %29 = icmp eq ptr %.sroa.037.0.i, %28
+  %30 = icmp eq ptr %.sroa.3.0.i, %4
   %or.cond = select i1 %29, i1 %30, i1 false
   br i1 %or.cond, label %31, label %.critedge.i
 
@@ -5847,7 +5847,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN3gmx7CpuInfo6VendorESt4pairIKS2_NSt7__
 define linkonce_odr ptr @_ZNSt8_Rb_treeIN3gmx7CpuInfo6VendorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp ne ptr %1, null
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = icmp eq ptr %6, %2
+  %7 = icmp eq ptr %2, %6
   %or.cond = select i1 %.not, i1 true, i1 %7
   br i1 %or.cond, label %._crit_edge, label %8
 
@@ -6386,7 +6386,7 @@ _ZNKSt3mapIN3gmx7CpuInfo7FeatureENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 190:                                              ; preds = %_ZNKSt3mapIN3gmx7CpuInfo7FeatureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i
   %191 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %192 = load i32, ptr %191, align 4
-  %193 = icmp sgt i32 %192, %0
+  %193 = icmp slt i32 %0, %192
   br i1 %193, label %.critedge.i, label %_ZNKSt3mapIN3gmx7CpuInfo7FeatureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE2atERSC_.exit
 
 .critedge.i:                                      ; preds = %190, %_ZNKSt3mapIN3gmx7CpuInfo7FeatureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i, %184
@@ -6937,7 +6937,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureESt4pairIKS2_NSt7_
 define linkonce_odr ptr @_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp ne ptr %1, null
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = icmp eq ptr %6, %2
+  %7 = icmp eq ptr %2, %6
   %or.cond = select i1 %.not, i1 true, i1 %7
   br i1 %or.cond, label %._crit_edge, label %8
 

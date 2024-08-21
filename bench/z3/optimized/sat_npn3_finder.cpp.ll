@@ -3902,7 +3902,7 @@ for.body:                                         ; preds = %_ZN6vectorIN3sat7wa
 land.rhs:                                         ; preds = %for.body
   %17 = load i64, ptr %__begin1.011, align 8
   %conv.i = trunc i64 %17 to i32
-  %cmp.i8 = icmp eq i32 %conv.i, %b.coerce
+  %cmp.i8 = icmp eq i32 %b.coerce, %conv.i
   br i1 %cmp.i8, label %return, label %for.inc
 
 for.inc:                                          ; preds = %land.rhs, %for.body
@@ -4465,7 +4465,7 @@ for.body.i:                                       ; preds = %_ZN6vectorIN3sat7wa
 land.rhs.i:                                       ; preds = %for.body.i
   %21 = load i64, ptr %__begin1.011.i, align 8
   %conv.i.i = trunc i64 %21 to i32
-  %cmp.i8.i = icmp eq i32 %conv.i.i, %z.coerce
+  %cmp.i8.i = icmp eq i32 %z.coerce, %conv.i.i
   br i1 %cmp.i8.i, label %return.sink.split, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.rhs.i, %for.body.i
@@ -4533,7 +4533,7 @@ for.body.i33:                                     ; preds = %_ZN6vectorIN3sat7wa
 land.rhs.i42:                                     ; preds = %for.body.i33
   %34 = load i64, ptr %__begin1.011.i34, align 8
   %conv.i.i43 = trunc i64 %34 to i32
-  %cmp.i8.i44 = icmp eq i32 %conv.i.i43, %y.coerce
+  %cmp.i8.i44 = icmp eq i32 %y.coerce, %conv.i.i43
   br i1 %cmp.i8.i44, label %return.sink.split, label %for.inc.i38
 
 for.inc.i38:                                      ; preds = %land.rhs.i42, %for.body.i33
@@ -4591,7 +4591,7 @@ for.body.i78:                                     ; preds = %_ZN6vectorIN3sat7wa
 land.rhs.i87:                                     ; preds = %for.body.i78
   %44 = load i64, ptr %__begin1.011.i79, align 8
   %conv.i.i88 = trunc i64 %44 to i32
-  %cmp.i8.i89 = icmp eq i32 %conv.i.i88, %z.coerce
+  %cmp.i8.i89 = icmp eq i32 %z.coerce, %conv.i.i88
   br i1 %cmp.i8.i89, label %return.sink.split, label %for.inc.i83
 
 for.inc.i83:                                      ; preds = %land.rhs.i87, %for.body.i78

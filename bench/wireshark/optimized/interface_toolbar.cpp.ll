@@ -2120,7 +2120,7 @@ _ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i: ; preds = %103,
   %106 = phi ptr [ %.pre101, %.critedge.i._crit_edge ], [ %84, %_ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit.i61 ], [ %99, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i ]
   %107 = getelementptr i32, ptr %106, i64 %53
   %108 = load i64, ptr %23, align 8
-  %109 = icmp sgt i64 %108, %53
+  %109 = icmp slt i64 %53, %108
   br i1 %109, label %110, label %_ZN9QtPrivate12QPodArrayOpsIiE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
 
 110:                                              ; preds = %105
@@ -2450,7 +2450,7 @@ _ZNSt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i: ; 
 
 select.unfold.i.i.i:                              ; preds = %212, %._crit_edge.thread.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %212 ]
-  %215 = icmp eq ptr %196, %.sroa.4.0.i.ph.i.i.i
+  %215 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %196
   br i1 %215, label %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i, label %216
 
 216:                                              ; preds = %select.unfold.i.i.i
@@ -2857,7 +2857,7 @@ _ZNSt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit: ; pr
 
 select.unfold.i.i:                                ; preds = %32, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %32 ]
-  %35 = icmp eq ptr %15, %.sroa.4.0.i.ph.i.i
+  %35 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %15
   br i1 %35, label %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %36
 
 36:                                               ; preds = %select.unfold.i.i
@@ -4948,7 +4948,7 @@ _ZNSt3mapIiP7QWidgetSt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit: ; preds = %_ZN
 
 select.unfold.i.i:                                ; preds = %32, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %32 ]
-  %35 = icmp eq ptr %15, %.sroa.4.0.i.ph.i.i
+  %35 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %15
   br i1 %35, label %_ZNSt8_Rb_treeIiSt4pairIKiP7QWidgetESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %36
 
 36:                                               ; preds = %select.unfold.i.i
@@ -5274,7 +5274,7 @@ _ZNSt3mapIi10QByteArraySt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit: ; preds = %
 
 select.unfold.i:                                  ; preds = %32, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %.019.lcssa29.i.i, %32 ]
-  %35 = icmp eq ptr %15, %.sroa.4.0.i.ph.i
+  %35 = icmp eq ptr %.sroa.4.0.i.ph.i, %15
   br i1 %35, label %_ZNSt8_Rb_treeIiSt4pairIKi10QByteArrayESt10_Select1stIS3_ESt4lessIiESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i, label %36
 
 36:                                               ; preds = %select.unfold.i
@@ -5457,7 +5457,7 @@ _ZNSt3mapIi5QListI10QByteArrayESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.thre
 
 select.unfold.i:                                  ; preds = %35, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %.019.lcssa29.i.i, %35 ]
-  %38 = icmp eq ptr %17, %.sroa.4.0.i.ph.i
+  %38 = icmp eq ptr %.sroa.4.0.i.ph.i, %17
   br i1 %38, label %_ZNSt8_Rb_treeIiSt4pairIKi5QListI10QByteArrayEESt10_Select1stIS5_ESt4lessIiESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i, label %39
 
 39:                                               ; preds = %select.unfold.i
@@ -7366,7 +7366,7 @@ _ZNSt3mapIibSt4lessIiESaISt4pairIKibEEE4findERS3_.exit: ; preds = %_ZNSt8_Rb_tre
 
 select.unfold.i.i:                                ; preds = %32, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %32 ]
-  %35 = icmp eq ptr %15, %.sroa.4.0.i.ph.i.i
+  %35 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %15
   br i1 %35, label %_ZNSt8_Rb_treeIiSt4pairIKibESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %36
 
 36:                                               ; preds = %select.unfold.i.i
@@ -7795,7 +7795,7 @@ _ZNSt3mapIi7QStringSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit: ; preds = %_ZNS
 
 select.unfold.i:                                  ; preds = %32, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %.019.lcssa29.i.i, %32 ]
-  %35 = icmp eq ptr %15, %.sroa.4.0.i.ph.i
+  %35 = icmp eq ptr %.sroa.4.0.i.ph.i, %15
   br i1 %35, label %_ZNSt8_Rb_treeIiSt4pairIKi7QStringESt10_Select1stIS3_ESt4lessIiESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i, label %36
 
 36:                                               ; preds = %select.unfold.i
@@ -7946,7 +7946,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiP7QWidgetESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_l
 _ZNK4QMapIiP7QWidgetE8containsERKi.exit:          ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiP7QWidgetESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %27 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %28 = load i32, ptr %27, align 4
-  %29 = icmp sgt i32 %28, %2
+  %29 = icmp slt i32 %2, %28
   br i1 %29, label %_ZN10QByteArrayD2Ev.exit28, label %30
 
 30:                                               ; preds = %_ZNK4QMapIiP7QWidgetE8containsERKi.exit
@@ -8164,7 +8164,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiP7QWidgetESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_l
 _ZNK4QMapIiP7QWidgetE8containsERKi.exit56:        ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiP7QWidgetESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i51
   %111 = getelementptr inbounds i8, ptr %.19.i.i.i.i46, i64 32
   %112 = load i32, ptr %111, align 4
-  %113 = icmp sgt i32 %112, %2
+  %113 = icmp slt i32 %2, %112
   br i1 %113, label %_ZN10QByteArrayD2Ev.exit28, label %114
 
 114:                                              ; preds = %_ZNK4QMapIiP7QWidgetE8containsERKi.exit56
@@ -10441,7 +10441,7 @@ _ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i: ; preds = %119,
   %122 = phi ptr [ %.pre84, %.critedge.i._crit_edge ], [ %100, %_ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit.i50 ], [ %115, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i ]
   %123 = getelementptr i32, ptr %122, i64 %69
   %124 = load i64, ptr %36, align 8
-  %125 = icmp sgt i64 %124, %69
+  %125 = icmp slt i64 %69, %124
   br i1 %125, label %126, label %_ZN9QtPrivate12QPodArrayOpsIiE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
 
 126:                                              ; preds = %121
@@ -10699,8 +10699,8 @@ _ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4
   %202 = getelementptr inbounds i8, ptr %176, i64 48
   %203 = getelementptr inbounds i8, ptr %176, i64 32
   %204 = load ptr, ptr %203, align 8
-  %205 = icmp eq ptr %204, %.sroa.037.0.i.i
-  %206 = icmp eq ptr %181, %.sroa.3.0.i.i
+  %205 = icmp eq ptr %.sroa.037.0.i.i, %204
+  %206 = icmp eq ptr %.sroa.3.0.i.i, %181
   %or.cond.i46 = select i1 %205, i1 %206, i1 false
   br i1 %or.cond.i46, label %207, label %.critedge.i.i
 
@@ -12092,7 +12092,7 @@ _ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i: ; preds = %160,
   %163 = phi ptr [ %.pre349, %.critedge.i._crit_edge ], [ %141, %_ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit.i252 ], [ %156, %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i ]
   %164 = getelementptr i32, ptr %163, i64 %110
   %165 = load i64, ptr %39, align 8
-  %166 = icmp sgt i64 %165, %110
+  %166 = icmp slt i64 %110, %165
   br i1 %166, label %167, label %_ZN9QtPrivate12QPodArrayOpsIiE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
 
 167:                                              ; preds = %162
@@ -12390,7 +12390,7 @@ _ZNSt3mapIibSt4lessIiESaISt4pairIKibEEE4findERS3_.exit.i: ; preds = %_ZNSt8_Rb_t
 
 select.unfold.i.i.i:                              ; preds = %256, %._crit_edge.thread.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %256 ]
-  %259 = icmp eq ptr %240, %.sroa.4.0.i.ph.i.i.i
+  %259 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %240
   br i1 %259, label %_ZNSt8_Rb_treeIiSt4pairIKibESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i.i, label %260
 
 260:                                              ; preds = %select.unfold.i.i.i
@@ -12609,7 +12609,7 @@ _ZNSt3mapIiP7QWidgetSt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i: ; preds = %_
 
 select.unfold.i.i.i58:                            ; preds = %334, %._crit_edge.thread.i.i.i.i60
   %.sroa.4.0.i.ph.i.i.i59 = phi ptr [ %.019.lcssa28.i.i.i.i61, %._crit_edge.thread.i.i.i.i60 ], [ %.019.lcssa29.i.i.i.i56, %334 ]
-  %337 = icmp eq ptr %318, %.sroa.4.0.i.ph.i.i.i59
+  %337 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i59, %318
   br i1 %337, label %_ZNSt8_Rb_treeIiSt4pairIKiP7QWidgetESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i, label %338
 
 338:                                              ; preds = %select.unfold.i.i.i58
@@ -12859,7 +12859,7 @@ _ZNSt3mapIi10QByteArraySt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit.i: ; preds =
 
 select.unfold.i.i:                                ; preds = %423, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %423 ]
-  %426 = icmp eq ptr %407, %.sroa.4.0.i.ph.i.i
+  %426 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %407
   br i1 %426, label %_ZNSt8_Rb_treeIiSt4pairIKi10QByteArrayESt10_Select1stIS3_ESt4lessIiESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %427
 
 427:                                              ; preds = %select.unfold.i.i
@@ -13083,7 +13083,7 @@ _ZNSt3mapIi10QByteArraySt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit.i93: ; preds
 
 select.unfold.i.i105:                             ; preds = %505, %._crit_edge.thread.i.i.i108
   %.sroa.4.0.i.ph.i.i106 = phi ptr [ %.019.lcssa28.i.i.i109, %._crit_edge.thread.i.i.i108 ], [ %.019.lcssa29.i.i.i103, %505 ]
-  %508 = icmp eq ptr %489, %.sroa.4.0.i.ph.i.i106
+  %508 = icmp eq ptr %.sroa.4.0.i.ph.i.i106, %489
   br i1 %508, label %_ZNSt8_Rb_treeIiSt4pairIKi10QByteArrayESt10_Select1stIS3_ESt4lessIiESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i107, label %509
 
 509:                                              ; preds = %select.unfold.i.i105
@@ -13330,7 +13330,7 @@ _ZNSt3mapIi10QByteArraySt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit.i133: ; pred
 
 select.unfold.i.i145:                             ; preds = %596, %._crit_edge.thread.i.i.i148
   %.sroa.4.0.i.ph.i.i146 = phi ptr [ %.019.lcssa28.i.i.i149, %._crit_edge.thread.i.i.i148 ], [ %.019.lcssa29.i.i.i143, %596 ]
-  %599 = icmp eq ptr %580, %.sroa.4.0.i.ph.i.i146
+  %599 = icmp eq ptr %.sroa.4.0.i.ph.i.i146, %580
   br i1 %599, label %_ZNSt8_Rb_treeIiSt4pairIKi10QByteArrayESt10_Select1stIS3_ESt4lessIiESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i147, label %600
 
 600:                                              ; preds = %select.unfold.i.i145
@@ -14023,7 +14023,7 @@ _ZNSt3mapIi5QListI10QByteArrayESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.thre
 
 select.unfold.i.i:                                ; preds = %191, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %191 ]
-  %194 = icmp eq ptr %175, %.sroa.4.0.i.ph.i.i
+  %194 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %175
   br i1 %194, label %_ZNSt8_Rb_treeIiSt4pairIKi5QListI10QByteArrayEESt10_Select1stIS5_ESt4lessIiESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %195
 
 195:                                              ; preds = %select.unfold.i.i
@@ -16492,7 +16492,7 @@ select.unfold:                                    ; preds = %22, %._crit_edge.th
 define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_16interface_valuesESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp ne ptr %1, null
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = icmp eq ptr %6, %2
+  %7 = icmp eq ptr %2, %6
   %or.cond = select i1 %.not, i1 true, i1 %7
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -16593,7 +16593,7 @@ _ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit.thread: ; preds = %2
   %13 = sub i64 %12, %11
   %.neg = sdiv exact i64 %13, -24
   %14 = add i64 %.neg, %6
-  %.not25 = icmp slt i64 %14, %1
+  %.not25 = icmp sgt i64 %1, %14
   br i1 %.not25, label %_ZNK17QArrayDataPointerI7QStringE8isSharedEv.exit.thread, label %_ZNK17QArrayDataPointerI7QStringE5flagsEv.exit
 
 _ZNK17QArrayDataPointerI7QStringE5flagsEv.exit:   ; preds = %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit.thread
@@ -16616,7 +16616,7 @@ _ZNK17QArrayDataPointerI7QStringE8isSharedEv.exit: ; preds = %_ZNK17QArrayDataPo
 _ZNK17QArrayDataPointerI7QStringE8isSharedEv.exit.thread: ; preds = %2, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit.thread, %_ZNK17QArrayDataPointerI7QStringE8isSharedEv.exit
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %22, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %1, i64 %22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %23 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %3, i64 noundef 24, i64 noundef 8, i64 noundef %.sroa.speculated, i32 noundef 1) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 8) ]
@@ -16821,7 +16821,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit: ; preds = %3
 7:                                                ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit, label %31
 
 _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -17142,7 +17142,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %4, %_ZNK17Q
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %29
-  %35 = add i64 %31, %2
+  %35 = add i64 %2, %31
   %36 = sub i64 %19, %35
   %37 = sdiv i64 %36, 2
   %38 = tail call noundef i64 @llvm.smax.i64(i64 %37, i64 0)
@@ -17506,7 +17506,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit.thread: ; preds = %22, 
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %.not.i.i = icmp eq i32 %26, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %23)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %23, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %23, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv.exit31
 
@@ -17549,7 +17549,7 @@ _ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33: ; preds = %35
   %48 = getelementptr inbounds i8, ptr %32, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = load i64, ptr %6, align 8
-  %51 = add i64 %50, %2
+  %51 = add i64 %2, %50
   %52 = sub i64 %49, %51
   %53 = sdiv i64 %52, 2
   %54 = call noundef i64 @llvm.smax.i64(i64 %53, i64 0)
@@ -17611,7 +17611,7 @@ _ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit.thread: ; preds = %2
   %13 = sub i64 %12, %11
   %14 = ashr exact i64 %13, 2
   %15 = sub i64 %6, %14
-  %.not23 = icmp slt i64 %15, %1
+  %.not23 = icmp sgt i64 %1, %15
   br i1 %.not23, label %_ZNK17QArrayDataPointerIiE8isSharedEv.exit.thread, label %_ZNK17QArrayDataPointerIiE5flagsEv.exit
 
 _ZNK17QArrayDataPointerIiE5flagsEv.exit:          ; preds = %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit.thread
@@ -17634,7 +17634,7 @@ _ZNK17QArrayDataPointerIiE8isSharedEv.exit:       ; preds = %_ZNK17QArrayDataPoi
 _ZNK17QArrayDataPointerIiE8isSharedEv.exit.thread: ; preds = %2, %_ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit.thread, %_ZNK17QArrayDataPointerIiE8isSharedEv.exit
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %23, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %1, i64 %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %24 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %3, i64 noundef 4, i64 noundef 8, i64 noundef %.sroa.speculated, i32 noundef 1) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
@@ -17700,7 +17700,7 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit:   ; preds = %3
 7:                                                ; preds = %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit, label %27
 
 _ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -17769,7 +17769,7 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread: ; preds = %3, %27, %_ZNK1
 
 50:                                               ; preds = %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread
   %51 = load i64, ptr %43, align 8
-  %52 = icmp sgt i64 %51, %1
+  %52 = icmp slt i64 %1, %51
   br i1 %52, label %53, label %_ZN9QtPrivate12QPodArrayOpsIiE10createHoleEN10QArrayData14GrowthPositionExx.exit
 
 53:                                               ; preds = %50
@@ -17860,7 +17860,7 @@ _ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit: ; preds = %10
   br i1 %or.cond, label %31, label %.critedge
 
 31:                                               ; preds = %19
-  %32 = add i64 %25, %2
+  %32 = add i64 %2, %25
   %33 = sub i64 %22, %32
   %34 = sdiv i64 %33, 2
   %35 = tail call noundef i64 @llvm.smax.i64(i64 %34, i64 0)
@@ -18200,7 +18200,7 @@ _ZNK17QArrayDataPointerIiE22constAllocatedCapacityEv.exit.thread: ; preds = %4
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerIiE22constAllocatedCapacityEv.exit31
 
@@ -18243,7 +18243,7 @@ _ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit33: ; preds = %37
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)
@@ -19315,7 +19315,7 @@ _ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit: ; preds = %3
 7:                                                ; preds = %_ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerI10QByteArrayE14freeSpaceAtEndEv.exit, label %31
 
 _ZNK17QArrayDataPointerI10QByteArrayE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -19641,7 +19641,7 @@ _ZNK17QArrayDataPointerI10QByteArrayE14freeSpaceAtEndEv.exit: ; preds = %4, %_ZN
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %29
-  %35 = add i64 %31, %2
+  %35 = add i64 %2, %31
   %36 = sub i64 %19, %35
   %37 = sdiv i64 %36, 2
   %38 = tail call noundef i64 @llvm.smax.i64(i64 %37, i64 0)
@@ -20002,7 +20002,7 @@ _ZNK17QArrayDataPointerI10QByteArrayE14freeSpaceAtEndEv.exit.thread: ; preds = %
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %.not.i.i = icmp eq i32 %26, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %23)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %23, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %23, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerI10QByteArrayE22constAllocatedCapacityEv.exit31
 
@@ -20045,7 +20045,7 @@ _ZNK17QArrayDataPointerI10QByteArrayE16freeSpaceAtBeginEv.exit33: ; preds = %35
   %48 = getelementptr inbounds i8, ptr %32, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = load i64, ptr %6, align 8
-  %51 = add i64 %50, %2
+  %51 = add i64 %2, %50
   %52 = sub i64 %49, %51
   %53 = sdiv i64 %52, 2
   %54 = call noundef i64 @llvm.smax.i64(i64 %53, i64 0)
@@ -20476,7 +20476,7 @@ _ZSt8_DestroyI10QByteArrayEvPT_.exit.i.i.i.i.i.i: ; preds = %67, %_ZN17QArrayDat
 
 _ZSt7destroyIP10QByteArrayEvT_S2_.exit.i.i.i:     ; preds = %_ZSt8_DestroyI10QByteArrayEvPT_.exit.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %3, align 8
-  %70 = icmp ne ptr %.pre.i.i, %63
+  %70 = icmp ne ptr %63, %.pre.i.i
   %71 = load i64, ptr %5, align 8
   %72 = getelementptr %class.QByteArray, ptr %.pre.i.i, i64 %71
   %.not.i.i.i = icmp eq ptr %64, %72
@@ -20906,7 +20906,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIi
 
 20:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS5_EEEE21copyIfNotEquivalentToERKSC_RS9_EUlRKT_E_EclISt23_Rb_tree_const_iteratorISA_EEEbSH_.exit
   %.not.i.i.i.i.i = icmp ne ptr %18, null
-  %21 = icmp eq ptr %7, %19
+  %21 = icmp eq ptr %19, %7
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 true, i1 %21
   br i1 %or.cond.i.i.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i.i, label %22
 
@@ -20949,7 +20949,7 @@ _ZNSt15insert_iteratorISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS2_EEEE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

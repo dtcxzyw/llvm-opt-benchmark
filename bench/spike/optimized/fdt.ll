@@ -1091,7 +1091,7 @@ define ptr @fdt_find_string_(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
   %8 = ashr exact i64 %sext, 32
   %9 = sub nsw i64 0, %8
   %10 = getelementptr inbounds i8, ptr %6, i64 %9
-  %.not13 = icmp ult ptr %10, %0
+  %.not13 = icmp ugt ptr %0, %10
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %12

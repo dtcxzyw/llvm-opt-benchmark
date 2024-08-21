@@ -407,7 +407,7 @@ if.end10:                                         ; preds = %if.then7
   br label %return
 
 if.end11:                                         ; preds = %EVP_MAC_CTX_get_mac_size.exit
-  %cmp12 = icmp ugt i64 %retval.0.i.i, %outsize
+  %cmp12 = icmp ult i64 %outsize, %retval.0.i.i
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end11

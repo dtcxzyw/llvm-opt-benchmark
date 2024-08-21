@@ -14205,7 +14205,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %__begin1.sroa.0.030 = phi ptr [ %incdec.ptr.i25, %for.inc ], [ %14, %for.body.preheader ]
   %16 = load i64, ptr %__begin1.sroa.0.030, align 8
   %17 = inttoptr i64 %16 to ptr
-  %cmp.not = icmp eq ptr %17, %op
+  %cmp.not = icmp eq ptr %op, %17
   br i1 %cmp.not, label %cleanup15, label %if.end
 
 if.end:                                           ; preds = %for.body

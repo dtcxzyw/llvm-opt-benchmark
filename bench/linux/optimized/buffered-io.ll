@@ -1651,7 +1651,7 @@ define dso_local i32 @iomap_file_buffered_write_punch_delalloc(ptr noundef %0, p
 21:                                               ; preds = %19
   %22 = sub i32 0, %10
   %23 = sext i32 %22 to i64
-  %24 = and i64 %23, %2
+  %24 = and i64 %2, %23
   %.pre68 = add i64 %2, -1
   %.pre69 = add i32 %10, -1
   %.pre71 = zext nneg i32 %.pre69 to i64
@@ -5373,7 +5373,7 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   %155 = add nsw i64 %154, -1
   %156 = sub nsw i64 0, %154
-  %157 = and i64 %156, %1
+  %157 = and i64 %1, %156
   store i64 %157, ptr %7, align 8
   %158 = add i64 %122, %1
   %159 = add i64 %158, -1

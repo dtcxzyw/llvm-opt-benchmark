@@ -326,7 +326,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %21, %11, %.preheade
   %.sroa.0.0.copyload = load ptr, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %46, i64 56
   %49 = load i32, ptr %48, align 8
-  %50 = icmp slt i32 %12, %0
+  %50 = icmp sgt i32 %0, %12
   br i1 %50, label %.lr.ph57, label %._crit_edge
 
 .lr.ph57:                                         ; preds = %ompi_errcode_get_mpi_code.exit, %60

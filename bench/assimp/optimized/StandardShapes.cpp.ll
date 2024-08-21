@@ -927,7 +927,7 @@ sw.epilog:                                        ; preds = %if.end, %switch.loo
   %call10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #12
   store i64 %conv9, ptr %call10, align 16
   %6 = getelementptr inbounds i8, ptr %call10, i64 8
-  %isempty = icmp ult i32 %conv, %numIndices
+  %isempty = icmp ugt i32 %numIndices, %conv
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
 new.ctorloop:                                     ; preds = %sw.epilog
@@ -946,7 +946,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
 arrayctor.cont:                                   ; preds = %arrayctor.loop, %sw.epilog
   %mFaces = getelementptr inbounds i8, ptr %call1, i64 208
   store ptr %6, ptr %mFaces, align 8
-  %cmp37.not = icmp ult i32 %conv, %numIndices
+  %cmp37.not = icmp ugt i32 %numIndices, %conv
   br i1 %cmp37.not, label %for.end24, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %arrayctor.cont

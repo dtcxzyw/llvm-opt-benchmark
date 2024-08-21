@@ -2256,7 +2256,7 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
 .preheader.i:                                     ; preds = %22
   %28 = getelementptr i8, ptr %19, i64 %23
   %29 = getelementptr i8, ptr %26, i64 65536
-  %30 = icmp ugt ptr %28, %19
+  %30 = icmp ult ptr %19, %28
   br i1 %30, label %.lr.ph.i, label %SnifferDecompress.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %146

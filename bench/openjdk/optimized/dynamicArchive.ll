@@ -390,9 +390,9 @@ define hidden void @_ZNK21DynamicArchiveBuilder12sort_methodsEP13InstanceKlass(p
   %5 = alloca %class.klassVtable, align 8
   %6 = alloca %class.klassItable, align 8
   %7 = load ptr, ptr @_ZN12MetaspaceObj21_shared_metaspace_topE, align 8
-  %8 = icmp ugt ptr %7, %1
+  %8 = icmp ult ptr %1, %7
   %9 = load ptr, ptr @_ZN12MetaspaceObj22_shared_metaspace_baseE, align 8
-  %10 = icmp ule ptr %9, %1
+  %10 = icmp uge ptr %1, %9
   %11 = select i1 %8, i1 %10, i1 false
   br i1 %11, label %_ZNK5Klass11java_mirrorEv.exit.thread, label %12
 
@@ -757,9 +757,9 @@ define hidden void @_ZN21DynamicArchiveBuilder20gather_array_klassesEv(ptr nocap
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1, %52
-  %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %1 ]
-  %6 = phi ptr [ %53, %52 ], [ %3, %1 ]
+.lr.ph:                                           ; preds = %1, %50
+  %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %1 ]
+  %6 = phi ptr [ %51, %50 ], [ %3, %1 ]
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
@@ -767,13 +767,13 @@ define hidden void @_ZN21DynamicArchiveBuilder20gather_array_klassesEv(ptr nocap
   %11 = getelementptr inbounds i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 6
-  br i1 %13, label %14, label %52
+  br i1 %13, label %14, label %50
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds i8, ptr %10, i64 216
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 @_ZN15MetaspaceShared16is_shared_staticEPv(ptr noundef %16) #11
-  br i1 %17, label %18, label %52
+  br i1 %17, label %18, label %50
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr @_ZN14DynamicArchive14_array_klassesE, align 8
@@ -812,57 +812,56 @@ define hidden void @_ZN21DynamicArchiveBuilder20gather_array_klassesEv(ptr nocap
 36:                                               ; preds = %30
   %37 = add nsw i32 %32, 1
   %38 = icmp sgt i32 %32, -1
-  %39 = xor i32 %32, -2147483648
-  %40 = and i32 %39, %37
-  %41 = icmp eq i32 %40, 0
-  %42 = and i1 %38, %41
-  %43 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %37, i1 true)
-  %44 = sub nuw nsw i32 32, %43
-  %45 = shl nuw i32 1, %44
-  %.0.i.i.i.i.i = select i1 %42, i32 %37, i32 %45
+  %39 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %37)
+  %40 = icmp ult i32 %39, 2
+  %or.cond.i.i.i.i.i = select i1 %38, i1 %40, i1 false
+  %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %37, i1 true)
+  %42 = sub nuw nsw i32 32, %41
+  %43 = shl nuw i32 1, %42
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %37, i32 %43
   tail call void @_ZN26GrowableArrayWithAllocatorIP13ObjArrayKlass13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %31, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %31, align 8
   br label %_ZN14DynamicArchive18append_array_klassEP13ObjArrayKlass.exit
 
 _ZN14DynamicArchive18append_array_klassEP13ObjArrayKlass.exit: ; preds = %30, %36
-  %46 = phi i32 [ %.pre.i.i, %36 ], [ %32, %30 ]
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %31, align 8
-  %48 = getelementptr inbounds i8, ptr %31, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = sext i32 %46 to i64
-  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
-  store ptr %10, ptr %51, align 8
-  br label %52
+  %44 = phi i32 [ %.pre.i.i, %36 ], [ %32, %30 ]
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %31, align 8
+  %46 = getelementptr inbounds i8, ptr %31, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = sext i32 %44 to i64
+  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
+  store ptr %10, ptr %49, align 8
+  br label %50
 
-52:                                               ; preds = %.lr.ph, %14, %_ZN14DynamicArchive18append_array_klassEP13ObjArrayKlass.exit
+50:                                               ; preds = %.lr.ph, %14, %_ZN14DynamicArchive18append_array_klassEP13ObjArrayKlass.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load ptr, ptr %2, align 8
-  %54 = load i32, ptr %53, align 4
-  %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  %51 = load ptr, ptr %2, align 8
+  %52 = load i32, ptr %51, align 4
+  %53 = sext i32 %52 to i64
+  %54 = icmp slt i64 %indvars.iv.next, %53
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %52, %1
-  %57 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not = icmp eq ptr %57, null
-  br i1 %.not, label %63, label %58
+._crit_edge:                                      ; preds = %50, %1
+  %55 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not = icmp eq ptr %55, null
+  br i1 %.not, label %61, label %56
 
-58:                                               ; preds = %._crit_edge
-  %59 = load ptr, ptr @_ZN14DynamicArchive14_array_klassesE, align 8
-  %.not.i = icmp eq ptr %59, null
-  br i1 %.not.i, label %_ZN14DynamicArchive17num_array_klassesEv.exit, label %60
+56:                                               ; preds = %._crit_edge
+  %57 = load ptr, ptr @_ZN14DynamicArchive14_array_klassesE, align 8
+  %.not.i = icmp eq ptr %57, null
+  br i1 %.not.i, label %_ZN14DynamicArchive17num_array_klassesEv.exit, label %58
 
-60:                                               ; preds = %58
-  %61 = load i32, ptr %59, align 4
+58:                                               ; preds = %56
+  %59 = load i32, ptr %57, align 4
   br label %_ZN14DynamicArchive17num_array_klassesEv.exit
 
-_ZN14DynamicArchive17num_array_klassesEv.exit:    ; preds = %58, %60
-  %62 = phi i32 [ %61, %60 ], [ 0, %58 ]
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i32 noundef %62)
-  br label %63
+_ZN14DynamicArchive17num_array_klassesEv.exit:    ; preds = %56, %58
+  %60 = phi i32 [ %59, %58 ], [ 0, %56 ]
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i32 noundef %60)
+  br label %61
 
-63:                                               ; preds = %._crit_edge, %_ZN14DynamicArchive17num_array_klassesEv.exit
+61:                                               ; preds = %._crit_edge, %_ZN14DynamicArchive17num_array_klassesEv.exit
   ret void
 }
 
@@ -906,27 +905,26 @@ define hidden void @_ZN14DynamicArchive18append_array_klassEP13ObjArrayKlass(ptr
 19:                                               ; preds = %13
   %20 = add nsw i32 %15, 1
   %21 = icmp sgt i32 %15, -1
-  %22 = xor i32 %15, -2147483648
-  %23 = and i32 %22, %20
-  %24 = icmp eq i32 %23, 0
-  %25 = and i1 %21, %24
-  %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
-  %27 = sub nuw nsw i32 32, %26
-  %28 = shl nuw i32 1, %27
-  %.0.i.i.i.i = select i1 %25, i32 %20, i32 %28
+  %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
+  %23 = icmp ult i32 %22, 2
+  %or.cond.i.i.i.i = select i1 %21, i1 %23, i1 false
+  %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
+  %25 = sub nuw nsw i32 32, %24
+  %26 = shl nuw i32 1, %25
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %20, i32 %26
   tail call void @_ZN26GrowableArrayWithAllocatorIP13ObjArrayKlass13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %14, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP13ObjArrayKlass13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP13ObjArrayKlass13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %13, %19
-  %29 = phi i32 [ %.pre.i, %19 ], [ %15, %13 ]
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %14, align 8
-  %31 = getelementptr inbounds i8, ptr %14, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = sext i32 %29 to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
-  store ptr %0, ptr %34, align 8
+  %27 = phi i32 [ %.pre.i, %19 ], [ %15, %13 ]
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %14, align 8
+  %29 = getelementptr inbounds i8, ptr %14, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = sext i32 %27 to i64
+  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  store ptr %0, ptr %32, align 8
   ret void
 }
 
@@ -1796,7 +1794,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -2945,6 +2943,9 @@ _ZN13GrowableArrayIP13ObjArrayKlassE10deallocateEPS1_.exit: ; preds = %31, %.loo
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP13ObjArrayKlassE10deallocateEPS1_.exit
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

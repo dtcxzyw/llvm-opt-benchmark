@@ -1769,7 +1769,7 @@ _find_option_idx.exit:                            ; preds = %5
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   %.not55 = xor i1 %19, true
-  %brmerge = or i1 %.not55, %3
+  %brmerge = or i1 %3, %.not55
   br i1 %brmerge, label %20, label %_find_option_idx.exit.thread
 
 20:                                               ; preds = %13, %_find_option_idx.exit
@@ -1786,7 +1786,7 @@ _find_option_idx.exit:                            ; preds = %5
   %27 = load i8, ptr %26, align 2
   %28 = trunc i8 %27 to i1
   %.not56 = xor i1 %28, true
-  %brmerge57 = or i1 %.not56, %3
+  %brmerge57 = or i1 %3, %.not56
   br i1 %brmerge57, label %._crit_edge, label %_find_option_idx.exit.thread
 
 ._crit_edge:                                      ; preds = %20, %23

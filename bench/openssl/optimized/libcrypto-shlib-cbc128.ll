@@ -82,7 +82,7 @@ for.end28:                                        ; preds = %for.body23, %for.co
 
 while.end36:                                      ; preds = %for.end28, %while.cond7
   %iv.2 = phi ptr [ %out.addr.0.lcssa62, %for.end28 ], [ %out.addr.046, %while.cond7 ]
-  %cmp37.not = icmp eq ptr %iv.2, %ivec
+  %cmp37.not = icmp eq ptr %ivec, %iv.2
   br i1 %cmp37.not, label %if.end40, label %if.then39
 
 if.then39:                                        ; preds = %while.end36
@@ -142,7 +142,7 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp3, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body
-  %cmp7.not = icmp eq ptr %in.addr.067, %ivec
+  %cmp7.not = icmp eq ptr %ivec, %in.addr.067
   br i1 %cmp7.not, label %while.cond31, label %if.then8
 
 if.then8:                                         ; preds = %while.end

@@ -36517,7 +36517,7 @@ entry:
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %entry
-  %cmp.i = icmp eq ptr %call.i.i.i9, %add.ptr.i
+  %cmp.i = icmp eq ptr %add.ptr.i, %call.i.i.i9
   br i1 %type_deduction, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
@@ -36862,12 +36862,12 @@ if.then6:                                         ; preds = %entry.if.then6_crit
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp.not = icmp ugt i64 %sub.ptr.div.i, %idx
+  %cmp.not = icmp ult i64 %idx, %sub.ptr.div.i
   br i1 %cmp.not, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %if.then6
   %add = add i64 %idx, 1
-  %cmp.i5 = icmp ult i64 %sub.ptr.div.i, %add
+  %cmp.i5 = icmp ugt i64 %add, %sub.ptr.div.i
   br i1 %cmp.i5, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then10
@@ -36876,7 +36876,7 @@ if.then.i:                                        ; preds = %if.then10
   br label %if.end13
 
 if.else.i:                                        ; preds = %if.then10
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i, %add
+  %cmp4.i = icmp ult i64 %add, %sub.ptr.div.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end13
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -39362,7 +39362,7 @@ entry:
   %cmp.i.i.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %2
-  %cmp.not22.i.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i, %1
+  %cmp.not22.i.i.i.i.i.i.i = icmp eq ptr %1, %cond.i.i.i.i.i.i.i.i
   br i1 %cmp.not22.i.i.i.i.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_3ltINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEbRKNS0_12json_pointerIT_EERKNS8_IT0_EE.exit, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %entry, %for.inc.i.i.i.i.i.i.i
@@ -39503,7 +39503,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr %2
-  %cmp.not22.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i.i.i.i.i, %1
+  %cmp.not22.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, %cond.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp.not22.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %while.body.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i
@@ -39580,7 +39580,7 @@ lor.rhs:                                          ; preds = %_ZNSt3mapIN8nlohman
   %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %10
-  %cmp.not22.i.i.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i.i, %9
+  %cmp.not22.i.i.i.i.i.i.i.i = icmp eq ptr %9, %cond.i.i.i.i.i.i.i.i.i
   br i1 %cmp.not22.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %lor.rhs, %for.inc.i.i.i.i.i.i.i.i
@@ -41881,7 +41881,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 32
-  %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i.i19
 
 for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i.i19
@@ -42271,7 +42271,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i46
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #24
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %7
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %7, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -42362,7 +42362,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #24
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %cond.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %cond.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -42978,7 +42978,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 if.then:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa30.i, %if.then.i ], [ %__y.0.lcssa31.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
@@ -44071,7 +44071,7 @@ _ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7
 for.cond.i18.preheader:                           ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit
   %__cur.0.i.lcssa = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit ]
   %__cur.0.i2037 = getelementptr i8, ptr %__cur.0.i.lcssa, i64 16
-  %cmp.not.i2138 = icmp eq ptr %0, %__position.coerce
+  %cmp.not.i2138 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not.i2138, label %_ZSt14__relocate_a_1IPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_SaISE_EET0_T_SI_SH_RT1_.exit26, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit29
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit: ; preds = %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit
@@ -44293,7 +44293,7 @@ _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11cha
 
 _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerIS9_E13get_uncheckedINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESI_IhSaIhEEvEEEERT_PSN_EUlhE_EbSN_SN_T0_.exit: ; preds = %for.body.i.i.i.i, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerIS9_E13get_uncheckedINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESI_IhSaIhEEvEEEERT_PSN_EUlhE_EbSN_SN_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerIS9_E13get_uncheckedINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESI_IhSaIhEEvEEEERT_PSN_EUlhE_EbSN_SN_T0_.exit.loopexit.split.loop.exit66, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerIS9_E13get_uncheckedINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESI_IhSaIhEEvEEEERT_PSN_EUlhE_EbSN_SN_T0_.exit.loopexit.split.loop.exit68, %sw.bb.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb38.i.i.i.i
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerIS9_E13get_uncheckedINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESI_IhSaIhEEvEEEERT_PSN_EUlhE_EbSN_SN_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i11.i.i.i.i.le, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerIS9_E13get_uncheckedINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESI_IhSaIhEEvEEEERT_PSN_EUlhE_EbSN_SN_T0_.exit.loopexit.split.loop.exit66 ], [ %incdec.ptr.i14.i.i.i.i.le, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerIS9_E13get_uncheckedINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESI_IhSaIhEEvEEEERT_PSN_EUlhE_EbSN_SN_T0_.exit.loopexit.split.loop.exit68 ], [ %__first.sroa.0.050.i.i.i.i, %for.body.i.i.i.i ]
-  %cmp.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %call10
+  %cmp.i.i = icmp eq ptr %call10, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i
   br i1 %cmp.i.i, label %lor.end.thread, label %lor.end
 
 lor.end:                                          ; preds = %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerIS9_E13get_uncheckedINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESI_IhSaIhEEvEEEERT_PSN_EUlhE_EbSN_SN_T0_.exit
@@ -45089,7 +45089,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 if.then:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa30.i, %if.then.i ], [ %__y.0.lcssa31.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
@@ -52209,7 +52209,7 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i9) #27
   %sub.ptr.lhs.cast.i.i.i.i.i.i18 = ptrtoint ptr %__position.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i.i20 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i18, %sub.ptr.rhs.cast.i.i.i
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, %__position.coerce0
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %__position.coerce0, %11
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit
@@ -52561,7 +52561,7 @@ switch.lookup:                                    ; preds = %land.rhs
 
 _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8max_sizeEv.exit: ; preds = %land.rhs, %switch.lookup
   %retval.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 1, %land.rhs ]
-  %cmp11 = icmp ult i64 %retval.0.i, %len
+  %cmp11 = icmp ugt i64 %len, %retval.0.i
   br i1 %cmp11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8max_sizeEv.exit
@@ -53221,7 +53221,7 @@ switch.lookup:                                    ; preds = %land.rhs
 
 _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8max_sizeEv.exit: ; preds = %land.rhs, %switch.lookup
   %retval.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 1, %land.rhs ]
-  %cmp11 = icmp ult i64 %retval.0.i, %len
+  %cmp11 = icmp ugt i64 %len, %retval.0.i
   br i1 %cmp11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8max_sizeEv.exit
@@ -53835,7 +53835,7 @@ entry:
   %ref.tmp74 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp75 = alloca ptr, align 8
   %0 = load ptr, ptr %pos, align 8
-  %cmp.not = icmp eq ptr %0, %this
+  %cmp.not = icmp eq ptr %this, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -54519,7 +54519,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %8, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %9
+  %cmp2.i.i = icmp eq ptr %9, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -54580,7 +54580,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISH_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -56717,7 +56717,7 @@ switch.lookup:                                    ; preds = %land.rhs
 
 _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8max_sizeEv.exit: ; preds = %land.rhs, %switch.lookup
   %retval.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 1, %land.rhs ]
-  %cmp6 = icmp ult i64 %retval.0.i, %len
+  %cmp6 = icmp ugt i64 %len, %retval.0.i
   br i1 %cmp6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8max_sizeEv.exit
@@ -56872,7 +56872,7 @@ switch.lookup:                                    ; preds = %land.rhs
 
 _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8max_sizeEv.exit: ; preds = %land.rhs, %switch.lookup
   %retval.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 1, %land.rhs ]
-  %cmp6 = icmp ult i64 %retval.0.i, %len
+  %cmp6 = icmp ugt i64 %len, %retval.0.i
   br i1 %cmp6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8max_sizeEv.exit
@@ -57130,7 +57130,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not6.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not6.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not6.i.i.i18, label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit27, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i19
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i19: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i19
@@ -57364,7 +57364,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not6.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not6.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not6.i.i.i11, label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit20, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12
@@ -57578,7 +57578,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not6.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not6.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not6.i.i.i11, label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit20, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12
@@ -57776,7 +57776,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not6.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not6.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not6.i.i.i11, label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit20, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12
@@ -57982,7 +57982,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not6.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not6.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not6.i.i.i11, label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit20, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12
@@ -58291,7 +58291,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not6.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not6.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not6.i.i.i18, label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit27, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i19
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i19: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i19
@@ -58525,7 +58525,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not6.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not6.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not6.i.i.i11, label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit20, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12: ; preds = %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i12
@@ -61031,7 +61031,7 @@ sw.bb44:                                          ; preds = %sw.bb
 sw.default:                                       ; preds = %sw.bb
   %cmp51 = icmp ult i32 %cond.i, 32
   %cmp52 = icmp ugt i32 %cond.i, 126
-  %or.cond = and i1 %cmp52, %ensure_ascii
+  %or.cond = and i1 %ensure_ascii, %cmp52
   %or.cond62 = or i1 %cmp51, %or.cond
   br i1 %or.cond62, label %if.then, label %if.else71
 
@@ -63037,7 +63037,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
-  %cmp.not.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %idx
+  %cmp.not.i.i = icmp ult i64 %idx, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -63841,7 +63841,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
-  %cmp.not.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %idx
+  %cmp.not.i.i = icmp ult i64 %idx, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -65591,7 +65591,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 32
-  %cmp.not5.i.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i.i12
 
 for.body.i.i.i.i12:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i.i12
@@ -65678,7 +65678,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #24
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %cond.i.i.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -65925,7 +65925,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #24
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %1
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %1, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -65968,7 +65968,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %8, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
-  %cmp.i.i.not7.i.i.i.i.i44 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i44 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i44, label %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit52, label %for.body.i.i.i.i.i45
 
 for.body.i.i.i.i.i45:                             ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit, %for.body.i.i.i.i.i45
@@ -66065,7 +66065,7 @@ lpad.i.i.i.i87:                                   ; preds = %for.body.i.i.i.i84
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #24
-  %cmp.not3.i.i.i.i.i.i88 = icmp eq ptr %__cur.010.i.i.i.i85, %__cur.0.lcssa.i.i.i.i.i82
+  %cmp.not3.i.i.i.i.i.i88 = icmp eq ptr %__cur.0.lcssa.i.i.i.i.i82, %__cur.010.i.i.i.i85
   br i1 %cmp.not3.i.i.i.i.i.i88, label %invoke.cont5.i.i.i.i93, label %for.body.i.i.i.i.i.i89
 
 for.body.i.i.i.i.i.i89:                           ; preds = %lpad.i.i.i.i87, %for.body.i.i.i.i.i.i89
@@ -66096,7 +66096,7 @@ unreachable.i.i.i.i97:                            ; preds = %invoke.cont5.i.i.i.
   unreachable
 
 invoke.cont83:                                    ; preds = %for.inc.i.i.i.i98
-  %cmp.i.i.not7.i.i.i.i.i104 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i104 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i104, label %invoke.cont87, label %for.body.i.i.i.i.i105
 
 for.body.i.i.i.i.i105:                            ; preds = %invoke.cont83, %for.body.i.i.i.i.i105
@@ -67341,7 +67341,7 @@ _ZNSt8_Rb_treeIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_str
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_iESt10_Select1stISC_ESt4lessIS9_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERSB_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__k) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -67369,7 +67369,7 @@ land.lhs.true:                                    ; preds = %if.then
   %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %3
-  %cmp.not22.i.i.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i.i, %2
+  %cmp.not22.i.i.i.i.i.i.i.i = icmp eq ptr %2, %cond.i.i.i.i.i.i.i.i.i
   br i1 %cmp.not22.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %land.lhs.true, %for.inc.i.i.i.i.i.i.i.i
@@ -67442,7 +67442,7 @@ if.else12:                                        ; preds = %entry
   %cmp.i.i.i.i.i.i.i.i.i19 = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i18, %sub.ptr.sub.i.i.i.i.i.i.i.i.i15
   %add.ptr.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i18
   %cond.i.i.i.i.i.i.i.i.i21 = select i1 %cmp.i.i.i.i.i.i.i.i.i19, ptr %add.ptr.i.i.i.i.i.i.i.i.i20, ptr %14
-  %cmp.not22.i.i.i.i.i.i.i.i22 = icmp eq ptr %cond.i.i.i.i.i.i.i.i.i21, %13
+  %cmp.not22.i.i.i.i.i.i.i.i22 = icmp eq ptr %13, %cond.i.i.i.i.i.i.i.i.i21
   br i1 %cmp.not22.i.i.i.i.i.i.i.i22, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit43, label %for.body.i.i.i.i.i.i.i.i23
 
 for.body.i.i.i.i.i.i.i.i23:                       ; preds = %if.else12, %for.inc.i.i.i.i.i.i.i.i35
@@ -67511,7 +67511,7 @@ if.else25:                                        ; preds = %if.then18
   %cmp.i.i.i.i.i.i.i.i.i56 = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i55, %sub.ptr.sub.i.i.i.i.i.i.i.i.i52
   %add.ptr.i.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %22, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i55
   %cond.i.i.i.i.i.i.i.i.i58 = select i1 %cmp.i.i.i.i.i.i.i.i.i56, ptr %add.ptr.i.i.i.i.i.i.i.i.i57, ptr %23
-  %cmp.not22.i.i.i.i.i.i.i.i59 = icmp eq ptr %cond.i.i.i.i.i.i.i.i.i58, %22
+  %cmp.not22.i.i.i.i.i.i.i.i59 = icmp eq ptr %22, %cond.i.i.i.i.i.i.i.i.i58
   br i1 %cmp.not22.i.i.i.i.i.i.i.i59, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit80, label %for.body.i.i.i.i.i.i.i.i60
 
 for.body.i.i.i.i.i.i.i.i60:                       ; preds = %if.else25, %for.inc.i.i.i.i.i.i.i.i72
@@ -67585,7 +67585,7 @@ if.else44:                                        ; preds = %_ZNK9__gnu_cxx5__op
   %cmp.i.i.i.i.i.i.i.i.i93 = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i92, %sub.ptr.sub.i.i.i.i.i.i.i.i.i89
   %add.ptr.i.i.i.i.i.i.i.i.i94 = getelementptr inbounds i8, ptr %33, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i92
   %cond.i.i.i.i.i.i.i.i.i95 = select i1 %cmp.i.i.i.i.i.i.i.i.i93, ptr %add.ptr.i.i.i.i.i.i.i.i.i94, ptr %34
-  %cmp.not22.i.i.i.i.i.i.i.i96 = icmp eq ptr %cond.i.i.i.i.i.i.i.i.i95, %33
+  %cmp.not22.i.i.i.i.i.i.i.i96 = icmp eq ptr %33, %cond.i.i.i.i.i.i.i.i.i95
   br i1 %cmp.not22.i.i.i.i.i.i.i.i96, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit117, label %for.body.i.i.i.i.i.i.i.i97
 
 for.body.i.i.i.i.i.i.i.i97:                       ; preds = %if.else44, %for.inc.i.i.i.i.i.i.i.i109
@@ -67654,7 +67654,7 @@ if.else57:                                        ; preds = %if.then50
   %cmp.i.i.i.i.i.i.i.i.i131 = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i130, %sub.ptr.sub.i.i.i.i.i.i.i.i.i127
   %add.ptr.i.i.i.i.i.i.i.i.i132 = getelementptr inbounds i8, ptr %42, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i130
   %cond.i.i.i.i.i.i.i.i.i133 = select i1 %cmp.i.i.i.i.i.i.i.i.i131, ptr %add.ptr.i.i.i.i.i.i.i.i.i132, ptr %43
-  %cmp.not22.i.i.i.i.i.i.i.i134 = icmp eq ptr %cond.i.i.i.i.i.i.i.i.i133, %42
+  %cmp.not22.i.i.i.i.i.i.i.i134 = icmp eq ptr %42, %cond.i.i.i.i.i.i.i.i.i133
   br i1 %cmp.not22.i.i.i.i.i.i.i.i134, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit155, label %for.body.i.i.i.i.i.i.i.i135
 
 for.body.i.i.i.i.i.i.i.i135:                      ; preds = %if.else57, %for.inc.i.i.i.i.i.i.i.i147
@@ -67796,7 +67796,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %1
-  %cmp.not22.i.i.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i.i, %0
+  %cmp.not22.i.i.i.i.i.i.i.i = icmp eq ptr %0, %cond.i.i.i.i.i.i.i.i.i
   br i1 %cmp.not22.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %while.body, %for.inc.i.i.i.i.i.i.i.i
@@ -67886,7 +67886,7 @@ if.end12:                                         ; preds = %if.else, %while.end
   %cmp.i.i.i.i.i.i.i.i.i12 = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i11, %sub.ptr.sub.i.i.i.i.i.i.i.i.i8
   %add.ptr.i.i.i.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i11
   %cond.i.i.i.i.i.i.i.i.i14 = select i1 %cmp.i.i.i.i.i.i.i.i.i12, ptr %add.ptr.i.i.i.i.i.i.i.i.i13, ptr %10
-  %cmp.not22.i.i.i.i.i.i.i.i15 = icmp eq ptr %cond.i.i.i.i.i.i.i.i.i14, %9
+  %cmp.not22.i.i.i.i.i.i.i.i15 = icmp eq ptr %9, %cond.i.i.i.i.i.i.i.i.i14
   br i1 %cmp.not22.i.i.i.i.i.i.i.i15, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit36, label %for.body.i.i.i.i.i.i.i.i16
 
 for.body.i.i.i.i.i.i.i.i16:                       ; preds = %if.end12, %for.inc.i.i.i.i.i.i.i.i28
@@ -67948,7 +67948,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN8nlohmann16json_abi_v3_11_312
 entry:
   %cmp.not = icmp ne ptr %__x, null
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2 = icmp eq ptr %add.ptr.i, %__p
+  %cmp2 = icmp eq ptr %__p, %add.ptr.i
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %lor.end, label %lor.rhs
 
@@ -67970,7 +67970,7 @@ lor.rhs:                                          ; preds = %entry
   %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %1
-  %cmp.not22.i.i.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i.i, %0
+  %cmp.not22.i.i.i.i.i.i.i.i = icmp eq ptr %0, %cond.i.i.i.i.i.i.i.i.i
   br i1 %cmp.not22.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %lor.rhs, %for.inc.i.i.i.i.i.i.i.i
@@ -68057,7 +68057,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %2
-  %cmp.not22.i.i.i.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i.i.i, %1
+  %cmp.not22.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, %cond.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp.not22.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %while.body.i, %for.inc.i.i.i.i.i.i.i.i.i
@@ -68134,7 +68134,7 @@ lor.lhs.false:                                    ; preds = %_ZNSt8_Rb_treeIN8nl
   %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %10
-  %cmp.not22.i.i.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i.i, %9
+  %cmp.not22.i.i.i.i.i.i.i.i = icmp eq ptr %9, %cond.i.i.i.i.i.i.i.i.i
   br i1 %cmp.not22.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERKS9_SC_.exit, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %lor.lhs.false, %for.inc.i.i.i.i.i.i.i.i
@@ -69919,7 +69919,7 @@ _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11cha
 
 _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedISK_EERT_PSN_EUlhE_EbSN_SN_T0_.exit: ; preds = %for.body.i.i.i.i, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedISK_EERT_PSN_EUlhE_EbSN_SN_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedISK_EERT_PSN_EUlhE_EbSN_SN_T0_.exit.loopexit.split.loop.exit66, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedISK_EERT_PSN_EUlhE_EbSN_SN_T0_.exit.loopexit.split.loop.exit68, %sw.bb.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb38.i.i.i.i
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedISK_EERT_PSN_EUlhE_EbSN_SN_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i11.i.i.i.i.le, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedISK_EERT_PSN_EUlhE_EbSN_SN_T0_.exit.loopexit.split.loop.exit66 ], [ %incdec.ptr.i14.i.i.i.i.le, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedISK_EERT_PSN_EUlhE_EbSN_SN_T0_.exit.loopexit.split.loop.exit68 ], [ %__first.sroa.0.050.i.i.i.i, %for.body.i.i.i.i ]
-  %cmp.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %call10
+  %cmp.i.i = icmp eq ptr %call10, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i
   br i1 %cmp.i.i, label %lor.end.thread, label %lor.end
 
 lor.end:                                          ; preds = %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonISt3mapSt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedISK_EERT_PSN_EUlhE_EbSN_SN_T0_.exit
@@ -70192,7 +70192,7 @@ _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11cha
 
 _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonINSC_11ordered_mapESt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedINSE_ISt3mapSG_S9_blmdSaSH_SJ_vEEEERT_PSP_EUlhE_EbSP_SP_T0_.exit: ; preds = %for.body.i.i.i.i, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonINSC_11ordered_mapESt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedINSE_ISt3mapSG_S9_blmdSaSH_SJ_vEEEERT_PSP_EUlhE_EbSP_SP_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonINSC_11ordered_mapESt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedINSE_ISt3mapSG_S9_blmdSaSH_SJ_vEEEERT_PSP_EUlhE_EbSP_SP_T0_.exit.loopexit.split.loop.exit66, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonINSC_11ordered_mapESt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedINSE_ISt3mapSG_S9_blmdSaSH_SJ_vEEEERT_PSP_EUlhE_EbSP_SP_T0_.exit.loopexit.split.loop.exit68, %sw.bb.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb38.i.i.i.i
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonINSC_11ordered_mapESt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedINSE_ISt3mapSG_S9_blmdSaSH_SJ_vEEEERT_PSP_EUlhE_EbSP_SP_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i11.i.i.i.i.le, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonINSC_11ordered_mapESt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedINSE_ISt3mapSG_S9_blmdSaSH_SJ_vEEEERT_PSP_EUlhE_EbSP_SP_T0_.exit.loopexit.split.loop.exit66 ], [ %incdec.ptr.i14.i.i.i.i.le, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonINSC_11ordered_mapESt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedINSE_ISt3mapSG_S9_blmdSaSH_SJ_vEEEERT_PSP_EUlhE_EbSP_SP_T0_.exit.loopexit.split.loop.exit68 ], [ %__first.sroa.0.050.i.i.i.i, %for.body.i.i.i.i ]
-  %cmp.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %call10
+  %cmp.i.i = icmp eq ptr %call10, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i
   br i1 %cmp.i.i, label %lor.end.thread, label %lor.end
 
 lor.end:                                          ; preds = %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNK8nlohmann16json_abi_v3_11_312json_pointerINSC_10basic_jsonINSC_11ordered_mapESt6vectorS9_blmdSaNSC_14adl_serializerESG_IhSaIhEEvEEE13get_uncheckedINSE_ISt3mapSG_S9_blmdSaSH_SJ_vEEEERT_PSP_EUlhE_EbSP_SP_T0_.exit
@@ -70700,7 +70700,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #24
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %10
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %10, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -70793,7 +70793,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #24
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %cond.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %cond.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i

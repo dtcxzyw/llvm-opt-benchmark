@@ -1777,13 +1777,13 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = lshr i64 %6, 51
-  %.not24 = icmp eq i64 %7, %1
+  %.not24 = icmp eq i64 %1, %7
   br i1 %.not24, label %.lr.ph30, label %.loopexit
 
 .lr.ph30:                                         ; preds = %4
   %.cmp = icmp ult i64 %1, 8190
   %.v = select i1 %.cmp, i64 1, i64 -8190
-  %8 = add i64 %.v, %1
+  %8 = add i64 %1, %.v
   %9 = shl nuw i64 %8, 51
   br label %10
 
@@ -1849,7 +1849,7 @@ _ZN12sharded_slab4page4slot19exponential_backoff17hff9c5f1ff440ee2cE.exit: ; pre
   %.115 = phi i1 [ %.01426, %10 ], [ true, %28 ], [ true, %26 ]
   %.1 = phi i64 [ %.sroa.07.0.i, %10 ], [ %.01327, %28 ], [ %.01327, %26 ]
   %29 = lshr i64 %.1, 51
-  %.not = icmp eq i64 %29, %1
+  %.not = icmp eq i64 %1, %29
   %or.cond = select i1 %.115, i1 true, i1 %.not
   br i1 %or.cond, label %10, label %.loopexit
 }
@@ -1859,13 +1859,13 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = lshr i64 %6, 51
-  %.not25 = icmp eq i64 %7, %1
+  %.not25 = icmp eq i64 %1, %7
   br i1 %.not25, label %.lr.ph31, label %"_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17hb11ae54150d614bfE.exit"
 
 .lr.ph31:                                         ; preds = %4
   %.cmp = icmp ult i64 %1, 8190
   %.v = select i1 %.cmp, i64 1, i64 -8190
-  %8 = add i64 %.v, %1
+  %8 = add i64 %1, %.v
   %9 = shl nuw i64 %8, 51
   br label %10
 
@@ -1942,7 +1942,7 @@ _ZN12sharded_slab4page4slot19exponential_backoff17hff9c5f1ff440ee2cE.exit: ; pre
   %.115 = phi i1 [ %.01427, %10 ], [ true, %34 ], [ true, %32 ]
   %.1 = phi i64 [ %.sroa.07.0.i, %10 ], [ %.01328, %34 ], [ %.01328, %32 ]
   %35 = lshr i64 %.1, 51
-  %.not = icmp eq i64 %35, %1
+  %.not = icmp eq i64 %1, %35
   %or.cond = select i1 %.115, i1 true, i1 %.not
   br i1 %or.cond, label %10, label %"_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17hb11ae54150d614bfE.exit"
 }

@@ -385,7 +385,7 @@ while.body.i.i.i:                                 ; preds = %if.then3, %while.bo
   %__x.021.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.019.i.i.i, %if.then3 ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 32
   %7 = load i8, ptr %_M_storage.i.i.i.i.i, align 1
-  %cmp.i.i.i.i = icmp sgt i8 %7, %ch
+  %cmp.i.i.i.i = icmp slt i8 %ch, %7
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
   %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
@@ -416,13 +416,13 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %add.ptr.i.i.i.i
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE10_M_insert_IRKcNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIcEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   %_M_storage.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %10 = load i8, ptr %_M_storage.i.i.i.i6.i.i, align 1
-  %cmp.i.i7.i.i = icmp sgt i8 %10, %ch
+  %cmp.i.i7.i.i = icmp slt i8 %ch, %10
   br label %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE10_M_insert_IRKcNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIcEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE10_M_insert_IRKcNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIcEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
@@ -460,7 +460,7 @@ _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_n
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit:        ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %14 = load i8, ptr %_M_storage.i.i.i3.i.i, align 1
-  %cmp.i4.i.i = icmp sgt i8 %14, %ch
+  %cmp.i4.i.i = icmp slt i8 %ch, %14
   br i1 %cmp.i4.i.i, label %if.end20, label %if.then12
 
 if.then12:                                        ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit
@@ -3235,7 +3235,7 @@ entry:
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %m)
   %mul = fmul float %div.i.i, %div.i.i
   %sub = fsub float 1.000000e+00, %mul
-  %mul5 = fmul float %sub, %cosTheta
+  %mul5 = fmul float %cosTheta, %sub
   %add = fadd float %mul, %mul5
   %call6 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %1 = extractvalue { ptr, i64 } %call6, 0
@@ -3243,7 +3243,7 @@ entry:
   %mul9 = fmul float %div.i.i, %div2.i.i
   %sub10 = fsub float 1.000000e+00, %cosTheta
   %mul11 = fmul float %sub10, %mul9
-  %mul12 = fmul float %div3.i.i, %sinTheta
+  %mul12 = fmul float %sinTheta, %div3.i.i
   %sub13 = fsub float %mul11, %mul12
   %call15 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %2 = extractvalue { ptr, i64 } %call15, 0
@@ -3251,7 +3251,7 @@ entry:
   store float %sub13, ptr %arrayidx.i, align 4
   %mul19 = fmul float %div.i.i, %div3.i.i
   %mul21 = fmul float %sub10, %mul19
-  %mul23 = fmul float %div2.i.i, %sinTheta
+  %mul23 = fmul float %sinTheta, %div2.i.i
   %add24 = fadd float %mul23, %mul21
   %call26 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %3 = extractvalue { ptr, i64 } %call26, 0
@@ -3267,7 +3267,7 @@ entry:
   store float %add38, ptr %5, align 4
   %mul44 = fmul float %div2.i.i, %div2.i.i
   %sub48 = fsub float 1.000000e+00, %mul44
-  %mul49 = fmul float %sub48, %cosTheta
+  %mul49 = fmul float %cosTheta, %sub48
   %add50 = fadd float %mul44, %mul49
   %call52 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %6 = extractvalue { ptr, i64 } %call52, 0
@@ -3275,7 +3275,7 @@ entry:
   store float %add50, ptr %arrayidx.i62, align 4
   %mul56 = fmul float %div2.i.i, %div3.i.i
   %mul58 = fmul float %sub10, %mul56
-  %mul60 = fmul float %div.i.i, %sinTheta
+  %mul60 = fmul float %sinTheta, %div.i.i
   %sub61 = fsub float %mul58, %mul60
   %call63 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %7 = extractvalue { ptr, i64 } %call63, 0
@@ -3296,7 +3296,7 @@ entry:
   store float %add86, ptr %arrayidx.i66, align 4
   %mul92 = fmul float %div3.i.i, %div3.i.i
   %sub96 = fsub float 1.000000e+00, %mul92
-  %mul97 = fmul float %sub96, %cosTheta
+  %mul97 = fmul float %cosTheta, %sub96
   %add98 = fadd float %mul92, %mul97
   %call100 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %11 = extractvalue { ptr, i64 } %call100, 0

@@ -1579,7 +1579,7 @@ define internal fastcc void @CbsP_ManCancelUntil(ptr nocapture noundef %0, i32 n
   %4 = getelementptr inbounds i8, ptr %0, i64 208
   %5 = getelementptr inbounds i8, ptr %0, i64 196
   %6 = load i32, ptr %5, align 4
-  %7 = icmp sgt i32 %6, %1
+  %7 = icmp slt i32 %1, %6
   br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2

@@ -43,7 +43,7 @@ define dso_local range(i64 -9223372036854775806, -9223372036854775808) i64 @Curl
   %4 = getelementptr inbounds i8, ptr %0, i64 704
   %5 = load i32, ptr %4, align 8
   %6 = icmp ne i32 %5, 0
-  %brmerge = or i1 %6, %2
+  %brmerge = or i1 %2, %6
   br i1 %brmerge, label %7, label %37
 
 7:                                                ; preds = %3

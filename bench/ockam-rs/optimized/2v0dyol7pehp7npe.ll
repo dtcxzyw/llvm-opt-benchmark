@@ -896,7 +896,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.llvm.60337
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -3153,7 +3153,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h4ef96e767aaf977bE(ptr noa
   %.val = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %32 = getelementptr i8, ptr %1, i64 16
   %.val83 = load i64, ptr %32, align 8, !noundef !4
-  %33 = icmp ult i64 %29, %.val83
+  %33 = icmp ugt i64 %.val83, %29
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %26
@@ -3340,7 +3340,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h4ef96e767aaf977bE(ptr noa
   %.val.i158 = load ptr, ptr %.sroa.0226.0315, align 8, !noalias !1170, !nonnull !4, !noundef !4
   %87 = getelementptr i8, ptr %.sroa.0226.0315, i64 16
   %.val3.i159 = load i64, ptr %87, align 8, !noalias !1170, !noundef !4
-  %.not.i163 = icmp ult i64 %.sroa.27.0317, %4
+  %.not.i163 = icmp ugt i64 %4, %.sroa.27.0317
   br i1 %.not.i163, label %.invoke, label %88
 
 88:                                               ; preds = %.lr.ph318

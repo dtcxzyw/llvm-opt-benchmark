@@ -810,13 +810,13 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge4, %137
   %175 = add nsw i32 %.val3.i155, 1
   %176 = getelementptr inbounds i8, ptr %.val2.i154, i64 228
   %177 = load i32, ptr %176, align 4
-  %.not.i181.not = icmp sgt i32 %177, %.val3.i155
+  %.not.i181.not = icmp slt i32 %.val3.i155, %177
   br i1 %.not.i181.not, label %Vec_IntFillExtra.exit, label %178
 
 178:                                              ; preds = %172
   %179 = load i32, ptr %174, align 8
   %180 = shl nsw i32 %179, 1
-  %.not205 = icmp sgt i32 %180, %.val3.i155
+  %.not205 = icmp slt i32 %.val3.i155, %180
   %.not.i.i.not = icmp sgt i32 %179, %.val3.i155
   br i1 %.not205, label %193, label %181
 
@@ -969,13 +969,13 @@ Vec_IntFillExtra.exit:                            ; preds = %172, %._crit_edge.i
   %246 = add nsw i32 %.val3.i163, 1
   %247 = getelementptr inbounds i8, ptr %.val2.i162, i64 228
   %248 = load i32, ptr %247, align 4
-  %.not.i189.not = icmp sgt i32 %248, %.val3.i163
+  %.not.i189.not = icmp slt i32 %.val3.i163, %248
   br i1 %.not.i189.not, label %Vec_IntFillExtra.exit202, label %249
 
 249:                                              ; preds = %236
   %250 = load i32, ptr %245, align 8
   %251 = shl nsw i32 %250, 1
-  %.not209 = icmp sgt i32 %251, %.val3.i163
+  %.not209 = icmp slt i32 %.val3.i163, %251
   %.not.i.i190.not = icmp sgt i32 %250, %.val3.i163
   br i1 %.not209, label %264, label %252
 
@@ -1405,13 +1405,13 @@ declare i32 @Abc_NodeCompareLevelsIncrease(ptr noundef, ptr noundef) #2
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

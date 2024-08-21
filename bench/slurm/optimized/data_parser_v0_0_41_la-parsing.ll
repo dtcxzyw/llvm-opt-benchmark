@@ -3004,7 +3004,7 @@ declare ptr @data_type_to_string(i32 noundef) local_unnamed_addr #1
 define internal fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 8
-  switch i32 %8, label %60 [
+  switch i32 %8, label %63 [
     i32 2, label %9
     i32 1, label %38
   ]
@@ -3068,177 +3068,180 @@ define internal fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr nound
   %.val65 = load i64, ptr %40, align 8
   %41 = getelementptr i8, ptr %3, i64 48
   %.val66 = load i64, ptr %41, align 8
-  switch i64 %.val64, label %53 [
-    i64 8, label %42
-    i64 4, label %44
-    i64 2, label %47
-    i64 1, label %50
+  %42 = and i64 %.val66, %.val65
+  switch i64 %.val64, label %58 [
+    i64 8, label %43
+    i64 4, label %46
+    i64 2, label %50
+    i64 1, label %54
   ]
 
-42:                                               ; preds = %38
-  %43 = load i64, ptr %0, align 8
-  br label %54
+43:                                               ; preds = %38
+  %44 = load i64, ptr %0, align 8
+  %45 = and i64 %44, %.val65
+  br label %59
 
-44:                                               ; preds = %38
-  %45 = load i32, ptr %0, align 4
-  %46 = zext i32 %45 to i64
-  br label %54
-
-47:                                               ; preds = %38
-  %48 = load i16, ptr %0, align 2
-  %49 = zext i16 %48 to i64
-  br label %54
+46:                                               ; preds = %38
+  %47 = load i32, ptr %0, align 4
+  %48 = zext i32 %47 to i64
+  %49 = and i64 %.val65, %48
+  br label %59
 
 50:                                               ; preds = %38
-  %51 = load i8, ptr %0, align 1
-  %52 = zext i8 %51 to i64
-  br label %54
+  %51 = load i16, ptr %0, align 2
+  %52 = zext i16 %51 to i64
+  %53 = and i64 %.val65, %52
+  br label %59
 
-53:                                               ; preds = %38
+54:                                               ; preds = %38
+  %55 = load i8, ptr %0, align 1
+  %56 = zext i8 %55 to i64
+  %57 = and i64 %.val65, %56
+  br label %59
+
+58:                                               ; preds = %38
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._match_flag_equal, i64 noundef %.val64) #7
   unreachable
 
-54:                                               ; preds = %50, %47, %44, %42
-  %.pn3.i = phi i64 [ %43, %42 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ]
-  %55 = xor i64 %.pn3.i, %.val66
-  %56 = and i64 %55, %.val65
-  %.0.in.i = icmp eq i64 %56, 0
-  br i1 %.0.in.i, label %57, label %_match_flag_bit.exit.thread8
+59:                                               ; preds = %54, %50, %46, %43
+  %.pn.i = phi i64 [ %45, %43 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ]
+  %.0.in.i = icmp eq i64 %.pn.i, %42
+  br i1 %.0.in.i, label %60, label %_match_flag_bit.exit.thread8
 
-57:                                               ; preds = %54
-  %58 = load i64, ptr %5, align 8
-  %59 = or i64 %58, %.val65
-  store i64 %59, ptr %5, align 8
+60:                                               ; preds = %59
+  %61 = load i64, ptr %5, align 8
+  %62 = or i64 %61, %.val65
+  store i64 %62, ptr %5, align 8
   br label %_match_flag_bit.exit
 
-60:                                               ; preds = %6
+63:                                               ; preds = %6
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__._dump_flag_bit_array_flag) #7
   unreachable
 
-_match_flag_bit.exit:                             ; preds = %57, %32, %27, %22, %18
-  %.0.in = phi i1 [ %21, %18 ], [ %26, %22 ], [ %31, %27 ], [ %36, %32 ], [ true, %57 ]
-  br i1 %4, label %63, label %65
+_match_flag_bit.exit:                             ; preds = %60, %32, %27, %22, %18
+  %.0.in = phi i1 [ %21, %18 ], [ %26, %22 ], [ %31, %27 ], [ %36, %32 ], [ true, %60 ]
+  br i1 %4, label %66, label %68
 
-_match_flag_bit.exit.thread8:                     ; preds = %54
+_match_flag_bit.exit.thread8:                     ; preds = %59
   br i1 %4, label %.thread13, label %.thread
 
 .thread13:                                        ; preds = %_match_flag_bit.exit.thread8
-  %61 = tail call ptr @data_set_bool(ptr noundef %1, i1 noundef zeroext false) #6
+  %64 = tail call ptr @data_set_bool(ptr noundef %1, i1 noundef zeroext false) #6
   br label %.thread
 
 _match_flag_bit.exit.thread:                      ; preds = %9
   br i1 %4, label %.thread6, label %.thread
 
 .thread6:                                         ; preds = %_match_flag_bit.exit.thread
-  %62 = tail call ptr @data_set_bool(ptr noundef %1, i1 noundef zeroext false) #6
+  %65 = tail call ptr @data_set_bool(ptr noundef %1, i1 noundef zeroext false) #6
   br label %.thread
 
-63:                                               ; preds = %_match_flag_bit.exit
-  %64 = tail call ptr @data_set_bool(ptr noundef %1, i1 noundef zeroext %.0.in) #6
+66:                                               ; preds = %_match_flag_bit.exit
+  %67 = tail call ptr @data_set_bool(ptr noundef %1, i1 noundef zeroext %.0.in) #6
   %spec.select = select i1 %.0.in, ptr @.str.45, ptr @.str.46
   br label %.thread
 
-65:                                               ; preds = %_match_flag_bit.exit
-  br i1 %.0.in, label %66, label %.thread
+68:                                               ; preds = %_match_flag_bit.exit
+  br i1 %.0.in, label %69, label %.thread
 
-66:                                               ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %2, i64 137
-  %68 = load i8, ptr %67, align 1
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %72, label %70
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds i8, ptr %2, i64 137
+  %71 = load i8, ptr %70, align 1
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %75, label %73
 
-70:                                               ; preds = %66
-  %71 = tail call ptr @data_list_append(ptr noundef %1) #6
-  br label %72
+73:                                               ; preds = %69
+  %74 = tail call ptr @data_list_append(ptr noundef %1) #6
+  br label %75
 
-72:                                               ; preds = %66, %70
-  %.054 = phi ptr [ %71, %70 ], [ %1, %66 ]
-  %73 = getelementptr inbounds i8, ptr %3, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call ptr @data_set_string(ptr noundef %.054, ptr noundef %74) #6
+75:                                               ; preds = %69, %73
+  %.054 = phi ptr [ %74, %73 ], [ %1, %69 ]
+  %76 = getelementptr inbounds i8, ptr %3, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call ptr @data_set_string(ptr noundef %.054, ptr noundef %77) #6
   br label %.thread
 
-.thread:                                          ; preds = %63, %.thread13, %_match_flag_bit.exit.thread8, %.thread6, %_match_flag_bit.exit.thread, %65, %72
-  %.0.in4 = phi ptr [ @.str.46, %65 ], [ @.str.45, %72 ], [ @.str.46, %_match_flag_bit.exit.thread ], [ @.str.46, %.thread6 ], [ @.str.46, %_match_flag_bit.exit.thread8 ], [ @.str.46, %.thread13 ], [ %spec.select, %63 ]
-  %76 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %77 = and i64 %76, 256
-  %.not = icmp eq i64 %77, 0
-  br i1 %.not, label %123, label %78
+.thread:                                          ; preds = %66, %.thread13, %_match_flag_bit.exit.thread8, %.thread6, %_match_flag_bit.exit.thread, %68, %75
+  %.0.in4 = phi ptr [ @.str.46, %68 ], [ @.str.45, %75 ], [ @.str.46, %_match_flag_bit.exit.thread ], [ @.str.46, %.thread6 ], [ @.str.46, %_match_flag_bit.exit.thread8 ], [ @.str.46, %.thread13 ], [ %spec.select, %66 ]
+  %79 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %80 = and i64 %79, 256
+  %.not = icmp eq i64 %80, 0
+  br i1 %.not, label %126, label %81
 
-78:                                               ; preds = %.thread
-  %79 = getelementptr inbounds i8, ptr %2, i64 48
-  %80 = load i64, ptr %79, align 8
-  switch i64 %80, label %92 [
-    i64 8, label %81
-    i64 4, label %83
-    i64 2, label %86
-    i64 1, label %89
+81:                                               ; preds = %.thread
+  %82 = getelementptr inbounds i8, ptr %2, i64 48
+  %83 = load i64, ptr %82, align 8
+  switch i64 %83, label %95 [
+    i64 8, label %84
+    i64 4, label %86
+    i64 2, label %89
+    i64 1, label %92
   ]
 
-81:                                               ; preds = %78
-  %82 = load i64, ptr %0, align 8
-  br label %93
+84:                                               ; preds = %81
+  %85 = load i64, ptr %0, align 8
+  br label %96
 
-83:                                               ; preds = %78
-  %84 = load i32, ptr %0, align 4
-  %85 = zext i32 %84 to i64
-  br label %93
+86:                                               ; preds = %81
+  %87 = load i32, ptr %0, align 4
+  %88 = zext i32 %87 to i64
+  br label %96
 
-86:                                               ; preds = %78
-  %87 = load i16, ptr %0, align 2
-  %88 = zext i16 %87 to i64
-  br label %93
+89:                                               ; preds = %81
+  %90 = load i16, ptr %0, align 2
+  %91 = zext i16 %90 to i64
+  br label %96
 
-89:                                               ; preds = %78
-  %90 = load i8, ptr %0, align 1
-  %91 = zext i8 %90 to i64
-  br label %93
+92:                                               ; preds = %81
+  %93 = load i8, ptr %0, align 1
+  %94 = zext i8 %93 to i64
+  br label %96
 
-92:                                               ; preds = %78
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.40, i64 noundef %80) #7
+95:                                               ; preds = %81
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.40, i64 noundef %83) #7
   unreachable
 
-93:                                               ; preds = %81, %86, %89, %83
-  %.056 = phi i64 [ %82, %81 ], [ %85, %83 ], [ %88, %86 ], [ %91, %89 ]
-  %94 = load i32, ptr %7, align 8
-  %95 = tail call i32 @get_log_level() #6
-  %96 = icmp sgt i32 %95, 3
-  br i1 %96, label %97, label %123
+96:                                               ; preds = %84, %89, %92, %86
+  %.056 = phi i64 [ %85, %84 ], [ %88, %86 ], [ %91, %89 ], [ %94, %92 ]
+  %97 = load i32, ptr %7, align 8
+  %98 = tail call i32 @get_log_level() #6
+  %99 = icmp sgt i32 %98, 3
+  br i1 %99, label %100, label %126
 
-97:                                               ; preds = %93
-  %switch.selectcmp61 = icmp eq i32 %94, 2
-  %switch.selectcmp = icmp eq i32 %94, 1
+100:                                              ; preds = %96
+  %switch.selectcmp61 = icmp eq i32 %97, 2
+  %switch.selectcmp = icmp eq i32 %97, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.42, ptr @.str.43
   %switch.select62 = select i1 %switch.selectcmp61, ptr @.str.41, ptr %switch.select
-  %98 = getelementptr inbounds i8, ptr %3, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %3, i64 40
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %3, i64 24
-  %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %3, i64 56
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %3, i64 48
-  %107 = load i64, ptr %106, align 8
-  %108 = and i64 %103, %.056
-  %109 = and i64 %108, %107
-  %110 = load i64, ptr %79, align 8
-  %111 = getelementptr inbounds i8, ptr %2, i64 32
-  %112 = load ptr, ptr %111, align 8
-  %113 = ptrtoint ptr %0 to i64
-  %114 = getelementptr inbounds i8, ptr %2, i64 104
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %2, i64 80
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %2, i64 16
-  %119 = load ptr, ptr %118, align 8
-  %120 = ptrtoint ptr %2 to i64
-  %121 = tail call ptr @data_get_type_string(ptr noundef %1) #6
-  %122 = ptrtoint ptr %1 to i64
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.44, ptr noundef nonnull @__func__._dump_flag_bit_array_flag, ptr noundef nonnull %.0.in4, ptr noundef %99, ptr noundef nonnull %switch.select62, ptr noundef %99, ptr noundef %101, i64 noundef %103, ptr noundef %105, i64 noundef %107, i64 noundef %.056, i64 noundef %109, i64 noundef %110, ptr noundef %112, i64 noundef %113, i64 noundef %115, ptr noundef %117, ptr noundef %119, i64 noundef %120, ptr noundef %121, i64 noundef %122) #6
-  br label %123
+  %101 = getelementptr inbounds i8, ptr %3, i64 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %3, i64 40
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds i8, ptr %3, i64 24
+  %106 = load i64, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %3, i64 56
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %3, i64 48
+  %110 = load i64, ptr %109, align 8
+  %111 = and i64 %106, %.056
+  %112 = and i64 %111, %110
+  %113 = load i64, ptr %82, align 8
+  %114 = getelementptr inbounds i8, ptr %2, i64 32
+  %115 = load ptr, ptr %114, align 8
+  %116 = ptrtoint ptr %0 to i64
+  %117 = getelementptr inbounds i8, ptr %2, i64 104
+  %118 = load i64, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %2, i64 80
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %2, i64 16
+  %122 = load ptr, ptr %121, align 8
+  %123 = ptrtoint ptr %2 to i64
+  %124 = tail call ptr @data_get_type_string(ptr noundef %1) #6
+  %125 = ptrtoint ptr %1 to i64
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.44, ptr noundef nonnull @__func__._dump_flag_bit_array_flag, ptr noundef nonnull %.0.in4, ptr noundef %102, ptr noundef nonnull %switch.select62, ptr noundef %102, ptr noundef %104, i64 noundef %106, ptr noundef %108, i64 noundef %110, i64 noundef %.056, i64 noundef %112, i64 noundef %113, ptr noundef %115, i64 noundef %116, i64 noundef %118, ptr noundef %120, ptr noundef %122, i64 noundef %123, ptr noundef %124, i64 noundef %125) #6
+  br label %126
 
-123:                                              ; preds = %97, %93, %.thread
+126:                                              ; preds = %100, %96, %.thread
   ret void
 }
 

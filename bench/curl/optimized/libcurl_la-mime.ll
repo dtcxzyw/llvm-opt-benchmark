@@ -614,7 +614,7 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
   br i1 %tobool16.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !6
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i, %while.cond.i.i
-  %cmp19.i.i = icmp eq ptr %root.0.i.i, %call.i62
+  %cmp19.i.i = icmp eq ptr %call.i62, %root.0.i.i
   br i1 %cmp19.i.i, label %if.then51, label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %while.end.i.i, %if.end8.i.i
@@ -1159,7 +1159,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   br i1 %tobool16.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !6
 
 while.end.i:                                      ; preds = %land.rhs.i, %while.cond.i
-  %cmp19.i = icmp eq ptr %root.0.i, %subparts
+  %cmp19.i = icmp eq ptr %subparts, %root.0.i
   br i1 %cmp19.i, label %Curl_mime_set_subparts.exit, label %if.end22.i
 
 if.end22.i:                                       ; preds = %while.end.i, %if.end8.i
@@ -1654,7 +1654,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %tobool16.not, label %while.end, label %while.cond, !llvm.loop !6
 
 while.end:                                        ; preds = %while.cond, %land.rhs
-  %cmp19 = icmp eq ptr %root.0, %subparts
+  %cmp19 = icmp eq ptr %subparts, %root.0
   br i1 %cmp19, label %return, label %if.end22
 
 if.end22:                                         ; preds = %while.end, %if.end8
@@ -1930,7 +1930,7 @@ if.else:                                          ; preds = %sw.bb12.if.else_cri
   %call18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #16
   %9 = load i64, ptr %offset.i83, align 8
   %call.i57 = tail call i64 @curlx_sotouz(i64 noundef %9) #15
-  %cmp.i58 = icmp ult i64 %call.i57, %call18
+  %cmp.i58 = icmp ugt i64 %call18, %call.i57
   br i1 %cmp.i58, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
@@ -3043,7 +3043,7 @@ if.end:                                           ; preds = %entry
   %bufend = getelementptr inbounds i8, ptr %part, i64 168
   %1 = load i64, ptr %bufend, align 8
   %sub = sub i64 %1, %0
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 %size)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %size, i64 %sub)
   %tobool4.not = icmp eq i64 %1, %0
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
@@ -3089,7 +3089,7 @@ if.end:                                           ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %if.end
   %sub = sub i64 %0, %1
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 %size)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %size, i64 %sub)
   %buf = getelementptr inbounds i8, ptr %part, i64 176
   %umax = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 1)
   br label %for.body
@@ -3402,7 +3402,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 sw.bb19:                                          ; preds = %while.body
   %add.i = add nuw i64 %3, 1
   %cmp.i = icmp uge i64 %add.i, %2
-  %or.cond.i = and i1 %cmp.i, %ateof
+  %or.cond.i = and i1 %ateof, %cmp.i
   br i1 %or.cond.i, label %sw.default, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb19
@@ -3438,7 +3438,7 @@ sw.default:                                       ; preds = %land.lhs.true11.i, 
 
 sw.bb24:                                          ; preds = %while.body
   %cmp.i40 = icmp uge i64 %3, %2
-  %or.cond.i41 = and i1 %cmp.i40, %ateof
+  %or.cond.i41 = and i1 %ateof, %cmp.i40
   br i1 %or.cond.i41, label %sw.bb29, label %if.end.i42
 
 if.end.i42:                                       ; preds = %sw.bb24
@@ -3489,7 +3489,7 @@ if.then:                                          ; preds = %sw.epilog36
 if.then48:                                        ; preds = %if.then
   %add.i64 = add i64 %3, %consumed.0
   %cmp.i66 = icmp uge i64 %add.i64, %2
-  %or.cond.i67 = and i1 %cmp.i66, %ateof
+  %or.cond.i67 = and i1 %ateof, %cmp.i66
   br i1 %or.cond.i67, label %if.end59, label %if.end.i68
 
 if.end.i68:                                       ; preds = %if.then48

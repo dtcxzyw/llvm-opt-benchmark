@@ -13514,7 +13514,7 @@ define hidden void @"_ZN8minicbor6encode7encoder16Encoder$LT$W$GT$8type_len17h45
 16:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   %17 = trunc nuw nsw i64 %3 to i8
-  %18 = or i8 %17, %2
+  %18 = or i8 %2, %17
   store i8 %18, ptr %12, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1908)
   call void @"_ZN76_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$minicbor..encode..write..Write$GT$9write_all17h5d106f95af0a7d71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef 1), !noalias !1908
@@ -13624,7 +13624,7 @@ define hidden void @"_ZN8minicbor6encode7encoder16Encoder$LT$W$GT$8type_len17h48
 16:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   %17 = trunc nuw nsw i64 %3 to i8
-  %18 = or i8 %17, %2
+  %18 = or i8 %2, %17
   store i8 %18, ptr %12, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1947)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1950)

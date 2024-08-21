@@ -66,7 +66,7 @@ if.end4:                                          ; preds = %if.end
 if.end10:                                         ; preds = %if.end4
   %Nsecret = getelementptr inbounds i8, ptr %call1, i64 32
   %1 = load i64, ptr %Nsecret, align 8
-  %cmp11 = icmp ugt i64 %1, %ikmlen
+  %cmp11 = icmp ult i64 %ikmlen, %1
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end10
@@ -456,7 +456,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %dhkem_decap.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.not.i = icmp eq i64 %2, %inlen
+  %cmp6.not.i = icmp eq i64 %inlen, %2
   br i1 %cmp6.not.i, label %if.end8.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i
@@ -1013,7 +1013,7 @@ entry:
   %conv = sext i32 %div to i64
   %conv2 = zext i32 %secretsz to i64
   %cmp.not = icmp ne i64 %conv, %conv2
-  %cmp4 = icmp ugt i64 %conv, %maxout
+  %cmp4 = icmp ult i64 %maxout, %conv
   %or.cond = or i1 %cmp.not, %cmp4
   br i1 %or.cond, label %if.then, label %if.end
 

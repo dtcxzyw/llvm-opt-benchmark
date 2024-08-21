@@ -447,7 +447,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__efc_remove_ent(ptr nocapture n
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @H5SL_remove(ptr noundef %3, ptr noundef %4) #4
-  %.not = icmp eq ptr %5, %1
+  %.not = icmp eq ptr %1, %5
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %2

@@ -219,7 +219,7 @@ if.end:                                           ; preds = %for.body.i
   %4 = load ptr, ptr %blob, align 8
   %len = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %len, align 8
-  %cmp = icmp ugt i32 %5, %start_offset
+  %cmp = icmp ult i32 %start_offset, %5
   br i1 %cmp, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end
@@ -342,7 +342,7 @@ if.end6:                                          ; preds = %bios_linker_find_fi
   %5 = load ptr, ptr %blob, align 8
   %len = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %len, align 8
-  %cmp = icmp ugt i32 %6, %dst_patched_offset
+  %cmp = icmp ult i32 %dst_patched_offset, %6
   br i1 %cmp, label %if.end9, label %if.else8
 
 if.else8:                                         ; preds = %if.end6
@@ -351,7 +351,7 @@ if.else8:                                         ; preds = %if.end6
 
 if.end9:                                          ; preds = %if.end6
   %conv = zext i8 %dst_patched_size to i32
-  %add = add i32 %conv, %dst_patched_offset
+  %add = add i32 %dst_patched_offset, %conv
   %cmp12.not = icmp ugt i32 %add, %6
   br i1 %cmp12.not, label %if.else15, label %if.end16
 
@@ -364,7 +364,7 @@ if.end16:                                         ; preds = %if.end9
   %7 = load ptr, ptr %blob17, align 8
   %len18 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %len18, align 8
-  %cmp19 = icmp ugt i32 %8, %src_offset
+  %cmp19 = icmp ult i32 %src_offset, %8
   br i1 %cmp19, label %if.end23, label %if.else22
 
 if.else22:                                        ; preds = %if.end16
@@ -448,7 +448,7 @@ if.end:                                           ; preds = %for.body.i
   %4 = load ptr, ptr %blob, align 8
   %len = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %len, align 8
-  %cmp = icmp ugt i32 %5, %src_offset
+  %cmp = icmp ult i32 %src_offset, %5
   br i1 %cmp, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end

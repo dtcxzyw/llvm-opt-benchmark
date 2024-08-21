@@ -378,7 +378,7 @@ _ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit11:  ; preds = %76, %"_ZN74_$LT$ran
   %.us-phi = phi i64 [ %73, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10.us" ], [ %102, %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit11 ]
   %104 = lshr i64 %.us-phi, 32
   %105 = trunc nuw i64 %104 to i32
-  %106 = add i32 %105, %0
+  %106 = add i32 %0, %105
   br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit
 
 _ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit:    ; preds = %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i", %13, %.split14.us
@@ -603,7 +603,7 @@ _ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E.exit10:  ; preds = %76, %"_ZN74_$LT$ran
   %.us-phi = phi i64 [ %73, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i9.us" ], [ %102, %_ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E.exit10 ]
   %104 = lshr i64 %.us-phi, 32
   %105 = trunc nuw i64 %104 to i32
-  %106 = add i32 %105, %0
+  %106 = add i32 %0, %105
   br label %_ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E.exit
 
 _ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E.exit:    ; preds = %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i", %13, %.split13.us

@@ -43,7 +43,7 @@ do.end:                                           ; preds = %entry
   %1 = load i64, ptr %this, align 8
   %mul = mul i64 %1, 7
   %div = udiv i64 %mul, 10
-  %cmp = icmp ugt i64 %div, %size
+  %cmp = icmp ult i64 %size, %div
   br i1 %cmp, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %do.end

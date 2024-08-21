@@ -1198,7 +1198,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hd061129
   %3 = getelementptr inbounds i8, ptr %0, i64 1760
   %4 = load i32, ptr %3, align 4, !alias.scope !187, !noundef !7
   %5 = zext i32 %4 to i64
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %8, %2

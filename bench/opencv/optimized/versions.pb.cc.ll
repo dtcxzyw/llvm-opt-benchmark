@@ -701,7 +701,7 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow10VersionDef18_InternalSeriali
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8
-  %.not.i = icmp ugt ptr %7, %1
+  %.not.i = icmp ult ptr %1, %7
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %8
 
 8:                                                ; preds = %6
@@ -763,7 +763,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 
 32:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit
   %33 = load ptr, ptr %2, align 8
-  %.not.i138 = icmp ugt ptr %33, %.0122
+  %.not.i138 = icmp ult ptr %.0122, %33
   br i1 %.not.i138, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit140, label %34
 
 34:                                               ; preds = %32
@@ -826,7 +826,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 59:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit146
   %60 = getelementptr inbounds i8, ptr %0, i64 16
   %61 = load ptr, ptr %2, align 8
-  %.not.i147 = icmp ugt ptr %61, %.1
+  %.not.i147 = icmp ult ptr %.1, %61
   br i1 %.not.i147, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit149, label %62
 
 62:                                               ; preds = %59
@@ -868,7 +868,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit149: ; preds = %
   %.0130 = phi ptr [ %71, %._crit_edge ], [ %79, %.loopexit ]
   %.0128 = phi ptr [ %70, %._crit_edge ], [ %.0125, %.loopexit ]
   %76 = load ptr, ptr %2, align 8
-  %.not.i150 = icmp ugt ptr %76, %.0128
+  %.not.i150 = icmp ult ptr %.0128, %76
   br i1 %.not.i150, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit152, label %77
 
 77:                                               ; preds = %75

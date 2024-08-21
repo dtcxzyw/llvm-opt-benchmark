@@ -1025,7 +1025,7 @@ if.end52:                                         ; preds = %while.body, %if.the
   %span.2.in = add nuw nsw i32 %span.2.in.in, 1
   %span.2 = zext nneg i32 %span.2.in to i64
   %add53 = add nuw nsw i64 %first.0340, %span.2
-  %cmp54.not.not = icmp sgt i64 %add53, %index
+  %cmp54.not.not = icmp slt i64 %index, %add53
   br i1 %cmp54.not.not, label %if.end65, label %if.end57
 
 if.end57:                                         ; preds = %if.end52
@@ -1079,13 +1079,13 @@ do.body138:                                       ; preds = %if.end132
 if.end146.thread:                                 ; preds = %if.end132, %if.else89
   %30 = trunc i64 %first.0340 to i32
   %conv149270 = add i32 %span.2.in.in, %30
-  %cmp154.not = icmp eq i64 %first.0340, %index
+  %cmp154.not = icmp eq i64 %index, %first.0340
   br i1 %cmp154.not, label %do.body179, label %if.then156
 
 if.end146:                                        ; preds = %if.end121
   %31 = trunc i64 %first.0340 to i32
   %conv149 = add i32 %span.2.in.in, %31
-  %cmp222.not = icmp eq i64 %first.0340, %index
+  %cmp222.not = icmp eq i64 %index, %first.0340
   br i1 %cmp222.not, label %do.body237, label %if.then224
 
 if.then156:                                       ; preds = %if.end146.thread
@@ -1121,7 +1121,7 @@ do.body179:                                       ; preds = %if.end146.thread, %
   store i8 %or184, ptr %n.0, align 1
   %incdec.ptr187 = getelementptr inbounds i8, ptr %n.0, i64 1
   %conv188 = sext i32 %conv149270 to i64
-  %cmp189.not = icmp eq i64 %conv188, %index
+  %cmp189.not = icmp eq i64 %index, %conv188
   br i1 %cmp189.not, label %if.end263, label %if.then191
 
 if.then191:                                       ; preds = %do.body179
@@ -1176,7 +1176,7 @@ do.body237:                                       ; preds = %if.end146, %if.then
   store i8 %or242, ptr %n.2, align 1
   %incdec.ptr245 = getelementptr inbounds i8, ptr %n.2, i64 1
   %conv246 = sext i32 %conv149 to i64
-  %cmp247.not = icmp eq i64 %conv246, %index
+  %cmp247.not = icmp eq i64 %index, %conv246
   br i1 %cmp247.not, label %if.end263.thread, label %if.then249
 
 if.then249:                                       ; preds = %do.body237

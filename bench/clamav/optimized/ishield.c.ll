@@ -144,7 +144,7 @@ define i32 @cli_scanishield_msi(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %.0105202 = phi i64 [ %69, %77 ], [ %.0105.ph, %.outer ]
   %55 = add i32 %.in, -1
   %56 = load i64, ptr %34, align 8
-  %or.cond168.not = icmp ugt i64 %56, %.0105202
+  %or.cond168.not = icmp ult i64 %.0105202, %56
   br i1 %or.cond168.not, label %57, label %fmap_readn.exit.thread
 
 57:                                               ; preds = %.lr.ph
@@ -283,16 +283,16 @@ fmap_readn.exit.thread:                           ; preds = %57, %.lr.ph, %fmap_
   %113 = trunc nuw nsw i64 %112 to i32
   store i32 %113, ptr %50, align 8
   %114 = load i64, ptr %34, align 8
-  %.not172 = icmp eq i64 %114, %.1211
+  %.not172 = icmp eq i64 %.1211, %114
   br i1 %.not172, label %fmap_readn.exit163, label %115
 
 115:                                              ; preds = %.lr.ph213
-  %116 = icmp ult i64 %114, %.1211
+  %116 = icmp ugt i64 %.1211, %114
   br i1 %116, label %fmap_readn.exit163.thread, label %117
 
 117:                                              ; preds = %115
   %118 = sub nuw i64 %114, %.1211
-  %spec.select.i161 = call i64 @llvm.umin.i64(i64 %118, i64 %112)
+  %spec.select.i161 = call i64 @llvm.umin.i64(i64 %112, i64 %118)
   %119 = load ptr, ptr %9, align 8
   %120 = call ptr %119(ptr noundef nonnull %8, i64 noundef %.1211, i64 noundef %spec.select.i161, i32 noundef 0) #13
   %.not.i162 = icmp eq ptr %120, null

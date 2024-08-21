@@ -5144,27 +5144,27 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
 
 10:                                               ; preds = %6
   %11 = load i32, ptr @hf_camel_calledAddressValue, align 4
-  %12 = icmp eq i32 %11, %5
+  %12 = icmp eq i32 %5, %11
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %10
   %14 = load i32, ptr @hf_camel_callingAddressValue, align 4
-  %15 = icmp eq i32 %14, %5
+  %15 = icmp eq i32 %5, %14
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %13
   %17 = load i32, ptr @hf_camel_additionalCallingPartyNumber, align 4
-  %18 = icmp eq i32 %17, %5
+  %18 = icmp eq i32 %5, %17
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %16
   %20 = load i32, ptr @hf_camel_assistingSSPIPRoutingAddress, align 4
-  %21 = icmp eq i32 %20, %5
+  %21 = icmp eq i32 %5, %20
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %19
   %23 = load i32, ptr @hf_camel_correlationID, align 4
-  %24 = icmp eq i32 %23, %5
+  %24 = icmp eq i32 %5, %23
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %22
@@ -5178,17 +5178,17 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
 
 32:                                               ; preds = %22
   %33 = load i32, ptr @hf_camel_dTMFDigitsCompleted, align 4
-  %34 = icmp eq i32 %33, %5
+  %34 = icmp eq i32 %5, %33
   br i1 %34, label %.thread31, label %35
 
 35:                                               ; preds = %32
   %36 = load i32, ptr @hf_camel_dTMFDigitsTimeOut, align 4
-  %37 = icmp eq i32 %36, %5
+  %37 = icmp eq i32 %5, %36
   br i1 %37, label %.thread31, label %38
 
 38:                                               ; preds = %35
   %39 = load i32, ptr @hf_camel_number, align 4
-  %40 = icmp eq i32 %39, %5
+  %40 = icmp eq i32 %5, %39
   br i1 %40, label %.thread31, label %47
 
 .thread:                                          ; preds = %19, %16, %13, %10
@@ -5209,7 +5209,7 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
 
 47:                                               ; preds = %38
   %48 = load i32, ptr @hf_camel_digitsResponse, align 4
-  %49 = icmp eq i32 %48, %5
+  %49 = icmp eq i32 %5, %48
   %50 = load i32, ptr @ett_camel_digitsResponse, align 4
   %spec.select = select i1 %49, i32 %50, i32 -1
   %51 = getelementptr inbounds i8, ptr %3, i64 24

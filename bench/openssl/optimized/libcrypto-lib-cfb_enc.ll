@@ -46,7 +46,7 @@ if.end:                                           ; preds = %entry
   %or27 = or disjoint i32 %or23, %shl26
   %tobool.not = icmp eq i32 %enc, 0
   %conv158 = zext nneg i32 %div1 to i64
-  %cmp159.not182 = icmp ugt i64 %conv158, %length
+  %cmp159.not182 = icmp ult i64 %length, %conv158
   br i1 %tobool.not, label %while.cond157.preheader, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end

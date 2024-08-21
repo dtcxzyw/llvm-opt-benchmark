@@ -875,7 +875,7 @@ entry:
   %add = add i64 %0, 1
   %occupancy_limit_.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load i64, ptr %occupancy_limit_.i, align 16
-  %cmp.i.not = icmp ult i64 %1, %add
+  %cmp.i.not = icmp ugt i64 %add, %1
   %total_charge.i = getelementptr inbounds i8, ptr %proto, i64 32
   %2 = load i64, ptr %total_charge.i, align 8
   %tobool.not = icmp sgt i32 %eec_and_scl, -1
@@ -911,7 +911,7 @@ if.else:                                          ; preds = %entry
   %6 = load atomic i64, ptr %usage_.i monotonic, align 8
   %add.i = add i64 %6, %2
   %cmp.not.i = icmp ule i64 %add.i, %capacity
-  %cmp2.i = icmp ult i64 %6, %2
+  %cmp2.i = icmp ugt i64 %2, %6
   %or.cond11.i = or i1 %cmp2.i, %cmp.not.i
   br i1 %or.cond11.i, label %if.end8.i, label %if.else.i
 
@@ -921,7 +921,7 @@ if.else.i:                                        ; preds = %if.else
 
 if.then4.i:                                       ; preds = %if.else.i
   %div10.i = lshr i64 %capacity, 10
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %div10.i, i64 %2)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %div10.i)
   %add6.i = add i64 %2, 1
   %add7.i = add i64 %add6.i, %.sroa.speculated.i
   br label %if.end8.i
@@ -1105,7 +1105,7 @@ invoke.cont:                                      ; preds = %entry
   call void @_ZN7rocksdb11clock_cache14BaseClockTable27ChargeUsageMaybeEvictStrictINS0_20FixedHyperClockTableEEENS_6StatusEmmbjRNT_11InsertStateE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 64 dereferenceable(160) %this, i64 noundef %0, i64 noundef %capacity, i1 noundef zeroext false, i32 noundef %eec_and_scl, ptr noundef nonnull align 1 dereferenceable(1) %state)
   %1 = load i8, ptr %s, align 8
   %cmp.i = icmp ne i8 %1, 0
-  %brmerge.not = and i1 %cmp.i, %allow_uncharged
+  %brmerge.not = and i1 %allow_uncharged, %cmp.i
   br i1 %brmerge.not, label %if.then5, label %cleanup
 
 if.then5:                                         ; preds = %invoke.cont
@@ -1133,7 +1133,7 @@ if.else8:                                         ; preds = %entry
   %3 = load atomic i64, ptr %usage_.i monotonic, align 8
   %add.i = add i64 %3, %0
   %cmp.not.i = icmp ule i64 %add.i, %capacity
-  %cmp2.i = icmp ult i64 %3, %0
+  %cmp2.i = icmp ugt i64 %0, %3
   %or.cond11.i = or i1 %cmp2.i, %cmp.not.i
   br i1 %or.cond11.i, label %_ZN7rocksdb11clock_cache14BaseClockTable30ChargeUsageMaybeEvictNonStrictINS0_20FixedHyperClockTableEEEbmmbjRNT_11InsertStateE.exit, label %if.else.i
 
@@ -1143,7 +1143,7 @@ if.else.i:                                        ; preds = %if.else8
 
 if.then4.i:                                       ; preds = %if.else.i
   %div10.i = lshr i64 %capacity, 10
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %div10.i, i64 %0)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %div10.i)
   %add6.i = add i64 %0, 1
   %add7.i = add i64 %add6.i, %.sroa.speculated.i
   br label %if.end8.i
@@ -2508,7 +2508,7 @@ entry:
 
 while.cond.i:                                     ; preds = %while.body.i, %entry
   %2 = load atomic i64, ptr %occupancy_limit_.i monotonic, align 8
-  %cmp.not.i.not = icmp ult i64 %2, %add
+  %cmp.not.i.not = icmp ugt i64 %add, %2
   br i1 %cmp.not.i.not, label %while.body.i, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable12GrowIfNeededEmRNS1_11InsertStateE.exit
 
 while.body.i:                                     ; preds = %while.cond.i
@@ -2551,7 +2551,7 @@ if.else:                                          ; preds = %_ZN7rocksdb11clock_
   %7 = load atomic i64, ptr %usage_.i monotonic, align 8
   %add.i = add i64 %7, %3
   %cmp.not.i24 = icmp ule i64 %add.i, %capacity
-  %cmp2.i = icmp ult i64 %7, %3
+  %cmp2.i = icmp ugt i64 %3, %7
   %or.cond11.i = or i1 %cmp2.i, %cmp.not.i24
   br i1 %or.cond11.i, label %if.end8.i, label %if.else.i
 
@@ -2561,7 +2561,7 @@ if.else.i:                                        ; preds = %if.else
 
 if.then4.i:                                       ; preds = %if.else.i
   %div10.i = lshr i64 %capacity, 10
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %div10.i, i64 %3)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %div10.i)
   %add6.i = add i64 %3, 1
   %add7.i = add i64 %add6.i, %.sroa.speculated.i
   br label %if.end8.i
@@ -2749,7 +2749,7 @@ invoke.cont:                                      ; preds = %entry
   call void @_ZN7rocksdb11clock_cache14BaseClockTable27ChargeUsageMaybeEvictStrictINS0_19AutoHyperClockTableEEENS_6StatusEmmbjRNT_11InsertStateE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 64 dereferenceable(160) %this, i64 noundef %1, i64 noundef %capacity, i1 noundef zeroext false, i32 noundef %eec_and_scl, ptr noundef nonnull align 8 dereferenceable(16) %state)
   %2 = load i8, ptr %s, align 8
   %cmp.i = icmp ne i8 %2, 0
-  %brmerge.not = and i1 %cmp.i, %allow_uncharged
+  %brmerge.not = and i1 %allow_uncharged, %cmp.i
   br i1 %brmerge.not, label %if.then5, label %cleanup
 
 if.then5:                                         ; preds = %invoke.cont
@@ -2777,7 +2777,7 @@ if.else8:                                         ; preds = %entry
   %4 = load atomic i64, ptr %usage_.i monotonic, align 8
   %add.i = add i64 %4, %1
   %cmp.not.i = icmp ule i64 %add.i, %capacity
-  %cmp2.i = icmp ult i64 %4, %1
+  %cmp2.i = icmp ugt i64 %1, %4
   %or.cond11.i = or i1 %cmp2.i, %cmp.not.i
   br i1 %or.cond11.i, label %_ZN7rocksdb11clock_cache14BaseClockTable30ChargeUsageMaybeEvictNonStrictINS0_19AutoHyperClockTableEEEbmmbjRNT_11InsertStateE.exit, label %if.else.i
 
@@ -2787,7 +2787,7 @@ if.else.i:                                        ; preds = %if.else8
 
 if.then4.i:                                       ; preds = %if.else.i
   %div10.i = lshr i64 %capacity, 10
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %div10.i, i64 %1)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %div10.i)
   %add6.i = add i64 %1, 1
   %add7.i = add i64 %add6.i, %.sroa.speculated.i
   br label %if.end8.i
@@ -3008,7 +3008,7 @@ land.lhs.true14.i:                                ; preds = %if.else.i
   %17 = load i64, ptr %arrayidx.i.i.i, align 8
   %conv.i.i58 = and i64 %10, 63
   %18 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %17, i64 %conv.i.i58)
-  %cmp18.i = icmp eq i64 %18, %effective_home.0
+  %cmp18.i = icmp eq i64 %effective_home.0, %18
   br i1 %cmp18.i, label %if.else76, label %for.inc96.sink.split
 
 if.then67:                                        ; preds = %if.end2.i
@@ -3112,7 +3112,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
   %old_meta.0 = phi i64 [ %2, %if.else ], [ %0, %if.then ], [ %0, %if.then.i ]
   %shr.mask = and i64 %old_meta.0, -2305843009213693952
   %cmp = icmp eq i64 %shr.mask, -4611686018427387904
-  %or.cond = or i1 %cmp, %erase_if_last_ref
+  %or.cond = or i1 %erase_if_last_ref, %cmp
   br i1 %or.cond, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end
@@ -4223,7 +4223,7 @@ define noundef zeroext i1 @_ZN7rocksdb11clock_cache20FixedHyperClockTable12GrowI
 entry:
   %occupancy_limit_ = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load i64, ptr %occupancy_limit_, align 16
-  %cmp = icmp uge i64 %1, %new_occupancy
+  %cmp = icmp ule i64 %new_occupancy, %1
   ret i1 %cmp
 }
 
@@ -4282,9 +4282,9 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
 "_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_0clEPNS1_10HandleImplE.exit.i": ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %.neg = sext i1 %keep_ref to i64
-  %sub.i.i.i.i = add i64 %.neg, %initial_countdown
+  %sub.i.i.i.i = add i64 %initial_countdown, %.neg
   %shl1.i.i.i.i = shl i64 %sub.i.i.i.i, 30
-  %or.i.i.i.i = or i64 %shl1.i.i.i.i, %initial_countdown
+  %or.i.i.i.i = or i64 %initial_countdown, %shl1.i.i.i.i
   %or2.i.i.i.i = or i64 %or.i.i.i.i, -2305843009213693952
   store atomic i64 %or2.i.i.i.i, ptr %meta.i.i.i.i release, align 8
   br label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.exit"
@@ -4811,7 +4811,7 @@ invoke.cont22:
   call void @_ZN7rocksdb10MemMappingC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %array_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #24
   call void @_ZN7rocksdb10MemMappingD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #24
   %length_info_ = getelementptr inbounds i8, ptr %this, i64 176
-  %cmp.i18 = icmp ult i64 %1, %capacity
+  %cmp.i18 = icmp ugt i64 %capacity, %1
   %retval.0.i = select i1 %cmp.i18, i64 %div44.i, i64 4
   %3 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %retval.0.i, i1 true)
   %sub.i.i = xor i64 %3, 63
@@ -5025,7 +5025,7 @@ entry:
 
 while.cond:                                       ; preds = %while.body, %entry
   %0 = load atomic i64, ptr %occupancy_limit_ monotonic, align 8
-  %cmp.not = icmp uge i64 %0, %new_occupancy
+  %cmp.not = icmp ule i64 %new_occupancy, %0
   br i1 %cmp.not, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond
@@ -5747,7 +5747,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERN
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %sub.i.i = shl i64 %initial_countdown, 30
   %shl1.i.i = add i64 %sub.i.i, 2305843008139952128
-  %or.i.i = or i64 %shl1.i.i, %initial_countdown
+  %or.i.i = or i64 %initial_countdown, %shl1.i.i
   %or2.i.i = or i64 %or.i.i, -2305843009213693952
   store atomic i64 %or2.i.i, ptr %meta.i.i release, align 8
   br label %if.end70
@@ -5813,7 +5813,7 @@ if.then11:                                        ; preds = %_ZN7rocksdb11clock_
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx9, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %sub.i.i77 = shl i64 %initial_countdown, 30
   %shl1.i.i78 = add i64 %sub.i.i77, 2305843008139952128
-  %or.i.i79 = or i64 %shl1.i.i78, %initial_countdown
+  %or.i.i79 = or i64 %initial_countdown, %shl1.i.i78
   %or2.i.i80 = or i64 %or.i.i79, -2305843009213693952
   store atomic i64 %or2.i.i80, ptr %meta.i.i71 release, align 8
   %18 = load i64, ptr %likely_empty_slot, align 8
@@ -5865,7 +5865,7 @@ for.end.thread:                                   ; preds = %_ZN7rocksdb11clock_
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx17, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %sub.i.i103 = shl i64 %initial_countdown, 30
   %shl1.i.i104 = add i64 %sub.i.i103, 2305843008139952128
-  %or.i.i105 = or i64 %shl1.i.i104, %initial_countdown
+  %or.i.i105 = or i64 %initial_countdown, %shl1.i.i104
   %or2.i.i106 = or i64 %or.i.i105, -2305843009213693952
   store atomic i64 %or2.i.i106, ptr %meta.i.i97 release, align 8
   br label %if.end70
@@ -5975,7 +5975,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERN
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx57, ptr noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %sub.i.i135 = shl i64 %initial_countdown, 30
   %shl1.i.i136 = add i64 %sub.i.i135, 2305843008139952128
-  %or.i.i137 = or i64 %shl1.i.i136, %initial_countdown
+  %or.i.i137 = or i64 %initial_countdown, %shl1.i.i136
   %or2.i.i138 = or i64 %or.i.i137, -2305843009213693952
   store atomic i64 %or2.i.i138, ptr %meta.i.i129 release, align 8
   br label %if.end70
@@ -10939,7 +10939,7 @@ do.end:                                           ; preds = %_ZN7rocksdb13Relaxe
   %.sroa.speculated.lcssa = phi i64 [ %5, %if.end ], [ %.sroa.speculated50.lcssa, %do.cond.do.end.loopexit_crit_edge ], [ %11, %_ZN7rocksdb13RelaxedAtomicImE14CasWeakRelaxedERmm.exit ]
   %sub = sub i64 %add28.pre-phi, %.sroa.speculated.lcssa
   %cmp29 = icmp ule i64 %add.lcssa, %capacity
-  %or.cond = and i1 %cmp29, %need_evict_for_occupancy
+  %or.cond = and i1 %need_evict_for_occupancy, %cmp29
   %spec.store.select = select i1 %or.cond, i64 1, i64 %sub
   %cmp32.not = icmp eq i64 %spec.store.select, 0
   br i1 %cmp32.not, label %if.end63, label %if.then33
@@ -11538,7 +11538,7 @@ do.end:                                           ; preds = %_ZN7rocksdb13Relaxe
   %.sroa.speculated.lcssa = phi i64 [ %5, %if.end ], [ %.sroa.speculated50.lcssa, %do.cond.do.end.loopexit_crit_edge ], [ %11, %_ZN7rocksdb13RelaxedAtomicImE14CasWeakRelaxedERmm.exit ]
   %sub = sub i64 %add28.pre-phi, %.sroa.speculated.lcssa
   %cmp29 = icmp ule i64 %add.lcssa, %capacity
-  %or.cond = and i1 %cmp29, %need_evict_for_occupancy
+  %or.cond = and i1 %need_evict_for_occupancy, %cmp29
   %spec.store.select = select i1 %or.cond, i64 1, i64 %sub
   %cmp32.not = icmp eq i64 %spec.store.select, 0
   br i1 %cmp32.not, label %if.end63, label %if.then33
@@ -12262,7 +12262,7 @@ while.body.us:                                    ; preds = %if.end, %_ZSt13__ad
   %__parent.0.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %div1617, %if.end ]
   %phi.call.us = getelementptr inbounds double, ptr %__first.coerce, i64 %__parent.0.us
   %1 = load double, ptr %phi.call.us, align 8
-  %cmp28.i.us = icmp sgt i64 %div.i2123, %__parent.0.us
+  %cmp28.i.us = icmp slt i64 %__parent.0.us, %div.i2123
   br i1 %cmp28.i.us, label %while.body.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 while.body.i.us:                                  ; preds = %while.body.us, %while.body.i.us
@@ -12314,7 +12314,7 @@ while.body:                                       ; preds = %while.body.preheade
   %__parent.0 = phi i64 [ %dec, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %div1617, %while.body.preheader ]
   %phi.call = getelementptr inbounds double, ptr %__first.coerce, i64 %__parent.0
   %6 = load double, ptr %phi.call, align 8
-  %cmp28.i = icmp sgt i64 %div.i2123, %__parent.0
+  %cmp28.i = icmp slt i64 %__parent.0, %div.i2123
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %while.body.i
@@ -12628,7 +12628,7 @@ land.lhs.true14.i.i.i.i.i:                        ; preds = %if.end2.i.i.i.i.i
   %arrayidx.i.i.i.i14.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 24
   %23 = load i64, ptr %arrayidx.i.i.i.i14.i.i.i, align 8
   %24 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %23, i64 %conv.i.i6.i.i.i.i)
-  %cmp18.i.i.i.i.i = icmp eq i64 %24, %21
+  %cmp18.i.i.i.i.i = icmp eq i64 %21, %24
   br label %return.sink.split.i.i.i.i
 
 return.sink.split.i.i.i.i:                        ; preds = %land.lhs.true14.i.i.i.i.i, %if.end2.i.i.i.i.i

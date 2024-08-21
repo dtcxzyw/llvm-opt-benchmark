@@ -1143,7 +1143,7 @@ if.then32:                                        ; preds = %if.end27
 
 if.end43:                                         ; preds = %if.then32, %if.end27
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp44.not = icmp sgt i32 %16, %level
+  %cmp44.not = icmp slt i32 %level, %16
   %and47 = and i32 %level, 255
   %cmp48 = icmp slt i32 %and47, %16
   %or.cond33 = or i1 %cmp44.not, %cmp48
@@ -10948,7 +10948,7 @@ declare i32 @getLongLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef,
 define dso_local ptr @sentinelVoteLeader(ptr noundef %master, i64 noundef %req_epoch, ptr noundef %req_runid, ptr nocapture noundef writeonly %leader_epoch) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @sentinel, i64 48), align 8
-  %cmp = icmp ult i64 %0, %req_epoch
+  %cmp = icmp ugt i64 %req_epoch, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

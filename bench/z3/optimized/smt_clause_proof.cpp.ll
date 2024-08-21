@@ -2369,7 +2369,7 @@ _ZN3smt12clause_proof19justification2proofENS0_6statusEPNS_13justificationE.exit
 
 for.cond11.preheader:                             ; preds = %_ZN3smt12clause_proof19justification2proofENS0_6statusEPNS_13justificationE.exit
   %30 = load i32, ptr %c, align 4
-  %cmp1480 = icmp ugt i32 %30, %new_size
+  %cmp1480 = icmp ult i32 %new_size, %30
   br i1 %cmp1480, label %for.body15.lr.ph, label %for.end29
 
 for.body15.lr.ph:                                 ; preds = %for.cond11.preheader
@@ -5011,7 +5011,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 if.else:                                          ; preds = %entry
   %.b = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
   %6 = zext i1 %.b to i32
-  %cmp.i4 = icmp eq i32 %6, %l.coerce
+  %cmp.i4 = icmp eq i32 %l.coerce, %6
   br i1 %cmp.i4, label %if.then5, label %if.else9
 
 if.then5:                                         ; preds = %if.else

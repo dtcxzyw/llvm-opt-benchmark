@@ -1296,7 +1296,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.not.i, label %invoke.cont4, label %while.body.i, !llvm.loop !12
 
 invoke.cont4:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i, %__x.09.i
+  %cmp2.i.i = icmp eq ptr %__x.09.i, %add.ptr.i.i
   br i1 %cmp2.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3zmq6pipe_tEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_Auto_nodeD2Ev.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %invoke.cont4

@@ -1486,7 +1486,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genlmsg_multicast_allns(ptr noca
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i8, ptr %6, align 8
   %8 = zext i8 %7 to i32
-  %9 = icmp ugt i32 %8, %3
+  %9 = icmp ult i32 %3, %8
   br i1 %9, label %11, label %10, !prof !27
 
 10:                                               ; preds = %5
@@ -1575,7 +1575,7 @@ define dso_local void @genl_notify(ptr nocapture noundef readonly %0, ptr nounde
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load i8, ptr %10, align 8
   %12 = zext i8 %11 to i32
-  %13 = icmp ugt i32 %12, %3
+  %13 = icmp ult i32 %3, %12
   br i1 %13, label %15, label %14, !prof !27
 
 14:                                               ; preds = %5
@@ -3164,7 +3164,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0
   %17 = getelementptr %struct.genl_ops, ptr %10, i64 %16, i32 6
   %18 = load i8, ptr %17, align 4
   %19 = zext i8 %18 to i32
-  %20 = icmp eq i32 %19, %0
+  %20 = icmp eq i32 %0, %19
   br i1 %20, label %21, label %12
 
 21:                                               ; preds = %15
@@ -3227,7 +3227,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0
   %63 = getelementptr %struct.genl_small_ops, ptr %56, i64 %62, i32 2
   %64 = load i8, ptr %63, align 8
   %65 = zext i8 %64 to i32
-  %66 = icmp eq i32 %65, %0
+  %66 = icmp eq i32 %0, %65
   br i1 %66, label %67, label %58
 
 67:                                               ; preds = %61
@@ -3354,7 +3354,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0
   %132 = getelementptr inbounds i8, ptr %131, i64 36
   %133 = load i8, ptr %132, align 4
   %134 = zext i8 %133 to i32
-  %135 = icmp eq i32 %134, %0
+  %135 = icmp eq i32 %0, %134
   br i1 %135, label %136, label %141
 
 136:                                              ; preds = %129
@@ -4304,7 +4304,7 @@ define internal fastcc ptr @genl_family_rcv_msg_attrs_parse(ptr noundef %0, ptr 
   %6 = getelementptr inbounds i8, ptr %2, i64 39
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
-  %9 = and i32 %8, %4
+  %9 = and i32 %4, %8
   %10 = icmp eq i32 %9, 0
   %11 = select i1 %10, i32 31, i32 0
   %12 = getelementptr inbounds i8, ptr %2, i64 32

@@ -2187,7 +2187,7 @@ _ZN15InteractionListD2Ev.exit.i:                  ; preds = %208, %207
   %222 = ashr exact i64 %221, 2
   %223 = add nsw i64 %222, 1
   %.reass.i = add nsw i64 %222, %invariant.op.i
-  %224 = icmp ult i64 %222, %.reass.i
+  %224 = icmp ugt i64 %.reass.i, %222
   br i1 %224, label %225, label %250
 
 225:                                              ; preds = %._crit_edge83.i
@@ -2270,7 +2270,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i.i: ; preds = %247, %_ZNS
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 250:                                              ; preds = %._crit_edge83.i
-  %251 = icmp ugt i64 %222, %.reass.i
+  %251 = icmp ult i64 %.reass.i, %222
   %252 = getelementptr inbounds i32, ptr %.sroa.0.084.i, i64 %.reass.i
   %spec.select.i = select i1 %251, ptr %252, ptr %.sroa.11.085.i
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
@@ -2720,7 +2720,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i129: ; preds = %409
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %418, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i129
   %421 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i129 ], [ %420, %418 ]
-  %.not.i.i.i.i.i.i.i.i.i63.i.i = icmp eq ptr %329, %scevgep.i.i200
+  %.not.i.i.i.i.i.i.i.i.i63.i.i = icmp eq ptr %scevgep.i.i200, %329
   br i1 %.not.i.i.i.i.i.i.i.i.i63.i.i, label %423, label %422
 
 422:                                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
@@ -3611,7 +3611,7 @@ _ZSt10_ConstructI13gmx_moltype_tJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #21
-  %.not4.i.i.i.i.i = icmp eq ptr %.014.i.i.i, %5
+  %.not4.i.i.i.i.i = icmp eq ptr %5, %.014.i.i.i
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIP13gmx_moltype_tEvT_S2_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %21, %.lr.ph.i.i.i.i.i
@@ -3683,7 +3683,7 @@ _ZSt10_ConstructI13gmx_moltype_tJEEvPT_DpOT0_.exit.i.i.i48: ; preds = %.lr.ph.i.
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = tail call ptr @__cxa_begin_catch(ptr %44) #21
-  %.not4.i.i.i.i.i43 = icmp eq ptr %.014.i.i.i41, %39
+  %.not4.i.i.i.i.i43 = icmp eq ptr %39, %.014.i.i.i41
   br i1 %.not4.i.i.i.i.i43, label %_ZSt8_DestroyIP13gmx_moltype_tEvT_S2_.exit.i.i.i47, label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %42, %.lr.ph.i.i.i.i.i44
@@ -3739,7 +3739,7 @@ _ZSt10_ConstructI13gmx_moltype_tJRKS0_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.l
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
   %60 = tail call ptr @__cxa_begin_catch(ptr %59) #21
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %38
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %38, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIP13gmx_moltype_tEvT_S2_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %57, %.lr.ph.i.i.i.i.i.i.i

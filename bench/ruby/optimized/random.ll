@@ -355,7 +355,7 @@ define dso_local i64 @rb_genrand_ulong_limited(i64 noundef %0) local_unnamed_add
   %24 = shl nuw i64 %23, %18
   %25 = or i64 %24, %.02332.i
   %26 = and i64 %25, %15
-  %27 = icmp ugt i64 %26, %0
+  %27 = icmp ult i64 %0, %26
   br i1 %27, label %.loopexit28.i.backedge, label %28
 
 28:                                               ; preds = %21, %.loopexit28.i
@@ -373,7 +373,7 @@ define dso_local i64 @rb_genrand_ulong_limited(i64 noundef %0) local_unnamed_add
   %29 = tail call fastcc i32 @genrand_int32(ptr noundef nonnull %17)
   %30 = zext i32 %29 to i64
   %31 = and i64 %15, %30
-  %32 = icmp ugt i64 %31, %0
+  %32 = icmp ult i64 %0, %31
   br i1 %32, label %.preheader29.i, label %limited_rand.exit, !llvm.loop !13
 
 limited_rand.exit:                                ; preds = %.preheader29.i, %28, %1
@@ -407,7 +407,7 @@ define dso_local i32 @rb_random_int32(i64 noundef %0) local_unnamed_addr #0 {
 
 default_rand.exit.i:                              ; preds = %11, %7
   %.0.i.i = phi ptr [ %12, %11 ], [ %9, %7 ]
-  %14 = icmp eq ptr %.0.i.i, %3
+  %14 = icmp eq ptr %3, %.0.i.i
   br i1 %14, label %try_rand_if.exit, label %15
 
 15:                                               ; preds = %default_rand.exit.i
@@ -435,7 +435,7 @@ define internal fastcc ptr @try_get_rnd(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [5 x i32], align 16
   %3 = alloca [5 x i32], align 16
   %4 = load i64, ptr @rb_cRandom, align 8
-  %5 = icmp eq i64 %4, %0
+  %5 = icmp eq i64 %0, %4
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %1
@@ -692,7 +692,7 @@ define dso_local double @rb_random_real(i64 noundef %0) local_unnamed_addr #0 {
 
 default_rand.exit.i.i:                            ; preds = %18, %14
   %.0.i.i.i = phi ptr [ %19, %18 ], [ %16, %14 ]
-  %21 = icmp eq ptr %.0.i.i.i, %2
+  %21 = icmp eq ptr %2, %.0.i.i.i
   br i1 %21, label %try_rand_if.exit.i, label %22
 
 22:                                               ; preds = %default_rand.exit.i.i
@@ -768,7 +768,7 @@ define internal fastcc double @random_real(i64 noundef %0, ptr noundef %1, i32 n
 
 default_rand.exit.i:                              ; preds = %14, %10
   %.0.i.i = phi ptr [ %15, %14 ], [ %12, %10 ]
-  %17 = icmp eq ptr %.0.i.i, %1
+  %17 = icmp eq ptr %1, %.0.i.i
   br i1 %17, label %try_rand_if.exit, label %18
 
 18:                                               ; preds = %default_rand.exit.i
@@ -906,7 +906,7 @@ rb_num2ulong_inline.exit:                         ; preds = %17, %19
 
 default_rand.exit.i:                              ; preds = %32, %28
   %.0.i.i18 = phi ptr [ %33, %32 ], [ %30, %28 ]
-  %35 = icmp eq ptr %.0.i.i18, %4
+  %35 = icmp eq ptr %4, %.0.i.i18
   br i1 %35, label %try_rand_if.exit, label %36
 
 36:                                               ; preds = %default_rand.exit.i
@@ -955,7 +955,7 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
   %64 = shl nuw i64 %63, %57
   %65 = or i64 %64, %.02332.i
   %66 = and i64 %65, %54
-  %67 = icmp ugt i64 %66, %1
+  %67 = icmp ult i64 %1, %66
   br i1 %67, label %.loopexit28.i.backedge, label %68
 
 68:                                               ; preds = %60, %.loopexit28.i
@@ -974,7 +974,7 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
   %70 = tail call i32 %69(ptr noundef nonnull %4) #22
   %71 = zext i32 %70 to i64
   %72 = and i64 %54, %71
-  %73 = icmp ugt i64 %72, %1
+  %73 = icmp ult i64 %1, %72
   br i1 %73, label %.preheader29.i, label %limited_rand.exit, !llvm.loop !13
 
 limited_rand.exit:                                ; preds = %.preheader29.i, %68, %try_rand_if.exit, %24
@@ -1066,7 +1066,7 @@ define dso_local i64 @rb_random_bytes(i64 noundef %0, i64 noundef %1) local_unna
 
 default_rand.exit.i:                              ; preds = %10, %6
   %.0.i.i = phi ptr [ %11, %10 ], [ %8, %6 ]
-  %13 = icmp eq ptr %.0.i.i, %3
+  %13 = icmp eq ptr %3, %.0.i.i
   br i1 %13, label %try_rand_if.exit, label %14
 
 14:                                               ; preds = %default_rand.exit.i
@@ -1128,7 +1128,7 @@ define hidden i64 @ruby_sip_hash13(ptr nocapture noundef readonly %0, ptr nounde
   %24 = xor i64 %22, 7237128888997146477
   %25 = xor i64 %14, 7816392313619706465
   %26 = xor i64 %22, 8387220255154660723
-  %.not208 = icmp eq ptr %7, %1
+  %.not208 = icmp eq ptr %1, %7
   br i1 %.not208, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -3939,7 +3939,7 @@ define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1,
   %24 = lshr i64 %.128.us, %narrow
   %25 = lshr i64 %.1.us, %narrow
   %26 = and i64 %.128.us, %11
-  %27 = icmp ugt i64 %26, %2
+  %27 = icmp ult i64 %2, %26
   br i1 %27, label %.split.us, label %limited_rand.exit, !llvm.loop !36
 
 .split:                                           ; preds = %6, %32
@@ -3960,7 +3960,7 @@ define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1,
   %33 = lshr i64 %.128, %narrow
   %34 = lshr i64 %.1, %narrow
   %35 = and i64 %.128, %11
-  %36 = icmp ugt i64 %35, %2
+  %36 = icmp ult i64 %2, %35
   br i1 %36, label %.split, label %limited_rand.exit, !llvm.loop !36
 
 37:                                               ; preds = %5
@@ -3977,7 +3977,7 @@ define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1,
 
 default_rand.exit.i:                              ; preds = %41, %37
   %.0.i.i = phi ptr [ %42, %41 ], [ %39, %37 ]
-  %44 = icmp eq ptr %.0.i.i, %1
+  %44 = icmp eq ptr %1, %.0.i.i
   br i1 %44, label %try_rand_if.exit, label %45
 
 45:                                               ; preds = %default_rand.exit.i
@@ -4022,7 +4022,7 @@ try_rand_if.exit:                                 ; preds = %45, %default_rand.e
   %72 = shl nuw i64 %71, %65
   %73 = or i64 %72, %.02332.i
   %74 = and i64 %73, %62
-  %75 = icmp ugt i64 %74, %2
+  %75 = icmp ult i64 %2, %74
   br i1 %75, label %.loopexit28.i.backedge, label %76
 
 76:                                               ; preds = %68, %.loopexit28.i
@@ -4041,7 +4041,7 @@ try_rand_if.exit:                                 ; preds = %45, %default_rand.e
   %78 = tail call i32 %77(ptr noundef nonnull %1) #22
   %79 = zext i32 %78 to i64
   %80 = and i64 %62, %79
-  %81 = icmp ugt i64 %80, %2
+  %81 = icmp ult i64 %2, %80
   br i1 %81, label %.preheader29.i, label %limited_rand.exit, !llvm.loop !13
 
 limited_rand.exit:                                ; preds = %.preheader29.i, %76, %32, %23, %3
@@ -4149,7 +4149,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %13
 
 default_rand.exit.i:                              ; preds = %47, %43
   %.0.i.i = phi ptr [ %48, %47 ], [ %45, %43 ]
-  %50 = icmp eq ptr %.0.i.i, %1
+  %50 = icmp eq ptr %1, %.0.i.i
   br i1 %50, label %try_rand_if.exit, label %51
 
 51:                                               ; preds = %default_rand.exit.i

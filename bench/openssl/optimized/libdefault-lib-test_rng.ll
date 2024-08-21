@@ -70,7 +70,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %strength1 = getelementptr inbounds i8, ptr %vtest, i64 16
   %0 = load i32, ptr %strength1, align 8
-  %cmp = icmp ult i32 %0, %strength
+  %cmp = icmp ugt i32 %strength, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -102,7 +102,7 @@ define internal range(i32 0, 2) i32 @test_rng_generate(ptr nocapture noundef %vt
 entry:
   %strength1 = getelementptr inbounds i8, ptr %vtest, i64 16
   %0 = load i32, ptr %strength1, align 8
-  %cmp = icmp ult i32 %0, %strength
+  %cmp = icmp ugt i32 %strength, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -171,7 +171,7 @@ define internal i64 @test_rng_nonce(ptr nocapture noundef %vtest, ptr noundef wr
 entry:
   %strength1 = getelementptr inbounds i8, ptr %vtest, i64 16
   %0 = load i32, ptr %strength1, align 8
-  %cmp = icmp ult i32 %0, %strength
+  %cmp = icmp ugt i32 %strength, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

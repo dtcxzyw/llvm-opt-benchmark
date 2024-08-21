@@ -2967,7 +2967,7 @@ define range(i32 -1, 1) i32 @ADIOI_Build_client_pre_req(ptr nocapture noundef re
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 20
   %21 = load i32, ptr %20, align 4
-  %.not = icmp sgt i32 %21, %2
+  %.not = icmp slt i32 %2, %21
   br i1 %.not, label %25, label %22
 
 22:                                               ; preds = %17, %7
@@ -3512,7 +3512,7 @@ define range(i32 -1, 1) i32 @ADIOI_Build_client_req(ptr nocapture noundef readon
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 20
   %21 = load i32, ptr %20, align 4
-  %.not = icmp sgt i32 %21, %2
+  %.not = icmp slt i32 %2, %21
   br i1 %.not, label %.preheader, label %602
 
 .preheader:                                       ; preds = %17

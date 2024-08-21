@@ -104,7 +104,7 @@ define noundef i32 @mca_common_ompio_simple_grouping(ptr nocapture noundef reado
   %35 = sitofp i32 %34 to double
   %36 = fdiv double 1.000000e+00, %35
   %37 = udiv i64 %24, %25
-  %38 = icmp ult i64 %37, %10
+  %38 = icmp ugt i64 %10, %37
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %31
@@ -192,7 +192,7 @@ cost_calc.exit:                                   ; preds = %27, %29, %39, %43
   %89 = fdiv double %87, %88
   %90 = mul nsw i64 %indvars.iv, %75
   %91 = udiv i64 %90, %76
-  %92 = icmp ult i64 %91, %73
+  %92 = icmp ugt i64 %73, %91
   br i1 %92, label %93, label %97
 
 93:                                               ; preds = %82

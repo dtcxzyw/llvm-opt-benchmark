@@ -9389,7 +9389,7 @@ _ZNSt11_Deque_baseIN15TristateVisitor9AuxAstVarESaIS1_EE16_M_allocate_nodeEv.exi
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #23
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN15TristateVisitor9AuxAstVarESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -13450,7 +13450,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St6vectorI
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -13497,7 +13497,7 @@ _ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St6vectorIP10AstAssignWSaIS6_EEESt10_Select1s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_St6vectorIP10AstAssignWSaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -18642,7 +18642,7 @@ define linkonce_odr dso_local void @_ZN15TristateVisitor28removeNotStrongerAssig
   %.sroa.012.118.i.i = phi ptr [ %.sroa.012.2.i.i, %25 ], [ %11, %.lr.ph.i.i.preheader ]
   %15 = load ptr, ptr %.sroa.06.019.i.i, align 8
   %16 = load ptr, ptr %6, align 8
-  %17 = icmp eq ptr %16, %15
+  %17 = icmp eq ptr %15, %16
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %.lr.ph.i.i
@@ -18725,7 +18725,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   %.sroa.030.072 = phi ptr [ %0, %.lr.ph ], [ %49, %48 ]
   %15 = load ptr, ptr %.sroa.030.072, align 8
   %16 = load ptr, ptr %11, align 8
-  %17 = icmp eq ptr %16, %15
+  %17 = icmp eq ptr %15, %16
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %14
@@ -18741,7 +18741,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   %22 = phi ptr [ %.pre, %._crit_edge92 ], [ %15, %14 ]
   %23 = getelementptr inbounds i8, ptr %.sroa.030.072, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %22, %24
+  %25 = icmp eq ptr %24, %22
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %21
@@ -18761,7 +18761,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignment
   %31 = phi ptr [ %.pre94, %._crit_edge93 ], [ %22, %21 ]
   %32 = getelementptr inbounds i8, ptr %.sroa.030.072, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %31, %33
+  %34 = icmp eq ptr %33, %31
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %30
@@ -18781,7 +18781,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignment
   %40 = phi ptr [ %.pre96, %._crit_edge95 ], [ %31, %30 ]
   %41 = getelementptr inbounds i8, ptr %.sroa.030.072, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %40, %42
+  %43 = icmp eq ptr %42, %40
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %39
@@ -18832,7 +18832,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignment
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %2, align 8
   %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, %54
+  %59 = icmp eq ptr %54, %58
   br i1 %59, label %65, label %60
 
 60:                                               ; preds = %53
@@ -18852,7 +18852,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignment
   %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge._crit_edge ], [ %66, %65 ]
   %70 = load ptr, ptr %.sroa.030.1, align 8
   %71 = load ptr, ptr %68, align 8
-  %72 = icmp eq ptr %71, %70
+  %72 = icmp eq ptr %70, %71
   br i1 %72, label %78, label %73
 
 73:                                               ; preds = %67
@@ -18872,7 +18872,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignment
   %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge._crit_edge99 ], [ %79, %78 ]
   %83 = load ptr, ptr %.sroa.030.2, align 8
   %84 = load ptr, ptr %81, align 8
-  %85 = icmp eq ptr %84, %83
+  %85 = icmp eq ptr %83, %84
   br i1 %85, label %94, label %86
 
 86:                                               ; preds = %80
@@ -21455,7 +21455,7 @@ _ZNSt3mapIP6AstVarPSt6vectorIN15TristateVisitor11RefStrengthESaIS4_EESt4lessIS1_
 
 22:                                               ; preds = %19
   %.not.i.i.i.i = icmp ne ptr %20, null
-  %23 = icmp eq ptr %6, %21
+  %23 = icmp eq ptr %21, %6
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %23
   br i1 %or.cond.i.i.i.i, label %.thread.i.i, label %24
 
@@ -21496,7 +21496,7 @@ _ZNSt3mapIP6AstVarPSt6vectorIN15TristateVisitor11RefStrengthESaIS4_EESt4lessIS1_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_PSt6vectorIN15TristateVisitor11RefStrengthESaIS6_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -23741,7 +23741,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
   %.sroa.03.0.copyload.i = load ptr, ptr %phi.call.i, align 8
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %phi.call.i, i64 8
   %.sroa.24.0.copyload.i = load i8, ptr %.sroa.24.0..sroa_idx.i, align 8
-  %19 = icmp sgt i64 %12, %.0.i
+  %19 = icmp slt i64 %.0.i, %12
   br i1 %19, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
@@ -24052,8 +24052,8 @@ _ZNSt8_Rb_treeIP6AstVarSt4pairIKS1_PSt6vectorIN15TristateVisitor11RefStrengthESa
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %.sroa.037.0.i
-  %30 = icmp eq ptr %4, %.sroa.3.0.i
+  %29 = icmp eq ptr %.sroa.037.0.i, %28
+  %30 = icmp eq ptr %.sroa.3.0.i, %4
   %or.cond = select i1 %29, i1 %30, i1 false
   br i1 %or.cond, label %31, label %.critedge.i
 

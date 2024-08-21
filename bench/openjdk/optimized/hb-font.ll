@@ -6801,7 +6801,7 @@ define hidden void @hb_font_set_parent(ptr nocapture noundef %0, ptr noundef %1)
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %1
+  %8 = icmp eq ptr %1, %7
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %5
@@ -6846,7 +6846,7 @@ define hidden void @hb_font_set_face(ptr noundef %0, ptr noundef %1) local_unnam
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %1
+  %8 = icmp eq ptr %1, %7
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %5
@@ -7539,7 +7539,7 @@ _ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
   br i1 %.not.i49, label %.lr.ph.preheader, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.split43
-  %spec.select.i.i = tail call noundef i32 @llvm.umin.i32(i32 %39, i32 %2)
+  %spec.select.i.i = tail call noundef i32 @llvm.umin.i32(i32 %2, i32 %39)
   %40 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i46, i64 8
   %wide.trip.count.i = zext nneg i32 %spec.select.i.i to i64
   br label %.lr.ph.i
@@ -7898,7 +7898,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT4fvar22unnormalize_axis_valueEj
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %.sroa.2.8.insert.ext.i.i = or disjoint i32 %18, %21
-  %.not.i.i = icmp ugt i32 %.sroa.2.8.insert.ext.i.i, %1
+  %.not.i.i = icmp ult i32 %1, %.sroa.2.8.insert.ext.i.i
   %22 = zext i32 %1 to i64
   %23 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %22
   %.0.i.i = select i1 %.not.i.i, ptr %23, ptr @_hb_NullPool
@@ -8355,8 +8355,8 @@ define internal void @_ZL23hb_draw_move_to_defaultP15hb_draw_funcs_tPvP15hb_draw
 
 _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit: ; preds = %6, %20
   %22 = phi ptr [ %21, %20 ], [ null, %6 ]
-  %23 = fmul float %10, %4
-  %24 = fmul float %12, %4
+  %23 = fmul float %4, %10
+  %24 = fmul float %4, %12
   %25 = tail call float @llvm.fmuladd.f32(float %8, float %3, float %24)
   tail call void %17(ptr noundef nonnull %13, ptr noundef %15, ptr noundef nonnull %2, float noundef %25, float noundef %23, ptr noundef %22)
   ret void
@@ -8396,8 +8396,8 @@ define internal void @_ZL23hb_draw_line_to_defaultP15hb_draw_funcs_tPvP15hb_draw
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %6, %27
   %30 = phi ptr [ %29, %27 ], [ null, %6 ]
-  %31 = fmul float %10, %4
-  %32 = fmul float %12, %4
+  %31 = fmul float %4, %10
+  %32 = fmul float %4, %12
   %33 = tail call float @llvm.fmuladd.f32(float %8, float %3, float %32)
   tail call void %24(ptr noundef nonnull %20, ptr noundef %22, ptr noundef nonnull %2, float noundef %33, float noundef %31, ptr noundef %30)
   ret void
@@ -8437,11 +8437,11 @@ define internal void @_ZL28hb_draw_quadratic_to_defaultP15hb_draw_funcs_tPvP15hb
 
 _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds = %8, %29
   %32 = phi ptr [ %31, %29 ], [ null, %8 ]
-  %33 = fmul float %12, %6
-  %34 = fmul float %14, %6
+  %33 = fmul float %6, %12
+  %34 = fmul float %6, %14
   %35 = tail call float @llvm.fmuladd.f32(float %10, float %5, float %34)
-  %36 = fmul float %12, %4
-  %37 = fmul float %14, %4
+  %36 = fmul float %4, %12
+  %37 = fmul float %4, %14
   %38 = tail call float @llvm.fmuladd.f32(float %10, float %3, float %37)
   tail call void %26(ptr noundef nonnull %22, ptr noundef %24, ptr noundef nonnull %2, float noundef %38, float noundef %36, float noundef %35, float noundef %33, ptr noundef %32)
   ret void
@@ -8481,14 +8481,14 @@ define internal void @_ZL24hb_draw_cubic_to_defaultP15hb_draw_funcs_tPvP15hb_dra
 
 _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %10, %31
   %34 = phi ptr [ %33, %31 ], [ null, %10 ]
-  %35 = fmul float %14, %8
-  %36 = fmul float %16, %8
+  %35 = fmul float %8, %14
+  %36 = fmul float %8, %16
   %37 = tail call float @llvm.fmuladd.f32(float %12, float %7, float %36)
-  %38 = fmul float %14, %6
-  %39 = fmul float %16, %6
+  %38 = fmul float %6, %14
+  %39 = fmul float %6, %16
   %40 = tail call float @llvm.fmuladd.f32(float %12, float %5, float %39)
-  %41 = fmul float %14, %4
-  %42 = fmul float %16, %4
+  %41 = fmul float %4, %14
+  %42 = fmul float %4, %16
   %43 = tail call float @llvm.fmuladd.f32(float %12, float %3, float %42)
   tail call void %28(ptr noundef nonnull %24, ptr noundef %26, ptr noundef nonnull %2, float noundef %43, float noundef %41, float noundef %40, float noundef %38, float noundef %37, float noundef %35, ptr noundef %34)
   ret void
@@ -8824,7 +8824,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %47 = zext i8 %46 to i16
   %48 = or disjoint i16 %44, %47
   %49 = sext i16 %48 to i32
-  %.not = icmp slt i32 %49, %1
+  %.not = icmp sgt i32 %1, %49
   br i1 %.not, label %63, label %50
 
 50:                                               ; preds = %38
@@ -8862,7 +8862,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %71 = zext i8 %70 to i16
   %72 = or disjoint i16 %68, %71
   %73 = sext i16 %72 to i32
-  %74 = icmp slt i32 %73, %1
+  %74 = icmp sgt i32 %1, %73
   br i1 %74, label %75, label %.critedge.loopexit.split.loop.exit54
 
 75:                                               ; preds = %.lr.ph
@@ -8887,7 +8887,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %85 = zext i8 %84 to i16
   %86 = or disjoint i16 %82, %85
   %87 = sext i16 %86 to i32
-  %.not46 = icmp sgt i32 %87, %1
+  %.not46 = icmp slt i32 %1, %87
   br i1 %.not46, label %101, label %88
 
 88:                                               ; preds = %.critedge
@@ -9239,7 +9239,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   br i1 %26, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i, label %27
 
 27:                                               ; preds = %24
-  %.not.i.i = icmp ult i32 %23, %25
+  %.not.i.i = icmp ugt i32 %25, %23
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %27, %.preheader.i.i
@@ -9247,7 +9247,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   %28 = lshr i32 %.142.i.i, 1
   %29 = add i32 %.142.i.i, 8
   %30 = add i32 %29, %28
-  %31 = icmp ult i32 %30, %25
+  %31 = icmp ugt i32 %25, %30
   br i1 %31, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !50
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -9397,7 +9397,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_
 
 31:                                               ; preds = %30
   %32 = call noundef ptr @hb_blob_get_empty()
-  %.not3.i = icmp eq ptr %32, %.1
+  %.not3.i = icmp eq ptr %.1, %32
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit, label %33
 
 33:                                               ; preds = %31
@@ -9832,7 +9832,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_
 
 31:                                               ; preds = %30
   %32 = call noundef ptr @hb_blob_get_empty()
-  %.not3.i = icmp eq ptr %32, %.1
+  %.not3.i = icmp eq ptr %.1, %32
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit, label %33
 
 33:                                               ; preds = %31

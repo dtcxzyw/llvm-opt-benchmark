@@ -1689,7 +1689,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vect
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit: ; preds = %71, %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.us.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit47, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit135, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit137, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit139, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit141, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit143, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit145, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit147, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit149, %159, %._crit_edge._crit_edge.i, %145, %._crit_edge._crit_edge80.i, %131, %121, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit29, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit35, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit32
   %.sroa.08.0.in.sroa.speculated.i = phi ptr [ %.sroa.061.0.lcssa.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit35 ], [ %.sroa.061.1.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit32 ], [ %.sroa.061.2.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit29 ], [ %.sroa.061.0.lcssa.i, %121 ], [ %.sroa.061.0.lcssa.i, %131 ], [ %.sroa.061.1.i, %._crit_edge._crit_edge80.i ], [ %.sroa.061.1.i, %145 ], [ %.sroa.061.2.i, %._crit_edge._crit_edge.i ], [ %.sroa.061.2.i, %159 ], [ %163, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit ], [ %164, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit135 ], [ %165, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit137 ], [ %166, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit139 ], [ %167, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit141 ], [ %168, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit143 ], [ %169, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit145 ], [ %170, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit147 ], [ %171, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit149 ], [ %.sroa.061.073.us.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit47 ], [ %.sroa.061.073.us.i, %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.us.i ], [ %.sroa.061.073.us.i, %71 ]
-  %172 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i, %56
+  %172 = icmp eq ptr %56, %.sroa.08.0.in.sroa.speculated.i
   br i1 %172, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.thread, label %193
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.thread: ; preds = %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit29, %151, %._crit_edge.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit
@@ -1986,7 +1986,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -2414,7 +2414,7 @@ select.unfold:                                    ; preds = %_ZNKSt4lessINSt7__c
 define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp ne ptr %1, null
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = icmp eq ptr %6, %2
+  %7 = icmp eq ptr %2, %6
   %or.cond = select i1 %.not, i1 true, i1 %7
   br i1 %or.cond, label %15, label %8
 
@@ -2587,7 +2587,7 @@ _ZNSt12_Vector_baseIN3gmx16KeyValueTreePathESaIS1_EE11_M_allocateEm.exit: ; pred
 _ZNSt6vectorIN3gmx16KeyValueTreePathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN3gmx16KeyValueTreePathESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN3gmx16KeyValueTreePathESaIS1_EE11_M_allocateEm.exit ], [ %40, %.lr.ph.i.i.i ]
   %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN3gmx16KeyValueTreePathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN3gmx16KeyValueTreePathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17
@@ -2684,7 +2684,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #19
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -4083,7 +4083,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 15:                                               ; preds = %12
   %.not.i.i = icmp ne ptr %13, null
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = icmp eq ptr %16, %14
+  %17 = icmp eq ptr %14, %16
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %17
   br i1 %or.cond.i.i, label %.thread, label %18
 
@@ -4144,7 +4144,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -5405,7 +5405,7 @@ _ZSt10_ConstructIN3gmx17KeyValueTreeValueEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pre
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #19
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx17KeyValueTreeValueEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %28, %_ZSt8_DestroyIN3gmx17KeyValueTreeValueEEvPT_.exit.i.i.i.i.i.i
@@ -5537,7 +5537,7 @@ _ZNSt16allocator_traitsISaIN3gmx3AnyEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exi
 _ZNSt6vectorIN3gmx3AnyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN3gmx3AnyEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN3gmx3AnyEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %33, %.lr.ph.i.i.i ]
   %34 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN3gmx3AnyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN3gmx3AnyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i27

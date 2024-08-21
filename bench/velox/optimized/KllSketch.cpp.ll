@@ -135,7 +135,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   %q.addr.0 = phi i64 [ %q, %entry ], [ %shl, %for.cond ]
   %ans.0 = phi i8 [ 0, %entry ], [ %inc, %for.cond ]
   %shl = shl i64 %q.addr.0, 1
-  %cmp = icmp ugt i64 %shl, %p
+  %cmp = icmp ult i64 %p, %shl
   %inc = add i8 %ans.0, 1
   br i1 %cmp, label %if.then, label %for.cond, !llvm.loop !8
 

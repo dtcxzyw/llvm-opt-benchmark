@@ -238,7 +238,7 @@ if.end:                                           ; preds = %for.body
   %sh_prom1.i = zext nneg i32 %3 to i64
   %shl2.i = shl i64 %conv.i, %sh_prom1.i
   %add.i = add i64 %shl2.i, %shl.i
-  %cmp2.not = icmp ult i64 %add.i, %begin
+  %cmp2.not = icmp ugt i64 %begin, %add.i
   %cmp3.not = icmp ugt i64 %add.i, %end
   %or.cond = or i1 %cmp2.not, %cmp3.not
   br i1 %or.cond, label %for.inc, label %if.then4

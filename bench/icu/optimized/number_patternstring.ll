@@ -207,7 +207,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -487,7 +487,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #16
   %cmp7 = icmp eq ptr %call, null
@@ -863,7 +863,7 @@ lor.lhs.false:                                    ; preds = %_ZNK6icu_756number4
   %2 = load i32, ptr %end, align 4
   %3 = load i32, ptr %suffixEndpoints29.i, align 4
   %sub = sub nsw i32 %2, %3
-  %cmp2.not = icmp sgt i32 %sub, %index
+  %cmp2.not = icmp slt i32 %index, %sub
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %_ZNK6icu_756number4impl17ParsedPatternInfo12getEndpointsEi.exit
@@ -880,7 +880,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %fLength.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %6 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %6, i32 %shr.i.i.i.i
-  %cmp.i.i = icmp ugt i32 %cond.i.i.i, %add
+  %cmp.i.i = icmp ult i32 %add, %cond.i.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit
 
 if.then.i.i:                                      ; preds = %if.end
@@ -4728,7 +4728,7 @@ for.body185:                                      ; preds = %for.body185.lr.ph, 
   %21 = phi i16 [ %18, %for.body185.lr.ph ], [ %53, %for.inc299 ]
   %state.0278 = phi i32 [ 0, %for.body185.lr.ph ], [ %state.1, %for.inc299 ]
   %offset.0277 = phi i32 [ 0, %for.body185.lr.ph ], [ %inc300, %for.inc299 ]
-  %cmp.i.i129 = icmp ugt i32 %cond.i279, %offset.0277
+  %cmp.i.i129 = icmp ult i32 %offset.0277, %cond.i279
   br i1 %cmp.i.i129, label %invoke.cont186, label %if.end
 
 invoke.cont186:                                   ; preds = %for.body185
@@ -5201,7 +5201,7 @@ land.end18:                                       ; preds = %land.rhs8
   %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 64
   %3 = load ptr, ptr %vfn11, align 8
   %call12 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo)
-  %4 = or i1 %1, %approximately
+  %4 = or i1 %approximately, %1
   %spec.select = and i1 %4, %call12
   %spec.select47 = select i1 %spec.select, i32 512, i32 0
   br label %land.end18.thread43
@@ -5220,7 +5220,7 @@ land.end18.thread43:                              ; preds = %land.end18, %land.r
 
 if.else:                                          ; preds = %land.end18.thread43
   %cmp32 = icmp eq i32 %patternSignType, 2
-  %7 = or i1 %cmp32, %approximately
+  %7 = or i1 %approximately, %cmp32
   %spec.select40 = or i1 %7, %1
   br label %if.end41
 

@@ -60,7 +60,7 @@ declare i32 @find_ancestor(i32 noundef, ptr noundef) local_unnamed_addr #3
 define zeroext i1 @proctrack_p_has_pid(i64 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call i32 @find_ancestor(i32 noundef %1, ptr noundef nonnull @.str) #6
   %4 = sext i32 %3 to i64
-  %5 = icmp eq i64 %4, %0
+  %5 = icmp eq i64 %0, %4
   ret i1 %5
 }
 

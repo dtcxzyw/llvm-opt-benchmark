@@ -1427,11 +1427,11 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE12scheduleTa
   %17 = trunc i8 %16 to i1
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, %1
+  %20 = icmp eq i64 %1, %19
   %21 = select i1 %17, i1 %20, i1 false
   %22 = getelementptr inbounds i8, ptr %0, i64 176
   %23 = load i64, ptr %22, align 8
-  %24 = icmp eq i64 %23, %1
+  %24 = icmp eq i64 %1, %23
   br i1 %21, label %25, label %125
 
 25:                                               ; preds = %4
@@ -2170,11 +2170,11 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTa
   %17 = trunc i8 %16 to i1
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, %1
+  %20 = icmp eq i64 %1, %19
   %21 = select i1 %17, i1 %20, i1 false
   %22 = getelementptr inbounds i8, ptr %0, i64 176
   %23 = load i64, ptr %22, align 8
-  %24 = icmp eq i64 %23, %1
+  %24 = icmp eq i64 %1, %23
   br i1 %21, label %25, label %125
 
 25:                                               ; preds = %4
@@ -2913,11 +2913,11 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTa
   %17 = trunc i8 %16 to i1
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, %1
+  %20 = icmp eq i64 %1, %19
   %21 = select i1 %17, i1 %20, i1 false
   %22 = getelementptr inbounds i8, ptr %0, i64 176
   %23 = load i64, ptr %22, align 8
-  %24 = icmp eq i64 %23, %1
+  %24 = icmp eq i64 %1, %23
   br i1 %21, label %25, label %125
 
 25:                                               ; preds = %4
@@ -3656,11 +3656,11 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTa
   %17 = trunc i8 %16 to i1
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, %1
+  %20 = icmp eq i64 %1, %19
   %21 = select i1 %17, i1 %20, i1 false
   %22 = getelementptr inbounds i8, ptr %0, i64 176
   %23 = load i64, ptr %22, align 8
-  %24 = icmp eq i64 %23, %1
+  %24 = icmp eq i64 %1, %23
   br i1 %21, label %25, label %125
 
 25:                                               ; preds = %4
@@ -4399,7 +4399,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTa
   %17 = trunc i8 %16 to i1
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, %1
+  %20 = icmp eq i64 %1, %19
   %21 = getelementptr inbounds i8, ptr %0, i64 25
   %22 = load i8, ptr %21, align 1
   %23 = trunc i8 %22 to i1
@@ -4411,7 +4411,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTa
   %26 = select i1 %17, i1 %20, i1 false
   %27 = getelementptr inbounds i8, ptr %0, i64 176
   %28 = load i64, ptr %27, align 8
-  %29 = icmp eq i64 %28, %1
+  %29 = icmp eq i64 %1, %28
   br i1 %26, label %30, label %130
 
 30:                                               ; preds = %25
@@ -5148,7 +5148,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTa
   %19 = trunc i8 %18 to i1
   %20 = getelementptr inbounds i8, ptr %0, i64 104
   %21 = load i64, ptr %20, align 8
-  %22 = icmp eq i64 %21, %1
+  %22 = icmp eq i64 %1, %21
   %23 = select i1 %19, i1 %22, i1 false
   %24 = getelementptr inbounds i8, ptr %0, i64 25
   %25 = load i8, ptr %24, align 1
@@ -5156,7 +5156,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTa
   %27 = select i1 %26, i1 %22, i1 false
   %28 = getelementptr inbounds i8, ptr %0, i64 112
   %29 = load i64, ptr %28, align 8
-  %.not = icmp eq i64 %29, %1
+  %.not = icmp eq i64 %1, %29
   br i1 %.not, label %30, label %_ZNSt8functionIFvvEED2Ev.exit43
 
 30:                                               ; preds = %4
@@ -5296,7 +5296,7 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit33:        ; preds = %71
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %75, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit33, %46, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit, %59
   %88 = getelementptr inbounds i8, ptr %0, i64 176
   %89 = load i64, ptr %88, align 8
-  %90 = icmp eq i64 %89, %1
+  %90 = icmp eq i64 %1, %89
   br i1 %23, label %91, label %191
 
 91:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
@@ -9214,7 +9214,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !120
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -9298,7 +9298,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !120
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79

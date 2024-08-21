@@ -263,7 +263,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.46278
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -704,7 +704,7 @@ define hidden void @"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_im
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %.not = icmp ult i64 %8, %1
+  %.not = icmp ugt i64 %1, %8
   br i1 %.not, label %9, label %17
 
 9:                                                ; preds = %2
@@ -1062,7 +1062,7 @@ select.unfold:                                    ; preds = %55
   store i64 %84, ptr %8, align 8, !noalias !221
   %92 = getelementptr inbounds i8, ptr %10, i64 16
   %93 = load i64, ptr %92, align 8, !noalias !214, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %93, %84
+  %.not.i.i.i.i = icmp ugt i64 %84, %93
   br i1 %.not.i.i.i.i, label %94, label %110
 
 94:                                               ; preds = %.noexc25

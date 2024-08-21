@@ -4988,7 +4988,7 @@ if.end12.i.i.i2803:                               ; preds = %if.else.i.i.i2825, 
 
 if.then.i.i2811:                                  ; preds = %if.end12.i.i.i2803, %if.then.i.i.i2821
   %retval.sroa.4.0.i.ph.i.i2812 = phi ptr [ %__y.0.lcssa25.i.i.i2822, %if.then.i.i.i2821 ], [ %__y.0.lcssa26.i.i.i2804, %if.end12.i.i.i2803 ]
-  %cmp2.i.i.i2813 = icmp eq ptr %494, %retval.sroa.4.0.i.ph.i.i2812
+  %cmp2.i.i.i2813 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i2812, %494
   br i1 %cmp2.i.i.i2813, label %_ZNSt8_Rb_treeIN4cvc58internal4kind6Kind_tES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i2817, label %lor.rhs.i.i.i2814
 
 lor.rhs.i.i.i2814:                                ; preds = %if.then.i.i2811
@@ -5056,7 +5056,7 @@ if.end12.i.i.i2850:                               ; preds = %if.else.i.i.i2872, 
 
 if.then.i.i2858:                                  ; preds = %if.end12.i.i.i2850, %if.then.i.i.i2868
   %retval.sroa.4.0.i.ph.i.i2859 = phi ptr [ %__y.0.lcssa25.i.i.i2869, %if.then.i.i.i2868 ], [ %__y.0.lcssa26.i.i.i2851, %if.end12.i.i.i2850 ]
-  %cmp2.i.i.i2860 = icmp eq ptr %494, %retval.sroa.4.0.i.ph.i.i2859
+  %cmp2.i.i.i2860 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i2859, %494
   br i1 %cmp2.i.i.i2860, label %_ZNSt8_Rb_treeIN4cvc58internal4kind6Kind_tES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i2864, label %lor.rhs.i.i.i2861
 
 lor.rhs.i.i.i2861:                                ; preds = %if.then.i.i2858
@@ -5782,7 +5782,7 @@ entry:
   %call2.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i)
   %cmp.i = icmp eq i32 %call2.i.i, 2
   %inc.i = zext i1 %cmp.i to i32
-  %spec.select.i = add nsw i32 %inc.i, %i
+  %spec.select.i = add nsw i32 %i, %inc.i
   %d_children.i = getelementptr inbounds i8, ptr %0, i64 16
   %idxprom.i = sext i32 %spec.select.i to i64
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %d_children.i, i64 0, i64 %idxprom.i

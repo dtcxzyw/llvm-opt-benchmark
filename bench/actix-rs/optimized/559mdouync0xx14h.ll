@@ -2223,7 +2223,7 @@ define internal fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17h
   br i1 %or.cond.not, label %64, label %61
 
 58:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7e4930a90f6e5389E.exit._crit_edge"
-  %brmerge = or i1 %56, %6
+  %brmerge = or i1 %6, %56
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   %60 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %brmerge, label %72, label %71
@@ -6008,7 +6008,7 @@ _ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c
   call void @llvm.experimental.noalias.scope.decl(metadata !761)
   %248 = and i32 %247, 255
   %249 = and i64 %246, 255
-  %250 = icmp ult i64 %249, %217
+  %250 = icmp ugt i64 %217, %249
   br i1 %250, label %251, label %.invoke, !prof !303
 
 251:                                              ; preds = %_ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c34853ac7883aE.exit.i
@@ -6675,7 +6675,7 @@ _ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c
   call void @llvm.experimental.noalias.scope.decl(metadata !834)
   %613 = and i32 %612, 255
   %614 = and i64 %611, 255
-  %615 = icmp ult i64 %614, %581
+  %615 = icmp ugt i64 %581, %614
   br i1 %615, label %616, label %.invoke, !prof !303
 
 616:                                              ; preds = %_ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c34853ac7883aE.exit
@@ -7050,7 +7050,7 @@ _ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c
   call void @llvm.experimental.noalias.scope.decl(metadata !866)
   %797 = and i32 %796, 255
   %798 = and i64 %795, 255
-  %799 = icmp ult i64 %798, %768
+  %799 = icmp ugt i64 %768, %798
   br i1 %799, label %800, label %.invoke, !prof !303
 
 800:                                              ; preds = %_ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c34853ac7883aE.exit.i248
@@ -8618,7 +8618,7 @@ _ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1181)
   %64 = and i32 %63, 255
   %65 = and i64 %62, 255
-  %66 = icmp ult i64 %65, %30
+  %66 = icmp ugt i64 %30, %65
   br i1 %66, label %67, label %73, !prof !303
 
 67:                                               ; preds = %_ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c34853ac7883aE.exit
@@ -10178,7 +10178,7 @@ split:                                            ; preds = %59, %"_ZN71_$LT$htt
   %89 = getelementptr inbounds i8, ptr %1, i64 64
   %.promoted.i.i = load i64, ptr %89, align 8, !alias.scope !1416, !noalias !1419
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !1421
-  %90 = icmp ugt i64 %.promoted.i.i, %86
+  %90 = icmp ult i64 %86, %.promoted.i.i
   br i1 %90, label %.lr.ph.i.i, label %.invoke.i, !prof !1422
 
 .lr.ph.i.i:                                       ; preds = %84
@@ -10349,7 +10349,7 @@ split:                                            ; preds = %59, %"_ZN71_$LT$htt
   br label %168
 
 168:                                              ; preds = %167, %164
-  %.not.i.i.i = icmp eq i64 %159, %.066.i.i
+  %.not.i.i.i = icmp eq i64 %.066.i.i, %159
   br i1 %.not.i.i.i, label %_ZN4http6header3map18remove_extra_value17h3a3ea2da7e461603E.exit.i.i, label %169
 
 .sink.split.i.i.i:                                ; preds = %197, %195
@@ -10358,7 +10358,7 @@ split:                                            ; preds = %59, %"_ZN71_$LT$htt
   br label %_ZN4http6header3map18remove_extra_value17h3a3ea2da7e461603E.exit.i.i
 
 169:                                              ; preds = %168
-  %170 = icmp ugt i64 %159, %.066.i.i
+  %170 = icmp ult i64 %.066.i.i, %159
   br i1 %170, label %171, label %.invoke.i.i.i, !prof !303
 
 171:                                              ; preds = %169
@@ -10467,7 +10467,7 @@ _ZN4http6header3map18remove_extra_value17h3a3ea2da7e461603E.exit.i.i: ; preds = 
 .noexc20.i:                                       ; preds = %206
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !1421
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !1421
-  %213 = icmp ugt i64 %159, %207
+  %213 = icmp ult i64 %207, %159
   br i1 %213, label %100, label %.invoke.i, !prof !1462
 
 214:                                              ; preds = %_ZN4http6header3map18remove_extra_value17h3a3ea2da7e461603E.exit.i.i
@@ -11774,7 +11774,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
   %39 = load i64, ptr %38, align 8, !alias.scope !1676, !noalias !1679, !noundef !15
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8, !alias.scope !1676, !noalias !1679
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %50, %3
@@ -11855,8 +11855,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14.i
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa.i
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa.i
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14.i
   %.0.copyload15.i18.i = load i16, ptr %86, align 1, !alias.scope !1690, !noalias !1676
   %87 = zext i16 %.0.copyload15.i18.i to i64
   %88 = shl nuw nsw i64 %.0.i14.i, 3

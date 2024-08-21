@@ -3613,7 +3613,7 @@ if.else.i:                                        ; preds = %entry
 
 _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit:              ; preds = %if.then1.i, %if.else.i
   %2 = load ptr, ptr @_ZN6dmg_fpL11dtoa_resultE, align 8
-  %cmp = icmp eq ptr %2, %s
+  %cmp = icmp eq ptr %s, %2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit

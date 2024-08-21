@@ -176,7 +176,7 @@ entry:
   %1 = load i32, ptr %m_size.i.i.i, align 4
   %m_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %m_size.i.i.i.i, align 4
-  %cmp3.i.i.i = icmp slt i32 %2, %1
+  %cmp3.i.i.i = icmp sgt i32 %1, %2
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i
 
 if.then4.i.i.i:                                   ; preds = %entry
@@ -270,7 +270,7 @@ _ZN20btAlignedObjectArrayI9btVector3EaSERKS1_.exit: ; preds = %for.body.i.i.i, %
   %10 = load i32, ptr %m_size.i.i.i4, align 4
   %m_size.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 76
   %11 = load i32, ptr %m_size.i.i.i.i5, align 4
-  %cmp3.i.i.i6 = icmp slt i32 %11, %10
+  %cmp3.i.i.i6 = icmp sgt i32 %10, %11
   br i1 %cmp3.i.i.i6, label %if.then4.i.i.i19, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i7
 
 if.then4.i.i.i19:                                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3EaSERKS1_.exit
@@ -986,7 +986,7 @@ if.end63:                                         ; preds = %if.else, %_ZN20btAl
   %47 = load ptr, ptr %m_polyhedron, align 8
   %m_size.i.i129 = getelementptr inbounds i8, ptr %47, i64 12
   %48 = load i32, ptr %m_size.i.i129, align 4
-  %cmp3.i = icmp slt i32 %48, %46
+  %cmp3.i = icmp sgt i32 %46, %48
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
 
 if.then4.i:                                       ; preds = %if.end63
@@ -1341,14 +1341,14 @@ invoke.cont129:                                   ; preds = %invoke.cont129.loop
   %94 = phi float [ %.pre368, %invoke.cont129.loopexit ], [ %61, %invoke.cont100 ]
   %95 = phi float [ %.pre367, %invoke.cont129.loopexit ], [ %62, %invoke.cont100 ]
   %96 = phi float [ %.pre, %invoke.cont129.loopexit ], [ %63, %invoke.cont100 ]
-  %97 = fneg float %94
-  %neg.i = fmul float %93, %97
+  %97 = fneg float %93
+  %neg.i = fmul float %94, %97
   %98 = call float @llvm.fmuladd.f32(float %96, float %95, float %neg.i)
-  %99 = fneg float %91
-  %neg19.i = fmul float %95, %99
+  %99 = fneg float %95
+  %neg19.i = fmul float %91, %99
   %100 = call float @llvm.fmuladd.f32(float %94, float %92, float %neg19.i)
-  %101 = fneg float %96
-  %neg30.i = fmul float %92, %101
+  %101 = fneg float %92
+  %neg30.i = fmul float %96, %101
   %102 = call float @llvm.fmuladd.f32(float %91, float %93, float %neg30.i)
   %mul8.i.i.i.i288 = fmul float %100, %100
   %103 = call float @llvm.fmuladd.f32(float %98, float %98, float %mul8.i.i.i.i288)
@@ -2639,7 +2639,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI6btFaceE6resizeEiR
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -2687,7 +2687,7 @@ _ZN6btFaceD2Ev.exit:                              ; preds = %for.body, %if.then.
   br i1 %exitcond23.not, label %if.end15, label %for.body, !llvm.loop !25
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
 
 for.body8.lr.ph:                                  ; preds = %if.else
@@ -2792,7 +2792,7 @@ _ZN6btFaceC2ERKS_.exit:                           ; preds = %for.body.i.i.i, %_Z
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_plane.i, ptr noundef nonnull align 8 dereferenceable(16) %m_plane3.i, i64 16, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %newsize
+  %exitcond.not = icmp eq i32 %newsize, %lftr.wideiv
   br i1 %exitcond.not, label %if.end15, label %for.body8, !llvm.loop !26
 
 if.end15:                                         ; preds = %_ZN6btFaceC2ERKS_.exit, %_ZN6btFaceD2Ev.exit, %if.else
@@ -2911,7 +2911,7 @@ _ZN6btFaceC2ERKS_.exit:                           ; preds = %for.body.i.i.i, %_Z
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_plane.i, ptr noundef nonnull align 8 dereferenceable(16) %m_plane3.i, i64 16, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %end
+  %exitcond.not = icmp eq i32 %end, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %_ZN6btFaceC2ERKS_.exit, %entry

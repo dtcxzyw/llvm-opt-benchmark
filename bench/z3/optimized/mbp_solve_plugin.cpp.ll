@@ -3854,7 +3854,7 @@ if.else.i.i7.i.i:                                 ; preds = %_ZN11mpq_managerILb
 
 invoke.cont6:                                     ; preds = %if.then.i.i8.i.i, %if.else.i.i7.i.i
   %10 = trunc i8 %5 to i1
-  %11 = xor i1 %10, %sign
+  %11 = xor i1 %sign, %10
   br i1 %11, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6

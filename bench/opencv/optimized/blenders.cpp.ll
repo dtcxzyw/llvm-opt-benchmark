@@ -1546,7 +1546,7 @@ define { i64, i64 } @_ZN2cv6detail14FeatherBlender16createWeightMapsERKSt6vector
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = sdiv exact i64 %37, 80
-  %39 = icmp ult i64 %38, %31
+  %39 = icmp ugt i64 %31, %38
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %4
@@ -1555,7 +1555,7 @@ define { i64, i64 } @_ZN2cv6detail14FeatherBlender16createWeightMapsERKSt6vector
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
 
 42:                                               ; preds = %4
-  %43 = icmp ugt i64 %38, %31
+  %43 = icmp ult i64 %31, %38
   br i1 %43, label %44, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
 
 44:                                               ; preds = %42
@@ -4436,7 +4436,7 @@ _ZSt10_ConstructIN2cv4UMatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
   %36 = tail call ptr @__cxa_begin_catch(ptr %35) #21
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %27
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %27, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv4UMatEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %33, %.lr.ph.i.i.i.i.i.i.i

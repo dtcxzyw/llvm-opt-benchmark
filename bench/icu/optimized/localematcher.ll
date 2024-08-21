@@ -3715,7 +3715,7 @@ if.end29:                                         ; preds = %invoke.cont27, %if.
   %12 = load ptr, ptr %fullName.i, align 8
   %call33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #19
   %conv = trunc i64 %call33 to i32
-  %cmp34.not = icmp sgt i32 %conv, %capacity
+  %cmp34.not = icmp slt i32 %capacity, %conv
   br i1 %cmp34.not, label %if.end42.invoke, label %do.body
 
 do.body:                                          ; preds = %if.end29

@@ -187,19 +187,19 @@ define hidden void @_ZN2cv12cpu_baseline22GaussianBlurFixedPointItEEvRKNS_3MatER
 27:                                               ; preds = %25, %23
   %.pn.i = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
-  br label %214
+  br label %218
 
 28:                                               ; preds = %16
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef i64 @_ZNK2cv3Mat5step1Ei(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0)
-          to label %32 unwind label %210
+          to label %32 unwind label %214
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = invoke noundef i64 @_ZNK2cv3Mat5step1Ei(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 0)
-          to label %36 unwind label %210
+          to label %36 unwind label %214
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %1, i64 12
@@ -355,7 +355,7 @@ define hidden void @_ZN2cv12cpu_baseline22GaussianBlurFixedPointItEEvRKNS_3MatER
 117:                                              ; preds = %36
   %118 = and i32 %3, -2147483647
   %119 = icmp eq i32 %118, 1
-  br i1 %119, label %120, label %137
+  br i1 %119, label %120, label %139
 
 120:                                              ; preds = %117
   %121 = add nsw i32 %3, -1
@@ -374,214 +374,214 @@ define hidden void @_ZN2cv12cpu_baseline22GaussianBlurFixedPointItEEvRKNS_3MatER
   %128 = lshr i32 %3, 1
   %129 = zext nneg i32 %3 to i64
   %wide.trip.count.i.i = zext nneg i32 %128 to i64
-  %invariant.gep.i.i = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %129
+  %130 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %129
   br label %.lr.ph.i.i
 
-130:                                              ; preds = %.lr.ph.i.i
+131:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.loopexit158.i.i, label %.lr.ph.i.i, !llvm.loop !4
 
-.lr.ph.i.i:                                       ; preds = %130, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %130 ]
-  %131 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv.i.i
-  %132 = xor i64 %indvars.iv.i.i, -1
-  %gep.i.i = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %invariant.gep.i.i, i64 %132
-  %133 = load i16, ptr %131, align 2
-  %134 = load i16, ptr %gep.i.i, align 2
-  %135 = icmp eq i16 %133, %134
-  br i1 %135, label %130, label %136
+.lr.ph.i.i:                                       ; preds = %131, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %131 ]
+  %132 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv.i.i
+  %133 = xor i64 %indvars.iv.i.i, -1
+  %134 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %130, i64 %133
+  %135 = load i16, ptr %132, align 2
+  %136 = load i16, ptr %134, align 2
+  %137 = icmp eq i16 %135, %136
+  br i1 %137, label %131, label %138
 
-136:                                              ; preds = %.lr.ph.i.i
+138:                                              ; preds = %.lr.ph.i.i
   store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKT_iPKT0_iPS8_ii, ptr %127, align 8
   br label %.loopexit158.i.i
 
-137:                                              ; preds = %117
-  %138 = getelementptr inbounds i8, ptr %11, i64 88
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKT_iPKT0_iPS8_ii, ptr %138, align 8
+139:                                              ; preds = %117
+  %140 = getelementptr inbounds i8, ptr %11, i64 88
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKT_iPKT0_iPS8_ii, ptr %140, align 8
   br label %.loopexit158.i.i
 
-.loopexit158.i.i:                                 ; preds = %130, %137, %136, %120, %115, %113, %101, %81, %80, %75, %63, %62
-  switch i32 %5, label %181 [
-    i32 1, label %139
-    i32 3, label %145
-    i32 5, label %159
+.loopexit158.i.i:                                 ; preds = %131, %139, %138, %120, %115, %113, %101, %81, %80, %75, %63, %62
+  switch i32 %5, label %183 [
+    i32 1, label %141
+    i32 3, label %147
+    i32 5, label %161
   ]
 
-139:                                              ; preds = %.loopexit158.i.i
-  %140 = load i16, ptr %4, align 2
-  %141 = icmp eq i16 %140, 256
-  %142 = getelementptr inbounds i8, ptr %11, i64 96
-  br i1 %141, label %143, label %144
+141:                                              ; preds = %.loopexit158.i.i
+  %142 = load i16, ptr %4, align 2
+  %143 = icmp eq i16 %142, 256
+  %144 = getelementptr inbounds i8, ptr %11, i64 96
+  br i1 %143, label %145, label %146
 
-143:                                              ; preds = %139
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_114vlineSmooth1N1IhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %142, align 8
+145:                                              ; preds = %141
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_114vlineSmooth1N1IhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %144, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
 
-144:                                              ; preds = %139
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %142, align 8
+146:                                              ; preds = %141
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %144, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
 
-145:                                              ; preds = %.loopexit158.i.i
-  %146 = load i16, ptr %4, align 2
-  %147 = icmp eq i16 %146, 64
-  br i1 %147, label %148, label %.critedge4.i.i
+147:                                              ; preds = %.loopexit158.i.i
+  %148 = load i16, ptr %4, align 2
+  %149 = icmp eq i16 %148, 64
+  br i1 %149, label %150, label %.critedge4.i.i
 
-148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %4, i64 2
-  %150 = load i16, ptr %149, align 2
-  %151 = icmp eq i16 %150, 128
-  br i1 %151, label %152, label %.critedge4.i.i
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds i8, ptr %4, i64 2
+  %152 = load i16, ptr %151, align 2
+  %153 = icmp eq i16 %152, 128
+  br i1 %153, label %154, label %.critedge4.i.i
 
-152:                                              ; preds = %148
-  %153 = getelementptr inbounds i8, ptr %4, i64 4
-  %154 = load i16, ptr %153, align 2
-  %155 = icmp eq i16 %154, 64
-  br i1 %155, label %156, label %.critedge4.i.i
+154:                                              ; preds = %150
+  %155 = getelementptr inbounds i8, ptr %4, i64 4
+  %156 = load i16, ptr %155, align 2
+  %157 = icmp eq i16 %156, 64
+  br i1 %157, label %158, label %.critedge4.i.i
 
-156:                                              ; preds = %152
-  %157 = getelementptr inbounds i8, ptr %11, i64 96
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_116vlineSmooth3N121IhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %157, align 8
+158:                                              ; preds = %154
+  %159 = getelementptr inbounds i8, ptr %11, i64 96
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_116vlineSmooth3N121IhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %159, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
 
-.critedge4.i.i:                                   ; preds = %152, %148, %145
-  %158 = getelementptr inbounds i8, ptr %11, i64 96
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %158, align 8
+.critedge4.i.i:                                   ; preds = %154, %150, %147
+  %160 = getelementptr inbounds i8, ptr %11, i64 96
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %160, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
 
-159:                                              ; preds = %.loopexit158.i.i
-  %160 = getelementptr inbounds i8, ptr %4, i64 4
-  %161 = load i16, ptr %160, align 2
-  %162 = icmp eq i16 %161, 96
-  br i1 %162, label %163, label %.critedge6.i.i
+161:                                              ; preds = %.loopexit158.i.i
+  %162 = getelementptr inbounds i8, ptr %4, i64 4
+  %163 = load i16, ptr %162, align 2
+  %164 = icmp eq i16 %163, 96
+  br i1 %164, label %165, label %.critedge6.i.i
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %4, i64 2
-  %165 = load i16, ptr %164, align 2
-  %166 = icmp eq i16 %165, 64
-  br i1 %166, label %167, label %.critedge6.i.i
+165:                                              ; preds = %161
+  %166 = getelementptr inbounds i8, ptr %4, i64 2
+  %167 = load i16, ptr %166, align 2
+  %168 = icmp eq i16 %167, 64
+  br i1 %168, label %169, label %.critedge6.i.i
 
-167:                                              ; preds = %163
-  %168 = getelementptr inbounds i8, ptr %4, i64 6
-  %169 = load i16, ptr %168, align 2
-  %170 = icmp eq i16 %169, 64
-  br i1 %170, label %171, label %.critedge6.i.i
+169:                                              ; preds = %165
+  %170 = getelementptr inbounds i8, ptr %4, i64 6
+  %171 = load i16, ptr %170, align 2
+  %172 = icmp eq i16 %171, 64
+  br i1 %172, label %173, label %.critedge6.i.i
 
-171:                                              ; preds = %167
-  %172 = load i16, ptr %4, align 2
-  %173 = icmp eq i16 %172, 16
-  br i1 %173, label %174, label %.critedge6.i.i
+173:                                              ; preds = %169
+  %174 = load i16, ptr %4, align 2
+  %175 = icmp eq i16 %174, 16
+  br i1 %175, label %176, label %.critedge6.i.i
 
-174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %4, i64 8
-  %176 = load i16, ptr %175, align 2
-  %177 = icmp eq i16 %176, 16
-  br i1 %177, label %178, label %.critedge6.i.i
+176:                                              ; preds = %173
+  %177 = getelementptr inbounds i8, ptr %4, i64 8
+  %178 = load i16, ptr %177, align 2
+  %179 = icmp eq i16 %178, 16
+  br i1 %179, label %180, label %.critedge6.i.i
 
-178:                                              ; preds = %174
-  %179 = getelementptr inbounds i8, ptr %11, i64 96
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_118vlineSmooth5N14641IhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %179, align 8
+180:                                              ; preds = %176
+  %181 = getelementptr inbounds i8, ptr %11, i64 96
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_118vlineSmooth5N14641IhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %181, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
 
-.critedge6.i.i:                                   ; preds = %174, %171, %167, %163, %159
-  %180 = getelementptr inbounds i8, ptr %11, i64 96
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %180, align 8
+.critedge6.i.i:                                   ; preds = %176, %173, %169, %165, %161
+  %182 = getelementptr inbounds i8, ptr %11, i64 96
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %182, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
 
-181:                                              ; preds = %.loopexit158.i.i
-  %182 = and i32 %5, -2147483647
-  %183 = icmp eq i32 %182, 1
-  %184 = getelementptr inbounds i8, ptr %11, i64 96
-  br i1 %183, label %185, label %195
+183:                                              ; preds = %.loopexit158.i.i
+  %184 = and i32 %5, -2147483647
+  %185 = icmp eq i32 %184, 1
+  %186 = getelementptr inbounds i8, ptr %11, i64 96
+  br i1 %185, label %187, label %199
 
-185:                                              ; preds = %181
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %184, align 8
+187:                                              ; preds = %183
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %186, align 8
   %.not163.i.i = icmp ult i32 %5, 2
   br i1 %.not163.i.i, label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i, label %.lr.ph161.preheader.i.i
 
-.lr.ph161.preheader.i.i:                          ; preds = %185
-  %186 = lshr i32 %5, 1
-  %187 = zext nneg i32 %5 to i64
-  %wide.trip.count168.i.i = zext nneg i32 %186 to i64
-  %invariant.gep170.i.i = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %187
+.lr.ph161.preheader.i.i:                          ; preds = %187
+  %188 = lshr i32 %5, 1
+  %189 = zext nneg i32 %5 to i64
+  %wide.trip.count168.i.i = zext nneg i32 %188 to i64
+  %190 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %189
   br label %.lr.ph161.i.i
 
-188:                                              ; preds = %.lr.ph161.i.i
+191:                                              ; preds = %.lr.ph161.i.i
   %indvars.iv.next166.i.i = add nuw nsw i64 %indvars.iv165.i.i, 1
   %exitcond169.not.i.i = icmp eq i64 %indvars.iv.next166.i.i, %wide.trip.count168.i.i
   br i1 %exitcond169.not.i.i, label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i, label %.lr.ph161.i.i, !llvm.loop !6
 
-.lr.ph161.i.i:                                    ; preds = %188, %.lr.ph161.preheader.i.i
-  %indvars.iv165.i.i = phi i64 [ 0, %.lr.ph161.preheader.i.i ], [ %indvars.iv.next166.i.i, %188 ]
-  %189 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv165.i.i
-  %190 = xor i64 %indvars.iv165.i.i, -1
-  %gep171.i.i = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %invariant.gep170.i.i, i64 %190
-  %191 = load i16, ptr %189, align 2
-  %192 = load i16, ptr %gep171.i.i, align 2
-  %193 = icmp eq i16 %191, %192
-  br i1 %193, label %188, label %194
+.lr.ph161.i.i:                                    ; preds = %191, %.lr.ph161.preheader.i.i
+  %indvars.iv165.i.i = phi i64 [ 0, %.lr.ph161.preheader.i.i ], [ %indvars.iv.next166.i.i, %191 ]
+  %192 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv165.i.i
+  %193 = xor i64 %indvars.iv165.i.i, -1
+  %194 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %190, i64 %193
+  %195 = load i16, ptr %192, align 2
+  %196 = load i16, ptr %194, align 2
+  %197 = icmp eq i16 %195, %196
+  br i1 %197, label %191, label %198
 
-194:                                              ; preds = %.lr.ph161.i.i
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %184, align 8
+198:                                              ; preds = %.lr.ph161.i.i
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %186, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
 
-195:                                              ; preds = %181
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %184, align 8
+199:                                              ; preds = %183
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %186, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
 
-_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i: ; preds = %188, %195, %194, %185, %.critedge6.i.i, %178, %.critedge4.i.i, %156, %144, %143
+_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i: ; preds = %191, %199, %198, %187, %.critedge6.i.i, %180, %.critedge4.i.i, %158, %146, %145
   store i32 0, ptr %12, align 4
-  %196 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %40, ptr %196, align 4
-  %197 = invoke noundef i32 @_ZN2cv13getNumThreadsEv()
-          to label %198 unwind label %212
+  %200 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %40, ptr %200, align 4
+  %201 = invoke noundef i32 @_ZN2cv13getNumThreadsEv()
+          to label %202 unwind label %216
 
-198:                                              ; preds = %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
-  %199 = invoke noundef i32 @_ZN2cv15getNumberOfCPUsEv()
-          to label %200 unwind label %212
+202:                                              ; preds = %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
+  %203 = invoke noundef i32 @_ZN2cv15getNumberOfCPUsEv()
+          to label %204 unwind label %216
 
-200:                                              ; preds = %198
-  %201 = call i32 @llvm.smin.i32(i32 %199, i32 %197)
-  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %201, i32 1)
-  %202 = uitofp nneg i32 %.sroa.speculated.i to double
-  invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %11, double noundef %202)
-          to label %203 unwind label %212
+204:                                              ; preds = %202
+  %205 = call i32 @llvm.smin.i32(i32 %203, i32 %201)
+  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %205, i32 1)
+  %206 = uitofp nneg i32 %.sroa.speculated.i to double
+  invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %11, double noundef %206)
+          to label %207 unwind label %216
 
-203:                                              ; preds = %200
+207:                                              ; preds = %204
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
-  %204 = getelementptr inbounds i8, ptr %8, i64 8
-  %205 = load i32, ptr %204, align 8
-  %.not.i23.i = icmp eq i32 %205, 0
-  br i1 %.not.i23.i, label %_ZN2cv12cpu_baseline26GaussianBlurFixedPointImplIthNS_12_GLOBAL__N_113ufixedpoint16EEEvRKNS_3MatERS4_PKT_iSA_ii.exit, label %206
+  %208 = getelementptr inbounds i8, ptr %8, i64 8
+  %209 = load i32, ptr %208, align 8
+  %.not.i23.i = icmp eq i32 %209, 0
+  br i1 %.not.i23.i, label %_ZN2cv12cpu_baseline26GaussianBlurFixedPointImplIthNS_12_GLOBAL__N_113ufixedpoint16EEEvRKNS_3MatERS4_PKT_iSA_ii.exit, label %210
 
-206:                                              ; preds = %203
+210:                                              ; preds = %207
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %8)
-          to label %_ZN2cv12cpu_baseline26GaussianBlurFixedPointImplIthNS_12_GLOBAL__N_113ufixedpoint16EEEvRKNS_3MatERS4_PKT_iSA_ii.exit unwind label %207
+          to label %_ZN2cv12cpu_baseline26GaussianBlurFixedPointImplIthNS_12_GLOBAL__N_113ufixedpoint16EEEvRKNS_3MatERS4_PKT_iSA_ii.exit unwind label %211
 
-207:                                              ; preds = %206
-  %208 = landingpad { ptr, i32 }
+211:                                              ; preds = %210
+  %212 = landingpad { ptr, i32 }
           catch ptr null
-  %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #24
+  %213 = extractvalue { ptr, i32 } %212, 0
+  call void @__clang_call_terminate(ptr %213) #24
   unreachable
 
-210:                                              ; preds = %32, %28
-  %211 = landingpad { ptr, i32 }
+214:                                              ; preds = %32, %28
+  %215 = landingpad { ptr, i32 }
           cleanup
-  br label %214
+  br label %218
 
-212:                                              ; preds = %200, %198, %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
-  %213 = landingpad { ptr, i32 }
+216:                                              ; preds = %204, %202, %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i
+  %217 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
-  br label %214
+  br label %218
 
-214:                                              ; preds = %212, %210, %27
-  %.pn20.i = phi { ptr, i32 } [ %213, %212 ], [ %211, %210 ], [ %.pn.i, %27 ]
+218:                                              ; preds = %216, %214, %27
+  %.pn20.i = phi { ptr, i32 } [ %217, %216 ], [ %215, %214 ], [ %.pn.i, %27 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %8) #22
   resume { ptr, i32 } %.pn20.i
 
-_ZN2cv12cpu_baseline26GaussianBlurFixedPointImplIthNS_12_GLOBAL__N_113ufixedpoint16EEEvRKNS_3MatERS4_PKT_iSA_ii.exit: ; preds = %203, %206
+_ZN2cv12cpu_baseline26GaussianBlurFixedPointImplIthNS_12_GLOBAL__N_113ufixedpoint16EEEvRKNS_3MatERS4_PKT_iSA_ii.exit: ; preds = %207, %210
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
@@ -642,19 +642,19 @@ define hidden void @_ZN2cv12cpu_baseline22GaussianBlurFixedPointIjEEvRKNS_3MatER
 27:                                               ; preds = %25, %23
   %.pn.i = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
-  br label %214
+  br label %218
 
 28:                                               ; preds = %16
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef i64 @_ZNK2cv3Mat5step1Ei(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0)
-          to label %32 unwind label %210
+          to label %32 unwind label %214
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = invoke noundef i64 @_ZNK2cv3Mat5step1Ei(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 0)
-          to label %36 unwind label %210
+          to label %36 unwind label %214
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %1, i64 12
@@ -810,7 +810,7 @@ define hidden void @_ZN2cv12cpu_baseline22GaussianBlurFixedPointIjEEvRKNS_3MatER
 117:                                              ; preds = %36
   %118 = and i32 %3, -2147483647
   %119 = icmp eq i32 %118, 1
-  br i1 %119, label %120, label %137
+  br i1 %119, label %120, label %139
 
 120:                                              ; preds = %117
   %121 = add nsw i32 %3, -1
@@ -829,214 +829,214 @@ define hidden void @_ZN2cv12cpu_baseline22GaussianBlurFixedPointIjEEvRKNS_3MatER
   %128 = lshr i32 %3, 1
   %129 = zext nneg i32 %3 to i64
   %wide.trip.count.i.i = zext nneg i32 %128 to i64
-  %invariant.gep.i.i = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %129
+  %130 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %129
   br label %.lr.ph.i.i
 
-130:                                              ; preds = %.lr.ph.i.i
+131:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.loopexit156.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
-.lr.ph.i.i:                                       ; preds = %130, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %130 ]
-  %131 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv.i.i
-  %132 = xor i64 %indvars.iv.i.i, -1
-  %gep.i.i = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %invariant.gep.i.i, i64 %132
-  %133 = load i32, ptr %131, align 4
-  %134 = load i32, ptr %gep.i.i, align 4
-  %135 = icmp eq i32 %133, %134
-  br i1 %135, label %130, label %136
+.lr.ph.i.i:                                       ; preds = %131, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %131 ]
+  %132 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv.i.i
+  %133 = xor i64 %indvars.iv.i.i, -1
+  %134 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %130, i64 %133
+  %135 = load i32, ptr %132, align 4
+  %136 = load i32, ptr %134, align 4
+  %137 = icmp eq i32 %135, %136
+  br i1 %137, label %131, label %138
 
-136:                                              ; preds = %.lr.ph.i.i
+138:                                              ; preds = %.lr.ph.i.i
   store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKT_iPKT0_iPS8_ii, ptr %127, align 8
   br label %.loopexit156.i.i
 
-137:                                              ; preds = %117
-  %138 = getelementptr inbounds i8, ptr %11, i64 88
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKT_iPKT0_iPS8_ii, ptr %138, align 8
+139:                                              ; preds = %117
+  %140 = getelementptr inbounds i8, ptr %11, i64 88
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKT_iPKT0_iPS8_ii, ptr %140, align 8
   br label %.loopexit156.i.i
 
-.loopexit156.i.i:                                 ; preds = %130, %137, %136, %120, %115, %113, %101, %81, %80, %75, %63, %62
-  switch i32 %5, label %181 [
-    i32 1, label %139
-    i32 3, label %145
-    i32 5, label %159
+.loopexit156.i.i:                                 ; preds = %131, %139, %138, %120, %115, %113, %101, %81, %80, %75, %63, %62
+  switch i32 %5, label %183 [
+    i32 1, label %141
+    i32 3, label %147
+    i32 5, label %161
   ]
 
-139:                                              ; preds = %.loopexit156.i.i
-  %140 = load i32, ptr %4, align 4
-  %141 = icmp eq i32 %140, 65536
-  %142 = getelementptr inbounds i8, ptr %11, i64 96
-  br i1 %141, label %143, label %144
+141:                                              ; preds = %.loopexit156.i.i
+  %142 = load i32, ptr %4, align 4
+  %143 = icmp eq i32 %142, 65536
+  %144 = getelementptr inbounds i8, ptr %11, i64 96
+  br i1 %143, label %145, label %146
 
-143:                                              ; preds = %139
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_114vlineSmooth1N1ItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %142, align 8
+145:                                              ; preds = %141
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_114vlineSmooth1N1ItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %144, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
 
-144:                                              ; preds = %139
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %142, align 8
+146:                                              ; preds = %141
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %144, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
 
-145:                                              ; preds = %.loopexit156.i.i
-  %146 = load i32, ptr %4, align 4
-  %147 = icmp eq i32 %146, 16384
-  br i1 %147, label %148, label %.critedge4.i.i
+147:                                              ; preds = %.loopexit156.i.i
+  %148 = load i32, ptr %4, align 4
+  %149 = icmp eq i32 %148, 16384
+  br i1 %149, label %150, label %.critedge4.i.i
 
-148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %4, i64 4
-  %150 = load i32, ptr %149, align 4
-  %151 = icmp eq i32 %150, 32768
-  br i1 %151, label %152, label %.critedge4.i.i
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds i8, ptr %4, i64 4
+  %152 = load i32, ptr %151, align 4
+  %153 = icmp eq i32 %152, 32768
+  br i1 %153, label %154, label %.critedge4.i.i
 
-152:                                              ; preds = %148
-  %153 = getelementptr inbounds i8, ptr %4, i64 8
-  %154 = load i32, ptr %153, align 4
-  %155 = icmp eq i32 %154, 16384
-  br i1 %155, label %156, label %.critedge4.i.i
+154:                                              ; preds = %150
+  %155 = getelementptr inbounds i8, ptr %4, i64 8
+  %156 = load i32, ptr %155, align 4
+  %157 = icmp eq i32 %156, 16384
+  br i1 %157, label %158, label %.critedge4.i.i
 
-156:                                              ; preds = %152
-  %157 = getelementptr inbounds i8, ptr %11, i64 96
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_116vlineSmooth3N121ItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %157, align 8
+158:                                              ; preds = %154
+  %159 = getelementptr inbounds i8, ptr %11, i64 96
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_116vlineSmooth3N121ItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %159, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
 
-.critedge4.i.i:                                   ; preds = %152, %148, %145
-  %158 = getelementptr inbounds i8, ptr %11, i64 96
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %158, align 8
+.critedge4.i.i:                                   ; preds = %154, %150, %147
+  %160 = getelementptr inbounds i8, ptr %11, i64 96
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %160, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
 
-159:                                              ; preds = %.loopexit156.i.i
-  %160 = getelementptr inbounds i8, ptr %4, i64 8
-  %161 = load i32, ptr %160, align 4
-  %162 = icmp eq i32 %161, 24576
-  br i1 %162, label %163, label %.critedge6.i.i
+161:                                              ; preds = %.loopexit156.i.i
+  %162 = getelementptr inbounds i8, ptr %4, i64 8
+  %163 = load i32, ptr %162, align 4
+  %164 = icmp eq i32 %163, 24576
+  br i1 %164, label %165, label %.critedge6.i.i
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %4, i64 4
-  %165 = load i32, ptr %164, align 4
-  %166 = icmp eq i32 %165, 16384
-  br i1 %166, label %167, label %.critedge6.i.i
+165:                                              ; preds = %161
+  %166 = getelementptr inbounds i8, ptr %4, i64 4
+  %167 = load i32, ptr %166, align 4
+  %168 = icmp eq i32 %167, 16384
+  br i1 %168, label %169, label %.critedge6.i.i
 
-167:                                              ; preds = %163
-  %168 = getelementptr inbounds i8, ptr %4, i64 12
-  %169 = load i32, ptr %168, align 4
-  %170 = icmp eq i32 %169, 16384
-  br i1 %170, label %171, label %.critedge6.i.i
+169:                                              ; preds = %165
+  %170 = getelementptr inbounds i8, ptr %4, i64 12
+  %171 = load i32, ptr %170, align 4
+  %172 = icmp eq i32 %171, 16384
+  br i1 %172, label %173, label %.critedge6.i.i
 
-171:                                              ; preds = %167
-  %172 = load i32, ptr %4, align 4
-  %173 = icmp eq i32 %172, 4096
-  br i1 %173, label %174, label %.critedge6.i.i
+173:                                              ; preds = %169
+  %174 = load i32, ptr %4, align 4
+  %175 = icmp eq i32 %174, 4096
+  br i1 %175, label %176, label %.critedge6.i.i
 
-174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %4, i64 16
-  %176 = load i32, ptr %175, align 4
-  %177 = icmp eq i32 %176, 4096
-  br i1 %177, label %178, label %.critedge6.i.i
+176:                                              ; preds = %173
+  %177 = getelementptr inbounds i8, ptr %4, i64 16
+  %178 = load i32, ptr %177, align 4
+  %179 = icmp eq i32 %178, 4096
+  br i1 %179, label %180, label %.critedge6.i.i
 
-178:                                              ; preds = %174
-  %179 = getelementptr inbounds i8, ptr %11, i64 96
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_118vlineSmooth5N14641ItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %179, align 8
+180:                                              ; preds = %176
+  %181 = getelementptr inbounds i8, ptr %11, i64 96
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_118vlineSmooth5N14641ItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %181, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
 
-.critedge6.i.i:                                   ; preds = %174, %171, %167, %163, %159
-  %180 = getelementptr inbounds i8, ptr %11, i64 96
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %180, align 8
+.critedge6.i.i:                                   ; preds = %176, %173, %169, %165, %161
+  %182 = getelementptr inbounds i8, ptr %11, i64 96
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %182, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
 
-181:                                              ; preds = %.loopexit156.i.i
-  %182 = and i32 %5, -2147483647
-  %183 = icmp eq i32 %182, 1
-  %184 = getelementptr inbounds i8, ptr %11, i64 96
-  br i1 %183, label %185, label %195
+183:                                              ; preds = %.loopexit156.i.i
+  %184 = and i32 %5, -2147483647
+  %185 = icmp eq i32 %184, 1
+  %186 = getelementptr inbounds i8, ptr %11, i64 96
+  br i1 %185, label %187, label %199
 
-185:                                              ; preds = %181
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %184, align 8
+187:                                              ; preds = %183
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %186, align 8
   %.not161.i.i = icmp ult i32 %5, 2
   br i1 %.not161.i.i, label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i, label %.lr.ph159.preheader.i.i
 
-.lr.ph159.preheader.i.i:                          ; preds = %185
-  %186 = lshr i32 %5, 1
-  %187 = zext nneg i32 %5 to i64
-  %wide.trip.count166.i.i = zext nneg i32 %186 to i64
-  %invariant.gep168.i.i = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %187
+.lr.ph159.preheader.i.i:                          ; preds = %187
+  %188 = lshr i32 %5, 1
+  %189 = zext nneg i32 %5 to i64
+  %wide.trip.count166.i.i = zext nneg i32 %188 to i64
+  %190 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %189
   br label %.lr.ph159.i.i
 
-188:                                              ; preds = %.lr.ph159.i.i
+191:                                              ; preds = %.lr.ph159.i.i
   %indvars.iv.next164.i.i = add nuw nsw i64 %indvars.iv163.i.i, 1
   %exitcond167.not.i.i = icmp eq i64 %indvars.iv.next164.i.i, %wide.trip.count166.i.i
   br i1 %exitcond167.not.i.i, label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i, label %.lr.ph159.i.i, !llvm.loop !8
 
-.lr.ph159.i.i:                                    ; preds = %188, %.lr.ph159.preheader.i.i
-  %indvars.iv163.i.i = phi i64 [ 0, %.lr.ph159.preheader.i.i ], [ %indvars.iv.next164.i.i, %188 ]
-  %189 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv163.i.i
-  %190 = xor i64 %indvars.iv163.i.i, -1
-  %gep169.i.i = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %invariant.gep168.i.i, i64 %190
-  %191 = load i32, ptr %189, align 4
-  %192 = load i32, ptr %gep169.i.i, align 4
-  %193 = icmp eq i32 %191, %192
-  br i1 %193, label %188, label %194
+.lr.ph159.i.i:                                    ; preds = %191, %.lr.ph159.preheader.i.i
+  %indvars.iv163.i.i = phi i64 [ 0, %.lr.ph159.preheader.i.i ], [ %indvars.iv.next164.i.i, %191 ]
+  %192 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv163.i.i
+  %193 = xor i64 %indvars.iv163.i.i, -1
+  %194 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %190, i64 %193
+  %195 = load i32, ptr %192, align 4
+  %196 = load i32, ptr %194, align 4
+  %197 = icmp eq i32 %195, %196
+  br i1 %197, label %191, label %198
 
-194:                                              ; preds = %.lr.ph159.i.i
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %184, align 8
+198:                                              ; preds = %.lr.ph159.i.i
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %186, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
 
-195:                                              ; preds = %181
-  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %184, align 8
+199:                                              ; preds = %183
+  store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %186, align 8
   br label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
 
-_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i: ; preds = %188, %195, %194, %185, %.critedge6.i.i, %178, %.critedge4.i.i, %156, %144, %143
+_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i: ; preds = %191, %199, %198, %187, %.critedge6.i.i, %180, %.critedge4.i.i, %158, %146, %145
   store i32 0, ptr %12, align 4
-  %196 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %40, ptr %196, align 4
-  %197 = invoke noundef i32 @_ZN2cv13getNumThreadsEv()
-          to label %198 unwind label %212
+  %200 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %40, ptr %200, align 4
+  %201 = invoke noundef i32 @_ZN2cv13getNumThreadsEv()
+          to label %202 unwind label %216
 
-198:                                              ; preds = %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
-  %199 = invoke noundef i32 @_ZN2cv15getNumberOfCPUsEv()
-          to label %200 unwind label %212
+202:                                              ; preds = %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
+  %203 = invoke noundef i32 @_ZN2cv15getNumberOfCPUsEv()
+          to label %204 unwind label %216
 
-200:                                              ; preds = %198
-  %201 = call i32 @llvm.smin.i32(i32 %199, i32 %197)
-  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %201, i32 1)
-  %202 = uitofp nneg i32 %.sroa.speculated.i to double
-  invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %11, double noundef %202)
-          to label %203 unwind label %212
+204:                                              ; preds = %202
+  %205 = call i32 @llvm.smin.i32(i32 %203, i32 %201)
+  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %205, i32 1)
+  %206 = uitofp nneg i32 %.sroa.speculated.i to double
+  invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %11, double noundef %206)
+          to label %207 unwind label %216
 
-203:                                              ; preds = %200
+207:                                              ; preds = %204
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
-  %204 = getelementptr inbounds i8, ptr %8, i64 8
-  %205 = load i32, ptr %204, align 8
-  %.not.i23.i = icmp eq i32 %205, 0
-  br i1 %.not.i23.i, label %_ZN2cv12cpu_baseline26GaussianBlurFixedPointImplIjtNS_12_GLOBAL__N_113ufixedpoint32EEEvRKNS_3MatERS4_PKT_iSA_ii.exit, label %206
+  %208 = getelementptr inbounds i8, ptr %8, i64 8
+  %209 = load i32, ptr %208, align 8
+  %.not.i23.i = icmp eq i32 %209, 0
+  br i1 %.not.i23.i, label %_ZN2cv12cpu_baseline26GaussianBlurFixedPointImplIjtNS_12_GLOBAL__N_113ufixedpoint32EEEvRKNS_3MatERS4_PKT_iSA_ii.exit, label %210
 
-206:                                              ; preds = %203
+210:                                              ; preds = %207
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %8)
-          to label %_ZN2cv12cpu_baseline26GaussianBlurFixedPointImplIjtNS_12_GLOBAL__N_113ufixedpoint32EEEvRKNS_3MatERS4_PKT_iSA_ii.exit unwind label %207
+          to label %_ZN2cv12cpu_baseline26GaussianBlurFixedPointImplIjtNS_12_GLOBAL__N_113ufixedpoint32EEEvRKNS_3MatERS4_PKT_iSA_ii.exit unwind label %211
 
-207:                                              ; preds = %206
-  %208 = landingpad { ptr, i32 }
+211:                                              ; preds = %210
+  %212 = landingpad { ptr, i32 }
           catch ptr null
-  %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #24
+  %213 = extractvalue { ptr, i32 } %212, 0
+  call void @__clang_call_terminate(ptr %213) #24
   unreachable
 
-210:                                              ; preds = %32, %28
-  %211 = landingpad { ptr, i32 }
+214:                                              ; preds = %32, %28
+  %215 = landingpad { ptr, i32 }
           cleanup
-  br label %214
+  br label %218
 
-212:                                              ; preds = %200, %198, %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
-  %213 = landingpad { ptr, i32 }
+216:                                              ; preds = %204, %202, %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i
+  %217 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
-  br label %214
+  br label %218
 
-214:                                              ; preds = %212, %210, %27
-  %.pn20.i = phi { ptr, i32 } [ %213, %212 ], [ %211, %210 ], [ %.pn.i, %27 ]
+218:                                              ; preds = %216, %214, %27
+  %.pn20.i = phi { ptr, i32 } [ %217, %216 ], [ %215, %214 ], [ %.pn.i, %27 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %8) #22
   resume { ptr, i32 } %.pn20.i
 
-_ZN2cv12cpu_baseline26GaussianBlurFixedPointImplIjtNS_12_GLOBAL__N_113ufixedpoint32EEEvRKNS_3MatERS4_PKT_iSA_ii.exit: ; preds = %203, %206
+_ZN2cv12cpu_baseline26GaussianBlurFixedPointImplIjtNS_12_GLOBAL__N_113ufixedpoint32EEEvRKNS_3MatERS4_PKT_iSA_ii.exit: ; preds = %207, %210
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
@@ -2270,7 +2270,7 @@ define internal fastcc void @_ZN2cvL21createGaussianKernelsINS_3MatEEEvRT_S3_iRN
   %17 = icmp eq i32 %11, 0
   %18 = select i1 %17, i32 3, i32 4
   %19 = uitofp nneg i32 %18 to double
-  %20 = fmul double %19, %4
+  %20 = fmul double %4, %19
   %21 = tail call double @llvm.fmuladd.f64(double %20, double 2.000000e+00, double 1.000000e+00)
   %22 = insertelement <2 x double> poison, double %21, i64 0
   %23 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %22)
@@ -4743,7 +4743,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv10softdoubleESaIS1_EE6resizeEm
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -4815,7 +4815,7 @@ _ZNSt12_Vector_baseIN2cv10softdoubleESaIS1_EE13_M_deallocateEPS1_m.exit46.i: ; p
   br label %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -5056,7 +5056,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121IhNS_1
   %45 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %43
   %46 = add nsw i32 %5, -1
   %47 = mul nsw i32 %46, %1
-  %48 = icmp sgt i32 %47, %1
+  %48 = icmp slt i32 %1, %47
   br i1 %48, label %.lr.ph30.i, label %.preheader19.i
 
 .lr.ph30.i:                                       ; preds = %.loopexit20.i
@@ -5282,7 +5282,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %76 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %74
   %77 = add nsw i32 %5, -1
   %78 = mul nsw i32 %77, %1
-  %79 = icmp sgt i32 %78, %1
+  %79 = icmp slt i32 %1, %78
   br i1 %79, label %.lr.ph165, label %._crit_edge
 
 .lr.ph165:                                        ; preds = %.loopexit157
@@ -5537,7 +5537,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %67 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %65
   %68 = add nsw i32 %5, -1
   %69 = mul nsw i32 %68, %1
-  %70 = icmp sgt i32 %69, %1
+  %70 = icmp slt i32 %1, %69
   br i1 %70, label %.lr.ph204, label %.preheader
 
 .lr.ph204:                                        ; preds = %.loopexit194
@@ -7963,7 +7963,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKT_iPKT0_iPS8_ii(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6) #3 {
   %8 = sdiv i32 %3, 2
   %9 = sub i32 %3, %8
-  %.sroa.speculated281 = tail call i32 @llvm.smin.i32(i32 %8, i32 %5)
+  %.sroa.speculated281 = tail call i32 @llvm.smin.i32(i32 %5, i32 %8)
   %10 = icmp sgt i32 %.sroa.speculated281, 0
   br i1 %10, label %.preheader308.lr.ph, label %._crit_edge339
 
@@ -8073,7 +8073,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 .loopexit307:                                     ; preds = %._crit_edge313.us, %.lr.ph317.split, %29, %._crit_edge
   %51 = add nsw i64 %indvars.iv439, %16
   %52 = trunc nsw i64 %51 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %52, i32 %5)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %5, i32 %52)
   %53 = icmp slt i32 %.sroa.speculated, 2
   %54 = trunc i64 %indvars.iv439 to i32
   %55 = sub i32 %8, %54
@@ -8237,7 +8237,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %122 = trunc nuw i32 %.sroa.speculated.i251.us to i16
   %123 = tail call i16 @llvm.uadd.sat.i16(i16 %113, i16 %122)
   %124 = xor i64 %indvars.iv445, -1
-  %125 = add nsw i64 %124, %104
+  %125 = add nsw i64 %104, %124
   %126 = mul nsw i64 %125, %103
   %127 = getelementptr inbounds i8, ptr %.0222348.us, i64 %126
   %128 = load i8, ptr %127, align 1
@@ -8420,7 +8420,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 ._crit_edge370.us:                                ; preds = %198
   %indvars.iv.next471 = add nuw nsw i64 %indvars.iv470, 1
   %210 = trunc nuw i64 %indvars.iv.next471 to i32
-  %211 = icmp slt i32 %210, %3
+  %211 = icmp sgt i32 %3, %210
   br i1 %211, label %.lr.ph369.us, label %.loopexit, !llvm.loop !284
 
 .lr.ph372.split:                                  ; preds = %.lr.ph372.split.preheader, %.lr.ph372.split
@@ -8447,7 +8447,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKT_iPKT0_iPS8_ii(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6) #3 {
   %8 = sdiv i32 %3, 2
   %9 = sub i32 %3, %8
-  %.sroa.speculated264 = tail call i32 @llvm.smin.i32(i32 %8, i32 %5)
+  %.sroa.speculated264 = tail call i32 @llvm.smin.i32(i32 %5, i32 %8)
   %10 = icmp sgt i32 %.sroa.speculated264, 0
   br i1 %10, label %.preheader289.lr.ph, label %._crit_edge320
 
@@ -8557,7 +8557,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 .loopexit288:                                     ; preds = %._crit_edge294.us, %.lr.ph298.split, %29, %._crit_edge
   %51 = add nsw i64 %indvars.iv420, %16
   %52 = trunc nsw i64 %51 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %52, i32 %5)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %5, i32 %52)
   %53 = icmp slt i32 %.sroa.speculated, 2
   %54 = trunc i64 %indvars.iv420 to i32
   %55 = sub i32 %8, %54
@@ -8887,7 +8887,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 ._crit_edge351.us:                                ; preds = %182
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %194 = trunc nuw i64 %indvars.iv.next452 to i32
-  %195 = icmp slt i32 %194, %3
+  %195 = icmp sgt i32 %3, %194
   br i1 %195, label %.lr.ph350.us, label %.loopexit, !llvm.loop !300
 
 .lr.ph353.split:                                  ; preds = %.lr.ph353.split.preheader, %.lr.ph353.split
@@ -11660,7 +11660,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121ItNS_1
   %45 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %43
   %46 = add nsw i32 %5, -1
   %47 = mul nsw i32 %46, %1
-  %48 = icmp sgt i32 %47, %1
+  %48 = icmp slt i32 %1, %47
   br i1 %48, label %.lr.ph30.i, label %.preheader19.i
 
 .lr.ph30.i:                                       ; preds = %.loopexit20.i
@@ -11891,7 +11891,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %79 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %77
   %80 = add nsw i32 %5, -1
   %81 = mul nsw i32 %80, %1
-  %82 = icmp sgt i32 %81, %1
+  %82 = icmp slt i32 %1, %81
   br i1 %82, label %.lr.ph236, label %._crit_edge
 
 .lr.ph236:                                        ; preds = %.loopexit228
@@ -12156,7 +12156,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %67 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %65
   %68 = add nsw i32 %5, -1
   %69 = mul nsw i32 %68, %1
-  %70 = icmp sgt i32 %69, %1
+  %70 = icmp slt i32 %1, %69
   br i1 %70, label %.lr.ph203, label %.preheader
 
 .lr.ph203:                                        ; preds = %.loopexit193
@@ -14604,7 +14604,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKT_iPKT0_iPS8_ii(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6) #3 {
   %8 = sdiv i32 %3, 2
   %9 = sub i32 %3, %8
-  %.sroa.speculated281 = tail call i32 @llvm.smin.i32(i32 %8, i32 %5)
+  %.sroa.speculated281 = tail call i32 @llvm.smin.i32(i32 %5, i32 %8)
   %10 = icmp sgt i32 %.sroa.speculated281, 0
   br i1 %10, label %.preheader308.lr.ph, label %._crit_edge339
 
@@ -14714,7 +14714,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 .loopexit307:                                     ; preds = %._crit_edge313.us, %.lr.ph317.split, %29, %._crit_edge
   %51 = add nsw i64 %indvars.iv439, %16
   %52 = trunc nsw i64 %51 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %52, i32 %5)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %5, i32 %52)
   %53 = icmp slt i32 %.sroa.speculated, 2
   %54 = trunc i64 %indvars.iv439 to i32
   %55 = sub i32 %8, %54
@@ -14878,7 +14878,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %122 = trunc nuw i64 %.sroa.speculated.i251.us to i32
   %123 = tail call i32 @llvm.uadd.sat.i32(i32 %113, i32 %122)
   %124 = xor i64 %indvars.iv445, -1
-  %125 = add nsw i64 %124, %104
+  %125 = add nsw i64 %104, %124
   %126 = mul nsw i64 %125, %103
   %127 = getelementptr inbounds i16, ptr %.0222348.us, i64 %126
   %128 = load i16, ptr %127, align 2
@@ -15061,7 +15061,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 ._crit_edge370.us:                                ; preds = %198
   %indvars.iv.next472 = add nuw nsw i64 %indvars.iv471, 1
   %210 = trunc nuw i64 %indvars.iv.next472 to i32
-  %211 = icmp slt i32 %210, %3
+  %211 = icmp sgt i32 %3, %210
   br i1 %211, label %.lr.ph369.us, label %.loopexit, !llvm.loop !391
 
 .lr.ph372.split:                                  ; preds = %.lr.ph372.split.preheader, %.lr.ph372.split
@@ -15088,7 +15088,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKT_iPKT0_iPS8_ii(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6) #3 {
   %8 = sdiv i32 %3, 2
   %9 = sub i32 %3, %8
-  %.sroa.speculated263 = tail call i32 @llvm.smin.i32(i32 %8, i32 %5)
+  %.sroa.speculated263 = tail call i32 @llvm.smin.i32(i32 %5, i32 %8)
   %10 = icmp sgt i32 %.sroa.speculated263, 0
   br i1 %10, label %.preheader288.lr.ph, label %._crit_edge319
 
@@ -15198,7 +15198,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 .loopexit287:                                     ; preds = %._crit_edge293.us, %.lr.ph297.split, %29, %._crit_edge
   %51 = add nsw i64 %indvars.iv419, %16
   %52 = trunc nsw i64 %51 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %52, i32 %5)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %5, i32 %52)
   %53 = icmp slt i32 %.sroa.speculated, 2
   %54 = trunc i64 %indvars.iv419 to i32
   %55 = sub i32 %8, %54
@@ -15528,7 +15528,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 ._crit_edge350.us:                                ; preds = %182
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %194 = trunc nuw i64 %indvars.iv.next452 to i32
-  %195 = icmp slt i32 %194, %3
+  %195 = icmp sgt i32 %3, %194
   br i1 %195, label %.lr.ph349.us, label %.loopexit, !llvm.loop !407
 
 .lr.ph352.split:                                  ; preds = %.lr.ph352.split.preheader, %.lr.ph352.split
@@ -18467,7 +18467,7 @@ define internal fastcc void @_ZN2cvL30getGaussianKernelFixedPoint_EDERSt6vectorI
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
   %43 = ashr exact i64 %42, 3
-  %44 = icmp ult i64 %43, %36
+  %44 = icmp ugt i64 %36, %43
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %33
@@ -18476,7 +18476,7 @@ define internal fastcc void @_ZN2cvL30getGaussianKernelFixedPoint_EDERSt6vectorI
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 47:                                               ; preds = %33
-  %48 = icmp ugt i64 %43, %36
+  %48 = icmp ult i64 %36, %43
   br i1 %48, label %49, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 49:                                               ; preds = %47

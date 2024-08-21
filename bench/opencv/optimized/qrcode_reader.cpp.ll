@@ -5679,7 +5679,7 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader15initIntegralOldEPjNS_3RefINS
   %scevgep = getelementptr i8, ptr %0, i64 %20
   %scevgep90 = getelementptr i8, ptr %15, i64 4
   %scevgep91 = getelementptr i8, ptr %15, i64 %20
-  %bound0 = icmp ugt ptr %scevgep91, %0
+  %bound0 = icmp ult ptr %0, %scevgep91
   %bound1 = icmp ult ptr %scevgep90, %scevgep
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.lr.ph.lver.orig, label %.lr.ph.ph
@@ -5954,7 +5954,7 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader11setDecodeIDEj(ptr nocapture 
   store i32 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 108
   %8 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %8, %1
+  %.not = icmp eq i32 %1, %8
   br i1 %.not, label %23, label %_ZN5zxing6qrcode12QRCodeReader34getRecommendedImageSizeTypeInteralEv.exit
 
 _ZN5zxing6qrcode12QRCodeReader34getRecommendedImageSizeTypeInteralEv.exit: ; preds = %2
@@ -6387,7 +6387,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6ResultEEESaIS3_EE11_M_allocateEm.exit: ; pr
 _ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6ResultEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %36, %30
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %30 ], [ %38, %36 ]
   %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6ResultEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit37, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6ResultEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %54
@@ -6561,7 +6561,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_11ResultPointEEESaIS3_EE11_M_allocateEm.exit
 _ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_11ResultPointEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %36, %30
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %30 ], [ %38, %36 ]
   %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_11ResultPointEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit37, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_11ResultPointEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %54

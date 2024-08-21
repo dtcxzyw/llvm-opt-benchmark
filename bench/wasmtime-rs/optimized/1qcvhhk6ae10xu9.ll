@@ -629,7 +629,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %58 = sub nsw i64 0, %57
   %gep.i = getelementptr { i128, i32, [3 x i32] }, ptr %invariant.gep.i, i64 %58
   %.val4.i.i.i = load i128, ptr %gep.i, align 16, !alias.scope !157, !noalias !162, !noundef !4
-  %59 = icmp eq i128 %.val4.i.i.i, %1
+  %59 = icmp eq i128 %1, %.val4.i.i.i
   br i1 %59, label %85, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
 
 60:                                               ; preds = %50

@@ -3583,7 +3583,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sched_group_set_idle(ptr noundef
   %8 = getelementptr inbounds i8, ptr %0, i64 224
   %9 = load i32, ptr %8, align 32
   %10 = sext i32 %9 to i64
-  %11 = icmp eq i64 %10, %1
+  %11 = icmp eq i64 %1, %10
   br i1 %11, label %95, label %12
 
 12:                                               ; preds = %7
@@ -6545,7 +6545,7 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %659, label %660, label %.thread96
 
 660:                                              ; preds = %656
-  %661 = icmp eq i32 %658, %1
+  %661 = icmp eq i32 %1, %658
   br i1 %661, label %678, label %662
 
 662:                                              ; preds = %660
@@ -13163,7 +13163,7 @@ define internal noundef i32 @active_load_balance_cpu_stop(ptr noundef %0) #1 ali
   br i1 %30, label %.thread27, label %31
 
 31:                                               ; preds = %27
-  %32 = icmp eq ptr %10, %0
+  %32 = icmp eq ptr %0, %10
   br i1 %32, label %33, label %34, !prof !7
 
 33:                                               ; preds = %31
@@ -13396,7 +13396,7 @@ define internal fastcc noundef zeroext i1 @sched_use_asym_prio(ptr nocapture nou
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %20
-  %25 = icmp eq i32 %22, %1
+  %25 = icmp eq i32 %1, %22
   br i1 %25, label %29, label %26
 
 26:                                               ; preds = %24
@@ -14215,7 +14215,7 @@ define internal fastcc i32 @find_idlest_cpu(ptr nocapture noundef readonly %0, p
 220:                                              ; preds = %213
   %221 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #30, !srcloc !52
   %222 = inttoptr i64 %221 to ptr
-  %223 = icmp eq ptr %222, %1
+  %223 = icmp eq ptr %1, %222
   br i1 %223, label %224, label %229, !prof !7
 
 224:                                              ; preds = %220, %213

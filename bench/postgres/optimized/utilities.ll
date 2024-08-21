@@ -602,7 +602,7 @@ define hidden range(i32 -1, 2) i32 @in_grouping(ptr nocapture noundef %0, ptr no
   %12 = getelementptr i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
-  %15 = icmp sgt i32 %14, %3
+  %15 = icmp slt i32 %3, %14
   br i1 %15, label %.split18.us, label %16
 
 16:                                               ; preds = %9
@@ -640,7 +640,7 @@ define hidden range(i32 -1, 2) i32 @in_grouping(ptr nocapture noundef %0, ptr no
   %34 = getelementptr i8, ptr %31, i64 %indvars.iv
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
-  %37 = icmp sgt i32 %36, %3
+  %37 = icmp slt i32 %3, %36
   br i1 %37, label %.split18.us, label %38
 
 38:                                               ; preds = %33
@@ -692,7 +692,7 @@ define hidden range(i32 -1, 2) i32 @in_grouping_b(ptr nocapture noundef %0, ptr 
   %13 = getelementptr i8, ptr %10, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = icmp sgt i32 %15, %3
+  %16 = icmp slt i32 %3, %15
   br i1 %16, label %.split18.us, label %17
 
 17:                                               ; preds = %9
@@ -731,7 +731,7 @@ define hidden range(i32 -1, 2) i32 @in_grouping_b(ptr nocapture noundef %0, ptr 
   %35 = getelementptr i8, ptr %31, i64 %indvars.iv.next
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
-  %38 = icmp sgt i32 %37, %3
+  %38 = icmp slt i32 %3, %37
   br i1 %38, label %.split18.us, label %39
 
 39:                                               ; preds = %34
@@ -781,7 +781,7 @@ define hidden range(i32 -1, 2) i32 @out_grouping(ptr nocapture noundef %0, ptr n
   %12 = getelementptr i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
-  %15 = icmp sgt i32 %14, %3
+  %15 = icmp slt i32 %3, %14
   br i1 %15, label %29, label %16
 
 16:                                               ; preds = %9
@@ -819,7 +819,7 @@ define hidden range(i32 -1, 2) i32 @out_grouping(ptr nocapture noundef %0, ptr n
   %34 = getelementptr i8, ptr %31, i64 %indvars.iv
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
-  %37 = icmp sgt i32 %36, %3
+  %37 = icmp slt i32 %3, %36
   br i1 %37, label %51, label %38
 
 38:                                               ; preds = %33
@@ -871,7 +871,7 @@ define hidden range(i32 -1, 2) i32 @out_grouping_b(ptr nocapture noundef %0, ptr
   %13 = getelementptr i8, ptr %10, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = icmp sgt i32 %15, %3
+  %16 = icmp slt i32 %3, %15
   br i1 %16, label %30, label %17
 
 17:                                               ; preds = %9
@@ -910,7 +910,7 @@ define hidden range(i32 -1, 2) i32 @out_grouping_b(ptr nocapture noundef %0, ptr
   %35 = getelementptr i8, ptr %31, i64 %indvars.iv.next
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
-  %38 = icmp sgt i32 %37, %3
+  %38 = icmp slt i32 %3, %37
   br i1 %38, label %52, label %39
 
 39:                                               ; preds = %34
@@ -1568,7 +1568,7 @@ define hidden range(i32 -1, 1) i32 @insert_s(ptr nocapture noundef %0, i32 nound
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
-  %.not13 = icmp slt i32 %10, %1
+  %.not13 = icmp sgt i32 %1, %10
   br i1 %.not13, label %14, label %11
 
 11:                                               ; preds = %8
@@ -1580,7 +1580,7 @@ define hidden range(i32 -1, 1) i32 @insert_s(ptr nocapture noundef %0, i32 nound
 14:                                               ; preds = %11, %8
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
-  %.not14 = icmp slt i32 %16, %1
+  %.not14 = icmp sgt i32 %1, %16
   br i1 %.not14, label %20, label %17
 
 17:                                               ; preds = %14
@@ -1607,7 +1607,7 @@ define hidden range(i32 -1, 1) i32 @insert_v(ptr nocapture noundef %0, i32 nound
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
-  %.not13.i = icmp slt i32 %11, %1
+  %.not13.i = icmp sgt i32 %1, %11
   br i1 %.not13.i, label %15, label %12
 
 12:                                               ; preds = %9
@@ -1619,7 +1619,7 @@ define hidden range(i32 -1, 1) i32 @insert_v(ptr nocapture noundef %0, i32 nound
 15:                                               ; preds = %12, %9
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = load i32, ptr %16, align 8
-  %.not14.i = icmp slt i32 %17, %1
+  %.not14.i = icmp sgt i32 %1, %17
   br i1 %.not14.i, label %insert_s.exit, label %18
 
 18:                                               ; preds = %15

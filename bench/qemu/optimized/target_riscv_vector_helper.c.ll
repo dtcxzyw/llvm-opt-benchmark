@@ -88,7 +88,7 @@ if.end44:                                         ; preds = %lor.lhs.false31
   %sub.i = sub nsw i32 %add.i, %conv7.i
   %shr.i30 = lshr i32 %conv5.i, %sub.i
   %conv46 = zext nneg i32 %shr.i30 to i64
-  %cmp47.not = icmp ult i64 %conv46, %s1
+  %cmp47.not = icmp ugt i64 %s1, %conv46
   %conv50 = trunc nuw nsw i64 %s1 to i32
   %vl.0 = select i1 %cmp47.not, i32 %shr.i30, i32 %conv50
   %conv52 = zext nneg i32 %vl.0 to i64
@@ -1691,7 +1691,7 @@ entry:
   %vstart.i = getelementptr inbounds i8, ptr %env, i64 4632
   %4 = load i64, ptr %vstart.i, align 8
   %conv.i = trunc i64 %4 to i32
-  %cmp27.i = icmp ult i32 %conv.i, %conv
+  %cmp27.i = icmp ugt i32 %conv, %conv.i
   br i1 %cmp27.i, label %while.cond.preheader.lr.ph.i, label %for.end.i
 
 while.cond.preheader.lr.ph.i:                     ; preds = %entry
@@ -1714,7 +1714,7 @@ while.body.us.i:                                  ; preds = %while.body.us.i, %w
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %add.us.i = add i32 %mul.us.i, %8
   %conv6.us.i = zext i32 %add.us.i to i64
-  %add7.us.i = add i64 %conv6.us.i, %base
+  %add7.us.i = add i64 %base, %conv6.us.i
   %env.val.us.i = load i64, ptr %5, align 16
   %env.val20.us.i = load i64, ptr %6, align 8
   %not.i.us.i = xor i64 %env.val.us.i, -1
@@ -1928,7 +1928,7 @@ entry:
   %vstart.i = getelementptr inbounds i8, ptr %env, i64 4632
   %4 = load i64, ptr %vstart.i, align 8
   %conv.i = trunc i64 %4 to i32
-  %cmp27.i = icmp ult i32 %conv.i, %conv
+  %cmp27.i = icmp ugt i32 %conv, %conv.i
   br i1 %cmp27.i, label %while.cond.preheader.lr.ph.i, label %for.end.i
 
 while.cond.preheader.lr.ph.i:                     ; preds = %entry
@@ -1952,7 +1952,7 @@ while.body.us.i:                                  ; preds = %while.body.us.i, %w
   %add.us.i = add i32 %mul.us.i, %8
   %shl5.us.i = shl i32 %add.us.i, 1
   %conv6.us.i = zext i32 %shl5.us.i to i64
-  %add7.us.i = add i64 %conv6.us.i, %base
+  %add7.us.i = add i64 %base, %conv6.us.i
   %env.val.us.i = load i64, ptr %5, align 16
   %env.val20.us.i = load i64, ptr %6, align 8
   %not.i.us.i = xor i64 %env.val.us.i, -1
@@ -2167,7 +2167,7 @@ entry:
   %vstart.i = getelementptr inbounds i8, ptr %env, i64 4632
   %4 = load i64, ptr %vstart.i, align 8
   %conv.i = trunc i64 %4 to i32
-  %cmp27.i = icmp ult i32 %conv.i, %conv
+  %cmp27.i = icmp ugt i32 %conv, %conv.i
   br i1 %cmp27.i, label %while.cond.preheader.lr.ph.i, label %for.end.i
 
 while.cond.preheader.lr.ph.i:                     ; preds = %entry
@@ -2191,7 +2191,7 @@ while.body.us.i:                                  ; preds = %while.body.us.i, %w
   %add.us.i = add i32 %mul.us.i, %8
   %shl5.us.i = shl i32 %add.us.i, 2
   %conv6.us.i = zext i32 %shl5.us.i to i64
-  %add7.us.i = add i64 %conv6.us.i, %base
+  %add7.us.i = add i64 %base, %conv6.us.i
   %env.val.us.i = load i64, ptr %5, align 16
   %env.val20.us.i = load i64, ptr %6, align 8
   %not.i.us.i = xor i64 %env.val.us.i, -1
@@ -2405,7 +2405,7 @@ entry:
   %vstart.i = getelementptr inbounds i8, ptr %env, i64 4632
   %4 = load i64, ptr %vstart.i, align 8
   %conv.i = trunc i64 %4 to i32
-  %cmp27.i = icmp ult i32 %conv.i, %conv
+  %cmp27.i = icmp ugt i32 %conv, %conv.i
   br i1 %cmp27.i, label %while.cond.preheader.lr.ph.i, label %for.end.i
 
 while.cond.preheader.lr.ph.i:                     ; preds = %entry
@@ -2429,7 +2429,7 @@ while.body.us.i:                                  ; preds = %while.body.us.i, %w
   %add.us.i = add i32 %mul.us.i, %8
   %shl5.us.i = shl i32 %add.us.i, 3
   %conv6.us.i = zext i32 %shl5.us.i to i64
-  %add7.us.i = add i64 %conv6.us.i, %base
+  %add7.us.i = add i64 %base, %conv6.us.i
   %env.val.us.i = load i64, ptr %5, align 16
   %env.val20.us.i = load i64, ptr %6, align 8
   %not.i.us.i = xor i64 %env.val.us.i, -1
@@ -2635,7 +2635,7 @@ entry:
   %vstart.i = getelementptr inbounds i8, ptr %env, i64 4632
   %4 = load i64, ptr %vstart.i, align 8
   %conv.i = trunc i64 %4 to i32
-  %cmp27.i = icmp ult i32 %conv.i, %conv
+  %cmp27.i = icmp ugt i32 %conv, %conv.i
   br i1 %cmp27.i, label %while.cond.preheader.lr.ph.i, label %for.end.i
 
 while.cond.preheader.lr.ph.i:                     ; preds = %entry
@@ -2658,7 +2658,7 @@ while.body.us.i:                                  ; preds = %while.body.us.i, %w
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %add.us.i = add i32 %mul.us.i, %8
   %conv6.us.i = zext i32 %add.us.i to i64
-  %add7.us.i = add i64 %conv6.us.i, %base
+  %add7.us.i = add i64 %base, %conv6.us.i
   %env.val.us.i = load i64, ptr %5, align 16
   %env.val20.us.i = load i64, ptr %6, align 8
   %not.i.us.i = xor i64 %env.val.us.i, -1
@@ -2872,7 +2872,7 @@ entry:
   %vstart.i = getelementptr inbounds i8, ptr %env, i64 4632
   %4 = load i64, ptr %vstart.i, align 8
   %conv.i = trunc i64 %4 to i32
-  %cmp27.i = icmp ult i32 %conv.i, %conv
+  %cmp27.i = icmp ugt i32 %conv, %conv.i
   br i1 %cmp27.i, label %while.cond.preheader.lr.ph.i, label %for.end.i
 
 while.cond.preheader.lr.ph.i:                     ; preds = %entry
@@ -2896,7 +2896,7 @@ while.body.us.i:                                  ; preds = %while.body.us.i, %w
   %add.us.i = add i32 %mul.us.i, %8
   %shl5.us.i = shl i32 %add.us.i, 1
   %conv6.us.i = zext i32 %shl5.us.i to i64
-  %add7.us.i = add i64 %conv6.us.i, %base
+  %add7.us.i = add i64 %base, %conv6.us.i
   %env.val.us.i = load i64, ptr %5, align 16
   %env.val20.us.i = load i64, ptr %6, align 8
   %not.i.us.i = xor i64 %env.val.us.i, -1
@@ -3111,7 +3111,7 @@ entry:
   %vstart.i = getelementptr inbounds i8, ptr %env, i64 4632
   %4 = load i64, ptr %vstart.i, align 8
   %conv.i = trunc i64 %4 to i32
-  %cmp27.i = icmp ult i32 %conv.i, %conv
+  %cmp27.i = icmp ugt i32 %conv, %conv.i
   br i1 %cmp27.i, label %while.cond.preheader.lr.ph.i, label %for.end.i
 
 while.cond.preheader.lr.ph.i:                     ; preds = %entry
@@ -3135,7 +3135,7 @@ while.body.us.i:                                  ; preds = %while.body.us.i, %w
   %add.us.i = add i32 %mul.us.i, %8
   %shl5.us.i = shl i32 %add.us.i, 2
   %conv6.us.i = zext i32 %shl5.us.i to i64
-  %add7.us.i = add i64 %conv6.us.i, %base
+  %add7.us.i = add i64 %base, %conv6.us.i
   %env.val.us.i = load i64, ptr %5, align 16
   %env.val20.us.i = load i64, ptr %6, align 8
   %not.i.us.i = xor i64 %env.val.us.i, -1
@@ -3349,7 +3349,7 @@ entry:
   %vstart.i = getelementptr inbounds i8, ptr %env, i64 4632
   %4 = load i64, ptr %vstart.i, align 8
   %conv.i = trunc i64 %4 to i32
-  %cmp27.i = icmp ult i32 %conv.i, %conv
+  %cmp27.i = icmp ugt i32 %conv, %conv.i
   br i1 %cmp27.i, label %while.cond.preheader.lr.ph.i, label %for.end.i
 
 while.cond.preheader.lr.ph.i:                     ; preds = %entry
@@ -3373,7 +3373,7 @@ while.body.us.i:                                  ; preds = %while.body.us.i, %w
   %add.us.i = add i32 %mul.us.i, %8
   %shl5.us.i = shl i32 %add.us.i, 3
   %conv6.us.i = zext i32 %shl5.us.i to i64
-  %add7.us.i = add i64 %conv6.us.i, %base
+  %add7.us.i = add i64 %base, %conv6.us.i
   %env.val.us.i = load i64, ptr %5, align 16
   %env.val20.us.i = load i64, ptr %6, align 8
   %not.i.us.i = xor i64 %env.val.us.i, -1
@@ -3475,7 +3475,7 @@ while.body.us.i:                                  ; preds = %while.body.us.i, %w
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   %add.us.i = add i32 %mul.us.i, %11
   %conv6.us.i = zext i32 %add.us.i to i64
-  %add7.us.i = add i64 %conv6.us.i, %base
+  %add7.us.i = add i64 %base, %conv6.us.i
   %env.val.us.i = load i64, ptr %8, align 16
   %env.val20.us.i = load i64, ptr %9, align 8
   %not.i.us.i = xor i64 %env.val.us.i, -1
@@ -3576,7 +3576,7 @@ while.body.us.i:                                  ; preds = %while.body.us.i, %w
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   %add.us.i = add i32 %mul.us.i, %11
   %conv6.us.i = zext i32 %add.us.i to i64
-  %add7.us.i = add i64 %conv6.us.i, %base
+  %add7.us.i = add i64 %base, %conv6.us.i
   %env.val.us.i = load i64, ptr %8, align 16
   %env.val20.us.i = load i64, ptr %9, align 8
   %not.i.us.i = xor i64 %env.val.us.i, -1
@@ -3695,7 +3695,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i8, ptr %add.ptr.i10, align 1
   %conv.i11 = zext i8 %12 to i64
-  %add.i12 = add i64 %indvars.iv20, %base
+  %add.i12 = add i64 %base, %indvars.iv20
   %add18.us.us.us.i = add i64 %add.i12, %conv.i11
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -3744,7 +3744,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %17 = load i8, ptr %add.ptr.i3, align 1
   %conv.i4 = zext i8 %17 to i64
-  %add.i = add i64 %indvars.iv, %base
+  %add.i = add i64 %base, %indvars.iv
   %add18.us56.i = add i64 %add.i, %conv.i4
   %env.val.us57.i = load i64, ptr %5, align 16
   %env.val35.us58.i = load i64, ptr %6, align 8
@@ -3870,7 +3870,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i8, ptr %add.ptr.i10, align 1
   %conv.i11 = zext i8 %12 to i64
   %13 = shl nuw i64 %indvars.iv21, 1
-  %add.i12 = add i64 %13, %base
+  %add.i12 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i12, %conv.i11
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -3921,7 +3921,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %18 = load i8, ptr %add.ptr.i3, align 1
   %conv.i4 = zext i8 %18 to i64
-  %add.i = add i64 %conv.i4, %base
+  %add.i = add i64 %base, %conv.i4
   %19 = shl nuw i64 %indvars.iv, 1
   %add18.us56.i = add i64 %add.i, %19
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -4050,7 +4050,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i8, ptr %add.ptr.i8, align 1
   %conv.i9 = zext i8 %12 to i64
   %13 = shl i64 %indvars.iv19, 2
-  %add.i10 = add i64 %13, %base
+  %add.i10 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i10, %conv.i9
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -4100,7 +4100,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %18 = load i8, ptr %add.ptr.i2, align 1
   %conv.i3 = zext i8 %18 to i64
-  %add.i = add i64 %conv.i3, %base
+  %add.i = add i64 %base, %conv.i3
   %19 = shl i64 %indvars.iv, 2
   %add18.us56.i = add i64 %add.i, %19
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -4228,7 +4228,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i8, ptr %add.ptr.i8, align 1
   %conv.i9 = zext i8 %12 to i64
   %13 = shl i64 %indvars.iv19, 3
-  %add.i10 = add i64 %13, %base
+  %add.i10 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i10, %conv.i9
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -4278,7 +4278,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %18 = load i8, ptr %add.ptr.i2, align 1
   %conv.i3 = zext i8 %18 to i64
-  %add.i = add i64 %conv.i3, %base
+  %add.i = add i64 %base, %conv.i3
   %19 = shl i64 %indvars.iv, 3
   %add18.us56.i = add i64 %add.i, %19
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -4404,7 +4404,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i16, ptr %add.ptr.i10, align 2
   %conv.i11 = zext i16 %12 to i64
-  %add.i12 = add i64 %indvars.iv20, %base
+  %add.i12 = add i64 %base, %indvars.iv20
   %add18.us.us.us.i = add i64 %add.i12, %conv.i11
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -4453,7 +4453,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %17 = load i16, ptr %add.ptr.i3, align 2
   %conv.i4 = zext i16 %17 to i64
-  %add.i = add i64 %indvars.iv, %base
+  %add.i = add i64 %base, %indvars.iv
   %add18.us56.i = add i64 %add.i, %conv.i4
   %env.val.us57.i = load i64, ptr %5, align 16
   %env.val35.us58.i = load i64, ptr %6, align 8
@@ -4579,7 +4579,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i16, ptr %add.ptr.i10, align 2
   %conv.i11 = zext i16 %12 to i64
   %13 = shl nuw i64 %indvars.iv21, 1
-  %add.i12 = add i64 %13, %base
+  %add.i12 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i12, %conv.i11
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -4630,7 +4630,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %18 = load i16, ptr %add.ptr.i3, align 2
   %conv.i4 = zext i16 %18 to i64
-  %add.i = add i64 %conv.i4, %base
+  %add.i = add i64 %base, %conv.i4
   %19 = shl nuw i64 %indvars.iv, 1
   %add18.us56.i = add i64 %add.i, %19
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -4759,7 +4759,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i16, ptr %add.ptr.i8, align 2
   %conv.i9 = zext i16 %12 to i64
   %13 = shl i64 %indvars.iv19, 2
-  %add.i10 = add i64 %13, %base
+  %add.i10 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i10, %conv.i9
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -4809,7 +4809,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %18 = load i16, ptr %add.ptr.i2, align 2
   %conv.i3 = zext i16 %18 to i64
-  %add.i = add i64 %conv.i3, %base
+  %add.i = add i64 %base, %conv.i3
   %19 = shl i64 %indvars.iv, 2
   %add18.us56.i = add i64 %add.i, %19
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -4937,7 +4937,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i16, ptr %add.ptr.i8, align 2
   %conv.i9 = zext i16 %12 to i64
   %13 = shl i64 %indvars.iv19, 3
-  %add.i10 = add i64 %13, %base
+  %add.i10 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i10, %conv.i9
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -4987,7 +4987,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %18 = load i16, ptr %add.ptr.i2, align 2
   %conv.i3 = zext i16 %18 to i64
-  %add.i = add i64 %conv.i3, %base
+  %add.i = add i64 %base, %conv.i3
   %19 = shl i64 %indvars.iv, 3
   %add18.us56.i = add i64 %add.i, %19
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -5113,7 +5113,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i32, ptr %add.ptr.i10, align 4
   %conv.i11 = zext i32 %12 to i64
-  %add.i12 = add i64 %indvars.iv20, %base
+  %add.i12 = add i64 %base, %indvars.iv20
   %add18.us.us.us.i = add i64 %add.i12, %conv.i11
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -5162,7 +5162,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %17 = load i32, ptr %add.ptr.i3, align 4
   %conv.i4 = zext i32 %17 to i64
-  %add.i = add i64 %indvars.iv, %base
+  %add.i = add i64 %base, %indvars.iv
   %add18.us56.i = add i64 %add.i, %conv.i4
   %env.val.us57.i = load i64, ptr %5, align 16
   %env.val35.us58.i = load i64, ptr %6, align 8
@@ -5288,7 +5288,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i32, ptr %add.ptr.i10, align 4
   %conv.i11 = zext i32 %12 to i64
   %13 = shl nuw i64 %indvars.iv21, 1
-  %add.i12 = add i64 %13, %base
+  %add.i12 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i12, %conv.i11
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -5339,7 +5339,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %18 = load i32, ptr %add.ptr.i3, align 4
   %conv.i4 = zext i32 %18 to i64
-  %add.i = add i64 %conv.i4, %base
+  %add.i = add i64 %base, %conv.i4
   %19 = shl nuw i64 %indvars.iv, 1
   %add18.us56.i = add i64 %add.i, %19
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -5468,7 +5468,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i32, ptr %add.ptr.i8, align 4
   %conv.i9 = zext i32 %12 to i64
   %13 = shl i64 %indvars.iv19, 2
-  %add.i10 = add i64 %13, %base
+  %add.i10 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i10, %conv.i9
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -5518,7 +5518,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %18 = load i32, ptr %add.ptr.i2, align 4
   %conv.i3 = zext i32 %18 to i64
-  %add.i = add i64 %conv.i3, %base
+  %add.i = add i64 %base, %conv.i3
   %19 = shl i64 %indvars.iv, 2
   %add18.us56.i = add i64 %add.i, %19
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -5646,7 +5646,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i32, ptr %add.ptr.i8, align 4
   %conv.i9 = zext i32 %12 to i64
   %13 = shl i64 %indvars.iv19, 3
-  %add.i10 = add i64 %13, %base
+  %add.i10 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i10, %conv.i9
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -5696,7 +5696,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %18 = load i32, ptr %add.ptr.i2, align 4
   %conv.i3 = zext i32 %18 to i64
-  %add.i = add i64 %conv.i3, %base
+  %add.i = add i64 %base, %conv.i3
   %19 = shl i64 %indvars.iv, 3
   %add18.us56.i = add i64 %add.i, %19
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -5821,7 +5821,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i64, ptr %add.ptr.i9, align 8
-  %add.i10 = add i64 %indvars.iv18, %base
+  %add.i10 = add i64 %base, %indvars.iv18
   %add18.us.us.us.i = add i64 %add.i10, %12
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -5994,7 +5994,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i64, ptr %add.ptr.i9, align 8
   %13 = shl nuw i64 %indvars.iv19, 1
-  %add.i10 = add i64 %13, %base
+  %add.i10 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i10, %12
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -6172,7 +6172,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i64, ptr %add.ptr.i7, align 8
   %13 = shl i64 %indvars.iv17, 2
-  %add.i8 = add i64 %13, %base
+  %add.i8 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i8, %12
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -6348,7 +6348,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i64, ptr %add.ptr.i7, align 8
   %13 = shl i64 %indvars.iv17, 3
-  %add.i8 = add i64 %13, %base
+  %add.i8 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i8, %12
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -6523,7 +6523,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i8, ptr %add.ptr.i9, align 1
   %conv.i10 = zext i8 %12 to i64
-  %add.i11 = add i64 %indvars.iv19, %base
+  %add.i11 = add i64 %base, %indvars.iv19
   %add18.us.us.us.i = add i64 %add.i11, %conv.i10
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -6572,7 +6572,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %18 = load i8, ptr %add.ptr.i3, align 1
   %conv.i4 = zext i8 %18 to i64
-  %add.i = add i64 %indvars.iv, %base
+  %add.i = add i64 %base, %indvars.iv
   %add18.us56.i = add i64 %add.i, %conv.i4
   %env.val.us57.i = load i64, ptr %5, align 16
   %env.val35.us58.i = load i64, ptr %6, align 8
@@ -6698,7 +6698,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i8, ptr %add.ptr.i9, align 1
   %conv.i10 = zext i8 %12 to i64
   %13 = shl nuw i64 %indvars.iv20, 1
-  %add.i11 = add i64 %13, %base
+  %add.i11 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i11, %conv.i10
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -6749,7 +6749,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %19 = load i8, ptr %add.ptr.i3, align 1
   %conv.i4 = zext i8 %19 to i64
-  %add.i = add i64 %conv.i4, %base
+  %add.i = add i64 %base, %conv.i4
   %20 = shl nuw i64 %indvars.iv, 1
   %add18.us56.i = add i64 %add.i, %20
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -6878,7 +6878,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i8, ptr %add.ptr.i7, align 1
   %conv.i8 = zext i8 %12 to i64
   %13 = shl i64 %indvars.iv18, 2
-  %add.i9 = add i64 %13, %base
+  %add.i9 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i9, %conv.i8
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -6928,7 +6928,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %19 = load i8, ptr %add.ptr.i2, align 1
   %conv.i3 = zext i8 %19 to i64
-  %add.i = add i64 %conv.i3, %base
+  %add.i = add i64 %base, %conv.i3
   %20 = shl i64 %indvars.iv, 2
   %add18.us56.i = add i64 %add.i, %20
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -7056,7 +7056,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i8, ptr %add.ptr.i7, align 1
   %conv.i8 = zext i8 %12 to i64
   %13 = shl i64 %indvars.iv18, 3
-  %add.i9 = add i64 %13, %base
+  %add.i9 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i9, %conv.i8
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -7106,7 +7106,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %19 = load i8, ptr %add.ptr.i2, align 1
   %conv.i3 = zext i8 %19 to i64
-  %add.i = add i64 %conv.i3, %base
+  %add.i = add i64 %base, %conv.i3
   %20 = shl i64 %indvars.iv, 3
   %add18.us56.i = add i64 %add.i, %20
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -7232,7 +7232,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i16, ptr %add.ptr.i9, align 2
   %conv.i10 = zext i16 %12 to i64
-  %add.i11 = add i64 %indvars.iv19, %base
+  %add.i11 = add i64 %base, %indvars.iv19
   %add18.us.us.us.i = add i64 %add.i11, %conv.i10
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -7281,7 +7281,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %18 = load i16, ptr %add.ptr.i3, align 2
   %conv.i4 = zext i16 %18 to i64
-  %add.i = add i64 %indvars.iv, %base
+  %add.i = add i64 %base, %indvars.iv
   %add18.us56.i = add i64 %add.i, %conv.i4
   %env.val.us57.i = load i64, ptr %5, align 16
   %env.val35.us58.i = load i64, ptr %6, align 8
@@ -7407,7 +7407,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i16, ptr %add.ptr.i9, align 2
   %conv.i10 = zext i16 %12 to i64
   %13 = shl nuw i64 %indvars.iv20, 1
-  %add.i11 = add i64 %13, %base
+  %add.i11 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i11, %conv.i10
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -7458,7 +7458,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %19 = load i16, ptr %add.ptr.i3, align 2
   %conv.i4 = zext i16 %19 to i64
-  %add.i = add i64 %conv.i4, %base
+  %add.i = add i64 %base, %conv.i4
   %20 = shl nuw i64 %indvars.iv, 1
   %add18.us56.i = add i64 %add.i, %20
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -7587,7 +7587,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i16, ptr %add.ptr.i7, align 2
   %conv.i8 = zext i16 %12 to i64
   %13 = shl i64 %indvars.iv18, 2
-  %add.i9 = add i64 %13, %base
+  %add.i9 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i9, %conv.i8
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -7637,7 +7637,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %19 = load i16, ptr %add.ptr.i2, align 2
   %conv.i3 = zext i16 %19 to i64
-  %add.i = add i64 %conv.i3, %base
+  %add.i = add i64 %base, %conv.i3
   %20 = shl i64 %indvars.iv, 2
   %add18.us56.i = add i64 %add.i, %20
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -7765,7 +7765,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i16, ptr %add.ptr.i7, align 2
   %conv.i8 = zext i16 %12 to i64
   %13 = shl i64 %indvars.iv18, 3
-  %add.i9 = add i64 %13, %base
+  %add.i9 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i9, %conv.i8
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -7815,7 +7815,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %19 = load i16, ptr %add.ptr.i2, align 2
   %conv.i3 = zext i16 %19 to i64
-  %add.i = add i64 %conv.i3, %base
+  %add.i = add i64 %base, %conv.i3
   %20 = shl i64 %indvars.iv, 3
   %add18.us56.i = add i64 %add.i, %20
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -7941,7 +7941,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i32, ptr %add.ptr.i9, align 4
   %conv.i10 = zext i32 %12 to i64
-  %add.i11 = add i64 %indvars.iv19, %base
+  %add.i11 = add i64 %base, %indvars.iv19
   %add18.us.us.us.i = add i64 %add.i11, %conv.i10
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -7990,7 +7990,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %18 = load i32, ptr %add.ptr.i3, align 4
   %conv.i4 = zext i32 %18 to i64
-  %add.i = add i64 %indvars.iv, %base
+  %add.i = add i64 %base, %indvars.iv
   %add18.us56.i = add i64 %add.i, %conv.i4
   %env.val.us57.i = load i64, ptr %5, align 16
   %env.val35.us58.i = load i64, ptr %6, align 8
@@ -8116,7 +8116,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i32, ptr %add.ptr.i9, align 4
   %conv.i10 = zext i32 %12 to i64
   %13 = shl nuw i64 %indvars.iv20, 1
-  %add.i11 = add i64 %13, %base
+  %add.i11 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i11, %conv.i10
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -8167,7 +8167,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %19 = load i32, ptr %add.ptr.i3, align 4
   %conv.i4 = zext i32 %19 to i64
-  %add.i = add i64 %conv.i4, %base
+  %add.i = add i64 %base, %conv.i4
   %20 = shl nuw i64 %indvars.iv, 1
   %add18.us56.i = add i64 %add.i, %20
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -8296,7 +8296,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i32, ptr %add.ptr.i7, align 4
   %conv.i8 = zext i32 %12 to i64
   %13 = shl i64 %indvars.iv18, 2
-  %add.i9 = add i64 %13, %base
+  %add.i9 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i9, %conv.i8
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -8346,7 +8346,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %19 = load i32, ptr %add.ptr.i2, align 4
   %conv.i3 = zext i32 %19 to i64
-  %add.i = add i64 %conv.i3, %base
+  %add.i = add i64 %base, %conv.i3
   %20 = shl i64 %indvars.iv, 2
   %add18.us56.i = add i64 %add.i, %20
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -8474,7 +8474,7 @@ if.end.us.us.us.i:                                ; preds = %while.body.us.us.us
   %12 = load i32, ptr %add.ptr.i7, align 4
   %conv.i8 = zext i32 %12 to i64
   %13 = shl i64 %indvars.iv18, 3
-  %add.i9 = add i64 %13, %base
+  %add.i9 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i9, %conv.i8
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -8524,7 +8524,7 @@ while.body.us51.i:                                ; preds = %while.body.us51.i, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body.us51.i ], [ 0, %while.cond.preheader.us.i ]
   %19 = load i32, ptr %add.ptr.i2, align 4
   %conv.i3 = zext i32 %19 to i64
-  %add.i = add i64 %conv.i3, %base
+  %add.i = add i64 %base, %conv.i3
   %20 = shl i64 %indvars.iv, 3
   %add18.us56.i = add i64 %add.i, %20
   %env.val.us57.i = load i64, ptr %5, align 16
@@ -8649,7 +8649,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i64, ptr %add.ptr.i8, align 8
-  %add.i9 = add i64 %indvars.iv17, %base
+  %add.i9 = add i64 %base, %indvars.iv17
   %add18.us.us.us.i = add i64 %add.i9, %12
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -8822,7 +8822,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i64, ptr %add.ptr.i8, align 8
   %13 = shl nuw i64 %indvars.iv18, 1
-  %add.i9 = add i64 %13, %base
+  %add.i9 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i9, %12
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -9000,7 +9000,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i64, ptr %add.ptr.i6, align 8
   %13 = shl i64 %indvars.iv16, 2
-  %add.i7 = add i64 %13, %base
+  %add.i7 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i7, %12
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -9176,7 +9176,7 @@ while.body.us.us.us.i:                            ; preds = %while.cond.backedge
 if.end.us.us.us.i:                                ; preds = %while.body.us.us.us.i
   %12 = load i64, ptr %add.ptr.i6, align 8
   %13 = shl i64 %indvars.iv16, 3
-  %add.i7 = add i64 %13, %base
+  %add.i7 = add i64 %base, %13
   %add18.us.us.us.i = add i64 %add.i7, %12
   %env.val.us.us.us.i = load i64, ptr %5, align 16
   %env.val35.us.us.us.i = load i64, ptr %6, align 8
@@ -9350,7 +9350,7 @@ land.lhs.true:                                    ; preds = %for.body
 if.end:                                           ; preds = %land.lhs.true, %for.body
   %mul = mul i32 %i.0116, %shl9
   %conv10 = zext i32 %mul to i64
-  %add = add i64 %conv10, %base
+  %add = add i64 %base, %conv10
   %env.val = load i64, ptr %3, align 16
   %env.val71 = load i64, ptr %4, align 8
   %not.i = xor i64 %env.val, -1
@@ -9362,8 +9362,8 @@ if.end:                                           ; preds = %land.lhs.true, %for
 if.then14:                                        ; preds = %if.end
   %or.i80 = or i64 %or.i, -4096
   %sub.i81 = sub nsw i64 0, %or.i80
-  %cmp.i82 = icmp ult i64 %sub.i81, %conv18
-  %cond.i83 = tail call i64 @llvm.umin.i64(i64 %sub.i81, i64 %conv18)
+  %cmp.i82 = icmp ugt i64 %conv18, %sub.i81
+  %cond.i83 = tail call i64 @llvm.umin.i64(i64 %conv18, i64 %sub.i81)
   %conv.i85 = trunc nuw nsw i64 %cond.i83 to i32
   %call1.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef nonnull %env, i1 noundef zeroext false) #10
   %call2.i = tail call ptr @probe_access(ptr noundef nonnull %env, i64 noundef %or.i, i32 noundef %conv.i85, i32 noundef 0, i32 noundef %call1.i, i64 noundef %ra) #10
@@ -9471,7 +9471,7 @@ if.end69.us.us.us:                                ; preds = %while.body55.us.us.
   %add71.us.us.us = add i32 %k.0119.us.us.us, %mul70.us.us
   %shl72.us.us.us = shl i32 %add71.us.us.us, %log2_esz
   %conv73.us.us.us = zext i32 %shl72.us.us.us to i64
-  %add74.us.us.us = add i64 %conv73.us.us.us, %base
+  %add74.us.us.us = add i64 %base, %conv73.us.us.us
   %env.val74.us.us.us = load i64, ptr %12, align 16
   %env.val75.us.us.us = load i64, ptr %13, align 8
   %not.i96.us.us.us = xor i64 %env.val74.us.us.us, -1
@@ -9512,7 +9512,7 @@ while.body55.us124:                               ; preds = %while.cond52.prehea
   %add71.us126 = add i32 %k.0119.us125, %mul70.us
   %shl72.us127 = shl i32 %add71.us126, %log2_esz
   %conv73.us128 = zext i32 %shl72.us127 to i64
-  %add74.us129 = add i64 %conv73.us128, %base
+  %add74.us129 = add i64 %base, %conv73.us128
   %env.val74.us130 = load i64, ptr %12, align 16
   %env.val75.us131 = load i64, ptr %13, align 8
   %not.i96.us132 = xor i64 %env.val74.us130, -1
@@ -9626,7 +9626,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %8 = trunc nuw i64 %indvars.iv to i32
   %add.i = add i32 %mul.i, %8
   %conv9.i = zext i32 %add.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -9666,25 +9666,24 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %13 = zext i32 %mul26.us.i to i64
-  %invariant.op = add i64 %13, %base
-  %invariant.gep = getelementptr i8, ptr %vd, i64 %13
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %add30.us.i.reass = add i64 %indvars.iv6, %invariant.op
+  %14 = add nuw nsw i64 %indvars.iv6, %13
+  %add30.us.i = add i64 %base, %14
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv6
+  %add.ptr.i = getelementptr i8, ptr %vd, i64 %14
   %call.i = tail call i32 @cpu_ldsb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i64 noundef %1) #10
   %conv.i = trunc i32 %call.i to i8
-  store i8 %conv.i, ptr %gep, align 1
+  store i8 %conv.i, ptr %add.ptr.i, align 1
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %14 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %14, 1
+  %15 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %15, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next7, %12
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -9737,7 +9736,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.i = add i32 %mul.i, %8
   %shl.i = shl i32 %add.i, 1
   %conv9.i = zext i32 %shl.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -9785,7 +9784,7 @@ for.body24.us.i:                                  ; preds = %for.body24.us.i, %f
   %14 = add nuw nsw i64 %indvars.iv6, %13
   %shl28.us.i = shl nuw i64 %14, 1
   %conv29.us.i = and i64 %shl28.us.i, 4294967294
-  %add30.us.i = add i64 %conv29.us.i, %base
+  %add30.us.i = add i64 %base, %conv29.us.i
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
@@ -9850,7 +9849,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.i = add i32 %mul.i, %8
   %shl.i = shl i32 %add.i, 2
   %conv9.i = zext i32 %shl.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -9897,7 +9896,7 @@ for.body24.us.i:                                  ; preds = %for.body24.us.i, %f
   %14 = add nuw nsw i64 %indvars.iv5, %13
   %shl28.us.i = shl i64 %14, 2
   %conv29.us.i = and i64 %shl28.us.i, 4294967292
-  %add30.us.i = add i64 %conv29.us.i, %base
+  %add30.us.i = add i64 %base, %conv29.us.i
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
@@ -9961,7 +9960,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.i = add i32 %mul.i, %8
   %shl.i = shl i32 %add.i, 3
   %conv9.i = zext i32 %shl.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -10008,7 +10007,7 @@ for.body24.us.i:                                  ; preds = %for.body24.us.i, %f
   %14 = add nuw nsw i64 %indvars.iv5, %13
   %shl28.us.i = shl i64 %14, 3
   %conv29.us.i = and i64 %shl28.us.i, 4294967288
-  %add30.us.i = add i64 %conv29.us.i, %base
+  %add30.us.i = add i64 %base, %conv29.us.i
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
@@ -10071,7 +10070,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %8 = trunc nuw i64 %indvars.iv to i32
   %add.i = add i32 %mul.i, %8
   %conv9.i = zext i32 %add.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -10111,25 +10110,24 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %13 = zext i32 %mul26.us.i to i64
-  %invariant.op = add i64 %13, %base
-  %invariant.gep = getelementptr i8, ptr %vd, i64 %13
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %add30.us.i.reass = add i64 %indvars.iv6, %invariant.op
+  %14 = add nuw nsw i64 %indvars.iv6, %13
+  %add30.us.i = add i64 %base, %14
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv6
+  %add.ptr.i = getelementptr i8, ptr %vd, i64 %14
   %call.i = tail call i32 @cpu_ldsb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i64 noundef %1) #10
   %conv.i = trunc i32 %call.i to i8
-  store i8 %conv.i, ptr %gep, align 1
+  store i8 %conv.i, ptr %add.ptr.i, align 1
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %14 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %14, 1
+  %15 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %15, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next7, %12
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -10182,7 +10180,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.i = add i32 %mul.i, %8
   %shl.i = shl i32 %add.i, 1
   %conv9.i = zext i32 %shl.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -10230,7 +10228,7 @@ for.body24.us.i:                                  ; preds = %for.body24.us.i, %f
   %14 = add nuw nsw i64 %indvars.iv6, %13
   %shl28.us.i = shl nuw i64 %14, 1
   %conv29.us.i = and i64 %shl28.us.i, 4294967294
-  %add30.us.i = add i64 %conv29.us.i, %base
+  %add30.us.i = add i64 %base, %conv29.us.i
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
@@ -10295,7 +10293,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.i = add i32 %mul.i, %8
   %shl.i = shl i32 %add.i, 2
   %conv9.i = zext i32 %shl.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -10342,7 +10340,7 @@ for.body24.us.i:                                  ; preds = %for.body24.us.i, %f
   %14 = add nuw nsw i64 %indvars.iv5, %13
   %shl28.us.i = shl i64 %14, 2
   %conv29.us.i = and i64 %shl28.us.i, 4294967292
-  %add30.us.i = add i64 %conv29.us.i, %base
+  %add30.us.i = add i64 %base, %conv29.us.i
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
@@ -10406,7 +10404,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.i = add i32 %mul.i, %8
   %shl.i = shl i32 %add.i, 3
   %conv9.i = zext i32 %shl.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -10453,7 +10451,7 @@ for.body24.us.i:                                  ; preds = %for.body24.us.i, %f
   %14 = add nuw nsw i64 %indvars.iv5, %13
   %shl28.us.i = shl i64 %14, 3
   %conv29.us.i = and i64 %shl28.us.i, 4294967288
-  %add30.us.i = add i64 %conv29.us.i, %base
+  %add30.us.i = add i64 %base, %conv29.us.i
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
@@ -10516,7 +10514,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %8 = trunc nuw i64 %indvars.iv to i32
   %add.i = add i32 %mul.i, %8
   %conv9.i = zext i32 %add.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -10556,25 +10554,24 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %13 = zext i32 %mul26.us.i to i64
-  %invariant.op = add i64 %13, %base
-  %invariant.gep = getelementptr i8, ptr %vd, i64 %13
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %add30.us.i.reass = add i64 %indvars.iv6, %invariant.op
+  %14 = add nuw nsw i64 %indvars.iv6, %13
+  %add30.us.i = add i64 %base, %14
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv6
+  %add.ptr.i = getelementptr i8, ptr %vd, i64 %14
   %call.i = tail call i32 @cpu_ldsb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i64 noundef %1) #10
   %conv.i = trunc i32 %call.i to i8
-  store i8 %conv.i, ptr %gep, align 1
+  store i8 %conv.i, ptr %add.ptr.i, align 1
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %14 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %14, 1
+  %15 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %15, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next7, %12
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -10627,7 +10624,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.i = add i32 %mul.i, %8
   %shl.i = shl i32 %add.i, 1
   %conv9.i = zext i32 %shl.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -10675,7 +10672,7 @@ for.body24.us.i:                                  ; preds = %for.body24.us.i, %f
   %14 = add nuw nsw i64 %indvars.iv6, %13
   %shl28.us.i = shl nuw i64 %14, 1
   %conv29.us.i = and i64 %shl28.us.i, 4294967294
-  %add30.us.i = add i64 %conv29.us.i, %base
+  %add30.us.i = add i64 %base, %conv29.us.i
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
@@ -10740,7 +10737,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.i = add i32 %mul.i, %8
   %shl.i = shl i32 %add.i, 2
   %conv9.i = zext i32 %shl.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -10787,7 +10784,7 @@ for.body24.us.i:                                  ; preds = %for.body24.us.i, %f
   %14 = add nuw nsw i64 %indvars.iv5, %13
   %shl28.us.i = shl i64 %14, 2
   %conv29.us.i = and i64 %shl28.us.i, 4294967292
-  %add30.us.i = add i64 %conv29.us.i, %base
+  %add30.us.i = add i64 %base, %conv29.us.i
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
@@ -10851,7 +10848,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.i = add i32 %mul.i, %8
   %shl.i = shl i32 %add.i, 3
   %conv9.i = zext i32 %shl.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -10898,7 +10895,7 @@ for.body24.us.i:                                  ; preds = %for.body24.us.i, %f
   %14 = add nuw nsw i64 %indvars.iv5, %13
   %shl28.us.i = shl i64 %14, 3
   %conv29.us.i = and i64 %shl28.us.i, 4294967288
-  %add30.us.i = add i64 %conv29.us.i, %base
+  %add30.us.i = add i64 %base, %conv29.us.i
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
@@ -10961,7 +10958,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %8 = trunc nuw i64 %indvars.iv to i32
   %add.i = add i32 %mul.i, %8
   %conv9.i = zext i32 %add.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -11001,25 +10998,24 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %13 = zext i32 %mul26.us.i to i64
-  %invariant.op = add i64 %13, %base
-  %invariant.gep = getelementptr i8, ptr %vd, i64 %13
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %add30.us.i.reass = add i64 %indvars.iv6, %invariant.op
+  %14 = add nuw nsw i64 %indvars.iv6, %13
+  %add30.us.i = add i64 %base, %14
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv6
+  %add.ptr.i = getelementptr i8, ptr %vd, i64 %14
   %call.i = tail call i32 @cpu_ldsb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i64 noundef %1) #10
   %conv.i = trunc i32 %call.i to i8
-  store i8 %conv.i, ptr %gep, align 1
+  store i8 %conv.i, ptr %add.ptr.i, align 1
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %14 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %14, 1
+  %15 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %15, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next7, %12
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -11072,7 +11068,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.i = add i32 %mul.i, %8
   %shl.i = shl i32 %add.i, 1
   %conv9.i = zext i32 %shl.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -11120,7 +11116,7 @@ for.body24.us.i:                                  ; preds = %for.body24.us.i, %f
   %14 = add nuw nsw i64 %indvars.iv6, %13
   %shl28.us.i = shl nuw i64 %14, 1
   %conv29.us.i = and i64 %shl28.us.i, 4294967294
-  %add30.us.i = add i64 %conv29.us.i, %base
+  %add30.us.i = add i64 %base, %conv29.us.i
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
@@ -11185,7 +11181,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.i = add i32 %mul.i, %8
   %shl.i = shl i32 %add.i, 2
   %conv9.i = zext i32 %shl.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -11232,7 +11228,7 @@ for.body24.us.i:                                  ; preds = %for.body24.us.i, %f
   %14 = add nuw nsw i64 %indvars.iv5, %13
   %shl28.us.i = shl i64 %14, 2
   %conv29.us.i = and i64 %shl28.us.i, 4294967292
-  %add30.us.i = add i64 %conv29.us.i, %base
+  %add30.us.i = add i64 %base, %conv29.us.i
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
@@ -11296,7 +11292,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.i = add i32 %mul.i, %8
   %shl.i = shl i32 %add.i, 3
   %conv9.i = zext i32 %shl.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -11343,7 +11339,7 @@ for.body24.us.i:                                  ; preds = %for.body24.us.i, %f
   %14 = add nuw nsw i64 %indvars.iv5, %13
   %shl28.us.i = shl i64 %14, 3
   %conv29.us.i = and i64 %shl28.us.i, 4294967288
-  %add30.us.i = add i64 %conv29.us.i, %base
+  %add30.us.i = add i64 %base, %conv29.us.i
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
@@ -11406,7 +11402,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %8 = trunc nuw i64 %indvars.iv to i32
   %add.i = add i32 %mul.i, %8
   %conv9.i = zext i32 %add.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -11446,25 +11442,24 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %14 = zext i32 %mul26.us.i to i64
-  %invariant.op = add i64 %14, %base
-  %invariant.gep = getelementptr i8, ptr %vd, i64 %14
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %add30.us.i.reass = add i64 %indvars.iv5, %invariant.op
+  %15 = add nuw nsw i64 %indvars.iv5, %14
+  %add30.us.i = add i64 %base, %15
   %env.val37.us.i = load i64, ptr %11, align 16
   %env.val38.us.i = load i64, ptr %12, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv5
-  %15 = load i8, ptr %gep, align 1
-  %conv.i = sext i8 %15 to i32
+  %add.ptr.i = getelementptr i8, ptr %vd, i64 %15
+  %16 = load i8, ptr %add.ptr.i, align 1
+  %conv.i = sext i8 %16 to i32
   tail call void @cpu_stb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i32 noundef %conv.i, i64 noundef %1) #10
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
-  %16 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %16, 1
+  %17 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %17, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6, %13
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -11516,7 +11511,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %8 = trunc nuw i64 %indvars.iv to i32
   %add.i = add i32 %mul.i, %8
   %conv9.i = zext i32 %add.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -11556,25 +11551,24 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %14 = zext i32 %mul26.us.i to i64
-  %invariant.op = add i64 %14, %base
-  %invariant.gep = getelementptr i8, ptr %vd, i64 %14
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %add30.us.i.reass = add i64 %indvars.iv5, %invariant.op
+  %15 = add nuw nsw i64 %indvars.iv5, %14
+  %add30.us.i = add i64 %base, %15
   %env.val37.us.i = load i64, ptr %11, align 16
   %env.val38.us.i = load i64, ptr %12, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv5
-  %15 = load i8, ptr %gep, align 1
-  %conv.i = sext i8 %15 to i32
+  %add.ptr.i = getelementptr i8, ptr %vd, i64 %15
+  %16 = load i8, ptr %add.ptr.i, align 1
+  %conv.i = sext i8 %16 to i32
   tail call void @cpu_stb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i32 noundef %conv.i, i64 noundef %1) #10
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
-  %16 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %16, 1
+  %17 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %17, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6, %13
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -11626,7 +11620,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %8 = trunc nuw i64 %indvars.iv to i32
   %add.i = add i32 %mul.i, %8
   %conv9.i = zext i32 %add.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -11666,25 +11660,24 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %14 = zext i32 %mul26.us.i to i64
-  %invariant.op = add i64 %14, %base
-  %invariant.gep = getelementptr i8, ptr %vd, i64 %14
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %add30.us.i.reass = add i64 %indvars.iv5, %invariant.op
+  %15 = add nuw nsw i64 %indvars.iv5, %14
+  %add30.us.i = add i64 %base, %15
   %env.val37.us.i = load i64, ptr %11, align 16
   %env.val38.us.i = load i64, ptr %12, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv5
-  %15 = load i8, ptr %gep, align 1
-  %conv.i = sext i8 %15 to i32
+  %add.ptr.i = getelementptr i8, ptr %vd, i64 %15
+  %16 = load i8, ptr %add.ptr.i, align 1
+  %conv.i = sext i8 %16 to i32
   tail call void @cpu_stb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i32 noundef %conv.i, i64 noundef %1) #10
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
-  %16 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %16, 1
+  %17 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %17, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6, %13
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -11736,7 +11729,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %8 = trunc nuw i64 %indvars.iv to i32
   %add.i = add i32 %mul.i, %8
   %conv9.i = zext i32 %add.i to i64
-  %add10.i = add i64 %conv9.i, %base
+  %add10.i = add i64 %base, %conv9.i
   %env.val.i = load i64, ptr %5, align 16
   %env.val36.i = load i64, ptr %6, align 8
   %not.i.i = xor i64 %env.val.i, -1
@@ -11776,25 +11769,24 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %14 = zext i32 %mul26.us.i to i64
-  %invariant.op = add i64 %14, %base
-  %invariant.gep = getelementptr i8, ptr %vd, i64 %14
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %add30.us.i.reass = add i64 %indvars.iv5, %invariant.op
+  %15 = add nuw nsw i64 %indvars.iv5, %14
+  %add30.us.i = add i64 %base, %15
   %env.val37.us.i = load i64, ptr %11, align 16
   %env.val38.us.i = load i64, ptr %12, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv5
-  %15 = load i8, ptr %gep, align 1
-  %conv.i = sext i8 %15 to i32
+  %add.ptr.i = getelementptr i8, ptr %vd, i64 %15
+  %16 = load i8, ptr %add.ptr.i, align 1
+  %conv.i = sext i8 %16 to i32
   tail call void @cpu_stb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i32 noundef %conv.i, i64 noundef %1) #10
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
-  %16 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %16, 1
+  %17 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %17, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6, %13
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -14376,7 +14368,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %sh_prom.i14 = zext nneg i32 %rem.i to i64
   %shr.i = lshr i64 %6, %sh_prom.i14
   %conv.i = and i64 %shr.i, 1
-  %7 = add i64 %conv.i, %s1
+  %7 = add i64 %s1, %conv.i
   %sub7 = sub i64 %4, %7
   %add.ptr9 = getelementptr i64, ptr %vd, i64 %indvars.iv
   store i64 %sub7, ptr %add.ptr9, align 8
@@ -15898,7 +15890,7 @@ vext_set_elem_mask.exit.us:                       ; preds = %for.body.us
   %add.ptr.us = getelementptr i64, ptr %vs2, i64 %indvars.iv45
   %9 = load i64, ptr %add.ptr.us, align 8
   %10 = xor i64 %9, -1
-  %cmp15.us = icmp ult i64 %10, %s1
+  %cmp15.us = icmp ugt i64 %s1, %10
   %add11.us = add i64 %add, %9
   %cmp12.us = icmp ule i64 %add11.us, %9
   %cond.in.us = select i1 %tobool8.not.us, i1 %cmp15.us, i1 %cmp12.us
@@ -15931,7 +15923,7 @@ vext_set_elem_mask.exit:                          ; preds = %for.body
   %add.ptr = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %13 = load i64, ptr %add.ptr, align 8
   %14 = xor i64 %13, -1
-  %cmp15 = icmp ult i64 %14, %s1
+  %cmp15 = icmp ugt i64 %s1, %14
   %idxprom.i20 = sext i32 %div.i19 to i64
   %arrayidx.i21 = getelementptr i64, ptr %vd, i64 %idxprom.i20
   %15 = load i64, ptr %arrayidx.i21, align 8
@@ -36203,7 +36195,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -36539,7 +36531,7 @@ entry:
   %vstart.i95 = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95, align 8
   %conv.i96 = trunc i64 %3 to i32
-  %cmp11.i97 = icmp ult i32 %conv.i96, %conv
+  %cmp11.i97 = icmp ugt i32 %conv, %conv.i96
   switch i64 %2, label %sw.default [
     i64 0, label %sw.bb
     i64 1, label %sw.bb5
@@ -36731,7 +36723,7 @@ sw.epilog:                                        ; preds = %for.body.i75, %for.
   %add.i = sub nsw i32 %sub.i, %sh_prom.i
   %cond.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 0)
   %shl17.i = shl i32 %add.i.i, %cond.i
-  %mul = mul i32 %conv, %esz
+  %mul = mul i32 %esz, %conv
   %shl17.i.fr = freeze i32 %shl17.i
   %20 = urem i32 %shl17.i.fr, %esz
   %mul7 = sub nuw i32 %shl17.i.fr, %20
@@ -36756,7 +36748,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -37103,7 +37095,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -37450,7 +37442,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -37797,7 +37789,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -38121,7 +38113,7 @@ entry:
   %vstart.i95 = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95, align 8
   %conv.i96 = trunc i64 %3 to i32
-  %cmp11.i97 = icmp ult i32 %conv.i96, %conv
+  %cmp11.i97 = icmp ugt i32 %conv, %conv.i96
   switch i64 %2, label %sw.default [
     i64 0, label %sw.bb
     i64 1, label %sw.bb5
@@ -38313,7 +38305,7 @@ sw.epilog:                                        ; preds = %for.body.i75, %for.
   %add.i = sub nsw i32 %sub.i, %sh_prom.i
   %cond.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 0)
   %shl17.i = shl i32 %add.i.i, %cond.i
-  %mul = mul i32 %conv, %esz
+  %mul = mul i32 %esz, %conv
   %shl17.i.fr = freeze i32 %shl17.i
   %20 = urem i32 %shl17.i.fr, %esz
   %mul7 = sub nuw i32 %shl17.i.fr, %20
@@ -38338,7 +38330,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -38673,7 +38665,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -39008,7 +39000,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -39339,7 +39331,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -39715,7 +39707,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -40102,7 +40094,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -40489,7 +40481,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -40876,7 +40868,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -41240,7 +41232,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -41615,7 +41607,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -41990,7 +41982,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -42361,7 +42353,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -42697,7 +42689,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -43044,7 +43036,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -43391,7 +43383,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -43738,7 +43730,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -44062,7 +44054,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -44397,7 +44389,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -44732,7 +44724,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -44766,7 +44758,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
   %add.ptr.i57 = getelementptr i64, ptr %vs2, i64 %idx.ext.i56
   %7 = load i64, ptr %add.ptr.i57, align 8
   %sub.i.i58 = sub i64 %7, %s1
-  %cmp.i.i59 = icmp ult i64 %7, %s1
+  %cmp.i.i59 = icmp ugt i64 %s1, %7
   br i1 %cmp.i.i59, label %if.then.i.i62, label %do_vssubu_vx_d.exit64
 
 if.then.i.i62:                                    ; preds = %if.end.us.i.i
@@ -44795,7 +44787,7 @@ for.body.i.i:                                     ; preds = %for.body.lr.ph.i.i,
   %add.ptr.i48 = getelementptr i64, ptr %vs2, i64 %idx.ext.i47
   %8 = load i64, ptr %add.ptr.i48, align 8
   %sub.i.i49 = sub i64 %8, %s1
-  %cmp.i.i50 = icmp ult i64 %8, %s1
+  %cmp.i.i50 = icmp ugt i64 %s1, %8
   br i1 %cmp.i.i50, label %if.then.i.i53, label %do_vssubu_vx_d.exit55
 
 if.then.i.i53:                                    ; preds = %for.body.i.i
@@ -44837,7 +44829,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %add.ptr.i39 = getelementptr i64, ptr %vs2, i64 %idx.ext.i38
   %12 = load i64, ptr %add.ptr.i39, align 8
   %sub.i.i40 = sub i64 %12, %s1
-  %cmp.i.i41 = icmp ult i64 %12, %s1
+  %cmp.i.i41 = icmp ugt i64 %s1, %12
   br i1 %cmp.i.i41, label %if.then.i.i44, label %do_vssubu_vx_d.exit46
 
 if.then.i.i44:                                    ; preds = %if.end.us.i63.i
@@ -44866,7 +44858,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %add.ptr.i30 = getelementptr i64, ptr %vs2, i64 %idx.ext.i29
   %13 = load i64, ptr %add.ptr.i30, align 8
   %sub.i.i31 = sub i64 %13, %s1
-  %cmp.i.i32 = icmp ult i64 %13, %s1
+  %cmp.i.i32 = icmp ugt i64 %s1, %13
   br i1 %cmp.i.i32, label %if.then.i.i35, label %do_vssubu_vx_d.exit37
 
 if.then.i.i35:                                    ; preds = %for.body.i50.i
@@ -44908,7 +44900,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
   %add.ptr.i21 = getelementptr i64, ptr %vs2, i64 %idx.ext.i20
   %17 = load i64, ptr %add.ptr.i21, align 8
   %sub.i.i22 = sub i64 %17, %s1
-  %cmp.i.i23 = icmp ult i64 %17, %s1
+  %cmp.i.i23 = icmp ugt i64 %s1, %17
   br i1 %cmp.i.i23, label %if.then.i.i26, label %do_vssubu_vx_d.exit28
 
 if.then.i.i26:                                    ; preds = %if.end.us.i88.i
@@ -44937,7 +44929,7 @@ for.body.i75.i:                                   ; preds = %for.body.lr.ph.i73.
   %add.ptr.i12 = getelementptr i64, ptr %vs2, i64 %idx.ext.i11
   %18 = load i64, ptr %add.ptr.i12, align 8
   %sub.i.i13 = sub i64 %18, %s1
-  %cmp.i.i14 = icmp ult i64 %18, %s1
+  %cmp.i.i14 = icmp ugt i64 %s1, %18
   br i1 %cmp.i.i14, label %if.then.i.i17, label %do_vssubu_vx_d.exit19
 
 if.then.i.i17:                                    ; preds = %for.body.i75.i
@@ -44979,7 +44971,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
   %add.ptr.i3 = getelementptr i64, ptr %vs2, i64 %idx.ext.i2
   %22 = load i64, ptr %add.ptr.i3, align 8
   %sub.i.i4 = sub i64 %22, %s1
-  %cmp.i.i5 = icmp ult i64 %22, %s1
+  %cmp.i.i5 = icmp ugt i64 %s1, %22
   br i1 %cmp.i.i5, label %if.then.i.i8, label %do_vssubu_vx_d.exit10
 
 if.then.i.i8:                                     ; preds = %if.end.us.i113.i
@@ -45008,7 +45000,7 @@ for.body.i100.i:                                  ; preds = %for.body.lr.ph.i98.
   %add.ptr.i = getelementptr i64, ptr %vs2, i64 %idx.ext.i
   %23 = load i64, ptr %add.ptr.i, align 8
   %sub.i.i1 = sub i64 %23, %s1
-  %cmp.i.i = icmp ult i64 %23, %s1
+  %cmp.i.i = icmp ugt i64 %s1, %23
   br i1 %cmp.i.i, label %if.then.i.i, label %do_vssubu_vx_d.exit
 
 if.then.i.i:                                      ; preds = %for.body.i100.i
@@ -45063,7 +45055,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -45439,7 +45431,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -45826,7 +45818,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -46213,7 +46205,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -46600,7 +46592,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -46964,7 +46956,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -47339,7 +47331,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -47714,7 +47706,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -48085,7 +48077,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -48397,7 +48389,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -48720,7 +48712,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -49043,7 +49035,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -49382,7 +49374,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -49678,7 +49670,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -49985,7 +49977,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -50292,7 +50284,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -50615,7 +50607,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -50927,7 +50919,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -51250,7 +51242,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -51573,7 +51565,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -51896,7 +51888,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -52188,7 +52180,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -52491,7 +52483,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -52794,7 +52786,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -53101,7 +53093,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -53413,7 +53405,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -53736,7 +53728,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -54059,7 +54051,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -54398,7 +54390,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -54694,7 +54686,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -55001,7 +54993,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -55308,7 +55300,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -55631,7 +55623,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -55943,7 +55935,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -56266,7 +56258,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -56589,7 +56581,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -56912,7 +56904,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -57204,7 +57196,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -57507,7 +57499,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -57810,7 +57802,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -57845,7 +57837,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
   %sub.i.i69 = sub i64 %7, %s1
   %shr.i.i.i.i70 = lshr i64 %sub.i.i69, 1
   %and.i22.i.i.i71 = and i64 %sub.i.i69, 1
-  %cmp.i.i72 = icmp ult i64 %7, %s1
+  %cmp.i.i72 = icmp ugt i64 %s1, %7
   %shl.i.i73 = select i1 %cmp.i.i72, i64 -9223372036854775808, i64 0
   %or.i.i74 = or disjoint i64 %shr.i.i.i.i70, %shl.i.i73
   %add.i.i75 = add i64 %or.i.i74, %and.i22.i.i.i71
@@ -57871,7 +57863,7 @@ for.body.i.i:                                     ; preds = %for.body.lr.ph.i.i,
   %sub.i.i59 = sub i64 %8, %s1
   %shr.i.i.i.i60 = lshr i64 %sub.i.i59, 1
   %and.i22.i.i.i61 = and i64 %sub.i.i59, 1
-  %cmp.i.i62 = icmp ult i64 %8, %s1
+  %cmp.i.i62 = icmp ugt i64 %s1, %8
   %shl.i.i63 = select i1 %cmp.i.i62, i64 -9223372036854775808, i64 0
   %or.i.i64 = or disjoint i64 %shr.i.i.i.i60, %shl.i.i63
   %add.i.i65 = add i64 %or.i.i64, %and.i22.i.i.i61
@@ -57911,7 +57903,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   %13 = and i64 %sub.i.i48, 3
   %14 = icmp eq i64 %13, 3
   %15 = zext i1 %14 to i64
-  %cmp.i.i52 = icmp ult i64 %12, %s1
+  %cmp.i.i52 = icmp ugt i64 %s1, %12
   %shl.i.i53 = select i1 %cmp.i.i52, i64 -9223372036854775808, i64 0
   %or.i.i54 = or disjoint i64 %shr.i.i.i.i49, %shl.i.i53
   %add.i.i55 = add i64 %or.i.i54, %15
@@ -57939,7 +57931,7 @@ for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.
   %17 = and i64 %sub.i.i38, 3
   %18 = icmp eq i64 %17, 3
   %19 = zext i1 %18 to i64
-  %cmp.i.i41 = icmp ult i64 %16, %s1
+  %cmp.i.i41 = icmp ugt i64 %s1, %16
   %shl.i.i42 = select i1 %cmp.i.i41, i64 -9223372036854775808, i64 0
   %or.i.i43 = or disjoint i64 %shr.i.i.i.i39, %shl.i.i42
   %add.i.i44 = add i64 %or.i.i43, %19
@@ -57976,7 +57968,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
   %23 = load i64, ptr %add.ptr.i27, align 8
   %sub.i.i28 = sub i64 %23, %s1
   %shr.i.i.i.i29 = lshr i64 %sub.i.i28, 1
-  %cmp.i.i31 = icmp ult i64 %23, %s1
+  %cmp.i.i31 = icmp ugt i64 %s1, %23
   %shl.i.i32 = select i1 %cmp.i.i31, i64 -9223372036854775808, i64 0
   %or.i.i33 = or disjoint i64 %shr.i.i.i.i29, %shl.i.i32
   %add.ptr2.i35 = getelementptr i64, ptr %vd, i64 %idx.ext.i26
@@ -58000,7 +57992,7 @@ for.body.i75.i:                                   ; preds = %for.body.lr.ph.i73.
   %24 = load i64, ptr %add.ptr.i17, align 8
   %sub.i.i18 = sub i64 %24, %s1
   %shr.i.i.i.i19 = lshr i64 %sub.i.i18, 1
-  %cmp.i.i21 = icmp ult i64 %24, %s1
+  %cmp.i.i21 = icmp ugt i64 %s1, %24
   %shl.i.i22 = select i1 %cmp.i.i21, i64 -9223372036854775808, i64 0
   %or.i.i23 = or disjoint i64 %shr.i.i.i.i19, %shl.i.i22
   %add.ptr2.i25 = getelementptr i64, ptr %vd, i64 %idx.ext.i16
@@ -58039,7 +58031,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
   %29 = and i64 %sub.i.i6, 3
   %and4116.i.i.i9 = icmp eq i64 %29, 1
   %conv42.i.i.i10 = zext i1 %and4116.i.i.i9 to i64
-  %cmp.i.i11 = icmp ult i64 %28, %s1
+  %cmp.i.i11 = icmp ugt i64 %s1, %28
   %shl.i.i12 = select i1 %cmp.i.i11, i64 -9223372036854775808, i64 0
   %or.i.i13 = or disjoint i64 %shr.i.i.i.i7, %shl.i.i12
   %add.i.i14 = add i64 %or.i.i13, %conv42.i.i.i10
@@ -58067,7 +58059,7 @@ for.body.i100.i:                                  ; preds = %for.body.lr.ph.i98.
   %31 = and i64 %sub.i.i1, 3
   %and4116.i.i.i = icmp eq i64 %31, 1
   %conv42.i.i.i = zext i1 %and4116.i.i.i to i64
-  %cmp.i.i = icmp ult i64 %30, %s1
+  %cmp.i.i = icmp ugt i64 %s1, %30
   %shl.i.i = select i1 %cmp.i.i, i64 -9223372036854775808, i64 0
   %or.i.i = or disjoint i64 %shr.i.i.i.i2, %shl.i.i
   %add.i.i3 = add i64 %or.i.i, %conv42.i.i.i
@@ -58732,7 +58724,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -59068,7 +59060,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -59429,7 +59421,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -59794,7 +59786,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -60139,7 +60131,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -60469,7 +60461,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -60826,7 +60818,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -61183,7 +61175,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -61517,7 +61509,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -61853,7 +61845,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -62214,7 +62206,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -62579,7 +62571,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -62924,7 +62916,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -63254,7 +63246,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -63611,7 +63603,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -63968,7 +63960,7 @@ entry:
   %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
   %3 = load i64, ptr %vstart.i95.i, align 8
   %conv.i96.i = trunc i64 %3 to i32
-  %cmp11.i97.i = icmp ult i32 %conv.i96.i, %conv.i
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
   switch i64 %2, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb5.i
@@ -98010,7 +98002,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %tobool.not = icmp eq i32 %4, 0
   %cond.i.fr = freeze i32 %cond.i
   %conv12 = zext i32 %cond.i.fr to i64
-  %cmp13.not = icmp ugt i64 %conv12, %s1
+  %cmp13.not = icmp ult i64 %s1, %conv12
   %add.ptr16 = getelementptr i8, ptr %vs2, i64 %s1
   %5 = and i64 %3, 4294967295
   br i1 %tobool.not, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
@@ -98150,7 +98142,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %tobool.not = icmp eq i32 %4, 0
   %cond.i.fr = freeze i32 %cond.i
   %conv12 = zext i32 %cond.i.fr to i64
-  %cmp13.not = icmp ugt i64 %conv12, %s1
+  %cmp13.not = icmp ult i64 %s1, %conv12
   %add.ptr16 = getelementptr i16, ptr %vs2, i64 %s1
   br i1 %tobool.not, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
 
@@ -98299,7 +98291,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %tobool.not = icmp eq i32 %4, 0
   %cond.i.fr = freeze i32 %cond.i
   %conv12 = zext i32 %cond.i.fr to i64
-  %cmp13.not = icmp ugt i64 %conv12, %s1
+  %cmp13.not = icmp ult i64 %s1, %conv12
   %add.ptr16 = getelementptr i32, ptr %vs2, i64 %s1
   br i1 %tobool.not, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
 
@@ -98447,7 +98439,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %tobool.not = icmp eq i32 %4, 0
   %cond.i.fr = freeze i32 %cond.i
   %conv12 = zext i32 %cond.i.fr to i64
-  %cmp13.not = icmp ugt i64 %conv12, %s1
+  %cmp13.not = icmp ult i64 %s1, %conv12
   %add.ptr16 = getelementptr i64, ptr %vs2, i64 %s1
   br i1 %tobool.not, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
 
@@ -100160,7 +100152,7 @@ extract64.exit:                                   ; preds = %entry
   %and.i = and i64 %shr.i, 1
   %cmp1.i = icmp slt i32 %exp_size, 1
   %sub.i54 = sub nuw nsw i32 64, %frac_size
-  %cmp3.not.i55 = icmp ult i32 %sub.i54, %exp_size
+  %cmp3.not.i55 = icmp ugt i32 %exp_size, %sub.i54
   %or.cond.i = select i1 %cmp1.i, i1 true, i1 %cmp3.not.i55
   br i1 %or.cond.i, label %if.else.i59, label %extract64.exit60
 

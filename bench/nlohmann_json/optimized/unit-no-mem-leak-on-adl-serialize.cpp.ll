@@ -1096,12 +1096,12 @@ if.then6:                                         ; preds = %entry.if.then6_crit
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp.not = icmp ugt i64 %sub.ptr.div.i, %idx
+  %cmp.not = icmp ult i64 %idx, %sub.ptr.div.i
   br i1 %cmp.not, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %if.then6
   %add = add i64 %idx, 1
-  %cmp.i5 = icmp ult i64 %sub.ptr.div.i, %add
+  %cmp.i5 = icmp ugt i64 %add, %sub.ptr.div.i
   br i1 %cmp.i5, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then10
@@ -1110,7 +1110,7 @@ if.then.i:                                        ; preds = %if.then10
   br label %if.end13
 
 if.else.i:                                        ; preds = %if.then10
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i, %add
+  %cmp4.i = icmp ult i64 %add, %sub.ptr.div.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end13
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -2409,7 +2409,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 if.then:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa30.i, %if.then.i ], [ %__y.0.lcssa31.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
@@ -4637,7 +4637,7 @@ sw.bb44:                                          ; preds = %sw.bb
 sw.default:                                       ; preds = %sw.bb
   %cmp51 = icmp ult i32 %cond.i, 32
   %cmp52 = icmp ugt i32 %cond.i, 126
-  %or.cond = and i1 %cmp52, %ensure_ascii
+  %or.cond = and i1 %ensure_ascii, %cmp52
   %or.cond62 = or i1 %cmp51, %or.cond
   br i1 %or.cond62, label %if.then, label %if.else71
 

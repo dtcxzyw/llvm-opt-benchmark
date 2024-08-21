@@ -236,7 +236,7 @@ define hidden ptr @core_lookup(ptr nocapture noundef readonly %0, i64 noundef %1
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
-  %.not48 = icmp ugt i64 %18, %1
+  %.not48 = icmp ult i64 %1, %18
   %.038. = select i1 %.not48, i32 %.03850, i32 %13
   %..036 = select i1 %.not48, i32 %13, i32 %.03651
   %19 = sub nsw i32 %..036, %.038.
@@ -255,7 +255,7 @@ define hidden ptr @core_lookup(ptr nocapture noundef readonly %0, i64 noundef %1
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load i64, ptr %25, align 8
-  %27 = icmp ugt i64 %26, %1
+  %27 = icmp ult i64 %1, %26
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %._crit_edge
@@ -268,14 +268,14 @@ define hidden ptr @core_lookup(ptr nocapture noundef readonly %0, i64 noundef %1
 31:                                               ; preds = %._crit_edge, %28
   %32 = phi i64 [ %.pre60, %28 ], [ %26, %._crit_edge ]
   %.0 = phi ptr [ %30, %28 ], [ %24, %._crit_edge ]
-  %.not = icmp ugt i64 %32, %1
+  %.not = icmp ult i64 %1, %32
   br i1 %.not, label %38, label %33
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds i8, ptr %.0, i64 24
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %32
-  %37 = icmp ugt i64 %36, %1
+  %37 = icmp ult i64 %1, %36
   br i1 %37, label %52, label %38
 
 38:                                               ; preds = %33, %31
@@ -292,14 +292,14 @@ define hidden ptr @core_lookup(ptr nocapture noundef readonly %0, i64 noundef %1
   %.154 = phi ptr [ %51, %49 ], [ %40, %41 ]
   %42 = getelementptr inbounds i8, ptr %.154, i64 16
   %43 = load i64, ptr %42, align 8
-  %.not47 = icmp ugt i64 %43, %1
+  %.not47 = icmp ult i64 %1, %43
   br i1 %.not47, label %49, label %44
 
 44:                                               ; preds = %.lr.ph56
   %45 = getelementptr inbounds i8, ptr %.154, i64 24
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %46, %43
-  %48 = icmp ugt i64 %47, %1
+  %48 = icmp ult i64 %1, %47
   br i1 %48, label %.sink.split, label %49
 
 49:                                               ; preds = %44, %.lr.ph56

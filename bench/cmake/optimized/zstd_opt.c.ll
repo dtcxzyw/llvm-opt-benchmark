@@ -122,7 +122,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %0, ptr nocaptur
   %51 = trunc i64 %4 to i32
   call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef nonnull %10, i32 noundef 0, i32 noundef %51)
   tail call fastcc void @ZSTD_rescaleFreqs(ptr noundef nonnull %13, ptr noundef %3, i64 noundef %4, i32 noundef 0)
-  %52 = icmp eq ptr %21, %3
+  %52 = icmp eq ptr %3, %21
   %53 = zext i1 %52 to i64
   %54 = getelementptr inbounds i8, ptr %3, i64 %53
   %55 = icmp ult ptr %54, %15
@@ -1513,7 +1513,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %0, ptr nocaptur
   %50 = trunc i64 %4 to i32
   call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef nonnull %10, i32 noundef 0, i32 noundef %50)
   tail call fastcc void @ZSTD_rescaleFreqs(ptr noundef nonnull %12, ptr noundef %3, i64 noundef %4, i32 noundef 2)
-  %51 = icmp eq ptr %20, %3
+  %51 = icmp eq ptr %3, %20
   %52 = zext i1 %51 to i64
   %53 = getelementptr inbounds i8, ptr %3, i64 %52
   %54 = icmp ult ptr %53, %14
@@ -3224,7 +3224,7 @@ define internal fastcc i32 @ZSTD_insertBt1(ptr nocapture noundef readonly %0, pt
 ._crit_edge191:                                   ; preds = %82
   %90 = getelementptr inbounds i8, ptr %48, i64 %.pre
   %91 = getelementptr inbounds i8, ptr %90, i64 %87
-  %92 = icmp ugt ptr %79, %89
+  %92 = icmp ult ptr %89, %79
   br i1 %92, label %93, label %.loopexit.i
 
 93:                                               ; preds = %._crit_edge191
@@ -3422,7 +3422,7 @@ define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1,
   %10 = icmp ult ptr %9, %2
   %. = select i1 %10, ptr %9, ptr %2
   %11 = getelementptr inbounds i8, ptr %., i64 -7
-  %12 = icmp ugt ptr %11, %0
+  %12 = icmp ult ptr %0, %11
   br i1 %12, label %13, label %.loopexit.i
 
 13:                                               ; preds = %5
@@ -3527,7 +3527,7 @@ ZSTD_count.exit:                                  ; preds = %14, %20, %49
 54:                                               ; preds = %ZSTD_count.exit
   %55 = getelementptr inbounds i8, ptr %0, i64 %.0.i
   %56 = getelementptr inbounds i8, ptr %2, i64 -7
-  %57 = icmp ugt ptr %56, %55
+  %57 = icmp ult ptr %55, %56
   br i1 %57, label %58, label %.loopexit.i22
 
 58:                                               ; preds = %54
@@ -3691,7 +3691,7 @@ define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr nocaptur
   store i32 -1, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 -1, ptr %28, align 4
-  %29 = add i32 %21, %2
+  %29 = add i32 %2, %21
   %cond25.i = icmp eq i32 %29, 0
   br i1 %cond25.i, label %.loopexit.i, label %.lr.ph.i
 
@@ -3746,7 +3746,7 @@ define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr nocaptur
 
 48:                                               ; preds = %41
   store i32 %16, ptr %45, align 4
-  %49 = add i32 %21, %2
+  %49 = add i32 %2, %21
   %cond25.i44 = icmp eq i32 %49, 0
   br i1 %cond25.i44, label %.loopexit.i49, label %.lr.ph.i45
 
@@ -4352,11 +4352,11 @@ define internal fastcc void @ZSTD_optLdm_processMatchCandidate(ptr nocapture nou
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4
-  %.not19 = icmp ugt i32 %14, %3
+  %.not19 = icmp ult i32 %3, %14
   br i1 %.not19, label %35, label %15
 
 15:                                               ; preds = %12
-  %16 = icmp ult i32 %14, %3
+  %16 = icmp ugt i32 %3, %14
   br i1 %16, label %17, label %ZSTD_optLdm_skipRawSeqStoreBytes.exit
 
 17:                                               ; preds = %15
@@ -4417,11 +4417,11 @@ ZSTD_optLdm_skipRawSeqStoreBytes.exit:            ; preds = %.loopexit.i, %.crit
   %.neg.i = sub i32 %38, %3
   %39 = sub i32 %36, %38
   %40 = add i32 %39, %.neg.i
-  %41 = icmp ugt i32 %38, %3
+  %41 = icmp ult i32 %3, %38
   br i1 %41, label %ZSTD_optLdm_maybeAddMatch.exit, label %42
 
 42:                                               ; preds = %35
-  %43 = icmp ule i32 %36, %3
+  %43 = icmp uge i32 %3, %36
   %44 = icmp ult i32 %40, 3
   %or.cond.i = select i1 %43, i1 true, i1 %44
   br i1 %or.cond.i, label %ZSTD_optLdm_maybeAddMatch.exit, label %45
@@ -4470,7 +4470,7 @@ define internal i32 @ZSTD_btGetAllMatches_noDict_3(ptr nocapture noundef writeon
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %3
+  %16 = icmp ult ptr %3, %15
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %8
@@ -4558,7 +4558,7 @@ define internal i32 @ZSTD_btGetAllMatches_noDict_3(ptr nocapture noundef writeon
   %74 = sub i32 %.pre-phi609, %73
   %75 = getelementptr inbounds i8, ptr %3, i64 3
   %76 = getelementptr inbounds i8, ptr %4, i64 -7
-  %77 = icmp ugt ptr %76, %75
+  %77 = icmp ult ptr %75, %76
   %78 = getelementptr inbounds i8, ptr %4, i64 -3
   %79 = getelementptr inbounds i8, ptr %4, i64 -1
   %80 = ptrtoint ptr %75 to i64
@@ -4788,7 +4788,7 @@ ZSTD_insertAndFindFirstIndexHash3.exit:           ; preds = %.lr.ph.i, %159
   %189 = zext i32 %183 to i64
   %190 = getelementptr inbounds i8, ptr %28, i64 %189
   %191 = getelementptr inbounds i8, ptr %4, i64 -7
-  %192 = icmp ugt ptr %191, %3
+  %192 = icmp ult ptr %3, %191
   br i1 %192, label %193, label %.loopexit.i494
 
 193:                                              ; preds = %188
@@ -4937,7 +4937,7 @@ ZSTD_count.exit520:                               ; preds = %194, %200, %228
   %255 = getelementptr inbounds i8, ptr %28, i64 %254
   %256 = getelementptr inbounds i8, ptr %3, i64 %253
   %257 = getelementptr inbounds i8, ptr %255, i64 %253
-  %258 = icmp ugt ptr %244, %256
+  %258 = icmp ult ptr %256, %244
   br i1 %258, label %259, label %.loopexit.i521
 
 259:                                              ; preds = %248
@@ -5124,7 +5124,7 @@ define internal i32 @ZSTD_btGetAllMatches_noDict_4(ptr nocapture noundef writeon
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %3
+  %16 = icmp ult ptr %3, %15
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %8
@@ -5212,7 +5212,7 @@ define internal i32 @ZSTD_btGetAllMatches_noDict_4(ptr nocapture noundef writeon
   %74 = sub i32 %.pre-phi576, %73
   %75 = getelementptr inbounds i8, ptr %3, i64 4
   %76 = getelementptr inbounds i8, ptr %4, i64 -7
-  %77 = icmp ugt ptr %76, %75
+  %77 = icmp ult ptr %75, %76
   %78 = getelementptr inbounds i8, ptr %4, i64 -3
   %79 = getelementptr inbounds i8, ptr %4, i64 -1
   %80 = ptrtoint ptr %75 to i64
@@ -5416,7 +5416,7 @@ ZSTD_count.exit:                                  ; preds = %105, %111, %137
   %169 = getelementptr inbounds i8, ptr %28, i64 %168
   %170 = getelementptr inbounds i8, ptr %3, i64 %167
   %171 = getelementptr inbounds i8, ptr %169, i64 %167
-  %172 = icmp ugt ptr %158, %170
+  %172 = icmp ult ptr %170, %158
   br i1 %172, label %173, label %.loopexit.i493
 
 173:                                              ; preds = %162
@@ -5598,7 +5598,7 @@ define internal i32 @ZSTD_btGetAllMatches_noDict_5(ptr nocapture noundef writeon
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %3
+  %16 = icmp ult ptr %3, %15
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %8
@@ -5686,7 +5686,7 @@ define internal i32 @ZSTD_btGetAllMatches_noDict_5(ptr nocapture noundef writeon
   %74 = sub i32 %.pre-phi576, %73
   %75 = getelementptr inbounds i8, ptr %3, i64 4
   %76 = getelementptr inbounds i8, ptr %4, i64 -7
-  %77 = icmp ugt ptr %76, %75
+  %77 = icmp ult ptr %75, %76
   %78 = getelementptr inbounds i8, ptr %4, i64 -3
   %79 = getelementptr inbounds i8, ptr %4, i64 -1
   %80 = ptrtoint ptr %75 to i64
@@ -5890,7 +5890,7 @@ ZSTD_count.exit:                                  ; preds = %105, %111, %137
   %169 = getelementptr inbounds i8, ptr %28, i64 %168
   %170 = getelementptr inbounds i8, ptr %3, i64 %167
   %171 = getelementptr inbounds i8, ptr %169, i64 %167
-  %172 = icmp ugt ptr %158, %170
+  %172 = icmp ult ptr %170, %158
   br i1 %172, label %173, label %.loopexit.i493
 
 173:                                              ; preds = %162
@@ -6072,7 +6072,7 @@ define internal i32 @ZSTD_btGetAllMatches_noDict_6(ptr nocapture noundef writeon
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %3
+  %16 = icmp ult ptr %3, %15
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %8
@@ -6160,7 +6160,7 @@ define internal i32 @ZSTD_btGetAllMatches_noDict_6(ptr nocapture noundef writeon
   %74 = sub i32 %.pre-phi576, %73
   %75 = getelementptr inbounds i8, ptr %3, i64 4
   %76 = getelementptr inbounds i8, ptr %4, i64 -7
-  %77 = icmp ugt ptr %76, %75
+  %77 = icmp ult ptr %75, %76
   %78 = getelementptr inbounds i8, ptr %4, i64 -3
   %79 = getelementptr inbounds i8, ptr %4, i64 -1
   %80 = ptrtoint ptr %75 to i64
@@ -6364,7 +6364,7 @@ ZSTD_count.exit:                                  ; preds = %105, %111, %137
   %169 = getelementptr inbounds i8, ptr %28, i64 %168
   %170 = getelementptr inbounds i8, ptr %3, i64 %167
   %171 = getelementptr inbounds i8, ptr %169, i64 %167
-  %172 = icmp ugt ptr %158, %170
+  %172 = icmp ult ptr %170, %158
   br i1 %172, label %173, label %.loopexit.i493
 
 173:                                              ; preds = %162
@@ -6546,7 +6546,7 @@ define internal i32 @ZSTD_btGetAllMatches_extDict_3(ptr nocapture noundef writeo
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %3
+  %16 = icmp ult ptr %3, %15
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %8
@@ -6640,7 +6640,7 @@ define internal i32 @ZSTD_btGetAllMatches_extDict_3(ptr nocapture noundef writeo
   %80 = sub i32 %.pre-phi619, %64
   %81 = getelementptr inbounds i8, ptr %3, i64 3
   %82 = getelementptr inbounds i8, ptr %4, i64 -7
-  %83 = icmp ugt ptr %82, %81
+  %83 = icmp ult ptr %81, %82
   %84 = getelementptr inbounds i8, ptr %4, i64 -3
   %85 = getelementptr inbounds i8, ptr %4, i64 -1
   %86 = ptrtoint ptr %81 to i64
@@ -6898,7 +6898,7 @@ ZSTD_insertAndFindFirstIndexHash3.exit:           ; preds = %.lr.ph.i, %179
 210:                                              ; preds = %208
   %211 = getelementptr inbounds i8, ptr %28, i64 %209
   %212 = getelementptr inbounds i8, ptr %4, i64 -7
-  %213 = icmp ugt ptr %212, %3
+  %213 = icmp ult ptr %3, %212
   br i1 %213, label %214, label %.loopexit.i502
 
 214:                                              ; preds = %210
@@ -7057,7 +7057,7 @@ ZSTD_count.exit528:                               ; preds = %249, %221, %215, %2
 281:                                              ; preds = %272
   %282 = getelementptr inbounds i8, ptr %28, i64 %278
   %283 = getelementptr inbounds i8, ptr %282, i64 %277
-  %284 = icmp ugt ptr %268, %280
+  %284 = icmp ult ptr %280, %268
   br i1 %284, label %285, label %.loopexit.i529
 
 285:                                              ; preds = %281
@@ -7260,7 +7260,7 @@ define internal i32 @ZSTD_btGetAllMatches_extDict_4(ptr nocapture noundef writeo
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %3
+  %16 = icmp ult ptr %3, %15
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %8
@@ -7354,7 +7354,7 @@ define internal i32 @ZSTD_btGetAllMatches_extDict_4(ptr nocapture noundef writeo
   %80 = sub i32 %.pre-phi583, %64
   %81 = getelementptr inbounds i8, ptr %3, i64 4
   %82 = getelementptr inbounds i8, ptr %4, i64 -7
-  %83 = icmp ugt ptr %82, %81
+  %83 = icmp ult ptr %81, %82
   %84 = getelementptr inbounds i8, ptr %4, i64 -3
   %85 = getelementptr inbounds i8, ptr %4, i64 -1
   %86 = ptrtoint ptr %81 to i64
@@ -7585,7 +7585,7 @@ ZSTD_count.exit:                                  ; preds = %111, %117, %143
 191:                                              ; preds = %182
   %192 = getelementptr inbounds i8, ptr %28, i64 %188
   %193 = getelementptr inbounds i8, ptr %192, i64 %187
-  %194 = icmp ugt ptr %178, %190
+  %194 = icmp ult ptr %190, %178
   br i1 %194, label %195, label %.loopexit.i500
 
 195:                                              ; preds = %191
@@ -7783,7 +7783,7 @@ define internal i32 @ZSTD_btGetAllMatches_extDict_5(ptr nocapture noundef writeo
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %3
+  %16 = icmp ult ptr %3, %15
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %8
@@ -7877,7 +7877,7 @@ define internal i32 @ZSTD_btGetAllMatches_extDict_5(ptr nocapture noundef writeo
   %80 = sub i32 %.pre-phi583, %64
   %81 = getelementptr inbounds i8, ptr %3, i64 4
   %82 = getelementptr inbounds i8, ptr %4, i64 -7
-  %83 = icmp ugt ptr %82, %81
+  %83 = icmp ult ptr %81, %82
   %84 = getelementptr inbounds i8, ptr %4, i64 -3
   %85 = getelementptr inbounds i8, ptr %4, i64 -1
   %86 = ptrtoint ptr %81 to i64
@@ -8108,7 +8108,7 @@ ZSTD_count.exit:                                  ; preds = %111, %117, %143
 191:                                              ; preds = %182
   %192 = getelementptr inbounds i8, ptr %28, i64 %188
   %193 = getelementptr inbounds i8, ptr %192, i64 %187
-  %194 = icmp ugt ptr %178, %190
+  %194 = icmp ult ptr %190, %178
   br i1 %194, label %195, label %.loopexit.i500
 
 195:                                              ; preds = %191
@@ -8306,7 +8306,7 @@ define internal i32 @ZSTD_btGetAllMatches_extDict_6(ptr nocapture noundef writeo
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %3
+  %16 = icmp ult ptr %3, %15
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %8
@@ -8400,7 +8400,7 @@ define internal i32 @ZSTD_btGetAllMatches_extDict_6(ptr nocapture noundef writeo
   %80 = sub i32 %.pre-phi583, %64
   %81 = getelementptr inbounds i8, ptr %3, i64 4
   %82 = getelementptr inbounds i8, ptr %4, i64 -7
-  %83 = icmp ugt ptr %82, %81
+  %83 = icmp ult ptr %81, %82
   %84 = getelementptr inbounds i8, ptr %4, i64 -3
   %85 = getelementptr inbounds i8, ptr %4, i64 -1
   %86 = ptrtoint ptr %81 to i64
@@ -8631,7 +8631,7 @@ ZSTD_count.exit:                                  ; preds = %111, %117, %143
 191:                                              ; preds = %182
   %192 = getelementptr inbounds i8, ptr %28, i64 %188
   %193 = getelementptr inbounds i8, ptr %192, i64 %187
-  %194 = icmp ugt ptr %178, %190
+  %194 = icmp ult ptr %190, %178
   br i1 %194, label %195, label %.loopexit.i500
 
 195:                                              ; preds = %191
@@ -8829,7 +8829,7 @@ define internal i32 @ZSTD_btGetAllMatches_dictMatchState_3(ptr nocapture noundef
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %3
+  %16 = icmp ult ptr %3, %15
   br i1 %16, label %.loopexit571, label %17
 
 17:                                               ; preds = %8
@@ -8947,7 +8947,7 @@ define internal i32 @ZSTD_btGetAllMatches_dictMatchState_3(ptr nocapture noundef
   %102 = sub i32 %.pre-phi661, %101
   %103 = getelementptr inbounds i8, ptr %3, i64 3
   %104 = getelementptr inbounds i8, ptr %4, i64 -7
-  %105 = icmp ugt ptr %104, %103
+  %105 = icmp ult ptr %103, %104
   %106 = getelementptr inbounds i8, ptr %4, i64 -3
   %107 = getelementptr inbounds i8, ptr %4, i64 -1
   %108 = ptrtoint ptr %103 to i64
@@ -9201,7 +9201,7 @@ ZSTD_insertAndFindFirstIndexHash3.exit:           ; preds = %.lr.ph.i, %200
   %230 = zext i32 %224 to i64
   %231 = getelementptr inbounds i8, ptr %28, i64 %230
   %232 = getelementptr inbounds i8, ptr %4, i64 -7
-  %233 = icmp ugt ptr %232, %3
+  %233 = icmp ult ptr %3, %232
   br i1 %233, label %234, label %.loopexit.i504
 
 234:                                              ; preds = %229
@@ -9355,7 +9355,7 @@ ZSTD_count.exit530:                               ; preds = %235, %241, %269
   %296 = getelementptr inbounds i8, ptr %28, i64 %295
   %297 = getelementptr inbounds i8, ptr %3, i64 %294
   %298 = getelementptr inbounds i8, ptr %296, i64 %294
-  %299 = icmp ugt ptr %285, %297
+  %299 = icmp ult ptr %297, %285
   br i1 %299, label %300, label %.loopexit.i531
 
 300:                                              ; preds = %289
@@ -9649,7 +9649,7 @@ define internal i32 @ZSTD_btGetAllMatches_dictMatchState_4(ptr nocapture noundef
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %3
+  %16 = icmp ult ptr %3, %15
   br i1 %16, label %.loopexit541, label %17
 
 17:                                               ; preds = %8
@@ -9767,7 +9767,7 @@ define internal i32 @ZSTD_btGetAllMatches_dictMatchState_4(ptr nocapture noundef
   %102 = sub i32 %.pre-phi626, %101
   %103 = getelementptr inbounds i8, ptr %3, i64 4
   %104 = getelementptr inbounds i8, ptr %4, i64 -7
-  %105 = icmp ugt ptr %104, %103
+  %105 = icmp ult ptr %103, %104
   %106 = getelementptr inbounds i8, ptr %4, i64 -3
   %107 = getelementptr inbounds i8, ptr %4, i64 -1
   %108 = ptrtoint ptr %103 to i64
@@ -9998,7 +9998,7 @@ ZSTD_count.exit:                                  ; preds = %133, %139, %165
   %210 = getelementptr inbounds i8, ptr %28, i64 %209
   %211 = getelementptr inbounds i8, ptr %3, i64 %208
   %212 = getelementptr inbounds i8, ptr %210, i64 %208
-  %213 = icmp ugt ptr %199, %211
+  %213 = icmp ult ptr %211, %199
   br i1 %213, label %214, label %.loopexit.i503
 
 214:                                              ; preds = %203
@@ -10287,7 +10287,7 @@ define internal i32 @ZSTD_btGetAllMatches_dictMatchState_5(ptr nocapture noundef
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %3
+  %16 = icmp ult ptr %3, %15
   br i1 %16, label %.loopexit541, label %17
 
 17:                                               ; preds = %8
@@ -10405,7 +10405,7 @@ define internal i32 @ZSTD_btGetAllMatches_dictMatchState_5(ptr nocapture noundef
   %102 = sub i32 %.pre-phi626, %101
   %103 = getelementptr inbounds i8, ptr %3, i64 4
   %104 = getelementptr inbounds i8, ptr %4, i64 -7
-  %105 = icmp ugt ptr %104, %103
+  %105 = icmp ult ptr %103, %104
   %106 = getelementptr inbounds i8, ptr %4, i64 -3
   %107 = getelementptr inbounds i8, ptr %4, i64 -1
   %108 = ptrtoint ptr %103 to i64
@@ -10636,7 +10636,7 @@ ZSTD_count.exit:                                  ; preds = %133, %139, %165
   %210 = getelementptr inbounds i8, ptr %28, i64 %209
   %211 = getelementptr inbounds i8, ptr %3, i64 %208
   %212 = getelementptr inbounds i8, ptr %210, i64 %208
-  %213 = icmp ugt ptr %199, %211
+  %213 = icmp ult ptr %211, %199
   br i1 %213, label %214, label %.loopexit.i503
 
 214:                                              ; preds = %203
@@ -10925,7 +10925,7 @@ define internal i32 @ZSTD_btGetAllMatches_dictMatchState_6(ptr nocapture noundef
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = icmp ugt ptr %15, %3
+  %16 = icmp ult ptr %3, %15
   br i1 %16, label %.loopexit541, label %17
 
 17:                                               ; preds = %8
@@ -11043,7 +11043,7 @@ define internal i32 @ZSTD_btGetAllMatches_dictMatchState_6(ptr nocapture noundef
   %102 = sub i32 %.pre-phi626, %101
   %103 = getelementptr inbounds i8, ptr %3, i64 4
   %104 = getelementptr inbounds i8, ptr %4, i64 -7
-  %105 = icmp ugt ptr %104, %103
+  %105 = icmp ult ptr %103, %104
   %106 = getelementptr inbounds i8, ptr %4, i64 -3
   %107 = getelementptr inbounds i8, ptr %4, i64 -1
   %108 = ptrtoint ptr %103 to i64
@@ -11274,7 +11274,7 @@ ZSTD_count.exit:                                  ; preds = %133, %139, %165
   %210 = getelementptr inbounds i8, ptr %28, i64 %209
   %211 = getelementptr inbounds i8, ptr %3, i64 %208
   %212 = getelementptr inbounds i8, ptr %210, i64 %208
-  %213 = icmp ugt ptr %199, %211
+  %213 = icmp ult ptr %211, %199
   br i1 %213, label %214, label %.loopexit.i503
 
 214:                                              ; preds = %203

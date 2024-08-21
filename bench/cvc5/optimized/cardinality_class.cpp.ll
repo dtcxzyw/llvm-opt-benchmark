@@ -89,7 +89,7 @@ entry:
   %0 = and i64 %c, -3
   %or.cond = icmp eq i64 %0, 0
   %1 = icmp eq i64 %0, 1
-  %2 = and i1 %1, %fmfEnabled
+  %2 = and i1 %fmfEnabled, %1
   %spec.select = or i1 %or.cond, %2
   ret i1 %spec.select
 }

@@ -15,7 +15,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %x, align 8
   %call.i = tail call i64 @ASN1_INTEGER_get(ptr noundef %0) #8
-  %cmp1 = icmp eq i64 %call.i, %version
+  %cmp1 = icmp eq i64 %version, %call.i
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end

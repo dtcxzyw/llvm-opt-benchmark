@@ -227,7 +227,7 @@ if.end5:                                          ; preds = %if.end2
   %cmp.not.i = icmp ule i64 %sub.i, %..i
   %reass.sub = sub i64 %..i, %and6
   %add.i = add i64 %reass.sub, 1
-  %cmp7.i = icmp uge i64 %add.i, %start
+  %cmp7.i = icmp ule i64 %start, %add.i
   %7 = and i1 %cmp.not.i, %cmp7.i
   br i1 %7, label %if.end9, label %return
 
@@ -447,7 +447,7 @@ declare void @page_set_flags(i64 noundef, i64 noundef, i32 noundef) local_unname
 define dso_local i64 @mmap_find_vma(i64 noundef %start, i64 noundef %size, i64 noundef %align) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr @qemu_host_page_size, align 8
-  %cond = tail call i64 @llvm.umax.i64(i64 %0, i64 %align)
+  %cond = tail call i64 @llvm.umax.i64(i64 %align, i64 %0)
   %cmp1 = icmp eq i64 %start, 0
   %1 = load i64, ptr @mmap_next_start, align 8
   %2 = load i64, ptr @qemu_host_page_mask, align 8
@@ -480,7 +480,7 @@ if.then8:                                         ; preds = %entry
 
 land.lhs.true.i:                                  ; preds = %if.then8
   %6 = load i64, ptr @mmap_min_addr, align 8
-  %cmp1.i = icmp ult i64 %6, %and3
+  %cmp1.i = icmp ugt i64 %and3, %6
   br i1 %cmp1.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -766,7 +766,7 @@ if.then44:                                        ; preds = %if.end39
   br i1 %cmp46, label %fail, label %if.end48
 
 if.end48:                                         ; preds = %if.then44
-  %add49 = add i64 %and, %offset
+  %add49 = add i64 %offset, %and
   %st_size = getelementptr inbounds i8, ptr %sb, i64 48
   %14 = load i64, ptr %st_size, align 8
   %cmp50 = icmp ugt i64 %add49, %14
@@ -787,7 +787,7 @@ if.end61:                                         ; preds = %if.end48, %if.then5
 if.then64:                                        ; preds = %if.end61
   %15 = load i64, ptr @qemu_host_page_size, align 8
   %16 = xor i64 %and25, -1
-  %sub66 = add i64 %16, %offset
+  %sub66 = add i64 %offset, %16
   %add67 = add i64 %sub66, %len.addr.0
   %sub68 = add i64 %add67, %15
   %sub69 = sub i64 0, %15
@@ -878,7 +878,7 @@ lor.lhs.false:                                    ; preds = %if.end107
   %cmp.not.i = icmp ule i64 %sub.i, %..i
   %reass.sub = sub i64 %..i, %len.addr.0
   %add.i163 = add i64 %reass.sub, 1
-  %cmp7.i = icmp uge i64 %add.i163, %start.addr.0
+  %cmp7.i = icmp ule i64 %start.addr.0, %add.i163
   %28 = select i1 %cmp.not.i, i1 %cmp7.i, i1 false
   br i1 %28, label %if.end119, label %if.then117
 
@@ -1429,7 +1429,7 @@ lor.lhs.false:                                    ; preds = %if.end
   %cmp.not.i = icmp ule i64 %sub.i, %..i
   %reass.sub = sub i64 %..i, %and1
   %add.i = add i64 %reass.sub, 1
-  %cmp7.i = icmp uge i64 %add.i, %start
+  %cmp7.i = icmp ule i64 %start, %add.i
   %7 = and i1 %cmp.not.i, %cmp7.i
   br i1 %7, label %if.end5, label %if.then3
 
@@ -1646,7 +1646,7 @@ entry:
   %cmp.not.i = icmp ule i64 %sub.i, %..i
   %reass.sub = sub i64 %..i, %old_size
   %add.i = add i64 %reass.sub, 1
-  %cmp7.i = icmp uge i64 %add.i, %old_addr
+  %cmp7.i = icmp ule i64 %old_addr, %add.i
   %1 = and i1 %cmp.not.i, %cmp7.i
   br i1 %1, label %lor.lhs.false, label %if.then
 
@@ -1660,7 +1660,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   %cmp.not.i74 = icmp ule i64 %sub.i71, %..i
   %reass.sub130 = sub i64 %..i, %new_size
   %add.i76 = add i64 %reass.sub130, 1
-  %cmp7.i77 = icmp uge i64 %add.i76, %new_addr
+  %cmp7.i77 = icmp ule i64 %new_addr, %add.i76
   %2 = and i1 %cmp.not.i74, %cmp7.i77
   br i1 %2, label %lor.lhs.false2, label %if.then
 
@@ -1674,7 +1674,7 @@ land.lhs.true4:                                   ; preds = %lor.lhs.false2
   %cmp.not.i81 = icmp ule i64 %sub.i78, %..i
   %reass.sub131 = sub i64 %..i, %new_size
   %add.i83 = add i64 %reass.sub131, 1
-  %cmp7.i84 = icmp uge i64 %add.i83, %old_addr
+  %cmp7.i84 = icmp ule i64 %old_addr, %add.i83
   %3 = and i1 %cmp.not.i81, %cmp7.i84
   br i1 %3, label %if.end, label %if.then
 
@@ -1797,7 +1797,7 @@ if.end64:                                         ; preds = %if.then58
   %cmp.not.i93 = icmp ule i64 %sub.i90, %..i92
   %reass.sub132 = sub i64 %..i92, %new_size
   %add.i95 = add i64 %reass.sub132, 1
-  %cmp7.i96 = icmp uge i64 %add.i95, %sub
+  %cmp7.i96 = icmp ule i64 %sub, %add.i95
   %22 = select i1 %cmp.not.i93, i1 %cmp7.i96, i1 false
   br i1 %22, label %if.else73, label %if.then68
 
@@ -1960,7 +1960,7 @@ lor.lhs.false:                                    ; preds = %if.end2
   %cmp.not.i = icmp ule i64 %sub.i, %..i
   %reass.sub = sub i64 %..i, %and3
   %add.i = add i64 %reass.sub, 1
-  %cmp7.i = icmp uge i64 %add.i, %start
+  %cmp7.i = icmp ule i64 %start, %add.i
   %1 = and i1 %cmp.not.i, %cmp7.i
   br i1 %1, label %if.end6, label %return
 
@@ -2087,7 +2087,7 @@ if.end16:                                         ; preds = %if.then12, %if.end
   %cmp.not.i = icmp ule i64 %sub.i, %..i
   %reass.sub = sub i64 %..i, %0
   %add.i = add i64 %reass.sub, 1
-  %cmp7.i = icmp uge i64 %add.i, %shmaddr.addr.0
+  %cmp7.i = icmp ule i64 %shmaddr.addr.0, %add.i
   %2 = and i1 %cmp.not.i, %cmp7.i
   br i1 %2, label %if.end19, label %return
 

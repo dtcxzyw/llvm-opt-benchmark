@@ -2344,7 +2344,7 @@ define internal fastcc i32 @check_oversubscribing(i32 noundef %0, i32 noundef %1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %7 = icmp eq i32 %.0.val, %0
+  %7 = icmp eq i32 %0, %.0.val
   %8 = icmp slt i32 %1, %2
   %or.cond = and i1 %8, %7
   %spec.store.select = zext i1 %or.cond to i32

@@ -422,7 +422,7 @@ define void @_ZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forc
   store ptr %12, ptr %21, align 8
   %30 = tail call ptr @getenv(ptr noundef nonnull @.str.7) #18
   %.not = icmp ne ptr %30, null
-  %brmerge.not = and i1 %.not, %6
+  %brmerge.not = and i1 %6, %.not
   br i1 %brmerge.not, label %31, label %32
 
 31:                                               ; preds = %13
@@ -757,7 +757,7 @@ _ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit: ; preds = %162, %_ZN
   %.0.i = phi i32 [ 2, %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit ], [ %.val70, %162 ]
   %164 = getelementptr inbounds i8, ptr %3, i64 316
   %165 = getelementptr inbounds i8, ptr %3, i64 328
-  %brmerge65 = or i1 %.not, %6
+  %brmerge65 = or i1 %6, %.not
   br i1 %brmerge65, label %168, label %166
 
 166:                                              ; preds = %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit

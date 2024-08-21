@@ -213,7 +213,7 @@ sw.default:                                       ; preds = %if.end
   %27 = load ptr, ptr %vfn33, align 8
   %call34 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(99) %vector)
   %call34.not = xor i1 %call34, true
-  %brmerge = or i1 %call34.not, %mergeNullsToValues
+  %brmerge = or i1 %mergeNullsToValues, %call34.not
   br i1 %brmerge, label %sw.default.if.end40_crit_edge, label %if.then37
 
 sw.default.if.end40_crit_edge:                    ; preds = %sw.default
@@ -347,7 +347,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   br i1 %cmp.i36.i.i.i.i, label %for.cond.i.i.i.i, label %land.end.i.i, !llvm.loop !4
 
 for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i
-  %cmp25.not.i.i.i.i = icmp eq i32 %45, %42
+  %cmp25.not.i.i.i.i = icmp eq i32 %42, %45
   br i1 %cmp25.not.i.i.i.i, label %land.end.i.i, label %if.then26.i.i.i.i
 
 if.then26.i.i.i.i:                                ; preds = %for.end.i.i.i.i
@@ -620,7 +620,7 @@ if.then17.i155.i.i.i:                             ; preds = %if.end13.i153.i.i.i
   br i1 %tobool5.old.not.i.i.i.i.i, label %invoke.cont50, label %while.body.i.i.i.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.end.i.i.i4.i
-  %cmp9.not.i.i.i.i = icmp eq i32 %mul.i.i.i.i.i, %72
+  %cmp9.not.i.i.i.i = icmp eq i32 %72, %mul.i.i.i.i.i
   br i1 %cmp9.not.i.i.i.i, label %if.end14.i.i.i.i, label %if.then10.i.i.i.i
 
 if.then10.i.i.i.i:                                ; preds = %if.end8.i.i.i.i
@@ -1007,7 +1007,7 @@ if.then17.i.i.i.i.i:                              ; preds = %if.end13.i.i.i.i.i
   br i1 %cmp15.not.i.i.i.i, label %for.end.i.i.i7.i, label %for.body.i.i.i6.i, !llvm.loop !9
 
 for.end.i.i.i7.i:                                 ; preds = %"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec11getFlatBoolEPNS0_10BaseVectorERKNS0_17SelectivityVectorERNS3_7EvalCtxEPN5boost13intrusive_ptrINS0_6BufferEEESF_bPPKmSI_E3$_0EEvSH_iibT_ENKUliE_clEi.exit.i.i.i.i", %if.end14.i.i.i.i
-  %cmp18.not.i.i.i.i = icmp eq i32 %75, %73
+  %cmp18.not.i.i.i.i = icmp eq i32 %73, %75
   br i1 %cmp18.not.i.i.i.i, label %invoke.cont50, label %if.then19.i.i.i.i
 
 if.then19.i.i.i.i:                                ; preds = %for.end.i.i.i7.i
@@ -1422,7 +1422,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %return, label %if.end9
 
 if.end9.i.i:                                      ; preds = %if.end.i.i
-  %cmp10.not.i.i = icmp eq i32 %mul.i.i.i, %call2
+  %cmp10.not.i.i = icmp eq i32 %call2, %mul.i.i.i
   br i1 %cmp10.not.i.i, label %for.cond.i.i.preheader, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
@@ -1460,7 +1460,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i36.i.i, label %for.cond.i.i, label %if.end9, !llvm.loop !4
 
 for.end.i.i:                                      ; preds = %for.cond.i.i
-  %cmp25.not.i.i = icmp eq i32 %5, %3
+  %cmp25.not.i.i = icmp eq i32 %3, %5
   br i1 %cmp25.not.i.i, label %return, label %_ZN8facebook5velox4bits8isAllSetEPKmiib.exit
 
 _ZN8facebook5velox4bits8isAllSetEPKmiib.exit:     ; preds = %for.end.i.i
@@ -1565,7 +1565,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end23
 
 if.end8:                                          ; preds = %if.end
-  %cmp9.not = icmp eq i32 %mul.i, %begin
+  %cmp9.not = icmp eq i32 %begin, %mul.i
   br i1 %cmp9.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
@@ -1627,7 +1627,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp15.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %if.end14
-  %cmp18.not = icmp eq i32 %1, %end
+  %cmp18.not = icmp eq i32 %end, %1
   br i1 %cmp18.not, label %if.end23, label %if.then19
 
 if.then19:                                        ; preds = %for.end
@@ -1695,7 +1695,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %_ZN8facebook5velox4bits9testWordsIZNS1_12findFirstBitEPKmiiEUlimE_ZNS1_12findFirstBitES4_iiEUliE_EEbiiT_T0_.exit, label %return.sink.split.i
 
 if.end9.i:                                        ; preds = %if.end.i
-  %cmp10.not.i = icmp eq i32 %mul.i.i, %begin
+  %cmp10.not.i = icmp eq i32 %begin, %mul.i.i
   br i1 %cmp10.not.i, label %for.cond.i.preheader, label %if.then11.i
 
 for.cond.i.preheader:                             ; preds = %if.then11.i, %if.end9.i
@@ -1740,7 +1740,7 @@ _ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i: ; preds 
   br label %return.sink.split.i
 
 for.end.i:                                        ; preds = %for.cond.i
-  %cmp25.not.i = icmp eq i32 %1, %end
+  %cmp25.not.i = icmp eq i32 %end, %1
   br i1 %cmp25.not.i, label %_ZN8facebook5velox4bits9testWordsIZNS1_12findFirstBitEPKmiiEUlimE_ZNS1_12findFirstBitES4_iiEUliE_EEbiiT_T0_.exit, label %if.then26.i
 
 if.then26.i:                                      ; preds = %for.end.i
@@ -1858,13 +1858,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %size_.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %size_.i, align 8
-  %cmp = icmp ult i64 %1, %numElements
+  %cmp = icmp ugt i64 %numElements, %1
   br i1 %cmp, label %land.lhs.true, label %if.end13
 
 land.lhs.true:                                    ; preds = %if.end
   %capacity_.i = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %capacity_.i, align 8
-  %cmp4 = icmp ugt i64 %2, %numElements
+  %cmp4 = icmp ult i64 %numElements, %2
   br i1 %cmp4, label %land.lhs.true5, label %if.end13
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
@@ -1886,7 +1886,7 @@ if.then11:                                        ; preds = %if.then7
 
 if.end12:                                         ; preds = %if.then7
   %5 = load i64, ptr %capacity_.i, align 8
-  %cmp.not.i = icmp ult i64 %5, %numElements
+  %cmp.not.i = icmp ugt i64 %numElements, %5
   br i1 %cmp.not.i, label %if.then.i47, label %if.end4.i
 
 if.then.i47:                                      ; preds = %if.end12
@@ -1971,7 +1971,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store ptr %call6.i, ptr %newBuffer, align 8, !alias.scope !17
   %17 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !17
   %18 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !17
-  %cmp.not.i9.i = icmp ult i64 %18, %numElements
+  %cmp.not.i9.i = icmp ugt i64 %numElements, %18
   br i1 %cmp.not.i9.i, label %if.then.i12.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIcEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
 
 if.then.i12.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
@@ -1992,7 +1992,7 @@ invoke.cont25:                                    ; preds = %_ZN8facebook5velox1
   %22 = load i64, ptr %size_.i, align 8
   %capacity_.i.i54 = getelementptr inbounds i8, ptr %19, i64 32
   %23 = load i64, ptr %capacity_.i.i54, align 8
-  %cmp.not.i55 = icmp ult i64 %23, %numElements
+  %cmp.not.i55 = icmp ugt i64 %numElements, %23
   br i1 %cmp.not.i55, label %if.then.i70, label %if.end.i56
 
 if.then.i70:                                      ; preds = %invoke.cont25
@@ -2000,7 +2000,7 @@ if.then.i70:                                      ; preds = %invoke.cont25
   unreachable
 
 if.end.i56:                                       ; preds = %invoke.cont25
-  %cmp2.not.i57 = icmp ult i64 %22, %numElements
+  %cmp2.not.i57 = icmp ugt i64 %numElements, %22
   br i1 %cmp2.not.i57, label %if.end4.i58, label %invoke.cont29
 
 if.end4.i58:                                      ; preds = %if.end.i56
@@ -2252,7 +2252,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEPS3_.exit: ; preds = %_ZN5b
   %72 = load ptr, ptr %buffer, align 8
   %capacity_.i.i106 = getelementptr inbounds i8, ptr %72, i64 32
   %73 = load i64, ptr %capacity_.i.i106, align 8
-  %cmp.not.i107 = icmp ult i64 %73, %numElements
+  %cmp.not.i107 = icmp ugt i64 %numElements, %73
   br i1 %cmp.not.i107, label %if.then.i122, label %if.end.i108
 
 if.then.i122:                                     ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEPS3_.exit
@@ -2306,7 +2306,7 @@ if.end.i:                                         ; preds = %invoke.cont48
   %padding_.i.i = getelementptr inbounds i8, ptr %call49, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i, i8 -1, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call49, align 8
-  %cmp.not.i183 = icmp ult i64 %sub64, %numElements
+  %cmp.not.i183 = icmp ugt i64 %numElements, %sub64
   br i1 %cmp.not.i183, label %if.then4.i, label %if.end.i129
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -2491,7 +2491,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %capacity_, align 8
-  %cmp.not = icmp ult i64 %1, %size
+  %cmp.not = icmp ugt i64 %size, %1
   br i1 %cmp.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end

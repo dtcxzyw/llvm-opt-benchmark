@@ -211,16 +211,12 @@ land.lhs.true.i.i:                                ; preds = %entry
   %m_names.i.i = getelementptr inbounds i8, ptr %0, i64 608
   %1 = load ptr, ptr %m_names.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.i.i, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_ZNK11ast_manager15get_family_nameEi.exit, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
 
-if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
+_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i:        ; preds = %land.lhs.true.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
-  br label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
-
-_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i:        ; preds = %if.end.i.i.i, %land.lhs.true.i.i
-  %retval.0.i.i.i = phi i32 [ %2, %if.end.i.i.i ], [ 0, %land.lhs.true.i.i ]
-  %cmp2.i.i = icmp sgt i32 %retval.0.i.i.i, %id
+  %cmp2.i.i = icmp slt i32 %id, %2
   br i1 %cmp2.i.i, label %cond.true.i.i, label %_ZNK11ast_manager15get_family_nameEi.exit
 
 cond.true.i.i:                                    ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
@@ -228,8 +224,8 @@ cond.true.i.i:                                    ; preds = %_ZNK6vectorI6symbol
   %arrayidx.i3.i.i = getelementptr inbounds %class.symbol, ptr %1, i64 %idxprom.i.i.i
   br label %_ZNK11ast_manager15get_family_nameEi.exit
 
-_ZNK11ast_manager15get_family_nameEi.exit:        ; preds = %entry, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, %cond.true.i.i
-  %cond-lvalue.i.i = phi ptr [ %arrayidx.i3.i.i, %cond.true.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i ], [ @_ZN6symbol4nullE, %entry ]
+_ZNK11ast_manager15get_family_nameEi.exit:        ; preds = %entry, %land.lhs.true.i.i, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, %cond.true.i.i
+  %cond-lvalue.i.i = phi ptr [ %arrayidx.i3.i.i, %cond.true.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i ], [ @_ZN6symbol4nullE, %entry ], [ @_ZN6symbol4nullE, %land.lhs.true.i.i ]
   tail call void @_ZN3euf13th_euf_solverC2ERNS_6solverERK6symboli(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(9136) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i.i, i32 noundef %id)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7specrel6solverE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 32
@@ -470,16 +466,12 @@ land.lhs.true.i.i.i:                              ; preds = %entry
   %m_names.i.i.i = getelementptr inbounds i8, ptr %1, i64 608
   %2 = load ptr, ptr %m_names.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.i.i.i.i, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZNK11ast_manager15get_family_nameEi.exit.i, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
+_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i:      ; preds = %land.lhs.true.i.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  br label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i
-
-_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i:      ; preds = %if.end.i.i.i.i, %land.lhs.true.i.i.i
-  %retval.0.i.i.i.i = phi i32 [ %3, %if.end.i.i.i.i ], [ 0, %land.lhs.true.i.i.i ]
-  %cmp2.i.i.i = icmp sgt i32 %retval.0.i.i.i.i, %0
+  %cmp2.i.i.i = icmp slt i32 %0, %3
   br i1 %cmp2.i.i.i, label %cond.true.i.i.i, label %_ZNK11ast_manager15get_family_nameEi.exit.i
 
 cond.true.i.i.i:                                  ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i
@@ -487,8 +479,8 @@ cond.true.i.i.i:                                  ; preds = %_ZNK6vectorI6symbol
   %arrayidx.i3.i.i.i = getelementptr inbounds %class.symbol, ptr %2, i64 %idxprom.i.i.i.i
   br label %_ZNK11ast_manager15get_family_nameEi.exit.i
 
-_ZNK11ast_manager15get_family_nameEi.exit.i:      ; preds = %cond.true.i.i.i, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i, %entry
-  %cond-lvalue.i.i.i = phi ptr [ %arrayidx.i3.i.i.i, %cond.true.i.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i ], [ @_ZN6symbol4nullE, %entry ]
+_ZNK11ast_manager15get_family_nameEi.exit.i:      ; preds = %cond.true.i.i.i, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i, %land.lhs.true.i.i.i, %entry
+  %cond-lvalue.i.i.i = phi ptr [ %arrayidx.i3.i.i.i, %cond.true.i.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i ], [ @_ZN6symbol4nullE, %entry ], [ @_ZN6symbol4nullE, %land.lhs.true.i.i.i ]
   tail call void @_ZN3euf13th_euf_solverC2ERNS_6solverERK6symboli(ptr noundef nonnull align 8 dereferenceable(108) %call, ptr noundef nonnull align 8 dereferenceable(9136) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i.i.i, i32 noundef %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7specrel6solverE, i64 16), ptr %call, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 32
@@ -559,7 +551,7 @@ _ZNK22special_relations_util13get_family_idEv.exit: ; preds = %if.then, %if.then
   %5 = load ptr, ptr %m_plugins.i, align 8, !nonnull !4, !noundef !4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 -4
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp2.i.i = icmp ugt i32 %6, %4
+  %cmp2.i.i = icmp ult i32 %4, %6
   call void @llvm.assume(i1 %cmp2.i.i)
   %idxprom.i.i.i.i = zext i32 %4 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom.i.i.i.i
@@ -644,7 +636,7 @@ if.end:                                           ; preds = %entry
   %4 = load i32, ptr %e, align 4
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %5 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
-  %cmp.not.i.i.i.i = icmp ugt i32 %5, %4
+  %cmp.not.i.i.i.i = icmp ult i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %idxprom.i.i.i.i = zext i32 %4 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i.i.i.i
@@ -684,7 +676,7 @@ if.end.i:                                         ; preds = %entry
   %4 = load i32, ptr %e, align 4
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %5 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %cmp.not.i.i.i.i.i = icmp ugt i32 %5, %4
+  %cmp.not.i.i.i.i.i = icmp ult i32 %4, %5
   tail call void @llvm.assume(i1 %cmp.not.i.i.i.i.i)
   %idxprom.i.i.i.i.i = zext i32 %4 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i.i.i.i.i
@@ -839,7 +831,7 @@ do.body.i.i.i:                                    ; preds = %land.rhs, %if.end5.
   %bf.load.i.i.i.i = load i32, ptr %l.0.i.i.i, align 8
   %bf.shl.i.i.i.i = shl i32 %bf.load.i.i.i.i, 24
   %bf.ashr.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i, 24
-  %cmp.i.i.i = icmp eq i32 %bf.ashr.i.i.i.i, %0
+  %cmp.i.i.i = icmp eq i32 %0, %bf.ashr.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then3.i.i.i, label %if.end5.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %do.body.i.i.i
@@ -880,7 +872,7 @@ do.body.i.i.i.i:                                  ; preds = %land.rhs.i, %if.end
   %bf.load.i.i.i.i.i = load i32, ptr %l.0.i.i.i.i, align 8
   %bf.shl.i.i.i.i.i = shl i32 %bf.load.i.i.i.i.i, 24
   %bf.ashr.i.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i.i, 24
-  %cmp.i.i.i.i = icmp eq i32 %bf.ashr.i.i.i.i.i, %1
+  %cmp.i.i.i.i = icmp eq i32 %1, %bf.ashr.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %if.end5.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %do.body.i.i.i.i
@@ -960,7 +952,7 @@ do.body.i.i:                                      ; preds = %if.then, %if.end5.i
   %bf.load.i.i.i = load i32, ptr %l.0.i.i, align 8
   %bf.shl.i.i.i = shl i32 %bf.load.i.i.i, 24
   %bf.ashr.i.i.i = ashr exact i32 %bf.shl.i.i.i, 24
-  %cmp.i.i = icmp eq i32 %bf.ashr.i.i.i, %0
+  %cmp.i.i = icmp eq i32 %0, %bf.ashr.i.i.i
   br i1 %cmp.i.i, label %if.then3.i.i, label %if.end5.i.i
 
 if.then3.i.i:                                     ; preds = %do.body.i.i

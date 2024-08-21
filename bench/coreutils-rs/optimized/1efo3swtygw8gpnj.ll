@@ -4229,7 +4229,7 @@ define hidden void @"_ZN3nom10combinator7map_opt28_$u7b$$u7b$closure$u7d$$u7d$17
 define hidden void @"_ZN3nom5bytes8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17h529e61406e5819a5E.llvm.12289024961330098845"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #7 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = load i64, ptr %1, align 8, !noundef !4
-  %.not.i = icmp ugt i64 %6, %3
+  %.not.i = icmp ult i64 %3, %6
   %7 = select i1 %.not.i, i64 %3, i64 0
   %spec.select.i = sub nuw i64 %6, %7
   br i1 %.not.i, label %17, label %8
@@ -4323,7 +4323,7 @@ define hidden void @"_ZN3nom8sequence14separated_pair28_$u7b$$u7b$closure$u7d$$u
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !847
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !847
   %switch.i.i.i = icmp eq i64 %21, 0
-  %.not.i.i.i = icmp ule i64 %16, %.sroa.425.0.copyload
+  %.not.i.i.i = icmp uge i64 %.sroa.425.0.copyload, %16
   %22 = and i1 %.not.i.i.i, %switch.i.i.i
   br i1 %22, label %24, label %35
 
@@ -4422,7 +4422,7 @@ define hidden void @"_ZN3nom8sequence8preceded28_$u7b$$u7b$closure$u7d$$u7d$17h2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !885
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7), !noalias !885
   %switch.i.i.i = icmp eq i64 %14, 0
-  %.not.i.i.i = icmp ule i64 %9, %3
+  %.not.i.i.i = icmp uge i64 %3, %9
   %15 = and i1 %.not.i.i.i, %switch.i.i.i
   br i1 %15, label %16, label %26
 
@@ -4511,7 +4511,7 @@ define hidden void @"_ZN3nom8sequence9delimited28_$u7b$$u7b$closure$u7d$$u7d$17h
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !939
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11), !noalias !939
   %switch.i.i.i = icmp eq i64 %19, 0
-  %.not.i.i.i = icmp ule i64 %14, %3
+  %.not.i.i.i = icmp uge i64 %3, %14
   %20 = and i1 %.not.i.i.i, %switch.i.i.i
   br i1 %20, label %21, label %29
 
@@ -4567,7 +4567,7 @@ define hidden void @"_ZN3nom8sequence9delimited28_$u7b$$u7b$closure$u7d$$u7d$17h
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !971
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !971
   %switch.i.i.i62 = icmp eq i64 %39, 0
-  %.not.i.i.i63 = icmp ule i64 %34, %.sroa.437.0.copyload
+  %.not.i.i.i63 = icmp uge i64 %.sroa.437.0.copyload, %34
   %40 = and i1 %.not.i.i.i63, %switch.i.i.i62
   br i1 %40, label %41, label %47
 
@@ -4645,7 +4645,7 @@ define hidden void @"_ZN3nom8sequence9delimited28_$u7b$$u7b$closure$u7d$$u7d$17h
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !1002
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10), !noalias !1002
   %switch.i.i.i = icmp eq i64 %18, 0
-  %.not.i.i.i = icmp ule i64 %13, %3
+  %.not.i.i.i = icmp uge i64 %3, %13
   %19 = and i1 %.not.i.i.i, %switch.i.i.i
   br i1 %19, label %20, label %29
 
@@ -4699,7 +4699,7 @@ define hidden void @"_ZN3nom8sequence9delimited28_$u7b$$u7b$closure$u7d$$u7d$17h
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1027
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7), !noalias !1027
   %switch.i.i.i43 = icmp eq i64 %40, 0
-  %.not.i.i.i44 = icmp ule i64 %35, %.sroa.033.0.copyload
+  %.not.i.i.i44 = icmp uge i64 %.sroa.033.0.copyload, %35
   %41 = and i1 %.not.i.i.i44, %switch.i.i.i43
   br i1 %41, label %42, label %47
 
@@ -5326,7 +5326,7 @@ define internal { i1, i8 } @_ZN4core4iter6traits8iterator8Iterator3nth17h2e24b4e
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h76fd979770f5157aE.exit.thread, label %5
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h76fd979770f5157aE.exit: ; preds = %5
-  %9 = icmp eq i64 %.sroa.01.011.i, %1
+  %9 = icmp eq i64 %1, %.sroa.01.011.i
   br i1 %9, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h76fd979770f5157aE.exit.thread, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c647a873a526361E.exit"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h76fd979770f5157aE.exit.thread: ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c647a873a526361E.exit.i", %._ZN4core4iter6traits8iterator8Iterator10advance_by17h76fd979770f5157aE.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h76fd979770f5157aE.exit
@@ -5718,8 +5718,8 @@ define internal fastcc noundef align 1 dereferenceable_or_null(1) ptr @"_ZN9hash
 
 41:                                               ; preds = %57, %8
   %.sroa.9.0.i.i.i = phi i64 [ 0, %8 ], [ %58, %57 ]
-  %.pn.i = phi i64 [ %37, %8 ], [ %59, %57 ]
-  %.sroa.01.0.i.i.i = and i64 %.pn.i, %.val5
+  %.pn.i.i.i = phi i64 [ %37, %8 ], [ %59, %57 ]
+  %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %.val5
   %42 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i25.i.i = load <16 x i8>, ptr %42, align 1, !noalias !1200
   %43 = icmp eq <16 x i8> %.0.copyload.i25.i.i, %.15.vec.insert.i.i.i
@@ -5747,7 +5747,7 @@ define internal fastcc noundef align 1 dereferenceable_or_null(1) ptr @"_ZN9hash
   %55 = sub nsw i64 0, %54
   %gep.i.i = getelementptr { i8, i8 }, ptr %invariant.gep.i.i, i64 %55
   %.val4.i.i.i = load i8, ptr %gep.i.i, align 1, !alias.scope !1208, !noalias !1213, !noundef !4
-  %56 = icmp eq i8 %.val4.i.i.i, %.0.val
+  %56 = icmp eq i8 %.0.val, %.val4.i.i.i
   br i1 %56, label %60, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
 
 57:                                               ; preds = %45
@@ -6620,7 +6620,7 @@ _ZN4core3ops8function5FnMut8call_mut17h4a06fdf24d9155ddE.exit.i251: ; preds = %"
   %146 = load i64, ptr %145, align 8, !noundef !4
   %147 = getelementptr inbounds i8, ptr %13, i64 16
   %148 = load i64, ptr %147, align 8, !alias.scope !1298, !noundef !4
-  %spec.store.select = call i64 @llvm.umin.i64(i64 %148, i64 %146)
+  %spec.store.select = call i64 @llvm.umin.i64(i64 %146, i64 %148)
   store i64 %spec.store.select, ptr %147, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h289a4166dae424efE.exit"
 
@@ -7792,7 +7792,7 @@ define hidden void @_ZN5uu_tr9operation8Sequence11parse_class17h3e68b6870bfea4c1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !1505
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !1505
   %switch.i.i.i59.i = icmp eq i64 %40, 0
-  %.not.i.i.i60.i = icmp ule i64 %35, %.sroa.442.0.copyload.i
+  %.not.i.i.i60.i = icmp uge i64 %.sroa.442.0.copyload.i, %35
   %41 = and i1 %.not.i.i.i60.i, %switch.i.i.i59.i
   br i1 %41, label %42, label %51
 
@@ -8081,7 +8081,7 @@ define hidden void @_ZN5uu_tr9operation8Sequence16parse_char_equal17hc7dadaeb5df
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !1609
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !1609
   %switch.i.i.i59.i = icmp eq i64 %40, 0
-  %.not.i.i.i60.i = icmp ule i64 %35, %.sroa.442.0.copyload.i
+  %.not.i.i.i60.i = icmp uge i64 %.sroa.442.0.copyload.i, %35
   %41 = and i1 %.not.i.i.i60.i, %switch.i.i.i59.i
   br i1 %41, label %42, label %51
 

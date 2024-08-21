@@ -1531,7 +1531,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pget_virtual_vspace(i64 nounde
 45:                                               ; preds = %39
   %46 = getelementptr inbounds i8, ptr %3, i64 1936
   %47 = load i64, ptr %46, align 8
-  %.not29 = icmp ugt i64 %47, %1
+  %.not29 = icmp ult i64 %1, %47
   br i1 %.not29, label %52, label %48
 
 48:                                               ; preds = %45
@@ -1669,7 +1669,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pget_virtual_srcspace(i64 noun
 47:                                               ; preds = %41
   %48 = getelementptr inbounds i8, ptr %3, i64 1936
   %49 = load i64, ptr %48, align 8
-  %.not45 = icmp ugt i64 %49, %1
+  %.not45 = icmp ult i64 %1, %49
   br i1 %.not45, label %54, label %50
 
 50:                                               ; preds = %47
@@ -1889,7 +1889,7 @@ define i64 @H5Pget_virtual_filename(i64 noundef %0, i64 noundef %1, ptr noundef 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds i8, ptr %5, i64 1936
   %49 = load i64, ptr %48, align 8
-  %.not24 = icmp ugt i64 %49, %1
+  %.not24 = icmp ult i64 %1, %49
   br i1 %.not24, label %54, label %50
 
 50:                                               ; preds = %47
@@ -2008,7 +2008,7 @@ define i64 @H5Pget_virtual_dsetname(i64 noundef %0, i64 noundef %1, ptr noundef 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds i8, ptr %5, i64 1936
   %49 = load i64, ptr %48, align 8
-  %.not24 = icmp ugt i64 %49, %1
+  %.not24 = icmp ult i64 %1, %49
   br i1 %.not24, label %54, label %50
 
 50:                                               ; preds = %47

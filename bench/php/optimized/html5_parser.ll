@@ -296,7 +296,7 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i: ; preds = %lexbor_libxml
   %123 = getelementptr inbounds i8, ptr %21, i64 104
   %124 = load ptr, ptr %123, align 8
   %125 = icmp ult i64 %120, 16
-  %or.cond.i.i = and i1 %125, %2
+  %or.cond.i.i = and i1 %2, %125
   br i1 %or.cond.i.i, label %126, label %lexbor_libxml2_bridge_new_text_node_fast.exit131.i
 
 126:                                              ; preds = %122
@@ -446,7 +446,7 @@ define hidden void @lexbor_libxml2_bridge_report_errors(ptr nocapture noundef re
   %9 = load i64, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 16
   %11 = load i64, ptr %10, align 8
-  %.not.i44 = icmp ugt i64 %11, %9
+  %.not.i44 = icmp ult i64 %9, %11
   br i1 %.not.i44, label %lexbor_array_obj_get.exit.lr.ph, label %lexbor_array_obj_get.exit.thread
 
 lexbor_array_obj_get.exit.lr.ph:                  ; preds = %6
@@ -483,7 +483,7 @@ lexbor_array_obj_get.exit:                        ; preds = %lexbor_array_obj_ge
 28:                                               ; preds = %23, %21
   %29 = phi i64 [ %.pre, %23 ], [ %16, %21 ]
   %30 = add nuw i64 %.045, 1
-  %.not.i = icmp ugt i64 %29, %30
+  %.not.i = icmp ult i64 %30, %29
   br i1 %.not.i, label %lexbor_array_obj_get.exit, label %lexbor_array_obj_get.exit.thread
 
 lexbor_array_obj_get.exit.thread:                 ; preds = %lexbor_array_obj_get.exit, %28, %6
@@ -496,7 +496,7 @@ lexbor_array_obj_get.exit.thread:                 ; preds = %lexbor_array_obj_ge
   %34 = load i64, ptr %5, align 8
   %35 = getelementptr inbounds i8, ptr %33, i64 16
   %36 = load i64, ptr %35, align 8
-  %.not.i3747 = icmp ugt i64 %36, %34
+  %.not.i3747 = icmp ult i64 %34, %36
   br i1 %.not.i3747, label %lexbor_array_obj_get.exit39.lr.ph, label %lexbor_array_obj_get.exit39.thread
 
 lexbor_array_obj_get.exit39.lr.ph:                ; preds = %lexbor_array_obj_get.exit.thread
@@ -537,7 +537,7 @@ lexbor_array_obj_get.exit39:                      ; preds = %lexbor_array_obj_ge
 57:                                               ; preds = %47, %45
   %58 = phi i64 [ %.pre51, %47 ], [ %40, %45 ]
   %59 = add nuw i64 %.148, 1
-  %.not.i37 = icmp ugt i64 %58, %59
+  %.not.i37 = icmp ult i64 %59, %58
   br i1 %.not.i37, label %lexbor_array_obj_get.exit39, label %lexbor_array_obj_get.exit39.thread
 
 lexbor_array_obj_get.exit39.thread:               ; preds = %lexbor_array_obj_get.exit39, %57, %lexbor_array_obj_get.exit.thread

@@ -146,7 +146,7 @@ define range(i32 0, 575) i32 @cli_mbr_check2(ptr noundef readonly %0, i64 nounde
 
 15:                                               ; preds = %8
   %16 = add i64 %spec.store.select, -66
-  %or.cond28.not = icmp ugt i64 %11, %16
+  %or.cond28.not = icmp ult i64 %16, %11
   br i1 %or.cond28.not, label %17, label %fmap_readn.exit.thread
 
 17:                                               ; preds = %15
@@ -259,7 +259,7 @@ define i32 @cli_scanmbr(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 16:                                               ; preds = %9
   %17 = add i64 %spec.store.select, -66
-  %or.cond.not = icmp ugt i64 %12, %17
+  %or.cond.not = icmp ult i64 %17, %12
   br i1 %or.cond.not, label %18, label %fmap_readn.exit.thread
 
 18:                                               ; preds = %16
@@ -426,7 +426,7 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
   %95 = load ptr, ptr %6, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 88
   %97 = load i64, ptr %96, align 8
-  %or.cond.not.i = icmp ugt i64 %97, %94
+  %or.cond.not.i = icmp ult i64 %94, %97
   br i1 %or.cond.not.i, label %98, label %fmap_readn.exit.thread.i
 
 98:                                               ; preds = %93
@@ -763,7 +763,7 @@ define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef %0, p
   %44 = load ptr, ptr %13, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 88
   %46 = load i64, ptr %45, align 8
-  %or.cond.not.i = icmp ugt i64 %46, %43
+  %or.cond.not.i = icmp ult i64 %43, %46
   br i1 %or.cond.not.i, label %47, label %fmap_readn.exit.thread.i
 
 47:                                               ; preds = %42

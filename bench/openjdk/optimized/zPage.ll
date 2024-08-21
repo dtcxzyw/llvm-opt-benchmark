@@ -808,7 +808,7 @@ define hidden noundef ptr @_ZN5ZPage5splitEm(ptr noundef nonnull align 8 derefer
   %3 = alloca %class.ZPhysicalMemory, align 8
   %4 = icmp eq i64 %1, 2097152
   %5 = load i64, ptr @ZPageSizeMedium, align 8
-  %6 = icmp eq i64 %5, %1
+  %6 = icmp eq i64 %1, %5
   %..i = select i1 %6, i8 1, i8 2
   %.0.i = select i1 %4, i8 0, i8 %..i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -876,7 +876,7 @@ define hidden noundef ptr @_ZN5ZPage15split_with_pmemE9ZPageTypeRK15ZPhysicalMem
   %10 = sub i64 %9, %7
   %11 = icmp eq i64 %10, 2097152
   %12 = load i64, ptr @ZPageSizeMedium, align 8
-  %13 = icmp eq i64 %12, %10
+  %13 = icmp eq i64 %10, %12
   %..i = select i1 %13, i8 1, i8 2
   %.0.i = select i1 %11, i8 0, i8 %..i
   store i8 %.0.i, ptr %0, align 8
@@ -1037,7 +1037,7 @@ define hidden noundef ptr @_ZN5ZPage15split_committedEv(ptr noundef nonnull alig
   %7 = call noundef i64 @_ZNK15ZPhysicalMemory4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   %8 = icmp eq i64 %7, 2097152
   %9 = load i64, ptr @ZPageSizeMedium, align 8
-  %10 = icmp eq i64 %9, %7
+  %10 = icmp eq i64 %7, %9
   %..i = select i1 %10, i8 1, i8 2
   %.0.i = select i1 %8, i8 0, i8 %..i
   %11 = call noundef ptr @_ZN5ZPage15split_with_pmemE9ZPageTypeRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 noundef zeroext %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -1267,7 +1267,7 @@ switch.lookup:                                    ; preds = %1
 define hidden void @_ZNK5ZPage11verify_liveEjmb(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 44
   %6 = load volatile i32, ptr %5, align 4
-  %7 = icmp eq i32 %6, %1
+  %7 = icmp eq i32 %1, %6
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %4
@@ -1279,7 +1279,7 @@ define hidden void @_ZNK5ZPage11verify_liveEjmb(ptr noundef nonnull align 8 dere
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load volatile i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, %2
+  %13 = icmp eq i64 %2, %12
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %10

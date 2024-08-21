@@ -2875,7 +2875,7 @@ sw.bb6:                                           ; preds = %sw.bb, %if.end
   %second = getelementptr inbounds i8, ptr %prefix, i64 24
   %4 = load i8, ptr %second, align 4, !tbaa !86
   %conv9 = zext i8 %4 to i32
-  %cmp10 = icmp uge i32 %conv9, %prefixLength
+  %cmp10 = icmp ule i32 %prefixLength, %conv9
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %prefix) #27
   br label %return
 

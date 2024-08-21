@@ -136,7 +136,7 @@ define hidden void @_ZN5uu_od13parse_formats18parse_format_flags17h36e0411bfbcaf
   %47 = ptrtoint ptr %.sroa.0.0 to i64
   %48 = sub nuw i64 %25, %47
   %49 = udiv exact i64 %48, 24
-  %.not.i.i.not = icmp ugt i64 %49, %.sroa.10.0
+  %.not.i.i.not = icmp ult i64 %.sroa.10.0, %49
   %50 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0, i64 %.sroa.10.0
   br i1 %.not.i.i.not, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2a17fb69b5f3e18E.exit.thread241", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2a17fb69b5f3e18E.exit.thread"
 
@@ -460,7 +460,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %17
   %190 = load i64, ptr %.sroa.585.0..sroa_idx, align 8, !alias.scope !36, !noalias !41, !noundef !4
   %191 = load i64, ptr %15, align 8, !alias.scope !43, !noalias !41, !noundef !4
   %192 = sub i64 %191, %190
-  %193 = icmp ult i64 %192, %189
+  %193 = icmp ugt i64 %189, %192
   br i1 %193, label %194, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc039338dbf10fe23E.exit.i"
 
 194:                                              ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i

@@ -2585,7 +2585,7 @@ cond.end.i:                                       ; preds = %entry
   %2 = and i16 %1, 252
   %cmp2.i = icmp eq i16 %2, 216
   %conv3.neg.i = sext i1 %cmp2.i to i64
-  %sub4.i = add i64 %conv3.neg.i, %length
+  %sub4.i = add i64 %length, %conv3.neg.i
   br label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1618trim_partial_utf16ILNS_10endiannessE1EEEmPKDsm.exit
 
 _ZN7simdutf6scalar12_GLOBAL__N_15utf1618trim_partial_utf16ILNS_10endiannessE1EEEmPKDsm.exit: ; preds = %entry, %cond.end.i
@@ -2606,7 +2606,7 @@ cond.end.i:                                       ; preds = %entry
   %2 = and i16 %1, -1024
   %cmp2.i = icmp eq i16 %2, -10240
   %conv3.neg.i = sext i1 %cmp2.i to i64
-  %sub4.i = add i64 %conv3.neg.i, %length
+  %sub4.i = add i64 %length, %conv3.neg.i
   br label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1618trim_partial_utf16ILNS_10endiannessE0EEEmPKDsm.exit
 
 _ZN7simdutf6scalar12_GLOBAL__N_15utf1618trim_partial_utf16ILNS_10endiannessE0EEEmPKDsm.exit: ; preds = %entry, %cond.end.i
@@ -2627,7 +2627,7 @@ cond.end.i.i:                                     ; preds = %entry
   %2 = and i16 %1, -1024
   %cmp2.i.i = icmp eq i16 %2, -10240
   %conv3.neg.i.i = sext i1 %cmp2.i.i to i64
-  %sub4.i.i = add i64 %conv3.neg.i.i, %length
+  %sub4.i.i = add i64 %length, %conv3.neg.i.i
   br label %_ZN7simdutf20trim_partial_utf16leEPKDsm.exit
 
 _ZN7simdutf20trim_partial_utf16leEPKDsm.exit:     ; preds = %entry, %cond.end.i.i
@@ -9854,7 +9854,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i32, ptr %buf, i64 %len
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -64
   %cond.i = select i1 %cmp.i, ptr %add.ptr1.i, ptr null
-  %cmp4.not60.i = icmp ult ptr %cond.i, %buf
+  %cmp4.not60.i = icmp ugt ptr %buf, %cond.i
   br i1 %cmp4.not60.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %while.body.i
@@ -9894,7 +9894,7 @@ if.then:                                          ; preds = %if.end.i
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %sub = sub i64 %len, %sub.ptr.div
-  %cmp6.i = icmp eq i64 %sub.ptr.div, %len
+  %cmp6.i = icmp eq i64 %len, %sub.ptr.div
   br i1 %cmp6.i, label %return, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then
@@ -10700,7 +10700,7 @@ entry:
   %add.ptr = getelementptr inbounds i32, ptr %buf, i64 %len
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   %cond = select i1 %cmp, ptr %add.ptr2, ptr null
-  %cmp3.not124 = icmp ult ptr %cond, %buf
+  %cmp3.not124 = icmp ugt ptr %buf, %cond
   br i1 %cmp3.not124, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end21
@@ -14785,7 +14785,7 @@ while.body:                                       ; preds = %land.rhs
 if.then10:                                        ; preds = %land.rhs
   %sub.ptr.lhs.cast13 = ptrtoint ptr %ret.sroa.0.019 to i64
   %sub.ptr.rhs.cast14 = ptrtoint ptr %buf to i64
-  %sub.ptr.sub15.neg = add i64 %sub.ptr.rhs.cast14, %len
+  %sub.ptr.sub15.neg = add i64 %len, %sub.ptr.rhs.cast14
   %sub = sub i64 %sub.ptr.sub15.neg, %sub.ptr.lhs.cast13
   %call17 = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE0EEEmPKcmPDs(ptr noundef nonnull %ret.sroa.0.019, i64 noundef %sub, ptr noundef %output.1.i)
   %cmp18 = icmp eq i64 %call17, 0
@@ -15606,7 +15606,7 @@ while.body:                                       ; preds = %land.rhs
 if.then10:                                        ; preds = %land.rhs
   %sub.ptr.lhs.cast13 = ptrtoint ptr %ret.sroa.0.019 to i64
   %sub.ptr.rhs.cast14 = ptrtoint ptr %buf to i64
-  %sub.ptr.sub15.neg = add i64 %sub.ptr.rhs.cast14, %len
+  %sub.ptr.sub15.neg = add i64 %len, %sub.ptr.rhs.cast14
   %sub = sub i64 %sub.ptr.sub15.neg, %sub.ptr.lhs.cast13
   %call17 = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE1EEEmPKcmPDs(ptr noundef nonnull %ret.sroa.0.019, i64 noundef %sub, ptr noundef %output.1.i)
   %cmp18 = icmp eq i64 %call17, 0
@@ -16205,7 +16205,7 @@ while.body:                                       ; preds = %land.rhs
 if.then14:                                        ; preds = %land.rhs
   %sub.ptr.lhs.cast17 = ptrtoint ptr %ret.sroa.0.035 to i64
   %sub.ptr.rhs.cast18 = ptrtoint ptr %buf to i64
-  %sub.ptr.sub19.neg = add i64 %sub.ptr.rhs.cast18, %len
+  %sub.ptr.sub19.neg = add i64 %len, %sub.ptr.rhs.cast18
   %sub = sub i64 %sub.ptr.sub19.neg, %sub.ptr.lhs.cast17
   %add.ptr20 = getelementptr inbounds i8, ptr %utf32_out, i64 %sub.ptr.sub
   %call21 = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf327convertEPKcmPDi(ptr noundef nonnull %ret.sroa.0.035, i64 noundef %sub, ptr noundef %add.ptr20)
@@ -16831,7 +16831,7 @@ while.body:                                       ; preds = %land.rhs
 if.then27:                                        ; preds = %land.rhs
   %sub.ptr.lhs.cast30 = ptrtoint ptr %ret.sroa.12.074 to i64
   %sub.ptr.rhs.cast31 = ptrtoint ptr %buf to i64
-  %sub.ptr.sub32.neg = add i64 %sub.ptr.rhs.cast31, %len
+  %sub.ptr.sub32.neg = add i64 %len, %sub.ptr.rhs.cast31
   %sub33 = sub i64 %sub.ptr.sub32.neg, %sub.ptr.lhs.cast30
   %add.ptr34 = getelementptr inbounds i8, ptr %utf32, i64 %sub.ptr.sub15
   %call35 = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3219convert_with_errorsEPKcmPDi(ptr noundef nonnull %ret.sroa.12.074, i64 noundef %sub33, ptr noundef %add.ptr34)
@@ -17324,7 +17324,7 @@ while.body:                                       ; preds = %land.rhs
 if.then10:                                        ; preds = %land.rhs
   %sub.ptr.lhs.cast13 = ptrtoint ptr %ret.sroa.0.020 to i64
   %sub.ptr.rhs.cast14 = ptrtoint ptr %buf to i64
-  %sub.ptr.sub15.neg = add i64 %sub.ptr.rhs.cast14, %len
+  %sub.ptr.sub15.neg = add i64 %len, %sub.ptr.rhs.cast14
   %sub = sub i64 %sub.ptr.sub15.neg, %sub.ptr.lhs.cast13
   %add.ptr16 = getelementptr inbounds i8, ptr %utf32_out, i64 %sub.ptr.sub
   %call17 = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi(ptr noundef nonnull %ret.sroa.0.020, i64 noundef %sub, ptr noundef %add.ptr16)
@@ -20473,7 +20473,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 2
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp20.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp20.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp20.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread, label %while.body.i12
 
 while.body.i12:                                   ; preds = %if.then4, %if.end21.i
@@ -20683,7 +20683,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 2
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp20.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp20.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp20.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread, label %while.body.i12
 
 while.body.i12:                                   ; preds = %if.then4, %if.end21.i
@@ -21347,7 +21347,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div10.i = ashr exact i64 %sub.ptr.sub9.i, 2
   %sub.i = sub i64 %len, %sub.ptr.div10.i
-  %cmp20.not.i.i = icmp eq i64 %sub.ptr.div10.i, %len
+  %cmp20.not.i.i = icmp eq i64 %len, %sub.ptr.div10.i
   br i1 %cmp20.not.i.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i, label %while.body.i12.i
 
 while.body.i12.i:                                 ; preds = %if.then4.i, %if.end21.i.i
@@ -21557,7 +21557,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div10.i = ashr exact i64 %sub.ptr.sub9.i, 2
   %sub.i = sub i64 %len, %sub.ptr.div10.i
-  %cmp20.not.i.i = icmp eq i64 %sub.ptr.div10.i, %len
+  %cmp20.not.i.i = icmp eq i64 %len, %sub.ptr.div10.i
   br i1 %cmp20.not.i.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i, label %while.body.i12.i
 
 while.body.i12.i:                                 ; preds = %if.then4.i, %if.end21.i.i
@@ -21745,7 +21745,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 1
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp21.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp21.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp21.not.i, label %return, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then4, %if.end36.i
@@ -21927,7 +21927,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 1
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp21.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp21.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp21.not.i, label %return, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then4, %if.end36.i
@@ -22100,7 +22100,7 @@ if.then:                                          ; preds = %if.then.i
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %sub = sub i64 %len, %sub.ptr.div
-  %cmp25.not.i = icmp eq i64 %sub.ptr.div, %len
+  %cmp25.not.i = icmp eq i64 %len, %sub.ptr.div
   br i1 %cmp25.not.i, label %while.end.i21, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then, %if.end36.i
@@ -22179,7 +22179,7 @@ if.then17:                                        ; preds = %if.end
   %sub.ptr.sub22 = sub i64 %sub.ptr.lhs.cast20, %sub.ptr.rhs.cast21
   %sub.ptr.div23 = ashr exact i64 %sub.ptr.sub22, 1
   %sub24 = sub i64 %len, %sub.ptr.div23
-  %cmp25.not.i32 = icmp eq i64 %sub.ptr.div23, %len
+  %cmp25.not.i32 = icmp eq i64 %len, %sub.ptr.div23
   br i1 %cmp25.not.i32, label %if.else, label %cond.end.i33
 
 cond.end.i33:                                     ; preds = %if.then17, %if.end36.i40
@@ -22362,7 +22362,7 @@ if.then:                                          ; preds = %if.then.i
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %sub = sub i64 %len, %sub.ptr.div
-  %cmp25.not.i = icmp eq i64 %sub.ptr.div, %len
+  %cmp25.not.i = icmp eq i64 %len, %sub.ptr.div
   br i1 %cmp25.not.i, label %while.end.i21, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then, %if.end36.i
@@ -22443,7 +22443,7 @@ if.then17:                                        ; preds = %if.end
   %sub.ptr.sub22 = sub i64 %sub.ptr.lhs.cast20, %sub.ptr.rhs.cast21
   %sub.ptr.div23 = ashr exact i64 %sub.ptr.sub22, 1
   %sub24 = sub i64 %len, %sub.ptr.div23
-  %cmp25.not.i31 = icmp eq i64 %sub.ptr.div23, %len
+  %cmp25.not.i31 = icmp eq i64 %len, %sub.ptr.div23
   br i1 %cmp25.not.i31, label %if.else, label %cond.end.i32
 
 cond.end.i32:                                     ; preds = %if.then17, %if.end36.i40
@@ -22637,7 +22637,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 1
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp21.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp21.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp21.not.i, label %return, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then4, %if.end36.i
@@ -22819,7 +22819,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 1
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp21.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp21.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp21.not.i, label %return, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then4, %if.end36.i
@@ -22929,7 +22929,7 @@ entry:
   %add.ptr = getelementptr inbounds i16, ptr %input, i64 %length
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   %cond = select i1 %cmp, ptr %add.ptr2, ptr null
-  %cmp4.not74 = icmp ult ptr %cond, %input
+  %cmp4.not74 = icmp ugt ptr %input, %cond
   br i1 %cmp4.not74, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
@@ -22954,7 +22954,7 @@ while.end:                                        ; preds = %while.body, %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %sub = sub i64 %length, %sub.ptr.div
-  %cmp6.not.i = icmp eq i64 %sub.ptr.div, %length
+  %cmp6.not.i = icmp eq i64 %length, %sub.ptr.div
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %while.end, %cond.end.i
@@ -22983,7 +22983,7 @@ entry:
   %add.ptr = getelementptr inbounds i16, ptr %input, i64 %length
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   %cond = select i1 %cmp, ptr %add.ptr2, ptr null
-  %cmp5.not74 = icmp ult ptr %cond, %input
+  %cmp5.not74 = icmp ugt ptr %input, %cond
   br i1 %cmp5.not74, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
@@ -23010,7 +23010,7 @@ while.end:                                        ; preds = %while.body, %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %sub = sub i64 %length, %sub.ptr.div
-  %cmp6.not.i = icmp eq i64 %sub.ptr.div, %length
+  %cmp6.not.i = icmp eq i64 %length, %sub.ptr.div
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %while.end, %cond.end.i
@@ -23133,7 +23133,7 @@ while.end:                                        ; preds = %while.cond.loopexit
   %answer.0.lcssa = phi i64 [ %div112, %entry ], [ %answer.1.lcssa, %while.cond.loopexit ]
   %add.ptr57 = getelementptr inbounds i8, ptr %input, i64 %i.0.lcssa
   %sub58 = sub i64 %length, %i.0.lcssa
-  %cmp4.not.i = icmp eq i64 %i.0.lcssa, %length
+  %cmp4.not.i = icmp eq i64 %length, %i.0.lcssa
   br i1 %cmp4.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %while.end, %for.body.i
@@ -23271,7 +23271,7 @@ while.end.i:                                      ; preds = %while.cond.loopexit
   %answer.0.lcssa.i = phi i64 [ %div112.i, %entry ], [ %answer.1.lcssa.i, %while.cond.loopexit.i ]
   %add.ptr57.i = getelementptr inbounds i8, ptr %buf, i64 %i.0.lcssa.i
   %sub58.i = sub i64 %len, %i.0.lcssa.i
-  %cmp4.not.i.i = icmp eq i64 %i.0.lcssa.i, %len
+  %cmp4.not.i.i = icmp eq i64 %len, %i.0.lcssa.i
   br i1 %cmp4.not.i.i, label %_ZNK7simdutf7icelake14implementation10count_utf8EPKcm.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %while.end.i, %for.body.i.i
@@ -23327,7 +23327,7 @@ entry:
   %add.ptr = getelementptr inbounds i16, ptr %input, i64 %length
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   %cond = select i1 %cmp, ptr %add.ptr2, ptr null
-  %cmp6.not146 = icmp ult ptr %cond, %input
+  %cmp6.not146 = icmp ugt ptr %input, %cond
   br i1 %cmp6.not146, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
@@ -23375,7 +23375,7 @@ while.end:                                        ; preds = %while.body, %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %sub22 = sub i64 %length, %sub.ptr.div
-  %cmp11.not.i = icmp eq i64 %sub.ptr.div, %length
+  %cmp11.not.i = icmp eq i64 %length, %sub.ptr.div
   br i1 %cmp11.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %while.end, %cond.end.i
@@ -23410,7 +23410,7 @@ entry:
   %add.ptr = getelementptr inbounds i16, ptr %input, i64 %length
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   %cond = select i1 %cmp, ptr %add.ptr2, ptr null
-  %cmp7.not147 = icmp ult ptr %cond, %input
+  %cmp7.not147 = icmp ugt ptr %input, %cond
   br i1 %cmp7.not147, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
@@ -23460,7 +23460,7 @@ while.end:                                        ; preds = %while.body, %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %sub25 = sub i64 %length, %sub.ptr.div
-  %cmp11.not.i = icmp eq i64 %sub.ptr.div, %length
+  %cmp11.not.i = icmp eq i64 %length, %sub.ptr.div
   br i1 %cmp11.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %while.end, %cond.end.i
@@ -23496,7 +23496,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %input, i64 %length
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -64
   %cond.i = select i1 %cmp.i, ptr %add.ptr2.i, ptr null
-  %cmp4.not74.i = icmp ult ptr %cond.i, %input
+  %cmp4.not74.i = icmp ugt ptr %input, %cond.i
   br i1 %cmp4.not74.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %while.body.i
@@ -23521,7 +23521,7 @@ while.end.i:                                      ; preds = %while.body.i, %entr
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
   %sub.i = sub i64 %length, %sub.ptr.div.i
-  %cmp6.not.i.i = icmp eq i64 %sub.ptr.div.i, %length
+  %cmp6.not.i.i = icmp eq i64 %length, %sub.ptr.div.i
   br i1 %cmp6.not.i.i, label %_ZNK7simdutf7icelake14implementation13count_utf16leEPKDsm.exit, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %while.end.i, %cond.end.i.i
@@ -23550,7 +23550,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %input, i64 %length
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -64
   %cond.i = select i1 %cmp.i, ptr %add.ptr2.i, ptr null
-  %cmp5.not74.i = icmp ult ptr %cond.i, %input
+  %cmp5.not74.i = icmp ugt ptr %input, %cond.i
   br i1 %cmp5.not74.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %while.body.i
@@ -23577,7 +23577,7 @@ while.end.i:                                      ; preds = %while.body.i, %entr
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
   %sub.i = sub i64 %length, %sub.ptr.div.i
-  %cmp6.not.i.i = icmp eq i64 %sub.ptr.div.i, %length
+  %cmp6.not.i.i = icmp eq i64 %length, %sub.ptr.div.i
   br i1 %cmp6.not.i.i, label %_ZNK7simdutf7icelake14implementation13count_utf16beEPKDsm.exit, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %while.end.i, %cond.end.i.i
@@ -23685,7 +23685,7 @@ while.end:                                        ; preds = %for.end62, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %i.2.lcssa, %for.end62 ]
   %add.ptr81 = getelementptr inbounds i8, ptr %input, i64 %i.0.lcssa
   %sub82 = sub i64 %length, %i.0.lcssa
-  %cmp6.not.i = icmp eq i64 %i.0.lcssa, %length
+  %cmp6.not.i = icmp eq i64 %length, %i.0.lcssa
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %while.end, %for.body.i
@@ -23754,7 +23754,7 @@ for.end:                                          ; preds = %for.body, %entry
   %pos.0.lcssa = phi i64 [ 0, %entry ], [ %add139, %for.body ]
   %add.ptr9 = getelementptr inbounds i8, ptr %input, i64 %pos.0.lcssa
   %sub10 = sub i64 %length, %pos.0.lcssa
-  %cmp7.not.i = icmp eq i64 %pos.0.lcssa, %length
+  %cmp7.not.i = icmp eq i64 %length, %pos.0.lcssa
   br i1 %cmp7.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.end, %for.body.i
@@ -23785,7 +23785,7 @@ entry:
   %add.ptr = getelementptr inbounds i32, ptr %input, i64 %length
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   %cond = select i1 %cmp, ptr %add.ptr2, ptr null
-  %cmp5.not64 = icmp ult ptr %cond, %input
+  %cmp5.not64 = icmp ugt ptr %input, %cond
   br i1 %cmp5.not64, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
@@ -23828,7 +23828,7 @@ while.end:                                        ; preds = %while.body, %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %sub23 = sub i64 %length, %sub.ptr.div
-  %cmp11.not.i = icmp eq i64 %sub.ptr.div, %length
+  %cmp11.not.i = icmp eq i64 %length, %sub.ptr.div
   br i1 %cmp11.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3222utf8_length_from_utf32EPKDim.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %while.end, %for.body.i
@@ -23863,7 +23863,7 @@ entry:
   %add.ptr = getelementptr inbounds i32, ptr %input, i64 %length
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   %cond = select i1 %cmp, ptr %add.ptr2, ptr null
-  %cmp3.not25 = icmp ult ptr %cond, %input
+  %cmp3.not25 = icmp ugt ptr %input, %cond
   br i1 %cmp3.not25, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
@@ -23888,7 +23888,7 @@ while.end:                                        ; preds = %while.body, %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %sub = sub i64 %length, %sub.ptr.div
-  %cmp5.not.i = icmp eq i64 %sub.ptr.div, %length
+  %cmp5.not.i = icmp eq i64 %length, %sub.ptr.div
   br i1 %cmp5.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3223utf16_length_from_utf32EPKDim.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %while.end, %for.body.i
@@ -24011,7 +24011,7 @@ while.end.i:                                      ; preds = %while.cond.loopexit
   %answer.0.lcssa.i = phi i64 [ %div112.i, %entry ], [ %answer.1.lcssa.i, %while.cond.loopexit.i ]
   %add.ptr57.i = getelementptr inbounds i8, ptr %input, i64 %i.0.lcssa.i
   %sub58.i = sub i64 %length, %i.0.lcssa.i
-  %cmp4.not.i.i = icmp eq i64 %i.0.lcssa.i, %length
+  %cmp4.not.i.i = icmp eq i64 %length, %i.0.lcssa.i
   br i1 %cmp4.not.i.i, label %_ZNK7simdutf7icelake14implementation10count_utf8EPKcm.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %while.end.i, %for.body.i.i
@@ -24611,7 +24611,7 @@ if.else:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i.i)
   %spec.select.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %length, i64 64)
   %cmp.i161217.not.i.i.i = icmp ult i64 %length, 65
-  br i1 %cmp.i161217.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i
+  br i1 %cmp.i161217.not.i.i.i, label %if.end.i.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.else, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i
   %c.sroa.22.01221.i.i.i = phi <4 x i64> [ %c.sroa.22.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ], [ zeroinitializer, %if.else ]
@@ -24702,18 +24702,18 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inp
   %cmp.i16.i.i.i = icmp ult i64 %add.i58.i.i.i, %spec.select.i.i.i
   br i1 %cmp.i16.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !239
 
-while.end.i.i.i:                                  ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i, %if.else
-  %reader.sroa.11.0.lcssa.i.i.i = phi i64 [ 0, %if.else ], [ %add.i58.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
-  %c.sroa.0.0.lcssa.i.i.i = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.0.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
-  %c.sroa.17.0.lcssa.i.i.i = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.17.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
-  %c.sroa.22.0.lcssa.i.i.i = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.22.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
-  %cmp.i63.i.i.i = icmp eq i64 %reader.sroa.11.0.lcssa.i.i.i, %length
+while.end.i.i.i:                                  ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i
+  %cmp.i63.i.i.i = icmp eq i64 %length, %add.i58.i.i.i
   br i1 %cmp.i63.i.i.i, label %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i, label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %while.end.i.i.i
+if.end.i.i.i.i:                                   ; preds = %if.else, %while.end.i.i.i
+  %c.sroa.22.0.lcssa.i.i.i24 = phi <4 x i64> [ %c.sroa.22.1.i.i.i, %while.end.i.i.i ], [ zeroinitializer, %if.else ]
+  %c.sroa.17.0.lcssa.i.i.i22 = phi <4 x i64> [ %c.sroa.17.1.i.i.i, %while.end.i.i.i ], [ zeroinitializer, %if.else ]
+  %c.sroa.0.0.lcssa.i.i.i20 = phi <4 x i64> [ %c.sroa.0.1.i.i.i, %while.end.i.i.i ], [ zeroinitializer, %if.else ]
+  %reader.sroa.11.0.lcssa.i.i.i19 = phi i64 [ %add.i58.i.i.i, %while.end.i.i.i ], [ 0, %if.else ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %block.i.i.i, i8 32, i64 64, i1 false)
-  %add.ptr.i64.i.i.i = getelementptr inbounds i8, ptr %input, i64 %reader.sroa.11.0.lcssa.i.i.i
-  %sub.i66.i.i.i = sub i64 %length, %reader.sroa.11.0.lcssa.i.i.i
+  %add.ptr.i64.i.i.i = getelementptr inbounds i8, ptr %input, i64 %reader.sroa.11.0.lcssa.i.i.i19
+  %sub.i66.i.i.i = sub i64 %length, %reader.sroa.11.0.lcssa.i.i.i19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i.i.i, ptr readonly align 1 %add.ptr.i64.i.i.i, i64 %sub.i66.i.i.i, i1 false)
   %block.i.i.i.0.block.i.i.i.0.block.i.i.i.0.block.i.i.0.block.i.i.0.block.i.0.block.i.0.block.0.block.0.block.0..pre.i.i.i = load <4 x i64>, ptr %block.i.i.i, align 16, !noalias !240
   %block.i.i.i.32.block.i.i.i.32.block.i.i.i.32.block.i.i.32.block.i.i.32.block.i.32.block.i.32.block.32.block.32.block.32.add.ptr.i26.sroa_idx = getelementptr inbounds i8, ptr %block.i.i.i, i64 32
@@ -24721,6 +24721,9 @@ if.end.i.i.i.i:                                   ; preds = %while.end.i.i.i
   br label %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i
 
 _ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i: ; preds = %if.end.i.i.i.i, %while.end.i.i.i
+  %c.sroa.22.0.lcssa.i.i.i25 = phi <4 x i64> [ %c.sroa.22.1.i.i.i, %while.end.i.i.i ], [ %c.sroa.22.0.lcssa.i.i.i24, %if.end.i.i.i.i ]
+  %c.sroa.17.0.lcssa.i.i.i23 = phi <4 x i64> [ %c.sroa.17.1.i.i.i, %while.end.i.i.i ], [ %c.sroa.17.0.lcssa.i.i.i22, %if.end.i.i.i.i ]
+  %c.sroa.0.0.lcssa.i.i.i21 = phi <4 x i64> [ %c.sroa.0.1.i.i.i, %while.end.i.i.i ], [ %c.sroa.0.0.lcssa.i.i.i20, %if.end.i.i.i.i ]
   %block.32.block.32.block.32..i.i.i = phi <4 x i64> [ zeroinitializer, %while.end.i.i.i ], [ %block.i.i.i.32.block.i.i.i.32.block.i.i.i.32.block.i.i.32.block.i.i.32.block.i.32.block.i.32.block.32.block.32.block.32..pre.i.i.i, %if.end.i.i.i.i ]
   %block.0.block.0.block.0..i.i.i = phi <4 x i64> [ zeroinitializer, %while.end.i.i.i ], [ %block.i.i.i.0.block.i.i.i.0.block.i.i.i.0.block.i.i.0.block.i.i.0.block.i.0.block.i.0.block.0.block.0.block.0..pre.i.i.i, %if.end.i.i.i.i ]
   %or.i.i344.i.i.i = or <4 x i64> %block.0.block.0.block.0..i.i.i, %block.32.block.32.block.32..i.i.i
@@ -24732,7 +24735,7 @@ _ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.ex
 
 if.else.i.i.i.i:                                  ; preds = %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i
   %177 = bitcast <4 x i64> %block.0.block.0.block.0..i.i.i to <32 x i8>
-  %vperm.i.i.i.i = shufflevector <4 x i64> %c.sroa.17.0.lcssa.i.i.i, <4 x i64> %block.0.block.0.block.0..i.i.i, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %vperm.i.i.i.i = shufflevector <4 x i64> %c.sroa.17.0.lcssa.i.i.i23, <4 x i64> %block.0.block.0.block.0..i.i.i, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
   %178 = bitcast <4 x i64> %vperm.i.i.i.i to <32 x i8>
   %palignr.i.i.i.i = shufflevector <32 x i8> %178, <32 x i8> %177, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
   %179 = bitcast <32 x i8> %palignr.i.i.i.i to <16 x i16>
@@ -24795,9 +24798,9 @@ if.else.i.i.i.i:                                  ; preds = %_ZNK7simdutf7haswel
   br label %_ZNK7simdutf7haswell14implementation13validate_utf8EPKcm.exit
 
 _ZNK7simdutf7haswell14implementation13validate_utf8EPKcm.exit: ; preds = %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i, %if.else.i.i.i.i
-  %c.sroa.22.0.lcssa.pn.i.i.i = phi <4 x i64> [ %207, %if.else.i.i.i.i ], [ %c.sroa.22.0.lcssa.i.i.i, %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i ]
-  %c.sroa.22.2.i.i.i = phi <4 x i64> [ %208, %if.else.i.i.i.i ], [ %c.sroa.22.0.lcssa.i.i.i, %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i ]
-  %c.sroa.0.2.i.i.i = or <4 x i64> %c.sroa.22.0.lcssa.pn.i.i.i, %c.sroa.0.0.lcssa.i.i.i
+  %c.sroa.22.0.lcssa.pn.i.i.i = phi <4 x i64> [ %207, %if.else.i.i.i.i ], [ %c.sroa.22.0.lcssa.i.i.i25, %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i ]
+  %c.sroa.22.2.i.i.i = phi <4 x i64> [ %208, %if.else.i.i.i.i ], [ %c.sroa.22.0.lcssa.i.i.i25, %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i ]
+  %c.sroa.0.2.i.i.i = or <4 x i64> %c.sroa.22.0.lcssa.pn.i.i.i, %c.sroa.0.0.lcssa.i.i.i21
   %or.i.i610.i.i.i = or <4 x i64> %c.sroa.0.2.i.i.i, %c.sroa.22.2.i.i.i
   %209 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %or.i.i610.i.i.i, <4 x i64> %or.i.i610.i.i.i)
   %tobool.i.i.i.i.not = icmp ne i32 %209, 0
@@ -24913,7 +24916,7 @@ while.end.i.i:                                    ; preds = %_ZN7simdutf7haswell
   %c.sroa.0.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %entry ], [ %c.sroa.0.1.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i ]
   %c.sroa.17.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %entry ], [ %c.sroa.17.1.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i ]
   %c.sroa.22.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %entry ], [ %c.sroa.22.1.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i ]
-  %cmp.i63.i.i = icmp eq i64 %reader.sroa.11.0.lcssa.i.i, %len
+  %cmp.i63.i.i = icmp eq i64 %len, %reader.sroa.11.0.lcssa.i.i
   br i1 %cmp.i63.i.i, label %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i
@@ -25129,7 +25132,7 @@ while.end.i.i:                                    ; preds = %if.end6.i.i, %entry
   %c.sroa.0.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %entry ], [ %c.sroa.0.1.i.i, %if.end6.i.i ]
   %c.sroa.19.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %entry ], [ %c.sroa.19.1.i.i, %if.end6.i.i ]
   %c.sroa.24.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %entry ], [ %c.sroa.24.1.i.i, %if.end6.i.i ]
-  %cmp.i81.i.i = icmp eq i64 %reader.sroa.11.0.lcssa.i.i, %len
+  %cmp.i81.i.i = icmp eq i64 %len, %reader.sroa.11.0.lcssa.i.i
   br i1 %cmp.i81.i.i, label %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i
@@ -25271,7 +25274,7 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %en
   %running_or.sroa.0.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %entry ], [ %or.i.i.i266.i.i, %while.body.i.i ]
   %running_or.sroa.6.0.lcssa.i.i = phi <4 x i64> [ zeroinitializer, %entry ], [ %or.i.i49.i283.i.i, %while.body.i.i ]
   %reader.sroa.11.0.lcssa.i.i = phi i64 [ 0, %entry ], [ %add.i.i.i, %while.body.i.i ]
-  %cmp.i36.i.i = icmp eq i64 %reader.sroa.11.0.lcssa.i.i, %len
+  %cmp.i36.i.i = icmp eq i64 %len, %reader.sroa.11.0.lcssa.i.i
   br i1 %cmp.i36.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation22generic_validate_asciiEPKcm.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i
@@ -25387,7 +25390,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i
 
 while.end.i.i:                                    ; preds = %if.end.i.i, %entry
   %reader.sroa.11.0.lcssa.i.i = phi i64 [ 0, %entry ], [ %add5.i.i, %if.end.i.i ]
-  %cmp.i52.i.i = icmp eq i64 %reader.sroa.11.0.lcssa.i.i, %len
+  %cmp.i52.i.i = icmp eq i64 %len, %reader.sroa.11.0.lcssa.i.i
   br i1 %cmp.i52.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation34generic_validate_ascii_with_errorsEPKcm.exit, label %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i
 
 _ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i: ; preds = %while.end.i.i
@@ -25545,7 +25548,7 @@ if.then:                                          ; preds = %if.end23.i, %_ZN7si
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %sub = sub i64 %len, %sub.ptr.div
-  %cmp14.i = icmp eq i64 %sub.ptr.div, %len
+  %cmp14.i = icmp eq i64 %len, %sub.ptr.div
   br i1 %cmp14.i, label %return, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then, %if.end30.i
@@ -25661,7 +25664,7 @@ if.then:                                          ; preds = %if.end24.i, %_ZN7si
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %sub = sub i64 %len, %sub.ptr.div
-  %cmp14.i = icmp eq i64 %sub.ptr.div, %len
+  %cmp14.i = icmp eq i64 %len, %sub.ptr.div
   br i1 %cmp14.i, label %return, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then, %if.end30.i
@@ -26003,7 +26006,7 @@ if.then:                                          ; preds = %if.end.i
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %sub = sub i64 %len, %sub.ptr.div
-  %cmp6.i = icmp eq i64 %sub.ptr.div, %len
+  %cmp6.i = icmp eq i64 %len, %sub.ptr.div
   br i1 %cmp6.i, label %return, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then
@@ -33079,7 +33082,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub9, 2
   %sub = sub i64 %len, %sub.ptr.div
-  %cmp7.not.i = icmp eq i64 %sub.ptr.div, %len
+  %cmp7.not.i = icmp eq i64 %len, %sub.ptr.div
   br i1 %cmp7.not.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then4, %while.body.i
@@ -33238,7 +33241,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub9.i, 2
   %sub.i = sub i64 %len, %sub.ptr.div.i
-  %cmp7.not.i.i = icmp eq i64 %sub.ptr.div.i, %len
+  %cmp7.not.i.i = icmp eq i64 %len, %sub.ptr.div.i
   br i1 %cmp7.not.i.i, label %_ZNK7simdutf7haswell14implementation23convert_utf32_to_latin1EPKDimPc.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then4.i, %while.body.i.i
@@ -33785,7 +33788,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 1
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp21.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp21.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp21.not.i, label %return, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then4, %if.end36.i
@@ -33969,7 +33972,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 1
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp21.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp21.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp21.not.i, label %return, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then4, %if.end36.i
@@ -34567,7 +34570,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 2
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp20.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp20.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp20.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread, label %while.body.i12
 
 while.body.i12:                                   ; preds = %if.then4, %if.end21.i
@@ -34777,7 +34780,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 2
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp20.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp20.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp20.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread, label %while.body.i12
 
 while.body.i12:                                   ; preds = %if.then4, %if.end21.i
@@ -35441,7 +35444,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div10.i = ashr exact i64 %sub.ptr.sub9.i, 2
   %sub.i = sub i64 %len, %sub.ptr.div10.i
-  %cmp20.not.i.i = icmp eq i64 %sub.ptr.div10.i, %len
+  %cmp20.not.i.i = icmp eq i64 %len, %sub.ptr.div10.i
   br i1 %cmp20.not.i.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i, label %while.body.i12.i
 
 while.body.i12.i:                                 ; preds = %if.then4.i, %if.end21.i.i
@@ -35651,7 +35654,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div10.i = ashr exact i64 %sub.ptr.sub9.i, 2
   %sub.i = sub i64 %len, %sub.ptr.div10.i
-  %cmp20.not.i.i = icmp eq i64 %sub.ptr.div10.i, %len
+  %cmp20.not.i.i = icmp eq i64 %len, %sub.ptr.div10.i
   br i1 %cmp20.not.i.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i, label %while.body.i12.i
 
 while.body.i12.i:                                 ; preds = %if.then4.i, %if.end21.i.i
@@ -35839,7 +35842,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div10.i = ashr exact i64 %sub.ptr.sub9.i, 1
   %sub.i = sub i64 %len, %sub.ptr.div10.i
-  %cmp21.not.i.i = icmp eq i64 %sub.ptr.div10.i, %len
+  %cmp21.not.i.i = icmp eq i64 %len, %sub.ptr.div10.i
   br i1 %cmp21.not.i.i, label %_ZNK7simdutf7haswell14implementation24convert_utf16le_to_utf32EPKDsmPDi.exit, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %if.then4.i, %if.end36.i.i
@@ -36023,7 +36026,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div10.i = ashr exact i64 %sub.ptr.sub9.i, 1
   %sub.i = sub i64 %len, %sub.ptr.div10.i
-  %cmp21.not.i.i = icmp eq i64 %sub.ptr.div10.i, %len
+  %cmp21.not.i.i = icmp eq i64 %len, %sub.ptr.div10.i
   br i1 %cmp21.not.i.i, label %_ZNK7simdutf7haswell14implementation24convert_utf16be_to_utf32EPKDsmPDi.exit, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %if.then4.i, %if.end36.i.i
@@ -36113,7 +36116,7 @@ while.end.i:                                      ; preds = %while.body.i, %entr
   %output.addr.i.0.lcssa = phi ptr [ %output, %entry ], [ %add.ptr1.i, %while.body.i ]
   %add.ptr2.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp.i.i22.not = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp.i.i22.not = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp.i.i22.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1623change_endianness_utf16EPKDsmPDs.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %while.end.i, %for.body.i.i
@@ -36174,7 +36177,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEE
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i, %if.end.i ]
   %add.ptr5.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp6.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp6.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit, %cond.end.i
@@ -36242,7 +36245,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEE
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i, %if.end.i ]
   %add.ptr5.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp6.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp6.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit, %cond.end.i
@@ -36297,7 +36300,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i49, %for.body.i ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %input, i64 %pos.i.0.lcssa
   %sub.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp4.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp4.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp4.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i45
 
 for.body.i45:                                     ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, %for.body.i45
@@ -36351,7 +36354,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit.i: ; preds =
   %pos.i.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i49.i, %for.body.i.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa.i
   %sub.i.i = sub i64 %len, %pos.i.0.lcssa.i
-  %cmp4.not.i.i = icmp eq i64 %pos.i.0.lcssa.i, %len
+  %cmp4.not.i.i = icmp eq i64 %len, %pos.i.0.lcssa.i
   br i1 %cmp4.not.i.i, label %_ZNK7simdutf7haswell14implementation10count_utf8EPKcm.exit, label %for.body.i45.i
 
 for.body.i45.i:                                   ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit.i, %for.body.i45.i
@@ -36469,7 +36472,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endianness
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add20.i, %if.end.i ]
   %add.ptr21.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub22.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp11.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp11.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp11.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, %cond.end.i
@@ -36586,7 +36589,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endianness
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add20.i, %if.end.i ]
   %add.ptr21.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub22.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp11.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp11.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp11.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, %cond.end.i
@@ -36657,7 +36660,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannes
   %pos.i.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i.i, %if.end.i.i ]
   %add.ptr5.i.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.i.0.lcssa
   %sub.i.i = sub i64 %length, %pos.i.i.0.lcssa
-  %cmp6.not.i = icmp eq i64 %pos.i.i.0.lcssa, %length
+  %cmp6.not.i = icmp eq i64 %length, %pos.i.i.0.lcssa
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, %cond.end.i
@@ -36725,7 +36728,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannes
   %pos.i.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i.i, %if.end.i.i ]
   %add.ptr5.i.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.i.0.lcssa
   %sub.i.i = sub i64 %length, %pos.i.i.0.lcssa
-  %cmp6.not.i = icmp eq i64 %pos.i.i.0.lcssa, %length
+  %cmp6.not.i = icmp eq i64 %length, %pos.i.i.0.lcssa
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, %cond.end.i
@@ -36797,7 +36800,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit: ; pred
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i94, %for.body.i ]
   %add.ptr7.i = getelementptr inbounds i8, ptr %input, i64 %pos.i.0.lcssa
   %sub8.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp7.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp7.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp7.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit, label %for.body.i90
 
 for.body.i90:                                     ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit, %for.body.i90
@@ -36901,7 +36904,7 @@ while.end:                                        ; preds = %for.end62, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %i.2.lcssa, %for.end62 ]
   %add.ptr74 = getelementptr inbounds i8, ptr %input, i64 %i.0.lcssa
   %sub75 = sub i64 %len, %i.0.lcssa
-  %cmp6.not.i = icmp eq i64 %i.0.lcssa, %len
+  %cmp6.not.i = icmp eq i64 %len, %i.0.lcssa
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %while.end, %for.body.i
@@ -36983,7 +36986,7 @@ for.end:                                          ; preds = %for.body, %entry
   %pos.0.lcssa = phi i64 [ 0, %entry ], [ %add44, %for.body ]
   %add.ptr47 = getelementptr inbounds i32, ptr %input, i64 %pos.0.lcssa
   %sub48 = sub i64 %length, %pos.0.lcssa
-  %cmp11.not.i = icmp eq i64 %pos.0.lcssa, %length
+  %cmp11.not.i = icmp eq i64 %length, %pos.0.lcssa
   br i1 %cmp11.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3222utf8_length_from_utf32EPKDim.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.end, %for.body.i
@@ -37043,7 +37046,7 @@ for.end:                                          ; preds = %for.body, %entry
   %pos.0.lcssa = phi i64 [ 0, %entry ], [ %add19, %for.body ]
   %add.ptr15 = getelementptr inbounds i32, ptr %input, i64 %pos.0.lcssa
   %sub16 = sub i64 %length, %pos.0.lcssa
-  %cmp5.not.i = icmp eq i64 %pos.0.lcssa, %length
+  %cmp5.not.i = icmp eq i64 %length, %pos.0.lcssa
   br i1 %cmp5.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3223utf16_length_from_utf32EPKDim.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.end, %for.body.i
@@ -37098,7 +37101,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i49, %for.body.i ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %input, i64 %pos.i.0.lcssa
   %sub.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp4.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp4.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp4.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i45
 
 for.body.i45:                                     ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, %for.body.i45
@@ -37976,7 +37979,7 @@ while.end.i.i:                                    ; preds = %while.end.loopexit.
   %c.sroa.0.0.lcssa.i.i = phi <2 x i64> [ zeroinitializer, %entry ], [ %c.sroa.0.1.i.i, %while.end.loopexit.i.i ]
   %c.sroa.25.0.lcssa.i.i = phi <16 x i8> [ zeroinitializer, %entry ], [ %69, %while.end.loopexit.i.i ]
   %c.sroa.30.0.lcssa.i.i = phi <2 x i64> [ zeroinitializer, %entry ], [ %c.sroa.30.1.i.i, %while.end.loopexit.i.i ]
-  %cmp.i81.i.i = icmp eq i64 %reader.sroa.11.0.lcssa.i.i, %len
+  %cmp.i81.i.i = icmp eq i64 %len, %reader.sroa.11.0.lcssa.i.i
   br i1 %cmp.i81.i.i, label %_ZNK7simdutf8westmere12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i
@@ -38315,7 +38318,7 @@ while.end.i.i:                                    ; preds = %while.end.loopexit.
   %c.sroa.0.0.lcssa.i.i = phi <2 x i64> [ zeroinitializer, %entry ], [ %c.sroa.0.1.i.i, %while.end.loopexit.i.i ]
   %c.sroa.27.0.lcssa.i.i = phi <16 x i8> [ zeroinitializer, %entry ], [ %72, %while.end.loopexit.i.i ]
   %c.sroa.32.0.lcssa.i.i = phi <2 x i64> [ zeroinitializer, %entry ], [ %c.sroa.32.1.i.i, %while.end.loopexit.i.i ]
-  %cmp.i99.i.i = icmp eq i64 %reader.sroa.11.0.lcssa.i.i, %len
+  %cmp.i99.i.i = icmp eq i64 %len, %reader.sroa.11.0.lcssa.i.i
   br i1 %cmp.i99.i.i, label %_ZNK7simdutf8westmere12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i
@@ -38527,7 +38530,7 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %en
   %running_or.sroa.12.0.lcssa.i.i = phi <2 x i64> [ zeroinitializer, %entry ], [ %or.i.i99.i348.i.i, %while.body.i.i ]
   %running_or.sroa.18.0.lcssa.i.i = phi <2 x i64> [ zeroinitializer, %entry ], [ %or.i.i120.i359.i.i, %while.body.i.i ]
   %reader.sroa.11.0.lcssa.i.i = phi i64 [ 0, %entry ], [ %add.i.i.i, %while.body.i.i ]
-  %cmp.i52.i.i = icmp eq i64 %reader.sroa.11.0.lcssa.i.i, %len
+  %cmp.i52.i.i = icmp eq i64 %len, %reader.sroa.11.0.lcssa.i.i
   br i1 %cmp.i52.i.i, label %_ZN7simdutf8westmere12_GLOBAL__N_115utf8_validation22generic_validate_asciiEPKcm.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i
@@ -38659,7 +38662,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i
 
 while.end.i.i:                                    ; preds = %if.end.i.i, %entry
   %reader.sroa.11.0.lcssa.i.i = phi i64 [ 0, %entry ], [ %add5.i.i, %if.end.i.i ]
-  %cmp.i60.i.i = icmp eq i64 %reader.sroa.11.0.lcssa.i.i, %len
+  %cmp.i60.i.i = icmp eq i64 %len, %reader.sroa.11.0.lcssa.i.i
   br i1 %cmp.i60.i.i, label %_ZN7simdutf8westmere12_GLOBAL__N_115utf8_validation34generic_validate_ascii_with_errorsEPKcm.exit, label %_ZNK7simdutf8westmere12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i
 
 _ZNK7simdutf8westmere12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i: ; preds = %while.end.i.i
@@ -38811,7 +38814,7 @@ if.then:                                          ; preds = %if.end117.i, %_ZN7s
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %sub = sub i64 %len, %sub.ptr.div
-  %cmp14.i = icmp eq i64 %sub.ptr.div, %len
+  %cmp14.i = icmp eq i64 %len, %sub.ptr.div
   br i1 %cmp14.i, label %return, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then, %if.end30.i
@@ -38915,7 +38918,7 @@ if.then:                                          ; preds = %if.end128.i, %_ZN7s
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %sub = sub i64 %len, %sub.ptr.div
-  %cmp14.i = icmp eq i64 %sub.ptr.div, %len
+  %cmp14.i = icmp eq i64 %len, %sub.ptr.div
   br i1 %cmp14.i, label %return, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then, %if.end30.i
@@ -39233,7 +39236,7 @@ if.then:                                          ; preds = %if.end.i
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %sub = sub i64 %len, %sub.ptr.div
-  %cmp6.i = icmp eq i64 %sub.ptr.div, %len
+  %cmp6.i = icmp eq i64 %len, %sub.ptr.div
   br i1 %cmp6.i, label %return, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then
@@ -46820,7 +46823,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub9, 2
   %sub = sub i64 %len, %sub.ptr.div
-  %cmp7.not.i = icmp eq i64 %sub.ptr.div, %len
+  %cmp7.not.i = icmp eq i64 %len, %sub.ptr.div
   br i1 %cmp7.not.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then4, %while.body.i
@@ -47095,7 +47098,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub9.i, 2
   %sub.i = sub i64 %len, %sub.ptr.div.i
-  %cmp7.not.i.i = icmp eq i64 %sub.ptr.div.i, %len
+  %cmp7.not.i.i = icmp eq i64 %len, %sub.ptr.div.i
   br i1 %cmp7.not.i.i, label %_ZNK7simdutf8westmere14implementation23convert_utf32_to_latin1EPKDimPc.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then4.i, %while.body.i.i
@@ -48014,7 +48017,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 1
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp21.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp21.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp21.not.i, label %return, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then4, %if.end36.i
@@ -48197,7 +48200,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 1
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp21.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp21.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp21.not.i, label %return, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then4, %if.end36.i
@@ -48796,7 +48799,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 2
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp20.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp20.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp20.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread, label %while.body.i12
 
 while.body.i12:                                   ; preds = %if.then4, %if.end21.i
@@ -49009,7 +49012,7 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 2
   %sub = sub i64 %len, %sub.ptr.div10
-  %cmp20.not.i = icmp eq i64 %sub.ptr.div10, %len
+  %cmp20.not.i = icmp eq i64 %len, %sub.ptr.div10
   br i1 %cmp20.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread, label %while.body.i12
 
 while.body.i12:                                   ; preds = %if.then4, %if.end21.i
@@ -49682,7 +49685,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div10.i = ashr exact i64 %sub.ptr.sub9.i, 2
   %sub.i = sub i64 %len, %sub.ptr.div10.i
-  %cmp20.not.i.i = icmp eq i64 %sub.ptr.div10.i, %len
+  %cmp20.not.i.i = icmp eq i64 %len, %sub.ptr.div10.i
   br i1 %cmp20.not.i.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i, label %while.body.i12.i
 
 while.body.i12.i:                                 ; preds = %if.then4.i, %if.end21.i.i
@@ -49895,7 +49898,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div10.i = ashr exact i64 %sub.ptr.sub9.i, 2
   %sub.i = sub i64 %len, %sub.ptr.div10.i
-  %cmp20.not.i.i = icmp eq i64 %sub.ptr.div10.i, %len
+  %cmp20.not.i.i = icmp eq i64 %len, %sub.ptr.div10.i
   br i1 %cmp20.not.i.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i, label %while.body.i12.i
 
 while.body.i12.i:                                 ; preds = %if.then4.i, %if.end21.i.i
@@ -50082,7 +50085,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div10.i = ashr exact i64 %sub.ptr.sub9.i, 1
   %sub.i = sub i64 %len, %sub.ptr.div10.i
-  %cmp21.not.i.i = icmp eq i64 %sub.ptr.div10.i, %len
+  %cmp21.not.i.i = icmp eq i64 %len, %sub.ptr.div10.i
   br i1 %cmp21.not.i.i, label %_ZNK7simdutf8westmere14implementation24convert_utf16le_to_utf32EPKDsmPDi.exit, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %if.then4.i, %if.end36.i.i
@@ -50187,7 +50190,7 @@ while.end.i:                                      ; preds = %while.body.i, %entr
   %output.addr.i.0.lcssa = phi ptr [ %output, %entry ], [ %add.ptr1.i, %while.body.i ]
   %add.ptr2.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp.i.i28.not = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp.i.i28.not = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp.i.i28.not, label %_ZN7simdutf8westmere12_GLOBAL__N_15utf1623change_endianness_utf16EPKDsmPDs.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %while.end.i, %for.body.i.i
@@ -50270,7 +50273,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EE
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i, %if.end.i ]
   %add.ptr5.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp6.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp6.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit, %cond.end.i
@@ -50364,7 +50367,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EE
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i, %if.end.i ]
   %add.ptr5.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp6.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp6.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit, %cond.end.i
@@ -50433,7 +50436,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = 
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i33, %for.body.i ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %input, i64 %pos.i.0.lcssa
   %sub.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp4.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp4.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp4.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i29
 
 for.body.i29:                                     ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, %for.body.i29
@@ -50501,7 +50504,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit.i: ; preds 
   %pos.i.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i33.i, %for.body.i.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa.i
   %sub.i.i = sub i64 %len, %pos.i.0.lcssa.i
-  %cmp4.not.i.i = icmp eq i64 %pos.i.0.lcssa.i, %len
+  %cmp4.not.i.i = icmp eq i64 %len, %pos.i.0.lcssa.i
   br i1 %cmp4.not.i.i, label %_ZNK7simdutf8westmere14implementation10count_utf8EPKcm.exit, label %for.body.i29.i
 
 for.body.i29.i:                                   ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit.i, %for.body.i29.i
@@ -50673,7 +50676,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannes
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add20.i, %if.end.i ]
   %add.ptr21.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub22.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp11.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp11.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp11.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, %cond.end.i
@@ -50848,7 +50851,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannes
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add20.i, %if.end.i ]
   %add.ptr21.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub22.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp11.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp11.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp11.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, %cond.end.i
@@ -50963,7 +50966,7 @@ while.end:                                        ; preds = %for.end43, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %i.2.lcssa, %for.end43 ]
   %add.ptr49 = getelementptr inbounds i8, ptr %input, i64 %i.0.lcssa
   %sub50 = sub i64 %len, %i.0.lcssa
-  %cmp6.not.i = icmp eq i64 %i.0.lcssa, %len
+  %cmp6.not.i = icmp eq i64 %len, %i.0.lcssa
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %while.end, %for.body.i
@@ -51054,7 +51057,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endianne
   %pos.i.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i.i, %if.end.i.i ]
   %add.ptr5.i.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.i.0.lcssa
   %sub.i.i = sub i64 %length, %pos.i.i.0.lcssa
-  %cmp6.not.i = icmp eq i64 %pos.i.i.0.lcssa, %length
+  %cmp6.not.i = icmp eq i64 %length, %pos.i.i.0.lcssa
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, %cond.end.i
@@ -51148,7 +51151,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endianne
   %pos.i.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i.i, %if.end.i.i ]
   %add.ptr5.i.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.i.0.lcssa
   %sub.i.i = sub i64 %length, %pos.i.i.0.lcssa
-  %cmp6.not.i = icmp eq i64 %pos.i.i.0.lcssa, %length
+  %cmp6.not.i = icmp eq i64 %length, %pos.i.i.0.lcssa
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, %cond.end.i
@@ -51238,7 +51241,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit: ; pre
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i60, %for.body.i ]
   %add.ptr7.i = getelementptr inbounds i8, ptr %input, i64 %pos.i.0.lcssa
   %sub8.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp7.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp7.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp7.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit, label %for.body.i56
 
 for.body.i56:                                     ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit, %for.body.i56
@@ -51313,7 +51316,7 @@ for.end:                                          ; preds = %for.body, %entry
   %pos.0.lcssa = phi i64 [ 0, %entry ], [ %add32, %for.body ]
   %add.ptr32 = getelementptr inbounds i32, ptr %input, i64 %pos.0.lcssa
   %sub33 = sub i64 %length, %pos.0.lcssa
-  %cmp11.not.i = icmp eq i64 %pos.0.lcssa, %length
+  %cmp11.not.i = icmp eq i64 %length, %pos.0.lcssa
   br i1 %cmp11.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3222utf8_length_from_utf32EPKDim.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.end, %for.body.i
@@ -51373,7 +51376,7 @@ for.end:                                          ; preds = %for.body, %entry
   %pos.0.lcssa = phi i64 [ 0, %entry ], [ %add16, %for.body ]
   %add.ptr12 = getelementptr inbounds i32, ptr %input, i64 %pos.0.lcssa
   %sub13 = sub i64 %length, %pos.0.lcssa
-  %cmp5.not.i = icmp eq i64 %pos.0.lcssa, %length
+  %cmp5.not.i = icmp eq i64 %length, %pos.0.lcssa
   br i1 %cmp5.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3223utf16_length_from_utf32EPKDim.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.end, %for.body.i
@@ -51442,7 +51445,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = 
   %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i33, %for.body.i ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %input, i64 %pos.i.0.lcssa
   %sub.i = sub i64 %length, %pos.i.0.lcssa
-  %cmp4.not.i = icmp eq i64 %pos.i.0.lcssa, %length
+  %cmp4.not.i = icmp eq i64 %length, %pos.i.0.lcssa
   br i1 %cmp4.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i29
 
 for.body.i29:                                     ; preds = %_ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, %for.body.i29

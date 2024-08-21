@@ -744,7 +744,7 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.pre
 
 .preheader.loopexit.i46.us.i:                     ; preds = %.lr.ph.i43.us.i
   %54 = trunc nuw nsw i64 %indvars.iv.next.i45.us.i to i32
-  %55 = icmp slt i32 %54, %1
+  %55 = icmp sgt i32 %1, %54
   br i1 %55, label %.lr.ph44.preheader.i36.us.i, label %PredictLineTop_SSE2.exit.us.i
 
 .lr.ph44.preheader.i36.us.i:                      ; preds = %.preheader.loopexit.i46.us.i

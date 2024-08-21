@@ -324,7 +324,7 @@ _ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i:            ; preds = %entry
   %3 = load i32, ptr %t, align 4
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %4, %3
+  %cmp.not.i.i.i = icmp ult i32 %3, %4
   br i1 %cmp.not.i.i.i, label %_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i, label %_ZNK14expr2subpaving3imp6is_varEP4expr.exit
 
 _ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i:       ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i
@@ -894,7 +894,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i:           ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %add = add i32 %call4, 1
-  %cmp.i = icmp ugt i32 %9, %add
+  %cmp.i = icmp ult i32 %add, %9
   br i1 %cmp.i, label %for.body.i.preheader.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit17.i
 
 for.body.i.preheader.i:                           ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i

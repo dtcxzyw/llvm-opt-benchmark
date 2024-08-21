@@ -149,7 +149,7 @@ define hidden noundef ptr @_ZN31ShenandoahHeapRegionSetIterator4nextEv(ptr nocap
 17:                                               ; preds = %12
   store i64 %16, ptr %2, align 8
   %18 = load i64, ptr %6, align 8
-  %19 = icmp ugt i64 %18, %.011
+  %19 = icmp ult i64 %.011, %18
   br i1 %19, label %20, label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 20:                                               ; preds = %17

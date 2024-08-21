@@ -467,8 +467,8 @@ if.end21:                                         ; preds = %do.body, %if.then20
   %inc45 = trunc i64 %indvars.iv.next to i32
   %sourceIndex.047 = trunc i64 %indvars.iv to i32
   %cmp22.not = icmp eq ptr %result, null
-  %add = add nsw i32 %inc45, %boundType
-  %cmp24.not = icmp sgt i32 %add, %resultLength
+  %add = add nsw i32 %boundType, %inc45
+  %cmp24.not = icmp slt i32 %resultLength, %add
   %or.cond33 = select i1 %cmp22.not, i1 true, i1 %cmp24.not
   br i1 %or.cond33, label %if.else, label %do.body26
 

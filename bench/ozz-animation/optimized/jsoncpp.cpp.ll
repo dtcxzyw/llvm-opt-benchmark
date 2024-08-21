@@ -617,7 +617,7 @@ define dso_local noundef zeroext i1 @_ZN4Json6Reader5parseEPKcS2_RNS_5ValueEb(pt
   %12 = getelementptr inbounds i8, ptr %0, i64 264
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
-  %narrow = and i1 %14, %4
+  %narrow = and i1 %4, %14
   %15 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 200
@@ -5062,7 +5062,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 6
   %32 = add nsw i64 %24, %31
-  %33 = icmp ult i64 %32, %1
+  %33 = icmp ugt i64 %1, %32
   br i1 %33, label %34, label %75
 
 34:                                               ; preds = %2
@@ -5073,7 +5073,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE
   %39 = sub i64 %38, %20
   %40 = ashr exact i64 %39, 6
   %41 = add nsw i64 %40, -1
-  %42 = icmp ult i64 %41, %35
+  %42 = icmp ugt i64 %35, %41
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %34
@@ -5165,7 +5165,7 @@ _ZSt25__uninitialized_default_aISt15_Deque_iteratorIN4Json6Reader9ErrorInfoERS3_
   br label %_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE17_M_default_appendEm.exit
 
 75:                                               ; preds = %2
-  %76 = icmp ugt i64 %32, %1
+  %76 = icmp ult i64 %1, %32
   br i1 %76, label %77, label %_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE17_M_default_appendEm.exit
 
 77:                                               ; preds = %75
@@ -5657,7 +5657,7 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader5parseEPKcS2_RNS_5ValueEb
   %15 = getelementptr inbounds i8, ptr %0, i64 268
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
-  %narrow = and i1 %17, %4
+  %narrow = and i1 %4, %17
   %18 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %1, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 200
@@ -10603,7 +10603,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 6
   %32 = add nsw i64 %24, %31
-  %33 = icmp ult i64 %32, %1
+  %33 = icmp ugt i64 %1, %32
   br i1 %33, label %34, label %75
 
 34:                                               ; preds = %2
@@ -10614,7 +10614,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2
   %39 = sub i64 %38, %20
   %40 = ashr exact i64 %39, 6
   %41 = add nsw i64 %40, -1
-  %42 = icmp ult i64 %41, %35
+  %42 = icmp ugt i64 %35, %41
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %34
@@ -10706,7 +10706,7 @@ _ZSt25__uninitialized_default_aISt15_Deque_iteratorIN4Json9OurReader9ErrorInfoER
   br label %_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE17_M_default_appendEm.exit
 
 75:                                               ; preds = %2
-  %76 = icmp ugt i64 %32, %1
+  %76 = icmp ult i64 %1, %32
   br i1 %76, label %77, label %_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE17_M_default_appendEm.exit
 
 77:                                               ; preds = %75
@@ -17167,11 +17167,11 @@ _ZNK4Json5Value4sizeEv.exit:                      ; preds = %45, %47, %52, %58
   br label %.loopexit
 
 65:                                               ; preds = %_ZNK4Json5Value4sizeEv.exit
-  %66 = icmp ult i32 %.0.i, %1
+  %66 = icmp ugt i32 %1, %.0.i
   br i1 %66, label %69, label %.preheader
 
 .preheader:                                       ; preds = %65
-  %67 = icmp ugt i32 %.0.i, %1
+  %67 = icmp ult i32 %1, %.0.i
   br i1 %67, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
@@ -17644,7 +17644,7 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
 39:                                               ; preds = %_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i
   %40 = getelementptr inbounds i8, ptr %.19.i.i, i64 40
   %41 = load i32, ptr %40, align 8
-  %42 = icmp ugt i32 %41, %1
+  %42 = icmp ult i32 %1, %41
   %43 = getelementptr inbounds i8, ptr %.19.i.i, i64 48
   %spec.select = select i1 %42, ptr @_ZN4JsonL5kNullE, ptr %43
   br label %_ZN4Json5Value8CZStringD2Ev.exit13
@@ -18330,7 +18330,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value12isValidIndexEj(ptr nocaptu
 
 _ZNK4Json5Value4sizeEv.exit:                      ; preds = %2, %5, %10, %16
   %.0.i = phi i32 [ %20, %16 ], [ %15, %10 ], [ 0, %5 ], [ 0, %2 ]
-  %21 = icmp ugt i32 %.0.i, %1
+  %21 = icmp ult i32 %1, %.0.i
   ret i1 %21
 }
 
@@ -18907,7 +18907,7 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
 32:                                               ; preds = %_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i
   %33 = getelementptr inbounds i8, ptr %.19.i.i, i64 40
   %34 = load i32, ptr %33, align 8
-  %35 = icmp ugt i32 %34, %1
+  %35 = icmp ult i32 %1, %34
   br i1 %35, label %_ZN4Json5Value8CZStringD2Ev.exit29, label %36
 
 36:                                               ; preds = %32
@@ -18969,7 +18969,7 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
 
 _ZNK4Json5Value4sizeEv.exit:                      ; preds = %36, %54, %59, %64
   %.0.i = phi i32 [ %69, %64 ], [ %63, %59 ], [ -1, %54 ], [ -1, %36 ]
-  %70 = icmp ugt i32 %.0.i, %1
+  %70 = icmp ult i32 %1, %.0.i
   br i1 %70, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK4Json5Value4sizeEv.exit
@@ -20452,7 +20452,7 @@ _ZNK4Json5Value12isValidIndexEj.exit:             ; preds = %15
   %24 = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, 1
-  %27 = icmp ugt i32 %26, %17
+  %27 = icmp ult i32 %17, %26
   br i1 %27, label %28, label %_ZNK4Json5Value12isValidIndexEj.exit.thread
 
 28:                                               ; preds = %_ZNK4Json5Value12isValidIndexEj.exit
@@ -28444,7 +28444,7 @@ _ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EE16_M_allocate_nodeEv.exit.i: 
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = tail call ptr @__cxa_begin_catch(ptr %21) #41
-  %23 = icmp ugt ptr %.011.i, %14
+  %23 = icmp ult ptr %14, %.011.i
   br i1 %23, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
@@ -28589,7 +28589,7 @@ _ZNSt11_Deque_baseIN4Json9OurReader9ErrorInfoESaIS2_EE16_M_allocate_nodeEv.exit.
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = tail call ptr @__cxa_begin_catch(ptr %21) #41
-  %23 = icmp ugt ptr %.011.i, %14
+  %23 = icmp ult ptr %14, %.011.i
   br i1 %23, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN4Json9OurReader9ErrorInfoESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
@@ -28980,7 +28980,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.020.lcssa32.i, %._crit_edge.thread.i ], [ %.020.lcssa33.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ]
-  %23 = icmp eq ptr %4, %.sroa.4.0.i.ph
+  %23 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %23, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit, label %24
 
 24:                                               ; preds = %select.unfold
@@ -29297,7 +29297,7 @@ _ZNSt11_Deque_baseIPN4Json5ValueESaIS2_EE16_M_allocate_nodeEv.exit.i: ; preds = 
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #41
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIPN4Json5ValueESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -30846,12 +30846,12 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
 define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS5_ESD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = icmp eq ptr %8, %2
+  %9 = icmp eq ptr %2, %8
   br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %7
@@ -30946,7 +30946,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairI
 12:                                               ; preds = %9
   %.not.i.i = icmp ne ptr %10, null
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = icmp eq ptr %13, %11
+  %14 = icmp eq ptr %11, %13
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %14
   br i1 %or.cond.i.i, label %.thread, label %15
 
@@ -31027,7 +31027,7 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(12) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %34
 
 6:                                                ; preds = %3
@@ -31516,7 +31516,7 @@ common.resume:                                    ; preds = %15, %58
 31:                                               ; preds = %28
   %.not.i.i = icmp ne ptr %29, null
   %32 = getelementptr inbounds i8, ptr %0, i64 8
-  %33 = icmp eq ptr %32, %30
+  %33 = icmp eq ptr %30, %32
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %33
   br i1 %or.cond.i.i, label %.thread, label %34
 
@@ -32063,7 +32063,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %phi.call.us = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0.us
   %.sroa.03.0.copyload.us = load ptr, ptr %phi.call.us, align 8
   %.sroa.0.0.copyload.us = load ptr, ptr %2, align 8
-  %20 = icmp sgt i64 %13, %.0.us
+  %20 = icmp slt i64 %.0.us, %13
   br i1 %20, label %.lr.ph.i.us, label %._crit_edge.i.us.thread
 
 ._crit_edge.i.us.thread:                          ; preds = %.split.split.us
@@ -32129,7 +32129,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorI
   %phi.call = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0
   %.sroa.03.0.copyload = load ptr, ptr %phi.call, align 8
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %44 = icmp sgt i64 %13, %.0
+  %44 = icmp slt i64 %.0, %13
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split, %.lr.ph.i
@@ -32256,7 +32256,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i17
@@ -32350,7 +32350,7 @@ _ZNSt12_Vector_baseIN4Json12PathArgumentESaIS1_EE11_M_allocateEm.exit: ; preds =
 _ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN4Json12PathArgumentESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN4Json12PathArgumentESaIS1_EE11_M_allocateEm.exit ], [ %32, %.lr.ph.i.i.i.i ]
   %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i17
@@ -32453,7 +32453,7 @@ _ZNSt12_Vector_baseIN4Json12PathArgumentESaIS1_EE11_M_allocateEm.exit: ; preds =
 _ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %25
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %25 ], [ %33, %.lr.ph.i.i.i.i ]
   %34 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i27
@@ -32585,7 +32585,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i27

@@ -665,18 +665,18 @@ _ZNK5draco7VectorDIfLi3EEmiERKS1_.exit:           ; preds = %167
   %183 = load float, ptr %111, align 4, !noalias !24
   %184 = load float, ptr %112, align 4, !noalias !24
   %185 = load float, ptr %113, align 4, !noalias !24
-  %186 = fneg float %184
-  %187 = fmul float %185, %186
+  %186 = fneg float %185
+  %187 = fmul float %184, %186
   %188 = call float @llvm.fmuladd.f32(float %182, float %183, float %187)
   store float %188, ptr %12, align 4, !alias.scope !24
   %189 = load float, ptr %14, align 4, !noalias !24
   %190 = load float, ptr %13, align 4, !noalias !24
-  %191 = fneg float %190
-  %192 = fmul float %183, %191
+  %191 = fneg float %183
+  %192 = fmul float %190, %191
   %193 = call float @llvm.fmuladd.f32(float %184, float %189, float %192)
   store float %193, ptr %114, align 4, !alias.scope !24
-  %194 = fneg float %182
-  %195 = fmul float %189, %194
+  %194 = fneg float %189
+  %195 = fmul float %182, %194
   %196 = call float @llvm.fmuladd.f32(float %190, float %185, float %195)
   store float %196, ptr %115, align 4, !alias.scope !24
   br label %197
@@ -830,7 +830,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %261
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i: ; preds = %269, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
   %271 = phi ptr [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i ], [ %270, %269 ]
-  %.not.i.i.i.i.i.i.i.i.i63.i = icmp eq ptr %244, %243
+  %.not.i.i.i.i.i.i.i.i.i63.i = icmp eq ptr %243, %244
   br i1 %.not.i.i.i.i.i.i.i.i.i63.i, label %273, label %272
 
 272:                                              ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i
@@ -1133,7 +1133,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %70 = phi ptr [ %69, %68 ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %71 = ptrtoint ptr %1 to i64
   %72 = sub i64 %71, %59
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %58, %1
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %58
   br i1 %.not.i.i.i.i.i.i.i.i.i63, label %74, label %73
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit

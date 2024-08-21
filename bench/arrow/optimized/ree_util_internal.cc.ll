@@ -197,7 +197,7 @@ if.then3:                                         ; preds = %if.else, %if.else, 
   %2 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(72) %type)
   %conv = sext i32 %call6 to i64
-  %mul = mul nsw i64 %conv, %length
+  %mul = mul nsw i64 %length, %conv
   call void @_ZN5arrow14AllocateBufferElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result.4") align 8 %ref.tmp, i64 noundef %mul, ptr noundef %pool)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store ptr null, ptr %agg.result, align 8
@@ -435,7 +435,7 @@ invoke.cont:
   %1 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(72) %0)
   %conv = sext i32 %call7 to i64
-  %mul = mul nsw i64 %conv, %physical_length
+  %mul = mul nsw i64 %physical_length, %conv
   call void @_ZN5arrow14AllocateBufferElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result.4") align 8 %ref.tmp, i64 noundef %mul, ptr noundef %pool)
   %2 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %2, null

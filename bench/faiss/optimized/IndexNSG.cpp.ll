@@ -442,7 +442,7 @@ define void @_ZN5faiss8IndexNSG3addElPKf(ptr noundef nonnull align 8 dereference
   %120 = load i32, ptr %119, align 4
   %121 = add nsw i32 %120, 1
   %122 = sext i32 %121 to i64
-  %123 = mul nsw i64 %122, %1
+  %123 = mul nsw i64 %1, %122
   %124 = getelementptr inbounds i8, ptr %7, i64 8
   %.not120 = icmp eq i64 %123, 0
   br i1 %.not120, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %125
@@ -672,7 +672,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %118, %_ZNSt12_Vecto
 226:                                              ; preds = %205
   %227 = load i32, ptr %178, align 4
   %228 = sext i32 %227 to i64
-  %229 = mul nsw i64 %228, %1
+  %229 = mul nsw i64 %1, %228
   %230 = getelementptr inbounds i8, ptr %7, i64 8
   %.not119 = icmp eq i64 %229, 0
   br i1 %.not119, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit79, label %231
@@ -973,7 +973,7 @@ define void @_ZNK5faiss8IndexNSG6searchElPKflPfPlPKNS_16SearchParametersE(ptr no
 .lr.ph:                                           ; preds = %49, %.lr.ph
   %storemerge32 = phi i64 [ %61, %.lr.ph ], [ 0, %49 ]
   %59 = add nsw i64 %storemerge32, %57
-  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %59, i64 %1)
+  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %1, i64 %59)
   store i64 %.sroa.speculated, ptr %15, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @_ZNK5faiss8IndexNSG6searchElPKflPfPlPKNS_16SearchParametersE.omp_outlined, ptr nonnull %0, ptr nonnull %15, ptr nonnull %14, ptr nonnull %11, ptr nonnull %9, ptr nonnull %10, ptr nonnull %8)
   call void @_ZN5faiss17InterruptCallback5checkEv()

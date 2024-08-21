@@ -733,7 +733,7 @@ proto_item_set_generated.exit:                    ; preds = %184, %181, %178, %1
   %storemerge.i = phi i32 [ %288, %286 ], [ 0, %280 ]
   store i32 %storemerge.i, ptr %6, align 4
   %290 = load i32, ptr @proto_usb, align 4
-  %291 = icmp eq i32 %290, %.0387572
+  %291 = icmp eq i32 %.0387572, %290
   br i1 %291, label %292, label %306
 
 292:                                              ; preds = %289

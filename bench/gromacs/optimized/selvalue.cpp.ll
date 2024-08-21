@@ -215,7 +215,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr nocapture nound
   tail call void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef %56)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit.sink.split:                             ; preds = %43, %28, %12, %15

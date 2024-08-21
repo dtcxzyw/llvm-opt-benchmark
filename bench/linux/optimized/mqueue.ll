@@ -1324,7 +1324,7 @@ define internal fastcc i32 @do_mq_open(ptr noundef %0, i32 noundef %1, i16 nound
   %65 = tail call i32 @current_umask() #15
   %66 = trunc i32 %65 to i16
   %67 = xor i16 %66, -1
-  %68 = and i16 %67, %2
+  %68 = and i16 %2, %67
   %69 = tail call i32 @vfs_mkobj(ptr noundef %39, i16 noundef zeroext %68, ptr noundef nonnull @mqueue_create_attr, ptr noundef %3) #15
   br label %89
 

@@ -234,7 +234,7 @@ if.then6.i:                                       ; preds = %for.body.i
   br i1 %cmp.i1662, label %for.inc.i, label %if.then.i1663
 
 if.then.i1663:                                    ; preds = %if.then6.i
-  %cmp9.i1664 = icmp eq ptr %27, %arrayidx.i
+  %cmp9.i1664 = icmp eq ptr %arrayidx.i, %27
   br i1 %cmp9.i1664, label %for.body.i1716, label %if.else.i1665
 
 for.body.i1716:                                   ; preds = %if.then.i1663, %for.body.i1716
@@ -828,7 +828,7 @@ sw.bb:                                            ; preds = %if.end30, %if.end30
 lor.lhs.false.i.i.i:                              ; preds = %sw.bb
   %90 = load i64, ptr %args.i.i80, align 8
   %cmp4.i.i.i = icmp eq i8 %86, %89
-  %cmp6.i.i.i = icmp eq i64 %83, %90
+  %cmp6.i.i.i = icmp eq i64 %90, %83
   %or.cond.i.i.i = and i1 %cmp4.i.i.i, %cmp6.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %swap_commutative.exit.i.i
 
@@ -905,7 +905,7 @@ lor.lhs.false.i.i.i94:                            ; preds = %sw.bb32
   %args.i.i95 = getelementptr inbounds i8, ptr %op.01737, i64 32
   %107 = load i64, ptr %args.i.i95, align 8
   %cmp4.i.i.i96 = icmp eq i8 %103, %106
-  %cmp6.i.i.i97 = icmp eq i64 %100, %107
+  %cmp6.i.i.i97 = icmp eq i64 %107, %100
   %or.cond.i.i.i98 = and i1 %cmp4.i.i.i96, %cmp6.i.i.i97
   br i1 %or.cond.i.i.i98, label %if.then.i.i.i108, label %fold_commutative.exit.i
 
@@ -957,7 +957,7 @@ lor.lhs.false.i.i:                                ; preds = %sw.bb35
   %args.i112 = getelementptr inbounds i8, ptr %op.01737, i64 32
   %119 = load i64, ptr %args.i112, align 8
   %cmp4.i.i = icmp eq i8 %115, %118
-  %cmp6.i.i = icmp eq i64 %112, %119
+  %cmp6.i.i = icmp eq i64 %119, %112
   %or.cond.i.i = and i1 %cmp4.i.i, %cmp6.i.i
   br i1 %or.cond.i.i, label %if.then.i.i113, label %swap_commutative.exit.i
 
@@ -988,7 +988,7 @@ lor.lhs.false.i12.i:                              ; preds = %swap_commutative.ex
   %arrayidx6.i = getelementptr i8, ptr %op.01737, i64 40
   %128 = load i64, ptr %arrayidx6.i, align 8
   %cmp4.i13.i = icmp eq i8 %124, %127
-  %cmp6.i14.i = icmp eq i64 %121, %128
+  %cmp6.i14.i = icmp eq i64 %128, %121
   %or.cond.i15.i = and i1 %cmp4.i13.i, %cmp6.i14.i
   br i1 %or.cond.i15.i, label %if.then.i17.i, label %fold_add2.exit
 
@@ -1023,7 +1023,7 @@ sw.bb38:                                          ; preds = %if.end30, %if.end30
 lor.lhs.false.i.i.i122:                           ; preds = %sw.bb38
   %137 = load i64, ptr %args.i.i114, align 8
   %cmp4.i.i.i123 = icmp eq i8 %133, %136
-  %cmp6.i.i.i124 = icmp eq i64 %130, %137
+  %cmp6.i.i.i124 = icmp eq i64 %137, %130
   %or.cond.i.i.i125 = and i1 %cmp4.i.i.i123, %cmp6.i.i.i124
   br i1 %or.cond.i.i.i125, label %if.then.i.i.i154, label %swap_commutative.exit.i.i126
 
@@ -2228,7 +2228,7 @@ sw.bb71:                                          ; preds = %if.end30, %if.end30
 lor.lhs.false.i.i.i449:                           ; preds = %sw.bb71
   %350 = load i64, ptr %args.i.i441, align 8
   %cmp4.i.i.i450 = icmp eq i8 %346, %349
-  %cmp6.i.i.i451 = icmp eq i64 %343, %350
+  %cmp6.i.i.i451 = icmp eq i64 %350, %343
   %or.cond.i.i.i452 = and i1 %cmp4.i.i.i450, %cmp6.i.i.i451
   br i1 %or.cond.i.i.i452, label %if.then.i.i.i488, label %swap_commutative.exit.i.i453
 
@@ -3129,7 +3129,7 @@ if.end.i797:                                      ; preds = %if.then.i824, %lor.
 lor.lhs.false.i60.i:                              ; preds = %if.end.i797
   %476 = load i64, ptr %args.i783, align 8
   %cmp4.i61.i = icmp eq i8 %472, %475
-  %cmp6.i62.i = icmp eq i64 %469, %476
+  %cmp6.i62.i = icmp eq i64 %476, %469
   %or.cond.i63.i = and i1 %cmp4.i61.i, %cmp6.i62.i
   br i1 %or.cond.i63.i, label %if.then17.i, label %if.end22.i
 
@@ -3367,7 +3367,7 @@ sw.bb110:                                         ; preds = %if.end30, %if.end30
 lor.lhs.false.i.i.i862:                           ; preds = %sw.bb110
   %525 = load i64, ptr %args.i.i854, align 8
   %cmp4.i.i.i863 = icmp eq i8 %521, %524
-  %cmp6.i.i.i864 = icmp eq i64 %518, %525
+  %cmp6.i.i.i864 = icmp eq i64 %525, %518
   %or.cond.i.i.i865 = and i1 %cmp4.i.i.i863, %cmp6.i.i.i864
   br i1 %or.cond.i.i.i865, label %if.then.i.i.i891, label %swap_commutative.exit.i.i866
 
@@ -3442,7 +3442,7 @@ sw.bb113:                                         ; preds = %if.end30, %if.end30
 
 lor.lhs.false.i.i902:                             ; preds = %sw.bb113
   %cmp4.i.i903 = icmp eq i8 %537, %540
-  %cmp6.i.i904 = icmp eq i64 %534, %532
+  %cmp6.i.i904 = icmp eq i64 %532, %534
   %or.cond.i.i905 = and i1 %cmp6.i.i904, %cmp4.i.i903
   br i1 %or.cond.i.i905, label %if.then.i.i927, label %swap_commutative.exit.i906
 
@@ -3559,7 +3559,7 @@ sw.bb116:                                         ; preds = %if.end30, %if.end30
 lor.lhs.false.i.i.i938:                           ; preds = %sw.bb116
   %556 = load i64, ptr %args.i.i930, align 8
   %cmp4.i.i.i939 = icmp eq i8 %552, %555
-  %cmp6.i.i.i940 = icmp eq i64 %549, %556
+  %cmp6.i.i.i940 = icmp eq i64 %556, %549
   %or.cond.i.i.i941 = and i1 %cmp4.i.i.i939, %cmp6.i.i.i940
   br i1 %or.cond.i.i.i941, label %if.then.i.i.i977, label %swap_commutative.exit.i.i942
 
@@ -3689,7 +3689,7 @@ sw.bb122:                                         ; preds = %if.end30, %if.end30
 lor.lhs.false.i.i.i1005:                          ; preds = %sw.bb122
   %583 = load i64, ptr %args.i.i997, align 8
   %cmp4.i.i.i1006 = icmp eq i8 %579, %582
-  %cmp6.i.i.i1007 = icmp eq i64 %576, %583
+  %cmp6.i.i.i1007 = icmp eq i64 %583, %576
   %or.cond.i.i.i1008 = and i1 %cmp4.i.i.i1006, %cmp6.i.i.i1007
   br i1 %or.cond.i.i.i1008, label %if.then.i.i.i1049, label %swap_commutative.exit.i.i1009
 
@@ -3816,7 +3816,7 @@ sw.bb128:                                         ; preds = %if.end30, %if.end30
 lor.lhs.false.i.i.i1075:                          ; preds = %sw.bb128
   %610 = load i64, ptr %args.i.i1067, align 8
   %cmp4.i.i.i1076 = icmp eq i8 %606, %609
-  %cmp6.i.i.i1077 = icmp eq i64 %603, %610
+  %cmp6.i.i.i1077 = icmp eq i64 %610, %603
   %or.cond.i.i.i1078 = and i1 %cmp4.i.i.i1076, %cmp6.i.i.i1077
   br i1 %or.cond.i.i.i1078, label %if.then.i.i.i1149, label %swap_commutative.exit.i.i1079
 
@@ -4380,7 +4380,7 @@ sw.bb146:                                         ; preds = %if.end30, %if.end30
 lor.lhs.false.i.i1330:                            ; preds = %sw.bb146
   %709 = load i64, ptr %args.i1320, align 8
   %cmp4.i.i1331 = icmp eq i8 %705, %708
-  %cmp6.i.i1332 = icmp eq i64 %702, %709
+  %cmp6.i.i1332 = icmp eq i64 %709, %702
   %or.cond.i.i1333 = and i1 %cmp4.i.i1331, %cmp6.i.i1332
   br i1 %or.cond.i.i1333, label %if.then.i1346, label %if.end.i1334
 
@@ -4442,7 +4442,7 @@ sw.bb149:                                         ; preds = %if.end30, %if.end30
 lor.lhs.false.i.i1362:                            ; preds = %sw.bb149
   %723 = load i64, ptr %args.i1352, align 8
   %cmp4.i.i1363 = icmp eq i8 %719, %722
-  %cmp6.i.i1364 = icmp eq i64 %716, %723
+  %cmp6.i.i1364 = icmp eq i64 %723, %716
   %or.cond.i.i1365 = and i1 %cmp4.i.i1363, %cmp6.i.i1364
   br i1 %or.cond.i.i1365, label %if.then.i1378, label %if.end.i1366
 
@@ -4854,7 +4854,7 @@ sw.bb167:                                         ; preds = %if.end30, %if.end30
 lor.lhs.false.i.i.i1532:                          ; preds = %sw.bb167
   %800 = load i64, ptr %args.i.i1524, align 8
   %cmp4.i.i.i1533 = icmp eq i8 %796, %799
-  %cmp6.i.i.i1534 = icmp eq i64 %793, %800
+  %cmp6.i.i.i1534 = icmp eq i64 %800, %793
   %or.cond.i.i.i1535 = and i1 %cmp4.i.i.i1533, %cmp6.i.i.i1534
   br i1 %or.cond.i.i.i1535, label %if.then.i.i.i1615, label %swap_commutative.exit.i.i1536
 
@@ -5673,7 +5673,7 @@ entry:
   br i1 %cmp, label %if.end34, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp9 = icmp eq ptr %2, %ts
+  %cmp9 = icmp eq ptr %ts, %2
   br i1 %cmp9, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %if.then
@@ -5975,12 +5975,12 @@ sw.bb49.i:                                        ; preds = %entry, %entry
 
 sw.bb51.i:                                        ; preds = %entry, %entry, %entry
   %not52.i = xor i64 %y, -1
-  %and53.i = and i64 %not52.i, %x
+  %and53.i = and i64 %x, %not52.i
   br label %do_constant_folding_2.exit
 
 sw.bb54.i:                                        ; preds = %entry, %entry, %entry
   %not55.i = xor i64 %y, -1
-  %or56.i = or i64 %not55.i, %x
+  %or56.i = or i64 %x, %not55.i
   br label %do_constant_folding_2.exit
 
 sw.bb57.i:                                        ; preds = %entry, %entry, %entry

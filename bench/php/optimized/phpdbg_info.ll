@@ -1208,7 +1208,7 @@ define internal fastcc void @phpdbg_print_symbols(i1 noundef zeroext %0) unnamed
   %41 = getelementptr inbounds i8, ptr %.0185249, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = call zeroext i1 @zend_is_auto_global(ptr noundef %42) #5
-  %44 = xor i1 %43, %0
+  %44 = xor i1 %0, %43
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %40

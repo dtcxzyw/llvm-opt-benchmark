@@ -1007,7 +1007,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.69609
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -1052,7 +1052,7 @@ define internal noundef float @_ZN4core3ops8function2Fn4call17h5108d5a216f99e6fE
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal noundef float @_ZN4core3ops8function2Fn4call17h9bfc5c5a00bb7181E(ptr noalias nocapture nonnull readonly align 1 %0, float noundef %1) unnamed_addr #3 {
   %3 = fneg float %1
-  %4 = fmul float %3, %1
+  %4 = fmul float %1, %3
   %5 = fmul float %4, 2.000000e+00
   %6 = tail call float @llvm.exp.f32(float %5)
   %7 = fmul float %6, 0x3FE9884540000000
@@ -1109,7 +1109,7 @@ _ZN5image8imageops6sample15lanczos3_kernel17hcc9e0f7f0c263676E.exit: ; preds = %
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal noundef float @_ZN4core3ops8function5FnMut8call_mut17h029f3be234af146dE(ptr noalias nocapture nonnull readnone align 1 %0, float noundef %1) unnamed_addr #3 {
   %3 = fneg float %1
-  %4 = fmul float %3, %1
+  %4 = fmul float %1, %3
   %5 = fmul float %4, 2.000000e+00
   %6 = tail call float @llvm.exp.f32(float %5)
   %7 = fmul float %6, 0x3FE9884540000000
@@ -1181,7 +1181,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -1202,7 +1202,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -1218,7 +1218,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -1234,7 +1234,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -1250,7 +1250,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -1272,7 +1272,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -1284,7 +1284,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hab9f82e7884b684eE"(ptr nocapture readnone %0, float noundef %1) unnamed_addr #3 {
   %3 = fneg float %1
-  %4 = fmul float %3, %1
+  %4 = fmul float %1, %3
   %5 = fmul float %4, 2.000000e+00
   %6 = tail call float @llvm.exp.f32(float %5)
   %7 = fmul float %6, 0x3FE9884540000000
@@ -1307,7 +1307,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -1323,7 +1323,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -1339,7 +1339,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -1393,7 +1393,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -23249,8 +23249,8 @@ define hidden void @_ZN5image8imageops6sample6resize17h18cb09a905e5d3a2E(ptr noa
   %13 = load i32, ptr %12, align 8, !noundef !14
   %14 = getelementptr inbounds i8, ptr %1, i64 28
   %15 = load i32, ptr %14, align 4, !noundef !14
-  %16 = icmp eq i32 %13, %2
-  %17 = icmp eq i32 %15, %3
+  %16 = icmp eq i32 %2, %13
+  %17 = icmp eq i32 %3, %15
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %22, label %.critedge
 
@@ -23431,8 +23431,8 @@ define hidden void @_ZN5image8imageops6sample6resize17h38246cdb4938ae42E(ptr noa
   %13 = load i32, ptr %12, align 8, !noundef !14
   %14 = getelementptr inbounds i8, ptr %1, i64 28
   %15 = load i32, ptr %14, align 4, !noundef !14
-  %16 = icmp eq i32 %13, %2
-  %17 = icmp eq i32 %15, %3
+  %16 = icmp eq i32 %2, %13
+  %17 = icmp eq i32 %3, %15
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %22, label %.critedge
 
@@ -23620,8 +23620,8 @@ define hidden void @_ZN5image8imageops6sample6resize17h3bd4bb4b6846062dE(ptr noa
   %13 = load i32, ptr %12, align 8, !noundef !14
   %14 = getelementptr inbounds i8, ptr %1, i64 28
   %15 = load i32, ptr %14, align 4, !noundef !14
-  %16 = icmp eq i32 %13, %2
-  %17 = icmp eq i32 %15, %3
+  %16 = icmp eq i32 %2, %13
+  %17 = icmp eq i32 %3, %15
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %22, label %.critedge
 
@@ -23809,8 +23809,8 @@ define hidden void @_ZN5image8imageops6sample6resize17h48915728c0c37a5fE(ptr noa
   %13 = load i32, ptr %12, align 8, !noundef !14
   %14 = getelementptr inbounds i8, ptr %1, i64 28
   %15 = load i32, ptr %14, align 4, !noundef !14
-  %16 = icmp eq i32 %13, %2
-  %17 = icmp eq i32 %15, %3
+  %16 = icmp eq i32 %2, %13
+  %17 = icmp eq i32 %3, %15
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %22, label %.critedge
 
@@ -23991,8 +23991,8 @@ define hidden void @_ZN5image8imageops6sample6resize17h67e0d7909031f46cE(ptr noa
   %13 = load i32, ptr %12, align 8, !noundef !14
   %14 = getelementptr inbounds i8, ptr %1, i64 28
   %15 = load i32, ptr %14, align 4, !noundef !14
-  %16 = icmp eq i32 %13, %2
-  %17 = icmp eq i32 %15, %3
+  %16 = icmp eq i32 %2, %13
+  %17 = icmp eq i32 %3, %15
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %22, label %.critedge
 
@@ -24173,8 +24173,8 @@ define hidden void @_ZN5image8imageops6sample6resize17h68200b414841aa12E(ptr noa
   %13 = load i32, ptr %12, align 8, !noundef !14
   %14 = getelementptr inbounds i8, ptr %1, i64 28
   %15 = load i32, ptr %14, align 4, !noundef !14
-  %16 = icmp eq i32 %13, %2
-  %17 = icmp eq i32 %15, %3
+  %16 = icmp eq i32 %2, %13
+  %17 = icmp eq i32 %3, %15
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %22, label %.critedge
 
@@ -24355,8 +24355,8 @@ define hidden void @_ZN5image8imageops6sample6resize17h8fd6268b97527027E(ptr noa
   %13 = load i32, ptr %12, align 8, !noundef !14
   %14 = getelementptr inbounds i8, ptr %1, i64 28
   %15 = load i32, ptr %14, align 4, !noundef !14
-  %16 = icmp eq i32 %13, %2
-  %17 = icmp eq i32 %15, %3
+  %16 = icmp eq i32 %2, %13
+  %17 = icmp eq i32 %3, %15
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %22, label %.critedge
 
@@ -24544,8 +24544,8 @@ define hidden void @_ZN5image8imageops6sample6resize17h91dfde002a15b155E(ptr noa
   %13 = load i32, ptr %12, align 8, !noundef !14
   %14 = getelementptr inbounds i8, ptr %1, i64 28
   %15 = load i32, ptr %14, align 4, !noundef !14
-  %16 = icmp eq i32 %13, %2
-  %17 = icmp eq i32 %15, %3
+  %16 = icmp eq i32 %2, %13
+  %17 = icmp eq i32 %3, %15
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %22, label %.critedge
 
@@ -24726,8 +24726,8 @@ define hidden void @_ZN5image8imageops6sample6resize17hab7dccdd8880f76eE(ptr noa
   %13 = load i32, ptr %12, align 8, !noundef !14
   %14 = getelementptr inbounds i8, ptr %1, i64 28
   %15 = load i32, ptr %14, align 4, !noundef !14
-  %16 = icmp eq i32 %13, %2
-  %17 = icmp eq i32 %15, %3
+  %16 = icmp eq i32 %2, %13
+  %17 = icmp eq i32 %3, %15
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %22, label %.critedge
 
@@ -24915,8 +24915,8 @@ define hidden void @_ZN5image8imageops6sample6resize17hddda5a5e88d0ad15E(ptr noa
   %13 = load i32, ptr %12, align 8, !noundef !14
   %14 = getelementptr inbounds i8, ptr %1, i64 28
   %15 = load i32, ptr %14, align 4, !noundef !14
-  %16 = icmp eq i32 %13, %2
-  %17 = icmp eq i32 %15, %3
+  %16 = icmp eq i32 %2, %13
+  %17 = icmp eq i32 %3, %15
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %22, label %.critedge
 
@@ -26242,7 +26242,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -26258,7 +26258,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -26274,7 +26274,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -26290,7 +26290,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -26306,7 +26306,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -26322,7 +26322,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -26338,7 +26338,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -26354,7 +26354,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -26370,7 +26370,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -26386,7 +26386,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   %5 = fmul float %4, 0x40040D9320000000
   %6 = fdiv float 1.000000e+00, %5
   %7 = fneg float %1
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = fmul float %4, %4
   %10 = fmul float %9, 2.000000e+00
   %11 = fdiv float %8, %10
@@ -30230,7 +30230,7 @@ common.resume:                                    ; preds = %293, %230, %243, %1
   %.fca.0.extract14.i = extractvalue { ptr, i64 } %248, 0
   %249 = icmp ne ptr %.fca.0.extract14.i, null
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !3171
-  %brmerge.demorgan = and i1 %249, %4
+  %brmerge.demorgan = and i1 %4, %249
   br i1 %brmerge.demorgan, label %259, label %251
 
 250:                                              ; preds = %"_ZN5image6codecs3hdr7decoder123_$LT$impl$u20$core..convert..From$LT$image..codecs..hdr..decoder..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h2e8f0a275ea7c4d1E.exit.i", %"_ZN5image6codecs3hdr7decoder123_$LT$impl$u20$core..convert..From$LT$image..codecs..hdr..decoder..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h2e8f0a275ea7c4d1E.exit32.i"

@@ -5514,7 +5514,7 @@ land.lhs.true.i:                                  ; preds = %if.then1.i
   %nupvalues.i14 = getelementptr inbounds i8, ptr %15, i64 11
   %17 = load i8, ptr %nupvalues.i14, align 1, !tbaa !13
   %conv.i15 = zext i8 %17 to i32
-  %cmp3.not.i = icmp ult i32 %conv.i15, %n
+  %cmp3.not.i = icmp ugt i32 %n, %conv.i15
   br i1 %cmp3.not.i, label %if.end, label %if.end6.i
 
 if.end6.i:                                        ; preds = %land.lhs.true.i
@@ -5672,7 +5672,7 @@ land.lhs.true.i:                                  ; preds = %if.then1.i
   %nupvalues.i36 = getelementptr inbounds i8, ptr %15, i64 11
   %17 = load i8, ptr %nupvalues.i36, align 1, !tbaa !13
   %conv.i37 = zext i8 %17 to i32
-  %cmp3.not.i = icmp ult i32 %conv.i37, %n
+  %cmp3.not.i = icmp ugt i32 %n, %conv.i37
   br i1 %cmp3.not.i, label %if.end20, label %if.end6.i
 
 if.end6.i:                                        ; preds = %land.lhs.true.i

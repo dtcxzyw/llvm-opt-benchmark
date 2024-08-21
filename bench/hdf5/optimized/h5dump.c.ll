@@ -1354,7 +1354,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 .thread.i:                                        ; preds = %287, %338, %321, %._crit_edge.i
   %339 = load i32, ptr @H5_optind, align 4
-  %.not156.i = icmp slt i32 %339, %0
+  %.not156.i = icmp sgt i32 %0, %339
   br i1 %.not156.i, label %parse_command_line.exit, label %340
 
 340:                                              ; preds = %.thread.i
@@ -1450,7 +1450,7 @@ parse_command_line.exit:                          ; preds = %.thread.i, %.sink.s
 
 371:                                              ; preds = %368, %370, %365
   %372 = load i32, ptr @H5_optind, align 4
-  %.not130 = icmp slt i32 %372, %0
+  %.not130 = icmp sgt i32 %0, %372
   br i1 %.not130, label %375, label %373
 
 373:                                              ; preds = %371

@@ -610,12 +610,12 @@ define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1
   %10 = fpext float %9 to double
   %11 = fadd double %10, 5.000000e-01
   %12 = fptosi double %11 to i32
-  %13 = add nsw i32 %12, %1
+  %13 = add nsw i32 %1, %12
   %14 = load float, ptr %8, align 4
   %15 = fpext float %14 to double
   %16 = fadd double %15, 5.000000e-01
   %17 = fptosi double %16 to i32
-  %18 = add nsw i32 %17, %2
+  %18 = add nsw i32 %2, %17
   br label %19
 
 19:                                               ; preds = %7, %19
@@ -631,12 +631,12 @@ define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1
   %22 = fpext float %21 to double
   %23 = fadd double %22, 5.000000e-01
   %24 = fptosi double %23 to i32
-  %25 = add nsw i32 %24, %1
+  %25 = add nsw i32 %1, %24
   %26 = load float, ptr %20, align 4
   %27 = fpext float %26 to double
   %28 = fadd double %27, 5.000000e-01
   %29 = fptosi double %28 to i32
-  %30 = add nsw i32 %29, %2
+  %30 = add nsw i32 %2, %29
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.05565, i32 %25)
   %.154 = tail call i32 @llvm.smin.i32(i32 %.05366, i32 %30)
   %.151 = tail call i32 @llvm.smax.i32(i32 %.05067, i32 %25)

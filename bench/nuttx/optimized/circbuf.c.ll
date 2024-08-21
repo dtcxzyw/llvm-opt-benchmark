@@ -40,7 +40,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 define range(i32 -12, 1) i32 @circbuf_resize(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = icmp eq i64 %4, %1
+  %5 = icmp eq i64 %1, %4
   br i1 %5, label %34, label %6
 
 6:                                                ; preds = %2
@@ -58,7 +58,7 @@ define range(i32 -12, 1) i32 @circbuf_resize(ptr nocapture noundef %0, i64 nound
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = sub i64 %11, %13
-  %15 = icmp ugt i64 %14, %1
+  %15 = icmp ult i64 %1, %14
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %9
@@ -76,7 +76,7 @@ define range(i32 -12, 1) i32 @circbuf_resize(ptr nocapture noundef %0, i64 nound
 21:                                               ; preds = %19
   %22 = sub i64 %11, %20
   %23 = urem i64 %20, %4
-  %.029.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %.1)
+  %.029.i.i.i = tail call i64 @llvm.umin.i64(i64 %.1, i64 %22)
   %24 = sub i64 %4, %23
   %.028.i.i.i = tail call i64 @llvm.umin.i64(i64 %.029.i.i.i, i64 %24)
   %25 = load ptr, ptr %0, align 8
@@ -128,7 +128,7 @@ define i64 @circbuf_skip(ptr nocapture noundef %0, i64 noundef %1) local_unnamed
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %4, %6
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %7, i64 %1)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %7)
   %8 = add i64 %spec.select, %6
   store i64 %8, ptr %5, align 8
   ret i64 %spec.select
@@ -148,7 +148,7 @@ define i64 @circbuf_read(ptr nocapture noundef %0, ptr nocapture noundef writeon
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %10, %8
   %12 = urem i64 %8, %5
-  %.029.i.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
+  %.029.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %11)
   %13 = sub i64 %5, %12
   %.028.i.i = tail call i64 @llvm.umin.i64(i64 %.029.i.i, i64 %13)
   %14 = load ptr, ptr %0, align 8
@@ -268,7 +268,7 @@ define i64 @circbuf_peekat(ptr nocapture noundef readonly %0, i64 noundef %1, pt
   %spec.select = select i1 %14, i64 %12, i64 %1
   %15 = sub i64 %9, %spec.select
   %16 = urem i64 %spec.select, %6
-  %.029 = tail call i64 @llvm.umin.i64(i64 %15, i64 %3)
+  %.029 = tail call i64 @llvm.umin.i64(i64 %3, i64 %15)
   %17 = sub i64 %6, %16
   %.028 = tail call i64 @llvm.umin.i64(i64 %.029, i64 %17)
   %18 = load ptr, ptr %0, align 8
@@ -302,7 +302,7 @@ define i64 @circbuf_peek(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %10, %8
   %12 = urem i64 %8, %5
-  %.029.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
+  %.029.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %11)
   %13 = sub i64 %5, %12
   %.028.i = tail call i64 @llvm.umin.i64(i64 %.029.i, i64 %13)
   %14 = load ptr, ptr %0, align 8
@@ -334,7 +334,7 @@ define i64 @circbuf_write(ptr nocapture noundef %0, ptr nocapture noundef readon
   %.neg.i = sub i64 %5, %8
   %11 = add i64 %.neg.i, %10
   %12 = urem i64 %8, %5
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %11)
   %13 = sub i64 %5, %12
   %.024 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %13)
   %14 = load ptr, ptr %0, align 8
@@ -364,7 +364,7 @@ define i64 @circbuf_overwrite(ptr nocapture noundef %0, ptr nocapture noundef re
 6:                                                ; preds = %3
   %.041.idx = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %5)
   %.041 = getelementptr inbounds i8, ptr %1, i64 %.041.idx
-  %.040 = tail call i64 @llvm.umin.i64(i64 %5, i64 %2)
+  %.040 = tail call i64 @llvm.umin.i64(i64 %2, i64 %5)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24

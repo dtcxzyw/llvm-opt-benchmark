@@ -931,7 +931,7 @@ define internal fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef 
 
 24:                                               ; preds = %20
   %25 = load i32, ptr @highest_severity, align 4
-  %26 = icmp slt i32 %25, %3
+  %26 = icmp sgt i32 %3, %25
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %24
@@ -958,7 +958,7 @@ define internal fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef 
   %35 = getelementptr inbounds i8, ptr %33, i64 28
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 15728640
-  %.not21.i = icmp ugt i32 %37, %3
+  %.not21.i = icmp ult i32 %3, %37
   br i1 %.not21.i, label %expert_set_item_flags.exit.thread94, label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %34
@@ -992,7 +992,7 @@ expert_set_item_flags.exit.thread94:              ; preds = %.lr.ph.i, %34, %tai
   %54 = getelementptr inbounds i8, ptr %.pre, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 15728640
-  %.not77 = icmp ugt i32 %56, %3
+  %.not77 = icmp ult i32 %3, %56
   br i1 %.not77, label %60, label %expert_set_item_flags.exit.thread
 
 expert_set_item_flags.exit.thread:                ; preds = %29, %28, %53, %expert_set_item_flags.exit.thread94

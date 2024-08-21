@@ -2796,7 +2796,7 @@ define hidden void @_ZN6cvtest12smoothBorderERN2cv3MatERKNS0_7Scalar_IdEEi(ptr n
   %58 = phi i32 [ %31, %.lr.ph193 ], [ %160, %._crit_edge ]
   %indvars.iv227 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next228, %._crit_edge ]
   %59 = trunc i64 %indvars.iv227 to i32
-  %60 = mul i32 %59, %2
+  %60 = mul i32 %2, %59
   %61 = sitofp i32 %60 to double
   %62 = fdiv double %61, 1.000000e+02
   %63 = fsub double 1.000000e+00, %62
@@ -2969,7 +2969,7 @@ define hidden void @_ZN6cvtest12smoothBorderERN2cv3MatERKNS0_7Scalar_IdEEi(ptr n
 .lr.ph197:                                        ; preds = %.preheader181, %206
   %indvars.iv242 = phi i64 [ %indvars.iv.next243, %206 ], [ 0, %.preheader181 ]
   %161 = trunc i64 %indvars.iv242 to i32
-  %162 = mul i32 %161, %2
+  %162 = mul i32 %2, %161
   %163 = sitofp i32 %162 to double
   %164 = fdiv double %163, 1.000000e+02
   %165 = load ptr, ptr %47, align 8
@@ -6311,7 +6311,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i27
@@ -6858,7 +6858,7 @@ define linkonce_odr hidden void @_ZN7testing15AssertionResult13AppendMessageERKN
   %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #42
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #36
   %9 = load ptr, ptr %4, align 8
-  %.not.i = icmp eq ptr %9, %8
+  %.not.i = icmp eq ptr %8, %9
   br i1 %.not.i, label %_ZN7testing8internal10scoped_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEPS7_.exit, label %10
 
 10:                                               ; preds = %7

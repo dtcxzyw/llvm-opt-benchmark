@@ -425,10 +425,10 @@ define void @OSQPVectorf_subvector_assign(ptr nocapture noundef readonly %0, ptr
   %.08 = phi i64 [ %13, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds double, ptr %1, i64 %.08
   %8 = load double, ptr %7, align 8
-  %9 = fmul double %8, %4
+  %9 = fmul double %4, %8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr double, ptr %10, i64 %.08
-  %12 = getelementptr double, ptr %11, i64 %2
+  %11 = getelementptr double, ptr %10, i64 %2
+  %12 = getelementptr double, ptr %11, i64 %.08
   store double %9, ptr %12, align 8
   %13 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %13, %3
@@ -446,8 +446,8 @@ define void @OSQPVectorf_subvector_assign_scalar(ptr nocapture noundef readonly 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.06 = phi i64 [ %9, %.lr.ph ], [ 0, %4 ]
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr double, ptr %6, i64 %.06
-  %8 = getelementptr double, ptr %7, i64 %2
+  %7 = getelementptr double, ptr %6, i64 %2
+  %8 = getelementptr double, ptr %7, i64 %.06
   store double %1, ptr %8, align 8
   %9 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %9, %3
@@ -822,7 +822,7 @@ define void @OSQPVectorf_mult_scalar(ptr nocapture noundef readonly %0, double n
   %.07 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
   %7 = getelementptr inbounds double, ptr %5, i64 %.07
   %8 = load double, ptr %7, align 8
-  %9 = fmul double %8, %1
+  %9 = fmul double %1, %8
   store double %9, ptr %7, align 8
   %10 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %10, %4
@@ -961,7 +961,7 @@ define void @OSQPVectorf_add_scaled(ptr noundef readonly %0, double noundef %1, 
   %21 = load double, ptr %20, align 8
   %22 = getelementptr inbounds double, ptr %9, i64 %.128
   %23 = load double, ptr %22, align 8
-  %24 = fmul double %23, %3
+  %24 = fmul double %3, %23
   %25 = tail call double @llvm.fmuladd.f64(double %1, double %21, double %24)
   %26 = getelementptr inbounds double, ptr %10, i64 %.128
   store double %25, ptr %26, align 8
@@ -999,7 +999,7 @@ define void @OSQPVectorf_add_scaled3(ptr noundef readonly %0, double noundef %1,
   %18 = load double, ptr %17, align 8
   %19 = getelementptr inbounds double, ptr %12, i64 %.036
   %20 = load double, ptr %19, align 8
-  %21 = fmul double %20, %5
+  %21 = fmul double %5, %20
   %22 = tail call double @llvm.fmuladd.f64(double %3, double %18, double %21)
   %23 = getelementptr inbounds double, ptr %13, i64 %.036
   %24 = load double, ptr %23, align 8
@@ -1015,7 +1015,7 @@ define void @OSQPVectorf_add_scaled3(ptr noundef readonly %0, double noundef %1,
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds double, ptr %11, i64 %.135
   %30 = load double, ptr %29, align 8
-  %31 = fmul double %30, %3
+  %31 = fmul double %3, %30
   %32 = tail call double @llvm.fmuladd.f64(double %1, double %28, double %31)
   %33 = getelementptr inbounds double, ptr %12, i64 %.135
   %34 = load double, ptr %33, align 8

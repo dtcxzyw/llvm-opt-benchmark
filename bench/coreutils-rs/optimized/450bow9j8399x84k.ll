@@ -208,7 +208,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !30, !noalias !35, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !37, !noalias !35, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h11f09c7c6f4f5419E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -262,7 +262,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !43, !noalias !48, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !50, !noalias !48, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h11f09c7c6f4f5419E.exit"
 
 9:                                                ; preds = %3
@@ -318,7 +318,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %10 = load i64, ptr %9, align 8, !alias.scope !53, !noundef !4
   %11 = load i64, ptr %0, align 8, !alias.scope !53, !noundef !4
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %8
+  %13 = icmp ugt i64 %8, %12
   br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1b4858b28e911389E.exit"
 
 14:                                               ; preds = %3
@@ -342,7 +342,7 @@ define hidden void @"_ZN93_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %10 = load i64, ptr %9, align 8, !alias.scope !56, !noundef !4
   %11 = load i64, ptr %0, align 8, !alias.scope !56, !noundef !4
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %8
+  %13 = icmp ugt i64 %8, %12
   br i1 %13, label %14, label %"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17hf9c7bad0155c232cE.llvm.13157306421504497113.exit"
 
 14:                                               ; preds = %3
@@ -845,7 +845,7 @@ define noundef zeroext i1 @"_ZN75_$LT$uu_split..number..DynamicWidthNumber$u20$a
   %15 = zext i8 %.val16 to i64
   %16 = add nsw i64 %15, -1
   %.0141.i = mul nsw i64 %16, %15
-  %.not2.i = icmp ugt i64 %.0141.i, %.val
+  %.not2.i = icmp ult i64 %.val, %.0141.i
   br i1 %.not2.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
@@ -876,7 +876,7 @@ define noundef zeroext i1 @"_ZN75_$LT$uu_split..number..DynamicWidthNumber$u20$a
 
 ._crit_edge11.i:                                  ; preds = %49, %._crit_edge.i
   %22 = phi i64 [ 0, %._crit_edge.i ], [ %54, %49 ]
-  %23 = icmp ult i64 %22, %.015.lcssa.i
+  %23 = icmp ugt i64 %.015.lcssa.i, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he8902f29b9184091E.llvm.15286421680055538252.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he8902f29b9184091E.llvm.15286421680055538252.exit.i.i": ; preds = %._crit_edge11.i

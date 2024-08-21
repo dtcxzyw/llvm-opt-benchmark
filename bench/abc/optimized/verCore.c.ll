@@ -370,7 +370,7 @@ Ver_ParseFindOrCreateNetwork.exit.i.i:            ; preds = %83, %78
 
 140:                                              ; preds = %.preheader172.i.i
   %141 = load i32, ptr %138, align 4
-  %142 = icmp sgt i32 %141, %139
+  %142 = icmp slt i32 %139, %141
   br i1 %142, label %Extra_ProgressBarUpdate.exit.i.i, label %143
 
 143:                                              ; preds = %140, %.preheader172.i.i
@@ -422,7 +422,7 @@ Extra_ProgressBarUpdate.exit.i.i:                 ; preds = %143, %140
 
 161:                                              ; preds = %.preheader.i.i
   %162 = load i32, ptr %159, align 4
-  %163 = icmp sgt i32 %162, %160
+  %163 = icmp slt i32 %160, %162
   br i1 %163, label %Extra_ProgressBarUpdate.exit171.i.i, label %164
 
 164:                                              ; preds = %161, %.preheader.i.i
@@ -819,7 +819,7 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
   %333 = load ptr, ptr %332, align 8
   %334 = getelementptr i8, ptr %333, i64 4
   %.val30.us.i.i.i = load i32, ptr %334, align 4
-  %.not.us.i.i.i = icmp sgt i32 %.val30.us.i.i.i, %.037.ph70.i.i
+  %.not.us.i.i.i = icmp slt i32 %.037.ph70.i.i, %.val30.us.i.i.i
   br i1 %.not.us.i.i.i, label %335, label %.critedge2.us.i.i.i
 
 335:                                              ; preds = %.lr.ph46.split.us.i.i.i
@@ -4032,7 +4032,7 @@ define ptr @Ver_ParseGetNondrivenBundle(ptr nocapture noundef readonly %0, i32 n
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 4
   %.val30.us = load i32, ptr %13, align 4
-  %.not.us = icmp sgt i32 %.val30.us, %1
+  %.not.us = icmp slt i32 %1, %.val30.us
   br i1 %.not.us, label %14, label %.critedge2.us
 
 14:                                               ; preds = %.lr.ph46.split.us

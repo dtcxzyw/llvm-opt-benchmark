@@ -351,7 +351,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = bitcast double %1 to i64
   %3 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %3, %target
+  %cmp.not.i = icmp ult ptr %target, %3
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.then
@@ -649,7 +649,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = bitcast float %1 to i32
   %3 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %3, %target
+  %cmp.not.i = icmp ult ptr %target, %3
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.then
@@ -935,7 +935,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %stream, align 8
-  %cmp.not.i.i = icmp ugt ptr %2, %target
+  %cmp.not.i.i = icmp ult ptr %target, %2
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -1247,7 +1247,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %2, %target
+  %cmp.not.i = icmp ult ptr %target, %2
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.then
@@ -1563,7 +1563,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %stream, align 8
-  %cmp.not.i.i = icmp ugt ptr %2, %target
+  %cmp.not.i.i = icmp ult ptr %target, %2
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -1877,7 +1877,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %2, %target
+  %cmp.not.i = icmp ult ptr %target, %2
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.then
@@ -2203,7 +2203,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %2, %target
+  %cmp.not.i = icmp ult ptr %target, %2
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.then

@@ -5916,7 +5916,7 @@ define internal noundef ptr @lxb_html_tokenizer_state_char_ref_named(ptr nocaptu
   br i1 %17, label %lexbor_sbst_entry_static_find.exit, label %18
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = icmp ult i8 %16, %15
+  %19 = icmp ugt i8 %15, %16
   %.pn.in.in.v.i = select i1 %19, i64 10, i64 8
   %.pn.in.in.i = getelementptr inbounds i8, ptr %.0112.i, i64 %.pn.in.in.v.i
   %.pn.in.i = load i16, ptr %.pn.in.in.i, align 2

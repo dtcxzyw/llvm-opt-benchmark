@@ -204,7 +204,7 @@ define hidden noundef zeroext i1 @_ZNK11ZForwarding41in_place_relocation_is_belo
   %7 = icmp eq ptr %4, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load i64, ptr %8, align 8
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   %11 = select i1 %7, i1 %10, i1 false
   ret i1 %11
 }

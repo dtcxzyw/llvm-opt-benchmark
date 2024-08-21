@@ -1472,7 +1472,7 @@ define internal i32 @drbg_hmac_generate(ptr noundef %0, ptr nocapture noundef wr
   br i1 %92, label %93, label %.thread
 
 93:                                               ; preds = %90
-  %.not27 = icmp eq i32 %62, %2
+  %.not27 = icmp eq i32 %2, %62
   br i1 %.not27, label %104, label %.thread11
 
 .thread:                                          ; preds = %90

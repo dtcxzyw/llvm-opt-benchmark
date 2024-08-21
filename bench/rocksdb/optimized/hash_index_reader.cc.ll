@@ -138,7 +138,7 @@ entry:
   %0 = load ptr, ptr %rep_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %index_block, i8 0, i64 25, i1 false)
   %use_cache.not = xor i1 %use_cache, true
-  %brmerge = or i1 %use_cache.not, %prefetch
+  %brmerge = or i1 %prefetch, %use_cache.not
   br i1 %brmerge, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %entry
@@ -156,7 +156,7 @@ lpad:                                             ; preds = %invoke.cont19, %if.
   br label %ehcleanup88
 
 if.end:                                           ; preds = %invoke.cont6
-  %brmerge27 = or i1 %use_cache.not, %pin
+  %brmerge27 = or i1 %pin, %use_cache.not
   br i1 %brmerge27, label %nrvo.unused, label %if.then11
 
 if.then11:                                        ; preds = %if.end
@@ -532,7 +532,7 @@ if.then52:                                        ; preds = %invoke.cont50
   %state_.i.i62 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i62, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i63 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i63 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i63, label %cleanup81, label %if.then.i.i64
 
 if.then.i.i64:                                    ; preds = %if.then52
@@ -1306,7 +1306,7 @@ invoke.cont21:                                    ; preds = %invoke.cont5
   %user_comparator_.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %user_comparator_.i, align 8
   %tobool14 = trunc i8 %7 to i1
-  %13 = or i1 %tobool14, %disable_prefix_seek
+  %13 = or i1 %disable_prefix_seek, %tobool14
   %global_seqno.i = getelementptr inbounds i8, ptr %1, i64 600
   %14 = load i64, ptr %global_seqno.i, align 8
   %index_has_first_key.i = getelementptr inbounds i8, ptr %10, i64 657

@@ -5565,7 +5565,7 @@ _ZNK17QArrayDataPointerI11ListElementE11needsDetachEv.exit: ; preds = %3
 9:                                                ; preds = %_ZNK17QArrayDataPointerI11ListElementE11needsDetachEv.exit
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = icmp eq i64 %11, %1
+  %12 = icmp eq i64 %1, %11
   br i1 %12, label %_ZNK17QArrayDataPointerI11ListElementE14freeSpaceAtEndEv.exit, label %48
 
 _ZNK17QArrayDataPointerI11ListElementE14freeSpaceAtEndEv.exit: ; preds = %9
@@ -6202,7 +6202,7 @@ _ZNK17QArrayDataPointerI11ListElementE14freeSpaceAtEndEv.exit: ; preds = %4, %_Z
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %31
-  %37 = add i64 %33, %2
+  %37 = add i64 %2, %33
   %38 = sub i64 %21, %37
   %39 = sdiv i64 %38, 2
   %40 = tail call noundef i64 @llvm.smax.i64(i64 %39, i64 0)
@@ -6553,10 +6553,10 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveIP11ListE
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr %struct.ListElement, ptr %2, i64 %1
-  %7 = icmp ugt ptr %6, %0
+  %7 = icmp ult ptr %0, %6
   %8 = select i1 %7, ptr %0, ptr %6
   %9 = select i1 %7, ptr %6, ptr %0
-  %.not12 = icmp eq ptr %8, %2
+  %.not12 = icmp eq ptr %2, %8
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -7051,7 +7051,7 @@ _ZNK17QArrayDataPointerI11ListElementE14freeSpaceAtEndEv.exit.thread: ; preds = 
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %.not.i.i = icmp eq i32 %26, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %23)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %23, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %23, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerI11ListElementE22constAllocatedCapacityEv.exit31
 
@@ -7094,7 +7094,7 @@ _ZNK17QArrayDataPointerI11ListElementE16freeSpaceAtBeginEv.exit33: ; preds = %35
   %48 = getelementptr inbounds i8, ptr %32, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = load i64, ptr %6, align 8
-  %51 = add i64 %50, %2
+  %51 = add i64 %2, %50
   %52 = sub i64 %49, %51
   %53 = sdiv i64 %52, 2
   %54 = call noundef i64 @llvm.smax.i64(i64 %53, i64 0)
@@ -7306,7 +7306,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit: ; preds = %3
 7:                                                ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit, label %31
 
 _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -7632,7 +7632,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %4, %_ZNK17Q
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %29
-  %35 = add i64 %31, %2
+  %35 = add i64 %2, %31
   %36 = sub i64 %19, %35
   %37 = sdiv i64 %36, 2
   %38 = tail call noundef i64 @llvm.smax.i64(i64 %37, i64 0)
@@ -7996,7 +7996,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit.thread: ; preds = %22, 
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %.not.i.i = icmp eq i32 %26, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %23)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %23, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %23, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv.exit31
 
@@ -8039,7 +8039,7 @@ _ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33: ; preds = %35
   %48 = getelementptr inbounds i8, ptr %32, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = load i64, ptr %6, align 8
-  %51 = add i64 %50, %2
+  %51 = add i64 %2, %50
   %52 = sub i64 %49, %51
   %53 = sdiv i64 %52, 2
   %54 = call noundef i64 @llvm.smax.i64(i64 %53, i64 0)
@@ -8440,7 +8440,7 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI11ListElementE5eraseEP
   %4 = getelementptr %struct.ListElement, ptr %1, i64 %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp ne ptr %6, %1
+  %7 = icmp ne ptr %1, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr %struct.ListElement, ptr %6, i64 %9

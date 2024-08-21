@@ -162,7 +162,7 @@ _ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEC2EPNS0_7ContextE.exit: ;
   %6 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %7, %4
+  %cmp.i.i.i = icmp eq ptr %4, %7
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %.noexc
@@ -186,7 +186,7 @@ invoke.cont:                                      ; preds = %.noexc, %if.then.i.
   %10 = load ptr, ptr %_M_finish.i.i.i.i.i.i8, align 8
   %add.ptr.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %10, i64 -8
   %11 = load ptr, ptr %add.ptr.i.i.i.i.i.i9, align 8
-  %cmp.i.i.i10 = icmp eq ptr %11, %8
+  %cmp.i.i.i10 = icmp eq ptr %8, %11
   br i1 %cmp.i.i.i10, label %invoke.cont4, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %.noexc12
@@ -339,7 +339,7 @@ entry:
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %4, %1
+  %cmp.i.i.i.i = icmp eq ptr %1, %4
   br i1 %cmp.i.i.i.i, label %_ZN4cvc57context3CDOImEaSERKm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -365,7 +365,7 @@ entry:
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %4, %1
+  %cmp.i.i.i.i = icmp eq ptr %1, %4
   br i1 %cmp.i.i.i.i, label %_ZN4cvc57context3CDOImEaSERKm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -389,7 +389,7 @@ entry:
   %2 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %3, %0
+  %cmp.i.i.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i.i.i, label %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -415,7 +415,7 @@ _ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEaSERKS4_.exit: ; preds = 
   %8 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i2, align 8
   %add.ptr.i.i.i.i.i.i.i3 = getelementptr inbounds i8, ptr %8, i64 -8
   %9 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i3, align 8
-  %cmp.i.i.i.i4 = icmp eq ptr %9, %6
+  %cmp.i.i.i.i4 = icmp eq ptr %6, %9
   br i1 %cmp.i.i.i.i4, label %_ZN4cvc57context3CDOINS_8internal4prop8SatValueEEaSERKS4_.exit, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEaSERKS4_.exit
@@ -433,7 +433,7 @@ _ZN4cvc57context3CDOINS_8internal4prop8SatValueEEaSERKS4_.exit: ; preds = %_ZN4c
   %12 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i8, align 8
   %add.ptr.i.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %12, i64 -8
   %13 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i9, align 8
-  %cmp.i.i.i.i10 = icmp eq ptr %13, %10
+  %cmp.i.i.i.i10 = icmp eq ptr %10, %13
   br i1 %cmp.i.i.i.i10, label %_ZN4cvc57context3CDOImEaSERKm.exit, label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %_ZN4cvc57context3CDOINS_8internal4prop8SatValueEEaSERKS4_.exit

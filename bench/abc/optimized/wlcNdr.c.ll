@@ -1055,13 +1055,13 @@ Ndr_DataPushString.exit:                          ; preds = %Ndr_DataPushArray.e
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -4595,13 +4595,13 @@ Ndr_ObjReadArray.exit:                            ; preds = %118, %Ndr_DataSize.
   %133 = getelementptr inbounds i32, ptr %.2, i64 %indvars.iv
   %134 = load i32, ptr %133, align 4
   %135 = add nsw i32 %134, 1
-  %.not.i85.not = icmp sgt i32 %132, %134
+  %.not.i85.not = icmp slt i32 %134, %132
   br i1 %.not.i85.not, label %Vec_IntFillExtra.exit, label %136
 
 136:                                              ; preds = %131
   %137 = load i32, ptr %2, align 8
   %138 = shl nsw i32 %137, 1
-  %.not96 = icmp sgt i32 %138, %134
+  %.not96 = icmp slt i32 %134, %138
   %.not.i.i.not = icmp sgt i32 %137, %134
   br i1 %.not96, label %147, label %139
 
@@ -4758,7 +4758,7 @@ define internal fastcc i32 @Ndr_ObjReadBody(ptr nocapture noundef readonly %0, i
   %14 = getelementptr inbounds i8, ptr %.val13, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = icmp eq i32 %16, %2
+  %17 = icmp eq i32 %2, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %12
@@ -5885,13 +5885,13 @@ Vec_IntPush.exit385:                              ; preds = %.Vec_IntGrow.exit10
 
 475:                                              ; preds = %473
   %476 = shl nsw i32 %.012.i346, 1
-  %.not.i386 = icmp slt i32 %.val280, %476
+  %.not.i386 = icmp sgt i32 %476, %.val280
   br i1 %.not.i386, label %477, label %Vec_WrdFillExtra.exit
 
 477:                                              ; preds = %475
   %478 = load i32, ptr %.2537, align 8
   %479 = shl nsw i32 %478, 1
-  %480 = icmp slt i32 %479, %476
+  %480 = icmp sgt i32 %476, %479
   %.not.i.i387 = icmp slt i32 %478, %476
   br i1 %480, label %481, label %493
 

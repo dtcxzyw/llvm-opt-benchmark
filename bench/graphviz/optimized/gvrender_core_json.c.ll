@@ -545,7 +545,7 @@ write_subgs.exit:                                 ; preds = %101, %81, %indent.e
   br i1 %.not.i82, label %.critedge.i, label %.lr.ph.i81
 
 .critedge.i:                                      ; preds = %122, %write_subgs.exit
-  %brmerge.demorgan.i = and i1 %.not.i79, %2
+  %brmerge.demorgan.i = and i1 %2, %.not.i79
   br i1 %brmerge.demorgan.i, label %124, label %write_nodes.exit
 
 124:                                              ; preds = %.critedge.i
@@ -1070,7 +1070,7 @@ declare void @aginit(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @label_subgs(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @agroot(ptr noundef %0) #13
-  %.not = icmp eq ptr %4, %0
+  %.not = icmp eq ptr %0, %4
   br i1 %.not, label %insert.exit, label %5
 
 5:                                                ; preds = %3

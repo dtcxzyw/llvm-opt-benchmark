@@ -497,7 +497,7 @@ define internal fastcc noundef zeroext i1 @tcp_find_option(i8 noundef zeroext %0
   %13 = getelementptr inbounds i8, ptr %1, i64 116
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %12, -20
-  %16 = add i32 %14, %2
+  %16 = add i32 %2, %14
   %17 = sub i32 %15, %16
   %18 = icmp slt i32 %17, %3
   br i1 %18, label %19, label %24, !prof !6

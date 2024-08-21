@@ -793,7 +793,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !134, !noalias !139, !noundef !12
   %6 = load i64, ptr %0, align 8, !alias.scope !141, !noalias !139, !noundef !12
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48db17b41ef1d069E.exit"
 
 9:                                                ; preds = %3
@@ -1053,7 +1053,7 @@ _ZN4core3str11validations15next_code_point17h89bb77f6a1195837E.exit.thread.i.i.i
   %99 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !174, !noalias !179, !noundef !12
   %100 = load i64, ptr %7, align 8, !alias.scope !181, !noalias !179, !noundef !12
   %101 = sub i64 %100, %99
-  %102 = icmp ult i64 %101, %98
+  %102 = icmp ugt i64 %98, %101
   br i1 %102, label %103, label %114
 
 103:                                              ; preds = %97
@@ -1073,7 +1073,7 @@ _ZN4core3str11validations15next_code_point17h89bb77f6a1195837E.exit.thread.i.i.i
   %109 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !184, !noalias !189, !noundef !12
   %110 = load i64, ptr %7, align 8, !alias.scope !191, !noalias !189, !noundef !12
   %111 = sub i64 %110, %109
-  %112 = icmp ult i64 %111, %108
+  %112 = icmp ugt i64 %108, %111
   br i1 %112, label %113, label %121
 
 113:                                              ; preds = %104
@@ -1214,7 +1214,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !207, !noalias !212, !noundef !12
   %45 = load i64, ptr %0, align 8, !alias.scope !214, !noalias !212, !noundef !12
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48db17b41ef1d069E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
@@ -1632,7 +1632,7 @@ define internal noundef zeroext i1 @"_ZN81_$LT$clap_builder..builder..styled_str
   %5 = load i64, ptr %4, align 8, !alias.scope !246, !noalias !251, !noundef !12
   %6 = load i64, ptr %0, align 8, !alias.scope !253, !noalias !251, !noundef !12
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48db17b41ef1d069E.exit"
 
 9:                                                ; preds = %3
@@ -2183,7 +2183,7 @@ define hidden void @_ZN12clap_builder6output13help_template12HelpTemplate20write
   %59 = load i64, ptr %58, align 8, !alias.scope !374, !noalias !381, !noundef !12
   %60 = load i64, ptr %57, align 8, !alias.scope !384, !noalias !381, !noundef !12
   %61 = sub i64 %60, %59
-  %62 = icmp ult i64 %61, %.sroa.4.1.i
+  %62 = icmp ugt i64 %.sroa.4.1.i, %61
   br i1 %62, label %63, label %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit
 
 63:                                               ; preds = %55
@@ -2588,7 +2588,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate18write_display_name17h0764
   %217 = load i64, ptr %.sroa.5.0..sroa_idx.i15.i, align 8, !alias.scope !469, !noalias !474, !noundef !12
   %218 = load i64, ptr %12, align 8, !alias.scope !476, !noalias !474, !noundef !12
   %219 = sub i64 %218, %217
-  %220 = icmp ult i64 %219, %216
+  %220 = icmp ugt i64 %216, %219
   br i1 %220, label %221, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h79d3ced8924d984bE.exit.i"
 
 221:                                              ; preds = %215
@@ -2608,7 +2608,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate18write_display_name17h0764
   %227 = load i64, ptr %.sroa.5.0..sroa_idx.i15.i, align 8, !alias.scope !479, !noalias !484, !noundef !12
   %228 = load i64, ptr %12, align 8, !alias.scope !486, !noalias !484, !noundef !12
   %229 = sub i64 %228, %227
-  %230 = icmp ult i64 %229, %226
+  %230 = icmp ugt i64 %226, %229
   br i1 %230, label %231, label %232
 
 231:                                              ; preds = %222
@@ -3128,7 +3128,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate13write_version17h14ecf94e5
   %420 = load i64, ptr %419, align 8, !alias.scope !708, !noalias !715, !noundef !12
   %421 = load i64, ptr %418, align 8, !alias.scope !718, !noalias !715, !noundef !12
   %422 = sub i64 %421, %420
-  %423 = icmp ult i64 %422, %147
+  %423 = icmp ugt i64 %147, %422
   br i1 %423, label %424, label %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit217
 
 424:                                              ; preds = %_ZN12clap_builder6output13help_template12HelpTemplate13write_version17h14ecf94e525ccb62E.exit
@@ -3326,7 +3326,7 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   %59 = load i64, ptr %58, align 8, !alias.scope !756, !noalias !761, !noundef !12
   %60 = load i64, ptr %55, align 8, !alias.scope !763, !noalias !761, !noundef !12
   %61 = sub i64 %60, %59
-  %62 = icmp ult i64 %61, %57
+  %62 = icmp ugt i64 %57, %61
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %53
@@ -3496,7 +3496,7 @@ define internal fastcc void @_ZN12clap_builder6output13help_template12HelpTempla
   %42 = load i64, ptr %41, align 8, !alias.scope !812, !noalias !817, !noundef !12
   %43 = load i64, ptr %38, align 8, !alias.scope !819, !noalias !817, !noundef !12
   %44 = sub i64 %43, %42
-  %45 = icmp ult i64 %44, %40
+  %45 = icmp ugt i64 %40, %44
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %36
@@ -3681,7 +3681,7 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   %53 = load i64, ptr %24, align 8, !alias.scope !881, !noalias !886, !noundef !12
   %54 = load i64, ptr %23, align 8, !alias.scope !888, !noalias !886, !noundef !12
   %55 = sub i64 %54, %53
-  %56 = icmp ult i64 %55, %52
+  %56 = icmp ugt i64 %52, %55
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %50
@@ -6151,7 +6151,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate4long17h040d2a9ab23e3d93E.e
   %299 = load i64, ptr %229, align 8, !alias.scope !1273, !noalias !1278, !noundef !12
   %300 = load i64, ptr %228, align 8, !alias.scope !1280, !noalias !1278, !noundef !12
   %301 = sub i64 %300, %299
-  %302 = icmp ult i64 %301, %298
+  %302 = icmp ugt i64 %298, %301
   br i1 %302, label %303, label %306
 
 303:                                              ; preds = %296
@@ -6868,7 +6868,7 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   %.sroa.0.0 = select i1 %or.cond.not, ptr @anon.d61c2e717104e98006f69608d75dbe7b.71, ptr @anon.d61c2e717104e98006f69608d75dbe7b.83
   %113 = load i64, ptr %38, align 8, !alias.scope !1441, !noalias !1450, !noundef !12
   %114 = sub i64 %113, %107
-  %115 = icmp ult i64 %114, %.sroa.3.0
+  %115 = icmp ugt i64 %.sroa.3.0, %114
   br i1 %115, label %116, label %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit135
 
 116:                                              ; preds = %109
@@ -6893,7 +6893,7 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   %123 = phi i64 [ %121, %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit135 ], [ 0, %106 ]
   %124 = load i64, ptr %38, align 8, !alias.scope !1454, !noalias !1463, !noundef !12
   %125 = sub i64 %124, %123
-  %126 = icmp ult i64 %125, %4
+  %126 = icmp ugt i64 %4, %125
   br i1 %126, label %127, label %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit138
 
 127:                                              ; preds = %122
@@ -6934,7 +6934,7 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   %145 = load i64, ptr %144, align 8, !alias.scope !1472, !noalias !1477, !noundef !12
   %146 = load i64, ptr %142, align 8, !alias.scope !1479, !noalias !1477, !noundef !12
   %147 = sub i64 %146, %145
-  %148 = icmp ult i64 %147, %139
+  %148 = icmp ugt i64 %139, %147
   br i1 %148, label %149, label %150
 
 149:                                              ; preds = %138
@@ -7524,7 +7524,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate10get_spaces17hdb4a337a67b7
   %358 = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1610, !noalias !1615, !noundef !12
   %359 = load i64, ptr %30, align 8, !alias.scope !1617, !noalias !1615, !noundef !12
   %360 = sub i64 %359, %358
-  %361 = icmp ult i64 %360, %357
+  %361 = icmp ugt i64 %357, %360
   br i1 %361, label %362, label %363
 
 362:                                              ; preds = %353
@@ -7591,7 +7591,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate10get_spaces17hdb4a337a67b7
   %378 = load i64, ptr %144, align 8, !alias.scope !1625, !noalias !1630, !noundef !12
   %379 = load i64, ptr %142, align 8, !alias.scope !1632, !noalias !1630, !noundef !12
   %380 = sub i64 %379, %378
-  %381 = icmp ult i64 %380, %377
+  %381 = icmp ugt i64 %377, %380
   br i1 %381, label %382, label %383
 
 382:                                              ; preds = %375
@@ -9364,7 +9364,7 @@ define internal fastcc void @_ZN12clap_builder6output13help_template12HelpTempla
   %150 = load i64, ptr %102, align 8, !alias.scope !2021, !noalias !2022, !noundef !12
   %151 = load i64, ptr %.val.i, align 8, !alias.scope !2023, !noalias !2030, !noundef !12
   %152 = sub i64 %151, %148
-  %153 = icmp ult i64 %152, %150
+  %153 = icmp ugt i64 %150, %152
   br i1 %153, label %154, label %155
 
 154:                                              ; preds = %142
@@ -10180,7 +10180,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %15, 
   %81 = getelementptr inbounds i8, ptr %1, i64 496
   %82 = load i64, ptr %81, align 8, !alias.scope !2151, !noundef !12
   %83 = add i64 %76, -1
-  %84 = icmp ult i64 %83, %82
+  %84 = icmp ugt i64 %82, %83
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %74
@@ -10234,13 +10234,13 @@ define hidden noundef zeroext i1 @_ZN12clap_builder6output13help_template15shoul
 6:                                                ; preds = %2
   %7 = and i32 %4, 8192
   %8 = icmp eq i32 %7, 0
-  %brmerge.not = and i1 %8, %0
+  %brmerge.not = and i1 %0, %8
   br i1 %brmerge.not, label %15, label %9
 
 9:                                                ; preds = %6
   %10 = and i32 %4, 4096
   %11 = icmp ne i32 %10, 0
-  %brmerge1 = or i1 %11, %0
+  %brmerge1 = or i1 %0, %11
   br i1 %brmerge1, label %12, label %15
 
 12:                                               ; preds = %9

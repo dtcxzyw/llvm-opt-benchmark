@@ -1523,7 +1523,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i.i: ; preds = %_ZNSt6vectorI
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %.loopexit
   %.0.lcssa.i.i.i = phi ptr [ %24, %.loopexit ], [ %46, %.lr.ph.i.i.i ]
   %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i28 = icmp eq ptr %6, %1
+  %.not10.i.i.i28 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i28, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, label %.lr.ph.i.i.i29
 
 .lr.ph.i.i.i29:                                   ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i29
@@ -1759,7 +1759,7 @@ _ZNSt11_Deque_baseIiSaIiEE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #19
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIiSaIiEE16_M_destroy_nodesEPPiS3_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -1878,7 +1878,7 @@ define linkonce_odr void @_ZNSt5dequeIiSaIiEE6resizeEmRKi(ptr noundef nonnull al
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 2
   %33 = add nsw i64 %25, %32
-  %34 = icmp ult i64 %33, %1
+  %34 = icmp ugt i64 %1, %33
   br i1 %34, label %35, label %42
 
 35:                                               ; preds = %3
@@ -1896,7 +1896,7 @@ define linkonce_odr void @_ZNSt5dequeIiSaIiEE6resizeEmRKi(ptr noundef nonnull al
   br label %71
 
 42:                                               ; preds = %3
-  %43 = icmp ugt i64 %33, %1
+  %43 = icmp ult i64 %1, %33
   br i1 %43, label %44, label %71
 
 44:                                               ; preds = %42
@@ -1979,7 +1979,7 @@ define linkonce_odr void @_ZNSt5dequeIiSaIiEE14_M_fill_insertESt15_Deque_iterato
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 2
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %10
@@ -2125,7 +2125,7 @@ _ZSt22__uninitialized_fill_aISt15_Deque_iteratorIiRiPiEiiEvT_S4_RKT0_RSaIT1_E.ex
   %64 = sub i64 %62, %63
   %65 = ashr exact i64 %64, 2
   %66 = add nsw i64 %65, -1
-  %67 = icmp ult i64 %66, %2
+  %67 = icmp ugt i64 %2, %66
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %59
@@ -2368,7 +2368,7 @@ define linkonce_odr void @_ZNSt5dequeIiSaIiEE13_M_insert_auxESt15_Deque_iterator
   %83 = ptrtoint ptr %82 to i64
   %84 = sub i64 %55, %83
   %85 = ashr exact i64 %84, 2
-  %86 = icmp ult i64 %85, %2
+  %86 = icmp ugt i64 %2, %85
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %80
@@ -2880,7 +2880,7 @@ _ZSt9__fill_a1IPiiEN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__
   %263 = sub i64 %262, %71
   %264 = ashr exact i64 %263, 2
   %265 = add nsw i64 %264, -1
-  %266 = icmp ult i64 %265, %2
+  %266 = icmp ugt i64 %2, %265
   br i1 %266, label %267, label %269
 
 267:                                              ; preds = %259
@@ -3433,7 +3433,7 @@ define linkonce_odr void @_ZNSt5dequeIiSaIiEE24_M_new_elements_at_frontEm(ptr no
   %37 = ptrtoint ptr %36 to i64
   %38 = sub i64 %10, %37
   %39 = ashr exact i64 %38, 3
-  %40 = icmp ult i64 %39, %35
+  %40 = icmp ugt i64 %35, %39
   br i1 %40, label %41, label %_ZNSt5dequeIiSaIiEE23_M_reserve_map_at_frontEm.exit
 
 41:                                               ; preds = %33

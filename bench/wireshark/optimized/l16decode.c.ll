@@ -57,7 +57,7 @@ define internal i64 @codec_l16_decode(ptr nocapture noundef readonly %0, ptr noc
   %10 = shl i32 %spec.select, 1
   %11 = zext i32 %10 to i64
   %12 = udiv i64 %2, %11
-  %.not = icmp ugt i64 %11, %2
+  %.not = icmp ult i64 %2, %11
   %.pre = zext i32 %spec.select to i64
   br i1 %.not, label %._crit_edge, label %.preheader
 

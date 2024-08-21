@@ -2424,7 +2424,7 @@ define internal fastcc i64 @pack_unpack_internal(i64 noundef %0, i64 noundef %1,
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = icmp slt i64 %19, %3
+  %20 = icmp sgt i64 %3, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %15

@@ -1450,7 +1450,7 @@ define internal fastcc i32 @proto_tree_add_tacplus_common_fields(ptr noundef %0,
 18:                                               ; preds = %4
   %19 = load i32, ptr @hf_tacplus_user, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %19, ptr noundef %0, i32 noundef %3, i32 noundef %15, i32 noundef 0) #9
-  %21 = add nuw nsw i32 %15, %3
+  %21 = add nuw nsw i32 %3, %15
   br label %22
 
 22:                                               ; preds = %18, %4

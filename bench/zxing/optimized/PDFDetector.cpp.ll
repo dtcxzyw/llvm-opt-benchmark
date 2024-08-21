@@ -193,7 +193,7 @@ _ZNK5ZXing11PatternView7isValidEv.exit.thread:    ; preds = %_ZN5ZXing13FindLeft
   %50 = load ptr, ptr %15, align 8
   %51 = icmp ne ptr %49, %50
   %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %50, i64 -2
-  %52 = icmp ugt ptr %.sroa.0.08.i.i, %49
+  %52 = icmp ult ptr %49, %.sroa.0.08.i.i
   %or.cond.i.i13 = select i1 %51, i1 %52, i1 false
   br i1 %or.cond.i.i13, label %.lr.ph.i.i, label %.loopexit
 
@@ -2238,7 +2238,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit:                 ; preds = %_ZNK5ZXing9BitMatri
 
 .critedge.preheader:                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit
   %45 = trunc nsw i64 %indvars.iv to i32
-  %46 = icmp slt i32 %45, %3
+  %46 = icmp sgt i32 %3, %45
   %47 = add nsw i32 %25, -1
   br i1 %46, label %.lr.ph, label %.critedge._crit_edge
 

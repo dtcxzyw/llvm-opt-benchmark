@@ -25,7 +25,7 @@ entry:
   %a.val8 = load i64, ptr %0, align 8
   %cmp.not.i.i = icmp ule i64 %a.val, %a.val8
   %add.i.i = add i64 %a.val8, 1
-  %cmp3.i.i = icmp eq i64 %add.i.i, %a.val
+  %cmp3.i.i = icmp eq i64 %a.val, %add.i.i
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp3.i.i
   br i1 %or.cond.i.i, label %range_is_empty.exit, label %if.else.i.i
 
@@ -43,7 +43,7 @@ land.lhs.true:                                    ; preds = %range_is_empty.exit
   %b.val9 = load i64, ptr %1, align 8
   %cmp.not.i.i10 = icmp ule i64 %b.val, %b.val9
   %add.i.i11 = add i64 %b.val9, 1
-  %cmp3.i.i12 = icmp eq i64 %add.i.i11, %b.val
+  %cmp3.i.i12 = icmp eq i64 %b.val, %add.i.i11
   %or.cond.i.i13 = or i1 %cmp.not.i.i10, %cmp3.i.i12
   br i1 %or.cond.i.i13, label %range_is_empty.exit16, label %if.else.i.i14
 
@@ -90,7 +90,7 @@ entry:
   %data.val23 = load i64, ptr %0, align 8
   %cmp.not.i.i = icmp ule i64 %data.val, %data.val23
   %add.i.i = add i64 %data.val23, 1
-  %cmp3.i.i = icmp eq i64 %add.i.i, %data.val
+  %cmp3.i.i = icmp eq i64 %data.val, %add.i.i
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp3.i.i
   br i1 %or.cond.i.i, label %range_is_empty.exit, label %if.else.i.i
 
@@ -185,7 +185,7 @@ entry:
   %extend_by.val16 = load i64, ptr %0, align 8
   %cmp.not.i.i = icmp ule i64 %extend_by.val, %extend_by.val16
   %add.i.i = add i64 %extend_by.val16, 1
-  %cmp3.i.i = icmp eq i64 %add.i.i, %extend_by.val
+  %cmp3.i.i = icmp eq i64 %extend_by.val, %add.i.i
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp3.i.i
   br i1 %or.cond.i.i, label %range_is_empty.exit, label %if.else.i.i
 
@@ -203,7 +203,7 @@ if.end:                                           ; preds = %range_is_empty.exit
   %range.val15 = load i64, ptr %1, align 8
   %cmp.not.i.i17 = icmp ule i64 %range.val14, %range.val15
   %add.i.i18 = add i64 %range.val15, 1
-  %cmp3.i.i19 = icmp eq i64 %add.i.i18, %range.val14
+  %cmp3.i.i19 = icmp eq i64 %range.val14, %add.i.i18
   %or.cond.i.i20 = or i1 %cmp.not.i.i17, %cmp3.i.i19
   br i1 %or.cond.i.i20, label %range_is_empty.exit23, label %if.else.i.i21
 
@@ -243,7 +243,7 @@ if.end14:                                         ; preds = %if.then11, %if.end8
   %add.i.pre-phi = phi i64 [ %.pre26, %if.then11 ], [ %add.i.i18, %if.end8 ]
   %range.val13 = phi i64 [ %2, %if.then11 ], [ %range.val15, %if.end8 ]
   %cmp.not.i = icmp ule i64 %range.val, %range.val13
-  %cmp3.i = icmp eq i64 %add.i.pre-phi, %range.val
+  %cmp3.i = icmp eq i64 %range.val, %add.i.pre-phi
   %or.cond.i = or i1 %cmp.not.i, %cmp3.i
   br i1 %or.cond.i, label %return, label %if.else.i
 
@@ -274,7 +274,7 @@ land.rhs:                                         ; preds = %entry, %for.inc
   %.val35 = load i64, ptr %2, align 8
   %cmp.not.i.i.i = icmp ule i64 %.val, %.val35
   %add.i.i.i = add i64 %.val35, 1
-  %cmp3.i.i.i = icmp eq i64 %add.i.i.i, %.val
+  %cmp3.i.i.i = icmp eq i64 %.val, %add.i.i.i
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp3.i.i.i
   br i1 %or.cond.i.i.i, label %range_is_empty.exit.i, label %if.else.i.i.i
 
@@ -307,7 +307,7 @@ if.then:                                          ; preds = %for.inc, %entry
   store i64 %high, ptr %upb2.i.i, align 8
   %cmp.not.i.i.i.i = icmp ule i64 %low, %high
   %add.i.i.i.i = add i64 %high, 1
-  %cmp3.i.i.i.i = icmp eq i64 %add.i.i.i.i, %low
+  %cmp3.i.i.i.i = icmp eq i64 %low, %add.i.i.i.i
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i, %cmp3.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %range_is_empty.exit.i.i, label %if.else.i.i.i.i
 
@@ -338,9 +338,9 @@ range_lob.exit66:                                 ; preds = %range_lob.exit
   store i64 %low, ptr %call.i67, align 8
   %upb2.i.i68 = getelementptr inbounds i8, ptr %call.i67, i64 8
   store i64 %cond, ptr %upb2.i.i68, align 8
-  %cmp.not.i.i.i.i69 = icmp uge i64 %cond, %low
+  %cmp.not.i.i.i.i69 = icmp ule i64 %low, %cond
   %add.i.i.i.i70 = add nuw i64 %cond, 1
-  %cmp3.i.i.i.i71 = icmp eq i64 %add.i.i.i.i70, %low
+  %cmp3.i.i.i.i71 = icmp eq i64 %low, %add.i.i.i.i70
   %or.cond.i.i.i.i72 = or i1 %cmp.not.i.i.i.i69, %cmp3.i.i.i.i71
   br i1 %or.cond.i.i.i.i72, label %range_is_empty.exit.i.i74, label %if.else.i.i.i.i73
 
@@ -349,7 +349,7 @@ if.else.i.i.i.i73:                                ; preds = %range_lob.exit66
   unreachable
 
 range_is_empty.exit.i.i74:                        ; preds = %range_lob.exit66
-  %cmp.i.i.i75 = icmp ult i64 %cond, %low
+  %cmp.i.i.i75 = icmp ugt i64 %low, %cond
   br i1 %cmp.i.i.i75, label %if.else.i.i77, label %append_new_range.exit78
 
 if.else.i.i77:                                    ; preds = %range_is_empty.exit.i.i74
@@ -379,7 +379,7 @@ for.body14:                                       ; preds = %if.end10, %for.inc3
   %.val47 = load i64, ptr %8, align 8
   %cmp.not.i.i.i79 = icmp ule i64 %.val46, %.val47
   %add.i.i.i80 = add i64 %.val47, 1
-  %cmp3.i.i.i81 = icmp eq i64 %add.i.i.i80, %.val46
+  %cmp3.i.i.i81 = icmp eq i64 %.val46, %add.i.i.i80
   %or.cond.i.i.i82 = or i1 %cmp.not.i.i.i79, %cmp3.i.i.i81
   br i1 %or.cond.i.i.i82, label %range_is_empty.exit.i84, label %if.else.i.i.i83
 
@@ -409,7 +409,7 @@ if.then24:                                        ; preds = %if.end21
   %.val37 = load i64, ptr %8, align 8
   %cmp.not.i.i.i88 = icmp ule i64 %.val36, %.val37
   %add.i.i.i89 = add i64 %.val37, 1
-  %cmp3.i.i.i90 = icmp eq i64 %add.i.i.i89, %.val36
+  %cmp3.i.i.i90 = icmp eq i64 %.val36, %add.i.i.i89
   %or.cond.i.i.i91 = or i1 %cmp.not.i.i.i88, %cmp3.i.i.i90
   br i1 %or.cond.i.i.i91, label %range_is_empty.exit.i93, label %if.else.i.i.i92
 
@@ -431,7 +431,7 @@ range_upb.exit96:                                 ; preds = %range_is_empty.exit
   %.val49 = load i64, ptr %9, align 8
   %cmp.not.i.i.i97 = icmp ule i64 %.val48, %.val49
   %add.i.i.i98 = add i64 %.val49, 1
-  %cmp3.i.i.i99 = icmp eq i64 %add.i.i.i98, %.val48
+  %cmp3.i.i.i99 = icmp eq i64 %.val48, %add.i.i.i98
   %or.cond.i.i.i100 = or i1 %cmp.not.i.i.i97, %cmp3.i.i.i99
   br i1 %or.cond.i.i.i100, label %range_is_empty.exit.i102, label %if.else.i.i.i101
 
@@ -455,7 +455,7 @@ range_lob.exit105:                                ; preds = %range_is_empty.exit
   %upb2.i.i107 = getelementptr inbounds i8, ptr %call.i106, i64 8
   store i64 %cond33, ptr %upb2.i.i107, align 8
   %cmp.not.i.i.i.i108 = icmp ule i64 %add.i.i.i89, %cond33
-  %cmp3.i.i.i.i110 = icmp eq i64 %cond33, %.val37
+  %cmp3.i.i.i.i110 = icmp eq i64 %.val37, %cond33
   %or.cond.i.i.i.i111 = or i1 %cmp.not.i.i.i.i108, %cmp3.i.i.i.i110
   br i1 %or.cond.i.i.i.i111, label %range_is_empty.exit.i.i113, label %if.else.i.i.i.i112
 
@@ -492,7 +492,7 @@ for.end38:                                        ; preds = %for.inc36, %if.end1
   %.val39 = load i64, ptr %13, align 8
   %cmp.not.i.i.i118 = icmp ule i64 %.val38, %.val39
   %add.i.i.i119 = add i64 %.val39, 1
-  %cmp3.i.i.i120 = icmp eq i64 %add.i.i.i119, %.val38
+  %cmp3.i.i.i120 = icmp eq i64 %.val38, %add.i.i.i119
   %or.cond.i.i.i121 = or i1 %cmp.not.i.i.i118, %cmp3.i.i.i120
   br i1 %or.cond.i.i.i121, label %range_is_empty.exit.i123, label %if.else.i.i.i122
 

@@ -1389,7 +1389,7 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %6, %_ZN5fa
   %53 = getelementptr inbounds i64, ptr %5, i64 %.0.lcssa.i
   store i64 %52, ptr %53, align 8
   %54 = xor i64 %.03740, -1
-  %55 = add i64 %54, %0
+  %55 = add i64 %0, %54
   %56 = getelementptr inbounds float, ptr %1, i64 %55
   store float %7, ptr %56, align 4
   %57 = getelementptr inbounds i64, ptr %2, i64 %55
@@ -1535,7 +1535,7 @@ _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %6, %_ZN5fa
   %53 = getelementptr inbounds i64, ptr %5, i64 %.0.lcssa.i
   store i64 %52, ptr %53, align 8
   %54 = xor i64 %.03740, -1
-  %55 = add i64 %54, %0
+  %55 = add i64 %0, %54
   %56 = getelementptr inbounds float, ptr %1, i64 %55
   store float %7, ptr %56, align 4
   %57 = getelementptr inbounds i64, ptr %2, i64 %55

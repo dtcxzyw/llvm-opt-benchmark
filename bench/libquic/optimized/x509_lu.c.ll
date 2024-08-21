@@ -533,7 +533,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %call1 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %i.020) #10
   %method = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %method, align 8
-  %cmp2 = icmp eq ptr %1, %m
+  %cmp2 = icmp eq ptr %m, %1
   br i1 %cmp2, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %entry

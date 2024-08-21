@@ -171,7 +171,7 @@ define hidden void @validate_attribute(ptr nocapture noundef readonly %0, i32 %1
 define range(i32 -1, 1) i32 @zend_get_attribute_value(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 28
   %6 = load i32, ptr %5, align 4
-  %.not = icmp ugt i32 %6, %2
+  %.not = icmp ult i32 %2, %6
   br i1 %.not, label %7, label %33
 
 7:                                                ; preds = %4

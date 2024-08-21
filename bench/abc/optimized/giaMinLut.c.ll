@@ -1286,7 +1286,7 @@ Vec_WrdStart.exit59:                              ; preds = %Vec_WrdStart.exit, 
 70:                                               ; preds = %80, %.preheader60.us.us
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %80 ], [ 0, %.preheader60.us.us ]
   %71 = xor i64 %indvars.iv83, -1
-  %72 = add nsw i64 %71, %51
+  %72 = add nsw i64 %51, %71
   %73 = getelementptr inbounds [1000 x i8], ptr %6, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = icmp eq i8 %74, 49
@@ -1328,7 +1328,7 @@ Vec_WrdStart.exit59:                              ; preds = %Vec_WrdStart.exit, 
 88:                                               ; preds = %.preheader60.us, %98
   %indvars.iv78 = phi i64 [ 0, %.preheader60.us ], [ %indvars.iv.next79, %98 ]
   %89 = xor i64 %indvars.iv78, -1
-  %90 = add nsw i64 %89, %51
+  %90 = add nsw i64 %51, %89
   %91 = getelementptr inbounds [1000 x i8], ptr %6, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = icmp eq i8 %92, 49
@@ -5992,7 +5992,7 @@ define ptr @Abc_NtkMapTransform(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 .lr.ph172:                                        ; preds = %.preheader
   %41 = trunc i64 %indvars.iv214 to i32
-  %42 = mul i32 %41, %1
+  %42 = mul i32 %1, %41
   br label %43
 
 43:                                               ; preds = %.lr.ph172, %43

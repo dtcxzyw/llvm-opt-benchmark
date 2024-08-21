@@ -86,7 +86,7 @@ define internal ptr @wmem_simple_realloc(ptr nocapture noundef readonly %0, ptr 
   %13 = and i64 %indvars.iv.next, 2147483647
   %14 = getelementptr ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, %1
+  %16 = icmp eq ptr %1, %15
   br i1 %16, label %17, label %8, !llvm.loop !4
 
 17:                                               ; preds = %11
@@ -121,7 +121,7 @@ define internal void @wmem_simple_free(ptr nocapture noundef %0, ptr noundef %1)
   %10 = zext nneg i32 %.019 to i64
   %11 = getelementptr ptr, ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %9

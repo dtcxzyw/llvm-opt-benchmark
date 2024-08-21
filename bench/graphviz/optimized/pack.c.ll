@@ -505,15 +505,13 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %.sroa.25.0.insert.shift.i.i = shl nuw i64 %.sroa.25.0.insert.ext.i.i, 32
   %.sroa.6.0.insert.ext.i.i = zext i32 %250 to i64
   %.sroa.6.0.insert.shift.i.i = shl nuw i64 %.sroa.6.0.insert.ext.i.i, 32
-  %.sroa.0158.0.insert.ext.i.i = zext i32 %245 to i64
-  %.sroa.0158.0.insert.insert.i.i = or disjoint i64 %.sroa.6.0.insert.shift.i.i, %.sroa.0158.0.insert.ext.i.i
   %.sroa.0280.0.extract.trunc288.i.i = sub i32 %231, %245
   %.sroa.22.0.extract.shift5.i.i.i = sub i64 %.sroa.25.0.insert.shift.i.i, %.sroa.6.0.insert.shift.i.i
   %.sroa.12289.0.extract.shift290.i.i = lshr exact i64 %.sroa.22.0.extract.shift5.i.i.i, 32
   %.sroa.12289.0.extract.trunc291.i.i = trunc nuw i64 %.sroa.12289.0.extract.shift290.i.i to i32
   %.sroa.0262.0.extract.trunc270.i.i = add i32 %231, %245
-  %.sroa.2.0.extract.shift5.i.i.i = add i64 %.sroa.0158.0.insert.insert.i.i, %.sroa.25.0.insert.shift.i.i
-  %.sroa.12.0.extract.shift271.i.i = lshr i64 %.sroa.2.0.extract.shift5.i.i.i, 32
+  %.sroa.2.0.extract.shift5.i.i.i = add i64 %.sroa.6.0.insert.shift.i.i, %.sroa.25.0.insert.shift.i.i
+  %.sroa.12.0.extract.shift271.i.i = lshr exact i64 %.sroa.2.0.extract.shift5.i.i.i, 32
   %.sroa.12.0.extract.trunc272.i.i = trunc nuw i64 %.sroa.12.0.extract.shift271.i.i to i32
   %251 = icmp sgt i32 %.sroa.0280.0.extract.trunc288.i.i, -1
   br i1 %251, label %252, label %254
@@ -786,15 +784,13 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %.sroa.25.0.insert.shift239.i.i = shl nuw i64 %.sroa.25.0.insert.ext238.i.i, 32
   %.sroa.6.0.insert.ext177.i.i = zext i32 %384 to i64
   %.sroa.6.0.insert.shift178.i.i = shl nuw i64 %.sroa.6.0.insert.ext177.i.i, 32
-  %.sroa.0158.0.insert.ext164.i.i = zext i32 %379 to i64
-  %.sroa.0158.0.insert.insert166.i.i = or disjoint i64 %.sroa.6.0.insert.shift178.i.i, %.sroa.0158.0.insert.ext164.i.i
   %.sroa.0280.0.extract.trunc.i.i = sub i32 %368, %379
   %.sroa.22.0.extract.shift5.i477.i.i = sub i64 %.sroa.25.0.insert.shift239.i.i, %.sroa.6.0.insert.shift178.i.i
   %.sroa.12289.0.extract.shift.i.i = lshr exact i64 %.sroa.22.0.extract.shift5.i477.i.i, 32
   %.sroa.12289.0.extract.trunc.i.i = trunc nuw i64 %.sroa.12289.0.extract.shift.i.i to i32
   %.sroa.0262.0.extract.trunc.i.i = add i32 %368, %379
-  %.sroa.2.0.extract.shift5.i481.i.i = add i64 %.sroa.0158.0.insert.insert166.i.i, %.sroa.25.0.insert.shift239.i.i
-  %.sroa.12.0.extract.shift.i.i = lshr i64 %.sroa.2.0.extract.shift5.i481.i.i, 32
+  %.sroa.2.0.extract.shift5.i481.i.i = add i64 %.sroa.6.0.insert.shift178.i.i, %.sroa.25.0.insert.shift239.i.i
+  %.sroa.12.0.extract.shift.i.i = lshr exact i64 %.sroa.2.0.extract.shift5.i481.i.i, 32
   %.sroa.12.0.extract.trunc.i.i = trunc nuw i64 %.sroa.12.0.extract.shift.i.i to i32
   %385 = icmp sgt i32 %.sroa.0280.0.extract.trunc.i.i, -1
   br i1 %385, label %386, label %388
@@ -2755,52 +2751,53 @@ define internal fastcc i32 @computeStep(i64 noundef %0, ptr nocapture noundef re
 ._crit_edge:                                      ; preds = %8, %3
   %.052.lcssa = phi double [ 0.000000e+00, %3 ], [ %17, %8 ]
   %.051.lcssa = phi double [ 0.000000e+00, %3 ], [ %15, %8 ]
-  %19 = fmul double %5, -4.000000e+00
-  %20 = fmul double %19, %.052.lcssa
-  %21 = tail call double @llvm.fmuladd.f64(double %.051.lcssa, double %.051.lcssa, double %20)
-  %22 = fcmp olt double %21, 0.000000e+00
-  br i1 %22, label %23, label %25
+  %19 = fmul double %5, 4.000000e+00
+  %20 = fneg double %.052.lcssa
+  %21 = fmul double %19, %20
+  %22 = tail call double @llvm.fmuladd.f64(double %.051.lcssa, double %.051.lcssa, double %21)
+  %23 = fcmp olt double %22, 0.000000e+00
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %._crit_edge
-  %24 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.19, double noundef %21) #18
-  br label %54
+24:                                               ; preds = %._crit_edge
+  %25 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.19, double noundef %22) #18
+  br label %55
 
-25:                                               ; preds = %._crit_edge
-  %26 = tail call double @sqrt(double noundef %21) #18
-  %27 = fsub double %26, %.051.lcssa
-  %28 = fmul double %5, 2.000000e+00
-  %29 = fdiv double %27, %28
-  %30 = fptosi double %29 to i32
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %30, i32 1)
-  %31 = load i8, ptr @Verbose, align 1
-  %32 = icmp ugt i8 %31, 2
-  br i1 %32, label %33, label %54
+26:                                               ; preds = %._crit_edge
+  %27 = tail call double @sqrt(double noundef %22) #18
+  %28 = fsub double %27, %.051.lcssa
+  %29 = fmul double %5, 2.000000e+00
+  %30 = fdiv double %28, %29
+  %31 = fptosi double %30 to i32
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %31, i32 1)
+  %32 = load i8, ptr @Verbose, align 1
+  %33 = icmp ugt i8 %32, 2
+  br i1 %33, label %34, label %55
 
-33:                                               ; preds = %25
-  %34 = fneg double %.051.lcssa
-  %35 = fsub double %34, %26
-  %36 = fdiv double %35, %28
-  %37 = load ptr, ptr @stderr, align 8
-  %38 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 27, i64 1, ptr %37) #23
-  %39 = load ptr, ptr @stderr, align 8
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.21, double noundef %5, double noundef %.051.lcssa, double noundef %.052.lcssa, double noundef %21, double noundef %26) #19
-  %41 = load ptr, ptr @stderr, align 8
-  %42 = fptosi double %36 to i32
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.22, i32 noundef %spec.store.select, double noundef %29, i32 noundef %42, double noundef %36) #19
-  %44 = load ptr, ptr @stderr, align 8
-  %45 = fmul double %5, %29
-  %46 = fmul double %.051.lcssa, %29
-  %47 = tail call double @llvm.fmuladd.f64(double %45, double %29, double %46)
-  %48 = fadd double %.052.lcssa, %47
-  %49 = fmul double %5, %36
-  %50 = fmul double %.051.lcssa, %36
-  %51 = tail call double @llvm.fmuladd.f64(double %49, double %36, double %50)
-  %52 = fadd double %.052.lcssa, %51
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.23, double noundef %48, double noundef %52) #19
-  br label %54
+34:                                               ; preds = %26
+  %35 = fneg double %.051.lcssa
+  %36 = fsub double %35, %27
+  %37 = fdiv double %36, %29
+  %38 = load ptr, ptr @stderr, align 8
+  %39 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 27, i64 1, ptr %38) #23
+  %40 = load ptr, ptr @stderr, align 8
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.21, double noundef %5, double noundef %.051.lcssa, double noundef %.052.lcssa, double noundef %22, double noundef %27) #19
+  %42 = load ptr, ptr @stderr, align 8
+  %43 = fptosi double %37 to i32
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.22, i32 noundef %spec.store.select, double noundef %30, i32 noundef %43, double noundef %37) #19
+  %45 = load ptr, ptr @stderr, align 8
+  %46 = fmul double %5, %30
+  %47 = fmul double %.051.lcssa, %30
+  %48 = tail call double @llvm.fmuladd.f64(double %46, double %30, double %47)
+  %49 = fadd double %.052.lcssa, %48
+  %50 = fmul double %5, %37
+  %51 = fmul double %.051.lcssa, %37
+  %52 = tail call double @llvm.fmuladd.f64(double %50, double %37, double %51)
+  %53 = fadd double %.052.lcssa, %52
+  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.23, double noundef %49, double noundef %53) #19
+  br label %55
 
-54:                                               ; preds = %25, %33, %23
-  %.0 = phi i32 [ -1, %23 ], [ %spec.store.select, %33 ], [ %spec.store.select, %25 ]
+55:                                               ; preds = %26, %34, %24
+  %.0 = phi i32 [ -1, %24 ], [ %spec.store.select, %34 ], [ %spec.store.select, %26 ]
   ret i32 %.0
 }
 
@@ -2835,10 +2832,10 @@ define internal fastcc void @genBox(ptr nocapture noundef readonly byval(%struct
   %22 = tail call ptr @newPS() #18
   %23 = sub i32 %.sroa.057.0.extract.trunc, %3
   %24 = sub i32 %.sroa.3.0.extract.trunc, %3
-  %25 = add i32 %.sroa.057.0.extract.trunc, %3
+  %25 = add i32 %3, %.sroa.057.0.extract.trunc
   %26 = sub i32 %25, %9
   %27 = add i32 %26, %17
-  %28 = add i32 %.sroa.3.0.extract.trunc, %3
+  %28 = add i32 %3, %.sroa.3.0.extract.trunc
   %29 = sub i32 %28, %13
   %30 = add i32 %29, %21
   %31 = icmp sgt i32 %23, -1
@@ -3514,19 +3511,19 @@ fillLine.exit:                                    ; preds = %.lr.ph.i, %.lr.ph83
 define internal fastcc void @fillLine(double %0, double %1, double %2, double %3, ptr noundef %4) unnamed_addr #0 {
   %6 = fcmp ult double %0, 0.000000e+00
   %.in.v = select i1 %6, double -5.000000e-01, double 5.000000e-01
-  %.in = fadd double %.in.v, %0
+  %.in = fadd double %0, %.in.v
   %7 = fptosi double %.in to i32
   %8 = fcmp ult double %1, 0.000000e+00
   %.in71.v = select i1 %8, double -5.000000e-01, double 5.000000e-01
-  %.in71 = fadd double %.in71.v, %1
+  %.in71 = fadd double %1, %.in71.v
   %9 = fptosi double %.in71 to i32
   %10 = fcmp ult double %2, 0.000000e+00
   %.in72.v = select i1 %10, double -5.000000e-01, double 5.000000e-01
-  %.in72 = fadd double %.in72.v, %2
+  %.in72 = fadd double %2, %.in72.v
   %11 = fptosi double %.in72 to i32
   %12 = fcmp ult double %3, 0.000000e+00
   %.in73.v = select i1 %12, double -5.000000e-01, double 5.000000e-01
-  %.in73 = fadd double %.in73.v, %3
+  %.in73 = fadd double %3, %.in73.v
   %13 = fptosi double %.in73 to i32
   %14 = sub nsw i32 %11, %7
   %15 = tail call i32 @llvm.abs.i32(i32 %14, i1 true)

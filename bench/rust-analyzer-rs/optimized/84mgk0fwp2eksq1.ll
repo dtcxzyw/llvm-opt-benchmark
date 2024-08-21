@@ -861,7 +861,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !357)
-  %19 = icmp ult i64 %15, %13
+  %19 = icmp ugt i64 %13, %15
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb9abcebd36547b51E.exit.i"
 
 20:                                               ; preds = %2
@@ -1373,7 +1373,7 @@ common.resume:                                    ; preds = %147, %.body7, %45
   store i64 0, ptr %74, align 8, !noalias !514
   call void @llvm.experimental.noalias.scope.decl(metadata !519)
   call void @llvm.experimental.noalias.scope.decl(metadata !522)
-  %85 = icmp ult i64 %83, %80
+  %85 = icmp ugt i64 %80, %83
   br i1 %85, label %86, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h277968b7414f0120E.exit.i.i.i.i"
 
 86:                                               ; preds = %.noexc9
@@ -1496,7 +1496,7 @@ common.resume:                                    ; preds = %147, %.body7, %45
   %120 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !557, !noalias !556, !noundef !23
   %121 = load i64, ptr %17, align 8, !alias.scope !557, !noalias !556, !noundef !23
   %122 = sub i64 %121, %120
-  %123 = icmp ult i64 %122, %119
+  %123 = icmp ugt i64 %119, %122
   br i1 %123, label %124, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8ba524c528741928E.exit.i.i"
 
 124:                                              ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he38cd7ba509af0eaE.exit.i.i"
@@ -1603,7 +1603,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !578)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !581)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha70d6ff27f59ad68E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -1696,7 +1696,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !629)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !632)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h15b309d78062ee17E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -1789,7 +1789,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !680)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !683)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h396f8d4e10d0b455E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -1874,7 +1874,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %9, align 8
-  %10 = icmp ult i64 %6, %spec.select.i.i
+  %10 = icmp ugt i64 %spec.select.i.i, %6
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h200e655ec3b972d6E.exit.i.i"
 
 11:                                               ; preds = %3
@@ -1889,7 +1889,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h200e655ec3b972d6E.exit.i.i": ; preds = %.noexc, %3
   %12 = phi ptr [ %7, %3 ], [ %.pre, %.noexc ]
   %13 = phi i64 [ 0, %3 ], [ %.pre.i.i, %.noexc ]
-  %14 = icmp ugt i64 %2, %1
+  %14 = icmp ult i64 %1, %2
   br i1 %14, label %.lr.ph.i.i.i.i.i, label %.loopexit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h200e655ec3b972d6E.exit.i.i", %.lr.ph.i.i.i.i.i
@@ -1899,7 +1899,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %17 = getelementptr inbounds i64, ptr %12, i64 %15
   store i64 %16, ptr %17, align 8, !noalias !736
   %18 = add i64 %15, 1
-  %19 = icmp ugt i64 %16, %1
+  %19 = icmp ult i64 %1, %16
   br i1 %19, label %.lr.ph.i.i.i.i.i, label %.loopexit
 
 20:                                               ; preds = %11
@@ -1946,7 +1946,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !756)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !759)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3a807d654ad99138E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -2122,7 +2122,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0e8961f4d949202eE.exit.i.i": ; preds = %51, %44, %42
   %.sink18.i.i.i.i = phi i64 [ %58, %51 ], [ %50, %44 ], [ %spec.select.i.i.i.i.i, %42 ]
-  %59 = icmp ult i64 %32, %.sink18.i.i.i.i
+  %59 = icmp ugt i64 %.sink18.i.i.i.i, %32
   br i1 %59, label %60, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h98dbf5c00e71e0d8E.exit.i"
 
 60:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0e8961f4d949202eE.exit.i.i"
@@ -2219,7 +2219,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.55.0.copyload = load ptr, ptr %.sroa.55.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !843)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !846)
-  %15 = icmp ult i64 %11, %9
+  %15 = icmp ugt i64 %9, %11
   br i1 %15, label %16, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hdb2f8ce25ffdb1ecE.exit.i"
 
 16:                                               ; preds = %2
@@ -3086,7 +3086,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.55.0.copyload = load ptr, ptr %.sroa.55.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1053)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1056)
-  %15 = icmp ult i64 %11, %9
+  %15 = icmp ugt i64 %9, %11
   br i1 %15, label %16, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h324d0bb7440cb09bE.exit.i"
 
 16:                                               ; preds = %2
@@ -3736,7 +3736,7 @@ common.resume:                                    ; preds = %147, %.body7, %45
   store i64 0, ptr %74, align 8, !noalias !1229
   call void @llvm.experimental.noalias.scope.decl(metadata !1234)
   call void @llvm.experimental.noalias.scope.decl(metadata !1237)
-  %85 = icmp ult i64 %83, %80
+  %85 = icmp ugt i64 %80, %83
   br i1 %85, label %86, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h277968b7414f0120E.exit.i.i.i.i"
 
 86:                                               ; preds = %.noexc9
@@ -3859,7 +3859,7 @@ common.resume:                                    ; preds = %147, %.body7, %45
   %120 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1272, !noalias !1271, !noundef !23
   %121 = load i64, ptr %17, align 8, !alias.scope !1272, !noalias !1271, !noundef !23
   %122 = sub i64 %121, %120
-  %123 = icmp ult i64 %122, %119
+  %123 = icmp ugt i64 %119, %122
   br i1 %123, label %124, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8ba524c528741928E.exit.i.i"
 
 124:                                              ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf5e28b5ce6a709b9E.exit.i.i"
@@ -4179,7 +4179,7 @@ common.resume:                                    ; preds = %147, %.body7, %45
   store i64 0, ptr %74, align 8, !noalias !1369
   call void @llvm.experimental.noalias.scope.decl(metadata !1374)
   call void @llvm.experimental.noalias.scope.decl(metadata !1377)
-  %85 = icmp ult i64 %83, %80
+  %85 = icmp ugt i64 %80, %83
   br i1 %85, label %86, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h277968b7414f0120E.exit.i.i.i.i"
 
 86:                                               ; preds = %.noexc9
@@ -4302,7 +4302,7 @@ common.resume:                                    ; preds = %147, %.body7, %45
   %120 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1412, !noalias !1411, !noundef !23
   %121 = load i64, ptr %17, align 8, !alias.scope !1412, !noalias !1411, !noundef !23
   %122 = sub i64 %121, %120
-  %123 = icmp ult i64 %122, %119
+  %123 = icmp ugt i64 %119, %122
   br i1 %123, label %124, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8ba524c528741928E.exit.i.i"
 
 124:                                              ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hde66cd1f89e11c3cE.exit.i.i"
@@ -4411,7 +4411,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.55.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1433)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1436)
-  %15 = icmp ult i64 %11, %9
+  %15 = icmp ugt i64 %9, %11
   br i1 %15, label %16, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h806991835e78fd18E.exit.i"
 
 16:                                               ; preds = %2
@@ -4480,7 +4480,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1451)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1454)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17haa8a7af6d9d80519E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -4573,7 +4573,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1502)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1505)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5e05bfce9e5b61d7E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -4677,7 +4677,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1553)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1556)
-  %19 = icmp ult i64 %15, %13
+  %19 = icmp ugt i64 %13, %15
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h04745053a0f5a0e5E.exit.i"
 
 20:                                               ; preds = %2
@@ -5095,7 +5095,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1656)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1659)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6a3ddacd92836df5E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -5188,7 +5188,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1707)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1710)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3ed042eeacbd7a74E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -5451,7 +5451,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1787)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1790)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h549440353d8df606E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -5906,7 +5906,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.55.0.copyload = load ptr, ptr %.sroa.55.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1898)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1901)
-  %15 = icmp ult i64 %11, %9
+  %15 = icmp ugt i64 %9, %11
   br i1 %15, label %16, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17ha38c037151c43676E.exit.i"
 
 16:                                               ; preds = %2
@@ -6373,7 +6373,7 @@ common.resume:                                    ; preds = %125, %.body, %35
   store i64 0, ptr %63, align 8, !noalias !2062
   call void @llvm.experimental.noalias.scope.decl(metadata !2067)
   call void @llvm.experimental.noalias.scope.decl(metadata !2070)
-  %74 = icmp ult i64 %72, %69
+  %74 = icmp ugt i64 %69, %72
   br i1 %74, label %75, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h277968b7414f0120E.exit.i.i.i.i"
 
 75:                                               ; preds = %.noexc8
@@ -6483,7 +6483,7 @@ common.resume:                                    ; preds = %125, %.body, %35
   %99 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !2089, !noalias !2088, !noundef !23
   %100 = load i64, ptr %17, align 8, !alias.scope !2089, !noalias !2088, !noundef !23
   %101 = sub i64 %100, %99
-  %102 = icmp ult i64 %101, %98
+  %102 = icmp ugt i64 %98, %101
   br i1 %102, label %103, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8ba524c528741928E.exit.i.i"
 
 103:                                              ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5ee9e36dac4ed1d8E.exit.i.i"
@@ -6590,7 +6590,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2110)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2113)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he3bbb88085a866c9E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -6683,7 +6683,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2164)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcb469cda49739611E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -7120,7 +7120,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha8b7093925438154E.exit.thread.i.i": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha8b7093925438154E.exit.i.i", %25, %24
   %.sroa.11.010.i.i = phi i64 [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha8b7093925438154E.exit.i.i" ], [ %spec.select.i12.i.i.i.i, %25 ], [ %10, %24 ]
-  %29 = icmp ult i64 %20, %.sroa.11.010.i.i
+  %29 = icmp ugt i64 %.sroa.11.010.i.i, %20
   br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h33a77ebc5bab9f8cE.exit.i"
 
 30:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha8b7093925438154E.exit.thread.i.i"
@@ -7452,7 +7452,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %9, align 8
-  %10 = icmp ult i64 %6, %spec.select.i
+  %10 = icmp ugt i64 %spec.select.i, %6
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h200e655ec3b972d6E.exit.i.i"
 
 11:                                               ; preds = %3
@@ -7701,7 +7701,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 0, ptr %15, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2418)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2421)
-  %16 = icmp ult i64 %12, %10
+  %16 = icmp ugt i64 %10, %12
   br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h277968b7414f0120E.exit.i"
 
 17:                                               ; preds = %3
@@ -7768,7 +7768,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2430)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2433)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd1fce8f84f36f725E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -7861,7 +7861,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2481)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2484)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h59578002adc95f98E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -8396,7 +8396,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2646)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2649)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h85d2294a2589f5d0E.exit.i.i"
 
 12:                                               ; preds = %2
@@ -8986,7 +8986,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.03.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2905)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2908)
-  %11 = icmp ult i64 %7, %spec.select.i.i
+  %11 = icmp ugt i64 %spec.select.i.i, %7
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2b85202fa52c8a9fE.exit.i.i"
 
 12:                                               ; preds = %2
@@ -9867,7 +9867,7 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
   %10 = load i64, ptr %9, align 8, !noundef !23
   %11 = load i64, ptr %0, align 8, !alias.scope !3180, !noundef !23
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %8
+  %13 = icmp ugt i64 %8, %12
   br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he7eaa77f99f259e6E.llvm.10122841070676192969.exit"
 
 14:                                               ; preds = %3
@@ -9898,7 +9898,7 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
   %9 = load i64, ptr %8, align 8, !noundef !23
   %10 = load i64, ptr %0, align 8, !alias.scope !3183, !noundef !23
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %7
+  %12 = icmp ugt i64 %7, %11
   br i1 %12, label %13, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h798049518f6079ccE.llvm.10122841070676192969.exit"
 
 13:                                               ; preds = %3
@@ -12292,7 +12292,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17hc96d6018d9
   %4 = load i64, ptr %3, align 8, !noundef !23
   %5 = load i64, ptr %0, align 8, !alias.scope !3559, !noundef !23
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h5f31e0154b757a4cE.exit.thread"
 
 8:                                                ; preds = %2
@@ -12310,7 +12310,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17hc96d6018d9
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h5f31e0154b757a4cE.exit.thread": ; preds = %2, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre9.i, %._crit_edge.i ], [ %6, %2 ]
-  %11 = icmp uge i64 %.pre-phi.i, %1
+  %11 = icmp ule i64 %1, %.pre-phi.i
   tail call void @llvm.assume(i1 %11)
   ret void
 
@@ -12347,7 +12347,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h4159961df
   %17 = load i64, ptr %16, align 8, !noundef !23
   %18 = load i64, ptr %0, align 8, !alias.scope !3572, !noundef !23
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.0.sroa.speculated.i.i
+  %20 = icmp ugt i64 %.0.sroa.speculated.i.i, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8f812c587dc79182E.exit"
@@ -12465,7 +12465,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h7dec65d0a
   %15 = load i64, ptr %14, align 8, !alias.scope !3612, !noundef !23
   %16 = load i64, ptr %0, align 8, !alias.scope !3612, !noundef !23
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %.0.sroa.speculated.i.i.i
+  %18 = icmp ugt i64 %.0.sroa.speculated.i.i.i, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h637bc9219ac46e54E.exit"
 
 19:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9c82f8674d307f96E.exit"
@@ -12521,7 +12521,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17he9b108d37
   %16 = load i64, ptr %15, align 8, !alias.scope !3632, !noundef !23
   %17 = load i64, ptr %0, align 8, !alias.scope !3632, !noundef !23
   %18 = sub i64 %17, %16
-  %19 = icmp ult i64 %18, %.0.sroa.speculated.i.i.i
+  %19 = icmp ugt i64 %.0.sroa.speculated.i.i.i, %18
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h637bc9219ac46e54E.exit"
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h61a630f92bfcf7bcE.exit"
@@ -18746,7 +18746,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hea24178
   store i64 0, ptr %52, align 8, !noalias !5662
   call void @llvm.experimental.noalias.scope.decl(metadata !5667), !noalias !5670
   call void @llvm.experimental.noalias.scope.decl(metadata !5671), !noalias !5670
-  %135 = icmp ult i64 %133, %130
+  %135 = icmp ugt i64 %130, %133
   br i1 %135, label %136, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h277968b7414f0120E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
 136:                                              ; preds = %.noexc12.i.i.i.i.i.i.i.i.i.i.i
@@ -18938,7 +18938,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hea24178
   store i64 0, ptr %57, align 8, !noalias !5733
   call void @llvm.experimental.noalias.scope.decl(metadata !5738)
   call void @llvm.experimental.noalias.scope.decl(metadata !5741)
-  %183 = icmp ult i64 %181, %178
+  %183 = icmp ugt i64 %178, %181
   br i1 %183, label %184, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h277968b7414f0120E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
 184:                                              ; preds = %.noexc8.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -19048,7 +19048,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hea24178
   %208 = load i64, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !5762, !noalias !5761, !noundef !23
   %209 = load i64, ptr %22, align 8, !alias.scope !5762, !noalias !5761, !noundef !23
   %210 = sub i64 %209, %208
-  %211 = icmp ult i64 %210, %207
+  %211 = icmp ugt i64 %207, %210
   br i1 %211, label %212, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8ba524c528741928E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
 212:                                              ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7784d37ebd5067cfE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
@@ -20464,7 +20464,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc47a90
   %5 = load i64, ptr %4, align 8, !alias.scope !5914, !noundef !23
   %6 = load i64, ptr %0, align 8, !alias.scope !5917, !noundef !23
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hb4b946652159d089E.llvm.10122841070676192969.exit"
 
 9:                                                ; preds = %3
@@ -20490,7 +20490,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he177a3
   %5 = load i64, ptr %4, align 8, !alias.scope !5920, !noundef !23
   %6 = load i64, ptr %0, align 8, !alias.scope !5923, !noundef !23
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h628e759c9743e6d4E.llvm.10122841070676192969.exit"
 
 9:                                                ; preds = %3
@@ -20531,7 +20531,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h798049518f6079ccE
   %4 = load i64, ptr %3, align 8, !noundef !23
   %5 = load i64, ptr %0, align 8, !noundef !23
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -20548,7 +20548,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he7eaa77f99f259e6E
   %4 = load i64, ptr %3, align 8, !noundef !23
   %5 = load i64, ptr %0, align 8, !noundef !23
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -21312,7 +21312,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %23 = ptrtoint ptr %.val.i.i.i to i64
   %24 = sub nuw i64 %22, %23
   %25 = udiv exact i64 %24, 24
-  %26 = icmp ult i64 %16, %25
+  %26 = icmp ugt i64 %25, %16
   br i1 %26, label %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1e2b92112b392e76E.exit.i.i"
 
 27:                                               ; preds = %15
@@ -23927,7 +23927,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %16 = load i64, ptr %15, align 8, !alias.scope !6559, !noalias !6549, !noundef !23
   %17 = load i64, ptr %0, align 8, !alias.scope !6559, !noalias !6549, !noundef !23
   %18 = sub i64 %17, %16
-  %19 = icmp ult i64 %18, %.0.sroa.speculated.i.i.i.i
+  %19 = icmp ugt i64 %.0.sroa.speculated.i.i.i.i, %18
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17he9b108d3766cc94bE.llvm.10122841070676192969.exit"
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h61a630f92bfcf7bcE.exit.i"
@@ -24008,7 +24008,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %15 = load i64, ptr %14, align 8, !alias.scope !6581, !noalias !6571, !noundef !23
   %16 = load i64, ptr %0, align 8, !alias.scope !6581, !noalias !6571, !noundef !23
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %.0.sroa.speculated.i.i.i.i
+  %18 = icmp ugt i64 %.0.sroa.speculated.i.i.i.i, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h7dec65d0a658254cE.llvm.10122841070676192969.exit"
 
 19:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9c82f8674d307f96E.exit.i"
@@ -24135,7 +24135,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %17 = load i64, ptr %16, align 8, !alias.scope !6615, !noalias !6618, !noundef !23
   %18 = load i64, ptr %0, align 8, !alias.scope !6630, !noalias !6618, !noundef !23
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.0.sroa.speculated.i.i.i
+  %20 = icmp ugt i64 %.0.sroa.speculated.i.i.i, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8f812c587dc79182E.exit.i"
@@ -24225,7 +24225,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   store i64 0, ptr %15, align 8, !noalias !6646
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6649)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6652)
-  %16 = icmp ult i64 %12, %10
+  %16 = icmp ugt i64 %10, %12
   br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h277968b7414f0120E.exit.i.i"
 
 17:                                               ; preds = %3
@@ -24338,7 +24338,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   store ptr %7, ptr %8, align 8, !noalias !6662
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %9, align 8, !noalias !6662
-  %10 = icmp ult i64 %6, %spec.select.i.i.i
+  %10 = icmp ugt i64 %spec.select.i.i.i, %6
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h200e655ec3b972d6E.exit.i.i.i"
 
 11:                                               ; preds = %3
@@ -24353,7 +24353,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h200e655ec3b972d6E.exit.i.i.i": ; preds = %.noexc.i, %3
   %12 = phi ptr [ %7, %3 ], [ %.pre.i, %.noexc.i ]
   %13 = phi i64 [ 0, %3 ], [ %.pre.i.i.i, %.noexc.i ]
-  %14 = icmp ugt i64 %2, %1
+  %14 = icmp ult i64 %1, %2
   br i1 %14, label %.lr.ph.i.i.i.i.i.i, label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h1a7ad3e17938ec0aE.llvm.10122841070676192969.exit"
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h200e655ec3b972d6E.exit.i.i.i", %.lr.ph.i.i.i.i.i.i
@@ -24363,7 +24363,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %17 = getelementptr inbounds i64, ptr %12, i64 %15
   store i64 %16, ptr %17, align 8, !noalias !6670
   %18 = add i64 %15, 1
-  %19 = icmp ugt i64 %16, %1
+  %19 = icmp ult i64 %1, %16
   br i1 %19, label %.lr.ph.i.i.i.i.i.i, label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h1a7ad3e17938ec0aE.llvm.10122841070676192969.exit"
 
 20:                                               ; preds = %11
@@ -24522,7 +24522,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   store ptr %7, ptr %8, align 8, !noalias !6690
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %9, align 8, !noalias !6690
-  %10 = icmp ult i64 %6, %spec.select.i.i
+  %10 = icmp ugt i64 %spec.select.i.i, %6
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h200e655ec3b972d6E.exit.i.i.i"
 
 11:                                               ; preds = %3

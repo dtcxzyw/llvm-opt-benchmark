@@ -584,7 +584,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN15ContourScan
   %16 = zext i1 %15 to i8
   %17 = icmp eq i32 %14, 1
   %.neg = sext i1 %2 to i32
-  %18 = add i32 %.neg, %3
+  %18 = add i32 %3, %.neg
   store i32 %18, ptr %6, align 8
   %19 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %4, ptr %19, align 4
@@ -922,7 +922,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
 184:                                              ; preds = %.loopexit.i
   %.051.val.i = load i32, ptr %.051.i, align 4
   %185 = and i32 %.val66.i, 1073741823
-  %186 = icmp eq i32 %185, %.051.val.i
+  %186 = icmp eq i32 %.051.val.i, %185
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %184
@@ -1639,7 +1639,7 @@ _ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIP
 
 144:                                              ; preds = %115
   %.not = icmp ne i8 %108, %.049176
-  %brmerge = or i1 %.not, %4
+  %brmerge = or i1 %4, %.not
   br i1 %brmerge, label %145, label %_ZNSt6vectorIaSaIaEE9push_backERKa.exit
 
 145:                                              ; preds = %144
@@ -1974,7 +1974,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_11contourScanEiRiRN2cv6Poi
   %.05679 = phi i1 [ %.05677818689, %85 ], [ false, %46 ], [ false, %46 ], [ %or.cond70.not, %47 ], [ false, %32 ], [ %or.cond70.not, %29 ], [ true, %.thread84 ], [ false, %13 ]
   %.057 = phi i32 [ %.1, %85 ], [ 0, %46 ], [ 0, %46 ], [ 0, %47 ], [ 0, %32 ], [ 0, %29 ], [ 0, %.thread84 ], [ 0, %13 ]
   %.neg74 = sext i1 %.05679 to i32
-  %110 = add i32 %.neg74, %4
+  %110 = add i32 %4, %.neg74
   store i32 %110, ptr %3, align 4
   %111 = getelementptr inbounds i8, ptr %0, i64 120
   %112 = load i8, ptr %111, align 8
@@ -2351,7 +2351,7 @@ define hidden noundef i32 @_ZN15ContourScanner_9findNextXEiiRiS0_(ptr nocapture 
 
 .preheader25:                                     ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = icmp sgt i32 %10, %1
+  %15 = icmp slt i32 %1, %10
   br i1 %15, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader25
@@ -2361,7 +2361,7 @@ define hidden noundef i32 @_ZN15ContourScanner_9findNextXEiiRiS0_(ptr nocapture 
   br label %38
 
 .preheader:                                       ; preds = %5
-  %19 = icmp sgt i32 %10, %1
+  %19 = icmp slt i32 %1, %10
   br i1 %19, label %.lr.ph31, label %.critedge
 
 .lr.ph31:                                         ; preds = %.preheader
@@ -2513,7 +2513,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_8findNextEv(ptr noundef no
   %54 = load i32, ptr %53, align 4
   %55 = add i32 %54, -1
   %56 = icmp eq i32 %51, 4
-  %57 = icmp sgt i32 %55, %.153
+  %57 = icmp slt i32 %.153, %55
   br i1 %56, label %.preheader.i, label %.preheader25.i
 
 .preheader25.i:                                   ; preds = %50
@@ -3577,7 +3577,7 @@ _ZNSt12_Vector_baseIN2cv8TreeNodeINS0_7ContourEEESaIS3_EE11_M_allocateEm.exit: ;
 _ZNSt6vectorIN2cv8TreeNodeINS0_7ContourEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN2cv8TreeNodeINS0_7ContourEEESaIS3_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv8TreeNodeINS0_7ContourEEESaIS3_EE11_M_allocateEm.exit ], [ %72, %.lr.ph.i.i.i.i ]
   %73 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 104
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv8TreeNodeINS0_7ContourEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv8TreeNodeINS0_7ContourEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i.i17

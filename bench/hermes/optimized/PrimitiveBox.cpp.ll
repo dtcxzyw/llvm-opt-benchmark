@@ -53,7 +53,7 @@ entry:
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
   %2 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %2, 2147483647
-  %cmp = icmp ugt i32 %and.i, %index
+  %cmp = icmp ult i32 %index, %and.i
   ret i1 %cmp
 }
 
@@ -71,7 +71,7 @@ entry:
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
   %2 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %2, 2147483647
-  %cmp = icmp ugt i32 %and.i, %index
+  %cmp = icmp ult i32 %index, %and.i
   %retval.sroa.0.0.insert.insert = select i1 %cmp, i32 65538, i32 0
   ret i32 %retval.sroa.0.0.insert.insert
 }
@@ -90,7 +90,7 @@ entry:
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
   %2 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %2, 2147483647
-  %cmp = icmp ugt i32 %and.i, %index
+  %cmp = icmp ult i32 %index, %and.i
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -207,7 +207,7 @@ entry:
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
   %3 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %3, 2147483647
-  %cmp = icmp ugt i32 %and.i, %index
+  %cmp = icmp ult i32 %index, %and.i
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -262,7 +262,7 @@ entry:
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
   %3 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %3, 2147483647
-  %cmp = icmp ule i32 %and.i, %index
+  %cmp = icmp uge i32 %index, %and.i
   ret i1 %cmp
 }
 

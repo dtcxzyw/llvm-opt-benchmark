@@ -2242,7 +2242,7 @@ define hidden noundef ptr @_Z21stbi_write_png_to_memPhiiiiPi(ptr nocapture nound
 
 .lr.ph325:                                        ; preds = %.preheader298
   %18 = icmp sgt i32 %4, 0
-  %19 = icmp sgt i32 %9, %4
+  %19 = icmp slt i32 %4, %9
   %20 = icmp sgt i32 %9, 0
   %21 = sext i32 %spec.select to i64
   %22 = sext i32 %4 to i64
@@ -4015,8 +4015,8 @@ common.resume:                                    ; preds = %.loopexit, %.loopex
   %.133 = phi ptr [ %57, %39 ], [ %.035, %.preheader ]
   %35 = load ptr, ptr %0, align 8
   %36 = mul nsw i64 %34, %indvars.iv40
-  %37 = getelementptr %"struct.nori::Color3f", ptr %35, i64 %36
-  %38 = getelementptr %"struct.nori::Color3f", ptr %37, i64 %indvars.iv
+  %37 = getelementptr %"struct.nori::Color3f", ptr %35, i64 %indvars.iv
+  %38 = getelementptr %"struct.nori::Color3f", ptr %37, i64 %36
   invoke void @_ZNK4nori7Color3f6toSRGBEv(ptr dead_on_unwind nonnull writable sret(%"struct.nori::Color3f") align 4 %5, ptr noundef nonnull align 4 dereferenceable(12) %38)
           to label %39 unwind label %.loopexit
 
@@ -4291,7 +4291,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIN4nori7Color3fELin1ELin
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
-  %.not = icmp eq i64 %9, %1
+  %.not = icmp eq i64 %1, %9
   br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %4

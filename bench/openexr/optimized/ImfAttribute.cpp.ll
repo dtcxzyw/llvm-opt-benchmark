@@ -463,7 +463,7 @@ _ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_1
   %retval.sroa.0.0.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i.i, %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ %__y.addr.0.lcssa.i.i.i.i, %while.body.i25.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
   %retval.sroa.3.0.i.i.i = phi ptr [ %__y.06.i.i.i, %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ %__y.addr.1.i31.i.i.i, %while.body.i25.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 24), align 8
-  %cmp.i.i1.i.i = icmp eq ptr %9, %retval.sroa.0.0.i.i.i
+  %cmp.i.i1.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i, %9
   %cmp.i1.i.i.i = icmp eq ptr %retval.sroa.3.0.i.i.i, getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 8)
   %or.cond.i.i.i = select i1 %cmp.i.i1.i.i, i1 %cmp.i1.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %while.cond.preheader.i.i.i

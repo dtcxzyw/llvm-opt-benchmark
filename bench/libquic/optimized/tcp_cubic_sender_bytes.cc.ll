@@ -172,7 +172,7 @@ define dso_local void @_ZN3net19TcpCubicSenderBytes12OnPacketLostEmmm(ptr nounde
 entry:
   %largest_sent_at_last_cutback_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i64, ptr %largest_sent_at_last_cutback_, align 8
-  %cmp.not = icmp ult i64 %0, %packet_number
+  %cmp.not = icmp ugt i64 %packet_number, %0
   br i1 %cmp.not, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %entry

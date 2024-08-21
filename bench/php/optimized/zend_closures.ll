@@ -513,7 +513,7 @@ define internal fastcc noundef zeroext i1 @zend_valid_closure_binding(ptr nocapt
 46:                                               ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %0, i64 72
   %48 = load ptr, ptr %47, align 8
-  %.not43 = icmp eq ptr %48, %2
+  %.not43 = icmp eq ptr %2, %48
   br i1 %.not43, label %56, label %49
 
 49:                                               ; preds = %46
@@ -534,7 +534,7 @@ define internal fastcc noundef zeroext i1 @zend_valid_closure_binding(ptr nocapt
 57:                                               ; preds = %56
   %58 = getelementptr inbounds i8, ptr %0, i64 72
   %59 = load ptr, ptr %58, align 8
-  %.not44 = icmp eq ptr %59, %2
+  %.not44 = icmp eq ptr %2, %59
   br i1 %.not44, label %64, label %60
 
 60:                                               ; preds = %57
@@ -723,7 +723,7 @@ define internal fastcc void @do_closure_bind(ptr noundef %0, ptr nocapture %.0.v
   %9 = load ptr, ptr @zend_known_strings, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 144
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %3
+  %12 = icmp eq ptr %3, %11
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %8

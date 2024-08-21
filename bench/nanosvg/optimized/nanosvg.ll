@@ -1016,8 +1016,8 @@ nsvg__viewAlign.exit167.i:                        ; preds = %230, %228, %nsvg__v
   %345 = fpext float %344 to double
   %346 = load float, ptr %244, align 4
   %347 = fpext float %346 to double
-  %348 = fneg double %345
-  %349 = fmul double %348, %347
+  %348 = fneg double %347
+  %349 = fmul double %345, %348
   %350 = tail call double @llvm.fmuladd.f64(double %341, double %343, double %349)
   %351 = tail call double @llvm.fabs.f64(double %350)
   %or.cond.i.i = fcmp olt double %351, 0x3EB0C6F7A0B5ED8D
@@ -1046,8 +1046,8 @@ nsvg__viewAlign.exit167.i:                        ; preds = %230, %228, %nsvg__v
   %363 = fpext float %362 to double
   %364 = load float, ptr %246, align 16
   %365 = fpext float %364 to double
-  %366 = fneg double %343
-  %367 = fmul double %366, %365
+  %366 = fneg double %365
+  %367 = fmul double %343, %366
   %368 = tail call double @llvm.fmuladd.f64(double %345, double %363, double %367)
   %369 = fmul double %354, %368
   %370 = fptrunc double %369 to float
@@ -1063,8 +1063,8 @@ nsvg__viewAlign.exit167.i:                        ; preds = %230, %228, %nsvg__v
   %378 = fptrunc double %377 to float
   %379 = getelementptr inbounds i8, ptr %339, i64 12
   store float %378, ptr %379, align 4
-  %380 = fneg double %341
-  %381 = fmul double %380, %363
+  %380 = fneg double %363
+  %381 = fmul double %341, %380
   %382 = tail call double @llvm.fmuladd.f64(double %347, double %365, double %381)
   %383 = fmul double %354, %382
   %384 = fptrunc double %383 to float
@@ -1139,8 +1139,8 @@ nsvg__xformInverse.exit.i:                        ; preds = %353, %352
   %435 = fpext float %434 to double
   %436 = load float, ptr %244, align 4
   %437 = fpext float %436 to double
-  %438 = fneg double %435
-  %439 = fmul double %438, %437
+  %438 = fneg double %437
+  %439 = fmul double %435, %438
   %440 = tail call double @llvm.fmuladd.f64(double %431, double %433, double %439)
   %441 = tail call double @llvm.fabs.f64(double %440)
   %or.cond.i168.i = fcmp olt double %441, 0x3EB0C6F7A0B5ED8D
@@ -1169,8 +1169,8 @@ nsvg__xformInverse.exit.i:                        ; preds = %353, %352
   %453 = fpext float %452 to double
   %454 = load float, ptr %246, align 16
   %455 = fpext float %454 to double
-  %456 = fneg double %433
-  %457 = fmul double %456, %455
+  %456 = fneg double %455
+  %457 = fmul double %433, %456
   %458 = tail call double @llvm.fmuladd.f64(double %435, double %453, double %457)
   %459 = fmul double %444, %458
   %460 = fptrunc double %459 to float
@@ -1186,8 +1186,8 @@ nsvg__xformInverse.exit.i:                        ; preds = %353, %352
   %468 = fptrunc double %467 to float
   %469 = getelementptr inbounds i8, ptr %429, i64 12
   store float %468, ptr %469, align 4
-  %470 = fneg double %431
-  %471 = fmul double %470, %453
+  %470 = fneg double %453
+  %471 = fmul double %431, %470
   %472 = tail call double @llvm.fmuladd.f64(double %437, double %455, double %471)
   %473 = fmul double %444, %472
   %474 = fptrunc double %473 to float
@@ -1953,8 +1953,8 @@ nsvg__pathQuadBezTo.exit.i:                       ; preds = %231, %223
 
 314:                                              ; preds = %282
   %315 = fneg float %310
-  %316 = fneg float %309
-  %317 = fmul float %302, %316
+  %316 = fneg float %302
+  %317 = fmul float %309, %316
   %318 = call float @llvm.fmuladd.f32(float %309, float %310, float %317)
   %319 = call float @llvm.fmuladd.f32(float %315, float %299, float %318)
   %320 = fcmp olt float %319, 0.000000e+00
@@ -4540,7 +4540,7 @@ define dso_local void @nsvgRasterize(ptr noundef %0, ptr nocapture noundef reado
   store i32 %8, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 96
   %17 = load i32, ptr %16, align 8
-  %18 = icmp slt i32 %17, %6
+  %18 = icmp sgt i32 %6, %17
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %9
@@ -4642,10 +4642,10 @@ nsvg__resetPool.exit:                             ; preds = %53, %._crit_edge.lo
   store i32 0, ptr %38, align 8
   %58 = load ptr, ptr %.04869.i, align 8
   %59 = load float, ptr %58, align 4
-  %60 = fmul float %59, %4
+  %60 = fmul float %4, %59
   %61 = getelementptr inbounds i8, ptr %58, i64 4
   %62 = load float, ptr %61, align 4
-  %63 = fmul float %62, %4
+  %63 = fmul float %4, %62
   %64 = load i32, ptr %39, align 4
   %.not29.i.i = icmp sgt i32 %64, 0
   br i1 %.not29.i.i, label %._crit_edge.i.i, label %65
@@ -4693,28 +4693,28 @@ nsvg__addPathPoint.exit.i:                        ; preds = %69, %65
   %.idx.i = shl nsw i64 %indvars.iv.i, 3
   %82 = getelementptr inbounds i8, ptr %81, i64 %.idx.i
   %83 = load float, ptr %82, align 4
-  %84 = fmul float %83, %4
+  %84 = fmul float %4, %83
   %85 = getelementptr inbounds i8, ptr %82, i64 4
   %86 = load float, ptr %85, align 4
-  %87 = fmul float %86, %4
+  %87 = fmul float %4, %86
   %88 = getelementptr inbounds i8, ptr %82, i64 8
   %89 = load float, ptr %88, align 4
-  %90 = fmul float %89, %4
+  %90 = fmul float %4, %89
   %91 = getelementptr inbounds i8, ptr %82, i64 12
   %92 = load float, ptr %91, align 4
-  %93 = fmul float %92, %4
+  %93 = fmul float %4, %92
   %94 = getelementptr inbounds i8, ptr %82, i64 16
   %95 = load float, ptr %94, align 4
-  %96 = fmul float %95, %4
+  %96 = fmul float %4, %95
   %97 = getelementptr inbounds i8, ptr %82, i64 20
   %98 = load float, ptr %97, align 4
-  %99 = fmul float %98, %4
+  %99 = fmul float %4, %98
   %100 = getelementptr inbounds i8, ptr %82, i64 24
   %101 = load float, ptr %100, align 4
-  %102 = fmul float %101, %4
+  %102 = fmul float %4, %101
   %103 = getelementptr inbounds i8, ptr %82, i64 28
   %104 = load float, ptr %103, align 4
-  %105 = fmul float %104, %4
+  %105 = fmul float %4, %104
   tail call fastcc void @nsvg__flattenCubicBez(ptr noundef %0, float noundef %84, float noundef %87, float noundef %90, float noundef %93, float noundef %96, float noundef %99, float noundef %102, float noundef %105, i32 noundef 0, i32 noundef 0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
   %106 = load i32, ptr %78, align 8
@@ -4726,10 +4726,10 @@ nsvg__addPathPoint.exit.i:                        ; preds = %69, %65
 ._crit_edge.i:                                    ; preds = %.lr.ph.i115, %nsvg__addPathPoint.exit.i
   %110 = load ptr, ptr %.04869.i, align 8
   %111 = load float, ptr %110, align 4
-  %112 = fmul float %111, %4
+  %112 = fmul float %4, %111
   %113 = getelementptr inbounds i8, ptr %110, i64 4
   %114 = load float, ptr %113, align 4
-  %115 = fmul float %114, %4
+  %115 = fmul float %4, %114
   %116 = load i32, ptr %38, align 8
   %117 = icmp sgt i32 %116, 0
   br i1 %117, label %118, label %133
@@ -4890,20 +4890,20 @@ nsvg__flattenShape.exit:                          ; preds = %._crit_edge66.i
   %193 = load ptr, ptr %43, align 8
   %194 = getelementptr inbounds %struct.NSVGedge, ptr %193, i64 %indvars.iv182
   %195 = load float, ptr %194, align 8
-  %196 = fadd float %195, %2
+  %196 = fadd float %2, %195
   store float %196, ptr %194, align 8
   %197 = getelementptr inbounds i8, ptr %194, i64 4
   %198 = load float, ptr %197, align 4
-  %199 = fadd float %198, %3
+  %199 = fadd float %3, %198
   %200 = fmul float %199, 5.000000e+00
   store float %200, ptr %197, align 4
   %201 = getelementptr inbounds i8, ptr %194, i64 8
   %202 = load float, ptr %201, align 8
-  %203 = fadd float %202, %2
+  %203 = fadd float %2, %202
   store float %203, ptr %201, align 8
   %204 = getelementptr inbounds i8, ptr %194, i64 12
   %205 = load float, ptr %204, align 4
-  %206 = fadd float %205, %3
+  %206 = fadd float %3, %205
   %207 = fmul float %206, 5.000000e+00
   store float %207, ptr %204, align 4
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
@@ -4941,7 +4941,7 @@ nsvg__flattenShape.exit:                          ; preds = %._crit_edge66.i
 221:                                              ; preds = %218
   %222 = getelementptr inbounds i8, ptr %.0103166, i64 100
   %223 = load float, ptr %222, align 4
-  %224 = fmul float %223, %4
+  %224 = fmul float %4, %223
   %225 = fcmp ogt float %224, 0x3F847AE140000000
   br i1 %225, label %226, label %696
 
@@ -4979,7 +4979,7 @@ nsvg__resetPool.exit125:                          ; preds = %226, %._crit_edge.l
   %236 = load i8, ptr %235, align 2
   %237 = sext i8 %236 to i32
   %238 = load float, ptr %222, align 4
-  %239 = fmul float %238, %4
+  %239 = fmul float %4, %238
   %240 = getelementptr inbounds i8, ptr %.0103166, i64 320
   %.0154324.i = load ptr, ptr %240, align 8
   %.not325.i = icmp eq ptr %.0154324.i, null
@@ -5003,10 +5003,10 @@ nsvg__resetPool.exit125:                          ; preds = %226, %._crit_edge.l
   store i32 0, ptr %38, align 8
   %247 = load ptr, ptr %.0154326.i, align 8
   %248 = load float, ptr %247, align 4
-  %249 = fmul float %248, %4
+  %249 = fmul float %4, %248
   %250 = getelementptr inbounds i8, ptr %247, i64 4
   %251 = load float, ptr %250, align 4
-  %252 = fmul float %251, %4
+  %252 = fmul float %4, %251
   %253 = load i32, ptr %39, align 4
   %.not29.i.i126 = icmp sgt i32 %253, 0
   br i1 %.not29.i.i126, label %._crit_edge.i.i138, label %254
@@ -5054,28 +5054,28 @@ nsvg__addPathPoint.exit.i129:                     ; preds = %258, %254
   %.idx.i136 = shl nsw i64 %indvars.iv.i135, 3
   %271 = getelementptr inbounds i8, ptr %270, i64 %.idx.i136
   %272 = load float, ptr %271, align 4
-  %273 = fmul float %272, %4
+  %273 = fmul float %4, %272
   %274 = getelementptr inbounds i8, ptr %271, i64 4
   %275 = load float, ptr %274, align 4
-  %276 = fmul float %275, %4
+  %276 = fmul float %4, %275
   %277 = getelementptr inbounds i8, ptr %271, i64 8
   %278 = load float, ptr %277, align 4
-  %279 = fmul float %278, %4
+  %279 = fmul float %4, %278
   %280 = getelementptr inbounds i8, ptr %271, i64 12
   %281 = load float, ptr %280, align 4
-  %282 = fmul float %281, %4
+  %282 = fmul float %4, %281
   %283 = getelementptr inbounds i8, ptr %271, i64 16
   %284 = load float, ptr %283, align 4
-  %285 = fmul float %284, %4
+  %285 = fmul float %4, %284
   %286 = getelementptr inbounds i8, ptr %271, i64 20
   %287 = load float, ptr %286, align 4
-  %288 = fmul float %287, %4
+  %288 = fmul float %4, %287
   %289 = getelementptr inbounds i8, ptr %271, i64 24
   %290 = load float, ptr %289, align 4
-  %291 = fmul float %290, %4
+  %291 = fmul float %4, %290
   %292 = getelementptr inbounds i8, ptr %271, i64 28
   %293 = load float, ptr %292, align 4
-  %294 = fmul float %293, %4
+  %294 = fmul float %4, %293
   tail call fastcc void @nsvg__flattenCubicBez(ptr noundef %0, float noundef %273, float noundef %276, float noundef %279, float noundef %282, float noundef %285, float noundef %288, float noundef %291, float noundef %294, i32 noundef 0, i32 noundef 1)
   %indvars.iv.next.i137 = add nuw nsw i64 %indvars.iv.i135, 3
   %295 = load i32, ptr %267, align 8
@@ -5319,7 +5319,7 @@ nsvg__appendPathPoint.exit193.i:                  ; preds = %364, %360
 
 .lr.ph321.preheader.i:                            ; preds = %._crit_edge308.i
   %398 = fsub float %.lcssa295.i, %.1159.lcssa.i
-  %399 = fmul float %398, %4
+  %399 = fmul float %4, %398
   br label %.lr.ph321.i
 
 .lr.ph321.i:                                      ; preds = %nsvg__appendPathPoint.exit213.i, %.lr.ph321.preheader.i
@@ -5528,8 +5528,8 @@ nsvg__normalize.exit.i.i:                         ; preds = %476, %.lr.ph.i.i
   store i8 %517, ptr %515, align 4
   %518 = load float, ptr %493, align 4
   %519 = load float, ptr %494, align 4
-  %520 = fneg float %519
-  %521 = fmul float %496, %520
+  %520 = fneg float %496
+  %521 = fmul float %519, %520
   %522 = tail call float @llvm.fmuladd.f32(float %498, float %518, float %521)
   %523 = fcmp ogt float %522, 0.000000e+00
   br i1 %523, label %524, label %526
@@ -5579,7 +5579,7 @@ nsvg__prepareStroke.exit.i:                       ; preds = %534, %._crit_edge.i
   %548 = sext i32 %547 to i64
   %549 = getelementptr inbounds [8 x float], ptr %244, i64 0, i64 %548
   %550 = load float, ptr %549, align 4
-  %551 = fmul float %550, %4
+  %551 = fmul float %4, %550
   store i32 0, ptr %38, align 8
   %552 = load i32, ptr %39, align 4
   %.not.i206.i = icmp sgt i32 %552, 0
@@ -5811,8 +5811,8 @@ nsvg__normalize.exit.i228.i:                      ; preds = %605, %.lr.ph.i223.i
   store i8 %645, ptr %643, align 4
   %646 = load float, ptr %621, align 4
   %647 = load float, ptr %622, align 4
-  %648 = fneg float %647
-  %649 = fmul float %624, %648
+  %648 = fneg float %624
+  %649 = fmul float %647, %648
   %650 = tail call float @llvm.fmuladd.f32(float %626, float %646, float %649)
   %651 = fcmp ogt float %650, 0.000000e+00
   br i1 %651, label %652, label %654
@@ -5874,20 +5874,20 @@ nsvg__flattenShapeStroke.exit:                    ; preds = %669
   %672 = load ptr, ptr %43, align 8
   %673 = getelementptr inbounds %struct.NSVGedge, ptr %672, i64 %indvars.iv185
   %674 = load float, ptr %673, align 8
-  %675 = fadd float %674, %2
+  %675 = fadd float %2, %674
   store float %675, ptr %673, align 8
   %676 = getelementptr inbounds i8, ptr %673, i64 4
   %677 = load float, ptr %676, align 4
-  %678 = fadd float %677, %3
+  %678 = fadd float %3, %677
   %679 = fmul float %678, 5.000000e+00
   store float %679, ptr %676, align 4
   %680 = getelementptr inbounds i8, ptr %673, i64 8
   %681 = load float, ptr %680, align 8
-  %682 = fadd float %681, %2
+  %682 = fadd float %2, %681
   store float %682, ptr %680, align 8
   %683 = getelementptr inbounds i8, ptr %673, i64 12
   %684 = load float, ptr %683, align 4
-  %685 = fadd float %684, %3
+  %685 = fadd float %3, %684
   %686 = fmul float %685, 5.000000e+00
   store float %686, ptr %683, align 4
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
@@ -12853,97 +12853,98 @@ nsvg__ptInBounds.exit.thread:                     ; preds = %nsvg__ptInBounds.ex
   br label %.lr.ph
 
 78:                                               ; preds = %nsvg__ptInBounds.exit.thread
-  %79 = fmul double %66, -4.000000e+00
-  %80 = fmul double %79, %61
-  %81 = tail call double @llvm.fmuladd.f64(double %64, double %64, double %80)
-  %82 = fcmp ogt double %81, 0x3D719799812DEA11
-  br i1 %82, label %83, label %._crit_edge
+  %79 = fmul double %66, 4.000000e+00
+  %80 = fneg double %61
+  %81 = fmul double %79, %80
+  %82 = tail call double @llvm.fmuladd.f64(double %64, double %64, double %81)
+  %83 = fcmp ogt double %82, 0x3D719799812DEA11
+  br i1 %83, label %84, label %._crit_edge
 
-83:                                               ; preds = %78
-  %84 = fneg double %64
-  %85 = tail call double @sqrt(double noundef %81) #31
-  %86 = fsub double %85, %64
-  %87 = fmul double %61, 2.000000e+00
-  %88 = fdiv double %86, %87
-  %89 = fcmp ogt double %88, 0x3D719799812DEA11
-  %90 = fcmp olt double %88, 0x3FEFFFFFFFFFDCD1
-  %or.cond3 = and i1 %89, %90
-  br i1 %or.cond3, label %91, label %92
+84:                                               ; preds = %78
+  %85 = fneg double %64
+  %86 = tail call double @sqrt(double noundef %82) #31
+  %87 = fsub double %86, %64
+  %88 = fmul double %61, 2.000000e+00
+  %89 = fdiv double %87, %88
+  %90 = fcmp ogt double %89, 0x3D719799812DEA11
+  %91 = fcmp olt double %89, 0x3FEFFFFFFFFFDCD1
+  %or.cond3 = and i1 %90, %91
+  br i1 %or.cond3, label %92, label %93
 
-91:                                               ; preds = %83
-  store double %88, ptr %3, align 16
-  br label %92
+92:                                               ; preds = %84
+  store double %89, ptr %3, align 16
+  br label %93
 
-92:                                               ; preds = %91, %83
-  %.1 = phi i32 [ 1, %91 ], [ 0, %83 ]
-  %93 = tail call double @sqrt(double noundef %81) #31
-  %94 = fsub double %84, %93
-  %95 = fdiv double %94, %87
-  %96 = fcmp ogt double %95, 0x3D719799812DEA11
-  %97 = fcmp olt double %95, 0x3FEFFFFFFFFFDCD1
-  %or.cond5 = and i1 %96, %97
-  br i1 %or.cond5, label %98, label %102
+93:                                               ; preds = %92, %84
+  %.1 = phi i32 [ 1, %92 ], [ 0, %84 ]
+  %94 = tail call double @sqrt(double noundef %82) #31
+  %95 = fsub double %85, %94
+  %96 = fdiv double %95, %88
+  %97 = fcmp ogt double %96, 0x3D719799812DEA11
+  %98 = fcmp olt double %96, 0x3FEFFFFFFFFFDCD1
+  %or.cond5 = and i1 %97, %98
+  br i1 %or.cond5, label %99, label %103
 
-98:                                               ; preds = %92
-  %99 = add nuw nsw i32 %.1, 1
-  %100 = zext nneg i32 %.1 to i64
-  %101 = getelementptr inbounds [2 x double], ptr %3, i64 0, i64 %100
-  store double %95, ptr %101, align 8
+99:                                               ; preds = %93
+  %100 = add nuw nsw i32 %.1, 1
+  %101 = zext nneg i32 %.1 to i64
+  %102 = getelementptr inbounds [2 x double], ptr %3, i64 0, i64 %101
+  store double %96, ptr %102, align 8
   br label %.lr.ph
 
-102:                                              ; preds = %92
+103:                                              ; preds = %93
   br i1 %or.cond3, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %98, %77, %102
-  %.094118 = phi i32 [ 1, %102 ], [ %99, %98 ], [ 1, %77 ]
-  %103 = getelementptr inbounds float, ptr %0, i64 %indvars.iv110
-  %104 = or disjoint i64 %indvars.iv110, 2
-  %105 = getelementptr inbounds float, ptr %0, i64 %104
+.lr.ph:                                           ; preds = %99, %77, %103
+  %.094118 = phi i32 [ 1, %103 ], [ %100, %99 ], [ 1, %77 ]
+  %104 = getelementptr inbounds float, ptr %0, i64 %indvars.iv110
+  %105 = or disjoint i64 %indvars.iv110, 2
+  %106 = getelementptr inbounds float, ptr %0, i64 %105
   %wide.trip.count = zext nneg i32 %.094118 to i64
-  %.pre = load float, ptr %103, align 4
-  %.pre113 = load float, ptr %105, align 4
-  br label %106
+  %.pre = load float, ptr %104, align 4
+  %.pre113 = load float, ptr %106, align 4
+  br label %107
 
-106:                                              ; preds = %.lr.ph, %106
-  %107 = phi float [ %.pre113, %.lr.ph ], [ %137, %106 ]
-  %108 = phi float [ %.pre, %.lr.ph ], [ %135, %106 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
-  %109 = getelementptr inbounds [2 x double], ptr %3, i64 0, i64 %indvars.iv
-  %110 = load double, ptr %109, align 8
-  %111 = load float, ptr %46, align 4
-  %112 = fpext float %111 to double
-  %113 = load float, ptr %49, align 4
-  %114 = fpext float %113 to double
-  %115 = load float, ptr %54, align 4
-  %116 = fpext float %115 to double
-  %117 = load float, ptr %58, align 4
-  %118 = fpext float %117 to double
-  %119 = fsub double 1.000000e+00, %110
-  %120 = fmul double %119, %119
-  %121 = fmul double %119, %120
-  %122 = fmul double %119, 3.000000e+00
-  %123 = fmul double %119, %122
-  %124 = fmul double %110, %123
-  %125 = fmul double %124, %114
-  %126 = tail call double @llvm.fmuladd.f64(double %121, double %112, double %125)
-  %127 = fmul double %110, %122
-  %128 = fmul double %110, %127
-  %129 = tail call double @llvm.fmuladd.f64(double %128, double %116, double %126)
-  %130 = fmul double %110, %110
-  %131 = fmul double %110, %130
-  %132 = tail call double @llvm.fmuladd.f64(double %131, double %118, double %129)
-  %133 = fptrunc double %132 to float
-  %134 = fcmp olt float %108, %133
-  %135 = select i1 %134, float %108, float %133
-  store float %135, ptr %103, align 4
-  %136 = fcmp ogt float %107, %133
-  %137 = select i1 %136, float %107, float %133
-  store float %137, ptr %105, align 4
+107:                                              ; preds = %.lr.ph, %107
+  %108 = phi float [ %.pre113, %.lr.ph ], [ %138, %107 ]
+  %109 = phi float [ %.pre, %.lr.ph ], [ %136, %107 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
+  %110 = getelementptr inbounds [2 x double], ptr %3, i64 0, i64 %indvars.iv
+  %111 = load double, ptr %110, align 8
+  %112 = load float, ptr %46, align 4
+  %113 = fpext float %112 to double
+  %114 = load float, ptr %49, align 4
+  %115 = fpext float %114 to double
+  %116 = load float, ptr %54, align 4
+  %117 = fpext float %116 to double
+  %118 = load float, ptr %58, align 4
+  %119 = fpext float %118 to double
+  %120 = fsub double 1.000000e+00, %111
+  %121 = fmul double %120, %120
+  %122 = fmul double %120, %121
+  %123 = fmul double %120, 3.000000e+00
+  %124 = fmul double %120, %123
+  %125 = fmul double %111, %124
+  %126 = fmul double %125, %115
+  %127 = tail call double @llvm.fmuladd.f64(double %122, double %113, double %126)
+  %128 = fmul double %111, %123
+  %129 = fmul double %111, %128
+  %130 = tail call double @llvm.fmuladd.f64(double %129, double %117, double %127)
+  %131 = fmul double %111, %111
+  %132 = fmul double %111, %131
+  %133 = tail call double @llvm.fmuladd.f64(double %132, double %119, double %130)
+  %134 = fptrunc double %133 to float
+  %135 = fcmp olt float %109, %134
+  %136 = select i1 %135, float %109, float %134
+  store float %136, ptr %104, align 4
+  %137 = fcmp ogt float %108, %134
+  %138 = select i1 %137, float %108, float %134
+  store float %138, ptr %106, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %106, !llvm.loop !110
+  br i1 %exitcond.not, label %._crit_edge, label %107, !llvm.loop !110
 
-._crit_edge:                                      ; preds = %106, %78, %69, %72, %102
+._crit_edge:                                      ; preds = %107, %78, %69, %72, %103
   br i1 %45, label %nsvg__ptInBounds.exit.thread, label %.loopexit, !llvm.loop !111
 
 .loopexit:                                        ; preds = %._crit_edge, %40
@@ -12975,8 +12976,8 @@ define internal fastcc void @nsvg__xformInverse(ptr nocapture noundef writeonly 
   %11 = getelementptr inbounds i8, ptr %1, i64 4
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
-  %14 = fneg double %10
-  %15 = fmul double %14, %13
+  %14 = fneg double %13
+  %15 = fmul double %10, %14
   %16 = tail call double @llvm.fmuladd.f64(double %4, double %7, double %15)
   %17 = tail call double @llvm.fabs.f64(double %16)
   %or.cond = fcmp olt double %17, 0x3EB0C6F7A0B5ED8D
@@ -13013,8 +13014,8 @@ define internal fastcc void @nsvg__xformInverse(ptr nocapture noundef writeonly 
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load float, ptr %37, align 4
   %39 = fpext float %38 to double
-  %40 = fneg double %36
-  %41 = fmul double %40, %39
+  %40 = fneg double %39
+  %41 = fmul double %36, %40
   %42 = tail call double @llvm.fmuladd.f64(double %31, double %34, double %41)
   %43 = fmul double %21, %42
   %44 = fptrunc double %43 to float
@@ -13041,8 +13042,8 @@ define internal fastcc void @nsvg__xformInverse(ptr nocapture noundef writeonly 
   %62 = fpext float %61 to double
   %63 = load float, ptr %32, align 4
   %64 = fpext float %63 to double
-  %65 = fneg double %62
-  %66 = fmul double %65, %64
+  %65 = fneg double %64
+  %66 = fmul double %62, %65
   %67 = tail call double @llvm.fmuladd.f64(double %58, double %60, double %66)
   %68 = fmul double %21, %67
   %69 = fptrunc double %68 to float
@@ -14109,149 +14110,148 @@ define internal fastcc void @nsvg__flattenCubicBez(ptr nocapture noundef %0, flo
   br label %14
 
 14:                                               ; preds = %.lr.ph, %tailrecurse
-  %.tr8290 = phi i32 [ %9, %.lr.ph ], [ %112, %tailrecurse ]
-  %.tr7989 = phi float [ %6, %.lr.ph ], [ %101, %tailrecurse ]
-  %.tr7888 = phi float [ %5, %.lr.ph ], [ %103, %tailrecurse ]
-  %.tr7787 = phi float [ %4, %.lr.ph ], [ %107, %tailrecurse ]
-  %.tr7686 = phi float [ %3, %.lr.ph ], [ %105, %tailrecurse ]
-  %.tr7585 = phi float [ %2, %.lr.ph ], [ %111, %tailrecurse ]
-  %.tr7484 = phi float [ %1, %.lr.ph ], [ %109, %tailrecurse ]
+  %.tr8290 = phi i32 [ %9, %.lr.ph ], [ %111, %tailrecurse ]
+  %.tr7989 = phi float [ %6, %.lr.ph ], [ %100, %tailrecurse ]
+  %.tr7888 = phi float [ %5, %.lr.ph ], [ %102, %tailrecurse ]
+  %.tr7787 = phi float [ %4, %.lr.ph ], [ %106, %tailrecurse ]
+  %.tr7686 = phi float [ %3, %.lr.ph ], [ %104, %tailrecurse ]
+  %.tr7585 = phi float [ %2, %.lr.ph ], [ %110, %tailrecurse ]
+  %.tr7484 = phi float [ %1, %.lr.ph ], [ %108, %tailrecurse ]
   %15 = fsub float %7, %.tr7484
   %16 = fsub float %8, %.tr7585
   %17 = fsub float %.tr7686, %7
   %18 = fsub float %.tr7787, %8
-  %19 = fneg float %18
-  %20 = fmul float %15, %19
+  %19 = fneg float %15
+  %20 = fmul float %18, %19
   %21 = tail call float @llvm.fmuladd.f32(float %17, float %16, float %20)
   %22 = fcmp olt float %21, 0.000000e+00
   %23 = fneg float %21
   %24 = select i1 %22, float %23, float %21
   %25 = fsub float %.tr7888, %7
   %26 = fsub float %.tr7989, %8
-  %27 = fneg float %26
-  %28 = fmul float %15, %27
-  %29 = tail call float @llvm.fmuladd.f32(float %25, float %16, float %28)
-  %30 = fcmp olt float %29, 0.000000e+00
-  %31 = fneg float %29
-  %32 = select i1 %30, float %31, float %29
-  %33 = fadd float %24, %32
-  %34 = fmul float %33, %33
-  %35 = load float, ptr %13, align 8
-  %36 = fmul float %16, %16
-  %37 = tail call float @llvm.fmuladd.f32(float %15, float %15, float %36)
-  %38 = fmul float %37, %35
-  %39 = fcmp olt float %34, %38
-  br i1 %39, label %40, label %tailrecurse
+  %27 = fmul float %26, %19
+  %28 = tail call float @llvm.fmuladd.f32(float %25, float %16, float %27)
+  %29 = fcmp olt float %28, 0.000000e+00
+  %30 = fneg float %28
+  %31 = select i1 %29, float %30, float %28
+  %32 = fadd float %24, %31
+  %33 = fmul float %32, %32
+  %34 = load float, ptr %13, align 8
+  %35 = fmul float %16, %16
+  %36 = tail call float @llvm.fmuladd.f32(float %15, float %15, float %35)
+  %37 = fmul float %36, %34
+  %38 = fcmp olt float %33, %37
+  br i1 %38, label %39, label %tailrecurse
 
-40:                                               ; preds = %14
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %44, label %66
+39:                                               ; preds = %14
+  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %43, label %65
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
-  %46 = load ptr, ptr %45, align 8
-  %47 = zext nneg i32 %42 to i64
-  %48 = getelementptr %struct.NSVGpoint, ptr %46, i64 %47
-  %49 = getelementptr i8, ptr %48, i64 -32
-  %50 = load float, ptr %49, align 4
-  %51 = getelementptr i8, ptr %48, i64 -28
-  %52 = load float, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 12
-  %54 = load float, ptr %53, align 4
-  %55 = fsub float %7, %50
-  %56 = fsub float %8, %52
-  %57 = fmul float %56, %56
-  %58 = tail call float @llvm.fmuladd.f32(float %55, float %55, float %57)
-  %59 = fmul float %54, %54
-  %60 = fcmp uge float %58, %59
-  br i1 %60, label %66, label %61
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = load ptr, ptr %44, align 8
+  %46 = zext nneg i32 %41 to i64
+  %47 = getelementptr %struct.NSVGpoint, ptr %45, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 -32
+  %49 = load float, ptr %48, align 4
+  %50 = getelementptr i8, ptr %47, i64 -28
+  %51 = load float, ptr %50, align 4
+  %52 = getelementptr inbounds i8, ptr %0, i64 12
+  %53 = load float, ptr %52, align 4
+  %54 = fsub float %7, %49
+  %55 = fsub float %8, %51
+  %56 = fmul float %55, %55
+  %57 = tail call float @llvm.fmuladd.f32(float %54, float %54, float %56)
+  %58 = fmul float %53, %53
+  %59 = fcmp uge float %57, %58
+  br i1 %59, label %65, label %60
 
-61:                                               ; preds = %44
-  %62 = getelementptr i8, ptr %48, i64 -4
-  %63 = load i8, ptr %62, align 4
-  %64 = trunc i32 %10 to i8
-  %65 = or i8 %63, %64
-  store i8 %65, ptr %62, align 4
+60:                                               ; preds = %43
+  %61 = getelementptr i8, ptr %47, i64 -4
+  %62 = load i8, ptr %61, align 4
+  %63 = trunc i32 %10 to i8
+  %64 = or i8 %62, %63
+  store i8 %64, ptr %61, align 4
   br label %nsvg__addPathPoint.exit
 
-66:                                               ; preds = %44, %40
-  %67 = getelementptr inbounds i8, ptr %0, i64 44
-  %68 = load i32, ptr %67, align 4
-  %.not29.i = icmp slt i32 %42, %68
-  br i1 %.not29.i, label %._crit_edge.i, label %69
+65:                                               ; preds = %43, %39
+  %66 = getelementptr inbounds i8, ptr %0, i64 44
+  %67 = load i32, ptr %66, align 4
+  %.not29.i = icmp slt i32 %41, %67
+  br i1 %.not29.i, label %._crit_edge.i, label %68
 
-._crit_edge.i:                                    ; preds = %66
+._crit_edge.i:                                    ; preds = %65
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 32
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %78
+  br label %77
 
-69:                                               ; preds = %66
-  %70 = icmp sgt i32 %68, 0
-  %71 = shl nuw nsw i32 %68, 1
-  %spec.select.i = select i1 %70, i32 %71, i32 64
-  store i32 %spec.select.i, ptr %67, align 4
-  %72 = getelementptr inbounds i8, ptr %0, i64 32
-  %73 = load ptr, ptr %72, align 8
-  %74 = zext nneg i32 %spec.select.i to i64
-  %75 = shl nuw nsw i64 %74, 5
-  %76 = tail call ptr @realloc(ptr noundef %73, i64 noundef %75) #33
-  store ptr %76, ptr %72, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %nsvg__addPathPoint.exit, label %._crit_edge30.i
+68:                                               ; preds = %65
+  %69 = icmp sgt i32 %67, 0
+  %70 = shl nuw nsw i32 %67, 1
+  %spec.select.i = select i1 %69, i32 %70, i32 64
+  store i32 %spec.select.i, ptr %66, align 4
+  %71 = getelementptr inbounds i8, ptr %0, i64 32
+  %72 = load ptr, ptr %71, align 8
+  %73 = zext nneg i32 %spec.select.i to i64
+  %74 = shl nuw nsw i64 %73, 5
+  %75 = tail call ptr @realloc(ptr noundef %72, i64 noundef %74) #33
+  store ptr %75, ptr %71, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %nsvg__addPathPoint.exit, label %._crit_edge30.i
 
-._crit_edge30.i:                                  ; preds = %69
-  %.pre31.i = load i32, ptr %41, align 8
-  br label %78
+._crit_edge30.i:                                  ; preds = %68
+  %.pre31.i = load i32, ptr %40, align 8
+  br label %77
 
-78:                                               ; preds = %._crit_edge30.i, %._crit_edge.i
-  %79 = phi i32 [ %42, %._crit_edge.i ], [ %.pre31.i, %._crit_edge30.i ]
-  %80 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %76, %._crit_edge30.i ]
-  %81 = sext i32 %79 to i64
-  %82 = getelementptr inbounds %struct.NSVGpoint, ptr %80, i64 %81
-  store float %7, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
-  store float %8, ptr %83, align 4
-  %84 = trunc nuw nsw i32 %10 to i8
-  %85 = getelementptr inbounds i8, ptr %82, i64 28
-  store i8 %84, ptr %85, align 4
-  %86 = load i32, ptr %41, align 8
-  %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %41, align 8
+77:                                               ; preds = %._crit_edge30.i, %._crit_edge.i
+  %78 = phi i32 [ %41, %._crit_edge.i ], [ %.pre31.i, %._crit_edge30.i ]
+  %79 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %75, %._crit_edge30.i ]
+  %80 = sext i32 %78 to i64
+  %81 = getelementptr inbounds %struct.NSVGpoint, ptr %79, i64 %80
+  store float %7, ptr %81, align 4
+  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  store float %8, ptr %82, align 4
+  %83 = trunc nuw nsw i32 %10 to i8
+  %84 = getelementptr inbounds i8, ptr %81, i64 28
+  store i8 %83, ptr %84, align 4
+  %85 = load i32, ptr %40, align 8
+  %86 = add nsw i32 %85, 1
+  store i32 %86, ptr %40, align 8
   br label %nsvg__addPathPoint.exit
 
 tailrecurse:                                      ; preds = %14
-  %88 = fadd float %.tr7585, %.tr7787
-  %89 = fmul float %88, 5.000000e-01
-  %90 = fadd float %.tr7787, %.tr7989
-  %91 = fmul float %90, 5.000000e-01
-  %92 = fadd float %89, %91
-  %93 = fmul float %92, 5.000000e-01
-  %94 = fadd float %.tr7484, %.tr7686
-  %95 = fmul float %94, 5.000000e-01
-  %96 = fadd float %.tr7686, %.tr7888
-  %97 = fmul float %96, 5.000000e-01
-  %98 = fadd float %95, %97
-  %99 = fmul float %98, 5.000000e-01
-  %100 = fadd float %.tr7989, %8
-  %101 = fmul float %100, 5.000000e-01
-  %102 = fadd float %.tr7888, %7
-  %103 = fmul float %102, 5.000000e-01
-  %104 = fadd float %97, %103
-  %105 = fmul float %104, 5.000000e-01
-  %106 = fadd float %91, %101
-  %107 = fmul float %106, 5.000000e-01
-  %108 = fadd float %99, %105
-  %109 = fmul float %108, 5.000000e-01
-  %110 = fadd float %93, %107
-  %111 = fmul float %110, 5.000000e-01
-  %112 = add i32 %.tr8290, 1
-  tail call fastcc void @nsvg__flattenCubicBez(ptr noundef nonnull %0, float noundef %.tr7484, float noundef %.tr7585, float noundef %95, float noundef %89, float noundef %99, float noundef %93, float noundef %109, float noundef %111, i32 noundef %112, i32 noundef 0)
-  %exitcond = icmp eq i32 %112, 11
+  %87 = fadd float %.tr7585, %.tr7787
+  %88 = fmul float %87, 5.000000e-01
+  %89 = fadd float %.tr7787, %.tr7989
+  %90 = fmul float %89, 5.000000e-01
+  %91 = fadd float %88, %90
+  %92 = fmul float %91, 5.000000e-01
+  %93 = fadd float %.tr7484, %.tr7686
+  %94 = fmul float %93, 5.000000e-01
+  %95 = fadd float %.tr7686, %.tr7888
+  %96 = fmul float %95, 5.000000e-01
+  %97 = fadd float %94, %96
+  %98 = fmul float %97, 5.000000e-01
+  %99 = fadd float %8, %.tr7989
+  %100 = fmul float %99, 5.000000e-01
+  %101 = fadd float %7, %.tr7888
+  %102 = fmul float %101, 5.000000e-01
+  %103 = fadd float %96, %102
+  %104 = fmul float %103, 5.000000e-01
+  %105 = fadd float %90, %100
+  %106 = fmul float %105, 5.000000e-01
+  %107 = fadd float %98, %104
+  %108 = fmul float %107, 5.000000e-01
+  %109 = fadd float %92, %106
+  %110 = fmul float %109, 5.000000e-01
+  %111 = add i32 %.tr8290, 1
+  tail call fastcc void @nsvg__flattenCubicBez(ptr noundef nonnull %0, float noundef %.tr7484, float noundef %.tr7585, float noundef %94, float noundef %88, float noundef %98, float noundef %92, float noundef %108, float noundef %110, i32 noundef %111, i32 noundef 0)
+  %exitcond = icmp eq i32 %111, 11
   br i1 %exitcond, label %nsvg__addPathPoint.exit, label %14
 
-nsvg__addPathPoint.exit:                          ; preds = %tailrecurse, %11, %78, %69, %61
+nsvg__addPathPoint.exit:                          ; preds = %tailrecurse, %11, %77, %68, %60
   ret void
 }
 

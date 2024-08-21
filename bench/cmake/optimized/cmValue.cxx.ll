@@ -409,7 +409,7 @@ define dso_local noundef i32 @_ZNK7cmValue7CompareESt17basic_string_viewIcSt11ch
 10:                                               ; preds = %8
   %11 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   %12 = extractvalue { i64, ptr } %11, 0
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %12, i64 %1)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %12)
   %13 = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %13, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
 

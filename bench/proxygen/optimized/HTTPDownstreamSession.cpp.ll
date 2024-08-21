@@ -2553,7 +2553,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 if.then.i:                                        ; preds = %while.body.i
   %3 = load ptr, ptr %__to_destroy.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %3, %__first.sroa.0.04.i
-  %cmp.i3.i.i.i = icmp eq ptr %1, %3
+  %cmp.i3.i.i.i = icmp eq ptr %3, %1
   %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i3.i.i.i
   br i1 %or.cond.i.i.i, label %if.end.i, label %if.end8.i.i.i
 
@@ -2860,7 +2860,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
 if.then.i.i:                                      ; preds = %while.body.i.i
   %3 = load ptr, ptr %__to_destroy.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %3, %__first.sroa.0.04.i.i
-  %cmp.i3.i.i.i.i = icmp eq ptr %1, %3
+  %cmp.i3.i.i.i.i = icmp eq ptr %3, %1
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp.i3.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.end.i.i, label %if.end8.i.i.i.i
 
@@ -3539,10 +3539,10 @@ entry:
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp eq i64 %1, %2
-  %cmp2.not.i = icmp ule ptr %0, %value
+  %cmp2.not.i = icmp uge ptr %value, %0
   %or.cond.not8.i = and i1 %cmp2.not.i, %cmp.i
   %add.ptr.i2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %1
-  %cmp5.i = icmp ugt ptr %add.ptr.i2, %value
+  %cmp5.i = icmp ult ptr %value, %add.ptr.i2
   %or.cond7.i = select i1 %or.cond.not8.i, i1 %cmp5.i, i1 false
   br i1 %or.cond7.i, label %if.then.i, label %if.else.i
 

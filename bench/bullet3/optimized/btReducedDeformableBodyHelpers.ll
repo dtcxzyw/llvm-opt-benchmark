@@ -1252,7 +1252,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEE6resizeEiRKS
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -1300,7 +1300,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %for.body, %if.then.
   br i1 %exitcond23.not, label %if.end15, label %for.body, !llvm.loop !13
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
 
 for.body8.lr.ph:                                  ; preds = %if.else
@@ -1402,7 +1402,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 _ZN20btAlignedObjectArrayIiEC2ERKS0_.exit:        ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.thread.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %newsize
+  %exitcond.not = icmp eq i32 %newsize, %lftr.wideiv
   br i1 %exitcond.not, label %if.end15, label %for.body8, !llvm.loop !14
 
 if.end15:                                         ; preds = %_ZN20btAlignedObjectArrayIiEC2ERKS0_.exit, %_ZN20btAlignedObjectArrayIiED2Ev.exit, %if.else
@@ -1476,11 +1476,11 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN10btSoftBody12Tet
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %if.end15, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %if.then4, label %if.end15
 
 if.then4:                                         ; preds = %if.else
@@ -1766,7 +1766,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %m_size.i.i = getelementptr inbounds i8, ptr %vec, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %0, %n_size
+  %cmp3.i = icmp sgt i32 %n_size, %0
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit
 
 if.then4.i:                                       ; preds = %invoke.cont
@@ -1981,7 +1981,7 @@ invoke.cont8.us:                                  ; preds = %for.body7.us
   br i1 %cmp14.not.us, label %if.end.us, label %if.then.us
 
 if.then.us:                                       ; preds = %invoke.cont8.us
-  %cmp3.i.us = icmp slt i32 %5, %n_full
+  %cmp3.i.us = icmp sgt i32 %n_full, %5
   br i1 %cmp3.i.us, label %if.then4.i.us, label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.us
 
 if.then4.i.us:                                    ; preds = %if.then.us
@@ -2155,7 +2155,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IfEE6resizeEiRKS
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -2203,7 +2203,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %for.body, %if.then.
   br i1 %exitcond23.not, label %if.end15, label %for.body, !llvm.loop !22
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
 
 for.body8.lr.ph:                                  ; preds = %if.else
@@ -2305,7 +2305,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 _ZN20btAlignedObjectArrayIfEC2ERKS0_.exit:        ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.thread.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %newsize
+  %exitcond.not = icmp eq i32 %newsize, %lftr.wideiv
   br i1 %exitcond.not, label %if.end15, label %for.body8, !llvm.loop !23
 
 if.end15:                                         ; preds = %_ZN20btAlignedObjectArrayIfEC2ERKS0_.exit, %_ZN20btAlignedObjectArrayIfED2Ev.exit, %if.else
@@ -2681,7 +2681,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 _ZN20btAlignedObjectArrayIiEC2ERKS0_.exit:        ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.thread.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %end
+  %exitcond.not = icmp eq i32 %end, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %_ZN20btAlignedObjectArrayIiEC2ERKS0_.exit, %entry
@@ -2895,7 +2895,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 _ZN20btAlignedObjectArrayIfEC2ERKS0_.exit:        ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.thread.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %end
+  %exitcond.not = icmp eq i32 %end, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %_ZN20btAlignedObjectArrayIfEC2ERKS0_.exit, %entry

@@ -2284,7 +2284,7 @@ if.else8.i:                                       ; preds = %entry
 
 listTypeLength.exit:                              ; preds = %if.then.i, %if.then5.i
   %retval.0.i = phi i64 [ %call.i, %if.then.i ], [ %call7.i, %if.then5.i ]
-  %cond = tail call i64 @llvm.smin.i64(i64 %retval.0.i, i64 %count)
+  %cond = tail call i64 @llvm.smin.i64(i64 %count, i64 %retval.0.i)
   %cmp1 = icmp ne i32 %where, 0
   %sub = sub nsw i64 0, %cond
   %cond5 = select i1 %cmp1, i64 %sub, i64 0
@@ -2855,7 +2855,7 @@ listTypeLength.exit:                              ; preds = %if.then.i, %if.then
 
 if.end8:                                          ; preds = %listTypeLength.exit
   tail call void @listPopRangeAndReplyWithKey(ptr noundef nonnull %c, ptr noundef nonnull %call, ptr noundef %0, i32 noundef %where, i64 noundef %count, i32 noundef 1, ptr noundef null)
-  %cond = tail call i64 @llvm.smin.i64(i64 %retval.0.i, i64 %count)
+  %cond = tail call i64 @llvm.smin.i64(i64 %count, i64 %retval.0.i)
   %call10 = tail call ptr @createStringObjectFromLongLong(i64 noundef %cond) #9
   %cmp11 = icmp eq i32 %where, 0
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 424), align 8
@@ -4209,7 +4209,7 @@ if.end14:                                         ; preds = %listTypeLength.exit
 
 if.then16:                                        ; preds = %if.end14
   call void @listPopRangeAndReplyWithKey(ptr noundef nonnull %c, ptr noundef nonnull %call4, ptr noundef %2, i32 noundef %where, i64 noundef %count, i32 noundef 1, ptr noundef null)
-  %cond = call i64 @llvm.smin.i64(i64 %retval.0.i, i64 %count)
+  %cond = call i64 @llvm.smin.i64(i64 %count, i64 %retval.0.i)
   %call18 = call ptr @createStringObjectFromLongLong(i64 noundef %cond) #9
   %cmp19 = icmp eq i32 %where, 0
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 424), align 8

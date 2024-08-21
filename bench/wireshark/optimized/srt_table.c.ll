@@ -456,7 +456,7 @@ declare ptr @g_array_insert_vals(ptr noundef, i32 noundef, ptr noundef, i32 noun
 define void @init_srt_table_row(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %5, %1
+  %.not = icmp slt i32 %1, %5
   br i1 %.not, label %.loopexit, label %6
 
 6:                                                ; preds = %3

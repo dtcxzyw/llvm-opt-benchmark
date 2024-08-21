@@ -516,7 +516,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_sha512_update(ptr nocapture noundef 
   br i1 %.not, label %26, label %18
 
 18:                                               ; preds = %17
-  %.not46 = icmp ugt i64 %10, %2
+  %.not46 = icmp ult i64 %2, %10
   br i1 %.not46, label %._crit_edge.thread, label %19
 
 19:                                               ; preds = %18

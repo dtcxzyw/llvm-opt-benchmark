@@ -991,7 +991,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i.i: ; preds = %_ZNSt6vectorI
 .lr.ph.i.i18:                                     ; preds = %.loopexit.i.i
   %217 = sext i32 %192 to i64
   %218 = zext nneg i32 %.033.i to i64
-  %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %190, i32 %.033.i)
+  %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %.033.i, i32 %190)
   %219 = icmp sgt i32 %190, 0
   %sext.i.i = shl i64 %189, 32
   %220 = ashr exact i64 %sext.i.i, 32
@@ -3087,7 +3087,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIhSaIh
   %70 = phi ptr [ %69, %68 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit ]
   %71 = ptrtoint ptr %1 to i64
   %72 = sub i64 %71, %59
-  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %58, %1
+  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %1, %58
   br i1 %.not.i.i.i.i.i.i.i.i.i59, label %74, label %73
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit

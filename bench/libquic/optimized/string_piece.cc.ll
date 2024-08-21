@@ -636,7 +636,7 @@ entry:
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i, align 8
   %sub.i.i = sub i64 %0, %pos
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %n)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %n, i64 %sub.i.i)
   %1 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %pos
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 %add.ptr.i.i, i64 %.sroa.speculated.i.i, i1 false)
@@ -649,7 +649,7 @@ entry:
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
   %sub.i = sub i64 %0, %pos
-  %.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %n)
+  %.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %n, i64 %sub.i)
   %1 = load ptr, ptr %self, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %pos
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 %add.ptr.i, i64 %.sroa.speculated.i, i1 false)
@@ -715,7 +715,7 @@ define weak_odr dso_local noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112
 entry:
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i, align 8
-  %cmp.i.i = icmp ult i64 %0, %pos
+  %cmp.i.i = icmp ugt i64 %pos, %0
   br i1 %cmp.i.i, label %_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -748,7 +748,7 @@ define dso_local noundef i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt
 entry:
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
-  %cmp.i = icmp ult i64 %0, %pos
+  %cmp.i = icmp ugt i64 %pos, %0
   br i1 %cmp.i, label %_ZN4base8internal5findTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EESC_m.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -781,7 +781,7 @@ define weak_odr dso_local noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112
 entry:
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i, align 8
-  %cmp.not.i.i = icmp ugt i64 %0, %pos
+  %cmp.not.i.i = icmp ult i64 %pos, %0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -898,7 +898,7 @@ define dso_local noundef i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt
 entry:
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
-  %cmp.not.i = icmp ugt i64 %0, %pos
+  %cmp.not.i = icmp ult i64 %pos, %0
   br i1 %cmp.not.i, label %if.end.i, label %_ZN4base8internal5findTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit
 
 if.end.i:                                         ; preds = %entry
@@ -1030,13 +1030,13 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then3.i.i, label %if.end6.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %.sroa.speculated25.i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %pos)
+  %.sroa.speculated25.i.i = tail call i64 @llvm.umin.i64(i64 %pos, i64 %0)
   br label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i = sub i64 %0, %1
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %pos)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %pos, i64 %sub.i.i)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %.sroa.speculated.i.i
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %1
   %3 = load ptr, ptr %s, align 8
@@ -1106,13 +1106,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %.sroa.speculated25.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %pos)
+  %.sroa.speculated25.i = tail call i64 @llvm.umin.i64(i64 %pos, i64 %0)
   br label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EESC_m.exit
 
 if.end6.i:                                        ; preds = %if.end.i
   %2 = load ptr, ptr %self, align 8
   %sub.i = sub i64 %0, %1
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %pos)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %pos, i64 %sub.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %.sroa.speculated.i
   %add.ptr13.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %1
   %3 = load ptr, ptr %s, align 8
@@ -1257,7 +1257,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.then5:                                         ; preds = %lor.lhs.false
   %2 = load ptr, ptr %s, align 8
   %3 = load i8, ptr %2, align 1
-  %cmp.not.i.i = icmp ugt i64 %0, %pos
+  %cmp.not.i.i = icmp ult i64 %pos, %0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %if.then5
@@ -1381,7 +1381,7 @@ for.body.i:                                       ; preds = %if.end8, %for.body.
   br i1 %exitcond.not.i, label %for.cond.preheader, label %for.body.i, !llvm.loop !8
 
 for.cond.preheader:                               ; preds = %for.body.i
-  %cmp1023 = icmp ugt i64 %0, %pos
+  %cmp1023 = icmp ult i64 %pos, %0
   br i1 %cmp1023, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -1413,7 +1413,7 @@ define weak_odr dso_local noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112
 entry:
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ugt i64 %0, %pos
+  %cmp.not.i.i.i = icmp ult i64 %pos, %0
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findEcm.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -1546,7 +1546,7 @@ if.end.i:                                         ; preds = %entry
 if.then7.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr %s, align 8
   %3 = load i8, ptr %2, align 1
-  %cmp27.i.i.i = icmp ugt i64 %0, %pos
+  %cmp27.i.i.i = icmp ult i64 %pos, %0
   br i1 %cmp27.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then7.i
@@ -1582,7 +1582,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %exitcond.not.i.i, label %for.cond.preheader.i, label %for.body.i.i, !llvm.loop !8
 
 for.cond.preheader.i:                             ; preds = %for.body.i.i
-  %cmp1217.i = icmp ugt i64 %0, %pos
+  %cmp1217.i = icmp ult i64 %pos, %0
   br i1 %cmp1217.i, label %for.body.lr.ph.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
@@ -1630,7 +1630,7 @@ if.end:                                           ; preds = %entry
 if.then7:                                         ; preds = %if.end
   %2 = load ptr, ptr %s, align 8
   %3 = load i8, ptr %2, align 1
-  %cmp27.i.i = icmp ugt i64 %0, %pos
+  %cmp27.i.i = icmp ult i64 %pos, %0
   br i1 %cmp27.i.i, label %for.body.lr.ph.i.i, label %return
 
 for.body.lr.ph.i.i:                               ; preds = %if.then7
@@ -1666,7 +1666,7 @@ for.body.i:                                       ; preds = %if.end10, %for.body
   br i1 %exitcond.not.i, label %for.cond.preheader, label %for.body.i, !llvm.loop !8
 
 for.cond.preheader:                               ; preds = %for.body.i
-  %cmp1217 = icmp ugt i64 %0, %pos
+  %cmp1217 = icmp ult i64 %pos, %0
   br i1 %cmp1217, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -1698,7 +1698,7 @@ define weak_odr dso_local noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112
 entry:
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i, align 8
-  %cmp27.i.i = icmp ugt i64 %0, %pos
+  %cmp27.i.i = icmp ult i64 %pos, %0
   br i1 %cmp27.i.i, label %for.body.lr.ph.i.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit
 
 for.body.lr.ph.i.i:                               ; preds = %entry
@@ -1727,7 +1727,7 @@ define dso_local noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicS
 entry:
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
-  %cmp27.i = icmp ugt i64 %0, %pos
+  %cmp27.i = icmp ult i64 %pos, %0
   br i1 %cmp27.i, label %for.body.lr.ph.i, label %_ZN4base8internal18find_first_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit
 
 for.body.lr.ph.i:                                 ; preds = %entry
@@ -2212,9 +2212,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i, align 8
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %pos)
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %pos, i64 %0)
   %sub.i.i = sub i64 %0, %spec.select.i.i
-  %n.addr.0.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %n)
+  %n.addr.0.i.i = tail call i64 @llvm.umin.i64(i64 %n, i64 %sub.i.i)
   %1 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %spec.select.i.i
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i, ptr noundef %add.ptr.i.i, i64 noundef %n.addr.0.i.i)
@@ -2234,9 +2234,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %pos)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %pos, i64 %0)
   %sub.i = sub i64 %0, %spec.select.i
-  %n.addr.0.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %n)
+  %n.addr.0.i = tail call i64 @llvm.umin.i64(i64 %n, i64 %sub.i)
   %1 = load ptr, ptr %self, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %spec.select.i
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval.i, ptr noundef %add.ptr.i, i64 noundef %n.addr.0.i)
@@ -2634,7 +2634,7 @@ entry:
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i, align 8
   %sub.i.i = sub i64 %0, %pos
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %n)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %n, i64 %sub.i.i)
   %1 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i16, ptr %1, i64 %pos
   %mul.i.i = shl i64 %.sroa.speculated.i.i, 1
@@ -2648,7 +2648,7 @@ entry:
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
   %sub.i = sub i64 %0, %pos
-  %.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %n)
+  %.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %n, i64 %sub.i)
   %1 = load ptr, ptr %self, align 8
   %add.ptr.i = getelementptr inbounds i16, ptr %1, i64 %pos
   %mul.i = shl i64 %.sroa.speculated.i, 1
@@ -2707,7 +2707,7 @@ define weak_odr dso_local noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112
 entry:
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i, align 8
-  %cmp.i.i = icmp ult i64 %0, %pos
+  %cmp.i.i = icmp ugt i64 %pos, %0
   br i1 %cmp.i.i, label %_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -2741,7 +2741,7 @@ define dso_local noundef i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt
 entry:
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
-  %cmp.i = icmp ult i64 %0, %pos
+  %cmp.i = icmp ugt i64 %pos, %0
   br i1 %cmp.i, label %_ZN4base8internal5findTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EESB_m.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -2775,7 +2775,7 @@ define weak_odr dso_local noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112
 entry:
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i, align 8
-  %cmp.not.i.i = icmp ugt i64 %0, %pos
+  %cmp.not.i.i = icmp ult i64 %pos, %0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -2900,7 +2900,7 @@ define dso_local noundef i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt
 entry:
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
-  %cmp.not.i = icmp ugt i64 %0, %pos
+  %cmp.not.i = icmp ult i64 %pos, %0
   br i1 %cmp.not.i, label %if.end.i, label %_ZN4base8internal5findTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit
 
 if.end.i:                                         ; preds = %entry
@@ -3040,13 +3040,13 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then3.i.i, label %if.end6.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %.sroa.speculated25.i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %pos)
+  %.sroa.speculated25.i.i = tail call i64 @llvm.umin.i64(i64 %pos, i64 %0)
   br label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
   %2 = load ptr, ptr %this, align 8
   %sub.i.i = sub i64 %0, %1
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %pos)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %pos, i64 %sub.i.i)
   %add.ptr.i.i = getelementptr inbounds i16, ptr %2, i64 %.sroa.speculated.i.i
   %add.ptr13.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i, i64 %1
   %3 = load ptr, ptr %s, align 8
@@ -3117,13 +3117,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %.sroa.speculated25.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %pos)
+  %.sroa.speculated25.i = tail call i64 @llvm.umin.i64(i64 %pos, i64 %0)
   br label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EESB_m.exit
 
 if.end6.i:                                        ; preds = %if.end.i
   %2 = load ptr, ptr %self, align 8
   %sub.i = sub i64 %0, %1
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %pos)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %pos, i64 %sub.i)
   %add.ptr.i = getelementptr inbounds i16, ptr %2, i64 %.sroa.speculated.i
   %add.ptr13.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 %1
   %3 = load ptr, ptr %s, align 8
@@ -3253,7 +3253,7 @@ entry:
   %length_.i6.i = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load i64, ptr %length_.i6.i, align 8
   %add.ptr.i7.i = getelementptr inbounds i16, ptr %2, i64 %3
-  %cmp.not11.i.i = icmp eq i64 %1, %pos
+  %cmp.not11.i.i = icmp eq i64 %pos, %1
   %cmp2.not9.i.i = icmp eq i64 %3, 0
   %or.cond.i.i = or i1 %cmp.not11.i.i, %cmp2.not9.i.i
   br i1 %or.cond.i.i, label %_ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %for.cond1.preheader.i.preheader.i
@@ -3310,7 +3310,7 @@ entry:
   %length_.i6 = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load i64, ptr %length_.i6, align 8
   %add.ptr.i7 = getelementptr inbounds i16, ptr %2, i64 %3
-  %cmp.not11.i = icmp eq i64 %1, %pos
+  %cmp.not11.i = icmp eq i64 %pos, %1
   %cmp2.not9.i = icmp eq i64 %3, 0
   %or.cond.i = or i1 %cmp.not11.i, %cmp2.not9.i
   br i1 %or.cond.i, label %return, label %for.cond1.preheader.i.preheader
@@ -3361,7 +3361,7 @@ define weak_odr dso_local noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112
 entry:
   %length_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ugt i64 %0, %pos
+  %cmp.not.i.i.i = icmp ult i64 %pos, %0
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4findEtm.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -3486,7 +3486,7 @@ define weak_odr dso_local noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112
 entry:
   %length_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
-  %cmp217.i = icmp ugt i64 %0, %pos
+  %cmp217.i = icmp ult i64 %pos, %0
   br i1 %cmp217.i, label %for.cond3.preheader.lr.ph.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit
 
 for.cond3.preheader.lr.ph.i:                      ; preds = %entry
@@ -3530,7 +3530,7 @@ define dso_local noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicS
 entry:
   %length_.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i, align 8
-  %cmp217 = icmp ugt i64 %0, %pos
+  %cmp217 = icmp ult i64 %pos, %0
   br i1 %cmp217, label %for.cond3.preheader.lr.ph, label %return
 
 for.cond3.preheader.lr.ph:                        ; preds = %entry
@@ -3574,7 +3574,7 @@ define weak_odr dso_local noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112
 entry:
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i, align 8
-  %cmp27.i.i = icmp ugt i64 %0, %pos
+  %cmp27.i.i = icmp ult i64 %pos, %0
   br i1 %cmp27.i.i, label %for.body.lr.ph.i.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit
 
 for.body.lr.ph.i.i:                               ; preds = %entry
@@ -3603,7 +3603,7 @@ define dso_local noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicS
 entry:
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
-  %cmp27.i = icmp ugt i64 %0, %pos
+  %cmp27.i = icmp ult i64 %pos, %0
   br i1 %cmp27.i, label %for.body.lr.ph.i, label %_ZN4base8internal18find_first_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit
 
 for.body.lr.ph.i:                                 ; preds = %entry
@@ -3944,9 +3944,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i, align 8
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %pos)
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %pos, i64 %0)
   %sub.i.i = sub i64 %0, %spec.select.i.i
-  %n.addr.0.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %n)
+  %n.addr.0.i.i = tail call i64 @llvm.umin.i64(i64 %n, i64 %sub.i.i)
   %1 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i16, ptr %1, i64 %spec.select.i.i
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1EPKtm(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i, ptr noundef %add.ptr.i.i, i64 noundef %n.addr.0.i.i)
@@ -3966,9 +3966,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %pos)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %pos, i64 %0)
   %sub.i = sub i64 %0, %spec.select.i
-  %n.addr.0.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %n)
+  %n.addr.0.i = tail call i64 @llvm.umin.i64(i64 %n, i64 %sub.i)
   %1 = load ptr, ptr %self, align 8
   %add.ptr.i = getelementptr inbounds i16, ptr %1, i64 %spec.select.i
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1EPKtm(ptr noundef nonnull align 8 dereferenceable(16) %retval.i, ptr noundef %add.ptr.i, i64 noundef %n.addr.0.i)

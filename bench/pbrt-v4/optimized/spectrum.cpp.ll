@@ -864,14 +864,14 @@ lor.lhs.false:                                    ; preds = %entry
   %ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %ptr.i, align 8
   %2 = load float, ptr %1, align 4
-  %cmp = fcmp ogt float %2, %lambda
+  %cmp = fcmp olt float %lambda, %2
   br i1 %cmp, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
   %3 = getelementptr float, ptr %1, i64 %0
   %arrayidx.i = getelementptr i8, ptr %3, i64 -4
   %4 = load float, ptr %arrayidx.i, align 4
-  %cmp7 = fcmp olt float %4, %lambda
+  %cmp7 = fcmp ogt float %lambda, %4
   br i1 %cmp7, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false4
@@ -6443,14 +6443,14 @@ lor.lhs.false.i.i13:                              ; preds = %sw.bb5
   %ptr.i.i.i14 = getelementptr inbounds i8, ptr %ptr, i64 8
   %11 = load ptr, ptr %ptr.i.i.i14, align 8
   %12 = load float, ptr %11, align 4
-  %cmp.i.i15 = fcmp ogt float %12, %9
+  %cmp.i.i15 = fcmp olt float %9, %12
   br i1 %cmp.i.i15, label %return, label %lor.lhs.false4.i.i
 
 lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false.i.i13
   %13 = getelementptr float, ptr %11, i64 %10
   %arrayidx.i.i.i16 = getelementptr i8, ptr %13, i64 -4
   %14 = load float, ptr %arrayidx.i.i.i16, align 4
-  %cmp7.i.i = fcmp olt float %14, %9
+  %cmp7.i.i = fcmp ogt float %9, %14
   br i1 %cmp7.i.i, label %return, label %if.end.i.i17
 
 if.end.i.i17:                                     ; preds = %lor.lhs.false4.i.i
@@ -14539,7 +14539,7 @@ call3.i.noexc:                                    ; preds = %for.body
 if.then.i6:                                       ; preds = %call3.i.noexc
   %4 = extractvalue { ptr, ptr } %call3.i7, 0
   %cmp.not.i.i = icmp ne ptr %4, null
-  %cmp2.i.i = icmp eq ptr %add.ptr, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_M_insert_IRKSA_NSG_20_Reuse_or_alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit.i, label %lor.rhs.i.i
 
@@ -14628,7 +14628,7 @@ terminate.lpad:                                   ; preds = %entry
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

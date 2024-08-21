@@ -154,7 +154,7 @@ define hidden void @fec_decode_ext_fti(ptr noundef %0, ptr noundef %1, ptr nound
   %.sink89.ph = phi i32 [ 15, %29 ], [ 13, %33 ], [ 16, %36 ], [ 14, %28 ]
   %.sink88.ph = phi i32 [ 1, %29 ], [ 1, %33 ], [ 4, %36 ], [ 2, %28 ]
   %37 = load i32, ptr %hf_fti_num_blocks.sink, align 4
-  %38 = add i32 %.sink95, %3
+  %38 = add i32 %3, %.sink95
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef %.sink94, i32 noundef 0) #2
   br label %.sink.split
 
@@ -166,10 +166,10 @@ define hidden void @fec_decode_ext_fti(ptr noundef %0, ptr noundef %1, ptr nound
   %.sink89 = phi i32 [ 12, %28 ], [ 12, %28 ], [ 12, %28 ], [ 12, %28 ], [ %.sink89.ph, %.sink.split.sink.split ]
   %.sink88 = phi i32 [ 4, %28 ], [ 4, %28 ], [ 4, %28 ], [ 4, %28 ], [ %.sink88.ph, %.sink.split.sink.split ]
   %40 = load i32, ptr %hf_fti_max_source_block_length.sink, align 4
-  %41 = add i32 %.sink92, %3
+  %41 = add i32 %3, %.sink92
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef %.sink91, i32 noundef 0) #2
   %43 = load i32, ptr %hf_fti_max_number_encoding_symbols.sink, align 4
-  %44 = add i32 %.sink89, %3
+  %44 = add i32 %3, %.sink89
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %44, i32 noundef %.sink88, i32 noundef 0) #2
   br label %46
 

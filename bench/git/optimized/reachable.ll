@@ -417,7 +417,7 @@ entry:
   %programs.i.i = alloca ptr, align 8
   %timestamp.i = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load i64, ptr %timestamp.i, align 8
-  %cmp.i = icmp ult i64 %0, %mtime
+  %cmp.i = icmp ugt i64 %mtime, %0
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry

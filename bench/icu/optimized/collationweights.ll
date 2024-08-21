@@ -325,7 +325,7 @@ if.then4:                                         ; preds = %if.end
   %mul.i = sub nuw nsw i32 32, %0
   %shl.i = shl nsw i32 -1, %mul.i
   %and.i99 = and i32 %shl.i, %upperLimit
-  %cmp6 = icmp eq i32 %and.i99, %lowerLimit
+  %cmp6 = icmp eq i32 %lowerLimit, %and.i99
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then4, %if.end
@@ -820,7 +820,7 @@ for.end:                                          ; preds = %for.body, %for.end.
   %sub.i = add i32 %4, 1
   %add.i = sub i32 %sub.i, %5
   %mul = mul nsw i32 %add.i, %count.0.lcssa
-  %cmp8 = icmp slt i32 %mul, %n
+  %cmp8 = icmp sgt i32 %n, %mul
   br i1 %cmp8, label %return, label %if.end
 
 if.end:                                           ; preds = %for.end

@@ -207,7 +207,7 @@ define range(i32 -13, 1) i32 @mca_rcache_base_module_destroy(ptr noundef readnon
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.015, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %0
+  %7 = icmp eq ptr %0, %6
   br i1 %7, label %8, label %3, !llvm.loop !7
 
 8:                                                ; preds = %4

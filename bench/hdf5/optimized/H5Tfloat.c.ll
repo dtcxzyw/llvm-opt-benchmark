@@ -305,7 +305,7 @@ define range(i32 -1, 1) i32 @H5Tset_fields(i64 noundef %0, i64 noundef %1, i64 n
 
 81:                                               ; preds = %75
   %.not71 = icmp uge i64 %1, %2
-  %82 = icmp ugt i64 %56, %1
+  %82 = icmp ult i64 %1, %56
   %or.cond = and i1 %.not71, %82
   br i1 %or.cond, label %83, label %87
 
@@ -317,7 +317,7 @@ define range(i32 -1, 1) i32 @H5Tset_fields(i64 noundef %0, i64 noundef %1, i64 n
 
 87:                                               ; preds = %81
   %.not72 = icmp uge i64 %1, %4
-  %88 = icmp ugt i64 %68, %1
+  %88 = icmp ult i64 %1, %68
   %or.cond73 = and i1 %.not72, %88
   br i1 %or.cond73, label %89, label %93
 

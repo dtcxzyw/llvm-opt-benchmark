@@ -2701,7 +2701,7 @@ if.else:                                          ; preds = %if.then
           to label %invoke.cont16 unwind label %lpad4
 
 invoke.cont16:                                    ; preds = %if.else
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i11
 
 if.then.i11:                                      ; preds = %invoke.cont16
@@ -3327,7 +3327,7 @@ entry:
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %capacity_, align 8
   %conv = uitofp i64 %0 to double
-  %mul = fmul double %conv, %high_pri_pool_ratio
+  %mul = fmul double %high_pri_pool_ratio, %conv
   %high_pri_pool_capacity_ = getelementptr inbounds i8, ptr %this, i64 48
   store double %mul, ptr %high_pri_pool_capacity_, align 16
   %high_pri_pool_usage_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3440,7 +3440,7 @@ entry:
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %capacity_, align 8
   %conv = uitofp i64 %0 to double
-  %mul = fmul double %conv, %low_pri_pool_ratio
+  %mul = fmul double %low_pri_pool_ratio, %conv
   %low_pri_pool_capacity_ = getelementptr inbounds i8, ptr %this, i64 64
   store double %mul, ptr %low_pri_pool_capacity_, align 64
   %high_pri_pool_usage_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3575,7 +3575,7 @@ if.then8:                                         ; preds = %if.end
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %capacity_, align 8
   %cmp9 = icmp ugt i64 %4, %5
-  %brmerge12 = or i1 %cmp9, %erase_if_last_ref
+  %brmerge12 = or i1 %erase_if_last_ref, %cmp9
   br i1 %brmerge12, label %invoke.cont12, label %if.else
 
 invoke.cont12:                                    ; preds = %if.then8

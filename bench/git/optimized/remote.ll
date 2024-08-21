@@ -203,7 +203,7 @@ land.lhs.true.i:                                  ; preds = %entry
   %call2.i.i = call ptr @hashmap_get(ptr noundef nonnull %branches_hash.i.i, ptr noundef nonnull %lookup_entry.i.i, ptr noundef nonnull %lookup.i.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lookup.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lookup_entry.i.i)
-  %cmp.not.i = icmp eq ptr %call2.i.i, %branch
+  %cmp.not.i = icmp eq ptr %branch, %call2.i.i
   br i1 %cmp.not.i, label %land.lhs.true.i3, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -931,7 +931,7 @@ land.lhs.true.i:                                  ; preds = %entry
   %call2.i.i = call ptr @hashmap_get(ptr noundef nonnull %branches_hash.i.i, ptr noundef nonnull %lookup_entry.i.i, ptr noundef nonnull %lookup.i.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lookup.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lookup_entry.i.i)
-  %cmp.not.i = icmp eq ptr %call2.i.i, %branch
+  %cmp.not.i = icmp eq ptr %branch, %call2.i.i
   br i1 %cmp.not.i, label %land.lhs.true.i3, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -1141,7 +1141,7 @@ land.lhs.true.i:                                  ; preds = %entry
   %call2.i.i = call ptr @hashmap_get(ptr noundef nonnull %branches_hash.i.i, ptr noundef nonnull %lookup_entry.i.i, ptr noundef nonnull %lookup.i.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lookup.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lookup_entry.i.i)
-  %cmp.not.i = icmp eq ptr %call2.i.i, %branch
+  %cmp.not.i = icmp eq ptr %branch, %call2.i.i
   br i1 %cmp.not.i, label %if.then, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -2135,7 +2135,7 @@ if.then.i:                                        ; preds = %entry
 st_add.exit:                                      ; preds = %entry
   %add.i = add nuw i64 %prefixlen, 176
   %sub.i = sub nuw i64 -177, %prefixlen
-  %cmp.i7 = icmp ult i64 %sub.i, %call
+  %cmp.i7 = icmp ugt i64 %call, %sub.i
   br i1 %cmp.i7, label %if.then.i9, label %st_add.exit10
 
 if.then.i9:                                       ; preds = %st_add.exit
@@ -4450,7 +4450,7 @@ entry:
 lor.lhs.false1:                                   ; preds = %entry
   %merge_nr = getelementptr inbounds i8, ptr %branch, i64 64
   %0 = load i32, ptr %merge_nr, align 8
-  %cmp2.not = icmp sgt i32 %0, %i
+  %cmp2.not = icmp slt i32 %i, %0
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false1
@@ -4642,7 +4642,7 @@ land.lhs.true.i:                                  ; preds = %entry
   %call2.i.i = call ptr @hashmap_get(ptr noundef nonnull %branches_hash.i.i, ptr noundef nonnull %lookup_entry.i.i, ptr noundef nonnull %lookup.i.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lookup.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lookup_entry.i.i)
-  %cmp.not.i = icmp eq ptr %call2.i.i, %branch
+  %cmp.not.i = icmp eq ptr %branch, %call2.i.i
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -7211,7 +7211,7 @@ if.then45:                                        ; preds = %ends_with.exit
   %sub47 = add i64 %16, -1
   %17 = load i64, ptr %sb, align 8
   %spec.select.i34 = call i64 @llvm.usub.sat.i64(i64 %17, i64 1)
-  %cmp.i35 = icmp ult i64 %spec.select.i34, %sub47
+  %cmp.i35 = icmp ugt i64 %sub47, %spec.select.i34
   br i1 %cmp.i35, label %if.then.i41, label %if.end.i36
 
 if.then.i41:                                      ; preds = %if.then45
@@ -7878,7 +7878,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = load ptr, ptr %arrayidx, align 8
   %baselen = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %baselen, align 8
-  %cmp1 = icmp eq i64 %3, %len
+  %cmp1 = icmp eq i64 %len, %3
   br i1 %cmp1, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
@@ -9130,7 +9130,7 @@ append_commit.exit:                               ; preds = %entry.do.end_crit_e
 if.end4:                                          ; preds = %append_commit.exit, %if.end
   %remote_reflog_timestamp = getelementptr inbounds i8, ptr %cb_data, i64 16
   %13 = load i64, ptr %remote_reflog_timestamp, align 8
-  %cmp = icmp ugt i64 %13, %timestamp
+  %cmp = icmp ult i64 %timestamp, %13
   %. = sext i1 %cmp to i32
   br label %return
 

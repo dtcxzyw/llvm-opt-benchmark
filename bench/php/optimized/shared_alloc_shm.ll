@@ -34,7 +34,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr nocaptu
 
 .lr.ph:                                           ; preds = %.preheader83, %15
   %.17486 = phi i64 [ %16, %15 ], [ %.073, %.preheader83 ]
-  %13 = tail call i64 @llvm.umin.i64(i64 %.17486, i64 %0)
+  %13 = tail call i64 @llvm.umin.i64(i64 %0, i64 %.17486)
   %14 = tail call i32 @shmget(i32 noundef -1, i64 noundef %13, i32 noundef 1920) #5
   %.not = icmp eq i32 %14, -1
   br i1 %.not, label %15, label %18

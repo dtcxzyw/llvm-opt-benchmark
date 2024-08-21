@@ -209,7 +209,7 @@ declare i32 @H5O_loc_reset(ptr noundef) local_unnamed_addr #1
 define internal range(i32 -1, 2) i32 @H5SM__compare_iter_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, %2
+  %8 = icmp eq i32 %2, %7
   br i1 %8, label %9, label %50
 
 9:                                                ; preds = %5

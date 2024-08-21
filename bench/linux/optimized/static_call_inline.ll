@@ -167,7 +167,7 @@ thread-pre-split:                                 ; preds = %.loopexit
   %47 = add i64 %45, %46
   %48 = and i64 %47, -4
   %49 = inttoptr i64 %48 to ptr
-  %50 = icmp eq ptr %49, %0
+  %50 = icmp eq ptr %0, %49
   br i1 %50, label %51, label %.loopexit
 
 51:                                               ; preds = %.preheader.split.us
@@ -220,7 +220,7 @@ thread-pre-split:                                 ; preds = %.loopexit
   %79 = add i64 %77, %78
   %80 = and i64 %79, -4
   %81 = inttoptr i64 %80 to ptr
-  %82 = icmp eq ptr %81, %0
+  %82 = icmp eq ptr %0, %81
   br i1 %82, label %83, label %.loopexit
 
 83:                                               ; preds = %.preheader.split
@@ -323,7 +323,7 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
   %11 = ptrtoint ptr %8 to i64
   %12 = add i64 %10, %11
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp ugt ptr %13, %1
+  %14 = icmp ult ptr %1, %13
   %15 = add i64 %12, 5
   %16 = icmp ule i64 %15, %7
   %17 = or i1 %14, %16
@@ -351,7 +351,7 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
   %32 = ptrtoint ptr %21 to i64
   %33 = add i64 %31, %32
   %34 = inttoptr i64 %33 to ptr
-  %35 = icmp ugt ptr %34, %1
+  %35 = icmp ult ptr %1, %34
   %36 = add i64 %33, 5
   %37 = icmp ule i64 %36, %7
   %38 = or i1 %35, %37
@@ -420,7 +420,7 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
   %71 = ptrtoint ptr %68 to i64
   %72 = add i64 %70, %71
   %73 = inttoptr i64 %72 to ptr
-  %74 = icmp ugt ptr %73, %1
+  %74 = icmp ult ptr %1, %73
   %75 = add i64 %72, 5
   %76 = icmp ule i64 %75, %.pre-phi
   %77 = or i1 %74, %76
@@ -448,7 +448,7 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
   %92 = ptrtoint ptr %81 to i64
   %93 = add i64 %91, %92
   %94 = inttoptr i64 %93 to ptr
-  %95 = icmp ugt ptr %94, %1
+  %95 = icmp ult ptr %1, %94
   %96 = add i64 %93, 5
   %97 = icmp ule i64 %96, %.pre-phi
   %98 = or i1 %95, %97

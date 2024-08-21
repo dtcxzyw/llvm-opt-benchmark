@@ -3951,7 +3951,7 @@ common.resume:                                    ; preds = %47, %19
 
 39:                                               ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !321)
-  %.not.i13.i = icmp ugt i64 %28, %31
+  %.not.i13.i = icmp ult i64 %31, %28
   br i1 %.not.i13.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h2dfbb96f3d0929f3E.exit.i", label %40
 
 40:                                               ; preds = %39
@@ -4207,7 +4207,7 @@ _ZN3std4sync4mpmc7context7Context12store_packet17h71587165d6a8dce1E.exit.i.i.i: 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
   %77 = load i64, ptr %37, align 8, !alias.scope !364, !noalias !365, !noundef !8
-  %.not.i.i = icmp ugt i64 %77, %.016.i.i
+  %.not.i.i = icmp ult i64 %.016.i.i, %77
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5waker5Waker10try_select17ha74c1d6f879212f7E.exit, label %78
 
 78:                                               ; preds = %.noexc5

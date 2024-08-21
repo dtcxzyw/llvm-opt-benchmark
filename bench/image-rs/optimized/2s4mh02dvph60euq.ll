@@ -1476,7 +1476,7 @@ define internal fastcc noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Wr
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !218, !noalias !221, !noundef !4
   %7 = sub i64 %4, %6
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %2
@@ -1947,7 +1947,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.38904
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -3177,7 +3177,7 @@ define void @_ZN5image2io6Limits16check_dimensions17h04af66b2e34b4b9dE(ptr noali
   %7 = icmp ne i32 %6, 0
   %8 = getelementptr inbounds i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = icmp ult i32 %9, %2
+  %10 = icmp ugt i32 %2, %9
   %or.cond = select i1 %7, i1 %10, i1 false
   br i1 %or.cond, label %18, label %11
 
@@ -3187,7 +3187,7 @@ define void @_ZN5image2io6Limits16check_dimensions17h04af66b2e34b4b9dE(ptr noali
   %14 = icmp ne i32 %13, 0
   %15 = getelementptr inbounds i8, ptr %1, i64 28
   %16 = load i32, ptr %15, align 4
-  %17 = icmp ult i32 %16, %3
+  %17 = icmp ugt i32 %3, %16
   %or.cond7 = select i1 %14, i1 %17, i1 false
   br i1 %or.cond7, label %21, label %20
 
@@ -3282,7 +3282,7 @@ define void @_ZN5image2io6Limits14reserve_buffer17h465dc3c0ee7510b3E(ptr noalias
   %8 = icmp ne i32 %7, 0
   %9 = getelementptr inbounds i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4, !alias.scope !565, !noalias !568
-  %11 = icmp ult i32 %10, %2
+  %11 = icmp ugt i32 %2, %10
   %or.cond.i = select i1 %8, i1 %11, i1 false
   br i1 %or.cond.i, label %33, label %12
 
@@ -3292,7 +3292,7 @@ define void @_ZN5image2io6Limits14reserve_buffer17h465dc3c0ee7510b3E(ptr noalias
   %15 = icmp ne i32 %14, 0
   %16 = getelementptr inbounds i8, ptr %1, i64 28
   %17 = load i32, ptr %16, align 4, !alias.scope !565, !noalias !568
-  %18 = icmp ult i32 %17, %3
+  %18 = icmp ugt i32 %3, %17
   %or.cond7.i = select i1 %15, i1 %18, i1 false
   br i1 %or.cond7.i, label %33, label %switch.lookup
 
@@ -3406,7 +3406,7 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_8bi
 15:                                               ; preds = %13
   %16 = load i8, ptr %3, align 1, !noundef !4
   %17 = zext i8 %16 to i64
-  %18 = icmp ult i64 %17, %2
+  %18 = icmp ugt i64 %2, %17
   br i1 %18, label %.split35.us, label %.split.us, !prof !581
 
 .split35.us:                                      ; preds = %15
@@ -3443,7 +3443,7 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_8bi
 29:                                               ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit"
   %30 = load i8, ptr %.sroa.013.023, align 1, !noundef !4
   %31 = zext i8 %30 to i64
-  %32 = icmp ult i64 %31, %2
+  %32 = icmp ugt i64 %2, %31
   br i1 %32, label %33, label %.split.us, !prof !581
 
 33:                                               ; preds = %29
@@ -3497,7 +3497,7 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_8bi
   %10 = load i8, ptr %3, align 1
   %.fr = freeze i8 %10
   %11 = zext i8 %.fr to i64
-  %12 = icmp ult i64 %11, %2
+  %12 = icmp ugt i64 %2, %11
   %13 = getelementptr inbounds [0 x [3 x i8]], ptr %1, i64 0, i64 %11
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 2
@@ -3616,7 +3616,7 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_4bi
   %16 = load i8, ptr %3, align 1, !noundef !4
   %17 = lshr i8 %16, 4
   %18 = zext nneg i8 %17 to i64
-  %19 = icmp ult i64 %18, %2
+  %19 = icmp ugt i64 %2, %18
   br i1 %19, label %.split71.us, label %.split.us, !prof !581
 
 .split71.us:                                      ; preds = %15
@@ -3649,7 +3649,7 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_4bi
   %29 = load i8, ptr %.sroa.0.055, align 1, !noundef !4
   %30 = lshr i8 %29, 4
   %31 = zext nneg i8 %30 to i64
-  %32 = icmp ult i64 %31, %2
+  %32 = icmp ugt i64 %2, %31
   br i1 %32, label %33, label %.split.us, !prof !581
 
 33:                                               ; preds = %28
@@ -3701,7 +3701,7 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_4bi
   %44 = load i8, ptr %.sroa.0.055, align 1, !noundef !4
   %45 = and i8 %44, 15
   %46 = zext nneg i8 %45 to i64
-  %47 = icmp ult i64 %46, %2
+  %47 = icmp ugt i64 %2, %46
   br i1 %47, label %48, label %.split97.us, !prof !581
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit.thread": ; preds = %38, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit", %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit", %54, %24, %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit.us", %13, %6
@@ -3760,13 +3760,13 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_4bi
   %.fr101 = freeze i8 %10
   %11 = lshr i8 %.fr101, 4
   %12 = zext nneg i8 %11 to i64
-  %13 = icmp ult i64 %12, %2
+  %13 = icmp ugt i64 %2, %12
   %14 = getelementptr inbounds [0 x [3 x i8]], ptr %1, i64 0, i64 %12
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 2
   %15 = and i8 %.fr101, 15
   %16 = zext nneg i8 %15 to i64
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   %18 = getelementptr inbounds [0 x [3 x i8]], ptr %1, i64 0, i64 %16
   %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 1
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 2
@@ -3981,7 +3981,7 @@ define internal fastcc void @_ZN5image6codecs3bmp7decoder18set_1bit_pixel_run17h
   %15 = load i8, ptr %.sroa.0.057, align 1, !noundef !4
   %.lobit = lshr i8 %15, 7
   %16 = zext nneg i8 %.lobit to i64
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %.split26.us, label %.split.us, !prof !581
 
 .split26.us:                                      ; preds = %14
@@ -4012,7 +4012,7 @@ define internal fastcc void @_ZN5image6codecs3bmp7decoder18set_1bit_pixel_run17h
   %25 = and i8 %24, %.0
   %26 = icmp ne i8 %25, 0
   %27 = zext i1 %26 to i64
-  %28 = icmp ult i64 %27, %2
+  %28 = icmp ugt i64 %2, %27
   br i1 %28, label %29, label %.split.us, !prof !581
 
 29:                                               ; preds = %23
@@ -6722,7 +6722,7 @@ common.resume:                                    ; preds = %409, %212, %221, %2
 
 118:                                              ; preds = %107
   %119 = load i64, ptr %117, align 8, !alias.scope !1139, !noalias !1142, !noundef !4
-  %.not.i.i.i = icmp ugt i64 %113, %119
+  %.not.i.i.i = icmp ult i64 %119, %113
   br i1 %.not.i.i.i, label %120, label %122
 
 120:                                              ; preds = %118
@@ -8040,7 +8040,7 @@ define internal fastcc void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$1
   %23 = and i16 %.val55, 31
   %24 = zext nneg i16 %23 to i32
   %25 = shl nuw i32 1, %24
-  %26 = icmp ult i32 %25, %.val
+  %26 = icmp ugt i32 %.val, %25
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %22
@@ -8182,7 +8182,7 @@ default.unreachable:                              ; preds = %63
 
 65:                                               ; preds = %63
   %66 = load i64, ptr %46, align 8, !alias.scope !1326, !noundef !4
-  %67 = icmp ult i64 %66, %40
+  %67 = icmp ugt i64 %40, %66
   br i1 %67, label %68, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i59"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i59": ; preds = %65
@@ -8346,7 +8346,7 @@ define internal fastcc void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$1
   %24 = and i16 %.val55, 31
   %25 = zext nneg i16 %24 to i32
   %26 = shl nuw i32 1, %25
-  %27 = icmp ult i32 %26, %.val
+  %27 = icmp ugt i32 %.val, %26
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %23
@@ -8465,7 +8465,7 @@ default.unreachable:                              ; preds = %"_ZN82_$LT$std..io.
 
 56:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread"
   %57 = load i64, ptr %47, align 8, !alias.scope !1375, !noundef !4
-  %58 = icmp ult i64 %57, %41
+  %58 = icmp ugt i64 %41, %57
   br i1 %58, label %59, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i58"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i58": ; preds = %56
@@ -8702,7 +8702,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit": ; preds = %47
   call void @llvm.experimental.noalias.scope.decl(metadata !1428)
   call void @llvm.experimental.noalias.scope.decl(metadata !1431)
-  %.not.i = icmp eq i64 %50, %2
+  %.not.i = icmp eq i64 %2, %50
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit", label %53
 
 53:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit"
@@ -8867,7 +8867,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit": ; preds = %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1447)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1450)
-  %.not.i = icmp eq i64 %38, %2
+  %.not.i = icmp eq i64 %2, %38
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit", label %41
 
 41:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17he3c181fa6998b3a3E.exit"
@@ -9041,7 +9041,7 @@ define internal fastcc void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$2
   store i64 %54, ptr %10, align 8, !noalias !1461
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !1461
   store i64 %3, ptr %9, align 8, !noalias !1461
-  %55 = icmp eq i64 %54, %3
+  %55 = icmp eq i64 %3, %54
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %53
@@ -9244,7 +9244,7 @@ define internal fastcc void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$2
   store i64 %61, ptr %10, align 8, !noalias !1477
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !1477
   store i64 %3, ptr %9, align 8, !noalias !1477
-  %62 = icmp eq i64 %61, %3
+  %62 = icmp eq i64 %3, %61
   br i1 %62, label %64, label %63
 
 63:                                               ; preds = %60
@@ -11208,7 +11208,7 @@ define internal fastcc void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$2
   store i64 %47, ptr %9, align 8, !noalias !1648
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !1648
   store i64 %3, ptr %8, align 8, !noalias !1648
-  %48 = icmp eq i64 %47, %3
+  %48 = icmp eq i64 %3, %47
   br i1 %48, label %50, label %49
 
 49:                                               ; preds = %46
@@ -11397,7 +11397,7 @@ define internal fastcc void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$2
   store i64 %55, ptr %10, align 8, !noalias !1664
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !1664
   store i64 %3, ptr %9, align 8, !noalias !1664
-  %56 = icmp eq i64 %55, %3
+  %56 = icmp eq i64 %3, %55
   br i1 %56, label %58, label %57
 
 57:                                               ; preds = %54
@@ -14270,7 +14270,7 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h5d3e97ea8bb3de04E.exit.i: ; pr
   store i64 %86, ptr %20, align 8, !noalias !2230
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19), !noalias !2230
   store i64 %3, ptr %19, align 8, !noalias !2230
-  %87 = icmp eq i64 %86, %3
+  %87 = icmp eq i64 %3, %86
   br i1 %87, label %89, label %88
 
 88:                                               ; preds = %85
@@ -14613,7 +14613,7 @@ common.resume:                                    ; preds = %145, %138, %.loopex
   store i64 %181, ptr %9, align 8, !noalias !2301
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !2301
   store i64 %3, ptr %8, align 8, !noalias !2301
-  %182 = icmp eq i64 %181, %3
+  %182 = icmp eq i64 %3, %181
   br i1 %182, label %184, label %183
 
 183:                                              ; preds = %180
@@ -14990,7 +14990,7 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17hda526fce825a2de6E.exit.i: ; pr
   store i64 %98, ptr %22, align 8, !noalias !2338
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21), !noalias !2338
   store i64 %3, ptr %21, align 8, !noalias !2338
-  %99 = icmp eq i64 %98, %3
+  %99 = icmp eq i64 %3, %98
   br i1 %99, label %101, label %100
 
 100:                                              ; preds = %97
@@ -15350,7 +15350,7 @@ common.resume:                                    ; preds = %158, %151, %.loopex
   store i64 %198, ptr %9, align 8, !noalias !2403
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !2403
   store i64 %3, ptr %8, align 8, !noalias !2403
-  %199 = icmp eq i64 %198, %3
+  %199 = icmp eq i64 %3, %198
   br i1 %199, label %201, label %200
 
 200:                                              ; preds = %197
@@ -15603,7 +15603,7 @@ switch.lookup:
   %26 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %spec.select.i, ptr %26, align 8
   store i64 0, ptr %6, align 8
-  %27 = icmp eq i64 %spec.select.i, %3
+  %27 = icmp eq i64 %3, %spec.select.i
   br i1 %27, label %31, label %30
 
 28:                                               ; preds = %31, %30
@@ -15700,7 +15700,7 @@ switch.lookup:
   %25 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %spec.select.i, ptr %25, align 8
   store i64 0, ptr %5, align 8
-  %26 = icmp eq i64 %spec.select.i, %3
+  %26 = icmp eq i64 %3, %spec.select.i
   br i1 %26, label %30, label %29
 
 27:                                               ; preds = %30, %29
@@ -15861,7 +15861,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.3890463254259644073.exit: ; preds 
   %.sroa.8.8.extract.trunc = trunc i64 %54 to i32
   %.sroa.8.12.extract.shift = lshr i64 %54, 32
   %.sroa.8.12.extract.trunc = trunc nuw i64 %.sroa.8.12.extract.shift to i32
-  %55 = mul i32 %.sroa.8.8.extract.trunc, %4
+  %55 = mul i32 %4, %.sroa.8.8.extract.trunc
   %56 = sub i32 0, %55
   %57 = and i32 %56, 3
   %58 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %4, i32 %5)
@@ -15882,7 +15882,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.3890463254259644073.exit: ; preds 
 
 65:                                               ; preds = %61
   %66 = extractvalue { i32, i1 } %63, 0
-  %67 = mul i32 %57, %5
+  %67 = mul i32 %5, %57
   %68 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %66, i32 %67)
   %69 = extractvalue { i32, i1 } %68, 1
   %70 = extractvalue { i32, i1 } %68, 0
@@ -16956,7 +16956,7 @@ _ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i: ; preds = %
   %reass.add = add i32 %64, %80
   %reass.mul = mul i32 %reass.add, %5
   %81 = zext i32 %reass.mul to i64
-  %82 = icmp ult i64 %81, %1
+  %82 = icmp ugt i64 %1, %81
   br i1 %82, label %83, label %97, !prof !581
 
 83:                                               ; preds = %79
@@ -18970,7 +18970,7 @@ define hidden void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_ima
   %62 = getelementptr inbounds i8, ptr %49, i64 8
   store i64 %spec.select.i, ptr %62, align 8
   store i64 0, ptr %49, align 8
-  %63 = icmp eq i64 %spec.select.i, %3
+  %63 = icmp eq i64 %3, %spec.select.i
   br i1 %63, label %65, label %64
 
 64:                                               ; preds = %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ee505537f99a213E.llvm.3890463254259644073.exit"
@@ -19069,7 +19069,7 @@ define hidden void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_ima
   %97 = zext i32 %96 to i64
   %98 = mul nuw i64 %97, %94
   store i64 %98, ptr %41, align 8, !noalias !2932
-  %99 = icmp eq i64 %98, %.val17.i
+  %99 = icmp eq i64 %.val17.i, %98
   br i1 %99, label %101, label %100
 
 100:                                              ; preds = %89
@@ -20790,7 +20790,7 @@ define hidden void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_ima
   %62 = getelementptr inbounds i8, ptr %49, i64 8
   store i64 %spec.select.i, ptr %62, align 8
   store i64 0, ptr %49, align 8
-  %63 = icmp eq i64 %spec.select.i, %3
+  %63 = icmp eq i64 %3, %spec.select.i
   br i1 %63, label %65, label %64
 
 64:                                               ; preds = %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ee505537f99a213E.llvm.3890463254259644073.exit"
@@ -20889,7 +20889,7 @@ define hidden void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$15read_ima
   %97 = zext i32 %96 to i64
   %98 = mul nuw i64 %97, %94
   store i64 %98, ptr %41, align 8, !noalias !3275
-  %99 = icmp eq i64 %98, %.val17.i
+  %99 = icmp eq i64 %.val17.i, %98
   br i1 %99, label %101, label %100
 
 100:                                              ; preds = %89
@@ -25145,7 +25145,7 @@ define void @_ZN5image6codecs3hdr7encoder12rle_compress17ha5d3d83bc0ef6917E(ptr 
   %71 = getelementptr inbounds i8, ptr %0, i64 %.sroa.51.0.copyload
   %72 = load i64, ptr %2, align 8, !alias.scope !4070, !noalias !4077, !noundef !4
   %73 = sub i64 %72, %64
-  %74 = icmp ult i64 %73, %.sroa.7.0.copyload
+  %74 = icmp ugt i64 %.sroa.7.0.copyload, %73
   br i1 %74, label %75, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h72598fee75810f13E.exit"
 
 75:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb63d7078fb44c618E.llvm.3890463254259644073.exit"
@@ -25361,7 +25361,7 @@ common.resume:                                    ; preds = %115, %64, %111, %19
   %39 = icmp ne i32 %38, 0
   %40 = getelementptr inbounds i8, ptr %2, i64 20
   %41 = load i32, ptr %40, align 4, !alias.scope !4102, !noalias !4105
-  %42 = icmp ult i32 %41, %36
+  %42 = icmp ugt i32 %36, %41
   %or.cond.i = select i1 %39, i1 %42, i1 false
   br i1 %or.cond.i, label %58, label %43
 
@@ -25373,7 +25373,7 @@ common.resume:                                    ; preds = %115, %64, %111, %19
   %48 = icmp ne i32 %47, 0
   %49 = getelementptr inbounds i8, ptr %2, i64 28
   %50 = load i32, ptr %49, align 4, !alias.scope !4102, !noalias !4105
-  %51 = icmp ult i32 %50, %45
+  %51 = icmp ugt i32 %45, %50
   %or.cond7.i = select i1 %48, i1 %51, i1 false
   br i1 %or.cond7.i, label %58, label %54
 
@@ -25798,7 +25798,7 @@ define hidden void @"_ZN5image6codecs3png19PngDecoder$LT$R$GT$11with_limits17hd8
   %30 = icmp ne i32 %29, 0
   %31 = getelementptr inbounds i8, ptr %2, i64 20
   %32 = load i32, ptr %31, align 4, !alias.scope !4123, !noalias !4126
-  %33 = icmp ult i32 %32, %27
+  %33 = icmp ugt i32 %27, %32
   %or.cond.i = select i1 %30, i1 %33, i1 false
   br i1 %or.cond.i, label %50, label %34
 
@@ -25810,7 +25810,7 @@ define hidden void @"_ZN5image6codecs3png19PngDecoder$LT$R$GT$11with_limits17hd8
   %39 = icmp ne i32 %38, 0
   %40 = getelementptr inbounds i8, ptr %2, i64 28
   %41 = load i32, ptr %40, align 4, !alias.scope !4123, !noalias !4126
-  %42 = icmp ult i32 %41, %36
+  %42 = icmp ugt i32 %36, %41
   %or.cond7.i = select i1 %39, i1 %42, i1 false
   br i1 %or.cond7.i, label %50, label %45
 
@@ -26251,7 +26251,7 @@ define hidden void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u2
   %31 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %spec.select.i, ptr %31, align 8
   store i64 0, ptr %9, align 8
-  %32 = icmp eq i64 %spec.select.i, %3
+  %32 = icmp eq i64 %3, %spec.select.i
   br i1 %32, label %37, label %36
 
 default.unreachable:                              ; preds = %46
@@ -26483,7 +26483,7 @@ define hidden void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u2
   %31 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %spec.select.i, ptr %31, align 8
   store i64 0, ptr %9, align 8
-  %32 = icmp eq i64 %spec.select.i, %3
+  %32 = icmp eq i64 %3, %spec.select.i
   br i1 %32, label %37, label %36
 
 default.unreachable:                              ; preds = %46
@@ -26683,7 +26683,7 @@ define hidden void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u2
   %12 = icmp ne i32 %11, 0
   %13 = getelementptr inbounds i8, ptr %2, i64 20
   %14 = load i32, ptr %13, align 4, !alias.scope !4225, !noalias !4228
-  %15 = icmp ult i32 %14, %9
+  %15 = icmp ugt i32 %9, %14
   %or.cond.i = select i1 %12, i1 %15, i1 false
   br i1 %or.cond.i, label %26, label %16
 
@@ -26695,7 +26695,7 @@ define hidden void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u2
   %21 = icmp ne i32 %20, 0
   %22 = getelementptr inbounds i8, ptr %2, i64 28
   %23 = load i32, ptr %22, align 4, !alias.scope !4225, !noalias !4228
-  %24 = icmp ult i32 %23, %18
+  %24 = icmp ugt i32 %18, %23
   %or.cond7.i = select i1 %21, i1 %24, i1 false
   br i1 %or.cond7.i, label %26, label %25
 
@@ -26734,7 +26734,7 @@ define hidden void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u2
   %12 = icmp ne i32 %11, 0
   %13 = getelementptr inbounds i8, ptr %2, i64 20
   %14 = load i32, ptr %13, align 4, !alias.scope !4233, !noalias !4236
-  %15 = icmp ult i32 %14, %9
+  %15 = icmp ugt i32 %9, %14
   %or.cond.i = select i1 %12, i1 %15, i1 false
   br i1 %or.cond.i, label %26, label %16
 
@@ -26746,7 +26746,7 @@ define hidden void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u2
   %21 = icmp ne i32 %20, 0
   %22 = getelementptr inbounds i8, ptr %2, i64 28
   %23 = load i32, ptr %22, align 4, !alias.scope !4233, !noalias !4236
-  %24 = icmp ult i32 %23, %18
+  %24 = icmp ugt i32 %18, %23
   %or.cond7.i = select i1 %21, i1 %24, i1 false
   br i1 %or.cond7.i, label %26, label %25
 
@@ -28510,7 +28510,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5image6codecs4webp7encoder20WebPE
   %125 = getelementptr inbounds i8, ptr %123, i64 4
   %126 = load i32, ptr %125, align 4, !noalias !4612, !noundef !4
   %127 = zext i16 %124 to i64
-  %128 = icmp ult i64 %127, %1
+  %128 = icmp ugt i64 %1, %127
   br i1 %128, label %133, label %130
 
 ._crit_edge124:                                   ; preds = %153, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h017fb2e02da15e9aE.exit"
@@ -28617,7 +28617,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5image6codecs4webp7encoder20WebPE
   %169 = ptrtoint ptr %.sroa.022.0.ptr141 to i64
   %170 = sub nuw i64 %163, %169
   %171 = lshr exact i64 %170, 2
-  %.not.i.not.i.i = icmp ugt i64 %171, %.sroa.15.0137
+  %.not.i.not.i.i = icmp ult i64 %.sroa.15.0137, %171
   br i1 %.not.i.not.i.i, label %172, label %.thread
 
 172:                                              ; preds = %168
@@ -29860,7 +29860,7 @@ switch.lookup226:                                 ; preds = %60
   %88 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fca.1.extract.i.i.i.i, i64 1)
   %89 = extractvalue { i64, i1 } %88, 1
   %90 = extractvalue { i64, i1 } %88, 0
-  %91 = icmp ugt i64 %90, %3
+  %91 = icmp ult i64 %3, %90
   %.04.i.not.i = or i1 %89, %91
   br i1 %.04.i.not.i, label %.thread.i, label %92
 
@@ -33204,7 +33204,7 @@ define hidden void @_ZN5image5image12ImageDecoder10read_image17h937256d65993c3b0
   %19 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %spec.select.i.i, ptr %19, align 8, !noalias !5441
   store i64 0, ptr %7, align 8, !noalias !5441
-  %20 = icmp eq i64 %spec.select.i.i, %3
+  %20 = icmp eq i64 %3, %spec.select.i.i
   br i1 %20, label %.split.i, label %21
 
 21:                                               ; preds = %4
@@ -33281,7 +33281,7 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8d
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %spec.select.i, ptr %18, align 8
   store i64 0, ptr %6, align 8
-  %19 = icmp eq i64 %spec.select.i, %3
+  %19 = icmp eq i64 %3, %spec.select.i
   br i1 %19, label %.split, label %20
 
 20:                                               ; preds = %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ee505537f99a213E.llvm.3890463254259644073.exit"
@@ -33351,7 +33351,7 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc0
   %19 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %spec.select.i, ptr %19, align 8
   store i64 0, ptr %7, align 8
-  %20 = icmp eq i64 %spec.select.i, %3
+  %20 = icmp eq i64 %3, %spec.select.i
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %4
@@ -33491,7 +33491,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17h068cc89c0646b72f
   %8 = icmp ne i32 %7, 0
   %9 = getelementptr inbounds i8, ptr %2, i64 20
   %10 = load i32, ptr %9, align 4, !alias.scope !5501, !noalias !5504
-  %11 = icmp ult i32 %10, %5
+  %11 = icmp ugt i32 %5, %10
   %or.cond.i = select i1 %8, i1 %11, i1 false
   br i1 %or.cond.i, label %22, label %12
 
@@ -33503,7 +33503,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17h068cc89c0646b72f
   %17 = icmp ne i32 %16, 0
   %18 = getelementptr inbounds i8, ptr %2, i64 28
   %19 = load i32, ptr %18, align 4, !alias.scope !5501, !noalias !5504
-  %20 = icmp ult i32 %19, %14
+  %20 = icmp ugt i32 %14, %19
   %or.cond7.i = select i1 %17, i1 %20, i1 false
   br i1 %or.cond7.i, label %22, label %21
 
@@ -33530,7 +33530,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17h4034db2e19348710
   %8 = icmp ne i32 %7, 0
   %9 = getelementptr inbounds i8, ptr %2, i64 20
   %10 = load i32, ptr %9, align 4, !alias.scope !5509, !noalias !5512
-  %11 = icmp ult i32 %10, %5
+  %11 = icmp ugt i32 %5, %10
   %or.cond.i = select i1 %8, i1 %11, i1 false
   br i1 %or.cond.i, label %22, label %12
 
@@ -33542,7 +33542,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17h4034db2e19348710
   %17 = icmp ne i32 %16, 0
   %18 = getelementptr inbounds i8, ptr %2, i64 28
   %19 = load i32, ptr %18, align 4, !alias.scope !5509, !noalias !5512
-  %20 = icmp ult i32 %19, %14
+  %20 = icmp ugt i32 %14, %19
   %or.cond7.i = select i1 %17, i1 %20, i1 false
   br i1 %or.cond7.i, label %22, label %21
 
@@ -33569,7 +33569,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17h6ba2008d9da69ac0
   %8 = icmp ne i32 %7, 0
   %9 = getelementptr inbounds i8, ptr %2, i64 20
   %10 = load i32, ptr %9, align 4, !alias.scope !5517, !noalias !5520
-  %11 = icmp ult i32 %10, %5
+  %11 = icmp ugt i32 %5, %10
   %or.cond.i = select i1 %8, i1 %11, i1 false
   br i1 %or.cond.i, label %22, label %12
 
@@ -33581,7 +33581,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17h6ba2008d9da69ac0
   %17 = icmp ne i32 %16, 0
   %18 = getelementptr inbounds i8, ptr %2, i64 28
   %19 = load i32, ptr %18, align 4, !alias.scope !5517, !noalias !5520
-  %20 = icmp ult i32 %19, %14
+  %20 = icmp ugt i32 %14, %19
   %or.cond7.i = select i1 %17, i1 %20, i1 false
   br i1 %or.cond7.i, label %22, label %21
 
@@ -33608,7 +33608,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17h9b60f9bc653c0373
   %8 = icmp ne i32 %7, 0
   %9 = getelementptr inbounds i8, ptr %2, i64 20
   %10 = load i32, ptr %9, align 4, !alias.scope !5525, !noalias !5528
-  %11 = icmp ult i32 %10, %5
+  %11 = icmp ugt i32 %5, %10
   %or.cond.i = select i1 %8, i1 %11, i1 false
   br i1 %or.cond.i, label %22, label %12
 
@@ -33620,7 +33620,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17h9b60f9bc653c0373
   %17 = icmp ne i32 %16, 0
   %18 = getelementptr inbounds i8, ptr %2, i64 28
   %19 = load i32, ptr %18, align 4, !alias.scope !5525, !noalias !5528
-  %20 = icmp ult i32 %19, %14
+  %20 = icmp ugt i32 %14, %19
   %or.cond7.i = select i1 %17, i1 %20, i1 false
   br i1 %or.cond7.i, label %22, label %21
 
@@ -33647,7 +33647,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17ha81e534da61d10c9
   %8 = icmp ne i32 %7, 0
   %9 = getelementptr inbounds i8, ptr %2, i64 20
   %10 = load i32, ptr %9, align 4, !alias.scope !5533, !noalias !5536
-  %11 = icmp ult i32 %10, %5
+  %11 = icmp ugt i32 %5, %10
   %or.cond.i = select i1 %8, i1 %11, i1 false
   br i1 %or.cond.i, label %22, label %12
 
@@ -33659,7 +33659,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17ha81e534da61d10c9
   %17 = icmp ne i32 %16, 0
   %18 = getelementptr inbounds i8, ptr %2, i64 28
   %19 = load i32, ptr %18, align 4, !alias.scope !5533, !noalias !5536
-  %20 = icmp ult i32 %19, %14
+  %20 = icmp ugt i32 %14, %19
   %or.cond7.i = select i1 %17, i1 %20, i1 false
   br i1 %or.cond7.i, label %22, label %21
 
@@ -33686,7 +33686,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17hec5e327aa5e800be
   %8 = icmp ne i32 %7, 0
   %9 = getelementptr inbounds i8, ptr %2, i64 20
   %10 = load i32, ptr %9, align 4, !alias.scope !5541, !noalias !5544
-  %11 = icmp ult i32 %10, %5
+  %11 = icmp ugt i32 %5, %10
   %or.cond.i = select i1 %8, i1 %11, i1 false
   br i1 %or.cond.i, label %22, label %12
 
@@ -33698,7 +33698,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17hec5e327aa5e800be
   %17 = icmp ne i32 %16, 0
   %18 = getelementptr inbounds i8, ptr %2, i64 28
   %19 = load i32, ptr %18, align 4, !alias.scope !5541, !noalias !5544
-  %20 = icmp ult i32 %19, %14
+  %20 = icmp ugt i32 %14, %19
   %or.cond7.i = select i1 %17, i1 %20, i1 false
   br i1 %or.cond7.i, label %22, label %21
 
@@ -33729,7 +33729,7 @@ define hidden void @_ZN5image5utils11expand_bits17h1ac1b81ed26fb6c4E(ptr noalias
 11:                                               ; preds = %5
   %12 = udiv i8 -1, %9
   %13 = zext i8 %1 to i32
-  %14 = mul i32 %13, %2
+  %14 = mul i32 %2, %13
   %15 = and i32 %14, 7
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %18, label %28
@@ -33833,7 +33833,7 @@ define hidden void @_ZN5image5utils11expand_bits17h1ac1b81ed26fb6c4E(ptr noalias
           to label %41 unwind label %.loopexit.split-lp
 
 49:                                               ; preds = %42
-  %50 = mul i8 %.sroa.518.032, %1
+  %50 = mul i8 %1, %.sroa.518.032
   %51 = sub i8 0, %50
   %52 = and i8 %51, 7
   %53 = shl i8 %9, %52
@@ -33931,7 +33931,7 @@ define internal fastcc void @_ZN5image6codecs3bmp7decoder18set_2bit_pixel_run17h
   %16 = load i8, ptr %3, align 1, !noundef !4
   %17 = lshr i8 %16, 6
   %18 = zext nneg i8 %17 to i64
-  %19 = icmp ult i64 %18, %2
+  %19 = icmp ugt i64 %2, %18
   br i1 %19, label %.split157.us, label %.split.us, !prof !581
 
 .split157.us:                                     ; preds = %15
@@ -33962,7 +33962,7 @@ define internal fastcc void @_ZN5image6codecs3bmp7decoder18set_2bit_pixel_run17h
   %28 = load i8, ptr %.sroa.0.0131, align 1, !noundef !4
   %29 = lshr i8 %28, 6
   %30 = zext nneg i8 %29 to i64
-  %31 = icmp ult i64 %30, %2
+  %31 = icmp ugt i64 %2, %30
   br i1 %31, label %32, label %.split.us, !prof !581
 
 32:                                               ; preds = %27
@@ -34013,7 +34013,7 @@ define internal fastcc void @_ZN5image6codecs3bmp7decoder18set_2bit_pixel_run17h
   %43 = lshr i8 %42, 4
   %44 = and i8 %43, 3
   %45 = zext nneg i8 %44 to i64
-  %46 = icmp ult i64 %45, %2
+  %46 = icmp ugt i64 %2, %45
   br i1 %46, label %47, label %.split183.us, !prof !581
 
 47:                                               ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit66"
@@ -34063,7 +34063,7 @@ define internal fastcc void @_ZN5image6codecs3bmp7decoder18set_2bit_pixel_run17h
   %60 = lshr i8 %59, 2
   %61 = and i8 %60, 3
   %62 = zext nneg i8 %61 to i64
-  %63 = icmp ult i64 %62, %2
+  %63 = icmp ugt i64 %2, %62
   br i1 %63, label %65, label %64, !prof !581
 
 64:                                               ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit71"
@@ -34112,7 +34112,7 @@ define internal fastcc void @_ZN5image6codecs3bmp7decoder18set_2bit_pixel_run17h
   %77 = load i8, ptr %.sroa.0.0131, align 1, !noundef !4
   %78 = and i8 %77, 3
   %79 = zext nneg i8 %78 to i64
-  %80 = icmp ult i64 %79, %2
+  %80 = icmp ugt i64 %2, %79
   br i1 %80, label %82, label %81, !prof !581
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit.thread": ; preds = %71, %53, %37, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit", %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit", %88, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit.us", %13, %6

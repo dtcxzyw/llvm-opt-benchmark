@@ -323,7 +323,7 @@ define hidden void @_ZN16OopMapCacheEntry8set_maskEP13CellTypeStateS1_i(ptr noca
   %8 = getelementptr inbounds i8, ptr %7, i64 44
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i32
-  %11 = add nsw i32 %10, %3
+  %11 = add nsw i32 %3, %10
   %12 = shl nsw i32 %11, 1
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %12, ptr %13, align 8
@@ -1534,7 +1534,7 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %_ZN12ResourceMar
   %68 = getelementptr inbounds i8, ptr %61, i64 16
   %69 = load i16, ptr %68, align 8
   %70 = zext i16 %69 to i32
-  %71 = icmp eq i32 %70, %2
+  %71 = icmp eq i32 %2, %70
   %72 = select i1 %67, i1 %71, i1 false
   br i1 %72, label %73, label %113
 

@@ -2198,7 +2198,7 @@ define dso_local void @timers_update_nohz() local_unnamed_addr #1 align 16 {
 define dso_local i64 @__round_jiffies(i64 noundef %0, i32 noundef %1) #5 align 16 {
   %3 = mul i32 %1, 3
   %4 = sext i32 %3 to i64
-  %5 = add i64 %4, %0
+  %5 = add i64 %0, %4
   %6 = urem i64 %5, 1000
   %7 = icmp ugt i64 %6, 249
   %8 = sub nuw i64 %5, %6
@@ -2238,7 +2238,7 @@ define dso_local i64 @round_jiffies(i64 noundef %0) #1 align 16 {
   %2 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !36
   %3 = mul i32 %2, 3
   %4 = sext i32 %3 to i64
-  %5 = add i64 %4, %0
+  %5 = add i64 %0, %4
   %6 = urem i64 %5, 1000
   %7 = icmp ugt i64 %6, 249
   %8 = sub nuw i64 %5, %6
@@ -2278,7 +2278,7 @@ define dso_local i64 @round_jiffies_relative(i64 noundef %0) #1 align 16 {
 define dso_local i64 @__round_jiffies_up(i64 noundef %0, i32 noundef %1) #5 align 16 {
   %3 = mul i32 %1, 3
   %4 = sext i32 %3 to i64
-  %5 = add i64 %4, %0
+  %5 = add i64 %0, %4
   %6 = urem i64 %5, 1000
   %7 = add i64 %0, 1000
   %8 = sub i64 %7, %6
@@ -2312,7 +2312,7 @@ define dso_local i64 @round_jiffies_up(i64 noundef %0) #1 align 16 {
   %2 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !38
   %3 = mul i32 %2, 3
   %4 = sext i32 %3 to i64
-  %5 = add i64 %4, %0
+  %5 = add i64 %0, %4
   %6 = urem i64 %5, 1000
   %7 = add i64 %0, 1000
   %8 = sub i64 %7, %6

@@ -178,11 +178,11 @@ hash.exit:                                        ; preds = %4, %._crit_edge.loo
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %.024, i64 16
   %31 = load i64, ptr %30, align 8
-  %32 = icmp eq i64 %31, %2
+  %32 = icmp eq i64 %2, %31
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %29
-  %34 = icmp eq ptr %27, %1
+  %34 = icmp eq ptr %1, %27
   br i1 %34, label %.loopexit, label %35
 
 35:                                               ; preds = %33
@@ -239,7 +239,7 @@ define noundef ptr @cli_htu32_find(ptr noundef readonly %0, i32 noundef %1) loca
   br i1 %.not22, label %.loopexit, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp eq i32 %23, %1
+  %25 = icmp eq i32 %1, %23
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %24
@@ -480,7 +480,7 @@ hash.exit.us:                                     ; preds = %14, %39
 78:                                               ; preds = %75
   %79 = getelementptr inbounds i8, ptr %.056, i64 16
   %80 = load i64, ptr %79, align 8
-  %81 = icmp eq i64 %80, %2
+  %81 = icmp eq i64 %2, %80
   br i1 %81, label %82, label %86
 
 82:                                               ; preds = %78
@@ -973,11 +973,11 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %.024.i, i64 16
   %31 = load i64, ptr %30, align 8
-  %32 = icmp eq i64 %31, %2
+  %32 = icmp eq i64 %2, %31
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %29
-  %34 = icmp eq ptr %27, %1
+  %34 = icmp eq ptr %1, %27
   br i1 %34, label %cli_hashtab_find.exit, label %35
 
 35:                                               ; preds = %33
@@ -1038,7 +1038,7 @@ define void @cli_htu32_delete(ptr noundef readonly %0, i32 noundef %1) local_unn
   br i1 %.not22.i, label %cli_htu32_find.exit.thread, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp eq i32 %23, %1
+  %25 = icmp eq i32 %1, %23
   br i1 %25, label %cli_htu32_find.exit, label %26
 
 26:                                               ; preds = %24
@@ -2318,7 +2318,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %32
-  %37 = icmp eq ptr %30, %1
+  %37 = icmp eq ptr %1, %30
   br i1 %37, label %cli_hashtab_find.exit, label %38
 
 38:                                               ; preds = %36
@@ -2468,7 +2468,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %32
-  %37 = icmp eq ptr %30, %1
+  %37 = icmp eq ptr %1, %30
   br i1 %37, label %cli_hashtab_find.exit, label %38
 
 38:                                               ; preds = %36
@@ -2575,7 +2575,7 @@ hash.exit.i.i:                                    ; preds = %._crit_edge.loopexi
   br i1 %92, label %93, label %98
 
 93:                                               ; preds = %89
-  %94 = icmp eq ptr %87, %1
+  %94 = icmp eq ptr %1, %87
   br i1 %94, label %cli_hashtab_find.exit.i, label %95
 
 95:                                               ; preds = %93
@@ -2730,7 +2730,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %32
-  %37 = icmp eq ptr %30, %1
+  %37 = icmp eq ptr %1, %30
   br i1 %37, label %cli_hashtab_find.exit, label %38
 
 38:                                               ; preds = %36

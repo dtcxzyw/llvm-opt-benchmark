@@ -2353,27 +2353,27 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %1808 = add nsw i64 %1807, %1551
   %1809 = getelementptr inbounds float, ptr %9, i64 %1808
   %1810 = load float, ptr %1809, align 4, !tbaa !99
-  %1811 = fmul float %1810, %8
+  %1811 = fmul float %8, %1810
   %1812 = tail call float @llvm.fmuladd.f32(float %5, float %1806, float %1811)
   store float %1812, ptr %1809, align 4, !tbaa !99
   %1813 = tail call reassoc float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %1803)
   %1814 = or disjoint i64 %1808, 1
   %1815 = getelementptr inbounds float, ptr %9, i64 %1814
   %1816 = load float, ptr %1815, align 4, !tbaa !99
-  %1817 = fmul float %1816, %8
+  %1817 = fmul float %8, %1816
   %1818 = tail call float @llvm.fmuladd.f32(float %5, float %1813, float %1817)
   store float %1818, ptr %1815, align 4, !tbaa !99
   %1819 = tail call reassoc float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %1804)
   %1820 = mul nsw i64 %.pre-phi519, %10
   %1821 = getelementptr float, ptr %1573, i64 %1820
   %1822 = load float, ptr %1821, align 4, !tbaa !99
-  %1823 = fmul float %1822, %8
+  %1823 = fmul float %8, %1822
   %1824 = tail call float @llvm.fmuladd.f32(float %5, float %1819, float %1823)
   store float %1824, ptr %1821, align 4, !tbaa !99
   %1825 = tail call reassoc float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %1805)
   %1826 = getelementptr i8, ptr %1821, i64 4
   %1827 = load float, ptr %1826, align 4, !tbaa !99
-  %1828 = fmul float %1827, %8
+  %1828 = fmul float %8, %1827
   %1829 = tail call float @llvm.fmuladd.f32(float %5, float %1825, float %1828)
   store float %1829, ptr %1826, align 4, !tbaa !99
   %1830 = add nuw nsw i64 %1744, 2
@@ -2438,13 +2438,13 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %1876 = mul nsw i64 %1833, %10
   %1877 = getelementptr float, ptr %1573, i64 %1876
   %1878 = load float, ptr %1877, align 4, !tbaa !99
-  %1879 = fmul float %1878, %8
+  %1879 = fmul float %8, %1878
   %1880 = tail call float @llvm.fmuladd.f32(float %5, float %1875, float %1879)
   store float %1880, ptr %1877, align 4, !tbaa !99
   %1881 = tail call reassoc float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %1874)
   %1882 = getelementptr i8, ptr %1877, i64 4
   %1883 = load float, ptr %1882, align 4, !tbaa !99
-  %1884 = fmul float %1883, %8
+  %1884 = fmul float %8, %1883
   %1885 = tail call float @llvm.fmuladd.f32(float %5, float %1881, float %1884)
   store float %1885, ptr %1882, align 4, !tbaa !99
   %1886 = add nuw nsw i64 %1833, 1
@@ -2675,14 +2675,14 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %2062 = mul nsw i64 %2013, %10
   %2063 = getelementptr float, ptr %1894, i64 %2062
   %2064 = load float, ptr %2063, align 4, !tbaa !99
-  %2065 = fmul float %2064, %8
+  %2065 = fmul float %8, %2064
   %2066 = tail call float @llvm.fmuladd.f32(float %5, float %2061, float %2065)
   store float %2066, ptr %2063, align 4, !tbaa !99
   %2067 = tail call reassoc float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %2060)
   %2068 = mul nsw i64 %.pre-phi521, %10
   %2069 = getelementptr float, ptr %1894, i64 %2068
   %2070 = load float, ptr %2069, align 4, !tbaa !99
-  %2071 = fmul float %2070, %8
+  %2071 = fmul float %8, %2070
   %2072 = tail call float @llvm.fmuladd.f32(float %5, float %2067, float %2071)
   store float %2072, ptr %2069, align 4, !tbaa !99
   %2073 = add nuw nsw i64 %2013, 2
@@ -2738,7 +2738,7 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %2110 = mul nsw i64 %2076, %10
   %2111 = getelementptr float, ptr %1894, i64 %2110
   %2112 = load float, ptr %2111, align 4, !tbaa !99
-  %2113 = fmul float %2112, %8
+  %2113 = fmul float %8, %2112
   %2114 = tail call float @llvm.fmuladd.f32(float %5, float %2109, float %2113)
   store float %2114, ptr %2111, align 4, !tbaa !99
   %2115 = add nuw nsw i64 %2076, 1

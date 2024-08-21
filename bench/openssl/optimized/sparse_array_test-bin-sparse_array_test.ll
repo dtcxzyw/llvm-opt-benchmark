@@ -322,7 +322,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 land.lhs.true.us:                                 ; preds = %for.body.us
   %arrayidx3.us = getelementptr inbounds %struct.index_cases_st, ptr %0, i64 %i.014.us
   %4 = load i64, ptr %arrayidx3.us, align 8
-  %cmp5.us = icmp eq i64 %4, %n
+  %cmp5.us = icmp eq i64 %n, %4
   br i1 %cmp5.us, label %land.lhs.true6.us, label %for.inc.us
 
 land.lhs.true6.us:                                ; preds = %land.lhs.true.us
@@ -341,7 +341,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.014 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
   %arrayidx3 = getelementptr inbounds %struct.index_cases_st, ptr %0, i64 %i.014
   %6 = load i64, ptr %arrayidx3, align 8
-  %cmp5 = icmp eq i64 %6, %n
+  %cmp5 = icmp eq i64 %n, %6
   br i1 %cmp5, label %land.lhs.true6, label %for.inc
 
 land.lhs.true6:                                   ; preds = %for.body
@@ -386,7 +386,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %i.013 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
   %arrayidx = getelementptr inbounds %struct.index_cases_st, ptr %0, i64 %i.013
   %2 = load i64, ptr %arrayidx, align 8
-  %cmp3 = icmp eq i64 %2, %n
+  %cmp3 = icmp eq i64 %n, %2
   br i1 %cmp3, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body

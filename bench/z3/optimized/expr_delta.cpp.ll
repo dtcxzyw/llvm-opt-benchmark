@@ -262,7 +262,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   store i32 %inc.i.i25, ptr %arrayidx10.i.i24, align 4
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next80 to i32
-  %exitcond82.not = icmp eq i32 %lftr.wideiv, %sz
+  %exitcond82.not = icmp eq i32 %sz, %lftr.wideiv
   br i1 %exitcond82.not, label %cleanup, label %for.body8
 
 lpad.loopexit:                                    ; preds = %if.then.i.i26
@@ -373,13 +373,13 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_true.i = getelementptr inbounds i8, ptr %0, i64 856
   %1 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %1, %e
+  %cmp.i = icmp eq ptr %e, %1
   br i1 %cmp.i, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %m_false.i = getelementptr inbounds i8, ptr %0, i64 864
   %2 = load ptr, ptr %m_false.i, align 8
-  %cmp.i27 = icmp eq ptr %2, %e
+  %cmp.i27 = icmp eq ptr %e, %2
   br i1 %cmp.i27, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false

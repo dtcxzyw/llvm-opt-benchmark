@@ -915,7 +915,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i1
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = call ptr @__cxa_begin_catch(ptr %4) #21
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %call5.i.i.i.i1313
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i.i1313, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i1305
 
 for.body.i.i.i.i.i.i.i1305:                       ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i1305
@@ -4404,7 +4404,7 @@ lpad.i.i.i.i.i1386:                               ; preds = %for.body.i.i.i.i.i1
           catch ptr null
   %311 = extractvalue { ptr, i32 } %310, 0
   %312 = call ptr @__cxa_begin_catch(ptr %311) #21
-  %cmp.not3.i.i.i.i.i.i.i1387 = icmp eq ptr %__cur.010.i.i.i.i.i1384, %call5.i.i.i.i1405
+  %cmp.not3.i.i.i.i.i.i.i1387 = icmp eq ptr %call5.i.i.i.i1405, %__cur.010.i.i.i.i.i1384
   br i1 %cmp.not3.i.i.i.i.i.i.i1387, label %invoke.cont3.i.i.i.i.i1392, label %for.body.i.i.i.i.i.i.i1388
 
 for.body.i.i.i.i.i.i.i1388:                       ; preds = %lpad.i.i.i.i.i1386, %for.body.i.i.i.i.i.i.i1388
@@ -4719,7 +4719,7 @@ lpad.i.i.i.i.i1417:                               ; preds = %for.body.i.i.i.i.i1
           catch ptr null
   %337 = extractvalue { ptr, i32 } %336, 0
   %338 = call ptr @__cxa_begin_catch(ptr %337) #21
-  %cmp.not3.i.i.i.i.i.i.i1418 = icmp eq ptr %__cur.010.i.i.i.i.i1415, %call5.i.i.i.i1436
+  %cmp.not3.i.i.i.i.i.i.i1418 = icmp eq ptr %call5.i.i.i.i1436, %__cur.010.i.i.i.i.i1415
   br i1 %cmp.not3.i.i.i.i.i.i.i1418, label %invoke.cont3.i.i.i.i.i1423, label %for.body.i.i.i.i.i.i.i1419
 
 for.body.i.i.i.i.i.i.i1419:                       ; preds = %lpad.i.i.i.i.i1417, %for.body.i.i.i.i.i.i.i1419
@@ -6035,7 +6035,7 @@ terminate.lpad:                                   ; preds = %entry
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -6354,7 +6354,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
 entry:
   %cmp.not = icmp ne ptr %__x, null
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2 = icmp eq ptr %add.ptr.i, %__p
+  %cmp2 = icmp eq ptr %__p, %add.ptr.i
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %lor.end, label %lor.rhs
 
@@ -6801,7 +6801,7 @@ if.then8.i:                                       ; preds = %call3.i.noexc
 
 if.end10.i:                                       ; preds = %if.then8.i, %call3.i.noexc
   %10 = load i64, ptr %it, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %10
+  %cmp.i.i.i = icmp ugt i64 %10, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i
@@ -6912,7 +6912,7 @@ if.then8.i:                                       ; preds = %call3.i.noexc
 
 if.end10.i:                                       ; preds = %if.then8.i, %call3.i.noexc
   %6 = load i64, ptr %this, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i, %6
+  %cmp.i.i.i = icmp ugt i64 %6, %retval.sroa.0.0.copyload.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i
@@ -7415,7 +7415,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = call ptr @__cxa_begin_catch(ptr %4) #21
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %call5.i.i.i.i207
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i.i207, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -12456,7 +12456,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = call ptr @__cxa_begin_catch(ptr %4) #21
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %call5.i.i.i.i153
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i.i153, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i

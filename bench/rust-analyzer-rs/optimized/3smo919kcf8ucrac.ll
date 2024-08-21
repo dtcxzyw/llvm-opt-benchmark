@@ -720,9 +720,9 @@ define hidden void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h1ab20912c63
   br label %45
 
 31:                                               ; preds = %.lr.ph.split
-  %32 = icmp sgt i64 %.val1656, %2
-  %33 = icmp eq i64 %.val1656, %2
-  %34 = icmp ugt i32 %.val1757, %3
+  %32 = icmp slt i64 %2, %.val1656
+  %33 = icmp eq i64 %2, %.val1656
+  %34 = icmp ult i32 %3, %.val1757
   %35 = select i1 %33, i1 %34, i1 false
   %36 = select i1 %32, i1 true, i1 %35
   %spec.select = select i1 %36, i32 %3, i32 %.val1757
@@ -861,9 +861,9 @@ _ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17hd6c7268e47ec8c96E.exit: 
   br i1 %.not, label %40, label %34
 
 34:                                               ; preds = %_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17hd6c7268e47ec8c96E.exit
-  %35 = icmp sgt i64 %.sroa.0.0.i, %2
-  %36 = icmp eq i64 %.sroa.0.0.i, %2
-  %37 = icmp ugt i32 %.sroa.3.0.i, %3
+  %35 = icmp slt i64 %2, %.sroa.0.0.i
+  %36 = icmp eq i64 %2, %.sroa.0.0.i
+  %37 = icmp ult i32 %3, %.sroa.3.0.i
   %38 = select i1 %36, i1 %37, i1 false
   %39 = select i1 %35, i1 true, i1 %38
   br i1 %39, label %61, label %40

@@ -140,7 +140,7 @@ entry:
   %1 = trunc i32 %notmask to i8
   %conv = xor i8 %1, -1
   %conv3 = zext i8 %conv to i32
-  %cmp = icmp ugt i32 %conv3, %I
+  %cmp = icmp ult i32 %I, %conv3
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry

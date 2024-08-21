@@ -6476,7 +6476,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 112
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp2.not = icmp sgt i32 %conv.i, %index
+  %cmp2.not = icmp slt i32 %index, %conv.i
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -14042,7 +14042,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZN7testing12_GLOBAL__N_115IsSubstringPredEPKcS2_.exit: ; preds = %if.end.i, %if.then.i
   %retval.0.i = phi i1 [ %cmp2.i, %if.then.i ], [ %cmp3.i, %if.end.i ]
-  %2 = xor i1 %retval.0.i, %expected_to_be_substring
+  %2 = xor i1 %expected_to_be_substring, %retval.0.i
   br i1 %2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN7testing12_GLOBAL__N_115IsSubstringPredEPKcS2_.exit
@@ -14290,7 +14290,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZN7testing12_GLOBAL__N_115IsSubstringPredEPKwS2_.exit: ; preds = %if.end.i, %if.then.i
   %retval.0.i = phi i1 [ %cmp2.i, %if.then.i ], [ %cmp3.i, %if.end.i ]
-  %2 = xor i1 %retval.0.i, %expected_to_be_substring
+  %2 = xor i1 %expected_to_be_substring, %retval.0.i
   br i1 %2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN7testing12_GLOBAL__N_115IsSubstringPredEPKwS2_.exit
@@ -14543,7 +14543,7 @@ entry:
   %1 = load i64, ptr %_M_string_length.i.i.i, align 8
   %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %haystack, ptr noundef %0, i64 noundef 0, i64 noundef %1) #52
   %cmp.i = icmp ne i64 %call3.i.i, -1
-  %2 = xor i1 %cmp.i, %expected_to_be_substring
+  %2 = xor i1 %expected_to_be_substring, %cmp.i
   br i1 %2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -14781,7 +14781,7 @@ entry:
   %1 = load i64, ptr %_M_string_length.i.i.i, align 8
   %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4findEPKwmm(ptr noundef nonnull align 8 dereferenceable(32) %haystack, ptr noundef %0, i64 noundef 0, i64 noundef %1) #52
   %cmp.i = icmp ne i64 %call3.i.i, -1
-  %2 = xor i1 %cmp.i, %expected_to_be_substring
+  %2 = xor i1 %expected_to_be_substring, %cmp.i
   br i1 %2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -16751,7 +16751,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 112
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp2.not = icmp sgt i32 %conv.i, %i
+  %cmp2.not = icmp slt i32 %i, %conv.i
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -16803,7 +16803,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 6
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp2.not = icmp sgt i32 %conv.i, %i
+  %cmp2.not = icmp slt i32 %i, %conv.i
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -22788,7 +22788,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 2
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp1.not.i = icmp sgt i32 %conv.i, %i
+  %cmp1.not.i = icmp slt i32 %i, %conv.i
   br i1 %cmp1.not.i, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit, label %cond.end
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit: ; preds = %lor.lhs.false.i
@@ -22827,7 +22827,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 2
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp1.not.i = icmp sgt i32 %conv.i, %i
+  %cmp1.not.i = icmp slt i32 %i, %conv.i
   br i1 %cmp1.not.i, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit, label %cond.end
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit: ; preds = %lor.lhs.false.i
@@ -23608,7 +23608,7 @@ if.end4.i70:                                      ; preds = %_ZN7testing8interna
 
 lor.end:                                          ; preds = %if.end4.i70, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit68, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit62, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit56, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit50, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit44, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit, %if.then
   %1 = phi i1 [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit68 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit62 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit56 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit50 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit44 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit ], [ %cmp5.i72, %if.end4.i70 ], [ false, %if.then ]
-  %2 = and i1 %1, %stdout_is_tty
+  %2 = and i1 %stdout_is_tty, %1
   br label %cleanup
 
 _ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit80: ; preds = %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit
@@ -25848,7 +25848,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 2
   %conv.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
-  %cmp1.not.i.i = icmp sgt i32 %conv.i.i, %i
+  %cmp1.not.i.i = icmp slt i32 %i, %conv.i.i
   br i1 %cmp1.not.i.i, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i, label %_ZNK7testing8internal12UnitTestImpl11GetTestCaseEi.exit
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; preds = %lor.lhs.false.i.i
@@ -37536,7 +37536,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 2
   %conv.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
-  %cmp1.not.i.i = icmp sgt i32 %conv.i.i, %i
+  %cmp1.not.i.i = icmp slt i32 %i, %conv.i.i
   br i1 %cmp1.not.i.i, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i, label %_ZN7testing8internal12UnitTestImpl18GetMutableTestCaseEi.exit
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; preds = %lor.lhs.false.i.i
@@ -42477,7 +42477,7 @@ entry:
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 2
   %conv = trunc i64 %sub.ptr.div.i to i32
   %cmp = icmp sgt i32 %begin, -1
-  %cmp1 = icmp sge i32 %conv, %begin
+  %cmp1 = icmp sle i32 %begin, %conv
   %2 = and i1 %cmp, %cmp1
   br i1 %2, label %if.end, label %if.else
 
@@ -42521,7 +42521,7 @@ lpad:                                             ; preds = %invoke.cont11, %inv
 
 if.end:                                           ; preds = %invoke.cont13, %entry
   %cmp15 = icmp sle i32 %begin, %end
-  %cmp17 = icmp sge i32 %conv, %end
+  %cmp17 = icmp sle i32 %end, %conv
   %4 = and i1 %cmp15, %cmp17
   br i1 %4, label %if.end41, label %if.else21
 

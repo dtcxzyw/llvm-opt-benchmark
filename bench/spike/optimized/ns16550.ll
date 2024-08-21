@@ -412,7 +412,7 @@ define noundef zeroext i1 @_ZN9ns16550_t4loadEmmPh(ptr nocapture noundef nonnull
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.not = icmp eq i64 %7, %2
+  %.not = icmp eq i64 %2, %7
   %8 = add i64 %2, %1
   %9 = icmp ult i64 %8, 4097
   %or.cond.not = and i1 %9, %.not
@@ -585,7 +585,7 @@ define noundef zeroext i1 @_ZN9ns16550_t5storeEmmPKh(ptr noundef nonnull align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %.not = icmp eq i64 %8, %2
+  %.not = icmp eq i64 %2, %8
   %9 = add i64 %2, %1
   %10 = icmp ult i64 %9, 4097
   %or.cond.not = and i1 %10, %.not
@@ -1544,7 +1544,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %14, %3
   %17 = load i64, ptr %7, align 8
   %18 = select i1 %13, i64 15, i64 %17
-  %.not.i = icmp ult i64 %18, %11
+  %.not.i = icmp ugt i64 %11, %18
   br i1 %.not.i, label %19, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm.exit
 
 19:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -1553,7 +1553,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 
 21:                                               ; preds = %19
   %22 = shl nuw i64 %18, 1
-  %23 = icmp ugt i64 %22, %11
+  %23 = icmp ult i64 %11, %22
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %22, i64 9223372036854775807)
   %.0.i = select i1 %23, i64 %spec.store.select.i.i, i64 %11
   %24 = add nuw i64 %.0.i, 1
@@ -2048,7 +2048,7 @@ common.resume:                                    ; preds = %12, %45
 26:                                               ; preds = %23
   %.not.i.i = icmp ne ptr %24, null
   %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = icmp eq ptr %27, %25
+  %28 = icmp eq ptr %25, %27
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %28
   br i1 %or.cond.i.i, label %.thread, label %29
 
@@ -2126,7 +2126,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P16device_factory_tESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %27
 
 6:                                                ; preds = %3
@@ -2720,7 +2720,7 @@ _ZNSt11_Deque_baseIhSaIhEE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #21
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i

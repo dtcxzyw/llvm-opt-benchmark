@@ -2331,7 +2331,7 @@ define internal fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %0,
   %27 = getelementptr i8, ptr %.028, i64 %26
   %28 = add i8 %.02427, 1
   %29 = zext i8 %28 to i32
-  %30 = icmp ult i32 %29, %5
+  %30 = icmp ugt i32 %5, %29
   br i1 %30, label %15, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %21, %6

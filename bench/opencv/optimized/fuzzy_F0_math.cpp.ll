@@ -233,12 +233,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc233
 .preheader327:                                    ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.0.0434 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %72, %.lr.ph ]
   %76 = sub nsw i32 %43, %1
-  %77 = icmp sgt i32 %76, %1
+  %77 = icmp slt i32 %1, %76
   br i1 %77, label %.preheader.lr.ph, label %._crit_edge365
 
 .preheader.lr.ph:                                 ; preds = %.preheader327
   %78 = sub nsw i32 %41, %1
-  %79 = icmp sgt i32 %78, %1
+  %79 = icmp slt i32 %1, %78
   br i1 %79, label %.preheader.us.preheader, label %._crit_edge365
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -1083,12 +1083,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc234
 .preheader328:                                    ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.0.0435 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %72, %.lr.ph ]
   %76 = sub nsw i32 %43, %1
-  %77 = icmp sgt i32 %76, %1
+  %77 = icmp slt i32 %1, %76
   br i1 %77, label %.preheader.lr.ph, label %._crit_edge366
 
 .preheader.lr.ph:                                 ; preds = %.preheader328
   %78 = sub nsw i32 %41, %1
-  %79 = icmp sgt i32 %78, %1
+  %79 = icmp slt i32 %1, %78
   br i1 %79, label %.preheader.us.preheader, label %._crit_edge366
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -4075,7 +4075,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 96
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i27

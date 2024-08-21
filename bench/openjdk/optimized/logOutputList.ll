@@ -48,7 +48,7 @@ define hidden void @_ZN13LogOutputList16set_output_levelEP9LogOutputN8LogLevel4t
 .lr.ph.i:                                         ; preds = %3, %7
   %.010.i = phi ptr [ %.0.i, %7 ], [ %.08.i, %3 ]
   %5 = load ptr, ptr %.010.i, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %_ZNK13LogOutputList4findEPK9LogOutput.exit, label %7
 
 7:                                                ; preds = %.lr.ph.i
@@ -227,7 +227,7 @@ define hidden noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef non
 .lr.ph:                                           ; preds = %2, %6
   %.010 = phi ptr [ %.0, %6 ], [ %.08, %2 ]
   %4 = load ptr, ptr %.010, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %._crit_edge, label %6
 
 6:                                                ; preds = %.lr.ph

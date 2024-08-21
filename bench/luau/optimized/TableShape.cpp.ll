@@ -2741,7 +2741,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Compile12ShapeVisitor11assignFieldE
   %50 = icmp eq ptr %40, %49
   %51 = getelementptr inbounds i8, ptr %0, i64 88
   %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, %2
+  %53 = icmp eq ptr %2, %52
   %54 = select i1 %50, i1 %53, i1 false
   br i1 %54, label %.loopexit, label %55
 

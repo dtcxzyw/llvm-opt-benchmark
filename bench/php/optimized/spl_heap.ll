@@ -1814,7 +1814,7 @@ define internal fastcc noundef ptr @spl_heap_object_get_debug_info(ptr noundef %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %91 ]
   %58 = phi ptr [ %52, %.lr.ph ], [ %92, %91 ]
   %59 = load ptr, ptr @spl_ce_SplPriorityQueue, align 8
-  %60 = icmp eq ptr %59, %0
+  %60 = icmp eq ptr %0, %59
   %61 = load ptr, ptr %58, align 8
   %62 = getelementptr inbounds i8, ptr %58, i64 48
   %63 = load i64, ptr %62, align 8
@@ -2444,7 +2444,7 @@ define internal fastcc noundef ptr @spl_heap_object_new_ex(ptr noundef %0, ptr n
   %17 = load ptr, ptr @spl_ce_SplMinHeap, align 8
   %18 = load ptr, ptr @spl_ce_SplMaxHeap, align 8
   %19 = load ptr, ptr @spl_ce_SplHeap, align 8
-  %20 = icmp eq ptr %16, %0
+  %20 = icmp eq ptr %0, %16
   br i1 %20, label %.loopexit, label %.lr.ph117
 
 21:                                               ; preds = %3

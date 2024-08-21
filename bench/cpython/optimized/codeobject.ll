@@ -1409,7 +1409,7 @@ for.inc:                                          ; preds = %if.else14, %if.then
   %nlocals.1 = phi i32 [ %nlocals.06, %if.then12 ], [ %add, %if.then ], [ %nlocals.06, %if.else14 ]
   %inc = add i32 %i.05, 1
   %conv = sext i32 %inc to i64
-  %cmp = icmp slt i64 %conv, %names.16.val
+  %cmp = icmp sgt i64 %names.16.val, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -4340,7 +4340,7 @@ entry:
 lor.lhs.false2:                                   ; preds = %entry
   %co_extra_user_count = getelementptr inbounds i8, ptr %2, i64 2152
   %4 = load i64, ptr %co_extra_user_count, align 8
-  %cmp3.not = icmp sgt i64 %4, %index
+  %cmp3.not = icmp slt i64 %index, %4
   br i1 %cmp3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false2, %entry
@@ -6037,7 +6037,7 @@ unequal:                                          ; preds = %if.end133, %if.end1
 
 done:                                             ; preds = %if.end87, %unequal, %if.end38, %if.end32, %if.end26, %if.end20, %if.end14, %if.end9, %if.end, %if.end133
   %.sink = phi i32 [ 2, %if.end133 ], [ 3, %if.end ], [ 3, %if.end9 ], [ 3, %if.end14 ], [ 3, %if.end20 ], [ 3, %if.end26 ], [ 3, %if.end32 ], [ 3, %if.end38 ], [ 3, %unequal ], [ 3, %if.end87 ]
-  %cmp148 = icmp eq i32 %.sink, %op
+  %cmp148 = icmp eq i32 %op, %.sink
   %_Py_TrueStruct._Py_FalseStruct72 = select i1 %cmp148, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   %44 = load i32, ptr %_Py_TrueStruct._Py_FalseStruct72, align 8
   %add.i.i = add i32 %44, 1

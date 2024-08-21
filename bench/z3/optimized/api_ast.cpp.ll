@@ -1255,7 +1255,7 @@ invoke.cont40:                                    ; preds = %.noexc49, %lor.lhs.
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %25 = trunc nuw i64 %indvars.iv to i32
   %26 = xor i32 %25, -1
-  %sub42 = add i32 %26, %n
+  %sub42 = add i32 %n, %26
   %27 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %27, null
   br i1 %cmp.i.i.i, label %invoke.cont43, label %if.end.i.i.i
@@ -5252,7 +5252,7 @@ do.body:                                          ; preds = %if.then7
 if.end16:                                         ; preds = %if.end
   %m_num_args.i = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load i32, ptr %m_num_args.i, align 8
-  %cmp.not = icmp ugt i32 %1, %i
+  %cmp.not = icmp ult i32 %i, %1
   br i1 %cmp.not, label %do.body35, label %if.then21
 
 if.then21:                                        ; preds = %if.end16
@@ -5510,7 +5510,7 @@ cond.false.i:                                     ; preds = %if.end14
 invoke.cont17:                                    ; preds = %cond.false.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp19.not = icmp ugt i32 %15, %idx
+  %cmp19.not = icmp ult i32 %idx, %15
   br i1 %cmp19.not, label %invoke.cont29, label %if.then20
 
 if.then20:                                        ; preds = %cond.false.i, %if.end14, %invoke.cont17
@@ -5702,7 +5702,7 @@ cond.false.i:                                     ; preds = %if.end14
 invoke.cont17:                                    ; preds = %cond.false.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp19.not = icmp ugt i32 %15, %idx
+  %cmp19.not = icmp ult i32 %idx, %15
   br i1 %cmp19.not, label %invoke.cont29, label %if.then31.invoke
 
 invoke.cont29:                                    ; preds = %invoke.cont17
@@ -5833,7 +5833,7 @@ cond.false.i:                                     ; preds = %if.end14
 invoke.cont17:                                    ; preds = %cond.false.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp19.not = icmp ugt i32 %15, %idx
+  %cmp19.not = icmp ult i32 %idx, %15
   br i1 %cmp19.not, label %invoke.cont27, label %if.then31.invoke
 
 invoke.cont27:                                    ; preds = %invoke.cont17
@@ -5965,7 +5965,7 @@ cond.false.i:                                     ; preds = %if.end16
 invoke.cont19:                                    ; preds = %cond.false.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp21.not = icmp ugt i32 %15, %idx
+  %cmp21.not = icmp ult i32 %idx, %15
   br i1 %cmp21.not, label %invoke.cont33, label %if.then37.invoke
 
 invoke.cont33:                                    ; preds = %invoke.cont19
@@ -6093,7 +6093,7 @@ cond.false.i:                                     ; preds = %if.end14
 invoke.cont17:                                    ; preds = %cond.false.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp19.not = icmp ugt i32 %11, %idx
+  %cmp19.not = icmp ult i32 %idx, %11
   br i1 %cmp19.not, label %invoke.cont32, label %if.then20
 
 if.then20:                                        ; preds = %cond.false.i, %if.end14, %invoke.cont17
@@ -6248,7 +6248,7 @@ cond.false.i:                                     ; preds = %if.end14
 invoke.cont17:                                    ; preds = %cond.false.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp19.not = icmp ugt i32 %11, %idx
+  %cmp19.not = icmp ult i32 %idx, %11
   br i1 %cmp19.not, label %invoke.cont32, label %if.then20
 
 if.then20:                                        ; preds = %cond.false.i, %if.end14, %invoke.cont17
@@ -6396,7 +6396,7 @@ cond.false.i:                                     ; preds = %if.end14
 invoke.cont17:                                    ; preds = %cond.false.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp19.not = icmp ugt i32 %11, %idx
+  %cmp19.not = icmp ult i32 %idx, %11
   br i1 %cmp19.not, label %invoke.cont32, label %if.then20
 
 if.then20:                                        ; preds = %cond.false.i, %if.end14, %invoke.cont17
@@ -6521,7 +6521,7 @@ cond.false.i:                                     ; preds = %if.end14
 invoke.cont17:                                    ; preds = %cond.false.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 -4
   %5 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp19.not = icmp ugt i32 %5, %idx
+  %cmp19.not = icmp ult i32 %idx, %5
   br i1 %cmp19.not, label %invoke.cont27, label %if.then31.invoke
 
 invoke.cont27:                                    ; preds = %invoke.cont17
@@ -7502,13 +7502,13 @@ invoke.cont16:                                    ; preds = %invoke.cont7
   %14 = load ptr, ptr %m_manager.i, align 8
   %m_true.i = getelementptr inbounds i8, ptr %14, i64 856
   %15 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %15, %a
+  %cmp.i = icmp eq ptr %a, %15
   br i1 %cmp.i, label %cleanup, label %if.end25
 
 if.end25:                                         ; preds = %invoke.cont16
   %m_false.i = getelementptr inbounds i8, ptr %14, i64 864
   %16 = load ptr, ptr %m_false.i, align 8
-  %cmp.i12 = icmp eq ptr %16, %a
+  %cmp.i12 = icmp eq ptr %a, %16
   %. = sext i1 %cmp.i12 to i32
   br label %cleanup
 
@@ -8580,7 +8580,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %m_cache, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIP4exprS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i

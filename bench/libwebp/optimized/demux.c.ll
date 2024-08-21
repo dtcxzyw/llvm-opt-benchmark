@@ -417,7 +417,7 @@ define range(i32 0, 2) i32 @WebPDemuxGetFrame(ptr noundef %0, i32 noundef %1, pt
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 68
   %11 = load i32, ptr %10, align 4
-  %12 = icmp slt i32 %11, %1
+  %12 = icmp sgt i32 %1, %11
   br i1 %12, label %SetFrame.exit, label %13
 
 13:                                               ; preds = %9
@@ -435,7 +435,7 @@ define range(i32 0, 2) i32 @WebPDemuxGetFrame(ptr noundef %0, i32 noundef %1, pt
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = icmp eq i32 %18, %spec.select.i
+  %19 = icmp eq i32 %spec.select.i, %18
   br i1 %19, label %GetFrame.exit.i, label %15, !llvm.loop !8
 
 GetFrame.exit.i:                                  ; preds = %16
@@ -540,7 +540,7 @@ define range(i32 0, 2) i32 @WebPDemuxNextFrame(ptr noundef %0) local_unnamed_add
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %7, i64 68
   %12 = load i32, ptr %11, align 4
-  %.not = icmp sgt i32 %12, %4
+  %.not = icmp slt i32 %4, %12
   br i1 %.not, label %13, label %SetFrame.exit
 
 13:                                               ; preds = %10
@@ -558,7 +558,7 @@ define range(i32 0, 2) i32 @WebPDemuxNextFrame(ptr noundef %0) local_unnamed_add
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = icmp eq i32 %18, %spec.select.i
+  %19 = icmp eq i32 %spec.select.i, %18
   br i1 %19, label %GetFrame.exit.i, label %15, !llvm.loop !8
 
 GetFrame.exit.i:                                  ; preds = %16
@@ -662,7 +662,7 @@ define range(i32 0, 2) i32 @WebPDemuxPrevFrame(ptr noundef %0) local_unnamed_add
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %9, i64 68
   %13 = load i32, ptr %12, align 4
-  %14 = icmp slt i32 %13, %7
+  %14 = icmp sgt i32 %7, %13
   br i1 %14, label %SetFrame.exit, label %.preheader
 
 .preheader:                                       ; preds = %11, %15
@@ -675,7 +675,7 @@ define range(i32 0, 2) i32 @WebPDemuxPrevFrame(ptr noundef %0) local_unnamed_add
 15:                                               ; preds = %.preheader
   %16 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %17, %7
+  %18 = icmp eq i32 %7, %17
   br i1 %18, label %GetFrame.exit.i, label %.preheader, !llvm.loop !8
 
 GetFrame.exit.i:                                  ; preds = %15

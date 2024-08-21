@@ -1409,7 +1409,7 @@ define i32 @process_blip_record(ptr nocapture noundef readonly %0, ptr noundef %
   %.1.ph = phi i64 [ 17, %37 ], [ 33, %40 ], [ 17, %33 ], [ 33, %36 ], [ 17, %29 ], [ 33, %32 ], [ 17, %25 ], [ 17, %25 ], [ 33, %28 ], [ 50, %21 ], [ 66, %24 ], [ 50, %17 ], [ 66, %20 ], [ 50, %13 ], [ 66, %16 ]
   %.0.ph = phi ptr [ @.str.1139, %37 ], [ @.str.1139, %40 ], [ @.str.1136, %33 ], [ @.str.1136, %36 ], [ @.str.1133, %29 ], [ @.str.1133, %32 ], [ @.str.1130, %25 ], [ @.str.1130, %25 ], [ @.str.1130, %28 ], [ @.str.1127, %21 ], [ @.str.1127, %24 ], [ @.str.1124, %17 ], [ @.str.1124, %20 ], [ @.str.1121, %13 ], [ @.str.1121, %16 ]
   %43 = or disjoint i64 %.1.ph, 8
-  %44 = icmp ugt i64 %43, %2
+  %44 = icmp ult i64 %2, %43
   br i1 %44, label %.sink.split, label %45
 
 45:                                               ; preds = %42
@@ -1747,7 +1747,7 @@ define i32 @cli_extract_images_from_drawing_group(ptr noundef %0, i64 noundef %1
 
 20:                                               ; preds = %8
   %21 = zext i32 %15 to i64
-  %22 = icmp ugt i64 %21, %1
+  %22 = icmp ult i64 %1, %21
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20

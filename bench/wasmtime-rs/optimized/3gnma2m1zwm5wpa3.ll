@@ -187,7 +187,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.11181
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -5385,7 +5385,7 @@ define hidden noundef i64 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = load i64, ptr %4, align 8, !noundef !4
   %8 = sub nuw i64 %6, %7
-  %.not = icmp ult i64 %8, %1
+  %.not = icmp ugt i64 %1, %8
   %9 = add nuw i64 %7, %1
   %.0 = select i1 %.not, i64 %6, i64 %9
   store i64 %.0, ptr %4, align 8
@@ -16622,7 +16622,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h89c6d01bf8ed98b6E.exit.thread.
   unreachable
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h41f725a3db6d3efaE.exit.i.i.i": ; preds = %"_ZN4core3ptr91drop_in_place$LT$$LP$wasmtime_wasi..preview1..types..Dirent$C$alloc..string..String$RP$$GT$17h3ecf4ad2c656262bE.llvm.11181120138937278269.exit.i.i.i.i.i", %400
-  %.not.i.i.i = icmp ult i64 %404, %.0.i.i
+  %.not.i.i.i = icmp ugt i64 %.0.i.i, %404
   %425 = icmp eq ptr %405, %.val9.i.i.i.i
   %or.cond = select i1 %.not.i.i.i, i1 true, i1 %425
   br i1 %or.cond, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89043cb42388753dE.exit.thread", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89043cb42388753dE.exit"
@@ -22212,7 +22212,7 @@ common.ret:                                       ; preds = %649, %536, %"_ZN50_
           to label %.noexc246 unwind label %.loopexit1111
 
 .noexc246:                                        ; preds = %242
-  %251 = icmp ult i64 %250, %.sroa.9508.8.copyload
+  %251 = icmp ugt i64 %.sroa.9508.8.copyload, %250
   br i1 %251, label %255, label %.invoke
 
 .invoke:                                          ; preds = %.noexc246, %255

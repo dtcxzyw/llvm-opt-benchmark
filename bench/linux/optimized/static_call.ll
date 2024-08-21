@@ -285,7 +285,7 @@ default.unreachable:                              ; preds = %16
 79:                                               ; preds = %73
   %80 = load i32, ptr @system_state, align 4
   %81 = icmp eq i32 %80, 0
-  %82 = or i1 %81, %3
+  %82 = or i1 %3, %81
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %79

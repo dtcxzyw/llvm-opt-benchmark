@@ -530,7 +530,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.1090731016402577
   %44 = load i64, ptr %43, align 8, !alias.scope !38, !noalias !43, !noundef !9
   %45 = load i64, ptr %0, align 8, !alias.scope !45, !noalias !43, !noundef !9
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc039338dbf10fe23E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.10907310164025772830.exit
@@ -1317,7 +1317,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.10907310164025772830.exit1
   %43 = load i64, ptr %42, align 8, !noundef !9
   %44 = load i64, ptr %4, align 8, !alias.scope !160, !noalias !167, !noundef !9
   %45 = sub i64 %44, %17
-  %46 = icmp ult i64 %45, %43
+  %46 = icmp ugt i64 %43, %45
   br i1 %46, label %47, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc039338dbf10fe23E.exit"
 
 47:                                               ; preds = %38

@@ -184,7 +184,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true1:                                   ; preds = %land.lhs.true
   %not = xor i32 %0, -1
-  %and = and i32 %not, %mask
+  %and = and i32 %mask, %not
   %cmp.not = icmp eq i32 %and, 0
   br i1 %cmp.not, label %if.end, label %if.then
 

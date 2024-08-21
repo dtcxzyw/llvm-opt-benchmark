@@ -3226,7 +3226,7 @@ invoke.cont13:                                    ; preds = %invoke.cont9
   %add.ptr = getelementptr inbounds ptr, ptr %32, i64 %idx.ext
   %cmp.i.i = icmp ne i32 %33, 0
   %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 -8
-  %cmp19.i.i = icmp ugt ptr %__last.addr.08.i.i, %32
+  %cmp19.i.i = icmp ult ptr %32, %__last.addr.08.i.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp19.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %invoke.cont20
 
@@ -3249,7 +3249,7 @@ invoke.cont20:                                    ; preds = %while.body.i.i, %in
   %add.ptr28 = getelementptr inbounds %class.symbol, ptr %36, i64 %idx.ext27
   %cmp.i.i83 = icmp ne i32 %37, 0
   %__last.addr.08.i.i84 = getelementptr inbounds i8, ptr %add.ptr28, i64 -8
-  %cmp19.i.i85 = icmp ugt ptr %__last.addr.08.i.i84, %36
+  %cmp19.i.i85 = icmp ult ptr %36, %__last.addr.08.i.i84
   %or.cond.i.i86 = select i1 %cmp.i.i83, i1 %cmp19.i.i85, i1 false
   br i1 %or.cond.i.i86, label %while.body.i.i87, label %invoke.cont29
 
@@ -4591,7 +4591,7 @@ entry:
 _ZNK13defined_names4impl13get_num_namesEv.exit:   ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp = icmp ugt i32 %2, %i
+  %cmp = icmp ult i32 %i, %2
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry, %_ZNK13defined_names4impl13get_num_namesEv.exit

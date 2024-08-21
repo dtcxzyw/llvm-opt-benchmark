@@ -164,7 +164,7 @@ define noundef ptr @strcasestr(ptr noundef readonly %0, ptr nocapture noundef re
   %13 = ashr exact i64 %sext34, 32
   %14 = sub nsw i64 0, %13
   %15 = getelementptr inbounds i8, ptr %12, i64 %14
-  %.not354250 = icmp ult ptr %15, %0
+  %.not354250 = icmp ugt ptr %0, %15
   br i1 %.not354250, label %.critedge.thread, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %10
@@ -1303,7 +1303,7 @@ define internal fastcc i32 @get_faces(ptr noundef %0) unnamed_addr #3 {
   %24 = ashr exact i64 %sext34.i, 32
   %25 = sub nsw i64 0, %24
   %26 = getelementptr inbounds i8, ptr %23, i64 %25
-  %.not354250.i = icmp ult ptr %26, %9
+  %.not354250.i = icmp ugt ptr %9, %26
   br i1 %.not354250.i, label %strcasestr.exit.thread, label %.lr.ph.lr.ph.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %21

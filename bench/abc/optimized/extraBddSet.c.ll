@@ -31,19 +31,19 @@ define ptr @extraZddSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %1
-  %9 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %1, %7
+  %9 = icmp eq ptr %2, %7
   %or.cond = or i1 %8, %9
   br i1 %or.cond, label %110, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %110, label %14
 
 14:                                               ; preds = %10
-  %15 = icmp eq ptr %12, %2
+  %15 = icmp eq ptr %2, %12
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %14
@@ -243,7 +243,7 @@ define ptr @extraZddSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   br i1 %8, label %116, label %9
 
 9:                                                ; preds = %5
@@ -267,8 +267,8 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   br i1 %.not, label %116, label %16
 
 16:                                               ; preds = %Extra_zddEmptyBelongs.exit
-  %17 = icmp eq ptr %7, %1
-  %18 = icmp eq ptr %15, %1
+  %17 = icmp eq ptr %1, %7
+  %18 = icmp eq ptr %1, %15
   %or.cond = or i1 %17, %18
   br i1 %or.cond, label %116, label %19
 
@@ -461,13 +461,13 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br i1 %4, label %119, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp eq ptr %6, %2
+  %8 = icmp eq ptr %2, %6
   br i1 %8, label %119, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %2
+  %12 = icmp eq ptr %2, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
@@ -475,8 +475,8 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br label %119
 
 15:                                               ; preds = %9
-  %16 = icmp eq ptr %6, %1
-  %17 = icmp eq ptr %11, %1
+  %16 = icmp eq ptr %1, %6
+  %17 = icmp eq ptr %1, %11
   %or.cond = or i1 %16, %17
   br i1 %or.cond, label %119, label %18
 
@@ -672,7 +672,7 @@ define ptr @extraZddNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br i1 %4, label %117, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp eq ptr %6, %2
+  %8 = icmp eq ptr %2, %6
   br i1 %8, label %117, label %9
 
 9:                                                ; preds = %7
@@ -693,12 +693,12 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %.0.lcssa.i, %15
-  %17 = icmp eq ptr %6, %1
+  %17 = icmp eq ptr %1, %6
   %or.cond = or i1 %17, %16
   br i1 %or.cond, label %117, label %18
 
 18:                                               ; preds = %Extra_zddEmptyBelongs.exit
-  %19 = icmp eq ptr %15, %1
+  %19 = icmp eq ptr %1, %15
   br i1 %19, label %117, label %20
 
 20:                                               ; preds = %18
@@ -890,7 +890,7 @@ define ptr @extraZddMaxNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %4, label %139, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp eq ptr %6, %2
+  %8 = icmp eq ptr %2, %6
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
@@ -915,12 +915,12 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %.0.lcssa.i, %17
-  %19 = icmp eq ptr %6, %1
+  %19 = icmp eq ptr %1, %6
   %or.cond = or i1 %19, %18
   br i1 %or.cond, label %139, label %20
 
 20:                                               ; preds = %Extra_zddEmptyBelongs.exit
-  %21 = icmp eq ptr %17, %1
+  %21 = icmp eq ptr %1, %17
   br i1 %21, label %139, label %22
 
 22:                                               ; preds = %20

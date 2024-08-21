@@ -128,7 +128,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser27format_escaped_str_conte
   %31 = load i64, ptr %6, align 8, !alias.scope !49, !noalias !56, !noundef !4
   %32 = load i64, ptr %.val30, align 8, !alias.scope !64, !noalias !56, !noundef !4
   %33 = sub i64 %32, %31
-  %34 = icmp ult i64 %33, %29
+  %34 = icmp ugt i64 %29, %33
   br i1 %34, label %35, label %_ZN10serde_json3ser9Formatter21write_string_fragment17h2ae5cdb0a2d7c55dE.exit
 
 35:                                               ; preds = %28
@@ -294,7 +294,7 @@ _ZN10serde_json3ser9Formatter17write_char_escape17h5086bcb2463a0e51E.exit: ; pre
   %97 = load i64, ptr %6, align 8, !alias.scope !110, !noalias !117, !noundef !4
   %98 = load i64, ptr %.val30, align 8, !alias.scope !125, !noalias !117, !noundef !4
   %99 = sub i64 %98, %97
-  %100 = icmp ult i64 %99, %96
+  %100 = icmp ugt i64 %96, %99
   br i1 %100, label %101, label %_ZN10serde_json3ser9Formatter21write_string_fragment17h2ae5cdb0a2d7c55dE.exit40
 
 101:                                              ; preds = %94
@@ -332,7 +332,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser6indent17hef4c431d91718ccf
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %11 = load i64, ptr %5, align 8, !alias.scope !144, !noalias !141, !noundef !4
   %12 = sub i64 %11, %9
-  %13 = icmp ult i64 %12, %3
+  %13 = icmp ugt i64 %3, %12
   br i1 %13, label %14, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit"
 
 14:                                               ; preds = %8
@@ -608,7 +608,7 @@ default.unreachable:                              ; preds = %45, %2
   %93 = load i64, ptr %92, align 8, !alias.scope !243, !noalias !250, !noundef !4
   %94 = load i64, ptr %.val14, align 8, !alias.scope !256, !noalias !250, !noundef !4
   %95 = sub i64 %94, %93
-  %96 = icmp ult i64 %95, %90
+  %96 = icmp ugt i64 %90, %95
   br i1 %96, label %97, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417h55adec7677d2f144E.exit.i"
 
 97:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.exit.i.i.i"
@@ -725,7 +725,7 @@ default.unreachable:                              ; preds = %45, %2
   %154 = load i64, ptr %153, align 8, !alias.scope !264, !noalias !271, !noundef !4
   %155 = load i64, ptr %.val14, align 8, !alias.scope !277, !noalias !271, !noundef !4
   %156 = sub i64 %155, %154
-  %157 = icmp ult i64 %156, %151
+  %157 = icmp ugt i64 %151, %156
   br i1 %157, label %158, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h5a443b8f381817ebE.exit.i"
 
 158:                                              ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.exit.i.i.i"
@@ -761,7 +761,7 @@ default.unreachable:                              ; preds = %45, %2
   %173 = load i64, ptr %172, align 8, !alias.scope !281, !noalias !288, !noundef !4
   %174 = load i64, ptr %.val14, align 8, !alias.scope !294, !noalias !288, !noundef !4
   %175 = sub i64 %174, %173
-  %176 = icmp ult i64 %175, %170
+  %176 = icmp ugt i64 %170, %175
   br i1 %176, label %177, label %_ZN10serde_json3ser9Formatter9write_f6417hefb3f403ece3ddccE.exit.i.i
 
 177:                                              ; preds = %169
@@ -1012,7 +1012,7 @@ _ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit.i.i22: ; preds = %"_ZN3std2i
   %293 = add nuw i64 %.sroa.01.09.i.i.i, 1
   %294 = load i64, ptr %.val.i21, align 8, !alias.scope !453, !noalias !462, !noundef !4
   %295 = sub i64 %294, %292
-  %296 = icmp ult i64 %295, %291
+  %296 = icmp ugt i64 %291, %295
   br i1 %296, label %297, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i"
 
 297:                                              ; preds = %.lr.ph.i.i.i
@@ -1103,7 +1103,7 @@ define hidden noalias noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Wri
   %6 = load i64, ptr %5, align 8, !alias.scope !509, !noalias !516, !noundef !4
   %7 = load i64, ptr %4, align 8, !alias.scope !519, !noalias !516, !noundef !4
   %8 = sub i64 %7, %6
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17h788b0d85c7503d34E.llvm.16197732946508626304.exit"
 
 10:                                               ; preds = %3
@@ -1129,7 +1129,7 @@ define hidden noalias noundef ptr @"_ZN3std2io5impls74_$LT$impl$u20$std..io..Wri
   %5 = load i64, ptr %4, align 8, !alias.scope !522, !noalias !527, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !529, !noalias !527, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hd58b5b60f1bec029E.exit"
 
 9:                                                ; preds = %3
@@ -1298,7 +1298,7 @@ _ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit.i.i: ; preds = %15
   %53 = add nuw i64 %.sroa.01.09.i.i.i13, 1
   %54 = load i64, ptr %.val.i.i, align 8, !alias.scope !619, !noalias !628, !noundef !4
   %55 = sub i64 %54, %52
-  %56 = icmp ult i64 %55, %49
+  %56 = icmp ugt i64 %49, %55
   br i1 %56, label %57, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i14"
 
 57:                                               ; preds = %51
@@ -1391,7 +1391,7 @@ _ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit.i.i8: ; preds = %"_ZN3std2io
   %94 = add nuw i64 %.sroa.01.09.i.i.i, 1
   %95 = load i64, ptr %.val.i7, align 8, !alias.scope !686, !noalias !695, !noundef !4
   %96 = sub i64 %95, %93
-  %97 = icmp ult i64 %96, %92
+  %97 = icmp ugt i64 %92, %96
   br i1 %97, label %98, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i"
 
 98:                                               ; preds = %.lr.ph.i.i.i
@@ -1597,7 +1597,7 @@ define hidden noalias noundef ptr @"_ZN79_$LT$serde_json..ser..PrettyFormatter$u
   %33 = add nuw i64 %.sroa.01.09.i, 1
   %34 = load i64, ptr %4, align 8, !alias.scope !815, !noalias !824, !noundef !4
   %35 = sub i64 %34, %32
-  %36 = icmp ult i64 %35, %28
+  %36 = icmp ugt i64 %28, %35
   br i1 %36, label %37, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i"
 
 37:                                               ; preds = %31
@@ -1728,7 +1728,7 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
   %36 = add nuw i64 %.sroa.01.09.i.i, 1
   %37 = load i64, ptr %8, align 8, !alias.scope !887, !noalias !896, !noundef !4
   %38 = sub i64 %37, %35
-  %39 = icmp ult i64 %38, %32
+  %39 = icmp ugt i64 %32, %38
   br i1 %39, label %40, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i"
 
 40:                                               ; preds = %34

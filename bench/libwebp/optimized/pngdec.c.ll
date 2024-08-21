@@ -76,7 +76,7 @@ define hidden i32 @ReadPNG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
 35:                                               ; preds = %29
   %36 = load volatile ptr, ptr %6, align 8
   %37 = call i64 @png_get_chunk_malloc_max(ptr noundef %36) #15
-  %38 = icmp ult i64 %37, %1
+  %38 = icmp ugt i64 %1, %37
   %39 = icmp ult i64 %1, 16777216
   %or.cond5 = and i1 %39, %38
   br i1 %or.cond5, label %40, label %42

@@ -18,10 +18,10 @@ define range(i32 -13, 1) i32 @mca_topo_base_dist_graph_neighbors(ptr nocapture n
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %11, i64 48
   %17 = load i32, ptr %16, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %17, i32 %1)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %17)
   %18 = getelementptr inbounds i8, ptr %11, i64 52
   %19 = load i32, ptr %18, align 4
-  %.036 = tail call i32 @llvm.smin.i32(i32 %19, i32 %4)
+  %.036 = tail call i32 @llvm.smin.i32(i32 %4, i32 %19)
   %20 = icmp sgt i32 %spec.select, 0
   br i1 %20, label %.lr.ph, label %.preheader
 

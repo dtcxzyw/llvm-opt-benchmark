@@ -2555,7 +2555,7 @@ entry:
   %mul = mul nsw i32 %cols, %rows
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %1, %mul
+  %cmp3.i = icmp sgt i32 %mul, %1
   br i1 %cmp3.i, label %if.then4.i, label %invoke.cont
 
 if.then4.i:                                       ; preds = %entry

@@ -2238,7 +2238,7 @@ define dso_local i32 @ata_change_queue_depth(ptr noundef %0, ptr noundef %1, i32
   %12 = getelementptr inbounds i8, ptr %1, i64 112
   %13 = load i16, ptr %12, align 8
   %14 = zext i16 %13 to i32
-  %15 = icmp eq i32 %14, %2
+  %15 = icmp eq i32 %2, %14
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %11, %3

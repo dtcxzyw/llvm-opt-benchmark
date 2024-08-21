@@ -15861,7 +15861,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version33getProvisionalVersionForDim
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   %16 = icmp slt i32 %15, 1
   %17 = load i32, ptr @_ZN5zxing6qrcodeL10N_VERSIONSE, align 4
-  %18 = icmp slt i32 %17, %15
+  %18 = icmp sgt i32 %15, %17
   %or.cond.i = select i1 %16, i1 true, i1 %18
   br i1 %or.cond.i, label %19, label %26
 
@@ -15950,7 +15950,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12
   %3 = alloca %"class.zxing::ReaderErrorHandler", align 8
   %4 = icmp slt i32 %0, 1
   %5 = load i32, ptr @_ZN5zxing6qrcodeL10N_VERSIONSE, align 4
-  %6 = icmp slt i32 %5, %0
+  %6 = icmp sgt i32 %0, %5
   %or.cond = select i1 %4, i1 true, i1 %6
   br i1 %or.cond, label %7, label %15
 
@@ -16195,7 +16195,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version24decodeVersionInformationEj(
   %12 = add nuw nsw i32 %11, 7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   %13 = load i32, ptr @_ZN5zxing6qrcodeL10N_VERSIONSE, align 4
-  %14 = icmp slt i32 %13, %12
+  %14 = icmp sgt i32 %12, %13
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %10
@@ -17617,7 +17617,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode7VersionEEESaIS4_EE11_M_allocateEm.ex
 _ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode7VersionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %36, %30
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %30 ], [ %38, %36 ]
   %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode7VersionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode7VersionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit, %54

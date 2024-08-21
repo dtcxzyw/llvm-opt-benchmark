@@ -518,7 +518,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_
   %100 = load i32, ptr %99, align 1
   %101 = add i32 %100, -36
   %102 = zext i32 %101 to i64
-  %103 = icmp ugt i64 %102, %4
+  %103 = icmp ult i64 %4, %102
   br i1 %103, label %104, label %109
 
 104:                                              ; preds = %.thread8
@@ -534,7 +534,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_
   br label %116
 
 109:                                              ; preds = %.thread8
-  %110 = icmp eq i64 %102, %4
+  %110 = icmp eq i64 %4, %102
   br i1 %110, label %116, label %111
 
 111:                                              ; preds = %109

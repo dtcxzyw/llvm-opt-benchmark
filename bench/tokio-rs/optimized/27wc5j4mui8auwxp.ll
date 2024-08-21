@@ -12637,7 +12637,7 @@ define hidden noundef i64 @_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E(ptr 
 
 14:                                               ; preds = %3
   %15 = xor i64 %4, -1
-  %16 = and i64 %15, %2
+  %16 = and i64 %2, %15
   %17 = shl i64 %1, %8
   %18 = or i64 %17, %16
   ret i64 %18

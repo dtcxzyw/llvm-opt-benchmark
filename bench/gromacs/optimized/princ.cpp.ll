@@ -834,24 +834,24 @@ define void @_Z12orient_princPK7t_atomsiPKiiPA3_fS5_Pf(ptr nocapture noundef rea
   %48 = load float, ptr %47, align 4
   %49 = getelementptr inbounds i8, ptr %10, i64 20
   %50 = load float, ptr %49, align 4
-  %51 = fneg float %48
-  %52 = fmul float %50, %51
+  %51 = fneg float %50
+  %52 = fmul float %48, %51
   %53 = tail call float @llvm.fmuladd.f32(float %43, float %46, float %52)
   %54 = load float, ptr %41, align 4
   %55 = getelementptr inbounds i8, ptr %10, i64 4
   %56 = load float, ptr %55, align 4
   %57 = getelementptr inbounds i8, ptr %10, i64 8
   %58 = load float, ptr %57, align 8
-  %59 = fmul float %58, %51
-  %60 = tail call float @llvm.fmuladd.f32(float %56, float %46, float %59)
-  %61 = fneg float %54
-  %62 = fmul float %60, %61
-  %63 = tail call float @llvm.fmuladd.f32(float %40, float %53, float %62)
-  %64 = load float, ptr %44, align 8
-  %65 = fneg float %43
-  %66 = fmul float %58, %65
+  %59 = fneg float %58
+  %60 = fmul float %48, %59
+  %61 = tail call float @llvm.fmuladd.f32(float %56, float %46, float %60)
+  %62 = fneg float %61
+  %63 = fmul float %54, %62
+  %64 = tail call float @llvm.fmuladd.f32(float %40, float %53, float %63)
+  %65 = load float, ptr %44, align 8
+  %66 = fmul float %43, %59
   %67 = tail call float @llvm.fmuladd.f32(float %56, float %50, float %66)
-  %68 = tail call noundef float @llvm.fmuladd.f32(float %64, float %67, float %63)
+  %68 = tail call noundef float @llvm.fmuladd.f32(float %65, float %67, float %64)
   %69 = fcmp olt float %68, 0.000000e+00
   br i1 %69, label %.preheader, label %.loopexit
 

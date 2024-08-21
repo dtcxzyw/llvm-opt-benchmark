@@ -27,13 +27,13 @@ if.then:                                          ; preds = %land.lhs.true4
   %3 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %3, 46
   %dec.i = sext i1 %cmp.i to i64
-  %spec.select.i = add i64 %dec.i, %hostlen
+  %spec.select.i = add i64 %hostlen, %dec.i
   %4 = getelementptr i8, ptr %match, i64 %matchlen
   %arrayidx9.i = getelementptr i8, ptr %4, i64 -1
   %5 = load i8, ptr %arrayidx9.i, align 1
   %cmp11.i = icmp eq i8 %5, 46
   %dec14.i = sext i1 %cmp11.i to i64
-  %patternlen.addr.0.i = add i64 %dec14.i, %matchlen
+  %patternlen.addr.0.i = add i64 %matchlen, %dec14.i
   %.not.i = icmp eq i8 %0, 42
   br i1 %.not.i, label %entry.tail.i, label %if.then16.i
 

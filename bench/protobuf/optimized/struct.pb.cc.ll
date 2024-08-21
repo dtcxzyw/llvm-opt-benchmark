@@ -709,7 +709,7 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
 if.then.i.i:                                      ; preds = %for.body33
   %add.i.i = add i32 %__begin429.sroa.11.042, 1
   %21 = load i32, ptr %num_buckets_.i.i.i, align 4
-  %cmp8.i.i.i = icmp ugt i32 %21, %add.i.i
+  %cmp8.i.i.i = icmp ult i32 %add.i.i, %21
   br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %if.end48
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i.i
@@ -845,7 +845,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 if.then.i.i:                                      ; preds = %for.body
   %add.i.i = add i32 %__begin0.sroa.11.022, 1
-  %cmp8.i.i.i = icmp ugt i32 %3, %add.i.i
+  %cmp8.i.i.i = icmp ult i32 %add.i.i, %3
   br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %for.end
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i.i
@@ -924,7 +924,7 @@ invoke.cont26:                                    ; preds = %.noexc, %cond.end.t
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSB_11EE17InternalSerializeEiRKS8_RKS9_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef %field_number, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef %ptr, ptr noundef %stream) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %0, %ptr
+  %cmp.not.i = icmp ult ptr %ptr, %0
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -996,7 +996,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit23: ; pr
   %incdec.ptr2.i.i15 = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i12, i64 1
   store i8 %conv1.i.i14, ptr %ptr.addr.i.0.lcssa.i12, align 1
   %6 = load ptr, ptr %stream, align 8
-  %cmp.not.i.i = icmp ugt ptr %6, %incdec.ptr2.i.i15
+  %cmp.not.i.i = icmp ult ptr %incdec.ptr2.i.i15, %6
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i22.i
 
 if.then.i22.i:                                    ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit23
@@ -1036,7 +1036,7 @@ if.end.i.i:                                       ; preds = %lor.rhs.i.i
 _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5WriteEiRKSA_PhPNS0_2io19EpsCopyOutputStreamE.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.i.0.i = phi ptr [ %call6.i.i, %if.then.i.i ], [ %add.ptr.i.i, %if.end.i.i ]
   %8 = load ptr, ptr %stream, align 8
-  %cmp.not.i.i26 = icmp ugt ptr %8, %retval.i.0.i
+  %cmp.not.i.i26 = icmp ult ptr %retval.i.0.i, %8
   br i1 %cmp.not.i.i26, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11ENS0_5ValueEE5WriteEiRKS5_PhPNS0_2io19EpsCopyOutputStreamE.exit, label %if.then.i.i27
 
 if.then.i.i27:                                    ; preds = %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5WriteEiRKSA_PhPNS0_2io19EpsCopyOutputStreamE.exit
@@ -1151,7 +1151,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 if.then.i.i:                                      ; preds = %for.body
   %add.i.i = add i32 %__begin2.sroa.11.030, 1
   %16 = load i32, ptr %num_buckets_.i.i.i, align 4
-  %cmp8.i.i.i = icmp ugt i32 %16, %add.i.i
+  %cmp8.i.i.i = icmp ult i32 %add.i.i, %16
   br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %for.end
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i.i
@@ -2318,7 +2318,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %1 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %1, %target
+  %cmp.not.i = icmp ult ptr %target, %1
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.thread, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %sw.bb
@@ -2364,7 +2364,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 
 sw.bb5:                                           ; preds = %entry
   %5 = load ptr, ptr %stream, align 8
-  %cmp.not.i25 = icmp ugt ptr %5, %target
+  %cmp.not.i25 = icmp ult ptr %target, %5
   br i1 %cmp.not.i25, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit29.thread, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit29
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit29.thread: ; preds = %sw.bb5
@@ -2432,7 +2432,7 @@ if.end.i:                                         ; preds = %lor.rhs.i
 
 sw.bb15:                                          ; preds = %entry
   %18 = load ptr, ptr %stream, align 8
-  %cmp.not.i43 = icmp ugt ptr %18, %target
+  %cmp.not.i43 = icmp ult ptr %target, %18
   br i1 %cmp.not.i43, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit47.thread, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit47
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit47.thread: ; preds = %sw.bb15
@@ -3683,7 +3683,7 @@ _ZN6google8protobuf5ValueaSERKS1_.exit:           ; preds = %for.body, %if.end.i
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf5ValueaSERKS1_.exit
   %add.i.i = add i32 %__begin0.sroa.11.020, 1
   %11 = load i32, ptr %num_buckets_.i.i.i, align 4
-  %cmp8.i.i.i = icmp ugt i32 %11, %add.i.i
+  %cmp8.i.i.i = icmp ult i32 %add.i.i, %11
   br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %for.end
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i.i
@@ -3853,7 +3853,7 @@ if.then.i13:                                      ; preds = %if.end22
   store i64 %17, ptr %arrayidx14.i.i, align 8
   %index_of_first_non_null_.i = getelementptr inbounds i8, ptr %this, i64 12
   %19 = load i32, ptr %index_of_first_non_null_.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %19, i32 %p.sroa.4.0)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %p.sroa.4.0, i32 %19)
   store i32 %.sroa.speculated.i, ptr %index_of_first_non_null_.i, align 4
   br label %_ZN6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InsertUniqueEjPNS1_7KeyNodeIS8_EE.exit
 
@@ -4359,7 +4359,7 @@ if.then.i:                                        ; preds = %do.body
   %arrayidx14.i.i = getelementptr inbounds i64, ptr %9, i64 %idxprom.i.i
   store i64 %8, ptr %arrayidx14.i.i, align 8
   %10 = load i32, ptr %index_of_first_non_null_.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %10, i32 %conv3.i.i)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %conv3.i.i, i32 %10)
   store i32 %.sroa.speculated.i, ptr %index_of_first_non_null_.i, align 4
   br label %_ZN6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InsertUniqueEjPNS1_7KeyNodeIS8_EE.exit
 
@@ -5281,7 +5281,7 @@ for.body.i:                                       ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i7:                                   ; preds = %for.body.i
   %12 = load ptr, ptr %tmp.i, align 8, !alias.scope !46
-  %cmp.i.i.i.i.i.i = icmp eq ptr %12, %10
+  %cmp.i.i.i.i.i.i = icmp eq ptr %10, %12
   br i1 %cmp.i.i.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i7
@@ -5298,7 +5298,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_
 if.then.i.i3.i:                                   ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i
   %add.i.i.i = add i32 %agg.tmp3.sroa.6.0, 1
   %14 = load i32, ptr %num_buckets_.i.i.i, align 4
-  %cmp8.i.i.i.i = icmp ugt i32 %14, %add.i.i.i
+  %cmp8.i.i.i.i = icmp ult i32 %add.i.i.i, %14
   br i1 %cmp8.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE6insertINS9_14const_iteratorEEEvT_SC_.exit
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.then.i.i3.i
@@ -5421,7 +5421,7 @@ for.body.i:                                       ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i7:                                   ; preds = %for.body.i
   %11 = load ptr, ptr %tmp.i, align 8, !alias.scope !55
-  %cmp.i.i.i.i.i.i = icmp eq ptr %11, %9
+  %cmp.i.i.i.i.i.i = icmp eq ptr %9, %11
   br i1 %cmp.i.i.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i7
@@ -5438,7 +5438,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_
 if.then.i.i3.i:                                   ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i
   %add.i.i.i = add i32 %agg.tmp3.sroa.6.0, 1
   %13 = load i32, ptr %num_buckets_.i.i.i, align 4
-  %cmp8.i.i.i.i = icmp ugt i32 %13, %add.i.i.i
+  %cmp8.i.i.i.i = icmp ult i32 %add.i.i.i, %13
   br i1 %cmp8.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE6insertINS9_14const_iteratorEEEvT_SC_.exit
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.then.i.i3.i
@@ -5554,7 +5554,7 @@ for.body.i:                                       ; preds = %_ZN6google8protobuf
 if.then.i.i.i:                                    ; preds = %for.body.i
   %add.i.i.i = add i32 %__begin0.sroa.11.021.i, 1
   %11 = load i32, ptr %num_buckets_.i.i.i.i, align 4
-  %cmp8.i.i.i.i = icmp ugt i32 %11, %add.i.i.i
+  %cmp8.i.i.i.i = icmp ult i32 %add.i.i.i, %11
   br i1 %cmp8.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf8internal17SpaceUsedInValuesINS0_3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEEEvEEmPKT_.exit
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.then.i.i.i
@@ -5942,7 +5942,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPPKvlS1_N9__gnu_cxx5__ops15
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp24 = icmp sgt i64 %div, %__holeIndex
+  %cmp24 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp24, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal20MapSorterPtrLessThanINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclIPPKvSH_EEbT_T0_.exit

@@ -663,7 +663,7 @@ if.else18:                                        ; preds = %if.else
 if.then21:                                        ; preds = %if.else18
   %sub29 = add i32 %11, -1
   %conv30 = zext i32 %sub29 to i64
-  %and = and i64 %conv30, %addr
+  %and = and i64 %addr, %conv30
   %shr31 = lshr i64 %and, 2
   %conv32 = trunc nuw nsw i64 %shr31 to i32
   %bitfield_words = getelementptr inbounds i8, ptr %opaque, i64 1096
@@ -901,7 +901,7 @@ if.then6:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %conv12 = zext i32 %3 to i64
-  %cmp13.not = icmp ult i64 %conv12, %value
+  %cmp13.not = icmp ugt i64 %value, %conv12
   br i1 %cmp13.not, label %if.end159, label %if.then15
 
 if.then15:                                        ; preds = %if.else
@@ -952,7 +952,7 @@ if.else33:                                        ; preds = %if.else21
 if.then36:                                        ; preds = %if.else33
   %sub44 = add i32 %11, -1
   %conv45 = zext i32 %sub44 to i64
-  %and46 = and i64 %conv45, %addr
+  %and46 = and i64 %addr, %conv45
   %shr47 = lshr i64 %and46, 2
   %conv48 = trunc nuw nsw i64 %shr47 to i32
   %bitfield_words = getelementptr inbounds i8, ptr %opaque, i64 1096
@@ -1032,7 +1032,7 @@ if.then99:                                        ; preds = %if.then92
 
 if.else107:                                       ; preds = %if.then92
   %conv109 = zext i32 %19 to i64
-  %cmp110.not = icmp ult i64 %conv109, %value
+  %cmp110.not = icmp ugt i64 %value, %conv109
   br i1 %cmp110.not, label %if.end159, label %if.then112
 
 if.then112:                                       ; preds = %if.else107
@@ -1047,7 +1047,7 @@ if.then112:                                       ; preds = %if.else107
 
 if.then122:                                       ; preds = %if.then76
   %conv124 = zext i32 %1 to i64
-  %cmp125 = icmp ugt i64 %conv124, %value
+  %cmp125 = icmp ult i64 %value, %conv124
   br i1 %cmp125, label %if.then127, label %if.end159
 
 if.then127:                                       ; preds = %if.then122

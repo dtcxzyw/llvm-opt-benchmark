@@ -242,7 +242,7 @@ land.lhs.true:                                    ; preds = %sw.bb
   %s5920_intcsr = getelementptr inbounds i8, ptr %opaque, i64 3664
   %1 = load i32, ptr %s5920_intcsr, align 16
   %conv = zext i32 %1 to i64
-  %xor = xor i64 %conv, %data
+  %xor = xor i64 %data, %conv
   %and = and i64 %xor, 8192
   %tobool1.not = icmp eq i64 %and, 0
   br i1 %tobool1.not, label %if.end, label %if.then

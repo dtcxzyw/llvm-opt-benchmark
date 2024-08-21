@@ -431,7 +431,7 @@ if.end46:                                         ; preds = %if.end22, %if.then3
   tail call void @ossl_quic_stream_map_update_state(ptr noundef %call53, ptr noundef %17) #8
   %default_xso = getelementptr inbounds i8, ptr %1, i64 88
   %18 = load ptr, ptr %default_xso, align 8
-  %cmp58 = icmp eq ptr %18, %s
+  %cmp58 = icmp eq ptr %s, %18
   %.val3 = load ptr, ptr %2, align 8
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %.val3) #8
   br i1 %cmp58, label %return, label %if.then61
@@ -3807,7 +3807,7 @@ land.lhs.true:                                    ; preds = %if.then
 lor.lhs.false:                                    ; preds = %land.lhs.true, %if.then
   %aon_buf_len = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load i64, ptr %aon_buf_len, align 8
-  %cmp5.not = icmp eq i64 %4, %len
+  %cmp5.not = icmp eq i64 %len, %4
   br i1 %cmp5.not, label %if.end, label %if.then7
 
 if.then7:                                         ; preds = %lor.lhs.false, %land.lhs.true
@@ -6747,10 +6747,10 @@ entry:
   %txfc = getelementptr inbounds i8, ptr %2, i64 128
   %call3 = tail call i64 @ossl_quic_txfc_get_cwm(ptr noundef nonnull %txfc) #8
   %cond = tail call i64 @llvm.usub.sat.i64(i64 %call3, i64 %call)
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %cond, i64 %len)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %len, i64 %cond)
   %call.i = tail call i64 @ossl_quic_sstream_get_buffer_size(ptr noundef %1) #8
   %call1.i = tail call i64 @ossl_quic_sstream_get_buffer_avail(ptr noundef %1) #8
-  %cmp2.i = icmp uge i64 %call1.i, %spec.select
+  %cmp2.i = icmp ule i64 %spec.select, %call1.i
   %cmp3.i = icmp eq i64 %call.i, 6291456
   %or.cond.i = select i1 %cmp2.i, i1 true, i1 %cmp3.i
   br i1 %or.cond.i, label %if.end7, label %sstream_ensure_spare.exit

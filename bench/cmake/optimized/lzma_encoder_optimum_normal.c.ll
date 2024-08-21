@@ -925,7 +925,7 @@ helper1.exit:                                     ; preds = %516, %444
   %541 = zext i32 %.val56 to i64
   %542 = getelementptr inbounds i8, ptr %.val55, i64 %541
   %543 = getelementptr inbounds i8, ptr %542, i64 -1
-  %544 = add i32 %539, %4
+  %544 = add i32 %4, %539
   %.val52 = load i32, ptr %159, align 4
   %reass.sub = sub i32 %.val52, %.val56
   %545 = add i32 %reass.sub, 1
@@ -1273,7 +1273,7 @@ get_literal_price.exit.i81:                       ; preds = %.preheader679.i, %.
 
 757:                                              ; preds = %755
   %758 = add i32 %538, 1
-  %759 = call i32 @llvm.umin.i32(i32 %758, i32 %spec.select)
+  %759 = call i32 @llvm.umin.i32(i32 %spec.select, i32 %758)
   %760 = icmp ugt i32 %759, 1
   br i1 %760, label %.lr.ph702.i, label %.loopexit677.i
 
@@ -1334,7 +1334,7 @@ get_literal_price.exit.i81:                       ; preds = %.preheader679.i, %.
   %799 = load i8, ptr %798, align 1
   %800 = zext i8 %799 to i32
   %801 = add i32 %.0.i83, %539
-  %802 = icmp ugt i32 %801, %.047139
+  %802 = icmp ult i32 %.047139, %801
   br i1 %802, label %.lr.ph704.preheader.i, label %.._crit_edge_crit_edge.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %776
@@ -1568,7 +1568,7 @@ get_pure_rep_price.exit.i95:                      ; preds = %897, %891, %869
   %936 = add i32 %.0538.i, 1
   %spec.select.i96 = select i1 %866, i32 %936, i32 %.0566719.i
   %937 = add i32 %936, %538
-  %938 = call i32 @llvm.umin.i32(i32 %937, i32 %spec.select)
+  %938 = call i32 @llvm.umin.i32(i32 %spec.select, i32 %937)
   %939 = icmp ult i32 %936, %938
   br i1 %939, label %.preheader673.i, label %.loopexit674.i
 
@@ -1922,7 +1922,7 @@ get_dist_len_price.exit.i91:                      ; preds = %1115, %1110
   %gep735.i = getelementptr i8, ptr %646, i64 %1153
   %1154 = add i32 %.0543.i, 1
   %1155 = add i32 %1154, %538
-  %1156 = call i32 @llvm.umin.i32(i32 %1155, i32 %spec.select)
+  %1156 = call i32 @llvm.umin.i32(i32 %spec.select, i32 %1155)
   %1157 = icmp ult i32 %1154, %1156
   br i1 %1157, label %.preheader.i94, label %.loopexit.i93
 

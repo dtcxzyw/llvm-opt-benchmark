@@ -386,7 +386,7 @@ cond.false.i:                                     ; preds = %if.end5.i
 cond.true12.i:                                    ; preds = %cond.false.i
   %highStart.i = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load i32, ptr %highStart.i, align 8
-  %cmp14.not.i = icmp sgt i32 %9, %c
+  %cmp14.not.i = icmp slt i32 %c, %9
   br i1 %cmp14.not.i, label %cond.false18.i, label %cond.true15.i
 
 cond.true15.i:                                    ; preds = %cond.true12.i
@@ -465,7 +465,7 @@ cond.false:                                       ; preds = %if.end5
 cond.true12:                                      ; preds = %cond.false
   %highStart = getelementptr inbounds i8, ptr %4, i64 24
   %8 = load i32, ptr %highStart, align 8
-  %cmp14.not = icmp sgt i32 %8, %c
+  %cmp14.not = icmp slt i32 %c, %8
   br i1 %cmp14.not, label %cond.false18, label %cond.true15
 
 cond.true15:                                      ; preds = %cond.true12

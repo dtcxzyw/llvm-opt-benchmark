@@ -90,7 +90,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias nocapture no
 
 ..preheader_crit_edge.us:                         ; preds = %25
   %45 = trunc nuw nsw i64 %indvars.iv.next202 to i32
-  %46 = icmp slt i32 %45, %2
+  %46 = icmp sgt i32 %2, %45
   br i1 %46, label %.lr.ph168.us, label %._crit_edge.us
 
 .preheader161.lr.ph.split:                        ; preds = %.preheader161.lr.ph

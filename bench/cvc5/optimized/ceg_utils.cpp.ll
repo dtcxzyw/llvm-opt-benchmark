@@ -2040,7 +2040,7 @@ lpad:                                             ; preds = %if.then13.i.i.i.i
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #16
-  %cmp.not3.i.i = icmp eq ptr %__cur.010, %__result
+  %cmp.not3.i.i = icmp eq ptr %__result, %__cur.010
   br i1 %cmp.not3.i.i, label %invoke.cont3, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lpad, %for.body.i.i

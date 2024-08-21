@@ -79,7 +79,7 @@ define void @_ZN5faiss17fvec_L2sqr_ny_refEPfPKfS2_mm(ptr nocapture noundef write
 .lr.ph.i.preheader.preheader:                     ; preds = %.lr.ph
   %min.iters.check = icmp ult i64 %3, 8
   %n.vec = and i64 %3, -8
-  %cmp.n = icmp eq i64 %n.vec, %3
+  %cmp.n = icmp eq i64 %3, %n.vec
   br label %.lr.ph.i.preheader
 
 _ZN5faiss10fvec_L2sqrEPKfS1_m.exit.us.preheader:  ; preds = %.lr.ph
@@ -189,7 +189,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %13, %12
   %15 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
-  %cmp.n = icmp eq i64 %n.vec, %2
+  %cmp.n = icmp eq i64 %2, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader17
 
 .lr.ph.preheader17:                               ; preds = %middle.block, %.lr.ph.preheader
@@ -298,7 +298,7 @@ define noundef i64 @_ZN5faiss25fvec_L2sqr_ny_nearest_refEPfPKfS2_mm(ptr nocaptur
 .lr.ph.i.preheader.i.i.preheader:                 ; preds = %.lr.ph.i.i
   %min.iters.check = icmp ult i64 %3, 8
   %n.vec = and i64 %3, -8
-  %cmp.n = icmp eq i64 %n.vec, %3
+  %cmp.n = icmp eq i64 %3, %n.vec
   br label %.lr.ph.i.preheader.i.i
 
 _ZN5faiss10fvec_L2sqrEPKfS1_m.exit.us.preheader.i.i: ; preds = %.lr.ph.i.i
@@ -399,7 +399,7 @@ define void @_ZN5faiss13fvec_L2sqr_nyEPfPKfS2_mm(ptr nocapture noundef writeonly
 .lr.ph.i.preheader.i.preheader:                   ; preds = %.lr.ph.i
   %min.iters.check = icmp ult i64 %3, 8
   %n.vec = and i64 %3, -8
-  %cmp.n = icmp eq i64 %n.vec, %3
+  %cmp.n = icmp eq i64 %3, %n.vec
   br label %.lr.ph.i.preheader.i
 
 _ZN5faiss10fvec_L2sqrEPKfS1_m.exit.us.preheader.i: ; preds = %.lr.ph.i
@@ -567,7 +567,7 @@ define void @_ZN5faiss26fvec_inner_products_ny_refEPfPKfS2_mm(ptr nocapture noun
 .lr.ph.i.preheader.preheader:                     ; preds = %.lr.ph
   %min.iters.check = icmp ult i64 %3, 8
   %n.vec = and i64 %3, -8
-  %cmp.n = icmp eq i64 %n.vec, %3
+  %cmp.n = icmp eq i64 %3, %n.vec
   br label %.lr.ph.i.preheader
 
 _ZN5faiss18fvec_inner_productEPKfS1_m.exit.us.preheader: ; preds = %.lr.ph
@@ -672,7 +672,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %11, %10
   %13 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
-  %cmp.n = icmp eq i64 %n.vec, %2
+  %cmp.n = icmp eq i64 %2, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader16
 
 .lr.ph.preheader16:                               ; preds = %middle.block, %.lr.ph.preheader
@@ -730,7 +730,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %8, %7
   %10 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
-  %cmp.n = icmp eq i64 %n.vec, %1
+  %cmp.n = icmp eq i64 %1, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader14
 
 .lr.ph.preheader14:                               ; preds = %middle.block, %.lr.ph.preheader
@@ -826,7 +826,7 @@ middle.block:                                     ; preds = %vector.body
   %40 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx68)
   %bin.rdx69 = fadd fast <4 x float> %18, %17
   %41 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx69)
-  %cmp.n = icmp eq i64 %n.vec, %5
+  %cmp.n = icmp eq i64 %5, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader73
 
 .lr.ph.preheader73:                               ; preds = %middle.block, %.lr.ph.preheader
@@ -927,7 +927,7 @@ middle.block:                                     ; preds = %vector.body
   %30 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %23)
   %31 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %25)
   %32 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %27)
-  %cmp.n = icmp eq i64 %n.vec, %5
+  %cmp.n = icmp eq i64 %5, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader69
 
 .lr.ph.preheader69:                               ; preds = %middle.block, %.lr.ph.preheader
@@ -1109,7 +1109,7 @@ define noundef i64 @_ZN5faiss21fvec_L2sqr_ny_nearestEPfPKfS2_mm(ptr nocapture no
 .lr.ph.i.preheader.i.i.i.preheader:               ; preds = %.lr.ph.i.i.i
   %min.iters.check = icmp ult i64 %3, 8
   %n.vec = and i64 %3, -8
-  %cmp.n = icmp eq i64 %n.vec, %3
+  %cmp.n = icmp eq i64 %3, %n.vec
   br label %.lr.ph.i.preheader.i.i.i
 
 _ZN5faiss10fvec_L2sqrEPKfS1_m.exit.us.preheader.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -1294,7 +1294,7 @@ define void @_ZN5faiss22fvec_inner_products_nyEPfPKfS2_mm(ptr nocapture noundef 
 .lr.ph.i.preheader.i.preheader:                   ; preds = %.lr.ph.i
   %min.iters.check = icmp ult i64 %3, 8
   %n.vec = and i64 %3, -8
-  %cmp.n = icmp eq i64 %n.vec, %3
+  %cmp.n = icmp eq i64 %3, %n.vec
   br label %.lr.ph.i.preheader.i
 
 _ZN5faiss18fvec_inner_productEPKfS1_m.exit.us.preheader.i: ; preds = %.lr.ph.i
@@ -1567,7 +1567,7 @@ define void @_ZN5faiss27compute_PQ_dis_tables_dsub2EmmPKfmS1_bPf(i64 noundef %0,
 
 ._crit_edge.us127:                                ; preds = %291, %.preheader.us
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 8
-  %118 = icmp ult i64 %indvars.iv.next142, %1
+  %118 = icmp ugt i64 %1, %indvars.iv.next142
   br i1 %118, label %.preheader106.us, label %..loopexit_crit_edge.us, !llvm.loop !41
 
 .lr.ph.us126:                                     ; preds = %.preheader.us, %291
@@ -2410,7 +2410,7 @@ _ZNK5faiss12simd8float32plERKS0_.exit:            ; preds = %13
   %.119 = phi i64 [ %28, %.lr.ph20 ], [ %.0.lcssa, %.preheader ]
   %24 = getelementptr inbounds float, ptr %1, i64 %.119
   %25 = load float, ptr %24, align 4
-  %26 = fadd float %25, %2
+  %26 = fadd float %2, %25
   %27 = getelementptr inbounds float, ptr %3, i64 %.119
   store float %26, ptr %27, align 4
   %28 = add nuw i64 %.119, 1

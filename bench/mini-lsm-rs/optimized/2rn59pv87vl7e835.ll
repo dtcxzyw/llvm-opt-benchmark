@@ -116,7 +116,7 @@ define hidden noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock20try_lo
   %4 = and i64 %3, 8
   %5 = icmp eq i64 %4, 0
   %6 = icmp ugt i64 %3, 15
-  %or.cond.not = and i1 %6, %1
+  %or.cond.not = and i1 %1, %6
   %or.cond = or i1 %5, %or.cond.not
   br i1 %or.cond, label %7, label %10
 
@@ -730,8 +730,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hash
 
 41:                                               ; preds = %58, %8
   %.sroa.9.0.i.i.i = phi i64 [ 0, %8 ], [ %59, %58 ]
-  %.pn.i = phi i64 [ %37, %8 ], [ %60, %58 ]
-  %.sroa.01.0.i.i.i = and i64 %.pn.i, %.val5
+  %.pn.i.i = phi i64 [ %37, %8 ], [ %60, %58 ]
+  %.sroa.01.0.i.i.i = and i64 %.pn.i.i, %.val5
   %42 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i30.i.i = load <16 x i8>, ptr %42, align 1, !noalias !76
   %43 = icmp eq <16 x i8> %.0.copyload.i30.i.i, %.15.vec.insert.i.i.i
@@ -759,7 +759,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hash
   %56 = sub nsw i64 0, %55
   %gep.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i, i64 %56
   %.val4.i.i.i = load i64, ptr %gep.i.i, align 8, !alias.scope !84, !noalias !89, !noundef !7
-  %57 = icmp eq i64 %.val4.i.i.i, %.0.val
+  %57 = icmp eq i64 %.0.val, %.val4.i.i.i
   br i1 %57, label %61, label %45
 
 58:                                               ; preds = %46
@@ -1151,8 +1151,8 @@ default.unreachable781:                           ; preds = %458, %312, %"_ZN4co
 
 174:                                              ; preds = %191, %.noexc334
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %.noexc334 ], [ %192, %191 ]
-  %.pn.i.i = phi i64 [ %170, %.noexc334 ], [ %193, %191 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val5.i
+  %.pn.i.i.i = phi i64 [ %170, %.noexc334 ], [ %193, %191 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i
   %175 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i30.i.i.i = load <16 x i8>, ptr %175, align 1, !noalias !159
   %176 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, %.15.vec.insert.i.i.i.i
@@ -1180,7 +1180,7 @@ default.unreachable781:                           ; preds = %458, %312, %"_ZN4co
   %189 = sub nsw i64 0, %188
   %gep.i.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i.i, i64 %189
   %.val4.i.i.i.i = load i64, ptr %gep.i.i.i, align 8, !alias.scope !167, !noalias !172, !noundef !7
-  %190 = icmp eq i64 %.val4.i.i.i.i, %.val316
+  %190 = icmp eq i64 %.val316, %.val4.i.i.i.i
   br i1 %190, label %230, label %178
 
 191:                                              ; preds = %179
@@ -5998,8 +5998,8 @@ _ZN8mini_lsm9mem_table8MemTable3get17h8883c2e264cb0dcaE.exit.thread.i: ; preds =
 
 285:                                              ; preds = %302, %.noexc192.i
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc192.i ], [ %303, %302 ]
-  %.pn.i.i.i = phi i64 [ %281, %.noexc192.i ], [ %304, %302 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i.i
+  %.pn.i.i.i.i = phi i64 [ %281, %.noexc192.i ], [ %304, %302 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i.i
   %286 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i30.i.i.i.i = load <16 x i8>, ptr %286, align 1, !noalias !745
   %287 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -6027,7 +6027,7 @@ _ZN8mini_lsm9mem_table8MemTable3get17h8883c2e264cb0dcaE.exit.thread.i: ; preds =
   %300 = sub nsw i64 0, %299
   %gep.i.i.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i.i.i, i64 %300
   %.val4.i.i.i.i.i = load i64, ptr %gep.i.i.i.i, align 8, !alias.scope !753, !noalias !758, !noundef !7
-  %301 = icmp eq i64 %.val4.i.i.i.i.i, %.val149.i
+  %301 = icmp eq i64 %.val149.i, %.val4.i.i.i.i.i
   br i1 %301, label %340, label %289
 
 302:                                              ; preds = %290
@@ -7445,8 +7445,8 @@ _ZN8mini_lsm9mem_table9map_bound17hfd7529ee5e9ecbc8E.exit.i: ; preds = %225, %.n
 
 288:                                              ; preds = %305, %.noexc292.i
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc292.i ], [ %306, %305 ]
-  %.pn.i.i.i = phi i64 [ %284, %.noexc292.i ], [ %307, %305 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i.i
+  %.pn.i.i.i.i = phi i64 [ %284, %.noexc292.i ], [ %307, %305 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i.i
   %289 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i30.i.i.i.i = load <16 x i8>, ptr %289, align 1, !noalias !986
   %290 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -7474,7 +7474,7 @@ _ZN8mini_lsm9mem_table9map_bound17hfd7529ee5e9ecbc8E.exit.i: ; preds = %225, %.n
   %303 = sub nsw i64 0, %302
   %gep.i.i.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i.i.i, i64 %303
   %.val4.i.i.i.i.i = load i64, ptr %gep.i.i.i.i, align 8, !alias.scope !994, !noalias !999, !noundef !7
-  %304 = icmp eq i64 %.val4.i.i.i.i.i, %.val266.i
+  %304 = icmp eq i64 %.val266.i, %.val4.i.i.i.i.i
   br i1 %304, label %379, label %292
 
 305:                                              ; preds = %293
@@ -10139,7 +10139,7 @@ define noundef ptr @_ZN8mini_lsm11lsm_storage15LsmStorageInner10try_freeze17h3f5
   %4 = load ptr, ptr %3, align 8, !nonnull !7, !noundef !7
   %5 = getelementptr inbounds i8, ptr %4, i64 64
   %6 = load i64, ptr %5, align 8, !noundef !7
-  %.not = icmp ugt i64 %6, %1
+  %.not = icmp ult i64 %1, %6
   br i1 %.not, label %"_ZN4core3ptr99drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17h7a02385584c2d95dE.exit20", label %7
 
 7:                                                ; preds = %2

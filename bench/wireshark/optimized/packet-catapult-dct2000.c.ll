@@ -1279,7 +1279,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   %indvars.iv186.i = phi i64 [ 0, %.lr.ph171.i ], [ %indvars.iv.next187.i, %350 ]
   %343 = trunc nuw nsw i64 %indvars.iv186.i to i32
   %344 = add i32 %339, %343
-  %345 = icmp ult i32 %344, %.025.lcssa.i
+  %345 = icmp ugt i32 %.025.lcssa.i, %344
   br i1 %345, label %346, label %350
 
 346:                                              ; preds = %342
@@ -1320,7 +1320,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 365:                                              ; preds = %373, %.lr.ph175.i
   %indvars.iv189.i = phi i64 [ 0, %.lr.ph175.i ], [ %indvars.iv.next190.i, %373 ]
   %.2172.i = phi i32 [ %356, %.lr.ph175.i ], [ %.3.i, %373 ]
-  %366 = icmp ult i32 %.2172.i, %.025.lcssa.i
+  %366 = icmp ugt i32 %.025.lcssa.i, %.2172.i
   br i1 %366, label %367, label %373
 
 367:                                              ; preds = %365
@@ -1343,7 +1343,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 375:                                              ; preds = %382, %.lr.ph179.i
   %indvars.iv192.i = phi i64 [ 0, %.lr.ph179.i ], [ %indvars.iv.next193.i, %382 ]
   %.4177.i = phi i32 [ %.3.i, %.lr.ph179.i ], [ %.5.i, %382 ]
-  %376 = icmp ult i32 %.4177.i, %.025.lcssa.i
+  %376 = icmp ugt i32 %.025.lcssa.i, %.4177.i
   br i1 %376, label %377, label %382
 
 377:                                              ; preds = %375
@@ -1368,7 +1368,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   %.4.lcssa.i = phi i32 [ %356, %355 ], [ %.5.i, %382 ]
   %387 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull dereferenceable(6) @.str.386) #10
   %388 = icmp eq i32 %387, 0
-  %389 = icmp ult i32 %.4.lcssa.i, %.025.lcssa.i
+  %389 = icmp ugt i32 %.025.lcssa.i, %.4.lcssa.i
   %or.cond.i = select i1 %388, i1 %389, i1 false
   br i1 %or.cond.i, label %390, label %.loopexit.sink.split.i
 
@@ -5489,7 +5489,7 @@ define internal fastcc void @get_key(ptr noundef %0, i32 noundef %1) unnamed_add
   %5 = getelementptr [33 x i8], ptr @get_key.key, i64 0, i64 %4
   %6 = sub nuw nsw i64 33, %4
   %7 = trunc nuw nsw i64 %indvars.iv to i32
-  %8 = add i32 %7, %1
+  %8 = add i32 %1, %7
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %8) #9
   %10 = zext i8 %9 to i32
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef %6, ptr noundef nonnull @.str.397, i32 noundef %10) #9

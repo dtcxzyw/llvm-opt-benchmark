@@ -3704,7 +3704,7 @@ for.end:                                          ; preds = %for.inc, %for.body.
 define linkonce_odr hidden noundef zeroext i1 @_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 4 dereferenceable(1028) %value) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 8
-  %cmp.not = icmp ugt i32 %0, %index
+  %cmp.not = icmp ult i32 %index, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4110,7 +4110,7 @@ invoke.cont3.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %5, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %6
+  %cmp2.i.i.i.i = icmp eq ptr %6, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -5331,7 +5331,7 @@ if.then.i:                                        ; preds = %if.end160
   store i32 0, ptr %144, align 8
   %mIndices.i.i.i.i = getelementptr inbounds i8, ptr %144, i64 8
   store ptr null, ptr %mIndices.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %144, %face
+  %cmp.i.i.i.i.i = icmp eq ptr %face, %144
   br i1 %cmp.i.i.i.i.i, label %_ZNSt16allocator_traitsISaI6aiFaceEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit.i, label %delete.end.i.i.i.i.i
 
 delete.end.i.i.i.i.i:                             ; preds = %if.then.i
@@ -6027,7 +6027,7 @@ invoke.cont3.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %5, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %6
+  %cmp2.i.i.i.i = icmp eq ptr %6, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -6674,7 +6674,7 @@ invoke.cont3.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %5, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %6
+  %cmp2.i.i.i.i = icmp eq ptr %6, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -7337,7 +7337,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjPN6Assimp4D3MF8ResourceEESt10_Select1stIS6_ESt4lessIjESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #4 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -7625,7 +7625,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN6Assimp4D3MF13XmlSerializer9MetaEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 64
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN6Assimp4D3MF13XmlSerializer9MetaEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit28, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN6Assimp4D3MF13XmlSerializer9MetaEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i19
@@ -7745,7 +7745,7 @@ _ZNSt12_Vector_baseI6aiFaceSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vecto
   store i32 0, ptr %add.ptr, align 8
   %mIndices.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr null, ptr %mIndices.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %add.ptr, %__args
+  %cmp.i.i.i.i = icmp eq ptr %__args, %add.ptr
   br i1 %cmp.i.i.i.i, label %invoke.cont, label %delete.end.i.i.i.i
 
 delete.end.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseI6aiFaceSaIS0_EE11_M_allocateEm.exit
@@ -7935,7 +7935,7 @@ lpad:                                             ; preds = %if.then4.i.i.i
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #24
-  %cmp.not3.i.i = icmp eq ptr %__cur.011, %__result
+  %cmp.not3.i.i = icmp eq ptr %__result, %__cur.011
   br i1 %cmp.not3.i.i, label %invoke.cont3, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lpad, %_ZSt8_DestroyI6aiFaceEvPT_.exit.i.i

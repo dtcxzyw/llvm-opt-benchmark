@@ -745,7 +745,7 @@ define dso_local ptr @build_job_queue(i1 noundef zeroext %0, i1 noundef zeroext 
   %185 = getelementptr inbounds i8, ptr %148, i64 56
   %186 = load ptr, ptr %185, align 8
   %.not156 = icmp ne ptr %186, null
-  %brmerge.not = and i1 %.not156, %1
+  %brmerge.not = and i1 %1, %.not156
   br i1 %brmerge.not, label %187, label %189
 
 187:                                              ; preds = %182
@@ -5020,12 +5020,12 @@ _find_dependent_job_ptr.exit.thread45.i:          ; preds = %_find_dependent_job
   br i1 %213, label %_parse_dependency_jobid_old.exit.thread, label %217
 
 214:                                              ; preds = %209
-  %215 = icmp eq ptr %.1.i49.i, %0
+  %215 = icmp eq ptr %0, %.1.i49.i
   br i1 %215, label %_parse_dependency_jobid_old.exit.thread, label %217
 
 _depends_on_same_job.exit.i:                      ; preds = %_find_dependent_job_ptr.exit.i, %203, %.thread.i.i, %195
   %.1.i44.i = phi ptr [ %206, %_find_dependent_job_ptr.exit.i ], [ null, %195 ], [ %.019.i.i, %.thread.i.i ], [ %.019.i.i, %203 ]
-  %216 = icmp eq ptr %.1.i44.i, %0
+  %216 = icmp eq ptr %0, %.1.i44.i
   br i1 %216, label %_parse_dependency_jobid_old.exit.thread, label %217
 
 217:                                              ; preds = %_depends_on_same_job.exit.i, %214, %211
@@ -5271,12 +5271,12 @@ _find_dependent_job_ptr.exit.i81:                 ; preds = %287
   br i1 %309, label %_parse_dependency_jobid_new.exit.thread, label %321
 
 310:                                              ; preds = %305
-  %311 = icmp eq ptr %.1.i1648.i, %0
+  %311 = icmp eq ptr %0, %.1.i1648.i
   br i1 %311, label %_parse_dependency_jobid_new.exit.thread, label %321
 
 .split.thread.i:                                  ; preds = %.split.i, %299, %.thread.i.i88
   %.1.i1641.i = phi ptr [ %302, %.split.i ], [ %.019.i.i89, %.thread.i.i88 ], [ %.019.i.i89, %299 ]
-  %312 = icmp eq ptr %.1.i1641.i, %0
+  %312 = icmp eq ptr %0, %.1.i1641.i
   br i1 %312, label %_parse_dependency_jobid_new.exit.thread, label %321
 
 _find_dependent_job_ptr.exit.thread19.i:          ; preds = %_find_dependent_job_ptr.exit.i81
@@ -5794,11 +5794,11 @@ define internal fastcc noundef zeroext i1 @_scan_depend(ptr noundef %0, ptr noun
   br i1 %30, label %.critedge, label %34
 
 31:                                               ; preds = %26
-  %32 = icmp eq ptr %22, %1
+  %32 = icmp eq ptr %1, %22
   br i1 %32, label %.critedge, label %34
 
 _depends_on_same_job.exit:                        ; preds = %.split.us
-  %33 = icmp eq ptr %22, %1
+  %33 = icmp eq ptr %1, %22
   br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %31, %28, %_depends_on_same_job.exit
@@ -8222,7 +8222,7 @@ define internal fastcc i32 @_valid_feature_list(ptr nocapture noundef readonly %
   %32 = load ptr, ptr %20, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 336
   %34 = load ptr, ptr %33, align 8
-  %.not86 = icmp eq ptr %34, %1
+  %.not86 = icmp eq ptr %1, %34
   br i1 %.not86, label %50, label %35
 
 35:                                               ; preds = %31, %30

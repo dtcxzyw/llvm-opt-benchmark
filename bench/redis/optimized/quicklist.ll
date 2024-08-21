@@ -775,13 +775,13 @@ if.then:                                          ; preds = %entry
   %spec.select.i = zext nneg i32 %narrow.i to i64
   %arrayidx.i = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i
   %1 = load i64, ptr %arrayidx.i, align 8
-  %cmp2 = icmp ult i64 %1, %new_sz
+  %cmp2 = icmp ugt i64 %new_sz, %1
   br label %return
 
 if.else:                                          ; preds = %entry
   %cond.i = tail call i32 @llvm.umax.i32(i32 %fill, i32 1)
   %cmp7 = icmp ugt i64 %new_sz, 8192
-  %cmp10 = icmp ult i32 %cond.i, %new_count
+  %cmp10 = icmp ugt i32 %new_count, %cond.i
   %spec.select = or i1 %cmp7, %cmp10
   br label %return
 
@@ -803,7 +803,7 @@ if.end:                                           ; preds = %entry
   %0 = and i32 %bf.load, 786432
   %cmp = icmp eq i32 %0, 262144
   %1 = load i64, ptr @packed_threshold, align 8
-  %cmp5 = icmp ule i64 %1, %sz
+  %cmp5 = icmp uge i64 %sz, %1
   %2 = select i1 %cmp, i1 true, i1 %cmp5
   br i1 %2, label %return, label %if.end14
 
@@ -821,14 +821,14 @@ if.then.i:                                        ; preds = %if.end14
   %spec.select.i.i = zext nneg i32 %narrow.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i
   %5 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp2.i = icmp ult i64 %5, %add16
+  %cmp2.i = icmp ugt i64 %add16, %5
   br label %quicklistNodeExceedsLimit.exit
 
 if.else.i:                                        ; preds = %if.end14
   %bf.clear18 = and i32 %bf.load, 65535
   %cond.i.i = tail call i32 @llvm.umax.i32(i32 %fill, i32 1)
   %cmp7.i = icmp ugt i64 %add16, 8192
-  %cmp10.i = icmp ule i32 %cond.i.i, %bf.clear18
+  %cmp10.i = icmp uge i32 %bf.clear18, %cond.i.i
   %spec.select.i = or i1 %cmp10.i, %cmp7.i
   br label %quicklistNodeExceedsLimit.exit
 
@@ -882,7 +882,7 @@ if.then.i:                                        ; preds = %if.end10
   %spec.select.i.i = zext nneg i32 %narrow.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i
   %5 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp2.i = icmp ult i64 %5, %conv13
+  %cmp2.i = icmp ugt i64 %conv13, %5
   br label %quicklistNodeExceedsLimit.exit
 
 if.else.i:                                        ; preds = %if.end10
@@ -891,7 +891,7 @@ if.else.i:                                        ; preds = %if.end10
   %add19 = add nuw nsw i32 %bf.clear18, %bf.clear15
   %cond.i.i = tail call i32 @llvm.umax.i32(i32 %fill, i32 1)
   %cmp7.i = icmp ugt i64 %conv13, 8192
-  %cmp10.i = icmp ult i32 %cond.i.i, %add19
+  %cmp10.i = icmp ugt i32 %add19, %cond.i.i
   %spec.select.i = or i1 %cmp10.i, %cmp7.i
   br label %quicklistNodeExceedsLimit.exit
 
@@ -911,7 +911,7 @@ define dso_local range(i32 0, 2) i32 @quicklistPushHead(ptr nocapture noundef %q
 entry:
   %0 = load ptr, ptr %quicklist, align 8
   %1 = load i64, ptr @packed_threshold, align 8
-  %cmp.not = icmp ugt i64 %1, %sz
+  %cmp.not = icmp ult i64 %sz, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -965,14 +965,14 @@ if.then.i.i:                                      ; preds = %if.end14.i
   %spec.select.i.i.i = zext nneg i32 %narrow.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp2.i.i = icmp ult i64 %6, %add16.i
+  %cmp2.i.i = icmp ugt i64 %add16.i, %6
   br i1 %cmp2.i.i, label %if.else, label %if.then11
 
 _quicklistNodeAllowInsert.exit:                   ; preds = %if.end14.i
   %bf.clear18.i = and i32 %bf.load.i, 65535
   %cond.i.i.i = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i = icmp ugt i64 %add16.i, 8192
-  %cmp10.i.i = icmp ule i32 %cond.i.i.i, %bf.clear18.i
+  %cmp10.i.i = icmp uge i32 %bf.clear18.i, %cond.i.i.i
   %spec.select.i.i = or i1 %cmp10.i.i, %cmp7.i.i
   br i1 %spec.select.i.i, label %if.else, label %if.then11
 
@@ -1048,7 +1048,7 @@ entry:
   %tail = getelementptr inbounds i8, ptr %quicklist, i64 8
   %0 = load ptr, ptr %tail, align 8
   %1 = load i64, ptr @packed_threshold, align 8
-  %cmp.not = icmp ugt i64 %1, %sz
+  %cmp.not = icmp ult i64 %sz, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1102,14 +1102,14 @@ if.then.i.i:                                      ; preds = %if.end14.i
   %spec.select.i.i.i = zext nneg i32 %narrow.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp2.i.i = icmp ult i64 %6, %add16.i
+  %cmp2.i.i = icmp ugt i64 %add16.i, %6
   br i1 %cmp2.i.i, label %if.else, label %if.then11
 
 _quicklistNodeAllowInsert.exit:                   ; preds = %if.end14.i
   %bf.clear18.i = and i32 %bf.load.i, 65535
   %cond.i.i.i = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i = icmp ugt i64 %add16.i, 8192
-  %cmp10.i.i = icmp ule i32 %cond.i.i.i, %bf.clear18.i
+  %cmp10.i.i = icmp uge i32 %bf.clear18.i, %cond.i.i.i
   %spec.select.i.i = or i1 %cmp10.i.i, %cmp7.i.i
   br i1 %spec.select.i.i, label %if.else, label %if.then11
 
@@ -1315,7 +1315,7 @@ if.then14:                                        ; preds = %if.end11
 if.end18:                                         ; preds = %if.then14, %if.end11
   %tail = getelementptr inbounds i8, ptr %quicklist, i64 8
   %7 = load ptr, ptr %tail, align 8
-  %cmp = icmp eq ptr %7, %node
+  %cmp = icmp eq ptr %node, %7
   br i1 %cmp, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %if.end18
@@ -1325,7 +1325,7 @@ if.then19:                                        ; preds = %if.end18
 
 if.end22:                                         ; preds = %if.then19, %if.end18
   %9 = load ptr, ptr %quicklist, align 8
-  %cmp23 = icmp eq ptr %9, %node
+  %cmp23 = icmp eq ptr %node, %9
   br i1 %cmp23, label %if.then24, label %if.end27
 
 if.then24:                                        ; preds = %if.end22
@@ -1560,7 +1560,7 @@ entry:
   %2 = and i32 %bf.load, 786432
   %cmp = icmp ne i32 %2, 262144
   %3 = load i64, ptr @packed_threshold, align 8
-  %cmp3.not = icmp ugt i64 %3, %sz
+  %cmp3.not = icmp ult i64 %sz, %3
   %4 = select i1 %cmp, i1 %cmp3.not, i1 false
   br i1 %4, label %if.then, label %if.else39
 
@@ -1829,7 +1829,7 @@ entry:
   %cmp.i = icmp sgt i64 %idx, -1
   %not.cmp.i = xor i1 %cmp.i, true
   %sub1.i = sext i1 %not.cmp.i to i64
-  %cond2.i = xor i64 %sub1.i, %idx
+  %cond2.i = xor i64 %idx, %sub1.i
   %count.i = getelementptr inbounds i8, ptr %quicklist, i64 16
   %0 = load i64, ptr %count.i, align 8
   %cmp3.not.i = icmp ult i64 %cond2.i, %0
@@ -2153,7 +2153,7 @@ if.then.i.i:                                      ; preds = %if.end10.i
   %spec.select.i.i.i = zext nneg i32 %narrow.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i
   %9 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp2.i.i = icmp ult i64 %9, %conv13.i
+  %cmp2.i.i = icmp ugt i64 %conv13.i, %9
   br i1 %cmp2.i.i, label %if.end26, label %if.then24
 
 _quicklistNodeAllowMerge.exit:                    ; preds = %if.end10.i
@@ -2162,7 +2162,7 @@ _quicklistNodeAllowMerge.exit:                    ; preds = %if.end10.i
   %add19.i = add nuw nsw i32 %bf.clear18.i, %bf.clear15.i
   %cond.i.i.i = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i = icmp ugt i64 %conv13.i, 8192
-  %cmp10.i.i = icmp ult i32 %cond.i.i.i, %add19.i
+  %cmp10.i.i = icmp ugt i32 %add19.i, %cond.i.i.i
   %spec.select.i.i = or i1 %cmp10.i.i, %cmp7.i.i
   br i1 %spec.select.i.i, label %if.end26, label %if.then24
 
@@ -2207,7 +2207,7 @@ if.then.i.i50:                                    ; preds = %if.end10.i43
   %spec.select.i.i.i52 = zext nneg i32 %narrow.i.i.i51 to i64
   %arrayidx.i.i.i53 = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i52
   %15 = load i64, ptr %arrayidx.i.i.i53, align 8
-  %cmp2.i.i54 = icmp ult i64 %15, %conv13.i48
+  %cmp2.i.i54 = icmp ugt i64 %conv13.i48, %15
   br i1 %cmp2.i.i54, label %if.end31, label %if.then29
 
 _quicklistNodeAllowMerge.exit67:                  ; preds = %if.end10.i43
@@ -2216,7 +2216,7 @@ _quicklistNodeAllowMerge.exit67:                  ; preds = %if.end10.i43
   %add19.i62 = add nuw nsw i32 %bf.clear18.i61, %bf.clear15.i60
   %cond.i.i.i63 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i64 = icmp ugt i64 %conv13.i48, 8192
-  %cmp10.i.i65 = icmp ult i32 %cond.i.i.i63, %add19.i62
+  %cmp10.i.i65 = icmp ugt i32 %add19.i62, %cond.i.i.i63
   %spec.select.i.i66 = or i1 %cmp10.i.i65, %cmp7.i.i64
   br i1 %spec.select.i.i66, label %if.end31, label %if.then29
 
@@ -2260,7 +2260,7 @@ if.then.i.i87:                                    ; preds = %if.end10.i80
   %spec.select.i.i.i89 = zext nneg i32 %narrow.i.i.i88 to i64
   %arrayidx.i.i.i90 = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i89
   %22 = load i64, ptr %arrayidx.i.i.i90, align 8
-  %cmp2.i.i91 = icmp ult i64 %22, %conv13.i85
+  %cmp2.i.i91 = icmp ugt i64 %conv13.i85, %22
   br i1 %cmp2.i.i91, label %if.end38, label %if.then35
 
 _quicklistNodeAllowMerge.exit104:                 ; preds = %if.end10.i80
@@ -2269,7 +2269,7 @@ _quicklistNodeAllowMerge.exit104:                 ; preds = %if.end10.i80
   %add19.i99 = add nuw nsw i32 %bf.clear18.i98, %bf.clear15.i97
   %cond.i.i.i100 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i101 = icmp ugt i64 %conv13.i85, 8192
-  %cmp10.i.i102 = icmp ult i32 %cond.i.i.i100, %add19.i99
+  %cmp10.i.i102 = icmp ugt i32 %add19.i99, %cond.i.i.i100
   %spec.select.i.i103 = or i1 %cmp10.i.i102, %cmp7.i.i101
   br i1 %spec.select.i.i103, label %if.end38, label %if.then35
 
@@ -2317,7 +2317,7 @@ if.then.i.i124:                                   ; preds = %if.end10.i117
   %spec.select.i.i.i126 = zext nneg i32 %narrow.i.i.i125 to i64
   %arrayidx.i.i.i127 = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i126
   %29 = load i64, ptr %arrayidx.i.i.i127, align 8
-  %cmp2.i.i128 = icmp ult i64 %29, %conv13.i122
+  %cmp2.i.i128 = icmp ugt i64 %conv13.i122, %29
   br i1 %cmp2.i.i128, label %if.end45, label %if.then42
 
 _quicklistNodeAllowMerge.exit141:                 ; preds = %if.end10.i117
@@ -2326,7 +2326,7 @@ _quicklistNodeAllowMerge.exit141:                 ; preds = %if.end10.i117
   %add19.i136 = add nuw nsw i32 %bf.clear18.i135, %bf.clear15.i134
   %cond.i.i.i137 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i138 = icmp ugt i64 %conv13.i122, 8192
-  %cmp10.i.i139 = icmp ult i32 %cond.i.i.i137, %add19.i136
+  %cmp10.i.i139 = icmp ugt i32 %add19.i136, %cond.i.i.i137
   %spec.select.i.i140 = or i1 %cmp10.i.i139, %cmp7.i.i138
   br i1 %spec.select.i.i140, label %if.end45, label %if.then42
 
@@ -2420,7 +2420,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr @packed_threshold, align 8
-  %cmp.not = icmp ugt i64 %2, %sz
+  %cmp.not = icmp ult i64 %sz, %2
   br i1 %cmp.not, label %if.end, label %if.then7
 
 if.then7:                                         ; preds = %if.then
@@ -2517,7 +2517,7 @@ if.end.i:                                         ; preds = %entry
   %9 = and i32 %bf.load.i218, 786432
   %cmp.i219 = icmp eq i32 %9, 262144
   %10 = load i64, ptr @packed_threshold, align 8
-  %cmp5.i = icmp ule i64 %10, %sz
+  %cmp5.i = icmp uge i64 %sz, %10
   %11 = select i1 %cmp.i219, i1 true, i1 %cmp5.i
   br i1 %11, label %_quicklistNodeAllowInsert.exit, label %if.end14.i
 
@@ -2535,14 +2535,14 @@ if.then.i.i:                                      ; preds = %if.end14.i
   %spec.select.i.i.i = zext nneg i32 %narrow.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i
   %14 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp2.i.i = icmp ult i64 %14, %add16.i
+  %cmp2.i.i = icmp ugt i64 %add16.i, %14
   br label %quicklistNodeExceedsLimit.exit.i
 
 if.else.i.i:                                      ; preds = %if.end14.i
   %bf.clear18.i = and i32 %bf.load.i218, 65535
   %cond.i.i.i = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i = icmp ugt i64 %add16.i, 8192
-  %cmp10.i.i = icmp ule i32 %cond.i.i.i, %bf.clear18.i
+  %cmp10.i.i = icmp uge i32 %bf.clear18.i, %cond.i.i.i
   %spec.select.i.i = or i1 %cmp10.i.i, %cmp7.i.i
   br label %quicklistNodeExceedsLimit.exit.i
 
@@ -2595,7 +2595,7 @@ if.then.i.i231:                                   ; preds = %if.end14.i226
   %spec.select.i.i.i233 = zext nneg i32 %narrow.i.i.i232 to i64
   %arrayidx.i.i.i234 = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i233
   %21 = load i64, ptr %arrayidx.i.i.i234, align 8
-  %cmp2.i.i235 = icmp ult i64 %21, %add16.i229
+  %cmp2.i.i235 = icmp ugt i64 %add16.i229, %21
   %cond.fr351 = freeze i1 %cmp2.i.i235
   br i1 %cond.fr351, label %_quicklistNodeAllowInsert.exit247.thread, label %if.end55
 
@@ -2603,7 +2603,7 @@ _quicklistNodeAllowInsert.exit247:                ; preds = %if.end14.i226
   %bf.clear18.i242 = and i32 %bf.load.i223, 65535
   %cond.i.i.i243 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i244 = icmp ugt i64 %add16.i229, 8192
-  %cmp10.i.i245 = icmp ule i32 %cond.i.i.i243, %bf.clear18.i242
+  %cmp10.i.i245 = icmp uge i32 %bf.clear18.i242, %cond.i.i.i243
   %spec.select.i.i246 = or i1 %cmp10.i.i245, %cmp7.i.i244
   %cond.fr = freeze i1 %spec.select.i.i246
   br i1 %cond.fr, label %_quicklistNodeAllowInsert.exit247.thread, label %if.end55
@@ -2648,7 +2648,7 @@ if.then.i.i259:                                   ; preds = %if.end14.i254
   %spec.select.i.i.i261 = zext nneg i32 %narrow.i.i.i260 to i64
   %arrayidx.i.i.i262 = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i261
   %27 = load i64, ptr %arrayidx.i.i.i262, align 8
-  %cmp2.i.i263 = icmp ult i64 %27, %add16.i257
+  %cmp2.i.i263 = icmp ugt i64 %add16.i257, %27
   %cond.fr342352 = freeze i1 %cmp2.i.i263
   br i1 %cond.fr342352, label %_quicklistNodeAllowInsert.exit275.thread, label %if.end55
 
@@ -2656,7 +2656,7 @@ _quicklistNodeAllowInsert.exit275:                ; preds = %if.end14.i254
   %bf.clear18.i270 = and i32 %bf.load.i251, 65535
   %cond.i.i.i271 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i272 = icmp ugt i64 %add16.i257, 8192
-  %cmp10.i.i273 = icmp ule i32 %cond.i.i.i271, %bf.clear18.i270
+  %cmp10.i.i273 = icmp uge i32 %bf.clear18.i270, %cond.i.i.i271
   %spec.select.i.i274 = or i1 %cmp10.i.i273, %cmp7.i.i272
   %cond.fr342 = freeze i1 %spec.select.i.i274
   br i1 %cond.fr342, label %_quicklistNodeAllowInsert.exit275.thread, label %if.end55
@@ -2671,7 +2671,7 @@ if.end55:                                         ; preds = %if.then.i.i259, %if
   %tobool313 = phi i1 [ false, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
   %tobool311 = phi i1 [ false, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ true, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
   %tobool405 = phi i1 [ true, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ true, %_quicklistNodeAllowInsert.exit247.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ true, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
-  %cmp56.not = icmp ugt i64 %10, %sz
+  %cmp56.not = icmp ult i64 %sz, %10
   br i1 %cmp56.not, label %if.end97, label %if.then64
 
 if.then64:                                        ; preds = %if.end55
@@ -3144,12 +3144,12 @@ land.lhs.true:                                    ; preds = %if.end
   %count2 = getelementptr inbounds i8, ptr %quicklist, i64 16
   %0 = load i64, ptr %count2, align 8
   %sub = sub i64 %0, %start
-  %spec.select82 = tail call i64 @llvm.umin.i64(i64 %sub, i64 %count)
+  %spec.select82 = tail call i64 @llvm.umin.i64(i64 %count, i64 %sub)
   br label %if.end14
 
 land.lhs.true8:                                   ; preds = %if.end
   %sub9 = sub nsw i64 0, %start
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub9, i64 %count)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %count, i64 %sub9)
   %count.i.phi.trans.insert = getelementptr inbounds i8, ptr %quicklist, i64 16
   %.pre = load i64, ptr %count.i.phi.trans.insert, align 8
   br label %if.end14
@@ -3159,7 +3159,7 @@ if.end14:                                         ; preds = %land.lhs.true, %lan
   %extent.0 = phi i64 [ %spec.select, %land.lhs.true8 ], [ %spec.select82, %land.lhs.true ]
   %not.cmp.i = xor i1 %cmp1, true
   %sub1.i = sext i1 %not.cmp.i to i64
-  %cond2.i = xor i64 %sub1.i, %start
+  %cond2.i = xor i64 %start, %sub1.i
   %count.i = getelementptr inbounds i8, ptr %quicklist, i64 16
   %cmp3.not.i = icmp ult i64 %cond2.i, %1
   br i1 %cmp3.not.i, label %if.end.i, label %return
@@ -3388,7 +3388,7 @@ entry:
   %cmp = icmp sgt i64 %idx, -1
   %not.cmp = xor i1 %cmp, true
   %sub1 = sext i1 %not.cmp to i64
-  %cond2 = xor i64 %sub1, %idx
+  %cond2 = xor i64 %idx, %sub1
   %count = getelementptr inbounds i8, ptr %quicklist, i64 16
   %0 = load i64, ptr %count, align 8
   %cmp3.not = icmp ult i64 %cond2, %0

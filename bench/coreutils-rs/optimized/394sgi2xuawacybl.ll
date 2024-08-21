@@ -93,7 +93,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   %35 = load i64, ptr %7, align 8, !alias.scope !20, !noalias !25, !noundef !4
   %36 = load i64, ptr %1, align 8, !alias.scope !27, !noalias !25, !noundef !4
   %37 = sub i64 %36, %35
-  %38 = icmp ult i64 %37, %17
+  %38 = icmp ugt i64 %17, %37
   br i1 %38, label %39, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h41a51e7805b40388E.exit.i.i"
 
 39:                                               ; preds = %34
@@ -145,7 +145,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   %53 = load i64, ptr %7, align 8, !alias.scope !30, !noalias !35, !noundef !4
   %54 = load i64, ptr %1, align 8, !alias.scope !37, !noalias !35, !noundef !4
   %55 = sub i64 %54, %53
-  %.not.i.i = icmp ugt i64 %55, %47
+  %.not.i.i = icmp ult i64 %47, %55
   br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h41a51e7805b40388E.exit13.i.i", label %56
 
 56:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5017d70b9246fa81E.exit.i.i"

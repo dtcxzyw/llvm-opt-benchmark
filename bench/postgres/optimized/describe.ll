@@ -1949,7 +1949,7 @@ define dso_local noundef zeroext i1 @permissionsList(ptr noundef %0, i1 noundef 
 12:                                               ; preds = %11, %8
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.159) #9
   %13 = icmp ne ptr %0, null
-  %or.cond = or i1 %13, %1
+  %or.cond = or i1 %1, %13
   br i1 %or.cond, label %15, label %14
 
 14:                                               ; preds = %12
@@ -2049,7 +2049,7 @@ define dso_local noundef zeroext i1 @objectDescription(ptr noundef %0, i1 nounde
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.6) #9
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.175) #9
   %5 = icmp ne ptr %0, null
-  %or.cond = or i1 %5, %1
+  %or.cond = or i1 %1, %5
   br i1 %or.cond, label %7, label %6
 
 6:                                                ; preds = %2
@@ -5656,7 +5656,7 @@ define dso_local noundef zeroext i1 @describeRoleGrants(ptr noundef %0, i1 nound
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.233, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.234) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.235) #9
   %9 = icmp ne ptr %0, null
-  %or.cond = or i1 %9, %1
+  %or.cond = or i1 %1, %9
   br i1 %or.cond, label %11, label %10
 
 10:                                               ; preds = %2

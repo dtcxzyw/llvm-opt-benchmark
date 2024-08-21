@@ -841,7 +841,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
-  br label %80
+  br label %83
 
 12:                                               ; preds = %.noexc, %6
   %13 = landingpad { ptr, i32 }
@@ -870,16 +870,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %24 = load double, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 152
   %26 = load double, ptr %25, align 8
-  %27 = fneg double %24
-  %28 = fmul double %26, %27
+  %27 = fneg double %26
+  %28 = fmul double %24, %27
   %29 = tail call double @llvm.fmuladd.f64(double %20, double %22, double %28)
   %30 = load double, ptr %17, align 8
   %31 = fneg double %30
   %32 = load double, ptr %18, align 8
   %33 = fmul double %26, %32
   %34 = tail call double @llvm.fmuladd.f64(double %31, double %22, double %33)
-  %35 = fneg double %32
-  %36 = fmul double %20, %35
+  %35 = fneg double %20
+  %36 = fmul double %32, %35
   %37 = tail call double @llvm.fmuladd.f64(double %30, double %24, double %36)
   %38 = getelementptr inbounds i8, ptr %0, i64 112
   %39 = load double, ptr %38, align 8
@@ -899,48 +899,51 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store double %48, ptr %.sroa.221.0..sroa_idx, align 8
   %.sroa.322.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 200
   store double %49, ptr %.sroa.322.0..sroa_idx, align 8
-  %51 = fneg double %41
-  %52 = fmul double %22, %51
+  %51 = fneg double %22
+  %52 = fmul double %41, %51
   %53 = tail call double @llvm.fmuladd.f64(double %24, double %45, double %52)
-  %54 = fmul double %22, %39
-  %55 = tail call double @llvm.fmuladd.f64(double %35, double %45, double %54)
-  %56 = fneg double %39
-  %57 = fmul double %24, %56
-  %58 = tail call double @llvm.fmuladd.f64(double %32, double %41, double %57)
-  %59 = fmul double %20, %55
-  %60 = tail call double @llvm.fmuladd.f64(double %53, double %30, double %59)
-  %61 = tail call noundef double @llvm.fmuladd.f64(double %58, double %26, double %60)
-  %62 = fdiv double %53, %61
-  %63 = fdiv double %55, %61
-  %64 = fdiv double %58, %61
-  %65 = getelementptr inbounds i8, ptr %0, i64 208
-  store double %62, ptr %65, align 8
+  %54 = fneg double %32
+  %55 = fmul double %22, %39
+  %56 = tail call double @llvm.fmuladd.f64(double %54, double %45, double %55)
+  %57 = fneg double %24
+  %58 = fmul double %39, %57
+  %59 = tail call double @llvm.fmuladd.f64(double %32, double %41, double %58)
+  %60 = fmul double %20, %56
+  %61 = tail call double @llvm.fmuladd.f64(double %53, double %30, double %60)
+  %62 = tail call noundef double @llvm.fmuladd.f64(double %59, double %26, double %61)
+  %63 = fdiv double %53, %62
+  %64 = fdiv double %56, %62
+  %65 = fdiv double %59, %62
+  %66 = getelementptr inbounds i8, ptr %0, i64 208
+  store double %63, ptr %66, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 216
-  store double %63, ptr %.sroa.212.0..sroa_idx, align 8
+  store double %64, ptr %.sroa.212.0..sroa_idx, align 8
   %.sroa.313.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 224
-  store double %64, ptr %.sroa.313.0..sroa_idx, align 8
-  %66 = fneg double %20
-  %67 = fmul double %45, %66
-  %68 = tail call double @llvm.fmuladd.f64(double %41, double %26, double %67)
-  %69 = fmul double %30, %45
-  %70 = tail call double @llvm.fmuladd.f64(double %56, double %26, double %69)
-  %71 = fmul double %41, %31
-  %72 = tail call double @llvm.fmuladd.f64(double %39, double %20, double %71)
-  %73 = fmul double %24, %70
-  %74 = tail call double @llvm.fmuladd.f64(double %68, double %32, double %73)
-  %75 = tail call noundef double @llvm.fmuladd.f64(double %72, double %22, double %74)
-  %76 = fdiv double %68, %75
-  %77 = fdiv double %70, %75
-  %78 = fdiv double %72, %75
-  %79 = getelementptr inbounds i8, ptr %0, i64 232
-  store double %76, ptr %79, align 8
+  store double %65, ptr %.sroa.313.0..sroa_idx, align 8
+  %67 = fneg double %45
+  %68 = fmul double %20, %67
+  %69 = tail call double @llvm.fmuladd.f64(double %41, double %26, double %68)
+  %70 = fneg double %39
+  %71 = fmul double %30, %45
+  %72 = tail call double @llvm.fmuladd.f64(double %70, double %26, double %71)
+  %73 = fneg double %41
+  %74 = fmul double %30, %73
+  %75 = tail call double @llvm.fmuladd.f64(double %39, double %20, double %74)
+  %76 = fmul double %24, %72
+  %77 = tail call double @llvm.fmuladd.f64(double %69, double %32, double %76)
+  %78 = tail call noundef double @llvm.fmuladd.f64(double %75, double %22, double %77)
+  %79 = fdiv double %69, %78
+  %80 = fdiv double %72, %78
+  %81 = fdiv double %75, %78
+  %82 = getelementptr inbounds i8, ptr %0, i64 232
+  store double %79, ptr %82, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 240
-  store double %77, ptr %.sroa.2.0..sroa_idx, align 8
+  store double %80, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 248
-  store double %78, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %80
+  store double %81, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %83
 
-80:                                               ; preds = %16, %11
+83:                                               ; preds = %16, %11
   ret void
 }
 

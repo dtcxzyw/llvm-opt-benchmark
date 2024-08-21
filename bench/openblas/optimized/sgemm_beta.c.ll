@@ -55,14 +55,14 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   %44 = load float, ptr %43, align 4, !tbaa !3
   %45 = getelementptr inbounds i8, ptr %30, i64 28
   %46 = load float, ptr %45, align 4, !tbaa !3
-  %47 = fmul float %32, %3
-  %48 = fmul float %34, %3
-  %49 = fmul float %36, %3
-  %50 = fmul float %38, %3
-  %51 = fmul float %40, %3
-  %52 = fmul float %42, %3
-  %53 = fmul float %44, %3
-  %54 = fmul float %46, %3
+  %47 = fmul float %3, %32
+  %48 = fmul float %3, %34
+  %49 = fmul float %3, %36
+  %50 = fmul float %3, %38
+  %51 = fmul float %3, %40
+  %52 = fmul float %3, %42
+  %53 = fmul float %3, %44
+  %54 = fmul float %3, %46
   store float %47, ptr %30, align 4, !tbaa !3
   store float %48, ptr %33, align 4, !tbaa !3
   store float %49, ptr %35, align 4, !tbaa !3
@@ -80,7 +80,7 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   %58 = phi ptr [ %62, %.preheader.us ], [ %55, %.loopexit12.us ]
   %59 = phi i64 [ %63, %.preheader.us ], [ %25, %.loopexit12.us ]
   %60 = load float, ptr %58, align 4, !tbaa !3
-  %61 = fmul float %60, %3
+  %61 = fmul float %3, %60
   store float %61, ptr %58, align 4, !tbaa !3
   %62 = getelementptr inbounds i8, ptr %58, i64 4
   %63 = add nsw i64 %59, -1
@@ -172,7 +172,7 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   %116 = phi ptr [ %120, %115 ], [ %113, %.preheader ]
   %117 = phi i64 [ %121, %115 ], [ %25, %.preheader ]
   %118 = load float, ptr %116, align 4, !tbaa !3
-  %119 = fmul float %118, %3
+  %119 = fmul float %3, %118
   store float %119, ptr %116, align 4, !tbaa !3
   %120 = getelementptr inbounds i8, ptr %116, i64 4
   %121 = add nsw i64 %117, -1

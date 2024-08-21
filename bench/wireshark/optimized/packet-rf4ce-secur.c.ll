@@ -85,7 +85,7 @@ define hidden void @keypair_context_update_seed(ptr nocapture noundef readonly %
   br i1 %12, label %19, label %nwk_key_storage_add_entry.exit
 
 19:                                               ; preds = %18, %17
-  %20 = icmp eq i8 %5, %1
+  %20 = icmp eq i8 %1, %5
   br i1 %20, label %.preheader, label %29
 
 .preheader:                                       ; preds = %19, %.preheader
@@ -974,7 +974,7 @@ rf4ce_aes_cmac.exit24.i:                          ; preds = %78, %75, %71
   %.0.copyload.pre.i = load i32, ptr %18, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %81 = icmp eq i32 %.0.copyload.pre.i, %1
+  %81 = icmp eq i32 %1, %.0.copyload.pre.i
   br i1 %81, label %calc_key_cmac.exit, label %calc_key_cmac.exit.thread
 
 calc_key_cmac.exit.thread:                        ; preds = %rf4ce_aes_cmac.exit24.i

@@ -3570,7 +3570,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
   %26 = load i64, ptr %25, align 8, !noundef !5
   %27 = zext i32 %2 to i64
   %28 = add i64 %26, %27
-  %29 = icmp ult i64 %26, %28
+  %29 = icmp ugt i64 %28, %26
   br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hfa0ccb2441c21cc5E.llvm.12599983639457799574.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hfa0ccb2441c21cc5E.llvm.12599983639457799574.exit.i": ; preds = %24
@@ -3848,7 +3848,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %12 = load i64, ptr %10, align 8, !noundef !5
   %13 = getelementptr inbounds i8, ptr %.0.val, i64 160
   %14 = load i64, ptr %13, align 8, !alias.scope !48, !noundef !5
-  %15 = icmp ult i64 %14, %12
+  %15 = icmp ugt i64 %12, %14
   br i1 %15, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf92c093012002fd2E.exit", label %16
 
 16:                                               ; preds = %6
@@ -4533,7 +4533,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   store i8 1, ptr %68, align 1
   %69 = load i64, ptr %67, align 8, !noundef !5
   %70 = load i64, ptr %22, align 8, !alias.scope !115, !noundef !5
-  %71 = icmp ult i64 %70, %69
+  %71 = icmp ugt i64 %69, %70
   br i1 %71, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11unreachable17h155b98be11285486E.exit", label %72
 
 72:                                               ; preds = %64
@@ -8727,7 +8727,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   tail call void @llvm.experimental.noalias.scope.decl(metadata !597)
   %25 = getelementptr inbounds i8, ptr %8, i64 184
   %26 = load i64, ptr %25, align 8, !alias.scope !597, !noalias !600, !noundef !5
-  %27 = icmp ult i64 %26, %24
+  %27 = icmp ugt i64 %24, %26
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$9split_off17h70fe87ce15976ee9E.exit"
 
 28:                                               ; preds = %16
@@ -11426,7 +11426,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i8 1, ptr %107, align 1, !noalias !850
   %108 = load i64, ptr %106, align 8, !noalias !850, !noundef !5
   %109 = load i64, ptr %58, align 8, !alias.scope !891, !noalias !850, !noundef !5
-  %110 = icmp ult i64 %109, %108
+  %110 = icmp ugt i64 %108, %109
   br i1 %110, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_throw17ha3e07547b9aa84a1E.exit", label %111
 
 111:                                              ; preds = %103
@@ -14037,7 +14037,7 @@ default.unreachable:                              ; preds = %109
   %280 = load i64, ptr %103, align 8, !alias.scope !1161, !noalias !1120, !noundef !5
   %281 = load i64, ptr %102, align 8, !alias.scope !1161, !noalias !1120, !noundef !5
   %282 = sub i64 %281, %280
-  %283 = icmp ult i64 %282, %.0.i229.i
+  %283 = icmp ugt i64 %.0.i229.i, %282
   br i1 %283, label %284, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i.preheader"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i.preheader": ; preds = %284, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit234.i"
@@ -17910,7 +17910,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 32:                                               ; preds = %22
   %33 = getelementptr inbounds i8, ptr %.val.i, i64 332
   %34 = load i32, ptr %33, align 4
-  %35 = icmp ugt i32 %34, %1
+  %35 = icmp ult i32 %1, %34
   br i1 %35, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_data_drop17hb0e0ba1a8b4fd484E.exit", label %36
 
 36:                                               ; preds = %32
@@ -17995,7 +17995,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %23 = getelementptr inbounds i8, ptr %.val.i, i64 128
   %24 = load i64, ptr %23, align 8, !noundef !5
   %25 = trunc i64 %24 to i32
-  %.not.i = icmp ugt i32 %25, %1
+  %.not.i = icmp ult i32 %1, %25
   br i1 %.not.i, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_elem_drop17h5a703f6a170250f8E.exit", label %26
 
 26:                                               ; preds = %21
@@ -23111,7 +23111,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i8 1, ptr %53, align 1, !noalias !2554
   %54 = load i64, ptr %52, align 8, !noalias !2554, !noundef !5
   %55 = load i64, ptr %19, align 8, !alias.scope !2565, !noalias !2554, !noundef !5
-  %56 = icmp ult i64 %55, %54
+  %56 = icmp ugt i64 %54, %55
   br i1 %56, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_throw_ref17h7432c9ac252859a2E.exit", label %57
 
 57:                                               ; preds = %47
@@ -34093,7 +34093,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 49:                                               ; preds = %40
   %50 = getelementptr inbounds i8, ptr %.val64.i, i64 332
   %51 = load i32, ptr %50, align 4, !noalias !4214
-  %52 = icmp ugt i32 %51, %1
+  %52 = icmp ult i32 %1, %51
   br i1 %52, label %60, label %53
 
 53:                                               ; preds = %49
@@ -34607,7 +34607,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %12 = load i64, ptr %10, align 8, !noundef !5
   %13 = getelementptr inbounds i8, ptr %.0.val, i64 160
   %14 = load i64, ptr %13, align 8, !alias.scope !4308, !noundef !5
-  %15 = icmp ult i64 %14, %12
+  %15 = icmp ugt i64 %12, %14
   br i1 %15, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_unreachable17hdba80cb356f1ff18E.exit", label %16
 
 16:                                               ; preds = %6
@@ -37069,7 +37069,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 74:                                               ; preds = %59
   %75 = getelementptr inbounds i8, ptr %.val51.i, i64 332
   %76 = load i32, ptr %75, align 4, !noalias !4685
-  %77 = icmp ugt i32 %76, %2
+  %77 = icmp ult i32 %2, %76
   br i1 %77, label %85, label %78
 
 78:                                               ; preds = %74
@@ -39373,7 +39373,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 87:                                               ; preds = %72
   %88 = getelementptr inbounds i8, ptr %.val82.i, i64 332
   %89 = load i32, ptr %88, align 4, !noalias !5026
-  %90 = icmp ugt i32 %89, %2
+  %90 = icmp ult i32 %2, %89
   br i1 %90, label %98, label %91
 
 91:                                               ; preds = %87
@@ -57145,7 +57145,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i8 1, ptr %156, align 1, !noalias !7872
   %157 = load i64, ptr %155, align 8, !noalias !7872, !noundef !5
   %158 = load i64, ptr %148, align 8, !alias.scope !7901, !noalias !7872, !noundef !5
-  %159 = icmp ult i64 %158, %157
+  %159 = icmp ugt i64 %157, %158
   br i1 %159, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$8visit_br17h8f8dfd332efb8715E.exit", label %160
 
 160:                                              ; preds = %152

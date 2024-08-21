@@ -284,7 +284,7 @@ qdev_get_named_gpio_list.exit:                    ; preds = %for.body.i, %if.end
 land.lhs.true:                                    ; preds = %qdev_get_named_gpio_list.exit
   %num_in = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %2 = load i32, ptr %num_in, align 8
-  %cmp1 = icmp sgt i32 %2, %n
+  %cmp1 = icmp slt i32 %n, %2
   br i1 %cmp1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %qdev_get_named_gpio_list.exit
@@ -350,7 +350,7 @@ qdev_get_named_gpio_list.exit.i:                  ; preds = %for.body.i.i, %if.e
 land.lhs.true.i:                                  ; preds = %qdev_get_named_gpio_list.exit.i
   %num_in.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
   %2 = load i32, ptr %num_in.i, align 8
-  %cmp1.i = icmp sgt i32 %2, %n
+  %cmp1.i = icmp slt i32 %n, %2
   br i1 %cmp1.i, label %qdev_get_gpio_in_named.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %qdev_get_named_gpio_list.exit.i

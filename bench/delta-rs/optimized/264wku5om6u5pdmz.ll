@@ -45899,7 +45899,7 @@ define internal fastcc void @"_ZN14datafusion_sql4expr8order_by60_$LT$impl$u20$d
   %59 = getelementptr inbounds i8, ptr %.sroa.0.0172, i64 8
   %60 = load i64, ptr %59, align 8, !range !295, !noundef !5
   %61 = icmp eq i64 %60, -9223372036854775808
-  %brmerge.not = and i1 %61, %6
+  %brmerge.not = and i1 %6, %61
   br i1 %brmerge.not, label %63, label %62
 
 62:                                               ; preds = %58, %53
@@ -46668,7 +46668,7 @@ define internal fastcc void @"_ZN14datafusion_sql4expr8order_by60_$LT$impl$u20$d
   %59 = getelementptr inbounds i8, ptr %.sroa.0.0172, i64 8
   %60 = load i64, ptr %59, align 8, !range !295, !noundef !5
   %61 = icmp eq i64 %60, -9223372036854775808
-  %brmerge.not = and i1 %61, %6
+  %brmerge.not = and i1 %6, %61
   br i1 %brmerge.not, label %63, label %62
 
 62:                                               ; preds = %58, %53
@@ -68409,7 +68409,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %28 = load i64, ptr %27, align 8, !noundef !5
   switch i64 %28, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h666674f42692f04cE.exit" [
     i64 0, label %29
-    i64 1, label %38
+    i64 1, label %30
   ]
 
 29:                                               ; preds = %4
@@ -68417,35 +68417,35 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %24)
   invoke void @_ZN15datafusion_expr12logical_plan7builder18LogicalPlanBuilder5empty17h5e1697bfbe3167bbE(ptr noalias nocapture noundef nonnull sret({ { i64, [43 x i64] } }) align 16 dereferenceable(352) %24, i1 noundef zeroext true)
-          to label %30 unwind label %115
+          to label %33 unwind label %115
 
-30:                                               ; preds = %29
-  %31 = load i64, ptr %24, align 16, !range !2027, !noundef !5
-  %32 = getelementptr inbounds [27 x i64], ptr @anon.cca042db0ac886c40e6bae61b3a78d6e.129, i64 0, i64 %31
-  %33 = load i64, ptr %32, align 8, !noundef !5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %25, ptr nonnull align 16 %24, i64 %33, i1 false)
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %24)
-  %.0..0..0..0.1 = load i64, ptr %25, align 16
-  %34 = getelementptr inbounds [27 x i64], ptr @anon.cca042db0ac886c40e6bae61b3a78d6e.129, i64 0, i64 %.0..0..0..0.1
-  %35 = load i64, ptr %34, align 8, !noundef !5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %26, ptr nonnull align 16 %25, i64 %35, i1 false)
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %25)
-  %.0..0..0..0. = load i64, ptr %26, align 16
-  %36 = getelementptr inbounds [27 x i64], ptr @anon.cca042db0ac886c40e6bae61b3a78d6e.129, i64 0, i64 %.0..0..0..0.
-  %37 = load i64, ptr %36, align 8, !noundef !5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %23, ptr nonnull align 16 %26, i64 %37, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(352) %0, ptr noundef nonnull align 16 dereferenceable(352) %23, i64 352, i1 false)
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %26)
-  br label %86
-
-38:                                               ; preds = %4
+30:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7017)
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
-  %40 = load ptr, ptr %39, align 8, !alias.scope !7017, !noalias !7020, !nonnull !5, !noundef !5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %22, ptr noundef nonnull align 8 dereferenceable(352) %40, i64 352, i1 false), !noalias !7023
+  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = load ptr, ptr %31, align 8, !alias.scope !7017, !noalias !7020, !nonnull !5, !noundef !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %22, ptr noundef nonnull align 8 dereferenceable(352) %32, i64 352, i1 false), !noalias !7023
   store i64 0, ptr %27, align 8, !alias.scope !7017, !noalias !7020
   invoke void @"_ZN14datafusion_sql8relation4join60_$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$S$GT$$GT$21plan_table_with_joins17h64dcf2753d6a1a4aE"(ptr noalias nocapture noundef nonnull sret({ i64, [43 x i64] }) align 16 dereferenceable(352) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(352) %22, ptr noalias noundef nonnull align 8 dereferenceable(168) %3)
           to label %86 unwind label %115
+
+33:                                               ; preds = %29
+  %34 = load i64, ptr %24, align 16, !range !2027, !noundef !5
+  %35 = getelementptr inbounds [27 x i64], ptr @anon.cca042db0ac886c40e6bae61b3a78d6e.129, i64 0, i64 %34
+  %36 = load i64, ptr %35, align 8, !noundef !5
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %25, ptr nonnull align 16 %24, i64 %36, i1 false)
+  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %24)
+  %.0..0..0..0.1 = load i64, ptr %25, align 16
+  %37 = getelementptr inbounds [27 x i64], ptr @anon.cca042db0ac886c40e6bae61b3a78d6e.129, i64 0, i64 %.0..0..0..0.1
+  %38 = load i64, ptr %37, align 8, !noundef !5
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %26, ptr nonnull align 16 %25, i64 %38, i1 false)
+  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %25)
+  %.0..0..0..0. = load i64, ptr %26, align 16
+  %39 = getelementptr inbounds [27 x i64], ptr @anon.cca042db0ac886c40e6bae61b3a78d6e.129, i64 0, i64 %.0..0..0..0.
+  %40 = load i64, ptr %39, align 8, !noundef !5
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %23, ptr nonnull align 16 %26, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(352) %0, ptr noundef nonnull align 16 dereferenceable(352) %23, i64 352, i1 false)
+  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %26)
+  br label %86
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h666674f42692f04cE.exit": ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
@@ -68648,7 +68648,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
 85:                                               ; preds = %.critedge, %"_ZN4core3ptr321drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$sqlparser..ast..query..TableWithJoins$GT$$C$datafusion_sql..select..$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$datafusion..execution..context..SessionContextProvider$GT$$GT$..plan_from_tables..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3860ed207ac66cd2E.exit60", %86
   ret void
 
-86:                                               ; preds = %30, %38
+86:                                               ; preds = %33, %30
   tail call void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..query..TableWithJoins$GT$$GT$17he5124080dcbdc61bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   br label %85
 
@@ -68755,7 +68755,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %.pn45.pn96 = phi { ptr, i32 } [ %lpad.thr_comm, %115 ], [ %114, %113 ], [ %lpad.phi, %"_ZN4core3ptr321drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$sqlparser..ast..query..TableWithJoins$GT$$C$datafusion_sql..select..$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$datafusion..execution..context..SessionContextProvider$GT$$GT$..plan_from_tables..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3860ed207ac66cd2E.exit" ], [ %.pn118, %109 ]
   resume { ptr, i32 } %.pn45.pn96
 
-115:                                              ; preds = %38, %29
+115:                                              ; preds = %30, %29
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..query..TableWithJoins$GT$$GT$17he5124080dcbdc61bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #20
@@ -68794,7 +68794,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %28 = load i64, ptr %27, align 8, !noundef !5
   switch i64 %28, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h666674f42692f04cE.exit" [
     i64 0, label %29
-    i64 1, label %38
+    i64 1, label %30
   ]
 
 29:                                               ; preds = %4
@@ -68802,35 +68802,35 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %24)
   invoke void @_ZN15datafusion_expr12logical_plan7builder18LogicalPlanBuilder5empty17h5e1697bfbe3167bbE(ptr noalias nocapture noundef nonnull sret({ { i64, [43 x i64] } }) align 16 dereferenceable(352) %24, i1 noundef zeroext true)
-          to label %30 unwind label %115
+          to label %33 unwind label %115
 
-30:                                               ; preds = %29
-  %31 = load i64, ptr %24, align 16, !range !2027, !noundef !5
-  %32 = getelementptr inbounds [27 x i64], ptr @anon.cca042db0ac886c40e6bae61b3a78d6e.129, i64 0, i64 %31
-  %33 = load i64, ptr %32, align 8, !noundef !5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %25, ptr nonnull align 16 %24, i64 %33, i1 false)
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %24)
-  %.0..0..0..0.1 = load i64, ptr %25, align 16
-  %34 = getelementptr inbounds [27 x i64], ptr @anon.cca042db0ac886c40e6bae61b3a78d6e.129, i64 0, i64 %.0..0..0..0.1
-  %35 = load i64, ptr %34, align 8, !noundef !5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %26, ptr nonnull align 16 %25, i64 %35, i1 false)
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %25)
-  %.0..0..0..0. = load i64, ptr %26, align 16
-  %36 = getelementptr inbounds [27 x i64], ptr @anon.cca042db0ac886c40e6bae61b3a78d6e.129, i64 0, i64 %.0..0..0..0.
-  %37 = load i64, ptr %36, align 8, !noundef !5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %23, ptr nonnull align 16 %26, i64 %37, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(352) %0, ptr noundef nonnull align 16 dereferenceable(352) %23, i64 352, i1 false)
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %26)
-  br label %86
-
-38:                                               ; preds = %4
+30:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7066)
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
-  %40 = load ptr, ptr %39, align 8, !alias.scope !7066, !noalias !7069, !nonnull !5, !noundef !5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %22, ptr noundef nonnull align 8 dereferenceable(352) %40, i64 352, i1 false), !noalias !7072
+  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = load ptr, ptr %31, align 8, !alias.scope !7066, !noalias !7069, !nonnull !5, !noundef !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %22, ptr noundef nonnull align 8 dereferenceable(352) %32, i64 352, i1 false), !noalias !7072
   store i64 0, ptr %27, align 8, !alias.scope !7066, !noalias !7069
   invoke void @"_ZN14datafusion_sql8relation4join60_$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$S$GT$$GT$21plan_table_with_joins17h4d24675f5e69affcE"(ptr noalias nocapture noundef nonnull sret({ i64, [43 x i64] }) align 16 dereferenceable(352) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(352) %22, ptr noalias noundef nonnull align 8 dereferenceable(168) %3)
           to label %86 unwind label %115
+
+33:                                               ; preds = %29
+  %34 = load i64, ptr %24, align 16, !range !2027, !noundef !5
+  %35 = getelementptr inbounds [27 x i64], ptr @anon.cca042db0ac886c40e6bae61b3a78d6e.129, i64 0, i64 %34
+  %36 = load i64, ptr %35, align 8, !noundef !5
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %25, ptr nonnull align 16 %24, i64 %36, i1 false)
+  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %24)
+  %.0..0..0..0.1 = load i64, ptr %25, align 16
+  %37 = getelementptr inbounds [27 x i64], ptr @anon.cca042db0ac886c40e6bae61b3a78d6e.129, i64 0, i64 %.0..0..0..0.1
+  %38 = load i64, ptr %37, align 8, !noundef !5
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %26, ptr nonnull align 16 %25, i64 %38, i1 false)
+  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %25)
+  %.0..0..0..0. = load i64, ptr %26, align 16
+  %39 = getelementptr inbounds [27 x i64], ptr @anon.cca042db0ac886c40e6bae61b3a78d6e.129, i64 0, i64 %.0..0..0..0.
+  %40 = load i64, ptr %39, align 8, !noundef !5
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %23, ptr nonnull align 16 %26, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(352) %0, ptr noundef nonnull align 16 dereferenceable(352) %23, i64 352, i1 false)
+  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %26)
+  br label %86
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h666674f42692f04cE.exit": ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
@@ -69033,7 +69033,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
 85:                                               ; preds = %.critedge, %"_ZN4core3ptr327drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$sqlparser..ast..query..TableWithJoins$GT$$C$datafusion_sql..select..$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$deltalake_core..delta_datafusion..expr..DeltaContextProvider$GT$$GT$..plan_from_tables..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h75fad92888b1af2eE.exit60", %86
   ret void
 
-86:                                               ; preds = %30, %38
+86:                                               ; preds = %33, %30
   tail call void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..query..TableWithJoins$GT$$GT$17he5124080dcbdc61bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   br label %85
 
@@ -69140,7 +69140,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %.pn45.pn96 = phi { ptr, i32 } [ %lpad.thr_comm, %115 ], [ %114, %113 ], [ %lpad.phi, %"_ZN4core3ptr327drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$sqlparser..ast..query..TableWithJoins$GT$$C$datafusion_sql..select..$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$deltalake_core..delta_datafusion..expr..DeltaContextProvider$GT$$GT$..plan_from_tables..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h75fad92888b1af2eE.exit" ], [ %.pn118, %109 ]
   resume { ptr, i32 } %.pn45.pn96
 
-115:                                              ; preds = %38, %29
+115:                                              ; preds = %30, %29
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..query..TableWithJoins$GT$$GT$17he5124080dcbdc61bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #20
@@ -93090,7 +93090,7 @@ define internal fastcc void @"_ZN14datafusion_sql9statement60_$LT$impl$u20$dataf
           to label %.noexc14.i unwind label %.loopexit.i, !noalias !9925
 
 291:                                              ; preds = %.lr.ph.split.split.i.i.i
-  %.not.i.i.i.i = icmp eq i64 %287, %283
+  %.not.i.i.i.i = icmp eq i64 %283, %287
   br i1 %.not.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %291, %295
@@ -93156,7 +93156,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %2
   %309 = sub i64 %283, %.016.i
   %310 = load i64, ptr %35, align 8, !alias.scope !9943, !noalias !9941, !noundef !5
   %311 = sub i64 %310, %308
-  %312 = icmp ult i64 %311, %309
+  %312 = icmp ugt i64 %309, %311
   br i1 %312, label %313, label %330
 
 313:                                              ; preds = %.split.us.i.i.i
@@ -93173,7 +93173,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %2
   %316 = load i64, ptr %.sroa.5.0..sroa_idx.i382, align 8, !alias.scope !9946, !noalias !9951, !noundef !5
   %317 = load i64, ptr %35, align 8, !alias.scope !9953, !noalias !9951, !noundef !5
   %318 = sub i64 %317, %316
-  %319 = icmp ult i64 %318, %315
+  %319 = icmp ugt i64 %315, %318
   br i1 %319, label %320, label %321
 
 320:                                              ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17hb4a2f48849d35a85E.exit.i"
@@ -97552,8 +97552,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit60:  ; preds = %57
 91:                                               ; preds = %46
   %92 = load i64, ptr %5, align 8, !range !4890, !noundef !5
   %93 = icmp ne i64 %92, 72
-  %brmerge = or i1 %93, %3
-  %brmerge1 = or i1 %brmerge, %2
+  %brmerge = or i1 %3, %93
+  %brmerge1 = or i1 %2, %brmerge
   br i1 %brmerge1, label %94, label %96
 
 94:                                               ; preds = %91, %46
@@ -101182,7 +101182,7 @@ define hidden void @"_ZN14datafusion_sql9statement60_$LT$impl$u20$datafusion_sql
   %117 = load i64, ptr %116, align 8, !alias.scope !11289, !noalias !11292, !noundef !5
   %118 = load i64, ptr %61, align 8, !alias.scope !11294, !noalias !11292, !noundef !5
   %119 = sub i64 %118, %117
-  %120 = icmp ult i64 %119, %112
+  %120 = icmp ugt i64 %112, %119
   br i1 %120, label %121, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h562566d53d35985fE.llvm.6826332220492402883.exit.i"
 
 121:                                              ; preds = %115
@@ -107567,7 +107567,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit2410: ; preds = %1114
   %1463 = load i64, ptr %1462, align 8, !alias.scope !11954, !noalias !11957, !noundef !5
   %1464 = load i64, ptr %351, align 8, !alias.scope !11959, !noalias !11957, !noundef !5
   %1465 = sub i64 %1464, %1463
-  %1466 = icmp ult i64 %1465, %1458
+  %1466 = icmp ugt i64 %1458, %1465
   br i1 %1466, label %1467, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h562566d53d35985fE.llvm.6826332220492402883.exit.i"
 
 1467:                                             ; preds = %1461
@@ -128475,7 +128475,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !15141, !noalias !15146, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !15148, !noalias !15146, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h0442491cb97dc7ceE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -128529,7 +128529,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !15154, !noalias !15159, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !15161, !noalias !15159, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h0442491cb97dc7ceE.exit"
 
 9:                                                ; preds = %3

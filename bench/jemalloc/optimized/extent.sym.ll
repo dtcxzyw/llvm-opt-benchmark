@@ -430,7 +430,7 @@ if.else.i:                                        ; preds = %malloc_mutex_lock.e
   %cmp7.i = icmp eq ptr %expand_edata, null
   %or.cond.i = and i1 %cmp7.i, %tobool6.i
   %or.cond.not.i = xor i1 %or.cond.i, true
-  %brmerge.i = or i1 %or.cond.not.i, %guarded
+  %brmerge.i = or i1 %guarded, %or.cond.not.i
   br i1 %brmerge.i, label %extent_alloc_retained.exit.thread, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.else.i
@@ -695,7 +695,7 @@ if.then:                                          ; preds = %extent_alloc_retain
   %tobool6 = trunc i8 %35 to i1
   %cmp7 = icmp ne ptr %expand_edata, null
   %or.cond = and i1 %cmp7, %tobool6
-  %brmerge = or i1 %or.cond, %guarded
+  %brmerge = or i1 %guarded, %or.cond
   br i1 %brmerge, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.then

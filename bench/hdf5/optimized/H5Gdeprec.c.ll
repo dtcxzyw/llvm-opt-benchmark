@@ -2059,7 +2059,7 @@ define range(i32 -1, 1) i32 @H5G__get_objinfo(ptr noundef %0, ptr noundef %1, i1
   br label %55
 
 24:                                               ; preds = %12
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %55, label %25
 
 25:                                               ; preds = %24

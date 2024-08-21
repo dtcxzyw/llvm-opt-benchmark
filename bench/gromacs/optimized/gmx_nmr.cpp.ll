@@ -2338,13 +2338,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit501:       ; preds = %644, %647
   %770 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %767, i64 %769
   %771 = getelementptr inbounds i8, ptr %770, i64 4
   %772 = load i32, ptr %771, align 4
-  %773 = icmp sgt i32 %772, %754
+  %773 = icmp slt i32 %754, %772
   br i1 %773, label %777, label %774
 
 774:                                              ; preds = %768
   %775 = getelementptr inbounds i8, ptr %770, i64 8
   %776 = load i32, ptr %775, align 4
-  %.not.i.i = icmp sgt i32 %776, %754
+  %.not.i.i = icmp slt i32 %754, %776
   br i1 %.not.i.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, label %777
 
 777:                                              ; preds = %774, %768
@@ -2413,7 +2413,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %774
   %.2766 = phi i32 [ %.1765, %822 ], [ %834, %831 ]
   %.026.i.i504 = phi i32 [ %765, %822 ], [ %.127.i.i507, %831 ]
   %.0.i.i505 = phi i32 [ -1, %822 ], [ %.1.i.i508, %831 ]
-  %825 = icmp sgt i32 %824, %755
+  %825 = icmp slt i32 %755, %824
   br i1 %825, label %831, label %826
 
 826:                                              ; preds = %823
@@ -2421,7 +2421,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %774
   %828 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %767, i64 %827
   %829 = getelementptr inbounds i8, ptr %828, i64 8
   %830 = load i32, ptr %829, align 4
-  %.not.i.i506 = icmp sgt i32 %830, %755
+  %.not.i.i506 = icmp slt i32 %755, %830
   br i1 %.not.i.i506, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i509, label %831
 
 831:                                              ; preds = %826, %823
@@ -5072,7 +5072,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17

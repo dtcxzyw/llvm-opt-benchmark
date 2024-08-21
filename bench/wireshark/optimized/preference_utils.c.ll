@@ -243,7 +243,7 @@ define hidden noundef i32 @column_prefs_add_custom(i32 noundef %0, ptr noundef %
   %16 = load ptr, ptr @prefs, align 8
   %17 = tail call ptr @g_list_last(ptr noundef %16) #6
   %18 = icmp slt i32 %3, 1
-  %.not26 = icmp slt i32 %13, %3
+  %.not26 = icmp sgt i32 %3, %13
   %or.cond = select i1 %18, i1 true, i1 %.not26
   br i1 %or.cond, label %22, label %19
 

@@ -716,13 +716,13 @@ define hidden void @convertLineNumberTable(ptr noundef %0, ptr noundef %1, ptr n
   %indvars.iv.i = phi i64 [ %37, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
   %39 = getelementptr inbounds %struct.LineTableRecord, ptr %27, i64 %indvars.iv.i
   %40 = load i32, ptr %39, align 4
-  %.not.i = icmp sgt i32 %40, %33
+  %.not.i = icmp slt i32 %33, %40
   br i1 %.not.i, label %44, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %39, i64 4
   %43 = load i32, ptr %42, align 4
-  %.not14.i = icmp slt i32 %43, %33
+  %.not14.i = icmp sgt i32 %33, %43
   br i1 %.not14.i, label %44, label %stiLineTableIndex.exit
 
 44:                                               ; preds = %41, %38

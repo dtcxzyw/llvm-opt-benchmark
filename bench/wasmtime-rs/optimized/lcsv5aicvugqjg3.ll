@@ -125,7 +125,7 @@ default.unreachable133:                           ; preds = %2
 27:                                               ; preds = %2
   %28 = getelementptr inbounds i8, ptr %1, i64 4
   %29 = load i32, ptr %28, align 4, !noundef !4
-  %30 = icmp eq i32 %29, %0
+  %30 = icmp eq i32 %0, %29
   br i1 %30, label %49, label %67
 
 31:                                               ; preds = %22
@@ -472,7 +472,7 @@ default.unreachable133:                           ; preds = %2
 27:                                               ; preds = %2
   %28 = getelementptr inbounds i8, ptr %1, i64 8
   %29 = load i64, ptr %28, align 8, !noundef !4
-  %30 = icmp eq i64 %29, %0
+  %30 = icmp eq i64 %0, %29
   br i1 %30, label %49, label %67
 
 31:                                               ; preds = %22

@@ -1752,7 +1752,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1010ZoneVectorIPNS0_4PassEE8r
   %6 = add i32 %5, -1
   store i32 %6, ptr %4, align 8, !tbaa !13
   %7 = zext i32 %6 to i64
-  %8 = icmp eq i64 %7, %1
+  %8 = icmp eq i64 %1, %7
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %2

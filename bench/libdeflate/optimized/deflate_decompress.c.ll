@@ -2569,7 +2569,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
   br i1 %cmp16.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %cond = tail call i32 @llvm.umin.i32(i32 %max_codeword_len.addr.0.lcssa, i32 %table_bits)
+  %cond = tail call i32 @llvm.umin.i32(i32 %table_bits, i32 %max_codeword_len.addr.0.lcssa)
   store i32 %cond, ptr %table_bits_ret, align 4
   br label %if.end
 

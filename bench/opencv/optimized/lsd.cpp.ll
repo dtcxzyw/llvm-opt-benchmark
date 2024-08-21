@@ -3018,8 +3018,8 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl9get_thetaERKSt6ve
   %30 = tail call double @llvm.fmuladd.f64(double %28, double %29, double %.05665)
   %31 = fmul double %26, %26
   %32 = tail call double @llvm.fmuladd.f64(double %31, double %29, double %.05764)
-  %33 = fneg double %26
-  %34 = fmul double %27, %33
+  %33 = fneg double %27
+  %34 = fmul double %26, %33
   %35 = tail call double @llvm.fmuladd.f64(double %34, double %29, double %.05863)
   %36 = add nuw i64 %.066, 1
   %exitcond.not = icmp eq i64 %36, %umax
@@ -3164,7 +3164,7 @@ define hidden noundef zeroext i1 @_ZN2cv23LineSegmentDetectorImpl20reduce_region
   %17 = getelementptr inbounds i8, ptr %5, i64 16
   %18 = getelementptr inbounds i8, ptr %5, i64 24
   %19 = load double, ptr %7, align 8
-  %20 = fcmp ule double %19, %6
+  %20 = fcmp uge double %6, %19
   br i1 %20, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %8
@@ -3488,7 +3488,7 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   br i1 %.not95122, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %117
-  %.not27.i = icmp sgt i32 %91, %.087134
+  %.not27.i = icmp slt i32 %.087134, %91
   %121 = zext nneg i32 %.087134 to i64
   %.not27.i.fr = freeze i1 %.not27.i
   br i1 %.not27.i.fr, label %.lr.ph.split, label %.lr.ph.split.us
@@ -3518,7 +3518,7 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   %131 = add nsw i32 %127, 1
   %132 = or i32 %.0123, %.087134
   %or.cond.not.i = icmp sgt i32 %132, -1
-  %.not.i103 = icmp sgt i32 %89, %.0123
+  %.not.i103 = icmp slt i32 %.0123, %89
   %or.cond140 = select i1 %or.cond.not.i, i1 %.not.i103, i1 false
   br i1 %or.cond140, label %133, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
 
@@ -5597,7 +5597,7 @@ _ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %2
 _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv3VecIfLi4EEESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv3VecIfLi4EEESaIS2_EE11_M_allocateEm.exit ], [ %30, %_ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
-  %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38, label %.preheader.i.i.i.i.i29
 
 .preheader.i.i.i.i.i29:                           ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i35
@@ -6147,7 +6147,7 @@ define linkonce_odr hidden void @_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__n
   %26 = ptrtoint ptr %15 to i64
   %27 = ptrtoint ptr %.sroa.016.1.i.i to i64
   %28 = sub i64 %26, %27
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %.sroa.016.1.i.i, %15
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %15, %.sroa.016.1.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i.i, label %29
 
 29:                                               ; preds = %.critedge.i.loopexit.i
@@ -6159,7 +6159,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPoin
   %31 = ptrtoint ptr %16 to i64
   %32 = ptrtoint ptr %.sroa.012.1.i.i to i64
   %33 = sub i64 %31, %32
-  %.not.i.i.i.i.i9.i.i = icmp eq ptr %.sroa.012.1.i.i, %16
+  %.not.i.i.i.i.i9.i.i = icmp eq ptr %16, %.sroa.012.1.i.i
   br i1 %.not.i.i.i.i.i9.i.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEET0_T_SI_SI_SI_SH_T1_.exit.i, label %34
 
 34:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i.i
@@ -6177,7 +6177,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl
   %.sroa.038.0.lcssa.i = phi ptr [ %0, %13 ], [ %16, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEET0_T_SI_SI_SI_SH_T1_.exit.i ]
   %.0.lcssa.i = phi ptr [ %2, %13 ], [ %35, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEET0_T_SI_SI_SI_SH_T1_.exit.i ]
   %.lcssa48.i = phi i64 [ %8, %13 ], [ %37, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEET0_T_SI_SI_SI_SH_T1_.exit.i ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.lcssa48.i, i64 %.037)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.037, i64 %.lcssa48.i)
   %38 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::normPoint", ptr %.sroa.038.0.lcssa.i, i64 %.sroa.speculated.i
   %39 = icmp ne i64 %.sroa.speculated.i, 0
   %40 = icmp ne ptr %38, %1
@@ -6217,7 +6217,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl
   %50 = ptrtoint ptr %38 to i64
   %51 = ptrtoint ptr %.sroa.016.0.lcssa.i18.i to i64
   %52 = sub i64 %50, %51
-  %.not.i.i.i.i.i.i20.i = icmp eq ptr %.sroa.016.0.lcssa.i18.i, %38
+  %.not.i.i.i.i.i.i20.i = icmp eq ptr %38, %.sroa.016.0.lcssa.i18.i
   br i1 %.not.i.i.i.i.i.i20.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i21.i, label %53
 
 53:                                               ; preds = %.critedge.i16.i
@@ -6225,7 +6225,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i21.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i21.i: ; preds = %53, %.critedge.i16.i
-  %.not.i.i.i.i.i9.i22.i = icmp eq ptr %.sroa.012.0.lcssa.i17.i, %1
+  %.not.i.i.i.i.i9.i22.i = icmp eq ptr %1, %.sroa.012.0.lcssa.i17.i
   br i1 %.not.i.i.i.i.i9.i22.i, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_T1_T2_.exit, label %54
 
 54:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i21.i
@@ -6277,7 +6277,7 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetecto
   %71 = ptrtoint ptr %59 to i64
   %72 = ptrtoint ptr %.1.i.i to i64
   %73 = sub i64 %71, %72
-  %.not.i.i.i.i.i.i.i22 = icmp eq ptr %.1.i.i, %59
+  %.not.i.i.i.i.i.i.i22 = icmp eq ptr %59, %.1.i.i
   br i1 %.not.i.i.i.i.i.i.i22, label %_ZSt4moveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i.i, label %74
 
 74:                                               ; preds = %._crit_edge.i.loopexit.i
@@ -6289,7 +6289,7 @@ _ZSt4moveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iterato
   %76 = ptrtoint ptr %60 to i64
   %77 = ptrtoint ptr %.117.i.i to i64
   %78 = sub i64 %76, %77
-  %.not.i.i.i.i.i18.i.i = icmp eq ptr %.117.i.i, %60
+  %.not.i.i.i.i.i18.i.i = icmp eq ptr %60, %.117.i.i
   br i1 %.not.i.i.i.i.i18.i.i, label %_ZSt12__move_mergeIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIPFbRKS2_SD_EEEET0_T_SI_SI_SI_SH_T1_.exit.i, label %79
 
 79:                                               ; preds = %_ZSt4moveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i.i
@@ -6307,7 +6307,7 @@ _ZSt12__move_mergeIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__norma
   %.0.lcssa.i25 = phi ptr [ %2, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_T1_T2_.exit ], [ %60, %_ZSt12__move_mergeIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIPFbRKS2_SD_EEEET0_T_SI_SI_SI_SH_T1_.exit.i ]
   %.sroa.021.0.lcssa.i = phi ptr [ %0, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_T1_T2_.exit ], [ %80, %_ZSt12__move_mergeIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIPFbRKS2_SD_EEEET0_T_SI_SI_SI_SH_T1_.exit.i ]
   %.lcssa44.i = phi i64 [ %12, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_T1_T2_.exit ], [ %82, %_ZSt12__move_mergeIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIPFbRKS2_SD_EEEET0_T_SI_SI_SI_SH_T1_.exit.i ]
-  %.sroa.speculated.i26 = tail call i64 @llvm.smin.i64(i64 %.lcssa44.i, i64 %14)
+  %.sroa.speculated.i26 = tail call i64 @llvm.smin.i64(i64 %14, i64 %.lcssa44.i)
   %83 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::normPoint", ptr %.0.lcssa.i25, i64 %.sroa.speculated.i26
   %84 = icmp ne i64 %.sroa.speculated.i26, 0
   %85 = icmp ne ptr %83, %9
@@ -6347,7 +6347,7 @@ _ZSt12__move_mergeIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__norma
   %97 = ptrtoint ptr %83 to i64
   %98 = ptrtoint ptr %.0.lcssa.i27.i to i64
   %99 = sub i64 %97, %98
-  %.not.i.i.i.i.i.i28.i = icmp eq ptr %.0.lcssa.i27.i, %83
+  %.not.i.i.i.i.i.i28.i = icmp eq ptr %83, %.0.lcssa.i27.i
   br i1 %.not.i.i.i.i.i.i28.i, label %_ZSt4moveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i29.i, label %100
 
 100:                                              ; preds = %._crit_edge.i24.i
@@ -6355,7 +6355,7 @@ _ZSt12__move_mergeIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__norma
   br label %_ZSt4moveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i29.i
 
 _ZSt4moveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i29.i: ; preds = %100, %._crit_edge.i24.i
-  %.not.i.i.i.i.i18.i30.i = icmp eq ptr %.016.lcssa.i26.i, %9
+  %.not.i.i.i.i.i18.i30.i = icmp eq ptr %9, %.016.lcssa.i26.i
   br i1 %.not.i.i.i.i.i18.i30.i, label %_ZSt17__merge_sort_loopIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIPFbRKS2_SD_EEEEvT_SH_T0_T1_T2_.exit, label %101
 
 101:                                              ; preds = %_ZSt4moveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i29.i
@@ -6446,7 +6446,7 @@ _ZSt4moveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iterato
 
 28:                                               ; preds = %26
   %29 = sub i64 %10, %27
-  %.not.i.i.i.i.i79 = icmp eq ptr %.tr103122, %2
+  %.not.i.i.i.i.i79 = icmp eq ptr %2, %.tr103122
   br i1 %.not.i.i.i.i.i79, label %_ZSt21__move_merge_adaptiveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIPFbRKS2_SD_EEEEvT_SH_T0_SI_T1_T2_.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit80.thread
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit80.thread: ; preds = %28
@@ -6481,7 +6481,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPoin
 
 39:                                               ; preds = %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %38, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.025.0.i.ph, i64 12, i1 false)
-  %40 = icmp eq ptr %.sroa.025.0.i.ph, %.tr121
+  %40 = icmp eq ptr %.tr121, %.sroa.025.0.i.ph
   br i1 %40, label %41, label %.outer, !llvm.loop !93
 
 41:                                               ; preds = %39
@@ -6500,7 +6500,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPoin
 
 48:                                               ; preds = %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %38, ptr noundef nonnull align 4 dereferenceable(12) %.0.i, i64 12, i1 false)
-  %49 = icmp eq ptr %.0.i, %5
+  %49 = icmp eq ptr %5, %.0.i
   br i1 %49, label %_ZSt21__move_merge_adaptiveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIPFbRKS2_SD_EEEEvT_SH_T0_SI_T1_T2_.exit, label %50
 
 50:                                               ; preds = %48

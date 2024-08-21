@@ -65,7 +65,7 @@ define void @PHP_GOSTUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, i
   %22 = getelementptr inbounds i8, ptr %0, i64 72
   %23 = load i8, ptr %22, align 8
   %24 = zext i8 %23 to i64
-  %25 = add i64 %24, %2
+  %25 = add i64 %2, %24
   %26 = icmp ult i64 %25, 32
   br i1 %26, label %27, label %33
 

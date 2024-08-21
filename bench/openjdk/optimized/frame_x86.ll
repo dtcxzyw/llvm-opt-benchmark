@@ -75,7 +75,7 @@ define hidden noundef zeroext i1 @_ZN5frame15safe_for_senderEP10JavaThread(ptr n
   %23 = getelementptr inbounds i8, ptr %1, i64 824
   %24 = load ptr, ptr %23, align 8
   %25 = icmp ugt ptr %24, %10
-  %26 = icmp ule ptr %22, %10
+  %26 = icmp uge ptr %10, %22
   %spec.select.i.i = and i1 %26, %25
   br i1 %spec.select.i.i, label %27, label %.thread85
 
@@ -99,7 +99,7 @@ define hidden noundef zeroext i1 @_ZN5frame15safe_for_senderEP10JavaThread(ptr n
   %38 = sub i64 0, %37
   %39 = getelementptr inbounds i8, ptr %24, i64 %38
   %40 = icmp ugt ptr %24, %35
-  %41 = icmp ule ptr %39, %35
+  %41 = icmp uge ptr %35, %39
   %spec.select.i.i71 = and i1 %40, %41
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
@@ -132,11 +132,11 @@ define hidden noundef zeroext i1 @_ZN5frame15safe_for_senderEP10JavaThread(ptr n
   %59 = load i32, ptr %58, align 8
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %47, i64 %60
-  %62 = icmp ugt ptr %61, %50
+  %62 = icmp ult ptr %50, %61
   %63 = select i1 %.not.i.i, i1 %62, i1 false
   %64 = sext i16 %52 to i64
   %65 = getelementptr inbounds i8, ptr %57, i64 %64
-  %66 = icmp ule ptr %65, %50
+  %66 = icmp uge ptr %50, %65
   %or.cond88 = select i1 %63, i1 %66, i1 false
   br i1 %or.cond88, label %69, label %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread
 
@@ -164,13 +164,13 @@ _ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread._crit_edge: ; preds = %_ZNK8C
   %70 = getelementptr inbounds i8, ptr %47, i64 %.pre-phi
   %.not.i72 = icmp ule ptr %70, %50
   %71 = getelementptr inbounds i8, ptr %47, i64 %.pre-phi99
-  %72 = icmp ugt ptr %71, %50
+  %72 = icmp ult ptr %50, %71
   %73 = select i1 %.not.i72, i1 %72, i1 false
   br i1 %73, label %74, label %.thread85
 
 74:                                               ; preds = %69
   %75 = load ptr, ptr @_ZN12StubRoutines25_call_stub_return_addressE, align 8
-  %76 = icmp eq ptr %75, %50
+  %76 = icmp eq ptr %50, %75
   br i1 %76, label %77, label %_ZNK5frame20is_upcall_stub_frameEv.exit
 
 77:                                               ; preds = %74
@@ -199,7 +199,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %83
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i8, ptr %86, i64 %89
-  %91 = icmp ugt ptr %90, %50
+  %91 = icmp ult ptr %50, %90
   %92 = select i1 %.not.i.i.i, i1 %91, i1 false
   br i1 %92, label %93, label %_ZNK5frame20is_interpreted_frameEv.exit.thread
 
@@ -228,7 +228,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %83, %_ZNK5frame20is
   %108 = sub i64 0, %107
   %109 = getelementptr inbounds i8, ptr %24, i64 %108
   %110 = icmp ugt ptr %24, %105
-  %111 = icmp ule ptr %109, %105
+  %111 = icmp uge ptr %105, %109
   %spec.select.i.i75 = and i1 %110, %111
   br i1 %spec.select.i.i75, label %112, label %.thread85
 
@@ -271,7 +271,7 @@ _ZN19TemplateInterpreter8containsEPh.exit:        ; preds = %121
   %126 = load i32, ptr %125, align 4
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i8, ptr %124, i64 %127
-  %129 = icmp ugt ptr %128, %.164
+  %129 = icmp ult ptr %.164, %128
   %130 = select i1 %.not.i.i77, i1 %129, i1 false
   br i1 %130, label %131, label %_ZN19TemplateInterpreter8containsEPh.exit.thread
 
@@ -304,7 +304,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %121, %_ZN19Template
   %146 = load i32, ptr %145, align 8
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i8, ptr %137, i64 %147
-  %149 = icmp ugt ptr %148, %.164
+  %149 = icmp ult ptr %.164, %148
   %150 = select i1 %.not.i79, i1 %149, i1 false
   br i1 %150, label %151, label %.thread85
 
@@ -316,7 +316,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %121, %_ZN19Template
 
 155:                                              ; preds = %151
   %156 = load ptr, ptr @_ZN12StubRoutines25_call_stub_return_addressE, align 8
-  %157 = icmp eq ptr %156, %.164
+  %157 = icmp eq ptr %.164, %156
   br i1 %157, label %158, label %170
 
 158:                                              ; preds = %155
@@ -349,7 +349,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %121, %_ZN19Template
   %173 = load i32, ptr %172, align 4
   %174 = sext i32 %173 to i64
   %175 = getelementptr inbounds i8, ptr %137, i64 %174
-  %176 = icmp eq ptr %175, %.164
+  %176 = icmp eq ptr %.164, %175
   br i1 %176, label %.thread85, label %177
 
 177:                                              ; preds = %171
@@ -357,7 +357,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %121, %_ZN19Template
   %179 = load i8, ptr %178, align 1
   %180 = icmp eq i8 %179, 3
   %181 = getelementptr inbounds i8, ptr %175, i64 5
-  %182 = icmp eq ptr %181, %.164
+  %182 = icmp eq ptr %.164, %181
   %or.cond90 = select i1 %180, i1 %182, i1 false
   br i1 %or.cond90, label %.thread85, label %_ZN7nmethod17is_deopt_mh_entryEPh.exit.thread82
 
@@ -366,9 +366,9 @@ _ZN7nmethod17is_deopt_mh_entryEPh.exit.thread82:  ; preds = %177
   %184 = load i32, ptr %183, align 8
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds i8, ptr %137, i64 %185
-  %187 = icmp eq ptr %186, %.164
+  %187 = icmp eq ptr %.164, %186
   %188 = getelementptr inbounds i8, ptr %186, i64 5
-  %189 = icmp eq ptr %188, %.164
+  %189 = icmp eq ptr %.164, %188
   %or.cond92 = select i1 %180, i1 %189, i1 false
   %or.cond101 = select i1 %187, i1 true, i1 %or.cond92
   br i1 %or.cond101, label %.thread85, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread83
@@ -462,7 +462,7 @@ _ZN9CodeCache14find_blob_fastEPv.exit:            ; preds = %13, %_ZNK17NativePo
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %.0.i.i, i64 %30
-  %32 = icmp eq ptr %31, %27
+  %32 = icmp eq ptr %27, %31
   br i1 %32, label %_ZNK5frame21get_deopt_original_pcEv.exit.i, label %33
 
 33:                                               ; preds = %26
@@ -470,7 +470,7 @@ _ZN9CodeCache14find_blob_fastEPv.exit:            ; preds = %13, %_ZNK17NativePo
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 3
   %37 = getelementptr inbounds i8, ptr %31, i64 5
-  %38 = icmp eq ptr %37, %27
+  %38 = icmp eq ptr %27, %37
   %or.cond.i.i.i = select i1 %36, i1 %38, i1 false
   br i1 %or.cond.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i
 
@@ -479,13 +479,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i: ; preds = %33
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 %41
-  %43 = icmp ne ptr %42, %27
+  %43 = icmp ne ptr %27, %42
   %brmerge.i.not.i.i = and i1 %36, %43
   br i1 %brmerge.i.not.i.i, label %44, label %_ZN7nmethod11is_deopt_pcEPh.exit.i.i
 
 44:                                               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i
   %45 = getelementptr inbounds i8, ptr %42, i64 5
-  %46 = icmp eq ptr %45, %27
+  %46 = icmp eq ptr %27, %45
   br i1 %46, label %_ZNK5frame21get_deopt_original_pcEv.exit.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i.i:             ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i
@@ -631,7 +631,7 @@ define hidden void @_ZN5frame8patch_pcEP6ThreadPh(ptr noundef nonnull align 8 de
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %8, i64 %16
-  %18 = icmp eq ptr %17, %2
+  %18 = icmp eq ptr %2, %17
   br i1 %18, label %_ZNK5frame21get_deopt_original_pcEv.exit, label %19
 
 19:                                               ; preds = %13
@@ -639,7 +639,7 @@ define hidden void @_ZN5frame8patch_pcEP6ThreadPh(ptr noundef nonnull align 8 de
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 3
   %23 = getelementptr inbounds i8, ptr %17, i64 5
-  %24 = icmp eq ptr %23, %2
+  %24 = icmp eq ptr %2, %23
   %or.cond.i.i = select i1 %22, i1 %24, i1 false
   br i1 %or.cond.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i
 
@@ -648,13 +648,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i:  ; preds = %19
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %8, i64 %27
-  %29 = icmp ne ptr %28, %2
+  %29 = icmp ne ptr %2, %28
   %brmerge.i.not.i = and i1 %22, %29
   br i1 %brmerge.i.not.i, label %30, label %_ZN7nmethod11is_deopt_pcEPh.exit.i
 
 30:                                               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i
   %31 = getelementptr inbounds i8, ptr %28, i64 5
-  %32 = icmp eq ptr %31, %2
+  %32 = icmp eq ptr %2, %31
   br i1 %32, label %_ZNK5frame21get_deopt_original_pcEv.exit, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i:               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i
@@ -841,7 +841,7 @@ _ZN15JavaFrameAnchor13make_walkableEv.exit:       ; preds = %3, %_ZN15JavaFrameA
   %38 = load i32, ptr %37, align 8
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %30, i64 %39
-  %41 = icmp eq ptr %40, %24
+  %41 = icmp eq ptr %24, %40
   br i1 %41, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %42
 
 42:                                               ; preds = %36
@@ -849,7 +849,7 @@ _ZN15JavaFrameAnchor13make_walkableEv.exit:       ; preds = %3, %_ZN15JavaFrameA
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 3
   %46 = getelementptr inbounds i8, ptr %40, i64 5
-  %47 = icmp eq ptr %46, %24
+  %47 = icmp eq ptr %24, %46
   %or.cond.i.i.i.i.i = select i1 %45, i1 %47, i1 false
   br i1 %or.cond.i.i.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
 
@@ -858,13 +858,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i: ; preds = %42
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %30, i64 %50
-  %52 = icmp ne ptr %51, %24
+  %52 = icmp ne ptr %24, %51
   %brmerge.i.not.i.i.i.i = and i1 %45, %52
   br i1 %brmerge.i.not.i.i.i.i, label %53, label %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i
 
 53:                                               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
   %54 = getelementptr inbounds i8, ptr %51, i64 5
-  %55 = icmp eq ptr %54, %24
+  %55 = icmp eq ptr %24, %54
   br i1 %55, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i:         ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
@@ -1024,7 +1024,7 @@ _ZN15JavaFrameAnchor13make_walkableEv.exit:       ; preds = %3, %_ZN15JavaFrameA
   %36 = load i32, ptr %35, align 8
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %28, i64 %37
-  %39 = icmp eq ptr %38, %22
+  %39 = icmp eq ptr %22, %38
   br i1 %39, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %40
 
 40:                                               ; preds = %34
@@ -1032,7 +1032,7 @@ _ZN15JavaFrameAnchor13make_walkableEv.exit:       ; preds = %3, %_ZN15JavaFrameA
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 3
   %44 = getelementptr inbounds i8, ptr %38, i64 5
-  %45 = icmp eq ptr %44, %22
+  %45 = icmp eq ptr %22, %44
   %or.cond.i.i.i.i.i = select i1 %43, i1 %45, i1 false
   br i1 %or.cond.i.i.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
 
@@ -1041,13 +1041,13 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i: ; preds = %40
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %28, i64 %48
-  %50 = icmp ne ptr %49, %22
+  %50 = icmp ne ptr %22, %49
   %brmerge.i.not.i.i.i.i = and i1 %43, %50
   br i1 %brmerge.i.not.i.i.i.i, label %51, label %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i
 
 51:                                               ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i
   %52 = getelementptr inbounds i8, ptr %49, i64 5
-  %53 = icmp eq ptr %52, %22
+  %53 = icmp eq ptr %22, %52
   br i1 %53, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i
 
 _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i:         ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i.i.i.i.i

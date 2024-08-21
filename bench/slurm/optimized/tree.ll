@@ -565,7 +565,7 @@ define range(i32 -1, 1) i32 @tree_msg_to_srun(i32 noundef %0, ptr noundef %1) lo
   %7 = zext i32 %0 to i64
   %8 = tail call i64 @slurm_msg_sendto(i32 noundef %4, ptr noundef %1, i64 noundef %7) #7
   %9 = trunc i64 %8 to i32
-  %10 = icmp ne i32 %9, %0
+  %10 = icmp ne i32 %0, %9
   %. = sext i1 %10 to i32
   %11 = tail call i32 @close(i32 noundef %4) #7
   br label %12
@@ -596,7 +596,7 @@ define range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0, ptr noun
   %10 = zext i32 %0 to i64
   %11 = tail call i64 @slurm_msg_sendto(i32 noundef %7, ptr noundef %1, i64 noundef %10) #7
   %12 = trunc i64 %11 to i32
-  %13 = icmp eq i32 %12, %0
+  %13 = icmp eq i32 %0, %12
   br i1 %13, label %.lr.ph, label %95
 
 .lr.ph:                                           ; preds = %9, %.lr.ph.backedge
@@ -889,7 +889,7 @@ define range(i32 -1, 1) i32 @tree_msg_to_spawned_sruns(i32 noundef %0, ptr nound
 15:                                               ; preds = %12
   %16 = call i64 @slurm_msg_sendto(i32 noundef %13, ptr noundef %1, i64 noundef %5) #7
   %17 = trunc i64 %16 to i32
-  %.not = icmp eq i32 %17, %0
+  %.not = icmp eq i32 %0, %17
   %spec.select = select i1 %.not, i32 %.016, i32 -1
   %18 = call i32 @close(i32 noundef %13) #7
   %.pre = load ptr, ptr @spawned_srun_ports, align 8

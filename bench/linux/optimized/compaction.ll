@@ -2870,7 +2870,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @isolate_freepages
 192:                                              ; preds = %189, %185, %172, %168
   store i64 %169, ptr %1, align 8
   %193 = icmp ult i64 %169, %2
-  %194 = and i1 %193, %5
+  %194 = and i1 %5, %193
   %195 = getelementptr inbounds i8, ptr %0, i64 80
   %196 = load i64, ptr %195, align 8
   %197 = add i64 %196, %165
@@ -6144,7 +6144,7 @@ define internal fastcc noundef zeroext i1 @__reset_isolation_pfn(ptr noundef rea
   br i1 %135, label %.thread, label %136
 
 136:                                              ; preds = %129, %126
-  %137 = or i1 %127, %2
+  %137 = or i1 %2, %127
   br i1 %137, label %145, label %138
 
 138:                                              ; preds = %136

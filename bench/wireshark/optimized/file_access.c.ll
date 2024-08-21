@@ -232,7 +232,7 @@ define ptr @wtap_get_file_extension_type_extensions(i32 noundef %0) local_unname
   %2 = load ptr, ptr @file_type_extensions_arr, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
-  %.not = icmp ugt i32 %4, %0
+  %.not = icmp ult i32 %0, %4
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %1
@@ -918,7 +918,7 @@ sub_1:                                            ; preds = %sub_0
   %97 = load ptr, ptr @open_info_arr, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 8
   %99 = load i32, ptr %98, align 8
-  %.not165 = icmp ult i32 %99, %1
+  %.not165 = icmp ugt i32 %1, %99
   br i1 %.not165, label %115, label %100
 
 100:                                              ; preds = %96
@@ -1770,7 +1770,7 @@ define void @wtap_deregister_file_type_subtype(i32 noundef %0) local_unnamed_add
   %4 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %6, %0
+  %.not = icmp slt i32 %0, %6
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %3, %1
@@ -1779,7 +1779,7 @@ define void @wtap_deregister_file_type_subtype(i32 noundef %0) local_unnamed_add
 
 8:                                                ; preds = %3
   %9 = load i32, ptr @wtap_num_builtin_file_types_subtypes, align 4
-  %10 = icmp ugt i32 %9, %0
+  %10 = icmp ult i32 %0, %9
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %8
@@ -1822,7 +1822,7 @@ define range(i32 0, 2) i32 @wtap_dump_can_write_encap(i32 noundef %0, i32 nounde
   %5 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
-  %.not = icmp sgt i32 %7, %0
+  %.not = icmp slt i32 %0, %7
   br i1 %.not, label %8, label %.critedge
 
 8:                                                ; preds = %4
@@ -1903,7 +1903,7 @@ define internal fastcc range(i32 0, 2) i32 @wtap_dump_can_write_format(i32 nound
   %6 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
-  %.not.i = icmp sgt i32 %8, %0
+  %.not.i = icmp slt i32 %0, %8
   br i1 %.not.i, label %wtap_dump_can_open.exit, label %wtap_dump_can_open.exit.thread
 
 wtap_dump_can_open.exit:                          ; preds = %5
@@ -2155,7 +2155,7 @@ wtap_dump_can_write_encap.exit:                   ; preds = %113, %121
   %130 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 8
   %132 = load i32, ptr %131, align 8
-  %.not.i46 = icmp sgt i32 %132, %0
+  %.not.i46 = icmp slt i32 %0, %132
   br i1 %.not.i46, label %133, label %wtap_dump_can_open.exit.thread
 
 133:                                              ; preds = %.lr.ph
@@ -2359,7 +2359,7 @@ wtap_file_type_subtype_name.exit:
   %5 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
-  %.not.i = icmp sgt i32 %7, %2
+  %.not.i = icmp slt i32 %2, %7
   tail call void @llvm.assume(i1 %.not.i)
   %8 = load ptr, ptr @file_type_subtype_table, align 8
   %9 = zext nneg i32 %2 to i64
@@ -2367,7 +2367,7 @@ wtap_file_type_subtype_name.exit:
   %11 = load ptr, ptr %10, align 8
   %12 = icmp sgt i32 %3, -1
   tail call void @llvm.assume(i1 %12)
-  %.not.i3 = icmp sgt i32 %7, %3
+  %.not.i3 = icmp slt i32 %3, %7
   tail call void @llvm.assume(i1 %.not.i3)
   %13 = zext nneg i32 %3 to i64
   %14 = getelementptr %struct.file_type_subtype_info, ptr %8, i64 %13, i32 1
@@ -2386,7 +2386,7 @@ wtap_file_type_subtype_description.exit:
   %5 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
-  %.not.i = icmp sgt i32 %7, %2
+  %.not.i = icmp slt i32 %2, %7
   tail call void @llvm.assume(i1 %.not.i)
   %8 = load ptr, ptr @file_type_subtype_table, align 8
   %9 = zext nneg i32 %2 to i64
@@ -2394,7 +2394,7 @@ wtap_file_type_subtype_description.exit:
   %11 = load ptr, ptr %10, align 8
   %12 = icmp sgt i32 %3, -1
   tail call void @llvm.assume(i1 %12)
-  %.not.i3 = icmp sgt i32 %7, %3
+  %.not.i3 = icmp slt i32 %3, %7
   tail call void @llvm.assume(i1 %.not.i3)
   %13 = zext nneg i32 %3 to i64
   %14 = getelementptr %struct.file_type_subtype_info, ptr %8, i64 %13
@@ -2474,7 +2474,7 @@ wtap_dump_can_open.exit.thread:                   ; preds = %wtap_dump_can_open.
   %36 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 8
-  %.not.i12 = icmp sgt i32 %38, %33
+  %.not.i12 = icmp slt i32 %33, %38
   br i1 %.not.i12, label %wtap_dump_can_open.exit15, label %wtap_dump_can_open.exit15.thread
 
 wtap_dump_can_open.exit15:                        ; preds = %35
@@ -2498,7 +2498,7 @@ wtap_dump_can_open.exit15.thread:                 ; preds = %35, %43, %wtap_dump
   %48 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
-  %.not.i16 = icmp sgt i32 %50, %45
+  %.not.i16 = icmp slt i32 %45, %50
   br i1 %.not.i16, label %wtap_dump_can_open.exit19, label %wtap_dump_can_open.exit19.thread
 
 wtap_dump_can_open.exit19:                        ; preds = %47
@@ -2526,7 +2526,7 @@ define range(i32 0, 2) i32 @wtap_dump_can_open(i32 noundef %0) local_unnamed_add
   %4 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %6, %0
+  %.not = icmp slt i32 %0, %6
   br i1 %.not, label %7, label %13
 
 7:                                                ; preds = %3
@@ -2552,7 +2552,7 @@ define ptr @wtap_file_type_subtype_description(i32 noundef %0) local_unnamed_add
   %4 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %6, %0
+  %.not = icmp slt i32 %0, %6
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %3
@@ -2576,7 +2576,7 @@ define ptr @wtap_file_type_subtype_name(i32 noundef %0) local_unnamed_addr #2 {
   %4 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %6, %0
+  %.not = icmp slt i32 %0, %6
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %3
@@ -2631,7 +2631,7 @@ define i32 @wtap_file_type_subtype_supports_block(i32 noundef %0, i32 noundef %1
   %5 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
-  %.not = icmp sgt i32 %7, %0
+  %.not = icmp slt i32 %0, %7
   br i1 %.not, label %8, label %.loopexit
 
 8:                                                ; preds = %4
@@ -2676,7 +2676,7 @@ define i32 @wtap_file_type_subtype_supports_option(i32 noundef %0, i32 noundef %
   %6 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
-  %.not = icmp sgt i32 %8, %0
+  %.not = icmp slt i32 %0, %8
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %5
@@ -2747,7 +2747,7 @@ define ptr @wtap_get_file_extensions_list(i32 noundef %0, i32 noundef %1) local_
   %5 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
-  %.not = icmp sgt i32 %7, %0
+  %.not = icmp slt i32 %0, %7
   br i1 %.not, label %8, label %19
 
 8:                                                ; preds = %4
@@ -2786,7 +2786,7 @@ define internal fastcc ptr @add_extensions_for_file_type_subtype(i32 noundef %0,
   %6 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
-  %.not = icmp sgt i32 %8, %0
+  %.not = icmp slt i32 %0, %8
   br i1 %.not, label %9, label %43
 
 9:                                                ; preds = %5
@@ -2993,7 +2993,7 @@ define ptr @wtap_default_file_extension(i32 noundef %0) local_unnamed_addr #2 {
   %4 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %6, %0
+  %.not = icmp slt i32 %0, %6
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %3
@@ -3017,7 +3017,7 @@ define range(i32 0, 2) i32 @wtap_dump_can_compress(i32 noundef %0) local_unnamed
   %4 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %6, %0
+  %.not = icmp slt i32 %0, %6
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %3
@@ -3175,7 +3175,7 @@ define internal fastcc noundef ptr @wtap_dump_init_dumper(i32 noundef %0, i32 no
   %14 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
-  %.not.i = icmp sgt i32 %16, %0
+  %.not.i = icmp slt i32 %0, %16
   br i1 %.not.i, label %wtap_dump_can_open.exit, label %wtap_dump_can_open.exit.thread
 
 wtap_dump_can_open.exit:                          ; preds = %13
@@ -3232,7 +3232,7 @@ thread-pre-split:                                 ; preds = %33, %21
   %41 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
-  %.not.i84 = icmp sgt i32 %43, %0
+  %.not.i84 = icmp slt i32 %0, %43
   br i1 %.not.i84, label %wtap_dump_can_compress.exit, label %wtap_dump_can_compress.exit.thread
 
 wtap_dump_can_compress.exit:                      ; preds = %40
@@ -3384,7 +3384,7 @@ define noundef ptr @wtap_dump_open_tempfile(ptr noundef %0, ptr noundef %1, ptr 
   %15 = load ptr, ptr @file_type_subtype_table_arr, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
-  %.not.i = icmp sgt i32 %17, %3
+  %.not.i = icmp slt i32 %3, %17
   br i1 %.not.i, label %18, label %wtap_default_file_extension.exit
 
 18:                                               ; preds = %14

@@ -46,7 +46,7 @@ define ptr @PMPI_Errhandler_f2c(i32 noundef %0) #0 {
 11:                                               ; preds = %6, %9, %3
   %12 = icmp sgt i32 %0, -1
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errhandler_f_to_c_table, i64 88), align 8
-  %.not = icmp sgt i32 %13, %0
+  %.not = icmp slt i32 %0, %13
   %or.cond = select i1 %12, i1 %.not, i1 false
   br i1 %or.cond, label %14, label %opal_pointer_array_get_item.exit
 

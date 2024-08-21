@@ -185,12 +185,12 @@ for.body11:                                       ; preds = %for.body11.preheade
 for.inc19:                                        ; preds = %for.body11
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %4 = trunc nuw i64 %indvars.iv.next32 to i32
-  %cmp9 = icmp slt i32 %4, %keylen
+  %cmp9 = icmp sgt i32 %keylen, %4
   br i1 %cmp9, label %for.body11, label %if.then27, !llvm.loop !7
 
 for.end21:                                        ; preds = %for.body11
   %5 = trunc nuw i64 %indvars.iv31 to i32
-  %cmp22 = icmp eq i32 %5, %keylen
+  %cmp22 = icmp eq i32 %keylen, %5
   %cmp25 = icmp eq i32 %add, %5
   %or.cond = or i1 %cmp22, %cmp25
   br i1 %or.cond, label %if.then27, label %if.end31
@@ -2597,7 +2597,7 @@ land.lhs.true.i:                                  ; preds = %if.then11
 if.then.i:                                        ; preds = %land.lhs.true.i
   %.val.i = load ptr, ptr %3, align 8
   %call.i.i = tail call ptr @connectionTypeTls() #16
-  %cmp.i.i = icmp eq ptr %call.i.i, %.val.i
+  %cmp.i.i = icmp eq ptr %.val.i, %call.i.i
   %land.ext.i.i = zext i1 %cmp.i.i to i32
   br label %shouldReturnTlsInfo.exit
 
@@ -2881,12 +2881,12 @@ for.body11.i:                                     ; preds = %for.inc19.i, %for.b
 for.inc19.i:                                      ; preds = %for.body11.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %26 = trunc nuw i64 %indvars.iv.next32.i to i32
-  %cmp9.i = icmp slt i32 %26, %conv
+  %cmp9.i = icmp sgt i32 %conv, %26
   br i1 %cmp9.i, label %for.body11.i, label %if.then27.i, !llvm.loop !7
 
 for.end21.i:                                      ; preds = %for.body11.i
   %27 = trunc nuw i64 %indvars.iv31.i to i32
-  %cmp22.i = icmp eq i32 %27, %conv
+  %cmp22.i = icmp eq i32 %conv, %27
   %cmp25.i = icmp eq i32 %add.i, %27
   %or.cond.i = or i1 %cmp22.i, %cmp25.i
   br i1 %or.cond.i, label %if.then27.i, label %if.end31.i
@@ -3176,7 +3176,7 @@ land.lhs.true.i176:                               ; preds = %for.body211
 if.then.i179:                                     ; preds = %land.lhs.true.i176
   %.val.i180 = load ptr, ptr %67, align 8
   %call.i.i181 = tail call ptr @connectionTypeTls() #16
-  %cmp.i.i182 = icmp eq ptr %call.i.i181, %.val.i180
+  %cmp.i.i182 = icmp eq ptr %.val.i180, %call.i.i181
   %land.ext.i.i183 = zext i1 %cmp.i.i182 to i32
   br label %shouldReturnTlsInfo.exit186
 
@@ -3498,12 +3498,12 @@ for.body11.i:                                     ; preds = %for.inc19.i, %for.b
 for.inc19.i:                                      ; preds = %for.body11.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %21 = trunc nuw i64 %indvars.iv.next32.i to i32
-  %cmp9.i = icmp slt i32 %21, %conv
+  %cmp9.i = icmp sgt i32 %conv, %21
   br i1 %cmp9.i, label %for.body11.i, label %if.then27.i, !llvm.loop !7
 
 for.end21.i:                                      ; preds = %for.body11.i
   %22 = trunc nuw i64 %indvars.iv31.i to i32
-  %cmp22.i = icmp eq i32 %22, %conv
+  %cmp22.i = icmp eq i32 %conv, %22
   %cmp25.i = icmp eq i32 %add.i, %22
   %or.cond.i = or i1 %cmp22.i, %cmp25.i
   br i1 %or.cond.i, label %if.then27.i, label %if.end31.i
@@ -3886,7 +3886,7 @@ land.lhs.true.i:                                  ; preds = %if.then15
 if.then.i:                                        ; preds = %land.lhs.true.i
   %.val.i = load ptr, ptr %2, align 8
   %call.i.i = tail call ptr @connectionTypeTls() #16
-  %cmp.i.i = icmp eq ptr %call.i.i, %.val.i
+  %cmp.i.i = icmp eq ptr %.val.i, %call.i.i
   %land.ext.i.i = zext i1 %cmp.i.i to i32
   br label %shouldReturnTlsInfo.exit
 
@@ -4065,12 +4065,12 @@ for.body11.i:                                     ; preds = %for.inc19.i, %for.b
 for.inc19.i:                                      ; preds = %for.body11.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %14 = trunc nuw i64 %indvars.iv.next32.i to i32
-  %cmp9.i = icmp slt i32 %14, %conv
+  %cmp9.i = icmp sgt i32 %conv, %14
   br i1 %cmp9.i, label %for.body11.i, label %if.then27.i, !llvm.loop !7
 
 for.end21.i:                                      ; preds = %for.body11.i
   %15 = trunc nuw i64 %indvars.iv31.i to i32
-  %cmp22.i = icmp eq i32 %15, %conv
+  %cmp22.i = icmp eq i32 %conv, %15
   %cmp25.i = icmp eq i32 %add.i, %15
   %or.cond.i = or i1 %cmp22.i, %cmp25.i
   br i1 %or.cond.i, label %if.then27.i, label %if.end31.i
@@ -4212,7 +4212,7 @@ land.lhs.true.i:                                  ; preds = %if.end16
 if.then.i:                                        ; preds = %land.lhs.true.i
   %.val.i = load ptr, ptr %3, align 8
   %call.i.i = tail call ptr @connectionTypeTls() #16
-  %cmp.i.i = icmp eq ptr %call.i.i, %.val.i
+  %cmp.i.i = icmp eq ptr %.val.i, %call.i.i
   %land.ext.i.i = zext i1 %cmp.i.i to i32
   br label %shouldReturnTlsInfo.exit
 

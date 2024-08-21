@@ -107,7 +107,7 @@ define internal { double, double } @_ZL16putp4p_s_inverse5PJ_XYP8PJconsts(double
   %9 = fdiv double %1, %8
   %10 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %6, double noundef %9)
   %11 = tail call double @cos(double noundef %10) #5
-  %12 = fmul double %11, %0
+  %12 = fmul double %0, %11
   %13 = load double, ptr %5, align 8
   %14 = fdiv double %12, %13
   %15 = fmul double %10, 3.000000e+00
@@ -131,7 +131,7 @@ define internal { double, double } @_ZL16putp4p_s_forward5PJ_LPP8PJconsts(double
   %8 = fmul double %7, 0x3FEC48C5FFDCA235
   %9 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %6, double noundef %8)
   %10 = load double, ptr %5, align 8
-  %11 = fmul double %10, %0
+  %11 = fmul double %0, %10
   %12 = tail call double @cos(double noundef %9) #5
   %13 = fmul double %11, %12
   %14 = fmul double %9, 0x3FD555555555554F

@@ -1657,7 +1657,7 @@ entry:
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 2
   %cmp = icmp sgt i32 %index, -1
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp1 = icmp sgt i32 %conv, %index
+  %cmp1 = icmp slt i32 %index, %conv
   %or.cond = and i1 %cmp, %cmp1
   br i1 %or.cond, label %cond.true.i.i.i, label %cond.true.i.i.i.i
 
@@ -1750,7 +1750,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %arrayidx = getelementptr inbounds [7 x i32], ptr @_ZN3netL22kSupportedQuicVersionsE, i64 0, i64 %i.04
   %0 = load i32, ptr %arrayidx, align 4
   %call = tail call noundef i32 @_ZN3net20QuicVersionToQuicTagENS_11QuicVersionE(i32 noundef %0)
-  %cmp1 = icmp eq i32 %call, %version_tag
+  %cmp1 = icmp eq i32 %version_tag, %call
   br i1 %cmp1, label %return, label %for.cond
 
 return:                                           ; preds = %for.body, %for.cond
@@ -2263,7 +2263,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load i64, ptr %ack_frame, align 8
-  %cmp = icmp ult i64 %1, %packet_number
+  %cmp = icmp ugt i64 %packet_number, %1
   br i1 %cmp, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.then
@@ -2278,17 +2278,17 @@ while.body.i.i.i.i.i:                             ; preds = %lor.rhs, %if.end.i.
   %__y.addr.07.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %lor.rhs ]
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i.i, i64 32
   %3 = load i64, ptr %_M_storage.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %3, %packet_number
+  %cmp.i.i.i.i.i.i = icmp ult i64 %packet_number, %3
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i
-  %cmp5.i.i.i.i.i.i = icmp eq i64 %3, %packet_number
+  %cmp5.i.i.i.i.i.i = icmp eq i64 %packet_number, %3
   br i1 %cmp5.i.i.i.i.i.i, label %_ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 _ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit.i.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i
   %max_.i5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i.i, i64 40
   %4 = load i64, ptr %max_.i5.i.i.i.i.i.i, align 8
-  %cmp8.i.i.i.i.i.i = icmp ult i64 %4, %packet_number
+  %cmp8.i.i.i.i.i.i = icmp ugt i64 %packet_number, %4
   br i1 %cmp8.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i
@@ -2336,17 +2336,17 @@ while.body.i.i.i.i.i10:                           ; preds = %land.rhs, %if.end.i
   %__y.addr.07.i.i.i.i.i12 = phi ptr [ %__y.addr.1.i.i.i.i.i20, %if.end.i.i.i.i.i18 ], [ %add.ptr.i.i.i.i.i8, %land.rhs ]
   %_M_storage.i.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i.i11, i64 32
   %10 = load i64, ptr %_M_storage.i.i.i.i.i.i.i13, align 8
-  %cmp.i.i.i.i.i.i14 = icmp ugt i64 %10, %packet_number
+  %cmp.i.i.i.i.i.i14 = icmp ult i64 %packet_number, %10
   br i1 %cmp.i.i.i.i.i.i14, label %if.end.i.i.i.i.i18, label %lor.rhs.i.i.i.i.i.i15
 
 lor.rhs.i.i.i.i.i.i15:                            ; preds = %while.body.i.i.i.i.i10
-  %cmp5.i.i.i.i.i.i16 = icmp eq i64 %10, %packet_number
+  %cmp5.i.i.i.i.i.i16 = icmp eq i64 %packet_number, %10
   br i1 %cmp5.i.i.i.i.i.i16, label %_ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit.i.i.i.i.i35, label %if.else.i.i.i.i.i17
 
 _ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit.i.i.i.i.i35: ; preds = %lor.rhs.i.i.i.i.i.i15
   %max_.i5.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i.i11, i64 40
   %11 = load i64, ptr %max_.i5.i.i.i.i.i.i36, align 8
-  %cmp8.i.i.i.i.i.i37 = icmp ult i64 %11, %packet_number
+  %cmp8.i.i.i.i.i.i37 = icmp ugt i64 %packet_number, %11
   br i1 %cmp8.i.i.i.i.i.i37, label %if.end.i.i.i.i.i18, label %if.else.i.i.i.i.i17
 
 if.else.i.i.i.i.i17:                              ; preds = %_ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit.i.i.i.i.i35, %lor.rhs.i.i.i.i.i.i15
@@ -2397,17 +2397,17 @@ while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.
   %__y.addr.07.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ugt i64 %1, %packet_number
+  %cmp.i.i.i.i.i = icmp ult i64 %packet_number, %1
   br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
-  %cmp5.i.i.i.i.i = icmp eq i64 %1, %packet_number
+  %cmp5.i.i.i.i.i = icmp eq i64 %packet_number, %1
   br i1 %cmp5.i.i.i.i.i, label %_ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit.i.i.i.i, label %if.else.i.i.i.i
 
 _ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i
   %max_.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 40
   %2 = load i64, ptr %max_.i5.i.i.i.i.i, align 8
-  %cmp8.i.i.i.i.i = icmp ult i64 %2, %packet_number
+  %cmp8.i.i.i.i.i = icmp ugt i64 %packet_number, %2
   br i1 %cmp8.i.i.i.i.i, label %if.end.i.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit.i.i.i.i, %lor.rhs.i.i.i.i.i
@@ -3398,17 +3398,17 @@ while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.
   %__y.addr.07.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ugt i64 %1, %packet_number
+  %cmp.i.i.i.i.i = icmp ult i64 %packet_number, %1
   br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
-  %cmp5.i.i.i.i.i = icmp eq i64 %1, %packet_number
+  %cmp5.i.i.i.i.i = icmp eq i64 %packet_number, %1
   br i1 %cmp5.i.i.i.i.i, label %_ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit.i.i.i.i, label %if.else.i.i.i.i
 
 _ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i
   %max_.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 40
   %2 = load i64, ptr %max_.i5.i.i.i.i.i, align 8
-  %cmp8.i.i.i.i.i = icmp ult i64 %2, %packet_number
+  %cmp8.i.i.i.i.i = icmp ugt i64 %packet_number, %2
   br i1 %cmp8.i.i.i.i.i, label %if.end.i.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit.i.i.i.i, %lor.rhs.i.i.i.i.i
@@ -3450,7 +3450,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %itr.sroa.0.013 = phi ptr [ %call.i, %for.inc ], [ %3, %if.end ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %itr.sroa.0.013, i64 32
   %7 = load i64, ptr %_M_storage.i.i, align 8
-  %cmp = icmp ugt i64 %7, %packet_number
+  %cmp = icmp ult i64 %packet_number, %7
   br i1 %cmp, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -6123,7 +6123,7 @@ _ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit12.i: ;
 
 if.then:                                          ; preds = %if.then.i, %_ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit12.i, %if.end12.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa33.i, %if.end12.i ], [ %__y.0.lcssa33.i, %_ZNK3net11IntervalSetImE18IntervalComparatorclERKNS_8IntervalImEES6_.exit12.i ], [ %__y.0.lcssa34.i, %if.then.i ]
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE10_M_insert_IRKS2_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then

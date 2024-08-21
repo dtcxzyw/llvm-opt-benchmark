@@ -11,7 +11,7 @@ define dso_local i64 @ZSTD_noCompressLiterals(ptr nocapture noundef writeonly %0
   %8 = zext i1 %7 to i32
   %9 = add nuw nsw i32 %6, %8
   %10 = zext nneg i32 %9 to i64
-  %11 = add i64 %10, %3
+  %11 = add i64 %3, %10
   %12 = icmp ugt i64 %11, %1
   br i1 %12, label %24, label %13
 
@@ -125,7 +125,7 @@ define dso_local i64 @ZSTD_compressLiterals(ptr noundef %0, i64 noundef %1, ptr 
   %24 = zext i1 %23 to i32
   %25 = add nuw nsw i32 %22, %24
   %26 = zext nneg i32 %25 to i64
-  %27 = add i64 %26, %3
+  %27 = add i64 %3, %26
   %28 = icmp ugt i64 %27, %1
   br i1 %28, label %ZSTD_noCompressLiterals.exit, label %29
 
@@ -173,7 +173,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   %46 = zext nneg i32 %44 to i64
   %47 = shl i64 8, %46
   %48 = select i1 %45, i64 6, i64 %47
-  %49 = icmp ugt i64 %48, %3
+  %49 = icmp ult i64 %3, %48
   br i1 %49, label %50, label %70
 
 50:                                               ; preds = %40
@@ -183,7 +183,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   %54 = zext i1 %53 to i32
   %55 = add nuw nsw i32 %52, %54
   %56 = zext nneg i32 %55 to i64
-  %57 = add i64 %56, %3
+  %57 = add i64 %3, %56
   %58 = icmp ugt i64 %57, %1
   br i1 %58, label %ZSTD_noCompressLiterals.exit, label %59
 
@@ -220,7 +220,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   br label %ZSTD_noCompressLiterals.exit
 
 70:                                               ; preds = %40
-  %.not92 = icmp ult i64 %18, %1
+  %.not92 = icmp ugt i64 %1, %18
   br i1 %.not92, label %71, label %ZSTD_noCompressLiterals.exit
 
 71:                                               ; preds = %70
@@ -268,7 +268,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   %100 = zext i1 %99 to i32
   %101 = add nuw nsw i32 %98, %100
   %102 = zext nneg i32 %101 to i64
-  %103 = add i64 %102, %3
+  %103 = add i64 %3, %102
   %104 = icmp ugt i64 %103, %1
   br i1 %104, label %ZSTD_noCompressLiterals.exit, label %105
 

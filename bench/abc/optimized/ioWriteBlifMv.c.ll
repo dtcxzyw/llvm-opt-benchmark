@@ -1254,7 +1254,7 @@ define internal fastcc ptr @Abc_ObjMvVar(ptr nocapture noundef readonly %0) unna
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr %.val3.val.val, align 8
-  %.not.i = icmp sgt i32 %9, %8
+  %.not.i = icmp slt i32 %8, %9
   br i1 %.not.i, label %Vec_AttGrow.exit.i, label %10
 
 10:                                               ; preds = %6

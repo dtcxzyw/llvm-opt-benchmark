@@ -202,7 +202,7 @@ if.end.i:                                         ; preds = %if.then.i
   br label %return
 
 if.end5.i:                                        ; preds = %sw.bb
-  %cmp6.not.i = icmp eq i64 %conv.i, %inlen
+  %cmp6.not.i = icmp eq i64 %inlen, %conv.i
   br i1 %cmp6.not.i, label %if.end9.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end5.i

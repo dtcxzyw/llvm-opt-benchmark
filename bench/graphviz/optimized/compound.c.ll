@@ -173,7 +173,7 @@ getCluster.exit234.i:                             ; preds = %30, %23, %getCluste
 91:                                               ; preds = %79
   %92 = getelementptr inbounds i8, ptr %81, i64 48
   %93 = load double, ptr %92, align 8
-  %94 = fcmp ult double %93, %86
+  %94 = fcmp ugt double %86, %93
   br i1 %94, label %inBoxf.exit.thread.i, label %95
 
 95:                                               ; preds = %91
@@ -185,7 +185,7 @@ getCluster.exit234.i:                             ; preds = %30, %23, %getCluste
 inBoxf.exit.i:                                    ; preds = %95
   %99 = getelementptr inbounds i8, ptr %81, i64 56
   %100 = load double, ptr %99, align 8
-  %101 = fcmp ult double %100, %88
+  %101 = fcmp ugt double %88, %100
   br i1 %101, label %inBoxf.exit.thread.i, label %112
 
 inBoxf.exit.thread.i:                             ; preds = %inBoxf.exit.i, %95, %91, %79
@@ -207,10 +207,10 @@ inBoxf.exit.thread.i:                             ; preds = %inBoxf.exit.i, %95,
   %115 = getelementptr inbounds i8, ptr %113, i64 8
   %116 = load double, ptr %115, align 8
   %117 = fcmp ugt double %89, %114
-  %118 = fcmp ult double %93, %114
+  %118 = fcmp ugt double %114, %93
   %or.cond.i = or i1 %117, %118
   %119 = fcmp ugt double %97, %116
-  %120 = fcmp ult double %100, %116
+  %120 = fcmp ugt double %116, %100
   %121 = or i1 %119, %120
   %or.cond = select i1 %or.cond.i, i1 true, i1 %121
   br i1 %or.cond, label %.preheader266.i, label %123
@@ -228,10 +228,10 @@ inBoxf.exit.thread.i:                             ; preds = %inBoxf.exit.i, %95,
   %128 = getelementptr inbounds i8, ptr %125, i64 40
   %129 = load double, ptr %128, align 8
   %130 = fcmp ugt double %89, %127
-  %131 = fcmp ult double %93, %127
+  %131 = fcmp ugt double %127, %93
   %or.cond290.i = or i1 %130, %131
   %132 = fcmp ugt double %97, %129
-  %133 = fcmp ult double %100, %129
+  %133 = fcmp ugt double %129, %100
   %134 = or i1 %132, %133
   %or.cond292.i = select i1 %or.cond290.i, i1 true, i1 %134
   br i1 %or.cond292.i, label %inBoxf.exit236.thread.i, label %135
@@ -396,7 +396,7 @@ inBoxf.exit236.thread.i:                          ; preds = %123
 234:                                              ; preds = %222
   %235 = getelementptr inbounds i8, ptr %224, i64 48
   %236 = load double, ptr %235, align 8
-  %237 = fcmp ult double %236, %229
+  %237 = fcmp ugt double %229, %236
   br i1 %237, label %.sink.split.i, label %238
 
 238:                                              ; preds = %234
@@ -408,7 +408,7 @@ inBoxf.exit236.thread.i:                          ; preds = %123
 inBoxf.exit241.i:                                 ; preds = %238
   %242 = getelementptr inbounds i8, ptr %224, i64 56
   %243 = load double, ptr %242, align 8
-  %244 = fcmp ult double %243, %231
+  %244 = fcmp ugt double %231, %243
   br i1 %244, label %.sink.split.i, label %245
 
 245:                                              ; preds = %inBoxf.exit241.i
@@ -418,10 +418,10 @@ inBoxf.exit241.i:                                 ; preds = %238
   %249 = getelementptr inbounds i8, ptr %247, i64 8
   %250 = load double, ptr %249, align 8
   %251 = fcmp ugt double %232, %248
-  %252 = fcmp ult double %236, %248
+  %252 = fcmp ugt double %248, %236
   %or.cond293.i = or i1 %251, %252
   %253 = fcmp ugt double %240, %250
-  %254 = fcmp ult double %243, %250
+  %254 = fcmp ugt double %250, %243
   %255 = or i1 %253, %254
   %or.cond295.i = select i1 %or.cond293.i, i1 true, i1 %255
   br i1 %or.cond295.i, label %.preheader265.i, label %256
@@ -434,10 +434,10 @@ inBoxf.exit241.i:                                 ; preds = %238
   %261 = getelementptr inbounds i8, ptr %258, i64 40
   %262 = load double, ptr %261, align 8
   %263 = fcmp ugt double %232, %260
-  %264 = fcmp ult double %236, %260
+  %264 = fcmp ugt double %260, %236
   %or.cond296.i = or i1 %263, %264
   %265 = fcmp ugt double %240, %262
-  %266 = fcmp ult double %243, %262
+  %266 = fcmp ugt double %262, %243
   %267 = or i1 %265, %266
   %or.cond298.i = select i1 %or.cond296.i, i1 true, i1 %267
   br i1 %or.cond298.i, label %inBoxf.exit243.thread.i, label %.sink.split.i
@@ -711,7 +711,7 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
   %.sroa.0.0.copyload = load double, ptr %6, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
-  %7 = fcmp ogt double %.sroa.09.0.copyload, %2
+  %7 = fcmp olt double %2, %.sroa.09.0.copyload
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %5
@@ -722,7 +722,7 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
   %13 = fdiv double %11, %12
   %14 = fptosi double %13 to i32
   %15 = sitofp i32 %14 to double
-  %16 = fadd double %15, %1
+  %16 = fadd double %1, %15
   %17 = fcmp ult double %16, %.sroa.614.0.copyload
   %18 = fcmp ugt double %16, %.sroa.6.0.copyload
   %or.cond = select i1 %17, i1 true, i1 %18
@@ -730,7 +730,7 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
 
 19:                                               ; preds = %8, %5
   %.sroa.11.0 = phi double [ %16, %8 ], [ undef, %5 ]
-  %20 = fcmp olt double %.sroa.0.0.copyload, %2
+  %20 = fcmp ogt double %2, %.sroa.0.0.copyload
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %19
@@ -741,7 +741,7 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
   %26 = fdiv double %24, %25
   %27 = fptosi double %26 to i32
   %28 = sitofp i32 %27 to double
-  %29 = fadd double %28, %1
+  %29 = fadd double %1, %28
   %30 = fcmp ult double %29, %.sroa.614.0.copyload
   %31 = fcmp ugt double %29, %.sroa.6.0.copyload
   %or.cond76 = select i1 %30, i1 true, i1 %31
@@ -750,7 +750,7 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
 32:                                               ; preds = %21, %19
   %.sroa.055.2 = phi double [ %.sroa.0.0.copyload, %21 ], [ %.sroa.09.0.copyload, %19 ]
   %.sroa.11.2 = phi double [ %29, %21 ], [ %.sroa.11.0, %19 ]
-  %33 = fcmp ogt double %.sroa.614.0.copyload, %3
+  %33 = fcmp olt double %3, %.sroa.614.0.copyload
   br i1 %33, label %34, label %45
 
 34:                                               ; preds = %32
@@ -761,7 +761,7 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
   %39 = fdiv double %37, %38
   %40 = fptosi double %39 to i32
   %41 = sitofp i32 %40 to double
-  %42 = fadd double %41, %0
+  %42 = fadd double %0, %41
   %43 = fcmp ult double %42, %.sroa.09.0.copyload
   %44 = fcmp ugt double %42, %.sroa.0.0.copyload
   %or.cond77 = select i1 %43, i1 true, i1 %44
@@ -770,7 +770,7 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
 45:                                               ; preds = %34, %32
   %.sroa.055.3 = phi double [ %42, %34 ], [ %.sroa.055.2, %32 ]
   %.sroa.11.3 = phi double [ %.sroa.614.0.copyload, %34 ], [ %.sroa.11.2, %32 ]
-  %46 = fcmp olt double %.sroa.6.0.copyload, %3
+  %46 = fcmp ogt double %3, %.sroa.6.0.copyload
   br i1 %46, label %47, label %58
 
 47:                                               ; preds = %45
@@ -781,7 +781,7 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
   %52 = fdiv double %50, %51
   %53 = fptosi double %52 to i32
   %54 = sitofp i32 %53 to double
-  %55 = fadd double %54, %0
+  %55 = fadd double %0, %54
   %56 = fcmp ult double %55, %.sroa.09.0.copyload
   %57 = fcmp ugt double %55, %.sroa.0.0.copyload
   %or.cond78 = select i1 %56, i1 true, i1 %57
@@ -944,7 +944,7 @@ countVertCross.exit:                              ; preds = %17
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %0, i64 56
   %35 = load double, ptr %34, align 8
-  %36 = fcmp ult double %35, %4
+  %36 = fcmp ugt double %4, %35
   %37 = fcmp ugt double %35, %5
   %or.cond = or i1 %36, %37
   br i1 %or.cond, label %38, label %47
@@ -1025,7 +1025,7 @@ countHorzCross.exit:                              ; preds = %18
 34:                                               ; preds = %28
   %35 = getelementptr inbounds i8, ptr %0, i64 48
   %36 = load double, ptr %35, align 8
-  %37 = fcmp ult double %36, %4
+  %37 = fcmp ugt double %4, %36
   %38 = fcmp ugt double %36, %5
   %or.cond = or i1 %37, %38
   br i1 %or.cond, label %39, label %48

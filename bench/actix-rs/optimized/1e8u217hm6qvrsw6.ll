@@ -14,7 +14,7 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
-  %.not.i = icmp ugt i64 %8, %1
+  %.not.i = icmp ult i64 %1, %8
   %9 = getelementptr inbounds i8, ptr %5, i64 %1
   %10 = getelementptr inbounds i8, ptr %9, i64 1
   %storemerge.i = select i1 %.not.i, ptr %10, ptr %4
@@ -196,7 +196,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   br i1 %10, label %_ZN5alloc7raw_vec11finish_grow17h95c269f098b4f783E.exit.thread, label %14
 
 14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbb245e3ee45a3854E.exit.thread"
-  %15 = icmp ule i64 %8, %.0.sroa.speculated.i26
+  %15 = icmp uge i64 %.0.sroa.speculated.i26, %8
   tail call void @llvm.assume(i1 %15)
   %16 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %.val25, i64 noundef %8, i64 noundef 1, i64 noundef %.0.sroa.speculated.i26) #19, !noalias !11
   br label %_ZN5alloc7raw_vec11finish_grow17h95c269f098b4f783E.exit
@@ -254,7 +254,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd869c315f6ec1255E.llvm.17846856764688890664.exit.thread", label %14
 
 14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbb245e3ee45a3854E.exit.thread.i"
-  %15 = icmp ule i64 %8, %.0.sroa.speculated.i26.i
+  %15 = icmp uge i64 %.0.sroa.speculated.i26.i, %8
   tail call void @llvm.assume(i1 %15)
   %16 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %.val25.i, i64 noundef %8, i64 noundef 1, i64 noundef %.0.sroa.speculated.i26.i) #19, !noalias !18
   br label %_ZN5alloc7raw_vec11finish_grow17h95c269f098b4f783E.exit.i
@@ -317,7 +317,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN91_$LT$core..s
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
-  %.not = icmp ugt i64 %8, %1
+  %.not = icmp ult i64 %1, %8
   %9 = getelementptr inbounds i8, ptr %5, i64 %1
   %10 = getelementptr inbounds i8, ptr %9, i64 1
   %storemerge = select i1 %.not, ptr %10, ptr %4

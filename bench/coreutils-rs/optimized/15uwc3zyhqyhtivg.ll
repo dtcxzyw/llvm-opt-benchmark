@@ -892,7 +892,7 @@ define noundef ptr @_ZN9uu_csplit11SplitWriter7writeln17h0d058d8aacf4cb82E(ptr n
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !214, !noalias !217, !noundef !5
   %19 = sub i64 %9, %18
-  %20 = icmp ugt i64 %19, %2
+  %20 = icmp ult i64 %2, %19
   br i1 %20, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h43c2e3824d56a2eeE.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h43c2e3824d56a2eeE.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h43c2e3824d56a2eeE.exit.thread": ; preds = %16

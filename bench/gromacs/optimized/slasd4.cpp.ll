@@ -397,8 +397,8 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %294 = tail call float @llvm.fmuladd.f32(float %293, float %262, float %292)
   %295 = fadd float %259, %290
   %296 = fmul float %259, %290
-  %297 = fneg float %296
-  %298 = fmul float %273, %297
+  %297 = fneg float %273
+  %298 = fmul float %296, %297
   %299 = tail call float @llvm.fmuladd.f32(float %295, float %279, float %298)
   %300 = fmul float %279, %296
   %301 = fcmp olt float %294, 0.000000e+00
@@ -589,8 +589,8 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %425 = fadd float %419, %420
   %426 = fmul float %419, %420
   %427 = fadd float %.012741587, %.212661588
-  %428 = fneg float %426
-  %429 = fmul float %427, %428
+  %428 = fneg float %427
+  %429 = fmul float %426, %428
   %430 = tail call float @llvm.fmuladd.f32(float %425, float %storemerge13831585, float %429)
   %431 = fmul float %storemerge13831585, %426
   %432 = fpext float %430 to double
@@ -1224,8 +1224,8 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   store float %823, ptr %10, align 4
   %824 = fadd float %798, %805
   %825 = fmul float %798, %805
-  %826 = fneg float %825
-  %827 = fmul float %766, %826
+  %826 = fneg float %766
+  %827 = fmul float %825, %826
   %828 = tail call float @llvm.fmuladd.f32(float %824, float %768, float %827)
   %829 = fmul float %768, %825
   %830 = tail call noundef float @llvm.fabs.f32(float %823)
@@ -1328,8 +1328,8 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %901 = load float, ptr %900, align 4
   %902 = fsub float %899, %901
   %903 = fadd float %899, %901
-  %904 = fneg float %902
-  %905 = fmul float %903, %904
+  %904 = fneg float %903
+  %905 = fmul float %902, %904
   %906 = tail call float @llvm.fmuladd.f32(float %905, float %895, float %897)
   store float %906, ptr %10, align 4
   %907 = fmul float %893, %893
@@ -1361,8 +1361,8 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %926 = load float, ptr %925, align 4
   %927 = fsub float %924, %926
   %928 = fadd float %924, %926
-  %929 = fneg float %927
-  %930 = fmul float %928, %929
+  %929 = fneg float %928
+  %930 = fmul float %927, %929
   %931 = tail call float @llvm.fmuladd.f32(float %930, float %920, float %922)
   store float %931, ptr %10, align 4
   %932 = fcmp olt float %.11275.lcssa, %920
@@ -1722,8 +1722,8 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   store float %.sink1781, ptr %10, align 4
   %1125 = fadd float %1088, %1095
   %1126 = fmul float %1088, %1095
-  %1127 = fneg float %1126
-  %1128 = fmul float %.013011506, %1127
+  %1127 = fneg float %.013011506
+  %1128 = fmul float %1126, %1127
   %1129 = call float @llvm.fmuladd.f32(float %1125, float %1080, float %1128)
   %1130 = fmul float %1080, %1126
   %1131 = call noundef float @llvm.fabs.f32(float %.sink1781)

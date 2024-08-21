@@ -546,7 +546,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(352) ptr @"_ZN21t
 46:                                               ; preds = %40
   %47 = getelementptr inbounds i8, ptr %44, i64 8
   %48 = load i64, ptr %47, align 8, !noalias !125
-  %49 = icmp ugt i64 %48, %1
+  %49 = icmp ult i64 %1, %48
   br i1 %49, label %_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.thread.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i.i.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i.i.i.i: ; preds = %46
@@ -571,7 +571,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i.i.i.i: ; preds = %57
   %60 = getelementptr inbounds i8, ptr %44, i64 24
   %61 = load i64, ptr %60, align 8, !noalias !124
-  %62 = icmp ult i64 %61, %1
+  %62 = icmp ugt i64 %1, %61
   br i1 %62, label %_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.thread.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread.i.i.i.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread.i.i.i.i.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i.i.i.i, %57, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i.i.i.i, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i.i.i.i, %40
@@ -1175,7 +1175,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17hc15
   store i64 %34, ptr %.sroa.578.0..sroa_idx, align 8, !alias.scope !182, !noalias !187
   %35 = load i64, ptr %23, align 8, !alias.scope !189, !noalias !196, !noundef !4
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %9
+  %37 = icmp ugt i64 %9, %36
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %29
@@ -1196,7 +1196,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17hc15
   store i64 %44, ptr %.sroa.578.0..sroa_idx, align 8, !alias.scope !198, !noalias !196
   %45 = load i64, ptr %23, align 8, !alias.scope !199, !noalias !206, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %5
+  %47 = icmp ugt i64 %5, %46
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %39
@@ -4785,7 +4785,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h237b1e0e92776055E.llvm.23857589297000235.exit.i.i.i": ; preds = %600, %596
   %601 = load ptr, ptr %65, align 8, !alias.scope !571, !noalias !574, !nonnull !4, !noundef !4
   %602 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %601, i64 %.043.i.i
-  %603 = icmp ugt i64 %597, %.043.i.i
+  %603 = icmp ult i64 %.043.i.i, %597
   br i1 %603, label %607, label %605
 
 .loopexit429.i:                                   ; preds = %600
@@ -4804,7 +4804,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
           to label %.body329.i unwind label %613, !noalias !423
 
 605:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h237b1e0e92776055E.llvm.23857589297000235.exit.i.i.i"
-  %606 = icmp eq i64 %597, %.043.i.i
+  %606 = icmp eq i64 %.043.i.i, %597
   br i1 %606, label %618, label %611
 
 607:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h237b1e0e92776055E.llvm.23857589297000235.exit.i.i.i"
@@ -5391,7 +5391,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
   %753 = load i64, ptr %106, align 8, !alias.scope !677, !noalias !678, !noundef !4
   call void @llvm.assume(i1 %107)
   %.val1.i.i.i = load i64, ptr %101, align 8, !noalias !679, !noundef !4
-  %754 = icmp ugt i64 %.val1.i.i.i, %753
+  %754 = icmp ult i64 %753, %.val1.i.i.i
   br i1 %754, label %"_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h55c66078f223813cE.exit.i.i", label %.invoke2245, !prof !166
 
 "_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h55c66078f223813cE.exit.i.i": ; preds = %752
@@ -5428,7 +5428,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
   store i64 %770, ptr %99, align 8, !alias.scope !680, !noalias !678
   %771 = load i64, ptr %98, align 8, !alias.scope !686, !noalias !678, !noundef !4
   %772 = sub i64 %771, %770
-  %773 = icmp ult i64 %772, %758
+  %773 = icmp ugt i64 %758, %772
   br i1 %773, label %774, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit8.i.i"
 
 774:                                              ; preds = %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit.i.i"
@@ -5588,7 +5588,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
   %.val4.i.i = load i64, ptr %.sroa.0.09.i.i, align 8, !alias.scope !638, !noalias !714, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !718)
   %.val1.i.i31.i = load i64, ptr %101, align 8, !noalias !721, !noundef !4
-  %827 = icmp ugt i64 %.val1.i.i31.i, %.val4.i.i
+  %827 = icmp ult i64 %.val4.i.i, %.val1.i.i31.i
   br i1 %827, label %"_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h55c66078f223813cE.exit.i32.i", label %.invoke2245, !prof !166
 
 "_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h55c66078f223813cE.exit.i32.i": ; preds = %825
@@ -5658,7 +5658,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
   store i64 %855, ptr %99, align 8, !alias.scope !736, !noalias !726
   %856 = load i64, ptr %98, align 8, !alias.scope !737, !noalias !726, !noundef !4
   %857 = sub i64 %856, %855
-  %858 = icmp ult i64 %857, %831
+  %858 = icmp ugt i64 %831, %857
   br i1 %858, label %859, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit13.i.i"
 
 859:                                              ; preds = %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit11.i.i"
@@ -5746,7 +5746,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer15start_highlight17ha8eb6d22ec521af7E.ex
   %887 = load i64, ptr %99, align 8, !alias.scope !749, !noalias !754, !noundef !4
   %888 = load i64, ptr %98, align 8, !alias.scope !756, !noalias !754, !noundef !4
   %889 = sub i64 %888, %887
-  %890 = icmp ult i64 %889, %.sroa.7.0.i.ph.i
+  %890 = icmp ugt i64 %.sroa.7.0.i.ph.i, %889
   br i1 %890, label %891, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h60733569446dbec6E.exit.i"
 
 891:                                              ; preds = %886
@@ -5799,7 +5799,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer8add_text17hdeea79352d0aaa8eE.exit: ; pr
   store i64 %908, ptr %59, align 8, !alias.scope !629
   call void @llvm.experimental.noalias.scope.decl(metadata !762)
   %.val1.i.i = load i64, ptr %101, align 8, !noalias !762, !noundef !4
-  %909 = icmp ugt i64 %.val1.i.i, %.sroa.14.sroa.0.0.insert.insert
+  %909 = icmp ult i64 %.sroa.14.sroa.0.0.insert.insert, %.val1.i.i
   br i1 %909, label %"_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h55c66078f223813cE.exit.i", label %.invoke2245, !prof !166
 
 .invoke2245:                                      ; preds = %903, %526, %.loopexit433.i, %168, %135, %752, %478, %296, %263, %825
@@ -5866,7 +5866,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer8add_text17hdeea79352d0aaa8eE.exit: ; pr
   store i64 %936, ptr %99, align 8, !alias.scope !776
   %937 = load i64, ptr %98, align 8, !alias.scope !777, !noundef !4
   %938 = sub i64 %937, %936
-  %939 = icmp ult i64 %938, %916
+  %939 = icmp ugt i64 %916, %938
   br i1 %939, label %940, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit13.i"
 
 940:                                              ; preds = %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit11.i"

@@ -1447,7 +1447,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
 if.end6:                                          ; preds = %if.end.i, %invoke.cont4, %_ZN5folly12_GLOBAL__N_114memOpChunkSizeEll.exit.i
   %6 = load i64, ptr %mapLength_, align 8, !tbaa !43
   %tobool8.not = icmp ne i64 %6, 0
-  %brmerge.not = and i1 %tobool8.not, %dontneed
+  %brmerge.not = and i1 %dontneed, %tobool8.not
   br i1 %brmerge.not, label %land.lhs.true10, label %if.end23
 
 land.lhs.true10:                                  ; preds = %if.end6

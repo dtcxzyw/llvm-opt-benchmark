@@ -4259,7 +4259,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 clusterNodeRemoveSlave.exit.i:                    ; preds = %for.inc.i.i, %if.then16.i.i, %if.end.i.i, %if.then2.i
   %10 = load ptr, ptr @myself, align 8
-  %cmp.not.i = icmp eq ptr %10, %0
+  %cmp.not.i = icmp eq ptr %0, %10
   %.pre.i = load i32, ptr %flags, align 8
   %or.i = or i32 %.pre.i, 256
   %spec.select.i = select i1 %cmp.not.i, i32 %.pre.i, i32 %or.i
@@ -4549,7 +4549,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 clusterNodeRemoveSlave.exit:                      ; preds = %for.inc.i, %if.then2, %if.end.i, %if.then16.i
   %9 = load ptr, ptr @myself, align 8
-  %cmp.not = icmp eq ptr %9, %n
+  %cmp.not = icmp eq ptr %n, %9
   %.pre = load i32, ptr %flags.i, align 8
   %or = or i32 %.pre, 256
   %spec.select = select i1 %cmp.not, i32 %.pre, i32 %or
@@ -6968,7 +6968,7 @@ entry:
   %storemerge.i = zext i16 %call7.i to i32
   %link2 = getelementptr inbounds i8, ptr %node, i64 2344
   %4 = load ptr, ptr %link2, align 8
-  %cmp = icmp eq ptr %4, %link
+  %cmp = icmp eq ptr %link, %4
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -7146,7 +7146,7 @@ entry:
   %slaveof = getelementptr inbounds i8, ptr %0, i64 2184
   %cond.in = select i1 %tobool.not, ptr %slaveof, ptr @myself
   %cond = load ptr, ptr %cond.in, align 8
-  %cmp = icmp eq ptr %0, %sender
+  %cmp = icmp eq ptr %sender, %0
   br i1 %cmp, label %do.body, label %for.body
 
 do.body:                                          ; preds = %entry
@@ -7230,7 +7230,7 @@ land.lhs.true:                                    ; preds = %if.then30
   %call35 = tail call i32 @countKeysInSlot(i32 noundef %3) #33
   %tobool36.not = icmp eq i32 %call35, 0
   %17 = load ptr, ptr @myself, align 8
-  %cmp38.not = icmp eq ptr %17, %sender
+  %cmp38.not = icmp eq ptr %sender, %17
   %or.cond = select i1 %tobool36.not, i1 true, i1 %cmp38.not
   br i1 %or.cond, label %if.end43, label %if.then39
 
@@ -7498,7 +7498,7 @@ entry:
 define dso_local void @clusterSetMaster(ptr noundef %n) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @myself, align 8
-  %cmp.not = icmp eq ptr %0, %n
+  %cmp.not = icmp eq ptr %n, %0
   br i1 %cmp.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -12736,7 +12736,7 @@ entry:
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
   %cant_failover_reason = getelementptr inbounds i8, ptr %1, i64 393304
   %2 = load i32, ptr %cant_failover_reason, align 8
-  %cmp = icmp eq i32 %2, %reason
+  %cmp = icmp eq i32 %reason, %2
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
@@ -12893,7 +12893,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 clusterSetNodeAsMaster.exit:                      ; preds = %for.inc.i.i, %if.then16.i.i, %if.end.i.i, %if.then2.i
   %10 = load ptr, ptr @myself, align 8
-  %cmp.not.i = icmp eq ptr %10, %0
+  %cmp.not.i = icmp eq ptr %0, %10
   %.pre.i = load i32, ptr %flags.i, align 8
   %or.i = or i32 %.pre.i, 256
   %spec.select.i = select i1 %cmp.not.i, i32 %.pre.i, i32 %or.i
@@ -15098,7 +15098,7 @@ for.inc:                                          ; preds = %if.then, %if.else
   %ci.addr.1 = phi ptr [ %call, %if.then ], [ %call6, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %3 = trunc nuw i64 %indvars.iv.next to i32
-  %cmp = icmp slt i32 %3, %slot_info_pairs_count
+  %cmp = icmp sgt i32 %slot_info_pairs_count, %3
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !66
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -16709,7 +16709,7 @@ define dso_local range(i32 0, 2) i32 @clusterNodeIsMyself(ptr noundef readnone %
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
   %1 = load ptr, ptr %0, align 8
-  %cmp = icmp eq ptr %1, %n
+  %cmp = icmp eq ptr %n, %1
   %conv = zext i1 %cmp to i32
   ret i32 %conv
 }

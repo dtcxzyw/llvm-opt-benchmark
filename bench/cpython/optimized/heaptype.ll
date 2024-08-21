@@ -2074,7 +2074,7 @@ cond.false4.i:                                    ; preds = %cond.end.i
 Py_SIZE.exit:                                     ; preds = %cond.end.i
   %ob_size.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load i64, ptr %ob_size.i, align 8
-  %cmp1.not = icmp sgt i64 %1, %i
+  %cmp1.not = icmp slt i64 %i, %1
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %Py_SIZE.exit, %entry

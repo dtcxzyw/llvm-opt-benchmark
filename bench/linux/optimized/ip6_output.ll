@@ -1845,7 +1845,7 @@ define internal fastcc noundef zeroext i1 @ip6_pkt_too_big(ptr noundef %0, i32 n
   %7 = getelementptr inbounds i8, ptr %0, i64 58
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
-  %10 = icmp ugt i32 %9, %1
+  %10 = icmp ult i32 %1, %9
   br i1 %10, label %29, label %11
 
 11:                                               ; preds = %6
@@ -3860,7 +3860,7 @@ define dso_local i32 @ip6_append_data(ptr noundef %0, ptr noundef %1, ptr nounde
 49:                                               ; preds = %45, %40
   %50 = phi i32 [ %48, %45 ], [ 0, %40 ]
   %51 = zext nneg i32 %50 to i64
-  %52 = add i64 %51, %3
+  %52 = add i64 %3, %51
   %53 = add i32 %50, %4
   br label %54
 
@@ -4326,7 +4326,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %85 = getelementptr inbounds i8, ptr %2, i64 20
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
-  %88 = add i64 %87, %7
+  %88 = add i64 %7, %87
   %89 = sub i32 %47, %73
   %90 = zext i32 %89 to i64
   %91 = icmp ugt i64 %88, %90
@@ -4396,7 +4396,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %131 = icmp ne i16 %130, 17
   %132 = icmp ne i32 %73, 40
   %133 = select i1 %131, i1 true, i1 %132
-  %134 = icmp ult i64 %90, %7
+  %134 = icmp ugt i64 %7, %90
   %135 = or i1 %134, %133
   br i1 %135, label %146, label %136
 
@@ -6304,7 +6304,7 @@ define dso_local ptr @ip6_make_skb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %63 = inttoptr i64 %62 to ptr
   %64 = getelementptr inbounds i8, ptr %63, i64 2528
   %65 = zext nneg i32 %22 to i64
-  %66 = add i64 %65, %3
+  %66 = add i64 %3, %65
   %67 = add i32 %22, %4
   %68 = call fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %8, ptr noundef nonnull %10, ptr noundef %64, ptr noundef %1, ptr noundef %2, i64 noundef %66, i32 noundef %67, i32 noundef %7, ptr noundef %5)
   %69 = icmp eq i32 %68, 0

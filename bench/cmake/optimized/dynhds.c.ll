@@ -108,7 +108,7 @@ define dso_local void @Curl_dynhds_set_opts(ptr nocapture noundef writeonly %0, 
 define dso_local ptr @Curl_dynhds_getn(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2

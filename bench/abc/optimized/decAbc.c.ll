@@ -390,7 +390,7 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly %0, ptr nocapture nound
   %68 = ptrtoint ptr %67 to i64
   %69 = and i64 %68, -2
   %70 = inttoptr i64 %69 to ptr
-  %71 = icmp eq ptr %70, %0
+  %71 = icmp eq ptr %0, %70
   br i1 %71, label %.critedge2, label %72
 
 72:                                               ; preds = %56
@@ -405,13 +405,13 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly %0, ptr nocapture nound
   %77 = add nsw i32 %.val3.i, 1
   %78 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %79 = load i32, ptr %78, align 4
-  %.not.i.not.i.i.i = icmp sgt i32 %79, %.val3.i
+  %.not.i.not.i.i.i = icmp slt i32 %.val3.i, %79
   br i1 %.not.i.not.i.i.i, label %Abc_NodeIsTravIdCurrent.exit, label %80
 
 80:                                               ; preds = %74
   %81 = load i32, ptr %76, align 8
   %82 = shl nsw i32 %81, 1
-  %.not.i.i.i = icmp sgt i32 %82, %.val3.i
+  %.not.i.i.i = icmp slt i32 %.val3.i, %82
   %.not.i.i.not.i.i.i = icmp sgt i32 %81, %.val3.i
   br i1 %.not.i.i.i, label %95, label %83
 

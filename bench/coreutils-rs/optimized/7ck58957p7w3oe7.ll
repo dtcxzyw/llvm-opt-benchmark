@@ -333,7 +333,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = load i64, ptr %2, align 8, !noundef !4
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %10
+  %16 = icmp ugt i64 %10, %15
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %3
@@ -353,9 +353,9 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %.pre-phi = phi i64 [ %15, %3 ], [ %.pre21, %._crit_edge.i ]
   %22 = phi i64 [ %13, %3 ], [ %.pre, %._crit_edge.i ]
   %.pre-phi.i = phi i64 [ %15, %3 ], [ %.pre9.i, %._crit_edge.i ]
-  %23 = icmp uge i64 %.pre-phi.i, %10
+  %23 = icmp ule i64 %10, %.pre-phi.i
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %.pre-phi, %10
+  %24 = icmp ugt i64 %10, %.pre-phi
   br i1 %24, label %25, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hbb7ce0700a43a05fE.exit"
 
 25:                                               ; preds = %21

@@ -133,7 +133,7 @@ lor.lhs.false36:                                  ; preds = %if.end34
   %narrow = add nuw nsw i32 %storemerge, 4
   %cmp41 = icmp ult i32 %8, %narrow
   %or.cond28 = select i1 %cmp37, i1 true, i1 %cmp41
-  %or.cond29 = icmp ugt i32 %8, %length
+  %or.cond29 = icmp ult i32 %length, %8
   %or.cond30 = or i1 %or.cond29, %or.cond28
   br i1 %or.cond30, label %return.sink.split, label %return
 
@@ -437,7 +437,7 @@ if.else:                                          ; preds = %if.end59
   store i32 %call69, ptr %itemCount, align 4
   %itemMax.i = getelementptr inbounds i8, ptr %this, i64 1176
   %23 = load i32, ptr %itemMax.i, align 8
-  %cmp.not.i = icmp slt i32 %23, %call69
+  %cmp.not.i = icmp sgt i32 %call69, %23
   br i1 %cmp.not.i, label %if.end.i, label %_ZN6icu_757Package15setItemCapacityEi.exit
 
 if.end.i:                                         ; preds = %if.else
@@ -1269,7 +1269,7 @@ define void @_ZN6icu_757Package15setItemCapacityEi(ptr nocapture noundef nonnull
 entry:
   %itemMax = getelementptr inbounds i8, ptr %this, i64 1176
   %0 = load i32, ptr %itemMax, align 8
-  %cmp.not = icmp slt i32 %0, %max
+  %cmp.not = icmp sgt i32 %max, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2780,7 +2780,7 @@ if.end15:                                         ; preds = %if.then7, %if.end
   store i32 %dec, ptr %itemCount, align 4
   %findNextIndex = getelementptr inbounds i8, ptr %this, i64 201232
   %6 = load i32, ptr %findNextIndex, align 8
-  %cmp17.not = icmp slt i32 %6, %idx
+  %cmp17.not = icmp sgt i32 %idx, %6
   br i1 %cmp17.not, label %if.end22, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
@@ -2844,7 +2844,7 @@ if.end15.i:                                       ; preds = %if.then7.i, %if.end
   %dec.i = add nsw i32 %5, -1
   store i32 %dec.i, ptr %itemCount.i, align 4
   %6 = load i32, ptr %findNextIndex.i, align 8
-  %cmp17.not.i = icmp slt i32 %6, %call3
+  %cmp17.not.i = icmp sgt i32 %call3, %6
   br i1 %cmp17.not.i, label %_ZN6icu_757Package10removeItemEi.exit, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end15.i
@@ -2924,7 +2924,7 @@ if.end15.i.i:                                     ; preds = %if.then7.i.i, %if.e
   %dec.i.i = add nsw i32 %8, -1
   store i32 %dec.i.i, ptr %itemCount.i.i, align 4
   %9 = load i32, ptr %findNextIndex.i.i, align 8
-  %cmp17.not.i.i = icmp slt i32 %9, %call3.i
+  %cmp17.not.i.i = icmp sgt i32 %call3.i, %9
   br i1 %cmp17.not.i.i, label %_ZN6icu_757Package10removeItemEi.exit.i, label %if.then18.i.i
 
 if.then18.i.i:                                    ; preds = %if.end15.i.i
@@ -3217,7 +3217,7 @@ entry:
   %cmp = icmp sgt i32 %idx, -1
   %itemCount = getelementptr inbounds i8, ptr %this, i64 1172
   %0 = load i32, ptr %itemCount, align 4
-  %cmp2 = icmp sgt i32 %0, %idx
+  %cmp2 = icmp slt i32 %idx, %0
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   %items = getelementptr inbounds i8, ptr %this, i64 1184
   %1 = load ptr, ptr %items, align 8

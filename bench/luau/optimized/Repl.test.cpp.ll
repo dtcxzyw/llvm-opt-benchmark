@@ -9082,7 +9082,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeI10CompletionS0_St9_Ide
 
 select.unfold:                                    ; preds = %23, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %23 ]
-  %30 = icmp eq ptr %10, %.sroa.4.0.i.ph
+  %30 = icmp eq ptr %.sroa.4.0.i.ph, %10
   br i1 %30, label %_ZNSt8_Rb_treeI10CompletionS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit, label %31
 
 31:                                               ; preds = %select.unfold

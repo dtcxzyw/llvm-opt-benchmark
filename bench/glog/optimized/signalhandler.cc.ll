@@ -693,7 +693,7 @@ split.i13.i:                                      ; preds = %43, %._crit_edge.i2
   %.ptr.i = getelementptr inbounds i8, ptr %8, i64 %.ptr55.add.pre-phi.i
   %53 = icmp ne i32 %.1.i15.i, 0
   %.012.i.i.i16.i = getelementptr inbounds i8, ptr %.ptr.i, i64 -1
-  %54 = icmp ugt ptr %.012.i.i.i16.i, %.ptr55.ptr.i
+  %54 = icmp ult ptr %.ptr55.ptr.i, %.012.i.i.i16.i
   %or.cond.i.i.i17.i = select i1 %53, i1 %54, i1 false
   br i1 %or.cond.i.i.i17.i, label %.lr.ph.i.i.i18.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit27.i.preheader
 
@@ -760,7 +760,7 @@ _ZN6google12_GLOBAL__N_15GetPCEPv.exit:           ; preds = %_ZN6google12_GLOBAL
   %.013.idx227.i = phi i64 [ 0, %_ZN6google12_GLOBAL__N_15GetPCEPv.exit ], [ %.013.add.i, %78 ]
   %.013.ptr229.i = getelementptr inbounds i8, ptr @_ZN6google12_GLOBAL__N_115kFailureSignalsE, i64 %.013.idx227.i
   %.sroa.01.0.copyload.i = load i32, ptr %.013.ptr229.i, align 16
-  %76 = icmp eq i32 %.sroa.01.0.copyload.i, %0
+  %76 = icmp eq i32 %0, %.sroa.01.0.copyload.i
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %75
@@ -944,7 +944,7 @@ split.i32.i:                                      ; preds = %split.i32.i.loopexi
   %.ptr179.ptr.i = getelementptr inbounds i8, ptr %5, i64 %.ptr.add176.pre-phi.i
   %132 = icmp ne i32 %.1.i34.i, 0
   %.012.i.i.i35.i = getelementptr inbounds i8, ptr %.ptr179.ptr.i, i64 -1
-  %133 = icmp ugt ptr %.012.i.i.i35.i, %.ptr.ptr178.i
+  %133 = icmp ult ptr %.ptr.ptr178.i, %.012.i.i.i35.i
   %or.cond.i.i.i36.i = select i1 %132, i1 %133, i1 false
   br i1 %or.cond.i.i.i36.i, label %.lr.ph.i.i.i37.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit46.i
 
@@ -1027,7 +1027,7 @@ split.i59.i:                                      ; preds = %149, %._crit_edge.i
   %.ptr.ptr192.i = getelementptr inbounds i8, ptr %5, i64 %.ptr186.add.pre-phi.i
   %159 = icmp ne i32 %.1.i61.i, 0
   %.012.i.i.i62.i = getelementptr inbounds i8, ptr %.ptr.ptr192.i, i64 -1
-  %160 = icmp ugt ptr %.012.i.i.i62.i, %.ptr186.ptr.i
+  %160 = icmp ult ptr %.ptr186.ptr.i, %.012.i.i.i62.i
   %or.cond.i.i.i63.i = select i1 %159, i1 %160, i1 false
   br i1 %or.cond.i.i.i63.i, label %.lr.ph.i.i.i64.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit73.i.preheader
 
@@ -1193,7 +1193,7 @@ split.i99.i:                                      ; preds = %206, %._crit_edge.i
   %.ptr207.ptr.i = getelementptr inbounds i8, ptr %5, i64 %.ptr.add204.pre-phi.i
   %216 = icmp ne i32 %.1.i101.i, 0
   %.012.i.i.i102.i = getelementptr inbounds i8, ptr %.ptr207.ptr.i, i64 -1
-  %217 = icmp ugt ptr %.012.i.i.i102.i, %.ptr.ptr206.i
+  %217 = icmp ult ptr %.ptr.ptr206.i, %.012.i.i.i102.i
   %or.cond.i.i.i103.i = select i1 %216, i1 %217, i1 false
   br i1 %or.cond.i.i.i103.i, label %.lr.ph.i.i.i104.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit113.i.preheader
 
@@ -1440,7 +1440,7 @@ split.i.i:                                        ; preds = %split.i.loopexit.i,
   %.1.i.i = phi i1 [ %40, %split.i.loopexit.i ], [ true, %._crit_edge.i.i ]
   %.ptr52 = getelementptr inbounds i8, ptr %4, i64 %.ptr.add50.pre-phi
   %.012.i.i.i.i = getelementptr inbounds i8, ptr %.ptr52, i64 -1
-  %41 = icmp ugt ptr %.012.i.i.i.i, %.ptr.ptr
+  %41 = icmp ult ptr %.ptr.ptr, %.012.i.i.i.i
   %or.cond.i.i.i.i = select i1 %.1.i.i, i1 %41, i1 false
   br i1 %or.cond.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i
 

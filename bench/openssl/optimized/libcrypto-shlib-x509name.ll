@@ -257,7 +257,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %call9 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #6
   %modified = getelementptr inbounds i8, ptr %name, i64 8
   store i32 1, ptr %modified, align 8
-  %cmp10 = icmp eq i32 %call9, %loc
+  %cmp10 = icmp eq i32 %loc, %call9
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end
@@ -283,7 +283,7 @@ if.end19:                                         ; preds = %if.else, %if.then14
   %set22 = getelementptr inbounds i8, ptr %call21, i64 16
   %5 = load i32, ptr %set22, align 8
   %cmp23 = icmp slt i32 %set_prev.0, %5
-  %cmp2520 = icmp sgt i32 %call9, %loc
+  %cmp2520 = icmp slt i32 %loc, %call9
   %or.cond22 = and i1 %cmp23, %cmp2520
   br i1 %or.cond22, label %for.body, label %return
 
@@ -401,7 +401,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %name, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
   %cmp4 = icmp slt i32 %loc, 0
-  %1 = tail call i32 @llvm.smin.i32(i32 %call1, i32 %loc)
+  %1 = tail call i32 @llvm.smin.i32(i32 %loc, i32 %call1)
   %loc.addr.0 = select i1 %cmp4, i32 %call1, i32 %1
   %cmp8 = icmp eq i32 %set, 0
   %modified = getelementptr inbounds i8, ptr %name, i64 8

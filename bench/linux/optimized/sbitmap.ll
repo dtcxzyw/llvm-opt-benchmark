@@ -1195,7 +1195,7 @@ define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, 
   %104 = add i64 %103, %78
   %105 = trunc i64 %104 to i32
   store i32 %105, ptr %2, align 4
-  %106 = add i32 %105, %1
+  %106 = add i32 %1, %105
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %108, label %110
 
@@ -1463,7 +1463,7 @@ define dso_local void @sbitmap_queue_clear(ptr noundef %0, i32 noundef %1, i32 n
   %5 = load i32, ptr %4, align 4
   %6 = shl nsw i32 -1, %5
   %7 = xor i32 %6, -1
-  %8 = and i32 %7, %1
+  %8 = and i32 %1, %7
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -1760,7 +1760,7 @@ define internal fastcc i32 @sbitmap_find_bit(ptr nocapture noundef readonly %0, 
   %33 = getelementptr inbounds i8, ptr %19, i64 64
   %34 = zext i32 %32 to i64
   %35 = icmp ne i32 %15, 0
-  %36 = and i1 %35, %4
+  %36 = and i1 %4, %35
   %37 = add nsw i64 %34, -1
   br i1 %36, label %.split, label %.split.us
 

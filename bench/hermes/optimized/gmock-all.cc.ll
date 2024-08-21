@@ -682,7 +682,7 @@ entry:
   %cond.i = tail call i32 @llvm.smax.i32(i32 %min, i32 0)
   store i32 %cond.i, ptr %min_.i, align 8
   %max_.i = getelementptr inbounds i8, ptr %call, i64 12
-  %cond.max.i = tail call i32 @llvm.smax.i32(i32 %cond.i, i32 %max)
+  %cond.max.i = tail call i32 @llvm.smax.i32(i32 %max, i32 %cond.i)
   store i32 %cond.max.i, ptr %max_.i, align 4
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i)
           to label %.noexc unwind label %lpad
@@ -5640,7 +5640,7 @@ while.body.i.i.i:                                 ; preds = %invoke.cont1, %whil
   %__x.021.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.019.i.i.i, %invoke.cont1 ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 32
   %0 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ugt ptr %0, %mocker
+  %cmp.i.i.i.i = icmp ult ptr %mocker, %0
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
   %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
@@ -5671,13 +5671,13 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %add.ptr.i.i.i.i
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIPN7testing8internal25UntypedFunctionMockerBaseES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   %_M_storage.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %3 = load ptr, ptr %_M_storage.i.i.i.i6.i.i, align 8
-  %cmp.i.i7.i.i = icmp ugt ptr %3, %mocker
+  %cmp.i.i7.i.i = icmp ult ptr %mocker, %3
   br label %_ZNSt8_Rb_treeIPN7testing8internal25UntypedFunctionMockerBaseES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIPN7testing8internal25UntypedFunctionMockerBaseES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
@@ -6628,7 +6628,7 @@ _ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing8internal12CallReactionEESt10_Select1stI
 invoke.cont:                                      ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing8internal12CallReactionEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i3.i.i, align 8
-  %cmp.i4.i.i.not = icmp ugt ptr %2, %mock_obj
+  %cmp.i4.i.i.not = icmp ult ptr %mock_obj, %2
   br i1 %cmp.i4.i.i.not, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %invoke.cont
@@ -7512,7 +7512,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -7671,7 +7671,7 @@ while.body.i.i.i8:                                ; preds = %if.else.i.i, %while
   %__x.011.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i8 ], [ %__x.09.i.i.i, %if.else.i.i ]
   %_M_storage.i.i.i12.i.i = getelementptr inbounds i8, ptr %__x.011.i.i.i, i64 32
   %6 = load ptr, ptr %_M_storage.i.i.i12.i.i, align 8
-  %cmp.i.i.i.i9 = icmp ugt ptr %6, %call.val.i
+  %cmp.i.i.i.i9 = icmp ult ptr %call.val.i, %6
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i9, i64 16, i64 24
   %cond.in.i.i.i = getelementptr i8, ptr %__x.011.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
@@ -7703,7 +7703,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 if.else12.i.i:                                    ; preds = %if.then
   %_M_storage.i.i.i13.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i3, i64 32
   %8 = load ptr, ptr %_M_storage.i.i.i13.i.i, align 8
-  %cmp.i14.i.i = icmp ugt ptr %8, %call.val.i
+  %cmp.i14.i.i = icmp ult ptr %call.val.i, %8
   br i1 %cmp.i14.i.i, label %if.then18.i.i, label %if.else44.i.i
 
 if.then18.i.i:                                    ; preds = %if.else12.i.i
@@ -7733,7 +7733,7 @@ while.body.i22.i.i:                               ; preds = %if.else42.i.i, %whi
   %__x.011.i23.i.i = phi ptr [ %__x.0.i28.i.i, %while.body.i22.i.i ], [ %__x.09.i20.i.i, %if.else42.i.i ]
   %_M_storage.i.i.i24.i.i = getelementptr inbounds i8, ptr %__x.011.i23.i.i, i64 32
   %12 = load ptr, ptr %_M_storage.i.i.i24.i.i, align 8
-  %cmp.i.i25.i.i = icmp ugt ptr %12, %call.val.i
+  %cmp.i.i25.i.i = icmp ult ptr %call.val.i, %12
   %cond.in.v.i26.i.i = select i1 %cmp.i.i25.i.i, i64 16, i64 24
   %cond.in.i27.i.i = getelementptr i8, ptr %__x.011.i23.i.i, i64 %cond.in.v.i26.i.i
   %__x.0.i28.i.i = load ptr, ptr %cond.in.i27.i.i, align 8
@@ -7774,7 +7774,7 @@ if.else57.i.i:                                    ; preds = %if.then50.i.i
   %call.i52.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.addr.0.lcssa.i.i.i3) #30
   %_M_storage.i.i.i53.i.i = getelementptr inbounds i8, ptr %call.i52.i.i, i64 32
   %15 = load ptr, ptr %_M_storage.i.i.i53.i.i, align 8
-  %cmp.i54.i.i = icmp ugt ptr %15, %call.val.i
+  %cmp.i54.i.i = icmp ult ptr %call.val.i, %15
   br i1 %cmp.i54.i.i, label %if.then64.i.i, label %if.else74.i.i
 
 if.then64.i.i:                                    ; preds = %if.else57.i.i
@@ -7792,7 +7792,7 @@ while.body.i59.i.i:                               ; preds = %if.else74.i.i, %whi
   %__x.011.i60.i.i = phi ptr [ %__x.0.i65.i.i, %while.body.i59.i.i ], [ %__x.09.i57.i.i, %if.else74.i.i ]
   %_M_storage.i.i.i61.i.i = getelementptr inbounds i8, ptr %__x.011.i60.i.i, i64 32
   %17 = load ptr, ptr %_M_storage.i.i.i61.i.i, align 8
-  %cmp.i.i62.i.i = icmp ugt ptr %17, %call.val.i
+  %cmp.i.i62.i.i = icmp ult ptr %call.val.i, %17
   %cond.in.v.i63.i.i = select i1 %cmp.i.i62.i.i, i64 16, i64 24
   %cond.in.i64.i.i = getelementptr i8, ptr %__x.011.i60.i.i, i64 %cond.in.v.i63.i.i
   %__x.0.i65.i.i = load ptr, ptr %cond.in.i64.i.i, align 8
@@ -7898,7 +7898,7 @@ _ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Se
 _ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i: ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i2.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i2.i.i.i, align 8
-  %cmp.i3.i.i.not.i = icmp ugt ptr %2, %mock_obj
+  %cmp.i3.i.i.not.i = icmp ult ptr %mock_obj, %2
   br i1 %cmp.i3.i.i.not.i, label %invoke.cont, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i
@@ -7998,7 +7998,7 @@ _ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Se
 _ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit: ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
   %_M_storage.i.i.i2.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i2.i.i, align 8
-  %cmp.i3.i.i.not = icmp ugt ptr %2, %mock_obj
+  %cmp.i3.i.i.not = icmp ult ptr %mock_obj, %2
   br i1 %cmp.i3.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit
@@ -8061,7 +8061,7 @@ _ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Se
 _ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i: ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i2.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i2.i.i.i, align 8
-  %cmp.i3.i.i.not.i = icmp ugt ptr %2, %mock_obj
+  %cmp.i3.i.i.not.i = icmp ult ptr %mock_obj, %2
   br i1 %cmp.i3.i.i.not.i, label %invoke.cont, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i
@@ -8122,7 +8122,7 @@ _ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Se
 _ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i18: ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i16
   %_M_storage.i.i.i2.i.i.i19 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i11, i64 32
   %8 = load ptr, ptr %_M_storage.i.i.i2.i.i.i19, align 8
-  %cmp.i3.i.i.not.i20 = icmp ugt ptr %8, %mock_obj
+  %cmp.i3.i.i.not.i20 = icmp ult ptr %mock_obj, %8
   br i1 %cmp.i3.i.i.not.i20, label %invoke.cont1, label %if.end.i21
 
 if.end.i21:                                       ; preds = %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i18
@@ -8227,7 +8227,7 @@ _ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Se
 _ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit: ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
   %_M_storage.i.i.i2.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i2.i.i, align 8
-  %cmp.i3.i.i.not = icmp ugt ptr %2, %mock_obj
+  %cmp.i3.i.i.not = icmp ult ptr %mock_obj, %2
   br i1 %cmp.i3.i.i.not, label %for.end, label %if.end
 
 if.end:                                           ; preds = %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit
@@ -9042,7 +9042,7 @@ entry:
   %cmp.not = icmp sle i32 %0, %call_count
   %max_ = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %max_, align 4
-  %cmp2 = icmp sge i32 %1, %call_count
+  %cmp2 = icmp sle i32 %call_count, %1
   %2 = select i1 %cmp.not, i1 %cmp2, i1 false
   ret i1 %2
 }
@@ -9052,7 +9052,7 @@ define internal noundef zeroext i1 @_ZNK7testing12_GLOBAL__N_122BetweenCardinali
 entry:
   %max_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %max_, align 4
-  %cmp = icmp sle i32 %0, %call_count
+  %cmp = icmp sge i32 %call_count, %0
   ret i1 %cmp
 }
 
@@ -9551,7 +9551,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__n
+  %cmp = icmp ugt i64 %__n, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -9610,7 +9610,7 @@ if.else:                                          ; preds = %entry
   %7 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.rhs.cast.i
-  %cmp5 = icmp ult i64 %sub.ptr.sub.i10, %__n
+  %cmp5 = icmp ugt i64 %__n, %sub.ptr.sub.i10
   br i1 %cmp5, label %if.then6, label %if.else19
 
 if.then6:                                         ; preds = %if.else
@@ -9948,7 +9948,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa25.i, %if.then.i ], [ %__y.0.lcssa26.i, %if.end12.i ]
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeIN7testing11ExpectationES1_St9_IdentityIS1_ENS1_4LessESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then
@@ -10861,7 +10861,7 @@ declare i32 @pthread_key_delete(i32 noundef) local_unnamed_addr #1
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIPKvSt4pairIKS1_N7testing8internal12CallReactionEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -11152,8 +11152,8 @@ _ZNSt8_Rb_treeIPKvSt4pairIKS1_N7testing8internal12CallReactionEESt10_Select1stIS
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_left.i.i1, align 8
-  %cmp.i.i2 = icmp eq ptr %7, %retval.sroa.0.0.i
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.3.0.i
+  %cmp.i.i2 = icmp eq ptr %retval.sroa.0.0.i, %7
+  %cmp.i1.i = icmp eq ptr %retval.sroa.3.0.i, %add.ptr.i.i
   %or.cond = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
   br i1 %or.cond, label %if.then.i, label %if.else.i3
 
@@ -11279,8 +11279,8 @@ _ZNSt8_Rb_treeIPN7testing8internal25UntypedFunctionMockerBaseES3_St9_IdentityIS3
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_left.i.i1, align 8
-  %cmp.i.i2 = icmp eq ptr %7, %retval.sroa.0.0.i
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.3.0.i
+  %cmp.i.i2 = icmp eq ptr %retval.sroa.0.0.i, %7
+  %cmp.i1.i = icmp eq ptr %retval.sroa.3.0.i, %add.ptr.i.i
   %or.cond = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
   br i1 %or.cond, label %if.then.i, label %if.else.i3
 

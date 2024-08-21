@@ -236,8 +236,8 @@ land.lhs.true17:                                  ; preds = %if.end
 lor.lhs.false:                                    ; preds = %land.lhs.true17
   %tobool21.not = icmp eq i32 %9, 0
   %tobool24.not = icmp eq i32 %8, 0
-  %or.cond76 = select i1 %tobool21.not, i1 %tobool24.not, i1 false
-  br i1 %or.cond76, label %if.then25, label %if.end30
+  %or.cond100 = select i1 %tobool21.not, i1 %tobool24.not, i1 false
+  br i1 %or.cond100, label %if.then25, label %if.end30
 
 if.then25:                                        ; preds = %lor.lhs.false, %land.lhs.true17
   %head26 = getelementptr inbounds i8, ptr %hs, i64 260
@@ -256,132 +256,96 @@ if.end30:                                         ; preds = %if.then25, %lor.lhs
 
 sw.bb:                                            ; preds = %if.end30
   %cmp33 = icmp sgt i32 %len, 0
-  br i1 %cmp33, label %if.then34, label %if.end38
+  br i1 %cmp33, label %if.end38, label %sw.epilog
 
-if.then34:                                        ; preds = %sw.bb
+if.end38:                                         ; preds = %sw.bb
   %buttons_state = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %11 = load i32, ptr %buttons_state, align 4
   %conv = trunc i32 %11 to i8
   store i8 %conv, ptr %buf, align 1
-  br label %if.end38
+  %cmp39.not = icmp eq i32 %len, 1
+  br i1 %cmp39.not, label %sw.epilog, label %if.end46
 
-if.end38:                                         ; preds = %if.then34, %sw.bb
-  %l.0 = phi i32 [ 1, %if.then34 ], [ 0, %sw.bb ]
-  %cmp39 = icmp slt i32 %l.0, %len
-  br i1 %cmp39, label %if.then41, label %if.end46
-
-if.then41:                                        ; preds = %if.end38
+if.end46:                                         ; preds = %if.end38
   %conv42 = trunc i32 %dx.0 to i8
-  %inc43 = add nuw nsw i32 %l.0, 1
-  %idxprom44 = zext nneg i32 %l.0 to i64
-  %arrayidx45 = getelementptr i8, ptr %buf, i64 %idxprom44
+  %arrayidx45 = getelementptr i8, ptr %buf, i64 1
   store i8 %conv42, ptr %arrayidx45, align 1
-  br label %if.end46
+  %cmp47 = icmp ugt i32 %len, 2
+  br i1 %cmp47, label %if.end54, label %sw.epilog
 
-if.end46:                                         ; preds = %if.then41, %if.end38
-  %l.1 = phi i32 [ %inc43, %if.then41 ], [ %l.0, %if.end38 ]
-  %cmp47 = icmp slt i32 %l.1, %len
-  br i1 %cmp47, label %if.then49, label %if.end54
-
-if.then49:                                        ; preds = %if.end46
+if.end54:                                         ; preds = %if.end46
   %conv50 = trunc i32 %dy.0 to i8
-  %inc51 = add nuw nsw i32 %l.1, 1
-  %idxprom52 = zext nneg i32 %l.1 to i64
-  %arrayidx53 = getelementptr i8, ptr %buf, i64 %idxprom52
+  %arrayidx53 = getelementptr i8, ptr %buf, i64 2
   store i8 %conv50, ptr %arrayidx53, align 1
-  br label %if.end54
-
-if.end54:                                         ; preds = %if.then49, %if.end46
-  %l.2 = phi i32 [ %inc51, %if.then49 ], [ %l.1, %if.end46 ]
-  %cmp55 = icmp slt i32 %l.2, %len
-  br i1 %cmp55, label %sw.epilog.sink.split, label %sw.epilog
+  %cmp55.not = icmp eq i32 %len, 3
+  br i1 %cmp55.not, label %sw.epilog, label %sw.epilog.sink.split
 
 sw.bb63:                                          ; preds = %if.end30
   %cmp64 = icmp sgt i32 %len, 0
-  br i1 %cmp64, label %if.then66, label %if.end72
+  br i1 %cmp64, label %if.end72, label %sw.epilog
 
-if.then66:                                        ; preds = %sw.bb63
+if.end72:                                         ; preds = %sw.bb63
   %buttons_state67 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %12 = load i32, ptr %buttons_state67, align 4
   %conv68 = trunc i32 %12 to i8
   store i8 %conv68, ptr %buf, align 1
-  br label %if.end72
+  %cmp73.not = icmp eq i32 %len, 1
+  br i1 %cmp73.not, label %sw.epilog, label %if.end81
 
-if.end72:                                         ; preds = %if.then66, %sw.bb63
-  %l.4 = phi i32 [ 1, %if.then66 ], [ 0, %sw.bb63 ]
-  %cmp73 = icmp slt i32 %l.4, %len
-  br i1 %cmp73, label %if.then75, label %if.end81
-
-if.then75:                                        ; preds = %if.end72
+if.end81:                                         ; preds = %if.end72
   %conv77 = trunc i32 %dx.0 to i8
-  %inc78 = add nuw nsw i32 %l.4, 1
-  %idxprom79 = zext nneg i32 %l.4 to i64
-  %arrayidx80 = getelementptr i8, ptr %buf, i64 %idxprom79
+  %arrayidx80 = getelementptr i8, ptr %buf, i64 1
   store i8 %conv77, ptr %arrayidx80, align 1
-  br label %if.end81
+  %cmp82 = icmp ugt i32 %len, 2
+  br i1 %cmp82, label %if.end89, label %sw.epilog
 
-if.end81:                                         ; preds = %if.then75, %if.end72
-  %l.5 = phi i32 [ %inc78, %if.then75 ], [ %l.4, %if.end72 ]
-  %cmp82 = icmp slt i32 %l.5, %len
-  br i1 %cmp82, label %if.then84, label %if.end89
-
-if.then84:                                        ; preds = %if.end81
+if.end89:                                         ; preds = %if.end81
   %shr = lshr i32 %dx.0, 8
   %conv85 = trunc i32 %shr to i8
-  %inc86 = add nuw nsw i32 %l.5, 1
-  %idxprom87 = zext nneg i32 %l.5 to i64
-  %arrayidx88 = getelementptr i8, ptr %buf, i64 %idxprom87
+  %arrayidx88 = getelementptr i8, ptr %buf, i64 2
   store i8 %conv85, ptr %arrayidx88, align 1
-  br label %if.end89
+  %cmp90.not = icmp eq i32 %len, 3
+  br i1 %cmp90.not, label %sw.epilog, label %if.end98
 
-if.end89:                                         ; preds = %if.then84, %if.end81
-  %l.6 = phi i32 [ %inc86, %if.then84 ], [ %l.5, %if.end81 ]
-  %cmp90 = icmp slt i32 %l.6, %len
-  br i1 %cmp90, label %if.then92, label %if.end98
-
-if.then92:                                        ; preds = %if.end89
+if.end98:                                         ; preds = %if.end89
   %conv94 = trunc i32 %dy.0 to i8
-  %inc95 = add nuw nsw i32 %l.6, 1
-  %idxprom96 = zext nneg i32 %l.6 to i64
-  %arrayidx97 = getelementptr i8, ptr %buf, i64 %idxprom96
+  %arrayidx97 = getelementptr i8, ptr %buf, i64 3
   store i8 %conv94, ptr %arrayidx97, align 1
-  br label %if.end98
-
-if.end98:                                         ; preds = %if.then92, %if.end89
-  %l.7 = phi i32 [ %inc95, %if.then92 ], [ %l.6, %if.end89 ]
-  %cmp99 = icmp slt i32 %l.7, %len
+  %cmp99 = icmp ugt i32 %len, 4
   br i1 %cmp99, label %if.then101, label %if.end107
 
 if.then101:                                       ; preds = %if.end98
   %shr102 = lshr i32 %dy.0, 8
   %conv103 = trunc i32 %shr102 to i8
-  %inc104 = add nuw nsw i32 %l.7, 1
-  %idxprom105 = zext nneg i32 %l.7 to i64
-  %arrayidx106 = getelementptr i8, ptr %buf, i64 %idxprom105
+  %arrayidx106 = getelementptr i8, ptr %buf, i64 4
   store i8 %conv103, ptr %arrayidx106, align 1
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then101, %if.end98
-  %l.8 = phi i32 [ %inc104, %if.then101 ], [ %l.7, %if.end98 ]
-  %cmp108 = icmp slt i32 %l.8, %len
-  br i1 %cmp108, label %sw.epilog.sink.split, label %sw.epilog
+  %l.8 = phi i32 [ 5, %if.then101 ], [ 4, %if.end98 ]
+  %cmp108 = icmp ugt i32 %len, %l.8
+  br i1 %cmp108, label %if.then110, label %sw.epilog
+
+if.then110:                                       ; preds = %if.end107
+  %inc112 = add nuw nsw i32 %l.8, 1
+  %13 = zext nneg i32 %l.8 to i64
+  br label %sw.epilog.sink.split
 
 sw.default:                                       ; preds = %if.end30
   tail call void @abort() #13
   unreachable
 
-sw.epilog.sink.split:                             ; preds = %if.end107, %if.end54
-  %l.8.sink77 = phi i32 [ %l.2, %if.end54 ], [ %l.8, %if.end107 ]
-  %13 = trunc nsw i32 %retval.0.i75 to i8
-  %conv111 = sub i8 0, %13
-  %inc112 = add nuw nsw i32 %l.8.sink77, 1
-  %idxprom113 = zext nneg i32 %l.8.sink77 to i64
-  %arrayidx114 = getelementptr i8, ptr %buf, i64 %idxprom113
-  store i8 %conv111, ptr %arrayidx114, align 1
+sw.epilog.sink.split:                             ; preds = %if.end54, %if.then110
+  %l.8.sink = phi i64 [ %13, %if.then110 ], [ 3, %if.end54 ]
+  %l.3.ph = phi i32 [ %inc112, %if.then110 ], [ 4, %if.end54 ]
+  %14 = trunc nsw i32 %retval.0.i75 to i8
+  %conv111.sink = sub i8 0, %14
+  %arrayidx114 = getelementptr i8, ptr %buf, i64 %l.8.sink
+  store i8 %conv111.sink, ptr %arrayidx114, align 1
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end107, %if.end54
-  %l.3 = phi i32 [ %l.8, %if.end107 ], [ %l.2, %if.end54 ], [ %inc112, %sw.epilog.sink.split ]
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end81, %if.end89, %if.end46, %sw.bb63, %if.end72, %sw.bb, %if.end38, %if.end107, %if.end54
+  %l.3 = phi i32 [ %l.8, %if.end107 ], [ 3, %if.end54 ], [ 0, %sw.bb ], [ 1, %if.end38 ], [ 0, %sw.bb63 ], [ 1, %if.end72 ], [ 2, %if.end46 ], [ 2, %if.end81 ], [ 3, %if.end89 ], [ %l.3.ph, %sw.epilog.sink.split ]
   ret i32 %l.3
 }
 

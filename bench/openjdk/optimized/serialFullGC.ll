@@ -4088,7 +4088,7 @@ define linkonce_odr hidden void @_ZN9Compacter25phase2_calculate_new_addrEv(ptr 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 216
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp ne ptr %16, %8
+  %17 = icmp ne ptr %8, %16
   %18 = load i32, ptr @MarkSweepDeadRatio, align 4
   %19 = zext i32 %18 to i64
   %.not58 = icmp eq i32 %18, 0
@@ -4228,7 +4228,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %58, %61, %68, %88
   %105 = ptrtoint ptr %103 to i64
   %106 = sub i64 %104, %105
   %107 = lshr i64 %106, 3
-  %.not9.i = icmp ult i64 %107, %.0.i1.i
+  %.not9.i = icmp ugt i64 %.0.i1.i, %107
   br i1 %.not9.i, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %96
@@ -4274,7 +4274,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %58, %61, %68, %88
   %133 = ptrtoint ptr %131 to i64
   %134 = sub i64 %132, %133
   %135 = lshr i64 %134, 3
-  %.not.i37 = icmp ult i64 %135, %.0.i1.i
+  %.not.i37 = icmp ugt i64 %.0.i1.i, %135
   br i1 %.not.i37, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
 
 _ZN9Compacter5allocEm.exit:                       ; preds = %._crit_edge.i, %110, %119
@@ -4428,7 +4428,7 @@ _ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit: ; preds = %_ZN9Comp
   %224 = ptrtoint ptr %222 to i64
   %225 = sub i64 %223, %224
   %226 = lshr i64 %225, 3
-  %.not9.i44 = icmp ult i64 %226, %213
+  %.not9.i44 = icmp ugt i64 %213, %226
   br i1 %.not9.i44, label %.lr.ph.i50, label %._crit_edge.i45
 
 ._crit_edge.i45:                                  ; preds = %.lr.ph.i50, %214
@@ -4474,7 +4474,7 @@ _ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit: ; preds = %_ZN9Comp
   %252 = ptrtoint ptr %250 to i64
   %253 = sub i64 %251, %252
   %254 = lshr i64 %253, 3
-  %.not.i51 = icmp ult i64 %254, %213
+  %.not.i51 = icmp ugt i64 %213, %254
   br i1 %.not.i51, label %.lr.ph.i50, label %._crit_edge.i45, !llvm.loop !13
 
 255:                                              ; preds = %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit, %209
@@ -5968,7 +5968,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -6018,7 +6018,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -6068,7 +6068,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -6162,7 +6162,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -6328,7 +6328,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -6378,7 +6378,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -6428,7 +6428,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -13610,7 +13610,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass32oop_oop_iterate_elements_bo
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %16, i64 %20
-  %22 = icmp ult ptr %16, %3
+  %22 = icmp ugt ptr %3, %16
   %spec.select = select i1 %22, ptr %3, ptr %16
   %23 = icmp ugt ptr %21, %4
   %.0 = select i1 %23, ptr %4, ptr %21
@@ -13725,7 +13725,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass32oop_oop_iterate_elements_bo
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds ptr, ptr %16, i64 %20
-  %22 = icmp ult ptr %16, %3
+  %22 = icmp ugt ptr %3, %16
   %spec.select = select i1 %22, ptr %3, ptr %16
   %23 = icmp ugt ptr %21, %4
   %.0 = select i1 %23, ptr %4, ptr %21

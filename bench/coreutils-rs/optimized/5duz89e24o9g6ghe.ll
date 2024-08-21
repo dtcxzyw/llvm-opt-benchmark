@@ -106,7 +106,7 @@ define hidden void @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drai
   %9 = add i64 %8, %6
   %10 = load i64, ptr %4, align 8, !noundef !4
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %19, %2

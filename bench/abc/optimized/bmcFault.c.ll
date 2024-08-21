@@ -931,13 +931,13 @@ define void @Cnf_AddCardinConstrPairWise(ptr noundef %0, ptr nocapture noundef %
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %7, align 4
-  %.not.i = icmp slt i32 %16, %.028
+  %.not.i = icmp sgt i32 %.028, %16
   br i1 %.not.i, label %17, label %Vec_IntFillExtra.exit
 
 17:                                               ; preds = %15
   %18 = load i32, ptr %1, align 8
   %19 = shl nsw i32 %18, 1
-  %20 = icmp slt i32 %19, %.028
+  %20 = icmp sgt i32 %.028, %19
   %.not.i.i = icmp slt i32 %18, %.028
   br i1 %20, label %21, label %33
 
@@ -7056,7 +7056,7 @@ Abc_Clock.exit280:                                ; preds = %Abc_Clock.exit278, 
 294:                                              ; preds = %293, %290
   %295 = load i32, ptr %62, align 4
   %296 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i32 noundef %295, i32 noundef %291)
-  %297 = mul nsw i32 %291, %3
+  %297 = mul nsw i32 %3, %291
   store i32 %297, ptr %15, align 4
   br label %423
 
@@ -7078,7 +7078,7 @@ Abc_Clock.exit280:                                ; preds = %Abc_Clock.exit278, 
 
 306:                                              ; preds = %305, %302
   %307 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %303)
-  %308 = mul nsw i32 %303, %3
+  %308 = mul nsw i32 %3, %303
   store i32 %308, ptr %15, align 4
   br label %423
 
@@ -7184,7 +7184,7 @@ Vec_IntPush.exit287:                              ; preds = %.Vec_IntGrow.exit10
 
 348:                                              ; preds = %347, %344
   %349 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %345)
-  %350 = mul nsw i32 %345, %3
+  %350 = mul nsw i32 %3, %345
   store i32 %350, ptr %15, align 4
   br label %423
 

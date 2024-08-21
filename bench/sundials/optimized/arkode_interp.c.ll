@@ -651,9 +651,9 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
 
 10:                                               ; preds = %6
   %11 = fmul double %2, %2
-  %12 = fmul double %11, %2
-  %13 = fmul double %12, %2
-  %14 = fmul double %13, %2
+  %12 = fmul double %2, %11
+  %13 = fmul double %2, %12
+  %14 = fmul double %2, %13
   %15 = load ptr, ptr %1, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 56
   %17 = load double, ptr %16, align 8
@@ -695,7 +695,7 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   br label %472
 
 40:                                               ; preds = %37
-  %41 = icmp slt i32 %., %3
+  %41 = icmp sgt i32 %3, %.
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %40
@@ -748,7 +748,7 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   %63 = fsub double 1.000000e+00, %11
   %64 = getelementptr inbounds i8, ptr %7, i64 8
   store double %63, ptr %64, align 8
-  %65 = fadd double %11, %2
+  %65 = fadd double %2, %11
   %66 = fmul double %65, %17
   br label %80
 
@@ -818,7 +818,7 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   br label %135
 
 105:                                              ; preds = %92
-  %106 = fadd double %11, %2
+  %106 = fadd double %2, %11
   %107 = fmul double %106, 6.000000e+00
   %108 = fdiv double %107, %17
   store double %108, ptr %7, align 16
@@ -971,7 +971,7 @@ arkInterpEvaluate.exit:                           ; preds = %43
   store double %207, ptr %208, align 8
   %209 = fmul double %11, 3.000000e+00
   %210 = tail call double @llvm.fmuladd.f64(double %12, double 2.000000e+00, double %209)
-  %211 = fadd double %210, %2
+  %211 = fadd double %2, %210
   %212 = fmul double %211, -1.350000e+01
   br label %252
 
@@ -2121,7 +2121,7 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Lagrange(ptr noundef %0, ptr noc
   br label %175
 
 22:                                               ; preds = %10
-  %23 = icmp slt i32 %20, %3
+  %23 = icmp sgt i32 %3, %20
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %22

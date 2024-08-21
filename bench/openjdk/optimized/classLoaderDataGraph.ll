@@ -1180,7 +1180,7 @@ define hidden noundef zeroext i1 @_ZN20ClassLoaderDataGraph8is_validEP15ClassLoa
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  %4 = icmp eq ptr %3, %0
+  %4 = icmp eq ptr %0, %3
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
@@ -1196,7 +1196,7 @@ define hidden noundef zeroext i1 @_ZN20ClassLoaderDataGraph8is_validEP15ClassLoa
 
 .lr.ph:                                           ; preds = %.preheader, %5
   %.012 = phi ptr [ %.0, %5 ], [ %.010, %.preheader ]
-  %7 = icmp eq ptr %.012, %0
+  %7 = icmp eq ptr %0, %.012
   br i1 %7, label %.loopexit, label %5
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %.preheader, %1, %2

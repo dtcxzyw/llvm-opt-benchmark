@@ -346,12 +346,12 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
   %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i27
-  %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %agg.tmp103.sroa.0.0.copyload
+  %cmp1.i.i.i = icmp sgt i64 %agg.tmp103.sroa.0.0.copyload, %sub.i.i.i
   br i1 %cmp1.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end11.i.i
   %sub3.i.i.i = sub nsw i64 -9223372036854775808, %call.i27
-  %cmp4.i.i.i = icmp sgt i64 %sub3.i.i.i, %agg.tmp103.sroa.0.0.copyload
+  %cmp4.i.i.i = icmp slt i64 %agg.tmp103.sroa.0.0.copyload, %sub3.i.i.i
   br i1 %cmp4.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i

@@ -108,7 +108,7 @@ define noundef i32 @_Z25dtMergeCorridorStartMovedPjiiPKji(ptr nocapture noundef 
   %indvars.iv72 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next73, %.lr.ph ]
   %42 = trunc i64 %indvars.iv72 to i32
   %43 = xor i32 %42, -1
-  %44 = add i32 %43, %4
+  %44 = add i32 %4, %43
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i32, ptr %3, i64 %45
   %47 = load i32, ptr %46, align 4
@@ -1381,7 +1381,7 @@ define void @_ZN14dtPathCorridor11setCorridorEPKfPKji(ptr nocapture noundef nonn
   %17 = icmp ne ptr %16, null
   %18 = getelementptr inbounds i8, ptr %0, i64 36
   %19 = load i32, ptr %18, align 4
-  %.not15 = icmp slt i32 %19, %3
+  %.not15 = icmp sgt i32 %3, %19
   %or.cond19 = select i1 %17, i1 %.not15, i1 false
   br i1 %or.cond19, label %20, label %21
 

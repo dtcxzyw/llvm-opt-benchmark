@@ -2456,14 +2456,14 @@ if.end71.i:                                       ; preds = %if.then60.i, %if.th
   %29 = load ptr, ptr %buffer4.i.i, align 8
   %add.ptr.i.i = getelementptr %struct.st_sample, ptr %29, i64 %rem.i.i
   %sub.i.i = sub i64 %27, %rem.i.i
-  %cond.i56.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %cond21.i)
+  %cond.i56.i = tail call i64 @llvm.umin.i64(i64 %cond21.i, i64 %sub.i.i)
   store i64 %cond.i56.i, ptr %frames_out.i.i, align 8
   %30 = load ptr, ptr %rate.i, align 8
   call void @st_rate_flow_mix(ptr noundef %30, ptr noundef %28, ptr noundef %add.ptr.i.i, ptr noundef nonnull %frames_in.i.i, ptr noundef nonnull %frames_out.i.i) #24
   %31 = load i64, ptr %frames_out.i.i, align 8
   %32 = load i64, ptr %frames_in.i.i, align 8
   %sub8.i.i = sub i64 %cond41.i, %32
-  %cmp9.not.i.i = icmp eq i64 %32, %cond41.i
+  %cmp9.not.i.i = icmp eq i64 %cond41.i, %32
   br i1 %cmp9.not.i.i, label %audio_pcm_sw_resample_out.exit.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end71.i
@@ -2643,7 +2643,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %14 = load ptr, ptr %buffer.i.i, align 8
   %add.ptr.i.i = getelementptr %struct.st_sample, ptr %14, i64 %cond.i.i.i
   %sub6.i.i = sub i64 %9, %cond.i.i.i
-  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub6.i.i, i64 %sub.i)
+  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub6.i.i)
   store i64 %cond.i.i, ptr %frames_in.i.i, align 8
   %buffer7.i.i = getelementptr inbounds i8, ptr %sw, i64 80
   %15 = load ptr, ptr %buffer7.i.i, align 8
@@ -2654,7 +2654,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %17 = load i64, ptr %frames_in.i.i, align 8
   %18 = load i64, ptr %frames_out.i.i, align 8
   %sub8.i.i = sub i64 %sub.i, %17
-  %tobool.not.i19.i = icmp eq i64 %17, %sub.i
+  %tobool.not.i19.i = icmp eq i64 %sub.i, %17
   br i1 %tobool.not.i19.i, label %audio_pcm_sw_resample_in.exit.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end6.i
@@ -3705,14 +3705,14 @@ while.body.i113.i:                                ; preds = %if.end.i126.i, %whi
   %81 = load ptr, ptr %buffer4.i.i.i, align 8
   %add.ptr.i.i119.i = getelementptr %struct.st_sample, ptr %81, i64 %rem.i.i118.i
   %sub.i.i120.i = sub i64 %79, %rem.i.i118.i
-  %cond.i.i121.i = call i64 @llvm.umin.i64(i64 %sub.i.i120.i, i64 %sub11.i.i)
+  %cond.i.i121.i = call i64 @llvm.umin.i64(i64 %sub11.i.i, i64 %sub.i.i120.i)
   store i64 %cond.i.i121.i, ptr %frames_out.i.i.i, align 8
   %82 = load ptr, ptr %rate.i.i.i, align 8
   call void @st_rate_flow_mix(ptr noundef %82, ptr noundef %add.ptr.i.i, ptr noundef %add.ptr.i.i119.i, ptr noundef nonnull %frames_in.i.i.i, ptr noundef nonnull %frames_out.i.i.i) #24
   %83 = load i64, ptr %frames_out.i.i.i, align 8
   %84 = load i64, ptr %frames_in.i.i.i, align 8
   %sub8.i.i.i = sub i64 %cond.i115.i, %84
-  %cmp9.not.i.i.i = icmp eq i64 %84, %cond.i115.i
+  %cmp9.not.i.i.i = icmp eq i64 %cond.i115.i, %84
   br i1 %cmp9.not.i.i.i, label %audio_pcm_sw_resample_out.exit.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %while.body.i113.i
@@ -3770,7 +3770,7 @@ for.inc.i.i:                                      ; preds = %if.end.i126.i, %if.
 audio_capture_mix_and_clear.exit.i:               ; preds = %for.inc.i.i, %if.then.i109.i, %if.then132.i
   %92 = load i64, ptr %size69.i, align 8
   %sub25.i.i = sub i64 %92, %47
-  %cond32.i.i = call i64 @llvm.umin.i64(i64 %sub25.i.i, i64 %72)
+  %cond32.i.i = call i64 @llvm.umin.i64(i64 %72, i64 %sub25.i.i)
   %93 = load ptr, ptr %buffer.i.i.i, align 8
   %add.ptr35.i.i = getelementptr %struct.st_sample, ptr %93, i64 %47
   %conv36.i.i = trunc i64 %cond32.i.i to i32
@@ -4464,7 +4464,7 @@ define dso_local void @audio_generic_put_buffer_in(ptr nocapture noundef %hw, pt
 entry:
   %pending_emul = getelementptr inbounds i8, ptr %hw, i64 112
   %0 = load i64, ptr %pending_emul, align 8
-  %cmp.not = icmp ult i64 %0, %size
+  %cmp.not = icmp ugt i64 %size, %0
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
@@ -4610,7 +4610,7 @@ entry:
   %pos_emul = getelementptr inbounds i8, ptr %hw, i64 96
   %1 = load i64, ptr %pos_emul, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 %1
-  %cmp = icmp eq ptr %add.ptr, %buf
+  %cmp = icmp eq ptr %buf, %add.ptr
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
@@ -4647,7 +4647,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call i64 %1(ptr noundef nonnull %hw) #24
-  %cond = tail call i64 @llvm.umin.i64(i64 %call, i64 %size)
+  %cond = tail call i64 @llvm.umin.i64(i64 %size, i64 %call)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

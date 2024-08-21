@@ -2374,7 +2374,7 @@ _ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   call void @llvm.memset.p0.i64(ptr align 8 %224, i8 0, i64 %226, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %227 = load ptr, ptr %2, align 8
-  %228 = icmp eq ptr %10, %227
+  %228 = icmp eq ptr %227, %10
   br i1 %228, label %_ZNSt13unordered_mapIjSt4pairImmESt4hashIjESt8equal_toIjESaIS0_IKjS1_EEED2Ev.exit, label %229
 
 229:                                              ; preds = %_ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -2448,7 +2448,7 @@ _ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = icmp eq ptr %10, %9
+  %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -3937,7 +3937,7 @@ _ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit:      ; preds = %125, %134
 139:                                              ; preds = %.preheader
   %140 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %141 = load ptr, ptr %140, align 8
-  %142 = icmp eq ptr %141, %130
+  %142 = icmp eq ptr %130, %141
   br i1 %142, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i, label %.preheader, !llvm.loop !24
 
 143:                                              ; preds = %_ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit
@@ -3954,11 +3954,11 @@ _ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit:      ; preds = %125, %134
   %151 = load ptr, ptr %149, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 8
   %153 = load ptr, ptr %152, align 8
-  %154 = icmp eq ptr %153, %130
+  %154 = icmp eq ptr %130, %153
   br i1 %154, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i, label %.lr.ph.i.i.i.i.i
 
 155:                                              ; preds = %158
-  %156 = icmp eq ptr %160, %130
+  %156 = icmp eq ptr %130, %160
   br i1 %156, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %150, %155
@@ -4101,7 +4101,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK11V3ExecGraph14ThreadSchedule23cr
 8:                                                ; preds = %7
   %9 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i, label %7, !llvm.loop !24
 
 12:                                               ; preds = %2
@@ -4120,11 +4120,11 @@ define linkonce_odr dso_local noundef i32 @_ZNK11V3ExecGraph14ThreadSchedule23cr
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, %1
+  %25 = icmp eq ptr %1, %24
   br i1 %25, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i, label %.lr.ph.i.i.i.i.i
 
 26:                                               ; preds = %29
-  %27 = icmp eq ptr %31, %1
+  %27 = icmp eq ptr %1, %31
   br i1 %27, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %21, %26
@@ -4196,7 +4196,7 @@ _ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit:      ; preds = %41, %50
 55:                                               ; preds = %.preheader
   %56 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i36, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, %46
+  %58 = icmp eq ptr %46, %57
   br i1 %58, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i33, label %.preheader, !llvm.loop !24
 
 59:                                               ; preds = %_ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit
@@ -4213,11 +4213,11 @@ _ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit:      ; preds = %41, %50
   %67 = load ptr, ptr %65, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, %46
+  %70 = icmp eq ptr %46, %69
   br i1 %70, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i33, label %.lr.ph.i.i.i.i.i29
 
 71:                                               ; preds = %74
-  %72 = icmp eq ptr %76, %46
+  %72 = icmp eq ptr %46, %76
   br i1 %72, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i33, label %.lr.ph.i.i.i.i.i29, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %66, %71
@@ -4630,7 +4630,7 @@ define dso_local void @_ZN11V3ExecGraph21createThreadFunctionsERKNS_14ThreadSche
 43:                                               ; preds = %.preheader
   %44 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, %41
+  %46 = icmp eq ptr %41, %45
   br i1 %46, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i, label %.preheader, !llvm.loop !24
 
 47:                                               ; preds = %40
@@ -4647,11 +4647,11 @@ define dso_local void @_ZN11V3ExecGraph21createThreadFunctionsERKNS_14ThreadSche
   %55 = load ptr, ptr %53, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, %41
+  %58 = icmp eq ptr %41, %57
   br i1 %58, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i, label %.lr.ph.i.i.i.i.i
 
 59:                                               ; preds = %62
-  %60 = icmp eq ptr %64, %41
+  %60 = icmp eq ptr %41, %64
   br i1 %60, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %54, %59
@@ -7362,7 +7362,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %12, %.loopexit.i.i
   %29 = sub i64 %27, %28
   %30 = ashr exact i64 %29, 3
   %31 = ashr exact i64 %29, 2
-  %32 = icmp ult i64 %30, %31
+  %32 = icmp ugt i64 %31, %30
   br i1 %32, label %33, label %64
 
 33:                                               ; preds = %26
@@ -7445,7 +7445,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   br label %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i"
 
 64:                                               ; preds = %26
-  %65 = icmp ugt i64 %30, %31
+  %65 = icmp ult i64 %31, %30
   %66 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %31
   %spec.select.i = select i1 %65, ptr %66, ptr %.sroa.12.0.i
   br label %"_ZZN7AstNode11foreachImplI12AstExecGraphZN11V3ExecGraph9implementEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i"
@@ -8045,7 +8045,7 @@ _ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %230, i8 0, i64 16, i1 false)
   %236 = load ptr, ptr %0, align 8
   %237 = getelementptr inbounds i8, ptr %0, i64 48
-  %238 = icmp eq ptr %237, %236
+  %238 = icmp eq ptr %236, %237
   br i1 %238, label %_ZNSt13unordered_mapIjSt4pairImmESt4hashIjESt8equal_toIjESaIS0_IKjS1_EEED2Ev.exit, label %239
 
 239:                                              ; preds = %_ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -8591,7 +8591,7 @@ _ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %464, i8 0, i64 16, i1 false)
   %470 = load ptr, ptr %5, align 8
   %471 = getelementptr inbounds i8, ptr %5, i64 48
-  %472 = icmp eq ptr %471, %470
+  %472 = icmp eq ptr %470, %471
   br i1 %472, label %_ZNSt13unordered_mapIjSt4pairImmESt4hashIjESt8equal_toIjESaIS0_IKjS1_EEED2Ev.exit216, label %473
 
 473:                                              ; preds = %_ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i215
@@ -8980,11 +8980,11 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit123: ; preds = %36
   %171 = load ptr, ptr %169, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 8
   %173 = load ptr, ptr %172, align 8
-  %174 = icmp eq ptr %173, %11
+  %174 = icmp eq ptr %11, %173
   br i1 %174, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit.thread173, label %.lr.ph.i.i.i.i.i
 
 175:                                              ; preds = %178
-  %176 = icmp eq ptr %180, %11
+  %176 = icmp eq ptr %11, %180
   br i1 %176, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %170, %175
@@ -9062,11 +9062,11 @@ _ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit.thread: ; preds = %
   %207 = load ptr, ptr %205, align 8
   %208 = getelementptr inbounds i8, ptr %207, i64 8
   %209 = load ptr, ptr %208, align 8
-  %210 = icmp eq ptr %209, %18
+  %210 = icmp eq ptr %18, %209
   br i1 %210, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit135.thread177, label %.lr.ph.i.i.i.i.i126
 
 211:                                              ; preds = %214
-  %212 = icmp eq ptr %216, %18
+  %212 = icmp eq ptr %18, %216
   br i1 %212, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit135, label %.lr.ph.i.i.i.i.i126, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i126:                              ; preds = %206, %211
@@ -9128,11 +9128,11 @@ _ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit135.thread: ; preds 
   %236 = load ptr, ptr %234, align 8
   %237 = getelementptr inbounds i8, ptr %236, i64 8
   %238 = load ptr, ptr %237, align 8
-  %239 = icmp eq ptr %238, %25
+  %239 = icmp eq ptr %25, %238
   br i1 %239, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit147, label %.lr.ph.i.i.i.i.i138
 
 240:                                              ; preds = %243
-  %241 = icmp eq ptr %245, %25
+  %241 = icmp eq ptr %25, %245
   br i1 %241, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit147, label %.lr.ph.i.i.i.i.i138, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i138:                              ; preds = %235, %240
@@ -9385,7 +9385,7 @@ _ZNSt10_HashtableIPK9ExecMTaskSt4pairIKS2_N11V3ExecGraph14ThreadSchedule10MTaskS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %345, i8 0, i64 16, i1 false)
   %352 = load ptr, ptr %149, align 8
   %353 = getelementptr inbounds i8, ptr %6, i64 72
-  %354 = icmp eq ptr %353, %352
+  %354 = icmp eq ptr %352, %353
   br i1 %354, label %_ZNSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEED2Ev.exit.i, label %355
 
 355:                                              ; preds = %_ZNSt10_HashtableIPK9ExecMTaskSt4pairIKS2_N11V3ExecGraph14ThreadSchedule10MTaskStateEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -9825,7 +9825,7 @@ _ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = icmp eq ptr %10, %9
+  %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
@@ -11420,7 +11420,7 @@ _ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit:      ; preds = %.noexc142, %.noexc1
 
 select.unfold.i.i:                                ; preds = %69, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %69 ]
-  %73 = icmp eq ptr %36, %.sroa.4.0.i.ph.i.i
+  %73 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %36
   br i1 %73, label %_ZNSt8_Rb_treeIP9ExecMTaskS1_St9_IdentityIS1_EN11V3ExecGraph11PackThreads8MTaskCmpESaIS1_EE10_M_insert_IRKS1_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %74
 
 74:                                               ; preds = %select.unfold.i.i
@@ -12208,7 +12208,7 @@ _ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit191:   ; preds = %.noexc186, %.noexc1
 378:                                              ; preds = %.preheader
   %379 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %380 = load ptr, ptr %379, align 8
-  %381 = icmp eq ptr %380, %369
+  %381 = icmp eq ptr %369, %380
   br i1 %381, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit, label %.preheader, !llvm.loop !24
 
 382:                                              ; preds = %_ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit191
@@ -12225,11 +12225,11 @@ _ZN13V3GraphVertex2asI9ExecMTaskEEPT_v.exit191:   ; preds = %.noexc186, %.noexc1
   %390 = load ptr, ptr %388, align 8
   %391 = getelementptr inbounds i8, ptr %390, i64 8
   %392 = load ptr, ptr %391, align 8
-  %393 = icmp eq ptr %392, %369
+  %393 = icmp eq ptr %369, %392
   br i1 %393, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit, label %.lr.ph.i.i.i.i.i
 
 394:                                              ; preds = %397
-  %395 = icmp eq ptr %399, %369
+  %395 = icmp eq ptr %369, %399
   br i1 %395, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %389, %394
@@ -12371,7 +12371,7 @@ _ZN13V3GraphVertex2asIK9ExecMTaskEEPT_v.exit.i:   ; preds = %.noexc201, %.noexc1
 445:                                              ; preds = %.preheader.i
   %446 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %447 = load ptr, ptr %446, align 8
-  %448 = icmp eq ptr %447, %436
+  %448 = icmp eq ptr %436, %447
   br i1 %448, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit.i, label %.preheader.i, !llvm.loop !24
 
 449:                                              ; preds = %_ZN13V3GraphVertex2asIK9ExecMTaskEEPT_v.exit.i
@@ -12388,11 +12388,11 @@ _ZN13V3GraphVertex2asIK9ExecMTaskEEPT_v.exit.i:   ; preds = %.noexc201, %.noexc1
   %457 = load ptr, ptr %455, align 8
   %458 = getelementptr inbounds i8, ptr %457, i64 8
   %459 = load ptr, ptr %458, align 8
-  %460 = icmp eq ptr %459, %436
+  %460 = icmp eq ptr %436, %459
   br i1 %460, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 461:                                              ; preds = %464
-  %462 = icmp eq ptr %466, %436
+  %462 = icmp eq ptr %436, %466
   br i1 %462, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %456, %461
@@ -12467,7 +12467,7 @@ _ZN11V3ExecGraph11PackThreads7isReadyERNS_14ThreadScheduleEPK9ExecMTask.exit: ; 
 
 select.unfold.i.i219:                             ; preds = %484, %._crit_edge.thread.i.i.i222
   %.sroa.4.0.i.ph.i.i220 = phi ptr [ %.019.lcssa28.i.i.i223, %._crit_edge.thread.i.i.i222 ], [ %.019.lcssa29.i.i.i213, %484 ]
-  %488 = icmp eq ptr %36, %.sroa.4.0.i.ph.i.i220
+  %488 = icmp eq ptr %.sroa.4.0.i.ph.i.i220, %36
   br i1 %488, label %_ZNSt8_Rb_treeIP9ExecMTaskS1_St9_IdentityIS1_EN11V3ExecGraph11PackThreads8MTaskCmpESaIS1_EE10_M_insert_IRKS1_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i221, label %489
 
 489:                                              ; preds = %select.unfold.i.i219
@@ -12791,7 +12791,7 @@ _ZNSt10_HashtableIPK9ExecMTaskSt4pairIKS2_N11V3ExecGraph14ThreadSchedule10MTaskS
   call void @llvm.memset.p0.i64(ptr align 8 %579, i8 0, i64 %581, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %582 = load ptr, ptr %27, align 8
-  %583 = icmp eq ptr %28, %582
+  %583 = icmp eq ptr %582, %28
   br i1 %583, label %_ZNSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEED2Ev.exit.i, label %584
 
 584:                                              ; preds = %_ZNSt10_HashtableIPK9ExecMTaskSt4pairIKS2_N11V3ExecGraph14ThreadSchedule10MTaskStateEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -12860,7 +12860,7 @@ define linkonce_odr dso_local noundef i32 @_ZN11V3ExecGraph11PackThreads14comple
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %2
+  %15 = icmp eq ptr %2, %14
   br i1 %15, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE2atERSB_.exit, label %11, !llvm.loop !24
 
 16:                                               ; preds = %4
@@ -12879,11 +12879,11 @@ define linkonce_odr dso_local noundef i32 @_ZN11V3ExecGraph11PackThreads14comple
   %26 = load ptr, ptr %24, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %2
+  %29 = icmp eq ptr %2, %28
   br i1 %29, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE2atERSB_.exit, label %.lr.ph.i.i.i.i.i
 
 30:                                               ; preds = %33
-  %31 = icmp eq ptr %35, %2
+  %31 = icmp eq ptr %2, %35
   br i1 %31, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE2atERSB_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %25, %30
@@ -12920,7 +12920,7 @@ _ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4
 
 44:                                               ; preds = %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE2atERSB_.exit
   %45 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 16
-  %46 = icmp eq i32 %39, %3
+  %46 = icmp eq i32 %3, %39
   %47 = load i32, ptr %45, align 8
   br i1 %46, label %92, label %48
 
@@ -13042,7 +13042,7 @@ _ZNSt10_HashtableIPK9ExecMTaskSt4pairIKS2_N11V3ExecGraph14ThreadSchedule10MTaskS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 72
-  %12 = icmp eq ptr %11, %10
+  %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZNSt10_HashtableIPK9ExecMTaskSt4pairIKS2_N11V3ExecGraph14ThreadSchedule10MTaskStateEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -13140,7 +13140,7 @@ _ZN13V3GraphVertex2asIK9ExecMTaskEEPT_v.exit:     ; preds = %10, %19
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, %15
+  %27 = icmp eq ptr %15, %26
   br i1 %27, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit, label %.preheader, !llvm.loop !24
 
 28:                                               ; preds = %_ZN13V3GraphVertex2asIK9ExecMTaskEEPT_v.exit
@@ -13157,11 +13157,11 @@ _ZN13V3GraphVertex2asIK9ExecMTaskEEPT_v.exit:     ; preds = %10, %19
   %36 = load ptr, ptr %34, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, %15
+  %39 = icmp eq ptr %15, %38
   br i1 %39, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit, label %.lr.ph.i.i.i.i.i
 
 40:                                               ; preds = %43
-  %41 = icmp eq ptr %45, %15
+  %41 = icmp eq ptr %15, %45
   br i1 %41, label %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %35, %40
@@ -13431,7 +13431,7 @@ _ZNSt10_HashtableIPK9ExecMTaskSt4pairIKS2_N11V3ExecGraph14ThreadSchedule10MTaskS
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIPK9ExecMTaskSt4pairIKS2_N11V3ExecGraph14ThreadSchedule10MTaskStateEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIPK9ExecMTaskSt4pairIKS2_N11V3ExecGraph14ThreadSchedule10MTaskStateEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -13531,8 +13531,8 @@ _ZNSt8_Rb_treeIP9ExecMTaskS1_St9_IdentityIS1_EN11V3ExecGraph11PackThreads8MTaskC
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, %.sroa.037.0.i
-  %38 = icmp eq ptr %4, %.sroa.3.0.i
+  %37 = icmp eq ptr %.sroa.037.0.i, %36
+  %38 = icmp eq ptr %.sroa.3.0.i, %4
   %or.cond = select i1 %37, i1 %38, i1 false
   br i1 %or.cond, label %39, label %.critedge.i
 
@@ -14053,7 +14053,7 @@ define linkonce_odr dso_local void @_ZZNK11V3ExecGraph14ThreadSchedule11dumpDotF
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, %1
+  %24 = icmp eq ptr %1, %23
   br i1 %24, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i, label %20, !llvm.loop !24
 
 25:                                               ; preds = %2
@@ -14072,11 +14072,11 @@ define linkonce_odr dso_local void @_ZZNK11V3ExecGraph14ThreadSchedule11dumpDotF
   %35 = load ptr, ptr %33, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %1
+  %38 = icmp eq ptr %1, %37
   br i1 %38, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i, label %.lr.ph.i.i.i.i.i
 
 39:                                               ; preds = %42
-  %40 = icmp eq ptr %44, %1
+  %40 = icmp eq ptr %1, %44
   br i1 %40, label %_ZNKSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %34, %39
@@ -14132,7 +14132,7 @@ _ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit: ; preds = %.lr.ph.
 68:                                               ; preds = %67
   %69 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i, i64 8
   %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, %1
+  %71 = icmp eq ptr %1, %70
   br i1 %71, label %_ZZNK11V3ExecGraph14ThreadSchedule11dumpDotFileERK7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlPK9ExecMTaskdE_clESE_d.exit, label %67, !llvm.loop !24
 
 72:                                               ; preds = %_ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit
@@ -14151,11 +14151,11 @@ _ZNK11V3ExecGraph14ThreadSchedule8threadIdEPK9ExecMTask.exit: ; preds = %.lr.ph.
   %82 = load ptr, ptr %80, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = icmp eq ptr %84, %1
+  %85 = icmp eq ptr %1, %84
   br i1 %85, label %_ZZNK11V3ExecGraph14ThreadSchedule11dumpDotFileERK7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlPK9ExecMTaskdE_clESE_d.exit, label %.lr.ph.i.i.i.i.i.i.i
 
 86:                                               ; preds = %89
-  %87 = icmp eq ptr %91, %1
+  %87 = icmp eq ptr %1, %91
   br i1 %87, label %_ZZNK11V3ExecGraph14ThreadSchedule11dumpDotFileERK7V3GraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlPK9ExecMTaskdE_clESE_d.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %81, %86
@@ -14219,7 +14219,7 @@ _ZZNK11V3ExecGraph14ThreadSchedule11dumpDotFileERK7V3GraphRKNSt7__cxx1112basic_s
 115:                                              ; preds = %114
   %116 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %117 = load ptr, ptr %116, align 8
-  %118 = icmp eq ptr %117, %1
+  %118 = icmp eq ptr %1, %117
   br i1 %118, label %.loopexit64, label %114, !llvm.loop !24
 
 119:                                              ; preds = %110
@@ -14238,11 +14238,11 @@ _ZZNK11V3ExecGraph14ThreadSchedule11dumpDotFileERK7V3GraphRKNSt7__cxx1112basic_s
   %129 = load ptr, ptr %127, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8
-  %132 = icmp eq ptr %131, %1
+  %132 = icmp eq ptr %1, %131
   br i1 %132, label %.loopexit64, label %.lr.ph.i.i.i.i.i.i
 
 133:                                              ; preds = %136
-  %134 = icmp eq ptr %138, %1
+  %134 = icmp eq ptr %1, %138
   br i1 %134, label %.loopexit64, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %128, %133
@@ -14338,7 +14338,7 @@ _ZZNK11V3ExecGraph14ThreadSchedule11dumpDotFileERK7V3GraphRKNSt7__cxx1112basic_s
 168:                                              ; preds = %167
   %169 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i50, i64 8
   %170 = load ptr, ptr %169, align 8
-  %171 = icmp eq ptr %170, %1
+  %171 = icmp eq ptr %1, %170
   br i1 %171, label %.loopexit, label %167, !llvm.loop !24
 
 172:                                              ; preds = %163
@@ -14357,11 +14357,11 @@ _ZZNK11V3ExecGraph14ThreadSchedule11dumpDotFileERK7V3GraphRKNSt7__cxx1112basic_s
   %182 = load ptr, ptr %180, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 8
   %184 = load ptr, ptr %183, align 8
-  %185 = icmp eq ptr %184, %1
+  %185 = icmp eq ptr %1, %184
   br i1 %185, label %.loopexit, label %.lr.ph.i.i.i.i.i.i43
 
 186:                                              ; preds = %189
-  %187 = icmp eq ptr %191, %1
+  %187 = icmp eq ptr %1, %191
   br i1 %187, label %.loopexit, label %.lr.ph.i.i.i.i.i.i43, !llvm.loop !25
 
 .lr.ph.i.i.i.i.i.i43:                             ; preds = %181, %186
@@ -14912,7 +14912,7 @@ _ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIjSt4pairIKjS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -15059,7 +15059,7 @@ _ZNSt10_HashtableIPK9ExecMTaskSt4pairIKS2_N11V3ExecGraph14ThreadSchedule10MTaskS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %25 = load ptr, ptr %17, align 8
   %26 = getelementptr inbounds i8, ptr %4, i64 72
-  %27 = icmp eq ptr %26, %25
+  %27 = icmp eq ptr %25, %26
   br i1 %27, label %_ZNSt13unordered_mapIPK9ExecMTaskN11V3ExecGraph14ThreadSchedule10MTaskStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEED2Ev.exit.i.i, label %28
 
 28:                                               ; preds = %_ZNSt10_HashtableIPK9ExecMTaskSt4pairIKS2_N11V3ExecGraph14ThreadSchedule10MTaskStateEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i

@@ -1768,7 +1768,7 @@ entry:
   store float %sub, ptr %m_nothing_to_send_pause_timer, align 4, !tbaa !90
   %m_map_send_completion_timer = getelementptr inbounds i8, ptr %this, i64 536
   %1 = load float, ptr %m_map_send_completion_timer, align 8, !tbaa !104
-  %add = fadd nsz float %1, %dtime
+  %add = fadd nsz float %dtime, %1
   store float %add, ptr %m_map_send_completion_timer, align 8, !tbaa !104
   %2 = load ptr, ptr @g_settings, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #32
@@ -2096,7 +2096,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %82 = load i16, ptr %m_max_simul_sends, align 4, !tbaa !60
   %m_time_from_building = getelementptr inbounds i8, ptr %this, i64 60
   %83 = load float, ptr %m_time_from_building, align 4, !tbaa !49
-  %add75 = fadd nsz float %83, %dtime
+  %add75 = fadd nsz float %dtime, %83
   store float %add75, ptr %m_time_from_building, align 4, !tbaa !49
   %m_min_time_from_building = getelementptr inbounds i8, ptr %this, i64 344
   %84 = load float, ptr %m_min_time_from_building, align 8, !tbaa !61
@@ -6005,7 +6005,7 @@ entry:
   %ref.tmp44 = alloca %"class.std::__cxx11::basic_string", align 8
   %m_print_info_timer = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load float, ptr %m_print_info_timer, align 8, !tbaa !299
-  %add = fadd nsz float %0, %dtime
+  %add = fadd nsz float %dtime, %0
   store float %add, ptr %m_print_info_timer, align 8, !tbaa !299
   %cmp = fcmp nsz ult float %add, 3.000000e+01
   br i1 %cmp, label %if.end, label %if.then
@@ -6018,7 +6018,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %m_check_linger_timer = getelementptr inbounds i8, ptr %this, i64 148
   %1 = load float, ptr %m_check_linger_timer, align 4, !tbaa !305
-  %add4 = fadd nsz float %1, %dtime
+  %add4 = fadd nsz float %dtime, %1
   store float %add4, ptr %m_check_linger_timer, align 4, !tbaa !305
   %cmp6 = fcmp nsz olt float %add4, 1.000000e+00
   br i1 %cmp6, label %return, label %if.end8

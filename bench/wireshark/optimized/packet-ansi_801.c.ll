@@ -1572,7 +1572,7 @@ define internal void @for_pr_gps_sat_health(ptr noundef %0, ptr noundef %1, ptr 
   %.2 = phi i32 [ %36, %32 ], [ %.0, %.loopexit ]
   %38 = lshr i32 %.2, 3
   %39 = sub i32 %38, %4
-  %40 = icmp ult i32 %39, %3
+  %40 = icmp ugt i32 %3, %39
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
@@ -1838,7 +1838,7 @@ define internal fastcc void @pr_loc_response(ptr noundef %0, ptr noundef %1, ptr
   %.3 = phi i32 [ %180, %176 ], [ %.2186, %174 ]
   %182 = lshr i32 %.3, 3
   %183 = sub i32 %182, %4
-  %184 = icmp ult i32 %183, %3
+  %184 = icmp ugt i32 %3, %183
   br i1 %184, label %185, label %188
 
 185:                                              ; preds = %181

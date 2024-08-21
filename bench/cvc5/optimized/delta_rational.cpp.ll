@@ -290,7 +290,7 @@ invoke.cont18:                                    ; preds = %_ZN4cvc58internal8R
 invoke.cont22:                                    ; preds = %invoke.cont18
   %call.i.i.i24 = call i32 @__gmpq_cmp(ptr noundef nonnull %ratio, ptr noundef nonnull %res) #13
   %cmp.i.i.i25 = icmp sgt i32 %call.i.i.i24, -1
-  %cmp.i26 = icmp eq ptr %ratio, %res
+  %cmp.i26 = icmp eq ptr %res, %ratio
   %or.cond = or i1 %cmp.i26, %cmp.i.i.i25
   br i1 %or.cond, label %if.end, label %if.end.i
 

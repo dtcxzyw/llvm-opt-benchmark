@@ -173,7 +173,7 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
 63:                                               ; preds = %59
   %64 = call i32 @mca_common_ompio_file_get_position(ptr noundef nonnull %8, ptr noundef nonnull %6) #9
   %65 = load i64, ptr %5, align 8
-  %spec.select = call i64 @llvm.smin.i64(i64 %65, i64 %1)
+  %spec.select = call i64 @llvm.smin.i64(i64 %1, i64 %65)
   %66 = add nsw i64 %spec.select, 33554431
   %67 = sdiv i64 %66, 33554432
   %68 = trunc i64 %67 to i32
@@ -220,7 +220,7 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %81 = phi i64 [ %65, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
   %.068.lcssa = phi i64 [ 0, %.preheader ], [ %79, %._crit_edge.loopexit ]
-  %82 = icmp slt i64 %81, %1
+  %82 = icmp sgt i64 %1, %81
   br i1 %82, label %83, label %.loopexit
 
 83:                                               ; preds = %._crit_edge
@@ -267,7 +267,7 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
   %104 = load ptr, ptr %103, align 8
   %105 = call i32 %102(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, ptr noundef %98, ptr noundef %104) #9
   %106 = load i64, ptr %5, align 8
-  %107 = icmp slt i64 %106, %1
+  %107 = icmp sgt i64 %1, %106
   br i1 %107, label %108, label %113
 
 108:                                              ; preds = %.loopexit86

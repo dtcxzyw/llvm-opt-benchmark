@@ -402,7 +402,7 @@ if.end.i.i.i.i:                                   ; preds = %for.body22
   %idx.ext24.i.i.i.i = zext nneg i32 %BucketNo.023.i.i.i.i to i64
   %add.ptr25.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %cond.i.i.i.i.i.i, i64 %idx.ext24.i.i.i.i
   %64 = load ptr, ptr %add.ptr25.i.i.i.i, align 8
-  %cmp.i26.i.i.i.i = icmp eq ptr %64, %60
+  %cmp.i26.i.i.i.i = icmp eq ptr %60, %64
   br i1 %cmp.i26.i.i.i.i, label %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.thread.i, label %if.end9.i.i.i.i
 
 if.end9.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %if.end13.i.i.i.i
@@ -419,7 +419,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %cond.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i
   %66 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i20 = icmp eq ptr %66, %60
+  %cmp.i.i.i.i.i20 = icmp eq ptr %60, %66
   br i1 %cmp.i.i.i.i.i20, label %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i.thread, label %if.end9.i.i.i.i, !llvm.loop !9
 
 _ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i: ; preds = %if.end9.i.i.i.i, %for.body22

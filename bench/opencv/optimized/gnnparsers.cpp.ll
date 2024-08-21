@@ -133,7 +133,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %_ZNSt6vectorIN2cv5R
   %65 = getelementptr inbounds i8, ptr %36, i64 8
   %66 = load float, ptr %65, align 4, !noalias !4
   %67 = fcmp uge float %66, %2
-  %.not16 = icmp eq i32 %40, %3
+  %.not16 = icmp eq i32 %3, %40
   %or.cond = select i1 %.not, i1 true, i1 %.not16
   %or.cond47 = select i1 %67, i1 %or.cond, i1 false
   br i1 %or.cond47, label %68, label %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit
@@ -1969,7 +1969,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6ve
   %.sroa.3.0.copyload.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i, align 4
   %19 = getelementptr i8, ptr %.pn18.i, i64 16
   %.val2.i11.i.i = load float, ptr %19, align 4
-  %20 = fcmp olt float %.val2.i11.i.i, %.val.i.i
+  %20 = fcmp ogt float %.val.i.i, %.val2.i11.i.i
   br i1 %20, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_T0_.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
@@ -1978,7 +1978,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6ve
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.08.012.i.i, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.0.i.i, i64 24, i1 false)
   %21 = getelementptr i8, ptr %.sroa.08.012.i.i, i64 -32
   %.val2.i.i.i = load float, ptr %21, align 4
-  %22 = fcmp olt float %.val2.i.i.i, %.val.i.i
+  %22 = fcmp ogt float %.val.i.i, %.val2.i.i.i
   br i1 %22, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_T0_.exit.i", !llvm.loop !36
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_T0_.exit.i": ; preds = %.lr.ph.i.i, %18
@@ -2155,7 +2155,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5
   %48 = getelementptr inbounds %"struct.cv::gapi::nn::Detection", ptr %.sroa.02.03.i59, i64 %47
   %49 = getelementptr i8, ptr %48, i64 16
   %.val2.i.i = load float, ptr %49, align 4
-  %50 = fcmp olt float %.val2.i.i, %.val50
+  %50 = fcmp ogt float %.val50, %.val2.i.i
   %51 = getelementptr inbounds i8, ptr %48, i64 24
   %52 = xor i64 %47, -1
   %53 = add nsw i64 %.04.i58, %52
@@ -2355,7 +2355,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6ve
   %.sroa.3.0.copyload.i.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i, align 4
   %22 = getelementptr i8, ptr %.pn18.i.i, i64 16
   %.val2.i11.i.i.i = load float, ptr %22, align 4
-  %23 = fcmp olt float %.val2.i11.i.i.i, %.val.i.i.i
+  %23 = fcmp ogt float %.val.i.i.i, %.val2.i11.i.i.i
   br i1 %23, label %.lr.ph.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_T0_.exit.i.i"
 
 .lr.ph.i.i.i:                                     ; preds = %21, %.lr.ph.i.i.i
@@ -2364,7 +2364,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6ve
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.08.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.0.i.i.i, i64 24, i1 false)
   %24 = getelementptr i8, ptr %.sroa.08.012.i.i.i, i64 -32
   %.val2.i.i.i.i = load float, ptr %24, align 4
-  %25 = fcmp olt float %.val2.i.i.i.i, %.val.i.i.i
+  %25 = fcmp ogt float %.val.i.i.i, %.val2.i.i.i.i
   br i1 %25, label %.lr.ph.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_T0_.exit.i.i", !llvm.loop !36
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i, %21
@@ -2433,7 +2433,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6ve
   %.sroa.3.0.copyload.i.i20.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i19.i, align 4
   %41 = getelementptr i8, ptr %.pn18.i16.i, i64 16
   %.val2.i11.i.i21.i = load float, ptr %41, align 4
-  %42 = fcmp olt float %.val2.i11.i.i21.i, %.val.i.i17.i
+  %42 = fcmp ogt float %.val.i.i17.i, %.val2.i11.i.i21.i
   br i1 %42, label %.lr.ph.i.i28.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_T0_.exit.i22.i"
 
 .lr.ph.i.i28.i:                                   ; preds = %40, %.lr.ph.i.i28.i
@@ -2442,7 +2442,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6ve
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.08.012.i.i29.i, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.0.i.i30.i, i64 24, i1 false)
   %43 = getelementptr i8, ptr %.sroa.08.012.i.i29.i, i64 -32
   %.val2.i.i.i31.i = load float, ptr %43, align 4
-  %44 = fcmp olt float %.val2.i.i.i31.i, %.val.i.i17.i
+  %44 = fcmp ogt float %.val.i.i17.i, %.val2.i.i.i31.i
   br i1 %44, label %.lr.ph.i.i28.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_T0_.exit.i22.i", !llvm.loop !36
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_T0_.exit.i22.i": ; preds = %.lr.ph.i.i28.i, %40
@@ -2517,7 +2517,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6ve
   %64 = ptrtoint ptr %51 to i64
   %65 = ptrtoint ptr %.sroa.015.1.i.i to i64
   %66 = sub i64 %64, %65
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %.sroa.015.1.i.i, %51
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %51, %.sroa.015.1.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i, label %67
 
 67:                                               ; preds = %.critedge.i.loopexit.i
@@ -2529,7 +2529,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_Sa
   %69 = ptrtoint ptr %52 to i64
   %70 = ptrtoint ptr %.sroa.011.1.i.i to i64
   %71 = sub i64 %69, %70
-  %.not.i.i.i.i.i9.i.i = icmp eq ptr %.sroa.011.1.i.i, %52
+  %.not.i.i.i.i.i9.i.i = icmp eq ptr %52, %.sroa.011.1.i.i
   br i1 %.not.i.i.i.i.i9.i.i, label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEET0_T_SZ_SZ_SZ_SY_T1_.exit.i", label %72
 
 72:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i
@@ -2547,7 +2547,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_Sa
   %.sroa.041.0.lcssa.i = phi ptr [ %0, %49 ], [ %52, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEET0_T_SZ_SZ_SZ_SY_T1_.exit.i" ]
   %.0.lcssa.i = phi ptr [ %2, %49 ], [ %73, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEET0_T_SZ_SZ_SZ_SY_T1_.exit.i" ]
   %.lcssa51.i = phi i64 [ %9, %49 ], [ %75, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEET0_T_SZ_SZ_SZ_SY_T1_.exit.i" ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.lcssa51.i, i64 %.045)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.045, i64 %.lcssa51.i)
   %76 = getelementptr inbounds %"struct.cv::gapi::nn::Detection", ptr %.sroa.041.0.lcssa.i, i64 %.sroa.speculated.i
   %77 = icmp ne i64 %.sroa.speculated.i, 0
   %78 = icmp ne ptr %76, %1
@@ -2591,7 +2591,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_Sa
   %90 = ptrtoint ptr %76 to i64
   %91 = ptrtoint ptr %.sroa.015.0.lcssa.i19.i to i64
   %92 = sub i64 %90, %91
-  %.not.i.i.i.i.i.i21.i = icmp eq ptr %.sroa.015.0.lcssa.i19.i, %76
+  %.not.i.i.i.i.i.i21.i = icmp eq ptr %76, %.sroa.015.0.lcssa.i19.i
   br i1 %.not.i.i.i.i.i.i21.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i22.i, label %93
 
 93:                                               ; preds = %.critedge.i17.i
@@ -2599,7 +2599,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_Sa
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i22.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i22.i: ; preds = %93, %.critedge.i17.i
-  %.not.i.i.i.i.i9.i23.i = icmp eq ptr %.sroa.011.0.lcssa.i18.i, %1
+  %.not.i.i.i.i.i9.i23.i = icmp eq ptr %1, %.sroa.011.0.lcssa.i18.i
   br i1 %.not.i.i.i.i.i9.i23.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_SY_T0_T1_T2_.exit", label %94
 
 94:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i22.i
@@ -2655,7 +2655,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_Sa
   %113 = ptrtoint ptr %99 to i64
   %114 = ptrtoint ptr %.1.i.i to i64
   %115 = sub i64 %113, %114
-  %.not.i.i.i.i.i.i.i28 = icmp eq ptr %.1.i.i, %99
+  %.not.i.i.i.i.i.i.i28 = icmp eq ptr %99, %.1.i.i
   br i1 %.not.i.i.i.i.i.i.i28, label %_ZSt4moveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i, label %116
 
 116:                                              ; preds = %._crit_edge.i.loopexit.i
@@ -2667,7 +2667,7 @@ _ZSt4moveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3
   %118 = ptrtoint ptr %100 to i64
   %119 = ptrtoint ptr %.117.i.i to i64
   %120 = sub i64 %118, %119
-  %.not.i.i.i.i.i18.i.i = icmp eq ptr %.117.i.i, %100
+  %.not.i.i.i.i.i18.i.i = icmp eq ptr %100, %.117.i.i
   br i1 %.not.i.i.i.i.i18.i.i, label %"_ZSt12__move_mergeIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS0_9parseYoloERKNS0_3MatERKNS0_5Size_IiEEffRKS7_IfSaIfEERS7_INS0_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEET0_T_SZ_SZ_SZ_SY_T1_.exit.i", label %121
 
 121:                                              ; preds = %_ZSt4moveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i
@@ -2685,7 +2685,7 @@ _ZSt4moveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3
   %.0.lcssa.i31 = phi ptr [ %2, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_SY_T0_T1_T2_.exit" ], [ %100, %"_ZSt12__move_mergeIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS0_9parseYoloERKNS0_3MatERKNS0_5Size_IiEEffRKS7_IfSaIfEERS7_INS0_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEET0_T_SZ_SZ_SZ_SY_T1_.exit.i" ]
   %.sroa.022.0.lcssa.i = phi ptr [ %0, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_SY_T0_T1_T2_.exit" ], [ %122, %"_ZSt12__move_mergeIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS0_9parseYoloERKNS0_3MatERKNS0_5Size_IiEEffRKS7_IfSaIfEERS7_INS0_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEET0_T_SZ_SZ_SZ_SY_T1_.exit.i" ]
   %.lcssa47.i = phi i64 [ %48, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS7_IfSaIfEERS7_INS2_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_SY_T0_T1_T2_.exit" ], [ %124, %"_ZSt12__move_mergeIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS0_9parseYoloERKNS0_3MatERKNS0_5Size_IiEEffRKS7_IfSaIfEERS7_INS0_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEET0_T_SZ_SZ_SZ_SY_T1_.exit.i" ]
-  %.sroa.speculated.i32 = tail call i64 @llvm.smin.i64(i64 %.lcssa47.i, i64 %50)
+  %.sroa.speculated.i32 = tail call i64 @llvm.smin.i64(i64 %50, i64 %.lcssa47.i)
   %125 = getelementptr inbounds %"struct.cv::gapi::nn::Detection", ptr %.0.lcssa.i31, i64 %.sroa.speculated.i32
   %126 = icmp ne i64 %.sroa.speculated.i32, 0
   %127 = icmp ne ptr %125, %10
@@ -2729,7 +2729,7 @@ _ZSt4moveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3
   %141 = ptrtoint ptr %125 to i64
   %142 = ptrtoint ptr %.0.lcssa.i28.i to i64
   %143 = sub i64 %141, %142
-  %.not.i.i.i.i.i.i29.i = icmp eq ptr %.0.lcssa.i28.i, %125
+  %.not.i.i.i.i.i.i29.i = icmp eq ptr %125, %.0.lcssa.i28.i
   br i1 %.not.i.i.i.i.i.i29.i, label %_ZSt4moveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i, label %144
 
 144:                                              ; preds = %._crit_edge.i25.i
@@ -2737,7 +2737,7 @@ _ZSt4moveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3
   br label %_ZSt4moveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i
 
 _ZSt4moveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i: ; preds = %144, %._crit_edge.i25.i
-  %.not.i.i.i.i.i18.i31.i = icmp eq ptr %.016.lcssa.i27.i, %10
+  %.not.i.i.i.i.i18.i31.i = icmp eq ptr %10, %.016.lcssa.i27.i
   br i1 %.not.i.i.i.i.i18.i31.i, label %"_ZSt17__merge_sort_loopIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNS0_9parseYoloERKNS0_3MatERKNS0_5Size_IiEEffRKS7_IfSaIfEERS7_INS0_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_SY_T0_T1_T2_.exit", label %145
 
 145:                                              ; preds = %_ZSt4moveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i
@@ -2831,7 +2831,7 @@ _ZSt4moveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3
 
 28:                                               ; preds = %26
   %29 = sub i64 %8, %27
-  %.not.i.i.i.i.i83 = icmp eq ptr %.tr110127, %2
+  %.not.i.i.i.i.i83 = icmp eq ptr %2, %.tr110127
   br i1 %.not.i.i.i.i.i83, label %"_ZSt21__move_merge_adaptiveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEESA_NS5_5__ops15_Iter_comp_iterIZNS0_9parseYoloERKNS0_3MatERKNS0_5Size_IiEEffRKS7_IfSaIfEERS7_INS0_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_SY_T0_SZ_T1_T2_.exit", label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit84.thread
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit84.thread: ; preds = %28
@@ -2864,13 +2864,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_Sa
   %38 = getelementptr i8, ptr %.0.i, i64 16
   %.0.val.i85 = load float, ptr %38, align 4
   %.val2.i.i = load float, ptr %36, align 4
-  %39 = fcmp olt float %.val2.i.i, %.0.val.i85
+  %39 = fcmp ogt float %.0.val.i85, %.val2.i.i
   %40 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -24
   br i1 %39, label %41, label %50
 
 41:                                               ; preds = %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %40, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.024.0.i.ph, i64 24, i1 false)
-  %42 = icmp eq ptr %.sroa.024.0.i.ph, %.tr126
+  %42 = icmp eq ptr %.tr126, %.sroa.024.0.i.ph
   br i1 %42, label %43, label %.outer, !llvm.loop !51
 
 43:                                               ; preds = %41
@@ -2889,7 +2889,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5_Sa
 
 50:                                               ; preds = %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %40, ptr noundef nonnull align 4 dereferenceable(24) %.0.i, i64 24, i1 false)
-  %51 = icmp eq ptr %.0.i, %5
+  %51 = icmp eq ptr %5, %.0.i
   br i1 %51, label %"_ZSt21__move_merge_adaptiveIPN2cv4gapi2nn9DetectionEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEESA_NS5_5__ops15_Iter_comp_iterIZNS0_9parseYoloERKNS0_3MatERKNS0_5Size_IiEEffRKS7_IfSaIfEERS7_INS0_5Rect_IiEESaISP_EERS7_IiSaIiEEE3$_0EEEvT_SY_T0_SZ_T1_T2_.exit", label %52
 
 52:                                               ; preds = %50
@@ -2960,7 +2960,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2cv4gapi2nn9DetectionESt6vectorIS5
   %79 = getelementptr inbounds %"struct.cv::gapi::nn::Detection", ptr %.sroa.02.03.i97, i64 %78
   %80 = getelementptr i8, ptr %79, i64 16
   %.val2.i.i100 = load float, ptr %80, align 4
-  %81 = fcmp olt float %.val2.i.i100, %.val82
+  %81 = fcmp ogt float %.val82, %.val2.i.i100
   %82 = getelementptr inbounds i8, ptr %79, i64 24
   %83 = xor i64 %78, -1
   %84 = add nsw i64 %.04.i96, %83

@@ -9937,7 +9937,7 @@ switch.early.test:                                ; preds = %._crit_edge
   %30 = getelementptr inbounds i8, ptr %1, i64 96
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
-  %brmerge = or i1 %32, %2
+  %brmerge = or i1 %2, %32
   br i1 %brmerge, label %.critedge86, label %42
 
 33:                                               ; preds = %switch.early.test, %switch.early.test
@@ -9957,7 +9957,7 @@ switch.early.test:                                ; preds = %._crit_edge
   %37 = getelementptr inbounds i8, ptr %1, i64 96
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
-  %brmerge.i123.not = and i1 %39, %0
+  %brmerge.i123.not = and i1 %0, %39
   br i1 %brmerge.i123.not, label %40, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit124"
 
 40:                                               ; preds = %.critedge
@@ -9988,7 +9988,7 @@ switch.early.test:                                ; preds = %._crit_edge
   %46 = getelementptr inbounds i8, ptr %1, i64 648
   %47 = load float, ptr %46, align 8
   %48 = fcmp une float %47, 0.000000e+00
-  %brmerge.i129.not = and i1 %48, %0
+  %brmerge.i129.not = and i1 %0, %48
   br i1 %brmerge.i129.not, label %49, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit130"
 
 .critedge78.thread:                               ; preds = %42
@@ -10003,7 +10003,7 @@ switch.early.test:                                ; preds = %._crit_edge
 
 .critedge79:                                      ; preds = %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit130"
   %50 = tail call noundef zeroext i1 @_Z19inputrecFrozenAtomsPK10t_inputrec(ptr noundef nonnull %1)
-  %brmerge.i132.not = and i1 %50, %0
+  %brmerge.i132.not = and i1 %0, %50
   br i1 %brmerge.i132.not, label %51, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit133"
 
 51:                                               ; preds = %.critedge79
@@ -10082,7 +10082,7 @@ switch.early.test:                                ; preds = %._crit_edge
 .critedge81:                                      ; preds = %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit136"
   %90 = tail call noundef i32 @_Z26gmx_mtop_interaction_countRK10gmx_mtop_tj(ptr noundef nonnull align 8 dereferenceable(768) %3, i32 noundef 2)
   %91 = icmp ne i32 %90, 0
-  %brmerge.i138.not = and i1 %91, %0
+  %brmerge.i138.not = and i1 %0, %91
   br i1 %brmerge.i138.not, label %92, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit139"
 
 92:                                               ; preds = %.critedge81
@@ -10096,7 +10096,7 @@ switch.early.test:                                ; preds = %._crit_edge
   %93 = getelementptr inbounds i8, ptr %1, i64 584
   %94 = load i8, ptr %93, align 8
   %95 = trunc i8 %94 to i1
-  %brmerge.i141.not = and i1 %95, %0
+  %brmerge.i141.not = and i1 %0, %95
   br i1 %brmerge.i141.not, label %96, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit142"
 
 96:                                               ; preds = %.critedge82
@@ -10109,7 +10109,7 @@ switch.early.test:                                ; preds = %._crit_edge
 .critedge83:                                      ; preds = %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit142"
   %97 = tail call noundef i32 @_Z20gmx_mtop_ftype_countRK10gmx_mtop_ti(ptr noundef nonnull align 8 dereferenceable(768) %3, i32 noundef 54)
   %98 = icmp ne i32 %97, 0
-  %brmerge.i144.not = and i1 %98, %0
+  %brmerge.i144.not = and i1 %0, %98
   br i1 %brmerge.i144.not, label %99, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit145"
 
 99:                                               ; preds = %.critedge83
@@ -10122,7 +10122,7 @@ switch.early.test:                                ; preds = %._crit_edge
 .critedge84:                                      ; preds = %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit145"
   %100 = tail call noundef i32 @_Z20gmx_mtop_ftype_countRK10gmx_mtop_ti(ptr noundef nonnull align 8 dereferenceable(768) %3, i32 noundef 56)
   %101 = icmp ne i32 %100, 0
-  %brmerge.i147.not = and i1 %101, %0
+  %brmerge.i147.not = and i1 %0, %101
   br i1 %brmerge.i147.not, label %102, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit148"
 
 102:                                              ; preds = %.critedge84
@@ -10134,7 +10134,7 @@ switch.early.test:                                ; preds = %._crit_edge
 
 .critedge85:                                      ; preds = %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit148"
   %103 = icmp ne ptr %4, null
-  %brmerge.i150.not = and i1 %103, %0
+  %brmerge.i150.not = and i1 %0, %103
   br i1 %brmerge.i150.not, label %104, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit151"
 
 104:                                              ; preds = %.critedge85
@@ -10184,7 +10184,7 @@ switch.early.test:                                ; preds = %._crit_edge
 
 123:                                              ; preds = %122
   %124 = icmp sgt i32 %.0, 1
-  %brmerge.i156.not = and i1 %124, %0
+  %brmerge.i156.not = and i1 %0, %124
   br i1 %brmerge.i156.not, label %125, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit157"
 
 125:                                              ; preds = %123
@@ -10196,7 +10196,7 @@ switch.early.test:                                ; preds = %._crit_edge
 
 .critedge88:                                      ; preds = %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit157"
   %126 = tail call noundef zeroext i1 @_Z20doSimulatedAnnealingRK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(856) %1)
-  %brmerge.i159.not = and i1 %126, %0
+  %brmerge.i159.not = and i1 %0, %126
   br i1 %brmerge.i159.not, label %127, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit160"
 
 127:                                              ; preds = %.critedge88
@@ -10210,7 +10210,7 @@ switch.early.test:                                ; preds = %._crit_edge
   %128 = getelementptr inbounds i8, ptr %1, i64 408
   %129 = load i8, ptr %128, align 8
   %130 = trunc i8 %129 to i1
-  %brmerge.i162.not = and i1 %130, %0
+  %brmerge.i162.not = and i1 %0, %130
   br i1 %brmerge.i162.not, label %131, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit163"
 
 131:                                              ; preds = %.critedge89
@@ -10235,7 +10235,7 @@ switch.early.test:                                ; preds = %._crit_edge
   %133 = getelementptr inbounds i8, ptr %1, i64 616
   %134 = load i32, ptr %133, align 8
   %135 = icmp ne i32 %134, 0
-  %brmerge.i168.not = and i1 %135, %0
+  %brmerge.i168.not = and i1 %0, %135
   br i1 %brmerge.i168.not, label %136, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit169"
 
 136:                                              ; preds = %.critedge91
@@ -10249,7 +10249,7 @@ switch.early.test:                                ; preds = %._crit_edge
   %137 = getelementptr inbounds i8, ptr %1, i64 632
   %138 = load i8, ptr %137, align 8
   %139 = trunc i8 %138 to i1
-  %brmerge.i171.not = and i1 %139, %0
+  %brmerge.i171.not = and i1 %0, %139
   br i1 %brmerge.i171.not, label %140, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit172"
 
 140:                                              ; preds = %.critedge92
@@ -10285,7 +10285,7 @@ switch.early.test:                                ; preds = %._crit_edge
   %143 = getelementptr inbounds i8, ptr %1, i64 40
   %144 = load i32, ptr %143, align 8
   %145 = icmp eq i32 %144, 0
-  %brmerge.i180.not = and i1 %145, %0
+  %brmerge.i180.not = and i1 %0, %145
   br i1 %brmerge.i180.not, label %146, label %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_2clEbPKc.exit181"
 
 146:                                              ; preds = %.critedge95

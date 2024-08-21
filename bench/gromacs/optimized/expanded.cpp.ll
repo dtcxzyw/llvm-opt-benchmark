@@ -918,7 +918,7 @@ define noundef i32 @_Z33expandedEnsembleUpdateLambdaStateP8_IO_FILEPK10t_inputre
   %139 = getelementptr inbounds i8, ptr %10, i64 28
   %140 = load i32, ptr %139, align 4
   %141 = sext i32 %140 to i64
-  %.not515.i = icmp sgt i64 %141, %5
+  %.not515.i = icmp slt i64 %5, %141
   br i1 %.not515.i, label %_ZL24CheckIfDoneEquilibratingiPK10t_expandedPK12df_history_tl.exit.thread495.i, label %_ZL24CheckIfDoneEquilibratingiPK10t_expandedPK12df_history_tl.exit.thread.i
 
 142:                                              ; preds = %142, %.lr.ph64.i.i
@@ -1329,7 +1329,7 @@ _ZL34GenerateWeightedGibbsProbabilitiesPKfPdS1_iPff.exit.i: ; preds = %.lr.ph65.
   %319 = getelementptr i8, ptr %318, i64 -4
   %320 = getelementptr inbounds i8, ptr %4, i64 72
   %321 = getelementptr inbounds i8, ptr %4, i64 88
-  %322 = icmp sgt i32 %312, %3
+  %322 = icmp slt i32 %3, %312
   %323 = getelementptr float, ptr %18, i64 %24
   %324 = getelementptr i8, ptr %323, i64 4
   %325 = getelementptr inbounds i8, ptr %4, i64 64
@@ -1829,7 +1829,7 @@ _ZL11FindMinimumPKfi.exit440.i:                   ; preds = %_ZL11FindMinimumPKf
   br label %626
 
 626:                                              ; preds = %621, %619
-  %627 = icmp sgt i32 %312, %3
+  %627 = icmp slt i32 %3, %312
   br i1 %627, label %628, label %631
 
 628:                                              ; preds = %626

@@ -285,7 +285,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -565,7 +565,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #15
   %cmp7 = icmp eq ptr %call, null
@@ -3537,7 +3537,7 @@ if.then3.i.i.i:                                   ; preds = %call.i.i.noexc.i
 
 if.then5.i.i.i:                                   ; preds = %if.then3.i.i.i
   %81 = load i32, ptr %capacity.i.i.i, align 8
-  %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %81, i32 %79)
+  %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %79, i32 %81)
   %length.addr.1.i.i.i = call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %cond.i.i)
   %82 = load ptr, ptr %fPool.i.i, align 8
   %conv12.i.i.i = sext i32 %length.addr.1.i.i.i to i64
@@ -3826,7 +3826,7 @@ if.then3.i.i159.i:                                ; preds = %call.i.i.noexc170.i
 
 if.then5.i.i165.i:                                ; preds = %if.then3.i.i159.i
   %109 = load i32, ptr %capacity.i.i97.i, align 8
-  %spec.select.i.i166.i = call i32 @llvm.smin.i32(i32 %109, i32 %107)
+  %spec.select.i.i166.i = call i32 @llvm.smin.i32(i32 %107, i32 %109)
   %length.addr.1.i.i167.i = call i32 @llvm.smin.i32(i32 %spec.select.i.i166.i, i32 %cond.i153.i)
   %110 = load ptr, ptr %fPool.i95.i, align 8
   %conv12.i.i168.i = sext i32 %length.addr.1.i.i167.i to i64
@@ -3938,7 +3938,7 @@ if.then3.i.i194.i:                                ; preds = %call.i.i.noexc206.i
 
 if.then5.i.i201.i:                                ; preds = %if.then3.i.i194.i
   %119 = load i32, ptr %capacity.i.i97.i, align 8
-  %spec.select.i.i202.i = call i32 @llvm.smin.i32(i32 %119, i32 %117)
+  %spec.select.i.i202.i = call i32 @llvm.smin.i32(i32 %117, i32 %119)
   %length.addr.1.i.i203.i = call i32 @llvm.smin.i32(i32 %spec.select.i.i202.i, i32 %cond.i188.i)
   %120 = load ptr, ptr %fPool.i95.i, align 8
   %conv12.i.i204.i = sext i32 %length.addr.1.i.i203.i to i64
@@ -6374,7 +6374,7 @@ if.then3.i.i.i.i:                                 ; preds = %call.i.i.noexc.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %if.then3.i.i.i.i
   %110 = load i32, ptr %capacity.i.i.i.i, align 8
-  %spec.select.i.i.i.i = call i32 @llvm.smin.i32(i32 %110, i32 %108)
+  %spec.select.i.i.i.i = call i32 @llvm.smin.i32(i32 %108, i32 %110)
   %length.addr.1.i.i.i.i = call i32 @llvm.smin.i32(i32 %spec.select.i.i.i.i, i32 %cond.i.i.i)
   %111 = load ptr, ptr %fPool.i.i.i, align 8
   %conv12.i.i.i.i = sext i32 %length.addr.1.i.i.i.i to i64
@@ -6529,7 +6529,7 @@ if.then3.i.i268.i:                                ; preds = %call.i.i266.noexc.i
 
 if.then5.i.i275.i:                                ; preds = %if.then3.i.i268.i
   %125 = load i32, ptr %capacity.i.i.i, align 8
-  %spec.select.i.i276.i = call i32 @llvm.smin.i32(i32 %125, i32 %123)
+  %spec.select.i.i276.i = call i32 @llvm.smin.i32(i32 %123, i32 %125)
   %length.addr.1.i.i277.i = call i32 @llvm.smin.i32(i32 %spec.select.i.i276.i, i32 %cond.i261.i)
   %126 = load ptr, ptr %fPool.i.i, align 8
   %conv12.i.i278.i = sext i32 %length.addr.1.i.i277.i to i64
@@ -6942,7 +6942,7 @@ if.then3.i.i231.i:                                ; preds = %call.i.i229.noexc.i
 
 if.then5.i.i238.i:                                ; preds = %if.then3.i.i231.i
   %177 = load i32, ptr %capacity.i.i.i, align 8
-  %spec.select.i.i239.i = call i32 @llvm.smin.i32(i32 %177, i32 %175)
+  %spec.select.i.i239.i = call i32 @llvm.smin.i32(i32 %175, i32 %177)
   %length.addr.1.i.i240.i = call i32 @llvm.smin.i32(i32 %spec.select.i.i239.i, i32 %cond.i224.i)
   %178 = load ptr, ptr %fPool.i.i, align 8
   %conv12.i.i241.i = sext i32 %length.addr.1.i.i240.i to i64
@@ -7180,7 +7180,7 @@ if.then3.i.i.i:                                   ; preds = %call.i.i102.noexc.i
 
 if.then5.i.i.i:                                   ; preds = %if.then3.i.i.i
   %196 = load i32, ptr %capacity.i.i.i, align 8
-  %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %196, i32 %194)
+  %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %194, i32 %196)
   %length.addr.1.i.i.i = call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %cond.i99.i)
   %197 = load ptr, ptr %fPool.i.i, align 8
   %conv12.i.i.i = sext i32 %length.addr.1.i.i.i to i64
@@ -7341,7 +7341,7 @@ if.then3.i.i133.i:                                ; preds = %call.i.i131.noexc.i
 
 if.then5.i.i140.i:                                ; preds = %if.then3.i.i133.i
   %210 = load i32, ptr %capacity.i.i.i, align 8
-  %spec.select.i.i141.i = call i32 @llvm.smin.i32(i32 %210, i32 %208)
+  %spec.select.i.i141.i = call i32 @llvm.smin.i32(i32 %208, i32 %210)
   %length.addr.1.i.i142.i = call i32 @llvm.smin.i32(i32 %spec.select.i.i141.i, i32 %cond.i126.i)
   %211 = load ptr, ptr %fPool.i.i, align 8
   %conv12.i.i143.i = sext i32 %length.addr.1.i.i142.i to i64
@@ -7819,7 +7819,7 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.then3.i
   %2 = load i32, ptr %capacity.i, align 8
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %2, i32 %0)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %0, i32 %2)
   %length.addr.1.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %cond)
   %3 = load ptr, ptr %fPool, align 8
   %conv12.i = sext i32 %length.addr.1.i to i64
@@ -7927,7 +7927,7 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.then3.i
   %2 = load i32, ptr %capacity.i, align 8
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %2, i32 %0)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %0, i32 %2)
   %length.addr.1.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %cond)
   %3 = load ptr, ptr %fPool, align 8
   %conv12.i = sext i32 %length.addr.1.i to i64
@@ -8035,7 +8035,7 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.then3.i
   %2 = load i32, ptr %capacity.i, align 8
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %2, i32 %0)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %0, i32 %2)
   %length.addr.1.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %cond)
   %3 = load ptr, ptr %fPool, align 8
   %conv12.i = sext i32 %length.addr.1.i to i64
@@ -8496,7 +8496,7 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.then3.i
   %2 = load i32, ptr %capacity.i, align 8
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %2, i32 %0)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %0, i32 %2)
   %length.addr.1.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %cond)
   %3 = load ptr, ptr %fPool, align 8
   %conv12.i = sext i32 %length.addr.1.i to i64
@@ -8597,7 +8597,7 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.then3.i
   %2 = load i32, ptr %capacity.i, align 8
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %2, i32 %0)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %0, i32 %2)
   %length.addr.1.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %cond)
   %3 = load ptr, ptr %fPool, align 8
   %conv12.i = sext i32 %length.addr.1.i to i64
@@ -8703,7 +8703,7 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.then3.i
   %2 = load i32, ptr %capacity.i, align 8
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %2, i32 %0)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %0, i32 %2)
   %length.addr.1.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %cond)
   %3 = load ptr, ptr %fPool, align 8
   %conv12.i = sext i32 %length.addr.1.i to i64

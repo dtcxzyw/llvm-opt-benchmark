@@ -1130,7 +1130,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EE
 
 .critedge.i:                                      ; preds = %38, %.lr.ph.i8
   %.0.lcssa.i = phi i64 [ %.07.i, %.lr.ph.i8 ], [ %39, %38 ]
-  %40 = icmp ult i64 %34, %.0.lcssa.i
+  %40 = icmp ugt i64 %.0.lcssa.i, %34
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %.critedge.i
@@ -1139,7 +1139,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EE
   br label %_ZN6casadi10Polynomial4trimEv.exit
 
 43:                                               ; preds = %.critedge.i
-  %44 = icmp ugt i64 %34, %.0.lcssa.i
+  %44 = icmp ult i64 %.0.lcssa.i, %34
   br i1 %44, label %45, label %_ZN6casadi10Polynomial4trimEv.exit
 
 45:                                               ; preds = %43
@@ -1182,7 +1182,7 @@ define void @_ZN6casadi10Polynomial4trimEv(ptr noundef nonnull align 8 dereferen
 
 .critedge:                                        ; preds = %.lr.ph, %12
   %.0.lcssa = phi i64 [ %.07, %.lr.ph ], [ %13, %12 ]
-  %14 = icmp ult i64 %8, %.0.lcssa
+  %14 = icmp ugt i64 %.0.lcssa, %8
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %.critedge
@@ -1191,7 +1191,7 @@ define void @_ZN6casadi10Polynomial4trimEv(ptr noundef nonnull align 8 dereferen
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 17:                                               ; preds = %.critedge
-  %18 = icmp ugt i64 %8, %.0.lcssa
+  %18 = icmp ult i64 %.0.lcssa, %8
   br i1 %18, label %19, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 19:                                               ; preds = %17
@@ -1411,7 +1411,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS1_IPKdS5_EE
 
 .critedge.i:                                      ; preds = %39, %.lr.ph.i8
   %.0.lcssa.i = phi i64 [ %.07.i, %.lr.ph.i8 ], [ %40, %39 ]
-  %41 = icmp ult i64 %35, %.0.lcssa.i
+  %41 = icmp ugt i64 %.0.lcssa.i, %35
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %.critedge.i
@@ -1420,7 +1420,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS1_IPKdS5_EE
   br label %_ZN6casadi10Polynomial4trimEv.exit
 
 44:                                               ; preds = %.critedge.i
-  %45 = icmp ugt i64 %35, %.0.lcssa.i
+  %45 = icmp ult i64 %.0.lcssa.i, %35
   br i1 %45, label %46, label %_ZN6casadi10Polynomial4trimEv.exit
 
 46:                                               ; preds = %44
@@ -2135,7 +2135,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !19
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -2219,7 +2219,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !19
 
 _ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79

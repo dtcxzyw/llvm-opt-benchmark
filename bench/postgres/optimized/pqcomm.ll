@@ -801,7 +801,7 @@ define dso_local range(i32 -1, 1) i32 @pq_setkeepalivesidle(i32 noundef %0, ptr 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 392
   %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, %0
+  %13 = icmp eq i32 %0, %12
   br i1 %13, label %48, label %14
 
 14:                                               ; preds = %10
@@ -910,7 +910,7 @@ define dso_local range(i32 -1, 1) i32 @pq_setkeepalivesinterval(i32 noundef %0, 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 396
   %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %12, %0
+  %13 = icmp eq i32 %0, %12
   br i1 %13, label %48, label %14
 
 14:                                               ; preds = %10
@@ -1019,7 +1019,7 @@ define dso_local range(i32 -1, 1) i32 @pq_setkeepalivescount(i32 noundef %0, ptr
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 400
   %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, %0
+  %13 = icmp eq i32 %0, %12
   br i1 %13, label %48, label %14
 
 14:                                               ; preds = %10
@@ -1128,7 +1128,7 @@ define dso_local range(i32 -1, 1) i32 @pq_settcpusertimeout(i32 noundef %0, ptr 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 404
   %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %12, %0
+  %13 = icmp eq i32 %0, %12
   br i1 %13, label %48, label %14
 
 14:                                               ; preds = %10

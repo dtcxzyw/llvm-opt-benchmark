@@ -171,7 +171,7 @@ _ZN7mitsuba3refINS_9FormatterEED2Ev.exit.i.i.i.i: ; preds = %7, %4
 10:                                               ; preds = %_ZN7mitsuba3refINS_9FormatterEED2Ev.exit.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %3, i64 56
   %12 = load ptr, ptr %11, align 8
-  %.not6.i.i.i.i.i.i.i.i = icmp eq ptr %12, %9
+  %.not6.i.i.i.i.i.i.i.i = icmp eq ptr %9, %12
   br i1 %.not6.i.i.i.i.i.i.i.i, label %_ZNSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE7__clearB8ne190000Ev.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %10, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i.i.i.i.i.i
@@ -186,7 +186,7 @@ _ZN7mitsuba3refINS_9FormatterEED2Ev.exit.i.i.i.i: ; preds = %7, %4
   br label %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i.i.i.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i.i.i.i.i.i: ; preds = %15, %.lr.ph.i.i.i.i.i.i.i.i
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %13, %9
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, %13
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE7__clearB8ne190000Ev.exit.i.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 _ZNSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE7__clearB8ne190000Ev.exit.i.loopexit.i.i.i.i.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i.i.i.i.i.i
@@ -302,7 +302,7 @@ define void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basi
   %7 = alloca %"class.std::__1::basic_string", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = icmp sgt i32 %9, %1
+  %10 = icmp slt i32 %1, %9
   br i1 %10, label %45, label %11
 
 11:                                               ; preds = %6
@@ -310,7 +310,7 @@ define void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basi
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -1047,7 +1047,7 @@ _ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.i:
   %storemerge.lcssa.i.i.i.i.i.i = phi i64 [ %42, %46 ], [ %58, %_ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.loopexit.i ]
   %60 = sub i64 %storemerge.lcssa.i.i.i.i.i.i, %42
   %61 = getelementptr inbounds i8, ptr %45, i64 %60
-  %.not6.i.i.i = icmp eq ptr %59, %61
+  %.not6.i.i.i = icmp eq ptr %61, %59
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE17__destruct_at_endB8ne190000EPS4_.exit.i, label %.lr.ph.i.i.i8
 
 .lr.ph.i.i.i8:                                    ; preds = %_ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.i, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i
@@ -1062,7 +1062,7 @@ _ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.i:
   br label %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i: ; preds = %64, %.lr.ph.i.i.i8
-  %.not.i.i.i9 = icmp eq ptr %62, %61
+  %.not.i.i.i9 = icmp eq ptr %61, %62
   br i1 %.not.i.i.i9, label %_ZNSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE17__destruct_at_endB8ne190000EPS4_.exit.i, label %.lr.ph.i.i.i8
 
 _ZNSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE17__destruct_at_endB8ne190000EPS4_.exit.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i, %_ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.i
@@ -1226,7 +1226,7 @@ define void @_ZN7mitsuba6Logger15clear_appendersEv(ptr nocapture noundef nonnull
   %6 = getelementptr inbounds i8, ptr %4, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
-  %.not6.i.i.i = icmp eq ptr %7, %8
+  %.not6.i.i.i = icmp eq ptr %8, %7
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE5clearB8ne190000Ev.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i
@@ -1241,7 +1241,7 @@ define void @_ZN7mitsuba6Logger15clear_appendersEv(ptr nocapture noundef nonnull
   br label %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i: ; preds = %11, %.lr.ph.i.i.i
-  %.not.i.i.i = icmp eq ptr %9, %8
+  %.not.i.i.i = icmp eq ptr %8, %9
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE5clearB8ne190000Ev.exit, label %.lr.ph.i.i.i
 
 _ZNSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE5clearB8ne190000Ev.exit: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i, %1

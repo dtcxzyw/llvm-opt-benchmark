@@ -1276,7 +1276,7 @@ entry:
   %0 = load i64, ptr %size, align 8
   %cmp = icmp slt i64 %0, 0
   %sub = sub nuw nsw i64 9223372036854775807, %0
-  %cmp2 = icmp ult i64 %sub, %headerlen
+  %cmp2 = icmp ugt i64 %headerlen, %sub
   %or.cond = select i1 %cmp, i1 true, i1 %cmp2
   br i1 %or.cond, label %if.then8, label %if.end
 

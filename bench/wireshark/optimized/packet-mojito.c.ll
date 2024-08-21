@@ -754,7 +754,7 @@ define internal fastcc noundef i32 @dissect_mojito_address(ptr noundef %0, ptr n
   %.sink = phi i32 [ 17, %13 ], [ 5, %5 ]
   %18 = load i32, ptr %hf_mojito_socketaddress_ipv6.sink, align 4
   %19 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %18, ptr noundef %0, i32 noundef %12, i32 noundef %.sink30, i32 noundef 0) #3
-  %20 = add i32 %.sink, %3
+  %20 = add i32 %3, %.sink
   %21 = load i32, ptr @hf_mojito_socketaddress_port, align 4
   %22 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0) #3
   %23 = add i32 %20, 2

@@ -706,7 +706,7 @@ _ZNK11ast_manager9poly_rootEP9func_decl.exit:     ; preds = %if.then.i.i.i.i.i, 
   %retval.0.i.i.i.i.i = phi ptr [ %curr.133.i.i.i.i.i, %if.then22.i.i.i.i.i ], [ %curr.031.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %m_value.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 8
   %11 = load ptr, ptr %m_value.i.i.i, align 8
-  %cmp9.not = icmp eq ptr %11, %n
+  %cmp9.not = icmp eq ptr %n, %11
   br i1 %cmp9.not, label %if.end16, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %_ZNK11ast_manager9poly_rootEP9func_decl.exit
@@ -3040,7 +3040,7 @@ if.else100:                                       ; preds = %while.body93
 
 if.else.i160:                                     ; preds = %if.else100
   %103 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %103, %sub103
+  %cmp3.not.i = icmp ugt i32 %sub103, %103
   br i1 %cmp3.not.i, label %if.else6.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.else.i160

@@ -580,7 +580,7 @@ _ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit: ; preds = %51, %_
   %110 = sub i64 0, %107
   %111 = and i64 %109, %110
   %112 = tail call noundef i64 @llvm.umax.i64(i64 %111, i64 %107)
-  %113 = and i64 %110, %4
+  %113 = and i64 %4, %110
   %114 = icmp ugt i64 %112, %113
   %115 = tail call i64 @llvm.umax.i64(i64 %113, i64 %3)
   %storemerge = select i1 %114, i64 %115, i64 %112
@@ -827,7 +827,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy26compute_old_gen_free_spaceEmmmb(p
   %92 = load ptr, ptr %15, align 8
   %93 = load float, ptr %92, align 4
   %94 = fcmp oge float %93, 0.000000e+00
-  %brmerge.not = and i1 %94, %4
+  %brmerge.not = and i1 %4, %94
   br i1 %brmerge.not, label %95, label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
 
 95:                                               ; preds = %91
@@ -1787,7 +1787,7 @@ define hidden noundef i32 @_ZN20PSAdaptiveSizePolicy41compute_survivor_space_siz
 58:                                               ; preds = %55
   %59 = icmp ugt i32 %2, 1
   %60 = sext i1 %59 to i32
-  %spec.select = add i32 %60, %2
+  %spec.select = add i32 %2, %60
   br label %71
 
 61:                                               ; preds = %55, %52, %51
@@ -1803,11 +1803,11 @@ define hidden noundef i32 @_ZN20PSAdaptiveSizePolicy41compute_survivor_space_siz
   %66 = load i8, ptr @NeverTenure, align 1
   %67 = trunc i8 %66 to i1
   %68 = load i32, ptr @MaxTenuringThreshold, align 4
-  %69 = icmp ugt i32 %68, %2
+  %69 = icmp ult i32 %2, %68
   %not. = xor i1 %67, true
   %or.cond.not = select i1 %not., i1 %69, i1 false
   %70 = zext i1 %or.cond.not to i32
-  %spec.select31 = add i32 %70, %2
+  %spec.select31 = add i32 %2, %70
   br label %71
 
 71:                                               ; preds = %65, %58, %61, %62
@@ -1887,7 +1887,7 @@ define hidden noundef i32 @_ZN20PSAdaptiveSizePolicy41compute_survivor_space_siz
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20PSAdaptiveSizePolicy15update_averagesEbmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %0, i1 noundef zeroext %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = select i1 %1, i64 %3, i64 0
-  %.sink10 = add i64 %5, %2
+  %.sink10 = add i64 %2, %5
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = uitofp i64 %.sink10 to float

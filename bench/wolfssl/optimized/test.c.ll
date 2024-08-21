@@ -14790,7 +14790,7 @@ if.end:                                           ; preds = %entry
   %call4 = tail call i64 @fwrite(ptr noundef %der, i64 noundef 1, i64 noundef %conv3, ptr noundef nonnull %call)
   %conv5 = trunc i64 %call4 to i32
   %call6 = tail call i32 @fclose(ptr noundef nonnull %call)
-  %cmp.not = icmp eq i32 %conv5, %derSz
+  %cmp.not = icmp eq i32 %derSz, %conv5
   %sub12 = sub i32 -1610712736, %calling_line
   %spec.select = select i1 %cmp.not, i32 0, i32 %sub12
   br label %return

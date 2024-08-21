@@ -5229,7 +5229,7 @@ lor.lhs.false:                                    ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !57
   %conv.i = trunc i64 %0 to i32
-  %cmp2.not = icmp ugt i32 %conv.i, %begin
+  %cmp2.not = icmp ult i32 %begin, %conv.i
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -7941,7 +7941,7 @@ entry:
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !57
   %conv.i = trunc i64 %0 to i32
-  %cmp = icmp ule i32 %conv.i, %max
+  %cmp = icmp uge i32 %max, %conv.i
   %cmp4.not = icmp eq i32 %max, 0
   %or.cond = or i1 %cmp4.not, %cmp
   br i1 %or.cond, label %if.end, label %if.then
@@ -9845,7 +9845,7 @@ while.body:                                       ; preds = %if.end97, %while.bo
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %1 = load ptr, ptr %vfn, align 8
   %call10 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(308) %0) #21
-  %brmerge = or i1 %call10, %includeInvisible
+  %brmerge = or i1 %includeInvisible, %call10
   br i1 %brmerge, label %land.lhs.true, label %if.end97
 
 land.lhs.true:                                    ; preds = %while.body
@@ -9863,7 +9863,7 @@ if.then19:                                        ; preds = %lor.lhs.false14, %l
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 144
   %3 = load ptr, ptr %vfn22, align 8
   %call23 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(308) %.pre) #21
-  %brmerge140 = or i1 %call23, %includeDisabled
+  %brmerge140 = or i1 %includeDisabled, %call23
   %.pre189 = load ptr, ptr %_M_storage.i.i, align 8, !tbaa !88
   br i1 %brmerge140, label %if.then26, label %if.end88
 
@@ -9877,7 +9877,7 @@ land.lhs.true29:                                  ; preds = %if.then26
   %IsTabGroup.i155 = getelementptr inbounds i8, ptr %.pre189, i64 276
   %5 = load i8, ptr %IsTabGroup.i155, align 4, !tbaa !82, !range !83, !noundef !84
   %tobool.i156 = icmp ne i8 %5, 0
-  %6 = xor i1 %tobool.i156, %group
+  %6 = xor i1 %group, %tobool.i156
   br i1 %6, label %if.end88, label %if.then36
 
 if.then36:                                        ; preds = %land.lhs.true29
@@ -9901,7 +9901,7 @@ if.then44:                                        ; preds = %if.end42
   %cmp48 = icmp sgt i32 %7, %9
   %cmp50 = icmp slt i32 %7, %startOrder
   %10 = and i1 %cmp50, %cmp48
-  %or.cond141 = and i1 %10, %reverse
+  %or.cond141 = and i1 %reverse, %10
   br i1 %or.cond141, label %if.end70.sink.split, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %if.then44

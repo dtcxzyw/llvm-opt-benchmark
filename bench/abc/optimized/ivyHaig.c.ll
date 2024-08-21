@@ -325,7 +325,7 @@ Ivy_ObjChild0Equiv.exit29:                        ; preds = %17, %21
   %38 = ptrtoint ptr %32 to i64
   %.0.in12.i = and i64 %38, -2
   %.013.i = inttoptr i64 %.0.in12.i to ptr
-  %.not14.i = icmp eq ptr %.013.i, %30
+  %.not14.i = icmp eq ptr %30, %.013.i
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %37
@@ -347,7 +347,7 @@ Ivy_ObjChild0Equiv.exit29:                        ; preds = %17, %21
   %45 = ptrtoint ptr %44 to i64
   %.0.in.i = and i64 %45, -2
   %.0.i = inttoptr i64 %.0.in.i to ptr
-  %.not.i30 = icmp eq ptr %.0.i, %30
+  %.not.i30 = icmp eq ptr %30, %.0.i
   br i1 %.not.i30, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph74, %.lr.ph.i.preheader, %37
@@ -404,7 +404,7 @@ Ivy_ObjChild0Equiv.exit32:                        ; preds = %56, %60
   %77 = ptrtoint ptr %71 to i64
   %.0.in12.i34 = and i64 %77, -2
   %.013.i35 = inttoptr i64 %.0.in12.i34 to ptr
-  %.not14.i36 = icmp eq ptr %.013.i35, %69
+  %.not14.i36 = icmp eq ptr %69, %.013.i35
   br i1 %.not14.i36, label %._crit_edge.i44, label %.lr.ph.i37.preheader
 
 .lr.ph.i37.preheader:                             ; preds = %76
@@ -426,7 +426,7 @@ Ivy_ObjChild0Equiv.exit32:                        ; preds = %56, %60
   %84 = ptrtoint ptr %83 to i64
   %.0.in.i41 = and i64 %84, -2
   %.0.i42 = inttoptr i64 %.0.in.i41 to ptr
-  %.not.i43 = icmp eq ptr %.0.i42, %69
+  %.not.i43 = icmp eq ptr %69, %.0.i42
   br i1 %.not.i43, label %._crit_edge.i44, label %.lr.ph.i37, !llvm.loop !8
 
 ._crit_edge.i44:                                  ; preds = %.lr.ph.i37, %.lr.ph, %.lr.ph.i37.preheader, %76
@@ -475,7 +475,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_HaigObjRepr.exi
   %110 = ptrtoint ptr %104 to i64
   %.0.in12.i50 = and i64 %110, -2
   %.013.i51 = inttoptr i64 %.0.in12.i50 to ptr
-  %.not14.i52 = icmp eq ptr %.013.i51, %102
+  %.not14.i52 = icmp eq ptr %102, %.013.i51
   br i1 %.not14.i52, label %._crit_edge.i60, label %.lr.ph.i53.preheader
 
 .lr.ph.i53.preheader:                             ; preds = %109
@@ -497,7 +497,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_HaigObjRepr.exi
   %117 = ptrtoint ptr %116 to i64
   %.0.in.i57 = and i64 %117, -2
   %.0.i58 = inttoptr i64 %.0.in.i57 to ptr
-  %.not.i59 = icmp eq ptr %.0.i58, %102
+  %.not.i59 = icmp eq ptr %102, %.0.i58
   br i1 %.not.i59, label %._crit_edge.i60, label %.lr.ph.i53, !llvm.loop !8
 
 ._crit_edge.i60:                                  ; preds = %.lr.ph.i53, %.lr.ph69, %.lr.ph.i53.preheader, %109
@@ -615,7 +615,7 @@ define void @Ivy_ManHaigCreateChoice(ptr nocapture noundef readonly %0, ptr noca
   %22 = ptrtoint ptr %16 to i64
   %.0.in12.i = and i64 %22, -2
   %.013.i = inttoptr i64 %.0.in12.i to ptr
-  %.not14.i = icmp eq ptr %.013.i, %14
+  %.not14.i = icmp eq ptr %14, %.013.i
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %21
@@ -637,7 +637,7 @@ define void @Ivy_ManHaigCreateChoice(ptr nocapture noundef readonly %0, ptr noca
   %29 = ptrtoint ptr %28 to i64
   %.0.in.i = and i64 %29, -2
   %.0.i = inttoptr i64 %.0.in.i to ptr
-  %.not.i = icmp eq ptr %.0.i, %14
+  %.not.i = icmp eq ptr %14, %.0.i
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.i.preheader, %21
@@ -665,7 +665,7 @@ Ivy_HaigObjRepr.exit:                             ; preds = %3, %18, %._crit_edg
   %41 = ptrtoint ptr %35 to i64
   %.0.in12.i29 = and i64 %41, -2
   %.013.i30 = inttoptr i64 %.0.in12.i29 to ptr
-  %.not14.i31 = icmp eq ptr %.013.i30, %33
+  %.not14.i31 = icmp eq ptr %33, %.013.i30
   br i1 %.not14.i31, label %._crit_edge.i39, label %.lr.ph.i32.preheader
 
 .lr.ph.i32.preheader:                             ; preds = %40
@@ -687,7 +687,7 @@ Ivy_HaigObjRepr.exit:                             ; preds = %3, %18, %._crit_edg
   %48 = ptrtoint ptr %47 to i64
   %.0.in.i36 = and i64 %48, -2
   %.0.i37 = inttoptr i64 %.0.in.i36 to ptr
-  %.not.i38 = icmp eq ptr %.0.i37, %33
+  %.not.i38 = icmp eq ptr %33, %.0.i37
   br i1 %.not.i38, label %._crit_edge.i39, label %.lr.ph.i32, !llvm.loop !8
 
 ._crit_edge.i39:                                  ; preds = %.lr.ph.i32, %.lr.ph48, %.lr.ph.i32.preheader, %40

@@ -507,7 +507,7 @@ define hidden void @_ZNK2cv11xfeatures2d14pct_signatures22PCTSignaturesSQFD_Impl
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 2
-  %27 = icmp ult i64 %26, %13
+  %27 = icmp ugt i64 %13, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %4
@@ -516,7 +516,7 @@ define hidden void @_ZNK2cv11xfeatures2d14pct_signatures22PCTSignaturesSQFD_Impl
           to label %_ZN2cv11xfeatures2d14pct_signatures21Parallel_computeSQFDsC2EPKNS0_17PCTSignaturesSQFDEPKNS_3MatEPKSt6vectorIS6_SaIS6_EEPS9_IfSaIfEE.exit unwind label %35
 
 30:                                               ; preds = %4
-  %31 = icmp ugt i64 %26, %13
+  %31 = icmp ult i64 %13, %26
   br i1 %31, label %32, label %_ZN2cv11xfeatures2d14pct_signatures21Parallel_computeSQFDsC2EPKNS0_17PCTSignaturesSQFDEPKNS_3MatEPKSt6vectorIS6_SaIS6_EEPS9_IfSaIfEE.exit
 
 32:                                               ; preds = %30

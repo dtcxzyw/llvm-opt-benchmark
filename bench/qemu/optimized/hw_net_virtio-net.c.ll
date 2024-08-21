@@ -3300,7 +3300,7 @@ entry:
   %call1 = tail call ptr @qemu_get_queue(ptr noundef %0) #19
   %host_features = getelementptr inbounds i8, ptr %call.i, i64 600
   %1 = load i64, ptr %host_features, align 8
-  %or = or i64 %1, %features
+  %or = or i64 %features, %1
   %or.i = or i64 %or, 32
   %2 = getelementptr i8, ptr %call.i, i64 576
   %call.val = load i32, ptr %2, align 8
@@ -3860,7 +3860,7 @@ entry:
   %0 = load i16, ptr %max_queue_pairs, align 4
   %conv = zext i16 %0 to i32
   %mul = shl nuw nsw i32 %conv, 1
-  %cmp.not = icmp ugt i32 %mul, %queue_index
+  %cmp.not = icmp ult i32 %queue_index, %mul
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -3924,7 +3924,7 @@ entry:
   %0 = load i16, ptr %max_queue_pairs, align 4
   %conv = zext i16 %0 to i32
   %mul = shl nuw nsw i32 %conv, 1
-  %cmp.not = icmp ugt i32 %mul, %queue_index
+  %cmp.not = icmp ult i32 %queue_index, %mul
   br i1 %cmp.not, label %if.end, label %if.end19
 
 if.end:                                           ; preds = %entry
@@ -5402,7 +5402,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %host_hdr_len.i = getelementptr inbounds i8, ptr %call.i, i64 584
   %2 = load i64, ptr %host_hdr_len.i, align 8
   %add.i = add i64 %2, 14
-  %cmp.i = icmp ugt i64 %add.i, %size
+  %cmp.i = icmp ult i64 %size, %add.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -5494,7 +5494,7 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
   %12 = load i64, ptr %guest_hdr_len.i.i, align 8
   %conv1.i.i = and i64 %12, 65535
   %add3.i.i = add nuw nsw i64 %conv1.i.i, 54
-  %cmp.i.i = icmp ugt i64 %add3.i.i, %size
+  %cmp.i.i = icmp ult i64 %size, %add3.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i23.i
 
 if.then.i.i:                                      ; preds = %if.then9.i
@@ -5689,7 +5689,7 @@ if.then17.i:                                      ; preds = %land.lhs.true14.i
   %40 = load i64, ptr %guest_hdr_len.i28.i, align 8
   %conv1.i29.i = and i64 %40, 65535
   %add3.i30.i = add nuw nsw i64 %conv1.i29.i, 74
-  %cmp.i31.i = icmp ugt i64 %add3.i30.i, %size
+  %cmp.i31.i = icmp ult i64 %size, %add3.i30.i
   br i1 %cmp.i31.i, label %if.then.i79.i, label %if.end.i32.i
 
 if.then.i79.i:                                    ; preds = %if.then17.i

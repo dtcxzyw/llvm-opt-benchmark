@@ -1671,7 +1671,7 @@ list_length.exit:                                 ; preds = %6, %9
   %33 = and i64 %32, -8
   %34 = add nsw i64 %33, 16
   %35 = uitofp i64 %34 to double
-  %36 = fmul double %35, %3
+  %36 = fmul double %3, %35
   %37 = uitofp i64 %13 to double
   %38 = fcmp ogt double %36, %37
   br i1 %38, label %65, label %39

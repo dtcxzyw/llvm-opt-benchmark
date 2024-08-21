@@ -26149,7 +26149,7 @@ lor.lhs.false:                                    ; preds = %entry.lor.lhs.false
 
 land.lhs.true17:                                  ; preds = %lor.lhs.false
   %not.tobool.i = xor i1 %tobool.i, true
-  %12 = or i1 %not.tobool.i, %equality
+  %12 = or i1 %equality, %not.tobool.i
   %tobool.i75 = select i1 %12, i1 true, i1 %tobool2.i
   br i1 %tobool.i75, label %lor.end, label %lor.rhs
 
@@ -26158,7 +26158,7 @@ lor.rhs:                                          ; preds = %land.lhs.true17, %l
   %13 = xor i8 %10, %3
   %14 = trunc i8 %13 to i1
   %15 = xor i1 %14, true
-  %16 = and i1 %brmerge.demorgan, %equality
+  %16 = and i1 %equality, %brmerge.demorgan
   %tobool.i83 = select i1 %16, i1 %15, i1 false
   br label %lor.end
 
@@ -26187,7 +26187,7 @@ lor.lhs.false49.thread:                           ; preds = %lor.end
 land.end65:                                       ; preds = %land.lhs.true46, %land.lhs.true43, %lor.lhs.false49.thread
   %22 = phi i8 [ 0, %lor.lhs.false49.thread ], [ %20, %land.lhs.true43 ], [ %20, %land.lhs.true46 ]
   %23 = trunc i8 %22 to i1
-  %tobool.i94 = and i1 %23, %equality
+  %tobool.i94 = and i1 %equality, %23
   br label %lor.end69
 
 lor.end69:                                        ; preds = %lor.lhs.false49.thread, %land.end65, %land.lhs.true46

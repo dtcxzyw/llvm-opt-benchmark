@@ -92,7 +92,7 @@ entry:
   %sub.ptr.lhs.cast3 = ptrtoint ptr %2 to i64
   %sub.ptr.sub5 = sub i64 %sub.ptr.lhs.cast3, %sub.ptr.rhs.cast
   %shr = ashr i64 %sub.ptr.sub5, 1
-  %cond = tail call i64 @llvm.smax.i64(i64 %shr, i64 %size)
+  %cond = tail call i64 @llvm.smax.i64(i64 %size, i64 %shr)
   %add = add i64 %cond, %sub.ptr.sub5
   %end = getelementptr inbounds i8, ptr %tok, i64 48
   %3 = load ptr, ptr %end, align 8

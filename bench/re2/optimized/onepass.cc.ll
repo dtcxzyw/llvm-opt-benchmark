@@ -1672,7 +1672,7 @@ for.body.i.i.preheader:                           ; preds = %_ZNSt16allocator_tr
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %for.body.i.i.preheader, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i
-  %cmp6.not.i.i = icmp eq ptr %.sink3.i, %pos
+  %cmp6.not.i.i = icmp eq ptr %pos, %.sink3.i
   br i1 %cmp6.not.i.i, label %invoke.cont21, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %invoke.cont19, %for.inc.i.i
@@ -1781,7 +1781,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %exitcond.not.i64, label %invoke.cont77, label %for.body.i, !llvm.loop !20
 
 invoke.cont77:                                    ; preds = %for.body.i, %for.end
-  %cmp3.not.i66 = icmp eq i64 %sub50, %insert_count
+  %cmp3.not.i66 = icmp eq i64 %insert_count, %sub50
   br i1 %cmp3.not.i66, label %invoke.cont83, label %for.body.i67.preheader
 
 for.body.i67.preheader:                           ; preds = %invoke.cont77

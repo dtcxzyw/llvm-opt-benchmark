@@ -2222,7 +2222,7 @@ define internal fastcc noundef ptr @_add_param(ptr noundef %0, ptr noundef %1, i
 
 30:                                               ; preds = %27, %22
   %31 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.13) #6
-  %32 = or i1 %8, %5
+  %32 = or i1 %5, %8
   %33 = tail call ptr @data_set_bool(ptr noundef %31, i1 noundef zeroext %32) #6
   %34 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.48) #6
   %35 = tail call ptr @data_set_dict(ptr noundef %34) #6

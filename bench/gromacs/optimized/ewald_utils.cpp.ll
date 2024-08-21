@@ -11,7 +11,7 @@ define noundef float @_Z17calc_ewaldcoeff_qff(float noundef %0, float noundef %1
   %indvars.iv = phi i32 [ %indvars.iv.next, %3 ], [ 61, %2 ]
   %.017 = phi float [ %4, %3 ], [ 5.000000e+00, %2 ]
   %4 = fmul float %.017, 2.000000e+00
-  %5 = fmul float %4, %0
+  %5 = fmul float %0, %4
   %6 = tail call noundef float @erfcf(float noundef %5) #4
   %7 = fcmp ogt float %6, %1
   %indvars.iv.next = add i32 %indvars.iv, 1
@@ -23,7 +23,7 @@ define noundef float @_Z17calc_ewaldcoeff_qff(float noundef %0, float noundef %1
   %.02124 = phi float [ %..021, %.preheader ], [ 0.000000e+00, %3 ]
   %8 = fadd float %.02124, %.01925
   %9 = fmul float %8, 5.000000e-01
-  %10 = fmul float %9, %0
+  %10 = fmul float %0, %9
   %11 = tail call noundef float @erfcf(float noundef %10) #4
   %12 = fcmp ogt float %11, %1
   %..021 = select i1 %12, float %9, float %.02124
@@ -47,7 +47,7 @@ define noundef float @_Z18calc_ewaldcoeff_ljff(float noundef %0, float noundef %
   %indvars.iv = phi i32 [ %indvars.iv.next, %3 ], [ 61, %2 ]
   %.017 = phi float [ %4, %3 ], [ 5.000000e+00, %2 ]
   %4 = fmul float %.017, 2.000000e+00
-  %5 = fmul float %4, %0
+  %5 = fmul float %0, %4
   %6 = fmul float %5, %5
   %7 = fmul float %6, %6
   %8 = fneg float %6
@@ -60,7 +60,7 @@ define noundef float @_Z18calc_ewaldcoeff_ljff(float noundef %0, float noundef %
   %15 = fadd double %14, %12
   %16 = fmul double %15, %10
   %17 = fptrunc double %16 to float
-  %18 = fcmp ogt float %17, %1
+  %18 = fcmp olt float %1, %17
   %indvars.iv.next = add i32 %indvars.iv, 1
   br i1 %18, label %3, label %.preheader, !llvm.loop !8
 
@@ -70,7 +70,7 @@ define noundef float @_Z18calc_ewaldcoeff_ljff(float noundef %0, float noundef %
   %.02124 = phi float [ %..021, %.preheader ], [ 0.000000e+00, %3 ]
   %19 = fadd float %.02124, %.01925
   %20 = fmul float %19, 5.000000e-01
-  %21 = fmul float %20, %0
+  %21 = fmul float %0, %20
   %22 = fmul float %21, %21
   %23 = fmul float %22, %22
   %24 = fneg float %22
@@ -83,7 +83,7 @@ define noundef float @_Z18calc_ewaldcoeff_ljff(float noundef %0, float noundef %
   %31 = fadd double %30, %28
   %32 = fmul double %31, %26
   %33 = fptrunc double %32 to float
-  %34 = fcmp ogt float %33, %1
+  %34 = fcmp olt float %1, %33
   %..021 = select i1 %34, float %20, float %.02124
   %.019. = select i1 %34, float %.01925, float %20
   %35 = add nuw nsw i32 %.126, 1

@@ -226,7 +226,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %E.addr.04.i.i.i.i, i64 -48
   %Text.i.i.i.i.i = getelementptr inbounds i8, ptr %E.addr.04.i.i.i.i, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i) #12
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %6
+  %cmp.not.i.i.i.i = icmp eq ptr %6, %incdec.ptr.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !24
 
 _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i: ; preds = %while.body.i.i.i.i
@@ -474,7 +474,7 @@ if.end11:                                         ; preds = %if.then4, %if.end11
   %4 = phi ptr [ %.pre, %if.end11.loopexit ], [ %2, %if.then4 ]
   %NewEnd.0 = phi ptr [ %incdec.ptr1.i.i.i.i.i, %if.end11.loopexit ], [ %2, %if.then4 ]
   %add.ptr.i59 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %4, i64 %conv.i21.pre-phi
-  %cmp.not3.i = icmp eq ptr %add.ptr.i59, %NewEnd.0
+  %cmp.not3.i = icmp eq ptr %NewEnd.0, %add.ptr.i59
   br i1 %cmp.not3.i, label %return.sink.split, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end11, %while.body.i
@@ -482,7 +482,7 @@ while.body.i:                                     ; preds = %if.end11, %while.bo
   %incdec.ptr.i = getelementptr inbounds i8, ptr %E.addr.04.i, i64 -48
   %Text.i.i = getelementptr inbounds i8, ptr %E.addr.04.i, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i) #12
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %NewEnd.0
+  %cmp.not.i = icmp eq ptr %NewEnd.0, %incdec.ptr.i
   br i1 %cmp.not.i, label %return.sink.split, label %while.body.i, !llvm.loop !24
 
 if.end13:                                         ; preds = %if.end
@@ -505,7 +505,7 @@ while.body.i27:                                   ; preds = %while.body.i27.preh
   %incdec.ptr.i29 = getelementptr inbounds i8, ptr %E.addr.04.i28, i64 -48
   %Text.i.i30 = getelementptr inbounds i8, ptr %E.addr.04.i28, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i30) #12
-  %cmp.not.i31 = icmp eq ptr %incdec.ptr.i29, %6
+  %cmp.not.i31 = icmp eq ptr %6, %incdec.ptr.i29
   br i1 %cmp.not.i31, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit32, label %while.body.i27, !llvm.loop !24
 
 _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit32: ; preds = %while.body.i27, %if.then16
@@ -649,7 +649,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %incdec.ptr.i = getelementptr inbounds i8, ptr %E.addr.04.i, i64 -48
   %Text.i.i = getelementptr inbounds i8, ptr %E.addr.04.i, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i) #12
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %.pre
+  %cmp.not.i = icmp eq ptr %.pre, %incdec.ptr.i
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit, label %while.body.i, !llvm.loop !24
 
 _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit: ; preds = %while.body.i

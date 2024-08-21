@@ -2264,7 +2264,7 @@ phar_mung_server_vars.exit:                       ; preds = %66, %109, %192, %19
 
 217:                                              ; preds = %215
   store i32 1, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 420), align 4
-  %218 = icmp eq ptr %216, %4
+  %218 = icmp eq ptr %4, %216
   br i1 %218, label %219, label %220
 
 219:                                              ; preds = %217
@@ -14255,8 +14255,8 @@ define internal fastcc range(i32 -1, 1) i32 @phar_extract_file(i1 noundef zeroex
   %96 = ptrtoint ptr %93 to i64
   %97 = ptrtoint ptr %47 to i64
   %98 = sub i64 %96, %97
-  %99 = getelementptr i8, ptr %94, i64 %98
-  %100 = getelementptr i8, ptr %99, i64 %3
+  %99 = getelementptr i8, ptr %94, i64 %3
+  %100 = getelementptr i8, ptr %99, i64 %98
   %101 = getelementptr i8, ptr %100, i64 1
   %.sink = select i1 %.not93, ptr %95, ptr %101
   store i8 0, ptr %.sink, align 1
@@ -14311,8 +14311,8 @@ define internal fastcc range(i32 -1, 1) i32 @phar_extract_file(i1 noundef zeroex
   %131 = ptrtoint ptr %93 to i64
   %132 = ptrtoint ptr %47 to i64
   %133 = sub i64 %131, %132
-  %134 = getelementptr i8, ptr %129, i64 %133
-  %135 = getelementptr i8, ptr %134, i64 %3
+  %134 = getelementptr i8, ptr %129, i64 %3
+  %135 = getelementptr i8, ptr %134, i64 %133
   %136 = getelementptr i8, ptr %135, i64 1
   %.sink103 = select i1 %.not93, ptr %130, ptr %136
   store i8 47, ptr %.sink103, align 1

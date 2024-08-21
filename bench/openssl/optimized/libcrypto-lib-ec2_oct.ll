@@ -233,7 +233,7 @@ if.end11:                                         ; preds = %if.end
   br i1 %cmp17.not, label %if.end116, label %if.then19
 
 if.then19:                                        ; preds = %if.end11
-  %cmp20 = icmp ugt i64 %cond, %len
+  %cmp20 = icmp ult i64 %len, %cond
   br i1 %cmp20, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.then19
@@ -473,7 +473,7 @@ if.end30:                                         ; preds = %if.end22
   %mul = shl nsw i64 %conv32, 1
   %add36 = or disjoint i64 %mul, 1
   %cond = select i1 %cmp33, i64 %add35, i64 %add36
-  %cmp37.not = icmp eq i64 %cond, %len
+  %cmp37.not = icmp eq i64 %len, %cond
   br i1 %cmp37.not, label %if.end40, label %if.then39
 
 if.then39:                                        ; preds = %if.end30

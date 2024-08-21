@@ -710,7 +710,7 @@ define internal fastcc range(i32 0, 65536) i32 @Rsb_DecTry4(i64 noundef %0, i64 
   %45 = or disjoint i32 %26, %44
   %46 = shl nuw nsw i32 %45, 8
   %47 = xor i64 %4, -1
-  %48 = and i64 %47, %0
+  %48 = and i64 %0, %47
   %49 = and i64 %48, %3
   %50 = and i64 %49, %2
   %51 = and i64 %50, %1

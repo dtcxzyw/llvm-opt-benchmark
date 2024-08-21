@@ -1018,7 +1018,7 @@ define void @_Z27gmx_mtop_generate_local_topRK10gmx_mtop_tP14gmx_localtop_tb(ptr
   %sext240.i.i = shl i64 %77, 30
   %78 = ashr i64 %sext240.i.i, 32
   %79 = add nsw i64 %78, %72
-  %80 = icmp ult i64 %72, %79
+  %80 = icmp ugt i64 %79, %72
   br i1 %80, label %81, label %113
 
 81:                                               ; preds = %.lr.ph.i.i
@@ -1107,7 +1107,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i.i.i: ; preds = %110, %_Z
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i
 
 113:                                              ; preds = %.lr.ph.i.i
-  %114 = icmp ugt i64 %72, %79
+  %114 = icmp ult i64 %79, %72
   br i1 %114, label %115, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i
 
 115:                                              ; preds = %113
@@ -1227,7 +1227,7 @@ _ZL8ilistcatiP15InteractionListRKS_iii.exit.i.i:  ; preds = %.loopexit.i.i.i, %.
   %sext241.i.i = shl i64 %178, 30
   %179 = ashr i64 %sext241.i.i, 32
   %180 = add nsw i64 %179, %173
-  %181 = icmp ult i64 %173, %180
+  %181 = icmp ugt i64 %180, %173
   br i1 %181, label %182, label %214
 
 182:                                              ; preds = %_ZL8ilistcatiP15InteractionListRKS_iii.exit.i.i
@@ -1316,7 +1316,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i222.i.i: ; preds = %211, 
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i74.i.i
 
 214:                                              ; preds = %_ZL8ilistcatiP15InteractionListRKS_iii.exit.i.i
-  %215 = icmp ugt i64 %173, %180
+  %215 = icmp ult i64 %180, %173
   br i1 %215, label %216, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i74.i.i
 
 216:                                              ; preds = %214
@@ -1450,7 +1450,7 @@ _ZL8ilistcatiP15InteractionListRKS_iii.exit113.i.i: ; preds = %.loopexit.i84.i.i
   %292 = mul nsw i32 %272, %291
   %293 = sext i32 %292 to i64
   %294 = add nsw i64 %283, %293
-  %295 = icmp ult i64 %283, %294
+  %295 = icmp ugt i64 %294, %283
   br i1 %295, label %296, label %329
 
 296:                                              ; preds = %271
@@ -1540,7 +1540,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i235.i.i: ; preds = %326, 
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i115.i.i
 
 329:                                              ; preds = %271
-  %330 = icmp ugt i64 %283, %294
+  %330 = icmp ult i64 %294, %283
   br i1 %330, label %331, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i115.i.i
 
 331:                                              ; preds = %329
@@ -1730,7 +1730,7 @@ _ZL8ilistcatiP15InteractionListRKS_iii.exit154.i.i: ; preds = %_ZL8ilistcatiP15I
   br label %_ZL13resizeIParamsPSt6vectorI9t_iparamsSaIS0_EEi.exit.i.i.i
 
 _ZL13resizeIParamsPSt6vectorI9t_iparamsSaIS0_EEi.exit.i.i.i: ; preds = %421, %419, %417, %415
-  %422 = icmp sgt i32 %406, %405
+  %422 = icmp slt i32 %405, %406
   br i1 %422, label %.lr.ph.i.i.i, label %_ZL17set_posres_paramsI22InteractionDefinitionsEvPT_PK14gmx_molblock_tii.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZL13resizeIParamsPSt6vectorI9t_iparamsSaIS0_EEi.exit.i.i.i
@@ -1918,7 +1918,7 @@ _ZL17set_posres_paramsI22InteractionDefinitionsEvPT_PK14gmx_molblock_tii.exit.i.
   br label %_ZL13resizeIParamsPSt6vectorI9t_iparamsSaIS0_EEi.exit.i159.i.i
 
 _ZL13resizeIParamsPSt6vectorI9t_iparamsSaIS0_EEi.exit.i159.i.i: ; preds = %516, %514, %512, %510
-  %517 = icmp sgt i32 %501, %500
+  %517 = icmp slt i32 %500, %501
   br i1 %517, label %.lr.ph.i160.i.i, label %_ZL19set_fbposres_paramsI22InteractionDefinitionsEvPT_PK14gmx_molblock_tii.exit.i.i
 
 .lr.ph.i160.i.i:                                  ; preds = %_ZL13resizeIParamsPSt6vectorI9t_iparamsSaIS0_EEi.exit.i159.i.i
@@ -2059,7 +2059,7 @@ _ZL19set_fbposres_paramsI22InteractionDefinitionsEvPT_PK14gmx_molblock_tii.exit.
   %sext.i.i = shl i64 %592, 30
   %593 = ashr i64 %sext.i.i, 32
   %594 = add nsw i64 %593, %586
-  %595 = icmp ult i64 %586, %594
+  %595 = icmp ugt i64 %594, %586
   br i1 %595, label %596, label %597
 
 596:                                              ; preds = %574
@@ -2067,7 +2067,7 @@ _ZL19set_fbposres_paramsI22InteractionDefinitionsEvPT_PK14gmx_molblock_tii.exit.
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i170.i.i
 
 597:                                              ; preds = %574
-  %598 = icmp ugt i64 %586, %594
+  %598 = icmp ult i64 %594, %586
   br i1 %598, label %599, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i170.i.i
 
 599:                                              ; preds = %597
@@ -2429,7 +2429,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i37.i.i: ; preds = %766
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i40.i.i: ; preds = %774, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i37.i.i
   %777 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i37.i.i ], [ %776, %774 ]
-  %.not.i.i.i.i.i.i.i.i.i56.i41.i.i = icmp eq ptr %750, %751
+  %.not.i.i.i.i.i.i.i.i.i56.i41.i.i = icmp eq ptr %751, %750
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i41.i.i, label %779, label %778
 
 778:                                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i40.i.i
@@ -3842,7 +3842,7 @@ _ZNSt16allocator_traitsISaIN3gmx5RangeIiEEEE9constructIS2_JRiS6_EEEvRS3_PT_DpOT0
 _ZNSt6vectorIN3gmx5RangeIiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN3gmx5RangeIiEEEE9constructIS2_JRiS6_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaIN3gmx5RangeIiEEEE9constructIS2_JRiS6_EEEvRS3_PT_DpOT0_.exit ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
-  %.not10.i.i.i28 = icmp eq ptr %6, %1
+  %.not10.i.i.i28 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i28, label %_ZNSt6vectorIN3gmx5RangeIiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34, label %.lr.ph.i.i.i29
 
 .lr.ph.i.i.i29:                                   ; preds = %_ZNSt6vectorIN3gmx5RangeIiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i29
@@ -3976,7 +3976,7 @@ _ZNSt16allocator_traitsISaIN3gmx5RangeIiEEEE9constructIS2_JRiRKiEEEvRS3_PT_DpOT0
 _ZNSt6vectorIN3gmx5RangeIiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN3gmx5RangeIiEEEE9constructIS2_JRiRKiEEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaIN3gmx5RangeIiEEEE9constructIS2_JRiRKiEEEvRS3_PT_DpOT0_.exit ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
-  %.not10.i.i.i28 = icmp eq ptr %6, %1
+  %.not10.i.i.i28 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i28, label %_ZNSt6vectorIN3gmx5RangeIiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34, label %.lr.ph.i.i.i29
 
 .lr.ph.i.i.i29:                                   ; preds = %_ZNSt6vectorIN3gmx5RangeIiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i29
@@ -4359,7 +4359,7 @@ _ZL8ilistcatiP7t_ilistRK15InteractionListiii.exit.i.i: ; preds = %._crit_edge.sp
   %184 = sext i32 %183 to i64
   %185 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 332, ptr noundef %78, i64 noundef %184, i64 noundef 48)
   store ptr %185, ptr %61, align 8
-  %186 = icmp sgt i32 %183, %182
+  %186 = icmp slt i32 %182, %183
   br i1 %186, label %.lr.ph.i.i.i, label %_ZL17set_posres_paramsI6t_idefEvPT_PK14gmx_molblock_tii.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %181
@@ -4506,7 +4506,7 @@ _ZL17set_posres_paramsI6t_idefEvPT_PK14gmx_molblock_tii.exit.i.i: ; preds = %247
   %257 = sext i32 %256 to i64
   %258 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 332, ptr noundef %77, i64 noundef %257, i64 noundef 48)
   store ptr %258, ptr %74, align 8
-  %259 = icmp sgt i32 %256, %255
+  %259 = icmp slt i32 %255, %256
   br i1 %259, label %.lr.ph.i77.i.i, label %_ZL19set_fbposres_paramsI6t_idefEvPT_PK14gmx_molblock_tii.exit.i.i
 
 .lr.ph.i77.i.i:                                   ; preds = %254
@@ -5210,7 +5210,7 @@ _ZSt10_ConstructI13gmx_moltype_tJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #21
-  %.not4.i.i.i.i.i = icmp eq ptr %.014.i.i.i, %5
+  %.not4.i.i.i.i.i = icmp eq ptr %5, %.014.i.i.i
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIP13gmx_moltype_tEvT_S2_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %21, %.lr.ph.i.i.i.i.i
@@ -5282,7 +5282,7 @@ _ZSt10_ConstructI13gmx_moltype_tJEEvPT_DpOT0_.exit.i.i.i48: ; preds = %.lr.ph.i.
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = tail call ptr @__cxa_begin_catch(ptr %44) #21
-  %.not4.i.i.i.i.i43 = icmp eq ptr %.014.i.i.i41, %39
+  %.not4.i.i.i.i.i43 = icmp eq ptr %39, %.014.i.i.i41
   br i1 %.not4.i.i.i.i.i43, label %_ZSt8_DestroyIP13gmx_moltype_tEvT_S2_.exit.i.i.i47, label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %42, %.lr.ph.i.i.i.i.i44
@@ -5338,7 +5338,7 @@ _ZSt10_ConstructI13gmx_moltype_tJRKS0_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.l
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
   %60 = tail call ptr @__cxa_begin_catch(ptr %59) #21
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %38
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %38, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIP13gmx_moltype_tEvT_S2_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %57, %.lr.ph.i.i.i.i.i.i.i

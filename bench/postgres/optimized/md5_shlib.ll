@@ -37,7 +37,7 @@ define void @pg_md5_update(ptr nocapture noundef %0, ptr nocapture noundef reado
   %9 = load i32, ptr %8, align 8
   %10 = sub i32 64, %9
   %11 = zext i32 %10 to i64
-  %.not = icmp ugt i64 %11, %2
+  %.not = icmp ult i64 %2, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 28
   %13 = zext i32 %9 to i64
   %14 = getelementptr i8, ptr %12, i64 %13
@@ -48,7 +48,7 @@ define void @pg_md5_update(ptr nocapture noundef %0, ptr nocapture noundef reado
   tail call fastcc void @md5_calc(ptr noundef nonnull %12, ptr noundef nonnull %0)
   %16 = sub i32 128, %9
   %17 = zext i32 %16 to i64
-  %.not3233 = icmp ugt i64 %17, %2
+  %.not3233 = icmp ult i64 %2, %17
   br i1 %.not3233, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
@@ -59,7 +59,7 @@ define void @pg_md5_update(ptr nocapture noundef %0, ptr nocapture noundef reado
   tail call fastcc void @md5_calc(ptr noundef %20, ptr noundef %0)
   %21 = add i32 %18, 64
   %22 = zext i32 %21 to i64
-  %.not32 = icmp ugt i64 %22, %2
+  %.not32 = icmp ult i64 %2, %22
   br i1 %.not32, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

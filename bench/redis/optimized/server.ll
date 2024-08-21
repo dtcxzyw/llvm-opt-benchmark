@@ -14256,7 +14256,7 @@ while.end:                                        ; preds = %if.end, %entry
 define dso_local void @releaseInfoSectionDict(ptr noundef %sec) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @cached_default_info_sections, align 8
-  %cmp.not = icmp eq ptr %0, %sec
+  %cmp.not = icmp eq ptr %sec, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -15961,7 +15961,7 @@ sdslen.exit:                                      ; preds = %if.end, %sw.bb.i, %
   call void @addReplyVerbatim(ptr noundef nonnull %c, ptr noundef nonnull %call1, i64 noundef %retval.0.i, ptr noundef nonnull @.str.397) #40
   call void @sdsfree(ptr noundef nonnull %call1) #40
   %10 = load ptr, ptr @cached_default_info_sections, align 8
-  %cmp.not.i = icmp eq ptr %10, %call
+  %cmp.not.i = icmp eq ptr %call, %10
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %sdslen.exit
@@ -16881,7 +16881,7 @@ if.end.i:                                         ; preds = %if.end, %dismissMem
 land.lhs.true.i:                                  ; preds = %if.end.i
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 256), align 8
   %div3.i = lshr i64 %4, 1
-  %cmp1.not.i = icmp ult i64 %div3.i, %3
+  %cmp1.not.i = icmp ugt i64 %3, %div3.i
   br i1 %cmp1.not.i, label %if.end3.i, label %dismissMemory.exit
 
 if.end3.i:                                        ; preds = %land.lhs.true.i, %if.end.i
@@ -16944,7 +16944,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 256), align 8
   %div3 = lshr i64 %0, 1
-  %cmp1.not = icmp ult i64 %div3, %size_hint
+  %cmp1.not = icmp ugt i64 %size_hint, %div3
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %land.lhs.true, %if.end
@@ -16975,7 +16975,7 @@ if.end.i:                                         ; preds = %entry
 land.lhs.true.i:                                  ; preds = %if.end.i
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 256), align 8
   %div3.i = lshr i64 %2, 1
-  %cmp1.not.i = icmp ult i64 %div3.i, %1
+  %cmp1.not.i = icmp ugt i64 %1, %div3.i
   br i1 %cmp1.not.i, label %if.end3.i, label %dismissMemory.exit
 
 if.end3.i:                                        ; preds = %land.lhs.true.i, %if.end.i
@@ -17034,7 +17034,7 @@ land.lhs.true.i25:                                ; preds = %if.then8
   %mul = shl nsw i64 %conv11, 3
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 256), align 8
   %div3.i26 = lshr i64 %13, 1
-  %cmp1.not.i27 = icmp ult i64 %div3.i26, %mul
+  %cmp1.not.i27 = icmp ugt i64 %mul, %div3.i26
   br i1 %cmp1.not.i27, label %if.end3.i28, label %if.end12
 
 if.end3.i28:                                      ; preds = %land.lhs.true.i25
@@ -17078,7 +17078,7 @@ if.end.i31:                                       ; preds = %while.body
 land.lhs.true.i33:                                ; preds = %if.end.i31
   %20 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 256), align 8
   %div3.i34 = lshr i64 %20, 1
-  %cmp1.not.i35 = icmp ult i64 %div3.i34, %19
+  %cmp1.not.i35 = icmp ugt i64 %19, %div3.i34
   br i1 %cmp1.not.i35, label %if.end3.i36, label %if.end25
 
 if.end3.i36:                                      ; preds = %land.lhs.true.i33, %if.end.i31

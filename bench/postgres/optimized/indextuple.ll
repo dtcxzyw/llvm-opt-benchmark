@@ -1098,7 +1098,7 @@ define dso_local ptr @index_truncate_tuple(ptr noundef %0, ptr noundef %1, i32 n
   %4 = alloca [32 x i64], align 16
   %5 = alloca [32 x i8], align 16
   %6 = load i32, ptr %0, align 8
-  %7 = icmp eq i32 %6, %2
+  %7 = icmp eq i32 %2, %6
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %3

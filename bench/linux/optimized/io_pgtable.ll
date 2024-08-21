@@ -34,7 +34,7 @@ define dso_local void @amd_iommu_domain_set_pgtable(ptr nocapture noundef writeo
   %7 = getelementptr inbounds i8, ptr %0, i64 400
   store ptr %6, ptr %7, align 8
   %8 = trunc i64 %4 to i32
-  %9 = or i32 %8, %2
+  %9 = or i32 %2, %8
   %10 = and i32 %9, 7
   %11 = getelementptr inbounds i8, ptr %0, i64 392
   store i32 %10, ptr %11, align 8

@@ -2692,14 +2692,14 @@ sw.bb.cont:                                       ; preds = %entry
   %sext = shl i32 %call2, 24
   %cmp = icmp ne i32 %sext, 1946157056
   %cmp6 = icmp ne i32 %sext, 822083584
-  %or.cond.not = or i1 %cmp6, %strict
+  %or.cond.not = or i1 %strict, %cmp6
   %or.cond = and i1 %cmp, %or.cond.not
   br i1 %or.cond, label %if.else, label %cleanup92.sink.split
 
 if.else:                                          ; preds = %sw.bb.cont
   %cmp8 = icmp ne i32 %sext, 1711276032
   %cmp13 = icmp ne i32 %sext, 805306368
-  %or.cond94.not = or i1 %cmp13, %strict
+  %or.cond94.not = or i1 %strict, %cmp13
   %or.cond126 = and i1 %cmp8, %or.cond94.not
   br i1 %or.cond126, label %cleanup92, label %cleanup92.sink.split
 
@@ -3028,12 +3028,12 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_15IntegerCastDataIaEELb0E
 if.else32.i.i:                                    ; preds = %if.then9.i.i
   %17 = add i8 %11, -48
   %18 = icmp ult i8 %17, 10
-  %or.cond115.i.i = and i1 %18, %strict
+  %or.cond115.i.i = and i1 %strict, %18
   br i1 %or.cond115.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
 if.end41.i.i:                                     ; preds = %if.end5.i.i
   %cmp.i95.i.i = icmp eq i8 %2, 43
-  %brmerge.not.i.i.i = and i1 %cmp.i95.i.i, %strict
+  %brmerge.not.i.i.i = and i1 %strict, %cmp.i95.i.i
   %.mux.i.i.i = zext i1 %cmp.i95.i.i to i64
   br i1 %brmerge.not.i.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
@@ -3539,12 +3539,12 @@ while.end.i111.i.i:                               ; preds = %while.cond.backedge
 if.else32.i60.i:                                  ; preds = %if.then9.i39.i
   %52 = add i8 %44, -48
   %53 = icmp ult i8 %52, 10
-  %or.cond203.i.i = and i1 %53, %strict
+  %or.cond203.i.i = and i1 %strict, %53
   br i1 %or.cond203.i.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
 if.end41.i24.i:                                   ; preds = %if.end5.i20.i
   %cmp.i151.i.i = icmp eq i8 %27, 43
-  %brmerge.not.i.i25.i = and i1 %cmp.i151.i.i, %strict
+  %brmerge.not.i.i25.i = and i1 %strict, %cmp.i151.i.i
   %.mux.i.i26.i = zext i1 %cmp.i151.i.i to i64
   br i1 %brmerge.not.i.i25.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
@@ -4079,12 +4079,12 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_15IntegerCastDataIsEELb0E
 if.else32.i.i:                                    ; preds = %if.then9.i.i
   %19 = add i8 %12, -48
   %20 = icmp ult i8 %19, 10
-  %or.cond117.i.i = and i1 %20, %strict
+  %or.cond117.i.i = and i1 %strict, %20
   br i1 %or.cond117.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
 if.end41.i.i:                                     ; preds = %if.end5.i.i
   %cmp.i96.i.i = icmp eq i8 %2, 43
-  %brmerge.not.i.i.i = and i1 %cmp.i96.i.i, %strict
+  %brmerge.not.i.i.i = and i1 %strict, %cmp.i96.i.i
   %.mux.i.i.i = zext i1 %cmp.i96.i.i to i64
   br i1 %brmerge.not.i.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
@@ -4591,12 +4591,12 @@ while.end.i111.i.i:                               ; preds = %while.cond.backedge
 if.else32.i60.i:                                  ; preds = %if.then9.i39.i
   %55 = add i8 %47, -48
   %56 = icmp ult i8 %55, 10
-  %or.cond203.i.i = and i1 %56, %strict
+  %or.cond203.i.i = and i1 %strict, %56
   br i1 %or.cond203.i.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
 if.end41.i24.i:                                   ; preds = %if.end5.i20.i
   %cmp.i151.i.i = icmp eq i8 %30, 43
-  %brmerge.not.i.i25.i = and i1 %cmp.i151.i.i, %strict
+  %brmerge.not.i.i25.i = and i1 %strict, %cmp.i151.i.i
   %.mux.i.i26.i = zext i1 %cmp.i151.i.i to i64
   br i1 %brmerge.not.i.i25.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
@@ -5127,12 +5127,12 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_15IntegerCastDataIiEELb0E
 if.else32.i.i:                                    ; preds = %if.then9.i.i
   %17 = add i8 %11, -48
   %18 = icmp ult i8 %17, 10
-  %or.cond118.i.i = and i1 %18, %strict
+  %or.cond118.i.i = and i1 %strict, %18
   br i1 %or.cond118.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
 if.end41.i.i:                                     ; preds = %if.end5.i.i
   %cmp.i96.i.i = icmp eq i8 %2, 43
-  %brmerge.not.i.i.i = and i1 %cmp.i96.i.i, %strict
+  %brmerge.not.i.i.i = and i1 %strict, %cmp.i96.i.i
   %.mux.i.i.i = zext i1 %cmp.i96.i.i to i64
   br i1 %brmerge.not.i.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
@@ -5639,12 +5639,12 @@ while.end.i111.i.i:                               ; preds = %while.cond.backedge
 if.else32.i61.i:                                  ; preds = %if.then9.i39.i
   %52 = add i8 %44, -48
   %53 = icmp ult i8 %52, 10
-  %or.cond203.i.i = and i1 %53, %strict
+  %or.cond203.i.i = and i1 %strict, %53
   br i1 %or.cond203.i.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
 if.end41.i24.i:                                   ; preds = %if.end5.i20.i
   %cmp.i151.i.i = icmp eq i8 %27, 43
-  %brmerge.not.i.i25.i = and i1 %cmp.i151.i.i, %strict
+  %brmerge.not.i.i25.i = and i1 %strict, %cmp.i151.i.i
   %.mux.i.i26.i = zext i1 %cmp.i151.i.i to i64
   br i1 %brmerge.not.i.i25.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
@@ -6175,12 +6175,12 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_15IntegerCastDataIlEELb0E
 if.else32.i.i:                                    ; preds = %if.then9.i.i
   %17 = add i8 %11, -48
   %18 = icmp ult i8 %17, 10
-  %or.cond118.i.i = and i1 %18, %strict
+  %or.cond118.i.i = and i1 %strict, %18
   br i1 %or.cond118.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
 if.end41.i.i:                                     ; preds = %if.end5.i.i
   %cmp.i96.i.i = icmp eq i8 %2, 43
-  %brmerge.not.i.i.i = and i1 %cmp.i96.i.i, %strict
+  %brmerge.not.i.i.i = and i1 %strict, %cmp.i96.i.i
   %.mux.i.i.i = zext i1 %cmp.i96.i.i to i64
   br i1 %brmerge.not.i.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
@@ -6659,12 +6659,12 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataI
 if.else32.i61.i:                                  ; preds = %if.then9.i39.i
   %48 = add i8 %42, -48
   %49 = icmp ult i8 %48, 10
-  %or.cond188.i.i = and i1 %49, %strict
+  %or.cond188.i.i = and i1 %strict, %49
   br i1 %or.cond188.i.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
 if.end41.i24.i:                                   ; preds = %if.end5.i20.i
   %cmp.i141.i.i = icmp eq i8 %27, 43
-  %brmerge.not.i.i25.i = and i1 %cmp.i141.i.i, %strict
+  %brmerge.not.i.i25.i = and i1 %strict, %cmp.i141.i.i
   %.mux.i.i26.i = zext i1 %cmp.i141.i.i to i64
   br i1 %brmerge.not.i.i25.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
@@ -7179,12 +7179,12 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_15IntegerCastDataIhEELb0E
 if.else41.i.i:                                    ; preds = %if.then17.i.i
   %19 = add i8 %12, -48
   %20 = icmp ult i8 %19, 10
-  %or.cond125.i.i = and i1 %20, %strict
+  %or.cond125.i.i = and i1 %strict, %20
   br i1 %or.cond125.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
 if.end50.i.i:                                     ; preds = %if.end13.i.i
   %cmp.i105.i.i = icmp eq i8 %2, 43
-  %brmerge.not.i.i.i = and i1 %cmp.i105.i.i, %strict
+  %brmerge.not.i.i.i = and i1 %strict, %cmp.i105.i.i
   %.mux.i.i.i = zext i1 %cmp.i105.i.i to i64
   br i1 %brmerge.not.i.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
@@ -7700,12 +7700,12 @@ while.end.i123.i.i:                               ; preds = %while.cond.backedge
 if.else41.i60.i:                                  ; preds = %if.then17.i39.i
   %52 = add i8 %46, -48
   %53 = icmp ult i8 %52, 10
-  %or.cond215.i.i = and i1 %53, %strict
+  %or.cond215.i.i = and i1 %strict, %53
   br i1 %or.cond215.i.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
 if.end50.i24.i:                                   ; preds = %if.end13.i20.i
   %cmp.i163.i.i = icmp eq i8 %30, 43
-  %brmerge.not.i.i25.i = and i1 %cmp.i163.i.i, %strict
+  %brmerge.not.i.i25.i = and i1 %strict, %cmp.i163.i.i
   %.mux.i.i26.i = zext i1 %cmp.i163.i.i to i64
   br i1 %brmerge.not.i.i25.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
@@ -8239,12 +8239,12 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_15IntegerCastDataItEELb0E
 if.else41.i.i:                                    ; preds = %if.then17.i.i
   %19 = add i8 %12, -48
   %20 = icmp ult i8 %19, 10
-  %or.cond127.i.i = and i1 %20, %strict
+  %or.cond127.i.i = and i1 %strict, %20
   br i1 %or.cond127.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
 if.end50.i.i:                                     ; preds = %if.end13.i.i
   %cmp.i106.i.i = icmp eq i8 %2, 43
-  %brmerge.not.i.i.i = and i1 %cmp.i106.i.i, %strict
+  %brmerge.not.i.i.i = and i1 %strict, %cmp.i106.i.i
   %.mux.i.i.i = zext i1 %cmp.i106.i.i to i64
   br i1 %brmerge.not.i.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
@@ -8761,12 +8761,12 @@ while.end.i123.i.i:                               ; preds = %while.cond.backedge
 if.else41.i65.i:                                  ; preds = %if.then17.i39.i
   %52 = add i8 %46, -48
   %53 = icmp ult i8 %52, 10
-  %or.cond215.i.i = and i1 %53, %strict
+  %or.cond215.i.i = and i1 %strict, %53
   br i1 %or.cond215.i.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
 if.end50.i24.i:                                   ; preds = %if.end13.i20.i
   %cmp.i163.i.i = icmp eq i8 %30, 43
-  %brmerge.not.i.i25.i = and i1 %cmp.i163.i.i, %strict
+  %brmerge.not.i.i25.i = and i1 %strict, %cmp.i163.i.i
   %.mux.i.i26.i = zext i1 %cmp.i163.i.i to i64
   br i1 %brmerge.not.i.i25.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
@@ -9298,12 +9298,12 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_15IntegerCastDataIjEELb0E
 if.else41.i.i:                                    ; preds = %if.then17.i.i
   %18 = add i8 %12, -48
   %19 = icmp ult i8 %18, 10
-  %or.cond129.i.i = and i1 %19, %strict
+  %or.cond129.i.i = and i1 %strict, %19
   br i1 %or.cond129.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
 if.end50.i.i:                                     ; preds = %if.end13.i.i
   %cmp.i107.i.i = icmp eq i8 %2, 43
-  %brmerge.not.i.i.i = and i1 %cmp.i107.i.i, %strict
+  %brmerge.not.i.i.i = and i1 %strict, %cmp.i107.i.i
   %.mux.i.i.i = zext i1 %cmp.i107.i.i to i64
   br i1 %brmerge.not.i.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
@@ -9820,12 +9820,12 @@ while.end.i123.i.i:                               ; preds = %while.cond.backedge
 if.else41.i60.i:                                  ; preds = %if.then17.i39.i
   %50 = add i8 %44, -48
   %51 = icmp ult i8 %50, 10
-  %or.cond215.i.i = and i1 %51, %strict
+  %or.cond215.i.i = and i1 %strict, %51
   br i1 %or.cond215.i.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
 if.end50.i24.i:                                   ; preds = %if.end13.i20.i
   %cmp.i163.i.i = icmp eq i8 %28, 43
-  %brmerge.not.i.i25.i = and i1 %cmp.i163.i.i, %strict
+  %brmerge.not.i.i25.i = and i1 %strict, %cmp.i163.i.i
   %.mux.i.i26.i = zext i1 %cmp.i163.i.i to i64
   br i1 %brmerge.not.i.i25.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
@@ -10357,12 +10357,12 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_15IntegerCastDataImEELb0E
 if.else41.i.i:                                    ; preds = %if.then17.i.i
   %18 = add i8 %12, -48
   %19 = icmp ult i8 %18, 10
-  %or.cond129.i.i = and i1 %19, %strict
+  %or.cond129.i.i = and i1 %strict, %19
   br i1 %or.cond129.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
 if.end50.i.i:                                     ; preds = %if.end13.i.i
   %cmp.i107.i.i = icmp eq i8 %2, 43
-  %brmerge.not.i.i.i = and i1 %cmp.i107.i.i, %strict
+  %brmerge.not.i.i.i = and i1 %strict, %cmp.i107.i.i
   %.mux.i.i.i = zext i1 %cmp.i107.i.i to i64
   br i1 %brmerge.not.i.i.i, label %if.end.i, label %while.cond.preheader.i.i.i
 
@@ -10861,12 +10861,12 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataI
 if.else41.i61.i:                                  ; preds = %if.then17.i39.i
   %54 = add i8 %48, -48
   %55 = icmp ult i8 %54, 10
-  %or.cond199.i.i = and i1 %55, %strict
+  %or.cond199.i.i = and i1 %strict, %55
   br i1 %or.cond199.i.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
 if.end50.i24.i:                                   ; preds = %if.end13.i20.i
   %cmp.i153.i.i = icmp eq i8 %28, 43
-  %brmerge.not.i.i25.i = and i1 %cmp.i153.i.i, %strict
+  %brmerge.not.i.i25.i = and i1 %strict, %cmp.i153.i.i
   %.mux.i.i26.i = zext i1 %cmp.i153.i.i to i64
   br i1 %brmerge.not.i.i25.i, label %cleanup.i, label %while.cond.preheader.i.i27.i
 
@@ -11172,7 +11172,7 @@ if.end8.i:                                        ; preds = %land.rhs.i
   %cmp10.i = icmp ne i64 %len.addr.071.i, 1
   %cmp13.i = icmp eq i8 %2, 48
   %3 = and i1 %cmp10.i, %cmp13.i
-  %or.cond87.i = and i1 %3, %strict
+  %or.cond87.i = and i1 %strict, %3
   br i1 %or.cond87.i, label %land.lhs.true14.i, label %if.end19.i
 
 land.lhs.true14.i:                                ; preds = %if.end8.i
@@ -11274,7 +11274,7 @@ if.end8.i:                                        ; preds = %land.rhs.i
   %cmp10.i = icmp ne i64 %len.addr.071.i, 1
   %cmp13.i = icmp eq i8 %2, 48
   %3 = and i1 %cmp10.i, %cmp13.i
-  %or.cond87.i = and i1 %3, %strict
+  %or.cond87.i = and i1 %strict, %3
   br i1 %or.cond87.i, label %land.lhs.true14.i, label %if.end19.i
 
 land.lhs.true14.i:                                ; preds = %if.end8.i
@@ -11381,7 +11381,7 @@ if.end8.i:                                        ; preds = %land.rhs.i
   %cmp10.i = icmp ne i64 %len.addr.071.i, 1
   %cmp13.i = icmp eq i8 %2, 48
   %3 = and i1 %cmp10.i, %cmp13.i
-  %or.cond87.i = and i1 %3, %strict
+  %or.cond87.i = and i1 %strict, %3
   br i1 %or.cond87.i, label %land.lhs.true14.i, label %if.end19.i
 
 land.lhs.true14.i:                                ; preds = %if.end8.i
@@ -11810,7 +11810,7 @@ if.end8.i:                                        ; preds = %land.rhs.i
   %cmp10.i = icmp ne i64 %len.addr.071.i, 1
   %cmp13.i = icmp eq i8 %2, 48
   %3 = and i1 %cmp10.i, %cmp13.i
-  %or.cond87.i = and i1 %3, %strict
+  %or.cond87.i = and i1 %strict, %3
   br i1 %or.cond87.i, label %land.lhs.true14.i, label %if.end19.i
 
 land.lhs.true14.i:                                ; preds = %if.end8.i
@@ -14986,12 +14986,12 @@ while.end.i77.i:                                  ; preds = %if.then27.i
 if.else32.i:                                      ; preds = %if.then9.i
   %20 = add i8 %17, -48
   %21 = icmp ult i8 %20, 10
-  %or.cond110.i = and i1 %21, %strict
+  %or.cond110.i = and i1 %strict, %21
   br i1 %or.cond110.i, label %cleanup, label %while.body.lr.ph.i81.i
 
 if.end41.i:                                       ; preds = %if.end5.i
   %cmp.i79.i = icmp eq i8 %2, 43
-  %brmerge.not.i.i = and i1 %cmp.i79.i, %strict
+  %brmerge.not.i.i = and i1 %strict, %cmp.i79.i
   br i1 %brmerge.not.i.i, label %cleanup, label %while.cond.preheader.i.i
 
 while.cond.preheader.i.i:                         ; preds = %if.end41.i
@@ -15543,7 +15543,7 @@ if.end19.i.i.i:                                   ; preds = %_ZN6duckdb20Decimal
 
 for.body.i.i.i.preheader:                         ; preds = %if.end19.i.i.i
   %31 = xor i8 %30, -1
-  %32 = add i8 %31, %scale
+  %32 = add i8 %scale, %31
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %33, 1
   %min.iters.check = icmp ult i8 %32, 15
@@ -15897,7 +15897,7 @@ if.end19.i.i211.i:                                ; preds = %_ZN6duckdb20Decimal
 
 for.body.i.i217.i.preheader:                      ; preds = %if.end19.i.i211.i
   %69 = xor i8 %68, -1
-  %70 = add i8 %69, %scale
+  %70 = add i8 %scale, %69
   %71 = zext i8 %70 to i32
   %72 = add nuw nsw i32 %71, 1
   %min.iters.check336 = icmp ult i8 %70, 15
@@ -16560,7 +16560,7 @@ if.end19.i.i.i:                                   ; preds = %_ZN6duckdb20Decimal
 
 for.body.i.i.i.preheader:                         ; preds = %if.end19.i.i.i
   %31 = xor i8 %30, -1
-  %32 = add i8 %31, %scale
+  %32 = add i8 %scale, %31
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %33, 1
   %min.iters.check = icmp ult i8 %32, 7
@@ -16914,7 +16914,7 @@ if.end19.i.i213.i:                                ; preds = %_ZN6duckdb20Decimal
 
 for.body.i.i219.i.preheader:                      ; preds = %if.end19.i.i213.i
   %69 = xor i8 %68, -1
-  %70 = add i8 %69, %scale
+  %70 = add i8 %scale, %69
   %71 = zext i8 %70 to i32
   %72 = add nuw nsw i32 %71, 1
   %min.iters.check336 = icmp ult i8 %70, 7
@@ -19292,7 +19292,7 @@ if.end19.i.i.i:                                   ; preds = %_ZN6duckdb20Decimal
 
 for.body.i.i.i.preheader:                         ; preds = %if.end19.i.i.i
   %31 = xor i8 %30, -1
-  %32 = add i8 %31, %scale
+  %32 = add i8 %scale, %31
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %33, 1
   %min.iters.check = icmp ult i8 %32, 15
@@ -19646,7 +19646,7 @@ if.end19.i.i211.i:                                ; preds = %_ZN6duckdb20Decimal
 
 for.body.i.i217.i.preheader:                      ; preds = %if.end19.i.i211.i
   %69 = xor i8 %68, -1
-  %70 = add i8 %69, %scale
+  %70 = add i8 %scale, %69
   %71 = zext i8 %70 to i32
   %72 = add nuw nsw i32 %71, 1
   %min.iters.check336 = icmp ult i8 %70, 15
@@ -20309,7 +20309,7 @@ if.end19.i.i.i:                                   ; preds = %_ZN6duckdb20Decimal
 
 for.body.i.i.i.preheader:                         ; preds = %if.end19.i.i.i
   %31 = xor i8 %30, -1
-  %32 = add i8 %31, %scale
+  %32 = add i8 %scale, %31
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %33, 1
   %min.iters.check = icmp ult i8 %32, 7
@@ -20663,7 +20663,7 @@ if.end19.i.i213.i:                                ; preds = %_ZN6duckdb20Decimal
 
 for.body.i.i219.i.preheader:                      ; preds = %if.end19.i.i213.i
   %69 = xor i8 %68, -1
-  %70 = add i8 %69, %scale
+  %70 = add i8 %scale, %69
   %71 = zext i8 %70 to i32
   %72 = add nuw nsw i32 %71, 1
   %min.iters.check336 = icmp ult i8 %70, 7
@@ -24130,7 +24130,7 @@ entry:
   %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv2 = trunc i64 %0 to i16
-  %cmp.not.i = icmp sgt i16 %conv2, %input
+  %cmp.not.i = icmp slt i16 %input, %conv2
   %conv.i = sext i16 %input to i64
   %sext = shl i64 %0, 48
   %conv3.i = ashr exact i64 %sext, 48
@@ -24324,7 +24324,7 @@ if.end:                                           ; preds = %entry
   %arrayidx12 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %conv1
   %23 = load i64, ptr %arrayidx12, align 8, !tbaa !12
   %24 = trunc i64 %23 to i16
-  %conv13 = mul i16 %24, %input
+  %conv13 = mul i16 %input, %24
   store i16 %conv13, ptr %result, align 2, !tbaa !8
   br label %cleanup
 
@@ -25291,9 +25291,9 @@ entry:
   %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv2 = trunc i64 %0 to i32
-  %cmp.not.i = icmp sgt i32 %conv2, %input
+  %cmp.not.i = icmp slt i32 %input, %conv2
   %sub.i = sub nsw i32 0, %conv2
-  %cmp4.i = icmp slt i32 %sub.i, %input
+  %cmp4.i = icmp sgt i32 %input, %sub.i
   %.not = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
   br i1 %.not, label %if.end, label %if.then
 
@@ -25482,7 +25482,7 @@ if.end:                                           ; preds = %entry
   %arrayidx12 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %conv1
   %23 = load i64, ptr %arrayidx12, align 8, !tbaa !12
   %24 = trunc i64 %23 to i32
-  %conv13 = mul i32 %24, %input
+  %conv13 = mul i32 %input, %24
   store i32 %conv13, ptr %result, align 4, !tbaa !10
   br label %cleanup
 
@@ -26006,7 +26006,7 @@ entry:
   %conv.i = ashr exact i64 %sext, 48
   %cmp.not.i = icmp sgt i64 %conv.i, %input
   %sub.i = sub nsw i64 0, %conv.i
-  %cmp3.i = icmp slt i64 %sub.i, %input
+  %cmp3.i = icmp sgt i64 %input, %sub.i
   %.not = select i1 %cmp.not.i, i1 %cmp3.i, i1 false
   br i1 %.not, label %if.end, label %if.then
 
@@ -26445,7 +26445,7 @@ entry:
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %cmp.i = icmp sgt i64 %0, %input
   %sub.i = sub nsw i64 0, %0
-  %cmp1.i = icmp slt i64 %sub.i, %input
+  %cmp1.i = icmp sgt i64 %input, %sub.i
   %.not = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %.not, label %if.end, label %if.then
 
@@ -28052,7 +28052,7 @@ if.end:                                           ; preds = %entry
   %arrayidx12 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %conv1
   %23 = load i64, ptr %arrayidx12, align 8, !tbaa !12
   %24 = trunc i64 %23 to i16
-  %conv13 = mul i16 %24, %input
+  %conv13 = mul i16 %input, %24
   store i16 %conv13, ptr %result, align 2, !tbaa !8
   br label %cleanup
 
@@ -29196,7 +29196,7 @@ if.end:                                           ; preds = %entry
   %arrayidx12 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %conv1
   %23 = load i64, ptr %arrayidx12, align 8, !tbaa !12
   %24 = trunc i64 %23 to i32
-  %conv13 = mul i32 %24, %input
+  %conv13 = mul i32 %input, %24
   store i32 %conv13, ptr %result, align 4, !tbaa !10
   br label %cleanup
 
@@ -32800,7 +32800,7 @@ entry:
   %idxprom = zext i8 %scale to i64
   %arrayidx = getelementptr inbounds [40 x double], ptr @_ZN6duckdb13NumericHelper20DOUBLE_POWERS_OF_TENE, i64 0, i64 %idxprom
   %0 = load double, ptr %arrayidx, align 8, !tbaa !19
-  %mul = fmul double %0, %input
+  %mul = fmul double %input, %0
   %cmp = fcmp ogt double %mul, 0.000000e+00
   %conv = zext i1 %cmp to i32
   %cmp1 = fcmp olt double %mul, 0.000000e+00
@@ -33098,7 +33098,7 @@ entry:
   %idxprom = zext i8 %scale to i64
   %arrayidx = getelementptr inbounds [40 x double], ptr @_ZN6duckdb13NumericHelper20DOUBLE_POWERS_OF_TENE, i64 0, i64 %idxprom
   %0 = load double, ptr %arrayidx, align 8, !tbaa !19
-  %mul = fmul double %0, %input
+  %mul = fmul double %input, %0
   %cmp = fcmp ogt double %mul, 0.000000e+00
   %conv = zext i1 %cmp to i32
   %cmp1 = fcmp olt double %mul, 0.000000e+00
@@ -33396,7 +33396,7 @@ entry:
   %idxprom = zext i8 %scale to i64
   %arrayidx = getelementptr inbounds [40 x double], ptr @_ZN6duckdb13NumericHelper20DOUBLE_POWERS_OF_TENE, i64 0, i64 %idxprom
   %0 = load double, ptr %arrayidx, align 8, !tbaa !19
-  %mul = fmul double %0, %input
+  %mul = fmul double %input, %0
   %cmp = fcmp ogt double %mul, 0.000000e+00
   %conv = zext i1 %cmp to i32
   %cmp1 = fcmp olt double %mul, 0.000000e+00
@@ -33695,7 +33695,7 @@ entry:
   %idxprom = zext i8 %scale to i64
   %arrayidx = getelementptr inbounds [40 x double], ptr @_ZN6duckdb13NumericHelper20DOUBLE_POWERS_OF_TENE, i64 0, i64 %idxprom
   %0 = load double, ptr %arrayidx, align 8, !tbaa !19
-  %mul = fmul double %0, %input
+  %mul = fmul double %input, %0
   %cmp = fcmp ogt double %mul, 0.000000e+00
   %conv = zext i1 %cmp to i32
   %cmp1 = fcmp olt double %mul, 0.000000e+00
@@ -46951,12 +46951,12 @@ define internal fastcc noundef zeroext i1 @_ZN6duckdbL15IntegerCastLoopINS_15Int
 entry:
   %0 = load i8, ptr %buf, align 1, !tbaa !7
   %cmp = icmp eq i8 %0, 43
-  %brmerge.not = and i1 %cmp, %strict
+  %brmerge.not = and i1 %strict, %cmp
   %.mux = zext i1 %cmp to i64
   br i1 %brmerge.not, label %cleanup68, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %cmp3116 = icmp ult i64 %.mux, %len
+  %cmp3116 = icmp ugt i64 %len, %.mux
   br i1 %cmp3116, label %while.body.preheader, label %if.end65
 
 while.body.preheader:                             ; preds = %while.cond.preheader
@@ -57197,7 +57197,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %1 = trunc i64 %0 to i32
-  %cmp.i.i.i = icmp sgt i32 %1, %id
+  %cmp.i.i.i = icmp slt i32 %id, %1
   br i1 %cmp.i.i.i, label %if.then3.i.i.i, label %if.then
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -58498,7 +58498,7 @@ land.lhs.true.i.i.i.2:                            ; preds = %land.lhs.true.i.i.i
 land.lhs.true.i.i.i.3:                            ; preds = %land.lhs.true.i.i.i.2
   %inc.i.i.i.3 = add nuw nsw i64 %num_code_points.1.i.i.i, 2
   %cmp3.i.i.i.3 = icmp ugt i64 %inc.i.i.i.3, %conv.i.i
-  %brmerge = or i1 %cmp3.i.i.i.3, %value
+  %brmerge = or i1 %value, %cmp3.i.i.i.3
   %.mux = select i1 %cmp3.i.i.i.3, i64 3, i64 %call.i.i.i
   br i1 %brmerge, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeIcEEvNS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIcEE.exit.i, label %land.lhs.true.i.i.i.4
 
@@ -58608,7 +58608,7 @@ if.then:                                          ; preds = %entry
 
 land.lhs.true.i:                                  ; preds = %if.then
   %conv.i = zext nneg i32 %3 to i64
-  %cmp5.i = icmp ult i64 %conv.i, %value.coerce1
+  %cmp5.i = icmp ugt i64 %value.coerce1, %conv.i
   br i1 %cmp5.i, label %for.body.i.i, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeIcEEvNS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIcEE.exit
 
 for.body.i.i:                                     ; preds = %land.lhs.true.i, %for.inc.i.i
@@ -58734,7 +58734,7 @@ vec.epilog.middle.block:                          ; preds = %vec.epilog.vector.b
 for.body.i.i.i.preheader:                         ; preds = %vec.epilog.middle.block, %vec.epilog.iter.check, %vector.memcheck, %iter.check
   %__first.addr.08.i.i.i.ph = phi ptr [ %value.coerce0, %iter.check ], [ %value.coerce0, %vector.memcheck ], [ %ind.end16, %vec.epilog.iter.check ], [ %ind.end, %vec.epilog.middle.block ]
   %__result.addr.07.i.i.i.ph = phi ptr [ %add.ptr.i.i.i, %iter.check ], [ %add.ptr.i.i.i, %vector.memcheck ], [ %ind.end18, %vec.epilog.iter.check ], [ %ind.end17, %vec.epilog.middle.block ]
-  %17 = add i64 %value.coerce08, %value.coerce1
+  %17 = add i64 %value.coerce1, %value.coerce08
   %__first.addr.08.i.i.i.ph26 = ptrtoint ptr %__first.addr.08.i.i.i.ph to i64
   %18 = sub i64 %17, %__first.addr.08.i.i.i.ph26
   %xtraiter = and i64 %18, 7
@@ -108360,7 +108360,7 @@ entry:
   %0 = load i8, ptr %buf, align 1, !tbaa !7
   %cmp = icmp eq i8 %0, 43
   %start_pos.0 = zext i1 %cmp to i64
-  %cmp3115 = icmp ult i64 %start_pos.0, %len
+  %cmp3115 = icmp ugt i64 %len, %start_pos.0
   br i1 %cmp3115, label %while.body.preheader, label %if.end65
 
 while.body.preheader:                             ; preds = %entry
@@ -108597,7 +108597,7 @@ _ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71: ; preds = %if.end.i
 
 while.body.preheader:                             ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71
   %retval.0.i55104 = ptrtoint ptr %incdec.ptr22.i54 to i64
-  %19 = add i64 %dst103, %len
+  %19 = add i64 %len, %dst103
   %20 = add i64 %retval.0.i55104, %idxprom
   %21 = sub i64 %19, %20
   %scevgep = getelementptr i8, ptr %incdec.ptr22.i54, i64 %21
@@ -108806,7 +108806,7 @@ _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66: ; preds = %if.end.i
 
 while.body.preheader:                             ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66
   %retval.0.i48103 = ptrtoint ptr %incdec.ptr15.i47 to i64
-  %11 = add i64 %dst102, %len
+  %11 = add i64 %len, %dst102
   %12 = add i64 %retval.0.i48103, %idxprom
   %13 = sub i64 %11, %12
   %scevgep = getelementptr i8, ptr %incdec.ptr15.i47, i64 %13
@@ -109016,7 +109016,7 @@ _ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66: ; preds = %if.end.i
 
 while.body.preheader:                             ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66
   %retval.0.i47105 = ptrtoint ptr %incdec.ptr17.i46 to i64
-  %11 = add i64 %dst104, %len
+  %11 = add i64 %len, %dst104
   %12 = add i64 %retval.0.i47105, %idxprom
   %13 = sub i64 %11, %12
   %scevgep = getelementptr i8, ptr %incdec.ptr17.i46, i64 %13

@@ -869,13 +869,13 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 define i32 @opal_graph_adjacent(ptr noundef readnone %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
-  %.not = icmp eq ptr %5, %0
+  %.not = icmp eq ptr %0, %5
   br i1 %.not, label %6, label %.loopexit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = load ptr, ptr %7, align 8
-  %.not18 = icmp eq ptr %8, %0
+  %.not18 = icmp eq ptr %0, %8
   br i1 %.not18, label %9, label %.loopexit
 
 9:                                                ; preds = %6
@@ -1023,7 +1023,7 @@ define i32 @opal_graph_get_adjacent_vertices(ptr noundef readnone %0, ptr nocapt
   %4 = alloca %struct.vertex_distance_from_t, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
-  %.not = icmp eq ptr %6, %0
+  %.not = icmp eq ptr %0, %6
   br i1 %.not, label %7, label %.loopexit
 
 7:                                                ; preds = %3
@@ -1086,13 +1086,13 @@ opal_value_array_append_item.exit:                ; preds = %20, %28
 define i32 @opal_graph_spf(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
-  %.not = icmp eq ptr %5, %0
+  %.not = icmp eq ptr %0, %5
   br i1 %.not, label %6, label %71
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = load ptr, ptr %7, align 8
-  %.not26 = icmp eq ptr %8, %0
+  %.not26 = icmp eq ptr %0, %8
   br i1 %.not26, label %9, label %71
 
 9:                                                ; preds = %6
@@ -1254,7 +1254,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %63
 define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
-  %.not = icmp eq ptr %5, %0
+  %.not = icmp eq ptr %0, %5
   br i1 %.not, label %6, label %77
 
 6:                                                ; preds = %3
@@ -1340,13 +1340,13 @@ define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1
   %38 = getelementptr inbounds %struct.vertex_distance_from_t, ptr %32, i64 %indvars.iv76
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %35, align 8
-  %.not.i = icmp eq ptr %40, %0
+  %.not.i = icmp eq ptr %0, %40
   br i1 %.not.i, label %41, label %opal_graph_adjacent.exit
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %39, i64 40
   %43 = load ptr, ptr %42, align 8
-  %.not18.i = icmp eq ptr %43, %0
+  %.not18.i = icmp eq ptr %0, %43
   br i1 %.not18.i, label %44, label %opal_graph_adjacent.exit
 
 44:                                               ; preds = %41

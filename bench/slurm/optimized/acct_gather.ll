@@ -827,7 +827,7 @@ define i32 @acct_gather_parse_freq(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr null, ptr %7, align 8
   %13 = call i64 @strtol(ptr noundef nonnull %12, ptr noundef nonnull %7, i32 noundef 10) #9
   %14 = load ptr, ptr %7, align 8
-  %15 = icmp eq ptr %14, %12
+  %15 = icmp eq ptr %12, %14
   %16 = trunc i64 %13 to i32
   %spec.select.i = select i1 %15, i32 -1, i32 %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -838,7 +838,7 @@ _get_int.exit:                                    ; preds = %8
   store ptr null, ptr %6, align 8
   %17 = call i64 @strtol(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 10) #9
   %18 = load ptr, ptr %6, align 8
-  %19 = icmp eq ptr %18, %1
+  %19 = icmp eq ptr %1, %18
   %20 = trunc i64 %17 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %21 = icmp eq i32 %20, -1
@@ -856,7 +856,7 @@ _get_int.exit:                                    ; preds = %8
   store ptr null, ptr %5, align 8
   %27 = call i64 @strtol(ptr noundef nonnull %26, ptr noundef nonnull %5, i32 noundef 10) #9
   %28 = load ptr, ptr %5, align 8
-  %29 = icmp eq ptr %28, %26
+  %29 = icmp eq ptr %26, %28
   %30 = trunc i64 %27 to i32
   %spec.select.i28 = select i1 %29, i32 -1, i32 %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -873,7 +873,7 @@ _get_int.exit:                                    ; preds = %8
   store ptr null, ptr %4, align 8
   %35 = call i64 @strtol(ptr noundef nonnull %34, ptr noundef nonnull %4, i32 noundef 10) #9
   %36 = load ptr, ptr %4, align 8
-  %37 = icmp eq ptr %36, %34
+  %37 = icmp eq ptr %34, %36
   %38 = trunc i64 %35 to i32
   %spec.select.i31 = select i1 %37, i32 -1, i32 %38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -890,7 +890,7 @@ _get_int.exit:                                    ; preds = %8
   store ptr null, ptr %3, align 8
   %43 = call i64 @strtol(ptr noundef nonnull %42, ptr noundef nonnull %3, i32 noundef 10) #9
   %44 = load ptr, ptr %3, align 8
-  %45 = icmp eq ptr %44, %42
+  %45 = icmp eq ptr %42, %44
   %46 = trunc i64 %43 to i32
   %spec.select.i34 = select i1 %45, i32 -1, i32 %46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -927,7 +927,7 @@ define range(i32 0, 2) i32 @acct_gather_check_acct_freq_task(i64 noundef %0, ptr
   store ptr null, ptr %6, align 8
   %12 = call i64 @strtol(ptr noundef nonnull %10, ptr noundef nonnull %6, i32 noundef 10) #9
   %13 = load ptr, ptr %6, align 8
-  %14 = icmp eq ptr %13, %10
+  %14 = icmp eq ptr %10, %13
   %15 = trunc i64 %12 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %16 = icmp eq i32 %15, -1
@@ -945,7 +945,7 @@ define range(i32 0, 2) i32 @acct_gather_check_acct_freq_task(i64 noundef %0, ptr
   store ptr null, ptr %5, align 8
   %22 = call i64 @strtol(ptr noundef nonnull %21, ptr noundef nonnull %5, i32 noundef 10) #9
   %23 = load ptr, ptr %5, align 8
-  %24 = icmp eq ptr %23, %21
+  %24 = icmp eq ptr %21, %23
   %25 = trunc i64 %22 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %26 = icmp eq i32 %25, -1
@@ -972,7 +972,7 @@ define range(i32 0, 2) i32 @acct_gather_check_acct_freq_task(i64 noundef %0, ptr
   store ptr null, ptr %4, align 8
   %32 = call i64 @strtol(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 10) #9
   %33 = load ptr, ptr %4, align 8
-  %34 = icmp eq ptr %33, %1
+  %34 = icmp eq ptr %1, %33
   %35 = trunc i64 %32 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %36 = icmp eq i32 %35, -1
@@ -990,7 +990,7 @@ define range(i32 0, 2) i32 @acct_gather_check_acct_freq_task(i64 noundef %0, ptr
   store ptr null, ptr %3, align 8
   %42 = call i64 @strtol(ptr noundef nonnull %41, ptr noundef nonnull %3, i32 noundef 10) #9
   %43 = load ptr, ptr %3, align 8
-  %44 = icmp eq ptr %43, %41
+  %44 = icmp eq ptr %41, %43
   %45 = trunc i64 %42 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %44, label %acct_gather_parse_freq.exit16.thread, label %acct_gather_parse_freq.exit16

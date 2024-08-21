@@ -6206,7 +6206,7 @@ define void @Wlc_NtkPrintNodes(ptr nocapture noundef readonly %0, i32 noundef %1
   %12 = load i16, ptr %11, align 8
   %13 = and i16 %12, 63
   %14 = zext nneg i16 %13 to i32
-  %.not = icmp eq i32 %14, %1
+  %.not = icmp eq i32 %1, %14
   br i1 %.not, label %15, label %18
 
 15:                                               ; preds = %10

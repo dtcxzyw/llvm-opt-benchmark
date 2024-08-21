@@ -53,7 +53,7 @@ define noundef i32 @PMPI_Probe(i32 noundef %0, i32 noundef %1, ptr noundef %2, p
 12:                                               ; preds = %10, %7
   %or.cond = icmp slt i32 %1, -1
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 172), align 4
-  %14 = icmp slt i32 %13, %1
+  %14 = icmp sgt i32 %1, %13
   %or.cond54 = select i1 %or.cond, i1 true, i1 %14
   br i1 %or.cond54, label %ompi_errcode_get_mpi_code.exit, label %15
 
@@ -83,7 +83,7 @@ ompi_comm_peer_invalid.exit:                      ; preds = %22
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8
-  %.not.i.not = icmp sgt i32 %27, %0
+  %.not.i.not = icmp slt i32 %0, %27
   br i1 %.not.i.not, label %.thread91, label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %ompi_comm_invalid.exit, %12, %15, %22, %ompi_comm_peer_invalid.exit

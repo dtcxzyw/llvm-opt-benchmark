@@ -65,7 +65,7 @@ entry:
 land.rhs:                                         ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %.pre, i64 396
   %0 = load i32, ptr %arrayidx, align 4
-  %cmp4 = icmp eq i32 %0, %sockfd
+  %cmp4 = icmp eq i32 %sockfd, %0
   %1 = zext i1 %cmp4 to i32
   br label %land.end
 
@@ -1233,13 +1233,13 @@ entry:
   %0 = load ptr, ptr %conn1, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 396
   %1 = load i32, ptr %arrayidx, align 4
-  %cmp = icmp eq i32 %1, %sockfd
+  %cmp = icmp eq i32 %sockfd, %1
   %conv = zext i1 %cmp to i32
   store i64 0, ptr %n, align 8
   %buffer_size = getelementptr inbounds i8, ptr %data, i64 1732
   %2 = load i32, ptr %buffer_size, align 4
   %conv2 = zext i32 %2 to i64
-  %sizerequested.conv2 = tail call i64 @llvm.umin.i64(i64 %conv2, i64 %sizerequested)
+  %sizerequested.conv2 = tail call i64 @llvm.umin.i64(i64 %sizerequested, i64 %conv2)
   %recv = getelementptr inbounds i8, ptr %0, i64 400
   %idxprom = zext i1 %cmp to i64
   %arrayidx8 = getelementptr inbounds [2 x ptr], ptr %recv, i64 0, i64 %idxprom
@@ -1379,7 +1379,7 @@ get_max_body_write_len.exit:                      ; preds = %if.end27
   %sub.i = sub nsw i64 %10, %11
   %.sub.i = tail call i64 @llvm.smax.i64(i64 %sub.i, i64 0)
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %nbytes, i64 %.sub.i)
-  %spec.select59 = tail call i64 @llvm.umin.i64(i64 %.sub.i, i64 %nbytes)
+  %spec.select59 = tail call i64 @llvm.umin.i64(i64 %nbytes, i64 %.sub.i)
   %cmp37.not = icmp ugt i64 %.sub.i, %nbytes
   br i1 %cmp37.not, label %if.end45, label %if.then38
 

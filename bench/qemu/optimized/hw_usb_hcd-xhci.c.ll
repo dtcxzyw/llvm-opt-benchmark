@@ -2688,7 +2688,7 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %nr_pstreams = getelementptr inbounds i8, ptr %epctx, i64 100
   %1 = load i32, ptr %nr_pstreams, align 4
-  %cmp2.not = icmp ugt i32 %1, %streamid
+  %cmp2.not = icmp ult i32 %streamid, %1
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.then1
@@ -2786,7 +2786,7 @@ define internal fastcc void @xhci_event(ptr noundef %xhci, ptr nocapture noundef
 entry:
   %numintrs = getelementptr inbounds i8, ptr %xhci, i64 1736
   %0 = load i32, ptr %numintrs, align 8
-  %cmp.not = icmp ugt i32 %0, %v
+  %cmp.not = icmp ult i32 %v, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4958,7 +4958,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %numslots = getelementptr inbounds i8, ptr %xhci, i64 1740
   %0 = load i32, ptr %numslots, align 4
-  %cmp1.not = icmp ult i32 %0, %slotid
+  %cmp1.not = icmp ugt i32 %slotid, %0
   br i1 %cmp1.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
@@ -7126,7 +7126,7 @@ if.else.i.i.i172.i:                               ; preds = %if.then.i.i.i170.i
 trace_usb_xhci_slot_configure.exit.i.i:           ; preds = %if.else.i.i.i172.i, %if.then8.i.i.i173.i, %land.lhs.true5.i.i.i167.i, %if.then34.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i118.i)
   %64 = load i32, ptr %numslots.i422.i, align 4
-  %cmp1.not.i125.i = icmp ult i32 %64, %shr.i101.i
+  %cmp1.not.i125.i = icmp ugt i32 %shr.i101.i, %64
   br i1 %cmp1.not.i125.i, label %if.else.i166.i, label %if.end.i126.i
 
 if.else.i166.i:                                   ; preds = %trace_usb_xhci_slot_configure.exit.i.i
@@ -7321,7 +7321,7 @@ if.end42.i146.i:                                  ; preds = %xhci_dma_read_u32s.
   %or45.i.i = or i32 %89, %88
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %eps.i.i.i)
   %90 = load i32, ptr %numslots.i422.i, align 4
-  %cmp1.not.i.i.i.i = icmp ult i32 %90, %shr.i101.i
+  %cmp1.not.i.i.i.i = icmp ugt i32 %shr.i101.i, %90
   br i1 %cmp1.not.i.i.i.i, label %if.else.i.i97.i.i, label %for.body.us.i.i.i.i
 
 if.else.i.i97.i.i:                                ; preds = %if.end42.i146.i
@@ -7493,7 +7493,7 @@ for.end84.i.i:                                    ; preds = %for.inc82.i.i
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %epctxs.i.i.i)
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %eps.i121.i.i)
   %113 = load i32, ptr %numslots.i422.i, align 4
-  %cmp1.not.i.i123.i.i = icmp ult i32 %113, %shr.i101.i
+  %cmp1.not.i.i123.i.i = icmp ugt i32 %shr.i101.i, %113
   br i1 %cmp1.not.i.i123.i.i, label %if.else.i.i134.i.i, label %for.body.i.i.i.i
 
 if.else.i.i134.i.i:                               ; preds = %for.end84.i.i
@@ -7761,7 +7761,7 @@ if.else.i.i.i262.i:                               ; preds = %if.then.i.i.i260.i
 trace_usb_xhci_slot_evaluate.exit.i.i:            ; preds = %if.else.i.i.i262.i, %if.then8.i.i.i263.i, %land.lhs.true5.i.i.i257.i, %if.then45.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i194.i)
   %150 = load i32, ptr %numslots.i422.i, align 4
-  %cmp1.not.i203.i = icmp ult i32 %150, %shr.i177.i
+  %cmp1.not.i203.i = icmp ugt i32 %shr.i177.i, %150
   br i1 %cmp1.not.i203.i, label %if.else.i256.i, label %if.end.i204.i
 
 if.else.i256.i:                                   ; preds = %trace_usb_xhci_slot_evaluate.exit.i.i
@@ -8081,7 +8081,7 @@ if.else.i.i.i305.i:                               ; preds = %if.then.i.i.i303.i
 trace_usb_xhci_ep_stop.exit.i.i:                  ; preds = %if.else.i.i.i305.i, %if.then8.i.i.i306.i, %land.lhs.true5.i.i.i300.i, %if.then53.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i283.i)
   %189 = load i32, ptr %numslots.i422.i, align 4
-  %cmp1.not.i288.i = icmp ult i32 %189, %shr.i267.i
+  %cmp1.not.i288.i = icmp ugt i32 %shr.i267.i, %189
   br i1 %cmp1.not.i288.i, label %if.else.i299.i, label %if.end.i289.i
 
 if.else.i299.i:                                   ; preds = %trace_usb_xhci_ep_stop.exit.i.i
@@ -8190,7 +8190,7 @@ if.else.i.i.i364.i:                               ; preds = %if.then.i.i.i362.i
 trace_usb_xhci_ep_reset.exit.i.i:                 ; preds = %if.else.i.i.i364.i, %if.then8.i.i.i365.i, %land.lhs.true5.i.i.i359.i, %if.then62.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i326.i)
   %204 = load i32, ptr %numslots.i422.i, align 4
-  %cmp1.not.i331.i = icmp ult i32 %204, %shr.i310.i
+  %cmp1.not.i331.i = icmp ugt i32 %shr.i310.i, %204
   br i1 %cmp1.not.i331.i, label %if.else.i358.i, label %if.end.i332.i
 
 if.else.i358.i:                                   ; preds = %trace_usb_xhci_ep_reset.exit.i.i
@@ -8436,7 +8436,7 @@ if.else.i.i.i482.i:                               ; preds = %if.then.i.i.i480.i
 trace_usb_xhci_slot_reset.exit.i.i:               ; preds = %if.else.i.i.i482.i, %if.then8.i.i.i483.i, %land.lhs.true5.i.i.i477.i, %if.then87.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i436.i)
   %237 = load i32, ptr %numslots.i422.i, align 4
-  %cmp1.not.i442.i = icmp ult i32 %237, %shr.i419.i
+  %cmp1.not.i442.i = icmp ugt i32 %shr.i419.i, %237
   br i1 %cmp1.not.i442.i, label %if.else.i476.i, label %if.end.i443.i
 
 if.else.i476.i:                                   ; preds = %trace_usb_xhci_slot_reset.exit.i.i
@@ -8807,7 +8807,7 @@ trace_usb_xhci_slot_disable.exit:                 ; preds = %entry, %land.lhs.tr
 land.lhs.true:                                    ; preds = %trace_usb_xhci_slot_disable.exit
   %numslots = getelementptr inbounds i8, ptr %xhci, i64 1740
   %6 = load i32, ptr %numslots, align 4
-  %cmp1.not = icmp ult i32 %6, %slotid
+  %cmp1.not = icmp ugt i32 %slotid, %6
   br i1 %cmp1.not, label %if.else, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %land.lhs.true
@@ -8890,7 +8890,7 @@ trace_usb_xhci_ep_disable.exit:                   ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %numslots = getelementptr inbounds i8, ptr %xhci, i64 1740
   %6 = load i32, ptr %numslots, align 4
-  %cmp1.not = icmp ult i32 %6, %slotid
+  %cmp1.not = icmp ugt i32 %slotid, %6
   br i1 %cmp1.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %trace_usb_xhci_ep_disable.exit
@@ -9022,7 +9022,7 @@ trace_usb_xhci_ep_enable.exit:                    ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %numslots = getelementptr inbounds i8, ptr %xhci, i64 1740
   %6 = load i32, ptr %numslots, align 4
-  %cmp1.not = icmp ult i32 %6, %slotid
+  %cmp1.not = icmp ugt i32 %slotid, %6
   br i1 %cmp1.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %trace_usb_xhci_ep_enable.exit

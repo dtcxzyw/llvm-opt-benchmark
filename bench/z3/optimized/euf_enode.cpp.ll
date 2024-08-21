@@ -82,7 +82,7 @@ if.then22:                                        ; preds = %if.end20
   unreachable
 
 if.end23:                                         ; preds = %if.end20
-  %cmp25.not = icmp ne ptr %0, %this
+  %cmp25.not = icmp ne ptr %this, %0
   %m_class_size = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %m_class_size, align 8
   %cmp26 = icmp eq i32 %inc, %3
@@ -546,7 +546,7 @@ do.body.i.i:                                      ; preds = %while.body, %if.end
   %bf.load.i.i.i = load i32, ptr %l.0.i.i, align 8
   %bf.shl.i.i.i = shl i32 %bf.load.i.i.i, 24
   %bf.ashr.i.i.i = ashr exact i32 %bf.shl.i.i.i, 24
-  %cmp.i.i = icmp eq i32 %bf.ashr.i.i.i, %id
+  %cmp.i.i = icmp eq i32 %id, %bf.ashr.i.i.i
   br i1 %cmp.i.i, label %_ZNK3euf5enode10get_th_varEi.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %do.body.i.i
@@ -586,14 +586,14 @@ while.body:                                       ; preds = %entry, %if.end
 do.body.i.i.preheader:                            ; preds = %while.body
   %bf.shl.i.i.i11 = shl i32 %bf.load.i.i.i.i, 24
   %bf.ashr.i.i.i12 = ashr exact i32 %bf.shl.i.i.i11, 24
-  %cmp.i.i13 = icmp eq i32 %bf.ashr.i.i.i12, %id
+  %cmp.i.i13 = icmp eq i32 %id, %bf.ashr.i.i.i12
   br i1 %cmp.i.i13, label %_ZNK3euf5enode10get_th_varEi.exit, label %if.end5.i.i
 
 do.body.i.ithread-pre-split:                      ; preds = %if.end5.i.i
   %bf.load.i.i.i.pr = load i32, ptr %0, align 8
   %bf.shl.i.i.i = shl i32 %bf.load.i.i.i.pr, 24
   %bf.ashr.i.i.i = ashr exact i32 %bf.shl.i.i.i, 24
-  %cmp.i.i = icmp eq i32 %bf.ashr.i.i.i, %id
+  %cmp.i.i = icmp eq i32 %id, %bf.ashr.i.i.i
   br i1 %cmp.i.i, label %_ZNK3euf5enode10get_th_varEi.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %do.body.i.i.preheader, %do.body.i.ithread-pre-split

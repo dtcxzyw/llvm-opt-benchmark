@@ -4342,7 +4342,7 @@ define internal fastcc void @dissect_xudt_common(ptr noundef %0, ptr noundef %1,
   %11 = load i32, ptr @hf_sccp_variable_pointer1, align 4
   %12 = zext i8 %10 to i32
   %13 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef %12) #9
-  %14 = add nuw nsw i32 %12, %4
+  %14 = add nuw nsw i32 %4, %12
   %15 = add nuw nsw i32 %4, 1
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %15) #9
   %17 = load i32, ptr @hf_sccp_variable_pointer2, align 4
@@ -4744,7 +4744,7 @@ proto_item_set_generated.exit:                    ; preds = %153, %156, %159
 169:                                              ; preds = %proto_item_set_hidden.exit, %proto_item_set_generated.exit, %167, %165, %151, %114
   %.1 = phi i32 [ %148, %167 ], [ %148, %165 ], [ %148, %proto_item_set_generated.exit ], [ %148, %151 ], [ %148, %proto_item_set_hidden.exit ], [ %.0, %114 ]
   %.not281 = icmp eq i8 %46, 0
-  %170 = icmp ugt i32 %.1, %3
+  %170 = icmp ult i32 %3, %.1
   %or.cond = select i1 %.not281, i1 true, i1 %170
   br i1 %or.cond, label %252, label %171
 
@@ -4899,7 +4899,7 @@ proto_item_set_hidden.exit287:                    ; preds = %227, %224, %217, %.
 247:                                              ; preds = %231, %proto_item_set_hidden.exit287
   %.3 = phi i32 [ %246, %231 ], [ %.2, %proto_item_set_hidden.exit287 ]
   %.not272 = icmp eq i8 %46, 0
-  %248 = icmp ugt i32 %.3, %3
+  %248 = icmp ult i32 %3, %.3
   %or.cond282 = select i1 %.not272, i1 true, i1 %248
   br i1 %or.cond282, label %252, label %249
 
@@ -5059,7 +5059,7 @@ define internal fastcc void @dissect_sccp_global_title(ptr noundef %0, ptr nound
   br label %152
 
 81:                                               ; preds = %76
-  %82 = icmp ugt i32 %.297, %3
+  %82 = icmp ult i32 %3, %.297
   br i1 %82, label %152, label %83
 
 83:                                               ; preds = %81
@@ -5068,7 +5068,7 @@ define internal fastcc void @dissect_sccp_global_title(ptr noundef %0, ptr nound
   %86 = getelementptr inbounds i8, ptr %1, i64 408
   %87 = load ptr, ptr %86, align 8
   %88 = call noalias ptr @wmem_alloc0(ptr noundef %87, i64 noundef 225) #9
-  %.not60.i = icmp eq i32 %.297, %3
+  %.not60.i = icmp eq i32 %3, %.297
   br i1 %.not60.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %83

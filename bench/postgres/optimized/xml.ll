@@ -827,7 +827,7 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   %107 = load i32, ptr %11, align 4
   %108 = call ptr @OidOutputFunctionCall(i32 noundef %107, i64 noundef %0) #11
   %109 = icmp ne i32 %54, 142
-  %brmerge.not = and i1 %109, %2
+  %brmerge.not = and i1 %2, %109
   br i1 %brmerge.not, label %110, label %112
 
 110:                                              ; preds = %106

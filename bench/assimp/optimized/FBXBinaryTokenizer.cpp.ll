@@ -977,7 +977,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp71.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp72.i)
   %40 = load ptr, ptr %cursor, align 8
-  %cmp.i206 = icmp eq ptr %40, %add.ptr
+  %cmp.i206 = icmp eq ptr %add.ptr, %40
   br i1 %cmp.i206, label %if.then.i209, label %if.end.i
 
 if.then.i209:                                     ; preds = %for.body
@@ -2250,7 +2250,7 @@ _ZN6Assimp3FBX12_GLOBAL__N_18ReadWordEPKcRS3_S3_.exit: ; preds = %cond.true
 cond.false:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i30)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i31)
-  %cmp.i32 = icmp eq ptr %0, %end
+  %cmp.i32 = icmp eq ptr %end, %0
   br i1 %cmp.i32, label %if.then.i34, label %_ZN6Assimp3FBX12_GLOBAL__N_18ReadByteEPKcRS3_S3_.exit
 
 if.then.i34:                                      ; preds = %cond.false

@@ -958,8 +958,8 @@ define linkonce_odr hidden noundef float @_ZNK4nori14GaussianFilter4evalEf(ptr n
   %5 = fmul float %4, 2.000000e+00
   %6 = fmul float %4, %5
   %7 = fdiv float -1.000000e+00, %6
-  %8 = fmul float %7, %1
-  %9 = fmul float %8, %1
+  %8 = fmul float %1, %7
+  %9 = fmul float %1, %8
   %10 = tail call noundef float @expf(float noundef %9) #16
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load float, ptr %11, align 8
@@ -1913,7 +1913,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIfEEvRSo
   %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %12 = trunc i64 %11 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %12, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %12)
   %13 = sext i32 %.sroa.speculated to i64
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %10, i64 noundef %13)
           to label %15 unwind label %18

@@ -1768,7 +1768,7 @@ define void @_ZN6casadi10FiniteDiff15get_sparsity_inEx(ptr dead_on_unwind noalia
   %4 = getelementptr inbounds i8, ptr %1, i64 704
   %5 = tail call noundef i64 @_ZNK6casadi8Function4n_inEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %6 = tail call noundef i64 @_ZNK6casadi8Function5n_outEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %7 = icmp sgt i64 %5, %2
+  %7 = icmp slt i64 %2, %5
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
@@ -1778,7 +1778,7 @@ define void @_ZN6casadi10FiniteDiff15get_sparsity_inEx(ptr dead_on_unwind noalia
 
 10:                                               ; preds = %3
   %11 = add nsw i64 %6, %5
-  %12 = icmp sgt i64 %11, %2
+  %12 = icmp slt i64 %2, %11
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10
@@ -1821,7 +1821,7 @@ define void @_ZN6casadi10FiniteDiff16get_sparsity_outEx(ptr dead_on_unwind noali
 define noundef double @_ZNK6casadi10FiniteDiff14get_default_inEx(ptr noundef nonnull align 8 dereferenceable(1392) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 704
   %4 = tail call noundef i64 @_ZNK6casadi8Function4n_inEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %5 = icmp sgt i64 %4, %1
+  %5 = icmp slt i64 %1, %4
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
@@ -1858,7 +1858,7 @@ define void @_ZN6casadi10FiniteDiff11get_name_inB5cxx11Ex(ptr dead_on_unwind noa
   %4 = getelementptr inbounds i8, ptr %1, i64 704
   %5 = tail call noundef i64 @_ZNK6casadi8Function4n_inEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %6 = tail call noundef i64 @_ZNK6casadi8Function5n_outEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %7 = icmp sgt i64 %5, %2
+  %7 = icmp slt i64 %2, %5
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
@@ -1868,7 +1868,7 @@ define void @_ZN6casadi10FiniteDiff11get_name_inB5cxx11Ex(ptr dead_on_unwind noa
 
 10:                                               ; preds = %3
   %11 = add nsw i64 %6, %5
-  %12 = icmp sgt i64 %11, %2
+  %12 = icmp slt i64 %2, %11
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10
@@ -7378,7 +7378,7 @@ define noundef double @_ZNK6casadi9Smoothing4pertExd(ptr nocapture nonnull readn
   %8 = add nsw i64 %7, 1
   %9 = mul nsw i64 %6, %8
   %10 = sitofp i64 %9 to double
-  %11 = fmul double %10, %2
+  %11 = fmul double %2, %10
   ret double %11
 }
 
@@ -8009,7 +8009,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal14get_nominal_inEx
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %2
+  %.not.i.i.i.i = icmp ult i64 %2, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal6nnz_inEx.exit, label %12
 
 12:                                               ; preds = %3
@@ -8069,7 +8069,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal15get_nominal_outE
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %2
+  %.not.i.i.i.i = icmp ult i64 %2, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal7nnz_outEx.exit, label %12
 
 12:                                               ; preds = %3
@@ -8435,7 +8435,7 @@ define linkonce_odr hidden void @_ZNK6casadi11CentralDiff4pertERKNSt7__cxx1112ba
 define linkonce_odr hidden noundef double @_ZNK6casadi11CentralDiff4pertExd(ptr noundef nonnull align 8 dereferenceable(1392) %0, i64 noundef %1, double noundef %2) unnamed_addr #5 comdat align 2 {
   %4 = sitofp i64 %1 to double
   %5 = tail call double @llvm.fmuladd.f64(double %4, double 2.000000e+00, double -1.000000e+00)
-  %6 = fmul double %5, %2
+  %6 = fmul double %2, %5
   ret double %6
 }
 
@@ -8926,7 +8926,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 8:                                                ; preds = %4
   %.not.i = icmp ne ptr %6, null
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = icmp eq ptr %9, %7
+  %10 = icmp eq ptr %7, %9
   %or.cond.i = select i1 %.not.i, i1 true, i1 %10
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi7Options5EntryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit, label %11
 
@@ -8966,7 +8966,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi7Options5EntryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -9589,7 +9589,7 @@ _ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #22
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %9
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %9, %.015.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi8SparsityEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %15, %.lr.ph.i.i.i.i.i.i.i

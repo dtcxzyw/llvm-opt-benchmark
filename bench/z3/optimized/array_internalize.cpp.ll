@@ -526,14 +526,14 @@ entry:
 do.body.i.i.preheader:                            ; preds = %entry
   %bf.shl.i.i.i12 = shl i32 %bf.load.i.i.i.i, 24
   %bf.ashr.i.i.i13 = ashr exact i32 %bf.shl.i.i.i12, 24
-  %cmp.i.i14 = icmp eq i32 %bf.ashr.i.i.i13, %0
+  %cmp.i.i14 = icmp eq i32 %0, %bf.ashr.i.i.i13
   br i1 %cmp.i.i14, label %if.end7, label %if.end5.i.i
 
 do.body.i.ithread-pre-split:                      ; preds = %if.end5.i.i
   %bf.load.i.i.i.pr = load i32, ptr %1, align 8
   %bf.shl.i.i.i = shl i32 %bf.load.i.i.i.pr, 24
   %bf.ashr.i.i.i = ashr exact i32 %bf.shl.i.i.i, 24
-  %cmp.i.i = icmp eq i32 %bf.ashr.i.i.i, %0
+  %cmp.i.i = icmp eq i32 %0, %bf.ashr.i.i.i
   br i1 %cmp.i.i, label %do.body.i.i._ZNK3euf5enode10get_th_varEi.exit_crit_edge, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %do.body.i.i.preheader, %do.body.i.ithread-pre-split
@@ -597,7 +597,7 @@ do.body.i.i.i:                                    ; preds = %entry, %if.end5.i.i
   %bf.load.i.i.i.i = load i32, ptr %l.0.i.i.i, align 8
   %bf.shl.i.i.i.i = shl i32 %bf.load.i.i.i.i, 24
   %bf.ashr.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i, 24
-  %cmp.i.i.i = icmp eq i32 %bf.ashr.i.i.i.i, %0
+  %cmp.i.i.i = icmp eq i32 %0, %bf.ashr.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then3.i.i.i, label %if.end5.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %do.body.i.i.i
@@ -714,14 +714,14 @@ entry:
 do.body.i.i.i.preheader:                          ; preds = %entry
   %bf.shl.i.i.i.i2 = shl i32 %bf.load.i.i.i.i.i, 24
   %bf.ashr.i.i.i.i3 = ashr exact i32 %bf.shl.i.i.i.i2, 24
-  %cmp.i.i.i4 = icmp eq i32 %bf.ashr.i.i.i.i3, %0
+  %cmp.i.i.i4 = icmp eq i32 %0, %bf.ashr.i.i.i.i3
   br i1 %cmp.i.i.i4, label %_ZN5array6solver10ensure_varEPN3euf5enodeE.exit, label %if.end5.i.i.i
 
 do.body.i.ithread-pre-split.i:                    ; preds = %if.end5.i.i.i
   %bf.load.i.i.i.pr.i = load i32, ptr %1, align 8
   %bf.shl.i.i.i.i = shl i32 %bf.load.i.i.i.pr.i, 24
   %bf.ashr.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i, 24
-  %cmp.i.i.i = icmp eq i32 %bf.ashr.i.i.i.i, %0
+  %cmp.i.i.i = icmp eq i32 %0, %bf.ashr.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZNK3euf5enode10get_th_varEi.exit.i, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %do.body.i.i.i.preheader, %do.body.i.ithread-pre-split.i
@@ -775,14 +775,14 @@ entry:
 do.body.i.i.i.preheader.i:                        ; preds = %entry
   %bf.shl.i.i.i.i2.i = shl i32 %bf.load.i.i.i.i.i.i, 24
   %bf.ashr.i.i.i.i3.i = ashr exact i32 %bf.shl.i.i.i.i2.i, 24
-  %cmp.i.i.i4.i = icmp eq i32 %bf.ashr.i.i.i.i3.i, %1
+  %cmp.i.i.i4.i = icmp eq i32 %1, %bf.ashr.i.i.i.i3.i
   br i1 %cmp.i.i.i4.i, label %_ZN5array6solver16apply_sort_cnstrEPN3euf5enodeEP4sort.exit, label %if.end5.i.i.i.i
 
 do.body.i.ithread-pre-split.i.i:                  ; preds = %if.end5.i.i.i.i
   %bf.load.i.i.i.pr.i.i = load i32, ptr %2, align 8
   %bf.shl.i.i.i.i.i = shl i32 %bf.load.i.i.i.pr.i.i, 24
   %bf.ashr.i.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i.i, 24
-  %cmp.i.i.i.i = icmp eq i32 %bf.ashr.i.i.i.i.i, %1
+  %cmp.i.i.i.i = icmp eq i32 %1, %bf.ashr.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNK3euf5enode10get_th_varEi.exit.i.i, label %if.end5.i.i.i.i
 
 if.end5.i.i.i.i:                                  ; preds = %do.body.i.i.i.preheader.i, %do.body.i.ithread-pre-split.i.i
@@ -842,7 +842,7 @@ do.body.i.i.i:                                    ; preds = %land.rhs, %if.end5.
   %bf.load.i.i.i.i = load i32, ptr %l.0.i.i.i, align 8
   %bf.shl.i.i.i.i = shl i32 %bf.load.i.i.i.i, 24
   %bf.ashr.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i, 24
-  %cmp.i.i.i = icmp eq i32 %bf.ashr.i.i.i.i, %0
+  %cmp.i.i.i = icmp eq i32 %0, %bf.ashr.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then3.i.i.i, label %if.end5.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %do.body.i.i.i
@@ -883,7 +883,7 @@ do.body.i.i.i.i:                                  ; preds = %land.rhs.i, %if.end
   %bf.load.i.i.i.i.i = load i32, ptr %l.0.i.i.i.i, align 8
   %bf.shl.i.i.i.i.i = shl i32 %bf.load.i.i.i.i.i, 24
   %bf.ashr.i.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i.i, 24
-  %cmp.i.i.i.i = icmp eq i32 %bf.ashr.i.i.i.i.i, %1
+  %cmp.i.i.i.i = icmp eq i32 %1, %bf.ashr.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %if.end5.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %do.body.i.i.i.i
@@ -954,14 +954,14 @@ if.then6:                                         ; preds = %_ZNK3app13get_famil
 do.body.i.i.i.preheader:                          ; preds = %if.then6
   %bf.shl.i.i.i.i11 = shl i32 %bf.load.i.i.i.i.i, 24
   %bf.ashr.i.i.i.i12 = ashr exact i32 %bf.shl.i.i.i.i11, 24
-  %cmp.i.i.i13 = icmp eq i32 %bf.ashr.i.i.i.i12, %7
+  %cmp.i.i.i13 = icmp eq i32 %7, %bf.ashr.i.i.i.i12
   br i1 %cmp.i.i.i13, label %return, label %if.end5.i.i.i
 
 do.body.i.ithread-pre-split.i:                    ; preds = %if.end5.i.i.i
   %bf.load.i.i.i.pr.i = load i32, ptr %8, align 8
   %bf.shl.i.i.i.i = shl i32 %bf.load.i.i.i.pr.i, 24
   %bf.ashr.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i, 24
-  %cmp.i.i.i = icmp eq i32 %bf.ashr.i.i.i.i, %7
+  %cmp.i.i.i = icmp eq i32 %7, %bf.ashr.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZNK3euf5enode10get_th_varEi.exit.i, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %do.body.i.i.i.preheader, %do.body.i.ithread-pre-split.i
@@ -1069,14 +1069,14 @@ if.end:                                           ; preds = %if.then, %entry
 do.body.i.i.i.preheader:                          ; preds = %if.end
   %bf.shl.i.i.i.i29 = shl i32 %bf.load.i.i.i.i.i, 24
   %bf.ashr.i.i.i.i30 = ashr exact i32 %bf.shl.i.i.i.i29, 24
-  %cmp.i.i.i31 = icmp eq i32 %bf.ashr.i.i.i.i30, %0
+  %cmp.i.i.i31 = icmp eq i32 %0, %bf.ashr.i.i.i.i30
   br i1 %cmp.i.i.i31, label %if.end9, label %if.end5.i.i.i
 
 do.body.i.i.ithread-pre-split:                    ; preds = %if.end5.i.i.i
   %bf.load.i.i.i.i.pr = load i32, ptr %1, align 8
   %bf.shl.i.i.i.i = shl i32 %bf.load.i.i.i.i.pr, 24
   %bf.ashr.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i, 24
-  %cmp.i.i.i = icmp eq i32 %bf.ashr.i.i.i.i, %0
+  %cmp.i.i.i = icmp eq i32 %0, %bf.ashr.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZNK3euf5enode14is_attached_toEi.exit, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %do.body.i.i.i.preheader, %do.body.i.i.ithread-pre-split
@@ -1123,14 +1123,14 @@ for.body:                                         ; preds = %for.body.preheader,
 do.body.i.i.i16.preheader:                        ; preds = %for.body
   %bf.shl.i.i.i.i1933 = shl i32 %bf.load.i.i.i.i.i14, 24
   %bf.ashr.i.i.i.i2034 = ashr exact i32 %bf.shl.i.i.i.i1933, 24
-  %cmp.i.i.i2135 = icmp eq i32 %bf.ashr.i.i.i.i2034, %6
+  %cmp.i.i.i2135 = icmp eq i32 %6, %bf.ashr.i.i.i.i2034
   br i1 %cmp.i.i.i2135, label %_ZN5array6solver10ensure_varEPN3euf5enodeE.exit, label %if.end5.i.i.i22
 
 do.body.i.ithread-pre-split.i:                    ; preds = %if.end5.i.i.i22
   %bf.load.i.i.i.pr.i = load i32, ptr %7, align 8
   %bf.shl.i.i.i.i19 = shl i32 %bf.load.i.i.i.pr.i, 24
   %bf.ashr.i.i.i.i20 = ashr exact i32 %bf.shl.i.i.i.i19, 24
-  %cmp.i.i.i21 = icmp eq i32 %bf.ashr.i.i.i.i20, %6
+  %cmp.i.i.i21 = icmp eq i32 %6, %bf.ashr.i.i.i.i20
   br i1 %cmp.i.i.i21, label %_ZNK3euf5enode10get_th_varEi.exit.i, label %if.end5.i.i.i22
 
 if.end5.i.i.i22:                                  ; preds = %do.body.i.i.i16.preheader, %do.body.i.ithread-pre-split.i
@@ -1251,7 +1251,7 @@ do.body.i.i.i:                                    ; preds = %sw.bb, %if.end5.i.i
   %bf.load.i.i.i.i = load i32, ptr %l.0.i.i.i, align 8
   %bf.shl.i.i.i.i = shl i32 %bf.load.i.i.i.i, 24
   %bf.ashr.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i, 24
-  %cmp.i.i.i = icmp eq i32 %bf.ashr.i.i.i.i, %5
+  %cmp.i.i.i = icmp eq i32 %5, %bf.ashr.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then3.i.i.i, label %if.end5.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %do.body.i.i.i
@@ -1394,7 +1394,7 @@ do.body.i.i.i32:                                  ; preds = %sw.bb11, %if.end5.i
   %bf.load.i.i.i.i34 = load i32, ptr %l.0.i.i.i33, align 8
   %bf.shl.i.i.i.i35 = shl i32 %bf.load.i.i.i.i34, 24
   %bf.ashr.i.i.i.i36 = ashr exact i32 %bf.shl.i.i.i.i35, 24
-  %cmp.i.i.i37 = icmp eq i32 %bf.ashr.i.i.i.i36, %28
+  %cmp.i.i.i37 = icmp eq i32 %28, %bf.ashr.i.i.i.i36
   br i1 %cmp.i.i.i37, label %if.then3.i.i.i49, label %if.end5.i.i.i38
 
 if.then3.i.i.i49:                                 ; preds = %do.body.i.i.i32
@@ -1455,7 +1455,7 @@ do.body.i.i.i58:                                  ; preds = %for.body, %if.end5.
   %bf.load.i.i.i.i60 = load i32, ptr %l.0.i.i.i59, align 8
   %bf.shl.i.i.i.i61 = shl i32 %bf.load.i.i.i.i60, 24
   %bf.ashr.i.i.i.i62 = ashr exact i32 %bf.shl.i.i.i.i61, 24
-  %cmp.i.i.i63 = icmp eq i32 %bf.ashr.i.i.i.i62, %35
+  %cmp.i.i.i63 = icmp eq i32 %35, %bf.ashr.i.i.i.i62
   br i1 %cmp.i.i.i63, label %if.then3.i.i.i75, label %if.end5.i.i.i64
 
 if.then3.i.i.i75:                                 ; preds = %do.body.i.i.i58
@@ -1687,7 +1687,7 @@ do.body.i.i:                                      ; preds = %entry, %if.end5.i.i
   %bf.load.i.i.i = load i32, ptr %l.0.i.i, align 8
   %bf.shl.i.i.i = shl i32 %bf.load.i.i.i, 24
   %bf.ashr.i.i.i = ashr exact i32 %bf.shl.i.i.i, 24
-  %cmp.i.i = icmp eq i32 %bf.ashr.i.i.i, %0
+  %cmp.i.i = icmp eq i32 %0, %bf.ashr.i.i.i
   br i1 %cmp.i.i, label %if.then3.i.i, label %if.end5.i.i
 
 if.then3.i.i:                                     ; preds = %do.body.i.i
@@ -1800,7 +1800,7 @@ do.body.i.i.i:                                    ; preds = %if.then, %if.end5.i
   %bf.load.i.i.i.i = load i32, ptr %l.0.i.i.i, align 8
   %bf.shl.i.i.i.i = shl i32 %bf.load.i.i.i.i, 24
   %bf.ashr.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i, 24
-  %cmp.i.i.i = icmp eq i32 %bf.ashr.i.i.i.i, %2
+  %cmp.i.i.i = icmp eq i32 %2, %bf.ashr.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then3.i.i.i, label %if.end5.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %do.body.i.i.i
@@ -1935,7 +1935,7 @@ do.body.i.i.i47:                                  ; preds = %for.end, %if.end5.i
   %bf.load.i.i.i.i49 = load i32, ptr %l.0.i.i.i48, align 8
   %bf.shl.i.i.i.i50 = shl i32 %bf.load.i.i.i.i49, 24
   %bf.ashr.i.i.i.i51 = ashr exact i32 %bf.shl.i.i.i.i50, 24
-  %cmp.i.i.i52 = icmp eq i32 %bf.ashr.i.i.i.i51, %18
+  %cmp.i.i.i52 = icmp eq i32 %18, %bf.ashr.i.i.i.i51
   br i1 %cmp.i.i.i52, label %if.then3.i.i.i64, label %if.end5.i.i.i53
 
 if.then3.i.i.i64:                                 ; preds = %do.body.i.i.i47

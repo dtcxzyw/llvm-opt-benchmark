@@ -399,11 +399,11 @@ define internal void @h223_set_mc(ptr noundef %0, i8 noundef zeroext %1, ptr nou
 28:                                               ; preds = %.preheader.i
   %29 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %30 = load i32, ptr %29, align 8
-  %31 = icmp ugt i32 %30, %10
+  %31 = icmp ult i32 %10, %30
   br i1 %31, label %add_h223_mux_element.exit, label %32
 
 32:                                               ; preds = %28
-  %33 = icmp eq i32 %30, %10
+  %33 = icmp eq i32 %10, %30
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %32
@@ -1477,11 +1477,11 @@ circuit_chain_lookup.exit:                        ; preds = %5, %13
 42:                                               ; preds = %.preheader.i
   %43 = getelementptr inbounds i8, ptr %.0.i15, i64 8
   %44 = load i32, ptr %43, align 8
-  %45 = icmp ugt i32 %44, %0
+  %45 = icmp ult i32 %0, %44
   br i1 %45, label %add_h223_lc_params.exit, label %46
 
 46:                                               ; preds = %42
-  %47 = icmp eq i32 %44, %0
+  %47 = icmp eq i32 %0, %44
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %46

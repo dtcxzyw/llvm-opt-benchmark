@@ -2403,7 +2403,7 @@ define internal fastcc void @emit_bits(ptr nocapture noundef %0, i32 noundef %1,
 18:                                               ; preds = %15
   %notmask = shl nsw i32 -1, %2
   %19 = xor i32 %notmask, -1
-  %20 = and i32 %19, %1
+  %20 = and i32 %1, %19
   %21 = add nsw i32 %5, %2
   %22 = sub nsw i32 24, %21
   %23 = shl i32 %20, %22

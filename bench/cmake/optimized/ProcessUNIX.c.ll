@@ -1449,7 +1449,7 @@ define dso_local i32 @cmsysProcess_GetStateByIndex(ptr noundef %0, i32 noundef %
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load volatile i32, ptr %4, align 8
-  %6 = icmp sle i32 %5, %1
+  %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
   %or.cond = or i1 %7, %6
   br i1 %or.cond, label %14, label %8
@@ -1475,7 +1475,7 @@ define dso_local i32 @cmsysProcess_GetExitExceptionByIndex(ptr noundef %0, i32 n
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load volatile i32, ptr %4, align 8
-  %6 = icmp sle i32 %5, %1
+  %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
   %or.cond = or i1 %7, %6
   br i1 %or.cond, label %14, label %8
@@ -1501,7 +1501,7 @@ define dso_local i32 @cmsysProcess_GetExitValueByIndex(ptr noundef %0, i32 nound
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load volatile i32, ptr %4, align 8
-  %6 = icmp sle i32 %5, %1
+  %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
   %or.cond = or i1 %7, %6
   br i1 %or.cond, label %14, label %8
@@ -1527,7 +1527,7 @@ define dso_local i32 @cmsysProcess_GetExitCodeByIndex(ptr noundef %0, i32 nounde
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load volatile i32, ptr %4, align 8
-  %6 = icmp sle i32 %5, %1
+  %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
   %or.cond = or i1 %7, %6
   br i1 %or.cond, label %14, label %8
@@ -1553,7 +1553,7 @@ define dso_local nonnull ptr @cmsysProcess_GetExceptionStringByIndex(ptr noundef
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load volatile i32, ptr %4, align 8
-  %6 = icmp sle i32 %5, %1
+  %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
   %or.cond = or i1 %7, %6
   br i1 %or.cond, label %16, label %8

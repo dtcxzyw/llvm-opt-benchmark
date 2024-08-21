@@ -480,7 +480,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %19 = inttoptr i64 %18 to ptr
   %20 = select i1 %16, ptr null, ptr %19
   %21 = load i64, ptr %.sroa.2.0, align 8
-  %22 = icmp ugt i64 %21, %1
+  %22 = icmp ult i64 %1, %21
   br i1 %22, label %23, label %select.unfold, !llvm.loop !9
 
 23:                                               ; preds = %13
@@ -498,7 +498,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
 31:                                               ; preds = %23
   %32 = getelementptr inbounds i8, ptr %30, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = icmp eq i64 %33, %1
+  %34 = icmp eq i64 %1, %33
   br i1 %34, label %35, label %59
 
 35:                                               ; preds = %31
@@ -622,7 +622,7 @@ _ZN17ZListIteratorImplI7ZMemoryLb1EE4nextEPPS0_.exit: ; preds = %select.unfold
 86:                                               ; preds = %_ZN17ZListIteratorImplI7ZMemoryLb1EE4nextEPPS0_.exit
   %87 = getelementptr inbounds i8, ptr %85, i64 8
   %88 = load i64, ptr %87, align 8
-  %89 = icmp eq i64 %88, %1
+  %89 = icmp eq i64 %1, %88
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %86

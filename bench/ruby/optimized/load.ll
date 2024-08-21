@@ -4218,7 +4218,7 @@ declare i64 @rb_str_cat(i64 noundef, ptr noundef, i64 noundef) local_unnamed_add
 define internal fastcc i64 @loaded_feature_path(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = add i64 %3, 1
-  %9 = icmp sgt i64 %8, %1
+  %9 = icmp slt i64 %1, %8
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %6
@@ -4247,7 +4247,7 @@ define internal fastcc i64 @loaded_feature_path(ptr noundef %0, i64 noundef %1, 
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr i8, ptr %.05375, i64 -1
-  %.not62 = icmp eq ptr %21, %0
+  %.not62 = icmp eq ptr %0, %21
   br i1 %.not62, label %.critedgethread-pre-split, label %.lr.ph, !llvm.loop !113
 
 .critedgethread-pre-split:                        ; preds = %20, %16

@@ -837,7 +837,7 @@ define dso_local ptr @symtab_add(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %30 = getelementptr inbounds i8, ptr %.041, i64 16
   %31 = load i16, ptr %30, align 8
   %32 = zext i16 %31 to i32
-  %33 = icmp eq i32 %32, %1
+  %33 = icmp eq i32 %1, %32
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %29
@@ -912,7 +912,7 @@ define dso_local ptr @symtab_find(ptr nocapture noundef readonly %0, i32 noundef
   %16 = getelementptr inbounds i8, ptr %.019, i64 16
   %17 = load i16, ptr %16, align 8
   %18 = zext i16 %17 to i32
-  %19 = icmp eq i32 %18, %1
+  %19 = icmp eq i32 %1, %18
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %15

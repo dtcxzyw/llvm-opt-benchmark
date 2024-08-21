@@ -33,10 +33,10 @@ define void @addVertex(ptr nocapture noundef readonly %0, double noundef %1, dou
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8
-  %13 = fcmp oeq double %12, %1
+  %13 = fcmp oeq double %1, %12
   %14 = getelementptr inbounds i8, ptr %8, i64 16
   %15 = load double, ptr %14, align 8
-  %16 = fcmp oeq double %15, %2
+  %16 = fcmp oeq double %2, %15
   %or.cond.i = select i1 %13, i1 %16, i1 false
   br i1 %or.cond.i, label %compare.exit, label %._crit_edge.i
 
@@ -142,10 +142,10 @@ select.unfold:                                    ; preds = %55, %35, %38, %45, 
   %.072 = phi ptr [ %8, %.lr.ph ], [ %.03173, %compare.exit46 ]
   %68 = getelementptr inbounds i8, ptr %.03173, i64 8
   %69 = load double, ptr %68, align 8
-  %70 = fcmp oeq double %69, %1
+  %70 = fcmp oeq double %1, %69
   %71 = getelementptr inbounds i8, ptr %.03173, i64 16
   %72 = load double, ptr %71, align 8
-  %73 = fcmp oeq double %72, %2
+  %73 = fcmp oeq double %2, %72
   %or.cond.i37 = select i1 %70, i1 %73, i1 false
   br i1 %or.cond.i37, label %compare.exit, label %._crit_edge.i38
 

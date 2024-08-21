@@ -1952,7 +1952,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 .lr.ph.i:                                         ; preds = %954
   %965 = load i64, ptr %936, align 8
-  %.not46.i.i627 = icmp ugt i64 %965, %.1489
+  %.not46.i.i627 = icmp ult i64 %.1489, %965
   br i1 %.not46.i.i627, label %.lr.ph630, label %.critedge.i
 
 .lr.ph630:                                        ; preds = %.lr.ph.i, %1078
@@ -2187,7 +2187,7 @@ get_cmd.exit.i:                                   ; preds = %989
   %1080 = add nsw i32 %1079, 1
   store i32 %1080, ptr %858, align 8
   %1081 = load i64, ptr %936, align 8
-  %.not46.i.i = icmp ugt i64 %1081, %1067
+  %.not46.i.i = icmp ult i64 %1067, %1081
   br i1 %.not46.i.i, label %.lr.ph630, label %.critedge.i
 
 .critedge.i:                                      ; preds = %1078, %971, %989, %get_cmd.exit.i, %.lr.ph.i, %1076, %1040, %1015, %1000, %954

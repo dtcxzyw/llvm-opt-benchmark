@@ -331,7 +331,7 @@ if.end.i69:                                       ; preds = %sw.bb10.i, %sw.bb7.
 
 if.then17.i:                                      ; preds = %if.end.i69
   %18 = load i64, ptr %capacity_.i.i, align 8
-  %cmp.not.i.i = icmp ult i64 %18, %17
+  %cmp.not.i.i = icmp ugt i64 %17, %18
   br i1 %cmp.not.i.i, label %do.body4.i.i, label %_ZN4node16MaybeStackBufferIcLm1024EE9SetLengthEm.exit.i
 
 do.body4.i.i:                                     ; preds = %if.then17.i
@@ -459,7 +459,7 @@ if.end.i88:                                       ; preds = %if.then.i100, %sw.b
 
 if.then7.i:                                       ; preds = %if.end.i88
   %28 = load i64, ptr %capacity_.i.i83, align 8
-  %cmp.not.i.i97 = icmp ult i64 %28, %27
+  %cmp.not.i.i97 = icmp ugt i64 %27, %28
   br i1 %cmp.not.i.i97, label %do.body4.i.i99, label %_ZN4node16MaybeStackBufferIcLm1024EE9SetLengthEm.exit.i98
 
 do.body4.i.i99:                                   ; preds = %if.then7.i
@@ -505,7 +505,7 @@ if.end17.i:                                       ; preds = %if.then14.i, %if.en
 
 if.then21.i:                                      ; preds = %if.end17.i
   %36 = load i64, ptr %capacity_.i.i83, align 8
-  %cmp.not.i19.i = icmp ult i64 %36, %35
+  %cmp.not.i19.i = icmp ugt i64 %35, %36
   br i1 %cmp.not.i19.i, label %do.body4.i20.i, label %_ZN4node16MaybeStackBufferIcLm1024EE9SetLengthEm.exit21.i
 
 do.body4.i20.i:                                   ; preds = %if.then21.i
@@ -1986,7 +1986,7 @@ do.body5:                                         ; preds = %entry
 do.end6:                                          ; preds = %entry
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i, align 8
-  %cmp = icmp ult i64 %1, %storage
+  %cmp = icmp ugt i64 %storage, %1
   br i1 %cmp, label %if.end.i.i, label %if.end18
 
 if.end.i.i:                                       ; preds = %do.end6

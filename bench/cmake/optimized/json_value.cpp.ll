@@ -4515,11 +4515,11 @@ _ZNK4Json5Value4sizeEv.exit:                      ; preds = %42, %44, %49, %55
   br label %.loopexit
 
 62:                                               ; preds = %_ZNK4Json5Value4sizeEv.exit
-  %63 = icmp ult i32 %.0.i, %1
+  %63 = icmp ugt i32 %1, %.0.i
   br i1 %63, label %.preheader, label %.preheader35
 
 .preheader35:                                     ; preds = %62
-  %64 = icmp ugt i32 %.0.i, %1
+  %64 = icmp ult i32 %1, %.0.i
   br i1 %64, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader35
@@ -5952,7 +5952,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value12isValidIndexEj(ptr nocaptu
 
 _ZNK4Json5Value4sizeEv.exit:                      ; preds = %2, %5, %10, %16
   %.0.i = phi i32 [ %20, %16 ], [ %15, %10 ], [ 0, %5 ], [ 0, %2 ]
-  %21 = icmp ugt i32 %.0.i, %1
+  %21 = icmp ult i32 %1, %.0.i
   ret i1 %21
 }
 
@@ -6483,7 +6483,7 @@ define dso_local noundef zeroext i1 @_ZN4Json5Value6insertEjOS0_(ptr nocapture n
 
 _ZNK4Json5Value4sizeEv.exit:                      ; preds = %3, %18, %23
   %.0.i = phi i32 [ %28, %23 ], [ 0, %18 ], [ 0, %3 ]
-  %29 = icmp uge i32 %.0.i, %1
+  %29 = icmp ule i32 %1, %.0.i
   br i1 %29, label %.preheader, label %36
 
 .preheader:                                       ; preds = %_ZNK4Json5Value4sizeEv.exit
@@ -7004,7 +7004,7 @@ _ZN4Json5ValueaSERKS0_.exit:                      ; preds = %34
 
 _ZNK4Json5Value4sizeEv.exit:                      ; preds = %58, %60, %65, %70
   %.0.i = phi i32 [ %75, %70 ], [ %69, %65 ], [ -1, %60 ], [ -1, %58 ]
-  %76 = icmp ugt i32 %.0.i, %1
+  %76 = icmp ult i32 %1, %.0.i
   br i1 %76, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK4Json5Value4sizeEv.exit
@@ -8985,7 +8985,7 @@ _ZNK4Json5Value12isValidIndexEj.exit:             ; preds = %13
   %22 = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, 1
-  %25 = icmp ugt i32 %24, %15
+  %25 = icmp ult i32 %15, %24
   br i1 %25, label %30, label %_ZNK4Json5Value12isValidIndexEj.exit.thread
 
 _ZNK4Json5Value12isValidIndexEj.exit.thread:      ; preds = %13, %_ZNK4Json5Value12isValidIndexEj.exit, %8
@@ -9113,7 +9113,7 @@ _ZNK4Json5Value12isValidIndexEj.exit:             ; preds = %15
   %24 = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, 1
-  %27 = icmp ugt i32 %26, %17
+  %27 = icmp ult i32 %17, %26
   br i1 %27, label %34, label %_ZNK4Json5Value12isValidIndexEj.exit.thread
 
 _ZNK4Json5Value12isValidIndexEj.exit.thread:      ; preds = %15, %_ZNK4Json5Value12isValidIndexEj.exit, %10
@@ -9803,12 +9803,12 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
 define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS5_ESD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr %2) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = icmp eq ptr %8, %2
+  %9 = icmp eq ptr %2, %8
   br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %7
@@ -9903,7 +9903,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairI
 12:                                               ; preds = %9
   %.not.i.i = icmp ne ptr %10, null
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = icmp eq ptr %13, %11
+  %14 = icmp eq ptr %11, %13
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %14
   br i1 %or.cond.i.i, label %.thread, label %15
 
@@ -9957,7 +9957,7 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(12) %2) local_unnamed_addr #10 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %28
 
 6:                                                ; preds = %3
@@ -10332,7 +10332,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIN4Json5Value8CZStringE
 
 select.unfold:                                    ; preds = %.noexc5, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %.noexc5 ]
-  %25 = icmp eq ptr %14, %.sroa.4.0.i.ph
+  %25 = icmp eq ptr %.sroa.4.0.i.ph, %14
   br i1 %25, label %.thread18, label %26
 
 26:                                               ; preds = %select.unfold
@@ -10453,7 +10453,7 @@ common.resume:                                    ; preds = %15, %41
 31:                                               ; preds = %28
   %.not.i.i = icmp ne ptr %29, null
   %32 = getelementptr inbounds i8, ptr %0, i64 8
-  %33 = icmp eq ptr %32, %30
+  %33 = icmp eq ptr %30, %32
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %33
   br i1 %or.cond.i.i, label %.thread, label %34
 
@@ -10560,7 +10560,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17
@@ -10657,7 +10657,7 @@ _ZNSt12_Vector_baseIN4Json12PathArgumentESaIS1_EE11_M_allocateEm.exit: ; preds =
 _ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN4Json12PathArgumentESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN4Json12PathArgumentESaIS1_EE11_M_allocateEm.exit ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17
@@ -10760,7 +10760,7 @@ _ZNSt12_Vector_baseIN4Json12PathArgumentESaIS1_EE11_M_allocateEm.exit: ; preds =
 _ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %25
   %.0.lcssa.i.i.i = phi ptr [ %23, %25 ], [ %33, %.lr.ph.i.i.i ]
   %34 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i27

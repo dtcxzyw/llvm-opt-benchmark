@@ -294,7 +294,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define i32 @Amap_ParseCountPins(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %3, align 4
-  %4 = icmp sgt i32 %.val, %1
+  %4 = icmp slt i32 %1, %.val
   br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
@@ -569,7 +569,7 @@ define ptr @Amap_ParseTokens(ptr nocapture noundef readonly %0, i32 %1) local_un
 
 14:                                               ; preds = %10
   %.val.i = load i32, ptr %7, align 4
-  %15 = icmp sgt i32 %.val.i, %.0124
+  %15 = icmp slt i32 %.0124, %.val.i
   br i1 %15, label %.lr.ph.i, label %Amap_ParseCountPins.exit
 
 .lr.ph.i:                                         ; preds = %14

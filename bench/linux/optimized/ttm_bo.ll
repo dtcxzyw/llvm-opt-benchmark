@@ -882,7 +882,7 @@ declare dso_local ptr @ttm_resource_manager_next(ptr noundef, ptr noundef, ptr n
 define internal fastcc i32 @ttm_bo_cleanup_refs(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = tail call zeroext i1 @dma_resv_test_signaled(ptr noundef %5, i32 noundef 3) #6
-  %7 = or i1 %6, %2
+  %7 = or i1 %2, %6
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %4

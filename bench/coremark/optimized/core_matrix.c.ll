@@ -137,7 +137,7 @@ for.body.i:                                       ; preds = %for.inc13.i, %for.b
   %arrayidx.i56 = getelementptr inbounds i32, ptr %C, i64 %indvars.iv15.i
   store i32 0, ptr %arrayidx.i56, align 4
   %6 = trunc nuw i64 %indvars.iv15.i to i32
-  %mul.i57 = mul i32 %6, %N
+  %mul.i57 = mul i32 %N, %6
   br label %for.body3.i58
 
 for.body3.i58:                                    ; preds = %for.body3.i58, %for.body.i
@@ -225,7 +225,7 @@ for.body6.i:                                      ; preds = %for.body6.i, %for.b
   %arrayidx10.i = getelementptr inbounds i16, ptr %A, i64 %idxprom9.i
   %16 = load i16, ptr %arrayidx10.i, align 2
   %conv.i104 = sext i16 %16 to i32
-  %mul11.i = mul i32 %15, %N
+  %mul11.i = mul i32 %N, %15
   %add12.i105 = add i32 %mul11.i, %13
   %idxprom13.i = zext i32 %add12.i105 to i64
   %arrayidx14.i = getelementptr inbounds i16, ptr %B, i64 %idxprom13.i
@@ -309,7 +309,7 @@ for.body6.i147:                                   ; preds = %for.body6.i147, %fo
   %arrayidx10.i151 = getelementptr inbounds i16, ptr %A, i64 %idxprom9.i150
   %23 = load i16, ptr %arrayidx10.i151, align 2
   %conv31.i = zext i16 %23 to i32
-  %mul11.i152 = mul i32 %22, %N
+  %mul11.i152 = mul i32 %N, %22
   %add12.i153 = add i32 %mul11.i152, %20
   %idxprom13.i154 = zext i32 %add12.i153 to i64
   %arrayidx14.i155 = getelementptr inbounds i16, ptr %B, i64 %idxprom13.i154
@@ -545,7 +545,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds i32, ptr %C, i64 %indvars.iv15
   store i32 0, ptr %arrayidx, align 4
   %0 = trunc nuw i64 %indvars.iv15 to i32
-  %mul = mul i32 %0, %N
+  %mul = mul i32 %N, %0
   br label %for.body3
 
 for.body3:                                        ; preds = %for.body, %for.body3
@@ -609,7 +609,7 @@ for.body6:                                        ; preds = %for.body3, %for.bod
   %arrayidx10 = getelementptr inbounds i16, ptr %A, i64 %idxprom9
   %3 = load i16, ptr %arrayidx10, align 2
   %conv = sext i16 %3 to i32
-  %mul11 = mul i32 %2, %N
+  %mul11 = mul i32 %N, %2
   %add12 = add i32 %mul11, %0
   %idxprom13 = zext i32 %add12 to i64
   %arrayidx14 = getelementptr inbounds i16, ptr %B, i64 %idxprom13
@@ -669,7 +669,7 @@ for.body6:                                        ; preds = %for.body3, %for.bod
   %arrayidx10 = getelementptr inbounds i16, ptr %A, i64 %idxprom9
   %3 = load i16, ptr %arrayidx10, align 2
   %conv31 = zext i16 %3 to i32
-  %mul11 = mul i32 %2, %N
+  %mul11 = mul i32 %N, %2
   %add12 = add i32 %mul11, %0
   %idxprom13 = zext i32 %add12 to i64
   %arrayidx14 = getelementptr inbounds i16, ptr %B, i64 %idxprom13

@@ -602,7 +602,7 @@ define range(i32 0, 2) i32 @If_Dec08Perform(ptr noundef %0, i32 noundef %1, i32 
   %.1228 = phi i32 [ %.078232, %.lr.ph229 ], [ %.2.lcssa, %.loopexit218 ]
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %102 = trunc nuw i64 %indvars.iv.next282 to i32
-  %103 = icmp slt i32 %102, %1
+  %103 = icmp sgt i32 %1, %102
   br i1 %103, label %.lr.ph226, label %.loopexit218
 
 .lr.ph226:                                        ; preds = %101
@@ -1358,7 +1358,7 @@ If_Dec08CofCount2.exit.thread:                    ; preds = %442, %460
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %indvars.iv.next269 = add nsw i64 %indvars.iv268, 1
   %464 = trunc nuw i64 %indvars.iv.next275 to i32
-  %465 = icmp slt i32 %464, %1
+  %465 = icmp sgt i32 %1, %464
   br i1 %465, label %109, label %.loopexit218.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.thread197, %.lr.ph241.split

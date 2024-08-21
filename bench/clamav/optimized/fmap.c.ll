@@ -84,7 +84,7 @@ define noundef ptr @fmap_check_empty(i32 noundef %0, i64 noundef %1, i64 noundef
   %15 = add i64 %.023, %1
   %.not33 = icmp ule i64 %15, %11
   %or.cond36.not38 = and i1 %.not32, %.not33
-  %16 = icmp ugt i64 %11, %1
+  %16 = icmp ult i64 %1, %11
   %or.cond37 = and i1 %16, %or.cond36.not38
   br i1 %or.cond37, label %18, label %17
 
@@ -147,7 +147,7 @@ define noundef ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noun
   %13 = zext i1 %12 to i64
   %14 = add nuw i64 %10, %13
   %15 = mul i64 %14, %9
-  %.not = icmp eq i64 %15, %1
+  %.not = icmp eq i64 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %8, %5
@@ -311,7 +311,7 @@ define noalias noundef ptr @fmap_duplicate(ptr noundef readonly %0, i64 noundef 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %8, ptr noundef nonnull align 8 dereferenceable(240) %0, i64 240, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   %12 = load i64, ptr %11, align 8
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
@@ -320,7 +320,7 @@ define noalias noundef ptr @fmap_duplicate(ptr noundef readonly %0, i64 noundef 
 
 15:                                               ; preds = %10
   %.not71 = icmp ne i64 %1, 0
-  %16 = icmp ugt i64 %12, %2
+  %16 = icmp ult i64 %2, %12
   %or.cond79 = or i1 %.not71, %16
   br i1 %or.cond79, label %17, label %32
 
@@ -330,7 +330,7 @@ define noalias noundef ptr @fmap_duplicate(ptr noundef readonly %0, i64 noundef 
   %20 = add i64 %19, %1
   store i64 %20, ptr %18, align 8
   %21 = sub i64 %12, %1
-  %. = tail call i64 @llvm.umin.i64(i64 %21, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %21)
   %22 = getelementptr inbounds i8, ptr %8, i64 88
   store i64 %., ptr %22, align 8
   %23 = add i64 %20, %.
@@ -527,7 +527,7 @@ define internal ptr @handle_need(ptr nocapture noundef %0, i64 noundef %1, i64 n
   %8 = add i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 88
   %10 = load i64, ptr %9, align 8
-  %.not44 = icmp ult i64 %10, %2
+  %.not44 = icmp ugt i64 %2, %10
   %.not45 = icmp ult i64 %8, %7
   %or.cond49 = select i1 %.not44, i1 true, i1 %.not45
   br i1 %or.cond49, label %29, label %11
@@ -581,7 +581,7 @@ define internal ptr @handle_need_offstr(ptr nocapture noundef %0, i64 noundef %1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 80
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %.pre114 = sub i64 %.pre, %5
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.pre114, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %.pre114)
   %.072 = select i1 %.not, i64 %.pre114, i64 %spec.select
   %9 = getelementptr inbounds i8, ptr %0, i64 88
   %10 = load i64, ptr %9, align 8
@@ -828,7 +828,7 @@ define internal void @handle_unneed_off(ptr nocapture noundef readonly %0, i64 n
   %11 = add i64 %10, %1
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = load i64, ptr %12, align 8
-  %.not38 = icmp ult i64 %13, %2
+  %.not38 = icmp ugt i64 %2, %13
   %.not39 = icmp ult i64 %11, %10
   %or.cond42 = select i1 %.not38, i1 true, i1 %.not39
   br i1 %or.cond42, label %.loopexit.sink.split, label %14
@@ -998,7 +998,7 @@ define internal ptr @mem_need(ptr nocapture noundef readonly %0, i64 noundef %1,
   %8 = add i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 88
   %10 = load i64, ptr %9, align 8
-  %.not29 = icmp ult i64 %10, %2
+  %.not29 = icmp ugt i64 %2, %10
   %.not30 = icmp ult i64 %8, %7
   %or.cond32 = select i1 %.not29, i1 true, i1 %.not30
   br i1 %or.cond32, label %20, label %11
@@ -1037,7 +1037,7 @@ define internal ptr @mem_need_offstr(ptr nocapture noundef readonly %0, i64 noun
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 80
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %.pre48 = sub i64 %.pre, %5
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.pre48, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %.pre48)
   %.030 = select i1 %.not, i64 %.pre48, i64 %spec.select
   %9 = getelementptr inbounds i8, ptr %0, i64 88
   %10 = load i64, ptr %9, align 8
@@ -1183,7 +1183,7 @@ define i32 @fmap_dump_to_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   %12 = load i64, ptr %11, align 8
-  %13 = icmp ult i64 %12, %5
+  %13 = icmp ugt i64 %5, %12
   %14 = icmp ult i64 %6, %5
   %or.cond69 = or i1 %14, %13
   br i1 %or.cond69, label %15, label %16
@@ -1193,7 +1193,7 @@ define i32 @fmap_dump_to_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %75
 
 16:                                               ; preds = %7
-  %. = tail call i64 @llvm.umin.i64(i64 %12, i64 %6)
+  %. = tail call i64 @llvm.umin.i64(i64 %6, i64 %12)
   %17 = sub i64 %., %5
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %38, label %18
@@ -1276,7 +1276,7 @@ define i32 @fmap_dump_to_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %.049 = phi i64 [ %5, %44 ], [ %54, %65 ]
   %.048 = phi i64 [ %17, %44 ], [ %66, %65 ]
   %48 = load i64, ptr %45, align 8
-  %.not.i = icmp ugt i64 %48, %.049
+  %.not.i = icmp ult i64 %.049, %48
   br i1 %.not.i, label %fmap_need_off_once_len.exit, label %.thread
 
 fmap_need_off_once_len.exit:                      ; preds = %47

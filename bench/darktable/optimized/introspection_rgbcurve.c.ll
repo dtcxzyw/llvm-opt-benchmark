@@ -7690,7 +7690,7 @@ define internal fastcc void @dt_draw_histogram_8_zoomed(ptr noundef %0, ptr noca
 .loopexit:                                        ; preds = %.preheader2, %.preheader
   %33 = fsub reassoc nsz arcp contract afn float 2.550000e+02, %4
   %34 = fpext float %33 to double
-  %35 = fmul reassoc nsz arcp contract afn float %10, %3
+  %35 = fmul reassoc nsz arcp contract afn float %3, %10
   %36 = fpext float %35 to double
   tail call void @cairo_line_to(ptr noundef %0, double noundef %34, double noundef %36) #24
   tail call void @cairo_close_path(ptr noundef %0) #24

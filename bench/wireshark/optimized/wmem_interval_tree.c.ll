@@ -307,7 +307,7 @@ define internal fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef re
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ult i64 %6, %.0.val
+  %7 = icmp ugt i64 %.0.val, %6
   br i1 %7, label %._crit_edge, label %8
 
 8:                                                ; preds = %.lr.ph
@@ -318,7 +318,7 @@ define internal fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef re
 wmem_itree_range_overlap.exit:                    ; preds = %8
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
-  %.not1 = icmp ult i64 %11, %.0.val
+  %.not1 = icmp ugt i64 %.0.val, %11
   br i1 %.not1, label %wmem_itree_range_overlap.exit.thread, label %12
 
 12:                                               ; preds = %wmem_itree_range_overlap.exit

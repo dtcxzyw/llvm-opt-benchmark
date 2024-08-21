@@ -2629,7 +2629,7 @@ define linkonce_odr hidden void @_ZN16StreamWriterHostI13MallocAdapterILm1048576
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = icmp slt i64 %11, %3
+  %12 = icmp sgt i64 %3, %11
   br i1 %12, label %13, label %33
 
 13:                                               ; preds = %4

@@ -3785,7 +3785,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i: ;
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %.lr.ph.i.i, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i, %19
   %36 = phi i64 [ %.pre, %19 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i ], [ %35, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  %.not = icmp ult i64 %36, %2
+  %.not = icmp ugt i64 %2, %36
   br i1 %.not, label %37, label %59
 
 37:                                               ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit
@@ -3981,7 +3981,7 @@ _ZN5ropey4tree13node_children12NodeChildren13combined_info17h73c3a6d68a906663E.e
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit49: ; preds = %79, %_ZN5ropey4tree13node_children12NodeChildren13combined_info17h73c3a6d68a906663E.exit.i44
   %104 = phi i64 [ %.pre94, %79 ], [ %.lcssa4.i.i46, %_ZN5ropey4tree13node_children12NodeChildren13combined_info17h73c3a6d68a906663E.exit.i44 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  %105 = icmp eq i64 %104, %2
+  %105 = icmp eq i64 %2, %104
   br i1 %105, label %119, label %106
 
 106:                                              ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit49

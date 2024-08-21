@@ -1871,7 +1871,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h785f0624fd0eb9a2E.exit.i.i.i.i.i: 
   %66 = load i64, ptr %6, align 8, !alias.scope !331, !noalias !332, !noundef !4
   %67 = load i64, ptr %25, align 8, !alias.scope !331, !noalias !332, !noundef !4
   %68 = sub i64 %66, %67
-  %69 = icmp ugt i64 %68, %64
+  %69 = icmp ult i64 %64, %68
   br i1 %69, label %70, label %_ZN10serde_json3ser27format_escaped_str_contents17h13b0e72cd0005338E.exit.i.i.i.i.i
 
 70:                                               ; preds = %63
@@ -2035,7 +2035,7 @@ _ZN10serde_json3ser9Formatter17write_char_escape17hec36e38c1964fadfE.exit.i.i.i.
   %131 = load i64, ptr %6, align 8, !alias.scope !369, !noalias !370, !noundef !4
   %132 = load i64, ptr %25, align 8, !alias.scope !369, !noalias !370, !noundef !4
   %133 = sub i64 %131, %132
-  %134 = icmp ugt i64 %133, %130
+  %134 = icmp ult i64 %130, %133
   br i1 %134, label %_ZN10serde_json3ser9Formatter21write_string_fragment17ha1ec54474ad02ddbE.exit34.thread.i.i.i.i.i.i, label %_ZN10serde_json3ser9Formatter21write_string_fragment17ha1ec54474ad02ddbE.exit34.i.i.i.i.i.i
 
 _ZN10serde_json3ser9Formatter21write_string_fragment17ha1ec54474ad02ddbE.exit34.thread.i.i.i.i.i.i: ; preds = %128
@@ -2198,7 +2198,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h3af66a00e5e0d5beE.exit.i.i: 
   %205 = load i64, ptr %6, align 8, !alias.scope !411, !noalias !412, !noundef !4
   %206 = load i64, ptr %25, align 8, !alias.scope !411, !noalias !412, !noundef !4
   %207 = sub i64 %205, %206
-  %208 = icmp ugt i64 %207, %203
+  %208 = icmp ult i64 %203, %207
   br i1 %208, label %_ZN10serde_json3ser9Formatter9write_u6417h38045fcac668a814E.exit.thread.i.i.i.i, label %_ZN10serde_json3ser9Formatter9write_u6417h38045fcac668a814E.exit.i.i.i.i
 
 _ZN10serde_json3ser9Formatter9write_u6417h38045fcac668a814E.exit.thread.i.i.i.i: ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h39dfec3d3dc7e1d4E.exit.i.i.i.i.i"

@@ -142,7 +142,7 @@ for.cond.preheader:                               ; preds = %entry
   %add.ptr3 = getelementptr i8, ptr %add.ptr, i64 -1
   %0 = load i8, ptr %str, align 1
   %cmp16 = icmp ne i8 %0, 0
-  %cmp4.not7 = icmp ugt ptr %add.ptr3, %buf
+  %cmp4.not7 = icmp ult ptr %buf, %add.ptr3
   %or.cond8 = select i1 %cmp16, i1 %cmp4.not7, i1 false
   br i1 %or.cond8, label %if.end7, label %for.end
 
@@ -173,7 +173,7 @@ define dso_local noundef ptr @pstrcat(ptr noundef returned %buf, i32 noundef %bu
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #25
   %conv = trunc i64 %call to i32
-  %cmp = icmp slt i32 %conv, %buf_size
+  %cmp = icmp sgt i32 %buf_size, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -190,7 +190,7 @@ for.cond.preheader.i:                             ; preds = %if.then
   %add.ptr3.i = getelementptr i8, ptr %add.ptr.i, i64 -1
   %0 = load i8, ptr %s, align 1
   %cmp16.i = icmp ne i8 %0, 0
-  %cmp4.not7.i = icmp ugt ptr %add.ptr3.i, %add.ptr
+  %cmp4.not7.i = icmp ult ptr %add.ptr, %add.ptr3.i
   %or.cond8.i = select i1 %cmp16.i, i1 %cmp4.not7.i, i1 false
   br i1 %or.cond8.i, label %if.end7.i, label %for.end.i
 
@@ -1580,7 +1580,7 @@ entry:
   store i32 0, ptr %call, align 4
   %call1 = call i64 @strtol(ptr noundef %param, ptr noundef nonnull %endptr, i32 noundef 10) #27
   %0 = load ptr, ptr %endptr, align 8
-  %cmp = icmp eq ptr %0, %param
+  %cmp = icmp eq ptr %param, %0
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry

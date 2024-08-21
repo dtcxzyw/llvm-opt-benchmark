@@ -192,13 +192,13 @@ ompi_comm_peer_invalid.exit:                      ; preds = %76
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 16
   %81 = load i32, ptr %80, align 8
-  %.not.i.not = icmp sgt i32 %81, %3
+  %.not.i.not = icmp slt i32 %3, %81
   br i1 %.not.i.not, label %82, label %ompi_errcode_get_mpi_code.exit
 
 82:                                               ; preds = %ompi_comm_peer_invalid.exit, %75
   %83 = icmp slt i32 %4, 0
   %84 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 172), align 4
-  %85 = icmp slt i32 %84, %4
+  %85 = icmp sgt i32 %4, %84
   %or.cond179 = select i1 %83, i1 true, i1 %85
   br i1 %or.cond179, label %ompi_errcode_get_mpi_code.exit, label %86
 
@@ -215,12 +215,12 @@ ompi_comm_peer_invalid.exit193:                   ; preds = %87
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 16
   %92 = load i32, ptr %91, align 8
-  %.not.i191.not = icmp sgt i32 %92, %8
+  %.not.i191.not = icmp slt i32 %8, %92
   br i1 %.not.i191.not, label %93, label %ompi_errcode_get_mpi_code.exit
 
 93:                                               ; preds = %ompi_comm_peer_invalid.exit193, %86
   %or.cond19 = icmp slt i32 %9, -1
-  %94 = icmp slt i32 %84, %9
+  %94 = icmp sgt i32 %9, %84
   %or.cond181 = select i1 %or.cond19, i1 true, i1 %94
   br i1 %or.cond181, label %ompi_errcode_get_mpi_code.exit, label %95
 

@@ -745,7 +745,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 
 while.cond:                                       ; preds = %cond.end, %while.cond
   %alignment.0 = phi i64 [ %div36, %while.cond ], [ 8, %cond.end ]
-  %cmp4 = icmp ugt i64 %alignment.0, %bytes
+  %cmp4 = icmp ult i64 %bytes, %alignment.0
   %div36 = lshr i64 %alignment.0, 1
   %cmp6 = icmp uge i64 %div36, %bytes
   %4 = and i1 %cmp4, %cmp6
@@ -9513,7 +9513,7 @@ sw.bb13.i:                                        ; preds = %if.else
 
 sdslen.exit:                                      ; preds = %if.else, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %13, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.else ]
-  %cmp27 = icmp ult i64 %retval.0.i, %newlen
+  %cmp27 = icmp ugt i64 %newlen, %retval.0.i
   br i1 %cmp27, label %if.then28, label %if.else34
 
 if.then28:                                        ; preds = %sdslen.exit
@@ -9524,7 +9524,7 @@ if.then28:                                        ; preds = %sdslen.exit
   br label %return
 
 if.else34:                                        ; preds = %sdslen.exit
-  %cmp35 = icmp ugt i64 %retval.0.i, %newlen
+  %cmp35 = icmp ult i64 %newlen, %retval.0.i
   br i1 %cmp35, label %if.then36, label %return
 
 if.then36:                                        ; preds = %if.else34
@@ -9653,8 +9653,8 @@ if.then8:                                         ; preds = %if.end5
 if.end10:                                         ; preds = %if.end5
   %call12 = tail call i64 @listTypeLength(ptr noundef nonnull %0) #34
   %sub = sub nsw i64 0, %call12
-  %cmp13 = icmp sle i64 %sub, %index
-  %cmp15.not = icmp sgt i64 %call12, %index
+  %cmp13 = icmp sge i64 %index, %sub
+  %cmp15.not = icmp slt i64 %index, %call12
   %or.cond = and i1 %cmp13, %cmp15.not
   br i1 %or.cond, label %if.end18, label %if.then16
 
@@ -9706,7 +9706,7 @@ if.end43:                                         ; preds = %if.end18
   %add = select i1 %cmp4839, i64 0, i64 %call12
   %5 = sub i64 0, %sub60
   %index.addr.0.p = select i1 %cmp44, i64 %add, i64 %5
-  %index.addr.0 = add i64 %index.addr.0.p, %index
+  %index.addr.0 = add i64 %index, %index.addr.0.p
   %u63 = getelementptr inbounds i8, ptr %key, i64 48
   %index64 = getelementptr inbounds i8, ptr %key, i64 120
   %cmp65 = icmp eq i64 %index.addr.0, %4
@@ -10195,7 +10195,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true10
 
 land.lhs.true16:                                  ; preds = %land.lhs.true13
   %call18 = tail call i64 @listTypeLength(ptr noundef nonnull %0) #34
-  %cmp19 = icmp eq i64 %call18, %index
+  %cmp19 = icmp eq i64 %index, %call18
   %cmp21 = icmp eq i64 %index, -1
   %or.cond1 = or i1 %cmp21, %cmp19
   br i1 %or.cond1, label %if.then22, label %land.lhs.true26
@@ -16781,7 +16781,7 @@ entry:
 define dso_local void @RM_LatencyAddSample(ptr noundef %event, i64 noundef %latency) #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5352), align 8
-  %cmp.not = icmp sgt i64 %0, %latency
+  %cmp.not = icmp slt i64 %latency, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -17074,7 +17074,7 @@ if.end:                                           ; preds = %if.then, %moduleAll
 if.then21:                                        ; preds = %if.end
   %call22 = tail call i64 @mstime() #34
   %sub = sub nsw i64 9223372036854775807, %call22
-  %cmp23 = icmp slt i64 %sub, %timeout_ms
+  %cmp23 = icmp sgt i64 %timeout_ms, %sub
   br i1 %cmp23, label %if.then25, label %if.end28
 
 if.then25:                                        ; preds = %if.then21
@@ -19831,7 +19831,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
   %call = tail call i32 @aeGetSetSize(ptr noundef %0) #34
-  %cmp1.not = icmp sgt i32 %call, %fd
+  %cmp1.not = icmp slt i32 %fd, %call
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -19948,7 +19948,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
   %call = tail call i32 @aeGetSetSize(ptr noundef %0) #34
-  %cmp1.not = icmp sgt i32 %call, %fd
+  %cmp1.not = icmp slt i32 %fd, %call
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -20059,7 +20059,7 @@ moduleNotifyUserChanged.exit:                     ; preds = %entry, %if.then.i
   %authenticated = getelementptr inbounds i8, ptr %c, i64 256
   store i32 0, ptr %authenticated, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
-  %cmp = icmp eq ptr %4, %c
+  %cmp = icmp eq ptr %c, %4
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %moduleNotifyUserChanged.exit
@@ -20846,7 +20846,7 @@ moduleNotifyUserChanged.exit.i:                   ; preds = %if.then.i.i, %if.en
   %authenticated.i = getelementptr inbounds i8, ptr %call, i64 256
   store i32 0, ptr %authenticated.i, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
-  %cmp.i = icmp eq ptr %4, %call
+  %cmp.i = icmp eq ptr %call, %4
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %moduleNotifyUserChanged.exit.i
@@ -23353,7 +23353,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %argc = getelementptr inbounds i8, ptr %fctx, i64 12
   %0 = load i32, ptr %argc, align 4
-  %cmp1.not = icmp sgt i32 %0, %pos
+  %cmp1.not = icmp slt i32 %pos, %0
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -23377,7 +23377,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %argc = getelementptr inbounds i8, ptr %fctx, i64 12
   %0 = load i32, ptr %argc, align 4
-  %cmp1 = icmp slt i32 %0, %pos
+  %cmp1 = icmp sgt i32 %pos, %0
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -23442,7 +23442,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %argc = getelementptr inbounds i8, ptr %fctx, i64 12
   %0 = load i32, ptr %argc, align 4
-  %cmp1.not = icmp sgt i32 %0, %pos
+  %cmp1.not = icmp slt i32 %pos, %0
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -23470,7 +23470,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %argc = getelementptr inbounds i8, ptr %fctx, i64 12
   %0 = load i32, ptr %argc, align 4
-  %cmp1.not = icmp sgt i32 %0, %pos
+  %cmp1.not = icmp slt i32 %pos, %0
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -23481,7 +23481,7 @@ if.end:                                           ; preds = %lor.lhs.false
   tail call void @decrRefCount(ptr noundef %2) #34
   %3 = load i32, ptr %argc, align 4
   %sub12 = add nsw i32 %3, -1
-  %cmp313 = icmp sgt i32 %sub12, %pos
+  %cmp313 = icmp slt i32 %pos, %sub12
   br i1 %cmp313, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -24243,7 +24243,7 @@ entry:
 if.end3:                                          ; preds = %entry
   %arrayidx = getelementptr inbounds [18 x i64], ptr @moduleEventVersions, i64 0, i64 %event.coerce0
   %1 = load i64, ptr %arrayidx, align 8
-  %cmp5 = icmp ult i64 %1, %event.coerce1
+  %cmp5 = icmp ugt i64 %event.coerce1, %1
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
@@ -24681,7 +24681,7 @@ if.then42:                                        ; preds = %if.then39
 
 if.then50:                                        ; preds = %if.else17
   %40 = load ptr, ptr %20, align 8
-  %cmp52 = icmp eq ptr %40, %data
+  %cmp52 = icmp eq ptr %data, %40
   br i1 %cmp52, label %while.cond.backedge.sink.split, label %if.end55
 
 while.cond.backedge.sink.split:                   ; preds = %if.then50, %if.end90, %if.then98
@@ -26916,7 +26916,7 @@ moduleNotifyUserChanged.exit.i.i:                 ; preds = %if.then.i.i.i, %if.
   %authenticated.i.i = getelementptr inbounds i8, ptr %1, i64 256
   store i32 0, ptr %authenticated.i.i, align 8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
-  %cmp.i.i = icmp eq ptr %7, %1
+  %cmp.i.i = icmp eq ptr %1, %7
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %moduleNotifyUserChanged.exit.i.i
@@ -29013,7 +29013,7 @@ if.end5:                                          ; preds = %if.end
   %cmp8.not = icmp ne i32 %0, %argc
   %or.cond.not21 = and i1 %cmp6, %cmp8.not
   %sub = sub nsw i32 0, %0
-  %cmp10 = icmp sgt i32 %sub, %argc
+  %cmp10 = icmp slt i32 %argc, %sub
   %or.cond20 = select i1 %or.cond.not21, i1 true, i1 %cmp10
   br i1 %or.cond20, label %if.then11, label %if.end13
 

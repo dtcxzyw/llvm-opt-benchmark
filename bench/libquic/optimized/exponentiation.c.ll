@@ -87,7 +87,7 @@ for.inc:                                          ; preds = %if.end32, %if.then3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end27
-  %cmp41.not = icmp eq ptr %rr.0, %r
+  %cmp41.not = icmp eq ptr %r, %rr.0
   br i1 %cmp41.not, label %if.end45, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.end
@@ -1541,7 +1541,7 @@ if.then397:                                       ; preds = %if.end391
 
 if.else403:                                       ; preds = %if.end168
   %84 = load i32, ptr %top115, align 8
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %84, i32 %0)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %0, i32 %84)
   %cmp37.i = icmp sgt i32 %spec.select.i, 0
   br i1 %cmp37.i, label %for.body.preheader.i, label %copy_to_prebuf.exit
 
@@ -1565,7 +1565,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 copy_to_prebuf.exit:                              ; preds = %for.body.i, %if.else403
   %88 = load i32, ptr %top114, align 8
-  %spec.select.i282 = call i32 @llvm.smin.i32(i32 %88, i32 %0)
+  %spec.select.i282 = call i32 @llvm.smin.i32(i32 %0, i32 %88)
   %cmp37.i283 = icmp sgt i32 %spec.select.i282, 0
   br i1 %cmp37.i283, label %for.body.preheader.i284, label %copy_to_prebuf.exit295
 
@@ -1598,7 +1598,7 @@ if.then413:                                       ; preds = %copy_to_prebuf.exit
 
 lor.lhs.false416:                                 ; preds = %if.then413
   %92 = load i32, ptr %top115, align 8
-  %spec.select.i297 = call i32 @llvm.smin.i32(i32 %92, i32 %0)
+  %spec.select.i297 = call i32 @llvm.smin.i32(i32 %0, i32 %92)
   %cmp37.i298 = icmp sgt i32 %spec.select.i297, 0
   br i1 %cmp37.i298, label %for.body.preheader.i299, label %for.body424.lr.ph
 
@@ -1634,7 +1634,7 @@ for.body424:                                      ; preds = %for.body424.lr.ph, 
 
 lor.lhs.false427:                                 ; preds = %for.body424
   %97 = load i32, ptr %top115, align 8
-  %spec.select.i312 = call i32 @llvm.smin.i32(i32 %97, i32 %0)
+  %spec.select.i312 = call i32 @llvm.smin.i32(i32 %0, i32 %97)
   %cmp37.i313 = icmp sgt i32 %spec.select.i312, 0
   br i1 %cmp37.i313, label %for.body.preheader.i314, label %copy_to_prebuf.exit325
 
@@ -1837,9 +1837,9 @@ for.body10:                                       ; preds = %for.cond7.preheader
   %arrayidx = getelementptr inbounds i64, ptr %table.0239, i64 %indvars.iv416
   %0 = load volatile i64, ptr %arrayidx, align 8
   %1 = trunc nuw nsw i64 %indvars.iv416 to i32
-  %xor.i.i = xor i32 %1, %idx
+  %xor.i.i = xor i32 %idx, %1
   %2 = sub i32 0, %xor.i.i
-  %3 = or i32 %2, %idx
+  %3 = or i32 %idx, %2
   %isneg84 = icmp sgt i32 %3, -1
   %and13 = select i1 %isneg84, i64 %0, i64 0
   %or = or i64 %and13, %acc.0236

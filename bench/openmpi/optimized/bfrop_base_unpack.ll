@@ -285,7 +285,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %39
 
 93:                                               ; preds = %89
   %94 = load i16, ptr %6, align 2
-  %.not27.i = icmp eq i16 %94, %4
+  %.not27.i = icmp eq i16 %4, %94
   br i1 %.not27.i, label %105, label %95
 
 95:                                               ; preds = %93

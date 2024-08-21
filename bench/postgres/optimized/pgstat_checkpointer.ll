@@ -130,7 +130,7 @@ pgstat_begin_changecount_read.exit.i:             ; preds = %10, %pgstat_end_cha
 
 12:                                               ; preds = %pgstat_begin_changecount_read.exit.i
   %13 = load i32, ptr %7, align 4
-  %14 = icmp eq i32 %13, %8
+  %14 = icmp eq i32 %8, %13
   br i1 %14, label %pgstat_copy_changecounted_stats.exit, label %pgstat_end_changecount_read.exit.i.backedge
 
 pgstat_end_changecount_read.exit.i.backedge:      ; preds = %12, %pgstat_begin_changecount_read.exit.i
@@ -174,7 +174,7 @@ pgstat_begin_changecount_read.exit.i:             ; preds = %6, %pgstat_end_chan
 
 8:                                                ; preds = %pgstat_begin_changecount_read.exit.i
   %9 = load i32, ptr %3, align 4
-  %10 = icmp eq i32 %9, %4
+  %10 = icmp eq i32 %4, %9
   br i1 %10, label %pgstat_copy_changecounted_stats.exit, label %pgstat_end_changecount_read.exit.i.backedge
 
 pgstat_end_changecount_read.exit.i.backedge:      ; preds = %8, %pgstat_begin_changecount_read.exit.i

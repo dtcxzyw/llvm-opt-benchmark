@@ -451,7 +451,7 @@ declare double @exp(double noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6cvtest10randomSizeERN2cv3RNGEiidRSt6vectorIiSaIiEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %6 = add nsw i32 %2, 1
-  %7 = icmp eq i32 %6, %1
+  %7 = icmp eq i32 %1, %6
   br i1 %7, label %_ZN2cv3RNG7uniformEii.exit, label %8
 
 8:                                                ; preds = %5
@@ -577,7 +577,7 @@ define hidden noundef i32 @_ZN6cvtest10randomTypeERN2cv3RNGENS0_12_OutputArray9D
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = add nsw i32 %3, 1
-  %8 = icmp eq i32 %7, %2
+  %8 = icmp eq i32 %2, %7
   br i1 %8, label %_ZN2cv3RNG7uniformEii.exit, label %9
 
 9:                                                ; preds = %4
@@ -2705,7 +2705,7 @@ _ZNK2cv3Mat8elemSizeEv.exit90:                    ; preds = %_ZNK2cv3Mat8elemSiz
   %.073110.us.us.us.us.us = phi i64 [ 0, %.lr.ph117.us.us.us ], [ %134, %..loopexit99_crit_edge.us.us.us.us.us ]
   %131 = load i8, ptr %.065115.us.us.us.us.us, align 1
   %132 = icmp ne i8 %131, 0
-  %133 = xor i1 %132, %3
+  %133 = xor i1 %3, %132
   br i1 %133, label %.preheader98.us.us.us.us.us, label %..loopexit99_crit_edge.us.us.us.us.us
 
 ..loopexit99_crit_edge.us.us.us.us.us:            ; preds = %.preheader98.us.us.us.us.us, %130
@@ -2782,7 +2782,7 @@ _ZNK2cv3Mat8elemSizeEv.exit90:                    ; preds = %_ZNK2cv3Mat8elemSiz
   %151 = getelementptr inbounds i8, ptr %.065115.us118.us.us, i64 %indvars.iv
   %152 = load i8, ptr %151, align 1
   %153 = icmp ne i8 %152, 0
-  %154 = xor i1 %153, %3
+  %154 = xor i1 %3, %153
   br i1 %154, label %.preheader96.us.us.us.us, label %..loopexit97_crit_edge.us.us.us.us
 
 ..loopexit97_crit_edge.us.us.us.us:               ; preds = %155, %150
@@ -2937,7 +2937,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIhEEvPKT_Pvimdd(ptr noundef
   %18 = getelementptr inbounds i8, ptr %0, i64 %.133.i
   %19 = load i8, ptr %18, align 1
   %20 = uitofp i8 %19 to double
-  %21 = fmul double %20, %4
+  %21 = fmul double %4, %20
   %22 = insertelement <2 x double> poison, double %21, i64 0
   %23 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %22)
   %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 0)
@@ -3001,7 +3001,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIhEEvPKT_Pvimdd(ptr noundef
   %49 = getelementptr inbounds i8, ptr %0, i64 %.133.i47
   %50 = load i8, ptr %49, align 1
   %51 = uitofp i8 %50 to double
-  %52 = fmul double %51, %4
+  %52 = fmul double %4, %51
   %53 = insertelement <2 x double> poison, double %52, i64 0
   %54 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %53)
   %55 = tail call i32 @llvm.smax.i32(i32 %54, i32 -128)
@@ -3065,7 +3065,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIhEEvPKT_Pvimdd(ptr noundef
   %80 = getelementptr inbounds i8, ptr %0, i64 %.133.i61
   %81 = load i8, ptr %80, align 1
   %82 = uitofp i8 %81 to double
-  %83 = fmul double %82, %4
+  %83 = fmul double %4, %82
   %84 = insertelement <2 x double> poison, double %83, i64 0
   %85 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %84)
   %86 = tail call i32 @llvm.smax.i32(i32 %85, i32 0)
@@ -3129,7 +3129,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIhEEvPKT_Pvimdd(ptr noundef
   %111 = getelementptr inbounds i8, ptr %0, i64 %.133.i75
   %112 = load i8, ptr %111, align 1
   %113 = uitofp i8 %112 to double
-  %114 = fmul double %113, %4
+  %114 = fmul double %4, %113
   %115 = insertelement <2 x double> poison, double %114, i64 0
   %116 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %115)
   %117 = tail call i32 @llvm.smax.i32(i32 %116, i32 -32768)
@@ -3193,7 +3193,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIhEEvPKT_Pvimdd(ptr noundef
   %142 = getelementptr inbounds i8, ptr %0, i64 %.133.i89
   %143 = load i8, ptr %142, align 1
   %144 = uitofp i8 %143 to double
-  %145 = fmul double %144, %4
+  %145 = fmul double %4, %144
   %146 = insertelement <2 x double> poison, double %145, i64 0
   %147 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %146)
   %148 = getelementptr inbounds i32, ptr %1, i64 %.133.i89
@@ -3251,7 +3251,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIhEEvPKT_Pvimdd(ptr noundef
   %167 = getelementptr inbounds i8, ptr %0, i64 %.133.i103
   %168 = load i8, ptr %167, align 1
   %169 = uitofp i8 %168 to double
-  %170 = fmul double %169, %4
+  %170 = fmul double %4, %169
   %171 = fptrunc double %170 to float
   %172 = getelementptr inbounds float, ptr %1, i64 %.133.i103
   store float %171, ptr %172, align 4
@@ -3307,7 +3307,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIhEEvPKT_Pvimdd(ptr noundef
   %190 = getelementptr inbounds i8, ptr %0, i64 %.133.i117
   %191 = load i8, ptr %190, align 1
   %192 = uitofp i8 %191 to double
-  %193 = fmul double %192, %4
+  %193 = fmul double %4, %192
   %194 = getelementptr inbounds double, ptr %1, i64 %.133.i117
   store double %193, ptr %194, align 8
   %195 = add nuw i64 %.133.i117, 1
@@ -3412,7 +3412,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIaEEvPKT_Pvimdd(ptr noundef
   %19 = getelementptr inbounds i8, ptr %0, i64 %.133.i
   %20 = load i8, ptr %19, align 1
   %21 = sitofp i8 %20 to double
-  %22 = fmul double %21, %4
+  %22 = fmul double %4, %21
   %23 = insertelement <2 x double> poison, double %22, i64 0
   %24 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %23)
   %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
@@ -3475,7 +3475,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIaEEvPKT_Pvimdd(ptr noundef
   %49 = getelementptr inbounds i8, ptr %0, i64 %.133.i47
   %50 = load i8, ptr %49, align 1
   %51 = sitofp i8 %50 to double
-  %52 = fmul double %51, %4
+  %52 = fmul double %4, %51
   %53 = insertelement <2 x double> poison, double %52, i64 0
   %54 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %53)
   %55 = tail call i32 @llvm.smax.i32(i32 %54, i32 -128)
@@ -3540,7 +3540,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIaEEvPKT_Pvimdd(ptr noundef
   %81 = getelementptr inbounds i8, ptr %0, i64 %.133.i61
   %82 = load i8, ptr %81, align 1
   %83 = sitofp i8 %82 to double
-  %84 = fmul double %83, %4
+  %84 = fmul double %4, %83
   %85 = insertelement <2 x double> poison, double %84, i64 0
   %86 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %85)
   %87 = tail call i32 @llvm.smax.i32(i32 %86, i32 0)
@@ -3604,7 +3604,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIaEEvPKT_Pvimdd(ptr noundef
   %112 = getelementptr inbounds i8, ptr %0, i64 %.133.i75
   %113 = load i8, ptr %112, align 1
   %114 = sitofp i8 %113 to double
-  %115 = fmul double %114, %4
+  %115 = fmul double %4, %114
   %116 = insertelement <2 x double> poison, double %115, i64 0
   %117 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %116)
   %118 = tail call i32 @llvm.smax.i32(i32 %117, i32 -32768)
@@ -3668,7 +3668,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIaEEvPKT_Pvimdd(ptr noundef
   %143 = getelementptr inbounds i8, ptr %0, i64 %.133.i89
   %144 = load i8, ptr %143, align 1
   %145 = sitofp i8 %144 to double
-  %146 = fmul double %145, %4
+  %146 = fmul double %4, %145
   %147 = insertelement <2 x double> poison, double %146, i64 0
   %148 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %147)
   %149 = getelementptr inbounds i32, ptr %1, i64 %.133.i89
@@ -3726,7 +3726,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIaEEvPKT_Pvimdd(ptr noundef
   %168 = getelementptr inbounds i8, ptr %0, i64 %.133.i103
   %169 = load i8, ptr %168, align 1
   %170 = sitofp i8 %169 to double
-  %171 = fmul double %170, %4
+  %171 = fmul double %4, %170
   %172 = fptrunc double %171 to float
   %173 = getelementptr inbounds float, ptr %1, i64 %.133.i103
   store float %172, ptr %173, align 4
@@ -3782,7 +3782,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIaEEvPKT_Pvimdd(ptr noundef
   %191 = getelementptr inbounds i8, ptr %0, i64 %.133.i117
   %192 = load i8, ptr %191, align 1
   %193 = sitofp i8 %192 to double
-  %194 = fmul double %193, %4
+  %194 = fmul double %4, %193
   %195 = getelementptr inbounds double, ptr %1, i64 %.133.i117
   store double %194, ptr %195, align 8
   %196 = add nuw i64 %.133.i117, 1
@@ -3888,7 +3888,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToItEEvPKT_Pvimdd(ptr noundef
   %20 = getelementptr inbounds i16, ptr %0, i64 %.133.i
   %21 = load i16, ptr %20, align 2
   %22 = uitofp i16 %21 to double
-  %23 = fmul double %22, %4
+  %23 = fmul double %4, %22
   %24 = insertelement <2 x double> poison, double %23, i64 0
   %25 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %24)
   %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 0)
@@ -3953,7 +3953,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToItEEvPKT_Pvimdd(ptr noundef
   %52 = getelementptr inbounds i16, ptr %0, i64 %.133.i47
   %53 = load i16, ptr %52, align 2
   %54 = uitofp i16 %53 to double
-  %55 = fmul double %54, %4
+  %55 = fmul double %4, %54
   %56 = insertelement <2 x double> poison, double %55, i64 0
   %57 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %56)
   %58 = tail call i32 @llvm.smax.i32(i32 %57, i32 -128)
@@ -4016,7 +4016,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToItEEvPKT_Pvimdd(ptr noundef
   %82 = getelementptr inbounds i16, ptr %0, i64 %.133.i61
   %83 = load i16, ptr %82, align 2
   %84 = uitofp i16 %83 to double
-  %85 = fmul double %84, %4
+  %85 = fmul double %4, %84
   %86 = insertelement <2 x double> poison, double %85, i64 0
   %87 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %86)
   %88 = tail call i32 @llvm.smax.i32(i32 %87, i32 0)
@@ -4080,7 +4080,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToItEEvPKT_Pvimdd(ptr noundef
   %113 = getelementptr inbounds i16, ptr %0, i64 %.133.i75
   %114 = load i16, ptr %113, align 2
   %115 = uitofp i16 %114 to double
-  %116 = fmul double %115, %4
+  %116 = fmul double %4, %115
   %117 = insertelement <2 x double> poison, double %116, i64 0
   %118 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %117)
   %119 = tail call i32 @llvm.smax.i32(i32 %118, i32 -32768)
@@ -4144,7 +4144,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToItEEvPKT_Pvimdd(ptr noundef
   %144 = getelementptr inbounds i16, ptr %0, i64 %.133.i89
   %145 = load i16, ptr %144, align 2
   %146 = uitofp i16 %145 to double
-  %147 = fmul double %146, %4
+  %147 = fmul double %4, %146
   %148 = insertelement <2 x double> poison, double %147, i64 0
   %149 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %148)
   %150 = getelementptr inbounds i32, ptr %1, i64 %.133.i89
@@ -4202,7 +4202,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToItEEvPKT_Pvimdd(ptr noundef
   %169 = getelementptr inbounds i16, ptr %0, i64 %.133.i103
   %170 = load i16, ptr %169, align 2
   %171 = uitofp i16 %170 to double
-  %172 = fmul double %171, %4
+  %172 = fmul double %4, %171
   %173 = fptrunc double %172 to float
   %174 = getelementptr inbounds float, ptr %1, i64 %.133.i103
   store float %173, ptr %174, align 4
@@ -4258,7 +4258,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToItEEvPKT_Pvimdd(ptr noundef
   %192 = getelementptr inbounds i16, ptr %0, i64 %.133.i117
   %193 = load i16, ptr %192, align 2
   %194 = uitofp i16 %193 to double
-  %195 = fmul double %194, %4
+  %195 = fmul double %4, %194
   %196 = getelementptr inbounds double, ptr %1, i64 %.133.i117
   store double %195, ptr %196, align 8
   %197 = add nuw i64 %.133.i117, 1
@@ -4365,7 +4365,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIsEEvPKT_Pvimdd(ptr noundef
   %21 = getelementptr inbounds i16, ptr %0, i64 %.133.i
   %22 = load i16, ptr %21, align 2
   %23 = sitofp i16 %22 to double
-  %24 = fmul double %23, %4
+  %24 = fmul double %4, %23
   %25 = insertelement <2 x double> poison, double %24, i64 0
   %26 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %25)
   %27 = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
@@ -4431,7 +4431,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIsEEvPKT_Pvimdd(ptr noundef
   %54 = getelementptr inbounds i16, ptr %0, i64 %.133.i47
   %55 = load i16, ptr %54, align 2
   %56 = sitofp i16 %55 to double
-  %57 = fmul double %56, %4
+  %57 = fmul double %4, %56
   %58 = insertelement <2 x double> poison, double %57, i64 0
   %59 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %58)
   %60 = tail call i32 @llvm.smax.i32(i32 %59, i32 -128)
@@ -4495,7 +4495,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIsEEvPKT_Pvimdd(ptr noundef
   %85 = getelementptr inbounds i16, ptr %0, i64 %.133.i61
   %86 = load i16, ptr %85, align 2
   %87 = sitofp i16 %86 to double
-  %88 = fmul double %87, %4
+  %88 = fmul double %4, %87
   %89 = insertelement <2 x double> poison, double %88, i64 0
   %90 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %89)
   %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
@@ -4558,7 +4558,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIsEEvPKT_Pvimdd(ptr noundef
   %115 = getelementptr inbounds i16, ptr %0, i64 %.133.i75
   %116 = load i16, ptr %115, align 2
   %117 = sitofp i16 %116 to double
-  %118 = fmul double %117, %4
+  %118 = fmul double %4, %117
   %119 = insertelement <2 x double> poison, double %118, i64 0
   %120 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %119)
   %121 = tail call i32 @llvm.smax.i32(i32 %120, i32 -32768)
@@ -4622,7 +4622,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIsEEvPKT_Pvimdd(ptr noundef
   %146 = getelementptr inbounds i16, ptr %0, i64 %.133.i89
   %147 = load i16, ptr %146, align 2
   %148 = sitofp i16 %147 to double
-  %149 = fmul double %148, %4
+  %149 = fmul double %4, %148
   %150 = insertelement <2 x double> poison, double %149, i64 0
   %151 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %150)
   %152 = getelementptr inbounds i32, ptr %1, i64 %.133.i89
@@ -4680,7 +4680,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIsEEvPKT_Pvimdd(ptr noundef
   %171 = getelementptr inbounds i16, ptr %0, i64 %.133.i103
   %172 = load i16, ptr %171, align 2
   %173 = sitofp i16 %172 to double
-  %174 = fmul double %173, %4
+  %174 = fmul double %4, %173
   %175 = fptrunc double %174 to float
   %176 = getelementptr inbounds float, ptr %1, i64 %.133.i103
   store float %175, ptr %176, align 4
@@ -4736,7 +4736,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIsEEvPKT_Pvimdd(ptr noundef
   %194 = getelementptr inbounds i16, ptr %0, i64 %.133.i117
   %195 = load i16, ptr %194, align 2
   %196 = sitofp i16 %195 to double
-  %197 = fmul double %196, %4
+  %197 = fmul double %4, %196
   %198 = getelementptr inbounds double, ptr %1, i64 %.133.i117
   store double %197, ptr %198, align 8
   %199 = add nuw i64 %.133.i117, 1
@@ -4843,7 +4843,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIiEEvPKT_Pvimdd(ptr noundef
   %21 = getelementptr inbounds i32, ptr %0, i64 %.133.i
   %22 = load i32, ptr %21, align 4
   %23 = sitofp i32 %22 to double
-  %24 = fmul double %23, %4
+  %24 = fmul double %4, %23
   %25 = insertelement <2 x double> poison, double %24, i64 0
   %26 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %25)
   %27 = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
@@ -4909,7 +4909,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIiEEvPKT_Pvimdd(ptr noundef
   %54 = getelementptr inbounds i32, ptr %0, i64 %.133.i47
   %55 = load i32, ptr %54, align 4
   %56 = sitofp i32 %55 to double
-  %57 = fmul double %56, %4
+  %57 = fmul double %4, %56
   %58 = insertelement <2 x double> poison, double %57, i64 0
   %59 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %58)
   %60 = tail call i32 @llvm.smax.i32(i32 %59, i32 -128)
@@ -4975,7 +4975,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIiEEvPKT_Pvimdd(ptr noundef
   %87 = getelementptr inbounds i32, ptr %0, i64 %.133.i61
   %88 = load i32, ptr %87, align 4
   %89 = sitofp i32 %88 to double
-  %90 = fmul double %89, %4
+  %90 = fmul double %4, %89
   %91 = insertelement <2 x double> poison, double %90, i64 0
   %92 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %91)
   %93 = tail call i32 @llvm.smax.i32(i32 %92, i32 0)
@@ -5041,7 +5041,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIiEEvPKT_Pvimdd(ptr noundef
   %120 = getelementptr inbounds i32, ptr %0, i64 %.133.i75
   %121 = load i32, ptr %120, align 4
   %122 = sitofp i32 %121 to double
-  %123 = fmul double %122, %4
+  %123 = fmul double %4, %122
   %124 = insertelement <2 x double> poison, double %123, i64 0
   %125 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %124)
   %126 = tail call i32 @llvm.smax.i32(i32 %125, i32 -32768)
@@ -5104,7 +5104,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIiEEvPKT_Pvimdd(ptr noundef
   %150 = getelementptr inbounds i32, ptr %0, i64 %.133.i89
   %151 = load i32, ptr %150, align 4
   %152 = sitofp i32 %151 to double
-  %153 = fmul double %152, %4
+  %153 = fmul double %4, %152
   %154 = insertelement <2 x double> poison, double %153, i64 0
   %155 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %154)
   %156 = getelementptr inbounds i32, ptr %1, i64 %.133.i89
@@ -5162,7 +5162,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIiEEvPKT_Pvimdd(ptr noundef
   %175 = getelementptr inbounds i32, ptr %0, i64 %.133.i103
   %176 = load i32, ptr %175, align 4
   %177 = sitofp i32 %176 to double
-  %178 = fmul double %177, %4
+  %178 = fmul double %4, %177
   %179 = fptrunc double %178 to float
   %180 = getelementptr inbounds float, ptr %1, i64 %.133.i103
   store float %179, ptr %180, align 4
@@ -5218,7 +5218,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIiEEvPKT_Pvimdd(ptr noundef
   %198 = getelementptr inbounds i32, ptr %0, i64 %.133.i117
   %199 = load i32, ptr %198, align 4
   %200 = sitofp i32 %199 to double
-  %201 = fmul double %200, %4
+  %201 = fmul double %4, %200
   %202 = getelementptr inbounds double, ptr %1, i64 %.133.i117
   store double %201, ptr %202, align 8
   %203 = add nuw i64 %.133.i117, 1
@@ -5327,7 +5327,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIfEEvPKT_Pvimdd(ptr noundef
   %23 = getelementptr inbounds float, ptr %0, i64 %.133.i
   %24 = load float, ptr %23, align 4
   %25 = fpext float %24 to double
-  %26 = fmul double %25, %4
+  %26 = fmul double %4, %25
   %27 = insertelement <2 x double> poison, double %26, i64 0
   %28 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %27)
   %29 = tail call i32 @llvm.smax.i32(i32 %28, i32 0)
@@ -5395,7 +5395,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIfEEvPKT_Pvimdd(ptr noundef
   %58 = getelementptr inbounds float, ptr %0, i64 %.133.i47
   %59 = load float, ptr %58, align 4
   %60 = fpext float %59 to double
-  %61 = fmul double %60, %4
+  %61 = fmul double %4, %60
   %62 = insertelement <2 x double> poison, double %61, i64 0
   %63 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %62)
   %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 -128)
@@ -5463,7 +5463,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIfEEvPKT_Pvimdd(ptr noundef
   %93 = getelementptr inbounds float, ptr %0, i64 %.133.i61
   %94 = load float, ptr %93, align 4
   %95 = fpext float %94 to double
-  %96 = fmul double %95, %4
+  %96 = fmul double %4, %95
   %97 = insertelement <2 x double> poison, double %96, i64 0
   %98 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %97)
   %99 = tail call i32 @llvm.smax.i32(i32 %98, i32 0)
@@ -5531,7 +5531,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIfEEvPKT_Pvimdd(ptr noundef
   %128 = getelementptr inbounds float, ptr %0, i64 %.133.i75
   %129 = load float, ptr %128, align 4
   %130 = fpext float %129 to double
-  %131 = fmul double %130, %4
+  %131 = fmul double %4, %130
   %132 = insertelement <2 x double> poison, double %131, i64 0
   %133 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %132)
   %134 = tail call i32 @llvm.smax.i32(i32 %133, i32 -32768)
@@ -5596,7 +5596,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIfEEvPKT_Pvimdd(ptr noundef
   %160 = getelementptr inbounds float, ptr %0, i64 %.133.i89
   %161 = load float, ptr %160, align 4
   %162 = fpext float %161 to double
-  %163 = fmul double %162, %4
+  %163 = fmul double %4, %162
   %164 = insertelement <2 x double> poison, double %163, i64 0
   %165 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %164)
   %166 = getelementptr inbounds i32, ptr %1, i64 %.133.i89
@@ -5653,7 +5653,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIfEEvPKT_Pvimdd(ptr noundef
   %184 = getelementptr inbounds float, ptr %0, i64 %.133.i103
   %185 = load float, ptr %184, align 4
   %186 = fpext float %185 to double
-  %187 = fmul double %186, %4
+  %187 = fmul double %4, %186
   %188 = fptrunc double %187 to float
   %189 = getelementptr inbounds float, ptr %1, i64 %.133.i103
   store float %188, ptr %189, align 4
@@ -5709,7 +5709,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIfEEvPKT_Pvimdd(ptr noundef
   %207 = getelementptr inbounds float, ptr %0, i64 %.133.i117
   %208 = load float, ptr %207, align 4
   %209 = fpext float %208 to double
-  %210 = fmul double %209, %4
+  %210 = fmul double %4, %209
   %211 = getelementptr inbounds double, ptr %1, i64 %.133.i117
   store double %210, ptr %211, align 8
   %212 = add nuw i64 %.133.i117, 1
@@ -5817,7 +5817,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIdEEvPKT_Pvimdd(ptr noundef
   %.133.i = phi i64 [ %32, %.lr.ph34.i ], [ 0, %.preheader28.i ]
   %23 = getelementptr inbounds double, ptr %0, i64 %.133.i
   %24 = load double, ptr %23, align 8
-  %25 = fmul double %24, %4
+  %25 = fmul double %4, %24
   %26 = insertelement <2 x double> poison, double %25, i64 0
   %27 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %26)
   %28 = tail call i32 @llvm.smax.i32(i32 %27, i32 0)
@@ -5883,7 +5883,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIdEEvPKT_Pvimdd(ptr noundef
   %.133.i47 = phi i64 [ %65, %.lr.ph34.i46 ], [ 0, %.preheader28.i45 ]
   %56 = getelementptr inbounds double, ptr %0, i64 %.133.i47
   %57 = load double, ptr %56, align 8
-  %58 = fmul double %57, %4
+  %58 = fmul double %4, %57
   %59 = insertelement <2 x double> poison, double %58, i64 0
   %60 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %59)
   %61 = tail call i32 @llvm.smax.i32(i32 %60, i32 -128)
@@ -5949,7 +5949,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIdEEvPKT_Pvimdd(ptr noundef
   %.133.i61 = phi i64 [ %98, %.lr.ph34.i60 ], [ 0, %.preheader28.i59 ]
   %89 = getelementptr inbounds double, ptr %0, i64 %.133.i61
   %90 = load double, ptr %89, align 8
-  %91 = fmul double %90, %4
+  %91 = fmul double %4, %90
   %92 = insertelement <2 x double> poison, double %91, i64 0
   %93 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %92)
   %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 0)
@@ -6015,7 +6015,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIdEEvPKT_Pvimdd(ptr noundef
   %.133.i75 = phi i64 [ %131, %.lr.ph34.i74 ], [ 0, %.preheader28.i73 ]
   %122 = getelementptr inbounds double, ptr %0, i64 %.133.i75
   %123 = load double, ptr %122, align 8
-  %124 = fmul double %123, %4
+  %124 = fmul double %4, %123
   %125 = insertelement <2 x double> poison, double %124, i64 0
   %126 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %125)
   %127 = tail call i32 @llvm.smax.i32(i32 %126, i32 -32768)
@@ -6078,7 +6078,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIdEEvPKT_Pvimdd(ptr noundef
   %.133.i89 = phi i64 [ %158, %.lr.ph34.i88 ], [ 0, %.preheader28.i87 ]
   %152 = getelementptr inbounds double, ptr %0, i64 %.133.i89
   %153 = load double, ptr %152, align 8
-  %154 = fmul double %153, %4
+  %154 = fmul double %4, %153
   %155 = insertelement <2 x double> poison, double %154, i64 0
   %156 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %155)
   %157 = getelementptr inbounds i32, ptr %1, i64 %.133.i89
@@ -6134,7 +6134,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIdEEvPKT_Pvimdd(ptr noundef
   %.133.i103 = phi i64 [ %180, %.lr.ph34.i102 ], [ 0, %.preheader28.i101 ]
   %175 = getelementptr inbounds double, ptr %0, i64 %.133.i103
   %176 = load double, ptr %175, align 8
-  %177 = fmul double %176, %4
+  %177 = fmul double %4, %176
   %178 = fptrunc double %177 to float
   %179 = getelementptr inbounds float, ptr %1, i64 %.133.i103
   store float %178, ptr %179, align 4
@@ -6187,7 +6187,7 @@ define linkonce_odr hidden void @_ZN6cvtest9convertToIdEEvPKT_Pvimdd(ptr noundef
   %.133.i117 = phi i64 [ %199, %.lr.ph34.i116 ], [ 0, %.preheader28.i115 ]
   %195 = getelementptr inbounds double, ptr %0, i64 %.133.i117
   %196 = load double, ptr %195, align 8
-  %197 = fmul double %196, %4
+  %197 = fmul double %4, %196
   %198 = getelementptr inbounds double, ptr %1, i64 %.133.i117
   store double %197, ptr %198, align 8
   %199 = add nuw i64 %.133.i117, 1
@@ -6268,7 +6268,7 @@ define hidden void @_ZN6cvtest6insertERKN2cv3MatERS1_i(ptr noundef nonnull align
 19:                                               ; preds = %12
   %20 = lshr i32 %14, 3
   %21 = and i32 %20, 511
-  %.not = icmp ult i32 %21, %2
+  %.not = icmp ugt i32 %2, %21
   br i1 %.not, label %22, label %30
 
 22:                                               ; preds = %19, %12, %3
@@ -6500,7 +6500,7 @@ define hidden void @_ZN6cvtest7extractERKN2cv3MatERS1_i(ptr noundef nonnull alig
   %17 = load i32, ptr %0, align 8
   %18 = lshr i32 %17, 3
   %19 = and i32 %18, 511
-  %.not = icmp ult i32 %19, %2
+  %.not = icmp ugt i32 %2, %19
   br i1 %.not, label %20, label %28
 
 20:                                               ; preds = %16, %3
@@ -8662,8 +8662,8 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %45, %.noexc239, %_Z
   br i1 %55, label %.lr.ph321, label %.preheader262
 
 .lr.ph321:                                        ; preds = %53
-  %56 = mul i32 %30, %5
-  %57 = mul i32 %30, %4
+  %56 = mul i32 %5, %30
+  %57 = mul i32 %4, %30
   %58 = getelementptr inbounds i8, ptr %0, i64 16
   %59 = getelementptr inbounds i8, ptr %0, i64 72
   %60 = getelementptr inbounds i8, ptr %1, i64 16
@@ -8862,7 +8862,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc245
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc245, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.0.0 = phi ptr [ %131, %.noexc245 ], [ %131, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %135 = mul i32 %30, %4
+  %135 = mul i32 %4, %30
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %136
   %138 = icmp sgt i32 %4, 0
@@ -9013,7 +9013,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %175, label %.lr.ph295, label %.preheader266
 
 .lr.ph295:                                        ; preds = %._crit_edge281
-  %176 = mul i32 %30, %5
+  %176 = mul i32 %5, %30
   %177 = getelementptr inbounds i8, ptr %0, i64 16
   %178 = getelementptr inbounds i8, ptr %0, i64 72
   %179 = getelementptr inbounds i8, ptr %1, i64 16
@@ -11701,7 +11701,7 @@ define internal fastcc noundef i32 @_ZN6cvtestL17borderInterpolateEiii(i32 nound
   %30 = add nsw i32 %29, 1
   %31 = srem i32 %30, %1
   %.neg44 = xor i32 %29, -1
-  %.neg = add i32 %.neg44, %0
+  %.neg = add i32 %0, %.neg44
   %32 = add i32 %.neg, %31
   br label %33
 
@@ -19895,7 +19895,7 @@ _ZN6cvtestL9compareS_IiiEEvPKT_T0_Phmi.exit:      ; preds = %.lr.ph.i170, %.lr.p
   %298 = getelementptr inbounds float, ptr %61, i64 %.05172.i
   %299 = load float, ptr %298, align 4
   %300 = fpext float %299 to double
-  %301 = fcmp olt double %300, %1
+  %301 = fcmp ogt double %1, %300
   %302 = sext i1 %301 to i8
   %303 = getelementptr inbounds i8, ptr %62, i64 %.05172.i
   store i8 %302, ptr %303, align 1
@@ -19908,7 +19908,7 @@ _ZN6cvtestL9compareS_IiiEEvPKT_T0_Phmi.exit:      ; preds = %.lr.ph.i170, %.lr.p
   %305 = getelementptr inbounds float, ptr %61, i64 %.170.i
   %306 = load float, ptr %305, align 4
   %307 = fpext float %306 to double
-  %308 = fcmp ole double %307, %1
+  %308 = fcmp oge double %1, %307
   %309 = sext i1 %308 to i8
   %310 = getelementptr inbounds i8, ptr %62, i64 %.170.i
   store i8 %309, ptr %310, align 1
@@ -19921,7 +19921,7 @@ _ZN6cvtestL9compareS_IiiEEvPKT_T0_Phmi.exit:      ; preds = %.lr.ph.i170, %.lr.p
   %312 = getelementptr inbounds float, ptr %61, i64 %.268.i
   %313 = load float, ptr %312, align 4
   %314 = fpext float %313 to double
-  %315 = fcmp oeq double %314, %1
+  %315 = fcmp oeq double %1, %314
   %316 = sext i1 %315 to i8
   %317 = getelementptr inbounds i8, ptr %62, i64 %.268.i
   store i8 %316, ptr %317, align 1
@@ -19934,7 +19934,7 @@ _ZN6cvtestL9compareS_IiiEEvPKT_T0_Phmi.exit:      ; preds = %.lr.ph.i170, %.lr.p
   %319 = getelementptr inbounds float, ptr %61, i64 %.366.i
   %320 = load float, ptr %319, align 4
   %321 = fpext float %320 to double
-  %322 = fcmp une double %321, %1
+  %322 = fcmp une double %1, %321
   %323 = sext i1 %322 to i8
   %324 = getelementptr inbounds i8, ptr %62, i64 %.366.i
   store i8 %323, ptr %324, align 1
@@ -19947,7 +19947,7 @@ _ZN6cvtestL9compareS_IiiEEvPKT_T0_Phmi.exit:      ; preds = %.lr.ph.i170, %.lr.p
   %326 = getelementptr inbounds float, ptr %61, i64 %.464.i
   %327 = load float, ptr %326, align 4
   %328 = fpext float %327 to double
-  %329 = fcmp oge double %328, %1
+  %329 = fcmp ole double %1, %328
   %330 = sext i1 %329 to i8
   %331 = getelementptr inbounds i8, ptr %62, i64 %.464.i
   store i8 %330, ptr %331, align 1
@@ -19960,7 +19960,7 @@ _ZN6cvtestL9compareS_IiiEEvPKT_T0_Phmi.exit:      ; preds = %.lr.ph.i170, %.lr.p
   %333 = getelementptr inbounds float, ptr %61, i64 %.563.i
   %334 = load float, ptr %333, align 4
   %335 = fpext float %334 to double
-  %336 = fcmp ogt double %335, %1
+  %336 = fcmp olt double %1, %335
   %337 = sext i1 %336 to i8
   %338 = getelementptr inbounds i8, ptr %62, i64 %.563.i
   store i8 %337, ptr %338, align 1
@@ -20996,9 +20996,9 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN6cvtest5checkERKN2cv3MatEddPSt6ve
   %78 = fpext float %75 to double
   %79 = call double @llvm.fabs.f64(double %78)
   %80 = fcmp oeq double %79, 0x7FF0000000000000
-  %81 = fcmp olt double %78, %1
+  %81 = fcmp ogt double %1, %78
   %or.cond.i83 = or i1 %81, %80
-  %82 = fcmp ogt double %78, %2
+  %82 = fcmp olt double %2, %78
   %or.cond15.i = or i1 %82, %or.cond.i83
   br i1 %or.cond15.i, label %_ZN6cvtestL9checkInt_IhEEvPKT_miimRm.exit, label %83
 
@@ -21360,7 +21360,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN6cvtest6cmpEpsERKN2cv3MatES3_PddP
   %94 = load i32, ptr %8, align 8
   %95 = and i32 %94, 7
   %96 = icmp ult i32 %95, 5
-  %brmerge = or i1 %96, %5
+  %brmerge = or i1 %5, %96
   br i1 %brmerge, label %109, label %97
 
 97:                                               ; preds = %93
@@ -21662,7 +21662,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN6cvtest6cmpEpsERKN2cv3MatES3_PddP
   %233 = call double @llvm.fabs.f64(double %232)
   %234 = fadd double %227, 1.000000e+00
   %235 = select i1 %5, double %234, double %.0137
-  %236 = fmul double %235, %3
+  %236 = fmul double %3, %235
   %237 = fcmp ogt double %233, %236
   br i1 %237, label %238, label %241
 
@@ -21714,7 +21714,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN6cvtest6cmpEpsERKN2cv3MatES3_PddP
   %263 = call double @llvm.fabs.f64(double %262)
   %264 = fadd double %257, 1.000000e+00
   %265 = select i1 %5, double %264, double %.0137
-  %266 = fmul double %265, %3
+  %266 = fmul double %3, %265
   %267 = fcmp ogt double %263, %266
   br i1 %267, label %268, label %271
 
@@ -22486,8 +22486,8 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
   %181 = getelementptr inbounds i8, ptr %.17790.us.i.us.us.us, i64 4
   %182 = load float, ptr %181, align 4
   %183 = fpext float %182 to double
-  %184 = fneg double %180
-  %185 = fmul double %184, %183
+  %184 = fneg double %183
+  %185 = fmul double %180, %184
   %186 = call double @llvm.fmuladd.f64(double %175, double %177, double %185)
   %187 = fadd double %.07191.us.i.us.us.us, %186
   %188 = fmul double %177, %180
@@ -22500,8 +22500,8 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
   br i1 %exitcond.not.i.us.us.us, label %._crit_edge.us.i.loopexit.us.us.us, label %.lr.ph.us.i.us.us.us, !llvm.loop !605
 
 ._crit_edge.us.i.loopexit.us.us.us:               ; preds = %.lr.ph.us.i.us.us.us
-  %194 = fmul double %187, %2
-  %195 = fmul double %190, %2
+  %194 = fmul double %2, %187
+  %195 = fmul double %2, %190
   %196 = fptrunc double %194 to float
   %197 = shl nuw nsw i64 %indvars.iv.i.us.us.us, 1
   %198 = getelementptr inbounds float, ptr %.083107.us.i.us, i64 %197
@@ -22537,8 +22537,8 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
   %212 = getelementptr inbounds i8, ptr %.17790.us.i.us.us, i64 4
   %213 = load float, ptr %212, align 4
   %214 = fpext float %213 to double
-  %215 = fneg double %211
-  %216 = fmul double %215, %214
+  %215 = fneg double %214
+  %216 = fmul double %211, %215
   %217 = call double @llvm.fmuladd.f64(double %206, double %208, double %216)
   %218 = fadd double %.07191.us.i.us.us, %217
   %219 = fmul double %208, %211
@@ -22552,8 +22552,8 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
 
 ._crit_edge.us.i.loopexit.us.us:                  ; preds = %.lr.ph.us.i.us.us
   %225 = getelementptr inbounds float, ptr %.082111.us.i.us, i64 %202
-  %226 = fmul double %218, %2
-  %227 = fmul double %221, %2
+  %226 = fmul double %2, %218
+  %227 = fmul double %2, %221
   %228 = load float, ptr %225, align 4
   %229 = fpext float %228 to double
   %230 = call double @llvm.fmuladd.f64(double %229, double %4, double %226)
@@ -22660,7 +22660,7 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
   %274 = getelementptr inbounds float, ptr %.082111.us.us.us.i, i64 %273
   %275 = load float, ptr %274, align 4
   %276 = fpext float %275 to double
-  %277 = fmul double %276, %4
+  %277 = fmul double %4, %276
   %278 = call double @llvm.fmuladd.f64(double %269, double %2, double %277)
   %279 = fptrunc double %278 to float
   %280 = getelementptr inbounds float, ptr %.083107.us.us.us.i, i64 %indvars.iv152.i
@@ -22690,7 +22690,7 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
   %286 = getelementptr inbounds float, ptr %.082111.us.us.i, i64 %285
   %287 = load float, ptr %286, align 4
   %288 = fpext float %287 to double
-  %289 = fmul double %288, %4
+  %289 = fmul double %4, %288
   %290 = call double @llvm.fmuladd.f64(double %2, double 0.000000e+00, double %289)
   %291 = fptrunc double %290 to float
   %292 = getelementptr inbounds float, ptr %.083107.us.us.i, i64 %indvars.iv140.i
@@ -22869,7 +22869,7 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
   %362 = mul nsw i64 %indvars.iv182.i, %341
   %363 = getelementptr inbounds double, ptr %.082114.us.us.us.i, i64 %362
   %364 = load double, ptr %363, align 8
-  %365 = fmul double %364, %4
+  %365 = fmul double %4, %364
   %366 = call double @llvm.fmuladd.f64(double %358, double %2, double %365)
   %367 = getelementptr inbounds double, ptr %.083110.us.us.us.i, i64 %indvars.iv182.i
   store double %366, ptr %367, align 8
@@ -22905,7 +22905,7 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
   %373 = mul nsw i64 %indvars.iv170.i, %339
   %374 = getelementptr inbounds double, ptr %.082114.us.us.i, i64 %373
   %375 = load double, ptr %374, align 8
-  %376 = fmul double %375, %4
+  %376 = fmul double %4, %375
   %377 = call double @llvm.fmuladd.f64(double %2, double 0.000000e+00, double %376)
   %378 = getelementptr inbounds double, ptr %.083110.us.us.i, i64 %indvars.iv170.i
   store double %377, ptr %378, align 8
@@ -22959,8 +22959,8 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
   %391 = load double, ptr %390, align 8
   %392 = getelementptr inbounds i8, ptr %.17790.us.us.us.us.i, i64 8
   %393 = load double, ptr %392, align 8
-  %394 = fneg double %391
-  %395 = fmul double %393, %394
+  %394 = fneg double %393
+  %395 = fmul double %391, %394
   %396 = call double @llvm.fmuladd.f64(double %388, double %389, double %395)
   %397 = fadd double %.07191.us.us.us.us.i, %396
   %398 = fmul double %389, %391
@@ -22973,8 +22973,8 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
   br i1 %exitcond163.not.i65, label %._crit_edge.us.us.us.us.i, label %387, !llvm.loop !612
 
 ._crit_edge.us.us.us.us.i:                        ; preds = %387
-  %404 = fmul double %397, %2
-  %405 = fmul double %400, %2
+  %404 = fmul double %2, %397
+  %405 = fmul double %2, %400
   %406 = shl nuw nsw i64 %indvars.iv164.i, 1
   %407 = getelementptr inbounds double, ptr %.083110.us.us133.i, i64 %406
   store double %404, ptr %407, align 8
@@ -23003,8 +23003,8 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
   %416 = load double, ptr %415, align 8
   %417 = getelementptr inbounds i8, ptr %.17790.us.us.us.i, i64 8
   %418 = load double, ptr %417, align 8
-  %419 = fneg double %416
-  %420 = fmul double %418, %419
+  %419 = fneg double %418
+  %420 = fmul double %416, %419
   %421 = call double @llvm.fmuladd.f64(double %413, double %414, double %420)
   %422 = fadd double %.07191.us.us.us.i, %421
   %423 = fmul double %414, %416
@@ -23019,8 +23019,8 @@ define hidden void @_ZN6cvtest4gemmERKN2cv3MatES3_dS3_dRS1_i(ptr noundef nonnull
 ._crit_edge.us.us.us.i:                           ; preds = %412
   %429 = mul nsw i64 %indvars.iv158.i61, %384
   %430 = getelementptr inbounds double, ptr %.082114.us.us132.i, i64 %429
-  %431 = fmul double %422, %2
-  %432 = fmul double %425, %2
+  %431 = fmul double %2, %422
+  %432 = fmul double %2, %425
   %433 = load double, ptr %430, align 8
   %434 = call double @llvm.fmuladd.f64(double %433, double %4, double %431)
   %435 = getelementptr inbounds i8, ptr %430, i64 8
@@ -24464,7 +24464,7 @@ define internal fastcc void @_ZN6cvtestL6minmaxERKN2cv3MatEdRS1_c(ptr noundef no
   %.025.i = phi i64 [ %64, %.lr.ph.i ], [ 0, %.preheader23.i ]
   %61 = getelementptr inbounds i8, ptr %54, i64 %.025.i
   %62 = load i8, ptr %61, align 1
-  %.sroa.speculated.i = call i8 @llvm.umin.i8(i8 %62, i8 %51)
+  %.sroa.speculated.i = call i8 @llvm.umin.i8(i8 %51, i8 %62)
   %63 = getelementptr inbounds i8, ptr %55, i64 %.025.i
   store i8 %.sroa.speculated.i, ptr %63, align 1
   %64 = add nuw i64 %.025.i, 1
@@ -24495,7 +24495,7 @@ define internal fastcc void @_ZN6cvtestL6minmaxERKN2cv3MatEdRS1_c(ptr noundef no
   %.025.i58 = phi i64 [ %73, %.lr.ph.i57 ], [ 0, %.preheader23.i56 ]
   %70 = getelementptr inbounds i8, ptr %54, i64 %.025.i58
   %71 = load i8, ptr %70, align 1
-  %.sroa.speculated.i59 = call i8 @llvm.smin.i8(i8 %71, i8 %49)
+  %.sroa.speculated.i59 = call i8 @llvm.smin.i8(i8 %49, i8 %71)
   %72 = getelementptr inbounds i8, ptr %55, i64 %.025.i58
   store i8 %.sroa.speculated.i59, ptr %72, align 1
   %73 = add nuw i64 %.025.i58, 1
@@ -24526,7 +24526,7 @@ define internal fastcc void @_ZN6cvtestL6minmaxERKN2cv3MatEdRS1_c(ptr noundef no
   %.025.i69 = phi i64 [ %82, %.lr.ph.i68 ], [ 0, %.preheader23.i67 ]
   %79 = getelementptr inbounds i16, ptr %54, i64 %.025.i69
   %80 = load i16, ptr %79, align 2
-  %.sroa.speculated.i70 = call i16 @llvm.umin.i16(i16 %80, i16 %46)
+  %.sroa.speculated.i70 = call i16 @llvm.umin.i16(i16 %46, i16 %80)
   %81 = getelementptr inbounds i16, ptr %55, i64 %.025.i69
   store i16 %.sroa.speculated.i70, ptr %81, align 2
   %82 = add nuw i64 %.025.i69, 1
@@ -24557,7 +24557,7 @@ define internal fastcc void @_ZN6cvtestL6minmaxERKN2cv3MatEdRS1_c(ptr noundef no
   %.025.i80 = phi i64 [ %91, %.lr.ph.i79 ], [ 0, %.preheader23.i78 ]
   %88 = getelementptr inbounds i16, ptr %54, i64 %.025.i80
   %89 = load i16, ptr %88, align 2
-  %.sroa.speculated.i81 = call i16 @llvm.smin.i16(i16 %89, i16 %43)
+  %.sroa.speculated.i81 = call i16 @llvm.smin.i16(i16 %43, i16 %89)
   %90 = getelementptr inbounds i16, ptr %55, i64 %.025.i80
   store i16 %.sroa.speculated.i81, ptr %90, align 2
   %91 = add nuw i64 %.025.i80, 1
@@ -24588,7 +24588,7 @@ define internal fastcc void @_ZN6cvtestL6minmaxERKN2cv3MatEdRS1_c(ptr noundef no
   %.025.i91 = phi i64 [ %100, %.lr.ph.i90 ], [ 0, %.preheader23.i89 ]
   %97 = getelementptr inbounds i32, ptr %54, i64 %.025.i91
   %98 = load i32, ptr %97, align 4
-  %.sroa.speculated.i92 = call i32 @llvm.smin.i32(i32 %98, i32 %36)
+  %.sroa.speculated.i92 = call i32 @llvm.smin.i32(i32 %36, i32 %98)
   %99 = getelementptr inbounds i32, ptr %55, i64 %.025.i91
   store i32 %.sroa.speculated.i92, ptr %99, align 4
   %100 = add nuw i64 %.025.i91, 1
@@ -24653,7 +24653,7 @@ define internal fastcc void @_ZN6cvtestL6minmaxERKN2cv3MatEdRS1_c(ptr noundef no
   %.022.i107 = phi i64 [ %122, %.lr.ph.i106 ], [ 0, %.preheader20.i105 ]
   %118 = getelementptr inbounds double, ptr %54, i64 %.022.i107
   %119 = load double, ptr %118, align 8
-  %120 = fcmp ogt double %119, %1
+  %120 = fcmp olt double %1, %119
   %.sroa.speculated.i108 = select i1 %120, double %1, double %119
   %121 = getelementptr inbounds double, ptr %55, i64 %.022.i107
   store double %.sroa.speculated.i108, ptr %121, align 8
@@ -24917,7 +24917,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %91 = fcmp ogt double %90, 0x3E80000000000000
   %92 = fdiv double 1.000000e+00, %90
   %93 = select i1 %91, double %92, double 0.000000e+00
-  %94 = fmul double %93, %4
+  %94 = fmul double %4, %93
   %95 = insertelement <2 x double> poison, double %94, i64 0
   %96 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %95)
   %97 = call i32 @llvm.smax.i32(i32 %96, i32 0)
@@ -24947,7 +24947,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %111 = fcmp ogt double %110, 0x3E80000000000000
   %112 = fdiv double 1.000000e+00, %110
   %113 = select i1 %111, double %112, double 0.000000e+00
-  %114 = fmul double %104, %4
+  %114 = fmul double %4, %104
   %115 = fmul double %114, %113
   %116 = insertelement <2 x double> poison, double %115, i64 0
   %117 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %116)
@@ -24977,7 +24977,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %126 = getelementptr inbounds i8, ptr %81, i64 %.01620.us21.i
   %127 = load i8, ptr %126, align 1
   %128 = uitofp i8 %127 to double
-  %129 = fmul double %128, %4
+  %129 = fmul double %4, %128
   %130 = insertelement <2 x double> poison, double %129, i64 0
   %131 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %130)
   %132 = call i32 @llvm.smax.i32(i32 %131, i32 0)
@@ -24997,7 +24997,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %137 = getelementptr inbounds i8, ptr %80, i64 %.01620.us22.i
   %138 = load i8, ptr %137, align 1
   %139 = uitofp i8 %138 to double
-  %140 = fmul double %139, %4
+  %140 = fmul double %4, %139
   %141 = insertelement <2 x double> poison, double %140, i64 0
   %142 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %141)
   %143 = call i32 @llvm.smax.i32(i32 %142, i32 0)
@@ -25017,7 +25017,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %151 = getelementptr inbounds i8, ptr %81, i64 %.01620.i
   %152 = load i8, ptr %151, align 1
   %153 = uitofp i8 %152 to double
-  %154 = fmul double %150, %4
+  %154 = fmul double %4, %150
   %155 = fmul double %154, %153
   %156 = insertelement <2 x double> poison, double %155, i64 0
   %157 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %156)
@@ -25064,7 +25064,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %177 = fcmp ogt double %176, 0x3E80000000000000
   %178 = fdiv double 1.000000e+00, %175
   %179 = select i1 %177, double %178, double 0.000000e+00
-  %180 = fmul double %169, %4
+  %180 = fmul double %4, %169
   %181 = fmul double %180, %179
   %182 = insertelement <2 x double> poison, double %181, i64 0
   %183 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %182)
@@ -25094,7 +25094,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %192 = getelementptr inbounds i8, ptr %81, i64 %.01620.us21.i136
   %193 = load i8, ptr %192, align 1
   %194 = sitofp i8 %193 to double
-  %195 = fmul double %194, %4
+  %195 = fmul double %4, %194
   %196 = insertelement <2 x double> poison, double %195, i64 0
   %197 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %196)
   %198 = call i32 @llvm.smax.i32(i32 %197, i32 -128)
@@ -25114,7 +25114,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %203 = getelementptr inbounds i8, ptr %80, i64 %.01620.us22.i133
   %204 = load i8, ptr %203, align 1
   %205 = sitofp i8 %204 to double
-  %206 = fmul double %205, %4
+  %206 = fmul double %4, %205
   %207 = insertelement <2 x double> poison, double %206, i64 0
   %208 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %207)
   %209 = call i32 @llvm.smax.i32(i32 %208, i32 -128)
@@ -25134,7 +25134,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %217 = getelementptr inbounds i8, ptr %81, i64 %.01620.i130
   %218 = load i8, ptr %217, align 1
   %219 = sitofp i8 %218 to double
-  %220 = fmul double %216, %4
+  %220 = fmul double %4, %216
   %221 = fmul double %220, %219
   %222 = insertelement <2 x double> poison, double %221, i64 0
   %223 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %222)
@@ -25173,7 +25173,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %236 = fcmp ogt double %235, 0x3E80000000000000
   %237 = fdiv double 1.000000e+00, %235
   %238 = select i1 %236, double %237, double 0.000000e+00
-  %239 = fmul double %238, %4
+  %239 = fmul double %4, %238
   %240 = insertelement <2 x double> poison, double %239, i64 0
   %241 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %240)
   %242 = call i32 @llvm.smax.i32(i32 %241, i32 0)
@@ -25203,7 +25203,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %256 = fcmp ogt double %255, 0x3E80000000000000
   %257 = fdiv double 1.000000e+00, %255
   %258 = select i1 %256, double %257, double 0.000000e+00
-  %259 = fmul double %249, %4
+  %259 = fmul double %4, %249
   %260 = fmul double %259, %258
   %261 = insertelement <2 x double> poison, double %260, i64 0
   %262 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %261)
@@ -25242,7 +25242,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %275 = getelementptr inbounds i16, ptr %81, i64 %.01620.us21.i156
   %276 = load i16, ptr %275, align 2
   %277 = uitofp i16 %276 to double
-  %278 = fmul double %277, %4
+  %278 = fmul double %4, %277
   %279 = insertelement <2 x double> poison, double %278, i64 0
   %280 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %279)
   %281 = call i32 @llvm.smax.i32(i32 %280, i32 0)
@@ -25262,7 +25262,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %286 = getelementptr inbounds i16, ptr %80, i64 %.01620.us22.i152
   %287 = load i16, ptr %286, align 2
   %288 = uitofp i16 %287 to double
-  %289 = fmul double %288, %4
+  %289 = fmul double %4, %288
   %290 = insertelement <2 x double> poison, double %289, i64 0
   %291 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %290)
   %292 = call i32 @llvm.smax.i32(i32 %291, i32 0)
@@ -25282,7 +25282,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %300 = getelementptr inbounds i16, ptr %81, i64 %.01620.i149
   %301 = load i16, ptr %300, align 2
   %302 = uitofp i16 %301 to double
-  %303 = fmul double %299, %4
+  %303 = fmul double %4, %299
   %304 = fmul double %303, %302
   %305 = insertelement <2 x double> poison, double %304, i64 0
   %306 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %305)
@@ -25329,7 +25329,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %326 = fcmp ogt double %325, 0x3E80000000000000
   %327 = fdiv double 1.000000e+00, %324
   %328 = select i1 %326, double %327, double 0.000000e+00
-  %329 = fmul double %318, %4
+  %329 = fmul double %4, %318
   %330 = fmul double %329, %328
   %331 = insertelement <2 x double> poison, double %330, i64 0
   %332 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %331)
@@ -25368,7 +25368,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %345 = getelementptr inbounds i16, ptr %81, i64 %.01620.us21.i180
   %346 = load i16, ptr %345, align 2
   %347 = sitofp i16 %346 to double
-  %348 = fmul double %347, %4
+  %348 = fmul double %4, %347
   %349 = insertelement <2 x double> poison, double %348, i64 0
   %350 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %349)
   %351 = call i32 @llvm.smax.i32(i32 %350, i32 -32768)
@@ -25388,7 +25388,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %356 = getelementptr inbounds i16, ptr %80, i64 %.01620.us22.i176
   %357 = load i16, ptr %356, align 2
   %358 = sitofp i16 %357 to double
-  %359 = fmul double %358, %4
+  %359 = fmul double %4, %358
   %360 = insertelement <2 x double> poison, double %359, i64 0
   %361 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %360)
   %362 = call i32 @llvm.smax.i32(i32 %361, i32 -32768)
@@ -25408,7 +25408,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %370 = getelementptr inbounds i16, ptr %81, i64 %.01620.i173
   %371 = load i16, ptr %370, align 2
   %372 = sitofp i16 %371 to double
-  %373 = fmul double %369, %4
+  %373 = fmul double %4, %369
   %374 = fmul double %373, %372
   %375 = insertelement <2 x double> poison, double %374, i64 0
   %376 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %375)
@@ -25456,7 +25456,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %391 = fcmp ogt double %390, 0x3E80000000000000
   %392 = fdiv double 1.000000e+00, %389
   %393 = select i1 %391, double %392, double 0.000000e+00
-  %394 = fmul double %393, %4
+  %394 = fmul double %4, %393
   %395 = insertelement <2 x double> poison, double %394, i64 0
   %396 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %395)
   %397 = getelementptr inbounds i32, ptr %82, i64 %.01620.us.us.i212
@@ -25484,7 +25484,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %409 = fcmp ogt double %408, 0x3E80000000000000
   %410 = fdiv double 1.000000e+00, %407
   %411 = select i1 %409, double %410, double 0.000000e+00
-  %412 = fmul double %401, %4
+  %412 = fmul double %4, %401
   %413 = fmul double %412, %411
   %414 = insertelement <2 x double> poison, double %413, i64 0
   %415 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %414)
@@ -25517,7 +25517,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %422 = getelementptr inbounds i32, ptr %81, i64 %.01620.us21.i202
   %423 = load i32, ptr %422, align 4
   %424 = sitofp i32 %423 to double
-  %425 = fmul double %424, %4
+  %425 = fmul double %4, %424
   %426 = insertelement <2 x double> poison, double %425, i64 0
   %427 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %426)
   %428 = getelementptr inbounds i32, ptr %82, i64 %.01620.us21.i202
@@ -25534,7 +25534,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %430 = getelementptr inbounds i32, ptr %80, i64 %.01620.us22.i198
   %431 = load i32, ptr %430, align 4
   %432 = sitofp i32 %431 to double
-  %433 = fmul double %432, %4
+  %433 = fmul double %4, %432
   %434 = insertelement <2 x double> poison, double %433, i64 0
   %435 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %434)
   %436 = getelementptr inbounds i32, ptr %82, i64 %.01620.us22.i198
@@ -25551,7 +25551,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %441 = getelementptr inbounds i32, ptr %81, i64 %.01620.i195
   %442 = load i32, ptr %441, align 4
   %443 = sitofp i32 %442 to double
-  %444 = fmul double %440, %4
+  %444 = fmul double %4, %440
   %445 = fmul double %444, %443
   %446 = insertelement <2 x double> poison, double %445, i64 0
   %447 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %446)
@@ -25592,7 +25592,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %457 = fcmp ogt double %456, 0x3E80000000000000
   %458 = fdiv double 1.000000e+00, %455
   %459 = select i1 %457, double %458, double 0.000000e+00
-  %460 = fmul double %459, %4
+  %460 = fmul double %4, %459
   %461 = fptrunc double %460 to float
   %462 = getelementptr inbounds float, ptr %82, i64 %.01620.us.us.i238
   store float %461, ptr %462, align 4
@@ -25619,7 +25619,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %474 = fcmp ogt double %473, 0x3E80000000000000
   %475 = fdiv double 1.000000e+00, %472
   %476 = select i1 %474, double %475, double 0.000000e+00
-  %477 = fmul double %466, %4
+  %477 = fmul double %4, %466
   %478 = fmul double %477, %476
   %479 = fptrunc double %478 to float
   %480 = getelementptr inbounds float, ptr %82, i64 %.01620.us.i234
@@ -25647,7 +25647,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %484 = getelementptr inbounds float, ptr %81, i64 %.01620.us21.i227
   %485 = load float, ptr %484, align 4
   %486 = fpext float %485 to double
-  %487 = fmul double %486, %4
+  %487 = fmul double %4, %486
   %488 = fptrunc double %487 to float
   %489 = getelementptr inbounds float, ptr %82, i64 %.01620.us21.i227
   store float %488, ptr %489, align 4
@@ -25663,7 +25663,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %491 = getelementptr inbounds float, ptr %80, i64 %.01620.us22.i223
   %492 = load float, ptr %491, align 4
   %493 = fpext float %492 to double
-  %494 = fmul double %493, %4
+  %494 = fmul double %4, %493
   %495 = fptrunc double %494 to float
   %496 = getelementptr inbounds float, ptr %82, i64 %.01620.us22.i223
   store float %495, ptr %496, align 4
@@ -25679,7 +25679,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %501 = getelementptr inbounds float, ptr %81, i64 %.01620.i220
   %502 = load float, ptr %501, align 4
   %503 = fpext float %502 to double
-  %504 = fmul double %500, %4
+  %504 = fmul double %4, %500
   %505 = fmul double %504, %503
   %506 = fptrunc double %505 to float
   %507 = getelementptr inbounds float, ptr %82, i64 %.01620.i220
@@ -25718,7 +25718,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %515 = fcmp ogt double %514, 0x3E80000000000000
   %516 = fdiv double 1.000000e+00, %513
   %517 = select i1 %515, double %516, double 0.000000e+00
-  %518 = fmul double %517, %4
+  %518 = fmul double %4, %517
   %519 = getelementptr inbounds double, ptr %82, i64 %.01620.us.us.i267
   store double %518, ptr %519, align 8
   %520 = add nuw i64 %.01620.us.us.i267, 1
@@ -25732,7 +25732,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %.01620.us.us23.i = phi i64 [ %525, %.lr.ph.split.us.split.split.us.i ], [ 0, %.lr.ph.split.us.split.i262 ]
   %521 = getelementptr inbounds double, ptr %80, i64 %.01620.us.us23.i
   %522 = load double, ptr %521, align 8
-  %523 = fmul double %522, %4
+  %523 = fmul double %4, %522
   %524 = getelementptr inbounds double, ptr %82, i64 %.01620.us.us23.i
   store double %523, ptr %524, align 8
   %525 = add nuw i64 %.01620.us.us23.i, 1
@@ -25749,7 +25749,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %531 = fcmp ogt double %530, 0x3E80000000000000
   %532 = fdiv double 1.000000e+00, %529
   %533 = select i1 %531, double %532, double 0.000000e+00
-  %534 = fmul double %527, %4
+  %534 = fmul double %4, %527
   %535 = fmul double %534, %533
   %536 = getelementptr inbounds double, ptr %82, i64 %.01620.us.i263
   store double %535, ptr %536, align 8
@@ -25775,7 +25775,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %.01620.us21.i256 = phi i64 [ %544, %.lr.ph.split.split.us.split.i255 ], [ 0, %.lr.ph.split.split.us.i254 ]
   %540 = getelementptr inbounds double, ptr %81, i64 %.01620.us21.i256
   %541 = load double, ptr %540, align 8
-  %542 = fmul double %541, %4
+  %542 = fmul double %4, %541
   %543 = getelementptr inbounds double, ptr %82, i64 %.01620.us21.i256
   store double %542, ptr %543, align 8
   %544 = add nuw i64 %.01620.us21.i256, 1
@@ -25789,7 +25789,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %.01620.us22.i252 = phi i64 [ %549, %.lr.ph.split.split.split.us.i251 ], [ 0, %.lr.ph.split.split.i247 ]
   %545 = getelementptr inbounds double, ptr %80, i64 %.01620.us22.i252
   %546 = load double, ptr %545, align 8
-  %547 = fmul double %546, %4
+  %547 = fmul double %4, %546
   %548 = getelementptr inbounds double, ptr %82, i64 %.01620.us22.i252
   store double %547, ptr %548, align 8
   %549 = add nuw i64 %.01620.us22.i252, 1
@@ -25802,7 +25802,7 @@ define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr nounde
   %551 = load double, ptr %550, align 8
   %552 = getelementptr inbounds double, ptr %81, i64 %.01620.i249
   %553 = load double, ptr %552, align 8
-  %554 = fmul double %551, %4
+  %554 = fmul double %4, %551
   %555 = fmul double %554, %553
   %556 = getelementptr inbounds double, ptr %82, i64 %.01620.i249
   store double %555, ptr %556, align 8
@@ -25870,7 +25870,7 @@ default.unreachable:                              ; preds = %83
   %574 = fcmp ogt double %573, 0x3E80000000000000
   %575 = fdiv double 1.000000e+00, %573
   %576 = select i1 %574, double %575, double 0.000000e+00
-  %577 = fmul double %576, %4
+  %577 = fmul double %4, %576
   %578 = insertelement <2 x double> poison, double %577, i64 0
   %579 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %578)
   %580 = call i32 @llvm.smax.i32(i32 %579, i32 0)
@@ -25900,7 +25900,7 @@ default.unreachable:                              ; preds = %83
   %594 = fcmp ogt double %593, 0x3E80000000000000
   %595 = fdiv double 1.000000e+00, %593
   %596 = select i1 %594, double %595, double 0.000000e+00
-  %597 = fmul double %587, %4
+  %597 = fmul double %4, %587
   %598 = fmul double %597, %596
   %599 = insertelement <2 x double> poison, double %598, i64 0
   %600 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %599)
@@ -25939,7 +25939,7 @@ default.unreachable:                              ; preds = %83
   %613 = getelementptr inbounds i8, ptr %81, i64 %.01620.us21.i284
   %614 = load i8, ptr %613, align 1
   %615 = uitofp i8 %614 to double
-  %616 = fmul double %615, %4
+  %616 = fmul double %4, %615
   %617 = insertelement <2 x double> poison, double %616, i64 0
   %618 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %617)
   %619 = call i32 @llvm.smax.i32(i32 %618, i32 0)
@@ -25959,7 +25959,7 @@ default.unreachable:                              ; preds = %83
   %624 = getelementptr inbounds i8, ptr %80, i64 %.01620.us22.i280
   %625 = load i8, ptr %624, align 1
   %626 = uitofp i8 %625 to double
-  %627 = fmul double %626, %4
+  %627 = fmul double %4, %626
   %628 = insertelement <2 x double> poison, double %627, i64 0
   %629 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %628)
   %630 = call i32 @llvm.smax.i32(i32 %629, i32 0)
@@ -25979,7 +25979,7 @@ default.unreachable:                              ; preds = %83
   %638 = getelementptr inbounds i8, ptr %81, i64 %.01620.i277
   %639 = load i8, ptr %638, align 1
   %640 = uitofp i8 %639 to double
-  %641 = fmul double %637, %4
+  %641 = fmul double %4, %637
   %642 = fmul double %641, %640
   %643 = insertelement <2 x double> poison, double %642, i64 0
   %644 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %643)
@@ -26029,7 +26029,7 @@ default.unreachable:                              ; preds = %83
   %665 = fcmp ogt double %664, 0x3E80000000000000
   %666 = fdiv double 1.000000e+00, %663
   %667 = select i1 %665, double %666, double 0.000000e+00
-  %668 = fmul double %657, %4
+  %668 = fmul double %4, %657
   %669 = fmul double %668, %667
   %670 = insertelement <2 x double> poison, double %669, i64 0
   %671 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %670)
@@ -26068,7 +26068,7 @@ default.unreachable:                              ; preds = %83
   %684 = getelementptr inbounds i8, ptr %81, i64 %.01620.us21.i310
   %685 = load i8, ptr %684, align 1
   %686 = sitofp i8 %685 to double
-  %687 = fmul double %686, %4
+  %687 = fmul double %4, %686
   %688 = insertelement <2 x double> poison, double %687, i64 0
   %689 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %688)
   %690 = call i32 @llvm.smax.i32(i32 %689, i32 -32768)
@@ -26088,7 +26088,7 @@ default.unreachable:                              ; preds = %83
   %695 = getelementptr inbounds i8, ptr %80, i64 %.01620.us22.i306
   %696 = load i8, ptr %695, align 1
   %697 = sitofp i8 %696 to double
-  %698 = fmul double %697, %4
+  %698 = fmul double %4, %697
   %699 = insertelement <2 x double> poison, double %698, i64 0
   %700 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %699)
   %701 = call i32 @llvm.smax.i32(i32 %700, i32 -32768)
@@ -26108,7 +26108,7 @@ default.unreachable:                              ; preds = %83
   %709 = getelementptr inbounds i8, ptr %81, i64 %.01620.i303
   %710 = load i8, ptr %709, align 1
   %711 = sitofp i8 %710 to double
-  %712 = fmul double %708, %4
+  %712 = fmul double %4, %708
   %713 = fmul double %712, %711
   %714 = insertelement <2 x double> poison, double %713, i64 0
   %715 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %714)
@@ -26154,7 +26154,7 @@ default.unreachable:                              ; preds = %83
   %.not26.i = icmp eq i8 %726, 0
   %728 = fdiv double 1.000000e+00, %727
   %729 = select i1 %.not26.i, double 0.000000e+00, double %728
-  %730 = fmul double %729, %4
+  %730 = fmul double %4, %729
   %731 = fptrunc double %730 to float
   %732 = getelementptr inbounds float, ptr %82, i64 %.01620.us.us.i347
   store float %731, ptr %732, align 4
@@ -26170,7 +26170,7 @@ default.unreachable:                              ; preds = %83
   %734 = getelementptr inbounds i8, ptr %80, i64 %.01620.us.us23.i343
   %735 = load i8, ptr %734, align 1
   %736 = uitofp i8 %735 to double
-  %737 = fmul double %736, %4
+  %737 = fmul double %4, %736
   %738 = fptrunc double %737 to float
   %739 = getelementptr inbounds float, ptr %82, i64 %.01620.us.us23.i343
   store float %738, ptr %739, align 4
@@ -26189,7 +26189,7 @@ default.unreachable:                              ; preds = %83
   %.not25.i = icmp eq i8 %745, 0
   %747 = fdiv double 1.000000e+00, %746
   %748 = select i1 %.not25.i, double 0.000000e+00, double %747
-  %749 = fmul double %743, %4
+  %749 = fmul double %4, %743
   %750 = fmul double %749, %748
   %751 = fptrunc double %750 to float
   %752 = getelementptr inbounds float, ptr %82, i64 %.01620.us.i340
@@ -26217,7 +26217,7 @@ default.unreachable:                              ; preds = %83
   %756 = getelementptr inbounds i8, ptr %81, i64 %.01620.us21.i332
   %757 = load i8, ptr %756, align 1
   %758 = uitofp i8 %757 to double
-  %759 = fmul double %758, %4
+  %759 = fmul double %4, %758
   %760 = fptrunc double %759 to float
   %761 = getelementptr inbounds float, ptr %82, i64 %.01620.us21.i332
   store float %760, ptr %761, align 4
@@ -26233,7 +26233,7 @@ default.unreachable:                              ; preds = %83
   %763 = getelementptr inbounds i8, ptr %80, i64 %.01620.us22.i328
   %764 = load i8, ptr %763, align 1
   %765 = uitofp i8 %764 to double
-  %766 = fmul double %765, %4
+  %766 = fmul double %4, %765
   %767 = fptrunc double %766 to float
   %768 = getelementptr inbounds float, ptr %82, i64 %.01620.us22.i328
   store float %767, ptr %768, align 4
@@ -26249,7 +26249,7 @@ default.unreachable:                              ; preds = %83
   %773 = getelementptr inbounds i8, ptr %81, i64 %.01620.i325
   %774 = load i8, ptr %773, align 1
   %775 = uitofp i8 %774 to double
-  %776 = fmul double %772, %4
+  %776 = fmul double %4, %772
   %777 = fmul double %776, %775
   %778 = fptrunc double %777 to float
   %779 = getelementptr inbounds float, ptr %82, i64 %.01620.i325
@@ -26292,7 +26292,7 @@ default.unreachable:                              ; preds = %83
   %789 = fcmp ogt double %788, 0x3E80000000000000
   %790 = fdiv double 1.000000e+00, %787
   %791 = select i1 %789, double %790, double 0.000000e+00
-  %792 = fmul double %791, %4
+  %792 = fmul double %4, %791
   %793 = fptrunc double %792 to float
   %794 = getelementptr inbounds float, ptr %82, i64 %.01620.us.us.i375
   store float %793, ptr %794, align 4
@@ -26319,7 +26319,7 @@ default.unreachable:                              ; preds = %83
   %806 = fcmp ogt double %805, 0x3E80000000000000
   %807 = fdiv double 1.000000e+00, %804
   %808 = select i1 %806, double %807, double 0.000000e+00
-  %809 = fmul double %798, %4
+  %809 = fmul double %4, %798
   %810 = fmul double %809, %808
   %811 = fptrunc double %810 to float
   %812 = getelementptr inbounds float, ptr %82, i64 %.01620.us.i371
@@ -26347,7 +26347,7 @@ default.unreachable:                              ; preds = %83
   %816 = getelementptr inbounds i8, ptr %81, i64 %.01620.us21.i364
   %817 = load i8, ptr %816, align 1
   %818 = sitofp i8 %817 to double
-  %819 = fmul double %818, %4
+  %819 = fmul double %4, %818
   %820 = fptrunc double %819 to float
   %821 = getelementptr inbounds float, ptr %82, i64 %.01620.us21.i364
   store float %820, ptr %821, align 4
@@ -26363,7 +26363,7 @@ default.unreachable:                              ; preds = %83
   %823 = getelementptr inbounds i8, ptr %80, i64 %.01620.us22.i360
   %824 = load i8, ptr %823, align 1
   %825 = sitofp i8 %824 to double
-  %826 = fmul double %825, %4
+  %826 = fmul double %4, %825
   %827 = fptrunc double %826 to float
   %828 = getelementptr inbounds float, ptr %82, i64 %.01620.us22.i360
   store float %827, ptr %828, align 4
@@ -26379,7 +26379,7 @@ default.unreachable:                              ; preds = %83
   %833 = getelementptr inbounds i8, ptr %81, i64 %.01620.i357
   %834 = load i8, ptr %833, align 1
   %835 = sitofp i8 %834 to double
-  %836 = fmul double %832, %4
+  %836 = fmul double %4, %832
   %837 = fmul double %836, %835
   %838 = fptrunc double %837 to float
   %839 = getelementptr inbounds float, ptr %82, i64 %.01620.i357
@@ -27212,7 +27212,7 @@ define hidden void @_ZN6cvtest10patchZerosERN2cv3MatEd(ptr nocapture noundef non
   %28 = load float, ptr %27, align 4
   %29 = tail call float @llvm.fabs.f32(float %28)
   %30 = fpext float %29 to double
-  %31 = fcmp olt double %30, %1
+  %31 = fcmp ogt double %1, %30
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %26
@@ -27615,7 +27615,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
   %46 = load ptr, ptr %3, align 8
   store i32 1, ptr %46, align 4
   %47 = xor i32 %0, -1
-  %48 = add i32 %47, %2
+  %48 = add i32 %2, %47
   %49 = icmp slt i32 %48, 1
   %brmerge = or i1 %49, %.not66
   br i1 %brmerge, label %.preheader63, label %.lr.ph72.preheader
@@ -29507,7 +29507,7 @@ define internal fastcc void @_ZN6cvtestL11getSubArrayERKN2cv3MatEiRSt6vectorIiSa
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 2
-  %22 = icmp ult i64 %21, %14
+  %22 = icmp ugt i64 %14, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %5
@@ -29516,7 +29516,7 @@ define internal fastcc void @_ZN6cvtestL11getSubArrayERKN2cv3MatEiRSt6vectorIiSa
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 25:                                               ; preds = %5
-  %26 = icmp ugt i64 %21, %14
+  %26 = icmp ult i64 %14, %21
   br i1 %26, label %27, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 27:                                               ; preds = %25
@@ -29629,7 +29629,7 @@ _ZNSt6vectorIN2cv5RangeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %58
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %74, i32 %71)
   %75 = getelementptr inbounds i8, ptr %70, i64 4
   store i32 %.sroa.speculated, ptr %75, align 4
-  %.sroa.speculated60 = tail call i32 @llvm.smin.i32(i32 %68, i32 %2)
+  %.sroa.speculated60 = tail call i32 @llvm.smin.i32(i32 %2, i32 %68)
   %76 = load ptr, ptr %4, align 8
   %77 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv
   store i32 %.sroa.speculated60, ptr %77, align 4
@@ -30339,7 +30339,7 @@ define hidden void @_ZN6cvtest9thresholdERKN2cv3MatERS1_ddi(ptr nocapture nounde
   %101 = getelementptr inbounds float, ptr %94, i64 %indvars.iv
   %102 = load float, ptr %101, align 4
   %103 = fpext float %102 to double
-  %104 = fcmp ogt double %103, %2
+  %104 = fcmp olt double %2, %103
   %105 = select i1 %104, float 0.000000e+00, float %102
   %106 = getelementptr inbounds float, ptr %99, i64 %indvars.iv
   store float %105, ptr %106, align 4
@@ -30702,7 +30702,7 @@ define hidden void @_ZN6cvtest9thresholdERKN2cv3MatERS1_ddi(ptr nocapture nounde
   %276 = getelementptr inbounds float, ptr %270, i64 %indvars.iv474
   %277 = load float, ptr %276, align 4
   %278 = fpext float %277 to double
-  %279 = fcmp ogt double %278, %2
+  %279 = fcmp olt double %2, %278
   %280 = select i1 %279, double %3, double 0.000000e+00
   %281 = fptrunc double %280 to float
   %282 = getelementptr inbounds float, ptr %275, i64 %indvars.iv474
@@ -30735,7 +30735,7 @@ define hidden void @_ZN6cvtest9thresholdERKN2cv3MatERS1_ddi(ptr nocapture nounde
   %293 = getelementptr inbounds float, ptr %287, i64 %indvars.iv444
   %294 = load float, ptr %293, align 4
   %295 = fpext float %294 to double
-  %296 = fcmp ogt double %295, %2
+  %296 = fcmp olt double %2, %295
   %297 = select i1 %296, double 0.000000e+00, double %3
   %298 = fptrunc double %297 to float
   %299 = getelementptr inbounds float, ptr %292, i64 %indvars.iv444
@@ -30768,7 +30768,7 @@ define hidden void @_ZN6cvtest9thresholdERKN2cv3MatERS1_ddi(ptr nocapture nounde
   %310 = getelementptr inbounds float, ptr %304, i64 %indvars.iv414
   %311 = load float, ptr %310, align 4
   %312 = fpext float %311 to double
-  %313 = fcmp ogt double %312, %2
+  %313 = fcmp olt double %2, %312
   %narrow.sel = select i1 %313, float %151, float %311
   %314 = getelementptr inbounds float, ptr %309, i64 %indvars.iv414
   store float %narrow.sel, ptr %314, align 4
@@ -30800,7 +30800,7 @@ define hidden void @_ZN6cvtest9thresholdERKN2cv3MatERS1_ddi(ptr nocapture nounde
   %325 = getelementptr inbounds float, ptr %319, i64 %indvars.iv384
   %326 = load float, ptr %325, align 4
   %327 = fpext float %326 to double
-  %328 = fcmp ogt double %327, %2
+  %328 = fcmp olt double %2, %327
   %329 = select i1 %328, float %326, float 0.000000e+00
   %330 = getelementptr inbounds float, ptr %324, i64 %indvars.iv384
   store float %329, ptr %330, align 4
@@ -31254,7 +31254,7 @@ define linkonce_odr hidden void @_ZN7testing15AssertionResult13AppendMessageERKN
   %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #29
   %9 = load ptr, ptr %4, align 8
-  %.not.i = icmp eq ptr %9, %8
+  %.not.i = icmp eq ptr %8, %9
   br i1 %.not.i, label %_ZN7testing8internal10scoped_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEPS7_.exit, label %10
 
 10:                                               ; preds = %7

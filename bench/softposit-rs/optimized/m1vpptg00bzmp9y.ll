@@ -718,7 +718,7 @@ define noundef i8 @"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$
 
 9:                                                ; preds = %5
   %10 = sub nsw i8 0, %1
-  %11 = or i8 %10, %0
+  %11 = or i8 %0, %10
   br label %8
 
 12:                                               ; preds = %5
@@ -2017,7 +2017,7 @@ define noundef i8 @"_ZN9softposit4p8e03ops73_$LT$impl$u20$core..ops..arith..Rem$
 
 64:                                               ; preds = %61
   %65 = sub nsw i8 0, %58
-  %66 = or i8 %65, %0
+  %66 = or i8 %0, %65
   br label %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3rem17hfa945382ffe9ea51E.exit"
 
 67:                                               ; preds = %61
@@ -3014,7 +3014,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
 
 61:                                               ; preds = %58
   %62 = sub nsw i8 0, %.0.i
-  %63 = or i8 %62, %0
+  %63 = or i8 %0, %62
   br label %"_ZN9softposit4p8e04math39_$LT$impl$u20$softposit..p8e0..P8E0$GT$5fract17ha6e18a21527deea0E.exit"
 
 64:                                               ; preds = %58

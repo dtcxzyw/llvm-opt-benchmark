@@ -1547,7 +1547,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then19.i.i
   %sub.i.i.i.i = sub i64 %123, %122
   %cmp.i.i.i.i = icmp eq i64 %sub.i.i.i.i, -1
   %add.i.i.i.i = add i64 %123, 1
-  %cmp3.not19.i.i.i.i = icmp eq i64 %add.i.i.i.i, %122
+  %cmp3.not19.i.i.i.i = icmp eq i64 %122, %add.i.i.i.i
   %cmp3.not19.i.i.fr.i.i = freeze i1 %cmp3.not19.i.i.i.i
   br i1 %cmp3.not19.i.i.fr.i.i, label %for.body.us.i.i, label %for.body.i.i145
 
@@ -1880,7 +1880,7 @@ if.end9.i.i.i:                                    ; preds = %for.body.i.i.i
   %.val13.i.i.i = load i64, ptr %169, align 8
   %cmp.not.i.i.i.i.i.i = icmp ule i64 %.val.i.i.i, %.val13.i.i.i
   %add.i.i.i.i.i.i = add i64 %.val13.i.i.i, 1
-  %cmp3.i.i.i.i.i.i = icmp eq i64 %add.i.i.i.i.i.i, %.val.i.i.i
+  %cmp3.i.i.i.i.i.i = icmp eq i64 %.val.i.i.i, %add.i.i.i.i.i.i
   %or.cond.i.i.i.i.i.i = or i1 %cmp.not.i.i.i.i.i.i, %cmp3.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %range_is_empty.exit.i.i.i.i, label %if.else.i.i.i.i.i.i
 
@@ -2512,7 +2512,7 @@ if.then.i:                                        ; preds = %trace_virtio_iommu_
 
 if.end.i:                                         ; preds = %if.then.i, %trace_virtio_iommu_notify_unmap.exit
   %add.i = add i64 %virt_end, 1
-  %cmp3.not19.i = icmp eq i64 %add.i, %virt_start
+  %cmp3.not19.i = icmp eq i64 %virt_start, %add.i
   br i1 %cmp3.not19.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %if.end16.i
@@ -2648,7 +2648,7 @@ if.then.i:                                        ; preds = %trace_virtio_iommu_
 
 if.end.i:                                         ; preds = %if.then.i, %trace_virtio_iommu_notify_map.exit
   %add.i = add i64 %virt_end, 1
-  %cmp3.not19.i = icmp eq i64 %add.i, %virt_start
+  %cmp3.not19.i = icmp eq i64 %virt_start, %add.i
   br i1 %cmp3.not19.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %if.end16.i
@@ -3331,13 +3331,13 @@ for.body:                                         ; preds = %if.end26, %for.inc
   %l.080 = phi ptr [ %l.0, %for.inc ], [ %l.078, %if.end26 ]
   %19 = load ptr, ptr %l.080, align 8
   %20 = load i64, ptr %19, align 8
-  %cmp.not.i = icmp ugt i64 %20, %addr
+  %cmp.not.i = icmp ult i64 %addr, %20
   br i1 %cmp.not.i, label %for.inc, label %range_contains.exit
 
 range_contains.exit:                              ; preds = %for.body
   %upb.i = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i64, ptr %upb.i, align 8
-  %cmp1.i.not = icmp ult i64 %21, %addr
+  %cmp1.i.not = icmp ugt i64 %addr, %21
   br i1 %cmp1.i.not, label %for.inc, label %if.then29
 
 if.then29:                                        ; preds = %range_contains.exit
@@ -3760,7 +3760,7 @@ for.body6:                                        ; preds = %for.body, %for.inc
   %.val12 = load i64, ptr %4, align 8
   %cmp.not.i.i.i = icmp ule i64 %.val, %.val12
   %add.i.i.i = add i64 %.val12, 1
-  %cmp3.i.i.i = icmp eq i64 %add.i.i.i, %.val
+  %cmp3.i.i.i = icmp eq i64 %.val, %add.i.i.i
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp3.i.i.i
   br i1 %or.cond.i.i.i, label %range_is_empty.exit.i, label %if.else.i.i.i
 
@@ -3777,7 +3777,7 @@ lor.lhs.false.i:                                  ; preds = %range_is_empty.exit
   %range2.val5.i = load i64, ptr %2, align 8
   %cmp.not.i.i7.i = icmp ule i64 %range2.val.i, %range2.val5.i
   %add.i.i8.i = add i64 %range2.val5.i, 1
-  %cmp3.i.i9.i = icmp eq i64 %add.i.i8.i, %range2.val.i
+  %cmp3.i.i9.i = icmp eq i64 %range2.val.i, %add.i.i8.i
   %or.cond.i.i10.i = or i1 %cmp.not.i.i7.i, %cmp3.i.i9.i
   br i1 %or.cond.i.i10.i, label %range_contains_range.exit, label %if.else.i.i11.i
 
@@ -3786,8 +3786,8 @@ if.else.i.i11.i:                                  ; preds = %lor.lhs.false.i
   unreachable
 
 range_contains_range.exit:                        ; preds = %lor.lhs.false.i
-  %cmp.not.i = icmp uge i64 %range2.val.i, %.val
-  %cmp4.i = icmp ule i64 %range2.val5.i, %.val12
+  %cmp.not.i = icmp ule i64 %.val, %range2.val.i
+  %cmp4.i = icmp uge i64 %.val12, %range2.val5.i
   %5 = and i1 %cmp.not.i, %cmp4.i
   %spec.select.i = and i1 %cmp.not.i.i7.i, %5
   br i1 %spec.select.i, label %for.inc12, label %for.inc
@@ -3843,7 +3843,7 @@ for.body.i:                                       ; preds = %trace_virtio_iommu_
   %.val16.i = load i64, ptr %11, align 8
   %cmp.not.i.i.i.i = icmp ule i64 %.val.i, %.val16.i
   %add.i.i.i.i = add i64 %.val16.i, 1
-  %cmp3.i.i.i.i = icmp eq i64 %add.i.i.i.i, %.val.i
+  %cmp3.i.i.i.i = icmp eq i64 %.val.i, %add.i.i.i.i
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i, %cmp3.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %range_is_empty.exit.i.i, label %if.else.i.i.i.i
 
@@ -3871,7 +3871,7 @@ range_set_bounds.exit.i:                          ; preds = %range_is_empty.exit
   %call.val15.i = load i64, ptr %upb2.i.i, align 8
   %cmp.not.i.i.i37.i = icmp ule i64 %call.val.i, %call.val15.i
   %add.i.i.i38.i = add i64 %call.val15.i, 1
-  %cmp3.i.i.i39.i = icmp eq i64 %add.i.i.i38.i, %call.val.i
+  %cmp3.i.i.i39.i = icmp eq i64 %call.val.i, %add.i.i.i38.i
   %or.cond.i.i.i40.i = or i1 %cmp.not.i.i.i37.i, %cmp3.i.i.i39.i
   br i1 %or.cond.i.i.i40.i, label %range_is_empty.exit.i42.i, label %if.else.i.i.i41.i
 

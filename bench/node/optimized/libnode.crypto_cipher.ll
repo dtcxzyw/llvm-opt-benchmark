@@ -7113,7 +7113,7 @@ do.body15:                                        ; preds = %do.body6
 do.end18:                                         ; preds = %do.body6
   %max_message_size_ = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load i32, ptr %max_message_size_, align 8
-  %cmp19 = icmp sge i32 %1, %message_len
+  %cmp19 = icmp sle i32 %message_len, %1
   br i1 %cmp19, label %return, label %if.then20
 
 if.then20:                                        ; preds = %do.end18
@@ -7443,7 +7443,7 @@ do.body34:                                        ; preds = %if.end23
 
 do.end39:                                         ; preds = %if.end23
   %conv40 = zext nneg i32 %call26 to i64
-  %add = add nuw nsw i64 %conv40, %len
+  %add = add nuw nsw i64 %len, %conv40
   %cmp41 = icmp ugt i64 %add, 2147483647
   br i1 %cmp41, label %cleanup, label %if.end43
 
@@ -7859,7 +7859,7 @@ if.end.i29:                                       ; preds = %_ZNK2v820FunctionCa
   %50 = load ptr, ptr %buf_.i.i, align 8
   %call24.i = call noundef i64 @_ZN4node11StringBytes5WriteEPN2v87IsolateEPcmNS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef %49, ptr noundef %50, i64 noundef %48, ptr %retval.i60.sroa.0.0, i32 noundef %call28) #19
   %51 = load i64, ptr %capacity_.i.i, align 8
-  %cmp.not.i.i = icmp ult i64 %51, %call24.i
+  %cmp.not.i.i = icmp ugt i64 %call24.i, %51
   br i1 %cmp.not.i.i, label %do.body4.i.i, label %if.end46
 
 do.body4.i.i:                                     ; preds = %if.end.i29
@@ -11292,7 +11292,7 @@ do.body5:                                         ; preds = %entry
 do.end6:                                          ; preds = %entry
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i, align 8
-  %cmp = icmp ult i64 %1, %storage
+  %cmp = icmp ugt i64 %storage, %1
   br i1 %cmp, label %if.end.i.i, label %if.end18
 
 if.end.i.i:                                       ; preds = %do.end6

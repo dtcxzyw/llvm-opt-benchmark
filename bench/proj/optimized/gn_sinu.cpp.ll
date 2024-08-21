@@ -175,11 +175,11 @@ define internal { double, double } @_ZL17gn_sinu_e_inverse5PJ_XYP8PJconsts(doubl
   %11 = tail call double @sin(double noundef %7) #7
   %12 = getelementptr inbounds i8, ptr %2, i64 216
   %13 = load double, ptr %12, align 8
-  %14 = fneg double %13
-  %15 = fmul double %11, %14
+  %14 = fneg double %11
+  %15 = fmul double %13, %14
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %11, double 1.000000e+00)
   %17 = tail call double @sqrt(double noundef %16) #7
-  %18 = fmul double %17, %0
+  %18 = fmul double %0, %17
   %19 = tail call double @cos(double noundef %7) #7
   %20 = fdiv double %18, %19
   br label %26
@@ -208,11 +208,11 @@ define internal { double, double } @_ZL17gn_sinu_e_forward5PJ_LPP8PJconsts(doubl
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef double @_Z7pj_mlfndddPKd(double noundef %1, double noundef %4, double noundef %5, ptr noundef %8)
-  %10 = fmul double %5, %0
+  %10 = fmul double %0, %5
   %11 = getelementptr inbounds i8, ptr %2, i64 216
   %12 = load double, ptr %11, align 8
-  %13 = fneg double %12
-  %14 = fmul double %4, %13
+  %13 = fneg double %4
+  %14 = fmul double %12, %13
   %15 = tail call double @llvm.fmuladd.f64(double %14, double %4, double 1.000000e+00)
   %16 = tail call double @sqrt(double noundef %15) #7
   %17 = fdiv double %10, %16
@@ -678,7 +678,7 @@ define internal { double, double } @_ZL17gn_sinu_s_forward5PJ_LPP8PJconsts(doubl
   %.sroa.2.0 = phi double [ %17, %13 ], [ %1, %11 ], [ %32, %23 ]
   %37 = getelementptr inbounds i8, ptr %5, i64 24
   %38 = load double, ptr %37, align 8
-  %39 = fmul double %38, %0
+  %39 = fmul double %0, %38
   %40 = load double, ptr %6, align 8
   %41 = tail call double @cos(double noundef %.sroa.2.0) #7
   %42 = fadd double %40, %41

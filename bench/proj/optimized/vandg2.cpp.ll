@@ -135,9 +135,9 @@ define internal { double, double } @_ZL16vandg2_s_forward5PJ_LPP8PJconsts(double
 37:                                               ; preds = %22
   %38 = tail call double @llvm.fmuladd.f64(double %27, double %27, double 1.000000e+00)
   %sqrt = tail call double @llvm.sqrt.f64(double %38)
-  %39 = fneg double %27
-  %40 = fmul double %.0, %39
-  %41 = fmul double %.0, %40
+  %39 = fmul double %27, %.0
+  %40 = fneg double %.0
+  %41 = fmul double %39, %40
   %42 = tail call double @llvm.fmuladd.f64(double %.0, double %sqrt, double %41)
   %43 = fmul double %27, %27
   %44 = fmul double %7, %43

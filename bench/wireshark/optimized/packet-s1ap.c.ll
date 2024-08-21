@@ -6885,7 +6885,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MME_UE_S1AP_ID_PDU
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %8 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #7
   %9 = load i32, ptr @hf_s1ap_mME_UE_S1AP_ID, align 4
-  %10 = icmp eq i32 %9, %7
+  %10 = icmp eq i32 %7, %9
   br i1 %10, label %11, label %dissect_s1ap_MME_UE_S1AP_ID.exit
 
 11:                                               ; preds = %4
@@ -15178,7 +15178,7 @@ define internal i32 @dissect_s1ap_MME_UE_S1AP_ID(ptr noundef %0, i32 noundef %1,
   %6 = alloca i32, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %6, i32 noundef 0) #7
   %8 = load i32, ptr @hf_s1ap_mME_UE_S1AP_ID, align 4
-  %9 = icmp eq i32 %8, %4
+  %9 = icmp eq i32 %4, %8
   br i1 %9, label %10, label %proto_item_set_hidden.exit
 
 10:                                               ; preds = %5
@@ -15458,7 +15458,7 @@ s1ap_get_private_data.exit:                       ; preds = %5, %13
   %.0.i = phi ptr [ %12, %5 ], [ %15, %13 ]
   %18 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 16777215, ptr noundef nonnull %6, i32 noundef 0) #7
   %19 = load i32, ptr @hf_s1ap_eNB_UE_S1AP_ID, align 4
-  %20 = icmp eq i32 %19, %4
+  %20 = icmp eq i32 %4, %19
   br i1 %20, label %21, label %proto_item_set_hidden.exit
 
 21:                                               ; preds = %s1ap_get_private_data.exit

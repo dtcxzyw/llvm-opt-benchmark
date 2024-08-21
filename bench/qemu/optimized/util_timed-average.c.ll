@@ -105,7 +105,7 @@ for.body:                                         ; preds = %check_expirations.e
   %inc = add i64 %7, 1
   store i64 %inc, ptr %count, align 8
   %8 = load i64, ptr %arrayidx, align 8
-  %cmp1 = icmp ugt i64 %8, %value
+  %cmp1 = icmp ult i64 %value, %8
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -115,7 +115,7 @@ if.then:                                          ; preds = %for.body
 if.end:                                           ; preds = %if.then, %for.body
   %max = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %9 = load i64, ptr %max, align 8
-  %cmp3 = icmp ult i64 %9, %value
+  %cmp3 = icmp ugt i64 %value, %9
   br i1 %cmp3, label %if.then4, label %for.inc
 
 if.then4:                                         ; preds = %if.end

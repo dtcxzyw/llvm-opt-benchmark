@@ -1076,7 +1076,7 @@ if.end4:                                          ; preds = %if.end
   %nb_peers = getelementptr inbounds i8, ptr %s, i64 3272
   %5 = load i32, ptr %nb_peers, align 8
   %conv = sext i32 %5 to i64
-  %cmp5.not = icmp sgt i64 %conv, %msg
+  %cmp5.not = icmp slt i64 %msg, %conv
   br i1 %cmp5.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
@@ -1429,7 +1429,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %nb_peers = getelementptr inbounds i8, ptr %s, i64 3272
   %0 = load i32, ptr %nb_peers, align 8
-  %cmp1 = icmp sgt i32 %0, %posn
+  %cmp1 = icmp slt i32 %posn, %0
   br i1 %cmp1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %entry
@@ -1740,8 +1740,8 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 63, ptr noundef nonnull @__func__.IVSHMEM_COMMON) #11
   %vectors = getelementptr inbounds i8, ptr %call.i, i64 3276
   %0 = load i32, ptr %vectors, align 4
-  %cond = tail call i32 @llvm.umin.i32(i32 %0, i32 %vector_end)
-  %cmp112 = icmp ugt i32 %cond, %vector_start
+  %cond = tail call i32 @llvm.umin.i32(i32 %vector_end, i32 %0)
+  %cmp112 = icmp ult i32 %vector_start, %cond
   br i1 %cmp112, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry

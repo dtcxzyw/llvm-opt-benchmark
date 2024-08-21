@@ -909,7 +909,7 @@ define noundef i32 @_ZNK6icu_7517CollationSettings9reorderExEj(ptr nocapture nou
 entry:
   %minHighNoReorder = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %minHighNoReorder, align 8
-  %cmp.not = icmp ugt i32 %0, %p
+  %cmp.not = icmp ult i32 %p, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

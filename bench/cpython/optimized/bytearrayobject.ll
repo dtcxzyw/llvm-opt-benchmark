@@ -1267,7 +1267,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
   %3 = getelementptr i8, ptr %self, i64 16
   %self.val = load i64, ptr %3, align 8
-  %cmp = icmp eq i64 %self.val, %requested_size
+  %cmp = icmp eq i64 %requested_size, %self.val
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1290,7 +1290,7 @@ if.end3:                                          ; preds = %if.end
 
 if.then6:                                         ; preds = %if.end3
   %div41 = lshr i64 %0, 1
-  %cmp7 = icmp ugt i64 %div41, %requested_size
+  %cmp7 = icmp ult i64 %requested_size, %div41
   br i1 %cmp7, label %if.end30, label %if.else
 
 if.else:                                          ; preds = %if.then6
@@ -1350,7 +1350,7 @@ if.then.i49:                                      ; preds = %if.end39
 
 PyByteArray_AS_STRING.exit52:                     ; preds = %if.end39, %if.then.i49
   %retval.0.i51 = phi ptr [ %6, %if.then.i49 ], [ @_PyByteArray_empty_string, %if.end39 ]
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %op.val.i47, i64 %requested_size)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %requested_size, i64 %op.val.i47)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call34, ptr align 1 %retval.0.i51, i64 %spec.select, i1 false)
   %7 = load ptr, ptr %ob_bytes, align 8
   tail call void @PyObject_Free(ptr noundef %7) #15
@@ -2857,7 +2857,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load i64, ptr %0, align 8
-  %cmp1.not = icmp sgt i64 %self.val, %i
+  %cmp1.not = icmp slt i64 %i, %self.val
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -3201,7 +3201,7 @@ if.end16:                                         ; preds = %if.end6, %if.end14
   %needed.0 = phi i64 [ %7, %if.end14 ], [ 0, %if.end6 ]
   %bytes.0 = phi ptr [ %8, %if.end14 ], [ null, %if.end6 ]
   %spec.store.select = call i64 @llvm.smax.i64(i64 %lo, i64 0)
-  %spec.select = call i64 @llvm.smax.i64(i64 %spec.store.select, i64 %hi)
+  %spec.select = call i64 @llvm.smax.i64(i64 %hi, i64 %spec.store.select)
   %9 = getelementptr i8, ptr %self, i64 16
   %self.val22 = load i64, ptr %9, align 8
   %spec.select24 = call i64 @llvm.smin.i64(i64 %spec.select, i64 %self.val22)
@@ -3239,7 +3239,7 @@ if.then.i:                                        ; preds = %entry
 
 PyByteArray_AS_STRING.exit:                       ; preds = %entry, %if.then.i
   %retval.0.i = phi ptr [ %1, %if.then.i ], [ @_PyByteArray_empty_string, %entry ]
-  %sub1 = add i64 %sub.neg, %bytes_len
+  %sub1 = add i64 %bytes_len, %sub.neg
   %cmp = icmp slt i64 %sub1, 0
   br i1 %cmp, label %if.then, label %if.else25
 
@@ -4622,8 +4622,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1923 = phi i64 [ %cond18, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1923, %add
+  %add = sub i64 0, %cond1923
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -6727,7 +6727,7 @@ while.cond.preheader.i.i:                         ; preds = %PyByteArray_AS_STRI
   %retval.0.i22.i = phi ptr [ %2, %PyByteArray_AS_STRING.exit.i ], [ @_PyByteArray_empty_string, %if.end ]
   %conv23.i = trunc nuw i64 %call.i to i8
   %add.ptr.i24.i = getelementptr i8, ptr %retval.0.i22.i, i64 %self.val.i
-  %cmp514.i.i = icmp ugt ptr %add.ptr.i24.i, %retval.0.i22.i
+  %cmp514.i.i = icmp ult ptr %retval.0.i22.i, %add.ptr.i24.i
   br i1 %cmp514.i.i, label %while.body.i.i, label %if.then.i
 
 if.then.i13.i:                                    ; preds = %PyByteArray_AS_STRING.exit.i
@@ -6928,12 +6928,12 @@ return_self.exit55.i.i:                           ; preds = %if.then.i.i51.i.i, 
   br label %exit
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i
-  %cmp.not.i.i.i = icmp slt i64 %self.val.i.i, %maxcount.addr.0.i.i
+  %cmp.not.i.i.i = icmp sgt i64 %maxcount.addr.0.i.i, %self.val.i.i
   %add.i.i.i = add nsw i64 %self.val.i.i, 1
   %count.0.i.i.i = select i1 %cmp.not.i.i.i, i64 %add.i.i.i, i64 %maxcount.addr.0.i.i
   %sub.i.i.i = sub i64 9223372036854775807, %self.val.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, %count.0.i.i.i
-  %cmp1.i.i.i = icmp slt i64 %div.i.i.i, %new.val12
+  %cmp1.i.i.i = icmp sgt i64 %new.val12, %div.i.i.i
   br i1 %cmp1.i.i.i, label %if.then2.i.i.i, label %if.end3.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end14.i.i
@@ -9635,8 +9635,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1923 = phi i64 [ %cond18, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1923, %add
+  %add = sub i64 0, %cond1923
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -10632,7 +10632,7 @@ if.then9:                                         ; preds = %if.end7
   br i1 %cmp.i, label %if.then.i, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.then9
-  %cmp514.i = icmp ugt ptr %add.ptr.i, %s
+  %cmp514.i = icmp ult ptr %s, %add.ptr.i
   br i1 %cmp514.i, label %while.body.i, label %return
 
 if.then.i:                                        ; preds = %if.then9
@@ -11439,7 +11439,7 @@ for.body55.lr.ph:                                 ; preds = %if.end34
 for.body55:                                       ; preds = %for.body55.lr.ph, %for.body55
   %i50.050 = phi i64 [ %sub51, %for.body55.lr.ph ], [ %inc65, %for.body55 ]
   %10 = xor i64 %i50.050, -1
-  %sub57 = add i64 %10, %len_needle
+  %sub57 = add i64 %len_needle, %10
   %conv58 = trunc i64 %sub57 to i8
   %arrayidx60 = getelementptr i8, ptr %needle, i64 %i50.050
   %11 = load i8, ptr %arrayidx60, align 1

@@ -428,7 +428,7 @@ _ZL26check_class_file_load_hookP15ClassFileStreamP6SymbolP15ClassLoaderData6Hand
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds i8, ptr %3, i64 8
-  %96 = icmp ne ptr %.029, %0
+  %96 = icmp ne ptr %0, %.029
   %97 = call noundef ptr @_ZN15ClassFileParser21create_instance_klassEbRK17ClassInstanceInfoP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %10, i1 noundef zeroext %96, ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull %4) #8
   store ptr %97, ptr %11, align 8
   %98 = load ptr, ptr %92, align 8
@@ -782,7 +782,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24

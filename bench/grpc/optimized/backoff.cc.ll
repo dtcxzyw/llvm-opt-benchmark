@@ -111,12 +111,12 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end11.i.i.i
   %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i
-  %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp1.i.i.i.i = icmp sgt i64 %agg.tmp.sroa.0.0.copyload, %sub.i.i.i.i
   br i1 %cmp1.i.i.i.i, label %return, label %if.end7.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end11.i.i.i
   %sub3.i.i.i.i = sub nsw i64 -9223372036854775808, %call.i
-  %cmp4.i.i.i.i = icmp sgt i64 %sub3.i.i.i.i, %agg.tmp.sroa.0.0.copyload
+  %cmp4.i.i.i.i = icmp slt i64 %agg.tmp.sroa.0.0.copyload, %sub3.i.i.i.i
   br i1 %cmp4.i.i.i.i, label %return, label %if.end7.i.i.i.i
 
 if.end7.i.i.i.i:                                  ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
@@ -241,12 +241,12 @@ if.end11.i.i:                                     ; preds = %if.end.i.i16
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
   %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i13
-  %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %agg.tmp36.sroa.0.0.copyload
+  %cmp1.i.i.i = icmp sgt i64 %agg.tmp36.sroa.0.0.copyload, %sub.i.i.i
   br i1 %cmp1.i.i.i, label %return, label %if.end7.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end11.i.i
   %sub3.i.i.i = sub nsw i64 -9223372036854775808, %call.i13
-  %cmp4.i.i.i = icmp sgt i64 %sub3.i.i.i, %agg.tmp36.sroa.0.0.copyload
+  %cmp4.i.i.i = icmp slt i64 %agg.tmp36.sroa.0.0.copyload, %sub3.i.i.i
   br i1 %cmp4.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -272,12 +272,12 @@ if.end11.i.i25:                                   ; preds = %if.end.i.i21
 
 if.then.i.i.i33:                                  ; preds = %if.end11.i.i25
   %sub.i.i.i34 = sub nuw nsw i64 9223372036854775807, %retval.0.i.i
-  %cmp1.i.i.i35 = icmp slt i64 %sub.i.i.i34, %retval.sroa.0.0.i9
+  %cmp1.i.i.i35 = icmp sgt i64 %retval.sroa.0.0.i9, %sub.i.i.i34
   br i1 %cmp1.i.i.i35, label %return, label %if.end7.i.i.i30
 
 if.else.i.i.i27:                                  ; preds = %if.end11.i.i25
   %sub3.i.i.i28 = sub nsw i64 -9223372036854775808, %retval.0.i.i
-  %cmp4.i.i.i29 = icmp sgt i64 %sub3.i.i.i28, %retval.sroa.0.0.i9
+  %cmp4.i.i.i29 = icmp slt i64 %retval.sroa.0.0.i9, %sub3.i.i.i28
   br i1 %cmp4.i.i.i29, label %return, label %if.end7.i.i.i30
 
 if.end7.i.i.i30:                                  ; preds = %if.else.i.i.i27, %if.then.i.i.i33

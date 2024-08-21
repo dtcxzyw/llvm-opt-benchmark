@@ -442,8 +442,8 @@ _ZN5zxing3RefINS_11ResultPointEEC2ERKS2_.exit82:  ; preds = %_ZN5zxing3RefINS_11
 190:                                              ; preds = %.noexc86
   %191 = fsub float %185, %171
   %192 = fsub float %189, %167
-  %193 = fneg float %191
-  %194 = fmul float %192, %193
+  %193 = fneg float %192
+  %194 = fmul float %191, %193
   %195 = tail call noundef float @llvm.fmuladd.f32(float %176, float %181, float %194)
   %196 = fcmp olt float %195, 0.000000e+00
   %197 = getelementptr inbounds i8, ptr %.sroa.0147.0, i64 8
@@ -851,8 +851,8 @@ define hidden noundef float @_ZN5zxing11ResultPoint13crossProductZENS_3RefIS0_EE
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef float %35(ptr noundef nonnull align 8 dereferenceable(20) %32)
   %37 = fsub float %36, %8
-  %38 = fneg float %31
-  %39 = fmul float %37, %38
+  %38 = fneg float %37
+  %39 = fmul float %31, %38
   %40 = tail call float @llvm.fmuladd.f32(float %19, float %25, float %39)
   ret float %40
 }

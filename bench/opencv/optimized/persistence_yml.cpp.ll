@@ -613,7 +613,7 @@ define linkonce_odr hidden void @_ZN2cv11YAMLEmitter5writeEPKcS2_b(ptr noundef n
 
 28:                                               ; preds = %17
   %29 = icmp eq i32 %19, 0
-  %or.cond = or i1 %29, %3
+  %or.cond = or i1 %3, %29
   br i1 %or.cond, label %.critedge, label %30
 
 30:                                               ; preds = %28
@@ -1275,7 +1275,7 @@ define linkonce_odr hidden void @_ZN2cv11YAMLEmitter12writeCommentEPKcb(ptr noun
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %18)
   %.not45 = icmp eq ptr %16, null
-  %or.cond = and i1 %.not45, %2
+  %or.cond = and i1 %2, %.not45
   br i1 %or.cond, label %23, label %41
 
 23:                                               ; preds = %14
@@ -3025,7 +3025,7 @@ switch.early.test419:                             ; preds = %294
   %353 = icmp eq i8 %.0332435, 91
   %354 = xor i1 %4, true
   %355 = zext i1 %354 to i32
-  %356 = add nsw i32 %355, %3
+  %356 = add nsw i32 %3, %355
   %357 = select i1 %351, i32 5, i32 4
   %358 = getelementptr inbounds i8, ptr %0, i64 8
   %359 = load ptr, ptr %358, align 8
@@ -3257,7 +3257,7 @@ switch.early.test419:                             ; preds = %294
 
 449:                                              ; preds = %350
   %450 = icmp ne i8 %.0332435, 45
-  %or.cond47 = or i1 %450, %4
+  %or.cond47 = or i1 %4, %450
   br i1 %or.cond47, label %.thread442, label %535
 
 .thread442:                                       ; preds = %191, %449
@@ -3340,7 +3340,7 @@ switch.early.test419:                             ; preds = %294
   %479 = getelementptr inbounds i8, ptr %.0295436, i64 -1
   %.2338.fr = freeze i32 %.0336433
   %480 = icmp eq i32 %.2338.fr, 3
-  %481 = or i1 %480, %4
+  %481 = or i1 %4, %480
   br i1 %481, label %.split.us.thread, label %.critedge63
 
 .split.us:                                        ; preds = %switch.early.test
@@ -3455,7 +3455,7 @@ switch.early.test419:                             ; preds = %294
 
 523:                                              ; preds = %.critedge61
   %524 = icmp ne i8 %.us-phi499, 58
-  %or.cond66 = or i1 %524, %4
+  %or.cond66 = or i1 %4, %524
   br i1 %or.cond66, label %.preheader, label %535
 
 .preheader:                                       ; preds = %523, %.preheader

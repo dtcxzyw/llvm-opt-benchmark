@@ -133,7 +133,7 @@ define dso_local void @_ZN6snappy22UncheckedByteArraySink6AppendEPKcm(ptr nocapt
 entry:
   %dest_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %dest_, align 8
-  %cmp.not = icmp eq ptr %0, %data
+  %cmp.not = icmp eq ptr %data, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -164,7 +164,7 @@ define dso_local void @_ZN6snappy22UncheckedByteArraySink22AppendAndTakeOwnershi
 entry:
   %dest_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %dest_, align 8
-  %cmp.not = icmp eq ptr %0, %bytes
+  %cmp.not = icmp eq ptr %bytes, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

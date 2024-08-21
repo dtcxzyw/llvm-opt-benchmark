@@ -2351,7 +2351,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %m_cache, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIP4exprS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -4353,13 +4353,13 @@ land.lhs.true.i59:                                ; preds = %_ZNK17arith_recogni
 _ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i59
   %m_args.i.i63 = getelementptr inbounds i8, ptr %e, i64 32
   %10 = load ptr, ptr %m_args.i.i63, align 8
-  %cmp = icmp eq ptr %10, %var
+  %cmp = icmp eq ptr %var, %10
   br i1 %cmp, label %return, label %_ZNK17arith_recognizers5is_leEPK4expr.exit.i
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds i8, ptr %e, i64 32
   %11 = load ptr, ptr %m_args.i.i, align 8
-  %cmp.old = icmp eq ptr %11, %var
+  %cmp.old = icmp eq ptr %var, %11
   br i1 %cmp.old, label %return, label %_ZNK17arith_recognizers5is_leEPK4expr.exit.i
 
 _ZNK17arith_recognizers5is_leEPK4expr.exit.i:     ; preds = %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i, %land.lhs.true.i59, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit, %land.lhs.true
@@ -4395,13 +4395,13 @@ land.lhs.true.i95:                                ; preds = %_ZNK17arith_recogni
 _ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i95
   %arrayidx.i.i100 = getelementptr inbounds i8, ptr %e, i64 40
   %20 = load ptr, ptr %arrayidx.i.i100, align 8
-  %cmp10 = icmp eq ptr %20, %var
+  %cmp10 = icmp eq ptr %var, %20
   br i1 %cmp10, label %return, label %_ZNK17arith_recognizers5is_geEPK4expr.exit.i110
 
 land.lhs.true9:                                   ; preds = %land.lhs.true.i77
   %arrayidx.i.i82 = getelementptr inbounds i8, ptr %e, i64 40
   %21 = load ptr, ptr %arrayidx.i.i82, align 8
-  %cmp10.old = icmp eq ptr %21, %var
+  %cmp10.old = icmp eq ptr %var, %21
   br i1 %cmp10.old, label %return, label %_ZNK17arith_recognizers5is_geEPK4expr.exit.i110
 
 _ZNK17arith_recognizers5is_geEPK4expr.exit.i110:  ; preds = %_ZNK17arith_recognizers5is_ltEPK4expr.exit.i, %land.lhs.true.i95, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit, %land.lhs.true9
@@ -5099,13 +5099,13 @@ land.lhs.true.i59:                                ; preds = %_ZNK17arith_recogni
 _ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i59
   %m_args.i.i63 = getelementptr inbounds i8, ptr %e, i64 32
   %10 = load ptr, ptr %m_args.i.i63, align 8
-  %cmp = icmp eq ptr %10, %var
+  %cmp = icmp eq ptr %var, %10
   br i1 %cmp, label %return, label %_ZNK17arith_recognizers5is_geEPK4expr.exit.i
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds i8, ptr %e, i64 32
   %11 = load ptr, ptr %m_args.i.i, align 8
-  %cmp.old = icmp eq ptr %11, %var
+  %cmp.old = icmp eq ptr %var, %11
   br i1 %cmp.old, label %return, label %_ZNK17arith_recognizers5is_geEPK4expr.exit.i
 
 _ZNK17arith_recognizers5is_geEPK4expr.exit.i:     ; preds = %_ZNK17arith_recognizers5is_ltEPK4expr.exit.i, %land.lhs.true.i59, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit, %land.lhs.true
@@ -5141,13 +5141,13 @@ land.lhs.true.i95:                                ; preds = %_ZNK17arith_recogni
 _ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i95
   %arrayidx.i.i100 = getelementptr inbounds i8, ptr %e, i64 40
   %20 = load ptr, ptr %arrayidx.i.i100, align 8
-  %cmp10 = icmp eq ptr %20, %var
+  %cmp10 = icmp eq ptr %var, %20
   br i1 %cmp10, label %return, label %_ZNK17arith_recognizers5is_leEPK4expr.exit.i110
 
 land.lhs.true9:                                   ; preds = %land.lhs.true.i77
   %arrayidx.i.i82 = getelementptr inbounds i8, ptr %e, i64 40
   %21 = load ptr, ptr %arrayidx.i.i82, align 8
-  %cmp10.old = icmp eq ptr %21, %var
+  %cmp10.old = icmp eq ptr %var, %21
   br i1 %cmp10.old, label %return, label %_ZNK17arith_recognizers5is_leEPK4expr.exit.i110
 
 _ZNK17arith_recognizers5is_leEPK4expr.exit.i110:  ; preds = %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i, %land.lhs.true.i95, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit, %land.lhs.true9
@@ -6503,7 +6503,7 @@ while.body71.i.i.i:                               ; preds = %while.cond68.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %while.body71.i.i.i
   %84 = load i32, ptr %m_num_patterns.i.i.i.i.i, align 8
-  %cmp3.not.i.i.i.i = icmp ult i32 %84, %83
+  %cmp3.not.i.i.i.i = icmp ugt i32 %83, %84
   %85 = xor i32 %84, -1
   %.sink120.i.i.i = select i1 %cmp3.not.i.i.i.i, i32 %85, i32 -1
   %sub9.i.i.i.i = add i32 %.sink120.i.i.i, %83
@@ -10010,7 +10010,7 @@ if.then:                                          ; preds = %while.body
   store ptr %__comp.coerce1, ptr %3, align 8
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i6668.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp23.i.i.i.i = icmp ugt i64 %div.i6668.i.i.i, %div17.i.i.i
+  %cmp23.i.i.i.i = icmp ult i64 %div17.i.i.i, %div.i6668.i.i.i
   br i1 %cmp23.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i
@@ -10096,7 +10096,7 @@ if.end7.split.i.i.i:                              ; preds = %_ZSt13__adjust_heap
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__cmp.i19.i.i.i)
   store ptr %__comp.coerce0, ptr %__comp.i18.i.i.i, align 8
   store ptr %__comp.coerce1, ptr %8, align 8
-  %cmp23.i22.not.i.i.i = icmp slt i64 %div.i6668.i.i.i, %__parent.070.i.i.i
+  %cmp23.i22.not.i.i.i = icmp sgt i64 %__parent.070.i.i.i, %div.i6668.i.i.i
   br i1 %cmp23.i22.not.i.i.i, label %while.end.i23.i.i.i, label %while.body.i51.i.i.i
 
 while.body.i51.i.i.i:                             ; preds = %if.end7.split.i.i.i, %while.body.i51.i.i.i
@@ -11028,7 +11028,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load i32, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5557 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ugt i64 %div.i5557, %div11
+  %cmp24.i = icmp ult i64 %div11, %div.i5557
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -11108,7 +11108,7 @@ if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph
   %dec.us = add nsw i64 %__parent.059.us, -1
   %add.ptr10.us = getelementptr inbounds i32, ptr %__first, i64 %dec.us
   %7 = load i32, ptr %add.ptr10.us, align 4
-  %cmp24.i14.not.us = icmp slt i64 %div.i5557, %__parent.059.us
+  %cmp24.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp24.i14.not.us, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %while.body.i42.us
 
 while.body.i42.us:                                ; preds = %if.end7.split.us, %while.body.i42.us
@@ -11160,7 +11160,7 @@ if.end7.split:                                    ; preds = %if.end7.split.prehe
   %dec = add nsw i64 %__parent.059, -1
   %add.ptr10 = getelementptr inbounds i32, ptr %__first, i64 %dec
   %12 = load i32, ptr %add.ptr10, align 4
-  %cmp24.i14.not = icmp slt i64 %div.i5557, %__parent.059
+  %cmp24.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp24.i14.not, label %while.end.i15, label %while.body.i42
 
 while.body.i42:                                   ; preds = %if.end7.split, %while.body.i42

@@ -816,7 +816,7 @@ if.end10:                                         ; preds = %land.lhs.true.i
 if.end13:                                         ; preds = %if.end10
   %8 = getelementptr i8, ptr %item, i64 8
   %item.val = load ptr, ptr %8, align 8
-  %cmp1595145167 = icmp sgt i64 %hi.addr.0, %lo
+  %cmp1595145167 = icmp slt i64 %lo, %hi.addr.0
   br i1 %cmp1595145167, label %while.body.lr.ph.lr.ph.lr.ph, label %while.end
 
 while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %if.end13
@@ -1302,7 +1302,7 @@ if.end10:                                         ; preds = %land.lhs.true.i
 if.end13:                                         ; preds = %if.end10
   %8 = getelementptr i8, ptr %item, i64 8
   %item.val = load ptr, ptr %8, align 8
-  %cmp1590136158 = icmp sgt i64 %hi.addr.0, %lo
+  %cmp1590136158 = icmp slt i64 %lo, %hi.addr.0
   br i1 %cmp1590136158, label %while.body.lr.ph.lr.ph.lr.ph, label %while.end
 
 while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %if.end13

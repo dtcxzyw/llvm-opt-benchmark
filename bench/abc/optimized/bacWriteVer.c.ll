@@ -123,7 +123,7 @@ define void @Psr_ManWriteVerilogArray(ptr nocapture noundef %0, ptr nocapture no
   %fputs.us = tail call i32 @fputs(ptr nonnull %14, ptr %0)
   %indvars.iv.next19 = add nsw i64 %indvars.iv18, 1
   %lftr.wideiv22 = trunc i64 %indvars.iv.next19 to i32
-  %exitcond23.not = icmp eq i32 %lftr.wideiv22, %4
+  %exitcond23.not = icmp eq i32 %4, %lftr.wideiv22
   br i1 %exitcond23.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %21
@@ -145,7 +145,7 @@ define void @Psr_ManWriteVerilogArray(ptr nocapture noundef %0, ptr nocapture no
 21:                                               ; preds = %.lr.ph.split, %16
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %4
+  %exitcond.not = icmp eq i32 %4, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !4
 
 .critedge:                                        ; preds = %21, %.lr.ph.split.us, %6
@@ -801,7 +801,7 @@ Bac_ObjNameStr.exit.i:                            ; preds = %Bac_ObjName.exit.th
 Bac_BoxBiNum.exit.i:                              ; preds = %64, %.preheader.i
   %.0.lcssa.i.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.i.i, %64 ]
   %68 = and i64 %.0.lcssa.i.i, 2147483647
-  %.not53.i = icmp eq i64 %68, %indvars.iv301
+  %.not53.i = icmp eq i64 %indvars.iv301, %68
   %69 = select i1 %.not53.i, ptr @.str.10, ptr @.str.65
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %25, ptr noundef nonnull %69)
   %70 = tail call ptr @Mio_GateReadOutName(ptr noundef %32) #10
@@ -964,7 +964,7 @@ Bac_ManWriteAssign.exit:                          ; preds = %Bac_BoxBiNum.exit.i
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %115
   %119 = getelementptr i8, ptr %.val201, i64 36
   %.val.i.i.i = load i32, ptr %119, align 4
-  %.not4.i.i = icmp slt i32 %.val.i.i.i, %117
+  %.not4.i.i = icmp sgt i32 %117, %.val.i.i.i
   br i1 %.not4.i.i, label %Bac_BoxNtk.exit, label %120
 
 120:                                              ; preds = %Bac_ManNtkIsOk.exit.i.i

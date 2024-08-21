@@ -444,7 +444,7 @@ define dso_local void @skb_flow_dissect_ct(ptr nocapture noundef readonly %0, pt
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 7
   %15 = icmp ugt i64 %13, 7
-  %16 = or i1 %15, %5
+  %16 = or i1 %5, %15
   br i1 %16, label %17, label %29
 
 17:                                               ; preds = %11

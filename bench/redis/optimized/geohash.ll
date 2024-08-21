@@ -68,22 +68,22 @@ if.end33:                                         ; preds = %if.end
   %step34 = getelementptr inbounds i8, ptr %hash, i64 8
   store i8 %step, ptr %step34, align 8
   %7 = load double, ptr %lat_range, align 8
-  %cmp36 = fcmp ogt double %7, %latitude
+  %cmp36 = fcmp olt double %latitude, %7
   br i1 %cmp36, label %return, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %if.end33
   %8 = load double, ptr %max, align 8
-  %cmp40 = fcmp olt double %8, %latitude
+  %cmp40 = fcmp ogt double %latitude, %8
   br i1 %cmp40, label %return, label %lor.lhs.false42
 
 lor.lhs.false42:                                  ; preds = %lor.lhs.false38
   %9 = load double, ptr %long_range, align 8
-  %cmp44 = fcmp ogt double %9, %longitude
+  %cmp44 = fcmp olt double %longitude, %9
   br i1 %cmp44, label %return, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false42
   %10 = load double, ptr %max16, align 8
-  %cmp48 = fcmp olt double %10, %longitude
+  %cmp48 = fcmp ogt double %longitude, %10
   br i1 %cmp48, label %return, label %if.end51
 
 if.end51:                                         ; preds = %lor.lhs.false46

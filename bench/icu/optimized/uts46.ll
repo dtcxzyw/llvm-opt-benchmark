@@ -1445,7 +1445,7 @@ lor.lhs.false166:                                 ; preds = %land.lhs.true164
 
 land.lhs.true168:                                 ; preds = %lor.lhs.false166
   %sub169 = sub nsw i32 253, %labelStart.2
-  %cmp.i.i102 = icmp ugt i32 %cond.i, %sub169
+  %cmp.i.i102 = icmp ult i32 %sub169, %cond.i
   br i1 %cmp.i.i102, label %invoke.cont170, label %if.then174
 
 invoke.cont170:                                   ; preds = %land.lhs.true168
@@ -1616,7 +1616,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end8, %if.then7.
   %fLength.i = getelementptr inbounds i8, ptr %dest, i64 12
   %9 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %9, i32 %shr.i.i
-  %cmp16118125134 = icmp sgt i32 %cond.i, %labelStart
+  %cmp16118125134 = icmp slt i32 %labelStart, %cond.i
   br i1 %cmp16118125134, label %while.body.lr.ph.lr.ph.lr.ph, label %while.end
 
 while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
@@ -2711,7 +2711,7 @@ if.end:                                           ; preds = %entry
   %fLength.i = getelementptr inbounds i8, ptr %dest, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
-  %cmp.i.i52 = icmp ugt i32 %cond.i, %mappingStart
+  %cmp.i.i52 = icmp ult i32 %mappingStart, %cond.i
   br i1 %cmp.i.i52, label %if.then.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit
 
 if.then.i.i:                                      ; preds = %if.end

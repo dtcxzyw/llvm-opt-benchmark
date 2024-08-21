@@ -131,28 +131,28 @@ define void @_Z18duDebugDrawTriMeshP11duDebugDrawPKfiPKiS2_iPKhf(ptr noundef %0,
   %94 = zext nneg i32 %91 to i64
   %95 = getelementptr inbounds float, ptr %60, i64 %94
   %96 = load float, ptr %95, align 4
-  %97 = fmul float %96, %7
+  %97 = fmul float %7, %96
   store float %97, ptr %9, align 4
   %98 = zext nneg i32 %93 to i64
   %99 = getelementptr inbounds float, ptr %60, i64 %98
   %100 = load float, ptr %99, align 4
-  %101 = fmul float %100, %7
+  %101 = fmul float %7, %100
   store float %101, ptr %25, align 4
   %102 = getelementptr inbounds float, ptr %65, i64 %94
   %103 = load float, ptr %102, align 4
-  %104 = fmul float %103, %7
+  %104 = fmul float %7, %103
   store float %104, ptr %10, align 4
   %105 = getelementptr inbounds float, ptr %65, i64 %98
   %106 = load float, ptr %105, align 4
-  %107 = fmul float %106, %7
+  %107 = fmul float %7, %106
   store float %107, ptr %26, align 4
   %108 = getelementptr inbounds float, ptr %70, i64 %94
   %109 = load float, ptr %108, align 4
-  %110 = fmul float %109, %7
+  %110 = fmul float %7, %109
   store float %110, ptr %11, align 4
   %111 = getelementptr inbounds float, ptr %70, i64 %98
   %112 = load float, ptr %111, align 4
-  %113 = fmul float %112, %7
+  %113 = fmul float %7, %112
   store float %113, ptr %27, align 4
   %114 = load ptr, ptr %0, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 56
@@ -303,28 +303,28 @@ define void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef 
   %94 = zext nneg i32 %91 to i64
   %95 = getelementptr inbounds float, ptr %60, i64 %94
   %96 = load float, ptr %95, align 4
-  %97 = fmul float %96, %7
+  %97 = fmul float %7, %96
   store float %97, ptr %9, align 4
   %98 = zext nneg i32 %93 to i64
   %99 = getelementptr inbounds float, ptr %60, i64 %98
   %100 = load float, ptr %99, align 4
-  %101 = fmul float %100, %7
+  %101 = fmul float %7, %100
   store float %101, ptr %28, align 4
   %102 = getelementptr inbounds float, ptr %65, i64 %94
   %103 = load float, ptr %102, align 4
-  %104 = fmul float %103, %7
+  %104 = fmul float %7, %103
   store float %104, ptr %10, align 4
   %105 = getelementptr inbounds float, ptr %65, i64 %98
   %106 = load float, ptr %105, align 4
-  %107 = fmul float %106, %7
+  %107 = fmul float %7, %106
   store float %107, ptr %29, align 4
   %108 = getelementptr inbounds float, ptr %70, i64 %94
   %109 = load float, ptr %108, align 4
-  %110 = fmul float %109, %7
+  %110 = fmul float %7, %109
   store float %110, ptr %11, align 4
   %111 = getelementptr inbounds float, ptr %70, i64 %98
   %112 = load float, ptr %111, align 4
-  %113 = fmul float %112, %7
+  %113 = fmul float %7, %112
   store float %113, ptr %30, align 4
   %114 = load ptr, ptr %0, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 56

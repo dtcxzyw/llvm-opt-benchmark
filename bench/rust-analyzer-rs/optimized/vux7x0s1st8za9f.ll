@@ -488,7 +488,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h98d838986449f8f5E.exit: ; preds = %.
 
 178:                                              ; preds = %172, %.thread19.i
   %.sroa.4.0.i46.ph = phi i64 [ %.pre-phi.i, %.thread19.i ], [ %173, %172 ]
-  %179 = icmp ugt i64 %146, %.sroa.4.0.i46.ph
+  %179 = icmp ult i64 %.sroa.4.0.i46.ph, %146
   br i1 %179, label %181, label %180
 
 180:                                              ; preds = %178
@@ -502,7 +502,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h98d838986449f8f5E.exit: ; preds = %.
   %184 = getelementptr inbounds i8, ptr %182, i64 8
   %185 = load i64, ptr %184, align 8, !noundef !14
   %186 = add nuw i64 %.sroa.4.0.i46.ph, 1
-  %187 = icmp ugt i64 %146, %186
+  %187 = icmp ult i64 %186, %146
   br i1 %187, label %190, label %188
 
 188:                                              ; preds = %181
@@ -566,7 +566,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h98d838986449f8f5E.exit: ; preds = %.
   %207 = getelementptr inbounds { { i32, i32 }, { i64, [2 x i64] } }, ptr %206, i64 %183
   %208 = getelementptr inbounds { { i32, i32 }, { i64, [2 x i64] } }, ptr %0, i64 %195
   %209 = sub i64 %205, %183
-  %.not.i55 = icmp ult i64 %209, %183
+  %.not.i55 = icmp ugt i64 %183, %209
   %210 = icmp sgt i64 %183, 0
   br i1 %.not.i55, label %211, label %215
 
@@ -610,8 +610,8 @@ _ZN4core5slice4sort20provide_sorted_batch17h98d838986449f8f5E.exit: ; preds = %.
   %.026.i = select i1 %.0.in.i.i.i62, ptr %226, ptr %228
   %229 = getelementptr inbounds i8, ptr %.02723.i, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef nonnull align 8 dereferenceable(32) %.026.i, i64 32, i1 false)
-  %230 = icmp ugt ptr %226, %206
-  %231 = icmp ugt ptr %228, %14
+  %230 = icmp ult ptr %206, %226
+  %231 = icmp ult ptr %14, %228
   %or.cond.i63 = select i1 %230, i1 %231, i1 false
   br i1 %or.cond.i63, label %.lr.ph24.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h36c8b9a3c0c12060E.exit"
 

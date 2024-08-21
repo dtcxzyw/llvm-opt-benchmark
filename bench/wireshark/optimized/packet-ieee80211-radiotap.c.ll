@@ -5477,11 +5477,11 @@ define internal i32 @capture_radiotap(ptr noundef %0, i32 noundef %1, i32 nounde
   %13 = zext i8 %.val to i16
   %14 = or disjoint i16 %12, %13
   %15 = zext i16 %14 to i32
-  %16 = add i32 %15, %1
+  %16 = add i32 %1, %15
   %17 = icmp ule i32 %16, %1
   %.not75 = icmp ugt i32 %16, %2
   %or.cond83 = or i1 %17, %.not75
-  %18 = icmp sgt i32 %15, %2
+  %18 = icmp slt i32 %2, %15
   %or.cond86 = or i1 %18, %or.cond83
   %19 = icmp ult i16 %14, 8
   %or.cond87 = or i1 %19, %or.cond86

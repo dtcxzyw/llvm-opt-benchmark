@@ -9,7 +9,7 @@ define void @"_ZN91_$LT$alloc..string..String$u20$as$u20$base64..write..encoder_
   %5 = load i64, ptr %4, align 8, !alias.scope !4, !noalias !9, !noundef !11
   %6 = load i64, ptr %0, align 8, !alias.scope !12, !noalias !9, !noundef !11
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h7806e598d0c29468E.exit"
 
 9:                                                ; preds = %3

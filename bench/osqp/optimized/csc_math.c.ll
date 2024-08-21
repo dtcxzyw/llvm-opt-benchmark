@@ -29,7 +29,7 @@ define void @vec_mult_scalar(ptr nocapture noundef %0, double noundef %1, i64 no
   %.05 = phi i64 [ %8, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds double, ptr %0, i64 %.05
   %6 = load double, ptr %5, align 8
-  %7 = fmul double %6, %1
+  %7 = fmul double %1, %6
   store double %7, ptr %5, align 8
   %8 = add nuw nsw i64 %.05, 1
   %exitcond.not = icmp eq i64 %8, %2
@@ -126,7 +126,7 @@ define void @csc_scale(ptr nocapture noundef readonly %0, double noundef %1) loc
   %12 = load ptr, ptr %10, align 8
   %13 = getelementptr inbounds double, ptr %12, i64 %.07
   %14 = load double, ptr %13, align 8
-  %15 = fmul double %14, %1
+  %15 = fmul double %1, %14
   store double %15, ptr %13, align 8
   %16 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %16, %8
@@ -340,7 +340,7 @@ define void @csc_Axpy_sym_triu(ptr nocapture noundef readonly %0, ptr nocapture 
   %.05.i113 = phi i64 [ %33, %.lr.ph.i112 ], [ 0, %29 ]
   %30 = getelementptr inbounds double, ptr %2, i64 %.05.i113
   %31 = load double, ptr %30, align 8
-  %32 = fmul double %31, %4
+  %32 = fmul double %4, %31
   store double %32, ptr %30, align 8
   %33 = add nuw nsw i64 %.05.i113, 1
   %exitcond.not.i114 = icmp eq i64 %33, %12
@@ -508,7 +508,7 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.p
   %.2126 = phi i64 [ %103, %.lr.ph ], [ %129, %128 ]
   %111 = getelementptr inbounds double, ptr %14, i64 %.2126
   %112 = load double, ptr %111, align 8
-  %113 = fmul double %112, %3
+  %113 = fmul double %3, %112
   %114 = load double, ptr %108, align 8
   %115 = getelementptr inbounds i64, ptr %9, i64 %.2126
   %116 = load i64, ptr %115, align 8
@@ -522,7 +522,7 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.p
 
 121:                                              ; preds = %110
   %122 = load double, ptr %111, align 8
-  %123 = fmul double %122, %3
+  %123 = fmul double %3, %122
   %124 = getelementptr inbounds double, ptr %1, i64 %120
   %125 = load double, ptr %124, align 8
   %126 = load double, ptr %109, align 8
@@ -592,7 +592,7 @@ define void @csc_Axpy(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %.05.i77 = phi i64 [ %33, %.lr.ph.i76 ], [ 0, %29 ]
   %30 = getelementptr inbounds double, ptr %2, i64 %.05.i77
   %31 = load double, ptr %30, align 8
-  %32 = fmul double %31, %4
+  %32 = fmul double %4, %31
   store double %32, ptr %30, align 8
   %33 = add nuw nsw i64 %.05.i77, 1
   %exitcond.not.i78 = icmp eq i64 %33, %12
@@ -728,7 +728,7 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i76, %.lr.ph
   %.290 = phi i64 [ %84, %.lr.ph ], [ %100, %90 ]
   %91 = getelementptr inbounds double, ptr %14, i64 %.290
   %92 = load double, ptr %91, align 8
-  %93 = fmul double %92, %3
+  %93 = fmul double %3, %92
   %94 = load double, ptr %89, align 8
   %95 = getelementptr inbounds i64, ptr %9, i64 %.290
   %96 = load i64, ptr %95, align 8
@@ -796,7 +796,7 @@ define void @csc_Atxpy(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %.05.i76 = phi i64 [ %32, %.lr.ph.i75 ], [ 0, %28 ]
   %29 = getelementptr inbounds double, ptr %2, i64 %.05.i76
   %30 = load double, ptr %29, align 8
-  %31 = fmul double %30, %4
+  %31 = fmul double %4, %30
   store double %31, ptr %29, align 8
   %32 = add nuw nsw i64 %.05.i76, 1
   %exitcond.not.i77 = icmp eq i64 %32, %7
@@ -956,7 +956,7 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i75, %.lr.ph
   %.27089 = phi i64 [ %94, %.lr.ph ], [ %110, %100 ]
   %102 = getelementptr inbounds double, ptr %13, i64 %.27089
   %103 = load double, ptr %102, align 8
-  %104 = fmul double %103, %3
+  %104 = fmul double %3, %103
   %105 = getelementptr inbounds i64, ptr %11, i64 %.27089
   %106 = load i64, ptr %105, align 8
   %107 = getelementptr inbounds double, ptr %1, i64 %106

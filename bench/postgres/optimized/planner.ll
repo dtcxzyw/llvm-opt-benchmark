@@ -2423,7 +2423,7 @@ define internal fastcc void @grouping_planner(ptr noundef %0, double noundef %1)
   br i1 %67, label %preprocess_limit.exit, label %68
 
 68:                                               ; preds = %66
-  %69 = fcmp ogt double %.0.i, %1
+  %69 = fcmp olt double %1, %.0.i
   %70 = select i1 %69, double %1, double %.0.i
   br label %preprocess_limit.exit
 
@@ -2434,7 +2434,7 @@ define internal fastcc void @grouping_planner(ptr noundef %0, double noundef %1)
   br i1 %or.cond77.i, label %74, label %preprocess_limit.exit
 
 74:                                               ; preds = %71
-  %75 = fcmp ogt double %.0.i, %1
+  %75 = fcmp olt double %1, %.0.i
   %76 = select i1 %75, double %1, double %.0.i
   br label %preprocess_limit.exit
 
@@ -2456,14 +2456,14 @@ define internal fastcc void @grouping_planner(ptr noundef %0, double noundef %1)
   br i1 %84, label %preprocess_limit.exit.thread, label %86
 
 86:                                               ; preds = %85
-  %87 = fadd double %.1.i, %1
+  %87 = fadd double %1, %.1.i
   br label %preprocess_limit.exit.thread
 
 88:                                               ; preds = %80
   br i1 %84, label %89, label %preprocess_limit.exit.thread
 
 89:                                               ; preds = %88
-  %90 = fadd double %.1.i, %1
+  %90 = fadd double %1, %.1.i
   %91 = fcmp ult double %90, 1.000000e+00
   br i1 %91, label %preprocess_limit.exit.thread, label %92
 

@@ -167,7 +167,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 60:                                               ; preds = %56, %58
   %61 = phi ptr [ %.sroa.0102.0, %56 ], [ %59, %58 ]
-  %62 = icmp ne ptr %61, %.sroa.0102.0
+  %62 = icmp ne ptr %.sroa.0102.0, %61
   %63 = load i8, ptr %12, align 8
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %72
@@ -240,7 +240,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
           to label %101 unwind label %70
 
 101:                                              ; preds = %94
-  %102 = icmp ne ptr %100, %2
+  %102 = icmp ne ptr %2, %100
   %103 = load ptr, ptr %18, align 8
   %.not.i43 = icmp eq ptr %103, null
   br i1 %.not.i43, label %107, label %104
@@ -252,7 +252,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 107:                                              ; preds = %101, %104
   %108 = phi ptr [ %100, %101 ], [ %106, %104 ]
-  %109 = icmp ne ptr %108, %100
+  %109 = icmp ne ptr %100, %108
   %110 = load i8, ptr %12, align 8
   %111 = trunc i8 %110 to i1
   br i1 %111, label %112, label %117
@@ -593,7 +593,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPlmlET_
 
 26:                                               ; preds = %21, %24
   %27 = phi ptr [ %2, %21 ], [ %25, %24 ]
-  %28 = icmp ne ptr %27, %2
+  %28 = icmp ne ptr %2, %27
   %29 = getelementptr inbounds i8, ptr %0, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
@@ -800,7 +800,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPlmlET_
 
 54:                                               ; preds = %49, %52
   %55 = phi ptr [ %2, %49 ], [ %53, %52 ]
-  %56 = icmp ne ptr %55, %2
+  %56 = icmp ne ptr %2, %55
   %57 = load ptr, ptr %26, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 208

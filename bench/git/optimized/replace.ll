@@ -402,7 +402,7 @@ if.then.i:                                        ; preds = %for.body.i
 if.end.i:                                         ; preds = %for.body.i
   %15 = load i64, ptr %ref.i, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %15, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %10
+  %cmp.i.i = icmp ugt i64 %10, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i

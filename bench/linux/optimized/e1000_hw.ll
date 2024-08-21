@@ -3056,7 +3056,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_read_eeprom(ptr nocapture n
   %92 = load i16, ptr %29, align 2
   tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 6, i16 noundef zeroext %92)
   %93 = trunc i64 %91 to i16
-  %94 = add i16 %93, %1
+  %94 = add i16 %1, %93
   %95 = load i16, ptr %30, align 4
   tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %94, i16 noundef zeroext %95)
   %96 = load ptr, ptr %0, align 8
@@ -5747,7 +5747,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr nocapture 
   %39 = load i16, ptr %29, align 2
   tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 5, i16 noundef zeroext %39)
   %40 = trunc i64 %38 to i16
-  %41 = add i16 %40, %1
+  %41 = add i16 %1, %40
   %42 = load i16, ptr %33, align 4
   tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %41, i16 noundef zeroext %42)
   %43 = getelementptr i16, ptr %3, i64 %38
@@ -5846,7 +5846,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr nocapture 
 .loopexit:                                        ; preds = %83, %98
   %.in = phi i64 [ %90, %98 ], [ %67, %83 ]
   %99 = trunc i64 %.in to i16
-  %100 = icmp ult i16 %99, %2
+  %100 = icmp ugt i16 %2, %99
   br i1 %100, label %.lr.ph, label %.thread7
 
 .thread7:                                         ; preds = %.loopexit, %.lr.ph

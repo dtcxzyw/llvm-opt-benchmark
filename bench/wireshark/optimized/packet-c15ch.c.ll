@@ -8242,7 +8242,7 @@ define internal fastcc void @add_digits_string_info_col(ptr noundef %0, i32 noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
   %10 = trunc nuw i64 %indvars.iv to i32
-  %11 = add i32 %10, %1
+  %11 = add i32 %1, %10
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #3
   %13 = icmp ult i8 %12, 10
   br i1 %13, label %14, label %17

@@ -1965,39 +1965,39 @@ KINLinSolDrv.exit173:                             ; preds = %566
   %676 = fmul double %.0321.i, %.0321.i
   %677 = fdiv double 1.000000e+00, %676
   %678 = fmul double %.0335.i, %.0335.i
-  %679 = fdiv double -1.000000e+00, %678
-  %680 = fmul double %679, %675
-  %681 = tail call double @llvm.fmuladd.f64(double %677, double %672, double %680)
-  %682 = fdiv double %674, %676
-  %683 = fdiv double %.0321.i, %678
-  %684 = fmul double %683, %675
-  %685 = tail call double @llvm.fmuladd.f64(double %682, double %672, double %684)
-  %686 = fsub double %.0321.i, %.0335.i
-  %687 = fdiv double 1.000000e+00, %686
-  %688 = fmul double %687, %681
-  %689 = fmul double %687, %685
-  %690 = tail call double @SUNRabs(double noundef %688) #12
-  %691 = load double, ptr %0, align 8
-  %692 = fcmp olt double %690, %691
-  br i1 %692, label %693, label %696
+  %679 = fdiv double 1.000000e+00, %678
+  %680 = fneg double %675
+  %681 = fmul double %679, %680
+  %682 = tail call double @llvm.fmuladd.f64(double %677, double %672, double %681)
+  %683 = fdiv double %674, %676
+  %684 = fdiv double %.0321.i, %678
+  %685 = fmul double %684, %675
+  %686 = tail call double @llvm.fmuladd.f64(double %683, double %672, double %685)
+  %687 = fsub double %.0321.i, %.0335.i
+  %688 = fdiv double 1.000000e+00, %687
+  %689 = fmul double %688, %682
+  %690 = fmul double %688, %686
+  %691 = tail call double @SUNRabs(double noundef %689) #12
+  %692 = load double, ptr %0, align 8
+  %693 = fcmp olt double %691, %692
+  br i1 %693, label %694, label %697
 
-693:                                              ; preds = %670
-  %694 = fmul double %689, 2.000000e+00
-  %695 = fdiv double %654, %694
+694:                                              ; preds = %670
+  %695 = fmul double %690, 2.000000e+00
+  %696 = fdiv double %654, %695
   br label %704
 
-696:                                              ; preds = %670
-  %697 = fmul double %688, 3.000000e+00
-  %698 = fneg double %697
-  %699 = fmul double %635, %698
-  %700 = tail call double @llvm.fmuladd.f64(double %689, double %689, double %699)
+697:                                              ; preds = %670
+  %698 = fmul double %689, 3.000000e+00
+  %699 = fmul double %698, %654
+  %700 = tail call double @llvm.fmuladd.f64(double %690, double %690, double %699)
   %701 = tail call double @SUNRsqrt(double noundef %700) #12
-  %702 = fsub double %701, %689
-  %703 = fdiv double %702, %697
+  %702 = fsub double %701, %690
+  %703 = fdiv double %702, %698
   br label %704
 
-704:                                              ; preds = %696, %693, %666
-  %.0333.i = phi double [ %669, %666 ], [ %695, %693 ], [ %703, %696 ]
+704:                                              ; preds = %697, %694, %666
+  %.0333.i = phi double [ %669, %666 ], [ %696, %694 ], [ %703, %697 ]
   %705 = fmul double %.0321.i, 5.000000e-01
   %706 = fcmp ogt double %.0333.i, %705
   %.1334.i = select i1 %706, double %705, double %.0333.i

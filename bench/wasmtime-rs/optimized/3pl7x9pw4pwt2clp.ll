@@ -6821,7 +6821,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h4bd82298e2
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = load i64, ptr %0, align 8, !noundef !4
-  %.not = icmp ult i64 %6, %1
+  %.not = icmp ugt i64 %1, %6
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2

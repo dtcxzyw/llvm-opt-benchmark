@@ -107,7 +107,7 @@ if.end3:                                          ; preds = %if.end
   %4 = load ptr, ptr %ctx, align 8
   %call5 = tail call i64 @EVP_AEAD_max_overhead(ptr noundef %4) #6
   %add6 = add i64 %call5, %in_len
-  %cmp7 = icmp ugt i64 %add6, %max_out_len
+  %cmp7 = icmp ult i64 %max_out_len, %add6
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end3
@@ -162,7 +162,7 @@ if.then38:                                        ; preds = %if.end31
   %conv39 = zext i32 %call35 to i64
   %8 = load i32, ptr %mac_len, align 4
   %conv40 = zext i32 %8 to i64
-  %add41 = add nuw nsw i64 %conv40, %in_len
+  %add41 = add nuw nsw i64 %in_len, %conv40
   %rem = urem i64 %add41, %conv39
   %9 = trunc nuw i64 %rem to i32
   %conv43 = sub i32 %call35, %9
@@ -221,7 +221,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %md_ctx = getelementptr inbounds i8, ptr %0, i64 152
   %call = tail call i64 @EVP_MD_CTX_size(ptr noundef nonnull %md_ctx) #6
-  %cmp = icmp ugt i64 %call, %in_len
+  %cmp = icmp ult i64 %in_len, %call
   br i1 %cmp, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
@@ -368,7 +368,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call i64 @EVP_MD_size(ptr noundef %md) #6
-  %cmp1.not = icmp eq i64 %call, %tag_len
+  %cmp1.not = icmp eq i64 %tag_len, %call
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -378,7 +378,7 @@ if.then:                                          ; preds = %land.lhs.true
 if.end:                                           ; preds = %land.lhs.true, %entry
   %0 = load ptr, ptr %ctx, align 8
   %call2 = tail call i64 @EVP_AEAD_key_length(ptr noundef %0) #6
-  %cmp3.not = icmp eq i64 %call2, %key_len
+  %cmp3.not = icmp eq i64 %key_len, %call2
   br i1 %cmp3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end

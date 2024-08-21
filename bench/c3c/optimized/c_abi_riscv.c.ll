@@ -240,7 +240,7 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
 81:                                               ; preds = %78
   %82 = icmp eq i32 %9, 8
   %83 = load ptr, ptr @type_uint, align 8
-  %84 = icmp eq ptr %83, %0
+  %84 = icmp eq ptr %0, %83
   %or.cond85 = select i1 %82, i1 %84, i1 false
   br i1 %or.cond85, label %85, label %88
 
@@ -777,7 +777,7 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   %69 = getelementptr inbounds i8, ptr %66, i64 48
   %70 = load i64, ptr %69, align 8
   %71 = trunc i64 %70 to i32
-  %72 = add i32 %71, %1
+  %72 = add i32 %1, %71
   %73 = tail call fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef %68, i32 noundef %72, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br i1 %73, label %64, label %.loopexit
 

@@ -360,7 +360,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noc
   br i1 %31, label %.lr.ph.i, label %.loopexit94.i, !llvm.loop !7
 
 32:                                               ; preds = %11
-  %.not88.i = icmp ult i64 %13, %6
+  %.not88.i = icmp ugt i64 %6, %13
   br i1 %.not88.i, label %33, label %HUF_readStats_body_default.exit
 
 33:                                               ; preds = %32

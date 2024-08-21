@@ -271,7 +271,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then70
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %i.015.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %call4.i = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i30, i32 noundef %i.015.i) #2
-  %cmp5.i = icmp eq ptr %call4.i, %call1
+  %cmp5.i = icmp eq ptr %call1, %call4.i
   br i1 %cmp5.i, label %pkcs7_copy_existing_digest.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i

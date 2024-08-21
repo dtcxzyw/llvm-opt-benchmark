@@ -657,7 +657,7 @@ entry:
   %0 = load ptr, ptr %context, align 8
   %initialValue = getelementptr inbounds i8, ptr %0, i64 36
   %1 = load i32, ptr %initialValue, align 4
-  %cmp.not = icmp eq i32 %1, %value
+  %cmp.not = icmp eq i32 %value, %1
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -665,8 +665,8 @@ if.then:                                          ; preds = %entry
   %2 = load i8, ptr %exclusiveLimit, align 4
   %tobool.not = icmp ne i8 %2, 0
   %dec = sext i1 %tobool.not to i32
-  %spec.select = add nsw i32 %dec, %end
-  %cmp2 = icmp eq i32 %spec.select, %start
+  %spec.select = add nsw i32 %end, %dec
+  %cmp2 = icmp eq i32 %start, %spec.select
   %errorCode = getelementptr inbounds i8, ptr %context, i64 8
   br i1 %cmp2, label %if.then3, label %if.else
 
@@ -971,7 +971,7 @@ if.then8:                                         ; preds = %if.end5
   %3 = load ptr, ptr %data16, align 8
   %cmp9.not = icmp eq ptr %3, null
   %cond = zext i1 %cmp9.not to i32
-  %cmp10.not = icmp eq i32 %cond, %valueBits
+  %cmp10.not = icmp eq i32 %valueBits, %cond
   br i1 %cmp10.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %if.then8
@@ -995,7 +995,7 @@ if.then15:                                        ; preds = %if.end13
   %dataNullOffset.i.i = getelementptr inbounds i8, ptr %2, i64 144164
   %8 = load i32, ptr %dataNullOffset.i.i, align 4
   %.fr.i.i = freeze i32 %6
-  %cmp.i.i = icmp eq i32 %.fr.i.i, %call.i
+  %cmp.i.i = icmp eq i32 %call.i, %.fr.i.i
   %index2.i.i = getelementptr inbounds i8, ptr %2, i64 2176
   br i1 %cmp.i.i, label %while.body.lr.ph.us.i.i, label %while.body.lr.ph.i.i
 
@@ -2068,7 +2068,7 @@ if.end11:                                         ; preds = %lor.lhs.false8
 land.lhs.true:                                    ; preds = %if.end11
   %initialValue = getelementptr inbounds i8, ptr %1, i64 144136
   %3 = load i32, ptr %initialValue, align 8
-  %cmp13 = icmp eq i32 %3, %value
+  %cmp13 = icmp eq i32 %value, %3
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %land.lhs.true, %if.end11
@@ -2170,7 +2170,7 @@ if.end35:                                         ; preds = %while.body.i, %if.e
   %and37 = and i32 %add, 4194272
   %initialValue38 = getelementptr inbounds i8, ptr %1, i64 144136
   %10 = load i32, ptr %initialValue38, align 8
-  %cmp39 = icmp eq i32 %10, %value
+  %cmp39 = icmp eq i32 %value, %10
   br i1 %cmp39, label %if.then40, label %if.end42
 
 if.then40:                                        ; preds = %if.end35
@@ -2198,7 +2198,7 @@ while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr
   %start.addr.1.ph189 = phi i32 [ %start.addr.0, %while.body.lr.ph.lr.ph ], [ %add98, %if.end97 ]
   %repeatBlock.1.ph188 = phi i32 [ %repeatBlock.0, %while.body.lr.ph.lr.ph ], [ %repeatBlock.2, %if.end97 ]
   %12 = load i32, ptr %initialValue38, align 8
-  %cmp45 = icmp eq i32 %12, %value
+  %cmp45 = icmp eq i32 %value, %12
   br i1 %cmp45, label %while.body.lr.ph.split.us, label %while.body.lr.ph.if.end51_crit_edge
 
 while.body.lr.ph.if.end51_crit_edge:              ; preds = %while.body.lr.ph
@@ -2291,7 +2291,7 @@ if.end55:                                         ; preds = %if.end5.i, %if.end5
   %arrayidx = getelementptr inbounds [35488 x i32], ptr %index2.i, i64 0, i64 %idxprom
   %19 = load i32, ptr %arrayidx, align 4
   %20 = load i32, ptr %dataNullOffset.i, align 4
-  %cmp.not.i = icmp eq i32 %20, %19
+  %cmp.not.i = icmp eq i32 %19, %20
   br i1 %cmp.not.i, label %if.else71, label %_ZL15isWritableBlockP9UNewTrie2i.exit
 
 _ZL15isWritableBlockP9UNewTrie2i.exit:            ; preds = %if.end55
@@ -2513,7 +2513,7 @@ if.end:                                           ; preds = %if.end5.i, %entry, 
   %3 = load i32, ptr %arrayidx, align 4
   %dataNullOffset.i = getelementptr inbounds i8, ptr %trie, i64 144164
   %4 = load i32, ptr %dataNullOffset.i, align 4
-  %cmp.not.i = icmp eq i32 %4, %3
+  %cmp.not.i = icmp eq i32 %3, %4
   br i1 %cmp.not.i, label %if.end3, label %_ZL15isWritableBlockP9UNewTrie2i.exit
 
 _ZL15isWritableBlockP9UNewTrie2i.exit:            ; preds = %if.end

@@ -229,7 +229,7 @@ _ZN2cv6detail8tracking24TrackerContribFeatureSet14clearResponsesEv.exit: ; preds
   %19 = ptrtoint ptr %9 to i64
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 96
-  %22 = icmp ult i64 %21, %17
+  %22 = icmp ugt i64 %17, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %_ZN2cv6detail8tracking24TrackerContribFeatureSet14clearResponsesEv.exit
@@ -238,7 +238,7 @@ _ZN2cv6detail8tracking24TrackerContribFeatureSet14clearResponsesEv.exit: ; preds
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 25:                                               ; preds = %_ZN2cv6detail8tracking24TrackerContribFeatureSet14clearResponsesEv.exit
-  %26 = icmp ugt i64 %21, %17
+  %26 = icmp ult i64 %17, %21
   br i1 %26, label %27, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 27:                                               ; preds = %25
@@ -1138,7 +1138,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE11_M_allocateEm.exit ], [ %38, %.lr.ph.i.i.i.i ]
   %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 48
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit, %.lr.ph.i.i.i.i17

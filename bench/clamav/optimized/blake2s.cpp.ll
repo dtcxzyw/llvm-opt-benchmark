@@ -185,7 +185,7 @@ define void @_Z15blake2sp_updateP14blake2sp_statePKhm(ptr nocapture noundef %0, 
   br i1 %.not, label %51, label %7
 
 7:                                                ; preds = %3
-  %.not57 = icmp ugt i64 %6, %2
+  %.not57 = icmp ult i64 %2, %6
   br i1 %.not57, label %51, label %8
 
 8:                                                ; preds = %7

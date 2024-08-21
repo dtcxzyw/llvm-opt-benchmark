@@ -204,7 +204,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %0 = load ptr, ptr %pointer.09, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %conv = trunc i64 %call to i32
-  %cmp3 = icmp eq i32 %conv, %length
+  %cmp3 = icmp eq i32 %length, %conv
   br i1 %cmp3, label %if.then4, label %for.inc
 
 if.then4:                                         ; preds = %for.body
@@ -260,7 +260,7 @@ if.then4:                                         ; preds = %for.body
   %previous11.i = getelementptr inbounds i8, ptr %.sink19.i, i64 16
   store ptr %3, ptr %previous11.i, align 8
   %4 = load ptr, ptr %list, align 8
-  %cmp13.i = icmp eq ptr %4, %pointer.0
+  %cmp13.i = icmp eq ptr %pointer.0, %4
   br i1 %cmp13.i, label %if.then14.i, label %if.end17.i
 
 if.then14.i:                                      ; preds = %if.then4

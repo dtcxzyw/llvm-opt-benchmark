@@ -1304,7 +1304,7 @@ define internal fastcc void @Vec_IntSetEntry(ptr nocapture noundef %0, i32 nound
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 8
   %9 = shl nsw i32 %8, 1
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   %.not.i.i.not = icmp sgt i32 %8, %1
   br i1 %.not, label %22, label %10
 

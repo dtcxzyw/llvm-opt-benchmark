@@ -822,7 +822,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !90, !noalias !95, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !97, !noalias !95, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h33472304d2437e9fE.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
@@ -5275,7 +5275,7 @@ _ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread.i.i
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf28e8d101a32479eE.llvm.9790117770016849591.exit.i.i.i.i.i": ; preds = %920, %915
   %921 = load ptr, ptr %320, align 8, !alias.scope !538, !noalias !541, !nonnull !5, !noundef !5
   %922 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i32, [1 x i32] }, ptr %921, i64 %.019.lcssa.i.i.i.i.i.i
-  %923 = icmp ugt i64 %917, %.019.lcssa.i.i.i.i.i.i
+  %923 = icmp ult i64 %.019.lcssa.i.i.i.i.i.i, %917
   br i1 %923, label %927, label %925
 
 .loopexit1256:                                    ; preds = %920
@@ -5294,7 +5294,7 @@ _ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread.i.i
           to label %938 unwind label %933, !noalias !536
 
 925:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf28e8d101a32479eE.llvm.9790117770016849591.exit.i.i.i.i.i"
-  %926 = icmp eq i64 %917, %.019.lcssa.i.i.i.i.i.i
+  %926 = icmp eq i64 %.019.lcssa.i.i.i.i.i.i, %917
   br i1 %926, label %.thread135.i.i.i, label %931
 
 927:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf28e8d101a32479eE.llvm.9790117770016849591.exit.i.i.i.i.i"

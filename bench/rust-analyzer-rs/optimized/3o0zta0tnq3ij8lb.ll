@@ -144,7 +144,7 @@ define internal noundef zeroext i1 @_ZN3std2io4Read16is_read_vectored17h85228eab
 define internal noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17hb007ce819496219bE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull writeonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !7
-  %6 = icmp ult i64 %5, %2
+  %6 = icmp ugt i64 %2, %5
   br i1 %6, label %14, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit": ; preds = %3
@@ -181,7 +181,7 @@ define internal void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20
   %7 = load i64, ptr %6, align 8, !noundef !7
   %8 = load i64, ptr %2, align 8, !noundef !7
   %9 = sub i64 %8, %7
-  %10 = icmp ult i64 %9, %5
+  %10 = icmp ugt i64 %5, %9
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %3
@@ -201,10 +201,10 @@ define internal void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20
   %.pre-phi = phi i64 [ %9, %3 ], [ %.pre19, %._crit_edge.i ]
   %16 = phi i64 [ %7, %3 ], [ %.pre, %._crit_edge.i ]
   %.pre-phi.i = phi i64 [ %9, %3 ], [ %.pre9.i, %._crit_edge.i ]
-  %17 = icmp uge i64 %.pre-phi.i, %5
+  %17 = icmp ule i64 %5, %.pre-phi.i
   tail call void @llvm.assume(i1 %17)
   %18 = load ptr, ptr %1, align 8, !nonnull !7, !align !12, !noundef !7
-  %19 = icmp ult i64 %.pre-phi, %5
+  %19 = icmp ugt i64 %5, %.pre-phi
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %15
@@ -317,7 +317,7 @@ define internal void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20
   %15 = load i64, ptr %14, align 8, !alias.scope !47, !noalias !52, !noundef !7
   %16 = load i64, ptr %2, align 8, !alias.scope !54, !noalias !52, !noundef !7
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %12
+  %18 = icmp ugt i64 %12, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h916957df3495dcf1E.exit"
 
 19:                                               ; preds = %13
@@ -1532,7 +1532,7 @@ _ZN4core4iter6traits8iterator8Iterator5eq_by17h3bbd9098f617bbc2E.exit.i: ; preds
 define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$16segment_internal17h7fb3453edcc75f82E.llvm.17912211610495965179"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #12 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
-  %.not = icmp ugt i64 %5, %2
+  %.not = icmp ult i64 %2, %5
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !7
   %8 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %7, i64 %2
@@ -1549,7 +1549,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$16segm
 define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$16segment_internal17h93ca491f6dbb7c03E.llvm.17912211610495965179"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #12 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
-  %.not = icmp ugt i64 %5, %2
+  %.not = icmp ult i64 %2, %5
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !7
   %8 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %7, i64 %2
@@ -1570,7 +1570,7 @@ define hidden void @"_ZN6object4read5macho7section28MachOSection$LT$Mach$C$R$GT$
   %6 = load ptr, ptr %5, align 8, !nonnull !7, !align !8, !noundef !7
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !257, !noalias !260, !noundef !7
-  %.not.i = icmp ugt i64 %8, %4
+  %.not.i = icmp ult i64 %4, %8
   br i1 %.not.i, label %9, label %37
 
 9:                                                ; preds = %2
@@ -1642,7 +1642,7 @@ define hidden void @"_ZN6object4read5macho7section28MachOSection$LT$Mach$C$R$GT$
   %6 = load ptr, ptr %5, align 8, !nonnull !7, !align !8, !noundef !7
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !280, !noalias !283, !noundef !7
-  %.not.i = icmp ugt i64 %8, %4
+  %.not.i = icmp ult i64 %4, %8
   br i1 %.not.i, label %9, label %36
 
 9:                                                ; preds = %2

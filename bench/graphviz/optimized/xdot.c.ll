@@ -224,7 +224,7 @@ gv_isspace.exit.i:                                ; preds = %66
   %72 = call double @strtod(ptr noundef nonnull %70, ptr noundef nonnull %13) #21
   store double %72, ptr %47, align 8
   %73 = load ptr, ptr %13, align 8
-  %74 = icmp eq ptr %73, %70
+  %74 = icmp eq ptr %70, %73
   br i1 %74, label %parseRect.exit.thread.i, label %75
 
 75:                                               ; preds = %71
@@ -266,7 +266,7 @@ parseRect.exit.i:                                 ; preds = %83
   %89 = call double @strtod(ptr noundef nonnull %70, ptr noundef nonnull %12) #21
   store double %89, ptr %47, align 8
   %90 = load ptr, ptr %12, align 8
-  %91 = icmp eq ptr %90, %70
+  %91 = icmp eq ptr %70, %90
   br i1 %91, label %parseRect.exit218.thread.i, label %92
 
 92:                                               ; preds = %88
@@ -447,7 +447,7 @@ parseReal.exit221.i:                              ; preds = %146
   %..i222.i = select i1 %.not.i.i, i32 1, i32 2
   %.sink.i.i = select i1 %154, i32 0, i32 %..i222.i
   store i32 %.sink.i.i, ptr %51, align 8
-  %155 = icmp eq ptr %153, %148
+  %155 = icmp eq ptr %148, %153
   %.not189249.i = icmp eq ptr %153, null
   %.not189.i = or i1 %155, %.not189249.i
   br i1 %.not189.i, label %.loopexit, label %156
@@ -518,7 +518,7 @@ parseReal.exit226.i:                              ; preds = %163
   %174 = call double @strtod(ptr noundef nonnull %70, ptr noundef nonnull %6) #21
   store double %174, ptr %47, align 8
   %175 = load ptr, ptr %6, align 8
-  %176 = icmp eq ptr %175, %70
+  %176 = icmp eq ptr %70, %175
   br i1 %176, label %parseRect.exit229.thread.i, label %177
 
 177:                                              ; preds = %173
@@ -566,7 +566,7 @@ parseRect.exit229.i:                              ; preds = %185
   %194 = trunc i64 %193 to i32
   store i32 %194, ptr %47, align 8
   %195 = load ptr, ptr %5, align 8
-  %196 = icmp eq ptr %195, %70
+  %196 = icmp eq ptr %70, %195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not248.i = icmp eq ptr %195, null
   %.not.i = or i1 %196, %.not248.i
@@ -5415,7 +5415,7 @@ parseReal.exit59.i:                               ; preds = %34
   %42 = trunc i64 %41 to i32
   store i32 %42, ptr %40, align 4
   %43 = load ptr, ptr %12, align 8
-  %44 = icmp eq ptr %43, %36
+  %44 = icmp eq ptr %36, %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %.not5175.i = icmp eq ptr %43, null
   %.not51.i = or i1 %44, %.not5175.i
@@ -5616,7 +5616,7 @@ parseReal.exit75.i:                               ; preds = %101
   %109 = trunc i64 %108 to i32
   store i32 %109, ptr %107, align 4
   %110 = load ptr, ptr %4, align 8
-  %111 = icmp eq ptr %110, %103
+  %111 = icmp eq ptr %103, %110
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not6395.i = icmp eq ptr %110, null
   %.not63.i = or i1 %111, %.not6395.i
@@ -5812,7 +5812,7 @@ define internal fastcc ptr @parsePolyline(ptr noundef %0, ptr nocapture noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %5 = call i64 @strtoul(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #21
   %6 = load ptr, ptr %3, align 8
-  %7 = icmp eq ptr %6, %0
+  %7 = icmp eq ptr %0, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not27 = icmp eq ptr %6, null
   %.not = or i1 %7, %.not27
@@ -5900,7 +5900,7 @@ define internal fastcc ptr @parseString(ptr noundef %0, ptr nocapture noundef wr
   %5 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #21
   %6 = trunc i64 %5 to i32
   %7 = load ptr, ptr %3, align 8
-  %8 = icmp eq ptr %7, %0
+  %8 = icmp eq ptr %0, %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %9 = icmp eq ptr %7, null
   %10 = or i1 %8, %9

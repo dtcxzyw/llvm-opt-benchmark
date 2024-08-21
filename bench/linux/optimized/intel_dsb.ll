@@ -269,7 +269,7 @@ define dso_local void @intel_dsb_reg_write_masked(ptr noundef %0, i32 %1, i32 no
   %17 = or disjoint i32 %16, %12
   %18 = or disjoint i32 %17, %15
   %19 = shl nuw nsw i32 %18, 20
-  %20 = or i32 %19, %1
+  %20 = or i32 %1, %19
   %21 = or i32 %20, 16777216
   tail call fastcc void @intel_dsb_emit(ptr noundef %0, i32 noundef %3, i32 noundef %21)
   ret void

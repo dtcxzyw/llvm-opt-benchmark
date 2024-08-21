@@ -104,7 +104,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr nocaptu
 .preheader102:                                    ; preds = %26
   %31 = load i32, ptr %11, align 4
   %32 = add nsw i32 %31, -1
-  %33 = icmp sgt i32 %32, %1
+  %33 = icmp slt i32 %1, %32
   br i1 %33, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader102
@@ -228,7 +228,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr nocaptu
   %81 = getelementptr inbounds i8, ptr %0, i64 12
   %82 = load i32, ptr %81, align 4
   %83 = add nsw i32 %82, -1
-  %84 = icmp sgt i32 %83, %1
+  %84 = icmp slt i32 %1, %83
   br i1 %84, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.preheader101
@@ -482,7 +482,7 @@ define void @Llb_MtrVerifyColumns(ptr nocapture noundef readonly %0, i32 noundef
 
 .preheader:                                       ; preds = %11
   %17 = load i32, ptr %7, align 4
-  %18 = icmp sgt i32 %17, %1
+  %18 = icmp slt i32 %1, %17
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader

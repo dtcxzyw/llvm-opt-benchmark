@@ -35,7 +35,7 @@ define dso_local range(i32 0, 3) i32 @onas_fan_checkowner(i32 noundef %0, ptr no
   %3 = alloca [32 x i8], align 16
   %4 = alloca %struct.stat, align 8
   %5 = tail call i32 @getpid() #8
-  %6 = icmp eq i32 %5, %0
+  %6 = icmp eq i32 %0, %5
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2

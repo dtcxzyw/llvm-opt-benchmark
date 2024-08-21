@@ -613,7 +613,7 @@ cond.false17.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false17.i
   %highStart.i = getelementptr inbounds i8, ptr %13, i64 44
   %19 = load i32, ptr %highStart.i, align 4
-  %cmp22.not.i = icmp sgt i32 %19, %8
+  %cmp22.not.i = icmp slt i32 %8, %19
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
@@ -1074,7 +1074,7 @@ land.lhs.true:                                    ; preds = %if.end
   %fLength.i = getelementptr inbounds i8, ptr %this, i64 52
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
-  %cmp3 = icmp sgt i32 %cond.i, %newOffset
+  %cmp3 = icmp slt i32 %newOffset, %cond.i
   br i1 %cmp3, label %do.body.preheader, label %if.end44
 
 do.body.preheader:                                ; preds = %land.lhs.true

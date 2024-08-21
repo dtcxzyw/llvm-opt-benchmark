@@ -792,7 +792,7 @@ define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(p
   %33 = getelementptr [5 x i8], ptr @valid_dsc_bpp, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
-  %36 = icmp ugt i32 %35, %1
+  %36 = icmp ult i32 %1, %35
   br i1 %36, label %37, label %.preheader, !llvm.loop !23
 
 37:                                               ; preds = %31, %.preheader
@@ -821,7 +821,7 @@ define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext range(i16 0, 256) i16 @intel_dp_dsc_get_max_compressed_bpp(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #3 align 16 {
   %10 = mul i32 %2, %1
-  %11 = mul i32 %10, %8
+  %11 = mul i32 %8, %10
   %12 = zext i32 %3 to i64
   %13 = mul nuw nsw i64 %12, 1028530
   %14 = udiv i64 %13, 1000000

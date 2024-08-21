@@ -785,7 +785,7 @@ common.resume:                                    ; preds = %20, %23
   %35 = load i64, ptr %17, align 8, !alias.scope !136, !noundef !5
   %36 = load i64, ptr %0, align 8, !alias.scope !139, !noundef !5
   %37 = sub i64 %36, %35
-  %38 = icmp ult i64 %37, %.sroa.7.8.copyload
+  %38 = icmp ugt i64 %.sroa.7.8.copyload, %37
   br i1 %38, label %39, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6a650d4252cb6caaE.exit"
 
 39:                                               ; preds = %34
@@ -943,7 +943,7 @@ define void @_ZN6uu_env15string_expander14StringExpander17put_native_string17h6d
   %5 = load i64, ptr %4, align 8, !alias.scope !154, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !157, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6a650d4252cb6caaE.exit"
 
 9:                                                ; preds = %3

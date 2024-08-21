@@ -261,7 +261,7 @@ if.end:                                           ; preds = %entry
   %shr.i = zext nneg i8 %1 to i32
   %shl.i = shl nuw nsw i32 1, %shr.i
   %conv1.i = zext nneg i32 %shl.i to i64
-  %cmp1 = icmp ugt i64 %conv1.i, %buf_len
+  %cmp1 = icmp ult i64 %buf_len, %conv1.i
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end

@@ -44205,7 +44205,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i102: ; preds = %218, %
   call void @llvm.experimental.noalias.scope.decl(metadata !7523)
   %227 = icmp ult i32 %226, %.0315
   %228 = load i32, ptr %35, align 4
-  %.not.i = icmp ult i32 %228, %226
+  %.not.i = icmp ugt i32 %226, %228
   %or.cond = select i1 %227, i1 true, i1 %.not.i
   br i1 %or.cond, label %241, label %229
 

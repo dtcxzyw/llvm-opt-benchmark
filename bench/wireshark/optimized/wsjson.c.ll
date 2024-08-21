@@ -234,7 +234,7 @@ define ptr @json_get_array_index(ptr noundef readonly %0, i32 noundef %1) local_
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %6

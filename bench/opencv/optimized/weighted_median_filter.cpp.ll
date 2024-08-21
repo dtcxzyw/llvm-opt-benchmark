@@ -1871,7 +1871,7 @@ _ZN12_GLOBAL__N_15int2DEii.exit332.i:             ; preds = %773
 .lr.ph432.i:                                      ; preds = %.preheader401.i
   %780 = add nsw i32 %741, -1
   %781 = add i32 %739, -1
-  %.sroa.speculated.i110 = call i32 @llvm.smin.i32(i32 %781, i32 %3)
+  %.sroa.speculated.i110 = call i32 @llvm.smin.i32(i32 %3, i32 %781)
   %.not410.i = icmp slt i32 %781, 0
   %782 = getelementptr inbounds i8, ptr %732, i64 16
   %783 = getelementptr inbounds i8, ptr %732, i64 72
@@ -1910,7 +1910,7 @@ _ZN12_GLOBAL__N_15int2DEii.exit332.i:             ; preds = %773
   %795 = trunc i64 %indvars.iv471.i to i32
   %796 = sub i32 %795, %3
   %.sroa.speculated373.i = call i32 @llvm.smax.i32(i32 %796, i32 0)
-  %797 = add i32 %795, %3
+  %797 = add i32 %3, %795
   %.sroa.speculated367.i = call i32 @llvm.smin.i32(i32 %797, i32 %780)
   br i1 %.not410.i, label %._crit_edge430.i, label %.lr.ph413.i
 
@@ -3360,7 +3360,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %phi.call = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0
   %.sroa.03.0.copyload = load i64, ptr %phi.call, align 4
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %23 = icmp sgt i64 %13, %.0
+  %23 = icmp slt i64 %.0, %13
   br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i

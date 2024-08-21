@@ -426,7 +426,7 @@ define dso_local ptr @xfrm_aead_get_byname(ptr noundef readonly %0, i32 noundef 
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i16, ptr %8, align 16
   %10 = zext i16 %9 to i32
-  %11 = icmp eq i32 %10, %1
+  %11 = icmp eq i32 %1, %10
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %.split

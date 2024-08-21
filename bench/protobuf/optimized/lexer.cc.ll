@@ -540,7 +540,7 @@ while.end10.i.i.i:                                ; preds = %while.end.i.i.i, %d
   %view.sroa.0.0.i.i.i = phi i64 [ %sub.ptr.sub.i.i.i.i, %while.end.i.i.i ], [ %view.sroa.0.0.copyload.i.i.i, %do.end ]
   %view.sroa.4.0.i.i.i = phi ptr [ %10, %while.end.i.i.i ], [ %view.sroa.4.0.copyload.i.i.i, %do.end ]
   %start.addr.0.i.i.i = phi i64 [ %sub.i.i.i, %while.end.i.i.i ], [ %7, %do.end ]
-  %cmp.i.i.i.i.i3 = icmp ult i64 %view.sroa.0.0.i.i.i, %start.addr.0.i.i.i
+  %cmp.i.i.i.i.i3 = icmp ugt i64 %start.addr.0.i.i.i, %view.sroa.0.0.i.i.i
   br i1 %cmp.i.i.i.i.i3, label %if.then.i.i.i.i.i, label %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
 
 if.then.i.i.i.i.i:                                ; preds = %while.end10.i.i.i
@@ -754,7 +754,7 @@ while.end10.i.i.i:                                ; preds = %while.end.i.i.i, %d
   %view.sroa.0.0.i.i.i = phi i64 [ %sub.ptr.sub.i.i.i.i, %while.end.i.i.i ], [ %view.sroa.0.0.copyload.i.i.i, %do.end ]
   %view.sroa.4.0.i.i.i = phi ptr [ %8, %while.end.i.i.i ], [ %view.sroa.4.0.copyload.i.i.i, %do.end ]
   %start.addr.0.i.i.i = phi i64 [ %sub.i.i.i, %while.end.i.i.i ], [ %5, %do.end ]
-  %cmp.i.i.i.i.i = icmp ult i64 %view.sroa.0.0.i.i.i, %start.addr.0.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %start.addr.0.i.i.i, %view.sroa.0.0.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
 
 if.then.i.i.i.i.i:                                ; preds = %while.end10.i.i.i
@@ -871,7 +871,7 @@ while.end10.i.i:                                  ; preds = %while.end.i.i, %ent
   %view.sroa.0.0.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %while.end.i.i ], [ %view.sroa.0.0.copyload.i.i, %entry ]
   %view.sroa.4.0.i.i = phi ptr [ %3, %while.end.i.i ], [ %view.sroa.4.0.copyload.i.i, %entry ]
   %start.addr.0.i.i = phi i64 [ %sub.i.i, %while.end.i.i ], [ %0, %entry ]
-  %cmp.i.i.i.i = icmp ult i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %start.addr.0.i.i, %view.sroa.0.0.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNK6google8protobuf13json_internal22ZeroCopyBufferedStream6UnreadEv.exit
 
 if.then.i.i.i.i:                                  ; preds = %while.end10.i.i
@@ -1065,7 +1065,7 @@ while.end10.i.i.i162:                             ; preds = %while.end.i.i.i169,
   %view.sroa.0.0.i.i.i163 = phi i64 [ %sub.ptr.sub.i.i.i.i176, %while.end.i.i.i169 ], [ %view.sroa.0.0.copyload.i.i.i157, %.noexc13 ]
   %view.sroa.4.0.i.i.i164 = phi ptr [ %17, %while.end.i.i.i169 ], [ %view.sroa.4.0.copyload.i.i.i159, %.noexc13 ]
   %start.addr.0.i.i.i165 = phi i64 [ %sub.i.i.i171, %while.end.i.i.i169 ], [ %14, %.noexc13 ]
-  %cmp.i.i.i.i.i166 = icmp ult i64 %view.sroa.0.0.i.i.i163, %start.addr.0.i.i.i165
+  %cmp.i.i.i.i.i166 = icmp ugt i64 %start.addr.0.i.i.i165, %view.sroa.0.0.i.i.i163
   br i1 %cmp.i.i.i.i.i166, label %if.then.i.i.i.i.i152.invoke, label %invoke.cont44.i
 
 invoke.cont44.i:                                  ; preds = %while.end10.i.i.i162
@@ -1091,7 +1091,7 @@ while.end10.i.i.i:                                ; preds = %while.end.i.i.i, %l
   %view.sroa.0.0.i.i.i = phi i64 [ %sub.ptr.sub.i.i.i.i, %while.end.i.i.i ], [ %view.sroa.0.0.copyload.i.i.i157, %lor.lhs.false.i ]
   %view.sroa.4.0.i.i.i = phi ptr [ %21, %while.end.i.i.i ], [ %view.sroa.4.0.copyload.i.i.i159, %lor.lhs.false.i ]
   %start.addr.0.i.i.i = phi i64 [ %sub.i.i.i153, %while.end.i.i.i ], [ %14, %lor.lhs.false.i ]
-  %cmp.i.i.i.i.i = icmp ult i64 %view.sroa.0.0.i.i.i, %start.addr.0.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %start.addr.0.i.i.i, %view.sroa.0.0.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i152.invoke, label %invoke.cont47.i
 
 if.then.i.i.i.i.i152.invoke:                      ; preds = %while.end10.i.i.i, %while.end10.i.i.i162
@@ -1706,7 +1706,7 @@ while.end10.i.i.i:                                ; preds = %while.end.i.i.i, %d
   %view.sroa.0.0.i.i.i = phi i64 [ %sub.ptr.sub.i.i.i.i, %while.end.i.i.i ], [ %view.sroa.0.0.copyload.i.i.i, %do.end ]
   %view.sroa.4.0.i.i.i = phi ptr [ %10, %while.end.i.i.i ], [ %view.sroa.4.0.copyload.i.i.i, %do.end ]
   %start.addr.0.i.i.i = phi i64 [ %sub.i.i.i, %while.end.i.i.i ], [ %7, %do.end ]
-  %cmp.i.i.i.i.i39 = icmp ult i64 %view.sroa.0.0.i.i.i, %start.addr.0.i.i.i
+  %cmp.i.i.i.i.i39 = icmp ugt i64 %start.addr.0.i.i.i, %view.sroa.0.0.i.i.i
   br i1 %cmp.i.i.i.i.i39, label %if.then.i.i.i.i.i, label %_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream8PeekCharEv.exit
 
 if.then.i.i.i.i.i:                                ; preds = %while.end10.i.i.i
@@ -1988,7 +1988,7 @@ while.end10.i.i.i104:                             ; preds = %while.end.i.i.i111,
   %view.sroa.0.0.i.i.i105 = phi i64 [ %sub.ptr.sub.i.i.i.i118, %while.end.i.i.i111 ], [ %view.sroa.0.0.copyload.i.i.i99, %do.end49 ]
   %view.sroa.4.0.i.i.i106 = phi ptr [ %46, %while.end.i.i.i111 ], [ %view.sroa.4.0.copyload.i.i.i101, %do.end49 ]
   %start.addr.0.i.i.i107 = phi i64 [ %sub.i.i.i113, %while.end.i.i.i111 ], [ %43, %do.end49 ]
-  %cmp.i.i.i.i.i108 = icmp ult i64 %view.sroa.0.0.i.i.i105, %start.addr.0.i.i.i107
+  %cmp.i.i.i.i.i108 = icmp ugt i64 %start.addr.0.i.i.i107, %view.sroa.0.0.i.i.i105
   br i1 %cmp.i.i.i.i.i108, label %if.then.i.i.i.i.i372.invoke, label %invoke.cont51
 
 invoke.cont51:                                    ; preds = %while.end10.i.i.i104
@@ -2343,7 +2343,7 @@ while.end10.i.i.i205:                             ; preds = %while.end.i.i.i212,
   %view.sroa.0.0.i.i.i206 = phi i64 [ %sub.ptr.sub.i.i.i.i219, %while.end.i.i.i212 ], [ %view.sroa.0.0.copyload.i.i.i200, %do.end135 ]
   %view.sroa.4.0.i.i.i207 = phi ptr [ %93, %while.end.i.i.i212 ], [ %view.sroa.4.0.copyload.i.i.i202, %do.end135 ]
   %start.addr.0.i.i.i208 = phi i64 [ %sub.i.i.i214, %while.end.i.i.i212 ], [ %90, %do.end135 ]
-  %cmp.i.i.i.i.i209 = icmp ult i64 %view.sroa.0.0.i.i.i206, %start.addr.0.i.i.i208
+  %cmp.i.i.i.i.i209 = icmp ugt i64 %start.addr.0.i.i.i208, %view.sroa.0.0.i.i.i206
   br i1 %cmp.i.i.i.i.i209, label %if.then.i.i.i.i.i372.invoke, label %invoke.cont138
 
 invoke.cont138:                                   ; preds = %while.end10.i.i.i205
@@ -2800,7 +2800,7 @@ while.end10.i.i.i327:                             ; preds = %while.end.i.i.i334,
   %view.sroa.0.0.i.i.i328 = phi i64 [ %sub.ptr.sub.i.i.i.i341, %while.end.i.i.i334 ], [ %view.sroa.0.0.copyload.i.i.i322, %do.end298 ]
   %view.sroa.4.0.i.i.i329 = phi ptr [ %144, %while.end.i.i.i334 ], [ %view.sroa.4.0.copyload.i.i.i324, %do.end298 ]
   %start.addr.0.i.i.i330 = phi i64 [ %sub.i.i.i336, %while.end.i.i.i334 ], [ %141, %do.end298 ]
-  %cmp.i.i.i.i.i331 = icmp ult i64 %view.sroa.0.0.i.i.i328, %start.addr.0.i.i.i330
+  %cmp.i.i.i.i.i331 = icmp ugt i64 %start.addr.0.i.i.i330, %view.sroa.0.0.i.i.i328
   br i1 %cmp.i.i.i.i.i331, label %if.then.i.i.i.i.i372.invoke, label %invoke.cont301
 
 invoke.cont301:                                   ; preds = %while.end10.i.i.i327
@@ -2875,7 +2875,7 @@ while.end10.i.i.i366:                             ; preds = %while.end.i.i.i373,
   %view.sroa.0.0.i.i.i367 = phi i64 [ %sub.ptr.sub.i.i.i.i380, %while.end.i.i.i373 ], [ %view.sroa.0.0.copyload.i.i.i361, %if.then317 ]
   %view.sroa.4.0.i.i.i368 = phi ptr [ %154, %while.end.i.i.i373 ], [ %view.sroa.4.0.copyload.i.i.i363, %if.then317 ]
   %start.addr.0.i.i.i369 = phi i64 [ %sub.i.i.i375, %while.end.i.i.i373 ], [ %151, %if.then317 ]
-  %cmp.i.i.i.i.i370 = icmp ult i64 %view.sroa.0.0.i.i.i367, %start.addr.0.i.i.i369
+  %cmp.i.i.i.i.i370 = icmp ugt i64 %start.addr.0.i.i.i369, %view.sroa.0.0.i.i.i367
   br i1 %cmp.i.i.i.i.i370, label %if.then.i.i.i.i.i372.invoke, label %invoke.cont319
 
 if.then.i.i.i.i.i372.invoke:                      ; preds = %while.end10.i.i.i205, %while.end10.i.i.i104, %while.end10.i.i.i366, %while.end10.i.i.i327
@@ -3385,7 +3385,7 @@ while.end10.i.i:                                  ; preds = %while.end.i.i, %_ZN
   %view.sroa.0.0.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %while.end.i.i ], [ %view.sroa.0.0.copyload.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit12 ]
   %view.sroa.4.0.i.i = phi ptr [ %10, %while.end.i.i ], [ %view.sroa.4.0.copyload.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit12 ]
   %start.addr.0.i.i = phi i64 [ %sub.i.i, %while.end.i.i ], [ %7, %_ZN4absl12lts_202308026StatusD2Ev.exit12 ]
-  %cmp.i.i.i.i = icmp ult i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %start.addr.0.i.i, %view.sroa.0.0.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i.i.invoke, label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %while.end10.i.i
@@ -3423,7 +3423,7 @@ while.end10.i.i.i:                                ; preds = %while.end.i.i.i, %i
   %view.sroa.0.0.i.i.i = phi i64 [ %sub.ptr.sub.i.i.i.i, %while.end.i.i.i ], [ %view.sroa.0.0.copyload.i.i, %invoke.cont30 ]
   %view.sroa.4.0.i.i.i = phi ptr [ %13, %while.end.i.i.i ], [ %view.sroa.4.0.copyload.i.i, %invoke.cont30 ]
   %start.addr.0.i.i.i = phi i64 [ %sub.i.i.i14, %while.end.i.i.i ], [ %7, %invoke.cont30 ]
-  %cmp.i.i.i.i.i = icmp ult i64 %view.sroa.0.0.i.i.i, %start.addr.0.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %start.addr.0.i.i.i, %view.sroa.0.0.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i.invoke, label %invoke.cont33
 
 if.then.i.i.i.i.i.invoke:                         ; preds = %while.end10.i.i.i, %while.end10.i.i
@@ -4109,7 +4109,7 @@ while.end10.i.i:                                  ; preds = %while.end.i.i, %if.
   %view.sroa.4.0.i.i = phi ptr [ %6, %while.end.i.i ], [ %view.sroa.4.0.copyload.i.i, %if.then ]
   %start.addr.0.i.i = phi i64 [ %sub.i.i, %while.end.i.i ], [ %2, %if.then ]
   %cmp.i.i3 = icmp eq i64 %3, -1
-  %cmp.i.i.i.i = icmp ult i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %start.addr.0.i.i, %view.sroa.0.0.i.i
   br i1 %cmp.i.i3, label %if.then11.i.i, label %while.end18.i.i
 
 if.then11.i.i:                                    ; preds = %while.end10.i.i
@@ -4400,7 +4400,7 @@ while.end10.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
   %view.sroa.0.0.i.i.i.i.i = phi i64 [ %sub.ptr.sub.i.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %view.sroa.0.0.copyload.i.i.i.i.i, %if.end.i.i ]
   %view.sroa.4.0.i.i.i.i.i = phi ptr [ %19, %while.end.i.i.i.i.i ], [ %view.sroa.4.0.copyload.i.i.i.i.i, %if.end.i.i ]
   %start.addr.0.i.i.i.i.i = phi i64 [ %sub.i.i.i.i.i13, %while.end.i.i.i.i.i ], [ %16, %if.end.i.i ]
-  %cmp.i.i.i.i.i.i.i = icmp ult i64 %view.sroa.0.0.i.i.i.i.i, %start.addr.0.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %start.addr.0.i.i.i.i.i, %view.sroa.0.0.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %invoke.cont5.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.end10.i.i.i.i.i
@@ -6337,7 +6337,7 @@ while.end10.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
   %view.sroa.0.0.i.i.i.i.i = phi i64 [ %sub.ptr.sub.i.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %view.sroa.0.0.copyload.i.i.i.i.i, %if.end.i.i ]
   %view.sroa.4.0.i.i.i.i.i = phi ptr [ %19, %while.end.i.i.i.i.i ], [ %view.sroa.4.0.copyload.i.i.i.i.i, %if.end.i.i ]
   %start.addr.0.i.i.i.i.i = phi i64 [ %sub.i.i.i.i.i7, %while.end.i.i.i.i.i ], [ %16, %if.end.i.i ]
-  %cmp.i.i.i.i.i.i.i = icmp ult i64 %view.sroa.0.0.i.i.i.i.i, %start.addr.0.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %start.addr.0.i.i.i.i.i, %view.sroa.0.0.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %invoke.cont5.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.end10.i.i.i.i.i
@@ -7541,7 +7541,7 @@ while.end10.i.i:                                  ; preds = %while.end.i.i, %_ZN
   %view.sroa.0.0.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %while.end.i.i ], [ %view.sroa.0.0.copyload.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
   %view.sroa.4.0.i.i = phi ptr [ %6, %while.end.i.i ], [ %view.sroa.4.0.copyload.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
   %start.addr.0.i.i = phi i64 [ %sub.i.i, %while.end.i.i ], [ %3, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
-  %cmp.i.i.i.i = icmp ult i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %start.addr.0.i.i, %view.sroa.0.0.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %invoke.cont
 
 if.then.i.i.i.i:                                  ; preds = %while.end10.i.i

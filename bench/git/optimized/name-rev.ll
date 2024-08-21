@@ -1912,7 +1912,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i.i
   store i64 %sub.i.i, ptr %len2.i, align 8
   %17 = load i64, ptr %buf, align 8
   %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %17, i64 1)
-  %cmp.i4.i = icmp ult i64 %spec.select.i.i, %sub.i.i
+  %cmp.i4.i = icmp ugt i64 %sub.i.i, %spec.select.i.i
   br i1 %cmp.i4.i, label %if.then.i.i17, label %if.end.i5.i
 
 if.then.i.i17:                                    ; preds = %if.then.i

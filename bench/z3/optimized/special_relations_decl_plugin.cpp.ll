@@ -220,7 +220,7 @@ sw.bb:                                            ; preds = %if.end14
   %check_bool_range.val.val = load ptr, ptr %8, align 8
   %m_bool_sort.i.i = getelementptr inbounds i8, ptr %check_bool_range.val.val, i64 840
   %9 = load ptr, ptr %m_bool_sort.i.i, align 8
-  %cmp.i.i = icmp eq ptr %9, %range.addr.1
+  %cmp.i.i = icmp eq ptr %range.addr.1, %9
   br i1 %cmp.i.i, label %sw.epilog.sink.split, label %if.then.i61.invoke
 
 sw.bb16:                                          ; preds = %if.end14
@@ -228,7 +228,7 @@ sw.bb16:                                          ; preds = %if.end14
   %check_bool_range.val24.val = load ptr, ptr %10, align 8
   %m_bool_sort.i.i32 = getelementptr inbounds i8, ptr %check_bool_range.val24.val, i64 840
   %11 = load ptr, ptr %m_bool_sort.i.i32, align 8
-  %cmp.i.i33 = icmp eq ptr %11, %range.addr.1
+  %cmp.i.i33 = icmp eq ptr %range.addr.1, %11
   br i1 %cmp.i.i33, label %sw.epilog.sink.split, label %if.then.i61.invoke
 
 sw.bb18:                                          ; preds = %if.end14
@@ -236,7 +236,7 @@ sw.bb18:                                          ; preds = %if.end14
   %check_bool_range.val26.val = load ptr, ptr %12, align 8
   %m_bool_sort.i.i37 = getelementptr inbounds i8, ptr %check_bool_range.val26.val, i64 840
   %13 = load ptr, ptr %m_bool_sort.i.i37, align 8
-  %cmp.i.i38 = icmp eq ptr %13, %range.addr.1
+  %cmp.i.i38 = icmp eq ptr %range.addr.1, %13
   br i1 %cmp.i.i38, label %sw.epilog.sink.split, label %if.then.i61.invoke
 
 sw.bb20:                                          ; preds = %if.end14
@@ -244,7 +244,7 @@ sw.bb20:                                          ; preds = %if.end14
   %check_bool_range.val28.val = load ptr, ptr %14, align 8
   %m_bool_sort.i.i42 = getelementptr inbounds i8, ptr %check_bool_range.val28.val, i64 840
   %15 = load ptr, ptr %m_bool_sort.i.i42, align 8
-  %cmp.i.i43 = icmp eq ptr %15, %range.addr.1
+  %cmp.i.i43 = icmp eq ptr %range.addr.1, %15
   br i1 %cmp.i.i43, label %sw.epilog.sink.split, label %if.then.i61.invoke
 
 sw.bb22:                                          ; preds = %if.end14
@@ -323,7 +323,7 @@ sw.bb73:                                          ; preds = %if.end14
   %check_bool_range.val30.val = load ptr, ptr %29, align 8
   %m_bool_sort.i.i59 = getelementptr inbounds i8, ptr %check_bool_range.val30.val, i64 840
   %30 = load ptr, ptr %m_bool_sort.i.i59, align 8
-  %cmp.i.i60 = icmp eq ptr %30, %range.addr.1
+  %cmp.i.i60 = icmp eq ptr %range.addr.1, %30
   br i1 %cmp.i.i60, label %invoke.cont74, label %if.then.i61.invoke
 
 if.then.i61.invoke:                               ; preds = %if.end111, %if.end102, %invoke.cont92, %invoke.cont74, %invoke.cont78, %invoke.cont84, %sw.bb73, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb, %if.then25, %if.then39, %if.then51, %if.then60, %if.then69
@@ -373,7 +373,7 @@ if.end102:                                        ; preds = %invoke.cont92
 if.end111:                                        ; preds = %if.end102
   %m_range.i89 = getelementptr inbounds i8, ptr %35, i64 40
   %39 = load ptr, ptr %m_range.i89, align 8
-  %cmp.i91 = icmp eq ptr %range.addr.1, %39
+  %cmp.i91 = icmp eq ptr %39, %range.addr.1
   br i1 %cmp.i91, label %sw.epilog, label %if.then.i61.invoke
 
 sw.epilog.sink.split:                             ; preds = %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb

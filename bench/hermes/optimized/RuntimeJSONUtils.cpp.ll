@@ -1014,10 +1014,10 @@ for.body138.i.i:                                  ; preds = %if.end130.i.i, %for
   %80 = load ptr, ptr %stringifyer, align 8
   %beginIndex_.i.i.i = getelementptr inbounds i8, ptr %79, i64 20
   %81 = load i32, ptr %beginIndex_.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ule i32 %81, %i135.087.i.i
+  %cmp.not.i.i.i = icmp uge i32 %i135.087.i.i, %81
   %endIndex_.i61.i.i = getelementptr inbounds i8, ptr %79, i64 24
   %82 = load i32, ptr %endIndex_.i61.i.i, align 4
-  %cmp2.i.i.i = icmp ugt i32 %82, %i135.087.i.i
+  %cmp2.i.i.i = icmp ult i32 %i135.087.i.i, %82
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %cond.true.i63.i.i, label %for.body138._ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit_crit_edge.i.i
 
@@ -2361,10 +2361,10 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   %45 = inttoptr i64 %and.i.i.i.i.i39 to ptr
   %beginIndex_.i = getelementptr inbounds i8, ptr %45, i64 20
   %46 = load i32, ptr %beginIndex_.i, align 4
-  %cmp.not.i = icmp ule i32 %46, %index89.0130
+  %cmp.not.i = icmp uge i32 %index89.0130, %46
   %endIndex_.i40 = getelementptr inbounds i8, ptr %45, i64 24
   %47 = load i32, ptr %endIndex_.i40, align 4
-  %cmp2.i = icmp ugt i32 %47, %index89.0130
+  %cmp2.i = icmp ult i32 %index89.0130, %47
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i42, label %sw.bb36.i
 
@@ -3971,10 +3971,10 @@ if.end81:                                         ; preds = %for.body.i56, %_ZN4
   %55 = inttoptr i64 %and.i.i.i.i.i64 to ptr
   %beginIndex_.i = getelementptr inbounds i8, ptr %55, i64 20
   %56 = load i32, ptr %beginIndex_.i, align 4
-  %cmp.not.i65 = icmp ule i32 %56, %index.0224
+  %cmp.not.i65 = icmp uge i32 %index.0224, %56
   %endIndex_.i66 = getelementptr inbounds i8, ptr %55, i64 24
   %57 = load i32, ptr %endIndex_.i66, align 4
-  %cmp2.i = icmp ugt i32 %57, %index.0224
+  %cmp2.i = icmp ult i32 %index.0224, %57
   %or.cond.i = select i1 %cmp.not.i65, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %sw.bb36.i
 
@@ -4271,16 +4271,16 @@ if.end181:                                        ; preds = %_ZN6hermes2vm16Arra
 
 if.then184:                                       ; preds = %if.end181
   %118 = load i32, ptr %Size.i.i, align 8
-  %cmp.i148 = icmp ugt i32 %118, %41
+  %cmp.i148 = icmp ult i32 %41, %118
   br i1 %cmp.i148, label %if.end15.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then184
-  %cmp5.i = icmp ult i32 %118, %41
+  %cmp5.i = icmp ugt i32 %41, %118
   br i1 %cmp5.i, label %if.then6.i, label %for.inc
 
 if.then6.i:                                       ; preds = %if.else.i
   %119 = load i32, ptr %Capacity.i.i, align 4
-  %cmp8.i = icmp ult i32 %119, %41
+  %cmp8.i = icmp ugt i32 %41, %119
   br i1 %cmp8.i, label %if.then9.i, label %if.end.i
 
 if.then9.i:                                       ; preds = %if.then6.i
@@ -4290,7 +4290,7 @@ if.then9.i:                                       ; preds = %if.then6.i
 
 if.end.i:                                         ; preds = %if.then9.i, %if.then6.i
   %conv.i17.pre-phi.i.in = phi i32 [ %.pre.i152, %if.then9.i ], [ %118, %if.then6.i ]
-  %cmp13.not20.i = icmp eq i32 %conv.i17.pre-phi.i.in, %41
+  %cmp13.not20.i = icmp eq i32 %41, %conv.i17.pre-phi.i.in
   br i1 %cmp13.not20.i, label %if.end15.sink.split.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
@@ -4363,16 +4363,16 @@ for.body.i171:                                    ; preds = %_ZN4llvh23SmallVect
 
 if.else192:                                       ; preds = %for.end.thread, %for.end
   %133 = load i32, ptr %Size.i.i, align 8
-  %cmp.i181 = icmp ugt i32 %133, %add.i
+  %cmp.i181 = icmp ult i32 %add.i, %133
   br i1 %cmp.i181, label %if.end15.sink.split.i193, label %if.else.i182
 
 if.else.i182:                                     ; preds = %if.else192
-  %cmp5.i183 = icmp ult i32 %133, %add.i
+  %cmp5.i183 = icmp ugt i32 %add.i, %133
   br i1 %cmp5.i183, label %if.then6.i184, label %if.end194
 
 if.then6.i184:                                    ; preds = %if.else.i182
   %134 = load i32, ptr %Capacity.i.i, align 4
-  %cmp8.i187 = icmp ult i32 %134, %add.i
+  %cmp8.i187 = icmp ugt i32 %add.i, %134
   br i1 %cmp8.i187, label %if.then9.i194, label %if.end.i188
 
 if.then9.i194:                                    ; preds = %if.then6.i184
@@ -4383,7 +4383,7 @@ if.then9.i194:                                    ; preds = %if.then6.i184
 
 if.end.i188:                                      ; preds = %if.then9.i194, %if.then6.i184
   %conv.i17.pre-phi.i189.in = phi i32 [ %.pre.i196, %if.then9.i194 ], [ %133, %if.then6.i184 ]
-  %cmp13.not20.i190 = icmp eq i32 %conv.i17.pre-phi.i189.in, %add.i
+  %cmp13.not20.i190 = icmp eq i32 %add.i, %conv.i17.pre-phi.i189.in
   br i1 %cmp13.not20.i190, label %if.end15.sink.split.i193, label %for.body.preheader.i191
 
 for.body.preheader.i191:                          ; preds = %if.end.i188

@@ -1708,7 +1708,7 @@ define internal fastcc void @gray_render_line(ptr noundef %0, i64 noundef %1, i6
   br label %.loopexit
 
 32:                                               ; preds = %17
-  %33 = icmp eq i64 %5, %2
+  %33 = icmp eq i64 %2, %5
   br i1 %33, label %34, label %80
 
 34:                                               ; preds = %32
@@ -1800,7 +1800,7 @@ gray_set_cell.exit:                               ; preds = %.lr.ph.i, %43, %74
   br label %349
 
 80:                                               ; preds = %32
-  %81 = icmp eq i64 %19, %1
+  %81 = icmp eq i64 %1, %19
   br i1 %81, label %82, label %190
 
 82:                                               ; preds = %80
@@ -2176,7 +2176,7 @@ gray_set_cell.exit215:                            ; preds = %.lr.ph.i210, %159, 
 
 297:                                              ; preds = %295
   %298 = load i32, ptr %208, align 4
-  %.not41.i218 = icmp sgt i32 %298, %.1178
+  %.not41.i218 = icmp slt i32 %.1178, %298
   br i1 %.not41.i218, label %301, label %299
 
 299:                                              ; preds = %297, %295, %291
@@ -2188,7 +2188,7 @@ gray_set_cell.exit215:                            ; preds = %.lr.ph.i210, %159, 
   %303 = zext nneg i32 %293 to i64
   %304 = getelementptr inbounds ptr, ptr %302, i64 %303
   %305 = load i32, ptr %210, align 8
-  %.not42.i219 = icmp sgt i32 %305, %.1178
+  %.not42.i219 = icmp slt i32 %.1178, %305
   %306 = add nsw i32 %305, -1
   %307 = select i1 %.not42.i219, i32 %306, i32 %.1178
   %308 = load ptr, ptr %304, align 8

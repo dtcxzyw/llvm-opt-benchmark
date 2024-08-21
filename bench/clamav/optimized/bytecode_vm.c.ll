@@ -89,7 +89,7 @@ define i32 @cli_vm_execute(ptr noundef readonly %0, ptr noundef %1, ptr noundef 
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, -32767
   %27 = load i32, ptr %13, align 4
-  %28 = icmp ult i32 %27, %26
+  %28 = icmp ugt i32 %26, %27
   %29 = load ptr, ptr %14, align 8
   br i1 %28, label %30, label %._crit_edge.i
 
@@ -143,7 +143,7 @@ ptr_register_glob_fixedid.exit:                   ; preds = %._crit_edge.i, %30
   %51 = load i32, ptr %50, align 4
   %52 = add i32 %10, -32766
   %53 = getelementptr inbounds i8, ptr %5, i64 20
-  %54 = icmp ult i32 %47, %52
+  %54 = icmp ugt i32 %52, %47
   %55 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %54, label %56, label %._crit_edge.i11889
 
@@ -20682,7 +20682,7 @@ ptr_torealptr.exit11970:                          ; preds = %9661
   %9838 = getelementptr inbounds i8, ptr %.023.i11974, i64 8
   %9839 = load i32, ptr %9838, align 8
   %9840 = icmp ugt i32 %9839, %9820
-  %.not32.i11975 = icmp uge i32 %9839, %.04538
+  %.not32.i11975 = icmp ule i32 %.04538, %9839
   %or.cond.not36.i11976 = and i1 %9840, %.not32.i11975
   %9841 = add i32 %.04538, %9820
   %9842 = icmp ule i32 %9841, %9839
@@ -20793,7 +20793,7 @@ ptr_torealptr.exit11979:                          ; preds = %9837
   %9894 = getelementptr inbounds i8, ptr %.023.i11983, i64 8
   %9895 = load i32, ptr %9894, align 8
   %9896 = icmp ugt i32 %9895, %9876
-  %.not32.i11984 = icmp uge i32 %9895, %.04538
+  %.not32.i11984 = icmp ule i32 %.04538, %9895
   %or.cond.not36.i11985 = and i1 %9896, %.not32.i11984
   %9897 = add i32 %.04538, %9876
   %9898 = icmp ule i32 %9897, %9895
@@ -20971,7 +20971,7 @@ ptr_torealptr.exit11988._crit_edge:               ; preds = %ptr_torealptr.exit1
   %9980 = getelementptr inbounds i8, ptr %.023.i11992, i64 8
   %9981 = load i32, ptr %9980, align 8
   %9982 = icmp ugt i32 %9981, %9962
-  %.not32.i11993 = icmp uge i32 %9981, %.04523.shrunk
+  %.not32.i11993 = icmp ule i32 %.04523.shrunk, %9981
   %or.cond.not36.i11994 = and i1 %9982, %.not32.i11993
   %9983 = add i32 %.04523.shrunk, %9962
   %9984 = icmp ule i32 %9983, %9981
@@ -21082,7 +21082,7 @@ ptr_torealptr.exit11997:                          ; preds = %9979
   %10036 = getelementptr inbounds i8, ptr %.023.i12001, i64 8
   %10037 = load i32, ptr %10036, align 8
   %10038 = icmp ugt i32 %10037, %10018
-  %.not32.i12002 = icmp uge i32 %10037, %.04523.shrunk
+  %.not32.i12002 = icmp ule i32 %.04523.shrunk, %10037
   %or.cond.not36.i12003 = and i1 %10038, %.not32.i12002
   %10039 = add i32 %.04523.shrunk, %10018
   %10040 = icmp ule i32 %10039, %10037
@@ -22405,9 +22405,9 @@ define internal fastcc ptr @ptr_torealptr(ptr nocapture noundef readonly %0, i64
   %27 = getelementptr inbounds i8, ptr %.023, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = icmp ugt i32 %28, %6
-  %.not32 = icmp uge i32 %28, %2
+  %.not32 = icmp ule i32 %2, %28
   %or.cond.not36 = and i1 %29, %.not32
-  %30 = add i32 %6, %2
+  %30 = add i32 %2, %6
   %31 = icmp ule i32 %30, %28
   %or.cond34 = and i1 %31, %or.cond.not36
   br i1 %or.cond34, label %32, label %.critedge

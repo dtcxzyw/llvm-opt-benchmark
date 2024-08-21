@@ -844,7 +844,7 @@ define ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef ze
 .loopexit:                                        ; preds = %98, %124, %128, %75, %71, %64, %36, %40, %111, %113, %.split63.us, %.split65.us, %.outer._crit_edge
   %.045 = phi i1 [ true, %.outer._crit_edge ], [ true, %.split65.us ], [ false, %.split63.us ], [ true, %113 ], [ true, %111 ], [ false, %40 ], [ false, %36 ], [ %65, %64 ], [ %65, %71 ], [ %65, %75 ], [ false, %128 ], [ false, %124 ], [ true, %98 ]
   %.b = load i1, ptr @command_shutdown, align 4
-  %brmerge.demorgan = and i1 %.b, %2
+  %brmerge.demorgan = and i1 %2, %.b
   br i1 %brmerge.demorgan, label %147, label %148
 
 147:                                              ; preds = %.loopexit

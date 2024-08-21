@@ -108,7 +108,7 @@ BufferGetPage.exit:                               ; preds = %33, %39
   %61 = lshr i32 %60, 2
   %62 = trunc i32 %61 to i16
   %.0.i = select i1 %58, i16 0, i16 %62
-  %63 = icmp ult i16 %.0.i, %5
+  %63 = icmp ugt i16 %5, %.0.i
   br i1 %63, label %68, label %64
 
 64:                                               ; preds = %56

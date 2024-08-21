@@ -205,7 +205,7 @@ _ZNK4Type12is_zero_typeEv.exit:                   ; preds = %22
   %43 = zext nneg i8 %40 to i64
   %44 = getelementptr inbounds [20 x ptr], ptr @_ZN4Type10_zero_typeE, i64 0, i64 %43
   %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, %35
+  %46 = icmp eq ptr %35, %45
   br i1 %46, label %47, label %_ZNK4Type12is_zero_typeEv.exit.thread
 
 47:                                               ; preds = %_ZNK4Type12is_zero_typeEv.exit
@@ -232,7 +232,7 @@ _ZNK4Type12is_zero_typeEv.exit102:                ; preds = %47
   %64 = zext nneg i8 %61 to i64
   %65 = getelementptr inbounds [20 x ptr], ptr @_ZN4Type10_zero_typeE, i64 0, i64 %64
   %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, %56
+  %67 = icmp eq ptr %56, %66
   br i1 %67, label %68, label %_ZNK4Type12is_zero_typeEv.exit.thread
 
 68:                                               ; preds = %_ZNK4Type12is_zero_typeEv.exit102
@@ -2119,8 +2119,8 @@ declare noundef ptr @_ZN11PhaseValues7longconEl(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK8MulFNode8mul_ringEPK4TypeS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(52) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN4Type5FLOATE, align 8
-  %5 = icmp eq ptr %4, %1
-  %6 = icmp eq ptr %4, %2
+  %5 = icmp eq ptr %1, %4
+  %6 = icmp eq ptr %2, %4
   %or.cond = or i1 %5, %6
   br i1 %or.cond, label %14, label %7
 
@@ -2222,8 +2222,8 @@ _ZN4NodenwEm.exit:                                ; preds = %42, %44
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK8MulDNode8mul_ringEPK4TypeS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(52) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN4Type6DOUBLEE, align 8
-  %5 = icmp eq ptr %4, %1
-  %6 = icmp eq ptr %4, %2
+  %5 = icmp eq ptr %1, %4
+  %6 = icmp eq ptr %2, %4
   %or.cond = or i1 %5, %6
   br i1 %or.cond, label %14, label %7
 
@@ -2349,8 +2349,8 @@ define hidden noundef ptr @_ZNK10MulHiLNode5ValueEP8PhaseGVN(ptr noundef nonnull
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(52) %0) #10
   %27 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  %28 = icmp eq ptr %27, %15
-  %29 = icmp eq ptr %27, %22
+  %28 = icmp eq ptr %15, %27
+  %29 = icmp eq ptr %22, %27
   %or.cond16.i = or i1 %28, %29
   br i1 %or.cond16.i, label %_Z10MulHiValuePK4TypeS1_S1_.exit, label %30
 
@@ -2362,8 +2362,8 @@ define hidden noundef ptr @_ZNK10MulHiLNode5ValueEP8PhaseGVN(ptr noundef nonnull
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
-  %35 = icmp eq ptr %34, %15
-  %36 = icmp eq ptr %34, %22
+  %35 = icmp eq ptr %15, %34
+  %36 = icmp eq ptr %22, %34
   %or.cond15.i = or i1 %35, %36
   %37 = load ptr, ptr @_ZN8TypeLong4LONGE, align 8
   %spec.select.i = select i1 %or.cond15.i, ptr %26, ptr %37
@@ -2377,8 +2377,8 @@ _Z10MulHiValuePK4TypeS1_S1_.exit:                 ; preds = %2, %30, %33
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_Z10MulHiValuePK4TypeS1_S1_(ptr noundef readnone %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  %5 = icmp eq ptr %4, %0
-  %6 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %0, %4
+  %6 = icmp eq ptr %1, %4
   %or.cond16 = or i1 %5, %6
   br i1 %or.cond16, label %15, label %7
 
@@ -2390,8 +2390,8 @@ define hidden noundef ptr @_Z10MulHiValuePK4TypeS1_S1_(ptr noundef readnone %0, 
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
-  %12 = icmp eq ptr %11, %0
-  %13 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %0, %11
+  %13 = icmp eq ptr %1, %11
   %or.cond15 = or i1 %12, %13
   %14 = load ptr, ptr @_ZN8TypeLong4LONGE, align 8
   %spec.select = select i1 %or.cond15, ptr %2, ptr %14
@@ -2429,8 +2429,8 @@ define hidden noundef ptr @_ZNK11UMulHiLNode5ValueEP8PhaseGVN(ptr noundef nonnul
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(52) %0) #10
   %27 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  %28 = icmp eq ptr %27, %15
-  %29 = icmp eq ptr %27, %22
+  %28 = icmp eq ptr %15, %27
+  %29 = icmp eq ptr %22, %27
   %or.cond16.i = or i1 %28, %29
   br i1 %or.cond16.i, label %_Z10MulHiValuePK4TypeS1_S1_.exit, label %30
 
@@ -2442,8 +2442,8 @@ define hidden noundef ptr @_ZNK11UMulHiLNode5ValueEP8PhaseGVN(ptr noundef nonnul
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
-  %35 = icmp eq ptr %34, %15
-  %36 = icmp eq ptr %34, %22
+  %35 = icmp eq ptr %15, %34
+  %36 = icmp eq ptr %22, %34
   %or.cond15.i = or i1 %35, %36
   %37 = load ptr, ptr @_ZN8TypeLong4LONGE, align 8
   %spec.select.i = select i1 %or.cond15.i, ptr %26, ptr %37
@@ -2510,8 +2510,8 @@ define hidden noundef ptr @_ZNK8AndINode8mul_ringEPK4TypeS2_(ptr nocapture nound
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
-  %39 = icmp eq ptr %38, %1
-  %40 = icmp eq ptr %38, %2
+  %39 = icmp eq ptr %1, %38
+  %40 = icmp eq ptr %2, %38
   %or.cond = or i1 %39, %40
   %41 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
   %spec.select = select i1 %or.cond, ptr %38, ptr %41
@@ -4872,7 +4872,7 @@ _ZN9VectorSet8test_setEj.exit.i.i:                ; preds = %78, %67
   store i32 %91, ptr %89, align 8
   %92 = getelementptr inbounds i8, ptr %72, i64 8
   %93 = load i32, ptr %92, align 8
-  %.not.i.i.i.i = icmp ugt i32 %93, %90
+  %.not.i.i.i.i = icmp ult i32 %90, %93
   br i1 %.not.i.i.i.i, label %_ZN9Node_List4pushEP4Node.exit.i.i, label %94
 
 94:                                               ; preds = %88

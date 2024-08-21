@@ -3137,8 +3137,9 @@ if.else17:                                        ; preds = %if.else
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %5 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %4)
   %6 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %5)
-  %7 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %7
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %7 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %7
   %8 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %6)
   %neg = fneg double %8
   %9 = tail call double @llvm.fmuladd.f64(double %3, double %sub, double %neg)
@@ -3327,8 +3328,9 @@ cond.false23:                                     ; preds = %cond.false
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %20 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %19)
   %21 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %20)
-  %22 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %22
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %22 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %22
   %23 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %21)
   br label %cond.end25
 
@@ -3408,7 +3410,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
 _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIiiEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE28rehash_and_grow_if_necessaryEv.exit: ; preds = %if.then.i, %if.else.i
   %7 = load i64, ptr %capacity_.i.i10, align 8
   %cmp.i.i.i = icmp ult i64 %7, 17
-  %cmp.i.i = icmp ugt i64 %7, %4
+  %cmp.i.i = icmp ult i64 %4, %7
   %8 = and i1 %cmp.i.i.i, %cmp.i.i
   br i1 %8, label %if.end.i, label %if.then.i14
 
@@ -5528,7 +5530,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::PoissonModel::CDF", ptr %__first.sroa.0.02.i.i.i.i.i, i64 %shr.i.i.i.i.i
   %25 = getelementptr i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 16
   %call.val.i.i.i.i.i.i = load double, ptr %25, align 8, !noalias !68
-  %cmp.i.i5.i.i.i.i.i = fcmp ogt double %call.val.i.i.i.i.i.i, %p.0107.i.i
+  %cmp.i.i5.i.i.i.i.i = fcmp olt double %p.0107.i.i, %call.val.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 24
   %26 = xor i64 %shr.i.i.i.i.i, -1
   %sub9.i.i.i.i.i = add nsw i64 %__len.03.i.i.i.i.i, %26
@@ -8839,8 +8841,9 @@ cond.false23:                                     ; preds = %cond.false
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %25 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %24)
   %26 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %25)
-  %27 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %27
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %27 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %27
   %28 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %26)
   br label %cond.end25
 
@@ -9895,7 +9898,7 @@ for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
-  %cmp.not7.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
+  %cmp.not7.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not7.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i33
@@ -15177,8 +15180,9 @@ cond.false23:                                     ; preds = %cond.false
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %20 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %19)
   %21 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %20)
-  %22 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %22
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %22 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %22
   %23 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %21)
   br label %cond.end25
 
@@ -17746,8 +17750,9 @@ if.else17:                                        ; preds = %if.else
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %5 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %4)
   %6 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %5)
-  %7 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %7
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %7 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %7
   %8 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %6)
   %neg = fneg double %8
   %9 = tail call double @llvm.fmuladd.f64(double %3, double %sub, double %neg)
@@ -18252,8 +18257,9 @@ cond.false23:                                     ; preds = %cond.false
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %20 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %19)
   %21 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %20)
-  %22 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %22
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %22 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %22
   %23 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %21)
   br label %cond.end25
 
@@ -23250,8 +23256,9 @@ if.else17:                                        ; preds = %if.else
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %5 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %4)
   %6 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %5)
-  %7 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %7
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %7 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %7
   %8 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %6)
   %neg = fneg double %8
   %9 = tail call double @llvm.fmuladd.f64(double %3, double %sub, double %neg)
@@ -23756,8 +23763,9 @@ cond.false23:                                     ; preds = %cond.false
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %20 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %19)
   %21 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %20)
-  %22 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %22
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %22 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %22
   %23 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %21)
   br label %cond.end25
 
@@ -26815,8 +26823,9 @@ if.else17:                                        ; preds = %if.else
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %5 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %4)
   %6 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %5)
-  %7 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %7
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %7 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %7
   %8 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %6)
   %neg = fneg double %8
   %9 = tail call double @llvm.fmuladd.f64(double %3, double %sub, double %neg)
@@ -27321,8 +27330,9 @@ cond.false23:                                     ; preds = %cond.false
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %20 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %19)
   %21 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %20)
-  %22 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %22
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %22 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %22
   %23 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %21)
   br label %cond.end25
 
@@ -30364,8 +30374,9 @@ if.else17:                                        ; preds = %if.else
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %5 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %4)
   %6 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %5)
-  %7 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %7
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %7 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %7
   %8 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %6)
   %neg = fneg double %8
   %9 = tail call double @llvm.fmuladd.f64(double %3, double %sub, double %neg)
@@ -30870,8 +30881,9 @@ cond.false23:                                     ; preds = %cond.false
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %20 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %19)
   %21 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %20)
-  %22 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %22
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %22 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %22
   %23 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %21)
   br label %cond.end25
 
@@ -33370,8 +33382,9 @@ if.else17:                                        ; preds = %if.else
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %5 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %4)
   %6 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %5)
-  %7 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %7
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %7 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %7
   %8 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %6)
   %neg = fneg double %8
   %9 = tail call double @llvm.fmuladd.f64(double %3, double %sub, double %neg)
@@ -33876,8 +33889,9 @@ cond.false23:                                     ; preds = %cond.false
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %20 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %19)
   %21 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %20)
-  %22 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %22
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %22 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %22
   %23 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %21)
   br label %cond.end25
 
@@ -36376,8 +36390,9 @@ if.else17:                                        ; preds = %if.else
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %5 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %4)
   %6 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %5)
-  %7 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %7
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %7 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %7
   %8 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %6)
   %neg = fneg double %8
   %9 = tail call double @llvm.fmuladd.f64(double %3, double %sub, double %neg)
@@ -36882,8 +36897,9 @@ cond.false23:                                     ; preds = %cond.false
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %20 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %19)
   %21 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %20)
-  %22 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %22
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %22 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %22
   %23 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %21)
   br label %cond.end25
 
@@ -39382,8 +39398,9 @@ if.else17:                                        ; preds = %if.else
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %5 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %4)
   %6 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %5)
-  %7 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %7
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %7 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %7
   %8 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %6)
   %neg = fneg double %8
   %9 = tail call double @llvm.fmuladd.f64(double %3, double %sub, double %neg)
@@ -39888,8 +39905,9 @@ cond.false23:                                     ; preds = %cond.false
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %20 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %19)
   %21 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %20)
-  %22 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %22
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %22 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %22
   %23 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %21)
   br label %cond.end25
 
@@ -41205,7 +41223,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12
@@ -42551,7 +42569,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 if.then.i:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i.i, %if.then.i.i
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa30.i.i, %if.then.i.i ], [ %__y.0.lcssa31.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i.i ]
-  %cmp2.i = icmp eq ptr %2, %retval.sroa.4.0.i.ph.i
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %2
   br i1 %cmp2.i, label %lor.end.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then.i
@@ -43950,7 +43968,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 if.then.i:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i.i, %if.then.i.i
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa30.i.i, %if.then.i.i ], [ %__y.0.lcssa31.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i.i ]
-  %cmp2.i = icmp eq ptr %2, %retval.sroa.4.0.i.ph.i
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %2
   br i1 %cmp2.i, label %lor.end.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then.i

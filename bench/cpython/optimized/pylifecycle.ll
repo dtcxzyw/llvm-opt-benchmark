@@ -762,7 +762,7 @@ if.end10:                                         ; preds = %if.end4
 if.then.if.end4_crit_edge.i:                      ; preds = %if.end10
   %.pre.i = load ptr, ptr %interp, align 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not.i = icmp eq ptr %9, %.pre.i
+  %cmp.i.not.i = icmp eq ptr %.pre.i, %9
   br i1 %cmp.i.not.i, label %if.then7.i, label %if.end13.i
 
 if.then3.i:                                       ; preds = %if.end10
@@ -1504,7 +1504,7 @@ if.then4:                                         ; preds = %if.end
 if.then.if.end4_crit_edge.i.i:                    ; preds = %if.then4
   %.pre.i.i = load ptr, ptr %interp1, align 8, !noalias !31
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8, !noalias !31
-  %cmp.i.not.i.i = icmp eq ptr %5, %.pre.i.i
+  %cmp.i.not.i.i = icmp eq ptr %.pre.i.i, %5
   br i1 %cmp.i.not.i.i, label %if.then7.i.i, label %interpreter_update_config.exit.i
 
 if.then7.i.i:                                     ; preds = %if.then.if.end4_crit_edge.i.i
@@ -2871,7 +2871,7 @@ entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not = icmp eq ptr %1, %0
+  %cmp.i.not = icmp eq ptr %0, %1
   tail call void @_PyXI_Fini(ptr noundef %0) #21
   %2 = load ptr, ptr %interp, align 8
   tail call void @_PyExc_ClearExceptionGroupType(ptr noundef %2) #21
@@ -3252,7 +3252,7 @@ entry:
   %0 = load ptr, ptr %interp1, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %cmp.not = icmp eq ptr %2, %tstate
+  %cmp.not = icmp eq ptr %tstate, %2
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -3278,7 +3278,7 @@ if.end4:                                          ; preds = %if.end
   tail call void @_PyAtExit_Call(ptr noundef %4) #21
   %head = getelementptr inbounds i8, ptr %0, i64 944
   %5 = load ptr, ptr %head, align 8
-  %cmp6.not = icmp eq ptr %5, %tstate
+  %cmp6.not = icmp eq ptr %tstate, %5
   br i1 %cmp6.not, label %lor.lhs.false, label %if.then8
 
 lor.lhs.false:                                    ; preds = %if.end4
@@ -5076,7 +5076,7 @@ entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i79.not = icmp eq ptr %1, %0
+  %cmp.i79.not = icmp eq ptr %0, %1
   %call3 = tail call ptr @_PyInterpreterState_GetConfig(ptr noundef %0) #21
   %_install_importlib = getelementptr inbounds i8, ptr %call3, i64 432
   %2 = load i32, ptr %_install_importlib, align 8
@@ -5115,7 +5115,7 @@ if.end10:                                         ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status8.i)
   %4 = load ptr, ptr %interp, align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not.i = icmp eq ptr %5, %4
+  %cmp.i.not.i = icmp eq ptr %4, %5
   br i1 %cmp.i.not.i, label %if.then7.i, label %interpreter_update_config.exit
 
 if.then7.i:                                       ; preds = %if.end10
@@ -6297,7 +6297,7 @@ land.lhs.true41:                                  ; preds = %if.end35
 lor.lhs.false43:                                  ; preds = %land.lhs.true41
   %3 = load ptr, ptr @stderr, align 8
   %call44 = call i32 @fileno(ptr noundef %3) #21
-  %cmp45 = icmp eq i32 %call44, %fd
+  %cmp45 = icmp eq i32 %fd, %call44
   br i1 %cmp45, label %if.then50, label %if.else47
 
 if.else47:                                        ; preds = %lor.lhs.false43, %if.end35

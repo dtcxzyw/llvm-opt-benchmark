@@ -215,7 +215,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   %40 = zext i16 %39 to i32
   %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef %40) #9
   %42 = sext i32 %41 to i64
-  %43 = icmp ult i64 %42, %5
+  %43 = icmp ugt i64 %5, %42
   br i1 %43, label %.preheader22, label %.loopexit18
 
 44:                                               ; preds = %36
@@ -226,7 +226,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   %46 = load i32, ptr %0, align 1
   %47 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef %46) #9
   %48 = sext i32 %47 to i64
-  %49 = icmp ult i64 %48, %5
+  %49 = icmp ugt i64 %5, %48
   br i1 %49, label %.preheader19, label %.loopexit18
 
 50:                                               ; preds = %36
@@ -237,7 +237,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   %52 = load i64, ptr %0, align 1
   %53 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i64 noundef %52) #9
   %54 = sext i32 %53 to i64
-  %55 = icmp ult i64 %54, %5
+  %55 = icmp ugt i64 %5, %54
   br i1 %55, label %.preheader16, label %.loopexit18
 
 56:                                               ; preds = %.preheader16
@@ -307,7 +307,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   %104 = phi i32 [ %134, %132 ], [ 0, %36 ]
   %105 = add i32 %103, 2
   %106 = sext i32 %105 to i64
-  %107 = icmp ugt i64 %106, %5
+  %107 = icmp ult i64 %5, %106
   br i1 %107, label %.loopexit, label %108
 
 108:                                              ; preds = %.preheader
@@ -324,7 +324,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   store i8 %115, ptr %118, align 1
   %119 = add i32 %103, 3
   %120 = sext i32 %119 to i64
-  %121 = icmp ugt i64 %120, %5
+  %121 = icmp ult i64 %5, %120
   br i1 %121, label %.loopexit, label %122
 
 122:                                              ; preds = %108
@@ -337,7 +337,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   store i8 %126, ptr %128, align 1
   %129 = add i32 %103, 4
   %130 = sext i32 %129 to i64
-  %131 = icmp ugt i64 %130, %5
+  %131 = icmp ult i64 %5, %130
   br i1 %131, label %.loopexit, label %132
 
 132:                                              ; preds = %122
@@ -392,7 +392,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   %159 = phi i32 [ %179, %174 ], [ 0, %.loopexit56.preheader ]
   %160 = add i32 %158, 2
   %161 = sext i32 %160 to i64
-  %162 = icmp ugt i64 %161, %5
+  %162 = icmp ult i64 %5, %161
   br i1 %162, label %.loopexit, label %163
 
 163:                                              ; preds = %.loopexit56
@@ -491,7 +491,7 @@ define dso_local void @print_hex_dump(ptr noundef %0, ptr noundef %1, i32 nounde
   %23 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %1, ptr noundef %20, ptr noundef nonnull %9) #10
   %24 = add i32 %16, %11
   %25 = sext i32 %24 to i64
-  %26 = icmp ult i64 %25, %6
+  %26 = icmp ugt i64 %6, %25
   br i1 %26, label %.split.us, label %.loopexit, !llvm.loop !17
 
 .split.us2:                                       ; preds = %13, %.split.us2
@@ -506,7 +506,7 @@ define dso_local void @print_hex_dump(ptr noundef %0, ptr noundef %1, i32 nounde
   %35 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef %1, i32 noundef %28, ptr noundef nonnull %9) #10
   %36 = add i32 %28, %11
   %37 = sext i32 %36 to i64
-  %38 = icmp ult i64 %37, %6
+  %38 = icmp ugt i64 %6, %37
   br i1 %38, label %.split.us2, label %.loopexit, !llvm.loop !17
 
 .split:                                           ; preds = %13, %.split
@@ -521,7 +521,7 @@ define dso_local void @print_hex_dump(ptr noundef %0, ptr noundef %1, i32 nounde
   %47 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9) #10
   %48 = add i32 %40, %11
   %49 = sext i32 %48 to i64
-  %50 = icmp ult i64 %49, %6
+  %50 = icmp ugt i64 %6, %49
   br i1 %50, label %.split, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.split.us2, %.split.us, %.split, %8

@@ -325,7 +325,7 @@ define hidden noalias noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Wri
   %6 = load i64, ptr %5, align 8, !alias.scope !109, !noalias !116, !noundef !11
   %7 = load i64, ptr %4, align 8, !alias.scope !119, !noalias !116, !noundef !11
   %8 = sub i64 %7, %6
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17he6b96cff79547889E.llvm.12642593798105491766.exit"
 
 10:                                               ; preds = %3
@@ -354,7 +354,7 @@ define hidden noalias noundef ptr @"_ZN3std2io5impls74_$LT$impl$u20$std..io..Wri
   %5 = load i64, ptr %4, align 8, !alias.scope !122, !noalias !127, !noundef !11
   %6 = load i64, ptr %0, align 8, !alias.scope !129, !noalias !127, !noundef !11
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h264d2874cff25bdaE.exit"
 
 9:                                                ; preds = %3
@@ -1242,7 +1242,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h4cb1
   store i64 %33, ptr %18, align 8, !alias.scope !562, !noalias !569
   %34 = load i64, ptr %.val1.i.i.i.i.i.i, align 8, !alias.scope !587, !noalias !596, !noundef !11
   %35 = sub i64 %34, %33
-  %36 = icmp ult i64 %35, %.val8.i.i
+  %36 = icmp ugt i64 %.val8.i.i, %35
   br i1 %36, label %37, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fc9c4518adfa905E.exit.i.i"
 
 37:                                               ; preds = %27
@@ -1324,7 +1324,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h52ae
   store i64 %34, ptr %19, align 8, !alias.scope !636, !noalias !643
   %35 = load i64, ptr %.val1.i.i.i.i.i.i, align 8, !alias.scope !661, !noalias !670, !noundef !11
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %.val8.i.i
+  %37 = icmp ugt i64 %.val8.i.i, %36
   br i1 %37, label %38, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd339330ad3aff42aE.exit.i.i"
 
 38:                                               ; preds = %28
@@ -1643,7 +1643,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h6c49
   store i64 %34, ptr %19, align 8, !alias.scope !855, !noalias !862
   %35 = load i64, ptr %.val1.i.i.i.i.i.i, align 8, !alias.scope !880, !noalias !889, !noundef !11
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %.val8.i.i
+  %37 = icmp ugt i64 %.val8.i.i, %36
   br i1 %37, label %38, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hbfb3d933fd3c28d7E.exit.i.i"
 
 38:                                               ; preds = %28
@@ -1727,7 +1727,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h7430
   store i64 %33, ptr %18, align 8, !alias.scope !930, !noalias !937
   %34 = load i64, ptr %.val1.i.i.i.i.i.i, align 8, !alias.scope !955, !noalias !964, !noundef !11
   %35 = sub i64 %34, %33
-  %36 = icmp ult i64 %35, %.val8.i.i.i.i.i.i.i.i
+  %36 = icmp ugt i64 %.val8.i.i.i.i.i.i.i.i, %35
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %27
@@ -1773,7 +1773,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h7430
   store i64 %61, ptr %18, align 8, !alias.scope !995, !noalias !981
   %62 = load i64, ptr %.val1.i.i.i.i.i.i, align 8, !alias.scope !997, !noalias !1006, !noundef !11
   %63 = sub i64 %62, %61
-  %64 = icmp ult i64 %63, %.val11.i.i.i.i.i.i.i.i
+  %64 = icmp ugt i64 %.val11.i.i.i.i.i.i.i.i, %63
   br i1 %64, label %65, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7eb3c61f7fe9adefE.exit.i.i"
 
 65:                                               ; preds = %56
@@ -2122,7 +2122,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h856f
   store i64 %34, ptr %19, align 8, !alias.scope !1318, !noalias !1325
   %35 = load i64, ptr %.val1.i.i.i.i.i.i, align 8, !alias.scope !1343, !noalias !1352, !noundef !11
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %.val8.i.i
+  %37 = icmp ugt i64 %.val8.i.i, %36
   br i1 %37, label %38, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h905cac065962c6b9E.exit.i.i"
 
 38:                                               ; preds = %28
@@ -2206,7 +2206,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h9206
   store i64 %34, ptr %19, align 8, !alias.scope !1394, !noalias !1401
   %35 = load i64, ptr %.val1.i.i.i.i.i.i, align 8, !alias.scope !1419, !noalias !1428, !noundef !11
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %.val8.i.i
+  %37 = icmp ugt i64 %.val8.i.i, %36
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %28
@@ -2757,7 +2757,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hd75c
   store i64 %34, ptr %19, align 8, !alias.scope !1911, !noalias !1918
   %35 = load i64, ptr %.val1.i.i.i.i.i.i, align 8, !alias.scope !1936, !noalias !1945, !noundef !11
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %.val8.i.i
+  %37 = icmp ugt i64 %.val8.i.i, %36
   br i1 %37, label %38, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9acab1fcd5f783ffE.exit.i.i"
 
 38:                                               ; preds = %28
@@ -2839,7 +2839,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hdafe
   store i64 %34, ptr %19, align 8, !alias.scope !1985, !noalias !1992
   %35 = load i64, ptr %.val1.i.i.i.i.i.i, align 8, !alias.scope !2010, !noalias !2019, !noundef !11
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %.val8.i.i
+  %37 = icmp ugt i64 %.val8.i.i, %36
   br i1 %37, label %38, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2738d2c9d25764cE.exit.i.i"
 
 38:                                               ; preds = %28
@@ -4184,7 +4184,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h45a0
   store i64 %32, ptr %17, align 8, !alias.scope !2654, !noalias !2661
   %33 = load i64, ptr %16, align 8, !alias.scope !2673, !noalias !2682, !noundef !11
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %.val8.i.i.i.i.i.i.i
+  %35 = icmp ugt i64 %.val8.i.i.i.i.i.i.i, %34
   br i1 %35, label %36, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2189d0342263d5a7E.exit.i.i"
 
 36:                                               ; preds = %26
@@ -5518,7 +5518,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h86e2
   store i64 %63, ptr %14, align 8, !alias.scope !3491, !noalias !3475
   %64 = load i64, ptr %.val1.i.i.i.i.i, align 8, !alias.scope !3493, !noalias !3502, !noundef !11
   %65 = sub i64 %64, %63
-  %66 = icmp ult i64 %65, %.val7.i.i.i.i.i.i.i.i.i.i.i.i
+  %66 = icmp ugt i64 %.val7.i.i.i.i.i.i.i.i.i.i.i.i, %65
   br i1 %66, label %67, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0060aba801ced3b0E.exit.i.i.i.i.i.i.i.i.i.i.i.i"
 
 67:                                               ; preds = %58
@@ -7517,7 +7517,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hdd1f
   store i64 %33, ptr %18, align 8, !alias.scope !4640, !noalias !4647
   %34 = load i64, ptr %.val1.i.i.i.i.i, align 8, !alias.scope !4665, !noalias !4674, !noundef !11
   %35 = sub i64 %34, %33
-  %36 = icmp ult i64 %35, %.val7.i.i
+  %36 = icmp ugt i64 %.val7.i.i, %35
   br i1 %36, label %37, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c12b10356be3fa7E.exit.i.i"
 
 37:                                               ; preds = %27
@@ -7771,7 +7771,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17he0cf
   store i64 %44, ptr %29, align 8, !alias.scope !4863, !noalias !4870
   %45 = load i64, ptr %28, align 8, !alias.scope !4882, !noalias !4891, !noundef !11
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %.val8.i.i.i.i.i.i.i
+  %47 = icmp ugt i64 %.val8.i.i.i.i.i.i.i, %46
   br i1 %47, label %48, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h549ebe400ad31495E.exit.i.i"
 
 48:                                               ; preds = %38
@@ -8511,7 +8511,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$s
   store i64 %20, ptr %5, align 8, !alias.scope !5341, !noalias !5348
   %21 = load i64, ptr %4, align 8, !alias.scope !5360, !noalias !5369, !noundef !11
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %1
+  %23 = icmp ugt i64 %1, %22
   br i1 %23, label %24, label %"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hce6d19328e9abc78E.exit"
 
 24:                                               ; preds = %14
@@ -8775,7 +8775,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$impl$u20$s
   store i64 %22, ptr %7, align 8, !alias.scope !5530, !noalias !5537
   %23 = load i64, ptr %6, align 8, !alias.scope !5549, !noalias !5558, !noundef !11
   %24 = sub i64 %23, %22
-  %25 = icmp ult i64 %24, %5
+  %25 = icmp ugt i64 %5, %24
   br i1 %25, label %26, label %"_ZN5serde3ser5impls55_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$str$GT$9serialize17hebf8a0c54cd8a72bE.llvm.12642593798105491766.exit"
 
 26:                                               ; preds = %16
@@ -9053,7 +9053,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls73_$LT$impl$u20$s
   store i64 %23, ptr %8, align 8, !alias.scope !5781, !noalias !5788
   %24 = load i64, ptr %7, align 8, !alias.scope !5800, !noalias !5809, !noundef !11
   %25 = sub i64 %24, %23
-  %26 = icmp ult i64 %25, %6
+  %26 = icmp ugt i64 %6, %25
   br i1 %26, label %27, label %"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hd9ac7b53f49b629dE.exit"
 
 27:                                               ; preds = %17
@@ -12909,7 +12909,7 @@ define hidden noalias noundef align 8 ptr @"_ZN92_$LT$$RF$mut$u20$bincode..ser..
   store i64 %20, ptr %5, align 8, !alias.scope !8351, !noalias !8358
   %21 = load i64, ptr %4, align 8, !alias.scope !8370, !noalias !8379, !noundef !11
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %2
+  %23 = icmp ugt i64 %2, %22
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %14
@@ -12960,7 +12960,7 @@ define hidden noalias noundef align 8 ptr @"_ZN92_$LT$$RF$mut$u20$bincode..ser..
   store i64 %20, ptr %5, align 8, !alias.scope !8387, !noalias !8394
   %21 = load i64, ptr %4, align 8, !alias.scope !8406, !noalias !8415, !noundef !11
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %2
+  %23 = icmp ugt i64 %2, %22
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %14
@@ -13579,7 +13579,7 @@ _ZN7bincode9byteorder13WriteBytesExt8write_u817h8215acd3c973eba4E.llvm.126425937
   store i64 %34, ptr %4, align 8, !alias.scope !8927, !noalias !8916
   %35 = load i64, ptr %3, align 8, !alias.scope !8929, !noalias !8938, !noundef !11
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %21
+  %37 = icmp ugt i64 %21, %36
   br i1 %37, label %38, label %"_ZN5serde3ser5impls73_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..string..String$GT$9serialize17hae19be8dba609ad8E.llvm.12642593798105491766.exit"
 
 38:                                               ; preds = %29
@@ -14769,7 +14769,7 @@ define hidden noalias noundef align 8 ptr @"_ZN92_$LT$$RF$mut$u20$bincode..ser..
   store i64 %41, ptr %9, align 8, !alias.scope !9950, !noalias !9939
   %42 = load i64, ptr %8, align 8, !alias.scope !9952, !noalias !9961, !noundef !11
   %43 = sub i64 %42, %41
-  %44 = icmp ult i64 %43, %28
+  %44 = icmp ugt i64 %28, %43
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %36
@@ -15283,7 +15283,7 @@ define hidden noalias noundef align 8 ptr @"_ZN92_$LT$$RF$mut$u20$bincode..ser..
   store i64 %40, ptr %9, align 8, !alias.scope !10381, !noalias !10367
   %41 = load i64, ptr %8, align 8, !alias.scope !10383, !noalias !10392, !noundef !11
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %27
+  %43 = icmp ugt i64 %27, %42
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %35

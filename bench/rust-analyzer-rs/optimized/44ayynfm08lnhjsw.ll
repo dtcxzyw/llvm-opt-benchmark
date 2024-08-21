@@ -9412,7 +9412,7 @@ define internal noundef ptr @_ZN4core4iter6traits8iterator8Iterator3nth17hb9bf9c
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h93f4367b8243070bE.exit.thread, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h93f4367b8243070bE.exit: ; preds = %.lr.ph.i
-  %11 = icmp eq i64 %.sroa.01.011.i, %1
+  %11 = icmp eq i64 %1, %.sroa.01.011.i
   br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h93f4367b8243070bE.exit.thread, label %13
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h93f4367b8243070bE.exit.thread: ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..UseTree$GT$$GT$17h4a821ee4e7f6fa8cE.exit.i", %2, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h93f4367b8243070bE.exit
@@ -9453,7 +9453,7 @@ define internal noundef ptr @_ZN4core4iter6traits8iterator8Iterator3nth17hc38082
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h854b217b3386e1e1E.exit.thread, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h854b217b3386e1e1E.exit: ; preds = %.lr.ph.i
-  %11 = icmp eq i64 %.sroa.01.011.i, %1
+  %11 = icmp eq i64 %1, %.sroa.01.011.i
   br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h854b217b3386e1e1E.exit.thread, label %13
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h854b217b3386e1e1E.exit.thread: ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Use$GT$$GT$17ha9155389d6503d19E.exit.i", %2, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h854b217b3386e1e1E.exit
@@ -9497,7 +9497,7 @@ define internal noundef ptr @_ZN4core4iter6traits8iterator8Iterator3nth17hcbe3d5
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h6010fd24f89b3e54E.exit.thread, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h6010fd24f89b3e54E.exit: ; preds = %.lr.ph.i
-  %11 = icmp eq i64 %.sroa.01.011.i, %1
+  %11 = icmp eq i64 %1, %.sroa.01.011.i
   br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h6010fd24f89b3e54E.exit.thread, label %13
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h6010fd24f89b3e54E.exit.thread: ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Use$GT$$GT$17ha9155389d6503d19E.exit.i", %2, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h6010fd24f89b3e54E.exit
@@ -12821,7 +12821,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !3558, !noalias !3563, !noundef !11
   %45 = load i64, ptr %0, align 8, !alias.scope !3565, !noalias !3563, !noundef !11
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5ddb04363b0a4521E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -12878,7 +12878,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !3571, !noalias !3576, !noundef !11
   %6 = load i64, ptr %0, align 8, !alias.scope !3578, !noalias !3576, !noundef !11
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5ddb04363b0a4521E.exit"
 
 9:                                                ; preds = %3
@@ -22526,7 +22526,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !11
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -22607,8 +22607,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !6359
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -45795,7 +45795,7 @@ define hidden noundef ptr @"_ZN11ide_assists8handlers12generate_new12generate_ne
   %5 = load ptr, ptr %0, align 8, !nonnull !11, !align !225, !noundef !11
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !11
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   br i1 %8, label %9, label %14, !prof !11509
 
 9:                                                ; preds = %3
@@ -45981,7 +45981,7 @@ define hidden noundef ptr @"_ZN11ide_assists8handlers12generate_new12generate_ne
   %7 = load ptr, ptr %0, align 8, !nonnull !11, !align !225, !noundef !11
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !11
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %11, label %17, !prof !11509
 
 11:                                               ; preds = %3

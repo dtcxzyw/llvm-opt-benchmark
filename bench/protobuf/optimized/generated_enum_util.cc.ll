@@ -48,7 +48,7 @@ while.body.i.i:                                   ; preds = %entry, %_ZN6google8
   %shr.i.i = lshr i64 %__len.012.i.i, 1
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %__first.addr.013.i.i, i64 %shr.i.i
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload.i, i64 %name.coerce0)
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %name.coerce0, i64 %agg.tmp.sroa.0.0.copyload.i)
   %cmp.i2.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i, 0
   br i1 %cmp.i2.i.i.i, label %if.then.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
@@ -444,7 +444,7 @@ if.end23:                                         ; preds = %invoke.cont14
   br i1 %or.cond17, label %while.end40, label %if.else
 
 while.end40:                                      ; preds = %if.end23
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %div14
+  %cmp.i = icmp ugt i64 %div14, %sub.ptr.div.i
   br i1 %cmp.i, label %if.then.i41, label %if.else.i39
 
 if.then.i41:                                      ; preds = %while.end40
@@ -513,7 +513,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.then.i32.
   br label %invoke.cont41
 
 if.else.i39:                                      ; preds = %while.end40
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i, %div14
+  %cmp4.i = icmp ult i64 %div14, %sub.ptr.div.i
   %add.ptr.i40 = getelementptr inbounds i32, ptr %bitmap_values.sroa.0.0396, i64 %div14
   %spec.select = select i1 %cmp4.i, ptr %add.ptr.i40, ptr %bitmap_values.sroa.14.0397
   br label %invoke.cont41
@@ -700,7 +700,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
 while.end.i.i:                                    ; preds = %while.body.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %__first1.sroa.0.1.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i109, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %__first1.sroa.0.1.i.i, %fallback_values_too_large.sroa.10.1
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %fallback_values_too_large.sroa.10.1, %__first1.sroa.0.1.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.end.i.i
@@ -708,7 +708,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %while.end.i.i
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %while.end.i.i
-  %tobool.not.i.i.i.i.i10.i.i = icmp eq ptr %__first2.sroa.0.1.i.i, %fallback_values_after_bitmap.sroa.13.1
+  %tobool.not.i.i.i.i.i10.i.i = icmp eq ptr %fallback_values_after_bitmap.sroa.13.1, %__first2.sroa.0.1.i.i
   br i1 %tobool.not.i.i.i.i.i10.i.i, label %if.end90, label %if.then.i.i.i.i.i11.i.i
 
 if.then.i.i.i.i.i11.i.i:                          ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i.i
@@ -912,7 +912,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal21EytzingerLayoutSo
 entry:
   %len_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %len_.i, align 8
-  %cmp5 = icmp ugt i64 %0, %output_index
+  %cmp5 = icmp ult i64 %output_index, %0
   br i1 %cmp5, label %if.then.lr.ph, label %if.end
 
 if.then.lr.ph:                                    ; preds = %entry
@@ -936,7 +936,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %if.
   store i32 %3, ptr %arrayidx.i4, align 4
   %add6 = add i64 %mul, 2
   %5 = load i64, ptr %len_.i, align 8
-  %cmp = icmp ugt i64 %5, %add6
+  %cmp = icmp ult i64 %add6, %5
   br i1 %cmp, label %if.then, label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

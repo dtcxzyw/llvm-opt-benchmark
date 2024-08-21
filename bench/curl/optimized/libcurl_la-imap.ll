@@ -2337,7 +2337,7 @@ entry:
   %resptag = getelementptr inbounds i8, ptr %conn, i64 1076
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %resptag) #10
   %add = add i64 %call, 1
-  %cmp.not = icmp ugt i64 %add, %len
+  %cmp.not = icmp ult i64 %len, %add
   br i1 %cmp.not, label %if.end21, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry

@@ -613,13 +613,13 @@ while.end:                                        ; preds = %while.cond.preheade
   %3 = xor i64 %2, 63
   %l_index1.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %4 = load i64, ptr %l_index1.i, align 8
-  %cmp.not.i = icmp ult i64 %4, %3
+  %cmp.not.i = icmp ugt i64 %3, %4
   br i1 %cmp.not.i, label %if.end.i, label %ocb_lookup_l.exit
 
 if.end.i:                                         ; preds = %while.end
   %max_l_index.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %5 = load i64, ptr %max_l_index.i, align 8
-  %cmp2.not.i = icmp ugt i64 %5, %3
+  %cmp2.not.i = icmp ult i64 %3, %5
   br i1 %cmp2.not.i, label %while.body.lr.ph.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -940,13 +940,13 @@ while.end:                                        ; preds = %while.cond.preheade
   %3 = xor i64 %2, 63
   %l_index1.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %4 = load i64, ptr %l_index1.i, align 8
-  %cmp.not.i = icmp ult i64 %4, %3
+  %cmp.not.i = icmp ugt i64 %3, %4
   br i1 %cmp.not.i, label %if.end.i, label %ocb_lookup_l.exit
 
 if.end.i:                                         ; preds = %while.end
   %max_l_index.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %5 = load i64, ptr %max_l_index.i, align 8
-  %cmp2.not.i = icmp ugt i64 %5, %3
+  %cmp2.not.i = icmp ult i64 %3, %5
   br i1 %cmp2.not.i, label %while.body.lr.ph.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i

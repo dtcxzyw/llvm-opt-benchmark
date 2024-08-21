@@ -1012,7 +1012,7 @@ for.end:                                          ; preds = %for.inc, %entry
 
 if.then15:                                        ; preds = %for.end
   %8 = load i32, ptr %m_pos.i.i, align 8
-  %cmp.i = icmp ult i32 %8, %j.0.lcssa
+  %cmp.i = icmp ugt i32 %j.0.lcssa, %8
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %if.then15
@@ -1086,7 +1086,7 @@ _ZN6bufferIP3tbvLb0ELj8EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP3tbvLb0
   br i1 %exitcond.not.i, label %if.end17, label %for.body.i, !llvm.loop !12
 
 if.else.i:                                        ; preds = %if.then15
-  %cmp3.i = icmp ugt i32 %8, %j.0.lcssa
+  %cmp3.i = icmp ult i32 %j.0.lcssa, %8
   br i1 %cmp3.i, label %for.cond6.preheader.i, label %if.end17
 
 for.cond6.preheader.i:                            ; preds = %if.else.i
@@ -1164,7 +1164,7 @@ for.end:                                          ; preds = %for.inc, %entry
 
 if.then20:                                        ; preds = %for.end
   %10 = load i32, ptr %m_pos.i.i, align 8
-  %cmp.i = icmp ult i32 %10, %j.0.lcssa
+  %cmp.i = icmp ugt i32 %j.0.lcssa, %10
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %if.then20
@@ -1238,7 +1238,7 @@ _ZN6bufferIP3tbvLb0ELj8EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP3tbvLb0
   br i1 %exitcond.not.i, label %if.end22, label %for.body.i, !llvm.loop !12
 
 if.else.i:                                        ; preds = %if.then20
-  %cmp3.i = icmp ugt i32 %10, %j.0.lcssa
+  %cmp3.i = icmp ult i32 %j.0.lcssa, %10
   br i1 %cmp3.i, label %for.cond6.preheader.i, label %if.end22
 
 for.cond6.preheader.i:                            ; preds = %if.else.i
@@ -1649,7 +1649,7 @@ for.end.loopexit:                                 ; preds = %for.body
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %7 = phi i32 [ %.pre, %for.end.loopexit ], [ %2, %entry ]
   %sub9 = add i32 %2, -1
-  %cmp.i = icmp ult i32 %7, %sub9
+  %cmp.i = icmp ugt i32 %sub9, %7
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %for.end
@@ -1723,7 +1723,7 @@ _ZN6bufferIP3tbvLb0ELj8EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP3tbvLb0
   br i1 %exitcond.not.i, label %_ZN6bufferIP3tbvLb0ELj8EE6resizeEjRKS1_.exit, label %for.body.i, !llvm.loop !12
 
 if.else.i:                                        ; preds = %for.end
-  %cmp3.i = icmp ugt i32 %7, %sub9
+  %cmp3.i = icmp ult i32 %sub9, %7
   br i1 %cmp3.i, label %for.cond6.preheader.i, label %_ZN6bufferIP3tbvLb0ELj8EE6resizeEjRKS1_.exit
 
 for.cond6.preheader.i:                            ; preds = %if.else.i
@@ -1785,7 +1785,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv3.i.i = zext i1 %cmp.i9.i.i to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv3.i.i
   %cmp7 = icmp eq i32 %or.i.i, 3
-  %cmp10.not = icmp eq i32 %or.i.i, %value
+  %cmp10.not = icmp eq i32 %value, %or.i.i
   %or.cond16 = or i1 %cmp10.not, %cmp7
   br i1 %or.cond16, label %if.else, label %if.then
 
@@ -3711,7 +3711,7 @@ _ZN6bufferIP3tbvLb0ELj8EE9push_backERKS1_.exit.i.i.i: ; preds = %_ZN6bufferIP3tb
   br i1 %exitcond.not.i.i.i12, label %invoke.cont, label %for.body.i.i.i7, !llvm.loop !38
 
 invoke.cont:                                      ; preds = %_ZN6bufferIP3tbvLb0ELj8EE9push_backERKS1_.exit.i.i.i, %if.end.i, %_ZN6bufferIP3tbvLb0ELj8EEC2EOS2_.exit
-  %cmp.i14 = icmp eq ptr %__tmp, %__b
+  %cmp.i14 = icmp eq ptr %__b, %__tmp
   %.pre64 = load ptr, ptr %__tmp, align 8
   br i1 %cmp.i14, label %invoke.cont1, label %if.end.i15
 
@@ -7685,7 +7685,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %m_cache, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIP4exprS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i

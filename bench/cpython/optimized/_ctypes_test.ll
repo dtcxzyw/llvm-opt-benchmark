@@ -580,11 +580,11 @@ entry:
   %add = add nsw i32 %conv1, %conv
   %add2 = add i32 %add, %i
   %conv3 = sext i32 %add2 to i64
-  %add4 = add i64 %conv3, %l
+  %add4 = add i64 %l, %conv3
   %conv5 = sitofp i64 %add4 to float
-  %add6 = fadd float %conv5, %f
+  %add6 = fadd float %f, %conv5
   %conv7 = fpext float %add6 to double
-  %add8 = fadd double %conv7, %d
+  %add8 = fadd double %d, %conv7
   %conv9 = fptosi double %add8 to i32
   ret i32 %conv9
 }
@@ -597,11 +597,11 @@ entry:
   %add = add nsw i32 %conv1, %conv
   %add2 = add i32 %add, %i
   %conv3 = sext i32 %add2 to i64
-  %add4 = add i64 %conv3, %l
+  %add4 = add i64 %l, %conv3
   %conv5 = sitofp i64 %add4 to float
-  %add6 = fadd float %conv5, %f
+  %add6 = fadd float %f, %conv5
   %conv7 = fpext float %add6 to double
-  %add8 = fadd double %conv7, %d
+  %add8 = fadd double %d, %conv7
   %conv9 = fptrunc double %add8 to float
   ret float %conv9
 }
@@ -614,11 +614,11 @@ entry:
   %add = add nsw i32 %conv1, %conv
   %add2 = add i32 %add, %i
   %conv3 = sext i32 %add2 to i64
-  %add4 = add i64 %conv3, %l
+  %add4 = add i64 %l, %conv3
   %conv5 = sitofp i64 %add4 to float
-  %add6 = fadd float %conv5, %f
+  %add6 = fadd float %f, %conv5
   %conv7 = fpext float %add6 to double
-  %add8 = fadd double %conv7, %d
+  %add8 = fadd double %d, %conv7
   ret double %add8
 }
 
@@ -630,11 +630,11 @@ entry:
   %add = add nsw i32 %conv1, %conv
   %add2 = add i32 %add, %i
   %conv3 = sext i32 %add2 to i64
-  %add4 = add i64 %conv3, %l
+  %add4 = add i64 %l, %conv3
   %conv5 = sitofp i64 %add4 to float
-  %add6 = fadd float %conv5, %f
+  %add6 = fadd float %f, %conv5
   %conv7 = fpext float %add6 to x86_fp80
-  %add8 = fadd x86_fp80 %conv7, %d
+  %add8 = fadd x86_fp80 %d, %conv7
   ret x86_fp80 %add8
 }
 
@@ -760,11 +760,11 @@ entry:
   %add = add nsw i32 %conv1, %conv
   %add2 = add i32 %add, %i
   %conv3 = sext i32 %add2 to i64
-  %add4 = add i64 %conv3, %l
+  %add4 = add i64 %l, %conv3
   %conv5 = sitofp i64 %add4 to float
-  %add6 = fadd float %conv5, %f
+  %add6 = fadd float %f, %conv5
   %conv7 = fpext float %add6 to double
-  %add8 = fadd double %conv7, %d
+  %add8 = fadd double %d, %conv7
   %conv9 = sitofp i64 %q to double
   %add10 = fadd double %add8, %conv9
   %conv11 = fptosi double %add10 to i64
@@ -779,11 +779,11 @@ entry:
   %add = add nsw i32 %conv1, %conv
   %add2 = add i32 %add, %i
   %conv3 = sext i32 %add2 to i64
-  %add4 = add i64 %conv3, %l
+  %add4 = add i64 %l, %conv3
   %conv5 = sitofp i64 %add4 to float
-  %add6 = fadd float %conv5, %f
+  %add6 = fadd float %f, %conv5
   %conv7 = fpext float %add6 to double
-  %add8 = fadd double %conv7, %d
+  %add8 = fadd double %d, %conv7
   %conv9 = fptosi double %add8 to i64
   ret i64 %conv9
 }
@@ -1325,25 +1325,25 @@ entry:
 define range(i32 0, 2) i32 @PointInRect(ptr nocapture noundef readonly %prc, i64 %pt.coerce0, i64 %pt.coerce1) local_unnamed_addr #10 {
 entry:
   %0 = load i64, ptr %prc, align 8
-  %cmp = icmp sgt i64 %0, %pt.coerce0
+  %cmp = icmp slt i64 %pt.coerce0, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %right = getelementptr inbounds i8, ptr %prc, i64 16
   %1 = load i64, ptr %right, align 8
-  %cmp2 = icmp slt i64 %1, %pt.coerce0
+  %cmp2 = icmp sgt i64 %pt.coerce0, %1
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %top = getelementptr inbounds i8, ptr %prc, i64 8
   %2 = load i64, ptr %top, align 8
-  %cmp5 = icmp sgt i64 %2, %pt.coerce1
+  %cmp5 = icmp slt i64 %pt.coerce1, %2
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
   %bottom = getelementptr inbounds i8, ptr %prc, i64 24
   %3 = load i64, ptr %bottom, align 8
-  %cmp9 = icmp sge i64 %3, %pt.coerce1
+  %cmp9 = icmp sle i64 %pt.coerce1, %3
   %. = zext i1 %cmp9 to i32
   br label %return
 
@@ -1399,7 +1399,7 @@ if.then19:                                        ; preds = %if.end
 
 if.end21:                                         ; preds = %if.end
   %12 = load i64, ptr %fp, align 8
-  %cmp23.not = icmp eq i64 %12, %cp.coerce0
+  %cmp23.not = icmp eq i64 %cp.coerce0, %12
   br i1 %cmp23.not, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %if.end21
@@ -1409,7 +1409,7 @@ if.then24:                                        ; preds = %if.end21
 if.end26:                                         ; preds = %if.then24, %if.end21
   %y27 = getelementptr inbounds i8, ptr %fp, i64 8
   %13 = load i64, ptr %y27, align 8
-  %cmp28.not = icmp eq i64 %13, %cp.coerce1
+  %cmp28.not = icmp eq i64 %cp.coerce1, %13
   br i1 %cmp28.not, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.end26

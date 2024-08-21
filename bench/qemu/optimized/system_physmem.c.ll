@@ -378,7 +378,7 @@ if.end:                                           ; preds = %entry
   %iova = getelementptr inbounds i8, ptr %agg.result, i64 8
   %5 = load i64, ptr %page_mask, align 8
   %not = xor i64 %5, -1
-  %and = and i64 %not, %addr
+  %and = and i64 %addr, %not
   store i64 %and, ptr %iova, align 8
   %translated_addr = getelementptr inbounds i8, ptr %agg.result, i64 16
   %and3 = and i64 %add, %not
@@ -840,7 +840,7 @@ section_covers_addr.exit.i:                       ; preds = %lor.lhs.false1.i
   %cmp.not.i.i.i = icmp ule i64 %3, %addr
   %add.i.i.i.i = add i64 %coerce2.sroa.0.0.extract.trunc.i.i, -1
   %sub.i.i.i.i = add i64 %add.i.i.i.i, %3
-  %cmp1.i.i.i = icmp uge i64 %sub.i.i.i.i, %addr
+  %cmp1.i.i.i = icmp ule i64 %addr, %sub.i.i.i.i
   %narrow.i.i.i = and i1 %cmp.not.i.i.i, %cmp1.i.i.i
   br i1 %narrow.i.i.i, label %if.end.i, label %if.then.i
 
@@ -896,7 +896,7 @@ section_covers_addr.exit.i.i:                     ; preds = %for.end.i.i
   %cmp.not.i.i.i.i = icmp ule i64 %6, %addr
   %add.i.i.i.i.i = add i64 %coerce2.sroa.0.0.extract.trunc.i.i.i, -1
   %sub.i.i.i.i.i = add i64 %add.i.i.i.i.i, %6
-  %cmp1.i.i.i.i = icmp uge i64 %sub.i.i.i.i.i, %addr
+  %cmp1.i.i.i.i = icmp ule i64 %addr, %sub.i.i.i.i.i
   %narrow.i.i.i.i = and i1 %cmp.not.i.i.i.i, %cmp1.i.i.i.i
   %cond.fr.i.i = freeze i1 %narrow.i.i.i.i
   br i1 %cond.fr.i.i, label %section_covers_addr.exit.thread.i.i, label %phys_page_find.exit.i
@@ -992,7 +992,7 @@ if.end:                                           ; preds = %entry
   tail call void @g_free(ptr noundef %call1) #28
   %num_ases = getelementptr inbounds i8, ptr %cpu, i64 520
   %1 = load i32, ptr %num_ases, align 8
-  %cmp = icmp sgt i32 %1, %asidx
+  %cmp = icmp slt i32 %asidx, %1
   br i1 %cmp, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end
@@ -1216,7 +1216,7 @@ qemu_get_ram_block.exit:                          ; preds = %land.lhs.true.i, %f
   %13 = phi i64 [ %.pre, %found.i ], [ %6, %land.lhs.true.i ]
   %retval.0.i = phi ptr [ %block.015.i, %found.i ], [ %5, %land.lhs.true.i ]
   %offset = getelementptr inbounds i8, ptr %retval.0.i, i64 40
-  %cmp4.not = icmp ugt i64 %13, %start
+  %cmp4.not = icmp ult i64 %start, %13
   br i1 %cmp4.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %qemu_get_ram_block.exit
@@ -1474,7 +1474,7 @@ land.lhs.true.i.i:                                ; preds = %qemu_get_ram_block.
 offset_in_ramblock.exit.i:                        ; preds = %land.lhs.true.i.i
   %used_length.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 48
   %23 = load i64, ptr %used_length.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %23, %sub9
+  %cmp.i.i = icmp ult i64 %sub9, %23
   br i1 %cmp.i.i, label %ramblock_ptr.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %offset_in_ramblock.exit.i, %land.lhs.true.i.i
@@ -1667,7 +1667,7 @@ declare void @bitmap_copy_and_clear_atomic(ptr noundef, ptr noundef, i64 noundef
 define dso_local zeroext i1 @cpu_physical_memory_snapshot_get_dirty(ptr nocapture noundef readonly %snap, i64 noundef %start, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %snap, align 8
-  %cmp.not = icmp ugt i64 %0, %start
+  %cmp.not = icmp ult i64 %start, %0
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
@@ -2017,7 +2017,7 @@ section_covers_addr.exit.i:                       ; preds = %for.end.i
   %cmp.not.i.i.i = icmp ule i64 %5, %and
   %add.i.i.i.i = add i64 %coerce2.sroa.0.0.extract.trunc.i.i, -1
   %sub.i.i.i.i = add i64 %add.i.i.i.i, %5
-  %cmp1.i.i.i = icmp uge i64 %sub.i.i.i.i, %and
+  %cmp1.i.i.i = icmp ule i64 %and, %sub.i.i.i.i
   %narrow.i.i.i = and i1 %cmp.not.i.i.i, %cmp1.i.i.i
   %cond.fr.i = freeze i1 %narrow.i.i.i
   br i1 %cond.fr.i, label %section_covers_addr.exit.thread.i, label %phys_page_find.exit
@@ -2609,7 +2609,7 @@ rcu_read_auto_lock.exit:                          ; preds = %if.end12, %while.en
 for.body:                                         ; preds = %rcu_read_auto_lock.exit, %while.end34
   %block.015.in = phi i64 [ %5, %while.end34 ], [ %3, %rcu_read_auto_lock.exit ]
   %block.015 = inttoptr i64 %block.015.in to ptr
-  %cmp.not = icmp eq ptr %block.015, %new_block
+  %cmp.not = icmp eq ptr %new_block, %block.015
   br i1 %cmp.not, label %while.end34, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
@@ -2748,7 +2748,7 @@ if.then3:                                         ; preds = %if.end
   %mr = getelementptr inbounds i8, ptr %block, i64 16
   %2 = load ptr, ptr %mr, align 8
   %call = tail call i64 @memory_region_size(ptr noundef %2) #28
-  %cmp4.not = icmp eq i64 %call, %newsize
+  %cmp4.not = icmp eq i64 %newsize, %call
   br i1 %cmp4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
@@ -3170,7 +3170,7 @@ land.lhs.true.i.i:                                ; preds = %do.end
   %host.i.i = getelementptr inbounds i8, ptr %block, i64 24
   %2 = load ptr, ptr %host.i.i, align 8
   %tobool1.not.i.i = icmp ne ptr %2, null
-  %cmp.i.i = icmp ugt i64 %0, %start
+  %cmp.i.i = icmp ult i64 %start, %0
   %or.cond = and i1 %cmp.i.i, %tobool1.not.i.i
   br i1 %or.cond, label %ramblock_ptr.exit, label %if.else.i
 
@@ -3342,7 +3342,7 @@ if.then18.i:                                      ; preds = %if.else14.i
 if.end21.i:                                       ; preds = %if.else14.i
   %cond.i = call i64 @llvm.umax.i64(i64 %call.i31, i64 %5)
   store i64 %cond.i, ptr %align.i, align 16
-  %cmp28.i = icmp ugt i64 %call.i31, %and2
+  %cmp28.i = icmp ult i64 %and2, %call.i31
   br i1 %cmp28.i, label %if.then29.i, label %if.end31.i
 
 if.then29.i:                                      ; preds = %if.end21.i
@@ -4425,7 +4425,7 @@ land.lhs.true.i.i:                                ; preds = %for.body
 offset_in_ramblock.exit.i:                        ; preds = %land.lhs.true.i.i
   %used_length.i.i = getelementptr inbounds i8, ptr %block.033, i64 48
   %4 = load i64, ptr %used_length.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %4, %sub
+  %cmp.i.i = icmp ult i64 %sub, %4
   br i1 %cmp.i.i, label %ramblock_ptr.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %offset_in_ramblock.exit.i, %land.lhs.true.i.i
@@ -4591,7 +4591,7 @@ land.lhs.true.i.i:                                ; preds = %found.i, %land.lhs.
 offset_in_ramblock.exit.i:                        ; preds = %land.lhs.true.i.i
   %used_length.i.i = getelementptr inbounds i8, ptr %block.0, i64 48
   %10 = load i64, ptr %used_length.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %10, %addr.addr.0
+  %cmp.i.i = icmp ult i64 %addr.addr.0, %10
   br i1 %cmp.i.i, label %ramblock_ptr.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %offset_in_ramblock.exit.i, %land.lhs.true.i.i
@@ -4611,7 +4611,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %host to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp.not = icmp ugt ptr %0, %host
+  %cmp.not = icmp ult ptr %host, %0
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
@@ -5122,7 +5122,7 @@ entry:
 
 if.then2:                                         ; preds = %entry
   %sub = sub i64 0, %addr
-  %and = and i64 %sub, %addr
+  %and = and i64 %addr, %sub
   %conv = trunc i64 %and to i32
   %cmp3.not.not = icmp eq i32 %conv, 0
   %3 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 %conv)
@@ -5131,7 +5131,7 @@ if.then2:                                         ; preds = %entry
 
 if.end9:                                          ; preds = %if.then2, %entry
   %access_size_max.0 = phi i32 [ %spec.store.select, %entry ], [ %spec.select10, %if.then2 ]
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %access_size_max.0, i32 %l)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %l, i32 %access_size_max.0)
   %conv14 = zext i32 %spec.select to i64
   %tobool.not.i = icmp eq i32 %spec.select, 0
   %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv14, i1 true)
@@ -5260,7 +5260,7 @@ if.then2.i:                                       ; preds = %prepare_mmio_access
 
 memory_access_size.exit:                          ; preds = %prepare_mmio_access.exit, %if.then2.i
   %access_size_max.0.i = phi i32 [ %spec.store.select.i, %prepare_mmio_access.exit ], [ %spec.select10.i, %if.then2.i ]
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %access_size_max.0.i, i32 %conv8)
+  %spec.select.i = call i32 @llvm.umin.i32(i32 %conv8, i32 %access_size_max.0.i)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
   %12 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
@@ -5432,7 +5432,7 @@ land.lhs.true.i.i:                                ; preds = %if.end, %qemu_get_r
 offset_in_ramblock.exit.i:                        ; preds = %land.lhs.true.i.i
   %used_length.i.i = getelementptr inbounds i8, ptr %block.0, i64 48
   %13 = load i64, ptr %used_length.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %13, %addr.addr.0
+  %cmp.i.i = icmp ult i64 %addr.addr.0, %13
   br i1 %cmp.i.i, label %ramblock_ptr.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %offset_in_ramblock.exit.i, %land.lhs.true.i.i
@@ -5835,7 +5835,7 @@ if.then2.i:                                       ; preds = %if.then
 
 memory_access_size.exit:                          ; preds = %if.then, %if.then2.i
   %access_size_max.0.i = phi i32 [ %spec.store.select.i, %if.then ], [ %spec.select10.i, %if.then2.i ]
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %access_size_max.0.i, i32 %conv)
+  %spec.select.i = call i32 @llvm.umin.i32(i32 %conv, i32 %access_size_max.0.i)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
   %14 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
@@ -6208,7 +6208,7 @@ if.then2.i:                                       ; preds = %if.then
 
 memory_access_size.exit:                          ; preds = %if.then, %if.then2.i
   %access_size_max.0.i = phi i32 [ %spec.store.select.i, %if.then ], [ %spec.select10.i, %if.then2.i ]
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %access_size_max.0.i, i32 %conv)
+  %spec.select.i = call i32 @llvm.umin.i32(i32 %conv, i32 %access_size_max.0.i)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
   %11 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
@@ -6470,7 +6470,7 @@ define dso_local void @address_space_unmap(ptr nocapture noundef readonly %as, p
 entry:
   %addr1 = alloca i64, align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @bounce, i64 8), align 8
-  %cmp.not = icmp eq ptr %0, %buffer
+  %cmp.not = icmp eq ptr %buffer, %0
   br i1 %cmp.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -8487,7 +8487,7 @@ if.then2.i:                                       ; preds = %prepare_mmio_access
 
 memory_access_size.exit:                          ; preds = %prepare_mmio_access.exit, %if.then2.i
   %access_size_max.0.i = phi i32 [ %spec.store.select.i, %prepare_mmio_access.exit ], [ %spec.select10.i, %if.then2.i ]
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %access_size_max.0.i, i32 %conv8)
+  %spec.select.i = call i32 @llvm.umin.i32(i32 %conv8, i32 %access_size_max.0.i)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
   %12 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
@@ -10049,7 +10049,7 @@ if.end87:                                         ; preds = %land.lhs.true, %for
   %bf.clear89 = and i32 %prev.sroa.0.075, 63
   %18 = trunc i64 %indvars.iv to i32
   %19 = add i32 %18, -1
-  %cmp.i51 = icmp eq i32 %19, %jprev.074
+  %cmp.i51 = icmp eq i32 %jprev.074, %19
   br i1 %cmp.i51, label %if.then.i, label %if.else.i52
 
 if.then.i:                                        ; preds = %if.end87

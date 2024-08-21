@@ -4260,7 +4260,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb1EEppEv.exit: ; preds = %while
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !79
 
 for.end:                                          ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb1EEppEv.exit, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE5beginEv.exit
-  %cmp.i12 = icmp eq ptr %4, %i.coerce0
+  %cmp.i12 = icmp eq ptr %i.coerce0, %4
   %. = select i1 %cmp.i12, i32 3, i32 0
   br label %return
 
@@ -7409,7 +7409,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit: ; preds = %while
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !176
 
 for.end:                                          ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
-  %cmp.i12 = icmp eq ptr %4, %i.coerce0
+  %cmp.i12 = icmp eq ptr %i.coerce0, %4
   %. = select i1 %cmp.i12, i32 3, i32 0
   br label %return
 
@@ -19934,7 +19934,7 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3383: ; preds = %while.body.i
   br i1 %cmp.i.not.i3386, label %for.end.i3387, label %for.body.i3375, !llvm.loop !579
 
 for.end.i3387:                                    ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3383, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i3369
-  %cmp.i12.i3388 = icmp eq ptr %959, %retval.sroa.0.0.i3359
+  %cmp.i12.i3388 = icmp eq ptr %retval.sroa.0.0.i3359, %959
   %..i3389 = select i1 %cmp.i12.i3388, i32 3, i32 0
   br label %invoke.cont749
 
@@ -33301,7 +33301,7 @@ _ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEE
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5clearEv.exit.i.i, %entry
-  %cmp.not.i.i4 = icmp eq ptr %temp, %b
+  %cmp.not.i.i4 = icmp eq ptr %b, %temp
   br i1 %cmp.not.i.i4, label %invoke.cont.invoke.cont4_crit_edge, label %if.then.i.i5
 
 invoke.cont.invoke.cont4_crit_edge:               ; preds = %invoke.cont
@@ -51921,7 +51921,7 @@ entry:
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
-  %cmp = icmp ugt i64 %cond.i, %n
+  %cmp = icmp ult i64 %n, %cond.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -51960,7 +51960,7 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %cmp8 = icmp ult i64 %cond.i, %n
+  %cmp8 = icmp ugt i64 %n, %cond.i
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
@@ -51969,7 +51969,7 @@ if.then9:                                         ; preds = %if.else
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 23
-  %cmp4.i = icmp ult i64 %retval.0.i.i, %n
+  %cmp4.i = icmp ugt i64 %n, %retval.0.i.i
   %8 = lshr i64 %7, 56
   %9 = trunc nuw i64 %8 to i8
   br i1 %cmp4.i, label %if.then.i.i, label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
@@ -52033,7 +52033,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -60416,7 +60416,7 @@ if.else:                                          ; preds = %_ZN5eastl9hashtable
   %21 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i = add nsw i64 %21, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %second, %obj
+  %cmp.not.i = icmp eq ptr %obj, %second
   br i1 %cmp.not.i, label %_ZN10TestObjectaSEOS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -60562,7 +60562,7 @@ if.else:                                          ; preds = %_ZN5eastl9hashtable
   %21 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %21, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %second, %obj
+  %cmp.not.i = icmp eq ptr %obj, %second
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else

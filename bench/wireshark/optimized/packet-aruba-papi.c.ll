@@ -455,7 +455,7 @@ define internal i32 @dissect_papi(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %55 = load i32, ptr @ett_papi, align 4
   %56 = call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55) #2
   %57 = call i32 @tvb_reported_length(ptr noundef %0) #2
-  %58 = icmp ugt i32 %57, %.083
+  %58 = icmp ult i32 %.083, %57
   br i1 %58, label %.lr.ph.i, label %dissect_papi_debug.exit
 
 .lr.ph.i:                                         ; preds = %52, %128

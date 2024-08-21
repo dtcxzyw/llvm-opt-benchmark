@@ -3231,7 +3231,7 @@ _ZN2cv3Mat2atIfEERT_i.exit37:                     ; preds = %185, %180, %174
   %.0.i36 = phi ptr [ %175, %174 ], [ %184, %180 ], [ %196, %185 ]
   %197 = fsub float %141, %169
   %198 = fdiv float %108, %197
-  %199 = fadd float %198, %2
+  %199 = fadd float %2, %198
   store float %199, ptr %.0.i36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %200 = load i32, ptr %20, align 4

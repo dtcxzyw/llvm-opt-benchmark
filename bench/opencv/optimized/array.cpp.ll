@@ -824,7 +824,7 @@ define noundef ptr @cvInitMatHeader(ptr noundef returned writeonly %0, i32 nound
   ]
 
 46:                                               ; preds = %29
-  %47 = icmp sgt i32 %45, %5
+  %47 = icmp slt i32 %5, %45
   br i1 %47, label %48, label %_ZL12icvCheckHugeP5CvMat.exit
 
 48:                                               ; preds = %46
@@ -3023,7 +3023,7 @@ define void @cvSetData(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unn
   ]
 
 48:                                               ; preds = %38
-  %49 = icmp sgt i32 %47, %2
+  %49 = icmp slt i32 %2, %47
   %50 = icmp ne ptr %1, null
   %or.cond3 = and i1 %50, %49
   br i1 %or.cond3, label %51, label %58
@@ -3094,7 +3094,7 @@ define void @cvSetData(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unn
   br i1 %or.cond, label %84, label %._crit_edge
 
 84:                                               ; preds = %72
-  %85 = icmp sgt i32 %82, %2
+  %85 = icmp slt i32 %2, %82
   %86 = icmp ne ptr %1, null
   %or.cond5 = and i1 %86, %85
   br i1 %or.cond5, label %87, label %._crit_edge
@@ -3166,7 +3166,7 @@ define void @cvSetData(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unn
   store ptr %1, ptr %110, align 8
   %111 = ptrtoint ptr %1 to i64
   %112 = trunc i64 %111 to i32
-  %113 = or i32 %112, %2
+  %113 = or i32 %2, %112
   %114 = and i32 %113, 7
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %122
@@ -3747,8 +3747,8 @@ define ptr @cvPtr2D(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef 
   br i1 %.not121, label %.critedge154, label %35
 
 35:                                               ; preds = %32
-  %.not146 = icmp ugt i32 %30, %1
-  %.not147 = icmp ugt i32 %26, %2
+  %.not146 = icmp ult i32 %1, %30
+  %.not147 = icmp ult i32 %2, %26
   %or.cond = and i1 %.not147, %.not146
   br i1 %or.cond, label %43, label %36
 
@@ -3905,8 +3905,8 @@ define ptr @cvPtr2D(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef 
   %.099 = phi i32 [ %87, %110 ], [ %87, %85 ], [ %119, %117 ]
   %.098 = phi i32 [ %89, %110 ], [ %89, %85 ], [ %121, %117 ]
   %.1 = phi ptr [ %116, %110 ], [ %100, %85 ], [ %69, %117 ]
-  %.not138 = icmp ugt i32 %.098, %1
-  %.not139 = icmp ugt i32 %.099, %2
+  %.not138 = icmp ult i32 %1, %.098
+  %.not139 = icmp ult i32 %2, %.099
   %or.cond152 = select i1 %.not138, i1 %.not139, i1 false
   br i1 %or.cond152, label %130, label %123
 
@@ -4008,13 +4008,13 @@ define ptr @cvPtr2D(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef 
 165:                                              ; preds = %162
   %166 = getelementptr inbounds i8, ptr %0, i64 32
   %167 = load i32, ptr %166, align 8
-  %.not128 = icmp ugt i32 %167, %1
+  %.not128 = icmp ult i32 %1, %167
   br i1 %.not128, label %168, label %171
 
 168:                                              ; preds = %165
   %169 = getelementptr inbounds i8, ptr %0, i64 40
   %170 = load i32, ptr %169, align 8
-  %.not129 = icmp ugt i32 %170, %2
+  %.not129 = icmp ult i32 %2, %170
   br i1 %.not129, label %178, label %171
 
 171:                                              ; preds = %168, %165, %162
@@ -4496,7 +4496,7 @@ define i32 @cvGetDimSize(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
 62:                                               ; preds = %.critedge
   %63 = getelementptr inbounds i8, ptr %0, i64 4
   %64 = load i32, ptr %63, align 4
-  %.not59 = icmp ugt i32 %64, %1
+  %.not59 = icmp ult i32 %1, %64
   br i1 %.not59, label %72, label %65
 
 65:                                               ; preds = %62
@@ -4532,7 +4532,7 @@ define i32 @cvGetDimSize(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
 77:                                               ; preds = %.critedge
   %78 = getelementptr inbounds i8, ptr %0, i64 4
   %79 = load i32, ptr %78, align 4
-  %.not56 = icmp ugt i32 %79, %1
+  %.not56 = icmp ult i32 %1, %79
   br i1 %.not56, label %87, label %80
 
 80:                                               ; preds = %77
@@ -5427,11 +5427,11 @@ define noundef ptr @cvGetRows(ptr noundef %0, ptr noundef returned writeonly %1,
 36:                                               ; preds = %28
   %37 = getelementptr inbounds i8, ptr %.049, i64 32
   %38 = load i32, ptr %37, align 8
-  %.not59 = icmp ugt i32 %38, %2
+  %.not59 = icmp ult i32 %2, %38
   br i1 %.not59, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = icmp ult i32 %38, %3
+  %40 = icmp ugt i32 %3, %38
   %41 = icmp slt i32 %4, 1
   %or.cond = or i1 %41, %40
   br i1 %or.cond, label %42, label %49
@@ -5473,7 +5473,7 @@ define noundef ptr @cvGetRows(ptr noundef %0, ptr noundef returned writeonly %1,
 
 56:                                               ; preds = %49
   %57 = xor i32 %2, -1
-  %58 = add i32 %57, %3
+  %58 = add i32 %3, %57
   %59 = add i32 %58, %4
   %60 = sdiv i32 %59, %4
   %61 = getelementptr inbounds i8, ptr %1, i64 32
@@ -5595,8 +5595,8 @@ define noundef ptr @cvGetCols(ptr noundef %0, ptr noundef returned writeonly %1,
 35:                                               ; preds = %27
   %36 = getelementptr inbounds i8, ptr %.038, i64 36
   %37 = load i32, ptr %36, align 4
-  %.not47 = icmp ule i32 %37, %2
-  %38 = icmp ult i32 %37, %3
+  %.not47 = icmp uge i32 %2, %37
+  %38 = icmp ugt i32 %3, %37
   %or.cond = or i1 %.not47, %38
   br i1 %or.cond, label %39, label %46
 
@@ -6447,9 +6447,9 @@ define ptr @cvPtr1D(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
   %40 = phi i32 [ %.pre, %36 ], [ %22, %27 ]
   %41 = add i32 %40, -1
   %42 = add i32 %41, %39
-  %.not134 = icmp ugt i32 %42, %1
+  %.not134 = icmp ult i32 %1, %42
   %43 = mul nsw i32 %39, %40
-  %.not135 = icmp ugt i32 %43, %1
+  %.not135 = icmp ult i32 %1, %43
   %or.cond = select i1 %.not134, i1 true, i1 %.not135
   br i1 %or.cond, label %51, label %44
 
@@ -6578,7 +6578,7 @@ define ptr @cvPtr1D(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
 
 ._crit_edge148:                                   ; preds = %.lr.ph147, %95
   %.0109.lcssa = phi i32 [ %92, %95 ], [ %101, %.lr.ph147 ]
-  %.not127 = icmp ugt i32 %.0109.lcssa, %1
+  %.not127 = icmp ult i32 %1, %.0109.lcssa
   br i1 %.not127, label %109, label %102
 
 102:                                              ; preds = %._crit_edge148
@@ -7173,19 +7173,19 @@ define ptr @cvPtr3D(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load i32, ptr %21, align 8
-  %.not44 = icmp ugt i32 %22, %1
+  %.not44 = icmp ult i32 %1, %22
   br i1 %.not44, label %23, label %29
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8
-  %.not45 = icmp ugt i32 %25, %2
+  %.not45 = icmp ult i32 %2, %25
   br i1 %.not45, label %26, label %29
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %0, i64 48
   %28 = load i32, ptr %27, align 8
-  %.not46 = icmp ugt i32 %28, %3
+  %.not46 = icmp ult i32 %3, %28
   br i1 %.not46, label %36, label %29
 
 29:                                               ; preds = %26, %23, %20, %17
@@ -7512,9 +7512,9 @@ define void @cvGet1D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) 
   store i32 %24, ptr %5, align 4
   %25 = add nsw i32 %13, -1
   %26 = add nuw i32 %25, %17
-  %.not28 = icmp ugt i32 %26, %2
+  %.not28 = icmp ult i32 %2, %26
   %27 = mul nuw nsw i32 %17, %13
-  %.not29 = icmp ugt i32 %27, %2
+  %.not29 = icmp ult i32 %2, %27
   %or.cond32 = select i1 %.not28, i1 true, i1 %.not29
   br i1 %or.cond32, label %36, label %28
 
@@ -7629,8 +7629,8 @@ define void @cvGet2D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) 
   br i1 %.not34, label %.split28, label %25
 
 25:                                               ; preds = %22
-  %.not35 = icmp ugt i32 %20, %2
-  %.not36 = icmp ugt i32 %16, %3
+  %.not35 = icmp ult i32 %2, %20
+  %.not36 = icmp ult i32 %3, %16
   %or.cond = and i1 %.not36, %.not35
   br i1 %or.cond, label %33, label %26
 
@@ -7896,9 +7896,9 @@ define double @cvGetReal1D(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   store i32 %25, ptr %4, align 4
   %26 = add nsw i32 %14, -1
   %27 = add nuw i32 %26, %18
-  %.not33 = icmp ugt i32 %27, %1
+  %.not33 = icmp ult i32 %1, %27
   %28 = mul nuw nsw i32 %18, %14
-  %.not34 = icmp ugt i32 %28, %1
+  %.not34 = icmp ult i32 %1, %28
   %or.cond41 = select i1 %.not33, i1 true, i1 %.not34
   br i1 %or.cond41, label %36, label %29
 
@@ -8085,8 +8085,8 @@ define double @cvGetReal2D(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   br i1 %.not39, label %.split32, label %26
 
 26:                                               ; preds = %23
-  %.not40 = icmp ugt i32 %21, %1
-  %.not41 = icmp ugt i32 %17, %2
+  %.not40 = icmp ult i32 %1, %21
+  %.not41 = icmp ult i32 %2, %17
   %or.cond = and i1 %.not41, %.not40
   br i1 %or.cond, label %34, label %27
 
@@ -8568,9 +8568,9 @@ define void @cvSet1D(ptr noundef %0, i32 noundef %1, ptr noundef byval(%struct.C
   store i32 %24, ptr %5, align 4
   %25 = add nsw i32 %13, -1
   %26 = add nuw i32 %25, %17
-  %.not27 = icmp ugt i32 %26, %1
+  %.not27 = icmp ult i32 %1, %26
   %27 = mul nuw nsw i32 %17, %13
-  %.not28 = icmp ugt i32 %27, %1
+  %.not28 = icmp ult i32 %1, %27
   %or.cond30 = select i1 %.not27, i1 true, i1 %.not28
   br i1 %or.cond30, label %36, label %28
 
@@ -8677,8 +8677,8 @@ define void @cvSet2D(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef
   br i1 %.not33, label %.split27, label %25
 
 25:                                               ; preds = %22
-  %.not34 = icmp ugt i32 %20, %1
-  %.not35 = icmp ugt i32 %16, %2
+  %.not34 = icmp ult i32 %1, %20
+  %.not35 = icmp ult i32 %2, %16
   %or.cond = and i1 %.not35, %.not34
   br i1 %or.cond, label %33, label %26
 
@@ -8921,9 +8921,9 @@ define void @cvSetReal1D(ptr noundef %0, i32 noundef %1, double noundef %2) loca
   store i32 %26, ptr %5, align 4
   %27 = add nsw i32 %15, -1
   %28 = add nuw i32 %27, %19
-  %.not32 = icmp ugt i32 %28, %1
+  %.not32 = icmp ult i32 %1, %28
   %29 = mul nuw nsw i32 %19, %15
-  %.not33 = icmp ugt i32 %29, %1
+  %.not33 = icmp ult i32 %1, %29
   %or.cond40 = select i1 %.not32, i1 true, i1 %.not33
   br i1 %or.cond40, label %37, label %30
 
@@ -9126,8 +9126,8 @@ define void @cvSetReal2D(ptr noundef %0, i32 noundef %1, i32 noundef %2, double 
   br i1 %.not38, label %.split31, label %27
 
 27:                                               ; preds = %24
-  %.not39 = icmp ugt i32 %22, %1
-  %.not40 = icmp ugt i32 %18, %2
+  %.not39 = icmp ult i32 %1, %22
+  %.not40 = icmp ult i32 %2, %18
   %or.cond = and i1 %.not40, %.not39
   br i1 %or.cond, label %35, label %28
 
@@ -10603,7 +10603,7 @@ define noundef ptr @cvReshapeMatND(ptr noundef %0, i32 noundef %1, ptr noundef r
   br label %358
 
 321:                                              ; preds = %._crit_edge
-  %.not238 = icmp eq ptr %.0166, %2
+  %.not238 = icmp eq ptr %2, %.0166
   br i1 %.not238, label %.lr.ph284, label %322
 
 322:                                              ; preds = %321
@@ -12050,7 +12050,7 @@ define void @cvSetImageCOI(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = icmp ult i32 %16, %1
+  %17 = icmp ugt i32 %1, %16
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %14

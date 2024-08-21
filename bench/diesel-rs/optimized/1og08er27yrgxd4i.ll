@@ -1369,18 +1369,18 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   %..i71.us = zext i1 %.not.i70.us to i64
   %127 = add i64 %125, -1
   %128 = add i64 %127, %..i71.us
-  %129 = icmp eq i64 %128, %119
+  %129 = icmp eq i64 %119, %128
   br i1 %129, label %132, label %130
 
 130:                                              ; preds = %124
-  %131 = icmp ugt i64 %125, %119
+  %131 = icmp ult i64 %119, %125
   br i1 %131, label %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h8e6440cb026e96cbE.exit.us.sink.split", label %.split119.us.invoke, !prof !202
 
 132:                                              ; preds = %124
   br i1 %.not.i70.us, label %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h8e6440cb026e96cbE.exit.us", label %133
 
 133:                                              ; preds = %132
-  %134 = icmp ugt i64 %125, %119
+  %134 = icmp ult i64 %119, %125
   br i1 %134, label %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h8e6440cb026e96cbE.exit.us.sink.split", label %.split119.us.invoke, !prof !202
 
 "_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h8e6440cb026e96cbE.exit.us.sink.split": ; preds = %133, %130
@@ -1429,7 +1429,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   br i1 %145, label %.split.split.us.split.us.preheader, label %.split.split.us.split
 
 .split.split.us.split.us.preheader:               ; preds = %.split.split.us
-  %151 = icmp ugt i64 %146, %149
+  %151 = icmp ult i64 %149, %146
   %152 = getelementptr inbounds [0 x { { i64, [28 x i64] }, { [1 x i32] }, [1 x i32] }], ptr %150, i64 0, i64 %149
   %brmerge = select i1 %.not.i, i1 true, i1 %151
   %.mux = select i1 %.not.i, ptr %147, ptr %152
@@ -1454,11 +1454,11 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   %161 = add i64 %160, 1
   store i64 %161, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !189
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
-  %162 = icmp eq i64 %149, %160
+  %162 = icmp eq i64 %160, %149
   br i1 %162, label %166, label %163
 
 163:                                              ; preds = %159
-  %164 = icmp ugt i64 %146, %160
+  %164 = icmp ult i64 %160, %146
   br i1 %164, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit.i.us.us", label %.split119.us.invoke, !prof !202
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit.i.us.us": ; preds = %163
@@ -1541,9 +1541,9 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   br i1 %145, label %.split.split.split.us.preheader, label %.split.split.split
 
 .split.split.split.us.preheader:                  ; preds = %.split.split
-  %190 = icmp ugt i64 %146, %149
+  %190 = icmp ult i64 %149, %146
   %191 = getelementptr inbounds [0 x { { i64, [28 x i64] }, { [1 x i32] }, [1 x i32] }], ptr %150, i64 0, i64 %149
-  %192 = icmp ugt i64 %185, %188
+  %192 = icmp ult i64 %188, %185
   %193 = getelementptr inbounds [0 x { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }], ptr %189, i64 0, i64 %188
   %brmerge269 = select i1 %.not.i, i1 true, i1 %190
   %.mux270 = select i1 %.not.i, ptr %147, ptr %191
@@ -1570,11 +1570,11 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   %202 = add i64 %201, 1
   store i64 %202, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !189
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
-  %203 = icmp eq i64 %149, %201
+  %203 = icmp eq i64 %201, %149
   br i1 %203, label %207, label %204
 
 204:                                              ; preds = %200
-  %205 = icmp ugt i64 %146, %201
+  %205 = icmp ult i64 %201, %146
   br i1 %205, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit.i.us129", label %.split119.us.invoke, !prof !202
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit.i.us129": ; preds = %204
@@ -1589,11 +1589,11 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   br i1 %184, label %208, label %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h8e6440cb026e96cbE.exit.us135"
 
 208:                                              ; preds = %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h6144985eb15e3c0bE.exit.us131"
-  %209 = icmp eq i64 %188, %201
+  %209 = icmp eq i64 %201, %188
   br i1 %209, label %213, label %210
 
 210:                                              ; preds = %208
-  %211 = icmp ugt i64 %185, %201
+  %211 = icmp ult i64 %201, %185
   br i1 %211, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit.i.us133", label %.split119.us.invoke, !prof !202
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit.i.us133": ; preds = %210
@@ -1628,7 +1628,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   br i1 %184, label %.split.split.split.split.us.preheader, label %.split.split.split.split
 
 .split.split.split.split.us.preheader:            ; preds = %.split.split.split
-  %218 = icmp ugt i64 %185, %188
+  %218 = icmp ult i64 %188, %185
   %219 = getelementptr inbounds [0 x { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }], ptr %189, i64 0, i64 %188
   %brmerge273 = select i1 %.not.i70, i1 true, i1 %218
   %.mux274 = select i1 %.not.i70, ptr %186, ptr %219
@@ -1653,11 +1653,11 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5342648240390131844.ex
   %227 = add i64 %226, 1
   store i64 %227, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !189
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
-  %228 = icmp eq i64 %188, %226
+  %228 = icmp eq i64 %226, %188
   br i1 %228, label %232, label %229
 
 229:                                              ; preds = %"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h6144985eb15e3c0bE.exit.us158"
-  %230 = icmp ugt i64 %185, %226
+  %230 = icmp ult i64 %226, %185
   br i1 %230, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit.i.us159", label %.split119.us.invoke, !prof !202
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit.i.us159": ; preds = %229

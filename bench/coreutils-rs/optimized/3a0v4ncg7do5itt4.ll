@@ -290,7 +290,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !40, !noalias !45, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !47, !noalias !45, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc039338dbf10fe23E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -347,7 +347,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !53, !noalias !58, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !60, !noalias !58, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc039338dbf10fe23E.exit"
 
 9:                                                ; preds = %3
@@ -7399,7 +7399,7 @@ default.unreachable210:                           ; preds = %183
 192:                                              ; preds = %183
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   %193 = load ptr, ptr %57, align 8, !noalias !2103, !nonnull !5, !noundef !5
-  %194 = icmp ult i64 %56, %.089181
+  %194 = icmp ugt i64 %.089181, %56
   br i1 %194, label %198, label %195
 
 195:                                              ; preds = %192
@@ -7435,7 +7435,7 @@ default.unreachable210:                           ; preds = %183
   %206 = load i64, ptr %.sroa.559.0..sroa_idx, align 8, !alias.scope !2106, !noalias !2111, !noundef !5
   %207 = load i64, ptr %31, align 8, !alias.scope !2113, !noalias !2111, !noundef !5
   %208 = sub i64 %207, %206
-  %209 = icmp ult i64 %208, %205
+  %209 = icmp ugt i64 %205, %208
   br i1 %209, label %210, label %216
 
 210:                                              ; preds = %203
@@ -7507,7 +7507,7 @@ default.unreachable210:                           ; preds = %183
   %237 = load i64, ptr %.sroa.559.0..sroa_idx, align 8, !alias.scope !2125, !noalias !2130, !noundef !5
   %238 = load i64, ptr %31, align 8, !alias.scope !2132, !noalias !2130, !noundef !5
   %239 = sub i64 %238, %237
-  %240 = icmp ult i64 %239, %236
+  %240 = icmp ugt i64 %236, %239
   br i1 %240, label %241, label %247
 
 241:                                              ; preds = %234
@@ -7574,7 +7574,7 @@ default.unreachable210:                           ; preds = %183
   %266 = load i64, ptr %.sroa.559.0..sroa_idx, align 8, !alias.scope !2144, !noalias !2149, !noundef !5
   %267 = load i64, ptr %31, align 8, !alias.scope !2151, !noalias !2149, !noundef !5
   %268 = sub i64 %267, %266
-  %269 = icmp ult i64 %268, %265
+  %269 = icmp ugt i64 %265, %268
   br i1 %269, label %270, label %276
 
 270:                                              ; preds = %263

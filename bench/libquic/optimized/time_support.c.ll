@@ -22,7 +22,7 @@ entry:
   %conv1.i = lshr exact i64 %sext.i, 32
   %sub.i = sub i64 %offset_sec, %conv1.i
   %conv2.i = trunc i64 %sub.i to i32
-  %add.i = add nsw i32 %conv.i, %off_day
+  %add.i = add nsw i32 %off_day, %conv.i
   %tm_hour.i = getelementptr inbounds i8, ptr %tm, i64 8
   %0 = load i32, ptr %tm_hour.i, align 8
   %mul3.i = mul nsw i32 %0, 3600

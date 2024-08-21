@@ -738,7 +738,7 @@ define dso_local i32 @cbuf_drop(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %13 = icmp eq i32 %1, -1
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
-  %. = tail call i32 @llvm.smin.i32(i32 %15, i32 %1)
+  %. = tail call i32 @llvm.smin.i32(i32 %1, i32 %15)
   %.018 = select i1 %13, i32 %15, i32 %.
   %16 = icmp sgt i32 %.018, 0
   br i1 %16, label %17, label %27
@@ -803,7 +803,7 @@ define dso_local i32 @cbuf_peek(ptr noundef %0, ptr noundef writeonly %1, i32 no
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
-  %..i = tail call i32 @llvm.smin.i32(i32 %16, i32 %2)
+  %..i = tail call i32 @llvm.smin.i32(i32 %2, i32 %16)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %cbuf_reader.exit, label %18
 
@@ -904,7 +904,7 @@ define dso_local i32 @cbuf_read(ptr noundef %0, ptr noundef writeonly %1, i32 no
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
-  %..i = tail call i32 @llvm.smin.i32(i32 %16, i32 %2)
+  %..i = tail call i32 @llvm.smin.i32(i32 %2, i32 %16)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %cbuf_reader.exit.thread, label %18
 
@@ -1028,7 +1028,7 @@ define dso_local i32 @cbuf_replay(ptr noundef %0, ptr noundef writeonly %1, i32 
   %22 = add nsw i32 %21, 1
   %23 = add nsw i32 %19, %22
   %24 = srem i32 %23, %22
-  %25 = tail call i32 @llvm.smin.i32(i32 %24, i32 %2)
+  %25 = tail call i32 @llvm.smin.i32(i32 %2, i32 %24)
   %26 = icmp eq i32 %24, 0
   br i1 %26, label %cbuf_replayer.exit, label %27
 
@@ -1136,7 +1136,7 @@ define dso_local range(i32 -2147483646, -2147483648) i32 @cbuf_rewind(ptr nounde
   %21 = add nsw i32 %17, %20
   %22 = srem i32 %21, %20
   %23 = icmp eq i32 %1, -1
-  %24 = tail call i32 @llvm.smin.i32(i32 %22, i32 %1)
+  %24 = tail call i32 @llvm.smin.i32(i32 %1, i32 %22)
   %.027 = select i1 %23, i32 %22, i32 %24
   %25 = icmp sgt i32 %.027, 0
   br i1 %25, label %26, label %33
@@ -1230,7 +1230,7 @@ define internal fastcc i32 @cbuf_writer(ptr nocapture noundef %0, i32 noundef %1
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = sub nsw i32 %8, %10
-  %12 = icmp slt i32 %11, %1
+  %12 = icmp sgt i32 %1, %11
   br i1 %12, label %13, label %55
 
 13:                                               ; preds = %5
@@ -1315,7 +1315,7 @@ cbuf_grow.exit:                                   ; preds = %17, %52
 59:                                               ; preds = %55
   %60 = load i32, ptr %9, align 8
   %61 = sub nsw i32 %56, %60
-  %. = call i32 @llvm.smin.i32(i32 %61, i32 %1)
+  %. = call i32 @llvm.smin.i32(i32 %1, i32 %61)
   %62 = icmp eq i32 %., 0
   br i1 %62, label %63, label %66
 
@@ -1325,7 +1325,7 @@ cbuf_grow.exit:                                   ; preds = %17, %52
   br label %117
 
 65:                                               ; preds = %55
-  %.105 = call i32 @llvm.smin.i32(i32 %56, i32 %1)
+  %.105 = call i32 @llvm.smin.i32(i32 %1, i32 %56)
   br label %66
 
 66:                                               ; preds = %55, %65, %59
@@ -1673,7 +1673,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   br i1 %54, label %55, label %cbuf_reader.exit
 
 55:                                               ; preds = %52
-  %..i = tail call i32 @llvm.smin.i32(i32 %22, i32 %53)
+  %..i = tail call i32 @llvm.smin.i32(i32 %53, i32 %22)
   %.old1.i = icmp sgt i32 %..i, 0
   br i1 %.old1.i, label %.preheader.i, label %cbuf_reader.exit
 
@@ -1841,7 +1841,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
 53:                                               ; preds = %51
   %54 = tail call i32 @llvm.umin.i32(i32 %.235.i, i32 %17)
   %.not36 = icmp ne i32 %2, 1
-  %..i = tail call i32 @llvm.smin.i32(i32 %22, i32 %54)
+  %..i = tail call i32 @llvm.smin.i32(i32 %54, i32 %22)
   %.old1.i = icmp sgt i32 %..i, 0
   %or.cond52 = select i1 %.not36, i1 %.old1.i, i1 false
   br i1 %or.cond52, label %.preheader.i, label %cbuf_reader.exit
@@ -1977,7 +1977,7 @@ define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly %1,
   br i1 %.old1.i, label %.preheader.i, label %cbuf_replayer.exit
 
 .preheader.i:                                     ; preds = %28
-  %39 = call i32 @llvm.umin.i32(i32 %38, i32 %27)
+  %39 = call i32 @llvm.umin.i32(i32 %27, i32 %38)
   %40 = add i32 %36, %30
   %41 = sub i32 %40, %39
   %42 = srem i32 %41, %36
@@ -2391,7 +2391,7 @@ define dso_local i32 @cbuf_peek_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 56
   %21 = load i32, ptr %20, align 8
-  %..i = tail call i32 @llvm.smin.i32(i32 %21, i32 %.014)
+  %..i = tail call i32 @llvm.smin.i32(i32 %.014, i32 %21)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %cbuf_reader.exit, label %23
 
@@ -2516,7 +2516,7 @@ define dso_local i32 @cbuf_read_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 56
   %21 = load i32, ptr %20, align 8
-  %..i = tail call i32 @llvm.smin.i32(i32 %21, i32 %.017)
+  %..i = tail call i32 @llvm.smin.i32(i32 %.017, i32 %21)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %cbuf_reader.exit.thread, label %23
 
@@ -2667,7 +2667,7 @@ define dso_local i32 @cbuf_replay_to_fd(ptr noundef %0, i32 noundef %1, i32 noun
   %30 = add nsw i32 %29, 1
   %31 = add nsw i32 %27, %30
   %32 = srem i32 %31, %30
-  %33 = tail call i32 @llvm.smin.i32(i32 %32, i32 %.015)
+  %33 = tail call i32 @llvm.smin.i32(i32 %.015, i32 %32)
   %34 = icmp eq i32 %32, 0
   br i1 %34, label %cbuf_replayer.exit, label %35
 
@@ -2970,7 +2970,7 @@ define internal fastcc i32 @cbuf_copier(ptr nocapture noundef readonly %0, ptr n
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
-  %. = tail call i32 @llvm.smin.i32(i32 %7, i32 %2)
+  %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %7)
   %8 = icmp eq i32 %., 0
   br i1 %8, label %._crit_edge.thread, label %9
 

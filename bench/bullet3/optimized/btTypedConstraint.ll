@@ -176,7 +176,7 @@ if.end4:                                          ; preds = %if.else
 if.then6:                                         ; preds = %if.end4
   %cmp7 = fcmp oge float %pos, %lowLim
   %sub = fsub float %lowLim, %div
-  %cmp8 = fcmp ogt float %sub, %pos
+  %cmp8 = fcmp olt float %pos, %sub
   %or.cond = and i1 %cmp7, %cmp8
   br i1 %or.cond, label %if.then9, label %if.else12
 
@@ -197,7 +197,7 @@ if.else18:                                        ; preds = %if.end4
 if.then20:                                        ; preds = %if.else18
   %cmp21 = fcmp ole float %pos, %uppLim
   %sub23 = fsub float %uppLim, %div
-  %cmp24 = fcmp olt float %sub23, %pos
+  %cmp24 = fcmp ogt float %pos, %sub23
   %or.cond23 = and i1 %cmp21, %cmp24
   br i1 %or.cond23, label %if.then25, label %if.else28
 
@@ -425,7 +425,7 @@ entry:
   %div = fmul float %sub, 5.000000e-01
   %m_halfRange = getelementptr inbounds i8, ptr %this, i64 4
   store float %div, ptr %m_halfRange, align 4
-  %add = fadd float %div, %low
+  %add = fadd float %low, %div
   %call.i.i = tail call noundef float @fmodf(float noundef %add, float noundef 0x401921FB60000000) #15
   %cmp.i = fcmp olt float %call.i.i, 0xC00921FB60000000
   br i1 %cmp.i, label %if.then.i, label %if.else.i

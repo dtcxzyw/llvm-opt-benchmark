@@ -943,7 +943,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 5
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp3.not.i = icmp sgt i32 %conv.i, %index
+  %cmp3.not.i = icmp slt i32 %index, %conv.i
   br i1 %cmp3.not.i, label %return.sink.split.i, label %_ZNK19OpenColorIO_v2_4dev14FormatRegistry20getFormatNameByIndexEii.exit
 
 return.sink.split.i:                              ; preds = %lor.lhs.false.i
@@ -980,7 +980,7 @@ lor.lhs.false:                                    ; preds = %if.then
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 5
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp3.not = icmp sgt i32 %conv, %index
+  %cmp3.not = icmp slt i32 %index, %conv
   br i1 %cmp3.not, label %return.sink.split, label %return
 
 if.then10:                                        ; preds = %entry
@@ -997,7 +997,7 @@ lor.lhs.false12:                                  ; preds = %if.then10
   %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i12, %sub.ptr.rhs.cast.i13
   %sub.ptr.div.i15 = lshr exact i64 %sub.ptr.sub.i14, 5
   %conv14 = trunc i64 %sub.ptr.div.i15 to i32
-  %cmp15.not = icmp sgt i32 %conv14, %index
+  %cmp15.not = icmp slt i32 %index, %conv14
   br i1 %cmp15.not, label %return.sink.split, label %return
 
 if.then24:                                        ; preds = %entry
@@ -1014,7 +1014,7 @@ lor.lhs.false26:                                  ; preds = %if.then24
   %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i19
   %sub.ptr.div.i21 = lshr exact i64 %sub.ptr.sub.i20, 5
   %conv28 = trunc i64 %sub.ptr.div.i21 to i32
-  %cmp29.not = icmp sgt i32 %conv28, %index
+  %cmp29.not = icmp slt i32 %index, %conv28
   br i1 %cmp29.not, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %lor.lhs.false26, %lor.lhs.false12, %lor.lhs.false
@@ -1046,7 +1046,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 5
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp3.not.i = icmp sgt i32 %conv.i, %index
+  %cmp3.not.i = icmp slt i32 %index, %conv.i
   br i1 %cmp3.not.i, label %return.sink.split.i, label %_ZNK19OpenColorIO_v2_4dev14FormatRegistry25getFormatExtensionByIndexEii.exit
 
 return.sink.split.i:                              ; preds = %lor.lhs.false.i
@@ -1083,7 +1083,7 @@ lor.lhs.false:                                    ; preds = %if.then
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 5
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp3.not = icmp sgt i32 %conv, %index
+  %cmp3.not = icmp slt i32 %index, %conv
   br i1 %cmp3.not, label %return.sink.split, label %return
 
 if.then10:                                        ; preds = %entry
@@ -1100,7 +1100,7 @@ lor.lhs.false12:                                  ; preds = %if.then10
   %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i12, %sub.ptr.rhs.cast.i13
   %sub.ptr.div.i15 = lshr exact i64 %sub.ptr.sub.i14, 5
   %conv14 = trunc i64 %sub.ptr.div.i15 to i32
-  %cmp15.not = icmp sgt i32 %conv14, %index
+  %cmp15.not = icmp slt i32 %index, %conv14
   br i1 %cmp15.not, label %return.sink.split, label %return
 
 if.then24:                                        ; preds = %entry
@@ -1117,7 +1117,7 @@ lor.lhs.false26:                                  ; preds = %if.then24
   %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i19
   %sub.ptr.div.i21 = lshr exact i64 %sub.ptr.sub.i20, 5
   %conv28 = trunc i64 %sub.ptr.div.i21 to i32
-  %cmp29.not = icmp sgt i32 %conv28, %index
+  %cmp29.not = icmp slt i32 %index, %conv28
   br i1 %cmp29.not, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %lor.lhs.false26, %lor.lhs.false12, %lor.lhs.false
@@ -4722,7 +4722,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp2.not = icmp sgt i32 %conv.i, %index
+  %cmp2.not = icmp slt i32 %index, %conv.i
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -10380,7 +10380,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -10429,7 +10429,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN19OpenColorIO_v2_4dev10FileFormatEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -10819,7 +10819,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %8, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %9
+  %cmp2.i.i = icmp eq ptr %9, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -10877,7 +10877,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaISB_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISE_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -11279,7 +11279,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 32
-  %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i.i19
 
 for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i.i19

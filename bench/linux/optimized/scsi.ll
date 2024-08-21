@@ -1572,7 +1572,7 @@ define dso_local range(i32 0, 65536) i32 @scsi_track_queue_full(ptr noundef %0, 
   %10 = getelementptr inbounds i8, ptr %0, i64 116
   %11 = load i16, ptr %10, align 4
   %12 = zext i16 %11 to i32
-  %13 = icmp eq i32 %12, %1
+  %13 = icmp eq i32 %1, %12
   %14 = getelementptr inbounds i8, ptr %0, i64 118
   br i1 %13, label %16, label %.thread
 

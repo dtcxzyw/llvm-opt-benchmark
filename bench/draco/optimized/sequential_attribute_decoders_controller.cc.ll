@@ -194,7 +194,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttribu
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -269,7 +269,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5draco26SequentialAttributeDecoderESt14defau
   br label %_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS2_EESaIS5_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS2_EESaIS5_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -929,7 +929,7 @@ define linkonce_odr noundef ptr @_ZN5draco37SequentialAttributeDecodersControlle
   %9 = sub i64 %7, %8
   %10 = lshr exact i64 %9, 2
   %11 = trunc i64 %10 to i32
-  %.not.i = icmp sgt i32 %11, %1
+  %.not.i = icmp slt i32 %1, %11
   br i1 %.not.i, label %_ZNK5draco17AttributesDecoder27GetLocalIdForPointAttributeEi.exit, label %_ZNK5draco17AttributesDecoder27GetLocalIdForPointAttributeEi.exit.thread
 
 _ZNK5draco17AttributesDecoder27GetLocalIdForPointAttributeEi.exit: ; preds = %2

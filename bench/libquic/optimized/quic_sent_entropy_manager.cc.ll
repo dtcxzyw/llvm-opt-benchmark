@@ -430,7 +430,7 @@ if.end:
   %add10.i.i.i = add i64 %add.i.i.i, %sub.ptr.lhs.cast7.i.i.i
   %add.i = add i64 %add10.i.i.i, %mul.i.i.i
   %sub.i = sub i64 %add.i, %sub.ptr.rhs.cast8.i.i.i
-  %cmp = icmp ult i64 %sub.i, %largest_observed
+  %cmp = icmp ugt i64 %largest_observed, %sub.i
   br i1 %cmp, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
@@ -587,7 +587,7 @@ for.inc27:                                        ; preds = %_ZNK3net22QuicSentE
 
 for.end29:                                        ; preds = %for.inc27, %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit
   %expected_entropy_hash.0.lcssa = phi i8 [ %15, %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit ], [ %expected_entropy_hash.1.lcssa, %for.inc27 ]
-  %cmp32 = icmp eq i8 %expected_entropy_hash.0.lcssa, %entropy_hash
+  %cmp32 = icmp eq i8 %entropy_hash, %expected_entropy_hash.0.lcssa
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end, %for.end29
@@ -827,7 +827,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #18
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i

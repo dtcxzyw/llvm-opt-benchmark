@@ -6436,7 +6436,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$zstd_safe..OutBufferWrapper$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3537)
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !3537, !noalias !3534, !noundef !4
-  %7 = icmp ult i64 %6, %4
+  %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %"_ZN78_$LT$zstd_safe..OutBufferWrapper$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha445e8b490359145E.llvm.1979644106479486265.exit"
 
 8:                                                ; preds = %1
@@ -7377,7 +7377,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$zstd_safe..OutBufferWrapper$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4017)
   %5 = load ptr, ptr %2, align 8, !alias.scope !4017, !noalias !4014, !nonnull !4, !align !5, !noundef !4
   %6 = load i64, ptr %5, align 8, !alias.scope !4020, !noalias !4023, !noundef !4
-  %7 = icmp ult i64 %6, %4
+  %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %"_ZN78_$LT$zstd_safe..OutBufferWrapper$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdf4be11b6cbe4f28E.llvm.1979644106479486265.exit"
 
 8:                                                ; preds = %1
@@ -9713,7 +9713,7 @@ define hidden void @"_ZN78_$LT$zstd_safe..OutBufferWrapper$LT$C$GT$$u20$as$u20$c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4590)
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !4590, !noundef !4
-  %7 = icmp ult i64 %6, %4
+  %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %"_ZN9zstd_safe18OutBuffer$LT$C$GT$7set_pos17h3b0be5d3a6fb4273E.exit"
 
 8:                                                ; preds = %1
@@ -9734,7 +9734,7 @@ define hidden void @"_ZN78_$LT$zstd_safe..OutBufferWrapper$LT$C$GT$$u20$as$u20$c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4593)
   %5 = load ptr, ptr %2, align 8, !alias.scope !4593, !nonnull !4, !align !5, !noundef !4
   %6 = load i64, ptr %5, align 8, !alias.scope !4596, !noalias !4593, !noundef !4
-  %7 = icmp ult i64 %6, %4
+  %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %"_ZN9zstd_safe18OutBuffer$LT$C$GT$7set_pos17h1b4e2232b7cedea7E.exit"
 
 8:                                                ; preds = %1

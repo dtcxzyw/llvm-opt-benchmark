@@ -152,7 +152,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE6resizeE
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %3
@@ -161,7 +161,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE6resizeE
   br label %_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 14:                                               ; preds = %3
-  %15 = icmp ugt i64 %10, %1
+  %15 = icmp ult i64 %1, %10
   br i1 %15, label %16, label %_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 16:                                               ; preds = %14
@@ -571,7 +571,7 @@ _ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pre
 _ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit: ; preds = %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %65
   %80 = phi ptr [ %17, %65 ], [ %68, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ]
   store ptr %80, ptr %9, align 8
-  %.not11.i.i.i.i.i69 = icmp eq ptr %17, %1
+  %.not11.i.i.i.i.i69 = icmp eq ptr %1, %17
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit
@@ -760,7 +760,7 @@ _ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RS
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i93, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91
   %.0.lcssa.i.i.i.i.i97 = phi ptr [ %124, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91 ], [ %147, %.lr.ph.i.i.i.i.i93 ]
   %148 = getelementptr inbounds %"class.gmx::CorrelationTensor", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
-  %.not11.i.i.i.i.i98 = icmp eq ptr %10, %1
+  %.not11.i.i.i.i.i98 = icmp eq ptr %1, %10
   br i1 %.not11.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit104, label %.lr.ph.i.i.i.i.i99
 
 .lr.ph.i.i.i.i.i99:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %.lr.ph.i.i.i.i.i99

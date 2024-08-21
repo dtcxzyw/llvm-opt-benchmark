@@ -3753,7 +3753,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6
   %18 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !728, !noalias !733, !noundef !18
   %19 = load i64, ptr %6, align 8, !alias.scope !735, !noalias !733, !noundef !18
   %20 = sub i64 %19, %18
-  %21 = icmp ult i64 %20, %17
+  %21 = icmp ugt i64 %17, %20
   br i1 %21, label %22, label %39
 
 22:                                               ; preds = %16
@@ -3779,7 +3779,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6
   %31 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !738, !noalias !743, !noundef !18
   %32 = load i64, ptr %6, align 8, !alias.scope !745, !noalias !743, !noundef !18
   %33 = sub i64 %32, %31
-  %34 = icmp ult i64 %33, %30
+  %34 = icmp ugt i64 %30, %33
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %26

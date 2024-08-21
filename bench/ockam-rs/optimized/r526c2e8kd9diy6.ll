@@ -5870,7 +5870,7 @@ default.unreachable227:                           ; preds = %68
   call void @llvm.experimental.noalias.scope.decl(metadata !680)
   %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %30, i64 %24)
   %80 = sub nuw i64 %24, %.0.sroa.speculated.i.i.i.i
-  %81 = icmp ult i64 %80, %.0104.ph
+  %81 = icmp ugt i64 %.0104.ph, %80
   br i1 %81, label %119, label %86
 
 82:                                               ; preds = %86, %77
@@ -6392,7 +6392,7 @@ define internal fastcc void @_ZN11tungstenite8protocol5frame5frame5Frame5close17
   %39 = load i64, ptr %27, align 8, !alias.scope !742, !noalias !747, !noundef !5
   %40 = load i64, ptr %26, align 8, !alias.scope !749, !noalias !747, !noundef !5
   %41 = sub i64 %40, %39
-  %42 = icmp ult i64 %41, %.sroa.5.0.i12
+  %42 = icmp ugt i64 %.sroa.5.0.i12, %41
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %35
@@ -6825,7 +6825,7 @@ _ZN11tungstenite8protocol5frame5frame5Frame10apply_mask17h02d52c0365e3a1b6E.exit
   %136 = load i64, ptr %8, align 8, !noundef !5
   %137 = load i64, ptr %40, align 8, !alias.scope !860, !noalias !857, !noundef !5
   %138 = sub i64 %137, %134
-  %139 = icmp ult i64 %138, %136
+  %139 = icmp ugt i64 %136, %138
   br i1 %139, label %140, label %141
 
 140:                                              ; preds = %_ZN11tungstenite8protocol5frame5frame5Frame10apply_mask17h02d52c0365e3a1b6E.exit
@@ -7295,7 +7295,7 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %81 = load i64, ptr %68, align 8, !alias.scope !903, !noundef !5
   %82 = load i64, ptr %70, align 8, !alias.scope !908, !noundef !5
   %83 = call i64 @llvm.usub.sat.i64(i64 %81, i64 %82)
-  %84 = icmp ult i64 %83, %.sroa.620.sroa.0.0.copyload
+  %84 = icmp ugt i64 %.sroa.620.sroa.0.0.copyload, %83
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %80
@@ -7562,7 +7562,7 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %156 = load i64, ptr %42, align 8, !noundef !5
   %157 = load i64, ptr %44, align 8, !alias.scope !951, !noundef !5
   %158 = tail call i64 @llvm.usub.sat.i64(i64 %156, i64 %157)
-  %159 = icmp ult i64 %158, %151
+  %159 = icmp ugt i64 %151, %158
   br i1 %159, label %160, label %161
 
 160:                                              ; preds = %155
@@ -7942,7 +7942,7 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %83 = load i64, ptr %68, align 8, !alias.scope !992, !noundef !5
   %84 = load i64, ptr %70, align 8, !alias.scope !997, !noundef !5
   %85 = call i64 @llvm.usub.sat.i64(i64 %83, i64 %84)
-  %86 = icmp ult i64 %85, %.sroa.0115.0.copyload
+  %86 = icmp ugt i64 %.sroa.0115.0.copyload, %85
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %82
@@ -8212,7 +8212,7 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %157 = load i64, ptr %42, align 8, !noundef !5
   %158 = load i64, ptr %44, align 8, !alias.scope !1040, !noundef !5
   %159 = tail call i64 @llvm.usub.sat.i64(i64 %157, i64 %158)
-  %160 = icmp ult i64 %159, %152
+  %160 = icmp ugt i64 %152, %159
   br i1 %160, label %161, label %162
 
 161:                                              ; preds = %156
@@ -9079,7 +9079,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h404967c0228c9759E(ptr noal
 92:                                               ; preds = %85
   %93 = load i64, ptr %9, align 8, !alias.scope !1172, !noalias !1179, !noundef !5
   %94 = sub i64 %93, %88
-  %95 = icmp ult i64 %94, %.0.sroa.speculated.i.i4.i.i.i
+  %95 = icmp ugt i64 %.0.sroa.speculated.i.i4.i.i.i, %94
   br i1 %95, label %.noexc47, label %96
 
 .noexc47:                                         ; preds = %92
@@ -9205,7 +9205,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit: ; preds = %8, %
   %48 = getelementptr inbounds i8, ptr %45, i64 8
   %49 = load i64, ptr %48, align 8, !alias.scope !1200, !noalias !1197, !noundef !5
   %50 = sub i64 %49, %47
-  %51 = icmp ult i64 %50, %44
+  %51 = icmp ugt i64 %44, %50
   br i1 %51, label %52, label %"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17hd47e496b8f5c5c2fE.exit"
 
 52:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit
@@ -10644,7 +10644,7 @@ _ZN4core4hash3sip9u8to64_le17h7d49da03e1a9dcd6E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !5
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -10725,8 +10725,8 @@ _ZN4core4hash3sip9u8to64_le17h7d49da03e1a9dcd6E.exit: ; preds = %25, %27
   br label %78
 
 84:                                               ; preds = %78
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload13.i18 = load i16, ptr %86, align 1, !alias.scope !1456
   %87 = zext i16 %.0.copyload13.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -10742,8 +10742,8 @@ _ZN4core4hash3sip9u8to64_le17h7d49da03e1a9dcd6E.exit: ; preds = %25, %27
   br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17h7d49da03e1a9dcd6E.exit20
 
 94:                                               ; preds = %92
-  %95 = getelementptr i8, ptr %1, i64 %.1.i16
-  %96 = getelementptr i8, ptr %95, i64 %.09.lcssa
+  %95 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %96 = getelementptr i8, ptr %95, i64 %.1.i16
   %97 = load i8, ptr %96, align 1, !alias.scope !1456, !noundef !5
   %98 = zext i8 %97 to i64
   %99 = shl nuw nsw i64 %.1.i16, 3
@@ -10923,7 +10923,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !1479, !noalias !1476, !noundef !5
   %9 = sub i64 %8, %6
-  %10 = icmp ult i64 %9, %2
+  %10 = icmp ugt i64 %2, %9
   br i1 %10, label %11, label %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17h8486b50871cfc77bE.exit"
 
 11:                                               ; preds = %3

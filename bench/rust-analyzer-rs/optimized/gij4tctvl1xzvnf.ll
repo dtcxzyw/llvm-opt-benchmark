@@ -5998,7 +5998,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !825, !noalias !830, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !832, !noalias !830, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha75460c18030d6ccE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -6055,7 +6055,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !838, !noalias !843, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !845, !noalias !843, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha75460c18030d6ccE.exit"
 
 9:                                                ; preds = %3
@@ -6400,7 +6400,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 6
   %9 = select i1 %4, i64 0, i64 %8
-  %.0 = add i64 %9, %2
+  %.0 = add i64 %2, %9
   ret i64 %.0
 }
 
@@ -6415,7 +6415,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 6
   %9 = select i1 %4, i64 0, i64 %8
-  %.0 = add i64 %9, %2
+  %.0 = add i64 %2, %9
   ret i64 %.0
 }
 
@@ -6430,7 +6430,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 5
   %9 = select i1 %4, i64 0, i64 %8
-  %.0 = add i64 %9, %2
+  %.0 = add i64 %2, %9
   ret i64 %.0
 }
 
@@ -6445,7 +6445,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 6
   %9 = select i1 %4, i64 0, i64 %8
-  %.0 = add i64 %9, %2
+  %.0 = add i64 %2, %9
   ret i64 %.0
 }
 
@@ -6612,7 +6612,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 6
   %9 = select i1 %4, i64 0, i64 %8
-  %.0 = add i64 %9, %2
+  %.0 = add i64 %2, %9
   ret i64 %.0
 }
 
@@ -6627,7 +6627,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 6
   %9 = select i1 %4, i64 0, i64 %8
-  %.0 = add i64 %9, %2
+  %.0 = add i64 %2, %9
   ret i64 %.0
 }
 
@@ -6642,7 +6642,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 6
   %9 = select i1 %4, i64 0, i64 %8
-  %.0 = add i64 %9, %2
+  %.0 = add i64 %2, %9
   ret i64 %.0
 }
 
@@ -6657,7 +6657,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 6
   %9 = select i1 %4, i64 0, i64 %8
-  %.0 = add i64 %9, %2
+  %.0 = add i64 %2, %9
   ret i64 %.0
 }
 

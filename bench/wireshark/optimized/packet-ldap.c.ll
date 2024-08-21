@@ -3724,7 +3724,7 @@ define internal i32 @dissect_ldap_LDAPString(i1 noundef zeroext %0, ptr noundef 
   %9 = load ptr, ptr %7, align 8
   %.not = icmp ne ptr %9, null
   %10 = load i32, ptr @hf_ldap_baseObject, align 4
-  %11 = icmp eq i32 %10, %5
+  %11 = icmp eq i32 %5, %10
   %or.cond76 = select i1 %.not, i1 true, i1 %11
   br i1 %or.cond76, label %12, label %132
 
@@ -3767,12 +3767,12 @@ ldap_do_protocolop.exit:                          ; preds = %12, %24
   %30 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %25, i32 noundef 0) #12
   %31 = call ptr @tvb_get_string_enc(ptr noundef %29, ptr noundef nonnull %25, i32 noundef 0, i32 noundef %30, i32 noundef 2) #12
   %32 = load i32, ptr @hf_ldap_baseObject, align 4
-  %33 = icmp eq i32 %32, %5
+  %33 = icmp eq i32 %5, %32
   br i1 %33, label %36, label %54
 
 .thread:                                          ; preds = %ldap_do_protocolop.exit
   %34 = load i32, ptr @hf_ldap_baseObject, align 4
-  %35 = icmp eq i32 %34, %5
+  %35 = icmp eq i32 %5, %34
   br i1 %35, label %.thread88, label %.thread91
 
 36:                                               ; preds = %26
@@ -3818,7 +3818,7 @@ ldap_do_protocolop.exit:                          ; preds = %12, %24
 
 54:                                               ; preds = %26
   %55 = load i32, ptr @hf_ldap_errorMessage, align 4
-  %56 = icmp eq i32 %55, %5
+  %56 = icmp eq i32 %5, %55
   %57 = icmp ne ptr %31, null
   %or.cond = select i1 %56, i1 %57, i1 false
   br i1 %or.cond, label %58, label %.thread91
@@ -3849,18 +3849,18 @@ ldap_do_protocolop.exit:                          ; preds = %12, %24
   %70 = phi i1 [ true, %58 ], [ %57, %54 ], [ false, %.thread ]
   %.08794 = phi ptr [ %31, %58 ], [ %31, %54 ], [ null, %.thread ]
   %71 = load i32, ptr @hf_ldap_objectName, align 4
-  %72 = icmp eq i32 %71, %5
+  %72 = icmp eq i32 %5, %71
   %73 = load i32, ptr @hf_ldap_name, align 4
-  %74 = icmp eq i32 %73, %5
+  %74 = icmp eq i32 %5, %73
   %or.cond78 = select i1 %72, i1 true, i1 %74
   %75 = load i32, ptr @hf_ldap_entry, align 4
-  %76 = icmp eq i32 %75, %5
+  %76 = icmp eq i32 %5, %75
   %or.cond80 = select i1 %or.cond78, i1 true, i1 %76
   %77 = load i32, ptr @hf_ldap_object, align 4
-  %78 = icmp eq i32 %77, %5
+  %78 = icmp eq i32 %5, %77
   %or.cond82 = select i1 %or.cond80, i1 true, i1 %78
   %79 = load i32, ptr @hf_ldap_delRequest, align 4
-  %80 = icmp eq i32 %79, %5
+  %80 = icmp eq i32 %5, %79
   %or.cond84 = select i1 %or.cond82, i1 true, i1 %80
   br i1 %or.cond84, label %81, label %95
 
@@ -3895,7 +3895,7 @@ ldap_do_protocolop.exit:                          ; preds = %12, %24
 
 95:                                               ; preds = %.thread91
   %96 = load i32, ptr @hf_ldap_attributeDesc, align 4
-  %97 = icmp eq i32 %96, %5
+  %97 = icmp eq i32 %5, %96
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %95
@@ -3904,7 +3904,7 @@ ldap_do_protocolop.exit:                          ; preds = %12, %24
 
 99:                                               ; preds = %95
   %100 = load i32, ptr @hf_ldap_initial, align 4
-  %101 = icmp eq i32 %100, %5
+  %101 = icmp eq i32 %5, %100
   br i1 %101, label %102, label %103
 
 102:                                              ; preds = %99
@@ -3913,7 +3913,7 @@ ldap_do_protocolop.exit:                          ; preds = %12, %24
 
 103:                                              ; preds = %99
   %104 = load i32, ptr @hf_ldap_any, align 4
-  %105 = icmp eq i32 %104, %5
+  %105 = icmp eq i32 %5, %104
   br i1 %105, label %106, label %107
 
 106:                                              ; preds = %103
@@ -3922,7 +3922,7 @@ ldap_do_protocolop.exit:                          ; preds = %12, %24
 
 107:                                              ; preds = %103
   %108 = load i32, ptr @hf_ldap_final, align 4
-  %109 = icmp eq i32 %108, %5
+  %109 = icmp eq i32 %5, %108
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %107
@@ -3931,7 +3931,7 @@ ldap_do_protocolop.exit:                          ; preds = %12, %24
 
 111:                                              ; preds = %107
   %112 = load i32, ptr @hf_ldap_matchingRule, align 4
-  %113 = icmp eq i32 %112, %5
+  %113 = icmp eq i32 %5, %112
   br i1 %113, label %114, label %115
 
 114:                                              ; preds = %111
@@ -3940,7 +3940,7 @@ ldap_do_protocolop.exit:                          ; preds = %12, %24
 
 115:                                              ; preds = %111
   %116 = load i32, ptr @hf_ldap_present, align 4
-  %117 = icmp eq i32 %116, %5
+  %117 = icmp eq i32 %5, %116
   br i1 %117, label %118, label %119
 
 118:                                              ; preds = %115
@@ -3949,7 +3949,7 @@ ldap_do_protocolop.exit:                          ; preds = %12, %24
 
 119:                                              ; preds = %115
   %120 = load i32, ptr @hf_ldap_type, align 4
-  %121 = icmp eq i32 %120, %5
+  %121 = icmp eq i32 %5, %120
   br i1 %121, label %122, label %132
 
 122:                                              ; preds = %119
@@ -5442,9 +5442,9 @@ define internal i32 @dissect_ldap_LDAPOID(i1 noundef zeroext %0, ptr noundef %1,
   %25 = load ptr, ptr %24, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.845, ptr noundef nonnull %22) #12
   %26 = load i32, ptr @hf_ldap_requestName, align 4
-  %27 = icmp eq i32 %26, %5
+  %27 = icmp eq i32 %5, %26
   %28 = load i32, ptr @hf_ldap_responseName, align 4
-  %29 = icmp eq i32 %28, %5
+  %29 = icmp eq i32 %5, %28
   %or.cond = select i1 %27, i1 true, i1 %29
   br i1 %or.cond, label %30, label %45
 
@@ -5483,7 +5483,7 @@ ldap_do_protocolop.exit:                          ; preds = %30, %41
 45:                                               ; preds = %23, %ldap_do_protocolop.exit, %12
   %.not26 = icmp ne ptr %9, null
   %46 = load i32, ptr @hf_ldap_requestName, align 4
-  %47 = icmp eq i32 %46, %5
+  %47 = icmp eq i32 %5, %46
   %or.cond30 = select i1 %.not26, i1 %47, i1 false
   br i1 %or.cond30, label %48, label %53
 
@@ -5558,7 +5558,7 @@ define internal i32 @dissect_ldap_ExtendedResponse_resultCode(i1 noundef zeroext
 
 14:                                               ; preds = %11
   %15 = load i32, ptr @hf_ldap_extendedResponse_resultCode, align 4
-  %16 = icmp eq i32 %15, %5
+  %16 = icmp eq i32 %5, %15
   %17 = load i32, ptr %7, align 4
   %18 = icmp eq i32 %17, 0
   %or.cond = select i1 %16, i1 %18, i1 false

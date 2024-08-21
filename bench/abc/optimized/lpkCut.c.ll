@@ -1845,13 +1845,13 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsTravIdCurrent(ptr nocaptur
   %4 = add nsw i32 %.val3, 1
   %5 = getelementptr inbounds i8, ptr %.val2, i64 228
   %6 = load i32, ptr %5, align 4
-  %.not.i.not.i.i = icmp sgt i32 %6, %.val3
+  %.not.i.not.i.i = icmp slt i32 %.val3, %6
   br i1 %.not.i.not.i.i, label %Abc_NodeTravId.exit, label %7
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %3, align 8
   %9 = shl nsw i32 %8, 1
-  %.not.i.i = icmp sgt i32 %9, %.val3
+  %.not.i.i = icmp slt i32 %.val3, %9
   %.not.i.i.not.i.i = icmp sgt i32 %8, %.val3
   br i1 %.not.i.i, label %22, label %10
 
@@ -2007,13 +2007,13 @@ define i32 @Lpk_CountSupp(ptr nocapture noundef readnone %0, ptr nocapture nound
   %24 = add nsw i32 %.val3.i, 1
   %25 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %26 = load i32, ptr %25, align 4
-  %.not.i.not.i.i.i = icmp sgt i32 %26, %.val3.i
+  %.not.i.not.i.i.i = icmp slt i32 %.val3.i, %26
   br i1 %.not.i.not.i.i.i, label %Abc_NodeIsTravIdCurrent.exit, label %27
 
 27:                                               ; preds = %14
   %28 = load i32, ptr %23, align 8
   %29 = shl nsw i32 %28, 1
-  %.not.i.i.i = icmp sgt i32 %29, %.val3.i
+  %.not.i.i.i = icmp slt i32 %.val3.i, %29
   %.not.i.i.not.i.i.i = icmp sgt i32 %28, %.val3.i
   br i1 %.not.i.i.i, label %42, label %30
 

@@ -389,7 +389,7 @@ for.body17.i:                                     ; preds = %if.else.i, %while.e
   %arrayidx.i = getelementptr [4096 x %struct.anon.6], ptr %array.i, i64 0, i64 %conv.i.i19
   %16 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %17 = inttoptr i64 %16 to ptr
-  %cmp.i = icmp eq ptr %17, %tb
+  %cmp.i = icmp eq ptr %tb, %17
   br i1 %cmp.i, label %while.end31.i, label %while.end42.i
 
 while.end31.i:                                    ; preds = %for.body17.i
@@ -787,7 +787,7 @@ for.body.preheader:                               ; preds = %if.end14
   %tb.03343 = inttoptr i64 %tb.0.in28 to ptr
   %n.0.in44 = trunc i64 %tb.0.in.in27 to i32
   %n.045 = and i32 %n.0.in44, 1
-  %cmp2046 = icmp eq ptr %tb.03343, %orig
+  %cmp2046 = icmp eq ptr %orig, %tb.03343
   %cmp2347 = icmp eq i32 %n.045, %n_orig
   %or.cond48 = and i1 %cmp2046, %cmp2347
   br i1 %or.cond48, label %if.then25, label %if.end29
@@ -796,7 +796,7 @@ for.body:                                         ; preds = %if.end29
   %tb.033 = inttoptr i64 %tb.0.in to ptr
   %n.0.in = trunc i64 %tb.0.in.in to i32
   %n.0 = and i32 %n.0.in, 1
-  %cmp20 = icmp eq ptr %tb.033, %orig
+  %cmp20 = icmp eq ptr %orig, %tb.033
   %cmp23 = icmp eq i32 %n.0, %n_orig
   %or.cond = and i1 %cmp20, %cmp23
   br i1 %or.cond, label %if.then25.loopexit, label %if.end29, !llvm.loop !20

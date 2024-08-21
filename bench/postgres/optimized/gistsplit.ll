@@ -1185,7 +1185,7 @@ removeDontCares.exit131:                          ; preds = %removeDontCares.exi
   call void @gistDeCompressAtt(ptr noundef %5, ptr noundef %0, ptr noundef %318, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %319 = load ptr, ptr %204, align 8
   %320 = load i32, ptr %319, align 8
-  %321 = icmp sgt i32 %320, %203
+  %321 = icmp slt i32 %203, %320
   br i1 %321, label %.lr.ph.i132, label %placeOne.exit
 
 .lr.ph.i132:                                      ; preds = %._crit_edge

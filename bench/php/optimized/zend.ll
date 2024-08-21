@@ -3523,7 +3523,7 @@ define void @zend_illegal_container_offset(ptr noundef %0, ptr noundef %1, i32 n
   %7 = load ptr, ptr @zend_known_strings, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 216
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %0
+  %10 = icmp eq ptr %0, %9
   br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %6
@@ -3983,12 +3983,12 @@ declare ptr @__zend_realloc(ptr noundef, i64 noundef) local_unnamed_addr #22
 ; Function Attrs: nounwind uwtable
 define void @zend_map_ptr_extend(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 504), align 8
-  %3 = icmp ult i64 %2, %0
+  %3 = icmp ugt i64 %0, %2
   br i1 %3, label %4, label %20
 
 4:                                                ; preds = %1
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 496), align 8
-  %.not = icmp ugt i64 %5, %0
+  %.not = icmp ult i64 %0, %5
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 480), align 8
   br i1 %.not, label %14, label %6
 

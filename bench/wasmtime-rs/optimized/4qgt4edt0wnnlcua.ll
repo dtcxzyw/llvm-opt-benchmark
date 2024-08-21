@@ -3970,7 +3970,7 @@ _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit.i: ; preds = %106, %98
 
 220:                                              ; preds = %.lr.ph
   %221 = load i64, ptr %.sroa.442.0..sroa_idx, align 8, !alias.scope !507, !noundef !4
-  %.not4.i = icmp ult i64 %221, %219
+  %.not4.i = icmp ugt i64 %219, %221
   br i1 %.not4.i, label %.invoke, label %225
 
 .invoke:                                          ; preds = %220, %.lr.ph
@@ -4840,7 +4840,7 @@ define hidden void @_ZN16wasmtime_runtime8instance9allocator7pooling11memory_poo
 47:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !591
   store ptr %45, ptr %10, align 8, !noalias !591
-  %48 = icmp eq ptr %45, %40
+  %48 = icmp eq ptr %40, %45
   br i1 %48, label %72, label %49
 
 49:                                               ; preds = %47
@@ -6585,7 +6585,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime3sys4unix2vm22erase_existing_map
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %8, ptr %4, align 8
-  %11 = icmp eq ptr %8, %0
+  %11 = icmp eq ptr %0, %8
   br i1 %11, label %18, label %17
 
 12:                                               ; preds = %2
@@ -7092,7 +7092,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime3sys4unix2vm17MemoryImageSource6
 21:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %19, ptr %6, align 8
-  %22 = icmp eq ptr %19, %1
+  %22 = icmp eq ptr %1, %19
   br i1 %22, label %29, label %28
 
 23:                                               ; preds = %4
@@ -7136,7 +7136,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime3sys4unix2vm17MemoryImageSource1
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %9, ptr %5, align 8
-  %12 = icmp eq ptr %9, %1
+  %12 = icmp eq ptr %1, %9
   br i1 %12, label %19, label %18
 
 13:                                               ; preds = %3

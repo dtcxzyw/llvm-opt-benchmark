@@ -464,7 +464,7 @@ define dso_local zeroext i1 @ext4_es_scan_clu(ptr noundef %0, ptr nocapture noun
   %18 = getelementptr inbounds i8, ptr %17, i64 80
   %19 = load i32, ptr %18, align 16
   %20 = sub i32 0, %19
-  %21 = and i32 %20, %2
+  %21 = and i32 %2, %20
   %22 = add i32 %19, -1
   %23 = add i32 %22, %21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #11
@@ -729,7 +729,7 @@ define dso_local void @ext4_es_insert_extent(ptr noundef %0, i32 noundef %1, i32
   %148 = getelementptr inbounds i8, ptr %142, i64 80
   %149 = load i32, ptr %148, align 16
   %150 = sub i32 0, %149
-  %151 = and i32 %150, %1
+  %151 = and i32 %1, %150
   %152 = icmp eq i32 %151, %1
   br i1 %147, label %153, label %417
 
@@ -4299,7 +4299,7 @@ define dso_local void @ext4_es_insert_delayed_block(ptr noundef %0, i32 noundef 
   %65 = icmp ne i32 %44, 0
   %66 = select i1 %57, i1 true, i1 %65
   %67 = icmp eq ptr %41, null
-  %68 = and i1 %66, %2
+  %68 = and i1 %2, %66
   %69 = select i1 %68, i1 %67, i1 false
   br i1 %69, label %70, label %73
 

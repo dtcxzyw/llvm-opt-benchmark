@@ -2562,7 +2562,7 @@ H5VL_object_data.exit:                            ; preds = %35, %28, %24, %20, 
 ; Function Attrs: nounwind uwtable
 define ptr @H5VL_object_verify(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @H5I_get_type(i64 noundef %0) #10
-  %.not = icmp eq i32 %3, %1
+  %.not = icmp eq i32 %1, %3
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
@@ -3198,7 +3198,7 @@ define void @H5VL__is_default_conn(i64 noundef %0, i64 noundef %1, ptr nocapture
 
 10:                                               ; preds = %7
   %11 = tail call i64 @H5VL_native_register() #10
-  %12 = icmp eq i64 %11, %1
+  %12 = icmp eq i64 %1, %11
   %13 = zext i1 %12 to i8
   br label %14
 

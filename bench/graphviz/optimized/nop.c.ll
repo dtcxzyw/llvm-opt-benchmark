@@ -63,7 +63,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @optind, align 4
-  %.not8.i = icmp eq i32 %17, %0
+  %.not8.i = icmp eq i32 %0, %17
   br i1 %.not8.i, label %.init.exit_crit_edge, label %18
 
 .init.exit_crit_edge:                             ; preds = %16

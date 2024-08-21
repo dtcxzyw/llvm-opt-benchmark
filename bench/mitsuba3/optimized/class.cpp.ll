@@ -495,7 +495,7 @@ _ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK7mitsuba5Class12derives_fromEPKS0_(ptr noundef nonnull readonly align 16 dereferenceable(208) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
-  %.not9 = icmp eq ptr %0, %1
+  %.not9 = icmp eq ptr %1, %0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -503,7 +503,7 @@ define noundef zeroext i1 @_ZNK7mitsuba5Class12derives_fromEPKS0_(ptr noundef no
   %3 = getelementptr inbounds i8, ptr %.08, i64 96
   %4 = load ptr, ptr %3, align 16
   %.not = icmp ne ptr %4, null
-  %5 = icmp ne ptr %4, %1
+  %5 = icmp ne ptr %1, %4
   %or.cond.not = and i1 %5, %.not
   br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
@@ -1055,7 +1055,7 @@ define void @_ZN7mitsuba5Class21static_initializationEv() local_unnamed_addr #0 
   %9 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %.0.i.i.i
+  %12 = icmp eq ptr %.0.i.i.i, %11
   br i1 %12, label %_ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPNS_11__tree_nodeISC_PvEElEEEppB8ne190000Ev.exit, label %.preheader.i.i.i, !llvm.loop !22
 
 _ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPNS_11__tree_nodeISC_PvEElEEEppB8ne190000Ev.exit: ; preds = %.preheader8.i.i.i, %.preheader.i.i.i
@@ -1154,7 +1154,7 @@ _ZN7mitsuba5ClassD2Ev.exit:                       ; preds = %23, %.sink.split.i.
   %34 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, %.0.i.i.i
+  %37 = icmp eq ptr %.0.i.i.i, %36
   br i1 %37, label %_ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPNS_11__tree_nodeISC_PvEElEEEppB8ne190000Ev.exit, label %.preheader.i.i.i, !llvm.loop !22
 
 _ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPNS_11__tree_nodeISC_PvEElEEEppB8ne190000Ev.exit: ; preds = %.preheader8.i.i.i, %.preheader.i.i.i
@@ -1627,7 +1627,7 @@ define linkonce_odr hidden void @_ZNSt3__127__tree_balance_after_insertB8ne19000
   %12 = getelementptr inbounds i8, ptr %7, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %7
+  %15 = icmp eq ptr %7, %14
   br i1 %15, label %16, label %52
 
 16:                                               ; preds = %11
@@ -1645,7 +1645,7 @@ define linkonce_odr hidden void @_ZNSt3__127__tree_balance_after_insertB8ne19000
 23:                                               ; preds = %19, %16
   %24 = getelementptr inbounds i8, ptr %7, i64 16
   %25 = load ptr, ptr %7, align 8
-  %26 = icmp eq ptr %25, %.067
+  %26 = icmp eq ptr %.067, %25
   br i1 %26, label %37, label %27
 
 27:                                               ; preds = %23
@@ -1667,7 +1667,7 @@ _ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit: ;
   %34 = getelementptr inbounds i8, ptr %29, i64 16
   store ptr %33, ptr %34, align 8
   %35 = load ptr, ptr %33, align 8
-  %36 = icmp eq ptr %35, %7
+  %36 = icmp eq ptr %7, %35
   %.sink.idx.i = select i1 %36, i64 0, i64 8
   %.sink.i = getelementptr inbounds i8, ptr %33, i64 %.sink.idx.i
   store ptr %29, ptr %.sink.i, align 8
@@ -1701,7 +1701,7 @@ _ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit: 
   %49 = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %48, ptr %49, align 8
   %50 = load ptr, ptr %48, align 8
-  %51 = icmp eq ptr %50, %38
+  %51 = icmp eq ptr %38, %50
   %.sink.idx.i49 = select i1 %51, i64 0, i64 8
   %.sink.i50 = getelementptr inbounds i8, ptr %48, i64 %.sink.idx.i49
   store ptr %42, ptr %.sink.i50, align 8
@@ -1722,7 +1722,7 @@ _ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit: 
 57:                                               ; preds = %53, %52
   %58 = getelementptr inbounds i8, ptr %7, i64 16
   %59 = load ptr, ptr %7, align 8
-  %60 = icmp eq ptr %59, %.067
+  %60 = icmp eq ptr %.067, %59
   br i1 %60, label %61, label %70
 
 61:                                               ; preds = %57
@@ -1743,7 +1743,7 @@ _ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54
   %67 = getelementptr inbounds i8, ptr %59, i64 16
   store ptr %66, ptr %67, align 8
   %68 = load ptr, ptr %66, align 8
-  %69 = icmp eq ptr %68, %7
+  %69 = icmp eq ptr %7, %68
   %.sink.idx.i52 = select i1 %69, i64 0, i64 8
   %.sink.i53 = getelementptr inbounds i8, ptr %66, i64 %.sink.idx.i52
   store ptr %59, ptr %.sink.i53, align 8
@@ -1777,7 +1777,7 @@ _ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit58:
   %82 = getelementptr inbounds i8, ptr %76, i64 16
   store ptr %81, ptr %82, align 8
   %83 = load ptr, ptr %81, align 8
-  %84 = icmp eq ptr %83, %71
+  %84 = icmp eq ptr %71, %83
   %.sink.idx.i56 = select i1 %84, i64 0, i64 8
   %.sink.i57 = getelementptr inbounds i8, ptr %81, i64 %.sink.idx.i56
   store ptr %76, ptr %.sink.i57, align 8
@@ -3127,7 +3127,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63

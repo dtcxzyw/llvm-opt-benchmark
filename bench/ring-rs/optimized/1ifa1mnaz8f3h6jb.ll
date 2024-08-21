@@ -378,7 +378,7 @@ define noundef zeroext i1 @"_ZN87_$LT$ring..test..rand..FixedSliceRandom$u20$as$
   %6 = load i64, ptr %5, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  %.not.i = icmp eq i64 %6, %2
+  %.not.i = icmp eq i64 %2, %6
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcd5c9a8e6f63698bE.exit", label %7
 
 7:                                                ; preds = %3
@@ -407,7 +407,7 @@ define noundef zeroext i1 @"_ZN95_$LT$ring..test..rand..FixedSliceSequenceRandom
   %14 = load i64, ptr %13, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %.not.i = icmp eq i64 %14, %2
+  %.not.i = icmp eq i64 %2, %14
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcd5c9a8e6f63698bE.exit", label %15
 
 15:                                               ; preds = %9

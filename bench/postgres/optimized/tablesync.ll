@@ -141,7 +141,7 @@ define dso_local void @process_syncing_tables(i64 noundef %0) local_unnamed_addr
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i8, ptr %21, i64 56
   %27 = load i64, ptr %26, align 8
-  %.not2.i = icmp ugt i64 %27, %0
+  %.not2.i = icmp ult i64 %0, %27
   br i1 %.not2.i, label %process_syncing_tables_for_sync.exit, label %28
 
 28:                                               ; preds = %25
@@ -274,7 +274,7 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
 86:                                               ; preds = %.lr.ph
   %87 = getelementptr inbounds i8, ptr %82, i64 8
   %88 = load i64, ptr %87, align 8
-  %.not56.i = icmp ugt i64 %88, %0
+  %.not56.i = icmp ult i64 %0, %88
   br i1 %.not56.i, label %199, label %89
 
 89:                                               ; preds = %86

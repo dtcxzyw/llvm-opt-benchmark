@@ -302,7 +302,7 @@ define internal noundef i64 @strio_initialize(i32 noundef %0, ptr noundef %1, i6
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @strio_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_convert_type(i64 noundef %1, i32 noundef 12, ptr noundef nonnull @.str, ptr noundef nonnull @.str.82) #14
-  %4 = icmp eq i64 %3, %0
+  %4 = icmp eq i64 %0, %3
   br i1 %4, label %34, label %5
 
 5:                                                ; preds = %2
@@ -2228,7 +2228,7 @@ rb_num2long_inline.exit:                          ; preds = %32, %34
   %94 = getelementptr inbounds i8, ptr %93, i64 16
   %95 = load i64, ptr %94, align 8
   %96 = sub nsw i64 %95, %92
-  %spec.select.i = call i64 @llvm.smin.i64(i64 %96, i64 %.0406872)
+  %spec.select.i = call i64 @llvm.smin.i64(i64 %.0406872, i64 %96)
   %97 = icmp slt i64 %spec.select.i, 1
   br i1 %97, label %98, label %100
 
@@ -2445,7 +2445,7 @@ readable.exit:                                    ; preds = %44
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load i64, ptr %63, align 8
   %65 = sub nsw i64 %64, %.0.i26
-  %spec.select.i = call i64 @llvm.smin.i64(i64 %65, i64 %.0.i)
+  %spec.select.i = call i64 @llvm.smin.i64(i64 %.0.i, i64 %65)
   %66 = icmp slt i64 %spec.select.i, 1
   br i1 %66, label %67, label %69
 
@@ -3052,7 +3052,7 @@ define internal i64 @strio_read_nonblock(i32 noundef %0, ptr noundef %1, i64 nou
   %6 = load i64, ptr %4, align 8
   %7 = icmp ne i64 %6, 4
   %8 = sext i1 %7 to i32
-  %spec.select = add nsw i32 %8, %0
+  %spec.select = add nsw i32 %0, %8
   %9 = call i64 @strio_read(i32 noundef %spec.select, ptr noundef %1, i64 noundef %2)
   %10 = icmp eq i64 %9, 4
   br i1 %10, label %11, label %19
@@ -3851,7 +3851,7 @@ chomp_newline_width.exit:                         ; preds = %54, %50, %44, %39
   %60 = getelementptr inbounds i8, ptr %59, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = sub nsw i64 %61, %55
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %62, i64 %58)
+  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %58, i64 %62)
   %63 = icmp slt i64 %spec.select.i, 1
   br i1 %63, label %64, label %66
 
@@ -4005,7 +4005,7 @@ RSTRING_PTR.exit187:                              ; preds = %.critedge2, %139
   %144 = getelementptr inbounds i8, ptr %135, i64 16
   %145 = load i64, ptr %144, align 8
   %146 = sub nsw i64 %145, %141
-  %spec.select.i188 = tail call i64 @llvm.smin.i64(i64 %146, i64 %143)
+  %spec.select.i188 = tail call i64 @llvm.smin.i64(i64 %143, i64 %146)
   %147 = icmp slt i64 %spec.select.i188, 1
   br i1 %147, label %148, label %150
 
@@ -4071,7 +4071,7 @@ RSTRING_PTR.exit194:                              ; preds = %153, %157
   %181 = getelementptr inbounds i8, ptr %180, i64 16
   %182 = load i64, ptr %181, align 8
   %183 = sub nsw i64 %182, %176
-  %spec.select.i195 = tail call i64 @llvm.smin.i64(i64 %183, i64 %179)
+  %spec.select.i195 = tail call i64 @llvm.smin.i64(i64 %179, i64 %183)
   %184 = icmp slt i64 %spec.select.i195, 1
   br i1 %184, label %185, label %187
 
@@ -4269,7 +4269,7 @@ bm_search.exit.thread:                            ; preds = %.critedge.us.i, %.l
   %259 = getelementptr inbounds i8, ptr %258, i64 16
   %260 = load i64, ptr %259, align 8
   %261 = sub nsw i64 %260, %254
-  %spec.select.i207 = tail call i64 @llvm.smin.i64(i64 %261, i64 %257)
+  %spec.select.i207 = tail call i64 @llvm.smin.i64(i64 %257, i64 %261)
   %262 = icmp slt i64 %spec.select.i207, 1
   br i1 %262, label %263, label %265
 
@@ -4356,7 +4356,7 @@ define internal fastcc void @strio_unget_bytes(ptr nocapture noundef %0, ptr noc
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = sub nsw i64 %5, %9
-  %11 = icmp slt i64 %5, %2
+  %11 = icmp sgt i64 %2, %5
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %3
@@ -4644,7 +4644,7 @@ RSTRING_PTR.exit:                                 ; preds = %79, %83
 
 87:                                               ; preds = %75
   %88 = sub nsw i64 9223372036854775807, %.pre
-  %89 = icmp slt i64 %88, %54
+  %89 = icmp sgt i64 %54, %88
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %87
@@ -4674,7 +4674,7 @@ check_modifiable.exit.i:                          ; preds = %92
 
 102:                                              ; preds = %check_modifiable.exit.i
   %103 = tail call i64 @rb_str_resize(i64 noundef %.val, i64 noundef %100) #14
-  %104 = icmp slt i64 %99, %.pre
+  %104 = icmp sgt i64 %.pre, %99
   %.pre90 = load i64, ptr %6, align 8
   br i1 %104, label %105, label %strio_extend.exit
 

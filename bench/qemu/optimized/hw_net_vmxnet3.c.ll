@@ -2636,7 +2636,7 @@ if.end11.i:                                       ; preds = %lor.lhs.false5.i
   %conv13.i = zext i16 %38 to i64
   %add.i = add nuw nsw i64 %conv12.i, 2
   %add14.i = add nuw nsw i64 %add.i, %conv13.i
-  %cmp16.i = icmp ugt i64 %add14.i, %size.addr.0
+  %cmp16.i = icmp ult i64 %size.addr.0, %add14.i
   br i1 %cmp16.i, label %vmxnet3_rx_need_csum_calculate.exit, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end11.i

@@ -1312,7 +1312,7 @@ BufferGetPage.exit59:                             ; preds = %80, %86
   %157 = getelementptr inbounds i8, ptr %156, i64 18
   %158 = load i16, ptr %157, align 2
   %159 = and i16 %158, 2047
-  %160 = icmp ult i16 %159, %152
+  %160 = icmp ugt i16 %152, %159
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %155
@@ -1510,7 +1510,7 @@ HeapKeyTest.exit:                                 ; preds = %145, %.lr.ph.split.
 266:                                              ; preds = %._crit_edge
   %267 = getelementptr inbounds i8, ptr %0, i64 60
   %268 = load i32, ptr %267, align 4
-  %269 = icmp eq i32 %268, %.0
+  %269 = icmp eq i32 %.0, %268
   br i1 %269, label %heapgettup_advance_block.exit.thread, label %270, !llvm.loop !10
 
 270:                                              ; preds = %266
@@ -1921,7 +1921,7 @@ HeapKeyTest.exit.loopexit73.split.us:             ; preds = %158
   %208 = getelementptr inbounds i8, ptr %207, i64 18
   %209 = load i16, ptr %208, align 2
   %210 = and i16 %209, 2047
-  %211 = icmp ult i16 %210, %203
+  %211 = icmp ugt i16 %203, %210
   br i1 %211, label %212, label %214
 
 212:                                              ; preds = %206
@@ -2127,7 +2127,7 @@ HeapKeyTest.exit:                                 ; preds = %196, %HeapKeyTest.e
 319:                                              ; preds = %._crit_edge
   %320 = getelementptr inbounds i8, ptr %0, i64 60
   %321 = load i32, ptr %320, align 4
-  %322 = icmp eq i32 %321, %.0
+  %322 = icmp eq i32 %.0, %321
   br i1 %322, label %heapgettup_advance_block.exit.thread, label %323, !llvm.loop !12
 
 323:                                              ; preds = %319
@@ -8350,7 +8350,7 @@ get_mxact_status_for_lock.exit:                   ; preds = %heap_acquire_tuploc
   %264 = and i32 %230, 4176
   %265 = icmp ne i32 %264, 64
   %266 = and i1 %.not246, %265
-  %or.cond270.not = and i1 %266, %5
+  %or.cond270.not = and i1 %5, %266
   br i1 %or.cond270.not, label %267, label %272
 
 267:                                              ; preds = %262
@@ -13718,7 +13718,7 @@ BufferGetPage.exit190:                            ; preds = %186, %192
 
 292:                                              ; preds = %.thread200, %290
   %293 = icmp ugt i64 %.0165, 1637
-  %294 = or i1 %179, %1
+  %294 = or i1 %1, %179
   %or.cond = select i1 %294, i1 true, i1 %293
   br i1 %or.cond, label %297, label %295
 
@@ -15111,7 +15111,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
   %12 = zext nneg i16 %11 to i32
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6

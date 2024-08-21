@@ -1335,7 +1335,7 @@ save_best.exit:                                   ; preds = %._crit_edge.i, %4
 45:                                               ; preds = %43
   %46 = tail call i32 @llvm.smin.i32(i32 %44, i32 4)
   %47 = tail call ptr @dot_root(ptr noundef %0) #23
-  %48 = icmp eq ptr %47, %0
+  %48 = icmp eq ptr %0, %47
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %45
@@ -3123,7 +3123,7 @@ define void @build_ranks(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %._crit_edge
   %29 = tail call ptr @agroot(ptr noundef nonnull %0) #23
-  %.not78 = icmp eq ptr %29, %0
+  %.not78 = icmp eq ptr %0, %29
   %30 = load ptr, ptr %3, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 256
   %32 = load ptr, ptr %31, align 8
@@ -3430,7 +3430,7 @@ enqueue_neighbors.exit:                           ; preds = %119, %.preheader32.
 
 ._crit_edge114:                                   ; preds = %.loopexit, %134
   %202 = tail call ptr @dot_root(ptr noundef nonnull %0) #23
-  %203 = icmp eq ptr %202, %0
+  %203 = icmp eq ptr %0, %202
   br i1 %203, label %204, label %208
 
 204:                                              ; preds = %._crit_edge114
@@ -4595,7 +4595,7 @@ out_cross.exit128.i:                              ; preds = %.lr.ph9.split.us.i1
 
 336:                                              ; preds = %334
   %337 = icmp sgt i32 %.1.i, 0
-  %brmerge.not134.i = and i1 %337, %1
+  %brmerge.not134.i = and i1 %1, %337
   %338 = icmp eq i32 %.158.i, %.1.i
   %or.cond.i = and i1 %338, %brmerge.not134.i
   br i1 %or.cond.i, label %339, label %left2right.exit.thread131.i

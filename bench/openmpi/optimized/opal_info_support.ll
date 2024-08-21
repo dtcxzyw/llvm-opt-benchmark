@@ -2677,13 +2677,13 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 1
   %.not87 = icmp eq i32 %63, 0
-  %brmerge = or i1 %.not87, %2
+  %brmerge = or i1 %2, %.not87
   br i1 %brmerge, label %64, label %125
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds i8, ptr %60, i64 24
   %66 = load i32, ptr %65, align 8
-  %67 = icmp ugt i32 %66, %1
+  %67 = icmp ult i32 %1, %66
   br i1 %67, label %125, label %68
 
 68:                                               ; preds = %64
@@ -2837,7 +2837,7 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
   %141 = load ptr, ptr %5, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 44
   %143 = load i32, ptr %142, align 4
-  %144 = icmp ugt i32 %143, %1
+  %144 = icmp ult i32 %1, %143
   br i1 %144, label %200, label %145
 
 145:                                              ; preds = %140

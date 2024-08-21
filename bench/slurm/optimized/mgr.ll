@@ -1022,7 +1022,7 @@ _bit_getrange.exit:                               ; preds = %.sink.split.i, %19
   %.1.i38 = phi i8 [ %.023.i34, %44 ], [ %spec.select63, %42 ]
   %indvars.iv.next.i39 = add nsw i64 %indvars.iv.i33, 1
   %lftr.wideiv.i40 = trunc i64 %indvars.iv.next.i39 to i32
-  %exitcond.not.i41 = icmp eq i32 %lftr.wideiv.i40, %9
+  %exitcond.not.i41 = icmp eq i32 %9, %lftr.wideiv.i40
   br i1 %exitcond.not.i41, label %_bit_getrange.exit42, label %.lr.ph.i32, !llvm.loop !11
 
 _bit_getrange.exit42:                             ; preds = %.sink.split.i36, %45
@@ -5934,7 +5934,7 @@ _log_task_exit.exit:                              ; preds = %104, %107, %111, %1
 job_task_info_by_pid.exit.thread:                 ; preds = %88, %.preheader.i, %84, %205, %197
   %.2 = phi i32 [ %95, %205 ], [ %95, %197 ], [ %.075, %84 ], [ %.075, %.preheader.i ], [ %.075, %88 ]
   %209 = icmp slt i32 %22, 1
-  %.not102 = or i1 %209, %1
+  %.not102 = or i1 %1, %209
   br i1 %.not102, label %.thread111, label %21, !llvm.loop !35
 
 .thread111:                                       ; preds = %21, %job_task_info_by_pid.exit.thread, %33, %32, %35, %34, %30

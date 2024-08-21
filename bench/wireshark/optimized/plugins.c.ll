@@ -540,7 +540,7 @@ define i32 @plugins_check_file(ptr noundef %0) local_unnamed_addr #0 {
   %.off.i.i = add i32 %14, -1
   %switch.i.i = icmp ult i32 %.off.i.i, 3
   %spec.select.i.i = select i1 %switch.i.i, i32 1, i32 -1
-  %.not.i = icmp eq i32 %spec.select.i.i, %16
+  %.not.i = icmp eq i32 %16, %spec.select.i.i
   br i1 %.not.i, label %19, label %18
 
 18:                                               ; preds = %12

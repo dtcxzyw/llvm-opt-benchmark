@@ -1393,7 +1393,7 @@ if.end41:                                         ; preds = %if.end41.sink.split
   %inc40 = add i32 %.sink, %written.0162
   %inc43 = add i16 %i22.0163, 1
   %conv24 = zext i16 %inc43 to i64
-  %cmp26 = icmp ult i64 %conv24, %src.coerce0
+  %cmp26 = icmp ugt i64 %src.coerce0, %conv24
   br i1 %cmp26, label %for.body28, label %for.cond.cleanup27, !llvm.loop !39
 
 if.then46:                                        ; preds = %for.cond.cleanup27

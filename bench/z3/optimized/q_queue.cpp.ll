@@ -227,7 +227,7 @@ _ZNK6vectorIfLb0EjE8capacityEv.exit.i:            ; preds = %while.cond.i
   %cmp3.i = icmp ult i32 %6, 15
   br i1 %cmp3.i, label %while.body.i, label %while.end.i
 
-while.body.i:                                     ; preds = %while.cond.i, %_ZNK6vectorIfLb0EjE8capacityEv.exit.i
+while.body.i:                                     ; preds = %_ZNK6vectorIfLb0EjE8capacityEv.exit.i, %while.cond.i
   invoke void @_ZN6vectorIfLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_vals)
           to label %.noexc unwind label %lpad21.loopexit
 
@@ -238,8 +238,8 @@ while.body.i:                                     ; preds = %while.cond.i, %_ZNK
 while.end.i:                                      ; preds = %_ZNK6vectorIfLb0EjE8capacityEv.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 -4
   store i32 15, ptr %arrayidx.i, align 4
-  %cmp8.not17.i = icmp eq i32 %retval.0.i16.i.ph, 15
-  br i1 %cmp8.not17.i, label %invoke.cont24, label %for.body.preheader.i
+  %cmp8.not19.i = icmp eq i32 %retval.0.i16.i.ph, 15
+  br i1 %cmp8.not19.i, label %invoke.cont24, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %while.end.i
   %7 = load ptr, ptr %m_vals, align 8
@@ -1119,7 +1119,7 @@ invoke.cont12:                                    ; preds = %for.end
   %16 = load ptr, ptr %instance, align 8
   %m_true.i = getelementptr inbounds i8, ptr %15, i64 856
   %17 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %17, %16
+  %cmp.i = icmp eq ptr %16, %17
   br i1 %cmp.i, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %invoke.cont12

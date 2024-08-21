@@ -18,8 +18,8 @@ entry:
   %2 = load float, ptr %q.i, align 4
   %y.i = getelementptr inbounds i8, ptr %circleA, i64 20
   %3 = load float, ptr %y.i, align 4
-  %4 = fneg float %2
-  %neg.i = fmul float %3, %4
+  %4 = fneg float %3
+  %neg.i = fmul float %2, %4
   %5 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %neg.i)
   %6 = load float, ptr %xfA, align 4
   %add.i = fadd float %6, %5
@@ -36,8 +36,8 @@ entry:
   %11 = load float, ptr %q.i12, align 4
   %y.i14 = getelementptr inbounds i8, ptr %circleB, i64 20
   %12 = load float, ptr %y.i14, align 4
-  %13 = fneg float %11
-  %neg.i15 = fmul float %12, %13
+  %13 = fneg float %12
+  %neg.i15 = fmul float %11, %13
   %14 = tail call float @llvm.fmuladd.f32(float %9, float %10, float %neg.i15)
   %15 = load float, ptr %xfB, align 4
   %add.i16 = fadd float %15, %14
@@ -93,8 +93,8 @@ entry:
   %2 = load float, ptr %q.i, align 4
   %y.i = getelementptr inbounds i8, ptr %circleB, i64 20
   %3 = load float, ptr %y.i, align 4
-  %4 = fneg float %2
-  %neg.i = fmul float %3, %4
+  %4 = fneg float %3
+  %neg.i = fmul float %2, %4
   %5 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %neg.i)
   %6 = load float, ptr %xfB, align 4
   %add.i = fadd float %6, %5

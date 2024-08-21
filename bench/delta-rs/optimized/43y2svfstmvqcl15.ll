@@ -1585,7 +1585,7 @@ define internal fastcc noundef zeroext i1 @"_ZN103_$LT$arrow_array..array..list_
   br i1 %11, label %12, label %14, !prof !57
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %9, %1
+  %13 = icmp ult i64 %1, %9
   br i1 %13, label %"_ZN11arrow_array5array10list_array34GenericListArray$LT$OffsetSize$GT$5value17h24385a996141d71cE.exit", label %15, !prof !57
 
 14:                                               ; preds = %3
@@ -1677,7 +1677,7 @@ define internal fastcc noundef zeroext i1 @"_ZN103_$LT$arrow_array..array..list_
   br i1 %11, label %12, label %14, !prof !57
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %9, %1
+  %13 = icmp ult i64 %1, %9
   br i1 %13, label %"_ZN11arrow_array5array10list_array34GenericListArray$LT$OffsetSize$GT$5value17hd54aee5e1d6072c3E.exit", label %15, !prof !57
 
 14:                                               ; preds = %3
@@ -4152,7 +4152,7 @@ define internal fastcc noundef i64 @"_ZN11arrow_array5array15primitive_array23Pr
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = lshr i64 %.40.val, 3
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %1
@@ -4193,7 +4193,7 @@ define internal fastcc noundef i32 @"_ZN11arrow_array5array15primitive_array23Pr
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = lshr i64 %.40.val, 2
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %1
@@ -4236,7 +4236,7 @@ define hidden noundef i64 @"_ZN11arrow_array5array15primitive_array23PrimitiveAr
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = lshr i64 %8, 3
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %2
@@ -4281,7 +4281,7 @@ define hidden noundef i32 @"_ZN11arrow_array5array15primitive_array23PrimitiveAr
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = lshr i64 %8, 2
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %2
@@ -4324,7 +4324,7 @@ define internal fastcc noundef i16 @"_ZN11arrow_array5array15primitive_array23Pr
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = lshr i64 %.40.val, 1
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %1
@@ -4365,7 +4365,7 @@ define internal fastcc noundef double @"_ZN11arrow_array5array15primitive_array2
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = lshr i64 %.40.val, 3
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %1
@@ -4405,7 +4405,7 @@ define internal fastcc noundef i8 @"_ZN11arrow_array5array15primitive_array23Pri
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
-  %6 = icmp ugt i64 %.40.val, %0
+  %6 = icmp ult i64 %0, %.40.val
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %1
@@ -4446,7 +4446,7 @@ define internal fastcc noundef float @"_ZN11arrow_array5array15primitive_array23
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = lshr i64 %.40.val, 2
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %1
@@ -4487,7 +4487,7 @@ define internal fastcc noundef i32 @"_ZN11arrow_array5array15primitive_array23Pr
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = lshr i64 %.40.val, 2
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %1
@@ -4528,7 +4528,7 @@ define internal fastcc noundef i64 @"_ZN11arrow_array5array15primitive_array23Pr
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = lshr i64 %.40.val, 3
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %1
@@ -4569,7 +4569,7 @@ define internal fastcc noundef i16 @"_ZN11arrow_array5array15primitive_array23Pr
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = lshr i64 %.40.val, 1
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %1
@@ -4609,7 +4609,7 @@ define internal fastcc noundef i8 @"_ZN11arrow_array5array15primitive_array23Pri
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
-  %6 = icmp ugt i64 %.40.val, %0
+  %6 = icmp ult i64 %0, %.40.val
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %1
@@ -4650,7 +4650,7 @@ define internal fastcc noundef i128 @"_ZN11arrow_array5array15primitive_array23P
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = lshr i64 %.40.val, 4
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %1
@@ -4889,7 +4889,7 @@ _ZN11arrow_array5array5Array7is_null17h6ac56b0df3a5cff9E.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !699)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h6ac56b0df3a5cff9E.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -5212,7 +5212,7 @@ _ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit70.thread.us: ; pre
   %.sroa.020.081 = phi i64 [ %104, %125 ], [ %.0.sroa.speculated.i66, %.lr.ph83 ]
   %104 = add i64 %.sroa.020.081, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !726)
-  %105 = icmp ugt i64 %77, %.sroa.020.081
+  %105 = icmp ult i64 %.sroa.020.081, %77
   br i1 %105, label %_ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit70, label %106
 
 106:                                              ; preds = %.lr.ph83.split
@@ -5537,7 +5537,7 @@ _ZN11arrow_array5array5Array7is_null17h064c19b1fce5e5eaE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !753)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h064c19b1fce5e5eaE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -5850,7 +5850,7 @@ _ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit70.thread.us: ; pre
   %.sroa.020.080 = phi i64 [ %98, %116 ], [ %.0.sroa.speculated.i66, %.lr.ph82 ]
   %98 = add i64 %.sroa.020.080, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !777)
-  %99 = icmp ugt i64 %74, %.sroa.020.080
+  %99 = icmp ult i64 %.sroa.020.080, %74
   br i1 %99, label %_ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit70, label %100
 
 100:                                              ; preds = %.lr.ph82.split
@@ -6165,7 +6165,7 @@ _ZN11arrow_array5array5Array7is_null17h3d1e285f82e685a9E.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !801)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h3d1e285f82e685a9E.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -6480,7 +6480,7 @@ _ZN11arrow_array5array5Array7is_null17h5fb1a30f923bd614E.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !825)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h5fb1a30f923bd614E.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -6803,7 +6803,7 @@ _ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit70.thread.us: ; pre
   %.sroa.020.081 = phi i64 [ %104, %125 ], [ %.0.sroa.speculated.i66, %.lr.ph83 ]
   %104 = add i64 %.sroa.020.081, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !852)
-  %105 = icmp ugt i64 %77, %.sroa.020.081
+  %105 = icmp ult i64 %.sroa.020.081, %77
   br i1 %105, label %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit70, label %106
 
 106:                                              ; preds = %.lr.ph83.split
@@ -7128,7 +7128,7 @@ _ZN11arrow_array5array5Array7is_null17h8702d525b87e9d5dE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !879)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h8702d525b87e9d5dE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -7443,7 +7443,7 @@ _ZN11arrow_array5array5Array7is_null17haf90130a76bb153cE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !903)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17haf90130a76bb153cE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -7758,7 +7758,7 @@ _ZN11arrow_array5array5Array7is_null17hecc9cf17118b993eE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !927)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17hecc9cf17118b993eE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -8073,7 +8073,7 @@ _ZN11arrow_array5array5Array7is_null17hf8f5b0dd622a485bE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !951)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17hf8f5b0dd622a485bE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -8386,7 +8386,7 @@ _ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit70.thread.us: ; pre
   %.sroa.020.080 = phi i64 [ %98, %116 ], [ %.0.sroa.speculated.i66, %.lr.ph82 ]
   %98 = add i64 %.sroa.020.080, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !975)
-  %99 = icmp ugt i64 %74, %.sroa.020.080
+  %99 = icmp ult i64 %.sroa.020.080, %74
   br i1 %99, label %_ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit70, label %100
 
 100:                                              ; preds = %.lr.ph82.split
@@ -8701,7 +8701,7 @@ _ZN11arrow_array5array5Array7is_null17h22a7724f171fc34dE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !999)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h22a7724f171fc34dE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -9016,7 +9016,7 @@ _ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1023)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -9331,7 +9331,7 @@ _ZN11arrow_array5array5Array7is_null17h08a845ae51c07378E.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1047)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h08a845ae51c07378E.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -9646,7 +9646,7 @@ _ZN11arrow_array5array5Array7is_null17h6d6a6cf016c4a9ecE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1071)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h6d6a6cf016c4a9ecE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -9961,7 +9961,7 @@ _ZN11arrow_array5array5Array7is_null17h8e545d6041046d1fE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1095)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h8e545d6041046d1fE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -10274,7 +10274,7 @@ _ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit70.thread.us: ; pre
   %.sroa.020.080 = phi i64 [ %98, %116 ], [ %.0.sroa.speculated.i66, %.lr.ph82 ]
   %98 = add i64 %.sroa.020.080, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1119)
-  %99 = icmp ugt i64 %74, %.sroa.020.080
+  %99 = icmp ult i64 %.sroa.020.080, %74
   br i1 %99, label %_ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit70, label %100
 
 100:                                              ; preds = %.lr.ph82.split
@@ -10589,7 +10589,7 @@ _ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1143)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -10904,7 +10904,7 @@ _ZN11arrow_array5array5Array7is_null17h69c68f2423ea40d7E.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1167)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h69c68f2423ea40d7E.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -11219,7 +11219,7 @@ _ZN11arrow_array5array5Array7is_null17h9304b91b8b3377fcE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1191)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h9304b91b8b3377fcE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -11534,7 +11534,7 @@ _ZN11arrow_array5array5Array7is_null17hb2749f3db54c2450E.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1215)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17hb2749f3db54c2450E.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -11849,7 +11849,7 @@ _ZN11arrow_array5array5Array7is_null17hcccf3d7f46eea48aE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1239)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17hcccf3d7f46eea48aE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -12164,7 +12164,7 @@ _ZN11arrow_array5array5Array7is_null17ha0876c4e021ac8caE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1263)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17ha0876c4e021ac8caE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -12479,7 +12479,7 @@ _ZN11arrow_array5array5Array7is_null17h55a7c79c13fb723cE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1287)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h55a7c79c13fb723cE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -12793,7 +12793,7 @@ _ZN11arrow_array5array5Array7is_null17h351e2f702577728fE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %100, %118 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %100 = add i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1311)
-  %101 = icmp ugt i64 %75, %.sroa.020.087
+  %101 = icmp ult i64 %.sroa.020.087, %75
   br i1 %101, label %_ZN11arrow_array5array5Array7is_null17h351e2f702577728fE.exit77, label %102
 
 102:                                              ; preds = %.lr.ph89.split
@@ -13106,7 +13106,7 @@ _ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit70.thread.us: ; pre
   %.sroa.020.080 = phi i64 [ %98, %116 ], [ %.0.sroa.speculated.i66, %.lr.ph82 ]
   %98 = add i64 %.sroa.020.080, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1335)
-  %99 = icmp ugt i64 %74, %.sroa.020.080
+  %99 = icmp ult i64 %.sroa.020.080, %74
   br i1 %99, label %_ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit70, label %100
 
 100:                                              ; preds = %.lr.ph82.split
@@ -13420,7 +13420,7 @@ _ZN11arrow_array5array5Array7is_null17h3c4341a30802520aE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %100, %118 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %100 = add i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1359)
-  %101 = icmp ugt i64 %75, %.sroa.020.087
+  %101 = icmp ult i64 %.sroa.020.087, %75
   br i1 %101, label %_ZN11arrow_array5array5Array7is_null17h3c4341a30802520aE.exit77, label %102
 
 102:                                              ; preds = %.lr.ph89.split
@@ -13735,7 +13735,7 @@ _ZN11arrow_array5array5Array7is_null17h953d95de95f244ddE.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1383)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h953d95de95f244ddE.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -14050,7 +14050,7 @@ _ZN11arrow_array5array5Array7is_null17h158b039173687e01E.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1407)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h158b039173687e01E.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -14365,7 +14365,7 @@ _ZN11arrow_array5array5Array7is_null17h6ba71265d2fcad84E.exit77.thread.us: ; pre
   %.sroa.020.087 = phi i64 [ %101, %119 ], [ %.0.sroa.speculated.i73, %.lr.ph89 ]
   %101 = add nsw i64 %.sroa.020.087, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1431)
-  %102 = icmp ugt i64 %76, %.sroa.020.087
+  %102 = icmp ult i64 %.sroa.020.087, %76
   br i1 %102, label %_ZN11arrow_array5array5Array7is_null17h6ba71265d2fcad84E.exit77, label %103
 
 103:                                              ; preds = %.lr.ph89.split
@@ -22887,7 +22887,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.30201
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -23232,7 +23232,7 @@ define hidden { i32, i32 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load i64, ptr %8, align 8, !alias.scope !2890, !noalias !2887, !noundef !5
   %10 = lshr i64 %9, 2
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %"_ZN14deltalake_core6writer12record_batch26divide_by_partition_values28_$u7b$$u7b$closure$u7d$$u7d$17h0c4fb2f449ff8624E.llvm.3020181528030467296.exit", label %12
 
 12:                                               ; preds = %2
@@ -47294,7 +47294,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !7562, !noalias !7567, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !7569, !noalias !7567, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h0442491cb97dc7ceE.exit"
 
 9:                                                ; preds = %3
@@ -47641,7 +47641,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 80, i1 false)
@@ -47723,7 +47723,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [12 x i64] }, i64 }, ptr %5, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(104) %9, i64 104, i1 false)
@@ -47805,7 +47805,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [10 x i64] }, i64 }, ptr %5, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(88) %9, i64 88, i1 false)
@@ -47887,7 +47887,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 80, i1 false)
@@ -47969,7 +47969,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [46 x i64] }, i64 }, ptr %5, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(376) %9, i64 376, i1 false)
@@ -48051,7 +48051,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [10 x i64] }, i64 }, ptr %5, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(88) %9, i64 88, i1 false)
@@ -49759,7 +49759,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7679)
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %.sroa.0.i)
   %19 = load ptr, ptr %14, align 8, !alias.scope !7679, !nonnull !5, !noundef !5
-  %20 = icmp ugt i64 %18, %4
+  %20 = icmp ult i64 %4, %18
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds { { i64, [46 x i64] }, i64 }, ptr %19, i64 %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(376) %21, i64 376, i1 false), !noalias !7679
@@ -49840,7 +49840,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7687)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.0.i)
   %19 = load ptr, ptr %14, align 8, !alias.scope !7687, !nonnull !5, !noundef !5
-  %20 = icmp ugt i64 %18, %4
+  %20 = icmp ult i64 %4, %18
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds { { i64, [10 x i64] }, i64 }, ptr %19, i64 %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(88) %21, i64 88, i1 false), !noalias !7687
@@ -49921,7 +49921,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7695)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.0.i)
   %19 = load ptr, ptr %14, align 8, !alias.scope !7695, !nonnull !5, !noundef !5
-  %20 = icmp ugt i64 %18, %4
+  %20 = icmp ult i64 %4, %18
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %19, i64 %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(80) %21, i64 80, i1 false), !noalias !7695
@@ -50002,7 +50002,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7703)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.0.i)
   %19 = load ptr, ptr %14, align 8, !alias.scope !7703, !nonnull !5, !noundef !5
-  %20 = icmp ugt i64 %18, %4
+  %20 = icmp ult i64 %4, %18
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds { { i64, [10 x i64] }, i64 }, ptr %19, i64 %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(88) %21, i64 88, i1 false), !noalias !7703
@@ -50083,7 +50083,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7711)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %.sroa.0.i)
   %19 = load ptr, ptr %14, align 8, !alias.scope !7711, !nonnull !5, !noundef !5
-  %20 = icmp ugt i64 %18, %4
+  %20 = icmp ult i64 %4, %18
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds { { i64, [12 x i64] }, i64 }, ptr %19, i64 %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(104) %21, i64 104, i1 false), !noalias !7711
@@ -50164,7 +50164,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7719)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.0.i)
   %19 = load ptr, ptr %14, align 8, !alias.scope !7719, !nonnull !5, !noundef !5
-  %20 = icmp ugt i64 %18, %4
+  %20 = icmp ult i64 %4, %18
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %19, i64 %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(80) %21, i64 80, i1 false), !noalias !7719
@@ -50209,7 +50209,7 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [12 x i64] }, i64 }, ptr %5, i64 %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(104) %9, i64 104, i1 false)
@@ -50254,7 +50254,7 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 80, i1 false)
@@ -50299,7 +50299,7 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [10 x i64] }, i64 }, ptr %5, i64 %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(88) %9, i64 88, i1 false)
@@ -50344,7 +50344,7 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [46 x i64] }, i64 }, ptr %5, i64 %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(376) %9, i64 376, i1 false)
@@ -50389,7 +50389,7 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [10 x i64] }, i64 }, ptr %5, i64 %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(88) %9, i64 88, i1 false)
@@ -50434,7 +50434,7 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 80, i1 false)
@@ -52399,7 +52399,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !8182, !noalias !8187, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !8189, !noalias !8187, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h0442491cb97dc7ceE.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -86721,7 +86721,7 @@ define internal fastcc noundef zeroext i1 @"_ZN94_$LT$arrow_array..array..byte_a
   %12 = load i64, ptr %11, align 8, !alias.scope !13424, !noundef !5
   %13 = lshr i64 %12, 3
   %14 = add nsw i64 %13, -1
-  %15 = icmp ugt i64 %14, %1
+  %15 = icmp ult i64 %1, %14
   br i1 %15, label %"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$GT$5value17h5aec38f8885001f2E.exit", label %16
 
 16:                                               ; preds = %3
@@ -86807,7 +86807,7 @@ define internal fastcc noundef zeroext i1 @"_ZN94_$LT$arrow_array..array..byte_a
   %12 = load i64, ptr %11, align 8, !alias.scope !13442, !noundef !5
   %13 = lshr i64 %12, 2
   %14 = add nsw i64 %13, -1
-  %15 = icmp ugt i64 %14, %1
+  %15 = icmp ult i64 %1, %14
   br i1 %15, label %"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$GT$5value17h3cc2131e1cd2758cE.exit", label %16
 
 16:                                               ; preds = %3
@@ -86924,7 +86924,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8, !noalias !13460
   %35 = lshr i64 %.40.val, 3
-  %36 = icmp ugt i64 %35, %0
+  %36 = icmp ult i64 %0, %35
   br i1 %36, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h335a2cf14fa04e30E.llvm.3020181528030467296.exit", label %37
 
 37:                                               ; preds = %34
@@ -86993,7 +86993,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %62 = getelementptr inbounds i8, ptr %.8.val, i64 40
   %63 = load i64, ptr %62, align 8, !alias.scope !13474, !noundef !5
   %64 = lshr i64 %63, 3
-  %65 = icmp ugt i64 %64, %0
+  %65 = icmp ult i64 %0, %64
   br i1 %65, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h335a2cf14fa04e30E.llvm.3020181528030467296.exit24", label %66
 
 66:                                               ; preds = %60
@@ -87036,7 +87036,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %79 = getelementptr inbounds i8, ptr %.8.val, i64 40
   %80 = load i64, ptr %79, align 8, !alias.scope !13483, !noundef !5
   %81 = lshr i64 %80, 3
-  %82 = icmp ugt i64 %81, %0
+  %82 = icmp ult i64 %0, %81
   br i1 %82, label %145, label %83
 
 83:                                               ; preds = %77
@@ -87072,7 +87072,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %93 = getelementptr inbounds i8, ptr %.8.val, i64 40
   %94 = load i64, ptr %93, align 8, !alias.scope !13492, !noundef !5
   %95 = lshr i64 %94, 3
-  %96 = icmp ugt i64 %95, %0
+  %96 = icmp ult i64 %0, %95
   br i1 %96, label %151, label %97
 
 97:                                               ; preds = %91
@@ -87304,7 +87304,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8
   %35 = lshr i64 %.40.val, 4
-  %36 = icmp ugt i64 %35, %0
+  %36 = icmp ult i64 %0, %35
   br i1 %36, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h9f5fc358f7ed6d09E.exit", label %37
 
 37:                                               ; preds = %34
@@ -87374,7 +87374,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 %0, ptr %19, align 8
   %64 = lshr i64 %.val32, 4
-  %65 = icmp ugt i64 %64, %0
+  %65 = icmp ult i64 %0, %64
   br i1 %65, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h9f5fc358f7ed6d09E.exit35", label %66
 
 66:                                               ; preds = %60
@@ -87419,7 +87419,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %0, ptr %15, align 8
   %81 = lshr i64 %.val30, 4
-  %82 = icmp ugt i64 %81, %0
+  %82 = icmp ult i64 %0, %81
   br i1 %82, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h9f5fc358f7ed6d09E.exit36", label %83
 
 83:                                               ; preds = %77
@@ -87464,7 +87464,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %0, ptr %11, align 8
   %98 = lshr i64 %.val28, 4
-  %99 = icmp ugt i64 %98, %0
+  %99 = icmp ult i64 %0, %98
   br i1 %99, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h9f5fc358f7ed6d09E.exit40", label %100
 
 100:                                              ; preds = %94
@@ -87743,7 +87743,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store i64 %0, ptr %26, align 8
   %57 = lshr i64 %.40.val, 3
-  %58 = icmp ugt i64 %57, %0
+  %58 = icmp ult i64 %0, %57
   br i1 %58, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hb122e94f988e1842E.exit", label %59
 
 59:                                               ; preds = %56
@@ -87813,7 +87813,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store i64 %0, ptr %22, align 8
   %86 = lshr i64 %.val27, 3
-  %87 = icmp ugt i64 %86, %0
+  %87 = icmp ult i64 %0, %86
   br i1 %87, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hb122e94f988e1842E.exit30", label %88
 
 88:                                               ; preds = %82
@@ -87859,7 +87859,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store i64 %0, ptr %18, align 8
   %105 = lshr i64 %.val25, 3
-  %106 = icmp ugt i64 %105, %0
+  %106 = icmp ult i64 %0, %105
   br i1 %106, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hb122e94f988e1842E.exit31", label %107
 
 107:                                              ; preds = %101
@@ -87907,7 +87907,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 %0, ptr %13, align 8
   %123 = lshr i64 %.val23, 3
-  %124 = icmp ugt i64 %123, %0
+  %124 = icmp ult i64 %0, %123
   br i1 %124, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hb122e94f988e1842E.exit32", label %125
 
 125:                                              ; preds = %119
@@ -88394,7 +88394,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store i64 %0, ptr %22, align 8
   %37 = lshr i64 %.40.val, 3
-  %38 = icmp ugt i64 %37, %0
+  %38 = icmp ult i64 %0, %37
   br i1 %38, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h4df0c790f64eeb16E.exit", label %39
 
 39:                                               ; preds = %36
@@ -88462,7 +88462,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store i64 %0, ptr %18, align 8
   %65 = lshr i64 %.val27, 3
-  %66 = icmp ugt i64 %65, %0
+  %66 = icmp ult i64 %0, %65
   br i1 %66, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h4df0c790f64eeb16E.exit30", label %67
 
 67:                                               ; preds = %62
@@ -88504,7 +88504,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store i64 %0, ptr %14, align 8
   %81 = lshr i64 %.val25, 3
-  %82 = icmp ugt i64 %81, %0
+  %82 = icmp ult i64 %0, %81
   br i1 %82, label %152, label %83
 
 83:                                               ; preds = %78
@@ -88541,7 +88541,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %0, ptr %9, align 8
   %95 = lshr i64 %.val23, 3
-  %96 = icmp ugt i64 %95, %0
+  %96 = icmp ult i64 %0, %95
   br i1 %96, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h4df0c790f64eeb16E.exit32", label %97
 
 97:                                               ; preds = %91
@@ -88805,7 +88805,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8
-  %35 = icmp ugt i64 %.40.val, %0
+  %35 = icmp ult i64 %0, %.40.val
   br i1 %35, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hb355482479ae5dbdE.exit", label %36
 
 36:                                               ; preds = %34
@@ -88872,7 +88872,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %.val27 = load i64, ptr %61, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 %0, ptr %19, align 8
-  %62 = icmp ugt i64 %.val27, %0
+  %62 = icmp ult i64 %0, %.val27
   br i1 %62, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hb355482479ae5dbdE.exit30", label %63
 
 63:                                               ; preds = %59
@@ -88913,7 +88913,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %.val25 = load i64, ptr %76, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %0, ptr %15, align 8
-  %77 = icmp ugt i64 %.val25, %0
+  %77 = icmp ult i64 %0, %.val25
   br i1 %77, label %138, label %78
 
 78:                                               ; preds = %74
@@ -88947,7 +88947,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %.val23 = load i64, ptr %88, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %0, ptr %10, align 8
-  %89 = icmp ugt i64 %.val23, %0
+  %89 = icmp ult i64 %0, %.val23
   br i1 %89, label %144, label %90
 
 90:                                               ; preds = %86
@@ -89181,7 +89181,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store i64 %0, ptr %22, align 8
   %37 = lshr i64 %.40.val, 3
-  %38 = icmp ugt i64 %37, %0
+  %38 = icmp ult i64 %0, %37
   br i1 %38, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hcc4d91406cec2a12E.exit", label %39
 
 39:                                               ; preds = %36
@@ -89249,7 +89249,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store i64 %0, ptr %18, align 8
   %65 = lshr i64 %.val27, 3
-  %66 = icmp ugt i64 %65, %0
+  %66 = icmp ult i64 %0, %65
   br i1 %66, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hcc4d91406cec2a12E.exit30", label %67
 
 67:                                               ; preds = %62
@@ -89291,7 +89291,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store i64 %0, ptr %14, align 8
   %81 = lshr i64 %.val25, 3
-  %82 = icmp ugt i64 %81, %0
+  %82 = icmp ult i64 %0, %81
   br i1 %82, label %154, label %83
 
 83:                                               ; preds = %78
@@ -89328,7 +89328,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %0, ptr %9, align 8
   %95 = lshr i64 %.val23, 3
-  %96 = icmp ugt i64 %95, %0
+  %96 = icmp ult i64 %0, %95
   br i1 %96, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hcc4d91406cec2a12E.exit32", label %97
 
 97:                                               ; preds = %91
@@ -89594,7 +89594,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8
   %35 = lshr i64 %.40.val, 3
-  %36 = icmp ugt i64 %35, %0
+  %36 = icmp ult i64 %0, %35
   br i1 %36, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h878ec491e45a9fb5E.exit", label %37
 
 37:                                               ; preds = %34
@@ -89664,7 +89664,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 %0, ptr %19, align 8
   %64 = lshr i64 %.val32, 3
-  %65 = icmp ugt i64 %64, %0
+  %65 = icmp ult i64 %0, %64
   br i1 %65, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h878ec491e45a9fb5E.exit35", label %66
 
 66:                                               ; preds = %60
@@ -89708,7 +89708,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %0, ptr %15, align 8
   %81 = lshr i64 %.val30, 3
-  %82 = icmp ugt i64 %81, %0
+  %82 = icmp ult i64 %0, %81
   br i1 %82, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h878ec491e45a9fb5E.exit36", label %83
 
 83:                                               ; preds = %77
@@ -89752,7 +89752,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %0, ptr %11, align 8
   %98 = lshr i64 %.val28, 3
-  %99 = icmp ugt i64 %98, %0
+  %99 = icmp ult i64 %0, %98
   br i1 %99, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h878ec491e45a9fb5E.exit38", label %100
 
 100:                                              ; preds = %94
@@ -89984,7 +89984,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %0, ptr %6, align 8
   %12 = lshr i64 %.40.val, 3
-  %13 = icmp ugt i64 %12, %0
+  %13 = icmp ult i64 %0, %12
   br i1 %13, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h527258bb676ce839E.exit", label %14
 
 14:                                               ; preds = %11
@@ -90101,7 +90101,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8, !noalias !13876
   %35 = lshr i64 %.40.val, 2
-  %36 = icmp ugt i64 %35, %0
+  %36 = icmp ult i64 %0, %35
   br i1 %36, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h3f0b39234b5afcc4E.llvm.3020181528030467296.exit", label %37
 
 37:                                               ; preds = %34
@@ -90170,7 +90170,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %62 = getelementptr inbounds i8, ptr %.8.val, i64 40
   %63 = load i64, ptr %62, align 8, !alias.scope !13890, !noundef !5
   %64 = lshr i64 %63, 2
-  %65 = icmp ugt i64 %64, %0
+  %65 = icmp ult i64 %0, %64
   br i1 %65, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h3f0b39234b5afcc4E.llvm.3020181528030467296.exit24", label %66
 
 66:                                               ; preds = %60
@@ -90213,7 +90213,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %79 = getelementptr inbounds i8, ptr %.8.val, i64 40
   %80 = load i64, ptr %79, align 8, !alias.scope !13899, !noundef !5
   %81 = lshr i64 %80, 2
-  %82 = icmp ugt i64 %81, %0
+  %82 = icmp ult i64 %0, %81
   br i1 %82, label %145, label %83
 
 83:                                               ; preds = %77
@@ -90249,7 +90249,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %93 = getelementptr inbounds i8, ptr %.8.val, i64 40
   %94 = load i64, ptr %93, align 8, !alias.scope !13908, !noundef !5
   %95 = lshr i64 %94, 2
-  %96 = icmp ugt i64 %95, %0
+  %96 = icmp ult i64 %0, %95
   br i1 %96, label %151, label %97
 
 97:                                               ; preds = %91
@@ -90481,7 +90481,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8
   %35 = lshr i64 %.40.val, 5
-  %36 = icmp ugt i64 %35, %0
+  %36 = icmp ult i64 %0, %35
   br i1 %36, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17haae2fd9890cb1b22E.exit", label %37
 
 37:                                               ; preds = %34
@@ -90531,7 +90531,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 %0, ptr %19, align 8
   %55 = lshr i64 %.val32, 5
-  %56 = icmp ugt i64 %55, %0
+  %56 = icmp ult i64 %0, %55
   br i1 %56, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17haae2fd9890cb1b22E.exit35", label %57
 
 57:                                               ; preds = %51
@@ -90584,7 +90584,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %0, ptr %15, align 8
   %78 = lshr i64 %.val30, 5
-  %79 = icmp ugt i64 %78, %0
+  %79 = icmp ult i64 %0, %78
   br i1 %79, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17haae2fd9890cb1b22E.exit36", label %80
 
 80:                                               ; preds = %74
@@ -90637,7 +90637,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %0, ptr %11, align 8
   %101 = lshr i64 %.val28, 5
-  %102 = icmp ugt i64 %101, %0
+  %102 = icmp ult i64 %0, %101
   br i1 %102, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17haae2fd9890cb1b22E.exit42", label %103
 
 103:                                              ; preds = %97
@@ -90922,7 +90922,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   store i64 %0, ptr %25, align 8
   %55 = lshr i64 %.40.val, 2
-  %56 = icmp ugt i64 %55, %0
+  %56 = icmp ult i64 %0, %55
   br i1 %56, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h703ab19f7e1c744fE.exit", label %57
 
 57:                                               ; preds = %54
@@ -90992,7 +90992,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   store i64 %0, ptr %21, align 8
   %84 = lshr i64 %.val27, 2
-  %85 = icmp ugt i64 %84, %0
+  %85 = icmp ult i64 %0, %84
   br i1 %85, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h703ab19f7e1c744fE.exit30", label %86
 
 86:                                               ; preds = %80
@@ -91039,7 +91039,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store i64 %0, ptr %17, align 8
   %104 = lshr i64 %.val25, 2
-  %105 = icmp ugt i64 %104, %0
+  %105 = icmp ult i64 %0, %104
   br i1 %105, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h703ab19f7e1c744fE.exit31", label %106
 
 106:                                              ; preds = %100
@@ -91086,7 +91086,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store i64 %0, ptr %12, align 8
   %122 = lshr i64 %.val23, 2
-  %123 = icmp ugt i64 %122, %0
+  %123 = icmp ult i64 %0, %122
   br i1 %123, label %239, label %124
 
 124:                                              ; preds = %119
@@ -91526,7 +91526,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8
   %35 = lshr i64 %.40.val, 1
-  %36 = icmp ugt i64 %35, %0
+  %36 = icmp ult i64 %0, %35
   br i1 %36, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h9b33473072c24d23E.exit", label %37
 
 37:                                               ; preds = %34
@@ -91594,7 +91594,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 %0, ptr %19, align 8
   %63 = lshr i64 %.val27, 1
-  %64 = icmp ugt i64 %63, %0
+  %64 = icmp ult i64 %0, %63
   br i1 %64, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h9b33473072c24d23E.exit30", label %65
 
 65:                                               ; preds = %60
@@ -91636,7 +91636,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %0, ptr %15, align 8
   %79 = lshr i64 %.val25, 1
-  %80 = icmp ugt i64 %79, %0
+  %80 = icmp ult i64 %0, %79
   br i1 %80, label %142, label %81
 
 81:                                               ; preds = %76
@@ -91671,7 +91671,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %0, ptr %10, align 8
   %92 = lshr i64 %.val23, 1
-  %93 = icmp ugt i64 %92, %0
+  %93 = icmp ult i64 %0, %92
   br i1 %93, label %148, label %94
 
 94:                                               ; preds = %89
@@ -91926,7 +91926,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store i64 %0, ptr %26, align 8
   %57 = lshr i64 %.40.val, 3
-  %58 = icmp ugt i64 %57, %0
+  %58 = icmp ult i64 %0, %57
   br i1 %58, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h2afb2bc8ede729a8E.exit", label %59
 
 59:                                               ; preds = %56
@@ -91996,7 +91996,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store i64 %0, ptr %22, align 8
   %86 = lshr i64 %.val27, 3
-  %87 = icmp ugt i64 %86, %0
+  %87 = icmp ult i64 %0, %86
   br i1 %87, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h2afb2bc8ede729a8E.exit30", label %88
 
 88:                                               ; preds = %82
@@ -92042,7 +92042,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store i64 %0, ptr %18, align 8
   %105 = lshr i64 %.val25, 3
-  %106 = icmp ugt i64 %105, %0
+  %106 = icmp ult i64 %0, %105
   br i1 %106, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h2afb2bc8ede729a8E.exit31", label %107
 
 107:                                              ; preds = %101
@@ -92090,7 +92090,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 %0, ptr %13, align 8
   %123 = lshr i64 %.val23, 3
-  %124 = icmp ugt i64 %123, %0
+  %124 = icmp ult i64 %0, %123
   br i1 %124, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h2afb2bc8ede729a8E.exit32", label %125
 
 125:                                              ; preds = %119
@@ -92575,7 +92575,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8
   %35 = lshr i64 %.40.val, 2
-  %36 = icmp ugt i64 %35, %0
+  %36 = icmp ult i64 %0, %35
   br i1 %36, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h32511137db875b54E.exit", label %37
 
 37:                                               ; preds = %34
@@ -92643,7 +92643,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 %0, ptr %19, align 8
   %63 = lshr i64 %.val27, 2
-  %64 = icmp ugt i64 %63, %0
+  %64 = icmp ult i64 %0, %63
   br i1 %64, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h32511137db875b54E.exit30", label %65
 
 65:                                               ; preds = %60
@@ -92685,7 +92685,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %0, ptr %15, align 8
   %79 = lshr i64 %.val25, 2
-  %80 = icmp ugt i64 %79, %0
+  %80 = icmp ult i64 %0, %79
   br i1 %80, label %142, label %81
 
 81:                                               ; preds = %76
@@ -92720,7 +92720,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %0, ptr %10, align 8
   %92 = lshr i64 %.val23, 2
-  %93 = icmp ugt i64 %92, %0
+  %93 = icmp ult i64 %0, %92
   br i1 %93, label %148, label %94
 
 94:                                               ; preds = %89
@@ -92954,7 +92954,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store i64 %0, ptr %22, align 8
   %37 = lshr i64 %.40.val, 2
-  %38 = icmp ugt i64 %37, %0
+  %38 = icmp ult i64 %0, %37
   br i1 %38, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hb895f0eb3281a6a4E.exit", label %39
 
 39:                                               ; preds = %36
@@ -93022,7 +93022,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store i64 %0, ptr %18, align 8
   %65 = lshr i64 %.val27, 2
-  %66 = icmp ugt i64 %65, %0
+  %66 = icmp ult i64 %0, %65
   br i1 %66, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hb895f0eb3281a6a4E.exit30", label %67
 
 67:                                               ; preds = %62
@@ -93064,7 +93064,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store i64 %0, ptr %14, align 8
   %81 = lshr i64 %.val25, 2
-  %82 = icmp ugt i64 %81, %0
+  %82 = icmp ult i64 %0, %81
   br i1 %82, label %152, label %83
 
 83:                                               ; preds = %78
@@ -93101,7 +93101,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %0, ptr %9, align 8
   %95 = lshr i64 %.val23, 2
-  %96 = icmp ugt i64 %95, %0
+  %96 = icmp ult i64 %0, %95
   br i1 %96, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hb895f0eb3281a6a4E.exit32", label %97
 
 97:                                               ; preds = %91
@@ -93364,7 +93364,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8
-  %35 = icmp ugt i64 %.40.val, %0
+  %35 = icmp ult i64 %0, %.40.val
   br i1 %35, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h6132e87028bc2695E.exit", label %36
 
 36:                                               ; preds = %34
@@ -93431,7 +93431,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %.val27 = load i64, ptr %61, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 %0, ptr %19, align 8
-  %62 = icmp ugt i64 %.val27, %0
+  %62 = icmp ult i64 %0, %.val27
   br i1 %62, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h6132e87028bc2695E.exit30", label %63
 
 63:                                               ; preds = %59
@@ -93472,7 +93472,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %.val25 = load i64, ptr %76, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %0, ptr %15, align 8
-  %77 = icmp ugt i64 %.val25, %0
+  %77 = icmp ult i64 %0, %.val25
   br i1 %77, label %138, label %78
 
 78:                                               ; preds = %74
@@ -93506,7 +93506,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   %.val23 = load i64, ptr %88, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %0, ptr %10, align 8
-  %89 = icmp ugt i64 %.val23, %0
+  %89 = icmp ult i64 %0, %.val23
   br i1 %89, label %144, label %90
 
 90:                                               ; preds = %86
@@ -93761,7 +93761,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store i64 %0, ptr %26, align 8
   %57 = lshr i64 %.40.val, 3
-  %58 = icmp ugt i64 %57, %0
+  %58 = icmp ult i64 %0, %57
   br i1 %58, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h2b00ee40d8add561E.exit", label %59
 
 59:                                               ; preds = %56
@@ -93831,7 +93831,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store i64 %0, ptr %22, align 8
   %86 = lshr i64 %.val27, 3
-  %87 = icmp ugt i64 %86, %0
+  %87 = icmp ult i64 %0, %86
   br i1 %87, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h2b00ee40d8add561E.exit30", label %88
 
 88:                                               ; preds = %82
@@ -93877,7 +93877,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store i64 %0, ptr %18, align 8
   %105 = lshr i64 %.val25, 3
-  %106 = icmp ugt i64 %105, %0
+  %106 = icmp ult i64 %0, %105
   br i1 %106, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h2b00ee40d8add561E.exit31", label %107
 
 107:                                              ; preds = %101
@@ -93925,7 +93925,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 %0, ptr %13, align 8
   %123 = lshr i64 %.val23, 3
-  %124 = icmp ugt i64 %123, %0
+  %124 = icmp ult i64 %0, %123
   br i1 %124, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h2b00ee40d8add561E.exit32", label %125
 
 125:                                              ; preds = %119
@@ -94410,7 +94410,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8
   %35 = lshr i64 %.40.val, 4
-  %36 = icmp ugt i64 %35, %0
+  %36 = icmp ult i64 %0, %35
   br i1 %36, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hfe8818bf8357055fE.exit", label %37
 
 37:                                               ; preds = %34
@@ -94480,7 +94480,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 %0, ptr %19, align 8
   %64 = lshr i64 %.val32, 4
-  %65 = icmp ugt i64 %64, %0
+  %65 = icmp ult i64 %0, %64
   br i1 %65, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hfe8818bf8357055fE.exit35", label %66
 
 66:                                               ; preds = %60
@@ -94525,7 +94525,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %0, ptr %15, align 8
   %81 = lshr i64 %.val30, 4
-  %82 = icmp ugt i64 %81, %0
+  %82 = icmp ult i64 %0, %81
   br i1 %82, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hfe8818bf8357055fE.exit36", label %83
 
 83:                                               ; preds = %77
@@ -94570,7 +94570,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %0, ptr %11, align 8
   %98 = lshr i64 %.val28, 4
-  %99 = icmp ugt i64 %98, %0
+  %99 = icmp ult i64 %0, %98
   br i1 %99, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hfe8818bf8357055fE.exit40", label %100
 
 100:                                              ; preds = %94
@@ -94803,7 +94803,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %0, ptr %6, align 8
   %12 = lshr i64 %.40.val, 2
-  %13 = icmp ugt i64 %12, %0
+  %13 = icmp ult i64 %0, %12
   br i1 %13, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h6d60bb25979a9cedE.exit", label %14
 
 14:                                               ; preds = %11
@@ -94941,7 +94941,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   store i64 %0, ptr %25, align 8
   %55 = lshr i64 %.40.val, 3
-  %56 = icmp ugt i64 %55, %0
+  %56 = icmp ult i64 %0, %55
   br i1 %56, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hdd95fb7234148f9dE.exit", label %57
 
 57:                                               ; preds = %54
@@ -95011,7 +95011,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   store i64 %0, ptr %21, align 8
   %84 = lshr i64 %.val27, 3
-  %85 = icmp ugt i64 %84, %0
+  %85 = icmp ult i64 %0, %84
   br i1 %85, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hdd95fb7234148f9dE.exit30", label %86
 
 86:                                               ; preds = %80
@@ -95057,7 +95057,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store i64 %0, ptr %17, align 8
   %103 = lshr i64 %.val25, 3
-  %104 = icmp ugt i64 %103, %0
+  %104 = icmp ult i64 %0, %103
   br i1 %104, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hdd95fb7234148f9dE.exit31", label %105
 
 105:                                              ; preds = %99
@@ -95103,7 +95103,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store i64 %0, ptr %12, align 8
   %120 = lshr i64 %.val23, 3
-  %121 = icmp ugt i64 %120, %0
+  %121 = icmp ult i64 %0, %120
   br i1 %121, label %237, label %122
 
 122:                                              ; preds = %117
@@ -95543,7 +95543,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8
   %35 = lshr i64 %.40.val, 1
-  %36 = icmp ugt i64 %35, %0
+  %36 = icmp ult i64 %0, %35
   br i1 %36, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h444bbd651f26b156E.exit", label %37
 
 37:                                               ; preds = %34
@@ -95611,7 +95611,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 %0, ptr %19, align 8
   %63 = lshr i64 %.val27, 1
-  %64 = icmp ugt i64 %63, %0
+  %64 = icmp ult i64 %0, %63
   br i1 %64, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h444bbd651f26b156E.exit30", label %65
 
 65:                                               ; preds = %60
@@ -95653,7 +95653,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %0, ptr %15, align 8
   %79 = lshr i64 %.val25, 1
-  %80 = icmp ugt i64 %79, %0
+  %80 = icmp ult i64 %0, %79
   br i1 %80, label %142, label %81
 
 81:                                               ; preds = %76
@@ -95688,7 +95688,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %0, ptr %10, align 8
   %92 = lshr i64 %.val23, 1
-  %93 = icmp ugt i64 %92, %0
+  %93 = icmp ult i64 %0, %92
   br i1 %93, label %148, label %94
 
 94:                                               ; preds = %89
@@ -95920,7 +95920,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8
   %35 = lshr i64 %.40.val, 2
-  %36 = icmp ugt i64 %35, %0
+  %36 = icmp ult i64 %0, %35
   br i1 %36, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17ha5d9868b85ebe290E.exit", label %37
 
 37:                                               ; preds = %34
@@ -95988,7 +95988,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 %0, ptr %19, align 8
   %63 = lshr i64 %.val27, 2
-  %64 = icmp ugt i64 %63, %0
+  %64 = icmp ult i64 %0, %63
   br i1 %64, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17ha5d9868b85ebe290E.exit30", label %65
 
 65:                                               ; preds = %60
@@ -96030,7 +96030,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %0, ptr %15, align 8
   %79 = lshr i64 %.val25, 2
-  %80 = icmp ugt i64 %79, %0
+  %80 = icmp ult i64 %0, %79
   br i1 %80, label %142, label %81
 
 81:                                               ; preds = %76
@@ -96065,7 +96065,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %0, ptr %10, align 8
   %92 = lshr i64 %.val23, 2
-  %93 = icmp ugt i64 %92, %0
+  %93 = icmp ult i64 %0, %92
   br i1 %93, label %148, label %94
 
 94:                                               ; preds = %89
@@ -96297,7 +96297,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %0, ptr %23, align 8
   %35 = lshr i64 %.40.val, 3
-  %36 = icmp ugt i64 %35, %0
+  %36 = icmp ult i64 %0, %35
   br i1 %36, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hc72ffe621c9444c3E.exit", label %37
 
 37:                                               ; preds = %34
@@ -96365,7 +96365,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 %0, ptr %19, align 8
   %63 = lshr i64 %.val27, 3
-  %64 = icmp ugt i64 %63, %0
+  %64 = icmp ult i64 %0, %63
   br i1 %64, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hc72ffe621c9444c3E.exit30", label %65
 
 65:                                               ; preds = %60
@@ -96407,7 +96407,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %0, ptr %15, align 8
   %79 = lshr i64 %.val25, 3
-  %80 = icmp ugt i64 %79, %0
+  %80 = icmp ult i64 %0, %79
   br i1 %80, label %142, label %81
 
 81:                                               ; preds = %76
@@ -96442,7 +96442,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %0, ptr %10, align 8
   %92 = lshr i64 %.val23, 3
-  %93 = icmp ugt i64 %92, %0
+  %93 = icmp ult i64 %0, %92
   br i1 %93, label %148, label %94
 
 94:                                               ; preds = %89
@@ -96676,7 +96676,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store i64 %0, ptr %22, align 8
   %37 = lshr i64 %.40.val, 2
-  %38 = icmp ugt i64 %37, %0
+  %38 = icmp ult i64 %0, %37
   br i1 %38, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hbbe4ab0fb1934aedE.exit", label %39
 
 39:                                               ; preds = %36
@@ -96744,7 +96744,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store i64 %0, ptr %18, align 8
   %65 = lshr i64 %.val27, 2
-  %66 = icmp ugt i64 %65, %0
+  %66 = icmp ult i64 %0, %65
   br i1 %66, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hbbe4ab0fb1934aedE.exit30", label %67
 
 67:                                               ; preds = %62
@@ -96786,7 +96786,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store i64 %0, ptr %14, align 8
   %81 = lshr i64 %.val25, 2
-  %82 = icmp ugt i64 %81, %0
+  %82 = icmp ult i64 %0, %81
   br i1 %82, label %148, label %83
 
 83:                                               ; preds = %78
@@ -96823,7 +96823,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %0, ptr %9, align 8
   %95 = lshr i64 %.val23, 2
-  %96 = icmp ugt i64 %95, %0
+  %96 = icmp ult i64 %0, %95
   br i1 %96, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hbbe4ab0fb1934aedE.exit32", label %97
 
 97:                                               ; preds = %91
@@ -97105,7 +97105,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store i64 %0, ptr %26, align 8
   %57 = lshr i64 %.40.val, 3
-  %58 = icmp ugt i64 %57, %0
+  %58 = icmp ult i64 %0, %57
   br i1 %58, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h28a491ab2df1fb01E.exit", label %59
 
 59:                                               ; preds = %56
@@ -97175,7 +97175,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store i64 %0, ptr %22, align 8
   %86 = lshr i64 %.val27, 3
-  %87 = icmp ugt i64 %86, %0
+  %87 = icmp ult i64 %0, %86
   br i1 %87, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h28a491ab2df1fb01E.exit30", label %88
 
 88:                                               ; preds = %82
@@ -97221,7 +97221,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store i64 %0, ptr %18, align 8
   %105 = lshr i64 %.val25, 3
-  %106 = icmp ugt i64 %105, %0
+  %106 = icmp ult i64 %0, %105
   br i1 %106, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h28a491ab2df1fb01E.exit31", label %107
 
 107:                                              ; preds = %101
@@ -97269,7 +97269,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 %0, ptr %13, align 8
   %123 = lshr i64 %.val23, 3
-  %124 = icmp ugt i64 %123, %0
+  %124 = icmp ult i64 %0, %123
   br i1 %124, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h28a491ab2df1fb01E.exit32", label %125
 
 125:                                              ; preds = %119
@@ -100132,7 +100132,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3020181528030467296.exit.i: ; pred
   %230 = load i64, ptr %204, align 8, !noalias !15107, !noundef !5
   %231 = load i64, ptr %34, align 8, !alias.scope !15132, !noalias !15139, !noundef !5
   %232 = sub i64 %231, %228
-  %233 = icmp ult i64 %232, %230
+  %233 = icmp ugt i64 %230, %232
   br i1 %233, label %234, label %238
 
 234:                                              ; preds = %223
@@ -100981,7 +100981,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %446, %.noexc
   %488 = load i64, ptr %.sroa.526.0..sroa_idx161168, align 8, !alias.scope !15290, !noalias !15295, !noundef !5
   %489 = load i64, ptr %56, align 8, !alias.scope !15297, !noalias !15295, !noundef !5
   %490 = sub i64 %489, %488
-  %491 = icmp ult i64 %490, %487
+  %491 = icmp ugt i64 %487, %490
   br i1 %491, label %492, label %498
 
 492:                                              ; preds = %483
@@ -101120,7 +101120,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3020181528030467296.exit: ; preds 
   %533 = load i64, ptr %.sroa.526.0..sroa_idx161168, align 8, !alias.scope !15326, !noalias !15331, !noundef !5
   %534 = load i64, ptr %56, align 8, !alias.scope !15333, !noalias !15331, !noundef !5
   %535 = sub i64 %534, %533
-  %536 = icmp ult i64 %535, %532
+  %536 = icmp ugt i64 %532, %535
   br i1 %536, label %537, label %543
 
 537:                                              ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3020181528030467296.exit
@@ -102148,7 +102148,7 @@ define internal fastcc void @"_ZN14deltalake_core6kernel11expressions7scalars6Sc
   %8 = load i64, ptr %7, align 8, !alias.scope !15372, !noundef !5
   %9 = lshr i64 %8, 2
   %10 = add nsw i64 %9, -1
-  %11 = icmp ugt i64 %10, %.0.val
+  %11 = icmp ult i64 %.0.val, %10
   br i1 %11, label %"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$GT$5value17h583498062284afc8E.exit", label %12
 
 12:                                               ; preds = %2
@@ -102217,7 +102217,7 @@ define internal fastcc void @"_ZN14deltalake_core6kernel11expressions7scalars6Sc
   %8 = load i64, ptr %7, align 8, !alias.scope !15381, !noundef !5
   %9 = lshr i64 %8, 3
   %10 = add nsw i64 %9, -1
-  %11 = icmp ugt i64 %10, %.0.val
+  %11 = icmp ult i64 %.0.val, %10
   br i1 %11, label %"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$GT$5value17haf7e834e4f556903E.exit", label %12
 
 12:                                               ; preds = %2
@@ -102286,7 +102286,7 @@ define internal fastcc void @"_ZN14deltalake_core6kernel11expressions7scalars6Sc
   %8 = load i64, ptr %7, align 8, !alias.scope !15390, !noundef !5
   %9 = lshr i64 %8, 2
   %10 = add nsw i64 %9, -1
-  %11 = icmp ugt i64 %10, %.0.val
+  %11 = icmp ult i64 %.0.val, %10
   br i1 %11, label %"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$GT$5value17h3cc2131e1cd2758cE.exit", label %12
 
 12:                                               ; preds = %2
@@ -102355,7 +102355,7 @@ define internal fastcc void @"_ZN14deltalake_core6kernel11expressions7scalars6Sc
   %8 = load i64, ptr %7, align 8, !alias.scope !15399, !noundef !5
   %9 = lshr i64 %8, 3
   %10 = add nsw i64 %9, -1
-  %11 = icmp ugt i64 %10, %.0.val
+  %11 = icmp ult i64 %.0.val, %10
   br i1 %11, label %"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$GT$5value17h5aec38f8885001f2E.exit", label %12
 
 12:                                               ; preds = %2
@@ -102431,7 +102431,7 @@ define internal fastcc void @"_ZN14deltalake_core6kernel11expressions7scalars6Sc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.0.val, ptr %6, align 8
   %11 = lshr i64 %.val1, 3
-  %12 = icmp ugt i64 %11, %.0.val
+  %12 = icmp ult i64 %.0.val, %11
   br i1 %12, label %23, label %13
 
 13:                                               ; preds = %2
@@ -104417,7 +104417,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView9un
   %36 = load i64, ptr %35, align 8, !alias.scope !15650, !noundef !5
   %37 = lshr i64 %36, 2
   %38 = add nsw i64 %37, -1
-  %39 = icmp ugt i64 %38, %.val11
+  %39 = icmp ult i64 %.val11, %38
   br i1 %39, label %_ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView12storage_type17h2395e92b1334c400E.exit, label %40
 
 40:                                               ; preds = %32
@@ -104470,7 +104470,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView12storage_type17
   %59 = load i64, ptr %58, align 8, !alias.scope !15659, !noundef !5
   %60 = lshr i64 %59, 2
   %61 = add nsw i64 %60, -1
-  %62 = icmp ugt i64 %61, %.val11
+  %62 = icmp ult i64 %.val11, %61
   br i1 %62, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3020181528030467296.exit, label %63
 
 63:                                               ; preds = %_ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView12storage_type17h2395e92b1334c400E.exit
@@ -104553,7 +104553,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3020181528030467296.exit: ; preds 
   %87 = load i64, ptr %86, align 8, !alias.scope !15681, !noundef !5
   %88 = lshr i64 %87, 2
   %89 = add nsw i64 %88, -1
-  %90 = icmp ugt i64 %89, %.val11
+  %90 = icmp ult i64 %.val11, %89
   br i1 %90, label %_ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView12storage_type17h2395e92b1334c400E.exit20, label %91
 
 91:                                               ; preds = %84
@@ -104606,7 +104606,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView12storage_type17
   %110 = load i64, ptr %109, align 8, !alias.scope !15690, !noundef !5
   %111 = lshr i64 %110, 2
   %112 = add nsw i64 %111, -1
-  %113 = icmp ugt i64 %112, %.val11
+  %113 = icmp ult i64 %.val11, %112
   br i1 %113, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3020181528030467296.exit26, label %114
 
 114:                                              ; preds = %_ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView12storage_type17h2395e92b1334c400E.exit20
@@ -104702,7 +104702,7 @@ define internal fastcc { i32, i32 } @_ZN14deltalake_core6kernel8snapshot8log_dat
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15718)
   %15 = getelementptr inbounds i8, ptr %8, i64 80
   %16 = load i64, ptr %15, align 8, !alias.scope !15721, !noundef !5
-  %17 = icmp ugt i64 %16, %.8.val
+  %17 = icmp ult i64 %.8.val, %16
   br i1 %17, label %_ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit, label %18
 
 18:                                               ; preds = %14
@@ -104743,7 +104743,7 @@ _ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit.thread: ; preds = 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %.8.val, ptr %4, align 8
   %36 = lshr i64 %.val2, 2
-  %37 = icmp ugt i64 %36, %.8.val
+  %37 = icmp ult i64 %.8.val, %36
   br i1 %37, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h32511137db875b54E.exit", label %38
 
 38:                                               ; preds = %33
@@ -104793,7 +104793,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile4path17hbf
   %11 = load i64, ptr %10, align 8, !alias.scope !15728, !noundef !5
   %12 = lshr i64 %11, 2
   %13 = add nsw i64 %12, -1
-  %14 = icmp ugt i64 %13, %9
+  %14 = icmp ult i64 %9, %13
   br i1 %14, label %"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$GT$5value17h583498062284afc8E.exit", label %15
 
 15:                                               ; preds = %2
@@ -104861,7 +104861,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile17object_s
   %14 = load i64, ptr %13, align 8, !alias.scope !15742, !noalias !15745, !noundef !5
   %15 = lshr i64 %14, 2
   %16 = add nsw i64 %15, -1
-  %17 = icmp ugt i64 %16, %12
+  %17 = icmp ult i64 %12, %16
   br i1 %17, label %32, label %18
 
 18:                                               ; preds = %2
@@ -105027,7 +105027,7 @@ define noundef i64 @_ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile4si
   %10 = getelementptr inbounds i8, ptr %7, i64 40
   %11 = load i64, ptr %10, align 8, !alias.scope !15765, !noundef !5
   %12 = lshr i64 %11, 3
-  %13 = icmp ugt i64 %12, %9
+  %13 = icmp ult i64 %9, %12
   br i1 %13, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h335a2cf14fa04e30E.llvm.3020181528030467296.exit", label %14
 
 14:                                               ; preds = %1
@@ -105079,7 +105079,7 @@ define noundef i64 @_ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile17m
   %10 = getelementptr inbounds i8, ptr %7, i64 40
   %11 = load i64, ptr %10, align 8, !alias.scope !15774, !noundef !5
   %12 = lshr i64 %11, 3
-  %13 = icmp ugt i64 %12, %9
+  %13 = icmp ult i64 %9, %12
   br i1 %13, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h335a2cf14fa04e30E.llvm.3020181528030467296.exit", label %14
 
 14:                                               ; preds = %1
@@ -105140,7 +105140,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile21modifica
   %20 = getelementptr inbounds i8, ptr %17, i64 40
   %21 = load i64, ptr %20, align 8, !alias.scope !15783, !noalias !15786, !noundef !5
   %22 = lshr i64 %21, 3
-  %23 = icmp ugt i64 %22, %19
+  %23 = icmp ult i64 %19, %22
   br i1 %23, label %_ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile17modification_time17hfff78719492ecd00E.exit, label %24
 
 24:                                               ; preds = %2
@@ -105226,7 +105226,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile17modification_time17hf
   store i64 %19, ptr %7, align 8, !noalias !15805
   %59 = load i64, ptr %20, align 8, !alias.scope !15799, !noalias !15802, !noundef !5
   %60 = lshr i64 %59, 3
-  %61 = icmp ugt i64 %60, %19
+  %61 = icmp ult i64 %19, %60
   br i1 %61, label %"_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit", label %62
 
 62:                                               ; preds = %"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h2cc97507110fd0f1E.llvm.3020181528030467296.exit"
@@ -105736,7 +105736,7 @@ define { ptr, i64 } @_ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15923)
   %13 = getelementptr inbounds i8, ptr %4, i64 104
   %14 = load i64, ptr %13, align 8, !alias.scope !15926, !noundef !5
-  %15 = icmp ugt i64 %14, %8
+  %15 = icmp ult i64 %8, %14
   br i1 %15, label %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit, label %16
 
 16:                                               ; preds = %12
@@ -105804,7 +105804,7 @@ define { i64, i64 } @_ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile11
   %21 = getelementptr inbounds i8, ptr %12, i64 40
   %22 = load i64, ptr %21, align 8, !alias.scope !15927, !noundef !5
   %23 = lshr i64 %22, 3
-  %24 = icmp ugt i64 %23, %20
+  %24 = icmp ult i64 %20, %23
   br i1 %24, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h335a2cf14fa04e30E.llvm.3020181528030467296.exit", label %25
 
 25:                                               ; preds = %18
@@ -105996,7 +105996,7 @@ define void @_ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile13remove_a
   %46 = load i64, ptr %45, align 8, !alias.scope !15941, !noalias !15944, !noundef !5
   %47 = lshr i64 %46, 2
   %48 = add nsw i64 %47, -1
-  %49 = icmp ugt i64 %48, %44
+  %49 = icmp ult i64 %44, %48
   %.sink7.i.sroa.gep = getelementptr inbounds i8, ptr %12, i64 8
   %.sink7.i.sroa.gep44 = getelementptr inbounds i8, ptr %8, i64 8
   %.sink7.i.sroa.gep46 = getelementptr inbounds i8, ptr %12, i64 32
@@ -106149,7 +106149,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile4path17hbfa3ea97b745c4f
   %115 = getelementptr inbounds i8, ptr %114, i64 40
   %116 = load i64, ptr %115, align 8, !alias.scope !15964, !noalias !15961, !noundef !5
   %117 = lshr i64 %116, 3
-  %118 = icmp ugt i64 %117, %44
+  %118 = icmp ult i64 %44, %117
   br i1 %118, label %127, label %119
 
 119:                                              ; preds = %90
@@ -106314,7 +106314,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile4path17hbfa3ea97b745c4f
   call void @llvm.experimental.noalias.scope.decl(metadata !15998)
   %166 = getelementptr inbounds i8, ptr %159, i64 104
   %167 = load i64, ptr %166, align 8, !alias.scope !16001, !noalias !15995, !noundef !5
-  %168 = icmp ugt i64 %167, %44
+  %168 = icmp ult i64 %44, %167
   br i1 %168, label %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.i, label %169
 
 169:                                              ; preds = %165
@@ -106368,7 +106368,7 @@ _ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.i: ; preds = %165
   %186 = load i64, ptr %185, align 8, !alias.scope !16006, !noalias !16003, !noundef !5
   %187 = lshr i64 %186, 2
   %188 = add nsw i64 %187, -1
-  %189 = icmp ugt i64 %188, %44
+  %189 = icmp ult i64 %44, %188
   br i1 %189, label %_ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView12storage_type17h2395e92b1334c400E.exit.i, label %190
 
 190:                                              ; preds = %184
@@ -106446,7 +106446,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView12storage_type17
   %214 = load i64, ptr %213, align 8, !alias.scope !16020, !noalias !16003, !noundef !5
   %215 = lshr i64 %214, 2
   %216 = add nsw i64 %215, -1
-  %217 = icmp ugt i64 %216, %44
+  %217 = icmp ult i64 %44, %216
   br i1 %217, label %_ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView17path_or_inline_dv17hd4525e6d9cecf753E.exit.i, label %218
 
 218:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heb5585828156815eE.exit.i"
@@ -106520,7 +106520,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView17path_or_inline
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !16003
   store i64 %44, ptr %13, align 8, !noalias !16003
   %237 = lshr i64 %.val1.i.i, 2
-  %238 = icmp ugt i64 %237, %44
+  %238 = icmp ult i64 %44, %237
   br i1 %238, label %245, label %239
 
 239:                                              ; preds = %.noexc38
@@ -106556,7 +106556,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView17path_or_inline
   %250 = getelementptr inbounds i8, ptr %249, i64 40
   %251 = load i64, ptr %250, align 8, !alias.scope !16036, !noalias !16003, !noundef !5
   %252 = lshr i64 %251, 3
-  %253 = icmp ugt i64 %252, %44
+  %253 = icmp ult i64 %44, %252
   br i1 %253, label %258, label %254
 
 254:                                              ; preds = %245
@@ -107359,7 +107359,7 @@ define hidden void @_ZN14deltalake_core6kernel8snapshot8log_data17FileStatsAcces
   store i64 %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 88
   %8 = load i64, ptr %7, align 8, !noundef !5
-  %.not = icmp ugt i64 %8, %2
+  %.not = icmp ult i64 %2, %8
   br i1 %.not, label %9, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.3020181528030467296.exit
 
 9:                                                ; preds = %3
@@ -110906,7 +110906,7 @@ define hidden { i32, i32 } @"_ZN14deltalake_core6writer12record_batch26divide_by
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load i64, ptr %8, align 8, !alias.scope !16716, !noundef !5
   %10 = lshr i64 %9, 2
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h3f0b39234b5afcc4E.llvm.3020181528030467296.exit", label %12
 
 12:                                               ; preds = %2

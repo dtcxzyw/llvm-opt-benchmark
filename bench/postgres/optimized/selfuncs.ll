@@ -930,7 +930,7 @@ statistic_proc_security_check.exit:               ; preds = %.statistic_proc_sec
   %40 = getelementptr inbounds i8, ptr %10, i64 56
   store i8 0, ptr %40, align 8
   %41 = sub i32 %31, %6
-  %42 = icmp sgt i32 %41, %6
+  %42 = icmp slt i32 %6, %41
   br i1 %4, label %43, label %.thread
 
 43:                                               ; preds = %32
@@ -1093,7 +1093,7 @@ define dso_local double @generic_restriction_selectivity(ptr noundef %0, i32 nou
   %41 = sitofp i32 %38 to double
   %42 = fdiv double %41, 1.000000e+02
   %43 = fsub double 1.000000e+00, %42
-  %44 = fmul double %43, %5
+  %44 = fmul double %5, %43
   %45 = call double @llvm.fmuladd.f64(double %35, double %42, double %44)
   br label %46
 
@@ -1378,7 +1378,7 @@ statistic_proc_security_check.exit:               ; preds = %.statistic_proc_sec
   %79 = load i64, ptr %78, align 8
   %80 = call i64 @FunctionCall2Coll(ptr noundef %3, i32 noundef %6, i64 noundef %79, i64 noundef %7) #13
   %81 = icmp ne i64 %80, 0
-  %spec.select = xor i1 %81, %4
+  %spec.select = xor i1 %4, %81
   %82 = add nsw i32 %58, 1
   %.1120 = select i1 %spec.select, i32 %.0119155, i32 %58
   %.1118 = select i1 %spec.select, i32 %82, i32 %.0117156
@@ -1662,7 +1662,7 @@ define internal fastcc zeroext i1 @get_actual_variable_range(ptr nocapture nound
   %45 = getelementptr inbounds i8, ptr %34, i64 64
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %46, align 4
-  %.not58 = icmp eq i32 %47, %3
+  %.not58 = icmp eq i32 %3, %47
   br i1 %.not58, label %48, label %97
 
 48:                                               ; preds = %44
@@ -2394,7 +2394,7 @@ define dso_local void @examine_variable(ptr noundef %0, ptr noundef %1, i32 noun
 
 9:                                                ; preds = %4
   %10 = getelementptr i8, ptr %3, i64 48
-  %11 = icmp ugt ptr %10, %3
+  %11 = icmp ult ptr %3, %10
   br i1 %11, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %9
@@ -2439,7 +2439,7 @@ define dso_local void @examine_variable(ptr noundef %0, ptr noundef %1, i32 noun
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %.0223, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = icmp eq i32 %33, %2
+  %34 = icmp eq i32 %2, %33
   br i1 %34, label %35, label %375
 
 35:                                               ; preds = %31, %29
@@ -3074,7 +3074,7 @@ list_length.exit179.i:                            ; preds = %352
 
 381:                                              ; preds = %378
   %382 = load i32, ptr %5, align 4
-  %383 = icmp eq i32 %382, %2
+  %383 = icmp eq i32 %2, %382
   %or.cond = select i1 %380, i1 true, i1 %383
   br i1 %or.cond, label %384, label %394
 
@@ -4153,7 +4153,7 @@ strip_array_coercion.exit:                        ; preds = %.lr.ph.i, %34, %39,
   %53 = icmp eq i32 %51, %52
   %spec.select = zext i1 %53 to i8
   %.not205 = xor i1 %53, true
-  %brmerge = or i1 %.not205, %2
+  %brmerge = or i1 %2, %.not205
   br i1 %brmerge, label %.thread221, label %55
 
 54:                                               ; preds = %48
@@ -5507,7 +5507,7 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.8.val, i64 16
   %17 = load double, ptr %16, align 8
-  %18 = fcmp ugt double %17, %3
+  %18 = fcmp ult double %3, %17
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %15
@@ -5523,7 +5523,7 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   %.1 = select i1 %23, double %.0, double %22
   %24 = icmp ne i32 %0, 0
   %or.cond = and i1 %24, %10
-  %or.cond122 = and i1 %or.cond, %9
+  %or.cond122 = and i1 %9, %or.cond
   br i1 %or.cond122, label %25, label %114
 
 25:                                               ; preds = %20
@@ -5741,7 +5741,7 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   br i1 %brmerge123, label %130, label %121
 
 121:                                              ; preds = %119
-  %122 = fcmp oge double %.1, %2
+  %122 = fcmp ole double %2, %.1
   %123 = fcmp olt double %.1, 0.000000e+00
   %or.cond5 = or i1 %122, %123
   br i1 %or.cond5, label %124, label %126
@@ -7661,7 +7661,7 @@ list_length.exit:                                 ; preds = %4, %7
   %17 = load i64, ptr %16, align 8
   %18 = tail call i64 @hash_agg_entry_size(i32 noundef %10, i64 noundef %15, i64 noundef %17) #13
   %19 = uitofp i64 %18 to double
-  %20 = fmul double %19, %3
+  %20 = fmul double %3, %19
   ret double %20
 }
 
@@ -8066,7 +8066,7 @@ add_predicate_to_index_quals.exit:                ; preds = %get_quals_from_inde
   %109 = getelementptr inbounds i8, ptr %7, i64 8
   %110 = load i32, ptr %109, align 8
   call void @get_tablespace_page_costs(i32 noundef %110, ptr noundef nonnull %5, ptr noundef null) #13
-  %111 = fmul double %.080.lcssa, %2
+  %111 = fmul double %2, %.080.lcssa
   %112 = fcmp ogt double %111, 1.000000e+00
   br i1 %112, label %113, label %121
 
@@ -9807,7 +9807,7 @@ gincost_scalararrayopexpr.exit:                   ; preds = %estimate_array_leng
   br i1 %or.cond10, label %422, label %432
 
 422:                                              ; preds = %400
-  %423 = fmul double %.pre281, %2
+  %423 = fmul double %2, %.pre281
   %424 = fmul double %385, %423
   %425 = fptoui double %.0 to i32
   %426 = call double @index_pages_fetched(double noundef %424, i32 noundef %425, double noundef %.0, ptr noundef %0) #13
@@ -9850,7 +9850,7 @@ gincost_scalararrayopexpr.exit:                   ; preds = %estimate_array_leng
   br i1 %or.cond10, label %455, label %461
 
 455:                                              ; preds = %432
-  %456 = fmul double %.pre281, %2
+  %456 = fmul double %2, %.pre281
   %457 = fmul double %456, %.1196
   %458 = fptoui double %.0185 to i32
   %459 = call double @index_pages_fetched(double noundef %457, i32 noundef %458, double noundef %.0185, ptr noundef %0) #13
@@ -10239,7 +10239,7 @@ get_quals_from_indexclauses.exit:                 ; preds = %._crit_edge.i, %8, 
   %192 = load i32, ptr %191, align 4
   %193 = uitofp i32 %192 to double
   %194 = fmul double %190, %193
-  %195 = fmul double %194, %2
+  %195 = fmul double %2, %194
   %196 = fadd double %189, %195
   store double %196, ptr %3, align 8
   %197 = load double, ptr %10, align 8

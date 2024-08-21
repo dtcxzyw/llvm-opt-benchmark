@@ -1516,7 +1516,7 @@ _ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_
   %.017.i = phi ptr [ %181, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeERKi.exit.i ], [ %197, %195 ]
   %.016.i = phi i64 [ %184, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeERKi.exit.i ], [ %.pre-phi147, %195 ]
   %.015.i = phi ptr [ %.01014.i.lcssa.i, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeERKi.exit.i ], [ %.018.i.i, %195 ]
-  %206 = icmp eq ptr %204, %.015.i
+  %206 = icmp eq ptr %.015.i, %204
   %207 = load ptr, ptr %.017.i, align 8
   %.not18.i.i = icmp eq ptr %207, null
   br i1 %206, label %208, label %227
@@ -1657,7 +1657,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   call void @llvm.memset.p0.i64(ptr align 8 %256, i8 0, i64 %258, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   %259 = load ptr, ptr %17, align 8
-  %260 = icmp eq ptr %36, %259
+  %260 = icmp eq ptr %259, %36
   br i1 %260, label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit, label %261
 
 261:                                              ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -1985,7 +1985,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -2507,7 +2507,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %111, %_ZNSt6vectorI
   %142 = ptrtoint ptr %140 to i64
   %143 = sub i64 %141, %142
   %144 = ashr exact i64 %143, 2
-  %145 = icmp ult i64 %144, %138
+  %145 = icmp ugt i64 %138, %144
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit
@@ -2516,7 +2516,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %111, %_ZNSt6vectorI
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 148:                                              ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit
-  %149 = icmp ugt i64 %144, %138
+  %149 = icmp ult i64 %138, %144
   br i1 %149, label %150, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 150:                                              ; preds = %148
@@ -2597,7 +2597,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !30
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -2681,7 +2681,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !30
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -5029,7 +5029,7 @@ _ZN5faiss12_GLOBAL__N_121greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputer
   %67 = getelementptr inbounds %struct.omp_lock_t, ptr %66, i64 %16
   tail call void @omp_unset_lock(ptr noundef nonnull %67)
   %68 = load i32, ptr %19, align 8
-  %69 = icmp slt i32 %68, %2
+  %69 = icmp sgt i32 %2, %68
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %._crit_edge
@@ -5889,7 +5889,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.thread154: ; preds = %_ZNS
 
 372:                                              ; preds = %.lr.ph
   %373 = load float, ptr %.pre, align 4
-  %374 = fcmp ugt float %373, %369
+  %374 = fcmp ult float %369, %373
   br i1 %374, label %_ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit.i, label %._crit_edge
 
 _ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %372
@@ -6071,7 +6071,7 @@ define void @_ZN5faiss4HNSW11MinimaxHeap4pushEif(ptr nocapture noundef nonnull a
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load float, ptr %10, align 4
-  %12 = fcmp ugt float %11, %2
+  %12 = fcmp ult float %2, %11
   br i1 %12, label %13, label %99
 
 13:                                               ; preds = %8
@@ -6203,13 +6203,13 @@ _ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %21, %_ZN5f
   %82 = getelementptr inbounds float, ptr %78, i64 %81
   %83 = load float, ptr %82, align 4
   %84 = getelementptr inbounds i32, ptr %79, i64 %81
-  %85 = fcmp olt float %83, %2
+  %85 = fcmp ogt float %2, %83
   br i1 %85, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i6, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.i5
 
 _ZN5faiss4CMaxIfiE4cmp2Effii.exit.i5:             ; preds = %.lr.ph.i4
   %86 = load i32, ptr %84, align 4
-  %87 = fcmp oeq float %83, %2
-  %88 = icmp slt i32 %86, %1
+  %87 = fcmp oeq float %2, %83
+  %88 = icmp sgt i32 %1, %86
   %89 = and i1 %87, %88
   br i1 %89, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i6, label %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 
@@ -6634,12 +6634,12 @@ _ZN5faiss4HNSW11MinimaxHeap11count_belowEf.exit:  ; preds = %155, %151
   %219 = load ptr, ptr %.fr213, align 8
   %220 = load ptr, ptr %219, align 8
   %221 = call noundef zeroext i1 %220(ptr noundef nonnull align 8 dereferenceable(8) %.fr213, i64 noundef %215)
-  %222 = fcmp ogt float %.3177, %217
+  %222 = fcmp olt float %217, %.3177
   %or.cond159 = select i1 %221, i1 %222, i1 false
   br i1 %or.cond159, label %224, label %"_ZZN5faiss12_GLOBAL__N_122search_from_candidatesERKNS_4HNSWERNS_16DistanceComputerERNS_13ResultHandlerINS_4CMaxIflEEEERNS1_11MinimaxHeapERNS_12VisitedTableERNS_9HNSWStatsEiiPKNS_20SearchParametersHNSWEENK3$_0clEmf.exit"
 
 223:                                              ; preds = %213
-  %.old = fcmp ogt float %.3177, %217
+  %.old = fcmp olt float %217, %.3177
   br i1 %.old, label %224, label %"_ZZN5faiss12_GLOBAL__N_122search_from_candidatesERKNS_4HNSWERNS_16DistanceComputerERNS_13ResultHandlerINS_4CMaxIflEEEERNS1_11MinimaxHeapERNS_12VisitedTableERNS_9HNSWStatsEiiPKNS_20SearchParametersHNSWEENK3$_0clEmf.exit"
 
 224:                                              ; preds = %218, %223
@@ -6663,7 +6663,7 @@ _ZN5faiss4HNSW11MinimaxHeap11count_belowEf.exit:  ; preds = %155, %151
 
 234:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_122search_from_candidatesERKNS_4HNSWERNS_16DistanceComputerERNS_13ResultHandlerINS_4CMaxIflEEEERNS1_11MinimaxHeapERNS_12VisitedTableERNS_9HNSWStatsEiiPKNS_20SearchParametersHNSWEENK3$_0clEmf.exit"
   %235 = load float, ptr %.pre211, align 4
-  %236 = fcmp ugt float %235, %217
+  %236 = fcmp ult float %217, %235
   br i1 %236, label %237, label %_ZN5faiss4HNSW11MinimaxHeap4pushEif.exit
 
 237:                                              ; preds = %234
@@ -6792,12 +6792,12 @@ _ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   %302 = getelementptr inbounds float, ptr %298, i64 %301
   %303 = load float, ptr %302, align 4
   %304 = getelementptr inbounds i32, ptr %299, i64 %301
-  %305 = fcmp olt float %303, %217
+  %305 = fcmp ogt float %217, %303
   br i1 %305, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i6.i, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.i5.i
 
 _ZN5faiss4CMaxIfiE4cmp2Effii.exit.i5.i:           ; preds = %.lr.ph.i4.i
   %306 = load i32, ptr %304, align 4
-  %307 = fcmp oeq float %303, %217
+  %307 = fcmp oeq float %217, %303
   %308 = icmp slt i32 %306, %230
   %309 = and i1 %307, %308
   br i1 %309, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i6.i, label %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i
@@ -6849,12 +6849,12 @@ _ZN5faiss4HNSW11MinimaxHeap4pushEif.exit:         ; preds = %234, %_ZN5faiss9hea
   %328 = load ptr, ptr %.fr213, align 8
   %329 = load ptr, ptr %328, align 8
   %330 = call noundef zeroext i1 %329(ptr noundef nonnull align 8 dereferenceable(8) %.fr213, i64 noundef %322)
-  %331 = fcmp ogt float %.5186, %326
+  %331 = fcmp olt float %326, %.5186
   %or.cond161 = select i1 %330, i1 %331, i1 false
   br i1 %or.cond161, label %333, label %"_ZZN5faiss12_GLOBAL__N_122search_from_candidatesERKNS_4HNSWERNS_16DistanceComputerERNS_13ResultHandlerINS_4CMaxIflEEEERNS1_11MinimaxHeapERNS_12VisitedTableERNS_9HNSWStatsEiiPKNS_20SearchParametersHNSWEENK3$_0clEmf.exit112"
 
 332:                                              ; preds = %.lr.ph188
-  %.old160 = fcmp ogt float %.5186, %326
+  %.old160 = fcmp olt float %326, %.5186
   br i1 %.old160, label %333, label %"_ZZN5faiss12_GLOBAL__N_122search_from_candidatesERKNS_4HNSWERNS_16DistanceComputerERNS_13ResultHandlerINS_4CMaxIflEEEERNS1_11MinimaxHeapERNS_12VisitedTableERNS_9HNSWStatsEiiPKNS_20SearchParametersHNSWEENK3$_0clEmf.exit112"
 
 333:                                              ; preds = %327, %332
@@ -6878,7 +6878,7 @@ _ZN5faiss4HNSW11MinimaxHeap4pushEif.exit:         ; preds = %234, %_ZN5faiss9hea
 343:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_122search_from_candidatesERKNS_4HNSWERNS_16DistanceComputerERNS_13ResultHandlerINS_4CMaxIflEEEERNS1_11MinimaxHeapERNS_12VisitedTableERNS_9HNSWStatsEiiPKNS_20SearchParametersHNSWEENK3$_0clEmf.exit112"
   %344 = load ptr, ptr %70, align 8
   %345 = load float, ptr %344, align 4
-  %346 = fcmp ugt float %345, %326
+  %346 = fcmp ult float %326, %345
   br i1 %346, label %347, label %_ZN5faiss4HNSW11MinimaxHeap4pushEif.exit139
 
 347:                                              ; preds = %343
@@ -7006,12 +7006,12 @@ _ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit.i132: ; preds = %_ZN5f
   %412 = getelementptr inbounds float, ptr %408, i64 %411
   %413 = load float, ptr %412, align 4
   %414 = getelementptr inbounds i32, ptr %409, i64 %411
-  %415 = fcmp olt float %413, %326
+  %415 = fcmp ogt float %326, %413
   br i1 %415, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i6.i120, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.i5.i119
 
 _ZN5faiss4CMaxIfiE4cmp2Effii.exit.i5.i119:        ; preds = %.lr.ph.i4.i117
   %416 = load i32, ptr %414, align 4
-  %417 = fcmp oeq float %413, %326
+  %417 = fcmp oeq float %326, %413
   %418 = icmp slt i32 %416, %339
   %419 = and i1 %417, %418
   br i1 %419, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i6.i120, label %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i115
@@ -8397,24 +8397,24 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit.i:              ; preds = %65
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i:       ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i, %65, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i
   %78 = phi float [ %.pre.i, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i ], [ %67, %65 ], [ %67, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i ]
-  %79 = fcmp olt float %78, %57
+  %79 = fcmp ogt float %57, %78
   br i1 %79, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i:            ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i
   %80 = getelementptr inbounds i64, ptr %53, i64 %63
   %81 = load i64, ptr %80, align 8
-  %82 = fcmp oeq float %78, %57
-  %83 = icmp slt i64 %81, %.03236
+  %82 = fcmp oeq float %57, %78
+  %83 = icmp sgt i64 %.03236, %81
   %84 = and i1 %82, %83
   br i1 %84, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %90
 
 85:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i
-  %86 = fcmp olt float %69, %57
+  %86 = fcmp ogt float %57, %69
   br i1 %86, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %85
-  %87 = fcmp oeq float %69, %57
-  %88 = icmp slt i64 %71, %.03236
+  %87 = fcmp oeq float %57, %69
+  %88 = icmp sgt i64 %.03236, %71
   %89 = and i1 %87, %88
   br i1 %89, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %90
 
@@ -8576,7 +8576,7 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %6, %_ZN5fa
   %53 = getelementptr inbounds i64, ptr %5, i64 %.0.lcssa.i
   store i64 %52, ptr %53, align 8
   %54 = xor i64 %.03740, -1
-  %55 = add i64 %54, %0
+  %55 = add i64 %0, %54
   %56 = getelementptr inbounds float, ptr %1, i64 %55
   store float %7, ptr %56, align 4
   %57 = getelementptr inbounds i64, ptr %2, i64 %55
@@ -8670,24 +8670,24 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit.i:              ; preds = %20
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i:       ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i, %20, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i
   %33 = phi float [ %.pre.i, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i ], [ %22, %20 ], [ %22, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i ]
-  %34 = fcmp olt float %33, %1
+  %34 = fcmp ogt float %1, %33
   br i1 %34, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i:            ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i
   %35 = getelementptr inbounds i64, ptr %15, i64 %18
   %36 = load i64, ptr %35, align 8
-  %37 = fcmp oeq float %33, %1
-  %38 = icmp slt i64 %36, %2
+  %37 = fcmp oeq float %1, %33
+  %38 = icmp sgt i64 %2, %36
   %39 = and i1 %37, %38
   br i1 %39, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %45
 
 40:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i
-  %41 = fcmp olt float %24, %1
+  %41 = fcmp ogt float %1, %24
   br i1 %41, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %40
-  %42 = fcmp oeq float %24, %1
-  %43 = icmp slt i64 %26, %2
+  %42 = fcmp oeq float %1, %24
+  %43 = icmp sgt i64 %2, %26
   %44 = and i1 %42, %43
   br i1 %44, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %45
 

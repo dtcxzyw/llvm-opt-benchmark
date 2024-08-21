@@ -2418,7 +2418,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %limitPatternLength = getelementptr inbounds i8, ptr %ng, i64 1020
   %3 = load i32, ptr %limitPatternLength, align 4
   %conv = zext i32 %3 to i64
-  %cmp7 = icmp ult i64 %conv, %expLength
+  %cmp7 = icmp ugt i64 %expLength, %conv
   br i1 %cmp7, label %if.then8, label %if.end23
 
 if.then8:                                         ; preds = %if.end

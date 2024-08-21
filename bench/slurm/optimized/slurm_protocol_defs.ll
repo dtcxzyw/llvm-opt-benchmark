@@ -5061,7 +5061,7 @@ define ptr @slurm_container_status_to_str(i32 noundef %0) local_unnamed_addr #2 
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = getelementptr inbounds [8 x %struct.anon.0], ptr @slurm_container_status_to_str.status_str, i64 0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 16
-  %6 = icmp eq i32 %5, %0
+  %6 = icmp eq i32 %0, %5
   br i1 %6, label %7, label %2
 
 7:                                                ; preds = %3

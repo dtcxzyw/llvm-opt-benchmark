@@ -2448,7 +2448,7 @@ invoke.cont31:                                    ; preds = %for.body.i.i.i
 for.body.i:                                       ; preds = %invoke.cont31, %for.body.i
   %__begin2.06.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %32, %invoke.cont31 ]
   %34 = load float, ptr %__begin2.06.i, align 4
-  %mul.i40 = fmul float %34, %sigmaScale
+  %mul.i40 = fmul float %sigmaScale, %34
   store float %mul.i40, ptr %__begin2.06.i, align 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.06.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
@@ -2466,7 +2466,7 @@ invoke.cont34:                                    ; preds = %for.body.i, %invoke
 for.body.i45:                                     ; preds = %invoke.cont34, %for.body.i45
   %__begin2.06.i46 = phi ptr [ %incdec.ptr.i48, %for.body.i45 ], [ %35, %invoke.cont34 ]
   %37 = load float, ptr %__begin2.06.i46, align 4
-  %mul.i47 = fmul float %37, %sigmaScale
+  %mul.i47 = fmul float %sigmaScale, %37
   store float %mul.i47, ptr %__begin2.06.i46, align 4
   %incdec.ptr.i48 = getelementptr inbounds i8, ptr %__begin2.06.i46, i64 4
   %cmp.not.i49 = icmp eq ptr %incdec.ptr.i48, %add.ptr.i.i43
@@ -5159,7 +5159,7 @@ invoke.cont85:                                    ; preds = %cond.end
 cond.end91:                                       ; preds = %invoke.cont85, %cond.end
   %cond92 = phi float [ %call89, %invoke.cont85 ], [ 1.000000e+00, %cond.end ]
   %add93 = fadd float %cond, %cond92
-  %mul = fmul float %add93, %sigmaScale
+  %mul = fmul float %sigmaScale, %add93
   %mul.i113 = mul nsw i32 %75, %z.0159
   %add.i114 = add nsw i32 %mul.i113, %y.0157
   %mul5.i = mul nsw i32 %add.i114, %74
@@ -8009,7 +8009,7 @@ invoke.cont23:                                    ; preds = %while.end.i.i, %lor
 for.body.i:                                       ; preds = %invoke.cont23, %for.body.i
   %__begin2.06.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %22, %invoke.cont23 ]
   %24 = load float, ptr %__begin2.06.i, align 4
-  %mul.i24 = fmul float %24, %sigmaScale
+  %mul.i24 = fmul float %sigmaScale, %24
   store float %mul.i24, ptr %__begin2.06.i, align 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.06.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i23
@@ -8027,7 +8027,7 @@ invoke.cont26:                                    ; preds = %for.body.i, %invoke
 for.body.i29:                                     ; preds = %invoke.cont26, %for.body.i29
   %__begin2.06.i30 = phi ptr [ %incdec.ptr.i32, %for.body.i29 ], [ %25, %invoke.cont26 ]
   %27 = load float, ptr %__begin2.06.i30, align 4
-  %mul.i31 = fmul float %27, %sigmaScale
+  %mul.i31 = fmul float %sigmaScale, %27
   store float %mul.i31, ptr %__begin2.06.i30, align 4
   %incdec.ptr.i32 = getelementptr inbounds i8, ptr %__begin2.06.i30, i64 4
   %cmp.not.i33 = icmp eq ptr %incdec.ptr.i32, %add.ptr.i.i27
@@ -18687,7 +18687,7 @@ invoke.cont13:                                    ; preds = %invoke.cont10
 for.body.i:                                       ; preds = %invoke.cont13, %for.body.i
   %__begin2.06.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %3, %invoke.cont13 ]
   %5 = load float, ptr %__begin2.06.i, align 4
-  %mul.i = fmul float %5, %sigmaScale
+  %mul.i = fmul float %sigmaScale, %5
   store float %mul.i, ptr %__begin2.06.i, align 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.06.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
@@ -18705,7 +18705,7 @@ invoke.cont17:                                    ; preds = %for.body.i, %invoke
 for.body.i11:                                     ; preds = %invoke.cont17, %for.body.i11
   %__begin2.06.i12 = phi ptr [ %incdec.ptr.i14, %for.body.i11 ], [ %6, %invoke.cont17 ]
   %8 = load float, ptr %__begin2.06.i12, align 4
-  %mul.i13 = fmul float %8, %sigmaScale
+  %mul.i13 = fmul float %sigmaScale, %8
   store float %mul.i13, ptr %__begin2.06.i12, align 4
   %incdec.ptr.i14 = getelementptr inbounds i8, ptr %__begin2.06.i12, i64 4
   %cmp.not.i15 = icmp eq ptr %incdec.ptr.i14, %add.ptr.i.i9
@@ -18723,7 +18723,7 @@ invoke.cont19:                                    ; preds = %for.body.i11, %invo
 for.body.i21:                                     ; preds = %invoke.cont19, %for.body.i21
   %__begin2.06.i22 = phi ptr [ %incdec.ptr.i24, %for.body.i21 ], [ %9, %invoke.cont19 ]
   %11 = load float, ptr %__begin2.06.i22, align 4
-  %mul.i23 = fmul float %11, %LeScale
+  %mul.i23 = fmul float %LeScale, %11
   store float %mul.i23, ptr %__begin2.06.i22, align 4
   %incdec.ptr.i24 = getelementptr inbounds i8, ptr %__begin2.06.i22, i64 4
   %cmp.not.i25 = icmp eq ptr %incdec.ptr.i24, %add.ptr.i.i19
@@ -23531,8 +23531,8 @@ entry:
   %cmp13.i = icmp sgt i32 %.sroa.speculated7.i12.i, %p.sroa.3.0.extract.trunc.i
   %.not64 = and i1 %cmp8.not.i, %cmp13.i
   %or.cond10.not15.i.not62 = select i1 %or.cond.not12.not14.not17.i.not63, i1 %.not64, i1 false
-  %cmp17.not.i = icmp sle i32 %.sroa.speculated.i.i, %agg.tmp3.sroa.2.0.copyload
-  %cmp21.i = icmp sgt i32 %.sroa.speculated.i13.i, %agg.tmp3.sroa.2.0.copyload
+  %cmp17.not.i = icmp sge i32 %agg.tmp3.sroa.2.0.copyload, %.sroa.speculated.i.i
+  %cmp21.i = icmp slt i32 %agg.tmp3.sroa.2.0.copyload, %.sroa.speculated.i13.i
   %3 = and i1 %cmp17.not.i, %cmp21.i
   %or.cond = select i1 %or.cond10.not15.i.not62, i1 %3, i1 false
   br i1 %or.cond, label %if.end, label %return

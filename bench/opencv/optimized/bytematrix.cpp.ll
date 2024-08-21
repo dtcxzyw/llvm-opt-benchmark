@@ -275,7 +275,7 @@ define hidden noundef ptr @_ZN5zxing10ByteMatrix10getByteRowEiRNS_12ErrorHandler
   %5 = icmp sgt i32 %1, -1
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   %or.cond = select i1 %5, i1 %.not, i1 false
   br i1 %or.cond, label %16, label %8
 

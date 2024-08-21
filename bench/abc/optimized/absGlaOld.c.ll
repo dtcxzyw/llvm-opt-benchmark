@@ -11548,7 +11548,7 @@ Vec_IntFill.exit:                                 ; preds = %458, %Vec_IntGrow.e
   %486 = getelementptr inbounds i8, ptr %481, i64 8
   %487 = load i32, ptr %486, align 8
   %488 = shl nsw i32 %487, 6
-  %489 = icmp sgt i32 %488, %485
+  %489 = icmp slt i32 %485, %488
   br i1 %489, label %Prf_ManGrow.exit, label %490
 
 490:                                              ; preds = %482
@@ -13039,13 +13039,13 @@ define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef 
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

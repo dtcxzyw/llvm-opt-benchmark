@@ -2953,7 +2953,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit66:                 ; preds = %337, %333, %319
   %.not63 = xor i1 %3, true
   %brmerge = or i1 %.not63, %363
   %364 = load i32, ptr %154, align 8
-  %.not62 = icmp eq i32 %364, %4
+  %.not62 = icmp eq i32 %4, %364
   %or.cond64 = select i1 %brmerge, i1 true, i1 %.not62
   br i1 %or.cond64, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %365
 

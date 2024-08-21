@@ -52,8 +52,8 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %26 = getelementptr inbounds i8, ptr %5, i64 8
   %27 = trunc i64 %2 to i32
   %28 = icmp eq ptr %3, null
-  %29 = and i64 %2, 4294967295
-  %30 = and i64 %29, %10
+  %29 = and i64 %10, 4294967295
+  %30 = and i64 %29, %2
   br label %.loopexit24
 
 .loopexit24:                                      ; preds = %.loopexit24.backedge, %.thread18
@@ -205,7 +205,7 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %114 = sub i64 %103, %2
   %115 = and i64 %114, %30
   %116 = sub nsw i64 0, %115
-  %117 = and i64 %116, %2
+  %117 = and i64 %2, %116
   %118 = sub i64 %114, %117
   %119 = lshr i64 %118, 1
   %120 = icmp eq i64 %119, %66
@@ -224,7 +224,7 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %126 = sub i64 %125, %2
   %127 = and i64 %126, %30
   %128 = sub nsw i64 0, %127
-  %129 = and i64 %128, %2
+  %129 = and i64 %2, %128
   %130 = sub i64 %126, %129
   %131 = lshr i64 %130, 1
   %132 = getelementptr i8, ptr %0, i64 %131

@@ -1912,7 +1912,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit:    ; preds = %6, %._ZNSt6vectorIP
   %23 = ptrtoint ptr %19 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %26 = icmp ult i64 %25, %.pre-phi39
+  %26 = icmp ugt i64 %.pre-phi39, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit
@@ -1921,7 +1921,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit:    ; preds = %6, %._ZNSt6vectorIP
           to label %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit24 unwind label %58
 
 29:                                               ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit
-  %30 = icmp ugt i64 %25, %.pre-phi39
+  %30 = icmp ult i64 %.pre-phi39, %25
   br i1 %30, label %31, label %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit24
 
 31:                                               ; preds = %29
@@ -3172,7 +3172,7 @@ _ZSt10_ConstructIN2cv3MatEJRS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
   %61 = tail call ptr @__cxa_begin_catch(ptr %60) #19
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %53
+  %.not4.i.i.i.i.i.i = icmp eq ptr %53, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %58, %.lr.ph.i.i.i.i.i.i
@@ -4170,7 +4170,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl21computeCovGuideAndSrcERSt
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %24 = sdiv exact i64 %23, 24
-  %25 = icmp ult i64 %24, %17
+  %25 = icmp ugt i64 %17, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %4
@@ -4179,7 +4179,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl21computeCovGuideAndSrcERSt
   br label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit
 
 28:                                               ; preds = %4
-  %29 = icmp ugt i64 %24, %17
+  %29 = icmp ult i64 %17, %24
   br i1 %29, label %30, label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit
 
 30:                                               ; preds = %28
@@ -5473,7 +5473,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #19
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %13
+  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i

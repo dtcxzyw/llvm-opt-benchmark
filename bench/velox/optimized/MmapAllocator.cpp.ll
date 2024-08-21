@@ -3760,7 +3760,7 @@ entry:
   %0 = load i32, ptr %maxMallocBytes_.i, align 8
   %cmp.not.i = icmp ne i32 %0, 0
   %conv.i = sext i32 %0 to i64
-  %cmp3.i = icmp uge i64 %conv.i, %bytes
+  %cmp3.i = icmp ule i64 %bytes, %conv.i
   %1 = and i1 %cmp.not.i, %cmp3.i
   br i1 %1, label %if.then, label %if.end22
 
@@ -3833,7 +3833,7 @@ if.end22:                                         ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load i64, ptr %add.ptr.i.i, align 8
   %mul.i = shl i64 %5, 12
-  %cmp25.not = icmp ult i64 %mul.i, %bytes
+  %cmp25.not = icmp ugt i64 %bytes, %mul.i
   br i1 %cmp25.not, label %if.end48, label %if.then26
 
 if.then26:                                        ; preds = %if.end22
@@ -4026,7 +4026,7 @@ entry:
   %0 = load i32, ptr %maxMallocBytes_, align 8
   %cmp.not = icmp ne i32 %0, 0
   %conv = sext i32 %0 to i64
-  %cmp3 = icmp uge i64 %conv, %bytes
+  %cmp3 = icmp ule i64 %bytes, %conv
   %1 = and i1 %cmp.not, %cmp3
   ret i1 %1
 }
@@ -4059,7 +4059,7 @@ entry:
   %0 = load i32, ptr %maxMallocBytes_.i, align 8
   %cmp.not.i = icmp ne i32 %0, 0
   %conv.i = sext i32 %0 to i64
-  %cmp3.i = icmp uge i64 %conv.i, %bytes
+  %cmp3.i = icmp ule i64 %bytes, %conv.i
   %1 = and i1 %cmp.not.i, %cmp3.i
   br i1 %1, label %if.then, label %if.end
 
@@ -4075,7 +4075,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   %4 = load i64, ptr %add.ptr.i.i, align 8
   %mul.i = shl i64 %4, 12
-  %cmp.not = icmp ult i64 %mul.i, %bytes
+  %cmp.not = icmp ugt i64 %bytes, %mul.i
   br i1 %cmp.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.end
@@ -5060,7 +5060,7 @@ entry:
   %conv = sext i32 %0 to i64
   %numMappedFreePages_ = getelementptr inbounds i8, ptr %this, i64 84
   %1 = load i32, ptr %numMappedFreePages_, align 4
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %1, i32 %numPages)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %numPages, i32 %1)
   %cmp = icmp sgt i32 %.sroa.speculated, 0
   br i1 %cmp, label %if.then, label %if.end15
 
@@ -5801,11 +5801,11 @@ define noundef zeroext i1 @_ZNK8facebook5velox6memory13MmapAllocator9SizeClass9i
 entry:
   %address_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %address_, align 8
-  %cmp.not = icmp ule ptr %0, %ptr
+  %cmp.not = icmp uge ptr %ptr, %0
   %byteSize_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %byteSize_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
-  %cmp3 = icmp ugt ptr %add.ptr, %ptr
+  %cmp3 = icmp ult ptr %ptr, %add.ptr
   %or.cond = select i1 %cmp.not, i1 %cmp3, i1 false
   br i1 %or.cond, label %if.then, label %return
 

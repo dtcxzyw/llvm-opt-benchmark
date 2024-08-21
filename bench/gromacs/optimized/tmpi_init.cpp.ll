@@ -827,7 +827,7 @@ _Z14tMPI_Is_masterv.exit._Z14tMPI_Is_masterv.exit.thread_crit_edge: ; preds = %_
 
 _Z14tMPI_Is_masterv.exit.thread:                  ; preds = %_Z14tMPI_Is_masterv.exit._Z14tMPI_Is_masterv.exit.thread_crit_edge, %2, %4
   %9 = phi ptr [ %.pre, %_Z14tMPI_Is_masterv.exit._Z14tMPI_Is_masterv.exit.thread_crit_edge ], [ null, %2 ], [ %3, %4 ]
-  %10 = icmp eq ptr %9, %0
+  %10 = icmp eq ptr %0, %9
   %11 = load ptr, ptr @stderr, align 8
   %.str.1..str.2 = select i1 %10, ptr @.str.1, ptr @.str.2
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull %.str.1..str.2, i32 noundef %1) #19

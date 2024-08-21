@@ -1156,7 +1156,7 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers11PhoneNumber18_InternalSer
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %2, align 8
-  %.not.i = icmp ugt ptr %8, %1
+  %.not.i = icmp ult ptr %1, %8
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %9
 
 9:                                                ; preds = %7
@@ -1222,7 +1222,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 
 39:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit
   %40 = load ptr, ptr %2, align 8
-  %.not.i113 = icmp ugt ptr %40, %.0101
+  %.not.i113 = icmp ult ptr %.0101, %40
   br i1 %.not.i113, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit115, label %41
 
 41:                                               ; preds = %39
@@ -1324,7 +1324,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 88:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit
   %89 = load ptr, ptr %2, align 8
-  %.not.i119 = icmp ugt ptr %89, %.2
+  %.not.i119 = icmp ult ptr %.2, %89
   br i1 %.not.i119, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit121, label %90
 
 90:                                               ; preds = %88
@@ -1387,7 +1387,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 117:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit131
   %118 = load ptr, ptr %2, align 8
-  %.not.i132 = icmp ugt ptr %118, %.4
+  %.not.i132 = icmp ult ptr %.4, %118
   br i1 %.not.i132, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit134, label %119
 
 119:                                              ; preds = %117
@@ -1490,7 +1490,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 167:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit145
   %168 = load ptr, ptr %2, align 8
-  %.not.i146 = icmp ugt ptr %168, %.6
+  %.not.i146 = icmp ult ptr %.6, %168
   br i1 %.not.i146, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit148, label %169
 
 169:                                              ; preds = %167

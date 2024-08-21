@@ -60,7 +60,7 @@ define range(i32 -46, 1) i32 @pmix_gds_shmem_get_job_tracker(ptr nocapture nound
 ._crit_edge:                                      ; preds = %8, %.lr.ph, %3
   %.054 = phi ptr [ null, %3 ], [ %.05695, %.lr.ph ], [ null, %8 ]
   %.not60 = icmp ne ptr %.054, null
-  %brmerge = or i1 %.not60, %1
+  %brmerge = or i1 %1, %.not60
   %brmerge.not = xor i1 %brmerge, true
   %10 = xor i1 %1, true
   %brmerge73 = or i1 %.not60, %10
@@ -861,7 +861,7 @@ get_job_shmem_status_flagp.exit:                  ; preds = %4, %6, %10
   %.0.i = phi ptr [ %11, %10 ], [ %9, %6 ], [ %5, %4 ]
   %14 = load i8, ptr %.0.i, align 1
   %15 = zext i8 %14 to i32
-  %16 = and i32 %15, %2
+  %16 = and i32 %2, %15
   %17 = icmp ne i32 %16, 0
   ret i1 %17
 }

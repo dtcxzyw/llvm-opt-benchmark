@@ -3005,8 +3005,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 112:                                              ; preds = %128, %.noexc45
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc45 ], [ %129, %128 ]
-  %.pn.i.i.i = phi i64 [ %108, %.noexc45 ], [ %130, %128 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i.i
+  %.pn.i.i.i.i.i = phi i64 [ %108, %.noexc45 ], [ %130, %128 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i
   %113 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i25.i.i.i.i = load <16 x i8>, ptr %113, align 1, !noalias !453
   %114 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -3034,7 +3034,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %126 = sub nsw i64 0, %125
   %gep.i.i.i.i = getelementptr { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %invariant.gep.i.i.i.i, i64 %126
   %.val4.i.i.i.i.i = load i128, ptr %gep.i.i.i.i, align 16, !alias.scope !462, !noalias !467, !noundef !37
-  %127 = icmp eq i128 %.val4.i.i.i.i.i, %63
+  %127 = icmp eq i128 %63, %.val4.i.i.i.i.i
   br i1 %127, label %131, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit.i.i.i.i"
 
 128:                                              ; preds = %116
@@ -3165,7 +3165,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %.val.i.i.i.i47.i.i.i.i.i.i.i = load i16, ptr %179, align 1, !noalias !497
   %180 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i47.i.i.i.i.i.i.i)
   %switch.selectcmp.i.not.i.i.i.i.i.i = icmp ule i16 %178, %2
-  %switch.selectcmp.i20.i.i.i.i.i.i = icmp uge i16 %180, %2
+  %switch.selectcmp.i20.i.i.i.i.i.i = icmp ule i16 %2, %180
   %spec.select.i.i.i.i.i = select i1 %switch.selectcmp.i.not.i.i.i.i.i.i, i1 %switch.selectcmp.i20.i.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i.i, label %184, label %181
 
@@ -3177,7 +3177,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 184:                                              ; preds = %"_ZN103_$LT$ttf_parser..parser..LazyArrayIter16$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h838c1fafc8a101deE.exit.i.i.i"
   %indvars.le.i.i = trunc i64 %172 to i16
-  %185 = icmp ugt i16 %170, %indvars.le.i.i
+  %185 = icmp ult i16 %indvars.le.i.i, %170
   br i1 %185, label %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17h87b66236ac18d2d7E.exit.i.i.i", label %_ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.thread.i
 
 "_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17h87b66236ac18d2d7E.exit.i.i.i": ; preds = %184
@@ -3709,11 +3709,11 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %308
   br i1 %322, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i.i", label %323
 
 323:                                              ; preds = %_ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i
-  %.not.i.i128.i = icmp ugt i64 %321, %309
+  %.not.i.i128.i = icmp ult i64 %309, %321
   br i1 %.not.i.i128.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", label %324
 
 324:                                              ; preds = %323
-  %325 = icmp eq i64 %321, %309
+  %325 = icmp eq i64 %309, %321
   br i1 %325, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i.i", label %329
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i": ; preds = %323
@@ -5208,8 +5208,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 96:                                               ; preds = %112, %.noexc45
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc45 ], [ %113, %112 ]
-  %.pn.i.i.i = phi i64 [ %92, %.noexc45 ], [ %114, %112 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i.i
+  %.pn.i.i.i.i.i = phi i64 [ %92, %.noexc45 ], [ %114, %112 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i
   %97 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i25.i.i.i.i = load <16 x i8>, ptr %97, align 1, !noalias !1021
   %98 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -5237,7 +5237,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %110 = sub nsw i64 0, %109
   %gep.i.i.i.i = getelementptr { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %invariant.gep.i.i.i.i, i64 %110
   %.val4.i.i.i.i.i = load i128, ptr %gep.i.i.i.i, align 16, !alias.scope !1030, !noalias !1035, !noundef !37
-  %111 = icmp eq i128 %.val4.i.i.i.i.i, %47
+  %111 = icmp eq i128 %47, %.val4.i.i.i.i.i
   br i1 %111, label %115, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit.i.i.i.i"
 
 112:                                              ; preds = %100
@@ -6657,8 +6657,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 128:                                              ; preds = %144, %.noexc41
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc41 ], [ %145, %144 ]
-  %.pn.i.i.i = phi i64 [ %124, %.noexc41 ], [ %146, %144 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i.i
+  %.pn.i.i.i.i.i = phi i64 [ %124, %.noexc41 ], [ %146, %144 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i
   %129 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i25.i.i.i.i = load <16 x i8>, ptr %129, align 1, !noalias !1378
   %130 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -6686,7 +6686,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %142 = sub nsw i64 0, %141
   %gep.i.i.i.i = getelementptr { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %invariant.gep.i.i.i.i, i64 %142
   %.val4.i.i.i.i.i = load i128, ptr %gep.i.i.i.i, align 16, !alias.scope !1387, !noalias !1392, !noundef !37
-  %143 = icmp eq i128 %.val4.i.i.i.i.i, %79
+  %143 = icmp eq i128 %79, %.val4.i.i.i.i.i
   br i1 %143, label %147, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit.i.i.i.i"
 
 144:                                              ; preds = %132
@@ -7447,7 +7447,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !37
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -7528,8 +7528,8 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.017.i11
-  %86 = getelementptr i8, ptr %85, i64 %.1.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.1.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.017.i11
   %.0.copyload15.i16 = load i16, ptr %86, align 1, !alias.scope !1579
   %87 = zext i16 %.0.copyload15.i16 to i64
   %88 = shl nuw nsw i64 %.017.i11, 3
@@ -7897,8 +7897,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
 
 41:                                               ; preds = %57, %8
   %.sroa.9.0.i.i.i = phi i64 [ 0, %8 ], [ %58, %57 ]
-  %.pn.i = phi i64 [ %37, %8 ], [ %59, %57 ]
-  %.sroa.01.0.i.i.i = and i64 %.pn.i, %.val5
+  %.pn.i.i.i = phi i64 [ %37, %8 ], [ %59, %57 ]
+  %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %.val5
   %42 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i25.i.i = load <16 x i8>, ptr %42, align 1, !noalias !1671
   %43 = icmp eq <16 x i8> %.0.copyload.i25.i.i, %.15.vec.insert.i.i.i
@@ -7926,7 +7926,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
   %55 = sub nsw i64 0, %54
   %gep.i.i = getelementptr { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %invariant.gep.i.i, i64 %55
   %.val4.i.i.i = load i128, ptr %gep.i.i, align 16, !alias.scope !1680, !noalias !1685, !noundef !37
-  %56 = icmp eq i128 %.val4.i.i.i, %.0.val
+  %56 = icmp eq i128 %.0.val, %.val4.i.i.i
   br i1 %56, label %60, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit.i.i"
 
 57:                                               ; preds = %45

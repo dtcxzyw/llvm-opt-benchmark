@@ -2773,7 +2773,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool5.not, label %if.then6, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %cmp20 = icmp ugt ptr %call4, %url
+  %cmp20 = icmp ult ptr %url, %call4
   br i1 %cmp20, label %for.body, label %for.end
 
 if.then6:                                         ; preds = %if.end

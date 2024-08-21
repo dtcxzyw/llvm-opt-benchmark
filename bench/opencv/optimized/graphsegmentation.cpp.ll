@@ -2514,7 +2514,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN2cv8ximgproc12segmentation4
   %.sroa.24.0.copyload17 = load float, ptr %.sroa.24.0..sroa_idx16, align 4
   %12 = add nsw i64 %7, -1
   %13 = sdiv i64 %12, 2
-  %14 = icmp sgt i64 %13, %10
+  %14 = icmp slt i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -2594,7 +2594,7 @@ _ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_It
   %.sroa.03.0.copyload20 = load i64, ptr %50, align 4
   %.sroa.24.0..sroa_idx21 = getelementptr inbounds i8, ptr %50, i64 8
   %.sroa.24.0.copyload22 = load float, ptr %.sroa.24.0..sroa_idx21, align 4
-  %.not = icmp slt i64 %13, %.042
+  %.not = icmp sgt i64 %.042, %13
   br i1 %.not, label %._crit_edge.i24, label %.lr.ph.i33
 
 .lr.ph.i33:                                       ; preds = %.split19, %.lr.ph.i33

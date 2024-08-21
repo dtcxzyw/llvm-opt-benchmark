@@ -897,7 +897,7 @@ land.lhs.true17:                                  ; preds = %lor.lhs.false15
   %guest_notifier_mask = getelementptr inbounds i8, ptr %call1.i, i64 288
   %8 = load ptr, ptr %guest_notifier_mask, align 8
   %tobool18.not = icmp eq ptr %8, null
-  %brmerge = or i1 %tobool18.not, %assign
+  %brmerge = or i1 %assign, %tobool18.not
   br i1 %brmerge, label %if.end29, label %if.then21
 
 if.then21:                                        ; preds = %if.end12.thread, %land.lhs.true17
@@ -981,7 +981,7 @@ land.lhs.true51:                                  ; preds = %lor.lhs.false48
   %guest_notifier_mask52 = getelementptr inbounds i8, ptr %call1.i, i64 288
   %13 = load ptr, ptr %guest_notifier_mask52, align 8
   %tobool53.not = icmp ne ptr %13, null
-  %brmerge63.not = and i1 %tobool53.not, %assign
+  %brmerge63.not = and i1 %assign, %tobool53.not
   br i1 %brmerge63.not, label %if.end73.thread, label %return
 
 land.lhs.true54:                                  ; preds = %if.end46
@@ -2058,7 +2058,7 @@ while.end:                                        ; preds = %if.end14, %while.bo
   %config_vector = getelementptr inbounds i8, ptr %cond.i, i64 216
   %3 = load i16, ptr %config_vector, align 8
   %conv16 = zext i16 %3 to i32
-  %cmp17 = icmp eq i32 %conv16, %vector
+  %cmp17 = icmp eq i32 %vector, %conv16
   br i1 %cmp17, label %if.then19, label %return
 
 if.then19:                                        ; preds = %while.end
@@ -2287,7 +2287,7 @@ while.end:                                        ; preds = %if.end9, %while.bod
   %config_vector = getelementptr inbounds i8, ptr %cond.i, i64 216
   %9 = load i16, ptr %config_vector, align 8
   %conv11 = zext i16 %9 to i32
-  %cmp12 = icmp eq i32 %conv11, %vector
+  %cmp12 = icmp eq i32 %vector, %conv11
   br i1 %cmp12, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %while.end
@@ -2387,8 +2387,8 @@ if.end:                                           ; preds = %if.else.i
   %call6.i = tail call ptr @virtio_get_queue(ptr noundef %cond.i.i, i32 noundef %queue_no.052) #14
   %call7.i = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef %call6.i) #14
   %vector.1.ph = zext i16 %call4.i to i32
-  %cmp4 = icmp uge i32 %vector.1.ph, %vector_start
-  %cmp5.not = icmp ult i32 %vector.1.ph, %vector_end
+  %cmp4 = icmp ule i32 %vector_start, %vector.1.ph
+  %cmp5.not = icmp ugt i32 %vector_end, %vector.1.ph
   %or.cond = and i1 %cmp4, %cmp5.not
   br i1 %or.cond, label %lor.lhs.false6, label %for.inc
 
@@ -2440,8 +2440,8 @@ if.end23:                                         ; preds = %cond.true.i.i29, %f
   %config_vector.i35 = getelementptr inbounds i8, ptr %cond.i.i32, i64 216
   %7 = load i16, ptr %config_vector.i35, align 8
   %conv.i36 = zext i16 %7 to i32
-  %cmp24 = icmp uge i32 %conv.i36, %vector_start
-  %cmp26.not = icmp ult i32 %conv.i36, %vector_end
+  %cmp24 = icmp ule i32 %vector_start, %conv.i36
+  %cmp26.not = icmp ugt i32 %vector_end, %conv.i36
   %or.cond24 = and i1 %cmp24, %cmp26.not
   br i1 %or.cond24, label %lor.lhs.false27, label %if.end43
 
@@ -3004,7 +3004,7 @@ if.then5:                                         ; preds = %if.end
 
 lor.lhs.false.i:                                  ; preds = %if.then5
   %conv.i = zext i16 %4 to i32
-  %cmp.i = icmp ugt i32 %conv.i, %address
+  %cmp.i = icmp ult i32 %address, %conv.i
   br i1 %cmp.i, label %if.end6, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -3128,8 +3128,8 @@ if.end47:                                         ; preds = %if.then28, %if.then
   %18 = load i32, ptr %offset, align 4
   %pci_cfg_data = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %not.i = sub nsw i32 0, %17
-  %and.i4552 = and i32 %18, %not.i
-  %and.i45 = zext i32 %and.i4552 to i64
+  %and.i4557 = and i32 %18, %not.i
+  %and.i45 = zext i32 %and.i4557 to i64
   %19 = getelementptr inbounds i8, ptr %call.i, i64 2880
   %conv5.i.i = zext nneg i32 %17 to i64
   %add.i.i46 = add nuw nsw i64 %and.i45, %conv5.i.i
@@ -3140,7 +3140,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %arrayidx.i.i = getelementptr [5 x %struct.VirtIOPCIRegion], ptr %19, i64 0, i64 %indvars.iv.i.i
   %offset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 272
   %20 = load i32, ptr %offset.i.i, align 16
-  %cmp3.not.i.i = icmp ult i32 %and.i4552, %20
+  %cmp3.not.i.i = icmp ult i32 %and.i4557, %20
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
@@ -3247,8 +3247,8 @@ if.end:                                           ; preds = %if.then, %if.then, 
   %pci_cfg_data = getelementptr inbounds i8, ptr %add.ptr, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i)
   %not.i = sub nsw i32 0, %2
-  %and.i17 = and i32 %3, %not.i
-  %and.i = zext i32 %and.i17 to i64
+  %and.i22 = and i32 %3, %not.i
+  %and.i = zext i32 %and.i22 to i64
   %4 = getelementptr inbounds i8, ptr %call.i, i64 2880
   %conv5.i.i = zext nneg i32 %2 to i64
   %add.i.i15 = add nuw nsw i64 %and.i, %conv5.i.i
@@ -3259,7 +3259,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %arrayidx.i.i = getelementptr [5 x %struct.VirtIOPCIRegion], ptr %4, i64 0, i64 %indvars.iv.i.i
   %offset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 272
   %5 = load i32, ptr %offset.i.i, align 16
-  %cmp3.not.i.i = icmp ult i32 %and.i17, %5
+  %cmp3.not.i.i = icmp ult i32 %and.i22, %5
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
@@ -3634,7 +3634,7 @@ if.end26:                                         ; preds = %if.then23, %sw.bb19
   %nvectors = getelementptr inbounds i8, ptr %opaque, i64 4904
   %6 = load i32, ptr %nvectors, align 8
   %conv27 = zext i32 %6 to i64
-  %cmp28 = icmp ugt i64 %conv27, %val
+  %cmp28 = icmp ult i64 %val, %conv27
   br i1 %cmp28, label %if.then30, label %if.end33
 
 if.then30:                                        ; preds = %if.end26
@@ -3723,7 +3723,7 @@ if.end83:                                         ; preds = %if.then80, %sw.bb73
   %nvectors84 = getelementptr inbounds i8, ptr %opaque, i64 4904
   %14 = load i32, ptr %nvectors84, align 8
   %conv85 = zext i32 %14 to i64
-  %cmp86 = icmp ugt i64 %conv85, %val
+  %cmp86 = icmp ult i64 %val, %conv85
   br i1 %cmp86, label %if.then88, label %if.end92
 
 if.then88:                                        ; preds = %if.end83
@@ -4238,7 +4238,7 @@ virtio_bus_get_device.exit:                       ; preds = %entry
 if.end:                                           ; preds = %virtio_bus_get_device.exit
   %tobool.not = icmp eq i32 %call1, 0
   %cond = select i1 %tobool.not, i64 20, i64 24
-  %cmp2 = icmp ugt i64 %cond, %addr
+  %cmp2 = icmp ult i64 %addr, %cond
   br i1 %cmp2, label %if.then4, label %if.end8
 
 if.then4:                                         ; preds = %if.end
@@ -4425,7 +4425,7 @@ virtio_bus_get_device.exit:                       ; preds = %entry
 if.end:                                           ; preds = %virtio_bus_get_device.exit
   %tobool.not = icmp eq i32 %call, 0
   %cond = select i1 %tobool.not, i64 20, i64 24
-  %cmp2 = icmp ugt i64 %cond, %addr
+  %cmp2 = icmp ult i64 %addr, %cond
   br i1 %cmp2, label %virtio_bus_get_device.exit.i, label %if.end7
 
 virtio_bus_get_device.exit.i:                     ; preds = %if.end

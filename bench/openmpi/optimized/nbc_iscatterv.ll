@@ -44,7 +44,7 @@ define i32 @ompi_coll_libnbc_iscatterv(ptr noundef %0, ptr nocapture noundef rea
 define internal fastcc i32 @nbc_scatterv_init(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i1 noundef zeroext %11) unnamed_addr #0 {
   %13 = getelementptr i8, ptr %8, i64 220
   %.val = load i32, ptr %13, align 4
-  %14 = icmp eq i32 %.val, %7
+  %14 = icmp eq i32 %7, %.val
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %12

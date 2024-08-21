@@ -57,7 +57,7 @@ define hidden noundef double @_ZN13SharedRuntime4dsinEd(double noundef %0) local
 
 11:                                               ; preds = %6
   %12 = fmul double %0, %0
-  %13 = fmul double %12, %0
+  %13 = fmul double %0, %12
   %14 = fmul double %12, 0x3DE5D93A5ACFD57C
   %15 = fadd double %14, 0xBE5AE5E68A2B9CEB
   %16 = fmul double %12, %15
@@ -69,7 +69,7 @@ define hidden noundef double @_ZN13SharedRuntime4dsinEd(double noundef %0) local
   %22 = fmul double %12, %21
   %23 = fadd double %22, 0xBFC5555555555549
   %24 = fmul double %13, %23
-  %25 = fadd double %24, %0
+  %25 = fadd double %0, %24
   br label %_ZL12__kernel_sinddi.exit
 
 26:                                               ; preds = %1

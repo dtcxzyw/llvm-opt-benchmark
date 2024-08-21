@@ -946,8 +946,8 @@ define internal fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_X
   %52 = call double @cos(double noundef %51) #11
   %53 = fneg double %46
   %54 = fmul double %52, %53
-  %55 = fneg double %50
-  %56 = fmul double %.sroa.023.0, %55
+  %55 = fneg double %.sroa.023.0
+  %56 = fmul double %50, %55
   %57 = call double @llvm.fmuladd.f64(double %54, double %.sroa.8.0, double %56)
   %58 = fmul double %48, %52
   %59 = call double @llvm.fmuladd.f64(double %58, double %.sroa.16.0, double %57)

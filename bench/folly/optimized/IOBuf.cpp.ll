@@ -3069,7 +3069,7 @@ _ZN5folly5IOBuf17goodExtBufferSizeEm.exit:        ; preds = %if.end2.i.i, %_ZN5f
   %sub.ptr.rhs.cast.i197 = ptrtoint ptr %add.ptr.i3.i195 to i64
   %sub.ptr.sub.i198 = sub i64 %sub.ptr.lhs.cast.i196, %sub.ptr.rhs.cast.i197
   %20 = add i64 %retval.0.i.i, -32
-  %21 = add i64 %19, %newHeadroom
+  %21 = add i64 %newHeadroom, %19
   %sub15 = sub i64 %20, %21
   %cmp16.not.not = icmp ugt i64 %sub.ptr.sub.i198, %sub15
   br i1 %cmp16.not.not, label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit.if.end20_crit_edge, label %if.then17

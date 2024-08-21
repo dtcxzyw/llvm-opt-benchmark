@@ -98,7 +98,7 @@ define noundef float @_Z13comm_box_fracRKN3gmx11BasicVectorIiEEfRK11gmx_ddbox_t(
   %13 = getelementptr inbounds [3 x i32], ptr %0, i64 0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = sitofp i32 %14 to float
-  %16 = fmul float %15, %1
+  %16 = fmul float %1, %15
   %17 = fdiv float %16, %12
   %18 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv
   store float %17, ptr %18, align 4
@@ -552,7 +552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 40:                                               ; preds = %35, %_ZNK3gmx17MDModulesNotifierIPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEE6notifyES2_.exit
   %41 = phi i32 [ %.pre, %35 ], [ %29, %_ZNK3gmx17MDModulesNotifierIPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEE6notifyES2_.exit ]
   %.not55 = xor i1 %6, true
-  %brmerge.not = and i1 %.not55, %5
+  %brmerge.not = and i1 %5, %.not55
   %or.cond29 = icmp ugt i32 %41, 1
   %or.cond54 = select i1 %brmerge.not, i1 %or.cond29, i1 false
   br i1 %or.cond54, label %42, label %51
@@ -861,12 +861,12 @@ define void @_Z30checkForValidRankCountRequestsibiRKN3gmx25SeparatePmeRanksPermi
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %13 = icmp sgt i32 %2, 0
-  %or.cond = and i1 %13, %1
+  %or.cond = and i1 %1, %13
   br i1 %or.cond, label %14, label %21
 
 14:                                               ; preds = %5
   %15 = sub nsw i32 %0, %2
-  %16 = icmp slt i32 %15, %2
+  %16 = icmp sgt i32 %2, %15
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %14
@@ -940,7 +940,7 @@ define void @_Z30checkForValidRankCountRequestsibiRKN3gmx25SeparatePmeRanksPermi
 
 37:                                               ; preds = %26
   %38 = icmp sgt i32 %.0, 12
-  %or.cond8 = and i1 %38, %4
+  %or.cond8 = and i1 %4, %38
   br i1 %or.cond8, label %39, label %63
 
 39:                                               ; preds = %37
@@ -2739,13 +2739,13 @@ _ZL15inhomogeneous_zRK10t_inputrec.exit.thread.preheader.split: ; preds = %_ZL15
 
 102:                                              ; preds = %91
   %103 = sitofp i32 %99 to float
-  %104 = fmul float %103, %0
+  %104 = fmul float %0, %103
   %105 = fcmp olt float %96, %104
   br i1 %105, label %.thread205, label %109
 
 .thread202:                                       ; preds = %100
   %106 = uitofp nneg i32 %99 to float
-  %107 = fmul float %106, %0
+  %107 = fmul float %0, %106
   %108 = fcmp olt float %96, %107
   br i1 %108, label %.thread205, label %.thread201
 
@@ -2758,7 +2758,7 @@ _ZL15inhomogeneous_zRK10t_inputrec.exit.thread.preheader.split: ; preds = %_ZL15
   %113 = uitofp nneg i32 %112 to float
   %114 = fmul float %96, %113
   %115 = uitofp nneg i32 %99 to float
-  %116 = fmul float %115, %1
+  %116 = fmul float %1, %115
   %117 = fcmp olt float %114, %116
   br i1 %117, label %.thread205, label %.thread201
 

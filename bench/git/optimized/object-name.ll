@@ -597,7 +597,7 @@ entry:
   %add = add i64 %2, %conv
   %3 = load i64, ptr %sb, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %add
+  %cmp.i = icmp ugt i64 %add, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -1038,7 +1038,7 @@ find_abbrev_len_for_pack.exit.i:                  ; preds = %if.end31.i.i, %lor.
 find_abbrev_len_packed.exit:                      ; preds = %find_abbrev_len_for_pack.exit.i, %for.end.i
   %66 = phi i32 [ %39, %for.end.i ], [ %63, %find_abbrev_len_for_pack.exit.i ]
   %67 = load i32, ptr @minimum_abbrev, align 4
-  %cmp.i = icmp sgt i32 %67, %66
+  %cmp.i = icmp slt i32 %66, %67
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %find_abbrev_len_packed.exit
@@ -1196,7 +1196,7 @@ entry:
   %add.i = add i64 %3, %conv.i
   %4 = load i64, ptr %sb, align 8
   %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %add.i
+  %cmp.i.i = icmp ugt i64 %add.i, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -1746,7 +1746,7 @@ if.then:                                          ; preds = %entry
   %conv8 = ashr exact i64 %sext, 32
   %3 = load i64, ptr %buf, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %3, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %conv8
+  %cmp.i = icmp ugt i64 %conv8, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -1906,7 +1906,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %conv.i = trunc i64 %call.i to i32
-  %cmp1.not.i = icmp sgt i32 %conv.i, %len
+  %cmp1.not.i = icmp slt i32 %len, %conv.i
   br i1 %cmp1.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
@@ -2740,7 +2740,7 @@ entry:
 for.cond:                                         ; preds = %for.body, %entry
   %add.ptr.pn = phi ptr [ %add.ptr, %entry ], [ %cp.0, %for.body ]
   %cp.0 = getelementptr inbounds i8, ptr %add.ptr.pn, i64 -1
-  %cmp.not = icmp ult ptr %cp.0, %name
+  %cmp.not = icmp ugt ptr %name, %cp.0
   br i1 %cmp.not, label %if.end51, label %for.body
 
 for.body:                                         ; preds = %for.cond
@@ -2923,14 +2923,14 @@ lor.lhs.false.i66:                                ; preds = %if.end51
   br i1 %cmp1.not.i, label %for.cond.i.preheader, label %peel_onion.exit.thread
 
 for.cond.i.preheader:                             ; preds = %lor.lhs.false.i66
-  %cmp4.not.i174 = icmp ult ptr %arrayidx.i, %name
+  %cmp4.not.i174 = icmp ugt ptr %name, %arrayidx.i
   br i1 %cmp4.not.i174, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i.preheader, %for.inc.i
   %sp.0.i175 = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %arrayidx.i, %for.cond.i.preheader ]
   %13 = load i8, ptr %sp.0.i175, align 1
   %cmp7.i = icmp eq i8 %13, 123
-  %cmp9.i = icmp ugt ptr %sp.0.i175, %name
+  %cmp9.i = icmp ult ptr %name, %sp.0.i175
   %or.cond.i = and i1 %cmp9.i, %cmp7.i
   br i1 %or.cond.i, label %land.lhs.true11.i, label %for.inc.i
 
@@ -2942,7 +2942,7 @@ land.lhs.true11.i:                                ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %land.lhs.true11.i, %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %sp.0.i175, i64 -1
-  %cmp4.not.i = icmp ult ptr %incdec.ptr.i, %name
+  %cmp4.not.i = icmp ugt ptr %name, %incdec.ptr.i
   br i1 %cmp4.not.i, label %for.end.i, label %for.body.i, !llvm.loop !28
 
 for.end.i:                                        ; preds = %for.inc.i, %land.lhs.true11.i, %for.cond.i.preheader
@@ -3802,7 +3802,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %0 = load ptr, ptr @the_repository, align 8
-  %cmp.not = icmp eq ptr %0, %r
+  %cmp.not = icmp eq ptr %r, %0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %if.end
@@ -4030,7 +4030,7 @@ entry:
   %out = alloca %struct.ambiguous_output, align 8
   %and = and i32 %flags, 1
   %0 = load i32, ptr @minimum_abbrev, align 4
-  %cmp.i = icmp sgt i32 %0, %len
+  %cmp.i = icmp slt i32 %len, %0
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry

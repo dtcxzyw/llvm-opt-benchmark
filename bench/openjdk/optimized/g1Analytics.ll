@@ -375,7 +375,7 @@ define hidden void @_ZN11G1Analytics25compute_pause_time_ratiosEdd(ptr noundef n
   %10 = load double, ptr %9, align 8
   %11 = tail call noundef double @_ZNK12TruncatedSeq6oldestEv(ptr noundef nonnull align 8 dereferenceable(72) %8) #7
   %12 = fsub double %10, %11
-  %13 = fadd double %12, %2
+  %13 = fadd double %2, %12
   %14 = fdiv double %13, %7
   %15 = getelementptr inbounds i8, ptr %0, i64 2032
   %16 = fcmp ogt double %14, 0.000000e+00

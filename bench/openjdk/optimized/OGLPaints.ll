@@ -493,7 +493,7 @@ define internal fastcc void @OGLPaints_SetMultiGradientPaint(i32 noundef %0, i32
   tail call void %9(i32 noundef %0) #6
   %10 = load ptr, ptr @j2d_glGetUniformLocationARB, align 8
   %11 = tail call i32 %10(i32 noundef %0, ptr noundef nonnull @.str.21) #6
-  %12 = icmp sgt i32 %8, %1
+  %12 = icmp slt i32 %1, %8
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %4

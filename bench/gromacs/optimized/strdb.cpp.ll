@@ -81,7 +81,7 @@ define noundef zeroext i1 @_Z10get_a_lineP8_IO_FILEPci(ptr nocapture noundef %0,
 14:                                               ; preds = %11
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
   %16 = trunc i64 %15 to i32
-  %17 = icmp eq i32 %16, %2
+  %17 = icmp eq i32 %2, %16
   %18 = load ptr, ptr @stderr, align 8
   br i1 %17, label %19, label %21
 

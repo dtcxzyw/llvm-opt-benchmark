@@ -422,7 +422,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %top = getelementptr inbounds i8, ptr %sa, i64 8
   %1 = load i64, ptr %top, align 8
-  %cmp2.not = icmp ult i64 %1, %n
+  %cmp2.not = icmp ugt i64 %n, %1
   br i1 %cmp2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end

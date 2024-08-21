@@ -640,9 +640,9 @@ define hidden void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h1ab20912c63
   br label %45
 
 31:                                               ; preds = %.lr.ph.split
-  %32 = icmp sgt i64 %.val1656, %2
-  %33 = icmp eq i64 %.val1656, %2
-  %34 = icmp ugt i32 %.val1757, %3
+  %32 = icmp slt i64 %2, %.val1656
+  %33 = icmp eq i64 %2, %.val1656
+  %34 = icmp ult i32 %3, %.val1757
   %35 = select i1 %33, i1 %34, i1 false
   %36 = select i1 %32, i1 true, i1 %35
   %spec.select = select i1 %36, i32 %3, i32 %.val1757
@@ -756,9 +756,9 @@ _ZN4core3cmp6max_by17h7d4fa2f59922be45E.exit.us:  ; preds = %_ZN4core3ops8functi
   %30 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hbb1eaf08f9bac9b0E()
   %31 = extractvalue { i64, i32 } %30, 0
   %32 = extractvalue { i64, i32 } %30, 1
-  %33 = icmp sgt i64 %28, %2
-  %34 = icmp eq i64 %28, %2
-  %35 = icmp ugt i32 %29, %3
+  %33 = icmp slt i64 %2, %28
+  %34 = icmp eq i64 %2, %28
+  %35 = icmp ult i32 %3, %29
   %36 = select i1 %34, i1 %35, i1 false
   %37 = select i1 %33, i1 true, i1 %36
   br i1 %37, label %._crit_edge, label %.lr.ph
@@ -841,9 +841,9 @@ _ZN4core3cmp6max_by17h7d4fa2f59922be45E.exit:     ; preds = %.lr.ph, %43, %_ZN4c
   %75 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hbb1eaf08f9bac9b0E()
   %76 = extractvalue { i64, i32 } %75, 0
   %77 = extractvalue { i64, i32 } %75, 1
-  %78 = icmp sgt i64 %73, %2
-  %79 = icmp eq i64 %73, %2
-  %80 = icmp ugt i32 %74, %3
+  %78 = icmp slt i64 %2, %73
+  %79 = icmp eq i64 %2, %73
+  %80 = icmp ult i32 %3, %74
   %81 = select i1 %79, i1 %80, i1 false
   %82 = select i1 %78, i1 true, i1 %81
   br i1 %82, label %._crit_edge, label %.lr.ph

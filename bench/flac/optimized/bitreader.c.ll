@@ -449,7 +449,7 @@ if.then23:                                        ; preds = %if.then20
   %sh_prom = zext nneg i32 %5 to i64
   %shr = lshr i64 -1, %sh_prom
   %cond = select i1 %cmp28, i64 %shr, i64 0
-  %cmp30 = icmp ugt i32 %sub25, %bits
+  %cmp30 = icmp ult i32 %bits, %sub25
   br i1 %cmp30, label %if.then31, label %if.end42
 
 if.then31:                                        ; preds = %if.then23
@@ -475,7 +475,7 @@ if.end42:                                         ; preds = %if.then23
   %inc = add i32 %9, 1
   store i32 %inc, ptr %consumed_words, align 4
   store i32 0, ptr %consumed_bits, align 8
-  %tobool48.not = icmp eq i32 %sub25, %bits
+  %tobool48.not = icmp eq i32 %bits, %sub25
   br i1 %tobool48.not, label %return, label %if.then49
 
 if.then49:                                        ; preds = %if.end42
@@ -548,7 +548,7 @@ if.then94:                                        ; preds = %if.else91
   %sh_prom100 = zext nneg i32 %5 to i64
   %shr101 = lshr i64 -1, %sh_prom100
   %and102 = and i64 %18, %shr101
-  %19 = add i32 %5, %bits
+  %19 = add i32 %bits, %5
   %sub105 = sub i32 64, %19
   %sh_prom106 = zext nneg i32 %sub105 to i64
   %shr107 = lshr i64 %and102, %sh_prom106
@@ -1546,7 +1546,7 @@ if.end25:                                         ; preds = %if.end19, %while.bo
 if.end33:                                         ; preds = %if.end25
   %shr36 = lshr i64 %shl28, %sh_prom35
   %conv = trunc i64 %shr36 to i32
-  %cmp37.not = icmp ult i32 %rem, %parameter
+  %cmp37.not = icmp ugt i32 %parameter, %rem
   br i1 %cmp37.not, label %if.else, label %if.then39
 
 if.then39:                                        ; preds = %if.end33
@@ -1801,7 +1801,7 @@ if.end25:                                         ; preds = %if.end19, %while.bo
 if.end33:                                         ; preds = %if.end25
   %shr36 = lshr i64 %shl28, %sh_prom35
   %conv = trunc i64 %shr36 to i32
-  %cmp37.not = icmp ult i32 %rem, %parameter
+  %cmp37.not = icmp ugt i32 %parameter, %rem
   br i1 %cmp37.not, label %if.else, label %if.then39
 
 if.then39:                                        ; preds = %if.end33

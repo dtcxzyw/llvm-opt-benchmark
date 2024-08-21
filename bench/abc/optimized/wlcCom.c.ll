@@ -313,7 +313,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandReadWlc(ptr nocapture noundef %0
 14:                                               ; preds = %4
   %15 = load i32, ptr @globalUtilOptind, align 4
   %16 = add nsw i32 %15, 1
-  %.not46 = icmp eq i32 %16, %1
+  %.not46 = icmp eq i32 %1, %16
   br i1 %.not46, label %18, label %17
 
 17:                                               ; preds = %14
@@ -500,7 +500,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandWriteWlc(ptr nocapture noundef r
 
 18:                                               ; preds = %15
   %19 = load i32, ptr @globalUtilOptind, align 4
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %18
@@ -510,7 +510,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandWriteWlc(ptr nocapture noundef r
 
 24:                                               ; preds = %18
   %25 = add nsw i32 %19, 1
-  %26 = icmp eq i32 %25, %1
+  %26 = icmp eq i32 %1, %25
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %24
@@ -2609,7 +2609,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRetime(ptr nocapture noundef %0,
 39:                                               ; preds = %14
   %40 = load i32, ptr @globalUtilOptind, align 4
   %41 = add nsw i32 %40, 1
-  %.not52 = icmp eq i32 %41, %1
+  %.not52 = icmp eq i32 %1, %41
   br i1 %.not52, label %43, label %42
 
 42:                                               ; preds = %39

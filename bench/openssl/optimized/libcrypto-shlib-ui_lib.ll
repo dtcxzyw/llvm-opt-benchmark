@@ -821,7 +821,7 @@ if.end:                                           ; preds = %entry
   %strings = getelementptr inbounds i8, ptr %ui, i64 8
   %0 = load ptr, ptr %strings, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #7
-  %cmp2.not = icmp sgt i32 %call1, %i
+  %cmp2.not = icmp slt i32 %i, %call1
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -886,7 +886,7 @@ if.end:                                           ; preds = %entry
   %strings = getelementptr inbounds i8, ptr %ui, i64 8
   %0 = load ptr, ptr %strings, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #7
-  %cmp2.not = icmp sgt i32 %call1, %i
+  %cmp2.not = icmp slt i32 %i, %call1
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -1621,7 +1621,7 @@ entry:
 sw.bb:                                            ; preds = %entry, %entry
   %_ = getelementptr inbounds i8, ptr %uis, i64 40
   %2 = load i32, ptr %_, align 8
-  %cmp = icmp sgt i32 %2, %len
+  %cmp = icmp slt i32 %len, %2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb
@@ -1638,7 +1638,7 @@ if.then:                                          ; preds = %sw.bb
 if.end:                                           ; preds = %sw.bb
   %result_maxsize6 = getelementptr inbounds i8, ptr %uis, i64 44
   %5 = load i32, ptr %result_maxsize6, align 4
-  %cmp7 = icmp slt i32 %5, %len
+  %cmp7 = icmp sgt i32 %len, %5
   br i1 %cmp7, label %if.then8, label %if.end15
 
 if.then8:                                         ; preds = %if.end
@@ -1667,7 +1667,7 @@ if.end18:                                         ; preds = %if.end15
   %conv = sext i32 %len to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %result, i64 %conv, i1 false)
   %9 = load i32, ptr %result_maxsize6, align 4
-  %cmp22.not = icmp slt i32 %9, %len
+  %cmp22.not = icmp sgt i32 %len, %9
   br i1 %cmp22.not, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %if.end18

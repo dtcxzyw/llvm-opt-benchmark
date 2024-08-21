@@ -7315,7 +7315,7 @@ DOFObjectID_GetBaseSize.exit.i83:                 ; preds = %.thread.i.i.i.i.i87
   %152 = add nuw nsw i64 %151, 2
   %153 = getelementptr i8, ptr %.024.i, i64 %152
   %154 = add nuw i8 %146, 1
-  %155 = icmp eq i8 %146, %.027117
+  %155 = icmp eq i8 %.027117, %146
   br i1 %155, label %.loopexit137, label %.lr.ph.i85
 
 .loopexit137:                                     ; preds = %148, %DOFObjectID_GetBaseSize.exit.i83
@@ -7904,7 +7904,7 @@ DOFObjectID_GetBaseSize.exit.i116:                ; preds = %.thread.i.i.i.i.i11
   %204 = add nuw nsw i64 %203, 2
   %205 = getelementptr i8, ptr %.024.i, i64 %204
   %206 = add nuw i8 %198, 1
-  %207 = icmp eq i8 %198, %.081153
+  %207 = icmp eq i8 %.081153, %198
   br i1 %207, label %._crit_edge.i, label %.lr.ph.i118
 
 DOFObjectID_GetAttributeAtIndex.exit:             ; preds = %.lr.ph.i118, %.lr.ph, %DOFObjectID_HasAttributes.exit.i110, %._crit_edge.i
@@ -10574,7 +10574,7 @@ validate_c2.exit72:                               ; preds = %read_c2.exit70, %71
   %80 = select i1 %79, ptr @.str.178, ptr @.str.732
   %81 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %0, i32 noundef %48, i32 noundef %77, i32 noundef %78, ptr noundef null, ptr noundef nonnull @.str.731, i32 noundef %77, ptr noundef nonnull %80) #20
   %82 = tail call i32 @tvb_captured_length(ptr noundef %0) #20
-  %83 = icmp sgt i32 %82, %48
+  %83 = icmp slt i32 %48, %82
   br i1 %83, label %.lr.ph.i, label %dissect_options.exit
 
 .lr.ph.i:                                         ; preds = %75, %.lr.ph.i
@@ -11790,7 +11790,7 @@ define internal fastcc range(i32 0, 2) i32 @decrypt(ptr nocapture noundef readon
   %109 = add i16 %.041.i, 1
   %110 = add i16 %.03840.i, 1
   %111 = zext i16 %109 to i32
-  %112 = icmp ult i32 %111, %4
+  %112 = icmp ugt i32 %4, %111
   br i1 %112, label %.lr.ph.i, label %.preheader.i, !llvm.loop !57
 
 .lr.ph44.i:                                       ; preds = %.preheader.i, %117
@@ -12926,7 +12926,7 @@ proto_item_set_generated.exit50:                  ; preds = %dof_oid_create_stan
   br label %117
 
 117:                                              ; preds = %._crit_edge, %proto_item_set_generated.exit50, %12
-  %118 = add i32 %9, %3
+  %118 = add i32 %3, %9
   br label %119
 
 119:                                              ; preds = %6, %117

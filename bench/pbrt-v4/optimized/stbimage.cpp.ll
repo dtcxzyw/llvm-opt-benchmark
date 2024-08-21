@@ -1468,7 +1468,7 @@ if.end.i.i.i.i:                                   ; preds = %cond.end
 
 _ZL21stbi__mul2sizes_validii.exit.i.i.i:          ; preds = %if.end.i.i.i.i
   %div.i.i.i.i = udiv i32 2147483647, %11
-  %cmp5.i.not.i.i.i = icmp slt i32 %div.i.i.i.i, %10
+  %cmp5.i.not.i.i.i = icmp sgt i32 %10, %div.i.i.i.i
   br i1 %cmp5.i.not.i.i.i, label %if.then1.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i.i, %if.end.i.i.i.i
@@ -1483,7 +1483,7 @@ if.end.i12.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
 
 _ZL21stbi__mul2sizes_validii.exit18.i.i.i:        ; preds = %if.end.i12.i.i.i
   %div.i15.i.i.i = udiv i32 2147483647, %cond
-  %cmp5.i16.not.i.i.i = icmp slt i32 %div.i15.i.i.i, %mul.i.i.i
+  %cmp5.i16.not.i.i.i = icmp sgt i32 %mul.i.i.i, %div.i15.i.i.i
   br i1 %cmp5.i16.not.i.i.i, label %if.then1.i, label %land.lhs.true3.i.i.i
 
 land.lhs.true3.i.i.i:                             ; preds = %_ZL21stbi__mul2sizes_validii.exit18.i.i.i, %if.end.i12.i.i.i
@@ -3392,7 +3392,7 @@ if.end57.i:                                       ; preds = %if.else53.i, %if.en
 
 _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %if.end57.i
   %div.i.i.i = udiv i32 2147483647, %31
-  %cmp5.i.not.i.i = icmp ult i32 %div.i.i.i, %spec.select.i
+  %cmp5.i.not.i.i = icmp ugt i32 %spec.select.i, %div.i.i.i
   br i1 %cmp5.i.not.i.i, label %if.then69.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %if.end57.i
@@ -3402,7 +3402,7 @@ land.lhs.true.i.i:                                ; preds = %_ZL21stbi__mul2size
 
 _ZL21stbi__mul2sizes_validii.exit14.i.i:          ; preds = %land.lhs.true.i.i
   %div.i11.i.i = udiv i32 2147483647, %29
-  %cmp5.i12.not.i.i = icmp ult i32 %div.i11.i.i, %mul.i.i
+  %cmp5.i12.not.i.i = icmp ugt i32 %mul.i.i, %div.i11.i.i
   br i1 %cmp5.i12.not.i.i, label %if.then69.i, label %if.end.i.i.i.i
 
 if.then69.i:                                      ; preds = %_ZL21stbi__mul2sizes_validii.exit14.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i
@@ -3415,7 +3415,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZL21stbi__mul2size
 
 _ZL21stbi__mul2sizes_validii.exit.i.i.i:          ; preds = %if.end.i.i.i.i
   %div.i.i.i.i = udiv i32 2147483647, %31
-  %cmp5.i.not.i.i.i = icmp ult i32 %div.i.i.i.i, %spec.select.i
+  %cmp5.i.not.i.i.i = icmp ugt i32 %spec.select.i, %div.i.i.i.i
   br i1 %cmp5.i.not.i.i.i, label %if.then78.i, label %if.end.i8.i.i.i
 
 if.end.i8.i.i.i:                                  ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i.i, %if.end.i.i.i.i
@@ -3423,7 +3423,7 @@ if.end.i8.i.i.i:                                  ; preds = %_ZL21stbi__mul2size
 
 _ZL21stbi__mul2sizes_validii.exit14.i.i.i:        ; preds = %if.end.i8.i.i.i
   %div.i11.i.i.i = udiv i32 2147483647, %29
-  %cmp5.i12.not.i.i.i = icmp ult i32 %div.i11.i.i.i, %mul.i.i
+  %cmp5.i12.not.i.i.i = icmp ugt i32 %mul.i.i, %div.i11.i.i.i
   br i1 %cmp5.i12.not.i.i.i, label %if.then78.i, label %_ZL17stbi__malloc_mad3iiii.exit.i
 
 _ZL17stbi__malloc_mad3iiii.exit.i:                ; preds = %_ZL21stbi__mul2sizes_validii.exit14.i.i.i, %if.end.i8.i.i.i
@@ -4961,7 +4961,7 @@ for.cond501.for.inc517_crit_edge.us.i:            ; preds = %for.body505.us.i
 
 if.end520.i:                                      ; preds = %for.cond501.for.inc517_crit_edge.us.i, %for.body489.lr.ph.i, %for.cond485.preheader.i, %if.end482.if.end520_crit_edge.i
   %.pre120.i = phi i32 [ %.pre120.pre.i, %if.end482.if.end520_crit_edge.i ], [ %.pre120.pre124.i, %for.cond485.preheader.i ], [ %.pre120.pre124.i, %for.body489.lr.ph.i ], [ %.pre120.pre124.i, %for.cond501.for.inc517_crit_edge.us.i ]
-  %cmp523.not.i = icmp eq i32 %spec.select.i, %req_comp
+  %cmp523.not.i = icmp eq i32 %req_comp, %spec.select.i
   %or.cond231.i = or i1 %tobool58.not.i, %cmp523.not.i
   br i1 %or.cond231.i, label %if.end531.i, label %if.then524.i
 
@@ -7891,7 +7891,7 @@ if.end.i.i.i295.i.i:                              ; preds = %for.end.i.i
 
 _ZL21stbi__mul2sizes_validii.exit.i.i.i.i:        ; preds = %if.end.i.i.i295.i.i
   %div.i.i.i.i.i = udiv i32 2147483647, %694
-  %cmp5.i.not.i.i.i.i = icmp slt i32 %div.i.i.i.i.i, %cond11.i103.i
+  %cmp5.i.not.i.i.i.i = icmp sgt i32 %cond11.i103.i, %div.i.i.i.i.i
   br i1 %cmp5.i.not.i.i.i.i, label %if.then107.i.i, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i, %if.end.i.i.i295.i.i
@@ -7906,7 +7906,7 @@ if.end.i8.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i
 
 _ZL21stbi__mul2sizes_validii.exit14.i.i.i.i:      ; preds = %if.end.i8.i.i.i.i
   %div.i11.i.i.i.i = udiv i32 2147483647, %697
-  %cmp5.i12.not.i.i.i.i = icmp slt i32 %div.i11.i.i.i.i, %mul.i.i296.i.i
+  %cmp5.i12.not.i.i.i.i = icmp sgt i32 %mul.i.i296.i.i, %div.i11.i.i.i.i
   br i1 %cmp5.i12.not.i.i.i.i, label %if.then107.i.i, label %_ZL21stbi__mad3sizes_validiiii.exit.i.i.i
 
 _ZL21stbi__mad3sizes_validiiii.exit.i.i.i:        ; preds = %_ZL21stbi__mul2sizes_validii.exit14.i.i.i.i, %if.end.i8.i.i.i.i
@@ -9291,12 +9291,12 @@ if.end.i.i:                                       ; preds = %if.end19
 
 _ZL21stbi__mul2sizes_validii.exit.i:              ; preds = %if.end.i.i
   %div.i.i = udiv i32 2147483647, %6
-  %cmp5.i.not.i = icmp slt i32 %div.i.i, %.pre
+  %cmp5.i.not.i = icmp sgt i32 %.pre, %div.i.i
   br i1 %cmp5.i.not.i, label %if.then26, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZL21stbi__mul2sizes_validii.exit.i, %if.end.i.i
   %mul.i = mul i32 %6, %.pre
-  %9 = or i32 %mul.i, %5
+  %9 = or i32 %5, %mul.i
   %or.cond.not.i10.i = icmp sgt i32 %9, -1
   br i1 %or.cond.not.i10.i, label %if.end.i12.i, label %if.then26
 
@@ -9306,7 +9306,7 @@ if.end.i12.i:                                     ; preds = %land.lhs.true.i
 
 _ZL21stbi__mul2sizes_validii.exit18.i:            ; preds = %if.end.i12.i
   %div.i15.i = udiv i32 2147483647, %5
-  %cmp5.i16.not.i = icmp slt i32 %div.i15.i, %mul.i
+  %cmp5.i16.not.i = icmp sgt i32 %mul.i, %div.i15.i
   br i1 %cmp5.i16.not.i, label %if.then26, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %_ZL21stbi__mul2sizes_validii.exit18.i, %if.end.i12.i
@@ -9322,7 +9322,7 @@ if.end.i21.i:                                     ; preds = %land.lhs.true3.i
 
 _ZL21stbi__mul2sizes_validii.exit27.i:            ; preds = %if.end.i21.i
   %div.i24.i = udiv i32 2147483647, %div
-  %cmp5.i25.not.i = icmp slt i32 %div.i24.i, %mul5.i
+  %cmp5.i25.not.i = icmp sgt i32 %mul5.i, %div.i24.i
   br i1 %cmp5.i25.not.i, label %if.then26, label %if.end.i.i.i
 
 if.then26:                                        ; preds = %_ZL21stbi__mul2sizes_validii.exit27.i, %_ZL21stbi__mul2sizes_validii.exit18.i, %_ZL21stbi__mul2sizes_validii.exit.i, %if.end19, %land.lhs.true.i, %land.lhs.true3.i
@@ -9335,7 +9335,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i21.i, %_ZL2
 
 _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %if.end.i.i.i
   %div.i.i.i = udiv i32 2147483647, %6
-  %cmp5.i.not.i.i = icmp slt i32 %div.i.i.i, %.pre
+  %cmp5.i.not.i.i = icmp sgt i32 %.pre, %div.i.i.i
   br i1 %cmp5.i.not.i.i, label %if.then38, label %if.end.i12.i.i
 
 if.end.i12.i.i:                                   ; preds = %if.end.i.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i
@@ -9343,7 +9343,7 @@ if.end.i12.i.i:                                   ; preds = %if.end.i.i.i, %_ZL2
 
 _ZL21stbi__mul2sizes_validii.exit18.i.i:          ; preds = %if.end.i12.i.i
   %div.i15.i.i = udiv i32 2147483647, %5
-  %cmp5.i16.not.i.i = icmp slt i32 %div.i15.i.i, %mul.i
+  %cmp5.i16.not.i.i = icmp sgt i32 %mul.i, %div.i15.i.i
   br i1 %cmp5.i16.not.i.i, label %if.then38, label %if.end.i21.i.i
 
 if.end.i21.i.i:                                   ; preds = %if.end.i12.i.i, %_ZL21stbi__mul2sizes_validii.exit18.i.i
@@ -9351,7 +9351,7 @@ if.end.i21.i.i:                                   ; preds = %if.end.i12.i.i, %_Z
 
 _ZL21stbi__mul2sizes_validii.exit27.i.i:          ; preds = %if.end.i21.i.i
   %div.i24.i.i = udiv i32 2147483647, %div
-  %cmp5.i25.not.i.i = icmp slt i32 %div.i24.i.i, %mul5.i
+  %cmp5.i25.not.i.i = icmp sgt i32 %mul5.i, %div.i24.i.i
   br i1 %cmp5.i25.not.i.i, label %if.then38, label %_ZL17stbi__malloc_mad4iiiii.exit
 
 _ZL17stbi__malloc_mad4iiiii.exit:                 ; preds = %if.end.i21.i.i, %_ZL21stbi__mul2sizes_validii.exit27.i.i
@@ -9423,7 +9423,7 @@ _ZL10stbi__getnP13stbi__contextPhi.exit:          ; preds = %if.then1.i, %if.end
 
 land.lhs.true:                                    ; preds = %_ZL10stbi__getnP13stbi__contextPhi.exit
   %20 = load i32, ptr %img_n, align 8
-  %cmp53.not = icmp eq i32 %20, %req_comp
+  %cmp53.not = icmp eq i32 %req_comp, %20
   br i1 %cmp53.not, label %return, label %if.then54
 
 if.then54:                                        ; preds = %land.lhs.true
@@ -10158,12 +10158,12 @@ if.end.i.i.i:                                     ; preds = %if.end
 
 _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %if.end.i.i.i
   %div.i.i.i = udiv i32 2147483647, %y
-  %cmp5.i.not.i.i = icmp slt i32 %div.i.i.i, %x
+  %cmp5.i.not.i.i = icmp sgt i32 %x, %div.i.i.i
   br i1 %cmp5.i.not.i.i, label %if.then1, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %if.end.i.i.i
   %mul.i.i = mul nsw i32 %y, %x
-  %1 = or i32 %mul.i.i, %comp
+  %1 = or i32 %comp, %mul.i.i
   %or.cond.not.i6.i.i = icmp sgt i32 %1, -1
   br i1 %or.cond.not.i6.i.i, label %if.end.i8.i.i, label %if.then1
 
@@ -10173,7 +10173,7 @@ if.end.i8.i.i:                                    ; preds = %land.lhs.true.i.i
 
 _ZL21stbi__mul2sizes_validii.exit14.i.i:          ; preds = %if.end.i8.i.i
   %div.i11.i.i = udiv i32 2147483647, %comp
-  %cmp5.i12.not.i.i = icmp slt i32 %div.i11.i.i, %mul.i.i
+  %cmp5.i12.not.i.i = icmp sgt i32 %mul.i.i, %div.i11.i.i
   br i1 %cmp5.i12.not.i.i, label %if.then1, label %_ZL17stbi__malloc_mad3iiii.exit
 
 _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %if.end.i8.i.i, %_ZL21stbi__mul2sizes_validii.exit14.i.i
@@ -11228,19 +11228,19 @@ if.end43:                                         ; preds = %if.then42, %if.end4
 
 _ZL21stbi__mul2sizes_validii.exit.i:              ; preds = %if.end43
   %div.i.i = udiv i32 2147483647, %call12
-  %cmp5.i.not.i = icmp ult i32 %div.i.i, %call11
+  %cmp5.i.not.i = icmp ugt i32 %call11, %div.i.i
   br i1 %cmp5.i.not.i, label %if.then46, label %land.lhs.true.i.thread
 
 land.lhs.true.i:                                  ; preds = %if.end43
   %mul.i = mul nuw nsw i32 %call12, %call11
   %div.i11.i = udiv i32 2147483647, %tga_comp.0.ph
-  %cmp5.i12.not.i = icmp ult i32 %div.i11.i, %mul.i
+  %cmp5.i12.not.i = icmp ugt i32 %mul.i, %div.i11.i
   br i1 %cmp5.i12.not.i, label %if.then46, label %_ZL17stbi__malloc_mad3iiii.exit
 
 land.lhs.true.i.thread:                           ; preds = %_ZL21stbi__mul2sizes_validii.exit.i
   %mul.i100 = mul nuw nsw i32 %call12, %call11
   %div.i11.i101 = udiv i32 2147483647, %tga_comp.0.ph
-  %cmp5.i12.not.i102 = icmp ult i32 %div.i11.i101, %mul.i100
+  %cmp5.i12.not.i102 = icmp ugt i32 %mul.i100, %div.i11.i101
   br i1 %cmp5.i12.not.i102, label %if.then46, label %_ZL21stbi__mul2sizes_validii.exit.i.i
 
 if.then46:                                        ; preds = %land.lhs.true.i.thread, %land.lhs.true.i, %_ZL21stbi__mul2sizes_validii.exit.i
@@ -11250,7 +11250,7 @@ if.then46:                                        ; preds = %land.lhs.true.i.thr
 
 _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %land.lhs.true.i.thread
   %div.i.i.i = udiv i32 2147483647, %call12
-  %cmp5.i.not.i.i = icmp ult i32 %div.i.i.i, %call11
+  %cmp5.i.not.i.i = icmp ugt i32 %call11, %div.i.i.i
   br i1 %cmp5.i.not.i.i, label %if.then53, label %_ZL17stbi__malloc_mad3iiii.exit
 
 _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %land.lhs.true.i
@@ -11287,7 +11287,7 @@ if.then4.i:                                       ; preds = %if.end.i327
   %sub.ptr.rhs.cast.i = ptrtoint ptr %75 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i329 = trunc i64 %sub.ptr.sub.i to i32
-  %cmp7.i = icmp slt i32 %conv.i329, %conv
+  %cmp7.i = icmp sgt i32 %conv, %conv.i329
   br i1 %cmp7.i, label %if.then8.i, label %if.end13.i
 
 if.then8.i:                                       ; preds = %if.then4.i
@@ -11933,7 +11933,7 @@ for.body232:                                      ; preds = %for.body232.lr.ph, 
 
 if.end243:                                        ; preds = %for.body232, %if.end224
   %tobool244.not = icmp eq i32 %req_comp, 0
-  %cmp246.not = icmp eq i32 %tga_comp.0.ph, %req_comp
+  %cmp246.not = icmp eq i32 %req_comp, %tga_comp.0.ph
   %or.cond141 = or i1 %tobool244.not, %cmp246.not
   br i1 %or.cond141, label %return, label %if.then247
 
@@ -12576,12 +12576,12 @@ if.end.i:                                         ; preds = %entry
 
 _ZL21stbi__mul2sizes_validii.exit:                ; preds = %if.end.i
   %div.i = udiv i32 2147483647, %b
-  %cmp5.i.not = icmp slt i32 %div.i, %a
+  %cmp5.i.not = icmp sgt i32 %a, %div.i
   br i1 %cmp5.i.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end.i, %_ZL21stbi__mul2sizes_validii.exit
   %mul = mul nsw i32 %b, %a
-  %1 = or i32 %mul, %c
+  %1 = or i32 %c, %mul
   %or.cond.not.i6 = icmp sgt i32 %1, -1
   br i1 %or.cond.not.i6, label %if.end.i8, label %land.end
 
@@ -12591,13 +12591,13 @@ if.end.i8:                                        ; preds = %land.lhs.true
 
 _ZL21stbi__mul2sizes_validii.exit14:              ; preds = %if.end.i8
   %div.i11 = udiv i32 2147483647, %c
-  %cmp5.i12.not = icmp slt i32 %div.i11, %mul
+  %cmp5.i12.not = icmp sgt i32 %mul, %div.i11
   br i1 %cmp5.i12.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end.i8, %_ZL21stbi__mul2sizes_validii.exit14
   %mul4 = mul nsw i32 %mul, %c
   %sub.i = sub nuw nsw i32 2147483647, %add
-  %cmp1.i = icmp sge i32 %sub.i, %mul4
+  %cmp1.i = icmp sle i32 %mul4, %sub.i
   %conv.i15 = zext i1 %cmp1.i to i32
   br label %land.end
 
@@ -12619,12 +12619,12 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZL21stbi__mul2sizes_validii.exit.i:              ; preds = %if.end.i.i
   %div.i.i = udiv i32 2147483647, %b
-  %cmp5.i.not.i = icmp slt i32 %div.i.i, %a
+  %cmp5.i.not.i = icmp sgt i32 %a, %div.i.i
   br i1 %cmp5.i.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZL21stbi__mul2sizes_validii.exit.i, %if.end.i.i
   %mul.i = mul nsw i32 %b, %a
-  %1 = or i32 %mul.i, %c
+  %1 = or i32 %c, %mul.i
   %or.cond.not.i6.i = icmp sgt i32 %1, -1
   br i1 %or.cond.not.i6.i, label %if.end.i8.i, label %return
 
@@ -12634,13 +12634,13 @@ if.end.i8.i:                                      ; preds = %land.lhs.true.i
 
 _ZL21stbi__mul2sizes_validii.exit14.i:            ; preds = %if.end.i8.i
   %div.i11.i = udiv i32 2147483647, %c
-  %cmp5.i12.not.i = icmp slt i32 %div.i11.i, %mul.i
+  %cmp5.i12.not.i = icmp sgt i32 %mul.i, %div.i11.i
   br i1 %cmp5.i12.not.i, label %return, label %_ZL21stbi__mad3sizes_validiiii.exit
 
 _ZL21stbi__mad3sizes_validiiii.exit:              ; preds = %if.end.i8.i, %_ZL21stbi__mul2sizes_validii.exit14.i
   %mul4.i = mul nsw i32 %mul.i, %c
   %sub.i.i = sub nuw nsw i32 2147483647, %add
-  %cmp1.i.i.not = icmp slt i32 %sub.i.i, %mul4.i
+  %cmp1.i.i.not = icmp sgt i32 %mul4.i, %sub.i.i
   br i1 %cmp1.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZL21stbi__mad3sizes_validiiii.exit
@@ -12691,7 +12691,7 @@ if.then4:                                         ; preds = %if.end3
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %cmp7 = icmp slt i32 %conv, %n
+  %cmp7 = icmp sgt i32 %n, %conv
   br i1 %cmp7, label %if.then8, label %if.end13
 
 if.then8:                                         ; preds = %if.then4
@@ -12800,12 +12800,12 @@ if.end.i.i.i:                                     ; preds = %land.end
 
 _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %if.end.i.i.i
   %div.i.i.i = udiv i32 2147483647, %x
-  %cmp5.i.not.i.i = icmp ult i32 %div.i.i.i, %req_comp
+  %cmp5.i.not.i.i = icmp ugt i32 %req_comp, %div.i.i.i
   br i1 %cmp5.i.not.i.i, label %if.then4, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %if.end.i.i.i
   %mul.i.i = mul nsw i32 %x, %req_comp
-  %2 = or i32 %mul.i.i, %y
+  %2 = or i32 %y, %mul.i.i
   %or.cond.not.i6.i.i = icmp sgt i32 %2, -1
   br i1 %or.cond.not.i6.i.i, label %if.end.i8.i.i, label %if.then4
 
@@ -12815,7 +12815,7 @@ if.end.i8.i.i:                                    ; preds = %land.lhs.true.i.i
 
 _ZL21stbi__mul2sizes_validii.exit14.i.i:          ; preds = %if.end.i8.i.i
   %div.i11.i.i = udiv i32 2147483647, %y
-  %cmp5.i12.not.i.i = icmp slt i32 %div.i11.i.i, %mul.i.i
+  %cmp5.i12.not.i.i = icmp sgt i32 %mul.i.i, %div.i11.i.i
   br i1 %cmp5.i12.not.i.i, label %if.then4, label %_ZL17stbi__malloc_mad3iiii.exit
 
 _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %if.end.i8.i.i, %_ZL21stbi__mul2sizes_validii.exit14.i.i
@@ -12862,7 +12862,7 @@ if.then4:                                         ; preds = %land.lhs.true.i.i, 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc199
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph.split ], [ %indvars.iv.next, %for.inc199 ]
   %4 = trunc nuw nsw i64 %indvars.iv to i32
-  %mul = mul i32 %4, %x
+  %mul = mul i32 %x, %4
   %mul8 = mul i32 %mul, %img_n
   %idx.ext = zext i32 %mul8 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
@@ -13909,7 +13909,7 @@ if.end.i8.i:                                      ; preds = %land.lhs.true.i
 
 _ZL21stbi__mul2sizes_validii.exit14.i:            ; preds = %if.end.i8.i
   %div.i11.i = udiv i32 2147483647, %2
-  %cmp5.i12.not.i = icmp ult i32 %div.i11.i, %mul.i
+  %cmp5.i12.not.i = icmp ugt i32 %mul.i, %div.i11.i
   br i1 %cmp5.i12.not.i, label %return.sink.split, label %if.end7
 
 if.end7:                                          ; preds = %_ZL21stbi__mul2sizes_validii.exit14.i, %if.end.i8.i
@@ -14632,7 +14632,7 @@ if.then4.i173.i:                                  ; preds = %if.end.i168.i
   %sub.ptr.rhs.cast.i177.i = ptrtoint ptr %.pre.i191.i to i64
   %sub.ptr.sub.i178.i = sub i64 %sub.ptr.lhs.cast.i176.i, %sub.ptr.rhs.cast.i177.i
   %conv.i179.i = trunc i64 %sub.ptr.sub.i178.i to i32
-  %cmp7.i180.i = icmp slt i32 %conv.i179.i, %conv43.i
+  %cmp7.i180.i = icmp sgt i32 %conv43.i, %conv.i179.i
   br i1 %cmp7.i180.i, label %if.then8.i185.i, label %if.end13.i181.i
 
 if.then8.i185.i:                                  ; preds = %if.then4.i173.i
@@ -15076,7 +15076,7 @@ if.then4.i332:                                    ; preds = %if.end.i329
   %sub.ptr.rhs.cast.i336 = ptrtoint ptr %138 to i64
   %sub.ptr.sub.i337 = sub i64 %sub.ptr.lhs.cast.i335, %sub.ptr.rhs.cast.i336
   %conv.i338 = trunc i64 %sub.ptr.sub.i337 to i32
-  %cmp7.i339 = icmp slt i32 %conv.i338, %conv218
+  %cmp7.i339 = icmp sgt i32 %conv218, %conv.i338
   br i1 %cmp7.i339, label %if.then8.i343, label %if.end13.i340
 
 if.then8.i343:                                    ; preds = %if.then4.i332
@@ -15163,7 +15163,7 @@ if.then4.i391:                                    ; preds = %if.end.i388
   %sub.ptr.rhs.cast.i395 = ptrtoint ptr %.pre.i409 to i64
   %sub.ptr.sub.i396 = sub i64 %sub.ptr.lhs.cast.i394, %sub.ptr.rhs.cast.i395
   %conv.i397 = trunc i64 %sub.ptr.sub.i396 to i32
-  %cmp7.i398 = icmp slt i32 %conv.i397, %conv258
+  %cmp7.i398 = icmp sgt i32 %conv258, %conv.i397
   br i1 %cmp7.i398, label %if.then8.i403, label %if.end13.i399
 
 if.then8.i403:                                    ; preds = %if.then4.i391
@@ -16619,7 +16619,7 @@ for.body.us.us.preheader:                         ; preds = %for.body.lr.ph.spli
 for.body.us.us:                                   ; preds = %for.body.us.us.preheader, %for.cond189.for.inc203.loopexit_crit_edge.us.us
   %indvars.iv188 = phi i64 [ 0, %for.body.us.us.preheader ], [ %indvars.iv.next189, %for.cond189.for.inc203.loopexit_crit_edge.us.us ]
   %1 = trunc nuw nsw i64 %indvars.iv188 to i32
-  %mul10.us.us = mul i32 %1, %x
+  %mul10.us.us = mul i32 %x, %1
   %mul11.us.us = shl i32 %mul10.us.us, 2
   %idx.ext.us.us = zext i32 %mul11.us.us to i64
   %add.ptr.us.us = getelementptr inbounds i16, ptr %data, i64 %idx.ext.us.us
@@ -16663,7 +16663,7 @@ for.body.us159.us.preheader:                      ; preds = %for.body.lr.ph.spli
 for.body.us159.us:                                ; preds = %for.body.us159.us.preheader, %for.cond169.for.inc203.loopexit139_crit_edge.us.us
   %indvars.iv = phi i64 [ 0, %for.body.us159.us.preheader ], [ %indvars.iv.next, %for.cond169.for.inc203.loopexit139_crit_edge.us.us ]
   %5 = trunc nuw nsw i64 %indvars.iv to i32
-  %mul10.us161.us = mul i32 %5, %x
+  %mul10.us161.us = mul i32 %x, %5
   %mul11.us162.us = shl i32 %mul10.us161.us, 2
   %idx.ext.us163.us = zext i32 %mul11.us162.us to i64
   %add.ptr.us164.us = getelementptr inbounds i16, ptr %data, i64 %idx.ext.us163.us
@@ -16717,7 +16717,7 @@ for.body.us171.preheader:                         ; preds = %for.body.lr.ph.spli
 for.body.us171:                                   ; preds = %for.body.us171.preheader, %for.cond151.for.inc203.loopexit140_crit_edge.us
   %indvars.iv193 = phi i64 [ 0, %for.body.us171.preheader ], [ %indvars.iv.next194, %for.cond151.for.inc203.loopexit140_crit_edge.us ]
   %10 = trunc nuw nsw i64 %indvars.iv193 to i32
-  %mul10.us173 = mul i32 %10, %x
+  %mul10.us173 = mul i32 %x, %10
   %mul11.us174 = shl i32 %mul10.us173, 2
   %idx.ext.us175 = zext i32 %mul11.us174 to i64
   %add.ptr.us176 = getelementptr inbounds i16, ptr %data, i64 %idx.ext.us175
@@ -19382,13 +19382,13 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZL21stbi__mul2sizes_validii.exit.i:              ; preds = %if.end.i.i
   %div.i.i = udiv i32 2147483647, %b
-  %cmp5.i.not.i = icmp slt i32 %div.i.i, %a
+  %cmp5.i.not.i = icmp sgt i32 %a, %div.i.i
   br i1 %cmp5.i.not.i, label %return, label %_ZL21stbi__mad2sizes_validiii.exit
 
 _ZL21stbi__mad2sizes_validiii.exit:               ; preds = %if.end.i.i, %_ZL21stbi__mul2sizes_validii.exit.i
   %mul.i = mul nsw i32 %b, %a
   %sub.i.i = sub nuw nsw i32 2147483647, %add
-  %cmp1.i.i.not = icmp slt i32 %sub.i.i, %mul.i
+  %cmp1.i.i.not = icmp sgt i32 %mul.i, %sub.i.i
   br i1 %cmp1.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZL21stbi__mad2sizes_validiii.exit
@@ -21144,12 +21144,12 @@ if.end.i:                                         ; preds = %entry
 
 _ZL21stbi__mul2sizes_validii.exit:                ; preds = %if.end.i
   %div.i = udiv i32 2147483647, %b
-  %cmp5.i.not = icmp slt i32 %div.i, %a
+  %cmp5.i.not = icmp sgt i32 %a, %div.i
   br i1 %cmp5.i.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end.i, %_ZL21stbi__mul2sizes_validii.exit
   %mul = mul nsw i32 %b, %a
-  %1 = or i32 %mul, %c
+  %1 = or i32 %c, %mul
   %or.cond.not.i10 = icmp sgt i32 %1, -1
   br i1 %or.cond.not.i10, label %if.end.i12, label %land.end
 
@@ -21159,12 +21159,12 @@ if.end.i12:                                       ; preds = %land.lhs.true
 
 _ZL21stbi__mul2sizes_validii.exit18:              ; preds = %if.end.i12
   %div.i15 = udiv i32 2147483647, %c
-  %cmp5.i16.not = icmp slt i32 %div.i15, %mul
+  %cmp5.i16.not = icmp sgt i32 %mul, %div.i15
   br i1 %cmp5.i16.not, label %land.end, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %if.end.i12, %_ZL21stbi__mul2sizes_validii.exit18
   %mul5 = mul nsw i32 %mul, %c
-  %2 = or i32 %mul5, %d
+  %2 = or i32 %d, %mul5
   %or.cond.not.i19 = icmp sgt i32 %2, -1
   br i1 %or.cond.not.i19, label %if.end.i21, label %land.end
 
@@ -21174,7 +21174,7 @@ if.end.i21:                                       ; preds = %land.lhs.true3
 
 _ZL21stbi__mul2sizes_validii.exit27:              ; preds = %if.end.i21
   %div.i24 = udiv i32 2147483647, %d
-  %cmp5.i25.not = icmp slt i32 %div.i24, %mul5
+  %cmp5.i25.not = icmp sgt i32 %mul5, %div.i24
   br i1 %cmp5.i25.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end.i21, %_ZL21stbi__mul2sizes_validii.exit27
@@ -21198,12 +21198,12 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZL21stbi__mul2sizes_validii.exit.i:              ; preds = %if.end.i.i
   %div.i.i = udiv i32 2147483647, %b
-  %cmp5.i.not.i = icmp slt i32 %div.i.i, %a
+  %cmp5.i.not.i = icmp sgt i32 %a, %div.i.i
   br i1 %cmp5.i.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZL21stbi__mul2sizes_validii.exit.i, %if.end.i.i
   %mul.i = mul nsw i32 %b, %a
-  %1 = or i32 %mul.i, %c
+  %1 = or i32 %c, %mul.i
   %or.cond.not.i10.i = icmp sgt i32 %1, -1
   br i1 %or.cond.not.i10.i, label %if.end.i12.i, label %return
 
@@ -21213,12 +21213,12 @@ if.end.i12.i:                                     ; preds = %land.lhs.true.i
 
 _ZL21stbi__mul2sizes_validii.exit18.i:            ; preds = %if.end.i12.i
   %div.i15.i = udiv i32 2147483647, %c
-  %cmp5.i16.not.i = icmp slt i32 %div.i15.i, %mul.i
+  %cmp5.i16.not.i = icmp sgt i32 %mul.i, %div.i15.i
   br i1 %cmp5.i16.not.i, label %return, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %_ZL21stbi__mul2sizes_validii.exit18.i, %if.end.i12.i
   %mul5.i = mul nsw i32 %mul.i, %c
-  %2 = or i32 %mul5.i, %d
+  %2 = or i32 %d, %mul5.i
   %or.cond.not.i19.i = icmp sgt i32 %2, -1
   br i1 %or.cond.not.i19.i, label %if.end.i21.i, label %return
 
@@ -21228,7 +21228,7 @@ if.end.i21.i:                                     ; preds = %land.lhs.true3.i
 
 _ZL21stbi__mul2sizes_validii.exit27.i:            ; preds = %if.end.i21.i
   %div.i24.i = udiv i32 2147483647, %d
-  %cmp5.i25.not.i = icmp slt i32 %div.i24.i, %mul5.i
+  %cmp5.i25.not.i = icmp sgt i32 %mul5.i, %div.i24.i
   br i1 %cmp5.i25.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZL21stbi__mul2sizes_validii.exit27.i, %if.end.i21.i
@@ -21266,7 +21266,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %cmp = icmp slt i32 %conv, %n
+  %cmp = icmp sgt i32 %n, %conv
   br i1 %cmp, label %if.then1, label %if.end11
 
 if.then1:                                         ; preds = %if.then

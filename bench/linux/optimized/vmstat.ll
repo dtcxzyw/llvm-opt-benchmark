@@ -881,7 +881,7 @@ define dso_local void @__mod_zone_page_state(ptr noundef %0, i32 noundef %1, i64
   %7 = getelementptr i8, ptr %5, i64 %6
   %8 = tail call i8 asm "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7) #19, !srcloc !31
   %9 = sext i8 %8 to i64
-  %10 = add i64 %9, %2
+  %10 = add i64 %2, %9
   %11 = getelementptr inbounds i8, ptr %5, i64 10
   %12 = tail call i8 asm "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %11) #19, !srcloc !32
   %13 = sext i8 %12 to i64
@@ -1232,7 +1232,7 @@ define dso_local void @mod_zone_page_state(ptr noundef %0, i32 noundef %1, i64 n
   %12 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9) #17, !srcloc !51
   %13 = sext i8 %12 to i64
   %14 = sext i8 %11 to i64
-  %15 = add i64 %14, %2
+  %15 = add i64 %2, %14
   %16 = tail call i64 @llvm.abs.i64(i64 %15, i1 false)
   %17 = icmp sle i64 %16, %13
   %18 = trunc i64 %15 to i8

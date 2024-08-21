@@ -2892,7 +2892,7 @@ define i32 @Sfm_DecCombineDec(ptr nocapture noundef readonly %0, ptr noundef %1,
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, %5
+  %26 = icmp eq i32 %5, %25
   br i1 %26, label %Abc_TtStretch6.exit, label %27
 
 27:                                               ; preds = %22
@@ -3073,7 +3073,7 @@ Vec_IntPushOrder.exit:                            ; preds = %.lr.ph.i64, %91, %V
   br i1 %100, label %Abc_TtStretch6.exit, label %101
 
 101:                                              ; preds = %Vec_IntPushOrder.exit
-  %102 = icmp eq i32 %94, %5
+  %102 = icmp eq i32 %5, %94
   br i1 %102, label %Abc_TtStretch6.exit79, label %103
 
 103:                                              ; preds = %101
@@ -3114,7 +3114,7 @@ Vec_IntPushOrder.exit:                            ; preds = %.lr.ph.i64, %91, %V
   br i1 %116, label %.preheader.us.i70, label %Abc_TtStretch6.exit79, !llvm.loop !41
 
 Abc_TtStretch6.exit79:                            ; preds = %._crit_edge.us.i77, %101, %103
-  %117 = icmp eq i32 %94, %6
+  %117 = icmp eq i32 %6, %94
   br i1 %117, label %Abc_TtStretch6.exit92, label %118
 
 118:                                              ; preds = %Abc_TtStretch6.exit79
@@ -4347,7 +4347,7 @@ Abc_TtUnit.exit:                                  ; preds = %384, %373
   %398 = getelementptr inbounds i8, ptr %397, i64 16
   %399 = load i32, ptr %398, align 4
   %400 = add nsw i32 %399, -2
-  %401 = icmp slt i32 %400, %7
+  %401 = icmp sgt i32 %7, %400
   br i1 %401, label %402, label %406
 
 402:                                              ; preds = %._crit_edge515
@@ -7512,13 +7512,13 @@ Sfm_DecNodeIsMffcInput2.exit.thread:              ; preds = %34, %Sfm_DecNodeIsM
   %79 = add nsw i32 %.val3.i.i341, 1
   %80 = getelementptr inbounds i8, ptr %.val2.i.i340, i64 228
   %81 = load i32, ptr %80, align 4
-  %.not.i498.not = icmp sgt i32 %81, %.val3.i.i341
+  %.not.i498.not = icmp slt i32 %.val3.i.i341, %81
   br i1 %.not.i498.not, label %Vec_IntFillExtra.exit, label %82
 
 82:                                               ; preds = %69
   %83 = load i32, ptr %78, align 8
   %84 = shl nsw i32 %83, 1
-  %.not605 = icmp sgt i32 %84, %.val3.i.i341
+  %.not605 = icmp slt i32 %.val3.i.i341, %84
   %.not.i.i499.not = icmp sgt i32 %83, %.val3.i.i341
   br i1 %.not605, label %97, label %85
 
@@ -7789,13 +7789,13 @@ Vec_IntPushUnique.exit:                           ; preds = %127, %Vec_IntFillEx
   %194 = add nsw i32 %.val3.i.i350, 1
   %195 = getelementptr inbounds i8, ptr %.val2.i.i349, i64 228
   %196 = load i32, ptr %195, align 4
-  %.not.i508.not = icmp sgt i32 %196, %.val3.i.i350
+  %.not.i508.not = icmp slt i32 %.val3.i.i350, %196
   br i1 %.not.i508.not, label %Vec_IntFillExtra.exit521, label %197
 
 197:                                              ; preds = %184
   %198 = load i32, ptr %193, align 8
   %199 = shl nsw i32 %198, 1
-  %.not602 = icmp sgt i32 %199, %.val3.i.i350
+  %.not602 = icmp slt i32 %.val3.i.i350, %199
   %.not.i.i509.not = icmp sgt i32 %198, %.val3.i.i350
   br i1 %.not602, label %212, label %200
 
@@ -8149,13 +8149,13 @@ Sfm_DecNodeIsMffcInput.exit.thread:               ; preds = %294, %Sfm_DecNodeIs
   %339 = add nsw i32 %.val3.i.i376, 1
   %340 = getelementptr inbounds i8, ptr %.val2.i.i375, i64 228
   %341 = load i32, ptr %340, align 4
-  %.not.i522.not = icmp sgt i32 %341, %.val3.i.i376
+  %.not.i522.not = icmp slt i32 %.val3.i.i376, %341
   br i1 %.not.i522.not, label %Vec_IntFillExtra.exit535, label %342
 
 342:                                              ; preds = %329
   %343 = load i32, ptr %338, align 8
   %344 = shl nsw i32 %343, 1
-  %.not612 = icmp sgt i32 %344, %.val3.i.i376
+  %.not612 = icmp slt i32 %.val3.i.i376, %344
   %.not.i.i523.not = icmp sgt i32 %343, %.val3.i.i376
   br i1 %.not612, label %357, label %345
 
@@ -8426,13 +8426,13 @@ Vec_IntPushUnique.exit395:                        ; preds = %387, %Vec_IntFillEx
   %454 = add nsw i32 %.val3.i.i397, 1
   %455 = getelementptr inbounds i8, ptr %.val2.i.i396, i64 228
   %456 = load i32, ptr %455, align 4
-  %.not.i536.not = icmp sgt i32 %456, %.val3.i.i397
+  %.not.i536.not = icmp slt i32 %.val3.i.i397, %456
   br i1 %.not.i536.not, label %Vec_IntFillExtra.exit549, label %457
 
 457:                                              ; preds = %444
   %458 = load i32, ptr %453, align 8
   %459 = shl nsw i32 %458, 1
-  %.not609 = icmp sgt i32 %459, %.val3.i.i397
+  %.not609 = icmp slt i32 %.val3.i.i397, %459
   %.not.i.i537.not = icmp sgt i32 %458, %.val3.i.i397
   br i1 %.not609, label %472, label %460
 
@@ -9063,13 +9063,13 @@ Sfm_DecNodeIsMffc.exit469.thread597:              ; preds = %689, %Sfm_DecNodeIs
   %712 = add nsw i32 %.val3.i.i474, 1
   %713 = getelementptr inbounds i8, ptr %.val2.i.i473, i64 228
   %714 = load i32, ptr %713, align 4
-  %.not.i550.not = icmp sgt i32 %714, %.val3.i.i474
+  %.not.i550.not = icmp slt i32 %.val3.i.i474, %714
   br i1 %.not.i550.not, label %Vec_IntFillExtra.exit563, label %715
 
 715:                                              ; preds = %709
   %716 = load i32, ptr %711, align 8
   %717 = shl nsw i32 %716, 1
-  %.not621 = icmp sgt i32 %717, %.val3.i.i474
+  %.not621 = icmp slt i32 %.val3.i.i474, %717
   %.not.i.i551.not = icmp sgt i32 %716, %.val3.i.i474
   br i1 %.not621, label %730, label %718
 
@@ -9378,13 +9378,13 @@ Vec_IntPushUnique.exit496:                        ; preds = %762, %696, %706, %V
   %841 = add nsw i32 %.val3.i, 1
   %842 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %843 = load i32, ptr %842, align 4
-  %.not.i564.not = icmp sgt i32 %843, %.val3.i
+  %.not.i564.not = icmp slt i32 %.val3.i, %843
   br i1 %.not.i564.not, label %Vec_IntFillExtra.exit577, label %844
 
 844:                                              ; preds = %831
   %845 = load i32, ptr %840, align 8
   %846 = shl nsw i32 %845, 1
-  %.not616 = icmp sgt i32 %846, %.val3.i
+  %.not616 = icmp slt i32 %.val3.i, %846
   %.not.i.i565.not = icmp sgt i32 %845, %.val3.i
   br i1 %.not616, label %859, label %847
 
@@ -11162,7 +11162,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 166:                                              ; preds = %.critedge._crit_edge, %16
   %.val149201 = phi i32 [ %.val149201.pre, %.critedge._crit_edge ], [ %.val150, %16 ]
-  %167 = icmp sgt i32 %.val149201, %2
+  %167 = icmp slt i32 %2, %.val149201
   br i1 %167, label %.lr.ph203, label %.critedge4
 
 .lr.ph203:                                        ; preds = %79, %166
@@ -11376,7 +11376,7 @@ Vec_IntPush.exit189:                              ; preds = %.Vec_IntGrow.exit10
   tail call void @Abc_ObjReplace(ptr noundef %1, ptr noundef %.0125.lcssa) #23
   %263 = getelementptr i8, ptr %5, i64 4
   %.val147205 = load i32, ptr %263, align 4
-  %264 = icmp sgt i32 %.val147205, %2
+  %264 = icmp slt i32 %2, %.val147205
   br i1 %264, label %.lr.ph207, label %.critedge8
 
 .lr.ph207:                                        ; preds = %262
@@ -11857,7 +11857,7 @@ define ptr @Abc_NtkAreaOptOne(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %25 = getelementptr inbounds i8, ptr %11, i64 48
   %26 = load i32, ptr %25, align 4
   %.not = icmp eq i32 %26, 0
-  %.not98 = icmp eq i32 %26, %1
+  %.not98 = icmp eq i32 %1, %26
   %or.cond103 = or i1 %.not, %.not98
   br i1 %or.cond103, label %27, label %243
 
@@ -14030,13 +14030,13 @@ declare i32 @Sfm_TimReadObjDelay(ptr noundef, i32 noundef) local_unnamed_addr #4
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -14156,7 +14156,7 @@ define internal fastcc i64 @Exp_Truth6(i32 noundef %0, ptr nocapture noundef rea
   br label %Exp_Truth6Lit.exit
 
 17:                                               ; preds = %12
-  %18 = icmp sgt i32 %11, %15
+  %18 = icmp slt i32 %15, %11
   %19 = and i32 %15, 1
   %.not17.i = icmp eq i32 %19, 0
   br i1 %18, label %20, label %32
@@ -14213,7 +14213,7 @@ Exp_Truth6Lit.exit:                               ; preds = %12, %16, %21, %27, 
   br label %Exp_Truth6Lit.exit31
 
 50:                                               ; preds = %Exp_Truth6Lit.exit
-  %51 = icmp sgt i32 %11, %48
+  %51 = icmp slt i32 %48, %11
   %52 = and i32 %48, 1
   %.not17.i30 = icmp eq i32 %52, 0
   br i1 %51, label %53, label %65
@@ -14280,7 +14280,7 @@ Exp_Truth6Lit.exit31:                             ; preds = %Exp_Truth6Lit.exit,
 
 86:                                               ; preds = %._crit_edge
   %87 = shl nsw i32 %0, 1
-  %88 = icmp sgt i32 %87, %84
+  %88 = icmp slt i32 %84, %87
   %89 = and i32 %84, 1
   %.not17.i33 = icmp eq i32 %89, 0
   br i1 %88, label %90, label %102

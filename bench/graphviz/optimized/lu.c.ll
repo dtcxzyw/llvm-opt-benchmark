@@ -358,7 +358,7 @@ define void @lu_solve(ptr nocapture noundef %0, ptr nocapture noundef readonly %
   %36 = tail call double @llvm.fmuladd.f64(double %33, double %35, double %.145)
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %37 = trunc nuw i64 %indvars.iv.next63 to i32
-  %38 = icmp slt i32 %37, %2
+  %38 = icmp sgt i32 %2, %37
   br i1 %38, label %.lr.ph46, label %._crit_edge47
 
 ._crit_edge47:                                    ; preds = %.lr.ph46, %.preheader

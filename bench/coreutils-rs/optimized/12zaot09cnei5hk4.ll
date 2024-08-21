@@ -270,7 +270,7 @@ define hidden noundef zeroext i1 @"_ZN116_$LT$core..iter..adapters..flatten..Fla
 8:                                                ; preds = %4
   %9 = extractvalue { i64, i64 } %5, 1
   %10 = load i64, ptr %3, align 8, !noalias !82, !noundef !14
-  %.not.i = icmp ugt i64 %10, %9
+  %.not.i = icmp ult i64 %9, %10
   br i1 %.not.i, label %4, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2a8fbe4a03b09a47E.llvm.5520790403334003647.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h2a8fbe4a03b09a47E.llvm.5520790403334003647.exit: ; preds = %4, %8
@@ -824,7 +824,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
   %55 = getelementptr inbounds i8, ptr %53, i64 16
   %56 = load i64, ptr %55, align 8, !alias.scope !200, !noalias !203, !noundef !14
   %57 = sub i64 %54, %56
-  %58 = icmp ugt i64 %57, %52
+  %58 = icmp ult i64 %52, %57
   br i1 %58, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb039d564c664bedaE.exit.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb039d564c664bedaE.exit.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb039d564c664bedaE.exit.thread.i": ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -983,7 +983,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.55207
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -1076,7 +1076,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 12:                                               ; preds = %8
   %13 = extractvalue { i64, i64 } %9, 1
   %14 = load i64, ptr %7, align 8, !noalias !248, !noundef !14
-  %.not.i.i.i = icmp ugt i64 %14, %13
+  %.not.i.i.i = icmp ult i64 %13, %14
   br i1 %.not.i.i.i, label %8, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hbaa98d9c350c3006E.llvm.5520790403334003647.exit"
 
 "_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hbaa98d9c350c3006E.llvm.5520790403334003647.exit": ; preds = %8, %12
@@ -1142,7 +1142,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 8:                                                ; preds = %4
   %9 = extractvalue { i64, i64 } %5, 1
   %10 = load i64, ptr %3, align 8, !noalias !270, !noundef !14
-  %.not = icmp ugt i64 %10, %9
+  %.not = icmp ult i64 %9, %10
   br i1 %.not, label %4, label %11
 
 11:                                               ; preds = %4, %8
@@ -1180,7 +1180,7 @@ define hidden noundef zeroext i1 @"_ZN4core4iter8adapters7flatten26FlattenCompat
 11:                                               ; preds = %7
   %12 = extractvalue { i64, i64 } %8, 1
   %13 = load i64, ptr %6, align 8, !noalias !296, !noundef !14
-  %.not.i.i = icmp ugt i64 %13, %12
+  %.not.i.i = icmp ult i64 %12, %13
   br i1 %.not.i.i, label %7, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2a6bc07ef107d11fE.llvm.5520790403334003647.exit"
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2a6bc07ef107d11fE.llvm.5520790403334003647.exit": ; preds = %7, %11
@@ -1386,7 +1386,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !333, !noalias !336, !noundef !14
   %9 = sub i64 %6, %8
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb039d564c664bedaE.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb039d564c664bedaE.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb039d564c664bedaE.exit.thread": ; preds = %3

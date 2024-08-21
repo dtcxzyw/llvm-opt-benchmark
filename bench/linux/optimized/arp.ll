@@ -796,7 +796,7 @@ define dso_local i32 @arp_invalidate(ptr noundef %0, i32 noundef %1, i1 noundef 
   %9 = load volatile i8, ptr %8, align 4
   %10 = and i8 %9, -34
   %11 = icmp eq i8 %10, 0
-  %12 = or i1 %11, %2
+  %12 = or i1 %2, %11
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %7

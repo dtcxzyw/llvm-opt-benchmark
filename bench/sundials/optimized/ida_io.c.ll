@@ -413,7 +413,7 @@ define range(i32 -22, 1) i32 @IDASetMaxOrd(ptr noundef %0, i32 noundef %1) local
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 780
   %10 = load i32, ptr %9, align 4
-  %11 = icmp slt i32 %10, %1
+  %11 = icmp sgt i32 %1, %10
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8

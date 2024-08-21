@@ -614,7 +614,7 @@ define hidden i32 @psa_driver_wrapper_aead_verify(ptr noundef %0, ptr noundef %1
 
 14:                                               ; preds = %10
   %15 = load i64, ptr %8, align 8
-  %.not = icmp eq i64 %15, %5
+  %.not = icmp eq i64 %5, %15
   br i1 %.not, label %16, label %24
 
 16:                                               ; preds = %14

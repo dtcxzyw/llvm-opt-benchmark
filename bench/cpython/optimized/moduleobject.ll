@@ -1632,7 +1632,7 @@ for.end:                                          ; preds = %for.inc, %land.rhs
 
 if.then34:                                        ; preds = %16
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i61.not = icmp eq ptr %18, %2
+  %cmp.i61.not = icmp eq ptr %2, %18
   br i1 %cmp.i61.not, label %if.end52, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then34
@@ -1647,7 +1647,7 @@ land.lhs.true42:                                  ; preds = %for.end, %if.end13,
   %19 = load i32, ptr %own_gil, align 8
   %tobool43.not = icmp eq i32 %19, 0
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i62.not = icmp eq ptr %20, %2
+  %cmp.i62.not = icmp eq ptr %2, %20
   %or.cond = select i1 %tobool43.not, i1 true, i1 %cmp.i62.not
   br i1 %or.cond, label %if.end52, label %land.lhs.true47
 

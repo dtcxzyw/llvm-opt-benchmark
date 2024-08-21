@@ -25270,7 +25270,7 @@ ehcleanup65:                                      ; preds = %if.then.i.i4.i, %lp
   br label %eh.resume
 
 if.else:                                          ; preds = %if.end
-  %brmerge34 = or i1 %x.not, %y
+  %brmerge34 = or i1 %y, %x.not
   br i1 %brmerge34, label %if.else180, label %if.then83
 
 if.then83:                                        ; preds = %if.else
@@ -25915,7 +25915,7 @@ ehcleanup165:                                     ; preds = %if.then.i.i4.i182, 
   br label %eh.resume
 
 if.else180:                                       ; preds = %if.else
-  %brmerge36 = or i1 %y.not, %x
+  %brmerge36 = or i1 %x, %y.not
   %d_parent291 = getelementptr inbounds i8, ptr %this, i64 24
   br i1 %brmerge36, label %if.end283, label %if.then184
 
@@ -27766,7 +27766,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %for.body.i.i.i12

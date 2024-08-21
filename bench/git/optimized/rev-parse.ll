@@ -3129,7 +3129,7 @@ if.then11:                                        ; preds = %sw.bb9
 if.end13:                                         ; preds = %if.then11, %sw.bb9
   %5 = load ptr, ptr %full, align 8
   %6 = load i32, ptr @show_type, align 4
-  %cmp.not.i = icmp eq i32 %6, %type
+  %cmp.not.i = icmp eq i32 %type, %6
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end13
@@ -3180,7 +3180,7 @@ sw.epilog:                                        ; preds = %if.else.i.i, %while
 
 if.else:                                          ; preds = %if.then4
   %11 = load i32, ptr @show_type, align 4
-  %cmp.not.i12 = icmp eq i32 %11, %type
+  %cmp.not.i12 = icmp eq i32 %type, %11
   br i1 %cmp.not.i12, label %if.end.i15, label %if.then.i13
 
 if.then.i13:                                      ; preds = %if.else
@@ -3229,7 +3229,7 @@ if.then19:                                        ; preds = %if.else17
   %16 = load ptr, ptr @the_repository, align 8
   %call20 = tail call ptr @repo_find_unique_abbrev(ptr noundef %16, ptr noundef %oid, i32 noundef %15) #17
   %17 = load i32, ptr @show_type, align 4
-  %cmp.not.i31 = icmp eq i32 %17, %type
+  %cmp.not.i31 = icmp eq i32 %type, %17
   br i1 %cmp.not.i31, label %if.end.i34, label %if.then.i32
 
 if.then.i32:                                      ; preds = %if.then19
@@ -3272,7 +3272,7 @@ if.else.i.i36:                                    ; preds = %if.end.i34
 if.else21:                                        ; preds = %if.else17
   %call22 = tail call ptr @oid_to_hex(ptr noundef %oid) #17
   %21 = load i32, ptr @show_type, align 4
-  %cmp.not.i50 = icmp eq i32 %21, %type
+  %cmp.not.i50 = icmp eq i32 %type, %21
   br i1 %cmp.not.i50, label %if.end.i53, label %if.then.i51
 
 if.then.i51:                                      ; preds = %if.else21

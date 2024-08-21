@@ -692,7 +692,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread: ; preds = %5
 24:                                               ; preds = %22
   %25 = load ptr, ptr %3, align 8
   %26 = load ptr, ptr %0, align 8
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %23, i64 %.07.i36)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.07.i36, i64 %23)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %26, i64 %.sroa.speculated.i, i1 false)
   br label %28
 

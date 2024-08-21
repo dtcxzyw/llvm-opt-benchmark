@@ -64,7 +64,7 @@ define hidden void @_ZN4Copy22conjoint_memory_atomicEPKvPvm(ptr noundef %0, ptr 
 define hidden void @_ZN4Copy13conjoint_copyEPKvPvmm(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %.not.i = icmp ugt ptr %1, %0
   %5 = getelementptr inbounds i8, ptr %0, i64 %2
-  %.not14.i = icmp ugt ptr %5, %1
+  %.not14.i = icmp ult ptr %1, %5
   %or.cond.i = select i1 %.not.i, i1 %.not14.i, i1 false
   br i1 %or.cond.i, label %7, label %6
 
@@ -84,7 +84,7 @@ _ZN8CopySwap23conjoint_swap_if_neededILb0EEEvPKvPvmm.exit: ; preds = %6, %7
 define hidden void @_ZN4Copy13conjoint_swapEPKvPvmm(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %.not.i = icmp ugt ptr %1, %0
   %5 = getelementptr inbounds i8, ptr %0, i64 %2
-  %.not14.i = icmp ugt ptr %5, %1
+  %.not14.i = icmp ult ptr %1, %5
   %or.cond.i = select i1 %.not.i, i1 %.not14.i, i1 false
   br i1 %or.cond.i, label %7, label %6
 
@@ -103,7 +103,7 @@ _ZN8CopySwap23conjoint_swap_if_neededILb1EEEvPKvPvmm.exit: ; preds = %6, %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @_ZN4Copy21fill_to_memory_atomicEPvmh(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = or i64 %4, %1
+  %5 = or i64 %1, %4
   %6 = and i64 %5, 7
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %14

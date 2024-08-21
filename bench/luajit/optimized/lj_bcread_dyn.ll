@@ -1123,7 +1123,7 @@ if.else:                                          ; preds = %if.then3
   %sub.ptr.lhs.cast.i84 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i86 = sub i64 %sub.ptr.lhs.cast.i84, %sub.ptr.rhs.cast8
   %conv.i87 = trunc i64 %sub.ptr.sub.i86 to i32
-  %cmp.i88 = icmp ult i32 %conv.i87, %len
+  %cmp.i88 = icmp ugt i32 %len, %conv.i87
   br i1 %cmp.i88, label %if.then.i94, label %lj_buf_need.exit96
 
 if.then.i94:                                      ; preds = %if.else
@@ -1251,7 +1251,7 @@ do.cond:                                          ; preds = %lj_buf_need.exit, %
   %sub.ptr.rhs.cast74 = ptrtoint ptr %24 to i64
   %sub.ptr.sub75 = sub i64 %sub.ptr.lhs.cast73, %sub.ptr.rhs.cast74
   %conv76 = trunc i64 %sub.ptr.sub75 to i32
-  %cmp77 = icmp ult i32 %conv76, %len
+  %cmp77 = icmp ugt i32 %len, %conv76
   br i1 %cmp77, label %do.body, label %do.end, !llvm.loop !14
 
 do.end:                                           ; preds = %do.cond, %if.end40

@@ -224,7 +224,7 @@ define hidden void @_ZN8Location8write_onEP20DebugInfoWriteStream(ptr nocapture 
   %15 = add nuw nsw i32 %.014.i.i.i.i, 1
   %16 = shl i32 12414, %.01013.i.i.i.i
   %17 = add i32 %16, %.01112.i.i.i.i
-  %18 = icmp uge i32 %17, %3
+  %18 = icmp ule i32 %3, %17
   %19 = icmp eq i32 %15, 4
   %or.cond.i.i.i.i = select i1 %18, i1 true, i1 %19
   br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8

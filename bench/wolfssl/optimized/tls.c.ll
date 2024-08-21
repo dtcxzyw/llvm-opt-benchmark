@@ -1783,12 +1783,12 @@ if.end64:                                         ; preds = %if.end55
   %12 = load i8, ptr %arrayidx67, align 1
   %conv68 = zext i8 %12 to i32
   %add69 = add nuw nsw i32 %conv68, 43
-  %cmp70 = icmp ugt i32 %add69, %helloSz
+  %cmp70 = icmp ult i32 %helloSz, %add69
   br i1 %cmp70, label %return, label %if.end73
 
 if.end73:                                         ; preds = %if.end64
   %add79 = add nuw nsw i32 %conv68, 46
-  %cmp80 = icmp ugt i32 %add79, %helloSz
+  %cmp80 = icmp ult i32 %helloSz, %add79
   br i1 %cmp80, label %return, label %if.end83
 
 if.end83:                                         ; preds = %if.end73
@@ -1803,7 +1803,7 @@ if.end83:                                         ; preds = %if.end73
   %conv2.i106 = zext i8 %add.ptr85.val86 to i32
   %or.i107 = or disjoint i32 %shl.i105, %conv2.i106
   %add88 = add nuw nsw i32 %or.i107, %add79
-  %cmp96.not = icmp ult i32 %add88, %helloSz
+  %cmp96.not = icmp ugt i32 %helloSz, %add88
   br i1 %cmp96.not, label %if.end99, label %return
 
 if.end99:                                         ; preds = %if.end83
@@ -1812,14 +1812,14 @@ if.end99:                                         ; preds = %if.end83
   %16 = load i8, ptr %arrayidx101, align 1
   %conv102 = zext i8 %16 to i32
   %add103 = add nuw nsw i32 %add88, %conv102
-  %cmp104 = icmp ugt i32 %add103, %helloSz
+  %cmp104 = icmp ult i32 %helloSz, %add103
   br i1 %cmp104, label %return, label %if.end107
 
 if.end107:                                        ; preds = %if.end99
   %add111 = add nuw nsw i32 %add88, 1
   %add112 = add nuw nsw i32 %add111, %conv102
   %add113 = add nuw nsw i32 %add112, 2
-  %cmp114 = icmp ugt i32 %add113, %helloSz
+  %cmp114 = icmp ult i32 %helloSz, %add113
   br i1 %cmp114, label %return, label %if.end117
 
 if.end117:                                        ; preds = %if.end107
@@ -1834,7 +1834,7 @@ if.end117:                                        ; preds = %if.end107
   %or.i111 = or disjoint i16 %shl.i109, %conv2.i110
   %conv121 = zext i16 %or.i111 to i32
   %add122 = add nuw nsw i32 %add113, %conv121
-  %cmp123 = icmp ugt i32 %add122, %helloSz
+  %cmp123 = icmp ult i32 %helloSz, %add122
   br i1 %cmp123, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end117
@@ -1856,7 +1856,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %or.i119 = or disjoint i32 %shl.i117, %conv2.i118
   %add135 = add i32 %offset.0154, 4
   %add137 = add i32 %or.i119, %add135
-  %cmp138 = icmp ugt i32 %add137, %helloSz
+  %cmp138 = icmp ult i32 %helloSz, %add137
   br i1 %cmp138, label %return, label %if.end141
 
 if.end141:                                        ; preds = %while.body
@@ -1885,7 +1885,7 @@ if.else:                                          ; preds = %if.end141
   %add150 = add i32 %offset.0154, 6
   %conv151 = zext i16 %or.i123 to i32
   %add152 = add i32 %add150, %conv151
-  %cmp153 = icmp ugt i32 %add152, %helloSz
+  %cmp153 = icmp ult i32 %helloSz, %add152
   br i1 %cmp153, label %return, label %while.cond157.preheader
 
 while.cond157.preheader:                          ; preds = %if.else
@@ -1907,7 +1907,7 @@ while.body161:                                    ; preds = %while.cond157.prehe
   %or.i127 = or disjoint i32 %shl.i125, %conv2.i126
   %add167 = add i32 %offset.2151, 3
   %add169 = add i32 %or.i127, %add167
-  %cmp170 = icmp ugt i32 %add169, %helloSz
+  %cmp170 = icmp ult i32 %helloSz, %add169
   br i1 %cmp170, label %return, label %if.end173
 
 if.end173:                                        ; preds = %while.body161

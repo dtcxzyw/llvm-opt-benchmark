@@ -914,7 +914,7 @@ entry:
   %call.val3 = load i64, ptr %0, align 8
   %cmp.not.i.i.i = icmp ule i64 %call.val, %call.val3
   %add.i.i.i = add i64 %call.val3, 1
-  %cmp3.i.i.i = icmp eq i64 %add.i.i.i, %call.val
+  %cmp3.i.i.i = icmp eq i64 %call.val, %add.i.i.i
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp3.i.i.i
   br i1 %or.cond.i.i.i, label %range_is_empty.exit.i, label %if.else.i.i.i
 
@@ -1716,7 +1716,7 @@ entry:
   store i64 %upb, ptr %upb2, align 8
   %cmp.not.i.i = icmp ule i64 %lob, %upb
   %add.i.i = add i64 %upb, 1
-  %cmp3.i.i = icmp eq i64 %add.i.i, %lob
+  %cmp3.i.i = icmp eq i64 %lob, %add.i.i
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp3.i.i
   br i1 %or.cond.i.i, label %range_is_empty.exit, label %if.else.i.i
 

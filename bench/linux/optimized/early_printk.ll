@@ -436,7 +436,7 @@ declare dso_local i64 @simple_strtoull(ptr noundef, ptr noundef, i32 noundef) lo
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 256) i32 @io_serial_in(i64 noundef %0, i32 noundef %1) #3 align 16 {
   %3 = zext i32 %1 to i64
-  %4 = add i64 %3, %0
+  %4 = add i64 %0, %3
   %5 = trunc i64 %4 to i16
   %6 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %5) #6, !srcloc !9
   %7 = zext i8 %6 to i32
@@ -447,7 +447,7 @@ define internal range(i32 0, 256) i32 @io_serial_in(i64 noundef %0, i32 noundef 
 define internal void @io_serial_out(i64 noundef %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
   %4 = trunc i32 %2 to i8
   %5 = zext i32 %1 to i64
-  %6 = add i64 %5, %0
+  %6 = add i64 %0, %5
   %7 = trunc i64 %6 to i16
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 %7) #6, !srcloc !10
   ret void

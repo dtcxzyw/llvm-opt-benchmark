@@ -6125,7 +6125,7 @@ _ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit: ; preds = %_ZN
   %308 = sub nsw i64 %307, %55
   %309 = trunc i64 %308 to i32
   %310 = icmp slt i32 %4, 1
-  %.not66 = icmp eq i32 %309, %4
+  %.not66 = icmp eq i32 %4, %309
   %or.cond = or i1 %310, %.not66
   br i1 %or.cond, label %326, label %311
 
@@ -6574,7 +6574,7 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_118printCurrentStatusEPNS_10Tex
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
-  %58 = icmp ugt i64 %57, %3
+  %58 = icmp ult i64 %3, %57
   br i1 %58, label %.lr.ph54, label %._crit_edge
 
 59:                                               ; preds = %.lr.ph, %63
@@ -6648,7 +6648,7 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_118printCurrentStatusEPNS_10Tex
 93:                                               ; preds = %._crit_edge
   %.neg = sub i64 %3, %.lcssa
   %.neg49 = trunc i64 %.neg to i32
-  %94 = add i32 %.neg49, %4
+  %94 = add i32 %4, %.neg49
   %95 = icmp sgt i32 %94, 1
   %96 = select i1 %95, ptr @.str.46, ptr @.str.38
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull @.str.45, i32 noundef %94, ptr noundef nonnull %96)

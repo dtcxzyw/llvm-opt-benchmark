@@ -2277,7 +2277,7 @@ define internal fastcc void @dissect_attachreqans(ptr noundef %0, ptr noundef %1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #5
   %8 = zext i16 %4 to i32
   %9 = zext i8 %7 to i16
-  %.not = icmp ult i16 %9, %4
+  %.not = icmp ugt i16 %4, %9
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %5
@@ -2341,16 +2341,16 @@ define internal fastcc void @dissect_attachreqans(ptr noundef %0, ptr noundef %1
   %54 = tail call fastcc i32 @dissect_opaque_string_or_data(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %53, i16 noundef zeroext %3, i16 noundef zeroext 1, i32 noundef -1, i32 noundef 1)
   %55 = load i32, ptr @hf_reload_password, align 4
   %56 = trunc i32 %54 to i16
-  %57 = add i16 %56, %3
+  %57 = add i16 %3, %56
   %58 = tail call fastcc i32 @dissect_opaque_string_or_data(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %55, i16 noundef zeroext %57, i16 noundef zeroext 1, i32 noundef -1, i32 noundef 1)
   %59 = add i32 %58, %54
   %60 = load i32, ptr @hf_reload_role, align 4
   %61 = trunc i32 %59 to i16
-  %62 = add i16 %61, %3
+  %62 = add i16 %3, %61
   %63 = tail call fastcc i32 @dissect_opaque_string_or_data(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %60, i16 noundef zeroext %62, i16 noundef zeroext 1, i32 noundef -1, i32 noundef 1)
   %64 = add i32 %63, %59
   %65 = trunc i32 %64 to i16
-  %66 = add i16 %65, %3
+  %66 = add i16 %3, %65
   %67 = add i16 %40, 2
   %68 = tail call fastcc i32 @dissect_icecandidates(ptr noundef %0, ptr noundef %1, ptr noundef %52, i16 noundef zeroext %66, i16 noundef zeroext %67)
   %69 = add i32 %64, %68
@@ -2838,7 +2838,7 @@ define internal fastcc void @dissect_storeans(ptr noundef %0, ptr noundef %1, pt
   %51 = getelementptr %struct._Kind, ptr %48, i64 %indvars.iv.i.i.i
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, %46
+  %54 = icmp eq i32 %46, %53
   br i1 %54, label %getKindFromId.exit.i.i, label %49
 
 55:                                               ; preds = %.preheader.i.i.i
@@ -2854,7 +2854,7 @@ getKindFromId.exit.i.thread.i:                    ; preds = %55
   %indvars.iv21.i.i.i = phi i64 [ %indvars.iv.next22.i.i.i, %55 ], [ 0, %.preheader.i.i.i.preheader ]
   %57 = getelementptr [18 x %struct._Kind], ptr @predefined_kinds, i64 0, i64 %indvars.iv21.i.i.i, i32 1
   %58 = load i32, ptr %57, align 8
-  %59 = icmp eq i32 %58, %46
+  %59 = icmp eq i32 %46, %58
   br i1 %59, label %60, label %55
 
 60:                                               ; preds = %.preheader.i.i.i
@@ -3001,7 +3001,7 @@ define internal fastcc void @dissect_fetchreq(ptr noundef %0, ptr noundef %1, pt
   %64 = getelementptr %struct._Kind, ptr %61, i64 %indvars.iv.i.i.i
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load i32, ptr %65, align 8
-  %67 = icmp eq i32 %66, %59
+  %67 = icmp eq i32 %59, %66
   br i1 %67, label %getKindFromId.exit.i.i, label %62
 
 68:                                               ; preds = %.preheader.i.i.i
@@ -3017,7 +3017,7 @@ getKindFromId.exit.i.thread.i:                    ; preds = %68
   %indvars.iv21.i.i.i = phi i64 [ %indvars.iv.next22.i.i.i, %68 ], [ 0, %.preheader.i.i.i.preheader ]
   %70 = getelementptr [18 x %struct._Kind], ptr @predefined_kinds, i64 0, i64 %indvars.iv21.i.i.i, i32 1
   %71 = load i32, ptr %70, align 8
-  %72 = icmp eq i32 %71, %59
+  %72 = icmp eq i32 %59, %71
   br i1 %72, label %73, label %68
 
 73:                                               ; preds = %.preheader.i.i.i
@@ -3290,7 +3290,7 @@ define internal fastcc void @dissect_findreq(ptr noundef %0, ptr noundef %1, ptr
   %12 = load i32, ptr @hf_reload_resource, align 4
   %13 = tail call fastcc i32 @dissect_resourceid(i32 noundef %12, ptr noundef %0, ptr noundef %1, ptr noundef %11, i16 noundef zeroext %3, i16 noundef zeroext %4)
   %14 = trunc nuw nsw i32 %13 to i16
-  %15 = add i16 %14, %3
+  %15 = add i16 %3, %14
   %16 = sub i16 %4, %14
   tail call fastcc void @dissect_kindid_list(ptr noundef %0, ptr noundef %1, ptr noundef %11, i16 noundef zeroext %15, i16 noundef zeroext %16)
   ret void
@@ -3378,7 +3378,7 @@ define internal fastcc void @dissect_findans(ptr noundef %0, ptr noundef %1, ptr
   %50 = getelementptr %struct._Kind, ptr %47, i64 %indvars.iv.i.i
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 8
-  %53 = icmp eq i32 %52, %45
+  %53 = icmp eq i32 %45, %52
   br i1 %53, label %getKindFromId.exit.i, label %48
 
 54:                                               ; preds = %.preheader.i.i
@@ -3394,7 +3394,7 @@ getKindFromId.exit.i.thread:                      ; preds = %54
   %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %54 ], [ 0, %.preheader.i.i.preheader ]
   %56 = getelementptr [18 x %struct._Kind], ptr @predefined_kinds, i64 0, i64 %indvars.iv21.i.i, i32 1
   %57 = load i32, ptr %56, align 8
-  %58 = icmp eq i32 %57, %45
+  %58 = icmp eq i32 %45, %57
   br i1 %58, label %59, label %54
 
 59:                                               ; preds = %.preheader.i.i
@@ -3490,7 +3490,7 @@ define internal fastcc void @dissect_leavereq(ptr noundef %0, ptr noundef %1, pt
 46:                                               ; preds = %5
   %47 = load i32, ptr @reload_nodeid_length, align 4
   %48 = trunc i32 %47 to i16
-  %49 = add i16 %48, %3
+  %49 = add i16 %3, %48
   %50 = and i32 %13, 65535
   %51 = sub nsw i32 %8, %50
   %52 = tail call fastcc i32 @dissect_opaque_string_or_data(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %17, i16 noundef zeroext %49, i16 noundef zeroext 2, i32 noundef %51, i32 noundef 0)
@@ -3513,7 +3513,7 @@ define internal fastcc void @dissect_joinreq(ptr noundef %0, ptr noundef %1, ptr
   %14 = load i32, ptr @hf_reload_overlay_specific, align 4
   %15 = and i32 %13, 65535
   %16 = trunc i32 %13 to i16
-  %17 = add i16 %16, %3
+  %17 = add i16 %3, %16
   %18 = sub nsw i32 %8, %15
   %19 = tail call fastcc i32 @dissect_opaque_string_or_data(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %14, i16 noundef zeroext %17, i16 noundef zeroext 2, i32 noundef %18, i32 noundef 0)
   ret void
@@ -3567,7 +3567,7 @@ define internal fastcc void @dissect_chordupdate(ptr noundef %0, ptr noundef %1,
   %29 = tail call fastcc i32 @dissect_nodeid_list(ptr noundef %0, ptr noundef %1, ptr noundef %11, i16 noundef zeroext %26, i16 noundef zeroext %27, i32 noundef %28)
   %30 = add nuw nsw i32 %29, 5
   %31 = trunc i32 %30 to i16
-  %32 = add i16 %31, %3
+  %32 = add i16 %3, %31
   %33 = sub i16 %4, %31
   %34 = load i32, ptr @hf_reload_chordupdate_successors, align 4
   %35 = tail call fastcc i32 @dissect_nodeid_list(ptr noundef %0, ptr noundef %1, ptr noundef %11, i16 noundef zeroext %32, i16 noundef zeroext %33, i32 noundef %34)
@@ -3578,7 +3578,7 @@ define internal fastcc void @dissect_chordupdate(ptr noundef %0, ptr noundef %1,
   %.sink65 = phi i32 [ %36, %25 ], [ %24, %19 ]
   %hf_reload_chordupdate_fingers.sink = phi ptr [ @hf_reload_chordupdate_fingers, %25 ], [ @hf_reload_chordupdate_successors, %19 ]
   %37 = trunc i32 %.sink65 to i16
-  %38 = add i16 %37, %3
+  %38 = add i16 %3, %37
   %39 = sub i16 %4, %37
   %40 = load i32, ptr %hf_reload_chordupdate_fingers.sink, align 4
   %41 = tail call fastcc i32 @dissect_nodeid_list(ptr noundef %0, ptr noundef %1, ptr noundef %11, i16 noundef zeroext %38, i16 noundef zeroext %39, i32 noundef %40)
@@ -3600,7 +3600,7 @@ define internal fastcc void @dissect_pathtrackreq(ptr noundef %0, ptr noundef %1
   %13 = tail call fastcc i32 @dissect_destination(i32 noundef %12, ptr noundef %0, ptr noundef %1, ptr noundef %11, i16 noundef zeroext %3, i16 noundef zeroext %4)
   %14 = load i32, ptr @hf_reload_pathtrackreq_request, align 4
   %15 = trunc nuw nsw i32 %13 to i16
-  %16 = add i16 %15, %3
+  %16 = add i16 %3, %15
   %17 = sub i16 %4, %15
   %18 = tail call fastcc i32 @dissect_diagnosticrequest(i32 noundef %14, ptr noundef %0, ptr noundef %1, ptr noundef %11, i16 noundef zeroext %16, i16 noundef zeroext %17)
   ret void
@@ -3618,7 +3618,7 @@ define internal fastcc void @dissect_pathtrackans(ptr noundef %0, ptr noundef %1
   %13 = tail call fastcc i32 @dissect_destination(i32 noundef %12, ptr noundef %0, ptr noundef %1, ptr noundef %11, i16 noundef zeroext %3, i16 noundef zeroext %4)
   %14 = load i32, ptr @hf_reload_pathtrackans_response, align 4
   %15 = trunc nuw nsw i32 %13 to i16
-  %16 = add i16 %15, %3
+  %16 = add i16 %3, %15
   %17 = sub i16 %4, %15
   %18 = tail call fastcc i32 @dissect_diagnosticresponse(i32 noundef %14, ptr noundef %0, ptr noundef %1, ptr noundef %11, i16 noundef zeroext %16, i16 noundef zeroext %17)
   ret void
@@ -3690,7 +3690,7 @@ define internal fastcc void @dissect_kindid_list(ptr noundef %0, ptr noundef %1,
   %34 = getelementptr %struct._Kind, ptr %31, i64 %indvars.iv.i.i
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8
-  %37 = icmp eq i32 %36, %29
+  %37 = icmp eq i32 %29, %36
   br i1 %37, label %getKindFromId.exit.i, label %32
 
 38:                                               ; preds = %.preheader.i.i
@@ -3706,7 +3706,7 @@ getKindFromId.exit.i.thread:                      ; preds = %38
   %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %38 ], [ 0, %.preheader.i.i.preheader ]
   %40 = getelementptr [18 x %struct._Kind], ptr @predefined_kinds, i64 0, i64 %indvars.iv21.i.i, i32 1
   %41 = load i32, ptr %40, align 8
-  %42 = icmp eq i32 %41, %29
+  %42 = icmp eq i32 %29, %41
   br i1 %42, label %43, label %38
 
 43:                                               ; preds = %.preheader.i.i
@@ -4047,7 +4047,7 @@ define internal fastcc noundef range(i32 0, 65536) i32 @dissect_diagnosticrespon
   %106 = getelementptr %struct._Kind, ptr %103, i64 %indvars.iv.i.i.i
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   %108 = load i32, ptr %107, align 8
-  %109 = icmp eq i32 %108, %101
+  %109 = icmp eq i32 %101, %108
   br i1 %109, label %getKindFromId.exit.i.i, label %104
 
 110:                                              ; preds = %.preheader.i.i.i
@@ -4063,7 +4063,7 @@ getKindFromId.exit.i.thread.i:                    ; preds = %110
   %indvars.iv21.i.i.i = phi i64 [ %indvars.iv.next22.i.i.i, %110 ], [ 0, %.preheader.i.i.i.preheader ]
   %112 = getelementptr [18 x %struct._Kind], ptr @predefined_kinds, i64 0, i64 %indvars.iv21.i.i.i, i32 1
   %113 = load i32, ptr %112, align 8
-  %114 = icmp eq i32 %113, %101
+  %114 = icmp eq i32 %101, %113
   br i1 %114, label %115, label %110
 
 115:                                              ; preds = %.preheader.i.i.i
@@ -5638,7 +5638,7 @@ define internal fastcc noundef i32 @dissect_kinddata(ptr noundef %0, ptr noundef
   %30 = getelementptr %struct._Kind, ptr %27, i64 %indvars.iv.i.i
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %32, %25
+  %33 = icmp eq i32 %25, %32
   br i1 %33, label %getKindFromId.exit.i, label %28
 
 34:                                               ; preds = %.preheader.i.i
@@ -5654,7 +5654,7 @@ getKindFromId.exit.i.thread:                      ; preds = %34
   %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %34 ], [ 0, %.preheader.i.i.preheader ]
   %36 = getelementptr [18 x %struct._Kind], ptr @predefined_kinds, i64 0, i64 %indvars.iv21.i.i, i32 1
   %37 = load i32, ptr %36, align 8
-  %38 = icmp eq i32 %37, %25
+  %38 = icmp eq i32 %25, %37
   br i1 %38, label %39, label %34
 
 39:                                               ; preds = %.preheader.i.i
@@ -6326,7 +6326,7 @@ define internal fastcc void @dissect_signature(ptr noundef %0, ptr noundef %1, p
 67:                                               ; preds = %51, %53, %65
   %68 = add i16 %8, 5
   %69 = load i32, ptr @hf_reload_signature_value, align 4
-  %70 = add i16 %68, %3
+  %70 = add i16 %3, %68
   %71 = tail call fastcc i32 @dissect_opaque_string_or_data(ptr noundef %0, ptr noundef %1, ptr noundef %19, i32 noundef %69, i16 noundef zeroext %70, i16 noundef zeroext 2, i32 noundef -1, i32 noundef 0)
   ret void
 }

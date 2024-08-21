@@ -872,7 +872,7 @@ define internal fastcc void @wait_for_pipe_scanline_moving(ptr %.0.val, i32 %.16
   %27 = xor i32 %26, %24
   %28 = and i32 %27, 1048575
   %29 = icmp ne i32 %28, 0
-  %30 = xor i1 %29, %0
+  %30 = xor i1 %0, %29
   %31 = select i1 %30, i1 %12, i1 false
   br i1 %31, label %32, label %36
 

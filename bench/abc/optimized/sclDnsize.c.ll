@@ -2019,7 +2019,7 @@ define internal fastcc void @Vec_QuePush(ptr nocapture noundef %0, i32 noundef %
 
 10:                                               ; preds = %6, %2
   %11 = phi i32 [ %.pre, %6 ], [ %5, %2 ]
-  %.not20 = icmp sgt i32 %11, %1
+  %.not20 = icmp slt i32 %1, %11
   br i1 %.not20, label %16, label %12
 
 12:                                               ; preds = %10
@@ -2555,7 +2555,7 @@ Abc_SclObjCell.exit.i:                            ; preds = %162
 
 190:                                              ; preds = %186, %Abc_SclObjCell.exit.i
   %191 = phi i32 [ %.pre.i238, %186 ], [ %185, %Abc_SclObjCell.exit.i ]
-  %.not20.i239 = icmp sgt i32 %191, %.val14.i
+  %.not20.i239 = icmp slt i32 %.val14.i, %191
   br i1 %.not20.i239, label %196, label %192
 
 192:                                              ; preds = %190
@@ -2975,13 +2975,13 @@ Abc_Clock.exit192:                                ; preds = %Vec_QuePop.exit, %3
   %402 = add nsw i32 %.val3.i.i, 1
   %403 = getelementptr inbounds i8, ptr %.val2.i.i, i64 228
   %404 = load i32, ptr %403, align 4
-  %.not.i253.not = icmp sgt i32 %404, %.val3.i.i
+  %.not.i253.not = icmp slt i32 %.val3.i.i, %404
   br i1 %.not.i253.not, label %Vec_IntFillExtra.exit, label %405
 
 405:                                              ; preds = %399
   %406 = load i32, ptr %401, align 8
   %407 = shl nsw i32 %406, 1
-  %.not275 = icmp sgt i32 %407, %.val3.i.i
+  %.not275 = icmp slt i32 %.val3.i.i, %407
   %.not.i.i254.not = icmp sgt i32 %406, %.val3.i.i
   br i1 %.not275, label %420, label %408
 
@@ -3257,7 +3257,7 @@ Vec_QueGrow.exit267:                              ; preds = %517, %515
 
 534:                                              ; preds = %Vec_QueGrow.exit267, %493
   %535 = phi i32 [ %502, %Vec_QueGrow.exit267 ], [ %498, %493 ]
-  %.not20.i = icmp sgt i32 %535, %.val
+  %.not20.i = icmp slt i32 %.val, %535
   br i1 %.not20.i, label %Vec_QueGrow.exit, label %536
 
 536:                                              ; preds = %534
@@ -4678,13 +4678,13 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

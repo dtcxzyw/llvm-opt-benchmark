@@ -2171,7 +2171,7 @@ define dso_local noundef range(i32 -34, 1) i32 @drm_atomic_helper_check_plane_st
   %69 = getelementptr inbounds i8, ptr %1, i64 8
   %70 = load i8, ptr %69, align 8, !range !12, !noundef !13
   %71 = icmp ne i8 %70, 0
-  %72 = or i1 %71, %5
+  %72 = or i1 %5, %71
   br i1 %72, label %82, label %73
 
 73:                                               ; preds = %68
@@ -2247,7 +2247,7 @@ define dso_local noundef range(i32 -34, 1) i32 @drm_atomic_helper_check_plane_st
   call void @drm_rect_rotate_inv(ptr noundef %10, i32 noundef %115, i32 noundef %117, i32 noundef %13) #9
   %118 = load i8, ptr %112, align 4, !range !12, !noundef !13
   %119 = icmp eq i8 %118, 0
-  %120 = or i1 %119, %4
+  %120 = or i1 %4, %119
   br i1 %120, label %151, label %121
 
 121:                                              ; preds = %110

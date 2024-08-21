@@ -332,7 +332,7 @@ build_cb_config_list.exit..preheader.i_crit_edge: ; preds = %build_cb_config_lis
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %189 ]
   %184 = getelementptr inbounds i32, ptr %182, i64 %indvars.iv.i
   %185 = load i32, ptr %184, align 4
-  %186 = icmp eq i32 %185, %177
+  %186 = icmp eq i32 %177, %185
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %183

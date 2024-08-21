@@ -27092,7 +27092,7 @@ invoke.cont187:                                   ; preds = %if.else.i, %if.then
   %tobool.not.i = icmp eq i8 %171, 0
   %cond.i = select i1 %tobool.not.i, i64 64, i64 128
   %cmp191.not = icmp uge i64 %169, %cond.i
-  %brmerge = or i1 %cmp191.not, %acyclic
+  %brmerge = or i1 %acyclic, %cmp191.not
   %.mux = select i1 %cmp191.not, i32 9, i32 0
   br i1 %brmerge, label %cleanup206, label %if.then198
 

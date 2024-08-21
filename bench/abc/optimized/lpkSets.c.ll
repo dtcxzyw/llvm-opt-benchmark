@@ -331,7 +331,7 @@ Vec_IntPush.exit:                                 ; preds = %2, %Vec_IntGrow.exi
   %20 = load i16, ptr %19, align 2
   %21 = lshr i16 %20, 1
   %22 = load i16, ptr %0, align 8
-  %23 = icmp ule i16 %22, %21
+  %23 = icmp uge i16 %21, %22
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8

@@ -337,7 +337,7 @@ while.end37:                                      ; preds = %land.rhs24, %while.
 
 land.rhs41.preheader:                             ; preds = %while.end37
   %9 = sext i32 %i.3.lcssa to i64
-  %10 = add i32 %zrun_len.3.lcssa, %slen
+  %10 = add i32 %slen, %zrun_len.3.lcssa
   %11 = sub i32 %10, %i.3.lcssa
   br label %land.rhs41
 

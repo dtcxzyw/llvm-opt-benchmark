@@ -5943,7 +5943,7 @@ decode_fw_slot_frs.exit.i:                        ; preds = %._crit_edge.i.i109,
   %507 = getelementptr i8, ptr %2, i64 144
   %.val76 = load i64, ptr %507, align 8
   %508 = trunc i64 %.val76 to i32
-  %509 = add i32 %508, %3
+  %509 = add i32 %3, %508
   %510 = icmp ugt i64 %.val76, 4095
   br i1 %510, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %511
 
@@ -5989,7 +5989,7 @@ decode_fw_slot_frs.exit.i:                        ; preds = %._crit_edge.i.i109,
   %530 = getelementptr i8, ptr %2, i64 144
   %.val77 = load i64, ptr %530, align 8
   %531 = trunc i64 %.val77 to i32
-  %532 = add i32 %531, %3
+  %532 = add i32 %3, %531
   %533 = icmp ugt i64 %.val77, 536
   br i1 %533, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %534
 
@@ -6168,7 +6168,7 @@ dissect_nvme_get_logpage_selftest_result.exit.i:  ; preds = %.lr.ph.i39.i.i
   %627 = trunc i64 %626 to i32
   %628 = icmp eq i8 %21, 7
   %629 = select i1 %628, ptr @.str.1790, ptr @.str.1791
-  %630 = add i32 %627, %3
+  %630 = add i32 %3, %627
   %631 = and i32 %630, 511
   %632 = sub nuw nsw i32 512, %631
   %633 = add i32 %632, %630
@@ -6816,7 +6816,7 @@ add_group_mask_entry.exit117.i:                   ; preds = %.lr.ph.i113.i, %904
   %989 = sub nuw nsw i32 8, %988
   %.0.i167 = select i1 %986, i32 %989, i32 0
   %990 = add nuw nsw i32 %.0.i167, 2
-  %991 = icmp ugt i32 %990, %4
+  %991 = icmp ult i32 %4, %990
   %992 = icmp ne i64 %985, 0
   %or.cond.i168 = and i1 %992, %991
   br i1 %or.cond.i168, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %993
@@ -7032,7 +7032,7 @@ dissect_nvme_get_logpage_ana_resp_header.exit.i:  ; preds = %1035, %1032
 
 1101:                                             ; preds = %1099, %.thread120.i.i
   %.2122.i.i = phi i32 [ %1098, %.thread120.i.i ], [ 0, %1099 ]
-  %1102 = icmp eq i32 %.2122.i.i, %.036.i178
+  %1102 = icmp eq i32 %.036.i178, %.2122.i.i
   br i1 %1102, label %1103, label %1106
 
 1103:                                             ; preds = %1101
@@ -7152,7 +7152,7 @@ dissect_nvme_get_logpage_ana_resp_grp.exit.i:     ; preds = %1147, %1144, %1121,
   %1158 = getelementptr i8, ptr %2, i64 144
   %.val81 = load i64, ptr %1158, align 8
   %1159 = trunc i64 %.val81 to i32
-  %1160 = add i32 %1159, %3
+  %1160 = add i32 %3, %1159
   %1161 = icmp ult i32 %1160, 16
   br i1 %1161, label %1162, label %1201
 
@@ -7240,7 +7240,7 @@ dissect_nvme_get_logpage_lba_status_resp_header.exit.i: ; preds = %1201, %1197, 
   %.031.i = phi ptr [ null, %1201 ], [ %1164, %1195 ], [ %1164, %1197 ]
   %.0.i190 = phi i32 [ %spec.select.i189, %1201 ], [ %1191, %1195 ], [ %1191, %1197 ]
   %1204 = add nuw nsw i32 %.0.i190, 8
-  %1205 = icmp ugt i32 %1204, %4
+  %1205 = icmp ult i32 %4, %1204
   br i1 %1205, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %1206
 
 1206:                                             ; preds = %dissect_nvme_get_logpage_lba_status_resp_header.exit.i
@@ -7495,7 +7495,7 @@ dissect_nvme_get_logpage_lba_status_lba_range.exit.i: ; preds = %.lr.ph.preheade
   br i1 %1346, label %1347, label %1350
 
 1347:                                             ; preds = %1345, %.thread.i202
-  %.not54.i = icmp ult i32 %1342, %4
+  %.not54.i = icmp ugt i32 %4, %1342
   br i1 %.not54.i, label %1348, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
 1348:                                             ; preds = %1347
@@ -7505,7 +7505,7 @@ dissect_nvme_get_logpage_lba_status_lba_range.exit.i: ; preds = %.lr.ph.preheade
 
 1350:                                             ; preds = %1345
   %1351 = sub nuw nsw i32 64, %1311
-  %spec.select.i205 = tail call i32 @llvm.umin.i32(i32 %1351, i32 %4)
+  %spec.select.i205 = tail call i32 @llvm.umin.i32(i32 %4, i32 %1351)
   br label %1352
 
 1352:                                             ; preds = %1350, %1348
@@ -7658,7 +7658,7 @@ add_group_mask_entry.exit.i213:                   ; preds = %.lr.ph.i.i209, %136
 
 1425:                                             ; preds = %1419
   %1426 = sub nuw nsw i32 512, %1357
-  %spec.select95.i = tail call i32 @llvm.umin.i32(i32 %1426, i32 %4)
+  %spec.select95.i = tail call i32 @llvm.umin.i32(i32 %4, i32 %1426)
   br label %1427
 
 1427:                                             ; preds = %1425, %1422

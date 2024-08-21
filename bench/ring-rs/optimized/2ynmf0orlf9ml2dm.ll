@@ -629,7 +629,7 @@ define internal fastcc { ptr, i64 } @_ZN4ring10arithmetic6bigint12elem_reduced17
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !noundef !7
   store i64 %14, ptr %11, align 8
-  %15 = icmp eq i64 %14, %1
+  %15 = icmp eq i64 %1, %14
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %2
@@ -647,7 +647,7 @@ define internal fastcc { ptr, i64 } @_ZN4ring10arithmetic6bigint12elem_reduced17
   %19 = load i64, ptr %18, align 8, !noundef !7
   %20 = shl i64 %19, 1
   store i64 %20, ptr %8, align 8
-  %21 = icmp eq i64 %20, %.8.val
+  %21 = icmp eq i64 %.8.val, %20
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %17
@@ -834,7 +834,7 @@ define hidden void @_ZN4ring2ec7suite_b3ops32parse_big_endian_fixed_consttime17h
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !7
   %11 = shl i64 %10, 3
-  %.not = icmp eq i64 %11, %3
+  %.not = icmp eq i64 %3, %11
   br i1 %.not, label %12, label %16
 
 12:                                               ; preds = %7
@@ -877,7 +877,7 @@ define hidden void @_ZN4ring2ec7suite_b3ops32parse_big_endian_fixed_consttime17h
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !7
   %11 = shl i64 %10, 3
-  %.not = icmp eq i64 %11, %3
+  %.not = icmp eq i64 %3, %11
   br i1 %.not, label %12, label %16
 
 12:                                               ; preds = %7
@@ -1140,7 +1140,7 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.92929511
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !188
   %33 = call noundef i64 @ring_core_0_17_8__LIMBS_less_than(ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %3, i64 noundef %6)
   %.not = icmp ne i64 %33, -1
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread, label %34
 
 34:                                               ; preds = %_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.9292951165861561203.exit
@@ -1243,7 +1243,7 @@ define hidden void @_ZN4ring4limb21big_endian_from_limbs17h8493c2949eb38239E(ptr
   store i64 %3, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %.idx.i, ptr %7, align 8
-  %11 = icmp eq i64 %.idx.i, %3
+  %11 = icmp eq i64 %3, %.idx.i
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %4
@@ -2511,7 +2511,7 @@ define noundef zeroext i1 @_ZN4ring3rsa7keypair7KeyPair4sign17h4cc53f65268603b2E
   %49 = zext i1 %48 to i64
   %50 = lshr i64 %46, 3
   %51 = add nuw nsw i64 %50, %49
-  %.not = icmp eq i64 %51, %8
+  %.not = icmp eq i64 %8, %51
   br i1 %.not, label %52, label %219
 
 52:                                               ; preds = %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit"
@@ -3069,7 +3069,7 @@ common.resume:                                    ; preds = %.body, %"_ZN4core3p
   store i64 %8, ptr %13, align 8, !noalias !374
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !374
   store i64 %.idx.i.i, ptr %12, align 8, !noalias !374
-  %207 = icmp eq i64 %.idx.i.i, %8
+  %207 = icmp eq i64 %8, %.idx.i.i
   br i1 %207, label %210, label %208
 
 208:                                              ; preds = %204

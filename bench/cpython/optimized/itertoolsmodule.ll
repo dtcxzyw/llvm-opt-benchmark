@@ -4045,7 +4045,7 @@ entry:
   %call.val.i = load ptr, ptr %0, align 8
   %chain_type1 = getelementptr inbounds i8, ptr %call.val.i, i64 16
   %1 = load ptr, ptr %chain_type1, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -5095,7 +5095,7 @@ if.end15:                                         ; preds = %for.end
   store ptr null, ptr %result, align 8
   %r18 = getelementptr inbounds i8, ptr %call12, i64 40
   store i64 %r, ptr %r18, align 8
-  %cmp19 = icmp slt i64 %call.val, %r
+  %cmp19 = icmp sgt i64 %r, %call.val
   %cond20 = zext i1 %cmp19 to i32
   %stopped = getelementptr inbounds i8, ptr %call12, i64 48
   store i32 %cond20, ptr %stopped, align 8
@@ -6946,7 +6946,7 @@ entry:
   %call.val.i = load ptr, ptr %0, align 8
   %cycle_type = getelementptr inbounds i8, ptr %call.val.i, i64 56
   %1 = load ptr, ptr %cycle_type, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -7455,7 +7455,7 @@ entry:
   %call.val.i = load ptr, ptr %0, align 8
   %dropwhile_type = getelementptr inbounds i8, ptr %call.val.i, i64 64
   %1 = load ptr, ptr %dropwhile_type, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -7814,7 +7814,7 @@ entry:
   %call.val.i = load ptr, ptr %0, align 8
   %filterfalse_type = getelementptr inbounds i8, ptr %call.val.i, i64 72
   %1 = load ptr, ptr %filterfalse_type, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -8832,7 +8832,7 @@ entry:
   %call.val.i = load ptr, ptr %0, align 8
   %_grouper_type = getelementptr inbounds i8, ptr %call.val.i, i64 88
   %1 = load ptr, ptr %_grouper_type, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -9184,7 +9184,7 @@ entry:
   %call.val.i = load ptr, ptr %0, align 8
   %islice_type1 = getelementptr inbounds i8, ptr %call.val.i, i64 96
   %1 = load ptr, ptr %islice_type1, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -9831,7 +9831,7 @@ entry:
   %call.val.i = load ptr, ptr %0, align 8
   %pairwise_type = getelementptr inbounds i8, ptr %call.val.i, i64 104
   %1 = load ptr, ptr %pairwise_type, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -12124,7 +12124,7 @@ entry:
   %call.val.i = load ptr, ptr %0, align 8
   %starmap_type = getelementptr inbounds i8, ptr %call.val.i, i64 136
   %1 = load ptr, ptr %starmap_type, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -12451,7 +12451,7 @@ entry:
   %call.val.i = load ptr, ptr %0, align 8
   %takewhile_type = getelementptr inbounds i8, ptr %call.val.i, i64 144
   %1 = load ptr, ptr %takewhile_type, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -12808,7 +12808,7 @@ if.end5:                                          ; preds = %do.end, %entry
   %13 = load ptr, ptr %dataobj6, align 8
   %numread.i = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load i32, ptr %numread.i, align 8
-  %cmp.i15 = icmp sgt i32 %14, %12
+  %cmp.i15 = icmp slt i32 %12, %14
   br i1 %cmp.i15, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end5
@@ -12878,7 +12878,7 @@ entry:
   %call.val.i = load ptr, ptr %0, align 8
   %tee_type = getelementptr inbounds i8, ptr %call.val.i, i64 152
   %1 = load ptr, ptr %tee_type, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -13272,7 +13272,7 @@ entry:
   %call.val.i = load ptr, ptr %0, align 8
   %teedataobject_type = getelementptr inbounds i8, ptr %call.val.i, i64 160
   %1 = load ptr, ptr %teedataobject_type, align 8
-  %cmp = icmp eq ptr %1, %type
+  %cmp = icmp eq ptr %type, %1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry

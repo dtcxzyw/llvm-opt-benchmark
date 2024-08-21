@@ -477,7 +477,7 @@ declare void @mark_dummy_rel(ptr noundef) local_unnamed_addr #1
 define dso_local ptr @find_base_rel(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
@@ -504,7 +504,7 @@ define dso_local ptr @find_base_rel(ptr nocapture noundef readonly %0, i32 nound
 define dso_local ptr @find_base_rel_noerr(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
@@ -524,7 +524,7 @@ define dso_local ptr @find_base_rel_noerr(ptr nocapture noundef readonly %0, i32
 define dso_local ptr @find_base_rel_ignore_join(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
-  %5 = icmp ugt i32 %4, %1
+  %5 = icmp ult i32 %1, %4
   br i1 %5, label %6, label %24
 
 6:                                                ; preds = %2
@@ -1371,7 +1371,7 @@ define internal fastcc void @build_joinrel_tlist(ptr noundef %0, ptr nocapture n
 
 114:                                              ; preds = %100
   %115 = load i32, ptr %15, align 8
-  %116 = icmp ugt i32 %115, %102
+  %116 = icmp ult i32 %102, %115
   br i1 %116, label %117, label %122
 
 117:                                              ; preds = %114
@@ -2324,7 +2324,7 @@ define dso_local ptr @find_childrel_parents(ptr nocapture noundef readonly %0, p
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @bms_add_member(ptr noundef %.08, i32 noundef %14) #7
   %16 = load i32, ptr %4, align 8
-  %17 = icmp ugt i32 %16, %14
+  %17 = icmp ult i32 %14, %16
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %6

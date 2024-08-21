@@ -1102,7 +1102,7 @@ define dso_local i32 @ttm_bo_move_accel_cleanup(ptr noundef %0, ptr noundef %1, 
   %37 = getelementptr inbounds i8, ptr %16, i64 1
   %38 = load i8, ptr %37, align 1, !range !5, !noundef !6
   %39 = icmp eq i8 %38, 0
-  %40 = and i1 %39, %3
+  %40 = and i1 %3, %39
   br i1 %40, label %41, label %97
 
 41:                                               ; preds = %36

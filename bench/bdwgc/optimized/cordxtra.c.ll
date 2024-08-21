@@ -724,7 +724,7 @@ define i64 @CORD_chr(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnam
 define internal range(i32 0, 2) i32 @CORD_chr_proc(i8 noundef signext %0, ptr nocapture noundef %1) #8 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8
-  %5 = icmp eq i8 %4, %0
+  %5 = icmp eq i8 %0, %4
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
@@ -788,7 +788,7 @@ declare i32 @CORD_riter4(ptr noundef, i64 noundef, ptr noundef, ptr noundef) loc
 define internal range(i32 0, 2) i32 @CORD_rchr_proc(i8 noundef signext %0, ptr nocapture noundef %1) #8 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8
-  %5 = icmp eq i8 %4, %0
+  %5 = icmp eq i8 %0, %4
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2

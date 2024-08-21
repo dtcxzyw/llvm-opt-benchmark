@@ -741,7 +741,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %sw.bb
-  %cmp.i = icmp eq i64 %2, %value.coerce0
+  %cmp.i = icmp eq i64 %value.coerce0, %2
   br i1 %cmp.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %cond.true
@@ -775,7 +775,7 @@ cond.true12:                                      ; preds = %sw.bb9
   br i1 %cmp.i.i3, label %return, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %cond.true12
-  %cmp.not.i = icmp ugt i64 %5, %value.coerce0
+  %cmp.not.i = icmp ult i64 %value.coerce0, %5
   br i1 %cmp.not.i, label %return, label %land.rhs.i4
 
 land.rhs.i4:                                      ; preds = %lor.rhs.i
@@ -802,7 +802,7 @@ cond.true29:                                      ; preds = %sw.bb26
   br i1 %cmp.i.i6, label %return, label %lor.rhs.i7
 
 lor.rhs.i7:                                       ; preds = %cond.true29
-  %cmp.not.i8 = icmp ugt i64 %8, %value.coerce0
+  %cmp.not.i8 = icmp ult i64 %value.coerce0, %8
   br i1 %cmp.not.i8, label %return, label %land.rhs.i9
 
 land.rhs.i9:                                      ; preds = %lor.rhs.i7
@@ -831,7 +831,7 @@ cond.true46:                                      ; preds = %sw.bb43
   br i1 %cmp.i.i.i, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %cond.true46
-  %cmp11.not20.i.i.i = icmp ugt i64 %11, %value.coerce0
+  %cmp11.not20.i.i.i = icmp ult i64 %value.coerce0, %11
   br i1 %cmp11.not20.i.i.i, label %return, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %if.end.i.i.i

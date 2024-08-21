@@ -131,7 +131,7 @@ entry:
   %queue = alloca %struct.uv__queue, align 8
   %prepare_handles = getelementptr inbounds i8, ptr %loop, i64 384
   %0 = load ptr, ptr %prepare_handles, align 8
-  %cmp.i.not.i = icmp eq ptr %0, %prepare_handles
+  %cmp.i.not.i = icmp eq ptr %prepare_handles, %0
   br i1 %cmp.i.not.i, label %while.end, label %uv__queue_move.exit
 
 uv__queue_move.exit:                              ; preds = %entry
@@ -147,7 +147,7 @@ uv__queue_move.exit:                              ; preds = %entry
   store ptr %prepare_handles, ptr %2, align 8
   %.pre = load ptr, ptr %queue, align 8
   store ptr %queue, ptr %prev4.i.i, align 8
-  %cmp.i.not6 = icmp eq ptr %.pre, %queue
+  %cmp.i.not6 = icmp eq ptr %queue, %.pre
   br i1 %cmp.i.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
@@ -173,7 +173,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %8 = load ptr, ptr %prepare_cb, align 8
   call void %8(ptr noundef nonnull %add.ptr) #3
   %9 = load ptr, ptr %queue, align 8
-  %cmp.i.not = icmp eq ptr %9, %queue
+  %cmp.i.not = icmp eq ptr %queue, %9
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %entry, %uv__queue_move.exit
@@ -349,7 +349,7 @@ entry:
   %queue = alloca %struct.uv__queue, align 8
   %check_handles = getelementptr inbounds i8, ptr %loop, i64 400
   %0 = load ptr, ptr %check_handles, align 8
-  %cmp.i.not.i = icmp eq ptr %0, %check_handles
+  %cmp.i.not.i = icmp eq ptr %check_handles, %0
   br i1 %cmp.i.not.i, label %while.end, label %uv__queue_move.exit
 
 uv__queue_move.exit:                              ; preds = %entry
@@ -365,7 +365,7 @@ uv__queue_move.exit:                              ; preds = %entry
   store ptr %check_handles, ptr %2, align 8
   %.pre = load ptr, ptr %queue, align 8
   store ptr %queue, ptr %prev4.i.i, align 8
-  %cmp.i.not6 = icmp eq ptr %.pre, %queue
+  %cmp.i.not6 = icmp eq ptr %queue, %.pre
   br i1 %cmp.i.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
@@ -391,7 +391,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %8 = load ptr, ptr %check_cb, align 8
   call void %8(ptr noundef nonnull %add.ptr) #3
   %9 = load ptr, ptr %queue, align 8
-  %cmp.i.not = icmp eq ptr %9, %queue
+  %cmp.i.not = icmp eq ptr %queue, %9
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %entry, %uv__queue_move.exit
@@ -567,7 +567,7 @@ entry:
   %queue = alloca %struct.uv__queue, align 8
   %idle_handles = getelementptr inbounds i8, ptr %loop, i64 416
   %0 = load ptr, ptr %idle_handles, align 8
-  %cmp.i.not.i = icmp eq ptr %0, %idle_handles
+  %cmp.i.not.i = icmp eq ptr %idle_handles, %0
   br i1 %cmp.i.not.i, label %while.end, label %uv__queue_move.exit
 
 uv__queue_move.exit:                              ; preds = %entry
@@ -583,7 +583,7 @@ uv__queue_move.exit:                              ; preds = %entry
   store ptr %idle_handles, ptr %2, align 8
   %.pre = load ptr, ptr %queue, align 8
   store ptr %queue, ptr %prev4.i.i, align 8
-  %cmp.i.not6 = icmp eq ptr %.pre, %queue
+  %cmp.i.not6 = icmp eq ptr %queue, %.pre
   br i1 %cmp.i.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
@@ -609,7 +609,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %8 = load ptr, ptr %idle_cb, align 8
   call void %8(ptr noundef nonnull %add.ptr) #3
   %9 = load ptr, ptr %queue, align 8
-  %cmp.i.not = icmp eq ptr %9, %queue
+  %cmp.i.not = icmp eq ptr %queue, %9
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %entry, %uv__queue_move.exit

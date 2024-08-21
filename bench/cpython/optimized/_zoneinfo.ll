@@ -2053,7 +2053,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyModule_GetState(ptr noundef %call.i) #9
   %0 = load ptr, ptr %key, align 8
   %1 = load ptr, ptr %call.i.i, align 8
-  %cmp.not.i = icmp eq ptr %1, %type
+  %cmp.not.i = icmp eq ptr %type, %1
   br i1 %cmp.not.i, label %if.end.i23, label %lor.lhs.false
 
 if.end.i23:                                       ; preds = %if.end
@@ -2139,7 +2139,7 @@ lor.lhs.false:                                    ; preds = %if.end4.i.i, %while
 
 if.end6:                                          ; preds = %lor.lhs.false
   %10 = load ptr, ptr %call.i.i, align 8
-  %cmp.i25 = icmp eq ptr %10, %type
+  %cmp.i25 = icmp eq ptr %type, %10
   br i1 %cmp.i25, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end6
@@ -2232,7 +2232,7 @@ if.end22:                                         ; preds = %if.end21, %if.end11
   %instance.0 = phi ptr [ %call18, %if.end21 ], [ %call8, %if.end11 ]
   %21 = load ptr, ptr %key, align 8
   %22 = load ptr, ptr %call.i.i, align 8
-  %cmp.not.i30 = icmp eq ptr %22, %type
+  %cmp.not.i30 = icmp eq ptr %type, %22
   br i1 %cmp.not.i30, label %if.end.i31, label %return
 
 if.end.i31:                                       ; preds = %if.end22
@@ -2890,8 +2890,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1023 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1822 = phi i64 [ %cond17, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1822, %add
+  %add = sub i64 0, %cond1822
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_kwonly, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -2905,7 +2905,7 @@ skip_optional_kwonly:                             ; preds = %if.end, %if.end14
   %5 = getelementptr i8, ptr %cls.val, i64 32
   %cls.val.val = load ptr, ptr %5, align 8
   %6 = load ptr, ptr %cls.val.val, align 8
-  %cmp.i32.i = icmp eq ptr %6, %type
+  %cmp.i32.i = icmp eq ptr %type, %6
   br i1 %cmp.i32.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %skip_optional_kwonly
@@ -2964,7 +2964,7 @@ if.then1.i79.i:                                   ; preds = %if.end.i76.i
 
 if.end.i:                                         ; preds = %if.then1.i79.i, %if.end.i76.i, %if.then5.i, %if.then.i
   %12 = load ptr, ptr %cls.val.val, align 8
-  %cmp.not.i.i = icmp eq ptr %12, %type
+  %cmp.not.i.i = icmp eq ptr %type, %12
   br i1 %cmp.not.i.i, label %if.end.i33.i, label %if.end23.i
 
 if.end.i33.i:                                     ; preds = %if.end.i
@@ -3066,7 +3066,7 @@ if.then1.i70.i:                                   ; preds = %if.end.i67.i
 while.body.i:                                     ; preds = %Py_DECREF.exit45.i, %while.body.lr.ph.i
   %call148.i = phi ptr [ %call146.i, %while.body.lr.ph.i ], [ %call14.i, %Py_DECREF.exit45.i ]
   %23 = load ptr, ptr %cls.val.val, align 8
-  %cmp.not.i35.i = icmp eq ptr %23, %type
+  %cmp.not.i35.i = icmp eq ptr %type, %23
   br i1 %cmp.not.i35.i, label %if.end.i37.i, label %if.end18.i
 
 if.end.i37.i:                                     ; preds = %while.body.i
@@ -3668,14 +3668,14 @@ if.end.i68:                                       ; preds = %if.then20
   br i1 %cmp.i69, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.end.i68
-  %cmp5.i = icmp sle i64 %sub.i, %.pre
-  %cmp6.i = icmp sgt i64 %sub3.i, %.pre
+  %cmp5.i = icmp sge i64 %.pre, %sub.i
+  %cmp6.i = icmp slt i64 %.pre, %sub3.i
   %22 = and i1 %cmp5.i, %cmp6.i
   br label %if.end12.i
 
 if.else.i:                                        ; preds = %if.end.i68
-  %cmp7.i = icmp sgt i64 %sub3.i, %.pre
-  %cmp9.i = icmp sle i64 %sub.i, %.pre
+  %cmp7.i = icmp slt i64 %.pre, %sub3.i
+  %cmp9.i = icmp sge i64 %.pre, %sub.i
   %23 = or i1 %cmp9.i, %cmp7.i
   br label %if.end12.i
 
@@ -3690,8 +3690,8 @@ if.end12.i:                                       ; preds = %if.else.i, %if.then
   %sub21.i = sub i64 %sub.i, %conv20.i
   %ambig_start.0.i = select i1 %cmp13.i, i64 %sub3.i, i64 %sub.i
   %ambig_end.0.i = select i1 %cmp13.i, i64 %add.i, i64 %sub21.i
-  %cmp23.i = icmp sle i64 %ambig_start.0.i, %.pre
-  %cmp26.i = icmp sgt i64 %ambig_end.0.i, %.pre
+  %cmp23.i = icmp sge i64 %.pre, %ambig_start.0.i
+  %cmp26.i = icmp slt i64 %.pre, %ambig_end.0.i
   %25 = select i1 %cmp23.i, i1 %cmp26.i, i1 false
   %conv30.i = zext i1 %25 to i8
   %spec.select.idx.i = select i1 %isdst.0.in.i, i64 32, i64 0
@@ -5109,7 +5109,7 @@ for.inc37:                                        ; preds = %land.lhs.true, %if.
   %dst_found.1 = phi i64 [ %dst_found.052, %lor.lhs.false ], [ %inc34, %if.then33 ], [ %dst_found.052, %if.end31 ], [ %dst_found.052, %if.then23 ], [ %dst_found.052, %if.end ], [ %dst_found.052, %land.lhs.true ]
   %inc38 = add nuw i64 %i2.051, 1
   %cmp4 = icmp uge i64 %inc38, %num_transitions
-  %cmp6 = icmp eq i64 %dst_found.1, %num_ttinfos
+  %cmp6 = icmp eq i64 %num_ttinfos, %dst_found.1
   %or.cond = select i1 %cmp4, i1 true, i1 %cmp6
   br i1 %or.cond, label %for.end39, label %if.end, !llvm.loop !20
 
@@ -6737,14 +6737,14 @@ if.end.i:                                         ; preds = %if.then15
   br i1 %cmp10.i, label %if.then12.i, label %if.else18.i
 
 if.then12.i:                                      ; preds = %if.end.i
-  %cmp13.i = icmp sle i64 %start.0.i, %.pre
-  %cmp15.i = icmp sgt i64 %end.0.i, %.pre
+  %cmp13.i = icmp sge i64 %.pre, %start.0.i
+  %cmp15.i = icmp slt i64 %.pre, %end.0.i
   %17 = and i1 %cmp13.i, %cmp15.i
   br label %if.end24.i
 
 if.else18.i:                                      ; preds = %if.end.i
-  %cmp19.i = icmp sgt i64 %end.0.i, %.pre
-  %cmp21.i = icmp sle i64 %start.0.i, %.pre
+  %cmp19.i = icmp slt i64 %.pre, %end.0.i
+  %cmp21.i = icmp sge i64 %.pre, %start.0.i
   %18 = or i1 %cmp19.i, %cmp21.i
   br label %if.end24.i
 

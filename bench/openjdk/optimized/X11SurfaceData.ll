@@ -1049,7 +1049,7 @@ define internal void @X11SD_GetRasInfo(ptr nocapture readnone %0, ptr nocapture 
 89:                                               ; preds = %83
   %90 = getelementptr inbounds i8, ptr %82, i64 40
   %91 = load i32, ptr %90, align 8
-  %.not.i.i.i = icmp eq i32 %91, %.pre25.i
+  %.not.i.i.i = icmp eq i32 %.pre25.i, %91
   br i1 %.not.i.i.i, label %92, label %X11SD_CachedXImageFits.exit.thread.i.i
 
 92:                                               ; preds = %89
@@ -2980,7 +2980,7 @@ define hidden ptr @X11SD_GetSharedImage(ptr nocapture noundef readonly %0, i32 n
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 40
   %18 = load i32, ptr %17, align 8
-  %.not.i = icmp eq i32 %18, %16
+  %.not.i = icmp eq i32 %16, %18
   br i1 %.not.i, label %19, label %X11SD_CachedXImageFits.exit.thread
 
 19:                                               ; preds = %14
@@ -3040,7 +3040,7 @@ define hidden zeroext range(i8 0, 2) i8 @X11SD_CachedXImageFits(i32 noundef %0, 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %7, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp eq i32 %15, %4
+  %.not = icmp eq i32 %4, %15
   br i1 %.not, label %16, label %22
 
 16:                                               ; preds = %13

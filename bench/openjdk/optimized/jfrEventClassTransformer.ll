@@ -7564,7 +7564,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %2357, %2363
   %2368 = getelementptr inbounds i8, ptr %0, i64 152
   %2369 = load ptr, ptr %2368, align 8
   %2370 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  %2371 = icmp eq ptr %2370, %2369
+  %2371 = icmp eq ptr %2369, %2370
   br i1 %2371, label %_ZNK15ClassLoaderData25is_boot_class_loader_dataEv.exit, label %2372
 
 2372:                                             ; preds = %_ZNK5Klass11java_mirrorEv.exit
@@ -7819,7 +7819,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24

@@ -111,7 +111,7 @@ define dso_local range(i32 -4, 2) i32 @nf_conntrack_tcp_packet(ptr noundef %0, p
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 116
   %15 = load i32, ptr %14, align 4
-  %16 = add i32 %15, %2
+  %16 = add i32 %2, %15
   %17 = sub i32 %13, %16
   %18 = icmp slt i32 %17, 20
   br i1 %18, label %19, label %24, !prof !6
@@ -267,7 +267,7 @@ define dso_local range(i32 -4, 2) i32 @nf_conntrack_tcp_packet(ptr noundef %0, p
   %114 = and i16 %113, 1
   %115 = zext nneg i16 %114 to i32
   %116 = add i32 %105, %104
-  %117 = add i32 %109, %2
+  %117 = add i32 %2, %109
   %118 = sub i32 %116, %117
   %119 = add i32 %118, %112
   %120 = add i32 %119, %115
@@ -310,7 +310,7 @@ define dso_local range(i32 -4, 2) i32 @nf_conntrack_tcp_packet(ptr noundef %0, p
   %147 = and i16 %146, 1
   %148 = zext nneg i16 %147 to i32
   %149 = add i32 %138, %137
-  %150 = add i32 %142, %2
+  %150 = add i32 %2, %142
   %151 = sub i32 %149, %150
   %152 = add i32 %151, %145
   %153 = add i32 %152, %148
@@ -515,7 +515,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %288 = and i16 %287, 1
   %289 = zext nneg i16 %288 to i32
   %290 = add i32 %278, %279
-  %291 = add i32 %283, %2
+  %291 = add i32 %2, %283
   %292 = sub i32 %290, %291
   %293 = add i32 %292, %286
   %294 = add i32 %293, %289
@@ -838,7 +838,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %496 = and i16 %495, 1
   %497 = zext nneg i16 %496 to i32
   %498 = add i32 %479, %487
-  %499 = add i32 %491, %2
+  %499 = add i32 %2, %491
   %500 = sub i32 %498, %499
   %501 = add i32 %500, %494
   %502 = add i32 %501, %497
@@ -859,7 +859,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %511 = add i32 %2, 20
   %512 = load i32, ptr %14, align 4
   %513 = add i32 %487, -20
-  %514 = add i32 %512, %2
+  %514 = add i32 %2, %512
   %515 = sub i32 %513, %514
   %516 = icmp slt i32 %515, %508
   br i1 %516, label %517, label %522, !prof !6
@@ -1598,7 +1598,7 @@ define internal fastcc void @tcp_options(ptr noundef %0, i32 noundef %1, i16 %.1
   %14 = getelementptr inbounds i8, ptr %0, i64 116
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %13, -20
-  %17 = add i32 %15, %1
+  %17 = add i32 %1, %15
   %18 = sub i32 %16, %17
   %19 = icmp slt i32 %18, %8
   br i1 %19, label %20, label %25, !prof !6
@@ -1739,7 +1739,7 @@ define internal fastcc void @nf_tcp_handle_invalid(ptr noundef %0, i32 noundef %
   %16 = getelementptr inbounds i8, ptr %0, i64 225
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
-  %19 = icmp eq i32 %18, %1
+  %19 = icmp eq i32 %1, %18
   br i1 %19, label %41, label %20
 
 20:                                               ; preds = %15

@@ -1620,13 +1620,13 @@ Abc_Clock.exit140:                                ; preds = %Abc_Clock.exit, %23
   %56 = add nsw i32 %.val3.i, 1
   %57 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %58 = load i32, ptr %57, align 4
-  %.not.i156.not = icmp sgt i32 %58, %.val3.i
+  %.not.i156.not = icmp slt i32 %.val3.i, %58
   br i1 %.not.i156.not, label %Vec_IntFillExtra.exit, label %59
 
 59:                                               ; preds = %.lr.ph
   %60 = load i32, ptr %55, align 8
   %61 = shl nsw i32 %60, 1
-  %.not180 = icmp sgt i32 %61, %.val3.i
+  %.not180 = icmp slt i32 %.val3.i, %61
   %.not.i.i157.not = icmp sgt i32 %60, %.val3.i
   br i1 %.not180, label %74, label %62
 
@@ -1740,13 +1740,13 @@ Vec_IntFillExtra.exit:                            ; preds = %.lr.ph, %._crit_edg
   %106 = add nsw i32 %.val3.i142, 1
   %107 = getelementptr inbounds i8, ptr %.val2.i141, i64 228
   %108 = load i32, ptr %107, align 4
-  %.not.i162.not = icmp sgt i32 %108, %.val3.i142
+  %.not.i162.not = icmp slt i32 %.val3.i142, %108
   br i1 %.not.i162.not, label %Vec_IntFillExtra.exit175, label %109
 
 109:                                              ; preds = %Vec_IntFillExtra.exit
   %110 = load i32, ptr %105, align 8
   %111 = shl nsw i32 %110, 1
-  %.not182 = icmp sgt i32 %111, %.val3.i142
+  %.not182 = icmp slt i32 %.val3.i142, %111
   %.not.i.i163.not = icmp sgt i32 %110, %.val3.i142
   br i1 %.not182, label %124, label %112
 
@@ -2393,13 +2393,13 @@ declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

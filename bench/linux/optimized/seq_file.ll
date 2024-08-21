@@ -2261,7 +2261,7 @@ define dso_local void @seq_hex_dump(ptr nocapture noundef %0, ptr noundef %1, i3
 64:                                               ; preds = %.thread, %60, %58
   %65 = add i32 %18, %10
   %66 = sext i32 %65 to i64
-  %67 = icmp ult i64 %66, %6
+  %67 = icmp ugt i64 %6, %66
   br i1 %67, label %16, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %64, %16, %8

@@ -701,7 +701,7 @@ ExpandIndirectionStar.exit:                       ; preds = %38, %42
 
 51:                                               ; preds = %.lr.ph45
   %52 = icmp eq i32 %12, 50
-  %or.cond = and i1 %52, %3
+  %or.cond = and i1 %3, %52
   br i1 %or.cond, label %54, label %.thread
 
 .thread:                                          ; preds = %13, %27, %51

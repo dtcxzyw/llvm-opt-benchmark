@@ -36,7 +36,7 @@ define hidden noundef double @_ZNK5ceres8internal24TrustRegionStepEvaluator11Ste
   %12 = fsub double %11, %1
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   %14 = load double, ptr %13, align 8
-  %15 = fadd double %14, %2
+  %15 = fadd double %2, %14
   %16 = fdiv double %12, %15
   %17 = fcmp olt double %9, %16
   %.sroa.speculated = select i1 %17, double %16, double %9
@@ -53,15 +53,15 @@ define hidden void @_ZN5ceres8internal24TrustRegionStepEvaluator12StepAcceptedEd
   store double %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load double, ptr %5, align 8
-  %7 = fadd double %6, %2
+  %7 = fadd double %2, %6
   store double %7, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load double, ptr %8, align 8
-  %10 = fadd double %9, %2
+  %10 = fadd double %2, %9
   store double %10, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load double, ptr %11, align 8
-  %13 = fcmp ogt double %12, %1
+  %13 = fcmp olt double %1, %12
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %3
@@ -78,7 +78,7 @@ define hidden void @_ZN5ceres8internal24TrustRegionStepEvaluator12StepAcceptedEd
   store i32 %20, ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load double, ptr %21, align 8
-  %23 = fcmp olt double %22, %1
+  %23 = fcmp ogt double %1, %22
   br i1 %23, label %.sink.split, label %24
 
 .sink.split:                                      ; preds = %17, %14

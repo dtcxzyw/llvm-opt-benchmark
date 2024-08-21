@@ -2351,7 +2351,7 @@ select.unfold:                                    ; preds = %69, %61, %73
 
 278:                                              ; preds = %259
   %279 = sub nuw i32 %16, %275
-  %280 = call i32 @llvm.umin.i32(i32 %279, i32 %5)
+  %280 = call i32 @llvm.umin.i32(i32 %5, i32 %279)
   %281 = icmp sgt i32 %280, 0
   br i1 %281, label %282, label %285
 
@@ -2426,7 +2426,7 @@ select.unfold:                                    ; preds = %69, %61, %73
 
 327:                                              ; preds = %306
   %328 = sub nuw i32 %16, %324
-  %329 = call i32 @llvm.umin.i32(i32 %328, i32 %5)
+  %329 = call i32 @llvm.umin.i32(i32 %5, i32 %328)
   %330 = icmp sgt i32 %329, 0
   br i1 %330, label %331, label %334
 
@@ -2606,7 +2606,7 @@ select.unfold:                                    ; preds = %69, %61, %73
 
 435:                                              ; preds = %.loopexit
   %436 = sub nuw i32 %16, %432
-  %437 = call i32 @llvm.umin.i32(i32 %436, i32 %5)
+  %437 = call i32 @llvm.umin.i32(i32 %5, i32 %436)
   %438 = icmp sgt i32 %437, 0
   br i1 %438, label %439, label %442
 
@@ -3042,7 +3042,7 @@ handleDataSegment.exit1606:                       ; preds = %.loopexit, %451, %4
   %.sink1773 = phi i32 [ 3, %721 ], [ 1, %724 ]
   %hf_iscsi_ISID_Qualifier.sink1748.ph = phi ptr [ @hf_iscsi_ISID_Qualifier, %721 ], [ @hf_iscsi_ISID_d, %724 ]
   %732 = load i32, ptr %hf_iscsi_ISID_NamingAuthority.sink, align 4
-  %733 = add i32 %.sink1774, %3
+  %733 = add i32 %3, %.sink1774
   %734 = call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %732, ptr noundef %0, i32 noundef %733, i32 noundef %.sink1773, i32 noundef 0) #9
   br label %735
 
@@ -3511,17 +3511,17 @@ handleDataSegment.exit1606:                       ; preds = %.loopexit, %451, %4
   %hf_iscsi_RunLength.val = load i32, ptr @hf_iscsi_RunLength, align 4
   %hf_iscsi_ExpStatSN.val = load i32, ptr @hf_iscsi_ExpStatSN, align 4
   %1057 = select i1 %1053, i32 %hf_iscsi_RunLength.val, i32 %hf_iscsi_ExpStatSN.val
-  %1058 = add i32 %., %3
+  %1058 = add i32 %3, %.
   %1059 = call ptr @proto_tree_add_item(ptr noundef %.01447, i32 noundef %1057, ptr noundef %0, i32 noundef %1058, i32 noundef 4, i32 noundef 0) #9
   %hf_iscsi_ExpStatSN.val1779 = load i32, ptr @hf_iscsi_ExpStatSN, align 4
   %hf_iscsi_BegRun.val1780 = load i32, ptr @hf_iscsi_BegRun, align 4
   %1060 = select i1 %1053, i32 %hf_iscsi_ExpStatSN.val1779, i32 %hf_iscsi_BegRun.val1780
-  %1061 = add i32 %.1775, %3
+  %1061 = add i32 %3, %.1775
   %1062 = call ptr @proto_tree_add_item(ptr noundef %.01447, i32 noundef %1060, ptr noundef %0, i32 noundef %1061, i32 noundef 4, i32 noundef 0) #9
   %hf_iscsi_ExpDataSN.val = load i32, ptr @hf_iscsi_ExpDataSN, align 4
   %hf_iscsi_RunLength.val1781 = load i32, ptr @hf_iscsi_RunLength, align 4
   %1063 = select i1 %1053, i32 %hf_iscsi_ExpDataSN.val, i32 %hf_iscsi_RunLength.val1781
-  %1064 = add i32 %.1776, %3
+  %1064 = add i32 %3, %.1776
   %1065 = call ptr @proto_tree_add_item(ptr noundef %.01447, i32 noundef %1063, ptr noundef %0, i32 noundef %1064, i32 noundef 4, i32 noundef 0) #9
   %1066 = call fastcc i32 @handleHeaderDigest(ptr noundef nonnull %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %3, i32 noundef 48)
   br label %proto_item_set_generated.exit1619
@@ -4507,7 +4507,7 @@ define internal fastcc i32 @handleDataSegment(ptr nocapture noundef readonly %0,
 
 9:                                                ; preds = %7
   %10 = sub nuw i32 %5, %3
-  %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 %4)
+  %11 = tail call i32 @llvm.umin.i32(i32 %4, i32 %10)
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %16
 
@@ -4614,7 +4614,7 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
 
 13:                                               ; preds = %8
   %14 = sub nuw i32 %6, %4
-  %15 = tail call i32 @llvm.umin.i32(i32 %14, i32 %5)
+  %15 = tail call i32 @llvm.umin.i32(i32 %5, i32 %14)
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %17, label %109
 
@@ -4623,7 +4623,7 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
   %19 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %15, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.456) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %20 = add i32 %15, %4
-  %21 = icmp sgt i32 %20, %4
+  %21 = icmp slt i32 %4, %20
   br i1 %21, label %.lr.ph.i, label %addTextKeys.exit
 
 .lr.ph.i:                                         ; preds = %17

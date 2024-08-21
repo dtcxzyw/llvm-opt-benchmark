@@ -38,7 +38,7 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr nocapture noundef nonnu
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.fr = freeze i64 %6
-  %.not = icmp ugt i64 %.fr, %2
+  %.not = icmp ult i64 %2, %.fr
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %4
@@ -153,7 +153,7 @@ define void @_ZNK5faiss13CodePackerPQ48unpack_1EPKhmPh(ptr nocapture noundef non
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.fr26 = freeze i64 %6
-  %.not = icmp ugt i64 %.fr26, %2
+  %.not = icmp ult i64 %2, %.fr26
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %4
@@ -398,7 +398,7 @@ define void @_ZN5faiss14pq4_pack_codesEPKhmmmmmPh(ptr nocapture noundef readonly
 
 74:                                               ; preds = %88
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 2
-  %75 = icmp ult i64 %indvars.iv.next84, %5
+  %75 = icmp ugt i64 %5, %indvars.iv.next84
   br i1 %75, label %.preheader67.us, label %._crit_edge.us, !llvm.loop !8
 
 76:                                               ; preds = %.preheader67.us, %88
@@ -576,7 +576,7 @@ define void @_ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh(ptr nocapture noundef re
 
 24:                                               ; preds = %38
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 2
-  %25 = icmp ult i64 %indvars.iv.next68, %5
+  %25 = icmp ugt i64 %5, %indvars.iv.next68
   br i1 %25, label %.preheader51.us, label %._crit_edge.us, !llvm.loop !14
 
 26:                                               ; preds = %.preheader51.us, %38

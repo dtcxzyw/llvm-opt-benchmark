@@ -1629,7 +1629,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !167
   %142 = getelementptr inbounds i8, ptr %22, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %142, i64 32, i1 false)
-  %143 = icmp eq i64 %124, %.lcssa189
+  %143 = icmp eq i64 %.lcssa189, %124
   br i1 %143, label %147, label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %147, %135
@@ -1694,7 +1694,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24.48..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.5.i)
-  %169 = icmp eq i64 %163, %165
+  %169 = icmp eq i64 %165, %163
   br i1 %169, label %171, label %170
 
 170:                                              ; preds = %160
@@ -1993,7 +1993,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %292 = add nuw nsw i64 %278, 2
   %293 = getelementptr inbounds i8, ptr %spec.select.i, i64 720
   %294 = add i64 %215, 2
-  %295 = icmp ult i64 %294, %292
+  %295 = icmp ugt i64 %292, %294
   br i1 %295, label %296, label %301
 
 296:                                              ; preds = %289
@@ -2447,7 +2447,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !353
   %140 = getelementptr inbounds i8, ptr %17, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %140, i64 24, i1 false)
-  %141 = icmp eq i64 %122, %.lcssa191
+  %141 = icmp eq i64 %.lcssa191, %122
   br i1 %141, label %145, label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %145, %133
@@ -2512,7 +2512,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.24.48..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.5.i)
-  %167 = icmp eq i64 %161, %163
+  %167 = icmp eq i64 %163, %161
   br i1 %167, label %169, label %168
 
 168:                                              ; preds = %158
@@ -2812,7 +2812,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %293 = add nuw nsw i64 %278, 2
   %294 = getelementptr inbounds i8, ptr %spec.select.i, i64 632
   %295 = add i64 %214, 2
-  %296 = icmp ult i64 %295, %293
+  %296 = icmp ugt i64 %293, %295
   br i1 %296, label %297, label %302
 
 297:                                              ; preds = %290
@@ -3189,7 +3189,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5), !noalias !515
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !515
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.55.0..sroa_idx, i64 32, i1 false)
-  %112 = icmp eq i64 %94, %.lcssa179
+  %112 = icmp eq i64 %.lcssa179, %94
   br i1 %112, label %116, label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %116, %105
@@ -3243,7 +3243,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.5.i35)
-  %135 = icmp eq i64 %129, %131
+  %135 = icmp eq i64 %131, %129
   br i1 %135, label %137, label %136
 
 136:                                              ; preds = %126
@@ -3502,7 +3502,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %243 = add nuw nsw i64 %233, 2
   %244 = getelementptr inbounds i8, ptr %spec.select.i, i64 368
   %245 = add i64 %175, 2
-  %246 = icmp ult i64 %245, %243
+  %246 = icmp ugt i64 %243, %245
   br i1 %246, label %247, label %252
 
 247:                                              ; preds = %241
@@ -3946,7 +3946,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !678
   %137 = getelementptr inbounds i8, ptr %17, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %137, i64 24, i1 false)
-  %138 = icmp eq i64 %121, %.lcssa189
+  %138 = icmp eq i64 %.lcssa189, %121
   br i1 %138, label %142, label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %142, %132
@@ -4011,7 +4011,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.24.40..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.5.i)
-  %164 = icmp eq i64 %158, %160
+  %164 = icmp eq i64 %160, %158
   br i1 %164, label %166, label %165
 
 165:                                              ; preds = %155
@@ -4311,7 +4311,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %288 = add nuw nsw i64 %273, 2
   %289 = getelementptr inbounds i8, ptr %spec.select.i, i64 544
   %290 = add i64 %210, 2
-  %291 = icmp ult i64 %290, %288
+  %291 = icmp ugt i64 %288, %290
   br i1 %291, label %292, label %297
 
 292:                                              ; preds = %285
@@ -4768,7 +4768,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !865
   %145 = getelementptr inbounds i8, ptr %22, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %145, i64 48, i1 false)
-  %146 = icmp eq i64 %127, %.lcssa189
+  %146 = icmp eq i64 %.lcssa189, %127
   br i1 %146, label %150, label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %150, %138
@@ -4833,7 +4833,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.24.48..sroa_idx, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.5.i)
-  %172 = icmp eq i64 %166, %168
+  %172 = icmp eq i64 %168, %166
   br i1 %172, label %174, label %173
 
 173:                                              ; preds = %163
@@ -5135,7 +5135,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %298 = add nuw nsw i64 %283, 2
   %299 = getelementptr inbounds i8, ptr %spec.select.i, i64 896
   %300 = add i64 %219, 2
-  %301 = icmp ult i64 %300, %298
+  %301 = icmp ugt i64 %298, %300
   br i1 %301, label %302, label %307
 
 302:                                              ; preds = %295

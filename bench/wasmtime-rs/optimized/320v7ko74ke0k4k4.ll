@@ -6787,7 +6787,7 @@ define hidden void @"_ZN13wasmtime_wasi4host6clocks102_$LT$impl$u20$wasmtime_was
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !invariant.load !5, !nonnull !5
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 1 %5)
-  %11 = icmp ult i64 %10, %2
+  %11 = icmp ugt i64 %2, %10
   br i1 %11, label %_ZN4core4time8Duration3new17h2b271a0fd6558ad7E.llvm.10002545943538650143.exit, label %18
 
 _ZN4core4time8Duration3new17h2b271a0fd6558ad7E.llvm.10002545943538650143.exit: ; preds = %3
@@ -27610,7 +27610,7 @@ common.ret:                                       ; preds = %221, %"_ZN153_$LT$c
 165:                                              ; preds = %160
   %166 = getelementptr inbounds i8, ptr %13, i64 8
   %167 = load i64, ptr %166, align 8, !alias.scope !4243, !noalias !4202, !noundef !5
-  %.not.i.i24 = icmp ult i64 %167, %163
+  %.not.i.i24 = icmp ugt i64 %163, %167
   br i1 %.not.i.i24, label %_ZN5bytes9bytes_mut8BytesMut8truncate17hdc0cb7f1d4142ccbE.exit.i, label %168
 
 168:                                              ; preds = %165
@@ -27669,7 +27669,7 @@ _ZN5bytes9bytes_mut8BytesMut8truncate17hdc0cb7f1d4142ccbE.exit.i: ; preds = %168
   store i64 %178, ptr %7, align 8, !noalias !4253
   %186 = getelementptr inbounds i8, ptr %8, i64 16
   %187 = load i64, ptr %186, align 8, !noalias !4246, !noundef !5
-  %.not.i.i.i = icmp ult i64 %187, %178
+  %.not.i.i.i = icmp ugt i64 %178, %187
   br i1 %.not.i.i.i, label %188, label %222
 
 188:                                              ; preds = %.noexc24.i

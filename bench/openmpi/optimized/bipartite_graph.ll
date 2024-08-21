@@ -775,12 +775,12 @@ define range(i32 -14, 1) i32 @prte_bp_graph_add_edge(ptr nocapture noundef reado
 
 8:                                                ; preds = %6
   %9 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   br i1 %.not, label %10, label %pmix_pointer_array_get_item.exit.thread
 
 10:                                               ; preds = %8
   %11 = icmp slt i32 %2, 0
-  %.not55 = icmp sle i32 %9, %2
+  %.not55 = icmp sge i32 %2, %9
   %or.cond.not70 = or i1 %11, %.not55
   %12 = icmp eq i64 %3, 9223372036854775807
   %or.cond57 = or i1 %12, %or.cond.not70
@@ -1058,12 +1058,12 @@ define zeroext i1 @prte_bp_graph_bellman_ford(ptr noundef readonly %0, i32 nound
 
 14:                                               ; preds = %12
   %15 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %16, label %pmix_pointer_array_get_item.exit.thread
 
 16:                                               ; preds = %14
   %17 = icmp sgt i32 %2, -1
-  %.not98 = icmp sgt i32 %15, %2
+  %.not98 = icmp slt i32 %2, %15
   %or.cond = and i1 %17, %.not98
   br i1 %or.cond, label %18, label %pmix_pointer_array_get_item.exit.thread
 
@@ -1559,12 +1559,12 @@ define i32 @prte_bp_graph_solve_bipartite_assignment(ptr nocapture noundef reado
 
 39:                                               ; preds = %.lr.ph.i.i
   %40 = load i32, ptr %15, align 8
-  %.not.i.i.i = icmp sgt i32 %40, %.023.i.i
+  %.not.i.i.i = icmp slt i32 %.023.i.i, %40
   br i1 %.not.i.i.i, label %41, label %get_capacity.exit.i.i
 
 41:                                               ; preds = %39
   %42 = icmp sgt i32 %.01521.i.i, -1
-  %.not22.i.i.i = icmp sgt i32 %40, %.01521.i.i
+  %.not22.i.i.i = icmp slt i32 %.01521.i.i, %40
   %or.cond.i.i.i = and i1 %42, %.not22.i.i.i
   br i1 %or.cond.i.i.i, label %43, label %get_capacity.exit.i.i
 
@@ -1637,12 +1637,12 @@ get_capacity.exit.i.i:                            ; preds = %59, %56, %50, %pmix
 
 75:                                               ; preds = %.lr.ph.i
   %76 = load i32, ptr %15, align 8
-  %.not.i74.i = icmp sgt i32 %76, %.064137.i
+  %.not.i74.i = icmp slt i32 %.064137.i, %76
   br i1 %.not.i74.i, label %77, label %get_capacity.exit.thread114.i
 
 77:                                               ; preds = %75
   %78 = icmp sgt i32 %.063136.i, -1
-  %.not22.i.i = icmp sgt i32 %76, %.063136.i
+  %.not22.i.i = icmp slt i32 %.063136.i, %76
   %or.cond.i.i = and i1 %78, %.not22.i.i
   br i1 %or.cond.i.i, label %79, label %get_capacity.exit.thread114.i
 
@@ -1727,8 +1727,8 @@ get_capacity.exit.thread114.i:                    ; preds = %79, %77, %103, %pmi
   %112 = getelementptr inbounds i8, ptr %.pn29.i.i, i64 304
   store i32 %97, ptr %112, align 8
   %113 = load i32, ptr %15, align 8
-  %.not.i87.i = icmp sgt i32 %113, %.063136.i
-  %.not22.i89.i = icmp sgt i32 %113, %.064137.i
+  %.not.i87.i = icmp slt i32 %.063136.i, %113
+  %.not22.i89.i = icmp slt i32 %.064137.i, %113
   %or.cond.i = and i1 %.not.i87.i, %.not22.i89.i
   br i1 %or.cond.i, label %114, label %get_capacity.exit99.thread119.i
 

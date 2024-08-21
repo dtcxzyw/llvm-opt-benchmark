@@ -246,7 +246,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i, %if.
 call2.i.i.i.noexc29:                              ; preds = %invoke.cont
   %cmp.i.i11 = icmp eq i32 %call2.i.i.i30, 2
   %inc.i.i12 = zext i1 %cmp.i.i11 to i64
-  %spec.select.i.i = add i64 %inc.i.i12, %i
+  %spec.select.i.i = add i64 %i, %inc.i.i12
   %d_children.i.i13 = getelementptr inbounds i8, ptr %4, i64 16
   %sext = shl i64 %spec.select.i.i, 32
   %idxprom.i.i14 = ashr exact i64 %sext, 32
@@ -489,7 +489,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -557,7 +557,7 @@ _ZNSt8_Rb_treeImSt4pairIKmbESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boun
 _ZNSt3mapImbSt4lessImESaISt4pairIKmbEEE4findERS3_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmbESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
-  %cmp.i4.i.i = icmp ugt i64 %2, %i
+  %cmp.i4.i.i = icmp ult i64 %i, %2
   br i1 %cmp.i4.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNSt3mapImbSt4lessImESaISt4pairIKmbEEE4findERS3_.exit
@@ -648,7 +648,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i, %if.
 call2.i.i.i.noexc32:                              ; preds = %invoke.cont
   %cmp.i.i13 = icmp eq i32 %call2.i.i.i33, 2
   %inc.i.i14 = zext i1 %cmp.i.i13 to i64
-  %spec.select.i.i15 = add i64 %inc.i.i14, %i
+  %spec.select.i.i15 = add i64 %i, %inc.i.i14
   %d_children.i.i16 = getelementptr inbounds i8, ptr %7, i64 16
   %sext = shl i64 %spec.select.i.i15, 32
   %idxprom.i.i17 = ashr exact i64 %sext, 32
@@ -1265,7 +1265,7 @@ declare noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmbESt10_Select1stIS2_ESt4lessImESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

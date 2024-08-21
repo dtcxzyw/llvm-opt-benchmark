@@ -1120,7 +1120,7 @@ jmp_tohere.exit226.i:                             ; preds = %jmp_patchins.exit.i
 
 if.then.i228.i:                                   ; preds = %jmp_tohere.exit226.i
   %64 = load i32, ptr %linenumber.i, align 8
-  %cmp.i229.i = icmp eq i32 %64, %2
+  %cmp.i229.i = icmp eq i32 %2, %64
   br i1 %cmp.i229.i, label %if.then1.i.i302, label %if.else.i230.i
 
 if.then1.i.i302:                                  ; preds = %if.then.i228.i
@@ -1298,7 +1298,7 @@ bcemit_jmp.exit.i274:                             ; preds = %jmp_patchins.exit.i
 
 if.then.i20.i:                                    ; preds = %bcemit_jmp.exit.i274
   %91 = load i32, ptr %linenumber.i, align 8
-  %cmp.i21.i = icmp eq i32 %91, %2
+  %cmp.i21.i = icmp eq i32 %2, %91
   br i1 %cmp.i21.i, label %if.then1.i.i280, label %if.else.i22.i
 
 if.then1.i.i280:                                  ; preds = %if.then.i20.i
@@ -1419,7 +1419,7 @@ sw.bb2.i:                                         ; preds = %while.body
 
 if.then.i193:                                     ; preds = %sw.bb2.i
   %106 = load i32, ptr %linenumber.i, align 8
-  %cmp.i195 = icmp eq i32 %106, %2
+  %cmp.i195 = icmp eq i32 %2, %106
   br i1 %cmp.i195, label %if.then1.i, label %if.else.i196
 
 if.then1.i:                                       ; preds = %if.then.i193
@@ -1697,7 +1697,7 @@ if.then.i.i.i869:                                 ; preds = %lex_check.exit880
   %152 = load i32, ptr %e.i852, align 8
   %nactvar.i.i.i.i870 = getelementptr inbounds i8, ptr %150, i64 56
   %153 = load i32, ptr %nactvar.i.i.i.i870, align 8
-  %cmp.not.i.i.i.i871 = icmp ugt i32 %153, %152
+  %cmp.not.i.i.i.i871 = icmp ult i32 %152, %153
   br i1 %cmp.not.i.i.i.i871, label %expr_free.exit.i.i856, label %if.then.i.i.i.i872
 
 if.then.i.i.i.i872:                               ; preds = %if.then.i.i.i869
@@ -1758,7 +1758,7 @@ if.then.i.i.i840:                                 ; preds = %lex_check.exit851
   %161 = load i32, ptr %e.i823, align 8
   %nactvar.i.i.i.i841 = getelementptr inbounds i8, ptr %159, i64 56
   %162 = load i32, ptr %nactvar.i.i.i.i841, align 8
-  %cmp.not.i.i.i.i842 = icmp ugt i32 %162, %161
+  %cmp.not.i.i.i.i842 = icmp ult i32 %161, %162
   br i1 %cmp.not.i.i.i.i842, label %expr_free.exit.i.i827, label %if.then.i.i.i.i843
 
 if.then.i.i.i.i843:                               ; preds = %if.then.i.i.i840
@@ -1815,7 +1815,7 @@ if.then.i.i.i812:                                 ; preds = %if.then.i13.i
   %170 = load i32, ptr %e.i795, align 8
   %nactvar.i.i.i.i813 = getelementptr inbounds i8, ptr %168, i64 56
   %171 = load i32, ptr %nactvar.i.i.i.i813, align 8
-  %cmp.not.i.i.i.i814 = icmp ugt i32 %171, %170
+  %cmp.not.i.i.i.i814 = icmp ult i32 %170, %171
   br i1 %cmp.not.i.i.i.i814, label %expr_free.exit.i.i799, label %if.then.i.i.i.i815
 
 if.then.i.i.i.i815:                               ; preds = %if.then.i.i.i812
@@ -2368,7 +2368,7 @@ if.then.i.i.i543:                                 ; preds = %while.body.i526
   %262 = load i32, ptr %e.i.i, align 8
   %nactvar.i.i.i.i544 = getelementptr inbounds i8, ptr %260, i64 56
   %263 = load i32, ptr %nactvar.i.i.i.i544, align 8
-  %cmp.not.i.i.i.i545 = icmp ugt i32 %263, %262
+  %cmp.not.i.i.i.i545 = icmp ult i32 %262, %263
   br i1 %cmp.not.i.i.i.i545, label %expr_free.exit.i.i529, label %if.then.i.i.i.i546
 
 if.then.i.i.i.i546:                               ; preds = %if.then.i.i.i543
@@ -2445,7 +2445,7 @@ bcreg_bump.exit:                                  ; preds = %expr_list.exit, %if
 land.rhs.i.i:                                     ; preds = %bcreg_bump.exit
   %bclim.i = getelementptr inbounds i8, ptr %211, i64 80
   %272 = load i32, ptr %bclim.i, align 8
-  %cmp.not.i499 = icmp ugt i32 %272, %213
+  %cmp.not.i499 = icmp ult i32 %213, %272
   br i1 %cmp.not.i499, label %if.end.i501, label %parse_for_iter.exit.i
 
 if.end.i501:                                      ; preds = %land.rhs.i.i
@@ -2762,7 +2762,7 @@ if.end8.i:                                        ; preds = %jmp_patchins.exit, 
 
 if.then.i26.i:                                    ; preds = %if.end8.i
   %319 = load i32, ptr %linenumber.i, align 8
-  %cmp.i28.i = icmp eq i32 %319, %2
+  %cmp.i28.i = icmp eq i32 %2, %319
   br i1 %cmp.i28.i, label %if.then1.i.i178, label %if.else.i29.i
 
 if.then1.i.i178:                                  ; preds = %if.then.i26.i
@@ -2824,7 +2824,7 @@ sw.bb4.i:                                         ; preds = %while.body
 
 if.then.i.i97:                                    ; preds = %sw.bb4.i
   %331 = load i32, ptr %linenumber.i, align 8
-  %cmp.i.i98 = icmp eq i32 %331, %2
+  %cmp.i.i98 = icmp eq i32 %2, %331
   br i1 %cmp.i.i98, label %if.then1.i.i, label %if.else.i.i99
 
 if.then1.i.i:                                     ; preds = %if.then.i.i97
@@ -3217,7 +3217,7 @@ if.then.i37.i:                                    ; preds = %bcreg_reserve.exit.
   %386 = load i32, ptr %b.i, align 8
   %nactvar.i.i.i = getelementptr inbounds i8, ptr %363, i64 56
   %387 = load i32, ptr %nactvar.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ugt i32 %387, %386
+  %cmp.not.i.i.i = icmp ult i32 %386, %387
   br i1 %cmp.not.i.i.i, label %expr_free.exit.i, label %if.then.i.i38.i
 
 if.then.i.i38.i:                                  ; preds = %if.then.i37.i
@@ -3340,7 +3340,7 @@ if.then.i.i410:                                   ; preds = %while.body.i83.i
   %407 = load i32, ptr %e.i35, align 8
   %nactvar.i.i.i411 = getelementptr inbounds i8, ptr %405, i64 56
   %408 = load i32, ptr %nactvar.i.i.i411, align 8
-  %cmp.not.i.i.i412 = icmp ugt i32 %408, %407
+  %cmp.not.i.i.i412 = icmp ult i32 %407, %408
   br i1 %cmp.not.i.i.i412, label %expr_free.exit.i397, label %if.then.i.i.i413
 
 if.then.i.i.i413:                                 ; preds = %if.then.i.i410
@@ -3471,7 +3471,7 @@ if.then.i.i382:                                   ; preds = %while.body.i.i
   %426 = load i32, ptr %e.i, align 8
   %nactvar.i.i.i383 = getelementptr inbounds i8, ptr %424, i64 56
   %427 = load i32, ptr %nactvar.i.i.i383, align 8
-  %cmp.not.i.i.i384 = icmp ugt i32 %427, %426
+  %cmp.not.i.i.i384 = icmp ult i32 %426, %427
   br i1 %cmp.not.i.i.i384, label %expr_free.exit.i371, label %if.then.i.i.i385
 
 if.then.i.i.i385:                                 ; preds = %if.then.i.i382
@@ -3591,7 +3591,7 @@ if.then.i.i.i:                                    ; preds = %if.else48.i
   %445 = load i32, ptr %e.i, align 8
   %nactvar.i.i.i.i = getelementptr inbounds i8, ptr %419, i64 56
   %446 = load i32, ptr %nactvar.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ugt i32 %446, %445
+  %cmp.not.i.i.i.i = icmp ult i32 %445, %446
   br i1 %cmp.not.i.i.i.i, label %expr_free.exit.i.i, label %if.then.i.i.i.i29
 
 if.then.i.i.i.i29:                                ; preds = %if.then.i.i.i
@@ -3706,7 +3706,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %v.09.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %add.ptr.i.i, %for.body.preheader.i.i ]
   %463 = load i64, ptr %v.09.i.i, align 8
   %464 = inttoptr i64 %463 to ptr
-  %cmp5.i.i = icmp eq ptr %464, %457
+  %cmp5.i.i = icmp eq ptr %457, %464
   br i1 %cmp5.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
@@ -4679,7 +4679,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then.i:                                        ; preds = %while.body
   %shr.i12 = lshr i32 %2, 16
-  %cmp5.not.i = icmp eq i32 %shr.i12, %reg
+  %cmp5.not.i = icmp eq i32 %reg, %shr.i12
   %or.cond22.i = or i1 %cmp21.i, %cmp5.not.i
   br i1 %or.cond22.i, label %if.else.i, label %if.then6.i
 
@@ -4717,7 +4717,7 @@ if.else32.i:                                      ; preds = %if.then20.i
   %6 = load i32, ptr %arrayidx36.i, align 4
   %shr38.i = lshr i32 %6, 8
   %and39.i = and i32 %shr38.i, 255
-  %cmp40.not.i = icmp ugt i32 %and39.i, %reg
+  %cmp40.not.i = icmp ult i32 %reg, %and39.i
   br i1 %cmp40.not.i, label %if.then, label %if.then42.i
 
 if.then42.i:                                      ; preds = %if.else32.i
@@ -5005,7 +5005,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %v.09.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %add.ptr.i, %for.body.preheader.i ]
   %13 = load i64, ptr %v.09.i, align 8
   %14 = inttoptr i64 %13 to ptr
-  %cmp5.i = icmp eq ptr %14, %7
+  %cmp5.i = icmp eq ptr %7, %14
   br i1 %cmp5.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
@@ -5887,7 +5887,7 @@ if.then.i.i99:                                    ; preds = %if.end67.i, %if.end
   %k.i91.i = phi ptr [ %k.i118, %if.end67.thread.i ], [ %k.i.i96, %if.end67.i ]
   %nactvar.i.i.i100 = getelementptr inbounds i8, ptr %54, i64 56
   %55 = load i32, ptr %nactvar.i.i.i100, align 8
-  %cmp.not.i.i.i101 = icmp ugt i32 %55, %.pre8692.i
+  %cmp.not.i.i.i101 = icmp ult i32 %.pre8692.i, %55
   br i1 %cmp.not.i.i.i101, label %expr_free.exit.i97, label %if.then.i.i84.i
 
 if.then.i.i84.i:                                  ; preds = %if.then.i.i99
@@ -5988,7 +5988,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %bc
   %arrayidx = getelementptr inbounds [15 x %struct.anon.4], ptr @priority, i64 0, i64 %idxprom
   %60 = load i8, ptr %arrayidx, align 2
   %conv = zext i8 %60 to i32
-  %cmp1 = icmp ugt i32 %conv, %limit
+  %cmp1 = icmp ult i32 %limit, %conv
   br i1 %cmp1, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
@@ -6237,7 +6237,7 @@ if.then.i.i25.i:                                  ; preds = %if.then5.i
   %83 = load i32, ptr %v, align 8
   %nactvar.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 56
   %84 = load i32, ptr %nactvar.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ugt i32 %84, %83
+  %cmp.not.i.i.i.i = icmp ult i32 %83, %84
   br i1 %cmp.not.i.i.i.i, label %expr_free.exit.i.i, label %if.then.i.i.i26.i
 
 if.then.i.i.i26.i:                                ; preds = %if.then.i.i25.i
@@ -6693,7 +6693,7 @@ if.then13.i:                                      ; preds = %land.lhs.true.i39
 if.then.i86.i:                                    ; preds = %if.then13.i
   %nactvar.i.i.i = getelementptr inbounds i8, ptr %96, i64 56
   %149 = load i32, ptr %nactvar.i.i.i, align 8
-  %cmp.not.i.i87.i = icmp ugt i32 %149, %.pre150.i
+  %cmp.not.i.i87.i = icmp ult i32 %.pre150.i, %149
   br i1 %cmp.not.i.i87.i, label %expr_free.exit.i, label %if.then.i.i88.i
 
 if.then.i.i88.i:                                  ; preds = %if.then.i86.i
@@ -6722,7 +6722,7 @@ if.then.i.i91.i:                                  ; preds = %if.else27.i
   %154 = load i32, ptr %v2, align 8
   %nactvar.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 56
   %155 = load i32, ptr %nactvar.i.i.i.i34, align 8
-  %cmp.not.i.i.i.i35 = icmp ugt i32 %155, %154
+  %cmp.not.i.i.i.i35 = icmp ult i32 %154, %155
   br i1 %cmp.not.i.i.i.i35, label %expr_free.exit.i.i20, label %if.then.i.i.i.i36
 
 if.then.i.i.i.i36:                                ; preds = %if.then.i.i91.i
@@ -6768,7 +6768,7 @@ if.then.i95.i:                                    ; preds = %expr_tonextreg.exit
   %161 = load i32, ptr %v2, align 8
   %nactvar.i.i96.i = getelementptr inbounds i8, ptr %96, i64 56
   %162 = load i32, ptr %nactvar.i.i96.i, align 8
-  %cmp.not.i.i97.i = icmp ugt i32 %162, %161
+  %cmp.not.i.i97.i = icmp ult i32 %161, %162
   br i1 %cmp.not.i.i97.i, label %expr_free.exit101.i, label %if.then.i.i98.i
 
 if.then.i.i98.i:                                  ; preds = %if.then.i95.i
@@ -6786,7 +6786,7 @@ expr_free.exit101.i:                              ; preds = %if.then.i.i98.i, %i
 if.then.i105.i:                                   ; preds = %expr_free.exit101.i
   %nactvar.i.i106.i = getelementptr inbounds i8, ptr %96, i64 56
   %165 = load i32, ptr %nactvar.i.i106.i, align 8
-  %cmp.not.i.i107.i = icmp ugt i32 %165, %.pre148.i
+  %cmp.not.i.i107.i = icmp ult i32 %.pre148.i, %165
   br i1 %cmp.not.i.i107.i, label %expr_free.exit111.i, label %if.then.i.i108.i
 
 if.then.i.i108.i:                                 ; preds = %if.then.i105.i
@@ -7669,7 +7669,7 @@ if.end105:                                        ; preds = %if.end97, %if.end97
 
 if.then.i184:                                     ; preds = %if.end97
   %64 = load i32, ptr %linenumber, align 8
-  %cmp.i185 = icmp eq i32 %64, %1
+  %cmp.i185 = icmp eq i32 %1, %64
   br i1 %cmp.i185, label %if.then1.i, label %if.else.i186
 
 if.then1.i:                                       ; preds = %if.then.i184
@@ -8268,7 +8268,7 @@ parse_params.exit:                                ; preds = %bcreg_reserve.exit.
   br i1 %cmp.not, label %if.end, label %if.then.i37
 
 if.then.i37:                                      ; preds = %parse_params.exit
-  %cmp.i = icmp eq i32 %60, %line
+  %cmp.i = icmp eq i32 %line, %60
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i37
@@ -8378,7 +8378,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %4 = load i32, ptr %linenumber, align 8
-  %cmp.i = icmp eq i32 %4, %2
+  %cmp.i = icmp eq i32 %2, %4
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
@@ -8566,7 +8566,7 @@ expr_str.exit.expr_free.exit.i_crit_edge:         ; preds = %expr_str.exit
 if.then.i.i57:                                    ; preds = %expr_str.exit
   %26 = load i32, ptr %v, align 8
   %27 = load i32, ptr %nactvar.i.i, align 8
-  %cmp.not.i.i.i = icmp ugt i32 %27, %26
+  %cmp.not.i.i.i = icmp ult i32 %26, %27
   %.pre113 = load i32, ptr %freereg.i.i89, align 4
   br i1 %cmp.not.i.i.i, label %expr_free.exit.i, label %if.then.i.i.i58
 
@@ -8768,7 +8768,7 @@ if.then21.i:                                      ; preds = %if.else19.i
 
 if.else28.i:                                      ; preds = %if.else19.i
   %54 = load i32, ptr %nactvar.i.i, align 8
-  %cmp.not.i.i = icmp ugt i32 %54, %51
+  %cmp.not.i.i = icmp ult i32 %51, %54
   br i1 %cmp.not.i.i, label %bcreg_free.exit.i, label %if.then.i.i88
 
 if.then.i.i88:                                    ; preds = %if.else28.i
@@ -8789,7 +8789,7 @@ if.end35.i:                                       ; preds = %bcreg_free.exit.i, 
   %57 = phi i32 [ %52, %if.then12.i ], [ %53, %if.then21.i ], [ %56, %bcreg_free.exit.i ]
   %ins.1.i = phi i32 [ %or18.i95, %if.then12.i ], [ %or27.i90, %if.then21.i ], [ %or34.i, %bcreg_free.exit.i ]
   %58 = load i32, ptr %nactvar.i.i, align 8
-  %cmp.not.i28.i = icmp ugt i32 %58, %57
+  %cmp.not.i28.i = icmp ult i32 %57, %58
   br i1 %cmp.not.i28.i, label %if.end55.i, label %if.then.i29.i
 
 if.then.i29.i:                                    ; preds = %if.end35.i
@@ -8830,7 +8830,7 @@ expr_discharge.exit.expr_free.exit.i61_crit_edge: ; preds = %expr_discharge.exit
 if.then.i.i72:                                    ; preds = %expr_discharge.exit
   %62 = load i32, ptr %v, align 8
   %63 = load i32, ptr %nactvar.i.i, align 8
-  %cmp.not.i.i.i74 = icmp ugt i32 %63, %62
+  %cmp.not.i.i.i74 = icmp ult i32 %62, %63
   %.pre111 = load i32, ptr %freereg.i.i89, align 4
   br i1 %cmp.not.i.i.i74, label %expr_free.exit.i61, label %if.then.i.i.i75
 
@@ -8936,7 +8936,7 @@ if.then.i.i:                                      ; preds = %if.end12
   %6 = load i32, ptr %e, align 8
   %nactvar.i.i.i = getelementptr inbounds i8, ptr %fs, i64 56
   %7 = load i32, ptr %nactvar.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ugt i32 %7, %6
+  %cmp.not.i.i.i = icmp ult i32 %6, %7
   br i1 %cmp.not.i.i.i, label %expr_free.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -9019,7 +9019,7 @@ if.then.i:                                        ; preds = %if.then
   %7 = load i32, ptr %e, align 8
   %nactvar.i.i = getelementptr inbounds i8, ptr %fs, i64 56
   %8 = load i32, ptr %nactvar.i.i, align 8
-  %cmp.not.i.i = icmp ugt i32 %8, %7
+  %cmp.not.i.i = icmp ult i32 %7, %8
   br i1 %cmp.not.i.i, label %expr_free.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -9246,7 +9246,7 @@ if.then.i69:                                      ; preds = %if.end113
   %44 = load i32, ptr %e, align 8
   %nactvar.i.i70 = getelementptr inbounds i8, ptr %fs, i64 56
   %45 = load i32, ptr %nactvar.i.i70, align 8
-  %cmp.not.i.i71 = icmp ugt i32 %45, %44
+  %cmp.not.i.i71 = icmp ult i32 %44, %45
   br i1 %cmp.not.i.i71, label %return, label %if.then.i.i72
 
 if.then.i.i72:                                    ; preds = %if.then.i69
@@ -9348,7 +9348,7 @@ if.then21:                                        ; preds = %if.else19
 if.else28:                                        ; preds = %if.else19
   %nactvar.i = getelementptr inbounds i8, ptr %fs, i64 56
   %12 = load i32, ptr %nactvar.i, align 8
-  %cmp.not.i = icmp ugt i32 %12, %9
+  %cmp.not.i = icmp ult i32 %9, %12
   br i1 %cmp.not.i, label %bcreg_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else28
@@ -9371,7 +9371,7 @@ if.end35:                                         ; preds = %if.then21, %bcreg_f
   %ins.1 = phi i32 [ %or18, %if.then12 ], [ %or27, %if.then21 ], [ %or34, %bcreg_free.exit ]
   %nactvar.i27 = getelementptr inbounds i8, ptr %fs, i64 56
   %16 = load i32, ptr %nactvar.i27, align 8
-  %cmp.not.i28 = icmp ugt i32 %16, %15
+  %cmp.not.i28 = icmp ult i32 %15, %16
   br i1 %cmp.not.i28, label %if.end55, label %if.then.i29
 
 if.then.i29:                                      ; preds = %if.end35
@@ -9867,7 +9867,7 @@ if.then46:                                        ; preds = %entry
 
 if.then55:                                        ; preds = %entry
   %27 = load i32, ptr %e, align 8
-  %cmp58 = icmp eq i32 %27, %reg
+  %cmp58 = icmp eq i32 %reg, %27
   br i1 %cmp58, label %noins, label %if.end90
 
 if.then72:                                        ; preds = %entry
@@ -9898,12 +9898,12 @@ sw.bb.i:                                          ; preds = %if.then.i50
   br i1 %cmp4.not.i, label %if.end.i52, label %if.end35.i
 
 if.end.i52:                                       ; preds = %sw.bb.i
-  %cmp6.i = icmp eq i32 %and.i, %reg
+  %cmp6.i = icmp eq i32 %reg, %and.i
   br i1 %cmp6.i, label %noins, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i52
   %add.i = add nuw nsw i32 %and.i, 1
-  %cmp11.i = icmp eq i32 %add.i, %reg
+  %cmp11.i = icmp eq i32 %reg, %add.i
   br i1 %cmp11.i, label %if.then12.i, label %if.end35.i
 
 if.then12.i:                                      ; preds = %if.else.i
@@ -9919,12 +9919,12 @@ sw.bb20.i:                                        ; preds = %if.then.i50
   %shr21.i = lshr i32 %31, 16
   %cmp22.not.i = icmp ugt i32 %and.i, %reg
   %add23.i = add nuw nsw i32 %shr21.i, 1
-  %cmp24.not.i = icmp ult i32 %add23.i, %reg
+  %cmp24.not.i = icmp ugt i32 %reg, %add23.i
   %or.cond.i = select i1 %cmp22.not.i, i1 true, i1 %cmp24.not.i
   br i1 %or.cond.i, label %if.end35.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %sw.bb20.i
-  %cmp28.i = icmp ult i32 %shr21.i, %reg
+  %cmp28.i = icmp ugt i32 %reg, %shr21.i
   br i1 %cmp28.i, label %if.then29.i, label %noins
 
 if.then29.i:                                      ; preds = %if.then25.i
@@ -9994,7 +9994,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %arrayidx2.i = getelementptr inbounds %struct.VarInfo, ptr %3, i64 %idxprom1.i
   %5 = load i64, ptr %arrayidx2.i, align 8
   %6 = inttoptr i64 %5 to ptr
-  %cmp3.i = icmp eq ptr %6, %name
+  %cmp3.i = icmp eq ptr %name, %6
   br i1 %cmp3.i, label %if.then1, label %for.cond.i, !llvm.loop !28
 
 if.then1:                                         ; preds = %for.body.i
@@ -10023,7 +10023,7 @@ land.rhs.i:                                       ; preds = %for.cond.i26
   %nactvar.i27 = getelementptr inbounds i8, ptr %bl.0.i, i64 12
   %7 = load i8, ptr %nactvar.i27, align 4
   %conv.i = zext i8 %7 to i32
-  %cmp.i28 = icmp ugt i32 %conv.i, %indvars.i
+  %cmp.i28 = icmp ult i32 %indvars.i, %conv.i
   br i1 %cmp.i28, label %for.cond.i26, label %if.then.i, !llvm.loop !29
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -10272,7 +10272,7 @@ if.then.i.i54:                                    ; preds = %while.body.i
   %8 = load i32, ptr %args, align 8
   %nactvar.i.i.i55 = getelementptr inbounds i8, ptr %6, i64 56
   %9 = load i32, ptr %nactvar.i.i.i55, align 8
-  %cmp.not.i.i.i56 = icmp ugt i32 %9, %8
+  %cmp.not.i.i.i56 = icmp ult i32 %8, %9
   br i1 %cmp.not.i.i.i56, label %expr_free.exit.i42, label %if.then.i.i.i57
 
 if.then.i.i.i57:                                  ; preds = %if.then.i.i54
@@ -10340,7 +10340,7 @@ if.end13:                                         ; preds = %expr_list.exit, %if
 
 if.then.i:                                        ; preds = %if.end13
   %18 = load i32, ptr %linenumber, align 8
-  %cmp.i = icmp eq i32 %18, %1
+  %cmp.i = icmp eq i32 %1, %18
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
@@ -10412,7 +10412,7 @@ if.then.i.i:                                      ; preds = %if.then41
   %27 = load i32, ptr %args, align 8
   %nactvar.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %28 = load i32, ptr %nactvar.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ugt i32 %28, %27
+  %cmp.not.i.i.i = icmp ult i32 %27, %28
   br i1 %cmp.not.i.i.i, label %expr_free.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -10728,7 +10728,7 @@ if.then.i68:                                      ; preds = %bcemit_jmp.exit66
   %25 = load i32, ptr %e, align 8
   %nactvar.i.i = getelementptr inbounds i8, ptr %fs, i64 56
   %26 = load i32, ptr %nactvar.i.i, align 8
-  %cmp.not.i.i = icmp ugt i32 %26, %25
+  %cmp.not.i.i = icmp ult i32 %25, %26
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i69
 
 if.then.i.i69:                                    ; preds = %if.then.i68
@@ -10750,7 +10750,7 @@ define internal fastcc void @jmp_patch(ptr nocapture noundef %fs, i32 noundef %l
 entry:
   %pc = getelementptr inbounds i8, ptr %fs, i64 40
   %0 = load i32, ptr %pc, align 8
-  %cmp = icmp eq i32 %0, %target
+  %cmp = icmp eq i32 %target, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -11421,7 +11421,7 @@ if.then.i.i22:                                    ; preds = %if.then13
   %10 = load i32, ptr %e, align 8
   %nactvar.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load i32, ptr %nactvar.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ugt i32 %11, %10
+  %cmp.not.i.i.i = icmp ult i32 %10, %11
   br i1 %cmp.not.i.i.i, label %expr_free.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i22
@@ -11519,7 +11519,7 @@ sw.bb.i:                                          ; preds = %if.then.i
   br i1 %cmp4.not.i, label %if.end.i, label %if.end35.i
 
 if.end.i:                                         ; preds = %sw.bb.i
-  %cmp6.i = icmp eq i32 %and.i, %16
+  %cmp6.i = icmp eq i32 %16, %and.i
   br i1 %cmp6.i, label %if.then7.i, label %if.else.i
 
 if.then7.i:                                       ; preds = %if.end.i
@@ -11528,7 +11528,7 @@ if.then7.i:                                       ; preds = %if.end.i
 
 if.else.i:                                        ; preds = %if.end.i
   %add.i = add nuw nsw i32 %and.i, 1
-  %cmp11.i = icmp eq i32 %add.i, %16
+  %cmp11.i = icmp eq i32 %16, %add.i
   br i1 %cmp11.i, label %if.then12.i, label %if.end35.i
 
 if.then12.i:                                      ; preds = %if.else.i
@@ -11551,7 +11551,7 @@ sw.bb20.i:                                        ; preds = %if.then.i
   %shr21.i = lshr i32 %22, 16
   %cmp22.not.i = icmp ugt i32 %and.i, %16
   %add23.i = add nuw nsw i32 %shr21.i, 1
-  %cmp24.not.i = icmp ult i32 %add23.i, %16
+  %cmp24.not.i = icmp ugt i32 %16, %add23.i
   %or.cond.i = select i1 %cmp22.not.i, i1 true, i1 %cmp24.not.i
   br i1 %or.cond.i, label %if.end35.i, label %if.then25.i
 
@@ -11773,7 +11773,7 @@ if.then.i.i:                                      ; preds = %while.body.i
   %19 = load i32, ptr %e, align 8
   %nactvar.i.i.i = getelementptr inbounds i8, ptr %17, i64 56
   %20 = load i32, ptr %nactvar.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ugt i32 %20, %19
+  %cmp.not.i.i.i = icmp ult i32 %19, %20
   br i1 %cmp.not.i.i.i, label %expr_free.exit.i, label %if.then.i.i.i45
 
 if.then.i.i.i45:                                  ; preds = %if.then.i.i

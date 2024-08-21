@@ -114,7 +114,7 @@ if.end14.i:                                       ; preds = %if.end.i66
   %sub23.i86 = sub nuw nsw i64 60, %3
   %notmask69 = shl nsw i64 -1, %sub23.i86
   %sub27.i = xor i64 %notmask69, -1
-  %add.i87 = add nuw nsw i64 %sub27.i, %usize
+  %add.i87 = add nuw nsw i64 %usize, %sub27.i
   %and.i89 = and i64 %add.i87, %notmask69
   br label %sz_s2u.exit69
 
@@ -286,14 +286,14 @@ if.end4.i:                                        ; preds = %if.end63.i.i, %land
   %tsd_arena.i.0 = phi ptr [ %7, %if.end.i39 ], [ %ret.2.i.i, %if.end63.i.i ], [ %call23.i.i, %land.lhs.true52.i.i ], [ %call23.i.i, %land.lhs.true47.i.i ], [ %call23.i.i, %if.end43.i.i ], [ %call4.i.i.i, %if.then3.i.i.i ], [ %10, %if.then5.i.i ]
   %oversize_threshold.i = getelementptr inbounds i8, ptr %tsd_arena.i.0, i64 69328
   %25 = load atomic i64, ptr %oversize_threshold.i monotonic, align 8
-  %cmp6.i42.not = icmp ugt i64 %25, %usize
+  %cmp6.i42.not = icmp ult i64 %usize, %25
   br i1 %cmp6.i42.not, label %lor.lhs.false, label %land.lhs.true.i46
 
 land.lhs.true.i46:                                ; preds = %if.end4.i
   %26 = getelementptr i8, ptr %tsd_arena.i.0, i64 78944
   %tsd_arena.i.0.val = load i32, ptr %26, align 32
   %27 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i72 = icmp ugt i32 %27, %tsd_arena.i.0.val
+  %cmp.i72 = icmp ult i32 %tsd_arena.i.0.val, %27
   br i1 %cmp.i72, label %if.then10.i, label %lor.lhs.false
 
 if.then10.i:                                      ; preds = %land.lhs.true.i46
@@ -315,7 +315,7 @@ if.end29:                                         ; preds = %lor.lhs.false
   %28 = getelementptr i8, ptr %arena.addr.089, i64 78944
   %arena.addr.0.val = load i32, ptr %28, align 32
   %29 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i73 = icmp ugt i32 %29, %arena.addr.0.val
+  %cmp.i73 = icmp ult i32 %arena.addr.0.val, %29
   br i1 %cmp.i73, label %if.end33, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
@@ -451,7 +451,7 @@ entry:
   %conv.i.i.i = and i64 %0, 255
   %arrayidx.i.i.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp = icmp ult i64 %1, %usize_max
+  %cmp = icmp ugt i64 %usize_max, %1
   br i1 %cmp, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %entry
@@ -507,7 +507,7 @@ if.then15.i:                                      ; preds = %if.then.i
 
 if.end:                                           ; preds = %if.then
   %cmp6 = icmp ult i64 %usize_min, %usize_max
-  %cmp7 = icmp ult i64 %1, %usize_min
+  %cmp7 = icmp ugt i64 %usize_min, %1
   %or.cond = and i1 %cmp6, %cmp7
   br i1 %or.cond, label %land.lhs.true8, label %if.end14
 
@@ -921,7 +921,7 @@ if.end10:                                         ; preds = %if.end
   %tobool17 = trunc i8 %17 to i1
   %cond18 = select i1 %tobool17, i32 3, i32 4
   call void @hook_invoke_dalloc(i32 noundef %cond18, ptr noundef %ptr, ptr noundef nonnull %args14) #10
-  %cond22 = call i64 @llvm.umin.i64(i64 %13, i64 %usize)
+  %cond22 = call i64 @llvm.umin.i64(i64 %usize, i64 %13)
   %18 = getelementptr i8, ptr %14, i64 8
   %.val128 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2.i, ptr align 1 %.val128, i64 %cond22, i1 false)
@@ -1212,7 +1212,7 @@ entry:
   %2 = getelementptr i8, ptr %1, i64 78944
   %arena.val.i = load i32, ptr %2, align 32
   %3 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i18.i = icmp ugt i32 %3, %arena.val.i
+  %cmp.i18.i = icmp ult i32 %arena.val.i, %3
   br i1 %cmp.i18.i, label %large_dalloc_prep_impl.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %entry
@@ -1273,7 +1273,7 @@ entry:
   %0 = getelementptr i8, ptr %arena, i64 78944
   %arena.val = load i32, ptr %0, align 32
   %1 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i18 = icmp ugt i32 %1, %arena.val
+  %cmp.i18 = icmp ult i32 %arena.val, %1
   br i1 %locked, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry

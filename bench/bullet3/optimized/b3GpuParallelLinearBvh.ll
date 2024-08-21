@@ -2022,7 +2022,7 @@ invoke.cont94:                                    ; preds = %call5.i.noexc193, %
 invoke.cont97:                                    ; preds = %invoke.cont94
   %90 = load i64, ptr %m_size.i.i15, align 8
   %91 = load i64, ptr %m_size.i.i187, align 8
-  %cmp3.i.i = icmp ult i64 %91, %90
+  %cmp3.i.i = icmp ugt i64 %90, %91
   br i1 %cmp3.i.i, label %if.end7.i.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit.i
 
 if.end7.i.i:                                      ; preds = %invoke.cont97

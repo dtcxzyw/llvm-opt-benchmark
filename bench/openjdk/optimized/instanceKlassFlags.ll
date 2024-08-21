@@ -353,7 +353,7 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18InstanceKlassFlags24assign_class_loader_typeEPK15ClassLoaderData(ptr nocapture noundef nonnull align 2 dereferenceable(3) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   br i1 %4, label %.sink.split, label %5
 
 5:                                                ; preds = %2
@@ -649,7 +649,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24

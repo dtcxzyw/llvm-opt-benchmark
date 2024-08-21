@@ -1829,7 +1829,7 @@ do.cond.i.i.us78:                                 ; preds = %do.body.i.i.us73
   br i1 %cmp3.i.i.us82, label %do.body.i.i.us73, label %land.lhs.true.i.us83, !llvm.loop !7
 
 land.lhs.true.i.us83:                             ; preds = %do.cond.i.i.us78
-  %cmp8.i.us84 = icmp sgt i32 %sub.i32.us, %cond.i31.us70
+  %cmp8.i.us84 = icmp slt i32 %cond.i31.us70, %sub.i32.us
   br i1 %cmp8.i.us84, label %land.lhs.true9.i.us85, label %return
 
 land.lhs.true9.i.us85:                            ; preds = %land.lhs.true.i.us83
@@ -1931,7 +1931,7 @@ land.lhs.true3.i.us.us:                           ; preds = %land.lhs.true.i.us.
   br i1 %cmp7.i34.us.us, label %for.inc.us.us, label %land.rhs.i.us.us
 
 land.rhs.i.us.us:                                 ; preds = %land.lhs.true3.i.us.us, %land.lhs.true.i.us.us
-  %cmp8.i.us.us = icmp sgt i32 %sub.i32.us, %cond.i31.us.us
+  %cmp8.i.us.us = icmp slt i32 %cond.i31.us.us, %sub.i32.us
   br i1 %cmp8.i.us.us, label %land.lhs.true9.i.us.us, label %return
 
 land.lhs.true9.i.us.us:                           ; preds = %land.rhs.i.us.us
@@ -2848,7 +2848,7 @@ land.lhs.true3.i.us:                              ; preds = %land.lhs.true1.i.us
   br i1 %cmp7.i.us, label %for.inc.us, label %land.rhs.i.us
 
 land.rhs.i.us:                                    ; preds = %land.lhs.true3.i.us, %land.lhs.true1.i.us, %land.lhs.true.i.us
-  %cmp8.i.us = icmp sgt i32 %sub.i.us, %cond.i22.us
+  %cmp8.i.us = icmp slt i32 %cond.i22.us, %sub.i.us
   br i1 %cmp8.i.us, label %land.lhs.true9.i.us, label %return
 
 land.lhs.true9.i.us:                              ; preds = %land.rhs.i.us

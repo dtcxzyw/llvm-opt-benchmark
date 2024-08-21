@@ -825,7 +825,7 @@ define range(i32 -102, 1) i32 @IDADlsSetDenseJacFnB(ptr noundef %0, i32 noundef 
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -840,7 +840,7 @@ define range(i32 -102, 1) i32 @IDADlsSetDenseJacFnB(ptr noundef %0, i32 noundef 
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.024 = load ptr, ptr %.sink, align 8, !nonnull !10, !noundef !10
   %19 = load i32, ptr %.024, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.024, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -985,7 +985,7 @@ define range(i32 -102, 1) i32 @IDADlsSetDenseJacFnBS(ptr noundef %0, i32 noundef
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -1000,7 +1000,7 @@ define range(i32 -102, 1) i32 @IDADlsSetDenseJacFnBS(ptr noundef %0, i32 noundef
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.024 = load ptr, ptr %.sink, align 8, !nonnull !10, !noundef !10
   %19 = load i32, ptr %.024, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.024, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -1167,7 +1167,7 @@ define range(i32 -102, 1) i32 @IDADlsSetBandJacFnB(ptr noundef %0, i32 noundef %
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -1182,7 +1182,7 @@ define range(i32 -102, 1) i32 @IDADlsSetBandJacFnB(ptr noundef %0, i32 noundef %
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.024 = load ptr, ptr %.sink, align 8, !nonnull !10, !noundef !10
   %19 = load i32, ptr %.024, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.024, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -1327,7 +1327,7 @@ define range(i32 -102, 1) i32 @IDADlsSetBandJacFnBS(ptr noundef %0, i32 noundef 
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -1342,7 +1342,7 @@ define range(i32 -102, 1) i32 @IDADlsSetBandJacFnBS(ptr noundef %0, i32 noundef 
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.024 = load ptr, ptr %.sink, align 8, !nonnull !10, !noundef !10
   %19 = load i32, ptr %.024, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.024, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 

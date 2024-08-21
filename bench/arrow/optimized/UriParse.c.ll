@@ -4289,7 +4289,7 @@ if.end4.i36:                                      ; preds = %uriParseSegmentNzA.
   br i1 %cmp.i17.i, label %return.sink.split.i, label %if.end.i18.i
 
 if.end.i18.i:                                     ; preds = %if.end4.i36
-  %cmp1.i.i39 = icmp eq ptr %call1.i.i, %first
+  %cmp1.i.i39 = icmp eq ptr %first, %call1.i.i
   %48 = load ptr, ptr @uriSafeToPointToA, align 8
   %spec.select.i.i40 = select i1 %cmp1.i.i39, ptr %48, ptr %first
   %spec.select16.i.i41 = select i1 %cmp1.i.i39, ptr %48, ptr %call1.i.i
@@ -4813,7 +4813,7 @@ if.else.i:                                        ; preds = %uriParseSegmentNzA.
   br i1 %cmp.i12.i, label %return.sink.split.i, label %if.end.i13.i
 
 if.end.i13.i:                                     ; preds = %if.else.i
-  %cmp1.i.i = icmp eq ptr %call1.i.i, %first
+  %cmp1.i.i = icmp eq ptr %first, %call1.i.i
   %2 = load ptr, ptr @uriSafeToPointToA, align 8
   %spec.select.i.i = select i1 %cmp1.i.i, ptr %2, ptr %first
   %spec.select16.i.i = select i1 %cmp1.i.i, ptr %2, ptr %call1.i.i
@@ -7481,7 +7481,7 @@ if.end3.i36:                                      ; preds = %uriParseSegmentNzW.
   br i1 %cmp.i17.i, label %return.sink.split.i, label %if.end.i18.i
 
 if.end.i18.i:                                     ; preds = %if.end3.i36
-  %cmp1.i.i39 = icmp eq ptr %call1.i.i, %first
+  %cmp1.i.i39 = icmp eq ptr %first, %call1.i.i
   %48 = load ptr, ptr @uriSafeToPointToW, align 8
   %spec.select.i.i40 = select i1 %cmp1.i.i39, ptr %48, ptr %first
   %spec.select16.i.i41 = select i1 %cmp1.i.i39, ptr %48, ptr %call1.i.i
@@ -8005,7 +8005,7 @@ if.else.i:                                        ; preds = %uriParseSegmentNzW.
   br i1 %cmp.i12.i, label %return.sink.split.i, label %if.end.i13.i
 
 if.end.i13.i:                                     ; preds = %if.else.i
-  %cmp1.i.i = icmp eq ptr %call1.i.i, %first
+  %cmp1.i.i = icmp eq ptr %first, %call1.i.i
   %2 = load ptr, ptr @uriSafeToPointToW, align 8
   %spec.select.i.i = select i1 %cmp1.i.i, ptr %2, ptr %first
   %spec.select16.i.i = select i1 %cmp1.i.i, ptr %2, ptr %call1.i.i

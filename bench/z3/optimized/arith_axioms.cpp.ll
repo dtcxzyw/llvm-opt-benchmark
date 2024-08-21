@@ -1083,7 +1083,7 @@ invoke.cont9:                                     ; preds = %_ZN7obj_refI4expr11
   %13 = load i32, ptr %n, align 4
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 -4
   %14 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
-  %cmp.not.i.i.i.i = icmp ugt i32 %14, %13
+  %cmp.not.i.i.i.i = icmp ult i32 %13, %14
   tail call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %idxprom.i.i.i.i = zext i32 %13 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %12, i64 %idxprom.i.i.i.i

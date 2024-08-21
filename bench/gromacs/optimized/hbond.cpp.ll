@@ -2115,7 +2115,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond12initAnalysis
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %65, %66
   %68 = ashr exact i64 %67, 2
-  %69 = icmp ult i64 %68, %61
+  %69 = icmp ugt i64 %61, %68
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %51
@@ -2125,7 +2125,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond12initAnalysis
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 72:                                               ; preds = %51
-  %73 = icmp ugt i64 %68, %61
+  %73 = icmp ult i64 %61, %68
   br i1 %73, label %74, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 74:                                               ; preds = %72
@@ -2160,7 +2160,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %70, %72, %74, %76
   %94 = ptrtoint ptr %92 to i64
   %95 = sub i64 %93, %94
   %96 = ashr exact i64 %95, 2
-  %97 = icmp ult i64 %96, %89
+  %97 = icmp ugt i64 %89, %96
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -2169,7 +2169,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %70, %72, %74, %76
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit32
 
 100:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %101 = icmp ugt i64 %96, %89
+  %101 = icmp ult i64 %89, %96
   br i1 %101, label %102, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit32
 
 102:                                              ; preds = %100
@@ -4316,16 +4316,16 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i..noexc118_crit_edge
   %257 = load float, ptr %90, align 4
   %258 = load float, ptr %87, align 4
   %259 = load float, ptr %89, align 4
-  %260 = fneg float %258
-  %261 = fmul float %259, %260
+  %260 = fneg float %259
+  %261 = fmul float %258, %260
   %262 = call float @llvm.fmuladd.f32(float %256, float %257, float %261)
   %263 = load float, ptr %21, align 4
   %264 = load float, ptr %20, align 4
-  %265 = fneg float %264
-  %266 = fmul float %257, %265
+  %265 = fneg float %257
+  %266 = fmul float %264, %265
   %267 = call float @llvm.fmuladd.f32(float %258, float %263, float %266)
-  %268 = fneg float %256
-  %269 = fmul float %263, %268
+  %268 = fneg float %263
+  %269 = fmul float %256, %268
   %270 = call float @llvm.fmuladd.f32(float %264, float %259, float %269)
   %271 = fmul float %267, %267
   %272 = call float @llvm.fmuladd.f32(float %262, float %262, float %271)
@@ -5325,7 +5325,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   call void @llvm.memset.p0.i64(ptr align 8 %649, i8 0, i64 %651, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %652 = load ptr, ptr %13, align 8
-  %653 = icmp eq ptr %38, %652
+  %653 = icmp eq ptr %652, %38
   br i1 %653, label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit, label %654
 
 654:                                              ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -5351,7 +5351,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   call void @llvm.memset.p0.i64(ptr align 8 %657, i8 0, i64 %659, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   %660 = load ptr, ptr %12, align 8
-  %661 = icmp eq ptr %33, %660
+  %661 = icmp eq ptr %660, %33
   br i1 %661, label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit191, label %662
 
 662:                                              ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i190
@@ -5563,7 +5563,7 @@ _ZNSt16allocator_traitsISaIN3gmx15analysismodules12_GLOBAL__N_15HBondEEE8allocat
   %lpad.phi.i.i.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i.i.i.i, %.loopexit13.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i.i ]
   %54 = extractvalue { ptr, i32 } %lpad.phi.i.i.i.i.i.i, 0
   %55 = call ptr @__cxa_begin_catch(ptr %54) #26
-  %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %.019.i.i.i.i.i.i, %31
+  %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %31, %.019.i.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx15analysismodules12_GLOBAL__N_117HbondStorageFrameEEvT_S5_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %53, %_ZSt8_DestroyIN3gmx15analysismodules12_GLOBAL__N_117HbondStorageFrameEEvPT_.exit.i.i.i.i.i.i.i.i
@@ -6498,7 +6498,7 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_1
   %415 = ptrtoint ptr %410 to i64
   %416 = sub i64 %415, %393
   %417 = getelementptr inbounds i8, ptr %.sroa.0198.4, i64 %416
-  %.not16.i.i82.i = icmp eq ptr %406, %410
+  %.not16.i.i82.i = icmp eq ptr %410, %406
   br i1 %.not16.i.i82.i, label %._crit_edge.i.i86.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i83.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i83.i: ; preds = %411
@@ -10425,7 +10425,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
   %.0.us = phi i64 [ %42, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %10, %.split ]
   %phi.call.us = getelementptr inbounds i32, ptr %0, i64 %.0.us
   %19 = load i32, ptr %phi.call.us, align 4
-  %20 = icmp sgt i64 %12, %.0.us
+  %20 = icmp slt i64 %.0.us, %12
   br i1 %20, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.split.us, %.lr.ph.i.us
@@ -10477,7 +10477,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %.0 = phi i64 [ %70, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %10, %.split.split.preheader ]
   %phi.call = getelementptr inbounds i32, ptr %0, i64 %.0
   %43 = load i32, ptr %phi.call, align 4
-  %44 = icmp sgt i64 %12, %.0
+  %44 = icmp slt i64 %.0, %12
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split, %.lr.ph.i
@@ -10607,7 +10607,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.0.us.i.i.i = phi i64 [ %41, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_110t_acceptorESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS4_5Hbond15searchAcceptorsERKNS2_19TopologyInformationEPNS4_6t_infoEPKS7_IiSaIiEEE3$_0EEEvT_T0_SQ_T1_T2_.exit.us.i.i.i" ], [ %15, %.split.i.i.i ]
   %phi.call.us.i.i.i = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::t_acceptor", ptr %.fr28, i64 %.0.us.i.i.i
   %.sroa.03.0.copyload.us.i.i.i = load i64, ptr %phi.call.us.i.i.i, align 4
-  %23 = icmp sgt i64 %17, %.0.us.i.i.i
+  %23 = icmp slt i64 %.0.us.i.i.i, %17
   br i1 %23, label %.lr.ph.i.us.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_110t_acceptorESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS4_5Hbond15searchAcceptorsERKNS2_19TopologyInformationEPNS4_6t_infoEPKS7_IiSaIiEEE3$_0EEEvT_T0_SQ_T1_T2_.exit.us.i.i.i"
 
 .lr.ph.i.us.i.i.i:                                ; preds = %.split.split.us.i.i.i, %.lr.ph.i.us.i.i.i
@@ -10662,7 +10662,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.0.i.i.i = phi i64 [ %64, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_110t_acceptorESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS4_5Hbond15searchAcceptorsERKNS2_19TopologyInformationEPNS4_6t_infoEPKS7_IiSaIiEEE3$_0EEEvT_T0_SQ_T1_T2_.exit.i.i.i" ], [ %15, %.split.split.preheader.i.i.i ]
   %phi.call.i.i.i = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::t_acceptor", ptr %.fr28, i64 %.0.i.i.i
   %.sroa.03.0.copyload.i.i.i = load i64, ptr %phi.call.i.i.i, align 4
-  %42 = icmp sgt i64 %17, %.0.i.i.i
+  %42 = icmp slt i64 %.0.i.i.i, %17
   br i1 %42, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.split.i.i.i, %.lr.ph.i.i.i.i
@@ -11280,7 +11280,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.0.i.i.i = phi i64 [ %15, %.split.i.i.i ], [ %63, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN3gmx15analysismodules12_GLOBAL__N_15Hbond12searchDonorsERKNSB_19TopologyInformationEPNSD_6t_infoEPKS5_IiSaIiEEE3$_0EEEvT_T0_SR_T1_T2_.exit.i.i.i" ]
   %phi.call.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.i.i.i
   %.sroa.03.0.copyload.i.i.i = load i64, ptr %phi.call.i.i.i, align 4
-  %26 = icmp sgt i64 %17, %.0.i.i.i
+  %26 = icmp slt i64 %.0.i.i.i, %17
   br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %25, %36
@@ -12559,7 +12559,7 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_15HBondESaIS3_EE5eraseEN9__gnu_c
   %140 = ptrtoint ptr %135 to i64
   %141 = sub i64 %140, %118
   %142 = getelementptr inbounds i8, ptr %.val.i, i64 %141
-  %.not16.i.i74 = icmp eq ptr %131, %135
+  %.not16.i.i74 = icmp eq ptr %135, %131
   br i1 %.not16.i.i74, label %._crit_edge.i.i78, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i75
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i75: ; preds = %136
@@ -12621,7 +12621,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = icmp eq ptr %10, %9
+  %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i
@@ -12918,7 +12918,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge
@@ -13763,7 +13763,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GL
 define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) unnamed_addr #19 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
-  %8 = icmp sgt i64 %7, %1
+  %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread42
@@ -14154,7 +14154,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i: ; pred
   %lpad.phi.i.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i ]
   %63 = extractvalue { ptr, i32 } %lpad.phi.i.i.i.i.i, 0
   %64 = tail call ptr @__cxa_begin_catch(ptr %63) #26
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.017.i.i.i.i.i, %28
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %28, %.017.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx15analysismodules12_GLOBAL__N_17t_donorEEvT_S5_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %62, %_ZSt8_DestroyIN3gmx15analysismodules12_GLOBAL__N_17t_donorEEvPT_.exit.i.i.i.i.i.i.i

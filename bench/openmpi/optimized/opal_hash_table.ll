@@ -84,7 +84,7 @@ opal_hash_table_remove_all.exit:                  ; preds = %15, %1
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define range(i32 -2, 1) i32 @opal_hash_table_init2(ptr nocapture noundef writeonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = sext i32 %3 to i64
-  %8 = mul i64 %7, %1
+  %8 = mul i64 %1, %7
   %9 = sext i32 %2 to i64
   %10 = udiv i64 %8, %9
   %11 = add i64 %10, 29

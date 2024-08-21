@@ -1871,7 +1871,7 @@ detail_is_selected.exit.i.i:                      ; preds = %798, %output_stats.
   %815 = load ptr, ptr @stats_head_window, align 8
   %.not3.i.i.i = icmp ne i64 %811, 1
   %816 = load i32, ptr @detail_selected, align 4
-  %817 = icmp ne i32 %816, %.023.i
+  %817 = icmp ne i32 %.023.i, %816
   %narrow.not.i = select i1 %.not3.i.i.i, i1 %817, i1 false
   %818 = load i32, ptr @maxx, align 4
   %819 = add nsw i32 %818, 1
@@ -2636,7 +2636,7 @@ detail_is_selected.exit.i14.i:                    ; preds = %.lr.ph.split.i.i, %
   %1223 = getelementptr inbounds %struct.task, ptr %1209, i64 %.066100.i.i, i32 2
   %1224 = load i32, ptr %1223, align 8
   %1225 = add nsw i32 %1224, -1
-  %.not95.i.i = icmp eq i32 %1213, %1225
+  %.not95.i.i = icmp eq i32 %1225, %1213
   br i1 %.not95.i.i, label %detail_is_selected.exit.thread.i.i, label %1229
 
 .split.us.i.i:                                    ; preds = %.lr.ph.split.split.us.i.i

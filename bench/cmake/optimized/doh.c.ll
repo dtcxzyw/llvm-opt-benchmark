@@ -1723,7 +1723,7 @@ define internal fastcc range(i32 0, 3) i32 @skipqname(ptr nocapture noundef read
   %5 = phi i32 [ %20, %23 ], [ %.promoted, %3 ]
   %6 = add i32 %5, 1
   %7 = zext i32 %6 to i64
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %4
@@ -1739,7 +1739,7 @@ define internal fastcc range(i32 0, 3) i32 @skipqname(ptr nocapture noundef read
 13:                                               ; preds = %9
   %14 = add i32 %5, 2
   %15 = zext i32 %14 to i64
-  %16 = icmp ugt i64 %15, %1
+  %16 = icmp ult i64 %1, %15
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %13
@@ -1750,7 +1750,7 @@ define internal fastcc range(i32 0, 3) i32 @skipqname(ptr nocapture noundef read
   %19 = zext i8 %12 to i32
   %20 = add i32 %6, %19
   %21 = zext i32 %20 to i64
-  %22 = icmp ugt i64 %21, %1
+  %22 = icmp ult i64 %1, %21
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %18
@@ -1837,7 +1837,7 @@ define internal fastcc noundef i32 @rdata(ptr noundef %0, i64 noundef %1, i16 no
   %.032.i = phi i32 [ 128, %40 ], [ %76, %75 ]
   %.031.i = phi i32 [ %4, %40 ], [ %.1.i, %75 ]
   %45 = zext i32 %.031.i to i64
-  %.not.i = icmp ult i64 %45, %1
+  %.not.i = icmp ugt i64 %1, %45
   br i1 %.not.i, label %46, label %store_a.exit
 
 46:                                               ; preds = %44
@@ -1854,7 +1854,7 @@ define internal fastcc noundef i32 @rdata(ptr noundef %0, i64 noundef %1, i16 no
 50:                                               ; preds = %46
   %51 = add i32 %.031.i, 1
   %52 = zext i32 %51 to i64
-  %.not47.i = icmp ult i64 %52, %1
+  %.not47.i = icmp ugt i64 %1, %52
   br i1 %.not47.i, label %53, label %store_a.exit
 
 53:                                               ; preds = %50
@@ -1884,7 +1884,7 @@ define internal fastcc noundef i32 @rdata(ptr noundef %0, i64 noundef %1, i16 no
 66:                                               ; preds = %64, %62
   %67 = add i32 %61, %49
   %68 = zext i32 %67 to i64
-  %69 = icmp ugt i64 %68, %1
+  %69 = icmp ult i64 %1, %68
   br i1 %69, label %store_a.exit, label %70
 
 70:                                               ; preds = %66

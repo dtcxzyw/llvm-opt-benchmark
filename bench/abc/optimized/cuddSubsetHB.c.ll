@@ -1033,7 +1033,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr @zero, align 8
-  %12 = icmp eq ptr %11, %0
+  %12 = icmp eq ptr %0, %11
   %. = select i1 %12, double 0.000000e+00, double %1
   br label %122
 

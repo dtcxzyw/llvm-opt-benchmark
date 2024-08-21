@@ -321,7 +321,7 @@ define dso_local void @mda_get_offset_values(i32 noundef %0, ptr nocapture nound
   store i32 %25, ptr %14, align 4
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next27 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %0
+  %exitcond.not = icmp eq i32 %0, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph24

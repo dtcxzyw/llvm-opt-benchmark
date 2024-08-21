@@ -2554,7 +2554,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_set_eoa(ptr nocapture noundef r
   %18 = getelementptr inbounds i8, ptr %0, i64 296
   %19 = load i64, ptr %18, align 8
   %20 = lshr i64 %19, 1
-  %21 = icmp ult i64 %20, %2
+  %21 = icmp ugt i64 %2, %20
   br i1 %21, label %58, label %22
 
 22:                                               ; preds = %17, %14, %3

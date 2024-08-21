@@ -4111,7 +4111,7 @@ Vec_MemAllocForTTSimple.exit:                     ; preds = %Abc_PrimeCudd.exit.
   %39 = phi i1 [ true, %.preheader.lr.ph.us.us.preheader ], [ false, %._crit_edge48.split.us.us.us ]
   %indvars.iv73 = phi i64 [ 0, %.preheader.lr.ph.us.us.preheader ], [ 1, %._crit_edge48.split.us.us.us ]
   %40 = sub nsw i64 0, %indvars.iv73
-  %41 = xor i64 %40, %1
+  %41 = xor i64 %1, %40
   store i64 %41, ptr %3, align 8
   br label %.preheader.us.us.us
 

@@ -1447,7 +1447,7 @@ _ZN7Minisat10SimpSolver11extendModelEv.exit:      ; preds = %.loopexit.i, %68, %
 
 122:                                              ; preds = %114
   %123 = load i32, ptr %110, align 8
-  %124 = icmp sgt i32 %123, %116
+  %124 = icmp slt i32 %116, %123
   br i1 %124, label %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i, label %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i.i
 
 _ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i: ; preds = %122
@@ -2160,7 +2160,7 @@ _ZN7Minisat3vecIjiE4pushERKj.exit:                ; preds = %._ZN7Minisat3vecIji
   %.sroa.0.0.copyload.i24 = load i32, ptr %42, align 4
   %87 = ashr i32 %.sroa.0.0.copyload.i24, 1
   %88 = load i32, ptr %39, align 8
-  %89 = icmp sgt i32 %88, %87
+  %89 = icmp slt i32 %87, %88
   br i1 %89, label %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit, label %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread
 
 _ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit: ; preds = %_ZN7Minisat3vecIjiE4pushERKj.exit
@@ -2469,7 +2469,7 @@ define void @_ZN7Minisat10SimpSolver12removeClauseEj(ptr noundef nonnull align 8
   %.sroa.0.0.copyload.i13 = load i32, ptr %24, align 4
   %30 = ashr i32 %.sroa.0.0.copyload.i13, 1
   %31 = load i32, ptr %14, align 8
-  %32 = icmp sgt i32 %31, %30
+  %32 = icmp slt i32 %30, %31
   br i1 %32, label %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i, label %._ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread_crit_edge.i
 
 ._ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread_crit_edge.i: ; preds = %23
@@ -2892,7 +2892,7 @@ _ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.exit: ; preds = %.lr.ph6.i, %.crite
   %116 = getelementptr inbounds i8, ptr %0, i64 1048
   %117 = getelementptr inbounds i8, ptr %0, i64 1072
   %118 = load i32, ptr %117, align 8
-  %119 = icmp sgt i32 %118, %85
+  %119 = icmp slt i32 %85, %118
   br i1 %119, label %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i, label %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i
 
 _ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i: ; preds = %_ZN7MinisatL6removeINS_3vecIjiEEjEEvRT_RKT0_.exit
@@ -4842,7 +4842,7 @@ _ZN7Minisat3vecIjiED2Ev.exit58:                   ; preds = %_ZN7Minisat3vecIjiE
   %162 = getelementptr inbounds i8, ptr %0, i64 576
   %163 = getelementptr inbounds i8, ptr %0, i64 600
   %164 = load i32, ptr %163, align 8
-  %165 = icmp sgt i32 %164, %1
+  %165 = icmp slt i32 %1, %164
   br i1 %165, label %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i, label %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i.i
 
 _ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i: ; preds = %161
@@ -5413,7 +5413,7 @@ define noundef zeroext i1 @_ZN7Minisat10SimpSolver10substituteEiNS_3LitE(ptr nou
   %20 = getelementptr inbounds i8, ptr %0, i64 576
   %21 = getelementptr inbounds i8, ptr %0, i64 600
   %22 = load i32, ptr %21, align 8
-  %23 = icmp sgt i32 %22, %1
+  %23 = icmp slt i32 %1, %22
   br i1 %23, label %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i, label %_ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread.i.i
 
 _ZNK7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.i.i: ; preds = %19
@@ -6800,7 +6800,7 @@ _ZN7MinisatL8xreallocEPvm.exit:                   ; preds = %16, %22
 define linkonce_odr void @_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6updateEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sgt i32 %4, %1
+  %5 = icmp slt i32 %1, %4
   br i1 %5, label %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit, label %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread
 
 _ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit: ; preds = %2

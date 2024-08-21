@@ -55,7 +55,7 @@ if.end:                                           ; preds = %if.then, %entry
   %cmp.i = icmp eq i64 %write_rate, 0
   %max_delayed_write_rate_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %max_delayed_write_rate_.i.i, align 8
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %write_rate)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %write_rate, i64 %1)
   %write_rate.addr.0.i = select i1 %cmp.i, i64 1, i64 %spec.select.i
   %delayed_write_rate_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %write_rate.addr.0.i, ptr %delayed_write_rate_.i, align 8

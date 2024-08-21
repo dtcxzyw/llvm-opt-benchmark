@@ -71,7 +71,7 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 15:                                               ; preds = %13, %5
   %.096 = phi i32 [ %14, %13 ], [ %2, %5 ]
-  %16 = icmp slt i32 %.096, %3
+  %16 = icmp sgt i32 %3, %.096
   %17 = select i1 %16, i32 %.096, i32 0
   %spec.select = sub nsw i32 %3, %17
   %18 = icmp eq ptr %1, null

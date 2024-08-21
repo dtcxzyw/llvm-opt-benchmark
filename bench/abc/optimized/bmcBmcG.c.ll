@@ -1194,7 +1194,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %153 = ashr exact i64 %sext130, 30
   %154 = getelementptr inbounds i8, ptr %48, i64 %153
   store i32 %147, ptr %154, align 4
-  %155 = icmp eq i32 %70, %67
+  %155 = icmp eq i32 %67, %70
   %156 = and i32 %.1135, 1
   %157 = select i1 %155, i32 %156, i32 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1509,13 +1509,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

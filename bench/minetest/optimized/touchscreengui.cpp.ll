@@ -2343,7 +2343,7 @@ entry:
 if.then:                                          ; preds = %entry
   %m_timeout = getelementptr inbounds i8, ptr %this, i64 156
   %1 = load float, ptr %m_timeout, align 4, !tbaa !120
-  %add = fadd nsz float %1, %dtime
+  %add = fadd nsz float %dtime, %1
   store float %add, ptr %m_timeout, align 4, !tbaa !120
   %m_timeout_value = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load float, ptr %m_timeout_value, align 8, !tbaa !60
@@ -10061,7 +10061,7 @@ _ZN14TouchScreenGUI19applyJoystickStatusEv.exit:  ; preds = %cleanup.3, %if.end.
 
 if.then3:                                         ; preds = %for.cond.preheader
   %10 = load float, ptr %__begin1.0.ptr97, align 8, !tbaa !109
-  %add = fadd nsz float %10, %dtime
+  %add = fadd nsz float %dtime, %10
   store float %add, ptr %__begin1.0.ptr97, align 8, !tbaa !109
   %repeat_delay = getelementptr inbounds i8, ptr %this, i64 300
   %11 = load float, ptr %repeat_delay, align 4, !tbaa !177
@@ -10103,7 +10103,7 @@ cleanup:                                          ; preds = %if.end7, %if.then3,
 
 if.then3.1:                                       ; preds = %cleanup
   %19 = load float, ptr %__begin1.0.ptr, align 8, !tbaa !109
-  %add.1 = fadd nsz float %19, %dtime
+  %add.1 = fadd nsz float %dtime, %19
   store float %add.1, ptr %__begin1.0.ptr, align 8, !tbaa !109
   %repeat_delay.1 = getelementptr inbounds i8, ptr %this, i64 380
   %20 = load float, ptr %repeat_delay.1, align 4, !tbaa !177
@@ -10145,7 +10145,7 @@ cleanup.1:                                        ; preds = %if.end7.1, %if.then
 
 if.then3.2:                                       ; preds = %cleanup.1
   %28 = load float, ptr %__begin1.0.ptr.1, align 8, !tbaa !109
-  %add.2 = fadd nsz float %28, %dtime
+  %add.2 = fadd nsz float %dtime, %28
   store float %add.2, ptr %__begin1.0.ptr.1, align 8, !tbaa !109
   %repeat_delay.2 = getelementptr inbounds i8, ptr %this, i64 460
   %29 = load float, ptr %repeat_delay.2, align 4, !tbaa !177
@@ -10187,7 +10187,7 @@ cleanup.2:                                        ; preds = %if.end7.2, %if.then
 
 if.then3.3:                                       ; preds = %cleanup.2
   %37 = load float, ptr %__begin1.0.ptr.2, align 8, !tbaa !109
-  %add.3 = fadd nsz float %37, %dtime
+  %add.3 = fadd nsz float %dtime, %37
   store float %add.3, ptr %__begin1.0.ptr.2, align 8, !tbaa !109
   %repeat_delay.3 = getelementptr inbounds i8, ptr %this, i64 540
   %38 = load float, ptr %repeat_delay.3, align 4, !tbaa !177
@@ -10296,7 +10296,7 @@ if.end48:                                         ; preds = %_ZN14TouchScreenGUI
 if.then.i64:                                      ; preds = %if.end48
   %m_timeout.i = getelementptr inbounds i8, ptr %this, i64 884
   %57 = load float, ptr %m_timeout.i, align 4, !tbaa !120
-  %add.i65 = fadd nsz float %57, %dtime
+  %add.i65 = fadd nsz float %dtime, %57
   store float %add.i65, ptr %m_timeout.i, align 4, !tbaa !120
   %m_timeout_value.i = getelementptr inbounds i8, ptr %this, i64 888
   %58 = load float, ptr %m_timeout_value.i, align 8, !tbaa !60
@@ -10361,7 +10361,7 @@ _ZN17AutoHideButtonBar4stepEf.exit:               ; preds = %for.body.i.i, %if.e
 if.then.i68:                                      ; preds = %_ZN17AutoHideButtonBar4stepEf.exit
   %m_timeout.i69 = getelementptr inbounds i8, ptr %this, i64 1060
   %73 = load float, ptr %m_timeout.i69, align 4, !tbaa !120
-  %add.i70 = fadd nsz float %73, %dtime
+  %add.i70 = fadd nsz float %dtime, %73
   store float %add.i70, ptr %m_timeout.i69, align 4, !tbaa !120
   %m_timeout_value.i71 = getelementptr inbounds i8, ptr %this, i64 1064
   %74 = load float, ptr %m_timeout_value.i71, align 8, !tbaa !60

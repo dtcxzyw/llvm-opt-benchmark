@@ -1221,7 +1221,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %4 = load i64, ptr %name_buffer, align 8
   %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %1
+  %cmp.i.i = icmp ugt i64 %1, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -1425,7 +1425,7 @@ if.then.i22:                                      ; preds = %if.end11
 if.end.i23:                                       ; preds = %if.end11
   %19 = load i64, ptr %name_buffer, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %19, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %16
+  %cmp.i.i = icmp ugt i64 %16, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i23
@@ -1463,7 +1463,7 @@ if.then.i31:                                      ; preds = %if.then13
 if.end.i32:                                       ; preds = %if.then13
   %24 = load i64, ptr %name_buffer, align 8
   %spec.select.i.i33 = call i64 @llvm.usub.sat.i64(i64 %24, i64 1)
-  %cmp.i.i34 = icmp ult i64 %spec.select.i.i33, %21
+  %cmp.i.i34 = icmp ugt i64 %21, %spec.select.i.i33
   br i1 %cmp.i.i34, label %if.then.i.i39, label %if.end.i.i35
 
 if.then.i.i39:                                    ; preds = %if.end.i32
@@ -1501,7 +1501,7 @@ if.then.i46:                                      ; preds = %if.then16
 if.end.i47:                                       ; preds = %if.then16
   %29 = load i64, ptr %name_buffer, align 8
   %spec.select.i.i48 = call i64 @llvm.usub.sat.i64(i64 %29, i64 1)
-  %cmp.i.i49 = icmp ult i64 %spec.select.i.i48, %26
+  %cmp.i.i49 = icmp ugt i64 %26, %spec.select.i.i48
   br i1 %cmp.i.i49, label %if.then.i.i54, label %if.end.i.i50
 
 if.then.i.i54:                                    ; preds = %if.end.i47

@@ -1302,7 +1302,7 @@ invoke.cont109:                                   ; preds = %invoke.cont109.preh
   %t1.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %retval.sroa.0.4.vec.insert.i.i209217, i64 1
   %cmp.i1.i.i = fcmp olt float %t2.sroa.0.4.vec.extract.i.i, %t1.sroa.0.4.vec.extract.i.i
   %53 = select i1 %cmp.i1.i.i, float %t2.sroa.0.4.vec.extract.i.i, float %t1.sroa.0.4.vec.extract.i.i
-  %cmp.i3.i.i = fcmp ogt float %.sroa.speculated.i.i210216, %p106.sroa.2.0.copyload
+  %cmp.i3.i.i = fcmp olt float %p106.sroa.2.0.copyload, %.sroa.speculated.i.i210216
   %.sroa.speculated.i.i = select i1 %cmp.i3.i.i, float %p106.sroa.2.0.copyload, float %.sroa.speculated.i.i210216
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %52, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %53, i64 1
@@ -5400,7 +5400,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -5968,7 +5968,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #30
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %cond.i.i.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -12503,7 +12503,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

@@ -2872,16 +2872,16 @@ _ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures27analyzeHydrogenBond
   %385 = load float, ptr %294, align 4, !noalias !16
   %386 = load float, ptr %292, align 4, !noalias !16
   %387 = load float, ptr %293, align 4, !noalias !16
-  %388 = fneg float %386
-  %389 = fmul float %387, %388
+  %388 = fneg float %387
+  %389 = fmul float %386, %388
   %390 = call float @llvm.fmuladd.f32(float %384, float %385, float %389)
   %391 = load float, ptr %10, align 4, !noalias !16
   %392 = load float, ptr %9, align 4, !noalias !16
-  %393 = fneg float %392
-  %394 = fmul float %385, %393
+  %393 = fneg float %385
+  %394 = fmul float %392, %393
   %395 = call float @llvm.fmuladd.f32(float %386, float %391, float %394)
-  %396 = fneg float %384
-  %397 = fmul float %391, %396
+  %396 = fneg float %391
+  %397 = fmul float %384, %396
   %398 = call float @llvm.fmuladd.f32(float %392, float %387, float %397)
   %399 = fmul float %395, %395
   %400 = call float @llvm.fmuladd.f32(float %390, float %390, float %399)
@@ -5305,7 +5305,7 @@ _ZSt10_ConstructIN3gmx15analysismodules12_GLOBAL__N_116DsspStorageFrameEJRKS3_EE
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = call ptr @__cxa_begin_catch(ptr %29) #28
-  %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i.i.i, %21
+  %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %21, %.014.i.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx15analysismodules12_GLOBAL__N_116DsspStorageFrameEEvT_S5_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %27, %.lr.ph.i.i.i.i.i.i.i.i
@@ -8045,7 +8045,7 @@ define internal fastcc void @_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123
   %5 = ptrtoint ptr %.val to i64
   %6 = sub i64 %4, %5
   %7 = sdiv exact i64 %6, 112
-  %8 = icmp ult i64 %7, %1
+  %8 = icmp ugt i64 %1, %7
   br i1 %8, label %9, label %54
 
 9:                                                ; preds = %2
@@ -8147,7 +8147,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDat
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataESaIS3_EE17_M_default_appendEm.exit
 
 54:                                               ; preds = %2
-  %55 = icmp ugt i64 %7, %1
+  %55 = icmp ult i64 %1, %7
   br i1 %55, label %56, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataESaIS3_EE17_M_default_appendEm.exit
 
 56:                                               ; preds = %54
@@ -8853,16 +8853,16 @@ define internal fastcc noundef float @_ZL9gmx_anglePKfS0_(ptr nocapture noundef 
   %8 = load float, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load float, ptr %9, align 4
-  %11 = fneg float %8
-  %12 = fmul float %10, %11
+  %11 = fneg float %10
+  %12 = fmul float %8, %11
   %13 = tail call float @llvm.fmuladd.f32(float %4, float %6, float %12)
   %14 = load float, ptr %1, align 4
   %15 = load float, ptr %0, align 4
-  %16 = fneg float %15
-  %17 = fmul float %6, %16
+  %16 = fneg float %6
+  %17 = fmul float %15, %16
   %18 = tail call float @llvm.fmuladd.f32(float %8, float %14, float %17)
-  %19 = fneg float %4
-  %20 = fmul float %14, %19
+  %19 = fneg float %14
+  %20 = fmul float %4, %19
   %21 = tail call float @llvm.fmuladd.f32(float %15, float %10, float %20)
   %22 = fmul float %18, %18
   %23 = tail call float @llvm.fmuladd.f32(float %13, float %13, float %22)
@@ -8930,69 +8930,75 @@ define internal fastcc noundef float @_ZN3gmx15analysismodules12_GLOBAL__N_119Se
   %39 = fmul float %38, 1.000000e+01
   %40 = load float, ptr %15, align 4
   %41 = fmul float %40, 1.000000e+01
-  %42 = fneg float %41
-  %43 = fneg float %37
-  %44 = fneg float %39
-  %45 = fmul float %33, %42
-  %46 = call float @llvm.fmuladd.f32(float %39, float %35, float %45)
-  %47 = fmul float %35, %43
-  %48 = call float @llvm.fmuladd.f32(float %41, float %31, float %47)
-  %49 = fmul float %31, %44
+  %42 = fneg float %33
+  %43 = fmul float %41, %42
+  %44 = call float @llvm.fmuladd.f32(float %39, float %35, float %43)
+  %45 = fneg float %35
+  %46 = fmul float %37, %45
+  %47 = call float @llvm.fmuladd.f32(float %41, float %31, float %46)
+  %48 = fneg float %31
+  %49 = fmul float %39, %48
   %50 = call float @llvm.fmuladd.f32(float %37, float %33, float %49)
-  %51 = fmul float %48, %42
-  %52 = call float @llvm.fmuladd.f32(float %39, float %50, float %51)
-  %53 = fmul float %50, %43
-  %54 = call float @llvm.fmuladd.f32(float %41, float %46, float %53)
-  %55 = fmul float %46, %44
-  %56 = call float @llvm.fmuladd.f32(float %37, float %48, float %55)
-  %57 = fmul float %48, %48
-  %58 = call float @llvm.fmuladd.f32(float %46, float %46, float %57)
-  %59 = call noundef float @llvm.fmuladd.f32(float %50, float %50, float %58)
-  %60 = fmul float %54, %54
-  %61 = call float @llvm.fmuladd.f32(float %52, float %52, float %60)
-  %62 = call noundef float @llvm.fmuladd.f32(float %56, float %56, float %61)
-  %63 = fcmp ogt float %59, 0.000000e+00
-  %64 = fcmp ogt float %62, 0.000000e+00
-  %or.cond = and i1 %63, %64
-  br i1 %or.cond, label %65, label %93
+  %51 = fneg float %47
+  %52 = fmul float %41, %51
+  %53 = call float @llvm.fmuladd.f32(float %39, float %50, float %52)
+  %54 = fneg float %50
+  %55 = fmul float %37, %54
+  %56 = call float @llvm.fmuladd.f32(float %41, float %44, float %55)
+  %57 = fneg float %44
+  %58 = fmul float %39, %57
+  %59 = call float @llvm.fmuladd.f32(float %37, float %47, float %58)
+  %60 = fmul float %47, %47
+  %61 = call float @llvm.fmuladd.f32(float %44, float %44, float %60)
+  %62 = call noundef float @llvm.fmuladd.f32(float %50, float %50, float %61)
+  %63 = fmul float %56, %56
+  %64 = call float @llvm.fmuladd.f32(float %53, float %53, float %63)
+  %65 = call noundef float @llvm.fmuladd.f32(float %59, float %59, float %64)
+  %66 = fcmp ogt float %62, 0.000000e+00
+  %67 = fcmp ogt float %65, 0.000000e+00
+  %or.cond = and i1 %66, %67
+  br i1 %or.cond, label %68, label %99
 
-65:                                               ; preds = %6
-  %66 = load float, ptr %11, align 4
-  %67 = fmul float %66, 1.000000e+01
-  %68 = load float, ptr %10, align 4
-  %69 = fmul float %68, 1.000000e+01
-  %70 = load float, ptr %7, align 4
-  %71 = fmul float %70, 1.000000e+01
-  %72 = fmul float %71, %44
-  %73 = call float @llvm.fmuladd.f32(float %37, float %69, float %72)
-  %74 = fmul float %67, %43
-  %75 = call float @llvm.fmuladd.f32(float %41, float %71, float %74)
-  %76 = fmul float %69, %42
-  %77 = call float @llvm.fmuladd.f32(float %39, float %67, float %76)
-  %78 = fmul float %75, %48
-  %79 = call float @llvm.fmuladd.f32(float %77, float %46, float %78)
-  %80 = call noundef float @llvm.fmuladd.f32(float %73, float %50, float %79)
-  %sqrt96 = call float @llvm.sqrt.f32(float %59)
-  %81 = fdiv float %80, %sqrt96
-  %82 = fmul float %75, %54
-  %83 = call float @llvm.fmuladd.f32(float %77, float %52, float %82)
-  %84 = call noundef float @llvm.fmuladd.f32(float %73, float %56, float %83)
-  %sqrt = call float @llvm.sqrt.f32(float %62)
-  %85 = fdiv float %84, %sqrt
-  %86 = fcmp une float %81, 0.000000e+00
-  %87 = fcmp une float %85, 0.000000e+00
-  %or.cond3 = or i1 %86, %87
-  br i1 %or.cond3, label %88, label %93
+68:                                               ; preds = %6
+  %69 = load float, ptr %11, align 4
+  %70 = fmul float %69, 1.000000e+01
+  %71 = load float, ptr %10, align 4
+  %72 = fmul float %71, 1.000000e+01
+  %73 = load float, ptr %7, align 4
+  %74 = fmul float %73, 1.000000e+01
+  %75 = fneg float %74
+  %76 = fmul float %39, %75
+  %77 = call float @llvm.fmuladd.f32(float %37, float %72, float %76)
+  %78 = fneg float %70
+  %79 = fmul float %37, %78
+  %80 = call float @llvm.fmuladd.f32(float %41, float %74, float %79)
+  %81 = fneg float %72
+  %82 = fmul float %41, %81
+  %83 = call float @llvm.fmuladd.f32(float %39, float %70, float %82)
+  %84 = fmul float %80, %47
+  %85 = call float @llvm.fmuladd.f32(float %83, float %44, float %84)
+  %86 = call noundef float @llvm.fmuladd.f32(float %77, float %50, float %85)
+  %sqrt96 = call float @llvm.sqrt.f32(float %62)
+  %87 = fdiv float %86, %sqrt96
+  %88 = fmul float %80, %56
+  %89 = call float @llvm.fmuladd.f32(float %83, float %53, float %88)
+  %90 = call noundef float @llvm.fmuladd.f32(float %77, float %59, float %89)
+  %sqrt = call float @llvm.sqrt.f32(float %65)
+  %91 = fdiv float %90, %sqrt
+  %92 = fcmp une float %87, 0.000000e+00
+  %93 = fcmp une float %91, 0.000000e+00
+  %or.cond3 = or i1 %92, %93
+  br i1 %or.cond3, label %94, label %99
 
-88:                                               ; preds = %65
-  %89 = call noundef float @atan2f(float noundef %85, float noundef %81) #28
-  %90 = fpext float %89 to double
-  %91 = fmul double %90, 0x404CA5DC1A63C1F8
-  %92 = fptrunc double %91 to float
-  br label %93
+94:                                               ; preds = %68
+  %95 = call noundef float @atan2f(float noundef %91, float noundef %87) #28
+  %96 = fpext float %95 to double
+  %97 = fmul double %96, 0x404CA5DC1A63C1F8
+  %98 = fptrunc double %97 to float
+  br label %99
 
-93:                                               ; preds = %88, %65, %6
-  %.0 = phi float [ %92, %88 ], [ 3.600000e+02, %65 ], [ 3.600000e+02, %6 ]
+99:                                               ; preds = %94, %68, %6
+  %.0 = phi float [ %98, %94 ], [ 3.600000e+02, %68 ], [ 3.600000e+02, %6 ]
   ret float %.0
 }
 

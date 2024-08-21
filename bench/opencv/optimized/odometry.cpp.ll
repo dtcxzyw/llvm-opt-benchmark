@@ -4007,7 +4007,7 @@ define internal fastcc void @_ZN2cv4rgbdL19preparePyramidCloudERKSt6vectorINS_3M
   %93 = ptrtoint ptr %91 to i64
   %94 = sub i64 %92, %93
   %95 = sdiv exact i64 %94, 96
-  %96 = icmp ult i64 %95, %89
+  %96 = icmp ugt i64 %89, %95
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %83
@@ -4016,7 +4016,7 @@ define internal fastcc void @_ZN2cv4rgbdL19preparePyramidCloudERKSt6vectorINS_3M
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %134
 
 99:                                               ; preds = %83
-  %100 = icmp ugt i64 %95, %89
+  %100 = icmp ult i64 %89, %95
   br i1 %100, label %101, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 101:                                              ; preds = %99
@@ -13744,7 +13744,7 @@ define internal fastcc void @_ZN2cv4rgbdL18randomSubsetOfMaskERNS_3MatEf(ptr nou
   %9 = call noundef i32 @_ZN2cv12countNonZeroERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %3)
   %10 = call noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
   %11 = uitofp i64 %10 to float
-  %12 = fmul float %11, %1
+  %12 = fmul float %1, %11
   %13 = fptosi float %12 to i32
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %13, i32 1000)
   %14 = icmp slt i32 %.sroa.speculated, %9
@@ -13888,8 +13888,8 @@ define internal void @_ZN2cv4rgbdL22calcRgbdEquationCoeffsEPdddRKNS_7Point3_IfEE
   %29 = fpext float %28 to double
   %30 = load float, ptr %3, align 4
   %31 = fpext float %30 to double
-  %32 = fneg double %23
-  %33 = fmul double %32, %31
+  %32 = fneg double %31
+  %33 = fmul double %23, %32
   %34 = tail call double @llvm.fmuladd.f64(double %29, double %12, double %33)
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   store double %34, ptr %35, align 8
@@ -13930,8 +13930,8 @@ define internal void @_ZN2cv4rgbdL21calcICPEquationCoeffsEPdRKNS_7Point3_IfEERKN
   %17 = load float, ptr %2, align 4
   %18 = load float, ptr %1, align 4
   %19 = load float, ptr %11, align 4
-  %20 = fneg float %18
-  %21 = fmul float %19, %20
+  %20 = fneg float %19
+  %21 = fmul float %18, %20
   %22 = tail call float @llvm.fmuladd.f32(float %16, float %17, float %21)
   %23 = fpext float %22 to double
   %24 = getelementptr inbounds i8, ptr %0, i64 8
@@ -13989,8 +13989,8 @@ define internal void @_ZN2cv4rgbdL30calcRgbdEquationCoeffsRotationEPdddRKNS_7Poi
   %29 = fpext float %28 to double
   %30 = load float, ptr %3, align 4
   %31 = fpext float %30 to double
-  %32 = fneg double %23
-  %33 = fmul double %32, %31
+  %32 = fneg double %31
+  %33 = fmul double %23, %32
   %34 = tail call double @llvm.fmuladd.f64(double %29, double %12, double %33)
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   store double %34, ptr %35, align 8
@@ -14025,8 +14025,8 @@ define internal void @_ZN2cv4rgbdL29calcICPEquationCoeffsRotationEPdRKNS_7Point3
   %17 = load float, ptr %2, align 4
   %18 = load float, ptr %1, align 4
   %19 = load float, ptr %11, align 4
-  %20 = fneg float %18
-  %21 = fmul float %19, %20
+  %20 = fneg float %19
+  %21 = fmul float %18, %20
   %22 = tail call float @llvm.fmuladd.f32(float %16, float %17, float %21)
   %23 = fpext float %22 to double
   %24 = getelementptr inbounds i8, ptr %0, i64 8

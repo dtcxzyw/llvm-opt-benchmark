@@ -4564,7 +4564,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %11 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %0, i64 %9
   %.val24 = load i32, ptr %11, align 8, !range !4, !noundef !5
   %.not.i = icmp ugt i32 %5, %.val24
-  %.not2.i = icmp uge i32 %.pre.i, %.val24
+  %.not2.i = icmp ule i32 %.val24, %.pre.i
   %12 = xor i1 %.not.i, true
   %13 = and i1 %.not2.i, %12
   br i1 %13, label %.loopexit, label %16
@@ -4613,7 +4613,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %.val23 = load i32, ptr %10, align 4, !range !4, !noundef !5
   %11 = getelementptr i8, ptr %10, i64 4
   %.val24 = load i32, ptr %11, align 4
-  %.not.i = icmp uge i32 %4, %.val23
+  %.not.i = icmp ule i32 %.val23, %4
   %.not2.i = icmp ugt i32 %4, %.val24
   %not..not.i = xor i1 %.not.i, true
   %12 = select i1 %not..not.i, i1 true, i1 %.not2.i
@@ -4717,7 +4717,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN75_$LT$usize
 define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9572dbcfe188dd3fE.llvm.16611923841924356903"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hba6d4d3baf3995eeE.llvm.16611923841924356903.exit", label %7, !prof !6
 
 7:                                                ; preds = %3
@@ -4735,7 +4735,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN81_$LT$alloc
 define hidden { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb193455a838ccce2E.llvm.16611923841924356903"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = icmp ult i64 %5, %1
+  %6 = icmp ugt i64 %1, %5
   br i1 %6, label %7, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb0b4a8ffaa9669d4E.llvm.16611923841924356903.exit"
 
 7:                                                ; preds = %3
@@ -5572,7 +5572,7 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax7unicode16SimpleCaseFolder8ov
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %6, i64 %11
   %.val24.i = load i32, ptr %13, align 8, !range !4, !alias.scope !75, !noalias !78, !noundef !5
-  %.not.i.i = icmp uge i32 %.val24.i, %1
+  %.not.i.i = icmp ule i32 %1, %.val24.i
   %.not2.i.i = icmp ule i32 %.val24.i, %2
   %14 = and i1 %.not2.i.i, %.not.i.i
   br i1 %14, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit", label %15
@@ -6840,7 +6840,7 @@ _ZN12regex_syntax3hir12ClassUnicode5empty17h26d5991a0702163dE.exit: ; preds = %3
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 32
   %397 = getelementptr i8, ptr %.ptr.i.i, i64 8
   %.val8.i.i.i = load i64, ptr %397, align 8, !noalias !458, !noundef !5
-  %.not.i.i.i.i.i109 = icmp eq i64 %.val8.i.i.i, %.sroa.8.0.copyload
+  %.not.i.i.i.i.i109 = icmp eq i64 %.sroa.8.0.copyload, %.val8.i.i.i
   br i1 %.not.i.i.i.i.i109, label %"_ZN12regex_syntax7unicode4ages3imp28_$u7b$$u7b$closure$u7d$$u7d$17hbae9bc061ef2f1e1E.exit.i.i.i", label %"_ZN12regex_syntax7unicode4ages3imp28_$u7b$$u7b$closure$u7d$$u7d$17hbae9bc061ef2f1e1E.exit.thread.i.i.i"
 
 "_ZN12regex_syntax7unicode4ages3imp28_$u7b$$u7b$closure$u7d$$u7d$17hbae9bc061ef2f1e1E.exit.i.i.i": ; preds = %396
@@ -7237,7 +7237,7 @@ define hidden noundef range(i8 0, 2) i8 @_ZN12regex_syntax7unicode17is_word_char
   %15 = getelementptr i8, ptr %14, i64 4
   %.val24.i.i = load i32, ptr %15, align 4, !alias.scope !579, !noalias !582
   %.not.i.i.i = icmp ule i32 %.val23.i.i, %0
-  %.not2.i.i.i = icmp ult i32 %.val24.i.i, %0
+  %.not2.i.i.i = icmp ugt i32 %0, %.val24.i.i
   %not..not.i.i.i = xor i1 %.not.i.i.i, true
   %16 = select i1 %not..not.i.i.i, i1 true, i1 %.not2.i.i.i
   br i1 %16, label %17, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb4b740f7f4bf3c6fE.llvm.16611923841924356903.exit.i"
@@ -7299,7 +7299,7 @@ define hidden noundef range(i8 0, 2) i8 @_ZN12regex_syntax7unicode17is_word_char
   %15 = getelementptr i8, ptr %14, i64 4
   %.val24.i = load i32, ptr %15, align 4, !alias.scope !584, !noalias !587
   %.not.i.i = icmp ule i32 %.val23.i, %0
-  %.not2.i.i = icmp ult i32 %.val24.i, %0
+  %.not2.i.i = icmp ugt i32 %0, %.val24.i
   %not..not.i.i = xor i1 %.not.i.i, true
   %16 = select i1 %not..not.i.i, i1 true, i1 %.not2.i.i
   br i1 %16, label %17, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb4b740f7f4bf3c6fE.llvm.16611923841924356903.exit"
@@ -7950,7 +7950,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize1
 
 60:                                               ; preds = %23
   %61 = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !791, !noundef !5
-  %62 = icmp ult i64 %61, %.1.i
+  %62 = icmp ugt i64 %.1.i, %61
   br i1 %62, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hba59acbf661a4888E.exit", label %.thread
 
 .thread:                                          ; preds = %.thread.i, %60

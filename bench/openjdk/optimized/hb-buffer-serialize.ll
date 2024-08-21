@@ -95,7 +95,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   %.not.i3.i = icmp ugt i32 %16, %17
   %.val76 = tail call i32 @llvm.umax.i32(i32 %2, i32 %1)
   %18 = select i1 %.not.i3.i, i32 %17, i32 %.val76
-  %19 = tail call i32 @llvm.umin.i32(i32 %18, i32 %1)
+  %19 = tail call i32 @llvm.umin.i32(i32 %1, i32 %18)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.cont58, label %.else60
 
@@ -156,7 +156,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   br label %.cont55
 
 .cont55:                                          ; preds = %35, %.else57
-  %37 = icmp ugt i32 %18, %1
+  %37 = icmp ult i32 %1, %18
   br i1 %37, label %.lr.ph.i, label %_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit
 
 .lr.ph.i:                                         ; preds = %.cont55
@@ -410,7 +410,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
   br label %.cont
 
 .cont:                                            ; preds = %154, %.else
-  %156 = icmp ugt i32 %18, %1
+  %156 = icmp ult i32 %1, %18
   br i1 %156, label %.lr.ph.i28, label %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit
 
 .lr.ph.i28:                                       ; preds = %.cont
@@ -678,7 +678,7 @@ define hidden i32 @hb_buffer_serialize_unicode(ptr noundef %0, i32 noundef %1, i
   %.not.i3.i = icmp ugt i32 %12, %13
   %.val69 = tail call i32 @llvm.umax.i32(i32 %2, i32 %1)
   %14 = select i1 %.not.i3.i, i32 %13, i32 %.val69
-  %15 = tail call i32 @llvm.umin.i32(i32 %14, i32 %1)
+  %15 = tail call i32 @llvm.umin.i32(i32 %1, i32 %14)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.cont57, label %.else59
 
@@ -714,7 +714,7 @@ define hidden i32 @hb_buffer_serialize_unicode(ptr noundef %0, i32 noundef %1, i
   br label %.cont54
 
 .cont54:                                          ; preds = %19, %.else56
-  %21 = icmp ugt i32 %14, %1
+  %21 = icmp ult i32 %1, %14
   br i1 %21, label %.lr.ph.i, label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
 .lr.ph.i:                                         ; preds = %.cont54
@@ -872,7 +872,7 @@ _ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize
   br label %.cont
 
 .cont:                                            ; preds = %75, %.else
-  %77 = icmp ugt i32 %14, %1
+  %77 = icmp ult i32 %1, %14
   br i1 %77, label %.lr.ph.i24, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
 .lr.ph.i24:                                       ; preds = %.cont

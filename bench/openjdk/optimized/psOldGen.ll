@@ -688,7 +688,7 @@ define hidden noundef zeroext i1 @_ZN8PSOldGen6expandEm(ptr noundef nonnull alig
 20:                                               ; preds = %16, %2
   %.016 = phi i64 [ %19, %16 ], [ %13, %2 ]
   %21 = icmp eq i64 %10, 0
-  %22 = and i64 %9, %1
+  %22 = and i64 %1, %9
   %spec.select = select i1 %21, i64 %22, i64 %10
   %23 = icmp ugt i64 %.016, %spec.select
   br i1 %23, label %24, label %26
@@ -925,7 +925,7 @@ define hidden void @_ZN8PSOldGen6shrinkEm(ptr noundef nonnull align 8 dereferenc
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 0, %6
-  %8 = and i64 %7, %1
+  %8 = and i64 %1, %7
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %54, label %9
 

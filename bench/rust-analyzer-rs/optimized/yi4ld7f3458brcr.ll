@@ -493,7 +493,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h3b7ebf091b13b58aE.exit: ; preds = %.
 
 184:                                              ; preds = %178, %.thread19.i
   %.sroa.4.0.i46.ph = phi i64 [ %.pre-phi.i, %.thread19.i ], [ %179, %178 ]
-  %185 = icmp ugt i64 %152, %.sroa.4.0.i46.ph
+  %185 = icmp ult i64 %.sroa.4.0.i46.ph, %152
   br i1 %185, label %187, label %186
 
 186:                                              ; preds = %184
@@ -507,7 +507,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h3b7ebf091b13b58aE.exit: ; preds = %.
   %190 = getelementptr inbounds i8, ptr %188, i64 8
   %191 = load i64, ptr %190, align 8, !noundef !14
   %192 = add nuw i64 %.sroa.4.0.i46.ph, 1
-  %193 = icmp ugt i64 %152, %192
+  %193 = icmp ult i64 %192, %152
   br i1 %193, label %196, label %194
 
 194:                                              ; preds = %187
@@ -571,7 +571,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h3b7ebf091b13b58aE.exit: ; preds = %.
   %213 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %212, i64 %189
   %214 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %0, i64 %201
   %215 = sub i64 %211, %189
-  %.not.i55 = icmp ult i64 %215, %189
+  %.not.i55 = icmp ugt i64 %189, %215
   %216 = icmp sgt i64 %189, 0
   br i1 %.not.i55, label %217, label %221
 
@@ -615,8 +615,8 @@ _ZN4core5slice4sort20provide_sorted_batch17h3b7ebf091b13b58aE.exit: ; preds = %.
   %.026.i = select i1 %.0.in.i.i.i62, ptr %232, ptr %234
   %235 = getelementptr inbounds i8, ptr %.02723.i, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %235, ptr noundef nonnull align 8 dereferenceable(32) %.026.i, i64 32, i1 false)
-  %236 = icmp ugt ptr %232, %212
-  %237 = icmp ugt ptr %234, %14
+  %236 = icmp ult ptr %212, %232
+  %237 = icmp ult ptr %14, %234
   %or.cond.i63 = select i1 %236, i1 %237, i1 false
   br i1 %or.cond.i63, label %.lr.ph24.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h0ce0ea9a0a49c8e2E.exit"
 

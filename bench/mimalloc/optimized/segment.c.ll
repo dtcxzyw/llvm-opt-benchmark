@@ -407,7 +407,7 @@ if.then.i.i:                                      ; preds = %mi_span_queue_for.e
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %mi_span_queue_for.exit.i
   %7 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp3.i.i = icmp eq ptr %7, %slice.016
+  %cmp3.i.i = icmp eq ptr %slice.016, %7
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end7.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -427,7 +427,7 @@ if.then10.i.i:                                    ; preds = %if.end7.i.i
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end7.i.i
   %last.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %9 = load ptr, ptr %last.i.i, align 8
-  %cmp15.i.i = icmp eq ptr %9, %slice.016
+  %cmp15.i.i = icmp eq ptr %slice.016, %9
   br i1 %cmp15.i.i, label %if.then16.i.i, label %mi_segment_span_remove_from_queue.exit
 
 if.then16.i.i:                                    ; preds = %if.end14.i.i
@@ -619,7 +619,7 @@ if.then.i.i:                                      ; preds = %mi_span_queue_for.e
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %mi_span_queue_for.exit.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp3.i.i = icmp eq ptr %5, %slice.017
+  %cmp3.i.i = icmp eq ptr %slice.017, %5
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end7.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -639,7 +639,7 @@ if.then10.i.i:                                    ; preds = %if.end7.i.i
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end7.i.i
   %last.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %7 = load ptr, ptr %last.i.i, align 8
-  %cmp15.i.i = icmp eq ptr %7, %slice.017
+  %cmp15.i.i = icmp eq ptr %slice.017, %7
   br i1 %cmp15.i.i, label %if.then16.i.i, label %mi_segment_span_remove_from_queue.exit
 
 if.then16.i.i:                                    ; preds = %if.end14.i.i
@@ -1005,7 +1005,7 @@ if.else.us:                                       ; preds = %if.then5.us
   tail call void @_mi_page_reclaim(ptr noundef %heap, ptr noundef nonnull %slice.033.us) #13
   %14 = load i32, ptr %10, align 4
   %conv.us = zext i32 %14 to i64
-  %cmp11.us = icmp eq i64 %conv.us, %requested_block_size
+  %cmp11.us = icmp eq i64 %requested_block_size, %conv.us
   br i1 %cmp11.us, label %land.lhs.true.us, label %if.end24.us
 
 land.lhs.true.us:                                 ; preds = %if.else.us
@@ -1068,7 +1068,7 @@ if.else:                                          ; preds = %if.then5
   tail call void @_mi_page_reclaim(ptr noundef %heap, ptr noundef nonnull %slice.033) #13
   %23 = load i32, ptr %19, align 4
   %conv = zext i32 %23 to i64
-  %cmp11 = icmp eq i64 %conv, %requested_block_size
+  %cmp11 = icmp eq i64 %requested_block_size, %conv
   br i1 %cmp11, label %land.lhs.true, label %if.end24
 
 land.lhs.true:                                    ; preds = %if.else
@@ -1846,7 +1846,7 @@ if.then.i.i:                                      ; preds = %if.then9.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then9.i
   %6 = load ptr, ptr %sq.0.ptr40.i.le, align 8
-  %cmp3.i.i = icmp eq ptr %6, %slice.036.i
+  %cmp3.i.i = icmp eq ptr %slice.036.i, %6
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end7.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -1866,7 +1866,7 @@ if.then10.i.i:                                    ; preds = %if.end7.i.i
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end7.i.i
   %last.i.i = getelementptr inbounds i8, ptr %sq.0.ptr40.i.le, i64 8
   %8 = load ptr, ptr %last.i.i, align 8
-  %cmp15.i.i = icmp eq ptr %8, %slice.036.i
+  %cmp15.i.i = icmp eq ptr %slice.036.i, %8
   br i1 %cmp15.i.i, label %if.then16.i.i, label %mi_span_queue_delete.exit.i
 
 if.then16.i.i:                                    ; preds = %if.end14.i.i
@@ -2160,7 +2160,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i22.i.i
 if.else.i.i.i:                                    ; preds = %if.then.i22.i.i
   %51 = load i32, ptr %46, align 4
   %conv9.i.i.i = zext i32 %51 to i64
-  %cmp10.i.i.i = icmp eq i64 %conv9.i.i.i, %block_size
+  %cmp10.i.i.i = icmp eq i64 %block_size, %conv9.i.i.i
   br i1 %cmp10.i.i.i, label %land.lhs.true.i.i.i, label %if.end24.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.else.i.i.i
@@ -2374,7 +2374,7 @@ if.then.i.i:                                      ; preds = %mi_span_queue_for.e
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %mi_span_queue_for.exit.i
   %9 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp3.i.i = icmp eq ptr %9, %add.ptr
+  %cmp3.i.i = icmp eq ptr %add.ptr, %9
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end7.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -2394,7 +2394,7 @@ if.then10.i.i:                                    ; preds = %if.end7.i.i
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end7.i.i
   %last.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %11 = load ptr, ptr %last.i.i, align 8
-  %cmp15.i.i = icmp eq ptr %11, %add.ptr
+  %cmp15.i.i = icmp eq ptr %add.ptr, %11
   br i1 %cmp15.i.i, label %if.then16.i.i, label %mi_segment_span_remove_from_queue.exit
 
 if.then16.i.i:                                    ; preds = %if.end14.i.i
@@ -2409,7 +2409,7 @@ mi_segment_span_remove_from_queue.exit:           ; preds = %if.end14.i.i, %if.t
 
 if.end15:                                         ; preds = %if.then10, %mi_segment_span_remove_from_queue.exit, %land.lhs.true, %if.end
   %slice_count.0 = phi i64 [ %add, %if.then10 ], [ %add, %mi_segment_span_remove_from_queue.exit ], [ %conv, %land.lhs.true ], [ %conv, %if.end ]
-  %cmp16 = icmp ult ptr %slices.i, %slice
+  %cmp16 = icmp ugt ptr %slice, %slices.i
   br i1 %cmp16, label %if.then18, label %if.end32
 
 if.then18:                                        ; preds = %if.end15
@@ -2467,7 +2467,7 @@ if.then.i.i45:                                    ; preds = %mi_span_queue_for.e
 
 if.end.i.i47:                                     ; preds = %if.then.i.i45, %mi_span_queue_for.exit.i38
   %18 = load ptr, ptr %arrayidx.i.i40, align 8
-  %cmp3.i.i48 = icmp eq ptr %18, %add.ptr.i
+  %cmp3.i.i48 = icmp eq ptr %add.ptr.i, %18
   br i1 %cmp3.i.i48, label %if.then4.i.i59, label %if.end7.i.i49
 
 if.then4.i.i59:                                   ; preds = %if.end.i.i47
@@ -2487,7 +2487,7 @@ if.then10.i.i51:                                  ; preds = %if.end7.i.i49
 if.end14.i.i53:                                   ; preds = %if.then10.i.i51, %if.end7.i.i49
   %last.i.i54 = getelementptr inbounds i8, ptr %arrayidx.i.i40, i64 8
   %20 = load ptr, ptr %last.i.i54, align 8
-  %cmp15.i.i55 = icmp eq ptr %20, %add.ptr.i
+  %cmp15.i.i55 = icmp eq ptr %add.ptr.i, %20
   br i1 %cmp15.i.i55, label %if.then16.i.i58, label %mi_segment_span_remove_from_queue.exit60
 
 if.then16.i.i58:                                  ; preds = %if.end14.i.i53
@@ -2937,7 +2937,7 @@ if.end:                                           ; preds = %lor.lhs.false2
   %segment.val39 = load i64, ptr %2, align 8
   %mul.i40 = shl i64 %segment.val39, 16
   %add.ptr = getelementptr inbounds i8, ptr %segment, i64 %mul.i40
-  %cmp5.not = icmp ugt ptr %add.ptr, %p
+  %cmp5.not = icmp ult ptr %p, %add.ptr
   br i1 %cmp5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end

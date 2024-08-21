@@ -188,7 +188,7 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %1 = load i8, ptr @_ZN4base8FilePath11kSeparatorsE, align 1
-  %cmp27 = icmp eq i8 %1, %character
+  %cmp27 = icmp eq i8 %character, %1
   br i1 %cmp27, label %return, label %for.cond
 
 for.cond:                                         ; preds = %for.body.preheader, %for.body
@@ -200,7 +200,7 @@ for.cond:                                         ; preds = %for.body.preheader,
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %inc
   %2 = load i8, ptr %arrayidx, align 1
-  %cmp2 = icmp eq i8 %2, %character
+  %cmp2 = icmp eq i8 %character, %2
   br i1 %cmp2, label %return.loopexit, label %for.cond, !llvm.loop !5
 
 return.loopexit:                                  ; preds = %for.body, %for.cond
@@ -329,7 +329,7 @@ for.cond.i:                                       ; preds = %_ZN4base8FilePath11
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.split.i
   %it.sroa.0.011.i = phi ptr [ %call.i, %for.body.lr.ph.split.i ], [ %incdec.ptr.i.i, %for.cond.i ]
   %4 = load i8, ptr %it.sroa.0.011.i, align 1
-  %cmp2.i6.i = icmp eq i8 %3, %4
+  %cmp2.i6.i = icmp eq i8 %4, %3
   br i1 %cmp2.i6.i, label %for.cond.i, label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i, %for.body.i.i
@@ -341,7 +341,7 @@ for.cond.i.i:                                     ; preds = %for.body.i, %for.bo
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %arrayidx.i.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %inc.i.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp2.i.i = icmp eq i8 %5, %4
+  %cmp2.i.i = icmp eq i8 %4, %5
   br i1 %cmp2.i.i, label %_ZN4base8FilePath11IsSeparatorEc.exit.i, label %for.cond.i.i, !llvm.loop !5
 
 _ZN4base8FilePath11IsSeparatorEc.exit.i:          ; preds = %for.body.i.i
@@ -688,7 +688,7 @@ invoke.cont21:                                    ; preds = %land.lhs.true
 
 for.body.i.preheader:                             ; preds = %invoke.cont21
   %8 = load i8, ptr @_ZN4base8FilePath11kSeparatorsE, align 1
-  %cmp2.i11 = icmp eq i8 %8, %7
+  %cmp2.i11 = icmp eq i8 %7, %8
   br i1 %cmp2.i11, label %if.then30.invoke, label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i.preheader, %for.body.i
@@ -700,7 +700,7 @@ for.cond.i:                                       ; preds = %for.body.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %inc.i
   %9 = load i8, ptr %arrayidx.i, align 1
-  %cmp2.i = icmp eq i8 %9, %7
+  %cmp2.i = icmp eq i8 %7, %9
   br i1 %cmp2.i, label %_ZN4base8FilePath11IsSeparatorEc.exit, label %for.cond.i, !llvm.loop !5
 
 _ZN4base8FilePath11IsSeparatorEc.exit:            ; preds = %for.body.i, %for.cond.i
@@ -1166,7 +1166,7 @@ if.then22:                                        ; preds = %land.lhs.true
 
 for.body.i.preheader:                             ; preds = %if.then22
   %14 = load i8, ptr @_ZN4base8FilePath11kSeparatorsE, align 1
-  %cmp2.i14 = icmp eq i8 %14, %12
+  %cmp2.i14 = icmp eq i8 %12, %14
   br i1 %cmp2.i14, label %if.end41, label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i.preheader, %for.body.i
@@ -1178,7 +1178,7 @@ for.cond.i:                                       ; preds = %for.body.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %inc.i
   %15 = load i8, ptr %arrayidx.i, align 1
-  %cmp2.i = icmp eq i8 %15, %12
+  %cmp2.i = icmp eq i8 %12, %15
   br i1 %cmp2.i, label %_ZN4base8FilePath11IsSeparatorEc.exit, label %for.cond.i, !llvm.loop !5
 
 _ZN4base8FilePath11IsSeparatorEc.exit:            ; preds = %for.body.i, %for.cond.i
@@ -1247,7 +1247,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   %call5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub)
   %1 = load i8, ptr %call5, align 1
   %2 = load i8, ptr @_ZN4base8FilePath11kSeparatorsE, align 1
-  %cmp2.i24 = icmp eq i8 %2, %1
+  %cmp2.i24 = icmp eq i8 %1, %2
   br i1 %cmp2.i24, label %for.body, label %for.cond.i
 
 for.cond.i:                                       ; preds = %land.rhs, %for.body.i
@@ -1259,7 +1259,7 @@ for.cond.i:                                       ; preds = %land.rhs, %for.body
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %inc.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  %cmp2.i = icmp eq i8 %3, %1
+  %cmp2.i = icmp eq i8 %1, %3
   br i1 %cmp2.i, label %_ZN4base8FilePath11IsSeparatorEc.exit, label %for.cond.i, !llvm.loop !5
 
 _ZN4base8FilePath11IsSeparatorEc.exit:            ; preds = %for.body.i, %for.cond.i
@@ -1275,7 +1275,7 @@ for.body:                                         ; preds = %land.rhs, %_ZN4base
 lor.lhs.false11:                                  ; preds = %for.body
   %call14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 0)
   %4 = load i8, ptr %call14, align 1
-  %cmp2.i1527 = icmp eq i8 %2, %4
+  %cmp2.i1527 = icmp eq i8 %4, %2
   br i1 %cmp2.i1527, label %for.end, label %for.cond.i16
 
 for.cond.i16:                                     ; preds = %lor.lhs.false11, %for.body.i11
@@ -1287,7 +1287,7 @@ for.cond.i16:                                     ; preds = %lor.lhs.false11, %f
 for.body.i11:                                     ; preds = %for.cond.i16
   %arrayidx.i14 = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %inc.i17
   %5 = load i8, ptr %arrayidx.i14, align 1
-  %cmp2.i15 = icmp eq i8 %5, %4
+  %cmp2.i15 = icmp eq i8 %4, %5
   br i1 %cmp2.i15, label %_ZN4base8FilePath11IsSeparatorEc.exit21, label %for.cond.i16, !llvm.loop !5
 
 _ZN4base8FilePath11IsSeparatorEc.exit21:          ; preds = %for.body.i11, %for.cond.i16
@@ -2383,7 +2383,7 @@ land.rhs.i:                                       ; preds = %entry
 
 for.body.i.preheader.i:                           ; preds = %land.rhs.i
   %5 = load i8, ptr @_ZN4base8FilePath11kSeparatorsE, align 1
-  %cmp2.i1.i = icmp eq i8 %5, %call1.i
+  %cmp2.i1.i = icmp eq i8 %call1.i, %5
   br i1 %cmp2.i1.i, label %_ZN4base12_GLOBAL__N_114IsPathAbsoluteENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit, label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.preheader.i, %for.body.i.i
@@ -2395,7 +2395,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.preheade
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %arrayidx.i.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %inc.i.i
   %6 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp2.i.i = icmp eq i8 %6, %call1.i
+  %cmp2.i.i = icmp eq i8 %call1.i, %6
   br i1 %cmp2.i.i, label %land.end.loopexit.i, label %for.cond.i.i, !llvm.loop !5
 
 land.end.loopexit.i:                              ; preds = %for.body.i.i, %for.cond.i.i
@@ -2425,7 +2425,7 @@ if.end:                                           ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %if.end
   %2 = load i8, ptr @_ZN4base8FilePath11kSeparatorsE, align 1
-  %cmp2.i1 = icmp eq i8 %2, %0
+  %cmp2.i1 = icmp eq i8 %0, %2
   br i1 %cmp2.i1, label %return, label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i.preheader, %for.body.i
@@ -2437,7 +2437,7 @@ for.cond.i:                                       ; preds = %for.body.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %inc.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  %cmp2.i = icmp eq i8 %3, %0
+  %cmp2.i = icmp eq i8 %0, %3
   br i1 %cmp2.i, label %return.loopexit, label %for.cond.i, !llvm.loop !5
 
 return.loopexit:                                  ; preds = %for.body.i, %for.cond.i
@@ -2471,7 +2471,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.preheader.i:                           ; preds = %if.end.i
   %2 = load i8, ptr @_ZN4base8FilePath11kSeparatorsE, align 1
-  %cmp2.i1.i = icmp eq i8 %2, %0
+  %cmp2.i1.i = icmp eq i8 %0, %2
   br i1 %cmp2.i1.i, label %if.then, label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.preheader.i, %for.body.i.i
@@ -2483,7 +2483,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.preheade
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %arrayidx.i.i = getelementptr inbounds [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %inc.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp2.i.i = icmp eq i8 %3, %0
+  %cmp2.i.i = icmp eq i8 %0, %3
   br i1 %cmp2.i.i, label %_ZNK4base8FilePath17EndsWithSeparatorEv.exit, label %for.cond.i.i, !llvm.loop !5
 
 _ZNK4base8FilePath17EndsWithSeparatorEv.exit:     ; preds = %for.body.i.i
@@ -3157,7 +3157,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i19
@@ -3292,7 +3292,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = tail call ptr @__cxa_begin_catch(ptr %7) #16
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.011.i.i.i.i, %cond.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %cond.i, %__cur.011.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont7.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i

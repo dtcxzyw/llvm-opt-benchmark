@@ -1798,7 +1798,7 @@ define hidden noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !9
   %7 = sub i64 %4, %6
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3
@@ -2190,7 +2190,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3)
   %105 = getelementptr inbounds i8, ptr %101, i64 8192
   %106 = load i64, ptr %105, align 8, !alias.scope !186, !noalias !183, !noundef !9
-  %.not.i34 = icmp ugt i64 %106, %104
+  %.not.i34 = icmp ult i64 %104, %106
   br i1 %.not.i34, label %107, label %112
 
 107:                                              ; preds = %93
@@ -2549,7 +2549,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3)
   %108 = getelementptr inbounds i8, ptr %104, i64 8192
   %109 = load i64, ptr %108, align 8, !alias.scope !248, !noalias !245, !noundef !9
-  %.not.i36 = icmp ugt i64 %109, %107
+  %.not.i36 = icmp ult i64 %107, %109
   br i1 %.not.i36, label %110, label %115
 
 110:                                              ; preds = %96
@@ -2903,7 +2903,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3)
   %105 = getelementptr inbounds i8, ptr %101, i64 8192
   %106 = load i64, ptr %105, align 8, !alias.scope !307, !noalias !304, !noundef !9
-  %.not.i34 = icmp ugt i64 %106, %104
+  %.not.i34 = icmp ult i64 %104, %106
   br i1 %.not.i34, label %107, label %112
 
 107:                                              ; preds = %93
@@ -3125,7 +3125,7 @@ _ZN7uu_tail6chunks10BytesChunk10get_buffer17hcbb4dd09726de4a7E.exit: ; preds = %
   %40 = load i64, ptr %1, align 8, !alias.scope !355, !noalias !358, !noundef !9
   %41 = load i64, ptr %26, align 8, !alias.scope !355, !noalias !358, !noundef !9
   %42 = sub i64 %40, %41
-  %43 = icmp ugt i64 %42, %37
+  %43 = icmp ult i64 %37, %42
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %_ZN7uu_tail6chunks10BytesChunk10get_buffer17hcbb4dd09726de4a7E.exit
@@ -3269,7 +3269,7 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16BytesChunkBuffer5print17hb525581
   %45 = load i64, ptr %1, align 8, !alias.scope !381, !noalias !384, !noundef !9
   %46 = load i64, ptr %28, align 8, !alias.scope !381, !noalias !384, !noundef !9
   %47 = sub i64 %45, %46
-  %48 = icmp ugt i64 %47, %39
+  %48 = icmp ult i64 %39, %47
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %44
@@ -3446,7 +3446,7 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks10LinesChunk11print_bytes17h2de5ca
   tail call void @llvm.experimental.noalias.scope.decl(metadata !437)
   %4 = getelementptr inbounds i8, ptr %0, i64 8192
   %5 = load i64, ptr %4, align 8, !alias.scope !440, !noundef !9
-  %6 = icmp ult i64 %5, %2
+  %6 = icmp ugt i64 %2, %5
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
@@ -3469,7 +3469,7 @@ _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit: ; pred
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !444, !noalias !447, !noundef !9
   %16 = sub i64 %13, %15
-  %17 = icmp ugt i64 %16, %11
+  %17 = icmp ult i64 %11, %16
   br i1 %17, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit.thread": ; preds = %_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit
@@ -3807,7 +3807,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %147 = tail call i64 @llvm.usub.sat.i64(i64 %140, i64 %144)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !506)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !509)
-  %148 = icmp ult i64 %142, %147
+  %148 = icmp ugt i64 %147, %142
   br i1 %148, label %162, label %149
 
 149:                                              ; preds = %146
@@ -3820,7 +3820,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3)
   %151 = getelementptr inbounds i8, ptr %139, i64 8192
   %152 = load i64, ptr %151, align 8, !alias.scope !516, !noalias !517, !noundef !9
-  %.not.i.i48 = icmp ugt i64 %152, %150
+  %.not.i.i48 = icmp ult i64 %150, %152
   br i1 %.not.i.i48, label %153, label %158
 
 153:                                              ; preds = %.noexc49
@@ -4289,7 +4289,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %147 = tail call i64 @llvm.usub.sat.i64(i64 %140, i64 %144)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !600)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !603)
-  %148 = icmp ult i64 %142, %147
+  %148 = icmp ugt i64 %147, %142
   br i1 %148, label %162, label %149
 
 149:                                              ; preds = %146
@@ -4302,7 +4302,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3)
   %151 = getelementptr inbounds i8, ptr %139, i64 8192
   %152 = load i64, ptr %151, align 8, !alias.scope !610, !noalias !611, !noundef !9
-  %.not.i.i48 = icmp ugt i64 %152, %150
+  %.not.i.i48 = icmp ult i64 %150, %152
   br i1 %.not.i.i48, label %153, label %158
 
 153:                                              ; preds = %.noexc49
@@ -4551,7 +4551,7 @@ _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; pr
   %40 = load i64, ptr %1, align 8, !alias.scope !670, !noalias !673, !noundef !9
   %41 = load i64, ptr %26, align 8, !alias.scope !670, !noalias !673, !noundef !9
   %42 = sub i64 %40, %41
-  %43 = icmp ugt i64 %42, %37
+  %43 = icmp ult i64 %37, %42
   br i1 %43, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.thread.i", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.i"
 
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hf4cdd598ed3ced20E.exit.thread.i": ; preds = %_ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i

@@ -105,7 +105,7 @@ entry:
   %call = call i32 @vsnprintf(ptr noundef %buf, i64 noundef %n, ptr noundef %fmt, ptr noundef nonnull %args) #26
   call void @llvm.va_end.p0(ptr nonnull %args)
   %conv = zext i32 %call to i64
-  %cmp.not = icmp ult i64 %conv, %n
+  %cmp.not = icmp ugt i64 %n, %conv
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -186,7 +186,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end10:                                         ; preds = %for.body
   %4 = load i64, ptr %sb, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %4, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %conv11
+  %cmp.i = icmp ugt i64 %conv11, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end10
@@ -245,7 +245,7 @@ define internal fastcc void @strbuf_setlen(ptr nocapture noundef %sb, i64 nounde
 entry:
   %0 = load i64, ptr %sb, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 1)
-  %cmp = icmp ult i64 %spec.select, %len
+  %cmp = icmp ugt i64 %len, %spec.select
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1551,7 +1551,7 @@ land.lhs.true38:                                  ; preds = %land.lhs.true
 if.end44:                                         ; preds = %land.lhs.true, %land.lhs.true38, %for.body
   %12 = load i64, ptr @enter_repo.used_path, align 8
   %spec.select.i27 = tail call i64 @llvm.usub.sat.i64(i64 %12, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i27, %6
+  %cmp.i = icmp ugt i64 %6, %spec.select.i27
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end44
@@ -1684,8 +1684,8 @@ if.end3:                                          ; preds = %if.end
   %call11.i = tail call i32 @get_shared_repository() #26
   %cmp12.i = icmp slt i32 %call11.i, 0
   %and14.i = and i32 %0, -512
-  %mode.addr.0.v.i = select i1 %cmp12.i, i32 %and14.i, i32 %0
-  %1 = or i32 %mode.addr.0.v.i, %or.i
+  %and14.pn.i = select i1 %cmp12.i, i32 %and14.i, i32 %0
+  %1 = or i32 %and14.pn.i, %or.i
   %mode.addr.0.i = or i32 %1, %spec.select.i
   %and = and i32 %0, 61440
   %cmp5 = icmp eq i32 %and, 16384
@@ -2763,7 +2763,7 @@ if.end:                                           ; preds = %while.cond61.us.i.i
   %call3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #28
   %13 = load i64, ptr %dst, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %13, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %call3
+  %cmp.i = icmp ugt i64 %call3, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -3621,7 +3621,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i.i
   store i64 %sub.i.i, ptr %len.i, align 8
   %2 = load i64, ptr %buf, align 8
   %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
-  %cmp.i4.i = icmp ult i64 %spec.select.i.i, %sub.i.i
+  %cmp.i4.i = icmp ugt i64 %sub.i.i, %spec.select.i.i
   br i1 %cmp.i4.i, label %if.then.i.i, label %if.end.i5.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -3863,7 +3863,7 @@ land.end.thread.i:                                ; preds = %if.then
   %.fr.i = freeze i8 %28
   %cmp.i13.i = icmp ne i8 %.fr.i, 47
   %dec.i = sext i1 %cmp.i13.i to i32
-  %spec.select.i = add nsw i32 %dec.i, %git_dir_len
+  %spec.select.i = add nsw i32 %git_dir_len, %dec.i
   %.pre.i8 = sext i32 %spec.select.i to i64
   %conv16.i = ashr exact i64 %sub.i, 32
   tail call void @strbuf_splice(ptr noundef nonnull %buf, i64 noundef 0, i64 noundef %.pre.i8, ptr noundef %common_dir, i64 noundef %conv16.i) #26

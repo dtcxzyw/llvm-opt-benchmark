@@ -582,7 +582,7 @@ define internal fastcc ptr @vp_modern_map_capability(ptr nocapture noundef reado
 33:                                               ; preds = %28
   %34 = sub nuw i32 %29, %4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %35, %2
+  %36 = icmp ugt i64 %2, %35
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %33
@@ -634,7 +634,7 @@ define internal fastcc ptr @vp_modern_map_capability(ptr nocapture noundef reado
 
 59:                                               ; preds = %57, %54
   %60 = zext i32 %41 to i64
-  %61 = add nuw nsw i64 %60, %2
+  %61 = add nuw nsw i64 %2, %60
   %62 = getelementptr inbounds i8, ptr %12, i64 920
   %63 = zext nneg i8 %19 to i64
   %64 = getelementptr [11 x %struct.resource], ptr %62, i64 0, i64 %63

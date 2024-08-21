@@ -28,7 +28,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 17:                                               ; preds = %15
   %18 = sub i64 8, %16
-  %.not425 = icmp ugt i64 %18, %2
+  %.not425 = icmp ult i64 %2, %18
   %19 = getelementptr inbounds i8, ptr %7, i64 %16
   br i1 %.not425, label %.thread461, label %20
 
@@ -128,7 +128,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 56:                                               ; preds = %54
   %57 = sub i64 8, %53
-  %.not427 = icmp ugt i64 %57, %2
+  %.not427 = icmp ult i64 %2, %57
   %58 = getelementptr inbounds i8, ptr %7, i64 %53
   br i1 %.not427, label %.thread461, label %59
 
@@ -258,7 +258,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 98:                                               ; preds = %96
   %99 = sub i64 8, %53
-  %.not432 = icmp ugt i64 %99, %2
+  %.not432 = icmp ult i64 %2, %99
   %100 = getelementptr inbounds i8, ptr %7, i64 %53
   br i1 %.not432, label %.thread461, label %101
 
@@ -370,7 +370,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 135:                                              ; preds = %133
   %136 = sub i64 8, %53
-  %.not436 = icmp ugt i64 %136, %2
+  %.not436 = icmp ult i64 %2, %136
   %137 = getelementptr inbounds i8, ptr %7, i64 %53
   br i1 %.not436, label %.thread461, label %138
 
@@ -723,7 +723,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
 
 17:                                               ; preds = %15
   %18 = sub i64 4, %16
-  %.not425 = icmp ugt i64 %18, %2
+  %.not425 = icmp ult i64 %2, %18
   %19 = getelementptr inbounds i8, ptr %7, i64 %16
   br i1 %.not425, label %.thread461, label %20
 
@@ -823,7 +823,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
 
 56:                                               ; preds = %54
   %57 = sub i64 4, %53
-  %.not427 = icmp ugt i64 %57, %2
+  %.not427 = icmp ult i64 %2, %57
   %58 = getelementptr inbounds i8, ptr %7, i64 %53
   br i1 %.not427, label %.thread461, label %59
 
@@ -953,7 +953,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
 
 98:                                               ; preds = %96
   %99 = sub i64 4, %53
-  %.not432 = icmp ugt i64 %99, %2
+  %.not432 = icmp ult i64 %2, %99
   %100 = getelementptr inbounds i8, ptr %7, i64 %53
   br i1 %.not432, label %.thread461, label %101
 
@@ -1065,7 +1065,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
 
 135:                                              ; preds = %133
   %136 = sub i64 4, %53
-  %.not436 = icmp ugt i64 %136, %2
+  %.not436 = icmp ult i64 %2, %136
   %137 = getelementptr inbounds i8, ptr %7, i64 %53
   br i1 %.not436, label %.thread461, label %138
 
@@ -1410,7 +1410,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture noun
 
 11:                                               ; preds = %10
   %12 = sub i64 8, %9
-  %.not158 = icmp ugt i64 %12, %1
+  %.not158 = icmp ult i64 %1, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 %9
   br i1 %.not158, label %28, label %14
 
@@ -1512,7 +1512,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture noun
 
 46:                                               ; preds = %44
   %47 = sub i64 8, %9
-  %.not160 = icmp ugt i64 %47, %1
+  %.not160 = icmp ult i64 %1, %47
   %48 = getelementptr inbounds i8, ptr %5, i64 %9
   br i1 %.not160, label %72, label %49
 
@@ -1709,7 +1709,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture no
 
 11:                                               ; preds = %10
   %12 = sub i64 4, %9
-  %.not158 = icmp ugt i64 %12, %1
+  %.not158 = icmp ult i64 %1, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 %9
   br i1 %.not158, label %28, label %14
 
@@ -1811,7 +1811,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture no
 
 46:                                               ; preds = %44
   %47 = sub i64 4, %9
-  %.not160 = icmp ugt i64 %47, %1
+  %.not160 = icmp ult i64 %1, %47
   %48 = getelementptr inbounds i8, ptr %5, i64 %9
   br i1 %.not160, label %72, label %49
 

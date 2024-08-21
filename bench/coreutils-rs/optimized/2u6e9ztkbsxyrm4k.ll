@@ -52,7 +52,7 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
   %.0.i = select i1 %8, i64 %.sroa.01.sroa.6.0.copyload.i, i64 %10
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !33, !noalias !36, !noundef !10
-  %13 = icmp ult i64 %12, %.0.i
+  %13 = icmp ugt i64 %.0.i, %12
   br i1 %13, label %14, label %"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17ha43895171cc4e093E.exit"
 
 14:                                               ; preds = %2
@@ -146,7 +146,7 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
   %.0.i = phi i64 [ %12, %11 ], [ %16, %13 ]
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8, !alias.scope !55, !noalias !58, !noundef !10
-  %20 = icmp ult i64 %19, %.0.i
+  %20 = icmp ugt i64 %.0.i, %19
   br i1 %20, label %21, label %"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17haae635ba35c0914eE.exit"
 
 21:                                               ; preds = %17
@@ -182,7 +182,7 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
   %.0.i = select i1 %6, i64 %11, i64 %13
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !63, !noalias !66, !noundef !10
-  %16 = icmp ult i64 %15, %.0.i
+  %16 = icmp ugt i64 %.0.i, %15
   br i1 %16, label %17, label %"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17hc4e624c37b536154E.exit"
 
 17:                                               ; preds = %3
@@ -642,7 +642,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 .critedge.backedge.us.i.i.i.i.i:                  ; preds = %.lr.ph.split.us.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h3e3de2a0688a2ac1E.exit.us.i.i.i.i.i"
   %45 = phi ptr [ %43, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h3e3de2a0688a2ac1E.exit.us.i.i.i.i.i" ], [ getelementptr inbounds (i8, ptr @anon.2f61c8dfabfbe36bfeadee044af23af6.36, i64 1), %.lr.ph.split.us.i.i.i.i.i ]
   %46 = phi i64 [ %42, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h3e3de2a0688a2ac1E.exit.us.i.i.i.i.i" ], [ 3, %.lr.ph.split.us.i.i.i.i.i ]
-  %.not39.i.i.not.i.not.i.i = icmp ult i64 %46, %.ph3.i.i
+  %.not39.i.i.not.i.not.i.i = icmp ugt i64 %.ph3.i.i, %46
   br i1 %.not39.i.i.not.i.not.i.i, label %.sink.split.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h3e3de2a0688a2ac1E.exit.us.i.i.i.i.i"
 
 _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit.i.i.i: ; preds = %.preheader5.i.i.i
@@ -1119,7 +1119,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %_ZN5alloc3fmt6forma
   %254 = load i64, ptr %253, align 8, !alias.scope !205, !noalias !210, !noundef !10
   %255 = load i64, ptr %.val, align 8, !alias.scope !212, !noalias !210, !noundef !10
   %256 = sub i64 %255, %254
-  %257 = icmp ult i64 %256, %252
+  %257 = icmp ugt i64 %252, %256
   br i1 %257, label %258, label %264
 
 258:                                              ; preds = %"_ZN6uu_ptx10WordFilter3new28_$u7b$$u7b$closure$u7d$$u7d$17hfe609a4a9eb71cecE.exit"

@@ -1753,14 +1753,14 @@ _ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112bas
   %109 = getelementptr inbounds i8, ptr %88, i64 56
   %110 = load double, ptr %109, align 8, !noalias !13
   %111 = fsub double %110, %108
-  %112 = fcmp ogt double %111, %.fr120
+  %112 = fcmp olt double %.fr120, %111
   br i1 %112, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i, label %113
 
 113:                                              ; preds = %102
   %114 = getelementptr inbounds i8, ptr %88, i64 72
   %115 = load double, ptr %114, align 8, !noalias !13
   %116 = fadd double %108, %115
-  %117 = fcmp olt double %116, %.fr120
+  %117 = fcmp ogt double %.fr120, %116
   br i1 %117, label %118, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i
 
 118:                                              ; preds = %113
@@ -1883,7 +1883,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113gridshiftData19grid_apply_intern
   %27 = getelementptr inbounds i8, ptr %7, i64 56
   %28 = load double, ptr %27, align 8
   %29 = fsub double %28, %26
-  %30 = fcmp ogt double %29, %13
+  %30 = fcmp olt double %13, %29
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %20
@@ -1894,7 +1894,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113gridshiftData19grid_apply_intern
   %34 = getelementptr inbounds i8, ptr %7, i64 72
   %35 = load double, ptr %34, align 8
   %36 = fadd double %26, %35
-  %37 = fcmp olt double %36, %13
+  %37 = fcmp ogt double %13, %36
   br i1 %37, label %38, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit
 
 38:                                               ; preds = %33
@@ -2071,7 +2071,7 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
   %129 = getelementptr inbounds i8, ptr %104, i64 56
   %130 = load double, ptr %129, align 8
   %131 = fsub double %130, %128
-  %132 = fcmp ogt double %131, %.sroa.0.0.copyload
+  %132 = fcmp olt double %.sroa.0.0.copyload, %131
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %122
@@ -2082,7 +2082,7 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
   %136 = getelementptr inbounds i8, ptr %104, i64 72
   %137 = load double, ptr %136, align 8
   %138 = fadd double %128, %137
-  %139 = fcmp olt double %138, %.sroa.0.0.copyload
+  %139 = fcmp ogt double %.sroa.0.0.copyload, %138
   br i1 %139, label %140, label %_ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit67
 
 140:                                              ; preds = %135
@@ -2229,7 +2229,7 @@ _ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_N12_GLOBAL__N_18Grid
 _ZNSt3mapIPKN5osgeo4proj16GenericShiftGridEN12_GLOBAL__N_18GridInfoESt4lessIS4_ESaISt4pairIKS4_S6_EEE4findERSA_.exit: ; preds = %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_N12_GLOBAL__N_18GridInfoEESt10_Select1stIS9_ESt4lessIS4_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS6_.exit.i.i
   %35 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = icmp ugt ptr %36, %6
+  %37 = icmp ult ptr %6, %36
   br i1 %37, label %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridEN12_GLOBAL__N_18GridInfoESt4lessIS4_ESaISt4pairIKS4_S6_EEE4findERSA_.exit.thread, label %264
 
 _ZNSt3mapIPKN5osgeo4proj16GenericShiftGridEN12_GLOBAL__N_18GridInfoESt4lessIS4_ESaISt4pairIKS4_S6_EEE4findERSA_.exit.thread: ; preds = %8, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_N12_GLOBAL__N_18GridInfoEESt10_Select1stIS9_ESt4lessIS4_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS6_.exit.i.i, %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridEN12_GLOBAL__N_18GridInfoESt4lessIS4_ESaISt4pairIKS4_S6_EEE4findERSA_.exit
@@ -2722,7 +2722,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %_ZNKSt6vectorIfSaIf
   %.01317.i.i.i = phi ptr [ %.013.i.i.i, %.lr.ph.i.i.i334 ], [ %.01315.i.i.i, %.noexc336 ]
   %241 = getelementptr inbounds i8, ptr %.01317.i.i.i, i64 32
   %242 = load ptr, ptr %241, align 8
-  %243 = icmp ugt ptr %242, %6
+  %243 = icmp ult ptr %6, %242
   %.in.v.i.i.i = select i1 %243, i64 16, i64 24
   %.in.i.i.i = getelementptr i8, ptr %.01317.i.i.i, i64 %.in.v.i.i.i
   %.013.i.i.i = load ptr, ptr %.in.i.i.i, align 8
@@ -2754,13 +2754,13 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %_ZNKSt6vectorIfSaIf
 
 select.unfold.i.i:                                ; preds = %248, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.012.lcssa21.i.i.i, %._crit_edge.thread.i.i.i ], [ %.012.lcssa22.i.i.i, %248 ]
-  %251 = icmp eq ptr %30, %.sroa.4.0.i.ph.i.i
+  %251 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %30
   br i1 %251, label %257, label %252
 
 252:                                              ; preds = %select.unfold.i.i
   %253 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
   %254 = load ptr, ptr %253, align 8
-  %255 = icmp ugt ptr %254, %6
+  %255 = icmp ult ptr %6, %254
   br label %257
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i.i.i.i.i:  ; preds = %248
@@ -3577,7 +3577,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 17:                                               ; preds = %14
   %.not.i.i = icmp ne ptr %15, null
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = icmp eq ptr %18, %16
+  %19 = icmp eq ptr %16, %18
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %19
   br i1 %or.cond.i.i, label %.thread, label %20
 
@@ -3625,7 +3625,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_b
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

@@ -950,7 +950,7 @@ _ZN4core3str7pattern8Searcher11next_reject17h457c6773a69dcd14E.llvm.179485739290
   %198 = getelementptr inbounds i8, ptr %197, i64 16
   %199 = getelementptr i8, ptr %197, i64 8
   %.val8.i = load i64, ptr %199, align 8, !noalias !137, !noundef !4
-  %.not.i.i.i212 = icmp eq i64 %.fca.1.extract37, %.val8.i
+  %.not.i.i.i212 = icmp eq i64 %.val8.i, %.fca.1.extract37
   br i1 %.not.i.i.i212, label %"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$closure$u7d$$u7d$17hcb335a5b98c79f1fE.exit.i", label %"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$closure$u7d$$u7d$17hcb335a5b98c79f1fE.exit.thread.i"
 
 "_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$closure$u7d$$u7d$17hcb335a5b98c79f1fE.exit.i": ; preds = %.lr.ph.i

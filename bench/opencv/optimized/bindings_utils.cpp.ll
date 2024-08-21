@@ -78,7 +78,7 @@ define void @_ZN2cv5utils14dumpInputArrayB5cxx11ERKNS_11_InputArrayE(ptr dead_on
   %10 = alloca [32 x i32], align 16
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %2
@@ -426,7 +426,7 @@ define void @_ZN2cv5utils22dumpInputArrayOfArraysB5cxx11ERKNS_11_InputArrayE(ptr
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca [32 x i32], align 16
   %14 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %2
@@ -750,7 +750,7 @@ define void @_ZN2cv5utils20dumpInputOutputArrayB5cxx11ERKNS_17_InputOutputArrayE
   %10 = alloca [32 x i32], align 16
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %2
@@ -1033,7 +1033,7 @@ define void @_ZN2cv5utils28dumpInputOutputArrayOfArraysB5cxx11ERKNS_17_InputOutp
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca [32 x i32], align 16
   %14 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %2

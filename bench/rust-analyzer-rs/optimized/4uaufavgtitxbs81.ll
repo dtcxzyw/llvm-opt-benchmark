@@ -223,7 +223,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %.sroa.0.0.copyload, i64 %.016.i.i
   %13 = getelementptr i8, ptr %12, i64 16
   %.val21.i.i = load i64, ptr %13, align 8, !alias.scope !86, !noalias !91, !noundef !9
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.val3.i.i.i.i.i.i.i, %.val21.i.i
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.val21.i.i, %.val3.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %14, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hf38540f093415378E.exit.i.i"
 
 14:                                               ; preds = %11
@@ -3382,7 +3382,7 @@ define hidden noundef i64 @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerat
   %15 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %4, i64 %.016.i
   %16 = getelementptr i8, ptr %15, i64 16
   %.val21.i = load i64, ptr %16, align 8, !alias.scope !1028, !noalias !1018, !noundef !9
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val3.i.i.i.i.i.i, %.val21.i
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val21.i, %.val3.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %17, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hf38540f093415378E.exit.i"
 
 17:                                               ; preds = %14
@@ -5929,8 +5929,8 @@ select.unfold.i.i.loopexit10.split.us:            ; preds = %"_ZN99_$LT$hashbrow
 
 34:                                               ; preds = %50, %29
   %.sroa.9.0.i.i.i.i.i.i = phi i64 [ 0, %29 ], [ %51, %50 ]
-  %.pn.i.i.i.i = phi i64 [ %31, %29 ], [ %52, %50 ]
-  %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i.i.i
+  %.pn.i.i.i.i.i.i = phi i64 [ %31, %29 ], [ %52, %50 ]
+  %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i.i, %.val5.i.i.i
   %35 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i
   %.0.copyload.i25.i.i.i.i.i = load <16 x i8>, ptr %35, align 1, !noalias !1877
   %36 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i.i, %.15.vec.insert.i.i.i.i.i.i
@@ -5958,7 +5958,7 @@ select.unfold.i.i.loopexit10.split.us:            ; preds = %"_ZN99_$LT$hashbrow
   %48 = sub nsw i64 0, %47
   %gep.i.i.i.i.i = getelementptr { i32, i32 }, ptr %invariant.gep.i.i.i.i.i, i64 %48
   %.val4.i.i.i.i.i.i = load i32, ptr %gep.i.i.i.i.i, align 4, !alias.scope !1887, !noalias !1892, !noundef !9
-  %49 = icmp eq i32 %.val4.i.i.i.i.i.i, %.sroa.0.0.copyload
+  %49 = icmp eq i32 %.sroa.0.0.copyload, %.val4.i.i.i.i.i.i
   br i1 %49, label %"_ZN7base_db5input10CrateGraph6extend28_$u7b$$u7b$closure$u7d$$u7d$17h9555b85782c3ba9cE.exit.i", label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i.i.i"
 
 50:                                               ; preds = %38
@@ -11352,7 +11352,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
   %28 = phi i64 [ %.sroa.5.0.copyload, %22 ], [ %50, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17heb29188201fe0a18E.exit.i.i.i.i.i.i" ]
   %.0.i.i.i.i.i.i = phi i64 [ 0, %22 ], [ %51, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17heb29188201fe0a18E.exit.i.i.i.i.i.i" ]
   %29 = and i64 %28, 4294967295
-  %30 = icmp ult i64 %29, %.val1.i.i
+  %30 = icmp ugt i64 %.val1.i.i, %29
   br i1 %30, label %"_ZN162_$LT$project_model..cargo_workspace..CargoWorkspace$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$project_model..cargo_workspace..PackageData$GT$$GT$$GT$5index17h8b09320b1d93797aE.exit.i.i.i.i.i.i.i.i.i.i.i", label %31, !prof !734
 
 31:                                               ; preds = %27
@@ -12001,7 +12001,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !3633, !noalias !3638, !noundef !9
   %45 = load i64, ptr %0, align 8, !alias.scope !3640, !noalias !3638, !noundef !9
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h099f3f6f22e5cfd4E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -12058,7 +12058,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !3646, !noalias !3651, !noundef !9
   %6 = load i64, ptr %0, align 8, !alias.scope !3653, !noalias !3651, !noundef !9
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h099f3f6f22e5cfd4E.exit"
 
 9:                                                ; preds = %3
@@ -12673,7 +12673,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %8 = ptrtoint ptr %0 to i64
   %9 = sub nuw i64 %7, %8
   %10 = udiv exact i64 %9, 72
-  %11 = add i64 %10, %2
+  %11 = add i64 %2, %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
@@ -13789,7 +13789,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %8 = ptrtoint ptr %0 to i64
   %9 = sub nuw i64 %7, %8
   %10 = udiv exact i64 %9, 432
-  %11 = add i64 %10, %2
+  %11 = add i64 %2, %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
@@ -13820,7 +13820,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %15 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %0, i64 %.016
   %16 = getelementptr i8, ptr %15, i64 16
   %.val21 = load i64, ptr %16, align 8, !alias.scope !3949, !noundef !9
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %.val3.i.i.i.i.i, %.val21
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %.val21, %.val3.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %17, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hf38540f093415378E.exit"
 
 17:                                               ; preds = %14

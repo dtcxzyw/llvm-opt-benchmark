@@ -750,7 +750,7 @@ define hidden noundef zeroext i1 @rb_shape_get_iv_index_with_hint(i32 noundef %0
   br i1 %23, label %shape_cache_get_iv_index.exit.i, label %24
 
 24:                                               ; preds = %21
-  %25 = icmp ugt i64 %22, %1
+  %25 = icmp ult i64 %1, %22
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %24
@@ -950,7 +950,7 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   br i1 %124, label %shape_cache_get_iv_index.exit.i64, label %125
 
 125:                                              ; preds = %122
-  %126 = icmp ugt i64 %123, %1
+  %126 = icmp ult i64 %1, %123
   br i1 %126, label %127, label %135
 
 127:                                              ; preds = %125
@@ -1062,7 +1062,7 @@ define hidden noundef zeroext i1 @rb_shape_get_iv_index(ptr nocapture noundef re
   br i1 %14, label %shape_cache_get_iv_index.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = icmp ugt i64 %13, %1
+  %16 = icmp ult i64 %1, %13
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %15
@@ -1645,7 +1645,7 @@ define internal fastcc noundef ptr @redblack_insert_aux(ptr noundef readonly %0,
 
 22:                                               ; preds = %3
   %23 = load i64, ptr %0, align 8
-  %24 = icmp ugt i64 %23, %1
+  %24 = icmp ult i64 %1, %23
   br i1 %24, label %25, label %45
 
 25:                                               ; preds = %22
@@ -1681,7 +1681,7 @@ redblack_left.exit:                               ; preds = %25, %28
   br label %redblack_color.exit
 
 45:                                               ; preds = %22
-  %46 = icmp ult i64 %23, %1
+  %46 = icmp ugt i64 %1, %23
   br i1 %46, label %47, label %redblack_new.exit
 
 47:                                               ; preds = %45

@@ -4136,7 +4136,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__ip_tunnel_change_mtu(ptr nocap
   %16 = phi i32 [ %14, %10 ], [ %6, %3 ]
   %17 = icmp slt i32 %1, 68
   %18 = icmp slt i32 %16, %1
-  %19 = and i1 %18, %2
+  %19 = and i1 %2, %18
   %20 = select i1 %17, i1 true, i1 %19
   br i1 %20, label %24, label %21
 

@@ -92,13 +92,13 @@ define hidden noundef zeroext i1 @_ZN6hermes2vm9ArrayImpl19_haveOwnIndexedImplEP
 entry:
   %beginIndex_ = getelementptr inbounds i8, ptr %selfObj, i64 20
   %0 = load i32, ptr %beginIndex_, align 4
-  %cmp.not = icmp ugt i32 %0, %index
+  %cmp.not = icmp ult i32 %index, %0
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %endIndex_ = getelementptr inbounds i8, ptr %selfObj, i64 24
   %1 = load i32, ptr %endIndex_, align 4
-  %cmp1 = icmp ugt i32 %1, %index
+  %cmp1 = icmp ult i32 %index, %1
   br i1 %cmp1, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
@@ -154,13 +154,13 @@ define hidden i32 @_ZN6hermes2vm9ArrayImpl31_getOwnIndexedPropertyFlagsImplEPNS0
 entry:
   %beginIndex_ = getelementptr inbounds i8, ptr %selfObj, i64 20
   %0 = load i32, ptr %beginIndex_, align 4
-  %cmp.not = icmp ugt i32 %0, %index
+  %cmp.not = icmp ult i32 %index, %0
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %endIndex_ = getelementptr inbounds i8, ptr %selfObj, i64 24
   %1 = load i32, ptr %endIndex_, align 4
-  %cmp1 = icmp ugt i32 %1, %index
+  %cmp1 = icmp ult i32 %index, %1
   br i1 %cmp1, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true
@@ -238,10 +238,10 @@ define hidden i64 @_ZN6hermes2vm9ArrayImpl18_getOwnIndexedImplENS0_12PseudoHandl
 entry:
   %beginIndex_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 20
   %0 = load i32, ptr %beginIndex_.i, align 4
-  %cmp.not.i = icmp ule i32 %0, %index
+  %cmp.not.i = icmp uge i32 %index, %0
   %endIndex_.i = getelementptr inbounds i8, ptr %selfObj.coerce, i64 24
   %1 = load i32, ptr %endIndex_.i, align 4
-  %cmp2.i = icmp ugt i32 %1, %index
+  %cmp2.i = icmp ult i32 %index, %1
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %sw.bb36.i
 
@@ -382,7 +382,7 @@ entry:
   %0 = inttoptr i64 %and.i.i.i.i to ptr
   %beginIndex_ = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load i32, ptr %beginIndex_, align 4
-  %cmp = icmp ult i32 %1, %newLength
+  %cmp = icmp ugt i32 %newLength, %1
   br i1 %cmp, label %land.rhs, label %if.end.thread
 
 land.rhs:                                         ; preds = %entry
@@ -635,8 +635,8 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cmp = icmp ule i32 %1, %index
-  %cmp5 = icmp ugt i32 %2, %index
+  %cmp = icmp uge i32 %index, %1
+  %cmp5 = icmp ult i32 %index, %2
   %4 = select i1 %cmp, i1 %cmp5, i1 false
   br i1 %4, label %if.then6, label %if.end19
 
@@ -1325,14 +1325,14 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvRN
   br label %if.end190
 
 if.else:                                          ; preds = %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_18SegmentedArrayBaseINS0_13HermesValue32EEEEENS0_13MutableHandleIT_EEPS7_.exit
-  %cmp95 = icmp ult i32 %2, %index
+  %cmp95 = icmp ugt i32 %index, %2
   %sub97 = sub nuw i32 %index, %2
   %cmp98 = icmp ugt i32 %sub97, 1048576
   %or.cond = select i1 %cmp95, i1 %cmp98, i1 false
   br i1 %or.cond, label %if.then104, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.else
-  %cmp99 = icmp ugt i32 %1, %index
+  %cmp99 = icmp ult i32 %index, %1
   %sub101 = sub i32 %1, %index
   %cmp102 = icmp ugt i32 %sub101, 1048576
   %66 = and i1 %cmp99, %cmp102
@@ -1555,7 +1555,7 @@ sw.default:                                       ; preds = %entry
   %shr.i.i.i.i = ashr exact i32 %shl.i.i.i.i, 3
   %conv.i12 = sitofp i32 %shr.i.i.i.i to double
   %4 = bitcast double %conv.i12 to i64
-  %cmp.i = icmp eq i64 %4, %hv.coerce
+  %cmp.i = icmp eq i64 %hv.coerce, %4
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.default
@@ -1662,13 +1662,13 @@ entry:
   %0 = inttoptr i64 %and.i.i.i.i to ptr
   %beginIndex_ = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load i32, ptr %beginIndex_, align 4
-  %cmp.not = icmp ugt i32 %1, %index
+  %cmp.not = icmp ult i32 %index, %1
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %endIndex_ = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i32, ptr %endIndex_, align 4
-  %cmp3 = icmp ugt i32 %2, %index
+  %cmp3 = icmp ult i32 %index, %2
   br i1 %cmp3, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
@@ -2542,7 +2542,7 @@ if.end.i.i:                                       ; preds = %entry
 _ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi double [ %conv.i.i, %if.then.i.i ], [ %3, %if.end.i.i ]
   %conv.i = fptoui double %retval.0.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i, %newLength
+  %cmp.not = icmp ult i32 %newLength, %conv.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit

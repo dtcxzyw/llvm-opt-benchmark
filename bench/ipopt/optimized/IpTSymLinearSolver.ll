@@ -1438,7 +1438,7 @@ define noundef i32 @_ZN5Ipopt16TSymLinearSolver10MultiSolveERKNS_9SymMatrixERSt6
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %1, i64 48
   %16 = load i32, ptr %15, align 8
-  %.not84 = icmp eq i32 %16, %14
+  %.not84 = icmp eq i32 %14, %16
   store i32 %16, ptr %13, align 4
   br i1 %.not84, label %17, label %21
 
@@ -3055,7 +3055,7 @@ define noundef i32 @_ZN5Ipopt16TSymLinearSolver22DetermineDependentRowsEiiiPdPiS
   %15 = add nsw i32 %2, %1
   %16 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %15, ptr %16, align 8
-  %17 = add nsw i32 %15, %3
+  %17 = add nsw i32 %3, %15
   %18 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %17, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %0, i64 104

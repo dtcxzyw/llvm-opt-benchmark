@@ -2953,7 +2953,7 @@ define hidden void @_ZN25InterpreterMacroAssembler13dispatch_baseE8TosStatePPhbb
   store ptr null, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %7, i64 32
   store i8 0, ptr %21, align 8
-  %.not = icmp ne ptr %15, %2
+  %.not = icmp ne ptr %2, %15
   %brmerge.not = and i1 %.not, %4
   br i1 %brmerge.not, label %22, label %36
 
@@ -5893,7 +5893,7 @@ define hidden void @_ZN25InterpreterMacroAssembler29record_item_in_profile_helpe
   %43 = getelementptr inbounds i8, ptr %15, i64 24
   %44 = getelementptr inbounds i8, ptr %17, i64 24
   %45 = getelementptr inbounds i8, ptr %14, i64 24
-  %46 = icmp eq i32 %29, %4
+  %46 = icmp eq i32 %4, %29
   %47 = getelementptr inbounds i8, ptr %28, i64 20
   %48 = getelementptr inbounds i8, ptr %28, i64 24
   %49 = getelementptr inbounds i8, ptr %28, i64 32

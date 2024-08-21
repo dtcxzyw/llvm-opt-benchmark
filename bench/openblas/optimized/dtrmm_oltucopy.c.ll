@@ -20,7 +20,7 @@ define noundef i32 @dtrmm_oltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   %18 = getelementptr inbounds double, ptr %2, i64 %4
   %19 = shl nsw i64 %3, 1
   %20 = and i64 %0, -2
-  %21 = add i64 %20, %4
+  %21 = add i64 %4, %20
   br i1 %12, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %10, %91
@@ -155,7 +155,7 @@ define noundef i32 @dtrmm_oltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
 
 .split.split.us.preheader:                        ; preds = %.split
   %96 = and i64 %1, -2
-  %97 = add i64 %96, %5
+  %97 = add i64 %5, %96
   br label %.loopexit9
 
 .split.split:                                     ; preds = %.split, %109
@@ -167,7 +167,7 @@ define noundef i32 @dtrmm_oltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br i1 %101, label %109, label %102
 
 102:                                              ; preds = %.split.split
-  %103 = icmp sgt i64 %100, %4
+  %103 = icmp slt i64 %4, %100
   br i1 %103, label %104, label %.sink.split
 
 104:                                              ; preds = %102

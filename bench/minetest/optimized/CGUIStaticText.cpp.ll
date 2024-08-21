@@ -3172,7 +3172,7 @@ lor.lhs.false:                                    ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !53
   %conv.i = trunc i64 %0 to i32
-  %cmp2.not = icmp ugt i32 %conv.i, %begin
+  %cmp2.not = icmp ult i32 %begin, %conv.i
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry

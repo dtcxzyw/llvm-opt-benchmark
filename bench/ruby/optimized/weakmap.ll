@@ -1169,7 +1169,7 @@ define internal range(i32 0, 5) i32 @wkmap_compact_table_i(i64 noundef %0, i64 n
 
 9:                                                ; preds = %7
   %10 = tail call i64 @rb_gc_location(i64 noundef %1) #9
-  %.not8 = icmp eq i64 %10, %1
+  %.not8 = icmp eq i64 %1, %10
   %spec.select = select i1 %.not8, i32 0, i32 4
   br label %12
 

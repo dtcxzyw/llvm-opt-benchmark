@@ -78,8 +78,8 @@ define range(i32 0, 5) i32 @solve3(ptr nocapture noundef readonly %0, ptr nocapt
   %44 = fdiv double %36, %4
   %45 = fmul double %42, %42
   %46 = fmul double %42, 2.000000e+00
-  %47 = fneg double %42
-  %48 = fmul double %43, %47
+  %47 = fneg double %43
+  %48 = fmul double %42, %47
   %49 = tail call double @llvm.fmuladd.f64(double %46, double %45, double %48)
   %50 = fadd double %44, %49
   %51 = fdiv double %43, 3.000000e+00

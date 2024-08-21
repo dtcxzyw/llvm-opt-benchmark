@@ -998,7 +998,7 @@ if.then10.i:                                      ; preds = %invoke.cont8.i
 
 if.then11.i:                                      ; preds = %if.then10.i
   %mul.i = shl nsw i32 %128, 1
-  %cmp3.i.i = icmp slt i32 %128, %mul.i
+  %cmp3.i.i = icmp sgt i32 %mul.i, %128
   %cmp.i.i37.i = icmp slt i32 %127, %mul.i
   %or.cond109.i = select i1 %cmp3.i.i, i1 %cmp.i.i37.i, i1 false
   br i1 %or.cond109.i, label %if.then.i.i.i123, label %invoke.cont16.i

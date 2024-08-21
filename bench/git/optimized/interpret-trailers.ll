@@ -273,7 +273,7 @@ entry:
   %0 = load i32, ptr %only_input, align 4
   %tobool.not = icmp eq i32 %0, 0
   %1 = load ptr, ptr %trailers, align 8
-  %cmp.i.not = icmp eq ptr %1, %trailers
+  %cmp.i.not = icmp eq ptr %trailers, %1
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.i.not
   br i1 %or.cond, label %if.end, label %if.then
 

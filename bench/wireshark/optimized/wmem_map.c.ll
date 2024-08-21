@@ -715,7 +715,7 @@ define i32 @wmem_strong_hash(ptr noundef readonly %0, i64 noundef %1) local_unna
   %4 = load i32, ptr @preseed, align 4
   %5 = trunc i64 %1 to i32
   %6 = add i32 %4, %5
-  %7 = icmp ugt ptr %3, %0
+  %7 = icmp ult ptr %0, %3
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -774,7 +774,7 @@ define i32 @wmem_str_hash(ptr noundef readonly %0) local_unnamed_addr #4 {
   %4 = load i32, ptr @preseed, align 4
   %5 = trunc i64 %2 to i32
   %6 = add i32 %4, %5
-  %7 = icmp ugt ptr %3, %0
+  %7 = icmp ult ptr %0, %3
   br i1 %7, label %.lr.ph.i, label %wmem_strong_hash.exit
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
@@ -834,7 +834,7 @@ define i32 @wmem_int64_hash(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 8
   %3 = load i32, ptr @preseed, align 4
   %4 = add i32 %3, 8
-  %5 = icmp ugt ptr %2, %0
+  %5 = icmp ult ptr %0, %2
   br i1 %5, label %.lr.ph.i, label %wmem_strong_hash.exit
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
@@ -891,7 +891,7 @@ define i32 @wmem_double_hash(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 8
   %3 = load i32, ptr @preseed, align 4
   %4 = add i32 %3, 8
-  %5 = icmp ugt ptr %2, %0
+  %5 = icmp ult ptr %0, %2
   br i1 %5, label %.lr.ph.i, label %wmem_strong_hash.exit
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i

@@ -2198,7 +2198,7 @@ define hidden i32 @psa_mac_sign_finish(ptr noundef %0, ptr noundef %1, i64 nound
 
 15:                                               ; preds = %11
   %16 = zext i8 %13 to i64
-  %17 = icmp ugt i64 %16, %2
+  %17 = icmp ult i64 %2, %16
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %15
@@ -2223,7 +2223,7 @@ define hidden i32 @psa_mac_sign_finish(ptr noundef %0, ptr noundef %1, i64 nound
   %.not2531 = phi i1 [ false, %.thread ], [ true, %._crit_edge ]
   %.029 = phi i32 [ %.028, %.thread ], [ 0, %._crit_edge ]
   %24 = getelementptr inbounds i8, ptr %0, i64 4
-  %25 = icmp ult i64 %23, %2
+  %25 = icmp ugt i64 %2, %23
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %22
@@ -2272,7 +2272,7 @@ define hidden i32 @psa_mac_verify_finish(ptr noundef %0, ptr noundef %1, i64 nou
   %11 = getelementptr inbounds i8, ptr %0, i64 4
   %12 = load i8, ptr %11, align 4
   %13 = zext i8 %12 to i64
-  %.not11 = icmp eq i64 %13, %2
+  %.not11 = icmp eq i64 %2, %13
   br i1 %.not11, label %14, label %.thread
 
 14:                                               ; preds = %10
@@ -2338,7 +2338,7 @@ define internal fastcc i32 @psa_mac_compute_internal(i32 noundef %0, i32 noundef
 18:                                               ; preds = %14
   %19 = load i8, ptr %10, align 1
   %20 = zext i8 %19 to i64
-  %21 = icmp ugt i64 %20, %5
+  %21 = icmp ult i64 %5, %20
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %18
@@ -2360,7 +2360,7 @@ define internal fastcc i32 @psa_mac_compute_internal(i32 noundef %0, i32 noundef
   %.not2734 = phi i1 [ false, %.thread ], [ true, %22 ]
   %.032 = phi i32 [ %.031, %.thread ], [ 0, %22 ]
   %30 = zext i8 %29 to i64
-  %31 = icmp ult i64 %30, %5
+  %31 = icmp ugt i64 %5, %30
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
@@ -2386,7 +2386,7 @@ define hidden i32 @psa_mac_verify(i32 noundef %0, i32 noundef %1, ptr noundef %2
 
 10:                                               ; preds = %6
   %11 = load i64, ptr %8, align 8
-  %.not9 = icmp eq i64 %11, %5
+  %.not9 = icmp eq i64 %5, %11
   br i1 %.not9, label %12, label %20
 
 12:                                               ; preds = %10
@@ -3124,7 +3124,7 @@ define hidden i32 @psa_cipher_generate_iv(ptr noundef %0, ptr nocapture noundef 
   %13 = getelementptr inbounds i8, ptr %0, i64 5
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
-  %16 = icmp ugt i64 %15, %2
+  %16 = icmp ult i64 %2, %15
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %12
@@ -3457,7 +3457,7 @@ define hidden i32 @psa_cipher_encrypt(i32 noundef %0, i32 noundef %1, ptr nounde
 .thread55:                                        ; preds = %29, %34
   %.in = phi i32 [ %39, %34 ], [ %32, %29 ]
   %40 = zext nneg i32 %.in to i64
-  %41 = icmp ugt i64 %40, %5
+  %41 = icmp ult i64 %5, %40
   br i1 %41, label %.thread67, label %42
 
 42:                                               ; preds = %.thread55
@@ -3568,7 +3568,7 @@ define hidden i32 @psa_cipher_decrypt(i32 noundef %0, i32 noundef %1, ptr nounde
   %23 = shl nuw nsw i32 1, %22
   %narrow = select i1 %20, i32 %23, i32 0
   %24 = zext nneg i32 %narrow to i64
-  %25 = icmp ugt i64 %24, %3
+  %25 = icmp ult i64 %3, %24
   br i1 %25, label %.thread41, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %19
@@ -3606,7 +3606,7 @@ define hidden i32 @psa_cipher_decrypt(i32 noundef %0, i32 noundef %1, ptr nounde
 44:                                               ; preds = %35, %39
   %45 = phi i32 [ %43, %39 ], [ %38, %35 ]
   %46 = zext nneg i32 %45 to i64
-  %47 = icmp ugt i64 %46, %3
+  %47 = icmp ult i64 %3, %46
   br i1 %47, label %.thread41, label %50
 
 .thread41:                                        ; preds = %44, %19, %7, %12
@@ -3971,7 +3971,7 @@ define hidden i32 @psa_aead_generate_nonce(ptr noundef %0, ptr nocapture noundef
 
 30:                                               ; preds = %25, %21, %17
   %31 = phi i64 [ %22, %21 ], [ 13, %17 ], [ %29, %25 ]
-  %32 = icmp ugt i64 %31, %2
+  %32 = icmp ult i64 %2, %31
   br i1 %32, label %psa_generate_random.exit.thread38.thread, label %33
 
 33:                                               ; preds = %30
@@ -4641,7 +4641,7 @@ define hidden range(i32 -137, 1) i32 @psa_key_derivation_set_capacity(ptr nocapt
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = icmp ult i64 %7, %1
+  %8 = icmp ugt i64 %1, %7
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5
@@ -4672,7 +4672,7 @@ define hidden i32 @psa_key_derivation_output_bytes(ptr noundef %0, ptr nocapture
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
@@ -5246,7 +5246,7 @@ psa_mac_update.exit88.thread120.i.i:              ; preds = %psa_mac_update.exit
   %241 = phi i64 [ 0, %.thread.i.i.i ], [ %237, %._crit_edge.i.i.i ]
   %.not2531.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %._crit_edge.i.i.i ]
   %.029.i.i.i = phi i32 [ %.028.i.i.i, %.thread.i.i.i ], [ 0, %._crit_edge.i.i.i ]
-  %242 = icmp ult i64 %241, %240
+  %242 = icmp ugt i64 %240, %241
   br i1 %242, label %243, label %246
 
 243:                                              ; preds = %239
@@ -6167,7 +6167,7 @@ switch.lookup47:                                  ; preds = %switch.hole_check46
 
 60:                                               ; preds = %switch.lookup47, %56
   %61 = phi i64 [ %58, %56 ], [ %switch.load52, %switch.lookup47 ]
-  %.not102.i = icmp eq i64 %61, %4
+  %.not102.i = icmp eq i64 %4, %61
   br i1 %.not102.i, label %.thread.i, label %psa_hkdf_input.exit
 
 .thread.i:                                        ; preds = %60
@@ -6745,7 +6745,7 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %13
   %26 = zext i16 %25 to i64
   %27 = add nuw nsw i64 %26, 7
   %28 = lshr i64 %27, 3
-  %29 = icmp ugt i64 %28, %5
+  %29 = icmp ult i64 %5, %28
   br i1 %29, label %.thread26, label %.thread
 
 .thread:                                          ; preds = %psa_get_and_lock_transparent_key_slot_with_policy.exit, %23

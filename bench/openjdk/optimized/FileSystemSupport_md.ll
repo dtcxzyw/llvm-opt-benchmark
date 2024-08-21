@@ -166,7 +166,7 @@ define internal fastcc noundef ptr @normalizePath(ptr noundef readonly %0, i32 n
 
 25:                                               ; preds = %23, %21
   %.033 = phi i32 [ %2, %23 ], [ 0, %21 ]
-  %26 = icmp sgt i32 %.03139, %2
+  %26 = icmp slt i32 %2, %.03139
   br i1 %26, label %.lr.ph44.preheader, label %.loopexit
 
 .lr.ph44.preheader:                               ; preds = %25

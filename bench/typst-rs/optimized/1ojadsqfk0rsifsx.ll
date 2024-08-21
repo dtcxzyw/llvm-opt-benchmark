@@ -1657,7 +1657,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h139fe40277550836E.llvm.28479
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -10990,7 +10990,7 @@ define hidden void @_ZN9typst_svg14SvgPathBuilder4rect17h4c07331f58bc74a6E(ptr n
   %39 = fmul float %38, 0.000000e+00
   store float %39, ptr %15, align 4, !noalias !2549
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14), !noalias !2549
-  %40 = fmul float %38, %2
+  %40 = fmul float %2, %38
   store float %40, ptr %14, align 4, !noalias !2549
   store ptr %15, ptr %16, align 8, !noalias !2549
   %41 = getelementptr inbounds i8, ptr %16, i64 8
@@ -11030,10 +11030,10 @@ define hidden void @_ZN9typst_svg14SvgPathBuilder4rect17h4c07331f58bc74a6E(ptr n
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !2562
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !2562
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11), !noalias !2562
-  %53 = fmul float %52, %1
+  %53 = fmul float %1, %52
   store float %53, ptr %11, align 4, !noalias !2562
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10), !noalias !2562
-  %54 = fmul float %52, %2
+  %54 = fmul float %2, %52
   store float %54, ptr %10, align 4, !noalias !2562
   store ptr %11, ptr %12, align 8, !noalias !2562
   %55 = getelementptr inbounds i8, ptr %12, i64 8
@@ -11073,7 +11073,7 @@ define hidden void @_ZN9typst_svg14SvgPathBuilder4rect17h4c07331f58bc74a6E(ptr n
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !2575
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !2575
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !2575
-  %67 = fmul float %66, %1
+  %67 = fmul float %1, %66
   store float %67, ptr %7, align 4, !noalias !2575
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !2575
   %68 = fmul float %66, 0.000000e+00
@@ -11162,10 +11162,10 @@ define void @"_ZN72_$LT$typst_svg..SvgPathBuilder$u20$as$u20$ttf_parser..Outline
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %13 = fmul float %12, %1
+  %13 = fmul float %1, %12
   store float %13, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %14 = fmul float %12, %2
+  %14 = fmul float %2, %12
   store float %14, ptr %5, align 4
   store ptr %6, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %7, i64 8
@@ -11215,10 +11215,10 @@ define void @"_ZN72_$LT$typst_svg..SvgPathBuilder$u20$as$u20$ttf_parser..Outline
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %13 = fmul float %12, %1
+  %13 = fmul float %1, %12
   store float %13, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %14 = fmul float %12, %2
+  %14 = fmul float %2, %12
   store float %14, ptr %5, align 4
   store ptr %6, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %7, i64 8
@@ -11270,16 +11270,16 @@ define void @"_ZN72_$LT$typst_svg..SvgPathBuilder$u20$as$u20$ttf_parser..Outline
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %17 = fmul float %16, %1
+  %17 = fmul float %1, %16
   store float %17, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %18 = fmul float %16, %2
+  %18 = fmul float %2, %16
   store float %18, ptr %9, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %19 = fmul float %16, %3
+  %19 = fmul float %3, %16
   store float %19, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %20 = fmul float %16, %4
+  %20 = fmul float %4, %16
   store float %20, ptr %7, align 4
   store ptr %10, ptr %11, align 8
   %21 = getelementptr inbounds i8, ptr %11, i64 8
@@ -11343,22 +11343,22 @@ define void @"_ZN72_$LT$typst_svg..SvgPathBuilder$u20$as$u20$ttf_parser..Outline
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  %21 = fmul float %20, %1
+  %21 = fmul float %1, %20
   store float %21, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  %22 = fmul float %20, %2
+  %22 = fmul float %2, %20
   store float %22, ptr %13, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  %23 = fmul float %20, %3
+  %23 = fmul float %3, %20
   store float %23, ptr %12, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %24 = fmul float %20, %4
+  %24 = fmul float %4, %20
   store float %24, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %25 = fmul float %20, %5
+  %25 = fmul float %5, %20
   store float %25, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %26 = fmul float %20, %6
+  %26 = fmul float %6, %20
   store float %26, ptr %9, align 4
   store ptr %14, ptr %15, align 8
   %27 = getelementptr inbounds i8, ptr %15, i64 8

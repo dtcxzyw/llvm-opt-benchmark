@@ -129,8 +129,8 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
 66:                                               ; preds = %49
   %67 = call double @sin(double noundef %.sroa.10.1) #6
   %68 = load double, ptr %63, align 8
-  %69 = fneg double %68
-  %70 = fmul double %67, %69
+  %69 = fneg double %67
+  %70 = fmul double %68, %69
   %71 = call double @llvm.fmuladd.f64(double %70, double %67, double 1.000000e+00)
   %72 = call double @sqrt(double noundef %71) #6
   %73 = fmul double %72, %71
@@ -160,8 +160,8 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   %91 = load double, ptr %4, align 8
   %92 = load double, ptr %51, align 8
   %93 = load double, ptr %58, align 8
-  %94 = fneg double %92
-  %95 = fmul double %93, %94
+  %94 = fneg double %93
+  %95 = fmul double %92, %94
   %96 = call double @llvm.fmuladd.f64(double %90, double %91, double %95)
   %97 = fmul double %.094, %96
   %98 = fdiv double %97, %50

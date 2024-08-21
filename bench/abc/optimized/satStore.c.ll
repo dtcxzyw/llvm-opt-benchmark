@@ -31,7 +31,7 @@ define ptr @Sto_ManMemoryFetch(ptr nocapture noundef %0, i32 noundef %1) local_u
   %7 = getelementptr inbounds i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = sub nsw i32 %.pre, %8
-  %10 = icmp slt i32 %9, %1
+  %10 = icmp sgt i32 %1, %9
   br i1 %10, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %2, %6

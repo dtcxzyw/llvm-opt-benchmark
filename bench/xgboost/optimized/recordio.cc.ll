@@ -1805,7 +1805,7 @@ define linkonce_odr void @_ZN4dmlc10StackTraceB5cxx11Emm(ptr dead_on_unwind noal
 
 25:                                               ; preds = %20
   %26 = sext i32 %24 to i64
-  %27 = icmp ugt i64 %26, %1
+  %27 = icmp ult i64 %1, %26
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %25

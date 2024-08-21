@@ -3237,7 +3237,7 @@ for.body10.lr.ph:                                 ; preds = %for.cond8.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %0 = trunc nuw i64 %indvars.iv to i32
-  %add2 = add i32 %0, %firstport
+  %add2 = add i32 %firstport, %0
   %idxprom = zext i32 %add2 to i64
   %arrayidx = getelementptr [6 x ptr], ptr %companion_ports, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
@@ -3254,7 +3254,7 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   %arrayidx12 = getelementptr ptr, ptr %ports, i64 %indvars.iv36
   %2 = load ptr, ptr %arrayidx12, align 8
   %3 = trunc nuw i64 %indvars.iv36 to i32
-  %add14 = add i32 %3, %firstport
+  %add14 = add i32 %firstport, %3
   %idxprom15 = zext i32 %add14 to i64
   %arrayidx16 = getelementptr [6 x ptr], ptr %companion_ports13, i64 0, i64 %idxprom15
   store ptr %2, ptr %arrayidx16, align 8
@@ -4297,7 +4297,7 @@ for.body.i.i:                                     ; preds = %sw.bb4, %for.inc.i.
   %q.07.i.i = phi ptr [ %q.0.i.i, %for.inc.i.i49 ], [ %q.05.i.i, %sw.bb4 ]
   %qhaddr.i.i = getelementptr inbounds i8, ptr %q.07.i.i, i64 96
   %25 = load i32, ptr %qhaddr.i.i, align 8
-  %cmp.i.i48 = icmp eq i32 %25, %cond.i.i47
+  %cmp.i.i48 = icmp eq i32 %cond.i.i47, %25
   br i1 %cmp.i.i48, label %if.end.i52, label %for.inc.i.i49
 
 for.inc.i.i49:                                    ; preds = %for.body.i.i
@@ -6414,7 +6414,7 @@ sw.default.split:                                 ; preds = %entry
   %opregbase12 = getelementptr inbounds i8, ptr %ptr, i64 1320
   %4 = load i16, ptr %opregbase12, align 8
   %conv13 = zext i16 %4 to i64
-  %add14 = add i64 %conv13, %addr
+  %add14 = add i64 %addr, %conv13
   %conv115 = trunc i64 %add14 to i32
   %conv.i.i = and i64 %addr, 4294967295
   %cmp.i.i = icmp ult i64 %conv.i.i, 65
@@ -6484,7 +6484,7 @@ entry:
   %opregbase = getelementptr inbounds i8, ptr %ptr, i64 1320
   %2 = load i16, ptr %opregbase, align 8
   %conv = zext i16 %2 to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %conv1 = trunc i64 %add to i32
   %conv.i.i = and i64 %addr, 4294967295
   %cmp.i.i = icmp ult i64 %conv.i.i, 65
@@ -6835,7 +6835,7 @@ sw.epilog:                                        ; preds = %handle_port_owner_w
   store i32 %conv69, ptr %add.ptr, align 4
   %48 = load i16, ptr %opregbase, align 8
   %conv71 = zext i16 %48 to i64
-  %add72 = add i64 %conv71, %addr
+  %add72 = add i64 %addr, %conv71
   %conv73 = trunc i64 %add72 to i32
   br i1 %cmp.i.i, label %land.lhs.true.i.i78, label %if.else.i.i76
 
@@ -6898,7 +6898,7 @@ entry:
   %portscbase = getelementptr inbounds i8, ptr %ptr, i64 1322
   %1 = load i16, ptr %portscbase, align 2
   %conv = zext i16 %1 to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %conv1 = trunc i64 %add to i32
   %conv3 = trunc i64 %shr to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -6961,7 +6961,7 @@ entry:
   %portscbase = getelementptr inbounds i8, ptr %ptr, i64 1322
   %2 = load i16, ptr %portscbase, align 2
   %conv5 = zext i16 %2 to i64
-  %add = add i64 %conv5, %addr
+  %add = add i64 %addr, %conv5
   %conv6 = trunc i64 %add to i32
   %conv9 = trunc i64 %val to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -7274,7 +7274,7 @@ if.end63:                                         ; preds = %trace_usb_ehci_port
   store i32 %conv67, ptr %arrayidx, align 4
   %49 = load i16, ptr %portscbase, align 2
   %conv69 = zext i16 %49 to i64
-  %add70 = add i64 %conv69, %addr
+  %add70 = add i64 %addr, %conv69
   %conv71 = trunc i64 %add70 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i99)
   %50 = load i32, ptr @trace_events_enabled_count, align 4

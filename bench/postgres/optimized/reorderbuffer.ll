@@ -1899,7 +1899,7 @@ ReorderBufferTXNByXid.exit.thread46:              ; preds = %16, %ReorderBufferT
   %37 = getelementptr inbounds i8, ptr %.0.i48, i64 32
   %38 = load i64, ptr %37, align 8
   %39 = icmp ult i64 %38, %4
-  %brmerge.not = and i1 %39, %9
+  %brmerge.not = and i1 %9, %39
   br i1 %brmerge.not, label %40, label %49
 
 40:                                               ; preds = %ReorderBufferTXNByXid.exit.thread46
@@ -2773,7 +2773,7 @@ define dso_local void @ReorderBufferAddInvalidations(ptr noundef %0, i32 noundef
   %21 = getelementptr inbounds i8, ptr %., i64 232
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %13 to i64
-  %24 = add i64 %23, %3
+  %24 = add i64 %3, %23
   %25 = shl i64 %24, 4
   %26 = tail call ptr @repalloc(ptr noundef %22, i64 noundef %25) #18
   store ptr %26, ptr %21, align 8
@@ -4310,7 +4310,7 @@ dlist_push_tail.exit.i:                           ; preds = %210, %204
 245:                                              ; preds = %242, %244
   %.0..0..0..0.100 = load volatile i64, ptr %15, align 8
   %246 = icmp eq i64 %.0..0..0..0.100, 0
-  %brmerge.not = and i1 %246, %5
+  %brmerge.not = and i1 %5, %246
   br i1 %brmerge.not, label %247, label %252
 
 247:                                              ; preds = %245

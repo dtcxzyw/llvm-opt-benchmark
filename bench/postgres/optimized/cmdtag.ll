@@ -316,7 +316,7 @@ define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr noc
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
   %.not = xor i1 %14, true
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %27, label %15
 
 15:                                               ; preds = %3

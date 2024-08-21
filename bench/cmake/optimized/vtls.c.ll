@@ -2064,7 +2064,7 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
 
 69:                                               ; preds = %66
   %70 = tail call i64 @curlx_sotouz(i64 noundef %67) #18
-  %71 = icmp ult i64 %70, %3
+  %71 = icmp ugt i64 %3, %70
   br i1 %71, label %89, label %72
 
 72:                                               ; preds = %69
@@ -2081,7 +2081,7 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not91, label %79, label %89
 
 79:                                               ; preds = %76
-  %80 = icmp eq i64 %70, %3
+  %80 = icmp eq i64 %3, %70
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %79
@@ -2096,7 +2096,7 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
   %84 = call fastcc i32 @pubkey_pem_to_der(ptr noundef nonnull %75, ptr noundef nonnull %5, ptr noundef nonnull %8)
   %.not92 = icmp eq i32 %84, 0
   %85 = load i64, ptr %8, align 8
-  %86 = icmp eq i64 %85, %3
+  %86 = icmp eq i64 %3, %85
   %or.cond107 = select i1 %.not92, i1 %86, i1 false
   br i1 %or.cond107, label %87, label %89
 
@@ -2353,7 +2353,7 @@ define dso_local range(i32 0, 2) i32 @Curl_init_sslset_nolock(i32 noundef %0, pt
 
 14:                                               ; preds = %5
   %15 = load i32, ptr %6, align 8
-  %16 = icmp eq i32 %15, %0
+  %16 = icmp eq i32 %0, %15
   br i1 %16, label %multissl_setup.exit, label %17
 
 17:                                               ; preds = %14

@@ -73,9 +73,9 @@ define hidden noundef double @_Z17pj_sinhpsi2tanphiP6pj_ctxdd(ptr noundef %0, do
 
 33:                                               ; preds = %25
   %34 = tail call double @atanh(double noundef %2) #6
-  %35 = fmul double %34, %2
+  %35 = fmul double %2, %34
   %36 = tail call double @exp(double noundef %35) #6
-  %37 = fmul double %36, %1
+  %37 = fmul double %1, %36
   br label %40
 
 38:                                               ; preds = %25
@@ -99,15 +99,15 @@ define hidden noundef double @_Z17pj_sinhpsi2tanphiP6pj_ctxdd(ptr noundef %0, do
   %.04150 = phi i32 [ %46, %45 ], [ 5, %40 ]
   %47 = tail call double @llvm.fmuladd.f64(double %.04051, double %.04051, double 1.000000e+00)
   %sqrt48 = tail call double @llvm.sqrt.f64(double %47)
-  %48 = fmul double %.04051, %2
+  %48 = fmul double %2, %.04051
   %49 = fdiv double %48, %sqrt48
   %50 = tail call double @atanh(double noundef %49) #6
-  %51 = fmul double %50, %2
+  %51 = fmul double %2, %50
   %52 = tail call double @sinh(double noundef %51) #6
   %53 = tail call double @llvm.fmuladd.f64(double %52, double %52, double 1.000000e+00)
   %sqrt47 = tail call double @llvm.sqrt.f64(double %53)
-  %54 = fneg double %52
-  %55 = fmul double %sqrt48, %54
+  %54 = fneg double %sqrt48
+  %55 = fmul double %52, %54
   %56 = tail call double @llvm.fmuladd.f64(double %sqrt47, double %.04051, double %55)
   %57 = fsub double %1, %56
   %58 = fmul double %.04051, %.04051

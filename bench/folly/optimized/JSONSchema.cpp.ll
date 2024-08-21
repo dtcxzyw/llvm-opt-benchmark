@@ -25462,7 +25462,7 @@ invoke.cont23:                                    ; preds = %invoke.cont
   %29 = load ptr, ptr %_M_node.i, align 8, !tbaa !1105, !noalias !1223
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %27 to i64
-  %30 = add i64 %sub.ptr.rhs.cast.i.i.i, %__n
+  %30 = add i64 %__n, %sub.ptr.rhs.cast.i.i.i
   %add.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %30
   %cmp.i.i.i = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
@@ -25900,7 +25900,7 @@ if.then63:                                        ; preds = %_ZStmiRKSt15_Deque_
   %60 = load ptr, ptr %_M_node.i.i, align 8, !tbaa !1105
   %sub.ptr.lhs.cast.i.i.i455 = ptrtoint ptr %57 to i64
   %sub.ptr.rhs.cast.i.i.i456 = ptrtoint ptr %58 to i64
-  %61 = add i64 %sub.ptr.rhs.cast.i.i.i456, %__n
+  %61 = add i64 %__n, %sub.ptr.rhs.cast.i.i.i456
   %add.i.i.i457 = sub i64 %sub.ptr.lhs.cast.i.i.i455, %61
   %cmp.i.i.i458 = icmp sgt i64 %add.i.i.i457, -1
   br i1 %cmp.i.i.i458, label %land.lhs.true.i.i.i469, label %cond.false.i.i.i459
@@ -79001,7 +79001,7 @@ entry:
   %positive = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %positive, align 8, !tbaa !2301, !range !137, !noundef !138
   %tobool4.not = icmp eq i8 %3, 0
-  %spec.select = xor i1 %tobool4.not, %r
+  %spec.select = xor i1 %r, %tobool4.not
   %4 = zext i1 %r to i8
   %cmp = icmp ne i8 %3, %4
   %m_recursive_result = getelementptr inbounds i8, ptr %this, i64 228

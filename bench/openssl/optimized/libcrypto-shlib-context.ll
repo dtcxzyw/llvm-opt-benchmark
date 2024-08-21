@@ -448,7 +448,7 @@ ossl_lib_ctx_is_default.exit:                     ; preds = %lor.lhs.false.i, %i
   %retval.0.i.i.i = phi ptr [ %call2.i.i.i, %if.end.i.i.i ], [ null, %lor.lhs.false.i ]
   %cmp.i.i = icmp eq ptr %retval.0.i.i.i, null
   %spec.store.select.i.i = select i1 %cmp.i.i, ptr @default_context_int, ptr %retval.0.i.i.i
-  %cmp1.i.not = icmp eq ptr %spec.store.select.i.i, %ctx
+  %cmp1.i.not = icmp eq ptr %ctx, %spec.store.select.i.i
   br i1 %cmp1.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %ossl_lib_ctx_is_default.exit
@@ -560,7 +560,7 @@ get_default_context.exit:                         ; preds = %lor.lhs.false, %if.
   %retval.0.i.i = phi ptr [ %call2.i.i, %if.end.i.i ], [ null, %lor.lhs.false ]
   %cmp.i = icmp eq ptr %retval.0.i.i, null
   %spec.store.select.i = select i1 %cmp.i, ptr @default_context_int, ptr %retval.0.i.i
-  %cmp1 = icmp eq ptr %spec.store.select.i, %ctx
+  %cmp1 = icmp eq ptr %ctx, %spec.store.select.i
   %spec.select = zext i1 %cmp1 to i32
   br label %return
 
@@ -944,7 +944,7 @@ ossl_lib_ctx_is_default.exit:                     ; preds = %lor.lhs.false.i, %i
   %cmp.i.i3 = icmp eq ptr %retval.0.i.i.i, null
   %spec.store.select.i.i = select i1 %cmp.i.i3, ptr @default_context_int, ptr %retval.0.i.i.i
   %spec.store.select.i.i.fr = freeze ptr %spec.store.select.i.i
-  %cmp1.i.not = icmp eq ptr %spec.store.select.i.i.fr, %libctx
+  %cmp1.i.not = icmp eq ptr %libctx, %spec.store.select.i.i.fr
   %spec.select = select i1 %cmp1.i.not, ptr @.str.2, ptr @.str.3
   br label %return
 

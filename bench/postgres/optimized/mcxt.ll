@@ -375,7 +375,7 @@ MemoryContextSetParent.exit:                      ; preds = %MemoryContextCallRe
 define dso_local void @MemoryContextSetParent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %27, label %6
 
 6:                                                ; preds = %2
@@ -875,7 +875,7 @@ define dso_local ptr @MemoryContextAllocZero(ptr noundef %0, i64 noundef %1) loc
   br i1 %14, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %12
-  %15 = add i64 %8, %1
+  %15 = add i64 %1, %8
   %16 = add i64 %8, 8
   %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 %16)
   %17 = xor i64 %8, -1
@@ -941,7 +941,7 @@ define dso_local ptr @MemoryContextAllocExtended(ptr noundef %0, i64 noundef %1,
   br i1 %27, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %25
-  %28 = add i64 %18, %1
+  %28 = add i64 %1, %18
   %29 = add i64 %18, 8
   %umax = tail call i64 @llvm.umax.i64(i64 %28, i64 %29)
   %30 = xor i64 %18, -1
@@ -1020,7 +1020,7 @@ define dso_local ptr @palloc0(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %14, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %12
-  %15 = add i64 %8, %0
+  %15 = add i64 %0, %8
   %16 = add i64 %8, 8
   %umax = tail call i64 @llvm.umax.i64(i64 %15, i64 %16)
   %17 = xor i64 %8, -1
@@ -1067,7 +1067,7 @@ define dso_local ptr @palloc_extended(i64 noundef %0, i32 noundef %1) local_unna
   br i1 %18, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %16
-  %19 = add i64 %9, %0
+  %19 = add i64 %0, %9
   %20 = add i64 %9, 8
   %umax = tail call i64 @llvm.umax.i64(i64 %19, i64 %20)
   %21 = xor i64 %9, -1

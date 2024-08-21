@@ -6796,7 +6796,7 @@ entry:
   %os = alloca %struct.deflate_output_bitstream, align 8
   %max_passthrough_size = getelementptr inbounds i8, ptr %c, i64 24
   %0 = load i64, ptr %max_passthrough_size, align 8
-  %cmp.not = icmp ult i64 %0, %in_nbytes
+  %cmp.not = icmp ugt i64 %in_nbytes, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -7151,7 +7151,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %sub.ptr.sub206 = sub i64 %sub.ptr.lhs.cast204, %sub.ptr.rhs.cast205
   %cmp207 = icmp slt i64 %sub.ptr.sub206, 65536
   %spec.select431 = select i1 %cmp207, i64 %sub.ptr.sub206, i64 65535
-  %narrow = and i1 %cmp207, %is_final_block
+  %narrow = and i1 %is_final_block, %cmp207
   %spec.select432 = zext i1 %narrow to i32
   %shl230 = shl nuw i32 %spec.select432, %bitcount.0
   %conv231 = zext i32 %shl230 to i64
@@ -8875,7 +8875,7 @@ for.cond.preheader:                               ; preds = %for.body68.i
   %add = add i32 %block_length, 257
   %cmp = icmp ult i32 %add, 305000
   %narrow = select i1 %cmp, i32 %add, i32 304999
-  %cmp7.not363 = icmp ult i32 %narrow, %block_length
+  %cmp7.not363 = icmp ugt i32 %block_length, %narrow
   br i1 %cmp7.not363, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -8896,7 +8896,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %max_len_to_optimize_static_block = getelementptr inbounds i8, ptr %c, i64 9011696
   %19 = load i32, ptr %max_len_to_optimize_static_block, align 16
-  %cmp11.not = icmp ult i32 %19, %block_length
+  %cmp11.not = icmp ugt i32 %block_length, %19
   br i1 %cmp11.not, label %if.end.thread, label %if.then
 
 if.end.thread:                                    ; preds = %for.end

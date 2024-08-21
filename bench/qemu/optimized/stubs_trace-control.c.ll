@@ -36,7 +36,7 @@ if.end.i:                                         ; preds = %trace_event_get_sta
   %1 = load ptr, ptr %dstate.i, align 8
   %2 = load i16, ptr %1, align 2
   %3 = icmp eq i16 %2, 0
-  %cmp.not.i = xor i1 %3, %state
+  %cmp.not.i = xor i1 %state, %3
   br i1 %cmp.not.i, label %trace_event_set_state_dynamic.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
@@ -77,7 +77,7 @@ if.end:                                           ; preds = %trace_event_get_sta
   %1 = load ptr, ptr %dstate, align 8
   %2 = load i16, ptr %1, align 2
   %3 = icmp eq i16 %2, 0
-  %cmp.not = xor i1 %3, %state
+  %cmp.not = xor i1 %state, %3
   br i1 %cmp.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.end

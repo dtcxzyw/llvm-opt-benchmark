@@ -174,7 +174,7 @@ define internal void @fig_textspan(ptr noundef %0, double %1, double %2, ptr noc
   %switch.select38 = select i1 %switch.selectcmp37, i32 0, i32 %switch.select
   %28 = fcmp ult double %1, 0.000000e+00
   %.in.v = select i1 %28, double -5.000000e-01, double 5.000000e-01
-  %.in = fadd double %.in.v, %1
+  %.in = fadd double %1, %.in.v
   %29 = fadd double %2, -7.200000e+01
   %30 = fcmp ult double %29, 0.000000e+00
   %.in36.v = select i1 %30, double -5.000000e-01, double 5.000000e-01

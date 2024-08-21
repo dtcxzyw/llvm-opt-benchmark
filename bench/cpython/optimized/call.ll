@@ -509,7 +509,7 @@ entry:
   %0 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %0, align 8
   %sub = sub i64 1152921504606846974, %kwargs.val
-  %cmp = icmp slt i64 %sub, %nargs
+  %cmp = icmp sgt i64 %nargs, %sub
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

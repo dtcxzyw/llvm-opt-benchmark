@@ -4438,7 +4438,7 @@ _ZNK7testing8internal13ParamIteratorIN4perf12_GLOBAL__N_18MatDepthEEeqERKS5_.exi
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %.val.i2)
   %17 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp eq ptr %17, %16
+  %.not.i.i = icmp eq ptr %16, %17
   br i1 %.not.i.i, label %_ZN7testing8internal13ParamIteratorIN4perf12_GLOBAL__N_18MatDepthEEaSERKS5_.exit, label %18
 
 18:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN4perf12_GLOBAL__N_18MatDepthEEeqERKS5_.exit.thread
@@ -4493,7 +4493,7 @@ _ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread: ; pre
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(8) %44)
   %49 = load ptr, ptr %34, align 8
-  %.not.i.i3 = icmp eq ptr %49, %48
+  %.not.i.i3 = icmp eq ptr %48, %49
   br i1 %.not.i.i3, label %_ZN7testing8internal13ParamIteratorIN4perf7MatTypeEEaSERKS4_.exit, label %50
 
 50:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread
@@ -5789,7 +5789,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %261 = icmp eq ptr %29, %.sroa.4.0.i.ph.i
+  %261 = icmp eq ptr %.sroa.4.0.i.ph.i, %29
   br i1 %261, label %269, label %262
 
 262:                                              ; preds = %select.unfold.i
@@ -5980,7 +5980,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i = phi i32 [ %315, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %328, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i ], [ %323, %322 ]
   %329 = getelementptr inbounds [8 x i32], ptr @__const._ZNK4perf12_GLOBAL__N_18MatDepth7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i
   %330 = load i32, ptr %329, align 4, !noalias !97
-  %331 = icmp eq i32 %330, %.val.i.i.i.i.i.i.i
+  %331 = icmp eq i32 %.val.i.i.i.i.i.i.i, %330
   br i1 %331, label %332, label %308
 
 332:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i
@@ -6785,7 +6785,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
   %87 = call ptr @__cxa_begin_catch(ptr %86) #26
-  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i, %63
+  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %63, %.017.i.i.i.i.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_143srcSize_srcType_dstDepth_FastHoughTransformEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %84, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i

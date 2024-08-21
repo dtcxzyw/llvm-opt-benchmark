@@ -1040,7 +1040,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %295, %301
   %417 = sdiv exact i64 %416, 12
   %418 = lshr i64 %417, 1
   %419 = add nsw i64 %418, %417
-  %420 = icmp ult i64 %417, %419
+  %420 = icmp ugt i64 %419, %417
   br i1 %420, label %421, label %422
 
 421:                                              ; preds = %411
@@ -1054,7 +1054,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %295, %301
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i
 
 422:                                              ; preds = %411
-  %423 = icmp ugt i64 %417, %419
+  %423 = icmp ult i64 %419, %417
   br i1 %423, label %424, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i
 
 424:                                              ; preds = %422
@@ -1280,7 +1280,7 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i: ; preds = %426, %424, 
   %530 = sdiv exact i64 %529, 12
   %531 = lshr i64 %530, 1
   %532 = add nsw i64 %531, %530
-  %533 = icmp ult i64 %530, %532
+  %533 = icmp ugt i64 %532, %530
   br i1 %533, label %534, label %565
 
 534:                                              ; preds = %524
@@ -1375,7 +1375,7 @@ _ZNSt12_Vector_baseIN2cv12FFillSegmentESaIS1_EE13_M_deallocateEPS1_m.exit37.i.i:
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit224.i
 
 565:                                              ; preds = %524
-  %566 = icmp ugt i64 %530, %532
+  %566 = icmp ult i64 %532, %530
   br i1 %566, label %567, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit224.i
 
 567:                                              ; preds = %565
@@ -1550,7 +1550,7 @@ _ZN2cveqIhLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit216.thread.i: ; preds = %.
   %629 = sdiv exact i64 %628, 12
   %630 = lshr i64 %629, 1
   %631 = add nsw i64 %630, %629
-  %632 = icmp ult i64 %629, %631
+  %632 = icmp ugt i64 %631, %629
   br i1 %632, label %633, label %634
 
 633:                                              ; preds = %623
@@ -1564,7 +1564,7 @@ _ZN2cveqIhLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit216.thread.i: ; preds = %.
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i305
 
 634:                                              ; preds = %623
-  %635 = icmp ugt i64 %629, %631
+  %635 = icmp ult i64 %631, %629
   br i1 %635, label %636, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i305
 
 636:                                              ; preds = %634
@@ -1853,7 +1853,7 @@ _ZN2cveqIhLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit234.thread.i: ; preds = %.
   %758 = sdiv exact i64 %757, 12
   %759 = lshr i64 %758, 1
   %760 = add nsw i64 %759, %758
-  %761 = icmp ult i64 %758, %760
+  %761 = icmp ugt i64 %760, %758
   br i1 %761, label %762, label %793
 
 762:                                              ; preds = %752
@@ -1948,7 +1948,7 @@ _ZNSt12_Vector_baseIN2cv12FFillSegmentESaIS1_EE13_M_deallocateEPS1_m.exit37.i.i3
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit236.i
 
 793:                                              ; preds = %752
-  %794 = icmp ugt i64 %758, %760
+  %794 = icmp ult i64 %760, %758
   br i1 %794, label %795, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit236.i
 
 795:                                              ; preds = %793
@@ -2103,7 +2103,7 @@ _ZN2cvL14floodFill_CnIRINS_3VecIhLi3EEEEEvRNS_3MatENS_6Point_IiEET_PNS_13Connect
   %861 = sdiv exact i64 %860, 12
   %862 = lshr i64 %861, 1
   %863 = add nsw i64 %862, %861
-  %864 = icmp ult i64 %861, %863
+  %864 = icmp ugt i64 %863, %861
   br i1 %864, label %865, label %866
 
 865:                                              ; preds = %855
@@ -2117,7 +2117,7 @@ _ZN2cvL14floodFill_CnIRINS_3VecIhLi3EEEEEvRNS_3MatENS_6Point_IiEET_PNS_13Connect
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i404
 
 866:                                              ; preds = %855
-  %867 = icmp ugt i64 %861, %863
+  %867 = icmp ult i64 %863, %861
   br i1 %867, label %868, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i404
 
 868:                                              ; preds = %866
@@ -2343,7 +2343,7 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i404: ; preds = %870, %86
   %974 = sdiv exact i64 %973, 12
   %975 = lshr i64 %974, 1
   %976 = add nsw i64 %975, %974
-  %977 = icmp ult i64 %974, %976
+  %977 = icmp ugt i64 %976, %974
   br i1 %977, label %978, label %1009
 
 978:                                              ; preds = %968
@@ -2438,7 +2438,7 @@ _ZNSt12_Vector_baseIN2cv12FFillSegmentESaIS1_EE13_M_deallocateEPS1_m.exit37.i.i3
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit224.i375
 
 1009:                                             ; preds = %968
-  %1010 = icmp ugt i64 %974, %976
+  %1010 = icmp ult i64 %976, %974
   br i1 %1010, label %1011, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit224.i375
 
 1011:                                             ; preds = %1009
@@ -2592,7 +2592,7 @@ _ZN2cvL14floodFill_CnIRIiEEvRNS_3MatENS_6Point_IiEET_PNS_13ConnectedCompEiPSt6ve
   %1078 = sdiv exact i64 %1077, 12
   %1079 = lshr i64 %1078, 1
   %1080 = add nsw i64 %1079, %1078
-  %1081 = icmp ult i64 %1078, %1080
+  %1081 = icmp ugt i64 %1080, %1078
   br i1 %1081, label %1082, label %1083
 
 1082:                                             ; preds = %1072
@@ -2606,7 +2606,7 @@ _ZN2cvL14floodFill_CnIRIiEEvRNS_3MatENS_6Point_IiEET_PNS_13ConnectedCompEiPSt6ve
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i510
 
 1083:                                             ; preds = %1072
-  %1084 = icmp ugt i64 %1078, %1080
+  %1084 = icmp ult i64 %1080, %1078
   br i1 %1084, label %1085, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i510
 
 1085:                                             ; preds = %1083
@@ -2832,7 +2832,7 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i510: ; preds = %1087, %1
   %1191 = sdiv exact i64 %1190, 12
   %1192 = lshr i64 %1191, 1
   %1193 = add nsw i64 %1192, %1191
-  %1194 = icmp ult i64 %1191, %1193
+  %1194 = icmp ugt i64 %1193, %1191
   br i1 %1194, label %1195, label %1226
 
 1195:                                             ; preds = %1185
@@ -2927,7 +2927,7 @@ _ZNSt12_Vector_baseIN2cv12FFillSegmentESaIS1_EE13_M_deallocateEPS1_m.exit37.i.i4
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit224.i481
 
 1226:                                             ; preds = %1185
-  %1227 = icmp ugt i64 %1191, %1193
+  %1227 = icmp ult i64 %1193, %1191
   br i1 %1227, label %1228, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit224.i481
 
 1228:                                             ; preds = %1226
@@ -3102,7 +3102,7 @@ _ZN2cveqIiLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit216.thread.i: ; preds = %.
   %1290 = sdiv exact i64 %1289, 12
   %1291 = lshr i64 %1290, 1
   %1292 = add nsw i64 %1291, %1290
-  %1293 = icmp ult i64 %1290, %1292
+  %1293 = icmp ugt i64 %1292, %1290
   br i1 %1293, label %1294, label %1295
 
 1294:                                             ; preds = %1284
@@ -3116,7 +3116,7 @@ _ZN2cveqIiLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit216.thread.i: ; preds = %.
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i637
 
 1295:                                             ; preds = %1284
-  %1296 = icmp ugt i64 %1290, %1292
+  %1296 = icmp ult i64 %1292, %1290
   br i1 %1296, label %1297, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i637
 
 1297:                                             ; preds = %1295
@@ -3405,7 +3405,7 @@ _ZN2cveqIiLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit234.thread.i: ; preds = %.
   %1419 = sdiv exact i64 %1418, 12
   %1420 = lshr i64 %1419, 1
   %1421 = add nsw i64 %1420, %1419
-  %1422 = icmp ult i64 %1419, %1421
+  %1422 = icmp ugt i64 %1421, %1419
   br i1 %1422, label %1423, label %1454
 
 1423:                                             ; preds = %1413
@@ -3500,7 +3500,7 @@ _ZNSt12_Vector_baseIN2cv12FFillSegmentESaIS1_EE13_M_deallocateEPS1_m.exit37.i.i6
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit236.i597
 
 1454:                                             ; preds = %1413
-  %1455 = icmp ugt i64 %1419, %1421
+  %1455 = icmp ult i64 %1421, %1419
   br i1 %1455, label %1456, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit236.i597
 
 1456:                                             ; preds = %1454
@@ -3676,7 +3676,7 @@ _ZN2cveqIfLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit215.thread.i: ; preds = %.
   %1522 = sdiv exact i64 %1521, 12
   %1523 = lshr i64 %1522, 1
   %1524 = add nsw i64 %1523, %1522
-  %1525 = icmp ult i64 %1522, %1524
+  %1525 = icmp ugt i64 %1524, %1522
   br i1 %1525, label %1526, label %1527
 
 1526:                                             ; preds = %1516
@@ -3690,7 +3690,7 @@ _ZN2cveqIfLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit215.thread.i: ; preds = %.
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i726
 
 1527:                                             ; preds = %1516
-  %1528 = icmp ugt i64 %1522, %1524
+  %1528 = icmp ult i64 %1524, %1522
   br i1 %1528, label %1529, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i726
 
 1529:                                             ; preds = %1527
@@ -3979,7 +3979,7 @@ _ZN2cveqIfLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit230.thread.i: ; preds = %.
   %1658 = sdiv exact i64 %1657, 12
   %1659 = lshr i64 %1658, 1
   %1660 = add nsw i64 %1659, %1658
-  %1661 = icmp ult i64 %1658, %1660
+  %1661 = icmp ugt i64 %1660, %1658
   br i1 %1661, label %1662, label %1693
 
 1662:                                             ; preds = %1652
@@ -4074,7 +4074,7 @@ _ZNSt12_Vector_baseIN2cv12FFillSegmentESaIS1_EE13_M_deallocateEPS1_m.exit37.i.i7
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit232.i
 
 1693:                                             ; preds = %1652
-  %1694 = icmp ugt i64 %1658, %1660
+  %1694 = icmp ult i64 %1660, %1658
   br i1 %1694, label %1695, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit232.i
 
 1695:                                             ; preds = %1693
@@ -4520,7 +4520,7 @@ _ZN2cvL14floodFill_CnIRINS_3VecIfLi3EEEEEvRNS_3MatENS_6Point_IiEET_PNS_13Connect
   %1893 = sdiv exact i64 %1892, 12
   %1894 = lshr i64 %1893, 1
   %1895 = add nsw i64 %1894, %1893
-  %1896 = icmp ult i64 %1893, %1895
+  %1896 = icmp ugt i64 %1895, %1893
   br i1 %1896, label %1897, label %1898
 
 1897:                                             ; preds = %1887
@@ -4534,7 +4534,7 @@ _ZN2cvL14floodFill_CnIRINS_3VecIfLi3EEEEEvRNS_3MatENS_6Point_IiEET_PNS_13Connect
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i768
 
 1898:                                             ; preds = %1887
-  %1899 = icmp ugt i64 %1893, %1895
+  %1899 = icmp ult i64 %1895, %1893
   br i1 %1899, label %1900, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i768
 
 1900:                                             ; preds = %1898
@@ -4857,11 +4857,11 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i768: ; preds = %1902, %1
   %2066 = sdiv exact i64 %2065, 12
   %2067 = lshr i64 %2066, 1
   %2068 = add nsw i64 %2067, %2066
-  %2069 = icmp ult i64 %2066, %2068
+  %2069 = icmp ugt i64 %2068, %2066
   br i1 %2069, label %2075, label %2070
 
 2070:                                             ; preds = %2060
-  %2071 = icmp ugt i64 %2066, %2068
+  %2071 = icmp ult i64 %2068, %2066
   br i1 %2071, label %2072, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit476.us.us.i
 
 2072:                                             ; preds = %2070
@@ -5150,11 +5150,11 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit476.us.us.i: ; preds = %_Z
   %2203 = sdiv exact i64 %2202, 12
   %2204 = lshr i64 %2203, 1
   %2205 = add nsw i64 %2204, %2203
-  %2206 = icmp ult i64 %2203, %2205
+  %2206 = icmp ugt i64 %2205, %2203
   br i1 %2206, label %2212, label %2207
 
 2207:                                             ; preds = %2197
-  %2208 = icmp ugt i64 %2203, %2205
+  %2208 = icmp ult i64 %2205, %2203
   br i1 %2208, label %2209, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit474.us.i
 
 2209:                                             ; preds = %2207
@@ -5455,7 +5455,7 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit474.us.i: ; preds = %_ZNSt
   %2331 = sdiv exact i64 %2330, 12
   %2332 = lshr i64 %2331, 1
   %2333 = add nsw i64 %2332, %2331
-  %2334 = icmp ult i64 %2331, %2333
+  %2334 = icmp ugt i64 %2333, %2331
   br i1 %2334, label %2335, label %2366
 
 2335:                                             ; preds = %2325
@@ -5550,7 +5550,7 @@ _ZNSt12_Vector_baseIN2cv12FFillSegmentESaIS1_EE13_M_deallocateEPS1_m.exit37.i.i7
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit472.i
 
 2366:                                             ; preds = %2325
-  %2367 = icmp ugt i64 %2331, %2333
+  %2367 = icmp ult i64 %2333, %2331
   br i1 %2367, label %2368, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit472.i
 
 2368:                                             ; preds = %2366
@@ -5973,7 +5973,7 @@ _ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit478.i: ; preds = %2543
   %2581 = sdiv exact i64 %2580, 12
   %2582 = lshr i64 %2581, 1
   %2583 = add nsw i64 %2582, %2581
-  %2584 = icmp ult i64 %2581, %2583
+  %2584 = icmp ugt i64 %2583, %2581
   br i1 %2584, label %2585, label %2586
 
 2585:                                             ; preds = %2575
@@ -5987,7 +5987,7 @@ _ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit478.i: ; preds = %2543
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i860
 
 2586:                                             ; preds = %2575
-  %2587 = icmp ugt i64 %2581, %2583
+  %2587 = icmp ult i64 %2583, %2581
   br i1 %2587, label %2588, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i860
 
 2588:                                             ; preds = %2586
@@ -6486,11 +6486,11 @@ _ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit527.us.us.i: ; preds = %2834
   %2865 = sdiv exact i64 %2864, 12
   %2866 = lshr i64 %2865, 1
   %2867 = add nsw i64 %2866, %2865
-  %2868 = icmp ult i64 %2865, %2867
+  %2868 = icmp ugt i64 %2867, %2865
   br i1 %2868, label %2874, label %2869
 
 2869:                                             ; preds = %2859
-  %2870 = icmp ugt i64 %2865, %2867
+  %2870 = icmp ult i64 %2867, %2865
   br i1 %2870, label %2871, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit529.us.us.i
 
 2871:                                             ; preds = %2869
@@ -6884,11 +6884,11 @@ _ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit501.us.i: ; preds = %3033
   %3070 = sdiv exact i64 %3069, 12
   %3071 = lshr i64 %3070, 1
   %3072 = add nsw i64 %3071, %3070
-  %3073 = icmp ult i64 %3070, %3072
+  %3073 = icmp ugt i64 %3072, %3070
   br i1 %3073, label %3079, label %3074
 
 3074:                                             ; preds = %3064
-  %3075 = icmp ugt i64 %3070, %3072
+  %3075 = icmp ult i64 %3072, %3070
   br i1 %3075, label %3076, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit503.us.i
 
 3076:                                             ; preds = %3074
@@ -7244,7 +7244,7 @@ _ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit487.i: ; preds = %.lr.ph2254.prehead
   %3230 = sdiv exact i64 %3229, 12
   %3231 = lshr i64 %3230, 1
   %3232 = add nsw i64 %3231, %3230
-  %3233 = icmp ult i64 %3230, %3232
+  %3233 = icmp ugt i64 %3232, %3230
   br i1 %3233, label %3234, label %3265
 
 3234:                                             ; preds = %3224
@@ -7339,7 +7339,7 @@ _ZNSt12_Vector_baseIN2cv12FFillSegmentESaIS1_EE13_M_deallocateEPS1_m.exit37.i.i8
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit489.i
 
 3265:                                             ; preds = %3224
-  %3266 = icmp ugt i64 %3230, %3232
+  %3266 = icmp ult i64 %3232, %3230
   br i1 %3266, label %3267, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit489.i
 
 3267:                                             ; preds = %3265
@@ -7639,7 +7639,7 @@ _ZN2cvL18floodFillGrad_CnIRINS_3VecIhLi3EEEhNS1_IiLi3EEENS_8Diff8uC3EEEvRNS_3Mat
   %3402 = sdiv exact i64 %3401, 12
   %3403 = lshr i64 %3402, 1
   %3404 = add nsw i64 %3403, %3402
-  %3405 = icmp ult i64 %3402, %3404
+  %3405 = icmp ugt i64 %3404, %3402
   br i1 %3405, label %3406, label %3407
 
 3406:                                             ; preds = %3396
@@ -7653,7 +7653,7 @@ _ZN2cvL18floodFillGrad_CnIRINS_3VecIhLi3EEEhNS1_IiLi3EEENS_8Diff8uC3EEEvRNS_3Mat
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i994
 
 3407:                                             ; preds = %3396
-  %3408 = icmp ugt i64 %3402, %3404
+  %3408 = icmp ult i64 %3404, %3402
   br i1 %3408, label %3409, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i994
 
 3409:                                             ; preds = %3407
@@ -7954,11 +7954,11 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i994: ; preds = %3411, %3
   %3564 = sdiv exact i64 %3563, 12
   %3565 = lshr i64 %3564, 1
   %3566 = add nsw i64 %3565, %3564
-  %3567 = icmp ult i64 %3564, %3566
+  %3567 = icmp ugt i64 %3566, %3564
   br i1 %3567, label %3573, label %3568
 
 3568:                                             ; preds = %3558
-  %3569 = icmp ugt i64 %3564, %3566
+  %3569 = icmp ult i64 %3566, %3564
   br i1 %3569, label %3570, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit494.us.us.i
 
 3570:                                             ; preds = %3568
@@ -8254,11 +8254,11 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit494.us.us.i: ; preds = %_Z
   %3701 = sdiv exact i64 %3700, 12
   %3702 = lshr i64 %3701, 1
   %3703 = add nsw i64 %3702, %3701
-  %3704 = icmp ult i64 %3701, %3703
+  %3704 = icmp ugt i64 %3703, %3701
   br i1 %3704, label %3710, label %3705
 
 3705:                                             ; preds = %3695
-  %3706 = icmp ugt i64 %3701, %3703
+  %3706 = icmp ult i64 %3703, %3701
   br i1 %3706, label %3707, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit484.us.i
 
 3707:                                             ; preds = %3705
@@ -8573,7 +8573,7 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit484.us.i: ; preds = %_ZNSt
   %3838 = sdiv exact i64 %3837, 12
   %3839 = lshr i64 %3838, 1
   %3840 = add nsw i64 %3839, %3838
-  %3841 = icmp ult i64 %3838, %3840
+  %3841 = icmp ugt i64 %3840, %3838
   br i1 %3841, label %3842, label %3873
 
 3842:                                             ; preds = %3832
@@ -8668,7 +8668,7 @@ _ZNSt12_Vector_baseIN2cv12FFillSegmentESaIS1_EE13_M_deallocateEPS1_m.exit37.i.i9
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit478.i
 
 3873:                                             ; preds = %3832
-  %3874 = icmp ugt i64 %3838, %3840
+  %3874 = icmp ult i64 %3840, %3838
   br i1 %3874, label %3875, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit478.i
 
 3875:                                             ; preds = %3873
@@ -9167,7 +9167,7 @@ _ZNK2cv6DiffC3INS_3VecIiLi3EEEEclEPKS2_S5_.exit505.i: ; preds = %4059
   %4084 = sdiv exact i64 %4083, 12
   %4085 = lshr i64 %4084, 1
   %4086 = add nsw i64 %4085, %4084
-  %4087 = icmp ult i64 %4084, %4086
+  %4087 = icmp ugt i64 %4086, %4084
   br i1 %4087, label %4088, label %4089
 
 4088:                                             ; preds = %4078
@@ -9181,7 +9181,7 @@ _ZNK2cv6DiffC3INS_3VecIiLi3EEEEclEPKS2_S5_.exit505.i: ; preds = %4059
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i1125
 
 4089:                                             ; preds = %4078
-  %4090 = icmp ugt i64 %4084, %4086
+  %4090 = icmp ult i64 %4086, %4084
   br i1 %4090, label %4091, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i1125
 
 4091:                                             ; preds = %4089
@@ -9877,11 +9877,11 @@ _ZNK2cv6DiffC3INS_3VecIiLi3EEEEclEPKS2_S5_.exit689.thread.us.us.i: ; preds = %43
   %4392 = sdiv exact i64 %4391, 12
   %4393 = lshr i64 %4392, 1
   %4394 = add nsw i64 %4393, %4392
-  %4395 = icmp ult i64 %4392, %4394
+  %4395 = icmp ugt i64 %4394, %4392
   br i1 %4395, label %4401, label %4396
 
 4396:                                             ; preds = %4386
-  %4397 = icmp ugt i64 %4392, %4394
+  %4397 = icmp ult i64 %4394, %4392
   br i1 %4397, label %4398, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit691.us.us.i
 
 4398:                                             ; preds = %4396
@@ -10348,11 +10348,11 @@ _ZNK2cv6DiffC3INS_3VecIiLi3EEEEclEPKS2_S5_.exit591.thread.us.i: ; preds = %4556,
   %4581 = sdiv exact i64 %4580, 12
   %4582 = lshr i64 %4581, 1
   %4583 = add nsw i64 %4582, %4581
-  %4584 = icmp ult i64 %4581, %4583
+  %4584 = icmp ugt i64 %4583, %4581
   br i1 %4584, label %4590, label %4585
 
 4585:                                             ; preds = %4575
-  %4586 = icmp ugt i64 %4581, %4583
+  %4586 = icmp ult i64 %4583, %4581
   br i1 %4586, label %4587, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit593.us.i
 
 4587:                                             ; preds = %4585
@@ -10766,7 +10766,7 @@ _ZNK2cv6DiffC3INS_3VecIiLi3EEEEclEPKS2_S5_.exit541.i: ; preds = %4725
   %4748 = sdiv exact i64 %4747, 12
   %4749 = lshr i64 %4748, 1
   %4750 = add nsw i64 %4749, %4748
-  %4751 = icmp ult i64 %4748, %4750
+  %4751 = icmp ugt i64 %4750, %4748
   br i1 %4751, label %4752, label %4783
 
 4752:                                             ; preds = %4742
@@ -10861,7 +10861,7 @@ _ZNSt12_Vector_baseIN2cv12FFillSegmentESaIS1_EE13_M_deallocateEPS1_m.exit37.i.i1
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit543.i
 
 4783:                                             ; preds = %4742
-  %4784 = icmp ugt i64 %4748, %4750
+  %4784 = icmp ult i64 %4750, %4748
   br i1 %4784, label %4785, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit543.i
 
 4785:                                             ; preds = %4783
@@ -11165,7 +11165,7 @@ _ZN2cvL18floodFillGrad_CnIRINS_3VecIiLi3EEEhS2_NS_6DiffC3IS2_EEEEvRNS_3MatES6_NS
   %4929 = sdiv exact i64 %4928, 12
   %4930 = lshr i64 %4929, 1
   %4931 = add nsw i64 %4930, %4929
-  %4932 = icmp ult i64 %4929, %4931
+  %4932 = icmp ugt i64 %4931, %4929
   br i1 %4932, label %4933, label %4934
 
 4933:                                             ; preds = %4923
@@ -11179,7 +11179,7 @@ _ZN2cvL18floodFillGrad_CnIRINS_3VecIiLi3EEEhS2_NS_6DiffC3IS2_EEEEvRNS_3MatES6_NS
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i1294
 
 4934:                                             ; preds = %4923
-  %4935 = icmp ugt i64 %4929, %4931
+  %4935 = icmp ult i64 %4931, %4929
   br i1 %4935, label %4936, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i1294
 
 4936:                                             ; preds = %4934
@@ -11480,11 +11480,11 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i1294: ; preds = %4938, %
   %5099 = sdiv exact i64 %5098, 12
   %5100 = lshr i64 %5099, 1
   %5101 = add nsw i64 %5100, %5099
-  %5102 = icmp ult i64 %5099, %5101
+  %5102 = icmp ugt i64 %5101, %5099
   br i1 %5102, label %5108, label %5103
 
 5103:                                             ; preds = %5093
-  %5104 = icmp ugt i64 %5099, %5101
+  %5104 = icmp ult i64 %5101, %5099
   br i1 %5104, label %5105, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit476.us.us.i1267
 
 5105:                                             ; preds = %5103
@@ -11780,11 +11780,11 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit476.us.us.i1267: ; preds =
   %5240 = sdiv exact i64 %5239, 12
   %5241 = lshr i64 %5240, 1
   %5242 = add nsw i64 %5241, %5240
-  %5243 = icmp ult i64 %5240, %5242
+  %5243 = icmp ugt i64 %5242, %5240
   br i1 %5243, label %5249, label %5244
 
 5244:                                             ; preds = %5234
-  %5245 = icmp ugt i64 %5240, %5242
+  %5245 = icmp ult i64 %5242, %5240
   br i1 %5245, label %5246, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit474.us.i1226
 
 5246:                                             ; preds = %5244
@@ -12099,7 +12099,7 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit474.us.i1226: ; preds = %_
   %5382 = sdiv exact i64 %5381, 12
   %5383 = lshr i64 %5382, 1
   %5384 = add nsw i64 %5383, %5382
-  %5385 = icmp ult i64 %5382, %5384
+  %5385 = icmp ugt i64 %5384, %5382
   br i1 %5385, label %5386, label %5417
 
 5386:                                             ; preds = %5376
@@ -12194,7 +12194,7 @@ _ZNSt12_Vector_baseIN2cv12FFillSegmentESaIS1_EE13_M_deallocateEPS1_m.exit37.i.i1
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit472.i1190
 
 5417:                                             ; preds = %5376
-  %5418 = icmp ugt i64 %5382, %5384
+  %5418 = icmp ult i64 %5384, %5382
   br i1 %5418, label %5419, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit472.i1190
 
 5419:                                             ; preds = %5417
@@ -12693,7 +12693,7 @@ _ZNK2cv6DiffC3INS_3VecIfLi3EEEEclEPKS2_S5_.exit490.i: ; preds = %5625
   %5652 = sdiv exact i64 %5651, 12
   %5653 = lshr i64 %5652, 1
   %5654 = add nsw i64 %5653, %5652
-  %5655 = icmp ult i64 %5652, %5654
+  %5655 = icmp ugt i64 %5654, %5652
   br i1 %5655, label %5656, label %5657
 
 5656:                                             ; preds = %5646
@@ -12707,7 +12707,7 @@ _ZNK2cv6DiffC3INS_3VecIfLi3EEEEclEPKS2_S5_.exit490.i: ; preds = %5625
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i1431
 
 5657:                                             ; preds = %5646
-  %5658 = icmp ugt i64 %5652, %5654
+  %5658 = icmp ult i64 %5654, %5652
   br i1 %5658, label %5659, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i1431
 
 5659:                                             ; preds = %5657
@@ -13403,11 +13403,11 @@ _ZNK2cv6DiffC3INS_3VecIfLi3EEEEclEPKS2_S5_.exit599.thread.us.us.i: ; preds = %59
   %6008 = sdiv exact i64 %6007, 12
   %6009 = lshr i64 %6008, 1
   %6010 = add nsw i64 %6009, %6008
-  %6011 = icmp ult i64 %6008, %6010
+  %6011 = icmp ugt i64 %6010, %6008
   br i1 %6011, label %6017, label %6012
 
 6012:                                             ; preds = %6002
-  %6013 = icmp ugt i64 %6008, %6010
+  %6013 = icmp ult i64 %6010, %6008
   br i1 %6013, label %6014, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit601.us.us.i
 
 6014:                                             ; preds = %6012
@@ -13874,11 +13874,11 @@ _ZNK2cv6DiffC3INS_3VecIfLi3EEEEclEPKS2_S5_.exit541.thread.us.i: ; preds = %6194,
   %6220 = sdiv exact i64 %6219, 12
   %6221 = lshr i64 %6220, 1
   %6222 = add nsw i64 %6221, %6220
-  %6223 = icmp ult i64 %6220, %6222
+  %6223 = icmp ugt i64 %6222, %6220
   br i1 %6223, label %6229, label %6224
 
 6224:                                             ; preds = %6214
-  %6225 = icmp ugt i64 %6220, %6222
+  %6225 = icmp ult i64 %6222, %6220
   br i1 %6225, label %6226, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit543.us.i
 
 6226:                                             ; preds = %6224
@@ -14292,7 +14292,7 @@ _ZNK2cv6DiffC3INS_3VecIfLi3EEEEclEPKS2_S5_.exit511.i: ; preds = %6380
   %6405 = sdiv exact i64 %6404, 12
   %6406 = lshr i64 %6405, 1
   %6407 = add nsw i64 %6406, %6405
-  %6408 = icmp ult i64 %6405, %6407
+  %6408 = icmp ugt i64 %6407, %6405
   br i1 %6408, label %6409, label %6440
 
 6409:                                             ; preds = %6399
@@ -14387,7 +14387,7 @@ _ZNSt12_Vector_baseIN2cv12FFillSegmentESaIS1_EE13_M_deallocateEPS1_m.exit37.i.i1
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit513.i
 
 6440:                                             ; preds = %6399
-  %6441 = icmp ugt i64 %6405, %6407
+  %6441 = icmp ult i64 %6407, %6405
   br i1 %6441, label %6442, label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit513.i
 
 6442:                                             ; preds = %6440

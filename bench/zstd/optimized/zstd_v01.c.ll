@@ -220,7 +220,7 @@ sw.bb.i:                                          ; preds = %if.end3.i
 
 sw.bb6.i:                                         ; preds = %if.end3.i
   %conv.i = zext nneg i32 %add6.i.i to i64
-  %cmp7.i = icmp ugt i64 %conv.i, %maxDstSize
+  %cmp7.i = icmp ult i64 %maxDstSize, %conv.i
   br i1 %cmp7.i, label %return, label %if.end13.i
 
 if.end13.i:                                       ; preds = %sw.bb6.i
@@ -2040,7 +2040,7 @@ if.end37.i.i.i.i:                                 ; preds = %if.end63.i165.i.i.i
 if.end42.i.i.i.i:                                 ; preds = %if.end37.i.i.i.i
   %call43.i.i.i.i = call fastcc i32 @FSE_reloadDStream(ptr noundef nonnull %bitD2.i.i.i.i)
   %cmp44647.i.i.i.i = icmp ult i32 %call43.i.i.i.i, 2
-  %cmp46648.i.i.i.i = icmp ugt ptr %cond.i.i.i.i, %add.ptr9.i.i
+  %cmp46648.i.i.i.i = icmp ult ptr %add.ptr9.i.i, %cond.i.i.i.i
   %146 = select i1 %cmp44647.i.i.i.i, i1 %cmp46648.i.i.i.i, i1 false
   br i1 %146, label %for.body.lr.ph.i.i.i.i, label %for.end.i.i.i.i
 
@@ -3042,7 +3042,7 @@ ZSTDv01_decodeSeqHeaders.exit.i:                  ; preds = %for.body.i81.i.i, %
 if.end.i23:                                       ; preds = %ZSTDv01_decodeSeqHeaders.exit.i
   %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr, i64 %sub.ptr.sub107.i.i
   %gepdiff.i = sub nsw i64 %sub, %sub.ptr.sub107.i.i
-  %cmp.i34.i = icmp eq i64 %sub.ptr.sub107.i.i, %sub
+  %cmp.i34.i = icmp eq i64 %sub, %sub.ptr.sub107.i.i
   br i1 %cmp.i34.i, label %return, label %if.end.i35.i
 
 if.end.i35.i:                                     ; preds = %if.end.i23
@@ -3993,13 +3993,13 @@ define i64 @ZSTDv01_decompressContinue(ptr noundef %dctx, ptr noundef %dst, i64 
 entry:
   %expected = getelementptr inbounds i8, ptr %dctx, i64 10272
   %0 = load i64, ptr %expected, align 8
-  %cmp.not = icmp eq i64 %0, %srcSize
+  %cmp.not = icmp eq i64 %srcSize, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %previousDstEnd = getelementptr inbounds i8, ptr %dctx, i64 10256
   %1 = load ptr, ptr %previousDstEnd, align 8
-  %cmp1.not = icmp eq ptr %1, %dst
+  %cmp1.not = icmp eq ptr %dst, %1
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end

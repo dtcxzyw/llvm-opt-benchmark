@@ -207,7 +207,7 @@ define hidden noundef ptr @_ZNK9StubQueue15stub_containingEPh(ptr nocapture noun
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
-  %9 = icmp ugt ptr %8, %1
+  %9 = icmp ult ptr %1, %8
   %10 = select i1 %.not.i, i1 %9, i1 false
   br i1 %10, label %11, label %.loopexit
 
@@ -243,7 +243,7 @@ _ZNK9StubQueue13stub_containsEP4StubPh.exit:      ; preds = %20
   %28 = getelementptr inbounds i8, ptr %27, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %.013) #6
-  %31 = icmp ugt ptr %30, %1
+  %31 = icmp ult ptr %1, %30
   br i1 %31, label %.loopexit, label %_ZNK9StubQueue13stub_containsEP4StubPh.exit.thread
 
 _ZNK9StubQueue13stub_containsEP4StubPh.exit.thread: ; preds = %20, %_ZNK9StubQueue13stub_containsEP4StubPh.exit

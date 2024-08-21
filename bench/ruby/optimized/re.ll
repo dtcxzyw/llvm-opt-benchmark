@@ -263,7 +263,7 @@ define dso_local i64 @rb_memsearch(ptr noundef nonnull %0, i64 noundef %1, ptr n
 
 34:                                               ; preds = %27
   %35 = tail call nonnull ptr @rb_utf8_encoding() #27
-  %36 = icmp eq ptr %35, %4
+  %36 = icmp eq ptr %4, %35
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %34
@@ -285,7 +285,7 @@ define dso_local i64 @rb_memsearch(ptr noundef nonnull %0, i64 noundef %1, ptr n
 
 .preheader33.i:                                   ; preds = %48
   %45 = getelementptr i8, ptr %0, i64 %1
-  %46 = icmp ugt ptr %45, %0
+  %46 = icmp ult ptr %0, %45
   br i1 %46, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %.preheader33.i
@@ -373,7 +373,7 @@ define internal fastcc noundef i64 @rb_memsearch_qs_utf8(ptr noundef %0, i64 nou
 
 .preheader36:                                     ; preds = %10
   %7 = getelementptr i8, ptr %0, i64 %1
-  %8 = icmp ugt ptr %7, %0
+  %8 = icmp ult ptr %0, %7
   br i1 %8, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %.preheader36
@@ -1458,7 +1458,7 @@ define dso_local i64 @rb_reg_adjust_startpos(i64 noundef %0, i64 noundef %1, i64
   %16 = inttoptr i64 %1 to ptr
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = icmp sgt i64 %18, %2
+  %19 = icmp slt i64 %2, %18
   br i1 %19, label %20, label %40
 
 20:                                               ; preds = %15
@@ -1518,7 +1518,7 @@ define internal fastcc i64 @rb_reg_search_set_match(i64 noundef %0, i64 noundef 
   %9 = inttoptr i64 %1 to ptr
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = icmp slt i64 %11, %2
+  %12 = icmp sgt i64 %2, %11
   %13 = icmp slt i64 %2, 0
   %or.cond = or i1 %13, %12
   br i1 %or.cond, label %14, label %15
@@ -1809,7 +1809,7 @@ define dso_local range(i64 0, 21) i64 @rb_reg_nth_defined(i32 noundef %0, i64 no
 match_check.exit:                                 ; preds = %4
   %10 = getelementptr i8, ptr %5, i64 36
   %11 = load i32, ptr %10, align 4
-  %.not = icmp sgt i32 %11, %0
+  %.not = icmp slt i32 %0, %11
   br i1 %.not, label %12, label %24
 
 12:                                               ; preds = %match_check.exit
@@ -1857,7 +1857,7 @@ define dso_local i64 @rb_reg_nth_match(i32 noundef %0, i64 noundef %1) local_unn
 match_check.exit:                                 ; preds = %4
   %10 = getelementptr i8, ptr %5, i64 36
   %11 = load i32, ptr %10, align 4
-  %.not = icmp sgt i32 %11, %0
+  %.not = icmp slt i32 %0, %11
   br i1 %.not, label %12, label %33
 
 12:                                               ; preds = %match_check.exit
@@ -5003,7 +5003,7 @@ rb_check_arity.exit:                              ; preds = %3
 match_check.exit.i:                               ; preds = %9
   %17 = getelementptr i8, ptr %12, i64 36
   %18 = load i32, ptr %17, align 4
-  %.not.i = icmp sgt i32 %18, %11
+  %.not.i = icmp slt i32 %11, %18
   br i1 %.not.i, label %19, label %rb_reg_nth_match.exit
 
 19:                                               ; preds = %match_check.exit.i
@@ -6671,7 +6671,7 @@ match_check.exit.i:                               ; preds = %21
 match_check.exit.i35:                             ; preds = %55
   %59 = getelementptr i8, ptr %6, i64 36
   %60 = load i32, ptr %59, align 4
-  %.not.i36 = icmp sgt i32 %60, %51
+  %.not.i36 = icmp slt i32 %51, %60
   br i1 %.not.i36, label %61, label %rb_reg_nth_match.exit
 
 61:                                               ; preds = %match_check.exit.i35
@@ -7107,7 +7107,7 @@ name_to_backref_number.exit.thread:               ; preds = %92, %Check_Type.exi
 
 match_check.exit.i:                               ; preds = %112
   %116 = load i32, ptr %61, align 4
-  %.not.i47 = icmp sgt i32 %116, %111
+  %.not.i47 = icmp slt i32 %111, %116
   br i1 %.not.i47, label %117, label %rb_reg_nth_match.exit
 
 117:                                              ; preds = %match_check.exit.i
@@ -7248,7 +7248,7 @@ rb_reg_nth_match.exit:                            ; preds = %22, %match_check.ex
 
 match_check.exit.i26:                             ; preds = %54
   %58 = load i32, ptr %13, align 4
-  %.not.i27 = icmp sgt i32 %58, %51
+  %.not.i27 = icmp slt i32 %51, %58
   br i1 %.not.i27, label %59, label %rb_reg_nth_match.exit30
 
 59:                                               ; preds = %match_check.exit.i26
@@ -7943,7 +7943,7 @@ rb_enc_asciicompat.exit:                          ; preds = %6
   br i1 %.not87, label %rb_enc_asciicompat.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %15
-  %20 = icmp ugt ptr %11, %1
+  %20 = icmp ult ptr %1, %11
   br i1 %20, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -8009,7 +8009,7 @@ rb_enc_asciicompat.exit:                          ; preds = %6
 
 rb_enc_asciicompat.exit.thread:                   ; preds = %37, %.lr.ph.split, %26, %25, %6, %15, %rb_enc_asciicompat.exit
   %44 = call i32 @rb_enc_unicode_p(ptr noundef %3) #26
-  %45 = icmp ugt ptr %11, %1
+  %45 = icmp ult ptr %1, %11
   br i1 %45, label %.lr.ph95, label %.loopexit
 
 .lr.ph95:                                         ; preds = %rb_enc_asciicompat.exit.thread
@@ -8396,7 +8396,7 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr nocapture no
 61:                                               ; preds = %55, %52, %52, %52, %52, %52
   store ptr %24, ptr %11, align 8
   %62 = call nonnull ptr @rb_usascii_encoding() #27
-  %63 = icmp eq ptr %62, %2
+  %63 = icmp eq ptr %2, %62
   br i1 %63, label %64, label %74
 
 64:                                               ; preds = %61
@@ -8513,7 +8513,7 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr nocapture no
 
 111:                                              ; preds = %109
   %112 = call nonnull ptr @rb_utf8_encoding() #27
-  %113 = icmp eq ptr %112, %2
+  %113 = icmp eq ptr %2, %112
   br i1 %113, label %114, label %115
 
 114:                                              ; preds = %111
@@ -8602,7 +8602,7 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr nocapture no
 
 147:                                              ; preds = %145
   %148 = call nonnull ptr @rb_utf8_encoding() #27
-  %149 = icmp eq ptr %148, %2
+  %149 = icmp eq ptr %2, %148
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %147
@@ -8812,7 +8812,7 @@ define internal fastcc range(i32 -1, 256) i32 @read_escaped_byte(ptr nocapture n
 
 17:                                               ; preds = %12, %12, %12, %12, %12, %12, %12, %12
   %18 = getelementptr i8, ptr %.062170, i64 3
-  %19 = icmp ugt ptr %18, %1
+  %19 = icmp ult ptr %1, %18
   %20 = ptrtoint ptr %1 to i64
   %21 = ptrtoint ptr %.062170 to i64
   %22 = sub i64 %20, %21
@@ -8824,7 +8824,7 @@ define internal fastcc range(i32 -1, 256) i32 @read_escaped_byte(ptr nocapture n
 
 27:                                               ; preds = %12
   %28 = getelementptr i8, ptr %.062170, i64 3
-  %29 = icmp ugt ptr %28, %1
+  %29 = icmp ult ptr %1, %28
   %30 = ptrtoint ptr %1 to i64
   %31 = ptrtoint ptr %13 to i64
   %32 = sub i64 %30, %31
@@ -9218,7 +9218,7 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_unicode_bmp(ptr nocapture 
   %6 = alloca i64, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr i8, ptr %7, i64 4
-  %9 = icmp ugt ptr %8, %1
+  %9 = icmp ult ptr %1, %8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %5
@@ -11120,7 +11120,7 @@ define internal fastcc i64 @match_ary_subseq(i64 noundef %0, i64 noundef %1, i64
   br i1 %15, label %63, label %.preheader
 
 .preheader:                                       ; preds = %14
-  %16 = icmp sgt i64 %10, %1
+  %16 = icmp slt i64 %1, %10
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -11288,7 +11288,7 @@ define internal noundef i32 @match_named_captures_iter(ptr noundef %0, ptr nound
 
 match_check.exit.i:                               ; preds = %.lr.ph.split
   %37 = load i32, ptr %27, align 4
-  %.not.i = icmp sgt i32 %37, %33
+  %.not.i = icmp slt i32 %33, %37
   br i1 %.not.i, label %38, label %rb_reg_nth_match.exit.thread
 
 38:                                               ; preds = %match_check.exit.i

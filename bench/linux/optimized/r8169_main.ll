@@ -5393,7 +5393,7 @@ r8169_mdio_write.exit:                            ; preds = %20, %29, %32
 
 158:                                              ; preds = %157
   %159 = shl nuw nsw i32 %152, 15
-  %160 = or i32 %159, %2
+  %160 = or i32 %2, %159
   %161 = or i32 %160, -2147483648
   %162 = load ptr, ptr %0, align 8
   %163 = getelementptr i8, ptr %162, i64 184
@@ -5641,7 +5641,7 @@ define internal void @mac_mcu_write(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 19:                                               ; preds = %18
   %20 = shl nuw nsw i32 %11, 15
-  %21 = or i32 %20, %2
+  %21 = or i32 %2, %20
   %22 = or i32 %21, -2147483648
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr i8, ptr %23, i64 176
@@ -11841,7 +11841,7 @@ define internal fastcc void @rtl8169_do_counters(ptr nocapture noundef readonly 
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr i8, ptr %13, i64 16
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, ptr elementtype(i32) %14) #19, !srcloc !15
-  %15 = or i32 %5, %1
+  %15 = or i32 %1, %5
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr i8, ptr %16, i64 16
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %15, ptr elementtype(i32) %17) #19, !srcloc !15

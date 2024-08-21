@@ -2123,10 +2123,10 @@ define hidden void @_ZN10Relocation17normalize_addressERPhPK11CodeSectionb(ptr n
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %2, align 8
-  %.not.i = icmp ule ptr %8, %5
+  %.not.i = icmp uge ptr %5, %8
   %9 = getelementptr inbounds i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp uge ptr %10, %5
+  %11 = icmp ule ptr %5, %10
   %12 = select i1 %.not.i, i1 %11, i1 false
   br i1 %12, label %32, label %13
 
@@ -2381,10 +2381,10 @@ define hidden void @_ZN23virtual_call_Relocation12pack_data_toEP11CodeSection(pt
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %1, align 8
-  %.not.i.i = icmp ule ptr %11, %8
+  %.not.i.i = icmp uge ptr %8, %11
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp uge ptr %13, %8
+  %14 = icmp ule ptr %8, %13
   %15 = select i1 %.not.i.i, i1 %14, i1 false
   br i1 %15, label %_ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit, label %16
 
@@ -2681,10 +2681,10 @@ define hidden void @_ZN22static_stub_Relocation12pack_data_toEP11CodeSection(ptr
   br i1 %10, label %_ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit, label %11
 
 11:                                               ; preds = %2
-  %.not.i.i = icmp ule ptr %.pre12, %9
+  %.not.i.i = icmp uge ptr %9, %.pre12
   %12 = getelementptr inbounds i8, ptr %6, i64 120
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp uge ptr %13, %9
+  %14 = icmp ule ptr %9, %13
   %15 = select i1 %.not.i.i, i1 %14, i1 false
   br i1 %15, label %_ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit, label %16
 
@@ -2824,10 +2824,10 @@ define hidden void @_ZN26trampoline_stub_Relocation12pack_data_toEP11CodeSection
   br i1 %10, label %_ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit, label %11
 
 11:                                               ; preds = %2
-  %.not.i.i = icmp ule ptr %.pre12, %9
+  %.not.i.i = icmp uge ptr %9, %.pre12
   %12 = getelementptr inbounds i8, ptr %6, i64 120
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp uge ptr %13, %9
+  %14 = icmp ule ptr %9, %13
   %15 = select i1 %.not.i.i, i1 %14, i1 false
   br i1 %15, label %_ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit, label %16
 
@@ -3046,10 +3046,10 @@ define hidden void @_ZN24internal_word_Relocation12pack_data_toEP11CodeSection(p
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %1, align 8
-  %.not.i.i = icmp ule ptr %9, %6
+  %.not.i.i = icmp uge ptr %6, %9
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp uge ptr %11, %6
+  %12 = icmp ule ptr %6, %11
   %13 = select i1 %.not.i.i, i1 %12, i1 false
   br i1 %13, label %_ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit, label %14
 
@@ -3111,10 +3111,10 @@ _ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit.thread: ; preds = %2
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %1, align 8
-  %.not.i = icmp ule ptr %41, %.pr
+  %.not.i = icmp uge ptr %.pr, %41
   %42 = getelementptr inbounds i8, ptr %1, i64 24
   %43 = load ptr, ptr %42, align 8
-  %44 = icmp ugt ptr %43, %.pr
+  %44 = icmp ult ptr %.pr, %43
   %45 = select i1 %.not.i, i1 %44, i1 false
   br i1 %45, label %46, label %50
 
@@ -3181,10 +3181,10 @@ _ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit.thread: ; preds = %2
   %80 = sext i32 %.024 to i64
   %81 = getelementptr inbounds %class.CodeSection, ptr %79, i64 %80
   %82 = load ptr, ptr %81, align 8
-  %.not.i33 = icmp ule ptr %82, %76
+  %.not.i33 = icmp uge ptr %76, %82
   %83 = getelementptr inbounds i8, ptr %81, i64 24
   %84 = load ptr, ptr %83, align 8
-  %85 = icmp uge ptr %84, %76
+  %85 = icmp ule ptr %76, %84
   %86 = select i1 %.not.i33, i1 %85, i1 false
   br i1 %86, label %89, label %87
 

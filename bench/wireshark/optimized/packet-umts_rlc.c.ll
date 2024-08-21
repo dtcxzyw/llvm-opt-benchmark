@@ -2860,7 +2860,7 @@ define internal fastcc noundef ptr @tree_add_li(i32 noundef %0, ptr nocapture no
   br label %81
 
 49:                                               ; preds = %9
-  %50 = add nuw nsw i32 %10, %3
+  %50 = add nuw nsw i32 %3, %10
   %51 = load i32, ptr @hf_rlc_li, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %6, i32 noundef %51, ptr noundef %5, i32 noundef %50, i32 noundef 1, i32 noundef 0) #14
   %53 = load i32, ptr @ett_rlc_frag, align 4
@@ -3993,7 +3993,7 @@ define internal fastcc void @reassemble_sequence(ptr nocapture noundef %0, ptr n
   %12 = and i16 %11, %4
   %13 = zext nneg i16 %12 to i32
   %14 = sub nsw i32 1, %10
-  %15 = and i16 %11, %3
+  %15 = and i16 %3, %11
   %.not.i47 = icmp ugt i16 %15, %12
   %16 = select i1 %.not.i47, i32 %10, i32 0
   %17 = zext nneg i16 %15 to i32
@@ -4848,7 +4848,7 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
   %115 = add i16 %114, %.1114138
   %116 = add i8 %.0112148, 1
   %117 = zext i8 %116 to i16
-  %118 = icmp ult i16 %117, %9
+  %118 = icmp ugt i16 %9, %117
   br i1 %118, label %68, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.thread

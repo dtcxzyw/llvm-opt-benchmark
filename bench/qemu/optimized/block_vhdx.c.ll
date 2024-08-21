@@ -134,7 +134,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %conv = sext i32 %crc_offset to i64
   %add = add nsw i64 %conv, 4
-  %cmp1 = icmp ult i64 %add, %size
+  %cmp1 = icmp ugt i64 %size, %add
   br i1 %cmp1, label %if.end5, label %if.else4
 
 if.else4:                                         ; preds = %if.end
@@ -208,7 +208,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %add = add i32 %crc_offset, 4
   %conv = sext i32 %add to i64
-  %cmp1 = icmp ult i64 %conv, %size
+  %cmp1 = icmp ugt i64 %size, %conv
   br i1 %cmp1, label %if.end.i, label %if.else4
 
 if.else4:                                         ; preds = %if.end
@@ -721,7 +721,7 @@ for.body.i.i:                                     ; preds = %for.body.i, %for.in
   %r.013.i.i = phi ptr [ %r.0.i.i, %for.inc.i.i ], [ %r.011.i.i, %for.body.i ]
   %end1.i.i = getelementptr inbounds i8, ptr %r.013.i.i, i64 8
   %21 = load i64, ptr %end1.i.i, align 8
-  %cmp.not.i22.i = icmp ugt i64 %21, %19
+  %cmp.not.i22.i = icmp ult i64 %19, %21
   br i1 %cmp.not.i22.i, label %lor.lhs.false.i.i, label %for.inc.i.i
 
 lor.lhs.false.i.i:                                ; preds = %for.body.i.i
@@ -2247,7 +2247,7 @@ for.body.i:                                       ; preds = %if.then48, %for.inc
   %r.013.i = phi ptr [ %r.0.i, %for.inc.i ], [ %r.011.i, %if.then48 ]
   %end1.i = getelementptr inbounds i8, ptr %r.013.i, i64 8
   %12 = load i64, ptr %end1.i, align 8
-  %cmp.not.i = icmp ugt i64 %12, %and10
+  %cmp.not.i = icmp ult i64 %and10, %12
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %for.inc.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i

@@ -94,7 +94,7 @@ _ZL7polyvaldPKdi.exit41:                          ; preds = %.lr.ph.i37, %_ZL7po
   %43 = zext nneg i32 %.02846 to i64
   %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %43
   store double %42, ptr %gep, align 8
-  %44 = fmul double %.02945, %0
+  %44 = fmul double %0, %.02945
   %45 = add nuw nsw i32 %.02747, 1
   %46 = add nuw nsw i32 %45, %13
   %47 = icmp ult i32 %41, 6
@@ -133,7 +133,7 @@ _ZL8clenshawddPKdi.exit:                          ; preds = %10
   %17 = fmul double %1, 2.000000e+00
   %18 = fmul double %17, %2
   %19 = fmul double %18, %15
-  %20 = fadd double %19, %0
+  %20 = fadd double %0, %19
   %21 = fmul double %5, %20
   ret double %21
 }

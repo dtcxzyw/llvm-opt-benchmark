@@ -1647,7 +1647,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg19mjpeg_buffer_keeper16allocate_buf
   %32 = sdiv exact i64 %31, 40
   %33 = add i64 %25, %32
   %34 = trunc i64 %33 to i32
-  %35 = icmp slt i32 %34, %1
+  %35 = icmp sgt i32 %1, %34
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -2128,7 +2128,7 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit:       ; preds = %153, %161
   %254 = add nsw i64 %253, -1
   %255 = icmp eq i64 %254, %247
   %256 = load i32, ptr %184, align 8
-  %257 = icmp slt i32 %256, %244
+  %257 = icmp sgt i32 %244, %256
   %or.cond20.i174.us = select i1 %255, i1 %257, i1 false
   %258 = icmp eq i64 %253, %247
   %or.cond21.i175.us = or i1 %258, %or.cond20.i174.us
@@ -2489,7 +2489,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit.us:   ; preds = %401, %391
   %434 = add nsw i64 %433, -1
   %435 = icmp eq i64 %434, %427
   %436 = load i32, ptr %184, align 8
-  %437 = icmp slt i32 %436, %424
+  %437 = icmp sgt i32 %424, %436
   %or.cond20.i217.us = select i1 %435, i1 %437, i1 false
   %438 = icmp eq i64 %433, %427
   %or.cond21.i218.us = or i1 %438, %or.cond20.i217.us
@@ -2697,7 +2697,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit224.us: ; preds = %494, %484
   %541 = add nsw i64 %540, -1
   %542 = icmp eq i64 %541, %534
   %543 = load i32, ptr %184, align 8
-  %544 = icmp slt i32 %543, %531
+  %544 = icmp sgt i32 %531, %543
   %or.cond20.i194.us = select i1 %542, i1 %544, i1 false
   %545 = icmp eq i64 %540, %534
   %or.cond21.i195.us = or i1 %545, %or.cond20.i194.us
@@ -3050,7 +3050,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i166.us: ; preds = %_ZNSt6vectorIjSaIjE
   %720 = add nsw i64 %719, -1
   %721 = icmp eq i64 %720, %713
   %722 = load i32, ptr %184, align 8
-  %723 = icmp slt i32 %722, %710
+  %723 = icmp sgt i32 %710, %722
   %or.cond20.i184.us = select i1 %721, i1 %723, i1 false
   %724 = icmp eq i64 %719, %713
   %or.cond21.i185.us = or i1 %724, %or.cond20.i184.us
@@ -5604,7 +5604,7 @@ _ZNSt11_Deque_baseIN2cv5mjpeg12mjpeg_bufferESaIS2_EE16_M_allocate_nodeEv.exit.i:
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #21
-  %22 = icmp ugt ptr %.011.i, %13
+  %22 = icmp ult ptr %13, %.011.i
   br i1 %22, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN2cv5mjpeg12mjpeg_bufferESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i

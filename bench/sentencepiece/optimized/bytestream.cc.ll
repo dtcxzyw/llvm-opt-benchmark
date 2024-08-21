@@ -158,7 +158,7 @@ define void @_ZN6google8protobuf7strings8ByteSink5FlushEv(ptr nocapture nonnull 
 define void @_ZN6google8protobuf7strings22UncheckedArrayByteSink6AppendEPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not = icmp eq ptr %5, %1
+  %.not = icmp eq ptr %1, %5
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
@@ -197,7 +197,7 @@ define void @_ZN6google8protobuf7strings20CheckedArrayByteSink6AppendEPKcm(ptr n
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %5, %7
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %3
@@ -214,7 +214,7 @@ define void @_ZN6google8protobuf7strings20CheckedArrayByteSink6AppendEPKcm(ptr n
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %7
-  %.not12 = icmp eq ptr %16, %1
+  %.not12 = icmp eq ptr %1, %16
   br i1 %.not12, label %18, label %17
 
 17:                                               ; preds = %13
@@ -282,7 +282,7 @@ define void @_ZN6google8protobuf7strings20GrowingArrayByteSink6AppendEPKcm(ptr n
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %5, %7
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = icmp ult i64 %8, %2
+  %10 = icmp ugt i64 %2, %8
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %3
@@ -320,7 +320,7 @@ define void @_ZN6google8protobuf7strings20GrowingArrayByteSink6AppendEPKcm(ptr n
   %22 = phi i64 [ %7, %._crit_edge ], [ %.pre15, %.thread ]
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %16, %.thread ]
   %24 = getelementptr inbounds i8, ptr %23, i64 %22
-  %.not13 = icmp eq ptr %24, %1
+  %.not13 = icmp eq ptr %1, %24
   br i1 %.not13, label %26, label %25
 
 25:                                               ; preds = %21

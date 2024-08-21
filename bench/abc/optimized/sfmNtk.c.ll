@@ -2112,7 +2112,7 @@ define void @Sfm_NtkDeleteObj_rec(ptr nocapture noundef readonly %0, i32 noundef
 7:                                                ; preds = %2
   %8 = getelementptr i8, ptr %0, i64 8
   %.val24 = load i32, ptr %8, align 8
-  %.not = icmp sgt i32 %.val24, %1
+  %.not = icmp slt i32 %1, %.val24
   br i1 %.not, label %56, label %9
 
 9:                                                ; preds = %7

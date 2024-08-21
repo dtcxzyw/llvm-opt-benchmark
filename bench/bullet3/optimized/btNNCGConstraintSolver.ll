@@ -37,7 +37,7 @@ entry:
   %0 = load i32, ptr %m_size.i, align 4
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 420
   %1 = load i32, ptr %m_size.i.i, align 4
-  %cmp.i = icmp slt i32 %1, %0
+  %cmp.i = icmp sgt i32 %0, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit
 
 if.then.i:                                        ; preds = %entry
@@ -108,7 +108,7 @@ _ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit: ; preds = %entry, %if.t
   %8 = load i32, ptr %m_size.i1, align 4
   %m_size.i.i2 = getelementptr inbounds i8, ptr %this, i64 452
   %9 = load i32, ptr %m_size.i.i2, align 4
-  %cmp.i3 = icmp slt i32 %9, %8
+  %cmp.i3 = icmp sgt i32 %8, %9
   br i1 %cmp.i3, label %if.then.i4, label %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit35
 
 if.then.i4:                                       ; preds = %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit
@@ -179,7 +179,7 @@ _ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit35: ; preds = %_ZN20btAli
   %16 = load i32, ptr %m_size.i36, align 4
   %m_size.i.i37 = getelementptr inbounds i8, ptr %this, i64 484
   %17 = load i32, ptr %m_size.i.i37, align 4
-  %cmp.i38 = icmp slt i32 %17, %16
+  %cmp.i38 = icmp sgt i32 %16, %17
   br i1 %cmp.i38, label %if.then.i39, label %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit70
 
 if.then.i39:                                      ; preds = %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit35
@@ -250,7 +250,7 @@ _ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit70: ; preds = %_ZN20btAli
   %24 = load i32, ptr %m_size.i71, align 4
   %m_size.i.i72 = getelementptr inbounds i8, ptr %this, i64 516
   %25 = load i32, ptr %m_size.i.i72, align 4
-  %cmp.i73 = icmp slt i32 %25, %24
+  %cmp.i73 = icmp sgt i32 %24, %25
   br i1 %cmp.i73, label %if.then.i74, label %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit105
 
 if.then.i74:                                      ; preds = %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit70
@@ -320,7 +320,7 @@ _ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit105: ; preds = %_ZN20btAl
   %32 = load i32, ptr %m_size.i, align 4
   %m_size.i.i107 = getelementptr inbounds i8, ptr %this, i64 548
   %33 = load i32, ptr %m_size.i.i107, align 4
-  %cmp.i108 = icmp slt i32 %33, %32
+  %cmp.i108 = icmp sgt i32 %32, %33
   br i1 %cmp.i108, label %if.then.i109, label %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit140
 
 if.then.i109:                                     ; preds = %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit105
@@ -390,7 +390,7 @@ _ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit140: ; preds = %_ZN20btAl
   %40 = load i32, ptr %m_size.i1, align 4
   %m_size.i.i142 = getelementptr inbounds i8, ptr %this, i64 580
   %41 = load i32, ptr %m_size.i.i142, align 4
-  %cmp.i143 = icmp slt i32 %41, %40
+  %cmp.i143 = icmp sgt i32 %40, %41
   br i1 %cmp.i143, label %if.then.i144, label %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit175
 
 if.then.i144:                                     ; preds = %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit140
@@ -460,7 +460,7 @@ _ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit175: ; preds = %_ZN20btAl
   %48 = load i32, ptr %m_size.i36, align 4
   %m_size.i.i177 = getelementptr inbounds i8, ptr %this, i64 612
   %49 = load i32, ptr %m_size.i.i177, align 4
-  %cmp.i178 = icmp slt i32 %49, %48
+  %cmp.i178 = icmp sgt i32 %48, %49
   br i1 %cmp.i178, label %if.then.i179, label %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit210
 
 if.then.i179:                                     ; preds = %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit175
@@ -530,7 +530,7 @@ _ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit210: ; preds = %_ZN20btAl
   %56 = load i32, ptr %m_size.i71, align 4
   %m_size.i.i212 = getelementptr inbounds i8, ptr %this, i64 644
   %57 = load i32, ptr %m_size.i.i212, align 4
-  %cmp.i213 = icmp slt i32 %57, %56
+  %cmp.i213 = icmp sgt i32 %56, %57
   br i1 %cmp.i213, label %if.then.i214, label %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit245
 
 if.then.i214:                                     ; preds = %_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi.exit210
@@ -649,7 +649,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %m_numIterations = getelementptr inbounds i8, ptr %infoGlobal, i64 20
   %15 = load i32, ptr %m_numIterations, align 4
-  %cmp16 = icmp sgt i32 %15, %iteration
+  %cmp16 = icmp slt i32 %iteration, %15
   br i1 %cmp16, label %for.cond19.preheader, label %if.end54
 
 for.cond19.preheader:                             ; preds = %for.end
@@ -734,7 +734,7 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
   %arrayidx.i311 = getelementptr inbounds %struct.btSolverConstraint, ptr %32, i64 %idxprom.i310
   %m_overrideNumSolverIterations = getelementptr inbounds i8, ptr %arrayidx.i311, i64 144
   %33 = load i32, ptr %m_overrideNumSolverIterations, align 8
-  %cmp65 = icmp sgt i32 %33, %iteration
+  %cmp65 = icmp slt i32 %iteration, %33
   br i1 %cmp65, label %if.then66, label %for.inc73
 
 if.then66:                                        ; preds = %for.body60
@@ -847,7 +847,7 @@ for.body113:                                      ; preds = %for.body113.lr.ph, 
   %arrayidx.i338 = getelementptr inbounds %struct.btSolverConstraint, ptr %54, i64 %idxprom.i337
   %m_overrideNumSolverIterations119 = getelementptr inbounds i8, ptr %arrayidx.i338, i64 144
   %55 = load i32, ptr %m_overrideNumSolverIterations119, align 8
-  %cmp120 = icmp sgt i32 %55, %iteration
+  %cmp120 = icmp slt i32 %iteration, %55
   br i1 %cmp120, label %if.then121, label %for.inc146
 
 if.then121:                                       ; preds = %for.body113
@@ -1046,7 +1046,7 @@ if.end150:                                        ; preds = %for.inc146, %for.bo
 if.end152:                                        ; preds = %if.end150, %for.end75
   %m_numIterations153 = getelementptr inbounds i8, ptr %infoGlobal, i64 20
   %113 = load i32, ptr %m_numIterations153, align 4
-  %cmp154 = icmp sgt i32 %113, %iteration
+  %cmp154 = icmp slt i32 %iteration, %113
   br i1 %cmp154, label %for.cond157.preheader, label %if.end394
 
 for.cond157.preheader:                            ; preds = %if.end152
@@ -1160,8 +1160,8 @@ if.end239:                                        ; preds = %for.body195
   %arrayidx.i435 = getelementptr inbounds %struct.btSolverConstraint, ptr %137, i64 %idxprom.i434
   %m_friction = getelementptr inbounds i8, ptr %arrayidx.i435, i64 104
   %140 = load float, ptr %m_friction, align 8
-  %141 = fneg float %140
-  %fneg = fmul float %135, %141
+  %141 = fneg float %135
+  %fneg = fmul float %140, %141
   %m_lowerLimit = getelementptr inbounds i8, ptr %arrayidx.i435, i64 120
   store float %fneg, ptr %m_lowerLimit, align 8
   %mul223 = fmul float %135, %140
@@ -1206,8 +1206,8 @@ if.then252:                                       ; preds = %if.end239
   %arrayidx.i453 = getelementptr inbounds %struct.btSolverConstraint, ptr %150, i64 %idxprom.i452
   %m_friction253 = getelementptr inbounds i8, ptr %arrayidx.i453, i64 104
   %153 = load float, ptr %m_friction253, align 8
-  %154 = fneg float %153
-  %fneg255 = fmul float %135, %154
+  %154 = fneg float %135
+  %fneg255 = fmul float %153, %154
   %m_lowerLimit256 = getelementptr inbounds i8, ptr %arrayidx.i453, i64 120
   store float %fneg255, ptr %m_lowerLimit256, align 8
   %mul258 = fmul float %135, %153
@@ -1317,8 +1317,8 @@ for.body315:                                      ; preds = %for.body315.lr.ph, 
 if.then326:                                       ; preds = %for.body315
   %m_friction327 = getelementptr inbounds i8, ptr %arrayidx.i488, i64 104
   %178 = load float, ptr %m_friction327, align 8
-  %179 = fneg float %178
-  %fneg329 = fmul float %177, %179
+  %179 = fneg float %177
+  %fneg329 = fmul float %178, %179
   %m_lowerLimit330 = getelementptr inbounds i8, ptr %arrayidx.i488, i64 120
   store float %fneg329, ptr %m_lowerLimit330, align 8
   %mul332 = fmul float %177, %178
@@ -1651,7 +1651,7 @@ for.body511:                                      ; preds = %for.body511.lr.ph, 
   %arrayidx.i573 = getelementptr inbounds %struct.btSolverConstraint, ptr %243, i64 %idxprom.i572
   %m_overrideNumSolverIterations517 = getelementptr inbounds i8, ptr %arrayidx.i573, i64 144
   %244 = load i32, ptr %m_overrideNumSolverIterations517, align 8
-  %cmp518 = icmp sgt i32 %244, %iteration
+  %cmp518 = icmp slt i32 %iteration, %244
   br i1 %cmp518, label %if.then519, label %for.inc556
 
 if.then519:                                       ; preds = %for.body511
@@ -1864,7 +1864,7 @@ for.body564:                                      ; preds = %for.body564.lr.ph, 
   %idxprom.i699 = sext i32 %304 to i64
   %arrayidx.i700 = getelementptr inbounds %struct.btSolverConstraint, ptr %305, i64 %idxprom.i699
   %306 = load i32, ptr %m_numIterations153, align 4
-  %cmp571 = icmp sgt i32 %306, %iteration
+  %cmp571 = icmp slt i32 %iteration, %306
   br i1 %cmp571, label %if.then572, label %for.inc609
 
 if.then572:                                       ; preds = %for.body564
@@ -2077,7 +2077,7 @@ for.body617:                                      ; preds = %for.body617.lr.ph, 
   %idxprom.i826 = sext i32 %366 to i64
   %arrayidx.i827 = getelementptr inbounds %struct.btSolverConstraint, ptr %367, i64 %idxprom.i826
   %368 = load i32, ptr %m_numIterations153, align 4
-  %cmp624 = icmp sgt i32 %368, %iteration
+  %cmp624 = icmp slt i32 %iteration, %368
   br i1 %cmp624, label %if.then625, label %for.inc662
 
 if.then625:                                       ; preds = %for.body617
@@ -2273,7 +2273,7 @@ for.body670:                                      ; preds = %for.body670.lr.ph, 
   %426 = load ptr, ptr %m_data.i949, align 8
   %arrayidx.i951 = getelementptr inbounds %struct.btSolverConstraint, ptr %426, i64 %indvars.iv1196
   %427 = load i32, ptr %m_numIterations153, align 4
-  %cmp675 = icmp sgt i32 %427, %iteration
+  %cmp675 = icmp slt i32 %iteration, %427
   br i1 %cmp675, label %if.then676, label %for.inc713
 
 if.then676:                                       ; preds = %for.body670

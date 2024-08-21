@@ -1928,7 +1928,7 @@ H5F__check_if_using_file_locks.exit:              ; preds = %48, %45
   br label %.thread287
 
 150:                                              ; preds = %90
-  %.not217 = icmp eq i32 %.1189, %1
+  %.not217 = icmp eq i32 %1, %.1189
   br i1 %.not217, label %165, label %151
 
 151:                                              ; preds = %150
@@ -3677,7 +3677,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__dest(ptr noundef %0, i1 nounde
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not115 = icmp ne i32 %14, 0
-  %brmerge.not = and i1 %.not115, %1
+  %brmerge.not = and i1 %1, %.not115
   br i1 %brmerge.not, label %15, label %H5F__flush_phase1.exit.thread139
 
 15:                                               ; preds = %9
@@ -3729,7 +3729,7 @@ H5F__flush_phase1.exit.thread139:                 ; preds = %.thread, %9, %H5F__
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not116 = icmp ne i32 %42, 0
-  %brmerge131.not = and i1 %.not116, %1
+  %brmerge131.not = and i1 %1, %.not116
   br i1 %brmerge131.not, label %43, label %50
 
 43:                                               ; preds = %38
@@ -4249,7 +4249,7 @@ H5F__flush_phase1.exit.thread139:                 ; preds = %.thread, %9, %H5F__
   %.31 = phi i32 [ -1, %342 ], [ %.26, %339 ]
   store ptr null, ptr %5, align 8
   %347 = icmp sgt i32 %.31, -1
-  %brmerge132 = or i1 %347, %2
+  %brmerge132 = or i1 %2, %347
   br i1 %brmerge132, label %348, label %350
 
 348:                                              ; preds = %346
@@ -4904,7 +4904,7 @@ define void @H5F_addr_encode_len(i64 noundef %0, ptr nocapture noundef %1, i64 n
   %7 = lshr i64 %.01014, 8
   %8 = add i32 %.015, 1
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %9, %0
+  %10 = icmp ugt i64 %0, %9
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph17:                                         ; preds = %.preheader, %.lr.ph17
@@ -4915,7 +4915,7 @@ define void @H5F_addr_encode_len(i64 noundef %0, ptr nocapture noundef %1, i64 n
   store i8 -1, ptr %11, align 1
   %13 = add i32 %.116, 1
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %14, %0
+  %15 = icmp ugt i64 %0, %14
   br i1 %15, label %.lr.ph17, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph17, %.preheader12, %.preheader
@@ -5004,7 +5004,7 @@ define void @H5F_addr_decode_len(i64 noundef %0, ptr nocapture noundef %1, ptr n
 15:                                               ; preds = %.lr.ph, %8
   %16 = add i32 %.01416, 1
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %17, %0
+  %18 = icmp ugt i64 %0, %17
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15
@@ -5229,7 +5229,7 @@ define range(i32 -1, 1) i32 @H5F__get_file_image(ptr noundef readonly %0, ptr no
   br i1 %.not37, label %68, label %45
 
 45:                                               ; preds = %44
-  %46 = icmp ugt i64 %38, %2
+  %46 = icmp ult i64 %2, %38
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %45
@@ -6598,7 +6598,7 @@ define internal range(i32 -1, 2) i32 @H5F__get_objects_cb(ptr noundef %0, i64 no
   br i1 %8, label %11, label %13
 
 11:                                               ; preds = %5
-  %12 = icmp eq ptr %10, %0
+  %12 = icmp eq ptr %0, %10
   %or.cond = or i1 %.not67, %12
   br i1 %or.cond, label %.critedge, label %.thread
 

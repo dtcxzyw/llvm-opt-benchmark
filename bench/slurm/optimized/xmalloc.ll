@@ -42,7 +42,7 @@ define ptr @slurm_xcalloc(i64 noundef %0, i64 noundef %1, i1 noundef zeroext %2,
 11:                                               ; preds = %10
   %12 = udiv i64 -1, %1
   %13 = lshr i64 %12, 2
-  %14 = icmp ult i64 %13, %0
+  %14 = icmp ugt i64 %0, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
@@ -69,7 +69,7 @@ define ptr @slurm_xcalloc(i64 noundef %0, i64 noundef %1, i1 noundef zeroext %2,
 24:                                               ; preds = %22, %20
   %.0 = phi ptr [ %21, %20 ], [ %23, %22 ]
   %.not29 = icmp eq ptr %.0, null
-  %brmerge.not = and i1 %.not29, %3
+  %brmerge.not = and i1 %3, %.not29
   br i1 %brmerge.not, label %30, label %25
 
 25:                                               ; preds = %24
@@ -117,7 +117,7 @@ define ptr @slurm_xrecalloc(ptr nocapture noundef %0, i64 noundef %1, i64 nounde
 12:                                               ; preds = %11
   %13 = udiv i64 -1, %2
   %14 = lshr i64 %13, 2
-  %15 = icmp ult i64 %14, %1
+  %15 = icmp ugt i64 %1, %14
   br i1 %15, label %43, label %16
 
 16:                                               ; preds = %12, %11
@@ -137,7 +137,7 @@ define ptr @slurm_xrecalloc(ptr nocapture noundef %0, i64 noundef %1, i64 nounde
 
 26:                                               ; preds = %20
   %27 = icmp ult i64 %23, %17
-  %brmerge.not = and i1 %27, %3
+  %brmerge.not = and i1 %3, %27
   br i1 %brmerge.not, label %28, label %40
 
 28:                                               ; preds = %26

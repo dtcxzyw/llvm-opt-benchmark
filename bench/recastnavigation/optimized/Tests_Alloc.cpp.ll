@@ -8479,17 +8479,17 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIiiED0Ev(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = load i64, ptr %0, align 8
-  %5 = icmp sgt i64 %4, %1
+  %5 = icmp slt i64 %1, %4
   br i1 %5, label %.sink.split, label %6
 
 6:                                                ; preds = %3
-  %7 = icmp slt i64 %4, %1
+  %7 = icmp sgt i64 %1, %4
   br i1 %7, label %8, label %48
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
-  %.not = icmp slt i64 %10, %1
+  %.not = icmp sgt i64 %1, %10
   br i1 %.not, label %18, label %11
 
 11:                                               ; preds = %8
@@ -8592,7 +8592,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE15construct_rangeEPiS2_RKi.exit33: ; preds =
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE11resize_implElPKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i64, ptr %0, align 8
-  %5 = icmp sgt i64 %4, %1
+  %5 = icmp slt i64 %1, %4
   br i1 %5, label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit, label %10
 
 _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit: ; preds = %3
@@ -8605,13 +8605,13 @@ _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit: ; preds
   br label %.sink.split
 
 10:                                               ; preds = %3
-  %11 = icmp slt i64 %4, %1
+  %11 = icmp sgt i64 %1, %4
   br i1 %11, label %12, label %53
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
-  %.not = icmp slt i64 %14, %1
+  %.not = icmp sgt i64 %1, %14
   br i1 %.not, label %25, label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE15construct_rangeEPS0_S3_RKS0_.exit
 
 _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE15construct_rangeEPS0_S3_RKS0_.exit: ; preds = %12
@@ -8958,7 +8958,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12rcVectorBaseI6CopierL11rcAllocHint1EE11resize_implElPKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i64, ptr %0, align 8
-  %5 = icmp sgt i64 %4, %1
+  %5 = icmp slt i64 %1, %4
   br i1 %5, label %.lr.ph.i, label %11
 
 .lr.ph.i:                                         ; preds = %3
@@ -8975,13 +8975,13 @@ define linkonce_odr dso_local void @_ZN12rcVectorBaseI6CopierL11rcAllocHint1EE11
   br i1 %exitcond.not.i, label %.sink.split, label %7, !llvm.loop !145
 
 11:                                               ; preds = %3
-  %12 = icmp slt i64 %4, %1
+  %12 = icmp sgt i64 %1, %4
   br i1 %12, label %13, label %65
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
-  %.not = icmp slt i64 %15, %1
+  %.not = icmp sgt i64 %1, %15
   br i1 %.not, label %25, label %16
 
 16:                                               ; preds = %13

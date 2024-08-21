@@ -172,7 +172,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !38, !noalias !43, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !45, !noalias !43, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hbe06ab652a67fb38E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -226,7 +226,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !51, !noalias !56, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !58, !noalias !56, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hbe06ab652a67fb38E.exit"
 
 9:                                                ; preds = %3
@@ -704,7 +704,7 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h6488ea98ac4683
   %159 = load i64, ptr %33, align 8, !alias.scope !160, !noalias !163, !noundef !5
   %160 = load i64, ptr %28, align 8, !alias.scope !165, !noalias !163, !noundef !5
   %161 = sub i64 %160, %159
-  %162 = icmp ult i64 %161, %158
+  %162 = icmp ugt i64 %158, %161
   br i1 %162, label %163, label %169
 
 163:                                              ; preds = %154
@@ -747,7 +747,7 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h6488ea98ac4683
   %178 = load i64, ptr %31, align 8, !alias.scope !168, !noalias !171, !noundef !5
   %179 = load i64, ptr %29, align 8, !alias.scope !173, !noalias !171, !noundef !5
   %180 = sub i64 %179, %178
-  %181 = icmp ult i64 %180, %177
+  %181 = icmp ugt i64 %177, %180
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %169
@@ -1797,7 +1797,7 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %381, %199, %195
   %320 = load i64, ptr %210, align 8, !alias.scope !393, !noalias !399, !noundef !5
   %321 = load i64, ptr %53, align 8, !alias.scope !400, !noalias !399, !noundef !5
   %322 = sub i64 %321, %320
-  %323 = icmp ult i64 %322, %319
+  %323 = icmp ugt i64 %319, %322
   br i1 %323, label %324, label %329
 
 324:                                              ; preds = %315
@@ -1839,7 +1839,7 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %381, %199, %195
   %338 = load i64, ptr %208, align 8, !alias.scope !404, !noalias !410, !noundef !5
   %339 = load i64, ptr %54, align 8, !alias.scope !411, !noalias !410, !noundef !5
   %340 = sub i64 %339, %338
-  %341 = icmp ult i64 %340, %337
+  %341 = icmp ugt i64 %337, %340
   br i1 %341, label %342, label %343
 
 342:                                              ; preds = %329

@@ -3053,7 +3053,7 @@ build_append_int_noprefix.exit58:                 ; preds = %for.body.i50
 define dso_local noundef ptr @aml_dword_memory(i32 noundef %dec, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %cacheable, i32 noundef %read_and_write, i32 noundef %addr_gran, i32 noundef %addr_min, i32 noundef %addr_max, i32 noundef %addr_trans, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %shl = shl i32 %cacheable, 1
-  %or = or i32 %shl, %read_and_write
+  %or = or i32 %read_and_write, %shl
   %conv = trunc i32 %or to i8
   %call = tail call fastcc ptr @aml_dword_as_desc(i32 noundef 0, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i32 noundef %addr_gran, i32 noundef %addr_min, i32 noundef %addr_max, i32 noundef %addr_trans, i32 noundef %len, i8 noundef zeroext %conv)
   ret ptr %call
@@ -3074,7 +3074,7 @@ entry:
   %val.addr.i11.i = alloca i8, align 1
   %val.addr.i.i = alloca i8, align 1
   %shl = shl i32 %cacheable, 1
-  %or = or i32 %shl, %read_and_write
+  %or = or i32 %read_and_write, %shl
   %conv = trunc i32 %or to i8
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -3234,8 +3234,8 @@ if.end:                                           ; preds = %entry
   %conv3 = zext nneg i8 %channel to i32
   %shl = shl i32 %bm, 2
   %shl1 = shl i32 %typ, 5
-  %or = or i32 %shl1, %sz
-  %or2 = or i32 %or, %shl
+  %or = or i32 %shl, %shl1
+  %or2 = or i32 %or, %sz
   %conv = trunc i32 %or2 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i)
   store i8 42, ptr %val.addr.i, align 1
@@ -6748,7 +6748,7 @@ if.end10:                                         ; preds = %if.else
 
 sw.bb:                                            ; preds = %entry
   %add1231 = zext i1 %incl_self to i32
-  %spec.select32 = add nsw i32 %add1231, %length
+  %spec.select32 = add nsw i32 %length, %add1231
   %conv = trunc i32 %spec.select32 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i)
   store i8 %conv, ptr %val.addr.i, align 1

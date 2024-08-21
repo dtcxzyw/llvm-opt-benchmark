@@ -874,7 +874,7 @@ define hidden i32 @_ZNK22ZPhysicalMemoryBacking23fallocate_compat_pwriteE7zoffse
   %5 = alloca i8, align 1
   store i8 0, ptr %5, align 1
   %6 = add i64 %2, %1
-  %7 = icmp ugt i64 %6, %1
+  %7 = icmp ult i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -952,7 +952,7 @@ _ZNK22ZPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsE7zoffsetmb.exit: ;
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 0, ptr %5, align 1
   %21 = add i64 %2, %1
-  %22 = icmp ugt i64 %21, %1
+  %22 = icmp ult i64 %1, %21
   br i1 %22, label %.lr.ph.i, label %_ZNK22ZPhysicalMemoryBacking23fallocate_compat_pwriteE7zoffsetm.exit
 
 .lr.ph.i:                                         ; preds = %20
@@ -1162,7 +1162,7 @@ define hidden i32 @_ZNK22ZPhysicalMemoryBacking19split_and_fallocateEb7zoffsetm(
   store i32 %storemerge.i, ptr %6, align 4
   %22 = call noundef zeroext i1 @_ZNK6ZErrnoeqEi(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 4) #12
   %23 = load i64, ptr %11, align 8
-  %24 = icmp ult i64 %23, %16
+  %24 = icmp ugt i64 %16, %23
   %or.cond.i = select i1 %22, i1 %24, i1 false
   br i1 %or.cond.i, label %25, label %27
 
@@ -1200,7 +1200,7 @@ _ZNK22ZPhysicalMemoryBacking9fallocateEb7zoffsetm.exit: ; preds = %25, %27
   store i32 %storemerge.i12, ptr %5, align 4
   %37 = call noundef zeroext i1 @_ZNK6ZErrnoeqEi(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 4) #12
   %38 = load i64, ptr %11, align 8
-  %39 = icmp ult i64 %38, %31
+  %39 = icmp ugt i64 %31, %38
   %or.cond.i13 = select i1 %37, i1 %39, i1 false
   br i1 %or.cond.i13, label %40, label %42
 
@@ -1248,7 +1248,7 @@ define hidden i32 @_ZNK22ZPhysicalMemoryBacking9fallocateEb7zoffsetm(ptr noundef
   %11 = call noundef zeroext i1 @_ZNK6ZErrnoeqEi(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 4) #12
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = icmp ult i64 %13, %3
+  %14 = icmp ugt i64 %3, %13
   %or.cond = select i1 %11, i1 %14, i1 false
   br i1 %or.cond, label %15, label %17
 
@@ -1294,7 +1294,7 @@ define hidden noundef zeroext i1 @_ZNK22ZPhysicalMemoryBacking12commit_innerE7zo
   store i32 %17, ptr %4, align 4
   %18 = call noundef zeroext i1 @_ZNK6ZErrnoeqEi(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 4) #12
   %19 = load i64, ptr %15, align 8
-  %20 = icmp ult i64 %19, %2
+  %20 = icmp ugt i64 %2, %19
   %or.cond.i = select i1 %18, i1 %20, i1 false
   br i1 %or.cond.i, label %21, label %23
 
@@ -1567,7 +1567,7 @@ define hidden noundef i64 @_ZNK22ZPhysicalMemoryBacking8uncommitE7zoffsetm(ptr n
   %14 = call noundef zeroext i1 @_ZNK6ZErrnoeqEi(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 4) #12
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   %or.cond.i = select i1 %14, i1 %17, i1 false
   br i1 %or.cond.i, label %18, label %20
 

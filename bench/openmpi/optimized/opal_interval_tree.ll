@@ -725,7 +725,7 @@ tailrecurse.backedge.i.i:                         ; preds = %left_rotate.exit47.
 201:                                              ; preds = %182
   %202 = getelementptr inbounds i8, ptr %176, i64 80
   %203 = load ptr, ptr %202, align 8
-  %204 = icmp eq ptr %203, %.tr5051.i.i
+  %204 = icmp eq ptr %.tr5051.i.i, %203
   br i1 %204, label %205, label %223
 
 205:                                              ; preds = %201
@@ -755,7 +755,7 @@ left_rotate.exit.i.i:                             ; preds = %208, %205
   fence release
   store ptr %176, ptr %206, align 8
   %219 = load ptr, ptr %179, align 8
-  %220 = icmp eq ptr %219, %176
+  %220 = icmp eq ptr %176, %219
   %.sink.i.i.i = select i1 %220, ptr %179, ptr %183
   fence release
   store ptr %203, ptr %.sink.i.i.i, align 8
@@ -815,7 +815,7 @@ right_rotate.exit.i.i:                            ; preds = %235, %223
 .thread49.i.i:                                    ; preds = %.thread.i.i
   %246 = getelementptr inbounds i8, ptr %176, i64 72
   %247 = load ptr, ptr %246, align 8
-  %248 = icmp eq ptr %247, %.tr5051.i.i
+  %248 = icmp eq ptr %.tr5051.i.i, %247
   br i1 %248, label %249, label %263
 
 249:                                              ; preds = %.thread49.i.i
@@ -894,7 +894,7 @@ left_rotate.exit47.i.i:                           ; preds = %275, %263
   store ptr %268, ptr %273, align 8
   %286 = getelementptr inbounds i8, ptr %272, i64 72
   %287 = load ptr, ptr %286, align 8
-  %288 = icmp eq ptr %287, %268
+  %288 = icmp eq ptr %268, %287
   %289 = getelementptr inbounds i8, ptr %272, i64 80
   %.sink.i46.i.i = select i1 %288, ptr %286, ptr %289
   fence release
@@ -992,7 +992,7 @@ opal_interval_tree_reader_get_token.exit:         ; preds = %24, %.split.us.i
   %32 = getelementptr inbounds i8, ptr %0, i64 88
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 144
-  %35 = icmp eq ptr %34, %33
+  %35 = icmp eq ptr %33, %34
   br i1 %35, label %opal_interval_tree_find_node.exit.thread, label %.critedge.i.us.i.i
 
 .critedge.i.us.i.i:                               ; preds = %opal_interval_tree_reader_get_token.exit, %tailrecurse.backedge.us.i.i
@@ -1019,7 +1019,7 @@ tailrecurse.backedge.us.i.i:                      ; preds = %select.unfold.us.i.
   %.sink.i.i = phi i64 [ 72, %select.unfold.us.i.i ], [ 80, %41 ]
   %43 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 %.sink.i.i
   %.tr25.be.us.i.i = load ptr, ptr %43, align 8
-  %44 = icmp eq ptr %34, %.tr25.be.us.i.i
+  %44 = icmp eq ptr %.tr25.be.us.i.i, %34
   br i1 %44, label %opal_interval_tree_find_node.exit.thread, label %.critedge.i.us.i.i
 
 opal_interval_tree_find_node.exit.thread:         ; preds = %tailrecurse.backedge.us.i.i, %opal_interval_tree_reader_get_token.exit
@@ -1166,7 +1166,7 @@ opal_interval_tree_write_lock.exit:               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 88
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 144
-  %18 = icmp eq ptr %17, %16
+  %18 = icmp eq ptr %16, %17
   br i1 %18, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %opal_interval_tree_write_lock.exit
@@ -1197,7 +1197,7 @@ tailrecurse.backedge.us.i.i:                      ; preds = %select.unfold.us.i.
   %.sink.i.i = phi i64 [ 72, %select.unfold.us.i.i ], [ 80, %24 ]
   %26 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 %.sink.i.i
   %.tr25.be.us.i.i = load ptr, ptr %26, align 8
-  %27 = icmp eq ptr %17, %.tr25.be.us.i.i
+  %27 = icmp eq ptr %.tr25.be.us.i.i, %17
   br i1 %27, label %.loopexit, label %.critedge.i.us.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %tailrecurse.backedge.i.i
@@ -1258,7 +1258,7 @@ tailrecurse.backedge.i.i:                         ; preds = %select.unfold.i.i, 
   %.sink42.i.i = phi i64 [ 72, %select.unfold.i.i ], [ 80, %41 ], [ 80, %45 ], [ 80, %.thread39.i.i ]
   %49 = getelementptr inbounds i8, ptr %.tr2529.i.i, i64 %.sink42.i.i
   %.tr25.be.i.i = load ptr, ptr %49, align 8
-  %50 = icmp eq ptr %17, %.tr25.be.i.i
+  %50 = icmp eq ptr %.tr25.be.i.i, %17
   br i1 %50, label %.loopexit, label %.lr.ph.split.i.i
 
 opal_interval_tree_find_node.exit:                ; preds = %35, %21
@@ -1777,7 +1777,7 @@ define noundef i32 @opal_interval_tree_destroy(ptr noundef %0) local_unnamed_add
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @inorder_destroy(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   br i1 %4, label %opal_free_list_return_st.exit20, label %5
 
 5:                                                ; preds = %2
@@ -1955,7 +1955,7 @@ opal_interval_tree_reader_get_token.exit:         ; preds = %29, %.split.us.i
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @inorder_traversal(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 144
-  %9 = icmp eq ptr %8, %5
+  %9 = icmp eq ptr %5, %8
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
@@ -1972,23 +1972,23 @@ define internal fastcc i32 @inorder_traversal(ptr noundef %0, i64 noundef %1, i6
 .critedge.us:                                     ; preds = %.lr.ph.split.us
   %13 = getelementptr inbounds i8, ptr %.tr7375.us, i64 104
   %14 = load i64, ptr %13, align 8
-  %.not56.us = icmp ugt i64 %14, %1
+  %.not56.us = icmp ult i64 %1, %14
   br i1 %.not56.us, label %18, label %15
 
 15:                                               ; preds = %.critedge.us
   %16 = getelementptr inbounds i8, ptr %.tr7375.us, i64 112
   %17 = load i64, ptr %16, align 8
-  %.not57.us = icmp ult i64 %17, %1
+  %.not57.us = icmp ugt i64 %1, %17
   br i1 %.not57.us, label %18, label %20
 
 18:                                               ; preds = %15, %.critedge.us
-  %.not58.us = icmp ugt i64 %14, %2
+  %.not58.us = icmp ult i64 %2, %14
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.tr7375.us, i64 112
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br i1 %.not58.us, label %.thread.us, label %19
 
 19:                                               ; preds = %18
-  %.not59.us = icmp ult i64 %.pre, %2
+  %.not59.us = icmp ugt i64 %2, %.pre
   %.not60.us = icmp ult i64 %14, %1
   %or.cond68.us = and i1 %.not60.us, %.not59.us
   br i1 %or.cond68.us, label %.thread.us, label %20
@@ -2008,7 +2008,7 @@ define internal fastcc i32 @inorder_traversal(ptr noundef %0, i64 noundef %1, i6
 tailrecurse.us:                                   ; preds = %20, %.thread.us
   %25 = getelementptr inbounds i8, ptr %.tr7375.us, i64 80
   %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %8, %26
+  %27 = icmp eq ptr %26, %8
   br i1 %27, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %tailrecurse
@@ -2041,7 +2041,7 @@ tailrecurse.us:                                   ; preds = %20, %.thread.us
 tailrecurse:                                      ; preds = %31, %34, %37
   %41 = getelementptr inbounds i8, ptr %.tr7375, i64 80
   %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %8, %42
+  %43 = icmp eq ptr %42, %8
   br i1 %43, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph.split, %37, %tailrecurse.us, %.lr.ph.split.us, %20, %7
@@ -2083,7 +2083,7 @@ define noundef zeroext i1 @opal_interval_tree_verify(ptr noundef %0) local_unnam
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %0, i64 144
-  %17 = icmp eq ptr %16, %3
+  %17 = icmp eq ptr %3, %16
   br i1 %17, label %opal_interval_tree_black_depth.exit, label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %15, %tailrecurse.i
@@ -2096,7 +2096,7 @@ tailrecurse.i:                                    ; preds = %15, %tailrecurse.i
   %spec.select.i = add nuw nsw i32 %.tr1113.i, %21
   %22 = getelementptr inbounds i8, ptr %.tr1012.i, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %16, %23
+  %24 = icmp eq ptr %23, %16
   br i1 %24, label %opal_interval_tree_black_depth.exit, label %tailrecurse.i
 
 opal_interval_tree_black_depth.exit:              ; preds = %tailrecurse.i, %15
@@ -2115,7 +2115,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc noundef zeroext i1 @opal_interval_tree_verify_node(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 144
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %tailrecurse
@@ -2161,7 +2161,7 @@ define internal fastcc noundef zeroext i1 @opal_interval_tree_verify_node(ptr no
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %26
-  %.not28 = icmp eq i32 %spec.select, %2
+  %.not28 = icmp eq i32 %2, %spec.select
   br i1 %.not28, label %.loopexit, label %31
 
 31:                                               ; preds = %30
@@ -2176,7 +2176,7 @@ define internal fastcc noundef zeroext i1 @opal_interval_tree_verify_node(ptr no
 tailrecurse:                                      ; preds = %34
   %36 = getelementptr inbounds i8, ptr %.tr2932, i64 80
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %5, %37
+  %38 = icmp eq ptr %37, %5
   br i1 %38, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %tailrecurse, %34, %4, %30, %31, %20
@@ -2219,7 +2219,7 @@ define internal fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr no
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 1
   %10 = zext i1 %9 to i32
-  %spec.select53 = add nsw i32 %10, %2
+  %spec.select53 = add nsw i32 %2, %10
   %11 = select i1 %9, ptr @.str.10, ptr @.str.11
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   br label %13
@@ -2278,7 +2278,7 @@ define internal fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr no
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.14, i64 noundef %.pre-phi, i64 noundef %.047) #14
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.15, i64 noundef %.pre-phi, i64 noundef %.046) #14
   %48 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %48, %.tr5054
+  %.not = icmp eq ptr %.tr5054, %48
   br i1 %.not, label %tailrecurse, label %49
 
 49:                                               ; preds = %35
@@ -2322,7 +2322,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
 define internal fastcc void @opal_interval_tree_delete_fixup(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
-  %.not12 = icmp eq ptr %5, %1
+  %.not12 = icmp eq ptr %1, %5
   br i1 %.not12, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -2406,7 +2406,7 @@ define internal fastcc void @opal_interval_tree_delete_fixup(ptr noundef %0, ptr
   store ptr %.014, ptr %26, align 8
   %50 = getelementptr inbounds i8, ptr %23, i64 72
   %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, %.014
+  %52 = icmp eq ptr %.014, %51
   %53 = getelementptr inbounds i8, ptr %23, i64 80
   %.sink.i.i = select i1 %52, ptr %50, ptr %53
   fence release
@@ -2576,7 +2576,7 @@ left_rotate.exit52.i:                             ; preds = %134, %122
   store ptr %.014, ptr %132, align 8
   %144 = getelementptr inbounds i8, ptr %131, i64 72
   %145 = load ptr, ptr %144, align 8
-  %146 = icmp eq ptr %145, %.014
+  %146 = icmp eq ptr %.014, %145
   %147 = getelementptr inbounds i8, ptr %131, i64 80
   %.sink.i51.i = select i1 %146, ptr %144, ptr %147
   fence release
@@ -2627,7 +2627,7 @@ left_rotate.exit55.i:                             ; preds = %160, %.thread17.i
   store ptr %.061519.i, ptr %158, align 8
   %170 = getelementptr inbounds i8, ptr %157, i64 72
   %171 = load ptr, ptr %170, align 8
-  %172 = icmp eq ptr %171, %.061519.i
+  %172 = icmp eq ptr %.061519.i, %171
   %173 = getelementptr inbounds i8, ptr %157, i64 80
   %.sink.i54.i = select i1 %172, ptr %170, ptr %173
   fence release

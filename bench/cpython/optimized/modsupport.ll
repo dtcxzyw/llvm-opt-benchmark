@@ -1691,7 +1691,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.then7:                                         ; preds = %for.body
   %0 = xor i64 %i.028, -1
-  %sub8 = add nsw i64 %0, %n
+  %sub8 = add nsw i64 %n, %0
   tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext %endchar, i64 noundef %sub8)
   %1 = load i64, ptr %call, align 8
   %2 = and i64 %1, 2147483648

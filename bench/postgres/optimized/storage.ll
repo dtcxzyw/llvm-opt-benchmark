@@ -226,7 +226,7 @@ define dso_local void @RelationPreserveStorage(i64 %0, i32 %1, i1 noundef zeroex
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.019, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, %1
+  %9 = icmp eq i32 %1, %8
   br i1 %9, label %10, label %24
 
 10:                                               ; preds = %.lr.ph
@@ -244,7 +244,7 @@ define dso_local void @RelationPreserveStorage(i64 %0, i32 %1, i1 noundef zeroex
   %18 = getelementptr inbounds i8, ptr %.019, i64 16
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
-  %21 = xor i1 %20, %2
+  %21 = xor i1 %2, %20
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %17
@@ -829,7 +829,7 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   %11 = getelementptr inbounds i8, ptr %.03351, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
-  %14 = xor i1 %13, %0
+  %14 = xor i1 %0, %13
   br i1 %14, label %32, label %15
 
 15:                                               ; preds = %9
@@ -1129,7 +1129,7 @@ define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr nocapture
   %7 = getelementptr inbounds i8, ptr %.035, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
-  %10 = xor i1 %9, %0
+  %10 = xor i1 %0, %9
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %6
@@ -1176,7 +1176,7 @@ define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr nocapture
   %26 = getelementptr inbounds i8, ptr %.139, i64 16
   %27 = load i8, ptr %26, align 8
   %28 = trunc i8 %27 to i1
-  %29 = xor i1 %28, %0
+  %29 = xor i1 %0, %28
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %25

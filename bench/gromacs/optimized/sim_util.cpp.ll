@@ -6361,7 +6361,7 @@ _ZNRSt8optionalIN3gmx12ForceOutputsEE5valueEv.exit946: ; preds = %3630, %3629
   %3685 = fcmp ueq float %3684, 0x7FF0000000000000
   %3686 = getelementptr inbounds i8, ptr %3, i64 24
   %3687 = load i64, ptr %3686, align 8
-  %3688 = icmp eq i64 %3687, %9
+  %3688 = icmp eq i64 %9, %3687
   br i1 %3688, label %3689, label %3724
 
 3689:                                             ; preds = %3681

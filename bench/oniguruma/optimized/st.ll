@@ -324,7 +324,7 @@ define range(i32 0, 2) i32 @onig_st_lookup(ptr nocapture noundef readonly %0, i6
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %15, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = icmp eq i64 %20, %1
+  %21 = icmp eq i64 %1, %20
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %18
@@ -350,7 +350,7 @@ define range(i32 0, 2) i32 @onig_st_lookup(ptr nocapture noundef readonly %0, i6
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8
-  %36 = icmp eq i64 %35, %1
+  %36 = icmp eq i64 %1, %35
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33
@@ -413,7 +413,7 @@ define range(i32 -5, 2) i32 @onig_st_insert(ptr nocapture noundef %0, i64 nounde
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %15, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = icmp eq i64 %20, %1
+  %21 = icmp eq i64 %1, %20
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %18
@@ -439,7 +439,7 @@ define range(i32 -5, 2) i32 @onig_st_insert(ptr nocapture noundef %0, i64 nounde
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8
-  %36 = icmp eq i64 %35, %1
+  %36 = icmp eq i64 %1, %35
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33

@@ -1196,7 +1196,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 qemu_get_current_aio_context.exit:                ; preds = %entry, %if.end.i, %if.then2.i
   %retval.0.i = phi ptr [ %call3.i, %if.then2.i ], [ %1, %entry ], [ null, %if.end.i ]
-  %cmp.not = icmp eq ptr %retval.0.i, %ctx
+  %cmp.not = icmp eq ptr %ctx, %retval.0.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %qemu_get_current_aio_context.exit

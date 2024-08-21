@@ -1618,7 +1618,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !485, !noalias !490, !noundef !7
   %45 = load i64, ptr %0, align 8, !alias.scope !492, !noalias !490, !noundef !7
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h2265eeb3fb81cb69E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -1675,7 +1675,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !498, !noalias !503, !noundef !7
   %6 = load i64, ptr %0, align 8, !alias.scope !505, !noalias !503, !noundef !7
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h2265eeb3fb81cb69E.exit"
 
 9:                                                ; preds = %3
@@ -2568,7 +2568,7 @@ select.unfold:                                    ; preds = %55
   store i64 %84, ptr %8, align 8, !noalias !618
   %92 = getelementptr inbounds i8, ptr %10, i64 16
   %93 = load i64, ptr %92, align 8, !noalias !611, !noundef !7
-  %.not.i.i.i.i = icmp ult i64 %93, %84
+  %.not.i.i.i.i = icmp ugt i64 %84, %93
   br i1 %.not.i.i.i.i, label %94, label %110
 
 94:                                               ; preds = %.noexc25

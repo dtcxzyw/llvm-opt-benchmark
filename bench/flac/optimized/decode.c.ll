@@ -2914,7 +2914,7 @@ lor.end35:                                        ; preds = %lor.lhs.false28, %l
   %channels36 = getelementptr inbounds i8, ptr %decoder_session, i64 1308
   %7 = load i32, ptr %channels36, align 4
   %conv = zext i32 %7 to i64
-  %mul = mul i64 %conv, %samples
+  %mul = mul i64 %samples, %conv
   %bps37 = getelementptr inbounds i8, ptr %decoder_session, i64 1304
   %8 = load i32, ptr %bps37, align 8
   %add = add i32 %8, 7
@@ -2934,7 +2934,7 @@ lor.end35:                                        ; preds = %lor.lhs.false28, %l
 
 if.then:                                          ; preds = %lor.end35
   %10 = load ptr, ptr @stdout, align 8
-  %cmp51 = icmp eq ptr %10, %f
+  %cmp51 = icmp eq ptr %f, %10
   br i1 %cmp51, label %if.then53, label %if.else
 
 if.then53:                                        ; preds = %if.then

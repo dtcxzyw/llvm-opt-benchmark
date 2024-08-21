@@ -924,7 +924,7 @@ define i32 @cli_rawaddr(i32 noundef %0, ptr nocapture noundef readonly %1, i16 n
 
 8:                                                ; preds = %6
   %9 = zext i32 %0 to i64
-  %.not36 = icmp uge i64 %9, %4
+  %.not36 = icmp ule i64 %4, %9
   %. = zext i1 %.not36 to i32
   %.44 = select i1 %.not36, i32 0, i32 %0
   br label %.critedge
@@ -7533,7 +7533,7 @@ fmap_readn.exit.thread:                           ; preds = %37, %31, %fmap_read
   %48 = zext i32 %47 to i64
   %49 = add nuw nsw i64 %48, 2
   %50 = load i64, ptr %32, align 8
-  %or.cond900.not = icmp ugt i64 %50, %49
+  %or.cond900.not = icmp ult i64 %49, %50
   br i1 %or.cond900.not, label %51, label %fmap_readn.exit829.thread
 
 51:                                               ; preds = %44
@@ -7930,7 +7930,7 @@ fmap_readn.exit833.thread:                        ; preds = %68, %62, %fmap_read
   %194 = add nuw nsw i64 %193, 24
   %195 = getelementptr inbounds i8, ptr %1, i64 136
   %196 = load i64, ptr %32, align 8
-  %or.cond902.not = icmp ugt i64 %196, %194
+  %or.cond902.not = icmp ult i64 %194, %196
   br i1 %or.cond902.not, label %197, label %fmap_readn.exit837.thread
 
 197:                                              ; preds = %189
@@ -7973,7 +7973,7 @@ fmap_readn.exit837.thread:                        ; preds = %197, %189, %fmap_re
   %211 = add i64 %210, 96
   %212 = inttoptr i64 %211 to ptr
   %213 = load i64, ptr %32, align 8
-  %or.cond903.not = icmp ugt i64 %213, %202
+  %or.cond903.not = icmp ult i64 %202, %213
   br i1 %or.cond903.not, label %214, label %fmap_readn.exit841.thread
 
 214:                                              ; preds = %209
@@ -9414,18 +9414,18 @@ declare ptr @cl_strerror(i32 noundef) local_unnamed_addr #2
 define internal fastcc noundef i64 @fmap_readn(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ne i64 %6, %2
+  %7 = icmp ne i64 %2, %6
   %8 = icmp ne i64 %3, 0
   %or.cond = and i1 %8, %7
   br i1 %or.cond, label %9, label %19
 
 9:                                                ; preds = %4
-  %10 = icmp ult i64 %6, %2
+  %10 = icmp ugt i64 %2, %6
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %9
   %12 = sub nuw i64 %6, %2
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %12, i64 %3)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %3, i64 %12)
   %13 = getelementptr inbounds i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, i64 noundef %2, i64 noundef %spec.select, i32 noundef 0) #20
@@ -9685,12 +9685,12 @@ define internal fastcc void @cli_parseres_special(i32 noundef %0, i32 noundef %1
   %12 = load i16, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 24
   %14 = load i32, ptr %13, align 8
-  %15 = icmp ugt i32 %14, %1
+  %15 = icmp ult i32 %1, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %9
   %17 = zext i32 %1 to i64
-  %.not36.i.not = icmp ult i64 %17, %4
+  %.not36.i.not = icmp ugt i64 %4, %17
   %.44.i = select i1 %.not36.i.not, i32 %1, i32 0
   br label %cli_rawaddr.exit
 
@@ -9894,7 +9894,7 @@ cli_rawaddr.exit120.thread147:                    ; preds = %100
 
 cli_rawaddr.exit120:                              ; preds = %88
   %113 = zext i32 %89 to i64
-  %.not36.i117.not = icmp ult i64 %113, %4
+  %.not36.i117.not = icmp ugt i64 %4, %113
   br i1 %.not36.i117.not, label %114, label %.thread
 
 114:                                              ; preds = %cli_rawaddr.exit120.thread147, %cli_rawaddr.exit120
@@ -9917,7 +9917,7 @@ cli_rawaddr.exit120:                              ; preds = %88
 
 126:                                              ; preds = %118
   %127 = zext i32 %121 to i64
-  %.not36.i130 = icmp uge i64 %127, %4
+  %.not36.i130 = icmp ule i64 %4, %127
   %..i131 = zext i1 %.not36.i130 to i32
   %.44.i132 = select i1 %.not36.i130, i32 0, i32 %121
   br label %cli_rawaddr.exit133
@@ -9971,10 +9971,10 @@ cli_rawaddr.exit133:                              ; preds = %126, %140
 
 150:                                              ; preds = %cli_rawaddr.exit133
   %151 = zext i32 %120 to i64
-  %.not102 = icmp ult i64 %151, %4
+  %.not102 = icmp ugt i64 %4, %151
   %152 = add i32 %.0.i129, %120
   %153 = zext i32 %152 to i64
-  %.not103 = icmp ult i64 %153, %4
+  %.not103 = icmp ugt i64 %4, %153
   %or.cond107 = select i1 %.not102, i1 %.not103, i1 false
   br i1 %or.cond107, label %158, label %cli_rawaddr.exit133.thread
 
@@ -11368,7 +11368,7 @@ cli_rawaddr.exit110.thread:                       ; preds = %93, %113, %cli_rawa
   br i1 %.not.i113, label %cli_rawaddr.exit.thread.i, label %131
 
 131:                                              ; preds = %127
-  %132 = icmp ugt i32 %.pre126.i, %.sroa.0.0.copyload
+  %132 = icmp ult i32 %.sroa.0.0.copyload, %.pre126.i
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %131
@@ -11424,11 +11424,11 @@ cli_rawaddr.exit.i:                               ; preds = %147, %133
   br i1 %or.cond.i118, label %cli_rawaddr.exit.thread.i, label %cli_rawaddr.exit260.thread.i
 
 cli_rawaddr.exit.thread.i:                        ; preds = %145, %cli_rawaddr.exit.i, %127
-  %156 = icmp ugt i32 %.pre126.i, %.sroa.4.0.copyload
+  %156 = icmp ult i32 %.sroa.4.0.copyload, %.pre126.i
   br i1 %156, label %cli_rawaddr.exit260.i, label %159
 
 cli_rawaddr.exit.thread.thread.i:                 ; preds = %135
-  %157 = icmp ugt i32 %.pre126.i, %.sroa.4.0.copyload
+  %157 = icmp ult i32 %.sroa.4.0.copyload, %.pre126.i
   %158 = zext i32 %.sroa.4.0.copyload to i64
   %.not36.i257.not.i = icmp ugt i64 %130, %158
   %or.cond137.i = select i1 %157, i1 %.not36.i257.not.i, i1 false
@@ -11885,7 +11885,7 @@ cli_rawaddr.exit296.thread38.i:                   ; preds = %335
 
 cli_rawaddr.exit296.i:                            ; preds = %323
   %348 = and i64 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i, 4294967295
-  %.not36.i293.not.i = icmp ult i64 %348, %130
+  %.not36.i293.not.i = icmp ugt i64 %130, %348
   br i1 %.not36.i293.not.i, label %349, label %.thread44.i
 
 349:                                              ; preds = %cli_rawaddr.exit296.i, %cli_rawaddr.exit296.thread38.i

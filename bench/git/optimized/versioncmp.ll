@@ -138,13 +138,13 @@ for.body.i:                                       ; preds = %land.lhs.true51, %f
   %13 = load ptr, ptr %arrayidx.i, align 8
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #4
   %conv6.i = trunc i64 %call.i to i32
-  %cmp7.i = icmp slt i32 %conv6.i, %conv53
+  %cmp7.i = icmp sgt i32 %conv53, %conv6.i
   %sub.i = sub nsw i32 %conv53, %conv6.i
   %start5.0.i = select i1 %cmp7.i, i32 %sub.i, i32 0
   %cmp.i.i = icmp sge i32 %match1.sroa.6.042.i, %conv6.i
   %sub.i.i = sext i1 %cmp.i.i to i32
   %cond.i.i = add nsw i32 %match1.sroa.3.043.i, %sub.i.i
-  %cmp3.not11.i.i = icmp slt i32 %cond.i.i, %start5.0.i
+  %cmp3.not11.i.i = icmp sgt i32 %start5.0.i, %cond.i.i
   br i1 %cmp3.not11.i.i, label %find_better_matching_suffix.exit.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.body.i
@@ -177,7 +177,7 @@ find_better_matching_suffix.exit.i:               ; preds = %for.inc.i.i, %if.th
   %cmp.i20.i = icmp sge i32 %match2.sroa.6.045.i, %conv6.i
   %sub.i22.i = sext i1 %cmp.i20.i to i32
   %cond.i23.i = add nsw i32 %match2.sroa.3.046.i, %sub.i22.i
-  %cmp3.not11.i24.i = icmp slt i32 %cond.i23.i, %start5.0.i
+  %cmp3.not11.i24.i = icmp sgt i32 %start5.0.i, %cond.i23.i
   br i1 %cmp3.not11.i24.i, label %find_better_matching_suffix.exit37.i, label %for.body.preheader.i25.i
 
 for.body.preheader.i25.i:                         ; preds = %find_better_matching_suffix.exit.i

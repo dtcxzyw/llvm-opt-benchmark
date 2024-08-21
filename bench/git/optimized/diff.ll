@@ -8461,7 +8461,7 @@ if.end5:                                          ; preds = %diff_abbrev_oid.exi
   br i1 %cmp11, label %if.then13, label %if.end24
 
 if.then13:                                        ; preds = %if.end5
-  %cmp14 = icmp sle i32 %conv7, %len
+  %cmp14 = icmp sge i32 %len, %conv7
   %add = add nsw i32 %len, 2
   %cmp16.not = icmp slt i32 %add, %conv7
   %or.cond = select i1 %cmp14, i1 true, i1 %cmp16.not
@@ -17083,7 +17083,7 @@ while.body:                                       ; preds = %diff_line_prefix.ex
   %6 = load ptr, ptr %5, align 8
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #32
   %conv = trunc i64 %call1 to i32
-  %cmp = icmp slt i32 %conv, %baselen
+  %cmp = icmp sgt i32 %baselen, %conv
   br i1 %cmp, label %while.end, label %if.end
 
 if.end:                                           ; preds = %while.body

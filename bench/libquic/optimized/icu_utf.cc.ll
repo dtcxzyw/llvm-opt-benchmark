@@ -32,7 +32,7 @@ if.then:                                          ; preds = %entry
   %sub = sub nsw i32 6, %conv1
   %notmask = shl nsw i32 -1, %sub
   %sub3 = xor i32 %notmask, -1
-  %and = and i32 %sub3, %c
+  %and = and i32 %c, %sub3
   switch i8 %2, label %lor.lhs.false [
     i8 0, label %sw.bb46
     i8 1, label %sw.epilog
@@ -187,7 +187,7 @@ land.rhs98:                                       ; preds = %land.rhs98.preheade
 while.body105:                                    ; preds = %land.rhs98
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next74 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %length
+  %exitcond.not = icmp eq i32 %length, %lftr.wideiv
   br i1 %exitcond.not, label %while.end107, label %land.rhs98, !llvm.loop !7
 
 while.end107.loopexit.split.loop.exit79:          ; preds = %land.rhs98

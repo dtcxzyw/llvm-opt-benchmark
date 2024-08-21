@@ -1978,11 +1978,11 @@ define hidden void @_ZN12typst_syntax6parser9list_item17hdb6e029a90348f64E.llvm.
   br i1 %11, label %_ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit, label %12
 
 12:                                               ; preds = %1
-  %.not.i.i.i = icmp ugt i64 %10, %6
+  %.not.i.i.i = icmp ult i64 %6, %10
   br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.i.i", label %13
 
 13:                                               ; preds = %12
-  %14 = icmp eq i64 %10, %6
+  %14 = icmp eq i64 %6, %10
   br i1 %14, label %_ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit, label %18
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.i.i": ; preds = %12
@@ -2094,11 +2094,11 @@ define hidden void @_ZN12typst_syntax6parser9enum_item17he094b102f3dfea52E.llvm.
   br i1 %11, label %_ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit, label %12
 
 12:                                               ; preds = %1
-  %.not.i.i.i = icmp ugt i64 %10, %6
+  %.not.i.i.i = icmp ult i64 %6, %10
   br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.i.i", label %13
 
 13:                                               ; preds = %12
-  %14 = icmp eq i64 %10, %6
+  %14 = icmp eq i64 %6, %10
   br i1 %14, label %_ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit, label %18
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.i.i": ; preds = %12
@@ -2211,11 +2211,11 @@ define hidden void @_ZN12typst_syntax6parser9term_item17h3d4297736a02b15fE.llvm.
   br i1 %11, label %_ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit, label %12
 
 12:                                               ; preds = %1
-  %.not.i.i.i = icmp ugt i64 %10, %6
+  %.not.i.i.i = icmp ult i64 %6, %10
   br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.i.i", label %13
 
 13:                                               ; preds = %12
-  %14 = icmp eq i64 %10, %6
+  %14 = icmp eq i64 %6, %10
   br i1 %14, label %_ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit, label %18
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.i.i": ; preds = %12
@@ -4981,7 +4981,7 @@ define internal fastcc void @_ZN12typst_syntax6parser12math_unparen17hf3686264cf
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %5 = icmp ule i64 %.96.val, %0
+  %5 = icmp uge i64 %0, %.96.val
   %6 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %.88.val, i64 %0
   %.not7 = icmp eq ptr %.88.val, null
   %.not = select i1 %5, i1 true, i1 %.not7
@@ -6055,7 +6055,7 @@ define internal fastcc void @_ZN12typst_syntax6parser18maybe_wrap_in_math17h82c3
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = getelementptr inbounds i8, ptr %0, i64 96
   %.val1 = load i64, ptr %6, align 8, !noundef !4
-  %7 = icmp ult i64 %.val1, %1
+  %7 = icmp ugt i64 %1, %.val1
   br i1 %7, label %8, label %_ZN12typst_syntax6parser6Parser12post_process17hc8753ee447172ea5E.exit
 
 8:                                                ; preds = %4
@@ -6066,7 +6066,7 @@ _ZN12typst_syntax6parser6Parser12post_process17hc8753ee447172ea5E.exit: ; preds 
   %.val = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %.idx16 = shl nsw i64 %1, 5
   %9 = getelementptr inbounds i8, ptr %.val, i64 %.idx16
-  %10 = icmp eq i64 %.val1, %1
+  %10 = icmp eq i64 %1, %.val1
   br i1 %10, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb2471c44c2c6c1deE.exit.thread", label %11
 
 11:                                               ; preds = %_ZN12typst_syntax6parser6Parser12post_process17hc8753ee447172ea5E.exit
@@ -7500,7 +7500,7 @@ _ZN12typst_syntax6parser7pattern17h868971759cc9fd02E.exit12.i: ; preds = %340, %
 
 _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.i135.thread: ; preds = %.preheader.i.i.i.i147, %.noexc5.i
   %325 = load i64, ptr %11, align 8, !alias.scope !1636, !noalias !1639, !noundef !4
-  %326 = icmp ugt i64 %325, %315
+  %326 = icmp ult i64 %315, %325
   br i1 %326, label %"_ZN111_$LT$typst_syntax..parser..Parser$u20$as$u20$core..ops..index..IndexMut$LT$typst_syntax..parser..Marker$GT$$GT$9index_mut17hecac7cd8b1be651aE.exit.i", label %327, !prof !1641
 
 327:                                              ; preds = %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.i135.thread
@@ -8489,7 +8489,7 @@ _ZN12typst_syntax6parser6Parser3eat17h0be1f7ac94eab54eE.exit80: ; preds = %.preh
 651:                                              ; preds = %648
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1892)
   %652 = load i64, ptr %11, align 8, !alias.scope !1892, !noalias !1895, !noundef !4
-  %653 = icmp ugt i64 %652, %12
+  %653 = icmp ult i64 %12, %652
   br i1 %653, label %"_ZN111_$LT$typst_syntax..parser..Parser$u20$as$u20$core..ops..index..IndexMut$LT$typst_syntax..parser..Marker$GT$$GT$9index_mut17hecac7cd8b1be651aE.exit", label %654, !prof !1641
 
 654:                                              ; preds = %651
@@ -10131,8 +10131,8 @@ define internal fastcc void @_ZN12typst_syntax6parser15expr_with_paren17h8502814
 
 60:                                               ; preds = %76, %27
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %27 ], [ %77, %76 ]
-  %.pn.i.i = phi i64 [ %56, %27 ], [ %78, %76 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val5.i
+  %.pn.i.i.i.i = phi i64 [ %56, %27 ], [ %78, %76 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i
   %61 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i25.i.i.i = load <16 x i8>, ptr %61, align 1, !noalias !2267
   %62 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, %.15.vec.insert.i.i.i.i
@@ -10160,7 +10160,7 @@ define internal fastcc void @_ZN12typst_syntax6parser15expr_with_paren17h8502814
   %74 = sub nsw i64 0, %73
   %gep.i.i.i = getelementptr { i64, { { i64, i64 }, { { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { ptr, i64 }, i64 }, i8, i8, [6 x i8] }, i64, i64, i64, i8, [7 x i8] } } }, ptr %invariant.gep.i.i.i, i64 %74
   %.val4.i.i.i.i = load i64, ptr %gep.i.i.i, align 8, !alias.scope !2275, !noalias !2280, !noundef !4
-  %75 = icmp eq i64 %.val4.i.i.i.i, %22
+  %75 = icmp eq i64 %22, %.val4.i.i.i.i
   br i1 %75, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17ha616f8573deb7271E.exit", label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit.i.i.i"
 
 76:                                               ; preds = %64
@@ -10222,7 +10222,7 @@ common.resume:                                    ; preds = %.thread187, %.threa
   call void @llvm.experimental.noalias.scope.decl(metadata !2314)
   %99 = getelementptr inbounds i8, ptr %0, i64 96
   %100 = load i64, ptr %99, align 8, !alias.scope !2317, !noalias !2308, !noundef !4
-  %101 = icmp ult i64 %100, %92
+  %101 = icmp ugt i64 %92, %100
   br i1 %101, label %_ZN12typst_syntax6parser6Parser7restore17hc05523d87b2262b0E.exit, label %102
 
 102:                                              ; preds = %96
@@ -10622,7 +10622,7 @@ _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit25.i.thread: ; pr
 
 .noexc106:                                        ; preds = %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit25.i.thread
   %214 = load i64, ptr %119, align 8, !alias.scope !2408, !noalias !2411, !noundef !4
-  %215 = icmp ugt i64 %214, %179
+  %215 = icmp ult i64 %179, %214
   br i1 %215, label %"_ZN111_$LT$typst_syntax..parser..Parser$u20$as$u20$core..ops..index..IndexMut$LT$typst_syntax..parser..Marker$GT$$GT$9index_mut17hecac7cd8b1be651aE.exit.i", label %.invoke, !prof !1641
 
 "_ZN111_$LT$typst_syntax..parser..Parser$u20$as$u20$core..ops..index..IndexMut$LT$typst_syntax..parser..Marker$GT$$GT$9index_mut17hecac7cd8b1be651aE.exit.i": ; preds = %.noexc106
@@ -10675,7 +10675,7 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.thread: ; pre
 
 234:                                              ; preds = %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit25.i.thread168
   %235 = load i64, ptr %119, align 8, !alias.scope !2416, !noalias !2419, !noundef !4
-  %236 = icmp ugt i64 %235, %179
+  %236 = icmp ult i64 %179, %235
   br i1 %236, label %"_ZN111_$LT$typst_syntax..parser..Parser$u20$as$u20$core..ops..index..IndexMut$LT$typst_syntax..parser..Marker$GT$$GT$9index_mut17hecac7cd8b1be651aE.exit26.i.invoke", label %.invoke, !prof !1641
 
 "_ZN111_$LT$typst_syntax..parser..Parser$u20$as$u20$core..ops..index..IndexMut$LT$typst_syntax..parser..Marker$GT$$GT$9index_mut17hecac7cd8b1be651aE.exit26.i.invoke": ; preds = %234, %316
@@ -10977,7 +10977,7 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit50.i: ; preds = %_Z
 
 316:                                              ; preds = %.noexc116
   %317 = load i64, ptr %119, align 8, !alias.scope !2479, !noalias !2482, !noundef !4
-  %318 = icmp ugt i64 %317, %179
+  %318 = icmp ult i64 %179, %317
   br i1 %318, label %"_ZN111_$LT$typst_syntax..parser..Parser$u20$as$u20$core..ops..index..IndexMut$LT$typst_syntax..parser..Marker$GT$$GT$9index_mut17hecac7cd8b1be651aE.exit26.i.invoke", label %.invoke, !prof !1641
 
 .invoke:                                          ; preds = %316, %234, %.noexc106
@@ -11159,7 +11159,7 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit88: ; preds = %_ZN1
   store i64 %.sroa.6140.0.copyload, ptr %21, align 8, !alias.scope !2523, !noalias !2518
   store i8 %.sroa.8.0.copyload, ptr %143, align 1, !alias.scope !2523, !noalias !2518
   %372 = load i64, ptr %119, align 8, !alias.scope !2524, !noalias !2518, !noundef !4
-  %373 = icmp ult i64 %372, %.sroa.7141.0.copyload
+  %373 = icmp ugt i64 %.sroa.7141.0.copyload, %372
   br i1 %373, label %_ZN12typst_syntax6parser6Parser7restore17hc05523d87b2262b0E.exit40, label %374
 
 374:                                              ; preds = %371
@@ -11203,7 +11203,7 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit88: ; preds = %_ZN1
   store i64 %.sroa.6144.0.copyload, ptr %21, align 8, !alias.scope !2532, !noalias !2527
   store i8 %.sroa.8146.0.copyload, ptr %143, align 1, !alias.scope !2532, !noalias !2527
   %383 = load i64, ptr %119, align 8, !alias.scope !2533, !noalias !2527, !noundef !4
-  %384 = icmp ult i64 %383, %.sroa.7145.0.copyload
+  %384 = icmp ugt i64 %.sroa.7145.0.copyload, %383
   br i1 %384, label %_ZN12typst_syntax6parser6Parser7restore17hc05523d87b2262b0E.exit45, label %385
 
 385:                                              ; preds = %382
@@ -11993,7 +11993,7 @@ _ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941
 
 192:                                              ; preds = %.noexc10.thread
   %193 = load i64, ptr %50, align 8, !noalias !4, !noundef !4
-  %194 = icmp ugt i64 %193, %115
+  %194 = icmp ult i64 %115, %193
   br i1 %194, label %.noexc15, label %.invoke, !prof !1641
 
 .noexc15:                                         ; preds = %192
@@ -12041,7 +12041,7 @@ _ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941
 
 211:                                              ; preds = %.noexc17
   %212 = load i64, ptr %50, align 8, !alias.scope !2706, !noalias !2709, !noundef !4
-  %213 = icmp ugt i64 %212, %115
+  %213 = icmp ult i64 %115, %212
   br i1 %213, label %220, label %.invoke, !prof !1641
 
 .invoke:                                          ; preds = %211, %192
@@ -12632,7 +12632,7 @@ _ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941
 
 88:                                               ; preds = %.noexc6.thread
   %89 = load i64, ptr %5, align 8, !noalias !4, !noundef !4
-  %90 = icmp ugt i64 %89, %48
+  %90 = icmp ult i64 %48, %89
   br i1 %90, label %.noexc9, label %.invoke, !prof !1641
 
 .noexc9:                                          ; preds = %88
@@ -12742,7 +12742,7 @@ _ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941
 
 125:                                              ; preds = %.noexc14
   %126 = load i64, ptr %5, align 8, !alias.scope !2870, !noalias !2873, !noundef !4
-  %127 = icmp ugt i64 %126, %48
+  %127 = icmp ult i64 %48, %126
   br i1 %127, label %.noexc15, label %.invoke, !prof !1641
 
 .invoke:                                          ; preds = %125, %88
@@ -13137,7 +13137,7 @@ _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit55.thread81: ; pr
   store i64 %.sroa.6.0.copyload, ptr %23, align 8, !alias.scope !2971, !noalias !2968
   store i8 %.sroa.8.0.copyload, ptr %19, align 1, !alias.scope !2971, !noalias !2968
   %64 = load i64, ptr %5, align 8, !alias.scope !2972, !noalias !2968, !noundef !4
-  %65 = icmp ult i64 %64, %.sroa.7.0.copyload
+  %65 = icmp ugt i64 %.sroa.7.0.copyload, %64
   br i1 %65, label %72, label %66
 
 66:                                               ; preds = %63
@@ -13203,7 +13203,7 @@ _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread: ; preds 
 
 78:                                               ; preds = %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread
   %79 = load i64, ptr %5, align 8, !noalias !2964, !noundef !4
-  %80 = icmp ugt i64 %79, %43
+  %80 = icmp ult i64 %43, %79
   br i1 %80, label %82, label %81, !prof !1641
 
 81:                                               ; preds = %78
@@ -13407,7 +13407,7 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit28: ; preds = %130,
 144:                                              ; preds = %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit28
   call void @llvm.experimental.noalias.scope.decl(metadata !3022)
   %145 = load i64, ptr %5, align 8, !alias.scope !3022, !noalias !3025, !noundef !4
-  %146 = icmp ugt i64 %145, %43
+  %146 = icmp ult i64 %43, %145
   br i1 %146, label %"_ZN111_$LT$typst_syntax..parser..Parser$u20$as$u20$core..ops..index..IndexMut$LT$typst_syntax..parser..Marker$GT$$GT$9index_mut17hecac7cd8b1be651aE.exit", label %147, !prof !1641
 
 147:                                              ; preds = %144
@@ -13752,7 +13752,7 @@ _ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit: ; preds = %_Z
 81:                                               ; preds = %_ZN12typst_syntax6parser6Parser12current_text17h322687ed24a5758aE.llvm.17794941744620341598.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3095)
   %82 = load i64, ptr %21, align 8, !alias.scope !3095, !noalias !3098, !noundef !4
-  %83 = icmp ugt i64 %82, %22
+  %83 = icmp ult i64 %22, %82
   br i1 %83, label %"_ZN111_$LT$typst_syntax..parser..Parser$u20$as$u20$core..ops..index..IndexMut$LT$typst_syntax..parser..Marker$GT$$GT$9index_mut17hecac7cd8b1be651aE.exit", label %84, !prof !1641
 
 84:                                               ; preds = %81
@@ -14563,11 +14563,11 @@ define hidden noundef i64 @_ZN12typst_syntax6parser6Parser6column17h83b854ecc578
   br i1 %8, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7d4e6bac97f1e81aE.llvm.17794941744620341598.exit", label %9
 
 9:                                                ; preds = %2
-  %.not.i.i = icmp ugt i64 %7, %1
+  %.not.i.i = icmp ult i64 %1, %7
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.i", label %10
 
 10:                                               ; preds = %9
-  %11 = icmp eq i64 %7, %1
+  %11 = icmp eq i64 %1, %7
   br i1 %11, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7d4e6bac97f1e81aE.llvm.17794941744620341598.exit", label %15
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.i": ; preds = %9
@@ -14948,7 +14948,7 @@ _ZN12typst_syntax4node10SyntaxNode5inner17h663e2a0e3d635b85E.exit: ; preds = %.n
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdca6fe0f0368177eE.llvm.13506474886552808233.exit.i": ; preds = %37, %_ZN12typst_syntax4node10SyntaxNode5inner17h663e2a0e3d635b85E.exit
   %38 = load ptr, ptr %15, align 8, !alias.scope !3284, !noalias !3287, !nonnull !4, !noundef !4
   %39 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %38, i64 %.0.sroa.speculated.i1
-  %40 = icmp ugt i64 %34, %.0.sroa.speculated.i1
+  %40 = icmp ult i64 %.0.sroa.speculated.i1, %34
   br i1 %40, label %45, label %43
 
 41:                                               ; preds = %49, %37
@@ -14958,7 +14958,7 @@ _ZN12typst_syntax4node10SyntaxNode5inner17h663e2a0e3d635b85E.exit: ; preds = %.n
           to label %common.resume unwind label %51
 
 43:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdca6fe0f0368177eE.llvm.13506474886552808233.exit.i"
-  %44 = icmp eq i64 %34, %.0.sroa.speculated.i1
+  %44 = icmp eq i64 %.0.sroa.speculated.i1, %34
   br i1 %44, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hbdf98353bdd3022bE.exit", label %49
 
 45:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdca6fe0f0368177eE.llvm.13506474886552808233.exit.i"
@@ -16125,7 +16125,7 @@ define hidden void @_ZN12typst_syntax6parser6Parser24expect_closing_delimiter17h
 _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread4: ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 96
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = icmp ugt i64 %14, %1
+  %15 = icmp ult i64 %1, %14
   br i1 %15, label %16, label %20, !prof !1641
 
 _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread: ; preds = %.preheader.i.i.i, %8, %16
@@ -16343,7 +16343,7 @@ _ZN12typst_syntax4node10SyntaxNode5error17hfbce185a01cd4c02E.exit: ; preds = %.n
   %44 = getelementptr inbounds i8, ptr %0, i64 88
   %45 = load ptr, ptr %44, align 8, !alias.scope !3580, !noalias !3583, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %45, i64 %1
-  %47 = icmp ugt i64 %40, %1
+  %47 = icmp ult i64 %1, %40
   br i1 %47, label %52, label %50
 
 48:                                               ; preds = %56, %43
@@ -16353,7 +16353,7 @@ _ZN12typst_syntax4node10SyntaxNode5error17hfbce185a01cd4c02E.exit: ; preds = %.n
           to label %common.resume unwind label %58
 
 50:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdca6fe0f0368177eE.llvm.13506474886552808233.exit.i"
-  %51 = icmp eq i64 %40, %1
+  %51 = icmp eq i64 %1, %40
   br i1 %51, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hbdf98353bdd3022bE.exit", label %56
 
 52:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdca6fe0f0368177eE.llvm.13506474886552808233.exit.i"
@@ -16580,7 +16580,7 @@ _ZN12typst_syntax4node10SyntaxNode8is_empty17h2c4fc259a00ac0c0E.exit: ; preds = 
 define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN108_$LT$typst_syntax..parser..Parser$u20$as$u20$core..ops..index..Index$LT$typst_syntax..parser..Marker$GT$$GT$5index17h124e2eb45dc36f92E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(264) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %7, label %11, !prof !1641
 
 7:                                                ; preds = %3
@@ -16598,7 +16598,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN108_$LT$typst_syntax
 define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN111_$LT$typst_syntax..parser..Parser$u20$as$u20$core..ops..index..IndexMut$LT$typst_syntax..parser..Marker$GT$$GT$9index_mut17hecac7cd8b1be651aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(264) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %7, label %11, !prof !1641
 
 7:                                                ; preds = %3

@@ -178,7 +178,7 @@ define dso_local range(i32 -105, 1) i32 @uv_get_process_title(ptr noundef writeo
   tail call void @uv_once(ptr noundef nonnull @process_title_mutex_once, ptr noundef nonnull @init_process_title_mutex_once) #7
   tail call void @uv_mutex_lock(ptr noundef nonnull @process_title_mutex) #7
   %9 = load i64, ptr @process_title.1, align 8
-  %.not = icmp ult i64 %9, %1
+  %.not = icmp ugt i64 %1, %9
   br i1 %.not, label %10, label %.sink.split
 
 10:                                               ; preds = %8

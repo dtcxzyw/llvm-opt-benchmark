@@ -372,7 +372,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr noc
 183:                                              ; preds = %179, %171, %161, %152, %151, %145, %135, %122, %114, %107, %92, %._crit_edge.i, %58, %50
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %0
+  %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_set_cond.exit, label %34, !llvm.loop !9
 
 _set_cond.exit:                                   ; preds = %183, %31

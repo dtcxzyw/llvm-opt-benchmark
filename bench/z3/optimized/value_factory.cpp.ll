@@ -165,7 +165,7 @@ entry:
   %0 = load ptr, ptr %m_manager, align 8
   %m_bool_sort.i = getelementptr inbounds i8, ptr %0, i64 840
   %1 = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i = icmp eq ptr %1, %s
+  %cmp.i = icmp eq ptr %s, %1
   br i1 %cmp.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -193,7 +193,7 @@ entry:
   %0 = load ptr, ptr %m_manager, align 8
   %m_bool_sort.i = getelementptr inbounds i8, ptr %0, i64 840
   %1 = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i = icmp eq ptr %1, %s
+  %cmp.i = icmp eq ptr %s, %1
   br i1 %cmp.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry

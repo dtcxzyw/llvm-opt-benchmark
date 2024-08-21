@@ -25,7 +25,7 @@ define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias no
   %12 = getelementptr inbounds i8, ptr %2, i64 36
   %13 = load i32, ptr %12, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  %14 = icmp sgt i32 %13, %3
+  %14 = icmp slt i32 %3, %13
   br i1 %14, label %.preheader.i, label %_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi.exit
 
 .preheader.i:                                     ; preds = %10

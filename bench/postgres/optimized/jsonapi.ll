@@ -26,7 +26,7 @@ define dso_local zeroext i1 @IsValidJsonNumber(ptr noundef %0, i32 noundef %1) l
   %.sink7.idx = zext i1 %9 to i64
   %.sink7 = getelementptr i8, ptr %0, i64 %.sink7.idx
   %10 = sext i1 %9 to i32
-  %.sink = add nsw i32 %10, %1
+  %.sink = add nsw i32 %1, %10
   store ptr %.sink7, ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %.sink, ptr %11, align 8

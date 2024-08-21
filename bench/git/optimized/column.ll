@@ -948,7 +948,7 @@ for.body.us.i:                                    ; preds = %if.then, %for.inc.u
   %6 = load ptr, ptr %arrayidx.us.i, align 16
   %call9.us.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
   %conv10.us.i = trunc i64 %call9.us.i to i32
-  %cmp11.not.us.i = icmp eq i32 %conv10.us.i, %conv
+  %cmp11.not.us.i = icmp eq i32 %conv, %conv10.us.i
   br i1 %cmp11.not.us.i, label %lor.lhs.false.us.i, label %for.inc.us.i
 
 lor.lhs.false.us.i:                               ; preds = %for.body.us.i

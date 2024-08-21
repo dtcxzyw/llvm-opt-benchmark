@@ -39,7 +39,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 30:                                               ; preds = %.preheader35
   %31 = sub nsw i64 0, %27
-  %32 = and i64 %31, %0
+  %32 = and i64 %0, %31
   %33 = sub nsw i64 %32, %27
   %34 = mul nsw i64 %33, %2
   %35 = getelementptr inbounds double, ptr %4, i64 %34
@@ -285,7 +285,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 187:                                              ; preds = %.preheader
   %188 = sub nsw i64 0, %184
-  %189 = and i64 %188, %0
+  %189 = and i64 %0, %188
   %190 = sub nsw i64 %189, %184
   %191 = mul nsw i64 %190, %2
   %192 = getelementptr inbounds double, ptr %4, i64 %191

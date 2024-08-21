@@ -2140,7 +2140,7 @@ define internal i32 @rawv6_recvmsg(ptr noundef %0, ptr noundef %1, i64 noundef %
   %43 = getelementptr inbounds i8, ptr %40, i64 112
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ugt i64 %45, %2
+  %46 = icmp ult i64 %2, %45
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %42

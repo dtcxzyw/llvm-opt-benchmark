@@ -5598,7 +5598,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7
 39:                                               ; preds = %51, %37
   %40 = phi i64 [ %.pre.i.i, %37 ], [ %53, %51 ]
   %41 = phi ptr [ %38, %37 ], [ %50, %51 ]
-  %42 = icmp eq i64 %40, %.09.lcssa.i.i
+  %42 = icmp eq i64 %.09.lcssa.i.i, %40
   br i1 %42, label %43, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i
 
 43:                                               ; preds = %39

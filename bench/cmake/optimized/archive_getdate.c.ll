@@ -1496,7 +1496,7 @@ define internal fastcc i64 @Convert(i64 noundef %0, i64 noundef %1, i64 noundef 
   %33 = getelementptr inbounds [12 x i8], ptr %9, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = sext i8 %34 to i64
-  %36 = icmp slt i64 %35, %1
+  %36 = icmp sgt i64 %1, %35
   %37 = icmp ugt i64 %3, 23
   %or.cond11 = or i1 %37, %36
   %38 = icmp ugt i64 %4, 59
@@ -1595,7 +1595,7 @@ define internal fastcc i64 @RelativeMonth(i64 noundef %0, i64 noundef %1, i64 no
   %17 = load i32, ptr %16, align 8
   %18 = add nsw i32 %15, %17
   %19 = sext i32 %18 to i64
-  %20 = add nsw i64 %19, %2
+  %20 = add nsw i64 %2, %19
   %21 = sdiv i64 %20, 12
   %22 = srem i64 %20, 12
   %23 = add nsw i64 %22, 1
@@ -1663,7 +1663,7 @@ define internal fastcc i64 @RelativeDate(i64 noundef %0, i64 noundef %1, i32 nou
   %19 = mul nsw i64 %18, 86400
   %20 = icmp sgt i64 %3, 0
   %21 = sext i1 %20 to i64
-  %22 = add nsw i64 %21, %3
+  %22 = add nsw i64 %3, %21
   %23 = mul nsw i64 %22, 604800
   %24 = add i64 %23, %0
   %25 = add i64 %24, %19

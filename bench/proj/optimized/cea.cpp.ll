@@ -91,8 +91,8 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_ceaP8PJconsts(ptr no
 28:                                               ; preds = %24
   %29 = tail call double @sin(double noundef %.036) #8
   %30 = load double, ptr %25, align 8
-  %31 = fneg double %30
-  %32 = fmul double %29, %31
+  %31 = fneg double %29
+  %32 = fmul double %30, %31
   %33 = tail call double @llvm.fmuladd.f64(double %32, double %29, double 1.000000e+00)
   %34 = tail call double @sqrt(double noundef %33) #8
   %35 = getelementptr inbounds i8, ptr %0, i64 488
@@ -217,7 +217,7 @@ define internal { double, double } @_ZL13cea_e_inverse5PJ_XYP8PJconsts(double %0
 define internal { double, double } @_ZL13cea_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 488
   %5 = load double, ptr %4, align 8
-  %6 = fmul double %5, %0
+  %6 = fmul double %0, %5
   %7 = tail call double @sin(double noundef %1) #8
   %8 = getelementptr inbounds i8, ptr %2, i64 208
   %9 = load double, ptr %8, align 8
@@ -236,7 +236,7 @@ define internal { double, double } @_ZL13cea_e_forward5PJ_LPP8PJconsts(double %0
 define internal { double, double } @_ZL13cea_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 488
   %5 = load double, ptr %4, align 8
-  %6 = fmul double %5, %1
+  %6 = fmul double %1, %5
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fadd double %7, -1.000000e-10
   %9 = fcmp ugt double %8, 1.000000e+00
@@ -278,7 +278,7 @@ define internal { double, double } @_ZL13cea_s_inverse5PJ_XYP8PJconsts(double %0
 define internal { double, double } @_ZL13cea_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #5 {
   %4 = getelementptr inbounds i8, ptr %2, i64 488
   %5 = load double, ptr %4, align 8
-  %6 = fmul double %5, %0
+  %6 = fmul double %0, %5
   %7 = tail call double @sin(double noundef %1) #8
   %8 = load double, ptr %4, align 8
   %9 = fdiv double %7, %8

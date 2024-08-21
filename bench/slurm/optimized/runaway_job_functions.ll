@@ -162,7 +162,7 @@ define dso_local i32 @sacctmgr_list_runaway_jobs(i32 noundef %0, ptr nocapture n
 69:                                               ; preds = %65, %60, %59, %50
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %0
+  %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_set_cond.exit, label %31, !llvm.loop !7
 
 _set_cond.exit:                                   ; preds = %69, %28

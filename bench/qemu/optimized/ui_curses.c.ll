@@ -1525,9 +1525,9 @@ return:                                           ; preds = %return.sink.split, 
 define internal void @curses_resize(ptr nocapture readnone %dcl, i32 noundef %width, i32 noundef %height) #0 {
 entry:
   %0 = load i32, ptr @gwidth, align 4
-  %cmp = icmp eq i32 %0, %width
+  %cmp = icmp eq i32 %width, %0
   %1 = load i32, ptr @gheight, align 4
-  %cmp1 = icmp eq i32 %1, %height
+  %cmp1 = icmp eq i32 %height, %1
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %return, label %if.end
 
@@ -1551,7 +1551,7 @@ entry:
   %conv = sext i32 %0 to i64
   %call = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 28) #16
   %add = add i32 %h, %y
-  %cmp19 = icmp sgt i32 %add, %y
+  %cmp19 = icmp slt i32 %y, %add
   br i1 %cmp19, label %for.cond2.preheader.lr.ph, label %for.end37
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry

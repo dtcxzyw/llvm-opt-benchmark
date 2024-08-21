@@ -4213,7 +4213,7 @@ _ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEE11lower_boundERS
 lor.rhs:                                          ; preds = %_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEE11lower_boundERS5_.exit
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i, align 4, !tbaa !69
-  %cmp.i20 = icmp sgt i32 %2, %__k.0.val
+  %cmp.i20 = icmp slt i32 %__k.0.val, %2
   br i1 %cmp.i20, label %if.else12.i.i, label %if.end
 
 if.then.i.i:                                      ; preds = %_ZNSt3mapIiN12_GLOBAL__N_17TrackerESt4lessIiESaISt4pairIKiS1_EEE11lower_boundERS5_.exit, %entry
@@ -4406,7 +4406,7 @@ if.then.i:                                        ; preds = %invoke.cont7.i, %if
 lor.rhs.i.i.i:                                    ; preds = %if.then.i
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.2.i9.i, i64 32
   %21 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4, !tbaa !69
-  %cmp.i.i.i23.i = icmp sgt i32 %21, %__k.0.val
+  %cmp.i.i.i23.i = icmp slt i32 %__k.0.val, %21
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %lor.rhs.i.i.i, %if.then.i, %if.then18.i.i

@@ -450,7 +450,7 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
   %21 = ptrtoint ptr %17 to i64
   %.neg.i.i = sub i64 %21, %20
   %.neg9.i.i = trunc i64 %.neg.i.i to i32
-  %22 = add i32 %.neg9.i.i, %1
+  %22 = add i32 %1, %.neg9.i.i
   %23 = getelementptr inbounds i8, ptr %5, i64 28
   store i32 %22, ptr %23, align 4
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %22, i32 0)
@@ -573,7 +573,7 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
   %22 = ptrtoint ptr %18 to i64
   %.neg.i.i = sub i64 %22, %21
   %.neg9.i.i = trunc i64 %.neg.i.i to i32
-  %23 = add i32 %.neg9.i.i, %1
+  %23 = add i32 %1, %.neg9.i.i
   %24 = getelementptr inbounds i8, ptr %5, i64 28
   store i32 %23, ptr %24, align 4
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %23, i32 0)
@@ -944,7 +944,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit: ; preds = %.no
 
 62:                                               ; preds = %_ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit
   %63 = load ptr, ptr %4, align 8
-  %64 = icmp ult ptr %63, %28
+  %64 = icmp ugt ptr %28, %63
   br i1 %64, label %65, label %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit.thread15
 
 65:                                               ; preds = %62
@@ -2841,7 +2841,7 @@ _ZN6google8protobuf8internal12ShutdownData3getEv.exit: ; preds = %1, %4, %8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp ne ptr %14, %16
   %.sroa.0.08.i.i.i = getelementptr inbounds i8, ptr %16, i64 -16
-  %18 = icmp ugt ptr %.sroa.0.08.i.i.i, %14
+  %18 = icmp ult ptr %14, %.sroa.0.08.i.i.i
   %or.cond.i.i.i = select i1 %17, i1 %18, i1 false
   br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.i
 
@@ -3026,7 +3026,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCodedInputS
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = trunc i64 %12 to i32
-  %.not.i = icmp slt i32 %13, %1
+  %.not.i = icmp sgt i32 %1, %13
   br i1 %.not.i, label %17, label %14
 
 14:                                               ; preds = %6

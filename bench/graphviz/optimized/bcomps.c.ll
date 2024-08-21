@@ -151,7 +151,7 @@ split.exit.i:                                     ; preds = %10, %7
 
 38:                                               ; preds = %5
   %39 = load i32, ptr @optind, align 4
-  %40 = icmp slt i32 %39, %0
+  %40 = icmp sgt i32 %0, %39
   br i1 %40, label %41, label %.init.exit_crit_edge
 
 .init.exit_crit_edge:                             ; preds = %38
@@ -617,7 +617,7 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
   br i1 %.not63, label %.loopexit, label %87
 
 108:                                              ; preds = %36
-  %.not59 = icmp eq ptr %.0, %3
+  %.not59 = icmp eq ptr %3, %.0
   br i1 %.not59, label %.loopexit, label %109
 
 109:                                              ; preds = %108

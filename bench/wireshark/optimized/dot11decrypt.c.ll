@@ -857,7 +857,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr nocapture no
   %.18598 = phi i32 [ %.185, %31 ], [ %.084107, %.lr.ph ]
   %33 = add i32 %.078111, 2
   %34 = add i32 %33, %27
-  %35 = icmp ugt i32 %34, %2
+  %35 = icmp ult i32 %2, %34
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %.thread
@@ -1888,7 +1888,7 @@ define hidden i32 @Dot11DecryptDecryptPacket(ptr noundef %0, ptr noundef readonl
 
 18:                                               ; preds = %15
   %19 = add i32 %2, 17
-  %20 = icmp ugt i32 %19, %3
+  %20 = icmp ult i32 %3, %19
   br i1 %20, label %Dot11DecryptGetNbrOfTkKeys.exit.thread, label %21
 
 21:                                               ; preds = %18

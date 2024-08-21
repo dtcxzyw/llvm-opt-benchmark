@@ -223,7 +223,7 @@ define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %3
-  %.not54 = icmp ugt i64 %6, %2
+  %.not54 = icmp ult i64 %2, %6
   br i1 %.not54, label %20, label %8
 
 8:                                                ; preds = %7
@@ -303,7 +303,7 @@ define dso_local i32 @blake2sp_final(ptr noundef %0, ptr noundef %1, i64 noundef
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 1744
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ugt i64 %8, %2
+  %9 = icmp ult i64 %2, %8
   br i1 %9, label %34, label %.preheader29
 
 .preheader29:                                     ; preds = %6
@@ -492,7 +492,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 .split:                                           ; preds = %55, %82
   %.269 = phi i64 [ %86, %82 ], [ 0, %55 ]
   %74 = shl nuw nsw i64 %.269, 6
-  %75 = icmp ult i64 %74, %3
+  %75 = icmp ugt i64 %3, %74
   br i1 %75, label %76, label %82
 
 76:                                               ; preds = %.split

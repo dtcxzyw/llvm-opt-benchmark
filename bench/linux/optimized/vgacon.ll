@@ -1580,7 +1580,7 @@ define internal noundef range(i32 -22, 1) i32 @vgacon_resize(ptr noundef %0, i32
   %24 = getelementptr inbounds i8, ptr %23, i64 7
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = icmp ult i32 %26, %1
+  %27 = icmp ugt i32 %1, %26
   br i1 %27, label %43, label %28
 
 28:                                               ; preds = %22

@@ -364,7 +364,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar20find_axis_deprecate
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = or disjoint i32 %36, %39
-  %41 = icmp eq i32 %40, %1
+  %41 = icmp eq i32 %1, %40
   br i1 %41, label %._crit_edge.thread, label %.lr.ph
 
 42:                                               ; preds = %.lr.ph
@@ -386,7 +386,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar20find_axis_deprecate
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
-  %61 = icmp eq i32 %60, %1
+  %61 = icmp eq i32 %1, %60
   br i1 %61, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %42
@@ -416,7 +416,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thre
 
 .cont12:                                          ; preds = %._crit_edge.thread, %.else, %.else.thread, %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread18
   %indvars.iv.i.lcssa32 = phi i32 [ %63, %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread18 ], [ 0, %.else.thread ], [ %63, %.else ], [ 0, %._crit_edge.thread ]
-  %.not.i.i = icmp ugt i32 %.sroa.2.8.insert.ext.i.i, %indvars.iv.i.lcssa32
+  %.not.i.i = icmp ult i32 %indvars.iv.i.lcssa32, %.sroa.2.8.insert.ext.i.i
   %64 = zext i32 %indvars.iv.i.lcssa32 to i64
   %65 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %64
   %.0.i.i = select i1 %.not.i.i, ptr %65, ptr @_hb_NullPool
@@ -582,7 +582,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE9sub_arrayEjPj.exit: ; preds = %4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %26 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %25, i64 %indvars.iv
   %27 = trunc nuw i64 %indvars.iv to i32
-  %28 = add i32 %27, %1
+  %28 = add i32 %1, %27
   %29 = getelementptr inbounds %struct.hb_ot_var_axis_info_t, ptr %3, i64 %indvars.iv
   store i32 %28, ptr %29, align 4
   %30 = load i8, ptr %26, align 1
@@ -771,7 +771,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar14find_axis_infoEjP21
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
-  %40 = icmp eq i32 %39, %1
+  %40 = icmp eq i32 %1, %39
   br i1 %40, label %._crit_edge.thread, label %.lr.ph
 
 41:                                               ; preds = %.lr.ph
@@ -793,7 +793,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar14find_axis_infoEjP21
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = or disjoint i32 %55, %58
-  %60 = icmp eq i32 %59, %1
+  %60 = icmp eq i32 %1, %59
   br i1 %60, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %41
@@ -971,7 +971,7 @@ define hidden i32 @hb_ot_var_named_instance_get_subfamily_name_id(ptr noundef %0
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = or disjoint i32 %13, %16
-  %.not.i.i = icmp ugt i32 %17, %1
+  %.not.i.i = icmp ult i32 %1, %17
   br i1 %.not.i.i, label %18, label %_ZNK2OT4fvar30get_instance_subfamily_name_idEj.exit
 
 18:                                               ; preds = %2
@@ -1040,7 +1040,7 @@ define hidden i32 @hb_ot_var_named_instance_get_postscript_name_id(ptr noundef %
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = or disjoint i32 %13, %16
-  %.not.i.i = icmp ugt i32 %17, %1
+  %.not.i.i = icmp ult i32 %1, %17
   br i1 %.not.i.i, label %18, label %_ZNK2OT4fvar31get_instance_postscript_name_idEj.exit
 
 18:                                               ; preds = %2
@@ -1122,7 +1122,7 @@ define hidden i32 @hb_ot_var_named_instance_get_design_coords(ptr noundef %0, i3
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %15, %18
-  %.not.i.i = icmp ugt i32 %19, %1
+  %.not.i.i = icmp ult i32 %1, %19
   br i1 %.not.i.i, label %22, label %20
 
 20:                                               ; preds = %4
@@ -1330,7 +1330,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT4fvar20normalize_axis_valueEjf(pt
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %.sroa.2.8.insert.ext.i.i = or disjoint i32 %18, %21
-  %.not.i.i = icmp ugt i32 %.sroa.2.8.insert.ext.i.i, %1
+  %.not.i.i = icmp ult i32 %1, %.sroa.2.8.insert.ext.i.i
   %22 = zext i32 %1 to i64
   %23 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %22
   %.0.i.i = select i1 %.not.i.i, ptr %23, ptr @_hb_NullPool
@@ -1398,7 +1398,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT4fvar20normalize_axis_valueEjf(pt
   %84 = fmul float %83, 0x3EF0000000000000
   %85 = fcmp oge float %43, %84
   %.sroa.speculated.i.i = select i1 %85, float %43, float %84
-  %86 = fcmp ole float %.sroa.speculated7.i.i, %2
+  %86 = fcmp oge float %2, %.sroa.speculated7.i.i
   %87 = select i1 %86, float %2, float %.sroa.speculated7.i.i
   %88 = fcmp ole float %87, %.sroa.speculated.i.i
   %.sroa.speculated.i = select i1 %88, float %87, float %.sroa.speculated.i.i
@@ -1433,7 +1433,7 @@ define linkonce_odr hidden void @_ZNK2OT4avar10map_coordsEPij(ptr noundef nonnul
   %7 = shl nuw nsw i32 %6, 8
   %8 = zext i8 %.val41 to i32
   %9 = or disjoint i32 %7, %8
-  %spec.select.i = tail call noundef i32 @llvm.umin.i32(i32 %9, i32 %2)
+  %spec.select.i = tail call noundef i32 @llvm.umin.i32(i32 %2, i32 %9)
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.not = icmp eq i32 %spec.select.i, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -1606,7 +1606,7 @@ _ZNK2OT14VariationStore12create_cacheEv.exit:     ; preds = %.lr.ph.i, %._crit_e
   %125 = lshr i32 %.142.i, 1
   %126 = add i32 %.142.i, 8
   %127 = add i32 %126, %125
-  %128 = icmp ult i32 %127, %2
+  %128 = icmp ugt i32 %2, %127
   br i1 %128, label %.preheader.i, label %.thread.i, !llvm.loop !15
 
 .thread.i:                                        ; preds = %.preheader.i
@@ -1659,7 +1659,7 @@ _ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_triviall
   %148 = load i8, ptr %133, align 1
   %149 = zext i8 %148 to i32
   %150 = or disjoint i32 %147, %149
-  %.not.i.i = icmp ugt i32 %150, %144
+  %.not.i.i = icmp ult i32 %144, %150
   br i1 %.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i, label %192
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i: ; preds = %143
@@ -1727,7 +1727,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   br i1 %199, label %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread6.i, label %200
 
 200:                                              ; preds = %198
-  %.not.i.i47 = icmp ult i32 %.sroa.0.0108, %.pre136
+  %.not.i.i47 = icmp ugt i32 %.pre136, %.sroa.0.0108
   br i1 %.not.i.i47, label %.preheader.i.i, label %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %200, %.preheader.i.i
@@ -1735,7 +1735,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   %201 = lshr i32 %.142.i.i, 1
   %202 = add i32 %.142.i.i, 8
   %203 = add i32 %202, %201
-  %204 = icmp ult i32 %203, %.pre136
+  %204 = icmp ugt i32 %.pre136, %203
   br i1 %204, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !15
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -1922,7 +1922,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %47 = zext i8 %46 to i16
   %48 = or disjoint i16 %44, %47
   %49 = sext i16 %48 to i32
-  %.not = icmp slt i32 %49, %1
+  %.not = icmp sgt i32 %1, %49
   br i1 %.not, label %63, label %50
 
 50:                                               ; preds = %38
@@ -1960,7 +1960,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %71 = zext i8 %70 to i16
   %72 = or disjoint i16 %68, %71
   %73 = sext i16 %72 to i32
-  %74 = icmp slt i32 %73, %1
+  %74 = icmp sgt i32 %1, %73
   br i1 %74, label %75, label %.critedge.loopexit.split.loop.exit54
 
 75:                                               ; preds = %.lr.ph
@@ -1985,7 +1985,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %85 = zext i8 %84 to i16
   %86 = or disjoint i16 %82, %85
   %87 = sext i16 %86 to i32
-  %.not46 = icmp sgt i32 %87, %1
+  %.not46 = icmp slt i32 %1, %87
   br i1 %.not46, label %101, label %88
 
 88:                                               ; preds = %.critedge
@@ -2095,7 +2095,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT16DeltaSetIndexMap3mapEj(ptr noun
   br i1 %.not.i, label %_ZNK2OT24DeltaSetIndexMapFormat01INS_7IntTypeItLj2EEEE3mapEj.exit, label %13
 
 13:                                               ; preds = %4
-  %.not21.i = icmp ugt i32 %12, %1
+  %.not21.i = icmp ult i32 %1, %12
   %14 = add nsw i32 %12, -1
   %spec.select.i = select i1 %.not21.i, i32 %1, i32 %14
   %15 = getelementptr inbounds i8, ptr %0, i64 1
@@ -2158,7 +2158,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT16DeltaSetIndexMap3mapEj(ptr noun
   br i1 %.not.i4, label %_ZNK2OT24DeltaSetIndexMapFormat01INS_7IntTypeItLj2EEEE3mapEj.exit, label %58
 
 58:                                               ; preds = %39
-  %.not21.i5 = icmp ugt i32 %57, %1
+  %.not21.i5 = icmp ult i32 %1, %57
   %59 = add i32 %57, -1
   %spec.select.i6 = select i1 %.not21.i5, i32 %1, i32 %59
   %60 = getelementptr inbounds i8, ptr %0, i64 1
@@ -2224,7 +2224,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = or disjoint i32 %9, %12
-  %.not = icmp ugt i32 %13, %1
+  %.not = icmp ult i32 %1, %13
   br i1 %.not, label %14, label %.loopexit
 
 14:                                               ; preds = %6
@@ -2399,7 +2399,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT13VarRegionList8evaluateEjPKijP
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = or disjoint i32 %9, %12
-  %.not = icmp ugt i32 %13, %1
+  %.not = icmp ult i32 %1, %13
   br i1 %.not, label %14, label %84
 
 14:                                               ; preds = %5
@@ -2633,7 +2633,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_
 
 31:                                               ; preds = %30
   %32 = call noundef ptr @hb_blob_get_empty()
-  %.not3.i = icmp eq ptr %32, %.1
+  %.not3.i = icmp eq ptr %.1, %32
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit, label %33
 
 33:                                               ; preds = %31
@@ -3054,7 +3054,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_
 
 31:                                               ; preds = %30
   %32 = call noundef ptr @hb_blob_get_empty()
-  %.not3.i = icmp eq ptr %32, %.1
+  %.not3.i = icmp eq ptr %.1, %32
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit, label %33
 
 33:                                               ; preds = %31

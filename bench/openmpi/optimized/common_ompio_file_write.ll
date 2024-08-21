@@ -893,7 +893,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_build_io_array(ptr nocapture nound
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load i64, ptr %18, align 8
   %20 = add nsw i32 %2, -1
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %12

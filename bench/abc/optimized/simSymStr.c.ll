@@ -446,7 +446,7 @@ Sim_SymmsPartitionNodes.exit.i:                   ; preds = %Vec_PtrPush.exit.i.
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %223 ]
   %220 = getelementptr inbounds i32, ptr %218, i64 %indvars.iv.i.i.i
   %221 = load i32, ptr %220, align 4
-  %222 = icmp eq i32 %221, %173
+  %222 = icmp eq i32 %173, %221
   br i1 %222, label %._crit_edge.loopexit.i.i.i, label %223
 
 223:                                              ; preds = %219
@@ -1135,7 +1135,7 @@ define internal fastcc void @Sim_SymmsAppendFromGroup(ptr nocapture noundef read
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %98 ]
   %95 = getelementptr inbounds i32, ptr %93, i64 %indvars.iv.i
   %96 = load i32, ptr %95, align 4
-  %97 = icmp eq i32 %96, %.030
+  %97 = icmp eq i32 %.030, %96
   br i1 %97, label %._crit_edge.loopexit.i, label %98
 
 98:                                               ; preds = %94

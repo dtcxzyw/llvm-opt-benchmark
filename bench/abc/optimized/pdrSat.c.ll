@@ -296,7 +296,7 @@ define ptr @Pdr_ManFetchSolver(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 4
   %.val4348 = load i32, ptr %34, align 4
-  %35 = icmp sgt i32 %.val4348, %1
+  %35 = icmp slt i32 %1, %.val4348
   br i1 %35, label %.lr.ph50, label %.critedge
 
 .lr.ph50:                                         ; preds = %16, %.critedge2

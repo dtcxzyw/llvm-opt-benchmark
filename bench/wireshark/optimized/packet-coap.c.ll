@@ -605,10 +605,10 @@ define hidden i32 @dissect_coap_options(ptr noundef %0, ptr noundef %1, ptr noun
   %124 = getelementptr [29 x %struct.coap_option_range_t], ptr @coi, i64 0, i64 %123
   %125 = getelementptr inbounds i8, ptr %124, i64 4
   %126 = load i32, ptr %125, align 4
-  %127 = icmp sgt i32 %126, %.0310.i
+  %127 = icmp slt i32 %.0310.i, %126
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %124, i64 8
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
-  %128 = icmp slt i32 %.pre.i.i, %.0310.i
+  %128 = icmp sgt i32 %.0310.i, %.pre.i.i
   %or.cond35.i.i = select i1 %127, i1 true, i1 %128
   br i1 %or.cond35.i.i, label %.thread._crit_edge.i.i, label %coap_opt_check.exit.i
 

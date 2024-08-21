@@ -4808,7 +4808,7 @@ define void @mca_pml_ob1_handle_cid(ptr noundef %0, i32 noundef %1, ptr nocaptur
   %6 = getelementptr inbounds i8, ptr %5, i64 224
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  %.not.i = icmp sgt i32 %8, %1
+  %.not.i = icmp slt i32 %1, %8
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %3

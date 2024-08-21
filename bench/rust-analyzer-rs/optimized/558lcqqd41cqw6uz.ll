@@ -626,7 +626,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc50,
 150:                                              ; preds = %.noexc86, %.lr.ph.i
   %151 = phi i64 [ 0, %.lr.ph.i ], [ %154, %.noexc86 ]
   %.sroa.26.0.copyload.i = load i8, ptr %.sroa.26.0..sroa_idx.i, align 8, !noalias !49
-  %152 = icmp ult i8 %63, %.sroa.26.0.copyload.i
+  %152 = icmp ugt i8 %.sroa.26.0.copyload.i, %63
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !49
   br i1 %152, label %.loopexit584, label %153
 
@@ -732,7 +732,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc50,
 .noexc58:                                         ; preds = %.lr.ph.i.i, %.noexc57
   %.0.i91 = phi i64 [ 0, %.noexc57 ], [ %200, %.lr.ph.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %202 = icmp ugt i64 %167, %144
+  %202 = icmp ult i64 %144, %167
   br i1 %202, label %203, label %.invoke548
 
 203:                                              ; preds = %.noexc58
@@ -1598,7 +1598,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc54,
 152:                                              ; preds = %.noexc90, %.lr.ph.i
   %153 = phi i64 [ 0, %.lr.ph.i ], [ %156, %.noexc90 ]
   %.sroa.26.0.copyload.i = load i8, ptr %.sroa.26.0..sroa_idx.i, align 8, !noalias !157
-  %154 = icmp ult i8 %65, %.sroa.26.0.copyload.i
+  %154 = icmp ugt i8 %.sroa.26.0.copyload.i, %65
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !157
   br i1 %154, label %.loopexit679, label %155
 
@@ -1704,7 +1704,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc54,
 .noexc62:                                         ; preds = %.lr.ph.i.i, %.noexc61
   %.0.i95 = phi i64 [ 0, %.noexc61 ], [ %202, %.lr.ph.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
-  %204 = icmp ugt i64 %169, %146
+  %204 = icmp ult i64 %146, %169
   br i1 %204, label %205, label %.invoke633
 
 205:                                              ; preds = %.noexc62
@@ -3567,7 +3567,7 @@ _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit88.thread: ; preds = %"_Z
 define internal fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE(i8 %.0.val, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !noundef !8
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -3589,7 +3589,7 @@ define internal fastcc noundef i64 @_ZN3fst3raw4node13StateAnyTrans10trans_addr1
   %18 = icmp ugt i64 %4, 32
   %or.cond = and i1 %18, %17
   %.08.neg = select i1 %or.cond, i64 -256, i64 0
-  %19 = mul i64 %11, %1
+  %19 = mul i64 %1, %11
   %.neg3 = select i1 %.not, i64 -2, i64 -1
   %20 = add i64 %.neg3, %13
   %21 = add i64 %4, %11
@@ -3711,7 +3711,7 @@ define internal fastcc void @_ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea
   %19 = lshr i8 %4, 4
   %narrow = add nuw nsw i8 %19, 1
   %20 = zext nneg i8 %narrow to i64
-  %.neg1 = mul i64 %6, %1
+  %.neg1 = mul i64 %1, %6
   %.neg2 = mul i64 %15, %20
   %reass.add = add i64 %.neg2, %.neg1
   %.neg4 = sub nsw i64 %.08.neg, %6
@@ -4082,7 +4082,7 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %27, %
   %.012.i.i = phi i64 [ %73, %71 ], [ 0, %.lr.ph.i.preheader.i ]
   %69 = phi ptr [ %72, %71 ], [ %68, %.lr.ph.i.preheader.i ]
   %.val7.i.i = load i8, ptr %69, align 1, !noalias !451, !noundef !8
-  %70 = icmp eq i8 %.val7.i.i, %1
+  %70 = icmp eq i8 %1, %.val7.i.i
   br i1 %70, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i", label %71
 
 71:                                               ; preds = %.lr.ph.i.i

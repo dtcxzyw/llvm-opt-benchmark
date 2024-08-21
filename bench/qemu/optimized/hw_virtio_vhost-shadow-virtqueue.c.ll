@@ -1115,7 +1115,7 @@ for.body.us:                                      ; preds = %for.cond.preheader,
   %arrayidx50.us = getelementptr i16, ptr %20, i64 %idxprom.us
   %21 = load i16, ptr %arrayidx50.us, align 2
   %conv14.us = zext i32 %add.us to i64
-  %cmp15.us = icmp ult i64 %conv14.us, %num
+  %cmp15.us = icmp ugt i64 %num, %conv14.us
   br i1 %cmp15.us, label %for.body.us, label %for.end, !llvm.loop !18
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end36
@@ -1124,7 +1124,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %n.032 = phi i32 [ %add, %if.end36 ], [ 0, %for.cond.preheader ]
   %add = add i32 %n.032, 1
   %conv19 = zext i32 %add to i64
-  %cmp20 = icmp ult i64 %conv19, %num
+  %cmp20 = icmp ugt i64 %num, %conv19
   %idxprom = zext i16 %i.033 to i64
   br i1 %cmp20, label %if.then22, label %if.else
 

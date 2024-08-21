@@ -1694,7 +1694,7 @@ default.unreachable:                              ; preds = %48, %1
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.exit.i.i.i.i.i.i": ; preds = %88, %82
   %.2.i.i.i.i.i.i.i = phi i64 [ %89, %88 ], [ %84, %82 ]
   %93 = sub i64 20, %.2.i.i.i.i.i.i.i
-  %94 = icmp ult i64 %16, %93
+  %94 = icmp ugt i64 %93, %16
   br i1 %94, label %95, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417h55adec7677d2f144E.exit.i.i.i.i"
 
 95:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.exit.i.i.i.i.i.i"
@@ -1808,7 +1808,7 @@ default.unreachable:                              ; preds = %48, %1
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.exit.i.i.i.i.i.i": ; preds = %145, %144
   %.3.i.i.i.i.i.i.i = phi i64 [ %.2.i.i.i6.i.i.i.i, %144 ], [ %146, %145 ]
   %148 = sub i64 20, %.3.i.i.i.i.i.i.i
-  %149 = icmp ult i64 %16, %148
+  %149 = icmp ugt i64 %148, %16
   br i1 %149, label %150, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h5a443b8f381817ebE.exit.i.i.i.i"
 
 150:                                              ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.exit.i.i.i.i.i.i"
@@ -1847,7 +1847,7 @@ default.unreachable:                              ; preds = %48, %1
   %162 = load i64, ptr %19, align 8, !alias.scope !481, !noalias !488, !noundef !5
   %163 = load i64, ptr %11, align 8, !alias.scope !493, !noalias !488, !noundef !5
   %164 = sub i64 %163, %162
-  %165 = icmp ult i64 %164, %161
+  %165 = icmp ugt i64 %161, %164
   br i1 %165, label %166, label %_ZN10serde_json3ser9Formatter9write_f6417hefb3f403ece3ddccE.exit.i.i.i.i.i
 
 166:                                              ; preds = %.noexc6.i
@@ -2116,7 +2116,7 @@ _ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit.i.i22.i.i.i: ; preds = %"_ZN
   %269 = add nuw i64 %.sroa.01.09.i.i.i.i.i.i, 1
   %270 = load i64, ptr %.val.i21.i.i.i, align 8, !alias.scope !641, !noalias !650, !noundef !5
   %271 = sub i64 %270, %268
-  %272 = icmp ult i64 %271, %267
+  %272 = icmp ugt i64 %267, %271
   br i1 %272, label %273, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6fd4a639fcbb4f06E.llvm.16197732946508626304.exit.i.i.i.i.i.i"
 
 273:                                              ; preds = %.lr.ph.i.i.i.i.i.i

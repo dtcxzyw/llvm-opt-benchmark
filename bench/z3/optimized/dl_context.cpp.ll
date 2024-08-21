@@ -15407,7 +15407,7 @@ entry:
 _ZNK6vectorI6symbolLb0EjE4sizeEv.exit:            ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not = icmp ugt i32 %1, %el_num
+  %cmp.not = icmp ult i32 %el_num, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit
@@ -15629,7 +15629,7 @@ entry:
 _ZNK6vectorImLb0EjE4sizeEv.exit:                  ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not = icmp ugt i32 %1, %el_num
+  %cmp.not = icmp ult i32 %el_num, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry, %_ZNK6vectorImLb0EjE4sizeEv.exit
@@ -19998,7 +19998,7 @@ while.body65:                                     ; preds = %while.cond62
 
 if.else.i217:                                     ; preds = %while.body65
   %70 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %70, %69
+  %cmp3.not.i = icmp ugt i32 %69, %70
   %71 = xor i32 %70, -1
   %.sink388 = select i1 %cmp3.not.i, i32 %71, i32 -1
   %sub9.i = add i32 %69, %.sink388

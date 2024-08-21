@@ -1179,7 +1179,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @agp_aperture_valid(i64 nound
 
 4:                                                ; preds = %2
   %5 = zext i32 %1 to i64
-  %6 = add i64 %5, %0
+  %6 = add i64 %0, %5
   %7 = icmp ugt i64 %6, 4294967296
   br i1 %7, label %8, label %10
 

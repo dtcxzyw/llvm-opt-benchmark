@@ -18,8 +18,8 @@ define hidden noalias noundef ptr @_Z12pj_gauss_iniddPdS_(double noundef %0, dou
   %12 = fmul double %11, %11
   %13 = fsub double 1.000000e+00, %8
   %14 = tail call double @sqrt(double noundef %13) #9
-  %15 = fneg double %8
-  %16 = fmul double %10, %15
+  %15 = fneg double %10
+  %16 = fmul double %8, %15
   %17 = tail call double @llvm.fmuladd.f64(double %16, double %10, double 1.000000e+00)
   %18 = fdiv double %14, %17
   store double %18, ptr %3, align 8
@@ -41,10 +41,10 @@ define hidden noalias noundef ptr @_Z12pj_gauss_iniddPdS_(double noundef %0, dou
   %28 = tail call double @asin(double noundef %27) #9
   store double %28, ptr %2, align 8
   %29 = fmul double %23, 5.000000e-01
-  %30 = fmul double %29, %0
+  %30 = fmul double %0, %29
   %31 = getelementptr inbounds i8, ptr %5, i64 24
   store double %30, ptr %31, align 8
-  %32 = fmul double %10, %0
+  %32 = fmul double %0, %10
   %33 = fsub double 1.000000e+00, %32
   %34 = fadd double %32, 1.000000e+00
   %35 = fdiv double %33, %34
@@ -134,7 +134,7 @@ define hidden { double, double } @_Z8pj_gaussP6pj_ctx5PJ_LPPKv(ptr nocapture nou
   %23 = tail call double @atan(double noundef %22) #9
   %24 = tail call double @llvm.fmuladd.f64(double %23, double 2.000000e+00, double 0xBFF921FB54442D18)
   %25 = load double, ptr %3, align 8
-  %26 = fmul double %25, %1
+  %26 = fmul double %1, %25
   %.fca.0.insert = insertvalue { double, double } poison, double %26, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %24, 1
   ret { double, double } %.fca.1.insert

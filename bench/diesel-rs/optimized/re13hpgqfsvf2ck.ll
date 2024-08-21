@@ -116,7 +116,7 @@ define hidden noundef i64 @"_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u
   store i64 %28, ptr %13, align 8, !alias.scope !7
   %33 = lshr i128 %31, 64
   %34 = trunc nuw i128 %33 to i64
-  %35 = add i64 %34, %0
+  %35 = add i64 %0, %34
   ret i64 %35
 }
 
@@ -183,7 +183,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   store i64 %28, ptr %13, align 8, !alias.scope !22
   %33 = lshr i128 %31, 64
   %34 = trunc nuw i128 %33 to i64
-  %35 = add i64 %34, %0
+  %35 = add i64 %0, %34
   ret i64 %35
 }
 
@@ -268,7 +268,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   store i64 %48, ptr %33, align 8, !alias.scope !38
   %54 = lshr i128 %51, 64
   %55 = trunc nuw i128 %54 to i64
-  %56 = add i64 %55, %0
+  %56 = add i64 %0, %55
   br label %57
 
 57:                                               ; preds = %9, %53
@@ -1118,7 +1118,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng9gen_range17h0425697eb69c44cdE(ptr no
   store i64 %26, ptr %11, align 8, !alias.scope !154
   %31 = lshr i128 %29, 64
   %32 = trunc nuw i128 %31 to i64
-  %33 = add i64 %32, %1
+  %33 = add i64 %1, %32
   ret i64 %33
 
 34:                                               ; preds = %3
@@ -1688,7 +1688,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !240
   %140 = getelementptr inbounds i8, ptr %19, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %140, i64 32, i1 false)
-  %141 = icmp eq i64 %122, %.lcssa215
+  %141 = icmp eq i64 %.lcssa215, %122
   br i1 %141, label %145, label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %145, %133
@@ -1756,7 +1756,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.24..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.038.i.sroa.4)
-  %168 = icmp eq i64 %161, %163
+  %168 = icmp eq i64 %163, %161
   br i1 %168, label %170, label %169
 
 169:                                              ; preds = %158
@@ -2070,7 +2070,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %295 = add nuw nsw i64 %281, 2
   %296 = getelementptr inbounds i8, ptr %spec.select.i, i64 632
   %297 = add nsw i64 %.sroa.7.0.i, 2
-  %298 = icmp ult i64 %297, %295
+  %298 = icmp ugt i64 %295, %297
   br i1 %298, label %299, label %304
 
 299:                                              ; preds = %293
@@ -4197,7 +4197,7 @@ define { i64, i64 } @"_ZN89_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$di
   %3 = load ptr, ptr %0, align 8, !alias.scope !791, !nonnull !21, !noundef !21
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8, !noalias !791, !noundef !21
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   %. = zext i1 %6 to i64
   %7 = insertvalue { i64, i64 } poison, i64 %., 0
   %8 = insertvalue { i64, i64 } %7, i64 %1, 1
@@ -4223,7 +4223,7 @@ define { i64, i64 } @"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$di
   %13 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel4util9once_cell17OnceCell$LT$T$GT$11get_or_init17h2f142d5748b9db19E"(ptr noundef nonnull align 8 %8, ptr noundef nonnull align 8 %7), !noalias !797
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !noalias !797, !noundef !21
-  %.not.i.i.i.i = icmp ugt i64 %15, %10
+  %.not.i.i.i.i = icmp ult i64 %10, %15
   %16 = getelementptr inbounds i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !797, !nonnull !21
   %18 = getelementptr inbounds { i64, [2 x i64] }, ptr %17, i64 %10
@@ -4273,7 +4273,7 @@ define { ptr, i64 } @"_ZN106_$LT$diesel..pg..connection..row..PgField$u20$as$u20
   %6 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel4util9once_cell17OnceCell$LT$T$GT$11get_or_init17h2f142d5748b9db19E"(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 8 %2)
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !21
-  %.not.i = icmp ugt i64 %8, %4
+  %.not.i = icmp ult i64 %4, %8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !21
   %11 = getelementptr inbounds { i64, [2 x i64] }, ptr %10, i64 %4

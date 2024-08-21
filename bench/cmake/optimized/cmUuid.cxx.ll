@@ -81,7 +81,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T
 22:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T_SB_SA_.exit.i
   %23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   %24 = add i64 %13, %23
-  %25 = icmp ult i64 %13, %24
+  %25 = icmp ugt i64 %24, %13
   br i1 %25, label %26, label %53
 
 26:                                               ; preds = %22
@@ -159,7 +159,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %51, %_ZNSt
   br label %.noexc8
 
 53:                                               ; preds = %22
-  %54 = icmp ugt i64 %13, %24
+  %54 = icmp ult i64 %24, %13
   %55 = getelementptr inbounds i8, ptr %.sroa.0.4, i64 %24
   %spec.select = select i1 %54, ptr %55, ptr %20
   br label %.noexc8
@@ -395,7 +395,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T
 22:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T_SB_SA_.exit.i
   %23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   %24 = add i64 %13, %23
-  %25 = icmp ult i64 %13, %24
+  %25 = icmp ugt i64 %24, %13
   br i1 %25, label %26, label %53
 
 26:                                               ; preds = %22
@@ -473,7 +473,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %51, %_ZNSt
   br label %.noexc8
 
 53:                                               ; preds = %22
-  %54 = icmp ugt i64 %13, %24
+  %54 = icmp ult i64 %24, %13
   %55 = getelementptr inbounds i8, ptr %.sroa.0.4, i64 %24
   %spec.select = select i1 %54, ptr %55, ptr %20
   br label %.noexc8
@@ -714,7 +714,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef no
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -797,7 +797,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40

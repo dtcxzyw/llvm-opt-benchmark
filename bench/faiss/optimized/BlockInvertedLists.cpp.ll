@@ -144,7 +144,7 @@ define noundef i64 @_ZN5faiss18BlockInvertedLists11add_entriesEmmPKlPKh(ptr noca
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %29, label %13
 
 13:                                               ; preds = %9
@@ -198,7 +198,7 @@ define noundef i64 @_ZN5faiss18BlockInvertedLists11add_entriesEmmPKlPKh(ptr noca
   %38 = sub i64 %36, %37
   %39 = ashr exact i64 %38, 3
   %40 = add i64 %39, %2
-  %41 = icmp ult i64 %39, %40
+  %41 = icmp ugt i64 %40, %39
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %29
@@ -206,7 +206,7 @@ define noundef i64 @_ZN5faiss18BlockInvertedLists11add_entriesEmmPKlPKh(ptr noca
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 43:                                               ; preds = %29
-  %44 = icmp ugt i64 %39, %40
+  %44 = icmp ult i64 %40, %39
   br i1 %44, label %45, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 45:                                               ; preds = %43
@@ -460,7 +460,7 @@ define void @_ZN5faiss18BlockInvertedLists6resizeEmm(ptr nocapture noundef nonnu
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
-  %14 = icmp ult i64 %13, %2
+  %14 = icmp ugt i64 %2, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
@@ -469,7 +469,7 @@ define void @_ZN5faiss18BlockInvertedLists6resizeEmm(ptr nocapture noundef nonnu
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 17:                                               ; preds = %3
-  %18 = icmp ugt i64 %13, %2
+  %18 = icmp ult i64 %2, %13
   br i1 %18, label %19, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 19:                                               ; preds = %17
@@ -1295,7 +1295,7 @@ define noundef ptr @_ZNK5faiss24BlockInvertedListsIOHook4readEPNS_8IOReaderEi(pt
   %146 = ptrtoint ptr %144 to i64
   %147 = sub i64 %145, %146
   %148 = sdiv exact i64 %147, 24
-  %149 = icmp ult i64 %148, %141
+  %149 = icmp ugt i64 %141, %148
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %139
@@ -1304,7 +1304,7 @@ define noundef ptr @_ZNK5faiss24BlockInvertedListsIOHook4readEPNS_8IOReaderEi(pt
   br label %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
 
 152:                                              ; preds = %139
-  %153 = icmp ugt i64 %148, %141
+  %153 = icmp ult i64 %141, %148
   br i1 %153, label %154, label %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
 
 154:                                              ; preds = %152
@@ -1341,7 +1341,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %150, %152, %154, %_
   %165 = ptrtoint ptr %163 to i64
   %166 = sub i64 %164, %165
   %167 = sdiv exact i64 %166, 24
-  %168 = icmp ult i64 %167, %160
+  %168 = icmp ugt i64 %160, %167
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
@@ -1350,7 +1350,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %150, %152, %154, %_
   br label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit
 
 171:                                              ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
-  %172 = icmp ugt i64 %167, %160
+  %172 = icmp ult i64 %160, %167
   br i1 %172, label %173, label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit
 
 173:                                              ; preds = %171
@@ -1490,7 +1490,7 @@ _ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit: ; preds = %16
   %236 = ptrtoint ptr %234 to i64
   %237 = sub i64 %235, %236
   %238 = ashr exact i64 %237, 3
-  %239 = icmp ult i64 %238, %211
+  %239 = icmp ugt i64 %211, %238
   br i1 %239, label %240, label %242
 
 240:                                              ; preds = %229
@@ -1499,7 +1499,7 @@ _ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit: ; preds = %16
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 242:                                              ; preds = %229
-  %243 = icmp ugt i64 %238, %211
+  %243 = icmp ult i64 %211, %238
   br i1 %243, label %244, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 244:                                              ; preds = %242
@@ -1801,7 +1801,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %4, %._ZNSt6vectorIS
   %15 = ptrtoint ptr %11 to i64
   %16 = sub i64 %14, %15
   %17 = sdiv exact i64 %16, 24
-  %18 = icmp ult i64 %17, %1
+  %18 = icmp ugt i64 %1, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
@@ -1810,7 +1810,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %4, %._ZNSt6vectorIS
           to label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit unwind label %27
 
 21:                                               ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
-  %22 = icmp ugt i64 %17, %1
+  %22 = icmp ult i64 %1, %17
   br i1 %22, label %23, label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit
 
 23:                                               ; preds = %21
@@ -2119,7 +2119,7 @@ _ZNKSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE12_M_check_lenEmPKc.exit: ; 
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
   %39 = tail call ptr @__cxa_begin_catch(ptr %38) #22
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %26
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %26, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN5faiss12AlignedTableIhLi32EEEEvT_S4_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %36, %.lr.ph.i.i.i.i.i.i.i
@@ -2253,7 +2253,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN5faiss22
 16:                                               ; preds = %14
   %17 = load ptr, ptr %3, align 8
   %18 = load ptr, ptr %0, align 8
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %15, i64 %5)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %5, i64 %15)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %18, i64 %.sroa.speculated.i, i1 false)
   br label %20
 
@@ -2338,7 +2338,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %3, %._ZNSt6vectorIS
   %18 = ptrtoint ptr %14 to i64
   %19 = sub i64 %17, %18
   %20 = sdiv exact i64 %19, 24
-  %21 = icmp ult i64 %20, %1
+  %21 = icmp ugt i64 %1, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
@@ -2347,7 +2347,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %3, %._ZNSt6vectorIS
           to label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit unwind label %30
 
 24:                                               ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
-  %25 = icmp ugt i64 %20, %1
+  %25 = icmp ult i64 %1, %20
   br i1 %25, label %26, label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit
 
 26:                                               ; preds = %24
@@ -2475,7 +2475,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread: ; preds = %5
 24:                                               ; preds = %22
   %25 = load ptr, ptr %3, align 8
   %26 = load ptr, ptr %0, align 8
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %23, i64 %.07.i36)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.07.i36, i64 %23)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %26, i64 %.sroa.speculated.i, i1 false)
   br label %28
 

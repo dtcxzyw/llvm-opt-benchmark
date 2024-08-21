@@ -2205,7 +2205,7 @@ print_modules.exit:                               ; preds = %532, %513
   %.6201356 = phi i32 [ 4, %.thread ], [ %.4199, %._crit_edge437 ]
   %.4207354 = phi i32 [ %.1204, %.thread ], [ %.2205, %._crit_edge437 ]
   %.5228350 = phi i32 [ %.6229, %.thread ], [ %.3226, %._crit_edge437 ]
-  %562 = icmp slt i32 %561, %0
+  %562 = icmp sgt i32 %0, %561
   br i1 %562, label %563, label %576
 
 563:                                              ; preds = %560
@@ -2252,7 +2252,7 @@ print_modules.exit:                               ; preds = %532, %513
 579:                                              ; preds = %578, %576
   %580 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 16), align 8
   %.not313 = icmp eq ptr %580, null
-  %581 = icmp slt i32 %577, %0
+  %581 = icmp sgt i32 %0, %577
   %or.cond470 = select i1 %.not313, i1 %581, i1 false
   br i1 %or.cond470, label %582, label %602
 
@@ -2298,7 +2298,7 @@ print_modules.exit:                               ; preds = %532, %513
 601:                                              ; preds = %.lr.ph415, %598
   %indvars.iv.next433 = add nsw i64 %indvars.iv432, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next433 to i32
-  %exitcond435.not = icmp eq i32 %lftr.wideiv, %0
+  %exitcond435.not = icmp eq i32 %0, %lftr.wideiv
   br i1 %exitcond435.not, label %._crit_edge, label %.lr.ph415
 
 ._crit_edge:                                      ; preds = %601
@@ -3538,7 +3538,7 @@ define internal i64 @sapi_cgi_read_post(ptr nocapture noundef %0, i64 noundef %1
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 32), align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
   %5 = sub nsw i64 %3, %4
-  %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 %1)
+  %6 = tail call i64 @llvm.umin.i64(i64 %1, i64 %5)
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

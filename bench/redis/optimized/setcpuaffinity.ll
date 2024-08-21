@@ -44,7 +44,7 @@ next_num.exit:                                    ; preds = %lor.lhs.false2.i
   %call6.i = call i64 @strtoul(ptr noundef nonnull %q.0116, ptr noundef nonnull %end, i32 noundef 10) #8
   %conv7.i = trunc i64 %call6.i to i32
   %4 = load ptr, ptr %end, align 8
-  %cmp8.i.not = icmp eq ptr %4, %q.0116
+  %cmp8.i.not = icmp eq ptr %q.0116, %4
   br i1 %cmp8.i.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %next_num.exit
@@ -82,7 +82,7 @@ next_num.exit54:                                  ; preds = %lor.lhs.false2.i43
   %call6.i49 = call i64 @strtoul(ptr noundef nonnull %incdec.ptr.i30, ptr noundef nonnull %end, i32 noundef 10) #8
   %conv7.i50 = trunc i64 %call6.i49 to i32
   %9 = load ptr, ptr %end, align 8
-  %cmp8.i51.not = icmp eq ptr %9, %incdec.ptr.i30
+  %cmp8.i51.not = icmp eq ptr %incdec.ptr.i30, %9
   br i1 %cmp8.i51.not, label %return, label %if.end14
 
 if.end14:                                         ; preds = %next_num.exit54
@@ -122,7 +122,7 @@ next_num.exit76:                                  ; preds = %lor.lhs.false2.i65
   %call6.i71 = call i64 @strtoul(ptr noundef nonnull %incdec.ptr.i61, ptr noundef nonnull %end, i32 noundef 10) #8
   %conv7.i72 = trunc i64 %call6.i71 to i32
   %15 = load ptr, ptr %end, align 8
-  %cmp8.i73 = icmp eq ptr %15, %incdec.ptr.i61
+  %cmp8.i73 = icmp eq ptr %incdec.ptr.i61, %15
   %cmp33 = icmp eq i32 %conv7.i72, 0
   %or.cond = select i1 %cmp8.i73, i1 true, i1 %cmp33
   br i1 %or.cond, label %return, label %if.end38

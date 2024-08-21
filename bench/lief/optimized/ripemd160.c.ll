@@ -1909,7 +1909,7 @@ define hidden noundef i32 @mbedtls_ripemd160_update(ptr nocapture noundef %0, pt
   br i1 %.not, label %26, label %18
 
 18:                                               ; preds = %17
-  %.not44 = icmp ugt i64 %9, %2
+  %.not44 = icmp ult i64 %2, %9
   br i1 %.not44, label %._crit_edge.thread, label %19
 
 19:                                               ; preds = %18
@@ -2016,7 +2016,7 @@ define hidden noundef i32 @mbedtls_ripemd160_finish(ptr nocapture noundef %0, pt
   br i1 %.not.i, label %49, label %41
 
 41:                                               ; preds = %40
-  %.not44.i = icmp ugt i32 %34, %32
+  %.not44.i = icmp ult i32 %32, %34
   br i1 %.not44.i, label %._crit_edge.thread.i, label %42
 
 42:                                               ; preds = %41

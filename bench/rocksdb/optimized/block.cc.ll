@@ -958,7 +958,7 @@ if.then.i.i:                                      ; preds = %if.then
   %raw_key_120 = getelementptr inbounds i8, ptr %this, i64 72
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %11, %9
+  %cmp.i.i.i = icmp ugt i64 %9, %11
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -6364,7 +6364,7 @@ if.then23:                                        ; preds = %_ZN7rocksdb13DataBl
   %statistics_.i = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load atomic i64, ptr %statistics_.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %26 to ptr
-  %cmp27.not = icmp eq ptr %atomic-temp.i.0.i.i, %stats
+  %cmp27.not = icmp eq ptr %stats, %atomic-temp.i.0.i.i
   br i1 %cmp27.not, label %return, label %if.then28
 
 if.then28:                                        ; preds = %if.then23
@@ -9545,7 +9545,7 @@ if.end:                                           ; preds = %if.else, %if.then2
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %buf) #16
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %4 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %4, %call2.i
+  %cmp.i.i.i = icmp ugt i64 %call2.i, %4
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %invoke.cont7
 
 if.then.i.i.i:                                    ; preds = %if.end
@@ -9733,7 +9733,7 @@ invoke.cont31:                                    ; preds = %if.end
   %11 = load i64, ptr %size_.i.i.i, align 8
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %12 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %12, %11
+  %cmp.i.i.i = icmp ugt i64 %11, %12
   br i1 %cmp.i.i.i, label %if.then.i.i.i21, label %invoke.cont32
 
 if.then.i.i.i21:                                  ; preds = %invoke.cont31
@@ -10220,7 +10220,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i19
@@ -10856,7 +10856,7 @@ entry:
   %value_delta_encoded_ = getelementptr inbounds i8, ptr %this, i64 320
   %4 = load i8, ptr %value_delta_encoded_, align 8
   %tobool4 = trunc i8 %4 to i1
-  %5 = and i1 %tobool4, %is_shared
+  %5 = and i1 %is_shared, %tobool4
   %cond = select i1 %5, ptr %decoded_value_, ptr null
   call void @_ZN7rocksdb10IndexValue10DecodeFromEPNS_5SliceEbPKNS_11BlockHandleE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %decode_s, ptr noundef nonnull align 8 dereferenceable(32) %decoded_value_, ptr noundef nonnull %v, i1 noundef zeroext %tobool, ptr noundef %cond)
   %6 = load ptr, ptr %value_, align 8
@@ -10879,7 +10879,7 @@ if.then:                                          ; preds = %entry
   %9 = load i64, ptr %size_.i.i.i, align 8
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %10, %9
+  %cmp.i.i.i = icmp ugt i64 %9, %10
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %invoke.cont33
 
 if.then.i.i.i:                                    ; preds = %if.then
@@ -11097,7 +11097,7 @@ if.end:                                           ; preds = %if.else, %if.then2
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %buf) #16
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %4 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %4, %call2.i
+  %cmp.i.i.i = icmp ugt i64 %call2.i, %4
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %invoke.cont7
 
 if.then.i.i.i:                                    ; preds = %if.end
@@ -11796,7 +11796,7 @@ if.else17:                                        ; preds = %if.else
   %result.0.copyload.i.i.i = load i64, ptr %add.ptr2.i.i, align 1
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %9 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %9, %8
+  %cmp.i.i.i = icmp ugt i64 %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEmNS_9ValueTypeEPS2_.exit
 
 if.then.i.i.i:                                    ; preds = %if.else17
@@ -12405,7 +12405,7 @@ if.else17:                                        ; preds = %if.else
   %result.0.copyload.i.i.i = load i64, ptr %add.ptr2.i.i, align 1
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %9 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %9, %8
+  %cmp.i.i.i = icmp ugt i64 %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEmNS_9ValueTypeEPS2_.exit
 
 if.then.i.i.i:                                    ; preds = %if.else17

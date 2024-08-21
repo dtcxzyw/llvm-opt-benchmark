@@ -1510,11 +1510,11 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %pcNorOut.0105.us = phi ptr [ %call19122127, %for.body.us.preheader ], [ %pcNorOut.2.us, %for.cond48.for.cond.loopexit_crit_edge.us ]
   %pcUVOut.0104.us = phi ptr [ %cond, %for.body.us.preheader ], [ %pcUVOut.2.us, %for.cond48.for.cond.loopexit_crit_edge.us ]
   %21 = trunc nuw i64 %indvars.iv116 to i32
-  %mul44.us = mul i32 %21, %width
+  %mul44.us = mul i32 %width, %21
   %conv45.us = zext i32 %mul44.us to i64
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %22 = trunc nuw i64 %indvars.iv.next117 to i32
-  %mul46.us = mul i32 %22, %width
+  %mul46.us = mul i32 %width, %22
   %conv47.us = zext i32 %mul46.us to i64
   br label %for.body51.us
 

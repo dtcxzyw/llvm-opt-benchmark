@@ -660,7 +660,7 @@ define dso_local i32 @ext4_try_to_write_inline_data(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !annotation !5
   %9 = zext i32 %3 to i64
-  %10 = add i64 %9, %2
+  %10 = add i64 %2, %9
   %11 = tail call i32 @ext4_get_max_inline_size(ptr noundef %1)
   %12 = sext i32 %11 to i64
   %13 = icmp sgt i64 %10, %12
@@ -1282,7 +1282,7 @@ define dso_local i32 @ext4_write_inline_data_end(ptr noundef %0, i64 noundef %1,
 
 63:                                               ; preds = %59
   %64 = zext i32 %3 to i64
-  %65 = add i64 %64, %1
+  %65 = add i64 %1, %64
   %66 = getelementptr i8, ptr %0, i64 732
   %67 = load i16, ptr %66, align 4
   %68 = zext i16 %67 to i64
@@ -1315,7 +1315,7 @@ define dso_local i32 @ext4_write_inline_data_end(ptr noundef %0, i64 noundef %1,
   %87 = shl nuw i64 %83, 32
   %88 = ashr exact i64 %87, 32
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 1 %78, i64 %88, i1 false)
-  %89 = icmp eq i32 %84, %3
+  %89 = icmp eq i32 %3, %84
   br i1 %89, label %110, label %..thread11_crit_edge
 
 ..thread11_crit_edge:                             ; preds = %80
@@ -1372,7 +1372,7 @@ define dso_local i32 @ext4_write_inline_data_end(ptr noundef %0, i64 noundef %1,
 
 118:                                              ; preds = %117, %114
   %119 = zext i32 %3 to i64
-  %120 = add i64 %119, %1
+  %120 = add i64 %1, %119
   %121 = getelementptr inbounds i8, ptr %0, i64 80
   %122 = load i64, ptr %121, align 8
   %123 = icmp slt i64 %122, %120
@@ -1455,7 +1455,7 @@ define dso_local i32 @ext4_write_inline_data_end(ptr noundef %0, i64 noundef %1,
   %157 = phi i32 [ %3, %28 ], [ %3, %150 ], [ 0, %.thread ], [ 0, %155 ]
   %158 = phi i32 [ %20, %28 ], [ 0, %150 ], [ 0, %.thread ], [ 0, %155 ]
   %159 = zext i32 %2 to i64
-  %160 = add i64 %159, %1
+  %160 = add i64 %1, %159
   %161 = getelementptr inbounds i8, ptr %0, i64 80
   %162 = load i64, ptr %161, align 8
   %163 = icmp sgt i64 %160, %162
@@ -1530,7 +1530,7 @@ define dso_local i32 @ext4_da_write_inline_data_begin(ptr noundef %0, ptr nounde
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 40
   %13 = trunc i64 %2 to i32
-  %14 = add i32 %13, %3
+  %14 = add i32 %3, %13
   %15 = getelementptr inbounds i8, ptr %0, i64 64
   %16 = getelementptr i8, ptr %1, i64 -208
   %17 = getelementptr i8, ptr %1, i64 -216
@@ -4193,7 +4193,7 @@ define internal fastcc i32 @ext4_update_inline_data(ptr noundef %0, ptr noundef 
   %11 = getelementptr i8, ptr %1, i64 732
   %12 = load i16, ptr %11, align 4
   %13 = zext i16 %12 to i32
-  %14 = icmp ult i32 %13, %2
+  %14 = icmp ugt i32 %2, %13
   br i1 %14, label %15, label %73
 
 15:                                               ; preds = %3

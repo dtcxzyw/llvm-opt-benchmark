@@ -285,7 +285,7 @@ declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 define ptr @TXT_DB_get_by_index(ptr nocapture noundef %db, i32 noundef %idx, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %db, align 8
-  %cmp.not = icmp sgt i32 %0, %idx
+  %cmp.not = icmp slt i32 %idx, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -315,7 +315,7 @@ declare ptr @OPENSSL_LH_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #1
 define range(i32 0, 2) i32 @TXT_DB_create_index(ptr nocapture noundef %db, i32 noundef %field, ptr noundef %qual, ptr noundef %hash, ptr noundef %cmp) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %db, align 8
-  %cmp1.not = icmp sgt i32 %0, %field
+  %cmp1.not = icmp slt i32 %field, %0
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

@@ -69,7 +69,7 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   %8 = ptrtoint ptr %2 to i64
   %9 = xor i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %107, label %12
 
 12:                                               ; preds = %7
@@ -289,7 +289,7 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   %9 = ptrtoint ptr %2 to i64
   %10 = xor i64 %9, 1
   %11 = inttoptr i64 %10 to ptr
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %113, label %13
 
 13:                                               ; preds = %8

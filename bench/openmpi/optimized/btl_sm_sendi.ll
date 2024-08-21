@@ -138,7 +138,7 @@ opal_convertor_need_buffers.exit.thread56:        ; preds = %24, %.split, %47, %
   store i32 1, ptr %17, align 4
   %65 = load ptr, ptr %62, align 8
   %66 = ptrtoint ptr %65 to i64
-  %67 = add i64 %66, %4
+  %67 = add i64 %4, %66
   %68 = inttoptr i64 %67 to ptr
   store ptr %68, ptr %18, align 8
   store i64 %5, ptr %16, align 8

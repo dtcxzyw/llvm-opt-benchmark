@@ -1652,7 +1652,7 @@ subnet_lookup.exit.i:                             ; preds = %.lr.ph.i.i
 
 36:                                               ; preds = %subnet_lookup.exit.i
   %37 = xor i32 %26, -1
-  %38 = and i32 %37, %0
+  %38 = and i32 %0, %37
   store i32 %38, ptr %6, align 4
   call void @ip_addr_to_str_buf(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 16) #20
   %39 = lshr i64 %indvars.iv.i.i, 3
@@ -3476,7 +3476,7 @@ set_ipxnetent.exit.i.i:                           ; preds = %set_ipxnetent.exit.
 
 23:                                               ; preds = %set_ipxnetent.exit.i.i
   %24 = load i32, ptr %22, align 4
-  %.not9.i.i = icmp eq i32 %24, %1
+  %.not9.i.i = icmp eq i32 %1, %24
   br i1 %.not9.i.i, label %get_ipxnetbyaddr.exit.thread.i, label %set_ipxnetent.exit.i.i, !llvm.loop !25
 
 25:                                               ; preds = %set_ipxnetent.exit.i.i
@@ -3502,7 +3502,7 @@ set_ipxnetent.exit14.i.i:                         ; preds = %27, %25
 
 33:                                               ; preds = %31
   %34 = load i32, ptr %32, align 4
-  %.not11.i.i = icmp eq i32 %34, %1
+  %.not11.i.i = icmp eq i32 %1, %34
   br i1 %.not11.i.i, label %.critedge2.i.i, label %31, !llvm.loop !26
 
 .critedge2.i.i:                                   ; preds = %33, %31

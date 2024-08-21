@@ -1248,7 +1248,7 @@ Kit_DsdNtkRoot.exit:                              ; preds = %Kit_DsdNtkRoot.exit
   %117 = load i16, ptr %116, align 2
   %118 = lshr i16 %117, 1
   %119 = load i16, ptr %115, align 8
-  %120 = icmp ule i16 %119, %118
+  %120 = icmp uge i16 %118, %119
   call void @llvm.assume(i1 %120)
   %121 = getelementptr inbounds i8, ptr %115, i64 24
   %122 = load ptr, ptr %121, align 8

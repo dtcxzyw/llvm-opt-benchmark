@@ -157,7 +157,7 @@ entry:
   %m_manifoldPtr = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_manifoldPtr, align 8
   %call = tail call noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr noundef nonnull align 8 dereferenceable(880) %0)
-  %cmp = fcmp olt float %call, %depth
+  %cmp = fcmp ogt float %depth, %call
   br i1 %cmp, label %if.end155, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -173,13 +173,13 @@ if.end:                                           ; preds = %entry
   %5 = load i32, ptr %m_cachedPoints.i, align 8
   %cmp8 = icmp ne i32 %5, 0
   %6 = load float, ptr %normalOnBInWorld, align 4
-  %mul.i = fmul float %6, %depth
+  %mul.i = fmul float %depth, %6
   %arrayidx3.i = getelementptr inbounds i8, ptr %normalOnBInWorld, i64 4
   %7 = load float, ptr %arrayidx3.i, align 4
-  %mul4.i = fmul float %7, %depth
+  %mul4.i = fmul float %depth, %7
   %arrayidx7.i = getelementptr inbounds i8, ptr %normalOnBInWorld, i64 8
   %8 = load float, ptr %arrayidx7.i, align 4
-  %mul8.i = fmul float %8, %depth
+  %mul8.i = fmul float %depth, %8
   %9 = load float, ptr %pointInWorld, align 4
   %add.i = fadd float %mul.i, %9
   %arrayidx5.i = getelementptr inbounds i8, ptr %pointInWorld, i64 4

@@ -1538,7 +1538,7 @@ acpi_parse_string_ref.exit:                       ; preds = %98, %102
   %114 = getelementptr inbounds i8, ptr %68, i64 4
   %115 = load i32, ptr %114, align 4
   %116 = zext i32 %115 to i64
-  %117 = icmp ugt i64 %116, %2
+  %117 = icmp ult i64 %2, %116
   br i1 %117, label %118, label %.thread
 
 118:                                              ; preds = %113
@@ -1573,7 +1573,7 @@ acpi_parse_string_ref.exit:                       ; preds = %98, %102
 135:                                              ; preds = %130
   %136 = getelementptr i8, ptr %128, i64 24
   %137 = sext i32 %127 to i64
-  %138 = icmp eq i64 %137, %2
+  %138 = icmp eq i64 %2, %137
   %139 = select i1 %138, ptr %4, ptr null
   %140 = getelementptr inbounds i8, ptr %133, i64 16
   %141 = icmp ult ptr %136, %121
@@ -1595,7 +1595,7 @@ acpi_parse_string_ref.exit:                       ; preds = %98, %102
   %148 = zext i32 %147 to i64
   %149 = getelementptr %union.acpi_object, ptr %136, i64 %148
   %150 = icmp ult ptr %149, %121
-  %151 = icmp ult i64 %148, %3
+  %151 = icmp ugt i64 %3, %148
   %152 = and i1 %151, %150
   br i1 %152, label %.preheader, label %153, !llvm.loop !24
 
@@ -1702,7 +1702,7 @@ acpi_parse_string_ref.exit28:                     ; preds = %191, %195
 204:                                              ; preds = %acpi_parse_string_ref.exit28
   %205 = getelementptr i8, ptr %128, i64 24
   %206 = sext i32 %127 to i64
-  %207 = icmp eq i64 %206, %2
+  %207 = icmp eq i64 %2, %206
   %208 = select i1 %207, ptr %4, ptr null
   %209 = icmp ult ptr %205, %121
   %210 = and i1 %124, %209
@@ -1723,7 +1723,7 @@ acpi_parse_string_ref.exit28:                     ; preds = %191, %195
   %216 = zext i32 %215 to i64
   %217 = getelementptr %union.acpi_object, ptr %205, i64 %216
   %218 = icmp ult ptr %217, %121
-  %219 = icmp ult i64 %216, %3
+  %219 = icmp ugt i64 %3, %216
   %220 = and i1 %219, %218
   br i1 %220, label %.preheader52, label %221, !llvm.loop !24
 
@@ -1776,7 +1776,7 @@ acpi_parse_string_ref.exit28:                     ; preds = %191, %195
 
 244:                                              ; preds = %126
   %245 = sext i32 %127 to i64
-  %246 = icmp eq i64 %245, %2
+  %246 = icmp eq i64 %2, %245
   br i1 %246, label %.thread, label %247
 
 247:                                              ; preds = %244
@@ -3275,7 +3275,7 @@ default.unreachable:                              ; preds = %276, %select.unfold
   %265 = getelementptr inbounds i8, ptr %258, i64 4
   %266 = load i32, ptr %265, align 4
   %267 = zext i32 %266 to i64
-  %268 = icmp ult i64 %267, %4
+  %268 = icmp ugt i64 %4, %267
   br i1 %268, label %.thread52, label %269
 
 269:                                              ; preds = %264, %262

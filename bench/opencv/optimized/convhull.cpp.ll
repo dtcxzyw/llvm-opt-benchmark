@@ -1382,8 +1382,8 @@ define internal fastcc noundef i32 @_ZN2cvL9Sklansky_IfdEEiPPNS_6Point_IT_EEiiPi
   %61 = fpext float %56 to double
   %62 = fpext float %54 to double
   %63 = fpext float %43 to double
-  %64 = fneg double %62
-  %65 = fmul double %63, %64
+  %64 = fneg double %63
+  %65 = fmul double %64, %62
   %66 = tail call double @llvm.fmuladd.f64(double %60, double %61, double %65)
   %67 = fcmp ogt double %66, 0.000000e+00
   %68 = zext i1 %67 to i32
@@ -4149,7 +4149,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN2cv6Point_IiEEN9__gnu_cxx5
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i
@@ -4277,7 +4277,7 @@ _ZSt13__adjust_heapIPPN2cv6Point_IiEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_
   %75 = add nsw i64 %.040, -1
   %76 = getelementptr inbounds ptr, ptr %0, i64 %75
   %77 = load ptr, ptr %76, align 8
-  %.not = icmp slt i64 %14, %.040
+  %.not = icmp sgt i64 %.040, %14
   br i1 %.not, label %._crit_edge.i16, label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %.split14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i30
@@ -5063,7 +5063,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN2cv6Point_IfEEN9__gnu_cxx5
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i
@@ -5191,7 +5191,7 @@ _ZSt13__adjust_heapIPPN2cv6Point_IfEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_
   %79 = add nsw i64 %.036, -1
   %80 = getelementptr inbounds ptr, ptr %0, i64 %79
   %81 = load ptr, ptr %80, align 8
-  %.not = icmp slt i64 %14, %.036
+  %.not = icmp sgt i64 %.036, %14
   br i1 %.not, label %._crit_edge.i16, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %.split14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i27

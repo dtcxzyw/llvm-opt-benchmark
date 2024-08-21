@@ -4484,7 +4484,7 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef %0, pt
 45:                                               ; preds = %14, %14
   %46 = zext nneg i8 %19 to i32
   %47 = getelementptr inbounds i8, ptr %.04162, i64 1
-  %.not = icmp eq i32 %46, %0
+  %.not = icmp eq i32 %0, %46
   br i1 %.not, label %48, label %60
 
 48:                                               ; preds = %45
@@ -10017,7 +10017,7 @@ unicode_byte_type.exit.thread:                    ; preds = %11, %11, %11, %11, 
 30:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
   %31 = zext nneg i8 %20 to i32
   %32 = getelementptr inbounds i8, ptr %.03249, i64 2
-  %.not = icmp eq i32 %31, %0
+  %.not = icmp eq i32 %0, %31
   br i1 %.not, label %33, label %45
 
 33:                                               ; preds = %30
@@ -15548,7 +15548,7 @@ unicode_byte_type.exit.thread:                    ; preds = %11, %11, %11, %11, 
 31:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
   %32 = zext nneg i8 %21 to i32
   %33 = getelementptr inbounds i8, ptr %.03249, i64 2
-  %.not = icmp eq i32 %32, %0
+  %.not = icmp eq i32 %0, %32
   br i1 %.not, label %34, label %46
 
 34:                                               ; preds = %31

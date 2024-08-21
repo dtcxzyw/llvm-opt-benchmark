@@ -883,7 +883,7 @@ check_options.exit:                               ; preds = %250, %260
 
 272:                                              ; preds = %270, %267
   %273 = load i32, ptr @H5_optind, align 4
-  %.not150 = icmp slt i32 %273, %0
+  %.not150 = icmp sgt i32 %0, %273
   br i1 %.not150, label %274, label %280
 
 274:                                              ; preds = %272

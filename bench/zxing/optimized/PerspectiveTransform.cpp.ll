@@ -18,54 +18,54 @@ define void @_ZNK5ZXing20PerspectiveTransform7inverseEv(ptr dead_on_unwind noali
   %8 = load double, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 56
   %10 = load double, ptr %9, align 8
-  %11 = fneg double %8
-  %12 = fmul double %10, %11
+  %11 = fneg double %10
+  %12 = fmul double %8, %11
   %13 = tail call double @llvm.fmuladd.f64(double %4, double %6, double %12)
   %14 = getelementptr inbounds i8, ptr %1, i64 48
   %15 = load double, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %1, i64 24
   %17 = load double, ptr %16, align 8
-  %18 = fneg double %17
-  %19 = fmul double %6, %18
+  %18 = fneg double %6
+  %19 = fmul double %17, %18
   %20 = tail call double @llvm.fmuladd.f64(double %8, double %15, double %19)
-  %21 = fneg double %4
-  %22 = fmul double %15, %21
+  %21 = fneg double %15
+  %22 = fmul double %4, %21
   %23 = tail call double @llvm.fmuladd.f64(double %17, double %10, double %22)
   %24 = getelementptr inbounds i8, ptr %1, i64 16
   %25 = load double, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   %27 = load double, ptr %26, align 8
-  %28 = fneg double %27
-  %29 = fmul double %6, %28
-  %30 = tail call double @llvm.fmuladd.f64(double %25, double %10, double %29)
-  %31 = load double, ptr %1, align 8
-  %32 = fneg double %25
-  %33 = fmul double %15, %32
-  %34 = tail call double @llvm.fmuladd.f64(double %31, double %6, double %33)
-  %35 = fneg double %31
-  %36 = fmul double %10, %35
-  %37 = tail call double @llvm.fmuladd.f64(double %27, double %15, double %36)
-  %38 = fmul double %4, %32
-  %39 = tail call double @llvm.fmuladd.f64(double %27, double %8, double %38)
-  %40 = fmul double %8, %35
-  %41 = tail call double @llvm.fmuladd.f64(double %25, double %17, double %40)
-  %42 = fmul double %17, %28
-  %43 = tail call double @llvm.fmuladd.f64(double %31, double %4, double %42)
+  %28 = fmul double %27, %18
+  %29 = tail call double @llvm.fmuladd.f64(double %25, double %10, double %28)
+  %30 = load double, ptr %1, align 8
+  %31 = fmul double %25, %21
+  %32 = tail call double @llvm.fmuladd.f64(double %30, double %6, double %31)
+  %33 = fmul double %30, %11
+  %34 = tail call double @llvm.fmuladd.f64(double %27, double %15, double %33)
+  %35 = fneg double %4
+  %36 = fmul double %25, %35
+  %37 = tail call double @llvm.fmuladd.f64(double %27, double %8, double %36)
+  %38 = fneg double %8
+  %39 = fmul double %30, %38
+  %40 = tail call double @llvm.fmuladd.f64(double %25, double %17, double %39)
+  %41 = fneg double %17
+  %42 = fmul double %27, %41
+  %43 = tail call double @llvm.fmuladd.f64(double %30, double %4, double %42)
   store double %13, ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %30, ptr %44, align 8
+  store double %29, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %39, ptr %45, align 8
+  store double %37, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 24
   store double %20, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 32
-  store double %34, ptr %47, align 8
+  store double %32, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 40
-  store double %41, ptr %48, align 8
+  store double %40, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 48
   store double %23, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 56
-  store double %37, ptr %50, align 8
+  store double %34, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 64
   store double %43, ptr %51, align 8
   ret void
@@ -197,22 +197,22 @@ define void @_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralI
   %23 = fsub double %.sroa.7.0.copyload, %7
   %24 = fsub double %.sroa.11.0.copyload, %.sroa.9.0.copyload
   %25 = fsub double %11, %7
-  %26 = fneg double %24
-  %27 = fmul double %23, %26
+  %26 = fneg double %23
+  %27 = fmul double %24, %26
   %28 = tail call noundef double @llvm.fmuladd.f64(double %22, double %25, double %27)
-  %29 = fmul double %12, %26
-  %30 = tail call noundef double @llvm.fmuladd.f64(double %9, double %25, double %29)
-  %31 = fdiv double %30, %28
-  %32 = fneg double %9
-  %33 = fmul double %23, %32
+  %29 = fneg double %12
+  %30 = fmul double %24, %29
+  %31 = tail call noundef double @llvm.fmuladd.f64(double %9, double %25, double %30)
+  %32 = fdiv double %31, %28
+  %33 = fmul double %9, %26
   %34 = tail call noundef double @llvm.fmuladd.f64(double %22, double %12, double %33)
   %35 = fdiv double %34, %28
   %36 = fsub double %.sroa.5.0.copyload, %.sroa.067.0.copyload
-  %37 = tail call double @llvm.fmuladd.f64(double %31, double %.sroa.5.0.copyload, double %36)
+  %37 = tail call double @llvm.fmuladd.f64(double %32, double %.sroa.5.0.copyload, double %36)
   %38 = fsub double %.sroa.11.0.copyload, %.sroa.067.0.copyload
   %39 = tail call double @llvm.fmuladd.f64(double %35, double %.sroa.11.0.copyload, double %38)
   %40 = fsub double %.sroa.7.0.copyload, %.sroa.3.0.copyload
-  %41 = tail call double @llvm.fmuladd.f64(double %31, double %.sroa.7.0.copyload, double %40)
+  %41 = tail call double @llvm.fmuladd.f64(double %32, double %.sroa.7.0.copyload, double %40)
   %42 = fsub double %11, %.sroa.3.0.copyload
   %43 = tail call double @llvm.fmuladd.f64(double %35, double %11, double %42)
   br label %44
@@ -220,7 +220,7 @@ define void @_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralI
 44:                                               ; preds = %21, %16
   %.sink79 = phi double [ %37, %21 ], [ %17, %16 ]
   %.sink77 = phi double [ %41, %21 ], [ %19, %16 ]
-  %.sink75 = phi double [ %31, %21 ], [ 0.000000e+00, %16 ]
+  %.sink75 = phi double [ %32, %21 ], [ 0.000000e+00, %16 ]
   %.sink73 = phi double [ %39, %21 ], [ %18, %16 ]
   %.sink72 = phi double [ %43, %21 ], [ %20, %16 ]
   %.sink = phi double [ %35, %21 ], [ 0.000000e+00, %16 ]
@@ -274,11 +274,11 @@ define void @_ZN5ZXing20PerspectiveTransformC2ERKNS_13QuadrilateralINS_6PointTId
   %21 = getelementptr inbounds i8, ptr %18, i64 8
   %22 = load double, ptr %21, align 8
   %23 = fsub double %22, %16
-  %24 = fneg double %20
-  %25 = fmul double %17, %24
+  %24 = fneg double %17
+  %25 = fmul double %20, %24
   %26 = tail call noundef double @llvm.fmuladd.f64(double %12, double %23, double %25)
   %27 = tail call double @llvm.fabs.f64(double %26)
-  %28 = fcmp ogt double %.03538.i, %27
+  %28 = fcmp olt double %27, %.03538.i
   %.sroa.speculated8.i.i = select i1 %28, double %27, double %.03538.i
   %29 = fcmp olt double %.03439.i, %27
   %.sroa.speculated.i.i = select i1 %29, double %27, double %.03439.i
@@ -328,11 +328,11 @@ _ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit: ; preds = %3
   %53 = getelementptr inbounds i8, ptr %50, i64 8
   %54 = load double, ptr %53, align 8
   %55 = fsub double %54, %48
-  %56 = fneg double %52
-  %57 = fmul double %49, %56
+  %56 = fneg double %49
+  %57 = fmul double %52, %56
   %58 = tail call noundef double @llvm.fmuladd.f64(double %44, double %55, double %57)
   %59 = tail call double @llvm.fabs.f64(double %58)
-  %60 = fcmp ogt double %.03538.i8, %59
+  %60 = fcmp olt double %59, %.03538.i8
   %.sroa.speculated8.i.i10 = select i1 %60, double %59, double %.03538.i8
   %61 = fcmp olt double %.03439.i7, %59
   %.sroa.speculated.i.i11 = select i1 %61, double %59, double %.03439.i7
@@ -397,22 +397,22 @@ _ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit16: ; preds = 
   %91 = fsub double %.sroa.7.0.copyload.i, %75
   %92 = fsub double %.sroa.11.0.copyload.i, %.sroa.9.0.copyload.i
   %93 = fsub double %79, %75
-  %94 = fneg double %92
-  %95 = fmul double %91, %94
+  %94 = fneg double %91
+  %95 = fmul double %92, %94
   %96 = tail call noundef double @llvm.fmuladd.f64(double %90, double %93, double %95)
-  %97 = fmul double %80, %94
-  %98 = tail call noundef double @llvm.fmuladd.f64(double %77, double %93, double %97)
-  %99 = fdiv double %98, %96
-  %100 = fneg double %77
-  %101 = fmul double %91, %100
+  %97 = fneg double %80
+  %98 = fmul double %92, %97
+  %99 = tail call noundef double @llvm.fmuladd.f64(double %77, double %93, double %98)
+  %100 = fdiv double %99, %96
+  %101 = fmul double %77, %94
   %102 = tail call noundef double @llvm.fmuladd.f64(double %90, double %80, double %101)
   %103 = fdiv double %102, %96
   %104 = fsub double %.sroa.5.0.copyload.i, %.sroa.067.0.copyload.i
-  %105 = tail call double @llvm.fmuladd.f64(double %99, double %.sroa.5.0.copyload.i, double %104)
+  %105 = tail call double @llvm.fmuladd.f64(double %100, double %.sroa.5.0.copyload.i, double %104)
   %106 = fsub double %.sroa.11.0.copyload.i, %.sroa.067.0.copyload.i
   %107 = tail call double @llvm.fmuladd.f64(double %103, double %.sroa.11.0.copyload.i, double %106)
   %108 = fsub double %.sroa.7.0.copyload.i, %.sroa.3.0.copyload.i
-  %109 = tail call double @llvm.fmuladd.f64(double %99, double %.sroa.7.0.copyload.i, double %108)
+  %109 = tail call double @llvm.fmuladd.f64(double %100, double %.sroa.7.0.copyload.i, double %108)
   %110 = fsub double %79, %.sroa.3.0.copyload.i
   %111 = tail call double @llvm.fmuladd.f64(double %103, double %79, double %110)
   br label %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit
@@ -420,7 +420,7 @@ _ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit16: ; preds = 
 _ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit: ; preds = %84, %89
   %.sink79.i = phi double [ %105, %89 ], [ %85, %84 ]
   %.sink77.i = phi double [ %109, %89 ], [ %87, %84 ]
-  %.sink75.i = phi double [ %99, %89 ], [ 0.000000e+00, %84 ]
+  %.sink75.i = phi double [ %100, %89 ], [ 0.000000e+00, %84 ]
   %.sink73.i = phi double [ %107, %89 ], [ %86, %84 ]
   %.sink72.i = phi double [ %111, %89 ], [ %88, %84 ]
   %.sink.i = phi double [ %103, %89 ], [ 0.000000e+00, %84 ]
@@ -462,22 +462,22 @@ _ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdE
   %132 = fsub double %.sroa.7.0.copyload.i23, %116
   %133 = fsub double %.sroa.11.0.copyload.i27, %.sroa.9.0.copyload.i25
   %134 = fsub double %120, %116
-  %135 = fneg double %133
-  %136 = fmul double %132, %135
+  %135 = fneg double %132
+  %136 = fmul double %133, %135
   %137 = tail call noundef double @llvm.fmuladd.f64(double %131, double %134, double %136)
-  %138 = fmul double %121, %135
-  %139 = tail call noundef double @llvm.fmuladd.f64(double %118, double %134, double %138)
-  %140 = fdiv double %139, %137
-  %141 = fneg double %118
-  %142 = fmul double %132, %141
+  %138 = fneg double %121
+  %139 = fmul double %133, %138
+  %140 = tail call noundef double @llvm.fmuladd.f64(double %118, double %134, double %139)
+  %141 = fdiv double %140, %137
+  %142 = fmul double %118, %135
   %143 = tail call noundef double @llvm.fmuladd.f64(double %131, double %121, double %142)
   %144 = fdiv double %143, %137
   %145 = fsub double %.sroa.5.0.copyload.i21, %.sroa.067.0.copyload.i17
-  %146 = tail call double @llvm.fmuladd.f64(double %140, double %.sroa.5.0.copyload.i21, double %145)
+  %146 = tail call double @llvm.fmuladd.f64(double %141, double %.sroa.5.0.copyload.i21, double %145)
   %147 = fsub double %.sroa.11.0.copyload.i27, %.sroa.067.0.copyload.i17
   %148 = tail call double @llvm.fmuladd.f64(double %144, double %.sroa.11.0.copyload.i27, double %147)
   %149 = fsub double %.sroa.7.0.copyload.i23, %.sroa.3.0.copyload.i19
-  %150 = tail call double @llvm.fmuladd.f64(double %140, double %.sroa.7.0.copyload.i23, double %149)
+  %150 = tail call double @llvm.fmuladd.f64(double %141, double %.sroa.7.0.copyload.i23, double %149)
   %151 = fsub double %120, %.sroa.3.0.copyload.i19
   %152 = tail call double @llvm.fmuladd.f64(double %144, double %120, double %151)
   br label %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit34
@@ -485,74 +485,75 @@ _ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdE
 _ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit34: ; preds = %125, %130
   %.sink79.i28 = phi double [ %146, %130 ], [ %126, %125 ]
   %.sink77.i29 = phi double [ %150, %130 ], [ %128, %125 ]
-  %.sink75.i30 = phi double [ %140, %130 ], [ 0.000000e+00, %125 ]
+  %.sink75.i30 = phi double [ %141, %130 ], [ 0.000000e+00, %125 ]
   %.sink73.i31 = phi double [ %148, %130 ], [ %127, %125 ]
   %.sink72.i32 = phi double [ %152, %130 ], [ %129, %125 ]
   %.sink.i33 = phi double [ %144, %130 ], [ 0.000000e+00, %125 ]
-  %153 = fmul double %.sroa.3.0.copyload.i19, %.sink.i33
-  %154 = fsub double %.sink72.i32, %153
-  %155 = fneg double %.sink73.i31
-  %156 = tail call double @llvm.fmuladd.f64(double %.sink.i33, double %.sroa.067.0.copyload.i17, double %155)
-  %157 = fneg double %.sink72.i32
-  %158 = fmul double %.sroa.067.0.copyload.i17, %157
-  %159 = tail call double @llvm.fmuladd.f64(double %.sink73.i31, double %.sroa.3.0.copyload.i19, double %158)
-  %160 = fneg double %.sink77.i29
-  %161 = tail call double @llvm.fmuladd.f64(double %.sink75.i30, double %.sroa.3.0.copyload.i19, double %160)
-  %162 = fneg double %.sink75.i30
+  %153 = fneg double %.sroa.3.0.copyload.i19
+  %154 = fmul double %.sroa.3.0.copyload.i19, %.sink.i33
+  %155 = fsub double %.sink72.i32, %154
+  %156 = fneg double %.sink73.i31
+  %157 = tail call double @llvm.fmuladd.f64(double %.sink.i33, double %.sroa.067.0.copyload.i17, double %156)
+  %158 = fneg double %.sroa.067.0.copyload.i17
+  %159 = fmul double %.sink72.i32, %158
+  %160 = tail call double @llvm.fmuladd.f64(double %.sink73.i31, double %.sroa.3.0.copyload.i19, double %159)
+  %161 = fneg double %.sink77.i29
+  %162 = tail call double @llvm.fmuladd.f64(double %.sink75.i30, double %.sroa.3.0.copyload.i19, double %161)
   %163 = fmul double %.sroa.067.0.copyload.i17, %.sink75.i30
   %164 = fsub double %.sink79.i28, %163
-  %165 = fneg double %.sink79.i28
-  %166 = fmul double %.sroa.3.0.copyload.i19, %165
-  %167 = tail call double @llvm.fmuladd.f64(double %.sink77.i29, double %.sroa.067.0.copyload.i17, double %166)
-  %168 = fmul double %.sink72.i32, %162
+  %165 = fmul double %.sink79.i28, %153
+  %166 = tail call double @llvm.fmuladd.f64(double %.sink77.i29, double %.sroa.067.0.copyload.i17, double %165)
+  %167 = fneg double %.sink72.i32
+  %168 = fmul double %.sink75.i30, %167
   %169 = tail call double @llvm.fmuladd.f64(double %.sink77.i29, double %.sink.i33, double %168)
-  %170 = fmul double %.sink.i33, %165
-  %171 = tail call double @llvm.fmuladd.f64(double %.sink75.i30, double %.sink73.i31, double %170)
-  %172 = fmul double %.sink73.i31, %160
-  %173 = tail call double @llvm.fmuladd.f64(double %.sink79.i28, double %.sink72.i32, double %172)
-  %174 = fmul double %.sink73.i, %161
-  %175 = tail call double @llvm.fmuladd.f64(double %.sink79.i, double %154, double %174)
-  %176 = tail call double @llvm.fmuladd.f64(double %.sroa.067.0.copyload.i, double %169, double %175)
-  %177 = fmul double %.sink73.i, %164
-  %178 = tail call double @llvm.fmuladd.f64(double %.sink79.i, double %156, double %177)
-  %179 = tail call double @llvm.fmuladd.f64(double %.sroa.067.0.copyload.i, double %171, double %178)
-  %180 = fmul double %.sink73.i, %167
-  %181 = tail call double @llvm.fmuladd.f64(double %.sink79.i, double %159, double %180)
-  %182 = tail call double @llvm.fmuladd.f64(double %.sroa.067.0.copyload.i, double %173, double %181)
-  %183 = fmul double %.sink72.i, %161
-  %184 = tail call double @llvm.fmuladd.f64(double %.sink77.i, double %154, double %183)
-  %185 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i, double %169, double %184)
-  %186 = fmul double %.sink72.i, %164
-  %187 = tail call double @llvm.fmuladd.f64(double %.sink77.i, double %156, double %186)
-  %188 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i, double %171, double %187)
-  %189 = fmul double %.sink72.i, %167
-  %190 = tail call double @llvm.fmuladd.f64(double %.sink77.i, double %159, double %189)
-  %191 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i, double %173, double %190)
-  %192 = fmul double %.sink.i, %161
-  %193 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %154, double %192)
-  %194 = fadd double %169, %193
-  %195 = fmul double %.sink.i, %164
-  %196 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %156, double %195)
-  %197 = fadd double %171, %196
-  %198 = fmul double %.sink.i, %167
-  %199 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %159, double %198)
-  %200 = fadd double %173, %199
-  store double %176, ptr %0, align 8
+  %170 = fneg double %.sink.i33
+  %171 = fmul double %.sink79.i28, %170
+  %172 = tail call double @llvm.fmuladd.f64(double %.sink75.i30, double %.sink73.i31, double %171)
+  %173 = fmul double %.sink77.i29, %156
+  %174 = tail call double @llvm.fmuladd.f64(double %.sink79.i28, double %.sink72.i32, double %173)
+  %175 = fmul double %.sink73.i, %162
+  %176 = tail call double @llvm.fmuladd.f64(double %.sink79.i, double %155, double %175)
+  %177 = tail call double @llvm.fmuladd.f64(double %.sroa.067.0.copyload.i, double %169, double %176)
+  %178 = fmul double %.sink73.i, %164
+  %179 = tail call double @llvm.fmuladd.f64(double %.sink79.i, double %157, double %178)
+  %180 = tail call double @llvm.fmuladd.f64(double %.sroa.067.0.copyload.i, double %172, double %179)
+  %181 = fmul double %.sink73.i, %166
+  %182 = tail call double @llvm.fmuladd.f64(double %.sink79.i, double %160, double %181)
+  %183 = tail call double @llvm.fmuladd.f64(double %.sroa.067.0.copyload.i, double %174, double %182)
+  %184 = fmul double %.sink72.i, %162
+  %185 = tail call double @llvm.fmuladd.f64(double %.sink77.i, double %155, double %184)
+  %186 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i, double %169, double %185)
+  %187 = fmul double %.sink72.i, %164
+  %188 = tail call double @llvm.fmuladd.f64(double %.sink77.i, double %157, double %187)
+  %189 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i, double %172, double %188)
+  %190 = fmul double %.sink72.i, %166
+  %191 = tail call double @llvm.fmuladd.f64(double %.sink77.i, double %160, double %190)
+  %192 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.copyload.i, double %174, double %191)
+  %193 = fmul double %.sink.i, %162
+  %194 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %155, double %193)
+  %195 = fadd double %169, %194
+  %196 = fmul double %.sink.i, %164
+  %197 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %157, double %196)
+  %198 = fadd double %172, %197
+  %199 = fmul double %.sink.i, %166
+  %200 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %160, double %199)
+  %201 = fadd double %174, %200
+  store double %177, ptr %0, align 8
   %.sroa.254.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store double %185, ptr %.sroa.254.0..sroa_idx, align 8
+  store double %186, ptr %.sroa.254.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store double %194, ptr %.sroa.3.0..sroa_idx, align 8
+  store double %195, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.455.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store double %179, ptr %.sroa.455.0..sroa_idx, align 8
+  store double %180, ptr %.sroa.455.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store double %188, ptr %.sroa.5.0..sroa_idx, align 8
+  store double %189, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.656.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store double %197, ptr %.sroa.656.0..sroa_idx, align 8
+  store double %198, ptr %.sroa.656.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store double %182, ptr %.sroa.7.0..sroa_idx, align 8
+  store double %183, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.857.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  store double %191, ptr %.sroa.857.0..sroa_idx, align 8
-  store double %200, ptr %4, align 8
+  store double %192, ptr %.sroa.857.0..sroa_idx, align 8
+  store double %201, ptr %4, align 8
   br label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread
 
 _ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread: ; preds = %33, %65, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit16, %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit34
@@ -565,7 +566,7 @@ define { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load double, ptr %6, align 8
-  %8 = fmul double %7, %2
+  %8 = fmul double %2, %7
   %9 = tail call double @llvm.fmuladd.f64(double %5, double %1, double %8)
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   %11 = load double, ptr %10, align 8
@@ -573,7 +574,7 @@ define { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr
   %13 = load double, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load double, ptr %14, align 8
-  %16 = fmul double %15, %2
+  %16 = fmul double %2, %15
   %17 = tail call double @llvm.fmuladd.f64(double %13, double %1, double %16)
   %18 = getelementptr inbounds i8, ptr %0, i64 48
   %19 = load double, ptr %18, align 8
@@ -583,7 +584,7 @@ define { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr
   %23 = load double, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   %25 = load double, ptr %24, align 8
-  %26 = fmul double %25, %2
+  %26 = fmul double %2, %25
   %27 = tail call double @llvm.fmuladd.f64(double %23, double %1, double %26)
   %28 = getelementptr inbounds i8, ptr %0, i64 56
   %29 = load double, ptr %28, align 8

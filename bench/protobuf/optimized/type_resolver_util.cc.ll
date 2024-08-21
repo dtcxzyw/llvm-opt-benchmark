@@ -1577,7 +1577,7 @@ entry:
   br i1 %cmp.i.i.i, label %lor.lhs.false, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %entry
-  %cmp.not.i.i = icmp ugt i64 %0, %type_url.coerce0
+  %cmp.not.i.i = icmp ult i64 %type_url.coerce0, %0
   br i1 %cmp.not.i.i, label %if.then, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %lor.rhs.i.i
@@ -1587,7 +1587,7 @@ _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_
 
 lor.lhs.false:                                    ; preds = %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %type_url.coerce1, i64 %0
-  %cmp.not.i.i7 = icmp eq i64 %0, %type_url.coerce0
+  %cmp.not.i.i7 = icmp eq i64 %type_url.coerce0, %0
   br i1 %cmp.not.i.i7, label %if.then, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i8
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i8: ; preds = %lor.lhs.false
@@ -1631,7 +1631,7 @@ lpad:                                             ; preds = %if.then
 if.end:                                           ; preds = %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i8
   %add.ptr.i.i12 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
   %10 = xor i64 %0, -1
-  %sub.i.i13 = add i64 %10, %type_url.coerce0
+  %sub.i.i13 = add i64 %type_url.coerce0, %10
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %call.i16 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %sub.i.i13, ptr nonnull %add.ptr.i.i12) #14

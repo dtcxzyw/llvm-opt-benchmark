@@ -12,7 +12,7 @@ entry:
   %conv2 = zext i1 %cmp1 to i32
   %add3 = add nuw nsw i32 %add, %conv2
   %conv5 = zext nneg i32 %add3 to i64
-  %add6 = add i64 %conv5, %srcSize
+  %add6 = add i64 %srcSize, %conv5
   %cmp7 = icmp ugt i64 %add6, %dstCapacity
   br i1 %cmp7, label %return, label %do.end17
 
@@ -128,7 +128,7 @@ if.then:                                          ; preds = %entry
   %conv2.i = zext i1 %cmp1.i to i32
   %add3.i = add nuw nsw i32 %add.i, %conv2.i
   %conv5.i = zext nneg i32 %add3.i to i64
-  %add6.i = add i64 %conv5.i, %srcSize
+  %add6.i = add i64 %srcSize, %conv5.i
   %cmp7.i = icmp ugt i64 %add6.i, %dstCapacity
   br i1 %cmp7.i, label %return, label %do.end17.i
 
@@ -176,7 +176,7 @@ if.end:                                           ; preds = %entry
   %sh_prom.i = zext nneg i32 %cond.i to i64
   %shl.i = shl i64 8, %sh_prom.i
   %cond6.i = select i1 %cmp2.i, i64 6, i64 %shl.i
-  %cmp10 = icmp ugt i64 %cond6.i, %srcSize
+  %cmp10 = icmp ult i64 %srcSize, %cond6.i
   br i1 %cmp10, label %if.then12, label %do.body15
 
 if.then12:                                        ; preds = %if.end
@@ -186,7 +186,7 @@ if.then12:                                        ; preds = %if.end
   %conv2.i68 = zext i1 %cmp1.i67 to i32
   %add3.i69 = add nuw nsw i32 %add.i66, %conv2.i68
   %conv5.i70 = zext nneg i32 %add3.i69 to i64
-  %add6.i71 = add i64 %conv5.i70, %srcSize
+  %add6.i71 = add i64 %srcSize, %conv5.i70
   %cmp7.i72 = icmp ugt i64 %add6.i71, %dstCapacity
   br i1 %cmp7.i72, label %return, label %do.end17.i73
 
@@ -223,7 +223,7 @@ sw.epilog.i77:                                    ; preds = %sw.bb24.i74, %sw.bb
   br label %return
 
 do.body15:                                        ; preds = %if.end
-  %cmp17.not = icmp ult i64 %add3, %dstCapacity
+  %cmp17.not = icmp ugt i64 %dstCapacity, %add3
   br i1 %cmp17.not, label %do.end29, label %return
 
 do.end29:                                         ; preds = %do.body15
@@ -271,7 +271,7 @@ if.then71:                                        ; preds = %do.end29
   %conv2.i97 = zext i1 %cmp1.i96 to i32
   %add3.i98 = add nuw nsw i32 %add.i95, %conv2.i97
   %conv5.i99 = zext nneg i32 %add3.i98 to i64
-  %add6.i100 = add i64 %conv5.i99, %srcSize
+  %add6.i100 = add i64 %srcSize, %conv5.i99
   %cmp7.i101 = icmp ugt i64 %add6.i100, %dstCapacity
   br i1 %cmp7.i101, label %return, label %do.end17.i102
 

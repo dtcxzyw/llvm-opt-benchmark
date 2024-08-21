@@ -2484,7 +2484,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %t1.sroa.0.4.vec.extract.i.i90 = extractelement <2 x float> %centroidBounds.sroa.0.0838, i64 1
   %cmp.i1.i.i91 = fcmp olt float %div3.i.i, %t1.sroa.0.4.vec.extract.i.i90
   %35 = select i1 %cmp.i1.i.i91, float %div3.i.i, float %t1.sroa.0.4.vec.extract.i.i90
-  %cmp.i3.i.i92 = fcmp ogt float %centroidBounds.sroa.8.0837, %div5.i.i
+  %cmp.i3.i.i92 = fcmp olt float %div5.i.i, %centroidBounds.sroa.8.0837
   %.sroa.speculated.i.i93 = select i1 %cmp.i3.i.i92, float %div5.i.i, float %centroidBounds.sroa.8.0837
   %retval.sroa.0.0.vec.insert.i.i94 = insertelement <2 x float> poison, float %34, i64 0
   %retval.sroa.0.4.vec.insert.i.i95 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i94, float %35, i64 1
@@ -2812,7 +2812,7 @@ _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit:       ; preds = %if.then.i157, %if.t
   store i8 %ref.tmp52.sroa.12.0, ptr %ref.tmp52.sroa.12.0.arrayidx.sroa_idx794, align 4
   %indvars.iv.next927 = add nsw i64 %indvars.iv926, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next927 to i32
-  %exitcond929.not = icmp eq i32 %lftr.wideiv, %end
+  %exitcond929.not = icmp eq i32 %end, %lftr.wideiv
   br i1 %exitcond929.not, label %for.cond65.preheader.preheader, label %for.body31, !llvm.loop !53
 
 for.cond65.preheader.preheader:                   ; preds = %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit, %for.cond29.preheader
@@ -3513,8 +3513,8 @@ while.end18.i.i:                                  ; preds = %"_ZZN4pbrt15BVHLigh
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 56
   %conv123 = trunc i64 %sub.ptr.div to i32
-  %cmp124 = icmp eq i32 %conv123, %start
-  %cmp125 = icmp eq i32 %conv123, %end
+  %cmp124 = icmp eq i32 %start, %conv123
+  %cmp125 = icmp eq i32 %end, %conv123
   %or.cond64 = or i1 %cmp124, %cmp125
   br i1 %or.cond64, label %if.then126, label %if.end132
 
@@ -4888,7 +4888,7 @@ entry:
   %add = add i64 %0, %conv5
   %conv6 = uitofp i64 %add to float
   %div = fdiv float %conv, %conv6
-  %cmp = fcmp ogt float %div, %u
+  %cmp = fcmp olt float %u, %div
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry

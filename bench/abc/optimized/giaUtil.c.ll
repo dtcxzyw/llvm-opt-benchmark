@@ -170,7 +170,7 @@ define i64 @Gia_ManRandomW(i32 noundef %0) local_unnamed_addr #0 {
 define void @Gia_ManRandomInfo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %0, i64 4
   %.val21 = load i32, ptr %5, align 4
-  %6 = icmp sgt i32 %.val21, %1
+  %6 = icmp slt i32 %1, %.val21
   br i1 %6, label %.lr.ph26, label %.critedge
 
 .lr.ph26:                                         ; preds = %4
@@ -8211,7 +8211,7 @@ Vec_PtrAlloc.exit:                                ; preds = %Vec_IntAlloc.exit, 
   %70 = sub nsw i32 %65, %69
   %71 = select i1 %67, i32 %2, i32 %70
   %.val82 = load ptr, ptr %30, align 8
-  %72 = mul nsw i32 %indvars159, %2
+  %72 = mul nsw i32 %2, %indvars159
   %73 = getelementptr inbounds i32, ptr %.val82, i64 %68
   %74 = call ptr @Gia_ManDupCones(ptr noundef nonnull %11, ptr noundef %73, i32 noundef %71, i32 noundef 0) #36
   %75 = add nsw i32 %71, %69
@@ -16811,7 +16811,7 @@ define range(i32 0, 2) i32 @Gia_GetMValue(i32 noundef %0, i32 noundef %1, i32 no
 
 11:                                               ; preds = %9
   %12 = shl nuw i32 1, %0
-  %13 = icmp sgt i32 %12, %2
+  %13 = icmp slt i32 %2, %12
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %11
@@ -17118,13 +17118,13 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

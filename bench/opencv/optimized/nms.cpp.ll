@@ -501,7 +501,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %or.cond = and i1 %48, %.036.lcssa85
   %118 = fcmp ogt float %.03867, 5.000000e-01
   %or.cond44 = select i1 %or.cond, i1 %118, i1 false
-  %119 = fmul float %.03867, %4
+  %119 = fmul float %4, %.03867
   %.139 = select i1 %or.cond44, float %119, float %.03867
   %120 = add nuw i64 %.03768, 1
   %121 = load ptr, ptr %43, align 8
@@ -1021,7 +1021,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %or.cond = and i1 %48, %.036.lcssa85
   %118 = fcmp ogt float %.03867, 5.000000e-01
   %or.cond44 = select i1 %or.cond, i1 %118, i1 false
-  %119 = fmul float %.03867, %4
+  %119 = fmul float %4, %.03867
   %.139 = select i1 %or.cond44, float %119, float %.03867
   %120 = add nuw i64 %.03768, 1
   %121 = load ptr, ptr %43, align 8
@@ -1540,7 +1540,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %or.cond = and i1 %48, %.036.lcssa85
   %118 = fcmp ogt float %.03867, 5.000000e-01
   %or.cond44 = select i1 %or.cond, i1 %118, i1 false
-  %119 = fmul float %.03867, %4
+  %119 = fmul float %4, %.03867
   %.139 = select i1 %or.cond44, float %119, float %.03867
   %120 = add nuw i64 %.03768, 1
   %121 = load ptr, ptr %43, align 8
@@ -3201,7 +3201,7 @@ _ZNSt6vectorISt4pairIfiESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   %62 = sub i64 %60, %61
   %63 = lshr exact i64 %62, 3
   %64 = trunc i64 %63 to i32
-  %65 = icmp sgt i32 %64, %2
+  %65 = icmp slt i32 %2, %64
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %57
@@ -3230,7 +3230,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt4pairIfiESaIS1_EE6resizeEm(ptr n
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -3304,7 +3304,7 @@ _ZNSt12_Vector_baseISt4pairIfiESaIS1_EE13_M_deallocateEPS1_m.exit36.i: ; preds =
   br label %_ZNSt6vectorISt4pairIfiESaIS1_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorISt4pairIfiESaIS1_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -4005,7 +4005,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES4_E
   br i1 %69, label %.lr.ph.i.i.i.i.i.i86, label %_ZSt21__move_merge_adaptiveIPSt4pairIfiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEEvT_SG_T0_SH_T1_T2_.exit, !llvm.loop !47
 
 70:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit84
-  %71 = icmp eq ptr %.08.lcssa.i.i.i.i.i79, %5
+  %71 = icmp eq ptr %5, %.08.lcssa.i.i.i.i.i79
   br i1 %71, label %_ZSt21__move_merge_adaptiveIPSt4pairIfiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEEvT_SG_T0_SH_T1_T2_.exit, label %72
 
 72:                                               ; preds = %70
@@ -4033,7 +4033,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES4_E
   %80 = getelementptr inbounds i8, ptr %.sroa.028.0.i.ph.pn, i64 -4
   %81 = load i32, ptr %80, align 4
   store i32 %81, ptr %77, align 4
-  %82 = icmp eq ptr %.sroa.028.0.i.ph, %.tr132
+  %82 = icmp eq ptr %.tr132, %.sroa.028.0.i.ph
   br i1 %82, label %83, label %.outer, !llvm.loop !59
 
 83:                                               ; preds = %78
@@ -4067,7 +4067,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES4_E
   %100 = getelementptr inbounds i8, ptr %.0.i, i64 4
   %101 = load i32, ptr %100, align 4
   store i32 %101, ptr %77, align 4
-  %102 = icmp eq ptr %.0.i, %5
+  %102 = icmp eq ptr %5, %.0.i
   br i1 %102, label %_ZSt21__move_merge_adaptiveIPSt4pairIfiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEEvT_SG_T0_SH_T1_T2_.exit, label %103
 
 103:                                              ; preds = %98
@@ -4481,7 +4481,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3
   %.sroa.049.0.lcssa = phi ptr [ %0, %5 ], [ %13, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ]
   %.0.lcssa = phi ptr [ %2, %5 ], [ %.08.lcssa.i.i.i.i.i9.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ]
   %.lcssa62 = phi i64 [ %10, %5 ], [ %46, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %.lcssa62, i64 %3)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa62)
   %47 = getelementptr inbounds %"struct.std::pair.40", ptr %.sroa.049.0.lcssa, i64 %.sroa.speculated
   %48 = icmp ne i64 %.sroa.speculated, 0
   %49 = icmp ne ptr %47, %1
@@ -4681,7 +4681,7 @@ _ZSt12__move_mergeIPSt4pairIfiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_Sa
   %.0.lcssa = phi ptr [ %0, %5 ], [ %13, %_ZSt12__move_mergeIPSt4pairIfiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ]
   %.sroa.021.0.lcssa = phi ptr [ %2, %5 ], [ %52, %_ZSt12__move_mergeIPSt4pairIfiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ]
   %.lcssa59 = phi i64 [ %10, %5 ], [ %54, %_ZSt12__move_mergeIPSt4pairIfiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEET0_T_SH_SH_SH_SG_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %.lcssa59, i64 %3)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa59)
   %55 = getelementptr inbounds %"struct.std::pair.40", ptr %.0.lcssa, i64 %.sroa.speculated
   %56 = icmp ne i64 %.sroa.speculated, 0
   %57 = icmp ne ptr %55, %1

@@ -273,7 +273,7 @@ _ZNK2OT4CPAL2v1Ev.exit.i:                         ; preds = %18, %2
   %65 = zext i8 %45 to i64
   %66 = or disjoint i64 %64, %65
   %67 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 %66
-  %.not.i.i.i.i = icmp ugt i32 %56, %1
+  %.not.i.i.i.i = icmp ult i32 %1, %56
   %68 = zext i32 %1 to i64
   %69 = getelementptr inbounds %"struct.OT::Index", ptr %67, i64 %68
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr %69, ptr @_hb_Null_OT_Index
@@ -368,7 +368,7 @@ _ZNK2OT4CPAL2v1Ev.exit.i:                         ; preds = %18, %2
   %65 = zext i8 %45 to i64
   %66 = or disjoint i64 %64, %65
   %67 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 %66
-  %.not.i.i.i.i = icmp ugt i32 %56, %1
+  %.not.i.i.i.i = icmp ult i32 %1, %56
   %68 = zext i32 %1 to i64
   %69 = getelementptr inbounds %"struct.OT::Index", ptr %67, i64 %68
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr %69, ptr @_hb_Null_OT_Index
@@ -462,7 +462,7 @@ _ZNK2OT4CPAL2v1Ev.exit.i:                         ; preds = %18, %2
   %64 = zext i8 %44 to i64
   %65 = or disjoint i64 %63, %64
   %66 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 %65
-  %.not.i.i.i.i = icmp ugt i32 %55, %1
+  %.not.i.i.i.i = icmp ult i32 %1, %55
   %67 = zext i32 %1 to i64
   %68 = getelementptr inbounds %"struct.OT::IntType.139", ptr %66, i64 %67
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr %68, ptr @_hb_NullPool
@@ -508,7 +508,7 @@ define hidden i32 @hb_ot_color_palette_get_colors(ptr noundef %0, i32 noundef %1
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = or disjoint i32 %16, %19
-  %.not.i = icmp ugt i32 %20, %1
+  %.not.i = icmp ult i32 %1, %20
   br i1 %.not.i, label %23, label %21
 
 21:                                               ; preds = %5
@@ -813,7 +813,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT4COLR16get_glyph_layersEjjPjP19hb
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = or disjoint i32 %41, %44
-  %46 = icmp ugt i32 %45, %1
+  %46 = icmp ult i32 %1, %45
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -821,7 +821,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT4COLR16get_glyph_layersEjjPjP19hb
   br label %52
 
 49:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %.not1.i.i.i.i.i = icmp ult i32 %45, %1
+  %.not1.i.i.i.i.i = icmp ugt i32 %1, %45
   br i1 %.not1.i.i.i.i.i, label %50, label %53
 
 50:                                               ; preds = %49
@@ -1173,7 +1173,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT3SVG13accelerator_t24reference_bl
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = or disjoint i32 %45, %48
-  %50 = icmp ugt i32 %49, %1
+  %50 = icmp ult i32 %1, %49
   br i1 %50, label %_ZL14_hb_cmp_methodIjKN2OT21SVGDocumentIndexEntryEJEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIjKN2OT21SVGDocumentIndexEntryEJEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
 
 _ZL14_hb_cmp_methodIjKN2OT21SVGDocumentIndexEntryEJEEiPKvS4_DpT1_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -1185,7 +1185,7 @@ _ZL14_hb_cmp_methodIjKN2OT21SVGDocumentIndexEntryEJEEiPKvS4_DpT1_.exit.i.i.i.i.i
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = or disjoint i32 %54, %57
-  %.not1.i.i.i.i.i.i = icmp ult i32 %58, %1
+  %.not1.i.i.i.i.i.i = icmp ugt i32 %1, %58
   br i1 %.not1.i.i.i.i.i.i, label %60, label %63
 
 _ZL14_hb_cmp_methodIjKN2OT21SVGDocumentIndexEntryEJEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -1635,7 +1635,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4CBDT13accelerator_t13reference_p
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %68, %71
   %.not.i.i = icmp ugt i32 %64, %2
-  %.not13.i.i = icmp ult i32 %72, %2
+  %.not13.i.i = icmp ugt i32 %2, %72
   %or.cond.i.i = or i1 %.not.i.i, %.not13.i.i
   br i1 %or.cond.i.i, label %56, label %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit
 
@@ -1893,7 +1893,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4COLR20get_base_glyph_paintEj(ptr
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = or disjoint i32 %49, %52
-  %54 = icmp ugt i32 %53, %1
+  %54 = icmp ult i32 %1, %53
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %.lr.ph.i.i.i.i.i.i
@@ -1901,7 +1901,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4COLR20get_base_glyph_paintEj(ptr
   br label %60
 
 57:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not1.i.i.i.i.i.i = icmp ult i32 %53, %1
+  %.not1.i.i.i.i.i.i = icmp ugt i32 %1, %53
   br i1 %.not1.i.i.i.i.i.i, label %58, label %61
 
 58:                                               ; preds = %57
@@ -2070,7 +2070,7 @@ _ZNK2OT4sbix10get_strikeEj.exit:                  ; preds = %2
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i64
   %83 = or disjoint i64 %79, %82
-  %.not.i.i35 = icmp ugt i64 %83, %indvars.iv
+  %.not.i.i35 = icmp ult i64 %indvars.iv, %83
   br i1 %.not.i.i35, label %84, label %_ZNK2OT4sbix10get_strikeEj.exit38
 
 84:                                               ; preds = %.lr.ph
@@ -2160,7 +2160,7 @@ _ZNK2OT4sbix10get_strikeEj.exit38:                ; preds = %.lr.ph, %84
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i32
   %144 = or disjoint i32 %140, %143
-  %.not.i.i42 = icmp ugt i32 %144, %.022.lcssa
+  %.not.i.i42 = icmp ult i32 %.022.lcssa, %144
   br i1 %.not.i.i42, label %145, label %_ZNK2OT4sbix10get_strikeEj.exit45
 
 145:                                              ; preds = %._crit_edge
@@ -2340,7 +2340,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT10SBIXStrike14get_glyph_blobEjP9h
 114:                                              ; preds = %76
   %115 = add i32 %26, 8
   %116 = add i32 %115, %69
-  %.not41 = icmp eq i32 %98, %3
+  %.not41 = icmp eq i32 %3, %98
   br i1 %.not41, label %119, label %117
 
 117:                                              ; preds = %114
@@ -2485,7 +2485,7 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit33: ; preds = 
   %61 = load i8, ptr %17, align 1
   %62 = zext i8 %61 to i64
   %63 = or disjoint i64 %60, %62
-  %.not.i35 = icmp ugt i64 %63, %indvars.iv
+  %.not.i35 = icmp ult i64 %indvars.iv, %63
   br i1 %.not.i35, label %64, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37
 
 64:                                               ; preds = %49
@@ -2511,7 +2511,7 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37: ; preds = 
   %.pre-phi76 = phi i64 [ %63, %49 ], [ %.pre73, %64 ]
   %.0.i36 = phi ptr [ @_hb_NullPool, %49 ], [ %65, %64 ]
   %66 = getelementptr inbounds i8, ptr %.0.i36, i64 44
-  %.not.i38 = icmp ugt i64 %.pre-phi76, %indvars.iv
+  %.not.i38 = icmp ult i64 %indvars.iv, %.pre-phi76
   br i1 %.not.i38, label %67, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40
 
 67:                                               ; preds = %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37
@@ -2564,7 +2564,7 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40: ; preds = 
   %92 = load i8, ptr %17, align 1
   %93 = zext i8 %92 to i32
   %94 = or disjoint i32 %91, %93
-  %.not.i42 = icmp ugt i32 %94, %.023.lcssa
+  %.not.i42 = icmp ult i32 %.023.lcssa, %94
   br i1 %.not.i42, label %95, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit44
 
 95:                                               ; preds = %._crit_edge
@@ -2849,7 +2849,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj36EE11call_createI9hb_blob_t22hb_table_lazy_
 
 31:                                               ; preds = %30
   %32 = call noundef ptr @hb_blob_get_empty()
-  %.not3.i = icmp eq ptr %32, %.1
+  %.not3.i = icmp eq ptr %.1, %32
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tIN2OT4CPALE22hb_table_lazy_loader_tIS1_Lj36ELb1EE9hb_face_tLj36E9hb_blob_tE10do_destroyEPS5_.exit, label %33
 
 33:                                               ; preds = %31
@@ -3456,7 +3456,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj35EE11call_createI9hb_blob_t22hb_table_lazy_
 
 31:                                               ; preds = %30
   %32 = call noundef ptr @hb_blob_get_empty()
-  %.not3.i = icmp eq ptr %32, %.1
+  %.not3.i = icmp eq ptr %.1, %32
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tIN2OT4COLRE22hb_table_lazy_loader_tIS1_Lj35ELb1EE9hb_face_tLj35E9hb_blob_tE10do_destroyEPS5_.exit, label %33
 
 33:                                               ; preds = %31

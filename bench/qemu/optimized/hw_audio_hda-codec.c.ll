@@ -299,7 +299,7 @@ entry:
   %. = select i1 %cmp, i32 4095, i32 3840
   %.175 = select i1 %cmp, i32 255, i32 65535
   %and4 = and i32 %shr, %.
-  %and5 = and i32 %.175, %data
+  %and5 = and i32 %data, %.175
   %desc = getelementptr inbounds i8, ptr %call.i, i64 208
   %0 = load ptr, ptr %desc, align 8
   %nnodes.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -941,7 +941,7 @@ if.end:                                           ; preds = %for.body
   %output17 = getelementptr inbounds i8, ptr %arrayidx11, i64 16
   %1 = load i8, ptr %output17, align 8
   %2 = trunc i8 %1 to i1
-  %3 = xor i1 %2, %output
+  %3 = xor i1 %output, %2
   br i1 %3, label %for.inc, label %if.end25
 
 if.end25:                                         ; preds = %if.end
@@ -1039,7 +1039,7 @@ if.end:                                           ; preds = %entry
   %running1 = getelementptr inbounds i8, ptr %st, i64 17
   %1 = load i8, ptr %running1, align 1
   %2 = trunc i8 %1 to i1
-  %3 = xor i1 %2, %running
+  %3 = xor i1 %running, %2
   br i1 %3, label %if.end7, label %if.end31
 
 if.end7:                                          ; preds = %if.end

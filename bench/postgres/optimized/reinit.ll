@@ -284,7 +284,7 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
 
 81:                                               ; preds = %77
   %82 = load ptr, ptr %4, align 8
-  %83 = icmp eq ptr %82, %74
+  %83 = icmp eq ptr %74, %82
   %84 = add i64 %79, -4294967296
   %85 = icmp ult i64 %84, -4294967295
   %or.cond3.i48 = select i1 %83, i1 true, i1 %85
@@ -409,7 +409,7 @@ parse_filename_for_nontemp_relation.exit59:       ; preds = %112
 
 135:                                              ; preds = %131
   %136 = load ptr, ptr %6, align 8
-  %137 = icmp eq ptr %136, %128
+  %137 = icmp eq ptr %128, %136
   %138 = add i64 %133, -4294967296
   %139 = icmp ult i64 %138, -4294967295
   %or.cond3.i33 = select i1 %137, i1 true, i1 %139
@@ -552,7 +552,7 @@ parse_filename_for_nontemp_relation.exit44:       ; preds = %166
 
 196:                                              ; preds = %192
   %197 = load ptr, ptr %8, align 8
-  %198 = icmp eq ptr %197, %189
+  %198 = icmp eq ptr %189, %197
   %199 = add i64 %194, -4294967296
   %200 = icmp ult i64 %199, -4294967295
   %or.cond3.i18 = select i1 %198, i1 true, i1 %200
@@ -690,7 +690,7 @@ parse_filename_for_nontemp_relation.exit29:       ; preds = %228
 
 257:                                              ; preds = %253
   %258 = load ptr, ptr %10, align 8
-  %259 = icmp eq ptr %258, %250
+  %259 = icmp eq ptr %250, %258
   %260 = add i64 %255, -4294967296
   %261 = icmp ult i64 %260, -4294967295
   %or.cond3.i = select i1 %259, i1 true, i1 %261
@@ -851,7 +851,7 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %6, align 8
-  %15 = icmp eq ptr %14, %0
+  %15 = icmp eq ptr %0, %14
   %16 = add i64 %11, -4294967296
   %17 = icmp ult i64 %16, -4294967295
   %or.cond3 = select i1 %15, i1 true, i1 %17

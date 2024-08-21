@@ -1472,7 +1472,7 @@ define hidden void @"_ZN66_$LT$flate2..crc..CrcWriter$LT$W$GT$$u20$as$u20$std..i
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load i64, ptr %8, align 8, !alias.scope !214, !noalias !219, !noundef !62
   %10 = sub i64 %9, %7
-  %.not.i.i = icmp ult i64 %10, %3
+  %.not.i.i = icmp ugt i64 %3, %10
   br i1 %.not.i.i, label %11, label %12
 
 11:                                               ; preds = %4
@@ -1488,7 +1488,7 @@ define hidden void @"_ZN66_$LT$flate2..crc..CrcWriter$LT$W$GT$$u20$as$u20$std..i
   %16 = load i64, ptr %8, align 8, !alias.scope !214, !noalias !219, !noundef !62
   %17 = load i64, ptr %6, align 8, !alias.scope !214, !noalias !219, !noundef !62
   %18 = sub i64 %16, %17
-  %19 = icmp ult i64 %18, %3
+  %19 = icmp ugt i64 %3, %18
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %12
@@ -1555,7 +1555,7 @@ define hidden { i64, i64 } @_ZN6base646engine6Engine12encode_slice5inner17ha0452
   unreachable
 
 12:                                               ; preds = %5
-  %13 = icmp ugt i64 %10, %4
+  %13 = icmp ult i64 %4, %10
   br i1 %13, label %_ZN6base646encode19encode_with_padding17h8e20833b03a78ed7E.llvm.3706446735560306221.exit, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9cc2a09d608b8e03E.llvm.3706446735560306221.exit"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9cc2a09d608b8e03E.llvm.3706446735560306221.exit": ; preds = %12
@@ -5497,7 +5497,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream16EncodeContextMap
 38:                                               ; preds = %43, %37
   %39 = load i32, ptr %16, align 4, !noundef !62
   %40 = zext i32 %39 to i64
-  %41 = add i64 %40, %3
+  %41 = add i64 %3, %40
   invoke void @_ZN6brotli3enc17brotli_bit_stream24BuildAndStoreHuffmanTree17h4ba9d85e940a8dacE(ptr noalias noundef nonnull readonly align 4 %12, i64 noundef 272, i64 noundef %41, i64 noundef %41, ptr noalias noundef nonnull align 4 %4, i64 noundef %5, ptr noalias noundef nonnull align 1 %14, i64 noundef 272, ptr noalias noundef nonnull align 2 %13, i64 noundef 272, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8)
           to label %.preheader unwind label %88
 
@@ -14285,7 +14285,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
   %47 = load i8, ptr %46, align 1, !range !87, !noundef !62
   %48 = trunc nuw i8 %47 to i1
   %.not = xor i1 %48, true
-  %brmerge = or i1 %.not, %12
+  %brmerge = or i1 %12, %.not
   br i1 %brmerge, label %49, label %51
 
 49:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32", %51
@@ -14420,7 +14420,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMe
   %47 = load i8, ptr %46, align 1, !range !87, !noundef !62
   %48 = trunc nuw i8 %47 to i1
   %.not = xor i1 %48, true
-  %brmerge = or i1 %.not, %12
+  %brmerge = or i1 %12, %.not
   br i1 %brmerge, label %49, label %51
 
 49:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit32", %51
@@ -15685,7 +15685,7 @@ define hidden void @"_ZN9zstd_safe18OutBuffer$LT$C$GT$4wrap17h0a92c11985879755E.
 define hidden void @"_ZN9zstd_safe18OutBuffer$LT$C$GT$7set_pos17hb045cc386165c08dE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !62, !align !64, !noundef !62
   %4 = load i64, ptr %3, align 8, !alias.scope !2005, !noundef !62
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
@@ -15733,7 +15733,7 @@ define hidden { i64, i64 } @_ZN9zstd_safe4CCtx10end_stream17h008a39567f8b6eb3E(p
   call void @llvm.experimental.noalias.scope.decl(metadata !2030)
   %17 = load ptr, ptr %15, align 8, !alias.scope !2030, !noalias !2029, !nonnull !62, !align !64, !noundef !62
   %18 = load i64, ptr %17, align 8, !alias.scope !2033, !noalias !2036, !noundef !62
-  %19 = icmp ult i64 %18, %16
+  %19 = icmp ugt i64 %16, %18
   br i1 %19, label %20, label %34
 
 20:                                               ; preds = %13
@@ -15755,7 +15755,7 @@ define hidden { i64, i64 } @_ZN9zstd_safe4CCtx10end_stream17h008a39567f8b6eb3E(p
   call void @llvm.experimental.noalias.scope.decl(metadata !2044)
   %26 = load ptr, ptr %24, align 8, !alias.scope !2044, !noalias !2043, !nonnull !62, !align !64, !noundef !62
   %27 = load i64, ptr %26, align 8, !alias.scope !2047, !noalias !2050, !noundef !62
-  %28 = icmp ult i64 %27, %25
+  %28 = icmp ugt i64 %25, %27
   br i1 %28, label %29, label %"_ZN4core3ptr81drop_in_place$LT$zstd_safe..OutBufferWrapper$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hea16997c3a76daeaE.exit1"
 
 29:                                               ; preds = %23
@@ -15844,7 +15844,7 @@ define hidden { i64, i64 } @_ZN9zstd_safe4CCtx15compress_stream17h77b9df6d1cd04b
   call void @llvm.experimental.noalias.scope.decl(metadata !2076)
   %28 = load ptr, ptr %26, align 8, !alias.scope !2076, !noalias !2075, !nonnull !62, !align !64, !noundef !62
   %29 = load i64, ptr %28, align 8, !alias.scope !2079, !noalias !2082, !noundef !62
-  %30 = icmp ult i64 %29, %27
+  %30 = icmp ugt i64 %27, %29
   br i1 %30, label %31, label %44
 
 31:                                               ; preds = %"_ZN4core3ptr47drop_in_place$LT$zstd_safe..InBufferWrapper$GT$17h35aea06c60a9d975E.exit"
@@ -15868,7 +15868,7 @@ define hidden { i64, i64 } @_ZN9zstd_safe4CCtx15compress_stream17h77b9df6d1cd04b
   call void @llvm.experimental.noalias.scope.decl(metadata !2090)
   %36 = load ptr, ptr %34, align 8, !alias.scope !2090, !noalias !2089, !nonnull !62, !align !64, !noundef !62
   %37 = load i64, ptr %36, align 8, !alias.scope !2093, !noalias !2096, !noundef !62
-  %38 = icmp ult i64 %37, %35
+  %38 = icmp ugt i64 %35, %37
   br i1 %38, label %39, label %"_ZN4core3ptr81drop_in_place$LT$zstd_safe..OutBufferWrapper$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hea16997c3a76daeaE.exit4"
 
 39:                                               ; preds = %"_ZN4core3ptr47drop_in_place$LT$zstd_safe..InBufferWrapper$GT$17h35aea06c60a9d975E.exit3"
@@ -15957,7 +15957,7 @@ define hidden { i64, i64 } @_ZN9zstd_safe4DCtx17decompress_stream17h8d719d3ca3ce
   call void @llvm.experimental.noalias.scope.decl(metadata !2122)
   %28 = load ptr, ptr %26, align 8, !alias.scope !2122, !noalias !2121, !nonnull !62, !align !64, !noundef !62
   %29 = load i64, ptr %28, align 8, !alias.scope !2125, !noalias !2128, !noundef !62
-  %30 = icmp ult i64 %29, %27
+  %30 = icmp ugt i64 %27, %29
   br i1 %30, label %31, label %44
 
 31:                                               ; preds = %"_ZN4core3ptr47drop_in_place$LT$zstd_safe..InBufferWrapper$GT$17h35aea06c60a9d975E.exit"
@@ -15981,7 +15981,7 @@ define hidden { i64, i64 } @_ZN9zstd_safe4DCtx17decompress_stream17h8d719d3ca3ce
   call void @llvm.experimental.noalias.scope.decl(metadata !2136)
   %36 = load ptr, ptr %34, align 8, !alias.scope !2136, !noalias !2135, !nonnull !62, !align !64, !noundef !62
   %37 = load i64, ptr %36, align 8, !alias.scope !2139, !noalias !2142, !noundef !62
-  %38 = icmp ult i64 %37, %35
+  %38 = icmp ugt i64 %35, %37
   br i1 %38, label %39, label %"_ZN4core3ptr81drop_in_place$LT$zstd_safe..OutBufferWrapper$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hea16997c3a76daeaE.exit4"
 
 39:                                               ; preds = %"_ZN4core3ptr47drop_in_place$LT$zstd_safe..InBufferWrapper$GT$17h35aea06c60a9d975E.exit3"

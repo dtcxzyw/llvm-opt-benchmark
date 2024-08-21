@@ -508,7 +508,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.90660
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -1623,7 +1623,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$9ends_with
 
 _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit.i: ; preds = %33, %20, %12, %10
   %52 = phi i64 [ 4, %33 ], [ 3, %20 ], [ 2, %12 ], [ 1, %10 ]
-  %.not.i.i = icmp ugt i64 %52, %1
+  %.not.i.i = icmp ult i64 %1, %52
   br i1 %.not.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$12is_suffix_of17h8f956c62f2bfc634E.llvm.906605461179275197.exit", label %53
 
 53:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit.i
@@ -1944,7 +1944,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern.
 
 _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit: ; preds = %10, %12, %20, %33
   %52 = phi i64 [ 4, %33 ], [ 3, %20 ], [ 2, %12 ], [ 1, %10 ]
-  %.not.i = icmp ugt i64 %52, %2
+  %.not.i = icmp ult i64 %2, %52
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb82f83160d86f135E.exit", label %53
 
 53:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit

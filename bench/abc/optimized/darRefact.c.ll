@@ -654,7 +654,7 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone %1, ptr noca
   %72 = ptrtoint ptr %71 to i64
   %73 = and i64 %72, -2
   %74 = inttoptr i64 %73 to ptr
-  %75 = icmp eq ptr %74, %1
+  %75 = icmp eq ptr %1, %74
   br i1 %75, label %.critedge2, label %76
 
 76:                                               ; preds = %60
@@ -1056,7 +1056,7 @@ Kit_TruthIsConst1.exit:                           ; preds = %select.unfold.i144
   %95 = load i32, ptr %94, align 4
   %.not117 = icmp eq i32 %95, 0
   %.neg = sext i1 %.not117 to i32
-  %96 = add i32 %.neg, %2
+  %96 = add i32 %2, %.neg
   %97 = tail call i32 @Dar_RefactTryGraph(ptr noundef %92, ptr noundef %1, ptr noundef %22, ptr noundef %91, i32 noundef %96, i32 noundef %3)
   %98 = icmp sgt i32 %97, -1
   br i1 %98, label %99, label %152
@@ -1217,7 +1217,7 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   %172 = load i32, ptr %171, align 4
   %.not120 = icmp eq i32 %172, 0
   %.neg121 = sext i1 %.not120 to i32
-  %173 = add i32 %.neg121, %2
+  %173 = add i32 %2, %.neg121
   %174 = tail call i32 @Dar_RefactTryGraph(ptr noundef %169, ptr noundef %1, ptr noundef nonnull %22, ptr noundef %168, i32 noundef %173, i32 noundef %3)
   %175 = icmp sgt i32 %174, -1
   br i1 %175, label %176, label %229

@@ -181,23 +181,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %11 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %mul4.i.i6)
   %sqrt.i.i7 = tail call noundef double @llvm.sqrt.f64(double %11)
   %tobool.i8 = fcmp une double %11, 0.000000e+00
-  %12 = fneg double %9
-  %div.i9.neg = fdiv double %12, %sqrt.i.i7
-  %fneg.i = select i1 %tobool.i8, double %div.i9.neg, double -0.000000e+00
-  %13 = fneg double %10
-  %div2.i10.neg = fdiv double %13, %sqrt.i.i7
+  %div.i9 = fdiv double %9, %sqrt.i.i7
+  %retval.sroa.0.0.i12 = select i1 %tobool.i8, double %div.i9, double 0.000000e+00
+  %12 = fneg double %10
+  %div2.i10.neg = fdiv double %12, %sqrt.i.i7
   %fneg1.i = select i1 %tobool.i8, double %div2.i10.neg, double -0.000000e+00
-  %14 = fneg double %retval.sroa.3.0.i.pn54
-  %neg.i = fmul double %fneg.i, %14
-  %15 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i.pn53, double %fneg1.i, double %neg.i)
-  %mul = fmul double %15, %conv
+  %neg.i = fmul double %retval.sroa.3.0.i.pn54, %retval.sroa.0.0.i12
+  %13 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i.pn53, double %fneg1.i, double %neg.i)
+  %mul = fmul double %13, %conv
   %cmp = fcmp ult double %mul, 0.000000e+00
   br i1 %cmp, label %if.end52, label %if.then25
 
 if.then25:                                        ; preds = %for.body
+  %fneg.i = fneg double %retval.sroa.0.0.i12
   %mul3.i = fmul double %retval.sroa.3.0.i.pn54, %fneg1.i
-  %16 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i.pn53, double %fneg.i, double %mul3.i)
-  %sub = fsub double 1.000000e+00, %16
+  %14 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i.pn53, double %fneg.i, double %mul3.i)
+  %sub = fsub double 1.000000e+00, %14
   %mul29 = fmul double %sub, 5.000000e-01
   %cmp30 = fcmp ogt double %mul29, 0.000000e+00
   br i1 %cmp30, label %if.then31, label %if.end34
@@ -205,7 +204,7 @@ if.then25:                                        ; preds = %for.body
 if.then31:                                        ; preds = %if.then25
   %call32 = tail call double @sqrt(double noundef %mul29) #13
   %div = fdiv double 1.000000e+00, %call32
-  %cmp.i17 = fcmp ogt double %div, %miterLimit
+  %cmp.i17 = fcmp olt double %miterLimit, %div
   %cond.i = select i1 %cmp.i17, double %miterLimit, double %div
   br label %if.end34
 
@@ -214,27 +213,27 @@ if.end34:                                         ; preds = %if.then31, %if.then
   %call37 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.052)
   %vtable38 = load ptr, ptr %call37, align 8
   %vfn39 = getelementptr inbounds i8, ptr %vtable38, i64 40
-  %17 = load ptr, ptr %vfn39, align 8
-  %call40 = tail call { double, double } %17(ptr noundef nonnull align 8 dereferenceable(12) %call37, double noundef 0.000000e+00)
-  %18 = extractvalue { double, double } %call40, 0
-  %19 = extractvalue { double, double } %call40, 1
-  %mul42 = fmul double %miterLength.0, %border
-  %add.i = fadd double %retval.sroa.0.0.i.pn53, %fneg.i
+  %15 = load ptr, ptr %vfn39, align 8
+  %call40 = tail call { double, double } %15(ptr noundef nonnull align 8 dereferenceable(12) %call37, double noundef 0.000000e+00)
+  %16 = extractvalue { double, double } %call40, 0
+  %17 = extractvalue { double, double } %call40, 1
+  %mul42 = fmul double %border, %miterLength.0
+  %add.i = fsub double %retval.sroa.0.0.i.pn53, %retval.sroa.0.0.i12
   %add3.i = fadd double %retval.sroa.3.0.i.pn54, %fneg1.i
   %mul4.i.i21 = fmul double %add3.i, %add3.i
-  %20 = tail call double @llvm.fmuladd.f64(double %add.i, double %add.i, double %mul4.i.i21)
-  %sqrt.i.i22 = tail call noundef double @llvm.sqrt.f64(double %20)
-  %tobool.i23 = fcmp une double %20, 0.000000e+00
+  %18 = tail call double @llvm.fmuladd.f64(double %add.i, double %add.i, double %mul4.i.i21)
+  %sqrt.i.i22 = tail call noundef double @llvm.sqrt.f64(double %18)
+  %tobool.i23 = fcmp une double %18, 0.000000e+00
   %div.i24 = fdiv double %add.i, %sqrt.i.i22
   %div2.i25 = fdiv double %add3.i, %sqrt.i.i22
   %retval.sroa.3.0.i26 = select i1 %tobool.i23, double %div2.i25, double 0.000000e+00
   %retval.sroa.0.0.i27 = select i1 %tobool.i23, double %div.i24, double 0.000000e+00
   %mul.i = fmul double %retval.sroa.0.0.i27, %mul42
   %mul1.i = fmul double %retval.sroa.3.0.i26, %mul42
-  %add.i32 = fadd double %mul.i, %18
-  %add3.i33 = fadd double %mul1.i, %19
-  %21 = load double, ptr %l, align 8
-  %cmp.i36 = fcmp ogt double %21, %add.i32
+  %add.i32 = fadd double %mul.i, %16
+  %add3.i33 = fadd double %mul1.i, %17
+  %19 = load double, ptr %l, align 8
+  %cmp.i36 = fcmp olt double %add.i32, %19
   br i1 %cmp.i36, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end34
@@ -242,8 +241,8 @@ if.then.i:                                        ; preds = %if.end34
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end34
-  %22 = load double, ptr %b, align 8
-  %cmp2.i = fcmp ogt double %22, %add3.i33
+  %20 = load double, ptr %b, align 8
+  %cmp2.i = fcmp olt double %add3.i33, %20
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -251,8 +250,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
-  %23 = load double, ptr %r, align 8
-  %cmp7.i = fcmp olt double %23, %add.i32
+  %21 = load double, ptr %r, align 8
+  %cmp7.i = fcmp ogt double %add.i32, %21
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %if.end5.i
@@ -260,8 +259,8 @@ if.then8.i:                                       ; preds = %if.end5.i
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %if.end5.i
-  %24 = load double, ptr %t, align 8
-  %cmp12.i = fcmp olt double %24, %add3.i33
+  %22 = load double, ptr %t, align 8
+  %cmp12.i = fcmp ogt double %add3.i33, %22
   br i1 %cmp12.i, label %if.then13.i, label %if.end52
 
 if.then13.i:                                      ; preds = %if.end10.i
@@ -272,21 +271,21 @@ if.end52:                                         ; preds = %if.then13.i, %if.en
   %call56 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.052)
   %vtable57 = load ptr, ptr %call56, align 8
   %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 48
-  %25 = load ptr, ptr %vfn58, align 8
-  %call59 = tail call { double, double } %25(ptr noundef nonnull align 8 dereferenceable(12) %call56, double noundef 1.000000e+00)
-  %26 = extractvalue { double, double } %call59, 0
-  %27 = extractvalue { double, double } %call59, 1
-  %mul4.i.i38 = fmul double %27, %27
-  %28 = tail call double @llvm.fmuladd.f64(double %26, double %26, double %mul4.i.i38)
-  %sqrt.i.i39 = tail call noundef double @llvm.sqrt.f64(double %28)
-  %tobool.i40 = fcmp une double %28, 0.000000e+00
-  %div.i41 = fdiv double %26, %sqrt.i.i39
-  %div2.i42 = fdiv double %27, %sqrt.i.i39
+  %23 = load ptr, ptr %vfn58, align 8
+  %call59 = tail call { double, double } %23(ptr noundef nonnull align 8 dereferenceable(12) %call56, double noundef 1.000000e+00)
+  %24 = extractvalue { double, double } %call59, 0
+  %25 = extractvalue { double, double } %call59, 1
+  %mul4.i.i38 = fmul double %25, %25
+  %26 = tail call double @llvm.fmuladd.f64(double %24, double %24, double %mul4.i.i38)
+  %sqrt.i.i39 = tail call noundef double @llvm.sqrt.f64(double %26)
+  %tobool.i40 = fcmp une double %26, 0.000000e+00
+  %div.i41 = fdiv double %24, %sqrt.i.i39
+  %div2.i42 = fdiv double %25, %sqrt.i.i39
   %retval.sroa.3.0.i43 = select i1 %tobool.i40, double %div2.i42, double 0.000000e+00
   %retval.sroa.0.0.i44 = select i1 %tobool.i40, double %div.i41, double 0.000000e+00
   %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.052, i64 8
-  %29 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %29
+  %27 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %27
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end52, %if.end, %entry
@@ -587,7 +586,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #13
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %cond.i19
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %cond.i19, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -625,7 +624,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
-  %cmp.not8.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
+  %cmp.not8.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not8.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i35
@@ -862,7 +861,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #13
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %cond.i19
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %cond.i19, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -900,7 +899,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
-  %cmp.not8.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
+  %cmp.not8.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not8.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i35
@@ -1117,7 +1116,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = tail call ptr @__cxa_begin_catch(ptr %7) #13
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %call5.i.i.i
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i

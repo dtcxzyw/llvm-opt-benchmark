@@ -232,7 +232,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr [5 x %struct.anon], ptr @drm_format_pixman_map, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 8
-  %cmp3 = icmp eq i32 %0, %drm_format
+  %cmp3 = icmp eq i32 %drm_format, %0
   br i1 %cmp3, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
@@ -260,7 +260,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %arrayidx = getelementptr [5 x %struct.anon], ptr @drm_format_pixman_map, i64 0, i64 %indvars.iv
   %pixman_format2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %0 = load i32, ptr %pixman_format2, align 4
-  %cmp3 = icmp eq i32 %0, %pixman_format
+  %cmp3 = icmp eq i32 %pixman_format, %0
   br i1 %cmp3, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body

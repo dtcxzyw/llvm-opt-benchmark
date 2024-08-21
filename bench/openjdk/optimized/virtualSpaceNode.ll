@@ -86,7 +86,7 @@ define hidden noundef zeroext i1 @_ZN9metaspace16VirtualSpaceNode12commit_rangeE
   br label %29
 
 29:                                               ; preds = %3, %24
-  %30 = icmp eq i64 %21, %2
+  %30 = icmp eq i64 %2, %21
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %29

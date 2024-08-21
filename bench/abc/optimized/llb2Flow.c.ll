@@ -2471,7 +2471,7 @@ define void @Llb_ManFlowUpdateCut(ptr noundef %0, ptr nocapture noundef %1) loca
 
 31:                                               ; preds = %29
   %32 = add nsw i32 %.val48, -1
-  %.not74 = icmp eq i32 %32, %.val49
+  %.not74 = icmp eq i32 %.val49, %32
   br i1 %.not74, label %114, label %33
 
 33:                                               ; preds = %31
@@ -2482,7 +2482,7 @@ define void @Llb_ManFlowUpdateCut(ptr noundef %0, ptr nocapture noundef %1) loca
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr i8, ptr %37, i64 32
   %.val62 = load i32, ptr %38, align 8
-  %.not75 = icmp eq i32 %32, %.val62
+  %.not75 = icmp eq i32 %.val62, %32
   br i1 %.not75, label %39, label %71
 
 39:                                               ; preds = %33
@@ -2574,7 +2574,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %80 = getelementptr i8, ptr %79, i64 32
   %.val64 = load i32, ptr %80, align 8
   %81 = add nsw i32 %.val63, -1
-  %.not76 = icmp eq i32 %81, %.val64
+  %.not76 = icmp eq i32 %.val64, %81
   br i1 %.not76, label %82, label %114
 
 82:                                               ; preds = %75

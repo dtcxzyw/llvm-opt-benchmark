@@ -74,7 +74,7 @@ define dso_local noundef range(i32 -95, 1) i32 @ptp_set_pinfunc(ptr nocapture no
 31:                                               ; preds = %24
   %32 = trunc i64 %19 to i32
   %33 = icmp ne ptr %20, null
-  %34 = icmp eq i32 %32, %1
+  %34 = icmp eq i32 %1, %32
   %35 = and i1 %34, %33
   br i1 %35, label %78, label %.thread
 

@@ -33,7 +33,7 @@ define dso_local void @arch_stack_walk(ptr nocapture noundef readonly %0, ptr no
 15:                                               ; preds = %4
   %16 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !6
   %17 = inttoptr i64 %16 to ptr
-  %18 = icmp eq ptr %17, %2
+  %18 = icmp eq ptr %2, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %15
@@ -95,7 +95,7 @@ define dso_local noundef range(i32 -22, 1) i32 @arch_stack_walk_reliable(ptr noc
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #7
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = icmp eq ptr %6, %2
+  %7 = icmp eq ptr %2, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3

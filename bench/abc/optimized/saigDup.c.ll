@@ -3529,7 +3529,7 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge, %63
 
 .critedge2.preheader:                             ; preds = %.lr.ph108, %Abc_UtilStrsav.exit
   %.val77109 = load i32, ptr %13, align 4
-  %72 = icmp sgt i32 %.val77109, %2
+  %72 = icmp slt i32 %2, %.val77109
   br i1 %72, label %.lr.ph111, label %.critedge4.preheader
 
 .lr.ph111:                                        ; preds = %.critedge2.preheader

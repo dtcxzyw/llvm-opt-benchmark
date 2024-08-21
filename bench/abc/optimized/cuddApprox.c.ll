@@ -212,7 +212,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %117 = sitofp i32 %116 to double
   %118 = fdiv double %115, %117
   %119 = fsub double 1.000000e+00, %118
-  %120 = fmul double %119, %5
+  %120 = fmul double %5, %119
   %121 = fcmp ogt double %114, %120
   br i1 %121, label %122, label %129
 
@@ -848,7 +848,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %278 = sitofp i32 %277 to double
   %279 = fdiv double %276, %278
   %280 = fsub double 1.000000e+00, %279
-  %281 = fmul double %280, %4
+  %281 = fmul double %4, %280
   %282 = fcmp ogt double %275, %281
   br i1 %282, label %283, label %.thread290.thread.i
 
@@ -2116,7 +2116,7 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br label %98
 
 22:                                               ; preds = %14
-  %23 = icmp eq ptr %7, %1
+  %23 = icmp eq ptr %1, %7
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
@@ -2286,7 +2286,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %122, label %25
 
 25:                                               ; preds = %10
-  %26 = icmp eq ptr %7, %1
+  %26 = icmp eq ptr %1, %7
   %27 = load ptr, ptr %4, align 8
   br i1 %26, label %28, label %31
 
@@ -2578,11 +2578,11 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   br i1 %.not, label %117, label %15
 
 15:                                               ; preds = %5
-  %16 = icmp eq ptr %8, %1
+  %16 = icmp eq ptr %1, %8
   br i1 %16, label %117, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp eq ptr %11, %2
+  %18 = icmp eq ptr %2, %11
   %19 = load ptr, ptr %6, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 20
   %21 = load i8, ptr %20, align 4
@@ -2804,7 +2804,7 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef %1, i32 no
   %19 = getelementptr inbounds i8, ptr %7, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
-  %22 = icmp ne ptr %7, %0
+  %22 = icmp ne ptr %0, %7
   %23 = zext i1 %22 to i64
   %24 = xor i64 %21, %23
   %25 = inttoptr i64 %24 to ptr
@@ -2917,7 +2917,7 @@ define internal fastcc void @updateParity(ptr noundef %0, ptr noundef %1, i32 no
   %10 = getelementptr inbounds i8, ptr %9, i64 22
   %11 = load i16, ptr %10, align 2
   %12 = sext i16 %11 to i32
-  %13 = and i32 %12, %2
+  %13 = and i32 %2, %12
   %.not15 = icmp eq i32 %13, 0
   br i1 %.not15, label %14, label %34
 

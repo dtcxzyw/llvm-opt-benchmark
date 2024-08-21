@@ -1876,7 +1876,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14TypeMapVisitor5visit
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %7, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %_ZNK4Luau12DenseHashMapIPNS_11AstExprCallEiNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %15
 
 15:                                               ; preds = %11
@@ -2229,7 +2229,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14TypeMapVisitor5visit
 19:                                               ; preds = %5
   %20 = getelementptr inbounds i8, ptr %0, i64 208
   %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, %14
+  %22 = icmp eq ptr %14, %21
   br i1 %22, label %_ZN4Luau14TypeMapVisitor18tryGetTableIndexerEPNS_7AstExprE.exit.thread, label %23
 
 23:                                               ; preds = %19
@@ -3469,7 +3469,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14TypeMapVisitor5visit
 50:                                               ; preds = %45
   %51 = getelementptr inbounds i8, ptr %40, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, %.sroa.0.0.copyload.i
+  %53 = icmp eq ptr %.sroa.0.0.copyload.i, %52
   br i1 %53, label %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit.thread.i, label %54
 
 54:                                               ; preds = %50
@@ -3559,7 +3559,7 @@ _ZN4LuauL16isMatchingGlobalERKNS_12DenseHashMapINS_7AstNameENS_7Compile6GlobalES
 99:                                               ; preds = %94
   %100 = getelementptr inbounds i8, ptr %0, i64 208
   %101 = load ptr, ptr %100, align 8
-  %102 = icmp eq ptr %101, %24
+  %102 = icmp eq ptr %24, %101
   br i1 %102, label %_ZN4Luau14TypeMapVisitor18tryGetTableIndexerEPNS_7AstExprE.exit.threadthread-pre-split, label %103
 
 103:                                              ; preds = %99
@@ -4992,7 +4992,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau14TypeMapVisitor18tryGetTable
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 208
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %11
 
 11:                                               ; preds = %7
@@ -5921,7 +5921,7 @@ define internal fastcc noundef zeroext i1 @_ZN4LuauL16isMatchingGlobalERKNS_12De
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, %.sroa.0.0.copyload
+  %16 = icmp eq ptr %.sroa.0.0.copyload, %15
   br i1 %16, label %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit.thread, label %17
 
 17:                                               ; preds = %13

@@ -629,7 +629,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr nocapture nound
   store i64 %100, ptr %98, align 8
   %101 = getelementptr inbounds double, ptr %15, i64 %.0235282
   %102 = load double, ptr %101, align 8
-  %103 = fmul double %102, %0
+  %103 = fmul double %0, %102
   %104 = getelementptr inbounds double, ptr %25, i64 %97
   store double %103, ptr %104, align 8
   %105 = add nsw i64 %.0235282, 1
@@ -755,7 +755,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr nocapture nound
   store i64 %161, ptr %159, align 8
   %162 = getelementptr inbounds double, ptr %15, i64 %.2237304
   %163 = load double, ptr %162, align 8
-  %164 = fmul double %163, %0
+  %164 = fmul double %0, %163
   %165 = getelementptr inbounds double, ptr %25, i64 %158
   store double %164, ptr %165, align 8
   %166 = add nsw i64 %.2237304, 1
@@ -973,7 +973,7 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr nocapture noun
   %41 = getelementptr inbounds double, ptr %14, i64 %.1242356
   %42 = load double, ptr %41, align 8
   %43 = tail call double @llvm.fmuladd.f64(double %0, double %42, double 1.000000e+00)
-  %44 = fmul double %42, %0
+  %44 = fmul double %0, %42
   %.sink = select i1 %40, double %43, double %44
   store double %.sink, ptr %41, align 8
   %45 = add nsw i64 %.1242356, 1
@@ -1025,7 +1025,7 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr nocapture noun
   %67 = load i64, ptr %66, align 8
   %68 = getelementptr inbounds double, ptr %14, i64 %.0245306
   %69 = load double, ptr %68, align 8
-  %70 = fmul double %69, %0
+  %70 = fmul double %0, %69
   %71 = getelementptr inbounds double, ptr %55, i64 %67
   store double %70, ptr %71, align 8
   %72 = add nsw i64 %.0245306, 1
@@ -1163,7 +1163,7 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr nocapture noun
   %.1246332 = phi i64 [ %138, %.lr.ph334 ], [ %127, %.lr.ph353 ]
   %132 = getelementptr inbounds double, ptr %14, i64 %.1246332
   %133 = load double, ptr %132, align 8
-  %134 = fmul double %133, %0
+  %134 = fmul double %0, %133
   %135 = getelementptr inbounds i64, ptr %12, i64 %.1246332
   %136 = load i64, ptr %135, align 8
   %137 = getelementptr inbounds double, ptr %53, i64 %136

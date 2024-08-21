@@ -15246,7 +15246,7 @@ entry:
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %entry
-  %cmp.i = icmp eq ptr %call.i.i.i9, %add.ptr.i
+  %cmp.i = icmp eq ptr %add.ptr.i, %call.i.i.i9
   br i1 %type_deduction, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
@@ -15516,12 +15516,12 @@ if.then6:                                         ; preds = %entry.if.then6_crit
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp.not = icmp ugt i64 %sub.ptr.div.i, %idx
+  %cmp.not = icmp ult i64 %idx, %sub.ptr.div.i
   br i1 %cmp.not, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %if.then6
   %add = add i64 %idx, 1
-  %cmp.i5 = icmp ult i64 %sub.ptr.div.i, %add
+  %cmp.i5 = icmp ugt i64 %add, %sub.ptr.div.i
   br i1 %cmp.i5, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then10
@@ -15530,7 +15530,7 @@ if.then.i:                                        ; preds = %if.then10
   br label %if.end13
 
 if.else.i:                                        ; preds = %if.then10
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i, %add
+  %cmp4.i = icmp ult i64 %add, %sub.ptr.div.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end13
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -17691,7 +17691,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   %5 = extractvalue { ptr, i32 } %lpad.phi, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #21
-  %cmp.not3.i.i = icmp eq ptr %__cur.015, %__result
+  %cmp.not3.i.i = icmp eq ptr %__result, %__cur.015
   br i1 %cmp.not3.i.i, label %invoke.cont3, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lpad, %_ZSt8_DestroyISt6vectorISt16partial_orderingSaIS1_EEEvPT_.exit.i.i
@@ -19362,7 +19362,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %if.then.i.i.i, %invoke.cont
   %7 = load i64, ptr %0, align 8
   %cond.i.i = select i1 %cmp.i.i.i, i64 15, i64 %7
-  %cmp.not.i = icmp ult i64 %cond.i.i, %add.i
+  %cmp.not.i = icmp ugt i64 %add.i, %cond.i.i
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont5
 
 if.end.i:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -19371,7 +19371,7 @@ if.end.i:                                         ; preds = %_ZNKSt7__cxx1112bas
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
   %mul.i.i = shl nuw i64 %cond.i.i, 1
-  %cmp3.i.i = icmp ugt i64 %mul.i.i, %add.i
+  %cmp3.i.i = icmp ult i64 %add.i, %mul.i.i
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i, i64 9223372036854775807)
   %__res.addr.0.i = select i1 %cmp3.i.i, i64 %spec.store.select.i.i, i64 %add.i
   %add.i.i5 = add nuw i64 %__res.addr.0.i, 1
@@ -19777,7 +19777,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %if.then.i.i.i, %invoke.cont
   %6 = load i64, ptr %0, align 8
   %cond.i.i = select i1 %cmp.i.i.i, i64 15, i64 %6
-  %cmp.not.i = icmp ult i64 %cond.i.i, %add.i
+  %cmp.not.i = icmp ugt i64 %add.i, %cond.i.i
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont9
 
 if.end.i:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -19786,7 +19786,7 @@ if.end.i:                                         ; preds = %_ZNKSt7__cxx1112bas
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
   %mul.i.i = shl nuw i64 %cond.i.i, 1
-  %cmp3.i.i = icmp ugt i64 %mul.i.i, %add.i
+  %cmp3.i.i = icmp ult i64 %add.i, %mul.i.i
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i, i64 9223372036854775807)
   %__res.addr.0.i = select i1 %cmp3.i.i, i64 %spec.store.select.i.i, i64 %add.i
   %add.i.i7 = add nuw i64 %__res.addr.0.i, 1
@@ -21123,7 +21123,7 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %if.then.i.i.i, %entry
   %5 = load i64, ptr %0, align 8
   %cond.i.i = select i1 %cmp.i.i.i, i64 15, i64 %5
-  %cmp.not.i = icmp ult i64 %cond.i.i, %add.i
+  %cmp.not.i = icmp ugt i64 %add.i, %cond.i.i
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont3
 
 if.end.i:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -21139,7 +21139,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
   %mul.i.i = shl nuw i64 %cond.i.i, 1
-  %cmp3.i.i = icmp ugt i64 %mul.i.i, %add.i
+  %cmp3.i.i = icmp ult i64 %add.i, %mul.i.i
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i, i64 9223372036854775807)
   %__res.addr.0.i = select i1 %cmp3.i.i, i64 %spec.store.select.i.i, i64 %add.i
   %add.i.i = add nuw i64 %__res.addr.0.i, 1
@@ -21999,7 +21999,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont5
   %cmp.not.i.i = icmp ne ptr %6, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %7
+  %cmp2.i.i = icmp eq ptr %7, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -22088,7 +22088,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIvESaISH_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISH_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -24157,7 +24157,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
   %102 = load i64, ptr %101, align 8
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 15, i64 %102
-  %cmp.not.i.i.i = icmp ult i64 %cond.i.i.i.i, %mul304
+  %cmp.not.i.i.i = icmp ugt i64 %mul304, %cond.i.i.i.i
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then12.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
@@ -25229,7 +25229,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
   %3 = load i64, ptr %2, align 8
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i64 15, i64 %3
-  %cmp.not.i.i = icmp ult i64 %cond.i.i.i, %__n
+  %cmp.not.i.i = icmp ugt i64 %__n, %cond.i.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then12.i.i
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
@@ -25252,7 +25252,7 @@ if.end.i.i22.i.i:                                 ; preds = %if.then12.i.i
   br label %if.end5.sink.split
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp ugt i64 %0, %__n
+  %cmp3 = icmp ult i64 %__n, %0
   br i1 %cmp3, label %if.end5.sink.split, label %if.end5
 
 if.end5.sink.split:                               ; preds = %if.else, %if.end.i.i22.i.i, %if.then.i21.i.i
@@ -25413,7 +25413,7 @@ sw.bb44:                                          ; preds = %sw.bb
 sw.default:                                       ; preds = %sw.bb
   %cmp51 = icmp ult i32 %cond.i, 32
   %cmp52 = icmp ugt i32 %cond.i, 126
-  %or.cond = and i1 %cmp52, %ensure_ascii
+  %or.cond = and i1 %ensure_ascii, %cmp52
   %or.cond62 = or i1 %cmp51, %or.cond
   br i1 %or.cond62, label %if.then, label %if.else71
 
@@ -25916,7 +25916,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %if.then.i.i.i, %invoke.cont
   %6 = load i64, ptr %0, align 8
   %cond.i.i = select i1 %cmp.i.i.i, i64 15, i64 %6
-  %cmp.not.i = icmp ult i64 %cond.i.i, %add.i
+  %cmp.not.i = icmp ugt i64 %add.i, %cond.i.i
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont7
 
 if.end.i:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -25932,7 +25932,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
   %mul.i.i = shl nuw i64 %cond.i.i, 1
-  %cmp3.i.i = icmp ugt i64 %mul.i.i, %add.i
+  %cmp3.i.i = icmp ult i64 %add.i, %mul.i.i
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i, i64 9223372036854775807)
   %__res.addr.0.i = select i1 %cmp3.i.i, i64 %spec.store.select.i.i, i64 %add.i
   %add.i.i6 = add nuw i64 %__res.addr.0.i, 1
@@ -26210,7 +26210,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %if.then.i.i.i, %invoke.cont
   %5 = load i64, ptr %0, align 8
   %cond.i.i = select i1 %cmp.i.i.i, i64 15, i64 %5
-  %cmp.not.i = icmp ult i64 %cond.i.i, %add.i
+  %cmp.not.i = icmp ugt i64 %add.i, %cond.i.i
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont3
 
 if.end.i:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -26226,7 +26226,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
   %mul.i.i = shl nuw i64 %cond.i.i, 1
-  %cmp3.i.i = icmp ugt i64 %mul.i.i, %add.i
+  %cmp3.i.i = icmp ult i64 %add.i, %mul.i.i
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i, i64 9223372036854775807)
   %__res.addr.0.i = select i1 %cmp3.i.i, i64 %spec.store.select.i.i, i64 %add.i
   %add.i.i = add nuw i64 %__res.addr.0.i, 1

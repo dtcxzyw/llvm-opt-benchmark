@@ -330,7 +330,7 @@ define hidden noundef i64 @_ZN14CompilerConfig24scaled_compile_thresholdEld(i64 
 
 6:                                                ; preds = %2
   %7 = sitofp i64 %0 to double
-  %8 = fmul double %7, %1
+  %8 = fmul double %1, %7
   %9 = tail call double @llvm.fabs.f64(double %8)
   %or.cond15 = fcmp ueq double %9, 0x7FF0000000000000
   br i1 %or.cond15, label %15, label %10
@@ -420,7 +420,7 @@ define hidden noundef i64 @_ZN14CompilerConfig15scaled_freq_logEld(i64 noundef %
   %10 = shl nuw i64 1, %0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %11 = sitofp i64 %10 to double
-  %12 = fmul double %11, %1
+  %12 = fmul double %1, %11
   %13 = tail call double @llvm.fabs.f64(double %12)
   %or.cond15.i = fcmp ueq double %13, 0x7FF0000000000000
   br i1 %or.cond15.i, label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.thread, label %14

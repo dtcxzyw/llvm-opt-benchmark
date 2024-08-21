@@ -377,7 +377,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit._ZNK6BitMap20find_first_clear_bitEm.exit_
 
 36:                                               ; preds = %_ZNK6BitMap18find_first_set_bitEm.exit
   %37 = and i64 %.0.i.i.i, 4294967295
-  %38 = icmp ugt i64 %6, %37
+  %38 = icmp ult i64 %37, %6
   br i1 %38, label %39, label %.loopexit.i.i.i7
 
 39:                                               ; preds = %36
@@ -508,7 +508,7 @@ _ZNK6BitMap20find_first_clear_bitEm.exit._ZNK6BitMap18find_first_set_bitEm.exit_
 
 38:                                               ; preds = %_ZNK6BitMap20find_first_clear_bitEm.exit
   %39 = and i64 %.0.i.i.i, 4294967295
-  %40 = icmp ugt i64 %6, %39
+  %40 = icmp ult i64 %39, %6
   br i1 %40, label %41, label %.loopexit.i.i.i7
 
 41:                                               ; preds = %38
@@ -637,7 +637,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit._ZNK6BitMap20find_first_clear_bitEm.exit_
 
 38:                                               ; preds = %_ZNK6BitMap18find_first_set_bitEm.exit
   %39 = and i64 %.0.i.i.i, 4294967295
-  %40 = icmp ugt i64 %6, %39
+  %40 = icmp ult i64 %39, %6
   br i1 %40, label %41, label %.loopexit.i.i.i7
 
 41:                                               ; preds = %38

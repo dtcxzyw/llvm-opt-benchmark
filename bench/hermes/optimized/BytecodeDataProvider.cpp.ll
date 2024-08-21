@@ -335,7 +335,7 @@ if.end47:                                         ; preds = %if.end40
   %fileLength = getelementptr inbounds i8, ptr %aref.coerce0, i64 32
   %14 = load i32, ptr %fileLength, align 1
   %conv = zext i32 %14 to i64
-  %cmp49 = icmp ugt i64 %conv, %aref.coerce1
+  %cmp49 = icmp ult i64 %aref.coerce1, %conv
   br i1 %cmp49, label %if.then50, label %return
 
 if.then50:                                        ; preds = %if.end47
@@ -1456,7 +1456,7 @@ for.body:                                         ; preds = %for.body.preheader,
 land.lhs.true:                                    ; preds = %for.body
   %end = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %5 = load i32, ptr %end, align 1
-  %cmp8 = icmp ugt i32 %5, %exceptionOffset
+  %cmp8 = icmp ult i32 %exceptionOffset, %5
   br i1 %cmp8, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true
@@ -3039,7 +3039,7 @@ cond.true.i.split:                                ; preds = %entry
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i8
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i9, %call.i
+  %cmp.i = icmp ugt i64 %call.i, %sub.ptr.sub.i9
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cond.true.i.split

@@ -1969,7 +1969,7 @@ define internal fastcc noundef i32 @_ZL19getFlipDistanceToIdRKN2cv5aruco10Dictio
   %36 = icmp sgt i32 %2, -1
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = load i32, ptr %37, align 8
-  %39 = icmp sgt i32 %38, %2
+  %39 = icmp slt i32 %2, %38
   %or.cond = select i1 %36, i1 %39, i1 false
   br i1 %or.cond, label %48, label %40
 

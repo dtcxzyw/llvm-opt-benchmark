@@ -811,7 +811,7 @@ if.end:                                           ; preds = %trace_tpm_tis_mmio_
 
 if.end14:                                         ; preds = %if.end
   %conv15 = zext i32 %cond6 to i64
-  %and16 = and i64 %conv15, %val
+  %and16 = and i64 %val, %conv15
   %sh_prom = zext nneg i8 %conv2 to i64
   %val.addr.0 = shl nuw nsw i64 %and16, %sh_prom
   %conv = lshr i32 %0, 2

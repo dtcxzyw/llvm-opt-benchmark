@@ -1187,7 +1187,7 @@ define noundef i32 @_ZN6google8protobuf15CEscapeInternalEPKciPcibb(ptr noundef r
 
 46:                                               ; preds = %14
   %47 = icmp slt i8 %15, 0
-  %or.cond.not = and i1 %47, %5
+  %or.cond.not = and i1 %5, %47
   br i1 %or.cond.not, label %61, label %48
 
 48:                                               ; preds = %46
@@ -1247,7 +1247,7 @@ _ZN6google8protobuf8isxdigitEc.exit.thread:       ; preds = %switch.early.test, 
 
 ._crit_edge:                                      ; preds = %65, %6
   %.055.lcssa = phi i32 [ 0, %6 ], [ %.1, %65 ]
-  %.not = icmp slt i32 %.055.lcssa, %3
+  %.not = icmp sgt i32 %3, %.055.lcssa
   br i1 %.not, label %68, label %.loopexit
 
 68:                                               ; preds = %._crit_edge
@@ -5167,7 +5167,7 @@ _ZN6google8protobuf13ascii_isspaceEc.exit309:     ; preds = %87, %87, %87, %87, 
   %.5 = phi i32 [ %80, %89 ], [ %95, %94 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %98 = trunc nuw i64 %indvars.iv.next to i32
-  %99 = icmp sgt i32 %98, %3
+  %99 = icmp slt i32 %3, %98
   br i1 %99, label %_ZN6google8protobuf13ascii_isspaceEc.exit314, label %100
 
 100:                                              ; preds = %97
@@ -5802,7 +5802,7 @@ define noundef i32 @_ZN6google8protobuf20Base64EscapeInternalEPKhiPciPKcb(ptr no
   %17 = zext nneg i32 %1 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = getelementptr inbounds i8, ptr %18, i64 -3
-  %20 = icmp ugt ptr %19, %0
+  %20 = icmp ult ptr %0, %19
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
@@ -6531,7 +6531,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17

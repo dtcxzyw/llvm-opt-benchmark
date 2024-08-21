@@ -1920,7 +1920,7 @@ for.inc30.i.i:                                    ; preds = %_ZN20btAlignedObjec
 for.end32.i.i:                                    ; preds = %for.inc30.i.i
   %m_size.i.i150.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %160 = load i32, ptr %m_size.i.i150.i.i, align 4
-  %cmp.i151.i.i = icmp slt i32 %160, %1
+  %cmp.i151.i.i = icmp sgt i32 %1, %160
   %161 = load i32, ptr %m_capacity.i.i.i320.i, align 8
   %cmp.i.i154.i.i = icmp slt i32 %161, %1
   %or.cond = select i1 %cmp.i151.i.i, i1 %cmp.i.i154.i.i, i1 false
@@ -2041,7 +2041,7 @@ for.end50.i.i:                                    ; preds = %for.inc48.i.i, %_ZL
   %.lcssa.i.i = phi i32 [ %168, %_ZL27writeOutConstraintIndicesMtP20btBatchedConstraintsPKiiPiii.exit.i.i ], [ %172, %for.inc48.i.i ]
   %m_size.i.i188.i.i = getelementptr inbounds i8, ptr %this, i64 132
   %174 = load i32, ptr %m_size.i.i188.i.i, align 4
-  %cmp3.i.i.i = icmp slt i32 %174, %.lcssa.i.i
+  %cmp3.i.i.i = icmp sgt i32 %.lcssa.i.i, %174
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i
 
 if.then4.i.i.i:                                   ; preds = %for.end50.i.i
@@ -2154,7 +2154,7 @@ for.end68.i.i:                                    ; preds = %for.body62.i.i, %_Z
   %188 = phi i32 [ %183, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i ], [ %186, %for.body62.i.i ]
   %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 100
   %189 = load i32, ptr %m_size.i.i.i.i.i, align 4
-  %cmp.i.i226.i.i = icmp slt i32 %189, %188
+  %cmp.i.i226.i.i = icmp sgt i32 %188, %189
   br i1 %cmp.i.i226.i.i, label %if.then.i.i234.i.i, label %_ZN20btAlignedObjectArrayIcE18resizeNoInitializeEi.exit.i.i.i
 
 if.then.i.i234.i.i:                               ; preds = %for.end68.i.i
@@ -2564,7 +2564,7 @@ if.else:                                          ; preds = %entry
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i63, ptr noundef nonnull @.str.17)
   %m_size.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 4
   %257 = load i32, ptr %m_size.i.i.i64, align 4
-  %cmp3.i.i = icmp slt i32 %257, %0
+  %cmp3.i.i = icmp sgt i32 %0, %257
   br i1 %cmp3.i.i, label %if.then4.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i
 
 if.then4.i.i:                                     ; preds = %if.else
@@ -3626,7 +3626,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !50
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo
+  %cmp15 = icmp slt i32 %lo, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end

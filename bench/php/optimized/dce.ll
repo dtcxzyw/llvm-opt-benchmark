@@ -3096,7 +3096,7 @@ is_free_of_live_var.exit.i:                       ; preds = %1750
   %1763 = load ptr, ptr %9, align 8
   %1764 = getelementptr inbounds i8, ptr %1763, i64 80
   %1765 = load i32, ptr %1764, align 8
-  %.not110.i = icmp sgt i32 %1765, %1735
+  %.not110.i = icmp slt i32 %1735, %1765
   br i1 %.not110.i, label %dce_instr.exit, label %is_free_of_live_var.exit.thread.i
 
 is_free_of_live_var.exit.thread.i:                ; preds = %is_free_of_live_var.exit.i, %1754, %1741, %1725, %1717
@@ -3151,7 +3151,7 @@ is_var_dead.exit.i:                               ; preds = %1786
   %1799 = load ptr, ptr %9, align 8
   %1800 = getelementptr inbounds i8, ptr %1799, i64 80
   %1801 = load i32, ptr %1800, align 8
-  %.not102.i = icmp sgt i32 %1801, %1770
+  %.not102.i = icmp slt i32 %1770, %1801
   br i1 %.not102.i, label %1802, label %1818
 
 1802:                                             ; preds = %is_var_dead.exit.i, %1790, %1777
@@ -3238,7 +3238,7 @@ is_var_dead.exit99.i:                             ; preds = %1841
   %1854 = load ptr, ptr %9, align 8
   %1855 = getelementptr inbounds i8, ptr %1854, i64 80
   %1856 = load i32, ptr %1855, align 8
-  %.not105.i = icmp sgt i32 %1856, %1824
+  %.not105.i = icmp slt i32 %1824, %1856
   br i1 %.not105.i, label %1857, label %1890
 
 1857:                                             ; preds = %is_var_dead.exit99.i, %1845, %1832

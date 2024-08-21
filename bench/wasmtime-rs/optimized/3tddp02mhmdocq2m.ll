@@ -5160,7 +5160,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit: ; preds =
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 16 dereferenceable(32) %106, i64 32, i1 false)
   %107 = getelementptr inbounds i8, ptr %2, i64 88
   %108 = load i64, ptr %107, align 8, !noundef !4
-  %109 = icmp ugt i64 %108, %4
+  %109 = icmp ult i64 %4, %108
   br i1 %109, label %268, label %274, !prof !5
 
 110:                                              ; preds = %6
@@ -5315,7 +5315,7 @@ common.resume:                                    ; preds = %347, %351, %264, %3
 166:                                              ; preds = %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit
   %167 = getelementptr inbounds i8, ptr %95, i64 16
   %168 = load i64, ptr %167, align 8, !noundef !4
-  %.not149 = icmp eq i64 %168, %4
+  %.not149 = icmp eq i64 %4, %168
   br i1 %.not149, label %170, label %173
 
 169:                                              ; preds = %426, %423, %408, %369, %300, %297, %294, %292, %263, %217, %170, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc5fa82cff4000d4cE.exit150", %137, %136
@@ -5334,7 +5334,7 @@ common.resume:                                    ; preds = %347, %351, %264, %3
 173:                                              ; preds = %166
   %174 = getelementptr inbounds i8, ptr %2, i64 88
   %175 = load i64, ptr %174, align 8, !noundef !4
-  %176 = icmp ugt i64 %175, %4
+  %176 = icmp ult i64 %4, %175
   br i1 %176, label %177, label %197, !prof !5
 
 177:                                              ; preds = %173
@@ -5638,7 +5638,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit177: ; preds = %275
 
 295:                                              ; preds = %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit156
   %296 = load i64, ptr %123, align 8, !noundef !4
-  %.not145 = icmp eq i64 %296, %4
+  %.not145 = icmp eq i64 %4, %296
   br i1 %.not145, label %297, label %299
 
 297:                                              ; preds = %299, %295
@@ -5679,7 +5679,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit177: ; preds = %275
   %310 = getelementptr inbounds [0 x { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }], ptr %309, i64 0, i64 %303
   %311 = getelementptr inbounds i8, ptr %310, i64 232
   %312 = load i64, ptr %311, align 8, !noundef !4
-  %.not = icmp eq i64 %312, %4
+  %.not = icmp eq i64 %4, %312
   br i1 %.not, label %314, label %321
 
 313:                                              ; preds = %302
@@ -5844,7 +5844,7 @@ _ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E.exit.thread.i: 
   call void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$cranelift_isle..ast..Pattern$GT$$GT$17h6b7b0319fc46d828E"(ptr nonnull align 16 %45)
   %364 = getelementptr inbounds i8, ptr %2, i64 88
   %365 = load i64, ptr %364, align 8, !noundef !4
-  %366 = icmp ugt i64 %365, %4
+  %366 = icmp ult i64 %4, %365
   br i1 %366, label %370, label %390, !prof !5
 
 367:                                              ; preds = %362
@@ -6471,7 +6471,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit257: ; pred
   call void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$cranelift_isle..ast..Expr$GT$$GT$17h159fcd6e1923ebe8E"(ptr nonnull align 16 %86)
   %197 = getelementptr inbounds i8, ptr %2, i64 88
   %198 = load i64, ptr %197, align 8, !noundef !4
-  %199 = icmp ugt i64 %198, %5
+  %199 = icmp ult i64 %5, %198
   br i1 %199, label %206, label %226, !prof !5
 
 200:                                              ; preds = %195
@@ -6759,7 +6759,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit261: ; preds = %227
   %318 = getelementptr inbounds i8, ptr %57, i64 8
   store i64 %317, ptr %318, align 8
   %319 = load i64, ptr %306, align 8, !noundef !4
-  %320 = icmp ugt i64 %319, %5
+  %320 = icmp ult i64 %5, %319
   br i1 %320, label %322, label %334, !prof !5
 
 321:                                              ; preds = %304
@@ -6814,7 +6814,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit261: ; preds = %227
 340:                                              ; preds = %134
   %341 = getelementptr inbounds i8, ptr %2, i64 88
   %342 = load i64, ptr %341, align 8, !noundef !4
-  %343 = icmp ugt i64 %342, %5
+  %343 = icmp ult i64 %5, %342
   br i1 %343, label %344, label %350, !prof !5
 
 344:                                              ; preds = %340
@@ -6907,7 +6907,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit264: ; preds = %353
   %383 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %382, i64 0, i64 %374
   %384 = getelementptr inbounds i8, ptr %2, i64 88
   %385 = load i64, ptr %384, align 8, !noundef !4
-  %386 = icmp ugt i64 %385, %5
+  %386 = icmp ult i64 %5, %385
   br i1 %386, label %388, label %404, !prof !5
 
 387:                                              ; preds = %376

@@ -632,7 +632,7 @@ switch.lookup:                                    ; preds = %2
 define dso_local noundef zeroext i1 @StrategyRejectBuffer(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #5 {
   %4 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %4, 1
-  %brmerge.not = and i1 %.not, %2
+  %brmerge.not = and i1 %2, %.not
   br i1 %brmerge.not, label %5, label %15
 
 5:                                                ; preds = %3

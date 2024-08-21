@@ -1832,7 +1832,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__huge_op_real(ptr noundef %0, 
   %179 = getelementptr inbounds i8, ptr %0, i64 252
   %180 = load i32, ptr %179, align 4
   %.not61 = icmp eq i32 %180, 0
-  %brmerge.not = and i1 %.not61, %2
+  %brmerge.not = and i1 %2, %.not61
   br i1 %brmerge.not, label %188, label %181
 
 181:                                              ; preds = %178

@@ -330,7 +330,7 @@ if.end16:                                         ; preds = %if.end11
   %add = add nsw i32 %call12, 7
   %div = sdiv i32 %add, 8
   %conv17 = zext nneg i32 %div to i64
-  %cmp18 = icmp ugt i64 %conv17, %sz
+  %cmp18 = icmp ult i64 %sz, %conv17
   br i1 %cmp18, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end16

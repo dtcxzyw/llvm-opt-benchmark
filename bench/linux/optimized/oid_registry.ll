@@ -45,7 +45,7 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr nocapture noundef readon
   %13 = add i32 %12, %7
   %14 = add i32 %8, 1
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %15, %1
+  %16 = icmp ugt i64 %1, %15
   br i1 %16, label %.preheader11, label %.loopexit12, !llvm.loop !5
 
 .loopexit12:                                      ; preds = %.preheader11, %2
@@ -292,7 +292,7 @@ define dso_local i32 @sprint_oid(ptr noundef readonly %0, i64 noundef %1, ptr no
   %.zext11 = zext nneg i8 %10 to i32
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef %.zext, i32 noundef %.zext11) #5
   %12 = sext i32 %11 to i64
-  %13 = icmp ult i64 %12, %3
+  %13 = icmp ugt i64 %3, %12
   br i1 %13, label %14, label %.loopexit13
 
 14:                                               ; preds = %7

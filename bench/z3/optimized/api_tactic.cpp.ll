@@ -4298,7 +4298,7 @@ if.end:                                           ; preds = %if.then, %entry
 invoke.cont9:                                     ; preds = %if.end
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not = icmp ugt i32 %3, %idx
+  %cmp.not = icmp ult i32 %idx, %3
   br i1 %cmp.not, label %invoke.cont21, label %if.then11
 
 if.then11:                                        ; preds = %if.end, %invoke.cont9
@@ -4499,7 +4499,7 @@ if.end:                                           ; preds = %if.then, %entry
 invoke.cont9:                                     ; preds = %if.end
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not = icmp ugt i32 %3, %idx
+  %cmp.not = icmp ult i32 %idx, %3
   br i1 %cmp.not, label %invoke.cont21, label %if.then11
 
 if.then11:                                        ; preds = %if.end, %invoke.cont9
@@ -6321,7 +6321,7 @@ if.end:                                           ; preds = %if.then, %entry
   %m_subgoals = getelementptr inbounds i8, ptr %r, i64 24
   %m_pos.i.i = getelementptr inbounds i8, ptr %r, i64 32
   %8 = load i32, ptr %m_pos.i.i, align 8
-  %cmp = icmp ult i32 %8, %i
+  %cmp = icmp ugt i32 %i, %8
   br i1 %cmp, label %if.then11, label %if.end20
 
 if.then11:                                        ; preds = %if.end
@@ -7014,7 +7014,7 @@ if.end:                                           ; preds = %if.then, %entry
 invoke.cont9:                                     ; preds = %if.end
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.not = icmp ugt i32 %3, %idx
+  %cmp.not = icmp ult i32 %idx, %3
   br i1 %cmp.not, label %invoke.cont21, label %if.then11
 
 if.then11:                                        ; preds = %if.end, %invoke.cont9

@@ -929,7 +929,7 @@ define hidden i64 @rb_memory_view_extract_item_member(ptr noundef readonly %0, p
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %.not = icmp ugt i64 %8, %2
+  %.not = icmp ult i64 %2, %8
   br i1 %.not, label %9, label %11
 
 9:                                                ; preds = %6

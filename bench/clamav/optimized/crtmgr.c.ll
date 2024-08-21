@@ -877,7 +877,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.029.i.i = phi i32 [ %48, %46 ], [ %37, %42 ]
   %.0.i.i = phi ptr [ %47, %46 ], [ %28, %42 ]
   %50 = add i32 %.029.i.i, 1
-  %.not35.i.i = icmp eq i32 %50, %22
+  %.not35.i.i = icmp eq i32 %22, %50
   br i1 %.not35.i.i, label %51, label %.sink.split.i
 
 51:                                               ; preds = %49
@@ -1208,7 +1208,7 @@ declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @crtmgr_add_roots(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 264
-  %.not = icmp eq ptr %4, %1
+  %.not = icmp eq ptr %1, %4
   br i1 %.not, label %crtmgr_free.exit, label %.preheader
 
 .preheader:                                       ; preds = %3

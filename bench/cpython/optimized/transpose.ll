@@ -88,7 +88,7 @@ do.body.i27:                                      ; preds = %if.else
 
 mul_size_t.exit30:                                ; preds = %if.else
   %umul.value.i26 = shl nuw i64 %rows, 1
-  %cmp2 = icmp eq i64 %umul.value.i26, %cols
+  %cmp2 = icmp eq i64 %cols, %umul.value.i26
   br i1 %cmp2, label %if.then3, label %if.else6
 
 if.then3:                                         ; preds = %mul_size_t.exit30
@@ -119,7 +119,7 @@ do.body.i33:                                      ; preds = %if.else6
 
 mul_size_t.exit36:                                ; preds = %if.else6
   %umul.value.i32 = shl nuw i64 %cols, 1
-  %cmp8 = icmp eq i64 %umul.value.i32, %rows
+  %cmp8 = icmp eq i64 %rows, %umul.value.i32
   br i1 %cmp8, label %if.then9, label %if.else16
 
 if.then9:                                         ; preds = %mul_size_t.exit36

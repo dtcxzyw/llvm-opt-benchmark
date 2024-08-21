@@ -1451,7 +1451,7 @@ for.cond4.preheader.us:                           ; preds = %for.body.us
   %10 = mul nsw i64 %5, %4
   %add.ptr.i.us = getelementptr inbounds i8, ptr %output, i64 %10
   %11 = trunc i64 %indvars.iv29 to i32
-  %12 = mul i32 %11, %sz
+  %12 = mul i32 %sz, %11
   %13 = zext i32 %12 to i64
   br label %for.body6.us
 
@@ -2309,7 +2309,7 @@ for.cond43.for.inc170_crit_edge.us:               ; preds = %for.inc167.us
 
 for.end172:                                       ; preds = %for.cond43.for.inc170_crit_edge.us, %if.then4, %for.cond43.preheader.lr.ph, %for.cond38.preheader
   %mul = sub nsw i32 0, %0
-  %cmp174504 = icmp slt i32 %mul, %h
+  %cmp174504 = icmp sgt i32 %h, %mul
   br i1 %cmp174504, label %for.body176.lr.ph, label %return
 
 for.body176.lr.ph:                                ; preds = %for.end172
@@ -2515,7 +2515,7 @@ if.else296:                                       ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(11130) @v_color, i8 -1, i64 11130, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(11130) @h_color, i8 -1, i64 11130, i1 false)
   %mul300 = sub nsw i32 0, %0
-  %cmp302511 = icmp slt i32 %mul300, %h
+  %cmp302511 = icmp sgt i32 %h, %mul300
   br i1 %cmp302511, label %for.body304.lr.ph, label %return
 
 for.body304.lr.ph:                                ; preds = %if.else296

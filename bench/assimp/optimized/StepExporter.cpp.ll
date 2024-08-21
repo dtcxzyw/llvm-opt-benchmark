@@ -1093,7 +1093,7 @@ _ZNSt3mapIPK6aiNode12aiMatrix4x4tIfESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_bou
 lor.rhs.i23:                                      ; preds = %_ZNSt3mapIPK6aiNode12aiMatrix4x4tIfESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i21
   %_M_storage.i.i.i24 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i16, i64 32
   %70 = load ptr, ptr %_M_storage.i.i.i24, align 8
-  %cmp.i3.i25 = icmp ugt ptr %70, %node
+  %cmp.i3.i25 = icmp ult ptr %node, %70
   br i1 %cmp.i3.i25, label %if.then.i28, label %_ZNSt3mapIPK6aiNode12aiMatrix4x4tIfESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit31
 
 if.then.i28:                                      ; preds = %lor.rhs.i23, %_ZNSt3mapIPK6aiNode12aiMatrix4x4tIfESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i21, %cond.end
@@ -1207,7 +1207,7 @@ while.body.i.i.i:                                 ; preds = %for.body, %while.bo
   %__x.07.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.05.i.i.i, %for.body ]
   %_M_storage.i.i.i2.i.i = getelementptr inbounds i8, ptr %__x.07.i.i.i, i64 32
   %4 = load ptr, ptr %_M_storage.i.i.i2.i.i, align 8
-  %cmp.i.i.i.i = icmp ugt ptr %4, %node
+  %cmp.i.i.i.i = icmp ult ptr %node, %4
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
   %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.07.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
@@ -1215,7 +1215,7 @@ while.body.i.i.i:                                 ; preds = %for.body, %while.bo
   br i1 %cmp.not.i.i.i, label %invoke.cont2.i.i, label %while.body.i.i.i, !llvm.loop !7
 
 invoke.cont2.i.i:                                 ; preds = %while.body.i.i.i
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %__x.07.i.i.i
+  %cmp2.i.i.i.i = icmp eq ptr %__x.07.i.i.i, %add.ptr.i.i.i.i
   %spec.select.i.i = or i1 %cmp2.i.i.i.i, %cmp.i.i.i.i
   br label %_ZNSt8multimapIPK6aiNodejSt4lessIS2_ESaISt4pairIKS2_jEEE6insertIS5_IS2_jEEENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeEOSD_.exit
 
@@ -1530,7 +1530,7 @@ invoke.cont7.i.i:                                 ; preds = %call5.i.i.i.i.i.i.i
 
 if.then.i.i155:                                   ; preds = %invoke.cont7.i.i
   %cmp.not.i.i.i5.i = icmp ne ptr %21, null
-  %cmp2.i.i.i.i = icmp eq ptr %1, %22
+  %cmp2.i.i.i.i = icmp eq ptr %22, %1
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i5.i, %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -2445,15 +2445,15 @@ invoke.cont542:                                   ; preds = %_ZN10aiVector3tIfE9
   %108 = load float, ptr %z.i260, align 4
   %y2.i261 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i223, i64 4
   %109 = load float, ptr %y2.i261, align 4
-  %110 = fneg float %dvY.sroa.5.0.copyload
-  %neg.i = fmul float %109, %110
+  %110 = fneg float %109
+  %neg.i = fmul float %dvY.sroa.5.0.copyload, %110
   %111 = call float @llvm.fmuladd.f32(float %dvY.sroa.3.0.copyload, float %108, float %neg.i)
   %112 = load float, ptr %call5.i.i.i.i2.i.i223, align 4
-  %113 = fneg float %dvY.sroa.0.0.copyload
-  %neg8.i = fmul float %108, %113
+  %113 = fneg float %108
+  %neg8.i = fmul float %dvY.sroa.0.0.copyload, %113
   %114 = call float @llvm.fmuladd.f32(float %dvY.sroa.5.0.copyload, float %112, float %neg8.i)
-  %115 = fneg float %dvY.sroa.3.0.copyload
-  %neg14.i = fmul float %112, %115
+  %115 = fneg float %112
+  %neg14.i = fmul float %dvY.sroa.3.0.copyload, %115
   %116 = call float @llvm.fmuladd.f32(float %dvY.sroa.0.0.copyload, float %109, float %neg14.i)
   %retval.sroa.0.0.vec.insert.i262 = insertelement <2 x float> poison, float %111, i64 0
   %retval.sroa.0.4.vec.insert.i263 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i262, float %114, i64 1
@@ -3677,7 +3677,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %3, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -3716,7 +3716,7 @@ _ZNSt8_Rb_treeIPK6aiNodeSt4pairIKS2_12aiMatrix4x4tIfEESt10_Select1stIS7_ESt4less
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIPK6aiNodeSt4pairIKS2_12aiMatrix4x4tIfEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -4187,7 +4187,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIP10aiVector3tIfESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -4434,7 +4434,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %3, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 

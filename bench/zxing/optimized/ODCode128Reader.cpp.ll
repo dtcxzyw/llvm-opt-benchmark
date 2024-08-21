@@ -956,7 +956,7 @@ _ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.thread.i
 _ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit: ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i, %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.thread.i
   %55 = phi i32 [ %54, %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.thread.i ], [ -1, %_ZN5ZXing4FindIKSt5arrayIiLm107EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i ], [ -1, %._crit_edge._crit_edge52.i.i.i.i.i ]
   %56 = icmp ne i32 %55, -1
-  %brmerge = or i1 %56, %0
+  %brmerge = or i1 %0, %56
   br i1 %brmerge, label %_ZN5ZXing4OneD9RowReader11DecodeDigitINS_11PatternViewESt5arrayIS4_IiLm6EELm107EEEEiRKT_RKT0_ffb.exit, label %57
 
 57:                                               ; preds = %_ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit

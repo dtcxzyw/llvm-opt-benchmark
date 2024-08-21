@@ -1281,7 +1281,7 @@ _ZN12VNUser4InUseC2Ev.exit:                       ; preds = %4
   %113 = sub i64 %111, %112
   %114 = ashr exact i64 %113, 3
   %115 = ashr exact i64 %113, 2
-  %116 = icmp ult i64 %114, %115
+  %116 = icmp ugt i64 %115, %114
   br i1 %116, label %117, label %148
 
 117:                                              ; preds = %110
@@ -1364,7 +1364,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS2_12LogicRegionsEENK3$_0clENS3_11RegionFlagsEP8AstScopeP9AstActiveEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i"
 
 148:                                              ; preds = %110
-  %149 = icmp ugt i64 %114, %115
+  %149 = icmp ult i64 %115, %114
   %150 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %115
   %spec.select.i = select i1 %149, ptr %150, ptr %.sroa.12.1.i
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS2_12LogicRegionsEENK3$_0clENS3_11RegionFlagsEP8AstScopeP9AstActiveEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i"
@@ -1621,7 +1621,7 @@ _ZN12VNUser3InUseC2Ev.exit:                       ; preds = %_ZN12VNUser2InUseC2
   %234 = sub i64 %232, %233
   %235 = ashr exact i64 %234, 3
   %236 = ashr exact i64 %234, 2
-  %237 = icmp ult i64 %235, %236
+  %237 = icmp ugt i64 %236, %235
   br i1 %237, label %238, label %269
 
 238:                                              ; preds = %231
@@ -1704,7 +1704,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i46: ; preds
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS2_12LogicRegionsEENK3$_0clENS3_11RegionFlagsEP8AstScopeP9AstActiveEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i"
 
 269:                                              ; preds = %231
-  %270 = icmp ugt i64 %235, %236
+  %270 = icmp ult i64 %236, %235
   %271 = getelementptr inbounds ptr, ptr %.sroa.0.2.i28, i64 %236
   %spec.select.i30 = select i1 %270, ptr %271, ptr %.sroa.12.0.i
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS2_12LogicRegionsEENK3$_0clENS3_11RegionFlagsEP8AstScopeP9AstActiveEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i"
@@ -2354,7 +2354,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbP11AstVarScopeEZ
   %4 = getelementptr i8, ptr %.val, i64 144
   %.val.val2 = load i64, ptr %4, align 8
   %5 = load i32, ptr @_ZN12VNUser4InUse12s_userCntGblE, align 4
-  %6 = icmp ne i32 %5, %.val.val
+  %6 = icmp ne i32 %.val.val, %5
   %7 = and i64 %.val.val2, 4294967295
   %.not1.i.i.i = icmp eq i64 %7, 0
   %.not.i.i.i = select i1 %6, i1 true, i1 %.not1.i.i.i

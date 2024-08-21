@@ -545,13 +545,13 @@ define hidden noundef zeroext i1 @_ZN18UnsafeMemoryAccess11contains_pcEPh(ptr no
   %7 = phi i1 [ true, %.lr.ph ], [ %15, %14 ]
   %8 = getelementptr inbounds %class.UnsafeMemoryAccess, ptr %4, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %.not = icmp ugt ptr %9, %0
+  %.not = icmp ult ptr %0, %9
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp ugt ptr %12, %0
+  %13 = icmp ult ptr %0, %12
   br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %6, %10
@@ -580,13 +580,13 @@ define hidden noundef ptr @_ZN18UnsafeMemoryAccess22page_error_continue_pcEPh(pt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %6 = getelementptr inbounds %class.UnsafeMemoryAccess, ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
-  %.not = icmp ugt ptr %7, %0
+  %.not = icmp ult ptr %0, %7
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp ugt ptr %10, %0
+  %11 = icmp ult ptr %0, %10
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
@@ -642,7 +642,7 @@ define internal fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9St
   call void @_ZN9TraceTimeC1EPKcPFvS1_zE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %3, ptr noundef %22) #13
   %23 = load i64, ptr @CodeEntryAlignment, align 8
   %24 = trunc i64 %23 to i32
-  %25 = mul i32 %24, %2
+  %25 = mul i32 %2, %24
   %26 = add i32 %25, %1
   %27 = call noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef %4, i32 noundef %26) #13
   %28 = icmp eq ptr %27, null
@@ -1487,7 +1487,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal23arraycopy_conjoint_oopsEP9narrowOopS1_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -1531,7 +1531,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal23arraycopy_conjoint_oopsEP9narrowOopS1_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -1613,7 +1613,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet17arraycopy_barrierI9n
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %21
   %25 = load ptr, ptr %24, align 8
-  %.not.i = icmp ugt ptr %25, %15
+  %.not.i = icmp ult ptr %15, %25
   br i1 %.not.i, label %26, label %_ZN20ShenandoahBarrierSet17arraycopy_markingI9narrowOopEEvPT_S3_m.exit
 
 26:                                               ; preds = %12
@@ -1706,7 +1706,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread.i.i: ; pr
   %83 = lshr i64 %81, %82
   %84 = getelementptr inbounds i8, ptr %76, i64 544
   %85 = load i64, ptr %84, align 8
-  %86 = icmp ugt i64 %85, %83
+  %86 = icmp ult i64 %83, %85
   br i1 %86, label %87, label %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i
 
 87:                                               ; preds = %75
@@ -1721,7 +1721,7 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i: ; preds = %
   %92 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 88
   %93 = load volatile ptr, ptr %92, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  %94 = icmp ugt ptr %93, %1
+  %94 = icmp ult ptr %1, %93
   br i1 %94, label %95, label %_ZN20ShenandoahBarrierSet17arraycopy_markingI9narrowOopEEvPT_S3_m.exit
 
 95:                                               ; preds = %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i
@@ -1802,7 +1802,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet20arraycopy_evacuation
   %12 = lshr i64 %10, %11
   %13 = getelementptr inbounds i8, ptr %5, i64 544
   %14 = load i64, ptr %13, align 8
-  %15 = icmp ugt i64 %14, %12
+  %15 = icmp ult i64 %12, %14
   br i1 %15, label %16, label %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit
 
 16:                                               ; preds = %3
@@ -1817,7 +1817,7 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit: ; preds = %3,
   %21 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 88
   %22 = load volatile ptr, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  %23 = icmp ugt ptr %22, %1
+  %23 = icmp ult ptr %1, %22
   br i1 %23, label %24, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 24:                                               ; preds = %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit
@@ -1981,7 +1981,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal23arraycopy_conjoint_oopsEPP7oopDescS2_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -2025,7 +2025,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal23arraycopy_conjoint_oopsEPP7oopDescS2_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -2148,7 +2148,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet17arraycopy_barrierIP7
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %21
   %25 = load ptr, ptr %24, align 8
-  %.not.i = icmp ugt ptr %25, %15
+  %.not.i = icmp ult ptr %15, %25
   br i1 %.not.i, label %26, label %_ZN20ShenandoahBarrierSet17arraycopy_markingIP7oopDescEEvPT_S4_m.exit
 
 26:                                               ; preds = %12
@@ -2178,7 +2178,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet17arraycopy_barrierIP7
   %42 = load ptr, ptr %22, align 8
   %43 = getelementptr inbounds ptr, ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8
-  %.not.i.i.i = icmp ugt ptr %44, %36
+  %.not.i.i.i = icmp ult ptr %36, %44
   br i1 %.not.i.i.i, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.i.i, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread.i.i
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.i.i: ; preds = %38
@@ -2234,7 +2234,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread.i.i: ; pr
   %76 = lshr i64 %74, %75
   %77 = getelementptr inbounds i8, ptr %69, i64 544
   %78 = load i64, ptr %77, align 8
-  %79 = icmp ugt i64 %78, %76
+  %79 = icmp ult i64 %76, %78
   br i1 %79, label %80, label %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i
 
 80:                                               ; preds = %68
@@ -2249,7 +2249,7 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i: ; preds = %
   %85 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 88
   %86 = load volatile ptr, ptr %85, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  %87 = icmp ugt ptr %86, %1
+  %87 = icmp ult ptr %1, %86
   br i1 %87, label %88, label %_ZN20ShenandoahBarrierSet17arraycopy_markingIP7oopDescEEvPT_S4_m.exit
 
 88:                                               ; preds = %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i
@@ -2315,7 +2315,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet20arraycopy_evacuation
   %12 = lshr i64 %10, %11
   %13 = getelementptr inbounds i8, ptr %5, i64 544
   %14 = load i64, ptr %13, align 8
-  %15 = icmp ugt i64 %14, %12
+  %15 = icmp ult i64 %12, %14
   br i1 %15, label %16, label %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit
 
 16:                                               ; preds = %3
@@ -2330,7 +2330,7 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit: ; preds = %3,
   %21 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 88
   %22 = load volatile ptr, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  %23 = icmp ugt ptr %22, %1
+  %23 = icmp ult ptr %1, %22
   br i1 %23, label %24, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 24:                                               ; preds = %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit
@@ -2881,7 +2881,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal23arraycopy_conjoint_oopsEP9narrowOopS1_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -2925,7 +2925,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal23arraycopy_conjoint_oopsEP9narrowOopS1_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -2992,7 +2992,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal23arraycopy_conjoint_oopsEPP7oopDescS2_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -3036,7 +3036,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal23arraycopy_conjoint_oopsEPP7oopDescS2_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -3246,7 +3246,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal31arraycopy_arrayof_conjoint_oopsEPvS0_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -3290,7 +3290,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal31arraycopy_arrayof_conjoint_oopsEPvS0_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -3357,7 +3357,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal31arraycopy_arrayof_conjoint_oopsEPvS0_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -3401,7 +3401,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal31arraycopy_arrayof_conjoint_oopsEPvS0_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -3617,7 +3617,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal31arraycopy_arrayof_conjoint_oopsEPvS0_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -3661,7 +3661,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal31arraycopy_arrayof_conjoint_oopsEPvS0_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -3728,7 +3728,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal31arraycopy_arrayof_conjoint_oopsEPvS0_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8
@@ -3772,7 +3772,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   tail call void @_ZN14AccessInternal31arraycopy_arrayof_conjoint_oopsEPvS0_m(ptr noundef %spec.select.i.i, ptr noundef %spec.select.i15.i, i64 noundef %6) #13
   %14 = load i32, ptr @heapOopSize, align 4
   %15 = sext i32 %14 to i64
-  %16 = mul i64 %15, %6
+  %16 = mul i64 %6, %15
   %17 = getelementptr inbounds i8, ptr %spec.select.i15.i, i64 %16
   %18 = ptrtoint ptr %spec.select.i15.i to i64
   %19 = and i64 %18, -8

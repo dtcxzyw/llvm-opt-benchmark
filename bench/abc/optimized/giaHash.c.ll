@@ -1078,7 +1078,7 @@ define i32 @Gia_ManHashXorReal(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 5:                                                ; preds = %3
   %.not67 = icmp ne i32 %1, 0
   %6 = zext i1 %.not67 to i32
-  %spec.select75 = xor i32 %6, %2
+  %spec.select75 = xor i32 %2, %6
   br label %103
 
 7:                                                ; preds = %3
@@ -1088,7 +1088,7 @@ define i32 @Gia_ManHashXorReal(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 9:                                                ; preds = %7
   %.not66 = icmp ne i32 %2, 0
   %10 = zext i1 %.not66 to i32
-  %spec.select76 = xor i32 %10, %1
+  %spec.select76 = xor i32 %1, %10
   br label %103
 
 11:                                               ; preds = %7
@@ -1392,7 +1392,7 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 
 31:                                               ; preds = %29
   %32 = xor i32 %2, 1
-  %33 = icmp eq i32 %32, %1
+  %33 = icmp eq i32 %1, %32
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %31, %29
@@ -1424,7 +1424,7 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 48:                                               ; preds = %44
   %49 = icmp ugt i32 %3, %2
   %50 = zext i1 %49 to i32
-  %.087 = xor i32 %50, %1
+  %.087 = xor i32 %1, %50
   %.085 = tail call i32 @llvm.umax.i32(i32 %3, i32 %2)
   %.084 = tail call i32 @llvm.umin.i32(i32 %3, i32 %2)
   %51 = and i32 %.085, 1
@@ -2535,7 +2535,7 @@ define i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %.033 = tail call i32 @llvm.smax.i32(i32 %3, i32 %2)
   %.032 = tail call i32 @llvm.smin.i32(i32 %3, i32 %2)
   %16 = zext i1 %15 to i32
-  %.031 = xor i32 %16, %1
+  %.031 = xor i32 %1, %16
   %17 = and i32 %.033, 1
   %.134 = and i32 %.033, -2
   %.1 = xor i32 %17, %.032
@@ -3648,7 +3648,7 @@ define void @Gia_ManUsePerm(ptr nocapture noundef %0, i32 noundef %1, ptr nocapt
 ._crit_edge.us:                                   ; preds = %9, %.lr.ph97.split.us
   %.085.lcssa.us.in = phi i64 [ %indvars.iv.next110, %.lr.ph97.split.us ], [ %indvars.iv101, %9 ]
   %.085.lcssa.us = trunc i64 %.085.lcssa.us.in to i32
-  %14 = icmp eq i32 %.085.lcssa.us, %1
+  %14 = icmp eq i32 %1, %.085.lcssa.us
   br i1 %14, label %._crit_edge98, label %.lr.ph94.us
 
 .lr.ph94.us:                                      ; preds = %._crit_edge.us

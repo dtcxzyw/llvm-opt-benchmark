@@ -7002,7 +7002,7 @@ switch.lookup4384:                                ; preds = %254
   %.1 = phi i32 [ %3, %7 ], [ %.4, %28 ], [ %.4, %27 ], [ %.3, %.thread ]
   %2571 = add i32 %.1, %.13484
   %2572 = sub i32 %2571, %3
-  %2573 = icmp ult i32 %2572, %4
+  %2573 = icmp ugt i32 %4, %2572
   br i1 %2573, label %2574, label %2578
 
 2574:                                             ; preds = %._crit_edge
@@ -8047,7 +8047,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %19, %22
 
 429:                                              ; preds = %._crit_edge
   %430 = sub i32 %.0.lcssa, %3
-  %431 = icmp ult i32 %430, %4
+  %431 = icmp ugt i32 %4, %430
   br i1 %431, label %432, label %435
 
 432:                                              ; preds = %429
@@ -8205,7 +8205,7 @@ switch.lookup:                                    ; preds = %17
 57:                                               ; preds = %42, %46, %53, %.critedge
   %.085 = phi i32 [ %56, %53 ], [ %52, %46 ], [ %45, %42 ], [ %39, %.critedge ]
   %58 = sub i32 %.085, %3
-  %59 = icmp ult i32 %58, %4
+  %59 = icmp ugt i32 %4, %58
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %57
@@ -9346,7 +9346,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
 .loopexit347:                                     ; preds = %.loopexit, %._crit_edge
   %.4 = phi i32 [ %.0330.lcssa, %._crit_edge ], [ %210, %.loopexit ]
   %213 = sub i32 %.4, %3
-  %214 = icmp ult i32 %213, %4
+  %214 = icmp ugt i32 %4, %213
   br i1 %214, label %215, label %218
 
 215:                                              ; preds = %.loopexit347
@@ -9370,7 +9370,7 @@ define hidden zeroext i16 @de_sm_tmgi(ptr noundef %0, ptr noundef %1, ptr nounde
   %12 = add i32 %3, 3
   %13 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %12, i32 noundef 0, i32 noundef 1) #5
   %14 = sub i32 %13, %3
-  %15 = icmp ult i32 %14, %4
+  %15 = icmp ugt i32 %4, %14
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %11
@@ -9622,7 +9622,7 @@ define internal zeroext i16 @de_gmm_rec_npdu_lst(ptr noundef %0, ptr noundef %1,
 
 37:                                               ; preds = %35
   %38 = sub i32 %.151, %3
-  %39 = icmp ult i32 %38, %4
+  %39 = icmp ugt i32 %4, %38
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %37
@@ -10012,11 +10012,11 @@ define internal noundef zeroext i16 @de_sm_linked_ti(ptr noundef %0, ptr noundef
 
 27:                                               ; preds = %21, %12
   %.sink = phi i32 [ 1, %21 ], [ 2, %12 ]
-  %28 = icmp ult i32 %.sink, %4
+  %28 = icmp ugt i32 %4, %.sink
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27
-  %30 = add i32 %.sink, %3
+  %30 = add i32 %3, %.sink
   %31 = sub nuw i32 %4, %.sink
   %32 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %30, i32 noundef %31) #5
   br label %33
@@ -10272,7 +10272,7 @@ define internal noundef zeroext i16 @de_gc_context_stat(ptr noundef %0, ptr noun
 23:                                               ; preds = %14
   %24 = add i32 %.1, 1
   %25 = sub i32 %24, %3
-  %26 = icmp ult i32 %25, %4
+  %26 = icmp ugt i32 %4, %25
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %23
@@ -10629,7 +10629,7 @@ define internal void @dtap_gmm_attach_req(ptr noundef %0, ptr noundef %1, ptr no
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -11236,7 +11236,7 @@ define internal void @dtap_gmm_attach_com(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 43, i32 noundef 5, i32 noundef 32, i32 noundef %14, i32 noundef %11, ptr noundef nonnull @.str.1090) #5
   %16 = zext i16 %15 to i32
   %.not36 = icmp eq i32 %11, %16
@@ -11266,7 +11266,7 @@ define internal void @dtap_gmm_attach_rej(ptr noundef %0, ptr noundef %1, ptr no
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -11946,7 +11946,7 @@ define internal void @dtap_gmm_rau_com(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %12, label %27, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 39, i32 noundef 5, i32 noundef 29, i32 noundef %14, i32 noundef %11, ptr noundef nonnull @.str.1089) #5
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -11984,7 +11984,7 @@ define internal void @dtap_gmm_rau_rej(ptr noundef %0, ptr noundef %1, ptr nound
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -12137,7 +12137,7 @@ define internal void @dtap_gmm_service_acc(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 53, i32 noundef 5, i32 noundef 73, i32 noundef %14, i32 noundef %11, ptr noundef null) #5
   %16 = zext i16 %15 to i32
   %.not36 = icmp eq i32 %11, %16
@@ -12167,7 +12167,7 @@ define internal void @dtap_gmm_service_rej(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -12212,7 +12212,7 @@ define internal void @dtap_gmm_ptmsi_realloc_cmd(ptr noundef %0, ptr noundef %1,
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -12525,7 +12525,7 @@ define internal void @dtap_gmm_ident_res(ptr noundef %0, ptr noundef %1, ptr nou
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -12562,7 +12562,7 @@ define internal void @dtap_gmm_auth_ciph_fail(ptr noundef %0, ptr noundef %1, pt
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -12607,7 +12607,7 @@ define internal void @dtap_gmm_status(ptr noundef %0, ptr noundef %1, ptr nounde
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -12645,7 +12645,7 @@ define internal void @dtap_gmm_information(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %12, label %45, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 69, i32 noundef 1, i32 noundef 8, i32 noundef %14, i32 noundef %11, ptr noundef nonnull @.str.1099) #5
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -12807,7 +12807,7 @@ define internal void @dtap_sm_act_pdp_req(ptr noundef %0, ptr noundef %1, ptr no
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -12968,7 +12968,7 @@ define internal void @dtap_sm_act_pdp_acc(ptr noundef %0, ptr noundef %1, ptr no
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -13123,7 +13123,7 @@ define internal void @dtap_sm_act_pdp_rej(ptr noundef %0, ptr noundef %1, ptr no
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -13202,7 +13202,7 @@ define internal void @dtap_sm_req_pdp_act(ptr noundef %0, ptr noundef %1, ptr no
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -13273,7 +13273,7 @@ define internal void @dtap_sm_req_pdp_act_rej(ptr noundef %0, ptr noundef %1, pt
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -13336,7 +13336,7 @@ define internal void @dtap_sm_deact_pdp_req(ptr noundef %0, ptr noundef %1, ptr 
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -13424,7 +13424,7 @@ define internal void @dtap_sm_deact_pdp_acc(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %13, label %28, label %14
 
 14:                                               ; preds = %9
-  %15 = add i32 %11, %3
+  %15 = add i32 %3, %11
   %16 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 53, i32 noundef 5, i32 noundef 60, i32 noundef %15, i32 noundef %12, ptr noundef null) #5
   %17 = zext i16 %16 to i32
   %18 = sub nsw i32 %12, %17
@@ -13464,7 +13464,7 @@ define internal void @dtap_sm_mod_pdp_req_net(ptr noundef %0, ptr noundef %1, pt
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -13612,7 +13612,7 @@ define internal void @dtap_sm_mod_pdp_acc_ms(ptr noundef %0, ptr noundef %1, ptr
   br i1 %13, label %28, label %14
 
 14:                                               ; preds = %9
-  %15 = add i32 %11, %3
+  %15 = add i32 %3, %11
   %16 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 51, i32 noundef 5, i32 noundef 66, i32 noundef %15, i32 noundef %12, ptr noundef null) #5
   %17 = zext i16 %16 to i32
   %18 = sub nsw i32 %12, %17
@@ -13653,7 +13653,7 @@ define internal void @dtap_sm_mod_pdp_req_ms(ptr noundef %0, ptr noundef %1, ptr
   br i1 %13, label %58, label %14
 
 14:                                               ; preds = %9
-  %15 = add i32 %11, %3
+  %15 = add i32 %3, %11
   %16 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 48, i32 noundef 5, i32 noundef 48, i32 noundef %15, i32 noundef %12, ptr noundef nonnull @.str.1114) #5
   %17 = zext i16 %16 to i32
   %18 = sub nsw i32 %12, %17
@@ -13734,7 +13734,7 @@ define internal void @dtap_sm_mod_pdp_acc_net(ptr noundef %0, ptr noundef %1, pt
   br i1 %13, label %64, label %14
 
 14:                                               ; preds = %9
-  %15 = add i32 %11, %3
+  %15 = add i32 %3, %11
   %16 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 50, i32 noundef 5, i32 noundef 54, i32 noundef %15, ptr noundef nonnull @.str.1105) #5
   %17 = zext i16 %16 to i32
   %18 = sub nsw i32 %12, %17
@@ -13820,7 +13820,7 @@ define internal void @dtap_sm_mod_pdp_rej(ptr noundef %0, ptr noundef %1, ptr no
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -13899,7 +13899,7 @@ define internal void @dtap_sm_act_sec_pdp_req(ptr noundef %0, ptr noundef %1, pt
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -14052,7 +14052,7 @@ define internal void @dtap_sm_act_sec_pdp_acc(ptr noundef %0, ptr noundef %1, pt
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -14183,7 +14183,7 @@ define internal void @dtap_sm_act_sec_pdp_rej(ptr noundef %0, ptr noundef %1, pt
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -14262,7 +14262,7 @@ define internal void @dtap_sm_status(ptr noundef %0, ptr noundef %1, ptr noundef
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -14299,7 +14299,7 @@ define internal void @dtap_sm_act_mbms_req(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -14440,7 +14440,7 @@ define internal void @dtap_sm_act_mbms_acc(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -14507,7 +14507,7 @@ define internal void @dtap_sm_act_mbms_rej(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -14568,7 +14568,7 @@ define internal void @dtap_sm_req_mbms_act(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -14657,7 +14657,7 @@ define internal void @dtap_sm_req_mbms_rej(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -14704,7 +14704,7 @@ define internal void @dtap_sm_req_sec_pdp_act(ptr noundef %0, ptr noundef %1, pt
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -14813,7 +14813,7 @@ define internal void @dtap_sm_req_sec_pdp_act_rej(ptr noundef %0, ptr noundef %1
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 
@@ -14876,7 +14876,7 @@ define internal void @dtap_sm_notif(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 11:                                               ; preds = %9
   %12 = zext i16 %10 to i32
-  %13 = add i32 %12, %3
+  %13 = add i32 %3, %12
   %14 = sub nsw i32 %4, %12
   br label %18
 

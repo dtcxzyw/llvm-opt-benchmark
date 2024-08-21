@@ -231,7 +231,7 @@ entry:
   %cmp.not.i = icmp eq ptr %0, null
   %1 = load i32, ptr %dense_.i, align 8
   %spec.select.i = select i1 %cmp.not.i, i32 0, i32 %1
-  %cmp = icmp slt i32 %spec.select.i, %new_max_size
+  %cmp = icmp sgt i32 %new_max_size, %spec.select.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1636,7 +1636,7 @@ if.then45:                                        ; preds = %land.lhs.true30
 
 if.end46:                                         ; preds = %if.end27, %if.then45
   %longest.addr.0 = phi i1 [ true, %if.then45 ], [ %longest, %if.end27 ]
-  %or41121 = or i1 %tobool.i, %anchored
+  %or41121 = or i1 %anchored, %tobool.i
   %cmp47 = icmp slt i32 %nsubmatch, 0
   br i1 %cmp47, label %if.then48, label %if.end57
 
@@ -2692,7 +2692,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #19
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN3re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i

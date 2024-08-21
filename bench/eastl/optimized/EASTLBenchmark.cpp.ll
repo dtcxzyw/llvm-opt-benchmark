@@ -1540,7 +1540,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -1822,7 +1822,7 @@ entry:
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
-  %cmp = icmp ugt i64 %cond.i, %n
+  %cmp = icmp ult i64 %n, %cond.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1861,7 +1861,7 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %cmp8 = icmp ult i64 %cond.i, %n
+  %cmp8 = icmp ugt i64 %n, %cond.i
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
@@ -1870,7 +1870,7 @@ if.then9:                                         ; preds = %if.else
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 23
-  %cmp4.i = icmp ult i64 %retval.0.i.i, %n
+  %cmp4.i = icmp ugt i64 %n, %retval.0.i.i
   %8 = lshr i64 %7, 56
   %9 = trunc nuw i64 %8 to i8
   br i1 %cmp4.i, label %if.then.i.i, label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i

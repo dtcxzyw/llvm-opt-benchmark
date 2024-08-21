@@ -3001,7 +3001,7 @@ while.end.i.loopexit.i:                           ; preds = %if.end.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i23 = ptrtoint ptr %add.ptr.i.i13 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %__first1.sroa.0.1.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i23, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %__first1.sroa.0.1.i.i, %add.ptr.i.i13
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i13, %__first1.sroa.0.1.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.end.i.loopexit.i
@@ -3013,7 +3013,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAc
   %sub.ptr.lhs.cast.i.i.i.i.i9.i.i = ptrtoint ptr %add.ptr.i16.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i10.i.i = ptrtoint ptr %__first2.sroa.0.1.i.i to i64
   %sub.ptr.sub.i.i.i.i.i11.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i9.i.i, %sub.ptr.rhs.cast.i.i.i.i.i10.i.i
-  %tobool.not.i.i.i.i.i12.i.i = icmp eq ptr %__first2.sroa.0.1.i.i, %add.ptr.i16.i
+  %tobool.not.i.i.i.i.i12.i.i = icmp eq ptr %add.ptr.i16.i, %__first2.sroa.0.1.i.i
   br i1 %tobool.not.i.i.i.i.i12.i.i, label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i", label %if.then.i.i.i.i.i13.i.i
 
 if.then.i.i.i.i.i13.i.i:                          ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i
@@ -3031,7 +3031,7 @@ while.end.i27:                                    ; preds = %"_ZSt12__move_merge
   %__first.sroa.0.0.lcssa.i28 = phi ptr [ %__first.coerce, %while.body ], [ %add.ptr.i16.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
   %__result.addr.0.lcssa.i = phi ptr [ %__buffer, %while.body ], [ %add.ptr.i.i.i.i.i14.i.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
   %sub.ptr.div.i.lcssa.i = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.i.lcssa.i, i64 %__step_size.058)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %__step_size.058, i64 %sub.ptr.div.i.lcssa.i)
   %add.ptr.i22.i = getelementptr inbounds %struct.Index, ptr %__first.sroa.0.0.lcssa.i28, i64 %.sroa.speculated.i
   %cmp.i1.i24.i = icmp ne i64 %.sroa.speculated.i, 0
   %cmp.i72.i25.i = icmp ne ptr %add.ptr.i22.i, %__last.coerce
@@ -3080,7 +3080,7 @@ while.end.i27.i:                                  ; preds = %if.end.i58.i, %whil
   %sub.ptr.lhs.cast.i.i.i.i.i.i31.i = ptrtoint ptr %add.ptr.i22.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i32.i = ptrtoint ptr %__first1.sroa.0.0.lcssa.i29.i to i64
   %sub.ptr.sub.i.i.i.i.i.i33.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i31.i, %sub.ptr.rhs.cast.i.i.i.i.i.i32.i
-  %tobool.not.i.i.i.i.i.i34.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i29.i, %add.ptr.i22.i
+  %tobool.not.i.i.i.i.i.i34.i = icmp eq ptr %add.ptr.i22.i, %__first1.sroa.0.0.lcssa.i29.i
   br i1 %tobool.not.i.i.i.i.i.i34.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i36.i, label %if.then.i.i.i.i.i.i35.i
 
 if.then.i.i.i.i.i.i35.i:                          ; preds = %while.end.i27.i
@@ -3088,7 +3088,7 @@ if.then.i.i.i.i.i.i35.i:                          ; preds = %while.end.i27.i
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i36.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i36.i: ; preds = %if.then.i.i.i.i.i.i35.i, %while.end.i27.i
-  %tobool.not.i.i.i.i.i12.i41.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i28.i, %__last.coerce
+  %tobool.not.i.i.i.i.i12.i41.i = icmp eq ptr %__last.coerce, %__first2.sroa.0.0.lcssa.i28.i
   br i1 %tobool.not.i.i.i.i.i12.i41.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEEvT_SF_T0_T1_T2_.exit", label %if.then.i.i.i.i.i13.i42.i
 
 if.then.i.i.i.i.i13.i42.i:                        ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i36.i
@@ -3149,7 +3149,7 @@ while.end.i.loopexit.i43:                         ; preds = %if.end.i.i41
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i44 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i45 = ptrtoint ptr %__first1.addr.1.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i46 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i44, %sub.ptr.rhs.cast.i.i.i.i.i.i.i45
-  %tobool.not.i.i.i.i.i.i.i47 = icmp eq ptr %__first1.addr.1.i.i, %add.ptr.i
+  %tobool.not.i.i.i.i.i.i.i47 = icmp eq ptr %add.ptr.i, %__first1.addr.1.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i47, label %_ZSt4moveIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i, label %if.then.i.i.i.i.i.i.i48
 
 if.then.i.i.i.i.i.i.i48:                          ; preds = %while.end.i.loopexit.i43
@@ -3161,7 +3161,7 @@ _ZSt4moveIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9
   %sub.ptr.lhs.cast.i.i.i.i.i13.i.i = ptrtoint ptr %add.ptr2.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i14.i.i = ptrtoint ptr %__first2.addr.1.i.i to i64
   %sub.ptr.sub.i.i.i.i.i15.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i13.i.i, %sub.ptr.rhs.cast.i.i.i.i.i14.i.i
-  %tobool.not.i.i.i.i.i16.i.i = icmp eq ptr %__first2.addr.1.i.i, %add.ptr2.i
+  %tobool.not.i.i.i.i.i16.i.i = icmp eq ptr %add.ptr2.i, %__first2.addr.1.i.i
   br i1 %tobool.not.i.i.i.i.i16.i.i, label %"_ZSt12__move_mergeIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS2_7toTableES2_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i", label %if.then.i.i.i.i.i17.i.i
 
 if.then.i.i.i.i.i17.i.i:                          ; preds = %_ZSt4moveIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i
@@ -3179,7 +3179,7 @@ while.end.i53:                                    ; preds = %"_ZSt12__move_merge
   %__first.addr.0.lcssa.i = phi ptr [ %__buffer, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %add.ptr2.i, %"_ZSt12__move_mergeIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS2_7toTableES2_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
   %__result.sroa.0.0.lcssa.i = phi ptr [ %__first.coerce, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %add.ptr.i.i.i.i.i18.i.i, %"_ZSt12__move_mergeIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS2_7toTableES2_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
   %sub.ptr.div.lcssa.i = phi i64 [ %sub.ptr.div.i, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %sub.ptr.div.i51, %"_ZSt12__move_mergeIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS2_7toTableES2_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
-  %.sroa.speculated.i54 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa.i, i64 %mul.i)
+  %.sroa.speculated.i54 = tail call i64 @llvm.smin.i64(i64 %mul.i, i64 %sub.ptr.div.lcssa.i)
   %add.ptr13.i = getelementptr inbounds %struct.Index, ptr %__first.addr.0.lcssa.i, i64 %.sroa.speculated.i54
   %cmp2.i19.i = icmp ne i64 %.sroa.speculated.i54, 0
   %cmp13.i20.i = icmp ne ptr %add.ptr13.i, %add.ptr
@@ -3228,7 +3228,7 @@ while.end.i21.i:                                  ; preds = %if.end.i52.i, %whil
   %sub.ptr.lhs.cast.i.i.i.i.i.i25.i = ptrtoint ptr %add.ptr13.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i26.i = ptrtoint ptr %__first1.addr.0.lcssa.i24.i to i64
   %sub.ptr.sub.i.i.i.i.i.i27.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i25.i, %sub.ptr.rhs.cast.i.i.i.i.i.i26.i
-  %tobool.not.i.i.i.i.i.i28.i = icmp eq ptr %__first1.addr.0.lcssa.i24.i, %add.ptr13.i
+  %tobool.not.i.i.i.i.i.i28.i = icmp eq ptr %add.ptr13.i, %__first1.addr.0.lcssa.i24.i
   br i1 %tobool.not.i.i.i.i.i.i28.i, label %_ZSt4moveIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i, label %if.then.i.i.i.i.i.i29.i
 
 if.then.i.i.i.i.i.i29.i:                          ; preds = %while.end.i21.i
@@ -3236,7 +3236,7 @@ if.then.i.i.i.i.i.i29.i:                          ; preds = %while.end.i21.i
   br label %_ZSt4moveIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i
 
 _ZSt4moveIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i: ; preds = %if.then.i.i.i.i.i.i29.i, %while.end.i21.i
-  %tobool.not.i.i.i.i.i16.i35.i = icmp eq ptr %__first2.addr.0.lcssa.i23.i, %add.ptr
+  %tobool.not.i.i.i.i.i16.i35.i = icmp eq ptr %add.ptr, %__first2.addr.0.lcssa.i23.i
   br i1 %tobool.not.i.i.i.i.i16.i35.i, label %"_ZSt17__merge_sort_loopIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNS2_7toTableES2_bE3$_0EEEvT_SF_T0_T1_T2_.exit", label %if.then.i.i.i.i.i17.i36.i
 
 if.then.i.i.i.i.i17.i36.i:                        ; preds = %_ZSt4moveIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i
@@ -3343,7 +3343,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %_ZS
 if.then15:                                        ; preds = %if.else
   %sub.ptr.rhs.cast.i.i.i.i.i29 = ptrtoint ptr %__middle.coerce.tr140 to i64
   %sub.ptr.sub.i.i.i.i.i30 = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i29
-  %tobool.not.i.i.i.i.i31 = icmp eq ptr %__middle.coerce.tr140, %__last.coerce
+  %tobool.not.i.i.i.i.i31 = icmp eq ptr %__last.coerce, %__middle.coerce.tr140
   br i1 %tobool.not.i.i.i.i.i31, label %if.end92, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit34.thread
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit34.thread: ; preds = %if.then15
@@ -3390,7 +3390,7 @@ while.body.i38:                                   ; preds = %while.body.i38.oute
 
 if.then12.i:                                      ; preds = %while.body.i38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %incdec.ptr.i15.i, ptr noundef nonnull align 8 dereferenceable(28) %__last1.sroa.0.0.i.ph, i64 28, i1 false)
-  %cmp.i16.i = icmp eq ptr %__last1.sroa.0.0.i.ph, %__first.coerce.tr139
+  %cmp.i16.i = icmp eq ptr %__first.coerce.tr139, %__last1.sroa.0.0.i.ph
   br i1 %cmp.i16.i, label %if.then17.i, label %while.body.i38.outer, !llvm.loop !104
 
 if.then17.i:                                      ; preds = %if.then12.i
@@ -3410,7 +3410,7 @@ if.then.i.i.i.i.i23.i:                            ; preds = %if.then17.i
 
 if.else26.i:                                      ; preds = %while.body.i38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %incdec.ptr.i15.i, ptr noundef nonnull align 8 dereferenceable(28) %__last2.addr.0.i, i64 28, i1 false)
-  %cmp29.i = icmp eq ptr %__last2.addr.0.i, %__buffer
+  %cmp29.i = icmp eq ptr %__buffer, %__last2.addr.0.i
   br i1 %cmp29.i, label %if.end92, label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.else26.i
@@ -3542,7 +3542,7 @@ if.then.i.i.i.i.i.i113:                           ; preds = %if.then4.i
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i: ; preds = %if.then.i.i.i.i.i.i113, %if.then4.i
-  %tobool.not.i.i.i.i.i13.i = icmp eq ptr %__first_cut.sroa.0.0, %__middle.coerce.tr140
+  %tobool.not.i.i.i.i.i13.i = icmp eq ptr %__middle.coerce.tr140, %__first_cut.sroa.0.0
   br i1 %tobool.not.i.i.i.i.i13.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, label %if.then.i.i.i.i.i14.i
 
 if.then.i.i.i.i.i14.i:                            ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i
@@ -3570,14 +3570,14 @@ if.else20.i:                                      ; preds = %if.end
   br i1 %cmp21.not.i, label %if.else44.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.else20.i
-  %tobool23.not.i = icmp eq i64 %__len11.0, %__len1.tr141
+  %tobool23.not.i = icmp eq i64 %__len1.tr141, %__len11.0
   br i1 %tobool23.not.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.then22.i
   %sub.ptr.lhs.cast.i.i.i.i.i22.i = ptrtoint ptr %__middle.coerce.tr140 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i23.i = ptrtoint ptr %__first_cut.sroa.0.0 to i64
   %sub.ptr.sub.i.i.i.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i22.i, %sub.ptr.rhs.cast.i.i.i.i.i23.i
-  %tobool.not.i.i.i.i.i25.i = icmp eq ptr %__first_cut.sroa.0.0, %__middle.coerce.tr140
+  %tobool.not.i.i.i.i.i25.i = icmp eq ptr %__middle.coerce.tr140, %__first_cut.sroa.0.0
   br i1 %tobool.not.i.i.i.i.i25.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit28.i, label %if.then.i.i.i.i.i26.i
 
 if.then.i.i.i.i.i26.i:                            ; preds = %if.then24.i
@@ -4153,7 +4153,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp32 = icmp sgt i64 %div, %__holeIndex
+  %cmp32 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE5IndexSt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
@@ -4779,7 +4779,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp34 = icmp sgt i64 %div, %__holeIndex
+  %cmp34 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp34, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES6_bE11KindedEntrySt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread32

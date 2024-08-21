@@ -1892,7 +1892,7 @@ if.else:                                          ; preds = %if.end46
 if.end71:                                         ; preds = %if.else, %if.then50
   %sent.0.in = phi i64 [ %call59, %if.then50 ], [ %call69, %if.else ]
   %sent.0 = trunc i64 %sent.0.in to i32
-  %cmp72.not = icmp eq i32 %sent.0, %size
+  %cmp72.not = icmp eq i32 %size, %sent.0
   br i1 %cmp72.not, label %cleanup, label %if.then73
 
 if.then73:                                        ; preds = %if.end71

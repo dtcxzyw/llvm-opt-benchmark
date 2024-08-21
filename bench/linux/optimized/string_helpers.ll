@@ -1308,7 +1308,7 @@ define dso_local void @kfree_strarray(ptr noundef %0, i64 noundef %1) #4 align 1
   tail call void @kfree(ptr noundef %9) #17
   %10 = add i32 %7, 1
   %11 = zext i32 %10 to i64
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %4
@@ -1443,7 +1443,7 @@ define dso_local i64 @strscpy_pad(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %10 = getelementptr i8, ptr %0, i64 %4
   %11 = getelementptr i8, ptr %10, i64 1
   %12 = xor i64 %4, -1
-  %13 = add i64 %12, %2
+  %13 = add i64 %2, %12
   tail call void @llvm.memset.p0.i64(ptr align 1 %11, i8 0, i64 %13, i1 false)
   br label %14
 
@@ -1603,7 +1603,7 @@ define dso_local i32 @match_string(ptr nocapture noundef readonly %0, i64 nounde
 13:                                               ; preds = %10
   %14 = add i32 %6, 1
   %15 = sext i32 %14 to i64
-  %16 = icmp ult i64 %15, %1
+  %16 = icmp ugt i64 %1, %15
   br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %13, %10, %.preheader, %3
@@ -1685,7 +1685,7 @@ define dso_local i32 @__sysfs_match_string(ptr nocapture noundef readonly %0, i6
 45:                                               ; preds = %40, %38
   %46 = add i32 %6, 1
   %47 = sext i32 %46 to i64
-  %48 = icmp ult i64 %47, %1
+  %48 = icmp ugt i64 %1, %47
   br i1 %48, label %.preheader10, label %.loopexit11, !llvm.loop !29
 
 .loopexit11:                                      ; preds = %45, %40, %34, %.loopexit, %.preheader10, %3

@@ -2128,7 +2128,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @i8042_toggle_aux(i1 noundef
   %19 = load i8, ptr %2, align 1
   %20 = and i8 %19, 32
   %21 = icmp ne i8 %20, 0
-  %22 = xor i1 %21, %0
+  %22 = xor i1 %0, %21
   br i1 %22, label %.thread, label %9
 
 .thread:                                          ; preds = %.preheader, %18, %14, %9, %4, %1

@@ -1395,7 +1395,7 @@ if.end14:                                         ; preds = %if.then11, %land.lh
   %sub15 = sub nsw i32 %argc, %92
   %num_files = getelementptr inbounds i8, ptr %options, i64 88
   store i32 %sub15, ptr %num_files, align 8
-  %cmp17.not = icmp eq i32 %92, %argc
+  %cmp17.not = icmp eq i32 %argc, %92
   br i1 %cmp17.not, label %if.end37, label %if.then19
 
 if.then19:                                        ; preds = %if.end14

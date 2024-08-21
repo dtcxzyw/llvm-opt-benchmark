@@ -17995,7 +17995,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.llvm.11502
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -70979,8 +70979,8 @@ default.unreachable343:                           ; preds = %1693, %1487, %1465,
 
 476:                                              ; preds = %494, %.noexc135.i.i
   %.sroa.9.0.i.i.i.i.i.i = phi i64 [ 0, %.noexc135.i.i ], [ %495, %494 ]
-  %.pn.i.i.i.i = phi i64 [ %472, %.noexc135.i.i ], [ %496, %494 ]
-  %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i, %.val6.i.i.i
+  %.pn.i.i.i.i.i = phi i64 [ %472, %.noexc135.i.i ], [ %496, %494 ]
+  %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val6.i.i.i
   %477 = getelementptr inbounds i8, ptr %.val5.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i
   %.0.copyload.i29.i.i.i.i.i = load <16 x i8>, ptr %477, align 1, !noalias !9336
   %478 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i.i, %.15.vec.insert.i.i.i.i.i.i
@@ -71008,7 +71008,7 @@ default.unreachable343:                           ; preds = %1693, %1487, %1465,
   %492 = sub nsw i64 0, %491
   %gep.i.i.i.i.i = getelementptr { i8, [7 x i8], { ptr, ptr } }, ptr %invariant.gep.i.i.i.i.i, i64 %492
   %.val3.i.i.i.i.i.i = load i8, ptr %gep.i.i.i.i.i, align 1, !alias.scope !9344, !noalias !9349, !noundef !5
-  %493 = icmp eq i8 %.val3.i.i.i.i.i.i, %435
+  %493 = icmp eq i8 %435, %.val3.i.i.i.i.i.i
   br i1 %493, label %499, label %480
 
 494:                                              ; preds = %481

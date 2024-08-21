@@ -3309,7 +3309,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedINSt7__c
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %10 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %11 = trunc i64 %10 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %11, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %11)
   %12 = sext i32 %.sroa.speculated to i64
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9, i64 noundef %12)
           to label %14 unwind label %17
@@ -3749,7 +3749,7 @@ define linkonce_odr hidden noundef double @_ZN6cephes6incbetEddd(double noundef 
   %24 = fsub double 1.000000e+00, %2
   %25 = fadd double %0, %1
   %26 = fdiv double %0, %25
-  %27 = fcmp olt double %26, %2
+  %27 = fcmp ogt double %2, %26
   %. = select i1 %27, double %0, double %1
   %.104 = select i1 %27, double %24, double %2
   %.105 = select i1 %27, double %2, double %24
@@ -3757,7 +3757,7 @@ define linkonce_odr hidden noundef double @_ZN6cephes6incbetEddd(double noundef 
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %23
-  %29 = fmul double %24, %0
+  %29 = fmul double %0, %24
   %30 = fcmp ole double %29, 1.000000e+00
   %31 = fcmp ole double %24, 0x3FEE666666666666
   %or.cond7 = and i1 %31, %30
@@ -3794,9 +3794,9 @@ define linkonce_odr hidden noundef double @_ZN6cephes6incbetEddd(double noundef 
   %.0.i = phi i32 [ %85, %84 ], [ 0, %33 ]
   %.075.i = fadd double %.075.in.i, -1.000000e+00
   %.073.i = fadd double %.073.in.i, 2.000000e+00
-  %40 = fneg double %.080.i
-  %41 = fmul double %.104, %40
-  %42 = fmul double %41, %.079.i
+  %40 = fmul double %.104, %.080.i
+  %41 = fneg double %.079.i
+  %42 = fmul double %40, %41
   %43 = fmul double %.078.i, %.077.i
   %44 = fdiv double %42, %43
   %45 = tail call double @llvm.fmuladd.f64(double %.086.i, double %44, double %.089.i)
@@ -3870,10 +3870,9 @@ define linkonce_odr hidden noundef double @_ZN6cephes6incbetEddd(double noundef 
 86:                                               ; preds = %33
   %87 = fsub double 1.000000e+00, %.104
   %88 = fdiv double %.104, %87
-  %89 = fneg double %88
-  br label %90
+  br label %89
 
-90:                                               ; preds = %134, %86
+89:                                               ; preds = %134, %86
   %.091.i = phi double [ 0.000000e+00, %86 ], [ %.293.i, %134 ]
   %.088.i = phi double [ 1.000000e+00, %86 ], [ %.290.i, %134 ]
   %.085.i = phi double [ 1.000000e+00, %86 ], [ %.287.i, %134 ]
@@ -3891,8 +3890,9 @@ define linkonce_odr hidden noundef double @_ZN6cephes6incbetEddd(double noundef 
   %.0.i114 = phi i32 [ 0, %86 ], [ %135, %134 ]
   %.083.i115 = fadd double %.083.in.i, -1.000000e+00
   %.077.i116 = fadd double %.077.in.i, 2.000000e+00
-  %91 = fmul double %.084.i, %89
-  %92 = fmul double %91, %.083.i115
+  %90 = fmul double %88, %.084.i
+  %91 = fneg double %.083.i115
+  %92 = fmul double %90, %91
   %93 = fmul double %.082.i, %.081.i108
   %94 = fdiv double %92, %93
   %95 = tail call double @llvm.fmuladd.f64(double %.091.i, double %94, double %.071.i113)
@@ -3909,15 +3909,15 @@ define linkonce_odr hidden noundef double @_ZN6cephes6incbetEddd(double noundef 
   %105 = fcmp une double %.176.i, 0.000000e+00
   br i1 %105, label %106, label %.thread.i117
 
-106:                                              ; preds = %90
+106:                                              ; preds = %89
   %107 = fsub double %.072.i, %.176.i
   %108 = fdiv double %107, %.176.i
   %109 = tail call noundef double @llvm.fabs.f64(double %108)
   %110 = fcmp olt double %109, 0x3CB8000000000000
   br i1 %110, label %_ZN6cephesL5incbdEddd.exit, label %.thread.i117
 
-.thread.i117:                                     ; preds = %106, %90
-  %.17398.i = phi double [ %.176.i, %106 ], [ %.072.i, %90 ]
+.thread.i117:                                     ; preds = %106, %89
+  %.17398.i = phi double [ %.176.i, %106 ], [ %.072.i, %89 ]
   %111 = fadd double %.084.i, 1.000000e+00
   %112 = fadd double %.082.i, 2.000000e+00
   %113 = fadd double %.081.i108, 2.000000e+00
@@ -3961,7 +3961,7 @@ define linkonce_odr hidden noundef double @_ZN6cephes6incbetEddd(double noundef 
   %.2.i119 = phi double [ %131, %129 ], [ %.1.i, %126 ]
   %135 = add nuw nsw i32 %.0.i114, 1
   %exitcond.not.i120 = icmp eq i32 %135, 300
-  br i1 %exitcond.not.i120, label %_ZN6cephesL5incbdEddd.exit, label %90, !llvm.loop !36
+  br i1 %exitcond.not.i120, label %_ZN6cephesL5incbdEddd.exit, label %89, !llvm.loop !36
 
 _ZN6cephesL5incbdEddd.exit:                       ; preds = %106, %134
   %.17399.i = phi double [ %.17398.i, %134 ], [ %.176.i, %106 ]
@@ -4050,10 +4050,10 @@ define internal fastcc noundef double @_ZN6cephesL7pseriesEddd(double noundef %0
   %.04855 = phi double [ %15, %.lr.ph ], [ %6, %3 ]
   %.04954 = phi double [ %19, %.lr.ph ], [ 2.000000e+00, %3 ]
   %12 = fsub double %.04954, %1
-  %13 = fmul double %12, %2
+  %13 = fmul double %2, %12
   %14 = fdiv double %13, %.04954
   %15 = fmul double %.04855, %14
-  %16 = fadd double %.04954, %0
+  %16 = fadd double %0, %.04954
   %17 = fdiv double %15, %16
   %18 = fadd double %.056, %17
   %19 = fadd double %.04954, 1.000000e+00
@@ -4066,7 +4066,7 @@ define internal fastcc noundef double @_ZN6cephesL7pseriesEddd(double noundef %0
   %22 = fadd double %8, %.0.lcssa
   %23 = fadd double %4, %22
   %24 = tail call double @log(double noundef %2) #21
-  %25 = fmul double %24, %0
+  %25 = fmul double %0, %24
   %26 = fadd double %0, %1
   %27 = fcmp olt double %26, 0x406573FAE561F647
   %28 = tail call double @llvm.fabs.f64(double %25)
@@ -4245,7 +4245,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -4310,7 +4310,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFPN4nori10NoriObjectERKNS9_12PropertyListEEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISH_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -4756,7 +4756,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIfEEvRSo
   %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %12 = trunc i64 %11 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %12, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %12)
   %13 = sext i32 %.sroa.speculated to i64
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %10, i64 noundef %13)
           to label %15 unwind label %18
@@ -4838,7 +4838,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIiEEvRSo
   %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %12 = trunc i64 %11 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %12, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %12)
   %13 = sext i32 %.sroa.speculated to i64
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %10, i64 noundef %13)
           to label %15 unwind label %18

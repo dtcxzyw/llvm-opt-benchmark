@@ -366,7 +366,7 @@ while.end22:                                      ; preds = %while.body16, %whil
 
 for.body.preheader:                               ; preds = %while.end22
   %scevgep = getelementptr i8, ptr %call, i64 %inc28
-  %4 = add i64 %trg_buf251, %trg_size
+  %4 = add i64 %trg_size, %trg_buf251
   %5 = add i64 %trg_buf251, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 %5)
   %6 = xor i64 %trg_buf251, -1

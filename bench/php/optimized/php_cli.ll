@@ -935,7 +935,7 @@ print_modules.exit:                               ; preds = %56, %37
   %.5304 = phi ptr [ %.3302, %140 ], [ %.2301, %.tail428 ], [ %.5304.ph, %.sink.split ]
   %.5 = phi i32 [ %.3, %140 ], [ 4, %.tail428 ], [ %.5.ph, %.sink.split ]
   %148 = load i32, ptr %8, align 4
-  %149 = icmp slt i32 %148, %0
+  %149 = icmp sgt i32 %0, %148
   %150 = icmp eq ptr %.5335, null
   %or.cond13.not398 = select i1 %149, i1 %150, i1 false
   %151 = add nsw i32 %.5, -8
@@ -1505,7 +1505,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %172
 
 386:                                              ; preds = %384
   %387 = load i32, ptr %8, align 4
-  %388 = icmp slt i32 %387, %0
+  %388 = icmp sgt i32 %0, %387
   br i1 %388, label %sub_0429, label %403
 
 sub_0429:                                         ; preds = %386

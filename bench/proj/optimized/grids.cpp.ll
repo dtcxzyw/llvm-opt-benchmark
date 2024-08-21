@@ -994,7 +994,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %41 = load ptr, ptr %35, align 8
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %40, %41
-  %44 = icmp eq ptr %42, %40
+  %44 = icmp eq ptr %40, %42
   %or.cond.i.i = select i1 %43, i1 true, i1 %44
   br i1 %or.cond.i.i, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit, label %45
 
@@ -1246,7 +1246,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %38, %40
-  %43 = icmp eq ptr %41, %38
+  %43 = icmp eq ptr %38, %41
   %or.cond.i.i.i = select i1 %42, i1 true, i1 %43
   br i1 %or.cond.i.i.i, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i, label %44
 
@@ -1667,7 +1667,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %39, %41
-  %44 = icmp eq ptr %42, %39
+  %44 = icmp eq ptr %39, %42
   %or.cond.i.i.i.i = select i1 %43, i1 true, i1 %44
   br i1 %or.cond.i.i.i.i, label %136, label %45
 
@@ -1895,7 +1895,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #16
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZNK5osgeo4proj20GTXVerticalShiftGrid8isNodataEfd(ptr nocapture nonnull readnone align 8 %0, float noundef %1, double noundef %2) unnamed_addr #17 align 2 {
   %4 = fpext float %1 to double
-  %5 = fmul double %4, %2
+  %5 = fmul double %2, %4
   %6 = tail call double @llvm.fabs.f64(double %5)
   %or.cond = fcmp ogt double %6, 1.000000e+03
   %7 = fcmp oeq float %1, 0xC05638E220000000
@@ -2055,7 +2055,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %41 = load ptr, ptr %35, align 8
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %40, %41
-  %44 = icmp eq ptr %42, %40
+  %44 = icmp eq ptr %40, %42
   %or.cond.i.i = select i1 %43, i1 true, i1 %44
   br i1 %or.cond.i.i, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit, label %45
 
@@ -2306,7 +2306,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %38, %40
-  %43 = icmp eq ptr %41, %38
+  %43 = icmp eq ptr %38, %41
   %or.cond.i.i.i = select i1 %42, i1 true, i1 %43
   br i1 %or.cond.i.i.i, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i, label %44
 
@@ -3507,7 +3507,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %97, %99
-  %102 = icmp eq ptr %100, %97
+  %102 = icmp eq ptr %97, %100
   %or.cond.i.i.i.i = select i1 %101, i1 true, i1 %102
   br i1 %or.cond.i.i.i.i, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i.i, label %103
 
@@ -4015,7 +4015,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -4098,7 +4098,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -4393,7 +4393,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %180 = getelementptr inbounds i8, ptr %0, i64 160
   %181 = load i16, ptr %180, align 8
   %182 = zext i16 %181 to i32
-  %183 = icmp eq i32 %182, %5
+  %183 = icmp eq i32 %5, %182
   %184 = icmp sgt i32 %4, 0
   br i1 %183, label %185, label %208
 
@@ -4412,7 +4412,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %190 = load i8, ptr %28, align 4
   %191 = trunc i8 %190 to i1
   %192 = xor i32 %.0155213, -1
-  %193 = add nsw i32 %192, %4
+  %193 = add nsw i32 %4, %192
   %194 = select i1 %191, i32 %.0155213, i32 %193
   %195 = add i32 %79, %194
   %196 = shl i32 %195, 8
@@ -4450,7 +4450,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %211 = load i8, ptr %28, align 4
   %212 = trunc i8 %211 to i1
   %213 = xor i32 %.0145193.us, -1
-  %214 = add nsw i32 %213, %4
+  %214 = add nsw i32 %4, %213
   %215 = select i1 %212, i32 %.0145193.us, i32 %214
   %216 = add i32 %79, %215
   %217 = shl i32 %216, 8
@@ -4492,7 +4492,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %234 = load i8, ptr %28, align 4
   %235 = trunc i8 %234 to i1
   %236 = xor i32 %.0149198.us, -1
-  %237 = add nsw i32 %236, %4
+  %237 = add nsw i32 %4, %236
   %238 = select i1 %235, i32 %.0149198.us, i32 %237
   %239 = add i32 %79, %238
   %240 = shl i32 %239, 8
@@ -4535,7 +4535,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %258 = load i8, ptr %28, align 4
   %259 = trunc i8 %258 to i1
   %260 = xor i32 %.0153207.us, -1
-  %261 = add nsw i32 %260, %4
+  %261 = add nsw i32 %4, %260
   %262 = select i1 %259, i32 %.0153207.us, i32 %261
   %263 = add i32 %79, %262
   %264 = shl i32 %263, 8
@@ -4610,7 +4610,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %296 = load i8, ptr %286, align 8
   %297 = trunc i8 %296 to i1
   %298 = load float, ptr %287, align 4
-  %299 = fcmp oeq float %298, %295
+  %299 = fcmp oeq float %295, %298
   %or.cond.i.us.us.us = select i1 %297, i1 %299, i1 false
   %300 = fcmp uno float %295, 0.000000e+00
   %spec.select.i.us.us.us = or i1 %300, %or.cond.i.us.us.us
@@ -4662,7 +4662,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8isNodataEf(ptr nocap
   %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds i8, ptr %0, i64 332
   %7 = load float, ptr %6, align 4
-  %8 = fcmp oeq float %7, %1
+  %8 = fcmp oeq float %1, %7
   %or.cond = select i1 %5, i1 %8, i1 false
   %9 = fcmp uno float %1, 0.000000e+00
   %spec.select = or i1 %9, %or.cond
@@ -4826,7 +4826,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %13, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 144
-  %23 = icmp eq ptr %22, %21
+  %23 = icmp eq ptr %21, %22
   br i1 %23, label %_ZN5osgeo4proj10BlockCacheD2Ev.exit, label %24
 
 24:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i
@@ -7896,13 +7896,13 @@ define noundef nonnull ptr @_ZNK5osgeo4proj17VerticalShiftGrid6gridAtEdd(ptr nou
   %14 = getelementptr inbounds i8, ptr %13, i64 48
   %15 = getelementptr inbounds i8, ptr %13, i64 64
   %16 = load double, ptr %15, align 8
-  %17 = fcmp ugt double %16, %2
+  %17 = fcmp ult double %2, %16
   br i1 %17, label %50, label %18
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %13, i64 80
   %20 = load double, ptr %19, align 8
-  %21 = fcmp ult double %20, %2
+  %21 = fcmp ugt double %2, %20
   br i1 %21, label %50, label %22
 
 22:                                               ; preds = %18
@@ -7928,11 +7928,11 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i: ; preds = %22
   br i1 %33, label %34, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit
 
 34:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i
-  %35 = fcmp ogt double %28, %1
+  %35 = fcmp olt double %1, %28
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %34
-  %37 = fcmp olt double %26, %1
+  %37 = fcmp ogt double %1, %26
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %36
@@ -7996,13 +7996,13 @@ define noundef ptr @_ZNK5osgeo4proj20VerticalShiftGridSet6gridAtEdd(ptr nocaptur
   %18 = getelementptr inbounds i8, ptr %16, i64 48
   %19 = getelementptr inbounds i8, ptr %16, i64 64
   %20 = load double, ptr %19, align 8
-  %21 = fcmp ugt double %20, %2
+  %21 = fcmp ult double %2, %20
   br i1 %21, label %96, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %16, i64 80
   %24 = load double, ptr %23, align 8
-  %25 = fcmp ult double %24, %2
+  %25 = fcmp ugt double %2, %24
   br i1 %25, label %96, label %26
 
 26:                                               ; preds = %22
@@ -8028,11 +8028,11 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i: ; preds = %26
   br i1 %37, label %38, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit
 
 38:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i
-  %39 = fcmp ogt double %32, %1
+  %39 = fcmp olt double %1, %32
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %38
-  %41 = fcmp olt double %30, %1
+  %41 = fcmp ogt double %1, %30
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %40
@@ -8070,13 +8070,13 @@ _ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit: ; preds = %46, %
   %58 = getelementptr inbounds i8, ptr %57, i64 48
   %59 = getelementptr inbounds i8, ptr %57, i64 64
   %60 = load double, ptr %59, align 8
-  %61 = fcmp ugt double %60, %2
+  %61 = fcmp ult double %2, %60
   br i1 %61, label %94, label %62
 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds i8, ptr %57, i64 80
   %64 = load double, ptr %63, align 8
-  %65 = fcmp ult double %64, %2
+  %65 = fcmp ugt double %2, %64
   br i1 %65, label %94, label %66
 
 66:                                               ; preds = %62
@@ -8102,11 +8102,11 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i.i: ; preds = %66
   br i1 %77, label %78, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i
 
 78:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i.i
-  %79 = fcmp ogt double %72, %1
+  %79 = fcmp olt double %1, %72
   br i1 %79, label %83, label %80
 
 80:                                               ; preds = %78
-  %81 = fcmp olt double %70, %1
+  %81 = fcmp ogt double %1, %70
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %80
@@ -9151,7 +9151,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %46, %48
-  %51 = icmp eq ptr %49, %46
+  %51 = icmp eq ptr %46, %49
   %or.cond.i.i.i.i = select i1 %50, i1 true, i1 %51
   br i1 %or.cond.i.i.i.i, label %213, label %52
 
@@ -12814,7 +12814,7 @@ define noundef nonnull ptr @_ZNK5osgeo4proj19HorizontalShiftGrid6gridAtEdd(ptr n
   %18 = load double, ptr %17, align 8
   %19 = fadd double %16, %18
   %20 = fmul double %19, 1.000000e-05
-  %21 = fadd double %20, %2
+  %21 = fadd double %2, %20
   %22 = getelementptr inbounds i8, ptr %13, i64 64
   %23 = load double, ptr %22, align 8
   %24 = fcmp ult double %21, %23
@@ -12848,7 +12848,7 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i: ; preds = %30
   br i1 %39, label %40, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit
 
 40:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i
-  %41 = fadd double %20, %1
+  %41 = fadd double %1, %20
   %42 = fcmp olt double %41, %36
   br i1 %42, label %47, label %43
 
@@ -12924,7 +12924,7 @@ define noundef ptr @_ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd(ptr nocapt
   %22 = load double, ptr %21, align 8
   %23 = fadd double %20, %22
   %24 = fmul double %23, 1.000000e-05
-  %25 = fadd double %24, %2
+  %25 = fadd double %2, %24
   %26 = getelementptr inbounds i8, ptr %16, i64 64
   %27 = load double, ptr %26, align 8
   %28 = fcmp ult double %25, %27
@@ -12958,7 +12958,7 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i: ; preds = %34
   br i1 %43, label %44, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit
 
 44:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i
-  %45 = fadd double %24, %1
+  %45 = fadd double %1, %24
   %46 = fcmp olt double %45, %40
   br i1 %46, label %51, label %47
 
@@ -13008,7 +13008,7 @@ _ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit: ; preds = %55, %
   %72 = load double, ptr %71, align 8
   %73 = fadd double %70, %72
   %74 = fmul double %73, 1.000000e-05
-  %75 = fadd double %74, %2
+  %75 = fadd double %2, %74
   %76 = getelementptr inbounds i8, ptr %67, i64 64
   %77 = load double, ptr %76, align 8
   %78 = fcmp ult double %75, %77
@@ -13042,7 +13042,7 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i.i: ; preds = %84
   br i1 %93, label %94, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i
 
 94:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i.i
-  %95 = fadd double %74, %1
+  %95 = fadd double %1, %74
   %96 = fcmp olt double %95, %90
   br i1 %96, label %101, label %97
 
@@ -13538,7 +13538,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj16GTiffGenericGrid7valueAtEiiiR
   %10 = getelementptr inbounds i8, ptr %9, i64 160
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
-  %.not = icmp ugt i32 %12, %3
+  %.not = icmp ult i32 %3, %12
   br i1 %.not, label %13, label %16
 
 13:                                               ; preds = %7
@@ -15493,13 +15493,13 @@ define noundef nonnull ptr @_ZNK5osgeo4proj16GenericShiftGrid6gridAtEdd(ptr noun
   %14 = getelementptr inbounds i8, ptr %13, i64 48
   %15 = getelementptr inbounds i8, ptr %13, i64 64
   %16 = load double, ptr %15, align 8
-  %17 = fcmp ugt double %16, %2
+  %17 = fcmp ult double %2, %16
   br i1 %17, label %50, label %18
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %13, i64 80
   %20 = load double, ptr %19, align 8
-  %21 = fcmp ult double %20, %2
+  %21 = fcmp ugt double %2, %20
   br i1 %21, label %50, label %22
 
 22:                                               ; preds = %18
@@ -15525,11 +15525,11 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i: ; preds = %22
   br i1 %33, label %34, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit
 
 34:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i
-  %35 = fcmp ogt double %28, %1
+  %35 = fcmp olt double %1, %28
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %34
-  %37 = fcmp olt double %26, %1
+  %37 = fcmp ogt double %1, %26
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %36
@@ -15593,13 +15593,13 @@ define noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtEdd(ptr nocapture
   %18 = getelementptr inbounds i8, ptr %16, i64 48
   %19 = getelementptr inbounds i8, ptr %16, i64 64
   %20 = load double, ptr %19, align 8
-  %21 = fcmp ugt double %20, %2
+  %21 = fcmp ult double %2, %20
   br i1 %21, label %96, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %16, i64 80
   %24 = load double, ptr %23, align 8
-  %25 = fcmp ult double %24, %2
+  %25 = fcmp ugt double %2, %24
   br i1 %25, label %96, label %26
 
 26:                                               ; preds = %22
@@ -15625,11 +15625,11 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i: ; preds = %26
   br i1 %37, label %38, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit
 
 38:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i
-  %39 = fcmp ogt double %32, %1
+  %39 = fcmp olt double %1, %32
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %38
-  %41 = fcmp olt double %30, %1
+  %41 = fcmp ogt double %1, %30
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %40
@@ -15667,13 +15667,13 @@ _ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit: ; preds = %46, %
   %58 = getelementptr inbounds i8, ptr %57, i64 48
   %59 = getelementptr inbounds i8, ptr %57, i64 64
   %60 = load double, ptr %59, align 8
-  %61 = fcmp ugt double %60, %2
+  %61 = fcmp ult double %2, %60
   br i1 %61, label %94, label %62
 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds i8, ptr %57, i64 80
   %64 = load double, ptr %63, align 8
-  %65 = fcmp ult double %64, %2
+  %65 = fcmp ugt double %2, %64
   br i1 %65, label %94, label %66
 
 66:                                               ; preds = %62
@@ -15699,11 +15699,11 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i.i: ; preds = %66
   br i1 %77, label %78, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i
 
 78:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i.i
-  %79 = fcmp ogt double %72, %1
+  %79 = fcmp olt double %1, %72
   br i1 %79, label %83, label %80
 
 80:                                               ; preds = %78
-  %81 = fcmp olt double %70, %1
+  %81 = fcmp ogt double %1, %70
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %80
@@ -15795,13 +15795,13 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %32 = getelementptr inbounds i8, ptr %31, i64 48
   %33 = getelementptr inbounds i8, ptr %31, i64 64
   %34 = load double, ptr %33, align 8
-  %35 = fcmp ugt double %34, %3
+  %35 = fcmp ult double %3, %34
   br i1 %35, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %36
 
 36:                                               ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread18
   %37 = getelementptr inbounds i8, ptr %31, i64 80
   %38 = load double, ptr %37, align 8
-  %39 = fcmp ult double %38, %3
+  %39 = fcmp ugt double %3, %38
   br i1 %39, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %40
 
 40:                                               ; preds = %36
@@ -15827,11 +15827,11 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i: ; preds = %40
   br i1 %51, label %52, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit
 
 52:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i
-  %53 = fcmp ogt double %46, %2
+  %53 = fcmp olt double %2, %46
   br i1 %53, label %57, label %54
 
 54:                                               ; preds = %52
-  %55 = fcmp olt double %44, %2
+  %55 = fcmp ogt double %2, %44
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %54
@@ -15869,13 +15869,13 @@ _ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit: ; preds = %60, %
   %72 = getelementptr inbounds i8, ptr %71, i64 48
   %73 = getelementptr inbounds i8, ptr %71, i64 64
   %74 = load double, ptr %73, align 8
-  %75 = fcmp ugt double %74, %3
+  %75 = fcmp ult double %3, %74
   br i1 %75, label %108, label %76
 
 76:                                               ; preds = %70
   %77 = getelementptr inbounds i8, ptr %71, i64 80
   %78 = load double, ptr %77, align 8
-  %79 = fcmp ult double %78, %3
+  %79 = fcmp ugt double %3, %78
   br i1 %79, label %108, label %80
 
 80:                                               ; preds = %76
@@ -15901,11 +15901,11 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i.i: ; preds = %80
   br i1 %91, label %92, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i
 
 92:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i.i
-  %93 = fcmp ogt double %86, %2
+  %93 = fcmp olt double %2, %86
   br i1 %93, label %97, label %94
 
 94:                                               ; preds = %92
-  %95 = fcmp olt double %84, %2
+  %95 = fcmp ogt double %2, %84
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %94
@@ -16845,7 +16845,7 @@ define hidden { double, double } @_ZN5osgeo4proj14pj_hgrid_applyEP6pj_ctxRKSt6ve
   %27 = load double, ptr %26, align 8
   %28 = fadd double %25, %27
   %29 = fmul double %28, 1.000000e-05
-  %30 = fadd double %29, %3
+  %30 = fadd double %3, %29
   %31 = getelementptr inbounds i8, ptr %21, i64 64
   %32 = load double, ptr %31, align 8
   %33 = fcmp ult double %30, %32
@@ -16879,7 +16879,7 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i.i: ; preds = %39
   br i1 %48, label %49, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i
 
 49:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i.i
-  %50 = fadd double %29, %2
+  %50 = fadd double %2, %29
   %51 = fcmp olt double %50, %45
   br i1 %51, label %56, label %52
 
@@ -16929,7 +16929,7 @@ _ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i: ; preds = %60,
   %77 = load double, ptr %76, align 8
   %78 = fadd double %75, %77
   %79 = fmul double %78, 1.000000e-05
-  %80 = fadd double %79, %3
+  %80 = fadd double %3, %79
   %81 = getelementptr inbounds i8, ptr %72, i64 64
   %82 = load double, ptr %81, align 8
   %83 = fcmp ult double %80, %82
@@ -16963,7 +16963,7 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i.i.i: ; preds = %89
   br i1 %98, label %99, label %_ZN5osgeo4projL15isPointInExtentEddRKNS0_12ExtentAndResEd.exit.i.i
 
 99:                                               ; preds = %_ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit.i.i.i
-  %100 = fadd double %79, %2
+  %100 = fadd double %2, %79
   %101 = fcmp olt double %100, %95
   br i1 %101, label %106, label %102
 
@@ -17089,8 +17089,8 @@ _ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread29: ; preds = %_ZN5
   br i1 %10, label %172, label %175
 
 172:                                              ; preds = %171
-  %173 = fadd double %158, %2
-  %174 = fadd double %159, %3
+  %173 = fadd double %2, %158
+  %174 = fadd double %3, %159
   br label %_ZN5osgeo4projL23pj_hgrid_apply_internalEP6pj_ctx5PJ_LP12PJ_DIRECTIONPKNS0_19HorizontalShiftGridEPNS0_22HorizontalShiftGridSetERKSt6vectorISt10unique_ptrIS8_St14default_deleteIS8_EESaISE_EERb.exit.thread
 
 175:                                              ; preds = %171
@@ -18387,7 +18387,7 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit170.thread: ; preds = %1
 
 246:                                              ; preds = %215, %244, %197
   %.0155 = phi double [ %214, %197 ], [ 0x7FF0000000000000, %215 ], [ %245, %244 ]
-  %247 = fmul double %.0155, %3
+  %247 = fmul double %3, %.0155
   br label %.critedge
 
 .critedge:                                        ; preds = %156, %163, %24, %4, %246, %161, %102, %34, %._crit_edge
@@ -19139,7 +19139,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5osgeo4proj10GTiffVGrid8isNod
   %8 = trunc i8 %7 to i1
   %9 = getelementptr inbounds i8, ptr %5, i64 332
   %10 = load float, ptr %9, align 4
-  %11 = fcmp oeq float %10, %1
+  %11 = fcmp oeq float %1, %10
   %or.cond.i = select i1 %8, i1 %11, i1 false
   %12 = fcmp uno float %1, 0.000000e+00
   %spec.select.i = or i1 %12, %or.cond.i
@@ -20489,7 +20489,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 64
-  %18 = icmp eq ptr %17, %16
+  %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEED2Ev.exit, label %19
 
 19:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -20548,7 +20548,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 64
-  %18 = icmp eq ptr %17, %16
+  %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEED2Ev.exit, label %19
 
 19:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -20653,7 +20653,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %19 = load ptr, ptr %11, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 64
-  %21 = icmp eq ptr %20, %19
+  %21 = icmp eq ptr %19, %20
   br i1 %21, label %_ZN5osgeo4proj14FloatLineCacheD2Ev.exit, label %22
 
 22:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i
@@ -20716,7 +20716,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 64
-  %18 = icmp eq ptr %17, %16
+  %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEED2Ev.exit, label %19
 
 19:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -20775,7 +20775,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 64
-  %18 = icmp eq ptr %17, %16
+  %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEED2Ev.exit, label %19
 
 19:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -21232,7 +21232,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge
@@ -21336,7 +21336,7 @@ _ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePai
   %.017 = phi ptr [ %17, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %37, %35 ]
   %.016 = phi i64 [ %20, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %25, %35 ]
   %.015 = phi ptr [ %.01014.i.lcssa, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %.018.i, %35 ]
-  %45 = icmp eq ptr %43, %.015
+  %45 = icmp eq ptr %.015, %43
   %46 = load ptr, ptr %.017, align 8
   %.not18.i = icmp eq ptr %46, null
   br i1 %45, label %47, label %66
@@ -21814,7 +21814,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge
@@ -21918,7 +21918,7 @@ _ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePai
   %.017 = phi ptr [ %17, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %37, %35 ]
   %.016 = phi i64 [ %20, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %25, %35 ]
   %.015 = phi ptr [ %.01014.i.lcssa, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %.018.i, %35 ]
-  %45 = icmp eq ptr %43, %.015
+  %45 = icmp eq ptr %.015, %43
   %46 = load ptr, ptr %.017, align 8
   %.not18.i = icmp eq ptr %46, null
   br i1 %45, label %47, label %66
@@ -22028,7 +22028,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeISt4pairIiNSt7__cxx1112basic_stringIcSt11
 20:                                               ; preds = %17
   %.not.i.i = icmp ne ptr %18, null
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = icmp eq ptr %21, %19
+  %22 = icmp eq ptr %19, %21
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %22
   br i1 %or.cond.i.i, label %.thread, label %23
 
@@ -22090,7 +22090,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES0_IKS7_S6_ESt10_Select1stIS9_ESt4lessIS7_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %29
 
 6:                                                ; preds = %3
@@ -22600,7 +22600,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !150
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -22684,7 +22684,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !150
 
 _ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -22792,7 +22792,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_d
 _ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i.i ]
   %29 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i17
@@ -22948,7 +22948,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -22996,7 +22996,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN5osgeo4proj10GTiffVGridEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -23385,7 +23385,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default
 _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i.i ]
   %29 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i17
@@ -23476,7 +23476,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -23524,7 +23524,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN5osgeo4proj8NTv2GridEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -23913,7 +23913,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default
 _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i.i ]
   %29 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i17
@@ -24069,7 +24069,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -24117,7 +24117,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN5osgeo4proj10GTiffHGridEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -24506,7 +24506,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default
 _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i.i ]
   %29 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i17
@@ -24598,7 +24598,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_de
 _ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i.i ]
   %29 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i17
@@ -24754,7 +24754,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -24802,7 +24802,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN5osgeo4proj16GTiffGenericGridEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

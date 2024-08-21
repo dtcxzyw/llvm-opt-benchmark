@@ -288,7 +288,7 @@ define dso_local i32 @get_language_oid(ptr noundef %0, i1 noundef zeroext %1) lo
   %3 = ptrtoint ptr %0 to i64
   %4 = tail call i32 @GetSysCacheOid(i32 noundef 33, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
   %.not = icmp ne i32 %4, 0
-  %brmerge = or i1 %.not, %1
+  %brmerge = or i1 %1, %.not
   br i1 %brmerge, label %9, label %5
 
 5:                                                ; preds = %2

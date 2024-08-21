@@ -2286,7 +2286,7 @@ do.body.i.preheader:                              ; preds = %lor.lhs.false
 
 if.then27:                                        ; preds = %lor.lhs.false, %if.else22
   %inc28 = add nsw i32 %i.1208, 1
-  %cmp29.not = icmp slt i32 %inc28, %argc
+  %cmp29.not = icmp sgt i32 %argc, %inc28
   br i1 %cmp29.not, label %if.end34, label %if.then30
 
 if.then30:                                        ; preds = %if.then27
@@ -2367,7 +2367,7 @@ lor.lhs.false50:                                  ; preds = %if.else47
 
 if.then53:                                        ; preds = %lor.lhs.false50, %if.else47
   %inc54 = add nsw i32 %i.1208, 1
-  %cmp55.not = icmp slt i32 %inc54, %argc
+  %cmp55.not = icmp sgt i32 %argc, %inc54
   br i1 %cmp55.not, label %if.end60, label %if.then56
 
 if.then56:                                        ; preds = %if.then53

@@ -132,7 +132,7 @@ return:                                           ; preds = %if.end, %entry, %if
 define hidden ptr @mpd_qnew_size(i64 noundef %nwords) local_unnamed_addr #4 {
 entry:
   %0 = load i64, ptr @MPD_MINALLOC, align 8
-  %cond = tail call i64 @llvm.smax.i64(i64 %0, i64 %nwords)
+  %cond = tail call i64 @llvm.smax.i64(i64 %nwords, i64 %0)
   %1 = load ptr, ptr @mpd_mallocfunc, align 8
   %call1.i = tail call ptr %1(i64 noundef 48) #9
   %cmp1 = icmp eq ptr %call1.i, null
@@ -382,7 +382,7 @@ if.else:                                          ; preds = %if.end.i, %entry
   store ptr %0, ptr %data, align 8
   %alloc2 = getelementptr inbounds i8, ptr %result, i64 32
   %3 = load i64, ptr %alloc2, align 8
-  %cmp = icmp slt i64 %3, %nwords
+  %cmp = icmp sgt i64 %nwords, %3
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.else
@@ -454,7 +454,7 @@ if.then:                                          ; preds = %if.end.i
 if.else:                                          ; preds = %if.end.i, %entry
   %alloc2 = getelementptr inbounds i8, ptr %result, i64 32
   %3 = load i64, ptr %alloc2, align 8
-  %cmp = icmp slt i64 %3, %nwords
+  %cmp = icmp sgt i64 %nwords, %3
   br i1 %cmp, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.else, %if.then

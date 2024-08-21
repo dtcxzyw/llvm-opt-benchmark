@@ -1222,7 +1222,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
-  %8 = icmp eq i32 %.240.val, %1
+  %8 = icmp eq i32 %1, %.240.val
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3

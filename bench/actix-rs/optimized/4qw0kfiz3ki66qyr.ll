@@ -453,7 +453,7 @@ define hidden void @_ZN5regex8regexset6string8RegexSet10matches_at17h98e0713a526
   %17 = getelementptr inbounds i8, ptr %14, i64 8
   store i64 %3, ptr %17, align 8, !noalias !50
   %18 = add i64 %3, 1
-  %.not4.i = icmp ult i64 %18, %4
+  %.not4.i = icmp ugt i64 %4, %18
   br i1 %.not4.i, label %19, label %_ZN14regex_automata4util6search5Input8set_span17h33e1c00c50febac0E.exit
 
 19:                                               ; preds = %5
@@ -859,7 +859,7 @@ define noundef zeroext i1 @_ZN12actix_router9regex_set8RegexSet8is_match17h86168
 14:                                               ; preds = %._crit_edge.i
   %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i64, ptr %15, align 8, !noalias !117
-  %17 = icmp ugt i64 %16, %2
+  %17 = icmp ult i64 %2, %16
   br i1 %17, label %_ZN14regex_automata4meta5regex5Regex8is_match17ha3315326fbf1951aE.exit, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i: ; preds = %14
@@ -884,7 +884,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.i: ; preds = %25
   %28 = getelementptr inbounds i8, ptr %12, i64 24
   %29 = load i64, ptr %28, align 8, !noalias !114
-  %30 = icmp ult i64 %29, %2
+  %30 = icmp ugt i64 %2, %29
   br i1 %30, label %_ZN14regex_automata4meta5regex5Regex8is_match17ha3315326fbf1951aE.exit, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.i, %25, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i, %._crit_edge.i

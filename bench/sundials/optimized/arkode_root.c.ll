@@ -199,7 +199,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr %88, align 8
-  %.not165 = icmp eq ptr %96, %2
+  %.not165 = icmp eq ptr %2, %96
   br i1 %.not165, label %292, label %97
 
 97:                                               ; preds = %95

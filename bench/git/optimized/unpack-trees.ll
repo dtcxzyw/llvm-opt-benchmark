@@ -852,7 +852,7 @@ while.body:                                       ; preds = %while.body.preheade
   %o.val127 = load i32, ptr %61, align 8
   %cache_nr.i138 = getelementptr inbounds i8, ptr %o.val, i64 12
   %62 = load i32, ptr %cache_nr.i138, align 4
-  %cmp1.i = icmp ugt i32 %62, %o.val127
+  %cmp1.i = icmp ult i32 %o.val127, %62
   br i1 %cmp1.i, label %while.body.lr.ph.i, label %if.end181
 
 while.body.lr.ph.i:                               ; preds = %while.body
@@ -984,7 +984,7 @@ while.body196:                                    ; preds = %while.body196.prehe
   %o.val129 = load i32, ptr %82, align 8
   %cache_nr.i154 = getelementptr inbounds i8, ptr %o.val128, i64 12
   %83 = load i32, ptr %cache_nr.i154, align 4
-  %cmp1.i155 = icmp ugt i32 %83, %o.val129
+  %cmp1.i155 = icmp ult i32 %o.val129, %83
   br i1 %cmp1.i155, label %while.body.lr.ph.i157, label %if.end207
 
 while.body.lr.ph.i157:                            ; preds = %while.body196
@@ -1582,7 +1582,7 @@ if.then7:                                         ; preds = %while.body5
   %.val55 = load i32, ptr %8, align 8
   %cache_nr.i = getelementptr inbounds i8, ptr %.val, i64 12
   %10 = load i32, ptr %cache_nr.i, align 4
-  %cmp1.i = icmp ugt i32 %10, %.val55
+  %cmp1.i = icmp ult i32 %.val55, %10
   br i1 %cmp1.i, label %while.body.lr.ph.i, label %if.end32
 
 while.body.lr.ph.i:                               ; preds = %if.then7
@@ -1794,7 +1794,7 @@ land.lhs.true.i82:                                ; preds = %if.end.i79
   %conv5.i = sext i32 %n.val11.pre.i to i64
   %info.val.i = load i64, ptr %pathlen.i.i, align 8
   %sub.i.i.i = xor i64 %info.val.i, -1
-  %cmp.i.i.i = icmp ult i64 %sub.i.i.i, %conv5.i
+  %cmp.i.i.i = icmp ugt i64 %conv5.i, %sub.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %traverse_path_len.exit.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i82
@@ -1814,7 +1814,7 @@ if.end10.i:                                       ; preds = %traverse_path_len.e
   %sub.i.i13.pre-phi.i = phi i64 [ %.pre21.i, %if.end.if.end10_crit_edge.i ], [ %sub.i.i.i, %traverse_path_len.exit.i ]
   %conv14.pre-phi.i = phi i64 [ %.pre.i, %if.end.if.end10_crit_edge.i ], [ %conv5.i, %traverse_path_len.exit.i ]
   %info.val12.i = phi i64 [ %info.val12.pre.i, %if.end.if.end10_crit_edge.i ], [ %info.val.i, %traverse_path_len.exit.i ]
-  %cmp.i.i14.i = icmp ult i64 %sub.i.i13.pre-phi.i, %conv14.pre-phi.i
+  %cmp.i.i14.i = icmp ugt i64 %conv14.pre-phi.i, %sub.i.i13.pre-phi.i
   br i1 %cmp.i.i14.i, label %if.then.i.i16.i, label %if.end21
 
 if.then.i.i16.i:                                  ; preds = %if.end10.i
@@ -2247,7 +2247,7 @@ is_sparse_directory_entry.exit:                   ; preds = %if.then.i.i168, %la
 
 land.lhs.true88:                                  ; preds = %is_sparse_directory_entry.exit
   %not = xor i64 %dirmask, -1
-  %and89 = and i64 %not, %mask
+  %and89 = and i64 %mask, %not
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %newinfo.i)
   %119 = load ptr, ptr %data, align 8
   %120 = load i32, ptr %119, align 8
@@ -2261,7 +2261,7 @@ lor.lhs.false.i.i:                                ; preds = %land.lhs.true88
   %notmask.i.i = shl nsw i32 -1, %n
   %sub.i.i193 = xor i32 %notmask.i.i, -1
   %conv.i.i194 = zext nneg i32 %sub.i.i193 to i64
-  %cmp.not.i.i = icmp eq i64 %conv.i.i194, %dirmask
+  %cmp.not.i.i = icmp eq i64 %dirmask, %conv.i.i194
   br i1 %cmp.not.i.i, label %for.cond.preheader.i.i, label %while.cond.i195.preheader
 
 for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
@@ -2621,7 +2621,7 @@ while.end.i197:                                   ; preds = %while.cond.i195
   %pathlen12.i = getelementptr inbounds i8, ptr %newinfo.i, i64 40
   %186 = load i64, ptr %pathlen12.i, align 8
   %sub.i82.i = xor i64 %186, -1
-  %cmp.i83.i = icmp ult i64 %sub.i82.i, %conv.i201
+  %cmp.i83.i = icmp ugt i64 %conv.i201, %sub.i82.i
   br i1 %cmp.i83.i, label %if.then.i84.i, label %st_add.exit.i
 
 if.then.i84.i:                                    ; preds = %while.end.i197
@@ -6641,7 +6641,7 @@ clear_ce_flags_dir.exit:                          ; preds = %while.body.i, %if.e
   %sub.i = add i64 %19, -1
   %20 = load i64, ptr @clear_ce_flags.prefix, align 8
   %spec.select.i84 = call i64 @llvm.usub.sat.i64(i64 %20, i64 1)
-  %cmp.i85 = icmp ult i64 %spec.select.i84, %sub.i
+  %cmp.i85 = icmp ugt i64 %sub.i, %spec.select.i84
   br i1 %cmp.i85, label %if.then.i90, label %if.end.i86
 
 if.then.i90:                                      ; preds = %clear_ce_flags_dir.exit
@@ -6672,7 +6672,7 @@ if.then31:                                        ; preds = %strbuf_setlen.exit9
   %sub = sub i64 %22, %conv19
   %23 = load i64, ptr @clear_ce_flags.prefix, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %23, i64 1)
-  %cmp.i70 = icmp ult i64 %spec.select.i, %sub
+  %cmp.i70 = icmp ugt i64 %sub, %spec.select.i
   br i1 %cmp.i70, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then31
@@ -6727,7 +6727,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %sub49 = add i64 %31, %32
   %33 = load i64, ptr @clear_ce_flags.prefix, align 8
   %spec.select.i75 = call i64 @llvm.usub.sat.i64(i64 %33, i64 1)
-  %cmp.i76 = icmp ult i64 %spec.select.i75, %sub49
+  %cmp.i76 = icmp ugt i64 %sub49, %spec.select.i75
   br i1 %cmp.i76, label %if.then.i81, label %if.end.i77
 
 if.then.i81:                                      ; preds = %strbuf_addch.exit
@@ -7267,7 +7267,7 @@ if.end37:                                         ; preds = %if.end30
   br i1 %cmp38, label %for.inc, label %if.end41
 
 if.end41:                                         ; preds = %if.end37
-  %cmp43 = icmp ugt i64 %conv31, %p_len
+  %cmp43 = icmp ult i64 %p_len, %conv31
   br i1 %cmp43, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end41
@@ -7349,7 +7349,7 @@ entry:
   %1 = getelementptr i8, ptr %info, i64 40
   %info.val = load i64, ptr %1, align 8
   %sub.i.i = xor i64 %info.val, -1
-  %cmp.i.i = icmp ult i64 %sub.i.i, %conv
+  %cmp.i.i = icmp ugt i64 %conv, %sub.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %traverse_path_len.exit
 
 if.then.i.i:                                      ; preds = %entry

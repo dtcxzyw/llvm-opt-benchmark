@@ -458,7 +458,7 @@ define linkonce_odr dso_local void @_ZN17InstrCountVisitor5visitEP9AstActive(ptr
 _ZN17InstrCountVisitor8markCostEP7AstNode.exit:   ; preds = %2, %5
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %13, %1
+  %.not = icmp eq ptr %1, %13
   br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %_ZN17InstrCountVisitor8markCostEP7AstNode.exit
@@ -584,7 +584,7 @@ define linkonce_odr dso_local void @_ZN17InstrCountVisitor5visitEP8AstCFunc(ptr 
   %6 = trunc i8 %5 to i1
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   %.not13 = select i1 %6, i1 true, i1 %9
   br i1 %.not13, label %14, label %10
 

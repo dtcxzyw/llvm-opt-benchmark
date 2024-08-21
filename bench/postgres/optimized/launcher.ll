@@ -674,7 +674,7 @@ logicalrep_pa_worker_count.exit:                  ; preds = %110, %93
   %219 = getelementptr i8, ptr %218, i64 5504
   %220 = call zeroext i1 @LWLockAcquire(ptr noundef %219, i32 noundef 0) #13
   %221 = load i16, ptr %127, align 2
-  %222 = icmp eq i16 %221, %129
+  %222 = icmp eq i16 %129, %221
   br i1 %222, label %223, label %224
 
 223:                                              ; preds = %217
@@ -1896,7 +1896,7 @@ define dso_local i32 @GetLeaderApplyWorkerPid(i32 noundef %0) local_unnamed_addr
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %19, i64 60
   %22 = load i32, ptr %21, align 4
-  %23 = icmp eq i32 %22, %0
+  %23 = icmp eq i32 %0, %22
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %20

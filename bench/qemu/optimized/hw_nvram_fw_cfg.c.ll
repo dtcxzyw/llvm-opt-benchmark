@@ -2419,7 +2419,7 @@ entry:
 
 lor.rhs:                                          ; preds = %entry
   %cmp1 = icmp eq i32 %size, 2
-  %0 = and i1 %cmp1, %is_write
+  %0 = and i1 %is_write, %cmp1
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
@@ -2431,14 +2431,14 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 define internal range(i64 0, 5856171918474036808) i64 @fw_cfg_dma_mem_read(ptr nocapture readnone %opaque, i64 noundef %addr, i32 noundef %size) #1 {
 entry:
   %0 = trunc i64 %addr to i32
-  %.tr = add i32 %0, %size
+  %.tr = add i32 %size, %0
   %1 = shl i32 %.tr, 3
   %conv2 = sub i32 64, %1
   %mul3 = shl i32 %size, 3
   %cmp.i = icmp slt i32 %conv2, 0
   %cmp1.i = icmp slt i32 %mul3, 1
   %or.cond.not6.i = or i1 %cmp1.i, %cmp.i
-  %cmp3.not.i = icmp slt i32 %1, %mul3
+  %cmp3.not.i = icmp sgt i32 %mul3, %1
   %or.cond5.i = or i1 %cmp3.not.i, %or.cond.not6.i
   br i1 %or.cond5.i, label %if.else.i, label %extract64.exit
 
@@ -2982,7 +2982,7 @@ entry:
 define internal noundef zeroext i1 @fw_cfg_ctl_mem_valid(ptr nocapture readnone %opaque, i64 %addr, i32 noundef %size, i1 noundef zeroext %is_write, i32 %attrs.coerce) #12 {
 entry:
   %cmp = icmp eq i32 %size, 2
-  %0 = and i1 %cmp, %is_write
+  %0 = and i1 %is_write, %cmp
   ret i1 %0
 }
 

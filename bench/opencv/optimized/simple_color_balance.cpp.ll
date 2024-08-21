@@ -931,7 +931,7 @@ define linkonce_odr hidden void @_ZN2cv6xphoto18balanceWhiteSimpleIhEEvRSt6vecto
   %73 = and i32 %72, 16384
   %.not.i = icmp eq i32 %73, 0
   %74 = sitofp i32 %71 to float
-  %75 = fmul float %74, %6
+  %75 = fmul float %6, %74
   %76 = fdiv float %75, 1.000000e+02
   %77 = load ptr, ptr %41, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 4
@@ -1406,7 +1406,7 @@ define linkonce_odr hidden void @_ZN2cv6xphoto18balanceWhiteSimpleIsEEvRSt6vecto
   %73 = and i32 %72, 16384
   %.not.i = icmp eq i32 %73, 0
   %74 = sitofp i32 %71 to float
-  %75 = fmul float %74, %6
+  %75 = fmul float %6, %74
   %76 = fdiv float %75, 1.000000e+02
   %77 = load ptr, ptr %41, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 4
@@ -1881,7 +1881,7 @@ define linkonce_odr hidden void @_ZN2cv6xphoto18balanceWhiteSimpleIiEEvRSt6vecto
   %73 = and i32 %72, 16384
   %.not.i = icmp eq i32 %73, 0
   %74 = sitofp i32 %71 to float
-  %75 = fmul float %74, %6
+  %75 = fmul float %6, %74
   %76 = fdiv float %75, 1.000000e+02
   %77 = load ptr, ptr %41, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 4
@@ -2281,7 +2281,7 @@ define linkonce_odr hidden void @_ZN2cv6xphoto18balanceWhiteSimpleIfEEvRSt6vecto
   %26 = fdiv float %25, 4.095000e+03
   %27 = fcmp ogt float %26, 1.000000e+00
   %28 = select i1 %27, float 1.000000e+00, float %26
-  %29 = fadd float %28, %3
+  %29 = fadd float %3, %28
   %30 = fcmp oeq float %3, %2
   %31 = fadd float %29, 1.000000e+00
   %.0 = select i1 %30, float %31, float %29
@@ -2363,7 +2363,7 @@ define linkonce_odr hidden void @_ZN2cv6xphoto18balanceWhiteSimpleIfEEvRSt6vecto
   %79 = and i32 %78, 16384
   %.not.i = icmp eq i32 %79, 0
   %80 = sitofp i32 %77 to float
-  %81 = fmul float %80, %6
+  %81 = fmul float %6, %80
   %82 = fdiv float %81, 1.000000e+02
   %83 = load ptr, ptr %47, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 4

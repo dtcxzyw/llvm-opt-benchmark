@@ -4531,17 +4531,17 @@ define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, 
 
 10:                                               ; preds = %6
   %11 = load i32, ptr @hf_inap_additionalCallingPartyNumber, align 4
-  %12 = icmp eq i32 %11, %5
+  %12 = icmp eq i32 %5, %11
   br i1 %12, label %.thread39, label %13
 
 13:                                               ; preds = %10
   %14 = load i32, ptr @hf_inap_assistingSSPIPRoutingAddress, align 4
-  %15 = icmp eq i32 %14, %5
+  %15 = icmp eq i32 %5, %14
   br i1 %15, label %.thread39, label %16
 
 16:                                               ; preds = %13
   %17 = load i32, ptr @hf_inap_correlationID, align 4
-  %18 = icmp eq i32 %17, %5
+  %18 = icmp eq i32 %5, %17
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %16
@@ -4555,57 +4555,57 @@ define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, 
 
 25:                                               ; preds = %16
   %26 = load i32, ptr @hf_inap_calledAddressValue, align 4
-  %27 = icmp eq i32 %26, %5
+  %27 = icmp eq i32 %5, %26
   br i1 %27, label %.thread39, label %28
 
 28:                                               ; preds = %25
   %29 = load i32, ptr @hf_inap_callingAddressValue, align 4
-  %30 = icmp eq i32 %29, %5
+  %30 = icmp eq i32 %5, %29
   br i1 %30, label %.thread39, label %31
 
 31:                                               ; preds = %28
   %32 = load i32, ptr @hf_inap_number, align 4
-  %33 = icmp eq i32 %32, %5
+  %33 = icmp eq i32 %5, %32
   br i1 %33, label %.thread39, label %34
 
 34:                                               ; preds = %31
   %35 = load i32, ptr @hf_inap_dialledNumber, align 4
-  %36 = icmp eq i32 %35, %5
+  %36 = icmp eq i32 %5, %35
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %34
   %38 = load i32, ptr @hf_inap_callingLineID, align 4
-  %39 = icmp eq i32 %38, %5
+  %39 = icmp eq i32 %5, %38
   br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %37
   %41 = load i32, ptr @hf_inap_iNServiceControlCode, align 4
-  %42 = icmp eq i32 %41, %5
+  %42 = icmp eq i32 %5, %41
   br i1 %42, label %.thread, label %43
 
 43:                                               ; preds = %40
   %44 = load i32, ptr @hf_inap_iNServiceControlCodeLow, align 4
-  %45 = icmp eq i32 %44, %5
+  %45 = icmp eq i32 %5, %44
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %43
   %47 = load i32, ptr @hf_inap_iNServiceControlCodeHigh, align 4
-  %48 = icmp eq i32 %47, %5
+  %48 = icmp eq i32 %5, %47
   br i1 %48, label %.thread, label %49
 
 49:                                               ; preds = %46
   %50 = load i32, ptr @hf_inap_lineID, align 4
-  %51 = icmp eq i32 %50, %5
+  %51 = icmp eq i32 %5, %50
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %49
   %53 = load i32, ptr @hf_inap_prefix, align 4
-  %54 = icmp eq i32 %53, %5
+  %54 = icmp eq i32 %5, %53
   br i1 %54, label %.thread, label %55
 
 55:                                               ; preds = %52
   %56 = load i32, ptr @hf_inap_iPAddressValue, align 4
-  %57 = icmp eq i32 %56, %5
+  %57 = icmp eq i32 %5, %56
   br i1 %57, label %.thread39, label %64
 
 .thread:                                          ; preds = %52, %49, %46, %43, %40, %37, %34
@@ -4626,7 +4626,7 @@ define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, 
 
 64:                                               ; preds = %55
   %65 = load i32, ptr @hf_inap_digitsResponse, align 4
-  %.not42 = icmp eq i32 %65, %5
+  %.not42 = icmp eq i32 %5, %65
   %66 = load i32, ptr @ett_inap_digitsResponse, align 4
   %spec.select = select i1 %.not42, i32 %66, i32 -1
   %67 = getelementptr inbounds i8, ptr %3, i64 24

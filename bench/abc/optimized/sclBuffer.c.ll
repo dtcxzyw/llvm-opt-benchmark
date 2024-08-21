@@ -801,13 +801,13 @@ Vec_IntFree.exit:                                 ; preds = %84, %85
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -1231,13 +1231,13 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %2, %Vec_IntFill.exi
   %66 = add nsw i32 %.val3.i, 1
   %67 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %68 = load i32, ptr %67, align 4
-  %.not.i61.not = icmp sgt i32 %68, %.val3.i
+  %.not.i61.not = icmp slt i32 %.val3.i, %68
   br i1 %.not.i61.not, label %Vec_IntFillExtra.exit, label %69
 
 69:                                               ; preds = %56
   %70 = load i32, ptr %65, align 8
   %71 = shl nsw i32 %70, 1
-  %.not69 = icmp sgt i32 %71, %.val3.i
+  %.not69 = icmp slt i32 %.val3.i, %71
   %.not.i.i.not = icmp sgt i32 %70, %.val3.i
   br i1 %.not69, label %84, label %72
 
@@ -1732,7 +1732,7 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
 
 .thread:                                          ; preds = %._crit_edge, %28, %42
   %61 = sub nsw i32 %.val74, %1
-  %62 = icmp slt i32 %61, %1
+  %62 = icmp sgt i32 %1, %61
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %.thread
@@ -2895,7 +2895,7 @@ define void @Abc_BufAddToQue(ptr nocapture noundef readonly %0, ptr nocapture no
   %21 = load ptr, ptr %20, align 8
   %.val16 = load i32, ptr %15, align 8
   %22 = load i32, ptr %21, align 8
-  %23 = icmp sgt i32 %22, %.val16
+  %23 = icmp slt i32 %.val16, %22
   br i1 %23, label %Vec_QueIsMember.exit, label %Vec_QueIsMember.exit.thread
 
 Vec_QueIsMember.exit:                             ; preds = %12
@@ -3128,7 +3128,7 @@ Vec_QueIsMember.exit.thread:                      ; preds = %12, %Vec_QueIsMembe
 
 143:                                              ; preds = %139, %Vec_QueIsMember.exit.thread
   %144 = phi i32 [ %.pre.i, %139 ], [ %22, %Vec_QueIsMember.exit.thread ]
-  %.not20.i = icmp sgt i32 %144, %.val16
+  %.not20.i = icmp slt i32 %.val16, %144
   br i1 %.not20.i, label %149, label %145
 
 145:                                              ; preds = %143

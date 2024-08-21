@@ -96,7 +96,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
 
 47:                                               ; preds = %.lr.ph131
   %indvars.iv.next143 = add nuw i64 %indvars.iv142, 1
-  %.not122 = icmp eq i64 %indvars.iv.next143, %2
+  %.not122 = icmp eq i64 %2, %indvars.iv.next143
   br i1 %.not122, label %56, label %48
 
 48:                                               ; preds = %47
@@ -433,13 +433,13 @@ define internal fastcc void @mempool_multiple_free_chunk(ptr noundef %0, ptr nou
   %.03747 = phi ptr [ %.037, %50 ], [ %.03745, %13 ]
   %17 = getelementptr inbounds i8, ptr %.03747, i64 8
   %18 = load ptr, ptr %17, align 8
-  %.not40 = icmp ugt ptr %18, %1
+  %.not40 = icmp ult ptr %1, %18
   br i1 %.not40, label %50, label %19
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr inbounds i8, ptr %.03747, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = icmp ugt ptr %21, %1
+  %22 = icmp ult ptr %1, %21
   br i1 %22, label %23, label %50
 
 23:                                               ; preds = %19
@@ -811,7 +811,7 @@ mempool_multiple_find.exit.thread15.i30:          ; preds = %mempool_multiple_fi
 mempool_multiple_alloc.exit46:                    ; preds = %105
   %110 = load ptr, ptr %67, align 8
   %111 = load i64, ptr %110, align 8
-  %. = tail call i64 @llvm.umin.i64(i64 %111, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %111)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr nonnull align 1 %1, i64 %., i1 false)
   %112 = load i64, ptr %47, align 8
   %113 = sub i64 0, %112

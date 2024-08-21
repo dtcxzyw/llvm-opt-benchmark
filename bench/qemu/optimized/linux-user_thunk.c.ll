@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @thunk_register_struct(i32 noundef %id, ptr noundef %name, ptr noundef %types) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @max_struct_entries, align 4
-  %cmp = icmp ugt i32 %0, %id
+  %cmp = icmp ult i32 %id, %0
   br i1 %cmp, label %while.cond.preheader, label %if.else
 
 while.cond.preheader:                             ; preds = %entry
@@ -313,7 +313,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 define dso_local void @thunk_register_struct_direct(i32 noundef %id, ptr noundef %name, ptr nocapture noundef readonly %se1) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @max_struct_entries, align 4
-  %cmp = icmp ugt i32 %0, %id
+  %cmp = icmp ult i32 %id, %0
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry

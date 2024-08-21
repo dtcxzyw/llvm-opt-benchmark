@@ -1992,7 +1992,7 @@ define internal fastcc zeroext i1 @KnownAssignedXidExists(i32 noundef %0) unname
   %11 = sext i32 %9 to i64
   %12 = getelementptr i32, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, %0
+  %14 = icmp eq i32 %0, %13
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %.lr.ph.i
@@ -2086,10 +2086,10 @@ define internal fastcc noundef zeroext i1 @pg_lfind32(i32 noundef %0, ptr nocapt
   %indvars.iv52 = phi i64 [ %10, %.lr.ph45.preheader ], [ %indvars.iv.next53, %.lr.ph45 ]
   %31 = getelementptr i32, ptr %1, i64 %indvars.iv52
   %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, %0
+  %33 = icmp eq i32 %0, %32
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next53 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   %or.cond = select i1 %33, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph45, !llvm.loop !34
 
@@ -3945,7 +3945,7 @@ define dso_local ptr @ProcNumberGetProc(i32 noundef %0) local_unnamed_addr #7 {
   %4 = load ptr, ptr @ProcGlobal, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
-  %.not = icmp ugt i32 %6, %0
+  %.not = icmp ult i32 %0, %6
   br i1 %.not, label %7, label %14
 
 7:                                                ; preds = %3
@@ -3976,7 +3976,7 @@ define dso_local void @ProcNumberGetTransactionIds(i32 noundef %0, ptr nocapture
   %8 = load ptr, ptr @ProcGlobal, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
-  %.not = icmp ugt i32 %10, %0
+  %.not = icmp ult i32 %0, %10
   br i1 %.not, label %11, label %34
 
 11:                                               ; preds = %7
@@ -4252,7 +4252,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %29 = getelementptr i8, ptr %28, i64 %indvars.iv63
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = and i32 %31, %3
+  %32 = and i32 %3, %31
   %.not30.us = icmp eq i32 %32, 0
   br i1 %.not30.us, label %33, label %50
 
@@ -4324,7 +4324,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %67 = getelementptr i8, ptr %66, i64 %indvars.iv60
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
-  %70 = and i32 %69, %3
+  %70 = and i32 %3, %69
   %.not30.us37 = icmp eq i32 %70, 0
   br i1 %.not30.us37, label %71, label %89
 
@@ -4392,7 +4392,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %105 = getelementptr i8, ptr %104, i64 %indvars.iv
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
-  %108 = and i32 %107, %3
+  %108 = and i32 %3, %107
   %.not30.us46 = icmp eq i32 %108, 0
   br i1 %.not30.us46, label %109, label %127
 
@@ -4455,7 +4455,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %143 = getelementptr i8, ptr %142, i64 %indvars.iv57
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
-  %146 = and i32 %145, %3
+  %146 = and i32 %3, %145
   %.not30 = icmp eq i32 %146, 0
   br i1 %.not30, label %147, label %167
 
@@ -6020,12 +6020,12 @@ define dso_local zeroext i1 @GlobalVisTestIsRemovableFullXid(ptr nocapture nound
   %3 = alloca %struct.ComputeXidHorizonsResult, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %GlobalVisTestShouldUpdate.exit.thread9, label %7
 
 7:                                                ; preds = %2
   %8 = load i64, ptr %0, align 8
-  %.not = icmp ugt i64 %8, %1
+  %.not = icmp ult i64 %1, %8
   br i1 %.not, label %9, label %GlobalVisTestShouldUpdate.exit.thread9
 
 9:                                                ; preds = %7
@@ -6041,7 +6041,7 @@ GlobalVisTestShouldUpdate.exit.thread:            ; preds = %9
   call fastcc void @ComputeXidHorizons(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %12 = load i64, ptr %4, align 8
-  %13 = icmp ugt i64 %12, %1
+  %13 = icmp ult i64 %1, %12
   br label %GlobalVisTestShouldUpdate.exit.thread9
 
 GlobalVisTestShouldUpdate.exit.thread9:           ; preds = %9, %7, %2, %GlobalVisTestShouldUpdate.exit.thread
@@ -6059,11 +6059,11 @@ define dso_local zeroext i1 @GlobalVisTestIsRemovableXid(ptr nocapture noundef r
   %8 = add i64 %4, %7
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = icmp ugt i64 %10, %8
+  %11 = icmp ult i64 %8, %10
   br i1 %11, label %GlobalVisTestIsRemovableFullXid.exit, label %12
 
 12:                                               ; preds = %2
-  %.not.i = icmp ugt i64 %4, %8
+  %.not.i = icmp ult i64 %8, %4
   br i1 %.not.i, label %13, label %GlobalVisTestIsRemovableFullXid.exit
 
 13:                                               ; preds = %12
@@ -6079,7 +6079,7 @@ GlobalVisTestShouldUpdate.exit.thread.i:          ; preds = %13
   call fastcc void @ComputeXidHorizons(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %16 = load i64, ptr %9, align 8
-  %17 = icmp ugt i64 %16, %8
+  %17 = icmp ult i64 %8, %16
   br label %GlobalVisTestIsRemovableFullXid.exit
 
 GlobalVisTestIsRemovableFullXid.exit:             ; preds = %2, %12, %13, %GlobalVisTestShouldUpdate.exit.thread.i
@@ -6226,12 +6226,12 @@ GlobalVisTestFor.exit:                            ; preds = %2, %5, %11, %13, %2
   %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ], [ @GlobalVisSharedRels, %2 ]
   %43 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %44 = load i64, ptr %43, align 8
-  %45 = icmp ugt i64 %44, %1
+  %45 = icmp ult i64 %1, %44
   br i1 %45, label %GlobalVisTestIsRemovableFullXid.exit, label %46
 
 46:                                               ; preds = %GlobalVisTestFor.exit
   %47 = load i64, ptr %.0.i, align 8
-  %.not.i = icmp ugt i64 %47, %1
+  %.not.i = icmp ult i64 %1, %47
   br i1 %.not.i, label %48, label %GlobalVisTestIsRemovableFullXid.exit
 
 48:                                               ; preds = %46
@@ -6247,7 +6247,7 @@ GlobalVisTestShouldUpdate.exit.thread.i:          ; preds = %48
   call fastcc void @ComputeXidHorizons(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %51 = load i64, ptr %43, align 8
-  %52 = icmp ugt i64 %51, %1
+  %52 = icmp ult i64 %1, %51
   br label %GlobalVisTestIsRemovableFullXid.exit
 
 GlobalVisTestIsRemovableFullXid.exit:             ; preds = %GlobalVisTestFor.exit, %46, %48, %GlobalVisTestShouldUpdate.exit.thread.i
@@ -6338,11 +6338,11 @@ GlobalVisTestFor.exit:                            ; preds = %2, %5, %11, %13, %2
   %47 = add i64 %43, %46
   %48 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %49 = load i64, ptr %48, align 8
-  %50 = icmp ugt i64 %49, %47
+  %50 = icmp ult i64 %47, %49
   br i1 %50, label %GlobalVisTestIsRemovableXid.exit, label %51
 
 51:                                               ; preds = %GlobalVisTestFor.exit
-  %.not.i.i2 = icmp ugt i64 %43, %47
+  %.not.i.i2 = icmp ult i64 %47, %43
   br i1 %.not.i.i2, label %52, label %GlobalVisTestIsRemovableXid.exit
 
 52:                                               ; preds = %51
@@ -6358,7 +6358,7 @@ GlobalVisTestShouldUpdate.exit.thread.i.i:        ; preds = %52
   call fastcc void @ComputeXidHorizons(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %55 = load i64, ptr %48, align 8
-  %56 = icmp ugt i64 %55, %47
+  %56 = icmp ult i64 %47, %55
   br label %GlobalVisTestIsRemovableXid.exit
 
 GlobalVisTestIsRemovableXid.exit:                 ; preds = %GlobalVisTestFor.exit, %51, %52, %GlobalVisTestShouldUpdate.exit.thread.i.i
@@ -6822,7 +6822,7 @@ define internal fastcc void @KnownAssignedXidsRemove(i32 noundef %0) unnamed_add
   %15 = sext i32 %13 to i64
   %16 = getelementptr i32, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4
-  %18 = icmp eq i32 %17, %0
+  %18 = icmp eq i32 %0, %17
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %.lr.ph.i

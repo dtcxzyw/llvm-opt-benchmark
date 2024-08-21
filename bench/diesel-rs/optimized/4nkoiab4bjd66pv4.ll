@@ -942,7 +942,7 @@ define void @_ZN20migrations_internals19version_from_string17hf36f9872d8062ebfE(
   %37 = load i64, ptr %.sroa.5.0..sroa_idx.i3, align 8, !alias.scope !217, !noalias !222, !noundef !4
   %38 = load i64, ptr %6, align 8, !alias.scope !224, !noalias !222, !noundef !4
   %39 = sub i64 %38, %37
-  %40 = icmp ult i64 %39, %36
+  %40 = icmp ugt i64 %36, %39
   br i1 %40, label %41, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h1e8341c147104a88E.exit"
 
 41:                                               ; preds = %35
@@ -962,7 +962,7 @@ define void @_ZN20migrations_internals19version_from_string17hf36f9872d8062ebfE(
   %47 = load i64, ptr %.sroa.5.0..sroa_idx.i3, align 8, !alias.scope !227, !noalias !232, !noundef !4
   %48 = load i64, ptr %6, align 8, !alias.scope !234, !noalias !232, !noundef !4
   %49 = sub i64 %48, %47
-  %50 = icmp ult i64 %49, %46
+  %50 = icmp ugt i64 %46, %49
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %42

@@ -11074,7 +11074,7 @@ invoke.cont84:                                    ; preds = %invoke.cont83
 
 invoke.cont90:                                    ; preds = %invoke.cont84
   %48 = load double, ptr %actual_half, align 8, !noalias !431
-  %cmp.i.i87 = fcmp oeq double %48, %expected_half
+  %cmp.i.i87 = fcmp oeq double %expected_half, %48
   br i1 %cmp.i.i87, label %if.then.i.i89, label %if.end.i.i88
 
 if.then.i.i89:                                    ; preds = %invoke.cont90
@@ -11947,7 +11947,7 @@ invoke.cont84:                                    ; preds = %invoke.cont83
 
 invoke.cont90:                                    ; preds = %invoke.cont84
   %48 = load float, ptr %actual_half, align 4, !noalias !446
-  %cmp.i.i87 = fcmp oeq float %48, %expected_half
+  %cmp.i.i87 = fcmp oeq float %expected_half, %48
   br i1 %cmp.i.i87, label %if.then.i.i89, label %if.end.i.i88
 
 if.then.i.i89:                                    ; preds = %invoke.cont90

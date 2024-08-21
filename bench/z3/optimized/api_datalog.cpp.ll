@@ -515,7 +515,7 @@ cond.false.i:                                     ; preds = %if.end20
 invoke.cont21:                                    ; preds = %cond.false.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp23.not = icmp ugt i32 %10, %col
+  %cmp23.not = icmp ult i32 %col, %10
   br i1 %cmp23.not, label %invoke.cont40, label %if.then24
 
 if.then24:                                        ; preds = %cond.false.i, %if.end20, %invoke.cont21

@@ -1058,7 +1058,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.13870
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -3104,7 +3104,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance37with_defined
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
   %41 = getelementptr inbounds i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !alias.scope !287, !noalias !284, !noundef !4
-  %43 = icmp ugt i32 %42, %1
+  %43 = icmp ult i32 %1, %42
   br i1 %43, label %_ZN16wasmtime_runtime8instance8Instance14imported_table17h40c54e6f0125f88bE.exit, label %44
 
 44:                                               ; preds = %29
@@ -3252,7 +3252,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance37with_defined
   tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
   %38 = getelementptr inbounds i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4, !alias.scope !314, !noalias !311, !noundef !4
-  %40 = icmp ugt i32 %39, %1
+  %40 = icmp ult i32 %1, %39
   br i1 %40, label %_ZN16wasmtime_runtime8instance8Instance14imported_table17h40c54e6f0125f88bE.exit, label %41
 
 41:                                               ; preds = %26
@@ -3396,7 +3396,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance37with_defined
   tail call void @llvm.experimental.noalias.scope.decl(metadata !340)
   %38 = getelementptr inbounds i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4, !alias.scope !340, !noalias !337, !noundef !4
-  %40 = icmp ugt i32 %39, %1
+  %40 = icmp ult i32 %1, %39
   br i1 %40, label %_ZN16wasmtime_runtime8instance8Instance14imported_table17h40c54e6f0125f88bE.exit, label %41
 
 41:                                               ; preds = %26
@@ -3547,7 +3547,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance37with_defined_table_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !372)
   %39 = getelementptr inbounds i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !alias.scope !372, !noalias !369, !noundef !4
-  %41 = icmp ugt i32 %40, %2
+  %41 = icmp ult i32 %2, %40
   br i1 %41, label %_ZN16wasmtime_runtime8instance8Instance14imported_table17h40c54e6f0125f88bE.exit, label %42
 
 42:                                               ; preds = %27
@@ -3803,7 +3803,7 @@ define hidden void @_ZN16wasmtime_runtime12traphandlers9backtrace9Backtrace21tra
   %57 = getelementptr inbounds i8, ptr %2, i64 16
   %58 = getelementptr inbounds i8, ptr %1, i64 152
   %59 = load ptr, ptr %58, align 8, !noundef !4
-  %60 = icmp eq ptr %59, %0
+  %60 = icmp eq ptr %0, %59
   br i1 %60, label %61, label %106
 
 61:                                               ; preds = %55, %52
@@ -3904,7 +3904,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hceedbacc4195eaf3E.exit.i.i: ; 
   %112 = load ptr, ptr %111, align 8, !noalias !404, !noundef !4
   %113 = getelementptr inbounds i8, ptr %108, i64 152
   %114 = load ptr, ptr %113, align 8, !noalias !432, !noundef !4
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %114, %0
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, %114
   br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4d270848b0cffabE.exit.i.i.i.i.i", label %_ZN4core4iter8adapters5chain17and_then_or_clear17hceedbacc4195eaf3E.exit.i.i
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4d270848b0cffabE.exit.i.i.i.i.i": ; preds = %110
@@ -4802,7 +4802,7 @@ define hidden void @_ZN16wasmtime_runtime8libcalls9elem_drop17h156a2138c80388baE
   %10 = lshr i64 %9, 6
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   %12 = load i64, ptr %11, align 16, !alias.scope !515, !noundef !4
-  %13 = icmp ult i64 %12, %10
+  %13 = icmp ugt i64 %10, %12
   br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i.i": ; preds = %7
@@ -4916,7 +4916,7 @@ define hidden void @_ZN16wasmtime_runtime8libcalls9data_drop17hc77737ce89663641E
   %10 = lshr i64 %9, 6
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   %12 = load i64, ptr %11, align 16, !alias.scope !528, !noundef !4
-  %13 = icmp ult i64 %12, %10
+  %13 = icmp ugt i64 %10, %12
   br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i.i": ; preds = %7

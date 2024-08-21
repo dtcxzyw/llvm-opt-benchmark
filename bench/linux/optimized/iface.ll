@@ -4217,7 +4217,7 @@ define internal fastcc void @ieee80211_do_stop(ptr noundef %0, i1 noundef zeroex
   %301 = load i32, ptr %300, align 8
   %302 = and i32 %301, 64
   %303 = icmp ne i32 %302, 0
-  %304 = and i1 %303, %1
+  %304 = and i1 %1, %303
   br i1 %304, label %306, label %307
 
 305:                                              ; preds = %292

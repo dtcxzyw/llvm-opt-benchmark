@@ -153,8 +153,8 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   %83 = add i64 %2, -1
   %84 = mul i64 %.0267, %83
   %85 = add i64 %84, %3
-  %. = tail call i64 @llvm.smin.i64(i64 %85, i64 %3)
-  %.325 = tail call i64 @llvm.smax.i64(i64 %85, i64 %3)
+  %. = tail call i64 @llvm.smin.i64(i64 %3, i64 %85)
+  %.325 = tail call i64 @llvm.smax.i64(i64 %3, i64 %85)
   %86 = getelementptr inbounds i8, ptr %1, i64 48
   %87 = load i64, ptr %86, align 8
   %88 = add nsw i64 %87, %.

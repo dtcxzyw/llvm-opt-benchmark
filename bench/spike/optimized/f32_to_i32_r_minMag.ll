@@ -18,7 +18,7 @@ define range(i64 -2147483648, 2147483648) i64 @f32_to_i32_r_minMag(i32 %0, i1 no
 9:                                                ; preds = %2
   %10 = or i64 %5, %6
   %.not28 = icmp ne i64 %10, 0
-  %or.cond30.not = and i1 %.not28, %1
+  %or.cond30.not = and i1 %1, %.not28
   br i1 %or.cond30.not, label %11, label %34
 
 11:                                               ; preds = %9

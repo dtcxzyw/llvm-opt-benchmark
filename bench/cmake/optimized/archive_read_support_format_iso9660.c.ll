@@ -3150,7 +3150,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 8:                                                ; preds = %4
   %9 = load i8, ptr %2, align 1
   %10 = zext i8 %9 to i64
-  %11 = icmp ugt i64 %10, %3
+  %11 = icmp ult i64 %3, %10
   %12 = icmp ult i8 %9, 34
   %or.cond = or i1 %12, %11
   br i1 %or.cond, label %.thread, label %13
@@ -3755,7 +3755,7 @@ define internal fastcc range(i32 -30, 1) i32 @heap_add_entry(ptr noundef %0, ptr
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 40
   %36 = load i64, ptr %35, align 8
-  %.not44 = icmp ugt i64 %36, %3
+  %.not44 = icmp ult i64 %3, %36
   %37 = zext nneg i32 %.03846 to i64
   %38 = getelementptr inbounds ptr, ptr %31, i64 %37
   br i1 %.not44, label %40, label %39

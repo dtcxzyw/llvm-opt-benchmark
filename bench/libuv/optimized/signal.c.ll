@@ -783,11 +783,11 @@ while.body.i.i12:                                 ; preds = %uv__signal_tree_s_R
   %res.07.i.i = phi ptr [ %res.1.i.i, %if.end5.i.i ], [ null, %uv__signal_tree_s_RB_REMOVE.exit ]
   %signum1.i.i.i = getelementptr inbounds i8, ptr %tmp.08.i.i, i64 104
   %75 = load i32, ptr %signum1.i.i.i, align 8
-  %cmp.i.i.i = icmp sgt i32 %75, %74
+  %cmp.i.i.i = icmp slt i32 %74, %75
   br i1 %cmp.i.i.i, label %if.end5.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i12
-  %cmp4.i.i.i = icmp slt i32 %75, %74
+  %cmp4.i.i.i = icmp sgt i32 %74, %75
   br i1 %cmp4.i.i.i, label %if.end5.i.i, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -801,12 +801,12 @@ if.end14.i.i.i:                                   ; preds = %if.end6.i.i.i
   %loop15.i.i.i = getelementptr inbounds i8, ptr %tmp.08.i.i, i64 8
   %77 = load ptr, ptr %loop15.i.i.i, align 8
   %cmp16.i.i.i = icmp ne ptr %77, null
-  %cmp24.i.i.i = icmp ugt ptr %tmp.08.i.i, %lookup.i
+  %cmp24.i.i.i = icmp ult ptr %lookup.i, %tmp.08.i.i
   %or.cond.i = or i1 %cmp24.i.i.i, %cmp16.i.i.i
   br i1 %or.cond.i, label %if.end5.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end14.i.i.i
-  %cmp27.i.not.i.i = icmp ult ptr %tmp.08.i.i, %lookup.i
+  %cmp27.i.not.i.i = icmp ugt ptr %lookup.i, %tmp.08.i.i
   br i1 %cmp27.i.not.i.i, label %if.end5.i.i, label %land.lhs.true.i
 
 if.end5.i.i:                                      ; preds = %if.else.i.i, %if.end14.i.i.i, %if.end6.i.i.i, %if.end.i.i.i, %while.body.i.i12
@@ -1040,7 +1040,7 @@ entry:
 if.end:                                           ; preds = %entry
   %signum1 = getelementptr inbounds i8, ptr %handle, i64 104
   %0 = load i32, ptr %signum1, align 8
-  %cmp2 = icmp eq i32 %0, %signum
+  %cmp2 = icmp eq i32 %signum, %0
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
@@ -1074,11 +1074,11 @@ while.body.i.i:                                   ; preds = %if.end9, %if.end5.i
   %res.07.i.i = phi ptr [ %res.1.i.i, %if.end5.i.i ], [ null, %if.end9 ]
   %signum1.i.i.i = getelementptr inbounds i8, ptr %tmp.08.i.i, i64 104
   %1 = load i32, ptr %signum1.i.i.i, align 8
-  %cmp.i.i.i = icmp sgt i32 %1, %signum
+  %cmp.i.i.i = icmp slt i32 %signum, %1
   br i1 %cmp.i.i.i, label %if.end5.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i
-  %cmp4.i.i.i = icmp slt i32 %1, %signum
+  %cmp4.i.i.i = icmp sgt i32 %signum, %1
   br i1 %cmp4.i.i.i, label %if.end5.i.i, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -1092,12 +1092,12 @@ if.end14.i.i.i:                                   ; preds = %if.end6.i.i.i
   %loop15.i.i.i = getelementptr inbounds i8, ptr %tmp.08.i.i, i64 8
   %3 = load ptr, ptr %loop15.i.i.i, align 8
   %cmp16.i.i.i = icmp ne ptr %3, null
-  %cmp24.i.i.i = icmp ugt ptr %tmp.08.i.i, %lookup.i
+  %cmp24.i.i.i = icmp ult ptr %lookup.i, %tmp.08.i.i
   %or.cond.i = or i1 %cmp24.i.i.i, %cmp16.i.i.i
   br i1 %or.cond.i, label %if.end5.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end14.i.i.i
-  %cmp27.i.not.i.i = icmp ult ptr %tmp.08.i.i, %lookup.i
+  %cmp27.i.not.i.i = icmp ugt ptr %lookup.i, %tmp.08.i.i
   br i1 %cmp27.i.not.i.i, label %if.end5.i.i, label %land.lhs.true.i
 
 if.end5.i.i:                                      ; preds = %if.else.i.i, %if.end14.i.i.i, %if.end6.i.i.i, %if.end.i.i.i, %while.body.i.i
@@ -1288,11 +1288,11 @@ while.body.i:                                     ; preds = %if.end5.i, %while.b
   %tmp.013.i = phi ptr [ %tmp.011.i, %while.body.lr.ph.i ], [ %tmp.0.i, %if.end5.i ]
   %signum1.i.i = getelementptr inbounds i8, ptr %tmp.013.i, i64 104
   %12 = load i32, ptr %signum1.i.i, align 8
-  %cmp.i.i = icmp sgt i32 %12, %signum
+  %cmp.i.i = icmp slt i32 %signum, %12
   br i1 %cmp.i.i, label %if.end5.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i
-  %cmp4.i.i = icmp slt i32 %12, %signum
+  %cmp4.i.i = icmp sgt i32 %signum, %12
   br i1 %cmp4.i.i, label %if.end5.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
@@ -1320,11 +1320,11 @@ if.end18.i.i:                                     ; preds = %if.end14.i.i
   br i1 %cmp21.i.i, label %if.end5.i, label %if.end23.i.i
 
 if.end23.i.i:                                     ; preds = %if.end18.i.i
-  %cmp24.i.i = icmp ugt ptr %tmp.013.i, %handle
+  %cmp24.i.i = icmp ult ptr %handle, %tmp.013.i
   br i1 %cmp24.i.i, label %if.end5.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end23.i.i
-  %cmp27.i.not.i = icmp ult ptr %tmp.013.i, %handle
+  %cmp27.i.not.i = icmp ugt ptr %handle, %tmp.013.i
   br i1 %cmp27.i.not.i, label %if.end5.i, label %uv__signal_tree_s_RB_INSERT.exit
 
 if.end5.i:                                        ; preds = %if.else.i, %if.end23.i.i, %if.end18.i.i, %if.end14.i.i, %if.end11.i.i, %if.end6.i.i, %if.end.i.i, %while.body.i
@@ -2003,11 +2003,11 @@ while.body.i.i:                                   ; preds = %if.end, %if.end5.i.
   %res.07.i.i = phi ptr [ %res.1.i.i, %if.end5.i.i ], [ null, %if.end ]
   %signum1.i.i.i = getelementptr inbounds i8, ptr %tmp.08.i.i, i64 104
   %5 = load i32, ptr %signum1.i.i.i, align 8
-  %cmp.i.i.i = icmp sgt i32 %5, %signum
+  %cmp.i.i.i = icmp slt i32 %signum, %5
   br i1 %cmp.i.i.i, label %if.end5.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i
-  %cmp4.i.i.i = icmp slt i32 %5, %signum
+  %cmp4.i.i.i = icmp sgt i32 %signum, %5
   br i1 %cmp4.i.i.i, label %if.end5.i.i, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -2021,12 +2021,12 @@ if.end14.i.i.i:                                   ; preds = %if.end6.i.i.i
   %loop15.i.i.i = getelementptr inbounds i8, ptr %tmp.08.i.i, i64 8
   %7 = load ptr, ptr %loop15.i.i.i, align 8
   %cmp16.i.i.i = icmp ne ptr %7, null
-  %cmp24.i.i.i = icmp ugt ptr %tmp.08.i.i, %lookup.i
+  %cmp24.i.i.i = icmp ult ptr %lookup.i, %tmp.08.i.i
   %or.cond.i = or i1 %cmp24.i.i.i, %cmp16.i.i.i
   br i1 %or.cond.i, label %if.end5.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end14.i.i.i
-  %cmp27.i.not.i.i = icmp ult ptr %tmp.08.i.i, %lookup.i
+  %cmp27.i.not.i.i = icmp ugt ptr %lookup.i, %tmp.08.i.i
   br i1 %cmp27.i.not.i.i, label %if.end5.i.i, label %land.lhs.true.i
 
 if.end5.i.i:                                      ; preds = %if.else.i.i, %if.end14.i.i.i, %if.end6.i.i.i, %if.end.i.i.i, %while.body.i.i
@@ -2114,7 +2114,7 @@ if.else.i:                                        ; preds = %for.inc
 land.lhs.true.i11:                                ; preds = %if.else.i
   %tree_entry11.i = getelementptr inbounds i8, ptr %17, i64 112
   %18 = load ptr, ptr %tree_entry11.i, align 8
-  %cmp.i = icmp eq ptr %18, %handle.02747
+  %cmp.i = icmp eq ptr %handle.02747, %18
   br i1 %cmp.i, label %uv__signal_tree_s_RB_NEXT.exit, label %while.cond17.i.preheader
 
 while.cond17.i.preheader:                         ; preds = %land.lhs.true.i11, %if.else.i

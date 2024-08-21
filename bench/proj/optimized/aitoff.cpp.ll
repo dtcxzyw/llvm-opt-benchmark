@@ -243,8 +243,8 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   %35 = fmul double %34, %16
   %36 = fmul double %35, %17
   %37 = fdiv double %36, %20
-  %38 = fneg double %27
-  %39 = fmul double %16, %38
+  %38 = fmul double %16, %27
+  %39 = fneg double %38
   %40 = tail call double @llvm.fmuladd.f64(double %39, double %14, double %37)
   %41 = fmul double %40, 2.000000e+00
   %42 = fmul double %17, %17
@@ -264,50 +264,50 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   %56 = fmul double %16, %17
   %57 = fmul double %14, %56
   %58 = fdiv double %57, %20
-  %59 = fmul double %17, %39
+  %59 = fmul double %17, %38
   %60 = fmul double %17, %59
-  %61 = fmul double %14, %60
-  %62 = tail call double @llvm.fmuladd.f64(double %61, double %15, double %58)
-  %63 = fmul double %62, 5.000000e-01
-  %64 = load i32, ptr %10, align 8
-  %65 = icmp eq i32 %64, 1
-  br i1 %65, label %66, label %78
+  %61 = fneg double %14
+  %62 = fmul double %60, %61
+  %63 = tail call double @llvm.fmuladd.f64(double %62, double %15, double %58)
+  %64 = fmul double %63, 5.000000e-01
+  %65 = load i32, ptr %10, align 8
+  %66 = icmp eq i32 %65, 1
+  br i1 %66, label %67, label %79
 
-66:                                               ; preds = %25
-  %67 = load double, ptr %5, align 8
-  %68 = tail call double @llvm.fmuladd.f64(double %.sroa.0119.2, double %67, double %31)
-  %69 = fmul double %68, 5.000000e-01
-  %70 = fadd double %.sroa.12.2, %33
-  %71 = fmul double %70, 5.000000e-01
-  %72 = fmul double %41, 5.000000e-01
-  %73 = fadd double %49, %67
-  %74 = fmul double %73, 5.000000e-01
-  %75 = fadd double %55, 1.000000e+00
-  %76 = fmul double %75, 5.000000e-01
-  %77 = fmul double %63, 5.000000e-01
-  br label %78
+67:                                               ; preds = %25
+  %68 = load double, ptr %5, align 8
+  %69 = tail call double @llvm.fmuladd.f64(double %.sroa.0119.2, double %68, double %31)
+  %70 = fmul double %69, 5.000000e-01
+  %71 = fadd double %.sroa.12.2, %33
+  %72 = fmul double %71, 5.000000e-01
+  %73 = fmul double %41, 5.000000e-01
+  %74 = fadd double %49, %68
+  %75 = fmul double %74, 5.000000e-01
+  %76 = fadd double %55, 1.000000e+00
+  %77 = fmul double %76, 5.000000e-01
+  %78 = fmul double %64, 5.000000e-01
+  br label %79
 
-78:                                               ; preds = %66, %25
-  %.0150 = phi double [ %69, %66 ], [ %31, %25 ]
-  %.0149 = phi double [ %71, %66 ], [ %33, %25 ]
-  %.0148 = phi double [ %72, %66 ], [ %41, %25 ]
-  %.0147 = phi double [ %74, %66 ], [ %49, %25 ]
-  %.0146 = phi double [ %76, %66 ], [ %55, %25 ]
-  %.0145 = phi double [ %77, %66 ], [ %63, %25 ]
-  %79 = fsub double %.0150, %0
-  %80 = fsub double %.0149, %1
-  %81 = fneg double %.0146
-  %82 = fmul double %.0147, %81
-  %83 = tail call double @llvm.fmuladd.f64(double %.0148, double %.0145, double %82)
-  %84 = fneg double %79
-  %85 = fmul double %.0146, %84
-  %86 = tail call double @llvm.fmuladd.f64(double %80, double %.0148, double %85)
-  %87 = fdiv double %86, %83
-  %88 = fneg double %80
-  %89 = fmul double %.0147, %88
-  %90 = tail call double @llvm.fmuladd.f64(double %79, double %.0145, double %89)
-  %91 = fdiv double %90, %83
-  %92 = tail call double @fmod(double noundef %87, double noundef 0x400921FB54442D18) #7
+79:                                               ; preds = %67, %25
+  %.0150 = phi double [ %70, %67 ], [ %31, %25 ]
+  %.0149 = phi double [ %72, %67 ], [ %33, %25 ]
+  %.0148 = phi double [ %73, %67 ], [ %41, %25 ]
+  %.0147 = phi double [ %75, %67 ], [ %49, %25 ]
+  %.0146 = phi double [ %77, %67 ], [ %55, %25 ]
+  %.0145 = phi double [ %78, %67 ], [ %64, %25 ]
+  %80 = fsub double %.0150, %0
+  %81 = fsub double %.0149, %1
+  %82 = fneg double %.0147
+  %83 = fmul double %.0146, %82
+  %84 = tail call double @llvm.fmuladd.f64(double %.0148, double %.0145, double %83)
+  %85 = fneg double %.0146
+  %86 = fmul double %80, %85
+  %87 = tail call double @llvm.fmuladd.f64(double %81, double %.0148, double %86)
+  %88 = fdiv double %87, %84
+  %89 = fmul double %81, %82
+  %90 = tail call double @llvm.fmuladd.f64(double %80, double %.0145, double %89)
+  %91 = fdiv double %90, %84
+  %92 = tail call double @fmod(double noundef %88, double noundef 0x400921FB54442D18) #7
   %93 = fsub double %.sroa.12.2, %91
   %94 = fsub double %.sroa.0119.2, %92
   %95 = tail call double @llvm.fabs.f64(double %91)
@@ -317,13 +317,13 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   %or.cond157 = select i1 %96, i1 true, i1 %98
   br i1 %or.cond157, label %99, label %.critedge
 
-99:                                               ; preds = %78
+99:                                               ; preds = %79
   %100 = add nuw nsw i32 %.0141, 1
   %exitcond.not = icmp eq i32 %100, 11
   br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !4
 
-.critedge:                                        ; preds = %78, %99
-  %.1142 = phi i32 [ 11, %99 ], [ %.0141, %78 ]
+.critedge:                                        ; preds = %79, %99
+  %.1142 = phi i32 [ 11, %99 ], [ %.0141, %79 ]
   %101 = fcmp ogt double %93, 0x3FF921FB54442D18
   %102 = fadd double %93, 0xBFF921FB54442D18
   %103 = tail call double @llvm.fmuladd.f64(double %102, double -2.000000e+00, double %93)
@@ -461,7 +461,7 @@ define internal { double, double } @_ZL16aitoff_s_forward5PJ_LPP8PJconsts(double
   %29 = load double, ptr %5, align 8
   %30 = tail call double @llvm.fmuladd.f64(double %0, double %29, double %.sroa.013.0)
   %31 = fmul double %30, 5.000000e-01
-  %32 = fadd double %.sroa.6.0, %1
+  %32 = fadd double %1, %.sroa.6.0
   %33 = fmul double %32, 5.000000e-01
   br label %34
 

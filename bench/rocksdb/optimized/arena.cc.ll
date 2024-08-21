@@ -393,7 +393,7 @@ entry:
   %kBlockSize = getelementptr inbounds i8, ptr %this, i64 2064
   %0 = load i64, ptr %kBlockSize, align 16
   %div14 = lshr i64 %0, 2
-  %cmp = icmp ult i64 %div14, %bytes
+  %cmp = icmp ugt i64 %bytes, %div14
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -652,7 +652,7 @@ if.else21:                                        ; preds = %if.end10
   %kBlockSize.i = getelementptr inbounds i8, ptr %this, i64 2064
   %6 = load i64, ptr %kBlockSize.i, align 16
   %div14.i = lshr i64 %6, 2
-  %cmp.i = icmp ult i64 %div14.i, %bytes
+  %cmp.i = icmp ugt i64 %bytes, %div14.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else21
@@ -723,7 +723,7 @@ define linkonce_odr noundef ptr @_ZN7rocksdb5Arena8AllocateEm(ptr noundef nonnul
 entry:
   %alloc_bytes_remaining_ = getelementptr inbounds i8, ptr %this, i64 2256
   %0 = load i64, ptr %alloc_bytes_remaining_, align 16
-  %cmp.not = icmp ult i64 %0, %bytes
+  %cmp.not = icmp ugt i64 %bytes, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -740,7 +740,7 @@ if.end:                                           ; preds = %entry
   %kBlockSize.i = getelementptr inbounds i8, ptr %this, i64 2064
   %2 = load i64, ptr %kBlockSize.i, align 16
   %div14.i = lshr i64 %2, 2
-  %cmp.i = icmp ult i64 %div14.i, %bytes
+  %cmp.i = icmp ugt i64 %bytes, %div14.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -832,7 +832,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #15
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -965,7 +965,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #15
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN7rocksdb10MemMappingESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i

@@ -139,7 +139,7 @@ if.end6:                                          ; preds = %if.end
 
 size_align_down.exit:                             ; preds = %if.end6
   %1 = inttoptr i64 %and.i35 to ptr
-  %sub.ptr.sub.neg = add i64 %0, %size
+  %sub.ptr.sub.neg = add i64 %size, %0
   %sub = sub i64 %sub.ptr.sub.neg, %and.i35
   %and.i = and i64 %sub, -16
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 16
@@ -172,7 +172,7 @@ define internal ptr @pool_malloc(ptr nocapture noundef %ctx_ptr, i64 noundef %si
 entry:
   %free_list = getelementptr inbounds i8, ptr %ctx_ptr, i64 8
   %0 = load i64, ptr %ctx_ptr, align 8
-  %cmp.not = icmp ugt i64 %0, %size
+  %cmp.not = icmp ult i64 %size, %0
   br i1 %cmp.not, label %pool_size_align.exit, label %return
 
 pool_size_align.exit:                             ; preds = %entry
@@ -243,7 +243,7 @@ define internal ptr @pool_realloc(ptr nocapture noundef %ctx_ptr, ptr noundef %p
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 -16
   %0 = load i64, ptr %ctx_ptr, align 8
-  %cmp.not = icmp ugt i64 %0, %size
+  %cmp.not = icmp ult i64 %size, %0
   br i1 %cmp.not, label %pool_size_align.exit84, label %return
 
 pool_size_align.exit84:                           ; preds = %entry
@@ -314,7 +314,7 @@ if.end54:                                         ; preds = %if.else42, %if.then
   br label %return
 
 if.else55:                                        ; preds = %land.lhs.true, %while.end
-  %cmp.not.i = icmp ugt i64 %0, %and.i.i
+  %cmp.not.i = icmp ult i64 %and.i.i, %0
   br i1 %cmp.not.i, label %pool_size_align.exit.i, label %return
 
 pool_size_align.exit.i:                           ; preds = %if.else55
@@ -3406,7 +3406,7 @@ if.end61:                                         ; preds = %if.then47
 
 if.then65:                                        ; preds = %if.end61
   %tobool66 = trunc nuw i8 %idx_is_last.1748756 to i1
-  %brmerge.demorgan = and i1 %tobool66, %insert_new
+  %brmerge.demorgan = and i1 %insert_new, %tobool66
   br i1 %brmerge.demorgan, label %if.end80, label %do.body69
 
 do.body69:                                        ; preds = %if.then65
@@ -4084,13 +4084,13 @@ if.then178:                                       ; preds = %if.end173
 
 if.end182:                                        ; preds = %if.then178
   %tobool183.not = icmp eq ptr %val.addr.2, null
-  %brmerge626 = or i1 %tobool183.not, %insert_new
+  %brmerge626 = or i1 %insert_new, %tobool183.not
   br i1 %brmerge626, label %if.then187, label %if.else213
 
 if.end182.thread:                                 ; preds = %if.then178
   store ptr %ctn.0, ptr %ctx, align 8
   %tobool183.not813 = icmp eq ptr %val.addr.2, null
-  %brmerge626814 = or i1 %tobool183.not813, %insert_new
+  %brmerge626814 = or i1 %insert_new, %tobool183.not813
   br i1 %brmerge626814, label %if.then187, label %if.then216
 
 if.then187:                                       ; preds = %if.end182.thread, %if.end182
@@ -7188,7 +7188,7 @@ if.end20.thread:                                  ; preds = %yyjson_is_obj.exit,
   br label %yyjson_is_obj.exit.i
 
 if.end20:                                         ; preds = %yyjson_is_obj.exit
-  %cmp.not = icmp eq ptr %local_orig, %orig
+  %cmp.not = icmp eq ptr %orig, %local_orig
   br i1 %cmp.not, label %yyjson_is_obj.exit.i, label %yyjson_obj_size.exit263
 
 yyjson_obj_size.exit263:                          ; preds = %if.end20
@@ -29075,7 +29075,7 @@ if.then17.i:                                      ; preds = %if.end.i8302
   %spec.select.i = getelementptr inbounds i8, ptr %2194, i64 %spec.select.idx.i
   %add.ptr.i262.i = getelementptr inbounds i8, ptr %spec.select.i, i64 8
   %cmp.i263.not.i = icmp ugt ptr %add.ptr.i262.i, %end.0
-  %cmp1.i265.not.i = icmp ult ptr %spec.select.i, %end.0
+  %cmp1.i265.not.i = icmp ugt ptr %end.0, %spec.select.i
   %or.cond.i = and i1 %cmp1.i265.not.i, %cmp.i263.not.i
   br i1 %or.cond.i, label %for.body.i272.i, label %lor.lhs.false25.critedge.i
 
@@ -33207,7 +33207,7 @@ if.then17.i.i:                                    ; preds = %if.end.i1604.i
   %spec.select.i.i = getelementptr inbounds i8, ptr %2609, i64 %spec.select.idx.i.i
   %add.ptr.i262.i.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 8
   %cmp.i263.not.i.i = icmp ugt ptr %add.ptr.i262.i.i, %end.0
-  %cmp1.i265.not.i.i = icmp ult ptr %spec.select.i.i, %end.0
+  %cmp1.i265.not.i.i = icmp ugt ptr %end.0, %spec.select.i.i
   %or.cond.i.i = and i1 %cmp1.i265.not.i.i, %cmp.i263.not.i.i
   br i1 %or.cond.i.i, label %for.body.i272.i.i, label %lor.lhs.false25.critedge.i.i
 
@@ -33341,7 +33341,7 @@ if.then17.i1641.i:                                ; preds = %do.body293.thread.i
   %spec.select.i1644.i = getelementptr inbounds i8, ptr %18, i64 %spec.select.idx.i1643.i
   %add.ptr.i262.i1645.i = getelementptr inbounds i8, ptr %spec.select.i1644.i, i64 8
   %cmp.i263.not.i1646.i = icmp ugt ptr %add.ptr.i262.i1645.i, %end.0
-  %cmp1.i265.not.i1647.i = icmp ult ptr %spec.select.i1644.i, %end.0
+  %cmp1.i265.not.i1647.i = icmp ugt ptr %end.0, %spec.select.i1644.i
   %or.cond.i1648.i = and i1 %cmp1.i265.not.i1647.i, %cmp.i263.not.i1646.i
   br i1 %or.cond.i1648.i, label %for.body.i272.i1674.i, label %lor.lhs.false25.critedge.i1649.i
 
@@ -57921,7 +57921,7 @@ if.then17:                                        ; preds = %if.then14
   %spec.select = getelementptr inbounds i8, ptr %cur, i64 %spec.select.idx
   %add.ptr.i262 = getelementptr inbounds i8, ptr %spec.select, i64 8
   %cmp.i263.not = icmp ugt ptr %add.ptr.i262, %end
-  %cmp1.i265.not = icmp ult ptr %spec.select, %end
+  %cmp1.i265.not = icmp ugt ptr %end, %spec.select
   %or.cond = and i1 %cmp1.i265.not, %cmp.i263.not
   br i1 %or.cond, label %for.body.i272, label %lor.lhs.false25.critedge
 
@@ -57984,7 +57984,7 @@ land.lhs.true:                                    ; preds = %if.end31
   %add.ptr45 = getelementptr inbounds i8, ptr %cur.addr.0, i64 -3
   %add.ptr.i = getelementptr inbounds i8, ptr %cur.addr.0, i64 5
   %cmp.i215.not = icmp ugt ptr %add.ptr.i, %end
-  %cmp1.i.not = icmp ult ptr %add.ptr45, %end
+  %cmp1.i.not = icmp ugt ptr %end, %add.ptr45
   %or.cond149 = select i1 %cmp.i215.not, i1 %cmp1.i.not, i1 false
   br i1 %or.cond149, label %for.body.i.preheader, label %return
 
@@ -58502,7 +58502,7 @@ if.else:                                          ; preds = %entry
   %0 = load i8, ptr %sig_cut, align 1
   %cmp12 = icmp ugt i8 %0, 52
   %conv14.neg = sext i1 %cmp12 to i64
-  %sub15 = add i64 %conv14.neg, %sig
+  %sub15 = add i64 %sig, %conv14.neg
   %1 = add i32 %add, -750
   %cmp16 = icmp ult i32 %1, -769
   %idx.ext = zext i32 %1 to i64
@@ -58520,7 +58520,7 @@ if.else:                                          ; preds = %entry
   store i32 1, ptr %big, align 8
   %bits = getelementptr inbounds i8, ptr %big, i64 8
   store i64 %sub15, ptr %bits, align 8
-  %cmp28106 = icmp ugt ptr %sig_end.addr.0, %sig_cut
+  %cmp28106 = icmp ult ptr %sig_cut, %sig_end.addr.0
   br i1 %cmp28106, label %while.body, label %if.end67
 
 while.body:                                       ; preds = %if.else, %if.end66

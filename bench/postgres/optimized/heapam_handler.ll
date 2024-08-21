@@ -3124,11 +3124,11 @@ SampleHeapTupleVisible.exit.us:                   ; preds = %113
   %156 = sext i32 %155 to i64
   %157 = getelementptr [291 x i16], ptr %81, i64 0, i64 %156
   %158 = load i16, ptr %157, align 2
-  %159 = icmp eq i16 %158, %130
+  %159 = icmp eq i16 %130, %158
   br i1 %159, label %SampleHeapTupleVisible.exit, label %160
 
 160:                                              ; preds = %.lr.ph.i
-  %161 = icmp ugt i16 %158, %130
+  %161 = icmp ult i16 %130, %158
   %162 = add nsw i32 %155, -1
   %163 = add nsw i32 %155, 1
   %.120.i = select i1 %161, i32 %162, i32 %.01925.i

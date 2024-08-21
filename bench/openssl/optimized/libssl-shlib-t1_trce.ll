@@ -688,7 +688,7 @@ sw.bb:                                            ; preds = %if.end28
   %and = and i32 %4, 8
   %cond31 = or disjoint i32 %and, 5
   %conv = zext nneg i32 %cond31 to i64
-  %cmp32 = icmp ugt i64 %conv, %msglen
+  %cmp32 = icmp ult i64 %msglen, %conv
   br i1 %cmp32, label %if.then34, label %if.end38
 
 if.then34:                                        ; preds = %sw.bb
@@ -1837,7 +1837,7 @@ if.end.i28:                                       ; preds = %if.then
   %conv5.i = zext i8 %3 to i64
   %or.i = or disjoint i64 %shl.i, %conv5.i
   %add.i = add nuw nsw i64 %or.i, 2
-  %cmp7.i = icmp ugt i64 %add.i, %msglen
+  %cmp7.i = icmp ult i64 %msglen, %add.i
   br i1 %cmp7.i, label %return, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i28
@@ -2241,7 +2241,7 @@ if.end.i19:                                       ; preds = %if.then
   %conv5.i = zext i8 %3 to i64
   %or.i = or disjoint i64 %shl.i, %conv5.i
   %add.i = add nuw nsw i64 %or.i, 2
-  %cmp7.i = icmp ugt i64 %add.i, %msglen
+  %cmp7.i = icmp ult i64 %msglen, %add.i
   br i1 %cmp7.i, label %return, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i19
@@ -2511,7 +2511,7 @@ if.end.i:                                         ; preds = %land.lhs.true8
   %4 = load i8, ptr %msg, align 1
   %conv.i = zext i8 %4 to i64
   %add.i = add nuw nsw i64 %conv.i, 1
-  %cmp7.i.not = icmp ult i64 %conv.i, %msglen
+  %cmp7.i.not = icmp ugt i64 %msglen, %conv.i
   br i1 %cmp7.i.not, label %if.end10.i, label %return
 
 if.end10.i:                                       ; preds = %if.end.i
@@ -2784,7 +2784,7 @@ if.end:                                           ; preds = %entry
   %or23 = or disjoint i32 %or20, %conv22
   %narrow = add nuw nsw i32 %or23, 8
   %add = zext nneg i32 %narrow to i64
-  %cmp25.not = icmp eq i64 %add, %msglen
+  %cmp25.not = icmp eq i64 %msglen, %add
   br i1 %cmp25.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end
@@ -2986,7 +2986,7 @@ if.end.i:                                         ; preds = %if.then
   %4 = load i8, ptr %msg, align 1
   %conv.i = zext i8 %4 to i64
   %add.i = add nuw nsw i64 %conv.i, 1
-  %cmp7.i.not = icmp ult i64 %conv.i, %msglen
+  %cmp7.i.not = icmp ugt i64 %msglen, %conv.i
   br i1 %cmp7.i.not, label %if.end10.i, label %return
 
 if.end10.i:                                       ; preds = %if.end.i
@@ -3024,7 +3024,7 @@ if.end16:                                         ; preds = %if.else
   %6 = load i8, ptr %msg, align 1
   %conv = zext i8 %6 to i64
   %add.neg = xor i64 %conv, -1
-  %cmp17.not = icmp ult i64 %conv, %msglen
+  %cmp17.not = icmp ugt i64 %msglen, %conv
   br i1 %cmp17.not, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end16
@@ -3072,7 +3072,7 @@ do_ssl_trace_str.exit.i:                          ; preds = %for.inc.i.i, %if.th
 if.end28:                                         ; preds = %do_ssl_trace_str.exit.i, %if.end20
   %add.ptr = getelementptr inbounds i8, ptr %incdec.ptr, i64 %conv
   store ptr %add.ptr, ptr %msg.addr, align 8
-  %sub = add i64 %add.neg, %msglen
+  %sub = add i64 %msglen, %add.neg
   store i64 %sub, ptr %msglen.addr, align 8
   %10 = load ptr, ptr %method, align 8
   %ssl3_enc33 = getelementptr inbounds i8, ptr %10, i64 216

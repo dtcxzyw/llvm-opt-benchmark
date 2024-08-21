@@ -2014,7 +2014,7 @@ _ZN2cv4Mat_IfE6createEii.exit.preheader:          ; preds = %_ZN2cv4Mat_INS_3Vec
   %67 = mul nsw i64 %indvars.iv143, %48
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %68 = trunc i64 %indvars.iv.next144 to i32
-  %69 = mul i32 %68, %2
+  %69 = mul i32 %2, %68
   br label %70
 
 70:                                               ; preds = %.preheader.us, %177
@@ -3606,7 +3606,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit187: ; preds = %372, %354, %
 
 440:                                              ; preds = %437, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa27.i.i.i, %437 ], [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ]
-  %441 = icmp eq ptr %211, %.sroa.4.0.i.ph.i.i
+  %441 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %211
   br i1 %441, label %_ZNSt8_Rb_treeIN2cv4rgbd9TileQueue9PlaneTileES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %442
 
 442:                                              ; preds = %440

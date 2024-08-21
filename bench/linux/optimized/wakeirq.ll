@@ -307,7 +307,7 @@ define dso_local void @dev_pm_disable_wake_irq_check(ptr nocapture noundef reado
 12:                                               ; preds = %6
   %13 = and i64 %9, 4
   %14 = icmp ne i64 %13, 0
-  %15 = and i1 %14, %1
+  %15 = and i1 %1, %14
   %16 = and i32 %8, 2
   %17 = icmp eq i32 %16, 0
   %18 = or i1 %17, %15

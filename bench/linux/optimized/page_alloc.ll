@@ -642,7 +642,7 @@ define dso_local noundef range(i32 -2, 1) i32 @split_free_page(ptr noundef %0, i
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
-  %27 = icmp eq i32 %26, %1
+  %27 = icmp eq i32 %1, %26
   br i1 %27, label %28, label %.loopexit
 
 28:                                               ; preds = %23
@@ -905,7 +905,7 @@ define internal fastcc void @__free_one_page(ptr noundef %0, i64 noundef %1, ptr
 80:                                               ; preds = %78
   %81 = tail call i64 @get_pfnblock_flags_mask(ptr nonnull poison, i64 noundef %60, i64 noundef 7)
   %82 = trunc i64 %81 to i32
-  %83 = icmp eq i32 %82, %4
+  %83 = icmp eq i32 %4, %82
   %84 = icmp slt i32 %82, 3
   %85 = and i1 %35, %84
   %86 = or i1 %83, %85
@@ -4903,7 +4903,7 @@ select.unfold:                                    ; preds = %72
   %102 = load i64, ptr %101, align 8
   %103 = add i64 %102, -1
   store i64 %103, ptr %101, align 8
-  %104 = icmp sgt i32 %92, %1
+  %104 = icmp slt i32 %1, %92
   br i1 %104, label %105, label %.loopexit29
 
 105:                                              ; preds = %91
@@ -8898,7 +8898,7 @@ define internal fastcc void @zone_set_pageset_high_and_batch(ptr noundef %0, i32
   %30 = load i64, ptr %29, align 8
   %31 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %30) #24, !srcloc !196
   %32 = trunc i64 %31 to i32
-  %33 = add i32 %32, %1
+  %33 = add i32 %1, %32
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %37
 
@@ -8928,7 +8928,7 @@ define internal fastcc void @zone_set_pageset_high_and_batch(ptr noundef %0, i32
   %54 = load i64, ptr %53, align 8
   %55 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %54) #24, !srcloc !196
   %56 = trunc i64 %55 to i32
-  %57 = add i32 %56, %1
+  %57 = add i32 %1, %56
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %61
 
@@ -10303,7 +10303,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @free_tail_page_prepare(ptr n
   %41 = icmp eq i64 %40, 0
   %42 = add nsw i64 %39, -1
   %43 = inttoptr i64 %42 to ptr
-  %44 = icmp eq ptr %43, %1
+  %44 = icmp eq ptr %1, %43
   %or.cond = select i1 %41, i1 true, i1 %44
   br i1 %or.cond, label %.thread, label %45, !prof !231
 

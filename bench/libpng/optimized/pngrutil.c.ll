@@ -1167,7 +1167,7 @@ define void @png_handle_sBIT(ptr noalias noundef %0, ptr noalias noundef %1, i32
 32:                                               ; preds = %21, %25
   %.045 = phi i32 [ %28, %25 ], [ 3, %21 ]
   %.0 = phi i8 [ %31, %25 ], [ 8, %21 ]
-  %33 = icmp ne i32 %.045, %2
+  %33 = icmp ne i32 %2, %.045
   %34 = icmp ugt i32 %2, 4
   %or.cond = or i1 %34, %33
   br i1 %or.cond, label %35, label %png_crc_read.exit
@@ -2182,7 +2182,7 @@ define internal fastcc ptr @png_read_buffer(ptr noalias noundef %0, i64 noundef 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 1128
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %6
@@ -2361,7 +2361,7 @@ png_crc_read.exit:                                ; preds = %36, %29
   %60 = ptrtoint ptr %.1.i.ph to i64
   %.neg = sub i64 %60, %59
   %.neg94 = trunc i64 %.neg to i32
-  %61 = add i32 %.neg94, %2
+  %61 = add i32 %2, %.neg94
   %62 = urem i32 %61, %58
   %63 = udiv i32 %61, %58
   %.not95 = icmp eq i32 %62, 0
@@ -2742,7 +2742,7 @@ define void @png_handle_bKGD(ptr noalias noundef %0, ptr noalias noundef %1, i32
   %.not53 = icmp eq i8 %29, 0
   %. = select i1 %.not53, i32 2, i32 6
   %.0 = select i1 %16, i32 1, i32 %.
-  %.not54 = icmp eq i32 %.0, %2
+  %.not54 = icmp eq i32 %2, %.0
   br i1 %.not54, label %png_crc_read.exit, label %30
 
 30:                                               ; preds = %28
@@ -4761,7 +4761,7 @@ png_crc_read.exit:                                ; preds = %37, %30
 66:                                               ; preds = %.lr.ph124
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next135 to i32
-  %exitcond137.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond137.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond137.not, label %.critedge3, label %.lr.ph124, !llvm.loop !73
 
 .critedge3.loopexit.split.loop.exit147:           ; preds = %.lr.ph124
@@ -4788,7 +4788,7 @@ png_crc_read.exit:                                ; preds = %37, %30
 73:                                               ; preds = %.lr.ph129
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %lftr.wideiv141 = trunc i64 %indvars.iv.next139 to i32
-  %exitcond142.not = icmp eq i32 %lftr.wideiv141, %2
+  %exitcond142.not = icmp eq i32 %2, %lftr.wideiv141
   br i1 %exitcond142.not, label %.critedge5, label %.lr.ph129, !llvm.loop !74
 
 .critedge5.loopexit.split.loop.exit149:           ; preds = %.lr.ph129

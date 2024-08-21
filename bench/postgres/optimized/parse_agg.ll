@@ -2212,7 +2212,7 @@ define dso_local void @build_aggregate_transfn_expr(ptr nocapture noundef readon
   %31 = tail call ptr @lappend(ptr noundef %.033, ptr noundef nonnull %24) #10
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10

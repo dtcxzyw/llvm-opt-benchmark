@@ -1318,7 +1318,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i
           catch ptr null
   %217 = extractvalue { ptr, i32 } %216, 0
   %218 = call ptr @__cxa_begin_catch(ptr %217) #17
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %211
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %211, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %215, %.lr.ph.i.i.i.i.i.i.i
@@ -1419,7 +1419,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i183: ; preds = %.lr.p
           catch ptr null
   %246 = extractvalue { ptr, i32 } %245, 0
   %247 = call ptr @__cxa_begin_catch(ptr %246) #17
-  %.not4.i.i.i.i.i.i.i178 = icmp eq ptr %.016.i.i.i.i.i176, %240
+  %.not4.i.i.i.i.i.i.i178 = icmp eq ptr %240, %.016.i.i.i.i.i176
   br i1 %.not4.i.i.i.i.i.i.i178, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i182, label %.lr.ph.i.i.i.i.i.i.i179
 
 .lr.ph.i.i.i.i.i.i.i179:                          ; preds = %244, %.lr.ph.i.i.i.i.i.i.i179

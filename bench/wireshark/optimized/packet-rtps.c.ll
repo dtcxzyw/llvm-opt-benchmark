@@ -2643,7 +2643,7 @@ define hidden void @dissect_rtps_submessages(ptr noundef %0, i32 noundef %1, ptr
   %.not86.i.i = icmp eq i32 %87, 0
   %88 = shl nuw nsw i32 %87, 1
   %.2.i.i = add nuw nsw i32 %.183.i.i, %88
-  %89 = icmp sgt i32 %.2.i.i, %.0
+  %89 = icmp slt i32 %.0, %.2.i.i
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %78
@@ -2788,7 +2788,7 @@ dissect_DATA_v1.exit.i:                           ; preds = %155, %153, %151, %9
   %.not90.i.i = icmp eq i32 %167, 0
   %168 = add nuw nsw i32 %.185.i.i, 12
   %.286.i.i = select i1 %.not90.i.i, i32 %.185.i.i, i32 %168
-  %169 = icmp sgt i32 %.286.i.i, %.0
+  %169 = icmp slt i32 %.0, %.286.i.i
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %159
@@ -2925,7 +2925,7 @@ dissect_DATA_v2.exit.i:                           ; preds = %240, %170
   %249 = and i32 %51, 2
   %.not.i105.i = icmp eq i32 %249, 0
   %spec.select.i106.i = select i1 %.not.i105.i, i32 16, i32 20
-  %250 = icmp sgt i32 %spec.select.i106.i, %.0
+  %250 = icmp slt i32 %.0, %spec.select.i106.i
   br i1 %250, label %251, label %253
 
 251:                                              ; preds = %242
@@ -3254,7 +3254,7 @@ dissect_GAP.exit.i:                               ; preds = %359, %357
   %469 = and i8 %50, 2
   %.not.i115.i = icmp eq i8 %469, 0
   %spec.select.i116.i = select i1 %.not.i115.i, i32 8, i32 16
-  %.not27.i.i = icmp eq i32 %spec.select.i116.i, %.0
+  %.not27.i.i = icmp eq i32 %.0, %spec.select.i116.i
   br i1 %.not27.i.i, label %472, label %470
 
 470:                                              ; preds = %462
@@ -3334,7 +3334,7 @@ dissect_GAP.exit.i:                               ; preds = %359, %357
   %514 = and i8 %50, 2
   %.not.i118.i = icmp eq i8 %514, 0
   %spec.select.i119.i = select i1 %.not.i118.i, i32 4, i32 8
-  %515 = icmp sgt i32 %spec.select.i119.i, %.0
+  %515 = icmp slt i32 %.0, %spec.select.i119.i
   br i1 %515, label %516, label %518
 
 516:                                              ; preds = %507
@@ -3734,7 +3734,7 @@ dissect_HEADER_EXTENSION.exit:                    ; preds = %124, %125
   %.not97.i = icmp eq i32 %140, 0
   %141 = add nuw nsw i32 %spec.select.i, 12
   %.194.i = select i1 %.not97.i, i32 %spec.select.i, i32 %141
-  %142 = icmp sgt i32 %.194.i, %7
+  %142 = icmp slt i32 %7, %.194.i
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %129
@@ -3880,7 +3880,7 @@ dissect_DATA_FRAG.exit:                           ; preds = %143, %212, %220
   %235 = and i32 %234, 2
   %.not.i167 = icmp eq i32 %235, 0
   %spec.select.i168 = select i1 %.not.i167, i32 28, i32 32
-  %236 = icmp sgt i32 %spec.select.i168, %7
+  %236 = icmp slt i32 %7, %spec.select.i168
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %225
@@ -3954,7 +3954,7 @@ switch.early.test.i170:                           ; preds = %277
 
 284:                                              ; preds = %281, %switch.early.test.i170, %switch.early.test.i170, %switch.early.test.i170, %277
   %285 = phi i32 [ 1, %switch.early.test.i170 ], [ 1, %277 ], [ %283, %281 ], [ 1, %switch.early.test.i170 ], [ 1, %switch.early.test.i170 ]
-  %286 = add i32 %240, %7
+  %286 = add i32 %7, %240
   %287 = sub i32 %286, %.0.i169
   %288 = load i32, ptr %45, align 4
   call fastcc void @dissect_serialized_data(ptr noundef %8, ptr noundef %1, ptr noundef %0, i32 noundef %.0.i169, i32 noundef %287, ptr noundef nonnull @.str.324, i16 noundef zeroext %6, i32 noundef %285, ptr noundef null, i32 noundef %288)
@@ -4287,7 +4287,7 @@ rtps_util_add_fragment_number_set.exit.i:         ; preds = %396, %391
 
 ._crit_edge112.i:                                 ; preds = %._crit_edge.i, %421
   %.0.lcssa.i = phi i32 [ %439, %421 ], [ %500, %._crit_edge.i ]
-  %504 = add i32 %422, %7
+  %504 = add i32 %7, %422
   %505 = icmp slt i32 %.0.lcssa.i, %504
   br i1 %505, label %506, label %509
 
@@ -4400,7 +4400,7 @@ rtps_util_add_guid_prefix_v2.exit.i177:           ; preds = %552, %.lr.ph.i175
 
 ._crit_edge.i174:                                 ; preds = %rtps_util_add_guid_prefix_v2.exit.i177, %526
   %.065.lcssa.i = phi i32 [ %545, %526 ], [ %574, %rtps_util_add_guid_prefix_v2.exit.i177 ]
-  %578 = add i32 %522, %7
+  %578 = add i32 %7, %522
   %579 = icmp slt i32 %.065.lcssa.i, %578
   br i1 %579, label %580, label %583
 
@@ -4836,7 +4836,7 @@ dissect_RTPS_DATA_SESSION.exit:                   ; preds = %835, %843, %846
   %.not161.i = icmp eq i32 %863, 0
   %864 = shl nuw nsw i32 %863, 1
   %spec.select.i184 = add nuw nsw i32 %861, %864
-  %865 = icmp sgt i32 %spec.select.i184, %7
+  %865 = icmp slt i32 %7, %spec.select.i184
   br i1 %865, label %866, label %868
 
 866:                                              ; preds = %851
@@ -5142,7 +5142,7 @@ dissect_RTPS_DATA_FRAG_kind.exit:                 ; preds = %866, %rtps_util_det
   %1030 = and i8 %3, 2
   %.not.i191 = icmp eq i8 %1030, 0
   %spec.select.i192 = select i1 %.not.i191, i32 44, i32 48
-  %1031 = icmp sgt i32 %spec.select.i192, %7
+  %1031 = icmp slt i32 %7, %spec.select.i192
   br i1 %1031, label %1032, label %1034
 
 1032:                                             ; preds = %1018
@@ -5233,7 +5233,7 @@ dissect_RTPS_DATA_FRAG_kind.exit:                 ; preds = %866, %rtps_util_det
 
 .lr.ph.i198:                                      ; preds = %1087
   %1105 = or i32 %4, 8
-  %1106 = add i32 %1035, %7
+  %1106 = add i32 %7, %1035
   br label %1107
 
 1107:                                             ; preds = %1154, %.lr.ph.i198
@@ -6088,7 +6088,7 @@ define internal fastcc void @dissect_ACKNACK(ptr noundef %0, ptr noundef %1, i32
   call fastcc void @rtps_util_add_topic_info(ptr noundef %6, ptr noundef %1, ptr noundef %0, i32 noundef %35, ptr noundef nonnull %8)
   %40 = call fastcc i32 @rtps_util_add_bitmap(ptr noundef %6, ptr noundef %0, i32 noundef %35, i32 noundef %4, ptr noundef nonnull @.str.1285, i32 noundef 1)
   %41 = add i32 %40, 4
-  %42 = add i32 %23, %5
+  %42 = add i32 %5, %23
   %43 = icmp eq i32 %41, %42
   br i1 %43, label %44, label %47
 
@@ -6878,7 +6878,7 @@ rtps_util_add_port.exit.i:                        ; preds = %207, %202
   %366 = add i32 %123, 4
   %.pr.i243 = load i32, ptr %19, align 4
   %367 = add i32 %.pr.i243, 4
-  %368 = icmp sgt i32 %367, %.0193
+  %368 = icmp slt i32 %.0193, %367
   br i1 %368, label %369, label %thread-pre-split.i245
 
 369:                                              ; preds = %362
@@ -6913,7 +6913,7 @@ rtps_util_add_seq_octets.exit249:                 ; preds = %369, %thread-pre-sp
   %381 = add i32 %123, 4
   %.pr.i235 = load i32, ptr %20, align 4
   %382 = add i32 %.pr.i235, 4
-  %383 = icmp sgt i32 %382, %.0193
+  %383 = icmp slt i32 %.0193, %382
   br i1 %383, label %384, label %thread-pre-split.i237
 
 384:                                              ; preds = %377
@@ -6948,7 +6948,7 @@ rtps_util_add_seq_octets.exit241:                 ; preds = %384, %thread-pre-sp
   %396 = add i32 %123, 4
   %.pr.i = load i32, ptr %21, align 4
   %397 = add i32 %.pr.i, 4
-  %398 = icmp sgt i32 %397, %.0193
+  %398 = icmp slt i32 %.0193, %397
   br i1 %398, label %399, label %thread-pre-split.i
 
 399:                                              ; preds = %392
@@ -13332,7 +13332,7 @@ get_native_type_cdr_alignment.exit591:            ; preds = %get_native_type_cdr
   %365 = call i32 @tvb_get_gint32(ptr noundef %1, i32 noundef %.1736, i32 noundef %3) #13
   %366 = add i32 %.1736, 4
   %367 = sext i32 %365 to i64
-  %368 = add i64 %367, %6
+  %368 = add i64 %6, %367
   store i64 %368, ptr %18, align 8
   %369 = load ptr, ptr @union_member_mappings, align 8
   %370 = call ptr @wmem_map_lookup(ptr noundef %369, ptr noundef nonnull %18) #13
@@ -14088,7 +14088,7 @@ define internal fastcc void @dissect_RTPS_DATA(ptr noundef %0, ptr noundef %1, i
   %spec.select = add nuw nsw i32 %62, %63
   %.2 = add nuw nsw i32 %spec.select, %65
   %.3 = add nuw nsw i32 %.2, %.0266
-  %66 = icmp sgt i32 %.3, %5
+  %66 = icmp slt i32 %5, %.3
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %59
@@ -14155,7 +14155,7 @@ define internal fastcc void @dissect_RTPS_DATA(ptr noundef %0, ptr noundef %1, i
 
 116:                                              ; preds = %113, %101
   %.sink = phi i32 [ 24, %113 ], [ 32, %101 ]
-  %117 = add i32 %.sink, %2
+  %117 = add i32 %2, %.sink
   br i1 %.not272, label %121, label %118
 
 118:                                              ; preds = %116
@@ -14245,7 +14245,7 @@ rtps_util_add_guid_prefix_v2.exit:                ; preds = %get_encapsulation_e
   %.not.i282 = icmp ne i32 %162, -1
   %.pr.i = load i32, ptr %27, align 4
   %167 = add i32 %.pr.i, 4
-  %168 = icmp sgt i32 %167, %162
+  %168 = icmp slt i32 %162, %167
   %or.cond.i = select i1 %.not.i282, i1 %168, i1 false
   br i1 %or.cond.i, label %169, label %thread-pre-split.i
 

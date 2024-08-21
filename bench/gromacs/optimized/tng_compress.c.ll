@@ -139,7 +139,7 @@ quant_inter_differences.exit:                     ; preds = %._crit_edge.us.i, %
   %scevgep84 = getelementptr i8, ptr %0, i64 %61
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep83, ptr noundef nonnull align 4 dereferenceable(12) %scevgep84, i64 12, i1 false)
   %62 = trunc nuw nsw i64 %indvars.iv64.i to i32
-  %63 = mul i32 %62, %1
+  %63 = mul i32 %1, %62
   br label %.preheader.us.i77
 
 64:                                               ; preds = %65
@@ -3403,7 +3403,7 @@ define internal fastcc void @unquantize(ptr nocapture noundef writeonly %0, i32 
   %13 = getelementptr inbounds i32, ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = sitofp i32 %14 to double
-  %16 = fmul double %15, %3
+  %16 = fmul double %3, %15
   %17 = getelementptr inbounds double, ptr %0, i64 %12
   store double %16, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3507,7 +3507,7 @@ define internal fastcc void @unquantize_float(ptr nocapture noundef writeonly %0
   %13 = getelementptr inbounds i32, ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = sitofp i32 %14 to float
-  %16 = fmul float %15, %3
+  %16 = fmul float %3, %15
   %17 = getelementptr inbounds float, ptr %0, i64 %12
   store float %16, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4197,7 +4197,7 @@ define internal fastcc void @unquantize_intra_differences(ptr nocapture noundef 
   %12 = getelementptr inbounds i32, ptr %4, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = sitofp i32 %13 to double
-  %15 = fmul double %14, %3
+  %15 = fmul double %3, %14
   %16 = getelementptr inbounds double, ptr %0, i64 %11
   store double %15, ptr %16, align 8
   br label %17
@@ -4214,7 +4214,7 @@ define internal fastcc void @unquantize_intra_differences(ptr nocapture noundef 
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, %.034.us.us
   %25 = sitofp i32 %24 to double
-  %26 = fmul double %25, %3
+  %26 = fmul double %3, %25
   %27 = getelementptr inbounds double, ptr %0, i64 %21
   store double %26, ptr %27, align 8
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
@@ -4248,7 +4248,7 @@ define internal fastcc void @unquantize_intra_differences(ptr nocapture noundef 
   %32 = getelementptr inbounds i32, ptr %4, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = sitofp i32 %33 to double
-  %35 = fmul double %34, %3
+  %35 = fmul double %3, %34
   %36 = getelementptr inbounds double, ptr %0, i64 %31
   store double %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4290,7 +4290,7 @@ define internal fastcc void @unquantize_intra_differences_float(ptr nocapture no
   %12 = getelementptr inbounds i32, ptr %4, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = sitofp i32 %13 to float
-  %15 = fmul float %14, %3
+  %15 = fmul float %3, %14
   %16 = getelementptr inbounds float, ptr %0, i64 %11
   store float %15, ptr %16, align 4
   br label %17
@@ -4307,7 +4307,7 @@ define internal fastcc void @unquantize_intra_differences_float(ptr nocapture no
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, %.034.us.us
   %25 = sitofp i32 %24 to float
-  %26 = fmul float %25, %3
+  %26 = fmul float %3, %25
   %27 = getelementptr inbounds float, ptr %0, i64 %21
   store float %26, ptr %27, align 4
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
@@ -4341,7 +4341,7 @@ define internal fastcc void @unquantize_intra_differences_float(ptr nocapture no
   %32 = getelementptr inbounds i32, ptr %4, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = sitofp i32 %33 to float
-  %35 = fmul float %34, %3
+  %35 = fmul float %3, %34
   %36 = getelementptr inbounds float, ptr %0, i64 %31
   store float %35, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4470,7 +4470,7 @@ define internal fastcc void @unquantize_inter_differences(ptr nocapture noundef 
   %11 = getelementptr inbounds i32, ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = sitofp i32 %12 to double
-  %14 = fmul double %13, %3
+  %14 = fmul double %3, %13
   %15 = getelementptr inbounds double, ptr %0, i64 %10
   store double %14, ptr %15, align 8
   %16 = trunc nuw nsw i64 %indvars.iv47 to i32
@@ -4480,7 +4480,7 @@ define internal fastcc void @unquantize_inter_differences(ptr nocapture noundef 
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %17 ], [ 1, %.lr.ph.us.us ]
   %.033.us.us = phi i32 [ %26, %17 ], [ %12, %.lr.ph.us.us ]
   %18 = trunc i64 %indvars.iv42 to i32
-  %19 = mul i32 %18, %1
+  %19 = mul i32 %1, %18
   %20 = add nuw i32 %19, %9
   %21 = mul i32 %20, 3
   %22 = add nsw i32 %21, %16
@@ -4489,7 +4489,7 @@ define internal fastcc void @unquantize_inter_differences(ptr nocapture noundef 
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, %.033.us.us
   %27 = sitofp i32 %26 to double
-  %28 = fmul double %27, %3
+  %28 = fmul double %3, %27
   %29 = getelementptr inbounds double, ptr %0, i64 %23
   store double %28, ptr %29, align 8
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
@@ -4517,7 +4517,7 @@ define internal fastcc void @unquantize_inter_differences(ptr nocapture noundef 
   %33 = getelementptr inbounds i32, ptr %4, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = sitofp i32 %34 to double
-  %36 = fmul double %35, %3
+  %36 = fmul double %3, %35
   %37 = getelementptr inbounds double, ptr %0, i64 %32
   store double %36, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4559,7 +4559,7 @@ define internal fastcc void @unquantize_inter_differences_float(ptr nocapture no
   %11 = getelementptr inbounds i32, ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = sitofp i32 %12 to float
-  %14 = fmul float %13, %3
+  %14 = fmul float %3, %13
   %15 = getelementptr inbounds float, ptr %0, i64 %10
   store float %14, ptr %15, align 4
   %16 = trunc nuw nsw i64 %indvars.iv47 to i32
@@ -4569,7 +4569,7 @@ define internal fastcc void @unquantize_inter_differences_float(ptr nocapture no
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %17 ], [ 1, %.lr.ph.us.us ]
   %.033.us.us = phi i32 [ %26, %17 ], [ %12, %.lr.ph.us.us ]
   %18 = trunc i64 %indvars.iv42 to i32
-  %19 = mul i32 %18, %1
+  %19 = mul i32 %1, %18
   %20 = add nuw i32 %19, %9
   %21 = mul i32 %20, 3
   %22 = add nsw i32 %21, %16
@@ -4578,7 +4578,7 @@ define internal fastcc void @unquantize_inter_differences_float(ptr nocapture no
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, %.033.us.us
   %27 = sitofp i32 %26 to float
-  %28 = fmul float %27, %3
+  %28 = fmul float %3, %27
   %29 = getelementptr inbounds float, ptr %0, i64 %23
   store float %28, ptr %29, align 4
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
@@ -4606,7 +4606,7 @@ define internal fastcc void @unquantize_inter_differences_float(ptr nocapture no
   %33 = getelementptr inbounds i32, ptr %4, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = sitofp i32 %34 to float
-  %36 = fmul float %35, %3
+  %36 = fmul float %3, %35
   %37 = getelementptr inbounds float, ptr %0, i64 %32
   store float %36, ptr %37, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4656,7 +4656,7 @@ define internal fastcc void @unquantize_inter_differences_int(ptr nocapture noun
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %14 ], [ 1, %.lr.ph.us.us ]
   %.031.us.us = phi i32 [ %23, %14 ], [ %11, %.lr.ph.us.us ]
   %15 = trunc i64 %indvars.iv41 to i32
-  %16 = mul i32 %15, %1
+  %16 = mul i32 %1, %15
   %17 = add nuw i32 %16, %8
   %18 = mul i32 %17, 3
   %19 = add nsw i32 %18, %13

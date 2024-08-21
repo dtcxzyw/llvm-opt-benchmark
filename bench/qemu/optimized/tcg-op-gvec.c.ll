@@ -1397,7 +1397,7 @@ if.end33:                                         ; preds = %land.lhs.true30, %l
   %7 = load i32, ptr @cpuinfo, align 4
   %and34 = and i32 %7, 512
   %tobool35.not = icmp eq i32 %and34, 0
-  %brmerge = or i1 %tobool35.not, %prefer_i64
+  %brmerge = or i1 %prefer_i64, %tobool35.not
   %cmp.i26 = icmp ult i32 %size, 8
   %or.cond39 = or i1 %cmp.i26, %brmerge
   br i1 %or.cond39, label %if.end43, label %if.end.i27
@@ -3825,7 +3825,7 @@ define internal fastcc void @do_dup(i32 noundef %vece, i32 noundef %dofs, i32 no
 entry:
   %tobool.not236 = icmp eq ptr %in_32, null
   %cond237 = select i1 %tobool.not236, i32 3, i32 2
-  %cmp.not238 = icmp ult i32 %cond237, %vece
+  %cmp.not238 = icmp ugt i32 %vece, %cond237
   br i1 %cmp.not238, label %if.else, label %if.end.preheader
 
 if.end.preheader:                                 ; preds = %entry
@@ -7073,7 +7073,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp2)
   %shl = shl nuw nsw i32 8, %vece
   %conv = zext nneg i32 %shl to i64
-  %cmp3 = icmp ugt i64 %conv, %shift
+  %cmp3 = icmp ult i64 %shift, %conv
   tail call void @llvm.assume(i1 %cmp3)
   %cmp8 = icmp eq i64 %shift, 0
   br i1 %cmp8, label %if.then10, label %if.else
@@ -7252,7 +7252,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp2)
   %shl = shl nuw nsw i32 8, %vece
   %conv = zext nneg i32 %shl to i64
-  %cmp3 = icmp ugt i64 %conv, %shift
+  %cmp3 = icmp ult i64 %shift, %conv
   tail call void @llvm.assume(i1 %cmp3)
   %cmp8 = icmp eq i64 %shift, 0
   br i1 %cmp8, label %if.then10, label %if.else
@@ -7467,7 +7467,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp2)
   %shl = shl nuw nsw i32 8, %vece
   %conv = zext nneg i32 %shl to i64
-  %cmp3 = icmp ugt i64 %conv, %shift
+  %cmp3 = icmp ult i64 %shift, %conv
   tail call void @llvm.assume(i1 %cmp3)
   %cmp8 = icmp eq i64 %shift, 0
   br i1 %cmp8, label %if.then10, label %if.else
@@ -7638,7 +7638,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp2)
   %shl = shl nuw nsw i32 8, %vece
   %conv = zext nneg i32 %shl to i64
-  %cmp3 = icmp ugt i64 %conv, %shift
+  %cmp3 = icmp ult i64 %shift, %conv
   tail call void @llvm.assume(i1 %cmp3)
   %cmp8 = icmp eq i64 %shift, 0
   br i1 %cmp8, label %if.then10, label %if.else
@@ -7771,7 +7771,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp2)
   %shl = shl nuw nsw i32 8, %vece
   %conv = zext nneg i32 %shl to i64
-  %cmp3 = icmp ugt i64 %conv, %shift
+  %cmp3 = icmp ult i64 %shift, %conv
   tail call void @llvm.assume(i1 %cmp3)
   %sub = sub nsw i64 0, %shift
   %sub9 = add nsw i32 %shl, -1
@@ -7927,12 +7927,12 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %call1.i = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #7
   %2 = load ptr, ptr @tcg_env, align 8
   %3 = trunc nuw i64 %indvars.iv to i32
-  %add.i118 = add i32 %3, %aofs
+  %add.i118 = add i32 %aofs, %3
   %conv.i = zext i32 %add.i118 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call.i, ptr noundef %2, i64 noundef %conv.i) #7
   tail call void %0(i32 noundef %vece, ptr noundef %call1.i, ptr noundef %call.i, ptr noundef %shift) #7
   %4 = load ptr, ptr @tcg_env, align 8
-  %add2.i = add i32 %3, %dofs
+  %add2.i = add i32 %dofs, %3
   %conv3.i = zext i32 %add2.i to i64
   tail call void @tcg_gen_st_vec(ptr noundef %call1.i, ptr noundef %4, i64 noundef %conv3.i) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
@@ -8049,12 +8049,12 @@ for.body.i144:                                    ; preds = %for.body.i144.prehe
   %call1.i146 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #7
   %13 = load ptr, ptr @tcg_env, align 8
   %14 = trunc nuw i64 %indvars.iv225 to i32
-  %add.i147 = add i32 %14, %aofs
+  %add.i147 = add i32 %aofs, %14
   %conv.i148 = zext i32 %add.i147 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call.i145, ptr noundef %13, i64 noundef %conv.i148) #7
   tail call void %11(i32 noundef %vece, ptr noundef %call1.i146, ptr noundef %call.i145, ptr noundef %call19) #7
   %15 = load ptr, ptr @tcg_env, align 8
-  %add2.i149 = add i32 %14, %dofs
+  %add2.i149 = add i32 %dofs, %14
   %conv3.i150 = zext i32 %add2.i149 to i64
   tail call void @tcg_gen_st_vec(ptr noundef %call1.i146, ptr noundef %15, i64 noundef %conv3.i150) #7
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 32
@@ -9692,12 +9692,12 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %indvars.iv146 = phi i64 [ 0, %for.body.i.preheader ], [ %indvars.iv.next147, %for.body.i ]
   %1 = load ptr, ptr @tcg_env, align 8
   %2 = trunc nuw i64 %indvars.iv146 to i32
-  %add.i95 = add i32 %2, %aofs
+  %add.i95 = add i32 %aofs, %2
   %conv.i = zext i32 %add.i95 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call1.i, ptr noundef %1, i64 noundef %conv.i) #7
   tail call void @tcg_gen_cmp_vec(i32 noundef %cond, i32 noundef %vece, ptr noundef %call.i, ptr noundef %call1.i, ptr noundef %call10) #7
   %3 = load ptr, ptr @tcg_env, align 8
-  %add2.i = add i32 %2, %dofs
+  %add2.i = add i32 %dofs, %2
   %conv3.i = zext i32 %add2.i to i64
   tail call void @tcg_gen_st_vec(ptr noundef %call.i, ptr noundef %3, i64 noundef %conv3.i) #7
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 32
@@ -9757,12 +9757,12 @@ for.body.i112:                                    ; preds = %for.body.i112.prehe
   %indvars.iv = phi i64 [ 0, %for.body.i112.preheader ], [ %indvars.iv.next, %for.body.i112 ]
   %9 = load ptr, ptr @tcg_env, align 8
   %10 = trunc nuw i64 %indvars.iv to i32
-  %add.i114 = add i32 %10, %aofs
+  %add.i114 = add i32 %aofs, %10
   %conv.i115 = zext i32 %add.i114 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call1.i110, ptr noundef %9, i64 noundef %conv.i115) #7
   tail call void @tcg_gen_cmp_vec(i32 noundef %cond, i32 noundef %vece, ptr noundef %call.i109, ptr noundef %call1.i110, ptr noundef %call10) #7
   %11 = load ptr, ptr @tcg_env, align 8
-  %add2.i116 = add i32 %10, %dofs
+  %add2.i116 = add i32 %dofs, %10
   %conv3.i117 = zext i32 %add2.i116 to i64
   tail call void @tcg_gen_st_vec(ptr noundef %call.i109, ptr noundef %11, i64 noundef %conv3.i117) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8

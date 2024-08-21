@@ -581,7 +581,7 @@ _ZNK3nix5Value8listSizeEv.exit.thread:            ; preds = %162
 
 select.unfold.i.i:                                ; preds = %179, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %179 ]
-  %182 = icmp eq ptr %170, %.sroa.4.0.i.ph.i.i
+  %182 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %170
   br i1 %182, label %_ZNSt3setIPKvSt4lessIS1_ESaIS1_EE6insertEOS1_.exit.thread, label %183
 
 183:                                              ; preds = %select.unfold.i.i
@@ -1263,7 +1263,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt3setIPKvSt4lessIS1_ESaIS1_EE6insertEOS1_(p
 
 select.unfold.i:                                  ; preds = %13, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %.019.lcssa29.i.i, %13 ]
-  %16 = icmp eq ptr %4, %.sroa.4.0.i.ph.i
+  %16 = icmp eq ptr %.sroa.4.0.i.ph.i, %4
   br i1 %16, label %_ZNSt8_Rb_treeIPKvS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i, label %17
 
 17:                                               ; preds = %select.unfold.i
@@ -1868,7 +1868,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPK
   %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val", align 8
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
-  %9 = icmp sgt i64 %8, %1
+  %9 = icmp slt i64 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -1925,7 +1925,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i:   ; preds = %_ZNK3nix11SymbolTab
   %41 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %40, i64 %39
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %33, i64 %43)
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %43, i64 %33)
   %44 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %44, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -2036,7 +2036,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i:   ; preds = %_ZNK3nix11SymbolTab
   %33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %32, i64 %31
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %25, i64 %35)
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %35, i64 %25)
   %36 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %36, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -2120,7 +2120,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i:   ; preds = %_ZNK3nix11SymbolTab
   %31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %30, i64 %29
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %23, i64 %33)
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %33, i64 %23)
   %34 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %34, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -2163,7 +2163,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i31: ; preds = %_ZNK3nix11SymbolTab
   %49 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %48, i64 %47
   %50 = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load i64, ptr %50, align 8
-  %.sroa.speculated.i.i.i.i32 = tail call i64 @llvm.umin.i64(i64 %33, i64 %51)
+  %.sroa.speculated.i.i.i.i32 = tail call i64 @llvm.umin.i64(i64 %51, i64 %33)
   %52 = icmp eq i64 %.sroa.speculated.i.i.i.i32, 0
   br i1 %52, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i35, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i33
 
@@ -2192,7 +2192,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_
   br label %97
 
 _ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i45: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit39
-  %.sroa.speculated.i.i.i.i46 = tail call i64 @llvm.umin.i64(i64 %23, i64 %51)
+  %.sroa.speculated.i.i.i.i46 = tail call i64 @llvm.umin.i64(i64 %51, i64 %23)
   %60 = icmp eq i64 %.sroa.speculated.i.i.i.i46, 0
   br i1 %60, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i49, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i47
 
@@ -2244,7 +2244,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i59: ; preds = %_ZNK3nix11SymbolTab
   %76 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %75, i64 %74
   %77 = getelementptr inbounds i8, ptr %76, i64 8
   %78 = load i64, ptr %77, align 8
-  %.sroa.speculated.i.i.i.i60 = tail call i64 @llvm.umin.i64(i64 %23, i64 %78)
+  %.sroa.speculated.i.i.i.i60 = tail call i64 @llvm.umin.i64(i64 %78, i64 %23)
   %79 = icmp eq i64 %.sroa.speculated.i.i.i.i60, 0
   br i1 %79, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i63, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i61
 
@@ -2273,7 +2273,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_
   br label %97
 
 _ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i73: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit67
-  %.sroa.speculated.i.i.i.i74 = tail call i64 @llvm.umin.i64(i64 %33, i64 %78)
+  %.sroa.speculated.i.i.i.i74 = tail call i64 @llvm.umin.i64(i64 %78, i64 %33)
   %87 = icmp eq i64 %.sroa.speculated.i.i.i.i74, 0
   br i1 %87, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i77, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i75
 
@@ -2366,7 +2366,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i:     ; preds = %_ZNK3nix11SymbolTab
   %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %31, i64 %30
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load i64, ptr %33, align 8
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %34, i64 %24)
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %24, i64 %34)
   %35 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %35, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -2427,7 +2427,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i14: ; preds = %_ZNK3nix11SymbolTab
   %56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %55, i64 %54
   %57 = getelementptr inbounds i8, ptr %56, i64 8
   %58 = load i64, ptr %57, align 8
-  %.sroa.speculated.i.i.i.i15 = tail call i64 @llvm.umin.i64(i64 %24, i64 %58)
+  %.sroa.speculated.i.i.i.i15 = tail call i64 @llvm.umin.i64(i64 %58, i64 %24)
   %59 = icmp eq i64 %.sroa.speculated.i.i.i.i15, 0
   br i1 %59, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i18, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i16
 
@@ -2533,7 +2533,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i:   ; preds = %_ZNK3nix11SymbolTab
   %33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %32, i64 %31
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %25, i64 %35)
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %35, i64 %25)
   %36 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %36, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -2632,7 +2632,7 @@ _ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i:   ; preds = %_ZNK3nix11SymbolTab
   %29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %28, i64 %27
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %21, i64 %31)
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %31, i64 %21)
   %32 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %32, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 

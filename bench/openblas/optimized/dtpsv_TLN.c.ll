@@ -39,7 +39,7 @@ define noundef i32 @dtpsv_TLN(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
   %26 = getelementptr inbounds double, ptr %18, i64 %25
   %27 = tail call double @ddot_k(i64 noundef %20, ptr noundef nonnull %24, i64 noundef 1, ptr noundef nonnull %26, i64 noundef 1) #2
   %28 = xor i64 %20, -1
-  %29 = add nsw i64 %28, %0
+  %29 = add nsw i64 %0, %28
   %30 = getelementptr inbounds double, ptr %10, i64 %29
   %31 = load double, ptr %30, align 8, !tbaa !3
   %32 = fsub double %31, %27

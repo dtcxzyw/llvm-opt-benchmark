@@ -684,7 +684,7 @@ define internal fastcc ptr @lookup_proc(ptr noundef %0, i32 noundef %1, i1 nound
   %7 = call i32 @pmix_hash_table_get_value_uint32(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4) #16
   %8 = load ptr, ptr %4, align 8
   %9 = icmp eq ptr %8, null
-  %brmerge.not = and i1 %9, %2
+  %brmerge.not = and i1 %2, %9
   br i1 %brmerge.not, label %10, label %pmix_obj_new_tma.exit.thread
 
 10:                                               ; preds = %3
@@ -811,7 +811,7 @@ pmix_pointer_array_get_item.exit.us:              ; preds = %pmix_pointer_array_
 
 21:                                               ; preds = %pmix_pointer_array_get_item.exit.us
   %22 = load i32, ptr %19, align 8
-  %23 = icmp eq i32 %22, %1
+  %23 = icmp eq i32 %1, %22
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %21
@@ -841,7 +841,7 @@ pmix_pointer_array_get_item.exit.us85:            ; preds = %pmix_pointer_array_
 
 36:                                               ; preds = %pmix_pointer_array_get_item.exit.us85
   %37 = load i32, ptr %34, align 8
-  %38 = icmp eq i32 %37, %1
+  %38 = icmp eq i32 %1, %37
   br i1 %38, label %39, label %79
 
 39:                                               ; preds = %36

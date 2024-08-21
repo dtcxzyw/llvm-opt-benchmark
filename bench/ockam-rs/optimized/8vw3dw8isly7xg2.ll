@@ -26888,8 +26888,8 @@ default.unreachable219:                           ; preds = %115, %3
 
 358:                                              ; preds = %376, %.noexc135.i
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc135.i ], [ %377, %376 ]
-  %.pn.i.i.i = phi i64 [ %354, %.noexc135.i ], [ %378, %376 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val6.i.i
+  %.pn.i.i.i.i = phi i64 [ %354, %.noexc135.i ], [ %378, %376 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %.val6.i.i
   %359 = getelementptr inbounds i8, ptr %.val5.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i29.i.i.i.i = load <16 x i8>, ptr %359, align 1, !noalias !3165
   %360 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -26917,7 +26917,7 @@ default.unreachable219:                           ; preds = %115, %3
   %374 = sub nsw i64 0, %373
   %gep.i.i.i.i = getelementptr { i8, [7 x i8], { ptr, ptr } }, ptr %invariant.gep.i.i.i.i, i64 %374
   %.val3.i.i.i.i.i = load i8, ptr %gep.i.i.i.i, align 1, !alias.scope !3173, !noalias !3178, !noundef !4
-  %375 = icmp eq i8 %.val3.i.i.i.i.i, %317
+  %375 = icmp eq i8 %317, %.val3.i.i.i.i.i
   br i1 %375, label %381, label %362
 
 376:                                              ; preds = %363
@@ -40008,7 +40008,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.llvm.47910
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -69053,7 +69053,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i: ; preds = %26
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !alias.scope !9255, !noalias !9253, !noundef !4
   %47 = sub i64 %46, %44
-  %48 = icmp ult i64 %47, %42
+  %48 = icmp ugt i64 %42, %47
   br i1 %48, label %49, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3be6e5d26155f5E.exit.i"
 
 49:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
@@ -69107,7 +69107,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !9268, !noalias !9266, !noundef !4
   %8 = sub i64 %7, %5
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3be6e5d26155f5E.exit"
 
 10:                                               ; preds = %3
@@ -92650,7 +92650,7 @@ _ZN15ockam_multiaddr10ProtoValue4cast17h3631cd68745b6cf2E.exit: ; preds = %"_ZN4
   %77 = phi i1 [ %74, %.noexc36 ], [ true, %71 ]
   call void @llvm.assume(i1 %77)
   %78 = icmp eq i16 %76, 3
-  %brmerge.not = and i1 %78, %3
+  %brmerge.not = and i1 %3, %78
   br i1 %brmerge.not, label %83, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hc6228c0a03e4f211E.exit"
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hc6228c0a03e4f211E.exit": ; preds = %96, %75
@@ -98035,7 +98035,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.12634899616595775615.e
   %438 = getelementptr inbounds i8, ptr %1, i64 768
   %439 = load i64, ptr %438, align 8, !alias.scope !13301, !noalias !13300, !noundef !4
   %440 = sub i64 %439, %437
-  %441 = icmp ult i64 %440, %435
+  %441 = icmp ugt i64 %435, %440
   br i1 %441, label %442, label %445
 
 442:                                              ; preds = %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit.i"
@@ -99753,7 +99753,7 @@ common.ret:                                       ; preds = %2182, %2064, %1440,
   %1019 = getelementptr inbounds i8, ptr %1, i64 1088
   %1020 = load i64, ptr %1019, align 8, !alias.scope !13585, !noalias !13584, !noundef !4
   %1021 = sub i64 %1020, %1018
-  %1022 = icmp ult i64 %1021, %1016
+  %1022 = icmp ugt i64 %1016, %1021
   br i1 %1022, label %1023, label %1026
 
 1023:                                             ; preds = %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit.i293"
@@ -101465,7 +101465,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.12634899616595775615.e
   %1609 = getelementptr inbounds i8, ptr %1, i64 1072
   %1610 = load i64, ptr %1609, align 8, !alias.scope !13882, !noalias !13881, !noundef !4
   %1611 = sub i64 %1610, %1608
-  %1612 = icmp ult i64 %1611, %1606
+  %1612 = icmp ugt i64 %1606, %1611
   br i1 %1612, label %1613, label %1616
 
 1613:                                             ; preds = %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit.i347"

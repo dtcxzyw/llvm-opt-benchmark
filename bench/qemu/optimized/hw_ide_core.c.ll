@@ -1402,9 +1402,9 @@ if.end34:                                         ; preds = %while.body18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %total_sectors.i)
   call void @blk_get_geometry(ptr noundef %.val, ptr noundef nonnull %total_sectors.i) #17
   %13 = load i64, ptr %total_sectors.i, align 8
-  %cmp.i = icmp uge i64 %13, %and.le
+  %cmp.i = icmp ule i64 %and.le, %13
   %sub.i = sub nuw i64 %13, %and.le
-  %cmp1.i = icmp uge i64 %sub.i, %shr.le
+  %cmp1.i = icmp ule i64 %shr.le, %sub.i
   %or.cond.not.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %total_sectors.i)
   %14 = load ptr, ptr %12, align 8
@@ -7077,7 +7077,7 @@ land.lhs.true69:                                  ; preds = %trace_ide_dma_cb.ex
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %total_sectors.i)
   call void @blk_get_geometry(ptr noundef %opaque.val, ptr noundef nonnull %total_sectors.i) #17
   %69 = load i64, ptr %total_sectors.i, align 8
-  %cmp.i118 = icmp uge i64 %69, %sector_num.0
+  %cmp.i118 = icmp ule i64 %sector_num.0, %69
   %sub.i119 = sub nuw i64 %69, %sector_num.0
   %cmp1.i = icmp uge i64 %sub.i119, %conv70
   %or.cond.not.i = select i1 %cmp.i118, i1 %cmp1.i, i1 false
@@ -7382,7 +7382,7 @@ trace_ide_sector_read.exit:                       ; preds = %if.end, %land.lhs.t
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %total_sectors.i)
   call void @blk_get_geometry(ptr noundef %s.val, ptr noundef nonnull %total_sectors.i) #17
   %32 = load i64, ptr %total_sectors.i, align 8
-  %cmp.i = icmp uge i64 %32, %sector_num.0.i
+  %cmp.i = icmp ule i64 %sector_num.0.i, %32
   %sub.i29 = sub nuw i64 %32, %sector_num.0.i
   %cmp1.i = icmp uge i64 %sub.i29, %conv8
   %or.cond.not.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
@@ -7801,7 +7801,7 @@ trace_ide_sector_write.exit:                      ; preds = %ide_get_sector.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %total_sectors.i)
   call void @blk_get_geometry(ptr noundef %s.val, ptr noundef nonnull %total_sectors.i) #17
   %28 = load i64, ptr %total_sectors.i, align 8
-  %cmp.i = icmp uge i64 %28, %sector_num.0.i
+  %cmp.i = icmp ule i64 %sector_num.0.i, %28
   %sub.i23 = sub nuw i64 %28, %sector_num.0.i
   %cmp1.i = icmp uge i64 %sub.i23, %conv
   %or.cond.not.i = select i1 %cmp.i, i1 %cmp1.i, i1 false

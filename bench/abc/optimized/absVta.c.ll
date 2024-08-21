@@ -4558,7 +4558,7 @@ define void @Vga_ManRollBack(ptr nocapture noundef %0, i32 noundef %1) local_unn
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %4, i64 %8
-  %10 = icmp sgt i32 %7, %1
+  %10 = icmp slt i32 %1, %7
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2

@@ -633,7 +633,7 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
   br i1 %170, label %177, label %172
 
 172:                                              ; preds = %171
-  %173 = icmp sgt i32 %168, %3
+  %173 = icmp slt i32 %3, %168
   %174 = trunc i32 %3 to i8
   %175 = sub i8 %167, %174
   %176 = select i1 %173, i8 %175, i8 0

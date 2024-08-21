@@ -346,7 +346,7 @@ component_in_list.exit:                           ; preds = %.lr.ph.i, %.lr.ph.i
 
 component_in_list.exit.thread:                    ; preds = %.loopexit, %.lr.ph.split.us, %18, %.loopexit36, %component_in_list.exit
   %.02045 = phi i1 [ true, %component_in_list.exit ], [ false, %.loopexit36 ], [ false, %18 ], [ false, %.lr.ph.split.us ], [ false, %.loopexit ]
-  %32 = or i1 %.02045, %1
+  %32 = or i1 %1, %.02045
   %33 = xor i1 %32, true
   br label %34
 

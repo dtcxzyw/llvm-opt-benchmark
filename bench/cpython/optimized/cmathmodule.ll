@@ -211,8 +211,8 @@ if.else37.i:                                      ; preds = %if.end.i
   %16 = extractvalue { double, double } %call50.i, 1
   %call53.i = tail call double @atan2(double noundef %13, double noundef %15) #10
   %mul.i = fmul double %call53.i, 2.000000e+00
-  %17 = fneg double %16
-  %neg.i = fmul double %13, %17
+  %17 = fneg double %13
+  %neg.i = fmul double %16, %17
   %18 = tail call double @llvm.fmuladd.f64(double %15, double %14, double %neg.i)
   %call61.i = tail call double @asinh(double noundef %18) #10
   br label %cmath_acos_impl.exit.thread
@@ -2051,12 +2051,12 @@ if.else37:                                        ; preds = %if.end
   %call50 = tail call fastcc { double, double } @cmath_sqrt_impl(double %sub, double %z.coerce0)
   %12 = extractvalue { double, double } %call50, 0
   %13 = extractvalue { double, double } %call50, 1
-  %14 = fneg double %12
-  %neg = fmul double %11, %14
+  %14 = fneg double %11
+  %neg = fmul double %12, %14
   %15 = tail call double @llvm.fmuladd.f64(double %10, double %13, double %neg)
   %call56 = tail call double @asinh(double noundef %15) #10
-  %16 = fneg double %11
-  %neg64 = fmul double %13, %16
+  %16 = fneg double %13
+  %neg64 = fmul double %11, %16
   %17 = tail call double @llvm.fmuladd.f64(double %10, double %12, double %neg64)
   br label %if.end67
 

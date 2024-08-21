@@ -425,7 +425,7 @@ define internal fastcc void @drm_update_vblank_count(ptr noundef %0, i32 noundef
   %70 = udiv i64 %68, %69
   %71 = trunc i64 %70 to i32
   %72 = icmp eq i32 %71, 0
-  %73 = and i1 %72, %2
+  %73 = and i1 %2, %72
   br i1 %73, label %74, label %82
 
 74:                                               ; preds = %64
@@ -524,7 +524,7 @@ define internal fastcc void @drm_update_vblank_count(ptr noundef %0, i32 noundef
   br label %148
 
 126:                                              ; preds = %102
-  %127 = or i1 %39, %2
+  %127 = or i1 %2, %39
   br i1 %127, label %._crit_edge, label %128
 
 ._crit_edge:                                      ; preds = %126

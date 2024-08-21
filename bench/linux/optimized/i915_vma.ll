@@ -1647,7 +1647,7 @@ define dso_local i32 @i915_vma_pin_ww(ptr noundef %0, ptr noundef %1, i64 nounde
   %118 = getelementptr inbounds i8, ptr %117, i64 376
   %119 = load i32, ptr %118, align 8
   %120 = zext i32 %119 to i64
-  %121 = and i64 %120, %4
+  %121 = and i64 %4, %120
   %122 = icmp eq i64 %121, 0
   br i1 %122, label %154, label %123
 

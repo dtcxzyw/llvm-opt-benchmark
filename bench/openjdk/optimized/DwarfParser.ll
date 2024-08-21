@@ -581,7 +581,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_jvm_hotspot_debugger_linux_amd64_Dwar
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %10, i64 4376
   %15 = load i64, ptr %14, align 8
-  %16 = icmp ugt i64 %15, %2
+  %16 = icmp ult i64 %2, %15
   %17 = zext i1 %16 to i8
   br label %_ZN11DwarfParser5is_inEl.exit
 

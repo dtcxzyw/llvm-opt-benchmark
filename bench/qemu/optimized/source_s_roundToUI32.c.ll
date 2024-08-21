@@ -43,7 +43,7 @@ if.end29:                                         ; preds = %if.end25
   %and37 = and i64 %shr, 4294967294
   %spec.select20 = select i1 %or.cond1, i64 %and37, i64 %shr
   %tobool42 = icmp ne i64 %spec.select20, 0
-  %or.cond2 = and i1 %tobool42, %sign
+  %or.cond2 = and i1 %sign, %tobool42
   br i1 %or.cond2, label %invalid, label %if.end44
 
 if.end44:                                         ; preds = %if.end29

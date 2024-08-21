@@ -2522,7 +2522,7 @@ hwloc_get_nbobjs_by_type.exit58:                  ; preds = %hwloc_get_nbobjs_by
   %.fr = freeze i1 %33
   %not. = xor i1 %1, true
   %spec.select54 = and i1 %.fr, %not.
-  %brmerge = or i1 %.fr, %1
+  %brmerge = or i1 %1, %.fr
   br i1 %brmerge, label %36, label %34
 
 34:                                               ; preds = %hwloc_get_nbobjs_by_type.exit58
@@ -2711,7 +2711,7 @@ hwloc_get_nbobjs_by_type.exit55:                  ; preds = %hwloc_get_nbobjs_by
   %.fr = freeze i1 %31
   %not. = xor i1 %1, true
   %spec.select51 = and i1 %.fr, %not.
-  %brmerge = or i1 %.fr, %1
+  %brmerge = or i1 %1, %.fr
   br i1 %brmerge, label %34, label %32
 
 32:                                               ; preds = %hwloc_get_nbobjs_by_type.exit55

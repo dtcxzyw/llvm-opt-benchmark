@@ -4069,7 +4069,7 @@ _ZN5Ipopt16PiecewisePenalty24InitPiecewisePenaltyListEddd.exit: ; preds = %_ZNSt
 95:                                               ; preds = %91, %87
   %96 = getelementptr inbounds i8, ptr %0, i64 200
   %97 = load double, ptr %96, align 8
-  %98 = fcmp ogt double %97, %1
+  %98 = fcmp olt double %1, %97
   br i1 %98, label %.thread, label %106
 
 .thread:                                          ; preds = %93, %85, %95
@@ -4160,7 +4160,7 @@ define noundef zeroext i1 @_ZN5Ipopt19CGPenaltyLSAcceptor11ArmijoHoldsEd(ptr noc
   %55 = fsub double %7, %54
   %56 = getelementptr inbounds i8, ptr %0, i64 56
   %57 = load double, ptr %56, align 8
-  %58 = fmul double %57, %1
+  %58 = fmul double %1, %57
   %59 = getelementptr inbounds i8, ptr %0, i64 296
   %60 = load double, ptr %59, align 8
   %61 = fmul double %58, %60
@@ -4422,7 +4422,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit37:                  ; preds = %.noexc36, %._crit_e
 132:                                              ; preds = %126
   %133 = getelementptr inbounds i8, ptr %0, i64 144
   %134 = load double, ptr %133, align 8
-  %135 = fmul double %134, %1
+  %135 = fmul double %1, %134
   %136 = tail call double @llvm.fmuladd.f64(double %135, double %98, double %131)
   %137 = load ptr, ptr %3, align 8
   %138 = load ptr, ptr %137, align 8
@@ -4442,7 +4442,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit37:                  ; preds = %.noexc36, %._crit_e
           to label %150 unwind label %.thread
 
 150:                                              ; preds = %142
-  %151 = fmul double %144, %1
+  %151 = fmul double %1, %144
   %152 = tail call double @llvm.fmuladd.f64(double %151, double %149, double %141)
   %153 = getelementptr inbounds i8, ptr %0, i64 344
   %154 = invoke noundef zeroext i1 @_ZN5Ipopt16PiecewisePenalty10AcceptableEdd(ptr noundef nonnull align 8 dereferenceable(48) %153, double noundef %136, double noundef %152)

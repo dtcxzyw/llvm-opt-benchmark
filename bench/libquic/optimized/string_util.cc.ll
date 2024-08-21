@@ -1092,7 +1092,7 @@ entry:
   %char_index = alloca i32, align 4
   %ref.tmp31 = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %input) #21
-  %cmp = icmp ult i64 %call, %byte_size
+  %cmp = icmp ugt i64 %byte_size, %call
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
@@ -3270,7 +3270,7 @@ if.then82:                                        ; preds = %if.end80
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 5
-  %cmp.not.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %sub
+  %cmp.not.i.i = icmp ult i64 %sub, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i, label %invoke.cont83, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then82
@@ -4130,7 +4130,7 @@ entry:
   br i1 %cmp.not, label %if.else26, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp.i = icmp eq ptr %0, %__position.coerce
+  %cmp.i = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.i, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then
@@ -4209,7 +4209,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN4bas
 _ZNSt6vectorIN4base12_GLOBAL__N_117ReplacementOffsetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN4base12_GLOBAL__N_117ReplacementOffsetESaIS2_EE12_M_check_lenEmPKc.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN4base12_GLOBAL__N_117ReplacementOffsetESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr.i23 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
-  %cmp.not1.i.i.i13.i = icmp eq ptr %0, %__position.coerce
+  %cmp.not1.i.i.i13.i = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not1.i.i.i13.i, label %_ZNSt6vectorIN4base12_GLOBAL__N_117ReplacementOffsetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i, label %for.body.i.i.i14.i
 
 for.body.i.i.i14.i:                               ; preds = %_ZNSt6vectorIN4base12_GLOBAL__N_117ReplacementOffsetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, %for.body.i.i.i14.i
@@ -4308,7 +4308,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i19

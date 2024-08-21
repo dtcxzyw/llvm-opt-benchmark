@@ -1701,7 +1701,7 @@ define dso_local void @intel_pps_backlight_power(ptr nocapture noundef readonly 
   tail call void @intel_display_power_put_unchecked(ptr noundef %21, i32 noundef 0) #7
   %23 = and i32 %20, 4
   %24 = icmp ne i32 %23, 0
-  %25 = xor i1 %24, %1
+  %25 = xor i1 %1, %24
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %._crit_edge, %19

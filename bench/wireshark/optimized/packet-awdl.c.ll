@@ -2072,7 +2072,7 @@ define internal fastcc i32 @add_awdl_dns_entry(ptr nocapture noundef readonly %0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   %18 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %17, i64 noundef 255) #5
   %19 = add i32 %8, %7
-  %20 = icmp sgt i32 %19, %7
+  %20 = icmp slt i32 %7, %19
   br i1 %20, label %.lr.ph.i, label %add_awdl_dns_name.exit
 
 .lr.ph.i:                                         ; preds = %10, %41

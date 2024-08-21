@@ -845,13 +845,13 @@ define internal fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_1
 
 16:                                               ; preds = %12
   %17 = load double, ptr %9, align 8
-  %18 = fmul double %17, %4
+  %18 = fmul double %4, %17
   store double %18, ptr %9, align 8
   %19 = load double, ptr %10, align 8
-  %20 = fmul double %19, %4
+  %20 = fmul double %4, %19
   store double %20, ptr %10, align 8
   %21 = load double, ptr %11, align 8
-  %22 = fmul double %21, %4
+  %22 = fmul double %4, %21
   store double %22, ptr %11, align 8
   %23 = load double, ptr %3, align 8
   %24 = fsub double %.sroa.0.034, %23

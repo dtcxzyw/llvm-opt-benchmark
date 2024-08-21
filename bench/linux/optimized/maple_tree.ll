@@ -6341,7 +6341,7 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
 
 249:                                              ; preds = %120
   %250 = icmp ne ptr %128, null
-  %251 = or i1 %250, %2
+  %251 = or i1 %2, %250
   br i1 %251, label %.loopexit12, label %252
 
 252:                                              ; preds = %249
@@ -18897,7 +18897,7 @@ define internal fastcc void @mab_mas_cp(ptr nocapture noundef readonly %0, i8 no
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i32 %27, %31
   %33 = sext i1 %32 to i8
-  %34 = add i8 %33, %2
+  %34 = add i8 %2, %33
   %35 = zext i8 %30 to i64
   %36 = getelementptr i64, ptr %24, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -8
@@ -22711,9 +22711,9 @@ define internal fastcc void @mast_split_data(ptr nocapture noundef readonly %0, 
   %27 = zext nneg i32 %13 to i64
   %28 = getelementptr [4 x i8], ptr @mt_pivots, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
-  %30 = icmp ult i8 %29, %2
+  %30 = icmp ugt i8 %2, %29
   %31 = sext i1 %30 to i8
-  %32 = add i8 %31, %2
+  %32 = add i8 %2, %31
   %33 = zext i8 %29 to i64
   %34 = getelementptr i64, ptr %26, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -8

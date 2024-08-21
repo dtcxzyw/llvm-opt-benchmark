@@ -177,7 +177,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandYosys(ptr noundef %0, i32 nounde
 34:                                               ; preds = %4
   %35 = load i32, ptr @globalUtilOptind, align 4
   %36 = add nsw i32 %35, 1
-  %.not102 = icmp eq i32 %36, %1
+  %.not102 = icmp eq i32 %1, %36
   br i1 %.not102, label %38, label %37
 
 37:                                               ; preds = %34
@@ -387,7 +387,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGraft(ptr nocapture noundef read
 14:                                               ; preds = %11
   %15 = load i32, ptr @globalUtilOptind, align 4
   %16 = sub nsw i32 %1, %15
-  %17 = icmp ne i32 %15, %1
+  %17 = icmp ne i32 %1, %15
   %18 = icmp ne i32 %16, 2
   %or.cond = select i1 %17, i1 %18, i1 false
   br i1 %or.cond, label %19, label %20

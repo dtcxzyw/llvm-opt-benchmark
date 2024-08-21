@@ -1443,17 +1443,17 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %hpr_key, ptr noundef nonnull align 16 dereferenceable(32) @__const.test_wire_pkt_hdr_actual.hpr_key, i64 32, i1 false)
   %expected_len = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load i64, ptr %expected_len, align 8
-  %cmp = icmp ugt i64 %1, %trunc_len
+  %cmp = icmp ult i64 %trunc_len, %1
   %min_success_len = getelementptr inbounds i8, ptr %0, i64 128
   %2 = load i64, ptr %min_success_len, align 8
-  %cmp1 = icmp ugt i64 %2, %trunc_len
+  %cmp1 = icmp ult i64 %trunc_len, %2
   %conv3 = trunc i32 %tidx to i8
   %arrayidx4 = getelementptr inbounds i8, ptr %hpr_key, i64 8
   store i8 %conv3, ptr %arrayidx4, align 8
   %conv5 = trunc nsw i32 %repeat to i8
   %arrayidx6 = getelementptr inbounds i8, ptr %hpr_key, i64 9
   store i8 %conv5, ptr %arrayidx6, align 1
-  %cmp8 = icmp ult i64 %2, %trunc_len
+  %cmp8 = icmp ugt i64 %trunc_len, %2
   %or.cond90 = select i1 %cmp, i1 %cmp8, i1 false
   br i1 %or.cond90, label %land.lhs.true10, label %if.end
 

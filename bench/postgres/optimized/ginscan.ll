@@ -775,7 +775,7 @@ define internal fastcc ptr @ginFillScanEntry(ptr noundef %0, i16 noundef zeroext
   %24 = getelementptr inbounds i8, ptr %19, i64 9
   %25 = load i8, ptr %24, align 1
   %26 = trunc i8 %25 to i1
-  %27 = xor i1 %26, %6
+  %27 = xor i1 %6, %26
   br i1 %27, label %46, label %28
 
 28:                                               ; preds = %23

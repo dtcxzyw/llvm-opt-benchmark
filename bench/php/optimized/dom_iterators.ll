@@ -45,7 +45,7 @@ declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #2
 define hidden ptr @php_dom_libxml_hash_iter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @xmlHashSize(ptr noundef %0) #8
   %4 = icmp sgt i32 %3, 0
-  %5 = icmp sgt i32 %3, %1
+  %5 = icmp slt i32 %1, %3
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %6, label %11
 
@@ -105,7 +105,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #2
 define hidden noundef ptr @php_dom_libxml_notation_iter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @xmlHashSize(ptr noundef %0) #8
   %4 = icmp sgt i32 %3, 0
-  %5 = icmp sgt i32 %3, %1
+  %5 = icmp slt i32 %1, %3
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %6, label %28
 

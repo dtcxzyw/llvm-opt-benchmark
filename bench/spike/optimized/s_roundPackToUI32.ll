@@ -34,7 +34,7 @@ define range(i64 0, 144115188075855872) i64 @softfloat_roundPackToUI32(i1 nounde
 
 21:                                               ; preds = %12
   %22 = icmp ne i32 %14, 0
-  %or.cond7 = and i1 %22, %3
+  %or.cond7 = and i1 %3, %22
   br i1 %or.cond7, label %23, label %28
 
 23:                                               ; preds = %21

@@ -4878,9 +4878,9 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %invoke.cont13
 
 invoke.cont16:                                    ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i, %invoke.cont13
   %10 = xor i32 %4, -1
-  %sub17 = add i32 %10, %num_decls
+  %sub17 = add i32 %num_decls, %10
   %11 = load i32, ptr %m_pos.i.i.i.i, align 8
-  %cmp.not.i = icmp ugt i32 %11, %sub17
+  %cmp.not.i = icmp ult i32 %sub17, %11
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont16
@@ -4963,9 +4963,9 @@ lpad18:                                           ; preds = %if.then2.i.i.i.i.i,
 if.else:                                          ; preds = %for.body
   %22 = trunc nuw i64 %indvars.iv to i32
   %23 = xor i32 %22, -1
-  %sub23 = add i32 %23, %num_decls
+  %sub23 = add i32 %num_decls, %23
   %24 = load i32, ptr %m_pos.i.i.i.i, align 8
-  %cmp.not.i20 = icmp ugt i32 %24, %sub23
+  %cmp.not.i20 = icmp ult i32 %sub23, %24
   br i1 %cmp.not.i20, label %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE7inc_refEPS0_.exit.i.i28, label %if.then.i21
 
 if.then.i21:                                      ; preds = %if.else
@@ -5179,7 +5179,7 @@ entry:
   %m_buffer = getelementptr inbounds i8, ptr %this, i64 8
   %m_pos.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %m_pos.i, align 8
-  %cmp = icmp ugt i32 %0, %sz
+  %cmp = icmp ult i32 %sz, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -5220,7 +5220,7 @@ if.end.loopexit:                                  ; preds = %_ZN15ref_buffer_cor
 
 if.end:                                           ; preds = %if.end.loopexit, %entry
   %5 = phi i32 [ %.pre, %if.end.loopexit ], [ %0, %entry ]
-  %cmp.i4 = icmp ult i32 %5, %sz
+  %cmp.i4 = icmp ugt i32 %sz, %5
   br i1 %cmp.i4, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %if.end
@@ -5294,7 +5294,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP4expr
   br i1 %exitcond.not.i, label %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit, label %for.body.i6, !llvm.loop !21
 
 if.else.i:                                        ; preds = %if.end
-  %cmp3.i5 = icmp ugt i32 %5, %sz
+  %cmp3.i5 = icmp ult i32 %sz, %5
   br i1 %cmp3.i5, label %for.cond6.preheader.i, label %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit
 
 for.cond6.preheader.i:                            ; preds = %if.else.i

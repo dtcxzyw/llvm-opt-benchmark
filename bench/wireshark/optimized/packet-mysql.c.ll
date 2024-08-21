@@ -6472,7 +6472,7 @@ define internal fastcc i32 @mysql_dissect_auth_sha2(ptr noundef %0, ptr nocaptur
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #8
   %10 = icmp eq i32 %9, 2
   %11 = zext i1 %10 to i32
-  %spec.select = add i32 %11, %2
+  %spec.select = add i32 %2, %11
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %spec.select) #8
   switch i8 %12, label %25 [
     i8 2, label %13

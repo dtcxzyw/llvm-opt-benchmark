@@ -1147,7 +1147,7 @@ define hidden void @zim_SplFixedArray_setSize(ptr nocapture noundef readonly %0,
 tailrecurse.i:                                    ; preds = %61, %18
   %.tr46.i = phi i64 [ %13, %18 ], [ %62, %61 ]
   %23 = load i64, ptr %20, align 8
-  %24 = icmp eq i64 %23, %.tr46.i
+  %24 = icmp eq i64 %.tr46.i, %23
   br i1 %24, label %spl_fixedarray_resize.exit, label %25
 
 25:                                               ; preds = %tailrecurse.i
@@ -1210,7 +1210,7 @@ tailrecurse.i:                                    ; preds = %61, %18
   br label %61
 
 43:                                               ; preds = %37
-  %44 = icmp slt i64 %23, %.tr46.i
+  %44 = icmp sgt i64 %.tr46.i, %23
   br i1 %44, label %45, label %.lr.ph.preheader.i42.i
 
 45:                                               ; preds = %43
@@ -2560,7 +2560,7 @@ spl_fixedarray_init.exit.i:                       ; preds = %.lr.ph.i.i.i, %26
 spl_fixedarray_copy_ctor.exit:                    ; preds = %42, %spl_fixedarray_init.exit.i, %3
   %43 = load ptr, ptr @spl_ce_SplFixedArray, align 8
   %44 = icmp ne ptr %0, null
-  %45 = icmp ne ptr %43, %0
+  %45 = icmp ne ptr %0, %43
   %or.cond.not43 = select i1 %44, i1 %45, i1 false
   br i1 %or.cond.not43, label %.lr.ph, label %._crit_edge.thread
 

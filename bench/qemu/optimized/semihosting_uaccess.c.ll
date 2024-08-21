@@ -8,7 +8,7 @@ define dso_local noundef ptr @uaccess_lock_user(ptr noundef %env, i64 noundef %a
 entry:
   %call = tail call noalias ptr @malloc(i64 noundef %len) #5
   %tobool.not = icmp ne ptr %call, null
-  %brmerge.not = and i1 %tobool.not, %copy
+  %brmerge.not = and i1 %copy, %tobool.not
   br i1 %brmerge.not, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry

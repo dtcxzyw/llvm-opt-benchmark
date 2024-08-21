@@ -69,7 +69,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_buf_reserve(ptr nocapture nound
 
 10:                                               ; preds = %3
   %11 = shl i64 %9, 1
-  %12 = tail call i64 @llvm.umax.i64(i64 %11, i64 %1)
+  %12 = tail call i64 @llvm.umax.i64(i64 %1, i64 %11)
   %13 = tail call ptr @nghttp2_mem_realloc(ptr noundef %2, ptr noundef %6, i64 noundef %12) #9
   %14 = icmp eq ptr %13, null
   br i1 %14, label %34, label %15
@@ -262,7 +262,7 @@ buf_chain_new.exit:                               ; preds = %nghttp2_buf_init2.e
 define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_realloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %buf_chain_new.exit, label %6
 
 6:                                                ; preds = %2

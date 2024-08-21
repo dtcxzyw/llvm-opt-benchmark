@@ -1038,7 +1038,7 @@ define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroex
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %50, i64 264
   %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, %2
+  %56 = icmp eq ptr %2, %55
   br i1 %56, label %153, label %57
 
 57:                                               ; preds = %53

@@ -978,7 +978,7 @@ Vec_PtrPush.exit432:                              ; preds = %.Vec_PtrGrow.exit11
 
 327:                                              ; preds = %326
   %328 = load i32, ptr %323, align 4
-  %329 = icmp sgt i32 %328, %.5286542
+  %329 = icmp slt i32 %.5286542, %328
   br i1 %329, label %Extra_ProgressBarUpdate.exit, label %330
 
 330:                                              ; preds = %327, %326

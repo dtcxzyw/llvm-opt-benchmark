@@ -198,8 +198,8 @@ define void @_ZN6colvar12alpha_angles10calc_valueEv(ptr nocapture noundef nonnul
   %33 = fdiv double %31, %32
   %34 = fneg double %33
   %35 = tail call double @llvm.fmuladd.f64(double %34, double %33, double 1.000000e+00)
-  %36 = fmul double %33, %34
-  %37 = fmul double %33, %36
+  %36 = fmul double %33, %33
+  %37 = fmul double %36, %34
   %38 = tail call double @llvm.fmuladd.f64(double %37, double %33, double 1.000000e+00)
   %39 = fdiv double %35, %38
   %40 = load double, ptr %2, align 8

@@ -272,7 +272,7 @@ define internal fastcc i32 @get_l4proto(ptr noundef %0, i32 noundef %1, i8 nound
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 116
   %12 = load i32, ptr %11, align 4
-  %13 = add i32 %12, %1
+  %13 = add i32 %1, %12
   %14 = sub i32 %10, %13
   %15 = icmp slt i32 %14, 20
   br i1 %15, label %16, label %21, !prof !11
@@ -307,7 +307,7 @@ define internal fastcc i32 @get_l4proto(ptr noundef %0, i32 noundef %1, i8 nound
   %34 = shl i8 %33, 2
   %35 = and i8 %34, 60
   %36 = zext nneg i8 %35 to i32
-  %37 = add i32 %36, %1
+  %37 = add i32 %1, %36
   %38 = getelementptr inbounds i8, ptr %27, i64 9
   %39 = load i8, ptr %38, align 1
   store i8 %39, ptr %3, align 1
@@ -458,7 +458,7 @@ define internal fastcc zeroext i1 @nf_ct_get_tuple(ptr noundef %0, i32 noundef %
   store i32 0, ptr %8, align 4, !annotation !10
   %51 = load i32, ptr %16, align 8
   %52 = load i32, ptr %18, align 4
-  %53 = add i32 %52, %2
+  %53 = add i32 %2, %52
   %54 = sub i32 %51, %53
   %55 = icmp slt i32 %54, 4
   br i1 %55, label %56, label %61, !prof !11
@@ -3832,7 +3832,7 @@ define dso_local void @__nf_ct_refresh_acct(ptr noundef %0, i32 noundef %1, ptr 
 14:                                               ; preds = %10
   %15 = load volatile i64, ptr @jiffies, align 64
   %16 = trunc i64 %15 to i32
-  %17 = add i32 %16, %3
+  %17 = add i32 %3, %16
   br label %18
 
 18:                                               ; preds = %14, %10

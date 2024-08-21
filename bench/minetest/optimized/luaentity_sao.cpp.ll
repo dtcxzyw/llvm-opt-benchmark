@@ -2170,7 +2170,7 @@ _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZSt4endlIcSt11char
 if.end36:                                         ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit, %land.lhs.true, %if.end24
   %m_last_sent_position_timer = getelementptr inbounds i8, ptr %this, i64 984
   %33 = load float, ptr %m_last_sent_position_timer, align 8, !tbaa !194
-  %add = fadd nsz float %33, %dtime
+  %add = fadd nsz float %dtime, %33
   store float %add, ptr %m_last_sent_position_timer, align 8, !tbaa !194
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %moveresult) #32
   store i8 0, ptr %moveresult, align 8, !tbaa !195
@@ -2285,11 +2285,11 @@ invoke.cont117:                                   ; preds = %if.else
   %Z.i336 = getelementptr inbounds i8, ptr %this, i64 944
   %49 = load float, ptr %Z.i336, align 8, !tbaa !209
   %mul3.i337 = fmul nsz float %49, 5.000000e-01
-  %mul3.i344 = fmul nsz float %mul3.i337, %dtime
+  %mul3.i344 = fmul nsz float %dtime, %mul3.i337
   %Z.i350 = getelementptr inbounds i8, ptr %this, i64 932
   %50 = load float, ptr %Z.i350, align 4, !tbaa !209
   %add6.i = fadd nsz float %50, %mul3.i344
-  %mul3.i359 = fmul nsz float %add6.i, %dtime
+  %mul3.i359 = fmul nsz float %dtime, %add6.i
   %m_base_position107 = getelementptr inbounds i8, ptr %this, i64 32
   %51 = load <2 x float>, ptr %m_acceleration93, align 8, !tbaa !88
   %52 = fmul nsz <2 x float> %51, <float 5.000000e-01, float 5.000000e-01>
@@ -2306,7 +2306,7 @@ invoke.cont117:                                   ; preds = %if.else
   %61 = load float, ptr %Z5.i369, align 8, !tbaa !209
   %add6.i370 = fadd nsz float %mul3.i359, %61
   store float %add6.i370, ptr %Z5.i369, align 8, !tbaa !209
-  %mul3.i.i = fmul nsz float %49, %dtime
+  %mul3.i.i = fmul nsz float %dtime, %49
   %62 = fmul nsz <2 x float> %54, %51
   %63 = fadd nsz <2 x float> %62, %56
   store <2 x float> %63, ptr %m_velocity90, align 4, !tbaa !88
@@ -2361,7 +2361,7 @@ invoke.cont148:                                   ; preds = %if.then132
   %add.i378 = fadd nsz float %fmod.i.i, 3.600000e+02
   %cond.i = select nsz i1 %cmp.i, float %add.i378, float %fmod.i.i
   store float %cond.i, ptr %Y, align 8, !tbaa !215
-  %mul154 = fmul nsz float %71, %dtime
+  %mul154 = fmul nsz float %dtime, %71
   %sub.i = fsub nsz float %conv143, %cond.i
   %cmp.i379 = fcmp nsz olt float %sub.i, 0.000000e+00
   %add.i380 = fadd nsz float %sub.i, 3.600000e+02

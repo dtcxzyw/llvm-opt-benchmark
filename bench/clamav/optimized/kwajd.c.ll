@@ -2370,7 +2370,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef %0, pt
   %.2.us123 = phi i32 [ %.174113.us120, %.lr.ph114.split.us127 ], [ %8, %.preheader99.us124 ]
   %14 = add i16 %.087111.us121, 1
   %15 = zext i16 %14 to i32
-  %16 = icmp ult i32 %15, %0
+  %16 = icmp ugt i32 %0, %15
   br i1 %16, label %.lr.ph114.split.us127, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %..loopexit100_crit_edge.us
@@ -2445,7 +2445,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef %0, pt
   %.5.us.us = phi i32 [ %.4141.us.us, %.lr.ph142.split.us.us ], [ %62, %._crit_edge137.us.us ]
   %38 = add i16 %.289139.us.us, 1
   %39 = zext i16 %38 to i32
-  %40 = icmp ult i32 %39, %0
+  %40 = icmp ugt i32 %0, %39
   br i1 %40, label %.lr.ph142.split.us.us, label %._crit_edge143.us
 
 41:                                               ; preds = %55, %.lr.ph136.us.us

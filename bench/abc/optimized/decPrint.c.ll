@@ -170,8 +170,8 @@ define internal fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, 
   br label %common.ret
 
 33:                                               ; preds = %6
-  %.not114 = icmp slt i32 %9, %.val108
-  %.not115 = icmp slt i32 %16, %.val108
+  %.not114 = icmp sgt i32 %.val108, %9
+  %.not115 = icmp sgt i32 %.val108, %16
   %or.cond116 = select i1 %.not114, i1 true, i1 %.not115
   br i1 %or.cond116, label %74, label %34
 

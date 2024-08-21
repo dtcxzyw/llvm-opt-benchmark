@@ -161,7 +161,7 @@ define hidden void @_ZN11G1EvacStatsC2EPKcmj(ptr nocapture noundef nonnull write
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load i32, ptr @ParallelGCThreads, align 4
   %10 = zext i32 %9 to i64
-  %11 = mul i64 %10, %2
+  %11 = mul i64 %2, %10
   store i64 %11, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 64
   store float 0.000000e+00, ptr %12, align 8

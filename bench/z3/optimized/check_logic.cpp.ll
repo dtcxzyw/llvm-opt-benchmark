@@ -1986,7 +1986,7 @@ while.body78:                                     ; preds = %while.cond75
 
 if.else.i:                                        ; preds = %while.body78
   %43 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %43, %42
+  %cmp3.not.i = icmp ugt i32 %42, %43
   %44 = xor i32 %43, -1
   %.sink367 = select i1 %cmp3.not.i, i32 %44, i32 -1
   %sub9.i = add i32 %42, %.sink367
@@ -2642,16 +2642,12 @@ land.lhs.true.i.i:                                ; preds = %invoke.cont
   %m_names.i.i = getelementptr inbounds i8, ptr %55, i64 608
   %56 = load ptr, ptr %m_names.i.i, align 8
   %cmp.i.i.i229 = icmp eq ptr %56, null
-  br i1 %cmp.i.i.i229, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i229, label %invoke.cont114, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
 
-if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
+_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i:        ; preds = %land.lhs.true.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %56, i64 -4
   %57 = load i32, ptr %arrayidx.i.i.i, align 4
-  br label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
-
-_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i:        ; preds = %if.end.i.i.i, %land.lhs.true.i.i
-  %retval.0.i.i.i = phi i32 [ %57, %if.end.i.i.i ], [ 0, %land.lhs.true.i.i ]
-  %cmp2.i.i = icmp sgt i32 %retval.0.i.i.i, %2
+  %cmp2.i.i = icmp slt i32 %2, %57
   br i1 %cmp2.i.i, label %cond.true.i.i, label %invoke.cont114
 
 cond.true.i.i:                                    ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
@@ -2659,8 +2655,8 @@ cond.true.i.i:                                    ; preds = %_ZNK6vectorI6symbol
   %arrayidx.i3.i.i = getelementptr inbounds %class.symbol, ptr %56, i64 %idxprom.i.i.i
   br label %invoke.cont114
 
-invoke.cont114:                                   ; preds = %cond.true.i.i, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, %invoke.cont
-  %cond-lvalue.i.i = phi ptr [ %arrayidx.i3.i.i, %cond.true.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i ], [ @_ZN6symbol4nullE, %invoke.cont ]
+invoke.cont114:                                   ; preds = %cond.true.i.i, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, %land.lhs.true.i.i, %invoke.cont
+  %cond-lvalue.i.i = phi ptr [ %arrayidx.i3.i.i, %cond.true.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i ], [ @_ZN6symbol4nullE, %invoke.cont ], [ @_ZN6symbol4nullE, %land.lhs.true.i.i ]
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %cond-lvalue.i.i, align 8
   %call117 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo6symbol(ptr noundef nonnull align 8 dereferenceable(8) %call112, ptr %agg.tmp.sroa.0.0.copyload)
           to label %invoke.cont116 unwind label %lpad
@@ -2779,7 +2775,7 @@ if.else:                                          ; preds = %_ZNK4decl13get_fami
   %4 = load ptr, ptr %this, align 8
   %m_bool_sort.i = getelementptr inbounds i8, ptr %4, i64 840
   %5 = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i12 = icmp eq ptr %5, %s.tr60
+  %cmp.i12 = icmp eq ptr %s.tr60, %5
   br i1 %cmp.i12, label %if.end55, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
 
 _ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %if.else

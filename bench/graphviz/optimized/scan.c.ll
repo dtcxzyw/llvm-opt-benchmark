@@ -633,7 +633,7 @@ addstr.exit:                                      ; preds = %addstr.exit.backedg
   %282 = ptrtoint ptr %274 to i64
   %283 = sub i64 %281, %282
   %284 = load i64, ptr @storeFileName.cnt, align 8
-  %285 = icmp ult i64 %284, %283
+  %285 = icmp ugt i64 %283, %284
   %.pre.i.i = load ptr, ptr @storeFileName.buf, align 8
   br i1 %285, label %286, label %storeFileName.exit.i
 
@@ -1407,7 +1407,7 @@ agxblen.exit.i.i.i128:                            ; preds = %743
   %.0.i2.i.i.i131 = select i1 %.not.i.i.i.i130, i64 %747, i64 31
   %.0.i24.i.i.i132 = select i1 %.not.i.i.i.i130, i64 %748, i64 %746
   %749 = sub i64 %.0.i2.i.i.i131, %.0.i24.i.i.i132
-  %750 = icmp ult i64 %749, %744
+  %750 = icmp ugt i64 %744, %749
   br i1 %750, label %751, label %752
 
 751:                                              ; preds = %agxblen.exit.i.i.i128
@@ -1509,7 +1509,7 @@ agxblen.exit.i.i.i137:                            ; preds = %801
   %.0.i2.i.i.i140 = select i1 %.not.i.i.i.i139, i64 %806, i64 31
   %.0.i24.i.i.i141 = select i1 %.not.i.i.i.i139, i64 %807, i64 %805
   %808 = sub i64 %.0.i2.i.i.i140, %.0.i24.i.i.i141
-  %809 = icmp ult i64 %808, %803
+  %809 = icmp ugt i64 %803, %808
   br i1 %809, label %810, label %811
 
 810:                                              ; preds = %agxblen.exit.i.i.i137
@@ -1585,7 +1585,7 @@ agxblen.exit.i.i.i146:                            ; preds = %840
   %.0.i2.i.i.i149 = select i1 %.not.i.i.i.i148, i64 %846, i64 31
   %.0.i24.i.i.i150 = select i1 %.not.i.i.i.i148, i64 %847, i64 %845
   %848 = sub i64 %.0.i2.i.i.i149, %.0.i24.i.i.i150
-  %849 = icmp ult i64 %848, %843
+  %849 = icmp ugt i64 %843, %848
   br i1 %849, label %850, label %851
 
 850:                                              ; preds = %agxblen.exit.i.i.i146
@@ -1653,7 +1653,7 @@ agxblen.exit.i.i.i155:                            ; preds = %879
   %.0.i2.i.i.i158 = select i1 %.not.i.i.i.i157, i64 %883, i64 31
   %.0.i24.i.i.i159 = select i1 %.not.i.i.i.i157, i64 %884, i64 %882
   %885 = sub i64 %.0.i2.i.i.i158, %.0.i24.i.i.i159
-  %886 = icmp ult i64 %885, %880
+  %886 = icmp ugt i64 %880, %885
   br i1 %886, label %887, label %888
 
 887:                                              ; preds = %agxblen.exit.i.i.i155
@@ -1727,7 +1727,7 @@ agxblen.exit.i.i.i164:                            ; preds = %918
   %.0.i2.i.i.i167 = select i1 %.not.i.i.i.i166, i64 %922, i64 31
   %.0.i24.i.i.i168 = select i1 %.not.i.i.i.i166, i64 %923, i64 %921
   %924 = sub i64 %.0.i2.i.i.i167, %.0.i24.i.i.i168
-  %925 = icmp ult i64 %924, %919
+  %925 = icmp ugt i64 %919, %924
   br i1 %925, label %926, label %927
 
 926:                                              ; preds = %agxblen.exit.i.i.i164
@@ -2491,7 +2491,7 @@ define noundef ptr @aag_create_buffer(ptr noundef %0, i32 noundef %1) local_unna
   store i32 1, ptr %13, align 8
   %14 = tail call ptr @__errno_location() #31
   %15 = load i32, ptr %14, align 4
-  %.pre.i = load ptr, ptr @yy_buffer_stack, align 8
+  %.pr.pre.i = load ptr, ptr @yy_buffer_stack, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 28
   store i32 0, ptr %16, align 4
   store i8 0, ptr %9, align 1
@@ -2503,55 +2503,61 @@ define noundef ptr @aag_create_buffer(ptr noundef %0, i32 noundef %1) local_unna
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 0, ptr %20, align 8
-  %.not10.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not10.i.i, label %aag_flush_buffer.exit.i.thread, label %21
+  %.not10.i.i = icmp eq ptr %.pr.pre.i, null
+  br i1 %.not10.i.i, label %aag_flush_buffer.exit.thread.i, label %22
 
-21:                                               ; preds = %12
-  %22 = load i64, ptr @yy_buffer_stack_top, align 8
-  %23 = getelementptr inbounds ptr, ptr %.pre.i, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, %3
-  br i1 %25, label %aag_flush_buffer.exit.thread.i, label %aag_flush_buffer.exit.i.thread
-
-aag_flush_buffer.exit.thread.i:                   ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %24, i64 28
-  %27 = load i32, ptr %26, align 4
-  store i32 %27, ptr @yy_n_chars, align 4
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr @yy_c_buf_p, align 8
-  store ptr %29, ptr @aagtext, align 8
-  %30 = load ptr, ptr %23, align 8
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr @aagin, align 8
-  %32 = load i8, ptr %29, align 1
-  store i8 %32, ptr @yy_hold_char, align 1
-  %.pre = load ptr, ptr %23, align 8
-  br label %aag_flush_buffer.exit.i.thread
-
-aag_flush_buffer.exit.i.thread:                   ; preds = %aag_flush_buffer.exit.thread.i, %21, %12
-  %33 = phi ptr [ null, %12 ], [ %.pre, %aag_flush_buffer.exit.thread.i ], [ %24, %21 ]
+aag_flush_buffer.exit.thread.i:                   ; preds = %12
   store ptr %0, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 1, ptr %34, align 4
-  %.not10.i = icmp eq ptr %33, %3
-  br i1 %.not10.i, label %aag_init_buffer.exit, label %35
+  %21 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %21, align 4
+  br label %.thread.i
 
-35:                                               ; preds = %aag_flush_buffer.exit.i.thread
-  %36 = getelementptr inbounds i8, ptr %3, i64 44
-  store i32 1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 0, ptr %37, align 8
+22:                                               ; preds = %12
+  %23 = load i64, ptr @yy_buffer_stack_top, align 8
+  %24 = getelementptr inbounds ptr, ptr %.pr.pre.i, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %3, %25
+  br i1 %26, label %27, label %35
+
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds i8, ptr %25, i64 28
+  %29 = load i32, ptr %28, align 4
+  store i32 %29, ptr @yy_n_chars, align 4
+  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr @yy_c_buf_p, align 8
+  store ptr %31, ptr @aagtext, align 8
+  %32 = load ptr, ptr %24, align 8
+  %33 = load ptr, ptr %32, align 8
+  store ptr %33, ptr @aagin, align 8
+  %34 = load i8, ptr %31, align 1
+  store i8 %34, ptr @yy_hold_char, align 1
+  %.pre = load ptr, ptr %24, align 8
+  br label %35
+
+35:                                               ; preds = %22, %27
+  %36 = phi ptr [ %25, %22 ], [ %.pre, %27 ]
+  store ptr %0, ptr %3, align 8
+  %37 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %37, align 4
+  %.not10.i = icmp eq ptr %3, %36
+  br i1 %.not10.i, label %aag_init_buffer.exit, label %.thread.i
+
+.thread.i:                                        ; preds = %35, %aag_flush_buffer.exit.thread.i
+  %38 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 1, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 0, ptr %39, align 8
   br label %aag_init_buffer.exit
 
-aag_init_buffer.exit:                             ; preds = %aag_flush_buffer.exit.i.thread, %35
+aag_init_buffer.exit:                             ; preds = %35, %.thread.i
   %.not11.i = icmp ne ptr %0, null
-  %38 = load i32, ptr @gv_isatty_suppression, align 4
-  %39 = icmp sgt i32 %38, 0
-  %narrow.i = select i1 %.not11.i, i1 %39, i1 false
-  %40 = zext i1 %narrow.i to i32
-  %41 = getelementptr inbounds i8, ptr %3, i64 36
-  store i32 %40, ptr %41, align 4
+  %40 = load i32, ptr @gv_isatty_suppression, align 4
+  %41 = icmp sgt i32 %40, 0
+  %narrow.i = select i1 %.not11.i, i1 %41, i1 false
+  %42 = zext i1 %narrow.i to i32
+  %43 = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 %42, ptr %43, align 4
   store i32 %15, ptr %14, align 4
   ret ptr %3
 }
@@ -2717,76 +2723,71 @@ define void @aagrestart(ptr noundef %0) local_unnamed_addr #1 {
   store i32 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %27, i64 56
   store i32 0, ptr %41, align 8
-  br i1 %.not39, label %aag_flush_buffer.exit.i, label %.thread
+  br i1 %.not39, label %aag_flush_buffer.exit.thread.i, label %43
 
-.thread:                                          ; preds = %26
-  %42 = load ptr, ptr %30, align 8
-  %43 = icmp eq ptr %42, %27
-  br i1 %43, label %aag_flush_buffer.exit.thread.i, label %aag_flush_buffer.exit.i.thread
+aag_flush_buffer.exit.thread.i:                   ; preds = %26
+  store ptr %0, ptr %27, align 8
+  %42 = getelementptr inbounds i8, ptr %27, i64 52
+  store i32 1, ptr %42, align 4
+  br label %.thread.i
 
-aag_flush_buffer.exit.thread.i:                   ; preds = %.thread
+43:                                               ; preds = %26
   %44 = load ptr, ptr %30, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 28
-  %46 = load i32, ptr %45, align 4
-  store i32 %46, ptr @yy_n_chars, align 4
-  %47 = getelementptr inbounds i8, ptr %44, i64 16
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr @yy_c_buf_p, align 8
-  store ptr %48, ptr @aagtext, align 8
-  %49 = load ptr, ptr %30, align 8
+  %45 = icmp eq ptr %27, %44
+  br i1 %45, label %46, label %aag_flush_buffer.exit.thread14.i
+
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %44, i64 28
+  %48 = load i32, ptr %47, align 4
+  store i32 %48, ptr @yy_n_chars, align 4
+  %49 = getelementptr inbounds i8, ptr %44, i64 16
   %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr @aagin, align 8
-  %51 = load i8, ptr %48, align 1
-  store i8 %51, ptr @yy_hold_char, align 1
-  br label %aag_flush_buffer.exit.i.thread
+  store ptr %50, ptr @yy_c_buf_p, align 8
+  store ptr %50, ptr @aagtext, align 8
+  %51 = load ptr, ptr %30, align 8
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr @aagin, align 8
+  %53 = load i8, ptr %50, align 1
+  store i8 %53, ptr @yy_hold_char, align 1
+  br label %aag_flush_buffer.exit.thread14.i
 
-aag_flush_buffer.exit.i:                          ; preds = %26
+aag_flush_buffer.exit.thread14.i:                 ; preds = %46, %43
   store ptr %0, ptr %27, align 8
-  %52 = getelementptr inbounds i8, ptr %27, i64 52
-  store i32 1, ptr %52, align 4
-  br label %55
+  %54 = getelementptr inbounds i8, ptr %27, i64 52
+  store i32 1, ptr %54, align 4
+  %55 = load ptr, ptr %30, align 8
+  %.not10.i4 = icmp eq ptr %27, %55
+  br i1 %.not10.i4, label %aag_init_buffer.exit, label %.thread.i
 
-aag_flush_buffer.exit.i.thread:                   ; preds = %.thread, %aag_flush_buffer.exit.thread.i
-  store ptr %0, ptr %27, align 8
-  %53 = getelementptr inbounds i8, ptr %27, i64 52
-  store i32 1, ptr %53, align 4
-  %54 = load ptr, ptr %30, align 8
-  br label %55
-
-55:                                               ; preds = %aag_flush_buffer.exit.i, %aag_flush_buffer.exit.i.thread
-  %56 = phi ptr [ %54, %aag_flush_buffer.exit.i.thread ], [ null, %aag_flush_buffer.exit.i ]
-  %.not10.i5 = icmp eq ptr %56, %27
-  br i1 %.not10.i5, label %aag_init_buffer.exit, label %57
-
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %27, i64 44
-  store i32 1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %27, i64 48
-  store i32 0, ptr %59, align 8
+.thread.i:                                        ; preds = %aag_flush_buffer.exit.thread14.i, %aag_flush_buffer.exit.thread.i
+  %56 = getelementptr inbounds i8, ptr %27, i64 44
+  store i32 1, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %27, i64 48
+  store i32 0, ptr %57, align 8
   br label %aag_init_buffer.exit
 
-aag_init_buffer.exit:                             ; preds = %55, %57
-  %.not11.i6 = icmp ne ptr %0, null
-  %60 = load i32, ptr @gv_isatty_suppression, align 4
-  %61 = icmp sgt i32 %60, 0
-  %narrow.i = select i1 %.not11.i6, i1 %61, i1 false
-  %62 = zext i1 %narrow.i to i32
-  %63 = getelementptr inbounds i8, ptr %27, i64 36
-  store i32 %62, ptr %63, align 4
+aag_init_buffer.exit:                             ; preds = %aag_flush_buffer.exit.thread14.i, %.thread.i
+  %.not11.i5 = icmp ne ptr %0, null
+  %58 = load i32, ptr @gv_isatty_suppression, align 4
+  %59 = icmp sgt i32 %58, 0
+  %narrow.i = select i1 %.not11.i5, i1 %59, i1 false
+  %60 = zext i1 %narrow.i to i32
+  %61 = getelementptr inbounds i8, ptr %27, i64 36
+  store i32 %60, ptr %61, align 4
   store i32 %32, ptr %31, align 4
-  %64 = load ptr, ptr %30, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 28
-  %66 = load i32, ptr %65, align 4
-  store i32 %66, ptr @yy_n_chars, align 4
-  %67 = getelementptr inbounds i8, ptr %64, i64 16
+  %62 = load ptr, ptr %30, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 28
+  %64 = load i32, ptr %63, align 4
+  store i32 %64, ptr @yy_n_chars, align 4
+  %65 = getelementptr inbounds i8, ptr %62, i64 16
+  %66 = load ptr, ptr %65, align 8
+  store ptr %66, ptr @yy_c_buf_p, align 8
+  store ptr %66, ptr @aagtext, align 8
+  %67 = load ptr, ptr %30, align 8
   %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr @yy_c_buf_p, align 8
-  store ptr %68, ptr @aagtext, align 8
-  %69 = load ptr, ptr %30, align 8
-  %70 = load ptr, ptr %69, align 8
-  store ptr %70, ptr @aagin, align 8
-  %71 = load i8, ptr %68, align 1
-  store i8 %71, ptr @yy_hold_char, align 1
+  store ptr %68, ptr @aagin, align 8
+  %69 = load i8, ptr %66, align 1
+  store i8 %69, ptr @yy_hold_char, align 1
   ret void
 }
 
@@ -2900,47 +2901,41 @@ define noalias noundef ptr @aagalloc(i64 noundef %0) local_unnamed_addr #7 {
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @aag_delete_buffer(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %21, label %2
+  br i1 %.not, label %16, label %2
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @yy_buffer_stack, align 8
   %.not6 = icmp eq ptr %3, null
-  br i1 %.not6, label %8, label %4
+  br i1 %.not6, label %.thread, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @yy_buffer_stack_top, align 8
   %6 = getelementptr inbounds ptr, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
-  br label %8
+  %8 = icmp eq ptr %0, %7
+  br i1 %8, label %9, label %.thread
 
-8:                                                ; preds = %2, %4
-  %9 = phi ptr [ %7, %4 ], [ null, %2 ]
-  %10 = icmp eq ptr %9, %0
-  br i1 %10, label %11, label %14
+9:                                                ; preds = %4
+  store ptr null, ptr %6, align 8
+  br label %.thread
 
-11:                                               ; preds = %8
-  %12 = load i64, ptr @yy_buffer_stack_top, align 8
-  %13 = getelementptr inbounds ptr, ptr %3, i64 %12
-  store ptr null, ptr %13, align 8
-  br label %14
+.thread:                                          ; preds = %2, %9, %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = load i32, ptr %10, align 8
+  %.not7 = icmp eq i32 %11, 0
+  br i1 %.not7, label %15, label %12
 
-14:                                               ; preds = %11, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load i32, ptr %15, align 8
-  %.not7 = icmp eq i32 %16, 0
-  br i1 %.not7, label %20, label %17
+12:                                               ; preds = %.thread
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  tail call void @free(ptr noundef %14) #29
+  br label %15
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8
-  tail call void @free(ptr noundef %19) #29
-  br label %20
-
-20:                                               ; preds = %17, %14
+15:                                               ; preds = %12, %.thread
   tail call void @free(ptr noundef nonnull %0) #29
-  br label %21
+  br label %16
 
-21:                                               ; preds = %1, %20
+16:                                               ; preds = %1, %15
   ret void
 }
 
@@ -2953,7 +2948,7 @@ define void @aagfree(ptr nocapture noundef %0) local_unnamed_addr #9 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @aag_flush_buffer(ptr noundef %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %31, label %2
+  br i1 %.not, label %.thread, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -2973,38 +2968,31 @@ define void @aag_flush_buffer(ptr noundef %0) local_unnamed_addr #10 {
   store i32 0, ptr %11, align 8
   %12 = load ptr, ptr @yy_buffer_stack, align 8
   %.not10 = icmp eq ptr %12, null
-  br i1 %.not10, label %17, label %13
+  br i1 %.not10, label %.thread, label %13
 
 13:                                               ; preds = %2
   %14 = load i64, ptr @yy_buffer_stack_top, align 8
   %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
-  br label %17
+  %17 = icmp eq ptr %0, %16
+  br i1 %17, label %18, label %.thread
 
-17:                                               ; preds = %2, %13
-  %18 = phi ptr [ %16, %13 ], [ null, %2 ]
-  %19 = icmp eq ptr %18, %0
-  br i1 %19, label %20, label %31
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %16, i64 28
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr @yy_n_chars, align 4
+  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr @yy_c_buf_p, align 8
+  store ptr %22, ptr @aagtext, align 8
+  %23 = load ptr, ptr %15, align 8
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr @aagin, align 8
+  %25 = load i8, ptr %22, align 1
+  store i8 %25, ptr @yy_hold_char, align 1
+  br label %.thread
 
-20:                                               ; preds = %17
-  %21 = load i64, ptr @yy_buffer_stack_top, align 8
-  %22 = getelementptr inbounds ptr, ptr %12, i64 %21
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 28
-  %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr @yy_n_chars, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr @yy_c_buf_p, align 8
-  store ptr %27, ptr @aagtext, align 8
-  %28 = load ptr, ptr %22, align 8
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr @aagin, align 8
-  %30 = load i8, ptr %27, align 1
-  store i8 %30, ptr @yy_hold_char, align 1
-  br label %31
-
-31:                                               ; preds = %1, %20, %17
+.thread:                                          ; preds = %2, %1, %18, %13
   ret void
 }
 
@@ -3120,52 +3108,52 @@ define void @aagpop_buffer_state() local_unnamed_addr #8 {
   %4 = getelementptr inbounds ptr, ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8
   %.not4 = icmp eq ptr %5, null
-  br i1 %.not4, label %.thread, label %6
+  br i1 %.not4, label %.thread, label %.thread.i
 
-6:                                                ; preds = %2
+.thread.i:                                        ; preds = %2
   store ptr null, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
-  %8 = load i32, ptr %7, align 8
-  %.not7.i = icmp eq i32 %8, 0
-  br i1 %.not7.i, label %aag_delete_buffer.exit, label %9
+  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = load i32, ptr %6, align 8
+  %.not7.i = icmp eq i32 %7, 0
+  br i1 %.not7.i, label %aag_delete_buffer.exit, label %8
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void @free(ptr noundef %11) #29
+8:                                                ; preds = %.thread.i
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void @free(ptr noundef %10) #29
   br label %aag_delete_buffer.exit
 
-aag_delete_buffer.exit:                           ; preds = %6, %9
+aag_delete_buffer.exit:                           ; preds = %.thread.i, %8
   tail call void @free(ptr noundef nonnull %5) #29
   store ptr null, ptr %4, align 8
   %.not5 = icmp eq i64 %3, 0
-  br i1 %.not5, label %.thread, label %12
+  br i1 %.not5, label %.thread, label %11
 
-12:                                               ; preds = %aag_delete_buffer.exit
-  %13 = add i64 %3, -1
-  store i64 %13, ptr @yy_buffer_stack_top, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %1, i64 %13
+11:                                               ; preds = %aag_delete_buffer.exit
+  %12 = add i64 %3, -1
+  store i64 %12, ptr @yy_buffer_stack_top, align 8
+  %.phi.trans.insert = getelementptr inbounds ptr, ptr %1, i64 %12
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not7 = icmp eq ptr %.pre, null
-  br i1 %.not7, label %.thread, label %14
+  br i1 %.not7, label %.thread, label %13
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds ptr, ptr %1, i64 %13
-  %16 = getelementptr inbounds i8, ptr %.pre, i64 28
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr @yy_n_chars, align 4
-  %18 = getelementptr inbounds i8, ptr %.pre, i64 16
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr @yy_c_buf_p, align 8
-  store ptr %19, ptr @aagtext, align 8
-  %20 = load ptr, ptr %15, align 8
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr @aagin, align 8
-  %22 = load i8, ptr %19, align 1
-  store i8 %22, ptr @yy_hold_char, align 1
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds ptr, ptr %1, i64 %12
+  %15 = getelementptr inbounds i8, ptr %.pre, i64 28
+  %16 = load i32, ptr %15, align 4
+  store i32 %16, ptr @yy_n_chars, align 4
+  %17 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr @yy_c_buf_p, align 8
+  store ptr %18, ptr @aagtext, align 8
+  %19 = load ptr, ptr %14, align 8
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr @aagin, align 8
+  %21 = load i8, ptr %18, align 1
+  store i8 %21, ptr @yy_hold_char, align 1
   br label %.thread
 
-.thread:                                          ; preds = %aag_delete_buffer.exit, %2, %0, %14, %12
+.thread:                                          ; preds = %aag_delete_buffer.exit, %2, %0, %13, %11
   ret void
 }
 
@@ -3373,41 +3361,41 @@ define void @aagset_debug(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define noundef i32 @aaglex_destroy() local_unnamed_addr #1 {
   %.pr = load ptr, ptr @yy_buffer_stack, align 8
-  %.not7 = icmp eq ptr %.pr, null
-  br i1 %.not7, label %.thread, label %.lr.ph.preheader
+  %.not8 = icmp eq ptr %.pr, null
+  br i1 %.not8, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @yy_buffer_stack_top, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pr, i64 %.pre
-  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8
-  %.not218 = icmp eq ptr %.pre10, null
-  br i1 %.not218, label %.thread, label %.lr.ph19
+  %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
+  %.not219 = icmp eq ptr %.pre11, null
+  br i1 %.not219, label %.thread, label %.thread.i
 
-.lr.ph19:                                         ; preds = %.lr.ph.preheader
+.thread.i:                                        ; preds = %.lr.ph.preheader
   %1 = getelementptr inbounds ptr, ptr %.pr, i64 %.pre
   store ptr null, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %.pre10, i64 32
+  %2 = getelementptr inbounds i8, ptr %.pre11, i64 32
   %3 = load i32, ptr %2, align 8
   %.not7.i = icmp eq i32 %3, 0
   br i1 %.not7.i, label %aagpop_buffer_state.exit, label %4
 
-4:                                                ; preds = %.lr.ph19
-  %5 = getelementptr inbounds i8, ptr %.pre10, i64 8
+4:                                                ; preds = %.thread.i
+  %5 = getelementptr inbounds i8, ptr %.pre11, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #29
-  %.pre11.pre = load ptr, ptr @yy_buffer_stack, align 8
+  %.pre12.pre = load ptr, ptr @yy_buffer_stack, align 8
   br label %aagpop_buffer_state.exit
 
-aagpop_buffer_state.exit:                         ; preds = %.lr.ph19, %4
-  %.pre11 = phi ptr [ %.pre11.pre, %4 ], [ %.pr, %.lr.ph19 ]
-  tail call void @free(ptr noundef nonnull %.pre10) #29
-  %.pre12 = load i64, ptr @yy_buffer_stack_top, align 8
-  %7 = getelementptr inbounds ptr, ptr %.pre11, i64 %.pre12
+aagpop_buffer_state.exit:                         ; preds = %.thread.i, %4
+  %.pre12 = phi ptr [ %.pre12.pre, %4 ], [ %.pr, %.thread.i ]
+  tail call void @free(ptr noundef nonnull %.pre11) #29
+  %.pre13 = load i64, ptr @yy_buffer_stack_top, align 8
+  %7 = getelementptr inbounds ptr, ptr %.pre12, i64 %.pre13
   store ptr null, ptr %7, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.preheader, %aagpop_buffer_state.exit, %0
-  %.lcssa = phi ptr [ null, %0 ], [ %.pre11, %aagpop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
+  %.lcssa = phi ptr [ null, %0 ], [ %.pre12, %aagpop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
   tail call void @free(ptr noundef %.lcssa) #29
   store ptr null, ptr @yy_buffer_stack, align 8
   store i64 0, ptr @yy_buffer_stack_top, align 8
@@ -3948,23 +3936,22 @@ define void @aglexbad() local_unnamed_addr #10 {
   %15 = getelementptr inbounds i8, ptr %5, i64 56
   store i32 0, ptr %15, align 8
   %16 = load ptr, ptr %4, align 8
-  %17 = icmp eq ptr %16, %5
+  %17 = icmp eq ptr %5, %16
   br i1 %17, label %18, label %aag_flush_buffer.exit
 
 18:                                               ; preds = %6
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 28
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr @yy_n_chars, align 4
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr @yy_c_buf_p, align 8
-  store ptr %23, ptr @aagtext, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr @aagin, align 8
-  %26 = load i8, ptr %23, align 1
-  store i8 %26, ptr @yy_hold_char, align 1
+  %19 = getelementptr inbounds i8, ptr %16, i64 28
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr @yy_n_chars, align 4
+  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr @yy_c_buf_p, align 8
+  store ptr %22, ptr @aagtext, align 8
+  %23 = load ptr, ptr %4, align 8
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr @aagin, align 8
+  %25 = load i8, ptr %22, align 1
+  store i8 %25, ptr @yy_hold_char, align 1
   br label %aag_flush_buffer.exit
 
 aag_flush_buffer.exit:                            ; preds = %0, %2, %6, %18

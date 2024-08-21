@@ -585,7 +585,7 @@ for.end:                                          ; preds = %while.end, %lor.lhs
   %cmp41 = icmp slt i32 %msg_type, 0
   %.pre = load i8, ptr %9, align 1
   %conv44 = zext i8 %.pre to i32
-  %cmp45.not = icmp eq i32 %conv44, %msg_type
+  %cmp45.not = icmp eq i32 %msg_type, %conv44
   %or.cond = select i1 %cmp41, i1 true, i1 %cmp45.not
   br i1 %or.cond, label %if.end48, label %if.then47
 

@@ -1066,7 +1066,7 @@ define internal fastcc i32 @baller_connected(ptr noundef %0, ptr noundef %1, ptr
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
-  %.not = icmp eq ptr %6, %2
+  %.not = icmp eq ptr %2, %6
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %3
@@ -1090,7 +1090,7 @@ cf_hc_baller_reset.exit:                          ; preds = %7, %10
 
 13:                                               ; preds = %cf_hc_baller_reset.exit, %3
   %14 = getelementptr inbounds i8, ptr %5, i64 88
-  %.not52 = icmp eq ptr %14, %2
+  %.not52 = icmp eq ptr %2, %14
   br i1 %.not52, label %21, label %15
 
 15:                                               ; preds = %13

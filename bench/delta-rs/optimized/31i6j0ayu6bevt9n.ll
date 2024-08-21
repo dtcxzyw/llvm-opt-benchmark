@@ -510,7 +510,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp.
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h804fef993fc63809E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !51, !noundef !4
-  %.not.i.i = icmp eq i64 %5, %1
+  %.not.i.i = icmp eq i64 %1, %5
   br i1 %.not.i.i, label %6, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.16051582951938671453.exit"
 
 6:                                                ; preds = %3
@@ -913,7 +913,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit: ; p
   %30 = icmp sgt i32 %2, 0
   %or.cond.i = and i1 %29, %30
   %31 = zext i1 %or.cond.i to i64
-  %.0.i = add nsw i64 %31, %1
+  %.0.i = add nsw i64 %1, %31
   %32 = add nsw i32 %2, -1000000000
   %.04.i = select i1 %or.cond.i, i32 %32, i32 %2
   %33 = mul i64 %.0.i, 1000

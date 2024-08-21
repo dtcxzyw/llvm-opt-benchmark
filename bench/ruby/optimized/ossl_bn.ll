@@ -645,7 +645,7 @@ RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %8, %2
   unreachable
 
 rb_check_frozen_inline.exit:                      ; preds = %8
-  %15 = icmp eq i64 %1, %0
+  %15 = icmp eq i64 %0, %1
   br i1 %15, label %25, label %16
 
 16:                                               ; preds = %rb_check_frozen_inline.exit

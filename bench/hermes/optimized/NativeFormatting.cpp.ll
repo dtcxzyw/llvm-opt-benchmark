@@ -111,7 +111,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.i, %if.then.i.i, %_ZL16format_to_bufferImLm128EEiT_RAT0__c.exit.i
-  %cmp.i = icmp ult i64 %conv.i, %MinDigits
+  %cmp.i = icmp ugt i64 %MinDigits, %conv.i
   %cmp2.i = icmp ne i32 %Style, 1
   %or.cond.i = and i1 %cmp2.i, %cmp.i
   br i1 %or.cond.i, label %for.cond.preheader.i, label %if.end6.i
@@ -153,7 +153,7 @@ if.then8.i:                                       ; preds = %if.end6.i
   %sub.i.i = add nsw i64 %conv.i, -1
   %rem.i22.i = urem i64 %sub.i.i, 3
   %conv.i23.i = add nuw nsw i64 %rem.i22.i, 1
-  %N..i.i.i = call i64 @llvm.umin.i64(i64 %conv.i, i64 %conv.i23.i)
+  %N..i.i.i = call i64 @llvm.umin.i64(i64 %conv.i23.i, i64 %conv.i)
   %call5.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef nonnull %add.ptr.i, i64 noundef %N..i.i.i) #12
   %sub.i.i.i = sub nsw i64 %conv.i, %conv.i23.i
   %cmp.i26.i.i = icmp eq i64 %sub.i.i.i, 0
@@ -285,7 +285,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.i, %if.then.i.i, %_ZL16format_to_bufferIyLm128EEiT_RAT0__c.exit.i
-  %cmp.i = icmp ult i64 %conv.i, %MinDigits
+  %cmp.i = icmp ugt i64 %MinDigits, %conv.i
   %cmp2.i = icmp ne i32 %Style, 1
   %or.cond.i = and i1 %cmp2.i, %cmp.i
   br i1 %or.cond.i, label %for.cond.preheader.i, label %if.end6.i
@@ -327,7 +327,7 @@ if.then8.i:                                       ; preds = %if.end6.i
   %sub.i.i = add nsw i64 %conv.i, -1
   %rem.i22.i = urem i64 %sub.i.i, 3
   %conv.i23.i = add nuw nsw i64 %rem.i22.i, 1
-  %N..i.i.i = call i64 @llvm.umin.i64(i64 %conv.i, i64 %conv.i23.i)
+  %N..i.i.i = call i64 @llvm.umin.i64(i64 %conv.i23.i, i64 %conv.i)
   %call5.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef nonnull %add.ptr.i, i64 noundef %N..i.i.i) #12
   %sub.i.i.i = sub nsw i64 %conv.i, %conv.i23.i
   %cmp.i26.i.i = icmp eq i64 %sub.i.i.i, 0
@@ -613,7 +613,7 @@ _ZN4llvh11SmallStringILj8EE5c_strEv.exit:         ; preds = %if.then23, %if.then
   %sub.ptr.lhs.cast.i7.i47 = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i8.i48 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i9.i49 = sub i64 %sub.ptr.lhs.cast.i7.i47, %sub.ptr.rhs.cast.i8.i48
-  %cmp.i.i50 = icmp ult i64 %sub.ptr.sub.i9.i49, %call.i.i44
+  %cmp.i.i50 = icmp ugt i64 %call.i.i44, %sub.ptr.sub.i9.i49
   br i1 %cmp.i.i50, label %if.then.i.i56, label %if.end.i.i51
 
 if.then.i.i56:                                    ; preds = %_ZN4llvh11SmallStringILj8EE5c_strEv.exit
@@ -675,7 +675,7 @@ _ZN4llvh11SmallStringILj8EE5c_strEv.exit76:       ; preds = %if.end33.critedge, 
   %sub.ptr.lhs.cast.i7.i85 = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast.i8.i86 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i9.i87 = sub i64 %sub.ptr.lhs.cast.i7.i85, %sub.ptr.rhs.cast.i8.i86
-  %cmp.i.i88 = icmp ult i64 %sub.ptr.sub.i9.i87, %call.i.i82
+  %cmp.i.i88 = icmp ugt i64 %call.i.i82, %sub.ptr.sub.i9.i87
   br i1 %cmp.i.i88, label %if.then.i.i94, label %if.end.i.i89
 
 if.then.i.i94:                                    ; preds = %_ZN4llvh11SmallStringILj8EE5c_strEv.exit76
@@ -791,7 +791,7 @@ if.end.i:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %if.then.i, %_ZL16format_to_bufferIjLm128EEiT_RAT0__c.exit
-  %cmp = icmp ult i64 %conv, %MinDigits
+  %cmp = icmp ugt i64 %MinDigits, %conv
   %cmp2 = icmp ne i32 %Style, 1
   %or.cond = and i1 %cmp2, %cmp
   br i1 %or.cond, label %for.cond.preheader, label %if.end6
@@ -833,7 +833,7 @@ if.then8:                                         ; preds = %if.end6
   %sub.i = add nsw i64 %conv, -1
   %rem.i22 = urem i64 %sub.i, 3
   %conv.i = add nuw nsw i64 %rem.i22, 1
-  %N..i.i = call i64 @llvm.umin.i64(i64 %conv, i64 %conv.i)
+  %N..i.i = call i64 @llvm.umin.i64(i64 %conv.i, i64 %conv)
   %call5.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef nonnull %add.ptr, i64 noundef %N..i.i) #12
   %sub.i.i = sub nsw i64 %conv, %conv.i
   %cmp.i26.i = icmp eq i64 %sub.i.i, 0

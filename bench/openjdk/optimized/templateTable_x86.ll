@@ -15526,7 +15526,7 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit142: ; preds 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit143: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit142, %88
   call void @_ZN25InterpreterMacroAssembler4pushE8TosState(ptr noundef nonnull align 8 dereferenceable(48) %85, i32 noundef 0) #8
   %89 = icmp ne i32 %2, 0
-  %or.cond.not = or i1 %89, %1
+  %or.cond.not = or i1 %1, %89
   br i1 %or.cond.not, label %91, label %90
 
 90:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit143
@@ -16767,7 +16767,7 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit163: ; preds 
   call void %91(ptr noundef nonnull align 8 dereferenceable(20) %30, ptr noundef nonnull align 8 dereferenceable(40) %88) #8
   call void @_ZN14MacroAssembler15access_store_atE9BasicTypem7Address8RegisterS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %85, i8 noundef zeroext 8, i64 noundef 262144, ptr noundef nonnull %18, i32 0, i32 -1, i32 -1, i32 -1) #8
   %92 = icmp ne i32 %2, 0
-  %or.cond.not = or i1 %92, %1
+  %or.cond.not = or i1 %1, %92
   br i1 %or.cond.not, label %94, label %93
 
 93:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit163

@@ -298,7 +298,7 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_bz2module) #6
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %call.i) #6
   %0 = load ptr, ptr %call.i.i, align 8
-  %cmp = icmp eq ptr %0, %type
+  %cmp = icmp eq ptr %type, %0
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -1225,7 +1225,7 @@ entry:
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %call.i) #6
   %bz2_decompressor_type = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %0 = load ptr, ptr %bz2_decompressor_type, align 8
-  %cmp = icmp eq ptr %0, %type
+  %cmp = icmp eq ptr %type, %0
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry

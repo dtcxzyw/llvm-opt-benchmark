@@ -2184,7 +2184,7 @@ if.then50:                                        ; preds = %_ZNSt7__cxx1112basi
   %m_speed = getelementptr inbounds i8, ptr %this, i64 336
   %Z.i941 = getelementptr inbounds i8, ptr %this, i64 344
   %29 = load float, ptr %Z.i941, align 8, !tbaa !78
-  %mul3.i = fmul nsz float %29, %dtime
+  %mul3.i = fmul nsz float %dtime, %29
   %30 = load <2 x float>, ptr %m_speed, align 8, !tbaa !68
   %31 = insertelement <2 x float> poison, float %dtime, i64 0
   %32 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> zeroinitializer
@@ -2976,7 +2976,7 @@ land.lhs.true390:                                 ; preds = %if.end384
   br i1 %or.cond, label %if.then395, label %if.end407
 
 if.then395:                                       ; preds = %land.lhs.true390
-  %mul = fmul nsz float %sub, %dtime
+  %mul = fmul nsz float %dtime, %sub
   %153 = call nsz float @llvm.fmuladd.f32(float %mul, float 2.200000e+01, float 0x3FB9999980000000)
   %add398 = fadd nsz float %148, %153
   %cmp.i1329 = fcmp nsz olt float %add4.i1321, %add398
@@ -3947,7 +3947,7 @@ if.then40:                                        ; preds = %_ZNSt7__cxx1112basi
   %m_speed = getelementptr inbounds i8, ptr %this, i64 336
   %Z.i989 = getelementptr inbounds i8, ptr %this, i64 344
   %16 = load float, ptr %Z.i989, align 8, !tbaa !78
-  %mul3.i = fmul nsz float %16, %dtime
+  %mul3.i = fmul nsz float %dtime, %16
   %17 = load <2 x float>, ptr %m_speed, align 8, !tbaa !68
   %18 = insertelement <2 x float> poison, float %dtime, i64 0
   %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
@@ -6608,7 +6608,7 @@ if.else384:                                       ; preds = %lor.lhs.false375
 if.end389:                                        ; preds = %if.else384, %if.then381
   %mul382.pn.in = phi float [ %133, %if.then381 ], [ %mul386, %if.else384 ]
   %mul382.pn = fmul nsz float %mul382.pn.in, 1.000000e+01
-  %incH.0 = fmul nsz float %mul382.pn, %dtime
+  %incH.0 = fmul nsz float %dtime, %mul382.pn
   br label %if.end415
 
 if.else390:                                       ; preds = %lor.lhs.false364
@@ -6631,7 +6631,7 @@ if.then405:                                       ; preds = %lor.lhs.false397, %
   %movement_acceleration_fast406 = getelementptr inbounds i8, ptr %this, i64 96
   %137 = load float, ptr %movement_acceleration_fast406, align 8, !tbaa !234
   %mul407 = fmul nsz float %137, 1.000000e+01
-  %mul408 = fmul nsz float %mul407, %dtime
+  %mul408 = fmul nsz float %dtime, %mul407
   br label %if.end415
 
 if.else409:                                       ; preds = %lor.lhs.false397
@@ -6641,7 +6641,7 @@ if.else409:                                       ; preds = %lor.lhs.false397
   %139 = load float, ptr %acceleration_default, align 4, !tbaa !238
   %mul411 = fmul nsz float %138, %139
   %mul412 = fmul nsz float %mul411, 1.000000e+01
-  %mul413 = fmul nsz float %mul412, %dtime
+  %mul413 = fmul nsz float %dtime, %mul412
   br label %if.end415
 
 if.end415:                                        ; preds = %if.else409, %if.then405, %if.end389
@@ -6946,10 +6946,10 @@ _ZN3irr4core8vector3dIfE9normalizeEv.exit:        ; preds = %if.end.i, %if.then1
   %d_wanted_H.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i89, %if.then13 ], [ %26, %if.end.i ]
   %d_wanted_H.sroa.13.0 = phi float [ %sub6.i, %if.then13 ], [ %conv18.i, %if.end.i ]
   %d_wanted_H.sroa.0.0.vec.extract167 = extractelement <2 x float> %d_wanted_H.sroa.0.0, i64 0
-  %mul.i101 = fmul nsz float %d_wanted_H.sroa.0.0.vec.extract167, %max_increase_H
+  %mul.i101 = fmul nsz float %max_increase_H, %d_wanted_H.sroa.0.0.vec.extract167
   %d_wanted_H.sroa.0.4.vec.extract174 = extractelement <2 x float> %d_wanted_H.sroa.0.0, i64 1
-  %mul2.i = fmul nsz float %d_wanted_H.sroa.0.4.vec.extract174, %max_increase_H
-  %mul3.i = fmul nsz float %d_wanted_H.sroa.13.0, %max_increase_H
+  %mul2.i = fmul nsz float %max_increase_H, %d_wanted_H.sroa.0.4.vec.extract174
+  %mul3.i = fmul nsz float %max_increase_H, %d_wanted_H.sroa.13.0
   br label %if.end21
 
 if.end21:                                         ; preds = %_ZN3irr4core8vector3dIfE9normalizeEv.exit, %if.then7, %if.end
@@ -6964,7 +6964,7 @@ if.then23:                                        ; preds = %if.end21
   br i1 %cmp24, label %if.then25, label %if.else27
 
 if.then25:                                        ; preds = %if.then23
-  %add = fadd nsz float %d.sroa.11.1, %max_increase_V
+  %add = fadd nsz float %max_increase_V, %d.sroa.11.1
   br label %if.end37
 
 if.else27:                                        ; preds = %if.then23

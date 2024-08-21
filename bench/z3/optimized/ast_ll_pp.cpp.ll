@@ -1075,7 +1075,7 @@ if.then.i228:                                     ; preds = %lor.lhs.false.i220,
 
 if.end138:                                        ; preds = %invoke.cont128
   %70 = load ptr, ptr %m_root.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %70, %7
+  %cmp.not.i.i = icmp eq ptr %7, %70
   br i1 %cmp.not.i.i, label %_ZN10ll_printer18display_def_headerEP3ast.exit.i, label %if.then.i.i234
 
 if.then.i.i234:                                   ; preds = %if.end138
@@ -1555,7 +1555,7 @@ define linkonce_odr hidden void @_ZN10ll_printerclEP3var(ptr noundef nonnull ali
 entry:
   %m_root.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_root.i, align 8
-  %cmp.not.i = icmp eq ptr %0, %n
+  %cmp.not.i = icmp eq ptr %n, %0
   br i1 %cmp.not.i, label %_ZN10ll_printer18display_def_headerEP3ast.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -1799,7 +1799,7 @@ if.then:                                          ; preds = %_ZNK10arith_util10i
   %tobool = trunc i8 %5 to i1
   %m_root.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %m_root.i, align 8
-  %cmp.not.i = icmp eq ptr %6, %n
+  %cmp.not.i = icmp eq ptr %n, %6
   %or.cond = select i1 %tobool, i1 true, i1 %cmp.not.i
   br i1 %or.cond, label %if.end, label %if.then.i
 
@@ -1814,7 +1814,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then.i, %if.then
   %9 = phi ptr [ %.pre, %if.then.i ], [ %6, %if.then ]
-  %cmp = icmp eq ptr %9, %n
+  %cmp = icmp eq ptr %n, %9
   br i1 %cmp, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
@@ -1839,7 +1839,7 @@ _ZNK11ast_manager8is_proofEPK4expr.exit:          ; preds = %_ZNK10arith_util10i
 if.then10:                                        ; preds = %_ZNK11ast_manager8is_proofEPK4expr.exit
   %m_root.i27 = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load ptr, ptr %m_root.i27, align 8
-  %cmp.not.i28 = icmp eq ptr %14, %n
+  %cmp.not.i28 = icmp eq ptr %n, %14
   br i1 %cmp.not.i28, label %_ZN10ll_printer18display_def_headerEP3ast.exit33, label %if.then.i29
 
 if.then.i29:                                      ; preds = %if.then10
@@ -2010,7 +2010,7 @@ land.lhs.true:                                    ; preds = %if.else51
 if.then56:                                        ; preds = %land.lhs.true
   %m_root57 = getelementptr inbounds i8, ptr %this, i64 16
   %46 = load ptr, ptr %m_root57, align 8
-  %cmp58 = icmp eq ptr %46, %n
+  %cmp58 = icmp eq ptr %n, %46
   br i1 %cmp58, label %if.then59, label %if.end86
 
 if.then59:                                        ; preds = %if.then56
@@ -2020,7 +2020,7 @@ if.then59:                                        ; preds = %if.then56
 if.else63:                                        ; preds = %land.lhs.true, %if.else51
   %m_root.i63 = getelementptr inbounds i8, ptr %this, i64 16
   %47 = load ptr, ptr %m_root.i63, align 8
-  %cmp.not.i64 = icmp eq ptr %47, %n
+  %cmp.not.i64 = icmp eq ptr %n, %47
   br i1 %cmp.not.i64, label %_ZN10ll_printer18display_def_headerEP3ast.exit69, label %if.then.i65
 
 if.then.i65:                                      ; preds = %if.else63

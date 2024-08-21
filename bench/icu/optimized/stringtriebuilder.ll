@@ -276,7 +276,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %start)
-  %cmp = icmp eq i32 %call, %unitIndex
+  %cmp = icmp eq i32 %unitIndex, %call
   br i1 %cmp, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %entry
@@ -409,7 +409,7 @@ if.end:                                           ; preds = %entry
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %start)
-  %cmp = icmp eq i32 %call2, %unitIndex
+  %cmp = icmp eq i32 %unitIndex, %call2
   br i1 %cmp, label %if.then3, label %if.end11
 
 if.then3:                                         ; preds = %if.end
@@ -757,7 +757,7 @@ entry:
   %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 88
   %0 = load ptr, ptr %vfn52, align 8
   %call54 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %cmp55 = icmp slt i32 %call54, %length
+  %cmp55 = icmp sgt i32 %length, %call54
   br i1 %cmp55, label %while.body, label %do.body.preheader
 
 do.body.preheader.loopexit:                       ; preds = %while.body
@@ -1113,7 +1113,7 @@ while.cond.preheader:                             ; preds = %entry
   %vfn152 = getelementptr inbounds i8, ptr %vtable151, i64 88
   %1 = load ptr, ptr %vfn152, align 8
   %call2153 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %cmp154 = icmp slt i32 %call2153, %length
+  %cmp154 = icmp sgt i32 %length, %call2153
   br i1 %cmp154, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
@@ -2154,7 +2154,7 @@ if.then:                                          ; preds = %do.body
 land.lhs.true.i:                                  ; preds = %if.then
   %6 = load i32, ptr %firstEdgeNumber, align 8
   %cmp3.i = icmp slt i32 %5, %cond
-  %cmp5.i = icmp sgt i32 %5, %6
+  %cmp5.i = icmp slt i32 %6, %5
   %or.cond.i = or i1 %cmp3.i, %cmp5.i
   br i1 %or.cond.i, label %if.then.i, label %do.cond
 
@@ -2377,7 +2377,7 @@ land.lhs.true.i:                                  ; preds = %entry
   %firstEdgeNumber = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %firstEdgeNumber, align 8
   %cmp3.i = icmp slt i32 %1, %2
-  %cmp5.i = icmp sgt i32 %1, %3
+  %cmp5.i = icmp slt i32 %3, %1
   %or.cond.i = or i1 %cmp3.i, %cmp5.i
   br i1 %or.cond.i, label %if.then.i, label %_ZN6icu_7517StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit
 

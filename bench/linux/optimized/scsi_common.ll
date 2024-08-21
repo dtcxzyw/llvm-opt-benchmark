@@ -343,7 +343,7 @@ define dso_local ptr @scsi_sense_desc_find(ptr noundef readonly %0, i32 noundef 
   %34 = icmp slt i32 %30, %20
   %35 = load i8, ptr %33, align 1
   %36 = zext i8 %35 to i32
-  %37 = icmp eq i32 %36, %2
+  %37 = icmp eq i32 %2, %36
   br i1 %34, label %38, label %.thread
 
 38:                                               ; preds = %28
@@ -558,7 +558,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_field_pointer(ptr
   %49 = getelementptr i8, ptr %45, i64 4
   %50 = select i1 %4, i8 -64, i8 -128
   %51 = icmp ult i8 %3, 8
-  %52 = or i8 %50, %3
+  %52 = or i8 %3, %50
   %53 = or i8 %52, 8
   %54 = select i1 %51, i8 %53, i8 %50
   store i8 %54, ptr %49, align 1
@@ -579,7 +579,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_field_pointer(ptr
   %62 = getelementptr i8, ptr %0, i64 15
   %63 = select i1 %4, i8 -64, i8 -128
   %64 = icmp ult i8 %3, 8
-  %65 = or i8 %63, %3
+  %65 = or i8 %3, %63
   %66 = or i8 %65, 8
   %67 = select i1 %64, i8 %66, i8 %63
   store i8 %67, ptr %62, align 1

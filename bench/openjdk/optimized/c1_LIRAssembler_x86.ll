@@ -2262,7 +2262,7 @@ define hidden void @_ZN13LIR_Assembler9const2memE7LIR_OprS0_9BasicTypeP12CodeEmi
   %39 = load i8, ptr @UseCompressedOops, align 1
   %40 = trunc i8 %39 to i1
   %.not33 = xor i1 %40, true
-  %brmerge = or i1 %.not33, %5
+  %brmerge = or i1 %5, %.not33
   %41 = load ptr, ptr %0, align 8
   br i1 %brmerge, label %43, label %42
 
@@ -2305,7 +2305,7 @@ _ZN13LIR_Assembler18is_literal_addressEP11LIR_Address.exit.thread: ; preds = %46
   %56 = load i8, ptr @UseCompressedOops, align 1
   %57 = trunc i8 %56 to i1
   %.not34 = xor i1 %57, true
-  %brmerge35 = or i1 %.not34, %5
+  %brmerge35 = or i1 %5, %.not34
   br i1 %brmerge35, label %62, label %58
 
 58:                                               ; preds = %_ZN13LIR_Assembler18is_literal_addressEP11LIR_Address.exit.thread
@@ -2877,7 +2877,7 @@ define hidden void @_ZN13LIR_Assembler7reg2memE7LIR_OprS0_9BasicType13LIR_PatchC
   %34 = load i8, ptr @UseCompressedOops, align 1
   %35 = trunc i8 %34 to i1
   %.not46 = xor i1 %35, true
-  %brmerge = or i1 %.not46, %7
+  %brmerge = or i1 %7, %.not46
   br i1 %brmerge, label %_Z17is_reference_type9BasicTypeb.exit, label %36
 
 36:                                               ; preds = %32
@@ -3067,7 +3067,7 @@ _Z17is_reference_type9BasicTypeb.exit.thread53:   ; preds = %36, %93, %_Z17is_re
   %120 = load i8, ptr @UseCompressedOops, align 1
   %121 = trunc i8 %120 to i1
   %.not47 = xor i1 %121, true
-  %brmerge48 = or i1 %.not47, %7
+  %brmerge48 = or i1 %7, %.not47
   %122 = load ptr, ptr %0, align 8
   br i1 %brmerge48, label %124, label %123
 
@@ -3853,7 +3853,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %165, %174
   %186 = load i8, ptr @UseCompressedOops, align 1
   %187 = trunc i8 %186 to i1
   %.not62 = xor i1 %187, true
-  %brmerge = or i1 %.not62, %6
+  %brmerge = or i1 %6, %.not62
   %188 = load ptr, ptr %0, align 8
   %189 = call i32 @_ZNK7LIR_Opr11as_registerEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #15
   %190 = getelementptr inbounds i8, ptr %15, i64 24
@@ -4064,7 +4064,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %165, %174
   %305 = load i8, ptr @UseCompressedOops, align 1
   %306 = trunc i8 %305 to i1
   %.not63 = xor i1 %306, true
-  %brmerge64 = or i1 %.not63, %6
+  %brmerge64 = or i1 %6, %.not63
   br i1 %brmerge64, label %310, label %307
 
 307:                                              ; preds = %304

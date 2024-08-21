@@ -3344,7 +3344,7 @@ define internal fastcc range(i32 -30, 1) i32 @copy_from_lzss_window_to_unp(ptr n
   br label %61
 
 34:                                               ; preds = %17
-  %.not50 = icmp slt i32 %24, %3
+  %.not50 = icmp sgt i32 %3, %24
   br i1 %.not50, label %60, label %35
 
 35:                                               ; preds = %34
@@ -6552,7 +6552,7 @@ define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr no
   tail call void @free(ptr noundef %26) #19
   store ptr null, ptr %17, align 8
   %27 = load i32, ptr %15, align 4
-  %28 = icmp slt i32 %27, %.03156.us
+  %28 = icmp sgt i32 %.03156.us, %27
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %25
@@ -6561,7 +6561,7 @@ define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr no
 
 30:                                               ; preds = %29, %25
   %31 = load i32, ptr %14, align 8
-  %32 = icmp sgt i32 %31, %.03156.us
+  %32 = icmp slt i32 %.03156.us, %31
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %30
@@ -6865,7 +6865,7 @@ tailrecurse._crit_edge:                           ; preds = %6
   %.tr5779131 = phi i32 [ %31, %tailrecurse ], [ %4, %.lr.ph ]
   %10 = phi ptr [ %33, %tailrecurse ], [ %7, %.lr.ph ]
   %11 = load i32, ptr %8, align 8
-  %.not53 = icmp sgt i32 %11, %.tr5577133
+  %.not53 = icmp slt i32 %.tr5577133, %11
   br i1 %.not53, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph135, %.lr.ph
@@ -7014,8 +7014,8 @@ membr_bits.exit.thread:                           ; preds = %membr_bits.exit
   %.pre.i12 = load i64, ptr %.phi.trans.insert.i11, align 8
   br label %membr_fill.exit.i13
 
-membr_bits.exit.thread.thread:                    ; preds = %membr_fill.exit.thread.i, %5, %membr_bits.exit.thread
-  %34 = phi i32 [ %28, %membr_bits.exit.thread ], [ %14, %membr_fill.exit.thread.i ], [ %3, %5 ]
+membr_bits.exit.thread.thread:                    ; preds = %5, %membr_fill.exit.thread.i, %membr_bits.exit.thread
+  %34 = phi i32 [ %28, %membr_bits.exit.thread ], [ %3, %5 ], [ %14, %membr_fill.exit.thread.i ]
   %35 = getelementptr inbounds i8, ptr %0, i64 36
   %36 = load i32, ptr %35, align 4
   %.not.i15 = icmp eq i32 %36, 0

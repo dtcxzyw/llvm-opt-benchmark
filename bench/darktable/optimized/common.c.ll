@@ -878,7 +878,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %655 = fsub reassoc nsz arcp contract afn double %605, %654
   %656 = fdiv reassoc nsz arcp contract afn double %655, %626
   %657 = call reassoc nsz arcp contract afn double @llvm.vector.reduce.fadd.v4f64(double %652, <4 x double> %645)
-  %658 = fmul reassoc nsz arcp contract afn double %656, %628
+  %658 = fmul reassoc nsz arcp contract afn double %628, %656
   %659 = fadd reassoc nsz arcp contract afn double %657, %658
   %660 = fsub reassoc nsz arcp contract afn double %604, %659
   %661 = fdiv reassoc nsz arcp contract afn double %660, %629

@@ -599,7 +599,7 @@ define hidden void @"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$3new17h1
   br i1 %exitcond.not.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h18be207d2539725fE.exit.thread.i.i, label %.lr.ph.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h18be207d2539725fE.exit.i.i: ; preds = %.lr.ph.i.i.i
-  %21 = icmp eq i64 %.sroa.01.012.i.i.i, %15
+  %21 = icmp eq i64 %15, %.sroa.01.012.i.i.i
   br i1 %21, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h18be207d2539725fE.exit.thread.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf9bea7e77cb3773eE.exit.sink.split"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h18be207d2539725fE.exit.thread.i.i: ; preds = %"_ZN100_$LT$cranelift_entity..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f6a39dd46706bb6E.exit.i.i.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h18be207d2539725fE.exit.i.i, %14
@@ -3294,7 +3294,7 @@ define hidden void @_ZN16wasmtime_runtime6memory19RuntimeLinearMemory4grow17hef0
 
 36:                                               ; preds = %.thread, %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  %.not.i = icmp ult i64 %17, %spec.store.select
+  %.not.i = icmp ugt i64 %spec.store.select, %17
   br i1 %.not.i, label %37, label %38
 
 37:                                               ; preds = %36
@@ -3305,7 +3305,7 @@ define hidden void @_ZN16wasmtime_runtime6memory19RuntimeLinearMemory4grow17hef0
   %39 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
   %40 = load i64, ptr %39, align 8, !alias.scope !206, !noundef !4
-  %.not.i.i = icmp ult i64 %40, %spec.store.select
+  %.not.i.i = icmp ugt i64 %spec.store.select, %40
   br i1 %.not.i.i, label %41, label %42
 
 41:                                               ; preds = %38
@@ -3315,7 +3315,7 @@ define hidden void @_ZN16wasmtime_runtime6memory19RuntimeLinearMemory4grow17hef0
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %1, i64 48
   %44 = load i64, ptr %43, align 8, !alias.scope !206, !noundef !4
-  %.not10.i.i = icmp ult i64 %44, %spec.store.select
+  %.not10.i.i = icmp ugt i64 %spec.store.select, %44
   br i1 %.not10.i.i, label %45, label %62
 
 45:                                               ; preds = %42
@@ -4766,9 +4766,9 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i47.i.i.i.i: ; preds = 
 172:                                              ; preds = %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.i.i.i.i
   %173 = extractvalue { i64, i32 } %162, 0
   %174 = extractvalue { i64, i32 } %162, 1
-  %175 = icmp sgt i64 %173, %46
-  %176 = icmp eq i64 %173, %46
-  %switch.selectcmp116117.i.i.i.i = icmp uge i32 %174, %47
+  %175 = icmp slt i64 %46, %173
+  %176 = icmp eq i64 %46, %173
+  %switch.selectcmp116117.i.i.i.i = icmp ule i32 %47, %174
   %switch.selectcmp116.i.i.i.i = select i1 %176, i1 %switch.selectcmp116117.i.i.i.i, i1 false
   %switch.selectcmp.i.i.i.i = select i1 %175, i1 true, i1 %switch.selectcmp116.i.i.i.i
   br i1 %switch.selectcmp.i.i.i.i, label %.critedge.i.i.i.i, label %177
@@ -5507,9 +5507,9 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i47.i.i.i.i: ; preds = 
 172:                                              ; preds = %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.i.i.i.i
   %173 = extractvalue { i64, i32 } %162, 0
   %174 = extractvalue { i64, i32 } %162, 1
-  %175 = icmp sgt i64 %173, %46
-  %176 = icmp eq i64 %173, %46
-  %switch.selectcmp116117.i.i.i.i = icmp uge i32 %174, %47
+  %175 = icmp slt i64 %46, %173
+  %176 = icmp eq i64 %46, %173
+  %switch.selectcmp116117.i.i.i.i = icmp ule i32 %47, %174
   %switch.selectcmp116.i.i.i.i = select i1 %176, i1 %switch.selectcmp116117.i.i.i.i, i1 false
   %switch.selectcmp.i.i.i.i = select i1 %175, i1 true, i1 %switch.selectcmp116.i.i.i.i
   br i1 %switch.selectcmp.i.i.i.i, label %.critedge.i.i.i.i, label %177
@@ -6500,7 +6500,7 @@ _ZN16wasmtime_runtime3sys4unix6unwind15using_libunwind17hcb5b491c9f3c8a19E.exit:
 13:                                               ; preds = %4, %.split.i
   %14 = getelementptr i8, ptr %2, i64 %3
   %15 = getelementptr i8, ptr %14, i64 -4
-  %16 = icmp ugt ptr %15, %2
+  %16 = icmp ult ptr %2, %15
   br i1 %16, label %.lr.ph, label %.loopexit
 
 17:                                               ; preds = %_ZN16wasmtime_runtime3sys4unix6unwind15using_libunwind17hcb5b491c9f3c8a19E.exit

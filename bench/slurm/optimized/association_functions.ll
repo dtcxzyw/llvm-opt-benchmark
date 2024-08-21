@@ -1862,7 +1862,7 @@ define dso_local i32 @sacctmgr_list_assoc(i32 noundef %0, ptr noundef %1) local_
   %.1157.i = phi i32 [ %.1155.i, %134 ], [ %.1155.i, %126 ], [ %.1155.i, %121 ], [ %.1155.i, %120 ], [ %.1158.i, %._crit_edge.i ], [ %.1156.i, %.critedge143.i ], [ %.1156.i, %88 ], [ %.1156.i, %83 ], [ %.1156.i, %80 ], [ %.1156.i, %77 ], [ %.1156.i, %74 ], [ %.1156.i, %71 ], [ %.1156.i, %66 ], [ %.1156.i, %60 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %0
+  %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_set_cond.exit, label %35, !llvm.loop !10
 
 _set_cond.exit:                                   ; preds = %138, %32

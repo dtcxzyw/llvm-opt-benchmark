@@ -804,7 +804,7 @@ common.resume.i:                                  ; preds = %51, %25
   %.val.i.i = load ptr, ptr %55, align 8, !alias.scope !78, !noalias !79
   %56 = getelementptr inbounds i8, ptr %.010, i64 24
   %.val8.i.i = load i64, ptr %56, align 8, !alias.scope !78, !noalias !79, !noundef !4
-  %57 = icmp ugt i64 %.val8.i.i, %.fca.1.extract.i.i
+  %57 = icmp ult i64 %.fca.1.extract.i.i, %.val8.i.i
   %58 = getelementptr inbounds { i8, [31 x i8] }, ptr %.val.i.i, i64 %.fca.1.extract.i.i
   %.0.i9.i.i = select i1 %57, ptr %58, ptr null
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hd3a7603bb84cf785E.exit.i.i"
@@ -970,7 +970,7 @@ common.resume.i:                                  ; preds = %48, %25
   %.val.i.i = load ptr, ptr %52, align 8, !alias.scope !123, !noalias !124
   %53 = getelementptr inbounds i8, ptr %.010, i64 24
   %.val8.i.i = load i64, ptr %53, align 8, !alias.scope !123, !noalias !124, !noundef !4
-  %54 = icmp ugt i64 %.val8.i.i, %.fca.1.extract.i.i
+  %54 = icmp ult i64 %.fca.1.extract.i.i, %.val8.i.i
   %55 = getelementptr inbounds { i8, [31 x i8] }, ptr %.val.i.i, i64 %.fca.1.extract.i.i
   %.0.i9.i.i = select i1 %54, ptr %55, ptr null
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h652503905436b9c7E.exit.i.i"
@@ -1247,7 +1247,7 @@ _ZN4core3str11validations15next_code_point17h4bec607ff0ad6e55E.exit.thread.i.i.i
   %101 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !171, !noalias !176, !noundef !4
   %102 = load i64, ptr %9, align 8, !alias.scope !178, !noalias !176, !noundef !4
   %103 = sub i64 %102, %101
-  %104 = icmp ult i64 %103, %100
+  %104 = icmp ugt i64 %100, %103
   br i1 %104, label %105, label %116
 
 105:                                              ; preds = %99
@@ -1267,7 +1267,7 @@ _ZN4core3str11validations15next_code_point17h4bec607ff0ad6e55E.exit.thread.i.i.i
   %111 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !181, !noalias !186, !noundef !4
   %112 = load i64, ptr %9, align 8, !alias.scope !188, !noalias !186, !noundef !4
   %113 = sub i64 %112, %111
-  %114 = icmp ult i64 %113, %110
+  %114 = icmp ugt i64 %110, %113
   br i1 %114, label %115, label %123
 
 115:                                              ; preds = %106

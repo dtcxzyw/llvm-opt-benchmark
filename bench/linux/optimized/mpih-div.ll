@@ -428,7 +428,7 @@ define dso_local i64 @mpihelp_divrem(ptr nocapture noundef writeonly %0, i32 nou
   %165 = phi i64 [ %148, %153 ], [ %280, %278 ]
   %166 = phi i64 [ %147, %153 ], [ %279, %278 ]
   %167 = trunc i64 %163 to i32
-  %168 = icmp slt i32 %167, %1
+  %168 = icmp sgt i32 %1, %167
   br i1 %168, label %171, label %169
 
 169:                                              ; preds = %162
@@ -652,7 +652,7 @@ define dso_local i64 @mpihelp_divrem(ptr nocapture noundef writeonly %0, i32 nou
   %329 = phi ptr [ %290, %317 ], [ %345, %434 ]
   %330 = phi i64 [ %311, %317 ], [ %438, %434 ]
   %331 = trunc i64 %328 to i32
-  %332 = icmp slt i32 %331, %1
+  %332 = icmp sgt i32 %1, %331
   br i1 %332, label %337, label %333
 
 333:                                              ; preds = %327

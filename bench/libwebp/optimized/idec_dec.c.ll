@@ -1390,7 +1390,7 @@ CheckMemBufferMode.exit:                          ; preds = %7, %10
   %20 = phi i64 [ %18, %14 ], [ 0, %CheckMemBufferMode.exit ]
   %21 = getelementptr inbounds i8, ptr %0, i64 320
   %22 = load i64, ptr %21, align 8
-  %23 = icmp ugt i64 %22, %2
+  %23 = icmp ult i64 %2, %22
   br i1 %23, label %CheckMemBufferMode.exit.thread, label %24
 
 24:                                               ; preds = %19

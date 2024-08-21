@@ -7369,7 +7369,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr70drop
   %671 = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i185, align 8, !alias.scope !1250, !noalias !1255, !noundef !9
   %672 = load i64, ptr %35, align 8, !alias.scope !1257, !noalias !1255, !noundef !9
   %673 = sub i64 %672, %671
-  %674 = icmp ult i64 %673, %670
+  %674 = icmp ugt i64 %670, %673
   br i1 %674, label %675, label %679
 
 675:                                              ; preds = %.loopexit205.i.i.i
@@ -7624,7 +7624,7 @@ _ZN4core3str11validations15next_code_point17h23bc3658d2f85855E.exit.thread.i.i.i
   %782 = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i185, align 8, !alias.scope !1288, !noalias !1293, !noundef !9
   %783 = load i64, ptr %35, align 8, !alias.scope !1295, !noalias !1293, !noundef !9
   %784 = sub i64 %783, %782
-  %785 = icmp ult i64 %784, %781
+  %785 = icmp ugt i64 %781, %784
   br i1 %785, label %786, label %828
 
 786:                                              ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h7d4a270a3f84050dE.exit.thread.i.i.i"
@@ -7647,7 +7647,7 @@ _ZN4core3str11validations15next_code_point17h23bc3658d2f85855E.exit.thread.i.i.i
   %792 = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i185, align 8, !alias.scope !1250, !noalias !1255, !noundef !9
   %793 = load i64, ptr %35, align 8, !alias.scope !1257, !noalias !1255, !noundef !9
   %794 = sub i64 %793, %792
-  %795 = icmp ult i64 %794, %791
+  %795 = icmp ugt i64 %791, %794
   br i1 %795, label %796, label %800
 
 796:                                              ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h7d4a270a3f84050dE.exit.i.i.i"

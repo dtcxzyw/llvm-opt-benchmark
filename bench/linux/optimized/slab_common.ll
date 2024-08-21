@@ -3308,7 +3308,7 @@ define dso_local i64 @__ksize(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %63 = load i64, ptr @page_offset_base, align 8
   %64 = add i64 %62, %63
   %65 = inttoptr i64 %64 to ptr
-  %66 = icmp eq ptr %65, %0
+  %66 = icmp eq ptr %0, %65
   br i1 %66, label %68, label %67, !prof !18
 
 67:                                               ; preds = %58

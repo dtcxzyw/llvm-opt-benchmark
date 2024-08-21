@@ -640,10 +640,10 @@ if.then34:                                        ; preds = %if.end30
 if.else:                                          ; preds = %if.end30
   %50 = load i64, ptr %consumed_bytes_size, align 8
   %sub35 = sub i64 %received_bytes_size, %50
-  %cmp36.not = icmp eq i64 %50, %received_bytes_size
+  %cmp36.not = icmp eq i64 %received_bytes_size, %50
   %add.ptr38 = getelementptr inbounds i8, ptr %received_bytes, i64 %50
   %spec.select = select i1 %cmp36.not, ptr null, ptr %add.ptr38
-  %cmp.i56 = icmp ne i64 %50, %received_bytes_size
+  %cmp.i56 = icmp ne i64 %received_bytes_size, %50
   %cmp1.i = icmp eq ptr %spec.select, null
   %or.cond.i = and i1 %cmp.i56, %cmp1.i
   br i1 %or.cond.i, label %if.then.i60, label %if.end5.i

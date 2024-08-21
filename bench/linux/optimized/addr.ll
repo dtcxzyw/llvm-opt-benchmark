@@ -135,7 +135,7 @@ define dso_local noundef range(i64 0, 29) i64 @rpc_pton(ptr noundef %0, ptr noun
 10:                                               ; preds = %.preheader
   %11 = add i32 %15, 1
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %12, %2
+  %13 = icmp ugt i64 %2, %12
   br i1 %13, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .preheader:                                       ; preds = %5, %10

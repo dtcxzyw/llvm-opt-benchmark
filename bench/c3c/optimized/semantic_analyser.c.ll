@@ -246,7 +246,7 @@ declare zeroext i1 @sema_add_local(ptr noundef, ptr noundef) local_unnamed_addr 
 define dso_local i32 @context_get_defers(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %.not1519 = icmp eq i32 %1, %2
+  %.not1519 = icmp eq i32 %2, %1
   br i1 %.not1519, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %4
@@ -272,7 +272,7 @@ define dso_local i32 @context_get_defers(ptr nocapture noundef readnone %0, i32 
 
 14:                                               ; preds = %7
   %15 = load i32, ptr %13, align 8
-  %.not.us.us = icmp eq i32 %15, %2
+  %.not.us.us = icmp eq i32 %2, %15
   br i1 %.not.us.us, label %.outer._crit_edge, label %7, !llvm.loop !7
 
 .split.us.us:                                     ; preds = %7
@@ -290,7 +290,7 @@ define dso_local i32 @context_get_defers(ptr nocapture noundef readnone %0, i32 
   store i32 %26, ptr %.012.ph20.us, align 4
   %27 = getelementptr inbounds i8, ptr %20, i64 8
   %28 = load i32, ptr %13, align 8
-  %.not15.us = icmp eq i32 %28, %2
+  %.not15.us = icmp eq i32 %2, %28
   br i1 %.not15.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.split
@@ -311,7 +311,7 @@ define dso_local i32 @context_get_defers(ptr nocapture noundef readnone %0, i32 
 
 36:                                               ; preds = %.critedge
   %37 = load i32, ptr %35, align 8
-  %.not = icmp eq i32 %37, %2
+  %.not = icmp eq i32 %2, %37
   br i1 %.not, label %.outer._crit_edge, label %.critedge, !llvm.loop !7
 
 .split:                                           ; preds = %.critedge
@@ -329,7 +329,7 @@ define dso_local i32 @context_get_defers(ptr nocapture noundef readnone %0, i32 
   store i32 %48, ptr %.012.ph20, align 4
   %49 = getelementptr inbounds i8, ptr %42, i64 8
   %50 = load i32, ptr %35, align 8
-  %.not15 = icmp eq i32 %50, %2
+  %.not15 = icmp eq i32 %2, %50
   br i1 %.not15, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .outer._crit_edge:                                ; preds = %.split, %36, %.split.us.us, %14, %4
@@ -508,7 +508,7 @@ define dso_local void @sema_analyze_stage(ptr noundef %0, i32 noundef %1) local_
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 63
   %8 = zext nneg i16 %7 to i32
-  %9 = icmp ult i32 %8, %1
+  %9 = icmp ugt i32 %1, %8
   br i1 %9, label %10, label %32
 
 10:                                               ; preds = %4
@@ -1712,7 +1712,7 @@ define dso_local void @generic_context_release_locals_list(ptr noundef %0) local
 define dso_local noundef ptr @context_transform_for_eval(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %2
+  %6 = icmp eq ptr %2, %5
   br i1 %6, label %43, label %7
 
 7:                                                ; preds = %3

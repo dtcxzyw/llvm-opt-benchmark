@@ -840,7 +840,7 @@ _ZN7uu_head12read_n_bytes17h9c3988130e973429E.exit: ; preds = %26, %32, %36, %42
 
 111:                                              ; preds = %109
   store i64 0, ptr %53, align 8
-  %112 = icmp ult i64 %60, %1
+  %112 = icmp ugt i64 %1, %60
   br i1 %112, label %115, label %113
 
 113:                                              ; preds = %111
@@ -857,7 +857,7 @@ _ZN7uu_head12read_n_bytes17h9c3988130e973429E.exit: ; preds = %26, %32, %36, %42
 116:                                              ; preds = %113
   %117 = getelementptr inbounds i8, ptr %11, i64 %103
   %118 = load i64, ptr %12, align 8, !alias.scope !95, !noalias !102, !noundef !5
-  %119 = icmp ult i64 %118, %1
+  %119 = icmp ugt i64 %1, %118
   br i1 %119, label %120, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit"
 
 120:                                              ; preds = %116
@@ -916,7 +916,7 @@ _ZN7uu_head12read_n_bytes17h9c3988130e973429E.exit: ; preds = %26, %32, %36, %42
   %139 = load i64, ptr %53, align 8, !alias.scope !112, !noalias !117, !noundef !5
   %140 = load i64, ptr %12, align 8, !alias.scope !119, !noalias !117, !noundef !5
   %141 = sub i64 %140, %139
-  %142 = icmp ult i64 %141, %96
+  %142 = icmp ugt i64 %96, %141
   br i1 %142, label %143, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit54"
 
 143:                                              ; preds = %138
@@ -1196,7 +1196,7 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_bytes17h9da0d1357b1e4985
 
 77:                                               ; preds = %75
   store i64 0, ptr %19, align 8
-  %78 = icmp ult i64 %26, %1
+  %78 = icmp ugt i64 %1, %26
   br i1 %78, label %81, label %79
 
 79:                                               ; preds = %77
@@ -1213,7 +1213,7 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_bytes17h9da0d1357b1e4985
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %7, i64 %69
   %84 = load i64, ptr %8, align 8, !alias.scope !160, !noalias !167, !noundef !5
-  %85 = icmp ult i64 %84, %1
+  %85 = icmp ugt i64 %1, %84
   br i1 %85, label %86, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit"
 
 86:                                               ; preds = %82
@@ -1272,7 +1272,7 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_bytes17h9da0d1357b1e4985
   %105 = load i64, ptr %19, align 8, !alias.scope !177, !noalias !182, !noundef !5
   %106 = load i64, ptr %8, align 8, !alias.scope !184, !noalias !182, !noundef !5
   %107 = sub i64 %106, %105
-  %108 = icmp ult i64 %107, %62
+  %108 = icmp ugt i64 %62, %107
   br i1 %108, label %109, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit54"
 
 109:                                              ; preds = %104

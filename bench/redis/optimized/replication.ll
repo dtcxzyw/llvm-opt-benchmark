@@ -1282,7 +1282,7 @@ entry:
 lor.rhs:                                          ; preds = %entry
   %cmp1 = icmp sgt i32 %dictid, -1
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %cmp2 = icmp sgt i32 %0, %dictid
+  %cmp2 = icmp slt i32 %dictid, %0
   %1 = select i1 %cmp1, i1 %cmp2, i1 false
   br i1 %1, label %cond.end, label %cond.false
 
@@ -2167,7 +2167,7 @@ land.lhs.true:                                    ; preds = %entry
   %call1 = tail call i32 @strcasecmp(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 4397)) #23
   %tobool2.not = icmp ne i32 %call1, 0
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4448), align 8
-  %cmp = icmp slt i64 %3, %psync_offset
+  %cmp = icmp sgt i64 %psync_offset, %3
   %or.cond = select i1 %tobool2.not, i1 true, i1 %cmp
   br i1 %or.cond, label %if.then, label %if.end32
 
@@ -2222,14 +2222,14 @@ if.end32:                                         ; preds = %land.lhs.true, %ent
 lor.lhs.false34:                                  ; preds = %if.end32
   %offset = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load i64, ptr %offset, align 8
-  %cmp35 = icmp sgt i64 %9, %psync_offset
+  %cmp35 = icmp slt i64 %psync_offset, %9
   br i1 %cmp35, label %do.body42, label %lor.lhs.false37
 
 lor.lhs.false37:                                  ; preds = %lor.lhs.false34
   %histlen = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load i64, ptr %histlen, align 8
   %add = add nsw i64 %10, %9
-  %cmp39 = icmp slt i64 %add, %psync_offset
+  %cmp39 = icmp sgt i64 %psync_offset, %add
   br i1 %cmp39, label %do.body42, label %if.end60
 
 do.body42:                                        ; preds = %if.end32, %lor.lhs.false34, %lor.lhs.false37
@@ -2246,7 +2246,7 @@ if.end46:                                         ; preds = %do.body42
 do.end48:                                         ; preds = %do.body42, %if.end46
   %12 = phi i32 [ %11, %do.body42 ], [ %.pre, %if.end46 ]
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4440), align 8
-  %cmp49 = icmp sge i64 %13, %psync_offset
+  %cmp49 = icmp sle i64 %psync_offset, %13
   %cmp53 = icmp sgt i32 %12, 3
   %or.cond28 = select i1 %cmp49, i1 true, i1 %cmp53
   br i1 %or.cond28, label %return, label %if.end56
@@ -10569,7 +10569,7 @@ if.end5:                                          ; preds = %connAddrPeerName.ex
 land.lhs.true:                                    ; preds = %if.end5
   %slave_listening_port = getelementptr inbounds i8, ptr %1, i64 404
   %6 = load i32, ptr %slave_listening_port, align 4
-  %cmp8 = icmp eq i32 %6, %port
+  %cmp8 = icmp eq i32 %port, %6
   br i1 %cmp8, label %return, label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then, %land.lhs.true.i.i, %if.end5, %land.lhs.true, %connAddrPeerName.exit

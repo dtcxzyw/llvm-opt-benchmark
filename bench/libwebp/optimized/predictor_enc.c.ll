@@ -326,7 +326,7 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
 
 ._crit_edge.us:                                   ; preds = %GetBestPredictorForTile.exit.us
   %164 = trunc i64 %indvars.iv94 to i32
-  %165 = mul i32 %164, %11
+  %165 = mul i32 %11, %164
   %166 = sdiv i32 %165, %24
   %167 = add nsw i32 %166, %25
   %168 = call i32 @WebPReportProgress(ptr noundef %10, i32 noundef %167, ptr noundef nonnull %12) #8
@@ -417,7 +417,7 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %209 = icmp ult i64 %indvars.iv.next113.i, %199
   %210 = zext i1 %209 to i32
-  %211 = add nuw nsw i32 %210, %0
+  %211 = add nuw nsw i32 %0, %210
   %212 = zext nneg i32 %211 to i64
   %213 = shl nuw nsw i64 %212, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.07288.us.us.i, ptr align 4 %208, i64 %213, i1 false)
@@ -477,7 +477,7 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
   %237 = icmp ult i64 %indvars.iv.next108.i, %199
   %238 = zext i1 %237 to i32
-  %239 = add nsw i32 %238, %0
+  %239 = add nsw i32 %0, %238
   %240 = sext i32 %239 to i64
   %241 = shl nsw i64 %240, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.07288.us.us90.i, ptr align 4 %236, i64 %241, i1 false)
@@ -504,7 +504,7 @@ PredictBatch.exit.loopexit.us.i:                  ; preds = %.lr.ph89.split.us.s
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
   %249 = icmp ult i64 %indvars.iv.next103.i, %199
   %250 = zext i1 %249 to i32
-  %251 = add nsw i32 %250, %0
+  %251 = add nsw i32 %0, %250
   %252 = sext i32 %251 to i64
   %253 = shl nsw i64 %252, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.07288.us.i, ptr align 4 %248, i64 %253, i1 false)
@@ -520,7 +520,7 @@ PredictBatch.exit.loopexit.us.i:                  ; preds = %.lr.ph89.split.us.s
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %256 = icmp ult i64 %indvars.iv.next.i63, %196
   %257 = zext i1 %256 to i32
-  %258 = add nsw i32 %257, %0
+  %258 = add nsw i32 %0, %257
   %259 = sext i32 %258 to i64
   %260 = shl nsw i64 %259, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.07288.i, ptr align 4 %255, i64 %260, i1 false)
@@ -836,7 +836,7 @@ CopyTileWithColorTransform.exit.us:               ; preds = %67, %55
 
 ._crit_edge176.us:                                ; preds = %._crit_edge167.us
   %124 = trunc i64 %indvars.iv206 to i32
-  %125 = mul i32 %124, %7
+  %125 = mul i32 %7, %124
   %126 = sdiv i32 %125, %18
   %127 = add nsw i32 %126, %19
   %128 = call i32 @WebPReportProgress(ptr noundef %6, i32 noundef %127, ptr noundef nonnull %8) #8
@@ -877,7 +877,7 @@ define internal fastcc i24 @GetBestColorTransformForTile(i32 noundef %0, i32 nou
   %22 = tail call noundef i32 @llvm.smin.i32(i32 %21, i32 %7)
   %23 = sub nsw i32 %20, %18
   %24 = sub nsw i32 %22, %17
-  %25 = mul nsw i32 %17, %6
+  %25 = mul nsw i32 %6, %17
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %10, i64 %26
   %28 = sext i32 %18 to i64
@@ -1429,7 +1429,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 .lr.ph:                                           ; preds = %35
   %40 = icmp eq i32 %8, 0
   %41 = add i32 %1, -1
-  %42 = icmp eq i32 %41, %8
+  %42 = icmp eq i32 %8, %41
   %43 = add nsw i32 %0, -1
   %.not43.i = icmp eq i32 %11, 0
   %44 = sext i32 %0 to i64
@@ -1538,7 +1538,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
   store i32 %.1.us91, ptr %96, align 4
   %indvars.iv.next110 = add nsw i64 %indvars.iv109, 1
   %lftr.wideiv112 = trunc i64 %indvars.iv.next110 to i32
-  %exitcond113.not = icmp eq i32 %lftr.wideiv112, %7
+  %exitcond113.not = icmp eq i32 %7, %lftr.wideiv112
   br i1 %exitcond113.not, label %PredictBatch.exit, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
@@ -1597,7 +1597,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
   store i32 %.1.us98, ptr %122, align 4
   %indvars.iv.next105 = add nsw i64 %indvars.iv104, 1
   %lftr.wideiv107 = trunc i64 %indvars.iv.next105 to i32
-  %exitcond108.not = icmp eq i32 %lftr.wideiv107, %7
+  %exitcond108.not = icmp eq i32 %7, %lftr.wideiv107
   br i1 %exitcond108.not, label %PredictBatch.exit, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split.split.preheader, %277
@@ -1871,7 +1871,7 @@ NearLossless.exit:                                ; preds = %147, %NearLosslessC
   store i32 %.1, ptr %279, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %7
+  %exitcond.not = icmp eq i32 %7, %lftr.wideiv
   br i1 %exitcond.not, label %PredictBatch.exit, label %.lr.ph.split.split.split, !llvm.loop !25
 
 PredictBatch.exit:                                ; preds = %277, %120, %94, %65, %35, %28, %24

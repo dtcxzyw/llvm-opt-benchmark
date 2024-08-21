@@ -439,7 +439,7 @@ define dso_local void @rb_set_class_path_string(i64 noundef %0, i64 noundef %1, 
   %4 = alloca i8, align 1
   store i8 1, ptr %4, align 1
   %5 = load i64, ptr @rb_cObject, align 8
-  %6 = icmp eq i64 %5, %1
+  %6 = icmp eq i64 %1, %5
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
@@ -665,7 +665,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RSTRING_PTR.exit, %
 
 53:                                               ; preds = %51
   %54 = load i64, ptr @rb_cObject, align 8
-  %55 = icmp eq i64 %54, %.032
+  %55 = icmp eq i64 %.032, %54
   %not. = xor i1 %55, true
   %spec.select.i = zext i1 %not. to i32
   %56 = tail call fastcc i64 @rb_const_search_from(i64 noundef %.032, i64 noundef %52, i32 noundef %spec.select.i, i32 noundef 0, i32 noundef 0)
@@ -5638,7 +5638,7 @@ define hidden void @rb_const_warn_if_deprecated(ptr nocapture noundef readonly %
 
 8:                                                ; preds = %6
   %9 = load i64, ptr @rb_cObject, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
@@ -5671,7 +5671,7 @@ define dso_local i64 @rb_const_get_from(i64 noundef %0, i64 noundef %1) local_un
 define internal fastcc i64 @rb_const_get_0(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = load i64, ptr @rb_cObject, align 8
-  %8 = icmp eq i64 %7, %0
+  %8 = icmp eq i64 %0, %7
   %spec.select.i = select i1 %8, i32 0, i32 %2
   %9 = tail call fastcc i64 @rb_const_search_from(i64 noundef %0, i64 noundef %1, i32 noundef %spec.select.i, i32 noundef %3, i32 noundef %4)
   %10 = icmp eq i64 %9, 36
@@ -5794,7 +5794,7 @@ rb_const_location.exit:                           ; preds = %2, %5, %9
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_const_source_location_at(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr @rb_cObject, align 8
-  %4 = icmp eq i64 %3, %0
+  %4 = icmp eq i64 %0, %3
   %not. = xor i1 %4, true
   %spec.select.i = zext i1 %not. to i32
   %5 = tail call fastcc i64 @rb_const_location_from(i64 noundef %0, i64 noundef %1, i32 noundef %spec.select.i, i32 noundef 0)
@@ -6166,7 +6166,7 @@ rb_mod_const_at.exit:                             ; preds = %7, %rb_vm_lock_ente
 19:                                               ; preds = %rb_mod_const_at.exit
   %20 = load i64, ptr @rb_cObject, align 8
   %21 = icmp ne i64 %18, %20
-  %.not10 = icmp eq i64 %20, %0
+  %.not10 = icmp eq i64 %0, %20
   %or.cond = or i1 %21, %.not10
   br i1 %or.cond, label %4, label %22
 
@@ -6291,7 +6291,7 @@ rb_mod_const_at.exit.i:                           ; preds = %21, %rb_vm_lock_ent
 24:                                               ; preds = %rb_mod_const_at.exit.i
   %25 = load i64, ptr @rb_cObject, align 8
   %26 = icmp ne i64 %23, %25
-  %.not10.i = icmp eq i64 %25, %2
+  %.not10.i = icmp eq i64 %2, %25
   %or.cond.i6 = or i1 %26, %.not10.i
   br i1 %or.cond.i6, label %.critedge, label %rb_mod_const_of.exit
 
@@ -6627,7 +6627,7 @@ rb_autoloading_value.exit:                        ; preds = %70, %68, %64
 72:                                               ; preds = %rb_autoloading_value.exit
   %73 = load i64, ptr @rb_cObject, align 8
   %74 = icmp ne i64 %.us-phi43, %73
-  %.not30 = icmp eq i64 %73, %0
+  %.not30 = icmp eq i64 %0, %73
   %or.cond31 = or i1 %74, %.not30
   br i1 %or.cond31, label %75, label %rb_autoloading_value.exit.thread
 
@@ -6880,7 +6880,7 @@ classname.exit:                                   ; preds = %83
 classname.exit.thread:                            ; preds = %83, %90, %classname.exit
   %.not36 = phi i1 [ true, %90 ], [ false, %classname.exit ], [ false, %83 ]
   %.05662 = phi i8 [ %88, %90 ], [ %88, %classname.exit ], [ 0, %83 ]
-  %92 = icmp eq i64 %74, %0
+  %92 = icmp eq i64 %0, %74
   br i1 %92, label %93, label %111
 
 93:                                               ; preds = %classname.exit.thread
@@ -9510,7 +9510,7 @@ rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.ex
 
 42:                                               ; preds = %40
   %43 = load i64, ptr @rb_cObject, align 8
-  %44 = icmp eq i64 %43, %.034
+  %44 = icmp eq i64 %.034, %43
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %42

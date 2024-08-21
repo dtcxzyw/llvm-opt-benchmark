@@ -69,7 +69,7 @@ define hidden { i64, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit.i": ; preds = %17
   %22 = getelementptr inbounds [0 x { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }], ptr %8, i64 0, i64 %19, i32 2
   %23 = load i64, ptr %22, align 8, !alias.scope !6, !noalias !21, !noundef !4
-  %switch.i.i.i.i = icmp slt i64 %23, %.sroa.05.0.i
+  %switch.i.i.i.i = icmp sgt i64 %.sroa.05.0.i, %23
   %.sroa.3.0.i.i.i.i = select i1 %switch.i.i.i.i, ptr %18, ptr %.sroa.6.0.i
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %.sroa.05.0.i, i64 %23)
   %24 = add nuw i64 %.0.i, 1
@@ -271,7 +271,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.20936
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -517,7 +517,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !138, !noalias !143, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !145, !noalias !143, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -574,7 +574,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !151, !noalias !156, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !158, !noalias !156, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit"
 
 9:                                                ; preds = %3
@@ -1188,7 +1188,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit": ; preds = %14
   %19 = getelementptr inbounds [0 x { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }], ptr %4, i64 0, i64 %16, i32 2
   %20 = load i64, ptr %19, align 8, !noalias !259, !noundef !4
-  %switch.i.i.i = icmp slt i64 %20, %.sroa.05.0
+  %switch.i.i.i = icmp sgt i64 %.sroa.05.0, %20
   %.sroa.3.0.i.i.i = select i1 %switch.i.i.i, ptr %15, ptr %.sroa.6.0
   %.sroa.0.0.sroa.speculated.i.i.i = tail call i64 @llvm.smin.i64(i64 %.sroa.05.0, i64 %20)
   %21 = add nuw i64 %.0, 1

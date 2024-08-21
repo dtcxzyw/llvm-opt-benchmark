@@ -28874,7 +28874,7 @@ define internal noundef nonnull ptr @"_ZN90_$LT$chalk_ir..SubstFolder$LT$I$C$A$G
   %.val = load ptr, ptr %0, align 8, !nonnull !11, !align !295, !noundef !11
   %11 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$17substitution_data17he98a6d5e86f7f388E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val)
   %12 = extractvalue { ptr, i64 } %11, 1
-  %13 = icmp ugt i64 %12, %1
+  %13 = icmp ult i64 %1, %12
   br i1 %13, label %"_ZN8chalk_ir24SubstFolder$LT$I$C$A$GT$2at17h7f0e3f11bb2bfebbE.exit", label %14, !prof !7023
 
 14:                                               ; preds = %10
@@ -28939,7 +28939,7 @@ define internal noundef nonnull ptr @"_ZN90_$LT$chalk_ir..SubstFolder$LT$I$C$A$G
 
 .noexc:                                           ; preds = %12
   %14 = extractvalue { ptr, i64 } %13, 1
-  %15 = icmp ugt i64 %14, %2
+  %15 = icmp ult i64 %2, %14
   br i1 %15, label %20, label %16, !prof !7023
 
 16:                                               ; preds = %.noexc
@@ -29078,7 +29078,7 @@ define internal noundef nonnull ptr @"_ZN90_$LT$chalk_ir..SubstFolder$LT$I$C$A$G
   %.val = load ptr, ptr %0, align 8, !nonnull !11, !align !295, !noundef !11
   %11 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$17substitution_data17he98a6d5e86f7f388E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val)
   %12 = extractvalue { ptr, i64 } %11, 1
-  %13 = icmp ugt i64 %12, %1
+  %13 = icmp ult i64 %1, %12
   br i1 %13, label %"_ZN8chalk_ir24SubstFolder$LT$I$C$A$GT$2at17h7f0e3f11bb2bfebbE.exit", label %14, !prof !7023
 
 14:                                               ; preds = %10

@@ -25,7 +25,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..ops..range..Range$LT$usize$GT$$u20$a
   %.not.i = icmp ule i64 %3, %.val
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !17
-  %6 = icmp ugt i64 %5, %.val
+  %6 = icmp ult i64 %.val, %5
   %.014.i = select i1 %.not.i, i1 %6, i1 false
   ret i1 %.014.i
 }
@@ -88,11 +88,11 @@ define noundef zeroext i1 @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize
   br i1 %switch.not.not.i, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = icmp uge i64 %7, %.val
+  %9 = icmp ule i64 %.val, %7
   br label %_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit
 
 10:                                               ; preds = %4
-  %11 = icmp ugt i64 %7, %.val
+  %11 = icmp ult i64 %.val, %7
   br label %_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit
 
 _ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit: ; preds = %2, %8, %10
@@ -109,8 +109,8 @@ _ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit:
   %.sroa.3.0.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %switch.not.not.i = icmp eq i8 %2, 0
   %3 = load i64, ptr %.sroa.3.0.i.i, align 8, !alias.scope !40, !noalias !4, !noundef !4
-  %4 = icmp ule i64 %3, %.val
-  %5 = icmp ult i64 %3, %.val
+  %4 = icmp uge i64 %.val, %3
+  %5 = icmp ugt i64 %.val, %3
   %.014.i = select i1 %switch.not.not.i, i1 %5, i1 %4
   ret i1 %.014.i
 }
@@ -180,7 +180,7 @@ define void @"_ZN93_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$nom..t
 define noundef zeroext i1 @"_ZN93_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$8contains17h892ee948a3898e3bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
   %.val = load i64, ptr %1, align 8, !alias.scope !53, !noalias !56, !noundef !4
   %3 = load i64, ptr %0, align 8, !alias.scope !58, !noalias !63, !noundef !4
-  %4 = icmp ugt i64 %3, %.val
+  %4 = icmp ult i64 %.val, %3
   ret i1 %4
 }
 
@@ -220,7 +220,7 @@ define void @"_ZN102_$LT$core..ops..range..RangeToInclusive$LT$usize$GT$$u20$as$
 define noundef zeroext i1 @"_ZN102_$LT$core..ops..range..RangeToInclusive$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$8contains17hb6f0ffbe168bf56dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
   %.val = load i64, ptr %1, align 8, !alias.scope !65, !noalias !68, !noundef !4
   %3 = load i64, ptr %0, align 8, !alias.scope !70, !noalias !75, !noundef !4
-  %4 = icmp uge i64 %3, %.val
+  %4 = icmp ule i64 %.val, %3
   ret i1 %4
 }
 

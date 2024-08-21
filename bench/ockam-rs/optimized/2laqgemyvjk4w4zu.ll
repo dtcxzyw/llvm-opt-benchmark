@@ -1208,7 +1208,7 @@ define hidden void @"_ZN140_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A
 
 38:                                               ; preds = %33
   %39 = sub i64 %36, %29
-  %40 = icmp ult i64 %39, %27
+  %40 = icmp ugt i64 %27, %39
   br i1 %40, label %61, label %41
 
 41:                                               ; preds = %61, %38
@@ -1454,7 +1454,7 @@ define hidden void @"_ZN140_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A
 
 38:                                               ; preds = %33
   %39 = sub i64 %36, %29
-  %40 = icmp ult i64 %39, %27
+  %40 = icmp ugt i64 %27, %39
   br i1 %40, label %61, label %41
 
 41:                                               ; preds = %61, %38
@@ -3065,7 +3065,7 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
 define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h8aa3dc0bcfff87b4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !10
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
@@ -3625,7 +3625,7 @@ _ZN4core4hash3sip9u8to64_le17h7d49da03e1a9dcd6E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !10
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -3706,8 +3706,8 @@ _ZN4core4hash3sip9u8to64_le17h7d49da03e1a9dcd6E.exit: ; preds = %25, %27
   br label %78
 
 84:                                               ; preds = %78
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload13.i18 = load i16, ptr %86, align 1, !alias.scope !793
   %87 = zext i16 %.0.copyload13.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -3723,8 +3723,8 @@ _ZN4core4hash3sip9u8to64_le17h7d49da03e1a9dcd6E.exit: ; preds = %25, %27
   br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17h7d49da03e1a9dcd6E.exit20
 
 94:                                               ; preds = %92
-  %95 = getelementptr i8, ptr %1, i64 %.1.i16
-  %96 = getelementptr i8, ptr %95, i64 %.09.lcssa
+  %95 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %96 = getelementptr i8, ptr %95, i64 %.1.i16
   %97 = load i8, ptr %96, align 1, !alias.scope !793, !noundef !10
   %98 = zext i8 %97 to i64
   %99 = shl nuw nsw i64 %.1.i16, 3

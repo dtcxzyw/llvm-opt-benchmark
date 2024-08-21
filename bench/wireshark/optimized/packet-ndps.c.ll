@@ -13366,7 +13366,7 @@ define internal fastcc i32 @print_address(ptr noundef %0, ptr noundef %1, i32 no
   %.sink37 = phi i32 [ 10, %18 ], [ 18, %12 ]
   %.sink36 = phi i32 [ 4, %18 ], [ 2, %12 ]
   %21 = load i32, ptr %hf_ndps_ip.sink, align 4
-  %22 = add i32 %.sink37, %2
+  %22 = add i32 %2, %.sink37
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef %.sink36, i32 noundef 0) #6
   br label %24
 

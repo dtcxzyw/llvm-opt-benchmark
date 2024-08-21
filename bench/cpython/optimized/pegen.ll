@@ -45,7 +45,7 @@ define hidden i64 @_PyPegen_byte_offset_to_character_offset_raw(ptr noundef %str
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #11
   %add = add i64 %call, 1
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %add, i64 %col_offset)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %col_offset, i64 %add)
   %call2 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef %str, i64 noundef %spec.select, ptr noundef nonnull @.str) #12
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %return, label %if.end4
@@ -88,7 +88,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #11
   %add.i = add i64 %call.i, 1
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %add.i, i64 %col_offset)
+  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %col_offset, i64 %add.i)
   %call2.i = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef nonnull %call, i64 noundef %spec.select.i, ptr noundef nonnull @.str) #12
   %tobool.not.i = icmp eq ptr %call2.i, null
   br i1 %tobool.not.i, label %return, label %if.end4.i
@@ -716,7 +716,7 @@ entry:
   store i32 %0, ptr %mark1, align 8
   %cmp = icmp ne ptr %call, null
   %conv = zext i1 %cmp to i32
-  %cmp3 = icmp eq i32 %conv, %positive
+  %cmp3 = icmp eq i32 %positive, %conv
   %conv4 = zext i1 %cmp3 to i32
   ret i32 %conv4
 }
@@ -730,7 +730,7 @@ entry:
   store i32 %0, ptr %mark1, align 8
   %cmp = icmp ne ptr %call, null
   %conv = zext i1 %cmp to i32
-  %cmp3 = icmp eq i32 %conv, %positive
+  %cmp3 = icmp eq i32 %positive, %conv
   %conv4 = zext i1 %cmp3 to i32
   ret i32 %conv4
 }
@@ -744,7 +744,7 @@ entry:
   store i32 %0, ptr %mark1, align 8
   %cmp = icmp ne ptr %call, null
   %conv = zext i1 %cmp to i32
-  %cmp3 = icmp eq i32 %conv, %positive
+  %cmp3 = icmp eq i32 %positive, %conv
   %conv4 = zext i1 %cmp3 to i32
   ret i32 %conv4
 }
@@ -758,7 +758,7 @@ entry:
   store i32 %0, ptr %mark1, align 8
   %cmp = icmp ne ptr %call, null
   %conv = zext i1 %cmp to i32
-  %cmp3 = icmp eq i32 %conv, %positive
+  %cmp3 = icmp eq i32 %positive, %conv
   %conv4 = zext i1 %cmp3 to i32
   ret i32 %conv4
 }

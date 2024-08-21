@@ -1188,7 +1188,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK10Expression9is_0_or_1Ev(p
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK18ExpressionVariable7use_varEPK8Variable(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   ret i1 %5
 }
 

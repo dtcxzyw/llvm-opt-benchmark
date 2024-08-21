@@ -278,7 +278,7 @@ define dso_local void @ehci_adjust_port_wakeup_flags(ptr noundef %0, i1 noundef 
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 1
   %10 = icmp eq i8 %9, 0
-  %11 = or i1 %10, %2
+  %11 = or i1 %2, %10
   br i1 %11, label %126, label %12
 
 12:                                               ; preds = %3
@@ -2091,7 +2091,7 @@ define dso_local noundef range(i32 0, 2) i32 @ehci_resume(ptr noundef %0, i1 nou
   %52 = getelementptr inbounds i8, ptr %51, i64 64
   %53 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %52) #19, !srcloc !5
   %54 = icmp ne i32 %53, 1
-  %55 = or i1 %54, %1
+  %55 = or i1 %1, %54
   br i1 %55, label %81, label %56
 
 56:                                               ; preds = %49
@@ -5651,7 +5651,7 @@ define internal fastcc void @qh_link_periodic(ptr noundef %0, ptr noundef %1) un
   %59 = load i64, ptr %58, align 8
   %60 = inttoptr i64 %59 to ptr
   %61 = icmp ne i64 %59, 0
-  %62 = icmp ne ptr %60, %1
+  %62 = icmp ne ptr %1, %60
   %63 = and i1 %61, %62
   br i1 %63, label %53, label %64, !llvm.loop !66
 
@@ -6202,7 +6202,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @tt_available(ptr nocapture n
   %20 = icmp ult i16 %.32.val.fr, 126
   %21 = udiv i16 %.32.val.fr, 125
   %.zext = zext nneg i16 %21 to i32
-  %22 = add nuw nsw i32 %.zext, %3
+  %22 = add nuw nsw i32 %3, %.zext
   %23 = getelementptr inbounds i8, ptr %5, i64 14
   %24 = zext nneg i32 %22 to i64
   %25 = zext nneg i32 %13 to i64
@@ -6694,7 +6694,7 @@ define internal fastcc void @start_unlink_intr(ptr noundef %0, ptr noundef %1) u
   %38 = load i64, ptr %35, align 8
   %39 = inttoptr i64 %38 to ptr
   %40 = icmp ne i64 %38, 0
-  %41 = icmp ne ptr %39, %1
+  %41 = icmp ne ptr %1, %39
   %42 = and i1 %40, %41
   br i1 %42, label %.preheader, label %.loopexit
 
@@ -6736,7 +6736,7 @@ define internal fastcc void @start_unlink_intr(ptr noundef %0, ptr noundef %1) u
   %57 = load i64, ptr %55, align 8
   %58 = inttoptr i64 %57 to ptr
   %59 = icmp ne i64 %57, 0
-  %60 = icmp ne ptr %58, %1
+  %60 = icmp ne ptr %1, %58
   %61 = and i1 %59, %60
   br i1 %61, label %.preheader, label %.loopexit, !llvm.loop !84
 

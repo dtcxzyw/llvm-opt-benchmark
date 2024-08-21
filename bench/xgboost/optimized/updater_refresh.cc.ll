@@ -873,7 +873,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -921,7 +921,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7xgboost14TreeUpdaterRegEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -3248,7 +3248,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -3924,7 +3924,7 @@ _ZSt13move_backwardIPN7xgboost7RegTree4FVecES3_ET0_T_S5_S4_.exit: ; preds = %_ZN
 
 _ZSt24__uninitialized_fill_n_aIPN7xgboost7RegTree4FVecEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit: ; preds = %101
   store ptr %103, ptr %9, align 8
-  %.not11.i.i.i.i.i70 = icmp eq ptr %10, %1
+  %.not11.i.i.i.i.i70 = icmp eq ptr %1, %10
   br i1 %.not11.i.i.i.i.i70, label %_ZSt22__uninitialized_move_aIPN7xgboost7RegTree4FVecES3_SaIS2_EET0_T_S6_S5_RT1_.exit76.thread, label %.lr.ph.i.i.i.i.i71
 
 _ZSt22__uninitialized_move_aIPN7xgboost7RegTree4FVecES3_SaIS2_EET0_T_S6_S5_RT1_.exit76.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN7xgboost7RegTree4FVecEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit
@@ -4055,7 +4055,7 @@ _ZSt24__uninitialized_fill_n_aIPN7xgboost7RegTree4FVecEmS2_S2_ET_S4_T0_RKT1_RSaI
 _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost7RegTree4FVecES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i88, %_ZSt24__uninitialized_fill_n_aIPN7xgboost7RegTree4FVecEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit86
   %.0.lcssa.i.i.i.i.i92 = phi ptr [ %149, %_ZSt24__uninitialized_fill_n_aIPN7xgboost7RegTree4FVecEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit86 ], [ %164, %.lr.ph.i.i.i.i.i88 ]
   %165 = getelementptr inbounds %"struct.xgboost::RegTree::FVec", ptr %.0.lcssa.i.i.i.i.i92, i64 %2
-  %.not11.i.i.i.i.i93 = icmp eq ptr %10, %1
+  %.not11.i.i.i.i.i93 = icmp eq ptr %1, %10
   br i1 %.not11.i.i.i.i.i93, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost7RegTree4FVecES3_SaIS2_EET0_T_S6_S5_RT1_.exit99, label %.lr.ph.i.i.i.i.i94
 
 .lr.ph.i.i.i.i.i94:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost7RegTree4FVecES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %.lr.ph.i.i.i.i.i94
@@ -4648,7 +4648,7 @@ _ZSt13move_backwardIPSt6vectorIN7xgboost4tree9GradStatsESaIS3_EES6_ET0_T_S8_S7_.
 
 _ZSt24__uninitialized_fill_n_aIPSt6vectorIN7xgboost4tree9GradStatsESaIS3_EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit: ; preds = %84
   store ptr %86, ptr %9, align 8
-  %.not11.i.i.i.i.i70 = icmp eq ptr %10, %1
+  %.not11.i.i.i.i.i70 = icmp eq ptr %1, %10
   br i1 %.not11.i.i.i.i.i70, label %_ZSt22__uninitialized_move_aIPSt6vectorIN7xgboost4tree9GradStatsESaIS3_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76.thread, label %.lr.ph.i.i.i.i.i71
 
 _ZSt22__uninitialized_move_aIPSt6vectorIN7xgboost4tree9GradStatsESaIS3_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPSt6vectorIN7xgboost4tree9GradStatsESaIS3_EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit
@@ -4765,7 +4765,7 @@ _ZSt24__uninitialized_fill_n_aIPSt6vectorIN7xgboost4tree9GradStatsESaIS3_EEmS5_S
 _ZSt34__uninitialized_move_if_noexcept_aIPSt6vectorIN7xgboost4tree9GradStatsESaIS3_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i88, %_ZSt24__uninitialized_fill_n_aIPSt6vectorIN7xgboost4tree9GradStatsESaIS3_EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit86
   %.0.lcssa.i.i.i.i.i92 = phi ptr [ %124, %_ZSt24__uninitialized_fill_n_aIPSt6vectorIN7xgboost4tree9GradStatsESaIS3_EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit86 ], [ %135, %.lr.ph.i.i.i.i.i88 ]
   %136 = getelementptr inbounds %"class.std::vector.53", ptr %.0.lcssa.i.i.i.i.i92, i64 %2
-  %.not11.i.i.i.i.i93 = icmp eq ptr %10, %1
+  %.not11.i.i.i.i.i93 = icmp eq ptr %1, %10
   br i1 %.not11.i.i.i.i.i93, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt6vectorIN7xgboost4tree9GradStatsESaIS3_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit99, label %.lr.ph.i.i.i.i.i94
 
 .lr.ph.i.i.i.i.i94:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt6vectorIN7xgboost4tree9GradStatsESaIS3_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit, %.lr.ph.i.i.i.i.i94
@@ -5384,7 +5384,7 @@ _ZSt13move_backwardIPN7xgboost4tree9GradStatsES3_ET0_T_S5_S4_.exit: ; preds = %2
 _ZSt24__uninitialized_fill_n_aIPN7xgboost4tree9GradStatsEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %33
   %37 = phi ptr [ %9, %33 ], [ %36, %.lr.ph.i.i.i.i ]
   store ptr %37, ptr %8, align 8
-  %.not11.i.i.i.i.i69 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i69 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN7xgboost4tree9GradStatsES3_SaIS2_EET0_T_S6_S5_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN7xgboost4tree9GradStatsES3_SaIS2_EET0_T_S6_S5_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN7xgboost4tree9GradStatsEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit
@@ -5475,7 +5475,7 @@ _ZSt24__uninitialized_fill_n_aIPN7xgboost4tree9GradStatsEmS2_S2_ET_S4_T0_RKT1_RS
 _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost4tree9GradStatsES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN7xgboost4tree9GradStatsEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %61, %_ZSt24__uninitialized_fill_n_aIPN7xgboost4tree9GradStatsEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit87 ], [ %66, %.lr.ph.i.i.i.i.i89 ]
   %67 = getelementptr %"struct.xgboost::tree::GradStats", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
-  %.not11.i.i.i.i.i94 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost4tree9GradStatsES3_SaIS2_EET0_T_S6_S5_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
 .lr.ph.i.i.i.i.i95:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost4tree9GradStatsES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %.lr.ph.i.i.i.i.i95
@@ -6824,7 +6824,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit:        ; preds = %2
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
-  %24 = add i32 %23, %1
+  %24 = add i32 %1, %23
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
@@ -7110,7 +7110,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
 
 30:                                               ; preds = %_ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit15
   %31 = load i64, ptr %17, align 8, !noalias !75
-  %.not8.i = icmp ult i64 %31, %26
+  %.not8.i = icmp ugt i64 %26, %31
   br i1 %.not8.i, label %35, label %36
 
 32:                                               ; preds = %_ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit15
@@ -7169,7 +7169,7 @@ _ZNK7xgboost6common4SpanIKjLm18446744073709551615EE7subspanEmm.exit: ; preds = %
 _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread: ; preds = %4, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit
   %62 = getelementptr inbounds i8, ptr %0, i64 16
   %63 = load float, ptr %62, align 4
-  %64 = fcmp ogt float %63, %2
+  %64 = fcmp olt float %2, %63
   br label %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit
 
 _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit: ; preds = %_ZNK7xgboost6common4SpanIKjLm18446744073709551615EE7subspanEmm.exit, %49, %52, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread
@@ -7899,7 +7899,7 @@ define linkonce_odr noundef double @_ZN7xgboost4tree8CalcGainINS0_10TrainParamEd
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   %5 = load float, ptr %4, align 4
   %6 = fpext float %5 to double
-  %7 = fcmp ogt double %6, %2
+  %7 = fcmp olt double %2, %6
   %8 = fcmp ole double %2, 0.000000e+00
   %or.cond = or i1 %8, %7
   br i1 %or.cond, label %71, label %9
@@ -7921,13 +7921,13 @@ define linkonce_odr noundef double @_ZN7xgboost4tree8CalcGainINS0_10TrainParamEd
   %19 = getelementptr inbounds i8, ptr %0, i64 40
   %20 = load float, ptr %19, align 8
   %21 = fpext float %20 to double
-  %22 = fadd double %21, %2
+  %22 = fadd double %2, %21
   %23 = fdiv double %18, %22
   br label %71
 
 24:                                               ; preds = %15
   %25 = fpext float %14 to double
-  %26 = fcmp olt double %25, %1
+  %26 = fcmp ogt double %1, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %24
@@ -7937,11 +7937,11 @@ define linkonce_odr noundef double @_ZN7xgboost4tree8CalcGainINS0_10TrainParamEd
 29:                                               ; preds = %24
   %30 = fneg float %14
   %31 = fpext float %30 to double
-  %32 = fcmp ogt double %31, %1
+  %32 = fcmp olt double %1, %31
   br i1 %32, label %33, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit
 
 33:                                               ; preds = %29
-  %34 = fadd double %25, %1
+  %34 = fadd double %1, %25
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit
 
 _ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit: ; preds = %27, %29, %33
@@ -7950,13 +7950,13 @@ _ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit: ; preds = %27, %29, %33
   %36 = getelementptr inbounds i8, ptr %0, i64 40
   %37 = load float, ptr %36, align 8
   %38 = fpext float %37 to double
-  %39 = fadd double %38, %2
+  %39 = fadd double %2, %38
   %40 = fdiv double %35, %39
   br label %71
 
 41:                                               ; preds = %9
   %42 = fpext float %14 to double
-  %43 = fcmp olt double %42, %1
+  %43 = fcmp ogt double %1, %42
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %41
@@ -7966,11 +7966,11 @@ _ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit: ; preds = %27, %29, %33
 46:                                               ; preds = %41
   %47 = fneg float %14
   %48 = fpext float %47 to double
-  %49 = fcmp ogt double %48, %1
+  %49 = fcmp olt double %1, %48
   br i1 %49, label %50, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i
 
 50:                                               ; preds = %46
-  %51 = fadd double %42, %1
+  %51 = fadd double %1, %42
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i
 
 _ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i: ; preds = %50, %46, %44
@@ -7979,7 +7979,7 @@ _ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i: ; preds = %50, %46, %44
   %53 = getelementptr inbounds i8, ptr %0, i64 40
   %54 = load float, ptr %53, align 8
   %55 = fpext float %54 to double
-  %56 = fadd double %55, %2
+  %56 = fadd double %2, %55
   %57 = fdiv double %52, %56
   %58 = tail call noundef double @llvm.fabs.f64(double %57)
   %59 = fpext float %11 to double

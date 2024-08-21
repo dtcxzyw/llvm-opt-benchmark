@@ -70,7 +70,7 @@ define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 19:                                               ; preds = %15, %10, %6
   %20 = getelementptr inbounds i8, ptr %1, i64 144
   %21 = load i32, ptr %20, align 8
-  %22 = icmp sgt i32 %21, %3
+  %22 = icmp slt i32 %3, %21
   br i1 %22, label %23, label %51
 
 23:                                               ; preds = %19
@@ -649,7 +649,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bynode(ptr noundef %0, ptr noundef %
 21:                                               ; preds = %15, %10, %6
   %22 = getelementptr inbounds i8, ptr %1, i64 144
   %23 = load i32, ptr %22, align 8
-  %24 = icmp sgt i32 %23, %3
+  %24 = icmp slt i32 %3, %23
   br i1 %24, label %25, label %53
 
 25:                                               ; preds = %21
@@ -1111,7 +1111,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
 21:                                               ; preds = %15, %10, %6
   %22 = getelementptr inbounds i8, ptr %1, i64 144
   %23 = load i32, ptr %22, align 8
-  %24 = icmp sgt i32 %23, %3
+  %24 = icmp slt i32 %3, %23
   br i1 %24, label %25, label %53
 
 25:                                               ; preds = %21
@@ -1726,7 +1726,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_byobj(ptr noundef %0, ptr noundef %1
 21:                                               ; preds = %14, %9, %6
   %22 = getelementptr inbounds i8, ptr %1, i64 144
   %23 = load i32, ptr %22, align 8
-  %24 = icmp sgt i32 %23, %3
+  %24 = icmp slt i32 %3, %23
   br i1 %24, label %25, label %53
 
 25:                                               ; preds = %21

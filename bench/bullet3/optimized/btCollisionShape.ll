@@ -90,7 +90,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %mul = fmul float %call, %defaultContactThreshold
+  %mul = fmul float %defaultContactThreshold, %call
   ret float %mul
 }
 
@@ -135,13 +135,13 @@ entry:
   %arrayidx.i13 = getelementptr inbounds i8, ptr %temporalAabbMin, i64 8
   %6 = load float, ptr %arrayidx.i13, align 4
   %7 = load float, ptr %linvel, align 4
-  %mul.i = fmul float %7, %timeStep
+  %mul.i = fmul float %timeStep, %7
   %arrayidx3.i = getelementptr inbounds i8, ptr %linvel, i64 4
   %8 = load float, ptr %arrayidx3.i, align 4
-  %mul4.i = fmul float %8, %timeStep
+  %mul4.i = fmul float %timeStep, %8
   %arrayidx7.i = getelementptr inbounds i8, ptr %linvel, i64 8
   %9 = load float, ptr %arrayidx7.i, align 4
-  %mul8.i = fmul float %9, %timeStep
+  %mul8.i = fmul float %timeStep, %9
   %cmp = fcmp ogt float %mul.i, 0.000000e+00
   %add = fadd float %1, %mul.i
   %add11 = fadd float %4, %mul.i
@@ -171,7 +171,7 @@ entry:
   %15 = load ptr, ptr %vfn32, align 8
   %call33 = tail call noundef float %15(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %mul = fmul float %sqrt.i, %call33
-  %mul34 = fmul float %mul, %timeStep
+  %mul34 = fmul float %timeStep, %mul
   store float %temporalAabbMinx.0, ptr %temporalAabbMin, align 4
   store float %temporalAabbMiny.0, ptr %arrayidx.i12, align 4
   store float %temporalAabbMinz.0, ptr %arrayidx.i13, align 4

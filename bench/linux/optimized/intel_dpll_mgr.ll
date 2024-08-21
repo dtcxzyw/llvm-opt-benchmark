@@ -291,7 +291,7 @@ define dso_local void @assert_shared_dpll(ptr noundef %0, ptr noundef %1, i1 nou
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = call zeroext i1 %25(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4) #13
-  %27 = xor i1 %26, %2
+  %27 = xor i1 %2, %26
   br i1 %27, label %28, label %59, !prof !14
 
 28:                                               ; preds = %19
@@ -5071,7 +5071,7 @@ define internal fastcc ptr @intel_find_shared_dpll(ptr noundef %0, ptr nocapture
   %45 = phi i64 [ 0, %4 ], [ %41, %39 ], [ %16, %13 ]
   %46 = tail call fastcc ptr @intel_atomic_get_shared_dpll_state(ptr noundef %0)
   %47 = xor i64 %45, -1
-  %48 = and i64 %47, %3
+  %48 = and i64 %3, %47
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %62, label %50, !prof !22
 

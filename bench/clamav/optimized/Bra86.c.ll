@@ -17,7 +17,7 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
   %10 = add i32 %2, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 %1
   %12 = getelementptr inbounds i8, ptr %11, i64 -4
-  %13 = icmp ugt ptr %12, %0
+  %13 = icmp ult ptr %0, %12
   %14 = ptrtoint ptr %0 to i64
   br i1 %13, label %.lr.ph.lr.ph, label %._crit_edge
 

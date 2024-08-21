@@ -2811,7 +2811,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail11nb_type_getEPKSt9type_infoP7_obj
 21:                                               ; preds = %11
   %22 = getelementptr inbounds i8, ptr %13, i64 904
   %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, %0
+  %24 = icmp eq ptr %0, %23
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %21
@@ -6250,7 +6250,7 @@ _ZNK3tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit: ; preds
   %47 = fdiv float %35, %43
   %48 = tail call noundef float @llvm.ceil.f32(float %47)
   %49 = fptoui float %48 to i64
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %49, i64 %46)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %49)
   tail call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E11rehash_implEm(ptr noundef nonnull align 8 dereferenceable(74) %0, i64 noundef %.sroa.speculated.i.i)
   br label %50
 
@@ -7324,7 +7324,7 @@ _ZNK3tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit: ; preds
   %47 = fdiv float %35, %43
   %48 = tail call noundef float @llvm.ceil.f32(float %47)
   %49 = fptoui float %48 to i64
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %49, i64 %46)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %49)
   tail call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E11rehash_implEm(ptr noundef nonnull align 8 dereferenceable(74) %0, i64 noundef %.sroa.speculated.i.i)
   br label %50
 
@@ -8106,7 +8106,7 @@ _ZNK3tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit: ; preds
   %47 = fdiv float %35, %43
   %48 = tail call noundef float @llvm.ceil.f32(float %47)
   %49 = fptoui float %48 to i64
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %49, i64 %46)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %49)
   tail call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E11rehash_implEm(ptr noundef nonnull align 8 dereferenceable(74) %0, i64 noundef %.sroa.speculated.i.i)
   br label %50
 

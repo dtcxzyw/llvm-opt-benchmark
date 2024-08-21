@@ -975,7 +975,7 @@ if.end:                                           ; preds = %entry
 if.else:                                          ; preds = %if.end
   %idx.ext = zext nneg i32 %buf_size to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
-  %cmp443 = icmp ugt ptr %add.ptr, %buf
+  %cmp443 = icmp ult ptr %buf, %add.ptr
   br i1 %cmp443, label %while.body, label %return
 
 while.body:                                       ; preds = %if.else, %while.cond.backedge
@@ -1127,7 +1127,7 @@ while.body.i:                                     ; preds = %while.body, %if.end
   %extent.18.i = phi ptr [ %incdec.ptr.i, %if.end5.i ], [ %.start_hint.i, %while.body ]
   %end_sector.i = getelementptr inbounds i8, ptr %extent.18.i, i64 48
   %4 = load i64, ptr %end_sector.i, align 8
-  %cmp3.i = icmp sgt i64 %4, %shr
+  %cmp3.i = icmp slt i64 %shr, %4
   br i1 %cmp3.i, label %if.end, label %if.end5.i
 
 if.end5.i:                                        ; preds = %while.body.i
@@ -1261,7 +1261,7 @@ while.body.i:                                     ; preds = %entry, %if.end5.i
   %extent.18.i = phi ptr [ %incdec.ptr.i, %if.end5.i ], [ %1, %entry ]
   %end_sector.i = getelementptr inbounds i8, ptr %extent.18.i, i64 48
   %3 = load i64, ptr %end_sector.i, align 8
-  %cmp3.i = icmp sgt i64 %3, %shr
+  %cmp3.i = icmp slt i64 %shr, %3
   br i1 %cmp3.i, label %if.end, label %if.end5.i
 
 if.end5.i:                                        ; preds = %while.body.i
@@ -1698,7 +1698,7 @@ while.body.i:                                     ; preds = %if.end2, %if.end5.i
   %extent.18.i = phi ptr [ %incdec.ptr.i, %if.end5.i ], [ %.start_hint.i, %if.end2 ]
   %end_sector.i = getelementptr inbounds i8, ptr %extent.18.i, i64 48
   %3 = load i64, ptr %end_sector.i, align 8
-  %cmp3.i = icmp sgt i64 %3, %sector_num.030
+  %cmp3.i = icmp slt i64 %sector_num.030, %3
   br i1 %cmp3.i, label %if.end7, label %if.end5.i
 
 if.end5.i:                                        ; preds = %while.body.i
@@ -3064,7 +3064,7 @@ if.end7:                                          ; preds = %if.end3
   %l1_size18 = getelementptr inbounds i8, ptr %arrayidx, i64 96
   store i32 %l1_size, ptr %l1_size18, align 8
   %6 = trunc nuw i64 %cluster_sectors to i32
-  %conv20 = mul i32 %6, %l2_size
+  %conv20 = mul i32 %l2_size, %6
   %l1_entry_sectors = getelementptr inbounds i8, ptr %arrayidx, i64 100
   store i32 %conv20, ptr %l1_entry_sectors, align 4
   %l2_size21 = getelementptr inbounds i8, ptr %arrayidx, i64 104
@@ -4498,7 +4498,7 @@ if.end39:                                         ; preds = %if.end34
 
 lor.lhs.false48:                                  ; preds = %if.end39
   %conv49 = sext i32 %bytes to i64
-  %add50 = add i64 %conv49, %offset_in_cluster
+  %add50 = add i64 %offset_in_cluster, %conv49
   %12 = load i64, ptr %buf_len, align 8
   %cmp51 = icmp ugt i64 %add50, %12
   br i1 %cmp51, label %out, label %if.end54
@@ -4557,7 +4557,7 @@ entry:
   %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %2 = load ptr, ptr %backing, align 8
   %tobool = icmp eq ptr %2, null
-  %.not = or i1 %tobool, %zeroed
+  %.not = or i1 %zeroed, %tobool
   br i1 %.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -4568,7 +4568,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %cmp.not = icmp ult i64 %shl, %skip_end_bytes
+  %cmp.not = icmp ugt i64 %skip_end_bytes, %shl
   br i1 %cmp.not, label %if.else, label %if.end5
 
 if.else:                                          ; preds = %if.end
@@ -4650,7 +4650,7 @@ do.end34:                                         ; preds = %do.body27, %if.then
   br i1 %cmp37, label %exit, label %if.end40
 
 if.end40:                                         ; preds = %do.end34, %if.end11
-  %cmp41 = icmp ugt i64 %shl, %skip_end_bytes
+  %cmp41 = icmp ult i64 %skip_end_bytes, %shl
   br i1 %cmp41, label %if.then42, label %if.end77
 
 if.then42:                                        ; preds = %if.end40
@@ -4806,7 +4806,7 @@ while.body.i:                                     ; preds = %while.body, %if.end
   %extent.18.i = phi ptr [ %incdec.ptr.i, %if.end5.i ], [ %.start_hint.i, %while.body ]
   %end_sector.i = getelementptr inbounds i8, ptr %extent.18.i, i64 48
   %4 = load i64, ptr %end_sector.i, align 8
-  %cmp3.i = icmp sgt i64 %4, %shr
+  %cmp3.i = icmp slt i64 %shr, %4
   br i1 %cmp3.i, label %if.end5, label %if.end5.i
 
 if.end5.i:                                        ; preds = %while.body.i
@@ -4835,7 +4835,7 @@ if.end8:                                          ; preds = %if.end5
   %compressed = getelementptr inbounds i8, ptr %extent.18.i, i64 9
   %8 = load i8, ptr %compressed, align 1
   %tobool12 = trunc i8 %8 to i1
-  %9 = or i1 %tobool12, %zeroed
+  %9 = or i1 %zeroed, %tobool12
   %lnot = xor i1 %9, true
   %add14 = add i64 %cond, %rem.i
   %call15 = call i32 @get_cluster_offset(ptr noundef %bs, ptr noundef nonnull %extent.18.i, ptr noundef nonnull %m_data, i64 noundef %offset.addr.072, i1 noundef zeroext %lnot, ptr noundef nonnull %cluster_offset, i64 noundef %rem.i, i64 noundef %add14)
@@ -4886,7 +4886,7 @@ land.lhs.true34:                                  ; preds = %if.then31
 
 if.then38:                                        ; preds = %land.lhs.true34
   %cmp43 = icmp eq i32 %call15, -3
-  %or.cond1.not = or i1 %cmp43, %zero_dry_run
+  %or.cond1.not = or i1 %zero_dry_run, %cmp43
   br i1 %or.cond1.not, label %if.end66, label %if.then44
 
 if.then44:                                        ; preds = %if.then38
@@ -5065,11 +5065,11 @@ lor.lhs.false:                                    ; preds = %if.then
   %cluster_sectors = getelementptr inbounds i8, ptr %extent, i64 248
   %1 = load i64, ptr %cluster_sectors, align 8
   %mul = shl i64 %1, 9
-  %cmp = icmp ult i64 %mul, %n_bytes
+  %cmp = icmp ugt i64 %n_bytes, %mul
   br i1 %cmp, label %out, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %cmp5 = icmp ugt i64 %mul, %n_bytes
+  %cmp5 = icmp ult i64 %n_bytes, %mul
   br i1 %cmp5, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %lor.lhs.false2

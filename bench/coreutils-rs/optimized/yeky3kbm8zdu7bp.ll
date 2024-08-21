@@ -4012,7 +4012,7 @@ define void @_ZN6uucore8features6format10num_format21format_float_shortest17hab5
   store i64 %43, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   %44 = icmp eq i32 %36, %38
-  %brmerge.not = and i1 %44, %4
+  %brmerge.not = and i1 %4, %44
   br i1 %brmerge.not, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit136
 
 45:                                               ; preds = %33
@@ -4782,12 +4782,12 @@ _ZN5alloc6string6String8truncate17ha32b28e51c269527E.exit: ; preds = %40, %65, %
 
 58:                                               ; preds = %56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !507)
-  %.not.i = icmp ult i64 %3, %.1
+  %.not.i = icmp ugt i64 %.1, %3
   br i1 %.not.i, label %_ZN5alloc6string6String8truncate17ha32b28e51c269527E.exit, label %59
 
 59:                                               ; preds = %58
   %60 = icmp ne i64 %.1, 0
-  %.not.i.i = icmp ugt i64 %3, %.1
+  %.not.i.i = icmp ult i64 %.1, %3
   %or.cond.i = and i1 %60, %.not.i.i
   br i1 %or.cond.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8a8861d81afed50fE.exit.i"
 
@@ -4931,7 +4931,7 @@ define void @_ZN6uucore12format_usage17h602e2bed353974c6E(ptr noalias nocapture 
           to label %.noexc14.i unwind label %.loopexit.i, !noalias !543
 
 45:                                               ; preds = %.lr.ph.split.split.i.i.i
-  %.not.i.i.i.i13 = icmp eq i64 %41, %2
+  %.not.i.i.i.i13 = icmp eq i64 %2, %41
   br i1 %.not.i.i.i.i13, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %45, %49
@@ -4997,7 +4997,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %4
   %63 = sub i64 %2, %.041.i
   %64 = load i64, ptr %11, align 8, !alias.scope !561, !noalias !559, !noundef !4
   %65 = sub i64 %64, %62
-  %66 = icmp ult i64 %65, %63
+  %66 = icmp ugt i64 %63, %65
   br i1 %66, label %67, label %103
 
 67:                                               ; preds = %.split.us.i.i.i
@@ -5020,7 +5020,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %4
   %73 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !564, !noalias !569, !noundef !4
   %74 = load i64, ptr %11, align 8, !alias.scope !571, !noalias !569, !noundef !4
   %75 = sub i64 %74, %73
-  %76 = icmp ult i64 %75, %72
+  %76 = icmp ugt i64 %72, %75
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17hec32fd04c005ee03E.exit.i"
@@ -5047,7 +5047,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %4
   store i64 %86, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !564, !noalias !569
   %87 = load i64, ptr %11, align 8, !alias.scope !574, !noalias !581, !noundef !4
   %88 = sub i64 %87, %86
-  %89 = icmp ult i64 %88, %37
+  %89 = icmp ugt i64 %37, %88
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %81
@@ -5488,7 +5488,7 @@ default.unreachable:                              ; preds = %.noexc.i
   %270 = load i64, ptr %.sroa.5.0..sroa_idx.i19, align 8, !alias.scope !643, !noalias !648, !noundef !4
   %271 = load i64, ptr %9, align 8, !alias.scope !650, !noalias !648, !noundef !4
   %272 = sub i64 %271, %270
-  %273 = icmp ult i64 %272, %269
+  %273 = icmp ugt i64 %269, %272
   br i1 %273, label %274, label %310
 
 274:                                              ; preds = %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.thread12.i"
@@ -5513,7 +5513,7 @@ default.unreachable:                              ; preds = %.noexc.i
   %280 = load i64, ptr %.sroa.5.0..sroa_idx.i19, align 8, !alias.scope !653, !noalias !658, !noundef !4
   %281 = load i64, ptr %9, align 8, !alias.scope !660, !noalias !658, !noundef !4
   %282 = sub i64 %281, %280
-  %283 = icmp ult i64 %282, %279
+  %283 = icmp ugt i64 %279, %282
   br i1 %283, label %284, label %288
 
 284:                                              ; preds = %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.thread.i"
@@ -5540,7 +5540,7 @@ default.unreachable:                              ; preds = %.noexc.i
   store i64 %293, ptr %.sroa.5.0..sroa_idx.i19, align 8, !alias.scope !653, !noalias !658
   %294 = load i64, ptr %9, align 8, !alias.scope !663, !noalias !670, !noundef !4
   %295 = sub i64 %294, %293
-  %296 = icmp ult i64 %295, %130
+  %296 = icmp ugt i64 %130, %295
   br i1 %296, label %297, label %301
 
 297:                                              ; preds = %288

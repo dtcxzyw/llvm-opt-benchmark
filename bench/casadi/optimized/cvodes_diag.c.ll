@@ -479,7 +479,7 @@ define range(i32 -101, 1) i32 @CVDiagB(ptr noundef %0, i32 noundef %1) local_unn
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load i32, ptr %13, align 8
-  %.not = icmp sgt i32 %14, %1
+  %.not = icmp slt i32 %1, %14
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %10
@@ -494,7 +494,7 @@ define range(i32 -101, 1) i32 @CVDiagB(ptr noundef %0, i32 noundef %1) local_unn
   %.sink = phi ptr [ %20, %.lr.ph ], [ %17, %16 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %18 = load i32, ptr %.016, align 8
-  %19 = icmp eq i32 %18, %1
+  %19 = icmp eq i32 %1, %18
   %20 = getelementptr inbounds i8, ptr %.016, i64 120
   br i1 %19, label %._crit_edge, label %.lr.ph
 

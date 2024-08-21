@@ -30,7 +30,7 @@ define void @_Z10print_timeP8_IO_FILEP23gmx_walltime_accountinglPK10t_inputrecPK
   %13 = getelementptr inbounds i8, ptr %3, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %.not = icmp sgt i64 %15, %2
+  %.not = icmp slt i64 %2, %15
   br i1 %.not, label %58, label %16
 
 16:                                               ; preds = %5

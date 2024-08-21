@@ -640,7 +640,7 @@ define internal noundef i32 @H5S__all_iter_next_block(ptr nocapture readnone %0)
 define internal noundef i32 @H5S__all_iter_get_seq_list(ptr nocapture noundef %0, i64 %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6) #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 528
   %9 = load i64, ptr %8, align 8
-  %. = tail call i64 @llvm.umin.i64(i64 %9, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %9)
   %10 = getelementptr inbounds i8, ptr %0, i64 552
   %11 = getelementptr inbounds i8, ptr %0, i64 560
   %12 = load i64, ptr %11, align 8

@@ -128,7 +128,7 @@ define hidden void @_ZN2cv3dnn8fastNormERKNS_3MatERS1_fmb(ptr noundef nonnull al
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %16
   %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %.val14, i64 %.idx, i1 false)
-  %19 = icmp ugt i64 %15, %3
+  %19 = icmp ult i64 %3, %15
   br i1 %19, label %21, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread
 
 common.resume:                                    ; preds = %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35
@@ -501,7 +501,7 @@ define hidden void @_ZN2cv3dnn8fastNormERKNS_3MatES3_RS1_fm(ptr noundef nonnull 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %14
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr align 4 %.val15, i64 %.idx, i1 false)
-  %17 = icmp ugt i64 %13, %4
+  %17 = icmp ult i64 %4, %13
   br i1 %17, label %19, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread
 
 common.resume:                                    ; preds = %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36
@@ -723,7 +723,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %6, %_ZNSt12_Vector
   %20 = ptrtoint ptr %.sroa.048.0 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 2
-  %23 = icmp ugt i64 %22, %5
+  %23 = icmp ult i64 %5, %22
   br i1 %23, label %26, label %.invoke67
 
 24:                                               ; preds = %.invoke67, %.invoke, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38, %34, %32, %28, %26
@@ -1265,7 +1265,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit: ; preds =
 
 _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit, %53
   %.024.i = phi i64 [ 1, %53 ], [ %57, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit ]
-  %58 = mul i64 %21, %5
+  %58 = mul i64 %5, %21
   %59 = mul i64 %49, %.024.i
   store i64 %59, ptr %10, align 8
   %60 = udiv i64 %59, %49

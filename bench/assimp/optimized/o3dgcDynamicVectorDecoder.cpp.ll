@@ -861,7 +861,7 @@ for.body64.us:                                    ; preds = %for.cond62.preheade
 
 call.i.noexc144.us:                               ; preds = %for.body64.us
   %conv.i.us = zext i32 %call.i145.us to i64
-  %cmp.i130.us = icmp eq i32 %call.i145.us, %M.0
+  %cmp.i130.us = icmp eq i32 %M.0, %call.i145.us
   br i1 %cmp.i130.us, label %do.body.i.i137.us, label %invoke.cont67.us
 
 do.body.i.i137.us:                                ; preds = %call.i.noexc144.us, %call.i.i.noexc.us

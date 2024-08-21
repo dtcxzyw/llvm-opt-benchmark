@@ -867,7 +867,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %zl, i64 10
   %add.ptr1 = getelementptr inbounds i8, ptr %zl, i64 %zlbytes
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr1, i64 -1
-  %cmp.not = icmp ule ptr %add.ptr, %p
+  %cmp.not = icmp uge ptr %p, %add.ptr
   %add.ptr3 = getelementptr inbounds i8, ptr %p, i64 10
   %cmp4 = icmp ult ptr %add.ptr3, %add.ptr2
   %or.cond = select i1 %cmp.not, i1 %cmp4, i1 false
@@ -1047,8 +1047,8 @@ if.end239:                                        ; preds = %land.lhs.true218, %
   br label %return
 
 if.end240:                                        ; preds = %entry
-  %cmp241 = icmp ugt ptr %add.ptr, %p
-  %cmp244 = icmp ult ptr %add.ptr2, %p
+  %cmp241 = icmp ult ptr %p, %add.ptr
+  %cmp244 = icmp ugt ptr %p, %add.ptr2
   %21 = select i1 %cmp241, i1 true, i1 %cmp244
   br i1 %21, label %return, label %do.body255
 
@@ -2281,7 +2281,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %add.ptr7 = getelementptr inbounds i8, ptr %zl, i64 10
-  %cmp8 = icmp eq ptr %add.ptr7, %p
+  %cmp8 = icmp eq ptr %p, %add.ptr7
   br i1 %cmp8, label %return, label %do.body12
 
 do.body12:                                        ; preds = %if.else
@@ -3274,7 +3274,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %zl, align 4
   %conv = zext i32 %0 to i64
-  %cmp1.not = icmp eq i64 %conv, %size
+  %cmp1.not = icmp eq i64 %size, %conv
   br i1 %cmp1.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
@@ -3866,7 +3866,7 @@ if.then12.i:                                      ; preds = %while.end.i, %if.el
 ziplistLen.exit:                                  ; preds = %if.then.i, %while.end.i, %if.then12.i
   %len.0.i = phi i32 [ %conv.i, %if.then.i ], [ %len.1.lcssa17.i, %if.then12.i ], [ %inc.i, %while.end.i ]
   %div23 = lshr i32 %len.0.i, 1
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %div23, i32 %count)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %count, i32 %div23)
   %call1 = tail call ptr @ziplistIndex(ptr noundef %zl, i32 noundef 0)
   %cmp2151 = icmp ne i32 %spec.select, 0
   %tobool152 = icmp ne ptr %call1, null

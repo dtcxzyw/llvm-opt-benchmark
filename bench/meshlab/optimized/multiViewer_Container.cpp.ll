@@ -260,7 +260,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -993,7 +993,7 @@ define void @_ZN21MultiViewer_Container7addViewEP6GLAreaN2Qt11OrientationE(ptr n
           to label %.noexc32 unwind label %25
 
 .noexc32:                                         ; preds = %.noexc31
-  %.not5.i = icmp eq i32 %43, %41
+  %.not5.i = icmp eq i32 %41, %43
   br i1 %.not5.i, label %_ZN21MultiViewer_Container13updateCurrentEi.exit, label %49
 
 49:                                               ; preds = %.noexc32
@@ -1137,7 +1137,7 @@ _ZN21MultiViewer_Container13updateCurrentEi.exit: ; preds = %.noexc32, %49
           to label %.noexc40 unwind label %79
 
 .noexc40:                                         ; preds = %.noexc39
-  %.not5.i35 = icmp eq i32 %107, %105
+  %.not5.i35 = icmp eq i32 %105, %107
   br i1 %.not5.i35, label %_ZN21MultiViewer_Container13updateCurrentEi.exit42, label %113
 
 113:                                              ; preds = %.noexc40
@@ -1351,7 +1351,7 @@ _Z12qobject_castIP8SplitterET_P7QObject.exit:     ; preds = %_ZN21MultiViewer_Co
           to label %.noexc52 unwind label %167
 
 .noexc52:                                         ; preds = %.noexc51
-  %.not5.i47 = icmp eq i32 %195, %194
+  %.not5.i47 = icmp eq i32 %194, %195
   br i1 %.not5.i47, label %_ZN21MultiViewer_Container13updateCurrentEi.exit54, label %201
 
 201:                                              ; preds = %.noexc52
@@ -1650,7 +1650,7 @@ define void @_ZN21MultiViewer_Container13updateCurrentEi(ptr noundef nonnull ali
 
 10:                                               ; preds = %8, %2
   tail call void @_ZN21MultiViewer_Container21updateMainWindowMenusEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %.not5 = icmp eq i32 %4, %1
+  %.not5 = icmp eq i32 %1, %4
   br i1 %.not5, label %12, label %11
 
 11:                                               ; preds = %10
@@ -2056,7 +2056,7 @@ _ZN5QListIP6GLAreaE5firstEv.exit:                 ; preds = %43, %_ZN5QListIP6GL
 
 88:                                               ; preds = %86, %_ZN5QListIP6GLAreaE5firstEv.exit
   call void @_ZN21MultiViewer_Container21updateMainWindowMenusEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %.not5.i = icmp eq i32 %82, %80
+  %.not5.i = icmp eq i32 %80, %82
   br i1 %.not5.i, label %_ZN21MultiViewer_Container13updateCurrentEi.exit, label %_ZN21MultiViewer_Container13updateCurrentEi.exit.sink.split
 
 89:                                               ; preds = %._crit_edge.thread
@@ -2158,7 +2158,7 @@ _ZN5QListIP6GLAreaE5firstEv.exit41:               ; preds = %91, %_ZN5QListIP6GL
 
 142:                                              ; preds = %140, %_ZN5QListIP6GLAreaE5firstEv.exit41
   call void @_ZN21MultiViewer_Container21updateMainWindowMenusEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %.not5.i43 = icmp eq i32 %136, %134
+  %.not5.i43 = icmp eq i32 %134, %136
   br i1 %.not5.i43, label %_ZN21MultiViewer_Container13updateCurrentEi.exit, label %_ZN21MultiViewer_Container13updateCurrentEi.exit.sink.split
 
 143:                                              ; preds = %89
@@ -2256,7 +2256,7 @@ _ZN5QListIP6GLAreaE5firstEv.exit52:               ; preds = %143, %_ZN5QListIP6G
 
 196:                                              ; preds = %194, %_ZN5QListIP6GLAreaE5firstEv.exit52
   call void @_ZN21MultiViewer_Container21updateMainWindowMenusEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %.not5.i54 = icmp eq i32 %190, %188
+  %.not5.i54 = icmp eq i32 %188, %190
   br i1 %.not5.i54, label %_ZN21MultiViewer_Container13updateCurrentEi.exit, label %_ZN21MultiViewer_Container13updateCurrentEi.exit.sink.split
 
 _ZN21MultiViewer_Container13updateCurrentEi.exit.sink.split: ; preds = %196, %142, %88

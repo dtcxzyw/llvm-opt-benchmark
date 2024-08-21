@@ -342,7 +342,7 @@ _ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1
   call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %seen_buffers, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i, %4
+  %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setIPKhSt4hashIS1_ESt8equal_toIS1_ESaIS1_EED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -469,7 +469,7 @@ _ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
+  %cmp.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i
@@ -519,7 +519,7 @@ _ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1
   call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %mul.i.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %seen_buffers.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %5
+  %cmp.i.i.i.i.i.i = icmp eq ptr %5, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN5arrow4util15TotalBufferSizeERKNS_9ArrayDataE.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i
@@ -592,7 +592,7 @@ _ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1
   call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %seen_buffers, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i, %6
+  %cmp.i.i.i.i.i = icmp eq ptr %6, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setIPKhSt4hashIS1_ESt8equal_toIS1_ESaIS1_EED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -671,7 +671,7 @@ _ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1
   call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %seen_buffers, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i, %9
+  %cmp.i.i.i.i.i = icmp eq ptr %9, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setIPKhSt4hashIS1_ESt8equal_toIS1_ESaIS1_EED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -776,7 +776,7 @@ _ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1
   call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %11 = load ptr, ptr %seen_buffers, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i, %11
+  %cmp.i.i.i.i.i = icmp eq ptr %11, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setIPKhSt4hashIS1_ESt8equal_toIS1_ESaIS1_EED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -4867,7 +4867,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
+  %cmp.i.i.i = icmp eq ptr %9, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -5179,7 +5179,7 @@ nrvo.skipdtor.thread.i.i:                         ; preds = %do.end7.i219
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %do.end7.i219
   %add.i.i.i = add nsw i64 %call2.i.i.i, 1
   %mul.i.i.i.i = shl nsw i64 %16, 1
-  %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i.i, i64 %add.i.i.i)
+  %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i.i.i, i64 %mul.i.i.i.i)
   %vtable4.i.i.i = load ptr, ptr %11, align 8, !noalias !88
   %vfn5.i.i.i = getelementptr inbounds i8, ptr %vtable4.i.i.i, i64 24
   %18 = load ptr, ptr %vfn5.i.i.i, align 8, !noalias !88
@@ -5247,7 +5247,7 @@ nrvo.skipdtor.thread.i147.i:                      ; preds = %do.body35.i
 _ZN5arrow6StatusD2Ev.exit.i124.i:                 ; preds = %do.body35.i
   %add.i.i125.i = add nsw i64 %call2.i.i122.i, 1
   %mul.i.i.i126.i = shl nsw i64 %30, 1
-  %.sroa.speculated.i.i.i127.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i126.i, i64 %add.i.i125.i)
+  %.sroa.speculated.i.i.i127.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i125.i, i64 %mul.i.i.i126.i)
   %vtable4.i.i128.i = load ptr, ptr %28, align 8, !noalias !104
   %vfn5.i.i129.i = getelementptr inbounds i8, ptr %vtable4.i.i128.i, i64 24
   %32 = load ptr, ptr %vfn5.i.i129.i, align 8, !noalias !104
@@ -5315,7 +5315,7 @@ nrvo.skipdtor.thread.i251.i:                      ; preds = %do.body57.i
 _ZN5arrow6StatusD2Ev.exit.i228.i:                 ; preds = %do.body57.i
   %add.i.i229.i = add nsw i64 %call2.i.i226.i, 1
   %mul.i.i.i230.i = shl nsw i64 %44, 1
-  %.sroa.speculated.i.i.i231.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i230.i, i64 %add.i.i229.i)
+  %.sroa.speculated.i.i.i231.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i229.i, i64 %mul.i.i.i230.i)
   %vtable4.i.i232.i = load ptr, ptr %42, align 8, !noalias !120
   %vfn5.i.i233.i = getelementptr inbounds i8, ptr %vtable4.i.i232.i, i64 24
   %46 = load ptr, ptr %vfn5.i.i233.i, align 8, !noalias !120
@@ -7110,7 +7110,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %length_.i, align 8, !noalias !216
-  %cmp3.i = icmp sgt i64 %0, %capacity
+  %cmp3.i = icmp slt i64 %capacity, %0
   br i1 %cmp3.i, label %if.then6.i, label %nrvo.skipdtor.thread
 
 if.then6.i:                                       ; preds = %if.end.i
@@ -7272,7 +7272,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %add.i = add nsw i64 %call2.i, 1
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !233
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !233
@@ -7351,7 +7351,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !244
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !244
@@ -7409,7 +7409,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %add.i = add nsw i64 %call2.i, 1
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !255
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !255
@@ -7479,7 +7479,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !266
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !266
@@ -9326,7 +9326,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !323
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !323
@@ -11178,7 +11178,7 @@ nrvo.skipdtor.thread.i.i:                         ; preds = %do.end7.i
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %do.end7.i
   %add.i.i.i = add nsw i64 %call2.i.i.i, 1
   %mul.i.i.i.i = shl nsw i64 %11, 1
-  %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i.i, i64 %add.i.i.i)
+  %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i.i.i, i64 %mul.i.i.i.i)
   %vtable4.i.i.i = load ptr, ptr %6, align 8, !noalias !369
   %vfn5.i.i.i = getelementptr inbounds i8, ptr %vtable4.i.i.i, i64 24
   %13 = load ptr, ptr %vfn5.i.i.i, align 8, !noalias !369
@@ -11246,7 +11246,7 @@ nrvo.skipdtor.thread.i151.i:                      ; preds = %do.body35.i
 _ZN5arrow6StatusD2Ev.exit.i128.i:                 ; preds = %do.body35.i
   %add.i.i129.i = add nsw i64 %call2.i.i126.i, 1
   %mul.i.i.i130.i = shl nsw i64 %25, 1
-  %.sroa.speculated.i.i.i131.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i130.i, i64 %add.i.i129.i)
+  %.sroa.speculated.i.i.i131.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i129.i, i64 %mul.i.i.i130.i)
   %vtable4.i.i132.i = load ptr, ptr %23, align 8, !noalias !385
   %vfn5.i.i133.i = getelementptr inbounds i8, ptr %vtable4.i.i132.i, i64 24
   %27 = load ptr, ptr %vfn5.i.i133.i, align 8, !noalias !385
@@ -11314,7 +11314,7 @@ nrvo.skipdtor.thread.i255.i:                      ; preds = %do.body57.i
 _ZN5arrow6StatusD2Ev.exit.i232.i:                 ; preds = %do.body57.i
   %add.i.i233.i = add nsw i64 %call2.i.i230.i, 1
   %mul.i.i.i234.i = shl nsw i64 %39, 1
-  %.sroa.speculated.i.i.i235.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i234.i, i64 %add.i.i233.i)
+  %.sroa.speculated.i.i.i235.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i233.i, i64 %mul.i.i.i234.i)
   %vtable4.i.i236.i = load ptr, ptr %37, align 8, !noalias !401
   %vfn5.i.i237.i = getelementptr inbounds i8, ptr %vtable4.i.i236.i, i64 24
   %41 = load ptr, ptr %vfn5.i.i237.i, align 8, !noalias !401
@@ -11404,7 +11404,7 @@ nrvo.skipdtor.thread.i365.i:                      ; preds = %do.end79.i
 _ZN5arrow6StatusD2Ev.exit.i342.i:                 ; preds = %do.end79.i
   %add.i.i343.i = add nsw i64 %call2.i.i340.i, 1
   %mul.i.i.i344.i = shl nsw i64 %66, 1
-  %.sroa.speculated.i.i.i345.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i344.i, i64 %add.i.i343.i)
+  %.sroa.speculated.i.i.i345.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i343.i, i64 %mul.i.i.i344.i)
   %vtable4.i.i346.i = load ptr, ptr %61, align 8, !noalias !417
   %vfn5.i.i347.i = getelementptr inbounds i8, ptr %vtable4.i.i346.i, i64 24
   %68 = load ptr, ptr %vfn5.i.i347.i, align 8, !noalias !417
@@ -11469,7 +11469,7 @@ nrvo.skipdtor.thread.i469.i:                      ; preds = %do.body113.i
 _ZN5arrow6StatusD2Ev.exit.i446.i:                 ; preds = %do.body113.i
   %add.i.i447.i = add nsw i64 %call2.i.i444.i, 1
   %mul.i.i.i448.i = shl nsw i64 %79, 1
-  %.sroa.speculated.i.i.i449.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i448.i, i64 %add.i.i447.i)
+  %.sroa.speculated.i.i.i449.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i447.i, i64 %mul.i.i.i448.i)
   %vtable4.i.i450.i = load ptr, ptr %78, align 8, !noalias !433
   %vfn5.i.i451.i = getelementptr inbounds i8, ptr %vtable4.i.i450.i, i64 24
   %81 = load ptr, ptr %vfn5.i.i451.i, align 8, !noalias !433
@@ -11536,7 +11536,7 @@ nrvo.skipdtor.thread.i:                           ; preds = %_ZN5arrow6StatusD2E
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %_ZN5arrow6StatusD2Ev.exit
   %add.i.i = add nsw i64 %call2.i.i, 1
   %mul.i.i.i = shl nsw i64 %92, 1
-  %.sroa.speculated.i.i.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i)
+  %.sroa.speculated.i.i.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i, i64 %mul.i.i.i)
   %vtable4.i.i = load ptr, ptr %91, align 8, !noalias !452
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 24
   %94 = load ptr, ptr %vfn5.i.i, align 8, !noalias !452
@@ -11645,7 +11645,7 @@ nrvo.skipdtor.thread.i.i:                         ; preds = %do.end7.i
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %do.end7.i
   %add.i.i.i = add nsw i64 %call2.i.i.i, 1
   %mul.i.i.i.i = shl nsw i64 %11, 1
-  %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i.i, i64 %add.i.i.i)
+  %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i.i.i, i64 %mul.i.i.i.i)
   %vtable4.i.i.i = load ptr, ptr %6, align 8, !noalias !471
   %vfn5.i.i.i = getelementptr inbounds i8, ptr %vtable4.i.i.i, i64 24
   %13 = load ptr, ptr %vfn5.i.i.i, align 8, !noalias !471
@@ -11713,7 +11713,7 @@ nrvo.skipdtor.thread.i151.i:                      ; preds = %do.body35.i
 _ZN5arrow6StatusD2Ev.exit.i128.i:                 ; preds = %do.body35.i
   %add.i.i129.i = add nsw i64 %call2.i.i126.i, 1
   %mul.i.i.i130.i = shl nsw i64 %25, 1
-  %.sroa.speculated.i.i.i131.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i130.i, i64 %add.i.i129.i)
+  %.sroa.speculated.i.i.i131.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i129.i, i64 %mul.i.i.i130.i)
   %vtable4.i.i132.i = load ptr, ptr %23, align 8, !noalias !487
   %vfn5.i.i133.i = getelementptr inbounds i8, ptr %vtable4.i.i132.i, i64 24
   %27 = load ptr, ptr %vfn5.i.i133.i, align 8, !noalias !487
@@ -11781,7 +11781,7 @@ nrvo.skipdtor.thread.i255.i:                      ; preds = %do.body57.i
 _ZN5arrow6StatusD2Ev.exit.i232.i:                 ; preds = %do.body57.i
   %add.i.i233.i = add nsw i64 %call2.i.i230.i, 1
   %mul.i.i.i234.i = shl nsw i64 %39, 1
-  %.sroa.speculated.i.i.i235.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i234.i, i64 %add.i.i233.i)
+  %.sroa.speculated.i.i.i235.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i233.i, i64 %mul.i.i.i234.i)
   %vtable4.i.i236.i = load ptr, ptr %37, align 8, !noalias !503
   %vfn5.i.i237.i = getelementptr inbounds i8, ptr %vtable4.i.i236.i, i64 24
   %41 = load ptr, ptr %vfn5.i.i237.i, align 8, !noalias !503
@@ -11871,7 +11871,7 @@ nrvo.skipdtor.thread.i365.i:                      ; preds = %do.end79.i
 _ZN5arrow6StatusD2Ev.exit.i342.i:                 ; preds = %do.end79.i
   %add.i.i343.i = add nsw i64 %call2.i.i340.i, 1
   %mul.i.i.i344.i = shl nsw i64 %66, 1
-  %.sroa.speculated.i.i.i345.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i344.i, i64 %add.i.i343.i)
+  %.sroa.speculated.i.i.i345.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i343.i, i64 %mul.i.i.i344.i)
   %vtable4.i.i346.i = load ptr, ptr %61, align 8, !noalias !519
   %vfn5.i.i347.i = getelementptr inbounds i8, ptr %vtable4.i.i346.i, i64 24
   %68 = load ptr, ptr %vfn5.i.i347.i, align 8, !noalias !519
@@ -11935,7 +11935,7 @@ nrvo.skipdtor.thread.i469.i:                      ; preds = %do.body113.i
 _ZN5arrow6StatusD2Ev.exit.i446.i:                 ; preds = %do.body113.i
   %add.i.i447.i = add nsw i64 %call2.i.i444.i, 1
   %mul.i.i.i448.i = shl nsw i64 %79, 1
-  %.sroa.speculated.i.i.i449.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i448.i, i64 %add.i.i447.i)
+  %.sroa.speculated.i.i.i449.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i447.i, i64 %mul.i.i.i448.i)
   %vtable4.i.i450.i = load ptr, ptr %78, align 8, !noalias !535
   %vfn5.i.i451.i = getelementptr inbounds i8, ptr %vtable4.i.i450.i, i64 24
   %81 = load ptr, ptr %vfn5.i.i451.i, align 8, !noalias !535
@@ -12001,7 +12001,7 @@ nrvo.skipdtor.thread.i:                           ; preds = %_ZN5arrow6StatusD2E
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %_ZN5arrow6StatusD2Ev.exit
   %add.i.i = add nsw i64 %call2.i.i, 1
   %mul.i.i.i = shl nsw i64 %92, 1
-  %.sroa.speculated.i.i.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i)
+  %.sroa.speculated.i.i.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i, i64 %mul.i.i.i)
   %vtable4.i.i = load ptr, ptr %91, align 8, !noalias !554
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 24
   %94 = load ptr, ptr %vfn5.i.i, align 8, !noalias !554
@@ -12090,7 +12090,7 @@ nrvo.skipdtor.thread.i:                           ; preds = %if.then
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %if.then
   %add.i.i = add nsw i64 %call2.i.i, 1
   %mul.i.i.i = shl nsw i64 %5, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i)
+  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i.i, i64 %mul.i.i.i)
   %vtable4.i.i = load ptr, ptr %4, align 8, !noalias !566
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 24
   %7 = load ptr, ptr %vfn5.i.i, align 8, !noalias !566
@@ -12157,7 +12157,7 @@ nrvo.skipdtor.thread.i72:                         ; preds = %do.body11
 _ZN5arrow6StatusD2Ev.exit.i49:                    ; preds = %do.body11
   %add.i.i50 = add nsw i64 %call2.i.i47, 1
   %mul.i.i.i51 = shl nsw i64 %19, 1
-  %.sroa.speculated.i.i.i52 = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i51, i64 %add.i.i50)
+  %.sroa.speculated.i.i.i52 = call noundef i64 @llvm.smax.i64(i64 %add.i.i50, i64 %mul.i.i.i51)
   %vtable4.i.i53 = load ptr, ptr %17, align 8, !noalias !580
   %vfn5.i.i54 = getelementptr inbounds i8, ptr %vtable4.i.i53, i64 24
   %21 = load ptr, ptr %vfn5.i.i54, align 8, !noalias !580
@@ -12241,7 +12241,7 @@ nrvo.skipdtor.thread.i176:                        ; preds = %_ZN5arrow8bit_util1
 _ZN5arrow6StatusD2Ev.exit.i153:                   ; preds = %_ZN5arrow8bit_util13CoveringBytesEll.exit
   %add.i.i154 = add nsw i64 %call2.i.i151, 1
   %mul.i.i.i155 = shl nsw i64 %36, 1
-  %.sroa.speculated.i.i.i156 = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i155, i64 %add.i.i154)
+  %.sroa.speculated.i.i.i156 = call noundef i64 @llvm.smax.i64(i64 %add.i.i154, i64 %mul.i.i.i155)
   %vtable4.i.i157 = load ptr, ptr %31, align 8, !noalias !594
   %vfn5.i.i158 = getelementptr inbounds i8, ptr %vtable4.i.i157, i64 24
   %38 = load ptr, ptr %vfn5.i.i158, align 8, !noalias !594
@@ -12351,7 +12351,7 @@ nrvo.skipdtor.thread.i:                           ; preds = %_ZN5arrow8bit_util7
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %_ZN5arrow8bit_util7RoundUpEll.exit
   %add.i.i7 = add nsw i64 %call2.i.i, 1
   %mul.i.i.i = shl nsw i64 %7, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i7)
+  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i.i7, i64 %mul.i.i.i)
   %vtable4.i.i = load ptr, ptr %6, align 8, !noalias !605
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 24
   %9 = load ptr, ptr %vfn5.i.i, align 8, !noalias !605
@@ -12416,7 +12416,7 @@ nrvo.skipdtor.thread.i74:                         ; preds = %do.body18
 _ZN5arrow6StatusD2Ev.exit.i51:                    ; preds = %do.body18
   %add.i.i52 = add nsw i64 %call2.i.i49, 1
   %mul.i.i.i53 = shl nsw i64 %20, 1
-  %.sroa.speculated.i.i.i54 = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i53, i64 %add.i.i52)
+  %.sroa.speculated.i.i.i54 = call noundef i64 @llvm.smax.i64(i64 %add.i.i52, i64 %mul.i.i.i53)
   %vtable4.i.i55 = load ptr, ptr %19, align 8, !noalias !621
   %vfn5.i.i56 = getelementptr inbounds i8, ptr %vtable4.i.i55, i64 24
   %22 = load ptr, ptr %vfn5.i.i56, align 8, !noalias !621
@@ -12482,7 +12482,7 @@ nrvo.skipdtor.thread.i178:                        ; preds = %do.end40
 _ZN5arrow6StatusD2Ev.exit.i155:                   ; preds = %do.end40
   %add.i.i156 = add nsw i64 %call2.i.i153, 1
   %mul.i.i.i157 = shl nsw i64 %33, 1
-  %.sroa.speculated.i.i.i158 = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i157, i64 %add.i.i156)
+  %.sroa.speculated.i.i.i158 = call noundef i64 @llvm.smax.i64(i64 %add.i.i156, i64 %mul.i.i.i157)
   %vtable4.i.i159 = load ptr, ptr %32, align 8, !noalias !640
   %vfn5.i.i160 = getelementptr inbounds i8, ptr %vtable4.i.i159, i64 24
   %35 = load ptr, ptr %vfn5.i.i160, align 8, !noalias !640
@@ -12634,7 +12634,7 @@ nrvo.skipdtor.thread.i:                           ; preds = %do.end7
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %do.end7
   %add.i.i = add nsw i64 %call2.i.i, 1
   %mul.i.i.i = shl nsw i64 %11, 1
-  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i)
+  %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i.i, i64 %mul.i.i.i)
   %vtable4.i.i = load ptr, ptr %6, align 8, !noalias !658
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 24
   %13 = load ptr, ptr %vfn5.i.i, align 8, !noalias !658
@@ -12702,7 +12702,7 @@ nrvo.skipdtor.thread.i147:                        ; preds = %do.body35
 _ZN5arrow6StatusD2Ev.exit.i124:                   ; preds = %do.body35
   %add.i.i125 = add nsw i64 %call2.i.i122, 1
   %mul.i.i.i126 = shl nsw i64 %25, 1
-  %.sroa.speculated.i.i.i127 = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i126, i64 %add.i.i125)
+  %.sroa.speculated.i.i.i127 = call noundef i64 @llvm.smax.i64(i64 %add.i.i125, i64 %mul.i.i.i126)
   %vtable4.i.i128 = load ptr, ptr %23, align 8, !noalias !674
   %vfn5.i.i129 = getelementptr inbounds i8, ptr %vtable4.i.i128, i64 24
   %27 = load ptr, ptr %vfn5.i.i129, align 8, !noalias !674
@@ -12770,7 +12770,7 @@ nrvo.skipdtor.thread.i251:                        ; preds = %do.body57
 _ZN5arrow6StatusD2Ev.exit.i228:                   ; preds = %do.body57
   %add.i.i229 = add nsw i64 %call2.i.i226, 1
   %mul.i.i.i230 = shl nsw i64 %39, 1
-  %.sroa.speculated.i.i.i231 = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i230, i64 %add.i.i229)
+  %.sroa.speculated.i.i.i231 = call noundef i64 @llvm.smax.i64(i64 %add.i.i229, i64 %mul.i.i.i230)
   %vtable4.i.i232 = load ptr, ptr %37, align 8, !noalias !690
   %vfn5.i.i233 = getelementptr inbounds i8, ptr %vtable4.i.i232, i64 24
   %41 = load ptr, ptr %vfn5.i.i233, align 8, !noalias !690

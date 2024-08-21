@@ -219,7 +219,7 @@ _ZN14AsyncLogWriter6Buffer9push_backEP19LogFileStreamOutputRK14LogDecorationsPKc
 27:                                               ; preds = %.lr.ph.i.i
   %28 = getelementptr inbounds i8, ptr %.pr.i, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, %1
+  %30 = icmp eq ptr %1, %29
   br i1 %30, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE13put_if_absentERKS2_RKjPb.exit, label %31
 
 31:                                               ; preds = %27, %.lr.ph.i.i
@@ -672,7 +672,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2
 61:                                               ; preds = %.lr.ph.i.i.i.i
   %62 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %47
+  %64 = icmp eq ptr %47, %63
   br i1 %64, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i.i, label %65
 
 65:                                               ; preds = %61, %.lr.ph.i.i.i.i

@@ -302,7 +302,7 @@ _ZNSt6vectorI5egColSaIS0_EEC2EmRKS0_RKS1_.exit.i: ; preds = %.noexc47, %_ZNSt6ve
   %87 = lshr exact i64 %86, 2
   %88 = trunc i64 %87 to i32
   %89 = add i32 %88, -1
-  %90 = icmp sgt i32 %89, %.045247.i
+  %90 = icmp slt i32 %.045247.i, %89
   br i1 %90, label %.lr.ph.preheader.i.i, label %_ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit.thread.i
 
 .lr.ph.preheader.i.i:                             ; preds = %81
@@ -426,7 +426,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %114, %112
   %134 = lshr exact i64 %133, 2
   %135 = trunc i64 %134 to i32
   %136 = add i32 %135, -1
-  %137 = icmp sgt i32 %136, %.0238.i
+  %137 = icmp slt i32 %.0238.i, %136
   br i1 %137, label %.lr.ph.preheader.i64.i, label %_ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit72.thread.i
 
 .lr.ph.preheader.i64.i:                           ; preds = %.lr.ph.i
@@ -2198,7 +2198,7 @@ define linkonce_odr void @_ZSt11__make_heapIP5t_sidN9__gnu_cxx5__ops15_Iter_comp
   %.sroa.0.0.copyload15 = load ptr, ptr %2, align 8
   %14 = add nsw i64 %9, -1
   %15 = lshr i64 %14, 1
-  %16 = icmp ugt i64 %15, %12
+  %16 = icmp ult i64 %12, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -2286,7 +2286,7 @@ _ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEE
   %52 = getelementptr inbounds %struct.t_sid, ptr %0, i64 %51
   %.sroa.02.0.copyload18.us = load i64, ptr %52, align 4
   %.sroa.0.0.copyload19.us = load ptr, ptr %2, align 8
-  %.not.us = icmp slt i64 %15, %.041.us
+  %.not.us = icmp sgt i64 %.041.us, %15
   br i1 %.not.us, label %._crit_edge.i21.us.thread, label %.lr.ph.i32.us
 
 ._crit_edge.i21.us.thread:                        ; preds = %.split17.us
@@ -2350,7 +2350,7 @@ _ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEE
   %72 = getelementptr inbounds %struct.t_sid, ptr %0, i64 %71
   %.sroa.02.0.copyload18 = load i64, ptr %72, align 4
   %.sroa.0.0.copyload19 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %15, %.041
+  %.not = icmp sgt i64 %.041, %15
   br i1 %.not, label %._crit_edge.i21, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.split17, %.lr.ph.i32
@@ -2690,7 +2690,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIiSaIi
   %74 = phi ptr [ %73, %71 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit ]
   %75 = ptrtoint ptr %1 to i64
   %76 = sub i64 %75, %61
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %60, %1
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %60
   br i1 %.not.i.i.i.i.i.i.i.i.i63, label %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit69, label %77
 
 77:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit

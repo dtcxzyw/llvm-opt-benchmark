@@ -4933,7 +4933,7 @@ define hidden { ptr, i64 } @_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d5
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %.not4 = icmp ult i64 %7, %2
+  %.not4 = icmp ugt i64 %2, %7
   br i1 %.not4, label %8, label %9
 
 8:                                                ; preds = %5
@@ -5930,7 +5930,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.34589
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -14877,7 +14877,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %5 = load i64, ptr %4, align 8, !alias.scope !3746, !noalias !3751, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !3753, !noalias !3751, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h264d2874cff25bdaE.exit"
 
 9:                                                ; preds = %3
@@ -15083,7 +15083,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hfa8fb4bd9f0dbc01E(ptr noa
   %.val = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
   %45 = getelementptr i8, ptr %1, i64 16
   %.val71 = load i64, ptr %45, align 8, !noundef !4
-  %46 = icmp ult i64 %40, %.val71
+  %46 = icmp ugt i64 %.val71, %40
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %38
@@ -15327,7 +15327,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hfa8fb4bd9f0dbc01E(ptr noa
   %.val.i173 = load ptr, ptr %117, align 8, !noalias !3899, !nonnull !4, !noundef !4
   %118 = getelementptr i8, ptr %.sroa.0247.0336, i64 16
   %.val3.i174 = load i64, ptr %118, align 8, !noalias !3899, !noundef !4
-  %.not.i.i178 = icmp ult i64 %.sroa.27.0338, %4
+  %.not.i.i178 = icmp ugt i64 %4, %.sroa.27.0338
   br i1 %.not.i.i178, label %119, label %120
 
 119:                                              ; preds = %.lr.ph339
@@ -16176,7 +16176,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !3931, !noalias !3936, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !3938, !noalias !3936, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h264d2874cff25bdaE.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -21920,7 +21920,7 @@ define void @_ZN8wasmtime7runtime11code_memory10CodeMemory3new17hf21561e61274d49
 68:                                               ; preds = %2
   %69 = getelementptr inbounds i8, ptr %58, i64 24
   %70 = load i64, ptr %69, align 8, !alias.scope !5060, !noundef !4
-  %.not4.i = icmp ult i64 %70, %62
+  %.not4.i = icmp ugt i64 %62, %70
   br i1 %.not4.i, label %.invoke, label %71
 
 71:                                               ; preds = %68
@@ -22301,7 +22301,7 @@ define void @_ZN8wasmtime7runtime11code_memory10CodeMemory3new17hf21561e61274d49
 168:                                              ; preds = %163
   %169 = getelementptr inbounds i8, ptr %164, i64 24
   %170 = load i64, ptr %169, align 8, !alias.scope !5108, !noundef !4
-  %.not4.i183 = icmp ult i64 %170, %166
+  %.not4.i183 = icmp ugt i64 %166, %170
   br i1 %.not4.i183, label %.invoke1734, label %171
 
 171:                                              ; preds = %168
@@ -22378,7 +22378,7 @@ define void @_ZN8wasmtime7runtime11code_memory10CodeMemory3new17hf21561e61274d49
 202:                                              ; preds = %196
   %203 = getelementptr inbounds i8, ptr %198, i64 24
   %204 = load i64, ptr %203, align 8, !alias.scope !5119, !noundef !4
-  %.not4.i193 = icmp ult i64 %204, %200
+  %.not4.i193 = icmp ugt i64 %200, %204
   br i1 %.not4.i193, label %.invoke1734, label %208
 
 .invoke1734:                                      ; preds = %214, %202, %196, %179, %175, %168, %163
@@ -22943,7 +22943,7 @@ define hidden { ptr, i64 } @_ZN8wasmtime7runtime11code_memory10CodeMemory9wasm_d
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %3, i64 24
   %12 = load i64, ptr %11, align 8, !alias.scope !5232, !noundef !4
-  %.not4.i = icmp ult i64 %12, %8
+  %.not4.i = icmp ugt i64 %8, %12
   br i1 %.not4.i, label %13, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit
 
 13:                                               ; preds = %10
@@ -23016,7 +23016,7 @@ define noundef ptr @_ZN8wasmtime7runtime11code_memory10CodeMemory7publish17h5757
 21:                                               ; preds = %13
   %22 = getelementptr inbounds i8, ptr %15, i64 24
   %23 = load i64, ptr %22, align 8, !alias.scope !5249, !noalias !5246, !noundef !4
-  %.not4.i.i = icmp ult i64 %23, %19
+  %.not4.i.i = icmp ugt i64 %19, %23
   br i1 %.not4.i.i, label %24, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i
 
 24:                                               ; preds = %21
@@ -23149,7 +23149,7 @@ _ZN8wasmtime7runtime11code_memory10CodeMemory17apply_relocations17h67b2a349930f4
 70:                                               ; preds = %_ZN8wasmtime7runtime11code_memory10CodeMemory17apply_relocations17h67b2a349930f489fE.exit
   %71 = getelementptr inbounds i8, ptr %68, i64 24
   %72 = load i64, ptr %71, align 8, !alias.scope !5276, !noundef !4
-  %.not4.i = icmp ult i64 %72, %66
+  %.not4.i = icmp ugt i64 %66, %72
   br i1 %.not4.i, label %73, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit
 
 73:                                               ; preds = %70
@@ -23183,7 +23183,7 @@ _ZN8wasmtime7runtime11code_memory10CodeMemory20register_unwind_info17h5013de419c
 83:                                               ; preds = %77
   %84 = getelementptr inbounds i8, ptr %78, i64 24
   %85 = load i64, ptr %84, align 8, !alias.scope !5290, !noalias !5279, !noundef !4
-  %.not4.i.i31 = icmp ult i64 %85, %81
+  %.not4.i.i31 = icmp ugt i64 %81, %85
   br i1 %.not4.i.i31, label %86, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i32
 
 86:                                               ; preds = %83
@@ -23318,7 +23318,7 @@ common.resume:                                    ; preds = %121, %102, %.body.i
 134:                                              ; preds = %128
   %135 = getelementptr inbounds i8, ptr %129, i64 24
   %136 = load i64, ptr %135, align 8, !noalias !5329, !noundef !4
-  %.not4.i.i.i = icmp ult i64 %136, %132
+  %.not4.i.i.i = icmp ugt i64 %132, %136
   br i1 %.not4.i.i.i, label %137, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i.i
 
 137:                                              ; preds = %134
@@ -23659,7 +23659,7 @@ define { i64, ptr } @_ZN8wasmtime7runtime6module6Module10from_parts17h7152e1c107
 28:                                               ; preds = %17
   %29 = getelementptr inbounds i8, ptr %19, i64 24
   %30 = load i64, ptr %29, align 8, !alias.scope !5412, !noalias !5401, !noundef !4
-  %.not4.i.i = icmp ult i64 %30, %24
+  %.not4.i.i = icmp ugt i64 %24, %30
   br i1 %.not4.i.i, label %.invoke, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i
 
 _ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i: ; preds = %28
@@ -25008,7 +25008,7 @@ define void @_ZN8wasmtime7runtime6module6Module9serialize17h230ec4569799c0a8E(pt
 26:                                               ; preds = %15
   %27 = getelementptr inbounds i8, ptr %19, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !5636, !noundef !4
-  %.not4.i = icmp ult i64 %28, %24
+  %.not4.i = icmp ugt i64 %24, %28
   br i1 %.not4.i, label %29, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit
 
 29:                                               ; preds = %26
@@ -25335,7 +25335,7 @@ define void @_ZN8wasmtime7runtime6module6Module18resources_required17hd83b83b907
   br i1 %17, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h746632c3fbd36fbbE.exit, label %._crit_edge.i.i.i
 
 18:                                               ; preds = %.split9
-  %.not.i.i.i.i = icmp ugt i64 %8, %10
+  %.not.i.i.i.i = icmp ult i64 %10, %8
   %19 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }, ptr %14, i64 %10
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h746632c3fbd36fbbE.exit
 
@@ -25392,7 +25392,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h746632c3fbd36fbbE.exit: ; preds 
   br i1 %41, label %_ZN4core4iter6traits8iterator8Iterator6reduce17ha75c34659af08e6cE.exit, label %._crit_edge.i.i.i21
 
 42:                                               ; preds = %.split13
-  %.not.i.i.i.i18 = icmp ugt i64 %32, %34
+  %.not.i.i.i.i18 = icmp ult i64 %34, %32
   %43 = getelementptr inbounds { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }, ptr %38, i64 %34
   br i1 %.not.i.i.i.i18, label %._crit_edge.i.i.i21, label %_ZN4core4iter6traits8iterator8Iterator6reduce17ha75c34659af08e6cE.exit
 
@@ -25522,7 +25522,7 @@ define void @_ZN8wasmtime7runtime6module6Module11address_map17h63a9032141eb05d3E
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %10, i64 24
   %19 = load i64, ptr %18, align 8, !alias.scope !5754, !noalias !5743, !noundef !4
-  %.not4.i.i = icmp ult i64 %19, %15
+  %.not4.i.i = icmp ugt i64 %15, %19
   br i1 %.not4.i.i, label %20, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i
 
 20:                                               ; preds = %17
@@ -25603,7 +25603,7 @@ define { ptr, i64 } @_ZN8wasmtime7runtime6module6Module4text17hf5652dce37be1bc8E
 15:                                               ; preds = %1
   %16 = getelementptr inbounds i8, ptr %8, i64 24
   %17 = load i64, ptr %16, align 8, !alias.scope !5783, !noalias !5772, !noundef !4
-  %.not4.i.i = icmp ult i64 %17, %13
+  %.not4.i.i = icmp ugt i64 %13, %17
   br i1 %.not4.i.i, label %18, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i
 
 18:                                               ; preds = %15
@@ -25740,7 +25740,7 @@ define noundef nonnull ptr @"_ZN94_$LT$wasmtime..runtime..module..ModuleInner$u2
 24:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h708a2080cec7fd05E.exit.i"
   %25 = getelementptr inbounds i8, ptr %17, i64 24
   %26 = load i64, ptr %25, align 8, !alias.scope !5832, !noalias !5836, !noundef !4
-  %.not4.i.i.i = icmp ult i64 %26, %22
+  %.not4.i.i.i = icmp ugt i64 %22, %26
   br i1 %.not4.i.i.i, label %27, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i.i
 
 27:                                               ; preds = %24
@@ -25845,7 +25845,7 @@ define noundef ptr @"_ZN94_$LT$wasmtime..runtime..module..ModuleInner$u20$as$u20
 23:                                               ; preds = %12
   %24 = getelementptr inbounds i8, ptr %16, i64 24
   %25 = load i64, ptr %24, align 8, !alias.scope !5871, !noalias !5875, !noundef !4
-  %.not4.i.i.i = icmp ult i64 %25, %21
+  %.not4.i.i.i = icmp ugt i64 %21, %25
   br i1 %.not4.i.i.i, label %26, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i.i
 
 26:                                               ; preds = %23
@@ -26021,7 +26021,7 @@ define { ptr, i64 } @"_ZN94_$LT$wasmtime..runtime..module..ModuleInner$u20$as$u2
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %5, i64 24
   %14 = load i64, ptr %13, align 8, !alias.scope !5928, !noalias !5917, !noundef !4
-  %.not4.i.i = icmp ult i64 %14, %10
+  %.not4.i.i = icmp ugt i64 %10, %14
   br i1 %.not4.i.i, label %15, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i
 
 15:                                               ; preds = %12
@@ -26102,7 +26102,7 @@ define noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$wasmtime..run
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %7, i64 24
   %16 = load i64, ptr %15, align 8, !alias.scope !5957, !noalias !5946, !noundef !4
-  %.not4.i.i = icmp ult i64 %16, %12
+  %.not4.i.i = icmp ugt i64 %12, %16
   br i1 %.not4.i.i, label %17, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i
 
 17:                                               ; preds = %14
@@ -26452,7 +26452,7 @@ define hidden void @_ZN8wasmtime7runtime6module13memory_images17h07be90edfb2b202
 27:                                               ; preds = %9
   %28 = getelementptr inbounds i8, ptr %19, i64 24
   %29 = load i64, ptr %28, align 8, !alias.scope !6013, !noalias !6002, !noundef !4
-  %.not4.i.i = icmp ult i64 %29, %24
+  %.not4.i.i = icmp ugt i64 %24, %29
   br i1 %.not4.i.i, label %30, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i
 
 30:                                               ; preds = %27
@@ -27803,7 +27803,7 @@ define hidden void @_ZN8wasmtime7runtime4trap9FrameInfo3new17h61c77a66c9e47a6aE(
 51:                                               ; preds = %37
   %52 = getelementptr inbounds i8, ptr %45, i64 24
   %53 = load i64, ptr %52, align 8, !alias.scope !6206, !noalias !6195, !noundef !4
-  %.not4.i.i = icmp ult i64 %53, %50
+  %.not4.i.i = icmp ugt i64 %50, %53
   br i1 %.not4.i.i, label %.invoke, label %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.3458943816331328394.exit.i
 
 .invoke:                                          ; preds = %51, %37
@@ -30065,7 +30065,7 @@ define void @_ZN8wasmtime7runtime9component9resources18HostResourceTables22host_
   %.val6.i = load ptr, ptr %7, align 8, !noalias !6576
   %8 = getelementptr i8, ptr %.val, i64 16
   %.val7.i = load i64, ptr %8, align 8, !noalias !6576, !noundef !4
-  %9 = icmp ule i64 %.val7.i, %6
+  %9 = icmp uge i64 %6, %.val7.i
   %10 = icmp eq ptr %.val6.i, null
   %11 = select i1 %9, i1 true, i1 %10
   br i1 %11, label %15, label %12
@@ -30119,7 +30119,7 @@ define void @_ZN8wasmtime7runtime9component9resources18HostResourceTables25host_
   %.val6.i = load ptr, ptr %7, align 8, !noalias !6579
   %8 = getelementptr i8, ptr %.val, i64 16
   %.val7.i = load i64, ptr %8, align 8, !noalias !6579, !noundef !4
-  %9 = icmp ule i64 %.val7.i, %6
+  %9 = icmp uge i64 %6, %.val7.i
   %10 = icmp eq ptr %.val6.i, null
   %11 = select i1 %9, i1 true, i1 %10
   br i1 %11, label %15, label %12
@@ -30349,7 +30349,7 @@ define void @_ZN8wasmtime7runtime9component9resources18HostResourceTables18host_
   %.val6.i = load ptr, ptr %8, align 8, !noalias !6592
   %9 = getelementptr i8, ptr %.val, i64 16
   %.val7.i = load i64, ptr %9, align 8, !noalias !6592, !noundef !4
-  %10 = icmp ule i64 %.val7.i, %7
+  %10 = icmp uge i64 %7, %.val7.i
   %11 = icmp eq ptr %.val6.i, null
   %12 = select i1 %10, i1 true, i1 %11
   br i1 %12, label %17, label %13
@@ -34467,7 +34467,7 @@ define internal fastcc void @_ZN8wasmtime7runtime9component6values10push_flags17
 10:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %11 = zext i32 %.03 to i64
-  %.not.i.not.i = icmp ult i64 %11, %.16.val
+  %.not.i.not.i = icmp ugt i64 %.16.val, %11
   br i1 %.not.i.not.i, label %"_ZN93_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h80a988cd126725f7E.exit", label %12
 
 12:                                               ; preds = %10
@@ -35061,7 +35061,7 @@ _ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder6finish17h59387695
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %23, i64 24
   %41 = load i64, ptr %40, align 8, !alias.scope !7456, !noundef !4
-  %.not4.i = icmp ult i64 %41, %38
+  %.not4.i = icmp ugt i64 %38, %41
   br i1 %.not4.i, label %.invoke, label %45
 
 .invoke:                                          ; preds = %39, %35
@@ -35245,7 +35245,7 @@ define noundef zeroext i1 @"_ZN204_$LT$$LT$wasmtime..compile..runtime..MmapVecWr
 define void @"_ZN204_$LT$$LT$wasmtime..compile..runtime..MmapVecWrapper$u20$as$u20$wasmtime_environ..compile..module_artifacts..FinishedObject$GT$..finish_object..ObjectMmap$u20$as$u20$object..write..util..WritableBuffer$GT$6resize17h4ec414ab4a89ad13E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %.not = icmp ult i64 %4, %1
+  %.not = icmp ugt i64 %1, %4
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %2
@@ -35276,7 +35276,7 @@ define void @"_ZN204_$LT$$LT$wasmtime..compile..runtime..MmapVecWrapper$u20$as$u
 
 13:                                               ; preds = %7
   %14 = sub nuw i64 %9, %11
-  %15 = icmp ult i64 %14, %2
+  %15 = icmp ugt i64 %2, %14
   br i1 %15, label %16, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf7e646bcad8dc915E.exit"
 
 16:                                               ; preds = %13

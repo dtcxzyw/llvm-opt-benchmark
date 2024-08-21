@@ -392,16 +392,16 @@ entry:
   %retval.sroa.6.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   %retval.sroa.6.0.copyload = load <2 x float>, ptr %retval.sroa.6.0.this.sroa_idx, align 4
   %retval.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload, i64 0
-  %mul = fmul float %retval.sroa.0.0.vec.extract, %s
+  %mul = fmul float %s, %retval.sroa.0.0.vec.extract
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul, i64 0
   %retval.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload, i64 1
-  %mul.c = fmul float %retval.sroa.0.4.vec.extract, %s
+  %mul.c = fmul float %s, %retval.sroa.0.4.vec.extract
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %mul.c, i64 1
   %retval.sroa.6.8.vec.extract = extractelement <2 x float> %retval.sroa.6.0.copyload, i64 0
-  %mul.c12 = fmul float %retval.sroa.6.8.vec.extract, %s
+  %mul.c12 = fmul float %s, %retval.sroa.6.8.vec.extract
   %retval.sroa.6.8.vec.insert = insertelement <2 x float> poison, float %mul.c12, i64 0
   %retval.sroa.6.12.vec.extract = extractelement <2 x float> %retval.sroa.6.0.copyload, i64 1
-  %mul.c.c = fmul float %retval.sroa.6.12.vec.extract, %s
+  %mul.c.c = fmul float %s, %retval.sroa.6.12.vec.extract
   %retval.sroa.6.12.vec.insert = insertelement <2 x float> %retval.sroa.6.8.vec.insert, float %mul.c.c, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.6.12.vec.insert, 1
@@ -1120,7 +1120,7 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ %indvars.iv.next, %for.body4 ]
   %arrayidx6 = getelementptr inbounds [3 x [3 x float]], ptr %agg.result, i64 0, i64 %indvars.iv8, i64 %indvars.iv
   %0 = load float, ptr %arrayidx6, align 4
-  %mul = fmul float %0, %s
+  %mul = fmul float %s, %0
   store float %mul, ptr %arrayidx6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1600,7 +1600,7 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ %indvars.iv.next, %for.body4 ]
   %arrayidx6 = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 %indvars.iv8, i64 %indvars.iv
   %0 = load float, ptr %arrayidx6, align 4
-  %mul = fmul float %0, %s
+  %mul = fmul float %s, %0
   store float %mul, ptr %arrayidx6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1996,7 +1996,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 for.body.i:                                       ; preds = %for.body, %for.inc.i
   %__begin2.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %smallPrimes.sroa.0.054, %for.body ]
   %0 = load i32, ptr %__begin2.sroa.0.04.i, align 4
-  %cmp.not.i = icmp eq i32 %0, %storemerge57
+  %cmp.not.i = icmp eq i32 %storemerge57, %0
   br i1 %cmp.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
@@ -2108,7 +2108,7 @@ for.body.i19.preheader:                           ; preds = %for.body.i19.prehea
 for.body.i19:                                     ; preds = %for.body.i19.preheader, %for.inc.i25
   %__begin2.sroa.0.04.i20 = phi ptr [ %incdec.ptr.i.i26, %for.inc.i25 ], [ %smallPrimes.sroa.0.0.lcssa69, %for.body.i19.preheader ]
   %2 = load i32, ptr %__begin2.sroa.0.04.i20, align 4
-  %cmp.not.i21 = icmp eq i32 %2, %x.addr.160
+  %cmp.not.i21 = icmp eq i32 %x.addr.160, %2
   br i1 %cmp.not.i21, label %for.inc.i25, label %land.lhs.true.i22
 
 land.lhs.true.i22:                                ; preds = %for.body.i19
@@ -2177,14 +2177,14 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load float, ptr %nodes.coerce0, align 4
-  %cmp2 = fcmp ugt float %0, %x
+  %cmp2 = fcmp ult float %x, %0
   br i1 %cmp2, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.end
   %1 = getelementptr float, ptr %nodes.coerce0, i64 %nodes.coerce1
   %arrayidx.i = getelementptr i8, ptr %1, i64 -4
   %2 = load float, ptr %arrayidx.i, align 4
-  %cmp4 = fcmp ult float %2, %x
+  %cmp4 = fcmp ugt float %x, %2
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %land.lhs.true
@@ -2355,14 +2355,14 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %0 = load float, ptr %nodes.coerce0, align 4
-  %cmp3 = fcmp ugt float %0, %x
+  %cmp3 = fcmp ult float %x, %0
   br i1 %cmp3, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.end
   %1 = getelementptr float, ptr %nodes.coerce0, i64 %nodes.coerce1
   %arrayidx.i = getelementptr i8, ptr %1, i64 -4
   %2 = load float, ptr %arrayidx.i, align 4
-  %cmp5 = fcmp ult float %2, %x
+  %cmp5 = fcmp ugt float %x, %2
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %land.lhs.true
@@ -2519,7 +2519,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 define dso_local noundef float @_ZN4pbrt16InvertCatmullRomEN4pstd4spanIKfEES3_f(ptr nocapture readonly %nodes.coerce0, i64 %nodes.coerce1, ptr nocapture readonly %f.coerce0, i64 %f.coerce1, float noundef %u) local_unnamed_addr #8 {
 entry:
   %0 = load float, ptr %f.coerce0, align 4
-  %cmp = fcmp olt float %0, %u
+  %cmp = fcmp ogt float %u, %0
   br i1 %cmp, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2530,7 +2530,7 @@ if.else:                                          ; preds = %entry
   %2 = getelementptr float, ptr %f.coerce0, i64 %f.coerce1
   %arrayidx.i = getelementptr i8, ptr %2, i64 -4
   %3 = load float, ptr %arrayidx.i, align 4
-  %cmp3 = fcmp ogt float %3, %u
+  %cmp3 = fcmp olt float %u, %3
   br i1 %cmp3, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.else
@@ -2785,7 +2785,7 @@ cond.false:                                       ; preds = %for.body
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi float [ %div, %cond.true ], [ %sub24, %cond.false ]
   %7 = add nuw nsw i64 %indvars.iv, 2
-  %cmp28 = icmp ult i64 %7, %nodes.coerce1
+  %cmp28 = icmp ugt i64 %nodes.coerce1, %7
   br i1 %cmp28, label %cond.true29, label %cond.false40
 
 cond.true29:                                      ; preds = %cond.end

@@ -188,7 +188,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_describe(ptr noundef %0, i3
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @sqlite3_column_count(ptr noundef %6) #5
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %2
@@ -244,7 +244,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32
 
 9:                                                ; preds = %4
   %10 = tail call i32 @sqlite3_data_count(ptr noundef nonnull %8) #5
-  %.not169 = icmp sgt i32 %10, %1
+  %.not169 = icmp slt i32 %1, %10
   br i1 %.not169, label %15, label %11
 
 11:                                               ; preds = %9
@@ -711,7 +711,7 @@ define internal range(i32 -1, 1) i32 @pdo_sqlite_stmt_col_meta(ptr noundef %0, i
 9:                                                ; preds = %3
   %10 = tail call i32 @sqlite3_column_count(ptr noundef nonnull %8) #5
   %11 = sext i32 %10 to i64
-  %.not82 = icmp sgt i64 %11, %1
+  %.not82 = icmp slt i64 %1, %11
   br i1 %.not82, label %16, label %12
 
 12:                                               ; preds = %9

@@ -2513,7 +2513,7 @@ _ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit: ; pr
   store i64 %138, ptr %11, align 8
   %.val30 = load ptr, ptr %12, align 8
   %.val31 = load i64, ptr %13, align 8, !noundef !4
-  %139 = icmp ugt i64 %.val31, %138
+  %139 = icmp ult i64 %138, %.val31
   %140 = icmp ne ptr %.val30, null
   %.not80 = select i1 %139, i1 %140, i1 false
   %141 = getelementptr inbounds { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }, ptr %.val30, i64 %138
@@ -3031,7 +3031,7 @@ _ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit: ; pr
   store i64 %116, ptr %11, align 8
   %.val30 = load ptr, ptr %12, align 8
   %.val31 = load i64, ptr %13, align 8, !noundef !4
-  %117 = icmp ugt i64 %.val31, %116
+  %117 = icmp ult i64 %116, %.val31
   %118 = icmp ne ptr %.val30, null
   %.not81 = select i1 %117, i1 %118, i1 false
   %119 = getelementptr inbounds { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }, ptr %.val30, i64 %116
@@ -6492,7 +6492,7 @@ define hidden void @"_ZN5gimli4read3str24DebugStrOffsets$LT$R$GT$14get_str_offse
   %17 = sub nuw i64 %11, %3
   %18 = getelementptr inbounds i8, ptr %9, i64 %3
   %19 = zext nneg i8 %2 to i64
-  %20 = mul i64 %19, %4
+  %20 = mul i64 %4, %19
   %21 = icmp ult i64 %17, %20
   br i1 %21, label %44, label %22
 
@@ -6620,7 +6620,7 @@ define hidden void @"_ZN5gimli4read4addr18DebugAddr$LT$R$GT$11get_address17h0e8c
   %15 = sub nuw i64 %9, %3
   %16 = getelementptr inbounds i8, ptr %7, i64 %3
   %17 = zext i8 %2 to i64
-  %18 = mul i64 %17, %4
+  %18 = mul i64 %4, %17
   %19 = icmp ult i64 %15, %18
   br i1 %19, label %24, label %20
 
@@ -9949,7 +9949,7 @@ define hidden void @"_ZN5gimli4read4line35LineProgramHeader$LT$R$C$Offset$GT$9di
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 104
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   %11 = getelementptr inbounds i8, ptr %1, i64 96
   %12 = load ptr, ptr %11, align 8, !nonnull !4
   %13 = getelementptr inbounds { i64, [2 x i64] }, ptr %12, i64 %2
@@ -12560,7 +12560,7 @@ define hidden void @"_ZN5gimli4read8rnglists19RangeLists$LT$R$GT$10get_offset17h
   %19 = getelementptr inbounds i8, ptr %10, i64 %3
   %trunc.mask = and i32 %.sroa.4.0.extract.shift, 255
   %20 = zext nneg i32 %trunc.mask to i64
-  %21 = mul i64 %20, %4
+  %21 = mul i64 %4, %20
   %22 = icmp ult i64 %18, %21
   br i1 %22, label %45, label %23
 
@@ -14919,7 +14919,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
   %.val.us = load i32, ptr %26, align 8, !noundef !4
   %27 = tail call i32 @llvm.bswap.i32(i32 %.val.us)
   %28 = zext i32 %27 to i64
-  %.not.us = icmp eq i64 %28, %3
+  %.not.us = icmp eq i64 %3, %28
   br i1 %.not.us, label %29, label %.backedge.us
 
 29:                                               ; preds = %25
@@ -14989,7 +14989,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
   %57 = getelementptr i8, ptr %.sroa.5.036, i64 -24
   %.val = load i32, ptr %57, align 8, !noundef !4
   %58 = zext i32 %.val to i64
-  %.not = icmp eq i64 %58, %3
+  %.not = icmp eq i64 %3, %58
   br i1 %.not, label %59, label %.backedge
 
 59:                                               ; preds = %56
@@ -15110,7 +15110,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
   %.val.us = load i32, ptr %26, align 4, !noundef !4
   %27 = tail call i32 @llvm.bswap.i32(i32 %.val.us)
   %28 = zext i32 %27 to i64
-  %.not.us = icmp eq i64 %28, %3
+  %.not.us = icmp eq i64 %3, %28
   br i1 %.not.us, label %29, label %.backedge.us
 
 29:                                               ; preds = %25
@@ -15180,7 +15180,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
   %57 = getelementptr i8, ptr %.sroa.5.036, i64 -16
   %.val = load i32, ptr %57, align 4, !noundef !4
   %58 = zext i32 %.val to i64
-  %.not = icmp eq i64 %58, %3
+  %.not = icmp eq i64 %3, %58
   br i1 %.not, label %59, label %.backedge
 
 59:                                               ; preds = %56
@@ -16865,7 +16865,7 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17hc69e613740e8e167E.ex
   %.val.us = load i32, ptr %58, align 8, !noundef !4
   %59 = tail call i32 @llvm.bswap.i32(i32 %.val.us)
   %60 = zext i32 %59 to i64
-  %61 = icmp eq i64 %60, %5
+  %61 = icmp eq i64 %5, %60
   br i1 %61, label %_ZN6object4read3elf7section13SectionHeader4data17h0f5a8b415f69a343E.exit.i75.us, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h923dd4d0a5a59ffaE.exit.thread.us"
 
 _ZN6object4read3elf7section13SectionHeader4data17h0f5a8b415f69a343E.exit.i75.us: ; preds = %57
@@ -16954,7 +16954,7 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17h4b968ec01e978b16E.ex
   %85 = getelementptr i8, ptr %.sroa.096.0158, i64 40
   %.val = load i32, ptr %85, align 8, !noundef !4
   %86 = zext i32 %.val to i64
-  %87 = icmp eq i64 %86, %5
+  %87 = icmp eq i64 %5, %86
   br i1 %87, label %_ZN6object4read3elf7section13SectionHeader4data17h0f5a8b415f69a343E.exit.i75, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h923dd4d0a5a59ffaE.exit.thread"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h923dd4d0a5a59ffaE.exit.thread": ; preds = %_ZN6object4read3elf7section13SectionHeader13data_as_array17h4b968ec01e978b16E.exit, %84, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfded73e08ae1436eE.exit"
@@ -17096,7 +17096,7 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17h0131c7f4abbdba89E.ex
   %.val.us = load i32, ptr %56, align 4, !noundef !4
   %57 = tail call i32 @llvm.bswap.i32(i32 %.val.us)
   %58 = zext i32 %57 to i64
-  %59 = icmp eq i64 %58, %5
+  %59 = icmp eq i64 %5, %58
   br i1 %59, label %_ZN6object4read3elf7section13SectionHeader4data17hd4bd12d3e4aec56cE.exit.i76.us, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h923dd4d0a5a59ffaE.exit.thread.us"
 
 _ZN6object4read3elf7section13SectionHeader4data17hd4bd12d3e4aec56cE.exit.i76.us: ; preds = %55
@@ -17187,7 +17187,7 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17h108dc2df29395bf5E.ex
   %85 = getelementptr i8, ptr %.sroa.0101.0164, i64 24
   %.val = load i32, ptr %85, align 4, !noundef !4
   %86 = zext i32 %.val to i64
-  %87 = icmp eq i64 %86, %5
+  %87 = icmp eq i64 %5, %86
   br i1 %87, label %_ZN6object4read3elf7section13SectionHeader4data17hd4bd12d3e4aec56cE.exit.i76, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h923dd4d0a5a59ffaE.exit.thread"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h923dd4d0a5a59ffaE.exit.thread": ; preds = %_ZN6object4read3elf7section13SectionHeader13data_as_array17h108dc2df29395bf5E.exit, %84, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75ad425ed3bbf822E.exit"
@@ -17757,7 +17757,7 @@ define hidden void @_ZN6object4read4coff6symbol11ImageSymbol7address17h2cbd4ad4a
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load i32, ptr %18, align 1, !alias.scope !4361
   %20 = zext i32 %19 to i64
-  %21 = add i64 %17, %2
+  %21 = add i64 %2, %17
   %22 = add i64 %21, %20
   br label %23
 
@@ -17791,7 +17791,7 @@ define hidden void @_ZN6object4read4coff6symbol11ImageSymbol7address17hd24660208
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load i32, ptr %16, align 1, !alias.scope !4367
   %18 = zext i32 %17 to i64
-  %19 = add i64 %15, %2
+  %19 = add i64 %2, %15
   %20 = add i64 %19, %18
   br label %21
 
@@ -21973,7 +21973,7 @@ define hidden void @"_ZN93_$LT$object..read..pe..file..PeFile$LT$Pe$C$R$GT$$u20$
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = getelementptr inbounds i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8, !alias.scope !4982, !noalias !4985
-  %.not = icmp ugt i64 %6, %2
+  %.not = icmp ult i64 %2, %6
   %7 = load ptr, ptr %4, align 8, !alias.scope !4982, !noalias !4985, !nonnull !4, !align !5
   %8 = getelementptr inbounds { [18 x i8] }, ptr %7, i64 %2
   %9 = getelementptr inbounds i8, ptr %1, i64 32
@@ -21993,7 +21993,7 @@ define hidden void @"_ZN93_$LT$object..read..pe..file..PeFile$LT$Pe$C$R$GT$$u20$
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = getelementptr inbounds i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8, !alias.scope !4987, !noalias !4990
-  %.not = icmp ugt i64 %6, %2
+  %.not = icmp ult i64 %2, %6
   %7 = load ptr, ptr %4, align 8, !alias.scope !4987, !noalias !4990, !nonnull !4, !align !5
   %8 = getelementptr inbounds { [18 x i8] }, ptr %7, i64 %2
   %9 = getelementptr inbounds i8, ptr %1, i64 32
@@ -26803,7 +26803,7 @@ default.unreachable112:                           ; preds = %7
   %64 = load i32, ptr %63, align 4, !noundef !4
   %65 = zext i32 %64 to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
-  %66 = icmp ugt i64 %58, %6
+  %66 = icmp ult i64 %6, %58
   br i1 %66, label %77, label %70
 
 67:                                               ; preds = %39, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5004f47786bcaddbE.exit"
@@ -27044,7 +27044,7 @@ default.unreachable123:                           ; preds = %6
   %64 = load i32, ptr %63, align 4, !noundef !4
   %65 = zext i32 %64 to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
-  %66 = icmp ugt i64 %58, %5
+  %66 = icmp ult i64 %5, %58
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %53

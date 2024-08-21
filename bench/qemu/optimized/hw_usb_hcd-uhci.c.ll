@@ -2359,7 +2359,7 @@ uhci_queue_verify.exit:                           ; preds = %land.lhs.true4.i
 
 if.then3:                                         ; preds = %uhci_queue_verify.exit
   %cmp4 = icmp eq ptr %q, null
-  %cmp7 = icmp eq ptr %2, %q
+  %cmp7 = icmp eq ptr %q, %2
   %or.cond = or i1 %cmp4, %cmp7
   br i1 %or.cond, label %if.then26, label %if.else
 

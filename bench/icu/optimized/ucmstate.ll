@@ -1233,7 +1233,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds %struct._MBCSToUFallback, ptr %toUFallbacks, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
-  %cmp3 = icmp eq i32 %0, %offset
+  %cmp3 = icmp eq i32 %offset, %0
   br i1 %cmp3, label %return.loopexit.split.loop.exit9, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -1408,7 +1408,7 @@ for.body.i.us.i:                                  ; preds = %sw.bb.us.i, %for.in
   %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %for.inc.i.us.i ], [ 0, %sw.bb.us.i ]
   %arrayidx.i.us.i = getelementptr inbounds %struct._MBCSToUFallback, ptr %toUFallbacks, i64 %indvars.iv.i.us.i
   %17 = load i32, ptr %arrayidx.i.us.i, align 4
-  %cmp3.i.us.i = icmp eq i32 %17, %add.us.i
+  %cmp3.i.us.i = icmp eq i32 %add.us.i, %17
   br i1 %cmp3.i.us.i, label %if.else88.i, label %for.inc.i.us.i
 
 for.inc.i.us.i:                                   ; preds = %for.body.i.us.i
@@ -1745,7 +1745,7 @@ for.body.i161.us.us.i:                            ; preds = %sw.bb260.us209.us.i
   %indvars.iv.i162.us.us.i = phi i64 [ %indvars.iv.next.i166.us.us.i, %for.inc.i165.us.us.i ], [ 0, %sw.bb260.us209.us.i ]
   %arrayidx.i163.us.us.i = getelementptr inbounds %struct._MBCSToUFallback, ptr %toUFallbacks, i64 %indvars.iv.i162.us.us.i
   %61 = load i32, ptr %arrayidx.i163.us.us.i, align 4
-  %cmp3.i164.us.us.i = icmp eq i32 %61, %add270.us214.us.i
+  %cmp3.i164.us.us.i = icmp eq i32 %add270.us214.us.i, %61
   br i1 %cmp3.i164.us.us.i, label %if.then280.us.us.i, label %for.inc.i165.us.us.i
 
 for.inc.i165.us.us.i:                             ; preds = %for.body.i161.us.us.i
@@ -2085,7 +2085,7 @@ land.lhs.true33:                                  ; preds = %if.end31
   %14 = load i8, ptr %outputType34, align 1
   %cmp36 = icmp ne i8 %14, 12
   %mul = shl nuw nsw i32 %count.0.lcssa46, 1
-  %cmp38.not = icmp eq i32 %mul, %length
+  %cmp38.not = icmp eq i32 %length, %mul
   %or.cond = select i1 %cmp36, i1 true, i1 %cmp38.not
   br i1 %or.cond, label %return, label %if.then39
 
@@ -2187,7 +2187,7 @@ for.body.i:                                       ; preds = %land.lhs.true, %for
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %land.lhs.true ]
   %arrayidx.i = getelementptr inbounds %struct._MBCSToUFallback, ptr %toUFallbacks, i64 %indvars.iv.i
   %5 = load i32, ptr %arrayidx.i, align 4
-  %cmp3.i = icmp eq i32 %5, %add22
+  %cmp3.i = icmp eq i32 %add22, %5
   br i1 %cmp3.i, label %return.loopexit.split.loop.exit9.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i

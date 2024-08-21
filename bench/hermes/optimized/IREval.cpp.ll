@@ -1675,7 +1675,7 @@ _ZN4llvh11SmallStringILj256EE6appendENS_9StringRefE.exit: ; preds = %if.end.i.i,
   %agg.tmp1.sroa.2.0.copyload = load i64, ptr %agg.tmp1.sroa.2.0..sroa_idx, align 8
   %conv.i5.i.i4 = zext i32 %conv.i12.i.i to i64
   %sub.i.i5 = sub nsw i64 %conv.i.i.i2, %conv.i5.i.i4
-  %cmp.i.i6 = icmp ult i64 %sub.i.i5, %agg.tmp1.sroa.2.0.copyload
+  %cmp.i.i6 = icmp ugt i64 %agg.tmp1.sroa.2.0.copyload, %sub.i.i5
   br i1 %cmp.i.i6, label %if.end.i.thread.i15, label %if.end.i.i7
 
 if.end.i.thread.i15:                              ; preds = %_ZN4llvh11SmallStringILj256EE6appendENS_9StringRefE.exit

@@ -1222,7 +1222,7 @@ define dso_local noundef i32 @populate_cache_leaves(i32 noundef %0) local_unname
 
 215:                                              ; preds = %203
   %216 = tail call ptr @get_cpu_cacheinfo(i32 noundef %201) #13
-  %217 = icmp eq i32 %201, %0
+  %217 = icmp eq i32 %0, %201
   br i1 %217, label %223, label %218
 
 218:                                              ; preds = %215

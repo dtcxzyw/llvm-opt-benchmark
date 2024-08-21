@@ -1019,7 +1019,7 @@ for.body.i234:                                    ; preds = %call.i.i.noexc, %_Z
   br i1 %cmp.not.i1150, label %if.else21.i, label %if.then.i1151
 
 if.then.i1151:                                    ; preds = %for.body.i234
-  %cmp.i.i1152 = icmp eq ptr %stdVectorUint64.sroa.17.4, %it.sroa.0.020.i
+  %cmp.i.i1152 = icmp eq ptr %it.sroa.0.020.i, %stdVectorUint64.sroa.17.4
   br i1 %cmp.i.i1152, label %if.then9.i, label %if.else.i
 
 if.then9.i:                                       ; preds = %if.then.i1151
@@ -1179,7 +1179,7 @@ for.body.i258:                                    ; preds = %call2.i.i.noexc, %_
   %it.sroa.0.039.i = phi i64 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i255 ], [ %it.sroa.0.3.i260, %call2.i.i.noexc ]
   %add.i1173 = add i64 %77, 1
   %cmp.i1174 = icmp ule i64 %add.i1173, %cond.i19.i1451
-  %cmp5.not.i = icmp eq i64 %77, %it.sroa.0.039.i
+  %cmp5.not.i = icmp eq i64 %it.sroa.0.039.i, %77
   %or.cond.i = and i1 %cmp5.not.i, %cmp.i1174
   br i1 %or.cond.i, label %if.else28.i, label %if.then.i1175
 
@@ -1413,7 +1413,7 @@ for.body.i322:                                    ; preds = %_ZN5eastl16TupleVec
   %add.i.i.i10.i = add i64 %it.sroa.0.041.i, 1
   %sub7.i.i.i = add i64 %97, -1
   store i64 %sub7.i.i.i, ptr %mNumElements.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i323 = icmp eq i64 %97, %add.i.i.i10.i
+  %cmp.i.i.i.i.i.i.i323 = icmp eq i64 %add.i.i.i10.i, %97
   br i1 %cmp.i.i.i.i.i.i.i323, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0EEEEJmEE5eraseENS0_12TupleVecIterIS4_JKmEEE.exit.i, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i322
@@ -1509,7 +1509,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i25.i
   %sub.ptr.div.i10.i = ashr exact i64 %sub.ptr.sub.i9.i, 3
   %add.i349 = add nsw i64 %sub.ptr.div.i10.i, 1
-  %cmp.i.i350 = icmp ult i64 %sub.ptr.div.i27.i, %add.i349
+  %cmp.i.i350 = icmp ugt i64 %add.i349, %sub.ptr.div.i27.i
   br i1 %cmp.i.i350, label %if.then.i.i358, label %if.else.i.i351
 
 if.then.i.i358:                                   ; preds = %while.body.i
@@ -1545,7 +1545,7 @@ lpad.i.i.i1190:                                   ; preds = %for.body.i.i.i1189
           catch ptr null
   %108 = extractvalue { ptr, i32 } %107, 0
   %109 = call ptr @__cxa_begin_catch(ptr %108) #7
-  %cmp.not3.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i, %c.val428.i
+  %cmp.not3.i.i.i.i.i = icmp eq ptr %c.val428.i, %__cur.010.i.i.i
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont2.i.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %lpad.i.i.i1190, %_ZSt8_DestroyIN12_GLOBAL__N_111MovableTypeEEvPT_.exit.i.i.i.i.i
@@ -1676,7 +1676,7 @@ unreachable.i.i.i:                                ; preds = %lpad.i.i.i
   unreachable
 
 if.else.i.i351:                                   ; preds = %while.body.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i27.i, %add.i349
+  %cmp4.i.i = icmp ult i64 %add.i349, %sub.ptr.div.i27.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_111MovableTypeESaIS1_EE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i351
@@ -1767,7 +1767,7 @@ while.body.i381:                                  ; preds = %_ZN5eastl16TupleVec
   %cond.i12.i.i1453 = phi i64 [ %.promoted, %while.body.lr.ph.i380 ], [ %cond.i12.i.i1452, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0EEEEJN12_GLOBAL__N_111MovableTypeEEE6resizeEm.exit.i ]
   %c.val9.i = phi i64 [ %c.val7.i, %while.body.lr.ph.i380 ], [ %add.i383, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0EEEEJN12_GLOBAL__N_111MovableTypeEEE6resizeEm.exit.i ]
   %add.i383 = add i64 %cond.i12.i.i1453, 1
-  %cmp.i.i384 = icmp ult i64 %c.val9.i, %add.i383
+  %cmp.i.i384 = icmp ugt i64 %add.i383, %c.val9.i
   br i1 %cmp.i.i384, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJN12_GLOBAL__N_111MovableTypeEEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0EEEEJS3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSA_mm.exit.i.i.i, label %if.else.i.i385
 
 _ZN5eastl16TupleVecInternal13TupleRecurserIJN12_GLOBAL__N_111MovableTypeEEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0EEEEJS3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSA_mm.exit.i.i.i: ; preds = %while.body.i381
@@ -1843,7 +1843,7 @@ call.i.i.i5.i.noexc:                              ; preds = %for.body.i.i.i398
 
 if.else.i.i385:                                   ; preds = %while.body.i381
   %add.ptr10.i.i = getelementptr inbounds %"struct.(anonymous namespace)::MovableType", ptr %call.i.i.i.i.i.i.i4031460, i64 %c.val9.i
-  %cmp.not3.i.i.i.i = icmp eq i64 %c.val9.i, %add.i383
+  %cmp.not3.i.i.i.i = icmp eq i64 %add.i383, %c.val9.i
   br i1 %cmp.not3.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0EEEEJN12_GLOBAL__N_111MovableTypeEEE6resizeEm.exit.i, label %for.body.i.i.preheader.i.i
 
 for.body.i.i.preheader.i.i:                       ; preds = %if.else.i.i385
@@ -3612,7 +3612,7 @@ for.body.i922:                                    ; preds = %call4.i925.noexc, %
   br i1 %cmp.not.i1207, label %if.else26.i, label %if.then.i1208
 
 if.then.i1208:                                    ; preds = %for.body.i922
-  %cmp.i.i1209 = icmp eq ptr %stdVectorUint64Padded.sroa.17.4, %it.sroa.0.020.i924
+  %cmp.i.i1209 = icmp eq ptr %it.sroa.0.020.i924, %stdVectorUint64Padded.sroa.17.4
   br i1 %cmp.i.i1209, label %if.then9.i1226, label %if.else.i1210
 
 if.then9.i1226:                                   ; preds = %if.then.i1208
@@ -3710,7 +3710,7 @@ for.body.i.i.i.i.i.i16.i:                         ; preds = %_ZNSt12_Vector_base
 invoke.cont.i.i1241:                              ; preds = %for.body.i.i.i.i.i.i16.i, %_ZNSt12_Vector_baseIN5eastl5tupleIJm13PaddingStructEEESaIS3_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i19.i.i, %_ZNSt12_Vector_baseIN5eastl5tupleIJm13PaddingStructEEESaIS3_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i.i18.i, %for.body.i.i.i.i.i.i16.i ]
   %incdec.ptr.i19.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 64
-  %cmp.not5.i.i.i.i.i20.i.i = icmp eq ptr %stdVectorUint64Padded.sroa.17.4, %it.sroa.0.020.i924
+  %cmp.not5.i.i.i.i.i20.i.i = icmp eq ptr %it.sroa.0.020.i924, %stdVectorUint64Padded.sroa.17.4
   br i1 %cmp.not5.i.i.i.i.i20.i.i, label %invoke.cont13.i.i, label %for.body.i.i.i.i.i21.i.i
 
 for.body.i.i.i.i.i21.i.i:                         ; preds = %invoke.cont.i.i1241, %for.body.i.i.i.i.i21.i.i
@@ -4903,23 +4903,26 @@ entry:
   %ref.tmp.sroa.0 = alloca i64, align 8
   %ref.tmp5.sroa.0 = alloca i64, align 8
   %ref.tmp11.sroa.0 = alloca i64, align 8
-  %invariant.gep = getelementptr i64, ptr %first.coerce1, i64 %first.coerce0
   %sub.i28 = sub i64 %last.coerce0, %first.coerce0
   %cmp29 = icmp ugt i64 %sub.i28, 28
   %cmp130 = icmp ne i64 %kRecursionCount, 0
   %0 = and i1 %cmp29, %cmp130
-  br i1 %0, label %while.body, label %while.end
+  br i1 %0, label %while.body.lr.ph, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN5eastl13get_partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEENS_5tupleIJmEEEEET_S8_S8_RKT0_.exit
-  %sub.i34 = phi i64 [ %sub.i, %_ZN5eastl13get_partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEENS_5tupleIJmEEEEET_S8_S8_RKT0_.exit ], [ %sub.i28, %entry ]
-  %kRecursionCount.addr.033 = phi i64 [ %dec, %_ZN5eastl13get_partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEENS_5tupleIJmEEEEET_S8_S8_RKT0_.exit ], [ %kRecursionCount, %entry ]
-  %storemerge32 = phi ptr [ %first.coerce1, %_ZN5eastl13get_partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEENS_5tupleIJmEEEEET_S8_S8_RKT0_.exit ], [ %last.coerce1, %entry ]
-  %last.sroa.0.031 = phi i64 [ %first.sroa.0.1.i.i, %_ZN5eastl13get_partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEENS_5tupleIJmEEEEET_S8_S8_RKT0_.exit ], [ %last.coerce0, %entry ]
-  %1 = load i64, ptr %invariant.gep, align 8
+while.body.lr.ph:                                 ; preds = %entry
+  %arrayidx2.i.i = getelementptr i64, ptr %first.coerce1, i64 %first.coerce0
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.lr.ph, %_ZN5eastl13get_partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEENS_5tupleIJmEEEEET_S8_S8_RKT0_.exit
+  %sub.i34 = phi i64 [ %sub.i28, %while.body.lr.ph ], [ %sub.i, %_ZN5eastl13get_partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEENS_5tupleIJmEEEEET_S8_S8_RKT0_.exit ]
+  %kRecursionCount.addr.033 = phi i64 [ %kRecursionCount, %while.body.lr.ph ], [ %dec, %_ZN5eastl13get_partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEENS_5tupleIJmEEEEET_S8_S8_RKT0_.exit ]
+  %storemerge32 = phi ptr [ %last.coerce1, %while.body.lr.ph ], [ %first.coerce1, %_ZN5eastl13get_partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEENS_5tupleIJmEEEEET_S8_S8_RKT0_.exit ]
+  %last.sroa.0.031 = phi i64 [ %last.coerce0, %while.body.lr.ph ], [ %first.sroa.0.1.i.i, %_ZN5eastl13get_partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEENS_5tupleIJmEEEEET_S8_S8_RKT0_.exit ]
+  %1 = load i64, ptr %arrayidx2.i.i, align 8
   store i64 %1, ptr %ref.tmp.sroa.0, align 8
   %div3 = lshr i64 %sub.i34, 1
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %div3
-  %2 = load i64, ptr %gep, align 8
+  %arrayidx2.i.i6 = getelementptr i64, ptr %arrayidx2.i.i, i64 %div3
+  %2 = load i64, ptr %arrayidx2.i.i6, align 8
   store i64 %2, ptr %ref.tmp5.sroa.0, align 8
   %sub.i.i = add i64 %last.sroa.0.031, -1
   %arrayidx2.i.i13 = getelementptr inbounds i64, ptr %storemerge32, i64 %sub.i.i
@@ -5021,163 +5024,163 @@ entry:
 if.then.split.i:                                  ; preds = %entry
   %sub.i = add i64 %sub.i.i.fr, -2
   %shr.i = lshr i64 %sub.i, 1
-  %invariant.gep.i = getelementptr i64, ptr %first.coerce1, i64 %first.coerce0
+  %0 = getelementptr i64, ptr %first.coerce1, i64 %first.coerce0
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.i, %if.then.split.i
-  %0 = phi i64 [ %shr.i, %if.then.split.i ], [ %dec9.i, %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.i ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %0
-  %1 = load i64, ptr %gep.i, align 8
-  %childPosition.0.in67.i.i.i = shl i64 %0, 1
-  %childPosition.068.i.i.i = add i64 %childPosition.0.in67.i.i.i, 2
-  %cmp69.i.i.i = icmp ult i64 %childPosition.068.i.i.i, %sub.i.i.fr
-  br i1 %cmp69.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
+  %1 = phi i64 [ %shr.i, %if.then.split.i ], [ %dec9.i, %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.i ]
+  %arrayidx2.i.i.i = getelementptr i64, ptr %0, i64 %1
+  %2 = load i64, ptr %arrayidx2.i.i.i, align 8
+  %childPosition.0.in61.i.i.i = shl i64 %1, 1
+  %childPosition.062.i.i.i = add i64 %childPosition.0.in61.i.i.i, 2
+  %cmp63.i.i.i = icmp ult i64 %childPosition.062.i.i.i, %sub.i.i.fr
+  br i1 %cmp63.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
 
 for.body.i.i.i:                                   ; preds = %do.body.i, %for.body.i.i.i
-  %childPosition.072.i.i.i = phi i64 [ %childPosition.0.i.i.i, %for.body.i.i.i ], [ %childPosition.068.i.i.i, %do.body.i ]
-  %childPosition.0.in71.i.i.i = phi i64 [ %childPosition.0.in.i.i.i, %for.body.i.i.i ], [ %childPosition.0.in67.i.i.i, %do.body.i ]
-  %position.addr.070.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ %0, %do.body.i ]
-  %gep.i.i.i = getelementptr i64, ptr %invariant.gep.i, i64 %childPosition.072.i.i.i
-  %sub.i.i.i = or disjoint i64 %childPosition.0.in71.i.i.i, 1
-  %gep62.i.i.i = getelementptr i64, ptr %invariant.gep.i, i64 %sub.i.i.i
-  %2 = load i64, ptr %gep.i.i.i, align 8
-  %3 = load i64, ptr %gep62.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %2, %3
-  %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub.i.i.i, i64 %childPosition.072.i.i.i
-  %gep64.i.i.i = getelementptr i64, ptr %invariant.gep.i, i64 %spec.select.i.i.i
-  %4 = load i64, ptr %gep64.i.i.i, align 8
-  %gep66.i.i.i = getelementptr i64, ptr %invariant.gep.i, i64 %position.addr.070.i.i.i
-  store i64 %4, ptr %gep66.i.i.i, align 8
+  %childPosition.066.i.i.i = phi i64 [ %childPosition.0.i.i.i, %for.body.i.i.i ], [ %childPosition.062.i.i.i, %do.body.i ]
+  %childPosition.0.in65.i.i.i = phi i64 [ %childPosition.0.in.i.i.i, %for.body.i.i.i ], [ %childPosition.0.in61.i.i.i, %do.body.i ]
+  %position.addr.064.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ %1, %do.body.i ]
+  %arrayidx2.i.i.i.i.i = getelementptr i64, ptr %0, i64 %childPosition.066.i.i.i
+  %sub.i.i.i = or disjoint i64 %childPosition.0.in65.i.i.i, 1
+  %arrayidx2.i.i21.i.i.i = getelementptr i64, ptr %0, i64 %sub.i.i.i
+  %3 = load i64, ptr %arrayidx2.i.i.i.i.i, align 8
+  %4 = load i64, ptr %arrayidx2.i.i21.i.i.i, align 8
+  %cmp.i.i.i.i.i = icmp ult i64 %3, %4
+  %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub.i.i.i, i64 %childPosition.066.i.i.i
+  %arrayidx2.i.i29.i.i.i = getelementptr i64, ptr %0, i64 %spec.select.i.i.i
+  %5 = load i64, ptr %arrayidx2.i.i29.i.i.i, align 8
+  %arrayidx2.i.i37.i.i.i = getelementptr i64, ptr %0, i64 %position.addr.064.i.i.i
+  store i64 %5, ptr %arrayidx2.i.i37.i.i.i, align 8
   %childPosition.0.in.i.i.i = shl i64 %spec.select.i.i.i, 1
   %childPosition.0.i.i.i = add i64 %childPosition.0.in.i.i.i, 2
   %cmp.i.i.i = icmp ult i64 %childPosition.0.i.i.i, %sub.i.i.fr
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !120
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %do.body.i
-  %position.addr.0.lcssa.i.i.i = phi i64 [ %0, %do.body.i ], [ %spec.select.i.i.i, %for.body.i.i.i ]
-  %childPosition.0.in.lcssa.i.i.i = phi i64 [ %childPosition.0.in67.i.i.i, %do.body.i ], [ %childPosition.0.in.i.i.i, %for.body.i.i.i ]
-  %childPosition.0.lcssa.i.i.i = phi i64 [ %childPosition.068.i.i.i, %do.body.i ], [ %childPosition.0.i.i.i, %for.body.i.i.i ]
+  %position.addr.0.lcssa.i.i.i = phi i64 [ %1, %do.body.i ], [ %spec.select.i.i.i, %for.body.i.i.i ]
+  %childPosition.0.in.lcssa.i.i.i = phi i64 [ %childPosition.0.in61.i.i.i, %do.body.i ], [ %childPosition.0.in.i.i.i, %for.body.i.i.i ]
+  %childPosition.0.lcssa.i.i.i = phi i64 [ %childPosition.062.i.i.i, %do.body.i ], [ %childPosition.0.i.i.i, %for.body.i.i.i ]
   %cmp17.i.i.i = icmp eq i64 %childPosition.0.lcssa.i.i.i, %sub.i.i.fr
   br i1 %cmp17.i.i.i, label %if.then18.i.i.i, label %if.end30.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %for.end.i.i.i
   %sub22.i.i.i = or disjoint i64 %childPosition.0.in.lcssa.i.i.i, 1
-  %gep22.i = getelementptr i64, ptr %invariant.gep.i, i64 %sub22.i.i.i
-  %5 = load i64, ptr %gep22.i, align 8
-  %gep24.i = getelementptr i64, ptr %invariant.gep.i, i64 %position.addr.0.lcssa.i.i.i
-  store i64 %5, ptr %gep24.i, align 8
+  %arrayidx2.i.i45.i.i.i = getelementptr i64, ptr %0, i64 %sub22.i.i.i
+  %6 = load i64, ptr %arrayidx2.i.i45.i.i.i, align 8
+  %arrayidx2.i.i53.i.i.i = getelementptr i64, ptr %0, i64 %position.addr.0.lcssa.i.i.i
+  store i64 %6, ptr %arrayidx2.i.i53.i.i.i, align 8
   br label %if.end30.i.i.i
 
 if.end30.i.i.i:                                   ; preds = %if.then18.i.i.i, %for.end.i.i.i
   %position.addr.1.i.i.i = phi i64 [ %sub22.i.i.i, %if.then18.i.i.i ], [ %position.addr.0.lcssa.i.i.i, %for.end.i.i.i ]
-  %cmp39.i.i.i.i.i = icmp ugt i64 %position.addr.1.i.i.i, %0
-  br i1 %cmp39.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.i
+  %cmp37.i.i.i.i.i = icmp ugt i64 %position.addr.1.i.i.i, %1
+  br i1 %cmp37.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %if.end30.i.i.i, %for.body.i.i.i.i.i
-  %position.addr.040.i.i.i.i.i = phi i64 [ %parentPosition.041.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.1.i.i.i, %if.end30.i.i.i ]
-  %parentPosition.041.in.i.i.i.i.i = add i64 %position.addr.040.i.i.i.i.i, -1
-  %parentPosition.041.i.i.i.i.i = lshr i64 %parentPosition.041.in.i.i.i.i.i, 1
-  %gep.i.i.i.i.i = getelementptr i64, ptr %invariant.gep.i, i64 %parentPosition.041.i.i.i.i.i
-  %6 = load i64, ptr %gep.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp ult i64 %6, %1
+  %position.addr.038.i.i.i.i.i = phi i64 [ %parentPosition.039.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.1.i.i.i, %if.end30.i.i.i ]
+  %parentPosition.039.in.i.i.i.i.i = add i64 %position.addr.038.i.i.i.i.i, -1
+  %parentPosition.039.i.i.i.i.i = lshr i64 %parentPosition.039.in.i.i.i.i.i, 1
+  %arrayidx2.i.i.i.i.i.i.i = getelementptr i64, ptr %0, i64 %parentPosition.039.i.i.i.i.i
+  %7 = load i64, ptr %arrayidx2.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i = icmp ult i64 %7, %2
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.i
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %gep36.i.i.i.i.i = getelementptr i64, ptr %invariant.gep.i, i64 %position.addr.040.i.i.i.i.i
-  store i64 %6, ptr %gep36.i.i.i.i.i, align 8
-  %cmp.i.i54.i.i.i = icmp ugt i64 %parentPosition.041.i.i.i.i.i, %0
+  %arrayidx2.i.i23.i.i.i.i.i = getelementptr i64, ptr %0, i64 %position.addr.038.i.i.i.i.i
+  store i64 %7, ptr %arrayidx2.i.i23.i.i.i.i.i, align 8
+  %cmp.i.i54.i.i.i = icmp ugt i64 %parentPosition.039.i.i.i.i.i, %1
   br i1 %cmp.i.i54.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.i, !llvm.loop !121
 
 _ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.i: ; preds = %for.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end30.i.i.i
-  %position.addr.0.lcssa.i.i.i.i.i = phi i64 [ %position.addr.1.i.i.i, %if.end30.i.i.i ], [ %position.addr.040.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %parentPosition.041.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %gep26.i = getelementptr i64, ptr %invariant.gep.i, i64 %position.addr.0.lcssa.i.i.i.i.i
-  store i64 %1, ptr %gep26.i, align 8
-  %cmp6.not.i = icmp eq i64 %0, 0
-  %dec9.i = add nsw i64 %0, -1
+  %position.addr.0.lcssa.i.i.i.i.i = phi i64 [ %position.addr.1.i.i.i, %if.end30.i.i.i ], [ %position.addr.038.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %parentPosition.039.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %arrayidx2.i.i31.i.i.i.i.i = getelementptr i64, ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
+  store i64 %2, ptr %arrayidx2.i.i31.i.i.i.i.i, align 8
+  %cmp6.not.i = icmp eq i64 %1, 0
+  %dec9.i = add nsw i64 %1, -1
   br i1 %cmp6.not.i, label %_ZN5eastl9make_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit, label %do.body.i, !llvm.loop !122
 
 _ZN5eastl9make_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit: ; preds = %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.i, %entry
-  %invariant.gep = getelementptr i64, ptr %first.coerce1, i64 %first.coerce0
-  %cmp.i141 = icmp ult i64 %middle.coerce0, %last.coerce0
-  br i1 %cmp.i141, label %for.body.lr.ph, label %for.end
+  %cmp.i135 = icmp ult i64 %middle.coerce0, %last.coerce0
+  br i1 %cmp.i135, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN5eastl9make_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit
-  %cmp69.i.i = icmp ugt i64 %sub.i.i.fr, 2
-  br i1 %cmp69.i.i, label %for.body.us, label %for.body.lr.ph.split
+  %arrayidx2.i.i3 = getelementptr inbounds i64, ptr %first.coerce1, i64 %first.coerce0
+  %cmp63.i.i = icmp ugt i64 %sub.i.i.fr, 2
+  br i1 %cmp63.i.i, label %for.body.us, label %for.body.lr.ph.split
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %i.sroa.0.042.us = phi i64 [ %inc.i.us, %for.inc.us ], [ %middle.coerce0, %for.body.lr.ph ]
-  %arrayidx2.i.i.us = getelementptr inbounds i64, ptr %middle.coerce1, i64 %i.sroa.0.042.us
-  %7 = load i64, ptr %arrayidx2.i.i.us, align 8
-  %8 = load i64, ptr %invariant.gep, align 8
-  %cmp.i.i.us = icmp ult i64 %7, %8
+  %i.sroa.0.036.us = phi i64 [ %inc.i.us, %for.inc.us ], [ %middle.coerce0, %for.body.lr.ph ]
+  %arrayidx2.i.i.us = getelementptr inbounds i64, ptr %middle.coerce1, i64 %i.sroa.0.036.us
+  %8 = load i64, ptr %arrayidx2.i.i.us, align 8
+  %9 = load i64, ptr %arrayidx2.i.i3, align 8
+  %cmp.i.i.us = icmp ult i64 %8, %9
   br i1 %cmp.i.i.us, label %if.then.us, label %for.inc.us
 
 if.then.us:                                       ; preds = %for.body.us
-  store i64 %8, ptr %arrayidx2.i.i.us, align 8
+  store i64 %9, ptr %arrayidx2.i.i.us, align 8
   br label %for.body.i.i.us
 
 for.body.i.i.us:                                  ; preds = %if.then.us, %for.body.i.i.us
-  %childPosition.072.i.i.us = phi i64 [ %childPosition.0.i.i.us, %for.body.i.i.us ], [ 2, %if.then.us ]
-  %childPosition.0.in71.i.i.us = phi i64 [ %childPosition.0.in.i.i.us, %for.body.i.i.us ], [ 0, %if.then.us ]
-  %position.addr.070.i.i.us = phi i64 [ %spec.select.i.i.us, %for.body.i.i.us ], [ 0, %if.then.us ]
-  %gep.i.i.us = getelementptr i64, ptr %invariant.gep, i64 %childPosition.072.i.i.us
-  %sub.i.i11.us = or disjoint i64 %childPosition.0.in71.i.i.us, 1
-  %gep62.i.i.us = getelementptr i64, ptr %invariant.gep, i64 %sub.i.i11.us
-  %9 = load i64, ptr %gep.i.i.us, align 8
-  %10 = load i64, ptr %gep62.i.i.us, align 8
-  %cmp.i.i.i.i.us = icmp ult i64 %9, %10
-  %spec.select.i.i.us = select i1 %cmp.i.i.i.i.us, i64 %sub.i.i11.us, i64 %childPosition.072.i.i.us
-  %gep64.i.i.us = getelementptr i64, ptr %invariant.gep, i64 %spec.select.i.i.us
-  %11 = load i64, ptr %gep64.i.i.us, align 8
-  %gep66.i.i.us = getelementptr i64, ptr %invariant.gep, i64 %position.addr.070.i.i.us
-  store i64 %11, ptr %gep66.i.i.us, align 8
+  %childPosition.066.i.i.us = phi i64 [ %childPosition.0.i.i.us, %for.body.i.i.us ], [ 2, %if.then.us ]
+  %childPosition.0.in65.i.i.us = phi i64 [ %childPosition.0.in.i.i.us, %for.body.i.i.us ], [ 0, %if.then.us ]
+  %position.addr.064.i.i.us = phi i64 [ %spec.select.i.i.us, %for.body.i.i.us ], [ 0, %if.then.us ]
+  %arrayidx2.i.i.i.i.us = getelementptr i64, ptr %arrayidx2.i.i3, i64 %childPosition.066.i.i.us
+  %sub.i.i11.us = or disjoint i64 %childPosition.0.in65.i.i.us, 1
+  %arrayidx2.i.i21.i.i.us = getelementptr i64, ptr %arrayidx2.i.i3, i64 %sub.i.i11.us
+  %10 = load i64, ptr %arrayidx2.i.i.i.i.us, align 8
+  %11 = load i64, ptr %arrayidx2.i.i21.i.i.us, align 8
+  %cmp.i.i.i.i.us = icmp ult i64 %10, %11
+  %spec.select.i.i.us = select i1 %cmp.i.i.i.i.us, i64 %sub.i.i11.us, i64 %childPosition.066.i.i.us
+  %arrayidx2.i.i29.i.i.us = getelementptr i64, ptr %arrayidx2.i.i3, i64 %spec.select.i.i.us
+  %12 = load i64, ptr %arrayidx2.i.i29.i.i.us, align 8
+  %arrayidx2.i.i37.i.i.us = getelementptr i64, ptr %arrayidx2.i.i3, i64 %position.addr.064.i.i.us
+  store i64 %12, ptr %arrayidx2.i.i37.i.i.us, align 8
   %childPosition.0.in.i.i.us = shl i64 %spec.select.i.i.us, 1
   %childPosition.0.i.i.us = add i64 %childPosition.0.in.i.i.us, 2
   %cmp.i.i12.us = icmp ult i64 %childPosition.0.i.i.us, %sub.i.i.fr
   br i1 %cmp.i.i12.us, label %for.body.i.i.us, label %for.end.i.i.loopexit.us, !llvm.loop !120
 
 if.end30.i.i.us.thread:                           ; preds = %for.end.i.i.loopexit.us
-  %gep64.i.i.us.le = getelementptr i64, ptr %invariant.gep, i64 %spec.select.i.i.us
+  %arrayidx2.i.i29.i.i.us.le = getelementptr i64, ptr %arrayidx2.i.i3, i64 %spec.select.i.i.us
   %sub22.i.i.us = or disjoint i64 %childPosition.0.in.i.i.us, 1
-  %gep.us = getelementptr i64, ptr %invariant.gep, i64 %sub22.i.i.us
-  %12 = load i64, ptr %gep.us, align 8
-  store i64 %12, ptr %gep64.i.i.us.le, align 8
+  %arrayidx2.i.i45.i.i.us = getelementptr i64, ptr %arrayidx2.i.i3, i64 %sub22.i.i.us
+  %13 = load i64, ptr %arrayidx2.i.i45.i.i.us, align 8
+  store i64 %13, ptr %arrayidx2.i.i29.i.i.us.le, align 8
   br label %land.rhs.i.i.i.i.us.preheader
 
 if.end30.i.i.us:                                  ; preds = %for.end.i.i.loopexit.us
-  %cmp39.i.i.i.i.not.us = icmp eq i64 %spec.select.i.i.us, 0
-  br i1 %cmp39.i.i.i.i.not.us, label %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.us, label %land.rhs.i.i.i.i.us.preheader
+  %cmp37.i.i.i.i.not.us = icmp eq i64 %spec.select.i.i.us, 0
+  br i1 %cmp37.i.i.i.i.not.us, label %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.us, label %land.rhs.i.i.i.i.us.preheader
 
 land.rhs.i.i.i.i.us.preheader:                    ; preds = %if.end30.i.i.us.thread, %if.end30.i.i.us
-  %position.addr.040.i.i.i.i.us.ph = phi i64 [ %spec.select.i.i.us, %if.end30.i.i.us ], [ %sub22.i.i.us, %if.end30.i.i.us.thread ]
+  %position.addr.038.i.i.i.i.us.ph = phi i64 [ %spec.select.i.i.us, %if.end30.i.i.us ], [ %sub22.i.i.us, %if.end30.i.i.us.thread ]
   br label %land.rhs.i.i.i.i.us
 
 land.rhs.i.i.i.i.us:                              ; preds = %land.rhs.i.i.i.i.us.preheader, %for.body.i.i.i.i.us
-  %position.addr.040.i.i.i.i.us = phi i64 [ %parentPosition.041.i.i.i.i.us, %for.body.i.i.i.i.us ], [ %position.addr.040.i.i.i.i.us.ph, %land.rhs.i.i.i.i.us.preheader ]
-  %parentPosition.041.in.i.i.i.i.us = add i64 %position.addr.040.i.i.i.i.us, -1
-  %parentPosition.041.i.i.i.i.us = lshr i64 %parentPosition.041.in.i.i.i.i.us, 1
-  %gep.i.i.i.i.us = getelementptr i64, ptr %invariant.gep, i64 %parentPosition.041.i.i.i.i.us
-  %13 = load i64, ptr %gep.i.i.i.i.us, align 8
-  %cmp.i.i.i.i.i.i.us = icmp ult i64 %13, %7
+  %position.addr.038.i.i.i.i.us = phi i64 [ %parentPosition.039.i.i.i.i.us, %for.body.i.i.i.i.us ], [ %position.addr.038.i.i.i.i.us.ph, %land.rhs.i.i.i.i.us.preheader ]
+  %parentPosition.039.in.i.i.i.i.us = add i64 %position.addr.038.i.i.i.i.us, -1
+  %parentPosition.039.i.i.i.i.us = lshr i64 %parentPosition.039.in.i.i.i.i.us, 1
+  %arrayidx2.i.i.i.i.i.i.us = getelementptr i64, ptr %arrayidx2.i.i3, i64 %parentPosition.039.i.i.i.i.us
+  %14 = load i64, ptr %arrayidx2.i.i.i.i.i.i.us, align 8
+  %cmp.i.i.i.i.i.i.us = icmp ult i64 %14, %8
   br i1 %cmp.i.i.i.i.i.i.us, label %for.body.i.i.i.i.us, label %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.us
 
 for.body.i.i.i.i.us:                              ; preds = %land.rhs.i.i.i.i.us
-  %gep36.i.i.i.i.us = getelementptr i64, ptr %invariant.gep, i64 %position.addr.040.i.i.i.i.us
-  store i64 %13, ptr %gep36.i.i.i.i.us, align 8
-  %cmp.i.i54.i.i.not.us = icmp ult i64 %parentPosition.041.in.i.i.i.i.us, 2
+  %arrayidx2.i.i23.i.i.i.i.us = getelementptr i64, ptr %arrayidx2.i.i3, i64 %position.addr.038.i.i.i.i.us
+  store i64 %14, ptr %arrayidx2.i.i23.i.i.i.i.us, align 8
+  %cmp.i.i54.i.i.not.us = icmp ult i64 %parentPosition.039.in.i.i.i.i.us, 2
   br i1 %cmp.i.i54.i.i.not.us, label %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.us, label %land.rhs.i.i.i.i.us, !llvm.loop !121
 
 _ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.us: ; preds = %land.rhs.i.i.i.i.us, %for.body.i.i.i.i.us, %if.end30.i.i.us
-  %position.addr.0.lcssa.i.i.i.i.us = phi i64 [ 0, %if.end30.i.i.us ], [ 0, %for.body.i.i.i.i.us ], [ %position.addr.040.i.i.i.i.us, %land.rhs.i.i.i.i.us ]
-  %gep40.us = getelementptr i64, ptr %invariant.gep, i64 %position.addr.0.lcssa.i.i.i.i.us
-  store i64 %7, ptr %gep40.us, align 8
+  %position.addr.0.lcssa.i.i.i.i.us = phi i64 [ 0, %if.end30.i.i.us ], [ 0, %for.body.i.i.i.i.us ], [ %position.addr.038.i.i.i.i.us, %land.rhs.i.i.i.i.us ]
+  %arrayidx2.i.i31.i.i.i.i.us = getelementptr i64, ptr %arrayidx2.i.i3, i64 %position.addr.0.lcssa.i.i.i.i.us
+  store i64 %8, ptr %arrayidx2.i.i31.i.i.i.i.us, align 8
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit.us, %for.body.us
-  %inc.i.us = add nuw i64 %i.sroa.0.042.us, 1
-  %exitcond44.not = icmp eq i64 %inc.i.us, %last.coerce0
-  br i1 %exitcond44.not, label %for.end, label %for.body.us, !llvm.loop !123
+  %inc.i.us = add nuw i64 %i.sroa.0.036.us, 1
+  %exitcond38.not = icmp eq i64 %inc.i.us, %last.coerce0
+  br i1 %exitcond38.not, label %for.end, label %for.body.us, !llvm.loop !123
 
 for.end.i.i.loopexit.us:                          ; preds = %for.body.i.i.us
   %cmp17.i.i.us = icmp eq i64 %childPosition.0.i.i.us, %sub.i.i.fr
@@ -5185,83 +5188,84 @@ for.end.i.i.loopexit.us:                          ; preds = %for.body.i.i.us
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   %cmp17.i.i.not = icmp eq i64 %sub.i.i.fr, 2
-  %gep = getelementptr i8, ptr %invariant.gep, i64 8
-  %gep36.i.i.i.i = getelementptr i8, ptr %invariant.gep, i64 8
+  %arrayidx2.i.i45.i.i = getelementptr i8, ptr %arrayidx2.i.i3, i64 8
+  %arrayidx2.i.i23.i.i.i.i = getelementptr i8, ptr %arrayidx2.i.i3, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc
-  %i.sroa.0.042 = phi i64 [ %middle.coerce0, %for.body.lr.ph.split ], [ %inc.i, %for.inc ]
-  %arrayidx2.i.i = getelementptr inbounds i64, ptr %middle.coerce1, i64 %i.sroa.0.042
-  %14 = load i64, ptr %arrayidx2.i.i, align 8
-  %15 = load i64, ptr %invariant.gep, align 8
-  %cmp.i.i = icmp ult i64 %14, %15
+  %i.sroa.0.036 = phi i64 [ %middle.coerce0, %for.body.lr.ph.split ], [ %inc.i, %for.inc ]
+  %arrayidx2.i.i = getelementptr inbounds i64, ptr %middle.coerce1, i64 %i.sroa.0.036
+  %15 = load i64, ptr %arrayidx2.i.i, align 8
+  %16 = load i64, ptr %arrayidx2.i.i3, align 8
+  %cmp.i.i = icmp ult i64 %15, %16
   br i1 %cmp.i.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  store i64 %15, ptr %arrayidx2.i.i, align 8
+  store i64 %16, ptr %arrayidx2.i.i, align 8
   br i1 %cmp17.i.i.not, label %land.rhs.i.i.i.i.preheader, label %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit
 
 land.rhs.i.i.i.i.preheader:                       ; preds = %if.then
-  %16 = load i64, ptr %gep, align 8
-  store i64 %16, ptr %invariant.gep, align 8
-  %cmp.i.i.i.i.i.i = icmp ult i64 %16, %14
+  %17 = load i64, ptr %arrayidx2.i.i45.i.i, align 8
+  store i64 %17, ptr %arrayidx2.i.i3, align 8
+  %cmp.i.i.i.i.i.i = icmp ult i64 %17, %15
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i, label %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit
 
 for.body.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i.preheader
-  store i64 %16, ptr %gep36.i.i.i.i, align 8
+  store i64 %17, ptr %arrayidx2.i.i23.i.i.i.i, align 8
   br label %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit
 
 _ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit: ; preds = %land.rhs.i.i.i.i.preheader, %for.body.i.i.i.i, %if.then
   %position.addr.0.lcssa.i.i.i.i = phi i64 [ 0, %if.then ], [ 1, %land.rhs.i.i.i.i.preheader ], [ 0, %for.body.i.i.i.i ]
-  %gep40 = getelementptr i64, ptr %invariant.gep, i64 %position.addr.0.lcssa.i.i.i.i
-  store i64 %14, ptr %gep40, align 8
+  %arrayidx2.i.i31.i.i.i.i = getelementptr i64, ptr %arrayidx2.i.i3, i64 %position.addr.0.lcssa.i.i.i.i
+  store i64 %15, ptr %arrayidx2.i.i31.i.i.i.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN5eastl11adjust_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEmNS_5tupleIJmEEEEEvT_T0_S9_S9_OT1_.exit
-  %inc.i = add nuw i64 %i.sroa.0.042, 1
+  %inc.i = add nuw i64 %i.sroa.0.036, 1
   %exitcond.not = icmp eq i64 %inc.i, %last.coerce0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !123
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %_ZN5eastl9make_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit
-  %invariant.gep.i13 = getelementptr i8, ptr %middle.coerce1, i64 -8
+  %invariant.gep.i = getelementptr i8, ptr %middle.coerce1, i64 -8
   br i1 %cmp.i, label %for.body.lr.ph.i, label %_ZN5eastl9sort_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %17 = xor i64 %first.coerce0, -1
+  %arrayidx2.i.i2.i.i = getelementptr inbounds i64, ptr %first.coerce1, i64 %first.coerce0
+  %18 = xor i64 %first.coerce0, -1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN5eastl8pop_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit.i, %for.body.lr.ph.i
-  %last.sroa.0.022.i = phi i64 [ %middle.coerce0, %for.body.lr.ph.i ], [ %dec.i.i, %_ZN5eastl8pop_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit.i ]
-  %gep.i14 = getelementptr i64, ptr %invariant.gep.i13, i64 %last.sroa.0.022.i
-  %18 = load i64, ptr %gep.i14, align 8
-  %19 = load i64, ptr %invariant.gep, align 8
-  store i64 %19, ptr %gep.i14, align 8
-  %sub.i1.i = add i64 %last.sroa.0.022.i, %17
-  %cmp69.i.i.i.i = icmp ugt i64 %sub.i1.i, 2
-  br i1 %cmp69.i.i.i.i, label %for.body.i.i.i.i17, label %for.end.i.i.i.thread.i
+  %last.sroa.0.016.i = phi i64 [ %middle.coerce0, %for.body.lr.ph.i ], [ %dec.i.i, %_ZN5eastl8pop_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit.i ]
+  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %last.sroa.0.016.i
+  %19 = load i64, ptr %gep.i, align 8
+  %20 = load i64, ptr %arrayidx2.i.i2.i.i, align 8
+  store i64 %20, ptr %gep.i, align 8
+  %sub.i1.i = add i64 %last.sroa.0.016.i, %18
+  %cmp63.i.i.i.i = icmp ugt i64 %sub.i1.i, 2
+  br i1 %cmp63.i.i.i.i, label %for.body.i.i.i.i15, label %for.end.i.i.i.thread.i
 
-for.body.i.i.i.i17:                               ; preds = %for.body.i, %for.body.i.i.i.i17
-  %childPosition.072.i.i.i.i = phi i64 [ %childPosition.0.i.i.i.i, %for.body.i.i.i.i17 ], [ 2, %for.body.i ]
-  %childPosition.0.in71.i.i.i.i = phi i64 [ %childPosition.0.in.i.i.i.i, %for.body.i.i.i.i17 ], [ 0, %for.body.i ]
-  %position.addr.070.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %for.body.i.i.i.i17 ], [ 0, %for.body.i ]
-  %gep.i.i.i.i18 = getelementptr i64, ptr %invariant.gep, i64 %childPosition.072.i.i.i.i
-  %sub.i.i11.i.i = or disjoint i64 %childPosition.0.in71.i.i.i.i, 1
-  %gep62.i.i.i.i = getelementptr i64, ptr %invariant.gep, i64 %sub.i.i11.i.i
-  %20 = load i64, ptr %gep.i.i.i.i18, align 8
-  %21 = load i64, ptr %gep62.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i19 = icmp ult i64 %20, %21
-  %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i19, i64 %sub.i.i11.i.i, i64 %childPosition.072.i.i.i.i
-  %gep64.i.i.i.i = getelementptr i64, ptr %invariant.gep, i64 %spec.select.i.i.i.i
-  %22 = load i64, ptr %gep64.i.i.i.i, align 8
-  %gep66.i.i.i.i = getelementptr i64, ptr %invariant.gep, i64 %position.addr.070.i.i.i.i
-  store i64 %22, ptr %gep66.i.i.i.i, align 8
+for.body.i.i.i.i15:                               ; preds = %for.body.i, %for.body.i.i.i.i15
+  %childPosition.066.i.i.i.i = phi i64 [ %childPosition.0.i.i.i.i, %for.body.i.i.i.i15 ], [ 2, %for.body.i ]
+  %childPosition.0.in65.i.i.i.i = phi i64 [ %childPosition.0.in.i.i.i.i, %for.body.i.i.i.i15 ], [ 0, %for.body.i ]
+  %position.addr.064.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %for.body.i.i.i.i15 ], [ 0, %for.body.i ]
+  %arrayidx2.i.i.i.i.i.i16 = getelementptr i64, ptr %arrayidx2.i.i2.i.i, i64 %childPosition.066.i.i.i.i
+  %sub.i.i11.i.i = or disjoint i64 %childPosition.0.in65.i.i.i.i, 1
+  %arrayidx2.i.i21.i.i.i.i = getelementptr i64, ptr %arrayidx2.i.i2.i.i, i64 %sub.i.i11.i.i
+  %21 = load i64, ptr %arrayidx2.i.i.i.i.i.i16, align 8
+  %22 = load i64, ptr %arrayidx2.i.i21.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i17 = icmp ult i64 %21, %22
+  %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i17, i64 %sub.i.i11.i.i, i64 %childPosition.066.i.i.i.i
+  %arrayidx2.i.i29.i.i.i.i = getelementptr i64, ptr %arrayidx2.i.i2.i.i, i64 %spec.select.i.i.i.i
+  %23 = load i64, ptr %arrayidx2.i.i29.i.i.i.i, align 8
+  %arrayidx2.i.i37.i.i.i.i = getelementptr i64, ptr %arrayidx2.i.i2.i.i, i64 %position.addr.064.i.i.i.i
+  store i64 %23, ptr %arrayidx2.i.i37.i.i.i.i, align 8
   %childPosition.0.in.i.i.i.i = shl i64 %spec.select.i.i.i.i, 1
   %childPosition.0.i.i.i.i = add i64 %childPosition.0.in.i.i.i.i, 2
-  %cmp.i.i.i.i20 = icmp ult i64 %childPosition.0.i.i.i.i, %sub.i1.i
-  br i1 %cmp.i.i.i.i20, label %for.body.i.i.i.i17, label %for.end.i.i.i.i, !llvm.loop !120
+  %cmp.i.i.i.i18 = icmp ult i64 %childPosition.0.i.i.i.i, %sub.i1.i
+  br i1 %cmp.i.i.i.i18, label %for.body.i.i.i.i15, label %for.end.i.i.i.i, !llvm.loop !120
 
-for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i17
-  %23 = or disjoint i64 %childPosition.0.in.i.i.i.i, 1
+for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i15
+  %24 = or disjoint i64 %childPosition.0.in.i.i.i.i, 1
   %cmp17.i.i.i.i = icmp eq i64 %childPosition.0.i.i.i.i, %sub.i1.i
   br i1 %cmp17.i.i.i.i, label %if.end30.i.i.thread.i.i, label %if.end30.i.i.i.i
 
@@ -5270,45 +5274,45 @@ for.end.i.i.i.thread.i:                           ; preds = %for.body.i
   br i1 %cmp17.i.i.i8.i, label %if.end30.i.i.thread.i.i, label %_ZN5eastl8pop_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit.i
 
 if.end30.i.i.thread.i.i:                          ; preds = %for.end.i.i.i.thread.i, %for.end.i.i.i.i
-  %childPosition.0.in.lcssa.i.i.i11.i = phi i64 [ 1, %for.end.i.i.i.thread.i ], [ %23, %for.end.i.i.i.i ]
+  %childPosition.0.in.lcssa.i.i.i11.i = phi i64 [ 1, %for.end.i.i.i.thread.i ], [ %24, %for.end.i.i.i.i ]
   %position.addr.0.lcssa.i.i.i10.i = phi i64 [ 0, %for.end.i.i.i.thread.i ], [ %spec.select.i.i.i.i, %for.end.i.i.i.i ]
-  %gep15.i = getelementptr i64, ptr %invariant.gep, i64 %childPosition.0.in.lcssa.i.i.i11.i
-  %24 = load i64, ptr %gep15.i, align 8
-  %gep17.i = getelementptr i64, ptr %invariant.gep, i64 %position.addr.0.lcssa.i.i.i10.i
-  store i64 %24, ptr %gep17.i, align 8
+  %arrayidx2.i.i45.i.i.i.i = getelementptr i64, ptr %arrayidx2.i.i2.i.i, i64 %childPosition.0.in.lcssa.i.i.i11.i
+  %25 = load i64, ptr %arrayidx2.i.i45.i.i.i.i, align 8
+  %arrayidx2.i.i53.i.i.i.i = getelementptr i64, ptr %arrayidx2.i.i2.i.i, i64 %position.addr.0.lcssa.i.i.i10.i
+  store i64 %25, ptr %arrayidx2.i.i53.i.i.i.i, align 8
   br label %land.rhs.i.i.i.i.i.i.preheader
 
 if.end30.i.i.i.i:                                 ; preds = %for.end.i.i.i.i
-  %cmp39.i.i.i.i.not.i.i = icmp eq i64 %spec.select.i.i.i.i, 0
-  br i1 %cmp39.i.i.i.i.not.i.i, label %_ZN5eastl8pop_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit.i, label %land.rhs.i.i.i.i.i.i.preheader
+  %cmp37.i.i.i.i.not.i.i = icmp eq i64 %spec.select.i.i.i.i, 0
+  br i1 %cmp37.i.i.i.i.not.i.i, label %_ZN5eastl8pop_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit.i, label %land.rhs.i.i.i.i.i.i.preheader
 
 land.rhs.i.i.i.i.i.i.preheader:                   ; preds = %if.end30.i.i.i.i, %if.end30.i.i.thread.i.i
-  %position.addr.040.i.i.i.i.i.i.ph = phi i64 [ %spec.select.i.i.i.i, %if.end30.i.i.i.i ], [ %childPosition.0.in.lcssa.i.i.i11.i, %if.end30.i.i.thread.i.i ]
+  %position.addr.038.i.i.i.i.i.i.ph = phi i64 [ %spec.select.i.i.i.i, %if.end30.i.i.i.i ], [ %childPosition.0.in.lcssa.i.i.i11.i, %if.end30.i.i.thread.i.i ]
   br label %land.rhs.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i
-  %position.addr.040.i.i.i.i.i.i = phi i64 [ %parentPosition.041.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %position.addr.040.i.i.i.i.i.i.ph, %land.rhs.i.i.i.i.i.i.preheader ]
-  %parentPosition.041.in.i.i.i.i.i.i = add i64 %position.addr.040.i.i.i.i.i.i, -1
-  %parentPosition.041.i.i.i.i.i.i = lshr i64 %parentPosition.041.in.i.i.i.i.i.i, 1
-  %gep.i.i.i.i.i.i = getelementptr i64, ptr %invariant.gep, i64 %parentPosition.041.i.i.i.i.i.i
-  %25 = load i64, ptr %gep.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i64 %25, %18
+  %position.addr.038.i.i.i.i.i.i = phi i64 [ %parentPosition.039.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %position.addr.038.i.i.i.i.i.i.ph, %land.rhs.i.i.i.i.i.i.preheader ]
+  %parentPosition.039.in.i.i.i.i.i.i = add i64 %position.addr.038.i.i.i.i.i.i, -1
+  %parentPosition.039.i.i.i.i.i.i = lshr i64 %parentPosition.039.in.i.i.i.i.i.i, 1
+  %arrayidx2.i.i.i.i.i.i.i.i = getelementptr i64, ptr %arrayidx2.i.i2.i.i, i64 %parentPosition.039.i.i.i.i.i.i
+  %26 = load i64, ptr %arrayidx2.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ult i64 %26, %19
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN5eastl8pop_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i.i
-  %gep36.i.i.i.i.i.i = getelementptr i64, ptr %invariant.gep, i64 %position.addr.040.i.i.i.i.i.i
-  store i64 %25, ptr %gep36.i.i.i.i.i.i, align 8
-  %cmp.i.i54.i.i.not.i.i = icmp ult i64 %parentPosition.041.in.i.i.i.i.i.i, 2
+  %arrayidx2.i.i23.i.i.i.i.i.i = getelementptr i64, ptr %arrayidx2.i.i2.i.i, i64 %position.addr.038.i.i.i.i.i.i
+  store i64 %26, ptr %arrayidx2.i.i23.i.i.i.i.i.i, align 8
+  %cmp.i.i54.i.i.not.i.i = icmp ult i64 %parentPosition.039.in.i.i.i.i.i.i, 2
   br i1 %cmp.i.i54.i.i.not.i.i, label %_ZN5eastl8pop_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !121
 
 _ZN5eastl8pop_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit.i: ; preds = %for.body.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i, %if.end30.i.i.i.i, %for.end.i.i.i.thread.i
-  %position.addr.0.lcssa.i.i.i.i.i.i = phi i64 [ 0, %if.end30.i.i.i.i ], [ 0, %for.end.i.i.i.thread.i ], [ 0, %for.body.i.i.i.i.i.i ], [ %position.addr.040.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
-  %gep19.i = getelementptr i64, ptr %invariant.gep, i64 %position.addr.0.lcssa.i.i.i.i.i.i
-  store i64 %18, ptr %gep19.i, align 8
-  %dec.i.i = add i64 %last.sroa.0.022.i, -1
-  %sub.i.i15 = sub i64 %dec.i.i, %first.coerce0
-  %cmp.i16 = icmp ugt i64 %sub.i.i15, 1
-  br i1 %cmp.i16, label %for.body.i, label %_ZN5eastl9sort_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit, !llvm.loop !124
+  %position.addr.0.lcssa.i.i.i.i.i.i = phi i64 [ 0, %if.end30.i.i.i.i ], [ 0, %for.end.i.i.i.thread.i ], [ 0, %for.body.i.i.i.i.i.i ], [ %position.addr.038.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
+  %arrayidx2.i.i31.i.i.i.i.i.i = getelementptr i64, ptr %arrayidx2.i.i2.i.i, i64 %position.addr.0.lcssa.i.i.i.i.i.i
+  store i64 %19, ptr %arrayidx2.i.i31.i.i.i.i.i.i, align 8
+  %dec.i.i = add i64 %last.sroa.0.016.i, -1
+  %sub.i.i13 = sub i64 %dec.i.i, %first.coerce0
+  %cmp.i14 = icmp ugt i64 %sub.i.i13, 1
+  br i1 %cmp.i14, label %for.body.i, label %_ZN5eastl9sort_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit, !llvm.loop !124
 
 _ZN5eastl9sort_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit: ; preds = %_ZN5eastl8pop_heapINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0EEEEJmEEEEEvT_S6_.exit.i, %for.end
   ret void
@@ -5753,7 +5757,7 @@ lpad.i.i:                                         ; preds = %for.body.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #7
-  %cmp.not3.i.i.i.i = icmp eq ptr %__cur.010.i.i, %__first
+  %cmp.not3.i.i.i.i = icmp eq ptr %__first, %__cur.010.i.i
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont2.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %lpad.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_111MovableTypeEEvPT_.exit.i.i.i.i
@@ -6637,7 +6641,7 @@ if.else:                                          ; preds = %if.then
   %add.ptr3.i = getelementptr inbounds i8, ptr %12, i64 %add.ptr3.idx.i
   %13 = load i64, ptr %args, align 8
   %sub.i59 = sub i64 %1, %0
-  %cmp.i = icmp ugt i64 %sub.i59, %n
+  %cmp.i = icmp ult i64 %n, %sub.i59
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else

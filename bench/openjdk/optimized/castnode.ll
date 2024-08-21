@@ -1943,7 +1943,7 @@ _ZN11PhaseValues13find_long_conEP4Nodel.exit.thread: ; preds = %20, %11
   %40 = getelementptr inbounds ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  %43 = icmp eq ptr %42, %41
+  %43 = icmp eq ptr %41, %42
   br i1 %43, label %_ZL11fits_in_intPK4Typeb.exit.thread, label %44
 
 44:                                               ; preds = %_ZN11PhaseValues13find_long_conEP4Nodel.exit.thread
@@ -1982,7 +1982,7 @@ _ZL11fits_in_intPK4Typeb.exit:                    ; preds = %44
   %69 = getelementptr inbounds ptr, ptr %67, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  %72 = icmp eq ptr %71, %70
+  %72 = icmp eq ptr %70, %71
   br i1 %72, label %_ZL11fits_in_intPK4Typeb.exit22.thread, label %73
 
 73:                                               ; preds = %52
@@ -2007,7 +2007,7 @@ _ZL11fits_in_intPK4Typeb.exit22.thread:           ; preds = %73, %52, %_ZL11fits
   %83 = zext i32 %82 to i64
   %84 = getelementptr inbounds ptr, ptr %67, i64 %83
   %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %71, %85
+  %86 = icmp eq ptr %85, %71
   br i1 %86, label %_ZL11fits_in_intPK4Typeb.exit.thread, label %87
 
 87:                                               ; preds = %_ZL11fits_in_intPK4Typeb.exit22.thread

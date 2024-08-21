@@ -197,7 +197,7 @@ for.body:                                         ; preds = %if.end4, %for.body
   %i.012 = phi i32 [ %inc, %for.body ], [ 0, %if.end4 ]
   %add.i = add nuw i32 %i.012, 2
   %call.i10 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %CI, i32 noundef %add.i) #3
-  %cmp8.not = icmp ne ptr %call.i10, %C
+  %cmp8.not = icmp ne ptr %C, %call.i10
   %inc = add nuw nsw i32 %i.012, 1
   %exitcond.not = icmp ne i32 %inc, %sub.i
   %or.cond.not = select i1 %cmp8.not, i1 %exitcond.not, i1 false
@@ -281,7 +281,7 @@ for.body.i:                                       ; preds = %if.end4.i, %for.con
   %i.012.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.end4.i ]
   %add.i.i = add nuw i32 %i.012.i, 2
   %call.i10.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %6, i32 noundef %add.i.i) #3
-  %cmp8.not.i = icmp eq ptr %call.i10.i, %spec.select
+  %cmp8.not.i = icmp eq ptr %spec.select, %call.i10.i
   br i1 %cmp8.not.i, label %if.end, label %for.cond.i
 
 if.then:                                          ; preds = %for.cond.i, %if.end4.i
@@ -417,7 +417,7 @@ for.body.i53:                                     ; preds = %if.end4.i49, %for.c
   %i.012.i54 = phi i32 [ %inc.i59, %for.cond.i58 ], [ 0, %if.end4.i49 ]
   %add.i.i55 = add nuw i32 %i.012.i54, 2
   %call.i10.i56 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i42, i32 noundef %add.i.i55) #3
-  %cmp8.not.i57 = icmp eq ptr %call.i10.i56, %add.ptr.i.i.i.i.i.i39
+  %cmp8.not.i57 = icmp eq ptr %add.ptr.i.i.i.i.i.i39, %call.i10.i56
   br i1 %cmp8.not.i57, label %return, label %for.cond.i58
 
 if.then53:                                        ; preds = %for.cond.i58, %if.end4.i49

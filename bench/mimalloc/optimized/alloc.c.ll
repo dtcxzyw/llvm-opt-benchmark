@@ -1881,7 +1881,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call fastcc i64 @_mi_usable_size(ptr noundef nonnull %p) #15
-  %cmp1 = icmp ult i64 %call, %newsize
+  %cmp1 = icmp ugt i64 %newsize, %call
   %.p = select i1 %cmp1, ptr null, ptr %p
   br label %return
 
@@ -1894,9 +1894,9 @@ return:                                           ; preds = %if.end, %entry
 define hidden ptr @_mi_heap_realloc_zero(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext %zero) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @_mi_usable_size(ptr noundef %p) #15
-  %cmp.not = icmp ult i64 %call, %newsize
+  %cmp.not = icmp ugt i64 %newsize, %call
   %div24 = lshr i64 %call, 1
-  %cmp1.not = icmp ugt i64 %div24, %newsize
+  %cmp1.not = icmp ult i64 %newsize, %div24
   %0 = add i64 %newsize, -1
   %1 = icmp uge i64 %0, %call
   %or.cond26.not = or i1 %1, %cmp1.not
@@ -1942,7 +1942,7 @@ mi_heap_malloc.exit:                              ; preds = %if.then.i.i.i.i.i, 
 
 if.then13:                                        ; preds = %mi_heap_malloc.exit.thread, %mi_heap_malloc.exit
   %retval.0.i.i.i29 = phi ptr [ %3, %mi_heap_malloc.exit.thread ], [ %retval.0.i.i.i, %mi_heap_malloc.exit ]
-  %or.cond25 = and i1 %cmp.not, %zero
+  %or.cond25 = and i1 %zero, %cmp.not
   br i1 %or.cond25, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.then13
@@ -1967,7 +1967,7 @@ if.end27:                                         ; preds = %if.else, %if.then25
   br i1 %cmp28.not, label %return, label %if.then36
 
 if.then36:                                        ; preds = %if.end27
-  %cond42 = tail call i64 @llvm.umin.i64(i64 %call, i64 %newsize)
+  %cond42 = tail call i64 @llvm.umin.i64(i64 %newsize, i64 %call)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i29, ptr nonnull readonly align 1 %p, i64 %cond42, i1 false)
   tail call void @mi_free(ptr noundef nonnull %p) #15
   br label %return

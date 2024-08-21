@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden { ptr, i64 } @"_ZN100_$LT$$RF$$u5b$T$u5d$$u20$as$u20$nom..traits..Slice$LT$core..ops..range..RangeTo$LT$usize$GT$$GT$$GT$5slice17ha17499164e8a277bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %6, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha2906fb928ea3032E.llvm.4718758645701595787.exit"
 
 6:                                                ; preds = %2
@@ -39,7 +39,7 @@ define hidden { ptr, i64 } @"_ZN100_$LT$$RF$$u5b$T$u5d$$u20$as$u20$nom..traits..
 define hidden { ptr, i64 } @"_ZN102_$LT$$RF$$u5b$T$u5d$$u20$as$u20$nom..traits..Slice$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5slice17h94074d877eeed5d8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %2

@@ -714,7 +714,7 @@ define range(i32 -22, 1) i32 @arkSetMinStep(ptr noundef %0, double noundef %1) l
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 392
   %11 = load double, ptr %10, align 8
-  %12 = fmul double %11, %1
+  %12 = fmul double %1, %11
   %13 = fcmp ogt double %12, 1.000000e+00
   br i1 %13, label %14, label %15
 

@@ -121,7 +121,7 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false2
   %columns9 = getelementptr inbounds i8, ptr %pv, i64 8
   %1 = load i32, ptr %columns9, align 8
   %sub = add nsw i32 %1, -2
-  %cmp10.not = icmp sgt i32 %sub, %column
+  %cmp10.not = icmp slt i32 %column, %sub
   br i1 %cmp10.not, label %if.end12, label %for.end.sink.split
 
 if.end12:                                         ; preds = %lor.lhs.false8
@@ -137,7 +137,7 @@ if.end15:                                         ; preds = %if.end12
   %call18 = tail call fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef nonnull %pv, i32 noundef %start)
   %call19 = tail call fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef nonnull %pv, i32 noundef %end)
   %3 = load i32, ptr %call18, align 4
-  %cmp20.not = icmp eq i32 %3, %start
+  %cmp20.not = icmp eq i32 %start, %3
   br i1 %cmp20.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end15
@@ -343,13 +343,13 @@ entry:
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr inbounds i32, ptr %3, i64 %idx.ext
   %4 = load i32, ptr %add.ptr, align 4
-  %cmp.not = icmp sgt i32 %4, %rangeStart
+  %cmp.not = icmp slt i32 %rangeStart, %4
   br i1 %cmp.not, label %if.else33, label %if.then
 
 if.then:                                          ; preds = %entry
   %arrayidx3 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %5 = load i32, ptr %arrayidx3, align 4
-  %cmp4 = icmp sgt i32 %5, %rangeStart
+  %cmp4 = icmp slt i32 %rangeStart, %5
   br i1 %cmp4, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then
@@ -357,7 +357,7 @@ if.else:                                          ; preds = %if.then
   %add.ptr7 = getelementptr inbounds i32, ptr %add.ptr, i64 %idx.ext6
   %arrayidx8 = getelementptr inbounds i8, ptr %add.ptr7, i64 4
   %6 = load i32, ptr %arrayidx8, align 4
-  %cmp9 = icmp sgt i32 %6, %rangeStart
+  %cmp9 = icmp slt i32 %rangeStart, %6
   br i1 %cmp9, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.else
@@ -369,7 +369,7 @@ if.else12:                                        ; preds = %if.else
   %add.ptr14 = getelementptr inbounds i32, ptr %add.ptr7, i64 %idx.ext6
   %arrayidx15 = getelementptr inbounds i8, ptr %add.ptr14, i64 4
   %7 = load i32, ptr %arrayidx15, align 4
-  %cmp16 = icmp sgt i32 %7, %rangeStart
+  %cmp16 = icmp slt i32 %rangeStart, %7
   br i1 %cmp16, label %if.then17, label %if.else20
 
 if.then17:                                        ; preds = %if.else12
@@ -393,7 +393,7 @@ do.body:                                          ; preds = %do.body, %if.then23
   %add.ptr26 = getelementptr inbounds i32, ptr %row.0, i64 %idx.ext6
   %arrayidx27 = getelementptr inbounds i8, ptr %add.ptr26, i64 4
   %8 = load i32, ptr %arrayidx27, align 4
-  %cmp28.not = icmp sgt i32 %8, %rangeStart
+  %cmp28.not = icmp slt i32 %rangeStart, %8
   br i1 %cmp28.not, label %do.end, label %do.body, !llvm.loop !7
 
 do.end:                                           ; preds = %do.body
@@ -403,7 +403,7 @@ do.end:                                           ; preds = %do.body
 if.else33:                                        ; preds = %entry
   %arrayidx35 = getelementptr inbounds i8, ptr %3, i64 4
   %9 = load i32, ptr %arrayidx35, align 4
-  %cmp36 = icmp sgt i32 %9, %rangeStart
+  %cmp36 = icmp slt i32 %rangeStart, %9
   br i1 %cmp36, label %if.then37, label %if.end41
 
 if.then37:                                        ; preds = %if.else33
@@ -423,13 +423,13 @@ while.body:                                       ; preds = %if.end41, %if.end59
   %idx.ext47 = sext i32 %mul46 to i64
   %add.ptr48 = getelementptr inbounds i32, ptr %3, i64 %idx.ext47
   %10 = load i32, ptr %add.ptr48, align 4
-  %cmp50 = icmp sgt i32 %10, %rangeStart
+  %cmp50 = icmp slt i32 %rangeStart, %10
   br i1 %cmp50, label %if.end59, label %if.else52
 
 if.else52:                                        ; preds = %while.body
   %arrayidx53 = getelementptr inbounds i8, ptr %add.ptr48, i64 4
   %11 = load i32, ptr %arrayidx53, align 4
-  %cmp54 = icmp sgt i32 %11, %rangeStart
+  %cmp54 = icmp slt i32 %rangeStart, %11
   br i1 %cmp54, label %if.then55, label %if.end59
 
 if.then55:                                        ; preds = %if.else52
@@ -478,7 +478,7 @@ lor.lhs.false5:                                   ; preds = %entry
   %columns = getelementptr inbounds i8, ptr %pv, i64 8
   %2 = load i32, ptr %columns, align 8
   %sub = add nsw i32 %2, -2
-  %cmp6.not = icmp sgt i32 %sub, %column
+  %cmp6.not = icmp slt i32 %column, %sub
   br i1 %cmp6.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false5
@@ -491,13 +491,13 @@ if.end:                                           ; preds = %lor.lhs.false5
   %idx.ext.i = sext i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %5, i64 %idx.ext.i
   %6 = load i32, ptr %add.ptr.i, align 4
-  %cmp.not.i = icmp sgt i32 %6, %c
+  %cmp.not.i = icmp slt i32 %c, %6
   br i1 %cmp.not.i, label %if.else33.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %arrayidx3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %7 = load i32, ptr %arrayidx3.i, align 4
-  %cmp4.i = icmp sgt i32 %7, %c
+  %cmp4.i = icmp slt i32 %c, %7
   br i1 %cmp4.i, label %_ZL8_findRowP13UPropsVectorsi.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
@@ -505,7 +505,7 @@ if.else.i:                                        ; preds = %if.then.i
   %add.ptr7.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idx.ext6.i
   %arrayidx8.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 4
   %8 = load i32, ptr %arrayidx8.i, align 4
-  %cmp9.i = icmp sgt i32 %8, %c
+  %cmp9.i = icmp slt i32 %c, %8
   br i1 %cmp9.i, label %if.then10.i, label %if.else12.i
 
 if.then10.i:                                      ; preds = %if.else.i
@@ -517,7 +517,7 @@ if.else12.i:                                      ; preds = %if.else.i
   %add.ptr14.i = getelementptr inbounds i32, ptr %add.ptr7.i, i64 %idx.ext6.i
   %arrayidx15.i = getelementptr inbounds i8, ptr %add.ptr14.i, i64 4
   %9 = load i32, ptr %arrayidx15.i, align 4
-  %cmp16.i = icmp sgt i32 %9, %c
+  %cmp16.i = icmp slt i32 %c, %9
   br i1 %cmp16.i, label %if.then17.i, label %if.else20.i
 
 if.then17.i:                                      ; preds = %if.else12.i
@@ -541,7 +541,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %add.ptr26.i = getelementptr inbounds i32, ptr %row.0.i, i64 %idx.ext6.i
   %arrayidx27.i = getelementptr inbounds i8, ptr %add.ptr26.i, i64 4
   %10 = load i32, ptr %arrayidx27.i, align 4
-  %cmp28.not.i = icmp sgt i32 %10, %c
+  %cmp28.not.i = icmp slt i32 %c, %10
   br i1 %cmp28.not.i, label %do.end.i, label %do.body.i, !llvm.loop !7
 
 do.end.i:                                         ; preds = %do.body.i
@@ -551,7 +551,7 @@ do.end.i:                                         ; preds = %do.body.i
 if.else33.i:                                      ; preds = %if.end
   %arrayidx35.i = getelementptr inbounds i8, ptr %5, i64 4
   %11 = load i32, ptr %arrayidx35.i, align 4
-  %cmp36.i = icmp sgt i32 %11, %c
+  %cmp36.i = icmp slt i32 %c, %11
   br i1 %cmp36.i, label %if.then37.i, label %if.end41.i
 
 if.then37.i:                                      ; preds = %if.else33.i
@@ -571,13 +571,13 @@ while.body.i:                                     ; preds = %if.end41.i, %if.end
   %idx.ext47.i = sext i32 %mul46.i to i64
   %add.ptr48.i = getelementptr inbounds i32, ptr %5, i64 %idx.ext47.i
   %12 = load i32, ptr %add.ptr48.i, align 4
-  %cmp50.i = icmp sgt i32 %12, %c
+  %cmp50.i = icmp slt i32 %c, %12
   br i1 %cmp50.i, label %if.end59.i, label %if.else52.i
 
 if.else52.i:                                      ; preds = %while.body.i
   %arrayidx53.i = getelementptr inbounds i8, ptr %add.ptr48.i, i64 4
   %13 = load i32, ptr %arrayidx53.i, align 4
-  %cmp54.i = icmp sgt i32 %13, %c
+  %cmp54.i = icmp slt i32 %c, %13
   br i1 %cmp54.i, label %if.then55.i, label %if.end59.i
 
 if.then55.i:                                      ; preds = %if.else52.i
@@ -625,7 +625,7 @@ entry:
 lor.lhs.false1:                                   ; preds = %entry
   %rows = getelementptr inbounds i8, ptr %pv, i64 16
   %1 = load i32, ptr %rows, align 8
-  %cmp2.not = icmp sgt i32 %1, %rowIndex
+  %cmp2.not = icmp slt i32 %rowIndex, %1
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false1

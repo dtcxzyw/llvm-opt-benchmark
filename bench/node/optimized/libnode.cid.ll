@@ -487,7 +487,7 @@ entry:
   %pos_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %pos_.i, align 8
   %conv.i = sext i32 %0 to i64
-  %add.i = add i64 %conv.i, %length_hint
+  %add.i = add i64 %length_hint, %conv.i
   %cmp.i = icmp ugt i64 %add.i, 4096
   br i1 %cmp.i, label %do.body.i, label %_ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit
 
@@ -528,7 +528,7 @@ entry:
   %pos_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %pos_.i, align 8
   %conv.i = sext i32 %0 to i64
-  %add.i = add i64 %conv.i, %length_hint
+  %add.i = add i64 %length_hint, %conv.i
   %cmp.i = icmp ugt i64 %add.i, 4096
   br i1 %cmp.i, label %do.body.i, label %_ZNK4node4quic12_GLOBAL__N_116RandomCIDFactory18maybe_refresh_poolEm.exit
 

@@ -3654,8 +3654,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1024 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1923 = phi i64 [ %cond18, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1923, %add
+  %add = sub i64 0, %cond1923
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos.thread, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -4205,7 +4205,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.en
   %od_first.i3136 = phi ptr [ %od_first.i3135, %cond.true.i ], [ %od_first.i, %if.end.i ]
   %cond.i = phi ptr [ %9, %cond.true.i ], [ %6, %if.end.i ]
   %10 = load ptr, ptr %cond.i, align 8
-  %cmp3.not.i = icmp eq ptr %10, %4
+  %cmp3.not.i = icmp eq ptr %4, %10
   br i1 %cmp3.not.i, label %exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.end.i

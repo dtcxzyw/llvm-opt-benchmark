@@ -151,7 +151,7 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef %0, 
   %64 = fpext float %63 to double
   %65 = fadd double %64, 0x3FEFF7CED916872B
   %66 = fptosi double %65 to i32
-  %.sroa.speculated92 = tail call i32 @llvm.smax.i32(i32 %66, i32 %3)
+  %.sroa.speculated92 = tail call i32 @llvm.smax.i32(i32 %3, i32 %66)
   %67 = icmp slt i32 %.sroa.speculated92, 45
   br i1 %67, label %.preheader, label %.preheader107
 

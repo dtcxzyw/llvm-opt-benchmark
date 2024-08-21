@@ -372,7 +372,7 @@ entry:
   %sub.ptr.div.i.i4 = lshr exact i64 %sub.ptr.sub.i.i3, 3
   %2 = trunc i64 %sub.ptr.div.i.i4 to i32
   %conv.i5 = add i32 %2, -1
-  %cmp6 = icmp ugt i32 %conv.i5, %toLevel
+  %cmp6 = icmp ult i32 %toLevel, %conv.i5
   br i1 %cmp6, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -438,7 +438,7 @@ _ZN4cvc57context7Context3popEv.exit:              ; preds = %while.body5.i, %del
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %15 = trunc i64 %sub.ptr.div.i.i to i32
   %conv.i = add i32 %15, -1
-  %cmp = icmp ugt i32 %conv.i, %toLevel
+  %cmp = icmp ult i32 %toLevel, %conv.i
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %_ZN4cvc57context7Context3popEv.exit, %entry

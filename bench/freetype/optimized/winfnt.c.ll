@@ -1057,7 +1057,7 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr nocapture noundef readon
   %12 = getelementptr inbounds i8, ptr %6, i64 32
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
-  %.not94 = icmp ugt i32 %14, %2
+  %.not94 = icmp ult i32 %2, %14
   br i1 %.not94, label %15, label %117
 
 15:                                               ; preds = %11

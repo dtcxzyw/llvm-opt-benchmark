@@ -3480,7 +3480,7 @@ define internal fastcc noundef i32 @dissect_ntlmssp_blob(ptr noundef %0, ptr nou
   %43 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %.sink, ptr %43, align 8
   %44 = load i32, ptr @hf_ntlmssp_auth_lmresponse, align 4
-  %45 = icmp eq i32 %44, %4
+  %45 = icmp eq i32 %4, %44
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %42
@@ -3496,7 +3496,7 @@ define internal fastcc noundef i32 @dissect_ntlmssp_blob(ptr noundef %0, ptr nou
 
 53:                                               ; preds = %42
   %54 = load i32, ptr @hf_ntlmssp_auth_ntresponse, align 4
-  %55 = icmp eq i32 %54, %4
+  %55 = icmp eq i32 %4, %54
   %56 = icmp ugt i16 %8, 24
   %or.cond = select i1 %55, i1 %56, i1 false
   br i1 %or.cond, label %57, label %59

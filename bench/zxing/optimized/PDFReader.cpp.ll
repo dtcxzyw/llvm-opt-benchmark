@@ -895,7 +895,7 @@ _ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i: ;
 
 _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %135
   %.not2.i = icmp eq i8 %.pre.i, 0
-  %spec.select.i = or i1 %.not2.i, %4
+  %spec.select.i = or i1 %4, %.not2.i
   br i1 %spec.select.i, label %141, label %_ZNK5ZXing13DecoderResult7isValidEb.exit.thread
 
 141:                                              ; preds = %139, %_ZNK5ZXing13DecoderResult7isValidEb.exit
@@ -1781,7 +1781,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %103 = fmul double %.sroa.5.0, %101
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %104 = fadd double %68, %102
-  %105 = fadd double %70, %103
+  %105 = fadd double %103, %70
   store ptr %66, ptr %15, align 8, !alias.scope !17
   store double %104, ptr %71, align 8, !alias.scope !17
   store double %105, ptr %.sroa.25.0..sroa_idx.i.i, align 8, !alias.scope !17
@@ -2979,8 +2979,8 @@ _ZN5ZXing9IsPatternILb0ELi8ELi17EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_E
   %.114 = phi i32 [ %.01370, %72 ], [ %.215, %83 ], [ %.01370, %63 ]
   %.112 = phi i32 [ %.01171, %72 ], [ %.2, %83 ], [ %.01171, %63 ]
   %.1 = phi i32 [ %.072, %72 ], [ %87, %83 ], [ %.072, %63 ]
-  %91 = fadd double %.sroa.225.068, %2
-  %92 = fadd double %.sroa.5.069, %3
+  %91 = fadd double %2, %.sroa.225.068
+  %92 = fadd double %3, %.sroa.5.069
   %.not = icmp eq i32 %.1, 7
   br i1 %.not, label %.critedge.thread.loopexit, label %30, !llvm.loop !33
 
@@ -3881,7 +3881,7 @@ _ZNSt16allocator_traitsISaIN5ZXing6ResultEEE9constructIS1_JNS0_13DecoderResultEN
 _ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN5ZXing6ResultEEE9constructIS1_JNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %25, %_ZNSt16allocator_traitsISaIN5ZXing6ResultEEE9constructIS1_JNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEEvRS2_PT_DpOT0_.exit ], [ %29, %.lr.ph.i.i.i ]
   %30 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 216
-  %.not10.i.i.i28 = icmp eq ptr %7, %1
+  %.not10.i.i.i28 = icmp eq ptr %1, %7
   br i1 %.not10.i.i.i28, label %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, label %.lr.ph.i.i.i29
 
 .lr.ph.i.i.i29:                                   ; preds = %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i29

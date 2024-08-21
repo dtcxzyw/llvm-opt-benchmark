@@ -3910,13 +3910,13 @@ define void @Gia_ManPrintStatsMiter(ptr noundef %0, i32 %1) local_unnamed_addr #
   %23 = add nsw i32 %22, 1
   %24 = getelementptr inbounds i8, ptr %.val22, i64 4
   %25 = load i32, ptr %24, align 4
-  %.not.i.not.i.i = icmp sgt i32 %25, %22
+  %.not.i.not.i.i = icmp slt i32 %22, %25
   br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.exit, label %26
 
 26:                                               ; preds = %19
   %27 = load i32, ptr %.val22, align 8
   %28 = shl nsw i32 %27, 1
-  %.not.i.i = icmp sgt i32 %28, %22
+  %.not.i.i = icmp slt i32 %22, %28
   %.not.i.i.not.i.i = icmp sgt i32 %27, %22
   br i1 %.not.i.i, label %41, label %29
 
@@ -7332,7 +7332,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %8
   %.02339.us = phi i32 [ %28, %25 ], [ 0, %.lr.ph ]
   %.not32.us = phi ptr [ @.str.87, %25 ], [ @.str.86, %.lr.ph ]
   %15 = xor i32 %.02339.us, -1
-  %16 = add nsw i32 %15, %2
+  %16 = add nsw i32 %2, %15
   %17 = select i1 %.not, i32 %.02339.us, i32 %16
   %18 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %3, i8 noundef signext %1, i32 noundef %17, i32 noundef %.09.i)
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Gia_ObjGetDumpName.pBuffer) #26
@@ -7408,7 +7408,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %8
   %.02339 = phi i32 [ %72, %71 ], [ 0, %.lr.ph.split ]
   %.02438 = phi i32 [ %.125, %71 ], [ 1, %.lr.ph.split ]
   %50 = xor i32 %.02339, -1
-  %51 = add nsw i32 %50, %2
+  %51 = add nsw i32 %2, %50
   %.val = load ptr, ptr %14, align 8
   %52 = ashr i32 %51, 5
   %53 = sext i32 %52 to i64

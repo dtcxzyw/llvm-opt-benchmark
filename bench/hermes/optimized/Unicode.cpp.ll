@@ -23,7 +23,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 4
   %Range.sroa.1.0.extract.shift.i.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 32
   %Range.sroa.1.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %Range.sroa.1.0.extract.shift.i.i.i.i.i to i32
-  %cmp.i.i8.i.i.i = icmp ult i32 %Range.sroa.1.0.extract.trunc.i.i.i.i.i, %UCS
+  %cmp.i.i8.i.i.i = icmp ugt i32 %UCS, %Range.sroa.1.0.extract.trunc.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %0 = xor i64 %shr.i.i.i, -1
   %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %0
@@ -39,7 +39,7 @@ _ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_les
 land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i
   %agg.tmp1.sroa.0.0.copyload.i.i = load i64, ptr %__first.addr.1.i.i.i, align 4
   %Range.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp1.sroa.0.0.copyload.i.i to i32
-  %cmp.i4.i.i = icmp ugt i32 %Range.sroa.0.0.extract.trunc.i.i.i, %UCS
+  %cmp.i4.i.i = icmp ult i32 %UCS, %Range.sroa.0.0.extract.trunc.i.i.i
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs.i.i, %_ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, %entry

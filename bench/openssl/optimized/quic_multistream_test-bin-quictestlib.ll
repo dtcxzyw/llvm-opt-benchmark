@@ -1430,12 +1430,12 @@ entry:
   %pplainbuf_alloc = getelementptr inbounds i8, ptr %fault, i64 112
   %1 = load i64, ptr %pplainbuf_alloc, align 8
   %cmp = icmp eq i64 %1, 0
-  %cmp2 = icmp ult i64 %1, %newlen
+  %cmp2 = icmp ugt i64 %newlen, %1
   %or.cond = or i1 %cmp, %cmp2
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  %cmp7 = icmp ult i64 %0, %newlen
+  %cmp7 = icmp ugt i64 %newlen, %0
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end4
@@ -1470,11 +1470,11 @@ if.end:                                           ; preds = %entry
   %buf_len = getelementptr inbounds i8, ptr %fault, i64 104
   %2 = load i64, ptr %buf_len, align 8
   %add = add i64 %2, %frame_len
-  %cmp2.i = icmp ult i64 %0, %add
+  %cmp2.i = icmp ugt i64 %add, %0
   br i1 %cmp2.i, label %qtest_fault_resize_plain_packet.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end
-  %cmp7.i = icmp ult i64 %2, %add
+  %cmp7.i = icmp ugt i64 %add, %2
   br i1 %cmp7.i, label %if.then8.i, label %if.end9.i
 
 if.then8.i:                                       ; preds = %if.end4.i
@@ -1631,12 +1631,12 @@ entry:
   %handbufalloc = getelementptr inbounds i8, ptr %fault, i64 144
   %1 = load i64, ptr %handbufalloc, align 8
   %cmp = icmp eq i64 %1, 0
-  %cmp2 = icmp ult i64 %1, %newlen
+  %cmp2 = icmp ugt i64 %newlen, %1
   %or.cond = or i1 %cmp, %cmp2
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  %cmp5 = icmp ult i64 %0, %newlen
+  %cmp5 = icmp ugt i64 %newlen, %0
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
@@ -1665,12 +1665,12 @@ entry:
   %handbufalloc.i = getelementptr inbounds i8, ptr %fault, i64 144
   %1 = load i64, ptr %handbufalloc.i, align 8
   %cmp.i = icmp eq i64 %1, 0
-  %cmp2.i = icmp ult i64 %1, %add
+  %cmp2.i = icmp ugt i64 %add, %1
   %or.cond.i = or i1 %cmp.i, %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
-  %cmp5.i = icmp ult i64 %0, %add
+  %cmp5.i = icmp ugt i64 %add, %0
   br i1 %cmp5.i, label %if.then6.i, label %if.end
 
 if.then6.i:                                       ; preds = %if.end4.i
@@ -1835,12 +1835,12 @@ if.end48:                                         ; preds = %if.end32
   %handbufalloc.i.i = getelementptr inbounds i8, ptr %fault, i64 144
   %13 = load i64, ptr %handbufalloc.i.i, align 8
   %cmp.i.i46 = icmp eq i64 %13, 0
-  %cmp2.i.i = icmp ult i64 %13, %add.i
+  %cmp2.i.i = icmp ugt i64 %add.i, %13
   %or.cond.i.i = or i1 %cmp.i.i46, %cmp2.i.i
   br i1 %or.cond.i.i, label %return, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end48
-  %cmp5.i.i = icmp ult i64 %12, %add.i
+  %cmp5.i.i = icmp ugt i64 %add.i, %12
   br i1 %cmp5.i.i, label %if.then6.i.i, label %qtest_fault_resize_message.exit
 
 if.then6.i.i:                                     ; preds = %if.end4.i.i
@@ -2080,13 +2080,13 @@ define dso_local range(i32 0, 2) i32 @qtest_fault_resize_datagram(ptr nocapture 
 entry:
   %msgalloc = getelementptr inbounds i8, ptr %fault, i64 264
   %0 = load i64, ptr %msgalloc, align 8
-  %cmp = icmp ult i64 %0, %newlen
+  %cmp = icmp ugt i64 %newlen, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %data_len = getelementptr inbounds i8, ptr %fault, i64 232
   %1 = load i64, ptr %data_len, align 8
-  %cmp1 = icmp ult i64 %1, %newlen
+  %cmp1 = icmp ugt i64 %newlen, %1
   br i1 %cmp1, label %if.then2, label %if.end8
 
 if.then2:                                         ; preds = %if.end

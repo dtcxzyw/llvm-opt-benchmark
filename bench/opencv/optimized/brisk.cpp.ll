@@ -713,16 +713,16 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %6, %21
   %152 = icmp sgt i32 %151, 0
   br i1 %152, label %.lr.ph180.us, label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %161, %148
-  %.1137.lcssa.us = phi ptr [ %.0136182.us, %148 ], [ %162, %161 ]
+._crit_edge.us:                                   ; preds = %162, %148
+  %.1137.lcssa.us = phi ptr [ %.0136182.us, %148 ], [ %163, %162 ]
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
   br i1 %exitcond211.not, label %._crit_edge185.us, label %111, !llvm.loop !8
 
-.lr.ph180.us:                                     ; preds = %148, %161
-  %153 = phi i32 [ %166, %161 ], [ %151, %148 ]
-  %.1137179.us = phi ptr [ %162, %161 ], [ %.0136182.us, %148 ]
-  %.0141178.us = phi i32 [ %163, %161 ], [ 0, %148 ]
+.lr.ph180.us:                                     ; preds = %148, %162
+  %153 = phi i32 [ %167, %162 ], [ %151, %148 ]
+  %.1137179.us = phi ptr [ %163, %162 ], [ %.0136182.us, %148 ]
+  %.0141178.us = phi i32 [ %164, %162 ], [ 0, %148 ]
   %154 = shl nuw i32 %.0141178.us, 1
   %155 = uitofp i32 %154 to double
   %156 = fmul double %155, 0x400921FB54442D18
@@ -730,32 +730,32 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %6, %21
   %158 = fdiv double %156, %157
   %159 = tail call double @sin(double noundef %158) #23
   %160 = tail call double @cos(double noundef %158) #23
-  br label %168
+  %161 = fneg double %159
+  br label %169
 
-161:                                              ; preds = %168
-  %162 = getelementptr inbounds i8, ptr %.1137179.us, i64 12
-  %163 = add nuw nsw i32 %.0141178.us, 1
-  %164 = load ptr, ptr %2, align 8
-  %165 = getelementptr inbounds i32, ptr %164, i64 %indvars.iv207
-  %166 = load i32, ptr %165, align 4
-  %167 = icmp slt i32 %163, %166
-  br i1 %167, label %.lr.ph180.us, label %._crit_edge.us, !llvm.loop !9
+162:                                              ; preds = %169
+  %163 = getelementptr inbounds i8, ptr %.1137179.us, i64 12
+  %164 = add nuw nsw i32 %.0141178.us, 1
+  %165 = load ptr, ptr %2, align 8
+  %166 = getelementptr inbounds i32, ptr %165, i64 %indvars.iv207
+  %167 = load i32, ptr %166, align 4
+  %168 = icmp slt i32 %164, %167
+  br i1 %168, label %.lr.ph180.us, label %._crit_edge.us, !llvm.loop !9
 
-168:                                              ; preds = %168, %.lr.ph180.us
-  %.0139177.us = phi i64 [ 0, %.lr.ph180.us ], [ %187, %168 ]
-  %.0142176.us = phi ptr [ %.1137179.us, %.lr.ph180.us ], [ %186, %168 ]
-  %169 = getelementptr inbounds [1024 x double], ptr %10, i64 0, i64 %.0139177.us
-  %170 = load double, ptr %169, align 8
-  %171 = getelementptr inbounds [1024 x double], ptr %9, i64 0, i64 %.0139177.us
-  %172 = load double, ptr %171, align 8
-  %173 = fneg double %172
-  %174 = fmul double %159, %173
-  %175 = tail call double @llvm.fmuladd.f64(double %170, double %160, double %174)
+169:                                              ; preds = %169, %.lr.ph180.us
+  %.0139177.us = phi i64 [ 0, %.lr.ph180.us ], [ %187, %169 ]
+  %.0142176.us = phi ptr [ %.1137179.us, %.lr.ph180.us ], [ %186, %169 ]
+  %170 = getelementptr inbounds [1024 x double], ptr %10, i64 0, i64 %.0139177.us
+  %171 = load double, ptr %170, align 8
+  %172 = getelementptr inbounds [1024 x double], ptr %9, i64 0, i64 %.0139177.us
+  %173 = load double, ptr %172, align 8
+  %174 = fmul double %173, %161
+  %175 = tail call double @llvm.fmuladd.f64(double %171, double %160, double %174)
   %176 = fmul double %175, %119
   %177 = fptrunc double %176 to float
   store float %177, ptr %.0142176.us, align 4
-  %178 = fmul double %159, %170
-  %179 = tail call double @llvm.fmuladd.f64(double %172, double %160, double %178)
+  %178 = fmul double %159, %171
+  %179 = tail call double @llvm.fmuladd.f64(double %173, double %160, double %178)
   %180 = fmul double %179, %119
   %181 = fptrunc double %180 to float
   %182 = getelementptr inbounds i8, ptr %.0142176.us, i64 4
@@ -767,7 +767,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %6, %21
   %186 = getelementptr inbounds %"struct.cv::BRISK_Impl::BriskPatternPoint", ptr %.0142176.us, i64 %185
   %187 = add nuw nsw i64 %.0139177.us, 1
   %exitcond206.not = icmp eq i64 %187, 1024
-  br i1 %exitcond206.not, label %161, label %168, !llvm.loop !10
+  br i1 %exitcond206.not, label %162, label %169, !llvm.loop !10
 
 ._crit_edge185.us:                                ; preds = %._crit_edge.us
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
@@ -2458,10 +2458,10 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BRISK_Impl17smoothedIntensityER
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds %"struct.cv::BRISK_Impl::BriskPatternPoint", ptr %12, i64 %19
   %21 = load float, ptr %20, align 4
-  %22 = fadd float %21, %3
+  %22 = fadd float %3, %21
   %23 = getelementptr inbounds i8, ptr %20, i64 4
   %24 = load float, ptr %23, align 4
-  %25 = fadd float %24, %4
+  %25 = fadd float %4, %24
   %26 = getelementptr inbounds i8, ptr %1, i64 12
   %27 = getelementptr inbounds i8, ptr %20, i64 8
   %28 = load float, ptr %27, align 4
@@ -5157,7 +5157,7 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit:      ; preds = %7, %19, %23, %27, %
   %60 = getelementptr inbounds i8, ptr %0, i64 12
   %61 = load i32, ptr %60, align 4
   %62 = add nsw i32 %61, -3
-  %.not.i54 = icmp sgt i32 %62, %57
+  %.not.i54 = icmp slt i32 %57, %62
   br i1 %.not.i54, label %63, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit59
 
 63:                                               ; preds = %59
@@ -5223,7 +5223,7 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit59:    ; preds = %_ZNK2cv10BriskLayer
   %106 = getelementptr inbounds i8, ptr %0, i64 8
   %107 = load i32, ptr %106, align 8
   %108 = add nsw i32 %107, -3
-  %.not21.i64 = icmp sgt i32 %108, %99
+  %.not21.i64 = icmp slt i32 %99, %108
   br i1 %.not21.i64, label %109, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit66
 
 109:                                              ; preds = %105
@@ -5272,14 +5272,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit66:    ; preds = %_ZNK2cv10BriskLayer
   %141 = getelementptr inbounds i8, ptr %0, i64 12
   %142 = load i32, ptr %141, align 4
   %143 = add nsw i32 %142, -3
-  %.not.i68 = icmp sgt i32 %143, %57
+  %.not.i68 = icmp slt i32 %57, %143
   br i1 %.not.i68, label %144, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit73
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds i8, ptr %0, i64 8
   %146 = load i32, ptr %145, align 8
   %147 = add nsw i32 %146, -3
-  %.not21.i71 = icmp sgt i32 %147, %99
+  %.not21.i71 = icmp slt i32 %99, %147
   br i1 %.not21.i71, label %148, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit73
 
 148:                                              ; preds = %144
@@ -5329,7 +5329,7 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit73:    ; preds = %_ZNK2cv10BriskLayer
   %182 = fsub float %1, %181
   %183 = fptosi float %182 to i32
   %.fr = freeze i32 %183
-  %184 = fadd float %181, %1
+  %184 = fadd float %1, %181
   %185 = fadd float %184, 1.000000e+00
   %186 = fptosi float %185 to i32
   %.not83 = icmp sgt i32 %.fr, %186
@@ -5338,7 +5338,7 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit73:    ; preds = %_ZNK2cv10BriskLayer
 .lr.ph87:                                         ; preds = %180
   %187 = fsub float %2, %181
   %188 = fptosi float %187 to i32
-  %189 = fadd float %181, %2
+  %189 = fadd float %2, %181
   %190 = fadd float %189, 1.000000e+00
   %191 = fptosi float %190 to i32
   %.not5281 = icmp sgt i32 %188, %191
@@ -5366,13 +5366,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit73:    ; preds = %_ZNK2cv10BriskLayer
 203:                                              ; preds = %.lr.ph.split
   %204 = load i32, ptr %192, align 4
   %205 = add nsw i32 %204, -3
-  %.not.i75 = icmp sgt i32 %205, %.04984
+  %.not.i75 = icmp slt i32 %.04984, %205
   br i1 %.not.i75, label %206, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit80
 
 206:                                              ; preds = %203
   %207 = load i32, ptr %193, align 8
   %208 = add nsw i32 %207, -3
-  %.not21.i78 = icmp sgt i32 %208, %.082
+  %.not21.i78 = icmp slt i32 %.082, %208
   br i1 %.not21.i78, label %209, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit80
 
 209:                                              ; preds = %206
@@ -5446,7 +5446,7 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   %32 = add i32 %31, %30
   %33 = mul nsw i32 %32, -3
   %34 = shl i32 %28, 1
-  %35 = add i32 %34, %6
+  %35 = add i32 %6, %34
   %36 = sub i32 %4, %35
   %37 = add i32 %36, %30
   %38 = mul nsw i32 %37, -3
@@ -5921,13 +5921,13 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace16getScoreMaxB
 120:                                              ; preds = %118
   %121 = load i32, ptr %85, align 4
   %122 = add nsw i32 %121, -3
-  %.not.i = icmp sgt i32 %122, %.0239419
+  %.not.i = icmp slt i32 %.0239419, %122
   br i1 %.not.i, label %123, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
 
 123:                                              ; preds = %120
   %124 = load i32, ptr %86, align 8
   %125 = add nsw i32 %124, -3
-  %.not21.i = icmp sgt i32 %125, %.0238431
+  %.not21.i = icmp slt i32 %.0238431, %125
   br i1 %.not21.i, label %126, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
 
 126:                                              ; preds = %123
@@ -5980,13 +5980,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit:      ; preds = %118, %120, %123, %1
 154:                                              ; preds = %151
   %155 = load i32, ptr %85, align 4
   %156 = add nsw i32 %155, -3
-  %.not.i258.not = icmp slt i32 %156, %.0239419
+  %.not.i258.not = icmp sgt i32 %.0239419, %156
   br i1 %.not.i258.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit263, label %157
 
 157:                                              ; preds = %154
   %158 = load i32, ptr %86, align 8
   %159 = add nsw i32 %158, -3
-  %.not21.i261 = icmp sgt i32 %159, %.0238431
+  %.not21.i261 = icmp slt i32 %.0238431, %159
   br i1 %.not21.i261, label %160, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit263
 
 160:                                              ; preds = %157
@@ -6027,13 +6027,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit263:   ; preds = %151, %154, %157, %1
 183:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit263
   %184 = load i32, ptr %85, align 4
   %185 = add nsw i32 %184, -3
-  %.not.i265 = icmp sgt i32 %185, %181
+  %.not.i265 = icmp slt i32 %181, %185
   br i1 %.not.i265, label %186, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit270
 
 186:                                              ; preds = %183
   %187 = load i32, ptr %86, align 8
   %188 = add nsw i32 %187, -3
-  %.not21.i268 = icmp sgt i32 %188, %.0238431
+  %.not21.i268 = icmp slt i32 %.0238431, %188
   br i1 %.not21.i268, label %189, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit270
 
 189:                                              ; preds = %186
@@ -6073,13 +6073,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit270:   ; preds = %_ZNK2cv10BriskLayer
 211:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit270
   %212 = load i32, ptr %85, align 4
   %213 = add nsw i32 %212, -3
-  %.not.i272 = icmp sgt i32 %213, %.0239419
+  %.not.i272 = icmp slt i32 %.0239419, %213
   br i1 %.not.i272, label %214, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit277
 
 214:                                              ; preds = %211
   %215 = load i32, ptr %86, align 8
   %216 = add nsw i32 %215, -3
-  %.not21.i275 = icmp sgt i32 %216, %112
+  %.not21.i275 = icmp slt i32 %112, %216
   br i1 %.not21.i275, label %217, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit277
 
 217:                                              ; preds = %214
@@ -6119,13 +6119,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit277:   ; preds = %_ZNK2cv10BriskLayer
 239:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit277
   %240 = load i32, ptr %85, align 4
   %241 = add nsw i32 %240, -3
-  %.not.i279 = icmp sgt i32 %241, %.0239419
+  %.not.i279 = icmp slt i32 %.0239419, %241
   br i1 %.not.i279, label %242, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit284
 
 242:                                              ; preds = %239
   %243 = load i32, ptr %86, align 8
   %244 = add nsw i32 %243, -3
-  %.not21.i282.not = icmp slt i32 %244, %.0238431
+  %.not21.i282.not = icmp sgt i32 %.0238431, %244
   br i1 %.not21.i282.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit284, label %245
 
 245:                                              ; preds = %242
@@ -6166,13 +6166,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit284:   ; preds = %_ZNK2cv10BriskLayer
 268:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit284
   %269 = load i32, ptr %85, align 4
   %270 = add nsw i32 %269, -3
-  %.not.i286 = icmp sgt i32 %270, %181
+  %.not.i286 = icmp slt i32 %181, %270
   br i1 %.not.i286, label %271, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit291
 
 271:                                              ; preds = %268
   %272 = load i32, ptr %86, align 8
   %273 = add nsw i32 %272, -3
-  %.not21.i289 = icmp sgt i32 %273, %112
+  %.not21.i289 = icmp slt i32 %112, %273
   br i1 %.not21.i289, label %274, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit291
 
 274:                                              ; preds = %271
@@ -6211,13 +6211,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit291:   ; preds = %_ZNK2cv10BriskLayer
 295:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit291
   %296 = load i32, ptr %85, align 4
   %297 = add nsw i32 %296, -3
-  %.not.i293.not = icmp slt i32 %297, %.0239419
+  %.not.i293.not = icmp sgt i32 %.0239419, %297
   br i1 %.not.i293.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298, label %298
 
 298:                                              ; preds = %295
   %299 = load i32, ptr %86, align 8
   %300 = add nsw i32 %299, -3
-  %.not21.i296 = icmp sgt i32 %300, %112
+  %.not21.i296 = icmp slt i32 %112, %300
   br i1 %.not21.i296, label %301, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298
 
 301:                                              ; preds = %298
@@ -6256,13 +6256,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit298:   ; preds = %_ZNK2cv10BriskLayer
 322:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298
   %323 = load i32, ptr %85, align 4
   %324 = add nsw i32 %323, -3
-  %.not.i300 = icmp sgt i32 %324, %181
+  %.not.i300 = icmp slt i32 %181, %324
   br i1 %.not.i300, label %325, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit305
 
 325:                                              ; preds = %322
   %326 = load i32, ptr %86, align 8
   %327 = add nsw i32 %326, -3
-  %.not21.i303.not = icmp slt i32 %327, %.0238431
+  %.not21.i303.not = icmp sgt i32 %.0238431, %327
   br i1 %.not21.i303.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit305, label %328
 
 328:                                              ; preds = %325
@@ -6301,13 +6301,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit305:   ; preds = %_ZNK2cv10BriskLayer
 349:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit305
   %350 = load i32, ptr %85, align 4
   %351 = add nsw i32 %350, -3
-  %.not.i307.not = icmp slt i32 %351, %.0239419
+  %.not.i307.not = icmp sgt i32 %.0239419, %351
   br i1 %.not.i307.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit312, label %352
 
 352:                                              ; preds = %349
   %353 = load i32, ptr %86, align 8
   %354 = add nsw i32 %353, -3
-  %.not21.i310.not = icmp slt i32 %354, %.0238431
+  %.not21.i310.not = icmp sgt i32 %.0238431, %354
   br i1 %.not21.i310.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit312, label %355
 
 355:                                              ; preds = %352
@@ -6353,13 +6353,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit312:   ; preds = %_ZNK2cv10BriskLayer
 383:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit312
   %384 = load i32, ptr %85, align 4
   %385 = add nsw i32 %384, -3
-  %.not.i314.not = icmp slt i32 %385, %.5422
+  %.not.i314.not = icmp sgt i32 %.5422, %385
   br i1 %.not.i314.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit319, label %386
 
 386:                                              ; preds = %383
   %387 = load i32, ptr %86, align 8
   %388 = add nsw i32 %387, -3
-  %.not21.i317 = icmp sgt i32 %388, %.2228421
+  %.not21.i317 = icmp slt i32 %.2228421, %388
   br i1 %.not21.i317, label %389, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit319
 
 389:                                              ; preds = %386
@@ -6401,13 +6401,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit319:   ; preds = %_ZNK2cv10BriskLayer
 413:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit319
   %414 = load i32, ptr %85, align 4
   %415 = add nsw i32 %414, -3
-  %.not.i321 = icmp sgt i32 %415, %411
+  %.not.i321 = icmp slt i32 %411, %415
   br i1 %.not.i321, label %416, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit326
 
 416:                                              ; preds = %413
   %417 = load i32, ptr %86, align 8
   %418 = add nsw i32 %417, -3
-  %.not21.i324 = icmp sgt i32 %418, %.2228421
+  %.not21.i324 = icmp slt i32 %.2228421, %418
   br i1 %.not21.i324, label %419, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit326
 
 419:                                              ; preds = %416
@@ -6451,13 +6451,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit326:   ; preds = %_ZNK2cv10BriskLayer
 445:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit326
   %446 = load i32, ptr %85, align 4
   %447 = add nsw i32 %446, -3
-  %.not.i328 = icmp sgt i32 %447, %.5422
+  %.not.i328 = icmp slt i32 %.5422, %447
   br i1 %.not.i328, label %448, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit333
 
 448:                                              ; preds = %445
   %449 = load i32, ptr %86, align 8
   %450 = add nsw i32 %449, -3
-  %.not21.i331 = icmp sgt i32 %450, %442
+  %.not21.i331 = icmp slt i32 %442, %450
   br i1 %.not21.i331, label %451, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit333
 
 451:                                              ; preds = %448
@@ -6500,13 +6500,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit333:   ; preds = %_ZNK2cv10BriskLayer
 476:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit333
   %477 = load i32, ptr %85, align 4
   %478 = add nsw i32 %477, -3
-  %.not.i335 = icmp sgt i32 %478, %.5422
+  %.not.i335 = icmp slt i32 %.5422, %478
   br i1 %.not.i335, label %479, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit340
 
 479:                                              ; preds = %476
   %480 = load i32, ptr %86, align 8
   %481 = add nsw i32 %480, -3
-  %.not21.i338.not = icmp slt i32 %481, %.2228421
+  %.not21.i338.not = icmp sgt i32 %.2228421, %481
   br i1 %.not21.i338.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit340, label %482
 
 482:                                              ; preds = %479
@@ -6548,13 +6548,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit340:   ; preds = %_ZNK2cv10BriskLayer
 506:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit340
   %507 = load i32, ptr %85, align 4
   %508 = add nsw i32 %507, -3
-  %.not.i342 = icmp sgt i32 %508, %411
+  %.not.i342 = icmp slt i32 %411, %508
   br i1 %.not.i342, label %509, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit347
 
 509:                                              ; preds = %506
   %510 = load i32, ptr %86, align 8
   %511 = add nsw i32 %510, -3
-  %.not21.i345 = icmp sgt i32 %511, %442
+  %.not21.i345 = icmp slt i32 %442, %511
   br i1 %.not21.i345, label %512, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit347
 
 512:                                              ; preds = %509
@@ -6594,13 +6594,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit347:   ; preds = %_ZNK2cv10BriskLayer
 534:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit347
   %535 = load i32, ptr %85, align 4
   %536 = add nsw i32 %535, -3
-  %.not.i349.not = icmp slt i32 %536, %.5422
+  %.not.i349.not = icmp sgt i32 %.5422, %536
   br i1 %.not.i349.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354, label %537
 
 537:                                              ; preds = %534
   %538 = load i32, ptr %86, align 8
   %539 = add nsw i32 %538, -3
-  %.not21.i352 = icmp sgt i32 %539, %442
+  %.not21.i352 = icmp slt i32 %442, %539
   br i1 %.not21.i352, label %540, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354
 
 540:                                              ; preds = %537
@@ -6640,13 +6640,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit354:   ; preds = %_ZNK2cv10BriskLayer
 562:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354
   %563 = load i32, ptr %85, align 4
   %564 = add nsw i32 %563, -3
-  %.not.i356 = icmp sgt i32 %564, %411
+  %.not.i356 = icmp slt i32 %411, %564
   br i1 %.not.i356, label %565, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit361
 
 565:                                              ; preds = %562
   %566 = load i32, ptr %86, align 8
   %567 = add nsw i32 %566, -3
-  %.not21.i359.not = icmp slt i32 %567, %.2228421
+  %.not21.i359.not = icmp sgt i32 %.2228421, %567
   br i1 %.not21.i359.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit361, label %568
 
 568:                                              ; preds = %565
@@ -6686,13 +6686,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit361:   ; preds = %_ZNK2cv10BriskLayer
 590:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit361
   %591 = load i32, ptr %85, align 4
   %592 = add nsw i32 %591, -3
-  %.not.i363.not = icmp slt i32 %592, %.5422
+  %.not.i363.not = icmp sgt i32 %.5422, %592
   br i1 %.not.i363.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit368, label %593
 
 593:                                              ; preds = %590
   %594 = load i32, ptr %86, align 8
   %595 = add nsw i32 %594, -3
-  %.not21.i366.not = icmp slt i32 %595, %.2228421
+  %.not21.i366.not = icmp sgt i32 %.2228421, %595
   br i1 %.not21.i366.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit368, label %596
 
 596:                                              ; preds = %593
@@ -6921,14 +6921,14 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace8refine3DEiiiR
   %26 = getelementptr inbounds i8, ptr %22, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %27, -3
-  %.not.i = icmp sgt i32 %28, %2
+  %.not.i = icmp slt i32 %2, %28
   br i1 %.not.i, label %29, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %22, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = add nsw i32 %31, -3
-  %.not21.i = icmp sgt i32 %32, %3
+  %.not21.i = icmp slt i32 %3, %32
   br i1 %.not21.i, label %33, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
 
 33:                                               ; preds = %29
@@ -6993,14 +6993,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit:      ; preds = %8, %25, %29, %33, %
   %73 = getelementptr inbounds i8, ptr %69, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = add nsw i32 %74, -2
-  %.not.i214.not = icmp slt i32 %75, %2
+  %.not.i214.not = icmp sgt i32 %2, %75
   br i1 %.not.i214.not, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds i8, ptr %69, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = add nsw i32 %78, -2
-  %.not14.i.not = icmp slt i32 %79, %3
+  %.not14.i.not = icmp sgt i32 %3, %79
   br i1 %.not14.i.not, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit, label %80
 
 80:                                               ; preds = %76
@@ -7029,14 +7029,14 @@ _ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit:  ; preds = %68, %72, %76, %80
   %95 = getelementptr inbounds i8, ptr %69, i64 12
   %96 = load i32, ptr %95, align 4
   %97 = add nsw i32 %96, -2
-  %.not.i217 = icmp sgt i32 %97, %2
+  %.not.i217 = icmp slt i32 %2, %97
   br i1 %.not.i217, label %98, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit221
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds i8, ptr %69, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = add nsw i32 %100, -2
-  %.not14.i219.not = icmp slt i32 %101, %3
+  %.not14.i219.not = icmp sgt i32 %3, %101
   br i1 %.not14.i219.not, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit221, label %102
 
 102:                                              ; preds = %98
@@ -7067,14 +7067,14 @@ _ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit221: ; preds = %_ZNK2cv10BriskLay
   %118 = getelementptr inbounds i8, ptr %69, i64 12
   %119 = load i32, ptr %118, align 4
   %120 = add nsw i32 %119, -2
-  %.not.i223 = icmp sgt i32 %120, %115
+  %.not.i223 = icmp slt i32 %115, %120
   br i1 %.not.i223, label %121, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit227
 
 121:                                              ; preds = %117
   %122 = getelementptr inbounds i8, ptr %69, i64 8
   %123 = load i32, ptr %122, align 8
   %124 = add nsw i32 %123, -2
-  %.not14.i225.not = icmp slt i32 %124, %3
+  %.not14.i225.not = icmp sgt i32 %3, %124
   br i1 %.not14.i225.not, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit227, label %125
 
 125:                                              ; preds = %121
@@ -7104,14 +7104,14 @@ _ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit227: ; preds = %_ZNK2cv10BriskLay
   %140 = getelementptr inbounds i8, ptr %69, i64 12
   %141 = load i32, ptr %140, align 4
   %142 = add nsw i32 %141, -2
-  %.not.i230 = icmp sgt i32 %142, %115
+  %.not.i230 = icmp slt i32 %115, %142
   br i1 %.not.i230, label %143, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit234
 
 143:                                              ; preds = %139
   %144 = getelementptr inbounds i8, ptr %69, i64 8
   %145 = load i32, ptr %144, align 8
   %146 = add nsw i32 %145, -2
-  %.not14.i232 = icmp sgt i32 %146, %3
+  %.not14.i232 = icmp slt i32 %3, %146
   br i1 %.not14.i232, label %147, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit234
 
 147:                                              ; preds = %143
@@ -7140,14 +7140,14 @@ _ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit234: ; preds = %_ZNK2cv10BriskLay
   %161 = getelementptr inbounds i8, ptr %69, i64 12
   %162 = load i32, ptr %161, align 4
   %163 = add nsw i32 %162, -2
-  %.not.i237 = icmp sgt i32 %163, %2
+  %.not.i237 = icmp slt i32 %2, %163
   br i1 %.not.i237, label %164, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit241
 
 164:                                              ; preds = %160
   %165 = getelementptr inbounds i8, ptr %69, i64 8
   %166 = load i32, ptr %165, align 8
   %167 = add nsw i32 %166, -2
-  %.not14.i239 = icmp sgt i32 %167, %3
+  %.not14.i239 = icmp slt i32 %3, %167
   br i1 %.not14.i239, label %168, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit241
 
 168:                                              ; preds = %164
@@ -7176,14 +7176,14 @@ _ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit241: ; preds = %_ZNK2cv10BriskLay
   %182 = getelementptr inbounds i8, ptr %69, i64 12
   %183 = load i32, ptr %182, align 4
   %184 = add nsw i32 %183, -2
-  %.not.i244.not = icmp slt i32 %184, %2
+  %.not.i244.not = icmp sgt i32 %2, %184
   br i1 %.not.i244.not, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit248, label %185
 
 185:                                              ; preds = %181
   %186 = getelementptr inbounds i8, ptr %69, i64 8
   %187 = load i32, ptr %186, align 8
   %188 = add nsw i32 %187, -2
-  %.not14.i246 = icmp sgt i32 %188, %3
+  %.not14.i246 = icmp slt i32 %3, %188
   br i1 %.not14.i246, label %189, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit248
 
 189:                                              ; preds = %185
@@ -7214,14 +7214,14 @@ _ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit248: ; preds = %_ZNK2cv10BriskLay
   %205 = getelementptr inbounds i8, ptr %69, i64 12
   %206 = load i32, ptr %205, align 4
   %207 = add nsw i32 %206, -2
-  %.not.i251.not = icmp slt i32 %207, %2
+  %.not.i251.not = icmp sgt i32 %2, %207
   br i1 %.not.i251.not, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit255, label %208
 
 208:                                              ; preds = %204
   %209 = getelementptr inbounds i8, ptr %69, i64 8
   %210 = load i32, ptr %209, align 8
   %211 = add nsw i32 %210, -2
-  %.not14.i253 = icmp sgt i32 %211, %202
+  %.not14.i253 = icmp slt i32 %202, %211
   br i1 %.not14.i253, label %212, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit255
 
 212:                                              ; preds = %208
@@ -7250,14 +7250,14 @@ _ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit255: ; preds = %_ZNK2cv10BriskLay
   %226 = getelementptr inbounds i8, ptr %69, i64 12
   %227 = load i32, ptr %226, align 4
   %228 = add nsw i32 %227, -2
-  %.not.i258 = icmp sgt i32 %228, %2
+  %.not.i258 = icmp slt i32 %2, %228
   br i1 %.not.i258, label %229, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit262
 
 229:                                              ; preds = %225
   %230 = getelementptr inbounds i8, ptr %69, i64 8
   %231 = load i32, ptr %230, align 8
   %232 = add nsw i32 %231, -2
-  %.not14.i260 = icmp sgt i32 %232, %202
+  %.not14.i260 = icmp slt i32 %202, %232
   br i1 %.not14.i260, label %233, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit262
 
 233:                                              ; preds = %229
@@ -7286,14 +7286,14 @@ _ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit262: ; preds = %_ZNK2cv10BriskLay
   %247 = getelementptr inbounds i8, ptr %69, i64 12
   %248 = load i32, ptr %247, align 4
   %249 = add nsw i32 %248, -2
-  %.not.i265 = icmp sgt i32 %249, %115
+  %.not.i265 = icmp slt i32 %115, %249
   br i1 %.not.i265, label %250, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit269
 
 250:                                              ; preds = %246
   %251 = getelementptr inbounds i8, ptr %69, i64 8
   %252 = load i32, ptr %251, align 8
   %253 = add nsw i32 %252, -2
-  %.not14.i267 = icmp sgt i32 %253, %202
+  %.not14.i267 = icmp slt i32 %202, %253
   br i1 %.not14.i267, label %254, label %_ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit269
 
 254:                                              ; preds = %250
@@ -7343,14 +7343,14 @@ _ZNK2cv10BriskLayer17getAgastScore_5_8Eiii.exit269: ; preds = %_ZNK2cv10BriskLay
   %277 = getelementptr inbounds i8, ptr %22, i64 12
   %278 = load i32, ptr %277, align 4
   %279 = add nsw i32 %278, -3
-  %.not.i272.not = icmp slt i32 %279, %2
+  %.not.i272.not = icmp sgt i32 %2, %279
   br i1 %.not.i272.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit277, label %280
 
 280:                                              ; preds = %276
   %281 = getelementptr inbounds i8, ptr %22, i64 8
   %282 = load i32, ptr %281, align 8
   %283 = add nsw i32 %282, -3
-  %.not21.i275.not = icmp slt i32 %283, %3
+  %.not21.i275.not = icmp sgt i32 %3, %283
   br i1 %.not21.i275.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit277, label %284
 
 284:                                              ; preds = %280
@@ -7396,14 +7396,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit277:   ; preds = %273, %276, %280, %2
   %312 = getelementptr inbounds i8, ptr %22, i64 12
   %313 = load i32, ptr %312, align 4
   %314 = add nsw i32 %313, -3
-  %.not.i279 = icmp sgt i32 %314, %2
+  %.not.i279 = icmp slt i32 %2, %314
   br i1 %.not.i279, label %315, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit284
 
 315:                                              ; preds = %311
   %316 = getelementptr inbounds i8, ptr %22, i64 8
   %317 = load i32, ptr %316, align 8
   %318 = add nsw i32 %317, -3
-  %.not21.i282.not = icmp slt i32 %318, %3
+  %.not21.i282.not = icmp sgt i32 %3, %318
   br i1 %.not21.i282.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit284, label %319
 
 319:                                              ; preds = %315
@@ -7451,14 +7451,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit284:   ; preds = %_ZNK2cv10BriskLayer
   %349 = getelementptr inbounds i8, ptr %22, i64 12
   %350 = load i32, ptr %349, align 4
   %351 = add nsw i32 %350, -3
-  %.not.i286 = icmp sgt i32 %351, %346
+  %.not.i286 = icmp slt i32 %346, %351
   br i1 %.not.i286, label %352, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit291
 
 352:                                              ; preds = %348
   %353 = getelementptr inbounds i8, ptr %22, i64 8
   %354 = load i32, ptr %353, align 8
   %355 = add nsw i32 %354, -3
-  %.not21.i289.not = icmp slt i32 %355, %3
+  %.not21.i289.not = icmp sgt i32 %3, %355
   br i1 %.not21.i289.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit291, label %356
 
 356:                                              ; preds = %352
@@ -7504,14 +7504,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit291:   ; preds = %_ZNK2cv10BriskLayer
   %384 = getelementptr inbounds i8, ptr %22, i64 12
   %385 = load i32, ptr %384, align 4
   %386 = add nsw i32 %385, -3
-  %.not.i293 = icmp sgt i32 %386, %346
+  %.not.i293 = icmp slt i32 %346, %386
   br i1 %.not.i293, label %387, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298
 
 387:                                              ; preds = %383
   %388 = getelementptr inbounds i8, ptr %22, i64 8
   %389 = load i32, ptr %388, align 8
   %390 = add nsw i32 %389, -3
-  %.not21.i296 = icmp sgt i32 %390, %3
+  %.not21.i296 = icmp slt i32 %3, %390
   br i1 %.not21.i296, label %391, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298
 
 391:                                              ; preds = %387
@@ -7556,14 +7556,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit298:   ; preds = %_ZNK2cv10BriskLayer
   %419 = getelementptr inbounds i8, ptr %22, i64 12
   %420 = load i32, ptr %419, align 4
   %421 = add nsw i32 %420, -3
-  %.not.i300 = icmp sgt i32 %421, %2
+  %.not.i300 = icmp slt i32 %2, %421
   br i1 %.not.i300, label %422, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit305
 
 422:                                              ; preds = %418
   %423 = getelementptr inbounds i8, ptr %22, i64 8
   %424 = load i32, ptr %423, align 8
   %425 = add nsw i32 %424, -3
-  %.not21.i303 = icmp sgt i32 %425, %3
+  %.not21.i303 = icmp slt i32 %3, %425
   br i1 %.not21.i303, label %426, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit305
 
 426:                                              ; preds = %422
@@ -7609,14 +7609,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit305:   ; preds = %_ZNK2cv10BriskLayer
   %454 = getelementptr inbounds i8, ptr %22, i64 12
   %455 = load i32, ptr %454, align 4
   %456 = add nsw i32 %455, -3
-  %.not.i307.not = icmp slt i32 %456, %2
+  %.not.i307.not = icmp sgt i32 %2, %456
   br i1 %.not.i307.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit312, label %457
 
 457:                                              ; preds = %453
   %458 = getelementptr inbounds i8, ptr %22, i64 8
   %459 = load i32, ptr %458, align 8
   %460 = add nsw i32 %459, -3
-  %.not21.i310 = icmp sgt i32 %460, %3
+  %.not21.i310 = icmp slt i32 %3, %460
   br i1 %.not21.i310, label %461, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit312
 
 461:                                              ; preds = %457
@@ -7664,14 +7664,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit312:   ; preds = %_ZNK2cv10BriskLayer
   %491 = getelementptr inbounds i8, ptr %22, i64 12
   %492 = load i32, ptr %491, align 4
   %493 = add nsw i32 %492, -3
-  %.not.i314.not = icmp slt i32 %493, %2
+  %.not.i314.not = icmp sgt i32 %2, %493
   br i1 %.not.i314.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit319, label %494
 
 494:                                              ; preds = %490
   %495 = getelementptr inbounds i8, ptr %22, i64 8
   %496 = load i32, ptr %495, align 8
   %497 = add nsw i32 %496, -3
-  %.not21.i317 = icmp sgt i32 %497, %488
+  %.not21.i317 = icmp slt i32 %488, %497
   br i1 %.not21.i317, label %498, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit319
 
 498:                                              ; preds = %494
@@ -7717,14 +7717,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit319:   ; preds = %_ZNK2cv10BriskLayer
   %526 = getelementptr inbounds i8, ptr %22, i64 12
   %527 = load i32, ptr %526, align 4
   %528 = add nsw i32 %527, -3
-  %.not.i321 = icmp sgt i32 %528, %2
+  %.not.i321 = icmp slt i32 %2, %528
   br i1 %.not.i321, label %529, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit326
 
 529:                                              ; preds = %525
   %530 = getelementptr inbounds i8, ptr %22, i64 8
   %531 = load i32, ptr %530, align 8
   %532 = add nsw i32 %531, -3
-  %.not21.i324 = icmp sgt i32 %532, %488
+  %.not21.i324 = icmp slt i32 %488, %532
   br i1 %.not21.i324, label %533, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit326
 
 533:                                              ; preds = %529
@@ -7770,14 +7770,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit326:   ; preds = %_ZNK2cv10BriskLayer
   %561 = getelementptr inbounds i8, ptr %22, i64 12
   %562 = load i32, ptr %561, align 4
   %563 = add nsw i32 %562, -3
-  %.not.i328 = icmp sgt i32 %563, %346
+  %.not.i328 = icmp slt i32 %346, %563
   br i1 %.not.i328, label %564, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit333
 
 564:                                              ; preds = %560
   %565 = getelementptr inbounds i8, ptr %22, i64 8
   %566 = load i32, ptr %565, align 8
   %567 = add nsw i32 %566, -3
-  %.not21.i331 = icmp sgt i32 %567, %488
+  %.not21.i331 = icmp slt i32 %488, %567
   br i1 %.not21.i331, label %568, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit333
 
 568:                                              ; preds = %564
@@ -8067,14 +8067,14 @@ _ZNK2cv15BriskScaleSpace10refine1D_2EfffRf.exit:  ; preds = %674, %637
   %758 = getelementptr inbounds i8, ptr %22, i64 12
   %759 = load i32, ptr %758, align 4
   %760 = add nsw i32 %759, -3
-  %.not.i345.not = icmp slt i32 %760, %2
+  %.not.i345.not = icmp sgt i32 %2, %760
   br i1 %.not.i345.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit350, label %761
 
 761:                                              ; preds = %757
   %762 = getelementptr inbounds i8, ptr %22, i64 8
   %763 = load i32, ptr %762, align 8
   %764 = add nsw i32 %763, -3
-  %.not21.i348.not = icmp slt i32 %764, %3
+  %.not21.i348.not = icmp sgt i32 %3, %764
   br i1 %.not21.i348.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit350, label %765
 
 765:                                              ; preds = %761
@@ -8120,14 +8120,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit350:   ; preds = %752, %757, %761, %7
   %793 = getelementptr inbounds i8, ptr %22, i64 12
   %794 = load i32, ptr %793, align 4
   %795 = add nsw i32 %794, -3
-  %.not.i352 = icmp sgt i32 %795, %2
+  %.not.i352 = icmp slt i32 %2, %795
   br i1 %.not.i352, label %796, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit357
 
 796:                                              ; preds = %792
   %797 = getelementptr inbounds i8, ptr %22, i64 8
   %798 = load i32, ptr %797, align 8
   %799 = add nsw i32 %798, -3
-  %.not21.i355.not = icmp slt i32 %799, %3
+  %.not21.i355.not = icmp sgt i32 %3, %799
   br i1 %.not21.i355.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit357, label %800
 
 800:                                              ; preds = %796
@@ -8175,14 +8175,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit357:   ; preds = %_ZNK2cv10BriskLayer
   %830 = getelementptr inbounds i8, ptr %22, i64 12
   %831 = load i32, ptr %830, align 4
   %832 = add nsw i32 %831, -3
-  %.not.i359 = icmp sgt i32 %832, %827
+  %.not.i359 = icmp slt i32 %827, %832
   br i1 %.not.i359, label %833, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit364
 
 833:                                              ; preds = %829
   %834 = getelementptr inbounds i8, ptr %22, i64 8
   %835 = load i32, ptr %834, align 8
   %836 = add nsw i32 %835, -3
-  %.not21.i362.not = icmp slt i32 %836, %3
+  %.not21.i362.not = icmp sgt i32 %3, %836
   br i1 %.not21.i362.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit364, label %837
 
 837:                                              ; preds = %833
@@ -8228,14 +8228,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit364:   ; preds = %_ZNK2cv10BriskLayer
   %865 = getelementptr inbounds i8, ptr %22, i64 12
   %866 = load i32, ptr %865, align 4
   %867 = add nsw i32 %866, -3
-  %.not.i366 = icmp sgt i32 %867, %827
+  %.not.i366 = icmp slt i32 %827, %867
   br i1 %.not.i366, label %868, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit371
 
 868:                                              ; preds = %864
   %869 = getelementptr inbounds i8, ptr %22, i64 8
   %870 = load i32, ptr %869, align 8
   %871 = add nsw i32 %870, -3
-  %.not21.i369 = icmp sgt i32 %871, %3
+  %.not21.i369 = icmp slt i32 %3, %871
   br i1 %.not21.i369, label %872, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit371
 
 872:                                              ; preds = %868
@@ -8280,14 +8280,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit371:   ; preds = %_ZNK2cv10BriskLayer
   %900 = getelementptr inbounds i8, ptr %22, i64 12
   %901 = load i32, ptr %900, align 4
   %902 = add nsw i32 %901, -3
-  %.not.i373 = icmp sgt i32 %902, %2
+  %.not.i373 = icmp slt i32 %2, %902
   br i1 %.not.i373, label %903, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378
 
 903:                                              ; preds = %899
   %904 = getelementptr inbounds i8, ptr %22, i64 8
   %905 = load i32, ptr %904, align 8
   %906 = add nsw i32 %905, -3
-  %.not21.i376 = icmp sgt i32 %906, %3
+  %.not21.i376 = icmp slt i32 %3, %906
   br i1 %.not21.i376, label %907, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378
 
 907:                                              ; preds = %903
@@ -8333,14 +8333,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit378:   ; preds = %_ZNK2cv10BriskLayer
   %935 = getelementptr inbounds i8, ptr %22, i64 12
   %936 = load i32, ptr %935, align 4
   %937 = add nsw i32 %936, -3
-  %.not.i380.not = icmp slt i32 %937, %2
+  %.not.i380.not = icmp sgt i32 %2, %937
   br i1 %.not.i380.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit385, label %938
 
 938:                                              ; preds = %934
   %939 = getelementptr inbounds i8, ptr %22, i64 8
   %940 = load i32, ptr %939, align 8
   %941 = add nsw i32 %940, -3
-  %.not21.i383 = icmp sgt i32 %941, %3
+  %.not21.i383 = icmp slt i32 %3, %941
   br i1 %.not21.i383, label %942, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit385
 
 942:                                              ; preds = %938
@@ -8388,14 +8388,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit385:   ; preds = %_ZNK2cv10BriskLayer
   %972 = getelementptr inbounds i8, ptr %22, i64 12
   %973 = load i32, ptr %972, align 4
   %974 = add nsw i32 %973, -3
-  %.not.i387.not = icmp slt i32 %974, %2
+  %.not.i387.not = icmp sgt i32 %2, %974
   br i1 %.not.i387.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit392, label %975
 
 975:                                              ; preds = %971
   %976 = getelementptr inbounds i8, ptr %22, i64 8
   %977 = load i32, ptr %976, align 8
   %978 = add nsw i32 %977, -3
-  %.not21.i390 = icmp sgt i32 %978, %969
+  %.not21.i390 = icmp slt i32 %969, %978
   br i1 %.not21.i390, label %979, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit392
 
 979:                                              ; preds = %975
@@ -8441,14 +8441,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit392:   ; preds = %_ZNK2cv10BriskLayer
   %1007 = getelementptr inbounds i8, ptr %22, i64 12
   %1008 = load i32, ptr %1007, align 4
   %1009 = add nsw i32 %1008, -3
-  %.not.i394 = icmp sgt i32 %1009, %2
+  %.not.i394 = icmp slt i32 %2, %1009
   br i1 %.not.i394, label %1010, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit399
 
 1010:                                             ; preds = %1006
   %1011 = getelementptr inbounds i8, ptr %22, i64 8
   %1012 = load i32, ptr %1011, align 8
   %1013 = add nsw i32 %1012, -3
-  %.not21.i397 = icmp sgt i32 %1013, %969
+  %.not21.i397 = icmp slt i32 %969, %1013
   br i1 %.not21.i397, label %1014, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit399
 
 1014:                                             ; preds = %1010
@@ -8494,14 +8494,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit399:   ; preds = %_ZNK2cv10BriskLayer
   %1042 = getelementptr inbounds i8, ptr %22, i64 12
   %1043 = load i32, ptr %1042, align 4
   %1044 = add nsw i32 %1043, -3
-  %.not.i401 = icmp sgt i32 %1044, %827
+  %.not.i401 = icmp slt i32 %827, %1044
   br i1 %.not.i401, label %1045, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit406
 
 1045:                                             ; preds = %1041
   %1046 = getelementptr inbounds i8, ptr %22, i64 8
   %1047 = load i32, ptr %1046, align 8
   %1048 = add nsw i32 %1047, -3
-  %.not21.i404 = icmp sgt i32 %1048, %969
+  %.not21.i404 = icmp slt i32 %969, %1048
   br i1 %.not21.i404, label %1049, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit406
 
 1049:                                             ; preds = %1045
@@ -9983,14 +9983,14 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEiii(p
   %8 = getelementptr inbounds i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, -3
-  %.not = icmp sgt i32 %10, %1
+  %.not = icmp slt i32 %1, %10
   br i1 %.not, label %11, label %43
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %13, -3
-  %.not21 = icmp sgt i32 %14, %2
+  %.not21 = icmp slt i32 %2, %14
   br i1 %.not21, label %15, label %43
 
 15:                                               ; preds = %11
@@ -10263,13 +10263,13 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit.us:   ; preds = %.lr.ph255.split.us,
 117:                                              ; preds = %.lr.ph255.split
   %118 = load i32, ptr %86, align 4
   %119 = add nsw i32 %118, -3
-  %.not.i = icmp sgt i32 %119, %.0184251
+  %.not.i = icmp slt i32 %.0184251, %119
   br i1 %.not.i, label %120, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
 
 120:                                              ; preds = %117
   %121 = load i32, ptr %87, align 8
   %122 = add nsw i32 %121, -3
-  %.not21.i = icmp sgt i32 %122, %.0185264
+  %.not21.i = icmp slt i32 %.0185264, %122
   br i1 %.not21.i, label %123, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
 
 123:                                              ; preds = %120
@@ -10596,9 +10596,9 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10BriskLayer5valueERKNS_3MatEfff(
 
 80:                                               ; preds = %64
   %81 = fsub float %2, %20
-  %82 = fadd float %20, %2
+  %82 = fadd float %2, %20
   %83 = fsub float %3, %20
-  %84 = fadd float %20, %3
+  %84 = fadd float %3, %20
   %85 = fpext float %81 to double
   %86 = fadd double %85, 5.000000e-01
   %87 = fptosi double %86 to i32

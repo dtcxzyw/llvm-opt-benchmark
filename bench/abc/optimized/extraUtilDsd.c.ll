@@ -1614,7 +1614,7 @@ define i32 @Sdm_ManCheckDsd6(ptr nocapture noundef readonly %0, i64 noundef %1) 
   %4 = and i64 %1, 1
   %.not = icmp ne i64 %4, 0
   %5 = sext i1 %.not to i64
-  %spec.select = xor i64 %5, %1
+  %spec.select = xor i64 %1, %5
   store i64 %spec.select, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -2163,7 +2163,7 @@ define void @Sdm_ManDivCollect_rec(i64 noundef %0, ptr noundef %1) local_unnamed
   %5 = and i64 %0, 1
   %.not.i = icmp ne i64 %5, 0
   %6 = sext i1 %.not.i to i64
-  %spec.select.i = xor i64 %6, %0
+  %spec.select.i = xor i64 %0, %6
   store i64 %spec.select.i, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -2241,7 +2241,7 @@ Sdm_ManCheckDsd6.exit:                            ; preds = %2
   %46 = getelementptr inbounds ptr, ptr %1, i64 %45
   %47 = load ptr, ptr %46, align 8
   %sext = sub nsw i64 0, %5
-  %48 = xor i64 %sext, %0
+  %48 = xor i64 %0, %sext
   %49 = getelementptr inbounds i8, ptr %47, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %47, align 8

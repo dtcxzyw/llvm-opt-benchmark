@@ -64,7 +64,7 @@ define internal ptr @H5O__stab_decode(ptr noundef %0, ptr nocapture readnone %1,
   br i1 %.not, label %34, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult ptr %9, %5
+  %19 = icmp ugt ptr %5, %9
   br i1 %19, label %30, label %20
 
 20:                                               ; preds = %18

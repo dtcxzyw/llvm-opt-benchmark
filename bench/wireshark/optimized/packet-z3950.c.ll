@@ -5417,12 +5417,12 @@ define internal i32 @dissect_z3950_printable_OCTET_STRING(i1 noundef zeroext %0,
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = load i32, ptr @hf_z3950_referenceId, align 4
-  %9 = icmp eq i32 %8, %5
+  %9 = icmp eq i32 %5, %8
   br i1 %9, label %select.unfold, label %10
 
 10:                                               ; preds = %6
   %11 = load i32, ptr @hf_z3950_general, align 4
-  %12 = icmp eq i32 %11, %5
+  %12 = icmp eq i32 %5, %11
   br i1 %12, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %6, %10

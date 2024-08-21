@@ -544,7 +544,7 @@ define ptr @Abc_NtkFromGlobalBdds(ptr noundef %0, i32 noundef %1) local_unnamed_
   %24 = getelementptr i8, ptr %.val73.val.val, i64 56
   %.val73.val.val.val = load ptr, ptr %24, align 8
   %25 = load i32, ptr %.val73.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %25, %.val74
+  %.not.i.i = icmp slt i32 %.val74, %25
   br i1 %.not.i.i, label %Vec_AttGrow.exit.i.i, label %26
 
 26:                                               ; preds = %12
@@ -648,7 +648,7 @@ Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.
   %80 = getelementptr i8, ptr %.val75.val.val, i64 56
   %.val75.val.val.val = load ptr, ptr %80, align 8
   %81 = load i32, ptr %.val75.val.val.val, align 8
-  %.not.i.i87 = icmp sgt i32 %81, %.val76
+  %.not.i.i87 = icmp slt i32 %.val76, %81
   br i1 %.not.i.i87, label %Vec_AttGrow.exit.i.i89, label %82
 
 82:                                               ; preds = %73
@@ -742,7 +742,7 @@ Abc_ObjGlobalBdd.exit96:                          ; preds = %Vec_AttGrow.exit.i.
   %131 = getelementptr i8, ptr %.val82.val.val, i64 56
   %.val82.val.val.val = load ptr, ptr %131, align 8
   %132 = load i32, ptr %.val82.val.val.val, align 8
-  %.not.i.i97 = icmp sgt i32 %132, %.val83
+  %.not.i.i97 = icmp slt i32 %.val83, %132
   br i1 %.not.i.i97, label %Abc_ObjSetGlobalBdd.exit, label %133
 
 133:                                              ; preds = %Abc_ObjGlobalBdd.exit96
@@ -895,7 +895,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %180, %184
   %207 = getelementptr i8, ptr %.val77.val.val, i64 56
   %.val77.val.val.val = load ptr, ptr %207, align 8
   %208 = load i32, ptr %.val77.val.val.val, align 8
-  %.not.i.i101 = icmp sgt i32 %208, %.val78
+  %.not.i.i101 = icmp slt i32 %.val78, %208
   br i1 %.not.i.i101, label %Vec_AttGrow.exit.i.i103, label %209
 
 209:                                              ; preds = %203

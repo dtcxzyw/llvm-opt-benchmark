@@ -401,7 +401,7 @@ define hidden void @timelib_unixtime2local(ptr noundef %0, i64 noundef %1) local
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %7 to i64
-  %11 = add nsw i64 %10, %1
+  %11 = add nsw i64 %1, %10
   %12 = mul nsw i32 %9, 3600
   %13 = sext i32 %12 to i64
   %14 = add nsw i64 %11, %13
@@ -483,7 +483,7 @@ define hidden void @timelib_unixtime2local(ptr noundef %0, i64 noundef %1) local
   %66 = tail call ptr @timelib_get_time_zone_info(i64 noundef %1, ptr noundef %65) #4
   %67 = load i32, ptr %66, align 8
   %68 = sext i32 %67 to i64
-  %69 = add nsw i64 %68, %1
+  %69 = add nsw i64 %1, %68
   %70 = getelementptr inbounds i8, ptr %0, i64 8
   %71 = getelementptr inbounds i8, ptr %0, i64 16
   %72 = sdiv i64 %69, 86400

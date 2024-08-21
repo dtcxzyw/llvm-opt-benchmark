@@ -325,13 +325,13 @@ define i64 @ZSTDv03_decompressContinue(ptr noundef %dctx, ptr noundef %dst, i64 
 entry:
   %expected.i = getelementptr inbounds i8, ptr %dctx, i64 10272
   %0 = load i64, ptr %expected.i, align 8
-  %cmp.not.i = icmp eq i64 %0, %srcSize
+  %cmp.not.i = icmp eq i64 %srcSize, %0
   br i1 %cmp.not.i, label %if.end.i, label %ZSTD_decompressContinue.exit
 
 if.end.i:                                         ; preds = %entry
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 10256
   %1 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp1.not.i = icmp eq ptr %1, %dst
+  %cmp1.not.i = icmp eq ptr %dst, %1
   br i1 %cmp1.not.i, label %if.end3.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -1078,7 +1078,7 @@ ZSTD_decodeSeqHeaders.exit.i:                     ; preds = %for.body.i81.i.i, %
 if.end.i24:                                       ; preds = %ZSTD_decodeSeqHeaders.exit.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr, i64 %sub.ptr.sub110.i.i
   %gepdiff.i = sub nsw i64 %sub, %sub.ptr.sub110.i.i
-  %cmp.i35.i = icmp eq i64 %sub.ptr.sub110.i.i, %sub
+  %cmp.i35.i = icmp eq i64 %sub, %sub.ptr.sub110.i.i
   br i1 %cmp.i35.i, label %return, label %if.end.i36.i
 
 if.end.i36.i:                                     ; preds = %if.end.i24
@@ -3095,7 +3095,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %if.end.i.i.i, label %for.body.i.i.i, !llvm.loop !24
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i, %if.then.i.i.i, %if.then.i.i
-  %cmp633.not.i.i.i = icmp eq i32 %17, %nextRankStart.0.lcssa.i
+  %cmp633.not.i.i.i = icmp eq i32 %nextRankStart.0.lcssa.i, %17
   br i1 %cmp633.not.i.i.i, label %HUF_fillDTableX4Level2.exit.i.i, label %for.body8.preheader.i.i.i
 
 for.body8.preheader.i.i.i:                        ; preds = %if.end.i.i.i
@@ -4248,7 +4248,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp19, label %for.body, label %if.end49, !llvm.loop !30
 
 if.else37:                                        ; preds = %if.end
-  %cmp39.not = icmp ult i64 %conv, %srcSize
+  %cmp39.not = icmp ugt i64 %srcSize, %conv
   br i1 %cmp39.not, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.else37

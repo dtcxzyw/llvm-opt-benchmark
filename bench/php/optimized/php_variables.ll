@@ -1423,7 +1423,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef %0, ptr n
   %30 = sub i64 %28, %29
   %31 = call ptr @memchr(ptr noundef %27, i32 noundef 38, i64 noundef %30) #15
   %.not47.i = icmp ne ptr %31, null
-  %brmerge.i = or i1 %.not47.i, %2
+  %brmerge.i = or i1 %2, %.not47.i
   %.mux.i = select i1 %.not47.i, ptr %31, ptr %23
   br i1 %brmerge.i, label %32, label %add_post_var.exit
 

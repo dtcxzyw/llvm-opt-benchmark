@@ -664,7 +664,7 @@ for.body106.lr.ph.i:                              ; preds = %for.body72.i
   %bucket88.i = getelementptr inbounds i8, ptr %arrayidx75.i, i64 16
   %30 = load ptr, ptr %bucket88.i, align 8
   %add.ptr103.i = getelementptr inbounds %struct.ldmEntry_t, ptr %30, i64 %idx.ext102.i
-  %cmp.i183.i = icmp ugt ptr %add.ptr.i182.i, %27
+  %cmp.i183.i = icmp ult ptr %27, %add.ptr.i182.i
   %cmp6.i189.i = icmp ugt ptr %27, %anchor.1252.i
   br i1 %cmp.i.not.i, label %for.body106.us.i, label %for.body106.i
 
@@ -697,7 +697,7 @@ if.end114.us.i:                                   ; preds = %lor.lhs.false.us.i
   %cmp.i171.us.i = icmp ult ptr %add.ptr.i170.us.i, %cond
   %add.ptr.iEnd.i.us.i = select i1 %cmp.i171.us.i, ptr %add.ptr.i170.us.i, ptr %add.ptr29.i
   %add.ptr.i.i172.us.i = getelementptr inbounds i8, ptr %add.ptr.iEnd.i.us.i, i64 -7
-  %cmp.i.i.us.i = icmp ugt ptr %add.ptr.i.i172.us.i, %27
+  %cmp.i.i.us.i = icmp ult ptr %27, %add.ptr.i.i172.us.i
   br i1 %cmp.i.i.us.i, label %if.then.i.i.us.i, label %if.end19.i.i.us.i
 
 if.then.i.i.us.i:                                 ; preds = %if.end114.us.i
@@ -799,7 +799,7 @@ ZSTD_count.exit.i.us.i:                           ; preds = %if.end16.i.i.us.i, 
 
 do.end14.i.us.i:                                  ; preds = %ZSTD_count.exit.i.us.i
   %add.ptr15.i.us.i = getelementptr inbounds i8, ptr %27, i64 %retval.0.i.i.us.i
-  %cmp.i15.i.us.i = icmp ugt ptr %add.ptr.i182.i, %add.ptr15.i.us.i
+  %cmp.i15.i.us.i = icmp ult ptr %add.ptr15.i.us.i, %add.ptr.i182.i
   br i1 %cmp.i15.i.us.i, label %if.then.i54.i.us.i, label %if.end19.i16.i.us.i
 
 if.then.i54.i.us.i:                               ; preds = %do.end14.i.us.i
@@ -1569,7 +1569,7 @@ if.then.i107:                                     ; preds = %while.body
   br label %maybeSplitSequence.exit
 
 if.end.i:                                         ; preds = %while.body
-  %cmp3.not.i = icmp ult i32 %retval.sroa.0.sroa.4.0.extract.trunc.i, %conv
+  %cmp3.not.i = icmp ugt i32 %conv, %retval.sroa.0.sroa.4.0.extract.trunc.i
   %sub.i109 = sub i32 %conv, %retval.sroa.0.sroa.4.0.extract.trunc.i
   %cmp13.i = icmp ult i32 %sub.i109, %0
   %spec.select.i = select i1 %cmp13.i, i64 0, i64 %retval.sroa.0.0.copyload.i

@@ -7775,7 +7775,7 @@ if.end.i.i56:                                     ; preds = %mark_parents_uninte
   %107 = load ptr, ptr %106, align 8
   %date1.i.i = getelementptr inbounds i8, ptr %107, i64 40
   %108 = load i64, ptr %date1.i.i, align 8
-  %cmp.not.i60.i = icmp ult i64 %108, %date.0.ph301.i
+  %cmp.not.i60.i = icmp ugt i64 %date.0.ph301.i, %108
   br i1 %cmp.not.i60.i, label %if.end3.i.i, label %still_interesting.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i56
@@ -10802,7 +10802,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %st
   tail call fastcc void @add_cache_tree(ptr noundef %7, ptr noundef %revs, ptr noundef nonnull %path, i32 noundef %flags)
   %8 = load i64, ptr %path, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %8, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %0
+  %cmp.i = icmp ugt i64 %0, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body
@@ -10927,7 +10927,7 @@ land.lhs.true28:                                  ; preds = %if.end26
   %parents29 = getelementptr inbounds i8, ptr %call.i, i64 48
   %7 = load ptr, ptr %parents29, align 8
   %call30 = call i32 @commit_list_count(ptr noundef %7) #25
-  %cmp31 = icmp ult i32 %call30, %exclude_parent
+  %cmp31 = icmp ugt i32 %exclude_parent, %call30
   br i1 %cmp31, label %return, label %if.end34
 
 if.end34:                                         ; preds = %land.lhs.true28, %if.end26
@@ -13141,7 +13141,7 @@ if.end20:                                         ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end20
   %3 = load i32, ptr %call22, align 4
-  %cmp24.not = icmp ugt i32 %3, %nth_parent
+  %cmp24.not = icmp ult i32 %nth_parent, %3
   br i1 %cmp24.not, label %if.end26, label %if.then25
 
 if.then25:                                        ; preds = %lor.lhs.false, %if.end20

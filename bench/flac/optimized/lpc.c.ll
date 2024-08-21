@@ -79,7 +79,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %0 = trunc nuw i64 %indvars.iv to i32
-  %add2 = add i32 %0, %data_shift
+  %add2 = add i32 %data_shift, %0
   %idxprom = zext i32 %add2 to i64
   %arrayidx = getelementptr inbounds i32, ptr %in, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
@@ -157,7 +157,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %0 = trunc nuw i64 %indvars.iv to i32
-  %add2 = add i32 %0, %data_shift
+  %add2 = add i32 %data_shift, %0
   %idxprom = zext i32 %add2 to i64
   %arrayidx = getelementptr inbounds i64, ptr %in, i64 %idxprom
   %1 = load i64, ptr %arrayidx, align 8
@@ -694,7 +694,7 @@ if.else:                                          ; preds = %for.end
   %call = call reassoc nsz arcp double @frexp(double noundef %cmax.1, ptr noundef nonnull %log2cmax) #12
   %4 = load i32, ptr %log2cmax, align 4
   %5 = xor i32 %4, -1
-  %sub14 = add i32 %5, %precision
+  %sub14 = add i32 %precision, %5
   store i32 %sub14, ptr %shift, align 4
   %cmp15 = icmp sgt i32 %sub14, %sub9
   br i1 %cmp15, label %if.end24.thread, label %if.else18
@@ -4158,7 +4158,7 @@ FLAC__lpc_max_prediction_before_shift_bps.exit:   ; preds = %for.body.i, %entry
   %call.i = tail call i32 @FLAC__bitmath_silog2(i64 noundef %conv.i) #12, !noalias !63
   %add2.i = sub i32 %subframe_bps, %lp_quantization
   %sub = add i32 %add2.i, %call.i
-  %subframe_bps.sub = tail call i32 @llvm.smax.i32(i32 %sub, i32 %subframe_bps)
+  %subframe_bps.sub = tail call i32 @llvm.smax.i32(i32 %subframe_bps, i32 %sub)
   %retval.0 = add i32 %subframe_bps.sub, 1
   ret i32 %retval.0
 }

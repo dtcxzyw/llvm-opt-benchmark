@@ -2570,7 +2570,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.llvm.13709
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -39590,7 +39590,7 @@ _ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit: ; preds = %.noexc92, %6
   %.3 = phi i8 [ 0, %25 ], [ 1, %.noexc95 ], [ 1, %64 ], [ 1, %.noexc92 ]
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8, !noundef !4
-  %29 = icmp ult i64 %28, %2
+  %29 = icmp ugt i64 %2, %28
   br i1 %29, label %80, label %77
 
 30:                                               ; preds = %3, %25

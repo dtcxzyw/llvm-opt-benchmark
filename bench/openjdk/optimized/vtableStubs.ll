@@ -286,7 +286,7 @@ define hidden void @_ZN11VtableStubs24check_and_set_size_limitEbii(i1 noundef ze
   %4 = select i1 %0, i32 %_ZN11VtableStubs15_vtab_stub_sizeE.val.i, i32 %_ZN11VtableStubs15_itab_stub_sizeE.val.i
   %5 = icmp sgt i32 %4, 0
   %6 = select i1 %5, i32 %4, i32 %..i
-  %.not = icmp slt i32 %6, %1
+  %.not = icmp sgt i32 %1, %6
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %3
@@ -507,11 +507,11 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   %18 = getelementptr inbounds i8, ptr %.09.i, i64 8
   %19 = load i16, ptr %18, align 8
   %20 = sext i16 %19 to i32
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.09.i, i64 14
   %23 = load i8, ptr %22, align 2
   %24 = icmp ne i8 %23, 1
-  %25 = xor i1 %24, %0
+  %25 = xor i1 %0, %24
   %26 = select i1 %21, i1 %25, i1 false
   br i1 %26, label %_ZN11VtableStubs6lookupEbi.exit, label %27
 
@@ -648,11 +648,11 @@ define hidden noundef ptr @_ZN11VtableStubs6lookupEbi(i1 noundef zeroext %0, i32
   %16 = getelementptr inbounds i8, ptr %.09, i64 8
   %17 = load i16, ptr %16, align 8
   %18 = sext i16 %17 to i32
-  %19 = icmp eq i32 %18, %1
+  %19 = icmp eq i32 %1, %18
   %20 = getelementptr inbounds i8, ptr %.09, i64 14
   %21 = load i8, ptr %20, align 2
   %22 = icmp ne i8 %21, 1
-  %23 = xor i1 %22, %0
+  %23 = xor i1 %0, %22
   %24 = select i1 %19, i1 %23, i1 false
   br i1 %24, label %.critedge, label %25
 
@@ -787,7 +787,7 @@ _ZNK10VtableStub8containsEPh.exit.i:              ; preds = %5
   %12 = select i1 %11, i32 %10, i32 %..i.i.i.i
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %6, i64 %13
-  %15 = icmp ugt ptr %14, %0
+  %15 = icmp ult ptr %0, %14
   br i1 %15, label %_ZN11VtableStubs15stub_containingEPh.exit, label %_ZNK10VtableStub8containsEPh.exit.thread.i
 
 _ZNK10VtableStub8containsEPh.exit.thread.i:       ; preds = %_ZNK10VtableStub8containsEPh.exit.i, %5
@@ -838,7 +838,7 @@ _ZNK10VtableStub8containsEPh.exit:                ; preds = %5
   %12 = select i1 %11, i32 %10, i32 %..i.i.i
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %6, i64 %13
-  %15 = icmp ugt ptr %14, %0
+  %15 = icmp ult ptr %0, %14
   br i1 %15, label %.loopexit, label %_ZNK10VtableStub8containsEPh.exit.thread
 
 _ZNK10VtableStub8containsEPh.exit.thread:         ; preds = %5, %_ZNK10VtableStub8containsEPh.exit

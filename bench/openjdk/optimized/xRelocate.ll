@@ -1269,7 +1269,7 @@ _ZNK23XRelocateSmallAllocator12alloc_objectEP5XPagem.exit: ; preds = %_ZNK5XPage
   br i1 %or.cond, label %139, label %142
 
 139:                                              ; preds = %132
-  %.not.i25 = icmp eq i64 %130, %1
+  %.not.i25 = icmp eq i64 %1, %130
   br i1 %.not.i25, label %_ZN6XUtils20object_copy_conjointEmmm.exit, label %140
 
 140:                                              ; preds = %139
@@ -1790,7 +1790,7 @@ _ZNK24XRelocateMediumAllocator12alloc_objectEP5XPagem.exit: ; preds = %128
   br i1 %or.cond, label %143, label %146
 
 143:                                              ; preds = %136
-  %.not.i25 = icmp eq i64 %134, %1
+  %.not.i25 = icmp eq i64 %1, %134
   br i1 %.not.i25, label %_ZN6XUtils20object_copy_conjointEmmm.exit, label %144
 
 144:                                              ; preds = %143
@@ -2149,7 +2149,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %14, %35
   %41 = shl nuw i32 1, %40
   %42 = add nsw i32 %41, -1
   %43 = zext nneg i32 %42 to i64
-  %invariant.op = add i64 %43, %3
+  %invariant.op = add i64 %3, %43
   %44 = sub i32 0, %41
   %45 = sext i32 %44 to i64
   %46 = add i64 %11, 63

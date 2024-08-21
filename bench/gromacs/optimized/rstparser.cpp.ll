@@ -154,7 +154,7 @@ _ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_t
 
 .preheader.i:                                     ; preds = %66
   %70 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #7
-  %71 = icmp ugt i64 %70, %54
+  %71 = icmp ult i64 %54, %70
   br i1 %71, label %.lr.ph.i40, label %.critedge.i
 
 .lr.ph.i40:                                       ; preds = %.preheader.i, %75
@@ -282,7 +282,7 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 .preheader.i43:                                   ; preds = %120
   %126 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %121) #7
-  %127 = icmp ugt i64 %126, %.032
+  %127 = icmp ult i64 %.032, %126
   br i1 %127, label %.lr.ph.i45, label %.loopexit73
 
 128:                                              ; preds = %134
@@ -395,7 +395,7 @@ tailrecurse.backedge:                             ; preds = %168, %165
 
 .preheader.i50:                                   ; preds = %178
   %187 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %179) #7
-  %188 = icmp ugt i64 %187, %183
+  %188 = icmp ult i64 %183, %187
   br i1 %188, label %.lr.ph39.i, label %.loopexit
 
 .lr.ph39.i:                                       ; preds = %.preheader.i50, %199
@@ -433,7 +433,7 @@ tailrecurse.backedge:                             ; preds = %168, %165
 
 .preheader30.i:                                   ; preds = %203
   %207 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %179) #7
-  %208 = icmp ugt i64 %207, %183
+  %208 = icmp ult i64 %183, %207
   br i1 %208, label %.lr.ph.i47, label %.loopexit
 
 .lr.ph.i47:                                       ; preds = %.preheader30.i, %217

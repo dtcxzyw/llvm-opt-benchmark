@@ -141,7 +141,7 @@ _Z11do_per_stepll.exit:                           ; preds = %3, %8
   %.0.i = phi i1 [ %10, %8 ], [ false, %3 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, %1
+  %13 = icmp eq i64 %1, %12
   %or.cond = select i1 %.0.i, i1 true, i1 %13
   br i1 %or.cond, label %14, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit
 
@@ -311,7 +311,7 @@ _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit.thread: ; preds = %9
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %0, i64 64
   %18 = load i64, ptr %17, align 8
-  %19 = icmp eq i64 %18, %1
+  %19 = icmp eq i64 %1, %18
   %.not2.i = icmp eq i8 %14, 0
   %brmerge.i = or i1 %.not2.i, %19
   %not..not2.i = xor i1 %.not2.i, true
@@ -329,7 +329,7 @@ _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit: ; preds = %16, %20
   store i8 %25, ptr %6, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8
-  %28 = icmp eq i64 %27, %1
+  %28 = icmp eq i64 %1, %27
   %brmerge = or i1 %24, %28
   br i1 %brmerge, label %29, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit
 
@@ -628,14 +628,14 @@ _Z11do_per_stepll.exit:                           ; preds = %3, %8
   %.0.i = phi i1 [ %10, %8 ], [ false, %3 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, %1
+  %13 = icmp eq i64 %1, %12
   %or.cond = select i1 %.0.i, i1 true, i1 %13
   br i1 %or.cond, label %21, label %14
 
 14:                                               ; preds = %_Z11do_per_stepll.exit
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, %1
+  %17 = icmp eq i64 %1, %16
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 2
@@ -1069,7 +1069,7 @@ _Z11do_per_stepll.exit45:                         ; preds = %_Z11do_per_stepll.e
   %.0.i44 = phi i1 [ %64, %61 ], [ false, %_Z11do_per_stepll.exit42.thread ]
   %65 = getelementptr inbounds i8, ptr %0, i64 104
   %66 = load i64, ptr %65, align 8
-  %67 = icmp eq i64 %66, %1
+  %67 = icmp eq i64 %1, %66
   %or.cond = select i1 %.0.i44, i1 true, i1 %67
   br i1 %or.cond, label %68, label %.loopexit
 

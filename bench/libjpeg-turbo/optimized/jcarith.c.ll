@@ -2057,7 +2057,7 @@ define internal fastcc void @arith_encode(ptr noundef %0, ptr nocapture noundef 
   %17 = sub nsw i64 %16, %14
   store i64 %17, ptr %15, align 8
   %18 = lshr i32 %7, 7
-  %.not = icmp eq i32 %18, %2
+  %.not = icmp eq i32 %2, %18
   br i1 %.not, label %27, label %19
 
 19:                                               ; preds = %3

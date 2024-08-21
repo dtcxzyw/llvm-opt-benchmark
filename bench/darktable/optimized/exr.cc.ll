@@ -2623,7 +2623,7 @@ define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture nou
   %5 = load ptr, ptr %4, align 8, !tbaa !119
   %6 = tail call noundef i64 %5(ptr noundef %0)
   %7 = trunc i64 %6 to i32
-  %8 = icmp eq i32 %7, %2
+  %8 = icmp eq i32 %2, %7
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %3

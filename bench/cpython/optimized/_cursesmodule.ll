@@ -6547,7 +6547,7 @@ cond.end.i:                                       ; preds = %entry.split
   %1 = load i16, ptr %_maxy.i, align 4
   %conv.i = sext i16 %1 to i32
   %add.i = add nsw i32 %conv.i, 1
-  %cmp3.i = icmp slt i32 %add.i, %call
+  %cmp3.i = icmp sgt i32 %call, %add.i
   %cmp6.i = icmp slt i32 %call, 0
   %or.cond.i = or i1 %cmp6.i, %cmp3.i
   br i1 %or.cond.i, label %if.then.i, label %cond.end12.i

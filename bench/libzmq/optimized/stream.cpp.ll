@@ -518,7 +518,7 @@ entry:
   tail call void @_ZN3zmq4fq_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(41) %_fq, ptr noundef %pipe_)
   %_current_out = getelementptr inbounds i8, ptr %this, i64 2096
   %0 = load ptr, ptr %_current_out, align 8
-  %cmp = icmp eq ptr %0, %pipe_
+  %cmp = icmp eq ptr %pipe_, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

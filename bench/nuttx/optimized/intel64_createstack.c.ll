@@ -31,7 +31,7 @@ define range(i32 -1, 1) i32 @up_create_stack(ptr noundef %0, i64 noundef %1, i8 
 .thread24:                                        ; preds = %6, %9, %.thread
   %11 = phi ptr [ %10, %.thread ], [ %.pr.pre, %9 ], [ %5, %6 ]
   %12 = ptrtoint ptr %11 to i64
-  %13 = add i64 %12, %1
+  %13 = add i64 %1, %12
   %14 = and i64 %13, -16
   %15 = sub i64 %14, %12
   %16 = getelementptr inbounds i8, ptr %0, i64 120

@@ -915,10 +915,10 @@ entry:
   store ptr %pipe_, ptr %pipe_.addr, align 8
   %_pipe = getelementptr inbounds i8, ptr %this, i64 1480
   %0 = load ptr, ptr %_pipe, align 8
-  %cmp = icmp eq ptr %0, %pipe_
+  %cmp = icmp eq ptr %pipe_, %0
   %_zap_pipe = getelementptr inbounds i8, ptr %this, i64 1488
   %1 = load ptr, ptr %_zap_pipe, align 8
-  %cmp2 = icmp eq ptr %1, %pipe_
+  %cmp2 = icmp eq ptr %pipe_, %1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp2
   br i1 %or.cond, label %do.end, label %lor.rhs
 
@@ -949,7 +949,7 @@ _ZNKSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower
 _ZNKSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE5countERKS2_.exit: ; preds = %_ZNKSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %4 = load ptr, ptr %_M_storage.i.i.i3.i.i, align 8
-  %cmp.i4.i.i.not = icmp ugt ptr %4, %pipe_
+  %cmp.i4.i.i.not = icmp ult ptr %pipe_, %4
   br i1 %cmp.i4.i.i.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %lor.rhs, %_ZNKSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i, %_ZNKSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE5countERKS2_.exit
@@ -963,7 +963,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNKSt8_R
 
 do.end:                                           ; preds = %entry, %_ZNKSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE5countERKS2_.exit, %if.then
   %7 = phi ptr [ %0, %entry ], [ %0, %_ZNKSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE5countERKS2_.exit ], [ %.pre, %if.then ]
-  %cmp7 = icmp eq ptr %7, %pipe_
+  %cmp7 = icmp eq ptr %pipe_, %7
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %do.end
@@ -981,7 +981,7 @@ if.then10:                                        ; preds = %if.then8
 
 if.else:                                          ; preds = %do.end
   %9 = load ptr, ptr %_zap_pipe, align 8
-  %cmp14 = icmp eq ptr %9, %pipe_
+  %cmp14 = icmp eq ptr %pipe_, %9
   br i1 %cmp14, label %if.then15, label %if.else17
 
 if.then15:                                        ; preds = %if.else
@@ -1063,10 +1063,10 @@ define void @_ZN3zmq14session_base_t14read_activatedEPNS_6pipe_tE(ptr noundef no
 entry:
   %_pipe = getelementptr inbounds i8, ptr %this, i64 1480
   %0 = load ptr, ptr %_pipe, align 8
-  %cmp.not = icmp eq ptr %0, %pipe_
+  %cmp.not = icmp eq ptr %pipe_, %0
   %_zap_pipe = getelementptr inbounds i8, ptr %this, i64 1488
   %1 = load ptr, ptr %_zap_pipe, align 8
-  %cmp2.not = icmp eq ptr %1, %pipe_
+  %cmp2.not = icmp eq ptr %pipe_, %1
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2.not
   br i1 %or.cond, label %if.end7, label %do.body
 
@@ -1097,7 +1097,7 @@ _ZNKSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower
 _ZNKSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE5countERKS2_.exit: ; preds = %_ZNKSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %4 = load ptr, ptr %_M_storage.i.i.i3.i.i, align 8
-  %cmp.i4.i.i = icmp ugt ptr %4, %pipe_
+  %cmp.i4.i.i = icmp ult ptr %pipe_, %4
   br i1 %cmp.i4.i.i, label %if.then4, label %if.end23
 
 if.then4:                                         ; preds = %do.body, %_ZNKSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i, %_ZNKSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE5countERKS2_.exit
@@ -1187,7 +1187,7 @@ _ZNKSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower
 _ZNKSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE5countERKS2_.exit: ; preds = %_ZNKSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %3 = load ptr, ptr %_M_storage.i.i.i3.i.i, align 8
-  %cmp.i4.i.i = icmp ugt ptr %3, %pipe_
+  %cmp.i4.i.i = icmp ult ptr %pipe_, %3
   br i1 %cmp.i4.i.i, label %if.then3, label %if.end10
 
 if.then3:                                         ; preds = %do.body, %_ZNKSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i, %_ZNKSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE5countERKS2_.exit
@@ -1250,7 +1250,7 @@ _ZNKSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower
 _ZNKSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE5countERKS2_.exit.i: ; preds = %_ZNKSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %3 = load ptr, ptr %_M_storage.i.i.i3.i.i.i, align 8
-  %cmp.i4.i.i.i = icmp ugt ptr %3, %pipe_
+  %cmp.i4.i.i.i = icmp ult ptr %pipe_, %3
   br i1 %cmp.i4.i.i.i, label %if.then3.i, label %_ZN3zmq14session_base_t15write_activatedEPNS_6pipe_tE.exit
 
 if.then3.i:                                       ; preds = %_ZNKSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE5countERKS2_.exit.i, %_ZNKSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i, %do.body.i
@@ -2138,7 +2138,7 @@ if.then8:                                         ; preds = %land.lhs.true6
 if.end:                                           ; preds = %if.then, %if.then8, %land.lhs.true6, %land.lhs.true4
   %7 = phi i8 [ %1, %if.then ], [ %.pre, %if.then8 ], [ %1, %land.lhs.true6 ], [ %1, %land.lhs.true4 ]
   %tobool14 = trunc i8 %7 to i1
-  %brmerge9.not = and i1 %tobool14, %handshaked_
+  %brmerge9.not = and i1 %handshaked_, %tobool14
   br i1 %brmerge9.not, label %land.lhs.true17, label %do.body
 
 land.lhs.true17:                                  ; preds = %if.end
@@ -2313,7 +2313,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %add.ptr.i.i.i.i
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -3070,8 +3070,8 @@ _ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_ran
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_left.i.i1, align 8
-  %cmp.i.i2 = icmp eq ptr %7, %retval.sroa.0.0.i
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.3.0.i
+  %cmp.i.i2 = icmp eq ptr %retval.sroa.0.0.i, %7
+  %cmp.i1.i = icmp eq ptr %retval.sroa.3.0.i, %add.ptr.i.i
   %or.cond = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
   br i1 %or.cond, label %if.then.i, label %if.else.i3
 

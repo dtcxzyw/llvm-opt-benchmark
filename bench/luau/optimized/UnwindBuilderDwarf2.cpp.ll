@@ -503,7 +503,7 @@ define dso_local noundef i64 @_ZNK4Luau7CodeGen19UnwindBuilderDwarf28finalizeEPc
 
 .lr.ph:                                           ; preds = %5
   %15 = ptrtoint ptr %3 to i64
-  %16 = add i64 %15, %2
+  %16 = add i64 %2, %15
   %17 = sub i64 %4, %2
   br label %18
 

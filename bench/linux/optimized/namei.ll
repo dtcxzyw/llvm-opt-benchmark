@@ -8378,7 +8378,7 @@ define internal fastcc void @dx_insert_block(ptr %.8.val, ptr %.16.val, i32 noun
 9:                                                ; preds = %2
   %10 = zext i16 %4 to i64
   %11 = getelementptr %struct.dx_entry, ptr %.8.val, i64 %10
-  %12 = icmp ugt ptr %11, %.16.val
+  %12 = icmp ult ptr %.16.val, %11
   br i1 %12, label %15, label %13, !prof !14
 
 13:                                               ; preds = %9

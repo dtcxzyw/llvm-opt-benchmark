@@ -1233,7 +1233,7 @@ if.end:                                           ; preds = %invoke.cont7, %entr
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i.i, %4
+  %cmp.i.i = icmp ugt i64 %4, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -1242,7 +1242,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %_ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE6resizeEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.end
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %4
+  %cmp4.i.i = icmp ult i64 %4, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -3173,7 +3173,7 @@ invoke.cont7.i464:                                ; preds = %if.then.i217
 
 if.then.i466:                                     ; preds = %invoke.cont7.i464
   %cmp.not.i.i.i467 = icmp ne ptr %72, null
-  %cmp2.i.i.i469 = icmp eq ptr %add.ptr.i.i219, %73
+  %cmp2.i.i.i469 = icmp eq ptr %73, %add.ptr.i.i219
   %or.cond.i.i.i470 = select i1 %cmp.not.i.i.i467, i1 true, i1 %cmp2.i.i.i469
   br i1 %or.cond.i.i.i470, label %cleanup.thread.i479, label %lor.rhs.i.i.i471
 
@@ -3572,7 +3572,7 @@ invoke.cont7.i495:                                ; preds = %if.then.i330
 
 if.then.i497:                                     ; preds = %invoke.cont7.i495
   %cmp.not.i.i.i498 = icmp ne ptr %119, null
-  %cmp2.i.i.i500 = icmp eq ptr %add.ptr.i.i219, %120
+  %cmp2.i.i.i500 = icmp eq ptr %120, %add.ptr.i.i219
   %or.cond.i.i.i501 = select i1 %cmp.not.i.i.i498, i1 true, i1 %cmp2.i.i.i500
   br i1 %or.cond.i.i.i501, label %cleanup.thread.i533, label %lor.rhs.i.i.i502
 
@@ -3884,7 +3884,7 @@ invoke.cont7.i:                                   ; preds = %if.then.i.i
 
 if.then.i414:                                     ; preds = %invoke.cont7.i
   %cmp.not.i.i.i = icmp ne ptr %174, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %175
+  %cmp2.i.i.i = icmp eq ptr %175, %add.ptr.i.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -4144,7 +4144,7 @@ invoke.cont7.i432:                                ; preds = %if.then.i.i187
 
 if.then.i434:                                     ; preds = %invoke.cont7.i432
   %cmp.not.i.i.i435 = icmp ne ptr %211, null
-  %cmp2.i.i.i437 = icmp eq ptr %add.ptr.i.i.i.i104, %212
+  %cmp2.i.i.i437 = icmp eq ptr %212, %add.ptr.i.i.i.i104
   %or.cond.i.i.i438 = select i1 %cmp.not.i.i.i435, i1 true, i1 %cmp2.i.i.i437
   br i1 %or.cond.i.i.i438, label %cleanup.thread.i454, label %lor.rhs.i.i.i439
 
@@ -4239,7 +4239,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -4310,7 +4310,7 @@ _ZNSt12_Vector_baseIN6Assimp11ObjExporter10FaceVertexESaIS2_EE13_M_deallocateEPS
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -4678,7 +4678,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -4749,7 +4749,7 @@ _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit29.i: ; pre
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -4843,7 +4843,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 88
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit27, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i12
@@ -4999,7 +4999,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #16
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(24) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -5583,7 +5583,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(12) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

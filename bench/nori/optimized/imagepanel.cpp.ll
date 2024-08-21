@@ -197,7 +197,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui10ImagePanel18mouse_button_eventERK
   %21 = getelementptr inbounds i8, ptr %0, i64 184
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.not = icmp ne ptr %22, null
-  %brmerge.not = and i1 %.not.i.i.not, %3
+  %brmerge.not = and i1 %3, %.not.i.i.not
   br i1 %brmerge.not, label %_ZNKSt8functionIFviEEclEi.exit, label %26
 
 _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %20

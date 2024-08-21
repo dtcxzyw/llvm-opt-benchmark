@@ -449,7 +449,7 @@ if.end10:                                         ; preds = %if.end5
   %3 = load ptr, ptr %ssl3_enc, align 8
   %server_finished_label = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load ptr, ptr %server_finished_label, align 8
-  %cmp12 = icmp eq ptr %4, %str
+  %cmp12 = icmp eq ptr %str, %4
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end10

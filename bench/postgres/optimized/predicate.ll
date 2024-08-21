@@ -4447,7 +4447,7 @@ SerializationNeededForRead.exit:                  ; preds = %14
 
 30:                                               ; preds = %22
   %31 = tail call i32 @GetTopTransactionIdIfAny() #12
-  %32 = icmp eq i32 %31, %1
+  %32 = icmp eq i32 %1, %31
   br i1 %32, label %SerializationNeededForRead.exit.thread, label %33
 
 33:                                               ; preds = %30
@@ -4769,7 +4769,7 @@ define internal fastcc noundef zeroext i1 @XidIsConcurrent(i32 noundef %0) unnam
   %indvars.iv52.i = phi i64 [ %21, %.lr.ph45.preheader.i ], [ %indvars.iv.next53.i, %.lr.ph45.i ]
   %42 = getelementptr i32, ptr %12, i64 %indvars.iv52.i
   %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i32 %43, %0
+  %44 = icmp eq i32 %0, %43
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next53.i to i32
   %exitcond.not.i = icmp eq i32 %14, %lftr.wideiv.i
@@ -5063,7 +5063,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
 OnConflict_CheckForSerializationFailure.exit:     ; preds = %85, %.critedge.i, %56, %62, %110
   %112 = phi i32 [ %4, %.critedge.i ], [ %4, %56 ], [ %4, %62 ], [ %111, %110 ], [ %4, %85 ]
   %113 = load ptr, ptr @OldCommittedSxact, align 8
-  %114 = icmp eq ptr %113, %0
+  %114 = icmp eq ptr %0, %113
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %OnConflict_CheckForSerializationFailure.exit
@@ -5072,7 +5072,7 @@ OnConflict_CheckForSerializationFailure.exit:     ; preds = %85, %.critedge.i, %
   br label %158
 
 117:                                              ; preds = %OnConflict_CheckForSerializationFailure.exit
-  %118 = icmp eq ptr %113, %1
+  %118 = icmp eq ptr %1, %113
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %117

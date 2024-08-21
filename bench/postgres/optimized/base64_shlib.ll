@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @pg_b64_encode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
-  %7 = icmp ugt ptr %6, %0
+  %7 = icmp ult ptr %0, %6
   br i1 %7, label %.lr.ph, label %._crit_edge._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -154,7 +154,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
-  %7 = icmp ugt ptr %6, %0
+  %7 = icmp ult ptr %0, %6
   br i1 %7, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %4

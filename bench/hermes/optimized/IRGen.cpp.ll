@@ -647,7 +647,7 @@ if.then.i.i.i.i.i.i28:                            ; preds = %while.body.i.i.i.i.
 
 _ZNSt10unique_ptrIvPDoFvPvEED2Ev.exit.i.i.i.i.i:  ; preds = %if.then.i.i.i.i.i.i28, %while.body.i.i.i.i.i
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i29 = icmp eq ptr %incdec.ptr.i.i.i.i.i27, %41
+  %cmp.not.i.i.i.i.i29 = icmp eq ptr %41, %incdec.ptr.i.i.i.i.i27
   br i1 %cmp.not.i.i.i.i.i29, label %_ZN4llvh23SmallVectorTemplateBaseISt10unique_ptrIvPDoFvPvEELb0EE13destroy_rangeEPS5_S7_.exit.loopexit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !6
 
 _ZN4llvh23SmallVectorTemplateBaseISt10unique_ptrIvPDoFvPvEELb0EE13destroy_rangeEPS5_S7_.exit.loopexit.i.i.i.i: ; preds = %_ZNSt10unique_ptrIvPDoFvPvEED2Ev.exit.i.i.i.i.i

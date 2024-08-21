@@ -2103,7 +2103,7 @@ define void @setDensityAmps(ptr noundef byval(%struct.Qureg) align 8 %0, i64 nou
   %8 = load i32, ptr %7, align 4
   %9 = shl nuw i32 1, %8
   %10 = sext i32 %9 to i64
-  %11 = mul nsw i64 %10, %2
+  %11 = mul nsw i64 %2, %10
   %12 = add nsw i64 %11, %1
   tail call void @statevec_setAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %12, ptr noundef %3, ptr noundef %4, i64 noundef %5) #17
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.17) #17

@@ -46,7 +46,7 @@ entry:
   %timeout = getelementptr inbounds i8, ptr %data, i64 712
   %0 = load i32, ptr %timeout, align 8
   %cmp = icmp ne i32 %0, 0
-  %brmerge = or i1 %cmp, %duringconnect
+  %brmerge = or i1 %duringconnect, %cmp
   br i1 %brmerge, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2210,7 +2210,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %if.t
   %i.04.i.i = phi i64 [ 0, %if.then17 ], [ %inc.i.i, %for.cond.i.i ]
   %arrayidx.i.i = getelementptr inbounds [3 x %struct.transport_provider], ptr @transport_providers, i64 0, i64 %i.04.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 16
-  %cmp2.i.i = icmp eq i32 %6, %5
+  %cmp2.i.i = icmp eq i32 %5, %6
   br i1 %cmp2.i.i, label %get_cf_create.exit.i, label %for.cond.i.i
 
 get_cf_create.exit.i:                             ; preds = %for.body.i.i

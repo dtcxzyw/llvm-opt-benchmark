@@ -106,11 +106,11 @@ define void @cblas_drotm(i32 noundef %0, ptr nocapture noundef %1, i32 noundef %
 79:                                               ; preds = %13
   %80 = icmp slt i32 %2, 0
   %81 = sub nsw i32 1, %0
-  %82 = mul nsw i32 %81, %2
+  %82 = mul nsw i32 %2, %81
   %83 = add nsw i32 %82, 1
   %84 = select i1 %80, i32 %83, i32 1
   %85 = icmp slt i32 %4, 0
-  %86 = mul nsw i32 %81, %4
+  %86 = mul nsw i32 %4, %81
   %87 = add nsw i32 %86, 1
   %88 = select i1 %85, i32 %87, i32 1
   %89 = fcmp olt double %9, 0.000000e+00

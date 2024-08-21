@@ -2390,7 +2390,7 @@ define void @do_graph_label(ptr noundef %0) local_unnamed_addr #3 {
   store ptr %21, ptr %24, align 8
   %25 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.125) #21
   %26 = tail call ptr @agroot(ptr noundef %0) #21
-  %.not54 = icmp eq ptr %26, %0
+  %.not54 = icmp eq ptr %0, %26
   %.not55 = icmp eq ptr %25, null
   br i1 %.not54, label %32, label %27
 
@@ -2443,7 +2443,7 @@ define void @do_graph_label(ptr noundef %0) local_unnamed_addr #3 {
   %47 = getelementptr inbounds i8, ptr %46, i64 403
   store i8 %.1, ptr %47, align 1
   %48 = tail call ptr @agroot(ptr noundef nonnull %0) #21
-  %49 = icmp eq ptr %48, %0
+  %49 = icmp eq ptr %0, %48
   br i1 %49, label %77, label %50
 
 50:                                               ; preds = %45
@@ -2612,13 +2612,13 @@ agxblen.exit:                                     ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %8, %10
-  %12 = icmp ult i64 %11, %2
+  %12 = icmp ugt i64 %2, %11
   br i1 %12, label %agxbsizeof.exit.i, label %._crit_edge
 
 agxblen.exit.thread:                              ; preds = %5
   %13 = zext i8 %.val.i to i64
   %14 = sub nsw i64 31, %13
-  %15 = icmp ult i64 %14, %2
+  %15 = icmp ugt i64 %2, %14
   br i1 %15, label %.thread, label %29
 
 agxbsizeof.exit.i:                                ; preds = %agxblen.exit

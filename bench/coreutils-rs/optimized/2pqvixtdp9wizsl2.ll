@@ -365,7 +365,7 @@ define hidden noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17hff
   %17 = getelementptr inbounds i8, ptr %14, i64 8
   store i64 %2, ptr %17, align 8, !noalias !71
   %18 = add i64 %2, 1
-  %.not4.i = icmp ult i64 %18, %3
+  %.not4.i = icmp ugt i64 %3, %18
   br i1 %.not4.i, label %19, label %_ZN14regex_automata4util6search5Input8set_span17hb1b2445b6c54e533E.exit
 
 19:                                               ; preds = %4

@@ -22,7 +22,7 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
-  %.not.i.i = icmp ugt i64 %8, %1
+  %.not.i.i = icmp ult i64 %1, %8
   %9 = sub nsw i64 0, %1
   %10 = getelementptr inbounds i8, ptr %4, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -1
@@ -70,7 +70,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN106_$LT$core..
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
-  %.not = icmp ugt i64 %8, %1
+  %.not = icmp ult i64 %1, %8
   %9 = sub nsw i64 0, %1
   %10 = getelementptr inbounds i8, ptr %4, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -1
@@ -531,7 +531,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN98_$LT$core..i
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
-  %.not.i = icmp ugt i64 %8, %1
+  %.not.i = icmp ult i64 %1, %8
   %9 = sub nsw i64 0, %1
   %10 = getelementptr inbounds i8, ptr %4, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -1

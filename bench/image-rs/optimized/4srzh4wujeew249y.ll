@@ -839,7 +839,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 118:                                              ; preds = %116
   %.val3.i441 = load i64, ptr %117, align 8, !noalias !126, !noundef !9
-  %119 = icmp ugt i64 %.val1.i.i, %.val3.i441
+  %119 = icmp ult i64 %.val3.i441, %.val1.i.i
   br i1 %119, label %"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17hb60d3f37e9f03d56E.exit.i", label %.invoke, !prof !27
 
 "_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17hb60d3f37e9f03d56E.exit.i": ; preds = %118
@@ -913,7 +913,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 150:                                              ; preds = %148
   %.val3.i452 = load i64, ptr %149, align 8, !noalias !140, !noundef !9
-  %151 = icmp ugt i64 %.val1.i.i449, %.val3.i452
+  %151 = icmp ult i64 %.val3.i452, %.val1.i.i449
   br i1 %151, label %"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17h0524745bb509aa00E.exit.i", label %.invoke, !prof !27
 
 "_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17h0524745bb509aa00E.exit.i": ; preds = %150
@@ -3481,7 +3481,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 115:                                              ; preds = %113
   %.val3.i439 = load i64, ptr %114, align 8, !noalias !367, !noundef !9
-  %116 = icmp ugt i64 %.val1.i.i, %.val3.i439
+  %116 = icmp ult i64 %.val3.i439, %.val1.i.i
   br i1 %116, label %"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17h391e8bb160bfce25E.exit.i", label %.invoke, !prof !27
 
 "_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17h391e8bb160bfce25E.exit.i": ; preds = %115
@@ -3555,7 +3555,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 147:                                              ; preds = %145
   %.val3.i450 = load i64, ptr %146, align 8, !noalias !380, !noundef !9
-  %148 = icmp ugt i64 %.val1.i.i447, %.val3.i450
+  %148 = icmp ult i64 %.val3.i450, %.val1.i.i447
   br i1 %148, label %"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17hed65e0f697b04c97E.exit.i", label %.invoke, !prof !27
 
 "_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17hed65e0f697b04c97E.exit.i": ; preds = %147
@@ -6023,7 +6023,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 115:                                              ; preds = %113
   %.val3.i439 = load i64, ptr %114, align 8, !noalias !588, !noundef !9
-  %116 = icmp ugt i64 %.val1.i.i, %.val3.i439
+  %116 = icmp ult i64 %.val3.i439, %.val1.i.i
   br i1 %116, label %"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17ha42ae3ec38ae2dd5E.exit.i", label %.invoke, !prof !27
 
 "_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17ha42ae3ec38ae2dd5E.exit.i": ; preds = %115
@@ -6097,7 +6097,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 147:                                              ; preds = %145
   %.val3.i450 = load i64, ptr %146, align 8, !noalias !601, !noundef !9
-  %148 = icmp ugt i64 %.val1.i.i447, %.val3.i450
+  %148 = icmp ult i64 %.val3.i450, %.val1.i.i447
   br i1 %148, label %"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17h847920be6905ebc3E.exit.i", label %.invoke, !prof !27
 
 "_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17h847920be6905ebc3E.exit.i": ; preds = %147
@@ -11950,7 +11950,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
 
 576:                                              ; preds = %574
   %.val3.i.i = load i64, ptr %575, align 8, !noalias !1032, !noundef !9
-  %577 = icmp ugt i64 %.val1.i.i.i, %.val3.i.i
+  %577 = icmp ult i64 %.val3.i.i, %.val1.i.i.i
   br i1 %577, label %"_ZN12jpeg_decoder7decoder8lossless57_$LT$impl$u20$jpeg_decoder..decoder..Decoder$LT$R$GT$$GT$20decode_scan_lossless28_$u7b$$u7b$closure$u7d$$u7d$17h70587e85b8f35675E.exit.i.i", label %578, !prof !27
 
 578:                                              ; preds = %576
@@ -12347,7 +12347,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   %701 = zext nneg i8 %700 to i32
   %702 = shl nuw i32 1, %701
   %703 = add i8 %694, 1
-  %704 = icmp ult i8 %703, %697
+  %704 = icmp ugt i8 %697, %703
   %spec.select920.i = select i1 %704, i32 %702, i32 0
   br label %.lr.ph827.us.i
 
@@ -15625,7 +15625,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
 
 568:                                              ; preds = %566
   %.val3.i.i = load i64, ptr %567, align 8, !noalias !1436, !noundef !9
-  %569 = icmp ugt i64 %.val1.i.i.i, %.val3.i.i
+  %569 = icmp ult i64 %.val3.i.i, %.val1.i.i.i
   br i1 %569, label %"_ZN12jpeg_decoder7decoder8lossless57_$LT$impl$u20$jpeg_decoder..decoder..Decoder$LT$R$GT$$GT$20decode_scan_lossless28_$u7b$$u7b$closure$u7d$$u7d$17h043514a8f71a0738E.exit.i.i", label %570, !prof !27
 
 570:                                              ; preds = %568
@@ -16002,7 +16002,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   %693 = zext nneg i8 %692 to i32
   %694 = shl nuw i32 1, %693
   %695 = add i8 %686, 1
-  %696 = icmp ult i8 %695, %689
+  %696 = icmp ugt i8 %689, %695
   %spec.select879.i = select i1 %696, i32 %694, i32 0
   br label %.lr.ph786.us.i
 
@@ -19156,7 +19156,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
 
 549:                                              ; preds = %547
   %.val3.i.i = load i64, ptr %548, align 8, !noalias !1792, !noundef !9
-  %550 = icmp ugt i64 %.val1.i.i.i, %.val3.i.i
+  %550 = icmp ult i64 %.val3.i.i, %.val1.i.i.i
   br i1 %550, label %"_ZN12jpeg_decoder7decoder8lossless57_$LT$impl$u20$jpeg_decoder..decoder..Decoder$LT$R$GT$$GT$20decode_scan_lossless28_$u7b$$u7b$closure$u7d$$u7d$17h9ec0ba3c1b5f998fE.exit.i.i", label %551, !prof !27
 
 551:                                              ; preds = %549
@@ -19533,7 +19533,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   %674 = zext nneg i8 %673 to i32
   %675 = shl nuw i32 1, %674
   %676 = add i8 %667, 1
-  %677 = icmp ult i8 %676, %670
+  %677 = icmp ugt i8 %670, %676
   %spec.select879.i = select i1 %677, i32 %675, i32 0
   br label %.lr.ph786.us.i
 
@@ -24372,7 +24372,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !2636, !noalias !2641, !noundef !9
   %45 = load i64, ptr %0, align 8, !alias.scope !2643, !noalias !2641, !noundef !9
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h72598fee75810f13E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
@@ -24426,7 +24426,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !2649, !noalias !2654, !noundef !9
   %6 = load i64, ptr %0, align 8, !alias.scope !2656, !noalias !2654, !noundef !9
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h72598fee75810f13E.exit"
 
 9:                                                ; preds = %3
@@ -32311,12 +32311,12 @@ default.unreachable709:                           ; preds = %276
   %353 = and i32 %350, 65280
   %354 = add i32 %347, %350
   %355 = and i32 %354, 255
-  %356 = add i32 %351, %347
+  %356 = add i32 %347, %351
   %357 = and i32 %356, -16777216
-  %358 = add i32 %352, %347
+  %358 = add i32 %347, %352
   %359 = and i32 %358, 16711680
   %360 = or disjoint i32 %357, %359
-  %361 = add i32 %353, %347
+  %361 = add i32 %347, %353
   %362 = and i32 %361, 65280
   %363 = or disjoint i32 %360, %362
   %364 = or disjoint i32 %363, %355
@@ -37142,12 +37142,12 @@ define noundef i32 @_ZN5image6codecs4webp18lossless_transform10add_pixels17h969e
   %5 = and i32 %0, 65280
   %6 = add i32 %1, %0
   %7 = and i32 %6, 255
-  %8 = add i32 %3, %1
+  %8 = add i32 %1, %3
   %9 = and i32 %8, -16777216
-  %10 = add i32 %4, %1
+  %10 = add i32 %1, %4
   %11 = and i32 %10, 16711680
   %12 = or disjoint i32 %9, %11
-  %13 = add i32 %5, %1
+  %13 = add i32 %1, %5
   %14 = and i32 %13, 65280
   %15 = or disjoint i32 %12, %14
   %16 = or disjoint i32 %15, %7
@@ -37252,7 +37252,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17h3a4f1495b3336406
   %9 = icmp ne i32 %8, 0
   %10 = getelementptr inbounds i8, ptr %2, i64 20
   %11 = load i32, ptr %10, align 4, !alias.scope !4394, !noalias !4397
-  %12 = icmp ult i32 %11, %6
+  %12 = icmp ugt i32 %6, %11
   %or.cond.i = select i1 %9, i1 %12, i1 false
   br i1 %or.cond.i, label %24, label %13
 
@@ -37265,7 +37265,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17h3a4f1495b3336406
   %19 = icmp ne i32 %18, 0
   %20 = getelementptr inbounds i8, ptr %2, i64 28
   %21 = load i32, ptr %20, align 4, !alias.scope !4394, !noalias !4397
-  %22 = icmp ult i32 %21, %16
+  %22 = icmp ugt i32 %16, %21
   %or.cond7.i = select i1 %19, i1 %22, i1 false
   br i1 %or.cond7.i, label %24, label %23
 
@@ -37293,7 +37293,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17hc26bbd1ec4131407
   %9 = icmp ne i32 %8, 0
   %10 = getelementptr inbounds i8, ptr %2, i64 20
   %11 = load i32, ptr %10, align 4, !alias.scope !4402, !noalias !4405
-  %12 = icmp ult i32 %11, %6
+  %12 = icmp ugt i32 %6, %11
   %or.cond.i = select i1 %9, i1 %12, i1 false
   br i1 %or.cond.i, label %24, label %13
 
@@ -37306,7 +37306,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17hc26bbd1ec4131407
   %19 = icmp ne i32 %18, 0
   %20 = getelementptr inbounds i8, ptr %2, i64 28
   %21 = load i32, ptr %20, align 4, !alias.scope !4402, !noalias !4405
-  %22 = icmp ult i32 %21, %16
+  %22 = icmp ugt i32 %16, %21
   %or.cond7.i = select i1 %19, i1 %22, i1 false
   br i1 %or.cond7.i, label %24, label %23
 

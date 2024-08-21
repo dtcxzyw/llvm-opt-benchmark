@@ -2341,7 +2341,7 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %57, %_ZN5mmu_t21is_
   %.sroa.2057.0..sroa_idx58 = getelementptr inbounds i8, ptr %7, i64 20
   store i32 0, ptr %.sroa.2057.0..sroa_idx58, align 4
   tail call void @_ZN5mmu_t24load_slow_path_intrapageEmPh17mem_access_info_t(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %.sroa.speculated, ptr noundef %3, ptr noundef nonnull byval(%struct.mem_access_info_t) align 8 %7)
-  %.not30.not = icmp ult i64 %79, %2
+  %.not30.not = icmp ugt i64 %2, %79
   br i1 %.not30.not, label %80, label %88
 
 80:                                               ; preds = %77
@@ -2830,7 +2830,7 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %75, %_ZN5mmu_t21is_
   %.sroa.1862.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 20
   store i32 1, ptr %.sroa.1862.0..sroa_idx, align 4
   tail call void @_ZN5mmu_t25store_slow_path_intrapageEmPKh17mem_access_info_tb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %.sroa.speculated, ptr noundef %3, ptr noundef nonnull byval(%struct.mem_access_info_t) align 8 %8, i1 noundef zeroext %5)
-  %.not38.not = icmp ult i64 %98, %2
+  %.not38.not = icmp ugt i64 %2, %98
   br i1 %.not38.not, label %99, label %109
 
 99:                                               ; preds = %96
@@ -3001,7 +3001,7 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   %40 = getelementptr inbounds i8, ptr %39, i64 3796
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 64
-  %43 = and i1 %42, %7
+  %43 = and i1 %7, %42
   %44 = select i1 %43, i32 4096, i32 0
   %45 = icmp eq i32 %3, 1
   %46 = and i1 %45, %7

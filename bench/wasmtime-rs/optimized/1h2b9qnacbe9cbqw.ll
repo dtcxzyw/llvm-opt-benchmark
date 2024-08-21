@@ -4049,7 +4049,7 @@ define noundef zeroext i1 @"_ZN104_$LT$wasmtime_runtime..gc..enabled..drc..DrcHe
   %8 = load ptr, ptr %4, align 8, !nonnull !9, !noundef !9
   %9 = ptrtoint ptr %8 to i64
   %10 = sub i64 %7, %9
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   ret i1 %11
 }
 

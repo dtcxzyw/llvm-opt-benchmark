@@ -2669,7 +2669,7 @@ entry:
   %0 = load ptr, ptr %subchannel_stream_client_, align 8
   %call_state_ = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %call_state_, align 8
-  %cmp = icmp eq ptr %1, %this
+  %cmp = icmp eq ptr %this, %1
   br i1 %cmp, label %if.then.i.i, label %if.end21
 
 if.then.i.i:                                      ; preds = %entry

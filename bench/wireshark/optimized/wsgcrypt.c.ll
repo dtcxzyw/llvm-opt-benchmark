@@ -359,7 +359,7 @@ define i32 @hkdf_expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
 
 11:                                               ; preds = %7
   %12 = mul i32 %10, 255
-  %13 = icmp uge i32 %12, %6
+  %13 = icmp ule i32 %6, %12
   %14 = zext i32 %10 to i64
   %15 = icmp ult i32 %10, 49
   %or.cond4 = and i1 %15, %13

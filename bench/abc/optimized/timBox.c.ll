@@ -181,7 +181,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 define i32 @Tim_ManBoxForCi(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
-  %.not = icmp sgt i32 %4, %1
+  %.not = icmp slt i32 %1, %4
   br i1 %.not, label %5, label %11
 
 5:                                                ; preds = %2
@@ -201,7 +201,7 @@ define i32 @Tim_ManBoxForCi(ptr nocapture noundef readonly %0, i32 noundef %1) l
 define i32 @Tim_ManBoxForCo(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
-  %.not = icmp sgt i32 %4, %1
+  %.not = icmp slt i32 %1, %4
   br i1 %.not, label %5, label %11
 
 5:                                                ; preds = %2
@@ -394,7 +394,7 @@ define void @Tim_ManBoxSetCopy(ptr nocapture noundef readonly %0, i32 noundef %1
 ; Function Attrs: nounwind uwtable
 define i32 @Tim_ManBoxFindFromCiNum(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @Tim_ManPiNum(ptr noundef %0) #8
-  %4 = icmp sgt i32 %3, %1
+  %4 = icmp slt i32 %1, %3
   br i1 %4, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %2
@@ -420,7 +420,7 @@ define i32 @Tim_ManBoxFindFromCiNum(ptr noundef %0, i32 noundef %1) local_unname
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %15
   %17 = load i32, ptr %16, align 4
-  %18 = icmp sgt i32 %17, %1
+  %18 = icmp slt i32 %1, %17
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %9

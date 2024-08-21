@@ -4262,7 +4262,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
   %97 = sdiv exact i64 %96, 136
-  %98 = icmp ult i64 %97, %90
+  %98 = icmp ugt i64 %90, %97
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -4271,7 +4271,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
           to label %_ZNSt6vectorIN7xgboost6common15WQuantileSketchIffEESaIS3_EE6resizeEm.exit unwind label %78
 
 101:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %102 = icmp ugt i64 %97, %90
+  %102 = icmp ult i64 %90, %97
   br i1 %102, label %103, label %_ZNSt6vectorIN7xgboost6common15WQuantileSketchIffEESaIS3_EE6resizeEm.exit
 
 103:                                              ; preds = %101
@@ -4390,7 +4390,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %144 = ptrtoint ptr %142 to i64
   %145 = sub i64 %143, %144
   %146 = sdiv exact i64 %145, 48
-  %147 = icmp ult i64 %146, %139
+  %147 = icmp ugt i64 %139, %146
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit50
@@ -4399,7 +4399,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
           to label %_ZNSt6vectorISt3setIfSt4lessIfESaIfEESaIS4_EE6resizeEm.exit unwind label %78
 
 150:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit50
-  %151 = icmp ugt i64 %146, %139
+  %151 = icmp ult i64 %139, %146
   br i1 %151, label %152, label %_ZNSt6vectorISt3setIfSt4lessIfESaIfEESaIS4_EE6resizeEm.exit
 
 152:                                              ; preds = %150
@@ -4531,7 +4531,7 @@ _ZNSt6vectorISt3setIfSt4lessIfESaIfEESaIS4_EE6resizeEm.exit: ; preds = %_ZSt8_De
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i52, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit80, %.loopexit.loopexit.split.loop.exit82, %198, %193, %188, %._crit_edge.i.i.i.i.i
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %188 ], [ %.sroa.025.1.i.i.i.i.i, %193 ], [ %162, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %198 ], [ %201, %.loopexit.loopexit.split.loop.exit ], [ %202, %.loopexit.loopexit.split.loop.exit80 ], [ %203, %.loopexit.loopexit.split.loop.exit82 ], [ %.sroa.025.044.i.i.i.i.i, %.lr.ph.i.i.i.i.i52 ]
-  %204 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %162
+  %204 = icmp ne ptr %162, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   %205 = zext i1 %204 to i8
   store i8 %205, ptr %36, align 4
   ret void
@@ -4957,7 +4957,7 @@ define weak_odr noundef i32 @_ZN7xgboost6common19SketchContainerImplINS0_15WQuan
   %8 = getelementptr inbounds i8, ptr %7, i64 -4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %12
 
 12:                                               ; preds = %2
@@ -5824,7 +5824,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %291 = ptrtoint ptr %289 to i64
   %292 = sub i64 %290, %291
   %293 = ashr exact i64 %292, 4
-  %294 = icmp ult i64 %293, %286
+  %294 = icmp ugt i64 %286, %293
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -5839,7 +5839,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit
 
 297:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %298 = icmp ugt i64 %293, %286
+  %298 = icmp ult i64 %286, %293
   br i1 %298, label %299, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit
 
 299:                                              ; preds = %297
@@ -5869,7 +5869,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit: ;
   br i1 %314, label %315, label %316
 
 315:                                              ; preds = %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit
-  %.not8.i = icmp ult i64 %306, %310
+  %.not8.i = icmp ugt i64 %310, %306
   br i1 %.not8.i, label %317, label %318
 
 316:                                              ; preds = %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit
@@ -6584,7 +6584,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %139 = ptrtoint ptr %137 to i64
   %140 = sub i64 %138, %139
   %141 = ashr exact i64 %140, 2
-  %142 = icmp ult i64 %141, %135
+  %142 = icmp ugt i64 %135, %141
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit68
@@ -6593,7 +6593,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %87
 
 145:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit68
-  %146 = icmp ugt i64 %141, %135
+  %146 = icmp ult i64 %135, %141
   br i1 %146, label %147, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 147:                                              ; preds = %145
@@ -6619,7 +6619,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %149, %147, %145, %1
   %160 = ptrtoint ptr %158 to i64
   %161 = sub i64 %159, %160
   %162 = sdiv exact i64 %161, 40
-  %163 = icmp ult i64 %162, %155
+  %163 = icmp ugt i64 %155, %162
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -6628,7 +6628,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %149, %147, %145, %1
           to label %_ZNSt6vectorIN7xgboost6common22QuantileSketchTemplateIffNS1_9WQSummaryIffEEE16SummaryContainerESaIS6_EE6resizeEm.exit unwind label %87
 
 166:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %167 = icmp ugt i64 %162, %155
+  %167 = icmp ult i64 %155, %162
   br i1 %167, label %168, label %_ZNSt6vectorIN7xgboost6common22QuantileSketchTemplateIffNS1_9WQSummaryIffEEE16SummaryContainerESaIS6_EE6resizeEm.exit
 
 168:                                              ; preds = %166
@@ -9272,7 +9272,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 187:                                              ; preds = %197, %.lr.ph131.i
   %.036130.i = phi i64 [ 0, %.lr.ph131.i ], [ %201, %197 ]
-  %188 = icmp ugt i64 %186, %.036130.i
+  %188 = icmp ult i64 %.036130.i, %186
   br i1 %188, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i, label %189
 
 189:                                              ; preds = %187
@@ -9538,7 +9538,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = ashr exact i64 %44, 2
-  %46 = icmp ult i64 %45, %38
+  %46 = icmp ugt i64 %38, %45
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %31
@@ -9547,7 +9547,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit unwind label %121
 
 49:                                               ; preds = %31
-  %50 = icmp ugt i64 %45, %38
+  %50 = icmp ult i64 %38, %45
   br i1 %50, label %51, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 51:                                               ; preds = %49
@@ -9671,7 +9671,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %107 = ptrtoint ptr %105 to i64
   %108 = sub i64 %106, %107
   %109 = sdiv exact i64 %108, 48
-  %.not.i.i51 = icmp ugt i64 %109, %.033136
+  %.not.i.i51 = icmp ult i64 %.033136, %109
   br i1 %.not.i.i51, label %111, label %110
 
 110:                                              ; preds = %103
@@ -10661,7 +10661,7 @@ define noundef float @_ZN7xgboost6common13AddCategoriesERKSt3setIfSt4lessIfESaIf
 
 _ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %2
   %.sroa.03.0.lcssa.i.i.i.i.i = phi ptr [ %4, %2 ], [ %.sroa.03.06.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.not18 = icmp eq ptr %.sroa.03.0.lcssa.i.i.i.i.i, %5
+  %.not18 = icmp eq ptr %5, %.sroa.03.0.lcssa.i.i.i.i.i
   br i1 %.not18, label %_ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit.thread, label %13
 
 13:                                               ; preds = %_ZSt6any_ofISt23_Rb_tree_const_iteratorIfEPFbfEEbT_S4_T0_.exit
@@ -11129,7 +11129,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
   %97 = sdiv exact i64 %96, 136
-  %98 = icmp ult i64 %97, %90
+  %98 = icmp ugt i64 %90, %97
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -11138,7 +11138,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
           to label %_ZNSt6vectorIN7xgboost6common16WXQuantileSketchIffEESaIS3_EE6resizeEm.exit unwind label %78
 
 101:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %102 = icmp ugt i64 %97, %90
+  %102 = icmp ult i64 %90, %97
   br i1 %102, label %103, label %_ZNSt6vectorIN7xgboost6common16WXQuantileSketchIffEESaIS3_EE6resizeEm.exit
 
 103:                                              ; preds = %101
@@ -11257,7 +11257,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %144 = ptrtoint ptr %142 to i64
   %145 = sub i64 %143, %144
   %146 = sdiv exact i64 %145, 48
-  %147 = icmp ult i64 %146, %139
+  %147 = icmp ugt i64 %139, %146
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit50
@@ -11266,7 +11266,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
           to label %_ZNSt6vectorISt3setIfSt4lessIfESaIfEESaIS4_EE6resizeEm.exit unwind label %78
 
 150:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit50
-  %151 = icmp ugt i64 %146, %139
+  %151 = icmp ult i64 %139, %146
   br i1 %151, label %152, label %_ZNSt6vectorISt3setIfSt4lessIfESaIfEESaIS4_EE6resizeEm.exit
 
 152:                                              ; preds = %150
@@ -11398,7 +11398,7 @@ _ZNSt6vectorISt3setIfSt4lessIfESaIfEESaIS4_EE6resizeEm.exit: ; preds = %_ZSt8_De
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i52, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit80, %.loopexit.loopexit.split.loop.exit82, %198, %193, %188, %._crit_edge.i.i.i.i.i
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %188 ], [ %.sroa.025.1.i.i.i.i.i, %193 ], [ %162, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %198 ], [ %201, %.loopexit.loopexit.split.loop.exit ], [ %202, %.loopexit.loopexit.split.loop.exit80 ], [ %203, %.loopexit.loopexit.split.loop.exit82 ], [ %.sroa.025.044.i.i.i.i.i, %.lr.ph.i.i.i.i.i52 ]
-  %204 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %162
+  %204 = icmp ne ptr %162, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   %205 = zext i1 %204 to i8
   store i8 %205, ptr %36, align 4
   ret void
@@ -11585,7 +11585,7 @@ define weak_odr noundef i32 @_ZN7xgboost6common19SketchContainerImplINS0_16WXQua
   %8 = getelementptr inbounds i8, ptr %7, i64 -4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %12
 
 12:                                               ; preds = %2
@@ -12450,7 +12450,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %291 = ptrtoint ptr %289 to i64
   %292 = sub i64 %290, %291
   %293 = ashr exact i64 %292, 4
-  %294 = icmp ult i64 %293, %286
+  %294 = icmp ugt i64 %286, %293
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -12465,7 +12465,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit
 
 297:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %298 = icmp ugt i64 %293, %286
+  %298 = icmp ult i64 %286, %293
   br i1 %298, label %299, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit
 
 299:                                              ; preds = %297
@@ -12495,7 +12495,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit: ;
   br i1 %314, label %315, label %316
 
 315:                                              ; preds = %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit
-  %.not8.i = icmp ult i64 %306, %310
+  %.not8.i = icmp ugt i64 %310, %306
   br i1 %.not8.i, label %317, label %318
 
 316:                                              ; preds = %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit
@@ -13151,7 +13151,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %139 = ptrtoint ptr %137 to i64
   %140 = sub i64 %138, %139
   %141 = ashr exact i64 %140, 2
-  %142 = icmp ult i64 %141, %135
+  %142 = icmp ugt i64 %135, %141
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit68
@@ -13160,7 +13160,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %87
 
 145:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit68
-  %146 = icmp ugt i64 %141, %135
+  %146 = icmp ult i64 %135, %141
   br i1 %146, label %147, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 147:                                              ; preds = %145
@@ -13186,7 +13186,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %149, %147, %145, %1
   %160 = ptrtoint ptr %158 to i64
   %161 = sub i64 %159, %160
   %162 = sdiv exact i64 %161, 40
-  %163 = icmp ult i64 %162, %155
+  %163 = icmp ugt i64 %155, %162
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -13195,7 +13195,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %149, %147, %145, %1
           to label %_ZNSt6vectorIN7xgboost6common22QuantileSketchTemplateIffNS1_10WXQSummaryIffEEE16SummaryContainerESaIS6_EE6resizeEm.exit unwind label %87
 
 166:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %167 = icmp ugt i64 %162, %155
+  %167 = icmp ult i64 %155, %162
   br i1 %167, label %168, label %_ZNSt6vectorIN7xgboost6common22QuantileSketchTemplateIffNS1_10WXQSummaryIffEEE16SummaryContainerESaIS6_EE6resizeEm.exit
 
 168:                                              ; preds = %166
@@ -15508,7 +15508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = ashr exact i64 %44, 2
-  %46 = icmp ult i64 %45, %38
+  %46 = icmp ugt i64 %38, %45
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %31
@@ -15517,7 +15517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit unwind label %121
 
 49:                                               ; preds = %31
-  %50 = icmp ugt i64 %45, %38
+  %50 = icmp ult i64 %38, %45
   br i1 %50, label %51, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 51:                                               ; preds = %49
@@ -15641,7 +15641,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %107 = ptrtoint ptr %105 to i64
   %108 = sub i64 %106, %107
   %109 = sdiv exact i64 %108, 48
-  %.not.i.i51 = icmp ugt i64 %109, %.033136
+  %.not.i.i51 = icmp ult i64 %.033136, %109
   br i1 %.not.i.i51, label %111, label %110
 
 110:                                              ; preds = %103
@@ -17928,7 +17928,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 
 238:                                              ; preds = %235, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa27.i.i, %235 ], [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ]
-  %239 = icmp eq ptr %226, %.sroa.4.0.i.ph.i
+  %239 = icmp eq ptr %.sroa.4.0.i.ph.i, %226
   br i1 %239, label %.thread21.i, label %240
 
 240:                                              ; preds = %238
@@ -18467,7 +18467,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -19885,7 +19885,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !249
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -19969,7 +19969,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !249
 
 _ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -20193,7 +20193,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
   %39 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
   %.02587 = phi i64 [ 1, %.lr.ph ], [ %.126, %83 ]
   %.sroa.047.086 = phi ptr [ %32, %.lr.ph ], [ %85, %83 ]
-  %.not.i.i = icmp ugt i64 %.pre101, %.02587
+  %.not.i.i = icmp ult i64 %.02587, %.pre101
   br i1 %.not.i.i, label %41, label %40
 
 40:                                               ; preds = %38
@@ -20312,7 +20312,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 77:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %78 = add nuw i64 %.02587, 1
   store i64 0, ptr %9, align 8
-  %.not.i.i41 = icmp ugt i64 %.pre101, %78
+  %.not.i.i41 = icmp ult i64 %78, %.pre101
   br i1 %.not.i.i41, label %80, label %79
 
 79:                                               ; preds = %77
@@ -21911,7 +21911,7 @@ define linkonce_odr void @_ZZN7xgboost6common19SketchContainerImplINS0_15WQuanti
   br label %_ZNK7xgboost6common15OptionalWeightsixEm.exit
 
 43:                                               ; preds = %33
-  %44 = icmp ugt i64 %39, %38
+  %44 = icmp ult i64 %38, %39
   br i1 %44, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %45
 
 45:                                               ; preds = %43
@@ -22307,7 +22307,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   %25 = load i64, ptr %24, align 8
   %26 = shl i64 %25, 1
-  %27 = icmp ult i64 %7, %26
+  %27 = icmp ugt i64 %26, %7
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23
@@ -22316,7 +22316,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   br label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5Queue6QEntryESaIS5_EE6resizeEm.exit
 
 30:                                               ; preds = %23
-  %31 = icmp ugt i64 %7, %26
+  %31 = icmp ult i64 %26, %7
   br i1 %31, label %32, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5Queue6QEntryESaIS5_EE6resizeEm.exit
 
 32:                                               ; preds = %30
@@ -22341,7 +22341,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
   %47 = ashr exact i64 %46, 4
-  %48 = icmp ult i64 %47, %39
+  %48 = icmp ugt i64 %39, %47
   br i1 %48, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %35
@@ -22458,7 +22458,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5Queue6QEntryESaIS5_EE6resizeEm.exit:
 91:                                               ; preds = %83
   %92 = getelementptr i8, ptr %84, i64 -4
   %93 = load float, ptr %92, align 4
-  %94 = fadd float %93, %2
+  %94 = fadd float %2, %93
   store float %94, ptr %92, align 4
   br label %_ZN7xgboost6common9WQSummaryIffE5Queue4PushEff.exit
 
@@ -22514,7 +22514,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIffSt9_IdentityIfESt4lessIfESaIfE
 
 19:                                               ; preds = %._crit_edge.thread.i, %16
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa27.i, %16 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ]
-  %20 = icmp eq ptr %7, %.sroa.4.0.i.ph
+  %20 = icmp eq ptr %.sroa.4.0.i.ph, %7
   br i1 %20, label %.thread21, label %21
 
 21:                                               ; preds = %19
@@ -22564,7 +22564,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 4
-  %14 = icmp ult i64 %13, %5
+  %14 = icmp ugt i64 %5, %13
   br i1 %14, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %1
@@ -23232,7 +23232,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7xg
   %.0.us = phi i64 [ %43, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7xgboost6common9WQSummaryIffE5Queue6QEntryESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit.us ], [ %10, %.split ]
   %phi.call.us = getelementptr inbounds %"struct.xgboost::common::WQSummary<float, float>::Queue::QEntry", ptr %0, i64 %.0.us
   %.sroa.02.0.copyload.us = load <2 x float>, ptr %phi.call.us, align 4
-  %19 = icmp sgt i64 %12, %.0.us
+  %19 = icmp slt i64 %.0.us, %12
   br i1 %19, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7xgboost6common9WQSummaryIffE5Queue6QEntryESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.split.us, %.lr.ph.i.us
@@ -23289,7 +23289,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7xgboost6common9WQSummaryIf
   %.0 = phi i64 [ %72, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7xgboost6common9WQSummaryIffE5Queue6QEntryESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit ], [ %10, %.split.split.preheader ]
   %phi.call = getelementptr inbounds %"struct.xgboost::common::WQSummary<float, float>::Queue::QEntry", ptr %0, i64 %.0
   %.sroa.02.0.copyload = load <2 x float>, ptr %phi.call, align 4
-  %44 = icmp sgt i64 %12, %.0
+  %44 = icmp slt i64 %.0, %12
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split, %.lr.ph.i
@@ -23386,7 +23386,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
   %23 = ashr exact i64 %22, 4
-  %24 = icmp ult i64 %23, %16
+  %24 = icmp ugt i64 %16, %23
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %12
@@ -23401,7 +23401,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   br label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit
 
 27:                                               ; preds = %12
-  %28 = icmp ugt i64 %23, %16
+  %28 = icmp ult i64 %16, %23
   br i1 %28, label %29, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit
 
 29:                                               ; preds = %27
@@ -23417,7 +23417,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit: ; pred
   %.pre-phi20 = phi i64 [ %.pre19, %25 ], [ %11, %27 ], [ %11, %29 ], [ %11, %31 ]
   %32 = phi ptr [ %.pre11, %25 ], [ %7, %27 ], [ %7, %29 ], [ %7, %31 ]
   %33 = phi ptr [ %.pre, %25 ], [ %6, %27 ], [ %6, %29 ], [ %6, %31 ]
-  %34 = icmp ult i64 %.pre-phi20, %1
+  %34 = icmp ugt i64 %1, %.pre-phi20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   br i1 %34, label %35, label %37
 
@@ -23429,7 +23429,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit: ; pred
   br label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffEESaIS3_EE6resizeEmRKS3_.exit
 
 37:                                               ; preds = %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit
-  %38 = icmp ugt i64 %.pre-phi20, %1
+  %38 = icmp ult i64 %1, %.pre-phi20
   br i1 %38, label %39, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffEESaIS3_EE6resizeEmRKS3_.exit
 
 39:                                               ; preds = %37
@@ -24468,7 +24468,7 @@ _ZSt13move_backwardIPN7xgboost6common9WQSummaryIffEES4_ET0_T_S6_S5_.exit: ; pred
 _ZSt24__uninitialized_fill_n_aIPN7xgboost6common9WQSummaryIffEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %33
   %37 = phi ptr [ %9, %33 ], [ %36, %.lr.ph.i.i.i.i ]
   store ptr %37, ptr %8, align 8
-  %.not11.i.i.i.i.i69 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i69 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN7xgboost6common9WQSummaryIffEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN7xgboost6common9WQSummaryIffEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN7xgboost6common9WQSummaryIffEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit
@@ -24559,7 +24559,7 @@ _ZSt24__uninitialized_fill_n_aIPN7xgboost6common9WQSummaryIffEEmS3_S3_ET_S5_T0_R
 _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6common9WQSummaryIffEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6common9WQSummaryIffEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %61, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6common9WQSummaryIffEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87 ], [ %66, %.lr.ph.i.i.i.i.i89 ]
   %67 = getelementptr %"struct.xgboost::common::WQSummary", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
-  %.not11.i.i.i.i.i94 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6common9WQSummaryIffEES4_SaIS3_EET0_T_S7_S6_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
 .lr.ph.i.i.i.i.i95:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6common9WQSummaryIffEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %.lr.ph.i.i.i.i.i95
@@ -24649,7 +24649,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIffSt9_IdentityIfESt4lessIfESaIfE
 
 19:                                               ; preds = %._crit_edge.thread.i, %16
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa27.i, %16 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ]
-  %20 = icmp eq ptr %7, %.sroa.4.0.i.ph
+  %20 = icmp eq ptr %.sroa.4.0.i.ph, %7
   br i1 %20, label %.thread21, label %21
 
 21:                                               ; preds = %19
@@ -24765,7 +24765,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
   %39 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
   %.02587 = phi i64 [ 1, %.lr.ph ], [ %.126, %83 ]
   %.sroa.047.086 = phi ptr [ %32, %.lr.ph ], [ %85, %83 ]
-  %.not.i.i = icmp ugt i64 %.pre101, %.02587
+  %.not.i.i = icmp ult i64 %.02587, %.pre101
   br i1 %.not.i.i, label %41, label %40
 
 40:                                               ; preds = %38
@@ -24884,7 +24884,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 77:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %78 = add nuw i64 %.02587, 1
   store i64 0, ptr %9, align 8
-  %.not.i.i41 = icmp ugt i64 %.pre101, %78
+  %.not.i.i41 = icmp ult i64 %78, %.pre101
   br i1 %.not.i.i41, label %80, label %79
 
 79:                                               ; preds = %77
@@ -26513,7 +26513,7 @@ define linkonce_odr void @_ZZN7xgboost6common19SketchContainerImplINS0_15WQuanti
   br label %_ZNK7xgboost6common15OptionalWeightsixEm.exit
 
 48:                                               ; preds = %33
-  %49 = icmp ugt i64 %44, %43
+  %49 = icmp ult i64 %43, %44
   br i1 %49, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %50
 
 50:                                               ; preds = %48
@@ -27138,7 +27138,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
   %39 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
   %.02587 = phi i64 [ 1, %.lr.ph ], [ %.126, %83 ]
   %.sroa.047.086 = phi ptr [ %32, %.lr.ph ], [ %85, %83 ]
-  %.not.i.i = icmp ugt i64 %.pre101, %.02587
+  %.not.i.i = icmp ult i64 %.02587, %.pre101
   br i1 %.not.i.i, label %41, label %40
 
 40:                                               ; preds = %38
@@ -27257,7 +27257,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 77:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %78 = add nuw i64 %.02587, 1
   store i64 0, ptr %9, align 8
-  %.not.i.i41 = icmp ugt i64 %.pre101, %78
+  %.not.i.i41 = icmp ult i64 %78, %.pre101
   br i1 %.not.i.i41, label %80, label %79
 
 79:                                               ; preds = %77
@@ -28527,7 +28527,7 @@ define linkonce_odr void @_ZZN7xgboost6common19SketchContainerImplINS0_15WQuanti
   br label %_ZNK7xgboost6common15OptionalWeightsixEm.exit
 
 55:                                               ; preds = %33
-  %56 = icmp ugt i64 %51, %50
+  %56 = icmp ult i64 %50, %51
   br i1 %56, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %57
 
 57:                                               ; preds = %55
@@ -28793,7 +28793,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
   %39 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
   %.02587 = phi i64 [ 1, %.lr.ph ], [ %.126, %83 ]
   %.sroa.047.086 = phi ptr [ %32, %.lr.ph ], [ %85, %83 ]
-  %.not.i.i = icmp ugt i64 %.pre101, %.02587
+  %.not.i.i = icmp ult i64 %.02587, %.pre101
   br i1 %.not.i.i, label %41, label %40
 
 40:                                               ; preds = %38
@@ -28912,7 +28912,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 77:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %78 = add nuw i64 %.02587, 1
   store i64 0, ptr %9, align 8
-  %.not.i.i41 = icmp ugt i64 %.pre101, %78
+  %.not.i.i41 = icmp ult i64 %78, %.pre101
   br i1 %.not.i.i41, label %80, label %79
 
 79:                                               ; preds = %77
@@ -30342,7 +30342,7 @@ define linkonce_odr void @_ZZN7xgboost6common19SketchContainerImplINS0_15WQuanti
   br label %_ZNK7xgboost6common15OptionalWeightsixEm.exit
 
 48:                                               ; preds = %36
-  %49 = icmp ugt i64 %44, %43
+  %49 = icmp ult i64 %43, %44
   br i1 %49, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %50
 
 50:                                               ; preds = %48
@@ -30606,7 +30606,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
   %39 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
   %.02587 = phi i64 [ 1, %.lr.ph ], [ %.126, %83 ]
   %.sroa.047.086 = phi ptr [ %32, %.lr.ph ], [ %85, %83 ]
-  %.not.i.i = icmp ugt i64 %.pre101, %.02587
+  %.not.i.i = icmp ult i64 %.02587, %.pre101
   br i1 %.not.i.i, label %41, label %40
 
 40:                                               ; preds = %38
@@ -30725,7 +30725,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 77:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %78 = add nuw i64 %.02587, 1
   store i64 0, ptr %9, align 8
-  %.not.i.i41 = icmp ugt i64 %.pre101, %78
+  %.not.i.i41 = icmp ult i64 %78, %.pre101
   br i1 %.not.i.i41, label %80, label %79
 
 79:                                               ; preds = %77
@@ -32015,7 +32015,7 @@ _ZNK7xgboost4data22SparsePageAdapterBatch7GetLineEm.exit: ; preds = %32
   br label %_ZNK7xgboost6common15OptionalWeightsixEm.exit
 
 56:                                               ; preds = %_ZNK7xgboost4data22SparsePageAdapterBatch7GetLineEm.exit
-  %57 = icmp ugt i64 %52, %51
+  %57 = icmp ult i64 %51, %52
   br i1 %57, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %58
 
 58:                                               ; preds = %56
@@ -32260,7 +32260,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
   %39 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
   %.02587 = phi i64 [ 1, %.lr.ph ], [ %.126, %83 ]
   %.sroa.047.086 = phi ptr [ %32, %.lr.ph ], [ %85, %83 ]
-  %.not.i.i = icmp ugt i64 %.pre101, %.02587
+  %.not.i.i = icmp ult i64 %.02587, %.pre101
   br i1 %.not.i.i, label %41, label %40
 
 40:                                               ; preds = %38
@@ -32379,7 +32379,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 77:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %78 = add nuw i64 %.02587, 1
   store i64 0, ptr %9, align 8
-  %.not.i.i41 = icmp ugt i64 %.pre101, %78
+  %.not.i.i41 = icmp ult i64 %78, %.pre101
   br i1 %.not.i.i41, label %80, label %79
 
 79:                                               ; preds = %77
@@ -33814,7 +33814,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit: ; preds = %30, %_ZNK7xgboos
   br label %_ZNK7xgboost6common15OptionalWeightsixEm.exit
 
 49:                                               ; preds = %40
-  %50 = icmp ugt i64 %45, %44
+  %50 = icmp ult i64 %44, %45
   br i1 %50, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %51
 
 51:                                               ; preds = %49
@@ -33850,7 +33850,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit50.lr.ph: ; preds
   %.03966 = phi i64 [ %24, %.lr.ph ], [ %194, %193 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !455)
   %62 = load i64, ptr %31, align 8, !noalias !455
-  %63 = icmp ugt i64 %62, %.03966
+  %63 = icmp ult i64 %.03966, %62
   br i1 %63, label %_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit, label %64
 
 64:                                               ; preds = %61
@@ -35618,7 +35618,7 @@ _ZSt13move_backwardIPN7xgboost6common9WQSummaryIffE5EntryES5_ET0_T_S7_S6_.exit: 
 _ZSt24__uninitialized_fill_n_aIPN7xgboost6common9WQSummaryIffE5EntryEmS4_S4_ET_S6_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %33
   %37 = phi ptr [ %9, %33 ], [ %36, %.lr.ph.i.i.i.i ]
   store ptr %37, ptr %8, align 8
-  %.not11.i.i.i.i.i69 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i69 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN7xgboost6common9WQSummaryIffE5EntryES5_SaIS4_EET0_T_S8_S7_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN7xgboost6common9WQSummaryIffE5EntryES5_SaIS4_EET0_T_S8_S7_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN7xgboost6common9WQSummaryIffE5EntryEmS4_S4_ET_S6_T0_RKT1_RSaIT2_E.exit
@@ -35709,7 +35709,7 @@ _ZSt24__uninitialized_fill_n_aIPN7xgboost6common9WQSummaryIffE5EntryEmS4_S4_ET_S
 _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6common9WQSummaryIffE5EntryES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6common9WQSummaryIffE5EntryEmS4_S4_ET_S6_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %61, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6common9WQSummaryIffE5EntryEmS4_S4_ET_S6_T0_RKT1_RSaIT2_E.exit87 ], [ %66, %.lr.ph.i.i.i.i.i89 ]
   %67 = getelementptr %"struct.xgboost::common::WQSummary<float, float>::Entry", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
-  %.not11.i.i.i.i.i94 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6common9WQSummaryIffE5EntryES5_SaIS4_EET0_T_S8_S7_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
 .lr.ph.i.i.i.i.i95:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6common9WQSummaryIffE5EntryES5_SaIS4_EET0_T_S8_S7_RT1_.exit, %.lr.ph.i.i.i.i.i95
@@ -36937,7 +36937,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 4
-  %54 = icmp ult i64 %53, %45
+  %54 = icmp ugt i64 %45, %53
   br i1 %54, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %40
@@ -37105,7 +37105,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 4
-  %19 = icmp ult i64 %18, %10
+  %19 = icmp ugt i64 %10, %18
   br i1 %19, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %7
@@ -37129,7 +37129,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; pr
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 4
-  %37 = icmp ult i64 %36, %28
+  %37 = icmp ugt i64 %28, %36
   br i1 %37, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i17, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i17: ; preds = %21
@@ -37291,7 +37291,7 @@ _ZN7xgboost6common9WQSummaryIffE5Queue11MakeSummaryEPS2_.exit: ; preds = %.crite
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
   %119 = ashr exact i64 %118, 4
-  %120 = icmp ult i64 %119, %108
+  %120 = icmp ugt i64 %108, %119
   br i1 %120, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i20, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit22
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i20: ; preds = %110
@@ -38061,7 +38061,7 @@ _ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit17: ; preds = %_ZNK7x
   br i1 %21, label %23, label %24
 
 23:                                               ; preds = %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit17
-  %.not8.i = icmp ult i64 %22, %19
+  %.not8.i = icmp ugt i64 %19, %22
   br i1 %.not8.i, label %25, label %26
 
 24:                                               ; preds = %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit17
@@ -38121,7 +38121,7 @@ _ZNK7xgboost6common4SpanINS0_9WQSummaryIffE5EntryELm18446744073709551615EE7subsp
   unreachable
 
 _ZNK7xgboost6common4SpanImLm18446744073709551615EE7subspanEmm.exit: ; preds = %46
-  %53 = icmp ugt i32 %38, %3
+  %53 = icmp ult i32 %3, %38
   br i1 %53, label %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit21, label %54
 
 54:                                               ; preds = %_ZNK7xgboost6common4SpanImLm18446744073709551615EE7subspanEmm.exit
@@ -38133,7 +38133,7 @@ _ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit21: ; preds = %_ZNK7x
   %56 = getelementptr inbounds i64, ptr %48, i64 %55
   %57 = load i64, ptr %56, align 8
   %58 = add nuw i32 %3, 1
-  %59 = icmp ugt i32 %38, %58
+  %59 = icmp ult i32 %58, %38
   br i1 %59, label %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit22, label %60
 
 60:                                               ; preds = %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit21
@@ -38150,7 +38150,7 @@ _ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit22: ; preds = %_ZNK7x
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit22
-  %.not8.i25 = icmp ult i64 %29, %57
+  %.not8.i25 = icmp ugt i64 %57, %29
   br i1 %.not8.i25, label %68, label %69
 
 67:                                               ; preds = %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit22
@@ -38196,7 +38196,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 4
-  %15 = icmp ult i64 %14, %6
+  %15 = icmp ugt i64 %6, %14
   br i1 %15, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %3
@@ -38384,7 +38384,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
   %39 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
   %.02587 = phi i64 [ 1, %.lr.ph ], [ %.126, %83 ]
   %.sroa.047.086 = phi ptr [ %32, %.lr.ph ], [ %85, %83 ]
-  %.not.i.i = icmp ugt i64 %.pre101, %.02587
+  %.not.i.i = icmp ult i64 %.02587, %.pre101
   br i1 %.not.i.i, label %41, label %40
 
 40:                                               ; preds = %38
@@ -38503,7 +38503,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 77:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %78 = add nuw i64 %.02587, 1
   store i64 0, ptr %9, align 8
-  %.not.i.i41 = icmp ugt i64 %.pre101, %78
+  %.not.i.i41 = icmp ult i64 %78, %.pre101
   br i1 %.not.i.i41, label %80, label %79
 
 79:                                               ; preds = %77
@@ -39775,7 +39775,7 @@ _ZNK7xgboost4data22SparsePageAdapterBatch7GetLineEm.exit: ; preds = %31
   br label %_ZNK7xgboost6common15OptionalWeightsixEm.exit
 
 55:                                               ; preds = %_ZNK7xgboost4data22SparsePageAdapterBatch7GetLineEm.exit
-  %56 = icmp ugt i64 %51, %50
+  %56 = icmp ult i64 %50, %51
   br i1 %56, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %57
 
 57:                                               ; preds = %55
@@ -39975,7 +39975,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !564
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -40059,7 +40059,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !564
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -40296,7 +40296,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 4
-  %43 = icmp ult i64 %42, %34
+  %43 = icmp ugt i64 %34, %42
   br i1 %43, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exitthread-pre-split
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread
@@ -41089,7 +41089,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0
 
 60:                                               ; preds = %57, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa27.i.i, %57 ], [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ]
-  %61 = icmp eq ptr %48, %.sroa.4.0.i.ph.i
+  %61 = icmp eq ptr %.sroa.4.0.i.ph.i, %48
   br i1 %61, label %.thread21.i, label %62
 
 62:                                               ; preds = %60
@@ -41157,7 +41157,7 @@ _ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit17: ; preds = %_ZNK7x
   br i1 %21, label %23, label %24
 
 23:                                               ; preds = %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit17
-  %.not8.i = icmp ult i64 %22, %19
+  %.not8.i = icmp ugt i64 %19, %22
   br i1 %.not8.i, label %25, label %26
 
 24:                                               ; preds = %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit17
@@ -41217,7 +41217,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EE7subspanEmm.exit: ; preds = %2
   unreachable
 
 _ZNK7xgboost6common4SpanImLm18446744073709551615EE7subspanEmm.exit: ; preds = %46
-  %53 = icmp ugt i32 %38, %3
+  %53 = icmp ult i32 %3, %38
   br i1 %53, label %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit21, label %54
 
 54:                                               ; preds = %_ZNK7xgboost6common4SpanImLm18446744073709551615EE7subspanEmm.exit
@@ -41229,7 +41229,7 @@ _ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit21: ; preds = %_ZNK7x
   %56 = getelementptr inbounds i64, ptr %48, i64 %55
   %57 = load i64, ptr %56, align 8
   %58 = add nuw i32 %3, 1
-  %59 = icmp ugt i32 %38, %58
+  %59 = icmp ult i32 %58, %38
   br i1 %59, label %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit22, label %60
 
 60:                                               ; preds = %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit21
@@ -41246,7 +41246,7 @@ _ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit22: ; preds = %_ZNK7x
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit22
-  %.not8.i25 = icmp ult i64 %29, %57
+  %.not8.i25 = icmp ugt i64 %57, %29
   br i1 %.not8.i25, label %68, label %69
 
 67:                                               ; preds = %_ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit22
@@ -42599,7 +42599,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 4
-  %54 = icmp ult i64 %53, %45
+  %54 = icmp ugt i64 %45, %53
   br i1 %54, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %40
@@ -42767,7 +42767,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 4
-  %19 = icmp ult i64 %18, %10
+  %19 = icmp ugt i64 %10, %18
   br i1 %19, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %7
@@ -42791,7 +42791,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; pr
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 4
-  %37 = icmp ult i64 %36, %28
+  %37 = icmp ugt i64 %28, %36
   br i1 %37, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i17, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i17: ; preds = %21
@@ -42953,7 +42953,7 @@ _ZN7xgboost6common9WQSummaryIffE5Queue11MakeSummaryEPS2_.exit: ; preds = %.crite
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
   %119 = ashr exact i64 %118, 4
-  %120 = icmp ult i64 %119, %108
+  %120 = icmp ugt i64 %108, %119
   br i1 %120, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i20, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit22
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i20: ; preds = %110
@@ -44325,7 +44325,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 4
-  %15 = icmp ult i64 %14, %6
+  %15 = icmp ugt i64 %6, %14
   br i1 %15, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %3
@@ -44513,7 +44513,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
   %39 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
   %.02587 = phi i64 [ 1, %.lr.ph ], [ %.126, %83 ]
   %.sroa.047.086 = phi ptr [ %32, %.lr.ph ], [ %85, %83 ]
-  %.not.i.i = icmp ugt i64 %.pre101, %.02587
+  %.not.i.i = icmp ult i64 %.02587, %.pre101
   br i1 %.not.i.i, label %41, label %40
 
 40:                                               ; preds = %38
@@ -44632,7 +44632,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 77:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %78 = add nuw i64 %.02587, 1
   store i64 0, ptr %9, align 8
-  %.not.i.i41 = icmp ugt i64 %.pre101, %78
+  %.not.i.i41 = icmp ult i64 %78, %.pre101
   br i1 %.not.i.i41, label %80, label %79
 
 79:                                               ; preds = %77
@@ -45904,7 +45904,7 @@ _ZNK7xgboost4data22SparsePageAdapterBatch7GetLineEm.exit: ; preds = %31
   br label %_ZNK7xgboost6common15OptionalWeightsixEm.exit
 
 55:                                               ; preds = %_ZNK7xgboost4data22SparsePageAdapterBatch7GetLineEm.exit
-  %56 = icmp ugt i64 %51, %50
+  %56 = icmp ult i64 %50, %51
   br i1 %56, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %57
 
 57:                                               ; preds = %55
@@ -46080,7 +46080,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   %25 = load i64, ptr %24, align 8
   %26 = shl i64 %25, 1
-  %27 = icmp ult i64 %7, %26
+  %27 = icmp ugt i64 %26, %7
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23
@@ -46089,7 +46089,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   br label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5Queue6QEntryESaIS5_EE6resizeEm.exit
 
 30:                                               ; preds = %23
-  %31 = icmp ugt i64 %7, %26
+  %31 = icmp ult i64 %26, %7
   br i1 %31, label %32, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5Queue6QEntryESaIS5_EE6resizeEm.exit
 
 32:                                               ; preds = %30
@@ -46114,7 +46114,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
   %47 = ashr exact i64 %46, 4
-  %48 = icmp ult i64 %47, %39
+  %48 = icmp ugt i64 %39, %47
   br i1 %48, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %35
@@ -46231,7 +46231,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5Queue6QEntryESaIS5_EE6resizeEm.exit:
 91:                                               ; preds = %83
   %92 = getelementptr i8, ptr %84, i64 -4
   %93 = load float, ptr %92, align 4
-  %94 = fadd float %93, %2
+  %94 = fadd float %2, %93
   store float %94, ptr %92, align 4
   br label %_ZN7xgboost6common9WQSummaryIffE5Queue4PushEff.exit
 
@@ -46253,7 +46253,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 4
-  %14 = icmp ult i64 %13, %5
+  %14 = icmp ugt i64 %5, %13
   br i1 %14, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %1
@@ -46348,7 +46348,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
   %23 = ashr exact i64 %22, 4
-  %24 = icmp ult i64 %23, %16
+  %24 = icmp ugt i64 %16, %23
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %12
@@ -46363,7 +46363,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   br label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit
 
 27:                                               ; preds = %12
-  %28 = icmp ugt i64 %23, %16
+  %28 = icmp ult i64 %16, %23
   br i1 %28, label %29, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit
 
 29:                                               ; preds = %27
@@ -46379,7 +46379,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit: ; pred
   %.pre-phi20 = phi i64 [ %.pre19, %25 ], [ %11, %27 ], [ %11, %29 ], [ %11, %31 ]
   %32 = phi ptr [ %.pre11, %25 ], [ %7, %27 ], [ %7, %29 ], [ %7, %31 ]
   %33 = phi ptr [ %.pre, %25 ], [ %6, %27 ], [ %6, %29 ], [ %6, %31 ]
-  %34 = icmp ult i64 %.pre-phi20, %1
+  %34 = icmp ugt i64 %1, %.pre-phi20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   br i1 %34, label %35, label %37
 
@@ -46391,7 +46391,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit: ; pred
   br label %_ZNSt6vectorIN7xgboost6common10WXQSummaryIffEESaIS3_EE6resizeEmRKS3_.exit
 
 37:                                               ; preds = %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit
-  %38 = icmp ugt i64 %.pre-phi20, %1
+  %38 = icmp ult i64 %1, %.pre-phi20
   br i1 %38, label %39, label %_ZNSt6vectorIN7xgboost6common10WXQSummaryIffEESaIS3_EE6resizeEmRKS3_.exit
 
 39:                                               ; preds = %37
@@ -46525,7 +46525,7 @@ _ZSt13move_backwardIPN7xgboost6common10WXQSummaryIffEES4_ET0_T_S6_S5_.exit: ; pr
 _ZSt24__uninitialized_fill_n_aIPN7xgboost6common10WXQSummaryIffEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %33
   %37 = phi ptr [ %9, %33 ], [ %36, %.lr.ph.i.i.i.i ]
   store ptr %37, ptr %8, align 8
-  %.not11.i.i.i.i.i69 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i69 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN7xgboost6common10WXQSummaryIffEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN7xgboost6common10WXQSummaryIffEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN7xgboost6common10WXQSummaryIffEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit
@@ -46616,7 +46616,7 @@ _ZSt24__uninitialized_fill_n_aIPN7xgboost6common10WXQSummaryIffEEmS3_S3_ET_S5_T0
 _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6common10WXQSummaryIffEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6common10WXQSummaryIffEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %61, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6common10WXQSummaryIffEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87 ], [ %66, %.lr.ph.i.i.i.i.i89 ]
   %67 = getelementptr %"struct.xgboost::common::WXQSummary", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
-  %.not11.i.i.i.i.i94 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6common10WXQSummaryIffEES4_SaIS3_EET0_T_S7_S6_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
 .lr.ph.i.i.i.i.i95:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6common10WXQSummaryIffEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %.lr.ph.i.i.i.i.i95
@@ -46851,7 +46851,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 4
-  %43 = icmp ult i64 %42, %34
+  %43 = icmp ugt i64 %34, %42
   br i1 %43, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exitthread-pre-split
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread
@@ -47589,7 +47589,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0
 
 60:                                               ; preds = %57, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa27.i.i, %57 ], [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ]
-  %61 = icmp eq ptr %48, %.sroa.4.0.i.ph.i
+  %61 = icmp eq ptr %.sroa.4.0.i.ph.i, %48
   br i1 %61, label %.thread21.i, label %62
 
 62:                                               ; preds = %60
@@ -47742,7 +47742,7 @@ _ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE4InitEmd.exit.i
   %73 = ptrtoint ptr %71 to i64
   %74 = sub i64 %72, %73
   %75 = ashr exact i64 %74, 3
-  %76 = icmp ult i64 %75, %68
+  %76 = icmp ugt i64 %68, %75
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE4InitEmd.exit.i
@@ -47751,7 +47751,7 @@ _ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE4InitEmd.exit.i
           to label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.exit" unwind label %84
 
 79:                                               ; preds = %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE4InitEmd.exit.i
-  %80 = icmp ugt i64 %75, %68
+  %80 = icmp ult i64 %68, %75
   br i1 %80, label %81, label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.exit"
 
 81:                                               ; preds = %79
@@ -47928,7 +47928,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
 
 15:                                               ; preds = %6
   %16 = uitofp i64 %.sroa.speculated26 to double
-  %17 = fmul double %16, %1
+  %17 = fmul double %1, %16
   %18 = fptoui double %17 to i64
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   %.not20 = icmp ugt i64 %12, %.sroa.speculated

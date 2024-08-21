@@ -311,7 +311,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   store double %140, ptr %142, align 8
   %indvars.iv.next284.i.us = add nuw nsw i64 %indvars.iv283.i.us, 1
   %143 = trunc nuw i64 %indvars.iv.next284.i.us to i32
-  %144 = icmp slt i32 %143, %1
+  %144 = icmp sgt i32 %1, %143
   br i1 %144, label %129, label %.preheader.i.us, !llvm.loop !12
 
 .preheader.i.us:                                  ; preds = %129, %.preheader196.i.us..preheader.i.us_crit_edge

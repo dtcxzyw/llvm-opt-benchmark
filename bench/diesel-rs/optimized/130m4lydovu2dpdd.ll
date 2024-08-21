@@ -492,7 +492,7 @@ define hidden void @"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$
   %10 = load i64, ptr %9, align 8, !alias.scope !33, !noalias !38, !noundef !4
   %11 = load i64, ptr %8, align 8, !alias.scope !40, !noalias !38, !noundef !4
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %7
+  %13 = icmp ugt i64 %7, %12
   br i1 %13, label %14, label %"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$DB$GT$$GT$6to_sql17hdcb4779c5a0c43a9E.llvm.12988233250446828850.exit"
 
 14:                                               ; preds = %3
@@ -530,7 +530,7 @@ define hidden void @"_ZN64_$LT$$RF$T$u20$as$u20$diesel..serialize..ToSql$LT$A$C$
   %9 = load i64, ptr %8, align 8, !alias.scope !56, !noalias !61, !noundef !4
   %10 = load i64, ptr %7, align 8, !alias.scope !63, !noalias !61, !noundef !4
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %6
+  %12 = icmp ugt i64 %6, %11
   br i1 %12, label %13, label %"_ZN6diesel10type_impls10primitives94_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Text$C$DB$GT$$u20$for$u20$str$GT$6to_sql17hbc196e11fa5007cfE.exit"
 
 13:                                               ; preds = %3

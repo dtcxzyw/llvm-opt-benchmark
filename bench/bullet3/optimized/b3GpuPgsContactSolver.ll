@@ -3436,7 +3436,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %if.
   %cmp9 = fcmp olt float %p.sroa.0.0.copyload, 0.000000e+00
   %cond10 = select i1 %cmp9, float 1.000000e+00, float 0.000000e+00
   %sub = fsub float %p.sroa.0.0.copyload, %cond10
-  %mul = fmul float %sub, %scale
+  %mul = fmul float %scale, %sub
   %conv = fptosi float %mul to i32
   %5 = load i32, ptr %nSplit, align 16
   %sub12 = add nsw i32 %5, -1
@@ -3444,7 +3444,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %if.
   %cmp14 = fcmp olt float %p.sroa.3.0.copyload, 0.000000e+00
   %cond15 = select i1 %cmp14, float 1.000000e+00, float 0.000000e+00
   %sub16 = fsub float %p.sroa.3.0.copyload, %cond15
-  %mul17 = fmul float %sub16, %scale
+  %mul17 = fmul float %scale, %sub16
   %conv18 = fptosi float %mul17 to i32
   %6 = load i32, ptr %y19, align 4
   %sub20 = add nsw i32 %6, -1
@@ -3452,7 +3452,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %if.
   %cmp23 = fcmp olt float %p.sroa.5.0.copyload, 0.000000e+00
   %cond24 = select i1 %cmp23, float 1.000000e+00, float 0.000000e+00
   %sub25 = fsub float %p.sroa.5.0.copyload, %cond24
-  %mul26 = fmul float %sub25, %scale
+  %mul26 = fmul float %scale, %sub25
   %conv27 = fptosi float %mul26 to i32
   %7 = load i32, ptr %z28, align 8
   %sub29 = add nsw i32 %7, -1
@@ -5015,7 +5015,7 @@ if.then212:                                       ; preds = %if.then208
   %conv216 = ashr exact i64 %sext, 32
   %m_size.i.i394 = getelementptr inbounds i8, ptr %252, i64 8
   %253 = load i64, ptr %m_size.i.i394, align 8
-  %cmp3.i395 = icmp ult i64 %253, %conv216
+  %cmp3.i395 = icmp ugt i64 %conv216, %253
   br i1 %cmp3.i395, label %if.end7.i398, label %if.end219
 
 if.end7.i398:                                     ; preds = %if.then212
@@ -5084,7 +5084,7 @@ invoke.cont232:                                   ; preds = %if.then.i407.invoke
   %261 = load ptr, ptr %m_contactBuffer2239, align 8
   %m_size.i.i411 = getelementptr inbounds i8, ptr %261, i64 8
   %262 = load i64, ptr %m_size.i.i411, align 8
-  %cmp3.i412 = icmp ult i64 %262, %conv230
+  %cmp3.i412 = icmp ugt i64 %conv230, %262
   br i1 %cmp3.i412, label %if.end7.i415, label %_ZN13b3OpenCLArrayI10b3Contact4E6resizeEmb.exit419
 
 if.end7.i415:                                     ; preds = %invoke.cont232
@@ -5153,7 +5153,7 @@ invoke.cont258:                                   ; preds = %if.then255
   %conv269 = ashr exact i64 %sext70, 32
   %m_size.i.i424 = getelementptr inbounds i8, ptr %272, i64 8
   %273 = load i64, ptr %m_size.i.i424, align 8
-  %cmp3.i425 = icmp ult i64 %273, %conv269
+  %cmp3.i425 = icmp ugt i64 %conv269, %273
   br i1 %cmp3.i425, label %if.end7.i428, label %invoke.cont271
 
 if.end7.i428:                                     ; preds = %invoke.cont258
@@ -5793,7 +5793,7 @@ if.else307:                                       ; preds = %if.then248
   %conv311 = ashr exact i64 %sext73, 32
   %m_size.i.i587 = getelementptr inbounds i8, ptr %355, i64 8
   %356 = load i64, ptr %m_size.i.i587, align 8
-  %cmp3.i588 = icmp ult i64 %356, %conv311
+  %cmp3.i588 = icmp ugt i64 %conv311, %356
   br i1 %cmp3.i588, label %if.end7.i591, label %invoke.cont314
 
 if.end7.i591:                                     ; preds = %if.else307
@@ -6512,7 +6512,7 @@ invoke.cont442:                                   ; preds = %invoke.cont438
   %463 = load i32, ptr %m_size.i.i747, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %ref.tmp445.sroa.0, i8 0, i64 112, i1 false)
   %464 = load i32, ptr %m_size.i.i751, align 4
-  %cmp4.i755 = icmp slt i32 %464, %463
+  %cmp4.i755 = icmp sgt i32 %463, %464
   br i1 %cmp4.i755, label %for.body9.lr.ph.i756, label %_ZN20b3AlignedObjectArrayI10b3Contact4E6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i756:                             ; preds = %invoke.cont442
@@ -6956,7 +6956,7 @@ for.body519:                                      ; preds = %for.cond517.prehead
   %533 = load i64, ptr %m_size.i.i876, align 8
   %m_size.i.i.i877 = getelementptr inbounds i8, ptr %530, i64 8
   %534 = load i64, ptr %m_size.i.i.i877, align 8
-  %cmp3.i.i = icmp ult i64 %534, %533
+  %cmp3.i.i = icmp ugt i64 %533, %534
   br i1 %cmp3.i.i, label %if.end7.i.i, label %_ZN13b3OpenCLArrayI10b3Contact4E6resizeEmb.exit.i
 
 if.end7.i.i:                                      ; preds = %for.body519
@@ -9163,7 +9163,7 @@ entry:
   tail call void @b3EnterProfileZone(ptr noundef nonnull @.str.70)
   %mul = shl nsw i32 %simdWidth, 1
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @curUsed, i64 4), align 4
-  %cmp4.i = icmp slt i32 %0, %mul
+  %cmp4.i = icmp sgt i32 %mul, %0
   br i1 %cmp4.i, label %for.body9.lr.ph.i, label %invoke.cont
 
 for.body9.lr.ph.i:                                ; preds = %entry
@@ -9203,7 +9203,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   %div = sdiv i32 %numBodies, 32
   %add = add nsw i32 %div, 1
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @bodyUsed, i64 4), align 4
-  %cmp4.i65.not = icmp sgt i32 %5, %div
+  %cmp4.i65.not = icmp slt i32 %div, %5
   br i1 %cmp4.i65.not, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit75, label %for.body9.lr.ph.i66
 
 for.body9.lr.ph.i66:                              ; preds = %if.end
@@ -10854,7 +10854,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !40
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo
+  %cmp15 = icmp slt i32 %lo, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end
@@ -11016,7 +11016,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !44
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo
+  %cmp15 = icmp slt i32 %lo, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end

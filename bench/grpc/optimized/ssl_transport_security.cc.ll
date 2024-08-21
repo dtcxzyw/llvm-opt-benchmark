@@ -3494,7 +3494,7 @@ if.end:                                           ; preds = %for.body
 if.then6:                                         ; preds = %if.end
   %length = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %18 = load i64, ptr %length, align 8
-  %cmp.i = icmp eq i64 %18, %name.coerce0
+  %cmp.i = icmp eq i64 %name.coerce0, %18
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %if.then6
@@ -3550,7 +3550,7 @@ if.end:                                           ; preds = %entry
   %0 = load i8, ptr %add.ptr2.i, align 1
   %cmp = icmp eq i8 %0, 46
   %sub.i = sext i1 %cmp to i64
-  %spec.select = add i64 %sub.i, %name.coerce0
+  %spec.select = add i64 %name.coerce0, %sub.i
   %add.ptr.i6 = getelementptr inbounds i8, ptr %entry.coerce1, i64 %entry.coerce0
   %add.ptr2.i7 = getelementptr inbounds i8, ptr %add.ptr.i6, i64 -1
   %1 = load i8, ptr %add.ptr2.i7, align 1
@@ -3607,7 +3607,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %if.then.
 
 if.end37:                                         ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
   %add = add nuw i64 %sub.ptr.sub.i, 1
-  %cmp.i.i.not = icmp ugt i64 %spec.select, %sub.ptr.sub.i
+  %cmp.i.i.not = icmp ult i64 %sub.ptr.sub.i, %spec.select
   br i1 %cmp.i.i.not, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end37

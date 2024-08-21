@@ -2077,7 +2077,7 @@ if.end17:                                         ; preds = %if.then14
 if.else20:                                        ; preds = %sw.bb8
   %quotechar = getelementptr inbounds i8, ptr %0, i64 28
   %2 = load i32, ptr %quotechar, align 4
-  %cmp21 = icmp eq i32 %2, %c
+  %cmp21 = icmp eq i32 %c, %2
   br i1 %cmp21, label %land.lhs.true, label %if.else25
 
 land.lhs.true:                                    ; preds = %if.else20
@@ -2089,7 +2089,7 @@ land.lhs.true:                                    ; preds = %if.else20
 if.else25:                                        ; preds = %land.lhs.true, %if.else20
   %escapechar = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %escapechar, align 8
-  %cmp26 = icmp eq i32 %4, %c
+  %cmp26 = icmp eq i32 %c, %4
   br i1 %cmp26, label %sw.epilog.sink.split, label %if.else29
 
 if.else29:                                        ; preds = %if.else25
@@ -2105,7 +2105,7 @@ land.lhs.true31:                                  ; preds = %if.else29
 if.else33:                                        ; preds = %land.lhs.true31, %if.else29
   %delimiter = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i32, ptr %delimiter, align 8
-  %cmp34 = icmp eq i32 %6, %c
+  %cmp34 = icmp eq i32 %c, %6
   br i1 %cmp34, label %if.then36, label %if.else42
 
 if.then36:                                        ; preds = %if.else33
@@ -2277,13 +2277,13 @@ if.end102:                                        ; preds = %if.then97
 if.else107:                                       ; preds = %sw.bb88
   %escapechar108 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load i32, ptr %escapechar108, align 8
-  %cmp109 = icmp eq i32 %22, %c
+  %cmp109 = icmp eq i32 %c, %22
   br i1 %cmp109, label %sw.epilog.sink.split, label %if.else113
 
 if.else113:                                       ; preds = %if.else107
   %delimiter114 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load i32, ptr %delimiter114, align 8
-  %cmp115 = icmp eq i32 %23, %c
+  %cmp115 = icmp eq i32 %c, %23
   br i1 %cmp115, label %if.then117, label %if.else124
 
 if.then117:                                       ; preds = %if.else113
@@ -2303,13 +2303,13 @@ sw.bb133:                                         ; preds = %entry
 if.else137:                                       ; preds = %sw.bb133
   %escapechar138 = getelementptr inbounds i8, ptr %0, i64 32
   %24 = load i32, ptr %escapechar138, align 8
-  %cmp139 = icmp eq i32 %24, %c
+  %cmp139 = icmp eq i32 %c, %24
   br i1 %cmp139, label %sw.epilog.sink.split, label %if.else143
 
 if.else143:                                       ; preds = %if.else137
   %quotechar144 = getelementptr inbounds i8, ptr %0, i64 28
   %25 = load i32, ptr %quotechar144, align 4
-  %cmp145 = icmp eq i32 %25, %c
+  %cmp145 = icmp eq i32 %c, %25
   br i1 %cmp145, label %land.lhs.true147, label %if.else158
 
 land.lhs.true147:                                 ; preds = %if.else143
@@ -2399,7 +2399,7 @@ sw.bb178:                                         ; preds = %entry
 land.lhs.true182:                                 ; preds = %sw.bb178
   %quotechar183 = getelementptr inbounds i8, ptr %0, i64 28
   %36 = load i32, ptr %quotechar183, align 4
-  %cmp184 = icmp eq i32 %36, %c
+  %cmp184 = icmp eq i32 %c, %36
   br i1 %cmp184, label %if.then186, label %if.else193
 
 if.then186:                                       ; preds = %land.lhs.true182
@@ -2463,7 +2463,7 @@ if.end191:                                        ; preds = %parse_grow_buff.exi
 if.else193:                                       ; preds = %land.lhs.true182, %sw.bb178
   %delimiter194 = getelementptr inbounds i8, ptr %0, i64 24
   %44 = load i32, ptr %delimiter194, align 8
-  %cmp195 = icmp eq i32 %44, %c
+  %cmp195 = icmp eq i32 %c, %44
   br i1 %cmp195, label %if.then197, label %if.else204
 
 if.then197:                                       ; preds = %if.else193
@@ -3029,7 +3029,7 @@ if.end.i55:                                       ; preds = %if.end59
   %add.i = add i64 %34, %.val.i
   %rec_size.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %35 = load i64, ptr %rec_size.i.i, align 8
-  %cmp.i.i = icmp slt i64 %35, %add.i
+  %cmp.i.i = icmp sgt i64 %add.i, %35
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end3.i
 
 if.then.i.i:                                      ; preds = %if.end.i55
@@ -3318,7 +3318,7 @@ if.end:                                           ; preds = %PyUnicode_DATA.exit
 if.end5:                                          ; preds = %if.end
   %rec_size.i = getelementptr inbounds i8, ptr %self, i64 40
   %4 = load i64, ptr %rec_size.i, align 8
-  %cmp.i = icmp slt i64 %4, %call2
+  %cmp.i = icmp sgt i64 %call2, %4
   br i1 %cmp.i, label %if.then.i13, label %if.end8
 
 if.then.i13:                                      ; preds = %if.end5
@@ -3575,7 +3575,7 @@ if.end129:                                        ; preds = %do.body123.thread, 
   %inc130 = add i64 %rec_len.5, 1
   %inc133 = add i32 %i.0101, 1
   %conv = sext i32 %inc133 to i64
-  %cmp32 = icmp slt i64 %conv, %field_len
+  %cmp32 = icmp sgt i64 %field_len, %conv
   br i1 %cmp32, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end129, %if.end30
@@ -4341,8 +4341,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1023 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1822 = phi i64 [ %cond17, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1822, %add
+  %add = sub i64 0, %cond1822
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos.thread, label %skip_optional_pos
 
 skip_optional_pos.thread:                         ; preds = %if.end

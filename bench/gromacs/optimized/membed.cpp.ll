@@ -251,7 +251,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_Z14rescale_membediP12gmx_membed_tPA3_f(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
-  %.not = icmp slt i32 %4, %0
+  %.not = icmp sgt i32 %0, %4
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %3
@@ -271,7 +271,7 @@ define void @_Z14rescale_membediP12gmx_membed_tPA3_f(i32 noundef %0, ptr nocaptu
   %15 = getelementptr inbounds i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %4
-  %.not15 = icmp slt i32 %17, %0
+  %.not15 = icmp sgt i32 %0, %17
   br i1 %.not15, label %24, label %18
 
 18:                                               ; preds = %14
@@ -1989,13 +1989,13 @@ _ZL13gmx_snew_implI7t_blockEvPKcS2_iRPT_m.exit:   ; preds = %493
   %665 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %662, i64 %664
   %666 = getelementptr inbounds i8, ptr %665, i64 4
   %667 = load i32, ptr %666, align 4
-  %668 = icmp sgt i32 %667, %629
+  %668 = icmp slt i32 %629, %667
   br i1 %668, label %672, label %669
 
 669:                                              ; preds = %663
   %670 = getelementptr inbounds i8, ptr %665, i64 8
   %671 = load i32, ptr %670, align 4
-  %.not.i.i.i = icmp sgt i32 %671, %629
+  %.not.i.i.i = icmp slt i32 %629, %671
   br i1 %.not.i.i.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i.i, label %672
 
 672:                                              ; preds = %669, %663
@@ -2261,8 +2261,8 @@ _ZL13est_prot_areaP9pos_ins_tPA3_fP7t_blockP5mem_t.exit: ; preds = %._crit_edge.
   %799 = getelementptr inbounds i8, ptr %5, i64 56
   %800 = load float, ptr %799, align 4
   %801 = load float, ptr %796, align 4
-  %802 = fneg float %800
-  %803 = fmul float %801, %802
+  %802 = fneg float %801
+  %803 = fmul float %800, %802
   %804 = call float @llvm.fmuladd.f32(float %795, float %798, float %803)
   %805 = fcmp olt float %804, 5.000000e+01
   br i1 %805, label %806, label %_ZL13est_prot_areaP9pos_ins_tPA3_fP7t_blockP5mem_t.exit.thread
@@ -2743,13 +2743,13 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit191.i:     ; preds = %1013
   %1064 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %1061, i64 %1063
   %1065 = getelementptr inbounds i8, ptr %1064, i64 4
   %1066 = load i32, ptr %1065, align 4
-  %1067 = icmp sgt i32 %1066, %1042
+  %1067 = icmp slt i32 %1042, %1066
   br i1 %1067, label %1071, label %1068
 
 1068:                                             ; preds = %1062
   %1069 = getelementptr inbounds i8, ptr %1064, i64 8
   %1070 = load i32, ptr %1069, align 4
-  %.not.i.i.i290 = icmp sgt i32 %1070, %1042
+  %.not.i.i.i290 = icmp slt i32 %1042, %1070
   br i1 %.not.i.i.i290, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i.i293, label %1071
 
 1071:                                             ; preds = %1068, %1062
@@ -3122,7 +3122,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit202.preheader.i: ; preds = %_ZL13gmx_snew
   %1212 = getelementptr inbounds %struct.gmx_molblock_t, ptr %.val.i, i64 %.0123.i.i, i32 1
   %1213 = load i32, ptr %1212, align 4
   %1214 = add nsw i32 %1213, %.04.i.i
-  %1215 = icmp sgt i32 %1214, %1207
+  %1215 = icmp slt i32 %1207, %1214
   br i1 %1215, label %1221, label %1216
 
 1216:                                             ; preds = %.lr.ph.i210.i
@@ -3912,7 +3912,7 @@ _ZN14gmx_molblock_taSERKS_.exit.i:                ; preds = %.noexc162._ZN14gmx_
           to label %_ZNSt6vectorI14gmx_molblock_tSaIS0_EE6resizeEm.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i314
 
 1569:                                             ; preds = %._crit_edge252.i
-  %1570 = icmp ugt i64 %1562, %1565
+  %1570 = icmp ult i64 %1565, %1562
   br i1 %1570, label %1571, label %_ZNSt6vectorI14gmx_molblock_tSaIS0_EE6resizeEm.exit.i
 
 1571:                                             ; preds = %1569
@@ -5528,7 +5528,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPcEEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPcEEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -5774,13 +5774,13 @@ define internal fastcc noundef i32 @_ZL14get_mtype_listP7t_blockRK10gmx_mtop_tS0
   %30 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %26, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = icmp sgt i32 %32, %18
+  %33 = icmp slt i32 %18, %32
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds i8, ptr %30, i64 8
   %36 = load i32, ptr %35, align 4
-  %.not.i.i = icmp sgt i32 %36, %18
+  %.not.i.i = icmp slt i32 %18, %36
   br i1 %.not.i.i, label %_ZL10get_mol_idiRK10gmx_mtop_tPiS2_.exit, label %37
 
 37:                                               ; preds = %34, %27
@@ -5867,7 +5867,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -5950,7 +5950,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40

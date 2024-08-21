@@ -2661,7 +2661,7 @@ define internal fastcc void @strbuf_setlen(ptr nocapture noundef %sb, i64 nounde
 entry:
   %0 = load i64, ptr %sb, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 1)
-  %cmp = icmp ult i64 %spec.select, %len
+  %cmp = icmp ugt i64 %len, %spec.select
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

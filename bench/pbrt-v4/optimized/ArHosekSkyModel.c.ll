@@ -137,7 +137,7 @@ for.end:                                          ; preds = %for.body
   %add53 = add i32 %0, 486
   %idx.ext54 = sext i32 %add53 to i64
   %add.ptr55 = getelementptr inbounds double, ptr %dataset, i64 %idx.ext54
-  %mul61 = fmul double %sub5, %albedo
+  %mul61 = fmul double %albedo, %sub5
   br label %for.body59
 
 for.body59:                                       ; preds = %for.end, %for.body59
@@ -232,7 +232,7 @@ for.body120:                                      ; preds = %if.end, %for.body12
 
 for.end172:                                       ; preds = %for.body120
   %add.ptr176 = getelementptr i8, ptr %add.ptr116, i64 4320
-  %mul181 = fmul double %sub, %albedo
+  %mul181 = fmul double %albedo, %sub
   br label %for.body180
 
 for.body180:                                      ; preds = %for.end172, %for.body180
@@ -338,7 +338,7 @@ entry:
   %add = add i32 %0, 54
   %idx.ext41 = sext i32 %add to i64
   %add.ptr42 = getelementptr inbounds double, ptr %dataset, i64 %idx.ext41
-  %mul44 = fmul double %sub4, %albedo
+  %mul44 = fmul double %albedo, %sub4
   %call46 = tail call double @pow(double noundef %sub6, double noundef 5.000000e+00) #11
   %12 = load double, ptr %add.ptr42, align 8
   %call50 = tail call double @pow(double noundef %sub6, double noundef 4.000000e+00) #11
@@ -407,7 +407,7 @@ if.end:                                           ; preds = %entry
   %34 = tail call double @llvm.fmuladd.f64(double %call115, double %33, double %32)
   %35 = tail call double @llvm.fmuladd.f64(double %mul84, double %34, double %23)
   %add.ptr122 = getelementptr i8, ptr %add.ptr82, i64 480
-  %mul123 = fmul double %sub, %albedo
+  %mul123 = fmul double %albedo, %sub
   %call125 = tail call double @pow(double noundef %sub6, double noundef 5.000000e+00) #11
   %36 = load double, ptr %add.ptr122, align 8
   %call129 = tail call double @pow(double noundef %sub6, double noundef 4.000000e+00) #11
@@ -450,7 +450,7 @@ define dso_local double @ArHosekSkyModel_GetRadianceInternal(ptr nocapture nound
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %configuration, i64 32
   %0 = load double, ptr %arrayidx, align 8
-  %mul = fmul double %0, %gamma
+  %mul = fmul double %gamma, %0
   %call = tail call double @exp(double noundef %mul) #11
   %call1 = tail call double @cos(double noundef %gamma) #11
   %call2 = tail call double @cos(double noundef %gamma) #11
@@ -593,7 +593,7 @@ for.body:                                         ; preds = %entry, %for.body
   %4 = load double, ptr %arrayidx9, align 8
   %call.i = tail call double @pow(double noundef %mul, double noundef 5.000000e+00) #11
   %div.i = fdiv double 3.741770e-16, %call.i
-  %mul.i = fmul double %mul, %solar_surface_temperature_kelvin
+  %mul.i = fmul double %solar_surface_temperature_kelvin, %mul
   %div1.i = fdiv double 1.438780e-02, %mul.i
   %call2.i = tail call double @exp(double noundef %div1.i) #11
   %sub.i = fadd double %call2.i, -1.000000e+00
@@ -632,7 +632,7 @@ for.body32:                                       ; preds = %for.end23, %for.bod
   %indvars.iv43 = phi i64 [ 0, %for.end23 ], [ %indvars.iv.next44, %for.body32 ]
   %arrayidx35 = getelementptr inbounds [11 x double], ptr %emission_correction_factor_sun, i64 0, i64 %indvars.iv43
   %6 = load double, ptr %arrayidx35, align 8
-  %mul36 = fmul double %6, %solar_intensity
+  %mul36 = fmul double %solar_intensity, %6
   %div37 = fdiv double %mul36, %div24
   %arrayidx39 = getelementptr inbounds [11 x double], ptr %emission_correction_factor_sky, i64 0, i64 %indvars.iv43
   store double %div37, ptr %arrayidx39, align 8
@@ -669,7 +669,7 @@ if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds [11 x [9 x double]], ptr %state, i64 0, i64 %idxprom
   %arrayidx.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %0 = load double, ptr %arrayidx.i, align 8
-  %mul.i = fmul double %0, %gamma
+  %mul.i = fmul double %gamma, %0
   %call.i = tail call double @exp(double noundef %mul.i) #11
   %call1.i = tail call double @cos(double noundef %gamma) #11
   %call2.i = tail call double @cos(double noundef %gamma) #11
@@ -733,7 +733,7 @@ if.then20:                                        ; preds = %if.end15
   %arrayidx24 = getelementptr inbounds [11 x [9 x double]], ptr %state, i64 0, i64 %idxprom23
   %arrayidx.i21 = getelementptr inbounds i8, ptr %arrayidx24, i64 32
   %19 = load double, ptr %arrayidx.i21, align 8
-  %mul.i22 = fmul double %19, %gamma
+  %mul.i22 = fmul double %gamma, %19
   %call.i23 = tail call double @exp(double noundef %mul.i22) #11
   %call1.i24 = tail call double @cos(double noundef %gamma) #11
   %call2.i25 = tail call double @cos(double noundef %gamma) #11
@@ -866,7 +866,7 @@ entry:
   %arrayidx = getelementptr inbounds [11 x [9 x double]], ptr %state, i64 0, i64 %idxprom
   %arrayidx.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %0 = load double, ptr %arrayidx.i, align 8
-  %mul.i = fmul double %0, %gamma
+  %mul.i = fmul double %gamma, %0
   %call.i = tail call double @exp(double noundef %mul.i) #11
   %call1.i = tail call double @cos(double noundef %gamma) #11
   %call2.i = tail call double @cos(double noundef %gamma) #11
@@ -968,9 +968,10 @@ entry:
   %0 = load double, ptr %solar_radius, align 8
   %call = tail call double @sin(double noundef %0) #11
   %mul = fmul double %call, %call
+  %div = fdiv double 1.000000e+00, %mul
   %call1 = tail call double @sin(double noundef %gamma) #11
-  %1 = fdiv double -1.000000e+00, %mul
-  %neg = fmul double %call1, %1
+  %1 = fneg double %call1
+  %neg = fmul double %div, %1
   %2 = tail call double @llvm.fmuladd.f64(double %neg, double %call1, double 1.000000e+00)
   %cmp = fcmp olt double %2, 0.000000e+00
   %sc2.0 = select i1 %cmp, double 0.000000e+00, double %2

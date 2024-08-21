@@ -420,7 +420,7 @@ define hidden void @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = sub i64 %5, %7
-  %9 = icmp ugt i64 %8, %3
+  %9 = icmp ult i64 %3, %8
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %4
@@ -449,7 +449,7 @@ define hidden noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = sub i64 %4, %6
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3

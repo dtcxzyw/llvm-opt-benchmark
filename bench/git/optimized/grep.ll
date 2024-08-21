@@ -2956,7 +2956,7 @@ land.lhs.true:                                    ; preds = %for.body
 if.end15:                                         ; preds = %land.lhs.true, %for.body
   %9 = load i64, ptr %name, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %9, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %name_base_len.0
+  %cmp.i = icmp ugt i64 %name_base_len.0, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end15
@@ -2992,7 +2992,7 @@ if.then20:                                        ; preds = %strbuf_setlen.exit
   %call22 = call fastcc i32 @grep_tree(ptr noundef %opt, ptr noundef %pathspec, ptr noundef nonnull %tree, ptr noundef nonnull %name, i32 noundef 0, i32 noundef 0)
   %14 = load i64, ptr %name, align 8
   %spec.select.i51 = call i64 @llvm.usub.sat.i64(i64 %14, i64 1)
-  %cmp.i52 = icmp ult i64 %spec.select.i51, %name_base_len.0
+  %cmp.i52 = icmp ugt i64 %name_base_len.0, %spec.select.i51
   br i1 %cmp.i52, label %if.then.i59, label %if.end.i53
 
 if.then.i59:                                      ; preds = %if.then20
@@ -3666,7 +3666,7 @@ if.then9:                                         ; preds = %while.body
   %call10 = call i32 @tree_entry_interesting(ptr noundef %7, ptr noundef nonnull %entry2, ptr noundef nonnull %name, ptr noundef %pathspec) #13
   %8 = load i64, ptr %name, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %8, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %name_base_len.0
+  %cmp.i = icmp ugt i64 %name_base_len.0, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then9
@@ -3800,7 +3800,7 @@ if.end62:                                         ; preds = %strbuf_addch.exit, 
   %hit.2 = phi i32 [ %or, %grep_oid.exit ], [ %or45, %strbuf_addch.exit ], [ %or59, %if.then52 ], [ %hit.0.ph, %if.else46 ]
   %26 = load i64, ptr %base, align 8
   %spec.select.i41 = call i64 @llvm.usub.sat.i64(i64 %26, i64 1)
-  %cmp.i42 = icmp ult i64 %spec.select.i41, %conv63
+  %cmp.i42 = icmp ugt i64 %conv63, %spec.select.i41
   br i1 %cmp.i42, label %if.then.i49, label %if.end.i43
 
 if.then.i49:                                      ; preds = %if.end62

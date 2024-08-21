@@ -513,9 +513,9 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i112, label %edata_esnead_comp.exit
 
 if.end.i112:                                      ; preds = %if.else.i
-  %cmp.i5.i = icmp ult ptr %2, %phn
+  %cmp.i5.i = icmp ugt ptr %phn, %2
   %conv.i6.i = zext i1 %cmp.i5.i to i32
-  %cmp1.i.i = icmp ugt ptr %2, %phn
+  %cmp1.i.i = icmp ult ptr %phn, %2
   %conv2.neg.i.i = sext i1 %cmp1.i.i to i32
   %sub.i7.i = add nsw i32 %conv2.neg.i.i, %conv.i6.i
   br label %edata_esnead_comp.exit

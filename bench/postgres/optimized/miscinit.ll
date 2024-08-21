@@ -1274,7 +1274,7 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   %116 = load i32, ptr @PostPortNumber, align 4
   %117 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 2304, ptr noundef nonnull @.str.81, i32 noundef %113, ptr noundef %114, i64 noundef %115, i32 noundef %116, ptr noundef %2) #21
   %.not98 = xor i1 %3, true
-  %brmerge = or i1 %.not98, %1
+  %brmerge = or i1 %1, %.not98
   br i1 %brmerge, label %120, label %118
 
 118:                                              ; preds = %._crit_edge

@@ -82,7 +82,7 @@ define noalias noundef ptr @Wln_ConstFromStr(ptr nocapture noundef readonly %0, 
   %11 = zext nneg i32 %1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr align 1 %0, i64 %11, i1 false)
   %12 = trunc i64 %7 to i32
-  %13 = add i32 %12, %1
+  %13 = add i32 %1, %12
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %2

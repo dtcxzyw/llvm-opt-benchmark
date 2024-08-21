@@ -193,7 +193,7 @@ define void @pqTraceOutputMessage(ptr nocapture noundef readonly %0, ptr noundef
   %40 = add i32 %29, 5
   store i32 %40, ptr %6, align 4
   %.not91 = xor i1 %32, true
-  %brmerge = or i1 %.not91, %2
+  %brmerge = or i1 %2, %.not91
   br i1 %brmerge, label %46, label %41
 
 41:                                               ; preds = %28
@@ -1115,7 +1115,7 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %504, %502
   %571 = load i32, ptr %6, align 4
   %572 = add i32 %571, 1
   store i32 %572, ptr %6, align 4
-  %573 = icmp slt i32 %572, %39
+  %573 = icmp sgt i32 %39, %572
   br i1 %573, label %.lr.ph.i150, label %pqTraceOutputB.exit
 
 .lr.ph.i150:                                      ; preds = %555, %.lr.ph.i150
@@ -1129,7 +1129,7 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %504, %502
   %579 = zext i16 %578 to i32
   %580 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %557, ptr noundef nonnull @.str.27, i32 noundef %579) #11
   %581 = load i32, ptr %6, align 4
-  %582 = icmp slt i32 %581, %39
+  %582 = icmp sgt i32 %39, %581
   br i1 %582, label %.lr.ph.i150, label %pqTraceOutputB.exit, !llvm.loop !15
 
 583:                                              ; preds = %50

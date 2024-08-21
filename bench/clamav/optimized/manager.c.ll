@@ -3124,7 +3124,7 @@ define internal fastcc void @scandirs(ptr noundef %0, ptr noundef %1, ptr nounde
   %38 = getelementptr inbounds i8, ptr %37, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = trunc i64 %39 to i32
-  %41 = icmp ult i32 %40, %4
+  %41 = icmp ugt i32 %4, %40
   br i1 %41, label %149, label %42
 
 42:                                               ; preds = %.loopexit112

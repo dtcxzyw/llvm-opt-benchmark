@@ -1443,7 +1443,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__prepare_prelude_callback_dcpl(
   %4 = alloca %struct.H5O_pline_t, align 8
   %5 = alloca [33 x i64], align 16
   %6 = load i64, ptr @H5P_LST_DATASET_CREATE_ID_g, align 8
-  %.not = icmp eq i64 %6, %0
+  %.not = icmp eq i64 %0, %6
   br i1 %.not, label %81, label %7
 
 7:                                                ; preds = %3

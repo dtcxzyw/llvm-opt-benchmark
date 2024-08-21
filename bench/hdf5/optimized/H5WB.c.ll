@@ -65,7 +65,7 @@ define ptr @H5WB_actual(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
-  %.not25 = icmp ult i64 %9, %1
+  %.not25 = icmp ugt i64 %1, %9
   br i1 %.not25, label %10, label %.thread30
 
 10:                                               ; preds = %7
@@ -76,7 +76,7 @@ define ptr @H5WB_actual(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_
 12:                                               ; preds = %10, %5, %2
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
-  %15 = icmp ult i64 %14, %1
+  %15 = icmp ugt i64 %1, %14
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %12
@@ -134,7 +134,7 @@ define ptr @H5WB_actual_clear(ptr nocapture noundef %0, i64 noundef %1) local_un
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
-  %.not25.i = icmp ult i64 %9, %1
+  %.not25.i = icmp ugt i64 %1, %9
   br i1 %.not25.i, label %10, label %30
 
 10:                                               ; preds = %7
@@ -145,7 +145,7 @@ define ptr @H5WB_actual_clear(ptr nocapture noundef %0, i64 noundef %1) local_un
 12:                                               ; preds = %10, %5, %2
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
-  %15 = icmp ult i64 %14, %1
+  %15 = icmp ugt i64 %1, %14
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %12

@@ -58,7 +58,7 @@ define hidden void @_ZN16LinuxWaitBarrier4waitEi(ptr noundef nonnull align 4 der
 
 4:                                                ; preds = %2
   %5 = load volatile i32, ptr %0, align 4
-  %.not = icmp eq i32 %5, %1
+  %.not = icmp eq i32 %1, %5
   br i1 %.not, label %.preheader, label %6
 
 6:                                                ; preds = %4, %2
@@ -91,7 +91,7 @@ define hidden void @_ZN16LinuxWaitBarrier4waitEi(ptr noundef nonnull align 4 der
 
 20:                                               ; preds = %9, %.preheader
   %21 = load volatile i32, ptr %0, align 4
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %20, %6

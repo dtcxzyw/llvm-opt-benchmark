@@ -272,7 +272,7 @@ define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr nounde
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %6, i32 2
   %8 = load i32, ptr %7, align 8
-  %9 = icmp ult i32 %8, %2
+  %9 = icmp ugt i32 %2, %8
   br i1 %9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %24
@@ -309,7 +309,7 @@ define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr nounde
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %27, i32 2
   %29 = load i32, ptr %28, align 8
-  %30 = icmp ult i32 %29, %2
+  %30 = icmp ugt i32 %2, %29
   br i1 %30, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %13, %24, %3, %19
@@ -1185,7 +1185,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %16, i32 2
   %18 = load i32, ptr %17, align 8
-  %19 = icmp ult i32 %18, %1
+  %19 = icmp ugt i32 %1, %18
   br i1 %19, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split12, %34
@@ -1222,7 +1222,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %37, i32 2
   %39 = load i32, ptr %38, align 8
-  %40 = icmp ult i32 %39, %1
+  %40 = icmp ugt i32 %1, %39
   br i1 %40, label %.critedge, label %.lr.ph.i
 
 41:                                               ; preds = %12
@@ -1237,7 +1237,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %46, i32 2
   %48 = load i32, ptr %47, align 8
-  %49 = icmp ult i32 %48, %1
+  %49 = icmp ugt i32 %1, %48
   br i1 %49, label %.critedge, label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %.split, %64
@@ -1274,7 +1274,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %67 = zext i32 %66 to i64
   %68 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %67, i32 2
   %69 = load i32, ptr %68, align 8
-  %70 = icmp ult i32 %69, %1
+  %70 = icmp ugt i32 %1, %69
   br i1 %70, label %.critedge, label %.lr.ph.i16
 
 .critedge:                                        ; preds = %64, %53, %34, %23, %59, %.split, %29, %.split12, %41, %8
@@ -2226,13 +2226,13 @@ define dso_local i32 @read_int_suffix(ptr nocapture noundef readonly %0, i32 nou
 
 23:                                               ; preds = %4
   %24 = add nsw i32 %2, -1
-  %.not = icmp eq i32 %24, %1
+  %.not = icmp eq i32 %1, %24
   %. = select i1 %.not, i32 64, i32 -1
   br label %read_num_type.exit
 
 25:                                               ; preds = %4
   %26 = add nsw i32 %2, -2
-  %27 = icmp eq i32 %26, %1
+  %27 = icmp eq i32 %1, %26
   %28 = sext i32 %1 to i64
   br i1 %27, label %29, label %._crit_edge
 

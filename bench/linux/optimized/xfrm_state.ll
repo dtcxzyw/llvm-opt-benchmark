@@ -5680,7 +5680,7 @@ define internal fastcc ptr @__xfrm_state_lookup(ptr nocapture noundef readonly %
   %7 = getelementptr inbounds i8, ptr %0, i64 2672
   %8 = load i32, ptr %7, align 16
   %9 = zext i8 %4 to i32
-  %10 = xor i32 %9, %3
+  %10 = xor i32 %3, %9
   switch i16 %5, label %72 [
     i16 2, label %11
     i16 10, label %15
@@ -9177,7 +9177,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal fastcc i32 @__xfrm_dst_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #11 align 16 {
   %6 = zext i16 %3 to i32
-  %7 = xor i32 %6, %2
+  %7 = xor i32 %2, %6
   switch i16 %3, label %127 [
     i16 2, label %8
     i16 10, label %14

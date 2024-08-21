@@ -6094,7 +6094,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %194 = extractvalue { ptr, i32 } %193, 0
   %195 = call ptr @__cxa_begin_catch(ptr %194) #18
-  %.not4.i.i.i.i.i.i.i199 = icmp eq ptr %.016.i.i.i.i.i197, %188
+  %.not4.i.i.i.i.i.i.i199 = icmp eq ptr %188, %.016.i.i.i.i.i197
   br i1 %.not4.i.i.i.i.i.i.i199, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i.i203, label %.lr.ph.i.i.i.i.i.i.i200
 
 .lr.ph.i.i.i.i.i.i.i200:                          ; preds = %192, %.lr.ph.i.i.i.i.i.i.i200

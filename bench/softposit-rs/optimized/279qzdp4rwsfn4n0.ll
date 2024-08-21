@@ -292,7 +292,7 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.689692909401
   %29 = and i8 %28, 31
   %30 = zext nneg i8 %29 to i32
   %31 = lshr i32 %27, %30
-  %32 = xor i1 %11, %2
+  %32 = xor i1 %2, %11
   %33 = sub nsw i32 0, %31
   %.011 = select i1 %32, i32 %31, i32 %33
   %34 = add i32 %.011, %4

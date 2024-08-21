@@ -719,7 +719,7 @@ define dso_local i64 @gen_pool_first_fit_align(ptr noundef %0, i64 noundef %1, i
   %17 = add i64 %16, -1
   %18 = add i32 %10, -1
   %19 = sext i32 %18 to i64
-  %20 = and i64 %19, %6
+  %20 = and i64 %6, %19
   %21 = lshr i64 %20, %12
   %22 = tail call i64 @bitmap_find_next_zero_area_off(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %17, i64 noundef %21) #12
   ret i64 %22

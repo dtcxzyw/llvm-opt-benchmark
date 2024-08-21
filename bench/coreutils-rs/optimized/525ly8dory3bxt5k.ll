@@ -1457,7 +1457,7 @@ _ZN3std4sync4mpmc7context7Context12store_packet17h71587165d6a8dce1E.exit.i.i.i: 
   tail call void @llvm.assume(i1 %84)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !292)
   %85 = load i64, ptr %44, align 8, !alias.scope !295, !noalias !296, !noundef !4
-  %.not.i.i = icmp ugt i64 %85, %.016.i.i
+  %.not.i.i = icmp ult i64 %.016.i.i, %85
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5waker5Waker10try_select17ha74c1d6f879212f7E.exit, label %86
 
 86:                                               ; preds = %.noexc12
@@ -2390,7 +2390,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.13384026782562829524.exi
 
 137:                                              ; preds = %132
   call void @llvm.experimental.noalias.scope.decl(metadata !462)
-  %.not.i13.i = icmp ugt i64 %126, %129
+  %.not.i13.i = icmp ult i64 %129, %126
   br i1 %.not.i13.i, label %141, label %138
 
 138:                                              ; preds = %137
@@ -2587,7 +2587,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.13384026782562829524.exi
 
 207:                                              ; preds = %202
   call void @llvm.experimental.noalias.scope.decl(metadata !518)
-  %.not.i13.i52 = icmp ugt i64 %196, %199
+  %.not.i13.i52 = icmp ult i64 %199, %196
   br i1 %.not.i13.i52, label %211, label %208
 
 208:                                              ; preds = %207
@@ -3018,7 +3018,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.39083
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 

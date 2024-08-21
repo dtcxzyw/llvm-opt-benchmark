@@ -383,12 +383,12 @@ colo_compare_timer_del.exit:                      ; preds = %if.end27, %if.then.
 
 land.lhs.true:                                    ; preds = %colo_compare_timer_del.exit
   %call.i65 = tail call ptr @qemu_get_current_aio_context() #16
-  %cmp.i = icmp eq ptr %call.i65, %call28
+  %cmp.i = icmp eq ptr %call28, %call.i65
   br i1 %cmp.i, label %while.cond33.preheader, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true
   %call1.i = tail call ptr @qemu_get_aio_context() #16
-  %cmp2.i = icmp eq ptr %call1.i, %call28
+  %cmp2.i = icmp eq ptr %call28, %call1.i
   br i1 %cmp2.i, label %if.then3.i, label %if.else38
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -466,12 +466,12 @@ if.then69:                                        ; preds = %if.end60
 
 land.lhs.true77:                                  ; preds = %if.then69.thread, %if.then69
   %call.i66 = tail call ptr @qemu_get_current_aio_context() #16
-  %cmp.i67 = icmp eq ptr %call.i66, %call28
+  %cmp.i67 = icmp eq ptr %call28, %call.i66
   br i1 %cmp.i67, label %while.cond80.preheader, label %if.end.i68
 
 if.end.i68:                                       ; preds = %land.lhs.true77
   %call1.i69 = tail call ptr @qemu_get_aio_context() #16
-  %cmp2.i70 = icmp eq ptr %call1.i69, %call28
+  %cmp2.i70 = icmp eq ptr %call28, %call1.i69
   br i1 %cmp2.i70, label %if.then3.i72, label %if.else87
 
 if.then3.i72:                                     ; preds = %if.end.i68

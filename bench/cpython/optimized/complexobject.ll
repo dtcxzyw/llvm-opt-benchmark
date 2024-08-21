@@ -961,8 +961,8 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { double, double } @_Py_c_prod(double %a.coerce0, double %a.coerce1, double %b.coerce0, double %b.coerce1) local_unnamed_addr #0 {
 entry:
-  %0 = fneg double %a.coerce1
-  %neg = fmul double %0, %b.coerce1
+  %0 = fneg double %b.coerce1
+  %neg = fmul double %a.coerce1, %0
   %1 = tail call double @llvm.fmuladd.f64(double %a.coerce0, double %b.coerce0, double %neg)
   %mul9 = fmul double %a.coerce1, %b.coerce0
   %2 = tail call double @llvm.fmuladd.f64(double %a.coerce0, double %b.coerce1, double %mul9)
@@ -1059,12 +1059,12 @@ if.else17:                                        ; preds = %if.else
   %call20 = tail call double @hypot(double noundef %a.coerce0, double noundef %a.coerce1) #14
   %call22 = tail call double @pow(double noundef %call20, double noundef %b.coerce0) #14
   %call25 = tail call double @atan2(double noundef %a.coerce1, double noundef %a.coerce0) #14
-  %mul = fmul double %call25, %b.coerce0
+  %mul = fmul double %b.coerce0, %call25
   %cmp28 = fcmp une double %b.coerce1, 0.000000e+00
   br i1 %cmp28, label %if.then29, label %if.end36
 
 if.then29:                                        ; preds = %if.else17
-  %mul31 = fmul double %call25, %b.coerce1
+  %mul31 = fmul double %b.coerce1, %call25
   %call32 = tail call double @exp(double noundef %mul31) #14
   %div = fdiv double %call22, %call32
   %call34 = tail call double @log(double noundef %call20) #14
@@ -2657,8 +2657,8 @@ if.end.i.i.i29:                                   ; preds = %if.end14.i26
 if.end13:                                         ; preds = %if.then11.i24, %land.lhs.true.i15, %if.then.i11, %if.then6
   %b.sroa.0.0 = phi double [ %b.sroa.0.0.copyload, %if.then6 ], [ %call12.i25, %if.then11.i24 ], [ -1.000000e+00, %land.lhs.true.i15 ], [ %call2.i12, %if.then.i11 ]
   %b.sroa.5.0 = phi double [ %b.sroa.5.0.copyload, %if.then6 ], [ 0.000000e+00, %if.then11.i24 ], [ 0.000000e+00, %land.lhs.true.i15 ], [ 0.000000e+00, %if.then.i11 ]
-  %8 = fneg double %a.sroa.5.0
-  %neg.i = fmul double %b.sroa.5.0, %8
+  %8 = fneg double %b.sroa.5.0
+  %neg.i = fmul double %a.sroa.5.0, %8
   %9 = tail call double @llvm.fmuladd.f64(double %a.sroa.0.0, double %b.sroa.0.0, double %neg.i)
   %mul9.i = fmul double %a.sroa.5.0, %b.sroa.0.0
   %10 = tail call double @llvm.fmuladd.f64(double %a.sroa.0.0, double %b.sroa.5.0, double %mul9.i)
@@ -2856,116 +2856,114 @@ if.then24:                                        ; preds = %land.lhs.true
 while.body.i.i:                                   ; preds = %if.then24, %if.end.i.i
   %retval.sroa.4.018.i.i = phi double [ %retval.sroa.4.1.i.i, %if.end.i.i ], [ 0.000000e+00, %if.then24 ]
   %retval.sroa.0.017.i.i = phi double [ %retval.sroa.0.1.i.i, %if.end.i.i ], [ 1.000000e+00, %if.then24 ]
-  %p.sroa.5.016.i.i = phi double [ %16, %if.end.i.i ], [ %a.sroa.6.0, %if.then24 ]
-  %p.sroa.0.015.i.i = phi double [ %15, %if.end.i.i ], [ %a.sroa.0.0, %if.then24 ]
+  %p.sroa.5.016.i.i = phi double [ %14, %if.end.i.i ], [ %a.sroa.6.0, %if.then24 ]
+  %p.sroa.0.015.i.i = phi double [ %13, %if.end.i.i ], [ %a.sroa.0.0, %if.then24 ]
   %mask.014.i.i = phi i64 [ %shl.i.i, %if.end.i.i ], [ 1, %if.then24 ]
   %and.i.i = and i64 %mask.014.i.i, %conv
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
+  %.pre.i.i = fneg double %p.sroa.5.016.i.i
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
-  %11 = fneg double %retval.sroa.4.018.i.i
-  %neg.i.i.i = fmul double %p.sroa.5.016.i.i, %11
-  %12 = tail call double @llvm.fmuladd.f64(double %retval.sroa.0.017.i.i, double %p.sroa.0.015.i.i, double %neg.i.i.i)
+  %neg.i.i.i = fmul double %retval.sroa.4.018.i.i, %.pre.i.i
+  %11 = tail call double @llvm.fmuladd.f64(double %retval.sroa.0.017.i.i, double %p.sroa.0.015.i.i, double %neg.i.i.i)
   %mul9.i.i.i = fmul double %retval.sroa.4.018.i.i, %p.sroa.0.015.i.i
-  %13 = tail call double @llvm.fmuladd.f64(double %retval.sroa.0.017.i.i, double %p.sroa.5.016.i.i, double %mul9.i.i.i)
+  %12 = tail call double @llvm.fmuladd.f64(double %retval.sroa.0.017.i.i, double %p.sroa.5.016.i.i, double %mul9.i.i.i)
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %while.body.i.i
-  %retval.sroa.0.1.i.i = phi double [ %12, %if.then.i.i ], [ %retval.sroa.0.017.i.i, %while.body.i.i ]
-  %retval.sroa.4.1.i.i = phi double [ %13, %if.then.i.i ], [ %retval.sroa.4.018.i.i, %while.body.i.i ]
+  %retval.sroa.0.1.i.i = phi double [ %11, %if.then.i.i ], [ %retval.sroa.0.017.i.i, %while.body.i.i ]
+  %retval.sroa.4.1.i.i = phi double [ %12, %if.then.i.i ], [ %retval.sroa.4.018.i.i, %while.body.i.i ]
   %shl.i.i = shl nuw i64 %mask.014.i.i, 1
-  %14 = fneg double %p.sroa.5.016.i.i
-  %neg.i9.i.i = fmul double %p.sroa.5.016.i.i, %14
-  %15 = tail call double @llvm.fmuladd.f64(double %p.sroa.0.015.i.i, double %p.sroa.0.015.i.i, double %neg.i9.i.i)
+  %neg.i9.i.i = fmul double %p.sroa.5.016.i.i, %.pre.i.i
+  %13 = tail call double @llvm.fmuladd.f64(double %p.sroa.0.015.i.i, double %p.sroa.0.015.i.i, double %neg.i9.i.i)
   %mul9.i10.i.i = fmul double %p.sroa.5.016.i.i, %p.sroa.0.015.i.i
-  %16 = tail call double @llvm.fmuladd.f64(double %p.sroa.0.015.i.i, double %p.sroa.5.016.i.i, double %mul9.i10.i.i)
+  %14 = tail call double @llvm.fmuladd.f64(double %p.sroa.0.015.i.i, double %p.sroa.5.016.i.i, double %mul9.i10.i.i)
   %cmp.i.i = icmp sgt i64 %shl.i.i, 0
   %cmp1.i.i = icmp sle i64 %shl.i.i, %conv
-  %17 = and i1 %cmp.i.i, %cmp1.i.i
-  br i1 %17, label %while.body.i.i, label %c_powi.exit, !llvm.loop !5
+  %15 = and i1 %cmp.i.i, %cmp1.i.i
+  br i1 %15, label %while.body.i.i, label %c_powi.exit, !llvm.loop !5
 
 if.else.i:                                        ; preds = %if.then24
   %sub.i = sub i64 0, %conv
   %cmp113.i6.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp113.i6.i, label %while.body.i11.i, label %c_powu.exit30.i
+  br i1 %cmp113.i6.i, label %while.body.i11.i, label %c_powu.exit31.i
 
-while.body.i11.i:                                 ; preds = %if.else.i, %if.end.i22.i
-  %retval.sroa.4.018.i12.i = phi double [ %retval.sroa.4.1.i24.i, %if.end.i22.i ], [ 0.000000e+00, %if.else.i ]
-  %retval.sroa.0.017.i13.i = phi double [ %retval.sroa.0.1.i23.i, %if.end.i22.i ], [ 1.000000e+00, %if.else.i ]
-  %p.sroa.5.016.i14.i = phi double [ %23, %if.end.i22.i ], [ %a.sroa.6.0, %if.else.i ]
-  %p.sroa.0.015.i15.i = phi double [ %22, %if.end.i22.i ], [ %a.sroa.0.0, %if.else.i ]
-  %mask.014.i16.i = phi i64 [ %shl.i25.i, %if.end.i22.i ], [ 1, %if.else.i ]
+while.body.i11.i:                                 ; preds = %if.else.i, %if.end.i23.i
+  %retval.sroa.4.018.i12.i = phi double [ %retval.sroa.4.1.i25.i, %if.end.i23.i ], [ 0.000000e+00, %if.else.i ]
+  %retval.sroa.0.017.i13.i = phi double [ %retval.sroa.0.1.i24.i, %if.end.i23.i ], [ 1.000000e+00, %if.else.i ]
+  %p.sroa.5.016.i14.i = phi double [ %19, %if.end.i23.i ], [ %a.sroa.6.0, %if.else.i ]
+  %p.sroa.0.015.i15.i = phi double [ %18, %if.end.i23.i ], [ %a.sroa.0.0, %if.else.i ]
+  %mask.014.i16.i = phi i64 [ %shl.i26.i, %if.end.i23.i ], [ 1, %if.else.i ]
   %and.i17.i = and i64 %mask.014.i16.i, %sub.i
   %tobool.not.i18.i = icmp eq i64 %and.i17.i, 0
-  br i1 %tobool.not.i18.i, label %if.end.i22.i, label %if.then.i19.i
+  %.pre.i19.i = fneg double %p.sroa.5.016.i14.i
+  br i1 %tobool.not.i18.i, label %if.end.i23.i, label %if.then.i20.i
 
-if.then.i19.i:                                    ; preds = %while.body.i11.i
-  %18 = fneg double %retval.sroa.4.018.i12.i
-  %neg.i.i20.i = fmul double %p.sroa.5.016.i14.i, %18
-  %19 = tail call double @llvm.fmuladd.f64(double %retval.sroa.0.017.i13.i, double %p.sroa.0.015.i15.i, double %neg.i.i20.i)
-  %mul9.i.i21.i = fmul double %retval.sroa.4.018.i12.i, %p.sroa.0.015.i15.i
-  %20 = tail call double @llvm.fmuladd.f64(double %retval.sroa.0.017.i13.i, double %p.sroa.5.016.i14.i, double %mul9.i.i21.i)
-  br label %if.end.i22.i
+if.then.i20.i:                                    ; preds = %while.body.i11.i
+  %neg.i.i21.i = fmul double %retval.sroa.4.018.i12.i, %.pre.i19.i
+  %16 = tail call double @llvm.fmuladd.f64(double %retval.sroa.0.017.i13.i, double %p.sroa.0.015.i15.i, double %neg.i.i21.i)
+  %mul9.i.i22.i = fmul double %retval.sroa.4.018.i12.i, %p.sroa.0.015.i15.i
+  %17 = tail call double @llvm.fmuladd.f64(double %retval.sroa.0.017.i13.i, double %p.sroa.5.016.i14.i, double %mul9.i.i22.i)
+  br label %if.end.i23.i
 
-if.end.i22.i:                                     ; preds = %if.then.i19.i, %while.body.i11.i
-  %retval.sroa.0.1.i23.i = phi double [ %19, %if.then.i19.i ], [ %retval.sroa.0.017.i13.i, %while.body.i11.i ]
-  %retval.sroa.4.1.i24.i = phi double [ %20, %if.then.i19.i ], [ %retval.sroa.4.018.i12.i, %while.body.i11.i ]
-  %shl.i25.i = shl nuw i64 %mask.014.i16.i, 1
-  %21 = fneg double %p.sroa.5.016.i14.i
-  %neg.i9.i26.i = fmul double %p.sroa.5.016.i14.i, %21
-  %22 = tail call double @llvm.fmuladd.f64(double %p.sroa.0.015.i15.i, double %p.sroa.0.015.i15.i, double %neg.i9.i26.i)
-  %mul9.i10.i27.i = fmul double %p.sroa.5.016.i14.i, %p.sroa.0.015.i15.i
-  %23 = tail call double @llvm.fmuladd.f64(double %p.sroa.0.015.i15.i, double %p.sroa.5.016.i14.i, double %mul9.i10.i27.i)
-  %cmp.i28.i = icmp sgt i64 %shl.i25.i, 0
-  %cmp1.i29.i = icmp sle i64 %shl.i25.i, %sub.i
-  %24 = and i1 %cmp.i28.i, %cmp1.i29.i
-  br i1 %24, label %while.body.i11.i, label %c_powu.exit30.i, !llvm.loop !5
+if.end.i23.i:                                     ; preds = %if.then.i20.i, %while.body.i11.i
+  %retval.sroa.0.1.i24.i = phi double [ %16, %if.then.i20.i ], [ %retval.sroa.0.017.i13.i, %while.body.i11.i ]
+  %retval.sroa.4.1.i25.i = phi double [ %17, %if.then.i20.i ], [ %retval.sroa.4.018.i12.i, %while.body.i11.i ]
+  %shl.i26.i = shl nuw i64 %mask.014.i16.i, 1
+  %neg.i9.i27.i = fmul double %p.sroa.5.016.i14.i, %.pre.i19.i
+  %18 = tail call double @llvm.fmuladd.f64(double %p.sroa.0.015.i15.i, double %p.sroa.0.015.i15.i, double %neg.i9.i27.i)
+  %mul9.i10.i28.i = fmul double %p.sroa.5.016.i14.i, %p.sroa.0.015.i15.i
+  %19 = tail call double @llvm.fmuladd.f64(double %p.sroa.0.015.i15.i, double %p.sroa.5.016.i14.i, double %mul9.i10.i28.i)
+  %cmp.i29.i = icmp sgt i64 %shl.i26.i, 0
+  %cmp1.i30.i = icmp sle i64 %shl.i26.i, %sub.i
+  %20 = and i1 %cmp.i29.i, %cmp1.i30.i
+  br i1 %20, label %while.body.i11.i, label %c_powu.exit31.i, !llvm.loop !5
 
-c_powu.exit30.i:                                  ; preds = %if.end.i22.i, %if.else.i
-  %retval.sroa.0.0.lcssa.i7.i = phi double [ 1.000000e+00, %if.else.i ], [ %retval.sroa.0.1.i23.i, %if.end.i22.i ]
-  %retval.sroa.4.0.lcssa.i8.i = phi double [ 0.000000e+00, %if.else.i ], [ %retval.sroa.4.1.i24.i, %if.end.i22.i ]
-  %cmp.i31.i = fcmp olt double %retval.sroa.0.0.lcssa.i7.i, 0.000000e+00
+c_powu.exit31.i:                                  ; preds = %if.end.i23.i, %if.else.i
+  %retval.sroa.0.0.lcssa.i7.i = phi double [ 1.000000e+00, %if.else.i ], [ %retval.sroa.0.1.i24.i, %if.end.i23.i ]
+  %retval.sroa.4.0.lcssa.i8.i = phi double [ 0.000000e+00, %if.else.i ], [ %retval.sroa.4.1.i25.i, %if.end.i23.i ]
+  %cmp.i32.i = fcmp olt double %retval.sroa.0.0.lcssa.i7.i, 0.000000e+00
   %fneg.i.i = fneg double %retval.sroa.0.0.lcssa.i7.i
-  %cond.i.i = select i1 %cmp.i31.i, double %fneg.i.i, double %retval.sroa.0.0.lcssa.i7.i
+  %cond.i.i = select i1 %cmp.i32.i, double %fneg.i.i, double %retval.sroa.0.0.lcssa.i7.i
   %cmp3.i.i = fcmp olt double %retval.sroa.4.0.lcssa.i8.i, 0.000000e+00
   %fneg6.i.i = fneg double %retval.sroa.4.0.lcssa.i8.i
   %cond10.i.i = select i1 %cmp3.i.i, double %fneg6.i.i, double %retval.sroa.4.0.lcssa.i8.i
   %cmp11.i.i = fcmp ult double %cond.i.i, %cond10.i.i
-  br i1 %cmp11.i.i, label %if.else28.i.i, label %if.then.i32.i
+  br i1 %cmp11.i.i, label %if.else28.i.i, label %if.then.i33.i
 
-if.then.i32.i:                                    ; preds = %c_powu.exit30.i
+if.then.i33.i:                                    ; preds = %c_powu.exit31.i
   %cmp12.i.i = fcmp oeq double %retval.sroa.0.0.lcssa.i7.i, 0.000000e+00
   br i1 %cmp12.i.i, label %if.then13.i.i, label %if.else.i.i
 
-if.then13.i.i:                                    ; preds = %if.then.i32.i
+if.then13.i.i:                                    ; preds = %if.then.i33.i
   store i32 33, ptr %call17, align 4
   br label %c_powi.exit
 
-if.else.i.i:                                      ; preds = %if.then.i32.i
+if.else.i.i:                                      ; preds = %if.then.i33.i
   %div.i.i = fdiv double %retval.sroa.4.0.lcssa.i8.i, %retval.sroa.0.0.lcssa.i7.i
-  %25 = tail call double @llvm.fmuladd.f64(double %retval.sroa.4.0.lcssa.i8.i, double %div.i.i, double %retval.sroa.0.0.lcssa.i7.i)
-  %26 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0.000000e+00, double 1.000000e+00)
-  %div22.i.i = fdiv double %26, %25
-  %27 = fsub double 0.000000e+00, %div.i.i
-  %div26.i.i = fdiv double %27, %25
+  %21 = tail call double @llvm.fmuladd.f64(double %retval.sroa.4.0.lcssa.i8.i, double %div.i.i, double %retval.sroa.0.0.lcssa.i7.i)
+  %22 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0.000000e+00, double 1.000000e+00)
+  %div22.i.i = fdiv double %22, %21
+  %23 = fsub double 0.000000e+00, %div.i.i
+  %div26.i.i = fdiv double %23, %21
   br label %c_powi.exit
 
-if.else28.i.i:                                    ; preds = %c_powu.exit30.i
+if.else28.i.i:                                    ; preds = %c_powu.exit31.i
   %cmp29.i.i = fcmp ult double %cond10.i.i, %cond.i.i
   br i1 %cmp29.i.i, label %c_powi.exit, label %if.then30.i.i
 
 if.then30.i.i:                                    ; preds = %if.else28.i.i
   %div34.i.i = fdiv double %retval.sroa.0.0.lcssa.i7.i, %retval.sroa.4.0.lcssa.i8.i
-  %28 = tail call double @llvm.fmuladd.f64(double %retval.sroa.0.0.lcssa.i7.i, double %div34.i.i, double %retval.sroa.4.0.lcssa.i8.i)
-  %29 = fadd double %div34.i.i, 0.000000e+00
-  %div40.i.i = fdiv double %29, %28
-  %30 = tail call double @llvm.fmuladd.f64(double %div34.i.i, double 0.000000e+00, double -1.000000e+00)
-  %div45.i.i = fdiv double %30, %28
+  %24 = tail call double @llvm.fmuladd.f64(double %retval.sroa.0.0.lcssa.i7.i, double %div34.i.i, double %retval.sroa.4.0.lcssa.i8.i)
+  %25 = fadd double %div34.i.i, 0.000000e+00
+  %div40.i.i = fdiv double %25, %24
+  %26 = tail call double @llvm.fmuladd.f64(double %div34.i.i, double 0.000000e+00, double -1.000000e+00)
+  %div45.i.i = fdiv double %26, %24
   br label %c_powi.exit
 
 c_powi.exit:                                      ; preds = %if.end.i.i, %if.then13.i.i, %if.else.i.i, %if.else28.i.i, %if.then30.i.i
-  %31 = phi i32 [ 33, %if.then13.i.i ], [ 0, %if.else.i.i ], [ 0, %if.then30.i.i ], [ 0, %if.else28.i.i ], [ 0, %if.end.i.i ]
+  %27 = phi i32 [ 33, %if.then13.i.i ], [ 0, %if.else.i.i ], [ 0, %if.then30.i.i ], [ 0, %if.else28.i.i ], [ 0, %if.end.i.i ]
   %retval.sroa.0.1.i.pn.i = phi double [ 0.000000e+00, %if.then13.i.i ], [ %div22.i.i, %if.else.i.i ], [ %div40.i.i, %if.then30.i.i ], [ 0x7FF8000000000000, %if.else28.i.i ], [ %retval.sroa.0.1.i.i, %if.end.i.i ]
   %retval.sroa.4.1.i.pn.i = phi double [ 0.000000e+00, %if.then13.i.i ], [ %div26.i.i, %if.else.i.i ], [ %div45.i.i, %if.then30.i.i ], [ 0x7FF8000000000000, %if.else28.i.i ], [ %retval.sroa.4.1.i.i, %if.end.i.i ]
   %.fca.0.insert.i.pn.i = insertvalue { double, double } poison, double %retval.sroa.0.1.i.pn.i, 0
@@ -2978,12 +2976,12 @@ if.else27:                                        ; preds = %land.lhs.true, %if.
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else27, %c_powi.exit
-  %32 = phi i32 [ %31, %c_powi.exit ], [ %.pre, %if.else27 ]
+  %28 = phi i32 [ %27, %c_powi.exit ], [ %.pre, %if.else27 ]
   %call26.pn = phi { double, double } [ %call.pn.i, %c_powi.exit ], [ %call29, %if.else27 ]
   %p.sroa.4.0 = extractvalue { double, double } %call26.pn, 1
   %p.sroa.0.0 = extractvalue { double, double } %call26.pn, 0
-  %33 = tail call double @llvm.fabs.f64(double %p.sroa.0.0)
-  %or.cond.i = fcmp oeq double %33, 0x7FF0000000000000
+  %29 = tail call double @llvm.fabs.f64(double %p.sroa.0.0)
+  %or.cond.i = fcmp oeq double %29, 0x7FF0000000000000
   %cmp3.i = fcmp oeq double %p.sroa.4.0, 0x7FF0000000000000
   %or.cond1.i = or i1 %cmp3.i, %or.cond.i
   %cmp5.i = fcmp oeq double %p.sroa.4.0, 0xFFF0000000000000
@@ -2991,11 +2989,11 @@ if.end30:                                         ; preds = %if.else27, %c_powi.
   br i1 %or.cond2.i, label %if.then.i39, label %if.else.i37
 
 if.then.i39:                                      ; preds = %if.end30
-  %cmp6.i = icmp eq i32 %32, 0
+  %cmp6.i = icmp eq i32 %28, 0
   br i1 %cmp6.i, label %if.end14.sink.split.i, label %_Py_ADJUST_ERANGE2.exit
 
 if.else.i37:                                      ; preds = %if.end30
-  %cmp10.i = icmp eq i32 %32, 34
+  %cmp10.i = icmp eq i32 %28, 34
   br i1 %cmp10.i, label %if.end14.sink.split.i, label %_Py_ADJUST_ERANGE2.exit
 
 if.end14.sink.split.i:                            ; preds = %if.else.i37, %if.then.i39
@@ -3004,20 +3002,20 @@ if.end14.sink.split.i:                            ; preds = %if.else.i37, %if.th
   br label %_Py_ADJUST_ERANGE2.exit
 
 _Py_ADJUST_ERANGE2.exit:                          ; preds = %if.then.i39, %if.else.i37, %if.end14.sink.split.i
-  %34 = phi i32 [ %32, %if.then.i39 ], [ %32, %if.else.i37 ], [ %.sink.i, %if.end14.sink.split.i ]
-  switch i32 %34, label %if.end43 [
+  %30 = phi i32 [ %28, %if.then.i39 ], [ %28, %if.else.i37 ], [ %.sink.i, %if.end14.sink.split.i ]
+  switch i32 %30, label %if.end43 [
     i32 33, label %if.then36
     i32 34, label %if.then41
   ]
 
 if.then36:                                        ; preds = %_Py_ADJUST_ERANGE2.exit
-  %35 = load ptr, ptr @PyExc_ZeroDivisionError, align 8
-  tail call void @PyErr_SetString(ptr noundef %35, ptr noundef nonnull @.str.8) #14
+  %31 = load ptr, ptr @PyExc_ZeroDivisionError, align 8
+  tail call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull @.str.8) #14
   br label %return
 
 if.then41:                                        ; preds = %_Py_ADJUST_ERANGE2.exit
-  %36 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %36, ptr noundef nonnull @.str.9) #14
+  %32 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.9) #14
   br label %return
 
 if.end43:                                         ; preds = %_Py_ADJUST_ERANGE2.exit
@@ -3032,14 +3030,14 @@ if.then.i48:                                      ; preds = %if.end43
 if.end.i:                                         ; preds = %if.end43
   %ob_type.i.i.i = getelementptr inbounds i8, ptr %call.i40, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
-  %38 = and i64 %37, 512
-  %tobool.not.i.i42 = icmp eq i64 %38, 0
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 168), align 8
+  %34 = and i64 %33, 512
+  %tobool.not.i.i42 = icmp eq i64 %34, 0
   br i1 %tobool.not.i.i42, label %_PyObject_Init.exit.i, label %if.then.i.i43
 
 if.then.i.i43:                                    ; preds = %if.end.i
-  %39 = load i32, ptr @PyComplex_Type, align 8
-  %add.i.i.i44 = add i32 %39, 1
+  %35 = load i32, ptr @PyComplex_Type, align 8
+  %add.i.i.i44 = add i32 %35, 1
   %cmp.i.i.i45 = icmp eq i32 %add.i.i.i44, 0
   br i1 %cmp.i.i.i45, label %_PyObject_Init.exit.i, label %if.end.i.i.i46
 

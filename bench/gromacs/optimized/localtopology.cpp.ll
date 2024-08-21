@@ -479,7 +479,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.us.i: ; preds = %212
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.us.i: ; preds = %220, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.us.i
   %223 = phi ptr [ %222, %220 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.us.i ]
-  %.not.i.i.i.i.i.i.i.i.i56.i.i.us.i = icmp eq ptr %199, %195
+  %.not.i.i.i.i.i.i.i.i.i56.i.i.us.i = icmp eq ptr %195, %199
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i.i.us.i, label %225, label %224
 
 224:                                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.us.i
@@ -608,7 +608,7 @@ _ZNKSt6vectorI9t_iparamsSaIS0_EE12_M_check_lenEmPKc.exit.i.i.us.i: ; preds = %27
 
 _ZNSt12_Vector_baseI9t_iparamsSaIS0_EE11_M_allocateEm.exit.i.i.us.i: ; preds = %284, %_ZNKSt6vectorI9t_iparamsSaIS0_EE12_M_check_lenEmPKc.exit.i.i.us.i
   %287 = phi ptr [ %286, %284 ], [ null, %_ZNKSt6vectorI9t_iparamsSaIS0_EE12_M_check_lenEmPKc.exit.i.i.us.i ]
-  %.not.i.i.i.i.i.i.i.i.i56.i71.i.us.i = icmp eq ptr %263, %259
+  %.not.i.i.i.i.i.i.i.i.i56.i71.i.us.i = icmp eq ptr %259, %263
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i71.i.us.i, label %289, label %288
 
 288:                                              ; preds = %_ZNSt12_Vector_baseI9t_iparamsSaIS0_EE11_M_allocateEm.exit.i.i.us.i
@@ -809,7 +809,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i54.i: ; preds = %362
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i57.i: ; preds = %371, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i54.i
   %374 = phi ptr [ %373, %371 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i54.i ]
-  %.not.i.i.i.i.i.i.i.i.i56.i58.i = icmp eq ptr %348, %343
+  %.not.i.i.i.i.i.i.i.i.i56.i58.i = icmp eq ptr %343, %348
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i58.i, label %376, label %375
 
 375:                                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i57.i
@@ -943,7 +943,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i.i:   ; preds = %441, %_ZSt22__unini
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i.i: ; preds = %433
   %446 = getelementptr inbounds i8, ptr %419, i64 %435
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %446, %421
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %421, %446
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEPiiET0_T_SA_S9_RSaIT1_E.exit.i.i, label %447
 
 447:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i.i
@@ -2136,7 +2136,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit69:        ; preds = %181, %163, %_ZNSt6v
 216:                                              ; preds = %.critedge
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %11
+  %exitcond.not = icmp eq i32 %11, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %216
@@ -2299,7 +2299,7 @@ _ZNK11gmx_ga2la_t4findEi.exit:                    ; preds = %84, %68
   %91 = load i32, ptr %17, align 4
   %.not.i = icmp sle i32 %91, %90
   %92 = load i32, ptr %32, align 4
-  %93 = icmp sgt i32 %92, %90
+  %93 = icmp slt i32 %90, %92
   %94 = select i1 %.not.i, i1 %93, i1 false
   br i1 %94, label %95, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -2669,7 +2669,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit76:        ; preds = %193, %175, %_ZNSt6v
 228:                                              ; preds = %.critedge
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %11
+  %exitcond.not = icmp eq i32 %11, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %228
@@ -3066,7 +3066,7 @@ _ZNK11gmx_ga2la_t4findEi.exit64:                  ; preds = %.lr.ph13, %.lr.ph18
   %132 = add nsw i64 %131, 1
   %133 = sext i32 %40 to i64
   %134 = add nsw i64 %132, %133
-  %135 = icmp ult i64 %131, %134
+  %135 = icmp ugt i64 %134, %131
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %.loopexit
@@ -3076,7 +3076,7 @@ _ZNK11gmx_ga2la_t4findEi.exit64:                  ; preds = %.lr.ph13, %.lr.ph18
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 138:                                              ; preds = %.loopexit
-  %139 = icmp ugt i64 %131, %134
+  %139 = icmp ult i64 %134, %131
   br i1 %139, label %140, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 140:                                              ; preds = %138
@@ -3673,7 +3673,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit.i:              ; preds = %_ZNK11gmx_ga2la_t4f
   %67 = add nsw i64 %66, 1
   %68 = sext i32 %3 to i64
   %69 = add nsw i64 %67, %68
-  %70 = icmp ult i64 %66, %69
+  %70 = icmp ugt i64 %69, %66
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %._crit_edge.i
@@ -3683,7 +3683,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit.i:              ; preds = %_ZNK11gmx_ga2la_t4f
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 73:                                               ; preds = %._crit_edge.i
-  %74 = icmp ugt i64 %66, %69
+  %74 = icmp ult i64 %69, %66
   br i1 %74, label %75, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 75:                                               ; preds = %73
@@ -4006,7 +4006,7 @@ _ZNK11gmx_ga2la_t4findEi.exit:                    ; preds = %107, %91
   %.not125 = icmp slt i32 %113, %114
   %115 = select i1 %.not125, i32 0, i32 %114
   %spec.select = sub nsw i32 %113, %115
-  %.not126 = icmp slt i32 %spec.select, %10
+  %.not126 = icmp sgt i32 %10, %spec.select
   %or.cond = select i1 %47, i1 true, i1 %.not126
   br i1 %or.cond, label %121, label %116
 
@@ -4014,7 +4014,7 @@ _ZNK11gmx_ga2la_t4findEi.exit:                    ; preds = %107, %91
   %117 = load i32, ptr %48, align 4
   %.not.i130 = icmp sle i32 %117, %spec.select
   %118 = load i32, ptr %49, align 4
-  %119 = icmp sgt i32 %118, %spec.select
+  %119 = icmp slt i32 %spec.select, %118
   %120 = select i1 %.not.i130, i1 %119, i1 false
   br i1 %120, label %.thread, label %121
 
@@ -4030,7 +4030,7 @@ _ZNK11gmx_ga2la_t4findEi.exit:                    ; preds = %107, %91
   %.not.i132 = icmp sle i32 %126, %10
   %127 = getelementptr inbounds i8, ptr %125, i64 4
   %128 = load i32, ptr %127, align 4
-  %129 = icmp sgt i32 %128, %10
+  %129 = icmp slt i32 %10, %128
   %130 = select i1 %.not.i132, i1 %129, i1 false
   br i1 %130, label %.thread, label %.thread16
 
@@ -4273,7 +4273,7 @@ _ZL8dd_dist2PK5t_pbcN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEEii.exit144: ; preds =
   %262 = add nsw i64 %261, 1
   %263 = sext i32 %66 to i64
   %264 = add nsw i64 %262, %263
-  %265 = icmp ult i64 %261, %264
+  %265 = icmp ugt i64 %264, %261
   br i1 %265, label %266, label %268
 
 266:                                              ; preds = %.thread19
@@ -4283,7 +4283,7 @@ _ZL8dd_dist2PK5t_pbcN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEEii.exit144: ; preds =
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 268:                                              ; preds = %.thread19
-  %269 = icmp ugt i64 %261, %264
+  %269 = icmp ult i64 %264, %261
   br i1 %269, label %270, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 270:                                              ; preds = %268
@@ -4595,7 +4595,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIiSaIi
   %74 = phi ptr [ %73, %71 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit ]
   %75 = ptrtoint ptr %1 to i64
   %76 = sub i64 %75, %61
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %60, %1
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %60
   br i1 %.not.i.i.i.i.i.i.i.i.i63, label %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit69, label %77
 
 77:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit

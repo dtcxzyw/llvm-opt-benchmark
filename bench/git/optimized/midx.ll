@@ -743,7 +743,7 @@ entry:
   %1 = load i32, ptr %num_objects, align 4
   %conv1 = zext i32 %1 to i64
   %mul.i = mul nuw nsw i64 %conv1, %conv
-  %cmp.not = icmp eq i64 %mul.i, %chunk_size
+  %cmp.not = icmp eq i64 %chunk_size, %mul.i
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -774,7 +774,7 @@ entry:
   %0 = load i32, ptr %num_objects, align 4
   %conv = zext i32 %0 to i64
   %mul.i = shl nuw nsw i64 %conv, 3
-  %cmp.not = icmp eq i64 %mul.i, %chunk_size
+  %cmp.not = icmp eq i64 %chunk_size, %mul.i
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -883,7 +883,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pack_name, ptr noundef nonnull align 8 dereferenceable(24) @__const.lookup_multi_pack_index.cur_path_real, i64 24, i1 false)
   %num_packs = getelementptr inbounds i8, ptr %m, i64 56
   %0 = load i32, ptr %num_packs, align 8
-  %cmp.not = icmp ugt i32 %0, %pack_int_id
+  %cmp.not = icmp ult i32 %pack_int_id, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1075,7 +1075,7 @@ define dso_local noundef ptr @nth_midxed_object_oid(ptr noundef writeonly %oid, 
 entry:
   %num_objects = getelementptr inbounds i8, ptr %m, i64 60
   %0 = load i32, ptr %num_objects, align 4
-  %cmp.not = icmp ugt i32 %0, %n
+  %cmp.not = icmp ult i32 %n, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2158,7 +2158,7 @@ for.body.i:                                       ; preds = %cond.end.i, %st_add
   %.fr.i = freeze i32 %73
   %conv.i = zext i32 %.fr.i to i64
   %sub.i.i = xor i64 %total_objects.0266.i, -1
-  %cmp.i.i = icmp ult i64 %sub.i.i, %conv.i
+  %cmp.i.i = icmp ugt i64 %conv.i, %sub.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %st_add.exit.i
 
 if.then.i.i:                                      ; preds = %for.body.i
@@ -2190,7 +2190,7 @@ st_mult.exit48.thread.i:                          ; preds = %cond.end.i, %st_mul
   %hash_len.i.i.i.i = getelementptr inbounds i8, ptr %68, i64 53
   %chunk_large_offsets.i.i = getelementptr inbounds i8, ptr %68, i64 128
   %chunk_large_offsets_len.i.i = getelementptr inbounds i8, ptr %68, i64 136
-  %cmp28.i = icmp ugt i32 %cond.i, %67
+  %cmp28.i = icmp ult i32 %67, %cond.i
   %or.cond.i = and i1 %cmp202436, %cmp28.i
   %idxprom.i83.i = zext i32 %67 to i64
   %p.i84.i = getelementptr inbounds %struct.pack_info, ptr %.pre421437, i64 %idxprom.i83.i, i32 2
@@ -2256,7 +2256,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %85 = load i8, ptr %arrayidx8.i.i.i.i, align 1
   %conv9.i.i.i.i = zext i8 %85 to i32
   %or11.i.i.i.i = or disjoint i32 %or7.i.i21.i.i, %conv9.i.i.i.i
-  %cmp7.i.i = icmp eq i32 %or11.i.i.i.i, %67
+  %cmp7.i.i = icmp eq i32 %67, %or11.i.i.i.i
   br i1 %cmp7.i.i, label %for.inc.i.i, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
@@ -2269,7 +2269,7 @@ if.then.i23.i.i:                                  ; preds = %if.end9.i.i
   unreachable
 
 do.body.i.i.i:                                    ; preds = %if.end9.i.i
-  %cmp3.i.i.i = icmp ult i64 %fanout.sroa.32.4.i, %add.i50.i
+  %cmp3.i.i.i = icmp ugt i64 %add.i50.i, %fanout.sroa.32.4.i
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %midx_fanout_grow.exit.i.i
 
 if.then4.i.i.i:                                   ; preds = %do.body.i.i.i
@@ -2502,7 +2502,7 @@ if.then.i.i82.i:                                  ; preds = %for.body.i60.i
   unreachable
 
 do.body.i.i63.i:                                  ; preds = %for.body.i60.i
-  %cmp3.i.i64.i = icmp ult i64 %fanout.sroa.32.8.i, %add.i61.i
+  %cmp3.i.i64.i = icmp ugt i64 %add.i61.i, %fanout.sroa.32.8.i
   br i1 %cmp3.i.i64.i, label %if.then4.i.i72.i, label %midx_fanout_grow.exit.i66.i
 
 if.then4.i.i72.i:                                 ; preds = %do.body.i.i63.i
@@ -2601,7 +2601,7 @@ if.then.i.i134.i:                                 ; preds = %for.body.i97.i
   unreachable
 
 do.body.i.i101.i:                                 ; preds = %for.body.i97.i
-  %cmp3.i.i102.i = icmp ult i64 %fanout.sroa.32.11.i, %add.i99.i
+  %cmp3.i.i102.i = icmp ugt i64 %add.i99.i, %fanout.sroa.32.11.i
   br i1 %cmp3.i.i102.i, label %if.then4.i.i124.i, label %midx_fanout_grow.exit.i105.i
 
 if.then4.i.i124.i:                                ; preds = %do.body.i.i101.i
@@ -4419,7 +4419,7 @@ if.end139:                                        ; preds = %if.then123, %land.l
   %72 = phi i32 [ %.pre231, %if.then123 ], [ %63, %land.lhs.true115 ], [ %63, %land.lhs.true ], [ %63, %for.body103 ]
   %arrayidx141 = getelementptr inbounds %struct.pair_pos_vs_id, ptr %call69, i64 %indvars.iv223
   %73 = load i32, ptr %arrayidx141, align 4
-  %cmp.not.i164 = icmp ugt i32 %72, %73
+  %cmp.not.i164 = icmp ult i32 %73, %72
   br i1 %cmp.not.i164, label %if.end.i166, label %nth_midxed_object_oid.exit181
 
 if.end.i166:                                      ; preds = %if.end139

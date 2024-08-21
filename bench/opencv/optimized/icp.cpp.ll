@@ -1675,11 +1675,11 @@ _ZN2cv3VecIdLi3EEC2EPKd.exit.i:                   ; preds = %855, %907
   %878 = load double, ptr %388, align 8, !noalias !52
   %879 = load double, ptr %389, align 8, !noalias !52
   %880 = load double, ptr %390, align 8, !noalias !52
-  %881 = fneg double %879
+  %881 = fneg double %880
   %882 = load double, ptr %79, align 8, !noalias !52
   %883 = load double, ptr %77, align 8, !noalias !52
-  %884 = fneg double %883
-  %885 = fneg double %877
+  %884 = fneg double %878
+  %885 = fneg double %882
   br label %886
 
 886:                                              ; preds = %886, %876
@@ -1695,9 +1695,9 @@ _ZN2cv3VecIdLi3EEC2EPKd.exit.i:                   ; preds = %855, %907
   br i1 %exitcond.not.i.i, label %892, label %886, !llvm.loop !55
 
 892:                                              ; preds = %886
-  %893 = fmul double %880, %881
-  %894 = fmul double %878, %884
-  %895 = fmul double %882, %885
+  %893 = fmul double %879, %881
+  %894 = fmul double %883, %884
+  %895 = fmul double %877, %885
   %896 = call double @llvm.fmuladd.f64(double %877, double %878, double %893)
   %897 = call double @llvm.fmuladd.f64(double %879, double %882, double %894)
   %898 = call double @llvm.fmuladd.f64(double %883, double %880, double %895)

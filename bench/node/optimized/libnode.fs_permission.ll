@@ -520,7 +520,7 @@ _ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEES
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %children.i, align 8
   %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 80
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i = icmp eq ptr %7, %_M_single_bucket.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN4node10permission12FSPermission9RadixTree4NodeD2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -554,7 +554,7 @@ _ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEES
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i8, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %children, align 8
   %_M_single_bucket.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %node, i64 80
-  %cmp.i.i.i.i.i.i17 = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i16, %12
+  %cmp.i.i.i.i.i.i17 = icmp eq ptr %12, %_M_single_bucket.i.i.i.i.i.i16
   br i1 %cmp.i.i.i.i.i.i17, label %_ZN4node10permission12FSPermission9RadixTree4NodeD2Ev.exit19, label %if.end.i.i.i.i.i18
 
 if.end.i.i.i.i.i18:                               ; preds = %_ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i13
@@ -651,7 +651,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 define linkonce_odr dso_local noundef ptr @_ZNK4node10permission12FSPermission9RadixTree4Node8NextNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i64 noundef %idx) local_unnamed_addr #3 comdat align 2 {
 entry:
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #13
-  %cmp.not = icmp ugt i64 %call, %idx
+  %cmp.not = icmp ult i64 %idx, %call
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1243,7 +1243,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end

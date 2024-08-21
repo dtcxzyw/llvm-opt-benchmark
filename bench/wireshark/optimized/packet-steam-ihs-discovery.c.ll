@@ -4154,7 +4154,7 @@ define internal fastcc i32 @protobuf_verify_wiretype(ptr nocapture noundef reado
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = icmp eq i8 %8, %4
+  %9 = icmp eq i8 %4, %8
   br i1 %9, label %10, label %59
 
 10:                                               ; preds = %5

@@ -303,7 +303,7 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr nocapture noundef %0, 
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %2
-  %.not47 = icmp sgt i32 %9, %1
+  %.not47 = icmp slt i32 %1, %9
   br i1 %.not47, label %11, label %53
 
 11:                                               ; preds = %10, %2
@@ -447,7 +447,7 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 nou
 27:                                               ; preds = %26
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load i32, ptr %28, align 8
-  %30 = icmp sgt i32 %29, %1
+  %30 = icmp slt i32 %1, %29
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %27
@@ -493,7 +493,7 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 nou
   store i64 %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 80
   %62 = load i32, ptr %61, align 8
-  %63 = icmp eq i32 %62, %1
+  %63 = icmp eq i32 %1, %62
   br i1 %63, label %64, label %100
 
 64:                                               ; preds = %47
@@ -591,7 +591,7 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
 9:                                                ; preds = %3, %6
   %10 = getelementptr inbounds i8, ptr %0, i64 88
   %11 = load i32, ptr %10, align 8
-  %12 = icmp sgt i32 %11, %1
+  %12 = icmp slt i32 %1, %11
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %9
@@ -650,7 +650,7 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
 44:                                               ; preds = %.thread
   %45 = getelementptr inbounds i8, ptr %0, i64 80
   %46 = load i32, ptr %45, align 8
-  %47 = icmp eq i32 %46, %1
+  %47 = icmp eq i32 %1, %46
   br i1 %47, label %.preheader, label %82
 
 .preheader:                                       ; preds = %44
@@ -740,7 +740,7 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_size(ptr noundef %0, i32 nou
 8:                                                ; preds = %2, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 88
   %10 = load i32, ptr %9, align 8
-  %11 = icmp slt i32 %10, %1
+  %11 = icmp sgt i32 %1, %10
   br i1 %11, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %8

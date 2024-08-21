@@ -644,7 +644,7 @@ if.end:                                           ; preds = %entry
   %cmp = icmp sgt i32 %eraIdx, -1
   %numEras = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %numEras, align 8
-  %cmp2.not = icmp sgt i32 %1, %eraIdx
+  %cmp2.not = icmp slt i32 %eraIdx, %1
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %if.end4, label %if.then3
 
@@ -685,7 +685,7 @@ if.end:                                           ; preds = %entry
   %cmp = icmp sgt i32 %eraIdx, -1
   %numEras = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %numEras, align 8
-  %cmp2.not = icmp sgt i32 %1, %eraIdx
+  %cmp2.not = icmp slt i32 %eraIdx, %1
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %if.end4, label %if.then3
 
@@ -752,7 +752,7 @@ if.else11.i:                                      ; preds = %if.else8.i
   %shl1.i.i = shl nuw nsw i32 %month, 8
   %or.i.i = or disjoint i32 %shl1.i.i, %shl.i.i
   %or2.i.i = or disjoint i32 %or.i.i, %day
-  %or.cond45.not = icmp slt i32 %or2.i.i, %7
+  %or.cond45.not = icmp sgt i32 %7, %or2.i.i
   br i1 %or.cond45.not, label %if.end15.thread, label %if.end15
 
 if.end15:                                         ; preds = %if.else8.i, %if.else11.i

@@ -520,7 +520,7 @@ define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr nocapture nound
   %14 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef %13)
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8
-  %.not39 = icmp ugt i64 %16, %1
+  %.not39 = icmp ult i64 %1, %16
   br i1 %.not39, label %.lr.ph, label %.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %25
@@ -532,7 +532,7 @@ define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr nocapture nound
   %.02242 = phi i64 [ %..022, %25 ], [ %16, %4 ]
   %.02441 = phi i64 [ %.024., %25 ], [ %10, %4 ]
   %.02640 = phi i32 [ %..026, %25 ], [ %5, %4 ]
-  %18 = icmp ugt i64 %.02441, %1
+  %18 = icmp ult i64 %1, %.02441
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %.lr.ph
@@ -552,12 +552,12 @@ define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr nocapture nound
   %29 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %26, ptr noundef %28)
   %30 = getelementptr inbounds i8, ptr %29, i64 24
   %31 = load i64, ptr %30, align 8
-  %.not34 = icmp ugt i64 %31, %1
+  %.not34 = icmp ult i64 %1, %31
   %..026 = select i1 %.not34, i32 %21, i32 %.02640
   %.024. = select i1 %.not34, i64 %.02441, i64 %31
   %..022 = select i1 %.not34, i64 %31, i64 %.02242
   %.021. = select i1 %.not34, i32 %.02143, i32 %21
-  %.not = icmp ugt i64 %..022, %1
+  %.not = icmp ult i64 %1, %..022
   br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %4, %._crit_edge.loopexit, %23
@@ -1210,7 +1210,7 @@ define void @_ZN16WirelessTimeline9doToolTipEP10wlan_radio6QPointi(ptr nocapture
 
 _ZN16WirelessTimeline8positionEmf.exit:           ; preds = %4, %17
   %.0.i = phi i32 [ %38, %17 ], [ -100, %4 ]
-  %39 = icmp sgt i32 %.0.i, %3
+  %39 = icmp slt i32 %3, %.0.i
   br i1 %39, label %40, label %70
 
 40:                                               ; preds = %_ZN16WirelessTimeline8positionEmf.exit

@@ -341,7 +341,7 @@ define hidden void @_ZN9NumberSeq3addEd(ptr nocapture noundef nonnull align 8 de
   store double %1, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 64
   %25 = load double, ptr %24, align 8
-  %26 = fcmp olt double %25, %1
+  %26 = fcmp ogt double %1, %25
   br i1 %26, label %.sink.split, label %27
 
 .sink.split:                                      ; preds = %11, %7
@@ -352,7 +352,7 @@ define hidden void @_ZN9NumberSeq3addEd(ptr nocapture noundef nonnull align 8 de
 27:                                               ; preds = %.sink.split, %11
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = load double, ptr %28, align 8
-  %30 = fadd double %29, %1
+  %30 = fadd double %1, %29
   store double %30, ptr %28, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   %32 = load double, ptr %31, align 8
@@ -458,7 +458,7 @@ _ZN6AbsSeq3addEd.exit:                            ; preds = %7, %9
   %32 = load double, ptr %31, align 8
   %33 = fneg double %27
   %34 = tail call double @llvm.fmuladd.f64(double %33, double %27, double %32)
-  %35 = fadd double %30, %1
+  %35 = fadd double %1, %30
   store double %35, ptr %28, align 8
   %36 = tail call double @llvm.fmuladd.f64(double %1, double %1, double %34)
   store double %36, ptr %31, align 8

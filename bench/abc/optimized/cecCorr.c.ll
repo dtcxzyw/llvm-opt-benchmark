@@ -2488,7 +2488,7 @@ define void @Cec_ManStartSimInfo(ptr nocapture noundef readonly %0, i32 noundef 
 .preheader:                                       ; preds = %.lr.ph.us, %2
   %15 = getelementptr i8, ptr %0, i64 4
   %.val2733 = load i32, ptr %15, align 4
-  %16 = icmp sgt i32 %.val2733, %1
+  %16 = icmp slt i32 %1, %.val2733
   %17 = icmp sgt i32 %9, 0
   %or.cond51 = select i1 %16, i1 %17, i1 false
   br i1 %or.cond51, label %.lr.ph.us37.preheader, label %._crit_edge36
@@ -3495,7 +3495,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %3
 
 .preheader.i:                                     ; preds = %.lr.ph.us.i, %37
   %.val2733.i = load i32, ptr %31, align 4
-  %51 = icmp sgt i32 %.val2733.i, %.val
+  %51 = icmp slt i32 %.val, %.val2733.i
   %or.cond51.i = select i1 %51, i1 %47, i1 false
   br i1 %or.cond51.i, label %.lr.ph.us37.preheader.i, label %Cec_ManStartSimInfo.exit
 

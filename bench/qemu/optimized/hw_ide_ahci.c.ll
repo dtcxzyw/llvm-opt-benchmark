@@ -1238,7 +1238,7 @@ land.lhs.true:                                    ; preds = %if.else42
   %mul = shl i32 %26, 7
   %add = add i32 %mul, 256
   %conv45 = sext i32 %add to i64
-  %cmp46 = icmp ugt i64 %conv45, %addr
+  %cmp46 = icmp ult i64 %addr, %conv45
   br i1 %cmp46, label %if.then48, label %do.body54
 
 if.then48:                                        ; preds = %land.lhs.true
@@ -1662,7 +1662,7 @@ land.lhs.true:                                    ; preds = %if.else14
   %mul = shl i32 %19, 7
   %add = add i32 %mul, 256
   %conv17 = sext i32 %add to i64
-  %cmp18 = icmp ugt i64 %conv17, %addr
+  %cmp18 = icmp ult i64 %addr, %conv17
   br i1 %cmp18, label %if.then20, label %if.else23
 
 if.then20:                                        ; preds = %land.lhs.true
@@ -4109,7 +4109,7 @@ for.body:                                         ; preds = %if.end46, %if.end60
   %add.i = add nuw nsw i32 %and.i, 1
   %conv55 = zext nneg i32 %add.i to i64
   %add56 = add i64 %sum.0144, %conv55
-  %cmp57 = icmp ugt i64 %add56, %offset
+  %cmp57 = icmp ult i64 %offset, %add56
   br i1 %cmp57, label %for.end, label %if.end60
 
 if.end60:                                         ; preds = %for.body
@@ -4655,7 +4655,7 @@ entry:
   %idp_offset = getelementptr inbounds i8, ptr %opaque, i64 592
   %0 = load i32, ptr %idp_offset, align 16
   %conv = zext i32 %0 to i64
-  %cmp = icmp eq i64 %conv, %addr
+  %cmp = icmp eq i64 %addr, %conv
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -4667,7 +4667,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %add = add i32 %0, 4
   %conv4 = zext i32 %add to i64
-  %cmp5 = icmp eq i64 %conv4, %addr
+  %cmp5 = icmp eq i64 %addr, %conv4
   br i1 %cmp5, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.else
@@ -4688,7 +4688,7 @@ entry:
   %idp_offset = getelementptr inbounds i8, ptr %opaque, i64 592
   %0 = load i32, ptr %idp_offset, align 16
   %conv = zext i32 %0 to i64
-  %cmp = icmp eq i64 %conv, %addr
+  %cmp = icmp eq i64 %addr, %conv
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -4701,7 +4701,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %add = add i32 %0, 4
   %conv4 = zext i32 %add to i64
-  %cmp5 = icmp eq i64 %conv4, %addr
+  %cmp5 = icmp eq i64 %addr, %conv4
   br i1 %cmp5, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.else

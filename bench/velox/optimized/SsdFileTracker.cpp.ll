@@ -457,7 +457,7 @@ invoke.cont37:                                    ; preds = %for.inc.i34.i.i.i, 
   %sub.ptr.sub.i19 = sub i64 %sub.ptr.lhs.cast.i17, %sub.ptr.rhs.cast.i18
   %sub.ptr.div.i20 = ashr exact i64 %sub.ptr.sub.i19, 2
   %conv39 = trunc i64 %sub.ptr.div.i20 to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv39, i32 %numCandidates)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %numCandidates, i32 %conv39)
   %conv42 = sext i32 %.sroa.speculated to i64
   %cmp.i21 = icmp ult i64 %sub.ptr.div.i20, %conv42
   br i1 %cmp.i21, label %if.then.i24, label %if.else.i22
@@ -544,7 +544,7 @@ while.body.us.i.i.i:                              ; preds = %if.then, %"_ZSt13__
   %__parent.0.us.i.i.i = phi i64 [ %dec.us.i.i.i, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i" ], [ %div1617.i.i.i, %if.then ]
   %phi.call.us.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__parent.0.us.i.i.i
   %1 = load i32, ptr %phi.call.us.i.i.i, align 4
-  %cmp28.i.us.i.i.i = icmp sgt i64 %div.i2123.i.i.i, %__parent.0.us.i.i.i
+  %cmp28.i.us.i.i.i = icmp slt i64 %__parent.0.us.i.i.i, %div.i2123.i.i.i
   br i1 %cmp28.i.us.i.i.i, label %while.body.i.us.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i"
 
 while.body.i.us.i.i.i:                            ; preds = %while.body.us.i.i.i, %while.body.i.us.i.i.i
@@ -609,7 +609,7 @@ while.body.i.i.i:                                 ; preds = %"_ZSt13__adjust_hea
   %__parent.0.i.i.i = phi i64 [ %dec.i.i.i, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i" ], [ %div1617.i.i.i, %while.body.preheader.i.i.i ]
   %phi.call.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__parent.0.i.i.i
   %10 = load i32, ptr %phi.call.i.i.i, align 4
-  %cmp28.i.i.i.i = icmp sgt i64 %div.i2123.i.i.i, %__parent.0.i.i.i
+  %cmp28.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i2123.i.i.i
   br i1 %cmp28.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i.i

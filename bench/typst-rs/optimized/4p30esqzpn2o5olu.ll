@@ -14507,7 +14507,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operati
   %19 = load i64, ptr %18, align 8, !alias.scope !5540, !noundef !4
   %20 = load i64, ptr %.pre.i, align 8, !alias.scope !5547, !noalias !5540, !noundef !4
   %21 = sub i64 %20, %15
-  %22 = icmp ult i64 %21, %19
+  %22 = icmp ugt i64 %19, %21
   br i1 %22, label %23, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit.i"
 
 23:                                               ; preds = %._crit_edge.i
@@ -27912,7 +27912,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h23040184a
   tail call void @llvm.assume(i1 %11)
   %12 = sub nuw i64 -9223372036854775808, %1
   %13 = udiv i64 %12, %0
-  %14 = icmp ult i64 %13, %2
+  %14 = icmp ugt i64 %2, %13
   br i1 %14, label %15, label %5
 
 15:                                               ; preds = %9, %5
@@ -33223,7 +33223,7 @@ define hidden void @"_ZN72_$LT$pdf_writer..content..Operation$u20$as$u20$core..o
   %20 = getelementptr inbounds i8, ptr %.pre, i64 16
   %21 = load i64, ptr %.pre, align 8, !alias.scope !10539, !noundef !4
   %22 = sub i64 %21, %15
-  %23 = icmp ult i64 %22, %19
+  %23 = icmp ugt i64 %19, %22
   br i1 %23, label %24, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit"
 
 24:                                               ; preds = %._crit_edge

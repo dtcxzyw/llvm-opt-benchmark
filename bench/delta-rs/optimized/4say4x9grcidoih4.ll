@@ -1130,7 +1130,7 @@ define internal fastcc void @"_ZN103_$LT$flatbuffers..primitives..ForwardsUOffse
   br i1 %24, label %68, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i: ; preds = %16
-  %25 = icmp ugt i64 %14, %2
+  %25 = icmp ult i64 %2, %14
   br i1 %25, label %26, label %32, !prof !230
 
 26:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i
@@ -14351,7 +14351,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
 define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17h403f2f8d4128aa4cE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #5 {
   %6 = alloca { i64, [2 x i64] }, align 8
   %.not = xor i1 %4, true
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %.preheader, label %13
 
 .preheader:                                       ; preds = %5
@@ -14409,7 +14409,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_e
 define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17haec670840aa38b65E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #5 {
   %6 = alloca { i64, [2 x i64] }, align 8
   %.not = xor i1 %4, true
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %.preheader, label %13
 
 .preheader:                                       ; preds = %5
@@ -14467,7 +14467,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_e
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i8, [15 x i8] }, align 8
   %.not = xor i1 %4, true
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   %8 = getelementptr inbounds i8, ptr %1, i64 48
   br i1 %brmerge, label %.preheader, label %33
 
@@ -16387,7 +16387,7 @@ define internal fastcc noundef i64 @"_ZN11arrow_array5array15primitive_array23Pr
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = lshr i64 %.40.val, 3
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %1
@@ -17336,7 +17336,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h11b08c5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3643)
   %8 = getelementptr inbounds i8, ptr %0, i64 88
   %9 = load i64, ptr %8, align 8, !alias.scope !3643, !noundef !24
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.exit, label %11
 
 11:                                               ; preds = %7
@@ -17384,7 +17384,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h9968799
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3649)
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load i64, ptr %8, align 8, !alias.scope !3649, !noundef !24
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.exit, label %11
 
 11:                                               ; preds = %7
@@ -17427,7 +17427,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h9ccb8e8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3655)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !3655, !noundef !24
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.exit, label %11
 
 11:                                               ; preds = %7
@@ -17471,7 +17471,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h20acc2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3664)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !3667, !noundef !24
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -17515,7 +17515,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h397d90
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3674)
   %8 = getelementptr inbounds i8, ptr %0, i64 88
   %9 = load i64, ptr %8, align 8, !alias.scope !3677, !noundef !24
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -17564,7 +17564,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17he3c55e
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3684)
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load i64, ptr %8, align 8, !alias.scope !3687, !noundef !24
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -18367,7 +18367,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit.i._crit_edge.i.
   br i1 %123, label %308, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i.i: ; preds = %115
-  %124 = icmp ugt i64 %113, %104
+  %124 = icmp ult i64 %104, %113
   br i1 %124, label %125, label %131, !prof !230
 
 125:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i.i
@@ -18774,7 +18774,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit.i._crit_edge.i.
   br i1 %239, label %269, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i.i.i.i.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i.i.i.i.i: ; preds = %231
-  %240 = icmp ugt i64 %229, %220
+  %240 = icmp ult i64 %220, %229
   br i1 %240, label %241, label %247, !prof !230
 
 241:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i.i.i.i.i
@@ -19673,7 +19673,7 @@ define internal fastcc void @_ZN11flatbuffers8verifier13TableVerifier11visit_fie
   br i1 %63, label %543, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i: ; preds = %55
-  %64 = icmp ugt i64 %53, %44
+  %64 = icmp ult i64 %44, %53
   br i1 %64, label %65, label %71, !prof !230
 
 65:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i
@@ -19748,7 +19748,7 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i: ; preds
   br i1 %96, label %143, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i: ; preds = %94
-  %97 = icmp ugt i64 %53, %88
+  %97 = icmp ult i64 %88, %53
   br i1 %97, label %98, label %103, !prof !230
 
 98:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i
@@ -20003,7 +20003,7 @@ _ZN11flatbuffers8verifier19verify_vector_range17h0bb03440ad4bb992E.exit.i: ; pre
   br i1 %157, label %515, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i70
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i70: ; preds = %151
-  %158 = icmp ugt i64 %149, %.sroa.6104.0541
+  %158 = icmp ult i64 %.sroa.6104.0541, %149
   br i1 %158, label %159, label %165, !prof !230
 
 159:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i70
@@ -20461,7 +20461,7 @@ _ZN11flatbuffers8verifier13TableVerifier11visit_union17hf84e6d42349750c0E.exit.i
   br i1 %294, label %470, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i: ; preds = %286
-  %295 = icmp ugt i64 %284, %275
+  %295 = icmp ult i64 %275, %284
   br i1 %295, label %296, label %302, !prof !230
 
 296:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i
@@ -21840,7 +21840,7 @@ define internal fastcc void @_ZN11flatbuffers8verifier13TableVerifier11visit_fie
   br i1 %34, label %113, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i: ; preds = %26
-  %35 = icmp ugt i64 %24, %15
+  %35 = icmp ult i64 %15, %24
   br i1 %35, label %36, label %42, !prof !230
 
 36:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i
@@ -21915,7 +21915,7 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i: ; pre
   br i1 %67, label %97, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i: ; preds = %65
-  %68 = icmp ugt i64 %24, %59
+  %68 = icmp ult i64 %59, %24
   br i1 %68, label %69, label %74, !prof !230
 
 69:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i
@@ -22268,7 +22268,7 @@ define internal fastcc void @_ZN11flatbuffers8verifier13TableVerifier11visit_fie
   br i1 %37, label %196, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i: ; preds = %29
-  %38 = icmp ugt i64 %27, %18
+  %38 = icmp ult i64 %18, %27
   br i1 %38, label %39, label %45, !prof !230
 
 39:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i
@@ -22347,7 +22347,7 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i: ; pre
   br i1 %70, label %112, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i: ; preds = %68
-  %71 = icmp ugt i64 %27, %62
+  %71 = icmp ult i64 %62, %27
   br i1 %71, label %72, label %77, !prof !230
 
 72:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i
@@ -22490,7 +22490,7 @@ _ZN11flatbuffers8verifier19verify_vector_range17h9b658c51c9ec8c11E.exit.i.i: ; p
   br i1 %126, label %168, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i42.i.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i42.i.i: ; preds = %120
-  %127 = icmp ugt i64 %118, %.sroa.654.0129.i.i
+  %127 = icmp ult i64 %.sroa.654.0129.i.i, %118
   br i1 %127, label %128, label %134, !prof !230
 
 128:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i42.i.i
@@ -22937,7 +22937,7 @@ define internal fastcc void @_ZN11flatbuffers8verifier13TableVerifier11visit_fie
   br i1 %34, label %64, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i: ; preds = %26
-  %35 = icmp ugt i64 %24, %15
+  %35 = icmp ult i64 %15, %24
   br i1 %35, label %36, label %42, !prof !230
 
 36:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i
@@ -23340,7 +23340,7 @@ define hidden void @_ZN11flatbuffers8verifier19verify_vector_range17h2502808dba0
   br i1 %19, label %54, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i: ; preds = %11
-  %20 = icmp ugt i64 %9, %2
+  %20 = icmp ult i64 %2, %9
   br i1 %20, label %21, label %27, !prof !230
 
 21:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i
@@ -23481,7 +23481,7 @@ define hidden void @_ZN11flatbuffers8verifier19verify_vector_range17h30c4b489fb9
   br i1 %19, label %42, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i: ; preds = %11
-  %20 = icmp ugt i64 %9, %2
+  %20 = icmp ult i64 %2, %9
   br i1 %20, label %21, label %27, !prof !230
 
 21:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i
@@ -23643,7 +23643,7 @@ define hidden void @_ZN11flatbuffers8verifier19verify_vector_range17he821e86cbcc
   br i1 %19, label %51, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i: ; preds = %11
-  %20 = icmp ugt i64 %9, %2
+  %20 = icmp ult i64 %2, %9
   br i1 %20, label %21, label %27, !prof !230
 
 21:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i
@@ -23784,7 +23784,7 @@ define internal fastcc void @_ZN11flatbuffers8verifier8Verifier11visit_table17hd
   br i1 %19, label %70, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17hf31647a42f449af7E.exit.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17hf31647a42f449af7E.exit.i: ; preds = %11
-  %20 = icmp ugt i64 %9, %2
+  %20 = icmp ult i64 %2, %9
   br i1 %20, label %21, label %27, !prof !230
 
 21:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17hf31647a42f449af7E.exit.i
@@ -23854,7 +23854,7 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17hf31647a42f449af7E.exit.i: ; preds
 
 52:                                               ; preds = %38
   %53 = zext nneg i32 %.sroa.04.0.insert.insert.i to i64
-  %54 = icmp ule i64 %53, %2
+  %54 = icmp uge i64 %2, %53
   %55 = sub nuw i64 %2, %53
   %spec.select34.i = select i1 %54, i64 %55, i64 undef
   br label %56
@@ -25283,7 +25283,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.13182
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -36537,7 +36537,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !8916, !noalias !8921, !noundef !24
   %45 = load i64, ptr %0, align 8, !alias.scope !8923, !noalias !8921, !noundef !24
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h0442491cb97dc7ceE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -36594,7 +36594,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !8929, !noalias !8934, !noundef !24
   %6 = load i64, ptr %0, align 8, !alias.scope !8936, !noalias !8934, !noundef !24
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h0442491cb97dc7ceE.exit"
 
 9:                                                ; preds = %3
@@ -63313,7 +63313,7 @@ define internal fastcc void @"_ZN83_$LT$arrow_ipc..gen..Schema..Field$u20$as$u20
   br i1 %103, label %137, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i: ; preds = %95
-  %104 = icmp ugt i64 %93, %3
+  %104 = icmp ult i64 %3, %93
   br i1 %104, label %105, label %111, !prof !230
 
 105:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i
@@ -63618,7 +63618,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit6: ; preds = %16
   br i1 %203, label %293, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i18
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i18: ; preds = %195
-  %204 = icmp ugt i64 %193, %3
+  %204 = icmp ult i64 %3, %193
   br i1 %204, label %205, label %211, !prof !230
 
 205:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i18
@@ -64043,7 +64043,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit34: ; preds = %"
   br i1 %334, label %368, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i47
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i47: ; preds = %326
-  %335 = icmp ugt i64 %324, %3
+  %335 = icmp ult i64 %3, %324
   br i1 %335, label %336, label %342, !prof !230
 
 336:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i47
@@ -64261,7 +64261,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit72: ; preds = %"
   br i1 %409, label %443, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i85
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i85: ; preds = %401
-  %410 = icmp ugt i64 %399, %3
+  %410 = icmp ult i64 %3, %399
   br i1 %410, label %411, label %417, !prof !230
 
 411:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i85
@@ -64479,7 +64479,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit110: ; preds = %
   br i1 %484, label %518, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i123
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i123: ; preds = %476
-  %485 = icmp ugt i64 %474, %3
+  %485 = icmp ult i64 %3, %474
   br i1 %485, label %486, label %492, !prof !230
 
 486:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i123
@@ -64697,7 +64697,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit148: ; preds = %
   br i1 %559, label %609, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i162
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i162: ; preds = %551
-  %560 = icmp ugt i64 %549, %3
+  %560 = icmp ult i64 %3, %549
   br i1 %560, label %561, label %567, !prof !230
 
 561:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i162
@@ -65004,7 +65004,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit179: ; preds = %
   br i1 %650, label %740, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i195
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i195: ; preds = %642
-  %651 = icmp ugt i64 %640, %3
+  %651 = icmp ult i64 %3, %640
   br i1 %651, label %652, label %658, !prof !230
 
 652:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i195
@@ -65429,7 +65429,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit265: ; preds = %
   br i1 %781, label %826, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i280
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i280: ; preds = %773
-  %782 = icmp ugt i64 %771, %3
+  %782 = icmp ult i64 %3, %771
   br i1 %782, label %783, label %789, !prof !230
 
 783:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i280
@@ -65706,7 +65706,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit298: ; preds = %
   br i1 %867, label %912, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i315
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i315: ; preds = %859
-  %868 = icmp ugt i64 %857, %3
+  %868 = icmp ult i64 %3, %857
   br i1 %868, label %869, label %875, !prof !230
 
 869:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i315
@@ -65983,7 +65983,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit350: ; preds = %
   br i1 %953, label %1043, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i366
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i366: ; preds = %945
-  %954 = icmp ugt i64 %943, %3
+  %954 = icmp ult i64 %3, %943
   br i1 %954, label %955, label %961, !prof !230
 
 955:                                              ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i366
@@ -66408,7 +66408,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit436: ; preds = %
   br i1 %1084, label %1118, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i449
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i449: ; preds = %1076
-  %1085 = icmp ugt i64 %1074, %3
+  %1085 = icmp ult i64 %3, %1074
   br i1 %1085, label %1086, label %1092, !prof !230
 
 1086:                                             ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i449
@@ -66626,7 +66626,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit474: ; preds = %
   br i1 %1159, label %1193, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i487
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i487: ; preds = %1151
-  %1160 = icmp ugt i64 %1149, %3
+  %1160 = icmp ult i64 %3, %1149
   br i1 %1160, label %1161, label %1167, !prof !230
 
 1161:                                             ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i487
@@ -66844,7 +66844,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit512: ; preds = %
   br i1 %1234, label %1409, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i528
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i528: ; preds = %1226
-  %1235 = icmp ugt i64 %1224, %3
+  %1235 = icmp ult i64 %3, %1224
   br i1 %1235, label %1236, label %1242, !prof !230
 
 1236:                                             ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i528
@@ -67190,7 +67190,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit.i._crit_edge.i.
   br i1 %1340, label %1370, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i.i: ; preds = %1332
-  %1341 = icmp ugt i64 %1330, %1321
+  %1341 = icmp ult i64 %1321, %1330
   br i1 %1341, label %1342, label %1348, !prof !230
 
 1342:                                             ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i.i
@@ -67582,7 +67582,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit588: ; preds = %
   br i1 %1450, label %1490, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i603
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i603: ; preds = %1442
-  %1451 = icmp ugt i64 %1440, %3
+  %1451 = icmp ult i64 %3, %1440
   br i1 %1451, label %1452, label %1458, !prof !230
 
 1452:                                             ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i603
@@ -67830,7 +67830,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit627: ; preds = %
   br i1 %1531, label %1571, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i642
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i642: ; preds = %1523
-  %1532 = icmp ugt i64 %1521, %3
+  %1532 = icmp ult i64 %3, %1521
   br i1 %1532, label %1533, label %1539, !prof !230
 
 1533:                                             ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i642
@@ -68078,7 +68078,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit672: ; preds = %
   br i1 %1612, label %1652, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i687
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i687: ; preds = %1604
-  %1613 = icmp ugt i64 %1602, %3
+  %1613 = icmp ult i64 %3, %1602
   br i1 %1613, label %1614, label %1620, !prof !230
 
 1614:                                             ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i687
@@ -68326,7 +68326,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit717: ; preds = %
   br i1 %1693, label %1733, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i732
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i732: ; preds = %1685
-  %1694 = icmp ugt i64 %1683, %3
+  %1694 = icmp ult i64 %3, %1683
   br i1 %1694, label %1695, label %1701, !prof !230
 
 1695:                                             ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i732
@@ -68574,7 +68574,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit762: ; preds = %
   br i1 %1774, label %1808, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i775
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i775: ; preds = %1766
-  %1775 = icmp ugt i64 %1764, %3
+  %1775 = icmp ult i64 %3, %1764
   br i1 %1775, label %1776, label %1782, !prof !230
 
 1776:                                             ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i775
@@ -68792,7 +68792,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit800: ; preds = %
   br i1 %1849, label %1883, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i813
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i813: ; preds = %1841
-  %1850 = icmp ugt i64 %1839, %3
+  %1850 = icmp ult i64 %3, %1839
   br i1 %1850, label %1851, label %1857, !prof !230
 
 1851:                                             ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i813
@@ -69010,7 +69010,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit838: ; preds = %
   br i1 %1924, label %1958, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i851
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i851: ; preds = %1916
-  %1925 = icmp ugt i64 %1914, %3
+  %1925 = icmp ult i64 %3, %1914
   br i1 %1925, label %1926, label %1932, !prof !230
 
 1926:                                             ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i851
@@ -69228,7 +69228,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit876: ; preds = %
   br i1 %1999, label %2033, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i889
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i889: ; preds = %1991
-  %2000 = icmp ugt i64 %1989, %3
+  %2000 = icmp ult i64 %3, %1989
   br i1 %2000, label %2001, label %2007, !prof !230
 
 2001:                                             ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i889
@@ -146225,7 +146225,7 @@ define internal fastcc void @_ZN14deltalake_core6kernel5arrow7extract8read_str17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35310)
   %14 = getelementptr inbounds i8, ptr %1, i64 104
   %15 = load i64, ptr %14, align 8, !alias.scope !35313, !noundef !24
-  %16 = icmp ugt i64 %15, %2
+  %16 = icmp ult i64 %2, %15
   br i1 %16, label %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit, label %17
 
 17:                                               ; preds = %13
@@ -146259,7 +146259,7 @@ _ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.thread: ; preds = 
   %31 = load i64, ptr %30, align 8, !alias.scope !35314, !noundef !24
   %32 = lshr i64 %31, 2
   %33 = add nsw i64 %32, -1
-  %34 = icmp ugt i64 %33, %2
+  %34 = icmp ult i64 %2, %33
   br i1 %34, label %"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$GT$5value17h583498062284afc8E.exit", label %35
 
 35:                                               ; preds = %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.thread
@@ -146357,7 +146357,7 @@ define internal fastcc void @_ZN14deltalake_core6kernel5arrow7extract14read_prim
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35329)
   %14 = getelementptr inbounds i8, ptr %1, i64 80
   %15 = load i64, ptr %14, align 8, !alias.scope !35332, !noundef !24
-  %16 = icmp ugt i64 %15, %2
+  %16 = icmp ult i64 %2, %15
   br i1 %16, label %_ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit, label %17
 
 17:                                               ; preds = %13
@@ -146391,7 +146391,7 @@ _ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit.thread: ; preds = 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %2, ptr %7, align 8
   %32 = lshr i64 %.val8, 2
-  %33 = icmp ugt i64 %32, %2
+  %33 = icmp ult i64 %2, %32
   br i1 %33, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h32511137db875b54E.exit", label %34
 
 34:                                               ; preds = %_ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit.thread
@@ -146477,7 +146477,7 @@ define internal fastcc void @_ZN14deltalake_core6kernel5arrow7extract14read_prim
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35345)
   %14 = getelementptr inbounds i8, ptr %1, i64 80
   %15 = load i64, ptr %14, align 8, !alias.scope !35348, !noundef !24
-  %16 = icmp ugt i64 %15, %2
+  %16 = icmp ult i64 %2, %15
   br i1 %16, label %_ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit, label %17
 
 17:                                               ; preds = %13
@@ -146511,7 +146511,7 @@ _ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit.thread: ; preds = 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %2, ptr %7, align 8
   %32 = lshr i64 %.val8, 3
-  %33 = icmp ugt i64 %32, %2
+  %33 = icmp ult i64 %2, %32
   br i1 %33, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h335a2cf14fa04e30E.exit", label %34
 
 34:                                               ; preds = %_ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit.thread
@@ -148905,7 +148905,7 @@ _ZN14deltalake_core6kernel5arrow7extract20extract_and_cast_opt17hcba9eefc65f2f72
 118:                                              ; preds = %114
   call void @llvm.experimental.noalias.scope.decl(metadata !35667)
   %119 = load i64, ptr %108, align 8, !alias.scope !35670, !noundef !24
-  %120 = icmp ugt i64 %119, %.sroa.049.0
+  %120 = icmp ult i64 %.sroa.049.0, %119
   br i1 %120, label %_ZN11arrow_array5array5Array7is_null17h11b08c57bc1e1b4dE.exit, label %121
 
 121:                                              ; preds = %118
@@ -149704,7 +149704,7 @@ _ZN14deltalake_core6kernel5arrow7extract20extract_and_cast_opt17h42534cb9067f3af
 89:                                               ; preds = %85
   call void @llvm.experimental.noalias.scope.decl(metadata !35691)
   %90 = load i64, ptr %79, align 8, !alias.scope !35694, !noundef !24
-  %91 = icmp ugt i64 %90, %.sroa.019.0
+  %91 = icmp ult i64 %.sroa.019.0, %90
   br i1 %91, label %_ZN11arrow_array5array5Array7is_null17h11b08c57bc1e1b4dE.exit, label %92
 
 92:                                               ; preds = %89
@@ -150411,7 +150411,7 @@ define void @_ZN14deltalake_core6kernel8snapshot5parse9read_adds17h10e82ba65d882
 195:                                              ; preds = %191
   call void @llvm.experimental.noalias.scope.decl(metadata !35709)
   %196 = load i64, ptr %157, align 8, !alias.scope !35712, !noundef !24
-  %197 = icmp ugt i64 %196, %.sroa.0103.0612
+  %197 = icmp ult i64 %.sroa.0103.0612, %196
   br i1 %197, label %_ZN11arrow_array5array5Array7is_null17h11b08c57bc1e1b4dE.exit, label %198
 
 198:                                              ; preds = %195
@@ -150622,7 +150622,7 @@ _ZN11arrow_array5array5Array7is_null17h11b08c57bc1e1b4dE.exit.thread: ; preds = 
 261:                                              ; preds = %258
   call void @llvm.experimental.noalias.scope.decl(metadata !35744)
   %262 = load i64, ptr %167, align 8, !alias.scope !35747, !noalias !35742, !noundef !24
-  %263 = icmp ugt i64 %262, %.sroa.0103.0612
+  %263 = icmp ult i64 %.sroa.0103.0612, %262
   br i1 %263, label %_ZN11arrow_array5array5Array7is_null17h5786a8e9f203bcf1E.exit.i, label %264
 
 264:                                              ; preds = %261
@@ -150717,7 +150717,7 @@ _ZN11arrow_array5array5Array7is_null17h5786a8e9f203bcf1E.exit.thread.i: ; preds 
 288:                                              ; preds = %285
   call void @llvm.experimental.noalias.scope.decl(metadata !35756)
   %289 = load i64, ptr %172, align 8, !alias.scope !35759, !noundef !24
-  %290 = icmp ugt i64 %289, %.sroa.0103.0612
+  %290 = icmp ult i64 %.sroa.0103.0612, %289
   br i1 %290, label %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit, label %291
 
 291:                                              ; preds = %288
@@ -151119,7 +151119,7 @@ define internal void @"_ZN14deltalake_core6kernel8snapshot5parse9read_adds28_$u7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35779)
   %46 = getelementptr inbounds i8, ptr %41, i64 80
   %47 = load i64, ptr %46, align 8, !alias.scope !35782, !noundef !24
-  %48 = icmp ugt i64 %47, %2
+  %48 = icmp ult i64 %2, %47
   br i1 %48, label %_ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit, label %49
 
 49:                                               ; preds = %45
@@ -151162,7 +151162,7 @@ _ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit.thread: ; preds = 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %2, ptr %9, align 8
   %66 = lshr i64 %.val37, 2
-  %67 = icmp ugt i64 %66, %2
+  %67 = icmp ult i64 %2, %66
   br i1 %67, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h32511137db875b54E.exit", label %68
 
 68:                                               ; preds = %_ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit.thread
@@ -152246,7 +152246,7 @@ define hidden void @_ZN14deltalake_core6kernel8snapshot5parse12read_removes17hb3
 265:                                              ; preds = %261
   call void @llvm.experimental.noalias.scope.decl(metadata !35836)
   %266 = load i64, ptr %217, align 8, !alias.scope !35839, !noundef !24
-  %267 = icmp ugt i64 %266, %.sroa.083.0593
+  %267 = icmp ult i64 %.sroa.083.0593, %266
   br i1 %267, label %_ZN11arrow_array5array5Array7is_null17h11b08c57bc1e1b4dE.exit, label %268
 
 268:                                              ; preds = %265
@@ -152410,7 +152410,7 @@ _ZN11arrow_array5array5Array7is_null17h11b08c57bc1e1b4dE.exit.thread: ; preds = 
 318:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h1a1a855cfa25d409E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !35871)
   %319 = load i64, ptr %225, align 8, !alias.scope !35874, !noalias !35869, !noundef !24
-  %320 = icmp ugt i64 %319, %.sroa.083.0593
+  %320 = icmp ult i64 %.sroa.083.0593, %319
   br i1 %320, label %_ZN11arrow_array5array5Array7is_null17h5786a8e9f203bcf1E.exit.i, label %321
 
 321:                                              ; preds = %318
@@ -152493,7 +152493,7 @@ _ZN11arrow_array5array5Array7is_null17h5786a8e9f203bcf1E.exit.thread.i: ; preds 
 344:                                              ; preds = %341
   call void @llvm.experimental.noalias.scope.decl(metadata !35883)
   %345 = load i64, ptr %230, align 8, !alias.scope !35886, !noundef !24
-  %346 = icmp ugt i64 %345, %.sroa.083.0593
+  %346 = icmp ult i64 %.sroa.083.0593, %345
   br i1 %346, label %_ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit, label %.invoke
 
 .invoke:                                          ; preds = %344, %389, %371
@@ -152554,7 +152554,7 @@ _ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit.thread: ; preds = 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   store i64 %.sroa.083.0593, ptr %21, align 8
   %359 = lshr i64 %.sroa.719.0.val268, 3
-  %360 = icmp ugt i64 %359, %.sroa.083.0593
+  %360 = icmp ult i64 %.sroa.083.0593, %359
   br i1 %360, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h335a2cf14fa04e30E.exit", label %361
 
 361:                                              ; preds = %_ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit.thread
@@ -152610,7 +152610,7 @@ _ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit.thread: ; preds = 
 371:                                              ; preds = %368
   call void @llvm.experimental.noalias.scope.decl(metadata !35902)
   %372 = load i64, ptr %237, align 8, !alias.scope !35905, !noundef !24
-  %373 = icmp ugt i64 %372, %.sroa.083.0593
+  %373 = icmp ult i64 %.sroa.083.0593, %372
   br i1 %373, label %_ZN11arrow_array5array5Array7is_null17h5786a8e9f203bcf1E.exit.i410, label %.invoke
 
 _ZN11arrow_array5array5Array7is_null17h5786a8e9f203bcf1E.exit.i410: ; preds = %371
@@ -152652,7 +152652,7 @@ _ZN11arrow_array5array5Array7is_null17h5786a8e9f203bcf1E.exit.thread.i412: ; pre
 389:                                              ; preds = %386
   call void @llvm.experimental.noalias.scope.decl(metadata !35915)
   %390 = load i64, ptr %242, align 8, !alias.scope !35918, !noundef !24
-  %391 = icmp ugt i64 %390, %.sroa.083.0593
+  %391 = icmp ult i64 %.sroa.083.0593, %390
   br i1 %391, label %_ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit.i, label %.invoke
 
 _ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit.i: ; preds = %389
@@ -152678,7 +152678,7 @@ _ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit.thread.i: ; preds 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !35906
   store i64 %.sroa.083.0593, ptr %15, align 8, !noalias !35906
   %402 = lshr i64 %.val2.i, 3
-  %403 = icmp ugt i64 %402, %.sroa.083.0593
+  %403 = icmp ult i64 %.sroa.083.0593, %402
   br i1 %403, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h335a2cf14fa04e30E.exit.i", label %404
 
 404:                                              ; preds = %_ZN11arrow_array5array5Array7is_null17h6ff9732ac3f32f33E.exit.thread.i
@@ -153068,7 +153068,7 @@ define internal void @"_ZN14deltalake_core6kernel8snapshot5parse12read_removes28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35952)
   %46 = getelementptr inbounds i8, ptr %41, i64 80
   %47 = load i64, ptr %46, align 8, !alias.scope !35955, !noundef !24
-  %48 = icmp ugt i64 %47, %2
+  %48 = icmp ult i64 %2, %47
   br i1 %48, label %_ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit, label %49
 
 49:                                               ; preds = %45
@@ -153111,7 +153111,7 @@ _ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit.thread: ; preds = 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %2, ptr %9, align 8
   %66 = lshr i64 %.val37, 2
-  %67 = icmp ugt i64 %66, %2
+  %67 = icmp ult i64 %2, %66
   br i1 %67, label %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h32511137db875b54E.exit", label %68
 
 68:                                               ; preds = %_ZN11arrow_array5array5Array7is_null17h479d88537b8e3c3eE.exit.thread
@@ -153498,7 +153498,7 @@ define internal fastcc void @_ZN14deltalake_core6kernel8snapshot5parse19collect_
   br i1 %15, label %16, label %18, !prof !230
 
 16:                                               ; preds = %8
-  %17 = icmp ugt i64 %13, %1
+  %17 = icmp ult i64 %1, %13
   br i1 %17, label %"_ZN11arrow_array5array10list_array34GenericListArray$LT$OffsetSize$GT$5value17hd54aee5e1d6072c3E.exit.i", label %19, !prof !230
 
 18:                                               ; preds = %8

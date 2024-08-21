@@ -1037,7 +1037,7 @@ if.else220:                                       ; preds = %if.else214
   br label %if.end222
 
 if.end222:                                        ; preds = %do.body.i123, %if.else220, %do_free_upto.exit, %if.then211
-  %cmp223.not = icmp eq ptr %tmpout.0, %out
+  %cmp223.not = icmp eq ptr %out, %tmpout.0
   br i1 %cmp223.not, label %err2, label %if.then225
 
 if.then225:                                       ; preds = %if.end222

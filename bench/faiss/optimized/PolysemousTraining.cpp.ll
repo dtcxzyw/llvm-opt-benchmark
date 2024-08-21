@@ -1038,7 +1038,7 @@ define noundef double @_ZNK5faiss27ReproduceDistancesObjective10dis_weightEd(ptr
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8
   %5 = fneg double %4
-  %6 = fmul double %5, %1
+  %6 = fmul double %1, %5
   %7 = tail call double @exp(double noundef %6) #18
   ret double %7
 }
@@ -4801,7 +4801,7 @@ define linkonce_odr void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iter
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -4897,7 +4897,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12IndirectSort
   %65 = getelementptr inbounds i32, ptr %0, i64 %64
   %66 = load i32, ptr %65, align 4
   %.sroa.0.0.copyload16.us = load ptr, ptr %2, align 8
-  %.not.us = icmp slt i64 %14, %.035.us
+  %.not.us = icmp sgt i64 %.035.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12IndirectSortEEEEvT_T0_S8_T1_T2_.exit29.us, label %.lr.ph.i26.us
 
 .lr.ph.i26.us:                                    ; preds = %.split15.us, %.lr.ph.i26.us
@@ -4965,7 +4965,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12IndirectSort
   %100 = getelementptr inbounds i32, ptr %0, i64 %99
   %101 = load i32, ptr %100, align 4
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %14, %.035
+  %.not = icmp sgt i64 %.035, %14
   br i1 %.not, label %._crit_edge.i18, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.split15, %.lr.ph.i26

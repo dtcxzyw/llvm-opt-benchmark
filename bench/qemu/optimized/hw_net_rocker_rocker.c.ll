@@ -884,7 +884,7 @@ if.then48:                                        ; preds = %out
   %11 = load i32, ptr %fp_ports.i, align 16
   %sub.i133 = shl i32 %11, 1
   %add2.i = add i32 %sub.i133, 4
-  %cmp.not.i = icmp ugt i32 %add2.i, %add49
+  %cmp.not.i = icmp ult i32 %add49, %add2.i
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then48
@@ -2450,7 +2450,7 @@ sw.bb:                                            ; preds = %entry
   %conv.i.i = sext i32 %mul.i.i to i64
   %add.i.i = add nsw i64 %conv.i.i, 4096
   %cmp.i.i = icmp ugt i64 %addr, 4095
-  %cmp2.i.i = icmp ugt i64 %add.i.i, %addr
+  %cmp2.i.i = icmp ult i64 %addr, %add.i.i
   %1 = select i1 %cmp.i.i, i1 %cmp2.i.i, i1 false
   br i1 %1, label %if.then.i, label %if.end.i
 
@@ -2731,7 +2731,7 @@ sw.bb3:                                           ; preds = %entry
   %conv.i.i10 = sext i32 %mul.i.i9 to i64
   %add.i.i11 = add nsw i64 %conv.i.i10, 4096
   %cmp.i.i12 = icmp ugt i64 %addr, 4095
-  %cmp2.i.i13 = icmp ugt i64 %add.i.i11, %addr
+  %cmp2.i.i13 = icmp ult i64 %addr, %add.i.i11
   %41 = select i1 %cmp.i.i12, i1 %cmp2.i.i13, i1 false
   br i1 %41, label %if.then.i35, label %if.end.i14
 
@@ -2850,7 +2850,7 @@ sw.bb:                                            ; preds = %entry
   %conv.i.i = sext i32 %mul.i.i to i64
   %add.i.i = add nsw i64 %conv.i.i, 4096
   %cmp.i.i = icmp ugt i64 %addr, 4095
-  %cmp2.i.i = icmp ugt i64 %add.i.i, %addr
+  %cmp2.i.i = icmp ult i64 %addr, %add.i.i
   %1 = select i1 %cmp.i.i, i1 %cmp2.i.i, i1 false
   br i1 %1, label %if.then.i, label %if.end40.i
 
@@ -2916,7 +2916,7 @@ if.then19.i:                                      ; preds = %sw.bb14.i
   %14 = load i32, ptr %0, align 16
   %sub.i.i = shl i32 %14, 1
   %add2.i.i = add i32 %sub.i.i, 4
-  %cmp.not.i.i = icmp ugt i32 %add2.i.i, %call23.i
+  %cmp.not.i.i = icmp ult i32 %call23.i, %add2.i.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %sw.epilog
 
 if.end.i.i:                                       ; preds = %if.then19.i
@@ -2950,7 +2950,7 @@ if.then33.i:                                      ; preds = %sw.bb28.i
   %21 = load i32, ptr %0, align 16
   %sub.i59.i = shl i32 %21, 1
   %add2.i60.i = add i32 %sub.i59.i, 4
-  %cmp.not.i61.i = icmp ugt i32 %add2.i60.i, %call37.i
+  %cmp.not.i61.i = icmp ult i32 %call37.i, %add2.i60.i
   br i1 %cmp.not.i61.i, label %if.end.i62.i, label %sw.epilog
 
 if.end.i62.i:                                     ; preds = %if.then33.i
@@ -3158,7 +3158,7 @@ sw.bb2:                                           ; preds = %entry
   %conv.i.i12 = sext i32 %mul.i.i11 to i64
   %add.i.i13 = add nsw i64 %conv.i.i12, 4096
   %cmp.i.i14 = icmp ugt i64 %addr, 4095
-  %cmp2.i.i15 = icmp ugt i64 %add.i.i13, %addr
+  %cmp2.i.i15 = icmp ult i64 %addr, %add.i.i13
   %45 = select i1 %cmp.i.i14, i1 %cmp2.i.i15, i1 false
   br i1 %45, label %if.then.i32, label %if.end.i
 

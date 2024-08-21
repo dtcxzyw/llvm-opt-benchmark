@@ -991,7 +991,7 @@ define internal void @ssh_secrets_block_callback(ptr noundef %0, i32 noundef %1)
   %3 = zext i32 %1 to i64
   %4 = getelementptr i8, ptr %0, i64 %3
   %5 = icmp ne ptr %0, null
-  %6 = icmp ugt ptr %4, %0
+  %6 = icmp ult ptr %0, %4
   %7 = and i1 %5, %6
   br i1 %7, label %.lr.ph.i, label %ssh_keylog_process_lines.exit
 
@@ -6776,7 +6776,7 @@ ssh_proto_tree_add_segment_data.exit.i.i:         ; preds = %178, %proto_item_se
   br label %215
 
 213:                                              ; preds = %204
-  %..i.i = call i32 @llvm.umin.i32(i32 %193, i32 %128)
+  %..i.i = call i32 @llvm.umin.i32(i32 %128, i32 %193)
   %214 = sub i32 %..i.i, %.0411.i.i
   br label %215
 
@@ -6869,7 +6869,7 @@ ssh_process_payload.exit.i.i:                     ; preds = %244, %242
   br i1 %259, label %260, label %.thread360.i.i
 
 260:                                              ; preds = %255
-  %261 = icmp ugt i32 %232, %128
+  %261 = icmp ult i32 %128, %232
   %262 = load ptr, ptr %136, align 8
   call void @col_clear(ptr noundef %262, i32 noundef 25) #21
   br i1 %261, label %.thread360.i.i, label %263

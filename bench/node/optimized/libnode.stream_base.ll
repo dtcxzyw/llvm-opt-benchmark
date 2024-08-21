@@ -1336,7 +1336,7 @@ for.body163:                                      ; preds = %for.cond161.prehead
 if.end180:                                        ; preds = %for.body163
   %call185 = call noundef ptr @_ZN4node6Buffer4DataEN2v85LocalINS1_5ValueEEE(ptr nonnull %call172) #20
   %37 = load i64, ptr %bufs, align 8
-  %cmp.not.i = icmp ugt i64 %37, %i160.0152
+  %cmp.not.i = icmp ult i64 %i160.0152, %37
   br i1 %cmp.not.i, label %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit, label %do.body4.i
 
 do.body4.i:                                       ; preds = %if.end180
@@ -1350,7 +1350,7 @@ _ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit: ; preds = %if.end180
   store ptr %call185, ptr %arrayidx.i71, align 8
   %call191 = call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_5ValueEEE(ptr nonnull %call172) #20
   %39 = load i64, ptr %bufs, align 8
-  %cmp.not.i72 = icmp ugt i64 %39, %i160.0152
+  %cmp.not.i72 = icmp ult i64 %i160.0152, %39
   br i1 %cmp.not.i72, label %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit76, label %do.body4.i73
 
 do.body4.i73:                                     ; preds = %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit
@@ -1422,7 +1422,7 @@ if.end226:                                        ; preds = %for.body208
 if.then232:                                       ; preds = %if.end226
   %call237 = call noundef ptr @_ZN4node6Buffer4DataEN2v85LocalINS1_5ValueEEE(ptr nonnull %call218) #20
   %45 = load i64, ptr %bufs, align 8
-  %cmp.not.i86 = icmp ugt i64 %45, %i205.0154
+  %cmp.not.i86 = icmp ult i64 %i205.0154, %45
   br i1 %cmp.not.i86, label %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit90, label %do.body4.i87
 
 do.body4.i87:                                     ; preds = %if.then232
@@ -1436,7 +1436,7 @@ _ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit90: ; preds = %if.then232
   store ptr %call237, ptr %arrayidx.i89, align 8
   %call244 = call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_5ValueEEE(ptr nonnull %call218) #20
   %47 = load i64, ptr %bufs, align 8
-  %cmp.not.i91 = icmp ugt i64 %47, %i205.0154
+  %cmp.not.i91 = icmp ult i64 %i205.0154, %47
   br i1 %cmp.not.i91, label %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit95, label %do.body4.i92
 
 do.body4.i92:                                     ; preds = %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit90
@@ -1486,7 +1486,7 @@ if.end304:                                        ; preds = %if.end285
   %call310 = call noundef i32 @_ZN4node13ParseEncodingEPN2v87IsolateENS0_5LocalINS0_5ValueEEENS_8encodingE(ptr noundef %12, ptr nonnull %call296, i32 noundef 4) #20
   %call319 = call noundef i64 @_ZN4node11StringBytes5WriteEPN2v87IsolateEPcmNS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef %12, ptr noundef %add.ptr144, i64 noundef %sub, ptr nonnull %call277, i32 noundef %call310) #20
   %49 = load i64, ptr %bufs, align 8
-  %cmp.not.i97 = icmp ugt i64 %49, %i205.0154
+  %cmp.not.i97 = icmp ult i64 %i205.0154, %49
   br i1 %cmp.not.i97, label %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit101, label %do.body4.i98
 
 do.body4.i98:                                     ; preds = %if.end304
@@ -1499,7 +1499,7 @@ _ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit101: ; preds = %if.end304
   %arrayidx.i100 = getelementptr inbounds %struct.uv_buf_t, ptr %50, i64 %i205.0154
   store ptr %add.ptr144, ptr %arrayidx.i100, align 8
   %51 = load i64, ptr %bufs, align 8
-  %cmp.not.i102 = icmp ugt i64 %51, %i205.0154
+  %cmp.not.i102 = icmp ult i64 %i205.0154, %51
   br i1 %cmp.not.i102, label %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit106, label %do.body4.i103
 
 do.body4.i103:                                    ; preds = %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit101
@@ -4898,7 +4898,7 @@ if.then17:                                        ; preds = %if.then15
 do.body29:                                        ; preds = %do.end5
   %5 = load ptr, ptr %bs, align 8
   %call31 = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
-  %cmp32.not = icmp ult i64 %call31, %nread
+  %cmp32.not = icmp ugt i64 %nread, %call31
   br i1 %cmp32.not, label %do.body37, label %do.end41
 
 do.body37:                                        ; preds = %do.body29

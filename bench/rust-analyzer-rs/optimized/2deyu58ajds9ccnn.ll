@@ -687,7 +687,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h181
   %18 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !191, !noalias !196, !noundef !19
   %19 = load i64, ptr %6, align 8, !alias.scope !198, !noalias !196, !noundef !19
   %20 = sub i64 %19, %18
-  %21 = icmp ult i64 %20, %17
+  %21 = icmp ugt i64 %17, %20
   br i1 %21, label %22, label %39
 
 22:                                               ; preds = %16
@@ -713,7 +713,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h181
   %31 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !201, !noalias !206, !noundef !19
   %32 = load i64, ptr %6, align 8, !alias.scope !208, !noalias !206, !noundef !19
   %33 = sub i64 %32, %31
-  %34 = icmp ult i64 %33, %30
+  %34 = icmp ugt i64 %30, %33
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %26
@@ -1404,7 +1404,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %11 = phi ptr [ %16, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i" ], [ %10, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit ]
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !363, !noundef !19
-  %.not.i.i.i.i = icmp ugt i64 %13, %.sroa.3.0.i
+  %.not.i.i.i.i = icmp ult i64 %.sroa.3.0.i, %13
   br i1 %.not.i.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i"
 
 "_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i": ; preds = %.lr.ph.i.i
@@ -1467,7 +1467,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %11 = phi ptr [ %16, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i" ], [ %10, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i ]
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !390, !noundef !19
-  %.not.i.i.i.i.i = icmp ugt i64 %13, %.sroa.3.0.i.i
+  %.not.i.i.i.i.i = icmp ult i64 %.sroa.3.0.i.i, %13
   br i1 %.not.i.i.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i"
 
 "_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i": ; preds = %.lr.ph.i.i.i
@@ -1526,7 +1526,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %11 = phi ptr [ %16, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i" ], [ %10, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i ]
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !415, !noundef !19
-  %.not.i.i.i.i.i = icmp ugt i64 %13, %.sroa.3.0.i.i
+  %.not.i.i.i.i.i = icmp ult i64 %.sroa.3.0.i.i, %13
   br i1 %.not.i.i.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i"
 
 "_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i": ; preds = %.lr.ph.i.i.i
@@ -1587,7 +1587,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %11 = phi ptr [ %16, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i" ], [ %10, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i ]
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !440, !noundef !19
-  %.not.i.i.i.i.i = icmp ugt i64 %13, %.sroa.3.0.i.i
+  %.not.i.i.i.i.i = icmp ult i64 %.sroa.3.0.i.i, %13
   br i1 %.not.i.i.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i"
 
 "_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i": ; preds = %.lr.ph.i.i.i
@@ -1652,7 +1652,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %11 = phi ptr [ %16, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i.i.i" ], [ %10, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i.i.i ]
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !468, !noundef !19
-  %.not.i.i.i.i.i.i.i = icmp ugt i64 %13, %.sroa.3.0.i.i.i.i
+  %.not.i.i.i.i.i.i.i = icmp ult i64 %.sroa.3.0.i.i.i.i, %13
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i.i.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i.i.i"
 
 "_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i
@@ -1773,7 +1773,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %14 = phi ptr [ %19, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i" ], [ %13, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i ]
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8, !noalias !502, !noundef !19
-  %.not.i.i.i.i.i = icmp ugt i64 %16, %.sroa.3.0.i.i
+  %.not.i.i.i.i.i = icmp ult i64 %.sroa.3.0.i.i, %16
   br i1 %.not.i.i.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i"
 
 "_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i": ; preds = %.lr.ph.i.i.i

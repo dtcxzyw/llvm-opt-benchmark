@@ -118,7 +118,7 @@ define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 nound
   %11 = load i8, ptr %10, align 1
   %12 = icmp ne i8 %11, -1
   %13 = sext i8 %11 to i32
-  %.not34.us55 = icmp slt i32 %13, %2
+  %.not34.us55 = icmp sgt i32 %2, %13
   %or.cond.us56 = and i1 %12, %.not34.us55
   br i1 %or.cond.us56, label %.lr.ph, label %.loopexit
 
@@ -147,7 +147,7 @@ define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 nound
   %25 = load i8, ptr %24, align 1
   %26 = icmp ne i8 %25, -1
   %27 = sext i8 %25 to i32
-  %.not34.us = icmp slt i32 %27, %2
+  %.not34.us = icmp sgt i32 %2, %27
   %or.cond.us = and i1 %26, %.not34.us
   br i1 %or.cond.us, label %.lr.ph, label %.loopexit
 
@@ -159,7 +159,7 @@ define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 nound
   %32 = load i8, ptr %31, align 1
   %33 = icmp ne i8 %32, -1
   %34 = sext i8 %32 to i32
-  %.not34 = icmp slt i32 %34, %2
+  %.not34 = icmp sgt i32 %2, %34
   %or.cond = and i1 %33, %.not34
   br i1 %or.cond, label %35, label %.loopexit
 

@@ -55,8 +55,8 @@ entry:
   %2 = load float, ptr %q, align 4
   %y.i = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load float, ptr %y.i, align 4
-  %4 = fneg float %2
-  %neg.i = fmul float %3, %4
+  %4 = fneg float %3
+  %neg.i = fmul float %2, %4
   %5 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %neg.i)
   %mul6.i = fmul float %0, %3
   %6 = tail call float @llvm.fmuladd.f32(float %2, float %1, float %mul6.i)
@@ -90,8 +90,8 @@ entry:
   %2 = load float, ptr %q, align 4
   %y.i = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load float, ptr %y.i, align 4
-  %4 = fneg float %2
-  %neg.i = fmul float %3, %4
+  %4 = fneg float %3
+  %neg.i = fmul float %2, %4
   %5 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %neg.i)
   %mul6.i = fmul float %0, %3
   %6 = tail call float @llvm.fmuladd.f32(float %2, float %1, float %mul6.i)
@@ -121,8 +121,8 @@ entry:
   %16 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %sub.i26, float %mul3.i34)
   %mul3.i37 = fmul float %sub3.i29, %sub3.i29
   %17 = tail call noundef float @llvm.fmuladd.f32(float %sub.i26, float %sub.i26, float %mul3.i37)
-  %18 = fneg float %17
-  %neg11 = fmul float %13, %18
+  %18 = fneg float %13
+  %neg11 = fmul float %17, %18
   %19 = tail call float @llvm.fmuladd.f32(float %16, float %16, float %neg11)
   %cmp = fcmp olt float %19, 0.000000e+00
   %cmp12 = fcmp olt float %17, 0x3E80000000000000
@@ -191,8 +191,8 @@ entry:
   %2 = load float, ptr %q, align 4
   %y.i = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load float, ptr %y.i, align 4
-  %4 = fneg float %2
-  %neg.i = fmul float %3, %4
+  %4 = fneg float %3
+  %neg.i = fmul float %2, %4
   %5 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %neg.i)
   %mul6.i = fmul float %0, %3
   %6 = tail call float @llvm.fmuladd.f32(float %2, float %1, float %mul6.i)

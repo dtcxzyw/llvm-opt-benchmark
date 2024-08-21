@@ -62,7 +62,7 @@ entry:
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i32 %i.03.i, 1
-  %exitcond.not.i = icmp eq i32 %inc.i, %indent
+  %exitcond.not.i = icmp eq i32 %indent, %inc.i
   br i1 %exitcond.not.i, label %if.end2, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i

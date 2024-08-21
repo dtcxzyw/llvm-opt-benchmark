@@ -869,7 +869,7 @@ if.end3:                                          ; preds = %entry
   %sccsseen.promoted = load i1, ptr @sccsseen, align 4
   %chsessidlen.promoted = load i64, ptr @chsessidlen, align 8
   %0 = load ptr, ptr @s_to_c_fbio, align 8
-  %cmp129 = icmp eq ptr %0, %bio
+  %cmp129 = icmp eq ptr %bio, %0
   br label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3, %if.end140

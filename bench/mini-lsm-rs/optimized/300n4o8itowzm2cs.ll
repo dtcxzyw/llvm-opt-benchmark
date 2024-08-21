@@ -102,7 +102,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2de98fe320ecb1daE.exit.i.i"
-  %25 = icmp ult i64 %16, %22
+  %25 = icmp ugt i64 %22, %16
   br i1 %25, label %26, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h83ac5d1709538b33E.exit.i"
 
 26:                                               ; preds = %24
@@ -199,7 +199,7 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
   %9 = load i64, ptr %8, align 8, !noundef !5
   %10 = load i64, ptr %0, align 8, !alias.scope !30, !noundef !5
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %7
+  %12 = icmp ugt i64 %7, %11
   br i1 %12, label %13, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf6288cbc7034a063E.llvm.16478127874811385373.exit"
 
 13:                                               ; preds = %3
@@ -2433,7 +2433,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %11 = getelementptr inbounds { ptr, i64, ptr }, ptr %7, i64 %10
   %12 = getelementptr i8, ptr %11, i64 8
   %.val1 = load i64, ptr %12, align 8, !noundef !5
-  %.not2 = icmp eq i64 %8, %.val1
+  %.not2 = icmp eq i64 %.val1, %8
   %13 = add i64 %10, 1
   br i1 %.not2, label %14, label %22
 
@@ -2491,7 +2491,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %.val1 = load i64, ptr %13, align 8, !noundef !5
   %.val.i = load ptr, ptr %.val, align 8, !nonnull !5, !align !169, !noundef !5
   %14 = load i64, ptr %.val.i, align 8, !noundef !5
-  %.not2 = icmp eq i64 %14, %.val1
+  %.not2 = icmp eq i64 %.val1, %14
   br i1 %.not2, label %15, label %24
 
 ._crit_edge:                                      ; preds = %.backedge, %3
@@ -2552,7 +2552,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hcd5353220d654
   %10 = getelementptr inbounds { ptr, i64, ptr }, ptr %6, i64 %9
   %11 = getelementptr i8, ptr %10, i64 8
   %.val1.i = load i64, ptr %11, align 8, !noalias !350, !noundef !5
-  %.not2.i = icmp eq i64 %7, %.val1.i
+  %.not2.i = icmp eq i64 %.val1.i, %7
   %12 = add i64 %9, 1
   br i1 %.not2.i, label %13, label %19
 
@@ -2599,7 +2599,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hcd5353220d654
   %24 = getelementptr i8, ptr %23, i64 8
   %.val1.i3 = load i64, ptr %24, align 8, !noalias !368, !noundef !5
   %25 = load i64, ptr %.val.i.i4, align 8, !noalias !368, !noundef !5
-  %.not2.i5 = icmp eq i64 %25, %.val1.i3
+  %.not2.i5 = icmp eq i64 %.val1.i3, %25
   br i1 %.not2.i5, label %26, label %33
 
 26:                                               ; preds = %.lr.ph.i1
@@ -2690,7 +2690,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h76d4343fb06c2bccE"(
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h381d063d8d3579eaE"(ptr noalias nocapture noundef writeonly sret({ ptr, i64, ptr }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
-  %.not = icmp ugt i64 %6, %2
+  %.not = icmp ult i64 %2, %6
   br i1 %.not, label %7, label %16
 
 7:                                                ; preds = %4
@@ -2726,7 +2726,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf6288cbc7034a063E
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = load i64, ptr %0, align 8, !noundef !5
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2
@@ -2741,7 +2741,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf6288cbc7034a063E
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h52296c37b2fd3229E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %"_ZN4core3ptr62drop_in_place$LT$$u5b$crossbeam_channel..waker..Entry$u5d$$GT$17h3d27cc2a7843a318E.llvm.16478127874811385373.exit", label %6
 
 6:                                                ; preds = %2

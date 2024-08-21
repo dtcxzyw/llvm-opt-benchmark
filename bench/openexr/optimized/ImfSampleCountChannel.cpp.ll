@@ -171,7 +171,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %arrayidx = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub
   %3 = load i32, ptr %arrayidx, align 4
-  %cmp.not = icmp ult i32 %3, %newNumSamples
+  %cmp.not = icmp ugt i32 %newNumSamples, %3
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -189,7 +189,7 @@ if.end:                                           ; preds = %entry
   %5 = load ptr, ptr %_sampleListSizes, align 8
   %arrayidx10 = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub
   %6 = load i32, ptr %arrayidx10, align 4
-  %cmp11.not = icmp ult i32 %6, %newNumSamples
+  %cmp11.not = icmp ugt i32 %newNumSamples, %6
   br i1 %cmp11.not, label %while.cond.i, label %if.then12
 
 if.then12:                                        ; preds = %if.end

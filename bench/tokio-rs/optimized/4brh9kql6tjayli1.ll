@@ -2123,7 +2123,7 @@ default.unreachable:                              ; preds = %117
 67:                                               ; preds = %62
   %68 = sub nuw nsw i64 %.0.sroa.speculated.i.i, %57
   %69 = sub nsw i64 %48, %57
-  %70 = icmp ult i64 %69, %68
+  %70 = icmp ugt i64 %68, %69
   br i1 %70, label %71, label %87
 
 71:                                               ; preds = %67
@@ -3503,7 +3503,7 @@ _ZN5tokio2io8blocking3Buf12discard_read17hc2aafcd60af59410E.exit: ; preds = %40
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %4, i64 2097152)
   %46 = load i64, ptr %13, align 8, !alias.scope !558, !noalias !567, !noundef !4
   %47 = sub i64 %46, %45
-  %48 = icmp ult i64 %47, %.0.sroa.speculated.i.i
+  %48 = icmp ugt i64 %.0.sroa.speculated.i.i, %47
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %44
@@ -4618,7 +4618,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$tokio..io..blocking..Blocking$LT$T$GT$$u2
 45:                                               ; preds = %40
   %46 = sub nuw nsw i64 %.0.sroa.speculated.i.i, %35
   %47 = sub nsw i64 %18, %35
-  %48 = icmp ult i64 %47, %46
+  %48 = icmp ugt i64 %46, %47
   br i1 %48, label %49, label %65
 
 49:                                               ; preds = %45
@@ -5124,7 +5124,7 @@ define hidden void @"_ZN93_$LT$tokio..io..blocking..Blocking$LT$T$GT$$u20$as$u20
 31:                                               ; preds = %25
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 2097152)
   %32 = sub i64 %.lcssa, %27
-  %33 = icmp ult i64 %32, %.0.sroa.speculated.i.i
+  %33 = icmp ugt i64 %.0.sroa.speculated.i.i, %32
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %31
@@ -5470,7 +5470,7 @@ define hidden void @"_ZN93_$LT$tokio..io..blocking..Blocking$LT$T$GT$$u20$as$u20
 31:                                               ; preds = %25
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 2097152)
   %32 = sub i64 %.lcssa, %27
-  %33 = icmp ult i64 %32, %.0.sroa.speculated.i.i
+  %33 = icmp ugt i64 %.0.sroa.speculated.i.i, %32
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %31
@@ -6472,7 +6472,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit.th
   %.sroa.4.0..sroa_idx17 = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.4.0.copyload18 = load i64, ptr %.sroa.4.0..sroa_idx17, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %38 = icmp ult i64 %10, %.sroa.4.0.copyload18
+  %38 = icmp ugt i64 %.sroa.4.0.copyload18, %10
   br i1 %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h27a5e0b1b9878d04E.exit", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h27a5e0b1b9878d04E.exit.sink.split"
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit.thread: ; preds = %18, %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit
@@ -6614,7 +6614,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit.th
   %.sroa.4.0..sroa_idx18 = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.4.0.copyload19 = load i64, ptr %.sroa.4.0..sroa_idx18, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %38 = icmp ult i64 %10, %.sroa.4.0.copyload19
+  %38 = icmp ugt i64 %.sroa.4.0.copyload19, %10
   br i1 %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h27a5e0b1b9878d04E.exit", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h27a5e0b1b9878d04E.exit.sink.split"
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit.thread: ; preds = %18, %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit
@@ -9588,7 +9588,7 @@ define hidden void @"_ZN5tokio7runtime4time54_$LT$impl$u20$tokio..runtime..time.
   store ptr %0, ptr %4, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %14, i64 %1)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %1, i64 %14)
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   br label %.outer
 
@@ -11321,7 +11321,7 @@ define hidden { i64, i64 } @"_ZN5tokio7runtime4task5state5State22transition_to_s
   %4 = and i64 %1, 3
   %5 = icmp eq i64 %4, 0
   %6 = zext i1 %5 to i64
-  %spec.select = or disjoint i64 %6, %1
+  %spec.select = or disjoint i64 %1, %6
   %7 = or i64 %spec.select, 32
   %8 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %7, 1
   ret { i64, i64 } %8

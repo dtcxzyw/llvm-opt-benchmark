@@ -2099,7 +2099,7 @@ suitable_rid.exit.thread:                         ; preds = %for.body
   br label %for.inc
 
 suitable_rid.exit:                                ; preds = %for.body
-  %cmp4.i.not = icmp eq i32 %call.i8, %rid
+  %cmp4.i.not = icmp eq i32 %rid, %call.i8
   br i1 %cmp4.i.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %suitable_rid.exit.thread, %suitable_rid.exit
@@ -2161,7 +2161,7 @@ suitable_rid.exit.thread:                         ; preds = %for.body
   br label %for.inc
 
 suitable_rid.exit:                                ; preds = %for.body
-  %cmp4.i.not = icmp eq i32 %call.i, %rid
+  %cmp4.i.not = icmp eq i32 %rid, %call.i
   br i1 %cmp4.i.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %suitable_rid.exit.thread, %suitable_rid.exit

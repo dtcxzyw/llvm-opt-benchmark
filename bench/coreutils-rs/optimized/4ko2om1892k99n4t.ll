@@ -1647,7 +1647,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %31
   %.val31 = load ptr, ptr %53, align 8, !nonnull !5, !noundef !5
   %54 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %.val31)
   %55 = icmp ne i8 %54, 0
-  %brmerge25 = or i1 %55, %2
+  %brmerge25 = or i1 %2, %55
   br i1 %brmerge25, label %.thread61, label %67
 
 56:                                               ; preds = %48

@@ -570,7 +570,7 @@ _ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4l
 10:                                               ; preds = %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i
   %11 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %12 = load i16, ptr %11, align 2
-  %13 = icmp ugt i16 %12, %1
+  %13 = icmp ult i16 %1, %12
   %spec.select.i.i = select i1 %13, ptr %5, ptr %.19.i.i.i
   br label %_ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE5countERS7_.exit
 
@@ -609,7 +609,7 @@ _ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4l
 _ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit: ; preds = %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i
   %11 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %12 = load i16, ptr %11, align 2
-  %13 = icmp ugt i16 %12, %1
+  %13 = icmp ult i16 %1, %12
   br i1 %13, label %_ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.thread, label %16
 
 _ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.thread: ; preds = %2, %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit
@@ -656,7 +656,7 @@ _ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4l
 _ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %12 = load i16, ptr %11, align 2
-  %13 = icmp ugt i16 %12, %1
+  %13 = icmp ult i16 %1, %12
   br i1 %13, label %_ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.thread.i, label %_ZNK4LIEF3DEX7MapList3getENS0_7MapItem5TYPESE.exit
 
 _ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.thread.i: ; preds = %_ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.i, %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i, %2
@@ -703,7 +703,7 @@ _ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4l
 _ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %12 = load i16, ptr %11, align 2
-  %13 = icmp ugt i16 %12, %1
+  %13 = icmp ult i16 %1, %12
   br i1 %13, label %_ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.thread.i, label %_ZNK4LIEF3DEX7MapList3getENS0_7MapItem5TYPESE.exit
 
 _ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.thread.i: ; preds = %_ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.i, %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i, %2
@@ -750,7 +750,7 @@ _ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4l
 _ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.i.i: ; preds = %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i, i64 32
   %12 = load i16, ptr %11, align 2
-  %13 = icmp ugt i16 %12, %1
+  %13 = icmp ult i16 %1, %12
   br i1 %13, label %_ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.thread.i.i, label %_ZN4LIEF3DEX7MapList3getENS0_7MapItem5TYPESE.exit
 
 _ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.thread.i.i: ; preds = %_ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE4findERS7_.exit.i.i, %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i, %2
@@ -1568,7 +1568,7 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE4g
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 1
   %6 = add i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %2
@@ -1648,7 +1648,7 @@ define linkonce_odr hidden void @_ZN6spdlog6logger3logIPKcEEvNS_5level10level_en
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load atomic i32, ptr %7 monotonic, align 8
-  %9 = icmp sle i32 %8, %1
+  %9 = icmp sge i32 %1, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 104
   %11 = getelementptr inbounds i8, ptr %0, i64 144
   %12 = load atomic i8, ptr %11 monotonic, align 8
@@ -1814,7 +1814,7 @@ _ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE10deallocateEv.exit.i.i: ; preds = 
 
 26:                                               ; preds = %25, %24
   %27 = phi i64 [ %.pre.i.i.i, %25 ], [ %20, %24 ]
-  %28 = icmp ult i64 %27, %18
+  %28 = icmp ugt i64 %18, %27
   br i1 %28, label %29, label %_ZN6spdlog7details14log_msg_bufferaSEOS1_.exit
 
 29:                                               ; preds = %26
@@ -1836,7 +1836,7 @@ _ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE10deallocateEv.exit.i.i: ; preds = 
 
 _ZN6spdlog7details14log_msg_bufferaSEOS1_.exit:   ; preds = %26, %.noexc.i.i
   %35 = phi i64 [ %27, %26 ], [ %.pre.i.i.i.i.i, %.noexc.i.i ]
-  %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %35, i64 %18)
+  %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %18, i64 %35)
   %36 = getelementptr inbounds i8, ptr %9, i64 112
   store i64 %..i.i.i.i.i, ptr %36, align 8
   %37 = load ptr, ptr %11, align 8
@@ -1908,7 +1908,7 @@ define linkonce_odr hidden void @_ZN6spdlog7details14log_msg_bufferC2ERKNS0_7log
   %18 = sub i64 %13, %17
   %19 = add i64 %18, %16
   %20 = load i64, ptr %6, align 8
-  %21 = icmp ult i64 %20, %19
+  %21 = icmp ugt i64 %19, %20
   br i1 %21, label %22, label %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i
 
 22:                                               ; preds = %15
@@ -1967,7 +1967,7 @@ _ZN3fmt2v96detail6bufferIcE6appendIcEEvPKT_S7_.exit: ; preds = %_ZSt20uninitiali
   %44 = sub i64 %39, %43
   %45 = add i64 %44, %42
   %46 = load i64, ptr %6, align 8
-  %47 = icmp ult i64 %46, %45
+  %47 = icmp ugt i64 %45, %46
   br i1 %47, label %48, label %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i7
 
 48:                                               ; preds = %41

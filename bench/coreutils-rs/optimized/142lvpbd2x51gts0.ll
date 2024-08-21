@@ -66,11 +66,11 @@ define hidden { ptr, i64 } @"_ZN113_$LT$alloc..string..String$u20$as$u20$core..o
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %3
-  %.not.i.i = icmp ugt i64 %7, %1
+  %.not.i.i = icmp ult i64 %1, %7
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %10
 
 10:                                               ; preds = %9
-  %11 = icmp eq i64 %7, %1
+  %11 = icmp eq i64 %1, %7
   %12 = sub i64 %7, %1
   br i1 %11, label %18, label %17
 
@@ -675,7 +675,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.23792
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -759,11 +759,11 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   br i1 %14, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17h71d899931f0e43cbE.llvm.2379230569744416459.exit.i", label %15
 
 15:                                               ; preds = %3
-  %.not.i.i.i.i = icmp ugt i64 %13, %9
+  %.not.i.i.i.i = icmp ult i64 %9, %13
   br i1 %.not.i.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", label %16
 
 16:                                               ; preds = %15
-  %17 = icmp eq i64 %13, %9
+  %17 = icmp eq i64 %9, %13
   %18 = sub i64 %13, %9
   br i1 %17, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17h71d899931f0e43cbE.llvm.2379230569744416459.exit.i", label %23
 
@@ -1643,11 +1643,11 @@ define hidden void @"_ZN6uu_fmt9parasplit9ParaWords12create_words28_$u7b$$u7b$cl
   br i1 %14, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17h71d899931f0e43cbE.llvm.2379230569744416459.exit", label %15
 
 15:                                               ; preds = %3
-  %.not.i.i.i = icmp ugt i64 %13, %9
+  %.not.i.i.i = icmp ult i64 %9, %13
   br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", label %16
 
 16:                                               ; preds = %15
-  %17 = icmp eq i64 %13, %9
+  %17 = icmp eq i64 %9, %13
   %18 = sub i64 %13, %9
   br i1 %17, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17h71d899931f0e43cbE.llvm.2379230569744416459.exit", label %23
 

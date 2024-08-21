@@ -2466,7 +2466,7 @@ define range(i32 1, 3) i32 @minTemp1_fast_moreThen5(ptr nocapture noundef readon
   %6 = shl nuw i32 1, %5
   %.neg = shl i32 -4, %5
   %7 = xor i32 %6, -1
-  %8 = add i32 %7, %2
+  %8 = add i32 %2, %7
   %9 = icmp slt i32 %8, 0
   %.not = icmp eq i32 %5, 31
   %or.cond = or i1 %9, %.not
@@ -2730,7 +2730,7 @@ minTemp0_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i, %
   %.0.i = phi i32 [ 0, %.split34.us.i ], [ 3, %.split.us.i ], [ 0, %5 ], [ 0, %._crit_edge.us.i ]
   store i32 %.0.i, ptr %6, align 4
   %29 = xor i32 %.pre, -1
-  %30 = add i32 %29, %2
+  %30 = add i32 %2, %29
   %31 = icmp slt i32 %30, 0
   %or.cond.i61 = or i1 %.not.i, %31
   br i1 %or.cond.i61, label %minTemp1_fast_moreThen5.exit, label %.preheader.us.preheader.i62
@@ -3363,7 +3363,7 @@ define void @minimalSwapAndFlipIVar_superFast_moreThen5_noEBFC(ptr nocapture nou
   %8 = shl nuw i32 1, %7
   %.neg.i = shl i32 -4, %7
   %9 = xor i32 %8, -1
-  %10 = add i32 %9, %2
+  %10 = add i32 %2, %9
   %11 = icmp slt i32 %10, 0
   %.not.i = icmp eq i32 %7, 31
   %or.cond.i = or i1 %.not.i, %11

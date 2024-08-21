@@ -324,7 +324,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -604,7 +604,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #31
   %cmp7 = icmp eq ptr %call, null
@@ -1181,7 +1181,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end5
 land.lhs.true.i:                                  ; preds = %for.body.i
   %daylightType4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %11 = load i32, ptr %daylightType4.i, align 4
-  %cmp5.i = icmp eq i32 %11, %daylightType.0
+  %cmp5.i = icmp eq i32 %daylightType.0, %11
   br i1 %cmp5.i, label %land.lhs.true6.i, label %for.inc.i
 
 land.lhs.true6.i:                                 ; preds = %land.lhs.true.i

@@ -142,7 +142,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -422,7 +422,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #10
   %cmp7 = icmp eq ptr %call, null
@@ -718,7 +718,7 @@ if.else6:                                         ; preds = %_ZNK6icu_7513Unicod
   %4 = ashr i16 %.pre.i.pre, 5
   %shr.i.i.i.i = sext i16 %4 to i32
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %.pre, i32 %shr.i.i.i.i
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i.i.i, i32 %add)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %add, i32 %cond.i.i.i)
   %sub.i = sub nsw i32 %cond.i.i.i, %spec.select.i
   %call2.i = call noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %id, i16 noundef zeroext 64, i32 noundef %spec.select.i, i32 noundef %sub.i)
   %cmp3 = icmp slt i32 %call2.i, 0
@@ -1237,7 +1237,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else7.i.i.i:                                   ; preds = %if.then.i.i
   %sub.i.i.i = sub nuw nsw i32 %cond.i.i, %spec.select.i.i
-  %6 = tail call i32 @llvm.umin.i32(i32 %sub.i.i.i, i32 %cond.i.i)
+  %6 = tail call i32 @llvm.umin.i32(i32 %cond.i.i, i32 %sub.i.i.i)
   %cmp.i.not.i = icmp eq i32 %6, 0
   br i1 %cmp.i.not.i, label %land.end, label %_ZNK6icu_7513UnicodeString7indexOfERKS0_.exit
 
@@ -1269,7 +1269,7 @@ land.rhs:                                         ; preds = %_ZNK6icu_7513Unicod
   br i1 %cmp3, label %land.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %cmp.i.i16 = icmp ugt i32 %cond.i, %cond.i9
+  %cmp.i.i16 = icmp ult i32 %cond.i9, %cond.i
   br i1 %cmp.i.i16, label %if.then.i.i18, label %land.end
 
 if.then.i.i18:                                    ; preds = %lor.rhs

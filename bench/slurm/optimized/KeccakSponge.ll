@@ -26,7 +26,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_Sponge(i32 noundef %0, i32 noundef %
   %16 = and i32 %0, 56
   %17 = icmp ne i32 %16, 0
   %18 = zext nneg i32 %9 to i64
-  %.not60 = icmp ugt i64 %18, %3
+  %.not60 = icmp ult i64 %3, %18
   %or.cond63 = select i1 %17, i1 true, i1 %.not60
   br i1 %or.cond63, label %24, label %19
 
@@ -80,7 +80,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_Sponge(i32 noundef %0, i32 noundef %
   %40 = xor i8 %39, -128
   store i8 %40, ptr %38, align 1
   call void @KeccakP1600_Permute_24rounds(ptr noundef nonnull %8) #2
-  %41 = icmp ult i64 %18, %6
+  %41 = icmp ugt i64 %6, %18
   br i1 %41, label %.lr.ph75, label %._crit_edge76
 
 .lr.ph75:                                         ; preds = %36, %.lr.ph75
@@ -173,7 +173,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, ptr nou
   %14 = load i32, ptr %9, align 4
   %15 = icmp ne i32 %14, 0
   %16 = add i64 %.05768.us, %10
-  %.not62.us = icmp ugt i64 %16, %2
+  %.not62.us = icmp ult i64 %2, %16
   %or.cond = select i1 %15, i1 true, i1 %.not62.us
   %17 = sub i64 %2, %.05768.us
   br i1 %or.cond, label %22, label %18
@@ -217,7 +217,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, ptr nou
   %36 = load i32, ptr %9, align 4
   %37 = icmp ne i32 %36, 0
   %38 = add i64 %.05768, %10
-  %.not62 = icmp ugt i64 %38, %2
+  %.not62 = icmp ult i64 %2, %38
   %or.cond71 = select i1 %37, i1 true, i1 %.not62
   %39 = sub i64 %2, %.05768
   br i1 %or.cond71, label %44, label %40
@@ -377,7 +377,7 @@ KeccakWidth1600_SpongeAbsorbLastFewBits.exit:     ; preds = %3
 
 25:                                               ; preds = %22
   %26 = add i64 %.04559, %21
-  %.not53 = icmp ugt i64 %26, %2
+  %.not53 = icmp ult i64 %2, %26
   br i1 %.not53, label %32, label %27
 
 27:                                               ; preds = %25
@@ -456,7 +456,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_12rounds_Sponge(i32 noundef %0, i32 
   %16 = and i32 %0, 56
   %17 = icmp ne i32 %16, 0
   %18 = zext nneg i32 %9 to i64
-  %.not60 = icmp ugt i64 %18, %3
+  %.not60 = icmp ult i64 %3, %18
   %or.cond63 = select i1 %17, i1 true, i1 %.not60
   br i1 %or.cond63, label %24, label %19
 
@@ -510,7 +510,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_12rounds_Sponge(i32 noundef %0, i32 
   %40 = xor i8 %39, -128
   store i8 %40, ptr %38, align 1
   call void @KeccakP1600_Permute_12rounds(ptr noundef nonnull %8) #2
-  %41 = icmp ult i64 %18, %6
+  %41 = icmp ugt i64 %6, %18
   br i1 %41, label %.lr.ph75, label %._crit_edge76
 
 .lr.ph75:                                         ; preds = %36, %.lr.ph75
@@ -597,7 +597,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef %0
   %14 = load i32, ptr %9, align 4
   %15 = icmp ne i32 %14, 0
   %16 = add i64 %.05768.us, %10
-  %.not62.us = icmp ugt i64 %16, %2
+  %.not62.us = icmp ult i64 %2, %16
   %or.cond = select i1 %15, i1 true, i1 %.not62.us
   %17 = sub i64 %2, %.05768.us
   br i1 %or.cond, label %22, label %18
@@ -641,7 +641,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef %0
   %36 = load i32, ptr %9, align 4
   %37 = icmp ne i32 %36, 0
   %38 = add i64 %.05768, %10
-  %.not62 = icmp ugt i64 %38, %2
+  %.not62 = icmp ult i64 %2, %38
   %or.cond71 = select i1 %37, i1 true, i1 %.not62
   %39 = sub i64 %2, %.05768
   br i1 %or.cond71, label %44, label %40
@@ -801,7 +801,7 @@ KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits.exit: ; preds = %3
 
 25:                                               ; preds = %22
   %26 = add i64 %.04559, %21
-  %.not53 = icmp ugt i64 %26, %2
+  %.not53 = icmp ult i64 %2, %26
   br i1 %.not53, label %32, label %27
 
 27:                                               ; preds = %25

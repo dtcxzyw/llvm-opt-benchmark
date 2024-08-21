@@ -614,7 +614,7 @@ switch.early.test.i.i59.i.i.i.i:                  ; preds = %sw.bb26.i.i.i.i
 
 "_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit": ; preds = %switch.early.test.i.i.i.i.i.i, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit19", %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit21", %for.end.i.i.i.i, %switch.early.test.i.i47.i.i.i.i, %switch.early.test.i.i53.i.i.i.i, %switch.early.test.i.i59.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit62.thread.i.i.i.i"
   %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %switch.early.test.i.i47.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %switch.early.test.i.i53.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %switch.early.test.i.i59.i.i.i.i ], [ %add.ptr.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit62.thread.i.i.i.i" ], [ %add.ptr.i, %for.end.i.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr5.i.i.i.i.le, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit19" ], [ %incdec.ptr9.i.i.i.i.le, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit21" ], [ %__first.addr.081.i.i.i.i, %switch.early.test.i.i.i.i.i.i ]
-  %cmp.i3 = icmp eq ptr %retval.0.i.i.i.i, %add.ptr.i
+  %cmp.i3 = icmp eq ptr %add.ptr.i, %retval.0.i.i.i.i
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %"_ZSt6all_ofIPKcZN5arrow8internal16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit"
@@ -941,7 +941,7 @@ if.then:                                          ; preds = %entry, %if.then.i.i
 
 if.else:                                          ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEcm.exit
   %add = add nuw i64 %sub.ptr.sub.i.i, 1
-  %cmp.i.i3.not = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i
+  %cmp.i.i3.not = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp.i.i3.not, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %if.else
@@ -2524,7 +2524,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i19
@@ -2847,7 +2847,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 64
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit28, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %for.body.i.i.i19
@@ -3086,7 +3086,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 64
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit28, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %for.body.i.i.i19

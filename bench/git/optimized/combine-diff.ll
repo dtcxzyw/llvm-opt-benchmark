@@ -2125,7 +2125,7 @@ show_line_to_eol.exit.i:                          ; preds = %land.end.i.i, %whil
   br i1 %tobool130.not.i, label %while.end149.i, label %while.body131.i, !llvm.loop !53
 
 while.end149.i:                                   ; preds = %show_line_to_eol.exit.i, %show_line_to_eol.exit.us.i, %cond.end.i, %while.body122.i
-  %cmp150.not.i = icmp ult i64 %lno.2149.i, %cnt.2
+  %cmp150.not.i = icmp ugt i64 %cnt.2, %lno.2149.i
   br i1 %cmp150.not.i, label %if.end153.i, label %while.end184.i
 
 if.end153.i:                                      ; preds = %while.end149.i
@@ -2445,7 +2445,7 @@ if.then.i86.i.i:                                  ; preds = %st_add.exit.i.i
 
 st_add.exit87.i.i:                                ; preds = %st_add.exit.i.i
   %sub.i89.i.i = sub nsw i64 -58, %conv9.i.i
-  %cmp.i90.i.i = icmp ult i64 %sub.i89.i.i, %mul.i.i.i
+  %cmp.i90.i.i = icmp ugt i64 %mul.i.i.i, %sub.i89.i.i
   br i1 %cmp.i90.i.i, label %if.then.i92.i.i, label %st_add.exit93.i.i
 
 if.then.i92.i.i:                                  ; preds = %st_add.exit87.i.i
@@ -3979,7 +3979,7 @@ if.else.us.i:                                     ; preds = %while.body.us.i
 
 find_next.exit:                                   ; preds = %while.body.us.i, %if.else.us.i
   %i.addr.0.lcssa.i = phi i64 [ %inc.us.i, %if.else.us.i ], [ %i.addr.09.us.i, %while.body.us.i ]
-  %cmp = icmp ugt i64 %i.addr.0.lcssa.i, %cnt
+  %cmp = icmp ult i64 %cnt, %i.addr.0.lcssa.i
   br i1 %cmp, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %find_next.exit
@@ -4035,7 +4035,7 @@ if.else.i:                                        ; preds = %while.body.i
 
 find_next.exit48:                                 ; preds = %while.body.i, %if.else.i, %again
   %i.addr.0.lcssa.i47 = phi i64 [ %i.1, %again ], [ %i.addr.09.i, %while.body.i ], [ %inc.i, %if.else.i ]
-  %cmp19 = icmp ugt i64 %i.addr.0.lcssa.i47, %cnt
+  %cmp19 = icmp ult i64 %cnt, %i.addr.0.lcssa.i47
   br i1 %cmp19, label %return, label %while.body.us.i51
 
 while.body.us.i51:                                ; preds = %find_next.exit48, %if.else.us.i57

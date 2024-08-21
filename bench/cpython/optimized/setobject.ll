@@ -8229,7 +8229,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.015 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.015
   %5 = load ptr, ptr %arrayidx, align 8
-  %cmp3 = icmp eq ptr %5, %so
+  %cmp3 = icmp eq ptr %so, %5
   br i1 %cmp3, label %for.inc, label %if.end5
 
 if.end5:                                          ; preds = %for.body

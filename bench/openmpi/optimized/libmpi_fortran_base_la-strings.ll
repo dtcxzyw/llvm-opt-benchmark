@@ -85,7 +85,7 @@ define noundef i32 @ompi_fortran_string_c2f(ptr noundef %0, ptr noundef %1, i32 
   tail call void @opal_string_copy(ptr noundef %1, ptr noundef %0, i64 noundef %4) #7
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
   %6 = trunc i64 %5 to i32
-  %7 = icmp slt i32 %6, %2
+  %7 = icmp sgt i32 %2, %6
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %3
@@ -93,7 +93,7 @@ define noundef i32 @ompi_fortran_string_c2f(ptr noundef %0, ptr noundef %1, i32 
   %8 = ashr exact i64 %sext, 32
   %scevgep = getelementptr i8, ptr %1, i64 %8
   %9 = xor i32 %6, -1
-  %10 = add i32 %9, %2
+  %10 = add i32 %2, %9
   %11 = zext i32 %10 to i64
   %12 = add nuw nsw i64 %11, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 32, i64 %12, i1 false)

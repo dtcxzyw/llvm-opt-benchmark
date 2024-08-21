@@ -489,7 +489,7 @@ define { i8, i8 } @"_ZN88_$LT$rayon..range..IterProducer$LT$u8$GT$$u20$as$u20$ra
 define i32 @"_ZN88_$LT$rayon..range..IterProducer$LT$u8$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h6856af1a62aa3108E"(i8 noundef %0, i8 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %narrow.i.i = tail call i8 @llvm.usub.sat.i8(i8 %1, i8 %0)
   %.sink4.i.i = zext i8 %narrow.i.i to i64
-  %.not = icmp ult i64 %.sink4.i.i, %2
+  %.not = icmp ugt i64 %2, %.sink4.i.i
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
@@ -498,7 +498,7 @@ define i32 @"_ZN88_$LT$rayon..range..IterProducer$LT$u8$GT$$u20$as$u20$rayon..it
 
 5:                                                ; preds = %3
   %6 = trunc i64 %2 to i8
-  %7 = add i8 %6, %0
+  %7 = add i8 %0, %6
   %.sroa.4.0.insert.ext = zext i8 %1 to i32
   %.sroa.4.0.insert.shift = shl nuw i32 %.sroa.4.0.insert.ext, 24
   %.sroa.3.0.insert.ext = zext i8 %7 to i32
@@ -553,7 +553,7 @@ define { i16, i16 } @"_ZN89_$LT$rayon..range..IterProducer$LT$u16$GT$$u20$as$u20
 define i64 @"_ZN89_$LT$rayon..range..IterProducer$LT$u16$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h13abbec0d4c4d9efE"(i16 noundef %0, i16 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %narrow.i.i = tail call i16 @llvm.usub.sat.i16(i16 %1, i16 %0)
   %.sink4.i.i = zext i16 %narrow.i.i to i64
-  %.not = icmp ult i64 %.sink4.i.i, %2
+  %.not = icmp ugt i64 %2, %.sink4.i.i
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
@@ -562,7 +562,7 @@ define i64 @"_ZN89_$LT$rayon..range..IterProducer$LT$u16$GT$$u20$as$u20$rayon..i
 
 5:                                                ; preds = %3
   %6 = trunc i64 %2 to i16
-  %7 = add i16 %6, %0
+  %7 = add i16 %0, %6
   %.sroa.4.0.insert.ext = zext i16 %1 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 48
   %.sroa.3.0.insert.ext = zext i16 %7 to i64
@@ -617,7 +617,7 @@ define { i32, i32 } @"_ZN89_$LT$rayon..range..IterProducer$LT$u32$GT$$u20$as$u20
 define void @"_ZN89_$LT$rayon..range..IterProducer$LT$u32$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h48816419050fccc1E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32 }, { i32, i32 } }) align 4 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #5 {
   %narrow.i.i = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 %1)
   %.sink4.i.i = zext i32 %narrow.i.i to i64
-  %.not = icmp ult i64 %.sink4.i.i, %3
+  %.not = icmp ugt i64 %3, %.sink4.i.i
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
@@ -626,7 +626,7 @@ define void @"_ZN89_$LT$rayon..range..IterProducer$LT$u32$GT$$u20$as$u20$rayon..
 
 6:                                                ; preds = %4
   %7 = trunc i64 %3 to i32
-  %8 = add i32 %7, %1
+  %8 = add i32 %1, %7
   store i32 %1, ptr %0, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %8, ptr %9, align 4
@@ -676,7 +676,7 @@ define { i64, i64 } @"_ZN91_$LT$rayon..range..IterProducer$LT$usize$GT$$u20$as$u
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN91_$LT$rayon..range..IterProducer$LT$usize$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h21e6295b977cdd34E"(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 {
   %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %2, i64 %1)
-  %.not = icmp ult i64 %spec.select.i.i, %3
+  %.not = icmp ugt i64 %3, %spec.select.i.i
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
@@ -746,7 +746,7 @@ define i32 @"_ZN88_$LT$rayon..range..IterProducer$LT$i8$GT$$u20$as$u20$rayon..it
   %6 = sext i8 %0 to i64
   %7 = sub nsw i64 %5, %6
   %.sink4.i.i = select i1 %4, i64 %7, i64 0
-  %.not = icmp ult i64 %.sink4.i.i, %2
+  %.not = icmp ugt i64 %2, %.sink4.i.i
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %3
@@ -755,7 +755,7 @@ define i32 @"_ZN88_$LT$rayon..range..IterProducer$LT$i8$GT$$u20$as$u20$rayon..it
 
 9:                                                ; preds = %3
   %10 = trunc i64 %2 to i8
-  %11 = add i8 %10, %0
+  %11 = add i8 %0, %10
   %.sroa.4.0.insert.ext = zext i8 %1 to i32
   %.sroa.4.0.insert.shift = shl nuw i32 %.sroa.4.0.insert.ext, 24
   %.sroa.3.0.insert.ext = zext i8 %11 to i32
@@ -819,7 +819,7 @@ define i64 @"_ZN89_$LT$rayon..range..IterProducer$LT$i16$GT$$u20$as$u20$rayon..i
   %6 = sext i16 %0 to i64
   %7 = sub nsw i64 %5, %6
   %.sink4.i.i = select i1 %4, i64 %7, i64 0
-  %.not = icmp ult i64 %.sink4.i.i, %2
+  %.not = icmp ugt i64 %2, %.sink4.i.i
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %3
@@ -828,7 +828,7 @@ define i64 @"_ZN89_$LT$rayon..range..IterProducer$LT$i16$GT$$u20$as$u20$rayon..i
 
 9:                                                ; preds = %3
   %10 = trunc i64 %2 to i16
-  %11 = add i16 %10, %0
+  %11 = add i16 %0, %10
   %.sroa.4.0.insert.ext = zext i16 %1 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 48
   %.sroa.3.0.insert.ext = zext i16 %11 to i64
@@ -892,7 +892,7 @@ define void @"_ZN89_$LT$rayon..range..IterProducer$LT$i32$GT$$u20$as$u20$rayon..
   %7 = sext i32 %1 to i64
   %8 = sub nsw i64 %6, %7
   %.sink4.i.i = select i1 %5, i64 %8, i64 0
-  %.not = icmp ult i64 %.sink4.i.i, %3
+  %.not = icmp ugt i64 %3, %.sink4.i.i
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %4
@@ -901,7 +901,7 @@ define void @"_ZN89_$LT$rayon..range..IterProducer$LT$i32$GT$$u20$as$u20$rayon..
 
 10:                                               ; preds = %4
   %11 = trunc i64 %3 to i32
-  %12 = add i32 %11, %1
+  %12 = add i32 %1, %11
   store i32 %1, ptr %0, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %12, ptr %13, align 4
@@ -957,7 +957,7 @@ define void @"_ZN91_$LT$rayon..range..IterProducer$LT$isize$GT$$u20$as$u20$rayon
   %5 = icmp slt i64 %1, %2
   %6 = sub i64 %2, %1
   %spec.select.i.i = select i1 %5, i64 %6, i64 0
-  %.not = icmp ult i64 %spec.select.i.i, %3
+  %.not = icmp ugt i64 %3, %spec.select.i.i
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %4

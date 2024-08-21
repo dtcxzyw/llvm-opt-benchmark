@@ -245,7 +245,7 @@ entry:
   %device_cfg_offset = getelementptr i8, ptr %d, i64 104
   %1 = load i32, ptr %device_cfg_offset, align 8
   %conv = zext i32 %1 to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %2 = load i64, ptr %bar, align 8
   %3 = getelementptr i8, ptr %d, i64 48
   %4 = load i8, ptr %3, align 8
@@ -262,7 +262,7 @@ entry:
   %device_cfg_offset = getelementptr i8, ptr %d, i64 104
   %1 = load i32, ptr %device_cfg_offset, align 8
   %conv = zext i32 %1 to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %2 = load i64, ptr %bar, align 8
   %3 = getelementptr i8, ptr %d, i64 48
   %4 = load i8, ptr %3, align 8
@@ -279,7 +279,7 @@ entry:
   %device_cfg_offset = getelementptr i8, ptr %d, i64 104
   %1 = load i32, ptr %device_cfg_offset, align 8
   %conv = zext i32 %1 to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %2 = load i64, ptr %bar, align 8
   %3 = getelementptr i8, ptr %d, i64 48
   %4 = load i8, ptr %3, align 8
@@ -296,7 +296,7 @@ entry:
   %device_cfg_offset = getelementptr i8, ptr %d, i64 104
   %1 = load i32, ptr %device_cfg_offset, align 8
   %conv = zext i32 %1 to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %2 = load i64, ptr %bar, align 8
   %3 = getelementptr i8, ptr %d, i64 48
   %4 = load i8, ptr %3, align 8

@@ -18,7 +18,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z46InitialTenuringThresholdConstrain
 
 5:                                                ; preds = %2
   %6 = load i32, ptr @MaxTenuringThreshold, align 4
-  %7 = icmp ult i32 %6, %0
+  %7 = icmp ugt i32 %0, %6
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
@@ -40,7 +40,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z42MaxTenuringThresholdConstraintFun
 
 5:                                                ; preds = %2
   %6 = load i32, ptr @InitialTenuringThreshold, align 4
-  %7 = icmp ugt i32 %6, %0
+  %7 = icmp ult i32 %0, %6
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5

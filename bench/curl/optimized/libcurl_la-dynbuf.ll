@@ -50,11 +50,11 @@ define hidden range(i32 0, 44) i32 @Curl_dyn_tail(ptr nocapture noundef %s, i64 
 entry:
   %leng = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
-  %cmp = icmp ult i64 %0, %trail
+  %cmp = icmp ugt i64 %trail, %0
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp6 = icmp eq i64 %0, %trail
+  %cmp6 = icmp eq i64 %trail, %0
   br i1 %cmp6, label %return, label %if.else8
 
 if.else8:                                         ; preds = %if.else
@@ -331,7 +331,7 @@ define hidden range(i32 0, 44) i32 @Curl_dyn_setlen(ptr nocapture noundef %s, i6
 entry:
   %leng = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
-  %cmp = icmp ult i64 %0, %set
+  %cmp = icmp ugt i64 %set, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

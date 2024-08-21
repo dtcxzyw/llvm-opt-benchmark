@@ -267,7 +267,7 @@ define internal { double, double } @_ZL14lcca_e_forward5PJ_LPP8PJconsts(double %
   %20 = fsub double %19, %17
   %21 = getelementptr inbounds i8, ptr %5, i64 16
   %22 = load double, ptr %21, align 8
-  %23 = fmul double %22, %0
+  %23 = fmul double %0, %22
   %24 = getelementptr inbounds i8, ptr %2, i64 488
   %25 = load double, ptr %24, align 8
   %26 = tail call double @sin(double noundef %23) #7

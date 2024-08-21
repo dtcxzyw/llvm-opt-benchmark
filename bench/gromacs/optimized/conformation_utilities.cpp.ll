@@ -23,8 +23,8 @@ define void @_Z11rotate_confiPA3_fS0_fff(i32 noundef %0, ptr noundef %1, ptr nou
   %12 = load float, ptr %11, align 4
   %13 = tail call noundef float @cosf(float noundef %3) #5
   %14 = tail call noundef float @sinf(float noundef %3) #5
-  %15 = fneg float %14
-  %16 = fmul float %12, %15
+  %15 = fneg float %12
+  %16 = fmul float %14, %15
   %17 = tail call float @llvm.fmuladd.f32(float %13, float %10, float %16)
   store float %17, ptr %9, align 4
   %18 = tail call noundef float @sinf(float noundef %3) #5
@@ -48,8 +48,8 @@ define void @_Z11rotate_confiPA3_fS0_fff(i32 noundef %0, ptr noundef %1, ptr nou
   %34 = load float, ptr %9, align 4
   %35 = tail call noundef float @cosf(float noundef %5) #5
   %36 = tail call noundef float @sinf(float noundef %5) #5
-  %37 = fneg float %34
-  %38 = fmul float %36, %37
+  %37 = fneg float %36
+  %38 = fmul float %34, %37
   %39 = tail call float @llvm.fmuladd.f32(float %33, float %35, float %38)
   store float %39, ptr %8, align 4
   %40 = tail call noundef float @sinf(float noundef %5) #5
@@ -80,8 +80,8 @@ _ZL15low_rotate_confiPA3_ffff.exit:               ; preds = %.lr.ph.i, %6
   %48 = load float, ptr %47, align 4
   %49 = tail call noundef float @cosf(float noundef %3) #5
   %50 = tail call noundef float @sinf(float noundef %3) #5
-  %51 = fneg float %50
-  %52 = fmul float %48, %51
+  %51 = fneg float %48
+  %52 = fmul float %50, %51
   %53 = tail call float @llvm.fmuladd.f32(float %49, float %46, float %52)
   store float %53, ptr %45, align 4
   %54 = tail call noundef float @sinf(float noundef %3) #5
@@ -105,8 +105,8 @@ _ZL15low_rotate_confiPA3_ffff.exit:               ; preds = %.lr.ph.i, %6
   %70 = load float, ptr %45, align 4
   %71 = tail call noundef float @cosf(float noundef %5) #5
   %72 = tail call noundef float @sinf(float noundef %5) #5
-  %73 = fneg float %70
-  %74 = fmul float %72, %73
+  %73 = fneg float %72
+  %74 = fmul float %70, %73
   %75 = tail call float @llvm.fmuladd.f32(float %69, float %71, float %74)
   store float %75, ptr %44, align 4
   %76 = tail call noundef float @sinf(float noundef %5) #5
@@ -194,7 +194,7 @@ define void @_Z12make_new_boxiPA3_fS0_PKfb(i32 noundef %0, ptr nocapture noundef
 
 29:                                               ; preds = %.preheader50
   %30 = icmp sgt i32 %0, 0
-  %or.cond = and i1 %30, %4
+  %or.cond = and i1 %4, %30
   br i1 %or.cond, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %29

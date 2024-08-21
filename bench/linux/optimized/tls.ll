@@ -112,7 +112,7 @@ define dso_local range(i32 -22, 1) i32 @do_set_thread_area(ptr noundef %0, i32 n
   %60 = or disjoint i16 %59, 3
   %61 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !7
   %62 = inttoptr i64 %61 to ptr
-  %63 = icmp eq ptr %62, %0
+  %63 = icmp eq ptr %0, %62
   br i1 %63, label %64, label %83
 
 64:                                               ; preds = %57
@@ -332,7 +332,7 @@ define internal fastcc void @set_tls_desc(ptr noundef %0, i32 noundef %1, ptr no
 .loopexit1:                                       ; preds = %96, %4
   %100 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !7
   %101 = inttoptr i64 %100 to ptr
-  %102 = icmp eq ptr %101, %0
+  %102 = icmp eq ptr %0, %101
   br i1 %102, label %103, label %.loopexit
 
 103:                                              ; preds = %.loopexit1

@@ -197,7 +197,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -477,7 +477,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #20
   %cmp7 = icmp eq ptr %call, null
@@ -2929,7 +2929,7 @@ cleanup:                                          ; preds = %invoke.cont17
 
 if.end28:                                         ; preds = %cleanup.thread, %land.lhs.true
   %conv2.i7582.pre-phi = phi i1 [ %35, %cleanup.thread ], [ true, %land.lhs.true ]
-  %brmerge.not = and i1 %conv2.i7582.pre-phi, %substitute
+  %brmerge.not = and i1 %substitute, %conv2.i7582.pre-phi
   br i1 %brmerge.not, label %if.then33, label %return
 
 if.then33:                                        ; preds = %if.end28

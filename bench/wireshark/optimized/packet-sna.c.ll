@@ -2402,8 +2402,8 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #5
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #5
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %7, i32 %2)
-  %.092 = tail call i32 @llvm.smin.i32(i32 %8, i32 %2)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %7)
+  %.092 = tail call i32 @llvm.smin.i32(i32 %2, i32 %8)
   %9 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 noundef %spec.select, i32 noundef %.092) #5
   %10 = icmp eq i32 %5, 0
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %9, i32 noundef 0) #5

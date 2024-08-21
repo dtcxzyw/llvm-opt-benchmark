@@ -867,7 +867,7 @@ hartip_set_conversation.exit:                     ; preds = %61, %57, %43, %37, 
   %hf_hartip_data.val.i = load i32, ptr @hf_hartip_data, align 4
   %89 = select i1 %88, i32 %hf_hartip_error_code.val.i, i32 %hf_hartip_data.val.i
   %90 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %89, ptr noundef %0, i32 noundef %79, i32 noundef %84, i32 noundef 0) #4
-  %91 = add i32 %11, %3
+  %91 = add i32 %3, %11
   br label %550
 
 92:                                               ; preds = %83
@@ -896,7 +896,7 @@ hartip_set_conversation.exit:                     ; preds = %61, %57, %43, %37, 
   br label %dissect_session_init.exit
 
 dissect_session_init.exit:                        ; preds = %95, %101
-  %104 = add i32 %11, %3
+  %104 = add i32 %3, %11
   br label %550
 
 105:                                              ; preds = %92
@@ -905,7 +905,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %108 = icmp eq i32 %84, 0
   %ei_hartip_data_none.ei_hartip_data_unexpected.i.i = select i1 %108, ptr @ei_hartip_data_none, ptr @ei_hartip_data_unexpected
   %109 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %107, ptr noundef nonnull %ei_hartip_data_none.ei_hartip_data_unexpected.i.i) #4
-  %110 = add i32 %11, %3
+  %110 = add i32 %3, %11
   br label %550
 
 111:                                              ; preds = %92
@@ -914,7 +914,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %114 = icmp eq i32 %84, 0
   %ei_hartip_data_none.ei_hartip_data_unexpected.i.i110 = select i1 %114, ptr @ei_hartip_data_none, ptr @ei_hartip_data_unexpected
   %115 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %113, ptr noundef nonnull %ei_hartip_data_none.ei_hartip_data_unexpected.i.i110) #4
-  %116 = add i32 %11, %3
+  %116 = add i32 %3, %11
   br label %550
 
 117:                                              ; preds = %92
@@ -938,7 +938,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br i1 %.not126.i, label %125, label %._crit_edge.thread215.i
 
 ._crit_edge.thread215.i.loopexit:                 ; preds = %120
-  %.pre = add i32 %11, %3
+  %.pre = add i32 %3, %11
   br label %._crit_edge.thread215.i
 
 ._crit_edge.thread215.i:                          ; preds = %._crit_edge.thread215.i.loopexit, %._crit_edge.i
@@ -1628,13 +1628,13 @@ dissect_parse_hart_cmds.exit.thread182.i:         ; preds = %dissect_parse_hart_
   br label %dissect_pass_through.exit
 
 dissect_pass_through.exit:                        ; preds = %117, %125, %177, %179, %540, %542
-  %545 = add i32 %11, %3
+  %545 = add i32 %3, %11
   br label %550
 
 546:                                              ; preds = %92
   %547 = load i32, ptr @hf_hartip_data, align 4
   %548 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %547, ptr noundef %0, i32 noundef %79, i32 noundef %84, i32 noundef 0) #4
-  %549 = add i32 %11, %3
+  %549 = add i32 %3, %11
   br label %550
 
 550:                                              ; preds = %87, %546, %dissect_pass_through.exit, %111, %105, %dissect_session_init.exit, %81

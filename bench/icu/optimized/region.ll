@@ -182,7 +182,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -462,7 +462,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #18
   %cmp7 = icmp eq ptr %call, null
@@ -994,7 +994,7 @@ if.then144:                                       ; preds = %invoke.cont142
   %shr.i.i.i.i = sext i16 %34 to i32
   %35 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %35, i32 %shr.i.i.i.i
-  %cmp.i.i266 = icmp ugt i32 %cond.i.i.i, %add
+  %cmp.i.i266 = icmp ult i32 %add, %cond.i.i.i
   br i1 %cmp.i.i266, label %if.then.i.i, label %invoke.cont145
 
 if.then.i.i:                                      ; preds = %if.then144
@@ -1226,7 +1226,7 @@ if.then226:                                       ; preds = %invoke.cont222
   %shr.i.i.i.i321 = sext i16 %66 to i32
   %67 = load i32, ptr %fLength.i.i315, align 4
   %cond.i.i.i323 = select i1 %cmp.i.i.i.i320, i32 %67, i32 %shr.i.i.i.i321
-  %cmp.i.i324 = icmp ugt i32 %cond.i.i.i323, %add228
+  %cmp.i.i324 = icmp ult i32 %add228, %cond.i.i.i323
   br i1 %cmp.i.i324, label %if.then.i.i326, label %invoke.cont229
 
 if.then.i.i326:                                   ; preds = %if.then226

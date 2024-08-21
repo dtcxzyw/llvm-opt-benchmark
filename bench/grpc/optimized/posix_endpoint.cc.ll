@@ -3631,7 +3631,7 @@ land.rhs.i:                                       ; preds = %do.body.i
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit: ; preds = %do.body.i, %land.rhs.i
   store i64 %call.i, ptr %sent_length, align 8
-  %cmp9 = icmp eq i64 %call.i, %sending_length
+  %cmp9 = icmp eq i64 %sending_length, %call.i
   br i1 %cmp9, label %if.then10, label %return
 
 if.then10:                                        ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit

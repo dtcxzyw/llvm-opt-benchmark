@@ -2175,7 +2175,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !204, !noalias !209, !noundef !8
   %45 = load i64, ptr %0, align 8, !alias.scope !211, !noalias !209, !noundef !8
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e2cbe0a7cd5543fE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
@@ -2232,7 +2232,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !217, !noalias !222, !noundef !8
   %6 = load i64, ptr %0, align 8, !alias.scope !224, !noalias !222, !noundef !8
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e2cbe0a7cd5543fE.exit"
 
 9:                                                ; preds = %3
@@ -2362,8 +2362,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9has
 
 43:                                               ; preds = %64, %10
   %.sroa.9.0.i.i.i = phi i64 [ 0, %10 ], [ %65, %64 ]
-  %.pn.i = phi i64 [ %39, %10 ], [ %66, %64 ]
-  %.sroa.01.0.i.i.i = and i64 %.pn.i, %.val4
+  %.pn.i.i.i = phi i64 [ %39, %10 ], [ %66, %64 ]
+  %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %.val4
   %44 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i25.i.i = load <16 x i8>, ptr %44, align 1, !noalias !268
   %45 = icmp eq <16 x i8> %.0.copyload.i25.i.i, %.15.vec.insert.i.i.i
@@ -2393,7 +2393,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9has
   %57 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } } }, ptr %.val, i64 %56
   %58 = getelementptr i8, ptr %57, i64 -56
   %.val6.i.i.i = load i64, ptr %58, align 8, !alias.scope !278, !noalias !283, !noundef !8
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %.val6.i.i.i, %2
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %2, %.val6.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %59, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4d680d818548c1bE.exit.backedge.i.i"
 
 59:                                               ; preds = %.lr.ph.i.i

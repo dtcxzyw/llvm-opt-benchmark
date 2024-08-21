@@ -467,8 +467,8 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
   %91 = getelementptr inbounds i8, ptr %83, i64 8
   %92 = load float, ptr %91, align 4
   %93 = fsub float %92, %75
-  %94 = fneg float %85
-  %95 = fmul float %93, %94
+  %94 = fneg float %93
+  %95 = fmul float %85, %94
   %96 = tail call noundef float @llvm.fmuladd.f32(float %90, float %88, float %95)
   %97 = fadd float %.090115, %96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -928,8 +928,8 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %47
   %161 = getelementptr inbounds i8, ptr %153, i64 8
   %162 = load float, ptr %161, align 4
   %163 = fsub float %162, %145
-  %164 = fneg float %155
-  %165 = fmul float %163, %164
+  %164 = fneg float %163
+  %165 = fmul float %155, %164
   %166 = call noundef float @llvm.fmuladd.f32(float %160, float %158, float %165)
   %167 = fadd float %.0135184, %166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5755,8 +5755,8 @@ _Z11dtVisfinitePKf.exit207:                       ; preds = %46
   %137 = fsub float %136, %131
   %138 = load float, ptr %93, align 4
   %139 = fsub float %138, %134
-  %140 = fneg float %132
-  %141 = fmul float %139, %140
+  %140 = fneg float %139
+  %141 = fmul float %132, %140
   %142 = call noundef float @llvm.fmuladd.f32(float %137, float %135, float %141)
   %143 = fcmp ugt float %142, 0.000000e+00
   br i1 %143, label %197, label %144
@@ -5802,8 +5802,8 @@ _Z8dtVequalPKfS0_.exit:                           ; preds = %144, %147, %149
   %168 = fsub float %167, %157
   %169 = fsub float %.pre236, %151
   %170 = fsub float %.pre237, %157
-  %171 = fneg float %166
-  %172 = fmul float %170, %171
+  %171 = fneg float %170
+  %172 = fmul float %166, %171
   %173 = call noundef float @llvm.fmuladd.f32(float %169, float %168, float %172)
   %174 = fcmp ogt float %173, 0.000000e+00
   br i1 %174, label %175, label %184
@@ -5880,8 +5880,8 @@ _Z8dtVequalPKfS0_.exit:                           ; preds = %144, %147, %149
   %205 = fsub float %204, %199
   %206 = load float, ptr %91, align 4
   %207 = fsub float %206, %198
-  %208 = fneg float %201
-  %209 = fmul float %207, %208
+  %208 = fneg float %207
+  %209 = fmul float %201, %208
   %210 = call noundef float @llvm.fmuladd.f32(float %205, float %203, float %209)
   %211 = fcmp ult float %210, 0.000000e+00
   br i1 %211, label %265, label %212
@@ -5927,8 +5927,8 @@ _Z8dtVequalPKfS0_.exit209:                        ; preds = %212, %215, %217
   %236 = fsub float %235, %225
   %237 = fsub float %.pre241, %219
   %238 = fsub float %.pre242, %225
-  %239 = fneg float %234
-  %240 = fmul float %238, %239
+  %239 = fneg float %238
+  %240 = fmul float %234, %239
   %241 = call noundef float @llvm.fmuladd.f32(float %237, float %236, float %240)
   %242 = fcmp olt float %241, 0.000000e+00
   br i1 %242, label %243, label %252
@@ -9558,7 +9558,7 @@ define linkonce_odr void @_ZN19dtCollectPolysQuery7processEPK10dtMeshTilePP6dtPo
   %8 = getelementptr inbounds i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = sub nsw i32 %7, %9
-  %11 = icmp slt i32 %10, %4
+  %11 = icmp sgt i32 %4, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %5

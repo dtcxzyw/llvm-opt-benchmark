@@ -98,7 +98,7 @@ if.end54:                                         ; preds = %lor.lhs.false46
   br i1 %cmp5, label %if.then68, label %return
 
 if.then68:                                        ; preds = %if.end54
-  %cmp69 = icmp sgt i32 %add65, %length
+  %cmp69 = icmp slt i32 %length, %add65
   br i1 %cmp69, label %if.then70, label %if.end71
 
 if.then70:                                        ; preds = %if.then68
@@ -215,7 +215,7 @@ if.end38:                                         ; preds = %if.end11
   br i1 %cmp3, label %if.then49, label %return
 
 if.then49:                                        ; preds = %if.end38
-  %cmp50 = icmp ugt i32 %size.0, %length
+  %cmp50 = icmp ult i32 %length, %size.0
   br i1 %cmp50, label %if.then51, label %if.end52
 
 if.then51:                                        ; preds = %if.then49
@@ -363,7 +363,7 @@ sw.epilog:                                        ; preds = %if.end51, %sw.bb58,
   br i1 %cmp3, label %if.then64, label %return
 
 if.then64:                                        ; preds = %sw.epilog
-  %cmp65 = icmp ugt i32 %size.0, %length
+  %cmp65 = icmp ult i32 %length, %size.0
   br i1 %cmp65, label %if.then66, label %if.end67
 
 if.then66:                                        ; preds = %if.then64

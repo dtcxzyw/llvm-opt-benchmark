@@ -287,7 +287,7 @@ define hidden noundef zeroext i1 @_ZN12actix_router8resource11ResourceDef19build
   %19 = load i64, ptr %8, align 8, !alias.scope !26, !noalias !31, !noundef !8
   %20 = load i64, ptr %1, align 8, !alias.scope !33, !noalias !31, !noundef !8
   %21 = sub i64 %20, %19
-  %22 = icmp ult i64 %21, %18
+  %22 = icmp ugt i64 %18, %21
   br i1 %22, label %23, label %33
 
 23:                                               ; preds = %14
@@ -2921,7 +2921,7 @@ define hidden noundef zeroext i1 @_ZN12actix_router8resource11ResourceDef23resou
   %18 = load i64, ptr %8, align 8, !alias.scope !247, !noalias !252, !noundef !8
   %19 = load i64, ptr %1, align 8, !alias.scope !254, !noalias !252, !noundef !8
   %20 = sub i64 %19, %18
-  %21 = icmp ult i64 %20, %17
+  %21 = icmp ugt i64 %17, %20
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %13
@@ -5318,7 +5318,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hae999762eba4ea5fE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !534, !noundef !8
-  %.not.i.i = icmp eq i64 %5, %1
+  %.not.i.i = icmp eq i64 %1, %5
   br i1 %.not.i.i, label %6, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.1452856836283925457.exit"
 
 6:                                                ; preds = %3
@@ -5453,7 +5453,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h5420eab164647d09E(ptr noa
   %.val = load ptr, ptr %1, align 8, !nonnull !8, !align !68, !noundef !8
   %44 = getelementptr i8, ptr %1, i64 8
   %.val71 = load i64, ptr %44, align 8, !noundef !8
-  %45 = icmp ult i64 %40, %.val71
+  %45 = icmp ugt i64 %.val71, %40
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %38
@@ -5691,7 +5691,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h5420eab164647d09E(ptr noa
   %.val.i173 = load ptr, ptr %.sroa.0247.0336, align 8, !noalias !665, !nonnull !8, !align !68, !noundef !8
   %111 = getelementptr i8, ptr %.sroa.0247.0336, i64 8
   %.val3.i174 = load i64, ptr %111, align 8, !noalias !665, !noundef !8
-  %.not.i.i178 = icmp ult i64 %.sroa.27.0338, %4
+  %.not.i.i178 = icmp ugt i64 %4, %.sroa.27.0338
   br i1 %.not.i.i178, label %112, label %113
 
 112:                                              ; preds = %.lr.ph339
@@ -5865,7 +5865,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h54d8e7f281ba370cE(ptr noa
   %45 = load ptr, ptr %44, align 8, !alias.scope !696, !nonnull !8, !noundef !8
   %46 = getelementptr inbounds i8, ptr %1, i64 16
   %47 = load i64, ptr %46, align 8, !alias.scope !696, !noundef !8
-  %48 = icmp ult i64 %40, %47
+  %48 = icmp ugt i64 %47, %40
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %38
@@ -6109,7 +6109,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h54d8e7f281ba370cE(ptr noa
   %.val.i172 = load ptr, ptr %119, align 8, !alias.scope !829, !noalias !832, !nonnull !8, !noundef !8
   %120 = getelementptr i8, ptr %.sroa.0246.0335, i64 16
   %.val3.i173 = load i64, ptr %120, align 8, !alias.scope !829, !noalias !832, !noundef !8
-  %.not.i.i177 = icmp ult i64 %.sroa.27.0337, %4
+  %.not.i.i177 = icmp ugt i64 %4, %.sroa.27.0337
   br i1 %.not.i.i177, label %121, label %122
 
 121:                                              ; preds = %.lr.ph338
@@ -6218,7 +6218,7 @@ define internal fastcc void @_ZN5regex5regex6string5Regex11captures_at17hcf64cc6
 20:                                               ; preds = %._crit_edge.i
   %21 = getelementptr inbounds i8, ptr %.pre, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !859
-  %23 = icmp ugt i64 %22, %3
+  %23 = icmp ult i64 %3, %22
   br i1 %23, label %.thread, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i: ; preds = %20
@@ -6243,7 +6243,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.i: ; preds = %31
   %34 = getelementptr inbounds i8, ptr %.pre, i64 24
   %35 = load i64, ptr %34, align 8
-  %36 = icmp ult i64 %35, %3
+  %36 = icmp ugt i64 %3, %35
   br i1 %36, label %.thread, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.i, %31, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i, %._crit_edge.i

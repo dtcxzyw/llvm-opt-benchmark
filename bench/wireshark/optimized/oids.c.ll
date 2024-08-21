@@ -909,7 +909,7 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly
   br label %.loopexit
 
 18:                                               ; preds = %._crit_edge
-  %19 = or i32 %.060.lcssa, %4
+  %19 = or i32 %4, %.060.lcssa
   %or.cond3 = icmp eq i32 %19, 0
   %brmerge = or i1 %or.cond3, %8
   br i1 %brmerge, label %.loopexit, label %.lr.ph78.preheader

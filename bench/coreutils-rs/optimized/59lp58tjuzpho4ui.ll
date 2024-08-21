@@ -132,7 +132,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h40d236b746c5055fE(ptr noa
   %.val = load ptr, ptr %44, align 8, !nonnull !10, !noundef !10
   %45 = getelementptr i8, ptr %1, i64 16
   %.val71 = load i64, ptr %45, align 8, !noundef !10
-  %46 = icmp ult i64 %40, %.val71
+  %46 = icmp ugt i64 %.val71, %40
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %38
@@ -376,7 +376,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h40d236b746c5055fE(ptr noa
   %.val.i173 = load ptr, ptr %117, align 8, !noalias !126, !nonnull !10, !noundef !10
   %118 = getelementptr i8, ptr %.sroa.0247.0336, i64 16
   %.val3.i174 = load i64, ptr %118, align 8, !noalias !126, !noundef !10
-  %.not.i.i178 = icmp ult i64 %.sroa.27.0338, %4
+  %.not.i.i178 = icmp ugt i64 %4, %.sroa.27.0338
   br i1 %.not.i.i178, label %119, label %120
 
 119:                                              ; preds = %.lr.ph339

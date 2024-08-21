@@ -2574,7 +2574,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 4
   %184 = load i32, ptr %183, align 4
-  %.not138.i = icmp eq i32 %184, %102
+  %.not138.i = icmp eq i32 %102, %184
   br i1 %.not138.i, label %.thread152.i, label %261
 
 .thread152.i:                                     ; preds = %179, %161, %157

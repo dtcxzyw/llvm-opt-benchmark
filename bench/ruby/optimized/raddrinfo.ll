@@ -210,7 +210,7 @@ define i32 @rb_getnameinfo(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   %9 = zext i32 %1 to i64
   %10 = add nuw nsw i64 %9, 160
   %11 = add i64 %10, %3
-  %12 = add i64 %11, %5
+  %12 = add i64 %5, %11
   %.not.i.i = icmp eq i32 %1, 0
   %.not46 = icmp eq ptr %2, null
   %.not.i53 = icmp eq i64 %3, 0
@@ -2190,7 +2190,7 @@ unixsocket_len.exit:                              ; preds = %.preheader
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i32
   %158 = add nuw nsw i32 %157, 12
-  %.not = icmp eq i32 %158, %1
+  %.not = icmp eq i32 %1, %158
   br i1 %.not, label %166, label %159
 
 159:                                              ; preds = %.thread194

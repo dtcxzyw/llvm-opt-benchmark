@@ -1081,7 +1081,7 @@ define hidden range(i32 -2147483648, 2) i32 @yiddish_UTF_8_stem(ptr noundef %0) 
   %368 = getelementptr i8, ptr %.val474.i, i64 4
   %.val474.val.i = load i32, ptr %368, align 4
   %369 = add i32 %367, 6
-  %.not.i483.not.i = icmp slt i32 %369, %.val474.val.i
+  %.not.i483.not.i = icmp sgt i32 %.val474.val.i, %369
   br i1 %.not.i483.not.i, label %380, label %370
 
 370:                                              ; preds = %366

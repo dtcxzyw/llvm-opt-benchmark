@@ -433,7 +433,7 @@ invoke.cont18:                                    ; preds = %if.then.i, %invoke.
   %8 = load i32, ptr %m_maxBroadphasePairs, align 4
   %m_size.i.i74 = getelementptr inbounds i8, ptr %7, i64 4
   %9 = load i32, ptr %m_size.i.i74, align 4
-  %cmp4.i = icmp slt i32 %9, %8
+  %cmp4.i = icmp sgt i32 %8, %9
   br i1 %cmp4.i, label %for.body9.lr.ph.i, label %invoke.cont24
 
 for.body9.lr.ph.i:                                ; preds = %invoke.cont18
@@ -472,7 +472,7 @@ invoke.cont24:                                    ; preds = %for.body9.i, %invok
   %15 = load i32, ptr %config, align 4
   %m_size.i.i79 = getelementptr inbounds i8, ptr %14, i64 4
   %16 = load i32, ptr %m_size.i.i79, align 4
-  %cmp4.i80 = icmp slt i32 %16, %15
+  %cmp4.i80 = icmp sgt i32 %15, %16
   br i1 %cmp4.i80, label %for.body9.lr.ph.i81, label %invoke.cont31
 
 for.body9.lr.ph.i81:                              ; preds = %invoke.cont24
@@ -512,7 +512,7 @@ invoke.cont31:                                    ; preds = %for.body9.i84, %inv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %ref.tmp36, i8 0, i64 96, i1 false)
   %m_size.i.i93 = getelementptr inbounds i8, ptr %21, i64 4
   %23 = load i32, ptr %m_size.i.i93, align 4
-  %cmp4.i94 = icmp slt i32 %23, %22
+  %cmp4.i94 = icmp sgt i32 %22, %23
   br i1 %cmp4.i94, label %for.body9.lr.ph.i95, label %_ZN20b3AlignedObjectArrayI13b3InertiaDataE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i95:                              ; preds = %invoke.cont31
@@ -1060,7 +1060,7 @@ invoke.cont160:                                   ; preds = %if.then.i263, %invo
   %81 = load i32, ptr %m_maxConvexShapes, align 4
   %m_size.i.i271 = getelementptr inbounds i8, ptr %80, i64 4
   %82 = load i32, ptr %m_size.i.i271, align 4
-  %cmp4.i272 = icmp slt i32 %82, %81
+  %cmp4.i272 = icmp sgt i32 %81, %82
   br i1 %cmp4.i272, label %for.body9.lr.ph.i273, label %_ZN20b3AlignedObjectArrayIP15b3ConvexUtilityE6resizeEiRKS1_.exit
 
 for.body9.lr.ph.i273:                             ; preds = %invoke.cont160
@@ -1085,7 +1085,7 @@ _ZN20b3AlignedObjectArrayIP15b3ConvexUtilityE6resizeEiRKS1_.exit: ; preds = %for
   %86 = load i32, ptr %m_maxConvexShapes, align 4
   %m_size.i.i281 = getelementptr inbounds i8, ptr %85, i64 12
   %87 = load i32, ptr %m_size.i.i281, align 4
-  %cmp4.i282 = icmp slt i32 %87, %86
+  %cmp4.i282 = icmp sgt i32 %86, %87
   br i1 %cmp4.i282, label %for.body9.lr.ph.i283, label %invoke.cont188
 
 for.body9.lr.ph.i283:                             ; preds = %_ZN20b3AlignedObjectArrayIP15b3ConvexUtilityE6resizeEiRKS1_.exit
@@ -3075,7 +3075,7 @@ entry:
   %add = add nsw i32 %2, 1
   %m_size.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i32, ptr %m_size.i.i, align 4
-  %cmp4.i.not = icmp sgt i32 %3, %2
+  %cmp4.i.not = icmp slt i32 %2, %3
   br i1 %cmp4.i.not, label %_ZN20b3AlignedObjectArrayIP15b3ConvexUtilityE6resizeEiRKS1_.exit, label %for.body9.lr.ph.i
 
 for.body9.lr.ph.i:                                ; preds = %entry
@@ -3102,7 +3102,7 @@ _ZN20b3AlignedObjectArrayIP15b3ConvexUtilityE6resizeEiRKS1_.exit: ; preds = %for
   %add6 = add nsw i32 %7, 1
   %m_size.i.i65 = getelementptr inbounds i8, ptr %6, i64 12
   %8 = load i32, ptr %m_size.i.i65, align 4
-  %cmp4.i66.not = icmp sgt i32 %8, %7
+  %cmp4.i66.not = icmp slt i32 %7, %8
   br i1 %cmp4.i66.not, label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE6resizeEiRKS0_.exit, label %for.body9.lr.ph.i67
 
 for.body9.lr.ph.i67:                              ; preds = %_ZN20b3AlignedObjectArrayIP15b3ConvexUtilityE6resizeEiRKS1_.exit
@@ -3160,7 +3160,7 @@ _ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE6resizeEiRKS0_.exit: ; preds 
   %add25 = add nsw i32 %19, %17
   %m_size.i.i77 = getelementptr inbounds i8, ptr %20, i64 44
   %21 = load i32, ptr %m_size.i.i77, align 4
-  %cmp4.i78 = icmp slt i32 %21, %add25
+  %cmp4.i78 = icmp sgt i32 %add25, %21
   br i1 %cmp4.i78, label %for.body9.lr.ph.i79, label %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i79:                              ; preds = %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE6resizeEiRKS0_.exit
@@ -3221,7 +3221,7 @@ for.end:                                          ; preds = %for.body, %_ZN20b3A
   %add41 = add nsw i32 %34, %33
   %m_size.i.i96 = getelementptr inbounds i8, ptr %35, i64 252
   %36 = load i32, ptr %m_size.i.i96, align 4
-  %cmp4.i97 = icmp slt i32 %36, %add41
+  %cmp4.i97 = icmp sgt i32 %add41, %36
   br i1 %cmp4.i97, label %for.body9.lr.ph.i98, label %_ZN20b3AlignedObjectArrayI9b3GpuFaceE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i98:                              ; preds = %for.end
@@ -3303,7 +3303,7 @@ for.body47:                                       ; preds = %for.body47.lr.ph, %
   %add88 = add nsw i32 %52, %50
   %m_size.i.i133 = getelementptr inbounds i8, ptr %58, i64 108
   %59 = load i32, ptr %m_size.i.i133, align 4
-  %cmp4.i134 = icmp slt i32 %59, %add88
+  %cmp4.i134 = icmp sgt i32 %add88, %59
   br i1 %cmp4.i134, label %for.body9.lr.ph.i135, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
 
 for.body9.lr.ph.i135:                             ; preds = %for.body47
@@ -3371,7 +3371,7 @@ for.end106:                                       ; preds = %for.inc104, %_ZN20b
   %add113 = add nsw i32 %73, %71
   %m_size.i.i155 = getelementptr inbounds i8, ptr %74, i64 76
   %75 = load i32, ptr %m_size.i.i155, align 4
-  %cmp4.i156 = icmp slt i32 %75, %add113
+  %cmp4.i156 = icmp sgt i32 %add113, %75
   br i1 %cmp4.i156, label %for.body9.lr.ph.i157, label %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit165
 
 for.body9.lr.ph.i157:                             ; preds = %for.end106
@@ -5493,7 +5493,7 @@ entry:
   %add = add nsw i32 %5, 1
   %m_size.i.i = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i32, ptr %m_size.i.i, align 4
-  %cmp4.i.not = icmp sgt i32 %6, %5
+  %cmp4.i.not = icmp slt i32 %5, %6
   br i1 %cmp4.i.not, label %_ZN20b3AlignedObjectArrayIP15b3ConvexUtilityE6resizeEiRKS1_.exit, label %for.body9.lr.ph.i
 
 for.body9.lr.ph.i:                                ; preds = %entry
@@ -5520,7 +5520,7 @@ _ZN20b3AlignedObjectArrayIP15b3ConvexUtilityE6resizeEiRKS1_.exit: ; preds = %for
   %add9 = add nsw i32 %10, 1
   %m_size.i.i51 = getelementptr inbounds i8, ptr %9, i64 12
   %11 = load i32, ptr %m_size.i.i51, align 4
-  %cmp4.i52.not = icmp sgt i32 %11, %10
+  %cmp4.i52.not = icmp slt i32 %10, %11
   br i1 %cmp4.i52.not, label %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE6resizeEiRKS0_.exit, label %for.body9.lr.ph.i53
 
 for.body9.lr.ph.i53:                              ; preds = %_ZN20b3AlignedObjectArrayIP15b3ConvexUtilityE6resizeEiRKS1_.exit
@@ -5572,7 +5572,7 @@ _ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE6resizeEiRKS0_.exit: ; preds 
   %add41 = add nsw i32 %div, %22
   %m_size.i.i64 = getelementptr inbounds i8, ptr %24, i64 252
   %25 = load i32, ptr %m_size.i.i64, align 4
-  %cmp4.i65 = icmp slt i32 %25, %add41
+  %cmp4.i65 = icmp sgt i32 %add41, %25
   br i1 %cmp4.i65, label %for.body9.lr.ph.i66, label %_ZN20b3AlignedObjectArrayI9b3GpuFaceE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i66:                              ; preds = %_ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataE6resizeEiRKS0_.exit
@@ -5655,14 +5655,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %sub.i125 = fsub float %mul.i104, %mul.i
   %sub4.i128 = fsub float %mul4.i107, %mul4.i
   %sub7.i131 = fsub float %mul7.i110, %mul7.i
-  %46 = fneg float %sub7.i
-  %neg.i = fmul float %sub4.i128, %46
+  %46 = fneg float %sub4.i128
+  %neg.i = fmul float %sub7.i, %46
   %47 = tail call float @llvm.fmuladd.f32(float %sub4.i, float %sub7.i131, float %neg.i)
-  %48 = fneg float %sub.i
-  %neg11.i = fmul float %sub7.i131, %48
+  %48 = fneg float %sub7.i131
+  %neg11.i = fmul float %sub.i, %48
   %49 = tail call float @llvm.fmuladd.f32(float %sub7.i, float %sub.i125, float %neg11.i)
-  %50 = fneg float %sub4.i
-  %neg17.i = fmul float %sub.i125, %50
+  %50 = fneg float %sub.i125
+  %neg17.i = fmul float %sub4.i, %50
   %51 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub4.i128, float %neg17.i)
   %mul5.i.i.i.i = fmul float %49, %49
   %52 = tail call float @llvm.fmuladd.f32(float %47, float %47, float %mul5.i.i.i.i)
@@ -5712,7 +5712,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add106 = add nsw i32 %62, 3
   %m_size.i.i163 = getelementptr inbounds i8, ptr %72, i64 108
   %73 = load i32, ptr %m_size.i.i163, align 4
-  %cmp4.i164 = icmp slt i32 %73, %add106
+  %cmp4.i164 = icmp sgt i32 %add106, %73
   br i1 %cmp4.i164, label %for.body9.lr.ph.i165, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
 
 for.body9.lr.ph.i165:                             ; preds = %for.body
@@ -5774,7 +5774,7 @@ for.end120:                                       ; preds = %for.inc118, %_ZN20b
   %add127 = add nsw i32 %87, %85
   %m_size.i.i182 = getelementptr inbounds i8, ptr %88, i64 76
   %89 = load i32, ptr %m_size.i.i182, align 4
-  %cmp4.i183 = icmp slt i32 %89, %add127
+  %cmp4.i183 = icmp sgt i32 %add127, %89
   br i1 %cmp4.i183, label %for.body9.lr.ph.i184, label %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i184:                             ; preds = %for.end120
@@ -6531,7 +6531,7 @@ if.end:                                           ; preds = %entry
   %add = add nsw i32 %7, 1
   %m_size.i.i = getelementptr inbounds i8, ptr %12, i64 4
   %13 = load i32, ptr %m_size.i.i, align 4
-  %cmp4.i.not = icmp sgt i32 %13, %7
+  %cmp4.i.not = icmp slt i32 %7, %13
   br i1 %cmp4.i.not, label %_ZN20b3AlignedObjectArrayI15b3RigidBodyDataE6resizeEiRKS0_.exit, label %for.body9.lr.ph.i
 
 for.body9.lr.ph.i:                                ; preds = %if.end
@@ -8941,7 +8941,7 @@ land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr %m_bodyBufferCPU, align 8
   %m_size.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %m_size.i, align 4
-  %cmp2 = icmp sgt i32 %2, %bodyIndex
+  %cmp2 = icmp slt i32 %bodyIndex, %2
   br i1 %cmp2, label %if.then, label %do.body
 
 if.then:                                          ; preds = %land.lhs.true
@@ -9006,7 +9006,7 @@ land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr %m_bodyBufferCPU, align 8
   %m_size.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %m_size.i, align 4
-  %cmp2 = icmp sgt i32 %2, %bodyIndex
+  %cmp2 = icmp slt i32 %bodyIndex, %2
   br i1 %cmp2, label %if.then, label %do.body
 
 if.then:                                          ; preds = %land.lhs.true
@@ -9068,7 +9068,7 @@ land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr %m_bodyBufferCPU, align 8
   %m_size.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %m_size.i, align 4
-  %cmp2 = icmp sgt i32 %2, %bodyIndex
+  %cmp2 = icmp slt i32 %bodyIndex, %2
   br i1 %cmp2, label %if.then, label %do.body
 
 if.then:                                          ; preds = %land.lhs.true

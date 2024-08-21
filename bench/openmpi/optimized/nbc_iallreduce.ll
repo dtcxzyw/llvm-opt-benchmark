@@ -82,7 +82,7 @@ define internal fastcc i32 @nbc_allreduce_init(ptr noundef %0, ptr noundef %1, i
   %27 = getelementptr i8, ptr %3, i64 24
   %.val167 = load i64, ptr %27, align 8
   %28 = icmp ne i32 %.val166.val, 1
-  %or.cond4.not = and i1 %.not155, %8
+  %or.cond4.not = and i1 %8, %.not155
   %or.cond164 = or i1 %or.cond4.not, %28
   br i1 %or.cond164, label %35, label %29
 
@@ -165,7 +165,7 @@ opal_datatype_span.exit:                          ; preds = %35, %39
   br i1 %or.cond8.not, label %65, label %73
 
 65:                                               ; preds = %61
-  %.not157 = icmp sgt i32 %54, %2
+  %.not157 = icmp slt i32 %2, %54
   %spec.select = select i1 %.not157, i32 1, i32 2
   br label %73
 
@@ -173,7 +173,7 @@ opal_datatype_span.exit:                          ; preds = %35, %39
   br label %73
 
 67:                                               ; preds = %50
-  %.not = icmp sgt i32 %55, %2
+  %.not = icmp slt i32 %2, %55
   br i1 %.not, label %71, label %68
 
 68:                                               ; preds = %67
@@ -369,9 +369,9 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
 .lr.ph226.i:                                      ; preds = %.loopexit207.i, %141
   %.0152225.i = phi i32 [ %142, %141 ], [ 0, %.loopexit207.i ]
   %135 = shl nuw i32 1, %.0152225.i
-  %.not195.i = icmp sle i32 %135, %.val
+  %.not195.i = icmp sge i32 %.val, %135
   %136 = shl nuw i32 2, %.0152225.i
-  %137 = icmp sgt i32 %136, %.val
+  %137 = icmp slt i32 %.val, %136
   %or.cond203.i = select i1 %.not195.i, i1 %137, i1 false
   br i1 %or.cond203.i, label %138, label %141
 
@@ -412,7 +412,7 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
   %149 = shl nuw i32 1, %.0227.i
   %150 = add nsw i32 %149, %.val
   %151 = icmp slt i32 %150, %.val166.val
-  %152 = icmp sgt i32 %149, %.val
+  %152 = icmp slt i32 %.val, %149
   %or.cond233.i = and i1 %152, %151
   br i1 %or.cond233.i, label %153, label %155
 
@@ -453,7 +453,7 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
   %173 = sub nsw i64 %172, %171
   %174 = sub nsw i32 %.val166.val, %165
   %175 = shl nsw i32 %174, 1
-  %176 = icmp sgt i32 %175, %.val
+  %176 = icmp slt i32 %.val, %175
   br i1 %176, label %177, label %209
 
 177:                                              ; preds = %168
@@ -557,7 +557,7 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
   %226 = shl nsw i32 %224, 1
   %227 = add nsw i32 %224, %174
   %228 = select i1 %225, i32 %226, i32 %227
-  %229 = icmp sgt i32 %228, %.val
+  %229 = icmp slt i32 %.val, %228
   %230 = sdiv i32 %.024360.i, 2
   %231 = sext i32 %.024061.i to i64
   %232 = sub nsw i32 %.024360.i, %230
@@ -853,7 +853,7 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
   %382 = phi i32 [ %336, %._crit_edge..preheader_crit_edge.i ], [ %341, %368 ], [ %341, %378 ]
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge..preheader_crit_edge.i ], [ %345, %368 ], [ %345, %378 ]
   %383 = add nsw i32 %312, -2
-  %.not178.i = icmp slt i32 %383, %.val166.val
+  %.not178.i = icmp sgt i32 %.val166.val, %383
   br i1 %.not178.i, label %.loopexit.i189, label %.lr.ph172.i
 
 .lr.ph172.i:                                      ; preds = %.preheader.i187
@@ -961,7 +961,7 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
 447:                                              ; preds = %443
   %448 = sub nsw i32 %.val166.val, %55
   %449 = shl nsw i32 %448, 1
-  %450 = icmp sgt i32 %449, %.val
+  %450 = icmp slt i32 %.val, %449
   br i1 %450, label %451, label %464
 
 451:                                              ; preds = %447
@@ -1021,7 +1021,7 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
   br i1 %.not159.i, label %477, label %allred_sched_diss.exit.thread
 
 477:                                              ; preds = %475
-  %478 = icmp sgt i32 %.0.i207, %.val
+  %478 = icmp slt i32 %.val, %.0.i207
   br i1 %478, label %479, label %481
 
 479:                                              ; preds = %477

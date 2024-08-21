@@ -1448,7 +1448,7 @@ define hidden noundef ptr @file_printable(ptr nocapture noundef readonly %0, ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
   %8 = getelementptr inbounds i8, ptr %3, i64 %4
   %9 = getelementptr inbounds i8, ptr %6, i64 -4
-  %10 = icmp ugt ptr %7, %1
+  %10 = icmp ult ptr %1, %7
   %11 = icmp sgt i64 %4, 0
   %or.cond32 = and i1 %10, %11
   br i1 %or.cond32, label %.lr.ph, label %.critedge

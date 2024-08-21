@@ -289,7 +289,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
   %4 = ptrtoint ptr %0 to i64
   %sub.i = sub i64 %3, %4
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %0, i64 %sub.i
-  %cmp.i1.not.i.i.i = icmp eq ptr %1, %storemerge.i.i
+  %cmp.i1.not.i.i.i = icmp eq ptr %storemerge.i.i, %1
   br i1 %cmp.i1.not.i.i.i, label %if.end.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
@@ -337,7 +337,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i28:   ; preds = %land.lhs.true.i.i26
   %8 = ptrtoint ptr %0 to i64
   %sub.i32 = sub i64 %7, %8
   %add.ptr.i6.i33 = getelementptr inbounds i8, ptr %0, i64 %sub.i32
-  %cmp.i1.not.i.i.i34 = icmp eq ptr %1, %storemerge.i.i31
+  %cmp.i1.not.i.i.i34 = icmp eq ptr %storemerge.i.i31, %1
   br i1 %cmp.i1.not.i.i.i34, label %if.end.i.i.i40, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i35
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i35: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i28
@@ -385,7 +385,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i57:   ; preds = %land.lhs.true.i.i55
   %12 = ptrtoint ptr %0 to i64
   %sub.i61 = sub i64 %11, %12
   %add.ptr.i6.i62 = getelementptr inbounds i8, ptr %0, i64 %sub.i61
-  %cmp.i1.not.i.i.i63 = icmp eq ptr %1, %storemerge.i.i60
+  %cmp.i1.not.i.i.i63 = icmp eq ptr %storemerge.i.i60, %1
   br i1 %cmp.i1.not.i.i.i63, label %if.end.i.i.i69, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i64
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i64: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i57
@@ -433,7 +433,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i86:   ; preds = %land.lhs.true.i.i84
   %16 = ptrtoint ptr %0 to i64
   %sub.i90 = sub i64 %15, %16
   %add.ptr.i6.i91 = getelementptr inbounds i8, ptr %0, i64 %sub.i90
-  %cmp.i1.not.i.i.i92 = icmp eq ptr %1, %storemerge.i.i89
+  %cmp.i1.not.i.i.i92 = icmp eq ptr %storemerge.i.i89, %1
   br i1 %cmp.i1.not.i.i.i92, label %if.end.i.i.i98, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i93
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i93: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i86
@@ -481,7 +481,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i115:  ; preds = %land.lhs.true.i.i11
   %20 = ptrtoint ptr %0 to i64
   %sub.i119 = sub i64 %19, %20
   %add.ptr.i6.i120 = getelementptr inbounds i8, ptr %0, i64 %sub.i119
-  %cmp.i1.not.i.i.i121 = icmp eq ptr %1, %storemerge.i.i118
+  %cmp.i1.not.i.i.i121 = icmp eq ptr %storemerge.i.i118, %1
   br i1 %cmp.i1.not.i.i.i121, label %if.end.i.i.i127, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i122
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i122: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i115
@@ -529,7 +529,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i144:  ; preds = %land.lhs.true.i.i14
   %24 = ptrtoint ptr %0 to i64
   %sub.i148 = sub i64 %23, %24
   %add.ptr.i6.i149 = getelementptr inbounds i8, ptr %0, i64 %sub.i148
-  %cmp.i1.not.i.i.i150 = icmp eq ptr %1, %storemerge.i.i147
+  %cmp.i1.not.i.i.i150 = icmp eq ptr %storemerge.i.i147, %1
   br i1 %cmp.i1.not.i.i.i150, label %if.end.i.i.i156, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i151
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i151: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i144
@@ -649,7 +649,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit:       ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit
-  %cmp.i1.not.i.i = icmp eq ptr %1, %storemerge.i
+  %cmp.i1.not.i.i = icmp eq ptr %storemerge.i, %1
   br i1 %cmp.i1.not.i.i, label %if.end.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i: ; preds = %if.then.i.i
@@ -739,7 +739,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
   %16 = ptrtoint ptr %0 to i64
   %sub.i = sub i64 %15, %16
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %0, i64 %sub.i
-  %cmp.i1.not.i.i.i = icmp eq ptr %1, %storemerge.i.i
+  %cmp.i1.not.i.i.i = icmp eq ptr %storemerge.i.i, %1
   br i1 %cmp.i1.not.i.i.i, label %if.end.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
@@ -787,7 +787,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i50:   ; preds = %land.lhs.true.i.i48
   %20 = ptrtoint ptr %0 to i64
   %sub.i54 = sub i64 %19, %20
   %add.ptr.i6.i55 = getelementptr inbounds i8, ptr %0, i64 %sub.i54
-  %cmp.i1.not.i.i.i56 = icmp eq ptr %1, %storemerge.i.i53
+  %cmp.i1.not.i.i.i56 = icmp eq ptr %storemerge.i.i53, %1
   br i1 %cmp.i1.not.i.i.i56, label %if.end.i.i.i62, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i57
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i57: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i50
@@ -835,7 +835,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i79:   ; preds = %land.lhs.true.i.i77
   %24 = ptrtoint ptr %0 to i64
   %sub.i83 = sub i64 %23, %24
   %add.ptr.i6.i84 = getelementptr inbounds i8, ptr %0, i64 %sub.i83
-  %cmp.i1.not.i.i.i85 = icmp eq ptr %1, %storemerge.i.i82
+  %cmp.i1.not.i.i.i85 = icmp eq ptr %storemerge.i.i82, %1
   br i1 %cmp.i1.not.i.i.i85, label %if.end.i.i.i91, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i86
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i86: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i79
@@ -883,7 +883,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i108:  ; preds = %land.lhs.true.i.i10
   %28 = ptrtoint ptr %0 to i64
   %sub.i112 = sub i64 %27, %28
   %add.ptr.i6.i113 = getelementptr inbounds i8, ptr %0, i64 %sub.i112
-  %cmp.i1.not.i.i.i114 = icmp eq ptr %1, %storemerge.i.i111
+  %cmp.i1.not.i.i.i114 = icmp eq ptr %storemerge.i.i111, %1
   br i1 %cmp.i1.not.i.i.i114, label %if.end.i.i.i120, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i115
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i115: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i108
@@ -931,7 +931,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i137:  ; preds = %land.lhs.true.i.i13
   %32 = ptrtoint ptr %0 to i64
   %sub.i141 = sub i64 %31, %32
   %add.ptr.i6.i142 = getelementptr inbounds i8, ptr %0, i64 %sub.i141
-  %cmp.i1.not.i.i.i143 = icmp eq ptr %1, %storemerge.i.i140
+  %cmp.i1.not.i.i.i143 = icmp eq ptr %storemerge.i.i140, %1
   br i1 %cmp.i1.not.i.i.i143, label %if.end.i.i.i149, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i144
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i144: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i137
@@ -979,7 +979,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i166:  ; preds = %land.lhs.true.i.i16
   %36 = ptrtoint ptr %0 to i64
   %sub.i170 = sub i64 %35, %36
   %add.ptr.i6.i171 = getelementptr inbounds i8, ptr %0, i64 %sub.i170
-  %cmp.i1.not.i.i.i172 = icmp eq ptr %1, %storemerge.i.i169
+  %cmp.i1.not.i.i.i172 = icmp eq ptr %storemerge.i.i169, %1
   br i1 %cmp.i1.not.i.i.i172, label %if.end.i.i.i178, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i173
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i173: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i166
@@ -1195,7 +1195,7 @@ _ZN6Assimp8SkipLineIcEEbPKT_PS3_.exit:            ; preds = %while.cond5.i
   br i1 %cmp.i.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6Assimp8SkipLineIcEEbPKT_PS3_.exit
-  %cmp.i1.not.i.i = icmp eq ptr %1, %in.addr.1.i
+  %cmp.i1.not.i.i = icmp eq ptr %in.addr.1.i, %1
   br i1 %cmp.i1.not.i.i, label %if.end.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i: ; preds = %if.then.i.i
@@ -1265,7 +1265,7 @@ _ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i:       ; preds = %while.cond.i.i, %wh
   br i1 %cmp.i.not.i.i.i, label %_ZN6Assimp3PLY3DOM10SkipSpacesERSt6vectorIcSaIcEE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i
-  %cmp.i1.not.i.i.i = icmp eq ptr %1, %in.addr.0.i.i
+  %cmp.i1.not.i.i.i = icmp eq ptr %in.addr.0.i.i, %1
   br i1 %cmp.i1.not.i.i.i, label %if.end.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -1326,7 +1326,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
   %12 = ptrtoint ptr %9 to i64
   %sub.i28 = sub i64 %11, %12
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %9, i64 %sub.i28
-  %cmp.i1.not.i.i.i31 = icmp eq ptr %8, %storemerge.i.i
+  %cmp.i1.not.i.i.i31 = icmp eq ptr %storemerge.i.i, %8
   br i1 %cmp.i1.not.i.i.i31, label %if.end.i.i.i37, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i32
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i32: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
@@ -1387,7 +1387,7 @@ _ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i50:     ; preds = %while.cond.i.i47, %
   br i1 %cmp.i.not.i.i.i54, label %_ZN6Assimp3PLY3DOM10SkipSpacesERSt6vectorIcSaIcEE.exit71, label %if.then.i.i.i55
 
 if.then.i.i.i55:                                  ; preds = %_ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i50
-  %cmp.i1.not.i.i.i56 = icmp eq ptr %15, %in.addr.0.i.i48
+  %cmp.i1.not.i.i.i56 = icmp eq ptr %in.addr.0.i.i48, %15
   br i1 %cmp.i1.not.i.i.i56, label %if.end.i.i.i62, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i57
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i57: ; preds = %if.then.i.i.i55
@@ -1448,7 +1448,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i82:   ; preds = %land.lhs.true.i.i80
   %27 = ptrtoint ptr %24 to i64
   %sub.i86 = sub i64 %26, %27
   %add.ptr.i6.i87 = getelementptr inbounds i8, ptr %24, i64 %sub.i86
-  %cmp.i1.not.i.i.i90 = icmp eq ptr %23, %storemerge.i.i85
+  %cmp.i1.not.i.i.i90 = icmp eq ptr %storemerge.i.i85, %23
   br i1 %cmp.i1.not.i.i.i90, label %if.end.i.i.i96, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i91
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i91: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i82
@@ -1526,7 +1526,7 @@ _ZN6Assimp8SkipLineIcEEbPKT_PS3_.exit.i:          ; preds = %while.cond5.i.i
   br i1 %cmp.i.not.i.i.i111, label %return, label %if.then.i.i.i112
 
 if.then.i.i.i112:                                 ; preds = %_ZN6Assimp8SkipLineIcEEbPKT_PS3_.exit.i
-  %cmp.i1.not.i.i.i113 = icmp eq ptr %30, %in.addr.1.i.i
+  %cmp.i1.not.i.i.i113 = icmp eq ptr %in.addr.1.i.i, %30
   br i1 %cmp.i1.not.i.i.i113, label %if.end.i.i.i119, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i114
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i114: ; preds = %if.then.i.i.i112
@@ -1581,7 +1581,7 @@ _ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i135:    ; preds = %while.cond.i.i132, 
   br i1 %cmp.i.not.i.i.i139, label %_ZN6Assimp3PLY3DOM10SkipSpacesERSt6vectorIcSaIcEE.exit156, label %if.then.i.i.i140
 
 if.then.i.i.i140:                                 ; preds = %_ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i135
-  %cmp.i1.not.i.i.i141 = icmp eq ptr %30, %in.addr.0.i.i133
+  %cmp.i1.not.i.i.i141 = icmp eq ptr %in.addr.0.i.i133, %30
   br i1 %cmp.i1.not.i.i.i141, label %if.end.i.i.i147, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i142
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i142: ; preds = %if.then.i.i.i140
@@ -1669,7 +1669,7 @@ _ZN6Assimp8SkipLineIcEEbPKT_PS3_.exit.i169:       ; preds = %while.cond5.i.i164
   br i1 %cmp.i.not.i.i.i173, label %return, label %if.then.i.i.i174
 
 if.then.i.i.i174:                                 ; preds = %_ZN6Assimp8SkipLineIcEEbPKT_PS3_.exit.i169
-  %cmp.i1.not.i.i.i175 = icmp eq ptr %41, %in.addr.1.i.i165
+  %cmp.i1.not.i.i.i175 = icmp eq ptr %in.addr.1.i.i165, %41
   br i1 %cmp.i1.not.i.i.i175, label %if.end.i.i.i181, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i176
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i176: ; preds = %if.then.i.i.i174
@@ -1729,7 +1729,7 @@ _ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i198:    ; preds = %while.cond.i.i195, 
   br i1 %cmp.i.not.i.i.i202, label %_ZN6Assimp3PLY3DOM10SkipSpacesERSt6vectorIcSaIcEE.exit219, label %if.then.i.i.i203
 
 if.then.i.i.i203:                                 ; preds = %_ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i198
-  %cmp.i1.not.i.i.i204 = icmp eq ptr %48, %in.addr.0.i.i196
+  %cmp.i1.not.i.i.i204 = icmp eq ptr %in.addr.0.i.i196, %48
   br i1 %cmp.i1.not.i.i.i204, label %if.end.i.i.i210, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i205
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i205: ; preds = %if.then.i.i.i203
@@ -1832,7 +1832,7 @@ _ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit:         ; preds = %while.cond.i, %_ZN6
   br i1 %cmp.i.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit
-  %cmp.i1.not.i.i = icmp eq ptr %1, %in.addr.0.i
+  %cmp.i1.not.i.i = icmp eq ptr %in.addr.0.i, %1
   br i1 %cmp.i1.not.i.i, label %if.end.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i: ; preds = %if.then.i.i
@@ -1929,7 +1929,7 @@ _ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_.exit: ; preds = %while.cond.i
   br i1 %cmp.i.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_.exit
-  %cmp.i1.not.i.i = icmp eq ptr %1, %in.addr.0.i
+  %cmp.i1.not.i.i = icmp eq ptr %in.addr.0.i, %1
   br i1 %cmp.i1.not.i.i, label %if.end.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i: ; preds = %if.then.i.i
@@ -1993,7 +1993,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
   %4 = ptrtoint ptr %0 to i64
   %sub.i = sub i64 %3, %4
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %0, i64 %sub.i
-  %cmp.i1.not.i.i.i = icmp eq ptr %1, %storemerge.i.i
+  %cmp.i1.not.i.i.i = icmp eq ptr %storemerge.i.i, %1
   br i1 %cmp.i1.not.i.i.i, label %if.end.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
@@ -2037,7 +2037,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i16:   ; preds = %land.lhs.true.i.i14
   %8 = ptrtoint ptr %0 to i64
   %sub.i20 = sub i64 %7, %8
   %add.ptr.i6.i21 = getelementptr inbounds i8, ptr %0, i64 %sub.i20
-  %cmp.i1.not.i.i.i22 = icmp eq ptr %1, %storemerge.i.i19
+  %cmp.i1.not.i.i.i22 = icmp eq ptr %storemerge.i.i19, %1
   br i1 %cmp.i1.not.i.i.i22, label %if.end.i.i.i28, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i23
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i23: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i16
@@ -2081,7 +2081,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i45:   ; preds = %land.lhs.true.i.i43
   %12 = ptrtoint ptr %0 to i64
   %sub.i49 = sub i64 %11, %12
   %add.ptr.i6.i50 = getelementptr inbounds i8, ptr %0, i64 %sub.i49
-  %cmp.i1.not.i.i.i51 = icmp eq ptr %1, %storemerge.i.i48
+  %cmp.i1.not.i.i.i51 = icmp eq ptr %storemerge.i.i48, %1
   br i1 %cmp.i1.not.i.i.i51, label %if.end.i.i.i57, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i52
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i52: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i45
@@ -2125,7 +2125,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i74:   ; preds = %land.lhs.true.i.i72
   %16 = ptrtoint ptr %0 to i64
   %sub.i78 = sub i64 %15, %16
   %add.ptr.i6.i79 = getelementptr inbounds i8, ptr %0, i64 %sub.i78
-  %cmp.i1.not.i.i.i80 = icmp eq ptr %1, %storemerge.i.i77
+  %cmp.i1.not.i.i.i80 = icmp eq ptr %storemerge.i.i77, %1
   br i1 %cmp.i1.not.i.i.i80, label %if.end.i.i.i86, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i81
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i81: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i74
@@ -2169,7 +2169,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i103:  ; preds = %land.lhs.true.i.i10
   %20 = ptrtoint ptr %0 to i64
   %sub.i107 = sub i64 %19, %20
   %add.ptr.i6.i108 = getelementptr inbounds i8, ptr %0, i64 %sub.i107
-  %cmp.i1.not.i.i.i109 = icmp eq ptr %1, %storemerge.i.i106
+  %cmp.i1.not.i.i.i109 = icmp eq ptr %storemerge.i.i106, %1
   br i1 %cmp.i1.not.i.i.i109, label %if.end.i.i.i115, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i110
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i110: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i103
@@ -2213,7 +2213,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i132:  ; preds = %land.lhs.true.i.i13
   %24 = ptrtoint ptr %0 to i64
   %sub.i136 = sub i64 %23, %24
   %add.ptr.i6.i137 = getelementptr inbounds i8, ptr %0, i64 %sub.i136
-  %cmp.i1.not.i.i.i138 = icmp eq ptr %1, %storemerge.i.i135
+  %cmp.i1.not.i.i.i138 = icmp eq ptr %storemerge.i.i135, %1
   br i1 %cmp.i1.not.i.i.i138, label %if.end.i.i.i144, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i139
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i139: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i132
@@ -2289,7 +2289,7 @@ _ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i:       ; preds = %while.cond.i.i, %wh
   br i1 %cmp.i.not.i.i.i, label %_ZN6Assimp3PLY3DOM10SkipSpacesERSt6vectorIcSaIcEE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i
-  %cmp.i1.not.i.i.i = icmp eq ptr %1, %in.addr.0.i.i
+  %cmp.i1.not.i.i.i = icmp eq ptr %in.addr.0.i.i, %1
   br i1 %cmp.i1.not.i.i.i, label %if.end.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -2350,7 +2350,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
   %12 = ptrtoint ptr %9 to i64
   %sub.i32 = sub i64 %11, %12
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %9, i64 %sub.i32
-  %cmp.i1.not.i.i.i35 = icmp eq ptr %8, %storemerge.i.i
+  %cmp.i1.not.i.i.i35 = icmp eq ptr %storemerge.i.i, %8
   br i1 %cmp.i1.not.i.i.i35, label %if.end.i.i.i41, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i36
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i36: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
@@ -2395,7 +2395,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i57:   ; preds = %land.lhs.true.i.i55
   %17 = ptrtoint ptr %9 to i64
   %sub.i61 = sub i64 %16, %17
   %add.ptr.i6.i62 = getelementptr inbounds i8, ptr %9, i64 %sub.i61
-  %cmp.i1.not.i.i.i65 = icmp eq ptr %8, %storemerge.i.i60
+  %cmp.i1.not.i.i.i65 = icmp eq ptr %storemerge.i.i60, %8
   br i1 %cmp.i1.not.i.i.i65, label %if.end.i.i.i71, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i66
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i66: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i57
@@ -2457,7 +2457,7 @@ _ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i85:     ; preds = %while.cond.i.i82, %
   br i1 %cmp.i.not.i.i.i89, label %_ZN6Assimp3PLY3DOM10SkipSpacesERSt6vectorIcSaIcEE.exit106, label %if.then.i.i.i90
 
 if.then.i.i.i90:                                  ; preds = %_ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i85
-  %cmp.i1.not.i.i.i91 = icmp eq ptr %20, %in.addr.0.i.i83
+  %cmp.i1.not.i.i.i91 = icmp eq ptr %in.addr.0.i.i83, %20
   br i1 %cmp.i1.not.i.i.i91, label %if.end.i.i.i97, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i92
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i92: ; preds = %if.then.i.i.i90
@@ -2568,7 +2568,7 @@ _ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i115:    ; preds = %while.cond.i.i112, 
   br i1 %cmp.i.not.i.i.i119, label %_ZN6Assimp3PLY3DOM10SkipSpacesERSt6vectorIcSaIcEE.exit136, label %if.then.i.i.i120
 
 if.then.i.i.i120:                                 ; preds = %_ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i115
-  %cmp.i1.not.i.i.i121 = icmp eq ptr %30, %in.addr.0.i.i113
+  %cmp.i1.not.i.i.i121 = icmp eq ptr %in.addr.0.i.i113, %30
   br i1 %cmp.i1.not.i.i.i121, label %if.end.i.i.i127, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i122
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i122: ; preds = %if.then.i.i.i120
@@ -2659,7 +2659,7 @@ _ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_.exit.i: ; preds = %while.cond.i.i1
   br i1 %cmp.i.not.i.i.i154, label %return, label %if.then.i.i.i155
 
 if.then.i.i.i155:                                 ; preds = %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_.exit.i
-  %cmp.i1.not.i.i.i156 = icmp eq ptr %40, %in.addr.0.i.i149
+  %cmp.i1.not.i.i.i156 = icmp eq ptr %in.addr.0.i.i149, %40
   br i1 %cmp.i1.not.i.i.i156, label %if.end.i.i.i162, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i157
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i157: ; preds = %if.then.i.i.i155
@@ -2746,7 +2746,7 @@ _ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_.exit.i180: ; preds = %while.cond.i
   br i1 %cmp.i.not.i.i.i184, label %_ZN6Assimp3PLY3DOM20SkipSpacesAndLineEndERSt6vectorIcSaIcEE.exit199, label %if.then.i.i.i185
 
 if.then.i.i.i185:                                 ; preds = %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_.exit.i180
-  %cmp.i1.not.i.i.i186 = icmp eq ptr %52, %in.addr.0.i.i177
+  %cmp.i1.not.i.i.i186 = icmp eq ptr %in.addr.0.i.i177, %52
   br i1 %cmp.i1.not.i.i.i186, label %if.end.i.i.i192, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i187
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i187: ; preds = %if.then.i.i.i185
@@ -3166,7 +3166,7 @@ _ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i:       ; preds = %while.cond.i.i, %wh
   br i1 %cmp.i.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i
-  %cmp.i1.not.i.i.i = icmp eq ptr %1, %in.addr.0.i.i
+  %cmp.i1.not.i.i.i = icmp eq ptr %in.addr.0.i.i, %1
   br i1 %cmp.i1.not.i.i.i, label %if.end.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -3233,7 +3233,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
   %14 = ptrtoint ptr %11 to i64
   %sub.i7 = sub i64 %13, %14
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %11, i64 %sub.i7
-  %cmp.i1.not.i.i.i10 = icmp eq ptr %10, %storemerge.i.i
+  %cmp.i1.not.i.i.i10 = icmp eq ptr %storemerge.i.i, %10
   br i1 %cmp.i1.not.i.i.i10, label %if.end.i.i.i16, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i11
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i11: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
@@ -3294,7 +3294,7 @@ _ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i29:     ; preds = %while.cond.i.i26, %
   br i1 %cmp.i.not.i.i.i33, label %invoke.cont4, label %if.then.i.i.i34
 
 if.then.i.i.i34:                                  ; preds = %_ZN6Assimp10SkipSpacesIcEEbPKT_PS3_.exit.i29
-  %cmp.i1.not.i.i.i35 = icmp eq ptr %17, %in.addr.0.i.i27
+  %cmp.i1.not.i.i.i35 = icmp eq ptr %in.addr.0.i.i27, %17
   br i1 %cmp.i1.not.i.i.i35, label %if.end.i.i.i41, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i36
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i36: ; preds = %if.then.i.i.i34
@@ -3368,7 +3368,7 @@ _ZN6Assimp8SkipLineIcEEbPKT_PS3_.exit.i:          ; preds = %while.cond5.i.i
   br i1 %cmp.i.not.i.i.i59, label %if.end9, label %if.then.i.i.i60
 
 if.then.i.i.i60:                                  ; preds = %_ZN6Assimp8SkipLineIcEEbPKT_PS3_.exit.i
-  %cmp.i1.not.i.i.i61 = icmp eq ptr %25, %in.addr.1.i.i
+  %cmp.i1.not.i.i.i61 = icmp eq ptr %in.addr.1.i.i, %25
   br i1 %cmp.i1.not.i.i.i61, label %if.end.i.i.i67, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i62
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i62: ; preds = %if.then.i.i.i60
@@ -3428,7 +3428,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i86:   ; preds = %land.lhs.true.i.i84
   %37 = ptrtoint ptr %34 to i64
   %sub.i90 = sub i64 %36, %37
   %add.ptr.i6.i91 = getelementptr inbounds i8, ptr %34, i64 %sub.i90
-  %cmp.i1.not.i.i.i94 = icmp eq ptr %33, %storemerge.i.i89
+  %cmp.i1.not.i.i.i94 = icmp eq ptr %storemerge.i.i89, %33
   br i1 %cmp.i1.not.i.i.i94, label %if.end.i.i.i100, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i95
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i95: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i86
@@ -3489,7 +3489,7 @@ _ZN6Assimp8SkipLineIcEEbPKT_PS3_.exit.i119:       ; preds = %while.cond5.i.i114
   br i1 %cmp.i.not.i.i.i123, label %invoke.cont13, label %if.then.i.i.i124
 
 if.then.i.i.i124:                                 ; preds = %_ZN6Assimp8SkipLineIcEEbPKT_PS3_.exit.i119
-  %cmp.i1.not.i.i.i125 = icmp eq ptr %33, %in.addr.1.i.i115
+  %cmp.i1.not.i.i.i125 = icmp eq ptr %in.addr.1.i.i115, %33
   br i1 %cmp.i1.not.i.i.i125, label %if.end.i.i.i131, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i126
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i126: ; preds = %if.then.i.i.i124
@@ -3863,7 +3863,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
   %15 = ptrtoint ptr %11 to i64
   %sub.i = sub i64 %14, %15
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %11, i64 %sub.i
-  %cmp.i1.not.i.i.i = icmp eq ptr %12, %storemerge.i.i
+  %cmp.i1.not.i.i.i = icmp eq ptr %storemerge.i.i, %12
   br i1 %cmp.i1.not.i.i.i, label %if.end.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
@@ -3966,7 +3966,7 @@ _ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_.exit.i: ; preds = %while.cond.i.i
   br i1 %cmp.i.not.i.i.i, label %if.end19, label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPKT_PS3_.exit.i
-  %cmp.i1.not.i.i.i21 = icmp eq ptr %21, %in.addr.0.i.i
+  %cmp.i1.not.i.i.i21 = icmp eq ptr %in.addr.0.i.i, %21
   br i1 %cmp.i1.not.i.i.i21, label %if.end.i.i.i27, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i22
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i22: ; preds = %if.then.i.i.i20
@@ -4179,7 +4179,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -4188,7 +4188,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -4361,7 +4361,7 @@ _ZN6Assimp8SkipLineIcEEbPKT_PS3_.exit.i:          ; preds = %while.cond5.i.i
   br i1 %cmp.i.not.i.i.i, label %_ZN6Assimp3PLY3DOM8SkipLineERSt6vectorIcSaIcEE.exit, label %if.then.i.i.i29
 
 if.then.i.i.i29:                                  ; preds = %_ZN6Assimp8SkipLineIcEEbPKT_PS3_.exit.i
-  %cmp.i1.not.i.i.i = icmp eq ptr %6, %in.addr.1.i.i
+  %cmp.i1.not.i.i.i = icmp eq ptr %in.addr.1.i.i, %6
   br i1 %cmp.i1.not.i.i.i, label %if.end.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %if.then.i.i.i29
@@ -4778,7 +4778,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
+  %cmp.i.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
@@ -4788,7 +4788,7 @@ if.then.i.i:                                      ; preds = %for.body
   br label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE6resizeEm.exit.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
+  %cmp4.i.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -5314,7 +5314,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.i = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -5324,7 +5324,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp4.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -5534,7 +5534,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.i = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -5544,7 +5544,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp4.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -6593,7 +6593,7 @@ if.end43:                                         ; preds = %if.end
 land.lhs.true51:                                  ; preds = %if.end13, %land.lhs.true21, %if.end43
   %cmp54 = icmp eq i8 %1, 46
   %cmp60 = icmp eq i8 %1, 44
-  %or.cond17 = and i1 %cmp60, %check_comma
+  %or.cond17 = and i1 %check_comma, %cmp60
   %or.cond = or i1 %cmp54, %or.cond17
   br i1 %or.cond, label %land.lhs.true61, label %if.then69
 
@@ -6644,7 +6644,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread35,
 if.end74:                                         ; preds = %if.end43, %land.lhs.true61
   %cmp76.not = icmp eq i8 %1, 46
   %cmp82.not = icmp eq i8 %1, 44
-  %or.cond19 = and i1 %cmp82.not, %check_comma
+  %or.cond19 = and i1 %check_comma, %cmp82.not
   %or.cond23 = or i1 %cmp76.not, %or.cond19
   br i1 %or.cond23, label %if.end86, label %if.then83
 
@@ -6661,7 +6661,7 @@ if.end86:                                         ; preds = %if.then83, %if.end7
   %f.0 = phi float [ %conv85, %if.then83 ], [ 0.000000e+00, %if.end74 ]
   %cmp88 = icmp eq i8 %10, 46
   %cmp94 = icmp eq i8 %10, 44
-  %or.cond20 = and i1 %cmp94, %check_comma
+  %or.cond20 = and i1 %check_comma, %cmp94
   %or.cond24 = or i1 %cmp88, %or.cond20
   br i1 %or.cond24, label %land.lhs.true95, label %if.end114
 
@@ -6823,7 +6823,7 @@ if.end43:                                         ; preds = %if.end
 land.lhs.true51:                                  ; preds = %if.end13, %land.lhs.true21, %if.end43
   %cmp54 = icmp eq i8 %1, 46
   %cmp60 = icmp eq i8 %1, 44
-  %or.cond17 = and i1 %cmp60, %check_comma
+  %or.cond17 = and i1 %check_comma, %cmp60
   %or.cond = or i1 %cmp54, %or.cond17
   br i1 %or.cond, label %land.lhs.true61, label %if.then69
 
@@ -6874,7 +6874,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread34,
 if.end74:                                         ; preds = %if.end43, %land.lhs.true61
   %cmp76.not = icmp eq i8 %1, 46
   %cmp82.not = icmp eq i8 %1, 44
-  %or.cond19 = and i1 %cmp82.not, %check_comma
+  %or.cond19 = and i1 %check_comma, %cmp82.not
   %or.cond23 = or i1 %cmp76.not, %or.cond19
   br i1 %or.cond23, label %if.end86, label %if.then83
 
@@ -6891,7 +6891,7 @@ if.end86:                                         ; preds = %if.then83, %if.end7
   %f.0 = phi double [ %conv85, %if.then83 ], [ 0.000000e+00, %if.end74 ]
   %cmp88 = icmp eq i8 %10, 46
   %cmp94 = icmp eq i8 %10, 44
-  %or.cond20 = and i1 %cmp94, %check_comma
+  %or.cond20 = and i1 %check_comma, %cmp94
   %or.cond24 = or i1 %cmp88, %or.cond20
   br i1 %or.cond24, label %land.lhs.true95, label %if.end113
 
@@ -7395,7 +7395,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -7478,7 +7478,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i: ; preds = %if.then.i32.
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -7610,7 +7610,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN6Assimp3PLY8PropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 48
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN6Assimp3PLY8PropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN6Assimp3PLY8PropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i19
@@ -7808,7 +7808,7 @@ _ZSt19__relocate_object_aIN6Assimp3PLY7ElementES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.
 _ZNSt6vectorIN6Assimp3PLY7ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN6Assimp3PLY7ElementES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN6Assimp3PLY7ElementES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 72
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN6Assimp3PLY7ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit48, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN6Assimp3PLY7ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %_ZSt19__relocate_object_aIN6Assimp3PLY7ElementES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i43
@@ -8000,7 +8000,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = tail call ptr @__cxa_begin_catch(ptr %7) #23
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %cond.i.i.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -9240,7 +9240,7 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEmEvRT_T0_.exit: ; preds = %if.then9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %__last.coerce, %incdec.ptr.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES2_cET0_T_S8_S7_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEmEvRT_T0_.exit
@@ -9303,7 +9303,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %cond.i47 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i48 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i48, %sub.ptr.rhs.cast.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %4, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %__position.coerce, %4
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i51, label %invoke.cont83, label %if.then.i.i.i.i.i.i.i.i.i52
 
 if.then.i.i.i.i.i.i.i.i.i52:                      ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit

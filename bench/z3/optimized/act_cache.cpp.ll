@@ -702,7 +702,7 @@ if.else:                                          ; preds = %if.end
   %13 = ptrtoint ptr %2 to i64
   %and = and i64 %13, -8
   %14 = inttoptr i64 %and to ptr
-  %cmp10 = icmp eq ptr %14, %v
+  %cmp10 = icmp eq ptr %v, %14
   br i1 %cmp10, label %if.end19, label %if.else12
 
 if.else12:                                        ; preds = %if.else

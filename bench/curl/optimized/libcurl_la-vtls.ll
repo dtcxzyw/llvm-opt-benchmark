@@ -2206,7 +2206,7 @@ if.end70:                                         ; preds = %do.body66
 
 if.end80:                                         ; preds = %if.end70
   %call81 = tail call i64 @curlx_sotouz(i64 noundef %call71) #18
-  %cmp82 = icmp ult i64 %call81, %pubkeylen
+  %cmp82 = icmp ugt i64 %pubkeylen, %call81
   br i1 %cmp82, label %do.body116, label %if.end84
 
 if.end84:                                         ; preds = %if.end80
@@ -2223,7 +2223,7 @@ if.end88:                                         ; preds = %if.end84
   br i1 %cmp90.not, label %if.end93, label %do.body116
 
 if.end93:                                         ; preds = %if.end88
-  %cmp94 = icmp eq i64 %call81, %pubkeylen
+  %cmp94 = icmp eq i64 %pubkeylen, %call81
   br i1 %cmp94, label %if.then96, label %if.end101
 
 if.then96:                                        ; preds = %if.end93
@@ -2238,7 +2238,7 @@ if.end101:                                        ; preds = %if.end93
   %call103 = call fastcc i32 @pubkey_pem_to_der(ptr noundef nonnull %call85, ptr noundef nonnull %pem_ptr, ptr noundef nonnull %pem_len)
   %tobool104.not = icmp eq i32 %call103, 0
   %21 = load i64, ptr %pem_len, align 8
-  %cmp107 = icmp eq i64 %21, %pubkeylen
+  %cmp107 = icmp eq i64 %pubkeylen, %21
   %or.cond54 = select i1 %tobool104.not, i1 %cmp107, i1 false
   br i1 %or.cond54, label %land.lhs.true109, label %do.body116
 
@@ -2512,7 +2512,7 @@ lor.lhs.false.us:                                 ; preds = %for.body.us
 
 if.then1:                                         ; preds = %if.end
   %5 = load i32, ptr %0, align 8
-  %cmp3 = icmp eq i32 %5, %id
+  %cmp3 = icmp eq i32 %id, %5
   br i1 %cmp3, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.then1

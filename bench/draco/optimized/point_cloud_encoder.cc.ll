@@ -824,7 +824,7 @@ define noundef zeroext i1 @_ZN5draco17PointCloudEncoder27RearrangeAttributesEnco
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 2
-  %18 = icmp ult i64 %17, %10
+  %18 = icmp ugt i64 %10, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %1
@@ -835,7 +835,7 @@ define noundef zeroext i1 @_ZN5draco17PointCloudEncoder27RearrangeAttributesEnco
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 21:                                               ; preds = %1
-  %22 = icmp ugt i64 %17, %10
+  %22 = icmp ult i64 %10, %17
   br i1 %22, label %23, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 23:                                               ; preds = %21
@@ -1153,7 +1153,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit111:         ; preds = %161, %145
   %195 = ptrtoint ptr %.sroa.0167.0278 to i64
   %196 = sub i64 %194, %195
   %197 = ashr exact i64 %196, 2
-  %198 = icmp ult i64 %197, %193
+  %198 = icmp ugt i64 %193, %197
   br i1 %198, label %199, label %225
 
 199:                                              ; preds = %192
@@ -1222,7 +1222,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i: ; preds = %222, %_ZNSt6
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit113.split.us.preheader
 
 225:                                              ; preds = %192
-  %226 = icmp ugt i64 %197, %193
+  %226 = icmp ult i64 %193, %197
   %227 = getelementptr inbounds i32, ptr %.sroa.0167.0278, i64 %193
   %spec.select = select i1 %226, ptr %227, ptr %.sroa.8.0277
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit113.split.us.preheader
@@ -1512,7 +1512,7 @@ define noundef zeroext i1 @_ZN5draco17PointCloudEncoder26GenerateAttributesEncod
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 2
-  %39 = icmp ult i64 %38, %31
+  %39 = icmp ugt i64 %31, %38
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %._crit_edge
@@ -1521,7 +1521,7 @@ define noundef zeroext i1 @_ZN5draco17PointCloudEncoder26GenerateAttributesEncod
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 42:                                               ; preds = %._crit_edge
-  %43 = icmp ugt i64 %38, %31
+  %43 = icmp ult i64 %31, %38
   br i1 %43, label %44, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 44:                                               ; preds = %42
@@ -1659,7 +1659,7 @@ define noundef zeroext i1 @_ZN5draco17PointCloudEncoder19MarkParentAttributeEi(p
   %13 = sub i64 %11, %12
   %14 = lshr exact i64 %13, 3
   %15 = trunc i64 %14 to i32
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %16, label %31
 
 16:                                               ; preds = %4
@@ -1701,7 +1701,7 @@ define noundef ptr @_ZN5draco17PointCloudEncoder20GetPortableAttributeEi(ptr noc
   %13 = sub i64 %11, %12
   %14 = lshr exact i64 %13, 3
   %15 = trunc i64 %14 to i32
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %16, label %31
 
 16:                                               ; preds = %4
@@ -1984,7 +1984,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %70 = phi ptr [ %69, %68 ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %71 = ptrtoint ptr %1 to i64
   %72 = sub i64 %71, %59
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %58, %1
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %58
   br i1 %.not.i.i.i.i.i.i.i.i.i63, label %74, label %73
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
@@ -2145,7 +2145,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %9, %_ZNSt6vectorIiS
   %42 = sub i64 %40, %41
   %43 = ashr exact i64 %42, 2
   %44 = trunc i64 %43 to i32
-  %.not = icmp sgt i32 %44, %1
+  %.not = icmp slt i32 %1, %44
   br i1 %.not, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, label %45
 
 45:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -2248,7 +2248,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !33
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -2332,7 +2332,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !33
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79

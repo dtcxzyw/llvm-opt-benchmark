@@ -3947,7 +3947,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal20RepeatedFieldWra
 entry:
   %total_size_.i = getelementptr inbounds i8, ptr %data, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %0, %size
+  %cmp.i = icmp sgt i32 %size, %0
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %entry
@@ -4296,7 +4296,7 @@ if.end.i:                                         ; preds = %if.else, %_ZN6googl
 
 if.then.i.i21:                                    ; preds = %if.end.i
   %9 = load i32, ptr %total_size_.i, align 4
-  %cmp.i.i.i = icmp slt i32 %9, %8
+  %cmp.i.i.i = icmp sgt i32 %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf13RepeatedFieldIiE18UninitializedCopyNEPKiiPi.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i21
@@ -4322,7 +4322,7 @@ _ZN6google8protobuf13RepeatedFieldIiE18UninitializedCopyNEPKiiPi.exit.i.i: ; pre
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldIiE18UninitializedCopyNEPKiiPi.exit.i.i, %if.end.i
-  %cmp.i24 = icmp eq ptr %temp, %other
+  %cmp.i24 = icmp eq ptr %other, %temp
   br i1 %cmp.i24, label %invoke.cont7, label %while.end.i
 
 while.end.i:                                      ; preds = %invoke.cont6
@@ -4479,7 +4479,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal20RepeatedFieldWra
 entry:
   %total_size_.i = getelementptr inbounds i8, ptr %data, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %0, %size
+  %cmp.i = icmp sgt i32 %size, %0
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %entry
@@ -4759,7 +4759,7 @@ if.end.i:                                         ; preds = %if.else, %_ZN6googl
 
 if.then.i.i21:                                    ; preds = %if.end.i
   %9 = load i32, ptr %total_size_.i, align 4
-  %cmp.i.i.i = icmp slt i32 %9, %8
+  %cmp.i.i.i = icmp sgt i32 %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf13RepeatedFieldIjE18UninitializedCopyNEPKjiPj.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i21
@@ -4785,7 +4785,7 @@ _ZN6google8protobuf13RepeatedFieldIjE18UninitializedCopyNEPKjiPj.exit.i.i: ; pre
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldIjE18UninitializedCopyNEPKjiPj.exit.i.i, %if.end.i
-  %cmp.i24 = icmp eq ptr %temp, %other
+  %cmp.i24 = icmp eq ptr %other, %temp
   br i1 %cmp.i24, label %invoke.cont7, label %while.end.i
 
 while.end.i:                                      ; preds = %invoke.cont6
@@ -4940,7 +4940,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal20RepeatedFieldWra
 entry:
   %total_size_.i = getelementptr inbounds i8, ptr %data, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %0, %size
+  %cmp.i = icmp sgt i32 %size, %0
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %entry
@@ -5219,7 +5219,7 @@ if.end.i:                                         ; preds = %if.else, %_ZN6googl
 
 if.then.i.i21:                                    ; preds = %if.end.i
   %9 = load i32, ptr %total_size_.i, align 4
-  %cmp.i.i.i = icmp slt i32 %9, %8
+  %cmp.i.i.i = icmp sgt i32 %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf13RepeatedFieldIlE18UninitializedCopyNEPKliPl.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i21
@@ -5245,7 +5245,7 @@ _ZN6google8protobuf13RepeatedFieldIlE18UninitializedCopyNEPKliPl.exit.i.i: ; pre
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldIlE18UninitializedCopyNEPKliPl.exit.i.i, %if.end.i
-  %cmp.i24 = icmp eq ptr %temp, %other
+  %cmp.i24 = icmp eq ptr %other, %temp
   br i1 %cmp.i24, label %invoke.cont7, label %while.end.i
 
 while.end.i:                                      ; preds = %invoke.cont6
@@ -5400,7 +5400,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal20RepeatedFieldWra
 entry:
   %total_size_.i = getelementptr inbounds i8, ptr %data, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %0, %size
+  %cmp.i = icmp sgt i32 %size, %0
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %entry
@@ -5679,7 +5679,7 @@ if.end.i:                                         ; preds = %if.else, %_ZN6googl
 
 if.then.i.i21:                                    ; preds = %if.end.i
   %9 = load i32, ptr %total_size_.i, align 4
-  %cmp.i.i.i = icmp slt i32 %9, %8
+  %cmp.i.i.i = icmp sgt i32 %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf13RepeatedFieldImE18UninitializedCopyNEPKmiPm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i21
@@ -5705,7 +5705,7 @@ _ZN6google8protobuf13RepeatedFieldImE18UninitializedCopyNEPKmiPm.exit.i.i: ; pre
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldImE18UninitializedCopyNEPKmiPm.exit.i.i, %if.end.i
-  %cmp.i24 = icmp eq ptr %temp, %other
+  %cmp.i24 = icmp eq ptr %other, %temp
   br i1 %cmp.i24, label %invoke.cont7, label %while.end.i
 
 while.end.i:                                      ; preds = %invoke.cont6
@@ -5860,7 +5860,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal20RepeatedFieldWra
 entry:
   %total_size_.i = getelementptr inbounds i8, ptr %data, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %0, %size
+  %cmp.i = icmp sgt i32 %size, %0
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %entry
@@ -6140,7 +6140,7 @@ if.end.i:                                         ; preds = %if.else, %_ZN6googl
 
 if.then.i.i21:                                    ; preds = %if.end.i
   %9 = load i32, ptr %total_size_.i, align 4
-  %cmp.i.i.i = icmp slt i32 %9, %8
+  %cmp.i.i.i = icmp sgt i32 %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf13RepeatedFieldIfE18UninitializedCopyNEPKfiPf.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i21
@@ -6166,7 +6166,7 @@ _ZN6google8protobuf13RepeatedFieldIfE18UninitializedCopyNEPKfiPf.exit.i.i: ; pre
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldIfE18UninitializedCopyNEPKfiPf.exit.i.i, %if.end.i
-  %cmp.i24 = icmp eq ptr %temp, %other
+  %cmp.i24 = icmp eq ptr %other, %temp
   br i1 %cmp.i24, label %invoke.cont7, label %while.end.i
 
 while.end.i:                                      ; preds = %invoke.cont6
@@ -6321,7 +6321,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal20RepeatedFieldWra
 entry:
   %total_size_.i = getelementptr inbounds i8, ptr %data, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %0, %size
+  %cmp.i = icmp sgt i32 %size, %0
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %entry
@@ -6600,7 +6600,7 @@ if.end.i:                                         ; preds = %if.else, %_ZN6googl
 
 if.then.i.i21:                                    ; preds = %if.end.i
   %9 = load i32, ptr %total_size_.i, align 4
-  %cmp.i.i.i = icmp slt i32 %9, %8
+  %cmp.i.i.i = icmp sgt i32 %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf13RepeatedFieldIdE18UninitializedCopyNEPKdiPd.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i21
@@ -6626,7 +6626,7 @@ _ZN6google8protobuf13RepeatedFieldIdE18UninitializedCopyNEPKdiPd.exit.i.i: ; pre
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldIdE18UninitializedCopyNEPKdiPd.exit.i.i, %if.end.i
-  %cmp.i24 = icmp eq ptr %temp, %other
+  %cmp.i24 = icmp eq ptr %other, %temp
   br i1 %cmp.i24, label %invoke.cont7, label %while.end.i
 
 while.end.i:                                      ; preds = %invoke.cont6
@@ -6783,7 +6783,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal20RepeatedFieldWra
 entry:
   %total_size_.i = getelementptr inbounds i8, ptr %data, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %0, %size
+  %cmp.i = icmp sgt i32 %size, %0
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldIbE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %entry
@@ -7062,7 +7062,7 @@ if.end.i:                                         ; preds = %if.else, %_ZN6googl
 
 if.then.i.i21:                                    ; preds = %if.end.i
   %9 = load i32, ptr %total_size_.i, align 4
-  %cmp.i.i.i = icmp slt i32 %9, %8
+  %cmp.i.i.i = icmp sgt i32 %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf13RepeatedFieldIbE18UninitializedCopyNEPKbiPb.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i21
@@ -7087,7 +7087,7 @@ _ZN6google8protobuf13RepeatedFieldIbE18UninitializedCopyNEPKbiPb.exit.i.i: ; pre
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldIbE18UninitializedCopyNEPKbiPb.exit.i.i, %if.end.i
-  %cmp.i24 = icmp eq ptr %temp, %other
+  %cmp.i24 = icmp eq ptr %other, %temp
   br i1 %cmp.i24, label %invoke.cont7, label %while.end.i
 
 while.end.i:                                      ; preds = %invoke.cont6

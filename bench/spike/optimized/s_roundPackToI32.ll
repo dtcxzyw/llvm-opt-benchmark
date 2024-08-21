@@ -34,13 +34,13 @@ define range(i64 -2147483648, 2147483648) i64 @softfloat_roundPackToI32(i1 nound
   %22 = ashr exact i64 %sext, 32
   %.not33 = icmp eq i64 %sext, 0
   %23 = icmp sgt i64 %22, -1
-  %.not3435 = xor i1 %23, %0
+  %.not3435 = xor i1 %0, %23
   %or.cond36 = select i1 %.not33, i1 true, i1 %.not3435
   br i1 %or.cond36, label %24, label %29
 
 24:                                               ; preds = %12
   %25 = icmp ne i32 %14, 0
-  %or.cond5 = and i1 %25, %3
+  %or.cond5 = and i1 %3, %25
   br i1 %or.cond5, label %26, label %31
 
 26:                                               ; preds = %24

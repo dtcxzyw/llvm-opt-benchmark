@@ -1645,7 +1645,7 @@ if.then31.i309:                                   ; preds = %if.then26.i
 
 while.cond.i:                                     ; preds = %if.end100.i
   %add108.i = add i64 %xfer_bytes.046.i, %conv101.i
-  %cmp33.i = icmp ult i64 %add108.i, %throughput.012132605
+  %cmp33.i = icmp ugt i64 %throughput.012132605, %add108.i
   br i1 %cmp33.i, label %while.body.i, label %if.then115.i, !llvm.loop !10
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i

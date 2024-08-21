@@ -2304,7 +2304,7 @@ define void @_ZN6colvar11distance_xy14calc_gradientsEv(ptr nocapture noundef non
   %90 = getelementptr inbounds i8, ptr %0, i64 1736
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %91 = load double, ptr %90, align 8, !noalias !92
-  %92 = fmul double %91, %89
+  %92 = fmul double %89, %91
   %93 = getelementptr inbounds i8, ptr %0, i64 1744
   %94 = load double, ptr %93, align 8, !noalias !92
   %95 = fmul double %89, %94
@@ -3145,7 +3145,7 @@ define void @_ZN6colvar14distance_pairs10calc_valueEv(ptr noundef nonnull align 
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 3
-  %32 = icmp ult i64 %31, %24
+  %32 = icmp ugt i64 %24, %31
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %1
@@ -3154,7 +3154,7 @@ define void @_ZN6colvar14distance_pairs10calc_valueEv(ptr noundef nonnull align 
   br label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit
 
 35:                                               ; preds = %1
-  %36 = icmp ugt i64 %31, %24
+  %36 = icmp ult i64 %24, %31
   br i1 %36, label %37, label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit
 
 37:                                               ; preds = %35
@@ -5798,7 +5798,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit:
   %87 = fmul double %86, 2.000000e+00
   %88 = getelementptr inbounds i8, ptr %76, i64 48
   %89 = load double, ptr %88, align 8, !noalias !174
-  %90 = fmul double %89, %87
+  %90 = fmul double %87, %89
   %91 = getelementptr inbounds i8, ptr %76, i64 56
   %92 = load double, ptr %91, align 8, !noalias !174
   %93 = fmul double %87, %92
@@ -5809,7 +5809,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit:
   %98 = fmul double %97, 2.000000e+00
   %99 = getelementptr inbounds i8, ptr %76, i64 72
   %100 = load double, ptr %99, align 8, !noalias !174
-  %101 = fmul double %100, %98
+  %101 = fmul double %98, %100
   %102 = getelementptr inbounds i8, ptr %76, i64 80
   %103 = load double, ptr %102, align 8, !noalias !174
   %104 = fmul double %98, %103
@@ -6868,7 +6868,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit: ; preds = %1
   %93 = fmul double %92, 2.000000e+00
   %94 = getelementptr inbounds i8, ptr %81, i64 48
   %95 = load double, ptr %94, align 8, !noalias !174
-  %96 = fmul double %95, %93
+  %96 = fmul double %93, %95
   %97 = getelementptr inbounds i8, ptr %81, i64 56
   %98 = load double, ptr %97, align 8, !noalias !174
   %99 = fmul double %93, %98
@@ -6880,7 +6880,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit: ; preds = %1
   %105 = fmul double %104, 2.000000e+00
   %106 = getelementptr inbounds i8, ptr %81, i64 72
   %107 = load double, ptr %106, align 8, !noalias !174
-  %108 = fmul double %107, %105
+  %108 = fmul double %105, %107
   %109 = getelementptr inbounds i8, ptr %81, i64 80
   %110 = load double, ptr %109, align 8, !noalias !174
   %111 = fmul double %105, %110
@@ -9509,7 +9509,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
-  %49 = icmp ult i64 %48, %41
+  %49 = icmp ugt i64 %41, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %21
@@ -9518,7 +9518,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit unwind label %61
 
 52:                                               ; preds = %21
-  %53 = icmp ugt i64 %48, %41
+  %53 = icmp ult i64 %41, %48
   br i1 %53, label %54, label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit
 
 54:                                               ; preds = %52
@@ -10016,7 +10016,7 @@ _ZSt10_ConstructIN12colvarmodule4atomEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #29
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %9
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %9, %.015.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12colvarmodule4atomEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %15, %.lr.ph.i.i.i.i.i.i.i
@@ -10391,7 +10391,7 @@ define linkonce_odr void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %3
@@ -10435,7 +10435,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %.lr
   %25 = ptrtoint ptr %24 to i64
   %26 = sub i64 %25, %8
   %27 = sdiv exact i64 %26, 24
-  %28 = icmp ult i64 %27, %1
+  %28 = icmp ugt i64 %1, %27
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %22
@@ -13271,7 +13271,7 @@ define linkonce_odr void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 24
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -13342,7 +13342,7 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EE13_M_deallocateEPS1_m.exit37
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -18349,37 +18349,36 @@ define linkonce_odr void @_ZNK12colvarmodule8rotation6matrixEv(ptr dead_on_unwin
   %24 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %23)
   %25 = getelementptr inbounds i8, ptr %0, i64 64
   store double %24, ptr %25, align 8, !alias.scope !492
-  %26 = fneg double %4
-  %27 = fmul double %14, %26
-  %28 = tail call double @llvm.fmuladd.f64(double %6, double %10, double %27)
-  %29 = fmul double %28, 2.000000e+00
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %29, ptr %30, align 8, !alias.scope !492
-  %31 = fmul double %6, %14
-  %32 = tail call double @llvm.fmuladd.f64(double %4, double %10, double %31)
-  %33 = fmul double %32, 2.000000e+00
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %33, ptr %34, align 8, !alias.scope !492
-  %35 = fmul double %6, %10
-  %36 = tail call double @llvm.fmuladd.f64(double %4, double %14, double %35)
-  %37 = fmul double %36, 2.000000e+00
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
-  store double %37, ptr %38, align 8, !alias.scope !492
-  %39 = fmul double %6, %26
-  %40 = tail call double @llvm.fmuladd.f64(double %10, double %14, double %39)
-  %41 = fmul double %40, 2.000000e+00
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
-  store double %41, ptr %42, align 8, !alias.scope !492
-  %43 = fmul double %10, %26
-  %44 = tail call double @llvm.fmuladd.f64(double %6, double %14, double %43)
-  %45 = fmul double %44, 2.000000e+00
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
-  store double %45, ptr %46, align 8, !alias.scope !492
-  %47 = fmul double %10, %14
-  %48 = tail call double @llvm.fmuladd.f64(double %4, double %6, double %47)
-  %49 = fmul double %48, 2.000000e+00
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
-  store double %49, ptr %50, align 8, !alias.scope !492
+  %26 = fmul double %4, %15
+  %27 = tail call double @llvm.fmuladd.f64(double %6, double %10, double %26)
+  %28 = fmul double %27, 2.000000e+00
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %28, ptr %29, align 8, !alias.scope !492
+  %30 = fmul double %6, %14
+  %31 = tail call double @llvm.fmuladd.f64(double %4, double %10, double %30)
+  %32 = fmul double %31, 2.000000e+00
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %32, ptr %33, align 8, !alias.scope !492
+  %34 = fmul double %6, %10
+  %35 = tail call double @llvm.fmuladd.f64(double %4, double %14, double %34)
+  %36 = fmul double %35, 2.000000e+00
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %36, ptr %37, align 8, !alias.scope !492
+  %38 = fmul double %4, %17
+  %39 = tail call double @llvm.fmuladd.f64(double %10, double %14, double %38)
+  %40 = fmul double %39, 2.000000e+00
+  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  store double %40, ptr %41, align 8, !alias.scope !492
+  %42 = fmul double %4, %11
+  %43 = tail call double @llvm.fmuladd.f64(double %6, double %14, double %42)
+  %44 = fmul double %43, 2.000000e+00
+  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  store double %44, ptr %45, align 8, !alias.scope !492
+  %46 = fmul double %10, %14
+  %47 = tail call double @llvm.fmuladd.f64(double %4, double %6, double %46)
+  %48 = fmul double %47, 2.000000e+00
+  %49 = getelementptr inbounds i8, ptr %0, i64 56
+  store double %48, ptr %49, align 8, !alias.scope !492
   ret void
 }
 
@@ -18786,7 +18785,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45: ; 
   %172 = ptrtoint ptr %170 to i64
   %173 = sub i64 %171, %172
   %174 = ashr exact i64 %173, 3
-  %175 = icmp ult i64 %174, %167
+  %175 = icmp ugt i64 %167, %174
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %151
@@ -18795,7 +18794,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45: ; 
           to label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit unwind label %68
 
 178:                                              ; preds = %151
-  %179 = icmp ugt i64 %174, %167
+  %179 = icmp ult i64 %167, %174
   br i1 %179, label %180, label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit
 
 180:                                              ; preds = %178

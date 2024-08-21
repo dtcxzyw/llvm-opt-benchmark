@@ -586,7 +586,7 @@ Vec_PtrSort.exit:                                 ; preds = %4
 Ivy_NodeBalanceFindLeft.exit:                     ; preds = %41, %._crit_edge.split.loop.exit24.i, %19
   %45 = phi i32 [ 0, %19 ], [ %44, %._crit_edge.split.loop.exit24.i ], [ 0, %41 ]
   %46 = add nsw i32 %20, -2
-  %47 = icmp eq i32 %46, %45
+  %47 = icmp eq i32 %45, %46
   br i1 %47, label %Ivy_NodeBalancePermute.exit, label %48
 
 48:                                               ; preds = %Ivy_NodeBalanceFindLeft.exit

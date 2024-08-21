@@ -801,7 +801,7 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %35 = icmp sgt i32 %3, 0
   %36 = add i32 %15, %3
   %37 = sub i32 %36, %33
-  %38 = add i32 %33, %3
+  %38 = add i32 %3, %33
   %39 = sub i32 %15, %38
   %40 = select i1 %35, i32 %37, i32 %39
   br label %41

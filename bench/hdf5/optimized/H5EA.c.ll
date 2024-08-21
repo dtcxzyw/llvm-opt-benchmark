@@ -342,7 +342,7 @@ define range(i32 -1, 1) i32 @H5EA_set(ptr nocapture noundef readonly %0, i64 nou
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 328
   %13 = load i64, ptr %12, align 8
-  %14 = icmp ule i64 %13, %1
+  %14 = icmp uge i64 %1, %13
   %.val = load ptr, ptr %0, align 8
   %15 = call fastcc i32 @H5EA__lookup_elmt(ptr %.val, ptr %10, i64 noundef %1, i1 noundef zeroext %14, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %16 = icmp slt i32 %15, 0
@@ -451,7 +451,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   %30 = getelementptr inbounds i8, ptr %.0.val, i64 258
   %31 = load i8, ptr %30, align 2
   %32 = zext i8 %31 to i64
-  %33 = icmp ugt i64 %32, %0
+  %33 = icmp ult i64 %0, %32
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %29
@@ -999,7 +999,7 @@ define range(i32 -1, 1) i32 @H5EA_get(ptr nocapture noundef readonly %0, i64 nou
   store ptr null, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 328
   %10 = load i64, ptr %9, align 8
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %22, label %11
 
 11:                                               ; preds = %3

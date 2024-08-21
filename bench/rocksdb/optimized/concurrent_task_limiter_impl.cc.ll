@@ -96,7 +96,7 @@ entry:
   %outstanding_tasks_ = getelementptr inbounds i8, ptr %this, i64 44
   %1 = load atomic i32, ptr %outstanding_tasks_ monotonic, align 4
   %cmp = icmp slt i32 %.fr, 0
-  %or.cond = or i1 %cmp, %force
+  %or.cond = or i1 %force, %cmp
   br i1 %or.cond, label %while.cond.us, label %while.cond
 
 while.cond.us:                                    ; preds = %entry, %while.cond.us

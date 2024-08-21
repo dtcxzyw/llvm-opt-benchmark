@@ -2448,9 +2448,9 @@ convert_sides_to_points.exit.thread.i:            ; preds = %77, %75, %convert_s
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %96 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
   %97 = load ptr, ptr %96, align 8
-  %98 = fadd double %.0115127.i, %3
-  %99 = fadd double %.0114128.i, %3
-  %100 = fadd double %.0113129.i, %3
+  %98 = fadd double %3, %.0115127.i
+  %99 = fadd double %3, %.0114128.i
+  %100 = fadd double %3, %.0113129.i
   %101 = call double @llvm.fmuladd.f64(double %86, double %44, double %.0117126.i)
   store double %49, ptr %9, align 16
   store double %50, ptr %.sroa.662.0..sroa_idx63.i, align 8
@@ -2704,9 +2704,9 @@ convert_sides_to_points.exit.thread.i76:          ; preds = %210, %208, %convert
   %indvars.iv.next.i92 = add nsw i64 %indvars.iv.i86, 1
   %230 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i86
   %231 = load ptr, ptr %230, align 8
-  %232 = fadd double %.0115127.i90, %3
-  %233 = fadd double %.0114128.i89, %3
-  %234 = fadd double %.0113129.i88, %3
+  %232 = fadd double %3, %.0115127.i90
+  %233 = fadd double %3, %.0114128.i89
+  %234 = fadd double %3, %.0113129.i88
   %235 = call double @llvm.fmuladd.f64(double %220, double %177, double %.0117126.i91)
   store double %182, ptr %8, align 16
   store double %183, ptr %.sroa.662.0..sroa_idx63.i79, align 8
@@ -2952,9 +2952,9 @@ convert_sides_to_points.exit.thread.i119:         ; preds = %convert_sides_to_po
   %indvars.iv.next.i127 = add nsw i64 %indvars.iv.i126, 1
   %362 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i126
   %363 = load ptr, ptr %362, align 8
-  %364 = fadd double %.0114127.i, %4
-  %365 = fadd double %.0112128.i, %4
-  %366 = fadd double %.0111129.i, %4
+  %364 = fadd double %4, %.0114127.i
+  %365 = fadd double %4, %.0112128.i
+  %366 = fadd double %4, %.0111129.i
   %367 = call double @llvm.fmuladd.f64(double %352, double %309, double %.0116126.i)
   store double %314, ptr %7, align 16
   store double %315, ptr %.sroa.891.0..sroa_idx92.i, align 8
@@ -3309,9 +3309,9 @@ convert_sides_to_points.exit.thread:              ; preds = %.split.loop.exit29.
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %155 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %156 = load ptr, ptr %155, align 8
-  %157 = fadd double %.0165175, %4
-  %158 = fadd double %.0163177, %4
-  %159 = fadd double %.0162178, %4
+  %157 = fadd double %4, %.0165175
+  %158 = fadd double %4, %.0163177
+  %159 = fadd double %4, %.0162178
   %160 = call double @llvm.fmuladd.f64(double %., double %20, double %.1176)
   store double %27, ptr %7, align 16
   store double %28, ptr %.sroa.1599.0..sroa_idx100, align 8

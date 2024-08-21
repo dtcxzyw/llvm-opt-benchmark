@@ -61,7 +61,7 @@ define void @_Z20integrateVVFirstSteplbbN3gmx16StartingBehaviorEiPK10t_inputrecP
   %55 = alloca %"class.gmx::ArrayRef.115", align 8
   %56 = alloca %"class.gmx::ArrayRef.115", align 8
   %57 = icmp ne i32 %3, 2
-  %or.cond.not = and i1 %57, %1
+  %or.cond.not = and i1 %1, %57
   br i1 %or.cond.not, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211, label %58
 
 58:                                               ; preds = %40
@@ -118,7 +118,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %58, %60, 
   %95 = getelementptr inbounds i8, ptr %5, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %96, 10
-  %brmerge.not = and i1 %97, %2
+  %brmerge.not = and i1 %2, %97
   br i1 %brmerge.not, label %98, label %115
 
 98:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
@@ -351,12 +351,12 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZL10copy_
 _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178: ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, %215, %227, %232
   %248 = load i32, ptr %95, align 4
   %249 = icmp ne i32 %248, 10
-  %brmerge174 = or i1 %249, %2
+  %brmerge174 = or i1 %2, %249
   br i1 %brmerge174, label %250, label %.thread220
 
 250:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178
   %251 = icmp eq i32 %248, 11
-  %or.cond = and i1 %251, %25
+  %or.cond = and i1 %25, %251
   br i1 %or.cond, label %252, label %.thread220
 
 252:                                              ; preds = %250
@@ -1587,7 +1587,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -1655,7 +1655,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36

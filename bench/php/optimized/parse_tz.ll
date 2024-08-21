@@ -2191,7 +2191,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
 
 21:                                               ; preds = %6
   %22 = load i64, ptr %8, align 8
-  %23 = icmp sgt i64 %22, %1
+  %23 = icmp slt i64 %1, %22
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
@@ -2204,7 +2204,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
   %28 = add i64 %5, -1
   %29 = getelementptr inbounds i64, ptr %8, i64 %28
   %30 = load i64, ptr %29, align 8
-  %.not51 = icmp sgt i64 %30, %1
+  %.not51 = icmp slt i64 %1, %30
   br i1 %.not51, label %47, label %31
 
 31:                                               ; preds = %27
@@ -2244,7 +2244,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds i64, ptr %8, i64 %52
   %54 = load i64, ptr %53, align 8
-  %55 = icmp sgt i64 %54, %1
+  %55 = icmp slt i64 %1, %54
   %.043. = select i1 %55, i32 %.04353, i32 %51
   %..042 = select i1 %55, i32 %51, i32 %.04254
   %56 = sub i32 %..042, %.043.
@@ -2353,7 +2353,7 @@ define hidden ptr @timelib_get_time_zone_info(i64 noundef %0, ptr noundef %1) lo
   %30 = and i64 %indvars.iv.next.i, 2147483647
   %31 = getelementptr inbounds %struct._tlinfo, ptr %27, i64 %30
   %32 = load i64, ptr %31, align 8
-  %33 = icmp slt i64 %32, %0
+  %33 = icmp sgt i64 %0, %32
   br i1 %33, label %fetch_leaptime_offset.exit, label %.preheader
 
 fetch_leaptime_offset.exit:                       ; preds = %29

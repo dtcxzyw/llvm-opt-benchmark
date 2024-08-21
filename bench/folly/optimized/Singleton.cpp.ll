@@ -3706,7 +3706,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %conv = zext nneg i32 %0 to i64
-  %cmp4 = icmp ult i64 %conv, %s.coerce1
+  %cmp4 = icmp ugt i64 %s.coerce1, %conv
   br i1 %cmp4, label %for.body.i, label %if.end
 
 for.body.i:                                       ; preds = %land.lhs.true, %for.inc.i
@@ -18846,7 +18846,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %conv = zext nneg i32 %0 to i64
-  %cmp5 = icmp ult i64 %conv, %s.coerce1
+  %cmp5 = icmp ugt i64 %s.coerce1, %conv
   br i1 %cmp5, label %for.body.i, label %if.end
 
 for.body.i:                                       ; preds = %land.lhs.true, %for.inc.i
@@ -19720,7 +19720,7 @@ if.end:                                           ; preds = %_ZNSt20back_insert_
   %add.i.i = add i64 %7, %conv.i.i
   %shr.i.i = lshr i64 %add.i.i, 32
   %conv1.i.i = trunc nuw i64 %shr.i.i to i32
-  %cmp = icmp slt i32 %conv1.i.i, %width
+  %cmp = icmp sgt i32 %width, %conv1.i.i
   %out = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %out, align 8
   br i1 %cmp, label %if.then6, label %if.end11

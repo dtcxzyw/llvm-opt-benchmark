@@ -1049,7 +1049,7 @@ define dso_local void @__put_task_struct(ptr noundef %0) #1 align 16 {
 11:                                               ; preds = %10, %6
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !34
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp eq ptr %13, %0
+  %14 = icmp eq ptr %0, %13
   br i1 %14, label %15, label %16, !prof !11
 
 15:                                               ; preds = %11

@@ -305,7 +305,7 @@ setnodevector.exit:                               ; preds = %if.then.i, %for.end
   %arrayidx14.sink.i = phi ptr [ %arrayidx14.i, %for.end.i ], [ null, %if.then.i ]
   %lastfree15.i = getelementptr inbounds i8, ptr %newt, i64 32
   store ptr %arrayidx14.sink.i, ptr %lastfree15.i, align 8
-  %cmp = icmp ugt i32 %retval.0.i.i, %newasize
+  %cmp = icmp ult i32 %newasize, %retval.0.i.i
   br i1 %cmp, label %if.then, label %setnodevector.exit.if.end10_crit_edge
 
 setnodevector.exit.if.end10_crit_edge:            ; preds = %setnodevector.exit

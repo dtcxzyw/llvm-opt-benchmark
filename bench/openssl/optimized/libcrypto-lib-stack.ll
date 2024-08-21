@@ -285,7 +285,7 @@ define internal fastcc range(i32 0, 2) i32 @sk_reserve(ptr nocapture noundef %st
 entry:
   %0 = load i32, ptr %st, align 8
   %sub = sub nsw i32 2147483647, %0
-  %cmp = icmp slt i32 %sub, %n
+  %cmp = icmp sgt i32 %n, %sub
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -462,7 +462,7 @@ if.end3:                                          ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end3
   %1 = load i32, ptr %st, align 8
-  %cmp7 = icmp sle i32 %1, %loc
+  %cmp7 = icmp sge i32 %loc, %1
   %cmp8 = icmp slt i32 %loc, 0
   %or.cond = or i1 %cmp8, %cmp7
   %data10 = getelementptr inbounds i8, ptr %st, i64 8
@@ -573,7 +573,7 @@ entry:
 
 lor.lhs.false2:                                   ; preds = %entry
   %0 = load i32, ptr %st, align 8
-  %cmp3.not = icmp sgt i32 %0, %loc
+  %cmp3.not = icmp slt i32 %loc, %0
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
@@ -583,7 +583,7 @@ if.end:                                           ; preds = %lor.lhs.false2
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %sub.i = add nsw i32 %0, -1
-  %cmp.not.i = icmp eq i32 %sub.i, %loc
+  %cmp.not.i = icmp eq i32 %loc, %sub.i
   br i1 %cmp.not.i, label %internal_delete.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -1037,7 +1037,7 @@ if.end3.i:                                        ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.end3.i
   %1 = load i32, ptr %st, align 8
-  %cmp7.i = icmp sle i32 %1, %0
+  %cmp7.i = icmp sge i32 %0, %1
   %cmp8.i = icmp slt i32 %0, 0
   %or.cond.i = or i1 %cmp8.i, %cmp7.i
   %data10.i = getelementptr inbounds i8, ptr %st, i64 8
@@ -1248,7 +1248,7 @@ entry:
 
 lor.lhs.false2:                                   ; preds = %entry
   %0 = load i32, ptr %st, align 8
-  %cmp3.not = icmp sgt i32 %0, %i
+  %cmp3.not = icmp slt i32 %i, %0
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
@@ -1282,7 +1282,7 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %0 = load i32, ptr %st, align 8
-  %cmp2.not = icmp sgt i32 %0, %i
+  %cmp2.not = icmp slt i32 %i, %0
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end

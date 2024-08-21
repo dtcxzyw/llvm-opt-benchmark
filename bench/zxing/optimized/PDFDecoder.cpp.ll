@@ -339,7 +339,7 @@ _ZSt11make_sharedIN5ZXing6Pdf41718DecoderResultExtraEJEESt10shared_ptrINSt9enabl
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
-  %76 = icmp sgt i32 %64, %66
+  %76 = icmp slt i32 %66, %64
   br i1 %76, label %.lr.ph.lr.ph.i.i, label %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.thread.thread.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %75
@@ -447,7 +447,7 @@ _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.thread.i.i: ; preds = %.outer.i.i
   br i1 %112, label %113, label %120
 
 _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.thread.thread.i.i: ; preds = %75
-  %.not102 = icmp sgt i32 %64, %.044202
+  %.not102 = icmp slt i32 %.044202, %64
   br i1 %.not102, label %.preheader.thread.i, label %113
 
 .preheader.thread.i:                              ; preds = %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.thread.thread.i.i
@@ -712,7 +712,7 @@ _ZN5ZXing7Content9push_backEh.exit.i:             ; preds = %_ZNSt6vectorIhSaIhE
 209:                                              ; preds = %_ZN5ZXing7Content9push_backEh.exit.i
   %210 = load ptr, ptr %1, align 8
   %211 = load i32, ptr %210, align 4
-  %212 = icmp sgt i32 %211, %171
+  %212 = icmp slt i32 %171, %211
   br i1 %212, label %.lr.ph.i39.i, label %_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit47.i
 
 .lr.ph.i39.i:                                     ; preds = %209, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i43.i
@@ -860,7 +860,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 _ZN5ZXing7Content9push_backEh.exit56.i:           ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i55.i, %248
   %270 = load ptr, ptr %1, align 8
   %271 = load i32, ptr %270, align 4
-  %272 = icmp sgt i32 %271, %241
+  %272 = icmp slt i32 %241, %271
   br i1 %272, label %.lr.ph.i58.i, label %_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit66.i
 
 .lr.ph.i58.i:                                     ; preds = %_ZN5ZXing7Content9push_backEh.exit56.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i62.i
@@ -2245,7 +2245,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc43, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %12, %.noexc43 ]
-  %.not = icmp sgt i32 %6, %1
+  %.not = icmp slt i32 %1, %6
   br i1 %.not, label %.lr.ph126, label %_ZN5ZXing6Pdf417L20DecodeTextCompactionERKSt6vectorIiSaIiEEiRNS_7ContentE.exit
 
 .lr.ph126:                                        ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, %.critedge
@@ -2310,7 +2310,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc43, %_ZNSt6ve
   br i1 %37, label %42, label %.critedge
 
 42:                                               ; preds = %.lr.ph
-  %43 = icmp sgt i32 %6, %38
+  %43 = icmp slt i32 %38, %6
   br i1 %43, label %44, label %_ZN5ZXing6Pdf417L14ProcessTextECIERSt6vectorIiSaIiEERiRKS3_ii.exit
 
 44:                                               ; preds = %42
@@ -2369,7 +2369,7 @@ _ZN5ZXing6Pdf417L14ProcessTextECIERSt6vectorIiSaIiEERiRKS3_ii.exit: ; preds = %4
   %65 = sext i32 %.087123 to i64
   %66 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %65
   store i32 %16, ptr %66, align 4
-  %67 = icmp sgt i32 %6, %13
+  %67 = icmp slt i32 %13, %6
   br i1 %67, label %68, label %.critedge
 
 68:                                               ; preds = %63
@@ -2829,7 +2829,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L17NumericCompactionERKSt6ve
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load ptr, ptr %0, align 8
   %7 = load i32, ptr %6, align 4
-  %8 = icmp sgt i32 %7, %1
+  %8 = icmp slt i32 %1, %7
   br i1 %8, label %.lr.ph, label %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.thread
 
 .lr.ph:                                           ; preds = %3
@@ -3359,7 +3359,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKS
   %39 = call i32 @llvm.abs.i32(i32 %35, i1 true)
   %40 = zext nneg i32 %39 to i64
   %41 = xor i64 %indvars.iv, -1
-  %42 = add nsw i64 %41, %29
+  %42 = add nsw i64 %29, %41
   %43 = getelementptr inbounds [16 x %"class.ZXing::BigInteger"], ptr @_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiE6EXP900, i64 0, i64 %42
   store ptr %37, ptr %21, align 8
   %44 = getelementptr inbounds i8, ptr %37, i64 8
@@ -3924,7 +3924,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIhSaIh
   %70 = phi ptr [ %69, %68 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit ]
   %71 = ptrtoint ptr %1 to i64
   %72 = sub i64 %71, %59
-  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %58, %1
+  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %1, %58
   br i1 %.not.i.i.i.i.i.i.i.i.i59, label %74, label %73
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit

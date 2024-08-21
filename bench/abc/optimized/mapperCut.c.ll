@@ -1251,14 +1251,14 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, p
   %5 = getelementptr inbounds i8, ptr %0, i64 76
   %6 = load i8, ptr %5, align 4
   %7 = sext i8 %6 to i32
-  %8 = icmp eq i32 %7, %3
+  %8 = icmp eq i32 %3, %7
   br i1 %8, label %9, label %50
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %1, i64 76
   %11 = load i8, ptr %10, align 4
   %12 = sext i8 %11 to i32
-  %13 = icmp eq i32 %12, %3
+  %13 = icmp eq i32 %3, %12
   br i1 %13, label %.preheader126, label %28
 
 .preheader126:                                    ; preds = %9
@@ -1365,7 +1365,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, p
   %53 = getelementptr inbounds i8, ptr %1, i64 76
   %54 = load i8, ptr %53, align 4
   %55 = sext i8 %54 to i32
-  %56 = icmp eq i32 %55, %3
+  %56 = icmp eq i32 %3, %55
   %or.cond = select i1 %52, i1 %56, i1 false
   br i1 %or.cond, label %.preheader139, label %._crit_edge225
 
@@ -1614,7 +1614,7 @@ Map_CutTableLookup.exit.thread25.thread:          ; preds = %Map_CutTableHash.ex
   %29 = getelementptr inbounds i8, ptr %28, i64 76
   %30 = load i8, ptr %29, align 4
   %31 = sext i8 %30 to i32
-  %.not26.us.i = icmp eq i32 %31, %3
+  %.not26.us.i = icmp eq i32 %3, %31
   br i1 %.not26.us.i, label %.preheader.us.i, label %39
 
 32:                                               ; preds = %.preheader.us.i, %45
@@ -1628,7 +1628,7 @@ Map_CutTableLookup.exit.thread25.thread:          ; preds = %Map_CutTableHash.ex
 
 ._crit_edge.us.i:                                 ; preds = %32
   %37 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %38 = icmp eq i32 %37, %3
+  %38 = icmp eq i32 %3, %37
   br i1 %38, label %Map_CutTableLookup.exit.thread, label %39
 
 39:                                               ; preds = %._crit_edge.us.i, %.lr.ph33.split.us.i

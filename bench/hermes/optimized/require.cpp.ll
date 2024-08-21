@@ -527,7 +527,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %_ZN6hermes2vm13Runt
   %size_.i.i = getelementptr inbounds i8, ptr %17, i64 4
   %18 = load atomic i32, ptr %size_.i.i monotonic, align 4
   %div.i = udiv i32 %18, 3
-  %cmp.not.i = icmp ugt i32 %div.i, %conv.i
+  %cmp.not.i = icmp ult i32 %conv.i, %div.i
   br i1 %cmp.not.i, label %_ZNK6hermes2vm6Domain18getCJSModuleOffsetERNS0_7RuntimeEj.exit, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
 
 _ZNK6hermes2vm6Domain18getCJSModuleOffsetERNS0_7RuntimeEj.exit: ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit

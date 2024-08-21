@@ -621,7 +621,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hcab8ccd9b537fed0E.exit: ; pred
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @"_ZN47_$LT$u32$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h1b9bc6d71499e045E.llvm.15203243040514769932"(i32 noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = trunc i64 %1 to i32
-  %4 = add nuw i32 %3, %0
+  %4 = add nuw i32 %0, %3
   ret i32 %4
 }
 

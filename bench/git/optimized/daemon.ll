@@ -2879,7 +2879,7 @@ land.rhs:                                         ; preds = %while.cond.preheade
 while.body:                                       ; preds = %land.rhs
   %15 = load i64, ptr %out, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %15, i64 1)
-  %cmp.i16 = icmp ult i64 %spec.select.i, %sub16
+  %cmp.i16 = icmp ugt i64 %sub16, %spec.select.i
   br i1 %cmp.i16, label %if.then.i19, label %if.end.i
 
 if.then.i19:                                      ; preds = %while.body

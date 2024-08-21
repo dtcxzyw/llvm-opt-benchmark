@@ -3414,13 +3414,13 @@ if.end.i:                                         ; preds = %if.end
 if.end6.i:                                        ; preds = %if.end.i
   %numXLevels.i.i = getelementptr inbounds i8, ptr %2, i64 188
   %9 = load i32, ptr %numXLevels.i.i, align 4
-  %cmp8.not.i = icmp sgt i32 %9, %lx
+  %cmp8.not.i = icmp slt i32 %lx, %9
   br i1 %cmp8.not.i, label %_ZNK7Imf_3_214TiledInputFile12isValidLevelEii.exit, label %do.body
 
 _ZNK7Imf_3_214TiledInputFile12isValidLevelEii.exit: ; preds = %if.end6.i
   %numYLevels.i.i = getelementptr inbounds i8, ptr %2, i64 192
   %10 = load i32, ptr %numYLevels.i.i, align 8
-  %cmp11.not.i = icmp sgt i32 %10, %ly
+  %cmp11.not.i = icmp slt i32 %ly, %10
   br i1 %cmp11.not.i, label %if.end25, label %do.body
 
 do.body:                                          ; preds = %if.end6.i, %if.end.i, %if.end, %_ZNK7Imf_3_214TiledInputFile12isValidLevelEii.exit
@@ -3530,13 +3530,13 @@ for.body40.us225.us:                              ; preds = %for.body40.us225.us
   %19 = load ptr, ptr %_data, align 8
   %numXLevels.i.us228.us = getelementptr inbounds i8, ptr %19, i64 188
   %20 = load i32, ptr %numXLevels.i.us228.us, align 4
-  %cmp.i.us229.us = icmp sgt i32 %20, %lx
+  %cmp.i.us229.us = icmp slt i32 %lx, %20
   br i1 %cmp.i.us229.us, label %land.lhs.true3.i.us230.us, label %do.body45
 
 land.lhs.true3.i.us230.us:                        ; preds = %for.body40.us225.us
   %numYLevels.i.us231.us = getelementptr inbounds i8, ptr %19, i64 192
   %21 = load i32, ptr %numYLevels.i.us231.us, align 8
-  %cmp5.i.us232.us = icmp sgt i32 %21, %ly
+  %cmp5.i.us232.us = icmp slt i32 %ly, %21
   br i1 %cmp5.i.us232.us, label %land.lhs.true8.i.us233.us, label %do.body45
 
 land.lhs.true8.i.us233.us:                        ; preds = %land.lhs.true3.i.us230.us
@@ -3544,7 +3544,7 @@ land.lhs.true8.i.us233.us:                        ; preds = %land.lhs.true3.i.us
   %22 = load ptr, ptr %numXTiles.i.us234.us, align 8
   %arrayidx.i.us235.us = getelementptr inbounds i32, ptr %22, i64 %idxprom.i
   %23 = load i32, ptr %arrayidx.i.us235.us, align 4
-  %cmp10.i.us236.us = icmp sgt i32 %23, %dx.0112.us226.us
+  %cmp10.i.us236.us = icmp slt i32 %dx.0112.us226.us, %23
   %or.cond2.i.us238.us = and i1 %cmp12.i.us237.us, %cmp10.i.us236.us
   br i1 %or.cond2.i.us238.us, label %_ZNK7Imf_3_214TiledInputFile11isValidTileEiiii.exit.us239.us, label %do.body45
 
@@ -3553,7 +3553,7 @@ _ZNK7Imf_3_214TiledInputFile11isValidTileEiiii.exit.us239.us: ; preds = %land.lh
   %24 = load ptr, ptr %numYTiles.i.us.us, align 8
   %arrayidx15.i.us.us = getelementptr inbounds i32, ptr %24, i64 %idxprom14.i
   %25 = load i32, ptr %arrayidx15.i.us.us, align 4
-  %cmp16.i.us.us = icmp sgt i32 %25, %dy.0224.us.us.fr
+  %cmp16.i.us.us = icmp slt i32 %dy.0224.us.us.fr, %25
   br i1 %cmp16.i.us.us, label %if.end76.us.us, label %do.body45
 
 if.end76.us.us:                                   ; preds = %_ZNK7Imf_3_214TiledInputFile11isValidTileEiiii.exit.us239.us
@@ -4317,13 +4317,13 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %numXLevels.i = getelementptr inbounds i8, ptr %1, i64 188
   %3 = load i32, ptr %numXLevels.i, align 4
-  %cmp8.not = icmp sgt i32 %3, %lx
+  %cmp8.not = icmp slt i32 %lx, %3
   br i1 %cmp8.not, label %lor.lhs.false9, label %return
 
 lor.lhs.false9:                                   ; preds = %if.end6
   %numYLevels.i = getelementptr inbounds i8, ptr %1, i64 192
   %4 = load i32, ptr %numYLevels.i, align 8
-  %cmp11.not = icmp sgt i32 %4, %ly
+  %cmp11.not = icmp slt i32 %ly, %4
   br label %return
 
 return:                                           ; preds = %lor.lhs.false9, %if.end6, %if.end, %entry
@@ -4342,7 +4342,7 @@ entry:
   %0 = load ptr, ptr %_data, align 8
   %numXLevels = getelementptr inbounds i8, ptr %0, i64 188
   %1 = load i32, ptr %numXLevels, align 4
-  %cmp = icmp sgt i32 %1, %lx
+  %cmp = icmp slt i32 %lx, %1
   %cmp2 = icmp sgt i32 %lx, -1
   %or.cond = and i1 %cmp2, %cmp
   br i1 %or.cond, label %land.lhs.true3, label %land.end19
@@ -4350,7 +4350,7 @@ entry:
 land.lhs.true3:                                   ; preds = %entry
   %numYLevels = getelementptr inbounds i8, ptr %0, i64 192
   %2 = load i32, ptr %numYLevels, align 8
-  %cmp5 = icmp sgt i32 %2, %ly
+  %cmp5 = icmp slt i32 %ly, %2
   %cmp7 = icmp sgt i32 %ly, -1
   %or.cond1 = and i1 %cmp7, %cmp5
   br i1 %or.cond1, label %land.lhs.true8, label %land.end19
@@ -4361,7 +4361,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true3
   %idxprom = zext nneg i32 %lx to i64
   %arrayidx = getelementptr inbounds i32, ptr %3, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4
-  %cmp10 = icmp sgt i32 %4, %dx
+  %cmp10 = icmp slt i32 %dx, %4
   %cmp12 = icmp sgt i32 %dx, -1
   %or.cond2 = and i1 %cmp12, %cmp10
   br i1 %or.cond2, label %land.rhs, label %land.end19
@@ -4372,7 +4372,7 @@ land.rhs:                                         ; preds = %land.lhs.true8
   %idxprom14 = zext nneg i32 %ly to i64
   %arrayidx15 = getelementptr inbounds i32, ptr %5, i64 %idxprom14
   %6 = load i32, ptr %arrayidx15, align 4
-  %cmp16 = icmp sgt i32 %6, %dy
+  %cmp16 = icmp slt i32 %dy, %6
   %cmp18 = icmp sgt i32 %dy, -1
   %7 = and i1 %cmp18, %cmp16
   br label %land.end19
@@ -4446,7 +4446,7 @@ invoke.cont:                                      ; preds = %entry
   %6 = load ptr, ptr %_data, align 8
   %numXLevels.i = getelementptr inbounds i8, ptr %6, i64 188
   %7 = load i32, ptr %numXLevels.i, align 4
-  %cmp.i = icmp sgt i32 %7, %4
+  %cmp.i = icmp slt i32 %4, %7
   %cmp2.i = icmp sgt i32 %4, -1
   %or.cond.i = and i1 %cmp2.i, %cmp.i
   br i1 %or.cond.i, label %land.lhs.true3.i, label %if.then
@@ -4454,7 +4454,7 @@ invoke.cont:                                      ; preds = %entry
 land.lhs.true3.i:                                 ; preds = %invoke.cont
   %numYLevels.i = getelementptr inbounds i8, ptr %6, i64 192
   %8 = load i32, ptr %numYLevels.i, align 8
-  %cmp5.i = icmp sgt i32 %8, %5
+  %cmp5.i = icmp slt i32 %5, %8
   %cmp7.i = icmp sgt i32 %5, -1
   %or.cond1.i = and i1 %cmp7.i, %cmp5.i
   br i1 %or.cond1.i, label %land.lhs.true8.i, label %if.then
@@ -4465,7 +4465,7 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true3.i
   %idxprom.i = zext nneg i32 %4 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %9, i64 %idxprom.i
   %10 = load i32, ptr %arrayidx.i, align 4
-  %cmp10.i = icmp sgt i32 %10, %2
+  %cmp10.i = icmp slt i32 %2, %10
   %cmp12.i = icmp sgt i32 %2, -1
   %or.cond2.i = and i1 %cmp12.i, %cmp10.i
   br i1 %or.cond2.i, label %_ZNK7Imf_3_214TiledInputFile11isValidTileEiiii.exit, label %if.then
@@ -4476,7 +4476,7 @@ _ZNK7Imf_3_214TiledInputFile11isValidTileEiiii.exit: ; preds = %land.lhs.true8.i
   %idxprom14.i = zext nneg i32 %5 to i64
   %arrayidx15.i = getelementptr inbounds i32, ptr %11, i64 %idxprom14.i
   %12 = load i32, ptr %arrayidx15.i, align 4
-  %cmp16.i = icmp sgt i32 %12, %3
+  %cmp16.i = icmp slt i32 %3, %12
   %cmp18.i = icmp sgt i32 %3, -1
   %13 = and i1 %cmp18.i, %cmp16.i
   br i1 %13, label %if.end, label %if.then
@@ -4703,13 +4703,13 @@ if.end.i:                                         ; preds = %invoke.cont23
 if.end6.i:                                        ; preds = %if.end.i
   %numXLevels.i.i = getelementptr inbounds i8, ptr %60, i64 188
   %62 = load i32, ptr %numXLevels.i.i, align 4
-  %cmp8.not.i = icmp sgt i32 %62, %57
+  %cmp8.not.i = icmp slt i32 %57, %62
   br i1 %cmp8.not.i, label %_ZNK7Imf_3_214TiledInputFile12isValidLevelEii.exit, label %if.then28
 
 _ZNK7Imf_3_214TiledInputFile12isValidLevelEii.exit: ; preds = %if.end6.i
   %numYLevels.i.i = getelementptr inbounds i8, ptr %60, i64 192
   %63 = load i32, ptr %numYLevels.i.i, align 8
-  %cmp11.not.i = icmp sgt i32 %63, %58
+  %cmp11.not.i = icmp slt i32 %58, %63
   br i1 %cmp11.not.i, label %lor.lhs.false, label %if.then28
 
 lor.lhs.false:                                    ; preds = %_ZNK7Imf_3_214TiledInputFile12isValidLevelEii.exit
@@ -4725,7 +4725,7 @@ land.lhs.true8.i59:                               ; preds = %lor.lhs.false
   %idxprom.i61 = zext nneg i32 %57 to i64
   %arrayidx.i62 = getelementptr inbounds i32, ptr %67, i64 %idxprom.i61
   %68 = load i32, ptr %arrayidx.i62, align 4
-  %cmp10.i63 = icmp sgt i32 %68, %64
+  %cmp10.i63 = icmp slt i32 %64, %68
   %cmp12.i64 = icmp sgt i32 %64, -1
   %or.cond2.i65 = and i1 %cmp12.i64, %cmp10.i63
   br i1 %or.cond2.i65, label %_ZNK7Imf_3_214TiledInputFile11isValidTileEiiii.exit72, label %if.then28
@@ -4736,7 +4736,7 @@ _ZNK7Imf_3_214TiledInputFile11isValidTileEiiii.exit72: ; preds = %land.lhs.true8
   %idxprom14.i68 = zext nneg i32 %58 to i64
   %arrayidx15.i69 = getelementptr inbounds i32, ptr %69, i64 %idxprom14.i68
   %70 = load i32, ptr %arrayidx15.i69, align 4
-  %cmp16.i70 = icmp sgt i32 %70, %65
+  %cmp16.i70 = icmp slt i32 %65, %70
   %cmp18.i71 = icmp sgt i32 %65, -1
   %71 = and i1 %cmp18.i71, %cmp16.i70
   br i1 %71, label %if.end32, label %if.then28
@@ -5230,7 +5230,7 @@ lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %_data, align 8
   %numXLevels = getelementptr inbounds i8, ptr %0, i64 188
   %1 = load i32, ptr %numXLevels, align 4
-  %cmp2.not = icmp sgt i32 %1, %lx
+  %cmp2.not = icmp slt i32 %lx, %1
   br i1 %cmp2.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %lor.lhs.false
@@ -5307,7 +5307,7 @@ lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %_data, align 8
   %numYLevels = getelementptr inbounds i8, ptr %0, i64 192
   %1 = load i32, ptr %numYLevels, align 8
-  %cmp2.not = icmp sgt i32 %1, %ly
+  %cmp2.not = icmp slt i32 %ly, %1
   br i1 %cmp2.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %lor.lhs.false
@@ -5501,7 +5501,7 @@ entry:
   %0 = load ptr, ptr %_data.i, align 8
   %numXLevels.i = getelementptr inbounds i8, ptr %0, i64 188
   %1 = load i32, ptr %numXLevels.i, align 4
-  %cmp.i = icmp sgt i32 %1, %lx
+  %cmp.i = icmp slt i32 %lx, %1
   %cmp2.i = icmp sgt i32 %lx, -1
   %or.cond.i = and i1 %cmp2.i, %cmp.i
   br i1 %or.cond.i, label %land.lhs.true3.i, label %if.then
@@ -5509,7 +5509,7 @@ entry:
 land.lhs.true3.i:                                 ; preds = %entry
   %numYLevels.i = getelementptr inbounds i8, ptr %0, i64 192
   %2 = load i32, ptr %numYLevels.i, align 8
-  %cmp5.i = icmp sgt i32 %2, %ly
+  %cmp5.i = icmp slt i32 %ly, %2
   %cmp7.i = icmp sgt i32 %ly, -1
   %or.cond1.i = and i1 %cmp7.i, %cmp5.i
   br i1 %or.cond1.i, label %land.lhs.true8.i, label %if.then
@@ -5520,7 +5520,7 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true3.i
   %idxprom.i = zext nneg i32 %lx to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 4
-  %cmp10.i = icmp sgt i32 %4, %dx
+  %cmp10.i = icmp slt i32 %dx, %4
   %cmp12.i = icmp sgt i32 %dx, -1
   %or.cond2.i = and i1 %cmp12.i, %cmp10.i
   br i1 %or.cond2.i, label %_ZNK7Imf_3_214TiledInputFile11isValidTileEiiii.exit, label %if.then
@@ -5531,7 +5531,7 @@ _ZNK7Imf_3_214TiledInputFile11isValidTileEiiii.exit: ; preds = %land.lhs.true8.i
   %idxprom14.i = zext nneg i32 %ly to i64
   %arrayidx15.i = getelementptr inbounds i32, ptr %5, i64 %idxprom14.i
   %6 = load i32, ptr %arrayidx15.i, align 4
-  %cmp16.i = icmp sgt i32 %6, %dy
+  %cmp16.i = icmp slt i32 %dy, %6
   %cmp18.i = icmp sgt i32 %dy, -1
   %7 = and i1 %cmp18.i, %cmp16.i
   br i1 %7, label %if.end, label %if.then

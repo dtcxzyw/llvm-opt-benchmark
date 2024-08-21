@@ -1399,7 +1399,7 @@ XLogEnsureRecordSpace.exit:                       ; preds = %38, %41
   br label %.lr.ph36
 
 .loopexit:                                        ; preds = %93, %78
-  %46 = icmp slt i32 %80, %2
+  %46 = icmp sgt i32 %2, %80
   br i1 %46, label %.lr.ph36, label %._crit_edge, !llvm.loop !10
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %.loopexit

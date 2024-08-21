@@ -728,7 +728,7 @@ define internal noundef i32 @aesni_ecb_cipher(ptr noundef %ctx, ptr noundef %out
 entry:
   %call = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %ctx) #8
   %conv = sext i32 %call to i64
-  %cmp = icmp ugt i64 %conv, %len
+  %cmp = icmp ult i64 %len, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -751,7 +751,7 @@ entry:
   %call = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %ctx) #8
   %conv = sext i32 %call to i64
   %call1 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
-  %cmp = icmp ugt i64 %conv, %len
+  %cmp = icmp ult i64 %len, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1513,7 +1513,7 @@ if.end:                                           ; preds = %sw.bb5
 land.lhs.true:                                    ; preds = %if.end
   %ivlen7 = getelementptr inbounds i8, ptr %call, i64 712
   %2 = load i32, ptr %ivlen7, align 8
-  %cmp8 = icmp slt i32 %2, %arg
+  %cmp8 = icmp sgt i32 %arg, %2
   br i1 %cmp8, label %if.then9, label %if.end23
 
 if.then9:                                         ; preds = %land.lhs.true
@@ -1653,7 +1653,7 @@ if.end97:                                         ; preds = %lor.lhs.false92
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %gcm, ptr noundef %18, i64 noundef %conv100) #8
   %cmp101 = icmp slt i32 %arg, 1
   %.pre = load i32, ptr %ivlen99, align 8
-  %20 = tail call i32 @llvm.smin.i32(i32 %.pre, i32 %arg)
+  %20 = tail call i32 @llvm.smin.i32(i32 %arg, i32 %.pre)
   %arg.addr.0 = select i1 %cmp101, i32 %.pre, i32 %20
   %21 = load ptr, ptr %iv98, align 8
   %idx.ext112 = sext i32 %.pre to i64
@@ -2350,7 +2350,7 @@ lor.lhs.false.i:                                  ; preds = %if.then2
   %2 = load i32, ptr %M.i, align 4
   %conv.i = sext i32 %2 to i64
   %add.i = add nsw i64 %conv.i, 8
-  %cmp2.i = icmp ugt i64 %add.i, %len
+  %cmp2.i = icmp ult i64 %len, %add.i
   br i1 %cmp2.i, label %aes_ccm_tls_cipher.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -3253,7 +3253,7 @@ if.end12:                                         ; preds = %if.else, %if.then6
 if.then15:                                        ; preds = %if.end12
   %sub = sub nsw i32 16, %3
   %conv16 = zext i32 %sub to i64
-  %cmp17 = icmp ugt i64 %conv16, %len
+  %cmp17 = icmp ult i64 %len, %conv16
   %idx.ext20 = zext nneg i32 %3 to i64
   %add.ptr21 = getelementptr inbounds i8, ptr %buf.0, i64 %idx.ext20
   br i1 %cmp17, label %if.then19, label %if.end24
@@ -3518,7 +3518,7 @@ if.end15:                                         ; preds = %if.then10
 if.end17:                                         ; preds = %sw.bb8
   %taglen18 = getelementptr inbounds i8, ptr %call, i64 748
   %3 = load i32, ptr %taglen18, align 4
-  %cmp19.not = icmp eq i32 %3, %arg
+  %cmp19.not = icmp eq i32 %arg, %3
   br i1 %cmp19.not, label %lor.lhs.false20, label %return
 
 lor.lhs.false20:                                  ; preds = %if.end17
@@ -3535,7 +3535,7 @@ if.end23:                                         ; preds = %lor.lhs.false20
 sw.bb25:                                          ; preds = %entry
   %taglen26 = getelementptr inbounds i8, ptr %call, i64 748
   %4 = load i32, ptr %taglen26, align 4
-  %cmp27.not = icmp eq i32 %4, %arg
+  %cmp27.not = icmp eq i32 %arg, %4
   br i1 %cmp27.not, label %lor.lhs.false29, label %return
 
 lor.lhs.false29:                                  ; preds = %sw.bb25

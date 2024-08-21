@@ -559,7 +559,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.16827
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -841,7 +841,7 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   %12 = phi ptr [ %6, %.lr.ph ], [ %13, %15 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 1
   %.val7 = load i8, ptr %12, align 1, !noundef !5
-  %14 = icmp eq i8 %10, %.val7
+  %14 = icmp eq i8 %.val7, %10
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %11
@@ -884,7 +884,7 @@ define void @_ZN6uu_env13string_parser12StringParser3new17h1a35c72fe287ce1aE(ptr
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN6uu_env13string_parser12StringParser6new_at17h5c246883672407b0E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, i64 }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %.not.i.i.i = icmp ult i64 %2, %3
+  %.not.i.i.i = icmp ugt i64 %3, %2
   br i1 %.not.i.i.i, label %6, label %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit
 
 6:                                                ; preds = %4
@@ -958,7 +958,7 @@ define void @_ZN6uu_env13string_parser12StringParser20peek_char_at_pointer17h70a
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !5
-  %.not.i.i = icmp ult i64 %9, %2
+  %.not.i.i = icmp ugt i64 %2, %9
   br i1 %.not.i.i, label %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit"
 
 10:                                               ; preds = %3
@@ -1049,7 +1049,7 @@ define hidden void @_ZN6uu_env13string_parser12StringParser24get_chunk_with_leng
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !5
-  %.not.i.i = icmp ult i64 %12, %2
+  %.not.i.i = icmp ugt i64 %2, %12
   br i1 %.not.i.i, label %13, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit"
 
 13:                                               ; preds = %3
@@ -1267,7 +1267,7 @@ define void @_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2
   store i64 %13, ptr %5, align 8, !alias.scope !163
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8, !alias.scope !163, !noundef !5
-  %.not.i.i.i = icmp ult i64 %15, %13
+  %.not.i.i.i = icmp ugt i64 %13, %15
   br i1 %.not.i.i.i, label %16, label %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit
 
 16:                                               ; preds = %12
@@ -1365,7 +1365,7 @@ define void @_ZN6uu_env13string_parser12StringParser34consume_one_ascii_or_all_n
   %25 = add i64 %.sroa.68.0.copyload.i, %20
   call void @llvm.experimental.noalias.scope.decl(metadata !177)
   store i64 %25, ptr %10, align 8, !alias.scope !180, !noalias !181
-  %.not.i.i.i.i = icmp ult i64 %14, %25
+  %.not.i.i.i.i = icmp ugt i64 %25, %14
   br i1 %.not.i.i.i.i, label %26, label %32
 
 26:                                               ; preds = %24
@@ -1526,7 +1526,7 @@ define void @_ZN6uu_env13string_parser12StringParser13skip_multiple17hbcad385e03
   store i64 %6, ptr %4, align 8, !alias.scope !203
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !203, !noundef !5
-  %.not.i.i.i = icmp ult i64 %8, %6
+  %.not.i.i.i = icmp ugt i64 %6, %8
   br i1 %.not.i.i.i, label %9, label %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit
 
 9:                                                ; preds = %2
@@ -1603,7 +1603,7 @@ define void @_ZN6uu_env13string_parser12StringParser22skip_until_char_or_end17h8
   store i64 %26, ptr %24, align 8, !alias.scope !219
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8, !alias.scope !219, !noundef !5
-  %.not.i.i.i = icmp ult i64 %28, %26
+  %.not.i.i.i = icmp ugt i64 %26, %28
   br i1 %.not.i.i.i, label %29, label %_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit
 
 29:                                               ; preds = %22
@@ -1719,7 +1719,7 @@ define void @_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
-  %.not.i.i = icmp ult i64 %6, %1
+  %.not.i.i = icmp ugt i64 %1, %6
   br i1 %.not.i.i, label %7, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit"
 
 7:                                                ; preds = %2

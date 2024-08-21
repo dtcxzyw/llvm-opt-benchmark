@@ -201,7 +201,7 @@ define noundef i32 @dissect_oer_constrained_integer(ptr noundef %0, i32 noundef 
   br label %54
 
 54:                                               ; preds = %52, %51
-  %55 = add i32 %.sink, %1
+  %55 = add i32 %1, %.sink
   ret i32 %55
 }
 
@@ -262,7 +262,7 @@ define noundef i32 @dissect_oer_constrained_integer_64b(ptr noundef %0, i32 noun
   br label %36
 
 36:                                               ; preds = %34, %32
-  %37 = add i32 %.sink36, %1
+  %37 = add i32 %1, %.sink36
   ret i32 %37
 }
 

@@ -1245,7 +1245,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa24.i, %if.then.i ], [ %__y.0.lcssa25.i, %if.end12.i ]
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i, label %lor.end.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then
@@ -1326,7 +1326,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 if.then.i:                                        ; preds = %for.body
   %1 = extractvalue { ptr, ptr } %call3.i, 0
   %cmp.not.i.i = icmp ne ptr %1, null
-  %cmp2.i.i = icmp eq ptr %add.ptr.i, %0
+  %cmp2.i.i = icmp eq ptr %0, %add.ptr.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   %.pre.i.i = load ptr, ptr %_M_storage.i.i, align 8
   br i1 %or.cond.i.i, label %lor.end.i.i, label %lor.rhs.i.i
@@ -1385,7 +1385,7 @@ for.end:                                          ; preds = %_ZNSt8_Rb_treeISt10
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt10shared_ptrIN4YAML6detail4nodeEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

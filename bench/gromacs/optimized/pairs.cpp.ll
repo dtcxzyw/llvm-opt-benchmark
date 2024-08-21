@@ -333,10 +333,10 @@ common.resume:                                    ; preds = %470, %96
   %164 = load i16, ptr %163, align 2
   %165 = icmp ult i16 %161, %164
   %166 = zext i16 %161 to i32
-  %167 = mul nsw i32 %166, %14
+  %167 = mul nsw i32 %14, %166
   %168 = zext i16 %164 to i32
   %169 = add nsw i32 %167, %168
-  %170 = mul nsw i32 %168, %14
+  %170 = mul nsw i32 %14, %168
   %171 = add nsw i32 %170, %166
   %172 = select i1 %165, i32 %169, i32 %171
   switch i32 %0, label %234 [
@@ -499,7 +499,7 @@ common.resume:                                    ; preds = %470, %96
 
 .backedge.i:                                      ; preds = %449, %415, %270, %269
   %271 = trunc nuw i64 %indvars.iv.next13.i to i32
-  %272 = icmp slt i32 %271, %1
+  %272 = icmp sgt i32 %1, %271
   br i1 %272, label %152, label %_ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, !llvm.loop !7
 
 273:                                              ; preds = %257
@@ -597,7 +597,7 @@ common.resume:                                    ; preds = %470, %96
   %346 = sitofp i32 %345 to float
   %347 = fsub float %344, %346
   %348 = fmul float %347, %347
-  %349 = fmul float %346, %341
+  %349 = fmul float %341, %346
   %350 = fptosi float %349 to i32
   %351 = sext i32 %350 to i64
   %352 = getelementptr inbounds float, ptr %338, i64 %351
@@ -913,10 +913,10 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %535 = load i16, ptr %534, align 2
   %536 = icmp ult i16 %532, %535
   %537 = zext i16 %532 to i32
-  %538 = mul nsw i32 %537, %14
+  %538 = mul nsw i32 %14, %537
   %539 = zext i16 %535 to i32
   %540 = add nsw i32 %538, %539
-  %541 = mul nsw i32 %539, %14
+  %541 = mul nsw i32 %14, %539
   %542 = add nsw i32 %541, %537
   %543 = select i1 %536, i32 %540, i32 %542
   switch i32 %0, label %605 [
@@ -1078,7 +1078,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
 
 .backedge.i77:                                    ; preds = %786, %641, %640
   %642 = trunc nuw i64 %indvars.iv.next13.i71 to i32
-  %643 = icmp slt i32 %642, %1
+  %643 = icmp sgt i32 %1, %642
   br i1 %643, label %523, label %_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, !llvm.loop !9
 
 644:                                              ; preds = %628
@@ -1176,7 +1176,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %717 = sitofp i32 %716 to float
   %718 = fsub float %715, %717
   %719 = fmul float %718, %718
-  %720 = fmul float %717, %712
+  %720 = fmul float %712, %717
   %721 = fptosi float %720 to i32
   %722 = sext i32 %721 to i64
   %723 = getelementptr inbounds float, ptr %709, i64 %722
@@ -1808,7 +1808,7 @@ define internal fastcc void @_ZL15do_pairs_simpleIfLi1EPK5t_pbcEviPKiPK9t_iparam
   %62 = fmul float %61, %61
   %63 = fmul float %62, %62
   %64 = fmul float %62, %63
-  %65 = fmul float %36, %6
+  %65 = fmul float %6, %36
   %66 = fmul float %65, %61
   %67 = fmul float %27, -6.000000e+00
   %68 = call noundef float @llvm.fmuladd.f32(float %53, float %64, float %67)
@@ -1855,7 +1855,7 @@ define internal fastcc void @_ZL15do_pairs_simpleIfLi1EPK5t_pbcEviPKiPK9t_iparam
   store float %103, ptr %101, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %104 = trunc nuw i64 %indvars.iv.next to i32
-  %105 = icmp slt i32 %104, %0
+  %105 = icmp sgt i32 %0, %104
   br i1 %105, label %.preheader, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.preheader, %7
@@ -2034,14 +2034,14 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   store float %9, ptr %.sroa.3, align 4
   %16 = fmul float %0, %0
   %17 = tail call noundef float @sqrtf(float noundef %0) #16
-  %18 = fmul float %16, %0
+  %18 = fmul float %0, %16
   %19 = fdiv float 1.000000e+00, %18
-  %20 = fmul float %17, %1
+  %20 = fmul float %1, %17
   %21 = fptosi float %20 to i32
   %22 = sitofp i32 %21 to float
   %23 = fsub float %20, %22
   %24 = fmul float %23, %23
-  %25 = fmul float %22, %3
+  %25 = fmul float %3, %22
   %26 = fptosi float %25 to i32
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds float, ptr %2, i64 %27
@@ -2060,7 +2060,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %41 = getelementptr i8, ptr %34, i64 40
   %42 = getelementptr i8, ptr %34, i64 44
   %43 = fmul float %19, %17
-  %44 = fmul float %43, %1
+  %44 = fmul float %1, %43
   br label %45
 
 45:                                               ; preds = %.preheader1, %100
@@ -2106,7 +2106,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %66 = fmul float %63, %65
   %67 = fmul float %17, %66
   %68 = fmul float %19, %67
-  %69 = fmul float %68, %1
+  %69 = fmul float %1, %68
   store float %69, ptr %indvars.iv.sroa.phi17, align 4
   %70 = load float, ptr %35, align 4
   %71 = load float, ptr %36, align 4
@@ -2215,7 +2215,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   store float %7, ptr %.sroa.042, align 4
   store float %10, ptr %.sroa.4, align 4
   %22 = fmul float %0, %0
-  %23 = fmul float %22, %0
+  %23 = fmul float %0, %22
   %24 = fcmp olt float %0, 0.000000e+00
   br i1 %24, label %cdce.call, label %cdce.end, !prof !16
 
@@ -2306,12 +2306,12 @@ cdce.end:                                         ; preds = %21, %cdce.call
   %64 = tail call noundef float @cbrtf(float noundef %63) #17
   %65 = tail call noundef float @sqrtf(float noundef %64) #16
   %66 = fdiv float 1.000000e+00, %65
-  %67 = fmul float %66, %2
+  %67 = fmul float %2, %66
   %68 = fptosi float %67 to i32
   %69 = sitofp i32 %68 to float
   %70 = fsub float %67, %69
   %71 = fmul float %70, %70
-  %72 = fmul float %69, %4
+  %72 = fmul float %4, %69
   %73 = fptosi float %72 to i32
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds float, ptr %3, i64 %74
@@ -2335,7 +2335,7 @@ cdce.end:                                         ; preds = %21, %cdce.call
   %92 = fmul float %89, %91
   %93 = fmul float %66, %92
   %94 = fmul float %63, %93
-  %95 = fmul float %94, %2
+  %95 = fmul float %2, %94
   store float %95, ptr %indvars.iv225.sroa.phi17, align 4
   %96 = getelementptr inbounds float, ptr %15, i64 %indvars.iv225
   %97 = load float, ptr %96, align 4
@@ -2345,7 +2345,7 @@ cdce.end:                                         ; preds = %21, %cdce.call
   %101 = tail call noundef float @cbrtf(float noundef %100) #17
   %102 = tail call noundef float @sqrtf(float noundef %101) #16
   %103 = fdiv float 1.000000e+00, %102
-  %104 = fmul float %103, %2
+  %104 = fmul float %2, %103
   %105 = fptosi float %104 to i32
   %106 = sitofp i32 %105 to float
   %107 = fsub float %104, %106
@@ -2392,7 +2392,7 @@ cdce.end:                                         ; preds = %21, %cdce.call
   %147 = fneg float %145
   %148 = tail call float @llvm.fmuladd.f32(float %147, float %144, float %129)
   %149 = fmul float %103, %100
-  %150 = fmul float %149, %2
+  %150 = fmul float %2, %149
   %151 = fmul float %150, %148
   store float %151, ptr %indvars.iv225.sroa.phi23, align 4
   br label %152
@@ -2518,7 +2518,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   br i1 %25, label %24, label %35, !llvm.loop !20
 
 35:                                               ; preds = %34
-  %36 = fmul float %20, %0
+  %36 = fmul float %0, %20
   %37 = fcmp ogt float %8, 0.000000e+00
   %38 = fcmp ogt float %11, 0.000000e+00
   %or.cond = and i1 %37, %38
@@ -2530,12 +2530,12 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %.0291 = select i1 %or.cond, float 0.000000e+00, float %42
   %43 = fdiv float 1.000000e+00, %36
   %44 = fcmp une float %12, 0.000000e+00
-  %45 = fmul float %21, %3
+  %45 = fmul float %3, %21
   %46 = fptosi float %45 to i32
   %47 = sitofp i32 %46 to float
   %48 = fsub float %45, %47
   %49 = fmul float %48, %48
-  %50 = fmul float %47, %5
+  %50 = fmul float %5, %47
   %51 = fptosi float %50 to i32
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds float, ptr %4, i64 %52
@@ -2554,7 +2554,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %66 = getelementptr i8, ptr %59, i64 40
   %67 = getelementptr i8, ptr %59, i64 44
   %68 = fmul float %43, %21
-  %69 = fmul float %68, %3
+  %69 = fmul float %3, %68
   br label %70
 
 70:                                               ; preds = %35, %235
@@ -2662,7 +2662,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %135 = fmul float %132, %134
   %136 = fmul float %21, %135
   %137 = fmul float %43, %136
-  %138 = fmul float %137, %3
+  %138 = fmul float %3, %137
   br label %139
 
 139:                                              ; preds = %121, %97
@@ -2703,12 +2703,12 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %163 = fmul float %158, %162
   %164 = fmul float %162, %157
   %165 = fmul float %162, %164
-  %166 = fmul float %165, %0
+  %166 = fmul float %0, %165
   %167 = fmul float %161, %164
   %168 = fmul float %21, %167
   %169 = fmul float %161, %157
   %170 = fmul float %161, %169
-  %171 = fmul float %155, %0
+  %171 = fmul float %0, %155
   %172 = fmul float %163, %171
   %173 = fmul float %21, %155
   %174 = fmul float %162, %173

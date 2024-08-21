@@ -261,7 +261,7 @@ if.else6:                                         ; preds = %if.else
 
 if.end9:                                          ; preds = %if.then3, %if.else6, %if.then
   %p.0 = phi double [ %21, %if.then ], [ %39, %if.then3 ], [ %55, %if.else6 ]
-  %mul10 = fmul double %p.0, %x
+  %mul10 = fmul double %x, %p.0
   ret double %mul10
 }
 
@@ -417,8 +417,8 @@ return:                                           ; preds = %entry, %if.end, %if
 define internal fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %x, double noundef %p, double noundef %q, double noundef %beta) unnamed_addr #9 {
 entry:
   %add = fadd double %p, %q
-  %mul = fmul double %add, %x
-  %cmp = fcmp ogt double %mul, %p
+  %mul = fmul double %x, %add
+  %cmp = fcmp olt double %p, %mul
   %sub = fsub double 1.000000e+00, %x
   br i1 %cmp, label %if.then, label %if.end
 
@@ -491,7 +491,7 @@ if.end34:                                         ; preds = %if.then28, %if.then
   %temp.1 = phi double [ %sub29, %if.then31 ], [ %sub29, %if.then28 ], [ %psq.044, %if.else ]
   %mul15 = fmul double %div1848, %temp.1
   %mul16 = fmul double %rx.1, %mul15
-  %add17 = fadd double %add26, %p
+  %add17 = fadd double %p, %add26
   %div18 = fdiv double %mul16, %add17
   %add19 = fadd double %add1949, %div18
   %3 = tail call double @llvm.fabs.f64(double %div18)
@@ -609,9 +609,9 @@ if.else:                                          ; preds = %if.end
 
 if.then42:                                        ; preds = %if.else
   %sub43 = fsub double 1.000000e+00, %alpha
-  %mul44 = fmul double %sub43, %q
+  %mul44 = fmul double %q, %sub43
   %call45 = tail call double @log(double noundef %mul44) #15
-  %add46 = fadd double %call45, %beta
+  %add46 = fadd double %beta, %call45
   %div47 = fdiv double %add46, %q
   %call48 = tail call double @exp(double noundef %div47) #15
   %sub49 = fsub double 1.000000e+00, %call48
@@ -627,7 +627,7 @@ if.else50:                                        ; preds = %if.else
 if.then55:                                        ; preds = %if.else50
   %mul56 = fmul double %p, %alpha
   %call57 = tail call double @log(double noundef %mul56) #15
-  %add58 = fadd double %call57, %beta
+  %add58 = fadd double %beta, %call57
   %div59 = fdiv double %add58, %p
   %call60 = tail call double @exp(double noundef %div59) #15
   br label %if.end67

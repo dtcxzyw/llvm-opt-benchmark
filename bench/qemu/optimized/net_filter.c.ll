@@ -100,7 +100,7 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then3:                                         ; preds = %if.end
   %netdev = getelementptr inbounds i8, ptr %opaque, i64 48
   %2 = load ptr, ptr %netdev, align 8
-  %cmp4 = icmp eq ptr %2, %sender
+  %cmp4 = icmp eq ptr %sender, %2
   br i1 %cmp4, label %netfilter_next.exit, label %netfilter_next.exit.thread
 
 netfilter_next.exit:                              ; preds = %if.then3, %if.end

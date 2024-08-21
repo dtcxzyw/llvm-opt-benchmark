@@ -691,7 +691,7 @@ define dso_local void @gistdentryinit(ptr noundef %0, i32 noundef %1, ptr nounde
   %25 = ptrtoint ptr %2 to i64
   %26 = tail call i64 @FunctionCall1Coll(ptr noundef %18, i32 noundef %24, i64 noundef %25) #10
   %27 = inttoptr i64 %26 to ptr
-  %.not39 = icmp eq ptr %27, %2
+  %.not39 = icmp eq ptr %2, %27
   br i1 %.not39, label %40, label %28
 
 28:                                               ; preds = %21

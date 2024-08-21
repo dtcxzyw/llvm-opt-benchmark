@@ -1192,7 +1192,7 @@ define dso_local noundef ptr @GUC_yy_create_buffer(ptr noundef %0, i32 noundef %
   store i32 1, ptr %13, align 8
   %14 = tail call ptr @__errno_location() #26
   %15 = load i32, ptr %14, align 4
-  %.pre.i = load ptr, ptr @yy_buffer_stack, align 8
+  %.pr.pre.i = load ptr, ptr @yy_buffer_stack, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 28
   store i32 0, ptr %16, align 4
   store i8 0, ptr %9, align 1
@@ -1204,50 +1204,56 @@ define dso_local noundef ptr @GUC_yy_create_buffer(ptr noundef %0, i32 noundef %
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 0, ptr %20, align 8
-  %.not10.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not10.i.i, label %GUC_yy_flush_buffer.exit.i.thread, label %21
+  %.not10.i.i = icmp eq ptr %.pr.pre.i, null
+  br i1 %.not10.i.i, label %GUC_yy_flush_buffer.exit.thread.i, label %22
 
-21:                                               ; preds = %12
-  %22 = load i64, ptr @yy_buffer_stack_top, align 8
-  %23 = getelementptr ptr, ptr %.pre.i, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, %3
-  br i1 %25, label %GUC_yy_flush_buffer.exit.thread.i, label %GUC_yy_flush_buffer.exit.i.thread
-
-GUC_yy_flush_buffer.exit.thread.i:                ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %24, i64 28
-  %27 = load i32, ptr %26, align 4
-  store i32 %27, ptr @yy_n_chars, align 4
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr @yy_c_buf_p, align 8
-  store ptr %29, ptr @GUC_yytext, align 8
-  %30 = load ptr, ptr %23, align 8
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr @GUC_yyin, align 8
-  %32 = load i8, ptr %29, align 1
-  store i8 %32, ptr @yy_hold_char, align 1
-  %.pre = load ptr, ptr %23, align 8
-  br label %GUC_yy_flush_buffer.exit.i.thread
-
-GUC_yy_flush_buffer.exit.i.thread:                ; preds = %GUC_yy_flush_buffer.exit.thread.i, %21, %12
-  %33 = phi ptr [ null, %12 ], [ %.pre, %GUC_yy_flush_buffer.exit.thread.i ], [ %24, %21 ]
+GUC_yy_flush_buffer.exit.thread.i:                ; preds = %12
   store ptr %0, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 1, ptr %34, align 4
-  %.not9.i = icmp eq ptr %33, %3
-  br i1 %.not9.i, label %GUC_yy_init_buffer.exit, label %35
+  %21 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %21, align 4
+  br label %.thread.i
 
-35:                                               ; preds = %GUC_yy_flush_buffer.exit.i.thread
-  %36 = getelementptr inbounds i8, ptr %3, i64 44
-  store i32 1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 0, ptr %37, align 8
+22:                                               ; preds = %12
+  %23 = load i64, ptr @yy_buffer_stack_top, align 8
+  %24 = getelementptr ptr, ptr %.pr.pre.i, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %3, %25
+  br i1 %26, label %27, label %35
+
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds i8, ptr %25, i64 28
+  %29 = load i32, ptr %28, align 4
+  store i32 %29, ptr @yy_n_chars, align 4
+  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr @yy_c_buf_p, align 8
+  store ptr %31, ptr @GUC_yytext, align 8
+  %32 = load ptr, ptr %24, align 8
+  %33 = load ptr, ptr %32, align 8
+  store ptr %33, ptr @GUC_yyin, align 8
+  %34 = load i8, ptr %31, align 1
+  store i8 %34, ptr @yy_hold_char, align 1
+  %.pre = load ptr, ptr %24, align 8
+  br label %35
+
+35:                                               ; preds = %22, %27
+  %36 = phi ptr [ %25, %22 ], [ %.pre, %27 ]
+  store ptr %0, ptr %3, align 8
+  %37 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %37, align 4
+  %.not9.i = icmp eq ptr %3, %36
+  br i1 %.not9.i, label %GUC_yy_init_buffer.exit, label %.thread.i
+
+.thread.i:                                        ; preds = %35, %GUC_yy_flush_buffer.exit.thread.i
+  %38 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 1, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 0, ptr %39, align 8
   br label %GUC_yy_init_buffer.exit
 
-GUC_yy_init_buffer.exit:                          ; preds = %GUC_yy_flush_buffer.exit.i.thread, %35
-  %38 = getelementptr inbounds i8, ptr %3, i64 36
-  store i32 0, ptr %38, align 4
+GUC_yy_init_buffer.exit:                          ; preds = %35, %.thread.i
+  %40 = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 0, ptr %40, align 4
   store i32 %15, ptr %14, align 4
   ret ptr %3
 }
@@ -1344,71 +1350,66 @@ define dso_local void @GUC_yyrestart(ptr noundef %0) local_unnamed_addr #0 {
   store i32 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %27, i64 56
   store i32 0, ptr %41, align 8
-  br i1 %.not38, label %GUC_yy_flush_buffer.exit.i, label %.thread
+  br i1 %.not38, label %GUC_yy_flush_buffer.exit.thread.i, label %43
 
-.thread:                                          ; preds = %26
-  %42 = load ptr, ptr %30, align 8
-  %43 = icmp eq ptr %42, %27
-  br i1 %43, label %GUC_yy_flush_buffer.exit.thread.i, label %GUC_yy_flush_buffer.exit.i.thread
+GUC_yy_flush_buffer.exit.thread.i:                ; preds = %26
+  store ptr %0, ptr %27, align 8
+  %42 = getelementptr inbounds i8, ptr %27, i64 52
+  store i32 1, ptr %42, align 4
+  br label %.thread.i
 
-GUC_yy_flush_buffer.exit.thread.i:                ; preds = %.thread
+43:                                               ; preds = %26
   %44 = load ptr, ptr %30, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 28
-  %46 = load i32, ptr %45, align 4
-  store i32 %46, ptr @yy_n_chars, align 4
-  %47 = getelementptr inbounds i8, ptr %44, i64 16
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr @yy_c_buf_p, align 8
-  store ptr %48, ptr @GUC_yytext, align 8
-  %49 = load ptr, ptr %30, align 8
+  %45 = icmp eq ptr %27, %44
+  br i1 %45, label %46, label %GUC_yy_flush_buffer.exit.thread12.i
+
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %44, i64 28
+  %48 = load i32, ptr %47, align 4
+  store i32 %48, ptr @yy_n_chars, align 4
+  %49 = getelementptr inbounds i8, ptr %44, i64 16
   %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr @GUC_yyin, align 8
-  %51 = load i8, ptr %48, align 1
-  store i8 %51, ptr @yy_hold_char, align 1
-  br label %GUC_yy_flush_buffer.exit.i.thread
+  store ptr %50, ptr @yy_c_buf_p, align 8
+  store ptr %50, ptr @GUC_yytext, align 8
+  %51 = load ptr, ptr %30, align 8
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr @GUC_yyin, align 8
+  %53 = load i8, ptr %50, align 1
+  store i8 %53, ptr @yy_hold_char, align 1
+  br label %GUC_yy_flush_buffer.exit.thread12.i
 
-GUC_yy_flush_buffer.exit.i:                       ; preds = %26
+GUC_yy_flush_buffer.exit.thread12.i:              ; preds = %46, %43
   store ptr %0, ptr %27, align 8
-  %52 = getelementptr inbounds i8, ptr %27, i64 52
-  store i32 1, ptr %52, align 4
-  br label %55
+  %54 = getelementptr inbounds i8, ptr %27, i64 52
+  store i32 1, ptr %54, align 4
+  %55 = load ptr, ptr %30, align 8
+  %.not9.i4 = icmp eq ptr %27, %55
+  br i1 %.not9.i4, label %GUC_yy_init_buffer.exit, label %.thread.i
 
-GUC_yy_flush_buffer.exit.i.thread:                ; preds = %.thread, %GUC_yy_flush_buffer.exit.thread.i
-  store ptr %0, ptr %27, align 8
-  %53 = getelementptr inbounds i8, ptr %27, i64 52
-  store i32 1, ptr %53, align 4
-  %54 = load ptr, ptr %30, align 8
-  br label %55
-
-55:                                               ; preds = %GUC_yy_flush_buffer.exit.i, %GUC_yy_flush_buffer.exit.i.thread
-  %56 = phi ptr [ %54, %GUC_yy_flush_buffer.exit.i.thread ], [ null, %GUC_yy_flush_buffer.exit.i ]
-  %.not9.i5 = icmp eq ptr %56, %27
-  br i1 %.not9.i5, label %GUC_yy_init_buffer.exit, label %57
-
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %27, i64 44
-  store i32 1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %27, i64 48
-  store i32 0, ptr %59, align 8
+.thread.i:                                        ; preds = %GUC_yy_flush_buffer.exit.thread12.i, %GUC_yy_flush_buffer.exit.thread.i
+  %56 = getelementptr inbounds i8, ptr %27, i64 44
+  store i32 1, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %27, i64 48
+  store i32 0, ptr %57, align 8
   br label %GUC_yy_init_buffer.exit
 
-GUC_yy_init_buffer.exit:                          ; preds = %55, %57
-  %60 = getelementptr inbounds i8, ptr %27, i64 36
-  store i32 0, ptr %60, align 4
+GUC_yy_init_buffer.exit:                          ; preds = %GUC_yy_flush_buffer.exit.thread12.i, %.thread.i
+  %58 = getelementptr inbounds i8, ptr %27, i64 36
+  store i32 0, ptr %58, align 4
   store i32 %32, ptr %31, align 4
-  %61 = load ptr, ptr %30, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 28
-  %63 = load i32, ptr %62, align 4
-  store i32 %63, ptr @yy_n_chars, align 4
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  %59 = load ptr, ptr %30, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 28
+  %61 = load i32, ptr %60, align 4
+  store i32 %61, ptr @yy_n_chars, align 4
+  %62 = getelementptr inbounds i8, ptr %59, i64 16
+  %63 = load ptr, ptr %62, align 8
+  store ptr %63, ptr @yy_c_buf_p, align 8
+  store ptr %63, ptr @GUC_yytext, align 8
+  %64 = load ptr, ptr %30, align 8
   %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr @yy_c_buf_p, align 8
-  store ptr %65, ptr @GUC_yytext, align 8
-  %66 = load ptr, ptr %30, align 8
-  %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr @GUC_yyin, align 8
-  %68 = load i8, ptr %65, align 1
-  store i8 %68, ptr @yy_hold_char, align 1
+  store ptr %65, ptr @GUC_yyin, align 8
+  %66 = load i8, ptr %63, align 1
+  store i8 %66, ptr @yy_hold_char, align 1
   ret void
 }
 
@@ -1515,47 +1516,41 @@ define dso_local noalias noundef ptr @GUC_yyalloc(i64 noundef %0) local_unnamed_
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @GUC_yy_delete_buffer(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %21, label %2
+  br i1 %.not, label %16, label %2
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @yy_buffer_stack, align 8
   %.not6 = icmp eq ptr %3, null
-  br i1 %.not6, label %8, label %4
+  br i1 %.not6, label %.thread, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @yy_buffer_stack_top, align 8
   %6 = getelementptr ptr, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
-  br label %8
+  %8 = icmp eq ptr %0, %7
+  br i1 %8, label %9, label %.thread
 
-8:                                                ; preds = %2, %4
-  %9 = phi ptr [ %7, %4 ], [ null, %2 ]
-  %10 = icmp eq ptr %9, %0
-  br i1 %10, label %11, label %14
+9:                                                ; preds = %4
+  store ptr null, ptr %6, align 8
+  br label %.thread
 
-11:                                               ; preds = %8
-  %12 = load i64, ptr @yy_buffer_stack_top, align 8
-  %13 = getelementptr ptr, ptr %3, i64 %12
-  store ptr null, ptr %13, align 8
-  br label %14
+.thread:                                          ; preds = %2, %9, %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = load i32, ptr %10, align 8
+  %.not7 = icmp eq i32 %11, 0
+  br i1 %.not7, label %15, label %12
 
-14:                                               ; preds = %11, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load i32, ptr %15, align 8
-  %.not7 = icmp eq i32 %16, 0
-  br i1 %.not7, label %20, label %17
+12:                                               ; preds = %.thread
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  tail call void @free(ptr noundef %14) #25
+  br label %15
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8
-  tail call void @free(ptr noundef %19) #25
-  br label %20
-
-20:                                               ; preds = %17, %14
+15:                                               ; preds = %12, %.thread
   tail call void @free(ptr noundef nonnull %0) #25
-  br label %21
+  br label %16
 
-21:                                               ; preds = %1, %20
+16:                                               ; preds = %1, %15
   ret void
 }
 
@@ -1568,7 +1563,7 @@ define dso_local void @GUC_yyfree(ptr nocapture noundef %0) local_unnamed_addr #
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @GUC_yy_flush_buffer(ptr noundef %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %31, label %2
+  br i1 %.not, label %.thread, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -1588,38 +1583,31 @@ define dso_local void @GUC_yy_flush_buffer(ptr noundef %0) local_unnamed_addr #5
   store i32 0, ptr %11, align 8
   %12 = load ptr, ptr @yy_buffer_stack, align 8
   %.not10 = icmp eq ptr %12, null
-  br i1 %.not10, label %17, label %13
+  br i1 %.not10, label %.thread, label %13
 
 13:                                               ; preds = %2
   %14 = load i64, ptr @yy_buffer_stack_top, align 8
   %15 = getelementptr ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
-  br label %17
+  %17 = icmp eq ptr %0, %16
+  br i1 %17, label %18, label %.thread
 
-17:                                               ; preds = %2, %13
-  %18 = phi ptr [ %16, %13 ], [ null, %2 ]
-  %19 = icmp eq ptr %18, %0
-  br i1 %19, label %20, label %31
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %16, i64 28
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr @yy_n_chars, align 4
+  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr @yy_c_buf_p, align 8
+  store ptr %22, ptr @GUC_yytext, align 8
+  %23 = load ptr, ptr %15, align 8
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr @GUC_yyin, align 8
+  %25 = load i8, ptr %22, align 1
+  store i8 %25, ptr @yy_hold_char, align 1
+  br label %.thread
 
-20:                                               ; preds = %17
-  %21 = load i64, ptr @yy_buffer_stack_top, align 8
-  %22 = getelementptr ptr, ptr %12, i64 %21
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 28
-  %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr @yy_n_chars, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr @yy_c_buf_p, align 8
-  store ptr %27, ptr @GUC_yytext, align 8
-  %28 = load ptr, ptr %22, align 8
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr @GUC_yyin, align 8
-  %30 = load i8, ptr %27, align 1
-  store i8 %30, ptr @yy_hold_char, align 1
-  br label %31
-
-31:                                               ; preds = %1, %20, %17
+.thread:                                          ; preds = %2, %1, %18, %13
   ret void
 }
 
@@ -1736,52 +1724,52 @@ define dso_local void @GUC_yypop_buffer_state() local_unnamed_addr #3 {
   %4 = getelementptr ptr, ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8
   %.not4 = icmp eq ptr %5, null
-  br i1 %.not4, label %.thread, label %6
+  br i1 %.not4, label %.thread, label %.thread.i
 
-6:                                                ; preds = %2
+.thread.i:                                        ; preds = %2
   store ptr null, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
-  %8 = load i32, ptr %7, align 8
-  %.not7.i = icmp eq i32 %8, 0
-  br i1 %.not7.i, label %GUC_yy_delete_buffer.exit, label %9
+  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = load i32, ptr %6, align 8
+  %.not7.i = icmp eq i32 %7, 0
+  br i1 %.not7.i, label %GUC_yy_delete_buffer.exit, label %8
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void @free(ptr noundef %11) #25
+8:                                                ; preds = %.thread.i
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void @free(ptr noundef %10) #25
   br label %GUC_yy_delete_buffer.exit
 
-GUC_yy_delete_buffer.exit:                        ; preds = %6, %9
+GUC_yy_delete_buffer.exit:                        ; preds = %.thread.i, %8
   tail call void @free(ptr noundef nonnull %5) #25
   store ptr null, ptr %4, align 8
   %.not5 = icmp eq i64 %3, 0
-  br i1 %.not5, label %.thread, label %12
+  br i1 %.not5, label %.thread, label %11
 
-12:                                               ; preds = %GUC_yy_delete_buffer.exit
-  %13 = add i64 %3, -1
-  store i64 %13, ptr @yy_buffer_stack_top, align 8
-  %.phi.trans.insert = getelementptr ptr, ptr %1, i64 %13
+11:                                               ; preds = %GUC_yy_delete_buffer.exit
+  %12 = add i64 %3, -1
+  store i64 %12, ptr @yy_buffer_stack_top, align 8
+  %.phi.trans.insert = getelementptr ptr, ptr %1, i64 %12
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not7 = icmp eq ptr %.pre, null
-  br i1 %.not7, label %.thread, label %14
+  br i1 %.not7, label %.thread, label %13
 
-14:                                               ; preds = %12
-  %15 = getelementptr ptr, ptr %1, i64 %13
-  %16 = getelementptr inbounds i8, ptr %.pre, i64 28
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr @yy_n_chars, align 4
-  %18 = getelementptr inbounds i8, ptr %.pre, i64 16
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr @yy_c_buf_p, align 8
-  store ptr %19, ptr @GUC_yytext, align 8
-  %20 = load ptr, ptr %15, align 8
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr @GUC_yyin, align 8
-  %22 = load i8, ptr %19, align 1
-  store i8 %22, ptr @yy_hold_char, align 1
+13:                                               ; preds = %11
+  %14 = getelementptr ptr, ptr %1, i64 %12
+  %15 = getelementptr inbounds i8, ptr %.pre, i64 28
+  %16 = load i32, ptr %15, align 4
+  store i32 %16, ptr @yy_n_chars, align 4
+  %17 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr @yy_c_buf_p, align 8
+  store ptr %18, ptr @GUC_yytext, align 8
+  %19 = load ptr, ptr %14, align 8
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr @GUC_yyin, align 8
+  %21 = load i8, ptr %18, align 1
+  store i8 %21, ptr @yy_hold_char, align 1
   br label %.thread
 
-.thread:                                          ; preds = %GUC_yy_delete_buffer.exit, %2, %0, %14, %12
+.thread:                                          ; preds = %GUC_yy_delete_buffer.exit, %2, %0, %13, %11
   ret void
 }
 
@@ -2008,41 +1996,41 @@ define dso_local void @GUC_yyset_debug(i32 noundef %0) local_unnamed_addr #8 {
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @GUC_yylex_destroy() local_unnamed_addr #0 {
   %.pr = load ptr, ptr @yy_buffer_stack, align 8
-  %.not7 = icmp eq ptr %.pr, null
-  br i1 %.not7, label %.thread, label %.lr.ph.preheader
+  %.not8 = icmp eq ptr %.pr, null
+  br i1 %.not8, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @yy_buffer_stack_top, align 8
   %.phi.trans.insert = getelementptr ptr, ptr %.pr, i64 %.pre
-  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8
-  %.not218 = icmp eq ptr %.pre10, null
-  br i1 %.not218, label %.thread, label %.lr.ph19
+  %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
+  %.not219 = icmp eq ptr %.pre11, null
+  br i1 %.not219, label %.thread, label %.thread.i
 
-.lr.ph19:                                         ; preds = %.lr.ph.preheader
+.thread.i:                                        ; preds = %.lr.ph.preheader
   %1 = getelementptr ptr, ptr %.pr, i64 %.pre
   store ptr null, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %.pre10, i64 32
+  %2 = getelementptr inbounds i8, ptr %.pre11, i64 32
   %3 = load i32, ptr %2, align 8
   %.not7.i = icmp eq i32 %3, 0
   br i1 %.not7.i, label %GUC_yypop_buffer_state.exit, label %4
 
-4:                                                ; preds = %.lr.ph19
-  %5 = getelementptr inbounds i8, ptr %.pre10, i64 8
+4:                                                ; preds = %.thread.i
+  %5 = getelementptr inbounds i8, ptr %.pre11, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #25
-  %.pre11.pre = load ptr, ptr @yy_buffer_stack, align 8
+  %.pre12.pre = load ptr, ptr @yy_buffer_stack, align 8
   br label %GUC_yypop_buffer_state.exit
 
-GUC_yypop_buffer_state.exit:                      ; preds = %.lr.ph19, %4
-  %.pre11 = phi ptr [ %.pre11.pre, %4 ], [ %.pr, %.lr.ph19 ]
-  tail call void @free(ptr noundef nonnull %.pre10) #25
-  %.pre12 = load i64, ptr @yy_buffer_stack_top, align 8
-  %7 = getelementptr ptr, ptr %.pre11, i64 %.pre12
+GUC_yypop_buffer_state.exit:                      ; preds = %.thread.i, %4
+  %.pre12 = phi ptr [ %.pre12.pre, %4 ], [ %.pr, %.thread.i ]
+  tail call void @free(ptr noundef nonnull %.pre11) #25
+  %.pre13 = load i64, ptr @yy_buffer_stack_top, align 8
+  %7 = getelementptr ptr, ptr %.pre12, i64 %.pre13
   store ptr null, ptr %7, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.preheader, %GUC_yypop_buffer_state.exit, %0
-  %.lcssa = phi ptr [ null, %0 ], [ %.pre11, %GUC_yypop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
+  %.lcssa = phi ptr [ null, %0 ], [ %.pre12, %GUC_yypop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
   tail call void @free(ptr noundef %.lcssa) #25
   store ptr null, ptr @yy_buffer_stack, align 8
   store i64 0, ptr @yy_buffer_stack_top, align 8
@@ -2885,47 +2873,41 @@ record_config_file_error.exit164:                 ; preds = %185, %194
 207:                                              ; preds = %.loopexit
   %208 = load ptr, ptr @yy_buffer_stack, align 8
   %.not6.i = icmp eq ptr %208, null
-  br i1 %.not6.i, label %213, label %209
+  br i1 %.not6.i, label %.thread.i, label %209
 
 209:                                              ; preds = %207
   %210 = load i64, ptr @yy_buffer_stack_top, align 8
   %211 = getelementptr ptr, ptr %208, i64 %210
   %212 = load ptr, ptr %211, align 8
-  br label %213
+  %213 = icmp eq ptr %.0..0..0..0.81, %212
+  br i1 %213, label %214, label %.thread.i
 
-213:                                              ; preds = %209, %207
-  %214 = phi ptr [ %212, %209 ], [ null, %207 ]
-  %215 = icmp eq ptr %214, %.0..0..0..0.81
-  br i1 %215, label %216, label %219
+214:                                              ; preds = %209
+  store ptr null, ptr %211, align 8
+  br label %.thread.i
 
-216:                                              ; preds = %213
-  %217 = load i64, ptr @yy_buffer_stack_top, align 8
-  %218 = getelementptr ptr, ptr %208, i64 %217
-  store ptr null, ptr %218, align 8
-  br label %219
+.thread.i:                                        ; preds = %214, %209, %207
+  %215 = getelementptr inbounds i8, ptr %.0..0..0..0.81, i64 32
+  %216 = load i32, ptr %215, align 8
+  %.not7.i = icmp eq i32 %216, 0
+  br i1 %.not7.i, label %220, label %217
 
-219:                                              ; preds = %216, %213
-  %220 = getelementptr inbounds i8, ptr %.0..0..0..0.81, i64 32
-  %221 = load i32, ptr %220, align 8
-  %.not7.i = icmp eq i32 %221, 0
-  br i1 %.not7.i, label %225, label %222
+217:                                              ; preds = %.thread.i
+  %218 = getelementptr inbounds i8, ptr %.0..0..0..0.81, i64 8
+  %219 = load ptr, ptr %218, align 8
+  call void @free(ptr noundef %219) #25
+  br label %220
 
-222:                                              ; preds = %219
-  %223 = getelementptr inbounds i8, ptr %.0..0..0..0.81, i64 8
-  %224 = load ptr, ptr %223, align 8
-  call void @free(ptr noundef %224) #25
-  br label %225
-
-225:                                              ; preds = %222, %219
+220:                                              ; preds = %217, %.thread.i
   call void @free(ptr noundef nonnull %.0..0..0..0.81) #25
   br label %GUC_yy_delete_buffer.exit
 
-GUC_yy_delete_buffer.exit:                        ; preds = %.loopexit, %225
+GUC_yy_delete_buffer.exit:                        ; preds = %.loopexit, %220
   store i32 %12, ptr @ConfigFileLineno, align 4
   store ptr %13, ptr @GUC_flex_fatal_jmp, align 8
   %.0..0..0..0.84 = load volatile i8, ptr %9, align 1
-  %226 = trunc i8 %.0..0..0..0.84 to i1
-  ret i1 %226
+  %221 = trunc i8 %.0..0..0..0.84 to i1
+  ret i1 %221
 }
 
 declare i32 @FreeFile(ptr noundef) local_unnamed_addr #12

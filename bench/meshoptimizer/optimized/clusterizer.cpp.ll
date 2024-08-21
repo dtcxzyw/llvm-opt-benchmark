@@ -248,14 +248,14 @@ for.body.i105:                                    ; preds = %invoke.cont4, %for.
   %arrayidx33.i = getelementptr inbounds i8, ptr %add.ptr14.i, i64 8
   %28 = load float, ptr %arrayidx33.i, align 4
   %sub35.i = fsub float %28, %25
-  %29 = fneg float %sub23.i
-  %neg.i = fmul float %sub31.i, %29
+  %29 = fneg float %sub31.i
+  %neg.i = fmul float %sub23.i, %29
   %30 = tail call float @llvm.fmuladd.f32(float %sub19.i, float %sub35.i, float %neg.i)
-  %31 = fneg float %sub.i108
-  %neg48.i = fmul float %sub35.i, %31
+  %31 = fneg float %sub35.i
+  %neg48.i = fmul float %sub.i108, %31
   %32 = tail call float @llvm.fmuladd.f32(float %sub23.i, float %sub27.i, float %neg48.i)
-  %33 = fneg float %sub19.i
-  %neg55.i = fmul float %sub27.i, %33
+  %33 = fneg float %sub27.i
+  %neg55.i = fmul float %sub19.i, %33
   %34 = tail call float @llvm.fmuladd.f32(float %sub.i108, float %sub31.i, float %neg55.i)
   %mul57.i = fmul float %32, %32
   %35 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %mul57.i)
@@ -413,9 +413,9 @@ land.lhs.true:                                    ; preds = %for.cond27
   %52 = load i32, ptr %best_extra, align 4
   %add = add i32 %52, %51
   %conv33 = zext i32 %add to i64
-  %cmp34 = icmp ule i64 %conv33, %max_vertices
+  %cmp34 = icmp uge i64 %max_vertices, %conv33
   %conv36 = zext i32 %48 to i64
-  %cmp37.not = icmp ult i64 %conv36, %max_triangles
+  %cmp37.not = icmp ugt i64 %max_triangles, %conv36
   %or.cond = select i1 %cmp34, i1 %cmp37.not, i1 false
   br i1 %or.cond, label %if.end50, label %if.then
 
@@ -751,8 +751,8 @@ define internal fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfm
 entry:
   %mean = alloca [3 x float], align 4
   %vars = alloca [3 x float], align 4
-  %cmp83 = icmp ult i64 %count, 9
-  br i1 %cmp83, label %if.then, label %if.end.lr.ph
+  %cmp82 = icmp ult i64 %count, 9
+  br i1 %cmp82, label %if.then, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
   %arrayidx23 = getelementptr inbounds i8, ptr %vars, i64 4
@@ -763,7 +763,7 @@ if.then:                                          ; preds = %if.end42, %entry
   %offset.tr.lcssa = phi i64 [ %offset, %entry ], [ %call46, %if.end42 ]
   %indices.tr.lcssa = phi ptr [ %indices, %entry ], [ %add.ptr54, %if.end42 ]
   %count.tr.lcssa = phi i64 [ %count, %entry ], [ %sub55, %if.end42 ]
-  %arrayidx.i = getelementptr %"struct.meshopt::KDNode", ptr %nodes, i64 %offset.tr.lcssa
+  %arrayidx.i = getelementptr inbounds %"struct.meshopt::KDNode", ptr %nodes, i64 %offset.tr.lcssa
   %0 = load i32, ptr %indices.tr.lcssa, align 4
   store i32 %0, ptr %arrayidx.i, align 4
   %axis.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -776,11 +776,11 @@ if.then:                                          ; preds = %if.end42, %entry
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %i.015.i = phi i64 [ %inc.i, %for.body.i ], [ 1, %if.then ]
-  %gep.i = getelementptr %"struct.meshopt::KDNode", ptr %arrayidx.i, i64 %i.015.i
+  %arrayidx5.i = getelementptr %"struct.meshopt::KDNode", ptr %arrayidx.i, i64 %i.015.i
   %arrayidx6.i = getelementptr inbounds i32, ptr %indices.tr.lcssa, i64 %i.015.i
   %2 = load i32, ptr %arrayidx6.i, align 4
-  store i32 %2, ptr %gep.i, align 4
-  %axis7.i = getelementptr inbounds i8, ptr %gep.i, i64 4
+  store i32 %2, ptr %arrayidx5.i, align 4
+  %axis7.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 4
   store i32 -1, ptr %axis7.i, align 4
   %inc.i = add nuw i64 %i.015.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %count.tr.lcssa
@@ -791,18 +791,18 @@ _ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit: ; preds = %for.body.i, %if
   br label %return
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end42
-  %count.tr86 = phi i64 [ %count, %if.end.lr.ph ], [ %sub55, %if.end42 ]
-  %indices.tr85 = phi ptr [ %indices, %if.end.lr.ph ], [ %add.ptr54, %if.end42 ]
-  %offset.tr84 = phi i64 [ %offset, %if.end.lr.ph ], [ %call46, %if.end42 ]
+  %count.tr85 = phi i64 [ %count, %if.end.lr.ph ], [ %sub55, %if.end42 ]
+  %indices.tr84 = phi ptr [ %indices, %if.end.lr.ph ], [ %add.ptr54, %if.end42 ]
+  %offset.tr83 = phi i64 [ %offset, %if.end.lr.ph ], [ %call46, %if.end42 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %mean, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %vars, i8 0, i64 12, i1 false)
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc19
-  %runc.082 = phi float [ 1.000000e+00, %if.end ], [ %add, %for.inc19 ]
-  %runs.081 = phi float [ 1.000000e+00, %if.end ], [ %div, %for.inc19 ]
-  %i.080 = phi i64 [ 0, %if.end ], [ %inc20, %for.inc19 ]
-  %arrayidx = getelementptr inbounds i32, ptr %indices.tr85, i64 %i.080
+  %runc.081 = phi float [ 1.000000e+00, %if.end ], [ %add, %for.inc19 ]
+  %runs.080 = phi float [ 1.000000e+00, %if.end ], [ %div, %for.inc19 ]
+  %i.079 = phi i64 [ 0, %if.end ], [ %inc20, %for.inc19 ]
+  %arrayidx = getelementptr inbounds i32, ptr %indices.tr84, i64 %i.079
   %3 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %3 to i64
   %add.ptr.idx = mul nuw nsw i64 %conv, 24
@@ -816,7 +816,7 @@ for.body4:                                        ; preds = %for.body, %for.body
   %arrayidx7 = getelementptr inbounds [3 x float], ptr %mean, i64 0, i64 %indvars.iv
   %5 = load float, ptr %arrayidx7, align 4
   %sub = fsub float %4, %5
-  %6 = tail call float @llvm.fmuladd.f32(float %sub, float %runs.081, float %5)
+  %6 = tail call float @llvm.fmuladd.f32(float %sub, float %runs.080, float %5)
   store float %6, ptr %arrayidx7, align 4
   %sub15 = fsub float %4, %6
   %arrayidx18 = getelementptr inbounds [3 x float], ptr %vars, i64 0, i64 %indvars.iv
@@ -828,11 +828,11 @@ for.body4:                                        ; preds = %for.body, %for.body
   br i1 %exitcond.not, label %for.inc19, label %for.body4, !llvm.loop !22
 
 for.inc19:                                        ; preds = %for.body4
-  %inc20 = add nuw i64 %i.080, 1
-  %add = fadd float %runc.082, 1.000000e+00
+  %inc20 = add nuw i64 %i.079, 1
+  %add = fadd float %runc.081, 1.000000e+00
   %div = fdiv float 1.000000e+00, %add
-  %exitcond93.not = icmp eq i64 %inc20, %count.tr86
-  br i1 %exitcond93.not, label %for.body.lr.ph.i, label %for.body, !llvm.loop !23
+  %exitcond92.not = icmp eq i64 %inc20, %count.tr85
+  br i1 %exitcond92.not, label %for.body.lr.ph.i, label %for.body, !llvm.loop !23
 
 for.body.lr.ph.i:                                 ; preds = %for.inc19
   %9 = load float, ptr %vars, align 4
@@ -852,56 +852,56 @@ for.body.lr.ph.i:                                 ; preds = %for.inc19
 
 for.body.i56:                                     ; preds = %for.body.i56, %for.body.lr.ph.i
   %m.014.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add9.i, %for.body.i56 ]
-  %i.013.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i60, %for.body.i56 ]
-  %arrayidx.i57 = getelementptr inbounds i32, ptr %indices.tr85, i64 %i.013.i
+  %i.013.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i59, %for.body.i56 ]
+  %arrayidx.i57 = getelementptr inbounds i32, ptr %indices.tr84, i64 %i.013.i
   %13 = load i32, ptr %arrayidx.i57, align 4
   %conv.i58 = zext i32 %13 to i64
   %.idx.i = mul nuw nsw i64 %conv.i58, 24
-  %gep.i59 = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %.idx.i
-  %14 = load float, ptr %gep.i59, align 4
-  %arrayidx3.i = getelementptr inbounds i32, ptr %indices.tr85, i64 %m.014.i
+  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %.idx.i
+  %14 = load float, ptr %gep.i, align 4
+  %arrayidx3.i = getelementptr inbounds i32, ptr %indices.tr84, i64 %m.014.i
   %15 = load i32, ptr %arrayidx3.i, align 4
   store i32 %13, ptr %arrayidx3.i, align 4
   store i32 %15, ptr %arrayidx.i57, align 4
   %cmp7.i = fcmp olt float %14, %12
   %conv8.i = zext i1 %cmp7.i to i64
   %add9.i = add i64 %m.014.i, %conv8.i
-  %inc.i60 = add nuw i64 %i.013.i, 1
-  %exitcond.not.i61 = icmp eq i64 %inc.i60, %count.tr86
-  br i1 %exitcond.not.i61, label %_ZN7meshoptL15kdtreePartitionEPjmPKfmjf.exit, label %for.body.i56, !llvm.loop !24
+  %inc.i59 = add nuw i64 %i.013.i, 1
+  %exitcond.not.i60 = icmp eq i64 %inc.i59, %count.tr85
+  br i1 %exitcond.not.i60, label %_ZN7meshoptL15kdtreePartitionEPjmPKfmjf.exit, label %for.body.i56, !llvm.loop !24
 
 _ZN7meshoptL15kdtreePartitionEPjmPKfmjf.exit:     ; preds = %for.body.i56
   %cmp36 = icmp ugt i64 %add9.i, 4
-  %sub38 = add i64 %count.tr86, -4
+  %sub38 = add i64 %count.tr85, -4
   %cmp39.not = icmp ult i64 %add9.i, %sub38
   %or.cond55 = and i1 %cmp36, %cmp39.not
-  %arrayidx43 = getelementptr %"struct.meshopt::KDNode", ptr %nodes, i64 %offset.tr84
+  %arrayidx43 = getelementptr inbounds %"struct.meshopt::KDNode", ptr %nodes, i64 %offset.tr83
   br i1 %or.cond55, label %if.end42, label %if.then40
 
 if.then40:                                        ; preds = %_ZN7meshoptL15kdtreePartitionEPjmPKfmjf.exit
-  %16 = load i32, ptr %indices.tr85, align 4
+  %16 = load i32, ptr %indices.tr84, align 4
   store i32 %16, ptr %arrayidx43, align 4
-  %axis.i63 = getelementptr inbounds i8, ptr %arrayidx43, i64 4
-  %17 = trunc i64 %count.tr86 to i32
-  %conv.i64 = shl i32 %17, 2
-  %bf.set4.i65 = add i32 %conv.i64, -1
-  store i32 %bf.set4.i65, ptr %axis.i63, align 4
-  br label %for.body.i68
+  %axis.i62 = getelementptr inbounds i8, ptr %arrayidx43, i64 4
+  %17 = trunc i64 %count.tr85 to i32
+  %conv.i63 = shl i32 %17, 2
+  %bf.set4.i64 = add i32 %conv.i63, -1
+  store i32 %bf.set4.i64, ptr %axis.i62, align 4
+  br label %for.body.i67
 
-for.body.i68:                                     ; preds = %if.then40, %for.body.i68
-  %i.015.i69 = phi i64 [ %inc.i73, %for.body.i68 ], [ 1, %if.then40 ]
-  %gep.i70 = getelementptr %"struct.meshopt::KDNode", ptr %arrayidx43, i64 %i.015.i69
-  %arrayidx6.i71 = getelementptr inbounds i32, ptr %indices.tr85, i64 %i.015.i69
-  %18 = load i32, ptr %arrayidx6.i71, align 4
-  store i32 %18, ptr %gep.i70, align 4
-  %axis7.i72 = getelementptr inbounds i8, ptr %gep.i70, i64 4
-  store i32 -1, ptr %axis7.i72, align 4
-  %inc.i73 = add nuw i64 %i.015.i69, 1
-  %exitcond.not.i74 = icmp eq i64 %inc.i73, %count.tr86
-  br i1 %exitcond.not.i74, label %_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit75, label %for.body.i68, !llvm.loop !21
+for.body.i67:                                     ; preds = %if.then40, %for.body.i67
+  %i.015.i68 = phi i64 [ %inc.i72, %for.body.i67 ], [ 1, %if.then40 ]
+  %arrayidx5.i69 = getelementptr %"struct.meshopt::KDNode", ptr %arrayidx43, i64 %i.015.i68
+  %arrayidx6.i70 = getelementptr inbounds i32, ptr %indices.tr84, i64 %i.015.i68
+  %18 = load i32, ptr %arrayidx6.i70, align 4
+  store i32 %18, ptr %arrayidx5.i69, align 4
+  %axis7.i71 = getelementptr inbounds i8, ptr %arrayidx5.i69, i64 4
+  store i32 -1, ptr %axis7.i71, align 4
+  %inc.i72 = add nuw i64 %i.015.i68, 1
+  %exitcond.not.i73 = icmp eq i64 %inc.i72, %count.tr85
+  br i1 %exitcond.not.i73, label %_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit74, label %for.body.i67, !llvm.loop !21
 
-_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit75: ; preds = %for.body.i68
-  %add15.i67 = add i64 %count.tr86, %offset.tr84
+_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit74: ; preds = %for.body.i67
+  %add15.i66 = add i64 %count.tr85, %offset.tr83
   br label %return
 
 if.end42:                                         ; preds = %_ZN7meshoptL15kdtreePartitionEPjmPKfmjf.exit
@@ -911,9 +911,9 @@ if.end42:                                         ; preds = %_ZN7meshoptL15kdtre
   %bf.clear = and i32 %bf.load, -4
   %bf.set = or disjoint i32 %bf.clear, %cond31
   store i32 %bf.set, ptr %axis44, align 4
-  %add45 = add i64 %offset.tr84, 1
-  %call46 = tail call fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfmPjmm(i64 noundef %add45, ptr noundef %nodes, ptr noundef nonnull %points, ptr noundef nonnull %indices.tr85, i64 noundef %add9.i)
-  %19 = xor i64 %offset.tr84, -1
+  %add45 = add i64 %offset.tr83, 1
+  %call46 = tail call fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfmPjmm(i64 noundef %add45, ptr noundef %nodes, ptr noundef nonnull %points, ptr noundef nonnull %indices.tr84, i64 noundef %add9.i)
+  %19 = xor i64 %offset.tr83, -1
   %sub48 = add i64 %call46, %19
   %conv49 = trunc i64 %sub48 to i32
   %bf.load50 = load i32, ptr %axis44, align 4
@@ -921,13 +921,13 @@ if.end42:                                         ; preds = %_ZN7meshoptL15kdtre
   %bf.clear52 = and i32 %bf.load50, 3
   %bf.set53 = or disjoint i32 %bf.value51, %bf.clear52
   store i32 %bf.set53, ptr %axis44, align 4
-  %add.ptr54 = getelementptr inbounds i32, ptr %indices.tr85, i64 %add9.i
-  %sub55 = sub i64 %count.tr86, %add9.i
+  %add.ptr54 = getelementptr inbounds i32, ptr %indices.tr84, i64 %add9.i
+  %sub55 = sub i64 %count.tr85, %add9.i
   %cmp = icmp ult i64 %sub55, 9
   br i1 %cmp, label %if.then, label %if.end
 
-return:                                           ; preds = %_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit75, %_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit
-  %retval.0 = phi i64 [ %add15.i, %_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit ], [ %add15.i67, %_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit75 ]
+return:                                           ; preds = %_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit74, %_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit
+  %retval.0 = phi i64 [ %add15.i, %_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit ], [ %add15.i66, %_ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit74 ]
   ret i64 %retval.0
 }
 
@@ -1363,11 +1363,11 @@ entry:
   %add12 = add i32 %add, %3
   %add13 = add i32 %add12, %conv11
   %conv14 = zext i32 %add13 to i64
-  %cmp15 = icmp ugt i64 %conv14, %max_vertices
+  %cmp15 = icmp ult i64 %max_vertices, %conv14
   %triangle_count = getelementptr inbounds i8, ptr %meshlet, i64 12
   %4 = load i32, ptr %triangle_count, align 4
   %conv16 = zext i32 %4 to i64
-  %cmp17.not = icmp uge i64 %conv16, %max_triangles
+  %cmp17.not = icmp ule i64 %max_triangles, %conv16
   %or.cond.not = select i1 %cmp15, i1 true, i1 %cmp17.not
   br i1 %or.cond.not, label %if.then, label %if.end
 
@@ -1715,14 +1715,14 @@ for.body:                                         ; preds = %entry, %for.inc
   %arrayidx29 = getelementptr inbounds i8, ptr %add.ptr10, i64 8
   %11 = load float, ptr %arrayidx29, align 4
   %sub31 = fsub float %11, %8
-  %12 = fneg float %sub19
-  %neg = fmul float %sub27, %12
+  %12 = fneg float %sub27
+  %neg = fmul float %sub19, %12
   %13 = tail call float @llvm.fmuladd.f32(float %sub15, float %sub31, float %neg)
-  %14 = fneg float %sub
-  %neg44 = fmul float %sub31, %14
+  %14 = fneg float %sub31
+  %neg44 = fmul float %sub, %14
   %15 = tail call float @llvm.fmuladd.f32(float %sub19, float %sub23, float %neg44)
-  %16 = fneg float %sub15
-  %neg51 = fmul float %sub23, %16
+  %16 = fneg float %sub23
+  %neg51 = fmul float %sub15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %sub, float %sub27, float %neg51)
   %mul53 = fmul float %15, %15
   %18 = tail call float @llvm.fmuladd.f32(float %13, float %13, float %mul53)

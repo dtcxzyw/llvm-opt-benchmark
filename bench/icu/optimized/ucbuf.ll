@@ -947,7 +947,7 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 -2
   %2 = load i16, ptr %add.ptr, align 2
   %conv = zext i16 %2 to i32
-  %cmp2 = icmp eq i32 %conv, %c
+  %cmp2 = icmp eq i32 %c, %conv
   br i1 %cmp2, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %if.then

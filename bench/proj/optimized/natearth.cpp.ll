@@ -127,12 +127,12 @@ define internal { double, double } @_ZL18natearth_s_forward5PJ_LPP8PJconsts(doub
   %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double -1.379100e-02)
   %9 = tail call double @llvm.fmuladd.f64(double %4, double %8, double -1.319790e-01)
   %10 = tail call double @llvm.fmuladd.f64(double %4, double %9, double 8.707000e-01)
-  %11 = fmul double %10, %0
+  %11 = fmul double %0, %10
   %12 = tail call double @llvm.fmuladd.f64(double %4, double 2.887400e-02, double -4.447500e-02)
   %13 = tail call double @llvm.fmuladd.f64(double %5, double -5.916000e-03, double %12)
   %14 = tail call double @llvm.fmuladd.f64(double %5, double %13, double 1.508500e-02)
   %15 = tail call double @llvm.fmuladd.f64(double %4, double %14, double 0x3FF01D99029AE4F3)
-  %16 = fmul double %15, %1
+  %16 = fmul double %1, %15
   %.fca.0.insert = insertvalue { double, double } poison, double %11, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %16, 1
   ret { double, double } %.fca.1.insert

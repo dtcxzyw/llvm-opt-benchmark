@@ -1671,7 +1671,7 @@ entry:
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i, %sub.ptr.rhs.cast.i8.i.i
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.sub.i9.i.i, %call.i.i.i
+  %cmp.i.i.i = icmp ugt i64 %call.i.i.i, %sub.ptr.sub.i9.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -2324,7 +2324,7 @@ _ZN4llvh11raw_ostreamlsEc.exit.i:                 ; preds = %if.end.i.i, %if.the
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i.i, %agg.tmp.sroa.2.0.copyload.i
+  %cmp.i.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload.i, %sub.ptr.sub.i.i
   br i1 %cmp.i.i, label %if.then.i6.i, label %if.end.i4.i
 
 if.then.i6.i:                                     ; preds = %_ZN4llvh11raw_ostreamlsEc.exit.i
@@ -2375,7 +2375,7 @@ _ZN4llvh11raw_ostreamlsEc.exit15.i:               ; preds = %if.end.i13.i, %if.t
   %sub.ptr.lhs.cast.i18.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i19.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i20.i = sub i64 %sub.ptr.lhs.cast.i18.i, %sub.ptr.rhs.cast.i19.i
-  %cmp.i21.i = icmp ult i64 %sub.ptr.sub.i20.i, %agg.tmp8.sroa.2.0.copyload.i
+  %cmp.i21.i = icmp ugt i64 %agg.tmp8.sroa.2.0.copyload.i, %sub.ptr.sub.i20.i
   br i1 %cmp.i21.i, label %if.then.i27.i, label %if.end.i22.i
 
 if.then.i27.i:                                    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit15.i
@@ -2575,7 +2575,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i.i, %node.48.val.8.val
+  %cmp.i.i = icmp ugt i64 %node.48.val.8.val, %sub.ptr.sub.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -4857,7 +4857,7 @@ cond.true.i.split:                                ; preds = %entry
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i8
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i9, %call.i
+  %cmp.i = icmp ugt i64 %call.i, %sub.ptr.sub.i9
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cond.true.i.split
@@ -4890,7 +4890,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp = icmp ult i64 %sub.ptr.sub, %Str.coerce1
+  %cmp = icmp ugt i64 %Str.coerce1, %sub.ptr.sub
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -5251,7 +5251,7 @@ if.then:                                          ; preds = %for.body
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i, %sub.ptr.rhs.cast.i8.i.i
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.sub.i9.i.i, %call.i.i.i
+  %cmp.i.i.i = icmp ugt i64 %call.i.i.i, %sub.ptr.sub.i9.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
@@ -5436,7 +5436,7 @@ if.then22:                                        ; preds = %for.body
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i, %sub.ptr.rhs.cast.i8.i.i
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.sub.i9.i.i, %call.i.i.i
+  %cmp.i.i.i = icmp ugt i64 %call.i.i.i, %sub.ptr.sub.i9.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then22
@@ -6208,7 +6208,7 @@ land.lhs.true:                                    ; preds = %entry
 lor.lhs.false36:                                  ; preds = %land.lhs.true
   %_arguments = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_arguments, align 8
-  %cmp.i.i = icmp eq ptr %1, %_arguments
+  %cmp.i.i = icmp eq ptr %_arguments, %1
   %spec.select = select i1 %cmp.i.i, i32 30, i32 31
   br label %return
 
@@ -6514,7 +6514,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %_body = getelementptr inbounds i8, ptr %spec.select.i, i64 56
   %1 = load ptr, ptr %_body, align 8
-  %cmp.i.i = icmp eq ptr %1, %_body
+  %cmp.i.i = icmp eq ptr %_body, %1
   %cmp.i.i.i.i.i.i = icmp eq i32 %0, 18
   %or.cond = or i1 %cmp.i.i.i.i.i.i, %cmp.i.i
   br i1 %or.cond, label %if.then, label %if.then8
@@ -6558,7 +6558,7 @@ if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %brmerge = or i1 %tobool.not, %forceBlock
+  %brmerge = or i1 %forceBlock, %tobool.not
   br i1 %brmerge, label %if.then8, label %if.else17
 
 if.then8:                                         ; preds = %land.lhs.true, %if.end
@@ -7316,7 +7316,7 @@ define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18B
 entry:
   %_body = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
-  %cmp.i.i = icmp eq ptr %0, %_body
+  %cmp.i.i = icmp eq ptr %_body, %0
   %1 = load ptr, ptr %this, align 8
   br i1 %cmp.i.i, label %if.then, label %if.end
 
@@ -8195,7 +8195,7 @@ if.then:                                          ; preds = %for.body
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i, %sub.ptr.rhs.cast.i8.i.i
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.sub.i9.i.i, %call.i.i.i
+  %cmp.i.i.i = icmp ugt i64 %call.i.i.i, %sub.ptr.sub.i9.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
@@ -8345,7 +8345,7 @@ if.then:                                          ; preds = %for.body
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i, %sub.ptr.rhs.cast.i8.i.i
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.sub.i9.i.i, %call.i.i.i
+  %cmp.i.i.i = icmp ugt i64 %call.i.i.i, %sub.ptr.sub.i9.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
@@ -8441,7 +8441,7 @@ if.then:                                          ; preds = %for.body
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i, %sub.ptr.rhs.cast.i8.i.i
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.sub.i9.i.i, %call.i.i.i
+  %cmp.i.i.i = icmp ugt i64 %call.i.i.i, %sub.ptr.sub.i9.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
@@ -8531,7 +8531,7 @@ if.then8:                                         ; preds = %for.end
   %sub.ptr.lhs.cast.i7.i.i15 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i8.i.i16 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i9.i.i17 = sub i64 %sub.ptr.lhs.cast.i7.i.i15, %sub.ptr.rhs.cast.i8.i.i16
-  %cmp.i.i.i18 = icmp ult i64 %sub.ptr.sub.i9.i.i17, %call.i.i.i12
+  %cmp.i.i.i18 = icmp ugt i64 %call.i.i.i12, %sub.ptr.sub.i9.i.i17
   br i1 %cmp.i.i.i18, label %if.then.i.i.i21, label %if.then4.i.i.i19
 
 if.then.i.i.i21:                                  ; preds = %if.then8
@@ -8703,7 +8703,7 @@ if.then:                                          ; preds = %for.body
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i, %sub.ptr.rhs.cast.i8.i.i
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.sub.i9.i.i, %call.i.i.i
+  %cmp.i.i.i = icmp ugt i64 %call.i.i.i, %sub.ptr.sub.i9.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
@@ -9018,7 +9018,7 @@ if.then:                                          ; preds = %for.body
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i, %sub.ptr.rhs.cast.i8.i.i
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.sub.i9.i.i, %call.i.i.i
+  %cmp.i.i.i = icmp ugt i64 %call.i.i.i, %sub.ptr.sub.i9.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
@@ -9198,7 +9198,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL
   %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %agg.tmp.sroa.2.0.copyload
+  %cmp.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i12, label %if.end.i10
 
 if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -9326,7 +9326,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %agg.tmp.sroa.2.0.copyload
+  %cmp.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -9472,7 +9472,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %agg.tmp.sroa.2.0.copyload
+  %cmp.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -9658,7 +9658,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
   %sub.ptr.lhs.cast.i16 = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i17 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i18 = sub i64 %sub.ptr.lhs.cast.i16, %sub.ptr.rhs.cast.i17
-  %cmp.i19 = icmp ult i64 %sub.ptr.sub.i18, %agg.tmp5.sroa.2.0.copyload
+  %cmp.i19 = icmp ugt i64 %agg.tmp5.sroa.2.0.copyload, %sub.ptr.sub.i18
   br i1 %cmp.i19, label %if.then.i25, label %if.end.i20
 
 if.then.i25:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit13
@@ -9858,7 +9858,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL
   %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %agg.tmp.sroa.2.0.copyload
+  %cmp.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i12, label %if.end.i10
 
 if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -10394,7 +10394,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %lor.lhs.false.i, %i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %agg.tmp.sroa.2.0.copyload
+  %cmp.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i14, label %if.end.i12
 
 if.then.i14:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -10606,7 +10606,7 @@ if.end.i:                                         ; preds = %if.end
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
   %_consequent = getelementptr inbounds i8, ptr %node, i64 56
   %10 = load ptr, ptr %_consequent, align 8
-  %cmp.i.i22 = icmp eq ptr %10, %_consequent
+  %cmp.i.i22 = icmp eq ptr %_consequent, %10
   br i1 %cmp.i.i22, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
@@ -10761,7 +10761,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i8.i
-  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i9.i, %call.i.i
+  %cmp.i.i = icmp ugt i64 %call.i.i, %sub.ptr.sub.i9.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -10800,7 +10800,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %agg.tmp.sroa.2.0.copyload
+  %cmp.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -10870,7 +10870,7 @@ if.then:                                          ; preds = %for.body
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i, %sub.ptr.rhs.cast.i8.i.i
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.sub.i9.i.i, %call.i.i.i
+  %cmp.i.i.i = icmp ugt i64 %call.i.i.i, %sub.ptr.sub.i9.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
@@ -10945,7 +10945,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i8 = icmp ult i64 %sub.ptr.sub.i, %agg.tmp.sroa.2.0.copyload
+  %cmp.i8 = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i8, label %if.then.i11, label %if.end.i9
 
 if.then.i11:                                      ; preds = %for.body
@@ -11227,7 +11227,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %agg.tmp.sroa.2.0.copyload
+  %cmp.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.thread:                                   ; preds = %if.end.i.i90
@@ -11666,7 +11666,7 @@ if.end.i:                                         ; preds = %entry
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
   %_body = getelementptr inbounds i8, ptr %node, i64 48
   %3 = load ptr, ptr %_body, align 8
-  %cmp.i.i = icmp eq ptr %3, %_body
+  %cmp.i.i = icmp eq ptr %_body, %3
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
@@ -12287,7 +12287,7 @@ if.then:                                          ; preds = %for.body
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i, %sub.ptr.rhs.cast.i8.i.i
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.sub.i9.i.i, %call.i.i.i
+  %cmp.i.i.i = icmp ugt i64 %call.i.i.i, %sub.ptr.sub.i9.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then

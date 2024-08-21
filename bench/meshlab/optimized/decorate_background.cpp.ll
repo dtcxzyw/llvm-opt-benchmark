@@ -248,7 +248,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -2774,106 +2774,106 @@ define linkonce_odr noundef float @_ZNK3vcg8Matrix44IfE11DeterminantEv(ptr nound
   %2 = alloca %"class.Eigen::Matrix", align 16
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %9, %1
-  %indvars.iv13.i = phi i64 [ 0, %1 ], [ %indvars.iv.next14.i, %9 ]
+.preheader.i:                                     ; preds = %11, %1
+  %indvars.iv13.i = phi i64 [ 0, %1 ], [ %indvars.iv.next14.i, %11 ]
   %3 = shl nuw nsw i64 %indvars.iv13.i, 2
   %4 = getelementptr inbounds [16 x float], ptr %0, i64 0, i64 %3
-  %invariant.gep.i = getelementptr double, ptr %2, i64 %indvars.iv13.i
-  br label %5
+  %5 = getelementptr double, ptr %2, i64 %indvars.iv13.i
+  br label %6
 
-5:                                                ; preds = %5, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds float, ptr %4, i64 %indvars.iv.i
-  %7 = load float, ptr %6, align 4
-  %8 = fpext float %7 to double
+6:                                                ; preds = %6, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %6 ]
+  %7 = getelementptr inbounds float, ptr %4, i64 %indvars.iv.i
+  %8 = load float, ptr %7, align 4
+  %9 = fpext float %8 to double
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv.i, 5
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i.i.i.i
-  store double %8, ptr %gep.i, align 8
+  %10 = getelementptr i8, ptr %5, i64 %.idx.i.i.i.i
+  store double %9, ptr %10, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %9, label %5, !llvm.loop !85
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !85
 
-9:                                                ; preds = %5
+11:                                               ; preds = %6
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 4
   br i1 %exitcond16.not.i, label %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit, label %.preheader.i, !llvm.loop !86
 
-_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit: ; preds = %9
-  %10 = load double, ptr %2, align 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
-  %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit: ; preds = %11
+  %12 = load double, ptr %2, align 16
+  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds i8, ptr %2, i64 40
   %15 = load double, ptr %14, align 8
-  %16 = load double, ptr %11, align 16
-  %17 = fneg double %15
-  %18 = fmul double %16, %17
-  %19 = tail call noundef double @llvm.fmuladd.f64(double %10, double %13, double %18)
-  %20 = getelementptr inbounds i8, ptr %2, i64 48
-  %21 = load double, ptr %20, align 16
+  %16 = load double, ptr %13, align 8
+  %17 = getelementptr inbounds i8, ptr %2, i64 32
+  %18 = load double, ptr %17, align 16
+  %19 = fneg double %18
+  %20 = fmul double %16, %19
+  %21 = tail call noundef double @llvm.fmuladd.f64(double %12, double %15, double %20)
   %22 = getelementptr inbounds i8, ptr %2, i64 16
-  %23 = load double, ptr %22, align 16
-  %24 = fneg double %23
-  %25 = fmul double %16, %24
-  %26 = tail call noundef double @llvm.fmuladd.f64(double %10, double %21, double %25)
-  %27 = getelementptr inbounds i8, ptr %2, i64 56
-  %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds i8, ptr %2, i64 48
+  %24 = load double, ptr %23, align 16
+  %25 = load double, ptr %22, align 16
+  %26 = fmul double %25, %19
+  %27 = tail call noundef double @llvm.fmuladd.f64(double %12, double %24, double %26)
+  %28 = getelementptr inbounds i8, ptr %2, i64 24
+  %29 = getelementptr inbounds i8, ptr %2, i64 56
   %30 = load double, ptr %29, align 8
-  %31 = fneg double %30
-  %32 = fmul double %16, %31
-  %33 = tail call noundef double @llvm.fmuladd.f64(double %10, double %28, double %32)
-  %34 = fmul double %13, %24
-  %35 = tail call noundef double @llvm.fmuladd.f64(double %15, double %21, double %34)
-  %36 = fmul double %13, %31
-  %37 = tail call noundef double @llvm.fmuladd.f64(double %15, double %28, double %36)
-  %38 = fmul double %21, %31
-  %39 = tail call noundef double @llvm.fmuladd.f64(double %23, double %28, double %38)
-  %40 = getelementptr inbounds i8, ptr %2, i64 64
-  %41 = getelementptr inbounds i8, ptr %2, i64 72
-  %42 = getelementptr inbounds i8, ptr %2, i64 80
-  %43 = load double, ptr %42, align 16
-  %44 = getelementptr inbounds i8, ptr %2, i64 88
-  %45 = load double, ptr %44, align 8
-  %46 = fmul double %35, %45
-  %47 = fmul double %43, %37
-  %48 = fsub double %46, %47
-  %49 = load double, ptr %41, align 8
-  %50 = fmul double %39, %49
-  %51 = fadd double %48, %50
-  %52 = fmul double %26, %45
-  %53 = fmul double %43, %33
-  %54 = fsub double %52, %53
-  %55 = load double, ptr %40, align 16
-  %56 = fmul double %39, %55
-  %57 = fadd double %54, %56
-  %58 = fmul double %19, %45
-  %59 = fmul double %33, %49
-  %60 = fsub double %58, %59
-  %61 = fmul double %37, %55
-  %62 = fadd double %60, %61
-  %63 = fmul double %19, %43
-  %64 = fmul double %26, %49
-  %65 = fsub double %63, %64
-  %66 = fmul double %35, %55
-  %67 = fadd double %65, %66
-  %68 = getelementptr inbounds i8, ptr %2, i64 96
-  %69 = load double, ptr %68, align 16
-  %70 = getelementptr inbounds i8, ptr %2, i64 104
-  %71 = load double, ptr %70, align 8
-  %72 = fmul double %71, %57
-  %73 = fmul double %69, %51
-  %74 = fsub double %72, %73
-  %75 = getelementptr inbounds i8, ptr %2, i64 112
-  %76 = load double, ptr %75, align 16
-  %77 = getelementptr inbounds i8, ptr %2, i64 120
-  %78 = load double, ptr %77, align 8
-  %79 = fmul double %67, %78
-  %80 = fmul double %62, %76
-  %81 = fsub double %79, %80
-  %82 = fadd double %74, %81
-  %83 = fptrunc double %82 to float
-  ret float %83
+  %31 = load double, ptr %28, align 8
+  %32 = fmul double %31, %19
+  %33 = tail call noundef double @llvm.fmuladd.f64(double %12, double %30, double %32)
+  %34 = fneg double %15
+  %35 = fmul double %25, %34
+  %36 = tail call noundef double @llvm.fmuladd.f64(double %16, double %24, double %35)
+  %37 = fmul double %31, %34
+  %38 = tail call noundef double @llvm.fmuladd.f64(double %16, double %30, double %37)
+  %39 = fneg double %24
+  %40 = fmul double %31, %39
+  %41 = tail call noundef double @llvm.fmuladd.f64(double %25, double %30, double %40)
+  %42 = getelementptr inbounds i8, ptr %2, i64 72
+  %43 = getelementptr inbounds i8, ptr %2, i64 80
+  %44 = load double, ptr %43, align 16
+  %45 = getelementptr inbounds i8, ptr %2, i64 88
+  %46 = load double, ptr %45, align 8
+  %47 = fmul double %36, %46
+  %48 = fmul double %44, %38
+  %49 = fsub double %47, %48
+  %50 = load double, ptr %42, align 8
+  %51 = fmul double %41, %50
+  %52 = fadd double %49, %51
+  %53 = getelementptr inbounds i8, ptr %2, i64 64
+  %54 = fmul double %27, %46
+  %55 = fmul double %44, %33
+  %56 = fsub double %54, %55
+  %57 = load double, ptr %53, align 16
+  %58 = fmul double %41, %57
+  %59 = fadd double %56, %58
+  %60 = fmul double %21, %46
+  %61 = fmul double %33, %50
+  %62 = fsub double %60, %61
+  %63 = fmul double %38, %57
+  %64 = fadd double %62, %63
+  %65 = fmul double %21, %44
+  %66 = fmul double %27, %50
+  %67 = fsub double %65, %66
+  %68 = fmul double %36, %57
+  %69 = fadd double %67, %68
+  %70 = getelementptr inbounds i8, ptr %2, i64 96
+  %71 = load double, ptr %70, align 16
+  %72 = getelementptr inbounds i8, ptr %2, i64 104
+  %73 = load double, ptr %72, align 8
+  %74 = fmul double %73, %59
+  %75 = fmul double %71, %52
+  %76 = fsub double %74, %75
+  %77 = getelementptr inbounds i8, ptr %2, i64 112
+  %78 = load double, ptr %77, align 16
+  %79 = getelementptr inbounds i8, ptr %2, i64 120
+  %80 = load double, ptr %79, align 8
+  %81 = fmul double %69, %80
+  %82 = fmul double %64, %78
+  %83 = fsub double %81, %82
+  %84 = fadd double %76, %83
+  %85 = fptrunc double %84 to float
+  ret float %85
 }
 
 declare void @glMatrixMode(i32 noundef) local_unnamed_addr #0
@@ -2944,7 +2944,7 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   %42 = tail call noundef float @llvm.fabs.f32(float %39)
   %43 = tail call noundef float @fmodf(float noundef %42, float noundef %5) #23
   %44 = fsub float %39, %43
-  %45 = fadd float %44, %5
+  %45 = fadd float %5, %44
   br label %46
 
 46:                                               ; preds = %36, %41
@@ -3063,7 +3063,7 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20)
-  %brmerge.not = and i1 %95, %7
+  %brmerge.not = and i1 %7, %95
   br i1 %brmerge.not, label %107, label %96
 
 96:                                               ; preds = %.sink.split.i
@@ -3311,7 +3311,7 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   store float %.080105, ptr %84, align 4
   call void @glVertex3fv(ptr noundef nonnull %22)
   call void @glVertex3fv(ptr noundef nonnull %23)
-  %89 = fadd float %.080105, %11
+  %89 = fadd float %11, %.080105
   %90 = fcmp ugt float %89, %79
   br i1 %90, label %.preheader104, label %88, !llvm.loop !90
 
@@ -3321,7 +3321,7 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   store float %.079106, ptr %87, align 4
   call void @glVertex3fv(ptr noundef nonnull %24)
   call void @glVertex3fv(ptr noundef nonnull %25)
-  %92 = fadd float %.079106, %11
+  %92 = fadd float %11, %.079106
   %93 = fcmp ugt float %92, %72
   br i1 %93, label %._crit_edge, label %91, !llvm.loop !91
 
@@ -3351,7 +3351,7 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   store float %.078108, ptr %95, align 4
   call void @glVertex3fv(ptr noundef nonnull %22)
   call void @glVertex3fv(ptr noundef nonnull %23)
-  %99 = fadd float %.078108, %10
+  %99 = fadd float %10, %.078108
   %100 = fcmp ugt float %99, %79
   br i1 %100, label %.preheader, label %98, !llvm.loop !92
 
@@ -3361,7 +3361,7 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   store float %.0111, ptr %97, align 4
   call void @glVertex3fv(ptr noundef nonnull %24)
   call void @glVertex3fv(ptr noundef nonnull %25)
-  %102 = fadd float %.0111, %10
+  %102 = fadd float %10, %.0111
   %103 = fcmp ugt float %102, %72
   br i1 %103, label %._crit_edge113, label %101, !llvm.loop !93
 

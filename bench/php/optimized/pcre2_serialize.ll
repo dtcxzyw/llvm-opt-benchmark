@@ -153,7 +153,7 @@ define range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %
   br i1 %.not74, label %22, label %.loopexit
 
 22:                                               ; preds = %19
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %12, i32 %1)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %12)
   %23 = load ptr, ptr %5, align 8
   %24 = getelementptr inbounds i8, ptr %5, i64 16
   %25 = load ptr, ptr %24, align 8

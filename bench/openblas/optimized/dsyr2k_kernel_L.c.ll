@@ -55,7 +55,7 @@ define noundef i32 @dsyr2k_kernel_L(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %39, label %40, label %47
 
 40:                                               ; preds = %37
-  %41 = mul i64 %31, %2
+  %41 = mul i64 %2, %31
   %42 = sub i64 0, %41
   %43 = getelementptr inbounds double, ptr %4, i64 %42
   %44 = sub i64 0, %31

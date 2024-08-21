@@ -1050,14 +1050,14 @@ invoke.cont289:                                   ; preds = %invoke.cont286
           to label %invoke.cont295 unwind label %lpad285
 
 invoke.cont295:                                   ; preds = %invoke.cont289
-  %138 = fneg float %mul7.i.i.i
-  %neg.i = fmul float %mul4.i.i.i326, %138
+  %138 = fneg float %mul4.i.i.i326
+  %neg.i = fmul float %mul7.i.i.i, %138
   %139 = call float @llvm.fmuladd.f32(float %mul4.i.i.i, float %mul7.i.i.i327, float %neg.i)
-  %140 = fneg float %mul.i.i.i
-  %neg19.i = fmul float %mul7.i.i.i327, %140
+  %140 = fneg float %mul7.i.i.i327
+  %neg19.i = fmul float %mul.i.i.i, %140
   %141 = call float @llvm.fmuladd.f32(float %mul7.i.i.i, float %mul.i.i.i325, float %neg19.i)
-  %142 = fneg float %mul4.i.i.i
-  %neg30.i = fmul float %mul.i.i.i325, %142
+  %142 = fneg float %mul.i.i.i325
+  %neg30.i = fmul float %mul4.i.i.i, %142
   %143 = call float @llvm.fmuladd.f32(float %mul.i.i.i, float %mul4.i.i.i326, float %neg30.i)
   %mul8.i.i.i.i348 = fmul float %141, %141
   %144 = call float @llvm.fmuladd.f32(float %139, float %139, float %mul8.i.i.i.i348)
@@ -1485,7 +1485,7 @@ invoke.cont604.us:                                ; preds = %for.body531.us
   %216 = call float @llvm.fmuladd.f32(float %199, float %mul7.i.i449.us, float %215)
   %neg30.i578.us = fneg float %202
   %217 = call float @llvm.fmuladd.f32(float %neg30.i578.us, float %mul4.i.i448.us, float %216)
-  %neg37.i579.us = fmul float %mul4.i.i448.us, %neg19.i576.us
+  %neg37.i579.us = fmul float %199, %fneg.i536.us
   %218 = call float @llvm.fmuladd.f32(float %208, float %call.i8.i.i452.us, float %neg37.i579.us)
   %219 = call float @llvm.fmuladd.f32(float %neg30.i578.us, float %mul7.i.i449.us, float %218)
   %220 = call float @llvm.fmuladd.f32(float %neg.i574.us, float %mul10.i.i450.us, float %219)
@@ -1612,7 +1612,7 @@ invoke.cont568.us:                                ; preds = %for.body531.us
   %271 = call float @llvm.fmuladd.f32(float %254, float %mul7.i.i449.us, float %270)
   %neg30.i484.us = fneg float %257
   %272 = call float @llvm.fmuladd.f32(float %neg30.i484.us, float %mul4.i.i448.us, float %271)
-  %neg37.i485.us = fmul float %mul4.i.i448.us, %neg19.i482.us
+  %neg37.i485.us = fmul float %254, %fneg.i456.us
   %273 = call float @llvm.fmuladd.f32(float %263, float %call.i8.i.i452.us, float %neg37.i485.us)
   %274 = call float @llvm.fmuladd.f32(float %neg30.i484.us, float %mul7.i.i449.us, float %273)
   %275 = call float @llvm.fmuladd.f32(float %neg.i480.us, float %mul10.i.i450.us, float %274)
@@ -1962,9 +1962,9 @@ if.end18:                                         ; preds = %if.else.i32, %if.th
   %add8.i = fadd float %mul4.i71.i, %27
   %28 = load float, ptr %translationB.sroa.3.0.m_origin.i20.sroa_idx, align 4
   %add14.i = fadd float %mul8.i73.i, %28
-  %mul.i55 = fmul float %25, %capsuleRadiusB
-  %mul4.i57 = fmul float %24, %capsuleRadiusB
-  %mul8.i59 = fmul float %23, %capsuleRadiusB
+  %mul.i55 = fmul float %capsuleRadiusB, %25
+  %mul4.i57 = fmul float %capsuleRadiusB, %24
+  %mul8.i59 = fmul float %capsuleRadiusB, %23
   %add.i65 = fadd float %add.i, %mul.i55
   %add8.i68 = fadd float %add8.i, %mul4.i57
   %add14.i71 = fadd float %add14.i, %mul8.i59
@@ -2027,11 +2027,11 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3E6resize
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %if.end16, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %if.then4, label %if.end16
 
 if.then4:                                         ; preds = %if.else
@@ -3004,7 +3004,7 @@ entry:
   %m_marginOnA = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load float, ptr %m_marginOnA, align 8
   %add = fadd float %1, %8
-  %add5 = fadd float %add, %depthOrg
+  %add5 = fadd float %depthOrg, %add
   store float %add5, ptr %m_reportedDistance, align 8
   %cmp = fcmp olt float %add5, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
@@ -3067,13 +3067,13 @@ entry:
   %0 = load i8, ptr %m_perturbA, align 8
   %tobool = trunc i8 %0 to i1
   %1 = load float, ptr %normalOnBInWorld, align 4
-  %mul.i = fmul float %1, %orgDepth
+  %mul.i = fmul float %orgDepth, %1
   %arrayidx3.i = getelementptr inbounds i8, ptr %normalOnBInWorld, i64 4
   %2 = load float, ptr %arrayidx3.i, align 4
-  %mul4.i = fmul float %2, %orgDepth
+  %mul4.i = fmul float %orgDepth, %2
   %arrayidx7.i = getelementptr inbounds i8, ptr %normalOnBInWorld, i64 8
   %3 = load float, ptr %arrayidx7.i, align 4
-  %mul8.i = fmul float %3, %orgDepth
+  %mul8.i = fmul float %orgDepth, %3
   %4 = load float, ptr %pointInWorld, align 4
   %add.i = fadd float %mul.i, %4
   %arrayidx5.i = getelementptr inbounds i8, ptr %pointInWorld, i64 4
@@ -3595,7 +3595,7 @@ _ZN6btFaceC2ERKS_.exit:                           ; preds = %for.body.i.i.i, %_Z
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_plane.i, ptr noundef nonnull align 8 dereferenceable(16) %m_plane3.i, i64 16, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %end
+  %exitcond.not = icmp eq i32 %end, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
 
 for.end:                                          ; preds = %_ZN6btFaceC2ERKS_.exit, %entry

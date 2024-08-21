@@ -57,7 +57,7 @@ define void @_ZN7memif_t4readEmmPv(ptr nocapture noundef nonnull readonly align 
   %16 = alloca i8, i64 %10, align 16
   %17 = load ptr, ptr %5, align 8
   %18 = sub i64 0, %10
-  %19 = and i64 %18, %1
+  %19 = and i64 %1, %18
   %20 = load ptr, ptr %17, align 8
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef %19, i64 noundef %10, ptr noundef nonnull %16)
@@ -156,7 +156,7 @@ define void @_ZN7memif_t5writeEmmPKv(ptr nocapture noundef nonnull readonly alig
   %16 = alloca i8, i64 %10, align 16
   %17 = load ptr, ptr %5, align 8
   %18 = sub i64 0, %10
-  %19 = and i64 %18, %1
+  %19 = and i64 %1, %18
   %20 = load ptr, ptr %17, align 8
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef %19, i64 noundef %10, ptr noundef nonnull %16)

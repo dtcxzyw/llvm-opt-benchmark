@@ -2945,7 +2945,7 @@ eval_nodes_cpus_to_use.exit.i139:                 ; preds = %eval_nodes_cpus_to_
   br i1 %.not462.i.us, label %.thread557.i.us, label %1462
 
 1462:                                             ; preds = %1458
-  %1463 = icmp sle i32 %.0.i512.i.us, %1447
+  %1463 = icmp sge i32 %1447, %.0.i512.i.us
   %brmerge.demorgan.i.us = and i1 %1050, %1463
   br i1 %brmerge.demorgan.i.us, label %1464, label %.thread557.i.us
 
@@ -5086,7 +5086,7 @@ define noundef zeroext i1 @eval_nodes_enough_nodes(i32 noundef %0, i32 noundef %
   %6 = add i32 %2, %1
   %7 = sub i32 %6, %3
   %.0 = select i1 %5, i32 %7, i32 %1
-  %8 = icmp sle i32 %.0, %0
+  %8 = icmp sge i32 %0, %.0
   ret i1 %8
 }
 

@@ -1031,26 +1031,26 @@ sw.epilog.sink.split:                             ; preds = %if.end4
 sw.epilog:                                        ; preds = %if.end4, %sw.epilog.sink.split
   %normalized = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i8 0, ptr %normalized, align 4
-  %cmp17.not = icmp eq i64 %0, %year
+  %cmp17.not = icmp eq i64 %year, %0
   %sext = shl i32 %cs.sroa.3.8.extract.trunc, 24
   %conv.i = ashr exact i32 %sext, 24
-  %cmp19.not = icmp eq i32 %conv.i, %mon
+  %cmp19.not = icmp eq i32 %mon, %conv.i
   %or.cond = select i1 %cmp17.not, i1 %cmp19.not, i1 false
   %4 = shl i32 %cs.sroa.3.8.extract.trunc, 16
   %conv.i17 = ashr i32 %4, 24
-  %cmp22.not = icmp eq i32 %conv.i17, %day
+  %cmp22.not = icmp eq i32 %day, %conv.i17
   %or.cond22 = select i1 %or.cond, i1 %cmp22.not, i1 false
   %5 = shl i32 %cs.sroa.3.8.extract.trunc, 8
   %conv.i18 = ashr i32 %5, 24
-  %cmp25.not = icmp eq i32 %conv.i18, %hour
+  %cmp25.not = icmp eq i32 %hour, %conv.i18
   %or.cond23 = select i1 %or.cond22, i1 %cmp25.not, i1 false
   %conv.i19 = ashr i32 %cs.sroa.3.8.extract.trunc, 24
-  %cmp28.not = icmp eq i32 %conv.i19, %min
+  %cmp28.not = icmp eq i32 %min, %conv.i19
   %or.cond24 = select i1 %or.cond23, i1 %cmp28.not, i1 false
   %sh.diff = lshr i64 %1, 8
   %tr.sh.diff = trunc i64 %sh.diff to i32
   %conv.i20 = ashr i32 %tr.sh.diff, 24
-  %cmp31.not = icmp eq i32 %conv.i20, %sec
+  %cmp31.not = icmp eq i32 %sec, %conv.i20
   %or.cond25 = select i1 %or.cond24, i1 %cmp31.not, i1 false
   br i1 %or.cond25, label %return, label %return.sink.split
 

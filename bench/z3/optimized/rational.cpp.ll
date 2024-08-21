@@ -196,7 +196,7 @@ if.then.thread:                                   ; preds = %invoke.cont
 _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %invoke.cont
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not = icmp ugt i32 %2, %k
+  %cmp.not = icmp ult i32 %k, %2
   br i1 %cmp.not, label %if.end, label %_ZNK6vectorI8rationalLb1EjE5emptyEv.exit.i
 
 _ZNK6vectorI8rationalLb1EjE5emptyEv.exit.i:       ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit

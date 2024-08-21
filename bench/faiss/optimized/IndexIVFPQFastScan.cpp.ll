@@ -195,7 +195,7 @@ define void @_ZNK5faiss18IndexIVFPQFastScan14encode_vectorsElPKfPKlPhb(ptr nound
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %15 = mul nsw i64 %14, %1
+  %15 = mul nsw i64 %1, %14
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.i, label %17
 
@@ -1595,7 +1595,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread: ; preds = %5
 25:                                               ; preds = %23
   %26 = load ptr, ptr %3, align 8
   %27 = load ptr, ptr %0, align 8
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %24, i64 %.07.i36)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.07.i36, i64 %24)
   %28 = shl i64 %.sroa.speculated.i, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 %27, i64 %28, i1 false)
   br label %30

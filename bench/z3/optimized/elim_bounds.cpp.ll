@@ -773,7 +773,7 @@ land.lhs.true:                                    ; preds = %if.then52
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %land.lhs.true
   %arrayidx.i.i74 = getelementptr inbounds i8, ptr %27, i64 -4
   %28 = load i32, ptr %arrayidx.i.i74, align 4
-  %cmp.i75 = icmp ugt i32 %28, %26
+  %cmp.i75 = icmp ult i32 %26, %28
   br i1 %cmp.i75, label %invoke.cont56, label %land.lhs.true58
 
 invoke.cont56:                                    ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
@@ -1046,7 +1046,7 @@ land.lhs.true75:                                  ; preds = %if.end73
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i158:        ; preds = %land.lhs.true75
   %arrayidx.i.i159 = getelementptr inbounds i8, ptr %54, i64 -4
   %55 = load i32, ptr %arrayidx.i.i159, align 4
-  %cmp.i160 = icmp ugt i32 %55, %53
+  %cmp.i160 = icmp ult i32 %53, %55
   br i1 %cmp.i160, label %invoke.cont78, label %land.lhs.true81
 
 invoke.cont78:                                    ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i158
@@ -1593,7 +1593,7 @@ for.end153:                                       ; preds = %for.inc151
   br i1 %cmp156, label %cleanup, label %if.end158
 
 if.end158:                                        ; preds = %for.end153
-  %cmp.i429 = icmp ult i32 %112, %j.1
+  %cmp.i429 = icmp ugt i32 %j.1, %112
   br i1 %cmp.i429, label %for.body.i432, label %if.else.i
 
 for.body.i432:                                    ; preds = %if.end158, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i456
@@ -1668,7 +1668,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i456: ; preds = %_ZN6bufferIP4e
   br i1 %exitcond.not.i461, label %invoke.cont159, label %for.body.i432, !llvm.loop !11
 
 if.else.i:                                        ; preds = %if.end158
-  %cmp3.i = icmp ugt i32 %112, %j.1
+  %cmp3.i = icmp ult i32 %j.1, %112
   br i1 %cmp3.i, label %for.cond6.preheader.i, label %invoke.cont159
 
 for.cond6.preheader.i:                            ; preds = %if.else.i

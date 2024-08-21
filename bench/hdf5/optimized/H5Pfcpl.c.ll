@@ -1280,7 +1280,7 @@ define range(i32 -1, 1) i32 @H5Pset_shared_mesg_index(i64 noundef %0, i32 nounde
 
 49:                                               ; preds = %42
   %50 = load i32, ptr %5, align 4
-  %.not = icmp ugt i32 %50, %1
+  %.not = icmp ult i32 %1, %50
   br i1 %.not, label %55, label %51
 
 51:                                               ; preds = %49
@@ -1415,7 +1415,7 @@ define range(i32 -1, 1) i32 @H5Pget_shared_mesg_index(i64 noundef %0, i32 nounde
 
 43:                                               ; preds = %36
   %44 = load i32, ptr %5, align 4
-  %.not = icmp ugt i32 %44, %1
+  %.not = icmp ult i32 %1, %44
   br i1 %.not, label %49, label %45
 
 45:                                               ; preds = %43

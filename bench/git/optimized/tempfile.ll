@@ -442,7 +442,7 @@ if.then14:                                        ; preds = %if.end11
   %5 = load i32, ptr %call16, align 4
   %6 = load i64, ptr %sb, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %1
+  %cmp.i = icmp ugt i64 %1, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then14

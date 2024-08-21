@@ -3308,7 +3308,7 @@ ltos.exit.i.i:                                    ; preds = %.lr.ph49.preheader.
   %414 = getelementptr i8, ptr %.2179.i.i, i64 %413
   store i8 %411, ptr %414, align 1
   %415 = udiv i8 %.043.i131.i.i, %.0111.i.i
-  %.not.i133.i.i = icmp ult i8 %.043.i131.i.i, %.0111.i.i
+  %.not.i133.i.i = icmp ugt i8 %.0111.i.i, %.043.i131.i.i
   br i1 %.not.i133.i.i, label %.preheader.i135.i.i, label %.preheader45.i129.i.i, !llvm.loop !7
 
 .preheader.i135.i.i:                              ; preds = %.preheader45.i129.i.i
@@ -6659,7 +6659,7 @@ define internal fastcc noundef i32 @acn_add_dmp_address(ptr noundef %0, ptr noun
   %.sink = phi i32 [ 4, %18 ], [ 2, %15 ], [ 1, %12 ]
   %21 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sink2, ptr %21, align 4
-  %22 = add i32 %.sink, %2
+  %22 = add i32 %2, %.sink
   %23 = load i8, ptr %3, align 4
   %.not204 = icmp sgt i8 %23, -1
   br i1 %.not204, label %27, label %24
@@ -6729,7 +6729,7 @@ define internal fastcc noundef i32 @acn_add_dmp_address(ptr noundef %0, ptr noun
   %.sink4 = phi i32 [ 12, %53 ], [ 6, %42 ], [ 3, %31 ]
   %62 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %.sink5, ptr %62, align 4
-  %63 = add i32 %.sink4, %2
+  %63 = add i32 %2, %.sink4
   %64 = load i8, ptr %3, align 4
   %.not203 = icmp sgt i8 %64, -1
   %65 = getelementptr inbounds i8, ptr %3, i64 4
@@ -6803,7 +6803,7 @@ define internal fastcc noundef i32 @acn_add_dmp_address(ptr noundef %0, ptr noun
   %.sink7 = phi i32 [ 12, %98 ], [ 6, %87 ], [ 3, %76 ]
   %107 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %.sink8, ptr %107, align 4
-  %108 = add i32 %.sink7, %2
+  %108 = add i32 %2, %.sink7
   %109 = load i8, ptr %3, align 4
   %.not202 = icmp sgt i8 %109, -1
   %110 = getelementptr inbounds i8, ptr %3, i64 4
@@ -6877,7 +6877,7 @@ define internal fastcc noundef i32 @acn_add_dmp_address(ptr noundef %0, ptr noun
   %.sink10 = phi i32 [ 12, %143 ], [ 6, %132 ], [ 3, %121 ]
   %152 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %.sink11, ptr %152, align 4
-  %153 = add i32 %.sink10, %2
+  %153 = add i32 %2, %.sink10
   %154 = load i8, ptr %3, align 4
   %.not = icmp sgt i8 %154, -1
   %155 = getelementptr inbounds i8, ptr %3, i64 4

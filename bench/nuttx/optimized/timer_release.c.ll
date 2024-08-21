@@ -38,14 +38,14 @@ define range(i32 -22, 2) i32 @timer_release(ptr noundef %0) local_unnamed_addr #
   br i1 %.not.i, label %.loopexit.i, label %15
 
 15:                                               ; preds = %10
-  %16 = icmp eq ptr %14, %0
+  %16 = icmp eq ptr %0, %14
   br i1 %16, label %17, label %.preheader.i
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %0, align 8
   store ptr %18, ptr @g_alloctimers, align 8
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @g_alloctimers, i64 8), align 8
-  %20 = icmp eq ptr %19, %0
+  %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %.loopexit.i
 
 21:                                               ; preds = %17

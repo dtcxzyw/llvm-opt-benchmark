@@ -141,8 +141,8 @@ _ZN4pbrt12StringPrintfIJRKNS_6Point3IfEERKfRKNS_7Normal3IfEERKNS_15SampledSpectr
 define dso_local noundef float @_ZN4pbrt15BeamDiffusionMSEfffff(float noundef %sigma_s, float noundef %sigma_a, float noundef %g, float noundef %eta, float noundef %r) local_unnamed_addr #1 {
 entry:
   %sub = fsub float 1.000000e+00, %g
-  %mul = fmul float %sub, %sigma_s
-  %add = fadd float %mul, %sigma_a
+  %mul = fmul float %sigma_s, %sub
+  %add = fadd float %sigma_a, %mul
   %div = fdiv float %mul, %add
   %mul1 = fmul float %sigma_a, 2.000000e+00
   %add2 = fadd float %mul1, %mul
@@ -360,7 +360,7 @@ entry:
   %cmp.i.i = fcmp ogt float %sub, 0.000000e+00
   %.sroa.speculated.i = select i1 %cmp.i.i, float %sub, float 0.000000e+00
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i)
-  %mul = fmul float %sqrt.i, %r
+  %mul = fmul float %r, %sqrt.i
   %mul.i15 = fmul float %r, %r
   %fneg = fneg float %add
   %conv.i.i = fpext float %g to double

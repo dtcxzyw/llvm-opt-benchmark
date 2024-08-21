@@ -651,7 +651,7 @@ define internal ptr @snd_dma_continuous_alloc(ptr nocapture noundef %0, i64 noun
   %.idx = and i64 %28, -4096
   store i64 %.idx, ptr %5, align 8
   %29 = load i64, ptr %10, align 8
-  %30 = add i64 %.idx, %1
+  %30 = add i64 %1, %.idx
   %31 = sub i64 0, %30
   %32 = or i64 %29, %31
   %33 = icmp eq i64 %32, -1
@@ -906,7 +906,7 @@ define internal ptr @snd_dma_wc_alloc(ptr nocapture noundef %0, i64 noundef %1) 
   %.idx.i = and i64 %28, -4096
   store i64 %.idx.i, ptr %5, align 8
   %29 = load i64, ptr %10, align 8
-  %30 = add i64 %.idx.i, %1
+  %30 = add i64 %1, %.idx.i
   %31 = sub i64 0, %30
   %32 = or i64 %29, %31
   %33 = icmp eq i64 %32, -1

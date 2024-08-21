@@ -849,7 +849,7 @@ define dso_local noundef zeroext i1 @_ZN17cmScriptGenerator18GeneratesForConfigE
 .loopexit12:                                      ; preds = %.noexc8, %.noexc7, %.noexc6, %.noexc, %.noexc11, %.noexc10, %.noexc9, %._crit_edge.i.i.i.i.i
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %.noexc9 ], [ %.sroa.025.1.i.i.i.i.i, %.noexc10 ], [ %12, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %.noexc11 ], [ %.sroa.025.035.i.i.i.i.i, %.noexc ], [ %20, %.noexc6 ], [ %23, %.noexc7 ], [ %26, %.noexc8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %43 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %12
+  %43 = icmp ne ptr %12, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
   br label %45
 

@@ -86,7 +86,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then8:                                         ; preds = %land.lhs.true
   %call = tail call ptr @g_datalist_get_data(ptr noundef nonnull @named_timers, ptr noundef nonnull %2) #11
-  %cmp = icmp eq ptr %call, %timer
+  %cmp = icmp eq ptr %timer, %call
   br i1 %cmp, label %if.end12, label %if.else
 
 if.else:                                          ; preds = %if.then8

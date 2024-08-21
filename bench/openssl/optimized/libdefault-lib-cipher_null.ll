@@ -84,7 +84,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp.not, label %if.end10, label %if.then2
 
 if.then2:                                         ; preds = %land.lhs.true
-  %cmp4 = icmp ugt i64 %1, %inl
+  %cmp4 = icmp ult i64 %inl, %1
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then2
@@ -98,7 +98,7 @@ if.end6:                                          ; preds = %if.then2
 
 if.end10:                                         ; preds = %if.end6, %land.lhs.true, %if.end
   %inl.addr.0 = phi i64 [ %inl, %if.end ], [ %sub, %if.end6 ], [ %inl, %land.lhs.true ]
-  %cmp11 = icmp ugt i64 %inl.addr.0, %outsize
+  %cmp11 = icmp ult i64 %outsize, %inl.addr.0
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end10

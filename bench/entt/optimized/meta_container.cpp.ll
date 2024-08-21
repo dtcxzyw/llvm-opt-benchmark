@@ -101307,7 +101307,7 @@ if.end55:                                         ; preds = %for.inc.critedge, %
   %conversion_helper = getelementptr inbounds i8, ptr %from, i64 48
   %36 = load ptr, ptr %conversion_helper, align 8, !tbaa !1802
   %tobool56.not = icmp ne ptr %36, null
-  %brmerge.not = and i1 %tobool56.not, %arithmetic_or_enum
+  %brmerge.not = and i1 %arithmetic_or_enum, %tobool56.not
   br i1 %brmerge.not, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %if.end55
@@ -114779,7 +114779,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp30.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then4
-  %add.i.i.i = add nsw i64 %conv.i.i, %__n
+  %add.i.i.i = add nsw i64 %__n, %conv.i.i
   %4 = trunc i64 %add.i.i.i to i32
   %conv4.i.i.i = and i32 %4, 63
   %div.i.i.i = sdiv i64 %add.i.i.i, 64
@@ -114834,7 +114834,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i:      ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !2003
 
 _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i, %if.then4
-  %add.i.i.i58 = add nsw i64 %conv3.i.i.i.i.i.i, %__n
+  %add.i.i.i58 = add nsw i64 %__n, %conv3.i.i.i.i.i.i
   %div.i.i.i59 = sdiv i64 %add.i.i.i58, 64
   %add.ptr.i.i.i60 = getelementptr inbounds i64, ptr %__position.coerce0, i64 %div.i.i.i59
   %9 = and i64 %add.i.i.i58, -9223372036854775745
@@ -114934,7 +114934,7 @@ _ZSt14__fill_bvectorPmjjb.exit58.i.i.i:           ; preds = %if.else.i52.i.i.i, 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %_ZSt14__fill_bvectorPmjjb.exit58.i.i.i, %if.else.i.i.i, %_ZSt14__fill_bvectorPmjjb.exit46.i.i.i, %if.end.i.i.i
   %17 = load i32, ptr %_M_offset.i.i.i, align 8, !tbaa !1987
   %conv.i.i67 = zext i32 %17 to i64
-  %add.i.i68 = add nsw i64 %conv.i.i67, %__n
+  %add.i.i68 = add nsw i64 %__n, %conv.i.i67
   %div.i.i = sdiv i64 %add.i.i68, 64
   %18 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !402
   %add.ptr.i.i = getelementptr inbounds i64, ptr %18, i64 %div.i.i
@@ -115031,7 +115031,7 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %__result.sroa.5.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
   %__result.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
   %conv.i.i.i92 = zext i32 %__result.sroa.5.0.lcssa.i.i.i.i.i.i to i64
-  %add.i.i.i93 = add nsw i64 %conv.i.i.i92, %__n
+  %add.i.i.i93 = add nsw i64 %__n, %conv.i.i.i92
   %div.i.i.i94 = sdiv i64 %add.i.i.i93, 64
   %add.ptr.i.i.i95 = getelementptr inbounds i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, i64 %div.i.i.i94
   %27 = and i64 %add.i.i.i93, -9223372036854775745
@@ -115244,7 +115244,7 @@ if.else5.i.i:                                     ; preds = %entry
   %_M_offset.i.i15.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %3 = load i32, ptr %_M_offset.i.i15.i.i, align 8, !tbaa !1987
   %conv.i.i.i.i = zext i32 %3 to i64
-  %add.i.i.i.i = add nsw i64 %conv.i.i.i.i, %offset
+  %add.i.i.i.i = add nsw i64 %offset, %conv.i.i.i.i
   %div.i.i.i.i = sdiv i64 %add.i.i.i.i, 64
   %4 = load ptr, ptr %value, align 8, !tbaa !402
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %4, i64 %div.i.i.i.i
@@ -116008,7 +116008,7 @@ if.else5.i.i:                                     ; preds = %entry
   %_M_offset.i.i15.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %3 = load i32, ptr %_M_offset.i.i15.i.i, align 8, !tbaa !1987
   %conv.i.i.i.i = zext i32 %3 to i64
-  %add.i.i.i.i = add nsw i64 %conv.i.i.i.i, %offset
+  %add.i.i.i.i = add nsw i64 %offset, %conv.i.i.i.i
   %div.i.i.i.i = sdiv i64 %add.i.i.i.i, 64
   %4 = load ptr, ptr %value, align 8, !tbaa !402
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %4, i64 %div.i.i.i.i
@@ -119406,7 +119406,7 @@ while.body3.i.i30.i.preheader:                    ; preds = %while.cond1.prehead
   br i1 %lcmp.mod41.not, label %while.body3.i.i30.i.prol.loopexit, label %while.body3.i.i30.i.prol.preheader
 
 while.body3.i.i30.i.prol.preheader:               ; preds = %while.body3.i.i30.i.preheader
-  %20 = add i64 %xtraiter40, %__new_size
+  %20 = add i64 %__new_size, %xtraiter40
   br label %while.body3.i.i30.i.prol
 
 while.body3.i.i30.i.prol:                         ; preds = %while.body3.i.i30.i.prol.preheader, %while.body3.i.i30.i.prol
@@ -119610,7 +119610,7 @@ while.body3.i.i.prol:                             ; preds = %while.body3.prehead
   br i1 %prol.iter.cmp.not, label %while.body3.i.i.prol.loopexit.loopexit, label %while.body3.i.i.prol, !llvm.loop !2055
 
 while.body3.i.i.prol.loopexit.loopexit:           ; preds = %while.body3.i.i.prol
-  %4 = add i64 %xtraiter, %offset
+  %4 = add i64 %offset, %xtraiter
   br label %while.body3.i.i.prol.loopexit
 
 while.body3.i.i.prol.loopexit:                    ; preds = %while.body3.i.i.prol.loopexit.loopexit, %while.body3.preheader.i.i
@@ -119841,7 +119841,7 @@ while.body3.i.i.prol:                             ; preds = %while.body3.prehead
   br i1 %prol.iter.cmp.not, label %while.body3.i.i.prol.loopexit.loopexit, label %while.body3.i.i.prol, !llvm.loop !2061
 
 while.body3.i.i.prol.loopexit.loopexit:           ; preds = %while.body3.i.i.prol
-  %4 = add i64 %xtraiter, %offset
+  %4 = add i64 %offset, %xtraiter
   br label %while.body3.i.i.prol.loopexit
 
 while.body3.i.i.prol.loopexit:                    ; preds = %while.body3.i.i.prol.loopexit.loopexit, %while.body3.preheader.i.i

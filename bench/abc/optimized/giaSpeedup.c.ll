@@ -1629,7 +1629,7 @@ define i32 @Gia_LutDelayTraceTCEdges(ptr nocapture noundef readonly %0, i32 noun
   %65 = getelementptr inbounds float, ptr %.val76.val, i64 %64
   %66 = load float, ptr %65, align 4
   %67 = fadd float %66, %59
-  %68 = fadd float %67, %2
+  %68 = fadd float %2, %67
   %69 = fcmp olt float %14, %68
   %70 = trunc nuw nsw i64 %indvars.iv95 to i32
   %71 = shl nuw i32 1, %70
@@ -1761,7 +1761,7 @@ Gia_LutDelayTraceSortPins.exit:                   ; preds = %.critedge.i
   %132 = getelementptr inbounds float, ptr %84, i64 %indvars.iv
   %133 = load float, ptr %132, align 4
   %134 = fadd float %131, %133
-  %135 = fadd float %134, %2
+  %135 = fadd float %2, %134
   %136 = fcmp olt float %14, %135
   %137 = shl nuw i32 1, %124
   %138 = select i1 %136, i32 %137, i32 0

@@ -442,7 +442,7 @@ define void @_ZN5ZXing7Content5eraseEii(ptr nocapture noundef nonnull align 8 de
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.not11.i.i = icmp eq ptr %12, %8
+  %.not11.i.i = icmp eq ptr %8, %12
   br i1 %.not11.i.i, label %._crit_edge.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES6_ET0_T_S8_S7_.exit.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES6_ET0_T_S8_S7_.exit.i.i: ; preds = %10
@@ -630,7 +630,7 @@ define noundef zeroext i1 @_ZNK5ZXing7Content10canProcessEv(ptr nocapture nounde
 
 "_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5ZXing7Content8EncodingESt6vectorIS4_SaIS4_EEEEZNKS3_10canProcessEvE3$_0EbT_SC_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5ZXing7Content8EncodingESt6vectorIS4_SaIS4_EEEEZNKS3_10canProcessEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5ZXing7Content8EncodingESt6vectorIS4_SaIS4_EEEEZNKS3_10canProcessEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit14", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5ZXing7Content8EncodingESt6vectorIS4_SaIS4_EEEEZNKS3_10canProcessEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit16", %._crit_edge.i.i.i.i, %27, %31, %35
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i, %27 ], [ %.sroa.037.1.i.i.i.i, %31 ], [ %5, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %35 ], [ %37, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5ZXing7Content8EncodingESt6vectorIS4_SaIS4_EEEEZNKS3_10canProcessEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit" ], [ %38, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5ZXing7Content8EncodingESt6vectorIS4_SaIS4_EEEEZNKS3_10canProcessEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit14" ], [ %39, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKN5ZXing7Content8EncodingESt6vectorIS4_SaIS4_EEEEZNKS3_10canProcessEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit16" ], [ %.sroa.037.056.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %40 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %5
+  %40 = icmp eq ptr %5, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   ret i1 %40
 }
 
@@ -759,7 +759,7 @@ _ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit24: ; preds = %32
 
 _ZNK5ZXing7Content10canProcessEv.exit:            ; preds = %.lr.ph.i.i.i.i.i, %_ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit, %_ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit22, %_ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit24, %40, %44, %48
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %40 ], [ %.sroa.037.1.i.i.i.i.i, %44 ], [ %spec.select.i.i.i.i.i, %48 ], [ %50, %_ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit ], [ %51, %_ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit22 ], [ %52, %_ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit24 ], [ %.sroa.037.056.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %53 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %18
+  %53 = icmp eq ptr %18, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %53, label %_ZNK5ZXing7Content10canProcessEv.exit.thread, label %54
 
 54:                                               ; preds = %_ZNK5ZXing7Content10canProcessEv.exit, %3
@@ -1471,7 +1471,7 @@ _ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit34: ; preds = %29
 
 _ZNK5ZXing7Content10canProcessEv.exit:            ; preds = %.lr.ph.i.i.i.i.i, %_ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit, %_ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit32, %_ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit34, %37, %41, %45
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %37 ], [ %.sroa.037.1.i.i.i.i.i, %41 ], [ %spec.select.i.i.i.i.i, %45 ], [ %47, %_ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit ], [ %48, %_ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit32 ], [ %49, %_ZNK5ZXing7Content10canProcessEv.exit.loopexit.split.loop.exit34 ], [ %.sroa.037.056.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %50 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %15
+  %50 = icmp eq ptr %15, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %50, label %_ZNK5ZXing7Content10canProcessEv.exit.thread, label %_ZNSt6vectorIbSaIbEED2Ev.exit14
 
 _ZNK5ZXing7Content10canProcessEv.exit.thread:     ; preds = %._crit_edge.i.i.i.i.i, %_ZNK5ZXing7Content10canProcessEv.exit
@@ -2089,7 +2089,7 @@ _ZSt13move_backwardIPhS0_ET0_T_S2_S1_.exit:       ; preds = %23, %_ZSt22__uninit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEmEvRT_T0_.exit: ; preds = %16
   %27 = getelementptr inbounds i8, ptr %2, i64 %18
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %27, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %27
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEPhhET0_T_SA_S9_RSaIT1_E.exit, label %28
 
 28:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEmEvRT_T0_.exit
@@ -2152,7 +2152,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIhSaIh
   %51 = phi ptr [ %50, %49 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit ]
   %52 = ptrtoint ptr %1 to i64
   %53 = sub i64 %52, %40
-  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %39, %1
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %39
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %55, label %54
 
 54:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit
@@ -2366,7 +2366,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIhSaIh
   %70 = phi ptr [ %69, %68 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit ]
   %71 = ptrtoint ptr %1 to i64
   %72 = sub i64 %71, %59
-  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %58, %1
+  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %1, %58
   br i1 %.not.i.i.i.i.i.i.i.i.i59, label %74, label %73
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit
@@ -2733,7 +2733,7 @@ define internal fastcc void @"_ZZNK5ZXing7Content8bytesECIEvENK3$_0clENS_3ECIEii
 30:                                               ; preds = %20, %27
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %31 = trunc nsw i64 %indvars.iv.next to i32
-  %.not = icmp eq i32 %31, %3
+  %.not = icmp eq i32 %3, %31
   br i1 %.not, label %._crit_edge, label %20, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %30, %17
@@ -2922,7 +2922,7 @@ switch.early.test51.i.i.i.i.i:                    ; preds = %56
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEZZNK5ZXing7Content4typeEvENK3$_0clENS8_3ECIEiiEUlT_E_EbSC_SC_T0_.exit": ; preds = %switch.early.test.i.i.i.i.i, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEZZNK5ZXing7Content4typeEvENK3$_0clENS8_3ECIEiiEUlT_E_EbSC_SC_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEZZNK5ZXing7Content4typeEvENK3$_0clENS8_3ECIEiiEUlT_E_EbSC_SC_T0_.exit.loopexit.split.loop.exit23", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEZZNK5ZXing7Content4typeEvENK3$_0clENS8_3ECIEiiEUlT_E_EbSC_SC_T0_.exit.loopexit.split.loop.exit25", %._crit_edge.i.i.i.i.i, %switch.early.test49.i.i.i.i.i, %switch.early.test50.i.i.i.i.i, %switch.early.test51.i.i.i.i.i, %59
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %switch.early.test49.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %switch.early.test50.i.i.i.i.i ], [ %.sroa.037.2.i.i.i.i.i, %switch.early.test51.i.i.i.i.i ], [ %22, %59 ], [ %22, %._crit_edge.i.i.i.i.i ], [ %60, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEZZNK5ZXing7Content4typeEvENK3$_0clENS8_3ECIEiiEUlT_E_EbSC_SC_T0_.exit.loopexit.split.loop.exit" ], [ %61, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEZZNK5ZXing7Content4typeEvENK3$_0clENS8_3ECIEiiEUlT_E_EbSC_SC_T0_.exit.loopexit.split.loop.exit23" ], [ %62, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEZZNK5ZXing7Content4typeEvENK3$_0clENS8_3ECIEiiEUlT_E_EbSC_SC_T0_.exit.loopexit.split.loop.exit25" ], [ %.sroa.037.068.i.i.i.i.i, %switch.early.test.i.i.i.i.i ]
-  %63 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %22
+  %63 = icmp ne ptr %22, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br label %64
 
 64:                                               ; preds = %15, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEZZNK5ZXing7Content4typeEvENK3$_0clENS8_3ECIEiiEUlT_E_EbSC_SC_T0_.exit", %11
@@ -3105,7 +3105,7 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %59
   %75 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %74) #22
   %76 = ptrtoint ptr %1 to i64
   %77 = sub i64 %76, %61
-  %.not.i.i.i.i.i.i26 = icmp eq ptr %60, %1
+  %.not.i.i.i.i.i.i26 = icmp eq ptr %1, %60
   br i1 %.not.i.i.i.i.i.i26, label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, label %78
 
 78:                                               ; preds = %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit

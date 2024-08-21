@@ -894,7 +894,7 @@ tailrecurse:                                      ; preds = %_ZN6google8protobuf
   %20 = ptrtoint ptr %18 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
-  %.not7.i = icmp ult i64 %22, %17
+  %.not7.i = icmp ugt i64 %17, %22
   br i1 %.not7.i, label %.lr.ph.i, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
 .lr.ph.i:                                         ; preds = %.thread
@@ -993,7 +993,7 @@ _ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit: ; preds = %50, %.threa
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %63 to i64
   %gepdiff.i = sub nsw i64 %64, %62
-  %.not.i = icmp ult i64 %gepdiff.i, %17
+  %.not.i = icmp ugt i64 %17, %gepdiff.i
   br i1 %.not.i, label %25, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.loopexit
 
 _ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.loopexit: ; preds = %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit
@@ -1063,7 +1063,7 @@ define noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAd
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
-  %.not7.i.i = icmp ult i64 %26, %1
+  %.not7.i.i = icmp ugt i64 %1, %26
   br i1 %.not7.i.i, label %.lr.ph.i.i, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.i
 
 .lr.ph.i.i:                                       ; preds = %19
@@ -1112,7 +1112,7 @@ _ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE
   %52 = ptrtoint ptr %51 to i64
   %53 = ptrtoint ptr %49 to i64
   %gepdiff.i.i = sub nsw i64 %50, %48
-  %.not.i.i = icmp ult i64 %gepdiff.i.i, %1
+  %.not.i.i = icmp ugt i64 %1, %gepdiff.i.i
   br i1 %.not.i.i, label %28, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.i
 
 _ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.i: ; preds = %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.i, %19
@@ -1257,7 +1257,7 @@ _ZN6google8protobuf8internal9ArenaImpl22GetSerialArenaFallbackEPv.exit: ; preds 
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
-  %.not7.i.i = icmp ult i64 %55, %1
+  %.not7.i.i = icmp ugt i64 %1, %55
   br i1 %.not7.i.i, label %.lr.ph.i.i, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN6google8protobuf8internal9ArenaImpl22GetSerialArenaFallbackEPv.exit
@@ -1306,7 +1306,7 @@ _ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %78 to i64
   %gepdiff.i.i = sub nsw i64 %79, %77
-  %.not.i.i = icmp ult i64 %gepdiff.i.i, %1
+  %.not.i.i = icmp ugt i64 %1, %gepdiff.i.i
   br i1 %.not.i.i, label %57, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.i
 
 _ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.i: ; preds = %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.i, %_ZN6google8protobuf8internal9ArenaImpl22GetSerialArenaFallbackEPv.exit
@@ -1628,7 +1628,7 @@ _ZN6google8protobuf8internal9ArenaImpl22GetSerialArenaFallbackEPv.exit: ; preds 
   %52 = ptrtoint ptr %50 to i64
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %52, %53
-  %.not7.i = icmp ult i64 %54, %1
+  %.not7.i = icmp ugt i64 %1, %54
   br i1 %.not7.i, label %.lr.ph.i1, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
 .lr.ph.i1:                                        ; preds = %_ZN6google8protobuf8internal9ArenaImpl22GetSerialArenaFallbackEPv.exit
@@ -1677,7 +1677,7 @@ _ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE
   %80 = ptrtoint ptr %79 to i64
   %81 = ptrtoint ptr %77 to i64
   %gepdiff.i = sub nsw i64 %78, %76
-  %.not.i3 = icmp ult i64 %gepdiff.i, %1
+  %.not.i3 = icmp ugt i64 %1, %gepdiff.i
   br i1 %.not.i3, label %56, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
 _ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit: ; preds = %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i, %_ZN6google8protobuf8internal9ArenaImpl22GetSerialArenaFallbackEPv.exit
@@ -1836,7 +1836,7 @@ _ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE
   %30 = getelementptr inbounds i8, ptr %22, i64 %29
   store ptr %30, ptr %7, align 8
   %gepdiff = sub nsw i64 %29, %27
-  %.not7.i = icmp ult i64 %gepdiff, %1
+  %.not7.i = icmp ugt i64 %1, %gepdiff
   br i1 %.not7.i, label %.lr.ph.i, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit, %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i
@@ -1880,7 +1880,7 @@ _ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE
   %53 = getelementptr inbounds i8, ptr %45, i64 %52
   store ptr %53, ptr %7, align 8
   %gepdiff.i = sub nsw i64 %52, %50
-  %.not.i2 = icmp ult i64 %gepdiff.i, %1
+  %.not.i2 = icmp ugt i64 %1, %gepdiff.i
   br i1 %.not.i2, label %.lr.ph.i, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
 _ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit: ; preds = %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i, %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit
@@ -2122,7 +2122,7 @@ define noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr nound
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
-  %.not7.i.i = icmp ult i64 %25, %1
+  %.not7.i.i = icmp ugt i64 %1, %25
   br i1 %.not7.i.i, label %.lr.ph.i.i, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.i
 
 .lr.ph.i.i:                                       ; preds = %18
@@ -2171,7 +2171,7 @@ _ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE
   %51 = ptrtoint ptr %50 to i64
   %52 = ptrtoint ptr %48 to i64
   %gepdiff.i.i = sub nsw i64 %49, %47
-  %.not.i.i = icmp ult i64 %gepdiff.i.i, %1
+  %.not.i.i = icmp ugt i64 %1, %gepdiff.i.i
   br i1 %.not.i.i, label %27, label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.i
 
 _ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit.i: ; preds = %_ZN6google8protobuf8internal11SerialArena8NewBlockEPNS2_5BlockEmPNS1_9ArenaImplE.exit.i.i, %18

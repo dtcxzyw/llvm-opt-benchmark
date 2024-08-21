@@ -462,7 +462,7 @@ define internal fastcc range(i32 0, 2) i32 @try_one_irq(ptr noundef %0, i1 nound
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 65536
   %13 = icmp eq i32 %12, 0
-  %14 = or i1 %13, %1
+  %14 = or i1 %1, %13
   br i1 %14, label %15, label %48
 
 15:                                               ; preds = %8

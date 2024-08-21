@@ -135,7 +135,7 @@ os_pages_unmap.exit.i.i:                          ; preds = %if.then.i.i.i, %if.
   br label %if.end.i14.i
 
 if.end.i14.i:                                     ; preds = %os_pages_unmap.exit.i.i, %if.end3.i
-  %cmp2.not.i.i = icmp eq i64 %8, %sub.i
+  %cmp2.not.i.i = icmp eq i64 %sub.i, %8
   br i1 %cmp2.not.i.i, label %return, label %if.then3.i.i, !llvm.loop !5
 
 if.then3.i.i:                                     ; preds = %if.end.i14.i

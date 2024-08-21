@@ -54,7 +54,7 @@ entry:
 define dso_local ptr @semihosting_get_arg(i32 noundef %i) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
-  %cmp.not = icmp sgt i32 %0, %i
+  %cmp.not = icmp slt i32 %i, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

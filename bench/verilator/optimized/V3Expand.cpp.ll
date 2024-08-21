@@ -5577,7 +5577,7 @@ _ZN7AstNode9privateIsI13AstNodeAssignPS_EEbPKS_.exit: ; preds = %28
 _ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_.exit: ; preds = %_ZN7AstNode9privateIsI13AstNodeAssignPS_EEbPKS_.exit
   %33 = getelementptr inbounds i8, ptr %30, i64 32
   %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, %1
+  %35 = icmp eq ptr %1, %34
   br i1 %35, label %_ZN7AstNode12user1SetOnceEv.exit, label %_ZN7AstNode9privateIsI13AstNodeAssignPS_EEbPKS_.exit.thread
 
 _ZN7AstNode9privateIsI13AstNodeAssignPS_EEbPKS_.exit.thread: ; preds = %28, %_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_.exit, %_ZN7AstNode9privateIsI13AstNodeAssignPS_EEbPKS_.exit
@@ -8005,7 +8005,7 @@ _ZNK7AstNode6isWideEv.exit:                       ; preds = %2
 _ZNK7AstNode10widthWordsEv.exit:                  ; preds = %_ZNK7AstNode6isWideEv.exit
   %12 = add nuw nsw i32 %9, 31
   %13 = lshr i32 %12, 5
-  %14 = icmp ugt i32 %13, %1
+  %14 = icmp ult i32 %1, %13
   br i1 %14, label %15, label %_ZNK7AstNode6isWideEv.exit100.thread
 
 15:                                               ; preds = %_ZNK7AstNode10widthWordsEv.exit
@@ -14692,7 +14692,7 @@ _ZNK7AstNode6isWideEv.exit.thread:                ; preds = %4, %_ZNK7AstNode6is
 _ZNK7AstNode10widthWordsEv.exit:                  ; preds = %_ZNK7AstNode6isWideEv.exit
   %13 = add nuw nsw i32 %8, 31
   %14 = lshr i32 %13, 5
-  %.not = icmp ugt i32 %14, %3
+  %.not = icmp ult i32 %3, %14
   br i1 %.not, label %_ZN7AstNode9privateIsI8AstConstP11AstNodeExprEEbPKS_.exit, label %15
 
 15:                                               ; preds = %_ZNK7AstNode10widthWordsEv.exit
@@ -16228,7 +16228,7 @@ define linkonce_odr dso_local void @_ZN8V3NumberC2EP7AstNodei(ptr noundef nonnul
 define linkonce_odr dso_local void @_ZN8V3Number6setBitEic(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %5, %1
+  %.not = icmp slt i32 %1, %5
   br i1 %.not, label %6, label %49
 
 6:                                                ; preds = %3

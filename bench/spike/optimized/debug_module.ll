@@ -647,7 +647,7 @@ define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr nocapture noundef n
   %26 = getelementptr inbounds i8, ptr %0, i64 40
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
-  %.not = icmp ugt i64 %28, %1
+  %.not = icmp ult i64 %1, %28
   %29 = add nuw nsw i64 %28, 48
   %.not41 = icmp ugt i64 %6, %29
   %or.cond51 = select i1 %.not, i1 true, i1 %.not41
@@ -678,7 +678,7 @@ define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr nocapture noundef n
   %43 = getelementptr inbounds i8, ptr %0, i64 36
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
-  %.not42 = icmp ugt i64 %45, %1
+  %.not42 = icmp ult i64 %1, %45
   br i1 %.not42, label %57, label %46
 
 46:                                               ; preds = %42
@@ -732,7 +732,7 @@ define noundef zeroext i1 @_ZN14debug_module_t5storeEmmPKh(ptr nocapture noundef
   %18 = getelementptr inbounds i8, ptr %0, i64 36
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %.not = icmp ugt i64 %20, %1
+  %.not = icmp ult i64 %1, %20
   br i1 %.not, label %32, label %21
 
 21:                                               ; preds = %17
@@ -1865,7 +1865,7 @@ define noundef zeroext i1 @_ZN14debug_module_t8dmi_readEjPj(ptr noundef nonnull 
   %6 = getelementptr inbounds i8, ptr %0, i64 1212
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 4
-  %9 = icmp ugt i32 %8, %1
+  %9 = icmp ult i32 %1, %8
   br i1 %9, label %10, label %32
 
 10:                                               ; preds = %5
@@ -1910,7 +1910,7 @@ define noundef zeroext i1 @_ZN14debug_module_t8dmi_readEjPj(ptr noundef nonnull 
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, 32
-  %38 = icmp ugt i32 %37, %1
+  %38 = icmp ult i32 %1, %37
   br i1 %38, label %39, label %.thread131
 
 39:                                               ; preds = %34
@@ -3559,7 +3559,7 @@ define noundef zeroext i1 @_ZN14debug_module_t9dmi_writeEjj(ptr noundef nonnull 
   %13 = getelementptr inbounds i8, ptr %0, i64 1212
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, 4
-  %16 = icmp ugt i32 %15, %1
+  %16 = icmp ult i32 %1, %15
   br i1 %16, label %17, label %51
 
 17:                                               ; preds = %11
@@ -3625,7 +3625,7 @@ define noundef zeroext i1 @_ZN14debug_module_t9dmi_writeEjj(ptr noundef nonnull 
   %54 = getelementptr inbounds i8, ptr %0, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = add i32 %55, 32
-  %57 = icmp ugt i32 %56, %1
+  %57 = icmp ult i32 %1, %56
   br i1 %57, label %58, label %.thread126
 
 58:                                               ; preds = %53
@@ -4255,7 +4255,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %_ZNSt14_Bit_referen
   %426 = getelementptr inbounds i8, ptr %0, i64 1348
   %427 = load i32, ptr %426, align 4
   %428 = add i32 %427, %425
-  %429 = icmp eq i32 %428, %2
+  %429 = icmp eq i32 %2, %428
   br i1 %429, label %430, label %431
 
 430:                                              ; preds = %423
@@ -4461,7 +4461,7 @@ _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNK
 _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit ], [ %40, %.lr.ph.i.i.i ]
   %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17

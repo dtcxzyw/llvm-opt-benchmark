@@ -571,18 +571,18 @@ define internal i32 @mspack_fmap_read(ptr noundef %0, ptr nocapture noundef %1, 
   %19 = zext nneg i32 %2 to i64
   %20 = getelementptr inbounds i8, ptr %18, i64 88
   %21 = load i64, ptr %20, align 8
-  %22 = icmp ne i64 %21, %16
+  %22 = icmp ne i64 %16, %21
   %23 = icmp ne i32 %2, 0
   %or.cond.i = and i1 %23, %22
   br i1 %or.cond.i, label %24, label %fmap_readn.exit
 
 24:                                               ; preds = %11
-  %25 = icmp ult i64 %21, %16
+  %25 = icmp ugt i64 %16, %21
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %24
   %27 = sub nuw i64 %21, %16
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %27, i64 %19)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %27)
   %28 = getelementptr inbounds i8, ptr %18, i64 104
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %18, i64 noundef %16, i64 noundef %spec.select.i, i32 noundef 0) #14
@@ -600,7 +600,7 @@ define internal i32 @mspack_fmap_read(ptr noundef %0, ptr nocapture noundef %1, 
 fmap_readn.exit:                                  ; preds = %31, %11
   %.0.i = phi i64 [ %spec.select.i, %31 ], [ 0, %11 ]
   %33 = trunc nuw nsw i64 %.0.i to i32
-  %34 = icmp ult i32 %33, %2
+  %34 = icmp ugt i32 %2, %33
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %fmap_readn.exit

@@ -410,7 +410,7 @@ define double @Java_com_sun_management_internal_OperatingSystemImpl_getSingleCpu
   %7 = icmp sgt i32 %2, -1
   %or.cond = and i1 %7, %6
   %8 = load i32, ptr @counters, align 8
-  %9 = icmp sgt i32 %8, %2
+  %9 = icmp slt i32 %2, %8
   %or.cond6 = select i1 %or.cond, i1 %9, i1 false
   br i1 %or.cond6, label %10, label %18
 

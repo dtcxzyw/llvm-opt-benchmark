@@ -1064,7 +1064,7 @@ land.lhs.true41.i:                                ; preds = %land.lhs.true.i
   %conv2.i.i = ashr exact i64 %sext.i.i, 32
   %call.i.i = call i64 @BUF_MEM_grow_clean(ptr noundef %50, i64 noundef %conv2.i.i) #8
   %tobool.not.i.i = icmp eq i64 %call.i.i, 0
-  %cmp.i.i = icmp ugt i64 %sub.ptr.sub.i.i, %add.i
+  %cmp.i.i = icmp ult i64 %add.i, %sub.ptr.sub.i.i
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.i.i
   br i1 %or.cond.i.i, label %if.then47.i, label %grow_init_buf.exit.i
 

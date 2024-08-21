@@ -1618,8 +1618,8 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
 
 52:                                               ; preds = %49
   %53 = add nsw i32 %.0.i, -918000
-  %or.cond25.i = icmp ult i32 %53, -917827
-  br i1 %or.cond25.i, label %.loopexit.i, label %.lr.ph.i.i
+  %or.cond27.i = icmp ult i32 %53, -917827
+  br i1 %or.cond27.i, label %ucs_wcwidth.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %52, %68
   %.01723.i.i = phi i32 [ %.1.i.i, %68 ], [ 0, %52 ]
@@ -1630,7 +1630,7 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   %57 = getelementptr %struct.mbinterval, ptr @ucs_wcwidth.nonspacing, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
-  %60 = icmp ult i32 %59, %.0.i
+  %60 = icmp ugt i32 %.0.i, %59
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %.lr.ph.i.i
@@ -1639,7 +1639,7 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
 
 63:                                               ; preds = %.lr.ph.i.i
   %64 = load i32, ptr %57, align 8
-  %65 = icmp ugt i32 %64, %.0.i
+  %65 = icmp ult i32 %.0.i, %64
   br i1 %65, label %66, label %ucs_wcwidth.exit
 
 66:                                               ; preds = %63
@@ -1650,46 +1650,46 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   %.119.i.i = phi i32 [ %.01822.i.i, %61 ], [ %67, %66 ]
   %.1.i.i = phi i32 [ %62, %61 ], [ %.01723.i.i, %66 ]
   %.not.i.i = icmp slt i32 %.119.i.i, %.1.i.i
-  br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not.i.i, label %69, label %.lr.ph.i.i, !llvm.loop !16
 
-.loopexit.i:                                      ; preds = %68, %52
-  %69 = add nsw i32 %.0.i, -262142
-  %or.cond26.i = icmp ult i32 %69, -257790
-  br i1 %or.cond26.i, label %ucs_wcwidth.exit, label %.lr.ph.i13.i
+69:                                               ; preds = %68
+  %70 = add nsw i32 %.0.i, -262142
+  %or.cond28.i = icmp ult i32 %70, -257790
+  br i1 %or.cond28.i, label %ucs_wcwidth.exit, label %.lr.ph.i13.i
 
-.lr.ph.i13.i:                                     ; preds = %.loopexit.i, %84
-  %.01723.i14.i = phi i32 [ %.1.i18.i, %84 ], [ 0, %.loopexit.i ]
-  %.01822.i15.i = phi i32 [ %.119.i17.i, %84 ], [ 119, %.loopexit.i ]
-  %70 = add i32 %.01822.i15.i, %.01723.i14.i
-  %71 = sdiv i32 %70, 2
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr %struct.mbinterval, ptr @ucs_wcwidth.east_asian_fw, i64 %72
-  %74 = getelementptr inbounds i8, ptr %73, i64 4
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp ult i32 %75, %.0.i
-  br i1 %76, label %77, label %79
+.lr.ph.i13.i:                                     ; preds = %69, %85
+  %.01723.i14.i = phi i32 [ %.1.i18.i, %85 ], [ 0, %69 ]
+  %.01822.i15.i = phi i32 [ %.119.i17.i, %85 ], [ 119, %69 ]
+  %71 = add i32 %.01822.i15.i, %.01723.i14.i
+  %72 = sdiv i32 %71, 2
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr %struct.mbinterval, ptr @ucs_wcwidth.east_asian_fw, i64 %73
+  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp ugt i32 %.0.i, %76
+  br i1 %77, label %78, label %80
 
-77:                                               ; preds = %.lr.ph.i13.i
-  %78 = add nsw i32 %71, 1
-  br label %84
+78:                                               ; preds = %.lr.ph.i13.i
+  %79 = add nsw i32 %72, 1
+  br label %85
 
-79:                                               ; preds = %.lr.ph.i13.i
-  %80 = load i32, ptr %73, align 8
-  %81 = icmp ugt i32 %80, %.0.i
-  br i1 %81, label %82, label %ucs_wcwidth.exit
+80:                                               ; preds = %.lr.ph.i13.i
+  %81 = load i32, ptr %74, align 8
+  %82 = icmp ult i32 %.0.i, %81
+  br i1 %82, label %83, label %ucs_wcwidth.exit
 
-82:                                               ; preds = %79
-  %83 = add nsw i32 %71, -1
-  br label %84
+83:                                               ; preds = %80
+  %84 = add nsw i32 %72, -1
+  br label %85
 
-84:                                               ; preds = %82, %77
-  %.119.i17.i = phi i32 [ %.01822.i15.i, %77 ], [ %83, %82 ]
-  %.1.i18.i = phi i32 [ %78, %77 ], [ %.01723.i14.i, %82 ]
+85:                                               ; preds = %83, %78
+  %.119.i17.i = phi i32 [ %.01822.i15.i, %78 ], [ %84, %83 ]
+  %.1.i18.i = phi i32 [ %79, %78 ], [ %.01723.i14.i, %83 ]
   %.not.i19.i = icmp slt i32 %.119.i17.i, %.1.i18.i
   br i1 %.not.i19.i, label %ucs_wcwidth.exit, label %.lr.ph.i13.i, !llvm.loop !16
 
-ucs_wcwidth.exit:                                 ; preds = %63, %79, %84, %23, %utf8_to_unicode.exit, %47, %49, %.loopexit.i
-  %.0.i1 = phi i32 [ 0, %utf8_to_unicode.exit ], [ -1, %49 ], [ -1, %47 ], [ 1, %.loopexit.i ], [ -1, %23 ], [ 2, %79 ], [ 1, %84 ], [ 0, %63 ]
+ucs_wcwidth.exit:                                 ; preds = %63, %80, %85, %23, %utf8_to_unicode.exit, %47, %49, %52, %69
+  %.0.i1 = phi i32 [ 0, %utf8_to_unicode.exit ], [ -1, %49 ], [ -1, %47 ], [ 1, %69 ], [ 1, %52 ], [ -1, %23 ], [ 2, %80 ], [ 1, %85 ], [ 0, %63 ]
   ret i32 %.0.i1
 }
 
@@ -1750,7 +1750,7 @@ define internal i32 @pg_utf8_verifystr(ptr noundef %0, i32 noundef %1) #6 {
 
 4:                                                ; preds = %.preheader47
   %5 = getelementptr i8, ptr %.153, i64 32
-  %6 = icmp ugt ptr %5, %.153
+  %6 = icmp ult ptr %.153, %5
   br i1 %6, label %.lr.ph.i, label %is_valid_ascii.exit.thread
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
@@ -2214,7 +2214,7 @@ define internal range(i32 -1, 5) i32 @pg_mule_verifychar(ptr nocapture noundef r
 
 pg_mule_mblen.exit:                               ; preds = %2, %5, %8
   %.0.i = phi i32 [ 2, %2 ], [ 3, %5 ], [ %spec.select.i, %8 ]
-  %9 = icmp sgt i32 %.0.i, %1
+  %9 = icmp slt i32 %1, %.0.i
   br i1 %9, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %pg_mule_mblen.exit, %11
@@ -2271,7 +2271,7 @@ define internal i32 @pg_mule_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 
 pg_mule_mblen.exit.i:                             ; preds = %12, %9, %7
   %.0.i.i = phi i32 [ 2, %7 ], [ 3, %9 ], [ %spec.select.i.i, %12 ]
-  %13 = icmp ugt i32 %.0.i.i, %.01319
+  %13 = icmp ult i32 %.01319, %.0.i.i
   br i1 %13, label %pg_mule_verifychar.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %pg_mule_mblen.exit.i, %15
@@ -2412,7 +2412,7 @@ define internal range(i32 -1, 3) i32 @pg_sjis_verifychar(ptr nocapture noundef r
   %.not.i = icmp sgt i8 %3, -1
   %5 = or i1 %.not.i, %or.cond.i
   %.0.i = select i1 %5, i32 1, i32 2
-  %6 = icmp sgt i32 %.0.i, %1
+  %6 = icmp slt i32 %1, %.0.i
   %brmerge = or i1 %5, %6
   %.mux = select i1 %6, i32 -1, i32 1
   br i1 %brmerge, label %14, label %7
@@ -2460,7 +2460,7 @@ define internal i32 @pg_sjis_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %8 = add nsw i8 %4, 95
   %or.cond.i.i = icmp ult i8 %8, 63
   %.0.i.i = select i1 %or.cond.i.i, i32 1, i32 2
-  %9 = icmp ugt i32 %.0.i.i, %.01318
+  %9 = icmp ult i32 %.01318, %.0.i.i
   %brmerge.i = or i1 %or.cond.i.i, %9
   br i1 %brmerge.i, label %pg_sjis_verifychar.exit, label %10
 
@@ -2534,7 +2534,7 @@ define internal range(i32 -1, 3) i32 @pg_big5_verifychar(ptr nocapture noundef r
   %3 = load i8, ptr %0, align 1
   %.not.i = icmp slt i8 %3, 0
   %..i = select i1 %.not.i, i32 2, i32 1
-  %4 = icmp sgt i32 %..i, %1
+  %4 = icmp slt i32 %1, %..i
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %5
@@ -2634,7 +2634,7 @@ define internal range(i32 -1, 3) i32 @pg_gbk_verifychar(ptr nocapture noundef re
   %3 = load i8, ptr %0, align 1
   %.not.i = icmp slt i8 %3, 0
   %..i = select i1 %.not.i, i32 2, i32 1
-  %4 = icmp sgt i32 %..i, %1
+  %4 = icmp slt i32 %1, %..i
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %5
@@ -2734,7 +2734,7 @@ define internal range(i32 -1, 3) i32 @pg_uhc_verifychar(ptr nocapture noundef re
   %3 = load i8, ptr %0, align 1
   %.not.i = icmp slt i8 %3, 0
   %..i = select i1 %.not.i, i32 2, i32 1
-  %4 = icmp sgt i32 %..i, %1
+  %4 = icmp slt i32 %1, %..i
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %5
@@ -3049,7 +3049,7 @@ define internal range(i32 -1, 4) i32 @pg_johab_verifychar(ptr nocapture noundef 
 
 pg_johab_mblen.exit:                              ; preds = %2, %3, %4
   %.0.i.i = phi i32 [ 3, %3 ], [ 2, %2 ], [ %..i.i, %4 ]
-  %5 = icmp sgt i32 %.0.i.i, %1
+  %5 = icmp slt i32 %1, %.0.i.i
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %pg_johab_mblen.exit
@@ -3094,7 +3094,7 @@ define internal i32 @pg_johab_verifystr(ptr noundef %0, i32 noundef %1) #5 {
 pg_johab_mblen.exit.i:                            ; preds = %.lr.ph
   %cond = icmp eq i8 %4, -113
   %spec.select = select i1 %cond, i32 3, i32 2
-  %7 = icmp ugt i32 %spec.select, %.01319
+  %7 = icmp ult i32 %.01319, %spec.select
   br i1 %7, label %pg_johab_verifychar.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %pg_johab_mblen.exit.i, %9

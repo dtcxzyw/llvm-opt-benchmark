@@ -444,11 +444,11 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
   store i64 %63, ptr %61, align 8, !alias.scope !23, !noalias !26
   %64 = getelementptr inbounds i8, ptr %11, i64 728
   %65 = load i64, ptr %64, align 8, !alias.scope !23, !noalias !26, !noundef !13
-  %.not44.i = icmp eq i64 %65, %59
+  %.not44.i = icmp eq i64 %59, %65
   br i1 %.not44.i, label %70, label %66
 
 66:                                               ; preds = %55
-  %.not.i = icmp ugt i64 %65, %59
+  %.not.i = icmp ult i64 %59, %65
   %67 = getelementptr inbounds i8, ptr %11, i64 720
   %68 = load ptr, ptr %67, align 8, !alias.scope !23, !noalias !26, !nonnull !13
   %69 = getelementptr inbounds { ptr, [1 x i64] }, ptr %68, i64 %59
@@ -456,7 +456,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
 
 70:                                               ; preds = %55
   %71 = load i64, ptr %56, align 8, !alias.scope !28, !noalias !31, !noundef !13
-  %72 = icmp eq i64 %71, %59
+  %72 = icmp eq i64 %59, %71
   br i1 %72, label %73, label %89
 
 73:                                               ; preds = %70
@@ -1136,7 +1136,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b7b60c4dc814
 define hidden { ptr, ptr } @"_ZN4slab13Slab$LT$T$GT$10try_remove17h8b15e882417c2670E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !13
-  %.not = icmp ugt i64 %4, %1
+  %.not = icmp ult i64 %1, %4
   br i1 %.not, label %5, label %15
 
 5:                                                ; preds = %2

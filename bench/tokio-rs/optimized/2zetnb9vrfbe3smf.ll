@@ -1534,7 +1534,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.99937
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -4999,7 +4999,7 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_schedule
   %52 = load i64, ptr %32, align 8, !noalias !903, !noundef !19
   %53 = add nuw nsw i64 %51, 1
   %54 = add i64 %53, %52
-  %55 = icmp ugt i64 %54, %51
+  %55 = icmp ult i64 %51, %54
   br i1 %55, label %.lr.ph10.i.i, label %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$22close_and_shutdown_all17h9794a27c3921210cE.exit.i"
 
 .loopexit.i.i:                                    ; preds = %.noexc36, %.noexc34

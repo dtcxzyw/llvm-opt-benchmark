@@ -642,7 +642,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %23
   %35 = extractvalue { i64, ptr } %34, 0
   %36 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   %37 = add i64 %36, 1
-  %38 = icmp ult i64 %35, %37
+  %38 = icmp ugt i64 %37, %35
   br i1 %38, label %39, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
 39:                                               ; preds = %33
@@ -1159,7 +1159,7 @@ _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEES4_NS
 .split.us.i.i:                                    ; preds = %29, %39
   %32 = phi i64 [ %41, %39 ], [ %.pre22.i.i, %29 ]
   %.0.us.i.i = phi ptr [ %38, %39 ], [ %30, %29 ]
-  %33 = icmp eq i64 %32, %19
+  %33 = icmp eq i64 %19, %32
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %.split.us.i.i
@@ -1183,7 +1183,7 @@ _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEES4_NS
 .split.i.i:                                       ; preds = %29, %51
   %43 = phi i64 [ %53, %51 ], [ %.pre22.i.i, %29 ]
   %.0.i.i = phi ptr [ %50, %51 ], [ %30, %29 ]
-  %44 = icmp eq i64 %43, %19
+  %44 = icmp eq i64 %19, %43
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %.split.i.i

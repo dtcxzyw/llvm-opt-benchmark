@@ -1288,18 +1288,18 @@ define void @_Z7stop_cmRKN3gmx8MDLoggerEiPfPA3_fS5_(ptr nocapture noundef nonnul
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds i8, ptr %23, i64 4
   %31 = load float, ptr %30, align 4
-  %32 = fneg float %29
-  %33 = fmul float %31, %32
+  %32 = fneg float %31
+  %33 = fmul float %29, %32
   %34 = tail call float @llvm.fmuladd.f32(float %25, float %27, float %33)
   store float %34, ptr %6, align 4
   %35 = load float, ptr %23, align 4
   %36 = load float, ptr %22, align 4
-  %37 = fneg float %36
-  %38 = fmul float %27, %37
+  %37 = fneg float %27
+  %38 = fmul float %36, %37
   %39 = tail call float @llvm.fmuladd.f32(float %29, float %35, float %38)
   store float %39, ptr %17, align 4
-  %40 = fneg float %25
-  %41 = fmul float %35, %40
+  %40 = fneg float %35
+  %41 = fmul float %25, %40
   %42 = tail call float @llvm.fmuladd.f32(float %36, float %31, float %41)
   store float %42, ptr %18, align 4
   br label %43
@@ -1351,17 +1351,17 @@ define void @_Z7stop_cmRKN3gmx8MDLoggerEiPfPA3_fS5_(ptr nocapture noundef nonnul
   %65 = phi float [ 0.000000e+00, %5 ], [ %.pre22, %._crit_edge.i.loopexit ]
   %66 = phi float [ 0.000000e+00, %5 ], [ %.pre, %._crit_edge.i.loopexit ]
   %.074.lcssa.i = phi float [ 0.000000e+00, %5 ], [ %60, %._crit_edge.i.loopexit ]
-  %67 = fneg float %64
-  %68 = fmul float %63, %67
+  %67 = fneg float %63
+  %68 = fmul float %64, %67
   %69 = tail call float @llvm.fmuladd.f32(float %66, float %65, float %68)
   store float %69, ptr %6, align 4
-  %70 = fneg float %61
-  %71 = fmul float %65, %70
+  %70 = fneg float %65
+  %71 = fmul float %61, %70
   %72 = tail call float @llvm.fmuladd.f32(float %64, float %62, float %71)
   %73 = getelementptr inbounds i8, ptr %6, i64 4
   store float %72, ptr %73, align 4
-  %74 = fneg float %66
-  %75 = fmul float %62, %74
+  %74 = fneg float %62
+  %75 = fmul float %66, %74
   %76 = tail call float @llvm.fmuladd.f32(float %61, float %63, float %75)
   %77 = getelementptr inbounds i8, ptr %6, i64 8
   store float %76, ptr %77, align 4

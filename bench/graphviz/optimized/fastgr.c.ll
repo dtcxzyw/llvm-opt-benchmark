@@ -552,7 +552,7 @@ define void @safe_other_edge(ptr noundef %0) local_unnamed_addr #1 {
   %.018.i = phi i64 [ %14, %13 ], [ 0, %1 ]
   %15 = getelementptr inbounds ptr, ptr %.pre.i, i64 %.018.i
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %0
+  %17 = icmp eq ptr %0, %16
   br i1 %17, label %safe_list_append.exit, label %13
 
 ._crit_edge.i:                                    ; preds = %13, %1
@@ -642,7 +642,7 @@ gv_alloc.exit71:                                  ; preds = %gv_alloc.exit
   %40 = getelementptr inbounds i8, ptr %2, i64 %.idx73
   %41 = getelementptr inbounds i8, ptr %40, i64 56
   %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, %0
+  %43 = icmp eq ptr %0, %42
   br i1 %43, label %.sink.split, label %44
 
 44:                                               ; preds = %19
@@ -651,7 +651,7 @@ gv_alloc.exit71:                                  ; preds = %gv_alloc.exit
   %46 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %47 = getelementptr inbounds i8, ptr %46, i64 56
   %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, %0
+  %49 = icmp eq ptr %0, %48
   br i1 %49, label %.sink.split, label %52
 
 .sink.split:                                      ; preds = %44, %19
@@ -667,11 +667,11 @@ gv_alloc.exit71:                                  ; preds = %gv_alloc.exit
   %54 = getelementptr inbounds i8, ptr %2, i64 %.idx70
   %55 = getelementptr inbounds i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, %1
+  %57 = icmp eq ptr %1, %56
   br i1 %57, label %.sink.split76, label %58
 
 58:                                               ; preds = %52
-  %59 = icmp eq ptr %42, %1
+  %59 = icmp eq ptr %1, %42
   br i1 %59, label %.sink.split76, label %62
 
 .sink.split76:                                    ; preds = %58, %52
@@ -1143,7 +1143,7 @@ define void @merge_oneway(ptr noundef readonly %0, ptr noundef %1) local_unnamed
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %1
+  %7 = icmp eq ptr %1, %6
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %2
@@ -1151,7 +1151,7 @@ define void @merge_oneway(ptr noundef readonly %0, ptr noundef %1) local_unnamed
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 232
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %0
+  %13 = icmp eq ptr %0, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %8, %2

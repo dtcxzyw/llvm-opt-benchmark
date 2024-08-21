@@ -4448,7 +4448,7 @@ list_head.exit:                                   ; preds = %.thread, %176, %181
 
 250:                                              ; preds = %244
   %251 = call i32 @get_typcollation(i32 noundef %.0185) #8
-  %252 = icmp eq i32 %251, %249
+  %252 = icmp eq i32 %249, %251
   br i1 %252, label %get_collation.exit, label %253
 
 253:                                              ; preds = %250

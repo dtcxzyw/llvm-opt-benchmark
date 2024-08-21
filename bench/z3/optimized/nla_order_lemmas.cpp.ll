@@ -401,7 +401,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit5.i:               ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %cmp.not.not.i.i.i.i, label %_ZNK3nla21factorization_factory8get_maskEv.exit, label %while.cond.i.i.i.preheader.i
 
 while.cond.i.i.i.preheader.i:                     ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit5.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit5.thread.i
-  %retval.0.i427.i = phi i32 [ -1, %_ZNK6vectorIjLb0EjE4sizeEv.exit5.thread.i ], [ %3, %_ZNK6vectorIjLb0EjE4sizeEv.exit5.i ]
+  %retval.0.i423.i = phi i32 [ -1, %_ZNK6vectorIjLb0EjE4sizeEv.exit5.thread.i ], [ %3, %_ZNK6vectorIjLb0EjE4sizeEv.exit5.i ]
   br label %while.cond.i.i.i.i
 
 while.condthread-pre-split.i.i.i.i:               ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i.i, %while.cond.i.i.i.i
@@ -417,13 +417,13 @@ while.cond.i.i.i.i:                               ; preds = %while.condthread-pr
 _ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i.i:      ; preds = %while.cond.i.i.i.i
   %arrayidx.i12.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load i32, ptr %arrayidx.i12.i.i.i.i, align 4
-  %cmp3.i.i.i.i = icmp ult i32 %5, %retval.0.i427.i
+  %cmp3.i.i.i.i = icmp ugt i32 %retval.0.i423.i, %5
   br i1 %cmp3.i.i.i.i, label %while.condthread-pre-split.i.i.i.i, label %while.end.i.i.i.i
 
 while.end.i.i.i.i:                                ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -4
-  store i32 %retval.0.i427.i, ptr %arrayidx.i.i.i.i, align 4
-  %idx.ext6.i.i.i.i = zext i32 %retval.0.i427.i to i64
+  store i32 %retval.0.i423.i, ptr %arrayidx.i.i.i.i, align 4
+  %idx.ext6.i.i.i.i = zext i32 %retval.0.i423.i to i64
   %6 = load ptr, ptr %ref.tmp, align 8, !alias.scope !6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6, i8 0, i64 %idx.ext6.i.i.i.i, i1 false)
   br label %_ZNK3nla21factorization_factory8get_maskEv.exit
@@ -432,30 +432,30 @@ cond.false.i:                                     ; preds = %_ZNK6vectorIjLb0EjE
   store ptr null, ptr %ref.tmp, align 8, !alias.scope !6
   br label %while.cond.i.i.i7.i
 
-while.condthread-pre-split.i.i.i16.i:             ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i11.i, %while.cond.i.i.i7.i
+while.condthread-pre-split.i.i.i14.i:             ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i9.i, %while.cond.i.i.i7.i
   call void @_ZN6vectorIbLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %.pr.pre.i.i.i17.i = load ptr, ptr %ref.tmp, align 8, !alias.scope !6
+  %.pr.pre.i.i.i15.i = load ptr, ptr %ref.tmp, align 8, !alias.scope !6
   br label %while.cond.i.i.i7.i
 
-while.cond.i.i.i7.i:                              ; preds = %while.condthread-pre-split.i.i.i16.i, %cond.false.i
-  %7 = phi ptr [ %.pr.pre.i.i.i17.i, %while.condthread-pre-split.i.i.i16.i ], [ null, %cond.false.i ]
+while.cond.i.i.i7.i:                              ; preds = %while.condthread-pre-split.i.i.i14.i, %cond.false.i
+  %7 = phi ptr [ %.pr.pre.i.i.i15.i, %while.condthread-pre-split.i.i.i14.i ], [ null, %cond.false.i ]
   %cmp.i10.i.i.i8.i = icmp eq ptr %7, null
-  br i1 %cmp.i10.i.i.i8.i, label %while.condthread-pre-split.i.i.i16.i, label %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i11.i
+  br i1 %cmp.i10.i.i.i8.i, label %while.condthread-pre-split.i.i.i14.i, label %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i9.i
 
-_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i11.i:    ; preds = %while.cond.i.i.i7.i
+_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i9.i:     ; preds = %while.cond.i.i.i7.i
   %arrayidx.i12.i.i.i10.i = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load i32, ptr %arrayidx.i12.i.i.i10.i, align 4
-  %cmp3.i.i.i13.i = icmp eq i32 %8, 0
-  br i1 %cmp3.i.i.i13.i, label %while.condthread-pre-split.i.i.i16.i, label %_ZN7svectorIbjEC2EjRKb.exit18.i
+  %cmp3.i.i.i11.i = icmp eq i32 %8, 0
+  br i1 %cmp3.i.i.i11.i, label %while.condthread-pre-split.i.i.i14.i, label %_ZN7svectorIbjEC2EjRKb.exit16.i
 
-_ZN7svectorIbjEC2EjRKb.exit18.i:                  ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i11.i
-  %arrayidx.i.i.i15.i = getelementptr inbounds i8, ptr %7, i64 -4
-  store i32 1, ptr %arrayidx.i.i.i15.i, align 4
+_ZN7svectorIbjEC2EjRKb.exit16.i:                  ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i9.i
+  %arrayidx.i.i.i13.i = getelementptr inbounds i8, ptr %7, i64 -4
+  store i32 1, ptr %arrayidx.i.i.i13.i, align 4
   %9 = load ptr, ptr %ref.tmp, align 8, !alias.scope !6
   store i8 1, ptr %9, align 1
   br label %_ZNK3nla21factorization_factory8get_maskEv.exit
 
-_ZNK3nla21factorization_factory8get_maskEv.exit:  ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit5.i, %while.end.i.i.i.i, %_ZN7svectorIbjEC2EjRKb.exit18.i
+_ZNK3nla21factorization_factory8get_maskEv.exit:  ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit5.i, %while.end.i.i.i.i, %_ZN7svectorIbjEC2EjRKb.exit16.i
   invoke void @_ZN3nla18const_iterator_monC1ERK7svectorIbjEPKNS_21factorization_factoryE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
 
@@ -514,7 +514,7 @@ while.cond.i.i.i.preheader:                       ; preds = %_ZNK6vectorIjLb0EjE
   %retval.0.i3 = phi i32 [ -1, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread ], [ %3, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
   br label %while.cond.i.i.i
 
-while.condthread-pre-split.i.i.i:                 ; preds = %while.cond.i.i.i, %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i
+while.condthread-pre-split.i.i.i:                 ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i, %while.cond.i.i.i
   call void @_ZN6vectorIbLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %mask)
   %.pr.pre.i.i.i = load ptr, ptr %mask, align 8
   br label %while.cond.i.i.i
@@ -527,7 +527,7 @@ while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.pr
 _ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i:        ; preds = %while.cond.i.i.i
   %arrayidx.i12.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load i32, ptr %arrayidx.i12.i.i.i, align 4
-  %cmp3.i.i.i = icmp ult i32 %5, %retval.0.i3
+  %cmp3.i.i.i = icmp ugt i32 %retval.0.i3, %5
   br i1 %cmp3.i.i.i, label %while.condthread-pre-split.i.i.i, label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i
@@ -1671,7 +1671,7 @@ if.end:                                           ; preds = %for.body
 _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i.i.i: ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 -4
   %18 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %18, %shl.i.i.i
+  %cmp.not.i.i.i = icmp ult i32 %shl.i.i.i, %18
   br i1 %cmp.not.i.i.i, label %while.body.i.i.i.i, label %_ZNK3nla7var_eqsINS_7emonicsEE4findEj.exit.i
 
 while.body.i.i.i.i:                               ; preds = %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i.i.i, %while.body.i.i.i.i
@@ -2222,7 +2222,7 @@ entry:
 _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i.i: ; preds = %entry
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %4, %shl.i.i
+  %cmp.not.i.i = icmp ult i32 %shl.i.i, %4
   br i1 %cmp.not.i.i, label %while.body.i.i.i, label %_ZNK3nla7var_eqsINS_7emonicsEE4findEj.exit
 
 while.body.i.i.i:                                 ; preds = %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEES3_E12get_num_varsEv.exit.i.i, %while.body.i.i.i

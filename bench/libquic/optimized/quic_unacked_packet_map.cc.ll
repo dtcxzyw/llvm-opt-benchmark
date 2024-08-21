@@ -564,12 +564,12 @@ entry:
   %ref.tmp4 = alloca %"class.logging::LogMessage", align 8
   %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
-  %cmp = icmp ugt i64 %0, %old_packet_number
+  %cmp = icmp ult i64 %old_packet_number, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load i64, ptr %this, align 8
-  %cmp2 = icmp ult i64 %1, %old_packet_number
+  %cmp2 = icmp ugt i64 %old_packet_number, %1
   br i1 %cmp2, label %if.then3, label %if.end37
 
 if.then3:                                         ; preds = %if.end
@@ -637,7 +637,7 @@ if.end37:                                         ; preds = %if.end
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 80
   %add12.i.i.i.i = add nsw i64 %add.i.i.i.i, %sub.ptr.div11.i.i.i.i
-  %cmp.not.i.i = icmp ugt i64 %add12.i.i.i.i, %sub
+  %cmp.not.i.i = icmp ult i64 %sub, %add12.i.i.i.i
   br i1 %cmp.not.i.i, label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE14_M_range_checkEm.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end37
@@ -773,7 +773,7 @@ while.body.i:                                     ; preds = %_ZNSt5dequeIN3net16
   %31 = load i8, ptr %is_unackable.i.i.i, align 2
   %tobool.i.i.i = trunc i8 %31 to i1
   %32 = load i64, ptr %largest_observed_.i.i.i, align 8
-  %cmp.i.i1.i = icmp uge i64 %32, %29
+  %cmp.i.i1.i = icmp ule i64 %29, %32
   %.not.i.i = select i1 %tobool.i.i.i, i1 true, i1 %cmp.i.i1.i
   br i1 %.not.i.i, label %land.lhs.true.i.i, label %return
 
@@ -858,7 +858,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %4 = load i8, ptr %is_unackable.i.i, align 2
   %tobool.i.i = trunc i8 %4 to i1
   %5 = load i64, ptr %largest_observed_.i.i, align 8
-  %cmp.i.i1 = icmp uge i64 %5, %2
+  %cmp.i.i1 = icmp ule i64 %2, %5
   %.not.i = select i1 %tobool.i.i, i1 true, i1 %cmp.i.i1
   br i1 %.not.i, label %land.lhs.true.i, label %while.end
 
@@ -925,7 +925,7 @@ entry:
   %tobool.i = trunc i8 %0 to i1
   %largest_observed_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %largest_observed_.i, align 8
-  %cmp.i = icmp uge i64 %1, %packet_number
+  %cmp.i = icmp ule i64 %packet_number, %1
   %.not = select i1 %tobool.i, i1 true, i1 %cmp.i
   br i1 %.not, label %land.lhs.true, label %land.end
 
@@ -1257,7 +1257,7 @@ entry:
   %tobool = trunc i8 %0 to i1
   %largest_observed_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %largest_observed_, align 8
-  %cmp = icmp ult i64 %1, %packet_number
+  %cmp = icmp ugt i64 %packet_number, %1
   %not.tobool = xor i1 %tobool, true
   %2 = select i1 %not.tobool, i1 %cmp, i1 false
   ret i1 %2
@@ -1293,7 +1293,7 @@ define dso_local noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap9IsUnackedEm(
 entry:
   %least_unacked_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %least_unacked_, align 8
-  %cmp = icmp ugt i64 %0, %packet_number
+  %cmp = icmp ult i64 %packet_number, %0
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -1328,7 +1328,7 @@ lor.lhs.false:                                    ; preds = %entry
   %add.i.i = add i64 %sub.ptr.div6.i.i, %0
   %add12.i.i = add i64 %add.i.i, %mul.i.i
   %add = add i64 %add12.i.i, %sub.ptr.div11.i.i
-  %cmp3.not = icmp ugt i64 %add, %packet_number
+  %cmp3.not = icmp ult i64 %packet_number, %add
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -1376,7 +1376,7 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i
   %tobool.i.i5 = trunc i8 %10 to i1
   %largest_observed_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load i64, ptr %largest_observed_.i.i, align 8
-  %cmp.i.i = icmp uge i64 %11, %packet_number
+  %cmp.i.i = icmp ule i64 %packet_number, %11
   %.not.i = select i1 %tobool.i.i5, i1 true, i1 %cmp.i.i
   br i1 %.not.i, label %land.lhs.true.i, label %return
 
@@ -2091,7 +2091,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %is_unackable.i.i = getelementptr inbounds i8, ptr %it.sroa.0.016, i64 42
   %6 = load i8, ptr %is_unackable.i.i, align 2
   %tobool.i.i = trunc i8 %6 to i1
-  %cmp.i.i9 = icmp uge i64 %5, %packet_number.020
+  %cmp.i.i9 = icmp ule i64 %packet_number.020, %5
   %.not.i = select i1 %tobool.i.i, i1 true, i1 %cmp.i.i9
   br i1 %.not.i, label %land.lhs.true.i, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread
 
@@ -2351,7 +2351,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #17
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i

@@ -322,7 +322,7 @@ define dso_local zeroext i1 @ns_match(ptr nocapture noundef readonly %0, i32 nou
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = icmp eq i64 %6, %2
+  %7 = icmp eq i64 %2, %6
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %3

@@ -705,14 +705,14 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit: ; preds = %_ZN7mitsuba2
 
 175:                                              ; preds = %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit
   %176 = load ptr, ptr %33, align 8
-  %.not6.i.i.i.i = icmp eq ptr %176, %174
+  %.not6.i.i.i.i = icmp eq ptr %174, %176
   br i1 %.not6.i.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %175, %.lr.ph.i.i.i.i
   %.07.i.i.i.i = phi ptr [ %177, %.lr.ph.i.i.i.i ], [ %176, %175 ]
   %177 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -24
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %177) #28
-  %.not.i.i.i.i = icmp eq ptr %177, %174
+  %.not.i.i.i.i = icmp eq ptr %174, %177
   br i1 %.not.i.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i
@@ -1176,14 +1176,14 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_t
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not6.i.i.i = icmp eq ptr %5, %2
+  %.not6.i.i.i = icmp eq ptr %2, %5
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.07.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %5, %3 ]
   %6 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 -24
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
-  %.not.i.i.i = icmp eq ptr %6, %2
+  %.not.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit: ; preds = %.lr.ph.i.i.i
@@ -1268,11 +1268,11 @@ define weak_odr <4 x float> @_ZNK7mitsuba15RegularSpectrumIfN5drjit6MatrixINS_8S
   %6 = getelementptr inbounds i8, ptr %0, i64 108
   %7 = load <4 x float>, ptr %6, align 4
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
-  %9 = fcmp contract ole <4 x float> %8, %.sroa.0.0.copyload
+  %9 = fcmp contract oge <4 x float> %.sroa.0.0.copyload, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 112
   %11 = load <4 x float>, ptr %10, align 8
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
-  %13 = fcmp contract oge <4 x float> %12, %.sroa.0.0.copyload
+  %13 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, %12
   %14 = and <4 x i1> %13, %9
   %15 = fsub contract <4 x float> %.sroa.0.0.copyload, %8
   %16 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1310,11 +1310,11 @@ define weak_odr <4 x float> @_ZNK7mitsuba15RegularSpectrumIfN5drjit6MatrixINS_8S
   %6 = getelementptr inbounds i8, ptr %0, i64 108
   %7 = load <4 x float>, ptr %6, align 4
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
-  %9 = fcmp contract ole <4 x float> %8, %.sroa.0.0.copyload
+  %9 = fcmp contract oge <4 x float> %.sroa.0.0.copyload, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 112
   %11 = load <4 x float>, ptr %10, align 8
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
-  %13 = fcmp contract oge <4 x float> %12, %.sroa.0.0.copyload
+  %13 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, %12
   %14 = and <4 x i1> %13, %9
   %15 = fsub contract <4 x float> %.sroa.0.0.copyload, %8
   %16 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1419,15 +1419,15 @@ define weak_odr void @_ZNK7mitsuba15RegularSpectrumIfN5drjit6MatrixINS_8Spectrum
   %55 = fsub contract <4 x float> %37, %39
   %56 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %55, <4 x float> zeroinitializer, i8 -1)
   %57 = fadd contract <4 x float> %56, %56
-  %58 = fneg contract <4 x float> %56
-  %59 = fmul contract <4 x float> %55, %58
+  %58 = fneg contract <4 x float> %55
+  %59 = fmul contract <4 x float> %56, %58
   %60 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %59, <4 x float> %56, <4 x float> %57)
   %61 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %60, <4 x float> %55, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   %62 = fmul contract <4 x float> %54, %61
   %63 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %37, <4 x float> zeroinitializer, i8 -1)
   %64 = fadd contract <4 x float> %63, %63
-  %65 = fneg contract <4 x float> %63
-  %66 = fmul contract <4 x float> %37, %65
+  %65 = fneg contract <4 x float> %37
+  %66 = fmul contract <4 x float> %63, %65
   %67 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %66, <4 x float> %63, <4 x float> %64)
   %68 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %67, <4 x float> %37, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   %69 = fmul contract <4 x float> %47, %68
@@ -3617,7 +3617,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63

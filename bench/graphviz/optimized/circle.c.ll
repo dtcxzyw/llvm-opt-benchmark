@@ -83,7 +83,7 @@ define ptr @circleLayout(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 43:                                               ; preds = %38, %.lr.ph.i.i
   %.020.i.i = phi ptr [ %42, %38 ], [ %36, %.lr.ph.i.i ]
-  %44 = icmp eq ptr %.020.i.i, %.016.i
+  %44 = icmp eq ptr %.016.i, %.020.i.i
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %43
@@ -739,7 +739,7 @@ define internal fastcc void @setNStepsToLeaf(ptr noundef %0, ptr noundef %1, ptr
 
 23:                                               ; preds = %18, %.lr.ph
   %.022 = phi ptr [ %22, %18 ], [ %16, %.lr.ph ]
-  %24 = icmp eq ptr %.022, %2
+  %24 = icmp eq ptr %2, %.022
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %23

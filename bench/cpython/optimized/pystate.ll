@@ -2315,7 +2315,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %interp3 = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp3, align 8
-  %cmp4 = icmp eq ptr %3, %interp
+  %cmp4 = icmp eq ptr %interp, %3
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
@@ -2362,7 +2362,7 @@ if.end.i:                                         ; preds = %while.body.i
   %interp.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %interp.i.i, align 8
   %_initial_thread.i.i = getelementptr inbounds i8, ptr %9, i64 416432
-  %cmp.i.i = icmp eq ptr %_initial_thread.i.i, %7
+  %cmp.i.i = icmp eq ptr %7, %_initial_thread.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -2720,7 +2720,7 @@ tstate_delete_common.exit:                        ; preds = %if.end19.i, %clear_
   store i32 %bf.set.i, ptr %_status.i, align 8
   %30 = load ptr, ptr %interp1.i, align 8
   %_initial_thread.i.i = getelementptr inbounds i8, ptr %30, i64 416432
-  %cmp.i.i = icmp eq ptr %_initial_thread.i.i, %13
+  %cmp.i.i = icmp eq ptr %13, %_initial_thread.i.i
   br i1 %cmp.i.i, label %if.then.i.i26, label %if.else.i.i
 
 if.then.i.i26:                                    ; preds = %tstate_delete_common.exit
@@ -3348,7 +3348,7 @@ PyInterpreterState_GetID.exit.i:                  ; preds = %PyMutex_LockFlags.e
   br i1 %cmp1.i, label %interp_look_up_id.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %PyInterpreterState_GetID.exit.i
-  %cmp2.i = icmp eq i64 %2, %requested_id
+  %cmp2.i = icmp eq i64 %requested_id, %2
   br i1 %cmp2.i, label %interp_look_up_id.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
@@ -3888,7 +3888,7 @@ if.then.i:                                        ; preds = %entry
 _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %entry
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %cmp = icmp eq ptr %1, %tstate
+  %cmp = icmp eq ptr %tstate, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_Py_EnsureFuncTstateNotNULL.exit
@@ -3900,7 +3900,7 @@ if.end:                                           ; preds = %_Py_EnsureFuncTstat
   %interp.i = getelementptr inbounds i8, ptr %tstate, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %_initial_thread.i = getelementptr inbounds i8, ptr %2, i64 416432
-  %cmp.i6 = icmp eq ptr %_initial_thread.i, %tstate
+  %cmp.i6 = icmp eq ptr %tstate, %_initial_thread.i
   br i1 %cmp.i6, label %if.then.i7, label %if.else.i
 
 if.then.i7:                                       ; preds = %if.end
@@ -4044,7 +4044,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %entry
   tail call void @_PyEval_ReleaseLock(ptr noundef %1, ptr noundef null) #14
   %2 = load ptr, ptr %interp, align 8
   %_initial_thread.i = getelementptr inbounds i8, ptr %2, i64 416432
-  %cmp.i6 = icmp eq ptr %_initial_thread.i, %tstate
+  %cmp.i6 = icmp eq ptr %tstate, %_initial_thread.i
   br i1 %cmp.i6, label %if.then.i7, label %if.else.i
 
 if.then.i7:                                       ; preds = %_Py_EnsureFuncTstateNotNULL.exit
@@ -4083,7 +4083,7 @@ _Py_EnsureFuncTstateNotNULL.exit.i:               ; preds = %entry
   tail call void @_PyEval_ReleaseLock(ptr noundef %2, ptr noundef null) #14
   %3 = load ptr, ptr %interp.i, align 8
   %_initial_thread.i.i = getelementptr inbounds i8, ptr %3, i64 416432
-  %cmp.i6.i = icmp eq ptr %_initial_thread.i.i, %1
+  %cmp.i6.i = icmp eq ptr %1, %_initial_thread.i.i
   br i1 %cmp.i6.i, label %if.then.i7.i, label %if.else.i.i
 
 if.then.i7.i:                                     ; preds = %_Py_EnsureFuncTstateNotNULL.exit.i
@@ -4170,7 +4170,7 @@ for.body:                                         ; preds = %PyMutex_Unlock.exit
   %interp.i = getelementptr inbounds i8, ptr %p.024, i64 16
   %11 = load ptr, ptr %interp.i, align 8
   %_initial_thread.i = getelementptr inbounds i8, ptr %11, i64 416432
-  %cmp.i = icmp eq ptr %_initial_thread.i, %p.024
+  %cmp.i = icmp eq ptr %p.024, %_initial_thread.i
   br i1 %cmp.i, label %if.then.i22, label %if.else.i
 
 if.then.i22:                                      ; preds = %for.body
@@ -4920,7 +4920,7 @@ declare ptr @_PyErr_GetTopmostException(ptr noundef) local_unnamed_addr #3
 define hidden void @_PyGILState_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %interp) local_unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not = icmp eq ptr %0, %interp
+  %cmp.i.not = icmp eq ptr %interp, %0
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4940,7 +4940,7 @@ return:                                           ; preds = %entry, %if.end
 define hidden void @_PyGILState_Fini(ptr noundef readonly %interp) local_unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not = icmp eq ptr %0, %interp
+  %cmp.i.not = icmp eq ptr %interp, %0
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -5076,7 +5076,7 @@ if.end5.thread:                                   ; preds = %if.end.i
 if.end5:                                          ; preds = %entry
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %4 = load ptr, ptr %3, align 8
-  %cmp.i.not = icmp eq ptr %4, %call.i
+  %cmp.i.not = icmp eq ptr %call.i, %4
   br i1 %cmp.i.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end5.thread, %if.end5
@@ -5110,7 +5110,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %cmp.i.not = icmp eq ptr %1, %call.i
+  %cmp.i.not = icmp eq ptr %call.i, %1
   br i1 %cmp.i.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
@@ -5136,7 +5136,7 @@ _Py_EnsureFuncTstateNotNULL.exit.i:               ; preds = %if.end3
   tail call void @_PyEval_ReleaseLock(ptr noundef %3, ptr noundef null) #14
   %4 = load ptr, ptr %interp.i, align 8
   %_initial_thread.i.i = getelementptr inbounds i8, ptr %4, i64 416432
-  %cmp.i6.i = icmp eq ptr %_initial_thread.i.i, %call.i
+  %cmp.i6.i = icmp eq ptr %call.i, %_initial_thread.i.i
   br i1 %cmp.i6.i, label %if.then.i7.i, label %if.else.i.i
 
 if.then.i7.i:                                     ; preds = %_Py_EnsureFuncTstateNotNULL.exit.i
@@ -5339,7 +5339,7 @@ entry:
   %datastack_chunk = getelementptr inbounds i8, ptr %tstate, i64 248
   %0 = load ptr, ptr %datastack_chunk, align 8
   %data = getelementptr inbounds i8, ptr %0, i64 24
-  %cmp = icmp eq ptr %data, %frame
+  %cmp = icmp eq ptr %frame, %data
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -5391,7 +5391,7 @@ if.end:                                           ; preds = %if.then, %entry
   %finalizing.0.in = phi i64 [ %3, %if.then ], [ %1, %entry ]
   %finalizing.0 = inttoptr i64 %finalizing.0.in to ptr
   %cmp5 = icmp eq i64 %finalizing.0.in, 0
-  %cmp7 = icmp eq ptr %finalizing.0, %tstate
+  %cmp7 = icmp eq ptr %tstate, %finalizing.0
   %or.cond = or i1 %cmp5, %cmp7
   br i1 %or.cond, label %return, label %if.else9
 

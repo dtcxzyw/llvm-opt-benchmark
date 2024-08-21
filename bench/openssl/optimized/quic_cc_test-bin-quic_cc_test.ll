@@ -191,7 +191,7 @@ if.end.i:                                         ; preds = %if.end53
 
 if.end6.i:                                        ; preds = %if.end.i
   %9 = load i64, ptr %spare_capacity.i, align 8
-  %cmp7.i = icmp uge i64 %9, %cond54
+  %cmp7.i = icmp ule i64 %cond54, %9
   %conv8.i = zext i1 %cmp7.i to i32
   %10 = load i64, ptr @fake_time.0, align 8
   store i64 %10, ptr %call.i, align 8

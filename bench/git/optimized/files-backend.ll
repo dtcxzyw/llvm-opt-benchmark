@@ -2336,7 +2336,7 @@ while.cond42.us:                                  ; preds = %if.end41, %if.end69
 
 while.cond.i.us:                                  ; preds = %while.cond42.us, %land.rhs.i.us
   %scan.addr.0.i.us = phi ptr [ %incdec.ptr.i.us, %land.rhs.i.us ], [ %scanp.1.us, %while.cond42.us ]
-  %cmp.i.us = icmp ugt ptr %scan.addr.0.i.us, %buf12
+  %cmp.i.us = icmp ult ptr %buf12, %scan.addr.0.i.us
   br i1 %cmp.i.us, label %land.rhs.i.us, label %find_beginning_of_line.exit.us
 
 find_beginning_of_line.exit.us:                   ; preds = %while.cond.i.us
@@ -2397,7 +2397,7 @@ while.cond42:                                     ; preds = %if.end41, %if.end69
 
 while.cond.i:                                     ; preds = %while.cond42, %land.rhs.i
   %scan.addr.0.i = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %scanp.1, %while.cond42 ]
-  %cmp.i = icmp ugt ptr %scan.addr.0.i, %buf12
+  %cmp.i = icmp ult ptr %buf12, %scan.addr.0.i
   br i1 %cmp.i, label %land.rhs.i, label %find_beginning_of_line.exit
 
 land.rhs.i:                                       ; preds = %while.cond.i
@@ -3725,7 +3725,7 @@ if.end:                                           ; preds = %while.end38
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %7 = load i64, ptr %buf, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %7, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %sub.ptr.sub
+  %cmp.i = icmp ugt i64 %sub.ptr.sub, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -4262,7 +4262,7 @@ if.end56.sink.split:                              ; preds = %strbuf_addch.exit, 
 if.end56:                                         ; preds = %if.end56.sink.split, %if.end16
   %31 = load i64, ptr %refname, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %31, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %conv4
+  %cmp.i = icmp ugt i64 %conv4, %spec.select.i
   br i1 %cmp.i, label %if.then.i33, label %if.end.i30
 
 if.then.i33:                                      ; preds = %if.end56

@@ -575,7 +575,7 @@ define internal fastcc i32 @nsis_unpack_next(ptr noundef %0, ptr noundef %1) unn
   %29 = load i64, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 88
   %31 = load i64, ptr %30, align 8
-  %or.cond208.not = icmp ugt i64 %31, %29
+  %or.cond208.not = icmp ult i64 %29, %31
   br i1 %or.cond208.not, label %32, label %fmap_readn.exit.thread
 
 32:                                               ; preds = %26

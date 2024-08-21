@@ -479,7 +479,7 @@ define void @_ZN12grep_printer4util20trim_line_terminator17hd23889c6be8a46c9E(pt
   %.val4.i = load i8, ptr %23, align 1, !alias.scope !60, !noundef !7
   %trunc.i.i = trunc nuw i8 %9 to i1
   %.0.i.i = select i1 %trunc.i.i, i8 10, i8 %11
-  %24 = icmp eq i8 %.0.i.i, %.val4.i
+  %24 = icmp eq i8 %.val4.i, %.0.i.i
   br i1 %24, label %25, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h25bec61a9d84985bE.exit.thread"
 
 25:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h25bec61a9d84985bE.exit"

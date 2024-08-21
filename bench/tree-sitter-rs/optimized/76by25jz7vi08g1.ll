@@ -26523,14 +26523,14 @@ define hidden void @_ZN11smallbitvec11SmallBitVec3set17h72321cce85bb7443E.llvm.1
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit: ; preds = %3
   %10 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %7, i1 false)
   %11 = sub nsw i64 63, %10
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %23, label %17
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread: ; preds = %3
   %13 = and i64 %7, -2
   %14 = inttoptr i64 %13 to ptr
   %15 = load i64, ptr %14, align 8, !noalias !6784, !noundef !4
-  %16 = icmp ugt i64 %15, %1
+  %16 = icmp ult i64 %1, %15
   br i1 %16, label %32, label %17
 
 17:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit
@@ -28186,7 +28186,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.16258
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -33182,14 +33182,14 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN81_$LT$smallbi
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit: ; preds = %3
   %7 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %4, i1 false)
   %8 = sub nsw i64 63, %7
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit5, label %14
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread: ; preds = %3
   %10 = and i64 %4, -2
   %11 = inttoptr i64 %10 to ptr
   %12 = load i64, ptr %11, align 8, !noalias !4, !noundef !4
-  %13 = icmp ugt i64 %12, %1
+  %13 = icmp ult i64 %1, %12
   br i1 %13, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit5.thread, label %14
 
 14:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit
@@ -38349,8 +38349,8 @@ common.resume:                                    ; preds = %118, %.thread39, %1
 
 88:                                               ; preds = %105, %.noexc29
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %.noexc29 ], [ %106, %105 ]
-  %.pn.i.i = phi i64 [ %84, %.noexc29 ], [ %107, %105 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val5.i
+  %.pn.i.i.i = phi i64 [ %84, %.noexc29 ], [ %107, %105 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i
   %89 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i30.i.i.i = load <16 x i8>, ptr %89, align 1, !noalias !8837
   %90 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, %.15.vec.insert.i.i.i.i
@@ -38680,7 +38680,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate15prepare_grammar14ext
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = load i64, ptr %0, align 8, !alias.scope !8869, !noalias !8876, !noundef !4
-  %11 = icmp ult i64 %10, %9
+  %11 = icmp ugt i64 %9, %10
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hf10db56fcc68f59cE.exit"
 
 12:                                               ; preds = %2
@@ -39479,8 +39479,8 @@ define hidden { i64, i8 } @_ZN15tree_sitter_cli8generate15prepare_grammar14extra
 
 46:                                               ; preds = %63, %13
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %13 ], [ %64, %63 ]
-  %.pn.i.i = phi i64 [ %42, %13 ], [ %65, %63 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val5.i
+  %.pn.i.i.i = phi i64 [ %42, %13 ], [ %65, %63 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i
   %47 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i30.i.i.i = load <16 x i8>, ptr %47, align 1, !noalias !8971
   %48 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, %.15.vec.insert.i.i.i.i
@@ -39508,7 +39508,7 @@ define hidden { i64, i8 } @_ZN15tree_sitter_cli8generate15prepare_grammar14extra
   %61 = sub nsw i64 0, %60
   %gep.i.i.i = getelementptr { i64, i64 }, ptr %invariant.gep.i.i.i, i64 %61
   %.val4.i.i.i.i = load i64, ptr %gep.i.i.i, align 8, !alias.scope !8980, !noalias !8985, !noundef !4
-  %62 = icmp eq i64 %.val4.i.i.i.i, %1
+  %62 = icmp eq i64 %1, %.val4.i.i.i.i
   br i1 %62, label %69, label %50
 
 63:                                               ; preds = %51
@@ -40146,7 +40146,7 @@ default.unreachable:                              ; preds = %235, %43
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tree_sitter_cli..generate..rules..Precedence$GT$$GT$17hebba4dffff324c67E.exit": ; preds = %210, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h6582df8c6b993181E.exit"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   %.not = xor i1 %207, true
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %209, label %229
 
 229:                                              ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tree_sitter_cli..generate..rules..Precedence$GT$$GT$17hebba4dffff324c67E.exit"
@@ -40301,12 +40301,12 @@ default.unreachable:                              ; preds = %235, %43
   %274 = icmp ult i64 %272, %273
   call void @llvm.assume(i1 %274)
   %.not1 = xor i1 %207, true
-  %brmerge2 = or i1 %.not1, %2
+  %brmerge2 = or i1 %2, %.not1
   br i1 %brmerge2, label %266, label %275
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17he9674afd33ad775dE.exit.thread": ; preds = %267
   %.not1313 = xor i1 %207, true
-  %brmerge2314 = or i1 %.not1313, %2
+  %brmerge2314 = or i1 %2, %.not1313
   br i1 %brmerge2314, label %266, label %.thread315
 
 275:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17he9674afd33ad775dE.exit"
@@ -40693,7 +40693,7 @@ default.unreachable:                              ; preds = %235, %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.9.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.511.0..sroa_idx.i, i64 96, i1 false)
   store i64 %.sroa.0.0.copyload.i229, ptr %26, align 8
   %409 = icmp eq i64 %407, %398
-  %. = and i1 %409, %2
+  %. = and i1 %2, %409
   %410 = invoke fastcc noundef zeroext i1 @_ZN15tree_sitter_cli8generate15prepare_grammar15flatten_grammar13RuleFlattener5apply17he8734a386f6bcf19E(ptr noalias noundef nonnull align 8 dereferenceable(128) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %26, i1 noundef zeroext %.)
           to label %411 unwind label %404
 
@@ -42492,7 +42492,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %258 = ptrtoint ptr %.sroa.0114.0.i to i64
   %259 = sub nuw i64 %251, %258
   %260 = lshr exact i64 %259, 5
-  %.not.i.i.not.i = icmp ugt i64 %260, %.sroa.10.0.i
+  %.not.i.i.not.i = icmp ult i64 %.sroa.10.0.i, %260
   %261 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sroa.0114.0.i, i64 %.sroa.10.0.i
   br i1 %.not.i.i.not.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h172a3aa15bfd6183E.exit.thread148.i", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h172a3aa15bfd6183E.exit.thread.i"
 
@@ -46141,7 +46141,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i14
   %1368 = getelementptr inbounds i8, ptr %.sroa.0.059.i, i64 16
   %1369 = load i64, ptr %1368, align 8, !alias.scope !9961, !noalias !9964, !noundef !4
   %1370 = load i64, ptr %52, align 8, !alias.scope !9965, !noalias !9972, !noundef !4
-  %1371 = icmp ult i64 %1370, %1369
+  %1371 = icmp ugt i64 %1369, %1370
   br i1 %1371, label %1372, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hf10db56fcc68f59cE.exit.i.i"
 
 1372:                                             ; preds = %1363
@@ -48397,14 +48397,14 @@ define hidden noundef zeroext i1 @_ZN15tree_sitter_cli8generate5rules8TokenSet17
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit: ; preds = %2
   %6 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %3, i1 false)
   %7 = sub nsw i64 63, %6
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   br i1 %8, label %13, label %25
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread: ; preds = %2
   %9 = and i64 %3, -2
   %10 = inttoptr i64 %9 to ptr
   %11 = load i64, ptr %10, align 8, !noalias !10359, !noundef !4
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %15, label %25
 
 13:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit
@@ -48501,7 +48501,7 @@ define void @_ZN15tree_sitter_cli8generate5rules8TokenSet6insert17hd5ca867a7dd68
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit: ; preds = %24, %27
   %.0.i = phi i64 [ %26, %24 ], [ %30, %27 ]
-  %.not = icmp ugt i64 %.0.i, %1
+  %.not = icmp ult i64 %1, %.0.i
   br i1 %.not, label %34, label %32
 
 31:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3set17h72321cce85bb7443E.llvm.16258808753110442553.exit, %13, %11
@@ -48525,14 +48525,14 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i: ; preds = %34
   %38 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %35, i1 false)
   %39 = sub nsw i64 63, %38
-  %40 = icmp ugt i64 %39, %1
+  %40 = icmp ult i64 %1, %39
   br i1 %40, label %51, label %45
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread.i: ; preds = %34
   %41 = and i64 %35, -2
   %42 = inttoptr i64 %41 to ptr
   %43 = load i64, ptr %42, align 8, !noalias !10371, !noundef !4
-  %44 = icmp ugt i64 %43, %1
+  %44 = icmp ult i64 %1, %43
   br i1 %44, label %56, label %45
 
 45:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread.i, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i
@@ -48689,7 +48689,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   store i64 %25, ptr %5, align 8, !noalias !10390
   %51 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %26, i1 false)
   %52 = sub nsw i64 63, %51
-  %53 = icmp ugt i64 %52, %25
+  %53 = icmp ult i64 %25, %52
   br i1 %53, label %64, label %58
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread.i: ; preds = %"_ZN81_$LT$smallbitvec..SmallBitVec$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17ha8f59f4558b0eed8E.llvm.16258808753110442553.exit.thread"
@@ -48698,7 +48698,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %54 = and i64 %26, -2
   %55 = inttoptr i64 %54 to ptr
   %56 = load i64, ptr %55, align 8, !noalias !10395, !noundef !4
-  %57 = icmp ugt i64 %56, %25
+  %57 = icmp ult i64 %25, %56
   br i1 %57, label %70, label %58
 
 58:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread.i, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i
@@ -49024,14 +49024,14 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit14: ; preds = %60
   %64 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %61, i1 false)
   %65 = sub nsw i64 63, %64
-  %66 = icmp ugt i64 %65, %.sroa.9.029
+  %66 = icmp ult i64 %.sroa.9.029, %65
   br i1 %66, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i, label %71
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit14.thread: ; preds = %60
   %67 = and i64 %61, -2
   %68 = inttoptr i64 %67 to ptr
   %69 = load i64, ptr %68, align 8, !noalias !10447, !noundef !4
-  %70 = icmp ugt i64 %69, %.sroa.9.029
+  %70 = icmp ult i64 %.sroa.9.029, %69
   br i1 %70, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread.i, label %71
 
 71:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit14.thread, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit14
@@ -49043,7 +49043,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   store i64 %.sroa.9.029, ptr %5, align 8, !noalias !10450
   %72 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %61, i1 false)
   %73 = sub nsw i64 63, %72
-  %74 = icmp ugt i64 %73, %.sroa.9.029
+  %74 = icmp ult i64 %.sroa.9.029, %73
   br i1 %74, label %92, label %86
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread.i: ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit14.thread
@@ -49061,7 +49061,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %82 = and i64 %61, -2
   %83 = inttoptr i64 %82 to ptr
   %84 = load i64, ptr %83, align 8, !noalias !10458, !noundef !4
-  %85 = icmp ugt i64 %84, %.sroa.9.029
+  %85 = icmp ult i64 %.sroa.9.029, %84
   br i1 %85, label %100, label %86
 
 86:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread.i, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i
@@ -49255,14 +49255,14 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit14: ; preds = %62
   %66 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %63, i1 false)
   %67 = sub nsw i64 63, %66
-  %68 = icmp ugt i64 %67, %.sroa.9.029
+  %68 = icmp ult i64 %.sroa.9.029, %67
   br i1 %68, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i, label %73
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit14.thread: ; preds = %62
   %69 = and i64 %63, -2
   %70 = inttoptr i64 %69 to ptr
   %71 = load i64, ptr %70, align 8, !noalias !10490, !noundef !4
-  %72 = icmp ugt i64 %71, %.sroa.9.029
+  %72 = icmp ult i64 %.sroa.9.029, %71
   br i1 %72, label %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread.i, label %73
 
 73:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit14.thread, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit14
@@ -49274,7 +49274,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   store i64 %.sroa.9.029, ptr %5, align 8, !noalias !10493
   %74 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %63, i1 false)
   %75 = sub nsw i64 63, %74
-  %76 = icmp ugt i64 %75, %.sroa.9.029
+  %76 = icmp ult i64 %.sroa.9.029, %75
   br i1 %76, label %94, label %88
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread.i: ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit14.thread
@@ -49292,7 +49292,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %84 = and i64 %63, -2
   %85 = inttoptr i64 %84 to ptr
   %86 = load i64, ptr %85, align 8, !noalias !10501, !noundef !4
-  %87 = icmp ugt i64 %86, %.sroa.9.029
+  %87 = icmp ult i64 %.sroa.9.029, %86
   br i1 %87, label %102, label %88
 
 88:                                               ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.thread.i, %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i

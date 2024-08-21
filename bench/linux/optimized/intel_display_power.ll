@@ -3198,7 +3198,7 @@ define dso_local void @intel_power_domains_suspend(ptr noundef %0, i1 noundef ze
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 8
   %9 = icmp eq i32 %8, 0
-  %10 = and i1 %9, %1
+  %10 = and i1 %1, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2

@@ -446,7 +446,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox14AddMissingRowsERKS1_ii
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %25 = fptrunc double %.sroa.2.0.copyload to float
   %26 = fptosi float %25 to i32
-  %27 = add nsw i32 %26, %2
+  %27 = add nsw i32 %2, %26
   %28 = getelementptr inbounds i8, ptr %0, i64 4
   %29 = load i32, ptr %28, align 4
   %.not = icmp slt i32 %27, %29

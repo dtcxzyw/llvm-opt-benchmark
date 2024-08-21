@@ -746,7 +746,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr nocapture noundef r
   tail call void @llvm.assume(i1 %245)
   %246 = xor i8 %244, 1
   %247 = zext nneg i8 %246 to i32
-  %248 = icmp eq i32 %247, %3
+  %248 = icmp eq i32 %3, %247
   br i1 %248, label %249, label %250
 
 249:                                              ; preds = %241

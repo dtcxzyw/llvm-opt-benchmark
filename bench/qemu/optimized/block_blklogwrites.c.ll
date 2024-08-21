@@ -542,7 +542,7 @@ if.else30:                                        ; preds = %if.end
 if.end31:                                         ; preds = %if.end
   %conv34 = zext i32 %shl to i64
   %8 = add nsw i64 %conv34, -1
-  %rem = and i64 %8, %offset
+  %rem = and i64 %offset, %8
   %cmp35 = icmp eq i64 %rem, 0
   br i1 %cmp35, label %if.end39, label %if.else38
 
@@ -552,7 +552,7 @@ if.else38:                                        ; preds = %if.end31
 
 if.end39:                                         ; preds = %if.end31
   %9 = add nsw i64 %conv34, -1
-  %rem43 = and i64 %9, %bytes
+  %rem43 = and i64 %bytes, %9
   %cmp44 = icmp eq i64 %rem43, 0
   br i1 %cmp44, label %if.end48, label %if.else47
 

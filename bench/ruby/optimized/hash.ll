@@ -655,7 +655,7 @@ define internal i64 @rb_ident_hash(i64 noundef %0) #0 {
 4:                                                ; preds = %1
   %5 = tail call double @rb_float_value(i64 noundef %0) #25
   %6 = bitcast double %5 to i64
-  %7 = xor i64 %6, %0
+  %7 = xor i64 %0, %6
   br label %8
 
 8:                                                ; preds = %4, %1
@@ -9710,7 +9710,7 @@ define internal noundef i64 @env_update(i32 noundef %0, ptr nocapture noundef re
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
   %7 = getelementptr i64, ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8
-  %9 = icmp eq i64 %8, %2
+  %9 = icmp eq i64 %2, %8
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %.lr.ph

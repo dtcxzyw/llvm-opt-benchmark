@@ -4588,7 +4588,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #21
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %11
+  %.not4.i.i.i.i.i.i = icmp eq ptr %11, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -4905,7 +4905,7 @@ define void @_ZN3gmx18QMMMInputGenerator12computeQMBoxEff(ptr noundef nonnull al
 
 ._crit_edge:                                      ; preds = %.loopexit, %74
   %.0.lcssa = phi float [ 0.000000e+00, %74 ], [ %101, %.loopexit ]
-  %104 = fmul float %.0.lcssa, %1
+  %104 = fmul float %1, %.0.lcssa
   %105 = load float, ptr %77, align 4
   %106 = getelementptr inbounds i8, ptr %0, i64 16
   %107 = load float, ptr %106, align 8
@@ -4927,14 +4927,14 @@ define void @_ZN3gmx18QMMMInputGenerator12computeQMBoxEff(ptr noundef nonnull al
   %123 = call float @llvm.fmuladd.f32(float %105, float %105, float %122)
   %124 = call noundef float @llvm.fmuladd.f32(float %109, float %109, float %123)
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %124)
-  %125 = fneg float %115
-  %126 = fmul float %119, %125
+  %125 = fneg float %119
+  %126 = fmul float %115, %125
   %127 = call float @llvm.fmuladd.f32(float %113, float %121, float %126)
-  %128 = fneg float %111
-  %129 = fmul float %121, %128
+  %128 = fneg float %121
+  %129 = fmul float %111, %128
   %130 = call float @llvm.fmuladd.f32(float %115, float %117, float %129)
-  %131 = fneg float %113
-  %132 = fmul float %117, %131
+  %131 = fneg float %117
+  %132 = fmul float %113, %131
   %133 = call float @llvm.fmuladd.f32(float %111, float %119, float %132)
   %134 = fmul float %130, %130
   %135 = call float @llvm.fmuladd.f32(float %127, float %127, float %134)
@@ -4998,90 +4998,90 @@ _ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit: ; preds = %158, %
   %169 = call float @llvm.fmuladd.f32(float %111, float %111, float %168)
   %170 = call noundef float @llvm.fmuladd.f32(float %115, float %115, float %169)
   %sqrt.i.i119 = call noundef float @llvm.sqrt.f32(float %170)
-  %171 = fneg float %109
-  %172 = fmul float %119, %171
-  %173 = call float @llvm.fmuladd.f32(float %107, float %121, float %172)
-  %174 = fneg float %105
-  %175 = fmul float %121, %174
-  %176 = call float @llvm.fmuladd.f32(float %109, float %117, float %175)
-  %177 = fneg float %107
-  %178 = fmul float %117, %177
-  %179 = call float @llvm.fmuladd.f32(float %105, float %119, float %178)
-  %180 = fmul float %176, %176
-  %181 = call float @llvm.fmuladd.f32(float %173, float %173, float %180)
-  %182 = call noundef float @llvm.fmuladd.f32(float %179, float %179, float %181)
-  %sqrt.i.i135 = call noundef float @llvm.sqrt.f32(float %182)
-  %183 = fdiv float 1.000000e+00, %sqrt.i.i135
-  %184 = fmul float %173, %183
-  %185 = fmul float %176, %183
-  %186 = fmul float %179, %183
-  %187 = fmul float %113, %185
-  %188 = call float @llvm.fmuladd.f32(float %111, float %184, float %187)
-  %189 = call noundef float @llvm.fmuladd.f32(float %115, float %186, float %188)
-  %190 = call noundef float @llvm.fabs.f32(float %189)
-  %191 = fdiv float %104, %190
-  %192 = fmul float %111, %191
-  %193 = fmul float %113, %191
-  %194 = fmul float %115, %191
-  %.sroa.0.0.vec.insert.i20.i136 = insertelement <2 x float> poison, float %192, i64 0
-  %.sroa.0.4.vec.insert.i21.i137 = insertelement <2 x float> %.sroa.0.0.vec.insert.i20.i136, float %193, i64 1
-  %195 = fmul float %193, %193
-  %196 = call float @llvm.fmuladd.f32(float %192, float %192, float %195)
-  %197 = call noundef float @llvm.fmuladd.f32(float %194, float %194, float %196)
-  %sqrt.i24.i138 = call noundef float @llvm.sqrt.f32(float %197)
-  %198 = fcmp olt float %sqrt.i24.i138, %2
-  br i1 %198, label %199, label %204
+  %171 = fmul float %109, %125
+  %172 = call float @llvm.fmuladd.f32(float %107, float %121, float %171)
+  %173 = fmul float %105, %128
+  %174 = call float @llvm.fmuladd.f32(float %109, float %117, float %173)
+  %175 = fmul float %107, %131
+  %176 = call float @llvm.fmuladd.f32(float %105, float %119, float %175)
+  %177 = fmul float %174, %174
+  %178 = call float @llvm.fmuladd.f32(float %172, float %172, float %177)
+  %179 = call noundef float @llvm.fmuladd.f32(float %176, float %176, float %178)
+  %sqrt.i.i135 = call noundef float @llvm.sqrt.f32(float %179)
+  %180 = fdiv float 1.000000e+00, %sqrt.i.i135
+  %181 = fmul float %172, %180
+  %182 = fmul float %174, %180
+  %183 = fmul float %176, %180
+  %184 = fmul float %113, %182
+  %185 = call float @llvm.fmuladd.f32(float %111, float %181, float %184)
+  %186 = call noundef float @llvm.fmuladd.f32(float %115, float %183, float %185)
+  %187 = call noundef float @llvm.fabs.f32(float %186)
+  %188 = fdiv float %104, %187
+  %189 = fmul float %111, %188
+  %190 = fmul float %113, %188
+  %191 = fmul float %115, %188
+  %.sroa.0.0.vec.insert.i20.i136 = insertelement <2 x float> poison, float %189, i64 0
+  %.sroa.0.4.vec.insert.i21.i137 = insertelement <2 x float> %.sroa.0.0.vec.insert.i20.i136, float %190, i64 1
+  %192 = fmul float %190, %190
+  %193 = call float @llvm.fmuladd.f32(float %189, float %189, float %192)
+  %194 = call noundef float @llvm.fmuladd.f32(float %191, float %191, float %193)
+  %sqrt.i24.i138 = call noundef float @llvm.sqrt.f32(float %194)
+  %195 = fcmp olt float %sqrt.i24.i138, %2
+  br i1 %195, label %196, label %201
 
-199:                                              ; preds = %_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit
-  %200 = fdiv float %2, %sqrt.i24.i138
-  %201 = fmul float %192, %200
-  %.sroa.059.0.vec.insert67.i150 = insertelement <2 x float> poison, float %201, i64 0
-  %202 = fmul float %193, %200
-  %.sroa.059.4.vec.insert82.i151 = insertelement <2 x float> %.sroa.059.0.vec.insert67.i150, float %202, i64 1
-  %203 = fmul float %194, %200
-  br label %204
+196:                                              ; preds = %_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit
+  %197 = fdiv float %2, %sqrt.i24.i138
+  %198 = fmul float %189, %197
+  %.sroa.059.0.vec.insert67.i150 = insertelement <2 x float> poison, float %198, i64 0
+  %199 = fmul float %190, %197
+  %.sroa.059.4.vec.insert82.i151 = insertelement <2 x float> %.sroa.059.0.vec.insert67.i150, float %199, i64 1
+  %200 = fmul float %191, %197
+  br label %201
 
-204:                                              ; preds = %199, %_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit
-  %.sroa.059.0.i139 = phi <2 x float> [ %.sroa.059.4.vec.insert82.i151, %199 ], [ %.sroa.0.4.vec.insert.i21.i137, %_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit ]
-  %.sroa.20.0.i140 = phi float [ %203, %199 ], [ %194, %_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit ]
+201:                                              ; preds = %196, %_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit
+  %.sroa.059.0.i139 = phi <2 x float> [ %.sroa.059.4.vec.insert82.i151, %196 ], [ %.sroa.0.4.vec.insert.i21.i137, %_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit ]
+  %.sroa.20.0.i140 = phi float [ %200, %196 ], [ %191, %_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit ]
   %.sroa.059.0.vec.extract69.i141 = extractelement <2 x float> %.sroa.059.0.i139, i64 0
   %.sroa.059.4.vec.extract84.i142 = extractelement <2 x float> %.sroa.059.0.i139, i64 1
-  %205 = fmul float %.sroa.059.4.vec.extract84.i142, %.sroa.059.4.vec.extract84.i142
-  %206 = call float @llvm.fmuladd.f32(float %.sroa.059.0.vec.extract69.i141, float %.sroa.059.0.vec.extract69.i141, float %205)
-  %207 = call noundef float @llvm.fmuladd.f32(float %.sroa.20.0.i140, float %.sroa.20.0.i140, float %206)
-  %sqrt.i26.i143 = call noundef float @llvm.sqrt.f32(float %207)
-  %208 = fcmp ogt float %sqrt.i26.i143, %sqrt.i.i119
-  br i1 %208, label %209, label %_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit152
+  %202 = fmul float %.sroa.059.4.vec.extract84.i142, %.sroa.059.4.vec.extract84.i142
+  %203 = call float @llvm.fmuladd.f32(float %.sroa.059.0.vec.extract69.i141, float %.sroa.059.0.vec.extract69.i141, float %202)
+  %204 = call noundef float @llvm.fmuladd.f32(float %.sroa.20.0.i140, float %.sroa.20.0.i140, float %203)
+  %sqrt.i26.i143 = call noundef float @llvm.sqrt.f32(float %204)
+  %205 = fcmp ogt float %sqrt.i26.i143, %sqrt.i.i119
+  br i1 %205, label %206, label %_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit152
 
-209:                                              ; preds = %204
-  %210 = fdiv float %sqrt.i.i119, %sqrt.i26.i143
-  %211 = fmul float %.sroa.059.0.vec.extract69.i141, %210
-  %.sroa.059.0.vec.insert75.i148 = insertelement <2 x float> poison, float %211, i64 0
-  %212 = fmul float %.sroa.059.4.vec.extract84.i142, %210
-  %.sroa.059.4.vec.insert90.i149 = insertelement <2 x float> %.sroa.059.0.vec.insert75.i148, float %212, i64 1
-  %213 = fmul float %.sroa.20.0.i140, %210
+206:                                              ; preds = %201
+  %207 = fdiv float %sqrt.i.i119, %sqrt.i26.i143
+  %208 = fmul float %.sroa.059.0.vec.extract69.i141, %207
+  %.sroa.059.0.vec.insert75.i148 = insertelement <2 x float> poison, float %208, i64 0
+  %209 = fmul float %.sroa.059.4.vec.extract84.i142, %207
+  %.sroa.059.4.vec.insert90.i149 = insertelement <2 x float> %.sroa.059.0.vec.insert75.i148, float %209, i64 1
+  %210 = fmul float %.sroa.20.0.i140, %207
   br label %_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit152
 
-_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit152: ; preds = %204, %209
-  %.sroa.059.1.i144 = phi <2 x float> [ %.sroa.059.4.vec.insert90.i149, %209 ], [ %.sroa.059.0.i139, %204 ]
-  %.sroa.20.1.i145 = phi float [ %213, %209 ], [ %.sroa.20.0.i140, %204 ]
-  %214 = fmul float %119, %119
-  %215 = call float @llvm.fmuladd.f32(float %117, float %117, float %214)
-  %216 = call noundef float @llvm.fmuladd.f32(float %121, float %121, float %215)
-  %sqrt.i.i153 = call noundef float @llvm.sqrt.f32(float %216)
-  %217 = fmul float %113, %171
-  %218 = call float @llvm.fmuladd.f32(float %107, float %115, float %217)
-  %219 = fmul float %115, %174
-  %220 = call float @llvm.fmuladd.f32(float %109, float %111, float %219)
-  %221 = fmul float %111, %177
+_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit152: ; preds = %201, %206
+  %.sroa.059.1.i144 = phi <2 x float> [ %.sroa.059.4.vec.insert90.i149, %206 ], [ %.sroa.059.0.i139, %201 ]
+  %.sroa.20.1.i145 = phi float [ %210, %206 ], [ %.sroa.20.0.i140, %201 ]
+  %211 = fmul float %119, %119
+  %212 = call float @llvm.fmuladd.f32(float %117, float %117, float %211)
+  %213 = call noundef float @llvm.fmuladd.f32(float %121, float %121, float %212)
+  %sqrt.i.i153 = call noundef float @llvm.sqrt.f32(float %213)
+  %214 = fneg float %113
+  %215 = fmul float %109, %214
+  %216 = call float @llvm.fmuladd.f32(float %107, float %115, float %215)
+  %217 = fneg float %115
+  %218 = fmul float %105, %217
+  %219 = call float @llvm.fmuladd.f32(float %109, float %111, float %218)
+  %220 = fneg float %111
+  %221 = fmul float %107, %220
   %222 = call float @llvm.fmuladd.f32(float %105, float %113, float %221)
-  %223 = fmul float %220, %220
-  %224 = call float @llvm.fmuladd.f32(float %218, float %218, float %223)
+  %223 = fmul float %219, %219
+  %224 = call float @llvm.fmuladd.f32(float %216, float %216, float %223)
   %225 = call noundef float @llvm.fmuladd.f32(float %222, float %222, float %224)
   %sqrt.i.i169 = call noundef float @llvm.sqrt.f32(float %225)
   %226 = fdiv float 1.000000e+00, %sqrt.i.i169
-  %227 = fmul float %218, %226
-  %228 = fmul float %220, %226
+  %227 = fmul float %216, %226
+  %228 = fmul float %219, %226
   %229 = fmul float %222, %226
   %230 = fmul float %119, %228
   %231 = call float @llvm.fmuladd.f32(float %117, float %227, float %230)
@@ -5312,7 +5312,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlE
 
 select.unfold:                                    ; preds = %16, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %16 ]
-  %19 = icmp eq ptr %7, %.sroa.4.0.i.ph
+  %19 = icmp eq ptr %.sroa.4.0.i.ph, %7
   br i1 %19, label %.thread21, label %20
 
 20:                                               ; preds = %select.unfold
@@ -5396,7 +5396,7 @@ _ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree
 10:                                               ; preds = %_ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i
   %11 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %12 = load i64, ptr %11, align 8
-  %13 = icmp sgt i64 %12, %1
+  %13 = icmp slt i64 %1, %12
   %spec.select.i.i = select i1 %13, ptr %5, ptr %.19.i.i.i
   br label %_ZNKSt3setIlSt4lessIlESaIlEE4findERKl.exit
 
@@ -5427,14 +5427,14 @@ define { <2 x float>, float } @_ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3
   %.sroa.2.0.copyload52 = load float, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
-  %7 = fneg float %.sroa.355.0.copyload
-  %8 = fmul float %.sroa.2.0.copyload52, %7
+  %7 = fneg float %.sroa.2.0.copyload52
+  %8 = fmul float %.sroa.355.0.copyload, %7
   %9 = tail call float @llvm.fmuladd.f32(float %.sroa.254.0.copyload, float %.sroa.3.0.copyload, float %8)
-  %10 = fneg float %.sroa.053.0.copyload
-  %11 = fmul float %.sroa.3.0.copyload, %10
+  %10 = fneg float %.sroa.3.0.copyload
+  %11 = fmul float %.sroa.053.0.copyload, %10
   %12 = tail call float @llvm.fmuladd.f32(float %.sroa.355.0.copyload, float %.sroa.051.0.copyload, float %11)
-  %13 = fneg float %.sroa.254.0.copyload
-  %14 = fmul float %.sroa.051.0.copyload, %13
+  %13 = fneg float %.sroa.051.0.copyload
+  %14 = fmul float %.sroa.254.0.copyload, %13
   %15 = tail call float @llvm.fmuladd.f32(float %.sroa.053.0.copyload, float %.sroa.2.0.copyload52, float %14)
   %16 = fmul float %12, %12
   %17 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %16)
@@ -7051,7 +7051,7 @@ _ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree
 42:                                               ; preds = %_ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i.i
   %43 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %44 = load i64, ptr %43, align 8
-  %45 = icmp sgt i64 %44, %.01418
+  %45 = icmp slt i64 %.01418, %44
   %spec.select = select i1 %45, ptr @.str.237, ptr @.str.236
   br label %.thread.invoke
 

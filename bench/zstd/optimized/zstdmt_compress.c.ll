@@ -1028,7 +1028,7 @@ ZSTDMT_expandCCtxPool.exit.thread.i:              ; preds = %if.end19.i
 if.end.i27.i:                                     ; preds = %if.end19.i
   %totalCCtx.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load i32, ptr %totalCCtx.i.i, align 8
-  %cmp1.not.i28.i = icmp slt i32 %12, %0
+  %cmp1.not.i28.i = icmp sgt i32 %0, %12
   br i1 %cmp1.not.i28.i, label %ZSTDMT_expandCCtxPool.exit.i, label %ZSTDMT_expandCCtxPool.exit.thread45.i
 
 ZSTDMT_expandCCtxPool.exit.thread45.i:            ; preds = %if.end.i27.i
@@ -1632,7 +1632,7 @@ if.end57.i:                                       ; preds = %if.end48.thread.i, 
 if.end.i58.i:                                     ; preds = %if.end57.i
   %add.ptr.i = getelementptr inbounds i8, ptr %dict, i64 %dictSize
   %81 = load ptr, ptr %ldmState.i, align 8
-  %cmp1.not.i.i116 = icmp eq ptr %81, %dict
+  %cmp1.not.i.i116 = icmp eq ptr %dict, %81
   br i1 %cmp1.not.i.i116, label %if.end.if.end17_crit_edge.i.i, label %if.then2.i.i
 
 if.end.if.end17_crit_edge.i.i:                    ; preds = %if.end.i58.i
@@ -1672,7 +1672,7 @@ if.end17.i.i:                                     ; preds = %if.then13.i.i, %if.
   %cmp24.i.i = icmp ugt ptr %add.ptr.i, %add.ptr23.i.i
   %idx.ext28.i.i = zext i32 %84 to i64
   %add.ptr29.i.i = getelementptr inbounds i8, ptr %86, i64 %idx.ext28.i.i
-  %cmp30.i.i = icmp ugt ptr %add.ptr29.i.i, %dict
+  %cmp30.i.i = icmp ult ptr %dict, %add.ptr29.i.i
   %and33.i.i = and i1 %cmp24.i.i, %cmp30.i.i
   br i1 %and33.i.i, label %if.then33.i.i, label %ZSTD_window_update.exit.i
 
@@ -1863,8 +1863,8 @@ if.end.i.i:                                       ; preds = %if.then.i
 ZSTDMT_isOverlapped.exit.i:                       ; preds = %if.end.i.i
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 %retval.sroa.4.0.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.coerce0.fr.i.i, i64 %buffer.coerce1.fr.i.i
-  %cmp9.i.i = icmp ule ptr %add.ptr3.i.i, %buffer.coerce0.fr.i.i
-  %cmp10.i.i = icmp ule ptr %add.ptr.i.i, %retval.sroa.0.0.i.i
+  %cmp9.i.i = icmp uge ptr %buffer.coerce0.fr.i.i, %add.ptr3.i.i
+  %cmp10.i.i = icmp uge ptr %retval.sroa.0.0.i.i, %add.ptr.i.i
   %.not.i = select i1 %cmp9.i.i, i1 true, i1 %cmp10.i.i
   br i1 %.not.i, label %if.end.i, label %if.end14thread-pre-split
 
@@ -1906,8 +1906,8 @@ ZSTDMT_isOverlapped.exit.i.i.i:                   ; preds = %while.cond.i.i
   %idx.ext.i.i.i = zext i32 %ldmWindow6.sroa.7.0.copyload.i.i to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ldmWindow6.sroa.5.0.copyload.i.i, i64 %idx.ext.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i.i.i
-  %cmp9.i.i.i.i = icmp ule ptr %add.ptr3.i.i.i.i, %buffer.coerce0.fr.i.i
-  %cmp10.i.i.i.i = icmp ule ptr %add.ptr.i.i.i.i, %add.ptr.i.i.i
+  %cmp9.i.i.i.i = icmp uge ptr %buffer.coerce0.fr.i.i, %add.ptr3.i.i.i.i
+  %cmp10.i.i.i.i = icmp uge ptr %add.ptr.i.i.i, %add.ptr.i.i.i.i
   %.not.i.i.i = select i1 %cmp9.i.i.i.i, i1 true, i1 %cmp10.i.i.i.i
   br i1 %.not.i.i.i, label %lor.rhs.i.i.i, label %do.end6.i.i
 
@@ -1920,8 +1920,8 @@ lor.rhs.i.i.i:                                    ; preds = %ZSTDMT_isOverlapped
   br i1 %or.cond82.i.i, label %do.end10.i.i, label %ZSTDMT_doesOverlapWindow.exit.i.i
 
 ZSTDMT_doesOverlapWindow.exit.i.i:                ; preds = %lor.rhs.i.i.i
-  %cmp9.i13.i.i.i = icmp ule ptr %ldmWindow6.sroa.0.0.copyload.i.i, %buffer.coerce0.fr.i.i
-  %cmp10.i14.i.i.i = icmp ule ptr %add.ptr.i.i.i.i, %add.ptr4.i.i.i
+  %cmp9.i13.i.i.i = icmp uge ptr %buffer.coerce0.fr.i.i, %ldmWindow6.sroa.0.0.copyload.i.i
+  %cmp10.i14.i.i.i = icmp uge ptr %add.ptr4.i.i.i, %add.ptr.i.i.i.i
   %.not.i.i = select i1 %cmp9.i13.i.i.i, i1 true, i1 %cmp10.i14.i.i.i
   br i1 %.not.i.i, label %do.end10.i.i, label %do.end6.i.i
 
@@ -1959,8 +1959,8 @@ if.end.i36.i:                                     ; preds = %if.end18.i
 ZSTDMT_isOverlapped.exit47.i:                     ; preds = %if.end.i36.i
   %add.ptr3.i41.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 %retval.sroa.4.0.i.i
   %add.ptr.i42.i = getelementptr inbounds i8, ptr %buffer.coerce0.fr.i48.i, i64 %buffer.coerce1.fr.i53.i
-  %cmp9.i43.i = icmp ule ptr %add.ptr3.i41.i, %buffer.coerce0.fr.i48.i
-  %cmp10.i44.i = icmp ule ptr %add.ptr.i42.i, %retval.sroa.0.0.i.i
+  %cmp9.i43.i = icmp uge ptr %buffer.coerce0.fr.i48.i, %add.ptr3.i41.i
+  %cmp10.i44.i = icmp uge ptr %retval.sroa.0.0.i.i, %add.ptr.i42.i
   %.not103.i = select i1 %cmp9.i43.i, i1 true, i1 %cmp10.i44.i
   br i1 %.not103.i, label %if.end30.i, label %if.end14thread-pre-split
 
@@ -2002,8 +2002,8 @@ ZSTDMT_isOverlapped.exit.i.i75.i:                 ; preds = %while.cond.i66.i
   %idx.ext.i.i78.i = zext i32 %ldmWindow6.sroa.7.0.copyload.i71.i to i64
   %add.ptr.i.i79.i = getelementptr inbounds i8, ptr %ldmWindow6.sroa.5.0.copyload.i69.i, i64 %idx.ext.i.i78.i
   %add.ptr3.i.i.i80.i = getelementptr inbounds i8, ptr %add.ptr.i.i79.i, i64 %conv.i.i77.i
-  %cmp9.i.i.i81.i = icmp ule ptr %add.ptr3.i.i.i80.i, %buffer.coerce0.fr.i48.i
-  %cmp10.i.i.i82.i = icmp ule ptr %add.ptr.i.i.i62.i, %add.ptr.i.i79.i
+  %cmp9.i.i.i81.i = icmp uge ptr %buffer.coerce0.fr.i48.i, %add.ptr3.i.i.i80.i
+  %cmp10.i.i.i82.i = icmp uge ptr %add.ptr.i.i79.i, %add.ptr.i.i.i62.i
   %.not.i.i83.i = select i1 %cmp9.i.i.i81.i, i1 true, i1 %cmp10.i.i.i82.i
   br i1 %.not.i.i83.i, label %lor.rhs.i.i86.i, label %do.end6.i84.i
 
@@ -2016,8 +2016,8 @@ lor.rhs.i.i86.i:                                  ; preds = %ZSTDMT_isOverlapped
   br i1 %or.cond82.i91.i, label %do.end10.i96.i, label %ZSTDMT_doesOverlapWindow.exit.i92.i
 
 ZSTDMT_doesOverlapWindow.exit.i92.i:              ; preds = %lor.rhs.i.i86.i
-  %cmp9.i13.i.i93.i = icmp ule ptr %ldmWindow6.sroa.0.0.copyload.i67.i, %buffer.coerce0.fr.i48.i
-  %cmp10.i14.i.i94.i = icmp ule ptr %add.ptr.i.i.i62.i, %add.ptr4.i.i88.i
+  %cmp9.i13.i.i93.i = icmp uge ptr %buffer.coerce0.fr.i48.i, %ldmWindow6.sroa.0.0.copyload.i67.i
+  %cmp10.i14.i.i94.i = icmp uge ptr %add.ptr4.i.i88.i, %add.ptr.i.i.i62.i
   %.not.i95.i = select i1 %cmp9.i13.i.i93.i, i1 true, i1 %cmp10.i14.i.i94.i
   br i1 %.not.i95.i, label %do.end10.i96.i, label %do.end6.i84.i
 
@@ -2382,7 +2382,7 @@ land.end.i:                                       ; preds = %land.rhs.i, %cond.e
 if.then89.i:                                      ; preds = %land.end.i
   %targetPrefixSize.i = getelementptr inbounds i8, ptr %mtctx, i64 264
   %79 = load i64, ptr %targetPrefixSize.i, align 8
-  %srcSize..i = tail call i64 @llvm.umin.i64(i64 %79, i64 %43)
+  %srcSize..i = tail call i64 @llvm.umin.i64(i64 %43, i64 %79)
   %add.ptr.i63 = getelementptr inbounds i8, ptr %49, i64 %43
   %idx.neg.i = sub i64 0, %srcSize..i
   %add.ptr97.i = getelementptr inbounds i8, ptr %add.ptr.i63, i64 %idx.neg.i
@@ -3375,7 +3375,7 @@ if.then6.i:                                       ; preds = %if.then.i136
 
 if.end.i.i:                                       ; preds = %if.then6.i
   %27 = load ptr, ptr %ldmState.i, align 8
-  %cmp1.not.i.i = icmp eq ptr %27, %21
+  %cmp1.not.i.i = icmp eq ptr %21, %27
   br i1 %cmp1.not.i.i, label %if.end.if.end17_crit_edge.i.i, label %if.then2.i.i
 
 if.end.if.end17_crit_edge.i.i:                    ; preds = %if.end.i.i
@@ -3423,7 +3423,7 @@ if.end17.i.i:                                     ; preds = %if.then13.i.i, %if.
   %cmp24.i.i = icmp ugt ptr %add.ptr18.i.i, %add.ptr23.i.i
   %idx.ext28.i.i = zext i32 %30 to i64
   %add.ptr29.i.i = getelementptr inbounds i8, ptr %32, i64 %idx.ext28.i.i
-  %cmp30.i.i = icmp ugt ptr %add.ptr29.i.i, %21
+  %cmp30.i.i = icmp ult ptr %21, %add.ptr29.i.i
   %and33.i.i = and i1 %cmp24.i.i, %cmp30.i.i
   br i1 %and33.i.i, label %if.then33.i.i, label %ZSTD_window_update.exit.i
 

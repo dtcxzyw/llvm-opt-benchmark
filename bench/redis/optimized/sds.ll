@@ -80,7 +80,7 @@ cond.end22:                                       ; preds = %cond.false17, %cond
 
 if.end26:                                         ; preds = %cond.end22
   %1 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp27 = icmp eq ptr %1, %init
+  %cmp27 = icmp eq ptr %init, %1
   br i1 %cmp27, label %if.end36, label %if.else
 
 if.else:                                          ; preds = %if.end26
@@ -959,7 +959,7 @@ sdsalloc.exit:                                    ; preds = %sdslen.exit, %sdsle
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sdsalloc.exit
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %retval.0.i4186, i64 %size)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %size, i64 %retval.0.i4186)
   %cmp.i = icmp ult i64 %size, 32
   br i1 %cmp.i, label %sdsReqType.exit, label %if.end.i
 
@@ -1221,7 +1221,7 @@ sw.bb:                                            ; preds = %entry
 
 land.lhs.true:                                    ; preds = %sw.bb
   %conv4 = zext nneg i8 %shr to i64
-  %add = add nuw nsw i64 %conv4, %incr
+  %add = add nuw nsw i64 %incr, %conv4
   %cmp5 = icmp ult i64 %add, 32
   br i1 %cmp5, label %cond.end, label %cond.false
 
@@ -1236,7 +1236,7 @@ lor.rhs:                                          ; preds = %sw.bb
 
 lor.rhs.cond.end_crit_edge:                       ; preds = %lor.rhs
   %.pre = zext nneg i8 %shr to i64
-  %.pre56 = add nsw i64 %.pre, %incr
+  %.pre56 = add nsw i64 %incr, %.pre
   br label %cond.end
 
 cond.false:                                       ; preds = %land.lhs.true, %lor.rhs
@@ -1439,7 +1439,7 @@ sw.bb13.i:                                        ; preds = %entry
 
 sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
-  %cmp.not = icmp ult i64 %retval.0.i, %len
+  %cmp.not = icmp ugt i64 %len, %retval.0.i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %sdslen.exit
@@ -3018,7 +3018,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   %retval.0.i = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 %retval.0.i
   %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
-  %cmp.not26 = icmp ult ptr %add.ptr1, %s
+  %cmp.not26 = icmp ugt ptr %s, %add.ptr1
   br i1 %cmp.not26, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %sdslen.exit, %while.body
@@ -3068,7 +3068,7 @@ while.end13:                                      ; preds = %land.rhs6, %while.b
   %sub.ptr.lhs.cast = ptrtoint ptr %ep.0.lcssa to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sp.0.lcssa33.pre-phi
   %add = add nsw i64 %sub.ptr.sub, 1
-  %cmp14.not = icmp eq ptr %sp.0.lcssa, %s
+  %cmp14.not = icmp eq ptr %s, %sp.0.lcssa
   br i1 %cmp14.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end13
@@ -3172,7 +3172,7 @@ sw.bb13.i:                                        ; preds = %entry
 
 sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
-  %cmp.not = icmp ugt i64 %retval.0.i, %start
+  %cmp.not = icmp ult i64 %start, %retval.0.i
   %spec.select = select i1 %cmp.not, i64 %len, i64 0
   %spec.select16 = select i1 %cmp.not, i64 %start, i64 0
   %sub = sub i64 %retval.0.i, %spec.select16

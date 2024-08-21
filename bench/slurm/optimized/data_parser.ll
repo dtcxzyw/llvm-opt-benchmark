@@ -223,7 +223,7 @@ define noundef ptr @data_parser_g_new(ptr noundef %0, ptr noundef %1, ptr nounde
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
   %39 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, %32
+  %41 = icmp eq ptr %32, %40
   br i1 %41, label %_find_plugin_by_type.exit, label %42
 
 42:                                               ; preds = %38
@@ -597,7 +597,7 @@ define ptr @data_parser_g_new_array(ptr noundef %0, ptr noundef %1, ptr noundef 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
   %38 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, %31
+  %40 = icmp eq ptr %31, %39
   br i1 %40, label %_find_plugin_by_type.exit, label %41
 
 41:                                               ; preds = %37

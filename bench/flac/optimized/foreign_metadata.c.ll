@@ -448,7 +448,7 @@ cond.false.i:                                     ; preds = %if.end120.i
 cond.end.i:                                       ; preds = %cond.false.i, %if.end120.i
   %cond.i = phi i32 [ %add125.i, %cond.false.i ], [ %spec.select.i, %if.end120.i ]
   %add126.i = add i32 %cond.i, 8
-  %cmp.not.i92.i = icmp ugt i32 %sub.i.i, %add126.i
+  %cmp.not.i92.i = icmp ult i32 %add126.i, %sub.i.i
   br i1 %cmp.not.i92.i, label %if.end2.i97.i, label %if.then.i93.i
 
 if.then.i93.i:                                    ; preds = %cond.end.i
@@ -774,7 +774,7 @@ if.end136.i:                                      ; preds = %if.end121.i, %if.el
   %15 = trunc i64 %spec.select101.i to i32
   %16 = add i32 %15, 8
   %conv141.i = select i1 %tobool139.not.i, i32 8, i32 %16
-  %cmp.not.i106.i = icmp ugt i32 %sub.i.i, %conv141.i
+  %cmp.not.i106.i = icmp ult i32 %conv141.i, %sub.i.i
   br i1 %cmp.not.i106.i, label %if.end2.i111.i, label %if.then.i107.i
 
 if.then.i107.i:                                   ; preds = %if.end136.i
@@ -1213,7 +1213,7 @@ if.end91.i:                                       ; preds = %if.end91.sink.split
   %tobool94.not.i = icmp eq i32 %bcmp52.i, 0
   %conv.i = trunc i64 %size.0.i to i32
   %cond.i = select i1 %tobool94.not.i, i32 24, i32 %conv.i
-  %cmp.not.i72.i = icmp ugt i32 %sub.i.i, %cond.i
+  %cmp.not.i72.i = icmp ult i32 %cond.i, %sub.i.i
   br i1 %cmp.not.i72.i, label %if.end2.i77.i, label %if.then.i73.i
 
 if.then.i73.i:                                    ; preds = %if.end91.i
@@ -2058,7 +2058,7 @@ if.end332.i:                                      ; preds = %if.end318.i, %if.en
   %ds64_found.1.i = phi i32 [ %ds64_found.0.ph.ph.i, %if.end96.i ], [ %ds64_found.0.ph.ph.i, %if.else176.i ], [ %ds64_found.0.ph.ph.i, %if.end173.i ], [ %ds64_found.0.ph.ph.i, %if.end148.i ], [ %ds64_found.0.ph.ph.i, %if.end238.i ], [ %ds64_found.0.ph.ph.i, %if.end217.i ], [ %ds64_found.0.ph.ph.i, %if.end318.i ], [ %ds64_found.0.ph.ph.i, %if.end280.i ], [ %ds64_found.0.ph.ph.i, %if.end265.i ], [ %ds64_found.0.ph.ph.i, %land.lhs.true.i ], [ %ds64_found.0.ph.ph.i, %land.lhs.true72.i ], [ 1, %if.then183.i ], [ %ds64_found.0.ph.ph.i, %if.then199.i ], [ %ds64_found.0.ph.ph.i, %if.then247.i ], [ %ds64_found.0.ph.ph.i, %land.lhs.true.i ]
   %call333.i = call i32 @FLAC__metadata_simple_iterator_get_block_length(ptr noundef nonnull %call) #14
   %sub.i = add i32 %call333.i, -4
-  %cmp.not.i.i = icmp ugt i32 %sub.i.i, %sub.i
+  %cmp.not.i.i = icmp ult i32 %sub.i, %sub.i.i
   br i1 %cmp.not.i.i, label %if.end2.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end332.i

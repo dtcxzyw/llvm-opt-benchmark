@@ -143,7 +143,7 @@ define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @file_
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = urem i64 %2, %8
-  %10 = icmp eq i64 %9, %2
+  %10 = icmp eq i64 %2, %9
   br i1 %10, label %26, label %11
 
 11:                                               ; preds = %6

@@ -641,7 +641,7 @@ define internal fastcc zeroext i1 @coalesce_put_bool(ptr noundef %0, i16 noundef
   %10 = and i64 %9, 4294967295
   %11 = shl nuw nsw i64 1, %10
   %12 = trunc nuw i64 %11 to i32
-  %13 = and i32 %12, %3
+  %13 = and i32 %3, %12
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %20, label %15
 

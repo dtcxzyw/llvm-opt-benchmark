@@ -2814,7 +2814,7 @@ spgMatchNodeAction.exit:                          ; preds = %1332, %ItemPointerI
   br i1 %1372, label %1381, label %1376
 
 1376:                                             ; preds = %1369
-  %1377 = icmp ult i32 %1375, %1370
+  %1377 = icmp ugt i32 %1370, %1375
   br i1 %1377, label %1378, label %1381
 
 1378:                                             ; preds = %1376

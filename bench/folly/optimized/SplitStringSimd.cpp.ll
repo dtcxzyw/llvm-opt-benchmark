@@ -520,7 +520,7 @@ _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit16
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -1036,7 +1036,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -1414,7 +1414,7 @@ _ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -2221,7 +2221,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -2608,7 +2608,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -3391,7 +3391,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -3828,7 +3828,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm2EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -4397,7 +4397,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -4785,7 +4785,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm3EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -5354,7 +5354,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -5742,7 +5742,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm4EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -6311,7 +6311,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -6699,7 +6699,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm5EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -7268,7 +7268,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -7656,7 +7656,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm6EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -8225,7 +8225,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -8613,7 +8613,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm7EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -9182,7 +9182,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -9570,7 +9570,7 @@ _ZN5folly12small_vectorINS_5RangeIPKcEELm8EvE12emplace_backIJRS3_lEEERS4_DpOT_.e
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -10139,7 +10139,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -10573,7 +10573,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJR
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -11045,7 +11045,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -11417,7 +11417,7 @@ _ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_b
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -11920,7 +11920,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -12301,7 +12301,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -13018,7 +13018,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -13447,7 +13447,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -14007,7 +14007,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -14387,7 +14387,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -14947,7 +14947,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -15327,7 +15327,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -15887,7 +15887,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -16267,7 +16267,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -16827,7 +16827,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -17207,7 +17207,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -17767,7 +17767,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -18147,7 +18147,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -18707,7 +18707,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -19087,7 +19087,7 @@ _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE12emplac
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -19647,7 +19647,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -19993,7 +19993,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -20565,7 +20565,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEviPT0_SL_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -20958,7 +20958,7 @@ _ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_core
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -21966,7 +21966,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -22480,7 +22480,7 @@ _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE1
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -23431,7 +23431,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -23955,7 +23955,7 @@ _ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_cor
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge
@@ -24931,7 +24931,7 @@ _ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCom
 
 _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit: ; preds = %while.cond.i.loopexit, %while.cond.i.preheader
   %prev.i.1.lcssa = phi ptr [ %prev.i.0.lcssa, %while.cond.i.preheader ], [ %prev.i.2.lcssa, %while.cond.i.loopexit ]
-  %cmp13.i = icmp eq ptr %2, %what.coerce1
+  %cmp13.i = icmp eq ptr %what.coerce1, %2
   br i1 %cmp13.i, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, %if.end.i.if.end16.i_crit_edge

@@ -5542,7 +5542,7 @@ define internal noundef i32 @gtk2_get_drawable_data(ptr noundef %0, ptr noundef 
   %46 = mul nsw i64 %indvars.iv59, %44
   %47 = getelementptr inbounds i8, ptr %37, i64 %46
   %48 = trunc i64 %indvars.iv59 to i32
-  %49 = add i32 %48, %8
+  %49 = add i32 %8, %48
   %50 = mul i32 %49, %6
   %51 = add i32 %50, %7
   br label %52

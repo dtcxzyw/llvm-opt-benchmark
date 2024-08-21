@@ -4674,7 +4674,7 @@ define dso_local void @_ZN4Luau12Substitution16dontTraverseIntoEPKNS_4TypeE(ptr 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 416
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %.loopexit.i.i, label %16
 
 16:                                               ; preds = %12
@@ -4776,7 +4776,7 @@ define dso_local void @_ZN4Luau12Substitution16dontTraverseIntoEPKNS_11TypePackV
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 456
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %.loopexit.i.i, label %16
 
 16:                                               ; preds = %12
@@ -8393,7 +8393,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_E
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_.exit20.i: ; preds = %123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit.i
   %124 = sub i64 %100, %122
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %121, %99
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %99, %121
   br i1 %.not.i.i.i.i.i.i.i.i.i63, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E.exit.i, label %125
 
 125:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_.exit20.i
@@ -8491,7 +8491,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau11TypePackVarESt6vectorIS5
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau11TypePackVarESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_.exit20.i: ; preds = %152, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau11TypePackVarESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit.i
   %153 = sub i64 %129, %151
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %150, %128
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %128, %150
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau11TypePackVarESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E.exit.i, label %154
 
 154:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau11TypePackVarESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_.exit20.i
@@ -9972,7 +9972,7 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEEC2ERKS2_.exit.i: ; preds = %_ZNSt22_O
 _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit.i: ; preds = %37, %33, %30
   %38 = getelementptr inbounds i8, ptr %2, i64 104
   %39 = getelementptr inbounds i8, ptr %6, i64 104
-  %.not.i.i = icmp eq ptr %6, %2
+  %.not.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i, label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EEaSERKS5_.exit.i, label %40
 
 40:                                               ; preds = %_ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit.i
@@ -10493,7 +10493,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKS6_.exi
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKS6_.exit20.i: ; preds = %43, %.noexc19.i, %.thread.i.i.i.i.i17.i, %40
   %44 = getelementptr inbounds i8, ptr %2, i64 176
   %45 = getelementptr inbounds i8, ptr %4, i64 176
-  %.not.i.i = icmp eq ptr %4, %2
+  %.not.i.i = icmp eq ptr %2, %4
   br i1 %.not.i.i, label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EEaSERKS5_.exit.i, label %46
 
 46:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKS6_.exit20.i
@@ -13999,7 +13999,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS5_EEvPT_
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
   %64 = tail call ptr @__cxa_begin_catch(ptr %63) #24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %56
+  %.not4.i.i.i.i.i.i = icmp eq ptr %56, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %61, %.lr.ph.i.i.i.i.i.i
@@ -14444,7 +14444,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %13
+  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -14622,7 +14622,7 @@ _ZSt10_ConstructISt8optionalIN4Luau16FunctionArgumentEEJRKS3_EEvPT_DpOT0_.exit: 
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #24
-  %.not4.i.i = icmp eq ptr %.014, %2
+  %.not4.i.i = icmp eq ptr %2, %.014
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPSt8optionalIN4Luau16FunctionArgumentEEEvT_S5_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %12, %_ZSt8_DestroyISt8optionalIN4Luau16FunctionArgumentEEEvPT_.exit.i.i
@@ -14707,7 +14707,7 @@ _ZSt10_ConstructISt8optionalIN4Luau16FunctionArgumentEEJRS3_EEvPT_DpOT0_.exit: ;
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #24
-  %.not4.i.i = icmp eq ptr %.016, %2
+  %.not4.i.i = icmp eq ptr %2, %.016
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPSt8optionalIN4Luau16FunctionArgumentEEEvT_S5_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %12, %_ZSt8_DestroyISt8optionalIN4Luau16FunctionArgumentEEEvPT_.exit.i.i
@@ -15030,7 +15030,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i

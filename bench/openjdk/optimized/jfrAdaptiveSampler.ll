@@ -159,64 +159,64 @@ define hidden noundef zeroext i1 @_ZN18JfrAdaptiveSampler6sampleEl(ptr noundef n
 
 8:                                                ; preds = %2
   %9 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
-  %.not6 = icmp slt i64 %9, %6
-  br i1 %.not6, label %10, label %21
+  br label %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i
 
-_ZNK16JfrSamplerWindow10is_expiredEl.exit.i:      ; preds = %2
-  %.not = icmp sgt i64 %6, %1
-  br i1 %.not, label %10, label %21
+_ZNK16JfrSamplerWindow10is_expiredEl.exit.i:      ; preds = %8, %2
+  %.pn.i.i = phi i64 [ %9, %8 ], [ %1, %2 ]
+  %.not = icmp slt i64 %.pn.i.i, %6
+  br i1 %.not, label %10, label %_ZNK16JfrSamplerWindow6sampleElPb.exit
 
-10:                                               ; preds = %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i, %8
+10:                                               ; preds = %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i
   %11 = getelementptr inbounds i8, ptr %4, i64 56
   %12 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %11) #16, !srcloc !7
   %13 = add i64 %12, 1
   %14 = getelementptr inbounds i8, ptr %4, i64 48
   %15 = load i64, ptr %14, align 8
   %.not.i.i = icmp ugt i64 %13, %15
-  br i1 %.not.i.i, label %_ZNK16JfrSamplerWindow6sampleElPb.exit, label %16
+  br i1 %.not.i.i, label %_ZN10JfrTryLockD2Ev.exit, label %16
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %4, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = urem i64 %13, %18
   %20 = icmp eq i64 %19, 0
-  br label %_ZNK16JfrSamplerWindow6sampleElPb.exit
+  br label %_ZN10JfrTryLockD2Ev.exit
 
-21:                                               ; preds = %8, %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
-  %23 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %22) #16, !srcloc !8
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %_ZNK16JfrSamplerWindow6sampleElPb.exit
+_ZNK16JfrSamplerWindow6sampleElPb.exit:           ; preds = %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i
+  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %21) #16, !srcloc !8
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %_ZN10JfrTryLockD2Ev.exit
 
-25:                                               ; preds = %21
-  %26 = load volatile ptr, ptr %3, align 8
+24:                                               ; preds = %_ZNK16JfrSamplerWindow6sampleElPb.exit
+  %25 = load volatile ptr, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
-  %28 = load volatile i64, ptr %27, align 8
-  br i1 %7, label %29, label %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i3
+  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %27 = load volatile i64, ptr %26, align 8
+  br i1 %7, label %28, label %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i3
 
-29:                                               ; preds = %25
-  %30 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
-  %.not3.i = icmp slt i64 %30, %28
-  br i1 %.not3.i, label %32, label %31
+28:                                               ; preds = %24
+  %29 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
+  br label %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i3
 
-_ZNK16JfrSamplerWindow10is_expiredEl.exit.i3:     ; preds = %25
-  %.not.i = icmp sgt i64 %28, %1
-  br i1 %.not.i, label %32, label %31
+_ZNK16JfrSamplerWindow10is_expiredEl.exit.i3:     ; preds = %28, %24
+  %.pn.i.i4 = phi i64 [ %29, %28 ], [ %1, %24 ]
+  %.not.i = icmp slt i64 %.pn.i.i4, %27
+  br i1 %.not.i, label %31, label %30
 
-31:                                               ; preds = %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i3, %29
-  tail call void @_ZN18JfrAdaptiveSampler6rotateEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull %26)
-  br label %32
+30:                                               ; preds = %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i3
+  tail call void @_ZN18JfrAdaptiveSampler6rotateEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull %25)
+  br label %31
 
-32:                                               ; preds = %31, %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i3, %29
+31:                                               ; preds = %30, %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i3
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
-  store volatile i32 0, ptr %22, align 8
-  br label %_ZNK16JfrSamplerWindow6sampleElPb.exit
+  store volatile i32 0, ptr %21, align 8
+  br label %_ZN10JfrTryLockD2Ev.exit
 
-_ZNK16JfrSamplerWindow6sampleElPb.exit:           ; preds = %32, %21, %16, %10
-  %33 = phi i1 [ false, %10 ], [ %20, %16 ], [ false, %21 ], [ false, %32 ]
-  ret i1 %33
+_ZN10JfrTryLockD2Ev.exit:                         ; preds = %16, %10, %31, %_ZNK16JfrSamplerWindow6sampleElPb.exit
+  %32 = phi i1 [ false, %_ZNK16JfrSamplerWindow6sampleElPb.exit ], [ false, %31 ], [ %20, %16 ], [ false, %10 ]
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -228,36 +228,34 @@ define hidden noundef zeroext i1 @_ZNK16JfrSamplerWindow6sampleElPb(ptr noundef 
 
 7:                                                ; preds = %3
   %8 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
-  %9 = icmp sge i64 %8, %5
+  br label %_ZNK16JfrSamplerWindow10is_expiredEl.exit
+
+_ZNK16JfrSamplerWindow10is_expiredEl.exit:        ; preds = %3, %7
+  %.pn.i = phi i64 [ %8, %7 ], [ %1, %3 ]
+  %9 = icmp sge i64 %.pn.i, %5
   %10 = zext i1 %9 to i8
   store i8 %10, ptr %2, align 1
-  br i1 %9, label %_ZNK16JfrSamplerWindow6sampleEv.exit, label %13
+  br i1 %9, label %_ZNK16JfrSamplerWindow6sampleEv.exit, label %11
 
-_ZNK16JfrSamplerWindow10is_expiredEl.exit:        ; preds = %3
-  %11 = icmp sle i64 %5, %1
-  %12 = zext i1 %11 to i8
-  store i8 %12, ptr %2, align 1
-  br i1 %11, label %_ZNK16JfrSamplerWindow6sampleEv.exit, label %13
+11:                                               ; preds = %_ZNK16JfrSamplerWindow10is_expiredEl.exit
+  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %12) #16, !srcloc !7
+  %14 = add i64 %13, 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = load i64, ptr %15, align 8
+  %.not.i = icmp ugt i64 %14, %16
+  br i1 %.not.i, label %_ZNK16JfrSamplerWindow6sampleEv.exit, label %17
 
-13:                                               ; preds = %7, %_ZNK16JfrSamplerWindow10is_expiredEl.exit
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
-  %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %14) #16, !srcloc !7
-  %16 = add i64 %15, 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  %18 = load i64, ptr %17, align 8
-  %.not.i = icmp ugt i64 %16, %18
-  br i1 %.not.i, label %_ZNK16JfrSamplerWindow6sampleEv.exit, label %19
-
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
-  %21 = load i64, ptr %20, align 8
-  %22 = urem i64 %16, %21
-  %23 = icmp eq i64 %22, 0
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = load i64, ptr %18, align 8
+  %20 = urem i64 %14, %19
+  %21 = icmp eq i64 %20, 0
   br label %_ZNK16JfrSamplerWindow6sampleEv.exit
 
-_ZNK16JfrSamplerWindow6sampleEv.exit:             ; preds = %19, %13, %7, %_ZNK16JfrSamplerWindow10is_expiredEl.exit
-  %24 = phi i1 [ false, %_ZNK16JfrSamplerWindow10is_expiredEl.exit ], [ false, %7 ], [ false, %13 ], [ %23, %19 ]
-  ret i1 %24
+_ZNK16JfrSamplerWindow6sampleEv.exit:             ; preds = %17, %11, %_ZNK16JfrSamplerWindow10is_expiredEl.exit
+  %22 = phi i1 [ false, %_ZNK16JfrSamplerWindow10is_expiredEl.exit ], [ false, %11 ], [ %21, %17 ]
+  ret i1 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -272,18 +270,18 @@ define hidden void @_ZN18JfrAdaptiveSampler13rotate_windowEl(ptr noundef nonnull
 
 8:                                                ; preds = %2
   %9 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
-  %.not3 = icmp slt i64 %9, %6
-  br i1 %.not3, label %11, label %10
+  br label %_ZNK16JfrSamplerWindow10is_expiredEl.exit
 
-_ZNK16JfrSamplerWindow10is_expiredEl.exit:        ; preds = %2
-  %.not = icmp sgt i64 %6, %1
+_ZNK16JfrSamplerWindow10is_expiredEl.exit:        ; preds = %2, %8
+  %.pn.i = phi i64 [ %9, %8 ], [ %1, %2 ]
+  %.not = icmp slt i64 %.pn.i, %6
   br i1 %.not, label %11, label %10
 
-10:                                               ; preds = %8, %_ZNK16JfrSamplerWindow10is_expiredEl.exit
+10:                                               ; preds = %_ZNK16JfrSamplerWindow10is_expiredEl.exit
   tail call void @_ZN18JfrAdaptiveSampler6rotateEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull %4)
   br label %11
 
-11:                                               ; preds = %8, %_ZNK16JfrSamplerWindow10is_expiredEl.exit, %10
+11:                                               ; preds = %_ZNK16JfrSamplerWindow10is_expiredEl.exit, %10
   ret void
 }
 
@@ -302,7 +300,7 @@ define hidden void @_ZN18JfrAdaptiveSampler6rotateEPK16JfrSamplerWindow(ptr noun
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = select i1 %13, ptr %15, ptr %12
@@ -385,7 +383,7 @@ define hidden noundef ptr @_ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParam
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %2
+  %10 = icmp eq ptr %2, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = select i1 %10, ptr %12, ptr %9
@@ -487,7 +485,7 @@ _Z36compute_accumulated_debt_carry_limitRK16JfrSamplerParams.exit: ; preds = %2,
 define hidden noundef ptr @_ZN18JfrAdaptiveSampler8set_rateERK16JfrSamplerParamsPK16JfrSamplerWindow(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %2
+  %6 = icmp eq ptr %2, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %6, ptr %8, ptr %5

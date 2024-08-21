@@ -470,8 +470,8 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
   %71 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %69
   %.073.in = select i1 %4, ptr %70, ptr %71
   %.073 = load float, ptr %.073.in, align 4
-  %72 = fadd float %.073, %9
-  %73 = fadd float %.073, %10
+  %72 = fadd float %9, %.073
+  %73 = fadd float %10, %.073
   %.075 = select i1 %44, float %10, float %73
   %.074 = select i1 %44, float %72, float %9
   %74 = fmul float %.075, %.075

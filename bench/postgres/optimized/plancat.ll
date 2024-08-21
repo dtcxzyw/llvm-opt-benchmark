@@ -998,7 +998,7 @@ list_length.exit.i:                               ; preds = %543
   %551 = getelementptr inbounds i8, ptr %548, i64 4
   %552 = load i32, ptr %551, align 4
   %553 = icmp slt i32 %552, 2
-  %brmerge.i = or i1 %553, %2
+  %brmerge.i = or i1 %2, %553
   br i1 %brmerge.i, label %get_relation_foreign_keys.exit, label %554
 
 554:                                              ; preds = %list_length.exit.i

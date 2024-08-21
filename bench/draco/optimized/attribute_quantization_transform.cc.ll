@@ -328,7 +328,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %46 = getelementptr inbounds float, ptr %45, i64 %indvars.iv43
   %47 = load float, ptr %46, align 4
   %48 = fsub float %44, %47
-  %49 = fmul float %.pre, %48
+  %49 = fmul float %48, %.pre
   %50 = fadd float %49, 5.000000e-01
   %51 = call float @llvm.floor.f32(float %50)
   %52 = fptosi float %51 to i32
@@ -432,7 +432,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %53 = getelementptr inbounds float, ptr %52, i64 %indvars.iv47
   %54 = load float, ptr %53, align 4
   %55 = fsub float %51, %54
-  %56 = fmul float %.pre, %55
+  %56 = fmul float %55, %.pre
   %57 = fadd float %56, 5.000000e-01
   %58 = call float @llvm.floor.f32(float %57)
   %59 = fptosi float %58 to i32
@@ -1198,7 +1198,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %70 = phi ptr [ %69, %68 ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %71 = ptrtoint ptr %1 to i64
   %72 = sub i64 %71, %59
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %58, %1
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %58
   br i1 %.not.i.i.i.i.i.i.i.i.i63, label %74, label %73
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
@@ -1451,7 +1451,7 @@ _ZSt7advanceIPKfmEvRT_T0_.exit:                   ; preds = %22
 _ZSt4copyIPKfPfET0_T_S4_S3_.exit18:               ; preds = %_ZSt7advanceIPKfmEvRT_T0_.exit, %34
   %35 = phi ptr [ %24, %_ZSt7advanceIPKfmEvRT_T0_.exit ], [ %.pre26, %34 ]
   %36 = sub i64 %4, %33
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %32, %2
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, %32
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKfPffET0_T_S4_S3_RSaIT1_E.exit, label %37
 
 37:                                               ; preds = %_ZSt4copyIPKfPfET0_T_S4_S3_.exit18

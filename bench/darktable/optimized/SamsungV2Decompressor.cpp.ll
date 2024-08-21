@@ -1204,7 +1204,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %436 = phi i64 [ %479, %456 ], [ 0, %384 ]
   %437 = or disjoint i64 %436, %132
   %438 = trunc i64 %436 to i32
-  %439 = add i32 %438, %1
+  %439 = add i32 %1, %438
   %440 = and i32 %439, 1
   %441 = icmp eq i32 %440, 0
   %442 = and i64 %436, 1

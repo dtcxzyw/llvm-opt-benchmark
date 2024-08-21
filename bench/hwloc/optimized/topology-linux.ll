@@ -1346,7 +1346,7 @@ define internal i32 @hwloc_linux_set_thread_cpubind(ptr nocapture noundef readon
 
 12:                                               ; preds = %9
   %13 = tail call i64 @pthread_self() #30
-  %14 = icmp eq i64 %13, %1
+  %14 = icmp eq i64 %1, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
@@ -1449,7 +1449,7 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_thread_cpubind(ptr nocaptu
 
 12:                                               ; preds = %9
   %13 = tail call i64 @pthread_self() #30
-  %14 = icmp eq i64 %13, %1
+  %14 = icmp eq i64 %1, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12

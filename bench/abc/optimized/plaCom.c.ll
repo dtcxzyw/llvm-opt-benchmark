@@ -108,7 +108,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandReadPla(ptr nocapture noundef %0
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
   %10 = add nsw i32 %9, 1
-  %.not20 = icmp eq i32 %10, %1
+  %.not20 = icmp eq i32 %1, %10
   br i1 %.not20, label %12, label %11
 
 11:                                               ; preds = %8
@@ -199,7 +199,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandWritePla(ptr nocapture noundef r
 
 12:                                               ; preds = %9
   %13 = load i32, ptr @globalUtilOptind, align 4
-  %14 = icmp eq i32 %13, %1
+  %14 = icmp eq i32 %1, %13
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
@@ -209,7 +209,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandWritePla(ptr nocapture noundef r
 
 18:                                               ; preds = %12
   %19 = add nsw i32 %13, 1
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %18

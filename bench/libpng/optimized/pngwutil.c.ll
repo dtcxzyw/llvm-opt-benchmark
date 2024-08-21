@@ -643,7 +643,7 @@ define void @png_write_PLTE(ptr noalias noundef %0, ptr nocapture noundef readon
   %17 = and i32 %16, 1
   %18 = or i32 %17, %2
   %or.cond = icmp eq i32 %18, 0
-  %19 = icmp ult i32 %14, %2
+  %19 = icmp ugt i32 %2, %14
   %or.cond28 = select i1 %or.cond, i1 true, i1 %19
   br i1 %or.cond28, label %25, label %png_write_chunk_header.exit
 
@@ -2395,7 +2395,7 @@ define void @png_write_tRNS(ptr noalias noundef %0, ptr noundef %1, ptr nocaptur
   %10 = getelementptr inbounds i8, ptr %0, i64 600
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
-  %13 = icmp ult i32 %12, %3
+  %13 = icmp ugt i32 %3, %12
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %9, %7
@@ -2724,7 +2724,7 @@ define void @png_write_hIST(ptr noalias noundef %0, ptr nocapture noundef readon
   %7 = getelementptr inbounds i8, ptr %0, i64 600
   %8 = load i16, ptr %7, align 8
   %9 = zext i16 %8 to i32
-  %10 = icmp slt i32 %9, %2
+  %10 = icmp sgt i32 %2, %9
   br i1 %10, label %11, label %png_write_chunk_header.exit
 
 11:                                               ; preds = %3

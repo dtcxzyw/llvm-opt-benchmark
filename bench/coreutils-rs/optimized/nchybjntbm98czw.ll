@@ -914,7 +914,7 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
   br i1 %195, label %196, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.i.i.i"
 
 196:                                              ; preds = %194
-  %.not.i.i.i356.i.i = icmp eq i64 %113, %110
+  %.not.i.i.i356.i.i = icmp eq i64 %110, %113
   br i1 %.not.i.i.i356.i.i, label %.loopexit613.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %196, %200

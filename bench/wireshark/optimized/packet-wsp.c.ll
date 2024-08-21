@@ -1929,7 +1929,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
   %21 = tail call ptr @wmem_packet_scope() #4
   %22 = call ptr @tvb_get_stringz_enc(ptr noundef %21, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0) #4
   %23 = load i32, ptr %8, align 4
-  %24 = add i32 %23, %4
+  %24 = add i32 %4, %23
   %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %24) #4
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %33, label %27
@@ -2090,7 +2090,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 110:                                              ; preds = %89, %93, %97, %101, %104
   %.0454.ph = phi i32 [ %106, %104 ], [ %103, %101 ], [ %100, %97 ], [ %96, %93 ], [ %91, %89 ]
   %.0453.ph = phi i32 [ 5, %104 ], [ 4, %101 ], [ 3, %97 ], [ 2, %93 ], [ 1, %89 ]
-  %111 = add i32 %.0453.ph, %4
+  %111 = add i32 %4, %.0453.ph
   store i32 %111, ptr %7, align 4
   %112 = load i32, ptr @hf_wsp_parameter_type, align 4
   %113 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %112, ptr noundef %3, i32 noundef %4, i32 noundef %.0453.ph, i32 noundef %.0454.ph) #4
@@ -2846,7 +2846,7 @@ define internal fastcc void @add_post_variable(ptr noundef %0, ptr noundef %1, i
   %.027 = phi i32 [ %4, %11 ], [ %5, %14 ]
   %.0 = phi ptr [ %13, %11 ], [ %17, %14 ]
   %19 = tail call i32 @tvb_reported_length(ptr noundef %1) #4
-  %.not = icmp ugt i32 %19, %4
+  %.not = icmp ult i32 %4, %19
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %18

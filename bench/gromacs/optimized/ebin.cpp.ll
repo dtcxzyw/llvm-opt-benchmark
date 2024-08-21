@@ -686,7 +686,7 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
 
 14:                                               ; preds = %7
   %15 = load i32, ptr %1, align 8
-  %16 = icmp slt i32 %15, %2
+  %16 = icmp sgt i32 %2, %15
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %14, %7
@@ -703,7 +703,7 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   br label %103
 
 21:                                               ; preds = %14
-  %22 = icmp slt i32 %15, %3
+  %22 = icmp sgt i32 %3, %15
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21
@@ -723,7 +723,7 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   %.not = icmp eq i32 %3, -1
   %28 = add nsw i32 %3, %2
   %spec.select = select i1 %.not, i32 %15, i32 %28
-  %29 = icmp sgt i32 %spec.select, %2
+  %29 = icmp slt i32 %2, %spec.select
   br i1 %29, label %.lr.ph113, label %._crit_edge.thread
 
 .lr.ph113:                                        ; preds = %27
@@ -801,12 +801,12 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
 
 .lr.ph88.split.us97.preheader:                    ; preds = %.lr.ph88
   %56 = zext i32 %.063112 to i64
-  %57 = add i32 %.063112, %4
+  %57 = add i32 %4, %.063112
   br label %.lr.ph88.split.us97
 
 .lr.ph88.split.us.preheader:                      ; preds = %.lr.ph88
   %58 = zext i32 %.063112 to i64
-  %59 = add i32 %.063112, %4
+  %59 = add i32 %4, %.063112
   br label %.lr.ph88.split.us
 
 .lr.ph88.split.us:                                ; preds = %.lr.ph88.split.us.preheader, %63

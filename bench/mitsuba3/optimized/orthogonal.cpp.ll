@@ -288,7 +288,7 @@ _ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set
 
 _ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit.thread: ; preds = %9, %_ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit
   store i32 %storemerge, ptr %5, align 8
-  %.not = icmp eq i32 %7, %1
+  %.not = icmp eq i32 %1, %7
   br i1 %.not, label %29, label %17
 
 17:                                               ; preds = %_ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit.thread
@@ -697,7 +697,7 @@ _ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE9eval_
   %.sroa.0.0103 = phi ptr [ null, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit._ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE9eval_polyERKNSt3__16vectorIjNS7_9allocatorIjEEEEj.exit_crit_edge ], [ %90, %.lr.ph.i72 ]
   %.06.lcssa.i = phi i32 [ 0, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit._ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE9eval_polyERKNSt3__16vectorIjNS7_9allocatorIjEEEEj.exit_crit_edge ], [ %118, %.lr.ph.i72 ]
   %120 = add i32 %2, 1
-  %121 = mul i32 %120, %3
+  %121 = mul i32 %3, %120
   %122 = mul i32 %121, 1365458477
   %123 = icmp eq i32 %119, 1
   br i1 %123, label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit80, label %124
@@ -1008,7 +1008,7 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit: ;
   %spec.select146 = select i1 %93, i32 %85, i32 %92
   %94 = icmp eq i32 %2, 1
   %.1136 = select i1 %94, i32 %.0, i32 %spec.select146
-  %95 = mul i32 %87, %3
+  %95 = mul i32 %3, %87
   %96 = mul i32 %95, 1365458477
   %97 = icmp eq i32 %83, 1
   br i1 %97, label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit115, label %98
@@ -3394,7 +3394,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %41 = zext nneg i8 %40 to i64
   %42 = select i1 %.not.i.i.i, i64 %41, i64 %39
   %43 = trunc i64 %42 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %43, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %43)
   %44 = sext i32 %.sroa.speculated to i64
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %37, i64 noundef %44)
           to label %46 unwind label %54

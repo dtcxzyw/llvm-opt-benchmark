@@ -340,7 +340,7 @@ hwloc__export_synthetic_update_status.exit:       ; preds = %92
   %95 = icmp ne i32 %93, 0
   %spec.select = zext i1 %95 to i32
   %96 = zext nneg i32 %93 to i64
-  %.not.i82 = icmp slt i64 %96, %2
+  %.not.i82 = icmp sgt i64 %2, %96
   %97 = icmp sgt i64 %2, 0
   %98 = trunc nuw nsw i64 %2 to i32
   %99 = add nsw i32 %98, -1
@@ -630,7 +630,7 @@ thread-pre-split:                                 ; preds = %16, %5
 
 62:                                               ; preds = %58
   %63 = zext nneg i32 %60 to i64
-  %.not.i = icmp slt i64 %63, %4
+  %.not.i = icmp sgt i64 %4, %63
   %64 = icmp sgt i64 %4, 0
   %65 = trunc nuw nsw i64 %4 to i32
   %66 = add nsw i32 %65, -1
@@ -1290,7 +1290,7 @@ define internal fastcc i32 @hwloc__export_synthetic_obj(ptr nocapture noundef re
 
 39:                                               ; preds = %37
   %40 = zext nneg i32 %.0 to i64
-  %.not.i = icmp slt i64 %40, %5
+  %.not.i = icmp sgt i64 %5, %40
   %41 = icmp sgt i64 %5, 0
   %42 = trunc nuw nsw i64 %5 to i32
   %43 = add nsw i32 %42, -1
@@ -3253,7 +3253,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
   store i32 %217, ptr %215, align 4
   %218 = add i32 %.0223358.us, 1
   %219 = zext i32 %218 to i64
-  %220 = icmp ult i64 %219, %2
+  %220 = icmp ugt i64 %2, %219
   br i1 %220, label %210, label %._crit_edge361.us, !llvm.loop !44
 
 ._crit_edge361.us:                                ; preds = %210
@@ -3270,7 +3270,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
 223:                                              ; preds = %235
   %224 = add i32 %.1224367, 1
   %225 = zext i32 %224 to i64
-  %226 = icmp ult i64 %225, %2
+  %226 = icmp ugt i64 %2, %225
   br i1 %226, label %.lr.ph369, label %._crit_edge370, !llvm.loop !46
 
 .lr.ph369:                                        ; preds = %._crit_edge366, %223
@@ -3279,7 +3279,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
   %228 = getelementptr inbounds i32, ptr %14, i64 %227
   %229 = load i32, ptr %228, align 4
   %230 = zext i32 %229 to i64
-  %.not277 = icmp ult i64 %230, %2
+  %.not277 = icmp ugt i64 %2, %230
   br i1 %.not277, label %235, label %231
 
 231:                                              ; preds = %.lr.ph369

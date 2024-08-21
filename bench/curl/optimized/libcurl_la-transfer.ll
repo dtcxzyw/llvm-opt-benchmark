@@ -505,7 +505,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cond, label %sw.bb15, label %sw.default
 
 sw.default:                                       ; preds = %if.end
-  %cmp5.not = icmp slt i64 %0, %timeofdoc
+  %cmp5.not = icmp sgt i64 %timeofdoc, %0
   br i1 %cmp5.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.default
@@ -516,7 +516,7 @@ land.lhs.true:                                    ; preds = %sw.default
   br i1 %tobool9.not, label %return.sink.split, label %return.sink.split.sink.split
 
 sw.bb15:                                          ; preds = %if.end
-  %cmp18.not = icmp sgt i64 %0, %timeofdoc
+  %cmp18.not = icmp slt i64 %timeofdoc, %0
   br i1 %cmp18.not, label %return, label %land.lhs.true23
 
 land.lhs.true23:                                  ; preds = %sw.bb15
@@ -2839,7 +2839,7 @@ if.else17:                                        ; preds = %land.lhs.true, %if.
 if.end21:                                         ; preds = %cond.false, %if.then14, %if.else, %if.else17, %if.then
   %result.0 = phi i32 [ %call, %if.then ], [ %call18, %if.else17 ], [ 0, %if.else ], [ %call16, %cond.false ], [ 0, %if.then14 ]
   %tobool22.not = icmp eq i32 %result.0, 0
-  %brmerge20.not = and i1 %tobool22.not, %is_eos
+  %brmerge20.not = and i1 %is_eos, %tobool22.not
   br i1 %brmerge20.not, label %if.then25, label %if.end33
 
 if.then25:                                        ; preds = %if.end21

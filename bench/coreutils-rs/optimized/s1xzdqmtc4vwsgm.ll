@@ -125,7 +125,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %38 = load i64, ptr %2, align 8, !alias.scope !10, !noalias !13, !noundef !4
   %39 = load i64, ptr %10, align 8, !alias.scope !10, !noalias !13, !noundef !4
   %40 = sub i64 %38, %39
-  %41 = icmp ugt i64 %40, %16
+  %41 = icmp ult i64 %16, %40
   br i1 %41, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h57a096544aee8d1eE.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h57a096544aee8d1eE.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h57a096544aee8d1eE.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit20"
@@ -509,7 +509,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %38 = load i64, ptr %2, align 8, !alias.scope !55, !noalias !58, !noundef !4
   %39 = load i64, ptr %10, align 8, !alias.scope !55, !noalias !58, !noundef !4
   %40 = sub i64 %38, %39
-  %41 = icmp ugt i64 %40, %16
+  %41 = icmp ult i64 %16, %40
   br i1 %41, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h57a096544aee8d1eE.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h57a096544aee8d1eE.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h57a096544aee8d1eE.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit20"

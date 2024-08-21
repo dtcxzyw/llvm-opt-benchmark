@@ -1723,7 +1723,7 @@ if.end.i.i:                                       ; preds = %entry
 _ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i: ; preds = %if.end.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %2, %call.i.i
+  %cmp.not.i.i.i = icmp ult i32 %call.i.i, %2
   br i1 %cmp.not.i.i.i, label %_ZNK3smt7context10get_theoryEi.exit, label %if.then
 
 _ZNK3smt7context10get_theoryEi.exit:              ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i
@@ -1775,7 +1775,7 @@ if.end.i.i:                                       ; preds = %entry
 _ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i: ; preds = %if.end.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %1, %call.i.i
+  %cmp.not.i.i.i = icmp ult i32 %call.i.i, %1
   br i1 %cmp.not.i.i.i, label %_ZNK3smt7context10get_theoryEi.exit, label %if.end.i.i35
 
 _ZNK3smt7context10get_theoryEi.exit:              ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i
@@ -1796,7 +1796,7 @@ if.end.i.i35:                                     ; preds = %_ZNK3smt7context10g
 _ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i38: ; preds = %if.end.i.i35
   %arrayidx.i.i.i.i39 = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i.i.i39, align 4
-  %cmp.not.i.i.i40 = icmp ugt i32 %3, %call.i.i
+  %cmp.not.i.i.i40 = icmp ult i32 %call.i.i, %3
   br i1 %cmp.not.i.i.i40, label %if.end, label %typeid.bad_typeid
 
 if.end:                                           ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i38

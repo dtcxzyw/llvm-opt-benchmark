@@ -950,7 +950,7 @@ define internal fastcc ptr @JSON_parse_value(ptr nocapture noundef %0, ptr nound
 
 .loopexit256:                                     ; preds = %.preheader255, %13
   %22 = getelementptr inbounds i8, ptr %.0155, i64 8
-  %23 = icmp ult ptr %22, %2
+  %23 = icmp ugt ptr %2, %22
   br i1 %23, label %24, label %35
 
 24:                                               ; preds = %.loopexit256
@@ -1284,7 +1284,7 @@ RSTRING_PTR.exit.i:                               ; preds = %133, %127
 177:                                              ; preds = %177, %172
   %.0.i.i.i = phi i64 [ %174, %172 ], [ %180, %177 ]
   %178 = sub i64 %.0.i.i.i, %176
-  %179 = icmp ult i64 %178, %158
+  %179 = icmp ugt i64 %158, %178
   %180 = shl i64 %.0.i.i.i, 1
   br i1 %179, label %177, label %181, !llvm.loop !12
 
@@ -1500,7 +1500,7 @@ JSON_parse_float.exit:                            ; preds = %.preheader166.i, %1
 276:                                              ; preds = %276, %271
   %.0.i.i.i235 = phi i64 [ %273, %271 ], [ %279, %276 ]
   %277 = sub i64 %.0.i.i.i235, %275
-  %278 = icmp ult i64 %277, %257
+  %278 = icmp ugt i64 %257, %277
   %279 = shl i64 %.0.i.i.i235, 1
   br i1 %278, label %276, label %280, !llvm.loop !12
 
@@ -2140,7 +2140,7 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %.not = icmp ne i32 %11, 0
-  %12 = icmp slt i32 %11, %4
+  %12 = icmp sgt i32 %4, %11
   %or.cond = and i1 %.not, %12
   br i1 %or.cond, label %13, label %15
 
@@ -2510,7 +2510,7 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %.not = icmp ne i32 %11, 0
-  %12 = icmp slt i32 %11, %4
+  %12 = icmp sgt i32 %4, %11
   %or.cond = and i1 %.not, %12
   br i1 %or.cond, label %13, label %15
 

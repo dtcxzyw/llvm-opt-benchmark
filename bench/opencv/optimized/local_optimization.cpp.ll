@@ -594,7 +594,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24MagsacWeightFun
   resume { ptr, i32 } %eh.lpad-body
 
 _ZN2cv3PtrINS_4usac24MagsacWeightFunctionImplEED2Ev.exit: ; preds = %_ZSt10_ConstructIN2cv4usac24MagsacWeightFunctionImplEJRKNS0_3PtrINS1_11GammaValuesEEERKiRKdSB_SB_EEvPT_DpOT0_.exit.i.i
-  %44 = fmul double %exp2.i.i.i7.i1, %4
+  %44 = fmul double %4, %exp2.i.i.i7.i1
   %45 = load double, ptr %36, align 8, !noalias !19
   %46 = fdiv double %44, %45
   %47 = getelementptr inbounds i8, ptr %7, i64 64
@@ -2982,7 +2982,7 @@ _ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPKSt13_Rb_tree
 
 select.unfold.i.i:                                ; preds = %143, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %143 ]
-  %146 = icmp eq ptr %87, %.sroa.4.0.i.ph.i.i
+  %146 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %87
   br i1 %146, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %147
 
 147:                                              ; preds = %select.unfold.i.i
@@ -3049,7 +3049,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeE
 
 select.unfold.i.i125:                             ; preds = %167, %._crit_edge.thread.i.i.i128
   %.sroa.4.0.i.ph.i.i126 = phi ptr [ %.019.lcssa28.i.i.i129, %._crit_edge.thread.i.i.i128 ], [ %.019.lcssa29.i.i.i119, %167 ]
-  %170 = icmp eq ptr %87, %.sroa.4.0.i.ph.i.i126
+  %170 = icmp eq ptr %.sroa.4.0.i.ph.i.i126, %87
   br i1 %170, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i127, label %171
 
 171:                                              ; preds = %select.unfold.i.i125
@@ -3327,7 +3327,7 @@ define linkonce_odr hidden void @_ZN2cv6detail7GCGraphIdE14addTermWeightsEidd(pt
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 40
   %16 = trunc i64 %15 to i32
-  %17 = icmp sgt i32 %16, %1
+  %17 = icmp slt i32 %1, %16
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %8, %4
@@ -3363,7 +3363,7 @@ define linkonce_odr hidden void @_ZN2cv6detail7GCGraphIdE14addTermWeightsEidd(pt
   %28 = getelementptr inbounds %"class.cv::detail::GCGraph<double>::Vtx", ptr %11, i64 %27, i32 5
   %29 = load double, ptr %28, align 8
   %30 = fcmp ogt double %29, 0.000000e+00
-  %31 = fadd double %29, %2
+  %31 = fadd double %2, %29
   %32 = fsub double %3, %29
   %.019 = select i1 %30, double %3, double %32
   %.0 = select i1 %30, double %31, double %2
@@ -3400,7 +3400,7 @@ define linkonce_odr hidden void @_ZN2cv6detail7GCGraphIdE8addEdgesEiidd(ptr noun
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 40
   %23 = trunc i64 %22 to i32
-  %24 = icmp sgt i32 %23, %1
+  %24 = icmp slt i32 %1, %23
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %15, %5
@@ -3428,7 +3428,7 @@ define linkonce_odr hidden void @_ZN2cv6detail7GCGraphIdE8addEdgesEiidd(ptr noun
 
 32:                                               ; preds = %15
   %33 = icmp sgt i32 %2, -1
-  %34 = icmp ugt i32 %23, %2
+  %34 = icmp ult i32 %2, %23
   %or.cond59 = and i1 %33, %34
   br i1 %or.cond59, label %42, label %35
 
@@ -5383,7 +5383,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %192, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
   %193 = load double, ptr %63, align 8
-  %194 = fmul double %193, %10
+  %194 = fmul double %10, %193
   store double %194, ptr %58, align 8
   %195 = fsub double %194, %193
   %196 = sitofp i32 %9 to double
@@ -8136,7 +8136,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN2cv4usac27SimpleLocalOptimiza
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 128
   %6 = load i32, ptr %5, align 8
-  %.not = icmp slt i32 %6, %1
+  %.not = icmp sgt i32 %1, %6
   br i1 %.not, label %_ZN2cv3PtrINS_4usac22UniformRandomGeneratorEED2Ev.exit, label %7
 
 7:                                                ; preds = %2

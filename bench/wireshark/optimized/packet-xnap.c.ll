@@ -17626,7 +17626,7 @@ xnap_get_private_data.exit:                       ; preds = %3, %8
 33:                                               ; preds = %26, %24
   %34 = getelementptr inbounds i8, ptr %13, i64 24
   %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %35, %1
+  %36 = icmp eq i32 %1, %35
   br i1 %36, label %addresses_equal.exit18.sink.split, label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %26, %18, %14, %33
@@ -17660,7 +17660,7 @@ addresses_equal.exit:                             ; preds = %26, %18, %14, %33
 55:                                               ; preds = %48, %46
   %56 = getelementptr inbounds i8, ptr %13, i64 56
   %57 = load i32, ptr %56, align 8
-  %58 = icmp eq i32 %57, %1
+  %58 = icmp eq i32 %1, %57
   br i1 %58, label %addresses_equal.exit18.sink.split, label %addresses_equal.exit18
 
 addresses_equal.exit18.sink.split:                ; preds = %55, %33

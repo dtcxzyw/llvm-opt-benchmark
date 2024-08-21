@@ -1756,7 +1756,7 @@ lpad8.body:                                       ; preds = %lpad.i, %lpad8
 if.end:                                           ; preds = %invoke.cont9, %invoke.cont
   %9 = phi i64 [ %.pre, %invoke.cont9 ], [ 39, %invoke.cont ]
   %add4.i.i.i = add i64 %retval.sroa.3.0.i, 8
-  %cmp.i.i.i.i = icmp ult i64 %9, %add4.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add4.i.i.i, %9
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %invoke.cont17
 
 if.then.i.i.i.i:                                  ; preds = %if.end
@@ -3267,13 +3267,13 @@ if.end26:                                         ; preds = %if.end23
 
 cond.true.i:                                      ; preds = %if.end26
   %29 = load i64, ptr %sequence_.i, align 8
-  %cmp2.i = icmp uge i64 %29, %27
+  %cmp2.i = icmp ule i64 %27, %29
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end26
   %min_uncommitted_.i.i = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load i64, ptr %min_uncommitted_.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %30, %27
+  %cmp.i.i = icmp ult i64 %27, %30
   br i1 %cmp.i.i, label %cond.end.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cond.false.i
@@ -3396,7 +3396,7 @@ if.then57:                                        ; preds = %sw.bb
   %51 = load i64, ptr %retval.sroa.2.0.user_key.sroa_idx.i, align 8
   %add4.i.i.i = add i64 %51, 8
   %52 = load i64, ptr %buf_size_.i.i.i110, align 8
-  %cmp.i.i.i.i = icmp ult i64 %52, %add4.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add4.i.i.i, %52
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_17ParsedInternalKeyE.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then57
@@ -3444,7 +3444,7 @@ lor.end:                                          ; preds = %if.else60
 if.then.i.i:                                      ; preds = %lor.end.thread, %lor.end
   %62 = phi i64 [ %58, %lor.end.thread ], [ %61, %lor.end ]
   %63 = load i64, ptr %buf_size_.i.i.i110, align 8
-  %cmp.i.i.i = icmp ult i64 %63, %62
+  %cmp.i.i.i = icmp ugt i64 %62, %63
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -3521,7 +3521,7 @@ if.then85:                                        ; preds = %if.end82
   %78 = load i64, ptr %retval.sroa.2.0.user_key.sroa_idx.i, align 8
   %add4.i.i.i35 = add i64 %78, 8
   %79 = load i64, ptr %buf_size_.i.i.i110, align 8
-  %cmp.i.i.i.i37 = icmp ult i64 %79, %add4.i.i.i35
+  %cmp.i.i.i.i37 = icmp ugt i64 %add4.i.i.i35, %79
   br i1 %cmp.i.i.i.i37, label %if.then.i.i.i.i45, label %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_17ParsedInternalKeyE.exit46
 
 if.then.i.i.i.i45:                                ; preds = %if.then85
@@ -3862,7 +3862,7 @@ if.else207:                                       ; preds = %_ZNK7rocksdb21UserC
 
 if.then.i.i109:                                   ; preds = %if.else207
   %138 = load i64, ptr %buf_size_.i.i.i110, align 8
-  %cmp.i.i.i111 = icmp ult i64 %138, %137
+  %cmp.i.i.i111 = icmp ugt i64 %137, %138
   br i1 %cmp.i.i.i111, label %if.then.i.i.i113, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i112
 
 if.then.i.i.i113:                                 ; preds = %if.then.i.i109
@@ -4224,13 +4224,13 @@ entry:
 cond.true:                                        ; preds = %entry
   %sequence_ = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %sequence_, align 8
-  %cmp2 = icmp uge i64 %1, %sequence
+  %cmp2 = icmp ule i64 %sequence, %1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   %min_uncommitted_.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i64, ptr %min_uncommitted_.i, align 8
-  %cmp.i = icmp ugt i64 %2, %sequence
+  %cmp.i = icmp ult i64 %sequence, %2
   br i1 %cmp.i, label %cond.end, label %if.else.i
 
 if.else.i:                                        ; preds = %cond.false
@@ -4395,7 +4395,7 @@ entry:
   %add4.i.i = add i64 %2, 8
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %3, %add4.i.i
+  %cmp.i.i.i = icmp ugt i64 %add4.i.i, %3
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceERKNS_17ParsedInternalKeyE.exit
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -4434,7 +4434,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %buf_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %buf_size_.i.i, align 8
-  %cmp.i.i = icmp ult i64 %1, %0
+  %cmp.i.i = icmp ugt i64 %0, %1
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -5453,7 +5453,7 @@ if.then.i:                                        ; preds = %entry
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %3, %4
   %__last.sroa.0.09.i.i.i = getelementptr inbounds i8, ptr %4, i64 -16
-  %cmp.i110.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i, %3
+  %cmp.i110.i.i.i = icmp ult ptr %3, %__last.sroa.0.09.i.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i110.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %while.body.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i
 
@@ -5781,7 +5781,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ne ptr %3, %4
   %__last.sroa.0.09.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -16
-  %cmp.i110.i.i.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i.i.i, %3
+  %cmp.i110.i.i.i.i.i = icmp ult ptr %3, %__last.sroa.0.09.i.i.i.i.i
   %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.i110.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i
 
@@ -5915,7 +5915,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ne ptr %3, %4
   %__last.sroa.0.09.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -16
-  %cmp.i110.i.i.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i.i.i, %3
+  %cmp.i110.i.i.i.i.i = icmp ult ptr %3, %__last.sroa.0.09.i.i.i.i.i
   %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.i110.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i
 
@@ -6011,7 +6011,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ne ptr %3, %4
   %__last.sroa.0.09.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -16
-  %cmp.i110.i.i.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i.i.i, %3
+  %cmp.i110.i.i.i.i.i = icmp ult ptr %3, %__last.sroa.0.09.i.i.i.i.i
   %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.i110.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i
 
@@ -6808,7 +6808,7 @@ while.body:                                       ; preds = %while.cond
 
 if.then.i.i:                                      ; preds = %while.body
   %9 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %9, %sub.i
+  %cmp.i.i.i = icmp ugt i64 %sub.i, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -7119,13 +7119,13 @@ if.end20:                                         ; preds = %if.then11, %if.end9
 
 cond.true.i:                                      ; preds = %if.end20
   %13 = load i64, ptr %sequence_.i, align 8
-  %cmp2.i = icmp uge i64 %13, %11
+  %cmp2.i = icmp ule i64 %11, %13
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end20
   %min_uncommitted_.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load i64, ptr %min_uncommitted_.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %14, %11
+  %cmp.i.i = icmp ult i64 %11, %14
   br i1 %cmp.i.i, label %cond.end.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cond.false.i
@@ -7287,7 +7287,7 @@ lpad43.body:                                      ; preds = %lpad.i, %lpad43
 if.end49:                                         ; preds = %invoke.cont44, %invoke.cont
   %37 = phi i64 [ %.pre, %invoke.cont44 ], [ 39, %invoke.cont ]
   %add4.i.i.i = add i64 %retval.sroa.3.0.i17, 8
-  %cmp.i.i.i.i = icmp ult i64 %37, %add4.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add4.i.i.i, %37
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %invoke.cont53
 
 if.then.i.i.i.i:                                  ; preds = %if.end49
@@ -7688,13 +7688,13 @@ if.end16:                                         ; preds = %if.then7, %if.end6
 
 cond.true.i:                                      ; preds = %if.end16
   %26 = load i64, ptr %sequence_.i, align 8
-  %cmp2.i = icmp uge i64 %26, %24
+  %cmp2.i = icmp ule i64 %24, %26
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end16
   %min_uncommitted_.i.i = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load i64, ptr %min_uncommitted_.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %27, %24
+  %cmp.i.i = icmp ult i64 %24, %27
   br i1 %cmp.i.i, label %cond.end.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cond.false.i
@@ -7817,7 +7817,7 @@ if.then43:                                        ; preds = %if.end40
   %51 = load i64, ptr %size_.i.i, align 8
   %add4.i.i.i = add i64 %51, 8
   %52 = load i64, ptr %buf_size_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %52, %add4.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add4.i.i.i, %52
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_17ParsedInternalKeyE.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then43
@@ -7906,7 +7906,7 @@ lor.end:                                          ; preds = %if.then54
 if.then.i.i:                                      ; preds = %lor.end.thread, %lor.end
   %70 = phi i64 [ %66, %lor.end.thread ], [ %69, %lor.end ]
   %71 = load i64, ptr %buf_size_.i.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %71, %70
+  %cmp.i.i.i = icmp ugt i64 %70, %71
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -8842,13 +8842,13 @@ if.end59:                                         ; preds = %invoke.cont55
 
 cond.true.i:                                      ; preds = %if.end59
   %33 = load i64, ptr %sequence_.i, align 8
-  %cmp2.i = icmp uge i64 %33, %31
+  %cmp2.i = icmp ule i64 %31, %33
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end59
   %min_uncommitted_.i.i = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load i64, ptr %min_uncommitted_.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %34, %31
+  %cmp.i.i = icmp ult i64 %31, %34
   br i1 %cmp.i.i, label %cond.end.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cond.false.i
@@ -8943,7 +8943,7 @@ if.else79:                                        ; preds = %if.then74
   %add4.i.i.i = add i64 %50, 8
   %buf_size_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %51 = load i64, ptr %buf_size_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %51, %add4.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add4.i.i.i, %51
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_17ParsedInternalKeyE.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.else79
@@ -9621,7 +9621,7 @@ if.then.i:                                        ; preds = %entry
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %2, %3
   %__last.sroa.0.09.i.i.i = getelementptr inbounds i8, ptr %3, i64 -16
-  %cmp.i110.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i, %2
+  %cmp.i110.i.i.i = icmp ult ptr %2, %__last.sroa.0.09.i.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i110.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %while.body.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i
 
@@ -10130,7 +10130,7 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %ent
   %add5.i.i = add i64 %add4.i.i, %cond.i.i
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %5 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %5, %add5.i.i
+  %cmp.i.i.i = icmp ugt i64 %add5.i.i, %5
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.end.i.i
@@ -10231,7 +10231,7 @@ cond.end.i.i9:                                    ; preds = %cond.true.i.i7, %if
   %add4.i.i11 = add i64 %24, 8
   %add5.i.i12 = add i64 %add4.i.i11, %cond.i.i10
   %26 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i14 = icmp ult i64 %26, %add5.i.i12
+  %cmp.i.i.i14 = icmp ugt i64 %add5.i.i12, %26
   br i1 %cmp.i.i.i14, label %if.then.i.i.i26, label %if.end.i.i15
 
 if.then.i.i.i26:                                  ; preds = %cond.end.i.i9
@@ -10298,7 +10298,7 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %ent
   %add5.i.i = add i64 %add4.i.i, %cond.i.i
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %4, %add5.i.i
+  %cmp.i.i.i = icmp ugt i64 %add5.i.i, %4
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.end.i.i
@@ -10464,7 +10464,7 @@ cond.end.i.i15:                                   ; preds = %cond.true.i.i13, %i
   %add4.i.i17 = add i64 %36, 8
   %add5.i.i18 = add i64 %add4.i.i17, %cond.i.i16
   %38 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i20 = icmp ult i64 %38, %add5.i.i18
+  %cmp.i.i.i20 = icmp ugt i64 %add5.i.i18, %38
   br i1 %cmp.i.i.i20, label %if.then.i.i.i30, label %if.end.i.i21
 
 if.then.i.i.i30:                                  ; preds = %cond.end.i.i15
@@ -11162,7 +11162,7 @@ if.then61:                                        ; preds = %invoke.cont57
   %80 = load i64, ptr %77, align 8
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 512
   %81 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %81, %80
+  %cmp.i.i.i = icmp ugt i64 %80, %81
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey10SetUserKeyERKNS_5SliceEb.exit
 
 if.then.i.i.i:                                    ; preds = %if.then61
@@ -12112,7 +12112,7 @@ if.then60:                                        ; preds = %invoke.cont57
   %80 = load i64, ptr %77, align 8
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 512
   %81 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %81, %80
+  %cmp.i.i.i = icmp ugt i64 %80, %81
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey10SetUserKeyERKNS_5SliceEb.exit
 
 if.then.i.i.i:                                    ; preds = %if.then60
@@ -12767,7 +12767,7 @@ invoke.cont38:                                    ; preds = %invoke.cont33
 if.then.i.i72:                                    ; preds = %invoke.cont38
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %59 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %59, %sub.i
+  %cmp.i.i.i = icmp ugt i64 %sub.i, %59
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i72
@@ -12944,7 +12944,7 @@ invoke.cont98:                                    ; preds = %invoke.cont94
   store i8 1, ptr %is_user_key_.i143, align 1
   %buf_size_.i.i.i146 = getelementptr inbounds i8, ptr %this, i64 512
   %91 = load i64, ptr %buf_size_.i.i.i146, align 8
-  %cmp.i.i.i147 = icmp ult i64 %91, %90
+  %cmp.i.i.i147 = icmp ugt i64 %90, %91
   br i1 %cmp.i.i.i147, label %if.then.i.i.i154, label %_ZN7rocksdb7IterKey10SetUserKeyERKNS_5SliceEb.exit156
 
 if.then.i.i.i154:                                 ; preds = %invoke.cont98
@@ -13589,7 +13589,7 @@ invoke.cont73:                                    ; preds = %invoke.cont71
   store i8 1, ptr %is_user_key_.i, align 1
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 512
   %84 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %84, %83
+  %cmp.i.i.i = icmp ugt i64 %83, %84
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey10SetUserKeyERKNS_5SliceEb.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont73
@@ -14686,7 +14686,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp32 = icmp sgt i64 %div, %__holeIndex
+  %cmp32 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread30
@@ -14774,7 +14774,7 @@ land.rhs.while.body_crit_edge.i:                  ; preds = %land.rhs.i
   br label %while.body.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp4.i.i.i = icmp ugt ptr %9, %__value.coerce0
+  %cmp4.i.i.i = icmp ult ptr %__value.coerce0, %9
   br i1 %cmp4.i.i.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIPvPFvS5_EESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i: ; preds = %lor.rhs.i.i.i

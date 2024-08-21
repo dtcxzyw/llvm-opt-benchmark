@@ -1242,12 +1242,12 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not, label %621, label %.critedge
 
 621:                                              ; preds = %.outer._crit_edge
-  %622 = add i32 %618, %7
+  %622 = add i32 %7, %618
   %623 = icmp ugt i32 %622, %2
   br i1 %623, label %625, label %626
 
 .critedge:                                        ; preds = %.outer._crit_edge
-  %624 = icmp ugt i32 %618, %2
+  %624 = icmp ult i32 %2, %618
   br i1 %624, label %625, label %626
 
 625:                                              ; preds = %.critedge, %621

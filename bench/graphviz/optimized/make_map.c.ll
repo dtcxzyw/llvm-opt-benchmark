@@ -2341,7 +2341,7 @@ define internal fastcc void @make_map_internal(i1 noundef zeroext %0, i32 nounde
   %177 = fsub double %176, %6
   store double %177, ptr %indvars.iv736.sroa.phi931, align 8
   %178 = load double, ptr %indvars.iv736.sroa.phi954, align 8
-  %179 = fadd double %178, %6
+  %179 = fadd double %6, %178
   store double %179, ptr %indvars.iv736.sroa.phi954, align 8
   br label %194
 
@@ -2737,7 +2737,7 @@ gv_calloc.exit:                                   ; preds = %279, %._crit_edge63
   %.0655 = phi i32 [ 0, %.lr.ph657 ], [ %.1, %.loopexit539 ]
   %.0420654 = phi i32 [ 0, %.lr.ph657 ], [ %.2, %.loopexit539 ]
   %354 = trunc nuw nsw i64 %indvars.iv803 to i32
-  %355 = mul i32 %354, %2
+  %355 = mul i32 %2, %354
   %356 = sext i32 %355 to i64
   %357 = shl nsw i64 %356, 3
   %scevgep793 = getelementptr i8, ptr %.0433, i64 %357
@@ -2755,7 +2755,7 @@ gv_calloc.exit:                                   ; preds = %279, %._crit_edge63
   %364 = shl nsw i64 %363, 3
   %scevgep792 = getelementptr i8, ptr %315, i64 %364
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep792, ptr align 8 %scevgep793, i64 %349, i1 false)
-  %365 = add i32 %.0420654, %2
+  %365 = add i32 %2, %.0420654
   br label %.loopexit539
 
 .loopexit539:                                     ; preds = %.lr.ph650, %361, %353
@@ -2784,7 +2784,7 @@ gv_calloc.exit:                                   ; preds = %279, %._crit_edge63
 
 .lr.ph662:                                        ; preds = %367
   %370 = trunc nuw nsw i64 %indvars.iv819 to i32
-  %371 = mul i32 %370, %2
+  %371 = mul i32 %2, %370
   %372 = zext i32 %371 to i64
   %373 = shl nuw nsw i64 %372, 3
   %scevgep809 = getelementptr i8, ptr %.0433, i64 %373
@@ -2792,7 +2792,7 @@ gv_calloc.exit:                                   ; preds = %279, %._crit_edge63
   %375 = shl nsw i64 %374, 3
   %scevgep808 = getelementptr i8, ptr %315, i64 %375
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep808, ptr align 8 %scevgep809, i64 %352, i1 false)
-  %376 = add i32 %.3666, %2
+  %376 = add i32 %2, %.3666
   br label %.loopexit537
 
 .loopexit537:                                     ; preds = %.lr.ph662, %367
@@ -2995,7 +2995,7 @@ get_tri.exit:                                     ; preds = %387
   %472 = add nsw i32 %.0110.lcssa.i, 1
   %473 = add nsw i32 %.0110.lcssa.i, 2
   %474 = add nsw i32 %388, -4
-  %475 = icmp sgt i32 %474, %.2425
+  %475 = icmp slt i32 %.2425, %474
   br i1 %475, label %.lr.ph22.preheader.i, label %._crit_edge..preheader2_crit_edge.i
 
 ._crit_edge..preheader2_crit_edge.i:              ; preds = %._crit_edge.i512

@@ -310,7 +310,7 @@ define internal void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i: ; preds = %20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !46
-  %29 = icmp eq i64 %.sroa.01.012.i.i, %2
+  %29 = icmp eq i64 %2, %.sroa.01.012.i.i
   br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thread.i, label %30
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thread.i: ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i, %15
@@ -381,7 +381,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thre
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i16: ; preds = %41
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !66
-  %50 = icmp eq i64 %.sroa.01.012.i.i12, %36
+  %50 = icmp eq i64 %36, %.sroa.01.012.i.i12
   br i1 %50, label %_ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit19, label %_ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit19.thread
 
 _ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit19: ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i.i13", %35, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i16
@@ -485,7 +485,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit19.thread: ; 
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i26: ; preds = %67
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !104
-  %76 = icmp eq i64 %.sroa.01.012.i.i22, %.0
+  %76 = icmp eq i64 %.0, %.sroa.01.012.i.i22
   br i1 %76, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thread.i25, label %77
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thread.i25: ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i.i23", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i26, %62
@@ -561,7 +561,7 @@ define internal void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !127
-  %21 = icmp eq i64 %.sroa.01.012.i.i, %6
+  %21 = icmp eq i64 %6, %.sroa.01.012.i.i
   br i1 %21, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thread.i, label %22
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thread.i: ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i

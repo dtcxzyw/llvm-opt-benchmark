@@ -871,7 +871,7 @@ define hidden noundef zeroext i1 @_ZN2cv11bioinspired12RetinaFilter9runFilterERK
 20:                                               ; preds = %16, %8
   %.0 = phi ptr [ %19, %16 ], [ %1, %8 ]
   %.not20 = xor i1 %4, true
-  %brmerge = or i1 %.not20, %5
+  %brmerge = or i1 %5, %.not20
   br i1 %brmerge, label %26, label %21
 
 21:                                               ; preds = %20
@@ -1174,7 +1174,7 @@ _ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigm
   %169 = getelementptr inbounds i8, ptr %0, i64 1
   %170 = load i8, ptr %169, align 1
   %171 = trunc i8 %170 to i1
-  %brmerge23.demorgan = and i1 %171, %3
+  %brmerge23.demorgan = and i1 %3, %171
   br i1 %brmerge23.demorgan, label %172, label %218
 
 172:                                              ; preds = %168

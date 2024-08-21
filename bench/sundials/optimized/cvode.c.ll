@@ -1148,7 +1148,7 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %0, i64 1376
   %42 = load ptr, ptr %41, align 8
-  %.not137 = icmp eq ptr %42, %2
+  %.not137 = icmp eq ptr %2, %42
   br i1 %.not137, label %116, label %43
 
 43:                                               ; preds = %40
@@ -3592,14 +3592,14 @@ cvComputeEtaqm1.exit.i.i:                         ; preds = %1152, %1149
 
 1173:                                             ; preds = %1170
   %1174 = load double, ptr %377, align 8
-  %1175 = load double, ptr %344, align 8
-  %1176 = load double, ptr %420, align 8
-  %1177 = fdiv double %1175, %1176
-  %1178 = load i32, ptr %360, align 8
-  %1179 = call double @SUNRpowerI(double noundef %1177, i32 noundef %1178) #13
-  %1180 = fneg double %1174
-  %1181 = fdiv double %1180, %1171
-  %1182 = fmul double %1181, %1179
+  %1175 = fdiv double %1174, %1171
+  %1176 = load double, ptr %344, align 8
+  %1177 = load double, ptr %420, align 8
+  %1178 = fdiv double %1176, %1177
+  %1179 = load i32, ptr %360, align 8
+  %1180 = call double @SUNRpowerI(double noundef %1178, i32 noundef %1179) #13
+  %1181 = fneg double %1180
+  %1182 = fmul double %1175, %1181
   %1183 = load i32, ptr %421, align 8
   %1184 = sext i32 %1183 to i64
   %1185 = getelementptr inbounds [13 x ptr], ptr %349, i64 0, i64 %1184
@@ -3916,8 +3916,8 @@ cvPrepareNextStep.exit.i:                         ; preds = %1268, %1262, %1239,
   store double %1356, ptr %1357, align 8
   %1358 = getelementptr inbounds [4 x double], ptr %440, i64 0, i64 %indvars.iv382.i.i.i
   %1359 = load double, ptr %1358, align 8
-  %1360 = fneg double %1321
-  %1361 = fmul double %1359, %1360
+  %1360 = fneg double %1359
+  %1361 = fmul double %1321, %1360
   %1362 = call double @llvm.fmuladd.f64(double %1353, double %1351, double %1361)
   %1363 = getelementptr inbounds [4 x double], ptr %441, i64 0, i64 %indvars.iv382.i.i.i
   store double %1362, ptr %1363, align 8
@@ -3925,12 +3925,12 @@ cvPrepareNextStep.exit.i:                         ; preds = %1268, %1262, %1239,
   store double 0.000000e+00, ptr %1364, align 8
   %1365 = getelementptr inbounds [4 x double], ptr %443, i64 0, i64 %indvars.iv382.i.i.i
   %1366 = load double, ptr %1365, align 8
-  %1367 = fneg double %1351
-  %1368 = fmul double %1359, %1367
-  %1369 = call double @llvm.fmuladd.f64(double %1353, double %1366, double %1368)
-  %1370 = getelementptr inbounds [4 x double], ptr %444, i64 0, i64 %indvars.iv382.i.i.i
-  store double %1369, ptr %1370, align 8
-  %1371 = fmul double %1366, %1367
+  %1367 = fmul double %1351, %1360
+  %1368 = call double @llvm.fmuladd.f64(double %1353, double %1366, double %1367)
+  %1369 = getelementptr inbounds [4 x double], ptr %444, i64 0, i64 %indvars.iv382.i.i.i
+  store double %1368, ptr %1369, align 8
+  %1370 = fneg double %1366
+  %1371 = fmul double %1351, %1370
   %1372 = call double @llvm.fmuladd.f64(double %1359, double %1359, double %1371)
   %1373 = getelementptr inbounds [4 x double], ptr %445, i64 0, i64 %indvars.iv382.i.i.i
   store double %1372, ptr %1373, align 8
@@ -6229,7 +6229,7 @@ define range(i32 -28, 1) i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 288
   %14 = load i32, ptr %13, align 8
-  %15 = icmp slt i32 %14, %2
+  %15 = icmp sgt i32 %2, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12, %10

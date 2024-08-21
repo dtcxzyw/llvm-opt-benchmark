@@ -1260,7 +1260,7 @@ define internal fastcc noundef i32 @dissect_wa_header(i32 noundef %0, ptr nounde
 
 27:                                               ; preds = %4, %21
   %.sink = phi i32 [ 44, %21 ], [ 40, %4 ]
-  %28 = add i32 %.sink, %0
+  %28 = add i32 %0, %.sink
   %29 = load i32, ptr @hf_waveagent_sigsequencenum, align 4
   %30 = add i32 %0, 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %29, ptr noundef %2, i32 noundef %30, i32 noundef 1, i32 noundef 0) #2

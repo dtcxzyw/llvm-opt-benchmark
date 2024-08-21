@@ -553,7 +553,7 @@ define hidden void @_ZN10OopStorage5Block25set_deferred_updates_nextEPS0_(ptr no
 define hidden noundef zeroext i1 @_ZNK10OopStorage5Block8containsEPKP7oopDesc(ptr noundef nonnull readnone align 8 dereferenceable(576) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = icmp ule ptr %0, %1
   %4 = getelementptr inbounds i8, ptr %0, i64 512
-  %5 = icmp ugt ptr %4, %1
+  %5 = icmp ult ptr %1, %4
   %6 = select i1 %3, i1 %5, i1 false
   ret i1 %6
 }
@@ -1104,7 +1104,7 @@ define hidden void @_ZN10OopStorage5Block15release_entriesEmPS_(ptr noundef nonn
   br i1 %12, label %13, label %9, !llvm.loop !15
 
 13:                                               ; preds = %9
-  %14 = icmp eq i64 %.0, %1
+  %14 = icmp eq i64 %1, %.0
   %15 = icmp eq i64 %.0, -1
   %or.cond = or i1 %14, %15
   br i1 %or.cond, label %16, label %49
@@ -1788,7 +1788,7 @@ _ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit: ; preds = %13, %17
   %25 = getelementptr inbounds ptr, ptr %1, i64 %.128
   %26 = load ptr, ptr %25, align 8
   %27 = icmp ule ptr %.0.i.i, %26
-  %28 = icmp ugt ptr %21, %26
+  %28 = icmp ult ptr %26, %21
   %29 = select i1 %27, i1 %28, i1 false
   br i1 %29, label %30, label %._crit_edge
 
@@ -2533,7 +2533,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZNK10OopSt
 30:                                               ; preds = %25
   %31 = icmp ule ptr %.01112.i.i, %1
   %32 = getelementptr inbounds i8, ptr %.01112.i.i, i64 512
-  %33 = icmp ugt ptr %32, %1
+  %33 = icmp ult ptr %1, %32
   %34 = select i1 %31, i1 %33, i1 false
   br i1 %34, label %35, label %43
 

@@ -7860,7 +7860,7 @@ define void @_ZN9actix_web4rmap11ResourceMap3add17hdfc1e6e4e6323601E(ptr noalias
   %.0.i = select i1 %52, i64 %54, i64 %56
   %57 = getelementptr inbounds i8, ptr %0, i64 192
   %58 = load i64, ptr %57, align 8, !alias.scope !1951, !noalias !1954, !noundef !13
-  %59 = icmp ult i64 %58, %.0.i
+  %59 = icmp ugt i64 %.0.i, %58
   br i1 %59, label %60, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h1d578767b869d36cE.exit.i"
 
 60:                                               ; preds = %.noexc51

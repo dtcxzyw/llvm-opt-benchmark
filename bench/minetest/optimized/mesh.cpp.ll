@@ -1129,11 +1129,11 @@ for.body18.epil:                                  ; preds = %for.cond.cleanup17.
   %idx.ext.epil = and i64 %mul.epil, 4294967288
   %add.ptr.epil = getelementptr inbounds i8, ptr %call14, i64 %idx.ext.epil
   %7 = load <2 x float>, ptr %add.ptr.epil, align 4, !tbaa !14
-  %8 = fmul nsz <2 x float> %7, %scale.coerce0
+  %8 = fmul nsz <2 x float> %scale.coerce0, %7
   store <2 x float> %8, ptr %add.ptr.epil, align 4, !tbaa !14
   %Z5.i.epil = getelementptr inbounds i8, ptr %add.ptr.epil, i64 8
   %9 = load float, ptr %Z5.i.epil, align 4, !tbaa !10
-  %mul6.i.epil = fmul nsz float %9, %scale.coerce1
+  %mul6.i.epil = fmul nsz float %scale.coerce1, %9
   store float %mul6.i.epil, ptr %Z5.i.epil, align 4, !tbaa !10
   br label %for.cond.cleanup17
 
@@ -1155,22 +1155,22 @@ for.body18:                                       ; preds = %for.body18, %for.bo
   %idx.ext = and i64 %mul, 4294967288
   %add.ptr = getelementptr inbounds i8, ptr %call14, i64 %idx.ext
   %12 = load <2 x float>, ptr %add.ptr, align 4, !tbaa !14
-  %13 = fmul nsz <2 x float> %12, %scale.coerce0
+  %13 = fmul nsz <2 x float> %scale.coerce0, %12
   store <2 x float> %13, ptr %add.ptr, align 4, !tbaa !14
   %Z5.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %14 = load float, ptr %Z5.i, align 4, !tbaa !10
-  %mul6.i = fmul nsz float %14, %scale.coerce1
+  %mul6.i = fmul nsz float %scale.coerce1, %14
   store float %mul6.i, ptr %Z5.i, align 4, !tbaa !10
   %indvars.iv.next = or disjoint i64 %indvars.iv, 1
   %mul.1 = mul i64 %indvars.iv.next, %switch.select3.i
   %idx.ext.1 = and i64 %mul.1, 4294967292
   %add.ptr.1 = getelementptr inbounds i8, ptr %call14, i64 %idx.ext.1
   %15 = load <2 x float>, ptr %add.ptr.1, align 4, !tbaa !14
-  %16 = fmul nsz <2 x float> %15, %scale.coerce0
+  %16 = fmul nsz <2 x float> %scale.coerce0, %15
   store <2 x float> %16, ptr %add.ptr.1, align 4, !tbaa !14
   %Z5.i.1 = getelementptr inbounds i8, ptr %add.ptr.1, i64 8
   %17 = load float, ptr %Z5.i.1, align 4, !tbaa !10
-  %mul6.i.1 = fmul nsz float %17, %scale.coerce1
+  %mul6.i.1 = fmul nsz float %scale.coerce1, %17
   store float %mul6.i.1, ptr %Z5.i.1, align 4, !tbaa !10
   %indvars.iv.next.1 = add nuw i64 %indvars.iv, 2
   %niter.ncmp.1 = icmp eq i64 %indvars.iv.next.1, %unroll_iter
@@ -1384,11 +1384,11 @@ for.body18.epil:                                  ; preds = %for.cond.cleanup17.
   %idx.ext.epil = and i64 %mul.epil, 4294967288
   %add.ptr.epil = getelementptr inbounds i8, ptr %call14, i64 %idx.ext.epil
   %7 = load <2 x float>, ptr %add.ptr.epil, align 4, !tbaa !14
-  %8 = fadd nsz <2 x float> %7, %vec.coerce0
+  %8 = fadd nsz <2 x float> %vec.coerce0, %7
   store <2 x float> %8, ptr %add.ptr.epil, align 4, !tbaa !14
   %Z5.i.epil = getelementptr inbounds i8, ptr %add.ptr.epil, i64 8
   %9 = load float, ptr %Z5.i.epil, align 4, !tbaa !10
-  %add6.i.epil = fadd nsz float %9, %vec.coerce1
+  %add6.i.epil = fadd nsz float %vec.coerce1, %9
   store float %add6.i.epil, ptr %Z5.i.epil, align 4, !tbaa !10
   br label %for.cond.cleanup17
 
@@ -1410,22 +1410,22 @@ for.body18:                                       ; preds = %for.body18, %for.bo
   %idx.ext = and i64 %mul, 4294967288
   %add.ptr = getelementptr inbounds i8, ptr %call14, i64 %idx.ext
   %12 = load <2 x float>, ptr %add.ptr, align 4, !tbaa !14
-  %13 = fadd nsz <2 x float> %12, %vec.coerce0
+  %13 = fadd nsz <2 x float> %vec.coerce0, %12
   store <2 x float> %13, ptr %add.ptr, align 4, !tbaa !14
   %Z5.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %14 = load float, ptr %Z5.i, align 4, !tbaa !10
-  %add6.i = fadd nsz float %14, %vec.coerce1
+  %add6.i = fadd nsz float %vec.coerce1, %14
   store float %add6.i, ptr %Z5.i, align 4, !tbaa !10
   %indvars.iv.next = or disjoint i64 %indvars.iv, 1
   %mul.1 = mul i64 %indvars.iv.next, %switch.select3.i
   %idx.ext.1 = and i64 %mul.1, 4294967292
   %add.ptr.1 = getelementptr inbounds i8, ptr %call14, i64 %idx.ext.1
   %15 = load <2 x float>, ptr %add.ptr.1, align 4, !tbaa !14
-  %16 = fadd nsz <2 x float> %15, %vec.coerce0
+  %16 = fadd nsz <2 x float> %vec.coerce0, %15
   store <2 x float> %16, ptr %add.ptr.1, align 4, !tbaa !14
   %Z5.i.1 = getelementptr inbounds i8, ptr %add.ptr.1, i64 8
   %17 = load float, ptr %Z5.i.1, align 4, !tbaa !10
-  %add6.i.1 = fadd nsz float %17, %vec.coerce1
+  %add6.i.1 = fadd nsz float %vec.coerce1, %17
   store float %add6.i.1, ptr %Z5.i.1, align 4, !tbaa !10
   %indvars.iv.next.1 = add nuw i64 %indvars.iv, 2
   %niter.ncmp.1 = icmp eq i64 %indvars.iv.next.1, %unroll_iter
@@ -4311,7 +4311,7 @@ for.body16:                                       ; preds = %_ZN3irr4core8aabbox
   %sub21 = fsub nsz float %box.sroa.15.0, %expand
   %18 = select <2 x i1> %15, <2 x float> %13, <2 x float> %14
   %19 = fadd nsz <2 x float> %4, %18
-  %add28 = fadd nsz float %box.sroa.33.0, %expand
+  %add28 = fadd nsz float %expand, %box.sroa.33.0
   %20 = insertelement <2 x float> %17, float %sub21, i64 1
   %21 = fdiv nsz <2 x float> %20, <float 1.000000e+01, float 1.000000e+01>
   %22 = fadd nsz <2 x float> %21, <float 5.000000e-01, float 5.000000e-01>

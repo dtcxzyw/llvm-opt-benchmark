@@ -621,7 +621,7 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br label %251
 
 243:                                              ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i60 = icmp eq i64 %239, %.sroa.15.0
+  %.not.i.i.i60 = icmp eq i64 %.sroa.15.0, %239
   br i1 %.not.i.i.i60, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %243, %247
@@ -685,7 +685,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %247
   br label %274
 
 266:                                              ; preds = %.lr.ph.split.split.i.i63
-  %.not.i.i.i75 = icmp eq i64 %262, %.sroa.15.0
+  %.not.i.i.i75 = icmp eq i64 %.sroa.15.0, %262
   br i1 %.not.i.i.i75, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i79, label %.lr.ph.i.i.i76
 
 .lr.ph.i.i.i76:                                   ; preds = %266, %270

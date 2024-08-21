@@ -443,7 +443,7 @@ if.then9.i:                                       ; preds = %if.then6.i
 
 if.end.i:                                         ; preds = %if.then9.i, %if.then6.i
   %conv.i17.pre-phi.i = phi i64 [ %.pre22.i, %if.then9.i ], [ %conv.i.i, %if.then6.i ]
-  %cmp13.not20.i = icmp eq i64 %conv.i17.pre-phi.i, %NextBufferSize.1
+  %cmp13.not20.i = icmp eq i64 %NextBufferSize.1, %conv.i17.pre-phi.i
   br i1 %cmp13.not20.i, label %if.end15.sink.split.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
@@ -2202,7 +2202,7 @@ if.then8:                                         ; preds = %for.body
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i13 = icmp ult i64 %sub.ptr.sub.i, %agg.tmp.sroa.2.0.copyload
+  %cmp.i13 = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, %sub.ptr.sub.i
   br i1 %cmp.i13, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then8
@@ -2242,7 +2242,7 @@ if.then13:                                        ; preds = %if.end10
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i21 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i21
-  %cmp.i23 = icmp ult i64 %sub.ptr.sub.i22, %agg.tmp14.sroa.2.0.copyload
+  %cmp.i23 = icmp ugt i64 %agg.tmp14.sroa.2.0.copyload, %sub.ptr.sub.i22
   br i1 %cmp.i23, label %if.then.i28, label %if.end.i24
 
 if.then.i28:                                      ; preds = %if.then13
@@ -2315,7 +2315,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %0
+  %cmp.i = icmp ugt i64 %0, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -2350,7 +2350,7 @@ sw.bb:                                            ; preds = %if.end
   %sub.ptr.lhs.cast.i18 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i19 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i19
-  %cmp.i21 = icmp ult i64 %sub.ptr.sub.i20, %0
+  %cmp.i21 = icmp ugt i64 %0, %sub.ptr.sub.i20
   br i1 %cmp.i21, label %if.then.i26, label %if.end.i22
 
 if.then.i26:                                      ; preds = %sw.bb
@@ -2416,7 +2416,7 @@ _ZN4llvh11raw_ostream6indentEj.exit40:            ; preds = %while.body.i.i30, %
   %sub.ptr.lhs.cast.i43 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i44 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i45 = sub i64 %sub.ptr.lhs.cast.i43, %sub.ptr.rhs.cast.i44
-  %cmp.i46 = icmp ult i64 %sub.ptr.sub.i45, %agg.tmp18.sroa.2.0.copyload
+  %cmp.i46 = icmp ugt i64 %agg.tmp18.sroa.2.0.copyload, %sub.ptr.sub.i45
   br i1 %cmp.i46, label %if.then.i51, label %if.end.i47
 
 if.then.i51:                                      ; preds = %_ZN4llvh11raw_ostream6indentEj.exit40
@@ -2464,7 +2464,7 @@ _ZN4llvh11raw_ostream6indentEj.exit65:            ; preds = %while.body.i.i55, %
   %sub.ptr.lhs.cast.i68 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i69 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i70 = sub i64 %sub.ptr.lhs.cast.i68, %sub.ptr.rhs.cast.i69
-  %cmp.i71 = icmp ult i64 %sub.ptr.sub.i70, %agg.tmp24.sroa.2.0.copyload
+  %cmp.i71 = icmp ugt i64 %agg.tmp24.sroa.2.0.copyload, %sub.ptr.sub.i70
   br i1 %cmp.i71, label %if.then.i76, label %if.end.i72
 
 if.then.i76:                                      ; preds = %_ZN4llvh11raw_ostream6indentEj.exit65
@@ -2779,7 +2779,7 @@ if.then4.i.i:                                     ; preds = %if.then35
 if.end40:                                         ; preds = %if.then4.i.i, %if.then.i.i45, %_ZN4llvh11raw_ostream6indentEj.exit
   %19 = load i32, ptr %NumPerLine20, align 4
   %conv42 = zext i32 %19 to i64
-  %N..i = call i64 @llvm.umin.i64(i64 %Bytes2.sroa.4.0264, i64 %conv42)
+  %N..i = call i64 @llvm.umin.i64(i64 %conv42, i64 %Bytes2.sroa.4.0264)
   %cmp45257.not = icmp eq i32 %19, 0
   br i1 %cmp45257.not, label %for.end, label %for.body.preheader
 
@@ -4363,11 +4363,11 @@ entry:
   %2 = load i32, ptr %Size.i.i, align 8
   %conv.i5.i = zext i32 %2 to i64
   %sub.i = sub nsw i64 %conv.i.i, %conv.i5.i
-  %cmp.i = icmp ult i64 %sub.i, %Size
+  %cmp.i = icmp ugt i64 %Size, %sub.i
   br i1 %cmp.i, label %if.end.i.thread, label %if.end.i
 
 if.end.i.thread:                                  ; preds = %entry
-  %add.i = add i64 %conv.i5.i, %Size
+  %add.i = add i64 %Size, %conv.i5.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef %add.i, i64 noundef 1) #26
   %.pre13.pre.i = load i32, ptr %Size.i.i, align 8

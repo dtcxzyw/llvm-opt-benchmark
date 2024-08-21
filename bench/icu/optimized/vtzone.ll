@@ -166,7 +166,7 @@ entry:
   %4 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
   %cmp = icmp slt i32 %0, %cond.i
-  %cmp.i.i1 = icmp ugt i32 %cond.i, %0
+  %cmp.i.i1 = icmp ult i32 %0, %cond.i
   %or.cond = and i1 %cmp, %cmp.i.i1
   br i1 %or.cond, label %if.then.i.i, label %if.end
 
@@ -1064,7 +1064,7 @@ while.cond:                                       ; preds = %while.cond.outer, %
   %6 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %6, i32 %shr.i.i.i
   %cmp.i38 = icmp slt i32 %3, %cond.i.i
-  %cmp.i.i1.i = icmp ugt i32 %cond.i.i, %3
+  %cmp.i.i1.i = icmp ult i32 %3, %cond.i.i
   %or.cond.i39 = and i1 %cmp.i38, %cmp.i.i1.i
   br i1 %or.cond.i39, label %invoke.cont7, label %invoke.cont7.thread
 
@@ -1584,7 +1584,7 @@ invoke.cont7:                                     ; preds = %land.rhs
   %fLength.i.i.i = getelementptr inbounds i8, ptr %call5, i64 12
   %5 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %5, i32 %shr.i.i.i.i
-  %cmp.i.i = icmp ugt i32 %cond.i.i.i, %call8
+  %cmp.i.i = icmp ult i32 %call8, %cond.i.i.i
   br i1 %cmp.i.i, label %invoke.cont9, label %invoke.cont9.thread
 
 invoke.cont9.thread:                              ; preds = %invoke.cont7
@@ -1685,7 +1685,7 @@ invoke.cont19:                                    ; preds = %land.rhs18
   %fLength.i.i.i39 = getelementptr inbounds i8, ptr %call5, i64 12
   %21 = load i32, ptr %fLength.i.i.i39, align 4
   %cond.i.i.i40 = select i1 %cmp.i.i.i.i37, i32 %21, i32 %shr.i.i.i.i38
-  %cmp.i.i41 = icmp ugt i32 %cond.i.i.i40, %call20
+  %cmp.i.i41 = icmp ult i32 %call20, %cond.i.i.i40
   br i1 %cmp.i.i41, label %invoke.cont21, label %invoke.cont21.thread
 
 invoke.cont21.thread:                             ; preds = %invoke.cont19
@@ -2914,7 +2914,7 @@ _ZNK6icu_7513UnicodeString8pinIndexERi.exit.i:    ; preds = %invoke.cont39
   %shr.i.i.i.i = sext i16 %15 to i32
   %16 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %16, i32 %shr.i.i.i.i
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i.i.i, i32 %add)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %add, i32 %cond.i.i.i)
   %17 = load i16, ptr %fUnion2.i143, align 8
   %cmp.i.i.i155 = icmp slt i16 %17, 0
   %18 = ashr i16 %17, 5
@@ -3305,7 +3305,7 @@ if.else.i.i273:                                   ; preds = %while.body
   %cmp.i.i.i.i274 = icmp slt i16 %.pre.i272, 0
   %86 = load i32, ptr %fLength.i.i157, align 4
   %cond.i.i.i277 = select i1 %cmp.i.i.i.i274, i32 %86, i32 %.pre5.i
-  %spec.select.i278 = call i32 @llvm.smin.i32(i32 %cond.i.i.i277, i32 %dstart.0594)
+  %spec.select.i278 = call i32 @llvm.smin.i32(i32 %dstart.0594, i32 %cond.i.i.i277)
   br label %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i279
 
 _ZNK6icu_7513UnicodeString8pinIndexERi.exit.i279: ; preds = %if.else.i.i273, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i283
@@ -5275,7 +5275,7 @@ if.end186:                                        ; preds = %for.end183
 if.end187:                                        ; preds = %for.inc58, %if.then12, %if.end186
   %dayOfMonth.0 = phi i32 [ 0, %if.then12 ], [ %earliestDay.1.lcssa, %if.end186 ], [ %spec.select, %for.inc58 ]
   %conv = sitofp i32 %fromOffset to double
-  %add188 = fadd double %conv, %start
+  %add188 = fadd double %start, %conv
   invoke void @_ZN6icu_755Grego12timeToFieldsEdRiS1_S1_S1_S1_S1_(double noundef %add188, ptr noundef nonnull align 4 dereferenceable(4) %startYear, ptr noundef nonnull align 4 dereferenceable(4) %startMonth, ptr noundef nonnull align 4 dereferenceable(4) %startDOM, ptr noundef nonnull align 4 dereferenceable(4) %startDOW, ptr noundef nonnull align 4 dereferenceable(4) %startDOY, ptr noundef nonnull align 4 dereferenceable(4) %startMID)
           to label %invoke.cont189 unwind label %lpad.loopexit.split-lp
 
@@ -5882,7 +5882,7 @@ if.else.i.i:                                      ; preds = %land.lhs.true80
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
   %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
   %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %cond.i6.i)
+  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
   %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
   %28 = and i16 %21, 2
   %tobool.not.i.i.i = icmp eq i16 %28, 0
@@ -6029,7 +6029,7 @@ if.else.i.i234:                                   ; preds = %land.lhs.true147
   %spec.select.i.i243 = call i32 @llvm.smin.i32(i32 %cond.i6.i238, i32 0)
   %cmp5.i.i.i244 = icmp slt i32 %cond.i6.i238, 0
   %sub.i.i.i245 = sub nsw i32 %cond.i6.i238, %spec.select.i.i243
-  %spec.select9.i.i246 = call i32 @llvm.smin.i32(i32 %sub.i.i.i245, i32 %cond.i6.i238)
+  %spec.select9.i.i246 = call i32 @llvm.smin.i32(i32 %cond.i6.i238, i32 %sub.i.i.i245)
   %srcLength.addr.0.i.i247 = select i1 %cmp5.i.i.i244, i32 0, i32 %spec.select9.i.i246
   %50 = and i16 %43, 2
   %tobool.not.i.i.i248 = icmp eq i16 %50, 0
@@ -6817,7 +6817,7 @@ _ZN6icu_759VTZWriter5writeEPKDs.exit:             ; preds = %if.then7
   %fUnion2.i = getelementptr inbounds i8, ptr %timestr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %conv = sitofp i32 %fromOffset to double
-  %add = fadd double %conv, %time
+  %add = fadd double %time, %conv
   %call8 = invoke fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_75L17getDateTimeStringEdRNS_13UnicodeStringE(double noundef %add, ptr noundef nonnull align 8 dereferenceable(64) %timestr)
           to label %invoke.cont unwind label %lpad
 
@@ -7001,7 +7001,7 @@ invoke.cont12:                                    ; preds = %invoke.cont11
 
 if.then13:                                        ; preds = %invoke.cont12
   %conv = sitofp i32 %fromOffset to double
-  %add = fadd double %conv, %untilTime
+  %add = fadd double %untilTime, %conv
   %call15 = invoke fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_75L17getDateTimeStringEdRNS_13UnicodeStringE(double noundef %add, ptr noundef nonnull align 8 dereferenceable(64) %dstr)
           to label %invoke.cont14 unwind label %lpad.loopexit.split-lp
 
@@ -7262,7 +7262,7 @@ if.end10:                                         ; preds = %_ZN6icu_75L14toWall
 if.then13:                                        ; preds = %if.end10
   %sub = sub nsw i32 0, %call11
   %conv = uitofp nneg i32 %sub to double
-  %add = fadd double %conv, %startTime
+  %add = fadd double %startTime, %conv
   br label %if.end20
 
 if.else:                                          ; preds = %if.end10
@@ -7390,12 +7390,12 @@ return:                                           ; preds = %if.then90.i, %if.en
 define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L20isEquivalentDateRuleEiiiPKNS_12DateTimeRuleE(i32 noundef %month, i32 noundef %weekInMonth, i32 noundef %dayOfWeek, ptr noundef nonnull %dtrule) unnamed_addr #2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7512DateTimeRule12getRuleMonthEv(ptr noundef nonnull align 8 dereferenceable(36) %dtrule)
-  %cmp.not = icmp eq i32 %call, %month
+  %cmp.not = icmp eq i32 %month, %call
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %call1 = tail call noundef i32 @_ZNK6icu_7512DateTimeRule16getRuleDayOfWeekEv(ptr noundef nonnull align 8 dereferenceable(36) %dtrule)
-  %cmp2.not = icmp eq i32 %call1, %dayOfWeek
+  %cmp2.not = icmp eq i32 %dayOfWeek, %call1
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -7446,7 +7446,7 @@ land.lhs.true23:                                  ; preds = %if.end21
 land.lhs.true26:                                  ; preds = %land.lhs.true23
   %add30 = add nsw i32 %sub, 1
   %div31.neg = sdiv i32 %add30, -7
-  %cmp32 = icmp eq i32 %div31.neg, %weekInMonth
+  %cmp32 = icmp eq i32 %weekInMonth, %div31.neg
   br i1 %cmp32, label %return, label %if.end35
 
 if.end35:                                         ; preds = %if.end21, %land.lhs.true23, %land.lhs.true26, %if.end12
@@ -7478,7 +7478,7 @@ land.lhs.true47:                                  ; preds = %if.end45
 land.lhs.true53:                                  ; preds = %land.lhs.true47
   %div57.neg = sdiv i32 %sub50, -7
   %mul59 = add nsw i32 %div57.neg, -1
-  %cmp60 = icmp eq i32 %mul59, %weekInMonth
+  %cmp60 = icmp eq i32 %weekInMonth, %mul59
   br i1 %cmp60, label %return, label %if.end63
 
 if.end63:                                         ; preds = %if.end45, %land.lhs.true47, %land.lhs.true53, %if.end35
@@ -7796,7 +7796,7 @@ invoke.cont18:                                    ; preds = %invoke.cont17
 invoke.cont19:                                    ; preds = %invoke.cont18
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i.i90)
   %conv = sitofp i32 %fromOffset to double
-  %add = fadd double %conv, %startTime
+  %add = fadd double %startTime, %conv
   %call21 = invoke fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_75L17getDateTimeStringEdRNS_13UnicodeStringE(double noundef %add, ptr noundef nonnull align 8 dereferenceable(64) %dstr)
           to label %invoke.cont20 unwind label %lpad
 
@@ -8364,7 +8364,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
 
 if.then12:                                        ; preds = %invoke.cont11
   %conv = sitofp i32 %fromOffset to double
-  %add = fadd double %conv, %untilTime
+  %add = fadd double %untilTime, %conv
   %call14 = invoke fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_75L17getDateTimeStringEdRNS_13UnicodeStringE(double noundef %add, ptr noundef nonnull align 8 dereferenceable(64) %dstr)
           to label %invoke.cont13 unwind label %lpad.loopexit.split-lp
 
@@ -9052,7 +9052,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 
 if.then24:                                        ; preds = %for.end
   %conv25 = sitofp i32 %fromOffset to double
-  %add26 = fadd double %conv25, %untilTime
+  %add26 = fadd double %untilTime, %conv25
   %call28 = invoke fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_75L17getDateTimeStringEdRNS_13UnicodeStringE(double noundef %add26, ptr noundef nonnull align 8 dereferenceable(64) %dstr)
           to label %invoke.cont27 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9383,7 +9383,7 @@ if.else.i.i:                                      ; preds = %while.body
   %cmp.i.i.i.i = icmp slt i16 %.pre.i, 0
   %1 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %1, i32 %.pre5.i
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i.i.i, i32 %prop_start.0413)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %prop_start.0413, i32 %cond.i.i.i)
   br label %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i
 
 _ZNK6icu_7513UnicodeString8pinIndexERi.exit.i:    ; preds = %if.else.i.i, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i
@@ -9417,7 +9417,7 @@ if.else.i.i57:                                    ; preds = %.noexc
   %cmp.i.i.i.i58 = icmp slt i16 %.pre.i56, 0
   %3 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i61 = select i1 %cmp.i.i.i.i58, i32 %3, i32 %.pre12.i
-  %spec.select.i62 = call i32 @llvm.smin.i32(i32 %cond.i.i.i61, i32 %prop_start.0413)
+  %spec.select.i62 = call i32 @llvm.smin.i32(i32 %prop_start.0413, i32 %cond.i.i.i61)
   br label %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i63
 
 _ZNK6icu_7513UnicodeString8pinIndexERi.exit.i63:  ; preds = %if.else.i.i57, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i67
@@ -9518,7 +9518,7 @@ if.else.i.i93:                                    ; preds = %.noexc115
   %cmp.i.i.i.i94 = icmp slt i16 %.pre.i92, 0
   %17 = load i32, ptr %fLength.i.i72, align 4
   %cond.i.i.i97 = select i1 %cmp.i.i.i.i94, i32 %17, i32 %.pre12.i114
-  %spec.select.i98 = call i32 @llvm.smin.i32(i32 %cond.i.i.i97, i32 %add19)
+  %spec.select.i98 = call i32 @llvm.smin.i32(i32 %add19, i32 %cond.i.i.i97)
   br label %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i99
 
 _ZNK6icu_7513UnicodeString8pinIndexERi.exit.i99:  ; preds = %if.else.i.i93, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i110
@@ -9898,7 +9898,7 @@ if.else.i.i272:                                   ; preds = %while.body157
   %cmp.i.i.i.i273 = icmp slt i16 %.pre.i271, 0
   %76 = load i32, ptr %fLength.i.i105, align 4
   %cond.i.i.i276 = select i1 %cmp.i.i.i.i273, i32 %76, i32 %.pre5.i288
-  %spec.select.i277 = call i32 @llvm.smin.i32(i32 %cond.i.i.i276, i32 %dom_start.0411)
+  %spec.select.i277 = call i32 @llvm.smin.i32(i32 %dom_start.0411, i32 %cond.i.i.i276)
   br label %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i278
 
 _ZNK6icu_7513UnicodeString8pinIndexERi.exit.i278: ; preds = %if.else.i.i272, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i284
@@ -9963,7 +9963,7 @@ if.then6.i355:                                    ; preds = %lor.lhs.false.i300,
   br label %invoke.cont168
 
 if.end7.i310:                                     ; preds = %lor.lhs.false.i300
-  %cmp.i.i27.i311 = icmp ugt i32 %cond.i.i305, %dom_start.0411
+  %cmp.i.i27.i311 = icmp ult i32 %dom_start.0411, %cond.i.i305
   %.pre = load ptr, ptr %fArray.i.i.i.i345, align 8
   %88 = and i16 %85, 2
   br i1 %cmp.i.i27.i311, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i342, label %for.body.lr.ph.i312

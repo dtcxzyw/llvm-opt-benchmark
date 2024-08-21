@@ -2579,7 +2579,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   %91 = load i64, ptr %27, align 8, !alias.scope !315, !noalias !322, !noundef !4
   %92 = load i64, ptr %52, align 8, !alias.scope !325, !noalias !322, !noundef !4
   %93 = sub i64 %92, %91
-  %94 = icmp ult i64 %93, %90
+  %94 = icmp ugt i64 %90, %93
   br i1 %94, label %95, label %.noexc53
 
 95:                                               ; preds = %86
@@ -3188,7 +3188,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
 
 373:                                              ; preds = %.noexc75
   %374 = load i64, ptr %55, align 8, !noalias !625, !noundef !4
-  %375 = icmp ugt i64 %374, %132
+  %375 = icmp ult i64 %132, %374
   br i1 %375, label %376, label %.invoke, !prof !628
 
 376:                                              ; preds = %373
@@ -3265,7 +3265,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   store i64 %408, ptr %27, align 8, !alias.scope !630, !noalias !641
   %409 = load i64, ptr %52, align 8, !alias.scope !647, !noalias !656, !noundef !4
   %410 = sub i64 %409, %408
-  %411 = icmp ult i64 %410, %396
+  %411 = icmp ugt i64 %396, %410
   br i1 %411, label %412, label %.noexc80
 
 412:                                              ; preds = %403
@@ -3421,7 +3421,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
 
 469:                                              ; preds = %468
   %470 = load i64, ptr %55, align 8, !noalias !714, !noundef !4
-  %471 = icmp ugt i64 %470, %153
+  %471 = icmp ult i64 %153, %470
   br i1 %471, label %472, label %.invoke, !prof !628
 
 472:                                              ; preds = %469
@@ -3702,7 +3702,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
 
 563:                                              ; preds = %557
   %564 = load i64, ptr %55, align 8, !noalias !882, !noundef !4
-  %565 = icmp ugt i64 %564, %186
+  %565 = icmp ult i64 %186, %564
   br i1 %565, label %566, label %.invoke, !prof !628
 
 566:                                              ; preds = %563
@@ -3864,7 +3864,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
 
 644:                                              ; preds = %638
   %645 = load i64, ptr %55, align 8, !noalias !926, !noundef !4
-  %646 = icmp ugt i64 %645, %213
+  %646 = icmp ult i64 %213, %645
   br i1 %646, label %647, label %.invoke, !prof !628
 
 647:                                              ; preds = %644
@@ -4040,7 +4040,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
 
 707:                                              ; preds = %706
   %708 = load i64, ptr %55, align 8, !noalias !993, !noundef !4
-  %709 = icmp ugt i64 %708, %228
+  %709 = icmp ult i64 %228, %708
   br i1 %709, label %710, label %.invoke, !prof !628
 
 710:                                              ; preds = %707
@@ -4136,7 +4136,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
 
 739:                                              ; preds = %738
   %740 = load i64, ptr %55, align 8, !noalias !1035, !noundef !4
-  %741 = icmp ugt i64 %740, %236
+  %741 = icmp ult i64 %236, %740
   br i1 %741, label %742, label %.invoke, !prof !628
 
 742:                                              ; preds = %739
@@ -4312,7 +4312,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   %811 = load i64, ptr %27, align 8, !alias.scope !1092, !noalias !1099, !noundef !4
   %812 = load i64, ptr %52, align 8, !alias.scope !1102, !noalias !1099, !noundef !4
   %813 = sub i64 %812, %811
-  %814 = icmp ult i64 %813, %806
+  %814 = icmp ugt i64 %806, %813
   br i1 %814, label %815, label %.noexc137
 
 815:                                              ; preds = %810
@@ -4484,7 +4484,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
 
 873:                                              ; preds = %867
   %874 = load i64, ptr %55, align 8, !noalias !1134, !noundef !4
-  %875 = icmp ugt i64 %874, %277
+  %875 = icmp ult i64 %277, %874
   br i1 %875, label %876, label %.invoke, !prof !628
 
 876:                                              ; preds = %873
@@ -4937,7 +4937,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   %88 = load i64, ptr %27, align 8, !alias.scope !1198, !noalias !1205, !noundef !4
   %89 = load i64, ptr %1, align 8, !alias.scope !1208, !noalias !1205, !noundef !4
   %90 = sub i64 %89, %88
-  %91 = icmp ult i64 %90, %87
+  %91 = icmp ugt i64 %87, %90
   br i1 %91, label %92, label %.noexc53
 
 92:                                               ; preds = %83
@@ -5509,7 +5509,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
 
 358:                                              ; preds = %.noexc75
   %359 = load i64, ptr %54, align 8, !noalias !1499, !noundef !4
-  %360 = icmp ugt i64 %359, %129
+  %360 = icmp ult i64 %129, %359
   br i1 %360, label %361, label %.invoke, !prof !628
 
 361:                                              ; preds = %358
@@ -5586,7 +5586,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   store i64 %393, ptr %27, align 8, !alias.scope !1503, !noalias !1514
   %394 = load i64, ptr %1, align 8, !alias.scope !1520, !noalias !1529, !noundef !4
   %395 = sub i64 %394, %393
-  %396 = icmp ult i64 %395, %381
+  %396 = icmp ugt i64 %381, %395
   br i1 %396, label %397, label %.noexc80
 
 397:                                              ; preds = %388
@@ -5742,7 +5742,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
 
 454:                                              ; preds = %453
   %455 = load i64, ptr %54, align 8, !noalias !1587, !noundef !4
-  %456 = icmp ugt i64 %455, %150
+  %456 = icmp ult i64 %150, %455
   br i1 %456, label %457, label %.invoke, !prof !628
 
 457:                                              ; preds = %454
@@ -6023,7 +6023,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
 
 548:                                              ; preds = %542
   %549 = load i64, ptr %54, align 8, !noalias !1755, !noundef !4
-  %550 = icmp ugt i64 %549, %183
+  %550 = icmp ult i64 %183, %549
   br i1 %550, label %551, label %.invoke, !prof !628
 
 551:                                              ; preds = %548
@@ -6185,7 +6185,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
 
 629:                                              ; preds = %623
   %630 = load i64, ptr %54, align 8, !noalias !1799, !noundef !4
-  %631 = icmp ugt i64 %630, %210
+  %631 = icmp ult i64 %210, %630
   br i1 %631, label %632, label %.invoke, !prof !628
 
 632:                                              ; preds = %629
@@ -6361,7 +6361,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
 
 692:                                              ; preds = %691
   %693 = load i64, ptr %54, align 8, !noalias !1866, !noundef !4
-  %694 = icmp ugt i64 %693, %225
+  %694 = icmp ult i64 %225, %693
   br i1 %694, label %695, label %.invoke, !prof !628
 
 695:                                              ; preds = %692
@@ -6457,7 +6457,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
 
 724:                                              ; preds = %723
   %725 = load i64, ptr %54, align 8, !noalias !1908, !noundef !4
-  %726 = icmp ugt i64 %725, %233
+  %726 = icmp ult i64 %233, %725
   br i1 %726, label %727, label %.invoke, !prof !628
 
 727:                                              ; preds = %724
@@ -6633,7 +6633,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   %796 = load i64, ptr %27, align 8, !alias.scope !1965, !noalias !1972, !noundef !4
   %797 = load i64, ptr %1, align 8, !alias.scope !1975, !noalias !1972, !noundef !4
   %798 = sub i64 %797, %796
-  %799 = icmp ult i64 %798, %791
+  %799 = icmp ugt i64 %791, %798
   br i1 %799, label %800, label %.noexc137
 
 800:                                              ; preds = %795
@@ -6805,7 +6805,7 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
 
 858:                                              ; preds = %852
   %859 = load i64, ptr %54, align 8, !noalias !2007, !noundef !4
-  %860 = icmp ugt i64 %859, %274
+  %860 = icmp ult i64 %274, %859
   br i1 %860, label %861, label %.invoke, !prof !628
 
 861:                                              ; preds = %858
@@ -7059,7 +7059,7 @@ define internal fastcc i64 @_ZN5gimli5write4unit18write_section_refs17h54ec40286
   %21 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64, {} }], ptr %.8.val, i64 0, i64 %.sroa.4.0.copyload
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8, !noundef !4
-  %24 = icmp ugt i64 %23, %.sroa.512.0.copyload
+  %24 = icmp ult i64 %.sroa.512.0.copyload, %23
   br i1 %24, label %29, label %.invoke, !prof !628
 
 .invoke:                                          ; preds = %20, %17
@@ -7766,7 +7766,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1100.i: ; preds 
   %326 = load i64, ptr %58, align 8, !alias.scope !2240, !noalias !2247, !noundef !4
   %327 = load i64, ptr %57, align 8, !alias.scope !2250, !noalias !2247, !noundef !4
   %328 = sub i64 %327, %326
-  %329 = icmp ult i64 %328, %325
+  %329 = icmp ugt i64 %325, %328
   br i1 %329, label %330, label %560
 
 330:                                              ; preds = %321
@@ -7925,7 +7925,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit1100.i: ; preds 
   %425 = load i64, ptr %58, align 8, !alias.scope !2253, !noalias !2260, !noundef !4
   %426 = load i64, ptr %57, align 8, !alias.scope !2263, !noalias !2260, !noundef !4
   %427 = sub i64 %426, %425
-  %428 = icmp ult i64 %427, %122
+  %428 = icmp ugt i64 %122, %427
   br i1 %428, label %429, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit"
 
 429:                                              ; preds = %422
@@ -12966,7 +12966,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs20PendingDebugInfoRefs6insert17hd63e
   %.sroa.4245.1 = phi i64 [ %.sroa.4245.0.ph, %781 ], [ %.sroa.4245.0.ph, %342 ], [ %.sroa.4245.0.ph, %340 ], [ %.sroa.4245.0.ph, %338 ], [ %.sroa.4245.0.ph, %336 ], [ %.sroa.4245.0.ph, %334 ], [ %.sroa.4245.0.ph, %332 ], [ %.sroa.4245.0.ph, %330 ], [ %.sroa.4245.0.ph, %328 ], [ %.sroa.4245.0.ph, %326 ], [ %.sroa.4245.0.ph, %324 ], [ %.sroa.4245.0.ph, %322 ], [ %.sroa.4245.0.ph, %320 ], [ %.sroa.4245.0.ph, %773 ], [ %.sroa.4245.0.ph, %762 ], [ %.sroa.4245.0.ph, %721 ], [ %.sroa.4245.0.ph, %"_ZN4core3ptr95drop_in_place$LT$wasmtime_cranelift..debug..transform..range_info_builder..RangeInfoBuilder$GT$17h8cb6c4afaafa530eE.exit" ], [ %.sroa.4245.0.ph, %664 ], [ %.sroa.4245.0.ph, %564 ], [ %.sroa.4245.2, %.noexc491 ], [ %.sroa.4245.0.ph, %273 ], [ %.sroa.4245.0.ph, %369 ], [ %.sroa.4245.0.ph, %529 ], [ %.sroa.4245.0.ph, %363 ], [ %.sroa.4245.0.ph, %265 ], [ %.sroa.4245.0.ph, %263 ], [ %.sroa.4245.0.ph, %261 ], [ %.sroa.4245.0.ph, %259 ], [ %.sroa.4245.0.ph, %359 ], [ %.sroa.4245.0.ph, %.noexc459 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %93)
   %352 = load i64, ptr %225, align 8, !noundef !4
-  %.not414 = icmp ugt i64 %352, %7
+  %.not414 = icmp ult i64 %7, %352
   br i1 %.not414, label %785, label %790, !prof !628
 
 353:                                              ; preds = %355
@@ -14052,7 +14052,7 @@ _ZN18wasmtime_cranelift5debug9transform10expression18CompiledExpression9is_simpl
 637:                                              ; preds = %631
   %638 = load i64, ptr %146, align 8, !alias.scope !3387, !noalias !3390, !noundef !4
   %639 = sub i64 %599, %638
-  %640 = icmp ult i64 %639, %634
+  %640 = icmp ugt i64 %634, %639
   br i1 %640, label %641, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h32a93333f4d8c279E.llvm.12599983639457799574.exit.i"
 
 641:                                              ; preds = %637

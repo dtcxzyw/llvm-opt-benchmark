@@ -2347,7 +2347,7 @@ define internal fastcc void @php_sprintf_appendstring(ptr nocapture noundef %0, 
   %12 = tail call i64 @llvm.umin.i64(i64 %4, i64 %7)
   %13 = select i1 %.not, i64 %7, i64 %12
   %14 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %13)
-  %15 = tail call i64 @llvm.umax.i64(i64 %13, i64 %3)
+  %15 = tail call i64 @llvm.umax.i64(i64 %3, i64 %13)
   %16 = load i64, ptr %1, align 8
   %17 = sub i64 2147483646, %16
   %18 = icmp ugt i64 %15, %17
@@ -2449,7 +2449,7 @@ define internal fastcc void @php_sprintf_appendstring(ptr nocapture noundef %0, 
 
 70:                                               ; preds = %67
   %71 = icmp ne i32 %10, 0
-  %or.cond = or i1 %71, %8
+  %or.cond = or i1 %8, %71
   %72 = icmp eq i8 %5, 48
   %or.cond4 = and i1 %72, %or.cond
   br i1 %or.cond4, label %73, label %81
@@ -2469,7 +2469,7 @@ define internal fastcc void @php_sprintf_appendstring(ptr nocapture noundef %0, 
 81:                                               ; preds = %70, %73
   %.1138 = phi ptr [ %79, %73 ], [ %2, %70 ]
   %.1 = phi i64 [ %80, %73 ], [ %13, %70 ]
-  %.not146152.not = icmp ult i64 %13, %3
+  %.not146152.not = icmp ugt i64 %3, %13
   br i1 %.not146152.not, label %.lr.ph, label %.loopexit148
 
 .lr.ph:                                           ; preds = %81, %.lr.ph

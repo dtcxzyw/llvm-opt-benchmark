@@ -1501,7 +1501,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone %1, ptr noc
   %87 = fadd reassoc nsz arcp contract afn <2 x float> %85, %86
   store <2 x float> %87, ptr %80, align 4, !tbaa !6
   %88 = fadd reassoc nsz arcp contract afn float %77, 1.000000e+00
-  %89 = fmul reassoc nsz arcp contract afn float %58, %79
+  %89 = fmul reassoc nsz arcp contract afn float %79, %58
   %90 = fsub reassoc nsz arcp contract afn float %88, %89
   %91 = getelementptr inbounds i8, ptr %16, i64 16
   store float %90, ptr %91, align 4, !tbaa !6
@@ -5431,7 +5431,7 @@ define internal fastcc void @set_RGB_sliders(ptr noundef %0, ptr noundef %1, ptr
 
 20:                                               ; preds = %12
   %21 = fadd reassoc nsz arcp contract afn float %10, %8
-  %22 = fmul reassoc nsz arcp contract afn float %10, %8
+  %22 = fmul reassoc nsz arcp contract afn float %8, %10
   %23 = fsub reassoc nsz arcp contract afn float %21, %22
   br label %24
 

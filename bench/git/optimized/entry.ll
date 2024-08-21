@@ -571,7 +571,7 @@ land.rhs.i:                                       ; preds = %strbuf_setlen.exit,
 
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %slash.09.i, i64 -1
-  %cmp.i = icmp ugt ptr %incdec.ptr.i, %8
+  %cmp.i = icmp ult ptr %8, %incdec.ptr.i
   br i1 %cmp.i, label %land.rhs.i, label %while.end.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %strbuf_setlen.exit
@@ -764,7 +764,7 @@ if.end.i52:                                       ; preds = %land.rhs.i51
   br i1 %tobool.not.i53, label %if.end17.i, label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %land.lhs.true28.i, %if.end17.i, %if.end.i52
-  %cmp.i54 = icmp slt i32 %31, %conv110
+  %cmp.i54 = icmp sgt i32 %conv110, %31
   br i1 %cmp.i54, label %do.body.preheader.i, label %create_directories.exit, !llvm.loop !11
 
 if.end17.i:                                       ; preds = %if.end.i52
@@ -1470,7 +1470,7 @@ if.then16:                                        ; preds = %if.else
 if.end19:                                         ; preds = %if.else, %if.then12
   %14 = load i64, ptr @checkout_entry_ca.path, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %14, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %conv20
+  %cmp.i = icmp ugt i64 %conv20, %spec.select.i
   br i1 %cmp.i, label %if.then.i16, label %if.end.i
 
 if.then.i16:                                      ; preds = %if.end19

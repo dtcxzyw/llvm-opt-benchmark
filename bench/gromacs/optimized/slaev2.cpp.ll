@@ -62,9 +62,9 @@ define void @slaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %43, ptr %3, align 4
   %44 = fdiv float %.0, %43
   %45 = load float, ptr %1, align 4
-  %46 = fneg float %45
-  %47 = fdiv float %46, %43
-  %48 = fmul float %45, %47
+  %46 = fdiv float %45, %43
+  %47 = fneg float %45
+  %48 = fmul float %46, %47
   %49 = tail call float @llvm.fmuladd.f32(float %44, float %.088, float %48)
   br label %64
 
@@ -78,9 +78,9 @@ define void @slaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %54, ptr %3, align 4
   %55 = fdiv float %.0, %54
   %56 = load float, ptr %1, align 4
-  %57 = fneg float %56
-  %58 = fdiv float %57, %54
-  %59 = fmul float %56, %58
+  %57 = fdiv float %56, %54
+  %58 = fneg float %56
+  %59 = fmul float %57, %58
   %60 = tail call float @llvm.fmuladd.f32(float %55, float %.088, float %59)
   br label %64
 

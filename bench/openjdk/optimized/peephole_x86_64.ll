@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef zeroext i1 @_ZN8Peephole15test_may_removeEP5BlockiP8PhaseCFGP13PhaseRegAllocPFP8MachNodevEj(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
-  %9 = icmp ugt i32 %8, %1
+  %9 = icmp ult i32 %1, %8
   br i1 %9, label %10, label %_ZNK5Block8get_nodeEj.exit
 
 10:                                               ; preds = %6
@@ -40,7 +40,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %6, %10
 
 22:                                               ; preds = %_ZNK5Block8get_nodeEj.exit
   %23 = add nsw i32 %1, -2
-  %24 = icmp ugt i32 %8, %23
+  %24 = icmp ult i32 %23, %8
   br i1 %24, label %25, label %_ZNK5Block8get_nodeEj.exit51
 
 25:                                               ; preds = %22
@@ -157,7 +157,7 @@ switch.lookup:                                    ; preds = %72
 _ZNK5Block8get_nodeEj.exit53:                     ; preds = %._crit_edge
   %87 = add nsw i32 %1, -1
   %88 = load i32, ptr %7, align 8
-  %89 = icmp ugt i32 %88, %87
+  %89 = icmp ult i32 %87, %88
   tail call void @llvm.assume(i1 %89)
   %90 = getelementptr inbounds i8, ptr %0, i64 32
   %91 = load ptr, ptr %90, align 8
@@ -184,7 +184,7 @@ _ZNK5Block8get_nodeEj.exit53:                     ; preds = %._crit_edge
   %107 = getelementptr inbounds i8, ptr %16, i64 40
   %108 = load i32, ptr %107, align 8
   %109 = load i32, ptr %106, align 8
-  %.not.i.i = icmp ugt i32 %109, %108
+  %.not.i.i = icmp ult i32 %108, %109
   br i1 %.not.i.i, label %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit, label %110
 
 110:                                              ; preds = %_ZNK5Block8get_nodeEj.exit53
@@ -216,7 +216,7 @@ define hidden noundef zeroext i1 @_ZN8Peephole16lea_coalesce_regEP5BlockiP8Phase
 define internal fastcc noundef zeroext i1 @_ZL19lea_coalesce_helperP5BlockiP8PhaseCFGP13PhaseRegAllocPFP8MachNodevEjb(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
-  %9 = icmp ugt i32 %8, %1
+  %9 = icmp ult i32 %1, %8
   br i1 %9, label %10, label %_ZNK5Block8get_nodeEj.exit
 
 10:                                               ; preds = %6
@@ -274,7 +274,7 @@ _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %28
 
 51:                                               ; preds = %_ZN7OptoReg8as_VMRegEi.exit
   %52 = add nsw i32 %1, -1
-  %53 = icmp ugt i32 %8, %52
+  %53 = icmp ult i32 %52, %8
   br i1 %53, label %54, label %_ZNK5Block8get_nodeEj.exit102
 
 54:                                               ; preds = %51
@@ -558,7 +558,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %158, %169
   %217 = getelementptr inbounds i8, ptr %2, i64 104
   %218 = load i32, ptr %19, align 8
   %219 = load i32, ptr %217, align 8
-  %.not.i.i110 = icmp ugt i32 %219, %218
+  %.not.i.i110 = icmp ult i32 %218, %219
   br i1 %.not.i.i110, label %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit, label %220
 
 220:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit
@@ -574,7 +574,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZN4Node7set_req
   %225 = getelementptr inbounds i8, ptr %23, i64 40
   %226 = load i32, ptr %225, align 8
   %227 = load i32, ptr %217, align 8
-  %.not.i.i111 = icmp ugt i32 %227, %226
+  %.not.i.i111 = icmp ult i32 %226, %227
   br i1 %.not.i.i111, label %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit112, label %228
 
 228:                                              ; preds = %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit
@@ -589,7 +589,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit112: ; preds = %_ZN8PhaseCFG1
   %232 = getelementptr inbounds i8, ptr %.091, i64 40
   %233 = load i32, ptr %232, align 8
   %234 = load i32, ptr %217, align 8
-  %.not.i.i113 = icmp ugt i32 %234, %233
+  %.not.i.i113 = icmp ult i32 %233, %234
   br i1 %.not.i.i113, label %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit114, label %235
 
 235:                                              ; preds = %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit112
@@ -603,7 +603,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit114: ; preds = %_ZN8PhaseCFG1
   store ptr null, ptr %238, align 8
   %239 = load i32, ptr %119, align 8
   %240 = load i32, ptr %217, align 8
-  %.not.i.i115 = icmp ugt i32 %240, %239
+  %.not.i.i115 = icmp ult i32 %239, %240
   br i1 %.not.i.i115, label %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit116, label %241
 
 241:                                              ; preds = %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit114

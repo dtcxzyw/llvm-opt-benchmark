@@ -738,7 +738,7 @@ if.end11.i:                                       ; preds = %if.end5.i
 
 _ZN6hermes2vm16daylightSavingTAEd.exit:           ; preds = %_ZN6hermes2vm8localTZAEv.exit, %if.end.i2, %if.end5.i, %if.end11.i
   %retval.0.i5 = phi double [ %cond.i, %if.end11.i ], [ 0x7FF8000000000000, %_ZN6hermes2vm8localTZAEv.exit ], [ 0x7FF8000000000000, %if.end.i2 ], [ 0x7FF8000000000000, %if.end5.i ]
-  %add = fadd double %retval.0.i, %t
+  %add = fadd double %t, %retval.0.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local.i)
   %add2 = fadd double %add, %retval.0.i5
   ret double %add2
@@ -5384,7 +5384,7 @@ _ZNK6hermes2vm10StringView14const_iteratordeEv.exit: ; preds = %land.rhs
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread: ; preds = %land.rhs
   %11 = load i8, ptr %8, align 1
   %12 = sext i8 %11 to i16
-  %cmp5 = icmp eq i16 %12, %ch
+  %cmp5 = icmp eq i16 %ch, %12
   br i1 %cmp5, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread

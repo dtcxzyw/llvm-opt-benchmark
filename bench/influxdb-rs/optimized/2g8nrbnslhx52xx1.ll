@@ -4431,7 +4431,7 @@ define hidden { i64, i64 } @_ZN4core5slice5index5range17h87d2cdfa55c9a6ffE(i64 n
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h4a44257e91ed8fccE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !938, !noundef !12
-  %.not.i.i = icmp eq i64 %5, %1
+  %.not.i.i = icmp eq i64 %1, %5
   br i1 %.not.i.i, label %6, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h90906d2aa10731b3E.llvm.14229044446495144540.exit"
 
 6:                                                ; preds = %3
@@ -4493,7 +4493,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !955, !noalias !953, !noundef !12
   %8 = sub i64 %7, %5
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hdf312dbc19e38443E.exit"
 
 10:                                               ; preds = %3
@@ -5037,7 +5037,7 @@ _ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.llvm.1422904444649514
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !alias.scope !1015, !noalias !1013, !noundef !12
   %47 = sub i64 %46, %44
-  %48 = icmp ult i64 %47, %42
+  %48 = icmp ugt i64 %42, %47
   br i1 %48, label %49, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hdf312dbc19e38443E.exit"
 
 49:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.llvm.14229044446495144540.exit
@@ -6147,7 +6147,7 @@ default.unreachable:                              ; preds = %543, %541, %448, %4
   %452 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1063, !noalias !1070, !noundef !12
   %453 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1073, !noalias !1070, !noundef !12
   %454 = sub i64 %453, %452
-  %455 = icmp ult i64 %454, %.sroa.3.0.i
+  %455 = icmp ugt i64 %.sroa.3.0.i, %454
   br i1 %455, label %456, label %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h771a54f0f8aa9725E.exit.i"
 
 456:                                              ; preds = %451
@@ -6174,7 +6174,7 @@ default.unreachable:                              ; preds = %543, %541, %448, %4
   %465 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1077, !noalias !1084, !noundef !12
   %466 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1087, !noalias !1084, !noundef !12
   %467 = sub i64 %466, %465
-  %468 = icmp ult i64 %467, %464
+  %468 = icmp ugt i64 %464, %467
   br i1 %468, label %469, label %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h771a54f0f8aa9725E.exit294.i"
 
 469:                                              ; preds = %462
@@ -6703,7 +6703,7 @@ _ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.i197: ; preds = 
   %618 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1118, !noalias !1125, !noundef !12
   %619 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1128, !noalias !1125, !noundef !12
   %620 = sub i64 %619, %618
-  %621 = icmp ult i64 %620, %617
+  %621 = icmp ugt i64 %617, %620
   br i1 %621, label %622, label %.noexc35
 
 622:                                              ; preds = %613
@@ -6758,7 +6758,7 @@ _ZN6chrono5naive9internals2Of7weekday17h25cee97fdc3a2ca2E.exit.i187: ; preds = %
   %641 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1150, !noalias !1157, !noundef !12
   %642 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1160, !noalias !1157, !noundef !12
   %643 = sub i64 %642, %641
-  %644 = icmp ult i64 %643, %640
+  %644 = icmp ugt i64 %640, %643
   br i1 %644, label %645, label %.noexc37
 
 645:                                              ; preds = %_ZN6chrono5naive9internals2Of7weekday17h25cee97fdc3a2ca2E.exit.i187
@@ -7240,7 +7240,7 @@ _ZN6chrono5naive9internals2Of7weekday17h25cee97fdc3a2ca2E.exit.i187: ; preds = %
   %770 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1282, !noalias !1291, !noundef !12
   %771 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1294, !noalias !1291, !noundef !12
   %772 = sub i64 %771, %770
-  %773 = icmp ult i64 %772, %.val287.i
+  %773 = icmp ugt i64 %.val287.i, %772
   br i1 %773, label %774, label %.noexc44
 
 774:                                              ; preds = %769

@@ -309,7 +309,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %idxprom.i.i = zext nneg i32 %rem.i.i to i64
   %arrayidx.i.i = getelementptr [4 x %struct.transaction], ptr %current_transactions, i64 0, i64 %idxprom.i.i
   %3 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp4.i.i = icmp eq i32 %3, %2
+  %cmp4.i.i = icmp eq i32 %2, %3
   br i1 %cmp4.i.i, label %if.end.i, label %for.cond.i.i
 
 if.end.i:                                         ; preds = %for.body.i.i
@@ -508,7 +508,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %idxprom.i.i.i = zext nneg i32 %rem.i.i.i to i64
   %arrayidx.i.i.i = getelementptr [4 x %struct.transaction], ptr %current_transactions.i.i.i, i64 0, i64 %idxprom.i.i.i
   %10 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp4.i.i.i = icmp eq i32 %10, %packet.val20.i
+  %cmp4.i.i.i = icmp eq i32 %packet.val20.i, %10
   br i1 %cmp4.i.i.i, label %if.end8.i, label %for.cond.i.i.i
 
 if.end8.i:                                        ; preds = %for.body.i.i.i
@@ -581,7 +581,7 @@ for.body.i.i32.i:                                 ; preds = %for.cond.i.i39.i, %
   %idxprom.i.i36.i = zext nneg i32 %rem.i.i35.i to i64
   %arrayidx.i.i37.i = getelementptr [4 x %struct.transaction], ptr %current_transactions.i.i31.i, i64 0, i64 %idxprom.i.i36.i
   %19 = load i32, ptr %arrayidx.i.i37.i, align 4
-  %cmp4.i.i38.i = icmp eq i32 %19, %packet.val20.i
+  %cmp4.i.i38.i = icmp eq i32 %packet.val20.i, %19
   br i1 %cmp4.i.i38.i, label %if.end.i.i, label %for.cond.i.i39.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i32.i

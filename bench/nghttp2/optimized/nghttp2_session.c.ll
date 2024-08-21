@@ -2055,7 +2055,7 @@ nghttp2_session_is_my_stream_id.exit:             ; preds = %if.end
 if.then4:                                         ; preds = %nghttp2_session_is_my_stream_id.exit
   %next_stream_id = getelementptr inbounds i8, ptr %session, i64 2744
   %6 = load i32, ptr %next_stream_id, align 8
-  %cmp5.not = icmp ugt i32 %6, %stream_id
+  %cmp5.not = icmp ult i32 %stream_id, %6
   br i1 %cmp5.not, label %if.end11.thread, label %return
 
 if.else:                                          ; preds = %if.end, %nghttp2_session_is_my_stream_id.exit
@@ -9042,7 +9042,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
 
 sw.bb:                                            ; preds = %for.cond
   %9 = load i64, ptr %7, align 8
-  %inlen. = call i64 @llvm.umin.i64(i64 %9, i64 %inlen)
+  %inlen. = call i64 @llvm.umin.i64(i64 %inlen, i64 %9)
   %sub = sub i64 24, %9
   %arrayidx = getelementptr inbounds [25 x i8], ptr @.str.54, i64 0, i64 %sub
   %bcmp = call i32 @bcmp(ptr nonnull %arrayidx, ptr %in.addr.1, i64 %inlen.)
@@ -10225,7 +10225,7 @@ sw.bb810:                                         ; preds = %for.cond, %for.cond
   %call.i913 = call i64 @nghttp2_frame_trail_padlen(ptr noundef nonnull %iframe1, i64 noundef %133) #17
   %cmp.i914 = icmp ugt i64 %call.i913, %sub815
   %sub.i = sub nuw i64 %call.i913, %sub815
-  %cmp2.i = icmp ugt i64 %sub.i, %sub.ptr.sub..i
+  %cmp2.i = icmp ult i64 %sub.ptr.sub..i, %sub.i
   %sub4.i = sub nuw i64 %sub.ptr.sub..i, %sub.i
   %spec.select.i = select i1 %cmp2.i, i64 -1, i64 %sub4.i
   %retval.0.i915 = select i1 %cmp.i914, i64 %spec.select.i, i64 %sub.ptr.sub..i
@@ -11332,7 +11332,7 @@ if.end1259:                                       ; preds = %lor.end1252
   %call.i1076 = call i64 @nghttp2_frame_trail_padlen(ptr noundef nonnull %iframe1, i64 noundef %309) #17
   %cmp.i1077 = icmp ugt i64 %call.i1076, %308
   %sub.i1078 = sub nuw i64 %call.i1076, %308
-  %cmp2.i1079 = icmp ugt i64 %sub.i1078, %sub.ptr.sub..i1070
+  %cmp2.i1079 = icmp ult i64 %sub.ptr.sub..i1070, %sub.i1078
   %sub4.i1080 = sub nuw i64 %sub.ptr.sub..i1070, %sub.i1078
   %spec.select.i1081 = select i1 %cmp2.i1079, i64 -1, i64 %sub4.i1080
   %retval.0.i1082 = select i1 %cmp.i1077, i64 %spec.select.i1081, i64 %sub.ptr.sub..i1070
@@ -12671,7 +12671,7 @@ if.end14:                                         ; preds = %if.end10
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %call11) #17
   %local_last_stream_id = getelementptr inbounds i8, ptr %session, i64 2764
   %4 = load i32, ptr %local_last_stream_id, align 4
-  %last_stream_id. = tail call i32 @llvm.smin.i32(i32 %4, i32 %last_stream_id)
+  %last_stream_id. = tail call i32 @llvm.smin.i32(i32 %last_stream_id, i32 %4)
   tail call void @nghttp2_frame_goaway_init(ptr noundef nonnull %call11, i32 noundef %last_stream_id., i32 noundef %error_code, ptr noundef %opaque_data_copy.0, i64 noundef %opaque_data_len) #17
   %aux_data18 = getelementptr inbounds i8, ptr %call11, i64 96
   store i8 %aux_flags, ptr %aux_data18, align 1
@@ -12751,7 +12751,7 @@ if.then3:                                         ; preds = %if.end
   %call = tail call i64 %2(ptr noundef nonnull %session, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) #17
   %stream.val = load i32, ptr %remote_window_size6, align 4
   %conv.i = sext i32 %stream.val to i64
-  %requested_window_size.conv.i = tail call i64 @llvm.smin.i64(i64 %conv.i, i64 %call)
+  %requested_window_size.conv.i = tail call i64 @llvm.smin.i64(i64 %call, i64 %conv.i)
   %9 = load i32, ptr %remote_window_size, align 4
   %conv5.i = sext i32 %9 to i64
   %cmp6.i = icmp slt i64 %requested_window_size.conv.i, %conv5.i
@@ -13106,7 +13106,7 @@ if.end15:                                         ; preds = %if.end8
 lor.lhs.false19:                                  ; preds = %if.end15
   %next_stream_id = getelementptr inbounds i8, ptr %session, i64 2744
   %7 = load i32, ptr %next_stream_id, align 8
-  %cmp20.not = icmp ugt i32 %7, %stream_id
+  %cmp20.not = icmp ult i32 %stream_id, %7
   br i1 %cmp20.not, label %for.body, label %return
 
 for.body:                                         ; preds = %lor.lhs.false19, %for.inc
@@ -13881,7 +13881,7 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %1 = load i32, ptr %pri_spec, align 4
-  %cmp5 = icmp eq i32 %1, %stream_id
+  %cmp5 = icmp eq i32 %stream_id, %1
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %lor.lhs.false
@@ -13919,7 +13919,7 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %1 = load i32, ptr %pri_spec, align 4
-  %cmp5 = icmp eq i32 %1, %stream_id
+  %cmp5 = icmp eq i32 %stream_id, %1
   br i1 %cmp5, label %return, label %nghttp2_session_is_my_stream_id.exit.i
 
 nghttp2_session_is_my_stream_id.exit.i:           ; preds = %lor.lhs.false

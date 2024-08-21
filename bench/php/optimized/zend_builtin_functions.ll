@@ -3936,7 +3936,7 @@ define hidden void @zflf_property_exists_2(ptr nocapture noundef writeonly %0, p
 25:                                               ; preds = %3
   store ptr %9, ptr %5, align 8
   tail call fastcc void @_property_exists(ptr noundef %0, ptr noundef %1, ptr noundef %9)
-  %26 = icmp eq ptr %4, %2
+  %26 = icmp eq ptr %2, %4
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %.thread39, %.thread, %25

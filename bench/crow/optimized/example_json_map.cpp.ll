@@ -37799,7 +37799,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail9scheduler25post_immediate_co
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8, !tbaa !166, !range !133, !noundef !134
   %7 = trunc nuw i8 %6 to i1
-  %8 = or i1 %7, %2
+  %8 = or i1 %2, %7
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %10, null
@@ -69886,7 +69886,7 @@ define linkonce_odr dso_local void @_ZNK4crow4Trie4findERKNSt7__cxx1112basic_str
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %24) #36
   %1351 = load i64, ptr %1297, align 8, !tbaa !15
   %1352 = trunc i64 %1351 to i32
-  %1353 = add i32 %1352, %4
+  %1353 = add i32 %4, %1352
   invoke void @_ZNK4crow4Trie4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4NodeEjPNS_14routing_paramsEPSt6vectorItSaItEE(ptr dead_on_unwind nonnull writable sret(%"struct.crow::routing_handle_result") align 8 %24, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(72) %188, i32 noundef %1353, ptr noundef nonnull %27, ptr noundef nonnull %29)
           to label %1354 unwind label %1409
 
@@ -87902,7 +87902,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4asio6detail10socket_ops18n
 22:                                               ; preds = %9
   store i32 0, ptr %5, align 8, !tbaa !151
   %23 = icmp eq i64 %10, 0
-  %24 = and i1 %23, %4
+  %24 = and i1 %4, %23
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %22

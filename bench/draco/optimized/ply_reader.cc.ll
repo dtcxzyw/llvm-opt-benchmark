@@ -880,7 +880,7 @@ define void @_ZN5draco9PlyReader10SplitWordsERKNSt7__cxx1112basic_stringIcSt11ch
 
 .loopexit49:                                      ; preds = %.lr.ph.i.i.i.i, %.loopexit49.loopexit.split.loop.exit, %.loopexit49.loopexit.split.loop.exit83, %.loopexit49.loopexit.split.loop.exit85, %56, %50, %44
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %44 ], [ %.sroa.038.1.i.i.i.i, %50 ], [ %spec.select.i.i.i.i, %56 ], [ %60, %.loopexit49.loopexit.split.loop.exit ], [ %61, %.loopexit49.loopexit.split.loop.exit83 ], [ %62, %.loopexit49.loopexit.split.loop.exit85 ], [ %.sroa.038.057.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %63 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %14
+  %63 = icmp eq ptr %14, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   br i1 %63, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, label %64
 
 64:                                               ; preds = %.loopexit49
@@ -1045,7 +1045,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i29, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit91, %.loopexit.loopexit.split.loop.exit93, %119, %113, %107
   %.sroa.08.0.in.sroa.speculated.i.i.i.i25 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i21, %107 ], [ %.sroa.038.1.i.i.i.i26, %113 ], [ %spec.select.i.i.i.i24, %119 ], [ %123, %.loopexit.loopexit.split.loop.exit ], [ %124, %.loopexit.loopexit.split.loop.exit91 ], [ %125, %.loopexit.loopexit.split.loop.exit93 ], [ %.sroa.038.057.i.i.i.i31, %.lr.ph.i.i.i.i29 ]
-  %126 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i25, %77
+  %126 = icmp eq ptr %77, %.sroa.08.0.in.sroa.speculated.i.i.i.i25
   br i1 %126, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit45, label %127
 
 127:                                              ; preds = %.loopexit
@@ -2649,7 +2649,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %136
 
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i: ; preds = %144, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
   %146 = phi ptr [ %145, %144 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i ]
-  %.not.i.i.i.i.i.i.i.i.i63.i = icmp eq ptr %116, %112
+  %.not.i.i.i.i.i.i.i.i.i63.i = icmp eq ptr %112, %116
   br i1 %.not.i.i.i.i.i.i.i.i.i63.i, label %148, label %147
 
 147:                                              ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i
@@ -2763,7 +2763,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i64: ; preds = %186
 
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i67: ; preds = %194, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i64
   %196 = phi ptr [ %195, %194 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i64 ]
-  %.not.i.i.i.i.i.i.i.i.i63.i68 = icmp eq ptr %165, %159
+  %.not.i.i.i.i.i.i.i.i.i63.i68 = icmp eq ptr %159, %165
   br i1 %.not.i.i.i.i.i.i.i.i.i63.i68, label %198, label %197
 
 197:                                              ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i67
@@ -3478,7 +3478,7 @@ _ZNSt16allocator_traitsISaIN5draco11PlyPropertyEEE9constructIS1_JRKS1_EEEvRS2_PT
 _ZNSt6vectorIN5draco11PlyPropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN5draco11PlyPropertyEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN5draco11PlyPropertyEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %46, %.lr.ph.i.i.i ]
   %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 96
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN5draco11PlyPropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN5draco11PlyPropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i27
@@ -3815,7 +3815,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -3865,7 +3865,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -4487,7 +4487,7 @@ _ZSt19__relocate_object_aIN5draco10PlyElementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 _ZNSt6vectorIN5draco10PlyElementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN5draco10PlyElementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN5draco10PlyElementEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN5draco10PlyElementEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ], [ %94, %_ZSt19__relocate_object_aIN5draco10PlyElementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ]
   %95 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 112
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN5draco10PlyElementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN5draco10PlyElementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN5draco10PlyElementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i21
@@ -4685,7 +4685,7 @@ _ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.ex
 
 _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %27 = getelementptr inbounds i8, ptr %2, i64 %18
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %27, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %27
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit, label %28
 
 28:                                               ; preds = %_ZSt7advanceIPKhmEvRT_T0_.exit
@@ -4748,7 +4748,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIhSaIh
   %51 = phi ptr [ %50, %49 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit ]
   %52 = ptrtoint ptr %1 to i64
   %53 = sub i64 %52, %40
-  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %39, %1
+  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %1, %39
   br i1 %.not.i.i.i.i.i.i.i.i.i60, label %55, label %54
 
 54:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit
@@ -5202,7 +5202,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27

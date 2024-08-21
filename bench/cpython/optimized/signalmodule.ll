@@ -1212,7 +1212,7 @@ if.end:                                           ; preds = %_Py_set_eval_breake
   %12 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i = icmp ne i64 %call.i.i, %12
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i = icmp ne ptr %13, %11
+  %cmp.i1.i = icmp ne ptr %11, %13
   %narrow.i.not = select i1 %cmp.i.not.i, i1 true, i1 %cmp.i1.i
   br i1 %narrow.i.not, label %return, label %if.end6
 
@@ -1595,7 +1595,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %entry
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i = icmp ne i64 %call.i.i, %1
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i = icmp ne ptr %2, %0
+  %cmp.i1.i = icmp ne ptr %0, %2
   %narrow.i.not = select i1 %cmp.i.not.i, i1 true, i1 %cmp.i1.i
   br i1 %narrow.i.not, label %return, label %if.end
 
@@ -1632,7 +1632,7 @@ _Py_EnsureFuncTstateNotNULL.exit.i:               ; preds = %entry
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i = icmp ne i64 %call.i.i.i, %3
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i.i = icmp ne ptr %4, %2
+  %cmp.i1.i.i = icmp ne ptr %2, %4
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %narrow.i.not.i, label %_PyOS_InterruptOccurred.exit, label %if.end.i
 
@@ -1684,7 +1684,7 @@ entry:
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i = icmp eq i64 %call.i.i, %3
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i = icmp eq ptr %4, %2
+  %cmp.i1.i = icmp eq ptr %2, %4
   %narrow.i = select i1 %cmp.i.not.i, i1 %cmp.i1.i, i1 false
   %land.ext.i = zext i1 %narrow.i to i32
   ret i32 %land.ext.i
@@ -2113,7 +2113,7 @@ land.lhs.true4.split:                             ; preds = %land.lhs.true4
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i = icmp ne i64 %call.i.i.i, %6
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i.i = icmp ne ptr %7, %5
+  %cmp.i1.i.i = icmp ne ptr %5, %7
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
   %8 = load ptr, ptr @PyExc_ValueError, align 8
   br i1 %narrow.i.not.i, label %if.then.i, label %if.end.i
@@ -2274,7 +2274,7 @@ if.end:                                           ; preds = %entry
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i = icmp ne i64 %call.i.i, %3
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i = icmp ne ptr %4, %2
+  %cmp.i1.i = icmp ne ptr %2, %4
   %narrow.i.not = select i1 %cmp.i.not.i, i1 true, i1 %cmp.i1.i
   br i1 %narrow.i.not, label %if.then4, label %if.end5
 
@@ -2476,7 +2476,7 @@ if.end.i.i:                                       ; preds = %_Py_set_eval_breake
   %12 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i.i = icmp ne i64 %call.i.i.i.i, %12
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i.i.i = icmp ne ptr %13, %11
+  %cmp.i1.i.i.i = icmp ne ptr %11, %13
   %narrow.i.not.i.i = select i1 %cmp.i.not.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %narrow.i.not.i.i, label %PyErr_CheckSignals.exit.thread.i, label %PyErr_CheckSignals.exit.i
 
@@ -2716,7 +2716,7 @@ if.end.i.i:                                       ; preds = %_Py_set_eval_breake
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i.i = icmp ne i64 %call.i.i.i.i, %15
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i.i.i = icmp ne ptr %16, %14
+  %cmp.i1.i.i.i = icmp ne ptr %14, %16
   %narrow.i.not.i.i = select i1 %cmp.i.not.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %narrow.i.not.i.i, label %if.end5.i, label %PyErr_CheckSignals.exit.i
 
@@ -2878,7 +2878,7 @@ if.end.i.i:                                       ; preds = %_Py_set_eval_breake
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i.i = icmp ne i64 %call.i.i.i.i, %13
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i.i.i = icmp ne ptr %14, %12
+  %cmp.i1.i.i.i = icmp ne ptr %12, %14
   %narrow.i.not.i.i = select i1 %cmp.i.not.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %narrow.i.not.i.i, label %PyErr_CheckSignals.exit.i, label %if.end6.i.i
 
@@ -3031,7 +3031,7 @@ if.end.i.i:                                       ; preds = %_Py_set_eval_breake
   %19 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i.i = icmp ne i64 %call.i.i.i.i, %19
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i.i.i = icmp ne ptr %20, %18
+  %cmp.i1.i.i.i = icmp ne ptr %18, %20
   %narrow.i.not.i.i = select i1 %cmp.i.not.i.i.i, i1 true, i1 %cmp.i1.i.i.i
   br i1 %narrow.i.not.i.i, label %if.end24.i, label %PyErr_CheckSignals.exit.i
 
@@ -3212,7 +3212,7 @@ entry:
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i = icmp ne i64 %call.i.i, %3
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i = icmp ne ptr %4, %2
+  %cmp.i1.i = icmp ne ptr %2, %4
   %narrow.i.not = select i1 %cmp.i.not.i, i1 true, i1 %cmp.i1.i
   br i1 %narrow.i.not, label %if.then, label %if.end
 
@@ -3425,7 +3425,7 @@ if.end.i:                                         ; preds = %_Py_set_eval_breake
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i = icmp ne i64 %call.i.i.i, %13
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i.i = icmp ne ptr %14, %12
+  %cmp.i1.i.i = icmp ne ptr %12, %14
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %narrow.i.not.i, label %PyErr_CheckSignals.exit.thread, label %PyErr_CheckSignals.exit
 
@@ -3540,7 +3540,7 @@ if.end.i:                                         ; preds = %_Py_set_eval_breake
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i = icmp ne i64 %call.i.i.i, %13
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i.i = icmp ne ptr %14, %12
+  %cmp.i1.i.i = icmp ne ptr %12, %14
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %narrow.i.not.i, label %PyErr_CheckSignals.exit.thread, label %PyErr_CheckSignals.exit
 
@@ -4030,7 +4030,7 @@ if.end34:                                         ; preds = %if.end29
   %interp = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %interp, align 8
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i18.not = icmp eq ptr %10, %9
+  %cmp.i18.not = icmp eq ptr %9, %10
   br i1 %cmp.i18.not, label %for.body.i, label %return
 
 for.body.i:                                       ; preds = %if.end34, %Py_XDECREF.exit.i

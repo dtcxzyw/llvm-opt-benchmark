@@ -2435,7 +2435,7 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   br label %123
 
 55:                                               ; preds = %18
-  %56 = icmp ult i32 %12, %2
+  %56 = icmp ugt i32 %2, %12
   br i1 %56, label %57, label %66
 
 57:                                               ; preds = %55
@@ -2538,7 +2538,7 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   br i1 %.not, label %.thread, label %117
 
 117:                                              ; preds = %116
-  %118 = icmp ugt i32 %12, %2
+  %118 = icmp ult i32 %2, %12
   br i1 %118, label %119, label %122
 
 119:                                              ; preds = %117

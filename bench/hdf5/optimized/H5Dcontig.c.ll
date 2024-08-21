@@ -2004,7 +2004,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_readvv_sieve_cb(i64 noundef %0
   %16 = getelementptr inbounds i8, ptr %15, i64 %1
   %17 = getelementptr inbounds i8, ptr %7, i64 24
   %18 = load i64, ptr %17, align 8
-  %19 = icmp ult i64 %18, %2
+  %19 = icmp ugt i64 %2, %18
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %11
@@ -2099,7 +2099,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_readvv_sieve_cb(i64 noundef %0
 77:                                               ; preds = %60
   %78 = getelementptr inbounds i8, ptr %7, i64 24
   %79 = load i64, ptr %78, align 8
-  %80 = icmp ult i64 %79, %2
+  %80 = icmp ugt i64 %2, %79
   br i1 %80, label %81, label %105
 
 81:                                               ; preds = %77
@@ -2263,7 +2263,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_writevv_sieve_cb(i64 noundef %
   %16 = getelementptr inbounds i8, ptr %15, i64 %1
   %17 = getelementptr inbounds i8, ptr %7, i64 24
   %18 = load i64, ptr %17, align 8
-  %19 = icmp ult i64 %18, %2
+  %19 = icmp ugt i64 %2, %18
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %11
@@ -2375,7 +2375,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_writevv_sieve_cb(i64 noundef %
 86:                                               ; preds = %68
   %87 = getelementptr inbounds i8, ptr %7, i64 24
   %88 = load i64, ptr %87, align 8
-  %89 = icmp ult i64 %88, %2
+  %89 = icmp ugt i64 %2, %88
   br i1 %89, label %90, label %115
 
 90:                                               ; preds = %86

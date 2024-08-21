@@ -211,7 +211,7 @@ define noundef i32 @_ZNK5Ipopt14IdentityMatrix3DimEv(ptr nocapture noundef nonnu
 define void @_ZNK5Ipopt14IdentityMatrix14MultVectorImplEdRKNS_6VectorEdRS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(205) %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(205) %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   %7 = load double, ptr %6, align 8
-  %8 = fmul double %7, %1
+  %8 = fmul double %1, %7
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 192
   %11 = load ptr, ptr %10, align 8

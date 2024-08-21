@@ -2139,7 +2139,7 @@ define internal fastcc void @Tas_ManCancelUntil(ptr nocapture noundef %0, i32 no
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = getelementptr inbounds i8, ptr %0, i64 68
   %6 = load i32, ptr %5, align 4
-  %7 = icmp sgt i32 %6, %1
+  %7 = icmp slt i32 %1, %6
   br i1 %7, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %2
@@ -2488,8 +2488,8 @@ define range(i32 -1, 2) i32 @Tas_ManSolve(ptr noundef %0, ptr noundef %1, ptr no
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 32
   %.val69 = load ptr, ptr %9, align 8
-  %10 = icmp eq ptr %.val69, %1
-  %11 = icmp eq ptr %.val69, %2
+  %10 = icmp eq ptr %1, %.val69
+  %11 = icmp eq ptr %2, %.val69
   %or.cond = or i1 %10, %11
   br i1 %or.cond, label %Tas_ManCheckLimits.exit75.thread, label %12
 
@@ -2497,19 +2497,19 @@ define range(i32 -1, 2) i32 @Tas_ManSolve(ptr noundef %0, ptr noundef %1, ptr no
   %13 = ptrtoint ptr %2 to i64
   %14 = xor i64 %13, 1
   %15 = inttoptr i64 %14 to ptr
-  %16 = icmp eq ptr %15, %1
+  %16 = icmp eq ptr %1, %15
   br i1 %16, label %Tas_ManCheckLimits.exit75.thread, label %17
 
 17:                                               ; preds = %12
   %18 = ptrtoint ptr %.val69 to i64
   %19 = xor i64 %18, 1
   %20 = inttoptr i64 %19 to ptr
-  %21 = icmp eq ptr %20, %1
+  %21 = icmp eq ptr %1, %20
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %17
   %23 = icmp eq ptr %2, null
-  %24 = icmp eq ptr %1, %2
+  %24 = icmp eq ptr %2, %1
   %or.cond79 = or i1 %23, %24
   br i1 %or.cond79, label %Tas_ManCheckLimits.exit75.thread, label %25
 

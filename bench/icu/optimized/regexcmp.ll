@@ -211,7 +211,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -491,7 +491,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #14
   %cmp7 = icmp eq ptr %call, null
@@ -3039,7 +3039,7 @@ sw.bb246:                                         ; preds = %entry
 
 if.then253:                                       ; preds = %sw.bb246
   %cmp.i127 = icmp sgt i32 %call247, -1
-  %cmp2.i129 = icmp sgt i32 %122, %call247
+  %cmp2.i129 = icmp slt i32 %call247, %122
   %or.cond.i130 = and i1 %cmp.i127, %cmp2.i129
   br i1 %or.cond.i130, label %_ZNK6icu_759UVector6410elementAtiEi.exit136, label %if.end283
 
@@ -3163,7 +3163,7 @@ sw.bb323:                                         ; preds = %entry
 
 if.then332:                                       ; preds = %sw.bb323
   %cmp.i141 = icmp sgt i32 %call325, -1
-  %cmp2.i143 = icmp sgt i32 %143, %call325
+  %cmp2.i143 = icmp slt i32 %call325, %143
   %or.cond.i144 = and i1 %cmp.i141, %cmp2.i143
   br i1 %or.cond.i144, label %_ZNK6icu_759UVector6410elementAtiEi.exit150, label %if.end376
 
@@ -5235,7 +5235,7 @@ if.end:                                           ; preds = %entry
 
 for.cond.preheader:                               ; preds = %if.end
   %add4 = add nsw i32 %end, 1
-  %cmp.not225 = icmp slt i32 %add4, %start
+  %cmp.not225 = icmp sgt i32 %start, %add4
   br i1 %cmp.not225, label %for.cond6.preheader, label %for.body
 
 for.cond6.preheader:                              ; preds = %for.inc, %for.cond.preheader
@@ -5292,7 +5292,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %cmp.i60 = icmp sgt i32 %loc.1229, -1
   %count.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %count.i, align 8
-  %cmp2.i = icmp sgt i32 %4, %loc.1229
+  %cmp2.i = icmp slt i32 %loc.1229, %4
   %or.cond.i = select i1 %cmp.i60, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit
 
@@ -5480,7 +5480,7 @@ if.then48:                                        ; preds = %_ZNK6icu_759UVector
 sw.bb52:                                          ; preds = %if.end17
   %inc53 = add nsw i32 %loc.1229, 1
   %cmp.i120 = icmp sgt i32 %loc.1229, -2
-  %cmp2.i122 = icmp sgt i32 %4, %inc53
+  %cmp2.i122 = icmp slt i32 %inc53, %4
   %or.cond.i123 = select i1 %cmp.i120, i1 %cmp2.i122, i1 false
   br i1 %or.cond.i123, label %cond.true.i125, label %_ZNK6icu_759UVector6410elementAtiEi.exit129
 
@@ -5513,7 +5513,7 @@ sw.bb62:                                          ; preds = %if.end17
 sw.bb66:                                          ; preds = %if.end17, %if.end17
   %add69 = add nsw i32 %loc.1229, 1
   %cmp.i138 = icmp sgt i32 %loc.1229, -2
-  %cmp2.i140 = icmp sgt i32 %4, %add69
+  %cmp2.i140 = icmp slt i32 %add69, %4
   %or.cond.i141 = select i1 %cmp.i138, i1 %cmp2.i140, i1 false
   br i1 %or.cond.i141, label %cond.true.i143, label %_ZNK6icu_759UVector6410elementAtiEi.exit147
 
@@ -5529,7 +5529,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit147:      ; preds = %sw.bb66, %cond.true
   %cond.i142 = phi i64 [ %23, %cond.true.i143 ], [ 0, %sw.bb66 ]
   %add76 = add nsw i32 %loc.1229, 2
   %cmp.i148 = icmp sgt i32 %loc.1229, -3
-  %cmp2.i150 = icmp sgt i32 %4, %add76
+  %cmp2.i150 = icmp slt i32 %add76, %4
   %or.cond.i151 = select i1 %cmp.i148, i1 %cmp2.i150, i1 false
   br i1 %or.cond.i151, label %_ZNK6icu_759UVector6410elementAtiEi.exit157, label %if.then81
 
@@ -5577,7 +5577,7 @@ for.cond89:                                       ; preds = %for.cond89.outer254
   %loc.3 = phi i32 [ %inc90, %for.cond89 ], [ %loc.3.ph255, %for.cond89.outer254 ]
   %inc90 = add nsw i32 %loc.3, 1
   %cmp.i158 = icmp sgt i32 %loc.3, -2
-  %cmp2.i160 = icmp sgt i32 %.pre233238.ph, %inc90
+  %cmp2.i160 = icmp slt i32 %inc90, %.pre233238.ph
   %or.cond.i161 = select i1 %cmp.i158, i1 %cmp2.i160, i1 false
   br i1 %or.cond.i161, label %_ZNK6icu_759UVector6410elementAtiEi.exit167, label %for.cond89, !llvm.loop !15
 
@@ -5775,7 +5775,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %cmp.i144 = icmp sgt i32 %loc.1395, -1
   %count.i145 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %count.i145, align 8
-  %cmp2.i = icmp sgt i32 %7, %loc.1395
+  %cmp2.i = icmp slt i32 %loc.1395, %7
   %or.cond.i = select i1 %cmp.i144, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit
 
@@ -6378,7 +6378,7 @@ if.then265:                                       ; preds = %_ZNK6icu_759UVector
 sw.bb269:                                         ; preds = %if.end19
   %inc270 = add nsw i32 %loc.1395, 1
   %cmp.i237 = icmp sgt i32 %loc.1395, -2
-  %cmp2.i239 = icmp sgt i32 %7, %inc270
+  %cmp2.i239 = icmp slt i32 %inc270, %7
   %or.cond.i240 = select i1 %cmp.i237, i1 %cmp2.i239, i1 false
   br i1 %or.cond.i240, label %cond.true.i242, label %_ZNK6icu_759UVector6410elementAtiEi.exit246
 
@@ -6430,7 +6430,7 @@ invoke.cont286:                                   ; preds = %invoke.cont282
 sw.bb294:                                         ; preds = %if.end19
   %inc295 = add nsw i32 %loc.1395, 1
   %cmp.i254 = icmp sgt i32 %loc.1395, -2
-  %cmp2.i256 = icmp sgt i32 %7, %inc295
+  %cmp2.i256 = icmp slt i32 %inc295, %7
   %or.cond.i257 = select i1 %cmp.i254, i1 %cmp2.i256, i1 false
   br i1 %or.cond.i257, label %cond.true.i259, label %_ZNK6icu_759UVector6410elementAtiEi.exit263
 
@@ -6491,7 +6491,7 @@ lpad315:                                          ; preds = %invoke.cont316, %in
 sw.bb325:                                         ; preds = %if.end19, %if.end19
   %add328 = add nsw i32 %loc.1395, 1
   %cmp.i271 = icmp sgt i32 %loc.1395, -2
-  %cmp2.i273 = icmp sgt i32 %7, %add328
+  %cmp2.i273 = icmp slt i32 %add328, %7
   %or.cond.i274 = select i1 %cmp.i271, i1 %cmp2.i273, i1 false
   br i1 %or.cond.i274, label %cond.true.i276, label %_ZNK6icu_759UVector6410elementAtiEi.exit280
 
@@ -6509,7 +6509,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit280:      ; preds = %sw.bb325, %cond.tru
   %and332 = and i32 %conv331, 16777215
   %add335 = add nsw i32 %loc.1395, 2
   %cmp.i281 = icmp sgt i32 %loc.1395, -3
-  %cmp2.i283 = icmp sgt i32 %7, %add335
+  %cmp2.i283 = icmp slt i32 %add335, %7
   %or.cond.i284 = select i1 %cmp.i281, i1 %cmp2.i283, i1 false
   br i1 %or.cond.i284, label %_ZNK6icu_759UVector6410elementAtiEi.exit290, label %if.then340
 
@@ -6578,7 +6578,7 @@ for.cond353:                                      ; preds = %for.cond353.outer41
   %loc.3 = phi i32 [ %inc354, %for.cond353 ], [ %loc.3.ph412, %for.cond353.outer410 ]
   %inc354 = add nsw i32 %loc.3, 1
   %cmp.i301 = icmp sgt i32 %loc.3, -2
-  %cmp2.i303 = icmp sgt i32 %.pre398405.ph, %inc354
+  %cmp2.i303 = icmp slt i32 %inc354, %.pre398405.ph
   %or.cond.i304 = select i1 %cmp.i301, i1 %cmp2.i303, i1 false
   br i1 %or.cond.i304, label %_ZNK6icu_759UVector6410elementAtiEi.exit310, label %for.cond353, !llvm.loop !18
 
@@ -6972,7 +6972,7 @@ if.end6:                                          ; preds = %for.cond, %_ZN6icu_
   %5 = load ptr, ptr %fCompiledPat, align 8
   %count.i19 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %count.i19, align 8
-  %cmp2.i = icmp sgt i32 %6, %result.0.i123
+  %cmp2.i = icmp slt i32 %result.0.i123, %6
   br i1 %cmp2.i, label %cond.true.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit
 
 cond.true.i:                                      ; preds = %if.end6
@@ -7028,7 +7028,7 @@ sw.bb16:                                          ; preds = %_ZN6icu_759UVector3
   %cmp.i33 = icmp sgt i32 %12, -2
   %count.i34 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i32, ptr %count.i34, align 8
-  %cmp2.i35 = icmp sgt i32 %13, %add
+  %cmp2.i35 = icmp slt i32 %add, %13
   %or.cond.i36 = select i1 %cmp.i33, i1 %cmp2.i35, i1 false
   br i1 %or.cond.i36, label %cond.true.i38, label %_ZNK6icu_759UVector6410elementAtiEi.exit42
 
@@ -7056,7 +7056,7 @@ sw.bb22:                                          ; preds = %_ZN6icu_759UVector3
   %cmp.i43 = icmp sgt i32 %20, -2
   %count.i44 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i32, ptr %count.i44, align 8
-  %cmp2.i45 = icmp sgt i32 %21, %add26
+  %cmp2.i45 = icmp slt i32 %add26, %21
   %or.cond.i46 = select i1 %cmp.i43, i1 %cmp2.i45, i1 false
   br i1 %or.cond.i46, label %cond.true.i48, label %_ZNK6icu_759UVector6410elementAtiEi.exit52
 
@@ -7084,7 +7084,7 @@ sw.bb30:                                          ; preds = %_ZN6icu_759UVector3
   %cmp.i53 = icmp sgt i32 %28, 4
   %count.i54 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load i32, ptr %count.i54, align 8
-  %cmp2.i55 = icmp sgt i32 %29, %sub
+  %cmp2.i55 = icmp slt i32 %sub, %29
   %or.cond.i56 = select i1 %cmp.i53, i1 %cmp2.i55, i1 false
   br i1 %or.cond.i56, label %cond.true.i58, label %_ZNK6icu_759UVector6410elementAtiEi.exit62
 
@@ -7111,7 +7111,7 @@ sw.bb37:                                          ; preds = %_ZN6icu_759UVector3
   %cmp.i63 = icmp sgt i32 %36, 0
   %count.i64 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load i32, ptr %count.i64, align 8
-  %cmp2.i65 = icmp sge i32 %37, %36
+  %cmp2.i65 = icmp sle i32 %36, %37
   %or.cond.i66 = select i1 %cmp.i63, i1 %cmp2.i65, i1 false
   br i1 %or.cond.i66, label %cond.true.i68, label %_ZNK6icu_759UVector6410elementAtiEi.exit72
 
@@ -7238,7 +7238,7 @@ sw.bb61:                                          ; preds = %_ZN6icu_759UVector3
   %cmp.i85 = icmp sgt i32 %67, 3
   %count.i86 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load i32, ptr %count.i86, align 8
-  %cmp2.i87 = icmp sgt i32 %68, %sub66
+  %cmp2.i87 = icmp slt i32 %sub66, %68
   %or.cond.i88 = select i1 %cmp.i85, i1 %cmp2.i87, i1 false
   br i1 %or.cond.i88, label %cond.true.i90, label %_ZNK6icu_759UVector6410elementAtiEi.exit94
 
@@ -7301,7 +7301,7 @@ sw.bb98:                                          ; preds = %_ZN6icu_759UVector3
   %cmp.i96 = icmp sgt i32 %86, 4
   %count.i97 = getelementptr inbounds i8, ptr %85, i64 8
   %87 = load i32, ptr %count.i97, align 8
-  %cmp2.i98 = icmp sgt i32 %87, %sub103
+  %cmp2.i98 = icmp slt i32 %sub103, %87
   %or.cond.i99 = select i1 %cmp.i96, i1 %cmp2.i98, i1 false
   br i1 %or.cond.i99, label %cond.true.i101, label %_ZNK6icu_759UVector6410elementAtiEi.exit105
 
@@ -7453,7 +7453,7 @@ if.else.i:                                        ; preds = %if.then8
   %shr.i.i.i = sext i16 %5 to i32
   %6 = load i32, ptr %fLength.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %6, i32 %shr.i.i.i
-  %cmp3.i = icmp ugt i32 %cond.i.i, %call5
+  %cmp3.i = icmp ult i32 %call5, %cond.i.i
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6icu_7513UnicodeString8truncateEi.exit
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -8144,7 +8144,7 @@ if.end15:                                         ; preds = %_ZN6icu_7512RegexCo
 
 if.end23:                                         ; preds = %if.end15
   %cmp.i10 = icmp sgt i32 %theLoc.0.i, -1
-  %cmp2.i = icmp sgt i32 %4, %theLoc.0.i
+  %cmp2.i = icmp slt i32 %theLoc.0.i, %4
   %or.cond.i = and i1 %cmp.i10, %cmp2.i
   br i1 %or.cond.i, label %cond.true.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit
 
@@ -9608,7 +9608,7 @@ for.body7:                                        ; preds = %for.body7.lr.ph, %f
   %cmp.i58 = icmp sgt i32 %loc.1212, -1
   %count.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %count.i, align 8
-  %cmp2.i = icmp sgt i32 %4, %loc.1212
+  %cmp2.i = icmp slt i32 %loc.1212, %4
   %or.cond.i = select i1 %cmp.i58, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit
 
@@ -9802,7 +9802,7 @@ if.then52:                                        ; preds = %_ZNK6icu_759UVector
 sw.bb57:                                          ; preds = %if.end16
   %inc58 = add nsw i32 %loc.1212, 1
   %cmp.i116 = icmp sgt i32 %loc.1212, -2
-  %cmp2.i118 = icmp sgt i32 %4, %inc58
+  %cmp2.i118 = icmp slt i32 %inc58, %4
   %or.cond.i119 = select i1 %cmp.i116, i1 %cmp2.i118, i1 false
   br i1 %or.cond.i119, label %cond.true.i121, label %_ZNK6icu_759UVector6410elementAtiEi.exit125
 
@@ -9826,7 +9826,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit125:      ; preds = %sw.bb57, %cond.true
 sw.bb67:                                          ; preds = %if.end16
   %inc68 = add nsw i32 %loc.1212, 1
   %cmp.i130 = icmp sgt i32 %loc.1212, -2
-  %cmp2.i132 = icmp sgt i32 %4, %inc68
+  %cmp2.i132 = icmp slt i32 %inc68, %4
   %or.cond.i133 = select i1 %cmp.i130, i1 %cmp2.i132, i1 false
   br i1 %or.cond.i133, label %cond.true.i135, label %_ZNK6icu_759UVector6410elementAtiEi.exit139
 
@@ -9850,7 +9850,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit139:      ; preds = %sw.bb67, %cond.true
 sw.bb78:                                          ; preds = %if.end16, %if.end16
   %add81 = add nsw i32 %loc.1212, 1
   %cmp.i144 = icmp sgt i32 %loc.1212, -2
-  %cmp2.i146 = icmp sgt i32 %4, %add81
+  %cmp2.i146 = icmp slt i32 %add81, %4
   %or.cond.i147 = select i1 %cmp.i144, i1 %cmp2.i146, i1 false
   br i1 %or.cond.i147, label %cond.true.i149, label %_ZNK6icu_759UVector6410elementAtiEi.exit153
 
@@ -9873,7 +9873,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit153:      ; preds = %sw.bb78, %cond.true
 if.end89:                                         ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit153
   %add92 = add nsw i32 %loc.1212, 3
   %cmp.i154 = icmp sgt i32 %loc.1212, -4
-  %cmp2.i156 = icmp sgt i32 %4, %add92
+  %cmp2.i156 = icmp slt i32 %add92, %4
   %or.cond.i157 = select i1 %cmp.i154, i1 %cmp2.i156, i1 false
   br i1 %or.cond.i157, label %_ZNK6icu_759UVector6410elementAtiEi.exit163, label %if.end98
 
@@ -9912,7 +9912,7 @@ for.body118:                                      ; preds = %for.body118.lr.ph, 
   %loc.3208 = phi i32 [ %loc.3205, %for.body118.lr.ph ], [ %loc.3, %for.inc132 ]
   %loc.3.in207 = phi i32 [ %loc.1212, %for.body118.lr.ph ], [ %loc.3208, %for.inc132 ]
   %cmp.i164 = icmp sgt i32 %loc.3.in207, -2
-  %cmp2.i166 = icmp sgt i32 %4, %loc.3208
+  %cmp2.i166 = icmp slt i32 %loc.3208, %4
   %or.cond.i167 = select i1 %cmp.i164, i1 %cmp2.i166, i1 false
   br i1 %or.cond.i167, label %_ZNK6icu_759UVector6410elementAtiEi.exit173, label %for.inc132
 

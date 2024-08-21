@@ -1632,7 +1632,7 @@ define linkonce_odr hidden void @_ZN2cv27BackgroundSubtractorKNNImpl16setDetectS
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
-  %6 = xor i1 %5, %1
+  %6 = xor i1 %1, %5
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2

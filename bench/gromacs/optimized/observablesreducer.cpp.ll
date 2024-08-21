@@ -275,7 +275,7 @@ define { ptr, ptr } @_ZN3gmx18ObservablesReducer19communicationBufferEb(ptr noca
   %10 = getelementptr inbounds i8, ptr %3, i64 72
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
-  %brmerge = or i1 %12, %1
+  %brmerge = or i1 %1, %12
   br i1 %brmerge, label %13, label %21
 
 13:                                               ; preds = %9
@@ -911,7 +911,7 @@ _ZSt19__relocate_object_aIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionES3
 _ZNSt6vectorIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %_ZSt19__relocate_object_aIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit ], [ %63, %_ZSt19__relocate_object_aIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i ]
   %64 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 72
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %_ZSt19__relocate_object_aIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i24
@@ -1533,7 +1533,7 @@ _ZSt19__relocate_object_aISt8functionIFvlEES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ;
 _ZNSt6vectorISt8functionIFvlEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aISt8functionIFvlEES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaISt8functionIFvlEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt8functionIFvlEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %50, %_ZSt19__relocate_object_aISt8functionIFvlEES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
   %51 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorISt8functionIFvlEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorISt8functionIFvlEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %_ZSt19__relocate_object_aISt8functionIFvlEES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i32

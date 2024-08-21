@@ -121,7 +121,7 @@ Vec_PtrAlloc.exit:                                ; preds = %4, %11
   %24 = getelementptr i8, ptr %.val57.val.val, i64 56
   %.val57.val.val.val = load ptr, ptr %24, align 8
   %25 = load i32, ptr %.val57.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %25, %.val58
+  %.not.i.i = icmp slt i32 %.val58, %25
   br i1 %.not.i.i, label %Vec_AttGrow.exit.i.i, label %26
 
 26:                                               ; preds = %.lr.ph

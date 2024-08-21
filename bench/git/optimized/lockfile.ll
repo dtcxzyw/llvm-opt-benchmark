@@ -216,7 +216,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub = add i64 %1, -5
   %3 = load i64, ptr %ret, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %3, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %sub
+  %cmp.i = icmp ugt i64 %sub, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end

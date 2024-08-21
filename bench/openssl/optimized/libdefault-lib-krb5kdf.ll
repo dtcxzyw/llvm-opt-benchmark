@@ -408,7 +408,7 @@ if.end37.i:                                       ; preds = %if.end33.i
   %add.ptr43.i = getelementptr inbounds i8, ptr %key, i64 %osize.070.i12
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr43.i, ptr align 1 %cipherblock.069.i13, i64 %spec.select.i, i1 false)
   %add.i = add i64 %spec.select.i, %osize.070.i12
-  %cmp44.i = icmp ult i64 %add.i, %keylen
+  %cmp44.i = icmp ugt i64 %keylen, %add.i
   br i1 %cmp44.i, label %if.then46.i, label %for.end.i
 
 if.then46.i:                                      ; preds = %if.end37.i

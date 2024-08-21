@@ -1910,7 +1910,7 @@ if.end18:                                         ; preds = %while.cond.preheade
   %narrow = add nsw i32 %call1, 1
   %add6 = zext nneg i32 %narrow to i64
   %conv8 = sext i32 %call7 to i64
-  %add13 = add i64 %add6, %compress_len
+  %add13 = add i64 %compress_len, %add6
   %add19 = add i64 %add13, %conv8
   br label %return
 
@@ -2380,7 +2380,7 @@ if.end12.i.i46:                                   ; preds = %if.end8.i.i43
 
 rdbWriteRaw.exit53:                               ; preds = %if.end12.i.i46, %if.then32
   %cmp34 = icmp eq i64 %len, -1
-  %add38 = add i64 %conv25, %len
+  %add38 = add i64 %len, %conv25
   br i1 %cmp34, label %rdbWriteRaw.exit53.thread, label %return
 
 rdbWriteRaw.exit53.thread:                        ; preds = %land.lhs.true.i24, %if.then10.i.i51, %rdbWriteRaw.exit53

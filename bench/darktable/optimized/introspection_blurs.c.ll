@@ -1869,33 +1869,33 @@ define internal fastcc void @blur_2D_Bspline(ptr noalias nocapture noundef reado
   %32 = tail call i32 @llvm.smax.i32(i32 %30, i32 0)
   %33 = select i1 %31, i32 %32, i32 %9
   %34 = sext i32 %33 to i64
-  %35 = mul i64 %34, %2
+  %35 = mul i64 %2, %34
   %36 = getelementptr float, ptr %0, i64 %35
   %37 = icmp slt i32 %28, %8
   %38 = tail call i32 @llvm.smax.i32(i32 %28, i32 0)
   %39 = select i1 %37, i32 %38, i32 %9
   %40 = sext i32 %39 to i64
-  %41 = mul i64 %40, %2
+  %41 = mul i64 %2, %40
   %42 = getelementptr float, ptr %0, i64 %41
   %43 = add i32 %27, -1
   %44 = icmp slt i32 %43, %8
   %45 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
   %46 = select i1 %44, i32 %45, i32 %9
   %47 = sext i32 %46 to i64
-  %48 = mul i64 %47, %2
+  %48 = mul i64 %2, %47
   %49 = getelementptr float, ptr %0, i64 %48
   %50 = icmp slt i32 %27, %8
   %51 = tail call i32 @llvm.smax.i32(i32 %27, i32 0)
   %52 = select i1 %50, i32 %51, i32 %9
   %53 = sext i32 %52 to i64
-  %54 = mul i64 %53, %2
+  %54 = mul i64 %2, %53
   %55 = getelementptr float, ptr %0, i64 %54
   %56 = add i32 %27, 1
   %57 = icmp slt i32 %56, %8
   %58 = tail call i32 @llvm.smax.i32(i32 %56, i32 0)
   %59 = select i1 %57, i32 %58, i32 %9
   %60 = sext i32 %59 to i64
-  %61 = mul i64 %60, %2
+  %61 = mul i64 %2, %60
   %62 = getelementptr float, ptr %0, i64 %61
   br i1 %13, label %150, label %.preheader
 
@@ -2158,7 +2158,7 @@ define internal fastcc void @create_motion_kernel(ptr noalias nocapture noundef 
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %61
-  %65 = mul i64 %62, %1
+  %65 = mul i64 %1, %62
   %66 = getelementptr float, ptr %56, i64 %65
   store float 1.000000e+00, ptr %66, align 4, !tbaa !37
   br label %67
@@ -2173,7 +2173,7 @@ define internal fastcc void @create_motion_kernel(ptr noalias nocapture noundef 
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %69
-  %73 = mul i64 %70, %1
+  %73 = mul i64 %1, %70
   %74 = getelementptr float, ptr %56, i64 %73
   store float 1.000000e+00, ptr %74, align 4, !tbaa !37
   br label %75
@@ -2196,7 +2196,7 @@ define internal fastcc void @create_motion_kernel(ptr noalias nocapture noundef 
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %83
-  %87 = mul i64 %84, %1
+  %87 = mul i64 %1, %84
   %88 = getelementptr float, ptr %78, i64 %87
   store float 1.000000e+00, ptr %88, align 4, !tbaa !37
   br label %89
@@ -2211,7 +2211,7 @@ define internal fastcc void @create_motion_kernel(ptr noalias nocapture noundef 
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %91
-  %95 = mul i64 %92, %1
+  %95 = mul i64 %1, %92
   %96 = getelementptr float, ptr %78, i64 %95
   store float 1.000000e+00, ptr %96, align 4, !tbaa !37
   br label %97

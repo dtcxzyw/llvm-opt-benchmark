@@ -460,7 +460,7 @@ do.body5:                                         ; preds = %entry
 do.end6:                                          ; preds = %entry
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i, align 8
-  %cmp = icmp ult i64 %1, %storage
+  %cmp = icmp ugt i64 %storage, %1
   br i1 %cmp, label %if.end.i.i, label %if.end18
 
 if.end.i.i:                                       ; preds = %do.end6
@@ -3513,7 +3513,7 @@ if.else.i295:                                     ; preds = %if.end.i215
 
 if.end63:                                         ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %31 = load i64, ptr %groups, align 8
-  %cmp.not.i = icmp ugt i64 %31, %i.059
+  %cmp.not.i = icmp ult i64 %i.059, %31
   br i1 %cmp.not.i, label %_ZN4node16MaybeStackBufferIjLm64EEixEm.exit, label %do.body4.i
 
 do.body4.i:                                       ; preds = %if.end63
@@ -3688,7 +3688,7 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm128EEC2Em.exit: ; preds = %
   %sub.ptr.rhs.cast.i12 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i11, %sub.ptr.rhs.cast.i12
   %sub.ptr.div.i14 = ashr exact i64 %sub.ptr.sub.i13, 2
-  %cmp.not.i = icmp ult i64 %3, %sub.ptr.div.i14
+  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i14, %3
   br i1 %cmp.not.i, label %do.body4.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm128EE9SetLengthEm.exit
 
 do.body4.i:                                       ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm128EEC2Em.exit
@@ -3713,7 +3713,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %7 = load i32, ptr %add.ptr.i.us, align 4
   %call4.i21.us = call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef %call3.i.us, i32 noundef %7) #19
   %8 = load i64, ptr %arr, align 8
-  %cmp.not.i22.us = icmp ugt i64 %8, %i.033.us
+  %cmp.not.i22.us = icmp ult i64 %i.033.us, %8
   br i1 %cmp.not.i22.us, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm128EEixEm.exit.us, label %do.body4.i23
 
 for.cond.us:                                      ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm128EEixEm.exit.us
@@ -3752,7 +3752,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %15 = load i32, ptr %add.ptr.i, align 4
   %call4.i21 = call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef nonnull %isolate.addr.0, i32 noundef %15) #19
   %16 = load i64, ptr %arr, align 8
-  %cmp.not.i22 = icmp ugt i64 %16, %i.033
+  %cmp.not.i22 = icmp ult i64 %i.033, %16
   br i1 %cmp.not.i22, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm128EEixEm.exit, label %do.body4.i23
 
 do.body4.i23:                                     ; preds = %for.body, %for.body.us

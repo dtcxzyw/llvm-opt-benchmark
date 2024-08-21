@@ -823,7 +823,7 @@ do.body:                                          ; preds = %do.cond, %for.body
 land.lhs.true:                                    ; preds = %do.body
   %10 = load i64, ptr %iov_len, align 8
   %cmp13.not = icmp uge i64 %add, %10
-  %spec.select = and i1 %cmp13.not, %fin
+  %spec.select = and i1 %fin, %cmp13.not
   %frombool.i = zext i1 %spec.select to i8
   store i8 %frombool.i, ptr %fin_.i23, align 4
   br i1 %spec.select, label %if.then, label %if.end
@@ -1625,7 +1625,7 @@ if.end4:                                          ; preds = %if.end
   %frame_len_ = getelementptr inbounds i8, ptr %this, i64 408
   store i64 %length, ptr %frame_len_, align 8
   %cmp = icmp eq i64 %length, 0
-  %or.cond = and i1 %cmp, %fin
+  %or.cond = and i1 %fin, %cmp
   br i1 %or.cond, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end4
@@ -1814,7 +1814,7 @@ if.end4.i:                                        ; preds = %if.end.i
   %frame_len_.i = getelementptr inbounds i8, ptr %0, i64 408
   store i64 %length, ptr %frame_len_.i, align 8
   %cmp.i = icmp eq i64 %length, 0
-  %or.cond.i = and i1 %cmp.i, %fin
+  %or.cond.i = and i1 %fin, %cmp.i
   br i1 %or.cond.i, label %if.then7.i, label %return
 
 if.then7.i:                                       ; preds = %if.end4.i
@@ -3301,7 +3301,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %0, i32 %acked_bytes)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %acked_bytes, i32 %0)
   %sub = sub nsw i32 %0, %.sroa.speculated
   store i32 %sub, ptr %extra_bytes_, align 8
   %sub4 = sub nsw i32 %acked_bytes, %.sroa.speculated

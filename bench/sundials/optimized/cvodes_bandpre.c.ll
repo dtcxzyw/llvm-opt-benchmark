@@ -68,12 +68,12 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   store i64 %1, ptr %22, align 8
   %27 = add nsw i64 %1, -1
   %28 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %.not = icmp slt i64 %28, %1
+  %.not = icmp sgt i64 %1, %28
   %. = select i1 %.not, i64 %28, i64 %27
   %29 = getelementptr inbounds i8, ptr %22, i64 16
   store i64 %., ptr %29, align 8
   %30 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
-  %.not109 = icmp slt i64 %30, %1
+  %.not109 = icmp sgt i64 %1, %30
   %31 = select i1 %.not109, i64 %30, i64 %27
   %32 = getelementptr inbounds i8, ptr %22, i64 8
   store i64 %31, ptr %32, align 8
@@ -93,7 +93,7 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 39:                                               ; preds = %25
   %40 = add nsw i64 %31, %.
-  %.not110 = icmp slt i64 %40, %1
+  %.not110 = icmp sgt i64 %1, %40
   %.113 = select i1 %.not110, i64 %40, i64 %27
   %41 = getelementptr inbounds i8, ptr %22, i64 32
   %42 = load ptr, ptr %0, align 8
@@ -813,7 +813,7 @@ define i32 @CVBandPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 56
   %17 = load i32, ptr %16, align 8
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
@@ -828,7 +828,7 @@ define i32 @CVBandPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
   %.020 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %21 = load i32, ptr %.020, align 8
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   %23 = getelementptr inbounds i8, ptr %.020, i64 120
   br i1 %22, label %._crit_edge, label %.lr.ph
 

@@ -823,7 +823,7 @@ define noundef zeroext i1 @_Z17check_constraintsP8py_annoyib(ptr nocapture nound
   %10 = getelementptr inbounds i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %14, label %.sink.split
 
 .sink.split:                                      ; preds = %6, %3
@@ -1414,7 +1414,7 @@ define internal noundef ptr @_ZL21py_an_get_nns_by_itemP8py_annoyP7_objectS2_(pt
   %20 = getelementptr inbounds i8, ptr %19, i64 88
   %21 = load ptr, ptr %20, align 8
   %22 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %18)
-  %.not.i = icmp sgt i32 %22, %15
+  %.not.i = icmp slt i32 %15, %22
   br i1 %.not.i, label %24, label %_Z17check_constraintsP8py_annoyib.exit
 
 _Z17check_constraintsP8py_annoyib.exit:           ; preds = %14, %17
@@ -1737,7 +1737,7 @@ define internal noundef ptr @_ZL21py_an_get_item_vectorP8py_annoyP7_object(ptr n
   %14 = getelementptr inbounds i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %.not.i = icmp sgt i32 %16, %9
+  %.not.i = icmp slt i32 %9, %16
   br i1 %.not.i, label %18, label %_Z17check_constraintsP8py_annoyib.exit
 
 _Z17check_constraintsP8py_annoyib.exit:           ; preds = %8, %11
@@ -2187,7 +2187,7 @@ define internal noundef ptr @_ZL18py_an_get_distanceP8py_annoyP7_object(ptr noca
   %15 = getelementptr inbounds i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(8) %13)
-  %.not.i = icmp sgt i32 %17, %10
+  %.not.i = icmp slt i32 %10, %17
   br i1 %.not.i, label %19, label %_Z17check_constraintsP8py_annoyib.exit
 
 _Z17check_constraintsP8py_annoyib.exit:           ; preds = %9, %12
@@ -2207,7 +2207,7 @@ _Z17check_constraintsP8py_annoyib.exit:           ; preds = %9, %12
   %25 = getelementptr inbounds i8, ptr %24, i64 88
   %26 = load ptr, ptr %25, align 8
   %27 = call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %23)
-  %.not.i8 = icmp sgt i32 %27, %20
+  %.not.i8 = icmp slt i32 %20, %27
   br i1 %.not.i8, label %29, label %_Z17check_constraintsP8py_annoyib.exit12
 
 _Z17check_constraintsP8py_annoyib.exit12:         ; preds = %19, %22
@@ -2544,7 +2544,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_1
   %38 = add i32 %28, %37
   %39 = getelementptr inbounds i8, ptr %0, i64 44
   %40 = load i32, ptr %39, align 4
-  %41 = icmp slt i32 %40, %38
+  %41 = icmp sgt i32 %38, %40
   br i1 %41, label %42, label %_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit
 
 42:                                               ; preds = %22
@@ -3345,7 +3345,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_1
   %14 = add i32 %1, 1
   %15 = getelementptr inbounds i8, ptr %0, i64 44
   %16 = load i32, ptr %15, align 4
-  %17 = icmp slt i32 %16, %14
+  %17 = icmp sgt i32 %14, %16
   br i1 %17, label %18, label %_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit
 
 18:                                               ; preds = %13
@@ -3412,7 +3412,7 @@ _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit: ; preds = %.lr.ph.i.i
   store float %.08.lcssa.i.i, ptr %26, align 4
   %47 = getelementptr inbounds i8, ptr %0, i64 24
   %48 = load i32, ptr %47, align 8
-  %.not = icmp sgt i32 %48, %1
+  %.not = icmp slt i32 %1, %48
   br i1 %.not, label %_ZN5Annoy21set_error_from_stringEPPcPKc.exit, label %49
 
 49:                                               ; preds = %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit
@@ -3438,7 +3438,7 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomE
   %6 = sitofp i32 %5 to double
   %7 = fmul nnan ninf nsz arcp contract afn double %6, 1.300000e+00
   %8 = fptosi double %7 to i32
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %8, i32 %1)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -3639,7 +3639,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 
 .noexc17:                                         ; preds = %.lr.ph.split
   %37 = trunc nuw nsw i64 %indvars.iv to i32
-  %38 = add i32 %37, %1
+  %38 = add i32 %1, %37
   %39 = sdiv i32 %38, %.05357
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_7AngularENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 8
@@ -4191,7 +4191,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64
   %13 = sub i64 %11, %12
   %14 = icmp eq i64 %13, 4
   %.not91 = xor i1 %14, true
-  %brmerge = or i1 %.not91, %2
+  %brmerge = or i1 %2, %.not91
   br i1 %brmerge, label %17, label %15
 
 15:                                               ; preds = %5
@@ -4234,7 +4234,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   %31 = add i32 %30, 1
   %32 = getelementptr inbounds i8, ptr %0, i64 44
   %33 = load i32, ptr %32, align 4
-  %34 = icmp slt i32 %33, %31
+  %34 = icmp sgt i32 %31, %33
   br i1 %34, label %35, label %_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
 
 35:                                               ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
@@ -4967,7 +4967,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122: ; preds =
   %405 = add i32 %404, 1
   %406 = getelementptr inbounds i8, ptr %0, i64 44
   %407 = load i32, ptr %406, align 4
-  %408 = icmp slt i32 %407, %405
+  %408 = icmp sgt i32 %405, %407
   br i1 %408, label %409, label %413
 
 409:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122
@@ -5792,7 +5792,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %29, %_ZSt22__uninit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit: ; preds = %17
   %33 = getelementptr i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %33
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit, label %34
 
 34:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit
@@ -5857,7 +5857,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIiSaIi
   %59 = phi ptr [ %58, %56 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit ]
   %60 = ptrtoint ptr %1 to i64
   %61 = sub i64 %60, %46
-  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %45, %1
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %45
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %63, label %62
 
 62:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit
@@ -6971,7 +6971,7 @@ _ZNSt6vectorISt4pairIfiESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc142, %337
   %372 = ptrtoint ptr %.sroa.0245.0.lcssa to i64
   %373 = sub i64 %371, %372
   %374 = ashr exact i64 %373, 3
-  %375 = call i64 @llvm.umin.i64(i64 %374, i64 %2)
+  %375 = call i64 @llvm.umin.i64(i64 %2, i64 %374)
   %376 = getelementptr %"struct.std::pair", ptr %.sroa.0245.0.lcssa, i64 %375
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
@@ -7471,7 +7471,7 @@ _ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.ex
 
 _ZSt7advanceIPKimEvRT_T0_.exit:                   ; preds = %17
   %33 = getelementptr i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %33
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit, label %34
 
 34:                                               ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit
@@ -7536,7 +7536,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIiSaIi
   %59 = phi ptr [ %58, %56 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit ]
   %60 = ptrtoint ptr %1 to i64
   %61 = sub i64 %60, %46
-  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %45, %1
+  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %1, %45
   br i1 %.not.i.i.i.i.i.i.i.i.i60, label %63, label %62
 
 62:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit
@@ -7954,7 +7954,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
   %.0.us = phi i64 [ %42, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %10, %.split ]
   %phi.call.us = getelementptr i32, ptr %0, i64 %.0.us
   %19 = load i32, ptr %phi.call.us, align 4
-  %20 = icmp sgt i64 %12, %.0.us
+  %20 = icmp slt i64 %.0.us, %12
   br i1 %20, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.split.us, %.lr.ph.i.us
@@ -8006,7 +8006,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %.0 = phi i64 [ %70, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %10, %.split.split.preheader ]
   %phi.call = getelementptr i32, ptr %0, i64 %.0
   %43 = load i32, ptr %phi.call, align 4
-  %44 = icmp sgt i64 %12, %.0
+  %44 = icmp slt i64 %.0, %12
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split, %.lr.ph.i
@@ -8100,7 +8100,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4p
   %.0 = phi i64 [ %10, %.split ], [ %67, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ]
   %phi.call = getelementptr %"struct.std::pair", ptr %0, i64 %.0
   %.sroa.02.0.copyload = load i64, ptr %phi.call, align 4
-  %22 = icmp sgt i64 %12, %.0
+  %22 = icmp slt i64 %.0, %12
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %21, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIfiESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread36.i
@@ -8434,7 +8434,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS
   %14 = add i32 %1, 1
   %15 = getelementptr inbounds i8, ptr %0, i64 44
   %16 = load i32, ptr %15, align 4
-  %17 = icmp slt i32 %16, %14
+  %17 = icmp sgt i32 %14, %16
   br i1 %17, label %18, label %_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit.i
 
 18:                                               ; preds = %13
@@ -8478,7 +8478,7 @@ _ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThre
 ._crit_edge.i:                                    ; preds = %32, %_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit.i
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8
-  %.not.i = icmp sgt i32 %40, %1
+  %.not.i = icmp slt i32 %1, %40
   br i1 %.not.i, label %_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE13add_item_implIPKfEEbiRKT_PPc.exit, label %41
 
 41:                                               ; preds = %._crit_edge.i
@@ -8548,7 +8548,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS
   %38 = add i32 %28, %37
   %39 = getelementptr inbounds i8, ptr %0, i64 44
   %40 = load i32, ptr %39, align 4
-  %41 = icmp slt i32 %40, %38
+  %41 = icmp sgt i32 %38, %40
   br i1 %41, label %42, label %_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit
 
 42:                                               ; preds = %22
@@ -9261,7 +9261,7 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64Rando
   %6 = sitofp i32 %5 to double
   %7 = fmul nnan ninf nsz arcp contract afn double %6, 1.300000e+00
   %8 = fptosi double %7 to i32
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %8, i32 %1)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -9450,7 +9450,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 
 .noexc17:                                         ; preds = %.lr.ph.split
   %37 = trunc nuw nsw i64 %indvars.iv to i32
-  %38 = add i32 %37, %1
+  %38 = add i32 %1, %37
   %39 = sdiv i32 %38, %.05357
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_9EuclideanENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 8
@@ -9930,7 +9930,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss
   %13 = sub i64 %11, %12
   %14 = icmp eq i64 %13, 4
   %.not91 = xor i1 %14, true
-  %brmerge = or i1 %.not91, %2
+  %brmerge = or i1 %2, %.not91
   br i1 %brmerge, label %17, label %15
 
 15:                                               ; preds = %5
@@ -9973,7 +9973,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   %31 = add i32 %30, 1
   %32 = getelementptr inbounds i8, ptr %0, i64 44
   %33 = load i32, ptr %32, align 4
-  %34 = icmp slt i32 %33, %31
+  %34 = icmp sgt i32 %31, %33
   br i1 %34, label %35, label %_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
 
 35:                                               ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
@@ -10710,7 +10710,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122: ; preds =
   %409 = add i32 %408, 1
   %410 = getelementptr inbounds i8, ptr %0, i64 44
   %411 = load i32, ptr %410, align 4
-  %412 = icmp slt i32 %411, %409
+  %412 = icmp sgt i32 %409, %411
   br i1 %412, label %413, label %417
 
 413:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122
@@ -12109,7 +12109,7 @@ _ZNSt6vectorISt4pairIfiESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc132, %300
   %335 = ptrtoint ptr %.sroa.0235.0.lcssa to i64
   %336 = sub i64 %334, %335
   %337 = ashr exact i64 %336, 3
-  %338 = call i64 @llvm.umin.i64(i64 %337, i64 %2)
+  %338 = call i64 @llvm.umin.i64(i64 %2, i64 %337)
   %339 = getelementptr %"struct.std::pair", ptr %.sroa.0235.0.lcssa, i64 %338
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
@@ -12502,7 +12502,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS
   %14 = add i32 %1, 1
   %15 = getelementptr inbounds i8, ptr %0, i64 44
   %16 = load i32, ptr %15, align 4
-  %17 = icmp slt i32 %16, %14
+  %17 = icmp sgt i32 %14, %16
   br i1 %17, label %18, label %_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit.i
 
 18:                                               ; preds = %13
@@ -12546,7 +12546,7 @@ _ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThre
 ._crit_edge.i:                                    ; preds = %32, %_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit.i
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8
-  %.not.i = icmp sgt i32 %40, %1
+  %.not.i = icmp slt i32 %1, %40
   br i1 %.not.i, label %_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE13add_item_implIPKfEEbiRKT_PPc.exit, label %41
 
 41:                                               ; preds = %._crit_edge.i
@@ -12616,7 +12616,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS
   %38 = add i32 %28, %37
   %39 = getelementptr inbounds i8, ptr %0, i64 44
   %40 = load i32, ptr %39, align 4
-  %41 = icmp slt i32 %40, %38
+  %41 = icmp sgt i32 %38, %40
   br i1 %41, label %42, label %_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit
 
 42:                                               ; preds = %22
@@ -13327,7 +13327,7 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64Rando
   %6 = sitofp i32 %5 to double
   %7 = fmul nnan ninf nsz arcp contract afn double %6, 1.300000e+00
   %8 = fptosi double %7 to i32
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %8, i32 %1)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -13516,7 +13516,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 
 .noexc17:                                         ; preds = %.lr.ph.split
   %37 = trunc nuw nsw i64 %indvars.iv to i32
-  %38 = add i32 %37, %1
+  %38 = add i32 %1, %37
   %39 = sdiv i32 %38, %.05357
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_9ManhattanENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 8
@@ -13996,7 +13996,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss
   %13 = sub i64 %11, %12
   %14 = icmp eq i64 %13, 4
   %.not91 = xor i1 %14, true
-  %brmerge = or i1 %.not91, %2
+  %brmerge = or i1 %2, %.not91
   br i1 %brmerge, label %17, label %15
 
 15:                                               ; preds = %5
@@ -14039,7 +14039,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   %31 = add i32 %30, 1
   %32 = getelementptr inbounds i8, ptr %0, i64 44
   %33 = load i32, ptr %32, align 4
-  %34 = icmp slt i32 %33, %31
+  %34 = icmp sgt i32 %31, %33
   br i1 %34, label %35, label %_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
 
 35:                                               ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
@@ -14776,7 +14776,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122: ; preds =
   %409 = add i32 %408, 1
   %410 = getelementptr inbounds i8, ptr %0, i64 44
   %411 = load i32, ptr %410, align 4
-  %412 = icmp slt i32 %411, %409
+  %412 = icmp sgt i32 %409, %411
   br i1 %412, label %413, label %417
 
 413:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122
@@ -16173,7 +16173,7 @@ _ZNSt6vectorISt4pairIfiESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc132, %299
   %334 = ptrtoint ptr %.sroa.0235.0.lcssa to i64
   %335 = sub i64 %333, %334
   %336 = ashr exact i64 %335, 3
-  %337 = call i64 @llvm.umin.i64(i64 %336, i64 %2)
+  %337 = call i64 @llvm.umin.i64(i64 %2, i64 %336)
   %338 = getelementptr %"struct.std::pair", ptr %.sroa.0235.0.lcssa, i64 %337
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
@@ -16632,7 +16632,7 @@ _ZNK14HammingWrapper5_packEPKfPm.exit:            ; preds = %.critedge.i, %_ZNSt
   %42 = add i32 %1, 1
   %43 = getelementptr inbounds i8, ptr %0, i64 60
   %44 = load i32, ptr %43, align 4
-  %45 = icmp slt i32 %44, %42
+  %45 = icmp sgt i32 %42, %44
   br i1 %45, label %46, label %_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit.i.i
 
 46:                                               ; preds = %41
@@ -16676,7 +16676,7 @@ _ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThread
 ._crit_edge.i.i:                                  ; preds = %60, %_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit.i.i
   %67 = getelementptr inbounds i8, ptr %0, i64 40
   %68 = load i32, ptr %67, align 8
-  %.not.i.i = icmp sgt i32 %68, %1
+  %.not.i.i = icmp slt i32 %1, %68
   br i1 %.not.i.i, label %70, label %69
 
 69:                                               ; preds = %._crit_edge.i.i
@@ -17253,7 +17253,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_1
   %14 = add i32 %1, 1
   %15 = getelementptr inbounds i8, ptr %0, i64 44
   %16 = load i32, ptr %15, align 4
-  %17 = icmp slt i32 %16, %14
+  %17 = icmp sgt i32 %14, %16
   br i1 %17, label %18, label %_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit.i
 
 18:                                               ; preds = %13
@@ -17297,7 +17297,7 @@ _ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThread
 ._crit_edge.i:                                    ; preds = %32, %_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit.i
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8
-  %.not.i = icmp sgt i32 %40, %1
+  %.not.i = icmp slt i32 %1, %40
   br i1 %.not.i, label %_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE13add_item_implIPKmEEbiRKT_PPc.exit, label %41
 
 41:                                               ; preds = %._crit_edge.i
@@ -17367,7 +17367,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_1
   %38 = add i32 %28, %37
   %39 = getelementptr inbounds i8, ptr %0, i64 44
   %40 = load i32, ptr %39, align 4
-  %41 = icmp slt i32 %40, %38
+  %41 = icmp sgt i32 %38, %40
   br i1 %41, label %42, label %_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit
 
 42:                                               ; preds = %22
@@ -18076,7 +18076,7 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomE
   %6 = sitofp i32 %5 to double
   %7 = fmul nnan ninf nsz arcp contract afn double %6, 1.300000e+00
   %8 = fptosi double %7 to i32
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %8, i32 %1)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -18265,7 +18265,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 
 .noexc17:                                         ; preds = %.lr.ph.split
   %37 = trunc nuw nsw i64 %indvars.iv to i32
-  %38 = add i32 %37, %1
+  %38 = add i32 %1, %37
   %39 = sdiv i32 %38, %.05357
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIimNS3_7HammingENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 8
@@ -18745,7 +18745,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64
   %13 = sub i64 %11, %12
   %14 = icmp eq i64 %13, 4
   %.not91 = xor i1 %14, true
-  %brmerge = or i1 %.not91, %2
+  %brmerge = or i1 %2, %.not91
   br i1 %brmerge, label %17, label %15
 
 15:                                               ; preds = %5
@@ -18788,7 +18788,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   %31 = add i32 %30, 1
   %32 = getelementptr inbounds i8, ptr %0, i64 44
   %33 = load i32, ptr %32, align 4
-  %34 = icmp slt i32 %33, %31
+  %34 = icmp sgt i32 %31, %33
   br i1 %34, label %35, label %_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
 
 35:                                               ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
@@ -19466,7 +19466,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122: ; preds =
   %377 = add i32 %376, 1
   %378 = getelementptr inbounds i8, ptr %0, i64 44
   %379 = load i32, ptr %378, align 4
-  %380 = icmp slt i32 %379, %377
+  %380 = icmp sgt i32 %377, %379
   br i1 %380, label %381, label %385
 
 381:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122
@@ -20302,7 +20302,7 @@ _ZNSt6vectorISt4pairImiESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   %229 = ptrtoint ptr %.sroa.0117.0.lcssa to i64
   %230 = sub i64 %228, %229
   %231 = ashr exact i64 %230, 4
-  %232 = call i64 @llvm.umin.i64(i64 %231, i64 %2)
+  %232 = call i64 @llvm.umin.i64(i64 %2, i64 %231)
   %233 = getelementptr %"struct.std::pair.91", ptr %.sroa.0117.0.lcssa, i64 %232
   invoke void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_(ptr %.sroa.0117.0.lcssa, ptr %233, ptr %.sroa.10.0.lcssa)
           to label %_ZSt12partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEEEvT_S9_S9_.exit.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -20657,7 +20657,7 @@ _ZNSt6vectorISt4pairImiESaIS1_EE9push_backEOS1_.exit: ; preds = %7, %_ZNSt6vecto
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairImiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread.i.i
 
 44:                                               ; preds = %.lr.ph.i.i
-  %45 = icmp ugt i64 %42, %.sroa.02.0.copyload.i
+  %45 = icmp ult i64 %.sroa.02.0.copyload.i, %42
   br i1 %45, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEESt4lessIS3_EEvT_SB_T0_.exit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairImiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairImiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.i.i: ; preds = %44
@@ -20688,7 +20688,7 @@ _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEE
 define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterISt4lessIS3_EEEEvT_T0_SF_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, i64 %3, i32 %4) local_unnamed_addr #2 comdat {
   %6 = add i64 %2, -1
   %7 = sdiv i64 %6, 2
-  %8 = icmp sgt i64 %7, %1
+  %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairImiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread37
@@ -20776,7 +20776,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairImiEEEclINS_17__normal_itera
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairImiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread.i
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = icmp ugt i64 %49, %3
+  %52 = icmp ult i64 %3, %49
   br i1 %52, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valISt4lessIS3_EEEEvT_T0_SF_T1_RT2_.exit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairImiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairImiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.i: ; preds = %51
@@ -20906,7 +20906,7 @@ _ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_
 define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, i64 %3, i32 %4) local_unnamed_addr #2 comdat {
   %6 = add i64 %2, -1
   %7 = sdiv i64 %6, 2
-  %8 = icmp sgt i64 %7, %1
+  %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread37
@@ -20994,7 +20994,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6ve
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairImiESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = icmp ugt i64 %49, %3
+  %52 = icmp ult i64 %3, %49
   br i1 %52, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairImiESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairImiESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i: ; preds = %51
@@ -21177,7 +21177,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIfSaIf
   %78 = phi ptr [ %77, %75 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit ]
   %79 = ptrtoint ptr %1 to i64
   %80 = sub i64 %79, %65
-  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %64, %1
+  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %1, %64
   br i1 %.not.i.i.i.i.i.i.i.i.i59, label %82, label %81
 
 81:                                               ; preds = %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit
@@ -21463,7 +21463,7 @@ _ZN5Annoy10DotProduct10preprocessIfiNS0_4NodeIifEEEEvPvmT0_i.exit: ; preds = %_Z
   %75 = add i32 %65, %74
   %76 = getelementptr inbounds i8, ptr %0, i64 44
   %77 = load i32, ptr %76, align 4
-  %78 = icmp slt i32 %77, %75
+  %78 = icmp sgt i32 %75, %77
   br i1 %78, label %79, label %_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit
 
 79:                                               ; preds = %_ZN5Annoy10DotProduct10preprocessIfiNS0_4NodeIifEEEEvPvmT0_i.exit
@@ -22185,7 +22185,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Annoy10AnnoyIndexIifNS_10DotProductE
   %14 = add i32 %1, 1
   %15 = getelementptr inbounds i8, ptr %0, i64 44
   %16 = load i32, ptr %15, align 4
-  %17 = icmp slt i32 %16, %14
+  %17 = icmp sgt i32 %14, %16
   br i1 %17, label %18, label %_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit
 
 18:                                               ; preds = %13
@@ -22265,7 +22265,7 @@ _ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit: ; preds = %.lr.ph
   store float %52, ptr %53, align 4
   %54 = getelementptr inbounds i8, ptr %0, i64 24
   %55 = load i32, ptr %54, align 8
-  %.not = icmp sgt i32 %55, %1
+  %.not = icmp slt i32 %1, %55
   br i1 %.not, label %_ZN5Annoy21set_error_from_stringEPPcPKc.exit, label %56
 
 56:                                               ; preds = %_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit
@@ -22285,7 +22285,7 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64Ran
   %6 = sitofp i32 %5 to double
   %7 = fmul nnan ninf nsz arcp contract afn double %6, 1.300000e+00
   %8 = fptosi double %7 to i32
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %8, i32 %1)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 96
@@ -22474,7 +22474,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 
 .noexc17:                                         ; preds = %.lr.ph.split
   %37 = trunc nuw nsw i64 %indvars.iv to i32
-  %38 = add i32 %37, %1
+  %38 = add i32 %1, %37
   %39 = sdiv i32 %38, %.05357
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_10DotProductENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 8
@@ -22954,7 +22954,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Ki
   %13 = sub i64 %11, %12
   %14 = icmp eq i64 %13, 4
   %.not91 = xor i1 %14, true
-  %brmerge = or i1 %.not91, %2
+  %brmerge = or i1 %2, %.not91
   br i1 %brmerge, label %17, label %15
 
 15:                                               ; preds = %5
@@ -22997,7 +22997,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   %31 = add i32 %30, 1
   %32 = getelementptr inbounds i8, ptr %0, i64 44
   %33 = load i32, ptr %32, align 4
-  %34 = icmp slt i32 %33, %31
+  %34 = icmp sgt i32 %31, %33
   br i1 %34, label %35, label %_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
 
 35:                                               ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
@@ -23737,7 +23737,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122: ; preds =
   %412 = add i32 %411, 1
   %413 = getelementptr inbounds i8, ptr %0, i64 44
   %414 = load i32, ptr %413, align 4
-  %415 = icmp slt i32 %414, %412
+  %415 = icmp sgt i32 %412, %414
   br i1 %415, label %416, label %420
 
 416:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122
@@ -25549,7 +25549,7 @@ _ZNSt6vectorISt4pairIfiESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc136, %297
   %332 = ptrtoint ptr %.sroa.0238.0.lcssa to i64
   %333 = sub i64 %331, %332
   %334 = ashr exact i64 %333, 3
-  %335 = call i64 @llvm.umin.i64(i64 %334, i64 %2)
+  %335 = call i64 @llvm.umin.i64(i64 %2, i64 %334)
   %336 = getelementptr %"struct.std::pair", ptr %.sroa.0238.0.lcssa, i64 %335
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)

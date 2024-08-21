@@ -392,7 +392,7 @@ define dso_local void @dma_resv_add_fence(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %47, label %63, label %48
 
 48:                                               ; preds = %33
-  %49 = icmp eq ptr %39, %1
+  %49 = icmp eq ptr %1, %39
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %48

@@ -5778,8 +5778,8 @@ entry:
 if.end:                                           ; preds = %entry
   %length = getelementptr inbounds i8, ptr %q, i64 48
   %2 = load i64, ptr %length, align 8
-  %cmp1 = icmp sge i64 %2, %end
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %2, i64 %end)
+  %cmp1 = icmp sle i64 %end, %2
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %end, i64 %2)
   %offset1.i = getelementptr inbounds i8, ptr %q, i64 32
   %3 = load i64, ptr %offset1.i, align 8
   %buffer2.i = getelementptr inbounds i8, ptr %q, i64 40

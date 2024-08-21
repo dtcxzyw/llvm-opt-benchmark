@@ -1707,7 +1707,7 @@ define linkonce_odr hidden noundef ptr @_ZN2cv8tinyxml28MemPoolTILi88EE5AllocEv(
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   %10 = load i32, ptr %9, align 8
-  %.not.i = icmp sgt i32 %10, %8
+  %.not.i = icmp slt i32 %8, %10
   br i1 %.not.i, label %._ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi88EE5BlockELi10EE14EnsureCapacityEi.exit_crit_edge.i, label %11
 
 ._ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi88EE5BlockELi10EE14EnsureCapacityEi.exit_crit_edge.i: ; preds = %4
@@ -1812,7 +1812,7 @@ define linkonce_odr hidden noundef ptr @_ZN2cv8tinyxml28MemPoolTILi96EE5AllocEv(
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   %10 = load i32, ptr %9, align 8
-  %.not.i = icmp sgt i32 %10, %8
+  %.not.i = icmp slt i32 %8, %10
   br i1 %.not.i, label %._ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi96EE5BlockELi10EE14EnsureCapacityEi.exit_crit_edge.i, label %11
 
 ._ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi96EE5BlockELi10EE14EnsureCapacityEi.exit_crit_edge.i: ; preds = %4
@@ -1917,7 +1917,7 @@ define linkonce_odr hidden noundef ptr @_ZN2cv8tinyxml28MemPoolTILi104EE5AllocEv
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   %10 = load i32, ptr %9, align 8
-  %.not.i = icmp sgt i32 %10, %8
+  %.not.i = icmp slt i32 %8, %10
   br i1 %.not.i, label %._ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi104EE5BlockELi10EE14EnsureCapacityEi.exit_crit_edge.i, label %11
 
 ._ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi104EE5BlockELi10EE14EnsureCapacityEi.exit_crit_edge.i: ; preds = %4
@@ -2073,7 +2073,7 @@ define hidden void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dere
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %2, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = icmp eq ptr %9, %6
+  %10 = icmp eq ptr %6, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %5
@@ -2135,7 +2135,7 @@ _ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i:       ; preds = %19, %._crit_edge.i.
 34:                                               ; preds = %.loopexit
   %35 = getelementptr inbounds i8, ptr %33, i64 48
   %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, %0
+  %37 = icmp eq ptr %0, %36
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %34
@@ -2147,7 +2147,7 @@ _ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit.i:       ; preds = %19, %._crit_edge.i.
 41:                                               ; preds = %38, %34
   %42 = getelementptr inbounds i8, ptr %33, i64 56
   %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, %0
+  %44 = icmp eq ptr %0, %43
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %41
@@ -2231,7 +2231,7 @@ define hidden void @_ZN2cv8tinyxml27XMLNode14DeleteChildrenEv(ptr nocapture noun
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %2, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = icmp eq ptr %9, %6
+  %10 = icmp eq ptr %6, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %5
@@ -2289,7 +2289,7 @@ _ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit:         ; preds = %._crit_edge.i, %19
 define hidden void @_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
@@ -2301,7 +2301,7 @@ define hidden void @_ZN2cv8tinyxml27XMLNode6UnlinkEPS1_(ptr nocapture noundef no
 9:                                                ; preds = %6, %2
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
@@ -2456,7 +2456,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_(ptr noun
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %9, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
@@ -2468,7 +2468,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_(ptr noun
 17:                                               ; preds = %14, %10
   %18 = getelementptr inbounds i8, ptr %9, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, %1
+  %20 = icmp eq ptr %1, %19
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %17
@@ -2564,7 +2564,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLNode16InsertFirstChildEPS1_(ptr no
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %9, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
@@ -2576,7 +2576,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLNode16InsertFirstChildEPS1_(ptr no
 17:                                               ; preds = %14, %10
   %18 = getelementptr inbounds i8, ptr %9, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, %1
+  %20 = icmp eq ptr %1, %19
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %17
@@ -2684,7 +2684,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLNode16InsertAfterChildEPS1_S2_(ptr
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %16, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, %2
+  %21 = icmp eq ptr %2, %20
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %18
@@ -2696,7 +2696,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLNode16InsertAfterChildEPS1_S2_(ptr
 25:                                               ; preds = %22, %18
   %26 = getelementptr inbounds i8, ptr %16, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, %2
+  %28 = icmp eq ptr %2, %27
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
@@ -2774,7 +2774,7 @@ _ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit: ; preds = %50, %53
 57:                                               ; preds = %56
   %58 = getelementptr inbounds i8, ptr %16, i64 48
   %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, %2
+  %60 = icmp eq ptr %2, %59
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %57
@@ -2786,7 +2786,7 @@ _ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit: ; preds = %50, %53
 64:                                               ; preds = %61, %57
   %65 = getelementptr inbounds i8, ptr %16, i64 56
   %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, %2
+  %67 = icmp eq ptr %2, %66
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %64
@@ -3063,7 +3063,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us: ; preds = %.lr.ph.split.us
 9:                                                ; preds = %.lr.ph.split
   %10 = getelementptr inbounds i8, ptr %.023, i64 24
   %11 = tail call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %9
@@ -3158,7 +3158,7 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us: ; preds = %.lr.ph.split.us
 9:                                                ; preds = %.lr.ph.split
   %10 = getelementptr inbounds i8, ptr %.023, i64 24
   %11 = tail call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %9
@@ -3477,7 +3477,7 @@ _ZN2cv8tinyxml27StrPairD2Ev.exit:                 ; preds = %35, %39, %42
 132:                                              ; preds = %129
   %133 = getelementptr inbounds i8, ptr %131, i64 48
   %134 = load ptr, ptr %133, align 8
-  %135 = icmp eq ptr %134, %18
+  %135 = icmp eq ptr %18, %134
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %132
@@ -3489,7 +3489,7 @@ _ZN2cv8tinyxml27StrPairD2Ev.exit:                 ; preds = %35, %39, %42
 139:                                              ; preds = %136, %132
   %140 = getelementptr inbounds i8, ptr %131, i64 56
   %141 = load ptr, ptr %140, align 8
-  %142 = icmp eq ptr %141, %18
+  %142 = icmp eq ptr %18, %141
   br i1 %142, label %143, label %146
 
 143:                                              ; preds = %139
@@ -6088,7 +6088,7 @@ define linkonce_odr hidden noundef ptr @_ZN2cv8tinyxml28MemPoolTILi72EE5AllocEv(
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   %10 = load i32, ptr %9, align 8
-  %.not.i = icmp sgt i32 %10, %8
+  %.not.i = icmp slt i32 %8, %10
   br i1 %.not.i, label %._ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi72EE5BlockELi10EE14EnsureCapacityEi.exit_crit_edge.i, label %11
 
 ._ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi72EE5BlockELi10EE14EnsureCapacityEi.exit_crit_edge.i: ; preds = %4
@@ -6188,13 +6188,13 @@ define hidden void @_ZN2cv8tinyxml210XMLElement15DeleteAttributeEPKc(ptr nocaptu
 .lr.ph.preheader:                                 ; preds = %2
   %4 = getelementptr inbounds i8, ptr %.01525, i64 8
   %5 = tail call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %.lr.ph._crit_edge, label %.preheader.i
 
 .lr.ph:                                           ; preds = %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit
   %7 = getelementptr inbounds i8, ptr %.015, i64 8
   %8 = tail call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   br i1 %9, label %.lr.ph._crit_edge, label %.preheader.i, !llvm.loop !30
 
 .preheader.i:                                     ; preds = %.lr.ph.preheader, %.lr.ph
@@ -7047,7 +7047,7 @@ define hidden void @_ZN2cv8tinyxml211XMLDocumentD2Ev(ptr noundef nonnull align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %2, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = icmp eq ptr %9, %6
+  %10 = icmp eq ptr %6, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %5
@@ -7360,7 +7360,7 @@ define hidden void @_ZN2cv8tinyxml211XMLDocument5ClearEv(ptr nocapture noundef n
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %2, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = icmp eq ptr %9, %6
+  %10 = icmp eq ptr %6, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %5
@@ -7446,7 +7446,7 @@ define hidden noundef i32 @_ZN2cv8tinyxml211XMLDocument8LoadFileEPKc(ptr noundef
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %3, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = icmp eq ptr %10, %7
+  %11 = icmp eq ptr %7, %10
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %6
@@ -7551,7 +7551,7 @@ define hidden noundef i32 @_ZN2cv8tinyxml211XMLDocument8LoadFileEP8_IO_FILE(ptr 
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %3, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = icmp eq ptr %10, %7
+  %11 = icmp eq ptr %7, %10
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %6
@@ -8027,7 +8027,7 @@ define hidden noundef i32 @_ZN2cv8tinyxml211XMLDocument5ParseEPKcm(ptr noundef n
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %4, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = icmp eq ptr %11, %8
+  %12 = icmp eq ptr %8, %11
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %7
@@ -8322,7 +8322,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull a
   %13 = add nsw i32 %12, %9
   %14 = getelementptr inbounds i8, ptr %0, i64 300
   %15 = load i32, ptr %14, align 4
-  %16 = icmp slt i32 %15, %13
+  %16 = icmp sgt i32 %13, %15
   br i1 %16, label %17, label %._ZN2cv8tinyxml28DynArrayIcLi20EE14EnsureCapacityEi.exit_crit_edge.i
 
 ._ZN2cv8tinyxml28DynArrayIcLi20EE14EnsureCapacityEi.exit_crit_edge.i: ; preds = %8
@@ -8632,7 +8632,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter11OpenElementEPKcb(ptr noundef no
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 104
   %13 = load i32, ptr %12, align 8
-  %.not.i = icmp sgt i32 %13, %11
+  %.not.i = icmp slt i32 %11, %13
   br i1 %.not.i, label %._ZN2cv8tinyxml28DynArrayIPKcLi10EE14EnsureCapacityEi.exit_crit_edge.i, label %14
 
 ._ZN2cv8tinyxml28DynArrayIPKcLi10EE14EnsureCapacityEi.exit_crit_edge.i: ; preds = %8
@@ -8682,7 +8682,7 @@ _ZN2cv8tinyxml28DynArrayIPKcLi10EE4PushES3_.exit: ; preds = %._ZN2cv8tinyxml28Dy
   %37 = getelementptr inbounds i8, ptr %0, i64 112
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
-  %brmerge = or i1 %39, %2
+  %brmerge = or i1 %2, %39
   %or.cond = select i1 %36, i1 true, i1 %brmerge
   br i1 %or.cond, label %41, label %40
 
@@ -9186,7 +9186,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter12CloseElementEb(ptr noundef nonn
   %19 = getelementptr inbounds i8, ptr %0, i64 132
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, -1
-  %brmerge = or i1 %21, %1
+  %brmerge = or i1 %1, %21
   br i1 %brmerge, label %27, label %22
 
 22:                                               ; preds = %18
@@ -9215,7 +9215,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter12CloseElementEb(ptr noundef nonn
 
 34:                                               ; preds = %33, %28
   %35 = icmp ne i32 %31, 0
-  %brmerge4 = or i1 %35, %1
+  %brmerge4 = or i1 %1, %35
   br i1 %brmerge4, label %37, label %36
 
 36:                                               ; preds = %34

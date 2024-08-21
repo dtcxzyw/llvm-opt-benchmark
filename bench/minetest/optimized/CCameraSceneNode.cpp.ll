@@ -1201,7 +1201,7 @@ entry:
   store float 0.000000e+00, ptr %arrayidx29.i.i, align 4, !tbaa !10
   %arrayidx31.i.i = getelementptr inbounds i8, ptr %this, i64 556
   store float 0.000000e+00, ptr %arrayidx31.i.i, align 4, !tbaa !10
-  %add.i.i = fadd float %2, %f
+  %add.i.i = fadd float %f, %2
   %sub40.i.i = fsub float %2, %f
   %div41.i.i = fdiv float %add.i.i, %sub40.i.i
   %mul44.i.i = fmul float %f, 2.000000e+00
@@ -1255,11 +1255,11 @@ entry:
   store float 0.000000e+00, ptr %arrayidx29.i.i, align 4, !tbaa !10
   %arrayidx31.i.i = getelementptr inbounds i8, ptr %this, i64 556
   store float 0.000000e+00, ptr %arrayidx31.i.i, align 4, !tbaa !10
-  %add.i.i = fadd float %2, %f
+  %add.i.i = fadd float %f, %2
   %sub40.i.i = fsub float %f, %2
   %div41.i.i = fdiv float %add.i.i, %sub40.i.i
   %mul44.i.i = fmul float %2, 2.000000e+00
-  %mul45.i.i = fmul float %mul44.i.i, %f
+  %mul45.i.i = fmul float %f, %mul44.i.i
   %sub46.i.i = fsub float %2, %f
   %div47.i.i = fdiv float %mul45.i.i, %sub46.i.i
   %3 = getelementptr inbounds i8, ptr %this, i64 536

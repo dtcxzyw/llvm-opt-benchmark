@@ -7011,63 +7011,63 @@ _ZNK2cv11_InputArray6getMatEi.exit103:            ; preds = %37, %40
   %164 = getelementptr inbounds i8, ptr %21, i64 16
   %165 = getelementptr inbounds i8, ptr %21, i64 24
   %166 = getelementptr inbounds i8, ptr %21, i64 48
-  %167 = getelementptr inbounds i8, ptr %21, i64 56
-  %168 = getelementptr inbounds i8, ptr %21, i64 64
-  %169 = getelementptr inbounds i8, ptr %22, i64 24
-  %170 = getelementptr inbounds i8, ptr %22, i64 32
-  %171 = getelementptr inbounds i8, ptr %22, i64 40
-  %172 = getelementptr inbounds i8, ptr %22, i64 48
-  %173 = getelementptr inbounds i8, ptr %22, i64 56
-  %174 = getelementptr inbounds i8, ptr %22, i64 64
+  %167 = fneg double %132
+  %168 = getelementptr inbounds i8, ptr %21, i64 56
+  %169 = getelementptr inbounds i8, ptr %21, i64 64
+  %170 = getelementptr inbounds i8, ptr %22, i64 24
+  %171 = getelementptr inbounds i8, ptr %22, i64 32
+  %172 = getelementptr inbounds i8, ptr %22, i64 40
+  %173 = getelementptr inbounds i8, ptr %22, i64 48
+  %174 = fneg double %133
+  %175 = getelementptr inbounds i8, ptr %22, i64 56
+  %176 = getelementptr inbounds i8, ptr %22, i64 64
   %wide.trip.count199 = zext nneg i32 %41 to i64
-  br label %175
+  br label %177
 
-175:                                              ; preds = %.lr.ph173, %223
+177:                                              ; preds = %.lr.ph173, %223
   %indvars.iv196 = phi i64 [ 0, %.lr.ph173 ], [ %indvars.iv.next197, %223 ]
-  %176 = getelementptr inbounds %"class.cv::Point_", ptr %46, i64 %indvars.iv196
-  %177 = load float, ptr %176, align 4
-  %178 = fpext float %177 to double
-  %179 = fsub double %178, %121
-  %180 = getelementptr inbounds i8, ptr %176, i64 4
-  %181 = load float, ptr %180, align 4
-  %182 = fpext float %181 to double
-  %183 = fsub double %182, %120
-  %184 = getelementptr inbounds %"class.cv::Point_", ptr %44, i64 %indvars.iv196
-  %185 = load float, ptr %184, align 4
-  %186 = fpext float %185 to double
-  %187 = fsub double %186, %119
-  %188 = fmul double %134, %187
-  %189 = getelementptr inbounds i8, ptr %184, i64 4
-  %190 = load float, ptr %189, align 4
-  %191 = fpext float %190 to double
-  %192 = fsub double %191, %118
-  %193 = fmul double %135, %192
-  store double %188, ptr %21, align 16
-  store double %193, ptr %163, align 8
+  %178 = getelementptr inbounds %"class.cv::Point_", ptr %46, i64 %indvars.iv196
+  %179 = load float, ptr %178, align 4
+  %180 = fpext float %179 to double
+  %181 = fsub double %180, %121
+  %182 = getelementptr inbounds i8, ptr %178, i64 4
+  %183 = load float, ptr %182, align 4
+  %184 = fpext float %183 to double
+  %185 = fsub double %184, %120
+  %186 = getelementptr inbounds %"class.cv::Point_", ptr %44, i64 %indvars.iv196
+  %187 = load float, ptr %186, align 4
+  %188 = fpext float %187 to double
+  %189 = fsub double %188, %119
+  %190 = fmul double %134, %189
+  %191 = getelementptr inbounds i8, ptr %186, i64 4
+  %192 = load float, ptr %191, align 4
+  %193 = fpext float %192 to double
+  %194 = fsub double %193, %118
+  %195 = fmul double %135, %194
+  store double %190, ptr %21, align 16
+  store double %195, ptr %163, align 8
   store double 1.000000e+00, ptr %164, align 16
-  %194 = fneg double %179
-  %195 = fmul double %132, %194
-  %196 = fmul double %195, %188
+  %196 = fmul double %181, %167
+  %197 = fmul double %196, %190
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %165, i8 0, i64 24, i1 false)
-  store double %196, ptr %166, align 16
-  %197 = fmul double %195, %193
-  store double %197, ptr %167, align 8
-  store double %195, ptr %168, align 16
+  store double %197, ptr %166, align 16
+  %198 = fmul double %196, %195
+  store double %198, ptr %168, align 8
+  store double %196, ptr %169, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  store double %188, ptr %169, align 8
-  store double %193, ptr %170, align 16
-  store double 1.000000e+00, ptr %171, align 8
-  %198 = fneg double %183
-  %199 = fmul double %133, %198
-  %200 = fmul double %199, %188
-  store double %200, ptr %172, align 16
-  %201 = fmul double %199, %193
-  store double %201, ptr %173, align 8
-  store double %199, ptr %174, align 16
+  store double %190, ptr %170, align 8
+  store double %195, ptr %171, align 16
+  store double 1.000000e+00, ptr %172, align 8
+  %199 = fmul double %185, %174
+  %200 = fmul double %199, %190
+  store double %200, ptr %173, align 16
+  %201 = fmul double %199, %195
+  store double %201, ptr %175, align 8
+  store double %199, ptr %176, align 16
   br label %.preheader
 
-.preheader:                                       ; preds = %175, %222
-  %indvars.iv188 = phi i64 [ 0, %175 ], [ %indvars.iv.next189, %222 ]
+.preheader:                                       ; preds = %177, %222
+  %indvars.iv188 = phi i64 [ 0, %177 ], [ %indvars.iv.next189, %222 ]
   %202 = getelementptr inbounds [9 x double], ptr %21, i64 0, i64 %indvars.iv188
   %203 = load double, ptr %202, align 8
   %204 = getelementptr inbounds [9 x double], ptr %22, i64 0, i64 %indvars.iv188
@@ -7113,7 +7113,7 @@ _ZNK2cv11_InputArray6getMatEi.exit103:            ; preds = %37, %40
 223:                                              ; preds = %222
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
-  br i1 %exitcond200.not, label %._crit_edge174, label %175, !llvm.loop !141
+  br i1 %exitcond200.not, label %._crit_edge174, label %177, !llvm.loop !141
 
 ._crit_edge174:                                   ; preds = %223, %.preheader148
   %224 = getelementptr inbounds i8, ptr %23, i64 8
@@ -7529,57 +7529,57 @@ _ZNK2cv11_InputArray6getMatEi.exit48:             ; preds = %15, %18
   %indvars.iv11.i = phi i64 [ 0, %.lr.ph6.i ], [ %indvars.iv.next12.i, %._crit_edge.i ]
   %28 = phi i1 [ true, %.lr.ph6.i ], [ %60, %._crit_edge.i ]
   %29 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv11.i
-  %30 = load float, ptr %29, align 4
-  %31 = fsub float %30, %24
-  %32 = fpext float %31 to double
-  %33 = getelementptr inbounds i8, ptr %29, i64 4
-  %34 = load float, ptr %33, align 4
-  %35 = fsub float %34, %26
-  %36 = fpext float %35 to double
+  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %31 = load float, ptr %30, align 4
+  %32 = fsub float %31, %26
+  %33 = fpext float %32 to double
   %.not.i = icmp eq i64 %indvars.iv11.i, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %27
-  %37 = call double @llvm.fabs.f64(double %32)
+  %34 = load float, ptr %29, align 4
+  %35 = fsub float %34, %24
+  %36 = fpext float %35 to double
+  %37 = fneg double %36
   %38 = call double @llvm.fabs.f64(double %36)
-  %39 = fadd double %37, %38
-  br label %41
+  %39 = call double @llvm.fabs.f64(double %33)
+  %40 = fadd double %39, %38
+  br label %42
 
-40:                                               ; preds = %41
+41:                                               ; preds = %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv11.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %41, !llvm.loop !161
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %42, !llvm.loop !161
 
-41:                                               ; preds = %40, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
-  %42 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv.i
-  %43 = load float, ptr %42, align 4
-  %44 = fsub float %43, %24
-  %45 = fpext float %44 to double
-  %46 = getelementptr inbounds i8, ptr %42, i64 4
-  %47 = load float, ptr %46, align 4
-  %48 = fsub float %47, %26
-  %49 = fpext float %48 to double
-  %50 = fneg double %49
-  %51 = fmul double %32, %50
-  %52 = call double @llvm.fmuladd.f64(double %45, double %36, double %51)
+42:                                               ; preds = %41, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
+  %43 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv.i
+  %44 = load float, ptr %43, align 4
+  %45 = fsub float %44, %24
+  %46 = fpext float %45 to double
+  %47 = getelementptr inbounds i8, ptr %43, i64 4
+  %48 = load float, ptr %47, align 4
+  %49 = fsub float %48, %26
+  %50 = fpext float %49 to double
+  %51 = fmul double %37, %50
+  %52 = call double @llvm.fmuladd.f64(double %46, double %33, double %51)
   %53 = call double @llvm.fabs.f64(double %52)
-  %54 = call double @llvm.fabs.f64(double %45)
-  %55 = fadd double %39, %54
-  %56 = call double @llvm.fabs.f64(double %49)
+  %54 = call double @llvm.fabs.f64(double %46)
+  %55 = fadd double %40, %54
+  %56 = call double @llvm.fabs.f64(double %50)
   %57 = fadd double %55, %56
   %58 = fmul double %57, 0x3E80000000000000
   %59 = fcmp ugt double %53, %58
-  br i1 %59, label %40, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
+  br i1 %59, label %41, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
-._crit_edge.i:                                    ; preds = %40, %27
+._crit_edge.i:                                    ; preds = %41, %27
   %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
   %60 = icmp ult i64 %indvars.iv.next12.i, %22
   %exitcond14.not.i = icmp eq i64 %indvars.iv.next12.i, %22
   br i1 %exitcond14.not.i, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit, label %27, !llvm.loop !162
 
-_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %._crit_edge.i, %41
-  %61 = phi i1 [ %28, %41 ], [ %60, %._crit_edge.i ]
+_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %._crit_edge.i, %42
+  %61 = phi i1 [ %28, %42 ], [ %60, %._crit_edge.i ]
   br i1 %61, label %175, label %.lr.ph6.i49
 
 .lr.ph6.i49:                                      ; preds = %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
@@ -7595,57 +7595,57 @@ _ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %._crit_edge.i, %41
   %indvars.iv11.i51 = phi i64 [ 0, %.lr.ph6.i49 ], [ %indvars.iv.next12.i58, %._crit_edge.i57 ]
   %68 = phi i1 [ true, %.lr.ph6.i49 ], [ %100, %._crit_edge.i57 ]
   %69 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %indvars.iv11.i51
-  %70 = load float, ptr %69, align 4
-  %71 = fsub float %70, %64
-  %72 = fpext float %71 to double
-  %73 = getelementptr inbounds i8, ptr %69, i64 4
-  %74 = load float, ptr %73, align 4
-  %75 = fsub float %74, %66
-  %76 = fpext float %75 to double
+  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %71 = load float, ptr %70, align 4
+  %72 = fsub float %71, %66
+  %73 = fpext float %72 to double
   %.not.i52 = icmp eq i64 %indvars.iv11.i51, 0
   br i1 %.not.i52, label %._crit_edge.i57, label %.lr.ph.i53
 
 .lr.ph.i53:                                       ; preds = %67
-  %77 = call double @llvm.fabs.f64(double %72)
+  %74 = load float, ptr %69, align 4
+  %75 = fsub float %74, %64
+  %76 = fpext float %75 to double
+  %77 = fneg double %76
   %78 = call double @llvm.fabs.f64(double %76)
-  %79 = fadd double %77, %78
-  br label %81
+  %79 = call double @llvm.fabs.f64(double %73)
+  %80 = fadd double %79, %78
+  br label %82
 
-80:                                               ; preds = %81
+81:                                               ; preds = %82
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %indvars.iv11.i51
-  br i1 %exitcond.not.i56, label %._crit_edge.i57, label %81, !llvm.loop !161
+  br i1 %exitcond.not.i56, label %._crit_edge.i57, label %82, !llvm.loop !161
 
-81:                                               ; preds = %80, %.lr.ph.i53
-  %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.i53 ], [ %indvars.iv.next.i55, %80 ]
-  %82 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %indvars.iv.i54
-  %83 = load float, ptr %82, align 4
-  %84 = fsub float %83, %64
-  %85 = fpext float %84 to double
-  %86 = getelementptr inbounds i8, ptr %82, i64 4
-  %87 = load float, ptr %86, align 4
-  %88 = fsub float %87, %66
-  %89 = fpext float %88 to double
-  %90 = fneg double %89
-  %91 = fmul double %72, %90
-  %92 = call double @llvm.fmuladd.f64(double %85, double %76, double %91)
+82:                                               ; preds = %81, %.lr.ph.i53
+  %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.i53 ], [ %indvars.iv.next.i55, %81 ]
+  %83 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %indvars.iv.i54
+  %84 = load float, ptr %83, align 4
+  %85 = fsub float %84, %64
+  %86 = fpext float %85 to double
+  %87 = getelementptr inbounds i8, ptr %83, i64 4
+  %88 = load float, ptr %87, align 4
+  %89 = fsub float %88, %66
+  %90 = fpext float %89 to double
+  %91 = fmul double %77, %90
+  %92 = call double @llvm.fmuladd.f64(double %86, double %73, double %91)
   %93 = call double @llvm.fabs.f64(double %92)
-  %94 = call double @llvm.fabs.f64(double %85)
-  %95 = fadd double %79, %94
-  %96 = call double @llvm.fabs.f64(double %89)
+  %94 = call double @llvm.fabs.f64(double %86)
+  %95 = fadd double %80, %94
+  %96 = call double @llvm.fabs.f64(double %90)
   %97 = fadd double %95, %96
   %98 = fmul double %97, 0x3E80000000000000
   %99 = fcmp ugt double %93, %98
-  br i1 %99, label %80, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit60
+  br i1 %99, label %81, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit60
 
-._crit_edge.i57:                                  ; preds = %80, %67
+._crit_edge.i57:                                  ; preds = %81, %67
   %indvars.iv.next12.i58 = add nuw nsw i64 %indvars.iv11.i51, 1
   %100 = icmp ult i64 %indvars.iv.next12.i58, %22
   %exitcond14.not.i59 = icmp eq i64 %indvars.iv.next12.i58, %22
   br i1 %exitcond14.not.i59, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit60, label %67, !llvm.loop !162
 
-_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit60:  ; preds = %._crit_edge.i57, %81
-  %101 = phi i1 [ %68, %81 ], [ %100, %._crit_edge.i57 ]
+_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit60:  ; preds = %._crit_edge.i57, %82
+  %101 = phi i1 [ %68, %82 ], [ %100, %._crit_edge.i57 ]
   br i1 %101, label %175, label %104
 
 102:                                              ; preds = %18, %15, %_ZNK2cv11_InputArray6getMatEi.exit
@@ -7707,23 +7707,23 @@ _ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit60:  ; preds = %._crit_edge.i57, %8
   %149 = load float, ptr %148, align 4
   %150 = fpext float %149 to double
   %151 = fsub double %123, %132
-  %152 = fneg double %129
-  %153 = fsub double %120, %129
-  %154 = fneg double %114
-  %155 = fmul double %153, %154
-  %156 = call double @llvm.fmuladd.f64(double %111, double %151, double %155)
-  %157 = fmul double %123, %152
+  %152 = fsub double %120, %129
+  %153 = fneg double %152
+  %154 = fmul double %114, %153
+  %155 = call double @llvm.fmuladd.f64(double %111, double %151, double %154)
+  %156 = fneg double %123
+  %157 = fmul double %156, %129
   %158 = call double @llvm.fmuladd.f64(double %120, double %132, double %157)
-  %159 = fadd double %158, %156
+  %159 = fadd double %158, %155
   %160 = fsub double %144, %150
-  %161 = fneg double %147
-  %162 = fsub double %141, %147
-  %163 = fneg double %138
-  %164 = fmul double %162, %163
-  %165 = call double @llvm.fmuladd.f64(double %135, double %160, double %164)
-  %166 = fmul double %144, %161
+  %161 = fsub double %141, %147
+  %162 = fneg double %161
+  %163 = fmul double %138, %162
+  %164 = call double @llvm.fmuladd.f64(double %135, double %160, double %163)
+  %165 = fneg double %144
+  %166 = fmul double %165, %147
   %167 = call double @llvm.fmuladd.f64(double %141, double %150, double %166)
-  %168 = fadd double %167, %165
+  %168 = fadd double %167, %164
   %169 = fmul double %159, %168
   %170 = fcmp olt double %169, 0.000000e+00
   %171 = zext i1 %170 to i32
@@ -8680,23 +8680,23 @@ _ZNK2cv11_InputArray6getMatEi.exit19:             ; preds = %79, %82
   %235 = load double, ptr %234, align 8
   %236 = getelementptr inbounds i8, ptr %44, i64 632
   %237 = load double, ptr %236, align 8
-  %238 = fneg double %235
-  %239 = fmul double %237, %238
+  %238 = fneg double %237
+  %239 = fmul double %235, %238
   %240 = call double @llvm.fmuladd.f64(double %231, double %233, double %239)
   %241 = getelementptr inbounds i8, ptr %44, i64 600
   %242 = load double, ptr %241, align 8
   %243 = getelementptr inbounds i8, ptr %44, i64 624
   %244 = load double, ptr %243, align 16
-  %245 = fmul double %244, %238
-  %246 = call double @llvm.fmuladd.f64(double %242, double %233, double %245)
-  %247 = fneg double %231
-  %248 = fmul double %244, %247
+  %245 = fneg double %244
+  %246 = fmul double %235, %245
+  %247 = call double @llvm.fmuladd.f64(double %242, double %233, double %246)
+  %248 = fmul double %231, %245
   %249 = call double @llvm.fmuladd.f64(double %242, double %237, double %248)
   %250 = load double, ptr %220, align 16
   %251 = getelementptr inbounds i8, ptr %44, i64 584
   %252 = load double, ptr %251, align 8
-  %253 = fneg double %252
-  %254 = fmul double %246, %253
+  %253 = fneg double %247
+  %254 = fmul double %252, %253
   %255 = call double @llvm.fmuladd.f64(double %250, double %240, double %254)
   %256 = getelementptr inbounds i8, ptr %44, i64 592
   %257 = load double, ptr %256, align 16
@@ -8706,84 +8706,84 @@ _ZNK2cv11_InputArray6getMatEi.exit19:             ; preds = %79, %82
   %260 = load double, ptr %219, align 8
   %261 = getelementptr inbounds i8, ptr %44, i64 512
   %262 = load double, ptr %261, align 16
-  %263 = fneg double %262
-  %264 = fmul double %246, %263
-  %265 = call double @llvm.fmuladd.f64(double %260, double %240, double %264)
-  %266 = getelementptr inbounds i8, ptr %44, i64 520
-  %267 = load double, ptr %266, align 8
-  %268 = call double @llvm.fmuladd.f64(double %267, double %249, double %265)
-  %269 = getelementptr inbounds i8, ptr %44, i64 528
-  %270 = load double, ptr %269, align 16
-  %271 = fneg double %257
-  %272 = fmul double %237, %271
-  %273 = call double @llvm.fmuladd.f64(double %252, double %233, double %272)
-  %274 = fneg double %270
-  %275 = call double @llvm.fmuladd.f64(double %274, double %273, double %268)
-  %276 = getelementptr inbounds i8, ptr %44, i64 536
-  %277 = load double, ptr %276, align 8
-  %278 = fmul double %244, %271
-  %279 = call double @llvm.fmuladd.f64(double %250, double %233, double %278)
-  %280 = call double @llvm.fmuladd.f64(double %277, double %279, double %275)
-  %281 = getelementptr inbounds i8, ptr %44, i64 544
-  %282 = load double, ptr %281, align 16
-  %283 = fmul double %244, %253
-  %284 = call double @llvm.fmuladd.f64(double %250, double %237, double %283)
-  %285 = fneg double %282
-  %286 = call double @llvm.fmuladd.f64(double %285, double %284, double %280)
-  %287 = getelementptr inbounds i8, ptr %44, i64 552
-  %288 = load double, ptr %287, align 8
-  %289 = fmul double %231, %271
-  %290 = call double @llvm.fmuladd.f64(double %252, double %235, double %289)
-  %291 = call double @llvm.fmuladd.f64(double %288, double %290, double %286)
-  %292 = getelementptr inbounds i8, ptr %44, i64 560
-  %293 = load double, ptr %292, align 16
-  %294 = fmul double %242, %271
+  %263 = fmul double %262, %253
+  %264 = call double @llvm.fmuladd.f64(double %260, double %240, double %263)
+  %265 = getelementptr inbounds i8, ptr %44, i64 520
+  %266 = load double, ptr %265, align 8
+  %267 = call double @llvm.fmuladd.f64(double %266, double %249, double %264)
+  %268 = getelementptr inbounds i8, ptr %44, i64 528
+  %269 = load double, ptr %268, align 16
+  %270 = fmul double %257, %238
+  %271 = call double @llvm.fmuladd.f64(double %252, double %233, double %270)
+  %272 = fneg double %269
+  %273 = call double @llvm.fmuladd.f64(double %272, double %271, double %267)
+  %274 = getelementptr inbounds i8, ptr %44, i64 536
+  %275 = load double, ptr %274, align 8
+  %276 = fmul double %257, %245
+  %277 = call double @llvm.fmuladd.f64(double %250, double %233, double %276)
+  %278 = call double @llvm.fmuladd.f64(double %275, double %277, double %273)
+  %279 = getelementptr inbounds i8, ptr %44, i64 544
+  %280 = load double, ptr %279, align 16
+  %281 = fmul double %252, %245
+  %282 = call double @llvm.fmuladd.f64(double %250, double %237, double %281)
+  %283 = fneg double %280
+  %284 = call double @llvm.fmuladd.f64(double %283, double %282, double %278)
+  %285 = getelementptr inbounds i8, ptr %44, i64 552
+  %286 = load double, ptr %285, align 8
+  %287 = fneg double %231
+  %288 = fmul double %257, %287
+  %289 = call double @llvm.fmuladd.f64(double %252, double %235, double %288)
+  %290 = call double @llvm.fmuladd.f64(double %286, double %289, double %284)
+  %291 = getelementptr inbounds i8, ptr %44, i64 560
+  %292 = load double, ptr %291, align 16
+  %293 = fneg double %242
+  %294 = fmul double %257, %293
   %295 = call double @llvm.fmuladd.f64(double %250, double %235, double %294)
-  %296 = fneg double %293
-  %297 = call double @llvm.fmuladd.f64(double %296, double %295, double %291)
+  %296 = fneg double %292
+  %297 = call double @llvm.fmuladd.f64(double %296, double %295, double %290)
   %298 = getelementptr inbounds i8, ptr %44, i64 568
   %299 = load double, ptr %298, align 8
-  %300 = fmul double %242, %253
+  %300 = fmul double %252, %293
   %301 = call double @llvm.fmuladd.f64(double %250, double %231, double %300)
   %302 = call double @llvm.fmuladd.f64(double %299, double %301, double %297)
   %303 = getelementptr inbounds i8, ptr %45, i64 16
   store double %302, ptr %303, align 16
-  %304 = fmul double %293, %285
-  %305 = call double @llvm.fmuladd.f64(double %277, double %299, double %304)
-  %306 = fmul double %288, %285
-  %307 = call double @llvm.fmuladd.f64(double %270, double %299, double %306)
-  %308 = fneg double %277
-  %309 = fmul double %288, %308
-  %310 = call double @llvm.fmuladd.f64(double %270, double %293, double %309)
-  %311 = fmul double %307, %253
-  %312 = call double @llvm.fmuladd.f64(double %250, double %305, double %311)
-  %313 = call double @llvm.fmuladd.f64(double %257, double %310, double %312)
-  %314 = fneg double %267
-  %315 = fmul double %293, %314
+  %304 = fmul double %280, %296
+  %305 = call double @llvm.fmuladd.f64(double %275, double %299, double %304)
+  %306 = fneg double %286
+  %307 = fmul double %280, %306
+  %308 = call double @llvm.fmuladd.f64(double %269, double %299, double %307)
+  %309 = fmul double %275, %306
+  %310 = call double @llvm.fmuladd.f64(double %269, double %292, double %309)
+  %311 = fneg double %308
+  %312 = fmul double %252, %311
+  %313 = call double @llvm.fmuladd.f64(double %250, double %305, double %312)
+  %314 = call double @llvm.fmuladd.f64(double %257, double %310, double %313)
+  %315 = fmul double %266, %296
   %316 = call double @llvm.fmuladd.f64(double %262, double %299, double %315)
-  %317 = fneg double %242
-  %318 = call double @llvm.fmuladd.f64(double %317, double %316, double %313)
-  %319 = fmul double %288, %314
-  %320 = call double @llvm.fmuladd.f64(double %260, double %299, double %319)
-  %321 = call double @llvm.fmuladd.f64(double %231, double %320, double %318)
-  %322 = fmul double %288, %263
-  %323 = call double @llvm.fmuladd.f64(double %260, double %293, double %322)
-  %324 = call double @llvm.fmuladd.f64(double %238, double %323, double %321)
-  %325 = fmul double %277, %314
-  %326 = call double @llvm.fmuladd.f64(double %262, double %282, double %325)
-  %327 = call double @llvm.fmuladd.f64(double %244, double %326, double %324)
-  %328 = fmul double %270, %314
-  %329 = call double @llvm.fmuladd.f64(double %260, double %282, double %328)
-  %330 = fneg double %237
-  %331 = call double @llvm.fmuladd.f64(double %330, double %329, double %327)
-  %332 = fmul double %270, %263
-  %333 = call double @llvm.fmuladd.f64(double %260, double %277, double %332)
+  %317 = call double @llvm.fmuladd.f64(double %293, double %316, double %314)
+  %318 = fmul double %266, %306
+  %319 = call double @llvm.fmuladd.f64(double %260, double %299, double %318)
+  %320 = call double @llvm.fmuladd.f64(double %231, double %319, double %317)
+  %321 = fmul double %262, %306
+  %322 = call double @llvm.fmuladd.f64(double %260, double %292, double %321)
+  %323 = fneg double %235
+  %324 = call double @llvm.fmuladd.f64(double %323, double %322, double %320)
+  %325 = fneg double %275
+  %326 = fmul double %266, %325
+  %327 = call double @llvm.fmuladd.f64(double %262, double %280, double %326)
+  %328 = call double @llvm.fmuladd.f64(double %244, double %327, double %324)
+  %329 = fmul double %266, %272
+  %330 = call double @llvm.fmuladd.f64(double %260, double %280, double %329)
+  %331 = call double @llvm.fmuladd.f64(double %238, double %330, double %328)
+  %332 = fmul double %262, %272
+  %333 = call double @llvm.fmuladd.f64(double %260, double %275, double %332)
   %334 = call double @llvm.fmuladd.f64(double %233, double %333, double %331)
   %335 = getelementptr inbounds i8, ptr %45, i64 8
   store double %334, ptr %335, align 8
-  %336 = fmul double %307, %263
+  %336 = fmul double %262, %311
   %337 = call double @llvm.fmuladd.f64(double %260, double %305, double %336)
-  %338 = call double @llvm.fmuladd.f64(double %267, double %310, double %337)
+  %338 = call double @llvm.fmuladd.f64(double %266, double %310, double %337)
   store double %338, ptr %45, align 16
   %339 = getelementptr inbounds i8, ptr %57, i64 16
   store i32 0, ptr %339, align 8
@@ -10294,57 +10294,57 @@ _ZNK2cv11_InputArray6getMatEi.exit12:             ; preds = %15, %18
   %indvars.iv11.i = phi i64 [ 0, %.lr.ph6.i ], [ %indvars.iv.next12.i, %._crit_edge.i ]
   %28 = phi i1 [ true, %.lr.ph6.i ], [ %60, %._crit_edge.i ]
   %29 = getelementptr inbounds %"class.cv::Point_", ptr %.val8, i64 %indvars.iv11.i
-  %30 = load float, ptr %29, align 4
-  %31 = fsub float %30, %24
-  %32 = fpext float %31 to double
-  %33 = getelementptr inbounds i8, ptr %29, i64 4
-  %34 = load float, ptr %33, align 4
-  %35 = fsub float %34, %26
-  %36 = fpext float %35 to double
+  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %31 = load float, ptr %30, align 4
+  %32 = fsub float %31, %26
+  %33 = fpext float %32 to double
   %.not.i = icmp eq i64 %indvars.iv11.i, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %27
-  %37 = call double @llvm.fabs.f64(double %32)
+  %34 = load float, ptr %29, align 4
+  %35 = fsub float %34, %24
+  %36 = fpext float %35 to double
+  %37 = fneg double %36
   %38 = call double @llvm.fabs.f64(double %36)
-  %39 = fadd double %37, %38
-  br label %41
+  %39 = call double @llvm.fabs.f64(double %33)
+  %40 = fadd double %39, %38
+  br label %42
 
-40:                                               ; preds = %41
+41:                                               ; preds = %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv11.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %41, !llvm.loop !161
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %42, !llvm.loop !161
 
-41:                                               ; preds = %40, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
-  %42 = getelementptr inbounds %"class.cv::Point_", ptr %.val8, i64 %indvars.iv.i
-  %43 = load float, ptr %42, align 4
-  %44 = fsub float %43, %24
-  %45 = fpext float %44 to double
-  %46 = getelementptr inbounds i8, ptr %42, i64 4
-  %47 = load float, ptr %46, align 4
-  %48 = fsub float %47, %26
-  %49 = fpext float %48 to double
-  %50 = fneg double %49
-  %51 = fmul double %32, %50
-  %52 = call double @llvm.fmuladd.f64(double %45, double %36, double %51)
+42:                                               ; preds = %41, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
+  %43 = getelementptr inbounds %"class.cv::Point_", ptr %.val8, i64 %indvars.iv.i
+  %44 = load float, ptr %43, align 4
+  %45 = fsub float %44, %24
+  %46 = fpext float %45 to double
+  %47 = getelementptr inbounds i8, ptr %43, i64 4
+  %48 = load float, ptr %47, align 4
+  %49 = fsub float %48, %26
+  %50 = fpext float %49 to double
+  %51 = fmul double %37, %50
+  %52 = call double @llvm.fmuladd.f64(double %46, double %33, double %51)
   %53 = call double @llvm.fabs.f64(double %52)
-  %54 = call double @llvm.fabs.f64(double %45)
-  %55 = fadd double %39, %54
-  %56 = call double @llvm.fabs.f64(double %49)
+  %54 = call double @llvm.fabs.f64(double %46)
+  %55 = fadd double %40, %54
+  %56 = call double @llvm.fabs.f64(double %50)
   %57 = fadd double %55, %56
   %58 = fmul double %57, 0x3E80000000000000
   %59 = fcmp ugt double %53, %58
-  br i1 %59, label %40, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
+  br i1 %59, label %41, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
-._crit_edge.i:                                    ; preds = %40, %27
+._crit_edge.i:                                    ; preds = %41, %27
   %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
   %60 = icmp ult i64 %indvars.iv.next12.i, %22
   %exitcond14.not.i = icmp eq i64 %indvars.iv.next12.i, %22
   br i1 %exitcond14.not.i, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit, label %27, !llvm.loop !162
 
-_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %._crit_edge.i, %41
-  %61 = phi i1 [ %28, %41 ], [ %60, %._crit_edge.i ]
+_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %._crit_edge.i, %42
+  %61 = phi i1 [ %28, %42 ], [ %60, %._crit_edge.i ]
   br i1 %61, label %103, label %.lr.ph6.i13
 
 .lr.ph6.i13:                                      ; preds = %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
@@ -10360,57 +10360,57 @@ _ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %._crit_edge.i, %41
   %indvars.iv11.i15 = phi i64 [ 0, %.lr.ph6.i13 ], [ %indvars.iv.next12.i22, %._crit_edge.i21 ]
   %68 = phi i1 [ true, %.lr.ph6.i13 ], [ %100, %._crit_edge.i21 ]
   %69 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv11.i15
-  %70 = load float, ptr %69, align 4
-  %71 = fsub float %70, %64
-  %72 = fpext float %71 to double
-  %73 = getelementptr inbounds i8, ptr %69, i64 4
-  %74 = load float, ptr %73, align 4
-  %75 = fsub float %74, %66
-  %76 = fpext float %75 to double
+  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %71 = load float, ptr %70, align 4
+  %72 = fsub float %71, %66
+  %73 = fpext float %72 to double
   %.not.i16 = icmp eq i64 %indvars.iv11.i15, 0
   br i1 %.not.i16, label %._crit_edge.i21, label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %67
-  %77 = call double @llvm.fabs.f64(double %72)
+  %74 = load float, ptr %69, align 4
+  %75 = fsub float %74, %64
+  %76 = fpext float %75 to double
+  %77 = fneg double %76
   %78 = call double @llvm.fabs.f64(double %76)
-  %79 = fadd double %77, %78
-  br label %81
+  %79 = call double @llvm.fabs.f64(double %73)
+  %80 = fadd double %79, %78
+  br label %82
 
-80:                                               ; preds = %81
+81:                                               ; preds = %82
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, %indvars.iv11.i15
-  br i1 %exitcond.not.i20, label %._crit_edge.i21, label %81, !llvm.loop !161
+  br i1 %exitcond.not.i20, label %._crit_edge.i21, label %82, !llvm.loop !161
 
-81:                                               ; preds = %80, %.lr.ph.i17
-  %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.i17 ], [ %indvars.iv.next.i19, %80 ]
-  %82 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv.i18
-  %83 = load float, ptr %82, align 4
-  %84 = fsub float %83, %64
-  %85 = fpext float %84 to double
-  %86 = getelementptr inbounds i8, ptr %82, i64 4
-  %87 = load float, ptr %86, align 4
-  %88 = fsub float %87, %66
-  %89 = fpext float %88 to double
-  %90 = fneg double %89
-  %91 = fmul double %72, %90
-  %92 = call double @llvm.fmuladd.f64(double %85, double %76, double %91)
+82:                                               ; preds = %81, %.lr.ph.i17
+  %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.i17 ], [ %indvars.iv.next.i19, %81 ]
+  %83 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv.i18
+  %84 = load float, ptr %83, align 4
+  %85 = fsub float %84, %64
+  %86 = fpext float %85 to double
+  %87 = getelementptr inbounds i8, ptr %83, i64 4
+  %88 = load float, ptr %87, align 4
+  %89 = fsub float %88, %66
+  %90 = fpext float %89 to double
+  %91 = fmul double %77, %90
+  %92 = call double @llvm.fmuladd.f64(double %86, double %73, double %91)
   %93 = call double @llvm.fabs.f64(double %92)
-  %94 = call double @llvm.fabs.f64(double %85)
-  %95 = fadd double %79, %94
-  %96 = call double @llvm.fabs.f64(double %89)
+  %94 = call double @llvm.fabs.f64(double %86)
+  %95 = fadd double %80, %94
+  %96 = call double @llvm.fabs.f64(double %90)
   %97 = fadd double %95, %96
   %98 = fmul double %97, 0x3E80000000000000
   %99 = fcmp ugt double %93, %98
-  br i1 %99, label %80, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit24
+  br i1 %99, label %81, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit24
 
-._crit_edge.i21:                                  ; preds = %80, %67
+._crit_edge.i21:                                  ; preds = %81, %67
   %indvars.iv.next12.i22 = add nuw nsw i64 %indvars.iv11.i15, 1
   %100 = icmp ult i64 %indvars.iv.next12.i22, %22
   %exitcond14.not.i23 = icmp eq i64 %indvars.iv.next12.i22, %22
   br i1 %exitcond14.not.i23, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit24, label %67, !llvm.loop !162
 
-_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit24:  ; preds = %._crit_edge.i21, %81, %_ZNK2cv11_InputArray6getMatEi.exit12
-  %101 = phi i1 [ false, %_ZNK2cv11_InputArray6getMatEi.exit12 ], [ %68, %81 ], [ %100, %._crit_edge.i21 ]
+_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit24:  ; preds = %._crit_edge.i21, %82, %_ZNK2cv11_InputArray6getMatEi.exit12
+  %101 = phi i1 [ false, %_ZNK2cv11_InputArray6getMatEi.exit12 ], [ %68, %82 ], [ %100, %._crit_edge.i21 ]
   %102 = xor i1 %101, true
   br label %103
 

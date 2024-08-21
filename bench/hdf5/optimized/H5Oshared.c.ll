@@ -78,7 +78,7 @@ define noundef ptr @H5O__shared_decode(ptr noundef %0, ptr noundef %1, ptr nound
   %12 = alloca %struct.H5O_shared_t, align 8
   %13 = getelementptr i8, ptr %4, i64 %3
   %.ptr60 = getelementptr i8, ptr %13, i64 -1
-  %14 = icmp ult ptr %.ptr60, %4
+  %14 = icmp ugt ptr %4, %.ptr60
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %6

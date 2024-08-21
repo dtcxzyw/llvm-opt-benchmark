@@ -136,7 +136,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i16: ; preds = %.lr.ph.i.i.i.i
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 2
-  %59 = icmp ult i64 %58, %51
+  %59 = icmp ugt i64 %51, %58
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %.loopexit
@@ -150,7 +150,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i16: ; preds = %.lr.ph.i.i.i.i
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 62:                                               ; preds = %.loopexit
-  %63 = icmp ugt i64 %58, %51
+  %63 = icmp ult i64 %51, %58
   br i1 %63, label %64, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 64:                                               ; preds = %62

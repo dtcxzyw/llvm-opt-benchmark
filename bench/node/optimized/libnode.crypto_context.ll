@@ -3815,7 +3815,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i49 = icmp ult i64 %sub.ptr.sub.i.i, %add
+  %cmp.i49 = icmp ugt i64 %add, %sub.ptr.sub.i.i
   br i1 %cmp.i49, label %if.then.i51, label %if.else.i
 
 if.then.i51:                                      ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
@@ -3899,7 +3899,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i: ; preds = %if.then.i28.
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %add
+  %cmp4.i = icmp ult i64 %add, %sub.ptr.sub.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i

@@ -317,7 +317,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end1
   %thisext.040.i = phi ptr [ @ext_defs, %if.end13 ], [ %incdec.ptr.i, %for.inc.i ]
   %i.039.i = phi i64 [ 0, %if.end13 ], [ %inc.i, %for.inc.i ]
   %9 = load i32, ptr %thisext.040.i, align 8
-  %cmp2.i = icmp eq i32 %9, %or.i.i
+  %cmp2.i = icmp eq i32 %or.i.i, %9
   br i1 %cmp2.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i

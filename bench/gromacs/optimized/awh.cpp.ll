@@ -340,7 +340,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %12
   %34 = ptrtoint ptr %29 to i64
   %35 = sub i64 %33, %34
   %36 = sdiv exact i64 %35, 40
-  %37 = icmp ne ptr %30, %28
+  %37 = icmp ne ptr %28, %30
   %sext = shl i64 %36, 32
   %38 = ashr exact i64 %sext, 32
   %39 = zext i1 %37 to i64
@@ -1075,7 +1075,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %13
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %31 = extractvalue { ptr, i32 } %lpad.phi, 0
   %32 = tail call ptr @__cxa_begin_catch(ptr %31) #24
-  %.not4.i.i = icmp eq ptr %.017, %2
+  %.not4.i.i = icmp eq ptr %2, %.017
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN3gmx9GridPointEEvT_S3_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %30, %_ZSt8_DestroyIN3gmx9GridPointEEvPT_.exit.i.i
@@ -1707,7 +1707,7 @@ define void @_ZN3gmx3AwhC2EP8_IO_FILERK10t_inputrecPK9t_commrecPK14gmx_multisim_
 
 .loopexit315:                                     ; preds = %.lr.ph.i.i.i.i.i.i, %.loopexit.split.loop.exit45.i.i.i.i.i.i, %.loopexit.split.loop.exit43.i.i.i.i.i.i, %.loopexit.split.loop.exit41.i.i.i.i.i.i, %89, %84, %79, %._crit_edge.i.i.i.i.i.i
   %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i.i.i, %79 ], [ %.sroa.033.1.i.i.i.i.i.i, %84 ], [ %58, %._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %89 ], [ %92, %.loopexit.split.loop.exit41.i.i.i.i.i.i ], [ %93, %.loopexit.split.loop.exit43.i.i.i.i.i.i ], [ %94, %.loopexit.split.loop.exit45.i.i.i.i.i.i ], [ %.sroa.033.050.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %.not296 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i, %.val138
+  %.not296 = icmp eq ptr %.val138, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %.not296, label %96, label %95
 
 95:                                               ; preds = %.loopexit315
@@ -2819,7 +2819,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i": ; preds = %19, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit98", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit100", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i, %35, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %35 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %15, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit" ], [ %44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit98" ], [ %45, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i.loopexit.split.loop.exit100" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i.i.i.i.i.i, %19 ]
-  %.not210.i.i.i.i.i = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i, %.val2.i.i.i.i.i.i
+  %.not210.i.i.i.i.i = icmp eq ptr %.val2.i.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %.not210.i.i.i.i.i, label %46, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit"
 
 46:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i"
@@ -2926,7 +2926,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i": ; preds = %56, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit106", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit108", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i29.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i34.i.i.i.i.i, %72, %._crit_edge.i.i.i.i.i.i.i.i26.i.i.i.i.i
   %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i33.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i28.i.i.i.i.i, %72 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i35.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i34.i.i.i.i.i ], [ %52, %._crit_edge.i.i.i.i.i.i.i.i26.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i32.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i29.i.i.i.i.i ], [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit" ], [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit106" ], [ %82, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i.loopexit.split.loop.exit108" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i41.i.i.i.i.i, %56 ]
-  %.not211.i.i.i.i.i = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i33.i.i.i.i.i, %.val2.i25.i.i.i.i.i
+  %.not211.i.i.i.i.i = icmp eq ptr %.val2.i25.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i33.i.i.i.i.i
   br i1 %.not211.i.i.i.i.i, label %83, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit"
 
 83:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit52.i.i.i.i.i"
@@ -3033,7 +3033,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i": ; preds = %93, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit114", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit116", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i58.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i63.i.i.i.i.i, %109, %._crit_edge.i.i.i.i.i.i.i.i55.i.i.i.i.i
   %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i62.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i57.i.i.i.i.i, %109 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i64.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i63.i.i.i.i.i ], [ %89, %._crit_edge.i.i.i.i.i.i.i.i55.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i61.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i58.i.i.i.i.i ], [ %117, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit" ], [ %118, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit114" ], [ %119, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i.loopexit.split.loop.exit116" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i70.i.i.i.i.i, %93 ]
-  %.not212.i.i.i.i.i = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i62.i.i.i.i.i, %.val2.i54.i.i.i.i.i
+  %.not212.i.i.i.i.i = icmp eq ptr %.val2.i54.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i62.i.i.i.i.i
   br i1 %.not212.i.i.i.i.i, label %120, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit130"
 
 120:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit81.i.i.i.i.i"
@@ -3140,7 +3140,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i": ; preds = %130, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit122", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit124", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i87.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i92.i.i.i.i.i, %146, %._crit_edge.i.i.i.i.i.i.i.i84.i.i.i.i.i
   %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i91.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i86.i.i.i.i.i, %146 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i93.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i92.i.i.i.i.i ], [ %126, %._crit_edge.i.i.i.i.i.i.i.i84.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i90.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i87.i.i.i.i.i ], [ %154, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit" ], [ %155, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit122" ], [ %156, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i.loopexit.split.loop.exit124" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i99.i.i.i.i.i, %130 ]
-  %.not213.i.i.i.i.i = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i91.i.i.i.i.i, %.val2.i83.i.i.i.i.i
+  %.not213.i.i.i.i.i = icmp eq ptr %.val2.i83.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i91.i.i.i.i.i
   br i1 %.not213.i.i.i.i.i, label %157, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit132"
 
 157:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit110.i.i.i.i.i"
@@ -3267,7 +3267,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i": ; preds = %171, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit138", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit140", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i116.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i121.i.i.i.i.i, %187, %._crit_edge.i.i.i.i.i.i.i.i113.i.i.i.i.i
   %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i120.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i115.i.i.i.i.i, %187 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i122.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i121.i.i.i.i.i ], [ %167, %._crit_edge.i.i.i.i.i.i.i.i113.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i119.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i116.i.i.i.i.i ], [ %195, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit" ], [ %196, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit138" ], [ %197, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i.loopexit.split.loop.exit140" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i128.i.i.i.i.i, %171 ]
-  %.not.i.i.i.i.i = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i120.i.i.i.i.i, %.val2.i112.i.i.i.i.i
+  %.not.i.i.i.i.i = icmp eq ptr %.val2.i112.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i120.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %198, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit"
 
 198:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i"
@@ -3378,7 +3378,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i": ; preds = %208, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit146", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit148", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i145.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i150.i.i.i.i.i, %224, %._crit_edge.i.i.i.i.i.i.i.i142.i.i.i.i.i
   %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i149.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i144.i.i.i.i.i, %224 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i151.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i150.i.i.i.i.i ], [ %204, %._crit_edge.i.i.i.i.i.i.i.i142.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i148.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i145.i.i.i.i.i ], [ %232, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit" ], [ %233, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit146" ], [ %234, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i.loopexit.split.loop.exit148" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i157.i.i.i.i.i, %208 ]
-  %.not208.i.i.i.i.i = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i149.i.i.i.i.i, %.val2.i141.i.i.i.i.i
+  %.not208.i.i.i.i.i = icmp eq ptr %.val2.i141.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i149.i.i.i.i.i
   br i1 %.not208.i.i.i.i.i, label %235, label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit"
 
 235:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i"
@@ -3489,7 +3489,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i": ; preds = %245, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit154", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit156", %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i174.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i179.i.i.i.i.i, %261, %._crit_edge.i.i.i.i.i.i.i.i171.i.i.i.i.i
   %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i178.i.i.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i.i.i.i.i.i173.i.i.i.i.i, %261 ], [ %.sroa.040.1.i.i.i.i.i.i.i.i180.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i179.i.i.i.i.i ], [ %241, %._crit_edge.i.i.i.i.i.i.i.i171.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i177.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i.i.i.i174.i.i.i.i.i ], [ %269, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit" ], [ %270, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit154" ], [ %271, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i.loopexit.split.loop.exit156" ], [ %.sroa.040.057.i.i.i.i.i.i.i.i186.i.i.i.i.i, %245 ]
-  %.not209.i.i.i.i.i = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i178.i.i.i.i.i, %.val2.i170.i.i.i.i.i
+  %.not209.i.i.i.i.i = icmp eq ptr %.val2.i170.i.i.i.i.i, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i.i.i178.i.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %.not209.i.i.i.i.i, ptr %5, ptr %.sroa.0201.2.i.i.i.i.i
   br label %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit"
 
@@ -3507,7 +3507,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9Aw
 
 "_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i", %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit130", %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit132", %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i"
   %.sroa.010.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.0201.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit139.i.i.i.i.i" ], [ %.sroa.0201.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit168.i.i.i.i.i" ], [ %5, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit197.i.i.i.i.i" ], [ %272, %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit" ], [ %273, %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit130" ], [ %274, %"_ZSt6any_ofIN3gmx12ArrayRefIterIKNS0_13AwhBiasParamsEEEZNS0_L18anyDimUsesProviderERKNS0_9AwhParamsENS0_25AwhCoordinateProviderTypeEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit132" ], [ %.sroa.0201.0256.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL18anyDimUsesProviderERKNS2_9AwhParamsENS2_25AwhCoordinateProviderTypeEE3$_0EclINS2_12ArrayRefIterIKNS2_13AwhBiasParamsEEEEEbT_.exit.i.i.i.i.i" ]
-  %275 = icmp ne ptr %.sroa.010.0.in.sroa.speculated.i.i.i.i.i, %.8.val
+  %275 = icmp ne ptr %.8.val, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i
   ret i1 %275
 }
 
@@ -4898,7 +4898,7 @@ _ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit: ; preds = %12, %_ZSt8_
   %37 = ptrtoint ptr %25 to i64
   %38 = sub i64 %36, %37
   %39 = sdiv exact i64 %38, 112
-  %40 = icmp ult i64 %39, %34
+  %40 = icmp ugt i64 %34, %39
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit
@@ -4907,7 +4907,7 @@ _ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit: ; preds = %12, %_ZSt8_
           to label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp
 
 43:                                               ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit
-  %44 = icmp ugt i64 %39, %34
+  %44 = icmp ult i64 %34, %39
   br i1 %44, label %45, label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit
 
 45:                                               ; preds = %43
@@ -5734,7 +5734,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh21hasFepLambdaDimensionEv(ptr nocapture n
   %11 = getelementptr i8, ptr %.sroa.037.062.i.i.i.i.i, i64 8
   %.val1.i.i.i.i.i.i = load ptr, ptr %11, align 8
   %12 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %.val.i.i.i.i.i.i, ptr %.val1.i.i.i.i.i.i)
-  %.not48.i.i.i.i.i = icmp eq ptr %12, %.val1.i.i.i.i.i.i
+  %.not48.i.i.i.i.i = icmp eq ptr %.val1.i.i.i.i.i.i, %12
   br i1 %.not48.i.i.i.i.i, label %13, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit"
 
 13:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -5743,7 +5743,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh21hasFepLambdaDimensionEv(ptr nocapture n
   %15 = getelementptr i8, ptr %.sroa.037.062.i.i.i.i.i, i64 592
   %.val1.i17.i.i.i.i.i = load ptr, ptr %15, align 8
   %16 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %.val.i16.i.i.i.i.i, ptr %.val1.i17.i.i.i.i.i)
-  %.not49.i.i.i.i.i = icmp eq ptr %16, %.val1.i17.i.i.i.i.i
+  %.not49.i.i.i.i.i = icmp eq ptr %.val1.i17.i.i.i.i.i, %16
   br i1 %.not49.i.i.i.i.i, label %17, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit"
 
 17:                                               ; preds = %13
@@ -5752,7 +5752,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh21hasFepLambdaDimensionEv(ptr nocapture n
   %19 = getelementptr i8, ptr %.sroa.037.062.i.i.i.i.i, i64 1176
   %.val1.i19.i.i.i.i.i = load ptr, ptr %19, align 8
   %20 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %.val.i18.i.i.i.i.i, ptr %.val1.i19.i.i.i.i.i)
-  %.not50.i.i.i.i.i = icmp eq ptr %20, %.val1.i19.i.i.i.i.i
+  %.not50.i.i.i.i.i = icmp eq ptr %.val1.i19.i.i.i.i.i, %20
   br i1 %.not50.i.i.i.i.i, label %21, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit14"
 
 21:                                               ; preds = %17
@@ -5761,7 +5761,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh21hasFepLambdaDimensionEv(ptr nocapture n
   %23 = getelementptr i8, ptr %.sroa.037.062.i.i.i.i.i, i64 1760
   %.val1.i21.i.i.i.i.i = load ptr, ptr %23, align 8
   %24 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %.val.i20.i.i.i.i.i, ptr %.val1.i21.i.i.i.i.i)
-  %.not51.i.i.i.i.i = icmp eq ptr %24, %.val1.i21.i.i.i.i.i
+  %.not51.i.i.i.i.i = icmp eq ptr %.val1.i21.i.i.i.i.i, %24
   br i1 %.not51.i.i.i.i.i, label %25, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit16"
 
 25:                                               ; preds = %21
@@ -5790,7 +5790,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh21hasFepLambdaDimensionEv(ptr nocapture n
   %31 = getelementptr i8, ptr %.sroa.037.0.lcssa.i.i.i.i.i, i64 8
   %.val1.i23.i.i.i.i.i = load ptr, ptr %31, align 8
   %32 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %.val.i22.i.i.i.i.i, ptr %.val1.i23.i.i.i.i.i)
-  %.not.i.i.i.i.i = icmp eq ptr %32, %.val1.i23.i.i.i.i.i
+  %.not.i.i.i.i.i = icmp eq ptr %.val1.i23.i.i.i.i.i, %32
   br i1 %.not.i.i.i.i.i, label %33, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit"
 
 33:                                               ; preds = %30
@@ -5803,7 +5803,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh21hasFepLambdaDimensionEv(ptr nocapture n
   %36 = getelementptr i8, ptr %.sroa.037.1.i.i.i.i.i, i64 8
   %.val1.i25.i.i.i.i.i = load ptr, ptr %36, align 8
   %37 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %.val.i24.i.i.i.i.i, ptr %.val1.i25.i.i.i.i.i)
-  %.not46.i.i.i.i.i = icmp eq ptr %37, %.val1.i25.i.i.i.i.i
+  %.not46.i.i.i.i.i = icmp eq ptr %.val1.i25.i.i.i.i.i, %37
   br i1 %.not46.i.i.i.i.i, label %38, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit"
 
 38:                                               ; preds = %35
@@ -5816,7 +5816,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh21hasFepLambdaDimensionEv(ptr nocapture n
   %41 = getelementptr i8, ptr %.sroa.037.2.i.i.i.i.i, i64 8
   %.val1.i27.i.i.i.i.i = load ptr, ptr %41, align 8
   %42 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %.val.i26.i.i.i.i.i, ptr %.val1.i27.i.i.i.i.i)
-  %.not47.i.i.i.i.i = icmp eq ptr %42, %.val1.i27.i.i.i.i.i
+  %.not47.i.i.i.i.i = icmp eq ptr %.val1.i27.i.i.i.i.i, %42
   %spec.select.i.i.i.i.i = select i1 %.not47.i.i.i.i.i, ptr %4, ptr %.sroa.037.2.i.i.i.i.i
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit"
 
@@ -5834,7 +5834,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh21hasFepLambdaDimensionEv(ptr nocapture n
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit14", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit16", %._crit_edge.i.i.i.i.i, %30, %35, %40
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %30 ], [ %.sroa.037.1.i.i.i.i.i, %35 ], [ %4, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %40 ], [ %43, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit" ], [ %44, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit14" ], [ %45, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh21hasFepLambdaDimensionEvE3$_0EbT_SC_T0_.exit.loopexit.split.loop.exit16" ], [ %.sroa.037.062.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %46 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %4
+  %46 = icmp ne ptr %4, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   ret i1 %46
 }
 
@@ -5866,7 +5866,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   %17 = getelementptr inbounds i8, ptr %.sroa.037.047.i.i.i.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %16, ptr %18)
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %19, %18
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %18, %19
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i
@@ -5879,7 +5879,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   %23 = getelementptr inbounds i8, ptr %.sroa.037.047.i.i.i.i.i, i64 592
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %22, ptr %24)
-  %.not.i.i16.i.i.i.i.i = icmp eq ptr %25, %24
+  %.not.i.i16.i.i.i.i.i = icmp eq ptr %24, %25
   br i1 %.not.i.i16.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.thread.i.i.i.i.i"
@@ -5892,7 +5892,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   %29 = getelementptr inbounds i8, ptr %.sroa.037.047.i.i.i.i.i, i64 1176
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %28, ptr %30)
-  %.not.i.i18.i.i.i.i.i = icmp eq ptr %31, %30
+  %.not.i.i18.i.i.i.i.i = icmp eq ptr %30, %31
   br i1 %.not.i.i18.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.thread.i.i.i.i.i"
@@ -5905,7 +5905,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   %35 = getelementptr inbounds i8, ptr %.sroa.037.047.i.i.i.i.i, i64 1760
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %34, ptr %36)
-  %.not.i.i20.i.i.i.i.i = icmp eq ptr %37, %36
+  %.not.i.i20.i.i.i.i.i = icmp eq ptr %36, %37
   br i1 %.not.i.i20.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.thread.i.i.i.i.i"
@@ -5938,7 +5938,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   %45 = getelementptr inbounds i8, ptr %.sroa.037.0.lcssa.i.i.i.i.i, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %44, ptr %46)
-  %.not.i.i22.i.i.i.i.i = icmp eq ptr %47, %46
+  %.not.i.i22.i.i.i.i.i = icmp eq ptr %46, %47
   br i1 %.not.i.i22.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.i.i.i.i.i": ; preds = %43
@@ -5955,7 +5955,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   %52 = getelementptr inbounds i8, ptr %.sroa.037.1.i.i.i.i.i, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %51, ptr %53)
-  %.not.i.i24.i.i.i.i.i = icmp eq ptr %54, %53
+  %.not.i.i24.i.i.i.i.i = icmp eq ptr %53, %54
   br i1 %.not.i.i24.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.i.i.i.i.i": ; preds = %50
@@ -5972,7 +5972,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   %59 = getelementptr inbounds i8, ptr %.sroa.037.2.i.i.i.i.i, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9DimParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNKS2_4Bias21hasFepLambdaDimensionEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %58, ptr %60)
-  %.not.i.i26.i.i.i.i.i = icmp eq ptr %61, %60
+  %.not.i.i26.i.i.i.i.i = icmp eq ptr %60, %61
   br i1 %.not.i.i26.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.i.i.i.i.i": ; preds = %57
@@ -5984,7 +5984,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh28needForeignEnergyDifferencesElE3$_0EbT_SC_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.i.i.i.i.i", %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.thread.i.i.i.i.i"
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.i.i.i.i.i" ], [ %.sroa.037.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.i.i.i.i.i" ], [ %.sroa.037.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.i.i.i.i.i" ], [ %9, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.thread.i.i.i.i.i" ], [ %9, %._crit_edge.i.i.i.i.i ], [ %.sroa.037.047.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i" ], [ %21, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.i.i.i.i.i" ], [ %27, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.i.i.i.i.i" ], [ %33, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.i.i.i.i.i" ]
-  %63 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %9
+  %63 = icmp ne ptr %9, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br label %64
 
 64:                                               ; preds = %4, %2, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh28needForeignEnergyDifferencesElE3$_0EbT_SC_T0_.exit"

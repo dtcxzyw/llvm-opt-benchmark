@@ -164,7 +164,7 @@ define noundef zeroext i1 @_Z10equal_realffff(float noundef %0, float noundef %1
   %8 = tail call noundef float @llvm.fabs.f32(float %0)
   %9 = tail call noundef float @llvm.fabs.f32(float %1)
   %10 = fadd float %8, %9
-  %11 = fmul float %10, %2
+  %11 = fmul float %2, %10
   %12 = fcmp ole float %7, %11
   %13 = fcmp ole float %6, %3
   %14 = or i1 %13, %12
@@ -182,7 +182,7 @@ define noundef zeroext i1 @_Z11equal_floatffff(float noundef %0, float noundef %
   %8 = tail call noundef float @llvm.fabs.f32(float %0)
   %9 = tail call noundef float @llvm.fabs.f32(float %1)
   %10 = fadd float %8, %9
-  %11 = fmul float %10, %2
+  %11 = fmul float %2, %10
   %12 = fcmp ole float %7, %11
   %13 = fcmp ole float %6, %3
   %14 = or i1 %13, %12
@@ -217,7 +217,7 @@ define void @_Z8cmp_realP8_IO_FILEPKciffff(ptr nocapture noundef %0, ptr noundef
   %11 = tail call noundef float @llvm.fabs.f32(float %3)
   %12 = tail call noundef float @llvm.fabs.f32(float %4)
   %13 = fadd float %11, %12
-  %14 = fmul float %13, %5
+  %14 = fmul float %5, %13
   %15 = fcmp ole float %10, %14
   %16 = fcmp ole float %9, %6
   %17 = or i1 %16, %15
@@ -249,7 +249,7 @@ define void @_Z9cmp_floatP8_IO_FILEPKciffff(ptr nocapture noundef %0, ptr nounde
   %11 = tail call noundef float @llvm.fabs.f32(float %3)
   %12 = tail call noundef float @llvm.fabs.f32(float %4)
   %13 = fadd float %11, %12
-  %14 = fmul float %13, %5
+  %14 = fmul float %5, %13
   %15 = fcmp ole float %10, %14
   %16 = fcmp ole float %9, %6
   %17 = or i1 %16, %15

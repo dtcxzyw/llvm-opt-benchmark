@@ -630,7 +630,7 @@ define internal i32 @pipe_to_null(ptr nocapture readnone %0, ptr nocapture readn
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @read_port(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = ptrtoint ptr %1 to i64
-  %6 = add i64 %5, %2
+  %6 = add i64 %2, %5
   %7 = icmp sgt i64 %6, -1
   %8 = icmp uge i64 %6, %5
   %9 = and i1 %7, %8
@@ -687,7 +687,7 @@ define internal i64 @read_port(ptr nocapture readnone %0, ptr noundef %1, i64 no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @write_port(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = ptrtoint ptr %1 to i64
-  %6 = add i64 %5, %2
+  %6 = add i64 %2, %5
   %7 = icmp sgt i64 %6, -1
   %8 = icmp uge i64 %6, %5
   %9 = and i1 %7, %8

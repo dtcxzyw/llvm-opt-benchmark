@@ -1302,7 +1302,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %38, i8 0, i64 %mul.i.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %40 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %40
+  %cmp.i.i.i.i.i.i = icmp eq ptr %40, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN7rocksdb9IOOptionsD2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -1376,7 +1376,7 @@ invoke.cont41.if.then45_crit_edge:                ; preds = %invoke.cont41
 
 if.then45:                                        ; preds = %for.body, %invoke.cont41.if.then45_crit_edge
   %50 = phi i64 [ %.pre363, %invoke.cont41.if.then45_crit_edge ], [ %44, %for.body ]
-  %cmp2.i = icmp ugt i64 %50, %.sroa.speculated
+  %cmp2.i = icmp ult i64 %.sroa.speculated, %50
   br i1 %cmp2.i, label %if.end50, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then45
@@ -1495,7 +1495,7 @@ if.then67:                                        ; preds = %land.lhs.true53
           to label %invoke.cont69 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont69:                                    ; preds = %if.then67
-  %cmp.not.i117 = icmp eq ptr %ref.tmp68, %agg.result
+  %cmp.not.i117 = icmp eq ptr %agg.result, %ref.tmp68
   br i1 %cmp.not.i117, label %_ZN7rocksdb8IOStatusaSEOS0_.exit, label %if.then.i118
 
 if.then.i118:                                     ; preds = %invoke.cont69
@@ -1612,7 +1612,7 @@ if.then94:                                        ; preds = %invoke.cont83
 while.cond.preheader:                             ; preds = %if.then94
   %buffered_data_crc32c_checksum_125 = getelementptr inbounds i8, ptr %this, i64 212
   %bufstart_.i184 = getelementptr inbounds i8, ptr %this, i64 96
-  %cmp.not.i189 = icmp eq ptr %ref.tmp132, %agg.result
+  %cmp.not.i189 = icmp eq ptr %agg.result, %ref.tmp132
   %subcode_.i191 = getelementptr inbounds i8, ptr %ref.tmp132, i64 1
   %retryable_.i193 = getelementptr inbounds i8, ptr %ref.tmp132, i64 3
   %retryable_6.i194 = getelementptr inbounds i8, ptr %agg.result, i64 3
@@ -1735,7 +1735,7 @@ if.else141:                                       ; preds = %invoke.cont83
           to label %invoke.cont144 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont144:                                   ; preds = %if.else141
-  %cmp.not.i212 = icmp eq ptr %ref.tmp143, %agg.result
+  %cmp.not.i212 = icmp eq ptr %agg.result, %ref.tmp143
   br i1 %cmp.not.i212, label %_ZN7rocksdb8IOStatusaSEOS0_.exit229, label %if.then.i213
 
 if.then.i213:                                     ; preds = %invoke.cont144
@@ -1831,7 +1831,7 @@ while.body158.lr.ph:                              ; preds = %while.cond156.prehe
   %bufstart_.i258 = getelementptr inbounds i8, ptr %this, i64 96
   %buffered_data_with_checksum_166 = getelementptr inbounds i8, ptr %this, i64 216
   %buffered_data_crc32c_checksum_169 = getelementptr inbounds i8, ptr %this, i64 212
-  %cmp.not.i263 = icmp eq ptr %ref.tmp178, %agg.result
+  %cmp.not.i263 = icmp eq ptr %agg.result, %ref.tmp178
   %subcode_.i265 = getelementptr inbounds i8, ptr %ref.tmp178, i64 1
   %retryable_.i267 = getelementptr inbounds i8, ptr %ref.tmp178, i64 3
   %retryable_6.i268 = getelementptr inbounds i8, ptr %agg.result, i64 3
@@ -1958,7 +1958,7 @@ invoke.cont194:                                   ; preds = %if.then193
           to label %invoke.cont198 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont198:                                   ; preds = %invoke.cont194
-  %cmp.not.i288 = icmp eq ptr %ref.tmp197, %agg.result
+  %cmp.not.i288 = icmp eq ptr %agg.result, %ref.tmp197
   br i1 %cmp.not.i288, label %_ZN7rocksdb8IOStatusaSEOS0_.exit305, label %if.then.i289
 
 if.then.i289:                                     ; preds = %invoke.cont198
@@ -2015,7 +2015,7 @@ if.else200:                                       ; preds = %land.lhs.true190, %
           to label %invoke.cont202 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont202:                                   ; preds = %if.else200
-  %cmp.not.i310 = icmp eq ptr %ref.tmp201, %agg.result
+  %cmp.not.i310 = icmp eq ptr %agg.result, %ref.tmp201
   br i1 %cmp.not.i310, label %_ZN7rocksdb8IOStatusaSEOS0_.exit327, label %if.then.i311
 
 if.then.i311:                                     ; preds = %invoke.cont202
@@ -2224,7 +2224,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %property_bag, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -2370,7 +2370,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %if.else
-  %cmp.not.i = icmp eq ptr %ref.tmp13, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp13
   br i1 %cmp.not.i, label %_ZN7rocksdb8IOStatusaSEOS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont14
@@ -2434,7 +2434,7 @@ if.then24:                                        ; preds = %land.lhs.true21
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %if.then24
-  %cmp.not.i22 = icmp eq ptr %ref.tmp25, %agg.result
+  %cmp.not.i22 = icmp eq ptr %agg.result, %ref.tmp25
   br i1 %cmp.not.i22, label %_ZN7rocksdb8IOStatusaSEOS0_.exit38, label %if.then.i23
 
 if.then.i23:                                      ; preds = %invoke.cont32
@@ -2486,7 +2486,7 @@ if.else34:                                        ; preds = %land.lhs.true21, %i
           to label %invoke.cont42 unwind label %lpad
 
 invoke.cont42:                                    ; preds = %if.else34
-  %cmp.not.i45 = icmp eq ptr %ref.tmp35, %agg.result
+  %cmp.not.i45 = icmp eq ptr %agg.result, %ref.tmp35
   br i1 %cmp.not.i45, label %_ZN7rocksdb8IOStatusaSEOS0_.exit61, label %if.then.i46
 
 if.then.i46:                                      ; preds = %invoke.cont42
@@ -2654,7 +2654,7 @@ invoke.cont71:                                    ; preds = %if.else.i75, %if.th
           to label %invoke.cont75 unwind label %lpad62
 
 invoke.cont75:                                    ; preds = %invoke.cont71
-  %cmp.not.i83 = icmp eq ptr %ref.tmp69, %agg.result
+  %cmp.not.i83 = icmp eq ptr %agg.result, %ref.tmp69
   br i1 %cmp.not.i83, label %_ZN7rocksdb8IOStatusaSEOS0_.exit99, label %if.then.i84
 
 if.then.i84:                                      ; preds = %invoke.cont75
@@ -2766,7 +2766,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %68, i8 0, i64 %mul.i.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %70 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %70
+  %cmp.i.i.i.i.i.i = icmp eq ptr %70, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont92, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -3337,7 +3337,7 @@ invoke.cont50:                                    ; preds = %if.else.i80, %if.th
           to label %invoke.cont56 unwind label %lpad42
 
 invoke.cont56:                                    ; preds = %invoke.cont50
-  %cmp.not.i89 = icmp eq ptr %ref.tmp48, %agg.result
+  %cmp.not.i89 = icmp eq ptr %agg.result, %ref.tmp48
   br i1 %cmp.not.i89, label %_ZN7rocksdb8IOStatusaSEOS0_.exit, label %if.then.i90
 
 if.then.i90:                                      ; preds = %invoke.cont56
@@ -3527,7 +3527,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %65, i8 0, i64 %mul.i.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %67 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %67
+  %cmp.i.i.i.i.i.i = icmp eq ptr %67, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %return, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -3652,7 +3652,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %81, i8 0, i64 %mul.i.i.i.i174, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %83 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i176 = icmp eq ptr %_M_single_bucket.i.i.i.i, %83
+  %cmp.i.i.i.i.i.i176 = icmp eq ptr %83, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i176, label %return, label %if.end.i.i.i.i.i177
 
 if.end.i.i.i.i.i177:                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i172
@@ -3813,7 +3813,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont8
   %statistics_.i59 = getelementptr inbounds i8, ptr %iostats_step_timer_cpu_write_nanos, i64 32
   %perform_data_verification_ = getelementptr inbounds i8, ptr %this, i64 209
   %size_.i109 = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
-  %cmp.not.i110 = icmp eq ptr %ref.tmp57, %agg.result
+  %cmp.not.i110 = icmp eq ptr %agg.result, %ref.tmp57
   %subcode_.i112 = getelementptr inbounds i8, ptr %ref.tmp57, i64 1
   %retryable_.i114 = getelementptr inbounds i8, ptr %ref.tmp57, i64 3
   %retryable_6.i115 = getelementptr inbounds i8, ptr %agg.result, i64 3
@@ -3823,7 +3823,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont8
   %scope_10.i121 = getelementptr inbounds i8, ptr %agg.result, i64 5
   %state_.i122 = getelementptr inbounds i8, ptr %ref.tmp57, i64 8
   %size_.i94 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
-  %cmp.not.i95 = icmp eq ptr %ref.tmp47, %agg.result
+  %cmp.not.i95 = icmp eq ptr %agg.result, %ref.tmp47
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp47, i64 1
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp47, i64 3
   %data_loss_.i = getelementptr inbounds i8, ptr %ref.tmp47, i64 4
@@ -4378,7 +4378,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %81, i8 0, i64 %mul.i.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %83 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %83
+  %cmp.i.i.i.i.i.i = icmp eq ptr %83, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN7rocksdb9IOOptionsD2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -4439,7 +4439,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %88, i8 0, i64 %mul.i.i.i.i193, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %90 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i195 = icmp eq ptr %_M_single_bucket.i.i.i.i, %90
+  %cmp.i.i.i.i.i.i195 = icmp eq ptr %90, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i195, label %return, label %if.end.i.i.i.i.i196
 
 if.end.i.i.i.i.i196:                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i191
@@ -4722,7 +4722,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 %mul.i.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %18 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i = icmp eq ptr %18, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN7rocksdb9IOOptionsD2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -4934,7 +4934,7 @@ if.end27:                                         ; preds = %_ZNK7rocksdb17FSWri
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %if.end27
-  %cmp.not.i = icmp eq ptr %ref.tmp28, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp28
   br i1 %cmp.not.i, label %_ZN7rocksdb8IOStatusaSEOS0_.exit75, label %if.then.i60
 
 if.then.i60:                                      ; preds = %invoke.cont30
@@ -5347,7 +5347,7 @@ invoke.cont125:                                   ; preds = %invoke.cont82, %inv
 
 if.then127:                                       ; preds = %invoke.cont125
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %cmp.not.i197 = icmp eq ptr %interim32, %agg.result
+  %cmp.not.i197 = icmp eq ptr %agg.result, %interim32
   br i1 %cmp.not.i197, label %_ZN7rocksdb8IOStatusaSERKS0_.exit, label %if.then.i198
 
 if.then.i198:                                     ; preds = %if.then127
@@ -5533,7 +5533,7 @@ invoke.cont169:                                   ; preds = %_ZN7rocksdb8IOStatu
 
 if.then174:                                       ; preds = %invoke.cont169
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i259)
-  %cmp.not.i260 = icmp eq ptr %interim32, %agg.result
+  %cmp.not.i260 = icmp eq ptr %agg.result, %interim32
   br i1 %cmp.not.i260, label %_ZN7rocksdb8IOStatusaSERKS0_.exit284, label %if.then.i261
 
 if.then.i261:                                     ; preds = %if.then174
@@ -5730,7 +5730,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %143, i8 0, i64 %mul.i.i.i.i335, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i89, i8 0, i64 16, i1 false)
   %145 = load ptr, ptr %property_bag.i.i86, align 8
-  %cmp.i.i.i.i.i.i337 = icmp eq ptr %_M_single_bucket.i.i.i.i87, %145
+  %cmp.i.i.i.i.i.i337 = icmp eq ptr %145, %_M_single_bucket.i.i.i.i87
   br i1 %cmp.i.i.i.i.i.i337, label %_ZN7rocksdb9IOOptionsD2Ev.exit339, label %if.end.i.i.i.i.i338
 
 if.end.i.i.i.i.i338:                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i333
@@ -6575,7 +6575,7 @@ invoke.cont74:                                    ; preds = %if.else.i53, %if.th
           to label %invoke.cont80 unwind label %lpad57
 
 invoke.cont80:                                    ; preds = %invoke.cont74
-  %cmp.not.i62 = icmp eq ptr %ref.tmp72, %agg.result
+  %cmp.not.i62 = icmp eq ptr %agg.result, %ref.tmp72
   br i1 %cmp.not.i62, label %_ZN7rocksdb8IOStatusaSEOS0_.exit, label %if.then.i63
 
 if.then.i63:                                      ; preds = %invoke.cont80
@@ -6827,7 +6827,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %72, i8 0, i64 %mul.i.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %74 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %74
+  %cmp.i.i.i.i.i.i = icmp eq ptr %74, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %return, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -6872,7 +6872,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %78, i8 0, i64 %mul.i.i.i.i137, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %80 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i139 = icmp eq ptr %_M_single_bucket.i.i.i.i, %80
+  %cmp.i.i.i.i.i.i139 = icmp eq ptr %80, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i139, label %return, label %if.end.i.i.i.i.i140
 
 if.end.i.i.i.i.i140:                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i135
@@ -7053,7 +7053,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont27
   %perform_data_verification_ = getelementptr inbounds i8, ptr %this, i64 209
   %fs_tracer_.i79 = getelementptr inbounds i8, ptr %this, i64 48
   %size_.i81 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
-  %cmp.not.i82 = icmp eq ptr %ref.tmp68, %agg.result
+  %cmp.not.i82 = icmp eq ptr %agg.result, %ref.tmp68
   %subcode_.i84 = getelementptr inbounds i8, ptr %ref.tmp68, i64 1
   %retryable_.i86 = getelementptr inbounds i8, ptr %ref.tmp68, i64 3
   %retryable_6.i87 = getelementptr inbounds i8, ptr %agg.result, i64 3
@@ -7063,7 +7063,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont27
   %scope_10.i93 = getelementptr inbounds i8, ptr %agg.result, i64 5
   %state_.i94 = getelementptr inbounds i8, ptr %ref.tmp68, i64 8
   %size_.i66 = getelementptr inbounds i8, ptr %ref.tmp62, i64 8
-  %cmp.not.i67 = icmp eq ptr %ref.tmp58, %agg.result
+  %cmp.not.i67 = icmp eq ptr %agg.result, %ref.tmp58
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp58, i64 1
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp58, i64 3
   %data_loss_.i = getelementptr inbounds i8, ptr %ref.tmp58, i64 4
@@ -7490,7 +7490,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %73, i8 0, i64 %mul.i.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %75 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %75
+  %cmp.i.i.i.i.i.i = icmp eq ptr %75, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN7rocksdb9IOOptionsD2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -7551,7 +7551,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %80, i8 0, i64 %mul.i.i.i.i145, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %82 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i147 = icmp eq ptr %_M_single_bucket.i.i.i.i, %82
+  %cmp.i.i.i.i.i.i147 = icmp eq ptr %82, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i147, label %return, label %if.end.i.i.i.i.i148
 
 if.end.i.i.i.i.i148:                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i143
@@ -7968,7 +7968,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 %mul.i.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %31 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %31
+  %cmp.i.i.i.i.i.i = icmp eq ptr %31, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN7rocksdb9IOOptionsD2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -8191,7 +8191,7 @@ if.then3:                                         ; preds = %invoke.cont
   %state_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i.i, align 8
   store i32 0, ptr %sev_.i.i.i.i, align 2
-  %cmp.not.i.i = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i, label %cleanup, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3
@@ -8336,7 +8336,7 @@ if.then14:                                        ; preds = %invoke.cont12
   %state_.i.i.i.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i.i.i14, align 8
   store i32 0, ptr %sev_.i.i.i.i13, align 2
-  %cmp.not.i.i15 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i15 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i15, label %cleanup, label %if.then.i.i16
 
 if.then.i.i16:                                    ; preds = %if.then14
@@ -8669,7 +8669,7 @@ invoke.cont23:                                    ; preds = %if.else.i50, %if.th
           to label %invoke.cont27 unwind label %lpad15
 
 invoke.cont27:                                    ; preds = %invoke.cont23
-  %cmp.not.i58 = icmp eq ptr %ref.tmp21, %agg.result
+  %cmp.not.i58 = icmp eq ptr %agg.result, %ref.tmp21
   br i1 %cmp.not.i58, label %_ZN7rocksdb8IOStatusaSEOS0_.exit, label %if.then.i59
 
 if.then.i59:                                      ; preds = %invoke.cont27
@@ -8747,7 +8747,7 @@ invoke.cont31:                                    ; preds = %if.else.i64, %if.th
           to label %invoke.cont35 unwind label %lpad15
 
 invoke.cont35:                                    ; preds = %invoke.cont31
-  %cmp.not.i72 = icmp eq ptr %ref.tmp29, %agg.result
+  %cmp.not.i72 = icmp eq ptr %agg.result, %ref.tmp29
   br i1 %cmp.not.i72, label %_ZN7rocksdb8IOStatusaSEOS0_.exit88, label %if.then.i73
 
 if.then.i73:                                      ; preds = %invoke.cont35
@@ -8862,7 +8862,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %52, i8 0, i64 %mul.i.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %54 = load ptr, ptr %property_bag.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %54
+  %cmp.i.i.i.i.i.i = icmp eq ptr %54, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN7rocksdb9IOOptionsD2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -10163,7 +10163,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
 _ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13EventListenerEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13EventListenerEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12

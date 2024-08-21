@@ -4969,7 +4969,7 @@ define internal fastcc zeroext i1 @variable_defined_or_used_in_range(ptr nocaptu
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %73 = icmp slt i64 %indvars.iv.next, %10
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %3
+  %exitcond.not = icmp eq i32 %3, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %66, %56, %46, %37, %27, %17, %72, %4

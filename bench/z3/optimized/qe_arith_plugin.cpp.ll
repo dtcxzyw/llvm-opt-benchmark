@@ -856,7 +856,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %m_cache, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIP4exprS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -18608,8 +18608,8 @@ invoke.cont29.lr.ph:                              ; preds = %invoke.cont18
   %m_ctx67 = getelementptr inbounds i8, ptr %this, i64 24
   %m_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %m_replace = getelementptr inbounds i8, ptr %this, i64 344
-  %brmerge.demorgan = and i1 %11, %is_eq_ctx
-  %brmerge39.demorgan = and i1 %brmerge.demorgan, %is_strict
+  %brmerge.demorgan = and i1 %is_eq_ctx, %11
+  %brmerge39.demorgan = and i1 %is_strict, %brmerge.demorgan
   %simplify.i = getelementptr inbounds i8, ptr %this, i64 64
   %m_manager.i.i98 = getelementptr inbounds i8, ptr %ref.tmp96, i64 8
   %wide.trip.count = zext i32 %cond.i to i64
@@ -30709,7 +30709,7 @@ if.end.split:                                     ; preds = %entry
   store ptr %agg.tmp.sroa.0.0.copyload10, ptr %__comp.i, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i132134 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i132134, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i132134
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -30791,7 +30791,7 @@ if.end8.split:                                    ; preds = %if.end8.split.lr.ph
   %dec = add nsw i64 %__parent.0136, -1
   %add.ptr11 = getelementptr inbounds ptr, ptr %__first, i64 %dec
   %9 = load ptr, ptr %add.ptr11, align 8
-  %cmp23.i18.not = icmp slt i64 %div.i132134, %__parent.0136
+  %cmp23.i18.not = icmp sgt i64 %__parent.0136, %div.i132134
   br i1 %cmp23.i18.not, label %while.end.i19, label %while.body.i46
 
 while.body.i46:                                   ; preds = %if.end8.split, %_ZNK2qe13arith_qe_util6mul_ltclEP4exprS3_.exit131
@@ -34366,7 +34366,7 @@ for.body.i:                                       ; preds = %lor.lhs.false.i81, 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %lor.lhs.false.i81 ]
   %arrayidx.i83 = getelementptr inbounds ptr, ptr %vars, i64 %indvars.iv.i
   %55 = load ptr, ptr %arrayidx.i83, align 8
-  %cmp5.i84 = icmp eq ptr %55, %53
+  %cmp5.i84 = icmp eq ptr %53, %55
   br i1 %cmp5.i84, label %if.then6.i, label %for.cond.i
 
 if.then6.i:                                       ; preds = %for.body.i
@@ -34437,7 +34437,7 @@ for.body.i121:                                    ; preds = %lor.lhs.false.i114,
   %indvars.iv.i122 = phi i64 [ %indvars.iv.next.i126, %for.cond.i125 ], [ 0, %lor.lhs.false.i114 ]
   %arrayidx.i123 = getelementptr inbounds ptr, ptr %vars, i64 %indvars.iv.i122
   %65 = load ptr, ptr %arrayidx.i123, align 8
-  %cmp5.i124 = icmp eq ptr %65, %62
+  %cmp5.i124 = icmp eq ptr %62, %65
   br i1 %cmp5.i124, label %if.then6.i128, label %for.cond.i125
 
 if.then6.i128:                                    ; preds = %for.body.i121
@@ -34465,7 +34465,7 @@ for.body.i144:                                    ; preds = %lor.lhs.false.i137,
   %indvars.iv.i145 = phi i64 [ %indvars.iv.next.i149, %for.cond.i148 ], [ 0, %lor.lhs.false.i137 ]
   %arrayidx.i146 = getelementptr inbounds ptr, ptr %vars, i64 %indvars.iv.i145
   %67 = load ptr, ptr %arrayidx.i146, align 8
-  %cmp5.i147 = icmp eq ptr %67, %30
+  %cmp5.i147 = icmp eq ptr %30, %67
   br i1 %cmp5.i147, label %if.then6.i151, label %for.cond.i148
 
 if.then6.i151:                                    ; preds = %for.body.i144
@@ -35834,7 +35834,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   %10 = load ptr, ptr %vl, align 8
   %m_true.i = getelementptr inbounds i8, ptr %9, i64 856
   %11 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %11, %10
+  %cmp.i = icmp eq ptr %10, %11
   br i1 %cmp.i, label %invoke.cont16, label %cleanup
 
 lpad6.loopexit:                                   ; preds = %invoke.cont7, %invoke.cont16, %invoke.cont29, %invoke.cont20, %if.else.i.i.i.i, %if.else.i.i, %if.else.i.i.i.i.i, %if.else.i.i.i, %if.else.i.i.i.i47, %if.else.i.i7.i.i, %if.else.i.i.i.i55, %if.else.i.i7.i.i63

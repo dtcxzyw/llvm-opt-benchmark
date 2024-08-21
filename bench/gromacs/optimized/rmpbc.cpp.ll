@@ -239,7 +239,7 @@ define internal fastcc noundef ptr @_ZL19gmx_rmpbc_get_graphP9gmx_rmpbc7PbcTypei
   %.03745 = phi ptr [ null, %.lr.ph ], [ %spec.select, %23 ]
   %24 = getelementptr inbounds %struct.rmpbc_graph_t, ptr %22, i64 %indvars.iv
   %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %25, %2
+  %26 = icmp eq i32 %2, %25
   %spec.select = select i1 %26, ptr %24, ptr %.03745
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -252,7 +252,7 @@ define internal fastcc noundef ptr @_ZL19gmx_rmpbc_get_graphP9gmx_rmpbc7PbcTypei
 ._crit_edge.thread:                               ; preds = %17, %._crit_edge
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = load i32, ptr %28, align 8
-  %30 = icmp slt i32 %29, %2
+  %30 = icmp sgt i32 %2, %29
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %._crit_edge.thread

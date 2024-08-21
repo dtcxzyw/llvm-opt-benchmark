@@ -843,7 +843,7 @@ define noundef i32 @mouse_moved(ptr nocapture noundef readonly %0, double nounde
   %110 = getelementptr inbounds i8, ptr %41, i64 12
   %111 = load float, ptr %110, align 4, !tbaa !65
   %112 = fadd reassoc nsz arcp contract afn float %111, %109
-  %113 = fmul reassoc nsz arcp contract afn float %111, %45
+  %113 = fmul reassoc nsz arcp contract afn float %45, %111
   %114 = fsub reassoc nsz arcp contract afn float %112, %113
   %115 = getelementptr inbounds i8, ptr %7, i64 3408
   store float %114, ptr %115, align 8, !tbaa !71
@@ -5435,7 +5435,7 @@ define noalias noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr
   %85 = getelementptr i8, ptr %83, i64 %84
   %86 = ptrtoint ptr %31 to i64
   %87 = ptrtoint ptr %1 to i64
-  %88 = add i64 %87, %2
+  %88 = add i64 %2, %87
   %89 = sub i64 %88, %86
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr nonnull align 1 %31, i64 %89, i1 false)
   br label %112

@@ -314,7 +314,7 @@ declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal fastcc i64 @ft_gzip_file_io(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8336
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ugt i64 %6, %1
+  %7 = icmp ult i64 %1, %6
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %4
@@ -346,7 +346,7 @@ ft_gzip_file_reset.exit.thread:                   ; preds = %8
 
 22:                                               ; preds = %ft_gzip_file_reset.exit.thread, %4
   %23 = phi i64 [ 0, %ft_gzip_file_reset.exit.thread ], [ %6, %4 ]
-  %24 = icmp ult i64 %23, %1
+  %24 = icmp ugt i64 %1, %23
   br i1 %24, label %25, label %43
 
 25:                                               ; preds = %22

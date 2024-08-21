@@ -4387,11 +4387,11 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.not = icmp ugt i64 %sub.ptr.div.i, %index
+  %cmp.not = icmp ult i64 %index, %sub.ptr.div.i
   br i1 %cmp.not, label %if.else, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %cmp695 = icmp ult i64 %sub.ptr.div.i, %index
+  %cmp695 = icmp ugt i64 %index, %sub.ptr.div.i
   br i1 %cmp695, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
@@ -4494,7 +4494,7 @@ _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.
   %sub.ptr.rhs.cast.i6 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i7 = sub i64 %sub.ptr.lhs.cast.i5, %sub.ptr.rhs.cast.i6
   %sub.ptr.div.i8 = ashr exact i64 %sub.ptr.sub.i7, 3
-  %cmp6 = icmp ult i64 %sub.ptr.div.i8, %index
+  %cmp6 = icmp ugt i64 %index, %sub.ptr.div.i8
   br i1 %cmp6, label %while.body, label %while.end.loopexit, !llvm.loop !71
 
 _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit13.loopexit: ; preds = %cond.true.i.i
@@ -4677,7 +4677,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.not = icmp ugt i64 %sub.ptr.div.i, %index
+  %cmp.not = icmp ult i64 %index, %sub.ptr.div.i
   %tobool.not = icmp ne ptr %out_value, null
   %or.cond.not = and i1 %tobool.not, %cmp.not
   br i1 %or.cond.not, label %if.then2, label %return
@@ -4703,7 +4703,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %index
+  %cmp.not.i = icmp ult i64 %index, %sub.ptr.div.i.i
   %tobool.not.i = icmp ne ptr %out_value, null
   %or.cond.not.i = and i1 %tobool.not.i, %cmp.not.i
   br i1 %or.cond.not.i, label %if.then2.i, label %_ZNK4base9ListValue3GetEmPPKNS_5ValueE.exit
@@ -4729,7 +4729,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %index
+  %cmp.not.i = icmp ult i64 %index, %sub.ptr.div.i.i
   br i1 %cmp.not.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4757,7 +4757,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %index
+  %cmp.not.i = icmp ult i64 %index, %sub.ptr.div.i.i
   br i1 %cmp.not.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4785,7 +4785,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %index
+  %cmp.not.i = icmp ult i64 %index, %sub.ptr.div.i.i
   br i1 %cmp.not.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4813,7 +4813,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %index
+  %cmp.not.i = icmp ult i64 %index, %sub.ptr.div.i.i
   br i1 %cmp.not.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4841,7 +4841,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %index
+  %cmp.not.i = icmp ult i64 %index, %sub.ptr.div.i.i
   br i1 %cmp.not.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4869,7 +4869,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %index
+  %cmp.not.i = icmp ult i64 %index, %sub.ptr.div.i.i
   br i1 %cmp.not.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
@@ -4904,7 +4904,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.not.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %index
+  %cmp.not.i.i = icmp ult i64 %index, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i, label %lor.lhs.false.i, label %_ZNK4base9ListValue9GetBinaryEmPPKNS_11BinaryValueE.exit
 
 lor.lhs.false.i:                                  ; preds = %entry
@@ -4939,7 +4939,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %index
+  %cmp.not.i = icmp ult i64 %index, %sub.ptr.div.i.i
   br i1 %cmp.not.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
@@ -4974,7 +4974,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.not.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %index
+  %cmp.not.i.i = icmp ult i64 %index, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i, label %lor.lhs.false.i, label %_ZNK4base9ListValue13GetDictionaryEmPPKNS_15DictionaryValueE.exit
 
 lor.lhs.false.i:                                  ; preds = %entry
@@ -5009,7 +5009,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %index
+  %cmp.not.i = icmp ult i64 %index, %sub.ptr.div.i.i
   br i1 %cmp.not.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
@@ -5044,7 +5044,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.not.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %index
+  %cmp.not.i.i = icmp ult i64 %index, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i, label %lor.lhs.false.i, label %_ZNK4base9ListValue7GetListEmPPKS0_.exit
 
 lor.lhs.false.i:                                  ; preds = %entry
@@ -5079,7 +5079,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.not = icmp ugt i64 %sub.ptr.div.i, %index
+  %cmp.not = icmp ult i64 %index, %sub.ptr.div.i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -5758,7 +5758,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp uge i64 %sub.ptr.div.i, %index
+  %cmp = icmp ule i64 %index, %sub.ptr.div.i
   br i1 %cmp, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -5770,7 +5770,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i.i, label %if.else21.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %cmp.i.i.i = icmp eq ptr %0, %add.ptr.i
+  %cmp.i.i.i = icmp eq ptr %add.ptr.i, %0
   br i1 %cmp.i.i.i, label %if.then9.i.i, label %if.else.i.i
 
 if.then9.i.i:                                     ; preds = %if.then.i.i
@@ -6582,7 +6582,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -6644,7 +6644,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN4base5ValueESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISE_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -7064,7 +7064,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12

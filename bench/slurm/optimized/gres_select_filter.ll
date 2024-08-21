@@ -308,7 +308,7 @@ _build_avail_cores_by_sock.exit:                  ; preds = %..loopexit_crit_edg
   %124 = phi ptr [ %110, %_build_avail_cores_by_sock.exit ], [ %33, %104 ]
   %125 = phi ptr [ %.pr, %_build_avail_cores_by_sock.exit ], [ %106, %104 ]
   %.not192 = icmp ne ptr %125, null
-  %brmerge.not = and i1 %.not192, %3
+  %brmerge.not = and i1 %3, %.not192
   br i1 %brmerge.not, label %.preheader, label %142
 
 .preheader:                                       ; preds = %121
@@ -422,7 +422,7 @@ _set_max_node_gres.exit210:                       ; preds = %169, %165, %162, %_
   %172 = getelementptr inbounds i8, ptr %38, i64 64
   %173 = load i16, ptr %172, align 8
   %174 = icmp ne i16 %173, -2
-  %brmerge202.not = and i1 %174, %11
+  %brmerge202.not = and i1 %11, %174
   br i1 %brmerge202.not, label %193, label %175
 
 175:                                              ; preds = %171

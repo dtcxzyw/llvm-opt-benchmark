@@ -85,7 +85,7 @@ define internal fastcc noundef ptr @create_internal(ptr noundef %0, i64 noundef 
 dsa_minimum_size.exit:                            ; preds = %6
   %12 = shl i32 %7, 12
   %13 = sext i32 %12 to i64
-  %14 = icmp ugt i64 %13, %1
+  %14 = icmp ult i64 %1, %13
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %dsa_minimum_size.exit
@@ -673,7 +673,7 @@ init_span.exit:                                   ; preds = %55, %73
   %112 = getelementptr [38 x i16], ptr @dsa_size_classes, i64 0, i64 %111
   %113 = load i16, ptr %112, align 2
   %114 = zext i16 %113 to i64
-  %115 = icmp ult i64 %114, %1
+  %115 = icmp ugt i64 %1, %114
   %116 = trunc nuw i32 %110 to i16
   %117 = add nuw i16 %116, 1
   %.173 = select i1 %115, i16 %117, i16 %.07287
@@ -1312,7 +1312,7 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef %0, i64 noundef
 26:                                               ; preds = %15
   %27 = sub nuw nsw i64 %., %.097
   %28 = lshr i64 %27, 12
-  %29 = icmp ult i64 %28, %1
+  %29 = icmp ugt i64 %1, %28
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %26

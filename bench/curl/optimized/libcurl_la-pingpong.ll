@@ -46,7 +46,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %timeout = getelementptr inbounds i8, ptr %data, i64 712
   %8 = load i32, ptr %timeout, align 8
   %tobool7.not = icmp eq i32 %8, 0
-  %brmerge = or i1 %tobool7.not, %disconnecting
+  %brmerge = or i1 %disconnecting, %tobool7.not
   br i1 %brmerge, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end
@@ -107,7 +107,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   %timeout.i = getelementptr inbounds i8, ptr %data, i64 712
   %9 = load i32, ptr %timeout.i, align 8
   %tobool7.not.i = icmp eq i32 %9, 0
-  %brmerge.i = or i1 %tobool7.not.i, %disconnecting
+  %brmerge.i = or i1 %disconnecting, %tobool7.not.i
   br i1 %brmerge.i, label %Curl_pp_state_timeout.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.end.i

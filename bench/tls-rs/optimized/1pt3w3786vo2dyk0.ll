@@ -2606,7 +2606,7 @@ define void @"_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..ms
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.15934541666227088301.exit"
   %19 = load i64, ptr %1, align 8, !alias.scope !532, !noalias !539, !noundef !4
   %20 = sub i64 %19, %16
-  %21 = icmp ult i64 %20, %4
+  %21 = icmp ugt i64 %4, %20
   br i1 %21, label %22, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit"
 
 22:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit"
@@ -2786,7 +2786,7 @@ define hidden void @_ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5
   %4 = load i64, ptr %3, align 8, !alias.scope !575, !noalias !580, !noundef !4
   %5 = load i64, ptr %1, align 8, !alias.scope !582, !noalias !580, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %.sroa.3.0.i.i
+  %7 = icmp ugt i64 %.sroa.3.0.i.i, %6
   br i1 %7, label %8, label %"_ZN74_$LT$rustls..msgs..base..Payload$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h940d92176c0696e9E.exit"
 
 8:                                                ; preds = %2
@@ -2888,7 +2888,7 @@ define hidden void @_ZN6rustls4msgs9handshake17ServerNamePayload6encode17h1b5f09
   store i64 %18, ptr %6, align 8, !alias.scope !605, !noalias !612
   %19 = load i64, ptr %1, align 8, !alias.scope !619, !noalias !626, !noundef !4
   %20 = sub i64 %19, %18
-  %21 = icmp ult i64 %20, %.sroa.3.0.i
+  %21 = icmp ugt i64 %.sroa.3.0.i, %20
   br i1 %21, label %22, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit"
 
 22:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit"
@@ -2914,7 +2914,7 @@ define hidden void @_ZN6rustls4msgs9handshake17ServerNamePayload6encode17h1b5f09
   %28 = load i64, ptr %27, align 8, !alias.scope !637, !noalias !642, !noundef !4
   %29 = load i64, ptr %1, align 8, !alias.scope !644, !noalias !642, !noundef !4
   %30 = sub i64 %29, %28
-  %31 = icmp ult i64 %30, %.sroa.3.0.i.i
+  %31 = icmp ugt i64 %.sroa.3.0.i.i, %30
   br i1 %31, label %32, label %"_ZN74_$LT$rustls..msgs..base..Payload$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h940d92176c0696e9E.exit"
 
 32:                                               ; preds = %26
@@ -3513,7 +3513,7 @@ default.unreachable:                              ; preds = %2
   store i64 %44, ptr %17, align 8, !alias.scope !812, !noalias !808
   %45 = load i64, ptr %1, align 8, !alias.scope !814, !noalias !821, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %33
+  %47 = icmp ugt i64 %33, %46
   br i1 %47, label %48, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 48:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -3642,7 +3642,7 @@ define void @"_ZN92_$LT$rustls..msgs..handshake..PresharedKeyIdentity$u20$as$u20
   store i64 %21, ptr %9, align 8, !alias.scope !830, !noalias !839
   %22 = load i64, ptr %1, align 8, !alias.scope !847, !noalias !854, !noundef !4
   %23 = sub i64 %22, %21
-  %24 = icmp ult i64 %23, %7
+  %24 = icmp ugt i64 %7, %23
   br i1 %24, label %25, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 25:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -4007,7 +4007,7 @@ define void @"_ZN100_$LT$rustls..msgs..handshake..OcspCertificateStatusRequest$u
   store i64 %29, ptr %3, align 8, !alias.scope !901, !noalias !910
   %30 = load i64, ptr %1, align 8, !alias.scope !918, !noalias !925, !noundef !4
   %31 = sub i64 %30, %29
-  %32 = icmp ult i64 %31, %17
+  %32 = icmp ugt i64 %17, %31
   br i1 %32, label %33, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 33:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -4151,7 +4151,7 @@ define void @"_ZN96_$LT$rustls..msgs..handshake..CertificateStatusRequest$u20$as
   %.sroa.3.0.i.i = load i64, ptr %.sroa.3.0.in.i.i, align 8, !alias.scope !945, !noalias !943, !noundef !4
   %23 = load i64, ptr %1, align 8, !alias.scope !948, !noalias !955, !noundef !4
   %24 = sub i64 %23, %22
-  %25 = icmp ult i64 %24, %.sroa.3.0.i.i
+  %25 = icmp ugt i64 %.sroa.3.0.i.i, %24
   br i1 %25, label %26, label %"_ZN74_$LT$rustls..msgs..base..Payload$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h940d92176c0696e9E.exit"
 
 26:                                               ; preds = %"_ZN89_$LT$rustls..msgs..enums..CertificateStatusType$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h591be1883132e353E.exit"
@@ -4620,7 +4620,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   store i64 %88, ptr %26, align 8, !alias.scope !1045, !noalias !1041
   %89 = load i64, ptr %1, align 8, !alias.scope !1047, !noalias !1054, !noundef !4
   %90 = sub i64 %89, %88
-  %91 = icmp ult i64 %90, %77
+  %91 = icmp ugt i64 %77, %90
   br i1 %91, label %92, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 92:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -4699,7 +4699,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !1081, !noalias !1084, !noundef !4
   %117 = load i64, ptr %1, align 8, !alias.scope !1085, !noalias !1092, !noundef !4
   %118 = sub i64 %117, %116
-  %119 = icmp ult i64 %118, %.sroa.3.0.i.i.i
+  %119 = icmp ugt i64 %.sroa.3.0.i.i.i, %118
   br i1 %119, label %120, label %"_ZN74_$LT$rustls..msgs..base..Payload$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h940d92176c0696e9E.exit.i"
 
 120:                                              ; preds = %"_ZN89_$LT$rustls..msgs..enums..CertificateStatusType$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h591be1883132e353E.exit.i"
@@ -4728,7 +4728,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   %.sroa.3.0.i.i.i19 = load i64, ptr %.sroa.3.0.in.i.i.i18, align 8, !alias.scope !1106, !noalias !1109, !noundef !4
   %125 = load i64, ptr %1, align 8, !alias.scope !1110, !noalias !1117, !noundef !4
   %126 = sub i64 %125, %47
-  %127 = icmp ult i64 %126, %.sroa.3.0.i.i.i19
+  %127 = icmp ugt i64 %.sroa.3.0.i.i.i19, %126
   br i1 %127, label %128, label %_ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.15934541666227088301.exit
 
 128:                                              ; preds = %124
@@ -4761,7 +4761,7 @@ _ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.1593
   %.sroa.3.0.i.i = load i64, ptr %.sroa.3.0.in.i.i, align 8, !alias.scope !1126, !noalias !1124, !noundef !4
   %135 = load i64, ptr %1, align 8, !alias.scope !1129, !noalias !1136, !noundef !4
   %136 = sub i64 %135, %47
-  %137 = icmp ult i64 %136, %.sroa.3.0.i.i
+  %137 = icmp ugt i64 %.sroa.3.0.i.i, %136
   br i1 %137, label %138, label %"_ZN74_$LT$rustls..msgs..base..Payload$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h940d92176c0696e9E.exit"
 
 138:                                              ; preds = %134
@@ -4786,7 +4786,7 @@ _ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.1593
   %146 = load i64, ptr %145, align 8, !noundef !4
   %147 = load i64, ptr %1, align 8, !alias.scope !1139, !noalias !1146, !noundef !4
   %148 = sub i64 %147, %47
-  %149 = icmp ult i64 %148, %146
+  %149 = icmp ugt i64 %146, %148
   br i1 %149, label %150, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit"
 
 150:                                              ; preds = %142
@@ -5743,7 +5743,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   %65 = load ptr, ptr %64, align 8, !alias.scope !1299, !noalias !1302, !nonnull !4, !noundef !4
   %66 = load i64, ptr %1, align 8, !alias.scope !1311, !noalias !1318, !noundef !4
   %67 = sub i64 %66, %63
-  %68 = icmp ult i64 %67, %54
+  %68 = icmp ugt i64 %54, %67
   br i1 %68, label %69, label %"_ZN76_$LT$rustls..msgs..base..PayloadU8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hdaec15138a54732aE.exit"
 
 69:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i"
@@ -5868,7 +5868,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !1364, !noalias !1367, !noundef !4
   %107 = load i64, ptr %1, align 8, !alias.scope !1368, !noalias !1375, !noundef !4
   %108 = sub i64 %107, %44
-  %109 = icmp ult i64 %108, %.sroa.3.0.i.i.i
+  %109 = icmp ugt i64 %.sroa.3.0.i.i.i, %108
   br i1 %109, label %110, label %_ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.15934541666227088301.exit
 
 110:                                              ; preds = %106
@@ -5907,7 +5907,7 @@ _ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.1593
   %125 = load i64, ptr %124, align 8, !noundef !4
   %126 = load i64, ptr %1, align 8, !alias.scope !1380, !noalias !1387, !noundef !4
   %127 = sub i64 %126, %44
-  %128 = icmp ult i64 %127, %125
+  %128 = icmp ugt i64 %125, %127
   br i1 %128, label %129, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit"
 
 129:                                              ; preds = %121
@@ -6505,7 +6505,7 @@ default.unreachable:                              ; preds = %2
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.15934541666227088301.exit.i"
   %53 = load i64, ptr %1, align 8, !alias.scope !1508, !noalias !1515, !noundef !4
   %54 = sub i64 %53, %50
-  %55 = icmp ult i64 %54, %41
+  %55 = icmp ugt i64 %41, %54
   br i1 %55, label %56, label %"_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit"
 
 56:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i"
@@ -8656,7 +8656,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   store i64 %77, ptr %15, align 8, !alias.scope !1931, !noalias !1927
   %78 = load i64, ptr %1, align 8, !alias.scope !1933, !noalias !1940, !noundef !4
   %79 = sub i64 %78, %77
-  %80 = icmp ult i64 %79, %66
+  %80 = icmp ugt i64 %66, %79
   br i1 %80, label %81, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 81:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -8755,7 +8755,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !1972, !noalias !1975, !noundef !4
   %108 = load i64, ptr %1, align 8, !alias.scope !1976, !noalias !1983, !noundef !4
   %109 = sub i64 %108, %36
-  %110 = icmp ult i64 %109, %.sroa.3.0.i.i.i
+  %110 = icmp ugt i64 %.sroa.3.0.i.i.i, %109
   br i1 %110, label %111, label %_ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.15934541666227088301.exit
 
 111:                                              ; preds = %107
@@ -9316,7 +9316,7 @@ default.unreachable:                              ; preds = %2
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.15934541666227088301.exit.i"
   %52 = load i64, ptr %1, align 8, !alias.scope !2130, !noalias !2137, !noundef !4
   %53 = sub i64 %52, %49
-  %54 = icmp ult i64 %53, %40
+  %54 = icmp ugt i64 %40, %53
   br i1 %54, label %55, label %"_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit"
 
 55:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i"
@@ -9954,7 +9954,7 @@ default.unreachable:                              ; preds = %"_ZN73_$LT$rustls..
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.15934541666227088301.exit.i"
   %53 = load i64, ptr %1, align 8, !alias.scope !2292, !noalias !2299, !noundef !4
   %54 = sub i64 %53, %50
-  %55 = icmp ult i64 %54, %41
+  %55 = icmp ugt i64 %41, %54
   br i1 %55, label %56, label %"_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8b0b79a73b06e2b5E.exit"
 
 56:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15934541666227088301.exit.i"
@@ -10775,7 +10775,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !2517, !noalias !2520, !noundef !4
   %38 = load i64, ptr %1, align 8, !alias.scope !2521, !noalias !2528, !noundef !4
   %39 = sub i64 %38, %32
-  %40 = icmp ult i64 %39, %.sroa.3.0.i.i.i
+  %40 = icmp ugt i64 %.sroa.3.0.i.i.i, %39
   br i1 %40, label %41, label %_ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.15934541666227088301.exit
 
 41:                                               ; preds = %37
@@ -11126,7 +11126,7 @@ define void @"_ZN88_$LT$rustls..msgs..handshake..CertificateEntry$u20$as$u20$rus
   %24 = load i64, ptr %7, align 8, !alias.scope !2659, !noalias !2662, !noundef !4
   %25 = load i64, ptr %1, align 8, !alias.scope !2663, !noalias !2662, !noundef !4
   %26 = sub i64 %25, %24
-  %27 = icmp ult i64 %26, %22
+  %27 = icmp ugt i64 %22, %26
   br i1 %27, label %28, label %"_ZN6rustls4msgs4base89_$LT$impl$u20$rustls..msgs..codec..Codec$u20$for$u20$rustls_pki_types..CertificateDer$GT$6encode17h8402e54130efa45dE.exit"
 
 28:                                               ; preds = %"_ZN71_$LT$rustls..msgs..codec..u24$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h6e8c669370c868c0E.exit.i"
@@ -11367,7 +11367,7 @@ define void @"_ZN95_$LT$rustls..msgs..handshake..CertificatePayloadTls13$u20$as$
   %18 = load ptr, ptr %17, align 8, !alias.scope !2697, !noalias !2700, !nonnull !4, !noundef !4
   %19 = load i64, ptr %1, align 8, !alias.scope !2709, !noalias !2716, !noundef !4
   %20 = sub i64 %19, %16
-  %21 = icmp ult i64 %20, %4
+  %21 = icmp ugt i64 %4, %20
   br i1 %21, label %22, label %"_ZN76_$LT$rustls..msgs..base..PayloadU8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hdaec15138a54732aE.exit"
 
 22:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i"
@@ -11994,7 +11994,7 @@ define hidden void @_ZN6rustls4msgs9handshake23ClientKeyExchangeParams6encode17h
   %20 = load ptr, ptr %19, align 8, !alias.scope !2845, !noalias !2846, !nonnull !4, !noundef !4
   %21 = load i64, ptr %1, align 8, !alias.scope !2854, !noalias !2861, !noundef !4
   %22 = sub i64 %21, %18
-  %23 = icmp ult i64 %22, %6
+  %23 = icmp ugt i64 %6, %22
   br i1 %23, label %24, label %"_ZN88_$LT$rustls..msgs..handshake..ClientEcdhParams$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hd4aedd42944e32e5E.exit"
 
 24:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i.i"
@@ -12043,7 +12043,7 @@ define hidden void @_ZN6rustls4msgs9handshake23ClientKeyExchangeParams6encode17h
   store i64 %46, ptr %34, align 8, !alias.scope !2876, !noalias !2885
   %47 = load i64, ptr %1, align 8, !alias.scope !2893, !noalias !2900, !noundef !4
   %48 = sub i64 %47, %46
-  %49 = icmp ult i64 %48, %32
+  %49 = icmp ugt i64 %32, %48
   br i1 %49, label %50, label %"_ZN86_$LT$rustls..msgs..handshake..ClientDhParams$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h778139919ff6eeddE.exit"
 
 50:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i.i"
@@ -12165,7 +12165,7 @@ define void @"_ZN88_$LT$rustls..msgs..handshake..ClientEcdhParams$u20$as$u20$rus
   %18 = load ptr, ptr %17, align 8, !alias.scope !2915, !noalias !2918, !nonnull !4, !noundef !4
   %19 = load i64, ptr %1, align 8, !alias.scope !2927, !noalias !2934, !noundef !4
   %20 = sub i64 %19, %16
-  %21 = icmp ult i64 %20, %4
+  %21 = icmp ugt i64 %4, %20
   br i1 %21, label %22, label %"_ZN76_$LT$rustls..msgs..base..PayloadU8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hdaec15138a54732aE.exit"
 
 22:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i"
@@ -12233,7 +12233,7 @@ define void @"_ZN86_$LT$rustls..msgs..handshake..ClientDhParams$u20$as$u20$rustl
   store i64 %20, ptr %8, align 8, !alias.scope !2942, !noalias !2951
   %21 = load i64, ptr %1, align 8, !alias.scope !2959, !noalias !2966, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %6
+  %23 = icmp ugt i64 %6, %22
   br i1 %23, label %24, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 24:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -12333,7 +12333,7 @@ define void @"_ZN88_$LT$rustls..msgs..handshake..ServerEcdhParams$u20$as$u20$rus
   %19 = load ptr, ptr %18, align 8, !alias.scope !2973, !noalias !2976, !nonnull !4, !noundef !4
   %20 = load i64, ptr %1, align 8, !alias.scope !2985, !noalias !2992, !noundef !4
   %21 = sub i64 %20, %17
-  %22 = icmp ult i64 %21, %5
+  %22 = icmp ugt i64 %5, %21
   br i1 %22, label %23, label %"_ZN76_$LT$rustls..msgs..base..PayloadU8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hdaec15138a54732aE.exit"
 
 23:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i"
@@ -12677,7 +12677,7 @@ define void @"_ZN86_$LT$rustls..msgs..handshake..ServerDhParams$u20$as$u20$rustl
   store i64 %20, ptr %8, align 8, !alias.scope !3048, !noalias !3057
   %21 = load i64, ptr %1, align 8, !alias.scope !3065, !noalias !3072, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %6
+  %23 = icmp ugt i64 %6, %22
   br i1 %23, label %24, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 24:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -12721,7 +12721,7 @@ define void @"_ZN86_$LT$rustls..msgs..handshake..ServerDhParams$u20$as$u20$rustl
   store i64 %44, ptr %8, align 8, !alias.scope !3095, !noalias !3091
   %45 = load i64, ptr %1, align 8, !alias.scope !3097, !noalias !3104, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %33
+  %47 = icmp ugt i64 %33, %46
   br i1 %47, label %48, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit4"
 
 48:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i1"
@@ -12765,7 +12765,7 @@ define void @"_ZN86_$LT$rustls..msgs..handshake..ServerDhParams$u20$as$u20$rustl
   store i64 %68, ptr %8, align 8, !alias.scope !3127, !noalias !3123
   %69 = load i64, ptr %1, align 8, !alias.scope !3129, !noalias !3136, !noundef !4
   %70 = sub i64 %69, %68
-  %71 = icmp ult i64 %70, %57
+  %71 = icmp ugt i64 %57, %70
   br i1 %71, label %72, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit8"
 
 72:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i5"
@@ -13130,7 +13130,7 @@ define hidden void @_ZN6rustls4msgs9handshake23ServerKeyExchangeParams6encode17h
   %22 = load ptr, ptr %21, align 8, !alias.scope !3186, !noalias !3187, !nonnull !4, !noundef !4
   %23 = load i64, ptr %1, align 8, !alias.scope !3195, !noalias !3202, !noundef !4
   %24 = sub i64 %23, %20
-  %25 = icmp ult i64 %24, %8
+  %25 = icmp ugt i64 %8, %24
   br i1 %25, label %26, label %"_ZN88_$LT$rustls..msgs..handshake..ServerEcdhParams$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hc62faa36b00ffffdE.exit"
 
 26:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i.i"
@@ -13328,7 +13328,7 @@ define void @"_ZN96_$LT$rustls..msgs..handshake..ServerKeyExchangePayload$u20$as
   %9 = load i64, ptr %8, align 8, !alias.scope !3224, !noalias !3229, !noundef !4
   %10 = load i64, ptr %1, align 8, !alias.scope !3231, !noalias !3229, !noundef !4
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %.sroa.3.0.i.i
+  %12 = icmp ugt i64 %.sroa.3.0.i.i, %11
   br i1 %12, label %13, label %"_ZN74_$LT$rustls..msgs..base..Payload$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h940d92176c0696e9E.exit"
 
 13:                                               ; preds = %7
@@ -13991,7 +13991,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !3354, !noalias !3357, !noundef !4
   %43 = load i64, ptr %1, align 8, !alias.scope !3358, !noalias !3365, !noundef !4
   %44 = sub i64 %43, %35
-  %45 = icmp ult i64 %44, %.sroa.3.0.i.i.i
+  %45 = icmp ugt i64 %.sroa.3.0.i.i.i, %44
   br i1 %45, label %46, label %_ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.15934541666227088301.exit
 
 46:                                               ; preds = %42
@@ -14349,7 +14349,7 @@ define void @"_ZN102_$LT$rustls..msgs..handshake..CertificateRequestPayloadTls13
   %18 = load ptr, ptr %17, align 8, !alias.scope !3451, !noalias !3454, !nonnull !4, !noundef !4
   %19 = load i64, ptr %1, align 8, !alias.scope !3463, !noalias !3470, !noundef !4
   %20 = sub i64 %19, %16
-  %21 = icmp ult i64 %20, %4
+  %21 = icmp ugt i64 %4, %20
   br i1 %21, label %22, label %"_ZN76_$LT$rustls..msgs..base..PayloadU8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hdaec15138a54732aE.exit"
 
 22:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i"
@@ -14682,7 +14682,7 @@ define void @"_ZN95_$LT$rustls..msgs..handshake..NewSessionTicketPayload$u20$as$
   store i64 %26, ptr %14, align 8, !alias.scope !3520, !noalias !3529
   %27 = load i64, ptr %1, align 8, !alias.scope !3537, !noalias !3544, !noundef !4
   %28 = sub i64 %27, %26
-  %29 = icmp ult i64 %28, %12
+  %29 = icmp ugt i64 %12, %28
   br i1 %29, label %30, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 30:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -14879,7 +14879,7 @@ _ZN6rustls4msgs5codec20LengthPrefixedBuffer3new17h720d79c96f562878E.exit: ; pred
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !3607, !noalias !3610, !noundef !4
   %43 = load i64, ptr %1, align 8, !alias.scope !3611, !noalias !3618, !noundef !4
   %44 = sub i64 %43, %33
-  %45 = icmp ult i64 %44, %.sroa.3.0.i.i.i
+  %45 = icmp ugt i64 %.sroa.3.0.i.i.i, %44
   br i1 %45, label %46, label %_ZN6rustls4msgs9handshake16UnknownExtension6encode17h3ca3db5fb09f64b0E.llvm.15934541666227088301.exit
 
 46:                                               ; preds = %42
@@ -15296,7 +15296,7 @@ define void @"_ZN100_$LT$rustls..msgs..handshake..NewSessionTicketPayloadTls13$u
   %30 = load ptr, ptr %29, align 8, !alias.scope !3721, !noalias !3724, !nonnull !4, !noundef !4
   %31 = load i64, ptr %1, align 8, !alias.scope !3733, !noalias !3740, !noundef !4
   %32 = sub i64 %31, %28
-  %33 = icmp ult i64 %32, %16
+  %33 = icmp ugt i64 %16, %32
   br i1 %33, label %34, label %"_ZN76_$LT$rustls..msgs..base..PayloadU8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hdaec15138a54732aE.exit"
 
 34:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i"
@@ -15340,7 +15340,7 @@ define void @"_ZN100_$LT$rustls..msgs..handshake..NewSessionTicketPayloadTls13$u
   store i64 %54, ptr %18, align 8, !alias.scope !3763, !noalias !3759
   %55 = load i64, ptr %1, align 8, !alias.scope !3765, !noalias !3772, !noundef !4
   %56 = sub i64 %55, %54
-  %57 = icmp ult i64 %56, %43
+  %57 = icmp ugt i64 %43, %56
   br i1 %57, label %58, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 58:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -15655,7 +15655,7 @@ define void @"_ZN89_$LT$rustls..msgs..handshake..CertificateStatus$u20$as$u20$ru
   %28 = load ptr, ptr %27, align 8, !alias.scope !3829, !noalias !3832, !nonnull !4, !noundef !4
   %29 = load i64, ptr %1, align 8, !alias.scope !3848, !noalias !3855, !noundef !4
   %30 = sub i64 %29, %26
-  %31 = icmp ult i64 %30, %15
+  %31 = icmp ugt i64 %15, %30
   br i1 %31, label %32, label %"_ZN77_$LT$rustls..msgs..base..PayloadU24$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h80609f5a114d3229E.exit"
 
 32:                                               ; preds = %"_ZN71_$LT$rustls..msgs..codec..u24$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h6e8c669370c868c0E.exit.i"
@@ -15844,7 +15844,7 @@ define hidden void @_ZN6rustls4msgs9handshake16HandshakePayload6encode17hc0f7972
   %32 = load ptr, ptr %31, align 8, !alias.scope !3885, !noalias !3886, !nonnull !4, !noundef !4
   %33 = load i64, ptr %1, align 8, !alias.scope !3894, !noalias !3901, !noundef !4
   %34 = sub i64 %33, %30
-  %35 = icmp ult i64 %34, %18
+  %35 = icmp ugt i64 %18, %34
   br i1 %35, label %36, label %"_ZN95_$LT$rustls..msgs..handshake..CertificatePayloadTls13$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hbcdedd0916d1d83bE.exit"
 
 36:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i.i"
@@ -15889,7 +15889,7 @@ define hidden void @_ZN6rustls4msgs9handshake16HandshakePayload6encode17hc0f7972
   %51 = load i64, ptr %50, align 8, !alias.scope !3918, !noalias !3923, !noundef !4
   %52 = load i64, ptr %1, align 8, !alias.scope !3925, !noalias !3923, !noundef !4
   %53 = sub i64 %52, %51
-  %54 = icmp ult i64 %53, %.sroa.3.0.i.i.i
+  %54 = icmp ugt i64 %.sroa.3.0.i.i.i, %53
   br i1 %54, label %55, label %"_ZN74_$LT$rustls..msgs..base..Payload$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h940d92176c0696e9E.exit.i"
 
 55:                                               ; preds = %49
@@ -15949,7 +15949,7 @@ define hidden void @_ZN6rustls4msgs9handshake16HandshakePayload6encode17hc0f7972
   %82 = load ptr, ptr %81, align 8, !alias.scope !3939, !noalias !3940, !nonnull !4, !noundef !4
   %83 = load i64, ptr %1, align 8, !alias.scope !3948, !noalias !3955, !noundef !4
   %84 = sub i64 %83, %80
-  %85 = icmp ult i64 %84, %68
+  %85 = icmp ugt i64 %68, %84
   br i1 %85, label %86, label %"_ZN102_$LT$rustls..msgs..handshake..CertificateRequestPayloadTls13$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h1a649ef432ab0ca6E.exit"
 
 86:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i.i2"
@@ -15985,7 +15985,7 @@ define hidden void @_ZN6rustls4msgs9handshake16HandshakePayload6encode17hc0f7972
   %97 = load i64, ptr %96, align 8, !alias.scope !3966, !noalias !3971, !noundef !4
   %98 = load i64, ptr %1, align 8, !alias.scope !3973, !noalias !3971, !noundef !4
   %99 = sub i64 %98, %97
-  %100 = icmp ult i64 %99, %.sroa.3.0.i.i
+  %100 = icmp ugt i64 %.sroa.3.0.i.i, %99
   br i1 %100, label %101, label %"_ZN74_$LT$rustls..msgs..base..Payload$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h940d92176c0696e9E.exit"
 
 101:                                              ; preds = %95
@@ -16050,7 +16050,7 @@ define hidden void @_ZN6rustls4msgs9handshake16HandshakePayload6encode17hc0f7972
   store i64 %131, ptr %119, align 8, !alias.scope !3995, !noalias !4004
   %132 = load i64, ptr %1, align 8, !alias.scope !4012, !noalias !4019, !noundef !4
   %133 = sub i64 %132, %131
-  %134 = icmp ult i64 %133, %117
+  %134 = icmp ugt i64 %117, %133
   br i1 %134, label %135, label %"_ZN95_$LT$rustls..msgs..handshake..NewSessionTicketPayload$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h808c34f1b28c0138E.exit"
 
 135:                                              ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i.i"
@@ -16120,7 +16120,7 @@ define hidden void @_ZN6rustls4msgs9handshake16HandshakePayload6encode17hc0f7972
   %162 = load i64, ptr %161, align 8, !alias.scope !4042, !noalias !4047, !noundef !4
   %163 = load i64, ptr %1, align 8, !alias.scope !4049, !noalias !4047, !noundef !4
   %164 = sub i64 %163, %162
-  %165 = icmp ult i64 %164, %.sroa.3.0.i.i9
+  %165 = icmp ugt i64 %.sroa.3.0.i.i9, %164
   br i1 %165, label %166, label %"_ZN74_$LT$rustls..msgs..base..Payload$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h940d92176c0696e9E.exit11"
 
 166:                                              ; preds = %160
@@ -16155,7 +16155,7 @@ define hidden void @_ZN6rustls4msgs9handshake16HandshakePayload6encode17hc0f7972
   %177 = load i64, ptr %176, align 8, !alias.scope !4060, !noalias !4065, !noundef !4
   %178 = load i64, ptr %1, align 8, !alias.scope !4067, !noalias !4065, !noundef !4
   %179 = sub i64 %178, %177
-  %180 = icmp ult i64 %179, %.sroa.3.0.i.i15
+  %180 = icmp ugt i64 %.sroa.3.0.i.i15, %179
   br i1 %180, label %181, label %"_ZN74_$LT$rustls..msgs..base..Payload$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h940d92176c0696e9E.exit17"
 
 181:                                              ; preds = %175
@@ -16185,7 +16185,7 @@ define hidden void @_ZN6rustls4msgs9handshake16HandshakePayload6encode17hc0f7972
   %190 = load i64, ptr %189, align 8, !alias.scope !4078, !noalias !4083, !noundef !4
   %191 = load i64, ptr %1, align 8, !alias.scope !4085, !noalias !4083, !noundef !4
   %192 = sub i64 %191, %190
-  %193 = icmp ult i64 %192, %.sroa.3.0.i.i21
+  %193 = icmp ugt i64 %.sroa.3.0.i.i21, %192
   br i1 %193, label %194, label %"_ZN74_$LT$rustls..msgs..base..Payload$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h940d92176c0696e9E.exit23"
 
 194:                                              ; preds = %188
@@ -17799,7 +17799,7 @@ _ZN6rustls4msgs5codec5Codec12get_encoding17h70fb4bdcc373f64cE.exit: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %49 = getelementptr inbounds i8, ptr %6, i64 16
   %50 = load i64, ptr %49, align 8, !noundef !4
-  %51 = icmp ult i64 %50, %34
+  %51 = icmp ugt i64 %34, %50
   br i1 %51, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5777dfd3e4249c38E.exit", label %52
 
 52:                                               ; preds = %.thread, %48
@@ -18176,7 +18176,7 @@ default.unreachable:                              ; preds = %"_ZN49_$LT$u8$u20$a
   store i64 %49, ptr %5, align 8, !alias.scope !4374, !noalias !4370
   %50 = load i64, ptr %1, align 8, !alias.scope !4376, !noalias !4383, !noundef !4
   %51 = sub i64 %50, %49
-  %52 = icmp ult i64 %51, %38
+  %52 = icmp ugt i64 %38, %51
   br i1 %52, label %53, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 53:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -18473,7 +18473,7 @@ define void @"_ZN89_$LT$rustls..msgs..handshake..EchConfigContents$u20$as$u20$ru
   store i64 %29, ptr %7, align 8, !alias.scope !4438, !noalias !4445
   %30 = load i64, ptr %1, align 8, !alias.scope !4448, !noalias !4455, !noundef !4
   %31 = sub i64 %30, %29
-  %32 = icmp ult i64 %31, %.sroa.7.0.i
+  %32 = icmp ugt i64 %.sroa.7.0.i, %31
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i"
@@ -18523,7 +18523,7 @@ define void @"_ZN89_$LT$rustls..msgs..handshake..EchConfigContents$u20$as$u20$ru
   store i64 %54, ptr %7, align 8, !alias.scope !4478, !noalias !4474
   %55 = load i64, ptr %1, align 8, !alias.scope !4480, !noalias !4487, !noundef !4
   %56 = sub i64 %55, %54
-  %57 = icmp ult i64 %56, %43
+  %57 = icmp ugt i64 %43, %56
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -19512,7 +19512,7 @@ define void @"_ZN84_$LT$rustls..msgs..handshake..ProtocolName$u20$as$u20$rustls.
   %18 = load ptr, ptr %17, align 8, !alias.scope !4663, !noalias !4666, !nonnull !4, !noundef !4
   %19 = load i64, ptr %1, align 8, !alias.scope !4675, !noalias !4682, !noundef !4
   %20 = sub i64 %19, %16
-  %21 = icmp ult i64 %20, %4
+  %21 = icmp ugt i64 %4, %20
   br i1 %21, label %22, label %"_ZN76_$LT$rustls..msgs..base..PayloadU8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hdaec15138a54732aE.exit"
 
 22:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i"
@@ -19595,7 +19595,7 @@ define void @"_ZN90_$LT$rustls..msgs..handshake..PresharedKeyBinder$u20$as$u20$r
   %18 = load ptr, ptr %17, align 8, !alias.scope !4685, !noalias !4688, !nonnull !4, !noundef !4
   %19 = load i64, ptr %1, align 8, !alias.scope !4697, !noalias !4704, !noundef !4
   %20 = sub i64 %19, %16
-  %21 = icmp ult i64 %20, %4
+  %21 = icmp ugt i64 %4, %20
   br i1 %21, label %22, label %"_ZN76_$LT$rustls..msgs..base..PayloadU8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17hdaec15138a54732aE.exit"
 
 22:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit.i"
@@ -19680,7 +19680,7 @@ define void @"_ZN83_$LT$rustls..msgs..handshake..ResponderId$u20$as$u20$rustls..
   store i64 %20, ptr %8, align 8, !alias.scope !4712, !noalias !4721
   %21 = load i64, ptr %1, align 8, !alias.scope !4729, !noalias !4736, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %6
+  %23 = icmp ugt i64 %6, %22
   br i1 %23, label %24, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 24:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -19771,7 +19771,7 @@ define void @"_ZN89_$LT$rustls..msgs..handshake..DistinguishedName$u20$as$u20$ru
   store i64 %20, ptr %8, align 8, !alias.scope !4744, !noalias !4753
   %21 = load i64, ptr %1, align 8, !alias.scope !4761, !noalias !4768, !noundef !4
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %6
+  %23 = icmp ugt i64 %6, %22
   br i1 %23, label %24, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 24:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"

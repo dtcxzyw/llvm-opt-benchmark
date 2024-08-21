@@ -83,7 +83,7 @@ define hidden { ptr, i64 } @_ZNK9MemRegion5minusES_(ptr nocapture noundef nonnul
   br label %32
 
 9:                                                ; preds = %3
-  %.not1 = icmp ult ptr %5, %1
+  %.not1 = icmp ugt ptr %1, %5
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br i1 %.not1, label %._crit_edge, label %10
@@ -102,7 +102,7 @@ define hidden { ptr, i64 } @_ZNK9MemRegion5minusES_(ptr nocapture noundef nonnul
 
 ._crit_edge:                                      ; preds = %9, %10
   %17 = getelementptr inbounds ptr, ptr %5, i64 %.pre
-  %.not3 = icmp ugt ptr %17, %1
+  %.not3 = icmp ult ptr %1, %17
   br i1 %.not3, label %19, label %18
 
 18:                                               ; preds = %._crit_edge
@@ -110,7 +110,7 @@ define hidden { ptr, i64 } @_ZNK9MemRegion5minusES_(ptr nocapture noundef nonnul
   br label %32
 
 19:                                               ; preds = %._crit_edge
-  %.not4 = icmp ugt ptr %5, %1
+  %.not4 = icmp ult ptr %1, %5
   %.not5 = icmp ult ptr %4, %17
   %or.cond = or i1 %.not4, %.not5
   br i1 %or.cond, label %25, label %20

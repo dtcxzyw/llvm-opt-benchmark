@@ -556,7 +556,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i32 1, ptr %59, align 8
   %71 = icmp eq i32 %16, 0
   %72 = add i32 %16, 1
-  %73 = icmp ne i32 %72, %19
+  %73 = icmp ne i32 %19, %72
   %74 = zext i16 %13 to i32
   %75 = zext i1 %73 to i32
   %76 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @dcp_reassembly_table, ptr noundef %0, i32 noundef %.pre, ptr noundef nonnull %1, i32 noundef %74, ptr noundef null, i32 noundef %16, i32 noundef %64, i32 noundef %75) #3

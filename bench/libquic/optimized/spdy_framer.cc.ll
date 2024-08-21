@@ -1551,7 +1551,7 @@ sw.bb55:                                          ; preds = %do.body
   br i1 %cmp.not.i, label %if.then7.i, label %if.then.i77
 
 if.then.i77:                                      ; preds = %sw.bb55
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %len.addr.0, i64 %9)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %len.addr.0)
   %cmp.not.i.i = icmp eq i64 %len.addr.0, 0
   br i1 %cmp.not.i.i, label %if.end.i79, label %if.then.i.i
 
@@ -1755,7 +1755,7 @@ sw.bb110:                                         ; preds = %do.body
   br i1 %cmp.not.i101, label %if.end12.i, label %if.end.i102
 
 if.end.i102:                                      ; preds = %sw.bb110
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %40, i64 %len.addr.0)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %len.addr.0, i64 %40)
   %sub.i103 = sub i64 %len.addr.0, %.sroa.speculated.i
   %sub4.i104 = sub i64 %40, %.sroa.speculated.i
   store i64 %sub4.i104, ptr %remaining_data_length_.i108, align 8
@@ -1782,7 +1782,7 @@ sw.bb115:                                         ; preds = %do.body
 
 if.then.i111:                                     ; preds = %sw.bb115
   %sub.i112 = sub i64 %41, %42
-  %.sroa.speculated.i113 = tail call i64 @llvm.umin.i64(i64 %sub.i112, i64 %len.addr.0)
+  %.sroa.speculated.i113 = tail call i64 @llvm.umin.i64(i64 %len.addr.0, i64 %sub.i112)
   %tobool.not.i114 = icmp eq i64 %.sroa.speculated.i113, 0
   br i1 %tobool.not.i114, label %if.end13.i, label %if.then8.i
 
@@ -1904,7 +1904,7 @@ if.then6:                                         ; preds = %if.end
   %call.i10 = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %2)
   %3 = load i64, ptr %len_.i, align 8
   %sub = sub i64 %call.i10, %3
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %len, i64 %sub)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub, i64 %len)
   %cmp.not.i = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %cmp.not.i, label %if.end11, label %if.then.i
 
@@ -2253,7 +2253,7 @@ if.end:
   br i1 %cmp.not, label %if.then12, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %len, i64 %0)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
   %cmp.not.i = icmp eq i64 %len, 0
   br i1 %cmp.not.i, label %if.end9, label %if.then.i
 
@@ -2900,7 +2900,7 @@ entry:
   br i1 %cmp.not, label %if.then7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %len, i64 %0)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
   %cmp.not.i = icmp eq i64 %len, 0
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
@@ -3475,7 +3475,7 @@ entry:
 if.end:                                           ; preds = %entry
   %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %remaining_data_length_, align 8
-  %spec.select18 = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
+  %spec.select18 = tail call i64 @llvm.umin.i64(i64 %len, i64 %0)
   %protocol_version_.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load i32, ptr %protocol_version_.i, align 8
   %cmp.i = icmp eq i32 %1, 1
@@ -3490,7 +3490,7 @@ if.end:                                           ; preds = %entry
 
 if.then8:                                         ; preds = %if.end
   %sub = sub i64 %add3.i, %2
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %spec.select18, i64 %sub)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub, i64 %spec.select18)
   %cmp.not.i = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %cmp.not.i, label %_ZN3net10SpdyFramer24UpdateCurrentFrameBufferEPPKcPmm.exit, label %if.then.i
 
@@ -3636,7 +3636,7 @@ entry:
 if.end:                                           ; preds = %entry
   %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %remaining_data_length_, align 8
-  %spec.select16 = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
+  %spec.select16 = tail call i64 @llvm.umin.i64(i64 %len, i64 %0)
   %protocol_version_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load i32, ptr %protocol_version_.i.i, align 8
   %call.i.i = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %1)
@@ -3649,7 +3649,7 @@ if.end:                                           ; preds = %entry
 
 if.then8:                                         ; preds = %if.end
   %sub = sub i64 %add.i, %2
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %spec.select16, i64 %sub)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub, i64 %spec.select16)
   %cmp.not.i = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %cmp.not.i, label %_ZN3net10SpdyFramer24UpdateCurrentFrameBufferEPPKcPmm.exit, label %if.then.i
 
@@ -4000,7 +4000,7 @@ entry:
   %ref.tmp92 = alloca %"class.logging::LogMessage", align 8
   %remaining_data_length_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %remaining_data_length_, align 8
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %len, i64 %0)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
   %cmp.not.i = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %cmp.not.i, label %_ZN3net10SpdyFramer24UpdateCurrentFrameBufferEPPKcPmm.exit, label %if.then.i
 
@@ -4287,7 +4287,7 @@ if.end.if.end41_crit_edge:                        ; preds = %if.end
   br label %if.end41
 
 if.end14:                                         ; preds = %if.end
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %len, i64 %0)
   %current_frame_type_ = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %current_frame_type_, align 8
   %cmp17 = icmp eq i32 %1, 0
@@ -4409,7 +4409,7 @@ entry:
   br i1 %cmp.not, label %if.end12, label %if.end
 
 if.end:                                           ; preds = %entry
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %len, i64 %0)
   %sub = sub i64 %len, %.sroa.speculated
   %sub4 = sub i64 %0, %.sroa.speculated
   store i64 %sub4, ptr %remaining_data_length_, align 8
@@ -4443,7 +4443,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %0, %1
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %len)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %len, i64 %sub)
   %tobool.not = icmp eq i64 %.sroa.speculated, 0
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %state_, align 8
@@ -4715,7 +4715,7 @@ if.end46:                                         ; preds = %if.end33
   %26 = icmp eq i32 %.pre, 2
   %recv_frame_size_limit_ = getelementptr inbounds i8, ptr %this, i64 56
   %27 = load i64, ptr %recv_frame_size_limit_, align 8
-  %cmp49 = icmp ult i64 %27, %payload_length_field
+  %cmp49 = icmp ugt i64 %payload_length_field, %27
   %or.cond = select i1 %26, i1 %cmp49, i1 false
   br i1 %or.cond, label %if.then50, label %return
 
@@ -4754,7 +4754,7 @@ declare noundef zeroext i1 @_ZN3net13SpdyConstants25IsValidHTTP2FrameStreamIdEjN
 define dso_local noundef i64 @_ZN3net10SpdyFramer24UpdateCurrentFrameBufferEPPKcPmm(ptr nocapture noundef nonnull align 8 dereferenceable(259) %this, ptr nocapture noundef %data, ptr nocapture noundef %len, i64 noundef %max_bytes) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %len, align 8
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %max_bytes)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %max_bytes, i64 %0)
   %cmp.not = icmp eq i64 %.sroa.speculated, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -11782,7 +11782,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %6 = phi i64 [ %.pre.i.i, %if.end.i.i ], [ %9, %lor.lhs.false.i.i ]
   %__prev_p.0.i.i = phi ptr [ %4, %if.end.i.i ], [ %__p.0.i.i, %lor.lhs.false.i.i ]
   %__p.0.i.i = phi ptr [ %5, %if.end.i.i ], [ %7, %lor.lhs.false.i.i ]
-  %cmp.i.i.i.i = icmp eq i64 %6, %result.0.lcssa.i.i
+  %cmp.i.i.i.i = icmp eq i64 %result.0.lcssa.i.i, %6
   br i1 %cmp.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stESt8equal_toIS9_ENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSB_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.i.i, label %if.end3.i.i
 
 _ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stESt8equal_toIS9_ENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSB_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.i.i: ; preds = %for.cond.i.i

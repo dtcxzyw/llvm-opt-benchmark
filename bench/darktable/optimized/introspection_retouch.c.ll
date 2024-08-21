@@ -9420,7 +9420,7 @@ define internal fastcc void @_retouch_clone(ptr nocapture noundef %0, ptr nocapt
   %35 = load i32, ptr %34, align 4, !tbaa !215
   %36 = load i32, ptr %3, align 4, !tbaa !217
   %37 = load i32, ptr %1, align 4, !tbaa !217
-  %38 = add i32 %37, %4
+  %38 = add i32 %4, %37
   %39 = sub i32 %36, %38
   %40 = add i32 %33, %5
   %41 = sub i32 %35, %40
@@ -9707,7 +9707,7 @@ define internal fastcc void @_retouch_heal(ptr nocapture noundef %0, ptr nocaptu
   %45 = load i32, ptr %44, align 4, !tbaa !215
   %46 = load i32, ptr %3, align 4, !tbaa !217
   %47 = load i32, ptr %1, align 4, !tbaa !217
-  %48 = add i32 %47, %4
+  %48 = add i32 %4, %47
   %49 = sub i32 %46, %48
   %50 = add i32 %43, %5
   %51 = sub i32 %45, %50

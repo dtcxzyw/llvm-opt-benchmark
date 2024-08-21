@@ -28,24 +28,24 @@ define ptr @cuddBddAndAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef 
   %7 = ptrtoint ptr %6 to i64
   %8 = xor i64 %7, 1
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %9, %1
-  %11 = icmp eq ptr %9, %2
+  %10 = icmp eq ptr %1, %9
+  %11 = icmp eq ptr %2, %9
   %or.cond = or i1 %10, %11
   %12 = ptrtoint ptr %2 to i64
   %13 = xor i64 %12, 1
   %14 = inttoptr i64 %13 to ptr
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   %or.cond234 = or i1 %15, %or.cond
   br i1 %or.cond234, label %218, label %16
 
 16:                                               ; preds = %4
-  %17 = icmp eq ptr %6, %1
-  %18 = icmp eq ptr %6, %2
+  %17 = icmp eq ptr %1, %6
+  %18 = icmp eq ptr %2, %6
   %or.cond235 = and i1 %17, %18
   br i1 %or.cond235, label %218, label %19
 
 19:                                               ; preds = %16
-  %20 = icmp eq ptr %6, %3
+  %20 = icmp eq ptr %3, %6
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19

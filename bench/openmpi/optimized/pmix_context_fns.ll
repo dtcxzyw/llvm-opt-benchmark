@@ -11,13 +11,13 @@ define range(i32 -74, 1) i32 @pmix_util_check_context_cwd(ptr noundef %0, i1 nou
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
   %7 = icmp ne ptr %6, null
-  %brmerge.not = and i1 %7, %1
+  %brmerge.not = and i1 %1, %7
   br i1 %brmerge.not, label %8, label %.critedge
 
 8:                                                ; preds = %5
   %9 = tail call i32 @chdir(ptr noundef nonnull %6) #7
   %.not = icmp eq i32 %9, 0
-  %brmerge21 = or i1 %.not, %2
+  %brmerge21 = or i1 %2, %.not
   %.mux = select i1 %.not, i32 0, i32 -74
   br i1 %brmerge21, label %.critedge, label %10
 

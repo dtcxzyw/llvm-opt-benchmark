@@ -473,7 +473,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
 
 _ZN3dpx6Header16ValidMagicCookieEj.exit:          ; preds = %for.body.i.i
   %3 = load i32, ptr %mc.i, align 4
-  %cmp1.i = icmp eq i32 %3, %0
+  %cmp1.i = icmp eq i32 %0, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mc.i)
   br i1 %cmp1.i, label %if.then4, label %return
 
@@ -1706,7 +1706,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.els
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit:                 ; preds = %for.body.i
   %2 = load i32, ptr %mc, align 4
-  %cmp1 = icmp eq i32 %2, %magic
+  %cmp1 = icmp eq i32 %magic, %2
   br label %return
 
 return:                                           ; preds = %_ZN3dpx9SwapBytesIjEET_RS1_.exit, %entry

@@ -249,7 +249,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -529,7 +529,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #19
   %cmp7 = icmp eq ptr %call, null
@@ -2067,7 +2067,7 @@ invoke.cont75:                                    ; preds = %sw.epilog
 land.lhs.true85:                                  ; preds = %invoke.cont75
   %arrayidx87 = getelementptr inbounds i8, ptr %this, i64 468
   %29 = load i32, ptr %arrayidx87, align 4
-  %cmp88 = icmp sgt i32 %29, %start
+  %cmp88 = icmp slt i32 %start, %29
   br i1 %cmp88, label %if.then89, label %if.end92
 
 if.then89:                                        ; preds = %land.lhs.true85
@@ -2089,7 +2089,7 @@ if.end92:                                         ; preds = %invoke.cont75, %if.
 land.lhs.true97:                                  ; preds = %if.end92
   %arrayidx99 = getelementptr inbounds i8, ptr %this, i64 472
   %32 = load i32, ptr %arrayidx99, align 8
-  %cmp100 = icmp sgt i32 %32, %start
+  %cmp100 = icmp slt i32 %start, %32
   br i1 %cmp100, label %if.then101, label %if.end104
 
 if.then101:                                       ; preds = %land.lhs.true97
@@ -2104,7 +2104,7 @@ if.end104:                                        ; preds = %if.then101, %land.l
 land.lhs.true108:                                 ; preds = %if.end104
   %arrayidx110 = getelementptr inbounds i8, ptr %this, i64 508
   %34 = load i32, ptr %arrayidx110, align 4
-  %cmp111 = icmp sgt i32 %34, %start
+  %cmp111 = icmp slt i32 %start, %34
   br i1 %cmp111, label %if.then112, label %if.end115
 
 if.then112:                                       ; preds = %land.lhs.true108

@@ -32695,10 +32695,10 @@ define void @_ZN19WiresharkMainWindow21setForCapturedPacketsEb(ptr nocapture nou
 define void @_ZN19WiresharkMainWindow18setMenusForFileSetEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = tail call ptr @fileset_get_next()
   %4 = icmp ne ptr %3, null
-  %5 = and i1 %4, %1
+  %5 = and i1 %1, %4
   %6 = tail call ptr @fileset_get_previous()
   %7 = icmp ne ptr %6, null
-  %8 = and i1 %7, %1
+  %8 = and i1 %1, %7
   %9 = getelementptr inbounds i8, ptr %0, i64 272
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 344
@@ -45329,7 +45329,7 @@ _ZNSt3mapIP7QActionP7QWidgetSt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit: ; 
 
 select.unfold.i.i:                                ; preds = %32, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %32 ]
-  %35 = icmp eq ptr %15, %.sroa.4.0.i.ph.i.i
+  %35 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %15
   br i1 %35, label %_ZNSt8_Rb_treeIP7QActionSt4pairIKS1_P7QWidgetESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE10_M_insert_IS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i, label %36
 
 36:                                               ; preds = %select.unfold.i.i
@@ -45494,7 +45494,7 @@ _ZNSt3mapIP7QAction7ts_typeSt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit: ; p
 
 select.unfold.i.i:                                ; preds = %32, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %32 ]
-  %35 = icmp eq ptr %15, %.sroa.4.0.i.ph.i.i
+  %35 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %15
   br i1 %35, label %_ZNSt8_Rb_treeIP7QActionSt4pairIKS1_7ts_typeESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %36
 
 36:                                               ; preds = %select.unfold.i.i
@@ -45621,7 +45621,7 @@ _ZNSt3mapIP7QAction12ts_precisionSt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exi
 
 select.unfold.i.i:                                ; preds = %32, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %32 ]
-  %35 = icmp eq ptr %15, %.sroa.4.0.i.ph.i.i
+  %35 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %15
   br i1 %35, label %_ZNSt8_Rb_treeIP7QActionSt4pairIKS1_12ts_precisionESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %36
 
 36:                                               ; preds = %select.unfold.i.i
@@ -71110,7 +71110,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit: ; preds = %3
 7:                                                ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit, label %31
 
 _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -71436,7 +71436,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %4, %_ZNK17Q
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %29
-  %35 = add i64 %31, %2
+  %35 = add i64 %2, %31
   %36 = sub i64 %19, %35
   %37 = sdiv i64 %36, 2
   %38 = tail call noundef i64 @llvm.smax.i64(i64 %37, i64 0)
@@ -71800,7 +71800,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit.thread: ; preds = %22, 
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %.not.i.i = icmp eq i32 %26, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %23)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %23, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %23, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv.exit31
 
@@ -71843,7 +71843,7 @@ _ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33: ; preds = %35
   %48 = getelementptr inbounds i8, ptr %32, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = load i64, ptr %6, align 8
-  %51 = add i64 %50, %2
+  %51 = add i64 %2, %50
   %52 = sub i64 %49, %51
   %53 = sdiv i64 %52, 2
   %54 = call noundef i64 @llvm.smax.i64(i64 %53, i64 0)
@@ -71911,7 +71911,7 @@ _ZNK17QArrayDataPointerI21register_stat_group_eE11needsDetachEv.exit: ; preds = 
 7:                                                ; preds = %_ZNK17QArrayDataPointerI21register_stat_group_eE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerI21register_stat_group_eE14freeSpaceAtEndEv.exit, label %27
 
 _ZNK17QArrayDataPointerI21register_stat_group_eE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -71980,7 +71980,7 @@ _ZNK17QArrayDataPointerI21register_stat_group_eE11needsDetachEv.exit.thread: ; p
 
 50:                                               ; preds = %_ZNK17QArrayDataPointerI21register_stat_group_eE11needsDetachEv.exit.thread
   %51 = load i64, ptr %43, align 8
-  %52 = icmp sgt i64 %51, %1
+  %52 = icmp slt i64 %1, %51
   br i1 %52, label %53, label %_ZN9QtPrivate12QPodArrayOpsI21register_stat_group_eE10createHoleEN10QArrayData14GrowthPositionExx.exit
 
 53:                                               ; preds = %50
@@ -72071,7 +72071,7 @@ _ZNK17QArrayDataPointerI21register_stat_group_eE16freeSpaceAtBeginEv.exit: ; pre
   br i1 %or.cond, label %31, label %.critedge
 
 31:                                               ; preds = %19
-  %32 = add i64 %25, %2
+  %32 = add i64 %2, %25
   %33 = sub i64 %22, %32
   %34 = sdiv i64 %33, 2
   %35 = tail call noundef i64 @llvm.smax.i64(i64 %34, i64 0)
@@ -72411,7 +72411,7 @@ _ZNK17QArrayDataPointerI21register_stat_group_eE22constAllocatedCapacityEv.exit.
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerI21register_stat_group_eE22constAllocatedCapacityEv.exit31
 
@@ -72454,7 +72454,7 @@ _ZNK17QArrayDataPointerI21register_stat_group_eE16freeSpaceAtBeginEv.exit33: ; p
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)
@@ -74641,7 +74641,7 @@ _ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit: ; preds = %3
 7:                                                ; preds = %_ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerI10QByteArrayE14freeSpaceAtEndEv.exit, label %31
 
 _ZNK17QArrayDataPointerI10QByteArrayE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -74962,7 +74962,7 @@ _ZNK17QArrayDataPointerI10QByteArrayE14freeSpaceAtEndEv.exit: ; preds = %4, %_ZN
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %29
-  %35 = add i64 %31, %2
+  %35 = add i64 %2, %31
   %36 = sub i64 %19, %35
   %37 = sdiv i64 %36, 2
   %38 = tail call noundef i64 @llvm.smax.i64(i64 %37, i64 0)
@@ -75323,7 +75323,7 @@ _ZNK17QArrayDataPointerI10QByteArrayE14freeSpaceAtEndEv.exit.thread: ; preds = %
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %.not.i.i = icmp eq i32 %26, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %23)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %23, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %23, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerI10QByteArrayE22constAllocatedCapacityEv.exit31
 
@@ -75366,7 +75366,7 @@ _ZNK17QArrayDataPointerI10QByteArrayE16freeSpaceAtBeginEv.exit33: ; preds = %35
   %48 = getelementptr inbounds i8, ptr %32, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = load i64, ptr %6, align 8
-  %51 = add i64 %50, %2
+  %51 = add i64 %2, %50
   %52 = sub i64 %49, %51
   %53 = sdiv i64 %52, 2
   %54 = call noundef i64 @llvm.smax.i64(i64 %53, i64 0)
@@ -75614,7 +75614,7 @@ _ZNK17QArrayDataPointerIiE22constAllocatedCapacityEv.exit.thread: ; preds = %4
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerIiE22constAllocatedCapacityEv.exit31
 
@@ -75657,7 +75657,7 @@ _ZNK17QArrayDataPointerIiE16freeSpaceAtBeginEv.exit33: ; preds = %37
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)
@@ -75905,7 +75905,7 @@ _ZNK17QArrayDataPointerISt4pairIP7QActionbEE22constAllocatedCapacityEv.exit.thre
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerISt4pairIP7QActionbEE22constAllocatedCapacityEv.exit31
 
@@ -75948,7 +75948,7 @@ _ZNK17QArrayDataPointerISt4pairIP7QActionbEE16freeSpaceAtBeginEv.exit33: ; preds
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)
@@ -75998,7 +75998,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit: ; preds = %3
 7:                                                ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit, label %31
 
 _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -76475,7 +76475,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P10QTextCodecESt10_S
   %31 = load ptr, ptr %6, align 8
   %.not.i.i = icmp ne ptr %28, null
   %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = icmp eq ptr %32, %29
+  %33 = icmp eq ptr %29, %32
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %33
   br i1 %or.cond.i.i, label %.thread, label %34
 
@@ -76532,7 +76532,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_P10QTextCodecESt10_Select1stIS5_ESt4lessIS0_E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_P10QTextCodecESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %47
 
 6:                                                ; preds = %3
@@ -76843,7 +76843,7 @@ _ZNK17QArrayDataPointerI12QKeySequenceE11needsDetachEv.exit: ; preds = %3
 8:                                                ; preds = %_ZNK17QArrayDataPointerI12QKeySequenceE11needsDetachEv.exit
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = icmp eq i64 %10, %1
+  %11 = icmp eq i64 %1, %10
   br i1 %11, label %_ZNK17QArrayDataPointerI12QKeySequenceE14freeSpaceAtEndEv.exit, label %27
 
 _ZNK17QArrayDataPointerI12QKeySequenceE14freeSpaceAtEndEv.exit: ; preds = %8
@@ -77032,7 +77032,7 @@ _ZNK17QArrayDataPointerI12QKeySequenceE16freeSpaceAtBeginEv.exit: ; preds = %10
   br i1 %or.cond, label %31, label %.critedge
 
 31:                                               ; preds = %19
-  %32 = add i64 %25, %2
+  %32 = add i64 %2, %25
   %33 = sub i64 %22, %32
   %34 = sdiv i64 %33, 2
   %35 = tail call noundef i64 @llvm.smax.i64(i64 %34, i64 0)
@@ -77423,7 +77423,7 @@ _ZNK17QArrayDataPointerI12QKeySequenceE22constAllocatedCapacityEv.exit.thread: ;
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerI12QKeySequenceE22constAllocatedCapacityEv.exit31
 
@@ -77466,7 +77466,7 @@ _ZNK17QArrayDataPointerI12QKeySequenceE16freeSpaceAtBeginEv.exit33: ; preds = %3
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)
@@ -77754,7 +77754,7 @@ _ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit.thread: ; preds = %2
   %13 = sub i64 %12, %11
   %14 = ashr exact i64 %13, 3
   %15 = sub i64 %6, %14
-  %.not23 = icmp slt i64 %15, %1
+  %.not23 = icmp sgt i64 %1, %15
   br i1 %.not23, label %_ZNK17QArrayDataPointerIP7QActionE8isSharedEv.exit.thread, label %_ZNK17QArrayDataPointerIP7QActionE5flagsEv.exit
 
 _ZNK17QArrayDataPointerIP7QActionE5flagsEv.exit:  ; preds = %_ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit.thread
@@ -77777,7 +77777,7 @@ _ZNK17QArrayDataPointerIP7QActionE8isSharedEv.exit: ; preds = %_ZNK17QArrayDataP
 _ZNK17QArrayDataPointerIP7QActionE8isSharedEv.exit.thread: ; preds = %2, %_ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit.thread, %_ZNK17QArrayDataPointerIP7QActionE8isSharedEv.exit
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %23, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %1, i64 %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %24 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 8, i64 noundef %.sroa.speculated, i32 noundef 1) #26
   call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 8) ]
@@ -77843,7 +77843,7 @@ _ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit: ; preds = %3
 7:                                                ; preds = %_ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerIP7QActionE14freeSpaceAtEndEv.exit, label %27
 
 _ZNK17QArrayDataPointerIP7QActionE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -77912,7 +77912,7 @@ _ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.thread: ; preds = %3, %27
 
 50:                                               ; preds = %_ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.thread
   %51 = load i64, ptr %43, align 8
-  %52 = icmp sgt i64 %51, %1
+  %52 = icmp slt i64 %1, %51
   br i1 %52, label %53, label %_ZN9QtPrivate12QPodArrayOpsIP7QActionE10createHoleEN10QArrayData14GrowthPositionExx.exit
 
 53:                                               ; preds = %50
@@ -78003,7 +78003,7 @@ _ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit: ; preds = %10
   br i1 %or.cond, label %31, label %.critedge
 
 31:                                               ; preds = %19
-  %32 = add i64 %25, %2
+  %32 = add i64 %2, %25
   %33 = sub i64 %22, %32
   %34 = sdiv i64 %33, 2
   %35 = tail call noundef i64 @llvm.smax.i64(i64 %34, i64 0)
@@ -78343,7 +78343,7 @@ _ZNK17QArrayDataPointerIP7QActionE22constAllocatedCapacityEv.exit.thread: ; pred
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerIP7QActionE22constAllocatedCapacityEv.exit31
 
@@ -78386,7 +78386,7 @@ _ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit33: ; preds = %37
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)
@@ -79666,7 +79666,7 @@ _ZNK17QArrayDataPointerISt4pairIP7QActionbEE11needsDetachEv.exit: ; preds = %3
 8:                                                ; preds = %_ZNK17QArrayDataPointerISt4pairIP7QActionbEE11needsDetachEv.exit
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = icmp eq i64 %10, %1
+  %11 = icmp eq i64 %1, %10
   br i1 %11, label %_ZNK17QArrayDataPointerISt4pairIP7QActionbEE14freeSpaceAtEndEv.exit, label %27
 
 _ZNK17QArrayDataPointerISt4pairIP7QActionbEE14freeSpaceAtEndEv.exit: ; preds = %8
@@ -79733,7 +79733,7 @@ _ZNK17QArrayDataPointerISt4pairIP7QActionbEE11needsDetachEv.exit.thread: ; preds
 
 48:                                               ; preds = %_ZNK17QArrayDataPointerISt4pairIP7QActionbEE11needsDetachEv.exit.thread
   %49 = load i64, ptr %41, align 8
-  %50 = icmp sgt i64 %49, %1
+  %50 = icmp slt i64 %1, %49
   br i1 %50, label %51, label %_ZN9QtPrivate12QPodArrayOpsISt4pairIP7QActionbEE10createHoleEN10QArrayData14GrowthPositionExx.exit
 
 51:                                               ; preds = %48
@@ -79931,7 +79931,7 @@ _ZNK17QArrayDataPointerISt4pairIP7QActionbEE14freeSpaceAtEndEv.exit: ; preds = %
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %30
-  %36 = add i64 %32, %2
+  %36 = add i64 %2, %32
   %37 = sub i64 %20, %36
   %38 = sdiv i64 %37, 2
   %39 = tail call noundef i64 @llvm.smax.i64(i64 %38, i64 0)
@@ -80163,7 +80163,7 @@ _ZNK17QArrayDataPointerIP13_rtpstream_idE11needsDetachEv.exit: ; preds = %3
 7:                                                ; preds = %_ZNK17QArrayDataPointerIP13_rtpstream_idE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerIP13_rtpstream_idE14freeSpaceAtEndEv.exit, label %27
 
 _ZNK17QArrayDataPointerIP13_rtpstream_idE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -80232,7 +80232,7 @@ _ZNK17QArrayDataPointerIP13_rtpstream_idE11needsDetachEv.exit.thread: ; preds = 
 
 50:                                               ; preds = %_ZNK17QArrayDataPointerIP13_rtpstream_idE11needsDetachEv.exit.thread
   %51 = load i64, ptr %43, align 8
-  %52 = icmp sgt i64 %51, %1
+  %52 = icmp slt i64 %1, %51
   br i1 %52, label %53, label %_ZN9QtPrivate12QPodArrayOpsIP13_rtpstream_idE10createHoleEN10QArrayData14GrowthPositionExx.exit
 
 53:                                               ; preds = %50
@@ -80323,7 +80323,7 @@ _ZNK17QArrayDataPointerIP13_rtpstream_idE16freeSpaceAtBeginEv.exit: ; preds = %1
   br i1 %or.cond, label %31, label %.critedge
 
 31:                                               ; preds = %19
-  %32 = add i64 %25, %2
+  %32 = add i64 %2, %25
   %33 = sub i64 %22, %32
   %34 = sdiv i64 %33, 2
   %35 = tail call noundef i64 @llvm.smax.i64(i64 %34, i64 0)
@@ -80663,7 +80663,7 @@ _ZNK17QArrayDataPointerIP13_rtpstream_idE22constAllocatedCapacityEv.exit.thread:
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerIP13_rtpstream_idE22constAllocatedCapacityEv.exit31
 
@@ -80706,7 +80706,7 @@ _ZNK17QArrayDataPointerIP13_rtpstream_idE16freeSpaceAtBeginEv.exit33: ; preds = 
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)

@@ -904,7 +904,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenTreeESt4pairIKS2_P9AstActiveESaIS7_ENSt8__detai
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 160
-  %13 = icmp eq ptr %12, %11
+  %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZNSt13unordered_mapI5VNRefI10AstSenTreeEP9AstActiveSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEED2Ev.exit.i, label %14
 
 14:                                               ; preds = %_ZNSt10_HashtableI5VNRefI10AstSenTreeESt4pairIKS2_P9AstActiveESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -1008,7 +1008,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenTreeESt4pairIKS2_P9AstActiveESaIS7_ENSt8__detai
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 128
-  %12 = icmp eq ptr %11, %10
+  %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNSt13unordered_mapI5VNRefI10AstSenTreeEP9AstActiveSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZNSt10_HashtableI5VNRefI10AstSenTreeESt4pairIKS2_P9AstActiveESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -2723,7 +2723,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenTreeESt4pairIKS2_P9AstActiveESaIS7_ENSt8__detai
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 128
-  %12 = icmp eq ptr %11, %10
+  %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNSt13unordered_mapI5VNRefI10AstSenTreeEP9AstActiveSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEED2Ev.exit.i, label %13
 
 13:                                               ; preds = %_ZNSt10_HashtableI5VNRefI10AstSenTreeESt4pairIKS2_P9AstActiveESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -3288,7 +3288,7 @@ _ZZN7AstNode11foreachImplI10AstSenItemZN13ActiveVisitor13visitSenItemsEPS_EUlPS1
   %49 = sub i64 %47, %48
   %50 = ashr exact i64 %49, 3
   %51 = ashr exact i64 %49, 2
-  %52 = icmp ult i64 %50, %51
+  %52 = icmp ugt i64 %51, %50
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %44
@@ -3301,7 +3301,7 @@ _ZZN7AstNode11foreachImplI10AstSenItemZN13ActiveVisitor13visitSenItemsEPS_EUlPS1
   br label %_ZZN7AstNode11foreachImplI10AstSenItemZN13ActiveVisitor13visitSenItemsEPS_EUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit21
 
 55:                                               ; preds = %44
-  %56 = icmp ugt i64 %50, %51
+  %56 = icmp ult i64 %51, %50
   br i1 %56, label %57, label %_ZZN7AstNode11foreachImplI10AstSenItemZN13ActiveVisitor13visitSenItemsEPS_EUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit21
 
 57:                                               ; preds = %55
@@ -3690,7 +3690,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11ActiveNamer9getActiveEP8FileLine
   %33 = phi i64 [ %.pre.i.i.i, %30 ], [ %41, %38 ]
   %.013.i.i.i = phi ptr [ %29, %30 ], [ %.0.i.i.i, %38 ]
   %.0.i.i.i = phi ptr [ %31, %30 ], [ %37, %38 ]
-  %34 = icmp eq i64 %33, %22
+  %34 = icmp eq i64 %22, %33
   br i1 %34, label %_ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenTreeESt4pairIKS3_P9AstActiveENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenTreeESt4pairIKS3_P9AstActiveENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i.i
 
 _ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenTreeESt4pairIKS3_P9AstActiveENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.i.i.i: ; preds = %32
@@ -4584,7 +4584,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenTreeESt4pairIKS2_P9AstActiveESaIS7_ENSt8__detai
   %30 = phi i64 [ %.pre.i.i, %27 ], [ %38, %35 ]
   %.013.i.i = phi ptr [ %26, %27 ], [ %.0.i.i, %35 ]
   %.0.i.i = phi ptr [ %28, %27 ], [ %34, %35 ]
-  %31 = icmp eq i64 %30, %16
+  %31 = icmp eq i64 %16, %30
   br i1 %31, label %_ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenTreeESt4pairIKS3_P9AstActiveENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.i.i, label %_ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenTreeESt4pairIKS3_P9AstActiveENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i
 
 _ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenTreeESt4pairIKS3_P9AstActiveENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.i.i: ; preds = %29
@@ -4824,7 +4824,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenTreeESt4pairIKS2_P9AstActiveESaIS7_ENSt8__detai
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 56
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableI5VNRefI10AstSenTreeESt4pairIKS2_P9AstActiveESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -5317,7 +5317,7 @@ _ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssign
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 3
   %59 = ashr exact i64 %57, 2
-  %60 = icmp ult i64 %58, %59
+  %60 = icmp ugt i64 %59, %58
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %52
@@ -5330,7 +5330,7 @@ _ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssign
   br label %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit19
 
 63:                                               ; preds = %52
-  %64 = icmp ugt i64 %58, %59
+  %64 = icmp ult i64 %59, %58
   br i1 %64, label %65, label %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit19
 
 65:                                               ; preds = %63
@@ -7723,7 +7723,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN13ActiveVisitor5visitEP10AstSenItemEUlPKS1
   %59 = sub i64 %57, %58
   %60 = ashr exact i64 %59, 3
   %61 = ashr exact i64 %59, 2
-  %62 = icmp ult i64 %60, %61
+  %62 = icmp ugt i64 %61, %60
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %54
@@ -7736,7 +7736,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN13ActiveVisitor5visitEP10AstSenItemEUlPKS1
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN13ActiveVisitor5visitEP10AstSenItemEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 65:                                               ; preds = %54
-  %66 = icmp ugt i64 %60, %61
+  %66 = icmp ult i64 %61, %60
   br i1 %66, label %67, label %_ZZN7AstNode11foreachImplI9AstVarRefZN13ActiveVisitor5visitEP10AstSenItemEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 67:                                               ; preds = %65

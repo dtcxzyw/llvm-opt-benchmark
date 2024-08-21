@@ -187,7 +187,7 @@ define dso_local zeroext i1 @message_level_is_interesting(i32 noundef %0) local_
 8:                                                ; preds = %3
   %9 = icmp eq i32 %0, 20
   %10 = icmp eq i32 %4, 15
-  %.not.i.i = icmp sgt i32 %4, %0
+  %.not.i.i = icmp slt i32 %0, %4
   %11 = or i1 %10, %.not.i.i
   %or.cond5 = select i1 %9, i1 true, i1 %11
   br i1 %or.cond5, label %should_output_to_server.exit, label %should_output_to_client.exit
@@ -206,7 +206,7 @@ should_output_to_server.exit:                     ; preds = %6, %8
 
 18:                                               ; preds = %15
   %19 = load i32, ptr @client_min_messages, align 4
-  %20 = icmp sle i32 %19, %0
+  %20 = icmp sge i32 %0, %19
   %21 = icmp eq i32 %0, 17
   %22 = or i1 %21, %20
   br label %should_output_to_client.exit
@@ -235,7 +235,7 @@ define internal fastcc zeroext i1 @should_output_to_client(i32 noundef %0) unnam
 
 10:                                               ; preds = %5
   %11 = load i32, ptr @client_min_messages, align 4
-  %12 = icmp sle i32 %11, %0
+  %12 = icmp sge i32 %0, %11
   %13 = icmp eq i32 %0, 17
   %14 = or i1 %13, %12
   br label %15
@@ -334,7 +334,7 @@ define dso_local noundef zeroext i1 @errstart(i32 noundef %0, ptr noundef %1) lo
   br i1 %31, label %should_output_to_server.exit, label %33
 
 32:                                               ; preds = %28
-  %.not.i.i = icmp sgt i32 %22, %.030
+  %.not.i.i = icmp slt i32 %.030, %22
   br i1 %.not.i.i, label %33, label %should_output_to_server.exit
 
 33:                                               ; preds = %32, %30, %24
@@ -360,7 +360,7 @@ should_output_to_server.exit:                     ; preds = %24, %26, %30, %32, 
 
 43:                                               ; preds = %38
   %44 = load i32, ptr @client_min_messages, align 4
-  %45 = icmp sle i32 %44, %.030
+  %45 = icmp sge i32 %.030, %44
   %46 = icmp eq i32 %.030, 17
   %47 = or i1 %46, %45
   br label %should_output_to_client.exit

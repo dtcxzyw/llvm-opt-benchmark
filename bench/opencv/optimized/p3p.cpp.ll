@@ -2374,7 +2374,7 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   %125 = load double, ptr %122, align 8
   %126 = getelementptr inbounds i8, ptr %122, i64 8
   %127 = load double, ptr %126, align 8
-  %128 = fmul double %127, %21
+  %128 = fmul double %21, %127
   %129 = tail call double @llvm.fmuladd.f64(double %125, double %20, double %128)
   %130 = getelementptr inbounds i8, ptr %122, i64 16
   %131 = load double, ptr %130, align 8
@@ -2385,7 +2385,7 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   %136 = load double, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %122, i64 32
   %138 = load double, ptr %137, align 8
-  %139 = fmul double %138, %21
+  %139 = fmul double %21, %138
   %140 = tail call double @llvm.fmuladd.f64(double %136, double %20, double %139)
   %141 = getelementptr inbounds i8, ptr %122, i64 40
   %142 = load double, ptr %141, align 8
@@ -2397,7 +2397,7 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   %148 = load double, ptr %147, align 8
   %149 = getelementptr inbounds i8, ptr %122, i64 56
   %150 = load double, ptr %149, align 8
-  %151 = fmul double %150, %21
+  %151 = fmul double %21, %150
   %152 = tail call double @llvm.fmuladd.f64(double %148, double %20, double %151)
   %153 = getelementptr inbounds i8, ptr %122, i64 64
   %154 = load double, ptr %153, align 8
@@ -2452,7 +2452,7 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
   %184 = icmp ne i32 %97, 1
-  %or.cond = and i1 %184, %23
+  %or.cond = and i1 %23, %184
   br i1 %or.cond, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %._crit_edge
@@ -2754,8 +2754,8 @@ define hidden noundef i32 @_ZN3p3p17solve_for_lengthsEPA3_dPdS2_(ptr nocapture n
 199:                                              ; preds = %184
   %200 = fmul double %107, %197
   %201 = call double @llvm.fmuladd.f64(double %200, double %200, double %185)
-  %202 = fneg double %182
-  %203 = fmul double %200, %202
+  %202 = fneg double %200
+  %203 = fmul double %182, %202
   %204 = call double @llvm.fmuladd.f64(double %203, double %13, double %201)
   %205 = fcmp ugt double %204, 0.000000e+00
   br i1 %205, label %206, label %217
@@ -2836,7 +2836,7 @@ define hidden noundef zeroext i1 @_ZN3p3p5alignEPA3_ddddddddddS1_Pd(ptr nocaptur
   %45 = load double, ptr %44, align 8
   %46 = getelementptr inbounds [3 x double], ptr %20, i64 0, i64 %indvars.iv127
   %47 = load double, ptr %46, align 8
-  %48 = fmul double %47, %5
+  %48 = fmul double %5, %47
   %49 = tail call double @llvm.fmuladd.f64(double %2, double %45, double %48)
   %50 = getelementptr inbounds [3 x double], ptr %21, i64 0, i64 %indvars.iv127
   %51 = load double, ptr %50, align 8
@@ -2848,7 +2848,7 @@ define hidden noundef zeroext i1 @_ZN3p3p5alignEPA3_ddddddddddS1_Pd(ptr nocaptur
   %57 = tail call double @llvm.fmuladd.f64(double %56, double %36, double %53)
   %58 = getelementptr inbounds [9 x double], ptr %15, i64 0, i64 %indvars.iv127
   store double %57, ptr %58, align 8
-  %59 = fmul double %47, %6
+  %59 = fmul double %6, %47
   %60 = tail call double @llvm.fmuladd.f64(double %3, double %45, double %59)
   %61 = tail call double @llvm.fmuladd.f64(double %9, double %51, double %60)
   %62 = fdiv double %61, 3.000000e+00
@@ -2856,7 +2856,7 @@ define hidden noundef zeroext i1 @_ZN3p3p5alignEPA3_ddddddddddS1_Pd(ptr nocaptur
   %64 = add nuw nsw i64 %indvars.iv127, 3
   %65 = getelementptr inbounds [9 x double], ptr %15, i64 0, i64 %64
   store double %63, ptr %65, align 8
-  %66 = fmul double %47, %7
+  %66 = fmul double %7, %47
   %67 = tail call double @llvm.fmuladd.f64(double %4, double %45, double %66)
   %68 = tail call double @llvm.fmuladd.f64(double %10, double %51, double %67)
   %69 = fdiv double %68, 3.000000e+00
@@ -3548,7 +3548,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 96
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i27

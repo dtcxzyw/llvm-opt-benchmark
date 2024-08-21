@@ -6050,7 +6050,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %86
   %164 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %163, i64 %147
   %165 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %152
   %166 = sub i64 %162, %147
-  %.not.i123 = icmp ult i64 %166, %147
+  %.not.i123 = icmp ugt i64 %147, %166
   %167 = icmp sgt i64 %147, 0
   br i1 %.not.i123, label %168, label %172
 
@@ -6088,8 +6088,8 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %86
   %.0.i = select i1 %180, ptr %177, ptr %176
   %181 = getelementptr inbounds i8, ptr %.02126.i, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %181, ptr noundef nonnull align 8 dereferenceable(24) %.0.i, i64 24, i1 false)
-  %182 = icmp ugt ptr %.sroa.17.3.i, %163
-  %183 = icmp ugt ptr %.sroa.9.3.i, %2
+  %182 = icmp ult ptr %163, %.sroa.17.3.i
+  %183 = icmp ult ptr %2, %.sroa.9.3.i
   %or.cond.i = and i1 %182, %183
   br i1 %or.cond.i, label %.lr.ph27.i, label %.loopexit
 
@@ -6160,7 +6160,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %86
   store i64 %202, ptr %204, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1527)
   %205 = load i64, ptr %10, align 8, !alias.scope !1527, !noalias !1530, !noundef !18
-  %.not.i125 = icmp ugt i64 %205, %141
+  %.not.i125 = icmp ult i64 %141, %205
   br i1 %.not.i125, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hd6bde411f30775bbE.exit", label %206
 
 206:                                              ; preds = %200

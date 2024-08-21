@@ -216,7 +216,7 @@ if.then3.i:                                       ; preds = %if.end.i17
   %and.i.i = and i128 %6, %not.i.i
   %a.sroa.2.0.insert.ext.i34.i = zext i64 %new_value.coerce1 to i128
   %a.sroa.2.0.insert.shift.i35.i = shl nuw i128 %a.sroa.2.0.insert.ext.i34.i, 64
-  %retval.sroa.0.0.extract.trunc.i43.i = and i64 %coerce.sroa.0.0.extract.trunc, %new_value.coerce0
+  %retval.sroa.0.0.extract.trunc.i43.i = and i64 %new_value.coerce0, %coerce.sroa.0.0.extract.trunc
   %retval.sroa.2.0.extract.shift.i44.i = and i128 %a.sroa.2.0.insert.shift.i35.i, %write_mask
   %b.sroa.0.0.insert.ext.i54.i = zext i64 %retval.sroa.0.0.extract.trunc.i43.i to i128
   %b.sroa.0.0.insert.insert.i55.i = or disjoint i128 %retval.sroa.2.0.extract.shift.i44.i, %b.sroa.0.0.insert.ext.i54.i
@@ -296,7 +296,7 @@ if.then24.i:                                      ; preds = %if.then19.i
   %13 = load i64, ptr %old_value.i18, align 8
   %not.i = xor i64 %coerce.sroa.0.0.extract.trunc, -1
   %and.i = and i64 %13, %not.i
-  %and20.i = and i64 %coerce.sroa.0.0.extract.trunc, %new_value.coerce0
+  %and20.i = and i64 %new_value.coerce0, %coerce.sroa.0.0.extract.trunc
   %or.i = or disjoint i64 %and.i, %and20.i
   %call28.i = call i32 %12(ptr noundef nonnull %env, i32 noundef %csrno, i64 noundef %or.i) #11
   %cmp29.not.i.not = icmp eq i32 %call28.i, -1
@@ -430,7 +430,7 @@ entry:
   %2 = zext nneg i16 %1 to i64
   %shl = shl nsw i64 -1, %2
   %not = xor i64 %shl, -1
-  %and = and i64 %not, %val
+  %and = and i64 %val, %not
   %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   store i64 %and, ptr %vstart, align 8
   ret i32 -1

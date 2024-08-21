@@ -391,8 +391,8 @@ declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @BBox_Cubic_Check(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #4 {
   %7 = load i64, ptr %5, align 8
-  %8 = icmp slt i64 %7, %1
-  %9 = icmp slt i64 %7, %2
+  %8 = icmp sgt i64 %1, %7
+  %9 = icmp sgt i64 %2, %7
   %or.cond = or i1 %8, %9
   br i1 %or.cond, label %10, label %74
 
@@ -507,8 +507,8 @@ cubic_peak.exit:                                  ; preds = %40, %63, %65
 
 74:                                               ; preds = %6, %cubic_peak.exit
   %75 = load i64, ptr %4, align 8
-  %76 = icmp sgt i64 %75, %1
-  %77 = icmp sgt i64 %75, %2
+  %76 = icmp slt i64 %1, %75
+  %77 = icmp slt i64 %2, %75
   %or.cond26 = or i1 %76, %77
   br i1 %or.cond26, label %78, label %142
 

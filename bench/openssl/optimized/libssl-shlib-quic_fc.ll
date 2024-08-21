@@ -39,7 +39,7 @@ define range(i32 0, 2) i32 @ossl_quic_txfc_bump_cwm(ptr nocapture noundef %txfc,
 entry:
   %cwm1 = getelementptr inbounds i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm1, align 8
-  %cmp.not = icmp ult i64 %0, %cwm
+  %cmp.not = icmp ugt i64 %cwm, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -58,7 +58,7 @@ entry:
   %0 = load i64, ptr %cwm, align 8
   %swm = getelementptr inbounds i8, ptr %txfc, i64 8
   %1 = load i64, ptr %swm, align 8
-  %2 = add i64 %1, %consumed
+  %2 = add i64 %consumed, %1
   %sub = sub i64 %0, %2
   ret i64 %sub
 }
@@ -80,7 +80,7 @@ if.then:                                          ; preds = %entry
   %3 = load i64, ptr %cwm.i5, align 8
   %swm.i6 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %swm.i6, align 8
-  %5 = add i64 %4, %consumed
+  %5 = add i64 %consumed, %4
   %sub.i7 = sub i64 %3, %5
   %spec.select = tail call i64 @llvm.umin.i64(i64 %sub.i7, i64 %sub.i)
   br label %if.end5
@@ -98,7 +98,7 @@ entry:
   %swm.i = getelementptr inbounds i8, ptr %txfc, i64 8
   %1 = load i64, ptr %swm.i, align 8
   %sub.i = sub i64 %0, %1
-  %spec.select8 = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %num_bytes)
+  %spec.select8 = tail call i64 @llvm.umin.i64(i64 %num_bytes, i64 %sub.i)
   %cmp1.not = icmp ne i64 %spec.select8, 0
   %cmp2 = icmp ule i64 %sub.i, %num_bytes
   %or.cond = and i1 %cmp2, %cmp1.not
@@ -110,7 +110,7 @@ if.then3:                                         ; preds = %entry
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %entry
-  %cmp = icmp uge i64 %sub.i, %num_bytes
+  %cmp = icmp ule i64 %num_bytes, %sub.i
   %spec.select = zext i1 %cmp to i32
   %add = add i64 %spec.select8, %1
   store i64 %add, ptr %swm.i, align 8
@@ -125,7 +125,7 @@ entry:
   %swm.i.i = getelementptr inbounds i8, ptr %txfc, i64 8
   %1 = load i64, ptr %swm.i.i, align 8
   %sub.i.i = sub i64 %0, %1
-  %spec.select8.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %num_bytes)
+  %spec.select8.i = tail call i64 @llvm.umin.i64(i64 %num_bytes, i64 %sub.i.i)
   %cmp1.not.i = icmp ne i64 %spec.select8.i, 0
   %cmp2.i = icmp ule i64 %sub.i.i, %num_bytes
   %or.cond.i = and i1 %cmp2.i, %cmp1.not.i
@@ -137,7 +137,7 @@ if.then3.i:                                       ; preds = %entry
   br label %ossl_quic_txfc_consume_credit_local.exit
 
 ossl_quic_txfc_consume_credit_local.exit:         ; preds = %entry, %if.then3.i
-  %cmp.i = icmp uge i64 %sub.i.i, %num_bytes
+  %cmp.i = icmp ule i64 %num_bytes, %sub.i.i
   %spec.select.i = zext i1 %cmp.i to i32
   %add.i = add i64 %spec.select8.i, %1
   store i64 %add.i, ptr %swm.i.i, align 8
@@ -151,7 +151,7 @@ if.then:                                          ; preds = %ossl_quic_txfc_cons
   %swm.i.i5 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %swm.i.i5, align 8
   %sub.i.i6 = sub i64 %3, %4
-  %spec.select8.i7 = tail call i64 @llvm.umin.i64(i64 %sub.i.i6, i64 %num_bytes)
+  %spec.select8.i7 = tail call i64 @llvm.umin.i64(i64 %num_bytes, i64 %sub.i.i6)
   %cmp1.not.i8 = icmp ne i64 %spec.select8.i7, 0
   %cmp2.i9 = icmp ule i64 %sub.i.i6, %num_bytes
   %or.cond.i10 = and i1 %cmp2.i9, %cmp1.not.i8
@@ -163,7 +163,7 @@ if.then3.i14:                                     ; preds = %if.then
   br label %ossl_quic_txfc_consume_credit_local.exit16
 
 ossl_quic_txfc_consume_credit_local.exit16:       ; preds = %if.then, %if.then3.i14
-  %cmp.i11.not = icmp ult i64 %sub.i.i6, %num_bytes
+  %cmp.i11.not = icmp ugt i64 %num_bytes, %sub.i.i6
   %add.i13 = add i64 %spec.select8.i7, %4
   store i64 %add.i13, ptr %swm.i.i5, align 8
   br i1 %cmp.i11.not, label %return, label %if.end4
@@ -332,7 +332,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true3
   br i1 %cmp6.not, label %if.then14, label %if.then11
 
 lor.lhs.false:                                    ; preds = %land.lhs.true3
-  %cmp9 = icmp ult i64 %.pre, %end
+  %cmp9 = icmp ugt i64 %end, %.pre
   br i1 %cmp9, label %if.then11, label %if.end16
 
 if.then11:                                        ; preds = %lor.lhs.false, %land.lhs.true5
@@ -351,7 +351,7 @@ if.end16:                                         ; preds = %lor.lhs.false, %if.
   %tobool1335 = phi i1 [ true, %if.then14 ], [ false, %if.end12 ], [ false, %lor.lhs.false ]
   %hwm17 = getelementptr inbounds i8, ptr %rxfc, i64 32
   %3 = load i64, ptr %hwm17, align 8
-  %cmp18 = icmp ult i64 %3, %end
+  %cmp18 = icmp ugt i64 %end, %3
   br i1 %cmp18, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end16
@@ -361,7 +361,7 @@ if.then20:                                        ; preds = %if.end16
   %swm.i = getelementptr inbounds i8, ptr %rxfc, i64 8
   %5 = load i64, ptr %swm.i, align 8
   %sub.i = sub i64 %4, %5
-  %cmp.i = icmp ult i64 %sub.i, %sub
+  %cmp.i = icmp ugt i64 %sub, %sub.i
   br i1 %cmp.i, label %if.then.i, label %on_rx_controlled_bytes.exit
 
 if.then.i:                                        ; preds = %if.then20
@@ -383,7 +383,7 @@ if.then26:                                        ; preds = %on_rx_controlled_by
   %swm.i24 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i64, ptr %swm.i24, align 8
   %sub.i25 = sub i64 %7, %8
-  %cmp.i26 = icmp ult i64 %sub.i25, %sub
+  %cmp.i26 = icmp ugt i64 %sub, %sub.i25
   br i1 %cmp.i26, label %if.then.i30, label %on_rx_controlled_bytes.exit32
 
 if.then.i30:                                      ; preds = %if.then26
@@ -398,7 +398,7 @@ on_rx_controlled_bytes.exit32:                    ; preds = %if.then26, %if.then
   br label %return
 
 if.else:                                          ; preds = %if.end16
-  %cmp31 = icmp ugt i64 %3, %end
+  %cmp31 = icmp ult i64 %end, %3
   %or.cond = and i1 %tobool1335, %cmp31
   br i1 %or.cond, label %if.then35, label %return
 

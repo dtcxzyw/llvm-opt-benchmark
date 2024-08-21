@@ -1327,7 +1327,7 @@ default.unreachable:                              ; preds = %if.end.i.i.i
 
 invoke.cont11:                                    ; preds = %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %if.end
   %retval.0.i.i.i = phi i32 [ %12, %sw.bb7.i.i.i ], [ %sub.i.i.i, %sw.bb5.i.i.i ], [ %add.i.i.i, %sw.bb3.i.i.i ], [ 0, %if.end ]
-  %cmp.not = icmp ugt i32 %retval.0.i.i.i, %idx
+  %cmp.not = icmp ult i32 %idx, %retval.0.i.i.i
   store i32 %3, ptr %m_ref_count.i.i.i.i, align 8
   %cmp.i.i.i13 = icmp eq i32 %3, 0
   br i1 %cmp.i.i.i13, label %if.then.i.i.i14, label %_ZN3refI4goalED2Ev.exit
@@ -1417,7 +1417,7 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %c
 sw.bb.i.i.i31:                                    ; preds = %if.end.i.i.i, %if.end.i.i.i
   %22 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 4
   %23 = load i32, ptr %22, align 4
-  %cmp4.i.i.i = icmp eq i32 %23, %idx
+  %cmp4.i.i.i = icmp eq i32 %idx, %23
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %sw.epilog.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %sw.bb.i.i.i31

@@ -302,7 +302,7 @@ define range(i32 -27, 1) i32 @pmix_argv_delete(ptr nocapture noundef %0, ptr nou
 
 10:                                               ; preds = %6
   %11 = tail call i32 @PMIx_Argv_count(ptr noundef nonnull %7) #9
-  %12 = icmp slt i32 %11, %2
+  %12 = icmp sgt i32 %2, %11
   br i1 %12, label %45, label %13
 
 13:                                               ; preds = %10
@@ -315,7 +315,7 @@ define range(i32 -27, 1) i32 @pmix_argv_delete(ptr nocapture noundef %0, ptr nou
   %17 = sub nsw i32 %11, %16
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %11, i32 %16)
-  %or.cond5051 = icmp sgt i32 %invariant.smin, %2
+  %or.cond5051 = icmp slt i32 %2, %invariant.smin
   br i1 %or.cond5051, label %.lr.ph.preheader, label %.critedge.preheader
 
 .lr.ph.preheader:                                 ; preds = %15
@@ -410,7 +410,7 @@ define range(i32 -27, 1) i32 @pmix_argv_insert(ptr noundef %0, i32 noundef %1, p
 11:                                               ; preds = %9
   %12 = tail call i32 @PMIx_Argv_count(ptr noundef nonnull %6) #9
   %13 = tail call i32 @PMIx_Argv_count(ptr noundef nonnull %2) #9
-  %14 = icmp slt i32 %12, %1
+  %14 = icmp sgt i32 %1, %12
   br i1 %14, label %.preheader, label %22
 
 .preheader:                                       ; preds = %11
@@ -525,7 +525,7 @@ define range(i32 -27, 1) i32 @pmix_argv_insert_element(ptr noundef %0, i32 nound
 
 11:                                               ; preds = %9
   %12 = tail call i32 @PMIx_Argv_count(ptr noundef nonnull %6) #9
-  %13 = icmp slt i32 %12, %1
+  %13 = icmp sgt i32 %1, %12
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %11

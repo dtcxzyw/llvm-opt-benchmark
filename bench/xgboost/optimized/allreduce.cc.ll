@@ -814,7 +814,7 @@ _ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i: ; preds = %_ZN
   br i1 %.not108.i, label %357, label %358
 
 357:                                              ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i
-  %.not8.i.i.i = icmp ult i64 %347, %356
+  %.not8.i.i.i = icmp ugt i64 %356, %347
   br i1 %.not8.i.i.i, label %360, label %.thread.i.i
 
 358:                                              ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i
@@ -2151,7 +2151,7 @@ _ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i74: ; preds = %_
   br i1 %.not108.i77, label %834, label %835
 
 834:                                              ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i74
-  %.not8.i.i.i167 = icmp ult i64 %824, %833
+  %.not8.i.i.i167 = icmp ugt i64 %833, %824
   br i1 %.not8.i.i.i167, label %837, label %.thread.i.i168
 
 835:                                              ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i74
@@ -3484,7 +3484,7 @@ _ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i245: ; preds = %
   br i1 %.not108.i248, label %1311, label %1312
 
 1311:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i245
-  %.not8.i.i.i338 = icmp ult i64 %1301, %1310
+  %.not8.i.i.i338 = icmp ugt i64 %1310, %1301
   br i1 %.not8.i.i.i338, label %1314, label %.thread.i.i339
 
 1312:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i245
@@ -5864,7 +5864,7 @@ _ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i536: ; preds = %
   br i1 %.not108.i539, label %2184, label %2185
 
 2184:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i536
-  %.not8.i.i.i629 = icmp ult i64 %2174, %2183
+  %.not8.i.i.i629 = icmp ugt i64 %2183, %2174
   br i1 %.not8.i.i.i629, label %2187, label %.thread.i.i630
 
 2185:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i536
@@ -7197,7 +7197,7 @@ _ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i707: ; preds = %
   br i1 %.not108.i710, label %2661, label %2662
 
 2661:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i707
-  %.not8.i.i.i800 = icmp ult i64 %2651, %2660
+  %.not8.i.i.i800 = icmp ugt i64 %2660, %2651
   br i1 %.not8.i.i.i800, label %2664, label %.thread.i.i801
 
 2662:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i707
@@ -8530,7 +8530,7 @@ _ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i878: ; preds = %
   br i1 %.not108.i881, label %3138, label %3139
 
 3138:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i878
-  %.not8.i.i.i971 = icmp ult i64 %3128, %3137
+  %.not8.i.i.i971 = icmp ugt i64 %3137, %3128
   br i1 %.not8.i.i.i971, label %3141, label %.thread.i.i972
 
 3139:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i878
@@ -10910,7 +10910,7 @@ _ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i1182: ; preds = 
   br i1 %.not108.i1185, label %4011, label %4012
 
 4011:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i1182
-  %.not8.i.i.i1275 = icmp ult i64 %4001, %4010
+  %.not8.i.i.i1275 = icmp ugt i64 %4010, %4001
   br i1 %.not8.i.i.i1275, label %4014, label %.thread.i.i1276
 
 4012:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i1182
@@ -12243,7 +12243,7 @@ _ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i1353: ; preds = 
   br i1 %.not108.i1356, label %4488, label %4489
 
 4488:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i1353
-  %.not8.i.i.i1446 = icmp ult i64 %4478, %4487
+  %.not8.i.i.i1446 = icmp ugt i64 %4487, %4478
   br i1 %.not8.i.i.i1446, label %4491, label %.thread.i.i1447
 
 4489:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i1353
@@ -13576,7 +13576,7 @@ _ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i1524: ; preds = 
   br i1 %.not108.i1527, label %4965, label %4966
 
 4965:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i1524
-  %.not8.i.i.i1617 = icmp ult i64 %4955, %4964
+  %.not8.i.i.i1617 = icmp ugt i64 %4964, %4955
   br i1 %.not8.i.i.i1617, label %4968, label %.thread.i.i1618
 
 4966:                                             ; preds = %_ZN7xgboost6common4SpanIaLm18446744073709551615EEC2EPam.exit.i.i1524
@@ -15102,7 +15102,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -15653,7 +15653,7 @@ define linkonce_odr void @_ZN7xgboost10collective8cpu_impl22RingScatterReduceTyp
   %46 = load i64, ptr %2, align 8
   %47 = add nsw i32 %33, -1
   %48 = sext i32 %47 to i64
-  %49 = mul i64 %48, %3
+  %49 = mul i64 %3, %48
   %50 = sub i64 %46, %49
   %51 = icmp slt i64 %50, 0
   br i1 %51, label %52, label %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i
@@ -17201,7 +17201,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 65:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %66 = load i64, ptr %63, align 8, !noalias !411
-  %.not8.i = icmp ult i64 %66, %23
+  %.not8.i = icmp ugt i64 %23, %66
   br i1 %.not8.i, label %71, label %72
 
 67:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -17438,7 +17438,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 64:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %65 = load i64, ptr %62, align 8, !noalias !420
-  %.not8.i = icmp ult i64 %65, %22
+  %.not8.i = icmp ugt i64 %22, %65
   br i1 %.not8.i, label %70, label %71
 
 66:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -17578,7 +17578,7 @@ define linkonce_odr void @_ZN7xgboost10collective8cpu_impl22RingScatterReduceTyp
   %46 = load i64, ptr %2, align 8
   %47 = add nsw i32 %33, -1
   %48 = sext i32 %47 to i64
-  %49 = mul i64 %48, %3
+  %49 = mul i64 %3, %48
   %50 = sub i64 %46, %49
   %51 = icmp slt i64 %50, 0
   br i1 %51, label %52, label %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i
@@ -18738,7 +18738,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 65:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %66 = load i64, ptr %63, align 8, !noalias !445
-  %.not8.i = icmp ult i64 %66, %23
+  %.not8.i = icmp ugt i64 %23, %66
   br i1 %.not8.i, label %71, label %72
 
 67:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -18975,7 +18975,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 64:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %65 = load i64, ptr %62, align 8, !noalias !454
-  %.not8.i = icmp ult i64 %65, %22
+  %.not8.i = icmp ugt i64 %22, %65
   br i1 %.not8.i, label %70, label %71
 
 66:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -19083,7 +19083,7 @@ define linkonce_odr void @_ZN7xgboost10collective8cpu_impl22RingScatterReduceTyp
   %46 = load i64, ptr %2, align 8
   %47 = add nsw i32 %33, -1
   %48 = sext i32 %47 to i64
-  %49 = mul i64 %48, %3
+  %49 = mul i64 %3, %48
   %50 = sub i64 %46, %49
   %51 = icmp slt i64 %50, 0
   br i1 %51, label %52, label %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i
@@ -20243,7 +20243,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 65:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %66 = load i64, ptr %63, align 8, !noalias !479
-  %.not8.i = icmp ult i64 %66, %23
+  %.not8.i = icmp ugt i64 %23, %66
   br i1 %.not8.i, label %71, label %72
 
 67:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -20480,7 +20480,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 64:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %65 = load i64, ptr %62, align 8, !noalias !488
-  %.not8.i = icmp ult i64 %65, %22
+  %.not8.i = icmp ugt i64 %22, %65
   br i1 %.not8.i, label %70, label %71
 
 66:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -20587,7 +20587,7 @@ define linkonce_odr void @_ZN7xgboost10collective8cpu_impl22RingScatterReduceTyp
   %45 = load i64, ptr %2, align 8
   %46 = add nsw i32 %32, -1
   %47 = sext i32 %46 to i64
-  %48 = mul i64 %47, %3
+  %48 = mul i64 %3, %47
   %49 = sub i64 %45, %48
   %50 = icmp slt i64 %49, 0
   br i1 %50, label %51, label %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i
@@ -20676,7 +20676,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 90:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i.i
   %91 = load i64, ptr %2, align 8, !noalias !502
-  %.not8.i.i.i = icmp ult i64 %91, %83
+  %.not8.i.i.i = icmp ugt i64 %83, %91
   br i1 %.not8.i.i.i, label %95, label %96
 
 92:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i.i
@@ -21694,7 +21694,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 29:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %30 = load i64, ptr %23, align 8, !noalias !524
-  %.not8.i = icmp ult i64 %30, %19
+  %.not8.i = icmp ugt i64 %19, %30
   br i1 %.not8.i, label %34, label %35
 
 31:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -21833,7 +21833,7 @@ define linkonce_odr void @_ZN7xgboost10collective8cpu_impl22RingScatterReduceTyp
   %46 = load i64, ptr %2, align 8
   %47 = add nsw i32 %33, -1
   %48 = sext i32 %47 to i64
-  %49 = mul i64 %48, %3
+  %49 = mul i64 %3, %48
   %50 = sub i64 %46, %49
   %51 = icmp slt i64 %50, 0
   br i1 %51, label %52, label %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i
@@ -22993,7 +22993,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 65:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %66 = load i64, ptr %63, align 8, !noalias !552
-  %.not8.i = icmp ult i64 %66, %23
+  %.not8.i = icmp ugt i64 %23, %66
   br i1 %.not8.i, label %71, label %72
 
 67:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -23230,7 +23230,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 64:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %65 = load i64, ptr %62, align 8, !noalias !561
-  %.not8.i = icmp ult i64 %65, %22
+  %.not8.i = icmp ugt i64 %22, %65
   br i1 %.not8.i, label %70, label %71
 
 66:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -23338,7 +23338,7 @@ define linkonce_odr void @_ZN7xgboost10collective8cpu_impl22RingScatterReduceTyp
   %46 = load i64, ptr %2, align 8
   %47 = add nsw i32 %33, -1
   %48 = sext i32 %47 to i64
-  %49 = mul i64 %48, %3
+  %49 = mul i64 %3, %48
   %50 = sub i64 %46, %49
   %51 = icmp slt i64 %50, 0
   br i1 %51, label %52, label %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i
@@ -24498,7 +24498,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 65:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %66 = load i64, ptr %63, align 8, !noalias !586
-  %.not8.i = icmp ult i64 %66, %23
+  %.not8.i = icmp ugt i64 %23, %66
   br i1 %.not8.i, label %71, label %72
 
 67:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -24735,7 +24735,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 64:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %65 = load i64, ptr %62, align 8, !noalias !595
-  %.not8.i = icmp ult i64 %65, %22
+  %.not8.i = icmp ugt i64 %22, %65
   br i1 %.not8.i, label %70, label %71
 
 66:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -24843,7 +24843,7 @@ define linkonce_odr void @_ZN7xgboost10collective8cpu_impl22RingScatterReduceTyp
   %46 = load i64, ptr %2, align 8
   %47 = add nsw i32 %33, -1
   %48 = sext i32 %47 to i64
-  %49 = mul i64 %48, %3
+  %49 = mul i64 %3, %48
   %50 = sub i64 %46, %49
   %51 = icmp slt i64 %50, 0
   br i1 %51, label %52, label %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i
@@ -26003,7 +26003,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 65:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %66 = load i64, ptr %63, align 8, !noalias !620
-  %.not8.i = icmp ult i64 %66, %23
+  %.not8.i = icmp ugt i64 %23, %66
   br i1 %.not8.i, label %71, label %72
 
 67:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -26240,7 +26240,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 64:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %65 = load i64, ptr %62, align 8, !noalias !629
-  %.not8.i = icmp ult i64 %65, %22
+  %.not8.i = icmp ugt i64 %22, %65
   br i1 %.not8.i, label %70, label %71
 
 66:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -26347,7 +26347,7 @@ define linkonce_odr void @_ZN7xgboost10collective8cpu_impl22RingScatterReduceTyp
   %45 = load i64, ptr %2, align 8
   %46 = add nsw i32 %32, -1
   %47 = sext i32 %46 to i64
-  %48 = mul i64 %47, %3
+  %48 = mul i64 %3, %47
   %49 = sub i64 %45, %48
   %50 = icmp slt i64 %49, 0
   br i1 %50, label %51, label %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i
@@ -26436,7 +26436,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 90:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i.i
   %91 = load i64, ptr %2, align 8, !noalias !643
-  %.not8.i.i.i = icmp ult i64 %91, %83
+  %.not8.i.i.i = icmp ugt i64 %83, %91
   br i1 %.not8.i.i.i, label %95, label %96
 
 92:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i.i
@@ -27454,7 +27454,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 29:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %30 = load i64, ptr %23, align 8, !noalias !665
-  %.not8.i = icmp ult i64 %30, %19
+  %.not8.i = icmp ugt i64 %19, %30
   br i1 %.not8.i, label %34, label %35
 
 31:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -27593,7 +27593,7 @@ define linkonce_odr void @_ZN7xgboost10collective8cpu_impl22RingScatterReduceTyp
   %46 = load i64, ptr %2, align 8
   %47 = add nsw i32 %33, -1
   %48 = sext i32 %47 to i64
-  %49 = mul i64 %48, %3
+  %49 = mul i64 %3, %48
   %50 = sub i64 %46, %49
   %51 = icmp slt i64 %50, 0
   br i1 %51, label %52, label %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i
@@ -28753,7 +28753,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 65:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %66 = load i64, ptr %63, align 8, !noalias !693
-  %.not8.i = icmp ult i64 %66, %23
+  %.not8.i = icmp ugt i64 %23, %66
   br i1 %.not8.i, label %71, label %72
 
 67:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -28990,7 +28990,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 64:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %65 = load i64, ptr %62, align 8, !noalias !702
-  %.not8.i = icmp ult i64 %65, %22
+  %.not8.i = icmp ugt i64 %22, %65
   br i1 %.not8.i, label %70, label %71
 
 66:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -29098,7 +29098,7 @@ define linkonce_odr void @_ZN7xgboost10collective8cpu_impl22RingScatterReduceTyp
   %46 = load i64, ptr %2, align 8
   %47 = add nsw i32 %33, -1
   %48 = sext i32 %47 to i64
-  %49 = mul i64 %48, %3
+  %49 = mul i64 %3, %48
   %50 = sub i64 %46, %49
   %51 = icmp slt i64 %50, 0
   br i1 %51, label %52, label %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i
@@ -30258,7 +30258,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 65:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %66 = load i64, ptr %63, align 8, !noalias !727
-  %.not8.i = icmp ult i64 %66, %23
+  %.not8.i = icmp ugt i64 %23, %66
   br i1 %.not8.i, label %71, label %72
 
 67:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -30495,7 +30495,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 64:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %65 = load i64, ptr %62, align 8, !noalias !736
-  %.not8.i = icmp ult i64 %65, %22
+  %.not8.i = icmp ugt i64 %22, %65
   br i1 %.not8.i, label %70, label %71
 
 66:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -30603,7 +30603,7 @@ define linkonce_odr void @_ZN7xgboost10collective8cpu_impl22RingScatterReduceTyp
   %46 = load i64, ptr %2, align 8
   %47 = add nsw i32 %33, -1
   %48 = sext i32 %47 to i64
-  %49 = mul i64 %48, %3
+  %49 = mul i64 %3, %48
   %50 = sub i64 %46, %49
   %51 = icmp slt i64 %50, 0
   br i1 %51, label %52, label %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i
@@ -31763,7 +31763,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 65:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %66 = load i64, ptr %63, align 8, !noalias !761
-  %.not8.i = icmp ult i64 %66, %23
+  %.not8.i = icmp ugt i64 %23, %66
   br i1 %.not8.i, label %71, label %72
 
 67:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -32000,7 +32000,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 64:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %65 = load i64, ptr %62, align 8, !noalias !770
-  %.not8.i = icmp ult i64 %65, %22
+  %.not8.i = icmp ugt i64 %22, %65
   br i1 %.not8.i, label %70, label %71
 
 66:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit

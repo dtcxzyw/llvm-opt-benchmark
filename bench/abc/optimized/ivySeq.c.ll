@@ -1576,7 +1576,7 @@ Ivy_ObjFaninId0.exit.us:                          ; preds = %10, %8
   %indvars.iv = phi i64 [ 0, %tailrecurse.us ], [ %indvars.iv.next, %7 ]
   %20 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %21, %.tr57.us
+  %22 = icmp eq i32 %.tr57.us, %21
   br i1 %22, label %.split69.us, label %7
 
 ._crit_edge.us:                                   ; preds = %7

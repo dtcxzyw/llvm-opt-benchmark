@@ -4629,7 +4629,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
 35:                                               ; preds = %._crit_edge
   %36 = getelementptr inbounds i8, ptr %.1, i64 24
   %37 = load i64, ptr %36, align 8
-  %38 = icmp ugt i64 %37, %3
+  %38 = icmp ult i64 %3, %37
   br i1 %38, label %._crit_edge.thread, label %39
 
 39:                                               ; preds = %35

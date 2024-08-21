@@ -144,7 +144,7 @@ cond.false:                                       ; preds = %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 4
   %conv = trunc i64 %sub.ptr.div to i32
-  %add = add nsw i32 %conv, %idx
+  %add = add nsw i32 %idx, %conv
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.false
@@ -4182,7 +4182,7 @@ lor.lhs.false:                                    ; preds = %index2value.exit
   %nuvalue = getelementptr inbounds i8, ptr %12, i64 10
   %13 = load i16, ptr %nuvalue, align 2
   %conv = zext i16 %13 to i32
-  %cmp1 = icmp ult i32 %conv, %n
+  %cmp1 = icmp ugt i32 %n, %conv
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %index2value.exit
@@ -6937,7 +6937,7 @@ land.lhs.true.i:                                  ; preds = %index2value.exit.i
   %26 = load ptr, ptr %p.i, align 8
   %sizeupvalues.i = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load i32, ptr %sizeupvalues.i, align 8
-  %cmp1.not.i = icmp slt i32 %27, %n
+  %cmp1.not.i = icmp sgt i32 %n, %27
   br i1 %cmp1.not.i, label %getupvalref.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
@@ -6961,7 +6961,7 @@ land.lhs.true:                                    ; preds = %sw.bb2
   %nupvalues = getelementptr inbounds i8, ptr %29, i64 10
   %30 = load i8, ptr %nupvalues, align 2
   %conv4 = zext i8 %30 to i32
-  %cmp5.not = icmp ult i32 %conv4, %n
+  %cmp5.not = icmp ugt i32 %n, %conv4
   br i1 %cmp5.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -7066,7 +7066,7 @@ land.lhs.true.i:                                  ; preds = %index2value.exit.i
   %13 = load ptr, ptr %p.i, align 8
   %sizeupvalues.i = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load i32, ptr %sizeupvalues.i, align 8
-  %cmp1.not.i = icmp slt i32 %14, %n1
+  %cmp1.not.i = icmp sgt i32 %n1, %14
   br i1 %cmp1.not.i, label %getupvalref.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
@@ -7163,7 +7163,7 @@ land.lhs.true.i17:                                ; preds = %index2value.exit.i1
   %27 = load ptr, ptr %p.i18, align 8
   %sizeupvalues.i19 = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load i32, ptr %sizeupvalues.i19, align 8
-  %cmp1.not.i20 = icmp slt i32 %28, %n2
+  %cmp1.not.i20 = icmp sgt i32 %n2, %28
   br i1 %cmp1.not.i20, label %getupvalref.exit58, label %if.then2.i21
 
 if.then2.i21:                                     ; preds = %land.lhs.true.i17

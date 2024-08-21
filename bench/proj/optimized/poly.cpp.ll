@@ -155,7 +155,7 @@ define internal { double, double } @_ZL14poly_e_inverse5PJ_XYP8PJconsts(double %
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %5, align 8
-  %7 = fadd double %6, %1
+  %7 = fadd double %1, %6
   %8 = tail call double @llvm.fabs.f64(double %7)
   %9 = fcmp ugt double %8, 1.000000e-10
   br i1 %9, label %10, label %77
@@ -190,8 +190,8 @@ define internal { double, double } @_ZL14poly_e_inverse5PJ_XYP8PJconsts(double %
 26:                                               ; preds = %19
   %27 = fmul double %20, %21
   %28 = load double, ptr %13, align 8
-  %29 = fneg double %28
-  %30 = fmul double %20, %29
+  %29 = fneg double %20
+  %30 = fmul double %28, %29
   %31 = tail call double @llvm.fmuladd.f64(double %30, double %20, double 1.000000e+00)
   %32 = tail call double @sqrt(double noundef %31) #8
   %33 = fmul double %20, %32
@@ -232,10 +232,10 @@ define internal { double, double } @_ZL14poly_e_inverse5PJ_XYP8PJconsts(double %
 64:                                               ; preds = %26
   %65 = tail call double @sin(double noundef %59) #8
   %66 = tail call double @tan(double noundef %59) #8
-  %67 = fmul double %66, %0
+  %67 = fmul double %0, %66
   %68 = load double, ptr %13, align 8
-  %69 = fneg double %68
-  %70 = fmul double %65, %69
+  %69 = fneg double %65
+  %70 = fmul double %68, %69
   %71 = tail call double @llvm.fmuladd.f64(double %70, double %65, double 1.000000e+00)
   %72 = tail call double @sqrt(double noundef %71) #8
   %73 = fmul double %67, %72
@@ -281,7 +281,7 @@ define internal { double, double } @_ZL14poly_e_forward5PJ_LPP8PJconsts(double %
 
 21:                                               ; preds = %11, %16
   %22 = phi double [ %20, %16 ], [ 0.000000e+00, %11 ]
-  %23 = fmul double %12, %0
+  %23 = fmul double %0, %12
   %24 = tail call double @sin(double noundef %23) #8
   %25 = fmul double %22, %24
   %26 = getelementptr inbounds i8, ptr %5, i64 8
@@ -306,7 +306,7 @@ define internal { double, double } @_ZL14poly_e_forward5PJ_LPP8PJconsts(double %
 define internal { double, double } @_ZL14poly_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 448
   %5 = load double, ptr %4, align 8
-  %6 = fadd double %5, %1
+  %6 = fadd double %1, %5
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fcmp ugt double %7, 1.000000e-10
   br i1 %8, label %9, label %38
@@ -346,7 +346,7 @@ define internal { double, double } @_ZL14poly_s_inverse5PJ_XYP8PJconsts(double %
 
 32:                                               ; preds = %12
   %33 = tail call double @tan(double noundef %24) #8
-  %34 = fmul double %33, %0
+  %34 = fmul double %0, %33
   %35 = tail call double @asin(double noundef %34) #8
   %36 = tail call double @sin(double noundef %24) #8
   %37 = fdiv double %35, %36
@@ -376,7 +376,7 @@ define internal { double, double } @_ZL14poly_s_forward5PJ_LPP8PJconsts(double %
   %11 = tail call double @tan(double noundef %1) #8
   %12 = fdiv double 1.000000e+00, %11
   %13 = tail call double @sin(double noundef %1) #8
-  %14 = fmul double %13, %0
+  %14 = fmul double %0, %13
   %15 = tail call double @sin(double noundef %14) #8
   %16 = fmul double %12, %15
   %17 = getelementptr inbounds i8, ptr %2, i64 448

@@ -1045,7 +1045,7 @@ if.end163:                                        ; preds = %invoke.cont158
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, %32
+  %cmp.i = icmp ugt i64 %32, %sub.ptr.sub.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end163
@@ -1128,7 +1128,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i: ; preds = %if.then.i3
   br label %invoke.cont164
 
 if.else.i:                                        ; preds = %if.end163
-  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %32
+  %cmp4.i = icmp ult i64 %32, %sub.ptr.sub.i.i
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont164
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -1212,7 +1212,7 @@ if.else:                                          ; preds = %invoke.cont142
   %sub.ptr.lhs.cast.i.i129 = ptrtoint ptr %53 to i64
   %sub.ptr.rhs.cast.i.i130 = ptrtoint ptr %54 to i64
   %sub.ptr.sub.i.i131 = sub i64 %sub.ptr.lhs.cast.i.i129, %sub.ptr.rhs.cast.i.i130
-  %cmp.i132 = icmp ult i64 %sub.ptr.sub.i.i131, %add194
+  %cmp.i132 = icmp ugt i64 %add194, %sub.ptr.sub.i.i131
   br i1 %cmp.i132, label %if.then.i139, label %if.else.i133
 
 if.then.i139:                                     ; preds = %if.else
@@ -1302,7 +1302,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i172: ; preds = %if.then
   br label %invoke.cont195
 
 if.else.i133:                                     ; preds = %if.else
-  %cmp4.i134 = icmp ugt i64 %sub.ptr.sub.i.i131, %add194
+  %cmp4.i134 = icmp ult i64 %add194, %sub.ptr.sub.i.i131
   br i1 %cmp4.i134, label %if.then5.i135, label %invoke.cont195
 
 if.then5.i135:                                    ; preds = %if.else.i133
@@ -1485,7 +1485,7 @@ if.end252:                                        ; preds = %if.end248
   %sub.ptr.lhs.cast.i.i241 = ptrtoint ptr %82 to i64
   %sub.ptr.rhs.cast.i.i242 = ptrtoint ptr %83 to i64
   %sub.ptr.sub.i.i243 = sub i64 %sub.ptr.lhs.cast.i.i241, %sub.ptr.rhs.cast.i.i242
-  %cmp.i244 = icmp ult i64 %sub.ptr.sub.i.i243, %81
+  %cmp.i244 = icmp ugt i64 %81, %sub.ptr.sub.i.i243
   br i1 %cmp.i244, label %if.then.i251, label %if.else.i245
 
 if.then.i251:                                     ; preds = %if.end252
@@ -1575,7 +1575,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i284: ; preds = %if.then
   br label %invoke.cont253
 
 if.else.i245:                                     ; preds = %if.end252
-  %cmp4.i246 = icmp ugt i64 %sub.ptr.sub.i.i243, %81
+  %cmp4.i246 = icmp ult i64 %81, %sub.ptr.sub.i.i243
   br i1 %cmp4.i246, label %if.then5.i247, label %invoke.cont253
 
 if.then5.i247:                                    ; preds = %if.else.i245
@@ -2096,7 +2096,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -2179,7 +2179,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i: ; preds = %if.then.i31.
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else

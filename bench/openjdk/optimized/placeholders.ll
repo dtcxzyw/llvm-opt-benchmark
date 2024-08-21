@@ -225,7 +225,7 @@ switch.lookup:                                    ; preds = %3
 .lr.ph:                                           ; preds = %switch.lookup, %9
   %.010 = phi ptr [ %.0, %9 ], [ %.08, %switch.lookup ]
   %11 = load ptr, ptr %.010, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %switch.lookup
@@ -256,12 +256,12 @@ switch.lookup:                                    ; preds = %3
 
 .lr.ph.preheader:                                 ; preds = %switch.lookup
   %9 = load ptr, ptr %.01725, align 8
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph36
 
 .lr.ph:                                           ; preds = %.lr.ph36
   %11 = load ptr, ptr %.017, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %.lr.ph._crit_edge, label %.lr.ph36, !llvm.loop !9
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
@@ -412,10 +412,10 @@ _ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit: ; preds = %2, %3
 35:                                               ; preds = %.lr.ph.i.i.i
   %36 = getelementptr inbounds i8, ptr %32, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %0
+  %38 = icmp eq ptr %0, %37
   %39 = getelementptr inbounds i8, ptr %32, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, %1
+  %41 = icmp eq ptr %1, %40
   %42 = select i1 %38, i1 %41, i1 false
   br i1 %42, label %_ZN14PlaceholderKeyD2Ev.exit, label %43
 
@@ -487,10 +487,10 @@ _ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit.i: ; preds = %9, %5
 41:                                               ; preds = %.lr.ph.i.i.i.i
   %42 = getelementptr inbounds i8, ptr %38, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, %0
+  %44 = icmp eq ptr %0, %43
   %45 = getelementptr inbounds i8, ptr %38, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, %1
+  %47 = icmp eq ptr %1, %46
   %48 = select i1 %44, i1 %47, i1 false
   br i1 %48, label %61, label %49
 
@@ -774,10 +774,10 @@ _ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit.i: ; preds = %5, %4
 37:                                               ; preds = %.lr.ph.i.i.i.i
   %38 = getelementptr inbounds i8, ptr %34, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, %0
+  %40 = icmp eq ptr %0, %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, %1
+  %43 = icmp eq ptr %1, %42
   %44 = select i1 %40, i1 %43, i1 false
   br i1 %44, label %_ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData.exit, label %45
 

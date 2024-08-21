@@ -25,7 +25,7 @@ define dso_local range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr nocap
   %11 = getelementptr i8, ptr %0, i64 2
   %.val = load i16, ptr %11, align 1
   %12 = zext i16 %.val to i32
-  %13 = icmp ult i32 %12, %2
+  %13 = icmp ugt i32 %2, %12
   br i1 %13, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
@@ -150,14 +150,14 @@ define dso_local range(i32 0, 4) i32 @ZSTD_selectEncodingType(ptr nocapture noun
   %28 = zext nneg i32 %8 to i64
   %29 = shl i64 %27, %28
   %30 = lshr i64 %29, 3
-  %31 = icmp ugt i64 %30, %4
+  %31 = icmp ult i64 %4, %30
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %25
   %33 = add i32 %8, -1
   %34 = zext nneg i32 %33 to i64
   %35 = lshr i64 %4, %34
-  %36 = icmp ugt i64 %35, %3
+  %36 = icmp ult i64 %3, %35
   br i1 %36, label %37, label %125
 
 37:                                               ; preds = %32, %25
@@ -218,7 +218,7 @@ ZSTD_crossEntropyCost.exit:                       ; preds = %42
   %66 = getelementptr i8, ptr %6, i64 2
   %.val.i = load i16, ptr %66, align 1
   %67 = zext i16 %.val.i to i32
-  %68 = icmp ult i32 %67, %2
+  %68 = icmp ugt i32 %2, %67
   br i1 %68, label %ZSTD_fseBitCost.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %58
@@ -302,7 +302,7 @@ ZSTD_NCountCost.exit:                             ; preds = %ZSTD_fseBitCost.exi
   %110 = zext i32 %109 to i64
   %111 = udiv i64 %110, %4
   %112 = icmp ne i32 %108, 0
-  %113 = icmp ult i64 %110, %4
+  %113 = icmp ugt i64 %4, %110
   %or.cond.i = and i1 %112, %113
   %114 = select i1 %or.cond.i, i64 1, i64 %111
   %115 = getelementptr inbounds [256 x i32], ptr @kInverseProbabilityLog256, i64 0, i64 %114
@@ -591,7 +591,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %137 = zext nneg i32 %134 to i64
   %138 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %137
   %139 = load i32, ptr %138, align 4
-  %140 = and i32 %139, %136
+  %140 = and i32 %136, %139
   %141 = zext i32 %140 to i64
   %142 = zext nneg i32 %.sroa.61.0.i to i64
   %143 = shl i64 %141, %142
@@ -830,7 +830,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %308 = zext nneg i32 %305 to i64
   %309 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %308
   %310 = load i32, ptr %309, align 4
-  %311 = and i32 %310, %307
+  %311 = and i32 %307, %310
   %312 = zext i32 %311 to i64
   %313 = zext nneg i32 %.sroa.61.5.i to i64
   %314 = shl i64 %312, %313

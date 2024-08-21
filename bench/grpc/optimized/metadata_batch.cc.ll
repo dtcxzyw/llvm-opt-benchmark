@@ -489,7 +489,7 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %count = getelementptr inbounds i8, ptr %it.coerce0, i64 8
   %1 = load i64, ptr %count, align 8
-  %cmp34 = icmp ugt i64 %1, %it.coerce1
+  %cmp34 = icmp ult i64 %it.coerce1, %1
   br i1 %cmp34, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -921,12 +921,12 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
   %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i
-  %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %timeout.coerce
+  %cmp1.i.i.i = icmp sgt i64 %timeout.coerce, %sub.i.i.i
   br i1 %cmp1.i.i.i, label %return, label %if.end7.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end11.i.i
   %sub3.i.i.i = sub nsw i64 -9223372036854775808, %call.i
-  %cmp4.i.i.i = icmp sgt i64 %sub3.i.i.i, %timeout.coerce
+  %cmp4.i.i.i = icmp slt i64 %timeout.coerce, %sub3.i.i.i
   br i1 %cmp4.i.i.i, label %return, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i

@@ -1797,7 +1797,7 @@ define i32 @slurm_step_layout_host_id(ptr nocapture noundef readonly %0, i32 nou
   %9 = getelementptr inbounds i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, -1
-  %12 = icmp ult i32 %11, %1
+  %12 = icmp ugt i32 %1, %11
   br i1 %12, label %.loopexit, label %.preheader20
 
 .preheader20:                                     ; preds = %8
@@ -1866,7 +1866,7 @@ define ptr @slurm_step_layout_host_name(ptr nocapture noundef readonly %0, i32 n
   %9 = getelementptr inbounds i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, -1
-  %12 = icmp ult i32 %11, %1
+  %12 = icmp ugt i32 %1, %11
   br i1 %12, label %slurm_step_layout_host_id.exit.thread, label %.preheader20.i
 
 .preheader20.i:                                   ; preds = %8

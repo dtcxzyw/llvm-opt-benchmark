@@ -34,7 +34,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %add = add i32 %0, %w
-  %1 = or i32 %add, %w
+  %1 = or i32 %w, %add
   %.not = icmp ult i32 %1, 1073741824
   %spec.select.sink = select i1 %.not, i32 %add, i32 -1
   store i32 %spec.select.sink, ptr %this, align 4

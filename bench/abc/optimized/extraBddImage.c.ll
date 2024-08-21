@@ -584,7 +584,7 @@ Extra_FindBestVariable.exit.i:                    ; preds = %217
 
 271:                                              ; preds = %219
   %272 = load ptr, ptr %83, align 8
-  %.not29.i.i = icmp eq ptr %272, %229
+  %.not29.i.i = icmp eq ptr %229, %272
   br i1 %.not29.i.i, label %Extra_FindBestPartitions.exit.i, label %.lr.ph.i124.i
 
 .lr.ph.i124.i:                                    ; preds = %271, %284
@@ -1301,7 +1301,7 @@ define internal fastcc noalias noundef ptr @Extra_CombineTwoNodes(ptr noundef %0
   tail call void @Cudd_Ref(ptr noundef %33) #10
   %35 = getelementptr inbounds i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
-  %.not = icmp eq ptr %36, %1
+  %.not = icmp eq ptr %1, %36
   br i1 %.not, label %39, label %37
 
 37:                                               ; preds = %4

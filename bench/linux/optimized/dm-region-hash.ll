@@ -368,7 +368,7 @@ define dso_local i32 @dm_rh_get_state(ptr noundef %0, i64 noundef %1, i32 nounde
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = mul i64 %9, %1
+  %10 = mul i64 %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = zext nneg i32 %12 to i64
@@ -553,7 +553,7 @@ define internal fastcc ptr @__rh_find(ptr noundef %0, i64 noundef %1) unnamed_ad
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = mul i64 %7, %1
+  %8 = mul i64 %1, %7
   %9 = getelementptr inbounds i8, ptr %0, i64 36
   %10 = load i32, ptr %9, align 4
   %11 = zext nneg i32 %10 to i64
@@ -623,7 +623,7 @@ define internal fastcc ptr @__rh_find(ptr noundef %0, i64 noundef %1) unnamed_ad
   %53 = load ptr, ptr %3, align 8
   %54 = load i32, ptr %5, align 8
   %55 = zext i32 %54 to i64
-  %56 = mul i64 %55, %1
+  %56 = mul i64 %1, %55
   %57 = load i32, ptr %9, align 4
   %58 = zext nneg i32 %57 to i64
   %59 = lshr i64 %56, %58
@@ -1103,7 +1103,7 @@ define dso_local void @dm_rh_dec(ptr noundef %0, i64 noundef %1) #2 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = mul i64 %8, %1
+  %9 = mul i64 %1, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 36
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64

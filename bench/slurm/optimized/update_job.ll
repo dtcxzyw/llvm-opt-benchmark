@@ -3057,7 +3057,7 @@ _get_job_time.exit:                               ; preds = %289, %_get_job_time
   %.02333.i = phi i32 [ %819, %818 ], [ 0, %.lr.ph.i ]
   %802 = getelementptr inbounds i8, ptr %.02134.i, i64 888
   %803 = load i32, ptr %802, align 8
-  %.not29.i = icmp eq i32 %803, %.1519
+  %.not29.i = icmp eq i32 %.1519, %803
   br i1 %.not29.i, label %804, label %818
 
 804:                                              ; preds = %.lr.ph.split.i684

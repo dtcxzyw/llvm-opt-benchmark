@@ -1079,7 +1079,7 @@ if.then:                                          ; preds = %entry
 
 do.body4:                                         ; preds = %if.then, %entry
   %call5 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
-  %cmp.not = icmp ult i64 %call5, %new_size_
+  %cmp.not = icmp ugt i64 %new_size_, %call5
   br i1 %cmp.not, label %if.then7, label %do.end11
 
 if.then7:                                         ; preds = %do.body4

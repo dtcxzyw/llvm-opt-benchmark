@@ -31,7 +31,7 @@ define hidden i32 @tm_compute_nb_leaves_from_level(i32 noundef %0, ptr nocapture
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
-  %6 = icmp sgt i32 %5, %0
+  %6 = icmp slt i32 %0, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
@@ -912,7 +912,7 @@ define hidden i32 @tm_fill_tab(ptr nocapture noundef writeonly %0, ptr nocapture
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge.split.loop.exit52:                    ; preds = %.lr.ph
@@ -921,7 +921,7 @@ define hidden i32 @tm_fill_tab(ptr nocapture noundef writeonly %0, ptr nocapture
 
 ._crit_edge:                                      ; preds = %11, %._crit_edge.split.loop.exit52
   %.0.lcssa = phi i32 [ %12, %._crit_edge.split.loop.exit52 ], [ %2, %11 ]
-  %13 = icmp eq i32 %.0.lcssa, %3
+  %13 = icmp eq i32 %3, %.0.lcssa
   br i1 %13, label %._crit_edge.thread, label %14
 
 14:                                               ; preds = %._crit_edge
@@ -929,7 +929,7 @@ define hidden i32 @tm_fill_tab(ptr nocapture noundef writeonly %0, ptr nocapture
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 2
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #18
-  %19 = icmp sgt i32 %.0.lcssa, %3
+  %19 = icmp slt i32 %3, %.0.lcssa
   br i1 %19, label %.lr.ph40.preheader, label %._crit_edge.thread
 
 .lr.ph40.preheader:                               ; preds = %14

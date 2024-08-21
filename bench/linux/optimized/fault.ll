@@ -1546,7 +1546,7 @@ define internal fastcc void @__bad_area_nosemaphore(ptr noundef %0, i64 noundef 
   %29 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #13, !srcloc !21
   %30 = icmp ule i64 %29, %2
   %31 = zext i1 %30 to i64
-  %32 = or i64 %31, %1
+  %32 = or i64 %1, %31
   %33 = tail call zeroext i1 @fixup_vdso_exception(ptr noundef %0, i32 noundef 14, i64 noundef %32, i64 noundef %2) #13
   br i1 %33, label %80, label %34
 
@@ -1664,7 +1664,7 @@ define internal fastcc void @kernelmode_fixup_or_oops(ptr noundef %0, i64 nounde
   %31 = zext i1 %30 to i64
   %32 = getelementptr inbounds i8, ptr %21, i64 2928
   store i64 14, ptr %32, align 16
-  %33 = or i64 %31, %1
+  %33 = or i64 %1, %31
   %34 = or i64 %33, 4
   %35 = getelementptr inbounds i8, ptr %21, i64 2936
   store i64 %34, ptr %35, align 8
@@ -2175,7 +2175,7 @@ define internal fastcc void @show_ldttss(i16 %.0.val, i64 %.2.val, ptr noundef %
 
 16:                                               ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
-  %17 = add i64 %10, %.2.val
+  %17 = add i64 %.2.val, %10
   %18 = inttoptr i64 %17 to ptr
   %19 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %3, ptr noundef %18, i64 noundef 16) #13
   %20 = icmp eq i64 %19, 0
@@ -2496,7 +2496,7 @@ define internal fastcc void @do_sigbus(ptr noundef %0, i64 noundef %1, i64 nound
   %13 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #13, !srcloc !21
   %14 = icmp ule i64 %13, %2
   %15 = zext i1 %14 to i64
-  %16 = or i64 %15, %1
+  %16 = or i64 %1, %15
   %17 = tail call zeroext i1 @fixup_vdso_exception(ptr noundef %0, i32 noundef 14, i64 noundef %16, i64 noundef %2) #13
   br i1 %17, label %27, label %18
 

@@ -707,7 +707,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi9LinsolLdl8init_memEPv(ptr nounde
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
-  %15 = icmp ult i64 %14, %6
+  %15 = icmp ugt i64 %6, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %4
@@ -716,7 +716,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi9LinsolLdl8init_memEPv(ptr nounde
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 18:                                               ; preds = %4
-  %19 = icmp ugt i64 %14, %6
+  %19 = icmp ult i64 %6, %14
   br i1 %19, label %20, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 20:                                               ; preds = %18
@@ -739,7 +739,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 3
-  %33 = icmp ult i64 %32, %25
+  %33 = icmp ugt i64 %25, %32
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
@@ -748,7 +748,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit9
 
 36:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %37 = icmp ugt i64 %32, %25
+  %37 = icmp ult i64 %25, %32
   br i1 %37, label %38, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit9
 
 38:                                               ; preds = %36
@@ -769,7 +769,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit9:              ; preds = %34, %36, %38, %40
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
-  %49 = icmp ult i64 %48, %6
+  %49 = icmp ugt i64 %6, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit9
@@ -778,7 +778,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit9:              ; preds = %34, %36, %38, %40
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit11
 
 52:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit9
-  %53 = icmp ugt i64 %48, %6
+  %53 = icmp ult i64 %6, %48
   br i1 %53, label %54, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit11
 
 54:                                               ; preds = %52
@@ -2371,7 +2371,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %89 = ptrtoint ptr %87 to i64
   %90 = sub i64 %88, %89
   %91 = ashr exact i64 %90, 3
-  %92 = icmp ult i64 %91, %84
+  %92 = icmp ugt i64 %84, %91
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
@@ -2382,7 +2382,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZNSt6vectorIxSaIxEE6resizeEm.exit.i
 
 95:                                               ; preds = %83
-  %96 = icmp ugt i64 %91, %84
+  %96 = icmp ult i64 %84, %91
   br i1 %96, label %97, label %_ZNSt6vectorIxSaIxEE6resizeEm.exit.i
 
 97:                                               ; preds = %95
@@ -4057,7 +4057,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -4105,7 +4105,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi15PluginInterfaceINS8_14LinsolInternalEE6PluginEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -4466,7 +4466,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 8:                                                ; preds = %4
   %.not.i = icmp ne ptr %6, null
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = icmp eq ptr %9, %7
+  %10 = icmp eq ptr %7, %9
   %or.cond.i = select i1 %.not.i, i1 true, i1 %10
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi7Options5EntryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit, label %11
 
@@ -4506,7 +4506,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi7Options5EntryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

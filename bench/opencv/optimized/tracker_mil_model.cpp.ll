@@ -687,7 +687,7 @@ define hidden void @_ZN2cv8tracking4impl15TrackerMILModel23responseToConfidenceM
   %47 = ptrtoint ptr %44 to i64
   %48 = sub i64 %46, %47
   %49 = sdiv exact i64 %48, 96
-  %.not.i.i87 = icmp ugt i64 %49, %.01692
+  %.not.i.i87 = icmp ult i64 %.01692, %49
   br i1 %.not.i.i87, label %_ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit.preheader, label %.preheader._crit_edge
 
 _ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit.preheader: ; preds = %.preheader
@@ -740,7 +740,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE2atEm.exit:         ; preds = %.lr.ph
   %70 = ptrtoint ptr %68 to i64
   %71 = sub i64 %69, %70
   %72 = sdiv exact i64 %71, 96
-  %.not.i.i29 = icmp ugt i64 %72, %.01692
+  %.not.i.i29 = icmp ult i64 %.01692, %72
   br i1 %.not.i.i29, label %_ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit30, label %73
 
 73:                                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE2atEm.exit
@@ -1026,7 +1026,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorMILBoosting21TrackerMILTarg
   %186 = ptrtoint ptr %184 to i64
   %187 = sub i64 %185, %186
   %188 = sdiv exact i64 %187, 96
-  %.not.i.i = icmp ugt i64 %188, %.01692
+  %.not.i.i = icmp ult i64 %.01692, %188
   br i1 %.not.i.i, label %_ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit, label %.preheader._crit_edge, !llvm.loop !6
 
 189:                                              ; preds = %_ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit30
@@ -1456,7 +1456,7 @@ _ZSt10_ConstructIN2cv3MatEJRS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
   %61 = tail call ptr @__cxa_begin_catch(ptr %60) #16
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %53
+  %.not4.i.i.i.i.i.i = icmp eq ptr %53, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %58, %.lr.ph.i.i.i.i.i.i
@@ -1697,7 +1697,7 @@ _ZNSt12_Vector_baseIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEESaIS5_EE
 _ZNSt6vectorIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEESaIS5_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i.i ]
   %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i17
@@ -1796,7 +1796,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #16
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %13
+  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i

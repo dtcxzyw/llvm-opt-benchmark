@@ -465,7 +465,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %.not = icmp eq i64 %6, %1
+  %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %4
@@ -3071,7 +3071,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26call_dense_assignment_loopI
 
 14:                                               ; preds = %11
   %15 = sdiv i64 9223372036854775807, %6
-  %16 = icmp slt i64 %15, %4
+  %16 = icmp sgt i64 %4, %15
   br i1 %16, label %.noexc, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i
 
 .noexc:                                           ; preds = %14
@@ -3141,7 +3141,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6r
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
-  %.not = icmp eq i64 %9, %1
+  %.not = icmp eq i64 %1, %9
   br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %4
@@ -3267,7 +3267,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1
 
 20:                                               ; preds = %17
   %21 = sdiv i64 9223372036854775807, %12
-  %22 = icmp slt i64 %21, %8
+  %22 = icmp sgt i64 %8, %21
   br i1 %22, label %23, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit
 
 23:                                               ; preds = %20
@@ -3574,7 +3574,7 @@ _ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_6MatrixIdLin1ELi
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %.not = icmp eq i64 %6, %1
+  %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %4
@@ -3779,12 +3779,12 @@ _ZN5Eigen8internal21first_default_alignedIdlEET0_PKT_S2_.exit: ; preds = %.lr.ph
   %19 = getelementptr inbounds double, ptr %1, i64 %18
   %20 = getelementptr inbounds double, ptr %3, i64 %.0147219
   %21 = load double, ptr %20, align 8
-  %22 = fmul double %21, %5
+  %22 = fmul double %5, %21
   %23 = insertelement <2 x double> poison, double %22, i64 0
   %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> zeroinitializer
   %25 = getelementptr inbounds double, ptr %3, i64 %17
   %26 = load double, ptr %25, align 8
-  %27 = fmul double %26, %5
+  %27 = fmul double %5, %26
   %28 = insertelement <2 x double> poison, double %27, i64 0
   %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> zeroinitializer
   %30 = tail call i64 @llvm.smin.i64(i64 %13, i64 %.0147219)
@@ -3948,7 +3948,7 @@ _ZN5Eigen8internal21first_default_alignedIdlEET0_PKT_S2_.exit: ; preds = %.lr.ph
   %132 = getelementptr inbounds double, ptr %1, i64 %131
   %133 = getelementptr inbounds double, ptr %3, i64 %.0139228
   %134 = load double, ptr %133, align 8
-  %135 = fmul double %134, %5
+  %135 = fmul double %5, %134
   %136 = getelementptr inbounds double, ptr %132, i64 %.0139228
   %137 = load double, ptr %136, align 8
   %138 = fmul double %137, %135
@@ -4274,7 +4274,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE10resizeLikeIN
 
 21:                                               ; preds = %18
   %22 = sdiv i64 9223372036854775807, %13
-  %23 = icmp slt i64 %22, %12
+  %23 = icmp sgt i64 %12, %22
   br i1 %23, label %.invoke, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i
 
 .invoke:                                          ; preds = %21, %8
@@ -4936,12 +4936,12 @@ _ZN5Eigen8internal21first_default_alignedIdlEET0_PKT_S2_.exit: ; preds = %.lr.ph
   %19 = getelementptr inbounds double, ptr %1, i64 %18
   %20 = getelementptr inbounds double, ptr %3, i64 %.0147219
   %21 = load double, ptr %20, align 8
-  %22 = fmul double %21, %5
+  %22 = fmul double %5, %21
   %23 = insertelement <2 x double> poison, double %22, i64 0
   %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> zeroinitializer
   %25 = getelementptr inbounds double, ptr %3, i64 %17
   %26 = load double, ptr %25, align 8
-  %27 = fmul double %26, %5
+  %27 = fmul double %5, %26
   %28 = insertelement <2 x double> poison, double %27, i64 0
   %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> zeroinitializer
   %30 = tail call i64 @llvm.smin.i64(i64 %13, i64 %.0147219)
@@ -5105,7 +5105,7 @@ _ZN5Eigen8internal21first_default_alignedIdlEET0_PKT_S2_.exit: ; preds = %.lr.ph
   %132 = getelementptr inbounds double, ptr %1, i64 %131
   %133 = getelementptr inbounds double, ptr %3, i64 %.0139228
   %134 = load double, ptr %133, align 8
-  %135 = fmul double %134, %5
+  %135 = fmul double %5, %134
   %136 = getelementptr inbounds double, ptr %132, i64 %.0139228
   %137 = load double, ptr %136, align 8
   %138 = fmul double %137, %135

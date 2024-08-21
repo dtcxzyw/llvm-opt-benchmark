@@ -406,8 +406,8 @@ sub_2:                                            ; preds = %sub_1
   %75 = getelementptr inbounds i8, ptr %74, i64 26
   %76 = load i8, ptr %75, align 2
   %77 = sext i8 %76 to i16
-  %78 = icmp slt i16 %77, %4
-  %79 = icmp sgt i16 %77, %5
+  %78 = icmp sgt i16 %4, %77
+  %79 = icmp slt i16 %5, %77
   %80 = or i1 %78, %79
   br i1 %80, label %126, label %81
 

@@ -935,7 +935,7 @@ define internal noundef ptr @tracked_malloc(i64 noundef %0) #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %5, %7
-  %9 = icmp ult i64 %8, %0
+  %9 = icmp ugt i64 %0, %8
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %1
@@ -1004,7 +1004,7 @@ define noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %1) local_unnamed
 6:                                                ; preds = %4
   %7 = icmp ne i64 %1, 0
   %.neg = sext i1 %7 to i64
-  %8 = add nsw i64 %.neg, %1
+  %8 = add nsw i64 %1, %.neg
   %9 = lshr i64 %8, 3
   %10 = trunc i64 %9 to i32
   br label %19
@@ -1265,7 +1265,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %27 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %.not369 = icmp ult i64 %29, %2
+  %.not369 = icmp ugt i64 %2, %29
   br i1 %.not369, label %75, label %30
 
 30:                                               ; preds = %24
@@ -1278,7 +1278,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %34 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
-  %37 = icmp ugt i64 %36, %2
+  %37 = icmp ult i64 %2, %36
   br i1 %37, label %38, label %340
 
 38:                                               ; preds = %31
@@ -1288,7 +1288,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 40:                                               ; preds = %38
   %41 = icmp ne i64 %2, 0
   %.neg = sext i1 %41 to i64
-  %42 = add nsw i64 %.neg, %2
+  %42 = add nsw i64 %2, %.neg
   %43 = lshr i64 %42, 3
   %44 = trunc i64 %43 to i32
   br label %53
@@ -1828,7 +1828,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   %28 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %.not369 = icmp ult i64 %30, %2
+  %.not369 = icmp ugt i64 %2, %30
   br i1 %.not369, label %77, label %31
 
 31:                                               ; preds = %25
@@ -1841,7 +1841,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   %35 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
-  %38 = icmp ugt i64 %37, %2
+  %38 = icmp ult i64 %2, %37
   br i1 %38, label %39, label %343
 
 39:                                               ; preds = %32
@@ -1851,7 +1851,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
 41:                                               ; preds = %39
   %42 = icmp ne i64 %2, 0
   %.neg = sext i1 %42 to i64
-  %43 = add nsw i64 %.neg, %2
+  %43 = add nsw i64 %2, %.neg
   %44 = lshr i64 %43, 3
   %45 = trunc i64 %44 to i32
   br label %54
@@ -2026,7 +2026,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
   %.0324 = phi ptr [ %105, %106 ], [ null, %108 ], [ %111, %143 ]
-  %144 = tail call i64 @llvm.umin.i64(i64 %30, i64 %3)
+  %144 = tail call i64 @llvm.umin.i64(i64 %3, i64 %30)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0324, ptr align 1 %1, i64 %144, i1 false)
   %145 = load i64, ptr %96, align 8
   %146 = sub i64 %145, %30
@@ -2487,9 +2487,9 @@ define noundef zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader31:                                     ; preds = %15, %20
   %.016 = phi ptr [ %22, %20 ], [ %17, %15 ]
-  %.not24 = icmp ule ptr %.016, %0
+  %.not24 = icmp uge ptr %0, %.016
   %18 = getelementptr inbounds i8, ptr %.016, i64 2097152
-  %19 = icmp ugt ptr %18, %0
+  %19 = icmp ult ptr %0, %18
   %or.cond = select i1 %.not24, i1 %19, i1 false
   br i1 %or.cond, label %.loopexit, label %20
 
@@ -2507,14 +2507,14 @@ define noundef zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.loopexit33, %30
   %.0 = phi ptr [ %32, %30 ], [ %24, %.loopexit33 ]
-  %.not27 = icmp ugt ptr %.0, %0
+  %.not27 = icmp ult ptr %0, %.0
   br i1 %.not27, label %30, label %25
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds i8, ptr %.0, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %.0, i64 %27
-  %29 = icmp ugt ptr %28, %0
+  %29 = icmp ult ptr %0, %28
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %25, %.preheader
@@ -6484,7 +6484,7 @@ define noalias ptr @_emalloc(i64 noundef %0) local_unnamed_addr #9 {
 12:                                               ; preds = %10
   %13 = icmp ne i64 %0, 0
   %.neg = sext i1 %13 to i64
-  %14 = add nsw i64 %.neg, %0
+  %14 = add nsw i64 %0, %.neg
   %15 = lshr i64 %14, 3
   %16 = trunc i64 %15 to i32
   br label %25
@@ -6769,7 +6769,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %33 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
-  %.not373 = icmp ult i64 %35, %1
+  %.not373 = icmp ugt i64 %1, %35
   br i1 %.not373, label %81, label %36
 
 36:                                               ; preds = %30
@@ -6782,7 +6782,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %40 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
-  %43 = icmp ugt i64 %42, %1
+  %43 = icmp ult i64 %1, %42
   br i1 %43, label %44, label %313
 
 44:                                               ; preds = %37
@@ -6792,7 +6792,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
 46:                                               ; preds = %44
   %47 = icmp ne i64 %1, 0
   %.neg = sext i1 %47 to i64
-  %48 = add nsw i64 %.neg, %1
+  %48 = add nsw i64 %1, %.neg
   %49 = lshr i64 %48, 3
   %50 = trunc i64 %49 to i32
   br label %59
@@ -7283,7 +7283,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %34 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
-  %.not373 = icmp ult i64 %36, %1
+  %.not373 = icmp ugt i64 %1, %36
   br i1 %.not373, label %83, label %37
 
 37:                                               ; preds = %31
@@ -7296,7 +7296,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %41 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = zext i32 %42 to i64
-  %44 = icmp ugt i64 %43, %1
+  %44 = icmp ult i64 %1, %43
   br i1 %44, label %45, label %316
 
 45:                                               ; preds = %38
@@ -7306,7 +7306,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
 47:                                               ; preds = %45
   %48 = icmp ne i64 %1, 0
   %.neg = sext i1 %48 to i64
-  %49 = add nsw i64 %.neg, %1
+  %49 = add nsw i64 %1, %.neg
   %50 = lshr i64 %49, 3
   %51 = trunc i64 %50 to i32
   br label %60
@@ -7420,7 +7420,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
 
 116:                                              ; preds = %114, %112
   %.0327 = phi ptr [ %111, %112 ], [ %115, %114 ]
-  %117 = tail call i64 @llvm.umin.i64(i64 %36, i64 %2)
+  %117 = tail call i64 @llvm.umin.i64(i64 %2, i64 %36)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0327, ptr align 1 %0, i64 %117, i1 false)
   %118 = load i64, ptr %102, align 8
   %119 = sub i64 %118, %36
@@ -8070,7 +8070,7 @@ define range(i32 -1, 1) i32 @zend_set_memory_limit(i64 noundef %0) local_unnamed
   %2 = load ptr, ptr @alloc_globals.0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 272
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ugt i64 %4, %0
+  %5 = icmp ult i64 %0, %4
   br i1 %5, label %6, label %34
 
 6:                                                ; preds = %1
@@ -8079,7 +8079,7 @@ define range(i32 -1, 1) i32 @zend_set_memory_limit(i64 noundef %0) local_unnamed
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 21
   %11 = sub i64 %4, %10
-  %.not = icmp ugt i64 %11, %0
+  %.not = icmp ult i64 %0, %11
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %6
@@ -8122,7 +8122,7 @@ zend_mm_chunk_free.exit:                          ; preds = %18, %21, %23
   %31 = load i64, ptr %3, align 8
   %32 = add i64 %31, -2097152
   store i64 %32, ptr %3, align 8
-  %33 = icmp ugt i64 %32, %0
+  %33 = icmp ult i64 %0, %32
   br i1 %33, label %14, label %.loopexit
 
 34:                                               ; preds = %1
@@ -8872,7 +8872,7 @@ define internal fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1,
 10:                                               ; preds = %8
   %11 = icmp ne i64 %2, 0
   %.neg = sext i1 %11 to i64
-  %12 = add nsw i64 %.neg, %2
+  %12 = add nsw i64 %2, %.neg
   %13 = lshr i64 %12, 3
   %14 = trunc i64 %13 to i32
   br label %23
@@ -9151,7 +9151,7 @@ define internal fastcc ptr @zend_mm_alloc_small_slow(ptr noundef %0, i32 noundef
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %21 ]
   %22 = trunc nuw i64 %indvars.iv to i32
   %23 = shl i32 %22, 16
-  %24 = or i32 %23, %1
+  %24 = or i32 %1, %23
   %25 = or i32 %24, -1073741824
   %26 = add i32 %14, %22
   %27 = zext i32 %26 to i64
@@ -9877,7 +9877,7 @@ define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr no
 70:                                               ; preds = %62, %69
   %71 = getelementptr inbounds i8, ptr %0, i64 312
   %72 = load ptr, ptr %71, align 8
-  %.not97 = icmp ne ptr %72, %1
+  %.not97 = icmp ne ptr %1, %72
   %73 = icmp eq i32 %7, 511
   %or.cond = select i1 %.not97, i1 %73, i1 false
   br i1 %or.cond, label %74, label %zend_mm_chunk_free.exit
@@ -10090,7 +10090,7 @@ define internal noundef ptr @tracked_realloc(ptr noundef %0, i64 noundef %1) #0 
 13:                                               ; preds = %5, %2
   %.040 = phi ptr [ %10, %5 ], [ null, %2 ]
   %.0 = phi i64 [ %12, %5 ], [ 0, %2 ]
-  %14 = icmp ult i64 %.0, %1
+  %14 = icmp ugt i64 %1, %.0
   br i1 %14, label %15, label %27
 
 15:                                               ; preds = %13

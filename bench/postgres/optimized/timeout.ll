@@ -257,7 +257,7 @@ define internal fastcc void @schedule_alarm(i64 noundef %0) unnamed_addr #0 {
 9:                                                ; preds = %7
   %10 = load volatile i64, ptr @signal_due_at, align 8
   %11 = add i64 %10, 10000
-  %12 = icmp slt i64 %11, %0
+  %12 = icmp sgt i64 %0, %11
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %9
@@ -268,7 +268,7 @@ define internal fastcc void @schedule_alarm(i64 noundef %0) unnamed_addr #0 {
   %15 = load volatile ptr, ptr @active_timeouts, align 16
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = icmp slt i64 %17, %0
+  %18 = icmp sgt i64 %0, %17
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %14
@@ -432,16 +432,16 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i21, %26
   %48 = load volatile ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 24
   %50 = load i64, ptr %49, align 8
-  %51 = icmp sgt i64 %50, %2
+  %51 = icmp slt i64 %2, %50
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %.lr.ph
-  %53 = icmp eq i64 %50, %2
+  %53 = icmp eq i64 %2, %50
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %52
   %55 = load i32, ptr %48, align 8
-  %56 = icmp ugt i32 %55, %0
+  %56 = icmp ult i32 %0, %55
   br i1 %56, label %.loopexit, label %57
 
 57:                                               ; preds = %52, %54
@@ -461,7 +461,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i21, %26
   %64 = getelementptr inbounds i8, ptr %6, i64 32
   store i32 %3, ptr %64, align 8
   %65 = load volatile i32, ptr @num_active_timeouts, align 4
-  %66 = icmp slt i32 %65, %.0.lcssa
+  %66 = icmp sgt i32 %.0.lcssa, %65
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %.loopexit
@@ -862,7 +862,7 @@ define dso_local zeroext i1 @get_timeout_indicator(i32 noundef %0, i1 noundef ze
   %4 = getelementptr [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %3, i32 2
   %5 = load volatile i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
-  %brmerge.demorgan = and i1 %6, %1
+  %brmerge.demorgan = and i1 %1, %6
   br i1 %brmerge.demorgan, label %7, label %8
 
 7:                                                ; preds = %2

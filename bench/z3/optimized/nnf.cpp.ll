@@ -679,7 +679,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit6
   %add.ptr28 = getelementptr inbounds ptr, ptr %44, i64 %retval.0.i.i66
   %cmp.i.i68 = icmp ne i64 %retval.0.i.i66, %retval.0.i.i
   %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr28, i64 -8
-  %cmp19.i.i = icmp ugt ptr %__last.addr.08.i.i, %add.ptr
+  %cmp19.i.i = icmp ult ptr %add.ptr, %__last.addr.08.i.i
   %or.cond.i.i = select i1 %cmp.i.i68, i1 %cmp19.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %_ZSt7reverseIPP4exprEvT_S3_.exit
 
@@ -712,7 +712,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit76
   %add.ptr35 = getelementptr inbounds ptr, ptr %49, i64 %retval.0.i.i75
   %cmp.i.i77 = icmp ne i64 %retval.0.i.i75, %retval.0.i.i16
   %__last.addr.08.i.i78 = getelementptr inbounds i8, ptr %add.ptr35, i64 -8
-  %cmp19.i.i79 = icmp ugt ptr %__last.addr.08.i.i78, %add.ptr31
+  %cmp19.i.i79 = icmp ult ptr %add.ptr31, %__last.addr.08.i.i78
   %or.cond.i.i80 = select i1 %cmp.i.i77, i1 %cmp19.i.i79, i1 false
   br i1 %or.cond.i.i80, label %while.body.i.i81, label %_ZSt7reverseIPP3appEvT_S3_.exit
 
@@ -2054,7 +2054,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %13 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %13, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
-  %cmp.not.i = icmp eq ptr %call.i.i, %t
+  %cmp.not.i = icmp eq ptr %t, %call.i.i
   br i1 %cmp.not.i, label %_ZN3nnf3imp18set_new_child_flagEP4exprS2_.exit, label %if.then.i38
 
 if.then.i38:                                      ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
@@ -2654,7 +2654,7 @@ _ZN6vectorIN3nnf3imp5frameELb1EjE8pop_backEv.exit: ; preds = %_ZN6vectorIN3nnf3i
   %29 = load i32, ptr %arrayidx.i32, align 4
   %dec.i = add i32 %29, -1
   store i32 %dec.i, ptr %arrayidx.i32, align 4
-  %cmp.not.i = icmp eq ptr %call.i.i, %t
+  %cmp.not.i = icmp eq ptr %t, %call.i.i
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6vectorIN3nnf3imp5frameELb1EjE8pop_backEv.exit
@@ -7359,7 +7359,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit1
   %add.ptr = getelementptr inbounds ptr, ptr %65, i64 %idx.ext
   %cmp.i.i143 = icmp ne i32 %66, 0
   %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 -8
-  %cmp19.i.i = icmp ugt ptr %__last.addr.08.i.i, %65
+  %cmp19.i.i = icmp ult ptr %65, %__last.addr.08.i.i
   %or.cond.i.i = select i1 %cmp.i.i143, i1 %cmp19.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %invoke.cont81
 

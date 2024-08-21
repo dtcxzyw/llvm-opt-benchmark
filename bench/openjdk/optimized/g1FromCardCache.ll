@@ -187,7 +187,7 @@ define hidden noundef i32 @_ZN15G1FromCardCache16num_par_rem_setsEv() local_unna
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15G1FromCardCache10invalidateEjm(i32 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = trunc i64 %1 to i32
-  %4 = add i32 %3, %0
+  %4 = add i32 %0, %3
   %5 = tail call noundef i32 @_ZN19G1DirtyCardQueueSet11num_par_idsEv() #5
   %6 = load i32, ptr @G1ConcRefinementThreads, align 4
   %7 = add i32 %6, %5
@@ -199,7 +199,7 @@ define hidden void @_ZN15G1FromCardCache10invalidateEjm(i32 noundef %0, i64 noun
   br i1 %.not, label %._crit_edge17, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %2
-  %12 = icmp ugt i32 %4, %0
+  %12 = icmp ult i32 %0, %4
   br i1 %12, label %.preheader.us.preheader, label %.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph

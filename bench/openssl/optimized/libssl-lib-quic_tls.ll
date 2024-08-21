@@ -1142,7 +1142,7 @@ lor.lhs.false:                                    ; preds = %entry
   %cmp6.not = icmp ugt i64 %1, %0
   %cmp17 = icmp ne ptr %rl, %rechandle
   %or.cond.not22 = or i1 %cmp17, %cmp6.not
-  %cmp29.not = icmp ult i64 %1, %length
+  %cmp29.not = icmp ugt i64 %length, %1
   %or.cond21 = or i1 %cmp29.not, %or.cond.not22
   br i1 %or.cond21, label %if.then41, label %if.end46
 

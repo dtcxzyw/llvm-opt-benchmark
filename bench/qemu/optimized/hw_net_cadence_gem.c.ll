@@ -2227,7 +2227,7 @@ if.then9:                                         ; preds = %if.then3
   %23 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %23 to i64
   %or = or disjoint i64 %shl, %conv6
-  %cmp11 = icmp ugt i64 %or, %size
+  %cmp11 = icmp ult i64 %size, %or
   br i1 %cmp11, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.then3, %if.then9, %if.end

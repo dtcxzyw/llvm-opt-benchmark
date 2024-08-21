@@ -430,7 +430,7 @@ entry:
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr.i.i, align 8
-  %cmp.not = icmp ult i64 %1, %minSizeClass
+  %cmp.not = icmp ugt i64 %minSizeClass, %1
   br i1 %cmp.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -3457,7 +3457,7 @@ while.body.i.i.i:                                 ; preds = %"_ZSt13__adjust_hea
   %__parent.0.i.i.i = phi i64 [ %div1617.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
   %phi.call.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.0.i.i.i
   %1 = load i32, ptr %phi.call.i.i.i, align 4
-  %cmp27.i.i.i.i = icmp sgt i64 %div.i1819.i.i.i, %__parent.0.i.i.i
+  %cmp27.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i1819.i.i.i
   br i1 %cmp27.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i.i

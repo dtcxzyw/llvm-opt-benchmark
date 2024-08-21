@@ -383,7 +383,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__set_precision(ptr nocapture no
   %41 = getelementptr inbounds i8, ptr %4, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = shl i64 %42, 3
-  %44 = icmp ult i64 %43, %1
+  %44 = icmp ugt i64 %1, %43
   br i1 %44, label %51, label %45
 
 45:                                               ; preds = %40

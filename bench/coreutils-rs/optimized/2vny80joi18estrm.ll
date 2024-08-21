@@ -2925,7 +2925,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h8c0514237ff3f3faE.exit: ; pred
   %30 = add i64 %29, %28
   %31 = load i64, ptr %26, align 8, !noalias !663, !noundef !5
   %32 = sub i64 %31, %30
-  %33 = icmp ult i64 %32, %23
+  %33 = icmp ugt i64 %23, %32
   br i1 %33, label %34, label %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$9move_tail17h3e5189ed4a15dffeE.exit"
 
 34:                                               ; preds = %24
@@ -3002,7 +3002,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h8c0514237ff3f3faE.exit: ; pred
   %57 = add i64 %56, %55
   %58 = load i64, ptr %53, align 8, !noalias !688, !noundef !5
   %59 = sub i64 %58, %57
-  %60 = icmp ult i64 %59, %.sroa.5.0.copyload.i
+  %60 = icmp ugt i64 %.sroa.5.0.copyload.i, %59
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %51

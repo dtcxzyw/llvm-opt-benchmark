@@ -79,7 +79,7 @@ define dso_local i64 @quote_literal(ptr nocapture noundef readonly %0) #0 {
   %36 = getelementptr inbounds i8, ptr %32, i64 4
   %37 = sext i32 %28 to i64
   %38 = getelementptr i8, ptr %35, i64 %37
-  %39 = icmp ugt ptr %38, %35
+  %39 = icmp ult ptr %35, %38
   br i1 %39, label %.lr.ph.i, label %.loopexit.i
 
 40:                                               ; preds = %.lr.ph.i
@@ -161,7 +161,7 @@ define dso_local ptr @quote_literal_cstr(ptr noundef readonly %0) local_unnamed_
   %sext = shl i64 %2, 32
   %8 = ashr exact i64 %sext, 32
   %9 = getelementptr i8, ptr %0, i64 %8
-  %10 = icmp ugt ptr %9, %0
+  %10 = icmp ult ptr %0, %9
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 11:                                               ; preds = %.lr.ph.i

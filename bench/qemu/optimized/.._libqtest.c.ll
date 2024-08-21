@@ -2130,7 +2130,7 @@ entry:
   %0 = load ptr, ptr %arrayidx, align 8
   %call1 = call ptr @g_base64_decode_inplace(ptr noundef %0, ptr noundef nonnull %len) #23
   %1 = load i64, ptr %len, align 8
-  %cmp.not = icmp eq i64 %1, %size
+  %cmp.not = icmp eq i64 %size, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

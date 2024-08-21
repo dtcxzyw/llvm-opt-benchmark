@@ -1309,7 +1309,7 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
   br i1 %exitcond.not, label %93, label %35
 
 93:                                               ; preds = %92
-  %94 = icmp eq ptr %17, %1
+  %94 = icmp eq ptr %1, %17
   br i1 %94, label %.critedge, label %95
 
 95:                                               ; preds = %93
@@ -2267,7 +2267,7 @@ browscap_compute_prefix_len.exit:                 ; preds = %261, %261, %264, %2
   %.0136187 = phi i64 [ %266, %browscap_compute_prefix_len.exit ], [ %.1.lcssa.i, %browscap_compute_contains.exit ]
   %274 = getelementptr inbounds [5 x i16], ptr %269, i64 0, i64 %indvars.iv
   %275 = getelementptr inbounds [5 x i8], ptr %270, i64 0, i64 %indvars.iv
-  %276 = icmp ugt i64 %259, %.0136187
+  %276 = icmp ult i64 %.0136187, %259
   br i1 %276, label %.lr.ph.i181, label %._crit_edge.i179
 
 .lr.ph.i181:                                      ; preds = %273, %285

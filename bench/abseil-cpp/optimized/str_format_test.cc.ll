@@ -34526,7 +34526,7 @@ if.end.i:                                         ; preds = %_ZNK4absl4Cord4size
   %6 = load ptr, ptr %pos_.i.i, align 8
   %sub.ptr.rhs.cast.i31.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i32.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i31.i
-  %cmp233.i = icmp ult i64 %sub.ptr.sub.i32.i, %cond.i
+  %cmp233.i = icmp ugt i64 %cond.i, %sub.ptr.sub.i32.i
   br i1 %cmp233.i, label %while.body.lr.ph.i, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
@@ -34604,7 +34604,7 @@ if.end.i17:                                       ; preds = %for.body
   %14 = load ptr, ptr %pos_.i.i21, align 8
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i22, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %piece.sroa.0.0
+  %cmp3.not.i = icmp ult i64 %piece.sroa.0.0, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i17
@@ -34651,7 +34651,7 @@ if.end.i26:                                       ; preds = %for.end
   %22 = load ptr, ptr %pos_.i.i30, align 8
   %sub.ptr.rhs.cast.i31.i32 = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i32.i33 = sub i64 %sub.ptr.lhs.cast.i.i31, %sub.ptr.rhs.cast.i31.i32
-  %cmp233.i34 = icmp ult i64 %sub.ptr.sub.i32.i33, %cond.i
+  %cmp233.i34 = icmp ugt i64 %cond.i, %sub.ptr.sub.i32.i33
   br i1 %cmp233.i34, label %while.body.lr.ph.i39, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit55
 
 while.body.lr.ph.i39:                             ; preds = %if.end.i26
@@ -57222,7 +57222,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, %5
+  %cmp3.not.i.i.i.i = icmp ult i64 %5, %sub.ptr.sub.i.i.i.i.i
   br i1 %cmp3.not.i.i.i.i, label %if.end5.i.i.i.i, label %if.then4.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
@@ -57292,7 +57292,7 @@ if.end.i.i28.i.i:                                 ; preds = %if.else.i.i
   %sub.ptr.lhs.cast.i.i.i33.i.i = ptrtoint ptr %add.ptr.i.i.i31.i.i to i64
   %sub.ptr.rhs.cast.i.i.i34.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i35.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i33.i.i, %sub.ptr.rhs.cast.i.i.i34.i.i
-  %cmp3.not.i.i36.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i35.i.i, %17
+  %cmp3.not.i.i36.i.i = icmp ult i64 %17, %sub.ptr.sub.i.i.i35.i.i
   br i1 %cmp3.not.i.i36.i.i, label %if.end5.i.i42.i.i, label %if.then4.i.i37.i.i
 
 if.then4.i.i37.i.i:                               ; preds = %if.end.i.i28.i.i
@@ -57615,7 +57615,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end10
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, %9
+  %cmp3.not.i.i.i.i = icmp ult i64 %9, %sub.ptr.sub.i.i.i.i.i
   br i1 %cmp3.not.i.i.i.i, label %if.end5.i.i.i.i, label %if.then4.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
@@ -57898,7 +57898,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, %s.coerce0
+  %cmp3.not.i.i.i.i = icmp ult i64 %s.coerce0, %sub.ptr.sub.i.i.i.i.i
   br i1 %cmp3.not.i.i.i.i, label %if.end5.i.i.i.i, label %if.then4.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.end.i.i.i.i

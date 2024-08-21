@@ -58,7 +58,7 @@ cond.true18:                                      ; preds = %cond.false16
 cond.false20:                                     ; preds = %cond.false16
   %highStart = getelementptr inbounds i8, ptr %trie, i64 44
   %5 = load i32, ptr %highStart, align 4
-  %cmp21.not = icmp sgt i32 %5, %c
+  %cmp21.not = icmp slt i32 %c, %5
   br i1 %cmp21.not, label %cond.false23, label %cond.true22
 
 cond.true22:                                      ; preds = %cond.false20
@@ -141,7 +141,7 @@ cond.false78:                                     ; preds = %cond.false64
 cond.false81:                                     ; preds = %cond.false78
   %highStart82 = getelementptr inbounds i8, ptr %trie, i64 44
   %17 = load i32, ptr %highStart82, align 4
-  %cmp83.not = icmp sgt i32 %17, %c
+  %cmp83.not = icmp slt i32 %c, %17
   br i1 %cmp83.not, label %cond.false86, label %cond.true84
 
 cond.true84:                                      ; preds = %cond.false81
@@ -190,7 +190,7 @@ if.else116:                                       ; preds = %if.else113
   %26 = load ptr, ptr %newTrie, align 8
   %highStart.i = getelementptr inbounds i8, ptr %26, i64 144168
   %27 = load i32, ptr %highStart.i, align 8
-  %cmp.not.i = icmp sgt i32 %27, %c
+  %cmp.not.i = icmp slt i32 %c, %27
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else116
@@ -394,7 +394,7 @@ cond.true18.i:                                    ; preds = %cond.true16.i
 cond.false22.i:                                   ; preds = %cond.false14.i
   %highStart.i = getelementptr inbounds i8, ptr %trie, i64 44
   %8 = load i32, ptr %highStart.i, align 4
-  %cmp23.not.i = icmp sgt i32 %8, %call
+  %cmp23.not.i = icmp slt i32 %call, %8
   br i1 %cmp23.not.i, label %cond.false25.i, label %cond.true24.i
 
 cond.true24.i:                                    ; preds = %cond.false22.i
@@ -501,7 +501,7 @@ cond.true18.i:                                    ; preds = %cond.true16.i
 cond.false22.i:                                   ; preds = %cond.false14.i
   %highStart.i = getelementptr inbounds i8, ptr %trie, i64 44
   %8 = load i32, ptr %highStart.i, align 4
-  %cmp23.not.i = icmp sgt i32 %8, %call
+  %cmp23.not.i = icmp slt i32 %call, %8
   br i1 %cmp23.not.i, label %cond.false25.i, label %cond.true24.i
 
 cond.true24.i:                                    ; preds = %cond.false22.i
@@ -583,7 +583,7 @@ if.end13:                                         ; preds = %if.end10
   %4 = load i16, ptr %options, align 4
   %5 = and i16 %4, 15
   %and14 = zext nneg i16 %5 to i32
-  %cmp15.not = icmp eq i32 %and14, %valueBits
+  %cmp15.not = icmp eq i32 %valueBits, %and14
   br i1 %cmp15.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -615,7 +615,7 @@ if.end17:                                         ; preds = %if.end13
   %mul36.pn.v = select i1 %cmp26, i32 3, i32 4
   %mul36.pn = shl nuw nsw i32 %conv20, %mul36.pn.v
   %actualLength.0 = add nuw nsw i32 %add32, %mul36.pn
-  %cmp42 = icmp ugt i32 %actualLength.0, %length
+  %cmp42 = icmp ult i32 %length, %actualLength.0
   br i1 %cmp42, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.end17
@@ -993,7 +993,7 @@ if.then11:                                        ; preds = %land.lhs.true, %lor
 if.end12:                                         ; preds = %land.lhs.true, %lor.lhs.false6
   %length = getelementptr inbounds i8, ptr %trie, i64 64
   %4 = load i32, ptr %length, align 8
-  %cmp13.not = icmp sgt i32 %4, %capacity
+  %cmp13.not = icmp slt i32 %capacity, %4
   br i1 %cmp13.not, label %if.else, label %do.body
 
 do.body:                                          ; preds = %if.end12
@@ -1122,7 +1122,7 @@ if.then23:                                        ; preds = %for.body, %for.body
   br i1 %cmp24, label %if.else26, label %if.then25
 
 if.then25:                                        ; preds = %if.then23
-  %spec.select.le155 = tail call i32 @llvm.smin.i32(i32 %.us-phi160, i32 %limit)
+  %spec.select.le155 = tail call i32 @llvm.smin.i32(i32 %limit, i32 %.us-phi160)
   %shr = ashr i32 %.us-phi162, 5
   br label %if.end56
 
@@ -1150,7 +1150,7 @@ if.end56.loopexit:                                ; preds = %if.else39, %if.else
   %.us-phi163 = phi i32 [ %add.us, %if.else39.us ], [ %add, %if.else39 ]
   %.us-phi164 = phi i32 [ %11, %if.else39.us ], [ %conv44, %if.else39 ]
   %.us-phi166 = phi i32 [ %c.0.us, %if.else39.us ], [ %c.0, %if.else39 ]
-  %spec.select.le = tail call i32 @llvm.smin.i32(i32 %.us-phi163, i32 %limit)
+  %spec.select.le = tail call i32 @llvm.smin.i32(i32 %limit, i32 %.us-phi163)
   br label %if.end56
 
 if.end56:                                         ; preds = %if.else26, %if.end56.loopexit, %if.then25

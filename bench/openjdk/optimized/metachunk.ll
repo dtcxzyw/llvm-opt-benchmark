@@ -110,7 +110,7 @@ declare noundef zeroext i1 @_ZN9metaspace16VirtualSpaceNode25ensure_range_is_com
 define hidden noundef zeroext i1 @_ZN9metaspace9Metachunk16ensure_committedEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %6, label %_ZN11MutexLockerD2Ev.exit
 
 6:                                                ; preds = %2
@@ -192,7 +192,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %38, %_ZN9metaspace9
 define hidden noundef zeroext i1 @_ZN9metaspace9Metachunk23ensure_committed_lockedEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %6, label %_ZN9metaspace9Metachunk12commit_up_toEm.exit
 
 6:                                                ; preds = %2

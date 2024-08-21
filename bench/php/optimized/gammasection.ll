@@ -52,44 +52,43 @@ ceilint.exit:                                     ; preds = %19, %24
   %33 = fcmp ole double %3, %2
   %34 = icmp eq i64 %32, 0
   %35 = select i1 %33, i1 true, i1 %34
-  br i1 %35, label %62, label %36
+  br i1 %35, label %61, label %36
 
 36:                                               ; preds = %ceilint.exit
   %37 = add i64 %32, -1
   %38 = tail call i64 @php_random_range64(ptr %0, ptr %1, i64 noundef %37) #4
   %39 = add i64 %38, 1
-  br i1 %18, label %53, label %40
+  br i1 %18, label %52, label %40
 
 40:                                               ; preds = %36
   %41 = icmp eq i64 %39, %32
-  br i1 %41, label %62, label %42
+  br i1 %41, label %61, label %42
 
 42:                                               ; preds = %40
   %43 = lshr i64 %39, 2
   %44 = uitofp nneg i64 %43 to double
   %45 = and i64 %39, 3
   %46 = uitofp nneg i64 %45 to double
-  %47 = fneg double %44
-  %48 = fmul double %14, %47
+  %47 = fneg double %14
+  %48 = fmul double %47, %44
   %49 = tail call double @llvm.fmuladd.f64(double %3, double 2.500000e-01, double %48)
-  %50 = fneg double %46
-  %51 = fmul double %14, %50
-  %52 = tail call double @llvm.fmuladd.f64(double %49, double 4.000000e+00, double %51)
-  br label %62
+  %50 = fmul double %47, %46
+  %51 = tail call double @llvm.fmuladd.f64(double %49, double 4.000000e+00, double %50)
+  br label %61
 
-53:                                               ; preds = %36
-  %54 = lshr i64 %38, 2
-  %55 = uitofp nneg i64 %54 to double
-  %56 = and i64 %38, 3
-  %57 = uitofp nneg i64 %56 to double
-  %58 = fmul double %14, %55
-  %59 = tail call double @llvm.fmuladd.f64(double %2, double 2.500000e-01, double %58)
-  %60 = fmul double %14, %57
-  %61 = tail call double @llvm.fmuladd.f64(double %59, double 4.000000e+00, double %60)
-  br label %62
+52:                                               ; preds = %36
+  %53 = lshr i64 %38, 2
+  %54 = uitofp nneg i64 %53 to double
+  %55 = and i64 %38, 3
+  %56 = uitofp nneg i64 %55 to double
+  %57 = fmul double %14, %54
+  %58 = tail call double @llvm.fmuladd.f64(double %2, double 2.500000e-01, double %57)
+  %59 = fmul double %14, %56
+  %60 = tail call double @llvm.fmuladd.f64(double %58, double 4.000000e+00, double %59)
+  br label %61
 
-62:                                               ; preds = %40, %ceilint.exit, %53, %42
-  %.0 = phi double [ %52, %42 ], [ %61, %53 ], [ 0x7FF8000000000000, %ceilint.exit ], [ %2, %40 ]
+61:                                               ; preds = %40, %ceilint.exit, %52, %42
+  %.0 = phi double [ %51, %42 ], [ %60, %52 ], [ 0x7FF8000000000000, %ceilint.exit ], [ %2, %40 ]
   ret double %.0
 }
 
@@ -141,7 +140,7 @@ gamma_max.exit:                                   ; preds = %8, %11
 ceilint.exit:                                     ; preds = %19, %24
   %.0.i = phi double [ %23, %19 ], [ %26, %24 ]
   %27 = fcmp olt double %3, %2
-  br i1 %27, label %59, label %28
+  br i1 %27, label %58, label %28
 
 28:                                               ; preds = %ceilint.exit
   %29 = tail call double @llvm.ceil.f64(double %17)
@@ -153,40 +152,39 @@ ceilint.exit:                                     ; preds = %19, %24
   %34 = add i64 %32, %33
   %35 = tail call i64 @php_random_range64(ptr %0, ptr %1, i64 noundef %34) #4
   %36 = icmp eq i64 %35, %34
-  br i1 %18, label %49, label %37
+  br i1 %18, label %48, label %37
 
 37:                                               ; preds = %28
-  br i1 %36, label %59, label %38
+  br i1 %36, label %58, label %38
 
 38:                                               ; preds = %37
   %39 = lshr i64 %35, 2
   %40 = uitofp nneg i64 %39 to double
   %41 = and i64 %35, 3
   %42 = uitofp nneg i64 %41 to double
-  %43 = fneg double %40
-  %44 = fmul double %14, %43
+  %43 = fneg double %14
+  %44 = fmul double %43, %40
   %45 = tail call double @llvm.fmuladd.f64(double %3, double 2.500000e-01, double %44)
-  %46 = fneg double %42
-  %47 = fmul double %14, %46
-  %48 = tail call double @llvm.fmuladd.f64(double %45, double 4.000000e+00, double %47)
-  br label %59
+  %46 = fmul double %43, %42
+  %47 = tail call double @llvm.fmuladd.f64(double %45, double 4.000000e+00, double %46)
+  br label %58
 
-49:                                               ; preds = %28
-  br i1 %36, label %59, label %50
+48:                                               ; preds = %28
+  br i1 %36, label %58, label %49
 
-50:                                               ; preds = %49
-  %51 = lshr i64 %35, 2
-  %52 = uitofp nneg i64 %51 to double
-  %53 = and i64 %35, 3
-  %54 = uitofp nneg i64 %53 to double
-  %55 = fmul double %14, %52
-  %56 = tail call double @llvm.fmuladd.f64(double %2, double 2.500000e-01, double %55)
-  %57 = fmul double %14, %54
-  %58 = tail call double @llvm.fmuladd.f64(double %56, double 4.000000e+00, double %57)
-  br label %59
+49:                                               ; preds = %48
+  %50 = lshr i64 %35, 2
+  %51 = uitofp nneg i64 %50 to double
+  %52 = and i64 %35, 3
+  %53 = uitofp nneg i64 %52 to double
+  %54 = fmul double %14, %51
+  %55 = tail call double @llvm.fmuladd.f64(double %2, double 2.500000e-01, double %54)
+  %56 = fmul double %14, %53
+  %57 = tail call double @llvm.fmuladd.f64(double %55, double 4.000000e+00, double %56)
+  br label %58
 
-59:                                               ; preds = %49, %37, %ceilint.exit, %50, %38
-  %.0 = phi double [ %48, %38 ], [ %58, %50 ], [ 0x7FF8000000000000, %ceilint.exit ], [ %2, %37 ], [ %3, %49 ]
+58:                                               ; preds = %48, %37, %ceilint.exit, %49, %38
+  %.0 = phi double [ %47, %38 ], [ %57, %49 ], [ 0x7FF8000000000000, %ceilint.exit ], [ %2, %37 ], [ %3, %48 ]
   ret double %.0
 }
 
@@ -239,44 +237,43 @@ ceilint.exit:                                     ; preds = %19, %24
   %33 = fcmp ole double %3, %2
   %34 = icmp eq i64 %32, 0
   %35 = select i1 %33, i1 true, i1 %34
-  br i1 %35, label %62, label %36
+  br i1 %35, label %61, label %36
 
 36:                                               ; preds = %ceilint.exit
   %37 = add i64 %32, -1
   %38 = tail call i64 @php_random_range64(ptr %0, ptr %1, i64 noundef %37) #4
-  br i1 %18, label %50, label %39
+  br i1 %18, label %49, label %39
 
 39:                                               ; preds = %36
   %40 = lshr i64 %38, 2
   %41 = uitofp nneg i64 %40 to double
   %42 = and i64 %38, 3
   %43 = uitofp nneg i64 %42 to double
-  %44 = fneg double %41
-  %45 = fmul double %14, %44
+  %44 = fneg double %14
+  %45 = fmul double %44, %41
   %46 = tail call double @llvm.fmuladd.f64(double %3, double 2.500000e-01, double %45)
-  %47 = fneg double %43
-  %48 = fmul double %14, %47
-  %49 = tail call double @llvm.fmuladd.f64(double %46, double 4.000000e+00, double %48)
-  br label %62
+  %47 = fmul double %44, %43
+  %48 = tail call double @llvm.fmuladd.f64(double %46, double 4.000000e+00, double %47)
+  br label %61
 
-50:                                               ; preds = %36
-  %51 = icmp eq i64 %38, %37
-  br i1 %51, label %62, label %52
+49:                                               ; preds = %36
+  %50 = icmp eq i64 %38, %37
+  br i1 %50, label %61, label %51
 
-52:                                               ; preds = %50
-  %53 = add i64 %38, 1
-  %54 = lshr i64 %53, 2
-  %55 = uitofp nneg i64 %54 to double
-  %56 = and i64 %53, 3
-  %57 = uitofp nneg i64 %56 to double
-  %58 = fmul double %14, %55
-  %59 = tail call double @llvm.fmuladd.f64(double %2, double 2.500000e-01, double %58)
-  %60 = fmul double %14, %57
-  %61 = tail call double @llvm.fmuladd.f64(double %59, double 4.000000e+00, double %60)
-  br label %62
+51:                                               ; preds = %49
+  %52 = add i64 %38, 1
+  %53 = lshr i64 %52, 2
+  %54 = uitofp nneg i64 %53 to double
+  %55 = and i64 %52, 3
+  %56 = uitofp nneg i64 %55 to double
+  %57 = fmul double %14, %54
+  %58 = tail call double @llvm.fmuladd.f64(double %2, double 2.500000e-01, double %57)
+  %59 = fmul double %14, %56
+  %60 = tail call double @llvm.fmuladd.f64(double %58, double 4.000000e+00, double %59)
+  br label %61
 
-62:                                               ; preds = %50, %ceilint.exit, %52, %39
-  %.0 = phi double [ %49, %39 ], [ %61, %52 ], [ 0x7FF8000000000000, %ceilint.exit ], [ %3, %50 ]
+61:                                               ; preds = %49, %ceilint.exit, %51, %39
+  %.0 = phi double [ %48, %39 ], [ %60, %51 ], [ 0x7FF8000000000000, %ceilint.exit ], [ %3, %49 ]
   ret double %.0
 }
 
@@ -329,7 +326,7 @@ ceilint.exit:                                     ; preds = %19, %24
   %33 = fcmp ole double %3, %2
   %34 = icmp ult i64 %32, 2
   %35 = select i1 %33, i1 true, i1 %34
-  br i1 %35, label %56, label %36
+  br i1 %35, label %55, label %36
 
 36:                                               ; preds = %ceilint.exit
   %37 = add i64 %32, -2
@@ -339,26 +336,25 @@ ceilint.exit:                                     ; preds = %19, %24
   %41 = uitofp nneg i64 %40 to double
   %42 = and i64 %39, 3
   %43 = uitofp nneg i64 %42 to double
-  br i1 %18, label %51, label %44
+  br i1 %18, label %50, label %44
 
 44:                                               ; preds = %36
-  %45 = fneg double %41
-  %46 = fmul double %14, %45
+  %45 = fneg double %14
+  %46 = fmul double %45, %41
   %47 = tail call double @llvm.fmuladd.f64(double %3, double 2.500000e-01, double %46)
-  %48 = fneg double %43
-  %49 = fmul double %14, %48
-  %50 = tail call double @llvm.fmuladd.f64(double %47, double 4.000000e+00, double %49)
-  br label %56
+  %48 = fmul double %45, %43
+  %49 = tail call double @llvm.fmuladd.f64(double %47, double 4.000000e+00, double %48)
+  br label %55
 
-51:                                               ; preds = %36
-  %52 = fmul double %14, %41
-  %53 = tail call double @llvm.fmuladd.f64(double %2, double 2.500000e-01, double %52)
-  %54 = fmul double %14, %43
-  %55 = tail call double @llvm.fmuladd.f64(double %53, double 4.000000e+00, double %54)
-  br label %56
+50:                                               ; preds = %36
+  %51 = fmul double %14, %41
+  %52 = tail call double @llvm.fmuladd.f64(double %2, double 2.500000e-01, double %51)
+  %53 = fmul double %14, %43
+  %54 = tail call double @llvm.fmuladd.f64(double %52, double 4.000000e+00, double %53)
+  br label %55
 
-56:                                               ; preds = %ceilint.exit, %51, %44
-  %.0 = phi double [ %50, %44 ], [ %55, %51 ], [ 0x7FF8000000000000, %ceilint.exit ]
+55:                                               ; preds = %ceilint.exit, %50, %44
+  %.0 = phi double [ %49, %44 ], [ %54, %50 ], [ 0x7FF8000000000000, %ceilint.exit ]
   ret double %.0
 }
 

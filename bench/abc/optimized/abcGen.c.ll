@@ -2386,7 +2386,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %3
 .preheader78.us:                                  ; preds = %.preheader78.lr.ph, %._crit_edge.us
   %.080.us = phi i32 [ %20, %._crit_edge.us ], [ 0, %.preheader78.lr.ph ]
   %15 = xor i32 %.080.us, -1
-  %16 = add nsw i32 %15, %2
+  %16 = add nsw i32 %2, %15
   br label %17
 
 17:                                               ; preds = %.preheader78.us, %17
@@ -2422,7 +2422,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %3
   %.183.us = phi i32 [ %36, %._crit_edge.us87 ], [ 0, %.lr.ph85 ]
   %27 = tail call i64 @fwrite(ptr nonnull @.str.161, i64 7, i64 1, ptr %0)
   %28 = xor i32 %.183.us, -1
-  %29 = add nsw i32 %28, %2
+  %29 = add nsw i32 %2, %28
   br label %30
 
 30:                                               ; preds = %.lr.ph.us, %30

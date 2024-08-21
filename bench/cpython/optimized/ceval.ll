@@ -7876,7 +7876,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if
   %owner.i.i = getelementptr inbounds i8, ptr %754, i64 70
   store i8 0, ptr %owner.i.i, align 2
   %762 = load i32, ptr %co_nlocalsplus.i.i, align 8
-  %cmp18.i.i = icmp sgt i32 %762, %753
+  %cmp18.i.i = icmp slt i32 %753, %762
   br i1 %cmp18.i.i, label %for.body.lr.ph.i.i, label %_PyFrame_PushUnchecked.exit
 
 for.body.lr.ph.i.i:                               ; preds = %_Py_NewRef.exit.i.i
@@ -9343,7 +9343,7 @@ if.end.i7876:                                     ; preds = %_PyErr_Occurred.exi
   %974 = getelementptr i8, ptr %frame.addr.4.val7293, i64 88
   %co.val6.i = load i32, ptr %974, align 8
   %sub.i.i = sub i32 %co.val.i, %co.val6.i
-  %cmp.i7879 = icmp sgt i32 %sub.i.i, %oparg.0
+  %cmp.i7879 = icmp slt i32 %oparg.0, %sub.i.i
   %.str.35..str.60.i = select i1 %cmp.i7879, ptr @.str.35, ptr @.str.60
   %PyExc_UnboundLocalError.val.i = load ptr, ptr @PyExc_UnboundLocalError, align 8
   %PyExc_NameError.val.i = load ptr, ptr @PyExc_NameError, align 8
@@ -14090,7 +14090,7 @@ if.end.i8302:                                     ; preds = %_PyErr_Occurred.exi
   %1610 = getelementptr i8, ptr %frame.addr.4.val7308, i64 88
   %co.val6.i8308 = load i32, ptr %1610, align 8
   %sub.i.i8309 = sub i32 %co.val.i8307, %co.val6.i8308
-  %cmp.i8310 = icmp sgt i32 %sub.i.i8309, %oparg.0
+  %cmp.i8310 = icmp slt i32 %oparg.0, %sub.i.i8309
   %.str.35..str.60.i8311 = select i1 %cmp.i8310, ptr @.str.35, ptr @.str.60
   %PyExc_UnboundLocalError.val.i8312 = load ptr, ptr @PyExc_UnboundLocalError, align 8
   %PyExc_NameError.val.i8313 = load ptr, ptr @PyExc_NameError, align 8
@@ -14293,7 +14293,7 @@ if.end.i8321:                                     ; preds = %_PyErr_Occurred.exi
   %1632 = getelementptr i8, ptr %frame.addr.4.val7310, i64 88
   %co.val6.i8327 = load i32, ptr %1632, align 8
   %sub.i.i8328 = sub i32 %co.val.i8326, %co.val6.i8327
-  %cmp.i8329 = icmp sgt i32 %sub.i.i8328, %oparg.0
+  %cmp.i8329 = icmp slt i32 %oparg.0, %sub.i.i8328
   %.str.35..str.60.i8330 = select i1 %cmp.i8329, ptr @.str.35, ptr @.str.60
   %PyExc_UnboundLocalError.val.i8331 = load ptr, ptr @PyExc_UnboundLocalError, align 8
   %PyExc_NameError.val.i8332 = load ptr, ptr @PyExc_NameError, align 8
@@ -26856,7 +26856,7 @@ _Py_NewRef.exit.i.i9100:                          ; preds = %if.end.i.i.i.i9099,
   %owner.i.i9112 = getelementptr inbounds i8, ptr %3632, i64 70
   store i8 0, ptr %owner.i.i9112, align 2
   %3638 = load i32, ptr %co_nlocalsplus.i.i9106, align 8
-  %cmp18.i.i9113 = icmp sgt i32 %3638, %argcount17511.0
+  %cmp18.i.i9113 = icmp slt i32 %argcount17511.0, %3638
   br i1 %cmp18.i.i9113, label %for.body.lr.ph.i.i9114, label %_PyFrame_PushUnchecked.exit9121
 
 for.body.lr.ph.i.i9114:                           ; preds = %_Py_NewRef.exit.i.i9100
@@ -29042,7 +29042,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %entr
   %owner.i = getelementptr inbounds i8, ptr %1, i64 70
   store i8 0, ptr %owner.i, align 2
   %7 = load i32, ptr %co_nlocalsplus.i, align 8
-  %cmp18.i = icmp sgt i32 %7, %null_locals_from
+  %cmp18.i = icmp slt i32 %null_locals_from, %7
   br i1 %cmp18.i, label %for.body.lr.ph.i, label %_PyFrame_Initialize.exit
 
 for.body.lr.ph.i:                                 ; preds = %_Py_NewRef.exit.i
@@ -29192,8 +29192,8 @@ if.end8.i:                                        ; preds = %if.end.i, %_PyFrame
   %17 = phi i32 [ %.pre.i, %if.end.i ], [ %10, %_PyFrame_Initialize.exit ]
   %kwdict.0.i = phi ptr [ %call.i, %if.end.i ], [ null, %_PyFrame_Initialize.exit ]
   %conv10.i = sext i32 %17 to i64
-  %cmp11.i = icmp slt i64 %conv10.i, %argcount
-  %conv10.argcount.i = tail call i64 @llvm.smin.i64(i64 %conv10.i, i64 %argcount)
+  %cmp11.i = icmp sgt i64 %argcount, %conv10.i
+  %conv10.argcount.i = tail call i64 @llvm.smin.i64(i64 %argcount, i64 %conv10.i)
   %cmp18243.i = icmp sgt i64 %conv10.argcount.i, 0
   br i1 %cmp18243.i, label %for.body.i33, label %for.end.i
 
@@ -29538,7 +29538,7 @@ for.inc247.i:                                     ; preds = %if.end245.i, %if.th
 if.end250.i:                                      ; preds = %for.inc247.i, %if.then63.i, %if.end60.i
   %68 = load i32, ptr %co_argcount.i, align 4
   %conv252.i = sext i32 %68 to i64
-  %cmp253.i = icmp slt i64 %conv252.i, %argcount
+  %cmp253.i = icmp sgt i64 %argcount, %conv252.i
   br i1 %cmp253.i, label %land.lhs.true255.i, label %if.end261.i
 
 land.lhs.true255.i:                               ; preds = %if.end250.i
@@ -29675,7 +29675,7 @@ do.end80.sink.split.i.i:                          ; preds = %if.end71.i.i, %if.e
   br label %if.then3
 
 if.end261.i:                                      ; preds = %land.lhs.true255.i, %if.end250.i
-  %cmp264.i = icmp sgt i64 %conv252.i, %argcount
+  %cmp264.i = icmp slt i64 %argcount, %conv252.i
   br i1 %cmp264.i, label %if.then266.i, label %if.end321.i
 
 if.then266.i:                                     ; preds = %if.end261.i
@@ -29692,7 +29692,7 @@ cond.false.i:                                     ; preds = %if.then266.i
 cond.end.i:                                       ; preds = %cond.false.i, %if.then266.i
   %cond.i = phi i64 [ %.val.i, %cond.false.i ], [ 0, %if.then266.i ]
   %sub274.i = sub i64 %conv252.i, %cond.i
-  %cmp276260.i = icmp sgt i64 %sub274.i, %argcount
+  %cmp276260.i = icmp slt i64 %argcount, %sub274.i
   br i1 %cmp276260.i, label %for.body278.i, label %if.end291.i
 
 for.body278.i:                                    ; preds = %cond.end.i, %for.body278.i
@@ -29864,7 +29864,7 @@ if.then390.i:                                     ; preds = %fail_post_positiona
   %109 = getelementptr i8, ptr %kwnames, i64 16
   %kwnames.val.i = load i64, ptr %109, align 8
   %add394.i = add i64 %kwnames.val.i, %argcount
-  %cmp395245.i = icmp sgt i64 %add394.i, %argcount
+  %cmp395245.i = icmp slt i64 %argcount, %add394.i
   br i1 %cmp395245.i, label %do.body398.i, label %if.then3
 
 do.body398.i:                                     ; preds = %if.then390.i, %for.inc414.i
@@ -30442,7 +30442,7 @@ if.end:                                           ; preds = %entry, %_PyErr_Occu
   %5 = getelementptr i8, ptr %co, i64 88
   %co.val6 = load i32, ptr %5, align 8
   %sub.i = sub i32 %co.val, %co.val6
-  %cmp = icmp sgt i32 %sub.i, %oparg
+  %cmp = icmp slt i32 %oparg, %sub.i
   %.str.35..str.60 = select i1 %cmp, ptr @.str.35, ptr @.str.60
   %PyExc_UnboundLocalError.val = load ptr, ptr @PyExc_UnboundLocalError, align 8
   %PyExc_NameError.val = load ptr, ptr @PyExc_NameError, align 8
@@ -30472,7 +30472,7 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %tstate, ptr noundef %exc, ptr noundef %format_str, ptr noundef nonnull %call) #15
   %0 = load ptr, ptr @PyExc_NameError, align 8
-  %cmp = icmp eq ptr %0, %exc
+  %cmp = icmp eq ptr %exc, %0
   br i1 %cmp, label %if.then5, label %if.end16
 
 if.then5:                                         ; preds = %if.end3
@@ -31246,7 +31246,7 @@ _Py_NewRef.exit:                                  ; preds = %for.body43, %if.end
   %arrayidx52 = getelementptr ptr, ptr %kws, i64 %idxprom51
   %12 = load ptr, ptr %arrayidx52, align 8
   %13 = trunc nuw nsw i64 %indvars.iv78 to i32
-  %add53 = add i32 %13, %argcount
+  %add53 = add i32 %argcount, %13
   %idxprom54 = sext i32 %add53 to i64
   %arrayidx55 = getelementptr ptr, ptr %call30, i64 %idxprom54
   store ptr %12, ptr %arrayidx55, align 8
@@ -32654,7 +32654,7 @@ for.inc.us:                                       ; preds = %if.end16.us, %if.en
   %posonly_conflicts.2.us = phi i32 [ %inc.us, %if.end16.us ], [ %inc28.us, %if.end27.us ], [ %posonly_conflicts.141.us, %if.else.us ]
   %inc34.us = add i32 %k2.040.us, 1
   %conv.us = sext i32 %inc34.us to i64
-  %cmp3.us = icmp slt i64 %conv.us, %kwcount
+  %cmp3.us = icmp sgt i64 %kwcount, %conv.us
   br i1 %cmp3.us, label %for.body5.us, label %for.cond2.for.inc35_crit_edge.us, !llvm.loop !78
 
 for.cond2.for.inc35_crit_edge.us:                 ; preds = %for.inc.us

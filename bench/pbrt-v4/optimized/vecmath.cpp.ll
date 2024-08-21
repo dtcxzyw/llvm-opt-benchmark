@@ -539,7 +539,7 @@ entry:
   %4 = extractvalue { ptr, i64 } %call10, 0
   %arrayidx.i11 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load float, ptr %arrayidx.i11, align 4
-  %mul12 = fmul float %5, %v.coerce1
+  %mul12 = fmul float %v.coerce1, %5
   %add13 = fadd float %add, %mul12
   %call16 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %6 = extractvalue { ptr, i64 } %call16, 0
@@ -555,7 +555,7 @@ entry:
   %10 = extractvalue { ptr, i64 } %call29, 0
   %arrayidx.i14 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load float, ptr %arrayidx.i14, align 4
-  %mul32 = fmul float %11, %v.coerce1
+  %mul32 = fmul float %v.coerce1, %11
   %add33 = fadd float %add26, %mul32
   %call36 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %12 = extractvalue { ptr, i64 } %call36, 0
@@ -571,7 +571,7 @@ entry:
   %16 = extractvalue { ptr, i64 } %call49, 0
   %arrayidx.i17 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load float, ptr %arrayidx.i17, align 4
-  %mul52 = fmul float %17, %v.coerce1
+  %mul52 = fmul float %v.coerce1, %17
   %add53 = fadd float %add46, %mul52
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add13, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %add33, i64 1
@@ -621,7 +621,7 @@ entry:
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %m)
   %mul = fmul float %div.i.i, %div.i.i
   %sub = fsub float 1.000000e+00, %mul
-  %mul5 = fmul float %sub, %cosTheta
+  %mul5 = fmul float %cosTheta, %sub
   %add = fadd float %mul, %mul5
   %call6 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %1 = extractvalue { ptr, i64 } %call6, 0
@@ -629,7 +629,7 @@ entry:
   %mul9 = fmul float %div.i.i, %div2.i.i
   %sub10 = fsub float 1.000000e+00, %cosTheta
   %mul11 = fmul float %sub10, %mul9
-  %mul12 = fmul float %div3.i.i, %sinTheta
+  %mul12 = fmul float %sinTheta, %div3.i.i
   %sub13 = fsub float %mul11, %mul12
   %call15 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %2 = extractvalue { ptr, i64 } %call15, 0
@@ -637,7 +637,7 @@ entry:
   store float %sub13, ptr %arrayidx.i, align 4
   %mul19 = fmul float %div.i.i, %div3.i.i
   %mul21 = fmul float %sub10, %mul19
-  %mul23 = fmul float %div2.i.i, %sinTheta
+  %mul23 = fmul float %sinTheta, %div2.i.i
   %add24 = fadd float %mul23, %mul21
   %call26 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %3 = extractvalue { ptr, i64 } %call26, 0
@@ -653,7 +653,7 @@ entry:
   store float %add38, ptr %5, align 4
   %mul44 = fmul float %div2.i.i, %div2.i.i
   %sub48 = fsub float 1.000000e+00, %mul44
-  %mul49 = fmul float %sub48, %cosTheta
+  %mul49 = fmul float %cosTheta, %sub48
   %add50 = fadd float %mul44, %mul49
   %call52 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %6 = extractvalue { ptr, i64 } %call52, 0
@@ -661,7 +661,7 @@ entry:
   store float %add50, ptr %arrayidx.i62, align 4
   %mul56 = fmul float %div2.i.i, %div3.i.i
   %mul58 = fmul float %sub10, %mul56
-  %mul60 = fmul float %div.i.i, %sinTheta
+  %mul60 = fmul float %sinTheta, %div.i.i
   %sub61 = fsub float %mul58, %mul60
   %call63 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %7 = extractvalue { ptr, i64 } %call63, 0
@@ -682,7 +682,7 @@ entry:
   store float %add86, ptr %arrayidx.i66, align 4
   %mul92 = fmul float %div3.i.i, %div3.i.i
   %sub96 = fsub float 1.000000e+00, %mul92
-  %mul97 = fmul float %sub96, %cosTheta
+  %mul97 = fmul float %cosTheta, %sub96
   %add98 = fadd float %mul92, %mul97
   %call100 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %11 = extractvalue { ptr, i64 } %call100, 0

@@ -173,7 +173,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %1 = or disjoint i64 %indvars.iv.i, 1
   %arrayidx5.i = getelementptr inbounds i32, ptr @is_ident1.range, i64 %1
   %2 = load i32, ptr %arrayidx5.i, align 4
-  %cmp6.not.i = icmp ult i32 %2, %c
+  %cmp6.not.i = icmp ugt i32 %c, %2
   br i1 %cmp6.not.i, label %for.inc.i, label %in_range.exit
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
@@ -203,7 +203,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %1 = or disjoint i64 %indvars.iv.i.i, 1
   %arrayidx5.i.i = getelementptr inbounds i32, ptr @is_ident1.range, i64 %1
   %2 = load i32, ptr %arrayidx5.i.i, align 4
-  %cmp6.not.i.i = icmp ult i32 %2, %c
+  %cmp6.not.i.i = icmp ugt i32 %c, %2
   br i1 %cmp6.not.i.i, label %for.inc.i.i, label %lor.end
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
@@ -223,7 +223,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %5 = or disjoint i64 %indvars.iv.i, 1
   %arrayidx5.i = getelementptr inbounds i32, ptr @is_ident2.range, i64 %5
   %6 = load i32, ptr %arrayidx5.i, align 4
-  %cmp6.not.i = icmp ult i32 %6, %c
+  %cmp6.not.i = icmp ugt i32 %c, %6
   br i1 %cmp6.not.i, label %for.inc.i, label %lor.end
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
@@ -322,7 +322,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %5 = or disjoint i64 %indvars.iv.i.i, 1
   %arrayidx5.i.i = getelementptr inbounds i32, ptr @char_width.range1, i64 %5
   %6 = load i32, ptr %arrayidx5.i.i, align 4
-  %cmp6.not.i.i = icmp ult i32 %6, %retval.0.i
+  %cmp6.not.i.i = icmp ugt i32 %retval.0.i, %6
   br i1 %cmp6.not.i.i, label %for.inc.i.i, label %char_width.exit
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
@@ -342,7 +342,7 @@ land.lhs.true.i6.i:                               ; preds = %for.body.i3.i
   %9 = or disjoint i64 %indvars.iv.i4.i, 1
   %arrayidx5.i7.i = getelementptr inbounds i32, ptr @char_width.range2, i64 %9
   %10 = load i32, ptr %arrayidx5.i7.i, align 4
-  %cmp6.not.i8.i = icmp ult i32 %10, %retval.0.i
+  %cmp6.not.i8.i = icmp ugt i32 %retval.0.i, %10
   br i1 %cmp6.not.i8.i, label %for.inc.i10.i, label %char_width.exit
 
 for.inc.i10.i:                                    ; preds = %land.lhs.true.i6.i, %for.body.i3.i

@@ -580,7 +580,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask12is_bound_setEj(ptr nocapture nou
   %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %13, i1 true)
   %16 = trunc nuw nsw i64 %15 to i32
   %17 = shl nuw i64 1, %15
-  %18 = add i32 %16, %1
+  %18 = add i32 %1, %16
   %19 = icmp ult i32 %18, 65
   br i1 %19, label %20, label %28
 

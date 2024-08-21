@@ -947,7 +947,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetGet(ptr nocapture noundef read
   %.2.in.i = getelementptr inbounds i8, ptr %.113.i, i64 %.2.in.idx.i
   %.1.i = load ptr, ptr %.2.in.i, align 8
   %36 = icmp ne ptr %.1.i, null
-  %37 = icmp slt i64 %indvars.iv.next.i, %14
+  %37 = icmp sgt i64 %14, %indvars.iv.next.i
   %38 = select i1 %36, i1 %37, i1 false
   br i1 %38, label %35, label %spl_ptr_llist_offset.exit
 
@@ -1128,7 +1128,7 @@ spl_ptr_llist_push.exit:                          ; preds = %19, %32
   %.2.in.i = getelementptr inbounds i8, ptr %.113.i, i64 %.2.in.idx.i
   %.1.i = load ptr, ptr %.2.in.i, align 8
   %63 = icmp ne ptr %.1.i, null
-  %64 = icmp slt i64 %indvars.iv.next.i, %42
+  %64 = icmp sgt i64 %42, %indvars.iv.next.i
   %65 = select i1 %63, i1 %64, i1 false
   br i1 %65, label %62, label %spl_ptr_llist_offset.exit
 
@@ -1237,7 +1237,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetUnset(ptr nocapture noundef re
   %.2.in.i = getelementptr inbounds i8, ptr %.113.i, i64 %.2.in.idx.i
   %.1.i = load ptr, ptr %.2.in.i, align 8
   %36 = icmp ne ptr %.1.i, null
-  %37 = icmp slt i64 %indvars.iv.next.i, %16
+  %37 = icmp sgt i64 %16, %indvars.iv.next.i
   %38 = select i1 %36, i1 %37, i1 false
   br i1 %38, label %35, label %spl_ptr_llist_offset.exit
 
@@ -2530,7 +2530,7 @@ spl_ptr_llist_push.exit:                          ; preds = %30, %42
   %.2.in.i = getelementptr inbounds i8, ptr %.113.i, i64 %.2.in.idx.i
   %.1.i = load ptr, ptr %.2.in.i, align 8
   %63 = icmp ne ptr %.1.i, null
-  %64 = icmp slt i64 %indvars.iv.next.i, %53
+  %64 = icmp sgt i64 %53, %indvars.iv.next.i
   %65 = select i1 %63, i1 %64, i1 false
   br i1 %65, label %62, label %spl_ptr_llist_offset.exit
 

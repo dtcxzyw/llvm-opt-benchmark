@@ -1369,8 +1369,8 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_Z15wallcy
   %853 = getelementptr inbounds [3 x float], ptr %842, i64 %indvars.iv16.i.i, i64 %indvars.iv.i.i99
   %854 = load float, ptr %853, align 4
   %855 = fpext float %854 to double
-  %856 = fneg double %850
-  %857 = fmul double %852, %856
+  %856 = fneg double %852
+  %857 = fmul double %850, %856
   %858 = call double @llvm.fmuladd.f64(double %857, double %847, double %855)
   %859 = fptrunc double %858 to float
   store float %859, ptr %853, align 4
@@ -1428,8 +1428,8 @@ _ZL11correctEkinPA3_fRK14SystemMomentum.exit.i:   ; preds = %860
   %883 = getelementptr inbounds [3 x float], ptr %872, i64 %indvars.iv16.i17.i, i64 %indvars.iv.i18.i
   %884 = load float, ptr %883, align 4
   %885 = fpext float %884 to double
-  %886 = fneg double %880
-  %887 = fmul double %882, %886
+  %886 = fneg double %882
+  %887 = fmul double %880, %886
   %888 = call double @llvm.fmuladd.f64(double %887, double %877, double %885)
   %889 = fptrunc double %888 to float
   store float %889, ptr %883, align 4
@@ -1481,8 +1481,8 @@ _ZL11correctEkinPA3_fRK14SystemMomentum.exit23.i: ; preds = %890
   %908 = getelementptr inbounds [3 x float], ptr %898, i64 %indvars.iv16.i25.i, i64 %indvars.iv.i26.i
   %909 = load float, ptr %908, align 4
   %910 = fpext float %909 to double
-  %911 = fneg double %905
-  %912 = fmul double %907, %911
+  %911 = fneg double %907
+  %912 = fmul double %905, %911
   %913 = call double @llvm.fmuladd.f64(double %912, double %902, double %910)
   %914 = fptrunc double %913 to float
   store float %914, ptr %908, align 4
@@ -2306,7 +2306,7 @@ _ZL8min_zeroPii.exit:
   %spec.select = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
   %7 = icmp sgt i32 %1, 0
   %8 = icmp slt i32 %0, 1
-  %9 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %1)
+  %9 = tail call i32 @llvm.umin.i32(i32 %1, i32 %spec.select)
   %spec.select34 = select i1 %8, i32 %1, i32 %9
   %.2 = select i1 %7, i32 %spec.select34, i32 %spec.select
   %10 = icmp sgt i32 %2, 0
@@ -2899,7 +2899,7 @@ define void @_Z17set_state_entriesP7t_statePK10t_inputrecb(ptr noundef %0, ptr n
   %63 = load i8, ptr %62, align 8
   %64 = trunc i8 %63 to i1
   %.not63 = xor i1 %64, true
-  %brmerge = or i1 %.not63, %2
+  %brmerge = or i1 %2, %.not63
   br i1 %brmerge, label %72, label %65
 
 65:                                               ; preds = %55

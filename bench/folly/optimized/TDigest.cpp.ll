@@ -3289,7 +3289,7 @@ entry:
 if.end:                                           ; preds = %entry
   %count_ = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load double, ptr %count_, align 8, !tbaa !19
-  %mul = fmul double %2, %q
+  %mul = fmul double %q, %2
   %cmp = fcmp ogt double %q, 5.000000e-01
   br i1 %cmp, label %if.then2, label %if.else
 

@@ -74,7 +74,7 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   %46 = tail call ptr @table_open(i32 noundef %45, i32 noundef 0) #6
   %47 = getelementptr inbounds i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8
-  %49 = icmp eq i32 %48, %2
+  %49 = icmp eq i32 %2, %48
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %44

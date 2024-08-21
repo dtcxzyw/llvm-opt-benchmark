@@ -320,7 +320,7 @@ fnv1a_hash.exit.i:                                ; preds = %.lr.ph.i.i
 
 29:                                               ; preds = %26
   %30 = add nsw i32 %19, 1
-  %31 = icmp sgt i32 %16, %30
+  %31 = icmp slt i32 %30, %16
   br i1 %31, label %.lr.ph.preheader.i.i, label %SUNHashMap_Iterate.exit.i.thread
 
 .lr.ph.preheader.i.i:                             ; preds = %29
@@ -536,7 +536,7 @@ fnv1a_hash.exit.i:                                ; preds = %.lr.ph.i.i
 
 29:                                               ; preds = %26
   %30 = add nsw i32 %19, 1
-  %31 = icmp sgt i32 %16, %30
+  %31 = icmp slt i32 %30, %16
   br i1 %31, label %.lr.ph.preheader.i.i, label %SUNHashMap_Iterate.exit.i.thread
 
 .lr.ph.preheader.i.i:                             ; preds = %29
@@ -757,9 +757,9 @@ define i32 @SUNLogger_Destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr @stdout, align 8
-  %.not4.i.i = icmp eq ptr %24, %22
+  %.not4.i.i = icmp eq ptr %22, %24
   %25 = load ptr, ptr @stderr, align 8
-  %.not5.i.i = icmp eq ptr %25, %22
+  %.not5.i.i = icmp eq ptr %22, %25
   %or.cond6.i.i = select i1 %.not4.i.i, i1 true, i1 %.not5.i.i
   br i1 %or.cond6.i.i, label %sunCloseLogFile.exit.thread.i, label %sunCloseLogFile.exit.i
 

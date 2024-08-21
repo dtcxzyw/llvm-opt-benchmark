@@ -193,10 +193,10 @@ entry:
   %4 = load i32, ptr %current_limit_, align 8
   %cmp = icmp sgt i32 %byte_limit, -1
   %sub = sub nsw i32 2147483647, %sub.i
-  %cmp2.not = icmp uge i32 %sub, %byte_limit
+  %cmp2.not = icmp ule i32 %byte_limit, %sub
   %or.cond.not10 = select i1 %cmp, i1 %cmp2.not, i1 false
   %sub4 = sub nsw i32 %4, %sub.i
-  %cmp5 = icmp sgt i32 %sub4, %byte_limit
+  %cmp5 = icmp slt i32 %byte_limit, %sub4
   %or.cond6 = select i1 %or.cond.not10, i1 %cmp5, i1 false
   br i1 %or.cond6, label %if.then, label %if.end
 
@@ -285,10 +285,10 @@ entry:
   %4 = load i32, ptr %current_limit_.i, align 8
   %cmp.i = icmp sgt i32 %byte_limit, -1
   %sub.i = sub nsw i32 2147483647, %sub.i.i
-  %cmp2.not.i = icmp uge i32 %sub.i, %byte_limit
+  %cmp2.not.i = icmp ule i32 %byte_limit, %sub.i
   %or.cond.not10.i = select i1 %cmp.i, i1 %cmp2.not.i, i1 false
   %sub4.i = sub nsw i32 %4, %sub.i.i
-  %cmp5.i = icmp sgt i32 %sub4.i, %byte_limit
+  %cmp5.i = icmp slt i32 %byte_limit, %sub4.i
   %or.cond6.i = select i1 %or.cond.not10.i, i1 %cmp5.i, i1 false
   br i1 %or.cond6.i, label %if.then.i, label %_ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit
 
@@ -353,10 +353,10 @@ entry:
   %5 = load i32, ptr %current_limit_.i, align 8
   %cmp.i = icmp sgt i32 %cond, -1
   %sub.i = sub nsw i32 2147483647, %sub.i.i
-  %cmp2.not.i = icmp uge i32 %sub.i, %cond
+  %cmp2.not.i = icmp ule i32 %cond, %sub.i
   %or.cond.not10.i = select i1 %cmp.i, i1 %cmp2.not.i, i1 false
   %sub4.i = sub nsw i32 %5, %sub.i.i
-  %cmp5.i = icmp sgt i32 %sub4.i, %cond
+  %cmp5.i = icmp slt i32 %cond, %sub4.i
   %or.cond6.i = select i1 %or.cond.not10.i, i1 %cmp5.i, i1 false
   br i1 %or.cond6.i, label %if.then.i, label %_ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit
 
@@ -1068,7 +1068,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %cmp2.not = icmp slt i32 %conv.i, %size
+  %cmp2.not = icmp sgt i32 %size, %conv.i
   br i1 %cmp2.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
@@ -1128,7 +1128,7 @@ if.then3:                                         ; preds = %if.end
   %cmp5 = icmp slt i32 %sub, 1
   %cmp6 = icmp slt i32 %size, 1
   %or.cond.not21 = or i1 %cmp6, %cmp5
-  %cmp8.not = icmp slt i32 %sub, %size
+  %cmp8.not = icmp sgt i32 %size, %sub
   %or.cond18 = or i1 %cmp8.not, %or.cond.not21
   br i1 %or.cond18, label %if.end11, label %if.then9
 
@@ -1219,14 +1219,14 @@ if.then4:                                         ; preds = %if.end
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv.i, i32 %size)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %size, i32 %conv.i)
   %conv = sext i32 %.sroa.speculated to i64
   %call8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_202308024CordaSESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %output, i64 %conv, ptr %1)
   %3 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %conv
   store ptr %add.ptr.i, ptr %this, align 8
   %sub = sub nsw i32 %size, %.sroa.speculated
-  %cmp13.not = icmp slt i32 %conv.i, %size
+  %cmp13.not = icmp sgt i32 %size, %conv.i
   br i1 %cmp13.not, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then4
@@ -3621,7 +3621,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %ptr to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %s.024 = trunc i64 %sub.ptr.sub.i to i32
-  %cmp25 = icmp slt i32 %s.024, %size
+  %cmp25 = icmp sgt i32 %size, %s.024
   br i1 %cmp25, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -3820,7 +3820,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast
   %s.024.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %cmp25.i = icmp slt i32 %s.024.i, %size
+  %cmp25.i = icmp sgt i32 %size, %s.024.i
   br i1 %cmp25.i, label %while.body.lr.ph.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh.exit
 
 while.body.lr.ph.i:                               ; preds = %if.then
@@ -4131,7 +4131,7 @@ entry:
   %size.i.i.i = alloca i32, align 4
   %data.i.i.i = alloca ptr, align 8
   %0 = load ptr, ptr %this, align 8
-  %cmp.not.i = icmp ugt ptr %0, %ptr
+  %cmp.not.i = icmp ult ptr %ptr, %0
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -4340,7 +4340,7 @@ entry:
   %size.i.i.i = alloca i32, align 4
   %data.i.i.i = alloca ptr, align 8
   %0 = load ptr, ptr %this, align 8
-  %cmp.not.i = icmp ugt ptr %0, %ptr
+  %cmp.not.i = icmp ult ptr %ptr, %0
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -4500,7 +4500,7 @@ entry:
   %size.i.i.i = alloca i32, align 4
   %data.i.i.i = alloca ptr, align 8
   %0 = load ptr, ptr %this, align 8
-  %cmp.not.i = icmp ugt ptr %0, %ptr
+  %cmp.not.i = icmp ult ptr %ptr, %0
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry

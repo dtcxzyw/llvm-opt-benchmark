@@ -1436,7 +1436,7 @@ if.end10.i:                                       ; preds = %if.end10.sink.split
   %order_heap.i.i = getelementptr inbounds i8, ptr %this, i64 648
   %sz.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 680
   %69 = load i32, ptr %sz.i.i.i.i, align 8
-  %cmp.i.i.i = icmp sgt i32 %69, %0
+  %cmp.i.i.i = icmp slt i32 %0, %69
   br i1 %cmp.i.i.i, label %_ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %land.lhs.true.i.i154
 
 _ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %if.end10.i
@@ -2141,7 +2141,7 @@ define hidden void @_ZN4cvc58internal7Minisat6Solver10resizeVarsEi(ptr nocapture
 entry:
   %sz.i.i = getelementptr inbounds i8, ptr %this, i64 608
   %0 = load i32, ptr %sz.i.i, align 8
-  %cmp = icmp sgt i32 %0, %newSize
+  %cmp = icmp slt i32 %newSize, %0
   br i1 %cmp, label %if.then, label %if.end25
 
 if.then:                                          ; preds = %entry
@@ -4715,7 +4715,7 @@ if.then32:                                        ; preds = %land.lhs.true29
 
 if.end:                                           ; preds = %if.then32, %land.lhs.true29, %land.lhs.true, %lor.lhs.false
   %21 = load i32, ptr %sz.i.i.i, align 8
-  %cmp.i.i91 = icmp sgt i32 %21, %shr.i
+  %cmp.i.i91 = icmp slt i32 %shr.i, %21
   br i1 %cmp.i.i91, label %_ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i, label %land.lhs.true.i
 
 _ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i: ; preds = %if.end
@@ -5434,7 +5434,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %for.
 
 if.end.i.i608:                                    ; preds = %for.end.i.i, %if.then136
   %50 = load i32, ptr %sz.i.i7.i.i, align 8
-  %cmp.i.i.i609 = icmp sgt i32 %50, %shr.i597
+  %cmp.i.i.i609 = icmp slt i32 %shr.i597, %50
   br i1 %cmp.i.i.i609, label %_ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %_ZN4cvc58internal7Minisat6Solver15varBumpActivityEi.exit
 
 _ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %if.end.i.i608
@@ -8088,7 +8088,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %bf.load.i = load i64, ptr %arrayidx.i.i, align 4
   %bf.lshr.i = lshr i64 %bf.load.i, 32
   %bf.cast.i = trunc nuw i64 %bf.lshr.i to i32
-  %cmp5 = icmp sgt i32 %bf.cast.i, %level
+  %cmp5 = icmp slt i32 %level, %bf.cast.i
   br i1 %cmp5, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
@@ -11929,7 +11929,7 @@ if.then36:                                        ; preds = %land.lhs.true
 
 if.end45:                                         ; preds = %if.then36, %land.lhs.true, %if.then27
   %23 = load i32, ptr %sz.i.i.i, align 8
-  %cmp.i.i153 = icmp sgt i32 %23, %shr.i372
+  %cmp.i.i153 = icmp slt i32 %shr.i372, %23
   br i1 %cmp.i.i153, label %_ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i, label %land.lhs.true.i
 
 _ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i: ; preds = %if.end45

@@ -284,7 +284,7 @@ entry:
   %new_buffer = alloca %"class.std::unique_ptr", align 8
   %size_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %size_, align 8
-  %cmp.not = icmp slt i64 %0, %start
+  %cmp.not = icmp sgt i64 %start, %0
   br i1 %cmp.not, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %entry
@@ -317,7 +317,7 @@ cleanup.action:                                   ; preds = %call4.i.noexc, %cal
 cleanup.done:                                     ; preds = %entry, %cleanup.action
   %3 = phi i64 [ %0, %entry ], [ %.pre, %cleanup.action ]
   %sub = sub nsw i64 %3, %start
-  %cmp9.not = icmp slt i64 %sub, %nbytes
+  %cmp9.not = icmp sgt i64 %nbytes, %sub
   br i1 %cmp9.not, label %cond.false13, label %invoke.cont36
 
 cond.false13:                                     ; preds = %cleanup.done

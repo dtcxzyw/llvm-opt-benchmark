@@ -702,7 +702,7 @@ define hidden noundef ptr @checked_jni_DefineClass(ptr noundef %0, ptr noundef %
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -865,7 +865,7 @@ define hidden noundef ptr @checked_jni_FindClass(ptr noundef %0, ptr noundef %1)
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -1023,7 +1023,7 @@ define hidden noundef ptr @checked_jni_FromReflectedMethod(ptr noundef %0, ptr n
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -1181,7 +1181,7 @@ define hidden noundef ptr @checked_jni_FromReflectedField(ptr noundef %0, ptr no
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -1339,7 +1339,7 @@ define hidden noundef ptr @checked_jni_ToReflectedMethod(ptr noundef %0, ptr nou
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -1497,7 +1497,7 @@ define hidden noundef ptr @checked_jni_GetSuperclass(ptr noundef %0, ptr noundef
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -1655,7 +1655,7 @@ define hidden noundef zeroext i8 @checked_jni_IsAssignableFrom(ptr noundef %0, p
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -1814,7 +1814,7 @@ define hidden noundef ptr @checked_jni_ToReflectedField(ptr noundef %0, ptr noun
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -1972,7 +1972,7 @@ define hidden noundef i32 @checked_jni_Throw(ptr noundef %0, ptr noundef %1) #0 
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -2181,7 +2181,7 @@ define hidden noundef i32 @checked_jni_ThrowNew(ptr noundef %0, ptr noundef %1, 
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -2357,7 +2357,7 @@ define hidden noundef ptr @checked_jni_ExceptionOccurred(ptr noundef %0) #0 {
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %3, i64 960
-  %.not = icmp eq ptr %13, %0
+  %.not = icmp eq ptr %0, %13
   br i1 %.not, label %29, label %14
 
 14:                                               ; preds = %12
@@ -2475,7 +2475,7 @@ define hidden void @checked_jni_ExceptionDescribe(ptr noundef %0) #0 {
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %3, i64 960
-  %.not = icmp eq ptr %13, %0
+  %.not = icmp eq ptr %0, %13
   br i1 %.not, label %29, label %14
 
 14:                                               ; preds = %12
@@ -2591,7 +2591,7 @@ define hidden void @checked_jni_ExceptionClear(ptr noundef %0) #0 {
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %3, i64 960
-  %.not = icmp eq ptr %13, %0
+  %.not = icmp eq ptr %0, %13
   br i1 %.not, label %29, label %14
 
 14:                                               ; preds = %12
@@ -2709,7 +2709,7 @@ define hidden void @checked_jni_FatalError(ptr noundef %0, ptr noundef %1) #0 {
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -2828,7 +2828,7 @@ define hidden noundef i32 @checked_jni_PushLocalFrame(ptr noundef %0, i32 nounde
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -2991,7 +2991,7 @@ define hidden noundef ptr @checked_jni_PopLocalFrame(ptr noundef %0, ptr noundef
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -3107,7 +3107,7 @@ define hidden noundef ptr @checked_jni_NewGlobalRef(ptr noundef %0, ptr noundef 
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -3284,7 +3284,7 @@ define hidden void @checked_jni_DeleteGlobalRef(ptr noundef %0, ptr noundef %1) 
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -3458,7 +3458,7 @@ define hidden void @checked_jni_DeleteLocalRef(ptr noundef %0, ptr noundef %1) #
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -3638,7 +3638,7 @@ define hidden noundef zeroext i8 @checked_jni_IsSameObject(ptr noundef %0, ptr n
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -3844,7 +3844,7 @@ define hidden noundef ptr @checked_jni_NewLocalRef(ptr noundef %0, ptr noundef %
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -4021,7 +4021,7 @@ define hidden noundef i32 @checked_jni_EnsureLocalCapacity(ptr noundef %0, i32 n
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -4185,7 +4185,7 @@ define hidden noundef ptr @checked_jni_AllocObject(ptr noundef %0, ptr noundef %
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -4344,7 +4344,7 @@ define hidden noundef ptr @checked_jni_NewObject(ptr noundef %0, ptr noundef %1,
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -4510,7 +4510,7 @@ define hidden noundef ptr @checked_jni_NewObjectV(ptr noundef %0, ptr noundef %1
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -4668,7 +4668,7 @@ define hidden noundef ptr @checked_jni_NewObjectA(ptr noundef %0, ptr noundef %1
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -4826,7 +4826,7 @@ define hidden noundef ptr @checked_jni_GetObjectClass(ptr noundef %0, ptr nounde
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -4984,7 +4984,7 @@ define hidden noundef zeroext i8 @checked_jni_IsInstanceOf(ptr noundef %0, ptr n
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -5143,7 +5143,7 @@ define hidden noundef ptr @checked_jni_GetMethodID(ptr noundef %0, ptr noundef %
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -5302,7 +5302,7 @@ define hidden noundef ptr @checked_jni_CallObjectMethod(ptr noundef %0, ptr noun
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -5464,7 +5464,7 @@ define hidden noundef ptr @checked_jni_CallObjectMethodV(ptr noundef %0, ptr nou
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -5624,7 +5624,7 @@ define hidden noundef ptr @checked_jni_CallObjectMethodA(ptr noundef %0, ptr nou
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -5785,7 +5785,7 @@ define hidden noundef zeroext i8 @checked_jni_CallBooleanMethod(ptr noundef %0, 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -5947,7 +5947,7 @@ define hidden noundef zeroext i8 @checked_jni_CallBooleanMethodV(ptr noundef %0,
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -6107,7 +6107,7 @@ define hidden noundef zeroext i8 @checked_jni_CallBooleanMethodA(ptr noundef %0,
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -6268,7 +6268,7 @@ define hidden noundef signext i8 @checked_jni_CallByteMethod(ptr noundef %0, ptr
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -6430,7 +6430,7 @@ define hidden noundef signext i8 @checked_jni_CallByteMethodV(ptr noundef %0, pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -6590,7 +6590,7 @@ define hidden noundef signext i8 @checked_jni_CallByteMethodA(ptr noundef %0, pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -6751,7 +6751,7 @@ define hidden noundef signext i16 @checked_jni_CallShortMethod(ptr noundef %0, p
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -6913,7 +6913,7 @@ define hidden noundef signext i16 @checked_jni_CallShortMethodV(ptr noundef %0, 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -7073,7 +7073,7 @@ define hidden noundef signext i16 @checked_jni_CallShortMethodA(ptr noundef %0, 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -7234,7 +7234,7 @@ define hidden noundef zeroext i16 @checked_jni_CallCharMethod(ptr noundef %0, pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -7396,7 +7396,7 @@ define hidden noundef zeroext i16 @checked_jni_CallCharMethodV(ptr noundef %0, p
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -7556,7 +7556,7 @@ define hidden noundef zeroext i16 @checked_jni_CallCharMethodA(ptr noundef %0, p
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -7717,7 +7717,7 @@ define hidden noundef i32 @checked_jni_CallIntMethod(ptr noundef %0, ptr noundef
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -7879,7 +7879,7 @@ define hidden noundef i32 @checked_jni_CallIntMethodV(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -8039,7 +8039,7 @@ define hidden noundef i32 @checked_jni_CallIntMethodA(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -8200,7 +8200,7 @@ define hidden noundef i64 @checked_jni_CallLongMethod(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -8362,7 +8362,7 @@ define hidden noundef i64 @checked_jni_CallLongMethodV(ptr noundef %0, ptr nound
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -8522,7 +8522,7 @@ define hidden noundef i64 @checked_jni_CallLongMethodA(ptr noundef %0, ptr nound
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -8683,7 +8683,7 @@ define hidden noundef float @checked_jni_CallFloatMethod(ptr noundef %0, ptr nou
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -8845,7 +8845,7 @@ define hidden noundef float @checked_jni_CallFloatMethodV(ptr noundef %0, ptr no
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -9005,7 +9005,7 @@ define hidden noundef float @checked_jni_CallFloatMethodA(ptr noundef %0, ptr no
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -9166,7 +9166,7 @@ define hidden noundef double @checked_jni_CallDoubleMethod(ptr noundef %0, ptr n
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -9328,7 +9328,7 @@ define hidden noundef double @checked_jni_CallDoubleMethodV(ptr noundef %0, ptr 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -9488,7 +9488,7 @@ define hidden noundef double @checked_jni_CallDoubleMethodA(ptr noundef %0, ptr 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -9649,7 +9649,7 @@ define hidden void @checked_jni_CallVoidMethod(ptr noundef %0, ptr noundef %1, p
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -9811,7 +9811,7 @@ define hidden void @checked_jni_CallVoidMethodV(ptr noundef %0, ptr noundef %1, 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -9971,7 +9971,7 @@ define hidden void @checked_jni_CallVoidMethodA(ptr noundef %0, ptr noundef %1, 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -10132,7 +10132,7 @@ define hidden noundef ptr @checked_jni_CallNonvirtualObjectMethod(ptr noundef %0
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -10294,7 +10294,7 @@ define hidden noundef ptr @checked_jni_CallNonvirtualObjectMethodV(ptr noundef %
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -10454,7 +10454,7 @@ define hidden noundef ptr @checked_jni_CallNonvirtualObjectMethodA(ptr noundef %
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -10615,7 +10615,7 @@ define hidden noundef zeroext i8 @checked_jni_CallNonvirtualBooleanMethod(ptr no
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -10777,7 +10777,7 @@ define hidden noundef zeroext i8 @checked_jni_CallNonvirtualBooleanMethodV(ptr n
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -10937,7 +10937,7 @@ define hidden noundef zeroext i8 @checked_jni_CallNonvirtualBooleanMethodA(ptr n
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -11098,7 +11098,7 @@ define hidden noundef signext i8 @checked_jni_CallNonvirtualByteMethod(ptr nound
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -11260,7 +11260,7 @@ define hidden noundef signext i8 @checked_jni_CallNonvirtualByteMethodV(ptr noun
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -11420,7 +11420,7 @@ define hidden noundef signext i8 @checked_jni_CallNonvirtualByteMethodA(ptr noun
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -11581,7 +11581,7 @@ define hidden noundef signext i16 @checked_jni_CallNonvirtualShortMethod(ptr nou
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -11743,7 +11743,7 @@ define hidden noundef signext i16 @checked_jni_CallNonvirtualShortMethodV(ptr no
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -11903,7 +11903,7 @@ define hidden noundef signext i16 @checked_jni_CallNonvirtualShortMethodA(ptr no
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -12064,7 +12064,7 @@ define hidden noundef zeroext i16 @checked_jni_CallNonvirtualCharMethod(ptr noun
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -12226,7 +12226,7 @@ define hidden noundef zeroext i16 @checked_jni_CallNonvirtualCharMethodV(ptr nou
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -12386,7 +12386,7 @@ define hidden noundef zeroext i16 @checked_jni_CallNonvirtualCharMethodA(ptr nou
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -12547,7 +12547,7 @@ define hidden noundef i32 @checked_jni_CallNonvirtualIntMethod(ptr noundef %0, p
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -12709,7 +12709,7 @@ define hidden noundef i32 @checked_jni_CallNonvirtualIntMethodV(ptr noundef %0, 
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -12869,7 +12869,7 @@ define hidden noundef i32 @checked_jni_CallNonvirtualIntMethodA(ptr noundef %0, 
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -13030,7 +13030,7 @@ define hidden noundef i64 @checked_jni_CallNonvirtualLongMethod(ptr noundef %0, 
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -13192,7 +13192,7 @@ define hidden noundef i64 @checked_jni_CallNonvirtualLongMethodV(ptr noundef %0,
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -13352,7 +13352,7 @@ define hidden noundef i64 @checked_jni_CallNonvirtualLongMethodA(ptr noundef %0,
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -13513,7 +13513,7 @@ define hidden noundef float @checked_jni_CallNonvirtualFloatMethod(ptr noundef %
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -13675,7 +13675,7 @@ define hidden noundef float @checked_jni_CallNonvirtualFloatMethodV(ptr noundef 
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -13835,7 +13835,7 @@ define hidden noundef float @checked_jni_CallNonvirtualFloatMethodA(ptr noundef 
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -13996,7 +13996,7 @@ define hidden noundef double @checked_jni_CallNonvirtualDoubleMethod(ptr noundef
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -14158,7 +14158,7 @@ define hidden noundef double @checked_jni_CallNonvirtualDoubleMethodV(ptr nounde
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -14318,7 +14318,7 @@ define hidden noundef double @checked_jni_CallNonvirtualDoubleMethodA(ptr nounde
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -14479,7 +14479,7 @@ define hidden void @checked_jni_CallNonvirtualVoidMethod(ptr noundef %0, ptr nou
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -14641,7 +14641,7 @@ define hidden void @checked_jni_CallNonvirtualVoidMethodV(ptr noundef %0, ptr no
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -14801,7 +14801,7 @@ define hidden void @checked_jni_CallNonvirtualVoidMethodA(ptr noundef %0, ptr no
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -14961,7 +14961,7 @@ define hidden noundef ptr @checked_jni_GetFieldID(ptr noundef %0, ptr noundef %1
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -15119,7 +15119,7 @@ define hidden noundef ptr @checked_jni_GetObjectField(ptr noundef %0, ptr nounde
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -15363,7 +15363,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %22, %32
   %56 = sext i8 %55 to i32
   %57 = call noundef zeroext i8 @_ZN9Signature10basic_typeEi(i32 noundef %56) #11
   %58 = zext i8 %57 to i32
-  %.not = icmp eq i32 %58, %3
+  %.not = icmp eq i32 %3, %58
   br i1 %.not, label %74, label %59
 
 59:                                               ; preds = %47
@@ -15421,7 +15421,7 @@ define hidden noundef zeroext i8 @checked_jni_GetBooleanField(ptr noundef %0, pt
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -15579,7 +15579,7 @@ define hidden noundef signext i8 @checked_jni_GetByteField(ptr noundef %0, ptr n
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -15737,7 +15737,7 @@ define hidden noundef signext i16 @checked_jni_GetShortField(ptr noundef %0, ptr
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -15895,7 +15895,7 @@ define hidden noundef zeroext i16 @checked_jni_GetCharField(ptr noundef %0, ptr 
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -16053,7 +16053,7 @@ define hidden noundef i32 @checked_jni_GetIntField(ptr noundef %0, ptr noundef %
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -16211,7 +16211,7 @@ define hidden noundef i64 @checked_jni_GetLongField(ptr noundef %0, ptr noundef 
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -16369,7 +16369,7 @@ define hidden noundef float @checked_jni_GetFloatField(ptr noundef %0, ptr nound
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -16527,7 +16527,7 @@ define hidden noundef double @checked_jni_GetDoubleField(ptr noundef %0, ptr nou
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -16685,7 +16685,7 @@ define hidden void @checked_jni_SetObjectField(ptr noundef %0, ptr noundef %1, p
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -16843,7 +16843,7 @@ define hidden void @checked_jni_SetBooleanField(ptr noundef %0, ptr noundef %1, 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -17001,7 +17001,7 @@ define hidden void @checked_jni_SetByteField(ptr noundef %0, ptr noundef %1, ptr
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -17159,7 +17159,7 @@ define hidden void @checked_jni_SetShortField(ptr noundef %0, ptr noundef %1, pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -17317,7 +17317,7 @@ define hidden void @checked_jni_SetCharField(ptr noundef %0, ptr noundef %1, ptr
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -17475,7 +17475,7 @@ define hidden void @checked_jni_SetIntField(ptr noundef %0, ptr noundef %1, ptr 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -17633,7 +17633,7 @@ define hidden void @checked_jni_SetLongField(ptr noundef %0, ptr noundef %1, ptr
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -17791,7 +17791,7 @@ define hidden void @checked_jni_SetFloatField(ptr noundef %0, ptr noundef %1, pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -17949,7 +17949,7 @@ define hidden void @checked_jni_SetDoubleField(ptr noundef %0, ptr noundef %1, p
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -18107,7 +18107,7 @@ define hidden noundef ptr @checked_jni_GetStaticMethodID(ptr noundef %0, ptr nou
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -18266,7 +18266,7 @@ define hidden noundef ptr @checked_jni_CallStaticObjectMethod(ptr noundef %0, pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -18428,7 +18428,7 @@ define hidden noundef ptr @checked_jni_CallStaticObjectMethodV(ptr noundef %0, p
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -18588,7 +18588,7 @@ define hidden noundef ptr @checked_jni_CallStaticObjectMethodA(ptr noundef %0, p
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -18749,7 +18749,7 @@ define hidden noundef zeroext i8 @checked_jni_CallStaticBooleanMethod(ptr nounde
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -18911,7 +18911,7 @@ define hidden noundef zeroext i8 @checked_jni_CallStaticBooleanMethodV(ptr nound
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -19071,7 +19071,7 @@ define hidden noundef zeroext i8 @checked_jni_CallStaticBooleanMethodA(ptr nound
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -19232,7 +19232,7 @@ define hidden noundef signext i8 @checked_jni_CallStaticByteMethod(ptr noundef %
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -19394,7 +19394,7 @@ define hidden noundef signext i8 @checked_jni_CallStaticByteMethodV(ptr noundef 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -19554,7 +19554,7 @@ define hidden noundef signext i8 @checked_jni_CallStaticByteMethodA(ptr noundef 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -19715,7 +19715,7 @@ define hidden noundef signext i16 @checked_jni_CallStaticShortMethod(ptr noundef
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -19877,7 +19877,7 @@ define hidden noundef signext i16 @checked_jni_CallStaticShortMethodV(ptr nounde
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -20037,7 +20037,7 @@ define hidden noundef signext i16 @checked_jni_CallStaticShortMethodA(ptr nounde
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -20198,7 +20198,7 @@ define hidden noundef zeroext i16 @checked_jni_CallStaticCharMethod(ptr noundef 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -20360,7 +20360,7 @@ define hidden noundef zeroext i16 @checked_jni_CallStaticCharMethodV(ptr noundef
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -20520,7 +20520,7 @@ define hidden noundef zeroext i16 @checked_jni_CallStaticCharMethodA(ptr noundef
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -20681,7 +20681,7 @@ define hidden noundef i32 @checked_jni_CallStaticIntMethod(ptr noundef %0, ptr n
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -20843,7 +20843,7 @@ define hidden noundef i32 @checked_jni_CallStaticIntMethodV(ptr noundef %0, ptr 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -21003,7 +21003,7 @@ define hidden noundef i32 @checked_jni_CallStaticIntMethodA(ptr noundef %0, ptr 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -21164,7 +21164,7 @@ define hidden noundef i64 @checked_jni_CallStaticLongMethod(ptr noundef %0, ptr 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -21326,7 +21326,7 @@ define hidden noundef i64 @checked_jni_CallStaticLongMethodV(ptr noundef %0, ptr
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -21486,7 +21486,7 @@ define hidden noundef i64 @checked_jni_CallStaticLongMethodA(ptr noundef %0, ptr
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -21647,7 +21647,7 @@ define hidden noundef float @checked_jni_CallStaticFloatMethod(ptr noundef %0, p
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -21809,7 +21809,7 @@ define hidden noundef float @checked_jni_CallStaticFloatMethodV(ptr noundef %0, 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -21969,7 +21969,7 @@ define hidden noundef float @checked_jni_CallStaticFloatMethodA(ptr noundef %0, 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -22130,7 +22130,7 @@ define hidden noundef double @checked_jni_CallStaticDoubleMethod(ptr noundef %0,
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -22292,7 +22292,7 @@ define hidden noundef double @checked_jni_CallStaticDoubleMethodV(ptr noundef %0
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -22452,7 +22452,7 @@ define hidden noundef double @checked_jni_CallStaticDoubleMethodA(ptr noundef %0
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -22613,7 +22613,7 @@ define hidden void @checked_jni_CallStaticVoidMethod(ptr noundef %0, ptr noundef
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -22775,7 +22775,7 @@ define hidden void @checked_jni_CallStaticVoidMethodV(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -22935,7 +22935,7 @@ define hidden void @checked_jni_CallStaticVoidMethodA(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -23095,7 +23095,7 @@ define hidden noundef ptr @checked_jni_GetStaticFieldID(ptr noundef %0, ptr noun
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -23253,7 +23253,7 @@ define hidden noundef ptr @checked_jni_GetStaticObjectField(ptr noundef %0, ptr 
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -23472,7 +23472,7 @@ _ZNK5Klass13is_subtype_ofEPS_.exit.thread:        ; preds = %_ZNK5Klass13is_subt
   %40 = sext i8 %39 to i32
   %41 = call noundef zeroext i8 @_ZN9Signature10basic_typeEi(i32 noundef %40) #11
   %42 = zext i8 %41 to i32
-  %.not = icmp eq i32 %42, %3
+  %.not = icmp eq i32 %3, %42
   br i1 %.not, label %58, label %43
 
 43:                                               ; preds = %31
@@ -23530,7 +23530,7 @@ define hidden noundef zeroext i8 @checked_jni_GetStaticBooleanField(ptr noundef 
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -23689,7 +23689,7 @@ define hidden noundef signext i8 @checked_jni_GetStaticByteField(ptr noundef %0,
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -23848,7 +23848,7 @@ define hidden noundef signext i16 @checked_jni_GetStaticShortField(ptr noundef %
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -24007,7 +24007,7 @@ define hidden noundef zeroext i16 @checked_jni_GetStaticCharField(ptr noundef %0
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -24166,7 +24166,7 @@ define hidden noundef i32 @checked_jni_GetStaticIntField(ptr noundef %0, ptr nou
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -24325,7 +24325,7 @@ define hidden noundef i64 @checked_jni_GetStaticLongField(ptr noundef %0, ptr no
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -24484,7 +24484,7 @@ define hidden noundef float @checked_jni_GetStaticFloatField(ptr noundef %0, ptr
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -24643,7 +24643,7 @@ define hidden noundef double @checked_jni_GetStaticDoubleField(ptr noundef %0, p
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -24802,7 +24802,7 @@ define hidden void @checked_jni_SetStaticObjectField(ptr noundef %0, ptr noundef
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -24961,7 +24961,7 @@ define hidden void @checked_jni_SetStaticBooleanField(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -25120,7 +25120,7 @@ define hidden void @checked_jni_SetStaticByteField(ptr noundef %0, ptr noundef %
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -25279,7 +25279,7 @@ define hidden void @checked_jni_SetStaticShortField(ptr noundef %0, ptr noundef 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -25438,7 +25438,7 @@ define hidden void @checked_jni_SetStaticCharField(ptr noundef %0, ptr noundef %
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -25597,7 +25597,7 @@ define hidden void @checked_jni_SetStaticIntField(ptr noundef %0, ptr noundef %1
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -25756,7 +25756,7 @@ define hidden void @checked_jni_SetStaticLongField(ptr noundef %0, ptr noundef %
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -25915,7 +25915,7 @@ define hidden void @checked_jni_SetStaticFloatField(ptr noundef %0, ptr noundef 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -26074,7 +26074,7 @@ define hidden void @checked_jni_SetStaticDoubleField(ptr noundef %0, ptr noundef
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -26233,7 +26233,7 @@ define hidden noundef ptr @checked_jni_NewString(ptr noundef %0, ptr noundef %1,
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -26350,7 +26350,7 @@ define hidden noundef i32 @checked_jni_GetStringLength(ptr noundef %0, ptr nound
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -26547,7 +26547,7 @@ define hidden noundef ptr @checked_jni_GetStringChars(ptr noundef %0, ptr nounde
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -26778,7 +26778,7 @@ define hidden void @checked_jni_ReleaseStringChars(ptr noundef %0, ptr noundef %
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -27137,7 +27137,7 @@ define hidden noundef ptr @checked_jni_NewStringUTF(ptr noundef %0, ptr noundef 
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -27254,7 +27254,7 @@ define hidden noundef i32 @checked_jni_GetStringUTFLength(ptr noundef %0, ptr no
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -27451,7 +27451,7 @@ define hidden noundef ptr @checked_jni_GetStringUTFChars(ptr noundef %0, ptr nou
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -27670,7 +27670,7 @@ define hidden void @checked_jni_ReleaseStringUTFChars(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -28027,7 +28027,7 @@ define hidden noundef i32 @checked_jni_GetArrayLength(ptr noundef %0, ptr nounde
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -28225,7 +28225,7 @@ define hidden noundef ptr @checked_jni_NewObjectArray(ptr noundef %0, i32 nounde
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -28342,7 +28342,7 @@ define hidden noundef ptr @checked_jni_GetObjectArrayElement(ptr noundef %0, ptr
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -28557,7 +28557,7 @@ define hidden void @checked_jni_SetObjectArrayElement(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -28715,7 +28715,7 @@ define hidden noundef ptr @checked_jni_NewBooleanArray(ptr noundef %0, i32 nound
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -28832,7 +28832,7 @@ define hidden noundef ptr @checked_jni_NewByteArray(ptr noundef %0, i32 noundef 
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -28949,7 +28949,7 @@ define hidden noundef ptr @checked_jni_NewShortArray(ptr noundef %0, i32 noundef
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -29066,7 +29066,7 @@ define hidden noundef ptr @checked_jni_NewCharArray(ptr noundef %0, i32 noundef 
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -29183,7 +29183,7 @@ define hidden noundef ptr @checked_jni_NewIntArray(ptr noundef %0, i32 noundef %
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -29300,7 +29300,7 @@ define hidden noundef ptr @checked_jni_NewLongArray(ptr noundef %0, i32 noundef 
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -29417,7 +29417,7 @@ define hidden noundef ptr @checked_jni_NewFloatArray(ptr noundef %0, i32 noundef
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -29534,7 +29534,7 @@ define hidden noundef ptr @checked_jni_NewDoubleArray(ptr noundef %0, i32 nounde
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -29651,7 +29651,7 @@ define hidden noundef ptr @checked_jni_GetBooleanArrayElements(ptr noundef %0, p
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -29957,7 +29957,7 @@ define hidden noundef ptr @checked_jni_GetByteArrayElements(ptr noundef %0, ptr 
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -30161,7 +30161,7 @@ define hidden noundef ptr @checked_jni_GetShortArrayElements(ptr noundef %0, ptr
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -30365,7 +30365,7 @@ define hidden noundef ptr @checked_jni_GetCharArrayElements(ptr noundef %0, ptr 
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -30569,7 +30569,7 @@ define hidden noundef ptr @checked_jni_GetIntArrayElements(ptr noundef %0, ptr n
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -30773,7 +30773,7 @@ define hidden noundef ptr @checked_jni_GetLongArrayElements(ptr noundef %0, ptr 
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -30977,7 +30977,7 @@ define hidden noundef ptr @checked_jni_GetFloatArrayElements(ptr noundef %0, ptr
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -31181,7 +31181,7 @@ define hidden noundef ptr @checked_jni_GetDoubleArrayElements(ptr noundef %0, pt
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -31385,7 +31385,7 @@ define hidden void @checked_jni_ReleaseBooleanArrayElements(ptr noundef %0, ptr 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -31877,7 +31877,7 @@ define hidden void @checked_jni_ReleaseByteArrayElements(ptr noundef %0, ptr nou
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -32091,7 +32091,7 @@ define hidden void @checked_jni_ReleaseShortArrayElements(ptr noundef %0, ptr no
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -32305,7 +32305,7 @@ define hidden void @checked_jni_ReleaseCharArrayElements(ptr noundef %0, ptr nou
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -32519,7 +32519,7 @@ define hidden void @checked_jni_ReleaseIntArrayElements(ptr noundef %0, ptr noun
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -32733,7 +32733,7 @@ define hidden void @checked_jni_ReleaseLongArrayElements(ptr noundef %0, ptr nou
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -32947,7 +32947,7 @@ define hidden void @checked_jni_ReleaseFloatArrayElements(ptr noundef %0, ptr no
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -33161,7 +33161,7 @@ define hidden void @checked_jni_ReleaseDoubleArrayElements(ptr noundef %0, ptr n
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -33375,7 +33375,7 @@ define hidden void @checked_jni_GetBooleanArrayRegion(ptr noundef %0, ptr nounde
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -33570,7 +33570,7 @@ define hidden void @checked_jni_GetByteArrayRegion(ptr noundef %0, ptr noundef %
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -33765,7 +33765,7 @@ define hidden void @checked_jni_GetShortArrayRegion(ptr noundef %0, ptr noundef 
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -33960,7 +33960,7 @@ define hidden void @checked_jni_GetCharArrayRegion(ptr noundef %0, ptr noundef %
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -34155,7 +34155,7 @@ define hidden void @checked_jni_GetIntArrayRegion(ptr noundef %0, ptr noundef %1
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -34350,7 +34350,7 @@ define hidden void @checked_jni_GetLongArrayRegion(ptr noundef %0, ptr noundef %
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -34545,7 +34545,7 @@ define hidden void @checked_jni_GetFloatArrayRegion(ptr noundef %0, ptr noundef 
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -34740,7 +34740,7 @@ define hidden void @checked_jni_GetDoubleArrayRegion(ptr noundef %0, ptr noundef
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -34935,7 +34935,7 @@ define hidden void @checked_jni_SetBooleanArrayRegion(ptr noundef %0, ptr nounde
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -35130,7 +35130,7 @@ define hidden void @checked_jni_SetByteArrayRegion(ptr noundef %0, ptr noundef %
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -35325,7 +35325,7 @@ define hidden void @checked_jni_SetShortArrayRegion(ptr noundef %0, ptr noundef 
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -35520,7 +35520,7 @@ define hidden void @checked_jni_SetCharArrayRegion(ptr noundef %0, ptr noundef %
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -35715,7 +35715,7 @@ define hidden void @checked_jni_SetIntArrayRegion(ptr noundef %0, ptr noundef %1
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -35910,7 +35910,7 @@ define hidden void @checked_jni_SetLongArrayRegion(ptr noundef %0, ptr noundef %
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -36105,7 +36105,7 @@ define hidden void @checked_jni_SetFloatArrayRegion(ptr noundef %0, ptr noundef 
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -36300,7 +36300,7 @@ define hidden void @checked_jni_SetDoubleArrayRegion(ptr noundef %0, ptr noundef
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -36495,7 +36495,7 @@ define hidden noundef i32 @checked_jni_RegisterNatives(ptr noundef %0, ptr nound
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %15
@@ -36612,7 +36612,7 @@ define hidden noundef i32 @checked_jni_UnregisterNatives(ptr noundef %0, ptr nou
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -36729,7 +36729,7 @@ define hidden noundef i32 @checked_jni_MonitorEnter(ptr noundef %0, ptr noundef 
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -36887,7 +36887,7 @@ define hidden noundef i32 @checked_jni_MonitorExit(ptr noundef %0, ptr noundef %
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -37044,7 +37044,7 @@ define hidden noundef i32 @checked_jni_GetJavaVM(ptr noundef %0, ptr noundef %1)
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -37161,7 +37161,7 @@ define hidden void @checked_jni_GetStringRegion(ptr noundef %0, ptr noundef %1, 
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -37358,7 +37358,7 @@ define hidden void @checked_jni_GetStringUTFRegion(ptr noundef %0, ptr noundef %
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %7, i64 960
-  %.not = icmp eq ptr %17, %0
+  %.not = icmp eq ptr %0, %17
   br i1 %.not, label %33, label %18
 
 18:                                               ; preds = %16
@@ -37555,7 +37555,7 @@ define hidden noundef ptr @checked_jni_GetPrimitiveArrayCritical(ptr noundef %0,
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -37768,7 +37768,7 @@ define hidden void @checked_jni_ReleasePrimitiveArrayCritical(ptr noundef %0, pt
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %16, %0
+  %.not = icmp eq ptr %0, %16
   %17 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %18 = trunc i8 %17 to i1
   %19 = getelementptr inbounds i8, ptr %6, i64 1092
@@ -37911,7 +37911,7 @@ define hidden noundef ptr @checked_jni_GetStringCritical(ptr noundef %0, ptr nou
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -38097,7 +38097,7 @@ define hidden void @checked_jni_ReleaseStringCritical(ptr noundef %0, ptr nounde
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   %16 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %17 = trunc i8 %16 to i1
   %18 = getelementptr inbounds i8, ptr %5, i64 1092
@@ -38278,7 +38278,7 @@ define hidden noundef ptr @checked_jni_NewWeakGlobalRef(ptr noundef %0, ptr noun
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -38455,7 +38455,7 @@ define hidden void @checked_jni_DeleteWeakGlobalRef(ptr noundef %0, ptr noundef 
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -38628,7 +38628,7 @@ define hidden noundef zeroext i8 @checked_jni_ExceptionCheck(ptr noundef %0) #0 
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %3, i64 960
-  %.not = icmp eq ptr %13, %0
+  %.not = icmp eq ptr %0, %13
   br i1 %.not, label %29, label %14
 
 14:                                               ; preds = %12
@@ -38746,7 +38746,7 @@ define hidden noundef ptr @checked_jni_NewDirectByteBuffer(ptr noundef %0, ptr n
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %5, i64 960
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
@@ -38863,7 +38863,7 @@ define hidden noundef ptr @checked_jni_GetDirectBufferAddress(ptr noundef %0, pt
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -38980,7 +38980,7 @@ define hidden noundef i64 @checked_jni_GetDirectBufferCapacity(ptr noundef %0, p
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -39097,7 +39097,7 @@ define hidden noundef i32 @checked_jni_GetObjectRefType(ptr noundef %0, ptr noun
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -39255,7 +39255,7 @@ define hidden noundef i32 @checked_jni_GetVersion(ptr noundef %0) #0 {
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %3, i64 960
-  %.not = icmp eq ptr %13, %0
+  %.not = icmp eq ptr %0, %13
   br i1 %.not, label %29, label %14
 
 14:                                               ; preds = %12
@@ -39372,7 +39372,7 @@ define hidden noundef ptr @checked_jni_GetModule(ptr noundef %0, ptr noundef %1)
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -39489,7 +39489,7 @@ define hidden noundef zeroext i8 @checked_jni_IsVirtualThread(ptr noundef %0, pt
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 960
-  %.not = icmp eq ptr %14, %0
+  %.not = icmp eq ptr %0, %14
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %13
@@ -40074,7 +40074,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp ugt ptr %21, %3
+  %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
@@ -40136,7 +40136,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %60, %39
+  %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
@@ -40213,7 +40213,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -40752,7 +40752,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp ugt ptr %21, %3
+  %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
@@ -40814,7 +40814,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %60, %39
+  %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50

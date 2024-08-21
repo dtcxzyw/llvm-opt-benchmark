@@ -386,7 +386,7 @@ _bt_recsplitloc.exit:                             ; preds = %_bt_recsplitloc.exi
 ._crit_edge:                                      ; preds = %_bt_recsplitloc.exit, %39
   %.sroa.122.0.lcssa = phi i64 [ -1, %39 ], [ %.sroa.122.1, %_bt_recsplitloc.exit ]
   %.sroa.136.0.lcssa = phi i32 [ 0, %39 ], [ %.sroa.136.1, %_bt_recsplitloc.exit ]
-  %180 = icmp ult i16 %.0.i, %2
+  %180 = icmp ugt i16 %2, %.0.i
   br i1 %180, label %181, label %_bt_recsplitloc.exit226
 
 181:                                              ; preds = %._crit_edge
@@ -583,7 +583,7 @@ _bt_afternewitemoff.exit:                         ; preds = %262
 277:                                              ; preds = %.lr.ph583
   %278 = getelementptr inbounds i8, ptr %273, i64 6
   %279 = load i16, ptr %278, align 2
-  %280 = icmp eq i16 %279, %2
+  %280 = icmp eq i16 %2, %279
   br i1 %280, label %281, label %282
 
 281:                                              ; preds = %277
@@ -619,26 +619,26 @@ _bt_afternewitemoff.exit:                         ; preds = %262
 
 .lr.ph.i:                                         ; preds = %.loopexit
   %287 = fsub double 1.000000e+00, %.071
-  %288 = fneg double %287
-  %289 = zext nneg i32 %.sroa.136.2 to i64
+  %288 = zext nneg i32 %.sroa.136.2 to i64
   br i1 %.0463, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
-  %290 = getelementptr %struct.SplitPoint, ptr %49, i64 %indvars.iv25.i
-  %291 = getelementptr inbounds i8, ptr %290, i64 2
-  %292 = load i16, ptr %291, align 2
-  %293 = sitofp i16 %292 to double
-  %294 = getelementptr inbounds i8, ptr %290, i64 4
-  %295 = load i16, ptr %294, align 2
-  %296 = sitofp i16 %295 to double
-  %297 = fmul double %288, %296
-  %298 = tail call double @llvm.fmuladd.f64(double %.071, double %293, double %297)
+  %289 = getelementptr %struct.SplitPoint, ptr %49, i64 %indvars.iv25.i
+  %290 = getelementptr inbounds i8, ptr %289, i64 2
+  %291 = load i16, ptr %290, align 2
+  %292 = sitofp i16 %291 to double
+  %293 = getelementptr inbounds i8, ptr %289, i64 4
+  %294 = load i16, ptr %293, align 2
+  %295 = sitofp i16 %294 to double
+  %296 = fneg double %295
+  %297 = fmul double %287, %296
+  %298 = tail call double @llvm.fmuladd.f64(double %.071, double %292, double %297)
   %299 = fptosi double %298 to i16
   %spec.select.us.i = tail call i16 @llvm.abs.i16(i16 %299, i1 false)
-  store i16 %spec.select.us.i, ptr %290, align 2
+  store i16 %spec.select.us.i, ptr %289, align 2
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
-  %exitcond590.not = icmp eq i64 %indvars.iv.next26.i, %289
+  %exitcond590.not = icmp eq i64 %indvars.iv.next26.i, %288
   br i1 %exitcond590.not, label %_bt_deltasortsplits.exit, label %.lr.ph.split.us.i, !llvm.loop !8
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
@@ -652,11 +652,11 @@ _bt_afternewitemoff.exit:                         ; preds = %262
   %spec.select.i = tail call i16 @llvm.abs.i16(i16 %305, i1 false)
   store i16 %spec.select.i, ptr %300, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond589.not = icmp eq i64 %indvars.iv.next.i, %289
+  %exitcond589.not = icmp eq i64 %indvars.iv.next.i, %288
   br i1 %exitcond589.not, label %_bt_deltasortsplits.exit, label %.lr.ph.split.i, !llvm.loop !8
 
 _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.._crit_edge_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre.i234, %.._crit_edge_crit_edge.i ], [ %289, %.lr.ph.split.us.i ], [ %289, %.lr.ph.split.i ]
+  %.pre-phi.i = phi i64 [ %.pre.i234, %.._crit_edge_crit_edge.i ], [ %288, %.lr.ph.split.us.i ], [ %288, %.lr.ph.split.i ]
   tail call void @pg_qsort(ptr noundef nonnull %49, i64 noundef %.pre-phi.i, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #7
   %306 = sitofp i32 %33 to double
   %..i = select i1 %44, double 5.000000e-02, double 0x3FB3333333333333

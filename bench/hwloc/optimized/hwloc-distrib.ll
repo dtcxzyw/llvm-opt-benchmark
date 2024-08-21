@@ -1659,7 +1659,7 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
   %.06212 = phi ptr [ %2, %.lr.ph14 ], [ %.163, %61 ]
   %.06411 = phi i32 [ 0, %.lr.ph14 ], [ %.165, %61 ]
   %16 = xor i32 %.113, -1
-  %17 = add i32 %16, %1
+  %17 = add i32 %1, %16
   %18 = select i1 %.not, i32 %.113, i32 %17
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds ptr, ptr %0, i64 %19

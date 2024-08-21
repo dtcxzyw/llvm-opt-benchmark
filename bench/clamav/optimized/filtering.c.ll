@@ -1250,7 +1250,7 @@ spec_ith_char.exit489:                            ; preds = %spec_ith_char.exit,
   unreachable
 
 416:                                              ; preds = %._crit_edge916
-  %.not.i490.not = icmp ult i32 %.5925, %.1393
+  %.not.i490.not = icmp ugt i32 %.1393, %.5925
   br i1 %.not.i490.not, label %417, label %add_choice.exit
 
 417:                                              ; preds = %416

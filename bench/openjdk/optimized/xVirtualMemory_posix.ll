@@ -24,7 +24,7 @@ define hidden noundef zeroext i1 @_ZN21XVirtualMemoryManager10pd_reserveEmm(ptr 
 
 7:                                                ; preds = %3
   %8 = ptrtoint ptr %5 to i64
-  %.not = icmp eq i64 %8, %1
+  %.not = icmp eq i64 %1, %8
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %7

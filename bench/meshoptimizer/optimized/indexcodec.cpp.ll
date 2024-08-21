@@ -14,7 +14,7 @@ entry:
   %vertexfifo = alloca [16 x i32], align 16
   %div = udiv i64 %index_count, 3
   %add1 = add nuw nsw i64 %div, 17
-  %cmp = icmp ugt i64 %add1, %buffer_size
+  %cmp = icmp ult i64 %buffer_size, %add1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -566,7 +566,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.cond ], [ 1, %entry ]
   %cmp = icmp ult i64 %indvars.iv, 32
   %shl = shl nuw nsw i64 1, %indvars.iv
-  %cmp1 = icmp ult i64 %shl, %vertex_count
+  %cmp1 = icmp ugt i64 %vertex_count, %shl
   %0 = select i1 %cmp, i1 %cmp1, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %0, label %while.cond, label %while.end, !llvm.loop !12
@@ -598,7 +598,7 @@ entry:
   %vertexfifo = alloca [16 x i32], align 16
   %div = udiv i64 %index_count, 3
   %add1 = add nuw nsw i64 %div, 17
-  %cmp = icmp ugt i64 %add1, %buffer_size
+  %cmp = icmp ult i64 %buffer_size, %add1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1147,7 +1147,7 @@ define dso_local i64 @meshopt_encodeIndexSequence(ptr noundef %buffer, i64 nound
 entry:
   %last = alloca [2 x i32], align 8
   %add1 = add i64 %index_count, 5
-  %cmp = icmp ugt i64 %add1, %buffer_size
+  %cmp = icmp ult i64 %buffer_size, %add1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1235,7 +1235,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.cond ], [ 1, %entry ]
   %cmp = icmp ult i64 %indvars.iv, 32
   %shl = shl nuw nsw i64 1, %indvars.iv
-  %cmp1 = icmp ult i64 %shl, %vertex_count
+  %cmp1 = icmp ugt i64 %vertex_count, %shl
   %0 = select i1 %cmp, i1 %cmp1, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %0, label %while.cond, label %while.end, !llvm.loop !16
@@ -1245,7 +1245,7 @@ while.end:                                        ; preds = %while.cond
   %add3 = add i8 %1, 8
   %div5 = udiv i8 %add3, 7
   %conv = zext nneg i8 %div5 to i64
-  %mul = mul i64 %conv, %index_count
+  %mul = mul i64 %index_count, %conv
   %add5 = add i64 %mul, 5
   ret i64 %add5
 }
@@ -1255,7 +1255,7 @@ define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexSequence(ptr nocapture
 entry:
   %last = alloca [2 x i32], align 8
   %add1 = add i64 %index_count, 5
-  %cmp = icmp ugt i64 %add1, %buffer_size
+  %cmp = icmp ult i64 %buffer_size, %add1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

@@ -583,7 +583,7 @@ define dso_local i32 @acpi_ns_lookup(ptr noundef readonly %0, ptr noundef %1, i3
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
   %178 = icmp eq i8 %176, 0
-  %179 = icmp eq i32 %177, %2
+  %179 = icmp eq i32 %2, %177
   %180 = or i1 %178, %179
   br i1 %180, label %184, label %181
 

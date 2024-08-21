@@ -1316,10 +1316,10 @@ bsdf_is_edge.exit.thread50:                       ; preds = %17, %85, %68, %53, 
   %97 = phi ptr [ %92, %bsdf_is_edge.exit.thread50.thread ], [ %94, %bsdf_is_edge.exit.thread50 ]
   %98 = phi ptr [ %91, %bsdf_is_edge.exit.thread50.thread ], [ %93, %bsdf_is_edge.exit.thread50 ]
   %99 = add nsw i32 %18, -1
-  %100 = icmp sgt i32 %99, %.03663
+  %100 = icmp slt i32 %.03663, %99
   %or.cond.not77.i = and i1 %15, %100
   %101 = add nsw i32 %24, -1
-  %.not.i = icmp sgt i32 %101, %.03767
+  %.not.i = icmp slt i32 %.03767, %101
   %or.cond73.i = select i1 %or.cond.not77.i, i1 %.not.i, i1 false
   br i1 %or.cond73.i, label %102, label %compute_edge_distance.exit
 

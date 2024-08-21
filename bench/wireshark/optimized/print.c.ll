@@ -3484,7 +3484,7 @@ define zeroext i1 @output_fields_add_protocolfilter(ptr nocapture noundef %0, pt
   %.not12 = xor i1 %12, true
   %22 = ptrtoint ptr %13 to i64
   %23 = trunc i64 %22 to i32
-  %.not10 = icmp eq i32 %23, %2
+  %.not10 = icmp eq i32 %2, %23
   %or.cond = select i1 %.not12, i1 true, i1 %.not10
   ret i1 %or.cond
 }

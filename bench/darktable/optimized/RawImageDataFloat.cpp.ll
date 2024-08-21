@@ -1467,7 +1467,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
 .loopexit.us:                                     ; preds = %134
   %150 = add nuw nsw i64 %122, 1
   %151 = trunc nuw nsw i64 %150 to i32
-  %152 = icmp slt i32 %151, %2
+  %152 = icmp sgt i32 %2, %151
   br i1 %152, label %.preheader.us, label %.loopexit4, !llvm.loop !140
 
 .split:                                           ; preds = %109
@@ -1544,7 +1544,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
 .loopexit3.us:                                    ; preds = %174
   %205 = add nuw nsw i64 %153, 1
   %206 = trunc nuw nsw i64 %205 to i32
-  %207 = icmp slt i32 %206, %2
+  %207 = icmp sgt i32 %2, %206
   br i1 %207, label %.split.split.us, label %.loopexit4, !llvm.loop !140
 
 .split.split:                                     ; preds = %.split, %.loopexit
@@ -1640,7 +1640,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
 .loopexit:                                        ; preds = %.loopexit3
   %277 = add nuw nsw i64 %208, 1
   %278 = trunc nuw nsw i64 %277 to i32
-  %279 = icmp slt i32 %278, %2
+  %279 = icmp sgt i32 %2, %278
   br i1 %279, label %.split.split, label %.loopexit4, !llvm.loop !140
 
 .loopexit4:                                       ; preds = %.loopexit, %.loopexit3.us, %.loopexit.us, %.split.us, %107, %3

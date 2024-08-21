@@ -658,7 +658,7 @@ if.then45:                                        ; preds = %_ZN3url12CanonOutpu
   %arrayidx.i.i142 = getelementptr i8, ptr %50, i64 -1
   %51 = load i8, ptr %arrayidx.i.i142, align 1
   %sub2.i = add nsw i32 %47, -2
-  %cmp.i143 = icmp eq i32 %sub2.i, %last_invalid_percent_index.063
+  %cmp.i143 = icmp eq i32 %last_invalid_percent_index.063, %sub2.i
   br i1 %cmp.i143, label %if.then.i146, label %if.end8.i
 
 if.then.i146:                                     ; preds = %if.then45
@@ -1523,7 +1523,7 @@ if.then56:                                        ; preds = %_ZN3url12CanonOutpu
   %arrayidx.i.i149 = getelementptr i8, ptr %55, i64 -1
   %56 = load i8, ptr %arrayidx.i.i149, align 1
   %sub2.i = add nsw i32 %51, -2
-  %cmp.i150 = icmp eq i32 %sub2.i, %last_invalid_percent_index.051
+  %cmp.i150 = icmp eq i32 %last_invalid_percent_index.051, %sub2.i
   br i1 %cmp.i150, label %if.then.i152, label %if.end9.i
 
 if.then.i152:                                     ; preds = %if.then56

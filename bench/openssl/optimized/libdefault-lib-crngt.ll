@@ -145,7 +145,7 @@ if.end16:                                         ; preds = %if.end14, %if.end4
   %add = add nsw i32 %entropy, 7
   %div = sdiv i32 %add, 8
   %conv = sext i32 %div to i64
-  %spec.select = call i64 @llvm.umax.i64(i64 %conv, i64 %min_len)
+  %spec.select = call i64 @llvm.umax.i64(i64 %min_len, i64 %conv)
   %cmp21 = icmp ugt i64 %spec.select, %max_len
   br i1 %cmp21, label %unlock_return, label %if.end24
 

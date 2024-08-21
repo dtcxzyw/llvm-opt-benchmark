@@ -110,7 +110,7 @@ define ptr @Cudd_addNewVarAtLevel(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %5, label %Cudd_addIthVar.exit, label %6
 
 6:                                                ; preds = %2
-  %.not = icmp sgt i32 %4, %1
+  %.not = icmp slt i32 %1, %4
   br i1 %.not, label %18, label %7
 
 7:                                                ; preds = %6
@@ -215,7 +215,7 @@ define ptr @Cudd_bddNewVarAtLevel(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %5, label %Cudd_bddIthVar.exit, label %6
 
 6:                                                ; preds = %2
-  %.not = icmp sgt i32 %4, %1
+  %.not = icmp slt i32 %1, %4
   br i1 %.not, label %16, label %7
 
 7:                                                ; preds = %6
@@ -259,7 +259,7 @@ define ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
-  %7 = icmp sgt i32 %6, %1
+  %7 = icmp slt i32 %1, %6
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %4
@@ -293,7 +293,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %5 = getelementptr inbounds i8, ptr %0, i64 140
   %6 = load i32, ptr %5, align 4
   %7 = add nsw i32 %6, -1
-  %8 = icmp sgt i32 %7, %1
+  %8 = icmp slt i32 %1, %7
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %4
@@ -770,7 +770,7 @@ define internal fastcc range(i32 0, 2) i32 @addMultiplicityGroups(ptr nocapture 
 
 39:                                               ; preds = %.preheader
   %40 = trunc nuw i64 %indvars.iv to i32
-  %41 = mul nsw i32 %40, %2
+  %41 = mul nsw i32 %2, %40
   %42 = tail call ptr @Mtr_MakeGroup(ptr noundef nonnull %.04051, i32 noundef %41, i32 noundef %2, i32 noundef 4) #20
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.loopexit, label %44
@@ -990,7 +990,7 @@ define ptr @Cudd_ReadZddOne(ptr nocapture noundef readonly %0, i32 noundef %1) l
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 140
   %6 = load i32, ptr %5, align 4
-  %7 = icmp sgt i32 %6, %1
+  %7 = icmp slt i32 %1, %6
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %4
@@ -1743,7 +1743,7 @@ define i32 @Cudd_ReadPerm(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 136
   %8 = load i32, ptr %7, align 8
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %9, label %15
 
 9:                                                ; preds = %6
@@ -1771,7 +1771,7 @@ define i32 @Cudd_ReadPermZdd(ptr nocapture noundef readonly %0, i32 noundef %1) 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 140
   %8 = load i32, ptr %7, align 4
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %9, label %15
 
 9:                                                ; preds = %6
@@ -1799,7 +1799,7 @@ define i32 @Cudd_ReadInvPerm(ptr nocapture noundef readonly %0, i32 noundef %1) 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 136
   %8 = load i32, ptr %7, align 8
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %9, label %15
 
 9:                                                ; preds = %6
@@ -1827,7 +1827,7 @@ define i32 @Cudd_ReadInvPermZdd(ptr nocapture noundef readonly %0, i32 noundef %
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 140
   %8 = load i32, ptr %7, align 4
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %9, label %15
 
 9:                                                ; preds = %6
@@ -1851,7 +1851,7 @@ define ptr @Cudd_ReadVars(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
-  %7 = icmp slt i32 %6, %1
+  %7 = icmp sgt i32 %1, %6
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %4
@@ -3217,7 +3217,7 @@ define void @Cudd_SetMaxMemory(ptr nocapture noundef writeonly %0, i64 noundef %
 define range(i32 0, 2) i32 @Cudd_bddBindVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %17, label %7
@@ -3244,7 +3244,7 @@ define range(i32 0, 2) i32 @Cudd_bddBindVar(ptr nocapture noundef readonly %0, i
 define range(i32 0, 2) i32 @Cudd_bddUnbindVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %17, label %7
@@ -3271,7 +3271,7 @@ define range(i32 0, 2) i32 @Cudd_bddUnbindVar(ptr nocapture noundef readonly %0,
 define i32 @Cudd_bddVarIsBound(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %18, label %7
@@ -3298,7 +3298,7 @@ define i32 @Cudd_bddVarIsBound(ptr nocapture noundef readonly %0, i32 noundef %1
 define range(i32 0, 2) i32 @Cudd_bddSetPiVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %17, label %7
@@ -3325,7 +3325,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetPiVar(ptr nocapture noundef readonly %0, 
 define range(i32 0, 2) i32 @Cudd_bddSetPsVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %17, label %7
@@ -3352,7 +3352,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetPsVar(ptr nocapture noundef readonly %0, 
 define range(i32 0, 2) i32 @Cudd_bddSetNsVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %17, label %7
@@ -3379,7 +3379,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetNsVar(ptr nocapture noundef readonly %0, 
 define range(i32 -1, 2) i32 @Cudd_bddIsPiVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %20, label %7
@@ -3408,7 +3408,7 @@ define range(i32 -1, 2) i32 @Cudd_bddIsPiVar(ptr nocapture noundef readonly %0, 
 define range(i32 -1, 2) i32 @Cudd_bddIsPsVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %20, label %7
@@ -3437,7 +3437,7 @@ define range(i32 -1, 2) i32 @Cudd_bddIsPsVar(ptr nocapture noundef readonly %0, 
 define range(i32 -1, 2) i32 @Cudd_bddIsNsVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %20, label %7
@@ -3466,7 +3466,7 @@ define range(i32 -1, 2) i32 @Cudd_bddIsNsVar(ptr nocapture noundef readonly %0, 
 define range(i32 0, 2) i32 @Cudd_bddSetPairIndex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
-  %6 = icmp sle i32 %5, %1
+  %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
   %or.cond = or i1 %7, %6
   br i1 %or.cond, label %18, label %8
@@ -3493,7 +3493,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetPairIndex(ptr nocapture noundef readonly 
 define i32 @Cudd_bddReadPairIndex(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %18, label %7
@@ -3520,7 +3520,7 @@ define i32 @Cudd_bddReadPairIndex(ptr nocapture noundef readonly %0, i32 noundef
 define range(i32 0, 2) i32 @Cudd_bddSetVarToBeGrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %20, label %7
@@ -3552,7 +3552,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarToBeGrouped(ptr nocapture noundef read
 define range(i32 0, 2) i32 @Cudd_bddSetVarHardGroup(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %17, label %7
@@ -3579,7 +3579,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarHardGroup(ptr nocapture noundef readon
 define range(i32 0, 2) i32 @Cudd_bddResetVarToBeGrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %20, label %7
@@ -3611,7 +3611,7 @@ define range(i32 0, 2) i32 @Cudd_bddResetVarToBeGrouped(ptr nocapture noundef re
 define range(i32 4, 3) i32 @Cudd_bddIsVarToBeGrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %19, label %7
@@ -3640,7 +3640,7 @@ define range(i32 4, 3) i32 @Cudd_bddIsVarToBeGrouped(ptr nocapture noundef reado
 define range(i32 0, 2) i32 @Cudd_bddSetVarToBeUngrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %17, label %7
@@ -3667,7 +3667,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarToBeUngrouped(ptr nocapture noundef re
 define range(i32 -1, 2) i32 @Cudd_bddIsVarToBeUngrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %20, label %7
@@ -3696,7 +3696,7 @@ define range(i32 -1, 2) i32 @Cudd_bddIsVarToBeUngrouped(ptr nocapture noundef re
 define range(i32 -1, 2) i32 @Cudd_bddIsVarHardGroup(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %19, label %7

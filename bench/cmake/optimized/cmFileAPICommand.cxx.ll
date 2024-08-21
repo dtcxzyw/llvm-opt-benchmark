@@ -670,7 +670,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 .loopexit148:                                     ; preds = %.lr.ph.i.i.i.i, %.loopexit148.loopexit.split.loop.exit, %.loopexit148.loopexit.split.loop.exit168, %.loopexit148.loopexit.split.loop.exit170, %151, %146, %141
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %141 ], [ %.sroa.032.1.i.i.i.i, %146 ], [ %spec.select.i.i.i.i, %151 ], [ %154, %.loopexit148.loopexit.split.loop.exit ], [ %155, %.loopexit148.loopexit.split.loop.exit168 ], [ %156, %.loopexit148.loopexit.split.loop.exit170 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %157 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %115
+  %157 = icmp eq ptr %115, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   br i1 %157, label %.thread, label %158
 
 158:                                              ; preds = %.loopexit148

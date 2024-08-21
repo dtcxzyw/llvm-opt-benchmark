@@ -673,7 +673,7 @@ define internal i32 @pci_hp_diva_setup(ptr nocapture noundef readonly %0, ptr no
 14:                                               ; preds = %4
   %15 = icmp sgt i32 %3, 0
   %16 = zext i1 %15 to i32
-  %17 = add nuw i32 %16, %3
+  %17 = add nuw i32 %3, %16
   %18 = icmp sgt i32 %17, 2
   %19 = zext i1 %18 to i32
   %20 = add nuw i32 %17, %19
@@ -773,7 +773,7 @@ define internal i32 @pci_default_setup(ptr nocapture noundef readonly %0, ptr no
   %41 = zext nneg i32 %40 to i64
   %42 = lshr i64 %39, %41
   %43 = trunc i64 %42 to i32
-  %44 = icmp ugt i32 %43, %3
+  %44 = icmp ult i32 %3, %43
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %37, %32
@@ -844,7 +844,7 @@ define internal i32 @skip_tx_en_setup(ptr nocapture noundef readonly %0, ptr noc
   %44 = zext nneg i32 %43 to i64
   %45 = lshr i64 %42, %44
   %46 = trunc i64 %45 to i32
-  %47 = icmp ugt i32 %46, %3
+  %47 = icmp ult i32 %3, %46
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %40, %35
@@ -943,7 +943,7 @@ define internal i32 @kt_serial_setup(ptr nocapture noundef readonly %0, ptr noca
   %49 = zext nneg i32 %48 to i64
   %50 = lshr i64 %47, %49
   %51 = trunc i64 %50 to i32
-  %52 = icmp ugt i32 %51, %3
+  %52 = icmp ult i32 %3, %51
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %45, %40
@@ -1727,7 +1727,7 @@ default.unreachable2:                             ; preds = %108
   %228 = zext nneg i32 %227 to i64
   %229 = lshr i64 %226, %228
   %230 = trunc i64 %229 to i32
-  %231 = icmp ugt i32 %230, %3
+  %231 = icmp ult i32 %3, %230
   br i1 %231, label %232, label %235
 
 232:                                              ; preds = %224, %219
@@ -2350,7 +2350,7 @@ define internal i32 @pci_netmos_9900_setup(ptr nocapture noundef readonly %0, pt
   %56 = zext nneg i32 %55 to i64
   %57 = lshr i64 %54, %56
   %58 = trunc i64 %57 to i32
-  %59 = icmp ugt i32 %58, %3
+  %59 = icmp ult i32 %3, %58
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %52, %47
@@ -2501,7 +2501,7 @@ define internal i32 @pci_oxsemi_tornado_setup(ptr nocapture noundef readonly %0,
   %62 = zext nneg i32 %61 to i64
   %63 = lshr i64 %60, %62
   %64 = trunc i64 %63 to i32
-  %65 = icmp ugt i32 %64, %3
+  %65 = icmp ult i32 %3, %64
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %58, %53
@@ -2587,7 +2587,7 @@ define internal i32 @pci_wch_ch353_setup(ptr nocapture noundef readonly %0, ptr 
   %45 = zext nneg i32 %44 to i64
   %46 = lshr i64 %43, %45
   %47 = trunc i64 %46 to i32
-  %48 = icmp ugt i32 %47, %3
+  %48 = icmp ult i32 %3, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %41, %36
@@ -2660,7 +2660,7 @@ define internal i32 @pci_wch_ch355_setup(ptr nocapture noundef readonly %0, ptr 
   %45 = zext nneg i32 %44 to i64
   %46 = lshr i64 %43, %45
   %47 = trunc i64 %46 to i32
-  %48 = icmp ugt i32 %47, %3
+  %48 = icmp ult i32 %3, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %41, %36
@@ -2733,7 +2733,7 @@ define internal i32 @pci_wch_ch38x_setup(ptr nocapture noundef readonly %0, ptr 
   %45 = zext nneg i32 %44 to i64
   %46 = lshr i64 %43, %45
   %47 = trunc i64 %46 to i32
-  %48 = icmp ugt i32 %47, %3
+  %48 = icmp ult i32 %3, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %41, %36
@@ -2830,7 +2830,7 @@ define internal i32 @pci_brcm_trumanage_setup(ptr nocapture noundef readonly %0,
   %41 = zext nneg i32 %40 to i64
   %42 = lshr i64 %39, %41
   %43 = trunc i64 %42 to i32
-  %44 = icmp ugt i32 %43, %3
+  %44 = icmp ult i32 %3, %43
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %37, %32

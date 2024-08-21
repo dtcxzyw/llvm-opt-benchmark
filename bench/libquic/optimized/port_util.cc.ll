@@ -96,7 +96,7 @@ while.body.i.i.i:                                 ; preds = %if.end19.i.i.i, %wh
   br i1 %cmp.i.i.i.i, label %if.end19.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %cmp.i18.i.i.i = icmp sgt i32 %3, %port
+  %cmp.i18.i.i.i = icmp slt i32 %port, %3
   br i1 %cmp.i18.i.i.i, label %if.end19.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
@@ -130,7 +130,7 @@ while.body.i23.i.i.i:                             ; preds = %_ZNKSt8_Rb_treeIiiS
   %__y.addr.06.i25.i.i.i = phi ptr [ %__y.addr.1.i28.i.i.i, %while.body.i23.i.i.i ], [ %__y.040.i.i.i, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPKSt13_Rb_tree_nodeIiEPKSt18_Rb_tree_node_baseRKi.exit.i.i.i ]
   %_M_storage.i.i.i26.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i, i64 32
   %7 = load i32, ptr %_M_storage.i.i.i26.i.i.i, align 4
-  %cmp.i.i27.i.i.i = icmp sgt i32 %7, %port
+  %cmp.i.i27.i.i.i = icmp slt i32 %port, %7
   %__y.addr.1.i28.i.i.i = select i1 %cmp.i.i27.i.i.i, ptr %__x.addr.07.i24.i.i.i, ptr %__y.addr.06.i25.i.i.i
   %__x.addr.1.in.v.i29.i.i.i = select i1 %cmp.i.i27.i.i.i, i64 16, i64 24
   %__x.addr.1.in.i30.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i, i64 %__x.addr.1.in.v.i29.i.i.i
@@ -331,7 +331,7 @@ while.body.i.i.i:                                 ; preds = %invoke.cont29, %whi
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i, label %while.body.i.i.i, !llvm.loop !9
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp2.i.i.i = icmp eq ptr %0, %__x.07.i.i.i
+  %cmp2.i.i.i = icmp eq ptr %__x.07.i.i.i, %0
   %spec.select.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i
   br label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE15_M_insert_equalIRKiEESt17_Rb_tree_iteratorIiEOT_.exit.i
 
@@ -472,7 +472,7 @@ while.body.i.i.i:                                 ; preds = %_ZN4base12LazyInsta
   %__x.07.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.05.i.i.i, %_ZN4base12LazyInstanceISt8multisetIiSt4lessIiESaIiEENS_8internal23LeakyLazyInstanceTraitsIS5_EEE3GetEv.exit ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.07.i.i.i, i64 32
   %3 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
-  %cmp.i.i.i.i = icmp sgt i32 %3, %port
+  %cmp.i.i.i.i = icmp slt i32 %port, %3
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
   %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.07.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
@@ -480,7 +480,7 @@ while.body.i.i.i:                                 ; preds = %_ZN4base12LazyInsta
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i, label %while.body.i.i.i, !llvm.loop !9
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE23_M_get_insert_equal_posERKi.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %__x.07.i.i.i
+  %cmp2.i.i.i = icmp eq ptr %__x.07.i.i.i, %add.ptr.i.i.i.i
   %spec.select.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i
   br label %_ZNSt8multisetIiSt4lessIiESaIiEE6insertERKi.exit
 

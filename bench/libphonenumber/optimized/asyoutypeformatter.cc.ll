@@ -3422,7 +3422,7 @@ define dso_local noundef i32 @_ZN4i18n12phonenumbers18AsYouTypeFormatter28Conver
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
   %7 = tail call noundef i32 @_ZNK4i18n12phonenumbers11UnicodeText4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   br i1 %8, label %23, label %9
 
 9:                                                ; preds = %2

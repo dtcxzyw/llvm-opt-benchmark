@@ -121,7 +121,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$
 define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h018dad8cdf9eff44E.llvm.15983814413174583861"(i32 noundef %0, float %1, i1 noundef zeroext %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %switch = icmp eq i32 %0, 0
   %5 = load float, ptr %3, align 4
-  %6 = fcmp oeq float %5, %1
+  %6 = fcmp oeq float %1, %5
   %.0.in = select i1 %switch, i1 %2, i1 %6
   ret i1 %.0.in
 }
@@ -130,7 +130,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h018
 define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h1b2b7d7859759701E.llvm.15983814413174583861"(i64 noundef %0, i64 %1, i1 noundef zeroext %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
   %5 = load i64, ptr %3, align 8
-  %6 = icmp eq i64 %5, %1
+  %6 = icmp eq i64 %1, %5
   %.0.in = select i1 %switch, i1 %2, i1 %6
   ret i1 %.0.in
 }
@@ -160,7 +160,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hc2a
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %.val5 = load i64, ptr %7, align 8, !noundef !4
-  %.not.i.i = icmp eq i64 %.val5, %1
+  %.not.i.i = icmp eq i64 %1, %.val5
   br i1 %.not.i.i, label %8, label %"_ZN10serde_json5value10partial_eq6eq_str28_$u7b$$u7b$closure$u7d$$u7d$17he65dcf926f781645E.exit"
 
 8:                                                ; preds = %6
@@ -178,7 +178,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hc2a
 define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hc9170b9eb52ba3d6E.llvm.15983814413174583861"(i64 noundef %0, i64 %1, i1 noundef zeroext %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
   %5 = load i64, ptr %3, align 8
-  %6 = icmp eq i64 %5, %1
+  %6 = icmp eq i64 %1, %5
   %.0.in = select i1 %switch, i1 %2, i1 %6
   ret i1 %.0.in
 }
@@ -187,7 +187,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hc91
 define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hc9c58dde562a3e2fE.llvm.15983814413174583861"(i64 noundef %0, double %1, i1 noundef zeroext %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
   %5 = load double, ptr %3, align 8
-  %6 = fcmp oeq double %5, %1
+  %6 = fcmp oeq double %1, %5
   %.0.in = select i1 %switch, i1 %2, i1 %6
   ret i1 %.0.in
 }
@@ -2214,7 +2214,7 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread: ; preds = %5
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN10serde_json5value10partial_eq6eq_i6428_$u7b$$u7b$closure$u7d$$u7d$17h1d03f2e4a07081aeE.llvm.15983814413174583861"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !noundef !4
-  %4 = icmp eq i64 %3, %1
+  %4 = icmp eq i64 %1, %3
   ret i1 %4
 }
 
@@ -2236,7 +2236,7 @@ define hidden noundef zeroext i1 @_ZN10serde_json5value10partial_eq6eq_u6417h6c2
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN10serde_json5value10partial_eq6eq_u6428_$u7b$$u7b$closure$u7d$$u7d$17h28fc7a1cb673d532E.llvm.15983814413174583861"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !noundef !4
-  %4 = icmp eq i64 %3, %1
+  %4 = icmp eq i64 %1, %3
   ret i1 %4
 }
 
@@ -2287,7 +2287,7 @@ _ZN10serde_json6number6Number6as_f3217h6ff4b83fc8296096E.exit: ; preds = %9, %12
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN10serde_json5value10partial_eq6eq_f3228_$u7b$$u7b$closure$u7d$$u7d$17h894e5342a3552656E.llvm.15983814413174583861"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, float noundef %1) unnamed_addr #1 {
   %3 = load float, ptr %0, align 4, !noundef !4
-  %4 = fcmp oeq float %3, %1
+  %4 = fcmp oeq float %1, %3
   ret i1 %4
 }
 
@@ -2337,7 +2337,7 @@ _ZN10serde_json5value5Value6as_f6417h388c3cdb4fcc20e2E.exit.thread: ; preds = %1
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN10serde_json5value10partial_eq6eq_f6428_$u7b$$u7b$closure$u7d$$u7d$17haaacba8f4b0624aaE.llvm.15983814413174583861"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, double noundef %1) unnamed_addr #1 {
   %3 = load double, ptr %0, align 8, !noundef !4
-  %4 = fcmp oeq double %3, %1
+  %4 = fcmp oeq double %1, %3
   ret i1 %4
 }
 
@@ -2350,7 +2350,7 @@ define hidden noundef zeroext i1 @_ZN10serde_json5value10partial_eq7eq_bool17had
   %4 = load i8, ptr %3, align 1, !range !27, !alias.scope !326
   %5 = trunc nuw i8 %4 to i1
   %6 = select i1 %.not, i1 %5, i1 false
-  %7 = xor i1 %6, %1
+  %7 = xor i1 %1, %6
   %8 = xor i1 %7, true
   %.0.in.i = select i1 %.not, i1 %8, i1 false
   ret i1 %.0.in.i
@@ -2360,7 +2360,7 @@ define hidden noundef zeroext i1 @_ZN10serde_json5value10partial_eq7eq_bool17had
 define hidden noundef zeroext i1 @"_ZN10serde_json5value10partial_eq7eq_bool28_$u7b$$u7b$closure$u7d$$u7d$17h37016833688f9be5E.llvm.15983814413174583861"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1, !range !27, !noundef !4
   %4 = trunc nuw i8 %3 to i1
-  %5 = xor i1 %4, %1
+  %5 = xor i1 %1, %4
   %6 = xor i1 %5, true
   ret i1 %6
 }

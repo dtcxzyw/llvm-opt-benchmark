@@ -516,7 +516,7 @@ define internal fastcc i32 @dissect_block_asb(ptr noundef %0, ptr noundef %1, pt
 
 36:                                               ; preds = %33
   %37 = load i32, ptr @hf_bib, align 4
-  %38 = icmp eq i32 %37, %4
+  %38 = icmp eq i32 %4, %37
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 32
   %41 = load ptr, ptr %40, align 8
@@ -540,7 +540,7 @@ define internal fastcc i32 @dissect_block_asb(ptr noundef %0, ptr noundef %1, pt
 
 51:                                               ; preds = %46
   %52 = load i32, ptr @hf_bib, align 4
-  %53 = icmp eq i32 %52, %4
+  %53 = icmp eq i32 %4, %52
   %.in.v = select i1 %53, i64 72, i64 80
   %.in = getelementptr inbounds i8, ptr %50, i64 %.in.v
   br label %55

@@ -1397,7 +1397,7 @@ define dso_local void @regcache_cache_only(ptr noundef %0, i1 noundef zeroext %1
   %11 = getelementptr inbounds i8, ptr %0, i64 549
   %12 = load i8, ptr %11, align 1, !range !13, !noundef !14
   %13 = icmp ne i8 %12, 0
-  %14 = and i1 %13, %1
+  %14 = and i1 %1, %13
   br i1 %14, label %15, label %16, !prof !11
 
 15:                                               ; preds = %10
@@ -1485,7 +1485,7 @@ define dso_local void @regcache_cache_bypass(ptr noundef %0, i1 noundef zeroext 
   %7 = getelementptr inbounds i8, ptr %0, i64 548
   %8 = load i8, ptr %7, align 4, !range !13, !noundef !14
   %9 = icmp ne i8 %8, 0
-  %10 = and i1 %9, %1
+  %10 = and i1 %1, %9
   br i1 %10, label %11, label %12, !prof !11
 
 11:                                               ; preds = %2

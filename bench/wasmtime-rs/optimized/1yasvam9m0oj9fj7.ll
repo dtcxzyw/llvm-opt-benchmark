@@ -471,7 +471,7 @@ define hidden void @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$$u7b$closure$u
   %11 = load ptr, ptr %1, align 8, !nonnull !4, !align !7, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = icmp ugt i64 %13, %2
+  %14 = icmp ult i64 %2, %13
   br i1 %14, label %15, label %29, !prof !8
 
 15:                                               ; preds = %4
@@ -487,7 +487,7 @@ define hidden void @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$$u7b$closure$u
   %25 = load ptr, ptr %24, align 8, !nonnull !4, !align !7, !noundef !4
   %26 = getelementptr inbounds i8, ptr %25, i64 64
   %27 = load i64, ptr %26, align 8, !noundef !4
-  %28 = icmp ugt i64 %27, %2
+  %28 = icmp ult i64 %2, %27
   br i1 %28, label %30, label %37, !prof !8
 
 29:                                               ; preds = %4
@@ -526,7 +526,7 @@ define hidden void @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$$u7b$closure$u
   store i64 %46, ptr %9, align 8
   %47 = getelementptr inbounds i8, ptr %25, i64 40
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = icmp ugt i64 %48, %2
+  %49 = icmp ult i64 %2, %48
   br i1 %49, label %50, label %58, !prof !8
 
 50:                                               ; preds = %41
@@ -587,7 +587,7 @@ define hidden noundef zeroext i1 @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$
 define hidden noundef i64 @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfd991316a53cedaeE"(ptr nocapture readonly align 8 %0, i64 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %11, !prof !8
 
 6:                                                ; preds = %2

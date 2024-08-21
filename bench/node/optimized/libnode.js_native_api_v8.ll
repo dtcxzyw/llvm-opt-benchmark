@@ -13699,7 +13699,7 @@ if.then130:                                       ; preds = %do.body128
 
 do.body136:                                       ; preds = %do.body128
   %mul137 = shl i64 %length, 1
-  %add138 = add i64 %mul137, %byte_offset
+  %add138 = add i64 %byte_offset, %mul137
   %call140 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
   %cmp141.not = icmp ugt i64 %add138, %call140
   br i1 %cmp141.not, label %if.then142, label %do.end147
@@ -13723,7 +13723,7 @@ if.then168:                                       ; preds = %do.body165
 
 do.body174:                                       ; preds = %do.body165
   %mul175 = shl i64 %length, 1
-  %add176 = add i64 %mul175, %byte_offset
+  %add176 = add i64 %byte_offset, %mul175
   %call178 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
   %cmp179.not = icmp ugt i64 %add176, %call178
   br i1 %cmp179.not, label %if.then180, label %do.end185
@@ -13747,7 +13747,7 @@ if.then206:                                       ; preds = %do.body203
 
 do.body212:                                       ; preds = %do.body203
   %mul213 = shl i64 %length, 2
-  %add214 = add i64 %mul213, %byte_offset
+  %add214 = add i64 %byte_offset, %mul213
   %call216 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
   %cmp217.not = icmp ugt i64 %add214, %call216
   br i1 %cmp217.not, label %if.then218, label %do.end223
@@ -13771,7 +13771,7 @@ if.then244:                                       ; preds = %do.body241
 
 do.body250:                                       ; preds = %do.body241
   %mul251 = shl i64 %length, 2
-  %add252 = add i64 %mul251, %byte_offset
+  %add252 = add i64 %byte_offset, %mul251
   %call254 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
   %cmp255.not = icmp ugt i64 %add252, %call254
   br i1 %cmp255.not, label %if.then256, label %do.end261
@@ -13795,7 +13795,7 @@ if.then282:                                       ; preds = %do.body279
 
 do.body288:                                       ; preds = %do.body279
   %mul289 = shl i64 %length, 2
-  %add290 = add i64 %mul289, %byte_offset
+  %add290 = add i64 %byte_offset, %mul289
   %call292 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
   %cmp293.not = icmp ugt i64 %add290, %call292
   br i1 %cmp293.not, label %if.then294, label %do.end299
@@ -13819,7 +13819,7 @@ if.then320:                                       ; preds = %do.body317
 
 do.body326:                                       ; preds = %do.body317
   %mul327 = shl i64 %length, 3
-  %add328 = add i64 %mul327, %byte_offset
+  %add328 = add i64 %byte_offset, %mul327
   %call330 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
   %cmp331.not = icmp ugt i64 %add328, %call330
   br i1 %cmp331.not, label %if.then332, label %do.end337
@@ -13843,7 +13843,7 @@ if.then358:                                       ; preds = %do.body355
 
 do.body364:                                       ; preds = %do.body355
   %mul365 = shl i64 %length, 3
-  %add366 = add i64 %mul365, %byte_offset
+  %add366 = add i64 %byte_offset, %mul365
   %call368 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
   %cmp369.not = icmp ugt i64 %add366, %call368
   br i1 %cmp369.not, label %if.then370, label %do.end375
@@ -13867,7 +13867,7 @@ if.then396:                                       ; preds = %do.body393
 
 do.body402:                                       ; preds = %do.body393
   %mul403 = shl i64 %length, 3
-  %add404 = add i64 %mul403, %byte_offset
+  %add404 = add i64 %byte_offset, %mul403
   %call406 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
   %cmp407.not = icmp ugt i64 %add404, %call406
   br i1 %cmp407.not, label %if.then408, label %do.end413

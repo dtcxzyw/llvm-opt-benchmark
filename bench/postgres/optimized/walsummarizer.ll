@@ -1596,7 +1596,7 @@ define internal i32 @summarizer_read_local_xlog_page(ptr noundef %0, i64 noundef
 
 .lr.ph:                                           ; preds = %5
   %15 = sext i32 %2 to i64
-  %16 = add i64 %15, %1
+  %16 = add i64 %1, %15
   %17 = getelementptr inbounds i8, ptr %11, i64 4
   br label %18
 

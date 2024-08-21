@@ -34,7 +34,7 @@ declare void @ws_mempbrk_sse42_compile(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef ptr @ws_mempbrk_portable_exec(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %0, i64 %1
-  %6 = icmp ugt ptr %5, %0
+  %6 = icmp ult ptr %0, %5
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4, %13
@@ -81,7 +81,7 @@ define ptr @ws_mempbrk_exec(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
 
 12:                                               ; preds = %6, %4
   %13 = getelementptr i8, ptr %0, i64 %1
-  %14 = icmp ugt ptr %13, %0
+  %14 = icmp ult ptr %0, %13
   br i1 %14, label %.lr.ph.i, label %ws_mempbrk_portable_exec.exit
 
 .lr.ph.i:                                         ; preds = %12, %21

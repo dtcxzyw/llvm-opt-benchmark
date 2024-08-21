@@ -475,7 +475,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread: ; pred
   %70 = getelementptr inbounds i8, ptr %2, i64 324
   %71 = load float, ptr %70, align 4
   %72 = fcmp oeq float %71, 0.000000e+00
-  %brmerge198.not = and i1 %72, %7
+  %brmerge198.not = and i1 %7, %72
   br i1 %brmerge198.not, label %73, label %77
 
 73:                                               ; preds = %69

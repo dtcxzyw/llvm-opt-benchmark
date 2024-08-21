@@ -387,7 +387,7 @@ if.end:                                           ; preds = %entry
   %hdr = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %2 = load ptr, ptr %hdr, align 8
   %conv = zext i32 %size to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %bufsize = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %3 = load i32, ptr %bufsize, align 8
   %conv2 = zext i32 %3 to i64
@@ -529,7 +529,7 @@ if.end13:                                         ; preds = %if.end8
   %offset = getelementptr inbounds i8, ptr %19, i64 4
   %20 = load i32, ptr %offset, align 4
   %conv19 = zext i32 %20 to i64
-  %cmp20.not = icmp eq i64 %conv19, %addr
+  %cmp20.not = icmp eq i64 %addr, %conv19
   br i1 %cmp20.not, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.end13
@@ -548,7 +548,7 @@ land.lhs.true33:                                  ; preds = %land.lhs.true
   %data = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i8, ptr %data, align 4
   %conv35 = zext i8 %23 to i64
-  %cmp36.not = icmp eq i64 %conv35, %val
+  %cmp36.not = icmp eq i64 %val, %conv35
   br i1 %cmp36.not, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.end23, %land.lhs.true33

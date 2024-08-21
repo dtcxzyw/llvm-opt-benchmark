@@ -630,7 +630,7 @@ define dso_local noundef zeroext i1 @intel_bios_is_valid_vbt(ptr noundef readonl
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i16, ptr %10, align 1
   %12 = zext i16 %11 to i64
-  %13 = icmp ugt i64 %12, %1
+  %13 = icmp ult i64 %1, %12
   br i1 %13, label %28, label %14
 
 14:                                               ; preds = %9

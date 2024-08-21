@@ -76,7 +76,7 @@ define internal noundef i32 @u16550_setup(ptr nocapture noundef readonly %0) #0 
   %22 = getelementptr i8, ptr %3, i64 8
   %.val34 = load i32, ptr %22, align 4
   %23 = shl i32 %.val33, 3
-  %24 = add i32 %23, %.val34
+  %24 = add i32 %.val34, %23
   %25 = shl i32 %.val33, 4
   %26 = udiv i32 %24, %25
   %27 = lshr i32 %26, 8

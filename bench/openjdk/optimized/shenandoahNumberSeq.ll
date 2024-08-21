@@ -151,7 +151,7 @@ define hidden noundef double @_ZNK6HdrSeq10percentileEd(ptr noundef nonnull alig
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sitofp i32 %4 to double
-  %6 = fmul double %5, %1
+  %6 = fmul double %1, %5
   %7 = fdiv double %6, 1.000000e+02
   %8 = fptosi double %7 to i32
   %9 = tail call noundef i32 @llvm.smax.i32(i32 %8, i32 1)

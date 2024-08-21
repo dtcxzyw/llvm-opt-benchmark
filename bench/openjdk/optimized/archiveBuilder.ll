@@ -561,54 +561,53 @@ define hidden void @_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInf
 12:                                               ; preds = %2
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
-  %15 = xor i32 %8, -2147483648
-  %16 = and i32 %15, %13
-  %17 = icmp eq i32 %16, 0
-  %18 = and i1 %14, %17
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
-  %20 = sub nuw nsw i32 32, %19
-  %21 = shl nuw i32 1, %20
-  %.0.i.i.i.i = select i1 %18, i32 %13, i32 %21
+  %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
+  %16 = icmp ult i32 %15, 2
+  %or.cond.i.i.i.i = select i1 %14, i1 %16, i1 false
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
+  %18 = sub nuw nsw i32 32, %17
+  %19 = shl nuw i32 1, %18
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %13, i32 %19
   tail call void @_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %7, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit
 
 _ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit: ; preds = %2, %12
-  %22 = phi i32 [ %.pre.i, %12 ], [ %8, %2 ]
-  %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = sext i32 %22 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
-  store ptr %1, ptr %27, align 8
+  %20 = phi i32 [ %.pre.i, %12 ], [ %8, %2 ]
+  %21 = add nsw i32 %20, 1
+  store i32 %21, ptr %7, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = sext i32 %20 to i64
+  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
+  store ptr %1, ptr %25, align 8
+  %26 = load i64, ptr %0, align 8
+  %27 = lshr i64 %26, 3
+  store i64 %27, ptr %1, align 8
   %28 = load i64, ptr %0, align 8
-  %29 = lshr i64 %28, 3
-  store i64 %29, ptr %1, align 8
-  %30 = load i64, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
-  %32 = load i32, ptr %31, align 8
-  %33 = sext i32 %32 to i64
-  %34 = add i64 %30, 7
-  %35 = add i64 %34, %33
-  %36 = and i64 %35, -8
-  store i64 %36, ptr %0, align 8
-  %37 = lshr i64 %35, 3
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
-  %40 = load i64, ptr %39, align 8
-  %.not = icmp ugt i64 %40, %37
-  br i1 %.not, label %45, label %41
+  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = load i32, ptr %29, align 8
+  %31 = sext i32 %30 to i64
+  %32 = add i64 %28, 7
+  %33 = add i64 %32, %31
+  %34 = and i64 %33, -8
+  store i64 %34, ptr %0, align 8
+  %35 = lshr i64 %33, 3
+  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = load i64, ptr %37, align 8
+  %.not = icmp ugt i64 %38, %35
+  br i1 %.not, label %43, label %39
 
-41:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
-  %43 = shl nuw nsw i64 %37, 1
-  %44 = add nuw nsw i64 %43, 2
-  tail call void @_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %42, i64 noundef %44, i1 noundef zeroext true) #19
-  br label %45
+39:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = shl nuw nsw i64 %35, 1
+  %42 = add nuw nsw i64 %41, 2
+  tail call void @_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %42, i1 noundef zeroext true) #19
+  br label %43
 
-45:                                               ; preds = %41, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit
+43:                                               ; preds = %39, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit
   ret void
 }
 
@@ -1121,12 +1120,12 @@ define hidden noundef zeroext i1 @_ZN14ArchiveBuilder23gather_klass_and_symbolEP
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %104, label %9
+  br i1 %8, label %100, label %9
 
 9:                                                ; preds = %3
   %10 = tail call noundef i32 @_ZN14ArchiveBuilder15get_follow_modeEPN16MetaspaceClosure3RefE(ptr nonnull align 8 poison, ptr noundef nonnull %1)
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %104
+  br i1 %.not, label %11, label %100
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr %1, align 8
@@ -1135,7 +1134,7 @@ define hidden noundef zeroext i1 @_ZN14ArchiveBuilder23gather_klass_and_symbolEP
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   %16 = icmp eq i32 %15, 0
   %17 = load ptr, ptr %1, align 8
-  br i1 %16, label %18, label %62
+  br i1 %16, label %18, label %60
 
 18:                                               ; preds = %11
   %19 = load ptr, ptr %17, align 8
@@ -1165,7 +1164,7 @@ define hidden noundef zeroext i1 @_ZN14ArchiveBuilder23gather_klass_and_symbolEP
 _ZN14ArchiveBuilder11is_excludedEP5Klass.exit:    ; preds = %18, %31
   %.sink.i = phi ptr [ %21, %18 ], [ %29, %31 ]
   %35 = tail call noundef zeroext i1 @_ZN22SystemDictionaryShared17is_excluded_classEP13InstanceKlass(ptr noundef nonnull %.sink.i) #19
-  br i1 %35, label %58, label %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit.thread
+  br i1 %35, label %56, label %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit.thread
 
 _ZN14ArchiveBuilder11is_excludedEP5Klass.exit.thread: ; preds = %31, %25, %27, %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 600
@@ -1179,98 +1178,96 @@ _ZN14ArchiveBuilder11is_excludedEP5Klass.exit.thread: ; preds = %31, %25, %27, %
 42:                                               ; preds = %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit.thread
   %43 = add nsw i32 %38, 1
   %44 = icmp sgt i32 %38, -1
-  %45 = xor i32 %38, -2147483648
-  %46 = and i32 %45, %43
-  %47 = icmp eq i32 %46, 0
-  %48 = and i1 %44, %47
-  %49 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %43, i1 true)
-  %50 = sub nuw nsw i32 32, %49
-  %51 = shl nuw i32 1, %50
-  %.0.i.i.i.i = select i1 %48, i32 %43, i32 %51
+  %45 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %43)
+  %46 = icmp ult i32 %45, 2
+  %or.cond.i.i.i.i = select i1 %44, i1 %46, i1 false
+  %47 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %43, i1 true)
+  %48 = sub nuw nsw i32 32, %47
+  %49 = shl nuw i32 1, %48
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %43, i32 %49
   tail call void @_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %37, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %37, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit.thread, %42
-  %52 = phi i32 [ %.pre.i, %42 ], [ %38, %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit.thread ]
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %37, align 8
-  %54 = getelementptr inbounds i8, ptr %37, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = sext i32 %52 to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
-  store ptr %21, ptr %57, align 8
-  br label %58
+  %50 = phi i32 [ %.pre.i, %42 ], [ %38, %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit.thread ]
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %37, align 8
+  %52 = getelementptr inbounds i8, ptr %37, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = sext i32 %50 to i64
+  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  store ptr %21, ptr %55, align 8
+  br label %56
 
-58:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE6appendERKS1_.exit, %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit
-  %59 = getelementptr inbounds i8, ptr %0, i64 1064
-  %60 = load i64, ptr %59, align 8
-  %61 = add i64 %60, 8
-  store i64 %61, ptr %59, align 8
-  br label %94
+56:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE6appendERKS1_.exit, %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit
+  %57 = getelementptr inbounds i8, ptr %0, i64 1064
+  %58 = load i64, ptr %57, align 8
+  %59 = add i64 %58, 8
+  store i64 %59, ptr %57, align 8
+  br label %90
 
-62:                                               ; preds = %11
-  %63 = getelementptr inbounds i8, ptr %17, i64 40
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
-  %66 = icmp eq i32 %65, 1
-  br i1 %66, label %67, label %94
+60:                                               ; preds = %11
+  %61 = getelementptr inbounds i8, ptr %17, i64 40
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %64 = icmp eq i32 %63, 1
+  br i1 %64, label %65, label %90
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %1, align 8
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %1, align 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  tail call void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %69) #19
+  %70 = getelementptr inbounds i8, ptr %0, i64 608
   %71 = load ptr, ptr %70, align 8
-  tail call void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %71) #19
-  %72 = getelementptr inbounds i8, ptr %0, i64 608
-  %73 = load ptr, ptr %72, align 8
-  %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %73, i64 4
-  %76 = load i32, ptr %75, align 4
-  %77 = icmp eq i32 %74, %76
-  br i1 %77, label %78, label %_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE6appendERKS1_.exit
+  %72 = load i32, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %71, i64 4
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp eq i32 %72, %74
+  br i1 %75, label %76, label %_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE6appendERKS1_.exit
 
-78:                                               ; preds = %67
-  %79 = add nsw i32 %74, 1
-  %80 = icmp sgt i32 %74, -1
-  %81 = xor i32 %74, -2147483648
-  %82 = and i32 %81, %79
-  %83 = icmp eq i32 %82, 0
-  %84 = and i1 %80, %83
-  %85 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %79, i1 true)
-  %86 = sub nuw nsw i32 32, %85
-  %87 = shl nuw i32 1, %86
-  %.0.i.i.i.i9 = select i1 %84, i32 %79, i32 %87
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %73, i32 noundef %.0.i.i.i.i9)
-  %.pre.i10 = load i32, ptr %73, align 8
+76:                                               ; preds = %65
+  %77 = add nsw i32 %72, 1
+  %78 = icmp sgt i32 %72, -1
+  %79 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %77)
+  %80 = icmp ult i32 %79, 2
+  %or.cond.i.i.i.i9 = select i1 %78, i1 %80, i1 false
+  %81 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %77, i1 true)
+  %82 = sub nuw nsw i32 32, %81
+  %83 = shl nuw i32 1, %82
+  %.0.i.i.i.i10 = select i1 %or.cond.i.i.i.i9, i32 %77, i32 %83
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %71, i32 noundef %.0.i.i.i.i10)
+  %.pre.i11 = load i32, ptr %71, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE6appendERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %67, %78
-  %88 = phi i32 [ %.pre.i10, %78 ], [ %74, %67 ]
-  %89 = add nsw i32 %88, 1
-  store i32 %89, ptr %73, align 8
-  %90 = getelementptr inbounds i8, ptr %73, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = sext i32 %88 to i64
-  %93 = getelementptr inbounds ptr, ptr %91, i64 %92
-  store ptr %71, ptr %93, align 8
-  br label %94
+_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %65, %76
+  %84 = phi i32 [ %.pre.i11, %76 ], [ %72, %65 ]
+  %85 = add nsw i32 %84, 1
+  store i32 %85, ptr %71, align 8
+  %86 = getelementptr inbounds i8, ptr %71, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = sext i32 %84 to i64
+  %89 = getelementptr inbounds ptr, ptr %87, i64 %88
+  store ptr %69, ptr %89, align 8
+  br label %90
 
-94:                                               ; preds = %62, %_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE6appendERKS1_.exit, %58
-  %95 = load ptr, ptr %1, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
-  %97 = load ptr, ptr %96, align 8
-  %98 = tail call noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
-  %99 = shl nsw i32 %98, 3
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i8, ptr %0, i64 1064
-  %102 = load i64, ptr %101, align 8
-  %103 = add i64 %102, %100
-  store i64 %103, ptr %101, align 8
-  br label %104
+90:                                               ; preds = %60, %_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE6appendERKS1_.exit, %56
+  %91 = load ptr, ptr %1, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 16
+  %93 = load ptr, ptr %92, align 8
+  %94 = tail call noundef i32 %93(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %95 = shl nsw i32 %94, 3
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds i8, ptr %0, i64 1064
+  %98 = load i64, ptr %97, align 8
+  %99 = add i64 %98, %96
+  store i64 %99, ptr %97, align 8
+  br label %100
 
-104:                                              ; preds = %9, %3, %94
-  %.0 = phi i1 [ true, %94 ], [ false, %3 ], [ false, %9 ]
+100:                                              ; preds = %9, %3, %90
+  %.0 = phi i1 [ true, %90 ], [ false, %3 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -1281,9 +1278,9 @@ define hidden noundef range(i32 0, 3) i32 @_ZN14ArchiveBuilder15get_follow_modeE
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @_ZN12MetaspaceObj21_shared_metaspace_topE, align 8
-  %8 = icmp ugt ptr %7, %6
+  %8 = icmp ult ptr %6, %7
   %9 = load ptr, ptr @_ZN12MetaspaceObj22_shared_metaspace_baseE, align 8
-  %10 = icmp ule ptr %9, %6
+  %10 = icmp uge ptr %6, %9
   %11 = select i1 %8, i1 %10, i1 false
   br i1 %11, label %_ZN12ResourceMarkD2Ev.exit, label %12
 
@@ -2129,16 +2126,16 @@ _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhN14ArchiveBuil
   store i8 %67, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 33
   store i8 0, ptr %.sroa.3.0..sroa_idx, align 1
-  %.sroa.421.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 36
-  store i32 %66, ptr %.sroa.421.0..sroa_idx, align 4
+  %.sroa.422.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 36
+  store i32 %66, ptr %.sroa.422.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 40
   store i32 %72, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 44
   store i32 0, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 48
   store i32 %76, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.922.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 56
-  store ptr %80, ptr %.sroa.922.0..sroa_idx, align 8
+  %.sroa.923.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 56
+  store ptr %80, ptr %.sroa.923.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 64
   store ptr %.sink.i, ptr %.sroa.10.0..sroa_idx, align 8
   %114 = getelementptr inbounds i8, ptr %109, i64 72
@@ -2243,7 +2240,7 @@ _ZN27ResizeableResourceHashtableIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15a
 
 156:                                              ; preds = %_ZN27ResizeableResourceHashtableIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS9_S9_EEE10maybe_growEib.exit.thread
   %157 = getelementptr inbounds i8, ptr %119, i64 44
-  br i1 %2, label %158, label %197
+  br i1 %2, label %158, label %195
 
 158:                                              ; preds = %156
   %159 = getelementptr inbounds i8, ptr %0, i64 512
@@ -2261,109 +2258,107 @@ _ZN27ResizeableResourceHashtableIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15a
 168:                                              ; preds = %158
   %169 = add nsw i32 %164, 1
   %170 = icmp sgt i32 %164, -1
-  %171 = xor i32 %164, -2147483648
-  %172 = and i32 %171, %169
-  %173 = icmp eq i32 %172, 0
-  %174 = and i1 %170, %173
-  %175 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
-  %176 = sub nuw nsw i32 32, %175
-  %177 = shl nuw i32 1, %176
-  %.0.i.i.i.i.i = select i1 %174, i32 %169, i32 %177
+  %171 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %169)
+  %172 = icmp ult i32 %171, 2
+  %or.cond.i.i.i.i.i = select i1 %170, i1 %172, i1 false
+  %173 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
+  %174 = sub nuw nsw i32 32, %173
+  %175 = shl nuw i32 1, %174
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %169, i32 %175
   tail call void @_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %163, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i14 = load i32, ptr %163, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i
 
 _ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i: ; preds = %168, %158
-  %178 = phi i32 [ %.pre.i.i14, %168 ], [ %164, %158 ]
-  %179 = add nsw i32 %178, 1
-  store i32 %179, ptr %163, align 8
-  %180 = getelementptr inbounds i8, ptr %163, i64 8
-  %181 = load ptr, ptr %180, align 8
-  %182 = sext i32 %178 to i64
-  %183 = getelementptr inbounds ptr, ptr %181, i64 %182
-  store ptr %120, ptr %183, align 8
+  %176 = phi i32 [ %.pre.i.i14, %168 ], [ %164, %158 ]
+  %177 = add nsw i32 %176, 1
+  store i32 %177, ptr %163, align 8
+  %178 = getelementptr inbounds i8, ptr %163, i64 8
+  %179 = load ptr, ptr %178, align 8
+  %180 = sext i32 %176 to i64
+  %181 = getelementptr inbounds ptr, ptr %179, i64 %180
+  store ptr %120, ptr %181, align 8
+  %182 = load i64, ptr %159, align 8
+  %183 = lshr i64 %182, 3
+  store i64 %183, ptr %120, align 8
   %184 = load i64, ptr %159, align 8
-  %185 = lshr i64 %184, 3
-  store i64 %185, ptr %120, align 8
-  %186 = load i64, ptr %159, align 8
-  %187 = getelementptr inbounds i8, ptr %119, i64 40
-  %188 = load i32, ptr %187, align 8
-  %189 = sext i32 %188 to i64
-  %190 = add i64 %186, 7
-  %191 = add i64 %190, %189
-  %192 = and i64 %191, -8
-  store i64 %192, ptr %159, align 8
-  %193 = lshr i64 %191, 3
-  %194 = getelementptr inbounds i8, ptr %119, i64 24
-  store i64 %193, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %0, i64 536
-  %196 = load i64, ptr %195, align 8
-  %.not.i13 = icmp ugt i64 %196, %193
+  %185 = getelementptr inbounds i8, ptr %119, i64 40
+  %186 = load i32, ptr %185, align 8
+  %187 = sext i32 %186 to i64
+  %188 = add i64 %184, 7
+  %189 = add i64 %188, %187
+  %190 = and i64 %189, -8
+  store i64 %190, ptr %159, align 8
+  %191 = lshr i64 %189, 3
+  %192 = getelementptr inbounds i8, ptr %119, i64 24
+  store i64 %191, ptr %192, align 8
+  %193 = getelementptr inbounds i8, ptr %0, i64 536
+  %194 = load i64, ptr %193, align 8
+  %.not.i13 = icmp ugt i64 %194, %191
   br i1 %.not.i13, label %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit, label %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit.sink.split
 
-197:                                              ; preds = %156
-  %198 = getelementptr inbounds i8, ptr %0, i64 472
-  %199 = getelementptr inbounds i8, ptr %0, i64 480
-  %200 = load ptr, ptr %199, align 8
-  %201 = load i32, ptr %200, align 4
-  store i32 %201, ptr %157, align 4
-  %202 = load ptr, ptr %199, align 8
-  %203 = load i32, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %202, i64 4
-  %205 = load i32, ptr %204, align 4
-  %206 = icmp eq i32 %203, %205
-  br i1 %206, label %207, label %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15
+195:                                              ; preds = %156
+  %196 = getelementptr inbounds i8, ptr %0, i64 472
+  %197 = getelementptr inbounds i8, ptr %0, i64 480
+  %198 = load ptr, ptr %197, align 8
+  %199 = load i32, ptr %198, align 4
+  store i32 %199, ptr %157, align 4
+  %200 = load ptr, ptr %197, align 8
+  %201 = load i32, ptr %200, align 8
+  %202 = getelementptr inbounds i8, ptr %200, i64 4
+  %203 = load i32, ptr %202, align 4
+  %204 = icmp eq i32 %201, %203
+  br i1 %204, label %205, label %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15
 
-207:                                              ; preds = %197
-  %208 = add nsw i32 %203, 1
-  %209 = icmp sgt i32 %203, -1
-  %210 = xor i32 %203, -2147483648
-  %211 = and i32 %210, %208
-  %212 = icmp eq i32 %211, 0
-  %213 = and i1 %209, %212
-  %214 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %208, i1 true)
-  %215 = sub nuw nsw i32 32, %214
-  %216 = shl nuw i32 1, %215
-  %.0.i.i.i.i.i17 = select i1 %213, i32 %208, i32 %216
-  tail call void @_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %202, i32 noundef %.0.i.i.i.i.i17)
-  %.pre.i.i18 = load i32, ptr %202, align 8
+205:                                              ; preds = %195
+  %206 = add nsw i32 %201, 1
+  %207 = icmp sgt i32 %201, -1
+  %208 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %206)
+  %209 = icmp ult i32 %208, 2
+  %or.cond.i.i.i.i.i17 = select i1 %207, i1 %209, i1 false
+  %210 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %206, i1 true)
+  %211 = sub nuw nsw i32 32, %210
+  %212 = shl nuw i32 1, %211
+  %.0.i.i.i.i.i18 = select i1 %or.cond.i.i.i.i.i17, i32 %206, i32 %212
+  tail call void @_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %200, i32 noundef %.0.i.i.i.i.i18)
+  %.pre.i.i19 = load i32, ptr %200, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15
 
-_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15: ; preds = %207, %197
-  %217 = phi i32 [ %.pre.i.i18, %207 ], [ %203, %197 ]
-  %218 = add nsw i32 %217, 1
-  store i32 %218, ptr %202, align 8
-  %219 = getelementptr inbounds i8, ptr %202, i64 8
-  %220 = load ptr, ptr %219, align 8
-  %221 = sext i32 %217 to i64
-  %222 = getelementptr inbounds ptr, ptr %220, i64 %221
-  store ptr %120, ptr %222, align 8
-  %223 = load i64, ptr %198, align 8
-  %224 = lshr i64 %223, 3
-  store i64 %224, ptr %120, align 8
-  %225 = load i64, ptr %198, align 8
-  %226 = getelementptr inbounds i8, ptr %119, i64 40
-  %227 = load i32, ptr %226, align 8
-  %228 = sext i32 %227 to i64
-  %229 = add i64 %225, 7
-  %230 = add i64 %229, %228
-  %231 = and i64 %230, -8
-  store i64 %231, ptr %198, align 8
-  %232 = lshr i64 %230, 3
-  %233 = getelementptr inbounds i8, ptr %119, i64 24
-  store i64 %232, ptr %233, align 8
-  %234 = getelementptr inbounds i8, ptr %0, i64 496
-  %235 = load i64, ptr %234, align 8
-  %.not.i16 = icmp ugt i64 %235, %232
+_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15: ; preds = %205, %195
+  %213 = phi i32 [ %.pre.i.i19, %205 ], [ %201, %195 ]
+  %214 = add nsw i32 %213, 1
+  store i32 %214, ptr %200, align 8
+  %215 = getelementptr inbounds i8, ptr %200, i64 8
+  %216 = load ptr, ptr %215, align 8
+  %217 = sext i32 %213 to i64
+  %218 = getelementptr inbounds ptr, ptr %216, i64 %217
+  store ptr %120, ptr %218, align 8
+  %219 = load i64, ptr %196, align 8
+  %220 = lshr i64 %219, 3
+  store i64 %220, ptr %120, align 8
+  %221 = load i64, ptr %196, align 8
+  %222 = getelementptr inbounds i8, ptr %119, i64 40
+  %223 = load i32, ptr %222, align 8
+  %224 = sext i32 %223 to i64
+  %225 = add i64 %221, 7
+  %226 = add i64 %225, %224
+  %227 = and i64 %226, -8
+  store i64 %227, ptr %196, align 8
+  %228 = lshr i64 %226, 3
+  %229 = getelementptr inbounds i8, ptr %119, i64 24
+  store i64 %228, ptr %229, align 8
+  %230 = getelementptr inbounds i8, ptr %0, i64 496
+  %231 = load i64, ptr %230, align 8
+  %.not.i16 = icmp ugt i64 %231, %228
   br i1 %.not.i16, label %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit, label %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit.sink.split
 
 _ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit.sink.split: ; preds = %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i
-  %.sink37 = phi i64 [ 528, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i ], [ 488, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15 ]
-  %.sink36 = phi i64 [ %193, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i ], [ %232, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15 ]
-  %236 = getelementptr inbounds i8, ptr %0, i64 %.sink37
-  %237 = shl nuw nsw i64 %.sink36, 1
-  %238 = add nuw nsw i64 %237, 2
-  tail call void @_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %236, i64 noundef %238, i1 noundef zeroext true) #19
+  %.sink38 = phi i64 [ 528, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i ], [ 488, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15 ]
+  %.sink37 = phi i64 [ %191, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i ], [ %228, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15 ]
+  %232 = getelementptr inbounds i8, ptr %0, i64 %.sink38
+  %233 = shl nuw nsw i64 %.sink37, 1
+  %234 = add nuw nsw i64 %233, 2
+  tail call void @_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %232, i64 noundef %234, i1 noundef zeroext true) #19
   br label %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit
 
 _ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit: ; preds = %101, %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit.sink.split, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i, %_ZN27ResizeableResourceHashtableIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS9_S9_EEE10maybe_growEib.exit.thread, %9, %3
@@ -2489,7 +2484,7 @@ define hidden void @_ZN14ArchiveBuilder25record_regenerated_objectEPhS0_(ptr noc
 19:                                               ; preds = %.lr.ph.i.i.i
   %20 = getelementptr inbounds i8, ptr %16, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, %2
+  %22 = icmp eq ptr %2, %21
   br i1 %22, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_S3_LS5_2ELS6_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE3getERKS1_.exit, label %23
 
 23:                                               ; preds = %19, %.lr.ph.i.i.i
@@ -2529,7 +2524,7 @@ _ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhN14ArchiveBui
 44:                                               ; preds = %.lr.ph.i.i
   %45 = getelementptr inbounds i8, ptr %.pr.i, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, %1
+  %47 = icmp eq ptr %1, %46
   br i1 %47, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_S3_LS5_2ELS6_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE13put_if_absentERKS1_RKS3_Pb.exit, label %48
 
 48:                                               ; preds = %44, %.lr.ph.i.i
@@ -3358,7 +3353,7 @@ define hidden void @_ZN14ArchiveBuilder23write_pointer_in_bufferEPPhS0_(ptr noca
 22:                                               ; preds = %.lr.ph.i.i.i.i
   %23 = getelementptr inbounds i8, ptr %19, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, %2
+  %25 = icmp eq ptr %2, %24
   br i1 %25, label %_ZNK14ArchiveBuilder17get_buffered_addrEPh.exit, label %26
 
 26:                                               ; preds = %22, %.lr.ph.i.i.i.i
@@ -3410,7 +3405,7 @@ define hidden noundef ptr @_ZNK14ArchiveBuilder17get_buffered_addrEPh(ptr nocapt
 18:                                               ; preds = %.lr.ph.i.i.i
   %19 = getelementptr inbounds i8, ptr %15, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, %1
+  %21 = icmp eq ptr %1, %20
   br i1 %21, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_S3_LS5_2ELS6_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE3getERKS1_.exit, label %22
 
 22:                                               ; preds = %18, %.lr.ph.i.i.i
@@ -3437,7 +3432,7 @@ define hidden void @_ZN14ArchiveBuilder34mark_and_relocate_to_buffered_addrEPPh(
   %.not.i = icmp ule ptr %5, %3
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp ugt ptr %7, %3
+  %8 = icmp ult ptr %3, %7
   %9 = select i1 %.not.i, i1 %8, i1 false
   br i1 %9, label %37, label %10
 
@@ -3466,7 +3461,7 @@ define hidden void @_ZN14ArchiveBuilder34mark_and_relocate_to_buffered_addrEPPh(
 26:                                               ; preds = %.lr.ph.i.i.i.i
   %27 = getelementptr inbounds i8, ptr %23, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %3
+  %29 = icmp eq ptr %3, %28
   br i1 %29, label %_ZNK14ArchiveBuilder17get_buffered_addrEPh.exit, label %30
 
 30:                                               ; preds = %26, %.lr.ph.i.i.i.i
@@ -3515,7 +3510,7 @@ define hidden noundef ptr @_ZNK14ArchiveBuilder15get_source_addrEPh(ptr nocaptur
 17:                                               ; preds = %.lr.ph.i.i.i
   %18 = getelementptr inbounds i8, ptr %14, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, %1
+  %20 = icmp eq ptr %1, %19
   br i1 %20, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhS1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_S1_LS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE3getERKS1_.exit, label %21
 
 21:                                               ; preds = %17, %.lr.ph.i.i.i
@@ -3910,7 +3905,7 @@ define hidden void @_ZN14ArchiveBuilder22make_klasses_shareableEv(ptr nocapture 
 33:                                               ; preds = %.lr.ph.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, %19
+  %36 = icmp eq ptr %19, %35
   br i1 %36, label %_ZNK14ArchiveBuilder17get_buffered_addrIP5KlassEET_S3_.exit, label %37
 
 37:                                               ; preds = %33, %.lr.ph.i.i.i.i.i
@@ -3985,7 +3980,7 @@ _ZNK14ArchiveBuilder17get_buffered_addrIP5KlassEET_S3_.exit: ; preds = %33, %37,
 74:                                               ; preds = %.lr.ph.i.i.i.i.i82
   %75 = getelementptr inbounds i8, ptr %71, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, %60
+  %77 = icmp eq ptr %60, %76
   br i1 %77, label %_ZNK14ArchiveBuilder17get_buffered_addrIP5KlassEET_S3_.exit86, label %78
 
 78:                                               ; preds = %74, %.lr.ph.i.i.i.i.i82
@@ -4329,7 +4324,7 @@ define hidden noundef i64 @_ZNK14ArchiveBuilder13any_to_offsetEPh(ptr nocapture 
   %.not.i = icmp ule ptr %4, %1
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i, i1 %7, i1 false
   br i1 %8, label %49, label %9
 
@@ -4344,7 +4339,7 @@ _ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit: ; preds = %9
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp ugt ptr %15, %1
+  %16 = icmp ult ptr %1, %15
   br i1 %16, label %43, label %_ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread
 
 _ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread: ; preds = %9, %_ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit
@@ -4372,7 +4367,7 @@ _ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread: ; preds = %9, %_ZNK14Ar
 32:                                               ; preds = %.lr.ph.i.i.i.i
   %33 = getelementptr inbounds i8, ptr %29, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, %1
+  %35 = icmp eq ptr %1, %34
   br i1 %35, label %_ZNK14ArchiveBuilder17get_buffered_addrEPh.exit, label %36
 
 36:                                               ; preds = %32, %.lr.ph.i.i.i.i
@@ -4435,7 +4430,7 @@ define hidden noundef i32 @_ZN14ArchiveBuilder26get_requested_narrow_klassEP5Kla
 19:                                               ; preds = %.lr.ph.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %16, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, %1
+  %22 = icmp eq ptr %1, %21
   br i1 %22, label %_ZN14ArchiveBuilder18get_buffered_klassEP5Klass.exit, label %23
 
 23:                                               ; preds = %19, %.lr.ph.i.i.i.i.i
@@ -5496,7 +5491,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN24RelocateEmbeddedPointers6do_
 28:                                               ; preds = %.lr.ph.i.i.i.i
   %29 = getelementptr inbounds i8, ptr %25, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, %10
+  %31 = icmp eq ptr %10, %30
   br i1 %31, label %_ZNK14ArchiveBuilder17get_buffered_addrEPh.exit, label %32
 
 32:                                               ; preds = %28, %.lr.ph.i.i.i.i
@@ -6557,7 +6552,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %13, %23
 41:                                               ; preds = %.lr.ph.i.i.i.i.i
   %42 = getelementptr inbounds i8, ptr %38, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, %.0.i
+  %44 = icmp eq ptr %.0.i, %43
   br i1 %44, label %_ZNK14ArchiveBuilder17get_buffered_addrIP5KlassEET_S3_.exit, label %45
 
 45:                                               ; preds = %41, %.lr.ph.i.i.i.i.i
@@ -6835,7 +6830,7 @@ _ZN14AccessInternal15BarrierResolverILm2383942EPFP7oopDescS2_lELNS_11BarrierType
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm2383974ES1_EELNS_11BarrierTypeE3ELm2383974EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -6854,7 +6849,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm2383974ES1_EELNS_11BarrierTypeE3ELm2383974EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -6873,7 +6868,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm2383974ES1_EELNS_11BarrierTypeE3ELm2383974EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -6892,7 +6887,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm2383974ES1_EELNS_11BarrierTypeE3ELm2383974EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -6939,7 +6934,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm2383974ES1_EELNS_11BarrierTypeE3ELm2383974EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -6992,7 +6987,7 @@ _ZN11XBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm2383974ES1_EELNS_11BarrierTypeE3ELm2383974EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %5, i64 noundef %6)
@@ -7043,7 +7038,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -7253,7 +7248,7 @@ declare noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11ZGenera
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE3ELm2383942EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -7262,7 +7257,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE3ELm2383942EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -7271,7 +7266,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE3ELm2383942EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -7280,7 +7275,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE3ELm2383942EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -7304,7 +7299,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE3ELm2383942EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -7347,7 +7342,7 @@ _ZN11XBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE3ELm2383942EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %5, i64 noundef %6)
@@ -7533,7 +7528,7 @@ _ZN14AccessInternal15BarrierResolverILm286790EPFP7oopDescS2_lELNS_11BarrierTypeE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -7552,7 +7547,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -7571,7 +7566,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -7590,7 +7585,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -7637,7 +7632,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oop
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -7690,7 +7685,7 @@ _ZN11XBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %5, i64 noundef %6)
@@ -7701,7 +7696,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -7710,7 +7705,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -7719,7 +7714,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -7728,7 +7723,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -7752,7 +7747,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oop
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -7795,7 +7790,7 @@ _ZN11XBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %5, i64 noundef %6)
@@ -8576,7 +8571,7 @@ _ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit: ; preds = %18
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = icmp ugt ptr %26, %6
+  %27 = icmp ult ptr %6, %26
   br i1 %27, label %28, label %_ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread
 
 _ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread: ; preds = %18, %_ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit
@@ -8595,6 +8590,9 @@ _ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread: ; preds = %18, %_ZNK14A
 31:                                               ; preds = %28, %8
   ret i1 true
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17

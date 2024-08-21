@@ -40,7 +40,7 @@ define hidden range(i32 -1, 2) i32 @timelib_astro_rise_set_altitude(ptr noundef 
   %35 = tail call double @llvm.floor.f64(double %34)
   %36 = tail call noundef double @llvm.fmuladd.f64(double %35, double -3.600000e+02, double %33)
   %37 = fadd double %36, 1.800000e+02
-  %38 = fadd double %37, %1
+  %38 = fadd double %1, %37
   %39 = fmul double %38, 0x3F66C16C16C16C17
   %40 = tail call double @llvm.floor.f64(double %39)
   %41 = tail call noundef double @llvm.fmuladd.f64(double %40, double -3.600000e+02, double %38)

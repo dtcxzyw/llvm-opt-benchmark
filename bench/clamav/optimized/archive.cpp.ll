@@ -359,7 +359,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit73: ; preds = %_Z9uiMsgBaseIRA204
   %140 = add i64 %138, 1
   %141 = getelementptr inbounds i8, ptr %1, i64 16
   %142 = load i64, ptr %141, align 8
-  %143 = icmp ult i64 %142, %140
+  %143 = icmp ugt i64 %140, %142
   %144 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %140, ptr %144, align 8
   br i1 %143, label %145, label %._ZN5ArrayIwE5AllocEm.exit_crit_edge
@@ -372,7 +372,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit73: ; preds = %_Z9uiMsgBaseIRA204
   %146 = getelementptr inbounds i8, ptr %1, i64 24
   %147 = load i64, ptr %146, align 8
   %.not.i.i = icmp ne i64 %147, 0
-  %148 = icmp ult i64 %147, %140
+  %148 = icmp ugt i64 %140, %147
   %or.cond.i.i = and i1 %.not.i.i, %148
   br i1 %or.cond.i.i, label %149, label %150
 
@@ -427,7 +427,7 @@ _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %._ZN5ArrayIwE5Alloc
   %169 = load ptr, ptr %1, align 8
   %170 = call i64 @wcslen(ptr noundef %169) #19
   %171 = load i64, ptr %141, align 8
-  %172 = icmp ult i64 %171, %170
+  %172 = icmp ugt i64 %170, %171
   store i64 %170, ptr %144, align 8
   br i1 %172, label %173, label %189
 
@@ -435,7 +435,7 @@ _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %._ZN5ArrayIwE5Alloc
   %174 = getelementptr inbounds i8, ptr %1, i64 24
   %175 = load i64, ptr %174, align 8
   %.not.i.i76 = icmp ne i64 %175, 0
-  %176 = icmp ult i64 %175, %170
+  %176 = icmp ugt i64 %170, %175
   %or.cond.i.i77 = and i1 %.not.i.i76, %176
   br i1 %or.cond.i.i77, label %177, label %178
 
@@ -658,7 +658,7 @@ _ZN5ArrayIwE5AllocEm.exit111:                     ; preds = %_ZN5ArrayIwE3AddEm.
   %260 = load ptr, ptr %1, align 8
   %261 = tail call i64 @wcslen(ptr noundef %260) #19
   %262 = load i64, ptr %225, align 8
-  %263 = icmp ult i64 %262, %261
+  %263 = icmp ugt i64 %261, %262
   store i64 %261, ptr %228, align 8
   br i1 %263, label %264, label %_ZN5ArrayIhED2Ev.exit132.thread172
 
@@ -666,7 +666,7 @@ _ZN5ArrayIwE5AllocEm.exit111:                     ; preds = %_ZN5ArrayIwE3AddEm.
   %265 = getelementptr inbounds i8, ptr %1, i64 24
   %266 = load i64, ptr %265, align 8
   %.not.i.i121 = icmp ne i64 %266, 0
-  %267 = icmp ult i64 %266, %261
+  %267 = icmp ugt i64 %261, %266
   %or.cond.i.i122 = and i1 %.not.i.i121, %267
   br i1 %or.cond.i.i122, label %268, label %269
 
@@ -831,7 +831,7 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %6, %9
   store i8 0, ptr %36, align 1
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i64, ptr %37, align 8
-  %39 = icmp ult i64 %38, %13
+  %39 = icmp ugt i64 %13, %38
   %40 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %13, ptr %40, align 8
   br i1 %39, label %41, label %_ZN5ArrayIwE5AllocEm.exit
@@ -840,7 +840,7 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %6, %9
   %42 = getelementptr inbounds i8, ptr %1, i64 24
   %43 = load i64, ptr %42, align 8
   %.not.i.i17 = icmp ne i64 %43, 0
-  %44 = icmp ult i64 %43, %13
+  %44 = icmp ugt i64 %13, %43
   %or.cond.i.i18 = and i1 %.not.i.i17, %44
   br i1 %or.cond.i.i18, label %45, label %46
 
@@ -921,7 +921,7 @@ _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %_ZN5ArrayIwE3AddEm.
   %81 = load ptr, ptr %1, align 8
   %82 = call i64 @wcslen(ptr noundef %81) #19
   %83 = load i64, ptr %37, align 8
-  %84 = icmp ult i64 %83, %82
+  %84 = icmp ugt i64 %82, %83
   store i64 %82, ptr %40, align 8
   br i1 %84, label %85, label %_ZN5ArrayIwE5AllocEm.exit34
 
@@ -929,7 +929,7 @@ _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %_ZN5ArrayIwE3AddEm.
   %86 = getelementptr inbounds i8, ptr %1, i64 24
   %87 = load i64, ptr %86, align 8
   %.not.i.i25 = icmp ne i64 %87, 0
-  %88 = icmp ult i64 %87, %82
+  %88 = icmp ugt i64 %82, %87
   %or.cond.i.i26 = and i1 %.not.i.i25, %88
   br i1 %or.cond.i.i26, label %89, label %90
 
@@ -1977,7 +1977,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %166
   %207 = load i8, ptr %206, align 1
   %208 = trunc i8 %207 to i1
   %.not65 = xor i1 %208, true
-  %brmerge = or i1 %.not65, %1
+  %brmerge = or i1 %1, %.not65
   br i1 %brmerge, label %209, label %290
 
 209:                                              ; preds = %.thread104

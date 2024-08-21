@@ -178,7 +178,7 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %38 = zext i1 %3 to i32
-  %39 = add nsw i32 %38, %2
+  %39 = add nsw i32 %2, %38
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.preheader, label %.loopexit
 

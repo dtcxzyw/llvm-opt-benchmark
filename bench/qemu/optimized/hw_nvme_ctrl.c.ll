@@ -919,8 +919,8 @@ nvme_addr_is_cmb.exit.i.i:                        ; preds = %if.end.i.i.i
   %cond.in.i.i.i = getelementptr inbounds i8, ptr %n, i64 %cond.in.v.i.i.i
   %cond.i.i.i = load i64, ptr %cond.in.i.i.i, align 16
   %add.i.i.i = add i64 %cond.i.i.i, %coerce.sroa.0.0.extract.trunc.i.i.i
-  %cmp.i.i.i = icmp ule i64 %cond.i.i.i, %2
-  %cmp7.i.i.i = icmp ugt i64 %add.i.i.i, %2
+  %cmp.i.i.i = icmp uge i64 %2, %cond.i.i.i
+  %cmp7.i.i.i = icmp ult i64 %2, %add.i.i.i
   %15 = and i1 %cmp.i.i.i, %cmp7.i.i.i
   br i1 %15, label %nvme_addr_is_dma.exit.thread111.i, label %lor.rhs.i.i
 
@@ -955,8 +955,8 @@ nvme_addr_is_dma.exit.i:                          ; preds = %if.end.i6.i.i
   %cba.i.i.i = getelementptr inbounds i8, ptr %n, i64 7840
   %21 = load i64, ptr %cba.i.i.i, align 16
   %add.i12.i.i = add i64 %21, %coerce.sroa.0.0.extract.trunc.i11.i.i
-  %cmp.i13.i.i = icmp ugt i64 %21, %2
-  %cmp5.i.i.i = icmp ule i64 %add.i12.i.i, %2
+  %cmp.i13.i.i = icmp ult i64 %2, %21
+  %cmp5.i.i.i = icmp uge i64 %2, %add.i12.i.i
   %.not.i.i = or i1 %cmp.i13.i.i, %cmp5.i.i.i
   %22 = getelementptr inbounds i8, ptr %sg, i64 8
   br i1 %.not.i.i, label %if.then.i.i, label %if.else.i.i
@@ -1300,8 +1300,8 @@ nvme_addr_is_cmb.exit.i:                          ; preds = %if.end.i.i
   %cond.in.i.i = getelementptr inbounds i8, ptr %n, i64 %cond.in.v.i.i
   %cond.i.i = load i64, ptr %cond.in.i.i, align 16
   %add.i.i = add i64 %cond.i.i, %coerce.sroa.0.0.extract.trunc.i.i
-  %cmp.i.i = icmp ule i64 %cond.i.i, %sgl.coerce0
-  %cmp7.i.i = icmp ugt i64 %add.i.i, %sgl.coerce0
+  %cmp.i.i = icmp uge i64 %sgl.coerce0, %cond.i.i
+  %cmp7.i.i = icmp ult i64 %sgl.coerce0, %add.i.i
   %11 = and i1 %cmp.i.i, %cmp7.i.i
   br i1 %11, label %nvme_addr_is_dma.exit.thread2, label %lor.rhs.i
 
@@ -1336,8 +1336,8 @@ nvme_addr_is_dma.exit:                            ; preds = %if.end.i6.i
   %cba.i.i = getelementptr inbounds i8, ptr %n, i64 7840
   %17 = load i64, ptr %cba.i.i, align 16
   %add.i12.i = add i64 %17, %coerce.sroa.0.0.extract.trunc.i11.i
-  %cmp.i13.i = icmp ugt i64 %17, %sgl.coerce0
-  %cmp5.i.i = icmp ule i64 %add.i12.i, %sgl.coerce0
+  %cmp.i13.i = icmp ult i64 %sgl.coerce0, %17
+  %cmp5.i.i = icmp uge i64 %sgl.coerce0, %add.i12.i
   %.not.i = or i1 %cmp.i13.i, %cmp5.i.i
   %18 = getelementptr inbounds i8, ptr %sg, i64 8
   br i1 %.not.i, label %if.then.i, label %if.else.i
@@ -1699,10 +1699,10 @@ nvme_addr_is_cmb.exit.i:                          ; preds = %if.end.i.i
   %cond.in.i.i = getelementptr inbounds i8, ptr %n, i64 %cond.in.v.i.i
   %cond.i.i = load i64, ptr %cond.in.i.i, align 16
   %add.i.i = add i64 %cond.i.i, %coerce.sroa.0.0.extract.trunc.i.i
-  %cmp.i.i = icmp ule i64 %cond.i.i, %addr.0
-  %cmp7.i.i = icmp ugt i64 %add.i.i, %addr.0
+  %cmp.i.i = icmp uge i64 %addr.0, %cond.i.i
+  %cmp7.i.i = icmp ult i64 %addr.0, %add.i.i
   %10 = and i1 %cmp.i.i, %cmp7.i.i
-  %cmp7.i37.i = icmp ugt i64 %add.i.i, %sub.i
+  %cmp7.i37.i = icmp ult i64 %sub.i, %add.i.i
   %or.cond = and i1 %10, %cmp7.i37.i
   br i1 %or.cond, label %if.then6.i, label %if.end9.i
 
@@ -1730,10 +1730,10 @@ nvme_addr_is_pmr.exit.i:                          ; preds = %if.end.i47.i
   %coerce.sroa.0.0.extract.trunc.i52.i = trunc nuw i128 %14 to i64
   %15 = load i64, ptr %cba.i.i, align 16
   %add.i53.i = add i64 %15, %coerce.sroa.0.0.extract.trunc.i52.i
-  %cmp.i54.i = icmp ule i64 %15, %addr.0
-  %cmp5.i.i = icmp ugt i64 %add.i53.i, %addr.0
+  %cmp.i54.i = icmp uge i64 %addr.0, %15
+  %cmp5.i.i = icmp ult i64 %addr.0, %add.i53.i
   %16 = and i1 %cmp.i54.i, %cmp5.i.i
-  %cmp5.i68.i = icmp ugt i64 %add.i53.i, %sub.i
+  %cmp5.i68.i = icmp ult i64 %sub.i, %add.i53.i
   %or.cond92 = and i1 %16, %cmp5.i68.i
   br i1 %or.cond92, label %if.then15.i, label %if.end18.i
 
@@ -2063,8 +2063,8 @@ nvme_addr_is_cmb.exit.i:                          ; preds = %if.end.i.i
   %cond.in.i.i = getelementptr inbounds i8, ptr %n, i64 %cond.in.v.i.i
   %cond.i.i = load i64, ptr %cond.in.i.i, align 16
   %add.i.i = add i64 %cond.i.i, %coerce.sroa.0.0.extract.trunc.i.i
-  %cmp.i.i = icmp ule i64 %cond.i.i, %cmd.16.val
-  %cmp7.i.i = icmp ugt i64 %add.i.i, %cmd.16.val
+  %cmp.i.i = icmp uge i64 %cmd.16.val, %cond.i.i
+  %cmp7.i.i = icmp ult i64 %cmd.16.val, %add.i.i
   %7 = and i1 %cmp.i.i, %cmp7.i.i
   br i1 %7, label %nvme_addr_is_dma.exit.thread2, label %lor.rhs.i
 
@@ -2099,8 +2099,8 @@ nvme_addr_is_dma.exit:                            ; preds = %if.end.i6.i
   %cba.i.i = getelementptr inbounds i8, ptr %n, i64 7840
   %13 = load i64, ptr %cba.i.i, align 16
   %add.i12.i = add i64 %13, %coerce.sroa.0.0.extract.trunc.i11.i
-  %cmp.i13.i = icmp ugt i64 %13, %cmd.16.val
-  %cmp5.i.i = icmp ule i64 %add.i12.i, %cmd.16.val
+  %cmp.i13.i = icmp ult i64 %cmd.16.val, %13
+  %cmp5.i.i = icmp uge i64 %cmd.16.val, %add.i12.i
   %.not.i = or i1 %cmp.i13.i, %cmp5.i.i
   %14 = getelementptr inbounds i8, ptr %sg, i64 8
   br i1 %.not.i, label %if.then.i, label %if.else.i
@@ -2763,8 +2763,8 @@ nvme_addr_is_iomem.exit:                          ; preds = %trace_pci_nvme_map_
   %n.val22 = load i64, ptr %7, align 16
   %coerce.sroa.0.0.extract.trunc.i = trunc nuw i128 %n.val to i64
   %add.i = add i64 %n.val22, %coerce.sroa.0.0.extract.trunc.i
-  %cmp.i = icmp ule i64 %n.val22, %addr
-  %cmp3.i = icmp ugt i64 %add.i, %addr
+  %cmp.i = icmp uge i64 %addr, %n.val22
+  %cmp3.i = icmp ult i64 %addr, %add.i
   %8 = and i1 %cmp.i, %cmp3.i
   br i1 %8, label %return, label %if.end2
 
@@ -2793,8 +2793,8 @@ nvme_addr_is_cmb.exit:                            ; preds = %if.end.i
   %cond.in.i = getelementptr inbounds i8, ptr %n, i64 %cond.in.v.i
   %cond.i = load i64, ptr %cond.in.i, align 16
   %add.i27 = add i64 %cond.i, %coerce.sroa.0.0.extract.trunc.i26
-  %cmp.i28 = icmp ule i64 %cond.i, %addr
-  %cmp7.i = icmp ugt i64 %add.i27, %addr
+  %cmp.i28 = icmp uge i64 %addr, %cond.i
+  %cmp7.i = icmp ult i64 %addr, %add.i27
   %12 = and i1 %cmp.i28, %cmp7.i
   br i1 %12, label %if.then11, label %if.else
 
@@ -2821,8 +2821,8 @@ int128_get64.exit.i36:                            ; preds = %if.end.i32
   %cba.i = getelementptr inbounds i8, ptr %n, i64 7840
   %16 = load i64, ptr %cba.i, align 16
   %add.i38 = add i64 %16, %coerce.sroa.0.0.extract.trunc.i37
-  %cmp.i39 = icmp ule i64 %16, %addr
-  %cmp5.i = icmp ugt i64 %add.i38, %addr
+  %cmp.i39 = icmp uge i64 %addr, %16
+  %cmp5.i = icmp ult i64 %addr, %add.i38
   %17 = and i1 %cmp.i39, %cmp5.i
   br i1 %17, label %if.then11, label %if.end22
 
@@ -2962,14 +2962,14 @@ nvme_addr_is_cmb.exit:                            ; preds = %if.end.i
   %cond.in.i = getelementptr inbounds i8, ptr %n, i64 %cond.in.v.i
   %cond.i = load i64, ptr %cond.in.i, align 16
   %add.i = add i64 %cond.i, %coerce.sroa.0.0.extract.trunc.i
-  %cmp.i = icmp ule i64 %cond.i, %addr
-  %cmp7.i = icmp ugt i64 %add.i, %addr
+  %cmp.i = icmp uge i64 %addr, %cond.i
+  %cmp7.i = icmp ult i64 %addr, %add.i
   %4 = and i1 %cmp.i, %cmp7.i
   br i1 %4, label %nvme_addr_is_cmb.exit38, label %if.end9
 
 nvme_addr_is_cmb.exit38:                          ; preds = %nvme_addr_is_cmb.exit
-  %cmp.i36 = icmp ule i64 %cond.i, %sub
-  %cmp7.i37 = icmp ugt i64 %add.i, %sub
+  %cmp.i36 = icmp uge i64 %sub, %cond.i
+  %cmp7.i37 = icmp ult i64 %sub, %add.i
   %5 = and i1 %cmp.i36, %cmp7.i37
   br i1 %5, label %if.then6, label %if.end9
 
@@ -3004,14 +3004,14 @@ nvme_addr_is_pmr.exit:                            ; preds = %if.end.i47
   %cba.i = getelementptr inbounds i8, ptr %n, i64 7840
   %10 = load i64, ptr %cba.i, align 16
   %add.i53 = add i64 %10, %coerce.sroa.0.0.extract.trunc.i52
-  %cmp.i54 = icmp ule i64 %10, %addr
-  %cmp5.i = icmp ugt i64 %add.i53, %addr
+  %cmp.i54 = icmp uge i64 %addr, %10
+  %cmp5.i = icmp ult i64 %addr, %add.i53
   %11 = and i1 %cmp.i54, %cmp5.i
   br i1 %11, label %nvme_addr_is_pmr.exit69, label %if.end18
 
 nvme_addr_is_pmr.exit69:                          ; preds = %nvme_addr_is_pmr.exit
-  %cmp.i67 = icmp ule i64 %10, %sub
-  %cmp5.i68 = icmp ugt i64 %add.i53, %sub
+  %cmp.i67 = icmp uge i64 %sub, %10
+  %cmp5.i68 = icmp ult i64 %sub, %add.i53
   %12 = and i1 %cmp.i67, %cmp5.i68
   br i1 %12, label %if.then15, label %if.end18
 
@@ -3194,16 +3194,16 @@ nvme_addr_is_cmb.exit:                            ; preds = %if.end.i
   %cond.in.i = getelementptr inbounds i8, ptr %n, i64 %cond.in.v.i
   %cond.i = load i64, ptr %cond.in.i, align 16
   %add.i = add i64 %cond.i, %coerce.sroa.0.0.extract.trunc.i
-  %cmp.i = icmp ule i64 %cond.i, %addr
-  %cmp7.i = icmp ugt i64 %add.i, %addr
+  %cmp.i = icmp uge i64 %addr, %cond.i
+  %cmp7.i = icmp ult i64 %addr, %add.i
   %9 = and i1 %cmp.i, %cmp7.i
   br i1 %9, label %nvme_addr_is_cmb.exit27, label %return
 
 nvme_addr_is_cmb.exit27:                          ; preds = %nvme_addr_is_cmb.exit
   %add = add i64 %addr, -1
   %sub = add i64 %add, %len
-  %cmp.i25 = icmp ule i64 %cond.i, %sub
-  %cmp7.i26 = icmp ugt i64 %add.i, %sub
+  %cmp.i25 = icmp uge i64 %sub, %cond.i
+  %cmp7.i26 = icmp ult i64 %sub, %add.i
   %10 = and i1 %cmp.i25, %cmp7.i26
   br i1 %10, label %if.end3, label %return
 
@@ -3245,16 +3245,16 @@ nvme_addr_is_pmr.exit:                            ; preds = %if.end.i
   %cba.i = getelementptr inbounds i8, ptr %n, i64 7840
   %3 = load i64, ptr %cba.i, align 16
   %add.i = add i64 %3, %coerce.sroa.0.0.extract.trunc.i
-  %cmp.i = icmp ule i64 %3, %addr
-  %cmp5.i = icmp ugt i64 %add.i, %addr
+  %cmp.i = icmp uge i64 %addr, %3
+  %cmp5.i = icmp ult i64 %addr, %add.i
   %4 = and i1 %cmp.i, %cmp5.i
   br i1 %4, label %nvme_addr_is_pmr.exit21, label %return
 
 nvme_addr_is_pmr.exit21:                          ; preds = %nvme_addr_is_pmr.exit
   %add = add i64 %addr, -1
   %sub = add i64 %add, %len
-  %cmp.i19 = icmp ule i64 %3, %sub
-  %cmp5.i20 = icmp ugt i64 %add.i, %sub
+  %cmp.i19 = icmp uge i64 %sub, %3
+  %cmp5.i20 = icmp ult i64 %sub, %add.i
   %5 = and i1 %cmp.i19, %cmp5.i20
   br i1 %5, label %if.end3, label %return
 
@@ -3382,7 +3382,7 @@ if.end35:                                         ; preds = %if.end31
 for.inc:                                          ; preds = %sw.epilog, %if.end35
   %inc = add i32 %i.02, 1
   %conv = sext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %nsgld
+  %cmp = icmp ugt i64 %nsgld, %conv
   br i1 %cmp, label %for.body, label %return, !llvm.loop !10
 
 return.loopexit:                                  ; preds = %for.body, %for.body
@@ -4681,7 +4681,7 @@ if.end.i59.i:                                     ; preds = %if.end37.i57
 land.lhs.true.i.i:                                ; preds = %if.end.i59.i
   %msix_entries_nr.i.i = getelementptr inbounds i8, ptr %pci_dev, i64 1268
   %69 = load i32, ptr %msix_entries_nr.i.i, align 4
-  %cmp1.not.i.i = icmp ult i32 %69, %68
+  %cmp1.not.i.i = icmp ugt i32 %68, %69
   br i1 %cmp1.not.i.i, label %if.else.i.i, label %if.end3.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i59.i
@@ -5414,7 +5414,7 @@ if.end35.sink.split:                              ; preds = %trace_pci_nvme_ub_m
 if.end35:                                         ; preds = %if.end35.sink.split, %if.else, %trace_pci_nvme_ub_mmiord_toosmall.exit, %trace_pci_nvme_ub_mmiord_misaligned32.exit
   %conv36 = zext i32 %size to i64
   %sub = sub nsw i64 4096, %conv36
-  %cmp37 = icmp ult i64 %sub, %addr
+  %cmp37 = icmp ugt i64 %addr, %sub
   br i1 %cmp37, label %do.body40, label %if.end53
 
 do.body40:                                        ; preds = %if.end35
@@ -8367,7 +8367,7 @@ if.end.i66:                                       ; preds = %if.end80
 land.lhs.true.i:                                  ; preds = %if.end.i66
   %msix_entries_nr.i = getelementptr inbounds i8, ptr %call.i, i64 1268
   %34 = load i32, ptr %msix_entries_nr.i, align 4
-  %cmp1.not.i = icmp ult i32 %34, %33
+  %cmp1.not.i = icmp ugt i32 %33, %34
   br i1 %cmp1.not.i, label %if.else.i67, label %if.end3.i
 
 if.else.i67:                                      ; preds = %land.lhs.true.i, %if.end.i66
@@ -10910,7 +10910,7 @@ land.lhs.true.i.i:                                ; preds = %trace_pci_nvme_get_
   %conv.i.i543 = zext nneg i8 %158 to i32
   %159 = load i32, ptr %page_size.i, align 4
   %shl.i.i544 = shl i32 %159, %conv.i.i543
-  %cmp.i.i545 = icmp ult i32 %shl.i.i544, %shl18.i
+  %cmp.i.i545 = icmp ugt i32 %shl18.i, %shl.i.i544
   br i1 %cmp.i.i545, label %if.then.i.i559, label %if.end28.i546
 
 if.then.i.i559:                                   ; preds = %land.lhs.true.i.i
@@ -13191,7 +13191,7 @@ if.end.i26.i:                                     ; preds = %sw.bb20.i
   %cond.in.v.i.i27.i = select i1 %tobool.not.i.i.i, i64 23704, i64 23736
   %cond.in.i.i28.i = getelementptr inbounds i8, ptr %0, i64 %cond.in.v.i.i27.i
   %cond.i.i29.i = load i32, ptr %cond.in.i.i28.i, align 8
-  %cmp4.i.i = icmp slt i32 %cond.i.i29.i, %and8.i190
+  %cmp4.i.i = icmp sgt i32 %and8.i190, %cond.i.i29.i
   br i1 %cmp4.i.i, label %if.then55, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i26.i
@@ -13200,7 +13200,7 @@ if.end7.i.i:                                      ; preds = %if.end.i26.i
   %cond22.i.i32.i = load i32, ptr %cond22.in.i.i31.i, align 4
   %conv25.i.i33.i = and i32 %cond22.i.i32.i, 65535
   %sub.i.i = sub nsw i32 %cond.i.i29.i, %conv25.i.i33.i
-  %cmp8.i.i = icmp slt i32 %sub.i.i, %and8.i190
+  %cmp8.i.i = icmp sgt i32 %and8.i190, %sub.i.i
   br i1 %cmp8.i.i, label %if.then55, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end7.i.i
@@ -15505,7 +15505,7 @@ if.end.i:                                         ; preds = %if.end76
   br i1 %tobool8.not.i, label %return, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i
-  %cmp.i = icmp ugt i64 %86, %4
+  %cmp.i = icmp ult i64 %4, %86
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end10.i
@@ -15513,7 +15513,7 @@ lor.lhs.false.i:                                  ; preds = %if.end10.i
   %91 = load i16, ptr %zns.i, align 4
   %conv12.i = zext i16 %91 to i64
   %add13.i = add i64 %86, %conv12.i
-  %cmp14.i = icmp ult i64 %add13.i, %4
+  %cmp14.i = icmp ugt i64 %4, %add13.i
   br i1 %cmp14.i, label %return, label %if.end17.i
 
 if.end17.i:                                       ; preds = %lor.lhs.false.i
@@ -15707,7 +15707,7 @@ land.lhs.true.i:                                  ; preds = %if.end21
   %page_size.i = getelementptr inbounds i8, ptr %n, i64 7420
   %5 = load i32, ptr %page_size.i, align 4
   %shl.i = shl i32 %5, %conv.i
-  %cmp.i = icmp ult i32 %shl.i, %shl
+  %cmp.i = icmp ugt i32 %shl, %shl.i
   br i1 %cmp.i, label %if.then.i, label %if.end26
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -17018,7 +17018,7 @@ lor.lhs.false.i:                                  ; preds = %if.then148
   %retval.0.i12.i.i = and i16 %conv5.i.i.i, %63
   %69 = getelementptr i8, ptr %60, i64 8792
   %ns.val8.i.i = load i16, ptr %69, align 8
-  %cmp.i.i.i = icmp ugt i16 %ns.val8.i.i, %retval.0.i12.i.i
+  %cmp.i.i.i = icmp ult i16 %retval.0.i12.i.i, %ns.val8.i.i
   br i1 %cmp.i.i.i, label %nvme_parse_pid.exit.i, label %if.end.i130
 
 nvme_parse_pid.exit.i:                            ; preds = %lor.lhs.false.i
@@ -17029,7 +17029,7 @@ nvme_parse_pid.exit.i:                            ; preds = %lor.lhs.false.i
   %retval.0.i.i.i = select i1 %tobool.not.i.i.i, i16 0, i16 %conv4.i.i.i
   %70 = getelementptr i8, ptr %ns.val.i.i, i64 8098
   %.val.i.i = load i16, ptr %70, align 2
-  %cmp.i13.i.i = icmp ugt i16 %.val.i.i, %retval.0.i.i.i
+  %cmp.i13.i.i = icmp ult i16 %retval.0.i.i.i, %.val.i.i
   %spec.select.i = select i1 %cmp.i13.i.i, i16 %retval.0.i12.i.i, i16 0
   %spec.select26.i = select i1 %cmp.i13.i.i, i16 %retval.0.i.i.i, i16 0
   %71 = zext i16 %spec.select.i to i64
@@ -17361,7 +17361,7 @@ if.end:                                           ; preds = %entry, %entry, %ent
   br i1 %tobool2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %cmp = icmp ugt i64 %24, %slba
+  %cmp = icmp ult i64 %slba, %24
   br i1 %cmp, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then3
@@ -17371,7 +17371,7 @@ lor.lhs.false:                                    ; preds = %if.then3
   %mul = shl nuw nsw i64 %conv4, 1
   %add = add i64 %mul, %24
   %conv8 = zext i32 %nlb to i64
-  %add9 = add i64 %conv8, %slba
+  %add9 = add i64 %slba, %conv8
   %cmp10 = icmp ugt i64 %add9, %add
   br i1 %cmp10, label %if.then12, label %if.end25
 
@@ -17413,12 +17413,12 @@ trace_pci_nvme_err_zone_invalid_write.exit:       ; preds = %if.then12, %land.lh
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %cmp16.not = icmp eq i64 %24, %slba
+  %cmp16.not = icmp eq i64 %slba, %24
   br i1 %cmp16.not, label %if.else.if.end25_crit_edge, label %if.then21
 
 if.else.if.end25_crit_edge:                       ; preds = %if.else
   %.pre = zext i32 %nlb to i64
-  %.pre52 = add i64 %.pre, %slba
+  %.pre52 = add i64 %slba, %.pre
   br label %if.end25
 
 if.then21:                                        ; preds = %if.else
@@ -18238,7 +18238,7 @@ trace_pci_nvme_err_insuff_open_res.exit:          ; preds = %if.then13, %land.lh
 if.end16:                                         ; preds = %land.lhs.true8, %if.end
   %numzrwa = getelementptr inbounds i8, ptr %ns, i64 8504
   %16 = load i32, ptr %numzrwa, align 4
-  %cmp17 = icmp ult i32 %16, %zrwa
+  %cmp17 = icmp ugt i32 %zrwa, %16
   %. = select i1 %cmp17, i16 16823, i16 0
   br label %return
 
@@ -18369,13 +18369,13 @@ entry:
   %retval.0.i12.i = and i16 %conv5.i.i, %pid
   %4 = getelementptr i8, ptr %ns, i64 8792
   %ns.val8.i = load i16, ptr %4, align 8
-  %cmp.i.i = icmp ugt i16 %ns.val8.i, %retval.0.i12.i
+  %cmp.i.i = icmp ult i16 %retval.0.i12.i, %ns.val8.i
   br i1 %cmp.i.i, label %nvme_parse_pid.exit, label %return
 
 nvme_parse_pid.exit:                              ; preds = %entry
   %5 = getelementptr i8, ptr %0, i64 8098
   %.val.i = load i16, ptr %5, align 2
-  %cmp.i13.i = icmp ugt i16 %.val.i, %retval.0.i.i
+  %cmp.i13.i = icmp ult i16 %retval.0.i.i, %.val.i
   br i1 %cmp.i13.i, label %if.end, label %return
 
 if.end:                                           ; preds = %nvme_parse_pid.exit
@@ -22782,7 +22782,7 @@ if.end7:                                          ; preds = %if.end, %if.then4
   %3 = trunc nuw nsw i64 %and.i to i32
   %conv8 = add nuw nsw i32 %3, 16
   %conv9 = zext nneg i32 %conv8 to i64
-  %cmp10.not = icmp ugt i64 %conv9, %off
+  %cmp10.not = icmp ult i64 %off, %conv9
   br i1 %cmp10.not, label %if.end13, label %cleanup
 
 if.end13:                                         ; preds = %if.end7
@@ -22900,7 +22900,7 @@ if.end5:                                          ; preds = %if.end
   %conv = zext i16 %2 to i64
   %mul = shl nuw nsw i64 %conv, 3
   %add = add nuw nsw i64 %mul, 8
-  %cmp9.not = icmp ugt i64 %add, %off
+  %cmp9.not = icmp ult i64 %off, %add
   br i1 %cmp9.not, label %if.end12, label %cleanup
 
 if.end12:                                         ; preds = %if.end5
@@ -23035,7 +23035,7 @@ if.end7:                                          ; preds = %if.end
   %mul = shl i32 %4, 6
   %add = add i32 %mul, 64
   %conv15 = zext i32 %add to i64
-  %cmp16.not = icmp ugt i64 %conv15, %off
+  %cmp16.not = icmp ult i64 %off, %conv15
   br i1 %cmp16.not, label %if.end19, label %cleanup
 
 if.end19:                                         ; preds = %if.end7
@@ -24676,7 +24676,7 @@ if.end19:                                         ; preds = %if.end15
 if.end.i22:                                       ; preds = %if.end19
   %nlbaf.i = getelementptr inbounds i8, ptr %7, i64 297
   %9 = load i8, ptr %nlbaf.i, align 1
-  %cmp.i = icmp ult i8 %9, %conv
+  %cmp.i = icmp ugt i8 %conv, %9
   br i1 %cmp.i, label %if.then23, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i22

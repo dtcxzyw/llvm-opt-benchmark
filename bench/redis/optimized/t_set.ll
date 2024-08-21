@@ -53,7 +53,7 @@ entry:
   %call = tail call i32 @isSdsRepresentableAsLongLong(ptr noundef %value, ptr noundef null) #10
   %cmp = icmp ne i32 %call, 0
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5000), align 8
-  %cmp1.not = icmp ult i64 %0, %size_hint
+  %cmp1.not = icmp ugt i64 %size_hint, %0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp1.not
   br i1 %or.cond, label %if.end, label %if.then
 
@@ -63,7 +63,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5008), align 8
-  %cmp3.not = icmp ult i64 %1, %size_hint
+  %cmp3.not = icmp ugt i64 %size_hint, %1
   br i1 %cmp3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
@@ -99,14 +99,14 @@ entry:
   %0 = and i32 %bf.load, 240
   %cmp = icmp eq i32 %0, 176
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5008), align 8
-  %cmp1 = icmp ult i64 %1, %size_hint
+  %cmp1 = icmp ugt i64 %size_hint, %1
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %cmp5 = icmp eq i32 %0, 96
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5000), align 8
-  %cmp7 = icmp ult i64 %2, %size_hint
+  %cmp7 = icmp ugt i64 %size_hint, %2
   %or.cond5 = select i1 %cmp5, i1 %cmp7, i1 false
   br i1 %or.cond5, label %if.then, label %if.end
 

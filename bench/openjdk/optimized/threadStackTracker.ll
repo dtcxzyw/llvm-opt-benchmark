@@ -19,7 +19,7 @@ define hidden void @_ZN18ThreadStackTracker16new_thread_stackEPvmRK15NativeCallS
   %9 = sub i64 0, %5
   %10 = and i64 %8, %9
   %11 = inttoptr i64 %10 to ptr
-  %12 = and i64 %9, %1
+  %12 = and i64 %1, %9
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
   %13 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_regionEPhmRK15NativeCallStack8MEMFLAGS(ptr noundef %11, i64 noundef %12, ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef zeroext 3) #3
   %14 = load volatile i64, ptr @_ZN18ThreadStackTracker13_thread_countE, align 8
@@ -46,7 +46,7 @@ define hidden void @_ZN18ThreadStackTracker19delete_thread_stackEPvm(ptr noundef
   %8 = sub i64 0, %4
   %9 = and i64 %7, %8
   %10 = inttoptr i64 %9 to ptr
-  %11 = and i64 %8, %1
+  %11 = and i64 %1, %8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   %12 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker22remove_released_regionEPhm(ptr noundef %10, i64 noundef %11) #3
   %13 = load volatile i64, ptr @_ZN18ThreadStackTracker13_thread_countE, align 8

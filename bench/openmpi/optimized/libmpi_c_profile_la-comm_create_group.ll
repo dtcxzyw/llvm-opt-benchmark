@@ -69,7 +69,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %12, %ompi_comm_inva
 19:                                               ; preds = %ompi_comm_invalid.exit
   %20 = icmp slt i32 %2, 0
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 172), align 4
-  %22 = icmp slt i32 %21, %2
+  %22 = icmp sgt i32 %2, %21
   %or.cond = select i1 %20, i1 true, i1 %22
   br i1 %or.cond, label %23, label %29
 

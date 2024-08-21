@@ -442,7 +442,7 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
   %170 = sext i32 %162 to i64
   %171 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %., i64 noundef %170) #5
   %172 = load ptr, ptr %.013.i.i73, align 8
-  %173 = icmp sgt i32 %145, %.
+  %173 = icmp slt i32 %., %145
   br i1 %173, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %169

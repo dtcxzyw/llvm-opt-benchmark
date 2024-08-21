@@ -65,7 +65,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr nocapture readnone %
 .preheader170:                                    ; preds = %6
   %11 = getelementptr inbounds i8, ptr %9, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, i8 -1, i64 96, i1 false)
-  %12 = icmp ult ptr %.ptr191, %5
+  %12 = icmp ugt ptr %5, %.ptr191
   br i1 %12, label %22, label %17
 
 13:                                               ; preds = %6

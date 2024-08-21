@@ -1726,7 +1726,7 @@ _ZN5osgeo4proj22CPLJSonStreamingWriter5PrintERKNSt7__cxx1112basic_stringIcSt11ch
 50:                                               ; preds = %47
   %51 = fptosi double %1 to i32
   %52 = sitofp i32 %51 to double
-  %53 = fcmp oeq double %52, %1
+  %53 = fcmp oeq double %1, %52
   br i1 %53, label %54, label %65
 
 54:                                               ; preds = %50

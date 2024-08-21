@@ -66,26 +66,26 @@ define i32 @KINBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   store ptr %8, ptr %33, align 8
   %34 = add nsw i64 %1, -1
   %35 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %.not = icmp slt i64 %35, %1
+  %.not = icmp sgt i64 %1, %35
   %. = select i1 %.not, i64 %35, i64 %34
   store i64 %., ptr %27, align 8
   %36 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
-  %.not105 = icmp slt i64 %36, %1
+  %.not105 = icmp sgt i64 %1, %36
   %37 = select i1 %.not105, i64 %36, i64 %34
   %38 = getelementptr inbounds i8, ptr %27, i64 8
   store i64 %37, ptr %38, align 8
   %39 = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
-  %.not106 = icmp slt i64 %39, %1
+  %.not106 = icmp sgt i64 %1, %39
   %40 = select i1 %.not106, i64 %39, i64 %34
   %41 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
-  %.not107 = icmp slt i64 %41, %1
+  %.not107 = icmp sgt i64 %1, %41
   %42 = select i1 %.not107, i64 %41, i64 %34
   %43 = getelementptr inbounds i8, ptr %27, i64 16
   store i64 %40, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %27, i64 24
   store i64 %42, ptr %44, align 8
   %45 = add nsw i64 %42, %40
-  %.not108 = icmp slt i64 %45, %1
+  %.not108 = icmp sgt i64 %1, %45
   %46 = select i1 %.not108, i64 %45, i64 %34
   %47 = getelementptr inbounds i8, ptr %27, i64 64
   %48 = tail call ptr @NewBandMat(i64 noundef %1, i64 noundef %40, i64 noundef %42, i64 noundef %46) #5

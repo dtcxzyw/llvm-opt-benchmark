@@ -697,7 +697,7 @@ define hidden noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef %
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
   %25 = tail call noundef ptr @_ZN2os14file_separatorEv() #28
   %26 = load i8, ptr %25, align 1
-  %27 = icmp eq i8 %26, %23
+  %27 = icmp eq i8 %23, %26
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %19
@@ -758,7 +758,7 @@ _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit:   ; preds = %30, %33
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   %55 = call noundef ptr @_ZN2os14file_separatorEv() #28
   %56 = load i8, ptr %55, align 1
-  %57 = icmp eq i8 %56, %54
+  %57 = icmp eq i8 %54, %56
   br i1 %57, label %60, label %58
 
 58:                                               ; preds = %51
@@ -819,7 +819,7 @@ _ZL25free_array_of_char_arraysPPcm.exit:          ; preds = %71, %.preheader
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   %76 = tail call noundef ptr @_ZN2os14file_separatorEv() #28
   %77 = load i8, ptr %76, align 1
-  %78 = icmp eq i8 %77, %75
+  %78 = icmp eq i8 %75, %77
   br i1 %78, label %81, label %79
 
 79:                                               ; preds = %72
@@ -2214,7 +2214,7 @@ define hidden void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr nound
   %16 = and i32 %15, -8
   %17 = sdiv i32 %16, %3
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %9, i64 noundef 0) #28
-  %18 = icmp ult ptr %14, %2
+  %18 = icmp ugt ptr %2, %14
   br i1 %18, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %7
@@ -3454,7 +3454,7 @@ define hidden noundef zeroext i1 @_ZN2os28stack_shadow_pages_availableEP6ThreadR
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
   %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  %16 = icmp ult ptr %15, %2
+  %16 = icmp ugt ptr %2, %15
   br label %17
 
 17:                                               ; preds = %3, %8
@@ -4321,7 +4321,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   %17 = inttoptr i64 %16 to ptr
   %18 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
   %19 = tail call noundef i64 @llvm.umax.i64(i64 %3, i64 %18)
-  %20 = icmp ugt ptr %17, %0
+  %20 = icmp ult ptr %0, %17
   %21 = select i1 %20, ptr %17, ptr %0
   %22 = ptrtoint ptr %21 to i64
   %23 = add i64 %19, -1
@@ -4336,7 +4336,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   %30 = icmp ult ptr %1, inttoptr (i64 140737488355328 to ptr)
   %31 = select i1 %30, ptr %1, ptr inttoptr (i64 140737488355328 to ptr)
   %32 = ptrtoint ptr %31 to i64
-  %33 = icmp ult i64 %32, %2
+  %33 = icmp ugt i64 %2, %32
   br i1 %33, label %129, label %34
 
 34:                                               ; preds = %29
@@ -4345,7 +4345,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   %37 = ptrtoint ptr %36 to i64
   %38 = and i64 %25, %37
   %39 = inttoptr i64 %38 to ptr
-  %40 = icmp ugt ptr %39, %1
+  %40 = icmp ult ptr %1, %39
   %41 = icmp ult ptr %39, %27
   %or.cond = or i1 %40, %41
   br i1 %or.cond, label %129, label %42
@@ -4610,7 +4610,7 @@ define internal fastcc void @_ZL10hemi_splitIjEvPT_j(ptr nocapture noundef %0, i
   %7 = trunc nuw i64 %indvars.iv to i32
   %8 = lshr i32 %7, 1
   %9 = xor i32 %8, -1
-  %10 = add i32 %9, %1
+  %10 = add i32 %1, %9
   %.pn.in = select i1 %.not.i, i32 %8, i32 %10
   %.pn = zext i32 %.pn.in to i64
   %.in = getelementptr inbounds i32, ptr %5, i64 %.pn

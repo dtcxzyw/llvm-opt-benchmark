@@ -61,7 +61,7 @@ declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 define internal { double, double } @_ZL16hatano_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
   %4 = fcmp olt double %1, 0.000000e+00
   %5 = select i1 %4, double 0x3FE0936A916EB74E, double 0x3FE2324701B75E65
-  %6 = fmul double %5, %1
+  %6 = fmul double %1, %5
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fcmp ogt double %7, 1.000000e+00
   br i1 %8, label %9, label %16

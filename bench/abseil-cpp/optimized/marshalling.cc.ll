@@ -166,7 +166,7 @@ if.end.i.i:                                       ; preds = %entry
   %narrow.i.i = or i1 %cmp.i.i, %cmp4.i.i
   %cond.i.i = zext i1 %narrow.i.i to i64
   %add.i.i = or disjoint i64 %cond.i.i, 2
-  %cmp7.not.i.i = icmp ugt i64 %add.i.i, %3
+  %cmp7.not.i.i = icmp ult i64 %3, %add.i.i
   br i1 %cmp7.not.i.i, label %_ZN4absl14flags_internal13ParseFlagImplIiEEbSt17basic_string_viewIcSt11char_traitsIcEERT_.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
@@ -227,7 +227,7 @@ if.end.i.i:                                       ; preds = %entry
   %narrow.i.i = or i1 %cmp.i.i, %cmp4.i.i
   %cond.i.i = zext i1 %narrow.i.i to i64
   %add.i.i = or disjoint i64 %cond.i.i, 2
-  %cmp7.not.i.i = icmp ugt i64 %add.i.i, %3
+  %cmp7.not.i.i = icmp ult i64 %3, %add.i.i
   br i1 %cmp7.not.i.i, label %_ZN4absl14flags_internal13ParseFlagImplIjEEbSt17basic_string_viewIcSt11char_traitsIcEERT_.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
@@ -287,7 +287,7 @@ if.end.i.i:                                       ; preds = %entry
   %narrow.i.i = or i1 %cmp.i.i, %cmp4.i.i
   %cond.i.i = zext i1 %narrow.i.i to i64
   %add.i.i = or disjoint i64 %cond.i.i, 2
-  %cmp7.not.i.i = icmp ugt i64 %add.i.i, %3
+  %cmp7.not.i.i = icmp ult i64 %3, %add.i.i
   br i1 %cmp7.not.i.i, label %_ZN4absl14flags_internal13ParseFlagImplIiEEbSt17basic_string_viewIcSt11char_traitsIcEERT_.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
@@ -338,7 +338,7 @@ if.end.i.i:                                       ; preds = %entry
   %narrow.i.i = or i1 %cmp.i.i, %cmp4.i.i
   %cond.i.i = zext i1 %narrow.i.i to i64
   %add.i.i = or disjoint i64 %cond.i.i, 2
-  %cmp7.not.i.i = icmp ugt i64 %add.i.i, %3
+  %cmp7.not.i.i = icmp ult i64 %3, %add.i.i
   br i1 %cmp7.not.i.i, label %_ZN4absl14flags_internal13ParseFlagImplIjEEbSt17basic_string_viewIcSt11char_traitsIcEERT_.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
@@ -389,7 +389,7 @@ if.end.i.i:                                       ; preds = %entry
   %narrow.i.i = or i1 %cmp.i.i, %cmp4.i.i
   %cond.i.i = zext i1 %narrow.i.i to i64
   %add.i.i = or disjoint i64 %cond.i.i, 2
-  %cmp7.not.i.i = icmp ugt i64 %add.i.i, %3
+  %cmp7.not.i.i = icmp ult i64 %3, %add.i.i
   br i1 %cmp7.not.i.i, label %_ZN4absl14flags_internal13ParseFlagImplIlEEbSt17basic_string_viewIcSt11char_traitsIcEERT_.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
@@ -440,7 +440,7 @@ if.end.i.i:                                       ; preds = %entry
   %narrow.i.i = or i1 %cmp.i.i, %cmp4.i.i
   %cond.i.i = zext i1 %narrow.i.i to i64
   %add.i.i = or disjoint i64 %cond.i.i, 2
-  %cmp7.not.i.i = icmp ugt i64 %add.i.i, %3
+  %cmp7.not.i.i = icmp ult i64 %3, %add.i.i
   br i1 %cmp7.not.i.i, label %_ZN4absl14flags_internal13ParseFlagImplImEEbSt17basic_string_viewIcSt11char_traitsIcEERT_.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
@@ -491,7 +491,7 @@ if.end.i.i:                                       ; preds = %entry
   %narrow.i.i = or i1 %cmp.i.i, %cmp4.i.i
   %cond.i.i = zext i1 %narrow.i.i to i64
   %add.i.i = or disjoint i64 %cond.i.i, 2
-  %cmp7.not.i.i = icmp ugt i64 %add.i.i, %3
+  %cmp7.not.i.i = icmp ult i64 %3, %add.i.i
   br i1 %cmp7.not.i.i, label %_ZN4absl14flags_internal13ParseFlagImplIxEEbSt17basic_string_viewIcSt11char_traitsIcEERT_.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
@@ -542,7 +542,7 @@ if.end.i.i:                                       ; preds = %entry
   %narrow.i.i = or i1 %cmp.i.i, %cmp4.i.i
   %cond.i.i = zext i1 %narrow.i.i to i64
   %add.i.i = or disjoint i64 %cond.i.i, 2
-  %cmp7.not.i.i = icmp ugt i64 %add.i.i, %3
+  %cmp7.not.i.i = icmp ult i64 %3, %add.i.i
   br i1 %cmp7.not.i.i, label %_ZN4absl14flags_internal13ParseFlagImplIyEEbSt17basic_string_viewIcSt11char_traitsIcEERT_.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
@@ -592,7 +592,7 @@ if.end.i:                                         ; preds = %entry
   %narrow.i = or i1 %cmp.i, %cmp4.i
   %cond.i = zext i1 %narrow.i to i64
   %add.i = or disjoint i64 %cond.i, 2
-  %cmp7.not.i = icmp ugt i64 %add.i, %3
+  %cmp7.not.i = icmp ult i64 %3, %add.i
   br i1 %cmp7.not.i, label %_ZN4absl14flags_internalL11NumericBaseESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
@@ -658,7 +658,7 @@ if.end.i:                                         ; preds = %entry
   %narrow.i = or i1 %cmp.i, %cmp4.i
   %cond.i = zext i1 %narrow.i to i64
   %add.i = or disjoint i64 %cond.i, 2
-  %cmp7.not.i = icmp ugt i64 %add.i, %3
+  %cmp7.not.i = icmp ult i64 %3, %add.i
   br i1 %cmp7.not.i, label %_ZN4absl14flags_internalL11NumericBaseESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
@@ -1482,7 +1482,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end28
   %narrow.i.i.i.i.i = or i1 %cmp.i.i.i.i.i, %cmp4.i.i.i.i.i
   %cond.i.i.i.i.i = zext i1 %narrow.i.i.i.i.i to i64
   %add.i.i.i.i.i = or disjoint i64 %cond.i.i.i.i.i, 2
-  %cmp7.not.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, %7
+  %cmp7.not.i.i.i.i.i = icmp ult i64 %7, %add.i.i.i.i.i
   br i1 %cmp7.not.i.i.i.i.i, label %_ZN4absl9ParseFlagIiEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE.exit, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i
@@ -2056,7 +2056,7 @@ if.then8.i.i.i:                                   ; preds = %call3.i.i.i.noexc
 
 if.end10.i.i.i:                                   ; preds = %if.then8.i.i.i, %call3.i.i.i.noexc
   %3 = load i64, ptr %it, align 8, !alias.scope !70
-  %cmp.i.i.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %cmp.i.i.i.i.i = icmp ugt i64 %3, %retval.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %if.end10.i.i.i
@@ -2129,7 +2129,7 @@ if.then8.i:                                       ; preds = %call3.i.noexc
 
 if.end10.i:                                       ; preds = %if.then8.i, %call3.i.noexc
   %12 = load i64, ptr %it, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %12
+  %cmp.i.i.i = icmp ugt i64 %12, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %do.cond
 
 if.then.i.i.i.invoke:                             ; preds = %if.end10.i, %if.end10.i.i.i
@@ -2312,7 +2312,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"class.std::basic_string_view", ptr %7, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
-  %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i42, label %_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit50, label %for.body.i.i.i.i.i43
 
 for.body.i.i.i.i.i43:                             ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit, %for.body.i.i.i.i.i43
@@ -2412,7 +2412,7 @@ for.body.i.i.i.i86:                               ; preds = %for.body.i.i.i.i86.
   br i1 %cmp.not.i.i.i.i92, label %invoke.cont61, label %for.body.i.i.i.i86, !llvm.loop !77
 
 invoke.cont61:                                    ; preds = %for.body.i.i.i.i86
-  %cmp.i.i.not7.i.i.i.i.i95 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i95 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i95, label %invoke.cont65, label %for.body.i.i.i.i.i96
 
 for.body.i.i.i.i.i96:                             ; preds = %invoke.cont61, %for.body.i.i.i.i.i96
@@ -2496,7 +2496,7 @@ lpad.i:                                           ; preds = %for.body
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = call ptr @__cxa_begin_catch(ptr %6) #15
-  %cmp.not3.i.i = icmp eq ptr %__cur.010, %__result
+  %cmp.not3.i.i = icmp eq ptr %__result, %__cur.010
   br i1 %cmp.not3.i.i, label %invoke.cont5, label %for.body.i.i
 
 for.inc:                                          ; preds = %for.body

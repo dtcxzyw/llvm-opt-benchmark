@@ -3333,7 +3333,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -3408,7 +3408,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_dele
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -3504,7 +3504,7 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit359: ; preds = %if.then.i35
 if.then:                                          ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit359
   %stdio_count_.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load i32, ptr %stdio_count_.i, align 8
-  %cmp.not.i = icmp ugt i32 %9, %child_fd
+  %cmp.not.i = icmp ult i32 %child_fd, %9
   br i1 %cmp.not.i, label %do.body6.i, label %do.body4.i
 
 do.body4.i:                                       ; preds = %if.then
@@ -3684,7 +3684,7 @@ if.then.i370:                                     ; preds = %_ZN2v810MaybeLocalI
 _ZNO2v85MaybeIiE8FromJustEv.exit:                 ; preds = %if.then.i370, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %stdio_count_.i38 = getelementptr inbounds i8, ptr %this, i64 32
   %41 = load i32, ptr %stdio_count_.i38, align 8
-  %cmp.not.i39 = icmp ugt i32 %41, %child_fd
+  %cmp.not.i39 = icmp ult i32 %child_fd, %41
   br i1 %cmp.not.i39, label %do.body6.i41, label %do.body4.i40
 
 do.body4.i40:                                     ; preds = %_ZNO2v85MaybeIiE8FromJustEv.exit
@@ -3741,7 +3741,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4node17SyncProcessRunner12AddStdio
 entry:
   %stdio_count_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %stdio_count_, align 8
-  %cmp.not = icmp ugt i32 %0, %child_fd
+  %cmp.not = icmp ult i32 %child_fd, %0
   br i1 %cmp.not, label %do.body7, label %do.body5
 
 do.body5:                                         ; preds = %entry
@@ -4032,7 +4032,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
-  %cmp.i.i.i.i = icmp eq i32 %1, %permission
+  %cmp.i.i.i.i = icmp eq i32 %permission, %1
   br i1 %cmp.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !20
 
 if.end15.i.i:                                     ; preds = %entry
@@ -4050,11 +4050,11 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %5 = load ptr, ptr %4, align 8
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %add.ptr8.i.i.i.i, align 4
-  %cmp.i.i.i9.i.i.i.i = icmp eq i32 %6, %permission
+  %cmp.i.i.i9.i.i.i.i = icmp eq i32 %permission, %6
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.then, label %if.end3.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %8, %permission
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %permission, %8
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !21
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i

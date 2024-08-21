@@ -1103,7 +1103,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_putMaskNative(ptr noundef %0, pt
   %gep.us = getelementptr i8, ptr %gep84.us, i64 %indvars.iv
   %30 = load i8, ptr %gep.us, align 1
   %31 = uitofp i8 %30 to float
-  %32 = fmul float %31, %13
+  %32 = fmul float %13, %31
   %33 = fptosi float %32 to i8
   store i8 %33, ptr %gep.us, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1131,13 +1131,13 @@ define void @Java_sun_java2d_xr_XRBackendNative_putMaskNative(ptr noundef %0, pt
 40:                                               ; preds = %37
   %41 = getelementptr inbounds i8, ptr %22, i64 8
   %42 = load i32, ptr %41, align 8
-  %43 = icmp eq i32 %42, %11
+  %43 = icmp eq i32 %11, %42
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %22, i64 44
   %46 = load i32, ptr %45, align 4
-  %47 = icmp eq i32 %46, %12
+  %47 = icmp eq i32 %12, %46
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %44

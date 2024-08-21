@@ -1315,7 +1315,7 @@ define internal noundef i32 @_ZL9calc_Nbinfif(float noundef %0, i32 noundef %1, 
   %6 = sitofp i32 %1 to double
   %7 = fdiv double 3.600000e+02, %6
   %8 = fptrunc double %7 to float
-  %9 = fmul float %8, %2
+  %9 = fmul float %2, %8
   %10 = fsub float %8, %9
   %11 = fmul float %10, 5.000000e-01
   %.not27 = icmp slt i32 %1, 1
@@ -2272,7 +2272,7 @@ define void @_Z10make_histoP8_IO_FILEiPfiPiff(ptr nocapture noundef %0, i32 noun
   %35 = fmul double %23, %34
   %36 = fptosi double %35 to i32
   %37 = icmp sgt i32 %36, -1
-  %38 = icmp slt i32 %36, %3
+  %38 = icmp sgt i32 %3, %36
   %or.cond = and i1 %37, %38
   br i1 %or.cond, label %39, label %44
 
@@ -2594,7 +2594,7 @@ define void @_Z15normalize_histoN3gmx8ArrayRefIKiEEfNS0_IfEE(ptr readonly %0, pt
   %.sroa.0.023 = phi ptr [ %11, %.lr.ph ], [ %0, %5 ]
   %6 = load i32, ptr %.sroa.0.023, align 4
   %7 = sitofp i32 %6 to float
-  %8 = fmul float %7, %2
+  %8 = fmul float %2, %7
   %9 = fpext float %8 to double
   %10 = fadd double %.024, %9
   %11 = getelementptr inbounds i8, ptr %.sroa.0.023, i64 4
@@ -2850,7 +2850,7 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit166:     ; preds = %75
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
   %103 = trunc nuw i64 %indvars.iv.next.i to i32
-  %104 = icmp slt i32 %103, %9
+  %104 = icmp sgt i32 %9, %103
   br i1 %104, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !41
 
 ._crit_edge.i:                                    ; preds = %.noexc, %88
@@ -2926,7 +2926,7 @@ _ZL11calc_anglesP5t_pbciPiPfPA3_f.exit:           ; preds = %.noexc167, %._crit_
   %indvars.iv.next.i172 = add nuw nsw i64 %indvars.iv.i171, 1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 4
   %139 = trunc nuw i64 %indvars.iv.next23.i to i32
-  %140 = icmp slt i32 %139, %9
+  %140 = icmp sgt i32 %9, %139
   br i1 %140, label %.lr.ph.i170, label %.loopexit202, !llvm.loop !42
 
 .loopexit202:                                     ; preds = %.noexc173, %117
@@ -3103,7 +3103,7 @@ _ZL13calc_fractionPKfi.exit:                      ; preds = %158, %.loopexit202
   %indvars.iv284 = phi i64 [ 0, %.lr.ph237 ], [ %indvars.iv.next285, %249 ]
   %.0235 = phi double [ 0.000000e+00, %.lr.ph237 ], [ %229, %249 ]
   %213 = icmp eq i64 %indvars.iv284, 0
-  %or.cond.not = or i1 %213, %1
+  %or.cond.not = or i1 %1, %213
   br i1 %or.cond.not, label %224, label %214
 
 214:                                              ; preds = %211
@@ -3146,7 +3146,7 @@ _ZL13calc_fractionPKfi.exit:                      ; preds = %158, %.loopexit202
   %238 = fdiv float %237, %.317
   %239 = call float @llvm.rint.f32(float %238)
   %240 = fptosi float %239 to i32
-  %241 = icmp eq i32 %240, %5
+  %241 = icmp eq i32 %5, %240
   %spec.store.select = select i1 %241, i32 0, i32 %240
   %242 = icmp sgt i32 %spec.store.select, -1
   %.not = icmp slt i32 %spec.store.select, %5

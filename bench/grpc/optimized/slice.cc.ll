@@ -586,7 +586,7 @@ do.end8.i:                                        ; preds = %do.body3.i
 do.body16.i:                                      ; preds = %do.end.i
   %3 = load i8, ptr %data17.i, align 8, !noalias !54
   %conv.i = zext i8 %3 to i64
-  %cmp19.not.i = icmp ult i64 %conv.i, %end
+  %cmp19.not.i = icmp ugt i64 %end, %conv.i
   br i1 %cmp19.not.i, label %if.then22.i, label %do.end24.i
 
 if.then22.i:                                      ; preds = %do.body16.i
@@ -664,7 +664,7 @@ if.then6.i.i:                                     ; preds = %do.body3.i.i
 do.body16.i.i:                                    ; preds = %do.end.i.i
   %4 = load i8, ptr %data17.i.i, align 8, !noalias !63
   %conv.i.i = zext i8 %4 to i64
-  %cmp19.not.i.i = icmp ult i64 %conv.i.i, %end
+  %cmp19.not.i.i = icmp ugt i64 %end, %conv.i.i
   br i1 %cmp19.not.i.i, label %if.then22.i.i, label %grpc_slice_sub_no_ref.exit.thread
 
 if.then22.i.i:                                    ; preds = %do.body16.i.i
@@ -720,7 +720,7 @@ do.body:                                          ; preds = %entry
   %data = getelementptr inbounds i8, ptr %source, i64 8
   %1 = load i8, ptr %data, align 8
   %conv = zext i8 %1 to i64
-  %cmp1.not = icmp ult i64 %conv, %split
+  %cmp1.not = icmp ugt i64 %split, %conv
   br i1 %cmp1.not, label %if.then3, label %do.end
 
 if.then3:                                         ; preds = %do.body
@@ -842,7 +842,7 @@ do.body.i:                                        ; preds = %entry
   %data.i = getelementptr inbounds i8, ptr %source, i64 8
   %1 = load i8, ptr %data.i, align 8, !noalias !64
   %conv.i = zext i8 %1 to i64
-  %cmp1.not.i = icmp ult i64 %conv.i, %split
+  %cmp1.not.i = icmp ugt i64 %split, %conv.i
   br i1 %cmp1.not.i, label %if.then3.i, label %do.end.i
 
 if.then3.i:                                       ; preds = %do.body.i
@@ -936,7 +936,7 @@ do.body:                                          ; preds = %entry
   %data = getelementptr inbounds i8, ptr %source, i64 8
   %1 = load i8, ptr %data, align 8
   %conv = zext i8 %1 to i64
-  %cmp1.not = icmp ult i64 %conv, %split
+  %cmp1.not = icmp ugt i64 %split, %conv
   br i1 %cmp1.not, label %if.then3, label %do.end
 
 if.then3:                                         ; preds = %do.body

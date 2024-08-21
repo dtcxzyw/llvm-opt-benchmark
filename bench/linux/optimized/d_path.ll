@@ -744,7 +744,7 @@ define internal fastcc ptr @__dentry_path(ptr noundef %0, ptr nocapture noundef 
 19:                                               ; preds = %18, %.loopexit
   %20 = phi i32 [ %17, %.loopexit ], [ %7, %18 ]
   %21 = load ptr, ptr %4, align 8
-  %22 = icmp eq ptr %21, %0
+  %22 = icmp eq ptr %0, %21
   br i1 %22, label %.thread9, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %54
@@ -1003,7 +1003,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_getcwd(i
 
 50:                                               ; preds = %46
   %51 = zext nneg i32 %48 to i64
-  %52 = icmp ugt i64 %51, %1
+  %52 = icmp ult i64 %1, %51
   br i1 %52, label %59, label %53, !prof !7
 
 53:                                               ; preds = %50

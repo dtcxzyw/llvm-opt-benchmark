@@ -750,7 +750,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -1030,7 +1030,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #13
   %cmp7 = icmp eq ptr %call, null
@@ -1157,10 +1157,10 @@ for.end:                                          ; preds = %for.body.i, %for.co
 if.then15:                                        ; preds = %for.end
   %call16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #15
   %conv17 = trunc i64 %call16 to i32
-  %cond = tail call i32 @llvm.smin.i32(i32 %conv17, i32 %posixIDCapacity)
+  %cond = tail call i32 @llvm.smin.i32(i32 %posixIDCapacity, i32 %conv17)
   %conv19 = sext i32 %cond to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %posixID, ptr nonnull align 1 %retval.0.i, i64 %conv19, i1 false)
-  %cmp20 = icmp slt i32 %conv17, %posixIDCapacity
+  %cmp20 = icmp sgt i32 %posixIDCapacity, %conv17
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.then15
@@ -1173,7 +1173,7 @@ if.then21:                                        ; preds = %if.then15
   br i1 %cmp24, label %return.sink.split, label %return
 
 if.else:                                          ; preds = %if.then15
-  %cmp27 = icmp eq i32 %conv17, %posixIDCapacity
+  %cmp27 = icmp eq i32 %posixIDCapacity, %conv17
   %. = select i1 %cmp27, i32 -124, i32 15
   br label %return.sink.split
 

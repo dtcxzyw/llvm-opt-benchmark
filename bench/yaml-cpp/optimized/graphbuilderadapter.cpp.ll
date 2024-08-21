@@ -86,7 +86,7 @@ if.then.i:                                        ; preds = %_ZNK4YAML19GraphBui
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i.i, %anchor
+  %cmp.i.i = icmp ugt i64 %anchor, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
 _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %if.then.i
@@ -222,7 +222,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %anchor
+  %cmp.i = icmp ugt i64 %anchor, %sub.ptr.div.i.i
   br i1 %cmp.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit
 
 _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i:          ; preds = %if.then
@@ -453,7 +453,7 @@ if.then.i:                                        ; preds = %_ZNK4YAML19GraphBui
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i.i, %anchor
+  %cmp.i.i = icmp ugt i64 %anchor, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
 _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %if.then.i
@@ -613,7 +613,7 @@ if.then.i:                                        ; preds = %_ZNSt5stackIN4YAML1
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i.i, %anchor
+  %cmp.i.i = icmp ugt i64 %anchor, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
 _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %if.then.i
@@ -818,7 +818,7 @@ if.then.i:                                        ; preds = %_ZNSt5stackIN4YAML1
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i.i, %anchor
+  %cmp.i.i = icmp ugt i64 %anchor, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
 _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %if.then.i

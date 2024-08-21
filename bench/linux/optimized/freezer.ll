@@ -490,7 +490,7 @@ define internal noundef range(i32 0, 32769) i32 @__set_task_frozen(ptr noundef %
 8:                                                ; preds = %2
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !7
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %10, %0
+  %11 = icmp eq ptr %0, %10
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %8

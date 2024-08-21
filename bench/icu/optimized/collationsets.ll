@@ -142,7 +142,7 @@ cond.false17.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false17.i
   %highStart.i = getelementptr inbounds i8, ptr %2, i64 44
   %8 = load i32, ptr %highStart.i, align 4
-  %cmp22.not.i = icmp sgt i32 %8, %start.addr.0
+  %cmp22.not.i = icmp slt i32 %start.addr.0, %8
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
@@ -804,7 +804,7 @@ if.else.i.i:                                      ; preds = %if.end32
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
   %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
   %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %cond.i6.i)
+  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
   %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
   %16 = and i16 %9, 2
   %tobool.not.i.i.i = icmp eq i16 %16, 0
@@ -1090,7 +1090,7 @@ if.else.i.i:                                      ; preds = %if.end34
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
   %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
   %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %cond.i6.i)
+  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
   %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
   %15 = and i16 %8, 2
   %tobool.not.i.i.i = icmp eq i16 %15, 0
@@ -1656,7 +1656,7 @@ cond.false17.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false17.i
   %highStart.i = getelementptr inbounds i8, ptr %1, i64 44
   %3 = load i32, ptr %highStart.i, align 4
-  %cmp22.not.i = icmp sgt i32 %3, %c
+  %cmp22.not.i = icmp slt i32 %c, %3
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
@@ -1782,7 +1782,7 @@ cond.false17.i16:                                 ; preds = %if.then3
 cond.false20.i18:                                 ; preds = %cond.false17.i16
   %highStart.i19 = getelementptr inbounds i8, ptr %26, i64 44
   %33 = load i32, ptr %highStart.i19, align 4
-  %cmp22.not.i20 = icmp sgt i32 %33, %c
+  %cmp22.not.i20 = icmp slt i32 %c, %33
   br i1 %cmp22.not.i20, label %cond.false25.i26, label %cond.true23.i21
 
 cond.true23.i21:                                  ; preds = %cond.false20.i18
@@ -2602,7 +2602,7 @@ if.else.i:                                        ; preds = %invoke.cont11
   %shr.i.i.i6 = sext i16 %9 to i32
   %10 = load i32, ptr %fLength.i.i7, align 4
   %cond.i.i8 = select i1 %cmp.i.i.i5, i32 %10, i32 %shr.i.i.i6
-  %cmp3.i = icmp ugt i32 %cond.i.i8, %cond.i
+  %cmp3.i = icmp ult i32 %cond.i, %cond.i.i8
   br i1 %cmp3.i, label %if.then4.i, label %do.cond
 
 if.then4.i:                                       ; preds = %if.else.i

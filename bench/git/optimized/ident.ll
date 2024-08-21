@@ -448,7 +448,7 @@ if.end9:                                          ; preds = %for.body
   %mail_begin = getelementptr inbounds i8, ptr %split, i64 16
   store ptr %add.ptr5, ptr %mail_begin, align 8
   %add.ptr11 = getelementptr inbounds i8, ptr %cp.081, i64 -1
-  %cmp13.not83 = icmp ult ptr %add.ptr11, %line
+  %cmp13.not83 = icmp ugt ptr %line, %add.ptr11
   br i1 %cmp13.not83, label %if.end30, label %for.body15
 
 for.body15:                                       ; preds = %if.end9, %for.inc22
@@ -463,7 +463,7 @@ for.body15:                                       ; preds = %if.end9, %for.inc22
 
 for.inc22:                                        ; preds = %for.body15
   %incdec.ptr23 = getelementptr inbounds i8, ptr %cp.184, i64 -1
-  %cmp13.not = icmp ult ptr %incdec.ptr23, %line
+  %cmp13.not = icmp ugt ptr %line, %incdec.ptr23
   br i1 %cmp13.not, label %if.end30, label %for.body15, !llvm.loop !8
 
 for.end24:                                        ; preds = %for.body15

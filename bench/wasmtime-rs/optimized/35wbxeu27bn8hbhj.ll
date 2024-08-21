@@ -215,7 +215,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatB
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 56
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   br i1 %8, label %14, label %.invoke
 
 9:                                                ; preds = %.invoke

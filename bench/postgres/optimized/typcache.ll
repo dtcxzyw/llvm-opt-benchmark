@@ -1805,7 +1805,7 @@ define internal void @TypeCacheRelCallback(i64 %0, i32 noundef %1) #0 {
 32:                                               ; preds = %.lr.ph.split
   %33 = getelementptr inbounds i8, ptr %29, i64 16
   %34 = load i32, ptr %33, align 8
-  %.not19 = icmp eq i32 %34, %1
+  %.not19 = icmp eq i32 %1, %34
   br i1 %.not19, label %35, label %.backedge
 
 35:                                               ; preds = %32
@@ -2723,7 +2723,7 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
   %7 = getelementptr inbounds i8, ptr %6, i64 264
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
-  %brmerge = or i1 %9, %2
+  %brmerge = or i1 %2, %9
   br i1 %brmerge, label %81, label %10
 
 10:                                               ; preds = %5
@@ -2741,7 +2741,7 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
 
 17:                                               ; preds = %15
   %18 = load i32, ptr @RecordCacheArrayLen, align 4
-  %19 = icmp sgt i32 %18, %1
+  %19 = icmp slt i32 %1, %18
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %17
@@ -2792,7 +2792,7 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
 46:                                               ; preds = %43, %._crit_edge.i
   %47 = phi ptr [ %41, %._crit_edge.i ], [ %45, %43 ]
   %48 = phi i32 [ %.pre.i, %._crit_edge.i ], [ 64, %43 ]
-  %.not.i = icmp sgt i32 %48, %40
+  %.not.i = icmp slt i32 %40, %48
   br i1 %.not.i, label %ensure_record_cache_typmod_slot_exists.exit, label %49
 
 49:                                               ; preds = %46
@@ -2912,7 +2912,7 @@ define dso_local ptr @lookup_rowtype_tupdesc_domain(i32 noundef %0, i32 noundef 
   %20 = getelementptr inbounds i8, ptr %5, i64 264
   %21 = load ptr, ptr %20, align 8
   %22 = icmp ne ptr %21, null
-  %brmerge = or i1 %22, %2
+  %brmerge = or i1 %2, %22
   br i1 %brmerge, label %30, label %23
 
 23:                                               ; preds = %19
@@ -3030,7 +3030,7 @@ define dso_local void @assign_record_type_typmod(ptr noundef %0) local_unnamed_a
 40:                                               ; preds = %37, %._crit_edge.i
   %41 = phi ptr [ %35, %._crit_edge.i ], [ %39, %37 ]
   %42 = phi i32 [ %.pre.i, %._crit_edge.i ], [ 64, %37 ]
-  %.not.i = icmp sgt i32 %42, %34
+  %.not.i = icmp slt i32 %34, %42
   br i1 %.not.i, label %ensure_record_cache_typmod_slot_exists.exit, label %43
 
 43:                                               ; preds = %40
@@ -3084,7 +3084,7 @@ ensure_record_cache_typmod_slot_exists.exit:      ; preds = %40, %43
 69:                                               ; preds = %66, %._crit_edge.i16
   %70 = phi ptr [ %64, %._crit_edge.i16 ], [ %68, %66 ]
   %71 = phi i32 [ %.pre.i17, %._crit_edge.i16 ], [ 64, %66 ]
-  %.not.i18 = icmp sgt i32 %71, %63
+  %.not.i18 = icmp slt i32 %63, %71
   br i1 %.not.i18, label %ensure_record_cache_typmod_slot_exists.exit20, label %72
 
 72:                                               ; preds = %69
@@ -3326,7 +3326,7 @@ define dso_local i64 @assign_record_type_identifier(i32 noundef %0, i32 noundef 
 16:                                               ; preds = %2
   %17 = icmp sgt i32 %1, -1
   %18 = load i32, ptr @RecordCacheArrayLen, align 4
-  %19 = icmp sgt i32 %18, %1
+  %19 = icmp slt i32 %1, %18
   %or.cond = select i1 %17, i1 %19, i1 false
   br i1 %or.cond, label %20, label %28
 
@@ -3567,7 +3567,7 @@ define dso_local range(i32 -1, 2) i32 @compare_values_of_enum(ptr nocapture noun
 14:                                               ; preds = %13, %9
   %15 = phi ptr [ %.pre, %13 ], [ %11, %9 ]
   %16 = load i32, ptr %15, align 8
-  %17 = icmp ugt i32 %16, %1
+  %17 = icmp ult i32 %1, %16
   br i1 %17, label %enum_known_sorted.exit.thread, label %18
 
 18:                                               ; preds = %14
@@ -3583,7 +3583,7 @@ enum_known_sorted.exit:                           ; preds = %18
 
 24:                                               ; preds = %enum_known_sorted.exit
   %25 = load i32, ptr %15, align 8
-  %26 = icmp ugt i32 %25, %2
+  %26 = icmp ult i32 %2, %25
   br i1 %26, label %enum_known_sorted.exit.thread, label %27
 
 27:                                               ; preds = %24

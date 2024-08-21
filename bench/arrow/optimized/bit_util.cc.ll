@@ -95,7 +95,7 @@ _ZN5arrow8bit_util7RoundUpEll.exit.i:             ; preds = %cond.false.i.i.i, %
   %sub.i = sub nsw i64 %cond.i.i.i, %offset
   %sext.i = shl i64 %sub.i, 32
   %conv8.i = ashr exact i64 %sext.i, 32
-  %cmp9.i = icmp sgt i64 %conv8.i, %length
+  %cmp9.i = icmp slt i64 %length, %conv8.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end24.i
 
 if.then10.i:                                      ; preds = %_ZN5arrow8bit_util7RoundUpEll.exit.i
@@ -177,7 +177,7 @@ _ZN5arrow8bit_util7RoundUpEll.exit.i:             ; preds = %cond.false.i.i.i, %
   %sub.i = sub nsw i64 %cond.i.i.i, %offset
   %sext.i = shl i64 %sub.i, 32
   %conv8.i = ashr exact i64 %sext.i, 32
-  %cmp9.i = icmp sgt i64 %conv8.i, %length
+  %cmp9.i = icmp slt i64 %length, %conv8.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end24.i
 
 if.then10.i:                                      ; preds = %_ZN5arrow8bit_util7RoundUpEll.exit.i

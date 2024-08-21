@@ -210,7 +210,7 @@ ddUpdateInteract.exit:                            ; preds = %.loopexit.i, %._cri
   %69 = ptrtoint ptr %68 to i64
   %70 = and i64 %69, -2
   %71 = inttoptr i64 %70 to ptr
-  %.not = icmp eq ptr %71, %0
+  %.not = icmp eq ptr %0, %71
   br i1 %.not, label %._crit_edge72, label %.lr.ph71, !llvm.loop !7
 
 ._crit_edge72:                                    ; preds = %ddUpdateInteract.exit, %.lr.ph75
@@ -262,7 +262,7 @@ ddUpdateInteract.exit:                            ; preds = %.loopexit.i, %._cri
   %87 = and i64 %86, -2
   %88 = inttoptr i64 %87 to ptr
   store ptr %88, ptr %84, align 8
-  %.not.i = icmp eq ptr %88, %0
+  %.not.i = icmp eq ptr %0, %88
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i59, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i59, %.lr.ph23.i

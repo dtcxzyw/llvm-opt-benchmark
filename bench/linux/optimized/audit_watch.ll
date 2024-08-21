@@ -774,7 +774,7 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 define dso_local i32 @audit_exe_compare(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !25
   %4 = inttoptr i64 %3 to ptr
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %2

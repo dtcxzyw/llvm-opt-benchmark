@@ -21,14 +21,14 @@ entry:
   %max_table_size_ = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %max_table_size_, align 4
   %conv = zext i32 %2 to i64
-  %cmp = icmp ult i64 %conv, %element_size
+  %cmp = icmp ugt i64 %element_size, %conv
   %table_size_ = getelementptr inbounds i8, ptr %this, i64 12
   %table_size_.promoted = load i32, ptr %table_size_, align 4
   br i1 %cmp, label %while.cond.preheader, label %while.cond4.preheader
 
 while.cond4.preheader:                            ; preds = %entry
   %conv639 = zext i32 %table_size_.promoted to i64
-  %add740 = add nuw nsw i64 %conv639, %element_size
+  %add740 = add nuw nsw i64 %element_size, %conv639
   %cmp1041 = icmp ugt i64 %add740, %conv
   br i1 %cmp1041, label %while.body11.lr.ph, label %while.cond4.preheader.do.body_crit_edge
 
@@ -155,7 +155,7 @@ _ZN9grpc_core17HPackEncoderTable8EvictOneEv.exit28: ; preds = %do.end8.i10
   %dec.i24 = add i32 %11, -1
   store i32 %dec.i24, ptr %table_elems_, align 8
   %conv6 = zext i32 %sub.i23 to i64
-  %add7 = add i64 %conv6, %element_size
+  %add7 = add i64 %element_size, %conv6
   %cmp10 = icmp ugt i64 %add7, %conv
   br i1 %cmp10, label %while.body11, label %do.body, !llvm.loop !6
 
@@ -253,7 +253,7 @@ define noundef zeroext i1 @_ZN9grpc_core17HPackEncoderTable10SetMaxSizeEj(ptr no
 entry:
   %max_table_size_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %max_table_size_, align 4
-  %cmp = icmp ne i32 %0, %max_table_size
+  %cmp = icmp ne i32 %max_table_size, %0
   br i1 %cmp, label %while.cond.preheader, label %return
 
 while.cond.preheader:                             ; preds = %entry

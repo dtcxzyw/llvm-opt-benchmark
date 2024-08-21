@@ -1484,7 +1484,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = call noundef i64 @_ZN8facebook5velox8encoding6Base6420calculateDecodedSizeEPKcRmb(ptr noundef %src, ptr noundef nonnull align 8 dereferenceable(8) %src_len.addr, i1 noundef zeroext %include_pad)
-  %cmp = icmp ugt i64 %call, %dst_len
+  %cmp = icmp ult i64 %dst_len, %call
   br i1 %cmp, label %if.then2, label %for.condthread-pre-split
 
 if.then2:                                         ; preds = %if.end

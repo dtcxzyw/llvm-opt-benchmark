@@ -153,7 +153,7 @@ define void @_ZN5faiss17ResidualQuantizer5trainEmPKf(ptr noundef nonnull align 8
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 2
-  %23 = icmp ult i64 %22, %15
+  %23 = icmp ugt i64 %15, %22
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %3
@@ -163,7 +163,7 @@ define void @_ZN5faiss17ResidualQuantizer5trainEmPKf(ptr noundef nonnull align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 26:                                               ; preds = %3
-  %27 = icmp ugt i64 %22, %15
+  %27 = icmp ult i64 %15, %22
   br i1 %27, label %28, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 28:                                               ; preds = %26
@@ -601,7 +601,7 @@ _ZN5faiss10ClusteringD2Ev.exit:                   ; preds = %_ZN5faiss10Clusteri
   %194 = load i32, ptr %58, align 4
   %.sroa.speculated241 = call i32 @llvm.smin.i32(i32 %194, i32 %193)
   %195 = sext i32 %.sroa.speculated241 to i64
-  %196 = mul i64 %195, %1
+  %196 = mul i64 %1, %195
   %indvars.iv.next686 = add nuw nsw i64 %indvars.iv685, 1
   %197 = mul i64 %196, %indvars.iv.next686
   %198 = icmp ugt i64 %197, 2305843009213693951
@@ -808,7 +808,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit140:            ; preds = %_ZSt6fill_nIPfmfET_
 
 251:                                              ; preds = %245
   %252 = add i64 %.082, %.084.in.sroa.speculated
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %252, i64 %1)
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %1, i64 %252)
   %253 = load i64, ptr %8, align 8
   %254 = sub i64 %.sroa.speculated, %.082
   %255 = mul i64 %.082, %244
@@ -1839,7 +1839,7 @@ define void @_ZN5faiss17ResidualQuantizer15initialize_fromERKS0_i(ptr noundef no
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
-  %58 = icmp ult i64 %57, %49
+  %58 = icmp ugt i64 %49, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %45
@@ -1851,7 +1851,7 @@ define void @_ZN5faiss17ResidualQuantizer15initialize_fromERKS0_i(ptr noundef no
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 61:                                               ; preds = %45
-  %62 = icmp ugt i64 %57, %49
+  %62 = icmp ult i64 %49, %57
   br i1 %62, label %63, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 63:                                               ; preds = %61
@@ -1932,7 +1932,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %59, %61, %63, %65
   %104 = getelementptr inbounds i8, ptr %0, i64 120
   %105 = load i64, ptr %104, align 8
   %106 = mul i64 %105, %85
-  %107 = icmp ult i64 %80, %106
+  %107 = icmp ugt i64 %106, %80
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %103
@@ -1945,7 +1945,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %59, %61, %63, %65
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 110:                                              ; preds = %103
-  %111 = icmp ugt i64 %80, %106
+  %111 = icmp ult i64 %106, %80
   br i1 %111, label %112, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 112:                                              ; preds = %110
@@ -2712,7 +2712,7 @@ define noundef float @_ZN5faiss17ResidualQuantizer19retrain_AQ_codebookEmPKf(ptr
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 120
   %17 = load i64, ptr %16, align 8
-  %.not = icmp ugt i64 %17, %1
+  %.not = icmp ult i64 %1, %17
   br i1 %.not, label %18, label %34
 
 18:                                               ; preds = %3
@@ -3635,7 +3635,7 @@ define void @_ZN5faiss17ResidualQuantizer23compute_codebook_tablesEv(ptr noundef
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 2
-  %17 = icmp ult i64 %16, %9
+  %17 = icmp ugt i64 %9, %16
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %1
@@ -3646,7 +3646,7 @@ define void @_ZN5faiss17ResidualQuantizer23compute_codebook_tablesEv(ptr noundef
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 20:                                               ; preds = %1
-  %21 = icmp ugt i64 %16, %9
+  %21 = icmp ult i64 %9, %16
   br i1 %21, label %22, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 22:                                               ; preds = %20
@@ -3711,7 +3711,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %18, %20, %22, %24
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
   %59 = ashr exact i64 %58, 2
-  %60 = icmp ult i64 %59, %51
+  %60 = icmp ugt i64 %51, %59
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %._crit_edge
@@ -3727,7 +3727,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %18, %20, %22, %24
   %67 = phi ptr [ %34, %._crit_edge.thread ], [ %53, %._crit_edge ]
   %68 = phi ptr [ %33, %._crit_edge.thread ], [ %52, %._crit_edge ]
   %.014.lcssa33 = phi i64 [ 0, %._crit_edge.thread ], [ %51, %._crit_edge ]
-  %69 = icmp ugt i64 %64, %.014.lcssa33
+  %69 = icmp ult i64 %.014.lcssa33, %64
   br i1 %69, label %70, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
 70:                                               ; preds = %63

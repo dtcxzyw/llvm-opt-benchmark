@@ -499,7 +499,7 @@ for.cond:                                         ; preds = %entry, %for.inc
 
 _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %for.cond
   %call.i2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
-  %cmp.i = icmp eq i64 %call.i2, %op.coerce1.fr
+  %cmp.i = icmp eq i64 %op.coerce1.fr, %call.i2
   br i1 %cmp.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, label %for.inc
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -598,7 +598,7 @@ for.cond.i:                                       ; preds = %entry, %for.inc.i
 
 _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %for.cond.i
   %call.i2.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
-  %cmp.i.i = icmp eq i64 %call.i2.i, %op.coerce1.fr.i
+  %cmp.i.i = icmp eq i64 %op.coerce1.fr.i, %call.i2.i
   br i1 %cmp.i.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i, label %for.inc.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
@@ -663,7 +663,7 @@ for.cond.i:                                       ; preds = %entry, %for.inc.i
 
 _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %for.cond.i
   %call.i2.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
-  %cmp.i.i = icmp eq i64 %call.i2.i, %op.coerce1.fr.i
+  %cmp.i.i = icmp eq i64 %op.coerce1.fr.i, %call.i2.i
   br i1 %cmp.i.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i, label %for.inc.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
@@ -2153,7 +2153,7 @@ if.then:                                          ; preds = %entry
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %result.0.copyload.i3.i = load i32, ptr %add.ptr1.i, align 1
   %conv3.i = zext i32 %result.0.copyload.i3.i to i64
-  %xor.i = xor i64 %conv3.i, %seed
+  %xor.i = xor i64 %seed, %conv3.i
   %xor.i.i = xor i64 %xor.i, %add.i
   %mul.i.i = mul i64 %xor.i.i, -7070675565921424023
   %shr.i.i = lshr i64 %mul.i.i, 47

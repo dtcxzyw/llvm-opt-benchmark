@@ -3126,7 +3126,7 @@ lor.lhs.false:                                    ; preds = %for.body
   %score = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i16, ptr %score, align 4
   %conv = zext i16 %1 to i32
-  %cmp5 = icmp slt i32 %conv, %minimum_score
+  %cmp5 = icmp sgt i32 %minimum_score, %conv
   br i1 %cmp5, label %for.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false

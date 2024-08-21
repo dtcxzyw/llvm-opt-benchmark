@@ -208,7 +208,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -488,7 +488,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #15
   %cmp7 = icmp eq ptr %call, null
@@ -1031,7 +1031,7 @@ entry:
           to label %_ZN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEC2ERKNS_6LocaleE.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %7, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %8, %lpad ]
   call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %key) #14
   resume { ptr, i32 } %common.resume.op
 
@@ -1058,16 +1058,18 @@ if.end.i:                                         ; preds = %_ZN6icu_7514LocaleC
   %3 = load ptr, ptr %value.i, align 8
   %4 = load i32, ptr %creationStatus.i, align 4
   %cmp.i3.i = icmp sgt i32 %4, 0
-  %cmp.not.i.i = icmp eq ptr %3, null
-  %or.cond = select i1 %cmp.i3.i, i1 true, i1 %cmp.not.i.i
-  br i1 %or.cond, label %if.end5.i, label %if.end5.thread12.i
+  %cmp.not.i5.i = icmp eq ptr %3, null
+  br i1 %cmp.i3.i, label %if.end5.i, label %if.then4.i
 
-if.end5.thread12.i:                               ; preds = %.noexc
+if.then4.i:                                       ; preds = %.noexc
+  br i1 %cmp.not.i5.i, label %_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i, label %if.end5.thread12.i
+
+if.end5.thread12.i:                               ; preds = %if.then4.i
   invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %if.then.i6.i unwind label %lpad
 
 if.end5.i:                                        ; preds = %.noexc
-  br i1 %cmp.not.i.i, label %_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i, label %if.then.i6.i
+  br i1 %cmp.not.i5.i, label %if.then8.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.end5.thread12.i, %if.end5.i
   %entry2.0 = phi ptr [ null, %if.end5.i ], [ %3, %if.end5.thread12.i ]
@@ -1078,21 +1080,23 @@ if.then.i6.i._ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_
   %.pre = load i32, ptr %creationStatus.i, align 4
   br label %_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i
 
-_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i: ; preds = %if.then.i6.i._ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i_crit_edge, %if.end5.i
-  %5 = phi i32 [ %4, %if.end5.i ], [ %.pre, %if.then.i6.i._ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i_crit_edge ]
-  %entry2.1 = phi ptr [ null, %if.end5.i ], [ %entry2.0, %if.then.i6.i._ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i_crit_edge ]
+_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i: ; preds = %if.then.i6.i._ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i_crit_edge, %if.then4.i
+  %5 = phi i32 [ %.pre, %if.then.i6.i._ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i_crit_edge ], [ %4, %if.then4.i ]
+  %entry2.1 = phi ptr [ %entry2.0, %if.then.i6.i._ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i_crit_edge ], [ null, %if.then4.i ]
   %6 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp ne i32 %6, 0
   %cmp.i8.i = icmp slt i32 %5, 1
   %or.cond.i = select i1 %cmp.i, i1 %cmp.i8.i, i1 false
   br i1 %or.cond.i, label %invoke.cont, label %if.then8.i
 
-if.then8.i:                                       ; preds = %_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i
-  store i32 %5, ptr %errorCode, align 4
+if.then8.i:                                       ; preds = %if.end5.i, %_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i
+  %entry2.112 = phi ptr [ %entry2.1, %_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i ], [ null, %if.end5.i ]
+  %7 = phi i32 [ %5, %_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i ], [ %4, %if.end5.i ]
+  store i32 %7, ptr %errorCode, align 4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then8.i, %_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i, %_ZN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEC2ERKNS_6LocaleE.exit
-  %entry2.2 = phi ptr [ %entry2.1, %_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i ], [ %entry2.1, %if.then8.i ], [ null, %_ZN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEC2ERKNS_6LocaleE.exit ]
+  %entry2.2 = phi ptr [ %entry2.1, %_ZN6icu_7512SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i ], [ %entry2.112, %if.then8.i ], [ null, %_ZN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEC2ERKNS_6LocaleE.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %creationStatus.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %key, align 8
@@ -1101,7 +1105,7 @@ invoke.cont:                                      ; preds = %if.then8.i, %_ZN6ic
   ret ptr %entry2.2
 
 lpad:                                             ; preds = %if.then.i6.i, %if.end5.thread12.i, %if.end.i
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %key, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #14
@@ -2461,7 +2465,7 @@ entry:
   %call = call noundef ptr @_ZN6icu_758Collator19getAvailableLocalesERi(ptr noundef nonnull align 4 dereferenceable(4) %count)
   %cmp.not = icmp ne ptr %call, null
   %0 = load i32, ptr %count, align 4
-  %cmp1 = icmp sgt i32 %0, %index
+  %cmp1 = icmp slt i32 %index, %0
   %or.cond = select i1 %cmp.not, i1 %cmp1, i1 false
   br i1 %or.cond, label %if.then, label %return
 

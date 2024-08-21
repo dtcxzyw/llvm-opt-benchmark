@@ -4925,7 +4925,7 @@ define void @_ZN3gmx12EnergyOutput19addDataAtEnergyStepEbbdfPK14gmx_enerdata_tPK
   %445 = getelementptr inbounds i8, ptr %0, i64 352
   %446 = load ptr, ptr %445, align 8
   %.not218 = icmp ne ptr %446, null
-  %brmerge.not = and i1 %.not218, %1
+  %brmerge.not = and i1 %1, %.not218
   br i1 %brmerge.not, label %448, label %604
 
 447:                                              ; preds = %440

@@ -238,7 +238,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce
 39:                                               ; preds = %23
   %40 = getelementptr inbounds i8, ptr %37, i64 8
   %41 = load i64, ptr %40, align 8, !noalias !73
-  %42 = icmp ugt i64 %41, %34
+  %42 = icmp ult i64 %34, %41
   br i1 %42, label %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.thread.i.i", label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i.i.i.i.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i.i.i.i.i.i: ; preds = %39
@@ -263,7 +263,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.i.i.i.i.i.i: ; preds = %50
   %53 = getelementptr inbounds i8, ptr %37, i64 24
   %54 = load i64, ptr %53, align 8, !noalias !72
-  %55 = icmp ult i64 %54, %34
+  %55 = icmp ugt i64 %34, %54
   br i1 %55, label %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.thread.i.i", label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.thread.i.i.i.i.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.thread.i.i.i.i.i.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.i.i.i.i.i.i, %50, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.thread.i.i.i.i.i.i, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i.i.i.i.i.i, %23

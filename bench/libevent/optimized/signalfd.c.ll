@@ -180,7 +180,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %sh_old_max = getelementptr inbounds i8, ptr %base, i64 704
   %0 = load i32, ptr %sh_old_max, align 8
-  %cmp = icmp sgt i32 %0, %signo
+  %cmp = icmp slt i32 %signo, %0
   br i1 %cmp, label %if.then7, label %if.end20
 
 if.then7:                                         ; preds = %if.end

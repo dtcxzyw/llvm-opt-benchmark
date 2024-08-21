@@ -1473,7 +1473,7 @@ _ZNSt16allocator_traitsISaIN2cv6Point_IfEEEE8allocateERS3_m.exit.i.i.i.i: ; pred
   %.sroa.3201.0.copyload = load float, ptr %.sroa.3201.0..sroa_idx, align 8
   %.sroa.4204.0.copyload = load float, ptr %.sroa.4204.0..sroa_idx, align 4
   %409 = fmul float %.sroa.3201.0.copyload, 3.000000e+01
-  %410 = fcmp oge float %409, %.sroa.4204.0.copyload
+  %410 = fcmp ole float %.sroa.4204.0.copyload, %409
   %411 = fcmp ogt float %.sroa.3201.0.copyload, 0.000000e+00
   %412 = and i1 %411, %410
   br i1 %412, label %_ZN2cv7Scalar_IdEC2ERKS1_.exit, label %416
@@ -1521,7 +1521,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %408
   %.sroa.3191.0.copyload = load float, ptr %.sroa.3191.0..sroa_idx, align 8
   %.sroa.4194.0.copyload = load float, ptr %.sroa.4194.0..sroa_idx, align 4
   %421 = fmul float %.sroa.3191.0.copyload, 3.000000e+01
-  %422 = fcmp oge float %421, %.sroa.4194.0.copyload
+  %422 = fcmp ole float %.sroa.4194.0.copyload, %421
   %423 = fcmp ogt float %.sroa.3191.0.copyload, 0.000000e+00
   %424 = and i1 %423, %422
   br i1 %424, label %_ZN2cv7Scalar_IdEC2ERKS1_.exit116, label %428
@@ -1559,7 +1559,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit116:                ; preds = %420
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4185.0.copyload = load float, ptr %.sroa.4185.0..sroa_idx, align 4
   %433 = fmul float %.sroa.3.0.copyload, 3.000000e+01
-  %434 = fcmp oge float %433, %.sroa.4185.0.copyload
+  %434 = fcmp ole float %.sroa.4185.0.copyload, %433
   %435 = fcmp ogt float %.sroa.3.0.copyload, 0.000000e+00
   %436 = and i1 %435, %434
   br i1 %436, label %_ZN2cv7Scalar_IdEC2ERKS1_.exit120, label %440
@@ -2224,7 +2224,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #20
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -2873,7 +2873,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i17
@@ -2977,7 +2977,7 @@ _ZNSt12_Vector_baseIN2cv7Scalar_IdEESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZN
 _ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN2cv7Scalar_IdEESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv7Scalar_IdEESaIS2_EE11_M_allocateEm.exit ], [ %36, %.lr.ph.i.i.i.i ]
   %37 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i.i27
@@ -3141,7 +3141,7 @@ _ZNSt16allocator_traitsISaIN2cv6Point_IfEEEE8allocateERS3_m.exit.i.i.i.i.i.i: ; 
 _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %.loopexit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %.loopexit ], [ %52, %.lr.ph.i.i.i.i ]
   %53 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i.i28

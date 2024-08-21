@@ -885,7 +885,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
   %.val.us = load i32, ptr %26, align 4, !noundef !9
   %27 = tail call i32 @llvm.bswap.i32(i32 %.val.us)
   %28 = zext i32 %27 to i64
-  %.not.us = icmp eq i64 %28, %3
+  %.not.us = icmp eq i64 %3, %28
   br i1 %.not.us, label %29, label %.backedge.us
 
 29:                                               ; preds = %25
@@ -955,7 +955,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
   %57 = getelementptr i8, ptr %.sroa.5.036, i64 -16
   %.val = load i32, ptr %57, align 4, !noundef !9
   %58 = zext i32 %.val to i64
-  %.not = icmp eq i64 %58, %3
+  %.not = icmp eq i64 %3, %58
   br i1 %.not, label %59, label %.backedge
 
 59:                                               ; preds = %56
@@ -1076,7 +1076,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
   %.val.us = load i32, ptr %26, align 8, !noundef !9
   %27 = tail call i32 @llvm.bswap.i32(i32 %.val.us)
   %28 = zext i32 %27 to i64
-  %.not.us = icmp eq i64 %28, %3
+  %.not.us = icmp eq i64 %3, %28
   br i1 %.not.us, label %29, label %.backedge.us
 
 29:                                               ; preds = %25
@@ -1146,7 +1146,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
   %57 = getelementptr i8, ptr %.sroa.5.036, i64 -24
   %.val = load i32, ptr %57, align 8, !noundef !9
   %58 = zext i32 %.val to i64
-  %.not = icmp eq i64 %58, %3
+  %.not = icmp eq i64 %3, %58
   br i1 %.not, label %59, label %.backedge
 
 59:                                               ; preds = %56

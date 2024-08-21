@@ -392,14 +392,14 @@ if.end:                                           ; preds = %cond.false
   store i32 1, ptr %rwstate, align 8
   %wnum = getelementptr inbounds i8, ptr %ssl, i64 3080
   %1 = load i64, ptr %wnum, align 8
-  %cmp10 = icmp ugt i64 %1, %len
+  %cmp10 = icmp ult i64 %len, %1
   br i1 %cmp10, label %if.then18, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %wpend_tot = getelementptr inbounds i8, ptr %ssl, i64 3104
   %2 = load i64, ptr %wpend_tot, align 8
   %add = add i64 %2, %1
-  %cmp17 = icmp ugt i64 %add, %len
+  %cmp17 = icmp ult i64 %len, %add
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %lor.lhs.false, %if.end
@@ -835,7 +835,7 @@ if.end:                                           ; preds = %land.lhs.true.i, %l
   %early_data_count = getelementptr inbounds i8, ptr %s, i64 5288
   %9 = load i32, ptr %early_data_count, align 8
   %conv2 = zext i32 %9 to i64
-  %add3 = add i64 %conv2, %length
+  %add3 = add i64 %length, %conv2
   %conv4 = zext i32 %conv1 to i64
   %cmp5 = icmp ugt i64 %add3, %conv4
   br i1 %cmp5, label %if.then7, label %if.end10
@@ -1004,7 +1004,7 @@ if.else:                                          ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.else
   %length16 = getelementptr inbounds i8, ptr %rr, i64 32
   %7 = load i64, ptr %length16, align 8
-  %cmp17 = icmp eq i64 %7, %length
+  %cmp17 = icmp eq i64 %length, %7
   br i1 %cmp17, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %lor.lhs.false, %if.else
@@ -1361,7 +1361,7 @@ if.then177:                                       ; preds = %if.end174
   br label %return
 
 if.end182:                                        ; preds = %if.end174
-  %cmp186 = icmp eq i8 %33, %type
+  %cmp186 = icmp eq i8 %type, %33
   br i1 %cmp186, label %if.then202, label %lor.lhs.false188
 
 lor.lhs.false188:                                 ; preds = %if.end182
@@ -1551,7 +1551,7 @@ if.else.i283:                                     ; preds = %if.else275
 
 lor.lhs.false.i:                                  ; preds = %if.else.i283
   %63 = load i64, ptr %length255, align 8
-  %cmp17.i = icmp eq i64 %63, %.sub
+  %cmp17.i = icmp eq i64 %.sub, %63
   br i1 %cmp17.i, label %if.then18.i, label %if.end21.i268
 
 if.then18.i:                                      ; preds = %lor.lhs.false.i, %if.else.i283

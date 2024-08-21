@@ -794,7 +794,7 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.222) #3
   %78 = icmp ne i32 %6, 0
   %or.cond183.v.i = select i1 %78, i8 5, i8 6
-  %or.cond183.not196.i = icmp eq i8 %or.cond183.v.i, %5
+  %or.cond183.not196.i = icmp eq i8 %5, %or.cond183.v.i
   %79 = icmp eq i8 %5, 3
   %or.cond5.i = and i1 %79, %78
   %or.cond184.i = or i1 %or.cond5.i, %or.cond183.not196.i
@@ -858,7 +858,7 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.227) #3
   %109 = icmp ne i32 %6, 0
   %or.cond185.v.i = select i1 %109, i8 5, i8 6
-  %or.cond185.not195.i = icmp eq i8 %or.cond185.v.i, %5
+  %or.cond185.not195.i = icmp eq i8 %5, %or.cond185.v.i
   %110 = icmp eq i8 %5, 3
   %or.cond13.i = and i1 %110, %109
   %or.cond186.i = or i1 %or.cond13.i, %or.cond185.not195.i
@@ -954,7 +954,7 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.222) #3
   %156 = icmp ne i32 %6, 0
   %or.cond187.v.i = select i1 %156, i8 5, i8 6
-  %or.cond187.not194.i = icmp eq i8 %or.cond187.v.i, %5
+  %or.cond187.not194.i = icmp eq i8 %5, %or.cond187.v.i
   %157 = icmp eq i8 %5, 3
   %or.cond21.i = and i1 %157, %156
   %or.cond188.i = or i1 %or.cond21.i, %or.cond187.not194.i
@@ -1107,7 +1107,7 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
   %218 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %216, ptr noundef %2, ptr noundef %67, i32 noundef %217, ptr noundef nonnull %43) #3
   %219 = icmp ne i32 %6, 0
   %or.cond277.v.i = select i1 %219, i8 5, i8 6
-  %or.cond277.not279.i = icmp eq i8 %or.cond277.v.i, %5
+  %or.cond277.not279.i = icmp eq i8 %5, %or.cond277.v.i
   %220 = icmp eq i8 %5, 3
   %or.cond5.i90 = and i1 %220, %219
   %or.cond278.i = or i1 %or.cond5.i90, %or.cond277.not279.i
@@ -1760,7 +1760,7 @@ dissect_PNDCP_Suboption_Device.exit:              ; preds = %.lr.ph.i, %284, %34
   %567 = add i32 %564, %566
   %568 = icmp ne i32 %6, 0
   %or.cond95.v.i = select i1 %568, i8 5, i8 6
-  %or.cond95.not97.i = icmp eq i8 %or.cond95.v.i, %5
+  %or.cond95.not97.i = icmp eq i8 %5, %or.cond95.v.i
   %569 = icmp eq i8 %5, 3
   %or.cond5.i96 = and i1 %569, %568
   %or.cond96.i = or i1 %or.cond5.i96, %or.cond95.not97.i
@@ -2071,7 +2071,7 @@ dissect_PNDCP_Suboption_Control.exit:             ; preds = %656, %659, %662, %6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.289) #3
   %712 = icmp ne i32 %6, 0
   %or.cond40.v.i = select i1 %712, i8 5, i8 6
-  %or.cond40.not42.i = icmp eq i8 %or.cond40.v.i, %5
+  %or.cond40.not42.i = icmp eq i8 %5, %or.cond40.v.i
   %713 = icmp eq i8 %5, 3
   %or.cond5.i104 = and i1 %713, %712
   %or.cond41.i = or i1 %or.cond5.i104, %or.cond40.not42.i
@@ -2140,7 +2140,7 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %722, %724
   %738 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %736, ptr noundef %2, ptr noundef %67, i32 noundef %737, ptr noundef nonnull %12) #3
   %739 = icmp ne i32 %6, 0
   %or.cond218.v.i = select i1 %739, i8 5, i8 6
-  %or.cond218.not220.i = icmp eq i8 %or.cond218.v.i, %5
+  %or.cond218.not220.i = icmp eq i8 %5, %or.cond218.v.i
   %740 = icmp eq i8 %5, 3
   %or.cond5.i108 = and i1 %740, %739
   %or.cond219.i = or i1 %or.cond5.i108, %or.cond218.not220.i

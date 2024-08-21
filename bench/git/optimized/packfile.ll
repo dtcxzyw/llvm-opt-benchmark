@@ -229,7 +229,7 @@ entry:
   %reass.add = shl i32 %hashsz, 1
   %add1 = add i32 %reass.add, 1024
   %conv = zext i32 %add1 to i64
-  %cmp = icmp ugt i64 %conv, %idx_size
+  %cmp = icmp ult i64 %idx_size, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -296,7 +296,7 @@ st_add.exit:                                      ; preds = %for.end
   %conv43 = zext i32 %add42 to i64
   %mul.i = mul nuw i64 %conv41, %conv43
   %add.i = add nuw i64 %mul.i, %conv
-  %cmp46.not = icmp eq i64 %add.i, %idx_size
+  %cmp46.not = icmp eq i64 %idx_size, %add.i
   br i1 %cmp46.not, label %if.end91, label %if.then48
 
 if.then48:                                        ; preds = %st_add.exit
@@ -332,8 +332,8 @@ st_add.exit76:                                    ; preds = %if.then66
 
 if.end70:                                         ; preds = %st_add.exit76, %if.then55
   %max_size.0 = phi i64 [ %add.i74, %st_add.exit76 ], [ %add.i62, %if.then55 ]
-  %cmp71 = icmp ugt i64 %add.i62, %idx_size
-  %cmp74 = icmp ult i64 %max_size.0, %idx_size
+  %cmp71 = icmp ult i64 %idx_size, %add.i62
+  %cmp74 = icmp ugt i64 %idx_size, %max_size.0
   %or.cond = select i1 %cmp71, i1 true, i1 %cmp74
   br i1 %or.cond, label %if.then76, label %if.end79
 
@@ -864,7 +864,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ %indvars.iv.next, %strbuf_setlen.exit ], [ 0, %for.body.preheader ]
   %4 = load i64, ptr %buf, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %4, i64 1)
-  %cmp.i5 = icmp ult i64 %spec.select.i, %2
+  %cmp.i5 = icmp ugt i64 %2, %spec.select.i
   br i1 %cmp.i5, label %if.then.i, label %if.end.i6
 
 if.then.i:                                        ; preds = %for.body
@@ -957,7 +957,7 @@ if.end:                                           ; preds = %land.lhs.true1.if.e
   %rawsz = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i64, ptr %rawsz, align 8
   %sub = sub i64 %3, %6
-  %cmp4 = icmp ult i64 %sub, %offset
+  %cmp4 = icmp ugt i64 %offset, %sub
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
@@ -2068,7 +2068,7 @@ while.body:                                       ; preds = %strbuf_addch.exit, 
   %call711 = phi ptr [ %call7, %strbuf_setlen.exit ], [ %call79, %strbuf_addch.exit ]
   %10 = load i64, ptr %path, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %9
+  %cmp.i = icmp ugt i64 %9, %spec.select.i
   br i1 %cmp.i, label %if.then.i7, label %if.end.i
 
 if.then.i7:                                       ; preds = %while.body
@@ -2776,7 +2776,7 @@ while.body:                                       ; preds = %entry, %st_add.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %st_add.exit ], [ 4, %entry ]
   %used.020 = phi i64 [ %inc9, %st_add.exit ], [ 1, %entry ]
   %size.019 = phi i64 [ %add.i, %st_add.exit ], [ %and2, %entry ]
-  %cmp = icmp uge i64 %used.020, %len
+  %cmp = icmp ule i64 %len, %used.020
   %cmp6 = icmp ugt i64 %indvars.iv, 57
   %or.cond = select i1 %cmp, i1 true, i1 %cmp6
   br i1 %or.cond, label %if.then, label %if.end
@@ -2966,7 +2966,7 @@ while.body.i:                                     ; preds = %entry, %st_add.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %st_add.exit.i ], [ 4, %entry ]
   %used.020.i = phi i64 [ %inc9.i, %st_add.exit.i ], [ 1, %entry ]
   %size.019.i = phi i64 [ %add.i.i, %st_add.exit.i ], [ %and2.i, %entry ]
-  %cmp.i = icmp uge i64 %used.020.i, %1
+  %cmp.i = icmp ule i64 %1, %used.020.i
   %cmp6.i = icmp ugt i64 %indvars.iv.i, 57
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp6.i
   br i1 %or.cond.i, label %if.then, label %if.end.i
@@ -3336,7 +3336,7 @@ while.body.i.i:                                   ; preds = %if.else, %st_add.ex
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %st_add.exit.i.i ], [ 4, %if.else ]
   %used.020.i.i = phi i64 [ %inc9.i.i, %st_add.exit.i.i ], [ 1, %if.else ]
   %size.019.i.i = phi i64 [ %add.i.i.i45, %st_add.exit.i.i ], [ %and2.i.i, %if.else ]
-  %cmp.i.i = icmp uge i64 %used.020.i.i, %9
+  %cmp.i.i = icmp ule i64 %9, %used.020.i.i
   %cmp6.i.i = icmp ugt i64 %indvars.iv.i.i, 57
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp6.i.i
   br i1 %or.cond.i.i, label %if.then.i48, label %if.end.i.i
@@ -3432,7 +3432,7 @@ while.end.loopexit.i:                             ; preds = %if.end.i52
 while.end.i:                                      ; preds = %while.end.loopexit.i, %if.then.i51
   %base_offset.0.lcssa.i = phi i64 [ %conv1.i, %if.then.i51 ], [ %add14.i, %while.end.loopexit.i ]
   %used.0.lcssa.i = phi i64 [ 1, %if.then.i51 ], [ %23, %while.end.loopexit.i ]
-  %cmp15.i = icmp slt i64 %base_offset.0.lcssa.i, %obj_offset
+  %cmp15.i = icmp sgt i64 %obj_offset, %base_offset.0.lcssa.i
   %cmp18.not.i = icmp sgt i64 %base_offset.0.lcssa.i, 0
   %or.cond19.i = and i1 %cmp18.not.i, %cmp15.i
   br i1 %or.cond19.i, label %if.end17, label %if.then16
@@ -3651,7 +3651,7 @@ while.body.i.i.i:                                 ; preds = %st_add.exit.i.i.i, 
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %st_add.exit.i.i.i ], [ 4, %while.body.i.i.preheader.i ]
   %used.020.i.i.i = phi i64 [ %inc9.i.i.i, %st_add.exit.i.i.i ], [ 1, %while.body.i.i.preheader.i ]
   %size.019.i.i.i = phi i64 [ %add.i.i.i.i, %st_add.exit.i.i.i ], [ %and2.i.i.i, %while.body.i.i.preheader.i ]
-  %cmp.i.i.i = icmp uge i64 %used.020.i.i.i, %49
+  %cmp.i.i.i = icmp ule i64 %49, %used.020.i.i.i
   %cmp6.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 57
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp6.i.i.i
   br i1 %or.cond.i.i.i, label %unpack_object_header.exit.thread.i, label %if.end.i.i.i
@@ -3863,7 +3863,7 @@ if.end4.i.i:                                      ; preds = %if.end.i16.i, %if.e
   %index.0.i.i = phi ptr [ %73, %if.end8.i95 ], [ %77, %if.end.i16.i ]
   %num_objects.i.i = getelementptr inbounds i8, ptr %p, i64 72
   %78 = load i32, ptr %num_objects.i.i, align 8
-  %cmp.not.i.i = icmp ugt i32 %78, %call9.i
+  %cmp.not.i.i = icmp ult i32 %call9.i, %78
   br i1 %cmp.not.i.i, label %if.end7.i.i, label %if.then71
 
 if.end7.i.i:                                      ; preds = %if.end4.i.i
@@ -4150,7 +4150,7 @@ if.end4.i:                                        ; preds = %if.end.i83, %if.the
   %index.0.i = phi ptr [ %14, %if.then17 ], [ %18, %if.end.i83 ]
   %num_objects.i = getelementptr inbounds i8, ptr %p, i64 72
   %19 = load i32, ptr %num_objects.i, align 8
-  %cmp.not.i = icmp ugt i32 %19, %call14
+  %cmp.not.i = icmp ult i32 %call14, %19
   br i1 %cmp.not.i, label %if.end7.i, label %nth_packed_object_id.exit
 
 if.end7.i:                                        ; preds = %if.end4.i
@@ -4214,7 +4214,7 @@ while.body.i.i:                                   ; preds = %if.end23, %st_add.e
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %st_add.exit.i.i ], [ 4, %if.end23 ]
   %used.020.i.i = phi i64 [ %inc9.i.i, %st_add.exit.i.i ], [ 1, %if.end23 ]
   %size.019.i.i = phi i64 [ %add.i.i.i, %st_add.exit.i.i ], [ %and2.i.i, %if.end23 ]
-  %cmp.i.i = icmp uge i64 %used.020.i.i, %25
+  %cmp.i.i = icmp ule i64 %25, %used.020.i.i
   %cmp6.i.i = icmp ugt i64 %indvars.iv.i.i, 57
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp6.i.i
   br i1 %or.cond.i.i, label %for.end.thread, label %if.end.i.i
@@ -4515,7 +4515,7 @@ if.end.i149:                                      ; preds = %if.then.i146
 if.end4.i117:                                     ; preds = %if.end.i149, %if.then95
   %index.0.i118 = phi ptr [ %58, %if.then95 ], [ %62, %if.end.i149 ]
   %63 = load i32, ptr %num_objects.i119, align 8
-  %cmp.not.i120 = icmp ugt i32 %63, %call96
+  %cmp.not.i120 = icmp ult i32 %call96, %63
   br i1 %cmp.not.i120, label %if.end7.i122, label %nth_packed_object_id.exit150
 
 if.end7.i122:                                     ; preds = %if.end4.i117
@@ -4820,7 +4820,7 @@ if.end4:                                          ; preds = %if.end, %entry
   %index.0 = phi ptr [ %0, %entry ], [ %4, %if.end ]
   %num_objects = getelementptr inbounds i8, ptr %p, i64 72
   %5 = load i32, ptr %num_objects, align 8
-  %cmp.not = icmp ugt i32 %5, %n
+  %cmp.not = icmp ult i32 %n, %5
   br i1 %cmp.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end4
@@ -5003,7 +5003,7 @@ define dso_local void @check_pack_index_ptr(ptr noundef %p, ptr noundef readnone
 entry:
   %index_data = getelementptr inbounds i8, ptr %p, i64 56
   %0 = load ptr, ptr %index_data, align 8
-  %cmp = icmp ugt ptr %0, %vptr
+  %cmp = icmp ult ptr %vptr, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -5017,7 +5017,7 @@ if.end:                                           ; preds = %entry
   %1 = load i64, ptr %index_size, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
   %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 -8
-  %cmp2.not = icmp ugt ptr %add.ptr1, %vptr
+  %cmp2.not = icmp ult ptr %vptr, %add.ptr1
   br i1 %cmp2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -5085,7 +5085,7 @@ if.end:                                           ; preds = %if.else
   %mul.i46 = shl nuw nsw i64 %conv23, 3
   %11 = getelementptr inbounds i8, ptr %add.ptr12, i64 %mul.i46
   %add.ptr26 = getelementptr inbounds i8, ptr %11, i64 %mul.i39
-  %cmp.i53 = icmp ugt ptr %0, %add.ptr26
+  %cmp.i53 = icmp ult ptr %add.ptr26, %0
   br i1 %cmp.i53, label %if.then.i54, label %if.end.i
 
 if.then.i54:                                      ; preds = %if.end
@@ -5099,7 +5099,7 @@ if.end.i:                                         ; preds = %if.end
   %12 = load i64, ptr %index_size.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %12
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
-  %cmp2.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr26
+  %cmp2.not.i = icmp ult ptr %add.ptr26, %add.ptr1.i
   br i1 %cmp2.not.i, label %check_pack_index_ptr.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -5786,7 +5786,7 @@ if.end.i:                                         ; preds = %if.then.i
 if.end4.i:                                        ; preds = %if.end.i, %if.end8
   %index.0.i = phi ptr [ %3, %if.end8 ], [ %7, %if.end.i ]
   %8 = load i32, ptr %num_objects, align 8
-  %cmp.not.i = icmp ugt i32 %8, %index_pos.0
+  %cmp.not.i = icmp ult i32 %index_pos.0, %8
   br i1 %cmp.not.i, label %if.end7.i, label %if.then11
 
 if.end7.i:                                        ; preds = %if.end4.i
@@ -6519,7 +6519,7 @@ if.end4.i:                                        ; preds = %if.end.i, %if.end
   %index.0.i = phi ptr [ %1, %if.end ], [ %5, %if.end.i ]
   %num_objects.i = getelementptr inbounds i8, ptr %p, i64 72
   %6 = load i32, ptr %num_objects.i, align 8
-  %cmp.not.i = icmp ugt i32 %6, %call1
+  %cmp.not.i = icmp ult i32 %call1, %6
   br i1 %cmp.not.i, label %if.end7.i, label %nth_packed_object_id.exit
 
 if.end7.i:                                        ; preds = %if.end4.i

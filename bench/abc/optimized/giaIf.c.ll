@@ -8765,13 +8765,13 @@ declare i32 @If_ManSatDeriveGiaFromBits(ptr noundef, ptr noundef, ptr noundef, p
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not = icmp slt i32 %5, %1
+  %.not = icmp sgt i32 %1, %5
   br i1 %.not, label %6, label %41
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
   %8 = shl nsw i32 %7, 1
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   %.not.i = icmp slt i32 %7, %1
   br i1 %9, label %10, label %22
 

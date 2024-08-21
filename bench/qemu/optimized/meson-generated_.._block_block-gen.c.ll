@@ -208,12 +208,12 @@ if.end:                                           ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.end
   %call.i = tail call ptr @qemu_get_current_aio_context() #5
-  %cmp.i = icmp eq ptr %call.i, %2
+  %cmp.i = icmp eq ptr %2, %call.i
   br i1 %cmp.i, label %while.cond.preheader, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true
   %call1.i = tail call ptr @qemu_get_aio_context() #5
-  %cmp2.i = icmp eq ptr %call1.i, %2
+  %cmp2.i = icmp eq ptr %2, %call1.i
   br i1 %cmp2.i, label %if.then3.i, label %if.else6
 
 if.then3.i:                                       ; preds = %if.end.i

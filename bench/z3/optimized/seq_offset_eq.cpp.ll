@@ -377,7 +377,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %land.lhs.true
   %4 = load i32, ptr %2, align 4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %5 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %5, %4
+  %cmp.not.i.i = icmp ult i32 %4, %5
   br i1 %cmp.not.i.i, label %_ZNK3smt7context14e_internalizedEPK4expr.exit, label %if.end38
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i
@@ -390,7 +390,7 @@ _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5
 _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i6: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit
   %6 = load ptr, ptr %y, align 8
   %7 = load i32, ptr %6, align 4
-  %cmp.not.i.i8 = icmp ugt i32 %5, %7
+  %cmp.not.i.i8 = icmp ult i32 %7, %5
   br i1 %cmp.not.i.i8, label %_ZNK3smt7context14e_internalizedEPK4expr.exit14, label %if.end38
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit14:  ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i6

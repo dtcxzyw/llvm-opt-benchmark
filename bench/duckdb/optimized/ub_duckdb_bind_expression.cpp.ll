@@ -41828,7 +41828,7 @@ if.end346:                                        ; preds = %while.cond, %_ZN6du
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %type) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %type) #25
   %cmp347.not = icmp eq i64 %spec.select, 0
-  %brmerge = or i1 %cmp347.not, %root_expression
+  %brmerge = or i1 %root_expression, %cmp347.not
   br i1 %brmerge, label %if.end366, label %if.then349
 
 if.then349:                                       ; preds = %if.end346

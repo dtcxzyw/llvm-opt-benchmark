@@ -55,14 +55,14 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   %44 = load double, ptr %43, align 8, !tbaa !3
   %45 = getelementptr inbounds i8, ptr %30, i64 56
   %46 = load double, ptr %45, align 8, !tbaa !3
-  %47 = fmul double %32, %3
-  %48 = fmul double %34, %3
-  %49 = fmul double %36, %3
-  %50 = fmul double %38, %3
-  %51 = fmul double %40, %3
-  %52 = fmul double %42, %3
-  %53 = fmul double %44, %3
-  %54 = fmul double %46, %3
+  %47 = fmul double %3, %32
+  %48 = fmul double %3, %34
+  %49 = fmul double %3, %36
+  %50 = fmul double %3, %38
+  %51 = fmul double %3, %40
+  %52 = fmul double %3, %42
+  %53 = fmul double %3, %44
+  %54 = fmul double %3, %46
   store double %47, ptr %30, align 8, !tbaa !3
   store double %48, ptr %33, align 8, !tbaa !3
   store double %49, ptr %35, align 8, !tbaa !3
@@ -80,7 +80,7 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   %58 = phi ptr [ %62, %.preheader.us ], [ %55, %.loopexit12.us ]
   %59 = phi i64 [ %63, %.preheader.us ], [ %25, %.loopexit12.us ]
   %60 = load double, ptr %58, align 8, !tbaa !3
-  %61 = fmul double %60, %3
+  %61 = fmul double %3, %60
   store double %61, ptr %58, align 8, !tbaa !3
   %62 = getelementptr inbounds i8, ptr %58, i64 8
   %63 = add nsw i64 %59, -1
@@ -172,7 +172,7 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   %116 = phi ptr [ %120, %115 ], [ %113, %.preheader ]
   %117 = phi i64 [ %121, %115 ], [ %25, %.preheader ]
   %118 = load double, ptr %116, align 8, !tbaa !3
-  %119 = fmul double %118, %3
+  %119 = fmul double %3, %118
   store double %119, ptr %116, align 8, !tbaa !3
   %120 = getelementptr inbounds i8, ptr %116, i64 8
   %121 = add nsw i64 %117, -1

@@ -590,7 +590,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing15BitMatrixCursorINS_6PointTIiE
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %4, align 8
-  %8 = mul i32 %6, %1
+  %8 = mul i32 %1, %6
   %9 = sub i32 0, %8
   %10 = mul nsw i32 %7, %1
   %.sroa.2.0.insert.ext.i1.i.i = zext i32 %10 to i64
@@ -604,7 +604,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing15BitMatrixCursorINS_6PointTIiE
 12:                                               ; preds = %3
   %13 = load i32, ptr %5, align 4
   %14 = load i32, ptr %4, align 8
-  %15 = mul i32 %13, %1
+  %15 = mul i32 %1, %13
   %16 = sub i32 0, %15
   %17 = mul nsw i32 %14, %1
   %.sroa.2.0.insert.ext.i1.i.i12 = zext i32 %17 to i64
@@ -686,11 +686,11 @@ _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit: ; preds = %42
   %45 = getelementptr inbounds i8, ptr %41, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %46, %.sroa.3.0.extract.trunc.i.i.i
-  %brmerge.demorgan = and i1 %47, %2
+  %brmerge.demorgan = and i1 %2, %47
   br i1 %brmerge.demorgan, label %48, label %.critedge
 
 48:                                               ; preds = %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit
-  %49 = mul i32 %33, %1
+  %49 = mul i32 %1, %33
   %50 = sub i32 0, %49
   %51 = mul nsw i32 %34, %1
   %.sroa.2.0.insert.ext.i1.i.i26 = zext i32 %51 to i64
@@ -704,7 +704,7 @@ _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit: ; preds = %42
 53:                                               ; preds = %48
   %54 = load i32, ptr %5, align 4
   %55 = load i32, ptr %4, align 8
-  %56 = mul i32 %54, %1
+  %56 = mul i32 %1, %54
   %57 = sub i32 0, %56
   %58 = mul nsw i32 %55, %1
   %.sroa.2.0.insert.ext.i1.i.i30 = zext i32 %58 to i64
@@ -2067,22 +2067,22 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %515 = load double, ptr %514, align 8, !noalias !29
   %516 = getelementptr inbounds i8, ptr %509, i64 40
   %517 = load double, ptr %516, align 8, !noalias !29
-  %518 = fneg double %515
-  %519 = fmul double %517, %518
+  %518 = fneg double %517
+  %519 = fmul double %515, %518
   %520 = call double @llvm.fmuladd.f64(double %511, double %513, double %519)
   %521 = getelementptr inbounds i8, ptr %507, i64 56
   %522 = load double, ptr %521, align 8, !noalias !29
   %523 = getelementptr inbounds i8, ptr %509, i64 56
   %524 = load double, ptr %523, align 8, !noalias !29
-  %525 = fmul double %524, %518
-  %526 = call double @llvm.fmuladd.f64(double %522, double %513, double %525)
-  %527 = fdiv double %526, %520
-  %528 = fneg double %522
-  %529 = fmul double %517, %528
+  %525 = fneg double %524
+  %526 = fmul double %515, %525
+  %527 = call double @llvm.fmuladd.f64(double %522, double %513, double %526)
+  %528 = fdiv double %527, %520
+  %529 = fmul double %522, %518
   %530 = call double @llvm.fmuladd.f64(double %511, double %524, double %529)
   %531 = fdiv double %530, %520
   %532 = getelementptr inbounds [4 x %"struct.ZXing::PointT"], ptr %14, i64 0, i64 %indvars.iv437.i
-  store double %527, ptr %532, align 8
+  store double %528, ptr %532, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %532, i64 8
   store double %531, ptr %.sroa.2.0..sroa_idx.i, align 8
   %exitcond440.not.i = icmp eq i64 %indvars.iv.next438.i, 4
@@ -2146,7 +2146,7 @@ _ZN5ZXing14RegressionLineD2Ev.exit.i178.i:        ; preds = %537, %533
   %551 = fmul double %550, %550
   %552 = call noundef double @llvm.fmuladd.f64(double %549, double %549, double %551)
   %sqrt.i.i11.i = call noundef double @llvm.sqrt.f64(double %552)
-  %553 = fcmp ogt double %.01617.i, %sqrt.i.i11.i
+  %553 = fcmp olt double %sqrt.i.i11.i, %.01617.i
   %.sroa.speculated8.i.i = select i1 %553, double %sqrt.i.i11.i, double %.01617.i
   %554 = fcmp olt double %.01518.i, %sqrt.i.i11.i
   %.sroa.speculated.i.i15 = select i1 %554, double %sqrt.i.i11.i, double %.01518.i
@@ -2155,7 +2155,7 @@ _ZN5ZXing14RegressionLineD2Ev.exit.i178.i:        ; preds = %537, %533
   br i1 %exitcond.not.i17, label %555, label %547, !llvm.loop !44
 
 555:                                              ; preds = %547
-  %556 = add i32 %.neg, %5
+  %556 = add i32 %5, %.neg
   %557 = shl nsw i32 %556, 1
   %558 = sitofp i32 %557 to double
   %559 = fcmp oge double %.sroa.speculated8.i.i, %558

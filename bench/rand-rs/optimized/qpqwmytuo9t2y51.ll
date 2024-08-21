@@ -1075,7 +1075,7 @@ define hidden noundef zeroext i1 @_ZN10std_detect6detect5cache4test17h33e4ae1e01
 
 _ZN10std_detect6detect5cache5Cache4test17h6683126a0687b4c0E.llvm.17720110283109806325.exit: ; preds = %1
   %6 = zext i1 %2 to i32
-  %.010 = add i32 %6, %0
+  %.010 = add i32 %0, %6
   br label %8
 
 _ZN10std_detect6detect5cache5Cache4test17h6683126a0687b4c0E.llvm.17720110283109806325.exit.thread: ; preds = %1
@@ -1739,7 +1739,7 @@ define hidden void @"_ZN160_$LT$ppv_lite86..x86_64..sse2..u64x2_sse2$LT$S3$C$ppv
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @"_ZN47_$LT$u32$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h1b9bc6d71499e045E.llvm.17720110283109806325"(i32 noundef %0, i64 noundef %1) unnamed_addr #5 {
   %3 = trunc i64 %1 to i32
-  %4 = add nuw i32 %3, %0
+  %4 = add nuw i32 %0, %3
   ret i32 %4
 }
 

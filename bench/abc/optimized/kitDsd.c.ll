@@ -756,7 +756,7 @@ define ptr @Kit_DsdWriteHex(ptr noundef writeonly %0, ptr nocapture noundef read
 define void @Kit_DsdPrint2_rec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = load i16, ptr %1, align 8
   %5 = zext i16 %4 to i32
-  %6 = icmp sgt i32 %5, %2
+  %6 = icmp slt i32 %2, %5
   br i1 %6, label %Kit_DsdNtkObj.exit.thread, label %Kit_DsdNtkObj.exit
 
 Kit_DsdNtkObj.exit:                               ; preds = %3
@@ -888,7 +888,7 @@ define void @Kit_DsdPrint2(ptr nocapture noundef %0, ptr nocapture noundef reado
 define void @Kit_DsdPrint_rec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = load i16, ptr %1, align 8
   %5 = zext i16 %4 to i32
-  %6 = icmp sgt i32 %5, %2
+  %6 = icmp slt i32 %2, %5
   br i1 %6, label %Kit_DsdNtkObj.exit.thread, label %Kit_DsdNtkObj.exit
 
 Kit_DsdNtkObj.exit:                               ; preds = %3
@@ -1054,7 +1054,7 @@ define void @Kit_DsdPrint(ptr nocapture noundef %0, ptr nocapture noundef readon
 define nonnull ptr @Kit_DsdWrite_rec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = load i16, ptr %1, align 8
   %5 = zext i16 %4 to i32
-  %6 = icmp sgt i32 %5, %2
+  %6 = icmp slt i32 %2, %5
   br i1 %6, label %Kit_DsdNtkObj.exit.thread, label %Kit_DsdNtkObj.exit
 
 Kit_DsdNtkObj.exit:                               ; preds = %3
@@ -1279,7 +1279,7 @@ Kit_DsdNtkRoot.exit.thread:
   %18 = getelementptr inbounds i8, ptr %0, i64 6
   %19 = load i16, ptr %18, align 2
   %20 = lshr i16 %19, 1
-  %21 = icmp ule i16 %1, %20
+  %21 = icmp uge i16 %20, %1
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
@@ -1366,7 +1366,7 @@ Kit_DsdObjAlloc.exit31:                           ; preds = %46, %56
   %59 = load i16, ptr %18, align 2
   %60 = lshr i16 %59, 1
   %61 = load i16, ptr %0, align 8
-  %62 = icmp ule i16 %61, %60
+  %62 = icmp uge i16 %60, %61
   tail call void @llvm.assume(i1 %62)
   %63 = load ptr, ptr %22, align 8
   %narrow.i32 = sub nuw nsw i16 %60, %61
@@ -1621,7 +1621,7 @@ define ptr @Kit_DsdTruthComputeNode_rec(ptr noundef %0, ptr noundef %1, i32 noun
   %4 = alloca [16 x ptr], align 16
   %5 = load i16, ptr %1, align 8
   %6 = zext i16 %5 to i32
-  %7 = icmp sgt i32 %6, %2
+  %7 = icmp slt i32 %2, %6
   br i1 %7, label %Kit_DsdNtkObj.exit.thread, label %Kit_DsdNtkObj.exit
 
 Kit_DsdNtkObj.exit.thread:                        ; preds = %3
@@ -2162,7 +2162,7 @@ define ptr @Kit_DsdTruthComputeNodeOne_rec(ptr noundef %0, ptr noundef %1, i32 n
   %5 = alloca [16 x ptr], align 16
   %6 = load i16, ptr %1, align 8
   %7 = zext i16 %6 to i32
-  %8 = icmp sgt i32 %7, %2
+  %8 = icmp slt i32 %2, %7
   br i1 %8, label %Kit_DsdNtkObj.exit.thread, label %Kit_DsdNtkObj.exit
 
 Kit_DsdNtkObj.exit.thread:                        ; preds = %4
@@ -2731,7 +2731,7 @@ define ptr @Kit_DsdTruthComputeOne(ptr noundef %0, ptr noundef %1, i32 noundef %
   %11 = getelementptr inbounds i8, ptr %1, i64 6
   %12 = load i16, ptr %11, align 2
   %13 = lshr i16 %12, 1
-  %14 = icmp ugt i16 %.pre28, %13
+  %14 = icmp ult i16 %13, %.pre28
   br i1 %14, label %Kit_DsdNtkRoot.exit.i, label %15
 
 15:                                               ; preds = %4
@@ -2903,7 +2903,7 @@ define i32 @Kit_DsdGetSupports(ptr nocapture noundef %0) local_unnamed_addr #9 {
   %9 = load i16, ptr %8, align 2
   %10 = lshr i16 %9, 1
   %11 = load i16, ptr %0, align 8
-  %12 = icmp ugt i16 %11, %10
+  %12 = icmp ult i16 %10, %11
   br i1 %12, label %Kit_DsdNtkRoot.exit, label %13
 
 13:                                               ; preds = %1
@@ -2977,7 +2977,7 @@ define ptr @Kit_DsdTruthComputeNodeTwo_rec(ptr noundef %0, ptr noundef %1, i32 n
   %8 = alloca [16 x ptr], align 16
   %9 = load i16, ptr %1, align 8
   %10 = zext i16 %9 to i32
-  %11 = icmp sgt i32 %10, %2
+  %11 = icmp slt i32 %2, %10
   br i1 %11, label %Kit_DsdNtkObj.exit.thread, label %Kit_DsdNtkObj.exit
 
 Kit_DsdNtkObj.exit.thread:                        ; preds = %6
@@ -3981,7 +3981,7 @@ define ptr @Kit_DsdTruthComputeTwo(ptr noundef %0, ptr noundef %1, i32 noundef %
   %13 = load i16, ptr %12, align 2
   %14 = lshr i16 %13, 1
   %15 = load i16, ptr %1, align 8
-  %16 = icmp ugt i16 %15, %14
+  %16 = icmp ult i16 %14, %15
   br i1 %16, label %Kit_DsdNtkRoot.exit.i, label %17
 
 17:                                               ; preds = %5
@@ -4624,7 +4624,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %4
 define i32 @Kit_DsdCountLuts_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #13 {
   %5 = load i16, ptr %0, align 8
   %6 = zext i16 %5 to i32
-  %7 = icmp sgt i32 %6, %2
+  %7 = icmp slt i32 %2, %6
   br i1 %7, label %Kit_DsdNtkObj.exit.thread, label %Kit_DsdNtkObj.exit
 
 Kit_DsdNtkObj.exit:                               ; preds = %4
@@ -4736,7 +4736,7 @@ Kit_DsdNtkRoot.exit.thread:
   %4 = load i16, ptr %3, align 2
   %5 = lshr i16 %4, 1
   %6 = load i16, ptr %0, align 8
-  %7 = icmp ule i16 %6, %5
+  %7 = icmp uge i16 %5, %6
   tail call void @llvm.assume(i1 %7)
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -4855,7 +4855,7 @@ define i32 @Kit_DsdNonDsdSupports(ptr nocapture noundef %0) local_unnamed_addr #
   %9 = load i16, ptr %8, align 2
   %10 = lshr i16 %9, 1
   %11 = load i16, ptr %0, align 8
-  %12 = icmp ugt i16 %11, %10
+  %12 = icmp ult i16 %10, %11
   br i1 %12, label %Kit_DsdNtkRoot.exit.i, label %13
 
 13:                                               ; preds = %1
@@ -6063,7 +6063,7 @@ Kit_DsdNtkRoot.exit.thread:
   %19 = getelementptr inbounds i8, ptr %0, i64 6
   %20 = load i16, ptr %19, align 2
   %21 = lshr i16 %20, 1
-  %22 = icmp ule i16 %2, %21
+  %22 = icmp uge i16 %21, %2
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
@@ -6150,7 +6150,7 @@ Kit_DsdObjAlloc.exit32:                           ; preds = %47, %57
   %60 = load i16, ptr %19, align 2
   %61 = lshr i16 %60, 1
   %62 = load i16, ptr %0, align 8
-  %63 = icmp ule i16 %62, %61
+  %63 = icmp uge i16 %61, %62
   tail call void @llvm.assume(i1 %63)
   %64 = load ptr, ptr %23, align 8
   %narrow.i33 = sub nuw nsw i16 %61, %62
@@ -6469,7 +6469,7 @@ Kit_DsdLitSupport.exit:                           ; preds = %Kit_DsdNtkObj.exit.
 define range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = load i16, ptr %0, align 8
   %5 = zext i16 %4 to i32
-  %6 = icmp sgt i32 %5, %1
+  %6 = icmp slt i32 %1, %5
   br i1 %6, label %.critedge, label %Kit_DsdNtkObj.exit
 
 Kit_DsdNtkObj.exit:                               ; preds = %3
@@ -6532,7 +6532,7 @@ define range(i32 0, 2) i32 @Kit_DsdFindLargeBox(ptr nocapture noundef readonly %
 define i32 @Kit_DsdCountAigNodes_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i32
-  %5 = icmp sgt i32 %4, %1
+  %5 = icmp slt i32 %1, %4
   br i1 %5, label %.critedge, label %Kit_DsdNtkObj.exit
 
 Kit_DsdNtkObj.exit:                               ; preds = %2
@@ -6741,7 +6741,7 @@ define range(i32 0, 2) i32 @Kit_DsdCheckVar4Dec2(ptr nocapture noundef readonly 
 
 14:                                               ; preds = %8
   %15 = load i16, ptr %0, align 8
-  %16 = icmp ugt i16 %15, %5
+  %16 = icmp ult i16 %5, %15
   br i1 %16, label %Kit_DsdNtkRoot.exit, label %17
 
 17:                                               ; preds = %14
@@ -6756,7 +6756,7 @@ define range(i32 0, 2) i32 @Kit_DsdCheckVar4Dec2(ptr nocapture noundef readonly 
 Kit_DsdNtkRoot.exit:                              ; preds = %14, %17
   %23 = phi ptr [ %22, %17 ], [ null, %14 ]
   %24 = load i16, ptr %1, align 8
-  %25 = icmp ugt i16 %24, %11
+  %25 = icmp ult i16 %11, %24
   br i1 %25, label %Kit_DsdNtkRoot.exit6, label %26
 
 26:                                               ; preds = %Kit_DsdNtkRoot.exit
@@ -8543,7 +8543,7 @@ define range(i32 -2147483648, 1000) i32 @Kit_DsdEval(ptr noundef %0, i32 noundef
   %7 = load i16, ptr %6, align 2
   %8 = lshr i16 %7, 1
   %9 = load i16, ptr %5, align 8
-  %10 = icmp ule i16 %9, %8
+  %10 = icmp uge i16 %8, %9
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds i8, ptr %5, i64 24
   %12 = load ptr, ptr %11, align 8

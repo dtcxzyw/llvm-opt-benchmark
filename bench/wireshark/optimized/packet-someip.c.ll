@@ -6946,7 +6946,7 @@ define internal fastcc i32 @dissect_someip_payload_parameters(ptr noundef %0, pt
   %23 = and i16 %20, 4095
   %24 = zext nneg i16 %23 to i32
   %25 = add i32 %.085110, 2
-  %26 = icmp ult i32 %24, %5
+  %26 = icmp ugt i32 %5, %24
   %or.cond3 = and i1 %14, %26
   %27 = zext nneg i16 %23 to i64
   %28 = getelementptr %struct._someip_payload_parameter_item, ptr %4, i64 %27
@@ -8452,7 +8452,7 @@ define internal fastcc i32 @dissect_someip_payload_array_dim(ptr noundef %0, ptr
 
 17:                                               ; preds = %16
   %18 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #14
-  %.not60.i = icmp slt i32 %18, %4
+  %.not60.i = icmp sgt i32 %4, %18
   br i1 %.not60.i, label %21, label %19
 
 19:                                               ; preds = %17
@@ -8535,7 +8535,7 @@ dissect_someip_payload_array_payload.exit:        ; preds = %.critedge.i, %21, %
 
 .preheader:                                       ; preds = %55
   %56 = add i32 %4, %3
-  %57 = icmp sgt i32 %56, %3
+  %57 = icmp slt i32 %3, %56
   br i1 %57, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader

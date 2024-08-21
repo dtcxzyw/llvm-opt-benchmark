@@ -631,7 +631,7 @@ declare ptr @Lpk_MuxSplit(ptr noundef, ptr noundef, i32 noundef, i32 noundef) lo
 define void @Lpk_DecomposeClean(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val89 = load i32, ptr %3, align 4
-  %4 = icmp sgt i32 %.val89, %1
+  %4 = icmp slt i32 %1, %.val89
   br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
@@ -737,7 +737,7 @@ Lpk_Implement.exit:                               ; preds = %37, %34
 48:                                               ; preds = %32, %Lpk_Implement.exit, %30
   %.0 = phi ptr [ %31, %30 ], [ %47, %Lpk_Implement.exit ], [ null, %32 ]
   %.val89.i = load i32, ptr %9, align 4
-  %49 = icmp sgt i32 %.val89.i, %.val
+  %49 = icmp slt i32 %.val, %.val89.i
   br i1 %49, label %.lr.ph.i31, label %Lpk_DecomposeClean.exit
 
 .lr.ph.i31:                                       ; preds = %48

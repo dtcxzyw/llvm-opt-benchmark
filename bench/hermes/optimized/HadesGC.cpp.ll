@@ -7870,7 +7870,7 @@ if.end.i.i.i.i:                                   ; preds = %for.body.i
   %idx.ext20.i.i.i.i = zext nneg i32 %BucketNo.019.i.i.i.i to i64
   %add.ptr21.i.i.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %4, i64 %idx.ext20.i.i.i.i
   %7 = load ptr, ptr %add.ptr21.i.i.i.i, align 8
-  %cmp.i22.i.i.i.i = icmp eq ptr %7, %3
+  %cmp.i22.i.i.i.i = icmp eq ptr %3, %7
   br i1 %cmp.i22.i.i.i.i, label %if.end.i, label %if.end9.i.i.i.i
 
 if.end9.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %if.end13.i.i.i.i
@@ -7887,7 +7887,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %4, i64 %idx.ext.i.i.i.i
   %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %9, %3
+  %cmp.i.i.i.i.i = icmp eq ptr %3, %9
   br i1 %cmp.i.i.i.i.i, label %if.end.i, label %if.end9.i.i.i.i, !llvm.loop !119
 
 if.then.i:                                        ; preds = %if.end9.i.i.i.i, %for.body.i
@@ -8253,7 +8253,7 @@ if.end.i.i.i.i23.i:                               ; preds = %if.end.i
   %idx.ext20.i.i.i.i30.i = zext nneg i32 %BucketNo.019.i.i.i.i29.i to i64
   %add.ptr21.i.i.i.i31.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.286", ptr %44, i64 %idx.ext20.i.i.i.i30.i
   %47 = load ptr, ptr %add.ptr21.i.i.i.i31.i, align 8
-  %cmp.i22.i.i.i.i32.i = icmp eq ptr %47, %3
+  %cmp.i22.i.i.i.i32.i = icmp eq ptr %3, %47
   br i1 %cmp.i22.i.i.i.i32.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm13JSWeakMapImplILNS3_8CellKindE51EEESt6vectorIPNS3_6detail10WeakRefKeyESaISB_EENS_12DenseMapInfoIS7_EENS_6detail12DenseMapPairIS7_SD_EEEES7_SD_SF_SI_E4findEPKS6_.exit.i.i, label %if.end9.i.i.i.i33.i
 
 if.end9.i.i.i.i33.i:                              ; preds = %if.end.i.i.i.i23.i, %if.end13.i.i.i.i37.i
@@ -8270,7 +8270,7 @@ if.end13.i.i.i.i37.i:                             ; preds = %if.end9.i.i.i.i33.i
   %idx.ext.i.i.i.i41.i = zext i32 %BucketNo.0.i.i.i.i40.i to i64
   %add.ptr.i.i.i.i42.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.286", ptr %44, i64 %idx.ext.i.i.i.i41.i
   %49 = load ptr, ptr %add.ptr.i.i.i.i42.i, align 8
-  %cmp.i.i.i.i.i43.i = icmp eq ptr %49, %3
+  %cmp.i.i.i.i.i43.i = icmp eq ptr %3, %49
   br i1 %cmp.i.i.i.i.i43.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm13JSWeakMapImplILNS3_8CellKindE51EEESt6vectorIPNS3_6detail10WeakRefKeyESaISB_EENS_12DenseMapInfoIS7_EENS_6detail12DenseMapPairIS7_SD_EEEES7_SD_SF_SI_E4findEPKS6_.exit.i.i, label %if.end9.i.i.i.i33.i, !llvm.loop !128
 
 if.end.i.i50.i:                                   ; preds = %if.end9.i.i.i.i33.i, %if.end.i
@@ -13467,7 +13467,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12
@@ -15740,7 +15740,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i: ; preds = %entry
   %0 = load i32, ptr %Size.i.i.i.i.i.i, align 8, !alias.scope !249
   %Capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 1148
   %1 = load i32, ptr %Capacity.i.i.i, align 4, !noalias !249
-  %cmp.i.i = icmp ult i32 %1, %0
+  %cmp.i.i = icmp ugt i32 %0, %1
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6hermes2vm12MarkWorklist5drainEv.exit
 
 if.then.i.i:                                      ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i
@@ -16737,7 +16737,7 @@ entry:
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i80 = getelementptr inbounds ptr, ptr %0, i64 %conv.i
-  %cmp = icmp eq ptr %add.ptr.i80, %I
+  %cmp = icmp eq ptr %I, %add.ptr.i80
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %To to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %From to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -17040,7 +17040,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %5 = phi i64 [ %0, %entry.if.end_crit_edge ], [ %.sroa.speculated.i, %if.then.i ], [ %.sroa.speculated.i, %_ZN4llvh9BitVector4growEj.exit ]
   %6 = phi i32 [ %.pre, %entry.if.end_crit_edge ], [ %2, %if.then.i ], [ %2, %_ZN4llvh9BitVector4growEj.exit ]
   %Size = getelementptr inbounds i8, ptr %this, i64 16
-  %cmp7 = icmp ult i32 %6, %N
+  %cmp7 = icmp ugt i32 %N, %6
   br i1 %cmp7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end
@@ -17097,7 +17097,7 @@ if.else.i:                                        ; preds = %if.then8.i
 if.end10:                                         ; preds = %if.else.i, %if.end.i, %if.end
   %14 = phi i32 [ %.pre19, %if.else.i ], [ %9, %if.end.i ], [ %6, %if.end ]
   store i32 %N, ptr %Size, align 8
-  %cmp14 = icmp ugt i32 %14, %N
+  %cmp14 = icmp ult i32 %N, %14
   %or.cond = select i1 %t, i1 true, i1 %cmp14
   br i1 %or.cond, label %if.then15, label %if.end16
 
@@ -20718,9 +20718,9 @@ sw.bb:                                            ; preds = %entry
   %rem.i = urem i64 %sub.ptr.sub.i, %conv7
   %idx.neg.i = sub nsw i64 0, %rem.i
   %add.ptr2.i = getelementptr inbounds i8, ptr %begin, i64 %idx.neg.i
-  %cmp.i.i = icmp ugt ptr %add.ptr2.i, %add.ptr
+  %cmp.i.i = icmp ult ptr %add.ptr, %add.ptr2.i
   %.sroa.speculated.i = select i1 %cmp.i.i, ptr %add.ptr2.i, ptr %add.ptr
-  %cmp.i4.i = icmp ugt ptr %add.ptr.i, %end
+  %cmp.i4.i = icmp ult ptr %end, %add.ptr.i
   %.sroa.speculated7.i = select i1 %cmp.i4.i, ptr %end, ptr %add.ptr.i
   %cmp11.i = icmp ult ptr %.sroa.speculated.i, %.sroa.speculated7.i
   br i1 %cmp11.i, label %while.body.i, label %sw.epilog
@@ -20746,9 +20746,9 @@ sw.bb8:                                           ; preds = %entry
   %rem.i25 = urem i64 %sub.ptr.sub.i24, %conv10
   %idx.neg.i26 = sub nsw i64 0, %rem.i25
   %add.ptr2.i27 = getelementptr inbounds i8, ptr %begin, i64 %idx.neg.i26
-  %cmp.i.i28 = icmp ugt ptr %add.ptr2.i27, %add.ptr
+  %cmp.i.i28 = icmp ult ptr %add.ptr, %add.ptr2.i27
   %.sroa.speculated.i29 = select i1 %cmp.i.i28, ptr %add.ptr2.i27, ptr %add.ptr
-  %cmp.i4.i30 = icmp ugt ptr %add.ptr.i21, %end
+  %cmp.i4.i30 = icmp ult ptr %end, %add.ptr.i21
   %.sroa.speculated7.i31 = select i1 %cmp.i4.i30, ptr %end, ptr %add.ptr.i21
   %cmp11.i32 = icmp ult ptr %.sroa.speculated.i29, %.sroa.speculated7.i31
   br i1 %cmp11.i32, label %while.body.i33, label %sw.epilog
@@ -20787,9 +20787,9 @@ sw.bb11:                                          ; preds = %entry
   %rem.i42 = urem i64 %sub.ptr.sub.i41, %conv13
   %idx.neg.i43 = sub nsw i64 0, %rem.i42
   %add.ptr2.i44 = getelementptr inbounds i8, ptr %begin, i64 %idx.neg.i43
-  %cmp.i.i45 = icmp ugt ptr %add.ptr2.i44, %add.ptr
+  %cmp.i.i45 = icmp ult ptr %add.ptr, %add.ptr2.i44
   %.sroa.speculated.i46 = select i1 %cmp.i.i45, ptr %add.ptr2.i44, ptr %add.ptr
-  %cmp.i4.i47 = icmp ugt ptr %add.ptr.i38, %end
+  %cmp.i4.i47 = icmp ult ptr %end, %add.ptr.i38
   %.sroa.speculated7.i48 = select i1 %cmp.i4.i47, ptr %end, ptr %add.ptr.i38
   %cmp11.i49 = icmp ult ptr %.sroa.speculated.i46, %.sroa.speculated7.i48
   br i1 %cmp11.i49, label %while.body.i50, label %sw.epilog
@@ -23023,9 +23023,9 @@ sw.bb8:                                           ; preds = %entry
   %rem.i = urem i64 %sub.ptr.sub.i, %conv10
   %idx.neg.i = sub nsw i64 0, %rem.i
   %add.ptr2.i = getelementptr inbounds i8, ptr %begin, i64 %idx.neg.i
-  %cmp.i.i = icmp ugt ptr %add.ptr2.i, %add.ptr
+  %cmp.i.i = icmp ult ptr %add.ptr, %add.ptr2.i
   %.sroa.speculated.i = select i1 %cmp.i.i, ptr %add.ptr2.i, ptr %add.ptr
-  %cmp.i4.i = icmp ugt ptr %add.ptr.i, %end
+  %cmp.i4.i = icmp ult ptr %end, %add.ptr.i
   %.sroa.speculated7.i = select i1 %cmp.i4.i, ptr %end, ptr %add.ptr.i
   %cmp11.i = icmp ult ptr %.sroa.speculated.i, %.sroa.speculated7.i
   br i1 %cmp11.i, label %while.body.i, label %sw.epilog
@@ -23049,9 +23049,9 @@ sw.bb11:                                          ; preds = %entry
   %rem.i25 = urem i64 %sub.ptr.sub.i24, %conv13
   %idx.neg.i26 = sub nsw i64 0, %rem.i25
   %add.ptr2.i27 = getelementptr inbounds i8, ptr %begin, i64 %idx.neg.i26
-  %cmp.i.i28 = icmp ugt ptr %add.ptr2.i27, %add.ptr
+  %cmp.i.i28 = icmp ult ptr %add.ptr, %add.ptr2.i27
   %.sroa.speculated.i29 = select i1 %cmp.i.i28, ptr %add.ptr2.i27, ptr %add.ptr
-  %cmp.i4.i30 = icmp ugt ptr %add.ptr.i21, %end
+  %cmp.i4.i30 = icmp ult ptr %end, %add.ptr.i21
   %.sroa.speculated7.i31 = select i1 %cmp.i4.i30, ptr %end, ptr %add.ptr.i21
   %cmp11.i32 = icmp ult ptr %.sroa.speculated.i29, %.sroa.speculated7.i31
   br i1 %cmp11.i32, label %while.body.i33, label %sw.epilog
@@ -23079,9 +23079,9 @@ entry:
   %rem = urem i64 %sub.ptr.sub, %stride
   %idx.neg = sub i64 0, %rem
   %add.ptr2 = getelementptr inbounds i8, ptr %begin, i64 %idx.neg
-  %cmp.i = icmp ugt ptr %add.ptr2, %start
+  %cmp.i = icmp ult ptr %start, %add.ptr2
   %.sroa.speculated = select i1 %cmp.i, ptr %add.ptr2, ptr %start
-  %cmp.i4 = icmp ugt ptr %add.ptr, %end
+  %cmp.i4 = icmp ult ptr %end, %add.ptr
   %.sroa.speculated7 = select i1 %cmp.i4, ptr %end, ptr %add.ptr
   %cmp11 = icmp ult ptr %.sroa.speculated, %.sroa.speculated7
   br i1 %cmp11, label %while.body, label %while.end

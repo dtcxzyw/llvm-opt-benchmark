@@ -3777,7 +3777,7 @@ land.lhs.true._ZN6duckdb15FixedSizeBuffer17SetAllocationSizeEmmm.exit_crit_edge:
 if.then.i:                                        ; preds = %if.end10
   %call.i100 = tail call noundef i32 @_ZN6duckdb15FixedSizeBuffer12GetMaxOffsetEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %available_segments)
   %conv.i = zext i32 %call.i100 to i64
-  %mul.i = mul i64 %conv.i, %segment_size
+  %mul.i = mul i64 %segment_size, %conv.i
   %add.i = add i64 %mul.i, %bitmask_offset
   %allocation_size.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %add.i, ptr %allocation_size.i, align 8, !tbaa !158
@@ -3857,7 +3857,7 @@ _ZN6duckdb15FixedSizeBuffer3GetEb.exit.i:         ; preds = %if.then.i.i103, %ca
   store i64 2048, ptr %target_count.i.i.i, align 8, !tbaa !90
   %25 = load i64, ptr %allocation_size, align 8, !tbaa !158
   %add.i105 = add i64 %25, %conv41
-  %add2.i = add i64 %conv41, %bitmask_offset
+  %add2.i = add i64 %bitmask_offset, %conv41
   %cmp15.i = icmp ult i64 %add2.i, %add.i105
   br i1 %cmp15.i, label %while.body.preheader.i, label %invoke.cont42
 
@@ -3993,7 +3993,7 @@ _ZN6duckdb15FixedSizeBuffer3GetEb.exit.i117:      ; preds = %if.then.i.i116, %ca
   store i64 2048, ptr %target_count.i.i.i122, align 8, !tbaa !90
   %36 = load i64, ptr %allocation_size, align 8, !tbaa !158
   %add.i124 = add i64 %36, %conv57
-  %add2.i125 = add i64 %conv57, %bitmask_offset
+  %add2.i125 = add i64 %bitmask_offset, %conv57
   %cmp15.i126 = icmp ult i64 %add2.i125, %add.i124
   br i1 %cmp15.i126, label %while.body.preheader.i127, label %invoke.cont58
 
@@ -4473,7 +4473,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noundef i32 @_ZN6duckdb15FixedSizeBuffer12GetMaxOffsetEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %available_segments)
   %conv = zext i32 %call to i64
-  %mul = mul i64 %conv, %segment_size
+  %mul = mul i64 %segment_size, %conv
   %add = add i64 %mul, %bitmask_offset
   %allocation_size = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %add, ptr %allocation_size, align 8, !tbaa !158

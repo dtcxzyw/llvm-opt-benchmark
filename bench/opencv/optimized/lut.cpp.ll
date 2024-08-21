@@ -651,7 +651,7 @@ define internal void @_ZN2cvL8LUT8u_8uEPKhS1_Phiii(ptr nocapture noundef readonl
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = mul nuw nsw i32 %16, %4
+  %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
@@ -718,7 +718,7 @@ define internal void @_ZN2cvL8LUT8u_8sEPKhPKaPaiii(ptr nocapture noundef readonl
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = mul nuw nsw i32 %16, %4
+  %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
@@ -785,7 +785,7 @@ define internal void @_ZN2cvL9LUT8u_16uEPKhPKtPtiii(ptr nocapture noundef readon
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = mul nuw nsw i32 %16, %4
+  %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i
   %20 = getelementptr inbounds i16, ptr %19, i64 %18
@@ -852,7 +852,7 @@ define internal void @_ZN2cvL9LUT8u_16sEPKhPKsPsiii(ptr nocapture noundef readon
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = mul nuw nsw i32 %16, %4
+  %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i
   %20 = getelementptr inbounds i16, ptr %19, i64 %18
@@ -919,7 +919,7 @@ define internal void @_ZN2cvL9LUT8u_32sEPKhPKiPiiii(ptr nocapture noundef readon
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = mul nuw nsw i32 %16, %4
+  %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %20 = getelementptr inbounds i32, ptr %19, i64 %18
@@ -986,7 +986,7 @@ define internal void @_ZN2cvL9LUT8u_32fEPKhPKfPfiii(ptr nocapture noundef readon
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = mul nuw nsw i32 %16, %4
+  %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
   %20 = getelementptr inbounds float, ptr %19, i64 %18
@@ -1053,7 +1053,7 @@ define internal void @_ZN2cvL9LUT8u_64fEPKhPKdPdiii(ptr nocapture noundef readon
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = mul nuw nsw i32 %16, %4
+  %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds double, ptr %1, i64 %indvars.iv.i
   %20 = getelementptr inbounds double, ptr %19, i64 %18
@@ -1120,7 +1120,7 @@ define internal void @_ZN2cvL9LUT8u_16fEPKhPKNS_6hfloatEPS2_iii(ptr nocapture no
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = mul nuw nsw i32 %16, %4
+  %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds %"class.cv::hfloat", ptr %1, i64 %indvars.iv.i
   %20 = getelementptr inbounds %"class.cv::hfloat", ptr %19, i64 %18

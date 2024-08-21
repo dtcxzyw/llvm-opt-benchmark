@@ -635,7 +635,7 @@ define void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferen
 34:                                               ; preds = %28
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load i64, ptr %35, align 8
-  %.not27 = icmp ult i64 %36, %2
+  %.not27 = icmp ugt i64 %2, %36
   br i1 %.not27, label %52, label %37
 
 37:                                               ; preds = %34

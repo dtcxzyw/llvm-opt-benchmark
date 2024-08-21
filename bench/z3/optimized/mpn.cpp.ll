@@ -251,7 +251,7 @@ for.body13.us:                                    ; preds = %for.body5.us, %for.
 for.inc36.us:                                     ; preds = %for.body5.us, %for.cond11.for.end32_crit_edge.us
   %.sink = phi i32 [ %conv29.us, %for.cond11.for.end32_crit_edge.us ], [ 0, %for.body5.us ]
   %.sink52 = trunc i64 %indvars.iv40 to i32
-  %add.us = add i32 %.sink52, %lnga
+  %add.us = add i32 %lnga, %.sink52
   %idxprom9.us = zext i32 %add.us to i64
   %arrayidx10.us = getelementptr inbounds i32, ptr %c, i64 %idxprom9.us
   store i32 %.sink, ptr %arrayidx10.us, align 4
@@ -680,7 +680,7 @@ while.end:                                        ; preds = %land.rhs, %entry
   %add = add i32 %lnum, 1
   %m_pos.i.i = getelementptr inbounds i8, ptr %n_numer, i64 8
   %1 = load i32, ptr %m_pos.i.i, align 8
-  %cmp.i = icmp ult i32 %1, %add
+  %cmp.i = icmp ugt i32 %add, %1
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %while.end
@@ -754,7 +754,7 @@ _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i:      ; preds = %_ZN6bufferIjLb0ELj1
   br i1 %exitcond.not.i, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit, label %for.body.i, !llvm.loop !18
 
 if.else.i:                                        ; preds = %while.end
-  %cmp3.i = icmp ugt i32 %1, %add
+  %cmp3.i = icmp ult i32 %add, %1
   br i1 %cmp3.i, label %for.cond6.preheader.i, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit
 
 for.cond6.preheader.i:                            ; preds = %if.else.i
@@ -764,7 +764,7 @@ for.cond6.preheader.i:                            ; preds = %if.else.i
 _ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit:          ; preds = %_ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i, %if.else.i, %for.cond6.preheader.i
   %m_pos.i.i51 = getelementptr inbounds i8, ptr %n_denom, i64 8
   %9 = load i32, ptr %m_pos.i.i51, align 8
-  %cmp.i52 = icmp ult i32 %9, %lden
+  %cmp.i52 = icmp ugt i32 %lden, %9
   br i1 %cmp.i52, label %for.cond.preheader.i56, label %if.else.i53
 
 for.cond.preheader.i56:                           ; preds = %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit
@@ -838,7 +838,7 @@ _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i85:    ; preds = %_ZN6bufferIjLb0ELj1
   br i1 %exitcond.not.i90, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit93, label %for.body.i59, !llvm.loop !18
 
 if.else.i53:                                      ; preds = %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit
-  %cmp3.i54 = icmp ugt i32 %9, %lden
+  %cmp3.i54 = icmp ult i32 %lden, %9
   br i1 %cmp3.i54, label %for.cond6.preheader.i55, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit93
 
 for.cond6.preheader.i55:                          ; preds = %if.else.i53
@@ -1049,7 +1049,7 @@ entry:
   %add = add i32 %1, 1
   %m_pos.i.i = getelementptr inbounds i8, ptr %ms, i64 8
   %2 = load i32, ptr %m_pos.i.i, align 8
-  %cmp.i = icmp ult i32 %2, %add
+  %cmp.i = icmp ugt i32 %add, %2
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %entry
@@ -1123,7 +1123,7 @@ _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i:      ; preds = %_ZN6bufferIjLb0ELj1
   br i1 %exitcond.not.i, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit, label %for.body.i, !llvm.loop !18
 
 if.else.i:                                        ; preds = %entry
-  %cmp3.i = icmp ugt i32 %2, %add
+  %cmp3.i = icmp ult i32 %add, %2
   br i1 %cmp3.i, label %for.cond6.preheader.i, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit
 
 for.cond6.preheader.i:                            ; preds = %if.else.i
@@ -1288,7 +1288,7 @@ if.then46:                                        ; preds = %_ZNK11mpn_manager3s
   %dec49 = add i32 %conv36, -1
   store i32 %dec49, ptr %arrayidx, align 4
   %28 = load i32, ptr %m_pos.i.i78, align 8
-  %cmp.i79 = icmp ult i32 %28, %add50
+  %cmp.i79 = icmp ugt i32 %add50, %28
   br i1 %cmp.i79, label %for.body.i86, label %if.else.i80
 
 for.body.i86:                                     ; preds = %if.then46, %_ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i112
@@ -1357,7 +1357,7 @@ _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i112:   ; preds = %_ZN6bufferIjLb0ELj1
   br i1 %exitcond.not.i117, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit120, label %for.body.i86, !llvm.loop !18
 
 if.else.i80:                                      ; preds = %if.then46
-  %cmp3.i81 = icmp ugt i32 %28, %add50
+  %cmp3.i81 = icmp ult i32 %add50, %28
   br i1 %cmp3.i81, label %for.cond6.preheader.i82, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit120
 
 for.cond6.preheader.i82:                          ; preds = %if.else.i80

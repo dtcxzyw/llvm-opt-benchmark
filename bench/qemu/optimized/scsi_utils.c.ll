@@ -475,7 +475,7 @@ if.end:                                           ; preds = %entry
   %0 = load i8, ptr %in_buf, align 1
   %1 = and i8 %0, 2
   %2 = icmp ne i8 %1, 0
-  %cmp9 = xor i1 %2, %fixed
+  %cmp9 = xor i1 %fixed, %2
   br i1 %cmp9, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end

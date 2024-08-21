@@ -2056,7 +2056,7 @@ define void @Ivy_ObjPrintVerbose(ptr nocapture readnone %0, ptr noundef readonly
   %82 = ptrtoint ptr %81 to i64
   %83 = and i64 %82, -2
   %84 = inttoptr i64 %83 to ptr
-  %.not66 = icmp eq ptr %84, %1
+  %.not66 = icmp eq ptr %1, %84
   br i1 %.not66, label %._crit_edge96, label %.lr.ph95, !llvm.loop !22
 
 ._crit_edge96:                                    ; preds = %.lr.ph95, %70

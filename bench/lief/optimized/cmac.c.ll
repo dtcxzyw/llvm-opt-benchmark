@@ -121,7 +121,7 @@ define hidden i32 @mbedtls_cipher_cmac_update(ptr noundef %0, ptr noundef readon
 
 20:                                               ; preds = %14
   %21 = sub i64 %17, %19
-  %22 = icmp ult i64 %21, %2
+  %22 = icmp ugt i64 %2, %21
   br i1 %22, label %23, label %38
 
 23:                                               ; preds = %20

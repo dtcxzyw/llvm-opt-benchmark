@@ -2273,7 +2273,7 @@ define internal noundef i32 @dissect_eip_security_preshared_keys(ptr noundef %0,
   %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %17, i32 noundef %20, ptr noundef %3, i32 noundef %.04147, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #11
   %22 = load i32, ptr %8, align 4
   %23 = add i32 %22, 2
-  %24 = icmp sgt i32 %23, %5
+  %24 = icmp slt i32 %5, %23
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %.lr.ph
@@ -2292,7 +2292,7 @@ define internal noundef i32 @dissect_eip_security_preshared_keys(ptr noundef %0,
   %36 = load i32, ptr %9, align 4
   %37 = add i32 %35, 2
   %38 = add i32 %37, %36
-  %39 = icmp sgt i32 %38, %5
+  %39 = icmp slt i32 %5, %38
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %27

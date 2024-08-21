@@ -607,7 +607,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout(ptr noundef
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %9, i64 525000
   %27 = load double, ptr %26, align 8
-  %28 = fcmp ugt double %27, %1
+  %28 = fcmp ult double %1, %27
   br i1 %28, label %191, label %29
 
 29:                                               ; preds = %22, %25

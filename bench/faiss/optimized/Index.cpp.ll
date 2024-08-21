@@ -529,7 +529,7 @@ define void @_ZNK5faiss5Index13reconstruct_nEllPf(ptr noundef nonnull align 8 de
 
 23:                                               ; preds = %32, %.lr.ph.i
   %.016.i = phi i64 [ %21, %.lr.ph.i ], [ %33, %32 ]
-  %24 = add nsw i64 %.016.i, %1
+  %24 = add nsw i64 %1, %.016.i
   %25 = load i32, ptr %22, align 8, !noalias !5
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %.016.i, %26

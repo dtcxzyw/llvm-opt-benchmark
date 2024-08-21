@@ -685,7 +685,7 @@ define hidden void @_ZN2cv4DSST18get_scale_featuresENS_3MatENS_6Point_IfEENS_5Si
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #17
   %27 = load ptr, ptr %6, align 8
   %28 = load float, ptr %27, align 4
-  %29 = fmul float %28, %5
+  %29 = fmul float %5, %28
   %.sroa.026.0.vec.extract = extractelement <2 x float> %4, i64 0
   %30 = fmul float %.sroa.026.0.vec.extract, %29
   %31 = tail call float @llvm.floor.f32(float %30)

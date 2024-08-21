@@ -550,7 +550,7 @@ define range(i32 -1, 1) i32 @parse_tuple(ptr nocapture noundef readonly %0, i32 
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 92
   %31 = sext i8 %29 to i32
-  %32 = icmp eq i32 %31, %1
+  %32 = icmp eq i32 %1, %31
   %or.cond = or i1 %30, %32
   %33 = getelementptr inbounds i8, ptr %.069, i64 2
   %spec.select = select i1 %32, i8 %29, i8 92
@@ -559,7 +559,7 @@ define range(i32 -1, 1) i32 @parse_tuple(ptr nocapture noundef readonly %0, i32 
 
 34:                                               ; preds = %25
   %35 = sext i8 %26 to i32
-  %36 = icmp eq i32 %35, %1
+  %36 = icmp eq i32 %1, %35
   br i1 %36, label %37, label %51
 
 37:                                               ; preds = %34
@@ -642,7 +642,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 ; Function Attrs: nofree nounwind uwtable
 define void @indentation(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @h5tools_nCols, align 4
-  %3 = icmp ugt i32 %2, %0
+  %3 = icmp ult i32 %0, %2
   br i1 %3, label %.preheader, label %11
 
 .preheader:                                       ; preds = %1

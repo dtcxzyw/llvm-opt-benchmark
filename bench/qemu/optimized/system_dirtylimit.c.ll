@@ -414,7 +414,7 @@ entry:
 lor.rhs:                                          ; preds = %entry
   %max_cpus = getelementptr inbounds i8, ptr %call.i, i64 320
   %0 = load i32, ptr %max_cpus, align 8
-  %cmp2 = icmp ugt i32 %0, %cpu_index
+  %cmp2 = icmp ult i32 %cpu_index, %0
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry

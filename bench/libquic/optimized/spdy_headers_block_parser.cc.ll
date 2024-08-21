@@ -183,7 +183,7 @@ if.end22.thread:                                  ; preds = %if.end17
 
 if.end22:                                         ; preds = %if.end17
   %stream_id_23 = getelementptr inbounds i8, ptr %this, i64 96
-  %cmp24.not = icmp eq i32 %4, %stream_id
+  %cmp24.not = icmp eq i32 %stream_id, %4
   br i1 %cmp24.not, label %if.end55, label %if.then25
 
 if.then25:                                        ; preds = %if.end22

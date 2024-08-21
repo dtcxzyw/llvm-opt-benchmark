@@ -36,7 +36,7 @@ define hidden noundef zeroext i1 @_Z13pj_log_activeP6pj_ctxi(ptr nocapture nound
 
 9:                                                ; preds = %2
   %spec.select = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
-  %10 = icmp sge i32 %spec.select, %1
+  %10 = icmp sle i32 %1, %spec.select
   br label %11
 
 11:                                               ; preds = %9, %2
@@ -49,7 +49,7 @@ define hidden void @_Z6pj_logP6pj_ctxiPKcz(ptr nocapture noundef readonly %0, i3
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
-  %7 = icmp slt i32 %6, %1
+  %7 = icmp sgt i32 %1, %6
   br i1 %7, label %25, label %8
 
 8:                                                ; preds = %3
@@ -61,7 +61,7 @@ define hidden void @_Z6pj_logP6pj_ctxiPKcz(ptr nocapture noundef readonly %0, i3
   %13 = icmp ne i32 %12, 0
   %or.cond.i.not26.i = select i1 %13, i1 true, i1 %10
   %spec.select.i.i = call i32 @llvm.abs.i32(i32 %9, i1 true)
-  %14 = icmp sge i32 %spec.select.i.i, %1
+  %14 = icmp sle i32 %1, %spec.select.i.i
   %or.cond.i = select i1 %or.cond.i.not26.i, i1 %14, i1 false
   br i1 %or.cond.i, label %15, label %_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag.exit
 
@@ -105,7 +105,7 @@ define internal fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(
   %13 = icmp ne i32 %12, 0
   %or.cond.i.not26 = select i1 %13, i1 true, i1 %10
   %spec.select.i = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
-  %14 = icmp sge i32 %spec.select.i, %1
+  %14 = icmp sle i32 %1, %spec.select.i
   %or.cond = select i1 %or.cond.i.not26, i1 %14, i1 false
   br i1 %or.cond, label %15, label %_Z13pj_log_activeP6pj_ctxi.exit.thread
 

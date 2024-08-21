@@ -705,7 +705,7 @@ Vec_PtrSort.exit:                                 ; preds = %4
 Hop_NodeBalanceFindLeft.exit:                     ; preds = %39, %._crit_edge.split.loop.exit26.i, %19
   %43 = phi i32 [ 0, %19 ], [ %42, %._crit_edge.split.loop.exit26.i ], [ 0, %39 ]
   %44 = add nsw i32 %20, -2
-  %45 = icmp eq i32 %44, %43
+  %45 = icmp eq i32 %43, %44
   br i1 %45, label %Hop_NodeBalancePermute.exit, label %46
 
 46:                                               ; preds = %Hop_NodeBalanceFindLeft.exit

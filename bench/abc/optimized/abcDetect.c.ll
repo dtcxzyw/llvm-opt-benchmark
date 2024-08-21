@@ -3692,7 +3692,7 @@ define void @Mio_LibGateSimulate(ptr noundef %0, ptr nocapture noundef readonly 
   br label %Exp_Truth6Lit.exit.i
 
 27:                                               ; preds = %22
-  %28 = icmp sgt i32 %12, %25
+  %28 = icmp slt i32 %25, %12
   %29 = and i32 %25, 1
   %.not17.i.i = icmp eq i32 %29, 0
   br i1 %28, label %30, label %42
@@ -3749,7 +3749,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %50, %43, %37, %31, 
   br label %Exp_Truth6Lit.exit31.i
 
 60:                                               ; preds = %Exp_Truth6Lit.exit.i
-  %61 = icmp sgt i32 %12, %58
+  %61 = icmp slt i32 %58, %12
   %62 = and i32 %58, 1
   %.not17.i30.i = icmp eq i32 %62, 0
   br i1 %61, label %63, label %75
@@ -3815,7 +3815,7 @@ Exp_Truth6Lit.exit31.i:                           ; preds = %83, %76, %70, %64, 
   br label %Exp_Truth6Lit.exit34.i
 
 96:                                               ; preds = %._crit_edge.i
-  %97 = icmp sgt i32 %12, %94
+  %97 = icmp slt i32 %94, %12
   %98 = and i32 %94, 1
   %.not17.i33.i = icmp eq i32 %98, 0
   br i1 %97, label %99, label %111
@@ -5319,7 +5319,7 @@ Abc_NtkFinSimOneWord.exit:                        ; preds = %.lr.ph.i238, %.lr.p
 
 .critedge8.preheader:                             ; preds = %.critedge6, %.critedge.preheader
   %.val228314 = load i32, ptr %14, align 4
-  %223 = icmp sgt i32 %.val228314, %11
+  %223 = icmp slt i32 %11, %.val228314
   br i1 %223, label %.lr.ph316, label %.critedge12
 
 .lr.ph316:                                        ; preds = %.critedge8.preheader
@@ -6686,7 +6686,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   %240 = load i32, ptr %239, align 4
   %241 = add nsw i32 %240, -1
   store i32 %241, ptr %239, align 4
-  %242 = icmp sgt i32 %241, %116
+  %242 = icmp slt i32 %116, %241
   br i1 %242, label %.lr.ph.i154, label %Vec_IntDrop.exit
 
 .lr.ph.i154:                                      ; preds = %Vec_IntPushTwo.exit
@@ -6710,7 +6710,7 @@ Vec_IntDrop.exit:                                 ; preds = %244, %Vec_IntPushTw
   %252 = phi i32 [ %241, %Vec_IntPushTwo.exit ], [ %249, %244 ]
   %253 = add nsw i32 %252, -1
   store i32 %253, ptr %239, align 4
-  %254 = icmp sgt i32 %253, %.0114179
+  %254 = icmp slt i32 %.0114179, %253
   br i1 %254, label %.lr.ph.i157, label %Vec_IntDrop.exit160
 
 .lr.ph.i157:                                      ; preds = %Vec_IntDrop.exit
@@ -8520,13 +8520,13 @@ define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef 
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

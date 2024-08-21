@@ -808,7 +808,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #18
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIbEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -1321,7 +1321,7 @@ if.then44:                                        ; preds = %sw.default
 
 if.then50:                                        ; preds = %if.then44
   %cmp53 = icmp sgt i32 %.pre80, 0
-  %or.cond = and i1 %cmp53, %use_copy
+  %or.cond = and i1 %use_copy, %cmp53
   br i1 %or.cond, label %land.lhs.true54, label %if.then50.if.else77_crit_edge
 
 if.then50.if.else77_crit_edge:                    ; preds = %if.then50

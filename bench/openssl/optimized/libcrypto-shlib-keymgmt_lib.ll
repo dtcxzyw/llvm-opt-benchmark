@@ -296,7 +296,7 @@ for.body.i:                                       ; preds = %if.then18, %for.inc
   %10 = load ptr, ptr %operation_cache.i, align 8
   %call.i7.i = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %i.09.i) #4
   %11 = load ptr, ptr %call.i7.i, align 8
-  %cmp4.i = icmp eq ptr %11, %keymgmt
+  %cmp4.i = icmp eq ptr %keymgmt, %11
   br i1 %cmp4.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
@@ -429,7 +429,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %1 = load ptr, ptr %operation_cache, align 8
   %call.i7 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %i.09) #4
   %2 = load ptr, ptr %call.i7, align 8
-  %cmp4 = icmp eq ptr %2, %keymgmt
+  %cmp4 = icmp eq ptr %keymgmt, %2
   br i1 %cmp4, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body

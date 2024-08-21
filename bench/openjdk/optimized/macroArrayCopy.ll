@@ -2904,7 +2904,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit37: ; preds = %_ZN12array
 60:                                               ; preds = %57, %55
   %.not32.pn = phi i1 [ %.not32, %55 ], [ %or.cond3, %57 ]
   %.0 = phi i1 [ %56, %55 ], [ false, %57 ]
-  %.029.shrunk = or i1 %.not32.pn, %4
+  %.029.shrunk = or i1 %4, %.not32.pn
   %61 = tail call noundef ptr @_ZN12StubRoutines25select_arraycopy_functionE9BasicTypebbRPKcb(i8 noundef zeroext %1, i1 noundef zeroext %.0, i1 noundef zeroext %.029.shrunk, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6) #6
   ret ptr %61
 }

@@ -9704,13 +9704,13 @@ define ptr @slurmdb_find_tres_in_string(ptr noundef readonly %0, i32 noundef %1)
 
 .preheader:                                       ; preds = %3
   %5 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #21
-  %6 = icmp eq i32 %5, %1
+  %6 = icmp eq i32 %1, %5
   br i1 %6, label %._crit_edge, label %.lr.ph
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds i8, ptr %20, i64 1
   %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #21
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %7, %.preheader
@@ -9756,13 +9756,13 @@ define i64 @slurmdb_find_tres_count_in_string(ptr noundef readonly %0, i32 nound
 
 .preheader:                                       ; preds = %3
   %5 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #21
-  %6 = icmp eq i32 %5, %1
+  %6 = icmp eq i32 %1, %5
   br i1 %6, label %._crit_edge, label %.lr.ph
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds i8, ptr %17, i64 1
   %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #21
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %7, %.preheader

@@ -4499,7 +4499,7 @@ for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
-  %cmp.not7.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
+  %cmp.not7.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not7.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i33
@@ -9126,7 +9126,7 @@ _ZN7testing15AssertionResultD2Ev.exit151:         ; preds = %invoke.cont87, %inv
   %cmp.i.i.i.i.i.i.i = icmp slt i64 %48, %46
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %45, i64 %add.ptr.i7.idx.i
   %cond.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i, ptr %add.ptr.i.i
-  %cmp.not18.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i, %45
+  %cmp.not18.i.i.i.i.i.i = icmp eq ptr %45, %cond.i.i.i.i.i.i.i
   br i1 %cmp.not18.i.i.i.i.i.i, label %invoke.cont114, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit151, %for.inc.i.i.i.i.i.i
@@ -9261,7 +9261,7 @@ _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %invoke.cont114, %in
   %cmp.i.i.i.i.i.i.i.i = icmp slt i64 %62, %60
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 %add.ptr.i7.idx.i.i
   %cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i
-  %cmp.not18.i.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i, %59
+  %cmp.not18.i.i.i.i.i.i.i = icmp eq ptr %59, %cond.i.i.i.i.i.i.i.i
   br i1 %cmp.not18.i.i.i.i.i.i.i, label %invoke.cont141, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %_ZN7testing15AssertionResultD2Ev.exit172, %for.inc.i.i.i.i.i.i.i
@@ -9396,7 +9396,7 @@ _ZN7testing15AssertionResultD2Ev.exit193:         ; preds = %invoke.cont141, %in
   %cmp.i.i.i.i.i.i.i201 = icmp slt i64 %76, %74
   %add.ptr.i.i.i.i.i.i.i202 = getelementptr inbounds i8, ptr %73, i64 %add.ptr.i7.idx.i200
   %cond.i.i.i.i.i.i.i203 = select i1 %cmp.i.i.i.i.i.i.i201, ptr %add.ptr.i.i.i.i.i.i.i202, ptr %add.ptr.i.i196
-  %cmp.not18.i.i.i.i.i.i204 = icmp eq ptr %cond.i.i.i.i.i.i.i203, %73
+  %cmp.not18.i.i.i.i.i.i204 = icmp eq ptr %73, %cond.i.i.i.i.i.i.i203
   br i1 %cmp.not18.i.i.i.i.i.i204, label %invoke.cont168, label %for.body.i.i.i.i.i.i205
 
 for.body.i.i.i.i.i.i205:                          ; preds = %_ZN7testing15AssertionResultD2Ev.exit193, %for.inc.i.i.i.i.i.i211
@@ -9531,7 +9531,7 @@ _ZN7testing15AssertionResultD2Ev.exit236:         ; preds = %invoke.cont168, %in
   %cmp.i.i.i.i.i.i.i.i244 = icmp slt i64 %90, %88
   %add.ptr.i.i.i.i.i.i.i.i245 = getelementptr inbounds i8, ptr %87, i64 %add.ptr.i7.idx.i.i243
   %cond.i.i.i.i.i.i.i.i246 = select i1 %cmp.i.i.i.i.i.i.i.i244, ptr %add.ptr.i.i.i.i.i.i.i.i245, ptr %add.ptr.i.i.i239
-  %cmp.not18.i.i.i.i.i.i.i247 = icmp eq ptr %cond.i.i.i.i.i.i.i.i246, %87
+  %cmp.not18.i.i.i.i.i.i.i247 = icmp eq ptr %87, %cond.i.i.i.i.i.i.i.i246
   br i1 %cmp.not18.i.i.i.i.i.i.i247, label %invoke.cont195, label %for.body.i.i.i.i.i.i.i248
 
 for.body.i.i.i.i.i.i.i248:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit236, %for.inc.i.i.i.i.i.i.i254
@@ -9666,7 +9666,7 @@ _ZN7testing15AssertionResultD2Ev.exit279:         ; preds = %invoke.cont195, %in
   %cmp.i.i.i.i.i.i.i.i287 = icmp slt i64 %104, %102
   %add.ptr.i.i.i.i.i.i.i.i288 = getelementptr inbounds i8, ptr %101, i64 %add.ptr.i7.idx.i.i286
   %cond.i.i.i.i.i.i.i.i289 = select i1 %cmp.i.i.i.i.i.i.i.i287, ptr %add.ptr.i.i.i.i.i.i.i.i288, ptr %add.ptr.i.i.i282
-  %cmp.not18.i.i.i.i.i.i.i290 = icmp eq ptr %cond.i.i.i.i.i.i.i.i289, %101
+  %cmp.not18.i.i.i.i.i.i.i290 = icmp eq ptr %101, %cond.i.i.i.i.i.i.i.i289
   br i1 %cmp.not18.i.i.i.i.i.i.i290, label %invoke.cont222, label %for.body.i.i.i.i.i.i.i291
 
 for.body.i.i.i.i.i.i.i291:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit279, %for.inc.i.i.i.i.i.i.i296
@@ -9801,7 +9801,7 @@ _ZN7testing15AssertionResultD2Ev.exit320:         ; preds = %invoke.cont222, %in
   %cmp.i.i.i.i.i.i.i.i328 = icmp slt i64 %118, %116
   %add.ptr.i.i.i.i.i.i.i.i329 = getelementptr inbounds i8, ptr %115, i64 %add.ptr.i7.idx.i.i327
   %cond.i.i.i.i.i.i.i.i330 = select i1 %cmp.i.i.i.i.i.i.i.i328, ptr %add.ptr.i.i.i.i.i.i.i.i329, ptr %add.ptr.i.i.i323
-  %cmp.not18.i.i.i.i.i.i.i331 = icmp eq ptr %cond.i.i.i.i.i.i.i.i330, %115
+  %cmp.not18.i.i.i.i.i.i.i331 = icmp eq ptr %115, %cond.i.i.i.i.i.i.i.i330
   br i1 %cmp.not18.i.i.i.i.i.i.i331, label %invoke.cont248, label %for.body.i.i.i.i.i.i.i332
 
 for.body.i.i.i.i.i.i.i332:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit320, %for.inc.i.i.i.i.i.i.i338
@@ -9936,7 +9936,7 @@ _ZN7testing15AssertionResultD2Ev.exit362:         ; preds = %invoke.cont248, %in
   %cmp.i.i.i.i.i.i.i.i370 = icmp slt i64 %132, %130
   %add.ptr.i.i.i.i.i.i.i.i371 = getelementptr inbounds i8, ptr %129, i64 %add.ptr.i7.idx.i.i369
   %cond.i.i.i.i.i.i.i.i372 = select i1 %cmp.i.i.i.i.i.i.i.i370, ptr %add.ptr.i.i.i.i.i.i.i.i371, ptr %add.ptr.i.i.i365
-  %cmp.not18.i.i.i.i.i.i.i373 = icmp eq ptr %cond.i.i.i.i.i.i.i.i372, %129
+  %cmp.not18.i.i.i.i.i.i.i373 = icmp eq ptr %129, %cond.i.i.i.i.i.i.i.i372
   br i1 %cmp.not18.i.i.i.i.i.i.i373, label %invoke.cont274, label %for.body.i.i.i.i.i.i.i374
 
 for.body.i.i.i.i.i.i.i374:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit362, %for.inc.i.i.i.i.i.i.i380
@@ -10071,7 +10071,7 @@ _ZN7testing15AssertionResultD2Ev.exit405:         ; preds = %invoke.cont274, %in
   %cmp.i.i.i.i.i.i.i.i413 = icmp slt i64 %146, %144
   %add.ptr.i.i.i.i.i.i.i.i414 = getelementptr inbounds i8, ptr %143, i64 %add.ptr.i7.idx.i.i412
   %cond.i.i.i.i.i.i.i.i415 = select i1 %cmp.i.i.i.i.i.i.i.i413, ptr %add.ptr.i.i.i.i.i.i.i.i414, ptr %add.ptr.i.i.i408
-  %cmp.not18.i.i.i.i.i.i.i416 = icmp eq ptr %cond.i.i.i.i.i.i.i.i415, %143
+  %cmp.not18.i.i.i.i.i.i.i416 = icmp eq ptr %143, %cond.i.i.i.i.i.i.i.i415
   br i1 %cmp.not18.i.i.i.i.i.i.i416, label %invoke.cont300, label %for.body.i.i.i.i.i.i.i417
 
 for.body.i.i.i.i.i.i.i417:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit405, %for.inc.i.i.i.i.i.i.i423
@@ -10937,7 +10937,7 @@ _ZN7testing15AssertionResultD2Ev.exit154:         ; preds = %invoke.cont91, %inv
   %cmp.i.i.i.i.i.i.i = icmp slt i64 %56, %54
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %53, i64 %add.ptr.i7.idx.i
   %cond.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i, ptr %add.ptr.i.i
-  %cmp.not18.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i, %53
+  %cmp.not18.i.i.i.i.i.i = icmp eq ptr %53, %cond.i.i.i.i.i.i.i
   br i1 %cmp.not18.i.i.i.i.i.i, label %invoke.cont117, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit154, %for.inc.i.i.i.i.i.i
@@ -11072,7 +11072,7 @@ _ZN7testing15AssertionResultD2Ev.exit175:         ; preds = %invoke.cont117, %in
   %cmp.i.i.i.i.i.i.i.i = icmp slt i64 %70, %68
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %67, i64 %add.ptr.i7.idx.i.i
   %cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i
-  %cmp.not18.i.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i, %67
+  %cmp.not18.i.i.i.i.i.i.i = icmp eq ptr %67, %cond.i.i.i.i.i.i.i.i
   br i1 %cmp.not18.i.i.i.i.i.i.i, label %invoke.cont144, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %_ZN7testing15AssertionResultD2Ev.exit175, %for.inc.i.i.i.i.i.i.i
@@ -11207,7 +11207,7 @@ _ZN7testing15AssertionResultD2Ev.exit196:         ; preds = %invoke.cont144, %in
   %cmp.i.i.i.i.i.i.i204 = icmp slt i64 %84, %82
   %add.ptr.i.i.i.i.i.i.i205 = getelementptr inbounds i8, ptr %81, i64 %add.ptr.i7.idx.i203
   %cond.i.i.i.i.i.i.i206 = select i1 %cmp.i.i.i.i.i.i.i204, ptr %add.ptr.i.i.i.i.i.i.i205, ptr %add.ptr.i.i199
-  %cmp.not18.i.i.i.i.i.i207 = icmp eq ptr %cond.i.i.i.i.i.i.i206, %81
+  %cmp.not18.i.i.i.i.i.i207 = icmp eq ptr %81, %cond.i.i.i.i.i.i.i206
   br i1 %cmp.not18.i.i.i.i.i.i207, label %invoke.cont170, label %for.body.i.i.i.i.i.i208
 
 for.body.i.i.i.i.i.i208:                          ; preds = %_ZN7testing15AssertionResultD2Ev.exit196, %for.inc.i.i.i.i.i.i214
@@ -11342,7 +11342,7 @@ _ZN7testing15AssertionResultD2Ev.exit239:         ; preds = %invoke.cont170, %in
   %cmp.i.i.i.i.i.i.i.i247 = icmp slt i64 %98, %96
   %add.ptr.i.i.i.i.i.i.i.i248 = getelementptr inbounds i8, ptr %95, i64 %add.ptr.i7.idx.i.i246
   %cond.i.i.i.i.i.i.i.i249 = select i1 %cmp.i.i.i.i.i.i.i.i247, ptr %add.ptr.i.i.i.i.i.i.i.i248, ptr %add.ptr.i.i.i242
-  %cmp.not18.i.i.i.i.i.i.i250 = icmp eq ptr %cond.i.i.i.i.i.i.i.i249, %95
+  %cmp.not18.i.i.i.i.i.i.i250 = icmp eq ptr %95, %cond.i.i.i.i.i.i.i.i249
   br i1 %cmp.not18.i.i.i.i.i.i.i250, label %invoke.cont196, label %for.body.i.i.i.i.i.i.i251
 
 for.body.i.i.i.i.i.i.i251:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit239, %for.inc.i.i.i.i.i.i.i257
@@ -11477,7 +11477,7 @@ _ZN7testing15AssertionResultD2Ev.exit282:         ; preds = %invoke.cont196, %in
   %cmp.i.i.i.i.i.i.i.i290 = icmp slt i64 %112, %110
   %add.ptr.i.i.i.i.i.i.i.i291 = getelementptr inbounds i8, ptr %109, i64 %add.ptr.i7.idx.i.i289
   %cond.i.i.i.i.i.i.i.i292 = select i1 %cmp.i.i.i.i.i.i.i.i290, ptr %add.ptr.i.i.i.i.i.i.i.i291, ptr %add.ptr.i.i.i285
-  %cmp.not18.i.i.i.i.i.i.i293 = icmp eq ptr %cond.i.i.i.i.i.i.i.i292, %109
+  %cmp.not18.i.i.i.i.i.i.i293 = icmp eq ptr %109, %cond.i.i.i.i.i.i.i.i292
   br i1 %cmp.not18.i.i.i.i.i.i.i293, label %invoke.cont223, label %for.body.i.i.i.i.i.i.i294
 
 for.body.i.i.i.i.i.i.i294:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit282, %for.inc.i.i.i.i.i.i.i299
@@ -11612,7 +11612,7 @@ _ZN7testing15AssertionResultD2Ev.exit323:         ; preds = %invoke.cont223, %in
   %cmp.i.i.i.i.i.i.i.i331 = icmp slt i64 %126, %124
   %add.ptr.i.i.i.i.i.i.i.i332 = getelementptr inbounds i8, ptr %123, i64 %add.ptr.i7.idx.i.i330
   %cond.i.i.i.i.i.i.i.i333 = select i1 %cmp.i.i.i.i.i.i.i.i331, ptr %add.ptr.i.i.i.i.i.i.i.i332, ptr %add.ptr.i.i.i326
-  %cmp.not18.i.i.i.i.i.i.i334 = icmp eq ptr %cond.i.i.i.i.i.i.i.i333, %123
+  %cmp.not18.i.i.i.i.i.i.i334 = icmp eq ptr %123, %cond.i.i.i.i.i.i.i.i333
   br i1 %cmp.not18.i.i.i.i.i.i.i334, label %invoke.cont250, label %for.body.i.i.i.i.i.i.i335
 
 for.body.i.i.i.i.i.i.i335:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit323, %for.inc.i.i.i.i.i.i.i341
@@ -11747,7 +11747,7 @@ _ZN7testing15AssertionResultD2Ev.exit365:         ; preds = %invoke.cont250, %in
   %cmp.i.i.i.i.i.i.i.i373 = icmp slt i64 %140, %138
   %add.ptr.i.i.i.i.i.i.i.i374 = getelementptr inbounds i8, ptr %137, i64 %add.ptr.i7.idx.i.i372
   %cond.i.i.i.i.i.i.i.i375 = select i1 %cmp.i.i.i.i.i.i.i.i373, ptr %add.ptr.i.i.i.i.i.i.i.i374, ptr %add.ptr.i.i.i368
-  %cmp.not18.i.i.i.i.i.i.i376 = icmp eq ptr %cond.i.i.i.i.i.i.i.i375, %137
+  %cmp.not18.i.i.i.i.i.i.i376 = icmp eq ptr %137, %cond.i.i.i.i.i.i.i.i375
   br i1 %cmp.not18.i.i.i.i.i.i.i376, label %invoke.cont276, label %for.body.i.i.i.i.i.i.i377
 
 for.body.i.i.i.i.i.i.i377:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit365, %for.inc.i.i.i.i.i.i.i383
@@ -11882,7 +11882,7 @@ _ZN7testing15AssertionResultD2Ev.exit408:         ; preds = %invoke.cont276, %in
   %cmp.i.i.i.i.i.i.i.i416 = icmp slt i64 %154, %152
   %add.ptr.i.i.i.i.i.i.i.i417 = getelementptr inbounds i8, ptr %151, i64 %add.ptr.i7.idx.i.i415
   %cond.i.i.i.i.i.i.i.i418 = select i1 %cmp.i.i.i.i.i.i.i.i416, ptr %add.ptr.i.i.i.i.i.i.i.i417, ptr %add.ptr.i.i.i411
-  %cmp.not18.i.i.i.i.i.i.i419 = icmp eq ptr %cond.i.i.i.i.i.i.i.i418, %151
+  %cmp.not18.i.i.i.i.i.i.i419 = icmp eq ptr %151, %cond.i.i.i.i.i.i.i.i418
   br i1 %cmp.not18.i.i.i.i.i.i.i419, label %invoke.cont302, label %for.body.i.i.i.i.i.i.i420
 
 for.body.i.i.i.i.i.i.i420:                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit408, %for.inc.i.i.i.i.i.i.i426
@@ -19403,7 +19403,7 @@ for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
-  %cmp.not7.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
+  %cmp.not7.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not7.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i33
@@ -48619,7 +48619,7 @@ for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
-  %cmp.not7.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
+  %cmp.not7.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not7.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i33
@@ -49670,7 +49670,7 @@ if.end.i:                                         ; preds = %invoke.cont.i, %cal
 
 invoke.cont:                                      ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %6 = xor i1 %call5.i12, %all_elements_should_match
+  %6 = xor i1 %all_elements_should_match, %call5.i12
   br i1 %6, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont
@@ -51431,7 +51431,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
   %3 = extractvalue { ptr, i32 } %lpad.phi, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #23
-  %cmp.not3.i.i = icmp eq ptr %__cur.017, %__result
+  %cmp.not3.i.i = icmp eq ptr %__result, %__cur.017
   br i1 %cmp.not3.i.i, label %invoke.cont3, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lpad, %_ZSt8_DestroyIN4absl10FixedArrayIiLm18446744073709551615ESaIiEEEEvPT_.exit.i.i
@@ -54741,7 +54741,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_10FixedArrayIiLm18446744073709551615ESaIiEEEEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EESaISL_EE11_S_relocateEPSL_SO_SO_RSM_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS0_ISt7variantIJPKNS1_10FixedArrayIiLm18446744073709551615ESaIiEEEEESaISA_EENS2_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISK_EESaISM_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS0_ISt7variantIJPKNS1_10FixedArrayIiLm18446744073709551615ESaIiEEEEESaISA_EENS2_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISK_EESaISM_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_10FixedArrayIiLm18446744073709551615ESaIiEEEEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EESaISL_EE11_S_relocateEPSL_SO_SO_RSM_.exit23, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_10FixedArrayIiLm18446744073709551615ESaIiEEEEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EESaISL_EE11_S_relocateEPSL_SO_SO_RSM_.exit, %for.body.i.i.i12
@@ -58823,7 +58823,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i19

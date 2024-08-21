@@ -494,8 +494,8 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
   %174 = getelementptr inbounds i8, ptr %164, i64 8
   %175 = load float, ptr %174, align 4
   %176 = fsub float %175, %170
-  %177 = fneg float %171
-  %178 = fmul float %173, %177
+  %177 = fneg float %173
+  %178 = fmul float %171, %177
   %179 = tail call float @llvm.fmuladd.f32(float %167, float %176, float %178)
   %180 = fcmp olt float %179, 0.000000e+00
   br i1 %180, label %181, label %183

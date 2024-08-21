@@ -495,7 +495,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %2
   %.0.lcssa.i = phi ptr [ null, %2 ], [ %.1.i, %.loopexit.i ]
   %73 = load i32, ptr @H5_optind, align 4
-  %.not26.i = icmp slt i32 %73, %0
+  %.not26.i = icmp sgt i32 %0, %73
   br i1 %.not26.i, label %95, label %74
 
 74:                                               ; preds = %._crit_edge.i
@@ -755,7 +755,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.057.i.i = phi i64 [ %195, %.lr.ph.i.i47 ], [ 1, %.lr.ph.i.i47.preheader ]
   %195 = mul i64 %.057.i.i, 10
   %196 = add i32 %.08.i.i, 1
-  %.not.i.i48 = icmp ugt i64 %195, %189
+  %.not.i.i48 = icmp ult i64 %189, %195
   br i1 %.not.i.i48, label %ceil_log10.exit.i, label %.lr.ph.i.i47
 
 ceil_log10.exit.i:                                ; preds = %.lr.ph.i.i47, %191
@@ -1231,7 +1231,7 @@ define internal range(i32 -1, 1) i32 @obj_stats(ptr noundef %0, ptr nocapture no
   %.057.i.i = phi i64 [ %91, %.lr.ph.i.i ], [ 1, %.lr.ph.i.i.preheader ]
   %91 = mul i64 %.057.i.i, 10
   %92 = add i32 %.08.i.i, 1
-  %.not.i.i = icmp ugt i64 %91, %86
+  %.not.i.i = icmp ult i64 %86, %91
   br i1 %.not.i.i, label %ceil_log10.exit.i, label %.lr.ph.i.i
 
 ceil_log10.exit.i:                                ; preds = %.lr.ph.i.i, %90
@@ -1381,7 +1381,7 @@ ceil_log10.exit.i:                                ; preds = %.lr.ph.i.i, %90
   %.057.i.i56 = phi i64 [ %177, %.lr.ph.i.i54 ], [ 1, %175 ]
   %177 = mul i64 %.057.i.i56, 10
   %178 = add i32 %.08.i.i55, 1
-  %.not.i.i57 = icmp ugt i64 %177, %176
+  %.not.i.i57 = icmp ult i64 %176, %177
   br i1 %.not.i.i57, label %ceil_log10.exit.i58, label %.lr.ph.i.i54
 
 ceil_log10.exit.i58:                              ; preds = %.lr.ph.i.i54, %175
@@ -1585,7 +1585,7 @@ group_stats.exit:                                 ; preds = %202, %._crit_edge.i
   %.057.i.i70 = phi i64 [ %294, %.lr.ph.i.i68 ], [ 1, %292 ]
   %294 = mul i64 %.057.i.i70, 10
   %295 = add i32 %.08.i.i69, 1
-  %.not.i.i71 = icmp ugt i64 %294, %293
+  %.not.i.i71 = icmp ult i64 %293, %294
   br i1 %.not.i.i71, label %ceil_log10.exit.i72, label %.lr.ph.i.i68
 
 ceil_log10.exit.i72:                              ; preds = %.lr.ph.i.i68, %292
@@ -1887,7 +1887,7 @@ attribute_stats.exit80:                           ; preds = %._crit_edge.i74, %3
   %.057.i.i42 = phi i64 [ %468, %.lr.ph.i.i40 ], [ 1, %466 ]
   %468 = mul i64 %.057.i.i42, 10
   %469 = add i32 %.08.i.i41, 1
-  %.not.i.i43 = icmp ugt i64 %468, %467
+  %.not.i.i43 = icmp ult i64 %467, %468
   br i1 %.not.i.i43, label %ceil_log10.exit.i44, label %.lr.ph.i.i40
 
 ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %466
@@ -2406,7 +2406,7 @@ dataset_stats.exit:                               ; preds = %689
   %.057.i.i86 = phi i64 [ %765, %.lr.ph.i.i84 ], [ 1, %763 ]
   %765 = mul i64 %.057.i.i86, 10
   %766 = add i32 %.08.i.i85, 1
-  %.not.i.i87 = icmp ugt i64 %765, %764
+  %.not.i.i87 = icmp ult i64 %764, %765
   br i1 %.not.i.i87, label %ceil_log10.exit.i88, label %.lr.ph.i.i84
 
 ceil_log10.exit.i88:                              ; preds = %.lr.ph.i.i84, %763

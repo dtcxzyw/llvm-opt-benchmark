@@ -4106,7 +4106,7 @@ if.else31:                                        ; preds = %if.then26
   %leveled_max = getelementptr inbounds i8, ptr %cond-lvalue.i.i, i64 3038
   %12 = load i8, ptr %leveled_max, align 2, !tbaa !77
   %13 = zext i8 %12 to i16
-  %cmp34 = icmp ult i16 %13, %level
+  %cmp34 = icmp ugt i16 %level, %13
   br i1 %cmp34, label %if.then35, label %if.end44
 
 if.then35:                                        ; preds = %if.else31
@@ -4208,7 +4208,7 @@ if.end28.i:                                       ; preds = %if.then21.i, %if.en
 _ZNK7MapNode8getLevelEPK14NodeDefManager.exit:    ; preds = %if.end28.i, %if.then21.i, %if.then12.i, %if.then4.i, %_ZNK14NodeDefManager3getERK7MapNode.exit.i
   %retval.1.i = phi i8 [ %7, %if.then4.i ], [ %9, %if.then12.i ], [ %11, %if.then21.i ], [ 8, %_ZNK14NodeDefManager3getERK7MapNode.exit.i ], [ %..i, %if.end28.i ]
   %conv3 = zext i8 %retval.1.i to i16
-  %add4 = add i16 %conv3, %add
+  %add4 = add i16 %add, %conv3
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i26, label %cond.false.i.i.i16
 
 land.lhs.true.i.i.i26:                            ; preds = %_ZNK7MapNode8getLevelEPK14NodeDefManager.exit
@@ -5559,7 +5559,7 @@ for.body.epil:                                    ; preds = %if.end56.loopexit.u
   br i1 %epil.iter.cmp.not, label %if.end56, label %for.body.epil, !llvm.loop !227
 
 if.end56:                                         ; preds = %for.body41, %for.body.epil, %if.end56.loopexit.unr-lcssa, %for.body41.prol.loopexit, %middle.block
-  %mul58 = mul i32 %conv, %nodecount
+  %mul58 = mul i32 %nodecount, %conv
   br i1 %cmp26232.not, label %if.end149, label %for.body63.preheader
 
 for.body63.preheader:                             ; preds = %if.end56

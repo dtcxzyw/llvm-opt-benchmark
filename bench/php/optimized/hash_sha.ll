@@ -85,7 +85,7 @@ define void @PHP_SHA256Update(ptr nocapture noundef %0, ptr nocapture noundef re
   store i32 %18, ptr %17, align 4
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
-  %.not = icmp ugt i64 %20, %2
+  %.not = icmp ult i64 %2, %20
   br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %._crit_edge
@@ -174,7 +174,7 @@ define void @PHP_SHA256Final(ptr nocapture noundef writeonly %0, ptr noundef %1)
   %40 = add i32 %39, %37
   store i32 %40, ptr %17, align 4
   %41 = sub nuw nsw i32 64, %30
-  %.not.i = icmp ugt i32 %41, %32
+  %.not.i = icmp ult i32 %32, %41
   br i1 %.not.i, label %53, label %42
 
 42:                                               ; preds = %2
@@ -327,7 +327,7 @@ define void @PHP_SHA224Update(ptr nocapture noundef %0, ptr nocapture noundef re
   store i32 %18, ptr %17, align 4
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
-  %.not = icmp ugt i64 %20, %2
+  %.not = icmp ult i64 %2, %20
   br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %._crit_edge
@@ -416,7 +416,7 @@ define void @PHP_SHA224Final(ptr nocapture noundef writeonly %0, ptr noundef %1)
   %40 = add i32 %39, %37
   store i32 %40, ptr %17, align 4
   %41 = sub nuw nsw i32 64, %30
-  %.not.i = icmp ugt i32 %41, %32
+  %.not.i = icmp ult i32 %32, %41
   br i1 %.not.i, label %53, label %42
 
 42:                                               ; preds = %2
@@ -724,7 +724,7 @@ define void @PHP_SHA384Update(ptr nocapture noundef %0, ptr nocapture noundef re
   store i64 %17, ptr %16, align 8
   %18 = sub nuw nsw i32 128, %7
   %19 = zext nneg i32 %18 to i64
-  %.not = icmp ugt i64 %19, %2
+  %.not = icmp ult i64 %2, %19
   br i1 %.not, label %.loopexit, label %20
 
 20:                                               ; preds = %._crit_edge
@@ -1017,7 +1017,7 @@ define void @PHP_SHA384Final(ptr nocapture noundef writeonly %0, ptr noundef %1)
   %63 = add i64 %30, %62
   store i64 %63, ptr %29, align 8
   %64 = sub nuw nsw i32 128, %55
-  %.not.i = icmp ugt i32 %64, %57
+  %.not.i = icmp ult i32 %57, %64
   br i1 %.not.i, label %PHP_SHA384Update.exit, label %65
 
 65:                                               ; preds = %2
@@ -1230,7 +1230,7 @@ define void @PHP_SHA512Update(ptr nocapture noundef %0, ptr nocapture noundef re
   store i64 %17, ptr %16, align 8
   %18 = sub nuw nsw i32 128, %7
   %19 = zext nneg i32 %18 to i64
-  %.not = icmp ugt i64 %19, %2
+  %.not = icmp ult i64 %2, %19
   br i1 %.not, label %30, label %20
 
 20:                                               ; preds = %._crit_edge
@@ -1350,7 +1350,7 @@ define void @PHP_SHA512Final(ptr nocapture noundef writeonly %0, ptr noundef %1)
   %63 = add i64 %30, %62
   store i64 %63, ptr %29, align 8
   %64 = sub nuw nsw i32 128, %55
-  %.not.i = icmp ugt i32 %64, %57
+  %.not.i = icmp ult i32 %57, %64
   br i1 %.not.i, label %76, label %65
 
 65:                                               ; preds = %2

@@ -130,7 +130,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %_ZNSt11c
 19:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
   %.sroa.speculated.i28 = tail call i64 @llvm.umin.i64(i64 %.fr11.i97206, i64 %.fr)
   %20 = add nuw i64 %.fr, 1
-  %.not162 = icmp ugt i64 %.fr11.i97206, %.fr
+  %.not162 = icmp ult i64 %.fr, %.fr11.i97206
   br i1 %.not162, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, label %21
 
 21:                                               ; preds = %19
@@ -183,7 +183,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %32 = getelementptr inbounds i8, ptr %.09.i, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #8
-  %35 = icmp eq i64 %34, %.sroa.speculated.i28
+  %35 = icmp eq i64 %.sroa.speculated.i28, %34
   br i1 %35, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, label %37
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.split.i
@@ -246,7 +246,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %50 = getelementptr inbounds i8, ptr %.09.i55, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #8
-  %53 = icmp eq i64 %52, %.sroa.speculated.i28
+  %53 = icmp eq i64 %.sroa.speculated.i28, %52
   br i1 %53, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i59, label %55
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i59: ; preds = %.lr.ph.split.i54
@@ -388,7 +388,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %89 = getelementptr inbounds i8, ptr %.09.i102, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #8
-  %92 = icmp eq i64 %91, %.fr11.i97205
+  %92 = icmp eq i64 %.fr11.i97205, %91
   br i1 %92, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i106, label %94
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i106: ; preds = %.lr.ph.split.i101

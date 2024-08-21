@@ -1286,7 +1286,7 @@ Vec_IntPush.exit169:                              ; preds = %.Vec_IntGrow.exit10
 229:                                              ; preds = %Vec_IntPush.exit169
   %230 = load i32, ptr %147, align 8
   %231 = shl nsw i32 %230, 1
-  %232 = icmp slt i32 %231, %228
+  %232 = icmp sgt i32 %228, %231
   %.not.i.i171 = icmp slt i32 %230, %228
   br i1 %232, label %233, label %242
 

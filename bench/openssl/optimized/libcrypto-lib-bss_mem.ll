@@ -172,7 +172,7 @@ if.then7.i:                                       ; preds = %if.then.i
 
 mem_buf_sync.exit:                                ; preds = %land.lhs.true.i, %land.lhs.true2.i, %if.then.i, %if.then7.i
   %17 = load ptr, ptr %0, align 8
-  %add = add nsw i32 %conv, %inl
+  %add = add nsw i32 %inl, %conv
   %conv6 = sext i32 %add to i64
   %call7 = tail call i64 @BUF_MEM_grow_clean(ptr noundef %17, i64 noundef %conv6) #6
   %cmp8 = icmp eq i64 %call7, 0
@@ -289,7 +289,7 @@ entry:
   tail call void @BIO_clear_flags(ptr noundef %bp, i32 noundef 15) #6
   %4 = load i64, ptr %bm.0, align 8
   %conv = trunc i64 %4 to i32
-  %cmp.not = icmp slt i32 %conv, %size
+  %cmp.not = icmp sgt i32 %size, %conv
   %sub = add nsw i32 %size, -1
   %j.0 = select i1 %cmp.not, i32 %conv, i32 %sub
   %cmp6 = icmp slt i32 %j.0, 1
@@ -479,7 +479,7 @@ if.else24:                                        ; preds = %if.then10
 sw.bb29:                                          ; preds = %entry
   %cmp30 = icmp slt i64 %num, 0
   %add = add nsw i64 %cond, %4
-  %cmp31 = icmp slt i64 %add, %num
+  %cmp31 = icmp sgt i64 %num, %add
   %or.cond = select i1 %cmp30, i1 true, i1 %cmp31
   br i1 %or.cond, label %return, label %if.end33
 

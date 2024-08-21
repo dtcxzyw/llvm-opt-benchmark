@@ -207,7 +207,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %79, %69, %76
   br label %.loopexit
 
 .critedge107:                                     ; preds = %._crit_edge.i.i.i, %20, %65, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit
-  %80 = icmp sgt i32 %9, %1
+  %80 = icmp slt i32 %1, %9
   br i1 %80, label %.lr.ph200, label %.critedge108
 
 .lr.ph200:                                        ; preds = %.critedge107, %84

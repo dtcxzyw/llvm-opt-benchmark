@@ -125,7 +125,7 @@ define noundef i32 @mca_base_framework_components_close(ptr noundef %0, ptr noun
   %.01621.i = phi ptr [ %7, %.lr.ph.i ], [ %.023.i, %43 ]
   %10 = getelementptr inbounds i8, ptr %.01621.i, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %43, label %13
 
 13:                                               ; preds = %9
@@ -216,7 +216,7 @@ define noundef i32 @mca_base_components_close(i32 noundef %0, ptr noundef %1, pt
   %.01621 = phi ptr [ %6, %.lr.ph ], [ %.023, %42 ]
   %9 = getelementptr inbounds i8, ptr %.01621, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %2
+  %11 = icmp eq ptr %2, %10
   br i1 %11, label %42, label %12
 
 12:                                               ; preds = %8

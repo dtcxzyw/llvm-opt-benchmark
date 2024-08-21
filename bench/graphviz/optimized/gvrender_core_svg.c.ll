@@ -663,7 +663,7 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
   %10 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull %switch.select125) #11
   %11 = getelementptr inbounds i8, ptr %3, i64 40
   %12 = load double, ptr %11, align 8
-  %13 = fadd double %12, %2
+  %13 = fadd double %2, %12
   %14 = getelementptr inbounds i8, ptr %6, i64 344
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 512

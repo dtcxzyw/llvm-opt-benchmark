@@ -74,7 +74,7 @@ define internal fastcc noundef ptr @ExecInitPartitionDispatchInfo(ptr nocapture 
   %21 = load ptr, ptr %1, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 72
   %23 = load i32, ptr %22, align 8
-  %.not = icmp eq i32 %23, %2
+  %.not = icmp eq i32 %2, %23
   br i1 %.not, label %26, label %24
 
 24:                                               ; preds = %16
@@ -367,7 +367,7 @@ list_head.exit.i:                                 ; preds = %.thread.i, %._crit_
 92:                                               ; preds = %86
   %93 = sext i16 %91 to i32
   %94 = load i16, ptr %83, align 2
-  %95 = icmp slt i16 %94, %91
+  %95 = icmp sgt i16 %91, %94
   br i1 %95, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %92

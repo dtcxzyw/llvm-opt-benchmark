@@ -98,7 +98,7 @@ define noundef float @_Z15grid_jump_limitPK17gmx_domdec_comm_tfi(ptr nocapture n
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 588
   %15 = load float, ptr %14, align 4
-  %16 = fcmp ogt float %15, %1
+  %16 = fcmp olt float %1, %15
   %.sroa.speculated9 = select i1 %16, float %15, float %1
   br label %17
 
@@ -1104,7 +1104,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %116, %1
   %173 = getelementptr inbounds [3 x i32], ptr %137, i64 0, i64 %172
   %174 = load i32, ptr %173, align 4
   %175 = load i32, ptr %1, align 4
-  %176 = icmp sgt i32 %175, %148
+  %176 = icmp slt i32 %148, %175
   %177 = getelementptr inbounds i8, ptr %166, i64 120
   %178 = load ptr, ptr %177, align 8
   %.not245.i.i.i = icmp slt i32 %174, 0
@@ -1286,7 +1286,7 @@ _ZL16cellsize_min_dlbP17gmx_domdec_comm_tii.exit.i.i.i: ; preds = %.loopexit243.
   %284 = getelementptr inbounds [3 x float], ptr %138, i64 0, i64 %172
   %285 = load float, ptr %284, align 4
   %286 = fdiv float %.sroa.speculated.i.i.i.i, %285
-  %287 = fcmp ogt float %281, %260
+  %287 = fcmp olt float %260, %281
   %.sroa.speculated9.i.i.i.i = select i1 %287, float %281, float %260
   br label %288
 
@@ -1340,7 +1340,7 @@ _Z15grid_jump_limitPK17gmx_domdec_comm_tfi.exit.i.i.i: ; preds = %288, %_ZL16cel
   %.0210.i.i.i = phi float [ %317, %314 ], [ %307, %_Z15grid_jump_limitPK17gmx_domdec_comm_tfi.exit.i.i.i ]
   %.0207.i.i.i = phi float [ %318, %314 ], [ %311, %_Z15grid_jump_limitPK17gmx_domdec_comm_tfi.exit.i.i.i ]
   %320 = icmp ne i64 %indvars.iv.i.i, 0
-  %or.cond.i.i.i = and i1 %320, %2
+  %or.cond.i.i.i = and i1 %2, %320
   %321 = fpext float %.0207.i.i.i to double
   %322 = fmul double %321, 1.020000e+00
   %323 = fptrunc double %322 to float
@@ -2154,7 +2154,7 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   %30 = getelementptr inbounds [3 x i32], ptr %28, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %4, align 4
-  %33 = icmp sgt i32 %32, %2
+  %33 = icmp slt i32 %2, %32
   %34 = getelementptr inbounds i8, ptr %3, i64 120
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr @debug, align 8
@@ -2468,7 +2468,7 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   %205 = ashr exact i64 %sext, 30
   %206 = getelementptr inbounds i8, ptr %202, i64 %205
   %207 = load float, ptr %206, align 4
-  %208 = fadd float %207, %7
+  %208 = fadd float %7, %207
   %209 = fcmp olt float %204, %208
   br i1 %209, label %210, label %211
 

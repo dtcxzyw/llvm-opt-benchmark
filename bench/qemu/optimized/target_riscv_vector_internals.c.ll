@@ -110,7 +110,7 @@ if.end.us:                                        ; preds = %for.body.us
   br label %for.inc.us
 
 if.then.us:                                       ; preds = %for.body.us
-  %mul.us = mul i32 %indvars41, %esz
+  %mul.us = mul i32 %esz, %indvars41
   %add.us = add nuw i32 %indvars41, 1
   %mul9.us = mul i32 %add.us, %esz
   %cmp1.i.us = icmp eq i32 %mul9.us, %mul.us
@@ -136,7 +136,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %for.inc.us, %for.inc.us.us, %entry
   store i64 0, ptr %vstart, align 8
-  %mul11 = mul i32 %conv, %esz
+  %mul11 = mul i32 %esz, %conv
   %shl17.i.fr = freeze i32 %shl17.i
   %16 = urem i32 %shl17.i.fr, %esz
   %mul12 = sub nuw i32 %shl17.i.fr, %16
@@ -242,7 +242,7 @@ if.end.us:                                        ; preds = %for.body.us
   br label %for.inc.us
 
 if.then.us:                                       ; preds = %for.body.us
-  %mul.us = mul i32 %indvars41, %esz
+  %mul.us = mul i32 %esz, %indvars41
   %add.us = add nuw i32 %indvars41, 1
   %mul9.us = mul i32 %add.us, %esz
   %cmp1.i.us = icmp eq i32 %mul9.us, %mul.us
@@ -268,7 +268,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %for.inc.us, %for.inc.us.us, %entry
   store i64 0, ptr %vstart, align 8
-  %mul11 = mul i32 %conv, %esz
+  %mul11 = mul i32 %esz, %conv
   %shl17.i.fr = freeze i32 %shl17.i
   %16 = urem i32 %shl17.i.fr, %esz
   %mul12 = sub nuw i32 %shl17.i.fr, %16

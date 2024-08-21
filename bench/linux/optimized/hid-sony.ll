@@ -2926,7 +2926,7 @@ define internal void @sony_led_set_brightness(ptr noundef readonly %0, i32 nound
   %30 = getelementptr [4 x i8], ptr %21, i64 0, i64 %25
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = icmp eq i32 %32, %1
+  %33 = icmp eq i32 %1, %32
   br i1 %33, label %34, label %.split5.us
 
 34:                                               ; preds = %29

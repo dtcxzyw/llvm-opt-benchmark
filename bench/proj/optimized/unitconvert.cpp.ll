@@ -821,8 +821,8 @@ define internal { double, double } @_ZL10forward_2d5PJ_LPP8PJconsts(double %0, d
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = fmul double %7, %0
-  %9 = fmul double %7, %1
+  %8 = fmul double %0, %7
+  %9 = fmul double %1, %7
   %.fca.0.insert = insertvalue { double, double } poison, double %8, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %9, 1
   ret { double, double } %.fca.1.insert
@@ -953,7 +953,7 @@ _ZL12days_in_yearl.exit:                          ; preds = %.lr.ph, %_ZL12is_le
   %8 = uitofp nneg i32 %7 to double
   %9 = fadd double %.01334, %8
   %10 = add nuw nsw i32 %.035, 1
-  %11 = fcmp ugt double %9, %0
+  %11 = fcmp ult double %0, %9
   br i1 %11, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZL12days_in_yearl.exit

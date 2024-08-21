@@ -3208,7 +3208,7 @@ if.then:                                          ; preds = %_ZNSt5arrayIPN8prox
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 672
   %2 = load ptr, ptr %vfn, align 8
   %call14 = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(168) %1)
-  %cmp = icmp ugt i32 %call14, %maxEventsPerInterval
+  %cmp = icmp ult i32 %maxEventsPerInterval, %call14
   br i1 %cmp, label %if.then15, label %if.end
 
 if.then15:                                        ; preds = %if.then
@@ -3432,7 +3432,7 @@ entry:
   %pendingReadSize_ = getelementptr inbounds i8, ptr %this, i64 1576
   %1 = load i32, ptr %pendingReadSize_, align 8
   %conv5 = zext i16 %padding to i64
-  %2 = add i64 %conv5, %length
+  %2 = add i64 %length, %conv5
   %sub6 = sub i64 4294967295, %2
   %conv.i = zext i32 %1 to i64
   %cmp.not.i = icmp ult i64 %sub6, %conv.i
@@ -3948,7 +3948,7 @@ cleanup.action:                                   ; preds = %invoke.cont10
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
   %4 = load i64, ptr %pendingWriteSizeDelta_, align 8
   %cmp21 = icmp sgt i64 %4, -1
-  %brmerge.not = and i1 %cmp21, %update
+  %brmerge.not = and i1 %update, %cmp21
   br i1 %brmerge.not, label %if.then, label %return
 
 if.then:                                          ; preds = %cleanup.done

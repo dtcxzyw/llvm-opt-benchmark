@@ -1483,7 +1483,7 @@ define void @_ZN2cv14extractChannelERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr
 14:                                               ; preds = %11
   %15 = lshr i32 %10, 3
   %16 = and i32 %15, 511
-  %.not = icmp ult i32 %16, %2
+  %.not = icmp ugt i32 %2, %16
   br i1 %.not, label %19, label %27
 
 17:                                               ; preds = %34, %31, %27, %3
@@ -1689,7 +1689,7 @@ define void @_ZN2cv13insertChannelERKNS_11_InputArrayERKNS_17_InputOutputArrayEi
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %34
-  %37 = icmp uge i32 %17, %2
+  %37 = icmp ule i32 %2, %17
   %38 = and i32 %12, 4088
   %39 = icmp eq i32 %38, 0
   %or.cond = and i1 %39, %37

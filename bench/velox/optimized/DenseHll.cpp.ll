@@ -310,7 +310,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %arrayidx.i.i = getelementptr inbounds i16, ptr %6, i64 %indvars.iv.i.i
   %8 = load i16, ptr %arrayidx.i.i, align 2
   %conv.i.i16 = zext i16 %8 to i32
-  %cmp1.i.i = icmp eq i32 %conv.i.i16, %index
+  %cmp1.i.i = icmp eq i32 %index, %conv.i.i16
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.cond.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -353,7 +353,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %add.ptr2.i.i20 = getelementptr inbounds i16, ptr %14, i64 %indvars.iv.i
   %15 = load i16, ptr %add.ptr2.i.i20, align 2
   %conv3.i = zext i16 %15 to i32
-  %cmp4.i = icmp eq i32 %conv3.i, %index
+  %cmp4.i = icmp eq i32 %index, %conv3.i
   br i1 %cmp4.i, label %if.then16, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -381,7 +381,7 @@ if.else:                                          ; preds = %for.inc.i, %if.then
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 1
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i.i, %add.i
+  %cmp.i.i = icmp ugt i64 %add.i, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i, label %if.then.i.i25, label %if.else.i.i
 
 if.then.i.i25:                                    ; preds = %if.else
@@ -394,7 +394,7 @@ if.then.i.i25:                                    ; preds = %if.else
   br label %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.else
-  %cmp4.i.i23 = icmp ugt i64 %sub.ptr.div.i.i.i, %add.i
+  %cmp4.i.i23 = icmp ult i64 %add.i, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i23, label %if.then5.i.i, label %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -416,7 +416,7 @@ _ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i: ; preds = %if
   %sub.ptr.lhs.cast.i.i3.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i4.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i5.i = sub i64 %sub.ptr.lhs.cast.i.i3.i, %sub.ptr.rhs.cast.i.i4.i
-  %cmp.i6.i = icmp ult i64 %sub.ptr.sub.i.i5.i, %add5.pre-phi.i
+  %cmp.i6.i = icmp ugt i64 %add5.pre-phi.i, %sub.ptr.sub.i.i5.i
   br i1 %cmp.i6.i, label %if.then.i13.i, label %if.else.i7.i
 
 if.then.i13.i:                                    ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i
@@ -428,7 +428,7 @@ if.then.i13.i:                                    ; preds = %_ZNSt6vectorItN8fac
   br label %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit
 
 if.else.i7.i:                                     ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i
-  %cmp4.i8.i = icmp ugt i64 %sub.ptr.sub.i.i5.i, %add5.pre-phi.i
+  %cmp4.i8.i = icmp ult i64 %add5.pre-phi.i, %sub.ptr.sub.i.i5.i
   br i1 %cmp4.i8.i, label %if.then5.i9.i, label %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit
 
 if.then5.i9.i:                                    ; preds = %if.else.i7.i
@@ -531,7 +531,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %arrayidx.i = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i
   %3 = load i16, ptr %arrayidx.i, align 2
   %conv.i = zext i16 %3 to i32
-  %cmp1.i = icmp eq i32 %conv.i, %index
+  %cmp1.i = icmp eq i32 %index, %conv.i
   br i1 %cmp1.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -563,7 +563,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr2.i = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
   %2 = load i16, ptr %add.ptr2.i, align 2
   %conv3 = zext i16 %2 to i32
-  %cmp4 = icmp eq i32 %conv3, %index
+  %cmp4 = icmp eq i32 %index, %conv3
   br i1 %cmp4, label %return.loopexit.split.loop.exit9, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -595,7 +595,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %add
+  %cmp.i = icmp ugt i64 %add, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -608,7 +608,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %add
+  %cmp4.i = icmp ult i64 %add, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -630,7 +630,7 @@ _ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit: ; preds = %if.t
   %sub.ptr.lhs.cast.i.i3 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i4 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i5 = sub i64 %sub.ptr.lhs.cast.i.i3, %sub.ptr.rhs.cast.i.i4
-  %cmp.i6 = icmp ult i64 %sub.ptr.sub.i.i5, %add5.pre-phi
+  %cmp.i6 = icmp ugt i64 %add5.pre-phi, %sub.ptr.sub.i.i5
   br i1 %cmp.i6, label %if.then.i13, label %if.else.i7
 
 if.then.i13:                                      ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit
@@ -642,7 +642,7 @@ if.then.i13:                                      ; preds = %_ZNSt6vectorItN8fac
   br label %_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE6resizeEm.exit
 
 if.else.i7:                                       ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit
-  %cmp4.i8 = icmp ugt i64 %sub.ptr.sub.i.i5, %add5.pre-phi
+  %cmp4.i8 = icmp ult i64 %add5.pre-phi, %sub.ptr.sub.i.i5
   br i1 %cmp4.i8, label %if.then5.i9, label %_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE6resizeEm.exit
 
 if.then5.i9:                                      ; preds = %if.else.i7
@@ -1061,7 +1061,7 @@ _ZN8facebook5velox6common3hll12_GLOBAL__N_15alphaEi.exit: ; preds = %for.end23, 
   %add.ptr.i.i = getelementptr inbounds %"class.std::vector.5", ptr %20, i64 %sub.i
   %21 = load ptr, ptr %add.ptr.i.i, align 8
   %22 = load double, ptr %21, align 8
-  %cmp.i25 = fcmp ogt double %22, %div31
+  %cmp.i25 = fcmp olt double %div31, %22
   br i1 %cmp.i25, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %_ZN8facebook5velox6common3hll12_GLOBAL__N_15alphaEi.exit
@@ -1073,7 +1073,7 @@ lor.lhs.false.i:                                  ; preds = %_ZN8facebook5velox6
   %24 = getelementptr i8, ptr %21, i64 %sub.ptr.sub.i.i
   %add.ptr.i23.i = getelementptr i8, ptr %24, i64 -8
   %25 = load double, ptr %add.ptr.i23.i, align 8
-  %cmp6.i = fcmp olt double %25, %div31
+  %cmp6.i = fcmp ogt double %div31, %25
   br i1 %cmp6.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -1092,7 +1092,7 @@ while.body.i.i:                                   ; preds = %if.end9.i.i, %if.en
   %conv1.i.i = zext nneg i32 %shr.i.i27 to i64
   %add.ptr.i.i.i = getelementptr inbounds double, ptr %21, i64 %conv1.i.i
   %28 = load double, ptr %add.ptr.i.i.i, align 8
-  %cmp3.i.i = fcmp olt double %28, %div31
+  %cmp3.i.i = fcmp ogt double %div31, %28
   br i1 %cmp3.i.i, label %if.then.i.i30, label %if.else.i.i
 
 if.then.i.i30:                                    ; preds = %while.body.i.i
@@ -1100,7 +1100,7 @@ if.then.i.i30:                                    ; preds = %while.body.i.i
   br label %if.end9.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp5.i.i = fcmp ogt double %28, %div31
+  %cmp5.i.i = fcmp olt double %div31, %28
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.then13.i
 
 if.then6.i.i:                                     ; preds = %if.else.i.i
@@ -1348,7 +1348,7 @@ if.end10:                                         ; preds = %if.end3
   %exp2 = tail call double @exp2(double %conv13)
   %add = fadd double %exp2, 5.000000e+00
   %conv15 = fptosi double %add to i32
-  %cmp16 = icmp sgt i32 %conv15, %size
+  %cmp16 = icmp slt i32 %size, %conv15
   br i1 %cmp16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end10
@@ -1364,7 +1364,7 @@ if.end18:                                         ; preds = %if.end10
   %mul = shl nsw i32 %conv22, 1
   %add23 = add i32 %conv22, %conv15
   %add25 = add i32 %add23, %mul
-  %cmp26 = icmp sgt i32 %add25, %size
+  %cmp26 = icmp slt i32 %size, %add25
   br i1 %cmp26, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.end18
@@ -1926,7 +1926,7 @@ for.body8:                                        ; preds = %for.body, %_ZN8face
   %8 = trunc nuw nsw i32 %conv10 to i8
   %conv18 = add i8 %7, %8
   %9 = trunc nuw nsw i32 %conv14 to i8
-  %conv22 = add i8 %9, %otherBaseline
+  %conv22 = add i8 %otherBaseline, %9
   %cmp24 = icmp eq i32 %conv10, 15
   br i1 %cmp24, label %if.then, label %if.end36
 
@@ -2034,7 +2034,7 @@ if.else.i:                                        ; preds = %if.then.i35
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 1
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.div.i.i.i.i, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %sub.ptr.div.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
@@ -2160,7 +2160,7 @@ _ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE17_M_default_appendEm.exit: ; p
   br label %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.else.i
-  %cmp4.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %add.i.i
+  %cmp4.i.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
@@ -2180,7 +2180,7 @@ _ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i.i: ; preds = %
   %sub.ptr.lhs.cast.i.i3.i.i = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i4.i.i = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i.i5.i.i = sub i64 %sub.ptr.lhs.cast.i.i3.i.i, %sub.ptr.rhs.cast.i.i4.i.i
-  %cmp.i6.i.i = icmp ult i64 %sub.ptr.sub.i.i5.i.i, %add5.pre-phi.i.i
+  %cmp.i6.i.i = icmp ugt i64 %add5.pre-phi.i.i, %sub.ptr.sub.i.i5.i.i
   br i1 %cmp.i6.i.i, label %if.then.i13.i.i, label %if.else.i7.i.i
 
 if.then.i13.i.i:                                  ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i.i
@@ -2300,7 +2300,7 @@ _ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE17_M_default_appendEm.exit: ; p
   br label %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit.i
 
 if.else.i7.i.i:                                   ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i.i
-  %cmp4.i8.i.i = icmp ugt i64 %sub.ptr.sub.i.i5.i.i, %add5.pre-phi.i.i
+  %cmp4.i8.i.i = icmp ult i64 %add5.pre-phi.i.i, %sub.ptr.sub.i.i5.i.i
   br i1 %cmp4.i8.i.i, label %if.then5.i9.i.i, label %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit.i
 
 if.then5.i9.i.i:                                  ; preds = %if.else.i7.i.i
@@ -2473,7 +2473,7 @@ if.else:                                          ; preds = %if.then
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 1
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i.i, %add.i
+  %cmp.i.i = icmp ugt i64 %add.i, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else
@@ -2486,7 +2486,7 @@ if.then.i.i:                                      ; preds = %if.else
   br label %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.else
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %add.i
+  %cmp4.i.i = icmp ult i64 %add.i, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -2508,7 +2508,7 @@ _ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i: ; preds = %if
   %sub.ptr.lhs.cast.i.i3.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i4.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i5.i = sub i64 %sub.ptr.lhs.cast.i.i3.i, %sub.ptr.rhs.cast.i.i4.i
-  %cmp.i6.i = icmp ult i64 %sub.ptr.sub.i.i5.i, %add5.pre-phi.i
+  %cmp.i6.i = icmp ugt i64 %add5.pre-phi.i, %sub.ptr.sub.i.i5.i
   br i1 %cmp.i6.i, label %if.then.i13.i, label %if.else.i7.i
 
 if.then.i13.i:                                    ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i
@@ -2520,7 +2520,7 @@ if.then.i13.i:                                    ; preds = %_ZNSt6vectorItN8fac
   br label %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit
 
 if.else.i7.i:                                     ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i
-  %cmp4.i8.i = icmp ugt i64 %sub.ptr.sub.i.i5.i, %add5.pre-phi.i
+  %cmp4.i8.i = icmp ult i64 %add5.pre-phi.i, %sub.ptr.sub.i.i5.i
   br i1 %cmp4.i8.i, label %if.then5.i9.i, label %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit
 
 if.then5.i9.i:                                    ; preds = %if.else.i7.i

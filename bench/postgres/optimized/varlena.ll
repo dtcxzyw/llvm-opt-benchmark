@@ -3439,7 +3439,7 @@ define internal i32 @bpcharfastcmp_c(i64 noundef %0, i64 noundef %1, ptr nocaptu
   %63 = sext i32 %62 to i64
   %64 = tail call i32 @memcmp(ptr noundef nonnull %13, ptr noundef nonnull %18, i64 noundef %63) #18
   %65 = ptrtoint ptr %5 to i64
-  %.not49 = icmp eq i64 %65, %0
+  %.not49 = icmp eq i64 %0, %65
   br i1 %.not49, label %67, label %66
 
 66:                                               ; preds = %59
@@ -3448,7 +3448,7 @@ define internal i32 @bpcharfastcmp_c(i64 noundef %0, i64 noundef %1, ptr nocaptu
 
 67:                                               ; preds = %66, %59
   %68 = ptrtoint ptr %7 to i64
-  %.not50 = icmp eq i64 %68, %1
+  %.not50 = icmp eq i64 %1, %68
   br i1 %.not50, label %70, label %69
 
 69:                                               ; preds = %67
@@ -3559,7 +3559,7 @@ define internal i32 @varstrfastcmp_c(i64 noundef %0, i64 noundef %1, ptr nocaptu
   %60 = sext i32 %59 to i64
   %61 = tail call i32 @memcmp(ptr noundef nonnull %13, ptr noundef nonnull %18, i64 noundef %60) #18
   %62 = ptrtoint ptr %5 to i64
-  %.not47 = icmp eq i64 %62, %0
+  %.not47 = icmp eq i64 %0, %62
   br i1 %.not47, label %64, label %63
 
 63:                                               ; preds = %57
@@ -3568,7 +3568,7 @@ define internal i32 @varstrfastcmp_c(i64 noundef %0, i64 noundef %1, ptr nocaptu
 
 64:                                               ; preds = %63, %57
   %65 = ptrtoint ptr %7 to i64
-  %.not48 = icmp eq i64 %65, %1
+  %.not48 = icmp eq i64 %1, %65
   br i1 %.not48, label %67, label %66
 
 66:                                               ; preds = %64
@@ -3685,7 +3685,7 @@ define internal i32 @varlenafastcmp_locale(i64 noundef %0, i64 noundef %1, ptr n
   %.val = load ptr, ptr %59, align 8
   %60 = tail call fastcc i32 @varstrfastcmp_locale(ptr noundef nonnull %13, i32 noundef %37, ptr noundef nonnull %18, i32 noundef %58, ptr %.val)
   %61 = ptrtoint ptr %5 to i64
-  %.not38 = icmp eq i64 %61, %0
+  %.not38 = icmp eq i64 %0, %61
   br i1 %.not38, label %63, label %62
 
 62:                                               ; preds = %57
@@ -3694,7 +3694,7 @@ define internal i32 @varlenafastcmp_locale(i64 noundef %0, i64 noundef %1, ptr n
 
 63:                                               ; preds = %62, %57
   %64 = ptrtoint ptr %7 to i64
-  %.not39 = icmp eq i64 %64, %1
+  %.not39 = icmp eq i64 %1, %64
   br i1 %.not39, label %66, label %65
 
 65:                                               ; preds = %63
@@ -3959,7 +3959,7 @@ define internal i64 @varstr_abbrev_convert(i64 noundef %0, ptr nocapture noundef
 145:                                              ; preds = %137, %66
   %.0..0..0.105 = phi i64 [ %.0..0..0..0., %137 ], [ %.0..0..0..0.105.pre, %66 ]
   %146 = ptrtoint ptr %7 to i64
-  %.not122 = icmp eq i64 %146, %0
+  %.not122 = icmp eq i64 %0, %146
   br i1 %.not122, label %148, label %147
 
 147:                                              ; preds = %145
@@ -7794,7 +7794,7 @@ define internal fastcc noundef zeroext i1 @text_position_next(ptr nocapture noun
 
 31:                                               ; preds = %22
   %32 = load i8, ptr %27, align 1
-  %33 = icmp ugt ptr %29, %.1
+  %33 = icmp ult ptr %.1, %29
   br i1 %33, label %.lr.ph47.i, label %text_position_next_internal.exit.thread
 
 .lr.ph47.i:                                       ; preds = %31, %36
@@ -8037,7 +8037,7 @@ check_replace_text_has_escape.exit:               ; preds = %.lr.ph.i, %82, %87,
   %93 = and i8 %92, 1
   %.not90 = icmp eq i8 %93, 0
   %94 = select i1 %.not90, ptr %41, ptr %40
-  %.not91133147 = icmp ult i32 %43, %5
+  %.not91133147 = icmp ugt i32 %5, %43
   br i1 %.not91133147, label %.loopexit, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %check_replace_text_has_escape.exit
@@ -10952,7 +10952,7 @@ define internal fastcc noundef ptr @concat_internal(ptr noundef %0, i32 noundef 
   %33 = call ptr @MemoryContextAlloc(ptr noundef %28, i64 noundef %32) #19
   %34 = load i16, ptr %29, align 2
   %35 = sext i16 %34 to i32
-  %36 = icmp sgt i32 %35, %1
+  %36 = icmp slt i32 %1, %35
   br i1 %36, label %.lr.ph.preheader.i, label %build_concat_foutcache.exit
 
 .lr.ph.preheader.i:                               ; preds = %26
@@ -11001,7 +11001,7 @@ build_concat_foutcache.exit:                      ; preds = %44, %26
   %56 = getelementptr inbounds i8, ptr %2, i64 30
   %57 = load i16, ptr %56, align 2
   %58 = sext i16 %57 to i32
-  %59 = icmp sgt i32 %58, %1
+  %59 = icmp slt i32 %1, %58
   br i1 %59, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %55
@@ -12363,7 +12363,7 @@ rest_of_char_same.exit.thread.us:                 ; preds = %.preheader, %101
 .lr.ph167:                                        ; preds = %.lr.ph167.preheader, %.lr.ph167
   %indvars.iv212 = phi i64 [ 0, %.lr.ph167.preheader ], [ %indvars.iv.next213, %.lr.ph167 ]
   %125 = trunc nuw nsw i64 %indvars.iv212 to i32
-  %126 = mul i32 %125, %5
+  %126 = mul i32 %5, %125
   %127 = getelementptr i32, ptr %40, i64 %indvars.iv212
   store i32 %126, ptr %127, align 4
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
@@ -12440,7 +12440,7 @@ define dso_local i32 @varstr_levenshtein_less_equal(ptr noundef %0, i32 noundef 
 28:                                               ; preds = %25
   %29 = sub i32 %11, %10
   %30 = icmp slt i32 %29, 0
-  %31 = mul i32 %29, %5
+  %31 = mul i32 %5, %29
   %32 = sub i32 0, %31
   %33 = mul i32 %29, %4
   %34 = select i1 %30, i32 %32, i32 %33
@@ -12457,7 +12457,7 @@ define dso_local i32 @varstr_levenshtein_less_equal(ptr noundef %0, i32 noundef 
   %40 = tail call i32 @llvm.smin.i32(i32 %10, i32 %11)
   %41 = mul i32 %40, %spec.select
   %42 = add i32 %34, %41
-  %.not270 = icmp sgt i32 %42, %7
+  %.not270 = icmp slt i32 %7, %42
   br i1 %.not270, label %43, label %52
 
 43:                                               ; preds = %38
@@ -12545,7 +12545,7 @@ define dso_local i32 @varstr_levenshtein_less_equal(ptr noundef %0, i32 noundef 
 .lr.ph292:                                        ; preds = %.lr.ph292.preheader, %.lr.ph292
   %indvars.iv325 = phi i64 [ 0, %.lr.ph292.preheader ], [ %indvars.iv.next326, %.lr.ph292 ]
   %73 = trunc nuw nsw i64 %indvars.iv325 to i32
-  %74 = mul i32 %73, %5
+  %74 = mul i32 %5, %73
   %75 = getelementptr i32, ptr %67, i64 %indvars.iv325
   store i32 %74, ptr %75, align 4
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
@@ -12733,7 +12733,7 @@ rest_of_char_same.exit:                           ; preds = %120, %99
   %166 = load i32, ptr %165, align 4
   %167 = icmp sgt i32 %163, 0
   %168 = mul i32 %163, %4
-  %169 = mul i32 %163, %5
+  %169 = mul i32 %5, %163
   %170 = sub i32 0, %169
   %171 = select i1 %167, i32 %168, i32 %170
   %172 = add i32 %166, %171
@@ -12758,7 +12758,7 @@ rest_of_char_same.exit:                           ; preds = %120, %99
   %179 = load i32, ptr %178, align 4
   %180 = icmp sgt i32 %177, 0
   %181 = mul i32 %177, %4
-  %182 = mul i32 %177, %5
+  %182 = mul i32 %5, %177
   %183 = sub i32 0, %182
   %184 = select i1 %180, i32 %181, i32 %183
   %185 = add i32 %179, %184

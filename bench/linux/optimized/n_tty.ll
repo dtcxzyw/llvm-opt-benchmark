@@ -2807,7 +2807,7 @@ define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr nocaptu
   %51 = phi i1 [ true, %49 ], [ %46, %44 ], [ false, %40 ]
   %52 = zext i1 %51 to i32
   %53 = xor i1 %51, true
-  %54 = and i1 %53, %4
+  %54 = and i1 %4, %53
   %55 = zext i1 %54 to i8
   store volatile i8 %55, ptr %13, align 4
   br label %56
@@ -5281,7 +5281,7 @@ define internal fastcc zeroext i1 @n_tty_receive_char_flow_ctrl(ptr noundef %0, 
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, %1
   %11 = xor i1 %10, true
-  %12 = or i1 %11, %2
+  %12 = or i1 %2, %11
   br i1 %12, label %35, label %34
 
 13:                                               ; preds = %7

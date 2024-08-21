@@ -659,7 +659,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.79506
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -1069,7 +1069,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %5 = load i64, ptr %4, align 8, !alias.scope !228, !noalias !233, !noundef !9
   %6 = load i64, ptr %0, align 8, !alias.scope !235, !noalias !233, !noundef !9
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17haf0bb1feeaeb7437E.exit"
 
 9:                                                ; preds = %3
@@ -1226,7 +1226,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !265, !noalias !270, !noundef !9
   %45 = load i64, ptr %0, align 8, !alias.scope !272, !noalias !270, !noundef !9
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17haf0bb1feeaeb7437E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -2250,7 +2250,7 @@ define noundef nonnull ptr @_ZN6syntax3ast4make8ty_alias17h2c032afd309a5c11E(ptr
   %75 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !478, !noalias !483, !noundef !9
   %76 = load i64, ptr %64, align 8, !alias.scope !485, !noalias !483, !noundef !9
   %77 = sub i64 %76, %75
-  %78 = icmp ult i64 %77, %74
+  %78 = icmp ugt i64 %74, %77
   br i1 %78, label %79, label %85
 
 79:                                               ; preds = %70
@@ -2398,7 +2398,7 @@ define noundef nonnull ptr @_ZN6syntax3ast4make8ty_alias17h2c032afd309a5c11E(ptr
   %127 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !516, !noalias !521, !noundef !9
   %128 = load i64, ptr %64, align 8, !alias.scope !523, !noalias !521, !noundef !9
   %129 = sub i64 %128, %127
-  %130 = icmp ult i64 %129, %126
+  %130 = icmp ugt i64 %126, %129
   br i1 %130, label %131, label %137
 
 131:                                              ; preds = %122
@@ -2544,7 +2544,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit129: ; pre
   %176 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !573, !noalias !578, !noundef !9
   %177 = load i64, ptr %64, align 8, !alias.scope !580, !noalias !578, !noundef !9
   %178 = sub i64 %177, %176
-  %179 = icmp ult i64 %178, %175
+  %179 = icmp ugt i64 %175, %178
   br i1 %179, label %180, label %186
 
 180:                                              ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit129
@@ -2773,7 +2773,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit151: ; pre
   %249 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !645, !noalias !650, !noundef !9
   %250 = load i64, ptr %64, align 8, !alias.scope !652, !noalias !650, !noundef !9
   %251 = sub i64 %250, %249
-  %252 = icmp ult i64 %251, %248
+  %252 = icmp ugt i64 %248, %251
   br i1 %252, label %253, label %259
 
 253:                                              ; preds = %244
@@ -3171,7 +3171,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit194: ; pre
   %368 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !742, !noalias !747, !noundef !9
   %369 = load i64, ptr %64, align 8, !alias.scope !749, !noalias !747, !noundef !9
   %370 = sub i64 %369, %368
-  %371 = icmp ult i64 %370, %367
+  %371 = icmp ugt i64 %367, %370
   br i1 %371, label %372, label %378
 
 372:                                              ; preds = %363
@@ -3331,7 +3331,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit216: ; pre
   %421 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !796, !noalias !801, !noundef !9
   %422 = load i64, ptr %64, align 8, !alias.scope !803, !noalias !801, !noundef !9
   %423 = sub i64 %422, %421
-  %424 = icmp ult i64 %423, %420
+  %424 = icmp ugt i64 %420, %423
   br i1 %424, label %425, label %431
 
 425:                                              ; preds = %416
@@ -7239,7 +7239,7 @@ define noundef nonnull ptr @_ZN6syntax3ast4make8use_tree17h446bcd96c684dc31E(ptr
   %46 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !2021, !noalias !2026, !noundef !9
   %47 = load i64, ptr %17, align 8, !alias.scope !2028, !noalias !2026, !noundef !9
   %48 = sub i64 %47, %46
-  %49 = icmp ult i64 %48, %45
+  %49 = icmp ugt i64 %45, %48
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %41

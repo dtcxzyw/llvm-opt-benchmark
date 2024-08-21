@@ -378,7 +378,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr nocapture nound
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
-  %20 = add i64 %19, %2
+  %20 = add i64 %2, %19
   %21 = icmp ult i64 %20, 16
   br i1 %21, label %22, label %27
 
@@ -625,7 +625,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr nocapture nound
   %9 = getelementptr inbounds i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = add i64 %11, %2
+  %12 = add i64 %2, %11
   %13 = icmp ult i64 %12, 32
   br i1 %13, label %14, label %20
 

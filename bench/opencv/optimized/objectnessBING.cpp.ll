@@ -1431,7 +1431,7 @@ _ZN2cv8saliency14ObjectnessBING11gradientMagERNS_3MatES3_.exit: ; preds = %114, 
   %123 = sdiv i32 %.sroa.speculated69, %120
   %124 = sitofp i32 %123 to double
   %125 = load i32, ptr %56, align 8
-  %.sroa.speculated51 = call i32 @llvm.smin.i32(i32 %125, i32 %4)
+  %.sroa.speculated51 = call i32 @llvm.smin.i32(i32 %4, i32 %125)
   %126 = icmp sgt i32 %.sroa.speculated51, 0
   br i1 %126, label %.lr.ph.preheader, label %._crit_edge
 
@@ -6062,7 +6062,7 @@ _ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit:        ; preds = %.lr.ph.i.i.i.i.i.i
   %143 = ptrtoint ptr %141 to i64
   %144 = sub i64 %142, %143
   %145 = ashr exact i64 %144, 2
-  %146 = icmp ult i64 %145, %137
+  %146 = icmp ugt i64 %137, %145
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit
@@ -6077,7 +6077,7 @@ _ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit:        ; preds = %.lr.ph.i.i.i.i.i.i
   %153 = phi ptr [ %120, %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit.thread ], [ %139, %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit ]
   %154 = phi ptr [ %119, %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit.thread ], [ %138, %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit ]
   %155 = phi i64 [ 0, %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit.thread ], [ %137, %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit ]
-  %156 = icmp ugt i64 %150, %155
+  %156 = icmp ult i64 %155, %150
   br i1 %156, label %157, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 157:                                              ; preds = %149
@@ -7024,7 +7024,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.0 = phi i64 [ %10, %.split ], [ %67, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_T0_SF_T1_T2_.exit ]
   %phi.call = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0
   %.sroa.03.0.copyload = load i64, ptr %phi.call, align 4
-  %22 = icmp sgt i64 %12, %.0
+  %22 = icmp slt i64 %.0, %12
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %21, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread36.i

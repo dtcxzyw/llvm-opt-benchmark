@@ -519,7 +519,7 @@ sw.bb:                                            ; preds = %if.end
 land.lhs.true:                                    ; preds = %sw.bb
   %priority1 = getelementptr inbounds i8, ptr %item, i64 72
   %2 = load i32, ptr %priority1, align 8
-  %cmp2.not = icmp eq i32 %2, %priority
+  %cmp2.not = icmp eq i32 %priority, %2
   br i1 %cmp2.not, label %sw.epilog, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true

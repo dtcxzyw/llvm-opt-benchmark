@@ -3737,7 +3737,7 @@ define linkonce_odr hidden noundef i64 @_ZN11MemoryInput4readEPcm(ptr noundef no
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %5, %7
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %8)
   %.not = icmp eq i64 %spec.select, 0
   br i1 %.not, label %15, label %9
 

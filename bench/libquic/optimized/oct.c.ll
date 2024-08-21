@@ -53,7 +53,7 @@ if.end10.i:                                       ; preds = %lor.lhs.false.i
   %mul.i = shl nuw nsw i64 %conv11.i, 1
   %add14.i = or disjoint i64 %mul.i, 1
   %cond.i = select i1 %cmp12.i, i64 %add.i, i64 %add14.i
-  %cmp15.not.i = icmp eq i64 %cond.i, %len
+  %cmp15.not.i = icmp eq i64 %len, %cond.i
   br i1 %cmp15.not.i, label %if.end18.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.end10.i
@@ -183,7 +183,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp8.not.i, label %ec_GFp_simple_point2oct.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end3.i
-  %cmp11.i = icmp ugt i64 %cond.i, %len
+  %cmp11.i = icmp ult i64 %len, %cond.i
   br i1 %cmp11.i, label %if.then13.i, label %if.end14.i
 
 if.then13.i:                                      ; preds = %if.then10.i

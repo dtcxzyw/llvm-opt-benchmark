@@ -4137,7 +4137,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23does_offset_
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %10
-  %17 = icmp ugt i64 %13, %1
+  %17 = icmp ult i64 %1, %13
   %18 = icmp ugt i64 %14, %13
   %or.cond = and i1 %17, %18
   %19 = getelementptr inbounds i8, ptr %6, i64 47
@@ -5284,7 +5284,7 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23ad
   %7 = getelementptr inbounds i8, ptr %2, i64 12
   %8 = load i8, ptr %7, align 4
   %9 = zext i8 %8 to i32
-  %10 = mul i32 %9, %1
+  %10 = mul i32 %1, %9
   br label %.sink.split
 
 11:                                               ; preds = %3

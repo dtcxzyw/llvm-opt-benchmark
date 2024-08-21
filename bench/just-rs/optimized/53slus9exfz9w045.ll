@@ -3488,7 +3488,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !962, !noalias !967, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !969, !noalias !967, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hcc909c8b8797f9bbE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -3545,7 +3545,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !975, !noalias !980, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !982, !noalias !980, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hcc909c8b8797f9bbE.exit"
 
 9:                                                ; preds = %3
@@ -8169,7 +8169,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
 _ZN4just11string_kind10StringKind9delimiter17hab845ad6899bec45E.exit.i.i.i: ; preds = %73, %72, %71
   %.sroa.0.0.i.i.i.i = phi ptr [ %anon.7dbcd5d78972d10e75f23ce35f923e43.331.llvm.12352545699060731367.anon.7dbcd5d78972d10e75f23ce35f923e43.330.llvm.12352545699060731367.i.i.i.i, %71 ], [ %anon.7dbcd5d78972d10e75f23ce35f923e43.333.llvm.12352545699060731367.anon.7dbcd5d78972d10e75f23ce35f923e43.332.llvm.12352545699060731367.i.i.i.i, %72 ], [ %anon.7dbcd5d78972d10e75f23ce35f923e43.335.llvm.12352545699060731367.anon.7dbcd5d78972d10e75f23ce35f923e43.334.llvm.12352545699060731367.i.i.i.i, %73 ]
   %..i.i.i.i = select i1 %68, i64 3, i64 1
-  %.not.i.i.i.i = icmp ugt i64 %..i.i.i.i, %63
+  %.not.i.i.i.i = icmp ult i64 %63, %..i.i.i.i
   br i1 %.not.i.i.i.i, label %"_ZN4just11string_kind10StringKind16from_token_start28_$u7b$$u7b$closure$u7d$$u7d$17h2deb955d53d6bf1aE.llvm.12352545699060731367.exit.thread.i.i", label %"_ZN4just11string_kind10StringKind16from_token_start28_$u7b$$u7b$closure$u7d$$u7d$17h2deb955d53d6bf1aE.llvm.12352545699060731367.exit.i.i"
 
 "_ZN4just11string_kind10StringKind16from_token_start28_$u7b$$u7b$closure$u7d$$u7d$17h2deb955d53d6bf1aE.llvm.12352545699060731367.exit.i.i": ; preds = %_ZN4just11string_kind10StringKind9delimiter17hab845ad6899bec45E.exit.i.i.i
@@ -13063,7 +13063,7 @@ default.unreachable:                              ; preds = %848, %765
 _ZN4just11string_kind10StringKind9delimiter17hab845ad6899bec45E.exit.i.i.i.i: ; preds = %762, %761, %760
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %anon.7dbcd5d78972d10e75f23ce35f923e43.331.llvm.12352545699060731367.anon.7dbcd5d78972d10e75f23ce35f923e43.330.llvm.12352545699060731367.i.i.i.i.i, %760 ], [ %anon.7dbcd5d78972d10e75f23ce35f923e43.333.llvm.12352545699060731367.anon.7dbcd5d78972d10e75f23ce35f923e43.332.llvm.12352545699060731367.i.i.i.i.i, %761 ], [ %anon.7dbcd5d78972d10e75f23ce35f923e43.335.llvm.12352545699060731367.anon.7dbcd5d78972d10e75f23ce35f923e43.334.llvm.12352545699060731367.i.i.i.i.i, %762 ]
   %..i.i.i.i.i = select i1 %757, i64 3, i64 1
-  %.not.i.i.i.i.i = icmp ugt i64 %..i.i.i.i.i, %751
+  %.not.i.i.i.i.i = icmp ult i64 %751, %..i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %"_ZN4just11string_kind10StringKind16from_token_start28_$u7b$$u7b$closure$u7d$$u7d$17h2deb955d53d6bf1aE.llvm.12352545699060731367.exit.thread.i.i.i", label %"_ZN4just11string_kind10StringKind16from_token_start28_$u7b$$u7b$closure$u7d$$u7d$17h2deb955d53d6bf1aE.llvm.12352545699060731367.exit.i.i.i"
 
 "_ZN4just11string_kind10StringKind16from_token_start28_$u7b$$u7b$closure$u7d$$u7d$17h2deb955d53d6bf1aE.llvm.12352545699060731367.exit.i.i.i": ; preds = %_ZN4just11string_kind10StringKind9delimiter17hab845ad6899bec45E.exit.i.i.i.i

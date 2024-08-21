@@ -1810,7 +1810,7 @@ define internal fastcc void @getmetrics(i32 noundef %0, ptr nocapture noundef %1
   %44 = getelementptr inbounds i8, ptr %2, i64 116
   %.not1458 = icmp eq i32 %0, 0
   %45 = xor i32 %12, -1
-  %46 = add i32 %45, %0
+  %46 = add i32 %0, %45
   %.not1459 = icmp eq i32 %46, 0
   %47 = getelementptr inbounds i8, ptr %2, i64 8
   %48 = getelementptr i8, ptr %2, i64 20
@@ -2932,7 +2932,7 @@ labdiff.exit:                                     ; preds = %522, %524
   %588 = tail call i32 @llvm.smin.i32(i32 %587, i32 1)
   %589 = sext i32 %588 to i64
   %590 = trunc i64 %indvars.iv1629 to i32
-  %591 = mul i32 %590, %0
+  %591 = mul i32 %0, %590
   %592 = zext i32 %591 to i64
   %invariant.gep1834 = getelementptr inbounds i32, ptr %1, i64 %592
   br label %.preheader1137.us1285
@@ -2943,7 +2943,7 @@ labdiff.exit:                                     ; preds = %522, %524
   %.08811269.us = phi i32 [ 0, %.preheader1137.us1285 ], [ %606, %593 ]
   %594 = add nsw i64 %indvars.iv1621, %indvars.iv1629
   %595 = trunc nuw nsw i64 %594 to i32
-  %596 = mul i32 %595, %0
+  %596 = mul i32 %0, %595
   %597 = add i32 %596, %608
   %598 = zext i32 %597 to i64
   %599 = getelementptr inbounds i32, ptr %1, i64 %598

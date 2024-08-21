@@ -1144,7 +1144,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %d_prevWitnessImprovement = getelementptr inbounds i8, ptr %this, i64 460
   %1 = load i32, ptr %d_prevWitnessImprovement, align 4
-  %cmp3 = icmp eq i32 %1, %w
+  %cmp3 = icmp eq i32 %w, %1
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
@@ -1457,7 +1457,7 @@ cond.true:
   tail call void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(204) %agg.result)
   %d_focusErrorVar = getelementptr inbounds i8, ptr %this, i64 380
   %1 = load i32, ptr %d_focusErrorVar, align 4
-  %cmp = icmp eq i32 %1, %basic
+  %cmp = icmp eq i32 %basic, %1
   br i1 %cmp, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.true
@@ -2635,7 +2635,7 @@ if.then.i:                                        ; preds = %invoke.cont4
 if.end.i:                                         ; preds = %if.then.i, %invoke.cont4
   %d_prevWitnessImprovement.i = getelementptr inbounds i8, ptr %this, i64 460
   %3 = load i32, ptr %d_prevWitnessImprovement.i, align 4
-  %cmp3.i = icmp eq i32 %3, %retval.0.i
+  %cmp3.i = icmp eq i32 %retval.0.i, %3
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -3421,7 +3421,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %call1 = tail call noundef i32 @_ZNK4cvc58internal6theory5arith6linear10UpdateInfo7leavingEv(ptr noundef nonnull align 8 dereferenceable(204) %selected)
-  %cmp = icmp eq i32 %call1, %updated
+  %cmp = icmp eq i32 %updated, %call1
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
@@ -3684,7 +3684,7 @@ if.then.i55:                                      ; preds = %invoke.cont26
 
 if.end.i52:                                       ; preds = %if.then.i55, %invoke.cont26
   %14 = load i32, ptr %d_prevWitnessImprovement, align 4
-  %cmp3.i = icmp eq i32 %14, %retval.0.i
+  %cmp3.i = icmp eq i32 %retval.0.i, %14
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.end.i52
@@ -3963,7 +3963,7 @@ if.then.i249:                                     ; preds = %invoke.cont86
 if.end.i246:                                      ; preds = %if.then.i249, %invoke.cont86
   %d_prevWitnessImprovement.i = getelementptr inbounds i8, ptr %this, i64 460
   %9 = load i32, ptr %d_prevWitnessImprovement.i, align 4
-  %cmp3.i = icmp eq i32 %9, %retval.0.i
+  %cmp3.i = icmp eq i32 %retval.0.i, %9
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.end.i246
@@ -4327,7 +4327,7 @@ sw.bb15:                                          ; preds = %entry
   %cmp19 = icmp eq i32 %5, %prevErrorSize
   %d_focusSize = getelementptr inbounds i8, ptr %this, i64 376
   %6 = load i32, ptr %d_focusSize, align 8
-  %cmp20 = icmp ult i32 %6, %prevFocusSize
+  %cmp20 = icmp ugt i32 %prevFocusSize, %6
   %7 = select i1 %cmp19, i1 %cmp20, i1 false
   br label %return
 
@@ -5225,7 +5225,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !43
 
 if.else:                                          ; preds = %if.then4
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i, %__n
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, %sub.ptr.div.i
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
@@ -5309,7 +5309,7 @@ for.body.i.i.i.i.i.i.i67:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !43
 
 invoke.cont57:                                    ; preds = %for.body.i.i.i.i.i.i.i67
-  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %6, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %__position.coerce, %6
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i76, label %invoke.cont60, label %if.then.i.i.i.i.i.i.i.i.i77
 
 if.then.i.i.i.i.i.i.i.i.i77:                      ; preds = %invoke.cont57
@@ -6341,7 +6341,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
   %d_internal19 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i8, ptr %d_internal19, align 8
   %tobool20 = trunc i8 %17 to i1
-  %18 = and i1 %tobool20, %internal
+  %18 = and i1 %internal, %tobool20
   %frombool26 = zext i1 %18 to i8
   store i8 %frombool26, ptr %d_internal19, align 8
   store ptr %16, ptr %agg.result, align 8
@@ -6408,7 +6408,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont5
   %cmp.not.i.i = icmp ne ptr %7, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %8
+  %cmp2.i.i = icmp eq ptr %8, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -6470,7 +6470,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN4cvc58internal18StatisticBaseValueESt14default_deleteISB_EEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -6945,7 +6945,7 @@ entry:
   %__comp.coerce1.fr = freeze i8 %__comp.coerce1
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry

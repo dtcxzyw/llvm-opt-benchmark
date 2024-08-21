@@ -6121,7 +6121,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, %s.coerce0
+  %cmp3.not.i.i.i.i = icmp ult i64 %s.coerce0, %sub.ptr.sub.i.i.i.i.i
   br i1 %cmp3.not.i.i.i.i, label %if.end5.i.i.i.i, label %if.then4.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.end.i.i.i.i

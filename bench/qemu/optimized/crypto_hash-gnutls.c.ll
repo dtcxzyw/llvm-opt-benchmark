@@ -135,7 +135,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call25 = call i32 @gnutls_hash(ptr noundef %5, ptr noundef %6, i64 noundef %7) #7
   %inc = add i32 %i.022, 1
   %conv18 = sext i32 %inc to i64
-  %cmp19 = icmp ult i64 %conv18, %niov
+  %cmp19 = icmp ugt i64 %niov, %conv18
   br i1 %cmp19, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader

@@ -907,7 +907,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !183, !noalias !188, !noundef !7
   %45 = load i64, ptr %0, align 8, !alias.scope !190, !noalias !188, !noundef !7
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -964,7 +964,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !196, !noalias !201, !noundef !7
   %6 = load i64, ptr %0, align 8, !alias.scope !203, !noalias !201, !noundef !7
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h90a9276f4887b7f5E.exit"
 
 9:                                                ; preds = %3
@@ -2309,7 +2309,7 @@ define internal fastcc void @_ZN6uucore8features14backup_control18simple_backup_
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %22 = getelementptr inbounds i8, ptr %7, i64 16
   %23 = sub i64 %20, %21
-  %24 = icmp ult i64 %23, %4
+  %24 = icmp ugt i64 %4, %23
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h28eb8698c1eb188bE.exit"

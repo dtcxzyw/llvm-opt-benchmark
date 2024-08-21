@@ -238,7 +238,7 @@ while.body:                                       ; preds = %entry, %if.end
   %name4 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %1 = load i64, ptr %name4, align 8
   %2 = inttoptr i64 %1 to ptr
-  %cmp = icmp eq ptr %2, %name
+  %cmp = icmp eq ptr %name, %2
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %while.body
@@ -286,7 +286,7 @@ while.body:                                       ; preds = %while.body.preheade
   %name2 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %3 = load i64, ptr %name2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %cmp = icmp eq ptr %4, %name
+  %cmp = icmp eq ptr %name, %4
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body

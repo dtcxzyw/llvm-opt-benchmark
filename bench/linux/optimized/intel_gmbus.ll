@@ -1497,7 +1497,7 @@ define internal fastcc i32 @gmbus_xfer_read(ptr noundef %0, ptr nocapture nounde
   %80 = shl nuw nsw i32 %76, 16
   %81 = zext i16 %33 to i32
   %82 = shl nuw nsw i32 %81, 1
-  %83 = or i32 %82, %3
+  %83 = or i32 %3, %82
   %84 = or i32 %83, %80
   %85 = or i32 %84, 1107296257
   %86 = zext nneg i32 %85 to i64
@@ -1866,7 +1866,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_write(ptr noundef %0, 
   %82 = shl nuw nsw i32 %19, 16
   %83 = zext i16 %20 to i32
   %84 = shl nuw nsw i32 %83, 1
-  %85 = or i32 %84, %2
+  %85 = or i32 %2, %84
   %86 = or i32 %85, %82
   %87 = or i32 %86, 1107296256
   %88 = zext nneg i32 %87 to i64

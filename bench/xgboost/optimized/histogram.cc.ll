@@ -333,7 +333,7 @@ _ZNK7xgboost7RegTree10RightChildEi.exit:          ; preds = %_ZNK7xgboost15Multi
   %103 = fcmp olt double %.0.lcssa.i57, %.0.lcssa.i
   %.070 = select i1 %103, i32 %.0.i76, i32 %.0.i42
   %104 = load i64, ptr %2, align 8
-  %105 = icmp ugt i64 %104, %.03289
+  %105 = icmp ult i64 %.03289, %104
   br i1 %105, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit, label %107
 
 106:                                              ; preds = %40, %38
@@ -351,7 +351,7 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %"_ZSt10a
   %109 = getelementptr inbounds i32, ptr %108, i64 %.03289
   store i32 %.0, ptr %109, align 4
   %110 = load i64, ptr %3, align 8
-  %111 = icmp ugt i64 %110, %.03289
+  %111 = icmp ult i64 %.03289, %110
   br i1 %111, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit58, label %112
 
 112:                                              ; preds = %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit
@@ -528,7 +528,7 @@ define void @_ZN7xgboost4tree11AssignNodesEPKNS_7RegTreeERKSt6vectorINS0_14CPUEx
   %24 = fcmp olt double %21, %23
   %.021 = select i1 %24, i32 %17, i32 %19
   %25 = load i64, ptr %2, align 8
-  %26 = icmp ugt i64 %25, %.025
+  %26 = icmp ult i64 %.025, %25
   br i1 %26, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit, label %27
 
 27:                                               ; preds = %11
@@ -541,7 +541,7 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %11
   %29 = getelementptr inbounds i32, ptr %28, i64 %.025
   store i32 %.022, ptr %29, align 4
   %30 = load i64, ptr %3, align 8
-  %31 = icmp ugt i64 %30, %.025
+  %31 = icmp ult i64 %.025, %30
   br i1 %31, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14, label %32
 
 32:                                               ; preds = %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit
@@ -823,7 +823,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17

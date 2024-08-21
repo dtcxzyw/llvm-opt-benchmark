@@ -139,7 +139,7 @@ define internal fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircui
   %10 = load ptr, ptr %.0.val, align 8, !nonnull !4, !align !5, !noundef !4
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i, label %14
 
 14:                                               ; preds = %2
@@ -219,7 +219,7 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i: ; preds =
   %50 = load double, ptr %.8.val, align 8, !noundef !4
   %51 = fsub double %48, %50
   %52 = call double @llvm.exp.f64(double %51)
-  %53 = fadd double %52, %0
+  %53 = fadd double %0, %52
   ret double %53
 }
 
@@ -268,10 +268,10 @@ define hidden void @_ZN8nalgebra4base11blas_uninit11array_axcpy17h21b7bcebf3990a
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr inbounds double, ptr %3, i64 %14
   %17 = load double, ptr %16, align 8, !alias.scope !13, !noundef !4
-  %18 = fmul double %17, %2
-  %19 = fmul double %18, %5
+  %18 = fmul double %2, %17
+  %19 = fmul double %5, %18
   %20 = load double, ptr %13, align 8, !alias.scope !16, !noundef !4
-  %21 = fmul double %20, %6
+  %21 = fmul double %6, %20
   %22 = fadd double %19, %21
   store double %22, ptr %13, align 8
   %exitcond.not = icmp eq i64 %11, %9
@@ -296,10 +296,10 @@ define hidden void @_ZN8nalgebra4base11blas_uninit11array_axcpy17h9e6d1785a9c706
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr inbounds double, ptr %3, i64 %14
   %17 = load double, ptr %16, align 8, !alias.scope !19, !noundef !4
-  %18 = fmul double %17, %2
-  %19 = fmul double %18, %5
+  %18 = fmul double %2, %17
+  %19 = fmul double %5, %18
   %20 = load double, ptr %13, align 8, !alias.scope !22, !noundef !4
-  %21 = fmul double %20, %6
+  %21 = fmul double %6, %20
   %22 = fadd double %19, %21
   store double %22, ptr %13, align 8
   %exitcond.not = icmp eq i64 %11, %9
@@ -324,8 +324,8 @@ define hidden void @_ZN8nalgebra4base11blas_uninit9array_axc17h9815a77567692dacE
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds double, ptr %3, i64 %13
   %16 = load double, ptr %15, align 8, !alias.scope !25, !noundef !4
-  %17 = fmul double %16, %2
-  %18 = fmul double %17, %5
+  %17 = fmul double %2, %16
+  %18 = fmul double %5, %17
   store double %18, ptr %12, align 8, !alias.scope !28
   %exitcond.not = icmp eq i64 %10, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -349,8 +349,8 @@ define hidden void @_ZN8nalgebra4base11blas_uninit9array_axc17ha0bcf03a45017f05E
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds double, ptr %3, i64 %13
   %16 = load double, ptr %15, align 8, !alias.scope !31, !noundef !4
-  %17 = fmul double %16, %2
-  %18 = fmul double %17, %5
+  %17 = fmul double %2, %16
+  %18 = fmul double %5, %17
   store double %18, ptr %12, align 8, !alias.scope !34
   %exitcond.not = icmp eq i64 %10, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -449,7 +449,7 @@ define hidden void @"_ZN8nalgebra4base12construction200_$LT$impl$u20$nalgebra..b
 29:                                               ; preds = %.lr.ph, %29
   %.sroa.02.010 = phi i64 [ 0, %.lr.ph ], [ %30, %29 ]
   %30 = add nuw i64 %.sroa.02.010, 1
-  %31 = mul i64 %.sroa.02.010, %1
+  %31 = mul i64 %1, %.sroa.02.010
   %32 = getelementptr double, ptr %.sroa.4.0.copyload13, i64 %31
   %33 = getelementptr double, ptr %32, i64 %.sroa.02.010
   store double %3, ptr %33, align 8
@@ -506,7 +506,7 @@ define hidden void @"_ZN8nalgebra4base7edition69_$LT$impl$u20$nalgebra..base..ma
   %.val11 = load i64, ptr %4, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %.val12 = load i64, ptr %5, align 8, !alias.scope !57, !noundef !4
-  %6 = icmp ugt i64 %.val12, %2
+  %6 = icmp ult i64 %2, %.val12
   br i1 %6, label %.lr.ph17, label %._crit_edge
 
 .lr.ph17:                                         ; preds = %3
@@ -1031,12 +1031,12 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   %16 = add i64 %15, %13
   %17 = load i64, ptr %0, align 8, !noundef !4
   %18 = tail call noundef i64 @llvm.usub.sat.i64(i64 %16, i64 %17)
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE.exit, label %20
 
 20:                                               ; preds = %2
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %13)
-  %.not = icmp ugt i64 %.sroa.0.0.sroa.speculated.i.i, %1
+  %.not = icmp ult i64 %1, %.sroa.0.0.sroa.speculated.i.i
   br i1 %.not, label %21, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE.exit
 
 21:                                               ; preds = %20
@@ -1085,7 +1085,7 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   %.sroa.0.017.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %71, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i" ]
   %.sroa.0.01016.i = phi i64 [ 0, %.lr.ph.i ], [ %42, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i" ]
   %42 = add nuw i64 %.sroa.0.01016.i, 1
-  %43 = icmp ult i64 %15, %.sroa.0.01016.i
+  %43 = icmp ugt i64 %.sroa.0.01016.i, %15
   br i1 %43, label %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i, label %44
 
 44:                                               ; preds = %41
@@ -1171,12 +1171,12 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   %12 = add i64 %11, %9
   %13 = load i64, ptr %0, align 8, !noundef !4
   %14 = tail call noundef i64 @llvm.usub.sat.i64(i64 %12, i64 %13)
-  %15 = icmp ugt i64 %14, %1
+  %15 = icmp ult i64 %1, %14
   br i1 %15, label %38, label %16
 
 16:                                               ; preds = %2
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %11, i64 %9)
-  %.not = icmp ugt i64 %.sroa.0.0.sroa.speculated.i.i, %1
+  %.not = icmp ult i64 %1, %.sroa.0.0.sroa.speculated.i.i
   br i1 %.not, label %17, label %38
 
 17:                                               ; preds = %16
@@ -1396,13 +1396,13 @@ define noundef double @"_ZN120_$LT$statrs..distribution..hypergeometric..Hyperge
   %11 = alloca [8 x i8], align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = icmp ult i64 %13, %1
+  %14 = icmp ugt i64 %1, %13
   br i1 %14, label %74, label %15
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = icmp ult i64 %17, %1
+  %18 = icmp ugt i64 %1, %17
   br i1 %18, label %_ZN6statrs8function9factorial8binomial17h272bdd00f4307cf6E.exit, label %19
 
 19:                                               ; preds = %15
@@ -1532,7 +1532,7 @@ define noundef double @"_ZN120_$LT$statrs..distribution..hypergeometric..Hyperge
   %11 = alloca [8 x i8], align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = icmp ult i64 %13, %1
+  %14 = icmp ugt i64 %1, %13
   br i1 %14, label %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit, label %15
 
 15:                                               ; preds = %2

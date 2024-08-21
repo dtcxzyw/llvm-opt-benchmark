@@ -311,7 +311,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 define ptr @h5tools_str_trunc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
@@ -375,7 +375,7 @@ sub_1:                                            ; preds = %sub_0
 
 ._crit_edge:                                      ; preds = %.tail.thread, %17
   %.023 = phi ptr [ %.1, %17 ], [ %3, %.tail.thread ]
-  %22 = icmp ugt i64 %.pre, %1
+  %22 = icmp ult i64 %1, %.pre
   br i1 %22, label %23, label %h5tools_str_trunc.exit
 
 23:                                               ; preds = %._crit_edge

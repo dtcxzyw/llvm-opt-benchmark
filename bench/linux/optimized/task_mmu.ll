@@ -4411,7 +4411,7 @@ define internal noundef range(i32 0, 2) i32 @pagemap_hugetlb_range(ptr noundef %
 
 101:                                              ; preds = %92
   %102 = xor i64 %1, -1
-  %103 = and i64 %102, %2
+  %103 = and i64 %2, %102
   %104 = lshr i64 %103, 12
   %105 = add nuw nsw i64 %18, %104
   br label %106

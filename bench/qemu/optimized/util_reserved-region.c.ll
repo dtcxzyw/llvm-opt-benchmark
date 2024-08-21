@@ -42,7 +42,7 @@ if.else6:                                         ; preds = %if.else
   %reg.val59 = load i64, ptr %0, align 8
   %cmp.not.i.i.i = icmp ule i64 %reg.val, %reg.val59
   %add.i.i.i = add i64 %reg.val59, 1
-  %cmp3.i.i.i = icmp eq i64 %add.i.i.i, %reg.val
+  %cmp3.i.i.i = icmp eq i64 %reg.val, %add.i.i.i
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp3.i.i.i
   br i1 %or.cond.i.i.i, label %range_is_empty.exit.i, label %if.else.i.i.i
 
@@ -64,7 +64,7 @@ range_is_empty.exit.i.if.else16_crit_edge:        ; preds = %range_is_empty.exit
 lor.lhs.false.i:                                  ; preds = %range_is_empty.exit.i
   %cmp.not.i.i7.i = icmp ule i64 %.val.pre, %.val60.pre
   %add.i.i8.i = add i64 %.val60.pre, 1
-  %cmp3.i.i9.i = icmp eq i64 %add.i.i8.i, %.val.pre
+  %cmp3.i.i9.i = icmp eq i64 %.val.pre, %add.i.i8.i
   %or.cond.i.i10.i = or i1 %cmp.not.i.i7.i, %cmp3.i.i9.i
   br i1 %or.cond.i.i10.i, label %range_contains_range.exit, label %if.else.i.i11.i
 
@@ -73,8 +73,8 @@ if.else.i.i11.i:                                  ; preds = %lor.lhs.false.i
   unreachable
 
 range_contains_range.exit:                        ; preds = %lor.lhs.false.i
-  %cmp.not.i = icmp uge i64 %.val.pre, %reg.val
-  %cmp4.i = icmp ule i64 %.val60.pre, %reg.val59
+  %cmp.not.i = icmp ule i64 %reg.val, %.val.pre
+  %cmp4.i = icmp uge i64 %reg.val59, %.val60.pre
   %2 = and i1 %cmp.not.i, %cmp4.i
   %spec.select.i = and i1 %cmp.not.i.i7.i, %2
   br i1 %spec.select.i, label %if.then8, label %if.else16
@@ -92,7 +92,7 @@ if.else16:                                        ; preds = %range_is_empty.exit
   %add.i.i.i98.pre-phi = phi i64 [ %.pre, %range_is_empty.exit.i.if.else16_crit_edge ], [ %add.i.i8.i, %range_contains_range.exit ]
   %5 = getelementptr i8, ptr %1, i64 8
   %cmp.not.i.i.i97 = icmp ule i64 %.val.pre, %.val60.pre
-  %cmp3.i.i.i99 = icmp eq i64 %add.i.i.i98.pre-phi, %.val.pre
+  %cmp3.i.i.i99 = icmp eq i64 %.val.pre, %add.i.i.i98.pre-phi
   %or.cond.i.i.i100 = or i1 %cmp.not.i.i.i97, %cmp3.i.i.i99
   br i1 %or.cond.i.i.i100, label %range_is_empty.exit.i102, label %if.else.i.i.i101
 
@@ -105,8 +105,8 @@ range_is_empty.exit.i102:                         ; preds = %if.else16
   br i1 %cmp.i.i103, label %range_is_empty.exit.i266, label %range_contains_range.exit117
 
 range_contains_range.exit117:                     ; preds = %range_is_empty.exit.i102
-  %cmp.not.i113 = icmp uge i64 %reg.val, %.val.pre
-  %cmp4.i114 = icmp ule i64 %reg.val59, %.val60.pre
+  %cmp.not.i113 = icmp ule i64 %.val.pre, %reg.val
+  %cmp4.i114 = icmp uge i64 %.val60.pre, %reg.val59
   %6 = and i1 %cmp.not.i113, %cmp4.i114
   %spec.select.i115 = and i1 %cmp.not.i.i.i, %6
   br i1 %spec.select.i115, label %range_lob.exit133, label %range_is_empty.exit.i266.thread
@@ -118,7 +118,7 @@ range_lob.exit133:                                ; preds = %range_contains_rang
 range_upb.exit150:                                ; preds = %range_lob.exit133
   store i64 %add.i.i.i, ptr %1, align 8
   %cmp.not.i.i.i151 = icmp ule i64 %add.i.i.i, %.val60.pre
-  %cmp3.i.i.i153 = icmp eq i64 %.val60.pre, %reg.val59
+  %cmp3.i.i.i153 = icmp eq i64 %reg.val59, %.val60.pre
   %or.cond.i.i.i154 = or i1 %cmp.not.i.i.i151, %cmp3.i.i.i153
   br i1 %or.cond.i.i.i154, label %range_is_empty.exit.i156, label %if.else.i.i.i155
 
@@ -171,7 +171,7 @@ range_set_bounds.exit241:                         ; preds = %range_upb.exit231
   %reg.val72 = load i64, ptr %0, align 8
   %cmp.not.i.i.i242 = icmp ule i64 %reg.val71, %reg.val72
   %add.i.i.i243 = add i64 %reg.val72, 1
-  %cmp3.i.i.i244 = icmp eq i64 %add.i.i.i243, %reg.val71
+  %cmp3.i.i.i244 = icmp eq i64 %reg.val71, %add.i.i.i243
   %or.cond.i.i.i245 = or i1 %cmp.not.i.i.i242, %cmp3.i.i.i244
   br i1 %or.cond.i.i.i245, label %range_is_empty.exit.i247, label %if.else.i.i.i246
 
@@ -193,7 +193,7 @@ range_lob.exit250:                                ; preds = %range_is_empty.exit
   %upb2.i251 = getelementptr inbounds i8, ptr %call39, i64 8
   store i64 %sub43, ptr %upb2.i251, align 8
   %cmp.not.i.i.i252 = icmp ule i64 %.val.pre, %sub43
-  %cmp3.i.i.i254 = icmp eq i64 %reg.val71, %.val.pre
+  %cmp3.i.i.i254 = icmp eq i64 %.val.pre, %reg.val71
   %or.cond.i.i.i255 = or i1 %cmp3.i.i.i254, %cmp.not.i.i.i252
   br i1 %or.cond.i.i.i255, label %range_is_empty.exit.i257, label %if.else.i.i.i256
 
@@ -235,7 +235,7 @@ range_lob.exit278:                                ; preds = %range_is_empty.exit
 range_upb.exit296:                                ; preds = %range_lob.exit278
   store i64 %add.i.i.i, ptr %1, align 8
   %cmp.not.i.i.i298 = icmp ule i64 %add.i.i.i, %.val60.pre
-  %cmp3.i.i.i300 = icmp eq i64 %.val60.pre, %reg.val59
+  %cmp3.i.i.i300 = icmp eq i64 %reg.val59, %.val60.pre
   %or.cond.i.i.i301 = or i1 %cmp.not.i.i.i298, %cmp3.i.i.i300
   br i1 %or.cond.i.i.i301, label %range_is_empty.exit.i303, label %if.else.i.i.i302
 
@@ -259,7 +259,7 @@ range_lob.exit324:                                ; preds = %range_lob.exit278
   %sub60 = add i64 %reg.val, -1
   store i64 %sub60, ptr %5, align 8
   %cmp.not.i.i.i326 = icmp ule i64 %.val.pre, %sub60
-  %cmp3.i.i.i328 = icmp eq i64 %reg.val, %.val.pre
+  %cmp3.i.i.i328 = icmp eq i64 %.val.pre, %reg.val
   %or.cond.i.i.i329 = or i1 %cmp.not.i.i.i326, %cmp3.i.i.i328
   br i1 %or.cond.i.i.i329, label %range_is_empty.exit.i331, label %if.else.i.i.i330
 

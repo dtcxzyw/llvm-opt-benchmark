@@ -427,7 +427,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi24CSparseCholeskyInterface8init_m
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 2
-  %26 = icmp ult i64 %25, %18
+  %26 = icmp ugt i64 %18, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %4
@@ -436,7 +436,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi24CSparseCholeskyInterface8init_m
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 29:                                               ; preds = %4
-  %30 = icmp ugt i64 %25, %18
+  %30 = icmp ult i64 %18, %25
   br i1 %30, label %31, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 31:                                               ; preds = %29
@@ -458,7 +458,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %27, %29, %31, %33
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 2
-  %43 = icmp ult i64 %42, %35
+  %43 = icmp ugt i64 %35, %42
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -467,7 +467,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %27, %29, %31, %33
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit24
 
 46:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %47 = icmp ugt i64 %42, %35
+  %47 = icmp ult i64 %35, %42
   br i1 %47, label %48, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit24
 
 48:                                               ; preds = %46
@@ -2611,7 +2611,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -2659,7 +2659,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi15PluginInterfaceINS8_14LinsolInternalEE6PluginEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

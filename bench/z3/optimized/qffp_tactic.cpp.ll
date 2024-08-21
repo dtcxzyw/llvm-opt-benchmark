@@ -1130,7 +1130,7 @@ while.body79:                                     ; preds = %while.cond76
 
 if.else.i:                                        ; preds = %while.body79
   %39 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %39, %38
+  %cmp3.not.i = icmp ugt i32 %38, %39
   %40 = xor i32 %39, -1
   %.sink344 = select i1 %cmp3.not.i, i32 %40, i32 -1
   %sub9.i = add i32 %38, %.sink344
@@ -1439,7 +1439,7 @@ land.lhs.true28:                                  ; preds = %_ZNK4decl13get_fami
   %23 = load ptr, ptr %this, align 8
   %m_bool_sort.i = getelementptr inbounds i8, ptr %23, i64 840
   %24 = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i = icmp eq ptr %24, %call45761
+  %cmp.i = icmp eq ptr %call45761, %24
   br i1 %cmp.i, label %if.end41, label %if.then30
 
 if.then30:                                        ; preds = %land.lhs.true28
@@ -3289,7 +3289,7 @@ while.body61:                                     ; preds = %while.cond58
 
 if.else.i:                                        ; preds = %while.body61
   %39 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %39, %38
+  %cmp3.not.i = icmp ugt i32 %38, %39
   %40 = xor i32 %39, -1
   %.sink344 = select i1 %cmp3.not.i, i32 %40, i32 -1
   %sub9.i = add i32 %38, %.sink344
@@ -3493,7 +3493,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_bool_sort.i = getelementptr inbounds i8, ptr %0, i64 840
   %1 = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i = icmp eq ptr %1, %call
+  %cmp.i = icmp eq ptr %call, %1
   br i1 %cmp.i, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry

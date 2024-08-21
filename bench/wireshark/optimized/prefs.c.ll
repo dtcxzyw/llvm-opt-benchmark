@@ -8277,7 +8277,7 @@ sub_2429:                                         ; preds = %sub_1428
   %.0341413 = phi ptr [ %.1342, %646 ], [ %135, %.loopexit434 ]
   %.not373 = icmp eq ptr %2, null
   %656 = load ptr, ptr %7, align 8
-  %.not374 = icmp eq ptr %656, %2
+  %.not374 = icmp eq ptr %2, %656
   %or.cond = select i1 %.not373, i1 true, i1 %.not374
   br i1 %or.cond, label %657, label %.loopexit
 
@@ -10065,7 +10065,7 @@ define internal i32 @write_module_prefs(ptr noundef %0, ptr noundef %1) #1 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.write_pref_arg_t, align 8
   %6 = load ptr, ptr @gui_module, align 8
-  %7 = icmp eq ptr %6, %0
+  %7 = icmp eq ptr %0, %6
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
@@ -12082,7 +12082,7 @@ define internal fastcc range(i32 0, 2) i32 @prefs_is_column_visible(ptr noundef 
   %13 = trunc i64 %9 to i32
   %14 = load i8, ptr %10, align 1
   %.not15 = icmp eq i8 %14, 0
-  %.not16 = icmp eq i32 %13, %1
+  %.not16 = icmp eq i32 %1, %13
   %or.cond = select i1 %.not15, i1 %.not16, i1 false
   br i1 %or.cond, label %.sink.split, label %15
 

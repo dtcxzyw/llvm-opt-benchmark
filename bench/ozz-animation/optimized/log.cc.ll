@@ -78,7 +78,7 @@ _ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit:         ; preds = %1, %3
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz3log6LoggerC2ERSoNS0_5LevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #5 align 2 {
   %4 = load i32, ptr @_ZN3ozz3log12_GLOBAL__N_19log_levelE, align 4
-  %.not = icmp slt i32 %4, %2
+  %.not = icmp sgt i32 %2, %4
   br i1 %.not, label %5, label %11
 
 5:                                                ; preds = %3

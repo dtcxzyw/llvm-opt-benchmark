@@ -830,7 +830,7 @@ entry:
   %ref.tmp17 = alloca %"class.google::LogMessage", align 8
   %insertCount_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %insertCount_.i, align 8
-  %cmp.i = icmp ult i32 %0, %requiredInsertCount
+  %cmp.i = icmp ugt i32 %requiredInsertCount, %0
   br i1 %cmp.i, label %_ZN6google12Check_GTImplIjjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %if.else.i
 
 _ZN6google12Check_GTImplIjjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread: ; preds = %entry
@@ -917,7 +917,7 @@ while.body.i.i.i:                                 ; preds = %while.end, %while.b
   %__x.07.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.05.i.i.i, %while.end ]
   %_M_storage.i.i.i2.i.i = getelementptr inbounds i8, ptr %__x.07.i.i.i, i64 32
   %5 = load i32, ptr %_M_storage.i.i.i2.i.i, align 4
-  %cmp.i.i.i.i = icmp ugt i32 %5, %requiredInsertCount
+  %cmp.i.i.i.i = icmp ult i32 %requiredInsertCount, %5
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
   %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.07.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
@@ -925,7 +925,7 @@ while.body.i.i.i:                                 ; preds = %while.end, %while.b
   br i1 %cmp.not.i.i.i, label %invoke.cont6.i.i, label %while.body.i.i.i, !llvm.loop !10
 
 invoke.cont6.i.i:                                 ; preds = %while.body.i.i.i
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %__x.07.i.i.i
+  %cmp2.i.i.i.i = icmp eq ptr %__x.07.i.i.i, %add.ptr.i.i.i.i
   %spec.select.i = or i1 %cmp2.i.i.i.i, %cmp.i.i.i.i
   br label %_ZNSt8multimapIjN8proxygen12QPACKDecoder12PendingBlockESt4lessIjESaISt4pairIKjS2_EEE7emplaceIJRKSt21piecewise_construct_tSt5tupleIJRjEESE_IJRmSF_SH_SF_OSt10unique_ptrIN5folly5IOBufESt14default_deleteISK_EERPNS0_5HPACK17StreamingCallbackEEEEEESt17_Rb_tree_iteratorIS7_EDpOT_.exit
 
@@ -2645,7 +2645,7 @@ if.else:                                          ; preds = %if.end
 
 if.then9:                                         ; preds = %if.else
   %conv7 = zext i32 %0 to i64
-  %add = add nuw nsw i64 %conv7, %index
+  %add = add nuw nsw i64 %index, %conv7
   %cmp12 = icmp ugt i64 %add, 4294967295
   br i1 %cmp12, label %return, label %if.end14
 

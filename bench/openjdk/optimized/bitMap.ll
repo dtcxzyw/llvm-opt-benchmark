@@ -388,8 +388,8 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(p
   %15 = load i8, ptr %14, align 8
   %16 = shl nuw nsw i64 %10, 3
   %17 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %16, i8 noundef zeroext %15, i32 noundef 0) #10
-  %18 = icmp ult i64 %5, %1
-  %or.cond.i = and i1 %18, %2
+  %18 = icmp ugt i64 %1, %5
+  %or.cond.i = and i1 %2, %18
   br i1 %or.cond.i, label %19, label %_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb.exit
 
 19:                                               ; preds = %13
@@ -574,7 +574,7 @@ define hidden void @_ZN6BitMap9set_rangeEmm(ptr nocapture noundef nonnull readon
   br i1 %7, label %9, label %26
 
 9:                                                ; preds = %3
-  %.not.i = icmp eq i64 %8, %1
+  %.not.i = icmp eq i64 %1, %8
   br i1 %.not.i, label %_ZN6BitMap18set_range_of_wordsEmm.exit, label %10
 
 10:                                               ; preds = %9
@@ -608,7 +608,7 @@ _ZN6BitMap18set_range_of_wordsEmm.exit:           ; preds = %9, %10
 
 26:                                               ; preds = %3
   %27 = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %2)
-  %.not.i24 = icmp eq i64 %27, %1
+  %.not.i24 = icmp eq i64 %1, %27
   br i1 %.not.i24, label %_ZN6BitMap21set_range_within_wordEmm.exit29, label %28
 
 28:                                               ; preds = %26
@@ -629,7 +629,7 @@ _ZN6BitMap18set_range_of_wordsEmm.exit:           ; preds = %9, %10
   br label %_ZN6BitMap21set_range_within_wordEmm.exit29
 
 _ZN6BitMap21set_range_within_wordEmm.exit29:      ; preds = %26, %28
-  %.not.i30.not = icmp ult i64 %8, %2
+  %.not.i30.not = icmp ugt i64 %2, %8
   br i1 %.not.i30.not, label %38, label %_ZN6BitMap21set_range_within_wordEmm.exit23
 
 38:                                               ; preds = %_ZN6BitMap21set_range_within_wordEmm.exit29
@@ -668,7 +668,7 @@ define hidden void @_ZN6BitMap11clear_rangeEmm(ptr nocapture noundef nonnull rea
   br i1 %7, label %9, label %26
 
 9:                                                ; preds = %3
-  %.not.i = icmp eq i64 %8, %1
+  %.not.i = icmp eq i64 %1, %8
   br i1 %.not.i, label %_ZN6BitMap20clear_range_of_wordsEmm.exit, label %10
 
 10:                                               ; preds = %9
@@ -702,7 +702,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %9, %10
 
 26:                                               ; preds = %3
   %27 = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %2)
-  %.not.i24 = icmp eq i64 %27, %1
+  %.not.i24 = icmp eq i64 %1, %27
   br i1 %.not.i24, label %_ZN6BitMap23clear_range_within_wordEmm.exit29, label %28
 
 28:                                               ; preds = %26
@@ -723,7 +723,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %9, %10
   br label %_ZN6BitMap23clear_range_within_wordEmm.exit29
 
 _ZN6BitMap23clear_range_within_wordEmm.exit29:    ; preds = %26, %28
-  %.not.i30.not = icmp ult i64 %8, %2
+  %.not.i30.not = icmp ugt i64 %2, %8
   br i1 %.not.i30.not, label %38, label %_ZN6BitMap23clear_range_within_wordEmm.exit23
 
 38:                                               ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit29
@@ -774,7 +774,7 @@ define hidden void @_ZN6BitMap15set_large_rangeEmm(ptr nocapture noundef nonnull
   br i1 %9, label %11, label %28
 
 11:                                               ; preds = %8
-  %.not.i.i = icmp eq i64 %10, %1
+  %.not.i.i = icmp eq i64 %1, %10
   br i1 %.not.i.i, label %_ZN6BitMap18set_range_of_wordsEmm.exit.i, label %12
 
 12:                                               ; preds = %11
@@ -808,7 +808,7 @@ _ZN6BitMap18set_range_of_wordsEmm.exit.i:         ; preds = %12, %11
 
 28:                                               ; preds = %8
   %29 = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %2)
-  %.not.i24.i = icmp eq i64 %29, %1
+  %.not.i24.i = icmp eq i64 %1, %29
   br i1 %.not.i24.i, label %_ZN6BitMap21set_range_within_wordEmm.exit29.i, label %30
 
 30:                                               ; preds = %28
@@ -829,7 +829,7 @@ _ZN6BitMap18set_range_of_wordsEmm.exit.i:         ; preds = %12, %11
   br label %_ZN6BitMap21set_range_within_wordEmm.exit29.i
 
 _ZN6BitMap21set_range_within_wordEmm.exit29.i:    ; preds = %30, %28
-  %.not.i30.not.i = icmp ult i64 %10, %2
+  %.not.i30.not.i = icmp ugt i64 %2, %10
   br i1 %.not.i30.not.i, label %40, label %_ZN6BitMap9set_rangeEmm.exit
 
 40:                                               ; preds = %_ZN6BitMap21set_range_within_wordEmm.exit29.i
@@ -848,7 +848,7 @@ _ZN6BitMap21set_range_within_wordEmm.exit29.i:    ; preds = %30, %28
 
 48:                                               ; preds = %3
   %49 = and i64 %4, -64
-  %.not.i = icmp eq i64 %49, %1
+  %.not.i = icmp eq i64 %1, %49
   br i1 %.not.i, label %_ZN6BitMap21set_range_within_wordEmm.exit, label %50
 
 50:                                               ; preds = %48
@@ -906,7 +906,7 @@ define hidden void @_ZN6BitMap17clear_large_rangeEmm(ptr nocapture noundef nonnu
   br i1 %9, label %11, label %28
 
 11:                                               ; preds = %8
-  %.not.i.i = icmp eq i64 %10, %1
+  %.not.i.i = icmp eq i64 %1, %10
   br i1 %.not.i.i, label %_ZN6BitMap20clear_range_of_wordsEmm.exit.i, label %12
 
 12:                                               ; preds = %11
@@ -940,7 +940,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit.i:       ; preds = %12, %11
 
 28:                                               ; preds = %8
   %29 = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %2)
-  %.not.i24.i = icmp eq i64 %29, %1
+  %.not.i24.i = icmp eq i64 %1, %29
   br i1 %.not.i24.i, label %_ZN6BitMap23clear_range_within_wordEmm.exit29.i, label %30
 
 30:                                               ; preds = %28
@@ -961,7 +961,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit.i:       ; preds = %12, %11
   br label %_ZN6BitMap23clear_range_within_wordEmm.exit29.i
 
 _ZN6BitMap23clear_range_within_wordEmm.exit29.i:  ; preds = %30, %28
-  %.not.i30.not.i = icmp ult i64 %10, %2
+  %.not.i30.not.i = icmp ugt i64 %2, %10
   br i1 %.not.i30.not.i, label %40, label %_ZN6BitMap11clear_rangeEmm.exit
 
 40:                                               ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit29.i
@@ -980,7 +980,7 @@ _ZN6BitMap23clear_range_within_wordEmm.exit29.i:  ; preds = %30, %28
 
 48:                                               ; preds = %3
   %49 = and i64 %4, -64
-  %.not.i = icmp eq i64 %49, %1
+  %.not.i = icmp eq i64 %1, %49
   br i1 %.not.i, label %_ZN6BitMap23clear_range_within_wordEmm.exit, label %50
 
 50:                                               ; preds = %48
@@ -1112,7 +1112,7 @@ define hidden void @_ZN6BitMap12at_put_rangeEmmb(ptr nocapture noundef nonnull r
   br i1 %8, label %11, label %28
 
 11:                                               ; preds = %10
-  %.not.i.i = icmp eq i64 %9, %1
+  %.not.i.i = icmp eq i64 %1, %9
   br i1 %.not.i.i, label %_ZN6BitMap18set_range_of_wordsEmm.exit.i, label %12
 
 12:                                               ; preds = %11
@@ -1146,7 +1146,7 @@ _ZN6BitMap18set_range_of_wordsEmm.exit.i:         ; preds = %12, %11
 
 28:                                               ; preds = %10
   %29 = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %2)
-  %.not.i24.i = icmp eq i64 %29, %1
+  %.not.i24.i = icmp eq i64 %1, %29
   br i1 %.not.i24.i, label %_ZN6BitMap21set_range_within_wordEmm.exit29.i, label %30
 
 30:                                               ; preds = %28
@@ -1167,7 +1167,7 @@ _ZN6BitMap18set_range_of_wordsEmm.exit.i:         ; preds = %12, %11
   br label %_ZN6BitMap21set_range_within_wordEmm.exit29.i
 
 _ZN6BitMap21set_range_within_wordEmm.exit29.i:    ; preds = %30, %28
-  %.not.i30.not.i = icmp ult i64 %9, %2
+  %.not.i30.not.i = icmp ugt i64 %2, %9
   br i1 %.not.i30.not.i, label %40, label %_ZN6BitMap9set_rangeEmm.exit
 
 40:                                               ; preds = %_ZN6BitMap21set_range_within_wordEmm.exit29.i
@@ -1196,7 +1196,7 @@ _ZN6BitMap21set_range_within_wordEmm.exit23.sink.split.i: ; preds = %40, %24
   br i1 %8, label %51, label %68
 
 51:                                               ; preds = %50
-  %.not.i.i14 = icmp eq i64 %9, %1
+  %.not.i.i14 = icmp eq i64 %1, %9
   br i1 %.not.i.i14, label %_ZN6BitMap20clear_range_of_wordsEmm.exit.i, label %52
 
 52:                                               ; preds = %51
@@ -1230,7 +1230,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit.i:       ; preds = %52, %51
 
 68:                                               ; preds = %50
   %69 = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %2)
-  %.not.i24.i5 = icmp eq i64 %69, %1
+  %.not.i24.i5 = icmp eq i64 %1, %69
   br i1 %.not.i24.i5, label %_ZN6BitMap23clear_range_within_wordEmm.exit29.i, label %70
 
 70:                                               ; preds = %68
@@ -1251,7 +1251,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit.i:       ; preds = %52, %51
   br label %_ZN6BitMap23clear_range_within_wordEmm.exit29.i
 
 _ZN6BitMap23clear_range_within_wordEmm.exit29.i:  ; preds = %70, %68
-  %.not.i30.not.i9 = icmp ult i64 %9, %2
+  %.not.i30.not.i9 = icmp ugt i64 %2, %9
   br i1 %.not.i30.not.i9, label %80, label %_ZN6BitMap9set_rangeEmm.exit
 
 80:                                               ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit29.i
@@ -1290,7 +1290,7 @@ define hidden void @_ZN6BitMap16par_at_put_rangeEmmb(ptr nocapture noundef nonnu
   br i1 %8, label %10, label %55
 
 10:                                               ; preds = %4
-  %.not.i = icmp eq i64 %9, %1
+  %.not.i = icmp eq i64 %1, %9
   br i1 %.not.i, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit, label %11
 
 11:                                               ; preds = %10
@@ -1378,7 +1378,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %_ZN6BitMap25par_put
 
 55:                                               ; preds = %4
   %56 = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %2)
-  %.not.i34 = icmp eq i64 %56, %1
+  %.not.i34 = icmp eq i64 %1, %56
   br i1 %.not.i34, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, label %57
 
 57:                                               ; preds = %55
@@ -1420,7 +1420,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %_ZN6BitMap25par_put
   br i1 %79, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, label %.lr.ph.split.i40, !llvm.loop !7
 
 _ZN6BitMap25par_put_range_within_wordEmmb.exit42: ; preds = %.lr.ph.split.i40, %.lr.ph.split.us.i41, %55, %57
-  %.not.i43.not = icmp ult i64 %9, %2
+  %.not.i43.not = icmp ugt i64 %2, %9
   br i1 %.not.i43.not, label %80, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33
 
 80:                                               ; preds = %_ZN6BitMap25par_put_range_within_wordEmmb.exit42
@@ -1496,7 +1496,7 @@ define hidden void @_ZN6BitMap22par_at_put_large_rangeEmmb(ptr nocapture noundef
 
 10:                                               ; preds = %4
   %11 = and i64 %5, -64
-  %.not.i = icmp eq i64 %11, %1
+  %.not.i = icmp eq i64 %1, %11
   br i1 %.not.i, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit, label %12
 
 12:                                               ; preds = %10
@@ -2365,7 +2365,7 @@ define hidden noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr nocapture noundef 
   br i1 %7, label %9, label %32
 
 9:                                                ; preds = %3
-  %.not.i = icmp eq i64 %8, %1
+  %.not.i = icmp eq i64 %1, %8
   %.pre = load ptr, ptr %0, align 8
   br i1 %.not.i, label %.lr.ph.i, label %10
 
@@ -2416,7 +2416,7 @@ _ZNK6BitMap26count_one_bits_within_wordEmm.exit31: ; preds = %_ZNK6BitMap32count
 
 32:                                               ; preds = %3
   %33 = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %2)
-  %.not.i32 = icmp eq i64 %33, %1
+  %.not.i32 = icmp eq i64 %1, %33
   br i1 %.not.i32, label %_ZNK6BitMap26count_one_bits_within_wordEmm.exit38, label %34
 
 34:                                               ; preds = %32
@@ -2438,7 +2438,7 @@ _ZNK6BitMap26count_one_bits_within_wordEmm.exit31: ; preds = %_ZNK6BitMap32count
 
 _ZNK6BitMap26count_one_bits_within_wordEmm.exit38: ; preds = %32, %34
   %.0.i37 = phi i64 [ %44, %34 ], [ 0, %32 ]
-  %.not.i39.not = icmp ult i64 %8, %2
+  %.not.i39.not = icmp ugt i64 %2, %8
   br i1 %.not.i39.not, label %45, label %_ZNK6BitMap26count_one_bits_within_wordEmm.exit45
 
 45:                                               ; preds = %_ZNK6BitMap26count_one_bits_within_wordEmm.exit38
@@ -2692,8 +2692,8 @@ _ZNK11ArenaBitMap8allocateEm.exit.i.i:            ; preds = %24, %22
   br label %_ZNK11ArenaBitMap10reallocateEPmmm.exit
 
 _ZNK11ArenaBitMap10reallocateEPmmm.exit:          ; preds = %_ZNK11ArenaBitMap8allocateEm.exit.i.i, %.split11.i.i, %55, %57
-  %59 = icmp ult i64 %5, %1
-  %or.cond = and i1 %59, %2
+  %59 = icmp ugt i64 %1, %5
+  %or.cond = and i1 %2, %59
   br i1 %or.cond, label %60, label %_ZN6BitMap20clear_range_of_wordsEPmmm.exit
 
 60:                                               ; preds = %_ZNK11ArenaBitMap10reallocateEPmmm.exit
@@ -2957,8 +2957,8 @@ define weak_odr hidden void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr
   br label %_ZNK14ResourceBitMap10reallocateEPmmm.exit
 
 _ZNK14ResourceBitMap10reallocateEPmmm.exit:       ; preds = %12, %.split11.i.i, %44, %46
-  %48 = icmp ult i64 %5, %1
-  %or.cond = and i1 %48, %2
+  %48 = icmp ugt i64 %1, %5
+  %or.cond = and i1 %2, %48
   br i1 %or.cond, label %49, label %_ZN6BitMap20clear_range_of_wordsEPmmm.exit
 
 49:                                               ; preds = %_ZNK14ResourceBitMap10reallocateEPmmm.exit
@@ -3131,8 +3131,8 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb(ptr no
   %15 = load i8, ptr %14, align 8
   %16 = shl nuw nsw i64 %10, 3
   %17 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %16, i8 noundef zeroext %15, i32 noundef 0) #10
-  %18 = icmp ult i64 %5, %1
-  %or.cond = and i1 %18, %2
+  %18 = icmp ugt i64 %1, %5
+  %or.cond = and i1 %2, %18
   br i1 %or.cond, label %19, label %_ZN6BitMap20clear_range_of_wordsEPmmm.exit
 
 19:                                               ; preds = %13

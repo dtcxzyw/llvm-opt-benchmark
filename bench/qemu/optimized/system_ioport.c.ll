@@ -997,7 +997,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %mrp.03.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %opaque.val, %entry ]
   %3 = load i32, ptr %mrp.03.i, align 8
   %conv.i = zext i32 %3 to i64
-  %cmp.not.i = icmp ugt i64 %conv.i, %addr
+  %cmp.not.i = icmp ult i64 %addr, %conv.i
   br i1 %cmp.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
@@ -1005,8 +1005,8 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %4 = load i32, ptr %len.i, align 4
   %add.i = add i32 %4, %3
   %conv5.i = zext i32 %add.i to i64
-  %cmp6.i = icmp ugt i64 %conv5.i, %addr
-  %cmp10.i = icmp eq i32 %2, %size
+  %cmp6.i = icmp ult i64 %addr, %conv5.i
+  %cmp10.i = icmp eq i32 %size, %2
   %or.cond.i = and i1 %cmp10.i, %cmp6.i
   br i1 %or.cond.i, label %land.lhs.true12.i, label %for.inc.i
 
@@ -1054,7 +1054,7 @@ for.body.i28:                                     ; preds = %if.else, %for.inc.i
   %mrp.03.i29 = phi ptr [ %incdec.ptr.i40, %for.inc.i39 ], [ %opaque.val, %if.else ]
   %11 = load i32, ptr %mrp.03.i29, align 8
   %conv.i30 = zext i32 %11 to i64
-  %cmp.not.i31 = icmp ugt i64 %conv.i30, %addr
+  %cmp.not.i31 = icmp ult i64 %addr, %conv.i30
   br i1 %cmp.not.i31, label %for.inc.i39, label %land.lhs.true.i32
 
 land.lhs.true.i32:                                ; preds = %for.body.i28
@@ -1062,7 +1062,7 @@ land.lhs.true.i32:                                ; preds = %for.body.i28
   %12 = load i32, ptr %len.i33, align 4
   %add.i34 = add i32 %12, %11
   %conv5.i35 = zext i32 %add.i34 to i64
-  %cmp6.i36 = icmp ugt i64 %conv5.i35, %addr
+  %cmp6.i36 = icmp ult i64 %addr, %conv5.i35
   %cmp10.i37 = icmp eq i32 %10, 1
   %or.cond.i38 = and i1 %cmp10.i37, %cmp6.i36
   br i1 %or.cond.i38, label %land.lhs.true12.i44, label %for.inc.i39
@@ -1135,7 +1135,7 @@ for.body.us.i:                                    ; preds = %entry, %for.inc.us.
   %mrp.03.us.i = phi ptr [ %incdec.ptr.us.i, %for.inc.us.i ], [ %opaque.val, %entry ]
   %3 = load i32, ptr %mrp.03.us.i, align 8
   %conv.us.i = zext i32 %3 to i64
-  %cmp.not.us.i = icmp ugt i64 %conv.us.i, %addr
+  %cmp.not.us.i = icmp ult i64 %addr, %conv.us.i
   br i1 %cmp.not.us.i, label %for.inc.us.i, label %land.lhs.true.us.i
 
 land.lhs.true.us.i:                               ; preds = %for.body.us.i
@@ -1143,8 +1143,8 @@ land.lhs.true.us.i:                               ; preds = %for.body.us.i
   %4 = load i32, ptr %len.us.i, align 4
   %add.us.i = add i32 %4, %3
   %conv5.us.i = zext i32 %add.us.i to i64
-  %cmp6.us.i = icmp ugt i64 %conv5.us.i, %addr
-  %cmp10.us.i = icmp eq i32 %2, %size
+  %cmp6.us.i = icmp ult i64 %addr, %conv5.us.i
+  %cmp10.us.i = icmp eq i32 %size, %2
   %or.cond.us.i = and i1 %cmp10.us.i, %cmp6.us.i
   br i1 %or.cond.us.i, label %land.lhs.true12.us.i, label %for.inc.us.i
 
@@ -1181,7 +1181,7 @@ for.body.us.i26:                                  ; preds = %if.else, %for.inc.u
   %mrp.03.us.i27 = phi ptr [ %incdec.ptr.us.i38, %for.inc.us.i37 ], [ %opaque.val, %if.else ]
   %11 = load i32, ptr %mrp.03.us.i27, align 8
   %conv.us.i28 = zext i32 %11 to i64
-  %cmp.not.us.i29 = icmp ugt i64 %conv.us.i28, %addr
+  %cmp.not.us.i29 = icmp ult i64 %addr, %conv.us.i28
   br i1 %cmp.not.us.i29, label %for.inc.us.i37, label %land.lhs.true.us.i30
 
 land.lhs.true.us.i30:                             ; preds = %for.body.us.i26
@@ -1189,7 +1189,7 @@ land.lhs.true.us.i30:                             ; preds = %for.body.us.i26
   %12 = load i32, ptr %len.us.i31, align 4
   %add.us.i32 = add i32 %12, %11
   %conv5.us.i33 = zext i32 %add.us.i32 to i64
-  %cmp6.us.i34 = icmp ugt i64 %conv5.us.i33, %addr
+  %cmp6.us.i34 = icmp ult i64 %addr, %conv5.us.i33
   %cmp10.us.i35 = icmp eq i32 %10, 1
   %or.cond.us.i36 = and i1 %cmp10.us.i35, %cmp6.us.i34
   br i1 %or.cond.us.i36, label %land.lhs.true12.us.i42, label %for.inc.us.i37

@@ -198,7 +198,7 @@ define weak_odr void @_ZN7mitsuba21LowDiscrepancySamplerIfN5drjit6MatrixINS_8Spe
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.lcssa = phi i32 [ 4, %2 ], [ %11, %.lr.ph ]
-  %.not = icmp eq i32 %.lcssa, %1
+  %.not = icmp eq i32 %1, %.lcssa
   br i1 %.not, label %25, label %13
 
 13:                                               ; preds = %._crit_edge
@@ -2560,7 +2560,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %41 = zext nneg i8 %40 to i64
   %42 = select i1 %.not.i.i.i, i64 %41, i64 %39
   %43 = trunc i64 %42 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %43, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %43)
   %44 = sext i32 %.sroa.speculated to i64
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %37, i64 noundef %44)
           to label %46 unwind label %54

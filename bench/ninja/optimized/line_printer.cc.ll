@@ -399,7 +399,7 @@ define dso_local void @_ZN11LinePrinter16SetConsoleLockedEb(ptr noundef nonnull 
   %7 = getelementptr inbounds i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
-  %10 = xor i1 %9, %1
+  %10 = xor i1 %1, %9
   br i1 %10, label %11, label %32
 
 11:                                               ; preds = %2

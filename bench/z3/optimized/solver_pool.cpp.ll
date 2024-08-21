@@ -1095,7 +1095,7 @@ invoke.cont13:                                    ; preds = %invoke.cont, %if.th
   %8 = load ptr, ptr %m_pred, align 8
   %m_true.i.i = getelementptr inbounds i8, ptr %6, i64 856
   %9 = load ptr, ptr %m_true.i.i, align 8
-  %cmp.i.i.not = icmp eq ptr %9, %8
+  %cmp.i.i.not = icmp eq ptr %8, %9
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont13
@@ -1302,7 +1302,7 @@ invoke.cont16:                                    ; preds = %invoke.cont16.prehe
   %11 = tail call ptr @__dynamic_cast(ptr nonnull %10, ptr nonnull @_ZTI6solver, ptr nonnull @_ZTI11pool_solver, i64 0) #20
   %m_base.i = getelementptr inbounds i8, ptr %11, i64 160
   %12 = load ptr, ptr %m_base.i, align 8
-  %cmp18 = icmp eq ptr %12, %base_solver
+  %cmp18 = icmp eq ptr %base_solver, %12
   br i1 %cmp18, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont16
@@ -1512,7 +1512,7 @@ invoke.cont5:                                     ; preds = %entry, %invoke.cont
   %3 = load ptr, ptr %m_pred.i, align 8
   %m_true.i.i = getelementptr inbounds i8, ptr %2, i64 856
   %4 = load ptr, ptr %m_true.i.i, align 8
-  %cmp.i.i.not = icmp eq ptr %4, %3
+  %cmp.i.i.not = icmp eq ptr %3, %4
   br i1 %cmp.i.i.not, label %if.end19, label %if.then7
 
 if.then7:                                         ; preds = %invoke.cont5
@@ -2242,7 +2242,7 @@ entry:
   %0 = load ptr, ptr %m, align 8
   %m_true.i = getelementptr inbounds i8, ptr %0, i64 856
   %1 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %1, %e
+  %cmp.i = icmp eq ptr %e, %1
   br i1 %cmp.i, label %if.end15, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -2541,7 +2541,7 @@ _ZNK12solver_na2as19get_num_assumptionsEv.exit:   ; preds = %entry, %if.end.i.i.
   %3 = load ptr, ptr %m_pred.i, align 8
   %m_true.i.i = getelementptr inbounds i8, ptr %2, i64 856
   %4 = load ptr, ptr %m_true.i.i, align 8
-  %cmp.i.i = icmp ne ptr %4, %3
+  %cmp.i.i = icmp ne ptr %3, %4
   %sub = sext i1 %cmp.i.i to i32
   %cond = add i32 %retval.0.i.i.i, %sub
   ret i32 %cond
@@ -2556,9 +2556,9 @@ entry:
   %1 = load ptr, ptr %m_pred.i, align 8
   %m_true.i.i = getelementptr inbounds i8, ptr %0, i64 856
   %2 = load ptr, ptr %m_true.i.i, align 8
-  %cmp.i.i = icmp ne ptr %2, %1
+  %cmp.i.i = icmp ne ptr %1, %2
   %conv = zext i1 %cmp.i.i to i32
-  %add = add i32 %conv, %idx
+  %add = add i32 %idx, %conv
   %m_nodes.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %3 = load ptr, ptr %m_nodes.i.i.i, align 8
   %idxprom.i.i.i.i = zext i32 %add to i64
@@ -4862,7 +4862,7 @@ invoke.cont127:                                   ; preds = %invoke.cont127.preh
   %arrayidx.i.i311 = getelementptr inbounds [0 x ptr], ptr %m_args.i.i309, i64 0, i64 %idxprom.i.i310
   %131 = load ptr, ptr %arrayidx.i.i311, align 8
   %132 = load ptr, ptr %m_true.i, align 8
-  %cmp.i313 = icmp eq ptr %132, %131
+  %cmp.i313 = icmp eq ptr %131, %132
   br i1 %cmp.i313, label %for.inc137, label %if.then134
 
 if.then134:                                       ; preds = %invoke.cont127
@@ -6469,7 +6469,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i.i17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx.i.i17, align 8
   %5 = load ptr, ptr %m_false.i, align 8
-  %cmp.i = icmp eq ptr %5, %4
+  %cmp.i = icmp eq ptr %4, %5
   br i1 %cmp.i, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
@@ -7340,7 +7340,7 @@ invoke.cont2:                                     ; preds = %entry
   %1 = load ptr, ptr %m_pred.i, align 8
   %m_true.i.i = getelementptr inbounds i8, ptr %0, i64 856
   %2 = load ptr, ptr %m_true.i.i, align 8
-  %cmp.i.i.not = icmp eq ptr %2, %1
+  %cmp.i.i.not = icmp eq ptr %1, %2
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont2

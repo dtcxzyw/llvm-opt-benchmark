@@ -2008,7 +2008,7 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
   %248 = load ptr, ptr %247, align 8
   %249 = sext i32 %172 to i64
   %250 = call noalias ptr @wmem_alloc(ptr noundef %248, i64 noundef %249) #13
-  %251 = icmp sgt i32 %244, %.1
+  %251 = icmp slt i32 %.1, %244
   br i1 %251, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %246, %.lr.ph.i

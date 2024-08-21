@@ -192,7 +192,7 @@ define hidden noundef ptr @"_ZN3gif7encoder16Encoder$LT$W$GT$13write_trailer17hd
 17:                                               ; preds = %10
   %18 = sub i64 %14, %.pre19.i.i
   %19 = sub i64 %15, %.pre19.i.i
-  %20 = icmp ult i64 %19, %18
+  %20 = icmp ugt i64 %18, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i"
 
 21:                                               ; preds = %17
@@ -202,7 +202,7 @@ define hidden noundef ptr @"_ZN3gif7encoder16Encoder$LT$W$GT$13write_trailer17hd
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i": ; preds = %21, %17, %10
   %22 = phi i64 [ %.pre.i.i, %21 ], [ %.pre19.i.i, %17 ], [ %.pre19.i.i, %10 ]
-  %23 = icmp ult i64 %22, %.promoted.i.i
+  %23 = icmp ugt i64 %.promoted.i.i, %22
   br i1 %23, label %.lr.ph.preheader.i.i.i.i.us.i.i, label %27
 
 .lr.ph.preheader.i.i.i.i.us.i.i:                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i"
@@ -294,7 +294,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension
 26:                                               ; preds = %19
   %27 = sub i64 %23, %.pre19.i.i
   %28 = sub i64 %24, %.pre19.i.i
-  %29 = icmp ult i64 %28, %27
+  %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i"
 
 30:                                               ; preds = %26
@@ -304,7 +304,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i": ; preds = %30, %26, %19
   %31 = phi i64 [ %.pre.i.i, %30 ], [ %.pre19.i.i, %26 ], [ %.pre19.i.i, %19 ]
-  %32 = icmp ult i64 %31, %.promoted.i.i
+  %32 = icmp ugt i64 %.promoted.i.i, %31
   br i1 %32, label %.lr.ph.preheader.i.i.i.i.us.i.i, label %36
 
 .lr.ph.preheader.i.i.i.i.us.i.i:                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i"
@@ -351,7 +351,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension
 52:                                               ; preds = %45
   %53 = sub i64 %49, %.pre19.i.i.i186
   %54 = sub i64 %50, %.pre19.i.i.i186
-  %55 = icmp ult i64 %54, %53
+  %55 = icmp ugt i64 %53, %54
   br i1 %55, label %56, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i"
 
 56:                                               ; preds = %52
@@ -361,7 +361,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i": ; preds = %56, %52, %45
   %57 = phi i64 [ %.pre.i.i.i, %56 ], [ %.pre19.i.i.i186, %52 ], [ %.pre19.i.i.i186, %45 ]
-  %58 = icmp ult i64 %57, %39
+  %58 = icmp ugt i64 %39, %57
   br i1 %58, label %.lr.ph.preheader.i.i.i.i.us.i.i.i, label %62
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i:                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i"
@@ -410,7 +410,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension
 72:                                               ; preds = %68
   %73 = sub i64 %69, %.pre19.i.i165
   %74 = sub i64 %70, %.pre19.i.i165
-  %75 = icmp ult i64 %74, %73
+  %75 = icmp ugt i64 %73, %74
   br i1 %75, label %76, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i166"
 
 76:                                               ; preds = %72
@@ -420,7 +420,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i166": ; preds = %76, %72, %68
   %77 = phi i64 [ %.pre.i.i168, %76 ], [ %.pre19.i.i165, %72 ], [ %.pre19.i.i165, %68 ]
-  %78 = icmp ult i64 %77, %storemerge
+  %78 = icmp ugt i64 %storemerge, %77
   br i1 %78, label %.lr.ph.preheader.i.i.i.i.us.i.i167, label %82
 
 .lr.ph.preheader.i.i.i.i.us.i.i167:               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i166"
@@ -464,7 +464,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension
 96:                                               ; preds = %89
   %97 = sub i64 %93, %.pre19.i.i.i186
   %98 = sub i64 %94, %.pre19.i.i.i186
-  %99 = icmp ult i64 %98, %97
+  %99 = icmp ugt i64 %97, %98
   br i1 %99, label %100, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i187"
 
 100:                                              ; preds = %96
@@ -474,7 +474,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i187": ; preds = %100, %96, %89
   %101 = phi i64 [ %.pre.i.i.i189, %100 ], [ %.pre19.i.i.i186, %96 ], [ %.pre19.i.i.i186, %89 ]
-  %102 = icmp ult i64 %101, %39
+  %102 = icmp ugt i64 %39, %101
   br i1 %102, label %.lr.ph.preheader.i.i.i.i.us.i.i.i188, label %106
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i188:             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i187"
@@ -530,7 +530,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$17write_color_tab
 13:                                               ; preds = %.lr.ph.split.us.i.i
   %14 = sub i64 %10, %.pre19.i.i
   %15 = sub i64 %11, %.pre19.i.i
-  %16 = icmp ult i64 %15, %14
+  %16 = icmp ugt i64 %14, %15
   br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i"
 
 17:                                               ; preds = %13
@@ -540,7 +540,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$17write_color_tab
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i": ; preds = %17, %13, %.lr.ph.split.us.i.i
   %18 = phi i64 [ %.pre.i.i, %17 ], [ %.pre19.i.i, %13 ], [ %.pre19.i.i, %.lr.ph.split.us.i.i ]
-  %19 = icmp ult i64 %18, %.promoted.i.i
+  %19 = icmp ugt i64 %.promoted.i.i, %18
   br i1 %19, label %.lr.ph.preheader.i.i.i.i.us.i.i, label %23
 
 .lr.ph.preheader.i.i.i.i.us.i.i:                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i"
@@ -595,7 +595,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$17write_color_tab
 39:                                               ; preds = %33
   %40 = sub i64 %36, %.pre19.i.i20
   %41 = sub i64 %37, %.pre19.i.i20
-  %42 = icmp ult i64 %41, %40
+  %42 = icmp ugt i64 %40, %41
   br i1 %42, label %43, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i21"
 
 43:                                               ; preds = %39
@@ -605,7 +605,7 @@ define internal fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$17write_color_tab
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i21": ; preds = %43, %39, %33
   %44 = phi i64 [ %.pre.i.i24, %43 ], [ %.pre19.i.i20, %39 ], [ %.pre19.i.i20, %33 ]
-  %45 = icmp ult i64 %44, %34
+  %45 = icmp ugt i64 %34, %44
   br i1 %45, label %.lr.ph.preheader.i.i.i.i.us.i.i23, label %49
 
 .lr.ph.preheader.i.i.i.i.us.i.i23:                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i21"
@@ -695,7 +695,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias
 17:                                               ; preds = %5
   %18 = sub i64 %14, %.pre19.i.i.i.i
   %19 = sub i64 %15, %.pre19.i.i.i.i
-  %20 = icmp ult i64 %19, %18
+  %20 = icmp ugt i64 %18, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i"
 
 21:                                               ; preds = %17
@@ -705,7 +705,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i": ; preds = %21, %17, %5
   %22 = phi i64 [ %.pre.i.i.i.i, %21 ], [ %.pre19.i.i.i.i, %17 ], [ %.pre19.i.i.i.i, %5 ]
-  %23 = icmp ult i64 %22, %.promoted.i.i.i.i
+  %23 = icmp ugt i64 %.promoted.i.i.i.i, %22
   br i1 %23, label %.lr.ph.preheader.i.i.i.i.us.i.i.i.i, label %27
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i.i:              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i"
@@ -742,7 +742,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias
 38:                                               ; preds = %34
   %39 = sub i64 %35, %.pre19.i.i.i
   %40 = sub i64 %36, %.pre19.i.i.i
-  %41 = icmp ult i64 %40, %39
+  %41 = icmp ugt i64 %39, %40
   br i1 %41, label %42, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i"
 
 42:                                               ; preds = %38
@@ -752,7 +752,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i": ; preds = %42, %38, %34
   %43 = phi i64 [ %.pre.i.i.i, %42 ], [ %.pre19.i.i.i, %38 ], [ %.pre19.i.i.i, %34 ]
-  %44 = icmp ult i64 %43, %30
+  %44 = icmp ugt i64 %30, %43
   br i1 %44, label %.lr.ph.preheader.i.i.i.i.us.i.i.i, label %48
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i:                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i"
@@ -793,7 +793,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias
 60:                                               ; preds = %.lr.ph.split.us.i.i.i
   %61 = sub i64 %57, %.pre19.i.i.i46
   %62 = sub i64 %58, %.pre19.i.i.i46
-  %63 = icmp ult i64 %62, %61
+  %63 = icmp ugt i64 %61, %62
   br i1 %63, label %64, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i47"
 
 64:                                               ; preds = %60
@@ -803,7 +803,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i47": ; preds = %64, %60, %.lr.ph.split.us.i.i.i
   %65 = phi i64 [ %.pre.i.i.i49, %64 ], [ %.pre19.i.i.i46, %60 ], [ %.pre19.i.i.i46, %.lr.ph.split.us.i.i.i ]
-  %66 = icmp ult i64 %65, %51
+  %66 = icmp ugt i64 %51, %65
   br i1 %66, label %.lr.ph.preheader.i.i.i.i.us.i.i.i48, label %70
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i48:              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i47"
@@ -851,7 +851,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias
 83:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h49d14195041b9f70E.exit50"
   %84 = sub i64 %80, %.pre19.i.i.i.i52
   %85 = sub i64 %81, %.pre19.i.i.i.i52
-  %86 = icmp ult i64 %85, %84
+  %86 = icmp ugt i64 %84, %85
   br i1 %86, label %87, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i53"
 
 87:                                               ; preds = %83
@@ -861,7 +861,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h04e061359f6409baE(ptr noalias
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i53": ; preds = %87, %83, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h49d14195041b9f70E.exit50"
   %88 = phi i64 [ %.pre.i.i.i.i55, %87 ], [ %.pre19.i.i.i.i52, %83 ], [ %.pre19.i.i.i.i52, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h49d14195041b9f70E.exit50" ]
-  %89 = icmp ult i64 %88, %.promoted.i.i.i.i51
+  %89 = icmp ugt i64 %.promoted.i.i.i.i51, %88
   br i1 %89, label %.lr.ph.preheader.i.i.i.i.us.i.i.i.i54, label %93
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i.i54:            ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i53"
@@ -917,7 +917,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h077b57d3d83e6935E(ptr noalias
 17:                                               ; preds = %5
   %18 = sub i64 %14, %.pre19.i.i.i.i.i
   %19 = sub i64 %15, %.pre19.i.i.i.i.i
-  %20 = icmp ult i64 %19, %18
+  %20 = icmp ugt i64 %18, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i.i"
 
 21:                                               ; preds = %17
@@ -927,7 +927,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h077b57d3d83e6935E(ptr noalias
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i.i": ; preds = %21, %17, %5
   %22 = phi i64 [ %.pre.i.i.i.i.i, %21 ], [ %.pre19.i.i.i.i.i, %17 ], [ %.pre19.i.i.i.i.i, %5 ]
-  %23 = icmp ult i64 %22, %.promoted.i.i.i.i.i
+  %23 = icmp ugt i64 %.promoted.i.i.i.i.i, %22
   br i1 %23, label %.lr.ph.preheader.i.i.i.i.us.i.i.i.i.i, label %27
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i.i.i:            ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i.i"
@@ -970,7 +970,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h077b57d3d83e6935E(ptr noalias
 42:                                               ; preds = %34
   %43 = sub i64 %39, %.pre19.i.i.i.i
   %44 = sub i64 %40, %.pre19.i.i.i.i
-  %45 = icmp ult i64 %44, %43
+  %45 = icmp ugt i64 %43, %44
   br i1 %45, label %46, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i"
 
 46:                                               ; preds = %42
@@ -980,7 +980,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h077b57d3d83e6935E(ptr noalias
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i": ; preds = %46, %42, %34
   %47 = phi i64 [ %.pre.i.i.i.i, %46 ], [ %.pre19.i.i.i.i, %42 ], [ %.pre19.i.i.i.i, %34 ]
-  %48 = icmp ult i64 %47, %.promoted.i.i.i.i
+  %48 = icmp ugt i64 %.promoted.i.i.i.i, %47
   br i1 %48, label %.lr.ph.preheader.i.i.i.i.us.i.i.i.i, label %52
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i.i:              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i"
@@ -1027,7 +1027,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h077b57d3d83e6935E(ptr noalias
 68:                                               ; preds = %.lr.ph.split.us.i.i.i.i
   %69 = sub i64 %65, %.pre19.i.i.i.i47
   %70 = sub i64 %66, %.pre19.i.i.i.i47
-  %71 = icmp ult i64 %70, %69
+  %71 = icmp ugt i64 %69, %70
   br i1 %71, label %72, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i48"
 
 72:                                               ; preds = %68
@@ -1037,7 +1037,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h077b57d3d83e6935E(ptr noalias
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i48": ; preds = %72, %68, %.lr.ph.split.us.i.i.i.i
   %73 = phi i64 [ %.pre.i.i.i.i50, %72 ], [ %.pre19.i.i.i.i47, %68 ], [ %.pre19.i.i.i.i47, %.lr.ph.split.us.i.i.i.i ]
-  %74 = icmp ult i64 %73, %.promoted.i.i.i.i46
+  %74 = icmp ugt i64 %.promoted.i.i.i.i46, %73
   br i1 %74, label %.lr.ph.preheader.i.i.i.i.us.i.i.i.i49, label %78
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i.i49:            ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i48"
@@ -1090,7 +1090,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h077b57d3d83e6935E(ptr noalias
 95:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h8695af4cec928b42E.exit51"
   %96 = sub i64 %92, %.pre19.i.i.i.i.i54
   %97 = sub i64 %93, %.pre19.i.i.i.i.i54
-  %98 = icmp ult i64 %97, %96
+  %98 = icmp ugt i64 %96, %97
   br i1 %98, label %99, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i.i55"
 
 99:                                               ; preds = %95
@@ -1100,7 +1100,7 @@ define hidden void @_ZN3png7encoder11write_chunk17h077b57d3d83e6935E(ptr noalias
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i.i55": ; preds = %99, %95, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h8695af4cec928b42E.exit51"
   %100 = phi i64 [ %.pre.i.i.i.i.i57, %99 ], [ %.pre19.i.i.i.i.i54, %95 ], [ %.pre19.i.i.i.i.i54, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h8695af4cec928b42E.exit51" ]
-  %101 = icmp ult i64 %100, %.promoted.i.i.i.i.i53
+  %101 = icmp ugt i64 %.promoted.i.i.i.i.i53, %100
   br i1 %101, label %.lr.ph.preheader.i.i.i.i.us.i.i.i.i.i56, label %105
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i.i.i56:          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i.i55"
@@ -2460,7 +2460,7 @@ _ZN3png6common9ColorType22is_combination_invalid17hb78fff0613a5e815E.exit.thread
 49:                                               ; preds = %_ZN3png6common9ColorType22is_combination_invalid17hb78fff0613a5e815E.exit.thread
   %50 = sub i64 %46, %.pre19.i.i
   %51 = sub i64 %47, %.pre19.i.i
-  %52 = icmp ult i64 %51, %50
+  %52 = icmp ugt i64 %50, %51
   br i1 %52, label %53, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i"
 
 53:                                               ; preds = %49
@@ -2473,7 +2473,7 @@ _ZN3png6common9ColorType22is_combination_invalid17hb78fff0613a5e815E.exit.thread
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i": ; preds = %.noexc, %49, %_ZN3png6common9ColorType22is_combination_invalid17hb78fff0613a5e815E.exit.thread
   %54 = phi i64 [ %.pre.i.i, %.noexc ], [ %.pre19.i.i, %49 ], [ %.pre19.i.i, %_ZN3png6common9ColorType22is_combination_invalid17hb78fff0613a5e815E.exit.thread ]
-  %55 = icmp ult i64 %54, %.promoted.i.i
+  %55 = icmp ugt i64 %.promoted.i.i, %54
   br i1 %55, label %.lr.ph.preheader.i.i.i.i.us.i.i, label %59
 
 .lr.ph.preheader.i.i.i.i.us.i.i:                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i"
@@ -2886,7 +2886,7 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaee
 11:                                               ; preds = %.lr.ph.split.us
   %12 = sub i64 %8, %.pre19
   %13 = sub i64 %9, %.pre19
-  %14 = icmp ult i64 %13, %12
+  %14 = icmp ugt i64 %12, %13
   br i1 %14, label %15, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us"
 
 15:                                               ; preds = %11
@@ -2896,7 +2896,7 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaee
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us": ; preds = %15, %11, %.lr.ph.split.us
   %16 = phi i64 [ %.pre, %15 ], [ %.pre19, %11 ], [ %.pre19, %.lr.ph.split.us ]
-  %17 = icmp ult i64 %16, %.promoted
+  %17 = icmp ugt i64 %.promoted, %16
   br i1 %17, label %.lr.ph.preheader.i.i.i.i.us, label %21
 
 .lr.ph.preheader.i.i.i.i.us:                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us"
@@ -3010,7 +3010,7 @@ define hidden noalias noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Wri
 12:                                               ; preds = %.lr.ph.split.us.i
   %13 = sub i64 %9, %.pre19.i
   %14 = sub i64 %10, %.pre19.i
-  %15 = icmp ult i64 %14, %13
+  %15 = icmp ugt i64 %13, %14
   br i1 %15, label %16, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i"
 
 16:                                               ; preds = %12
@@ -3020,7 +3020,7 @@ define hidden noalias noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Wri
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i": ; preds = %16, %12, %.lr.ph.split.us.i
   %17 = phi i64 [ %.pre.i, %16 ], [ %.pre19.i, %12 ], [ %.pre19.i, %.lr.ph.split.us.i ]
-  %18 = icmp ult i64 %17, %.promoted.i
+  %18 = icmp ugt i64 %.promoted.i, %17
   br i1 %18, label %.lr.ph.preheader.i.i.i.i.us.i, label %22
 
 .lr.ph.preheader.i.i.i.i.us.i:                    ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i"
@@ -3067,7 +3067,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h139fe40277550836E.llvm.15639
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -3269,7 +3269,7 @@ define hidden noalias noundef ptr @"_ZN58_$LT$W$u20$as$u20$gif..traits..WriteByt
 10:                                               ; preds = %2
   %11 = sub i64 %7, %.pre19.i.i
   %12 = sub i64 %8, %.pre19.i.i
-  %13 = icmp ult i64 %12, %11
+  %13 = icmp ugt i64 %11, %12
   br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i"
 
 14:                                               ; preds = %10
@@ -3279,7 +3279,7 @@ define hidden noalias noundef ptr @"_ZN58_$LT$W$u20$as$u20$gif..traits..WriteByt
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i": ; preds = %14, %10, %2
   %15 = phi i64 [ %.pre.i.i, %14 ], [ %.pre19.i.i, %10 ], [ %.pre19.i.i, %2 ]
-  %16 = icmp ult i64 %15, %.promoted.i.i
+  %16 = icmp ugt i64 %.promoted.i.i, %15
   br i1 %16, label %.lr.ph.preheader.i.i.i.i.us.i.i, label %20
 
 .lr.ph.preheader.i.i.i.i.us.i.i:                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i"
@@ -3423,8 +3423,8 @@ define hidden noundef zeroext i1 @_ZN5image5image16GenericImageView9in_bounds17h
   %5 = load i32, ptr %4, align 8, !alias.scope !908, !noalias !911, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4, !alias.scope !908, !noalias !911, !noundef !4
-  %8 = icmp ugt i32 %5, %1
-  %9 = icmp ugt i32 %7, %2
+  %8 = icmp ult i32 %1, %5
+  %9 = icmp ult i32 %2, %7
   %.0 = and i1 %8, %9
   ret i1 %.0
 }
@@ -3435,8 +3435,8 @@ define hidden noundef zeroext i1 @_ZN5image5image16GenericImageView9in_bounds17h
   %5 = load i32, ptr %4, align 8, !alias.scope !913, !noalias !916, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4, !alias.scope !913, !noalias !916, !noundef !4
-  %8 = icmp ugt i32 %5, %1
-  %9 = icmp ugt i32 %7, %2
+  %8 = icmp ult i32 %1, %5
+  %9 = icmp ult i32 %2, %7
   %.0 = and i1 %8, %9
   ret i1 %.0
 }
@@ -3447,8 +3447,8 @@ define hidden noundef zeroext i1 @_ZN5image5image16GenericImageView9in_bounds17h
   %5 = load i32, ptr %4, align 8, !alias.scope !918, !noalias !921, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4, !alias.scope !918, !noalias !921, !noundef !4
-  %8 = icmp ugt i32 %5, %1
-  %9 = icmp ugt i32 %7, %2
+  %8 = icmp ult i32 %1, %5
+  %9 = icmp ult i32 %2, %7
   %.0 = and i1 %8, %9
   ret i1 %.0
 }
@@ -3459,8 +3459,8 @@ define hidden noundef zeroext i1 @_ZN5image5image16GenericImageView9in_bounds17h
   %5 = load i32, ptr %4, align 8, !alias.scope !923, !noalias !926, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4, !alias.scope !923, !noalias !926, !noundef !4
-  %8 = icmp ugt i32 %5, %1
-  %9 = icmp ugt i32 %7, %2
+  %8 = icmp ult i32 %1, %5
+  %9 = icmp ult i32 %2, %7
   %.0 = and i1 %8, %9
   ret i1 %.0
 }
@@ -3664,7 +3664,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 110:                                              ; preds = %.noexc52
   %111 = sub i64 %107, %.pre19.i.i.i.i.i
   %112 = sub i64 %108, %.pre19.i.i.i.i.i
-  %113 = icmp ult i64 %112, %111
+  %113 = icmp ugt i64 %111, %112
   br i1 %113, label %114, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i.i"
 
 114:                                              ; preds = %110
@@ -3677,7 +3677,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i.i": ; preds = %.noexc53, %110, %.noexc52
   %115 = phi i64 [ %.pre.i.i.i.i.i, %.noexc53 ], [ %.pre19.i.i.i.i.i, %110 ], [ %.pre19.i.i.i.i.i, %.noexc52 ]
-  %116 = icmp ult i64 %115, %.promoted.i.i.i.i.i
+  %116 = icmp ugt i64 %.promoted.i.i.i.i.i, %115
   br i1 %116, label %.lr.ph.preheader.i.i.i.i.us.i.i.i.i.i, label %120
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i.i.i:            ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i.i"
@@ -3761,7 +3761,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   store i64 0, ptr %136, align 8, !alias.scope !999, !noalias !1000
   %137 = lshr i64 %.val12.i, 2
   %138 = load i64, ptr %1, align 8, !alias.scope !1003, !noalias !1000, !noundef !4
-  %139 = icmp ult i64 %138, %137
+  %139 = icmp ugt i64 %137, %138
   br i1 %139, label %140, label %144
 
 140:                                              ; preds = %"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17hf7ee3e4288505973E.exit.i"
@@ -3779,7 +3779,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 144:                                              ; preds = %._crit_edge.i.i.i, %"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17hf7ee3e4288505973E.exit.i"
   %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %138, %"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17hf7ee3e4288505973E.exit.i" ]
-  %145 = icmp uge i64 %.pre-phi.i.i.i, %137
+  %145 = icmp ule i64 %137, %.pre-phi.i.i.i
   call void @llvm.assume(i1 %145)
   invoke void @_ZN3gif7encoder10lzw_encode17h2bdf4e1df65a748cE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.val12.i, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc57 unwind label %.loopexit.split-lp
@@ -3830,7 +3830,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 162:                                              ; preds = %.noexc59
   %163 = sub i64 %159, %.pre19.i.i.i.i14.i
   %164 = sub i64 %160, %.pre19.i.i.i.i14.i
-  %165 = icmp ult i64 %164, %163
+  %165 = icmp ugt i64 %163, %164
   br i1 %165, label %166, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i15.i"
 
 166:                                              ; preds = %162
@@ -3843,7 +3843,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i15.i": ; preds = %.noexc60, %162, %.noexc59
   %167 = phi i64 [ %.pre.i.i.i.i17.i, %.noexc60 ], [ %.pre19.i.i.i.i14.i, %162 ], [ %.pre19.i.i.i.i14.i, %.noexc59 ]
-  %168 = icmp ult i64 %167, %.promoted.i.i.i.i13.i
+  %168 = icmp ugt i64 %.promoted.i.i.i.i13.i, %167
   br i1 %168, label %.lr.ph.preheader.i.i.i.i.us.i.i.i.i16.i, label %172
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i.i16.i:          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i15.i"
@@ -3899,7 +3899,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 190:                                              ; preds = %.lr.ph.i.i.i
   %191 = sub i64 %187, %.pre19.i.i49.i.i.i
   %192 = sub i64 %188, %.pre19.i.i49.i.i.i
-  %193 = icmp ult i64 %192, %191
+  %193 = icmp ugt i64 %191, %192
   br i1 %193, label %194, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i50.i.i.i"
 
 194:                                              ; preds = %190
@@ -3912,7 +3912,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i50.i.i.i": ; preds = %.noexc61, %190, %.lr.ph.i.i.i
   %195 = phi i64 [ %.pre.i.i52.i.i.i, %.noexc61 ], [ %.pre19.i.i49.i.i.i, %190 ], [ %.pre19.i.i49.i.i.i, %.lr.ph.i.i.i ]
-  %196 = icmp ult i64 %195, %.promoted.i.i48.i.i.i
+  %196 = icmp ugt i64 %.promoted.i.i48.i.i.i, %195
   br i1 %196, label %.lr.ph.preheader.i.i.i.i.us.i.i51.i.i.i, label %200
 
 .lr.ph.preheader.i.i.i.i.us.i.i51.i.i.i:          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i50.i.i.i"
@@ -3949,7 +3949,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 211:                                              ; preds = %207
   %212 = sub i64 %208, %.pre19.i.i55.i.i.i
   %213 = sub i64 %209, %.pre19.i.i55.i.i.i
-  %214 = icmp ult i64 %213, %212
+  %214 = icmp ugt i64 %212, %213
   br i1 %214, label %215, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i56.i.i.i"
 
 215:                                              ; preds = %211
@@ -3962,7 +3962,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i56.i.i.i": ; preds = %.noexc62, %211, %207
   %216 = phi i64 [ %.pre.i.i58.i.i.i, %.noexc62 ], [ %.pre19.i.i55.i.i.i, %211 ], [ %.pre19.i.i55.i.i.i, %207 ]
-  %217 = icmp ult i64 %216, %.promoted.i.i54.i.i.i
+  %217 = icmp ugt i64 %.promoted.i.i54.i.i.i, %216
   br i1 %217, label %.lr.ph.preheader.i.i.i.i.us.i.i57.i.i.i, label %221
 
 .lr.ph.preheader.i.i.i.i.us.i.i57.i.i.i:          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i56.i.i.i"
@@ -3998,7 +3998,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 233:                                              ; preds = %228
   %234 = sub i64 %230, %.pre19.i.i61.i.i.i
   %235 = sub i64 %231, %.pre19.i.i61.i.i.i
-  %236 = icmp ult i64 %235, %234
+  %236 = icmp ugt i64 %234, %235
   br i1 %236, label %237, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i62.i.i.i"
 
 237:                                              ; preds = %233
@@ -4011,7 +4011,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i62.i.i.i": ; preds = %.noexc63, %233, %228
   %238 = phi i64 [ %.pre.i.i64.i.i.i, %.noexc63 ], [ %.pre19.i.i61.i.i.i, %233 ], [ %.pre19.i.i61.i.i.i, %228 ]
-  %239 = icmp ult i64 %238, %.promoted.i.i60.i.i.i
+  %239 = icmp ugt i64 %.promoted.i.i60.i.i.i, %238
   br i1 %239, label %.lr.ph.preheader.i.i.i.i.us.i.i63.i.i.i, label %243
 
 .lr.ph.preheader.i.i.i.i.us.i.i63.i.i.i:          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i62.i.i.i"
@@ -4048,7 +4048,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 253:                                              ; preds = %.lr.ph.split.us.i.i.i.i.i
   %254 = sub i64 %250, %.pre19.i.i67.i.i.i
   %255 = sub i64 %251, %.pre19.i.i67.i.i.i
-  %256 = icmp ult i64 %255, %254
+  %256 = icmp ugt i64 %254, %255
   br i1 %256, label %257, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i68.i.i.i"
 
 257:                                              ; preds = %253
@@ -4061,7 +4061,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i68.i.i.i": ; preds = %.noexc64, %253, %.lr.ph.split.us.i.i.i.i.i
   %258 = phi i64 [ %.pre.i.i70.i.i.i, %.noexc64 ], [ %.pre19.i.i67.i.i.i, %253 ], [ %.pre19.i.i67.i.i.i, %.lr.ph.split.us.i.i.i.i.i ]
-  %259 = icmp ult i64 %258, %246
+  %259 = icmp ugt i64 %246, %258
   br i1 %259, label %.lr.ph.preheader.i.i.i.i.us.i.i69.i.i.i, label %263
 
 .lr.ph.preheader.i.i.i.i.us.i.i69.i.i.i:          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i68.i.i.i"
@@ -4103,7 +4103,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 273:                                              ; preds = %.lr.ph.split.us.i.i72.i.i.i
   %274 = sub i64 %270, %.pre19.i.i74.i.i.i
   %275 = sub i64 %271, %.pre19.i.i74.i.i.i
-  %276 = icmp ult i64 %275, %274
+  %276 = icmp ugt i64 %274, %275
   br i1 %276, label %277, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i75.i.i.i"
 
 277:                                              ; preds = %273
@@ -4116,7 +4116,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i75.i.i.i": ; preds = %.noexc65, %273, %.lr.ph.split.us.i.i72.i.i.i
   %278 = phi i64 [ %.pre.i.i78.i.i.i, %.noexc65 ], [ %.pre19.i.i74.i.i.i, %273 ], [ %.pre19.i.i74.i.i.i, %.lr.ph.split.us.i.i72.i.i.i ]
-  %279 = icmp ult i64 %278, %203
+  %279 = icmp ugt i64 %203, %278
   br i1 %279, label %.lr.ph.preheader.i.i.i.i.us.i.i77.i.i.i, label %283
 
 .lr.ph.preheader.i.i.i.i.us.i.i77.i.i.i:          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i75.i.i.i"
@@ -4234,7 +4234,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 326:                                              ; preds = %319
   %327 = sub i64 %323, %.pre19.i.i.i.i
   %328 = sub i64 %324, %.pre19.i.i.i.i
-  %329 = icmp ult i64 %328, %327
+  %329 = icmp ugt i64 %327, %328
   br i1 %329, label %330, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i"
 
 330:                                              ; preds = %326
@@ -4247,7 +4247,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i": ; preds = %.noexc52.i, %326, %319
   %331 = phi i64 [ %.pre.i.i.i.i, %.noexc52.i ], [ %.pre19.i.i.i.i, %326 ], [ %.pre19.i.i.i.i, %319 ]
-  %332 = icmp ult i64 %331, %.promoted.i.i.i.i
+  %332 = icmp ugt i64 %.promoted.i.i.i.i, %331
   br i1 %332, label %.lr.ph.preheader.i.i.i.i.us.i.i.i.i, label %336
 
 .lr.ph.preheader.i.i.i.i.us.i.i.i.i:              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i.i.i"
@@ -4326,7 +4326,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 354:                                              ; preds = %348
   %355 = sub i64 %351, %.pre19.i.i20.i
   %356 = sub i64 %352, %.pre19.i.i20.i
-  %357 = icmp ult i64 %356, %355
+  %357 = icmp ugt i64 %355, %356
   br i1 %357, label %358, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i21.i"
 
 358:                                              ; preds = %354
@@ -4339,7 +4339,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i21.i": ; preds = %.noexc73, %354, %348
   %359 = phi i64 [ %.pre.i.i24.i, %.noexc73 ], [ %.pre19.i.i20.i, %354 ], [ %.pre19.i.i20.i, %348 ]
-  %360 = icmp ult i64 %359, %349
+  %360 = icmp ugt i64 %349, %359
   br i1 %360, label %.lr.ph.preheader.i.i.i.i.us.i.i23.i, label %364
 
 .lr.ph.preheader.i.i.i.i.us.i.i23.i:              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i21.i"
@@ -4893,10 +4893,10 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$6encode17h85640bf5
 define hidden void @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13pixel_indices17h27709c0bf8c08e12E.llvm.1563996087720595280"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8, !noundef !4
-  %7 = icmp ule i32 %6, %2
+  %7 = icmp uge i32 %2, %6
   %8 = getelementptr inbounds i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = icmp ule i32 %9, %3
+  %10 = icmp uge i32 %3, %9
   %or.cond = select i1 %7, i1 true, i1 %10
   br i1 %or.cond, label %20, label %11
 
@@ -4923,10 +4923,10 @@ define hidden void @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13pixel_
 define hidden void @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13pixel_indices17h6cea7d0579cc76a4E.llvm.1563996087720595280"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8, !noundef !4
-  %7 = icmp ule i32 %6, %2
+  %7 = icmp uge i32 %2, %6
   %8 = getelementptr inbounds i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = icmp ule i32 %9, %3
+  %10 = icmp uge i32 %3, %9
   %or.cond = select i1 %7, i1 true, i1 %10
   br i1 %or.cond, label %21, label %11
 
@@ -4954,10 +4954,10 @@ define hidden void @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13pixel_
 define hidden void @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13pixel_indices17h8609a5b71ef9ac09E.llvm.1563996087720595280"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8, !noundef !4
-  %7 = icmp ule i32 %6, %2
+  %7 = icmp uge i32 %2, %6
   %8 = getelementptr inbounds i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = icmp ule i32 %9, %3
+  %10 = icmp uge i32 %3, %9
   %or.cond = select i1 %7, i1 true, i1 %10
   br i1 %or.cond, label %21, label %11
 
@@ -4985,10 +4985,10 @@ define hidden void @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13pixel_
 define hidden void @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13pixel_indices17he94949453259ee65E.llvm.1563996087720595280"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8, !noundef !4
-  %7 = icmp ule i32 %6, %2
+  %7 = icmp uge i32 %2, %6
   %8 = getelementptr inbounds i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = icmp ule i32 %9, %3
+  %10 = icmp uge i32 %3, %9
   %or.cond = select i1 %7, i1 true, i1 %10
   br i1 %or.cond, label %21, label %11
 
@@ -5229,10 +5229,10 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN5image7buffer_
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -5296,10 +5296,10 @@ define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN5image7buffer_
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -5372,10 +5372,10 @@ define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN5image7buffer_
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -5448,10 +5448,10 @@ define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN5image7buffer_
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -6144,10 +6144,10 @@ define hidden i24 @"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1462)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !alias.scope !1462, !noalias !1465, !noundef !4
-  %10 = icmp ule i32 %9, %1
+  %10 = icmp uge i32 %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4, !alias.scope !1462, !noalias !1465
-  %13 = icmp ule i32 %12, %2
+  %13 = icmp uge i32 %2, %12
   %or.cond.i.i = select i1 %10, i1 true, i1 %13
   br i1 %or.cond.i.i, label %14, label %24
 
@@ -6222,10 +6222,10 @@ define hidden i32 @"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1480)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !alias.scope !1480, !noalias !1483, !noundef !4
-  %10 = icmp ule i32 %9, %1
+  %10 = icmp uge i32 %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4, !alias.scope !1480, !noalias !1483
-  %13 = icmp ule i32 %12, %2
+  %13 = icmp uge i32 %2, %12
   %or.cond.i.i = select i1 %10, i1 true, i1 %13
   br i1 %or.cond.i.i, label %14, label %24
 
@@ -6300,10 +6300,10 @@ define hidden i8 @"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1498)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !alias.scope !1498, !noalias !1501, !noundef !4
-  %10 = icmp ule i32 %9, %1
+  %10 = icmp uge i32 %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4, !alias.scope !1498, !noalias !1501
-  %13 = icmp ule i32 %12, %2
+  %13 = icmp uge i32 %2, %12
   %or.cond.i.i = select i1 %10, i1 true, i1 %13
   br i1 %or.cond.i.i, label %14, label %24
 
@@ -6369,10 +6369,10 @@ define hidden i16 @"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1516)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !alias.scope !1516, !noalias !1519, !noundef !4
-  %10 = icmp ule i32 %9, %1
+  %10 = icmp uge i32 %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4, !alias.scope !1516, !noalias !1519
-  %13 = icmp ule i32 %12, %2
+  %13 = icmp uge i32 %2, %12
   %or.cond.i.i = select i1 %10, i1 true, i1 %13
   br i1 %or.cond.i.i, label %14, label %24
 

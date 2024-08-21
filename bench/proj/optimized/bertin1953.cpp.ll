@@ -128,11 +128,11 @@ define internal { double, double } @_ZL20bertin1953_s_forward5PJ_LPP8PJconsts(do
   %19 = load double, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 24
   %21 = load double, ptr %20, align 8
-  %22 = fneg double %17
-  %23 = fmul double %21, %22
+  %22 = fneg double %21
+  %23 = fmul double %17, %22
   %24 = tail call double @llvm.fmuladd.f64(double %11, double %19, double %23)
-  %25 = fneg double %12
-  %26 = fmul double %15, %25
+  %25 = fneg double %15
+  %26 = fmul double %12, %25
   %27 = tail call double @llvm.fmuladd.f64(double %9, double %13, double %26)
   %28 = tail call double @atan2(double noundef %24, double noundef %27) #6
   %29 = load double, ptr %18, align 8

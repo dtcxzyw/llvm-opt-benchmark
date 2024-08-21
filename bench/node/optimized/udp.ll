@@ -74,7 +74,7 @@ define hidden void @uv__udp_finish_close(ptr noundef %handle) local_unnamed_addr
 entry:
   %write_queue = getelementptr inbounds i8, ptr %handle, i64 184
   %0 = load ptr, ptr %write_queue, align 8
-  %cmp.i.not9 = icmp eq ptr %0, %write_queue
+  %cmp.i.not9 = icmp eq ptr %write_queue, %0
   br i1 %cmp.i.not9, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -99,7 +99,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store ptr %1, ptr %5, align 8
   store ptr %1, ptr %prev.i8, align 8
   %6 = load ptr, ptr %write_queue, align 8
-  %cmp.i.not = icmp eq ptr %6, %write_queue
+  %cmp.i.not = icmp eq ptr %write_queue, %6
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %entry
@@ -118,7 +118,7 @@ entry:
   store i32 %or, ptr %flags, align 8
   %write_completed_queue = getelementptr inbounds i8, ptr %handle, i64 200
   %1 = load ptr, ptr %write_completed_queue, align 8
-  %cmp.i.not32 = icmp eq ptr %1, %write_completed_queue
+  %cmp.i.not32 = icmp eq ptr %write_completed_queue, %1
   br i1 %cmp.i.not32, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -180,13 +180,13 @@ if.end10:                                         ; preds = %if.end
 
 while.cond.backedge:                              ; preds = %if.end10, %if.end
   %15 = load ptr, ptr %write_completed_queue, align 8
-  %cmp.i.not = icmp eq ptr %15, %write_completed_queue
+  %cmp.i.not = icmp eq ptr %write_completed_queue, %15
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.cond.backedge, %entry
   %write_queue = getelementptr inbounds i8, ptr %handle, i64 184
   %16 = load ptr, ptr %write_queue, align 8
-  %cmp.i30.not = icmp eq ptr %16, %write_queue
+  %cmp.i30.not = icmp eq ptr %write_queue, %16
   br i1 %cmp.i30.not, label %if.then19, label %if.end45
 
 if.then19:                                        ; preds = %while.end
@@ -728,7 +728,7 @@ land.lhs.true:                                    ; preds = %do.end61
 if.then66:                                        ; preds = %land.lhs.true
   call fastcc void @uv__udp_sendmsg(ptr noundef nonnull %handle)
   %21 = load ptr, ptr %write_queue, align 8
-  %cmp.i.not = icmp eq ptr %21, %write_queue
+  %cmp.i.not = icmp eq ptr %write_queue, %21
   br i1 %cmp.i.not, label %return, label %if.then70
 
 if.then70:                                        ; preds = %if.then66
@@ -761,7 +761,7 @@ entry:
   %h = alloca [20 x %struct.mmsghdr], align 16
   %write_queue = getelementptr inbounds i8, ptr %handle, i64 184
   %0 = load ptr, ptr %write_queue, align 8
-  %cmp.i.not = icmp eq ptr %0, %write_queue
+  %cmp.i.not = icmp eq ptr %write_queue, %0
   br i1 %cmp.i.not, label %return, label %write_queue_drain.preheader
 
 write_queue_drain.preheader:                      ; preds = %entry
@@ -931,7 +931,7 @@ for.body106:                                      ; preds = %for.cond98.preheade
 
 for.end118:                                       ; preds = %for.body106, %for.cond98.preheader
   %23 = phi ptr [ %q.281, %for.cond98.preheader ], [ %q.2, %for.body106 ]
-  %cmp.i62.not = icmp eq ptr %23, %write_queue
+  %cmp.i62.not = icmp eq ptr %write_queue, %23
   br i1 %cmp.i62.not, label %return.sink.split, label %write_queue_drain
 
 return.sink.split:                                ; preds = %for.end118, %for.body84, %for.cond76.preheader

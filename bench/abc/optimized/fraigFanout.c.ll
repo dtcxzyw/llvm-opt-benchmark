@@ -16,13 +16,13 @@ define void @Fraig_NodeAddFaninFanout(ptr noundef %0, ptr noundef %1) local_unna
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %10, %0
+  %11 = icmp eq ptr %0, %10
   %12 = getelementptr inbounds i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
-  %17 = icmp eq ptr %16, %0
+  %17 = icmp eq ptr %0, %16
   %. = select i1 %11, i64 144, i64 152
   %18 = getelementptr inbounds i8, ptr %4, i64 %.
   %19 = load ptr, ptr %18, align 8
@@ -52,7 +52,7 @@ define void @Fraig_NodeRemoveFaninFanout(ptr noundef %0, ptr noundef readnone %1
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %10, %0
+  %11 = icmp eq ptr %0, %10
   %.33 = select i1 %11, i64 144, i64 152
   %12 = getelementptr inbounds i8, ptr %.sink, i64 %.33
   %13 = load ptr, ptr %12, align 8
@@ -66,7 +66,7 @@ define void @Fraig_NodeRemoveFaninFanout(ptr noundef %0, ptr noundef readnone %1
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
-  %21 = icmp eq ptr %20, %0
+  %21 = icmp eq ptr %0, %20
   %.v = select i1 %21, i64 144, i64 152
   %22 = getelementptr inbounds i8, ptr %.sink, i64 %.v
   br label %23
@@ -102,7 +102,7 @@ define void @Fraig_NodeTransferFanout(ptr noundef %0, ptr noundef %1) local_unna
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %10, %0
+  %11 = icmp eq ptr %0, %10
   br i1 %11, label %.sink.split, label %12
 
 12:                                               ; preds = %5
@@ -111,7 +111,7 @@ define void @Fraig_NodeTransferFanout(ptr noundef %0, ptr noundef %1) local_unna
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = icmp eq ptr %17, %0
+  %18 = icmp eq ptr %0, %17
   br i1 %18, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %12, %5
@@ -126,7 +126,7 @@ define void @Fraig_NodeTransferFanout(ptr noundef %0, ptr noundef %1) local_unna
 
 22:                                               ; preds = %.sink.split, %12
   %.pre-phi34 = phi ptr [ %10, %12 ], [ %.pre-phi34.ph, %.sink.split ]
-  %23 = icmp eq ptr %.pre-phi34, %0
+  %23 = icmp eq ptr %0, %.pre-phi34
   %.in.v = select i1 %23, i64 144, i64 152
   %.in = getelementptr inbounds i8, ptr %.029, i64 %.in.v
   %.0 = load ptr, ptr %.in, align 8
@@ -169,7 +169,7 @@ define i32 @Fraig_NodeGetFanoutNum(ptr noundef readonly %0) local_unnamed_addr #
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %0
+  %9 = icmp eq ptr %0, %8
   %.in.v = select i1 %9, i64 144, i64 152
   %.in = getelementptr inbounds i8, ptr %.0812, i64 %.in.v
   %.08 = load ptr, ptr %.in, align 8

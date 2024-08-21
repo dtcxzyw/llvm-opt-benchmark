@@ -388,7 +388,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !60, !noalias !65, !noundef !8
   %45 = load i64, ptr %0, align 8, !alias.scope !67, !noalias !65, !noundef !8
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5e9d2b284012dc70E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -445,7 +445,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !73, !noalias !78, !noundef !8
   %6 = load i64, ptr %0, align 8, !alias.scope !80, !noalias !78, !noundef !8
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5e9d2b284012dc70E.exit"
 
 9:                                                ; preds = %3
@@ -513,7 +513,7 @@ define internal fastcc void @_ZN5regex5regex6string5Regex11captures_at17h9983fbb
 20:                                               ; preds = %._crit_edge.i
   %21 = getelementptr inbounds i8, ptr %.pre, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !87
-  %23 = icmp ugt i64 %22, %3
+  %23 = icmp ult i64 %3, %22
   br i1 %23, label %.thread, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i: ; preds = %20
@@ -538,7 +538,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.i: ; preds = %31
   %34 = getelementptr inbounds i8, ptr %.pre, i64 24
   %35 = load i64, ptr %34, align 8
-  %36 = icmp ult i64 %35, %3
+  %36 = icmp ugt i64 %3, %35
   br i1 %36, label %.thread, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.thread.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.thread.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.i, %31, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.thread.i, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i, %._crit_edge.i
@@ -2531,11 +2531,11 @@ common.resume:                                    ; preds = %432, %47, %385, %.b
   br i1 %419, label %435, label %420
 
 420:                                              ; preds = %417
-  %421 = icmp eq i64 %.val.i.i.i, %.032.i.i
+  %421 = icmp eq i64 %.032.i.i, %.val.i.i.i
   br i1 %421, label %424, label %422
 
 422:                                              ; preds = %420
-  %423 = icmp ult i64 %.val.i.i.i, %.032.i.i
+  %423 = icmp ugt i64 %.032.i.i, %.val.i.i.i
   br i1 %423, label %435, label %429
 
 424:                                              ; preds = %420

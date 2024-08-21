@@ -3957,7 +3957,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, %1
+  %24 = icmp eq i32 %1, %23
   br i1 %24, label %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit, label %20, !llvm.loop !46
 
 25:                                               ; preds = %15
@@ -3975,11 +3975,11 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
   %34 = load ptr, ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 4
-  %37 = icmp eq i32 %36, %1
+  %37 = icmp eq i32 %1, %36
   br i1 %37, label %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit, label %.lr.ph.i.i.i.i.i
 
 38:                                               ; preds = %41
-  %39 = icmp eq i32 %43, %1
+  %39 = icmp eq i32 %1, %43
   br i1 %39, label %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !47
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %33, %38
@@ -4041,7 +4041,7 @@ _ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt
 63:                                               ; preds = %62
   %64 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i19, i64 8
   %65 = load i32, ptr %64, align 4
-  %66 = icmp eq i32 %65, %1
+  %66 = icmp eq i32 %1, %65
   br i1 %66, label %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit21, label %62, !llvm.loop !46
 
 67:                                               ; preds = %57
@@ -4059,7 +4059,7 @@ _ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt
   %76 = load ptr, ptr %74, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 8
   %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, %1
+  %79 = icmp eq i32 %1, %78
   br i1 %79, label %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit21.thread, label %.lr.ph.i.i.i.i.i12
 
 _ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit21.thread: ; preds = %75
@@ -4067,7 +4067,7 @@ _ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt
   br label %97
 
 81:                                               ; preds = %84
-  %82 = icmp eq i32 %86, %1
+  %82 = icmp eq i32 %1, %86
   br i1 %82, label %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit21, label %.lr.ph.i.i.i.i.i12, !llvm.loop !47
 
 .lr.ph.i.i.i.i.i12:                               ; preds = %75, %81
@@ -4114,7 +4114,7 @@ _ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt
 93:                                               ; preds = %92
   %94 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i31, i64 8
   %95 = load i32, ptr %94, align 4
-  %96 = icmp eq i32 %95, %1
+  %96 = icmp eq i32 %1, %95
   br i1 %96, label %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit33, label %92, !llvm.loop !46
 
 97:                                               ; preds = %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit21._crit_edge, %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit21.thread
@@ -4131,11 +4131,11 @@ _ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt
   %104 = load ptr, ptr %102, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 4
-  %107 = icmp eq i32 %106, %1
+  %107 = icmp eq i32 %1, %106
   br i1 %107, label %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit33, label %.lr.ph.i.i.i.i.i24
 
 108:                                              ; preds = %111
-  %109 = icmp eq i32 %113, %1
+  %109 = icmp eq i32 %1, %113
   br i1 %109, label %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit33, label %.lr.ph.i.i.i.i.i24, !llvm.loop !47
 
 .lr.ph.i.i.i.i.i24:                               ; preds = %103, %108

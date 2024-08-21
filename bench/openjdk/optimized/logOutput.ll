@@ -545,7 +545,7 @@ _ZL9sort_tagsPN6LogTag4typeE.exit:                ; preds = %17
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds %class.LogSelection, ptr %22, i64 %.04558
   %24 = call noundef i32 @_ZNK12LogSelection5levelEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #12
-  %25 = icmp eq i32 %24, %4
+  %25 = icmp eq i32 %4, %24
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %.lr.ph59

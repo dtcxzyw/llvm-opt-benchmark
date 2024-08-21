@@ -1072,7 +1072,7 @@ define internal fastcc void @_release_data_list_node(ptr noundef %0, ptr noundef
   br i1 %.not25, label %.critedge, label %16, !llvm.loop !9
 
 .critedge:                                        ; preds = %16, %17
-  %20 = icmp eq ptr %15, %1
+  %20 = icmp eq ptr %1, %15
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %.critedge
@@ -1091,7 +1091,7 @@ define internal fastcc void @_release_data_list_node(ptr noundef %0, ptr noundef
 28:                                               ; preds = %.critedge
   %29 = getelementptr inbounds i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, %1
+  %31 = icmp eq ptr %1, %30
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
@@ -3265,7 +3265,7 @@ data_get_string.exit:                             ; preds = %7, %10
 
 45:                                               ; preds = %data_get_string.exit
   %.not4462 = icmp eq i8 %12, 0
-  %or.cond65 = or i1 %.not4462, %1
+  %or.cond65 = or i1 %1, %.not4462
   br i1 %or.cond65, label %.loopexit, label %.lr.ph.preheader
 
 .thread:                                          ; preds = %18
@@ -4170,7 +4170,7 @@ data_get_type.exit.thread.i:                      ; preds = %6, %data_get_type.e
 
 35:                                               ; preds = %3
   %36 = tail call i32 @data_convert_type(ptr noundef nonnull %0, i32 noundef %1)
-  %37 = icmp eq i32 %36, %1
+  %37 = icmp eq i32 %1, %36
   %spec.select = zext i1 %37 to i64
   br label %data_dict_for_each.exit
 

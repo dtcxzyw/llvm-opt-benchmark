@@ -398,7 +398,7 @@ if.end.i189:                                      ; preds = %if.else
 
 if.end5.i:                                        ; preds = %if.end.i189
   %14 = xor i64 %sub.ptr.sub.i, -1
-  %sub1.i = add i64 %14, %size
+  %sub1.i = add i64 %size, %14
   %add.ptr.i = getelementptr i8, ptr %call.i187, i64 1
   %call6.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %add.ptr.i, i64 noundef %sub1.i) #8
   %cmp7.i = icmp eq ptr %call6.i, null

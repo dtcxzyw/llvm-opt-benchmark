@@ -3610,7 +3610,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %global_passwd) #14
   %call1 = tail call i32 @curlx_uztosi(i64 noundef %call) #13
-  %cmp = icmp slt i32 %call1, %num
+  %cmp = icmp sgt i32 %num, %call1
   br i1 %cmp, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.then

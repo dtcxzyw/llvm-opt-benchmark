@@ -1668,7 +1668,7 @@ define hidden noundef i32 @_ZNK7zstring8indexofuERKS_j(ptr nocapture noundef non
 entry:
   %m_pos.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_pos.i.i, align 8
-  %cmp.not = icmp uge i32 %0, %offset
+  %cmp.not = icmp ule i32 %offset, %0
   %m_pos.i.i19 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i32, ptr %m_pos.i.i19, align 8
   %cmp3 = icmp eq i32 %1, 0
@@ -1676,7 +1676,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp5 = icmp eq i32 %0, %offset
+  %cmp5 = icmp eq i32 %offset, %0
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
@@ -1689,7 +1689,7 @@ if.end7:                                          ; preds = %if.end
 
 if.end17:                                         ; preds = %if.end7
   %sub = sub i32 %0, %1
-  %cmp20.not31 = icmp ult i32 %sub, %offset
+  %cmp20.not31 = icmp ugt i32 %offset, %sub
   br i1 %cmp20.not31, label %return, label %for.cond21.preheader.lr.ph
 
 for.cond21.preheader.lr.ph:                       ; preds = %if.end17
@@ -1798,7 +1798,7 @@ invoke.cont:                                      ; preds = %entry
   %m_pos.i.i7 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_pos.i.i7, align 8
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %0, i32 %add)
-  %cmp611 = icmp sgt i32 %.sroa.speculated, %offset
+  %cmp611 = icmp slt i32 %offset, %.sroa.speculated
   br i1 %cmp611, label %for.body, label %nrvo.skipdtor
 
 for.body:                                         ; preds = %invoke.cont, %for.inc

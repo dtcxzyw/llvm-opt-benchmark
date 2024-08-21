@@ -34,7 +34,7 @@ define dso_local i32 @sel_netif_sid(ptr noundef %0, i32 noundef %1, ptr noundef 
   tail call void @__rcu_read_lock() #5
   %4 = ptrtoint ptr %0 to i64
   %5 = trunc i64 %4 to i32
-  %6 = add i32 %5, %1
+  %6 = add i32 %1, %5
   %7 = and i32 %6, 63
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr [64 x %struct.list_head], ptr @sel_netif_hash, i64 0, i64 %8
@@ -91,7 +91,7 @@ define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, p
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @sel_netif_lock) #5
   %7 = ptrtoint ptr %0 to i64
   %8 = trunc i64 %7 to i32
-  %9 = add i32 %8, %1
+  %9 = add i32 %1, %8
   %10 = and i32 %9, 63
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr [64 x %struct.list_head], ptr @sel_netif_hash, i64 0, i64 %11

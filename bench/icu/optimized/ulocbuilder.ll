@@ -610,7 +610,7 @@ if.end2:                                          ; preds = %if.end
   %call5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
   %conv = trunc i64 %call5 to i32
   %cmp6 = icmp slt i32 %conv, 1
-  %cmp7.not = icmp sgt i32 %conv, %bufferCapacity
+  %cmp7.not = icmp slt i32 %bufferCapacity, %conv
   %or.cond = or i1 %cmp6, %cmp7.not
   br i1 %or.cond, label %if.end12, label %do.body
 

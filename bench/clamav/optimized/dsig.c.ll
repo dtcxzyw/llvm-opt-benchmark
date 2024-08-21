@@ -149,7 +149,7 @@ define noalias ptr @cli_getdsig(ptr noundef %0, ptr noundef %1, ptr nocapture no
   %54 = ashr exact i64 %sext, 32
   %55 = getelementptr inbounds i8, ptr %7, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr align 1 %2, i64 %49, i1 false)
-  %56 = add i32 %53, %3
+  %56 = add i32 %3, %53
   %57 = sext i32 %56 to i64
   %58 = call i64 @send(i32 noundef %36, ptr noundef nonnull %7, i64 noundef %57, i32 noundef 0) #14
   %59 = icmp slt i64 %58, 0
@@ -440,7 +440,7 @@ cli_ndecode.exit:                                 ; preds = %20
   %38 = tail call i32 @BN_num_bits(ptr noundef nonnull %9) #14
   %39 = add nsw i32 %38, 7
   %40 = sdiv i32 %39, 8
-  %41 = icmp ugt i32 %40, %1
+  %41 = icmp ult i32 %1, %40
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %37

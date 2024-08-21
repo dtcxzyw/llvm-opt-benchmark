@@ -1188,7 +1188,7 @@ define range(i32 -47, 1) i32 @pmix_ptl_base_parse_uri_file(ptr noundef %0, i1 no
   %12 = tail call ptr @__errno_location() #22
   %13 = load i32, ptr %12, align 4
   %14 = icmp ne i32 %13, 2
-  %brmerge = or i1 %14, %1
+  %brmerge = or i1 %1, %14
   br i1 %brmerge, label %.loopexit, label %.preheader63
 
 .preheader63:                                     ; preds = %11

@@ -595,7 +595,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_validate_catalog(ptr nocapt
 
 14:                                               ; preds = %6
   %15 = zext i16 %.18.val to i32
-  %16 = mul i32 %15, %.22.val
+  %16 = mul i32 %.22.val, %15
   %17 = zext i32 %16 to i64
   %18 = icmp ult i64 %8, %17
   br i1 %18, label %.sink.split, label %19
@@ -2184,7 +2184,7 @@ declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 22
   %9 = load i32, ptr %8, align 1
-  %.not = icmp ugt i32 %9, %4
+  %.not = icmp ult i32 %4, %9
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %7
@@ -2312,7 +2312,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
   %.069 = add nuw nsw i64 %69, %66
   %70 = add i32 %.070, %.06717
   %71 = zext i32 %70 to i64
-  %72 = icmp ugt i64 %71, %6
+  %72 = icmp ult i64 %6, %71
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %63
@@ -2326,18 +2326,18 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
   %78 = zext i32 %.070 to i64
   %79 = getelementptr inbounds i8, ptr %75, i64 88
   %80 = load i64, ptr %79, align 8
-  %81 = icmp ne i64 %80, %.069
+  %81 = icmp ne i64 %.069, %80
   %82 = icmp ne i32 %.070, 0
   %or.cond.i = and i1 %82, %81
   br i1 %or.cond.i, label %83, label %fmap_readn.exit
 
 83:                                               ; preds = %74
-  %84 = icmp ult i64 %80, %.069
+  %84 = icmp ugt i64 %.069, %80
   br i1 %84, label %fmap_readn.exit.thread, label %85
 
 85:                                               ; preds = %83
   %86 = sub nuw i64 %80, %.069
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %86, i64 %78)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %78, i64 %86)
   %87 = getelementptr inbounds i8, ptr %75, i64 104
   %88 = load ptr, ptr %87, align 8
   %89 = tail call ptr %88(ptr noundef nonnull %75, i64 noundef %.069, i64 noundef %spec.select.i, i32 noundef 0) #13

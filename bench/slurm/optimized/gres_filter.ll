@@ -133,7 +133,7 @@ define void @gres_filter_sock_core(ptr nocapture noundef readonly %0, ptr nocapt
   %68 = getelementptr inbounds i8, ptr %57, i64 32
   %69 = load i16, ptr %44, align 4
   %.not578.le = icmp eq i16 %69, 0
-  %..le = tail call i16 @llvm.umin.i16(i16 %69, i16 %5)
+  %..le = tail call i16 @llvm.umin.i16(i16 %5, i16 %69)
   %.0512.in.le = select i1 %.not578.le, i16 %5, i16 %..le
   %.0512.le = zext i16 %.0512.in.le to i32
   %70 = getelementptr inbounds i8, ptr %66, i64 8
@@ -250,7 +250,7 @@ define void @gres_filter_sock_core(ptr nocapture noundef readonly %0, ptr nocapt
   %129 = getelementptr inbounds i8, ptr %71, i64 66
   %130 = load i16, ptr %129, align 2
   %.not589 = icmp eq i16 %130, 0
-  %brmerge685.not = and i1 %.not589, %12
+  %brmerge685.not = and i1 %12, %.not589
   %.mux686 = select i1 %.not589, i8 %.0470.ph, i8 1
   br i1 %brmerge685.not, label %131, label %161
 
@@ -407,7 +407,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %144, %153, %135, %s
   br i1 %or.cond5, label %198, label %.loopexit693
 
 198:                                              ; preds = %192
-  %brmerge = or i1 %196, %11
+  %brmerge = or i1 %11, %196
   %brmerge687.not = and i1 %.not620, %brmerge
   br i1 %brmerge687.not, label %199, label %205
 
@@ -1264,8 +1264,8 @@ _shared_gres_task_limit.exit:                     ; preds = %370, %354, %332, %.
 589:                                              ; preds = %574
   %590 = icmp sge i32 %.2503, %565
   %or.cond649.not690 = or i1 %.not611, %590
-  %brmerge650 = or i1 %or.cond649.not690, %11
-  %brmerge651 = or i1 %brmerge650, %12
+  %brmerge650 = or i1 %11, %or.cond649.not690
+  %brmerge651 = or i1 %12, %brmerge650
   %brmerge652 = or i1 %.not595, %brmerge651
   br i1 %brmerge652, label %.loopexit695, label %.preheader694
 

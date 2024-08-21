@@ -148,7 +148,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -428,7 +428,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #17
   %cmp7 = icmp eq ptr %call, null
@@ -750,7 +750,7 @@ cond.false17.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false17.i
   %highStart.i = getelementptr inbounds i8, ptr %37, i64 44
   %43 = load i32, ptr %highStart.i, align 4
-  %cmp22.not.i = icmp sgt i32 %43, %call
+  %cmp22.not.i = icmp slt i32 %call, %43
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
@@ -1528,7 +1528,7 @@ if.else138:                                       ; preds = %if.else121, %land.l
   %44 = load ptr, ptr %data32.i, align 8
   %highStart.i = getelementptr inbounds i8, ptr %43, i64 44
   %45 = load i32, ptr %highStart.i, align 4
-  %cmp.not.i = icmp sgt i32 %45, %call118
+  %cmp.not.i = icmp slt i32 %call118, %45
   br i1 %cmp.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.else138
@@ -1598,7 +1598,7 @@ land.lhs.true159:                                 ; preds = %for.cond
 if.then163:                                       ; preds = %land.lhs.true159
   %inc166 = add nsw i32 %55, 1
   store i32 %inc166, ptr %pos.i, align 8
-  %cmp.i.i74 = icmp ugt i32 %cond.i73, %55
+  %cmp.i.i74 = icmp ult i32 %55, %cond.i73
   br i1 %cmp.i.i74, label %if.then.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit
 
 if.then.i.i:                                      ; preds = %if.then163
@@ -2375,7 +2375,7 @@ if.end:                                           ; preds = %entry
   %fLength.i.i.i = getelementptr inbounds i8, ptr %this, i64 444
   %4 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %cmp.i.i = icmp ugt i32 %cond.i.i.i, %1
+  %cmp.i.i = icmp ult i32 %1, %cond.i.i.i
   br i1 %cmp.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit, label %return
 
 _ZNK6icu_7513UnicodeStringixEi.exit:              ; preds = %if.end

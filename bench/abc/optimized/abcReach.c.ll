@@ -222,7 +222,7 @@ define noundef ptr @Abc_NtkCreatePartitions(ptr noundef %0, ptr noundef %1, i32 
   %41 = getelementptr i8, ptr %.val47.val.val, i64 56
   %.val47.val.val.val = load ptr, ptr %41, align 8
   %42 = load i32, ptr %.val47.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %42, %.val48
+  %.not.i.i = icmp slt i32 %.val48, %42
   br i1 %.not.i.i, label %Vec_AttGrow.exit.i.i, label %43
 
 43:                                               ; preds = %27
@@ -678,7 +678,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   %31 = getelementptr i8, ptr %.val55.val.val, i64 56
   %.val55.val.val.val = load ptr, ptr %31, align 8
   %32 = load i32, ptr %.val55.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %32, %.val56
+  %.not.i.i = icmp slt i32 %.val56, %32
   br i1 %.not.i.i, label %Vec_AttGrow.exit.i.i, label %33
 
 33:                                               ; preds = %25

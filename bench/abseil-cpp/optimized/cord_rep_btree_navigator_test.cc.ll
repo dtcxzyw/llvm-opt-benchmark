@@ -13019,7 +13019,7 @@ for.body:                                         ; preds = %_ZN4absl13cord_inte
   %arrayidx.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i, i64 0, i64 %idxprom.i
   %9 = load ptr, ptr %arrayidx.i, align 8
   %10 = load i64, ptr %9, align 8
-  %cmp.not.i = icmp ugt i64 %10, %char_offset.0225
+  %cmp.not.i = icmp ult i64 %char_offset.0225, %10
   br i1 %cmp.not.i, label %if.end.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit
 
 if.end.i:                                         ; preds = %for.body
@@ -13030,7 +13030,7 @@ if.end.i:                                         ; preds = %for.body
   %arrayidx5.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i, i64 0, i64 %conv.i.i.i34
   %12 = load ptr, ptr %arrayidx5.i.i, align 8
   %13 = load i64, ptr %12, align 8
-  %cmp.not6.i.i = icmp ugt i64 %13, %char_offset.0225
+  %cmp.not6.i.i = icmp ult i64 %char_offset.0225, %13
   br i1 %cmp.not6.i.i, label %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit.i, label %while.body.i.i35
 
 while.body.i.i35:                                 ; preds = %if.end.i, %while.body.i.i35
@@ -13076,7 +13076,7 @@ while.body.i:                                     ; preds = %_ZNK4absl13cord_int
   %arrayidx5.i20.i = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i, i64 0, i64 %conv.i.i18.i
   %20 = load ptr, ptr %arrayidx5.i20.i, align 8
   %21 = load i64, ptr %20, align 8
-  %cmp.not6.i21.i = icmp ugt i64 %21, %offset.addr.0.lcssa.i.pn39.i
+  %cmp.not6.i21.i = icmp ult i64 %offset.addr.0.lcssa.i.pn39.i, %21
   br i1 %cmp.not6.i21.i, label %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit33.i, label %while.body.i22.i
 
 while.body.i22.i:                                 ; preds = %while.body.i, %while.body.i22.i
@@ -13414,7 +13414,7 @@ for.body91:                                       ; preds = %for.cond89.preheade
   %arrayidx.i94 = getelementptr inbounds [12 x ptr], ptr %node_.i.i, i64 0, i64 %idxprom.i93
   %62 = load ptr, ptr %arrayidx.i94, align 8
   %63 = load i64, ptr %62, align 8
-  %cmp.not.i95 = icmp ugt i64 %63, %add
+  %cmp.not.i95 = icmp ult i64 %add, %63
   br i1 %cmp.not.i95, label %if.end.i100, label %_ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit154
 
 if.end.i100:                                      ; preds = %for.body91
@@ -13425,7 +13425,7 @@ if.end.i100:                                      ; preds = %for.body91
   %arrayidx5.i.i104 = getelementptr inbounds [6 x ptr], ptr %edges_.i.i103, i64 0, i64 %conv.i.i.i102
   %65 = load ptr, ptr %arrayidx5.i.i104, align 8
   %66 = load i64, ptr %65, align 8
-  %cmp.not6.i.i105 = icmp ugt i64 %66, %add
+  %cmp.not6.i.i105 = icmp ult i64 %add, %66
   br i1 %cmp.not6.i.i105, label %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit.i113, label %while.body.i.i106
 
 while.body.i.i106:                                ; preds = %if.end.i100, %while.body.i.i106
@@ -13471,7 +13471,7 @@ while.body.i127:                                  ; preds = %_ZNK4absl13cord_int
   %arrayidx5.i20.i139 = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i138, i64 0, i64 %conv.i.i18.i137
   %73 = load ptr, ptr %arrayidx5.i20.i139, align 8
   %74 = load i64, ptr %73, align 8
-  %cmp.not6.i21.i140 = icmp ugt i64 %74, %offset.addr.0.lcssa.i.pn39.i130
+  %cmp.not6.i21.i140 = icmp ult i64 %offset.addr.0.lcssa.i.pn39.i130, %74
   br i1 %cmp.not6.i21.i140, label %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit33.i148, label %while.body.i22.i141
 
 while.body.i22.i141:                              ; preds = %while.body.i127, %while.body.i22.i141
@@ -14065,7 +14065,7 @@ while.body.i.i:                                   ; preds = %_ZNK4absl13cord_int
   %arrayidx5.i20.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i.i, i64 0, i64 %conv.i.i18.i.i
   %13 = load ptr, ptr %arrayidx5.i20.i.i, align 8
   %14 = load i64, ptr %13, align 8
-  %cmp.not6.i21.i.i = icmp ugt i64 %14, %offset.addr.0.lcssa.i.pn39.i.i
+  %cmp.not6.i21.i.i = icmp ult i64 %offset.addr.0.lcssa.i.pn39.i.i, %14
   br i1 %cmp.not6.i21.i.i, label %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit33.i.i, label %while.body.i22.i.i
 
 while.body.i22.i.i:                               ; preds = %while.body.i.i, %while.body.i22.i.i
@@ -15584,7 +15584,7 @@ while.body.i.i249:                                ; preds = %_ZNK4absl13cord_int
   %arrayidx5.i20.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i.i, i64 0, i64 %conv.i.i18.i.i
   %65 = load ptr, ptr %arrayidx5.i20.i.i, align 8
   %66 = load i64, ptr %65, align 8
-  %cmp.not6.i21.i.i = icmp ugt i64 %66, %offset.addr.0.lcssa.i.pn39.i.i
+  %cmp.not6.i21.i.i = icmp ult i64 %offset.addr.0.lcssa.i.pn39.i.i, %66
   br i1 %cmp.not6.i21.i.i, label %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit33.i.i, label %while.body.i22.i.i
 
 while.body.i22.i.i:                               ; preds = %while.body.i.i249, %while.body.i22.i.i
@@ -15773,7 +15773,7 @@ while.body.i.i306:                                ; preds = %_ZNK4absl13cord_int
   %arrayidx5.i20.i.i318 = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i.i317, i64 0, i64 %conv.i.i18.i.i316
   %92 = load ptr, ptr %arrayidx5.i20.i.i318, align 8
   %93 = load i64, ptr %92, align 8
-  %cmp.not6.i21.i.i319 = icmp ugt i64 %93, %offset.addr.0.lcssa.i.pn39.i.i309
+  %cmp.not6.i21.i.i319 = icmp ult i64 %offset.addr.0.lcssa.i.pn39.i.i309, %93
   br i1 %cmp.not6.i21.i.i319, label %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit33.i.i327, label %while.body.i22.i.i320
 
 while.body.i22.i.i320:                            ; preds = %while.body.i.i306, %while.body.i22.i.i320
@@ -21042,7 +21042,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 if.then.i:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i.i, %if.then.i.i
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa30.i.i, %if.then.i.i ], [ %__y.0.lcssa31.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i.i ]
-  %cmp2.i = icmp eq ptr %2, %retval.sroa.4.0.i.ph.i
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %2
   br i1 %cmp2.i, label %lor.end.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then.i

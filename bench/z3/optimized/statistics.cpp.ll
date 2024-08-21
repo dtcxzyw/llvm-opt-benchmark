@@ -2435,7 +2435,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit:      ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %1, %if.end.i ], [ 0, %entry ]
-  %cmp = icmp ugt i32 %retval.0.i, %idx
+  %cmp = icmp ult i32 %idx, %retval.0.i
   ret i1 %cmp
 }
 
@@ -2449,7 +2449,7 @@ entry:
 _ZNK10statistics7is_uintEj.exit:                  ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.i = icmp ugt i32 %1, %idx
+  %cmp.i = icmp ult i32 %idx, %1
   br i1 %cmp.i, label %if.then, label %_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit
 
 if.then:                                          ; preds = %_ZNK10statistics7is_uintEj.exit
@@ -4087,7 +4087,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5759 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i5759, %div11
+  %cmp23.i = icmp ult i64 %div11, %div.i5759
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -4169,7 +4169,7 @@ if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph
   %dec.us = add nsw i64 %__parent.061.us, -1
   %add.ptr10.us = getelementptr inbounds ptr, ptr %__first, i64 %dec.us
   %7 = load ptr, ptr %add.ptr10.us, align 8
-  %cmp23.i14.not.us = icmp slt i64 %div.i5759, %__parent.061.us
+  %cmp23.i14.not.us = icmp sgt i64 %__parent.061.us, %div.i5759
   br i1 %cmp23.i14.not.us, label %_ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6str_ltEEEvT_T0_S8_T1_T2_.exit56.us, label %while.body.i43.us
 
 while.body.i43.us:                                ; preds = %if.end7.split.us, %while.body.i43.us
@@ -4223,7 +4223,7 @@ if.end7.split:                                    ; preds = %if.end7.split.prehe
   %dec = add nsw i64 %__parent.061, -1
   %add.ptr10 = getelementptr inbounds ptr, ptr %__first, i64 %dec
   %12 = load ptr, ptr %add.ptr10, align 8
-  %cmp23.i14.not = icmp slt i64 %div.i5759, %__parent.061
+  %cmp23.i14.not = icmp sgt i64 %__parent.061, %div.i5759
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i43
 
 while.body.i43:                                   ; preds = %if.end7.split, %while.body.i43

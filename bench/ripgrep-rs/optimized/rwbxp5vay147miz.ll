@@ -199,7 +199,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !26, !noalias !31, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !33, !noalias !31, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
@@ -1517,7 +1517,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %9, %
   %56 = getelementptr inbounds i8, ptr %51, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !215, !noalias !220, !noundef !5
   %58 = sub i64 %53, %57
-  %59 = icmp ult i64 %58, %45
+  %59 = icmp ugt i64 %45, %58
   br i1 %59, label %60, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit.i"
 
 60:                                               ; preds = %55
@@ -1725,7 +1725,7 @@ define void @_ZN12grep_printer9hyperlink4Part14interpolate_to17h17845da3864336c8
   %20 = load i64, ptr %19, align 8, !alias.scope !252, !noalias !257, !noundef !5
   %21 = load i64, ptr %3, align 8, !alias.scope !259, !noalias !257, !noundef !5
   %22 = sub i64 %21, %20
-  %23 = icmp ult i64 %22, %18
+  %23 = icmp ugt i64 %18, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit"
 
 24:                                               ; preds = %14
@@ -1760,7 +1760,7 @@ define void @_ZN12grep_printer9hyperlink4Part14interpolate_to17h17845da3864336c8
   %42 = load i64, ptr %41, align 8, !alias.scope !262, !noalias !267, !noundef !5
   %43 = load i64, ptr %3, align 8, !alias.scope !269, !noalias !267, !noundef !5
   %44 = sub i64 %43, %42
-  %45 = icmp ult i64 %44, %spec.select38
+  %45 = icmp ugt i64 %spec.select38, %44
   br i1 %45, label %149, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit52"
 
 46:                                               ; preds = %4
@@ -1777,7 +1777,7 @@ define void @_ZN12grep_printer9hyperlink4Part14interpolate_to17h17845da3864336c8
   %55 = load i64, ptr %54, align 8, !alias.scope !272, !noalias !277, !noundef !5
   %56 = load i64, ptr %3, align 8, !alias.scope !279, !noalias !277, !noundef !5
   %57 = sub i64 %56, %55
-  %58 = icmp ult i64 %57, %spec.select40
+  %58 = icmp ugt i64 %spec.select40, %57
   br i1 %58, label %159, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit54"
 
 59:                                               ; preds = %4
@@ -1791,7 +1791,7 @@ define void @_ZN12grep_printer9hyperlink4Part14interpolate_to17h17845da3864336c8
   %67 = load i64, ptr %66, align 8, !alias.scope !283, !noalias !288, !noundef !5
   %68 = load i64, ptr %3, align 8, !alias.scope !290, !noalias !288, !noundef !5
   %69 = sub i64 %68, %67
-  %70 = icmp ult i64 %69, %65
+  %70 = icmp ugt i64 %65, %69
   br i1 %70, label %71, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit42"
 
 71:                                               ; preds = %59
@@ -1857,7 +1857,7 @@ _ZN12grep_printer4util16DecimalFormatter8as_bytes17h24d6ce99b36f8b03E.exit: ; pr
   %100 = load i64, ptr %99, align 8, !alias.scope !297, !noalias !302, !noundef !5
   %101 = load i64, ptr %3, align 8, !alias.scope !304, !noalias !302, !noundef !5
   %102 = sub i64 %101, %100
-  %103 = icmp ult i64 %102, %97
+  %103 = icmp ugt i64 %97, %102
   br i1 %103, label %104, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit44"
 
 104:                                              ; preds = %_ZN12grep_printer4util16DecimalFormatter8as_bytes17h24d6ce99b36f8b03E.exit
@@ -1925,7 +1925,7 @@ _ZN12grep_printer4util16DecimalFormatter8as_bytes17h24d6ce99b36f8b03E.exit48: ; 
   %134 = load i64, ptr %133, align 8, !alias.scope !310, !noalias !315, !noundef !5
   %135 = load i64, ptr %3, align 8, !alias.scope !317, !noalias !315, !noundef !5
   %136 = sub i64 %135, %134
-  %137 = icmp ult i64 %136, %131
+  %137 = icmp ugt i64 %131, %136
   br i1 %137, label %138, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h607c2ea7db474fe3E.exit50"
 
 138:                                              ; preds = %_ZN12grep_printer4util16DecimalFormatter8as_bytes17h24d6ce99b36f8b03E.exit48

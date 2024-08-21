@@ -356,7 +356,7 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorCNTImpl20setMinPixelStabi
   %5 = icmp sgt i32 %1, 0
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
-  %8 = icmp sgt i32 %7, %1
+  %8 = icmp slt i32 %1, %7
   %or.cond = select i1 %5, i1 %8, i1 false
   br i1 %or.cond, label %17, label %9
 
@@ -407,7 +407,7 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorCNTImpl20setMaxPixelStabi
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = icmp slt i32 %6, %1
+  %7 = icmp sgt i32 %1, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %2

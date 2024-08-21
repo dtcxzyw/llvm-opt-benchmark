@@ -131,11 +131,11 @@ define noundef range(i32 -1, 2) i32 @_Z12check_times2ffb(float noundef %0, float
   %.sroa.3.0.extract.shift = lshr i64 %8, 32
   %10 = and i64 %4, 4294967296
   %11 = icmp ne i64 %10, 0
-  %12 = fcmp ugt float %5, %0
+  %12 = fcmp ult float %0, %5
   %or.cond = select i1 %11, i1 %12, i1 false
   %13 = and i64 %6, 4294967296
   %14 = icmp ne i64 %13, 0
-  %15 = fcmp ult float %7, %0
+  %15 = fcmp ugt float %0, %7
   %or.cond35 = select i1 %14, i1 %15, i1 false
   %or.cond39 = select i1 %or.cond, i1 true, i1 %or.cond35
   br i1 %or.cond39, label %33, label %16
@@ -165,7 +165,7 @@ _ZNRSt8optionalIfE5valueEv.exit11:                ; preds = %16
   br label %35
 
 33:                                               ; preds = %3
-  %34 = fcmp ole float %7, %0
+  %34 = fcmp oge float %0, %7
   %or.cond37.not = select i1 %14, i1 %34, i1 false
   %spec.select = select i1 %or.cond37.not, i32 1, i32 -1
   br label %35

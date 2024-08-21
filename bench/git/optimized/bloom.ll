@@ -514,7 +514,7 @@ if.then8:                                         ; preds = %if.then5
   %13 = load i32, ptr %graph_pos, align 4
   %num_commits_in_base53.i = getelementptr inbounds i8, ptr %12, i64 80
   %14 = load i32, ptr %num_commits_in_base53.i, align 8
-  %cmp54.i = icmp ugt i32 %14, %13
+  %cmp54.i = icmp ult i32 %13, %14
   br i1 %cmp54.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.then8, %while.body.i
@@ -523,7 +523,7 @@ while.body.i:                                     ; preds = %if.then8, %while.bo
   %15 = load ptr, ptr %base_graph.i, align 8
   %num_commits_in_base.i = getelementptr inbounds i8, ptr %15, i64 80
   %16 = load i32, ptr %num_commits_in_base.i, align 8
-  %cmp.i = icmp ugt i32 %16, %13
+  %cmp.i = icmp ult i32 %13, %16
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i, %if.then8
@@ -556,7 +556,7 @@ if.end.i:                                         ; preds = %while.end.i
   %21 = load i8, ptr %arrayidx8.i.i, align 1
   %conv9.i.i = zext i8 %21 to i32
   %or11.i.i = or disjoint i32 %or7.i.i, %conv9.i.i
-  %cmp3.not.i = icmp eq i32 %.lcssa.i, %13
+  %cmp3.not.i = icmp eq i32 %13, %.lcssa.i
   br i1 %cmp3.not.i, label %if.end11.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i

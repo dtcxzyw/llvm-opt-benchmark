@@ -151,7 +151,7 @@ define hidden void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier12stepPrefSuf
 
 .lr.ph:                                           ; preds = %4
   %21 = xor i32 %8, -1
-  %22 = add i32 %21, %3
+  %22 = add i32 %3, %21
   %23 = sext i32 %1 to i64
   %24 = add nsw i32 %10, %22
   %25 = trunc i32 %2 to i8
@@ -252,7 +252,7 @@ define hidden void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier17prepareClas
   %21 = getelementptr inbounds i8, ptr %20, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
-  %24 = mul nsw i32 %23, %1
+  %24 = mul nsw i32 %1, %23
   %25 = load i8, ptr %20, align 1
   %26 = zext i8 %25 to i32
   %27 = add nsw i32 %24, %26
@@ -263,7 +263,7 @@ define hidden void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier17prepareClas
   %31 = getelementptr inbounds i8, ptr %30, i64 3
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
-  %34 = mul nsw i32 %33, %1
+  %34 = mul nsw i32 %1, %33
   %35 = getelementptr inbounds i8, ptr %30, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
@@ -385,7 +385,7 @@ define hidden noundef i32 @_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4code
   %16 = getelementptr inbounds i8, ptr %15, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
-  %19 = mul nsw i32 %18, %2
+  %19 = mul nsw i32 %2, %18
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %1, i64 %20
   %22 = load i8, ptr %15, align 1
@@ -395,7 +395,7 @@ define hidden noundef i32 @_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4code
   %26 = getelementptr inbounds i8, ptr %15, i64 3
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = mul nsw i32 %28, %2
+  %29 = mul nsw i32 %2, %28
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %1, i64 %30
   %32 = getelementptr inbounds i8, ptr %15, i64 1
@@ -441,7 +441,7 @@ define hidden noundef double @_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier20
   %16 = getelementptr inbounds i8, ptr %15, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
-  %19 = mul nsw i32 %18, %2
+  %19 = mul nsw i32 %2, %18
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %1, i64 %20
   %22 = load i8, ptr %15, align 1
@@ -451,7 +451,7 @@ define hidden noundef double @_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier20
   %26 = getelementptr inbounds i8, ptr %15, i64 3
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = mul nsw i32 %28, %2
+  %29 = mul nsw i32 %2, %28
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %1, i64 %30
   %32 = getelementptr inbounds i8, ptr %15, i64 1
@@ -781,7 +781,7 @@ _ZNSt6vectorIN2cv3VecIhLi4EEESaIS2_EE9push_backERKS2_.exit: ; preds = %.noexc, %
 
 .lr.ph.i:                                         ; preds = %._crit_edge
   %79 = xor i32 %70, -1
-  %80 = add i32 %79, %2
+  %80 = add i32 %2, %79
   %81 = add nsw i32 %72, %80
   %82 = trunc i64 %0 to i8
   %83 = add i8 %82, -1
@@ -888,7 +888,7 @@ _ZN2cv8tracking4impl3tld21TLDEnsembleClassifier12stepPrefSuffERSt6vectorINS_3Vec
   %136 = sdiv i32 %134, 2
   %137 = sub nsw i32 %134, %136
   %138 = xor i32 %134, -1
-  %139 = add i32 %138, %2
+  %139 = add i32 %2, %138
   %140 = add nsw i32 %136, %139
   %141 = trunc i64 %.sroa.3.0.extract.shift to i8
   %142 = add i8 %141, -1
@@ -1183,7 +1183,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE14_M_fill_a
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %23
 
 12:                                               ; preds = %3
@@ -1228,7 +1228,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.ph.i.i.i
   %26 = ptrtoint ptr %25 to i64
   %27 = sub i64 %26, %8
   %28 = ashr exact i64 %27, 3
-  %29 = icmp ult i64 %28, %1
+  %29 = icmp ugt i64 %1, %28
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %23
@@ -1595,7 +1595,7 @@ _ZNSt12_Vector_baseIN2cv8tracking4impl3tld21TLDEnsembleClassifierESaIS4_EE11_M_a
 _ZNSt6vectorIN2cv8tracking4impl3tld21TLDEnsembleClassifierESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN2cv8tracking4impl3tld21TLDEnsembleClassifierESaIS4_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv8tracking4impl3tld21TLDEnsembleClassifierESaIS4_EE11_M_allocateEm.exit ], [ %82, %.lr.ph.i.i.i.i ]
   %83 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 80
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv8tracking4impl3tld21TLDEnsembleClassifierESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv8tracking4impl3tld21TLDEnsembleClassifierESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i.i17

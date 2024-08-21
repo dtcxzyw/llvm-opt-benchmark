@@ -1056,7 +1056,7 @@ define internal fastcc void @assign_simple_var(ptr nocapture noundef readonly %0
   %6 = getelementptr inbounds i8, ptr %0, i64 47
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
-  %brmerge = or i1 %8, %3
+  %brmerge = or i1 %3, %8
   br i1 %brmerge, label %35, label %9
 
 9:                                                ; preds = %5
@@ -9870,7 +9870,7 @@ define internal fastcc noundef i32 @exec_for_query(ptr noundef %0, ptr nocapture
   %14 = getelementptr inbounds i8, ptr %0, i64 47
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
-  %spec.select = and i1 %16, %3
+  %spec.select = and i1 %3, %16
   %17 = select i1 %spec.select, i64 10, i64 1
   tail call void @SPI_cursor_fetch(ptr noundef %2, i1 noundef zeroext true, i64 noundef %17) #11
   %18 = load ptr, ptr @SPI_tuptable, align 8
@@ -10830,7 +10830,7 @@ define internal void @exec_eval_datum(ptr nocapture noundef readonly %0, ptr nou
 117:                                              ; preds = %106
   %118 = getelementptr inbounds i8, ptr %.0, i64 104
   %119 = load i32, ptr %118, align 8
-  %.not13.i = icmp slt i32 %119, %112
+  %.not13.i = icmp sgt i32 %112, %119
   br i1 %.not13.i, label %.critedge.i, label %120
 
 120:                                              ; preds = %117
@@ -11517,7 +11517,7 @@ define internal noundef ptr @plpgsql_param_fetch(ptr nocapture noundef readonly 
   %16 = getelementptr inbounds i8, ptr %10, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @bms_is_member(i32 noundef %6, ptr noundef %17) #11
-  %brmerge.not = and i1 %18, %2
+  %brmerge.not = and i1 %2, %18
   br i1 %brmerge.not, label %19, label %45
 
 19:                                               ; preds = %4
@@ -11666,7 +11666,7 @@ define internal void @plpgsql_param_compile(ptr nocapture noundef readonly %0, p
 22:                                               ; preds = %5
   %23 = getelementptr inbounds i8, ptr %10, i64 72
   %24 = load ptr, ptr %23, align 8
-  %.not22 = icmp eq ptr %24, %1
+  %.not22 = icmp eq ptr %1, %24
   br i1 %.not22, label %31, label %25
 
 25:                                               ; preds = %22
@@ -11683,7 +11683,7 @@ define internal void @plpgsql_param_compile(ptr nocapture noundef readonly %0, p
 32:                                               ; preds = %5
   %33 = getelementptr inbounds i8, ptr %10, i64 72
   %34 = load ptr, ptr %33, align 8
-  %.not21 = icmp eq ptr %34, %1
+  %.not21 = icmp eq ptr %1, %34
   br i1 %.not21, label %41, label %35
 
 35:                                               ; preds = %32
@@ -11700,7 +11700,7 @@ define internal void @plpgsql_param_compile(ptr nocapture noundef readonly %0, p
 42:                                               ; preds = %5
   %43 = getelementptr inbounds i8, ptr %10, i64 72
   %44 = load ptr, ptr %43, align 8
-  %.not = icmp eq ptr %44, %1
+  %.not = icmp eq ptr %1, %44
   br i1 %.not, label %45, label %46
 
 45:                                               ; preds = %5, %42
@@ -11867,7 +11867,7 @@ define internal void @plpgsql_param_eval_recfield(ptr nocapture readnone %0, ptr
 54:                                               ; preds = %45
   %55 = getelementptr inbounds i8, ptr %.0, i64 104
   %56 = load i32, ptr %55, align 8
-  %.not13.i = icmp slt i32 %56, %47
+  %.not13.i = icmp sgt i32 %47, %56
   br i1 %.not13.i, label %.critedge.i, label %57
 
 57:                                               ; preds = %54

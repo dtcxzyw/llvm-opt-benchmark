@@ -1043,7 +1043,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then10:                                        ; preds = %while.body
   %db11 = getelementptr inbounds i8, ptr %call716, i64 32
   %3 = load ptr, ptr %db11, align 8
-  %cmp12 = icmp eq ptr %3, %db
+  %cmp12 = icmp eq ptr %db, %3
   br i1 %cmp12, label %land.lhs.true, label %while.end
 
 land.lhs.true:                                    ; preds = %if.then10

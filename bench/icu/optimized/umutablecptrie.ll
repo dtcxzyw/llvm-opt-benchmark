@@ -787,7 +787,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %highStart.i = getelementptr inbounds i8, ptr %trie, i64 48
   %0 = load i32, ptr %highStart.i, align 8
-  %cmp2.not.i = icmp sgt i32 %0, %c
+  %cmp2.not.i = icmp slt i32 %c, %0
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -844,7 +844,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %highStart.i = getelementptr inbounds i8, ptr %trie, i64 48
   %0 = load i32, ptr %highStart.i, align 8
-  %cmp2.not.i = icmp sgt i32 %0, %start
+  %cmp2.not.i = icmp slt i32 %start, %0
   br i1 %cmp2.not.i, label %if.end10.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -1158,7 +1158,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %highStart.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %highStart.i, align 8
-  %cmp.not.i = icmp sgt i32 %1, %c
+  %cmp.not.i = icmp slt i32 %c, %1
   br i1 %cmp.not.i, label %lor.lhs.false, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end3
@@ -1266,7 +1266,7 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %highStart.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %highStart.i, align 8
-  %cmp.not.i = icmp sgt i32 %1, %end
+  %cmp.not.i = icmp slt i32 %end, %1
   br i1 %cmp.not.i, label %if.end9, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end6
@@ -2439,7 +2439,7 @@ for.cond.i.us.i.i.i:                              ; preds = %for.body.i.us.i.i.i
   br i1 %97, label %for.body.i.us.i.i.i, label %if.then32.i.i.i, !llvm.loop !28
 
 while.body.us.i.i.i:                              ; preds = %for.body.i.us.i.i.i
-  %cmp.not18.i.not.us.i.i.i = icmp sgt i32 %sub.i121.i.i.i, %n.0231.us.i.i.i
+  %cmp.not18.i.not.us.i.i.i = icmp slt i32 %n.0231.us.i.i.i, %sub.i121.i.i.i
   br i1 %cmp.not18.i.not.us.i.i.i, label %for.body.i122.us.i.i.i, label %if.else.i106.i.i
 
 for.body.i122.us.i.i.i:                           ; preds = %while.body.us.i.i.i, %for.inc12.i.us.i.i.i
@@ -3546,7 +3546,7 @@ if.else382.i.i.i:                                 ; preds = %for.body373.i.i.i
   %sub.i272.i.i.i = sub i32 %indexLength.5355.i.i.i, %sub375.i.i.i
   %idx.ext.i273.i.i.i = sext i32 %i370.0358.i.i.i to i64
   %add.ptr.i274.i.i.i = getelementptr inbounds i16, ptr %index2.i.i.i, i64 %idx.ext.i273.i.i.i
-  %cmp.not14.i.i.i.i = icmp slt i32 %sub.i272.i.i.i, %add92.i.i.i
+  %cmp.not14.i.i.i.i = icmp sgt i32 %add92.i.i.i, %sub.i272.i.i.i
   br i1 %cmp.not14.i.i.i.i, label %if.else391.i.i.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %if.else382.i.i.i

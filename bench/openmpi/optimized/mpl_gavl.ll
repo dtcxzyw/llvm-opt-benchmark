@@ -48,7 +48,7 @@ define range(i32 0, 16) i32 @MPL_gavl_tree_insert(ptr nocapture noundef %0, ptr 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds i8, ptr %0, i64 528
   store i32 0, ptr %17, align 8
-  %18 = add i64 %5, %2
+  %18 = add i64 %2, %5
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   br label %20
 
@@ -171,7 +171,7 @@ default.unreachable.i:                            ; preds = %13
   unreachable
 
 MPLI_gavl_subset_cmp_func.exit.i:                 ; preds = %26
-  %.not53.i = icmp ugt i64 %15, %1
+  %.not53.i = icmp ult i64 %1, %15
   br i1 %.not53.i, label %MPLI_gavl_subset_cmp_func.exit.thread38.i, label %MPLI_gavl_subset_cmp_func.exit.thread41.i
 
 MPLI_gavl_subset_cmp_func.exit.thread38.i:        ; preds = %MPLI_gavl_subset_cmp_func.exit.i, %21, %16
@@ -1095,7 +1095,7 @@ define noundef i32 @MPL_gavl_tree_delete_range(ptr nocapture noundef %0, ptr nou
   br i1 %.not35.i, label %gavl_tree_delete_removed_nodes.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %7 = add i64 %4, %2
+  %7 = add i64 %2, %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   br label %.lr.ph.split.i
 

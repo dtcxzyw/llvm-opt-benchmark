@@ -71,7 +71,7 @@ entry:
   %div4 = lshr i64 %pos, 6
   %word_alloc1.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc1.i, align 8
-  %cmp.i.not = icmp ugt i64 %0, %div4
+  %cmp.i.not = icmp ult i64 %div4, %0
   br i1 %cmp.i.not, label %entry.do.end_crit_edge.i, label %if.then.i
 
 entry.do.end_crit_edge.i:                         ; preds = %entry
@@ -334,7 +334,7 @@ entry:
   %0 = load i64, ptr %word_alloc, align 8
   %word_alloc1.i = getelementptr inbounds i8, ptr %self, i64 8
   %1 = load i64, ptr %word_alloc1.i, align 8
-  %cmp.i = icmp ult i64 %1, %0
+  %cmp.i = icmp ugt i64 %0, %1
   br i1 %cmp.i, label %if.then.i, label %entry.do.end_crit_edge.i
 
 entry.do.end_crit_edge.i:                         ; preds = %entry

@@ -271,14 +271,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = load float, ptr %m_upperBound, align 4
   %cmp.i.i = fcmp olt float %8, %3
   %.sroa.speculated3.i = select i1 %cmp.i.i, float %3, float %8
-  %cmp.i1.i = fcmp ogt float %.sroa.speculated3.i, %9
+  %cmp.i1.i = fcmp olt float %9, %.sroa.speculated3.i
   %.sroa.speculated.i = select i1 %cmp.i1.i, float %9, float %.sroa.speculated3.i
   store float %.sroa.speculated.i, ptr %out.020, align 4
   %10 = load float, ptr %m_lowerBound, align 8
   %11 = load float, ptr %m_upperBound, align 4
   %cmp.i.i10 = fcmp olt float %10, %5
   %.sroa.speculated3.i11 = select i1 %cmp.i.i10, float %5, float %10
-  %cmp.i1.i12 = fcmp ogt float %.sroa.speculated3.i11, %11
+  %cmp.i1.i12 = fcmp olt float %11, %.sroa.speculated3.i11
   %.sroa.speculated.i13 = select i1 %cmp.i1.i12, float %11, float %.sroa.speculated3.i11
   %arrayidx15 = getelementptr inbounds i8, ptr %out.020, i64 4
   store float %.sroa.speculated.i13, ptr %arrayidx15, align 4
@@ -286,7 +286,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %13 = load float, ptr %m_upperBound, align 4
   %cmp.i.i14 = fcmp olt float %12, %7
   %.sroa.speculated3.i15 = select i1 %cmp.i.i14, float %7, float %12
-  %cmp.i1.i16 = fcmp ogt float %.sroa.speculated3.i15, %13
+  %cmp.i1.i16 = fcmp olt float %13, %.sroa.speculated3.i15
   %.sroa.speculated.i17 = select i1 %cmp.i1.i16, float %13, float %.sroa.speculated3.i15
   %arrayidx20 = getelementptr inbounds i8, ptr %out.020, i64 8
   store float %.sroa.speculated.i17, ptr %arrayidx20, align 4
@@ -360,7 +360,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = load float, ptr %m_upperBound, align 4
   %cmp.i.i = fcmp olt float %1, %0
   %.sroa.speculated3.i = select i1 %cmp.i.i, float %0, float %1
-  %cmp.i1.i = fcmp ogt float %.sroa.speculated3.i, %2
+  %cmp.i1.i = fcmp olt float %2, %.sroa.speculated3.i
   %.sroa.speculated.i = select i1 %cmp.i1.i, float %2, float %.sroa.speculated3.i
   store float %.sroa.speculated.i, ptr %out.020, align 4
   %arrayidx3 = getelementptr inbounds i8, ptr %in.019, i64 4
@@ -369,7 +369,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load float, ptr %m_upperBound, align 4
   %cmp.i.i10 = fcmp olt float %4, %3
   %.sroa.speculated3.i11 = select i1 %cmp.i.i10, float %3, float %4
-  %cmp.i1.i12 = fcmp ogt float %.sroa.speculated3.i11, %5
+  %cmp.i1.i12 = fcmp olt float %5, %.sroa.speculated3.i11
   %.sroa.speculated.i13 = select i1 %cmp.i1.i12, float %5, float %.sroa.speculated3.i11
   %arrayidx7 = getelementptr inbounds i8, ptr %out.020, i64 4
   store float %.sroa.speculated.i13, ptr %arrayidx7, align 4
@@ -379,7 +379,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = load float, ptr %m_upperBound, align 4
   %cmp.i.i14 = fcmp olt float %7, %6
   %.sroa.speculated3.i15 = select i1 %cmp.i.i14, float %6, float %7
-  %cmp.i1.i16 = fcmp ogt float %.sroa.speculated3.i15, %8
+  %cmp.i1.i16 = fcmp olt float %8, %.sroa.speculated3.i15
   %.sroa.speculated.i17 = select i1 %cmp.i1.i16, float %8, float %.sroa.speculated3.i15
   %arrayidx12 = getelementptr inbounds i8, ptr %out.020, i64 8
   store float %.sroa.speculated.i17, ptr %arrayidx12, align 4

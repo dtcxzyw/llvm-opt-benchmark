@@ -401,7 +401,7 @@ define hidden void @_ZNK5ceres8internal7Program28ParameterBlocksToStateVectorEPd
   %6 = load ptr, ptr %.sroa.07.011, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
-  %.not.i = icmp eq ptr %8, %.012
+  %.not.i = icmp eq ptr %.012, %8
   br i1 %.not.i, label %_ZNK5ceres8internal14ParameterBlock8GetStateEPd.exit, label %9
 
 9:                                                ; preds = %.lr.ph
@@ -443,7 +443,7 @@ define hidden void @_ZN5ceres8internal7Program34CopyParameterBlockStateToUserSta
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %7, align 8
-  %.not.i = icmp eq ptr %8, %6
+  %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %_ZNK5ceres8internal14ParameterBlock8GetStateEPd.exit, label %9
 
 9:                                                ; preds = %.lr.ph
@@ -4616,7 +4616,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE6_init1INS_9Tran
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %.not = icmp eq i64 %6, %1
+  %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %4
@@ -4768,8 +4768,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %48 = load ptr, ptr %1, align 8
   %49 = load i64, ptr %8, align 8
   %50 = mul nsw i64 %49, %.077105
-  %51 = getelementptr double, ptr %48, i64 %50
-  %52 = getelementptr double, ptr %51, i64 %.076107
+  %51 = getelementptr double, ptr %48, i64 %.076107
+  %52 = getelementptr double, ptr %51, i64 %50
   %53 = load double, ptr %52, align 8
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %32, double noundef %53)
           to label %55 unwind label %61
@@ -4877,8 +4877,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %107 = load ptr, ptr %1, align 8
   %108 = load i64, ptr %8, align 8
   %109 = mul nsw i64 %108, %.072115.us
-  %110 = getelementptr double, ptr %107, i64 %109
-  %111 = getelementptr double, ptr %110, i64 %.0109.us.us
+  %110 = getelementptr double, ptr %107, i64 %.0109.us.us
+  %111 = getelementptr double, ptr %110, i64 %109
   %112 = load double, ptr %111, align 8
   %113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %112)
   %114 = add nuw nsw i64 %.0109.us.us, 1
@@ -4935,8 +4935,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %148 = load ptr, ptr %1, align 8
   %149 = load i64, ptr %8, align 8
   %150 = mul nsw i64 %149, %.072115
-  %151 = getelementptr double, ptr %148, i64 %150
-  %152 = getelementptr double, ptr %151, i64 %.0109
+  %151 = getelementptr double, ptr %148, i64 %.0109
+  %152 = getelementptr double, ptr %151, i64 %150
   %153 = load double, ptr %152, align 8
   %154 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %153)
   %155 = add nuw nsw i64 %.0109, 1
@@ -5022,7 +5022,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26call_dense_assignment_loopI
 
 16:                                               ; preds = %13
   %17 = sdiv i64 9223372036854775807, %8
-  %18 = icmp slt i64 %17, %7
+  %18 = icmp sgt i64 %7, %17
   br i1 %18, label %.noexc, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i
 
 .noexc:                                           ; preds = %16
@@ -5083,7 +5083,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6r
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
-  %.not = icmp eq i64 %9, %1
+  %.not = icmp eq i64 %1, %9
   br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %4

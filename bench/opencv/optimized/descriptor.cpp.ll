@@ -483,7 +483,7 @@ define void @_ZN2cv6stereo15censusTransformERKNS_3MatES3_iRS1_S4_i(ptr nocapture
 
 78:                                               ; preds = %68
   %79 = select i1 %69, i32 5, i32 11
-  %.not45 = icmp slt i32 %79, %2
+  %.not45 = icmp sgt i32 %2, %79
   br i1 %.not45, label %80, label %88
 
 80:                                               ; preds = %78
@@ -803,7 +803,7 @@ define void @_ZN2cv6stereo15censusTransformERKNS_3MatEiRS1_i(ptr nocapture nound
 
 72:                                               ; preds = %62
   %73 = select i1 %63, i32 5, i32 11
-  %.not42 = icmp slt i32 %73, %1
+  %.not42 = icmp sgt i32 %1, %73
   br i1 %.not42, label %74, label %82
 
 74:                                               ; preds = %72

@@ -627,7 +627,7 @@ define internal fastcc { i64, i64 } @_ZN6memchr6memmem4find17h4d79853fd56f95bbE(
   store i32 1, ptr %6, align 4, !noalias !165
   %11 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 0, ptr %11, align 4, !noalias !165
-  %12 = icmp ugt i64 %3, %1
+  %12 = icmp ult i64 %1, %3
   br i1 %12, label %.thread, label %13
 
 .thread:                                          ; preds = %9
@@ -725,7 +725,7 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit: ; preds = %22
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %53
   %.016.i.i = phi i32 [ %62, %53 ], [ %.016.i.i.ph, %.preheader.i.i.preheader ]
   %.0.i.i = phi ptr [ %63, %53 ], [ %0, %.preheader.i.i.preheader ]
-  %49 = icmp eq i32 %.016.i.i, %.sroa.01.0.i4
+  %49 = icmp eq i32 %.sroa.01.0.i4, %.016.i.i
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %.preheader.i.i
@@ -1662,7 +1662,7 @@ _ZN15actix_multipart6server13PayloadBuffer15readline_or_eof17h0922ba60964d3afcE.
   store i64 %222, ptr %20, align 8, !noalias !353
   %230 = getelementptr inbounds i8, ptr %22, i64 16
   %231 = load i64, ptr %230, align 8, !noalias !349, !noundef !4
-  %.not.i.i.i.i.i = icmp ult i64 %231, %222
+  %.not.i.i.i.i.i = icmp ugt i64 %222, %231
   br i1 %.not.i.i.i.i.i, label %232, label %.critedge.i.i.i
 
 232:                                              ; preds = %.noexc.i.i.i
@@ -3725,7 +3725,7 @@ _ZN15actix_multipart6server6Safety7current17h31dc119cf176b21aE.exit.i: ; preds =
   store i64 %86, ptr %30, align 8, !noalias !776
   %94 = getelementptr inbounds i8, ptr %32, i64 16
   %95 = load i64, ptr %94, align 8, !noalias !772, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %95, %86
+  %.not.i.i.i.i = icmp ugt i64 %86, %95
   br i1 %.not.i.i.i.i, label %96, label %114
 
 96:                                               ; preds = %.noexc41
@@ -3861,7 +3861,7 @@ _ZN15actix_multipart6server6Safety7current17h31dc119cf176b21aE.exit.i: ; preds =
   %141 = getelementptr inbounds i8, ptr %43, i64 40
   %142 = load i64, ptr %141, align 8, !alias.scope !811, !noalias !814, !noundef !4
   %143 = sub i64 %142, %140
-  %.not.i.i52.i = icmp ult i64 %143, %139
+  %.not.i.i52.i = icmp ugt i64 %139, %143
   br i1 %.not.i.i52.i, label %144, label %145
 
 144:                                              ; preds = %136
@@ -3880,7 +3880,7 @@ _ZN15actix_multipart6server6Safety7current17h31dc119cf176b21aE.exit.i: ; preds =
   %149 = load i64, ptr %141, align 8, !alias.scope !811, !noalias !814, !noundef !4
   %150 = load i64, ptr %74, align 8, !alias.scope !811, !noalias !814, !noundef !4
   %151 = sub i64 %149, %150
-  %152 = icmp ult i64 %151, %139
+  %152 = icmp ugt i64 %139, %151
   br i1 %152, label %153, label %156
 
 153:                                              ; preds = %145
@@ -4146,7 +4146,7 @@ _ZN15actix_multipart6server6Safety7current17h31dc119cf176b21aE.exit.i: ; preds =
   store i64 %244, ptr %19, align 8, !noalias !891
   %252 = getelementptr inbounds i8, ptr %21, i64 16
   %253 = load i64, ptr %252, align 8, !noalias !887, !noundef !4
-  %.not.i.i.i43 = icmp ult i64 %253, %244
+  %.not.i.i.i43 = icmp ugt i64 %244, %253
   br i1 %.not.i.i.i43, label %254, label %270
 
 254:                                              ; preds = %.noexc52
@@ -4343,7 +4343,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit.i: ; preds = %270, 
   store i64 %318, ptr %13, align 8, !noalias !931
   %326 = getelementptr inbounds i8, ptr %15, i64 16
   %327 = load i64, ptr %326, align 8, !noalias !927, !noundef !4
-  %.not.i.i150.i = icmp ult i64 %327, %318
+  %.not.i.i150.i = icmp ugt i64 %318, %327
   br i1 %.not.i.i150.i, label %328, label %344
 
 328:                                              ; preds = %.noexc63
@@ -4462,7 +4462,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit153.i: ; preds = %34
   store i64 %357, ptr %7, align 8, !noalias !957
   %365 = getelementptr inbounds i8, ptr %9, i64 16
   %366 = load i64, ptr %365, align 8, !noalias !953, !noundef !4
-  %.not.i.i162.i = icmp ult i64 %366, %357
+  %.not.i.i162.i = icmp ugt i64 %357, %366
   br i1 %.not.i.i162.i, label %367, label %383
 
 367:                                              ; preds = %.noexc65
@@ -4988,7 +4988,7 @@ define internal fastcc void @_ZN15actix_multipart6server13PayloadBuffer11poll_st
   %27 = load i64, ptr %11, align 8, !alias.scope !1030, !noalias !1033, !noundef !4
   %28 = load i64, ptr %12, align 8, !alias.scope !1030, !noalias !1033, !noundef !4
   %29 = sub i64 %28, %27
-  %.not.i = icmp ult i64 %29, %26
+  %.not.i = icmp ugt i64 %26, %29
   br i1 %.not.i, label %30, label %31
 
 30:                                               ; preds = %24
@@ -5007,7 +5007,7 @@ define internal fastcc void @_ZN15actix_multipart6server13PayloadBuffer11poll_st
   %35 = load i64, ptr %12, align 8, !alias.scope !1030, !noalias !1033, !noundef !4
   %36 = load i64, ptr %11, align 8, !alias.scope !1030, !noalias !1033, !noundef !4
   %37 = sub i64 %35, %36
-  %38 = icmp ult i64 %37, %26
+  %38 = icmp ugt i64 %26, %37
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %31
@@ -5130,7 +5130,7 @@ define internal fastcc void @_ZN15actix_multipart6server13PayloadBuffer10read_un
   store i64 %24, ptr %8, align 8, !noalias !1058
   %32 = getelementptr inbounds i8, ptr %10, i64 16
   %33 = load i64, ptr %32, align 8, !noalias !1054, !noundef !4
-  %.not.i.i = icmp ult i64 %33, %24
+  %.not.i.i = icmp ugt i64 %24, %33
   br i1 %.not.i.i, label %34, label %52
 
 34:                                               ; preds = %23

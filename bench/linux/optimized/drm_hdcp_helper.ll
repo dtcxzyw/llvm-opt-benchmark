@@ -561,7 +561,7 @@ define dso_local void @drm_hdcp_update_content_protection(ptr noundef %0, i64 no
   %10 = getelementptr inbounds i8, ptr %5, i64 124
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = icmp eq i64 %12, %1
+  %13 = icmp eq i64 %1, %12
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %9

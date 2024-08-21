@@ -328,14 +328,14 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumber(ptr noca
   %17 = getelementptr inbounds i8, ptr %16, i64 128
   %18 = load i16, ptr %17, align 8
   %19 = zext i16 %18 to i32
-  %20 = icmp ult i32 %19, %1
+  %20 = icmp ugt i32 %1, %19
   br i1 %20, label %php_pcre2_substring_length_bynumber.exit.thread, label %21
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds i8, ptr %0, i64 98
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
-  %.not42.i = icmp ugt i32 %24, %1
+  %.not42.i = icmp ult i32 %1, %24
   br i1 %.not42.i, label %25, label %php_pcre2_substring_length_bynumber.exit.thread
 
 25:                                               ; preds = %21
@@ -351,7 +351,7 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumber(ptr noca
   %33 = getelementptr inbounds i8, ptr %0, i64 98
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
-  %.not39.i = icmp ugt i32 %35, %1
+  %.not39.i = icmp ult i32 %1, %35
   br i1 %.not39.i, label %36, label %php_pcre2_substring_length_bynumber.exit.thread
 
 36:                                               ; preds = %32
@@ -435,14 +435,14 @@ define i32 @php_pcre2_substring_length_bynumber(ptr nocapture noundef readonly %
   %16 = getelementptr inbounds i8, ptr %15, i64 128
   %17 = load i16, ptr %16, align 8
   %18 = zext i16 %17 to i32
-  %19 = icmp ult i32 %18, %1
+  %19 = icmp ugt i32 %1, %18
   br i1 %19, label %52, label %20
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds i8, ptr %0, i64 98
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
-  %.not42 = icmp ugt i32 %23, %1
+  %.not42 = icmp ult i32 %1, %23
   br i1 %.not42, label %24, label %52
 
 24:                                               ; preds = %20
@@ -458,7 +458,7 @@ define i32 @php_pcre2_substring_length_bynumber(ptr nocapture noundef readonly %
   %32 = getelementptr inbounds i8, ptr %0, i64 98
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
-  %.not39 = icmp ugt i32 %34, %1
+  %.not39 = icmp ult i32 %1, %34
   br i1 %.not39, label %35, label %52
 
 35:                                               ; preds = %31
@@ -729,14 +729,14 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber(ptr nound
   %17 = getelementptr inbounds i8, ptr %16, i64 128
   %18 = load i16, ptr %17, align 8
   %19 = zext i16 %18 to i32
-  %20 = icmp ult i32 %19, %1
+  %20 = icmp ugt i32 %1, %19
   br i1 %20, label %php_pcre2_substring_length_bynumber.exit.thread, label %21
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds i8, ptr %0, i64 98
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
-  %.not42.i = icmp ugt i32 %24, %1
+  %.not42.i = icmp ult i32 %1, %24
   br i1 %.not42.i, label %25, label %php_pcre2_substring_length_bynumber.exit.thread
 
 25:                                               ; preds = %21
@@ -752,7 +752,7 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber(ptr nound
   %33 = getelementptr inbounds i8, ptr %0, i64 98
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
-  %.not39.i = icmp ugt i32 %35, %1
+  %.not39.i = icmp ult i32 %1, %35
   br i1 %.not39.i, label %36, label %php_pcre2_substring_length_bynumber.exit.thread
 
 36:                                               ; preds = %32

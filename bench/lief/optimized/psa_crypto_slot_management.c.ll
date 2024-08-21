@@ -166,7 +166,7 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr nocapture nound
   %12 = getelementptr inbounds [32 x %struct.psa_key_slot_t], ptr @global_data, i64 0, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
-  %.not.i = icmp eq i32 %14, %0
+  %.not.i = icmp eq i32 %0, %14
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i25.preheader
 
 15:                                               ; preds = %7
@@ -183,7 +183,7 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr nocapture nound
   %18 = getelementptr inbounds [32 x %struct.psa_key_slot_t], ptr @global_data, i64 0, i64 %.01833.i
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
-  %.not32.i = icmp eq i32 %20, %0
+  %.not32.i = icmp eq i32 %0, %20
   br i1 %.not32.i, label %.loopexit.i, label %16
 
 .loopexit.i:                                      ; preds = %.preheader.i, %9
@@ -412,7 +412,7 @@ define hidden i32 @psa_close_key(i32 noundef %0) local_unnamed_addr #2 {
   %7 = getelementptr inbounds [32 x %struct.psa_key_slot_t], ptr @global_data, i64 0, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
-  %.not.i = icmp eq i32 %9, %0
+  %.not.i = icmp eq i32 %0, %9
   br i1 %.not.i, label %.loopexit.i, label %.loopexit
 
 10:                                               ; preds = %2
@@ -429,7 +429,7 @@ define hidden i32 @psa_close_key(i32 noundef %0) local_unnamed_addr #2 {
   %13 = getelementptr inbounds [32 x %struct.psa_key_slot_t], ptr @global_data, i64 0, i64 %.01833.i
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
-  %.not32.i = icmp eq i32 %15, %0
+  %.not32.i = icmp eq i32 %0, %15
   br i1 %.not32.i, label %.loopexit.i, label %11
 
 .loopexit.i:                                      ; preds = %.preheader.i, %4
@@ -469,7 +469,7 @@ define hidden i32 @psa_purge_key(i32 noundef %0) local_unnamed_addr #2 {
   %6 = getelementptr inbounds [32 x %struct.psa_key_slot_t], ptr @global_data, i64 0, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
-  %.not.i = icmp eq i32 %8, %0
+  %.not.i = icmp eq i32 %0, %8
   br i1 %.not.i, label %.loopexit.i, label %psa_unlock_key_slot.exit
 
 9:                                                ; preds = %1
@@ -486,7 +486,7 @@ define hidden i32 @psa_purge_key(i32 noundef %0) local_unnamed_addr #2 {
   %12 = getelementptr inbounds [32 x %struct.psa_key_slot_t], ptr @global_data, i64 0, i64 %.01833.i
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
-  %.not32.i = icmp eq i32 %14, %0
+  %.not32.i = icmp eq i32 %0, %14
   br i1 %.not32.i, label %.loopexit.i, label %10
 
 .loopexit.i:                                      ; preds = %.preheader.i, %3

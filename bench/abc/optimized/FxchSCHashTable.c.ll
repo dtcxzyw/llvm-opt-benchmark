@@ -830,7 +830,7 @@ define internal fastcc range(i32 0, 2) i32 @Fxch_SCHashTableEntryCompare(ptr noc
   %96 = load i32, ptr %47, align 4
   %97 = add nsw i32 %96, -1
   store i32 %97, ptr %47, align 4
-  %98 = icmp sgt i32 %97, %95
+  %98 = icmp slt i32 %95, %97
   br i1 %98, label %.lr.ph.i, label %Vec_IntDrop.exit
 
 .lr.ph.i:                                         ; preds = %90
@@ -865,7 +865,7 @@ Vec_IntDrop.exit:                                 ; preds = %101, %90, %88
   %115 = add nsw i32 %111, %114
   %116 = add nsw i32 %.pre, -1
   store i32 %116, ptr %49, align 4
-  %117 = icmp sgt i32 %116, %115
+  %117 = icmp slt i32 %115, %116
   br i1 %117, label %.lr.ph.i101, label %Vec_IntDrop.exit104
 
 .lr.ph.i101:                                      ; preds = %110

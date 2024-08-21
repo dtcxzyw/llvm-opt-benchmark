@@ -241,7 +241,7 @@ if.end.i.i.i.i.i:                                 ; preds = %call2.i.i.i.i.noexc
   %add.ptr8.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %add.ptr.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i64, ptr %add.ptr.i9.i.i.i.i.i, align 8
-  %cmp.i.i10.i.i.i.i.i = icmp eq i64 %11, %call2.i.i.i.i4
+  %cmp.i.i10.i.i.i.i.i = icmp eq i64 %call2.i.i.i.i4, %11
   %12 = load ptr, ptr %add.ptr8.i.i.i.i.i, align 8
   %cmp.i.i.i.i11.i.i.i.i.i = icmp eq ptr %.pre, %12
   %13 = select i1 %cmp.i.i10.i.i.i.i.i, i1 %cmp.i.i.i.i11.i.i.i.i.i, i1 false
@@ -249,7 +249,7 @@ if.end.i.i.i.i.i:                                 ; preds = %call2.i.i.i.i.noexc
 
 for.cond.i.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %17, %call2.i.i.i.i4
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %call2.i.i.i.i4, %17
   %14 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre, %14
   %15 = select i1 %cmp.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i, i1 false
@@ -1122,7 +1122,7 @@ if.end.i:                                         ; preds = %_ZN4cvc58internal8R
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4cvc58internal8RationalC2ERKS1_.exit, %if.end.i
-  %cmp.i3 = icmp eq ptr %__tmp, %__b
+  %cmp.i3 = icmp eq ptr %__b, %__tmp
   br i1 %cmp.i3, label %invoke.cont1, label %if.end.i4
 
 if.end.i4:                                        ; preds = %invoke.cont

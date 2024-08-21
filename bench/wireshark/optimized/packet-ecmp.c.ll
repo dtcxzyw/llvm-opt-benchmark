@@ -2214,7 +2214,7 @@ define internal fastcc void @file_pos(i32 noundef %0, i32 noundef %1, ptr nounde
 .sink.split:                                      ; preds = %13, %5
   %.sink25 = phi i32 [ 3, %5 ], [ 1, %13 ]
   %.sink = phi ptr [ %10, %5 ], [ null, %13 ]
-  %18 = add i32 %.sink25, %0
+  %18 = add i32 %0, %.sink25
   %19 = load i32, ptr @hf_ecmp_ref_offset, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %19, ptr noundef %2, i32 noundef %18, i32 noundef 4, i32 noundef 0) #4
   br label %21

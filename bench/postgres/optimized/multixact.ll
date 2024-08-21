@@ -383,7 +383,7 @@ ExtendMultiXactOffset.exit.i:                     ; preds = %115, %110
   %128 = icmp eq i32 %127, 0
   %spec.select.i = call i32 @llvm.umax.i32(i32 %127, i32 1)
   %129 = zext i1 %128 to i32
-  %spec.select63.i = add i32 %129, %0
+  %spec.select63.i = add i32 %0, %129
   %130 = getelementptr inbounds i8, ptr %125, i64 24
   %131 = load i8, ptr %130, align 4
   %132 = trunc i8 %131 to i1
@@ -2192,7 +2192,7 @@ find_multixact_start.exit.i:                      ; preds = %55
   %84 = urem i32 %.0.ph.i, 52352
   %85 = sub i32 %.0.ph.i, %84
   %86 = add i32 %85, -52352
-  %brmerge.i = or i1 %47, %2
+  %brmerge.i = or i1 %2, %47
   br i1 %brmerge.i, label %91, label %87
 
 87:                                               ; preds = %81
@@ -2630,7 +2630,7 @@ find_multixact_start.exit:                        ; preds = %35
 
 60:                                               ; preds = %find_multixact_start.exit.thread, %33
   %.0 = phi i32 [ %14, %33 ], [ %49, %find_multixact_start.exit.thread ]
-  %61 = icmp eq i32 %12, %0
+  %61 = icmp eq i32 %0, %12
   br i1 %61, label %87, label %62
 
 62:                                               ; preds = %60

@@ -170,7 +170,7 @@ count_distinct_groups.exit.i:                     ; preds = %.lr.ph.i.i, %34
 
 build_distinct_groups.exit:                       ; preds = %53, %count_distinct_groups.exit.i
   call void @qsort_interruptible(ptr noundef nonnull %44, i64 noundef %42, i64 noundef 24, ptr noundef nonnull @compare_sort_item_count, ptr noundef null) #12
-  %spec.store.select = call i32 @llvm.smin.i32(i32 %.0.lcssa.i.i, i32 %2)
+  %spec.store.select = call i32 @llvm.smin.i32(i32 %2, i32 %.0.lcssa.i.i)
   store i32 %spec.store.select, ptr %4, align 4
   %57 = sitofp i32 %36 to double
   %58 = fsub double %1, %57
@@ -2245,7 +2245,7 @@ define dso_local double @mcv_combine_selectivities(double noundef %0, double nou
   %11 = fsub double 1.000000e+00, %3
   %12 = fcmp ogt double %.012, %11
   %.1 = select i1 %12, double %11, double %.012
-  %13 = fadd double %.1, %1
+  %13 = fadd double %1, %.1
   %14 = fcmp olt double %13, 0.000000e+00
   br i1 %14, label %18, label %15
 
@@ -2456,7 +2456,7 @@ is_opclause.exit:                                 ; preds = %.lr.ph95, %is_opcla
   %83 = getelementptr i8, ptr %25, i64 %61
   %84 = load i8, ptr %83, align 1
   %85 = trunc i8 %84 to i1
-  %86 = xor i1 %85, %4
+  %86 = xor i1 %4, %85
   br i1 %86, label %87, label %113
 
 87:                                               ; preds = %82
@@ -2621,7 +2621,7 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   %181 = getelementptr i8, ptr %25, i64 %162
   %182 = load i8, ptr %181, align 1
   %183 = trunc i8 %182 to i1
-  %184 = xor i1 %183, %4
+  %184 = xor i1 %4, %183
   br i1 %184, label %185, label %235
 
 185:                                              ; preds = %180

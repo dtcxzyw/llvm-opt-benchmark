@@ -8244,7 +8244,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5FieldEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5FieldEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -14163,7 +14163,7 @@ _ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_small
   store i32 %inc.i, ptr %num_field_loc.i, align 8
   %max_voffset_.i = getelementptr inbounds i8, ptr %this, i64 84
   %18 = load i16, ptr %max_voffset_.i, align 4
-  %cmp.i3 = icmp ult i16 %18, %field
+  %cmp.i3 = icmp ugt i16 %field, %18
   br i1 %cmp.i3, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
@@ -14193,7 +14193,7 @@ entry:
   %initial_size_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %initial_size_, align 8
   %cond = select i1 %tobool.not, i64 %4, i64 %div6
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %cond, i64 %len)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %len, i64 %cond)
   %add = add i64 %.sroa.speculated, %0
   %buffer_minalign_ = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i64, ptr %buffer_minalign_, align 8
@@ -14569,7 +14569,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN22arrow_vendored
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %conv.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i.i = icmp ult i64 %conv.i.i.i.i.i, %and.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %and.i.i.i, %conv.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
@@ -14634,7 +14634,7 @@ if.then.i.i.i7:                                   ; preds = %for.body.preheader.
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %conv.i.i.i.i8 = and i64 %sub.ptr.sub.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i = icmp ult i64 %conv.i.i.i.i8, %len
+  %cmp.i.i.i.i = icmp ugt i64 %len, %conv.i.i.i.i8
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i11, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
 if.then.i.i.i.i11:                                ; preds = %if.then.i.i.i7
@@ -15036,7 +15036,7 @@ _ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_small
   store i32 %inc.i, ptr %num_field_loc.i, align 8
   %max_voffset_.i = getelementptr inbounds i8, ptr %this, i64 84
   %18 = load i16, ptr %max_voffset_.i, align 4
-  %cmp.i3 = icmp ult i16 %18, %field
+  %cmp.i3 = icmp ugt i16 %field, %18
   br i1 %cmp.i3, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
@@ -15588,7 +15588,7 @@ _ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_small
   store i32 %inc.i, ptr %num_field_loc.i, align 8
   %max_voffset_.i = getelementptr inbounds i8, ptr %this, i64 84
   %18 = load i16, ptr %max_voffset_.i, align 4
-  %cmp.i3 = icmp ult i16 %18, %field
+  %cmp.i3 = icmp ugt i16 %field, %18
   br i1 %cmp.i3, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallINS0_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
@@ -15883,7 +15883,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN22arrow_vendored
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %conv.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i.i = icmp ult i64 %conv.i.i.i.i.i, %and.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %and.i.i.i, %conv.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
@@ -15918,7 +15918,7 @@ if.end.i.loopexit:                                ; preds = %for.body.i.i.i
 
 if.end.i:                                         ; preds = %if.end.i.loopexit, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i
   %7 = phi i64 [ %.pre, %if.end.i.loopexit ], [ %1, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i ]
-  %cmp.i.i3 = icmp ult i64 %7, %alignment
+  %cmp.i.i3 = icmp ugt i64 %alignment, %7
   br i1 %cmp.i.i3, label %if.then.i.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -15943,7 +15943,7 @@ if.then.i.i.i5:                                   ; preds = %_ZN22arrow_vendored
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %conv.i.i.i.i6 = and i64 %sub.ptr.sub.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i = icmp ult i64 %conv.i.i.i.i6, %and.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %and.i.i, %conv.i.i.i.i6
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i8, label %for.body.preheader.i.i
 
 if.then.i.i.i.i8:                                 ; preds = %if.then.i.i.i5
@@ -15986,7 +15986,7 @@ entry:
   %cond = select i1 %size_prefix, i64 4, i64 0
   %minalign_.i = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i64, ptr %minalign_.i, align 8
-  %cmp.i = icmp ult i64 %1, %cond
+  %cmp.i = icmp ugt i64 %cond, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i
 
 if.then.i:                                        ; preds = %entry
@@ -16015,7 +16015,7 @@ if.then.i.i.i:                                    ; preds = %_ZN22arrow_vendored
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %conv.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i, 4294967295
-  %cmp.i.i.i.i = icmp ult i64 %conv.i.i.i.i, %and.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %and.i.i, %conv.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %for.body.preheader.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -21081,7 +21081,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -23027,7 +23027,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -24316,7 +24316,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
 _ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN5arrow5FieldEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt10shared_ptrIN5arrow5FieldEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -24744,7 +24744,7 @@ _ZN5arrow3ipc14IpcReadOptionsC2ERKS1_.exit:       ; preds = %invoke.cont.i.i.thr
   %use_threads.i = getelementptr inbounds i8, ptr %options, i64 40
   %use_threads4.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %use_threads.i, ptr noundef nonnull align 8 dereferenceable(40) %use_threads4.i, i64 40, i1 false)
-  %cmp.not.i = icmp eq ptr %included_fields.i, %indices
+  %cmp.not.i = icmp eq ptr %indices, %included_fields.i
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5arrow3ipc14IpcReadOptionsC2ERKS1_.exit

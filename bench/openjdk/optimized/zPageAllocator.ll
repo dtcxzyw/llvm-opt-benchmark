@@ -2156,7 +2156,6 @@ define hidden void @_ZN14ZPageAllocator23free_pages_alloc_failedEP15ZPageAllocat
   %13 = phi i64 [ %10, %.lr.ph ], [ %54, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit ]
   %.sroa.8.042 = phi i32 [ 0, %.lr.ph ], [ %.sroa.8.1, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit ]
   %.sroa.14.041 = phi ptr [ null, %.lr.ph ], [ %.sroa.14.1, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit ]
-  %indvars52 = trunc i64 %indvars.iv to i32
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds i8, ptr %14, i64 176
   %16 = load ptr, ptr %15, align 8
@@ -2179,27 +2178,31 @@ define hidden void @_ZN14ZPageAllocator23free_pages_alloc_failedEP15ZPageAllocat
   br i1 %26, label %28, label %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit
 
 28:                                               ; preds = %12
-  %29 = add nuw nsw i32 %indvars52, 1
-  %30 = and i32 %29, %indvars52
-  %31 = icmp eq i32 %30, 0
-  %32 = trunc nuw i64 %27 to i32
-  %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %32, i1 true)
-  %34 = sub nuw nsw i32 32, %33
-  %35 = shl nuw i32 1, %34
-  %.0.i.i.i.i = select i1 %31, i32 %32, i32 %35
-  %36 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #13
+  %29 = trunc nuw i64 %27 to i32
+  %30 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %29)
+  %31 = icmp ult i32 %30, 2
+  %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 true)
+  %33 = sub nuw nsw i32 32, %32
+  %34 = shl nuw i32 1, %33
+  %.0.i.i.i.i = select i1 %31, i32 %29, i32 %34
+  %35 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #13
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %.preheader15.i.i.i, label %.lr.ph.i.i.i
 
-.preheader15.i.i.i:                               ; preds = %.lr.ph.i.i.i, %28
-  %37 = icmp sgt i32 %.0.i.i.i.i, %indvars52
+.preheader15.loopexit.i.i.i:                      ; preds = %.lr.ph.i.i.i
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.preheader15.i.i.i
+
+.preheader15.i.i.i:                               ; preds = %.preheader15.loopexit.i.i.i, %28
+  %.0.lcssa.i.i.i = phi i32 [ 0, %28 ], [ %36, %.preheader15.loopexit.i.i.i ]
+  %37 = icmp slt i32 %.0.lcssa.i.i.i, %.0.i.i.i.i
   br i1 %37, label %.lr.ph18.preheader.i.i.i, label %.preheader.i.i.i
 
 .lr.ph18.preheader.i.i.i:                         ; preds = %.preheader15.i.i.i
-  %38 = shl i64 %indvars.iv, 3
-  %39 = and i64 %38, 34359738360
-  %scevgep = getelementptr i8, ptr %36, i64 %39
-  %40 = xor i32 %indvars52, -1
+  %38 = zext i32 %.0.lcssa.i.i.i to i64
+  %39 = shl nuw nsw i64 %38, 3
+  %scevgep = getelementptr i8, ptr %35, i64 %39
+  %40 = xor i32 %.0.lcssa.i.i.i, -1
   %41 = add i32 %.0.i.i.i.i, %40
   %42 = zext i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 3
@@ -2209,13 +2212,13 @@ define hidden void @_ZN14ZPageAllocator23free_pages_alloc_failedEP15ZPageAllocat
 
 .lr.ph.i.i.i:                                     ; preds = %28, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %28 ]
-  %45 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv.i.i.i
+  %45 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv.i.i.i
   %46 = getelementptr inbounds ptr, ptr %.sroa.14.041, i64 %indvars.iv.i.i.i
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %45, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i.i, %indvars.iv
-  br i1 %exitcond.not, label %.preheader15.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader15.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph18.preheader.i.i.i, %.preheader15.i.i.i
   %.not.i.i.i8 = icmp eq ptr %.sroa.14.041, null
@@ -2226,7 +2229,7 @@ define hidden void @_ZN14ZPageAllocator23free_pages_alloc_failedEP15ZPageAllocat
   br label %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit: ; preds = %12, %.preheader.i.i.i, %48
-  %.sroa.14.1 = phi ptr [ %36, %.preheader.i.i.i ], [ %36, %48 ], [ %.sroa.14.041, %12 ]
+  %.sroa.14.1 = phi ptr [ %35, %.preheader.i.i.i ], [ %35, %48 ], [ %.sroa.14.041, %12 ]
   %.sroa.8.1 = phi i32 [ %.0.i.i.i.i, %.preheader.i.i.i ], [ %.0.i.i.i.i, %48 ], [ %.sroa.8.042, %12 ]
   %49 = getelementptr inbounds ptr, ptr %.sroa.14.1, i64 %indvars.iv
   store ptr %24, ptr %49, align 8
@@ -2616,7 +2619,6 @@ define hidden void @_ZN14ZPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5ZPa
   %.sroa.8.057 = phi i32 [ 0, %.lr.ph ], [ %.sroa.8.1, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit ]
   %.sroa.14.056 = phi ptr [ null, %.lr.ph ], [ %.sroa.14.1, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit ]
   %.sroa.019.055 = phi i64 [ 0, %.lr.ph ], [ %10, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit ]
-  %indvars68 = trunc i64 %.sroa.019.055 to i32
   %10 = add nuw nsw i64 %.sroa.019.055, 1
   %11 = getelementptr inbounds ptr, ptr %6, i64 %.sroa.019.055
   %12 = load ptr, ptr %11, align 8
@@ -2639,27 +2641,31 @@ define hidden void @_ZN14ZPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5ZPa
   br i1 %26, label %27, label %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit
 
 27:                                               ; preds = %9
-  %28 = add nuw nsw i32 %indvars68, 1
-  %29 = and i32 %28, %indvars68
-  %30 = icmp eq i32 %29, 0
-  %31 = trunc nuw i64 %10 to i32
-  %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %31, i1 true)
-  %33 = sub nuw nsw i32 32, %32
-  %34 = shl nuw i32 1, %33
-  %.0.i.i.i.i = select i1 %30, i32 %31, i32 %34
-  %35 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #13
+  %28 = trunc nuw i64 %10 to i32
+  %29 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %28)
+  %30 = icmp ult i32 %29, 2
+  %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 true)
+  %32 = sub nuw nsw i32 32, %31
+  %33 = shl nuw i32 1, %32
+  %.0.i.i.i.i = select i1 %30, i32 %28, i32 %33
+  %34 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #13
   %.not52 = icmp eq i64 %.sroa.019.055, 0
   br i1 %.not52, label %.preheader15.i.i.i, label %.lr.ph.i.i.i
 
-.preheader15.i.i.i:                               ; preds = %.lr.ph.i.i.i, %27
-  %36 = icmp sgt i32 %.0.i.i.i.i, %indvars68
+.preheader15.loopexit.i.i.i:                      ; preds = %.lr.ph.i.i.i
+  %35 = trunc nuw nsw i64 %.sroa.019.055 to i32
+  br label %.preheader15.i.i.i
+
+.preheader15.i.i.i:                               ; preds = %.preheader15.loopexit.i.i.i, %27
+  %.0.lcssa.i.i.i = phi i32 [ 0, %27 ], [ %35, %.preheader15.loopexit.i.i.i ]
+  %36 = icmp slt i32 %.0.lcssa.i.i.i, %.0.i.i.i.i
   br i1 %36, label %.lr.ph18.preheader.i.i.i, label %.preheader.i.i.i
 
 .lr.ph18.preheader.i.i.i:                         ; preds = %.preheader15.i.i.i
-  %37 = shl i64 %.sroa.019.055, 3
-  %38 = and i64 %37, 34359738360
-  %scevgep = getelementptr i8, ptr %35, i64 %38
-  %39 = xor i32 %indvars68, -1
+  %37 = zext i32 %.0.lcssa.i.i.i to i64
+  %38 = shl nuw nsw i64 %37, 3
+  %scevgep = getelementptr i8, ptr %34, i64 %38
+  %39 = xor i32 %.0.lcssa.i.i.i, -1
   %40 = add i32 %.0.i.i.i.i, %39
   %41 = zext i32 %40 to i64
   %42 = shl nuw nsw i64 %41, 3
@@ -2669,13 +2675,13 @@ define hidden void @_ZN14ZPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5ZPa
 
 .lr.ph.i.i.i:                                     ; preds = %27, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %27 ]
-  %44 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv.i.i.i
+  %44 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv.i.i.i
   %45 = getelementptr inbounds ptr, ptr %.sroa.14.056, i64 %indvars.iv.i.i.i
   %46 = load ptr, ptr %45, align 8
   store ptr %46, ptr %44, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i.i, %.sroa.019.055
-  br i1 %exitcond.not, label %.preheader15.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader15.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph18.preheader.i.i.i, %.preheader15.i.i.i
   %.not.i.i.i12 = icmp eq ptr %.sroa.14.056, null
@@ -2686,7 +2692,7 @@ define hidden void @_ZN14ZPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5ZPa
   br label %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit: ; preds = %.preheader.i.i.i, %47, %9
-  %.sroa.14.1 = phi ptr [ %.sroa.14.056, %9 ], [ %35, %47 ], [ %35, %.preheader.i.i.i ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.056, %9 ], [ %34, %47 ], [ %34, %.preheader.i.i.i ]
   %.sroa.8.1 = phi i32 [ %.sroa.8.057, %9 ], [ %.0.i.i.i.i, %47 ], [ %.0.i.i.i.i, %.preheader.i.i.i ]
   %48 = getelementptr inbounds ptr, ptr %.sroa.14.1, i64 %.sroa.019.055
   store ptr %24, ptr %48, align 8
@@ -3145,7 +3151,7 @@ define hidden noundef zeroext i1 @_ZNK14ZPageAllocator25is_alloc_stalling_for_ol
   %15 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 3220
   %17 = load i32, ptr %16, align 4
-  %.not = icmp eq i32 %17, %.val
+  %.not = icmp eq i32 %.val, %17
   br i1 %.not, label %_ZN7ZLockerI5ZLockED2Ev.exit, label %18
 
 18:                                               ; preds = %13
@@ -3154,7 +3160,7 @@ define hidden noundef zeroext i1 @_ZNK14ZPageAllocator25is_alloc_stalling_for_ol
   %20 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 3220
   %22 = load i32, ptr %21, align 4
-  %.not7 = icmp eq i32 %22, %.val6
+  %.not7 = icmp eq i32 %.val6, %22
   br label %_ZN7ZLockerI5ZLockED2Ev.exit
 
 _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %13, %18, %1
@@ -3184,7 +3190,7 @@ define hidden void @_ZN14ZPageAllocator20notify_out_of_memoryEv(ptr nocapture no
   %10 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 3220
   %12 = load i32, ptr %11, align 4
-  %.not7 = icmp eq i32 %12, %.0.val
+  %.not7 = icmp eq i32 %.0.val, %12
   br i1 %.not7, label %._crit_edge, label %select.unfold
 
 select.unfold:                                    ; preds = %.lr.ph
@@ -3241,7 +3247,7 @@ define hidden void @_ZNK14ZPageAllocator10restart_gcEv(ptr nocapture noundef non
   %16 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 3220
   %18 = load i32, ptr %17, align 4
-  %.not = icmp eq i32 %18, %.val
+  %.not = icmp eq i32 %.val, %18
   %19 = load i32, ptr @ZYoungGCThreads, align 4
   br i1 %.not, label %20, label %22
 
@@ -3300,7 +3306,7 @@ define hidden void @_ZN14ZPageAllocator29handle_alloc_stalling_for_oldEb(ptr nou
   %13 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 3220
   %15 = load i32, ptr %14, align 4
-  %.not7.i = icmp eq i32 %15, %.0.val.i
+  %.not7.i = icmp eq i32 %.0.val.i, %15
   br i1 %.not7.i, label %_ZN7ZLockerI5ZLockED2Ev.exit, label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
@@ -5170,91 +5176,90 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5ZPage1
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %40
+  br label %38
 
 7:                                                ; preds = %2
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
-  %10 = xor i32 %3, -2147483648
-  %11 = and i32 %10, %8
-  %12 = icmp eq i32 %11, 0
-  %13 = and i1 %9, %12
-  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
-  %15 = sub nuw nsw i32 32, %14
-  %16 = shl nuw i32 1, %15
-  %.0.i.i.i = select i1 %13, i32 %8, i32 %16
+  %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
+  %11 = icmp ult i32 %10, 2
+  %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
+  %13 = sub nuw nsw i32 32, %12
+  %14 = shl nuw i32 1, %13
+  %.0.i.i.i = select i1 %or.cond.i.i.i, i32 %8, i32 %14
   store i32 %.0.i.i.i, ptr %4, align 4
-  %17 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #13
-  %18 = load i32, ptr %0, align 8
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph.i.i, label %.preheader15.i.i
+  %15 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #13
+  %16 = load i32, ptr %0, align 8
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph.i.i, label %.preheader15.i.i
 
 .lr.ph.i.i:                                       ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %25
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %23
 
-.preheader15.loopexit.i.i:                        ; preds = %25
-  %21 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
+.preheader15.loopexit.i.i:                        ; preds = %23
+  %19 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %.preheader15.i.i
 
 .preheader15.i.i:                                 ; preds = %.preheader15.loopexit.i.i, %7
-  %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %21, %.preheader15.loopexit.i.i ]
-  %22 = load i32, ptr %4, align 4
-  %23 = icmp slt i32 %.0.lcssa.i.i, %22
-  br i1 %23, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %19, %.preheader15.loopexit.i.i ]
+  %20 = load i32, ptr %4, align 4
+  %21 = icmp slt i32 %.0.lcssa.i.i, %20
+  br i1 %21, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
 
 .lr.ph18.preheader.i.i:                           ; preds = %.preheader15.i.i
-  %24 = zext nneg i32 %.0.lcssa.i.i to i64
+  %22 = zext nneg i32 %.0.lcssa.i.i to i64
   br label %.lr.ph18.i.i
 
-25:                                               ; preds = %25, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i.i
-  %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i.i
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %26, align 8
+23:                                               ; preds = %23, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
+  %24 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv.i.i
+  %25 = load ptr, ptr %18, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i.i
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %30 = load i32, ptr %0, align 8
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next.i.i, %31
-  br i1 %32, label %25, label %.preheader15.loopexit.i.i, !llvm.loop !11
+  %28 = load i32, ptr %0, align 8
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next.i.i, %29
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !11
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %.not.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit, label %39
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit, label %37
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
-  %indvars.iv20.i.i = phi i64 [ %24, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %35 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv20.i.i
-  store ptr null, ptr %35, align 8
+  %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
+  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv20.i.i
+  store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %36 = load i32, ptr %4, align 4
-  %37 = trunc nuw i64 %indvars.iv.next21.i.i to i32
-  %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !22
+  %34 = load i32, ptr %4, align 4
+  %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
+  %36 = icmp sgt i32 %34, %35
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !22
 
-39:                                               ; preds = %.preheader.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #13
+37:                                               ; preds = %.preheader.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #13
   br label %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit
 
-_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit: ; preds = %.preheader.i.i, %39
-  store ptr %17, ptr %33, align 8
+_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit: ; preds = %.preheader.i.i, %37
+  store ptr %15, ptr %31, align 8
   %.pre = load i32, ptr %0, align 8
-  br label %40
+  br label %38
 
-40:                                               ; preds = %._crit_edge, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit
-  %41 = phi ptr [ %17, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit ], [ %.pre3, %._crit_edge ]
-  %42 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit ], [ %3, %._crit_edge ]
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %0, align 8
-  %44 = load ptr, ptr %1, align 8
-  %45 = sext i32 %42 to i64
-  %46 = getelementptr inbounds ptr, ptr %41, i64 %45
-  store ptr %44, ptr %46, align 8
-  ret i32 %42
+38:                                               ; preds = %._crit_edge, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit
+  %39 = phi ptr [ %15, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit ], [ %.pre3, %._crit_edge ]
+  %40 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit ], [ %3, %._crit_edge ]
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %0, align 8
+  %42 = load ptr, ptr %1, align 8
+  %43 = sext i32 %40 to i64
+  %44 = getelementptr inbounds ptr, ptr %39, i64 %43
+  store ptr %42, ptr %44, align 8
+  ret i32 %40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -5285,6 +5290,9 @@ declare i64 @llvm.smax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12

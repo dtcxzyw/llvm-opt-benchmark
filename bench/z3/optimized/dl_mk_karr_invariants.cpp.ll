@@ -1705,7 +1705,7 @@ land.lhs.true:                                    ; preds = %invoke.cont55
   %29 = load ptr, ptr %m, align 8
   %m_true.i = getelementptr inbounds i8, ptr %29, i64 856
   %30 = load ptr, ptr %m_true.i, align 8
-  %cmp.i51 = icmp eq ptr %30, %28
+  %cmp.i51 = icmp eq ptr %28, %30
   br i1 %cmp.i51, label %if.then.i.i.i65, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -2136,7 +2136,7 @@ if.then28:                                        ; preds = %if.then.i.i.i, %if.
   %21 = load ptr, ptr %m2.i, align 8
   %m_true.i.i = getelementptr inbounds i8, ptr %21, i64 856
   %22 = load ptr, ptr %m_true.i.i, align 8
-  %cmp.i.i = icmp eq ptr %22, %20
+  %cmp.i.i = icmp eq ptr %20, %22
   br i1 %cmp.i.i, label %for.inc30, label %if.then.i21
 
 if.then.i21:                                      ; preds = %if.then28
@@ -2902,7 +2902,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %m_cache, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIP4exprS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -3795,7 +3795,7 @@ _ZN15ast_translationclI9func_declEEPT_PKS2_.exit: ; preds = %for.body, %if.end.i
   %10 = load ptr, ptr %m2.i, align 8
   %m_true.i.i = getelementptr inbounds i8, ptr %10, i64 856
   %11 = load ptr, ptr %m_true.i.i, align 8
-  %cmp.i.i15 = icmp eq ptr %11, %9
+  %cmp.i.i15 = icmp eq ptr %9, %11
   br i1 %cmp.i.i15, label %_ZN7datalog18mk_karr_invariants29add_invariant_model_converter3addEP9func_declP4expr.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit

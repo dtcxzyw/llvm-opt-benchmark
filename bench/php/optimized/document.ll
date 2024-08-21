@@ -2736,7 +2736,7 @@ define hidden ptr @dom_document_parser(ptr noundef readonly %0, i32 noundef %1, 
 
 35:                                               ; preds = %13
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
-  %.not = icmp eq i64 %36, %3
+  %.not = icmp eq i64 %3, %36
   br i1 %.not, label %38, label %37
 
 37:                                               ; preds = %35

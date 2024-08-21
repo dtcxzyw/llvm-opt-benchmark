@@ -1488,7 +1488,7 @@ define dso_local { i64, i32 } @CreateUserMapping(ptr nocapture noundef readonly 
   br i1 %22, label %user_mapping_ddl_aclcheck.exit, label %23
 
 23:                                               ; preds = %15
-  %24 = icmp eq i32 %21, %.0
+  %24 = icmp eq i32 %.0, %21
   br i1 %24, label %25, label %.sink.split.i
 
 25:                                               ; preds = %23
@@ -1704,7 +1704,7 @@ define dso_local { i64, i32 } @AlterUserMapping(ptr nocapture noundef readonly %
   br i1 %36, label %user_mapping_ddl_aclcheck.exit, label %37
 
 37:                                               ; preds = %32
-  %38 = icmp eq i32 %35, %.0
+  %38 = icmp eq i32 %.0, %35
   br i1 %38, label %39, label %.sink.split.i
 
 39:                                               ; preds = %37
@@ -1915,7 +1915,7 @@ define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local
   br i1 %69, label %user_mapping_ddl_aclcheck.exit, label %70
 
 70:                                               ; preds = %64
-  %71 = icmp eq i32 %68, %.026
+  %71 = icmp eq i32 %.026, %68
   br i1 %71, label %72, label %.sink.split.i
 
 72:                                               ; preds = %70
@@ -2264,7 +2264,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 2047
   %10 = zext nneg i16 %9 to i32
-  %11 = icmp slt i32 %10, %1
+  %11 = icmp sgt i32 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4

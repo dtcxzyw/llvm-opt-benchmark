@@ -2094,7 +2094,7 @@ _ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i:            ; preds = %if.else
   %11 = load i32, ptr %f, align 4
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %12 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %12, %11
+  %cmp.not.i.i.i = icmp ult i32 %11, %12
   br i1 %cmp.not.i.i.i, label %_ZNK8expr2var6is_varEP4expr.exit.i, label %if.else.i
 
 _ZNK8expr2var6is_varEP4expr.exit.i:               ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i
@@ -2296,7 +2296,7 @@ _ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i69:          ; preds = %if.else88
   %33 = load i32, ptr %f, align 4
   %arrayidx.i.i.i.i70 = getelementptr inbounds i8, ptr %32, i64 -4
   %34 = load i32, ptr %arrayidx.i.i.i.i70, align 4
-  %cmp.not.i.i.i71 = icmp ugt i32 %34, %33
+  %cmp.not.i.i.i71 = icmp ult i32 %33, %34
   br i1 %cmp.not.i.i.i71, label %_ZNK8expr2var6is_varEP4expr.exit.i76, label %if.else.i72
 
 _ZNK8expr2var6is_varEP4expr.exit.i76:             ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i69
@@ -2335,7 +2335,7 @@ _ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i88:          ; preds = %if.else90
   %39 = load i32, ptr %f, align 4
   %arrayidx.i.i.i.i89 = getelementptr inbounds i8, ptr %38, i64 -4
   %40 = load i32, ptr %arrayidx.i.i.i.i89, align 4
-  %cmp.not.i.i.i90 = icmp ugt i32 %40, %39
+  %cmp.not.i.i.i90 = icmp ult i32 %39, %40
   br i1 %cmp.not.i.i.i90, label %_ZNK8expr2var6is_varEP4expr.exit.i95, label %if.else.i91
 
 _ZNK8expr2var6is_varEP4expr.exit.i95:             ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i88

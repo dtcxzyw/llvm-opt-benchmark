@@ -447,7 +447,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_tpm_emulator_vm_state_change.exit:          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %cmp = icmp eq i32 %state, 9
-  %or.cond.not = and i1 %cmp, %running
+  %or.cond.not = and i1 %running, %cmp
   br i1 %or.cond.not, label %lor.lhs.false3, label %return
 
 lor.lhs.false3:                                   ; preds = %trace_tpm_emulator_vm_state_change.exit

@@ -244,7 +244,7 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
   %27 = load i16, ptr %26, align 8
   %28 = zext i16 %27 to i32
   %29 = xor i32 %28, -1
-  %30 = add i32 %29, %2
+  %30 = add i32 %2, %29
   %spec.store.select = call i32 @llvm.smax.i32(i32 %30, i32 0)
   br label %39
 

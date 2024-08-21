@@ -1424,7 +1424,7 @@ land.lhs.true:                                    ; preds = %sw.bb50
   %36 = load ptr, ptr %m_range.i, align 8
   %m_bool_sort.i = getelementptr inbounds i8, ptr %35, i64 840
   %37 = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i32 = icmp eq ptr %37, %36
+  %cmp.i32 = icmp eq ptr %36, %37
   br i1 %cmp.i32, label %if.then65, label %sw.epilog
 
 if.then65:                                        ; preds = %land.lhs.true
@@ -1576,7 +1576,7 @@ invoke.cont83:                                    ; preds = %invoke.cont82
   %56 = load ptr, ptr %tmp, align 8
   %m_true.i94 = getelementptr inbounds i8, ptr %55, i64 856
   %57 = load ptr, ptr %m_true.i94, align 8
-  %cmp.i95 = icmp eq ptr %57, %56
+  %cmp.i95 = icmp eq ptr %56, %57
   br i1 %cmp.i95, label %if.then89, label %if.else
 
 if.then89:                                        ; preds = %invoke.cont83
@@ -1647,7 +1647,7 @@ invoke.cont105.invoke:                            ; preds = %invoke.cont133, %in
 if.else:                                          ; preds = %invoke.cont83
   %m_false.i121 = getelementptr inbounds i8, ptr %55, i64 864
   %67 = load ptr, ptr %m_false.i121, align 8
-  %cmp.i122 = icmp eq ptr %67, %56
+  %cmp.i122 = icmp eq ptr %56, %67
   br i1 %cmp.i122, label %if.then117, label %sw.epilog
 
 if.then117:                                       ; preds = %if.else
@@ -1776,7 +1776,7 @@ _ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %m_cache, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIP4exprS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP4exprSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i

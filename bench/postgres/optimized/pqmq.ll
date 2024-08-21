@@ -68,7 +68,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %1, i64 184
-  %8 = icmp ugt ptr %7, %1
+  %8 = icmp ult ptr %1, %7
   br i1 %8, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %6

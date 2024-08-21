@@ -572,8 +572,8 @@ entry:
   %14 = tail call noundef float @llvm.fmuladd.f32(float %sub7.i, float %sub7.i, float %13)
   %neg = fneg float %radius
   %15 = tail call float @llvm.fmuladd.f32(float %neg, float %radius, float %14)
-  %16 = fneg float %10
-  %neg9 = fmul float %15, %16
+  %16 = fneg float %15
+  %neg9 = fmul float %10, %16
   %17 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %neg9)
   %cmp = fcmp ogt float %17, 0.000000e+00
   br i1 %cmp, label %if.then, label %return
@@ -763,7 +763,6 @@ for.body10.lr.ph:                                 ; preds = %for.body
   %mul5.i.i.i = fmul float %sub4.i13.i, %sub4.i13.i
   %4 = tail call float @llvm.fmuladd.f32(float %sub.i10.i, float %sub.i10.i, float %mul5.i.i.i)
   %5 = tail call float @llvm.fmuladd.f32(float %sub7.i16.i, float %sub7.i16.i, float %4)
-  %6 = fneg float %5
   br label %for.body10
 
 for.body10:                                       ; preds = %for.body10.lr.ph, %for.inc
@@ -774,12 +773,12 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   %hitNormal.sroa.0.1215 = phi <2 x float> [ %hitNormal.sroa.0.0252, %for.body10.lr.ph ], [ %hitNormal.sroa.0.3, %for.inc ]
   %arrayidx = getelementptr inbounds %struct.b3RigidBodyData, ptr %bodies, i64 %indvars.iv
   %m_collidableIdx = getelementptr inbounds i8, ptr %arrayidx, i64 64
-  %7 = load i32, ptr %m_collidableIdx, align 16
-  %idxprom13 = sext i32 %7 to i64
+  %6 = load i32, ptr %m_collidableIdx, align 16
+  %idxprom13 = sext i32 %6 to i64
   %arrayidx14 = getelementptr inbounds %struct.b3Collidable, ptr %collidables, i64 %idxprom13
   %m_shapeType = getelementptr inbounds i8, ptr %arrayidx14, i64 8
-  %8 = load i32, ptr %m_shapeType, align 4
-  switch i32 %8, label %sw.default [
+  %7 = load i32, ptr %m_shapeType, align 4
+  switch i32 %7, label %sw.default [
     i32 7, label %sw.bb
     i32 3, label %for.body10.invoke.cont52_crit_edge
   ]
@@ -789,47 +788,48 @@ for.body10.invoke.cont52_crit_edge:               ; preds = %for.body10
   br label %invoke.cont52
 
 lpad:                                             ; preds = %invoke.cont68, %if.then67
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #21
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #21
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %lpad
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 
 sw.bb:                                            ; preds = %for.body10
-  %12 = getelementptr inbounds i8, ptr %arrayidx14, i64 4
-  %13 = load float, ptr %12, align 4
-  %14 = load float, ptr %arrayidx, align 16
-  %sub.i.i = fsub float %rayFrom.sroa.0.0.copyload, %14
+  %11 = getelementptr inbounds i8, ptr %arrayidx14, i64 4
+  %12 = load float, ptr %11, align 4
+  %13 = load float, ptr %arrayidx, align 16
+  %sub.i.i = fsub float %rayFrom.sroa.0.0.copyload, %13
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %15 = load float, ptr %arrayidx3.i.i, align 4
-  %sub4.i.i = fsub float %rayFrom.sroa.3.0.copyload, %15
+  %14 = load float, ptr %arrayidx3.i.i, align 4
+  %sub4.i.i = fsub float %rayFrom.sroa.3.0.copyload, %14
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %16 = load float, ptr %arrayidx6.i.i, align 8
-  %sub7.i.i = fsub float %rayFrom.sroa.5.0.copyload, %16
+  %15 = load float, ptr %arrayidx6.i.i, align 8
+  %sub7.i.i = fsub float %rayFrom.sroa.5.0.copyload, %15
   %mul5.i.i24.i = fmul float %sub4.i13.i, %sub4.i.i
-  %17 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i10.i, float %mul5.i.i24.i)
-  %18 = tail call noundef float @llvm.fmuladd.f32(float %sub7.i.i, float %sub7.i16.i, float %17)
+  %16 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i10.i, float %mul5.i.i24.i)
+  %17 = tail call noundef float @llvm.fmuladd.f32(float %sub7.i.i, float %sub7.i16.i, float %16)
   %mul5.i.i29.i = fmul float %sub4.i.i, %sub4.i.i
-  %19 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul5.i.i29.i)
-  %20 = tail call noundef float @llvm.fmuladd.f32(float %sub7.i.i, float %sub7.i.i, float %19)
-  %neg.i = fneg float %13
-  %21 = tail call float @llvm.fmuladd.f32(float %neg.i, float %13, float %20)
-  %neg9.i = fmul float %21, %6
-  %22 = tail call float @llvm.fmuladd.f32(float %18, float %18, float %neg9.i)
+  %18 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul5.i.i29.i)
+  %19 = tail call noundef float @llvm.fmuladd.f32(float %sub7.i.i, float %sub7.i.i, float %18)
+  %neg.i = fneg float %12
+  %20 = tail call float @llvm.fmuladd.f32(float %neg.i, float %12, float %19)
+  %21 = fneg float %20
+  %neg9.i = fmul float %5, %21
+  %22 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %neg9.i)
   %cmp.i = fcmp ogt float %22, 0.000000e+00
   br i1 %cmp.i, label %if.then.i, label %invoke.cont52
 
 if.then.i:                                        ; preds = %sw.bb
-  %fneg.i = fneg float %18
+  %fneg.i = fneg float %17
   %call.i.i = tail call noundef float @sqrtf(float noundef %22) #20
   %sub.i = fsub float %fneg.i, %call.i.i
   %div.i = fdiv float %sub.i, %5
@@ -880,7 +880,7 @@ invoke.cont35:                                    ; preds = %if.then.i
   br label %invoke.cont52
 
 invoke.cont52:                                    ; preds = %for.body10.invoke.cont52_crit_edge, %sw.bb, %if.then.i, %invoke.cont35
-  %convexWorldTransform.sroa.27.48.copyload = phi float [ %convexWorldTransform.sroa.27.48.copyload.pre, %for.body10.invoke.cont52_crit_edge ], [ %convexWorldTransform.sroa.27.48.copyload.pre259, %invoke.cont35 ], [ %convexWorldTransform.sroa.27.48.copyload.pre259, %if.then.i ], [ %14, %sw.bb ]
+  %convexWorldTransform.sroa.27.48.copyload = phi float [ %convexWorldTransform.sroa.27.48.copyload.pre, %for.body10.invoke.cont52_crit_edge ], [ %convexWorldTransform.sroa.27.48.copyload.pre259, %invoke.cont35 ], [ %convexWorldTransform.sroa.27.48.copyload.pre259, %if.then.i ], [ %13, %sw.bb ]
   %hitNormal.sroa.0.2 = phi <2 x float> [ %hitNormal.sroa.0.1215, %for.body10.invoke.cont52_crit_edge ], [ %ref.tmp.sroa.0.4.vec.insert, %invoke.cont35 ], [ %hitNormal.sroa.0.1215, %if.then.i ], [ %hitNormal.sroa.0.1215, %sw.bb ]
   %hitNormal.sroa.3.2 = phi <2 x float> [ %hitNormal.sroa.3.1216, %for.body10.invoke.cont52_crit_edge ], [ %ref.tmp.sroa.6.8.vec.insert, %invoke.cont35 ], [ %hitNormal.sroa.3.1216, %if.then.i ], [ %hitNormal.sroa.3.1216, %sw.bb ]
   %hitFraction.1 = phi float [ %hitFraction.0217, %for.body10.invoke.cont52_crit_edge ], [ %div.i, %invoke.cont35 ], [ %hitFraction.0217, %if.then.i ], [ %hitFraction.0217, %sw.bb ]

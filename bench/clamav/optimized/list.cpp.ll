@@ -492,8 +492,8 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   %15 = alloca [65 x i32], align 16
   %16 = load i8, ptr %2, align 1
   %17 = trunc i8 %16 to i1
-  %brmerge = or i1 %17, %3
-  %brmerge119 = or i1 %brmerge, %4
+  %brmerge = or i1 %3, %17
+  %brmerge119 = or i1 %4, %brmerge
   br i1 %brmerge119, label %19, label %18
 
 18:                                               ; preds = %6

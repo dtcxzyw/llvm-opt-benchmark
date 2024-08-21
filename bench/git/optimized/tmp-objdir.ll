@@ -42,7 +42,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @the_tmp_objdir, align 8
-  %cmp = icmp eq ptr %0, %t
+  %cmp = icmp eq ptr %t, %0
   br i1 %cmp, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
@@ -139,7 +139,7 @@ if.end11:                                         ; preds = %if.then9, %if.end7
 
 if.end.i:                                         ; preds = %if.end11
   %5 = load ptr, ptr @the_tmp_objdir, align 8
-  %cmp.i = icmp eq ptr %5, %call
+  %cmp.i = icmp eq ptr %call, %5
   br i1 %cmp.i, label %if.then1.i, label %if.end2.i
 
 if.then1.i:                                       ; preds = %if.end.i
@@ -352,7 +352,7 @@ if.end.i:                                         ; preds = %if.end, %if.end5
   call void @strbuf_release(ptr noundef nonnull %src) #15
   call void @strbuf_release(ptr noundef nonnull %dst) #15
   %6 = load ptr, ptr @the_tmp_objdir, align 8
-  %cmp.i = icmp eq ptr %6, %t
+  %cmp.i = icmp eq ptr %t, %6
   br i1 %cmp.i, label %if.then1.i, label %if.end2.i
 
 if.then1.i:                                       ; preds = %if.end.i
@@ -496,7 +496,7 @@ migrate_one.exit:                                 ; preds = %for.body, %if.then5
   %or = or i32 %retval.0.i13, %ret.036
   %15 = load i64, ptr %src, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %15, i64 1)
-  %cmp.i16 = icmp ult i64 %spec.select.i, %0
+  %cmp.i16 = icmp ugt i64 %0, %spec.select.i
   br i1 %cmp.i16, label %if.then.i, label %if.end.i17
 
 if.then.i:                                        ; preds = %migrate_one.exit
@@ -517,7 +517,7 @@ if.then4.i19:                                     ; preds = %if.end.i17
 strbuf_setlen.exit:                               ; preds = %if.end.i17, %if.then4.i19
   %17 = load i64, ptr %dst, align 8
   %spec.select.i20 = call i64 @llvm.usub.sat.i64(i64 %17, i64 1)
-  %cmp.i21 = icmp ult i64 %spec.select.i20, %1
+  %cmp.i21 = icmp ugt i64 %1, %spec.select.i20
   br i1 %cmp.i21, label %if.then.i28, label %if.end.i22
 
 if.then.i28:                                      ; preds = %strbuf_setlen.exit

@@ -10938,7 +10938,7 @@ split:                                            ; preds = %54, %.preheader17._
   br i1 %83, label %90, label %84
 
 84:                                               ; preds = %80
-  %85 = icmp sgt i32 %82, %5
+  %85 = icmp slt i32 %5, %82
   br i1 %85, label %86, label %256
 
 86:                                               ; preds = %84
@@ -13718,7 +13718,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_amsdu_realloc_pad(ptr nocap
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = trunc i64 %10 to i32
-  %12 = icmp ult i32 %11, %2
+  %12 = icmp ugt i32 %2, %11
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %3

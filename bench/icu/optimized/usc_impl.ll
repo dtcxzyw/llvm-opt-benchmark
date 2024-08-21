@@ -241,7 +241,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
   %idxprom2.i = sext i32 %add.i to i64
   %arrayidx3.i = getelementptr inbounds [34 x i32], ptr @_ZL11pairedChars, i64 0, i64 %idxprom2.i
   %9 = load i32, ptr %arrayidx3.i, align 4
-  %cmp4.not.i = icmp sgt i32 %9, %ch.0
+  %cmp4.not.i = icmp slt i32 %ch.0, %9
   %spec.select12.i = select i1 %cmp4.not.i, i32 %pairIndex.114.i, i32 %add.i
   %cmp1.i = icmp ugt i32 %probe.013.i, 3
   br i1 %cmp1.i, label %while.body.i, label %_ZL12getPairIndexi.exit, !llvm.loop !4

@@ -1140,7 +1140,7 @@ define dso_local noundef range(i32 0, 2) i32 @memtype_copy_nth_element(ptr nocap
   %37 = add i32 %14, 1
   %38 = icmp ne ptr %36, null
   %39 = sext i32 %37 to i64
-  %40 = icmp ne i64 %39, %1
+  %40 = icmp ne i64 %1, %39
   %41 = select i1 %38, i1 %40, i1 false
   br i1 %41, label %.preheader8, label %.loopexit9, !llvm.loop !15
 

@@ -111,12 +111,12 @@ if.end30:                                         ; preds = %entry, %if.else19, 
 
 sw.bb:                                            ; preds = %if.end30
   %add.i = add i32 %h, %y
-  %cmp33.i = icmp sgt i32 %add.i, %y
+  %cmp33.i = icmp slt i32 %y, %add.i
   br i1 %cmp33.i, label %for.body.lr.ph.i, label %sw.epilog
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb
   %add4.i = add i32 %w, %x
-  %cmp531.i = icmp sgt i32 %add4.i, %x
+  %cmp531.i = icmp slt i32 %x, %add4.i
   br i1 %cmp531.i, label %for.body.us.i, label %sw.epilog
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.cond3.for.inc16_crit_edge.us.i
@@ -164,7 +164,7 @@ for.body6.us.i:                                   ; preds = %zrle_encode_tile8ne
   %not.i.us.i = xor i8 %17, -1
   store i8 %not.i.us.i, ptr %add.ptr.i.us.i, align 1
   call void @palette_init(ptr noundef nonnull %palette1.i.us.i, i64 noundef 256, i32 noundef 8) #9
-  %cmp109.i.us.i = icmp ugt ptr %add.ptr.i.us.i, %16
+  %cmp109.i.us.i = icmp ult ptr %16, %add.ptr.i.us.i
   br i1 %cmp109.i.us.i, label %while.body.i.us.i, label %while.end18.i.us.i
 
 while.body.i.us.i:                                ; preds = %for.body6.us.i, %if.end.i.us.i
@@ -456,7 +456,7 @@ sw.bb32:                                          ; preds = %if.end30
   %33 = load i8, ptr %gmax, align 1
   %cmp35 = icmp ugt i8 %33, 31
   %add.i111 = add i32 %h, %y
-  %cmp22.i = icmp sgt i32 %add.i111, %y
+  %cmp22.i = icmp slt i32 %y, %add.i111
   br i1 %cmp35, label %if.then37, label %if.else42
 
 if.then37:                                        ; preds = %sw.bb32
@@ -467,7 +467,7 @@ if.then39:                                        ; preds = %if.then37
 
 for.body.lr.ph.i112:                              ; preds = %if.then39
   %add4.i113 = add i32 %w, %x
-  %cmp520.i = icmp sgt i32 %add4.i113, %x
+  %cmp520.i = icmp slt i32 %x, %add4.i113
   br i1 %cmp520.i, label %for.body.us.i116, label %sw.epilog
 
 for.body.us.i116:                                 ; preds = %for.body.lr.ph.i112, %for.cond3.for.inc16_crit_edge.us.i134
@@ -519,7 +519,7 @@ if.else40:                                        ; preds = %if.then37
 
 for.body.lr.ph.i140:                              ; preds = %if.else40
   %add4.i141 = add i32 %w, %x
-  %cmp520.i142 = icmp sgt i32 %add4.i141, %x
+  %cmp520.i142 = icmp slt i32 %x, %add4.i141
   br i1 %cmp520.i142, label %for.body.us.i145, label %sw.epilog
 
 for.body.us.i145:                                 ; preds = %for.body.lr.ph.i140, %for.cond3.for.inc16_crit_edge.us.i165
@@ -574,7 +574,7 @@ if.then44:                                        ; preds = %if.else42
 
 for.body.lr.ph.i171:                              ; preds = %if.then44
   %add4.i172 = add i32 %w, %x
-  %cmp520.i173 = icmp sgt i32 %add4.i172, %x
+  %cmp520.i173 = icmp slt i32 %x, %add4.i172
   br i1 %cmp520.i173, label %for.body.us.i176, label %sw.epilog
 
 for.body.us.i176:                                 ; preds = %for.body.lr.ph.i171, %for.cond3.for.inc16_crit_edge.us.i195
@@ -626,7 +626,7 @@ if.else45:                                        ; preds = %if.else42
 
 for.body.lr.ph.i201:                              ; preds = %if.else45
   %add4.i202 = add i32 %w, %x
-  %cmp520.i203 = icmp sgt i32 %add4.i202, %x
+  %cmp520.i203 = icmp slt i32 %x, %add4.i202
   br i1 %cmp520.i203, label %for.body.us.i206, label %sw.epilog
 
 for.body.us.i206:                                 ; preds = %for.body.lr.ph.i201, %for.cond3.for.inc16_crit_edge.us.i225
@@ -735,7 +735,7 @@ lor.lhs.false94:                                  ; preds = %land.end88
 
 if.then100:                                       ; preds = %lor.lhs.false94, %land.end88
   %add.i229 = add i32 %h, %y
-  %cmp22.i230 = icmp sgt i32 %add.i229, %y
+  %cmp22.i230 = icmp slt i32 %y, %add.i229
   br i1 %tobool, label %if.then102, label %if.else103
 
 if.then102:                                       ; preds = %if.then100
@@ -743,7 +743,7 @@ if.then102:                                       ; preds = %if.then100
 
 for.body.lr.ph.i231:                              ; preds = %if.then102
   %add4.i232 = add i32 %w, %x
-  %cmp520.i233 = icmp sgt i32 %add4.i232, %x
+  %cmp520.i233 = icmp slt i32 %x, %add4.i232
   br i1 %cmp520.i233, label %for.body.us.i236, label %sw.epilog
 
 for.body.us.i236:                                 ; preds = %for.body.lr.ph.i231, %for.cond3.for.inc16_crit_edge.us.i256
@@ -795,7 +795,7 @@ if.else103:                                       ; preds = %if.then100
 
 for.body.lr.ph.i262:                              ; preds = %if.else103
   %add4.i263 = add i32 %w, %x
-  %cmp520.i264 = icmp sgt i32 %add4.i263, %x
+  %cmp520.i264 = icmp slt i32 %x, %add4.i263
   br i1 %cmp520.i264, label %for.body.us.i267, label %sw.epilog
 
 for.body.us.i267:                                 ; preds = %for.body.lr.ph.i262, %for.cond3.for.inc16_crit_edge.us.i287
@@ -1020,12 +1020,12 @@ define internal fastcc void @zrle_encode_24bbe(ptr noundef %vs, i32 noundef %x, 
 entry:
   %tmp.i = alloca %struct.Buffer, align 8
   %add = add i32 %h, %y
-  %cmp22 = icmp sgt i32 %add, %y
+  %cmp22 = icmp slt i32 %y, %add
   br i1 %cmp22, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
   %add4 = add i32 %w, %x
-  %cmp520 = icmp sgt i32 %add4, %x
+  %cmp520 = icmp slt i32 %x, %add4
   %zrle.i = getelementptr inbounds i8, ptr %vs, i64 49816
   %output.i = getelementptr inbounds i8, ptr %vs, i64 49328
   br i1 %cmp520, label %for.body.us, label %for.end18
@@ -1083,12 +1083,12 @@ define internal fastcc void @zrle_encode_24ble(ptr noundef %vs, i32 noundef %x, 
 entry:
   %tmp.i = alloca %struct.Buffer, align 8
   %add = add i32 %h, %y
-  %cmp22 = icmp sgt i32 %add, %y
+  %cmp22 = icmp slt i32 %y, %add
   br i1 %cmp22, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
   %add4 = add i32 %w, %x
-  %cmp520 = icmp sgt i32 %add4, %x
+  %cmp520 = icmp slt i32 %x, %add4
   %zrle.i = getelementptr inbounds i8, ptr %vs, i64 49816
   %output.i = getelementptr inbounds i8, ptr %vs, i64 49328
   br i1 %cmp520, label %for.body.us, label %for.end18
@@ -1146,12 +1146,12 @@ define internal fastcc void @zrle_encode_32be(ptr noundef %vs, i32 noundef %x, i
 entry:
   %tmp.i = alloca %struct.Buffer, align 8
   %add = add i32 %h, %y
-  %cmp22 = icmp sgt i32 %add, %y
+  %cmp22 = icmp slt i32 %y, %add
   br i1 %cmp22, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
   %add4 = add i32 %w, %x
-  %cmp520 = icmp sgt i32 %add4, %x
+  %cmp520 = icmp slt i32 %x, %add4
   %zrle.i = getelementptr inbounds i8, ptr %vs, i64 49816
   %output.i = getelementptr inbounds i8, ptr %vs, i64 49328
   br i1 %cmp520, label %for.body.us, label %for.end18
@@ -1209,12 +1209,12 @@ define internal fastcc void @zrle_encode_32le(ptr noundef %vs, i32 noundef %x, i
 entry:
   %tmp.i = alloca %struct.Buffer, align 8
   %add = add i32 %h, %y
-  %cmp22 = icmp sgt i32 %add, %y
+  %cmp22 = icmp slt i32 %y, %add
   br i1 %cmp22, label %for.body.lr.ph, label %for.end18
 
 for.body.lr.ph:                                   ; preds = %entry
   %add4 = add i32 %w, %x
-  %cmp520 = icmp sgt i32 %add4, %x
+  %cmp520 = icmp slt i32 %x, %add4
   %zrle.i = getelementptr inbounds i8, ptr %vs, i64 49816
   %output.i = getelementptr inbounds i8, ptr %vs, i64 49328
   br i1 %cmp520, label %for.body.us, label %for.end18
@@ -1405,7 +1405,7 @@ tailrecurse:                                      ; preds = %zywrle_analyze_16be
   %not = xor i16 %1, -1
   store i16 %not, ptr %add.ptr, align 2
   tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 16) #9
-  %cmp105 = icmp ugt ptr %add.ptr, %data
+  %cmp105 = icmp ult ptr %data, %add.ptr
   br i1 %cmp105, label %while.body, label %while.end18
 
 while.body:                                       ; preds = %tailrecurse, %if.end
@@ -1673,7 +1673,7 @@ if.end.i:                                         ; preds = %if.then155
   %mul.i = mul i32 %and.i.i, %and4.i.i
   %idx.ext.i = sext i32 %mul.i to i64
   %add.ptr.i = getelementptr i32, ptr %zywrle, i64 %idx.ext.i
-  %tobool.not.i = icmp eq i32 %and.i.i, %w
+  %tobool.not.i = icmp eq i32 %w, %and.i.i
   br i1 %tobool.not.i, label %if.end20.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -1715,7 +1715,7 @@ while.end.i:                                      ; preds = %while.body14.i, %wh
 
 if.end20.i:                                       ; preds = %while.end.i, %if.then3.i, %if.end.i
   %top.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %add.ptr.i, %if.then3.i ], [ %top.2.lcssa.i, %while.end.i ]
-  %tobool21.not.i = icmp eq i32 %and4.i.i, %h
+  %tobool21.not.i = icmp eq i32 %h, %and4.i.i
   br i1 %tobool21.not.i, label %do.end.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.end20.i
@@ -1798,7 +1798,7 @@ while.end66.i:                                    ; preds = %while.body63.i, %wh
   br i1 %cmp57.i, label %while.body58.i, label %do.end.i, !llvm.loop !49
 
 do.end.i:                                         ; preds = %while.end66.i, %if.then47.i, %if.end44.i, %if.end20.i
-  %cmp36.i.i = icmp ugt ptr %add.ptr.i, %zywrle
+  %cmp36.i.i = icmp ult ptr %zywrle, %add.ptr.i
   %idx.ext1.i.i = sext i32 %and.i.i to i64
   br i1 %cmp36.i.i, label %while.body.lr.ph.i.i, label %do.body73.lr.ph.i
 
@@ -1869,7 +1869,7 @@ while.end.i.i:                                    ; preds = %do.body.i.i, %while
 do.body73.lr.ph.i:                                ; preds = %while.end.i.i, %do.end.i
   tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef %zywrle_level.tr)
   %sub266.i = add nsw i32 %zywrle_level.tr, -1
-  %cmp276325.i = icmp ule ptr %add.ptr.i, %zywrle
+  %cmp276325.i = icmp uge ptr %zywrle, %add.ptr.i
   br label %do.body73.i
 
 do.body73.i:                                      ; preds = %for.inc.i, %do.body73.lr.ph.i
@@ -2126,10 +2126,10 @@ for.body.lr.ph:                                   ; preds = %entry
   %mul = mul i32 %height, %width
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i32, ptr %buf, i64 %idx.ext
-  %cmp1118 = icmp ugt ptr %add.ptr, %buf
+  %cmp1118 = icmp ult ptr %buf, %add.ptr
   %idx.ext4 = sext i32 %width to i64
   %add.ptr5 = getelementptr i32, ptr %buf, i64 %idx.ext4
-  %cmp8120 = icmp ugt ptr %add.ptr5, %buf
+  %cmp8120 = icmp ult ptr %buf, %add.ptr5
   %sub.i114 = add nsw i32 %level, -1
   %idxprom.i = zext nneg i32 %sub.i114 to i64
   %wide.trip.count = zext nneg i32 %level to i64
@@ -2158,7 +2158,7 @@ while.body.lr.ph:                                 ; preds = %for.body
 while.body:                                       ; preds = %while.body.lr.ph, %wavelet_level.exit
   %top.0119 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr3, %wavelet_level.exit ]
   %add.ptr.i = getelementptr i8, ptr %top.0119, i64 %idx.ext.i
-  %cmp62.i = icmp ugt ptr %add.ptr.i, %top.0119
+  %cmp62.i = icmp ult ptr %top.0119, %add.ptr.i
   br i1 %cmp62.i, label %while.body.i, label %wavelet_level.exit
 
 while.body.i:                                     ; preds = %while.body, %harr.exit61.i
@@ -2297,7 +2297,7 @@ while.body9.lr.ph:                                ; preds = %while.end
 while.body9:                                      ; preds = %while.body9.lr.ph, %wavelet_level.exit113
   %top.1121 = phi ptr [ %buf, %while.body9.lr.ph ], [ %add.ptr11, %wavelet_level.exit113 ]
   %add.ptr.i31 = getelementptr i8, ptr %top.1121, i64 %idx.ext.i30
-  %cmp62.i32 = icmp ugt ptr %add.ptr.i31, %top.1121
+  %cmp62.i32 = icmp ult ptr %top.1121, %add.ptr.i31
   br i1 %cmp62.i32, label %while.body.i38, label %wavelet_level.exit113
 
 while.body.i38:                                   ; preds = %while.body9, %harr.exit61.i88
@@ -2526,7 +2526,7 @@ tailrecurse:                                      ; preds = %zywrle_analyze_16le
   %not = xor i16 %1, -1
   store i16 %not, ptr %add.ptr, align 2
   tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 16) #9
-  %cmp105 = icmp ugt ptr %add.ptr, %data
+  %cmp105 = icmp ult ptr %data, %add.ptr
   br i1 %cmp105, label %while.body, label %while.end18
 
 while.body:                                       ; preds = %tailrecurse, %if.end
@@ -2794,7 +2794,7 @@ if.end.i:                                         ; preds = %if.then155
   %mul.i = mul i32 %and.i.i, %and4.i.i
   %idx.ext.i = sext i32 %mul.i to i64
   %add.ptr.i = getelementptr i32, ptr %zywrle, i64 %idx.ext.i
-  %tobool.not.i = icmp eq i32 %and.i.i, %w
+  %tobool.not.i = icmp eq i32 %w, %and.i.i
   br i1 %tobool.not.i, label %if.end20.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -2836,7 +2836,7 @@ while.end.i:                                      ; preds = %while.body14.i, %wh
 
 if.end20.i:                                       ; preds = %while.end.i, %if.then3.i, %if.end.i
   %top.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %add.ptr.i, %if.then3.i ], [ %top.2.lcssa.i, %while.end.i ]
-  %tobool21.not.i = icmp eq i32 %and4.i.i, %h
+  %tobool21.not.i = icmp eq i32 %h, %and4.i.i
   br i1 %tobool21.not.i, label %do.end.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.end20.i
@@ -2919,7 +2919,7 @@ while.end66.i:                                    ; preds = %while.body63.i, %wh
   br i1 %cmp57.i, label %while.body58.i, label %do.end.i, !llvm.loop !82
 
 do.end.i:                                         ; preds = %while.end66.i, %if.then47.i, %if.end44.i, %if.end20.i
-  %cmp36.i.i = icmp ugt ptr %add.ptr.i, %zywrle
+  %cmp36.i.i = icmp ult ptr %zywrle, %add.ptr.i
   %idx.ext1.i.i = sext i32 %and.i.i to i64
   br i1 %cmp36.i.i, label %while.body.lr.ph.i.i, label %do.body73.lr.ph.i
 
@@ -2990,7 +2990,7 @@ while.end.i.i:                                    ; preds = %do.body.i.i, %while
 do.body73.lr.ph.i:                                ; preds = %while.end.i.i, %do.end.i
   tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef %zywrle_level.tr)
   %sub266.i = add nsw i32 %zywrle_level.tr, -1
-  %cmp276325.i = icmp ule ptr %add.ptr.i, %zywrle
+  %cmp276325.i = icmp uge ptr %zywrle, %add.ptr.i
   br label %do.body73.i
 
 do.body73.i:                                      ; preds = %for.inc.i, %do.body73.lr.ph.i
@@ -3262,7 +3262,7 @@ tailrecurse:                                      ; preds = %zywrle_analyze_15be
   %not = xor i16 %1, -1
   store i16 %not, ptr %add.ptr, align 2
   tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 15) #9
-  %cmp105 = icmp ugt ptr %add.ptr, %data
+  %cmp105 = icmp ult ptr %data, %add.ptr
   br i1 %cmp105, label %while.body, label %while.end18
 
 while.body:                                       ; preds = %tailrecurse, %if.end
@@ -3530,7 +3530,7 @@ if.end.i:                                         ; preds = %if.then155
   %mul.i = mul i32 %and.i.i, %and4.i.i
   %idx.ext.i = sext i32 %mul.i to i64
   %add.ptr.i = getelementptr i32, ptr %zywrle, i64 %idx.ext.i
-  %tobool.not.i = icmp eq i32 %and.i.i, %w
+  %tobool.not.i = icmp eq i32 %w, %and.i.i
   br i1 %tobool.not.i, label %if.end20.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -3572,7 +3572,7 @@ while.end.i:                                      ; preds = %while.body14.i, %wh
 
 if.end20.i:                                       ; preds = %while.end.i, %if.then3.i, %if.end.i
   %top.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %add.ptr.i, %if.then3.i ], [ %top.2.lcssa.i, %while.end.i ]
-  %tobool21.not.i = icmp eq i32 %and4.i.i, %h
+  %tobool21.not.i = icmp eq i32 %h, %and4.i.i
   br i1 %tobool21.not.i, label %do.end.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.end20.i
@@ -3655,7 +3655,7 @@ while.end66.i:                                    ; preds = %while.body63.i, %wh
   br i1 %cmp57.i, label %while.body58.i, label %do.end.i, !llvm.loop !108
 
 do.end.i:                                         ; preds = %while.end66.i, %if.then47.i, %if.end44.i, %if.end20.i
-  %cmp36.i.i = icmp ugt ptr %add.ptr.i, %zywrle
+  %cmp36.i.i = icmp ult ptr %zywrle, %add.ptr.i
   %idx.ext1.i.i = sext i32 %and.i.i to i64
   br i1 %cmp36.i.i, label %while.body.lr.ph.i.i, label %do.body73.lr.ph.i
 
@@ -3728,7 +3728,7 @@ while.end.i.i:                                    ; preds = %do.body.i.i, %while
 do.body73.lr.ph.i:                                ; preds = %while.end.i.i, %do.end.i
   tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef %zywrle_level.tr)
   %sub269.i = add nsw i32 %zywrle_level.tr, -1
-  %cmp279325.i = icmp ule ptr %add.ptr.i, %zywrle
+  %cmp279325.i = icmp uge ptr %zywrle, %add.ptr.i
   br label %do.body73.i
 
 do.body73.i:                                      ; preds = %for.inc.i, %do.body73.lr.ph.i
@@ -4002,7 +4002,7 @@ tailrecurse:                                      ; preds = %zywrle_analyze_15le
   %not = xor i16 %1, -1
   store i16 %not, ptr %add.ptr, align 2
   tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 15) #9
-  %cmp105 = icmp ugt ptr %add.ptr, %data
+  %cmp105 = icmp ult ptr %data, %add.ptr
   br i1 %cmp105, label %while.body, label %while.end18
 
 while.body:                                       ; preds = %tailrecurse, %if.end
@@ -4270,7 +4270,7 @@ if.end.i:                                         ; preds = %if.then155
   %mul.i = mul i32 %and.i.i, %and4.i.i
   %idx.ext.i = sext i32 %mul.i to i64
   %add.ptr.i = getelementptr i32, ptr %zywrle, i64 %idx.ext.i
-  %tobool.not.i = icmp eq i32 %and.i.i, %w
+  %tobool.not.i = icmp eq i32 %w, %and.i.i
   br i1 %tobool.not.i, label %if.end20.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -4312,7 +4312,7 @@ while.end.i:                                      ; preds = %while.body14.i, %wh
 
 if.end20.i:                                       ; preds = %while.end.i, %if.then3.i, %if.end.i
   %top.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %add.ptr.i, %if.then3.i ], [ %top.2.lcssa.i, %while.end.i ]
-  %tobool21.not.i = icmp eq i32 %and4.i.i, %h
+  %tobool21.not.i = icmp eq i32 %h, %and4.i.i
   br i1 %tobool21.not.i, label %do.end.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.end20.i
@@ -4395,7 +4395,7 @@ while.end66.i:                                    ; preds = %while.body63.i, %wh
   br i1 %cmp57.i, label %while.body58.i, label %do.end.i, !llvm.loop !134
 
 do.end.i:                                         ; preds = %while.end66.i, %if.then47.i, %if.end44.i, %if.end20.i
-  %cmp36.i.i = icmp ugt ptr %add.ptr.i, %zywrle
+  %cmp36.i.i = icmp ult ptr %zywrle, %add.ptr.i
   %idx.ext1.i.i = sext i32 %and.i.i to i64
   br i1 %cmp36.i.i, label %while.body.lr.ph.i.i, label %do.body73.lr.ph.i
 
@@ -4468,7 +4468,7 @@ while.end.i.i:                                    ; preds = %do.body.i.i, %while
 do.body73.lr.ph.i:                                ; preds = %while.end.i.i, %do.end.i
   tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef %zywrle_level.tr)
   %sub269.i = add nsw i32 %zywrle_level.tr, -1
-  %cmp279325.i = icmp ule ptr %add.ptr.i, %zywrle
+  %cmp279325.i = icmp uge ptr %zywrle, %add.ptr.i
   br label %do.body73.i
 
 do.body73.i:                                      ; preds = %for.inc.i, %do.body73.lr.ph.i
@@ -4743,7 +4743,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
   %not = xor i32 %1, -1
   store i32 %not, ptr %add.ptr, align 4
   tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #9
-  %cmp111 = icmp ugt ptr %add.ptr, %data
+  %cmp111 = icmp ult ptr %data, %add.ptr
   br i1 %cmp111, label %while.body, label %while.end9
 
 while.body:                                       ; preds = %tailrecurse, %if.end
@@ -5031,7 +5031,7 @@ if.end:                                           ; preds = %entry
   %mul = mul i32 %and.i, %and4.i
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i32, ptr %buf, i64 %idx.ext
-  %tobool.not = icmp eq i32 %and.i, %w
+  %tobool.not = icmp eq i32 %w, %and.i
   br i1 %tobool.not, label %if.end20, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -5076,7 +5076,7 @@ while.end:                                        ; preds = %while.body14, %whil
 if.end20:                                         ; preds = %while.end, %if.then3, %if.end
   %top.0 = phi ptr [ %add.ptr, %if.end ], [ %add.ptr, %if.then3 ], [ %top.2.lcssa, %while.end ]
   %p.0 = phi ptr [ %dst, %if.end ], [ %add.ptr5, %if.then3 ], [ %add.ptr18, %while.end ]
-  %tobool21.not = icmp eq i32 %and4.i, %h
+  %tobool21.not = icmp eq i32 %h, %and4.i
   br i1 %tobool21.not, label %do.end, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
@@ -5164,7 +5164,7 @@ while.end66:                                      ; preds = %while.body63, %whil
 
 do.end:                                           ; preds = %while.end66, %if.then47, %if.end20, %if.end44
   %p.8 = phi ptr [ %p.4.lcssa, %if.end44 ], [ %p.0, %if.end20 ], [ %add.ptr52, %if.then47 ], [ %add.ptr69, %while.end66 ]
-  %cmp34.i = icmp ugt ptr %add.ptr, %buf
+  %cmp34.i = icmp ult ptr %buf, %add.ptr
   br i1 %cmp34.i, label %while.body.lr.ph.i, label %zywrle_rgbyuv_32be.exit
 
 while.body.lr.ph.i:                               ; preds = %do.end
@@ -5238,7 +5238,7 @@ do.body73.lr.ph:                                  ; preds = %zywrle_rgbyuv_32be.
   %sub112 = sub i32 %scanline, %w
   %idx.ext113 = sext i32 %sub112 to i64
   %sub247 = add nsw i32 %level, -1
-  %cmp257308 = icmp ule ptr %add.ptr, %buf
+  %cmp257308 = icmp uge ptr %buf, %add.ptr
   br label %do.body73
 
 do.body73:                                        ; preds = %do.body73.lr.ph, %for.inc
@@ -5553,7 +5553,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
   %not = xor i32 %1, -1
   store i32 %not, ptr %add.ptr, align 4
   tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #9
-  %cmp111 = icmp ugt ptr %add.ptr, %data
+  %cmp111 = icmp ult ptr %data, %add.ptr
   br i1 %cmp111, label %while.body, label %while.end9
 
 while.body:                                       ; preds = %tailrecurse, %if.end
@@ -5841,7 +5841,7 @@ if.end:                                           ; preds = %entry
   %mul = mul i32 %and.i, %and4.i
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i32, ptr %buf, i64 %idx.ext
-  %tobool.not = icmp eq i32 %and.i, %w
+  %tobool.not = icmp eq i32 %w, %and.i
   br i1 %tobool.not, label %if.end20, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -5886,7 +5886,7 @@ while.end:                                        ; preds = %while.body14, %whil
 if.end20:                                         ; preds = %while.end, %if.then3, %if.end
   %top.0 = phi ptr [ %add.ptr, %if.end ], [ %add.ptr, %if.then3 ], [ %top.2.lcssa, %while.end ]
   %p.0 = phi ptr [ %dst, %if.end ], [ %add.ptr5, %if.then3 ], [ %add.ptr18, %while.end ]
-  %tobool21.not = icmp eq i32 %and4.i, %h
+  %tobool21.not = icmp eq i32 %h, %and4.i
   br i1 %tobool21.not, label %do.end, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
@@ -5974,7 +5974,7 @@ while.end66:                                      ; preds = %while.body63, %whil
 
 do.end:                                           ; preds = %while.end66, %if.then47, %if.end20, %if.end44
   %p.8 = phi ptr [ %p.4.lcssa, %if.end44 ], [ %p.0, %if.end20 ], [ %add.ptr52, %if.then47 ], [ %add.ptr69, %while.end66 ]
-  %cmp34.i = icmp ugt ptr %add.ptr, %buf
+  %cmp34.i = icmp ult ptr %buf, %add.ptr
   br i1 %cmp34.i, label %while.body.lr.ph.i, label %zywrle_rgbyuv_32le.exit
 
 while.body.lr.ph.i:                               ; preds = %do.end
@@ -6047,7 +6047,7 @@ do.body73.lr.ph:                                  ; preds = %zywrle_rgbyuv_32le.
   %sub112 = sub i32 %scanline, %w
   %idx.ext113 = sext i32 %sub112 to i64
   %sub247 = add nsw i32 %level, -1
-  %cmp257308 = icmp ule ptr %add.ptr, %buf
+  %cmp257308 = icmp uge ptr %buf, %add.ptr
   br label %do.body73
 
 do.body73:                                        ; preds = %do.body73.lr.ph, %for.inc
@@ -6358,7 +6358,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
   %not = xor i32 %1, -1
   store i32 %not, ptr %add.ptr, align 4
   tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #9
-  %cmp115 = icmp ugt ptr %add.ptr, %data
+  %cmp115 = icmp ult ptr %data, %add.ptr
   br i1 %cmp115, label %while.body, label %while.end9
 
 while.body:                                       ; preds = %tailrecurse, %if.end
@@ -6668,7 +6668,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
   %not = xor i32 %1, -1
   store i32 %not, ptr %add.ptr, align 4
   tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #9
-  %cmp115 = icmp ugt ptr %add.ptr, %data
+  %cmp115 = icmp ult ptr %data, %add.ptr
   br i1 %cmp115, label %while.body, label %while.end9
 
 while.body:                                       ; preds = %tailrecurse, %if.end
@@ -6977,7 +6977,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
   %not = xor i32 %1, -1
   store i32 %not, ptr %add.ptr, align 4
   tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #9
-  %cmp105 = icmp ugt ptr %add.ptr, %data
+  %cmp105 = icmp ult ptr %data, %add.ptr
   br i1 %cmp105, label %while.body, label %while.end9
 
 while.body:                                       ; preds = %tailrecurse, %if.end
@@ -7265,7 +7265,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
   %not = xor i32 %1, -1
   store i32 %not, ptr %add.ptr, align 4
   tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #9
-  %cmp105 = icmp ugt ptr %add.ptr, %data
+  %cmp105 = icmp ult ptr %data, %add.ptr
   br i1 %cmp105, label %while.body, label %while.end9
 
 while.body:                                       ; preds = %tailrecurse, %if.end

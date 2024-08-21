@@ -37,7 +37,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noca
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %12, %1
+  %15 = icmp eq ptr %1, %12
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %4
@@ -45,7 +45,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noca
   br label %192
 
 17:                                               ; preds = %4
-  %18 = icmp eq ptr %9, %2
+  %18 = icmp eq ptr %2, %9
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17
@@ -53,8 +53,8 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noca
   br label %192
 
 20:                                               ; preds = %17
-  %21 = icmp eq ptr %12, %2
-  %22 = icmp eq ptr %9, %1
+  %21 = icmp eq ptr %2, %12
+  %22 = icmp eq ptr %1, %9
   %or.cond = or i1 %22, %21
   br i1 %or.cond, label %23, label %24
 
@@ -479,11 +479,11 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   br i1 %9, label %161, label %10
 
 10:                                               ; preds = %3
-  %11 = icmp eq ptr %5, %2
+  %11 = icmp eq ptr %2, %5
   br i1 %11, label %161, label %12
 
 12:                                               ; preds = %10
@@ -812,13 +812,13 @@ define ptr @cuddMakeBddFromZddCover(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %1
+  %8 = icmp eq ptr %1, %7
   br i1 %8, label %95, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9

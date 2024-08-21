@@ -4859,7 +4859,7 @@ define range(i32 -1, 1) i32 @H5Dget_chunk_info(i64 noundef %0, i64 noundef %1, i
 
 57:                                               ; preds = %47
   %58 = load i64, ptr %10, align 8
-  %.not = icmp ugt i64 %58, %2
+  %.not = icmp ult i64 %2, %58
   br i1 %.not, label %63, label %59
 
 59:                                               ; preds = %57

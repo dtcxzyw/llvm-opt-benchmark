@@ -1992,7 +1992,7 @@ define void @_ZN2cv3Mat6createEiPKii(ptr noundef nonnull align 8 dereferenceable
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %0, i64 4
   %29 = load i32, ptr %28, align 4
-  %30 = icmp eq i32 %29, %1
+  %30 = icmp eq i32 %1, %29
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %27
@@ -2086,7 +2086,7 @@ define void @_ZN2cv3Mat6createEiPKii(ptr noundef nonnull align 8 dereferenceable
 76:                                               ; preds = %._crit_edge, %70, %34, %31, %23
   %77 = getelementptr inbounds i8, ptr %0, i64 64
   %78 = load ptr, ptr %77, align 8
-  %79 = icmp eq ptr %78, %2
+  %79 = icmp eq ptr %2, %78
   br i1 %79, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %76
@@ -2686,7 +2686,7 @@ _ZNK2cv3Mat5totalEv.exit:
   br i1 %47, label %.lr.ph.preheader.i.i, label %48
 
 48:                                               ; preds = %35
-  %.not29 = icmp ugt i64 %46, %5
+  %.not29 = icmp ult i64 %5, %46
   br i1 %.not29, label %49, label %56
 
 49:                                               ; preds = %48
@@ -2931,7 +2931,7 @@ _ZNK2cv3Mat5totalEv.exit:
   br i1 %44, label %.lr.ph.preheader.i.i, label %45
 
 45:                                               ; preds = %32
-  %.not29 = icmp ugt i64 %43, %4
+  %.not29 = icmp ult i64 %4, %43
   br i1 %.not29, label %46, label %47
 
 46:                                               ; preds = %45
@@ -3573,8 +3573,8 @@ define noundef i64 @_ZNK2cv3Mat5totalEii(ptr nocapture noundef nonnull readonly 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
-  %. = tail call i32 @llvm.smin.i32(i32 %17, i32 %2)
-  %18 = icmp sgt i32 %., %1
+  %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %17)
+  %18 = icmp slt i32 %1, %.
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %15
@@ -5314,7 +5314,7 @@ define void @_ZN2cv3Mat8pop_backEm(ptr noundef nonnull align 8 dereferenceable(9
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %.not = icmp ult i64 %11, %1
+  %.not = icmp ugt i64 %1, %11
   br i1 %.not, label %12, label %20
 
 12:                                               ; preds = %2
@@ -5383,7 +5383,7 @@ define void @_ZN2cv3Mat8pop_backEm(ptr noundef nonnull align 8 dereferenceable(9
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = mul i64 %34, %1
+  %37 = mul i64 %1, %34
   %38 = sub i64 0, %37
   %39 = getelementptr inbounds i8, ptr %36, i64 %38
   store ptr %39, ptr %35, align 8
@@ -5568,7 +5568,7 @@ define void @_ZN2cv3Mat7reserveEm(ptr noundef nonnull align 8 dereferenceable(96
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
-  %.not26 = icmp ult i64 %37, %1
+  %.not26 = icmp ugt i64 %1, %37
   br i1 %.not26, label %38, label %165
 
 38:                                               ; preds = %33
@@ -5684,7 +5684,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %_ZNK2cv3Mat5totalEv
   br label %166
 
 89:                                               ; preds = %84, %72
-  %.not.i = icmp eq ptr %7, %0
+  %.not.i = icmp eq ptr %0, %7
   br i1 %.not.i, label %_ZN2cv3MataSERKS0_.exit, label %90
 
 90:                                               ; preds = %89
@@ -7195,7 +7195,7 @@ define void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind noalias writable sret(
   %18 = alloca %"class.std::allocator", align 1
   %19 = getelementptr inbounds i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %20, %3
+  %21 = icmp eq i32 %3, %20
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %5
@@ -7816,7 +7816,7 @@ define noundef i32 @_ZNK2cv3Mat11checkVectorEiib(ptr nocapture noundef nonnull r
 12:                                               ; preds = %7
   %13 = and i32 %8, 16384
   %14 = icmp eq i32 %13, 0
-  %brmerge.not = and i1 %14, %3
+  %brmerge.not = and i1 %3, %14
   br i1 %brmerge.not, label %.thread, label %15
 
 15:                                               ; preds = %12

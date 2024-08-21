@@ -74,7 +74,7 @@ define hidden noundef ptr @base64uri_tvb_to_new_tvb(ptr noundef %0, i32 noundef 
 
 15:                                               ; preds = %13
   %16 = getelementptr i8, ptr %4, i64 %7
-  %17 = icmp ugt ptr %16, %4
+  %17 = icmp ult ptr %4, %16
   br i1 %17, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %15, %41

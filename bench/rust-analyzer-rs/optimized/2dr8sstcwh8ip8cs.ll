@@ -118,7 +118,7 @@ default.unreachable:                              ; preds = %15
   %34 = load i64, ptr %33, align 8, !alias.scope !7, !noalias !12, !noundef !5
   %35 = load i64, ptr %2, align 8, !alias.scope !14, !noalias !12, !noundef !5
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %12
+  %37 = icmp ugt i64 %12, %36
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %32

@@ -225,7 +225,7 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   %123 = getelementptr inbounds double, ptr %18, i64 %118
   %124 = load double, ptr %123, align 8
   %125 = tail call double @llvm.fabs.f64(double %124)
-  %126 = fmul double %.1194, %2
+  %126 = fmul double %2, %.1194
   %127 = fcmp ult double %125, %126
   br i1 %127, label %129, label %128
 

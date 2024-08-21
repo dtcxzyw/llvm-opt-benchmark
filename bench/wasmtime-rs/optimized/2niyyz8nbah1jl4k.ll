@@ -2102,7 +2102,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
   %84 = add i32 %.0174538, %83
   %85 = icmp ult i32 %84, %.0174538
-  %.not.i = icmp ult i32 %.0.i.i, %84
+  %.not.i = icmp ugt i32 %84, %.0.i.i
   %or.cond = select i1 %85, i1 true, i1 %.not.i
   br i1 %or.cond, label %"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$9get_range17h5f19fd97a3087a56E.exit", label %86
 
@@ -2237,7 +2237,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
 104:                                              ; preds = %102
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
-  %105 = icmp ugt i32 %.0.i.i, %84
+  %105 = icmp ult i32 %84, %.0.i.i
   br i1 %105, label %106, label %"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$3get17h9976badcc25bb6a8E.exit"
 
 106:                                              ; preds = %104
@@ -2403,7 +2403,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
           to label %163 unwind label %.body.thread324.loopexit.split-lp
 
 137:                                              ; preds = %133
-  %138 = icmp ugt i32 %.0.i.i, %.0174538
+  %138 = icmp ult i32 %.0174538, %.0.i.i
   br i1 %138, label %.noexc199, label %"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$3get17h9976badcc25bb6a8E.exit203.thread"
 
 .noexc199:                                        ; preds = %137

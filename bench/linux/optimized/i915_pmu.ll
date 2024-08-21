@@ -265,7 +265,7 @@ define internal noundef i32 @i915_pmu_cpu_offline(i32 noundef %0, ptr noundef %1
   %27 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %24) #14, !srcloc !10
   %28 = trunc i64 %27 to i32
   %29 = icmp ult i32 %28, 64
-  %30 = icmp eq i32 %28, %0
+  %30 = icmp eq i32 %0, %28
   %31 = and i1 %29, %30
   %32 = add i64 %27, 1
   br i1 %31, label %17, label %.thread, !llvm.loop !11

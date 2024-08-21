@@ -612,7 +612,7 @@ define internal fastcc i32 @dissect_lisp_tcp_message_eid_prefix(ptr noundef %0, 
   %15 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_lisp_tcp_unexpected_afi, ptr noundef nonnull @.str.119, i32 noundef %14) #2
   %16 = load i16, ptr %6, align 2
   %17 = zext i16 %16 to i32
-  %18 = add nuw nsw i32 %17, %3
+  %18 = add nuw nsw i32 %3, %17
   br label %56
 
 19:                                               ; preds = %5

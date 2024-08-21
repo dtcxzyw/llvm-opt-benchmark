@@ -42,7 +42,7 @@ define dso_local noundef zeroext i1 @execCurrentOf(ptr nocapture noundef readonl
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %.val, i64 56
   %17 = load i32, ptr %16, align 8
-  %.not.i = icmp slt i32 %17, %11
+  %.not.i = icmp sgt i32 %11, %17
   br i1 %.not.i, label %42, label %18
 
 18:                                               ; preds = %15

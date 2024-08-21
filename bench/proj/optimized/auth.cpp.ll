@@ -15,7 +15,7 @@ define hidden noalias noundef ptr @_Z10pj_authsetd(double noundef %0) local_unna
   %6 = tail call double @llvm.fmuladd.f64(double %5, double 0x3FC60B60B60B60B6, double %4)
   %7 = fmul double %5, 0x3FB05B05B05B05B0
   %8 = getelementptr inbounds i8, ptr %2, i64 8
-  %9 = fmul double %5, %0
+  %9 = fmul double %0, %5
   %10 = tail call double @llvm.fmuladd.f64(double %9, double 0x3FBA42A42A42A42A, double %6)
   store double %10, ptr %2, align 8
   %11 = tail call double @llvm.fmuladd.f64(double %9, double 0x3FB0FFBAA6550FFC, double %7)

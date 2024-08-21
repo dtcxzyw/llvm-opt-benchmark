@@ -615,7 +615,7 @@ define hidden ptr @symbol_for_pc(ptr nocapture noundef readonly %0, i64 noundef 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds i8, ptr %.022, i64 4352
   %9 = load i64, ptr %8, align 8
-  %.not18 = icmp ugt i64 %9, %1
+  %.not18 = icmp ult i64 %1, %9
   br i1 %.not18, label %13, label %10
 
 10:                                               ; preds = %7
@@ -668,7 +668,7 @@ define hidden noundef ptr @add_thread_info(ptr nocapture noundef %0, i32 noundef
 define hidden void @delete_thread_info(ptr nocapture noundef %0, ptr noundef readnone %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %.preheader
 
 .preheader:                                       ; preds = %2
@@ -900,7 +900,7 @@ define hidden ptr @find_lib_by_address(ptr nocapture noundef readonly %0, i64 no
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds i8, ptr %.013, i64 4376
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %._crit_edge, label %10
 
 10:                                               ; preds = %6, %.lr.ph

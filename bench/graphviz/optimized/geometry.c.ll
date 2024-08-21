@@ -70,8 +70,8 @@ define double @area_2(double %0, double %1, double %2, double %3, double %4, dou
   %8 = fsub double %4, %2
   %9 = fsub double %5, %3
   %10 = fsub double %0, %2
-  %11 = fneg double %9
-  %12 = fmul double %10, %11
+  %11 = fneg double %10
+  %12 = fmul double %9, %11
   %13 = tail call double @llvm.fmuladd.f64(double %7, double %8, double %12)
   ret double %13
 }
@@ -82,8 +82,8 @@ define range(i32 0, 2) i32 @leftOf(double %0, double %1, double %2, double %3, d
   %8 = fsub double %4, %2
   %9 = fsub double %5, %3
   %10 = fsub double %0, %2
-  %11 = fneg double %9
-  %12 = fmul double %10, %11
+  %11 = fneg double %10
+  %12 = fmul double %9, %11
   %13 = tail call double @llvm.fmuladd.f64(double %7, double %8, double %12)
   %14 = fcmp ogt double %13, 0.000000e+00
   %15 = zext i1 %14 to i32
@@ -94,7 +94,7 @@ define range(i32 0, 2) i32 @leftOf(double %0, double %1, double %2, double %3, d
 define range(i32 0, 2) i32 @intersection(double %0, double %1, double %2, double %3, double %4, double %5, double %6, double %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #3 {
   %10 = fsub double %7, %5
   %11 = fsub double %5, %7
-  %12 = fmul double %11, %2
+  %12 = fmul double %2, %11
   %13 = tail call double @llvm.fmuladd.f64(double %0, double %10, double %12)
   %14 = fsub double %3, %1
   %15 = tail call double @llvm.fmuladd.f64(double %6, double %14, double %13)
@@ -105,14 +105,14 @@ define range(i32 0, 2) i32 @intersection(double %0, double %1, double %2, double
 
 19:                                               ; preds = %9
   %20 = fsub double %1, %7
-  %21 = fmul double %20, %4
+  %21 = fmul double %4, %20
   %22 = tail call double @llvm.fmuladd.f64(double %0, double %10, double %21)
   %23 = fsub double %5, %1
   %24 = tail call double @llvm.fmuladd.f64(double %6, double %23, double %22)
   %25 = fdiv double %24, %17
   %26 = fsub double %5, %3
   %27 = fsub double %1, %5
-  %28 = fmul double %27, %2
+  %28 = fmul double %2, %27
   %29 = tail call double @llvm.fmuladd.f64(double %0, double %26, double %28)
   %30 = tail call double @llvm.fmuladd.f64(double %4, double %14, double %29)
   %31 = fneg double %30

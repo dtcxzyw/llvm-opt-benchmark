@@ -136,7 +136,7 @@ define internal fastcc noundef i64 @gz_write(ptr noundef %0, ptr noundef %1, i64
 gz_zero.exit:                                     ; preds = %27, %24, %12
   %44 = load i32, ptr %6, align 8
   %45 = zext i32 %44 to i64
-  %46 = icmp ugt i64 %45, %2
+  %46 = icmp ult i64 %2, %45
   %47 = getelementptr inbounds i8, ptr %0, i64 128
   %48 = getelementptr inbounds i8, ptr %0, i64 136
   br i1 %46, label %.preheader, label %82
@@ -1119,13 +1119,13 @@ define dso_local i32 @cm_zlib_gzsetparams(ptr noundef %0, i32 noundef %1, i32 no
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 88
   %14 = load i32, ptr %13, align 8
-  %15 = icmp eq i32 %14, %1
+  %15 = icmp eq i32 %1, %14
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 92
   %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %18, %2
+  %19 = icmp eq i32 %2, %18
   br i1 %19, label %67, label %20
 
 20:                                               ; preds = %16, %12

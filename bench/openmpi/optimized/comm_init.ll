@@ -107,17 +107,17 @@ define internal void @ompi_comm_construct(ptr noundef %0) #0 {
   %13 = getelementptr inbounds i8, ptr %0, i64 336
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr @ompi_mpi_comm_world_addr, align 8
-  %15 = icmp eq ptr %14, %0
+  %15 = icmp eq ptr %0, %14
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr @ompi_mpi_comm_self_addr, align 8
-  %18 = icmp eq ptr %17, %0
+  %18 = icmp eq ptr %0, %17
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @ompi_mpi_comm_null_addr, align 8
-  %.not37 = icmp eq ptr %20, %0
+  %.not37 = icmp eq ptr %0, %20
   br i1 %.not37, label %.thread, label %21
 
 21:                                               ; preds = %19

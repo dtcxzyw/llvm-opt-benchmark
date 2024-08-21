@@ -112,7 +112,7 @@ land.lhs.true68:                                  ; preds = %land.lhs.true62
   %arrayidx70 = getelementptr inbounds i8, ptr %arrayidx64, i64 1
   %9 = load i8, ptr %arrayidx70, align 1
   %cmp72 = icmp ne i8 %9, 47
-  %brmerge.not44 = and i1 %cmp72, %guess_scheme
+  %brmerge.not44 = and i1 %guess_scheme, %cmp72
   %brmerge39 = or i1 %tobool.not, %brmerge.not44
   %.mux = select i1 %brmerge.not44, i64 0, i64 %idxprom63
   br i1 %brmerge39, label %return, label %if.then79
@@ -3070,7 +3070,7 @@ if.then2:                                         ; preds = %if.else
 
 if.else3:                                         ; preds = %if.else
   %call4 = tail call i64 @strcspn(ptr noundef nonnull %hostname, ptr noundef nonnull @.str.50) #11
-  %cmp5.not = icmp eq i64 %call4, %hlen
+  %cmp5.not = icmp eq i64 %hlen, %call4
   %. = select i1 %cmp5.not, i32 0, i32 21
   br label %return
 

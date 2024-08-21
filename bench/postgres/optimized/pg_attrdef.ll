@@ -108,7 +108,7 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 114
   %63 = icmp eq i8 %51, 0
-  %64 = and i1 %62, %4
+  %64 = and i1 %4, %62
   %or.cond = select i1 %64, i1 %63, i1 false
   br i1 %or.cond, label %65, label %108
 
@@ -314,7 +314,7 @@ define dso_local void @RemoveAttrDefault(i32 noundef %0, i16 noundef signext %1,
 ._crit_edge:                                      ; preds = %17, %5
   call void @systable_endscan(ptr noundef %12) #5
   call void @table_close(ptr noundef %8, i32 noundef 3) #5
-  %brmerge.not = and i1 %.not16, %3
+  %brmerge.not = and i1 %3, %.not16
   br i1 %brmerge.not, label %27, label %31
 
 27:                                               ; preds = %._crit_edge

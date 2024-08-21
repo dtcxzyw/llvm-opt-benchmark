@@ -185,7 +185,7 @@ define dso_local ptr @ginPostingListDecodeAllSegments(ptr noundef readonly %0, i
   %narrow = mul nuw nsw i32 %10, 6
   %11 = zext nneg i32 %narrow to i64
   %12 = tail call ptr @palloc(i64 noundef %11) #3
-  %13 = icmp ugt ptr %5, %0
+  %13 = icmp ult ptr %0, %5
   br i1 %13, label %.lr.ph61, label %._crit_edge62
 
 .lr.ph61:                                         ; preds = %3, %._crit_edge

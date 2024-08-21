@@ -59,7 +59,7 @@ define hidden noundef ptr @_ZN16ElfFuncDescTable6lookupEm(ptr nocapture noundef 
   %15 = load i64, ptr %14, align 8
   %.not18 = icmp ugt i64 %15, %1
   %16 = add i64 %15, %12
-  %.not19 = icmp ult i64 %16, %1
+  %.not19 = icmp ugt i64 %1, %16
   %or.cond = or i1 %.not18, %.not19
   br i1 %or.cond, label %42, label %17
 

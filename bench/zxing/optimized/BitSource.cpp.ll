@@ -77,7 +77,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL12ReadBitsImplEiRKNS_9ByteArrayEiR
 
 16:                                               ; preds = %13
   %17 = sub nsw i32 8, %14
-  %18 = tail call i32 @llvm.smin.i32(i32 %17, i32 %0)
+  %18 = tail call i32 @llvm.smin.i32(i32 %0, i32 %17)
   %19 = sub nsw i32 %17, %18
   %20 = sub nsw i32 8, %18
   %21 = lshr i32 255, %20

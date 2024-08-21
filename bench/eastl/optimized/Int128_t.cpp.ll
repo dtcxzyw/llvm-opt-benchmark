@@ -6509,7 +6509,7 @@ while.end:                                        ; preds = %_ZN2EA4StdC9uint128
   %conv40 = or disjoint i8 %14, 48
   %incdec.ptr41 = getelementptr inbounds i8, ptr %pValue.addr.5123, i64 2
   store i8 %conv40, ptr %incdec.ptr36, align 1
-  %cmp43125 = icmp ugt ptr %incdec.ptr36, %pValue
+  %cmp43125 = icmp ult ptr %pValue, %incdec.ptr36
   br i1 %cmp43125, label %while.body44, label %if.end110
 
 while.body44:                                     ; preds = %while.end, %while.body44

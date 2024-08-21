@@ -84,7 +84,7 @@ define range(i32 0, 256) i32 @unicode_category(i32 noundef %0) local_unnamed_add
   %6 = getelementptr [3302 x %struct.pg_category_range], ptr @unicode_categories, i64 0, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = icmp ult i32 %8, %0
+  %9 = icmp ugt i32 %0, %8
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
@@ -93,7 +93,7 @@ define range(i32 0, 256) i32 @unicode_category(i32 noundef %0) local_unnamed_add
 
 12:                                               ; preds = %2
   %13 = load i32, ptr %6, align 4
-  %14 = icmp ugt i32 %13, %0
+  %14 = icmp ult i32 %0, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12

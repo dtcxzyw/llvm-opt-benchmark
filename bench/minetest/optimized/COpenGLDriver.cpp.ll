@@ -2527,7 +2527,7 @@ lor.lhs.false:                                    ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !101
   %conv.i = trunc i64 %0 to i32
-  %cmp2.not = icmp ugt i32 %conv.i, %begin
+  %cmp2.not = icmp ult i32 %begin, %conv.i
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -6902,7 +6902,7 @@ if.then.3.i:                                      ; preds = %for.inc.2.i
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE20correctCacheMaterialERNS0_9SMaterialE.exit: ; preds = %if.then.3.i, %for.inc.2.i
   %and122 = and i1 %texture, %alphaChannel
-  %brmerge = or i1 %and122, %alpha
+  %brmerge = or i1 %alpha, %and122
   %Blend.i = getelementptr inbounds i8, ptr %62, i64 120
   %71 = load ptr, ptr %Blend.i, align 8, !tbaa !207
   %72 = load i8, ptr %71, align 1, !tbaa !166, !range !131, !noundef !132
@@ -7595,7 +7595,7 @@ entry:
   %MaxTextureUnits = getelementptr inbounds i8, ptr %this, i64 1731
   %0 = load i8, ptr %MaxTextureUnits, align 1, !tbaa !151
   %conv11 = zext i8 %0 to i32
-  %cmp12 = icmp ugt i32 %conv11, %fromStage
+  %cmp12 = icmp ult i32 %fromStage, %conv11
   br i1 %cmp12, label %for.body.lr.ph, label %for.cond.cleanup
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -18889,7 +18889,7 @@ entry:
   %MaxUserClipPlanes = getelementptr inbounds i8, ptr %this, i64 1180
   %0 = load i8, ptr %MaxUserClipPlanes, align 4, !tbaa !154
   %conv = zext i8 %0 to i32
-  %cmp.not = icmp ugt i32 %conv, %index
+  %cmp.not = icmp ult i32 %index, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -18918,7 +18918,7 @@ entry:
   %MaxUserClipPlanes = getelementptr inbounds i8, ptr %this, i64 1180
   %0 = load i8, ptr %MaxUserClipPlanes, align 4, !tbaa !154
   %conv = zext i8 %0 to i32
-  %cmp.not = icmp ugt i32 %conv, %index
+  %cmp.not = icmp ult i32 %index, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -20214,7 +20214,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   %MaterialType15 = getelementptr inbounds i8, ptr %lastMaterial, i64 128
   %77 = load i32, ptr %MaterialType15, align 8, !tbaa !406
   %cmp16.not = icmp ne i32 %76, %77
-  %brmerge = or i1 %cmp16.not, %resetAllRenderstates
+  %brmerge = or i1 %resetAllRenderstates, %cmp16.not
   br i1 %brmerge, label %if.then22, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit
@@ -20633,7 +20633,7 @@ _ZN3irr5video13COpenGLDriver15disableTexturesEj.exit: ; preds = %_ZN3irr5video13
   %MaterialType7 = getelementptr inbounds i8, ptr %lastMaterial, i64 128
   %47 = load i32, ptr %MaterialType7, align 8, !tbaa !406
   %cmp8.not = icmp ne i32 %46, %47
-  %brmerge = or i1 %cmp8.not, %resetAllRenderstates
+  %brmerge = or i1 %resetAllRenderstates, %cmp8.not
   br i1 %brmerge, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %_ZN3irr5video13COpenGLDriver15disableTexturesEj.exit
@@ -21056,7 +21056,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   %MaterialType11 = getelementptr inbounds i8, ptr %lastMaterial, i64 128
   %73 = load i32, ptr %MaterialType11, align 8, !tbaa !406
   %cmp12.not = icmp ne i32 %72, %73
-  %brmerge = or i1 %cmp12.not, %resetAllRenderstates
+  %brmerge = or i1 %resetAllRenderstates, %cmp12.not
   br i1 %brmerge, label %if.then14, label %if.end17
 
 if.then14:                                        ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE8setBlendEb.exit

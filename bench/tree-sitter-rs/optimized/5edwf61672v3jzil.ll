@@ -112,7 +112,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
   store i64 %34, ptr %.sroa.578.0..sroa_idx, align 8, !alias.scope !4, !noalias !9
   %35 = load i64, ptr %23, align 8, !alias.scope !12, !noalias !19, !noundef !11
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %8
+  %37 = icmp ugt i64 %8, %36
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %29
@@ -133,7 +133,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
   store i64 %44, ptr %.sroa.578.0..sroa_idx, align 8, !alias.scope !21, !noalias !19
   %45 = load i64, ptr %23, align 8, !alias.scope !22, !noalias !29, !noundef !11
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %4
+  %47 = icmp ugt i64 %4, %46
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %39
@@ -804,7 +804,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   %34 = load i64, ptr %7, align 8, !alias.scope !104, !noalias !109, !noundef !11
   %35 = load i64, ptr %1, align 8, !alias.scope !111, !noalias !109, !noundef !11
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %17
+  %37 = icmp ugt i64 %17, %36
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h2a890ed3e779c08aE.exit.i.i"
 
 38:                                               ; preds = %33
@@ -850,7 +850,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   %48 = load i64, ptr %7, align 8, !alias.scope !114, !noalias !119, !noundef !11
   %49 = load i64, ptr %1, align 8, !alias.scope !121, !noalias !119, !noundef !11
   %50 = sub i64 %49, %48
-  %.not.i.i = icmp ugt i64 %50, %.fca.1.extract.i.i
+  %.not.i.i = icmp ult i64 %.fca.1.extract.i.i, %50
   br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h2a890ed3e779c08aE.exit13.i.i", label %51
 
 51:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h793cae7179b1a23bE.exit.i.i"
@@ -1177,7 +1177,7 @@ define hidden noundef zeroext i1 @_ZN3std2io8buffered9bufreader6buffer6Buffer12c
   %8 = load i64, ptr %7, align 8, !noundef !11
   %9 = sub nuw i64 %8, %6
   %10 = getelementptr inbounds i8, ptr %4, i64 %6
-  %11 = icmp uge i64 %9, %1
+  %11 = icmp ule i64 %1, %9
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %3

@@ -849,7 +849,7 @@ define dso_local i64 @find_next_clump8(ptr nocapture noundef writeonly %0, ptr n
   %22 = phi i64 [ %12, %..loopexit_crit_edge ], [ %20, %18 ]
   %23 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %22) #5, !srcloc !8
   %24 = add i64 %23, %.pre-phi
-  %.not = icmp ult i64 %24, %2
+  %.not = icmp ugt i64 %2, %24
   br i1 %.not, label %25, label %.thread
 
 25:                                               ; preds = %.loopexit

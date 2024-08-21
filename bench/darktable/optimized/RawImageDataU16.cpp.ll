@@ -1894,7 +1894,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1617scaleValues_plainEii(ptr noca
   store i16 %160, ptr %gep, align 2, !tbaa !98
   %161 = add nuw nsw i64 %137, 1
   %162 = trunc nuw nsw i64 %161 to i32
-  %163 = icmp slt i32 %162, %2
+  %163 = icmp sgt i32 %2, %162
   br i1 %163, label %.split.us.split, label %.loopexit3, !llvm.loop !151
 
 .split:                                           ; preds = %132
@@ -1971,7 +1971,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1617scaleValues_plainEii(ptr noca
 .loopexit.us:                                     ; preds = %187
   %216 = add nuw nsw i64 %166, 1
   %217 = trunc nuw nsw i64 %216 to i32
-  %218 = icmp slt i32 %217, %2
+  %218 = icmp sgt i32 %2, %217
   br i1 %218, label %.split.split.us, label %.loopexit3, !llvm.loop !151
 
 .split.split:                                     ; preds = %.split.split.preheader, %.loopexit
@@ -2050,7 +2050,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1617scaleValues_plainEii(ptr noca
   store i16 %278, ptr %269, align 2, !tbaa !98
   %279 = add nuw nsw i64 %219, 1
   %280 = trunc nuw nsw i64 %279 to i32
-  %281 = icmp slt i32 %280, %2
+  %281 = icmp sgt i32 %2, %280
   br i1 %281, label %.split.split, label %.loopexit3, !llvm.loop !151
 
 282:                                              ; preds = %.preheader, %328
@@ -2111,7 +2111,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1617scaleValues_plainEii(ptr noca
 328:                                              ; preds = %298
   %329 = add nuw nsw i64 %283, 1
   %330 = trunc nuw nsw i64 %329 to i32
-  %331 = icmp slt i32 %330, %2
+  %331 = icmp sgt i32 %2, %330
   br i1 %331, label %282, label %.loopexit3, !llvm.loop !151
 
 .loopexit3:                                       ; preds = %328, %.loopexit, %.loopexit.us, %.split.us.split, %.split.us, %117, %3
@@ -2612,7 +2612,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU168doLookupEii(ptr nocapture noun
   store i16 %83, ptr %60, align 2, !tbaa !98
   %84 = add nuw nsw i64 %51, 1
   %85 = trunc nuw nsw i64 %84 to i32
-  %86 = icmp slt i32 %85, %2
+  %86 = icmp sgt i32 %2, %85
   br i1 %86, label %.split.us.split, label %.loopexit7, !llvm.loop !174
 
 .preheader8:                                      ; preds = %42, %179
@@ -2728,7 +2728,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU168doLookupEii(ptr nocapture noun
 179:                                              ; preds = %154, %.loopexit9
   %180 = add nuw nsw i64 %87, 1
   %181 = trunc nuw nsw i64 %180 to i32
-  %182 = icmp slt i32 %181, %2
+  %182 = icmp sgt i32 %2, %181
   br i1 %182, label %.preheader8, label %.loopexit7, !llvm.loop !174
 
 183:                                              ; preds = %29
@@ -2787,7 +2787,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU168doLookupEii(ptr nocapture noun
 .loopexit.us:                                     ; preds = %204
   %215 = add nuw nsw i64 %196, 1
   %216 = trunc nuw nsw i64 %215 to i32
-  %217 = icmp slt i32 %216, %2
+  %217 = icmp sgt i32 %2, %216
   br i1 %217, label %.preheader.us, label %.loopexit7, !llvm.loop !177
 
 .preheader5:                                      ; preds = %187, %.loopexit
@@ -2911,7 +2911,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU168doLookupEii(ptr nocapture noun
 .loopexit:                                        ; preds = %.preheader, %.loopexit6
   %305 = add nuw nsw i64 %218, 1
   %306 = trunc nuw nsw i64 %305 to i32
-  %307 = icmp slt i32 %306, %2
+  %307 = icmp sgt i32 %2, %306
   br i1 %307, label %.preheader5, label %.loopexit7, !llvm.loop !177
 
 308:                                              ; preds = %3

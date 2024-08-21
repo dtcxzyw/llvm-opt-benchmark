@@ -191,7 +191,7 @@ define hidden void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef %0) loca
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp ugt ptr %7, %0
+  %8 = icmp ult ptr %0, %7
   br i1 %8, label %9, label %31
 
 9:                                                ; preds = %5
@@ -361,7 +361,7 @@ define hidden void @_ZN16ArchivePtrMarker7compactEm(i64 noundef %0) local_unname
 define hidden noundef ptr @_ZN10DumpRegion13expand_top_toEPc(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp ult ptr %4, %1
+  %5 = icmp ugt ptr %1, %4
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
@@ -547,7 +547,7 @@ define hidden void @_ZN10DumpRegion15append_intptr_tElb(ptr nocapture noundef no
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %9, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp ule ptr %14, %5
+  %15 = icmp uge ptr %5, %14
   %.not8.i.i = icmp eq i64 %1, 0
   %or.cond = or i1 %15, %.not8.i.i
   br i1 %or.cond, label %_ZN16ArchivePtrMarker12mark_pointerIlEEvPT_.exit, label %16
@@ -776,7 +776,7 @@ _ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit: ; preds = %4
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp ugt ptr %11, %3
+  %12 = icmp ult ptr %3, %11
   br i1 %12, label %.thread13, label %_ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread
 
 _ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread: ; preds = %4, %_ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit
@@ -874,7 +874,7 @@ define hidden void @_ZN11ReadClosure6do_tagEi(ptr nocapture noundef nonnull read
   store ptr %6, ptr %4, align 8
   %7 = load i64, ptr %5, align 8
   %8 = trunc i64 %7 to i32
-  %9 = icmp eq i32 %8, %1
+  %9 = icmp eq i32 %1, %8
   tail call void @_ZN11FileMapInfo11assert_markEb(i1 noundef zeroext %9) #10
   ret void
 }

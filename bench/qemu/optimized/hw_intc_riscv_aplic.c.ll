@@ -173,7 +173,7 @@ if.end:                                           ; preds = %entry
   %mul = shl nuw nsw i32 %num_harts, 5
   %add = add nuw nsw i32 %mul, 16384
   %conv3 = zext nneg i32 %add to i64
-  %cmp4.not = icmp ugt i64 %conv3, %size
+  %cmp4.not = icmp ult i64 %size, %conv3
   br i1 %cmp4.not, label %if.else7, label %if.end8
 
 if.else7:                                         ; preds = %if.end
@@ -240,7 +240,7 @@ for.body.lr.ph:                                   ; preds = %if.end36
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %0 = trunc nuw i64 %indvars.iv to i32
-  %add41 = add i32 %0, %hartid_base
+  %add41 = add i32 %hartid_base, %0
   %conv42 = zext i32 %add41 to i64
   %call43 = tail call ptr @cpu_by_arch_id(i64 noundef %conv42) #11
   %call.i28 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call43, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
@@ -442,7 +442,7 @@ land.lhs.true.lr.ph:                              ; preds = %entry
   %idxprom = zext nneg i32 %irq to i64
   %num_irqs.us91 = getelementptr inbounds i8, ptr %opaque, i64 1340
   %0 = load i32, ptr %num_irqs.us91, align 4
-  %cmp1.us92 = icmp ugt i32 %0, %irq
+  %cmp1.us92 = icmp ult i32 %irq, %0
   br i1 %cmp1.us92, label %if.end.us, label %if.else
 
 if.end.us:                                        ; preds = %land.lhs.true.lr.ph, %if.then7.us
@@ -470,7 +470,7 @@ if.then7.us:                                      ; preds = %if.then3.us
   %4 = load ptr, ptr %arrayidx9.us, align 8
   %num_irqs.us = getelementptr inbounds i8, ptr %4, i64 1340
   %5 = load i32, ptr %num_irqs.us, align 4
-  %cmp1.us = icmp ugt i32 %5, %irq
+  %cmp1.us = icmp ult i32 %irq, %5
   br i1 %cmp1.us, label %if.end.us, label %if.else
 
 if.else:                                          ; preds = %if.then7.us, %land.lhs.true.lr.ph, %entry
@@ -653,7 +653,7 @@ land.lhs.true:                                    ; preds = %if.else
   %2 = load i32, ptr %num_irqs, align 4
   %sub = shl i32 %2, 2
   %conv6 = zext i32 %sub to i64
-  %cmp7 = icmp ugt i64 %conv6, %addr
+  %cmp7 = icmp ult i64 %addr, %conv6
   br i1 %cmp7, label %if.then9, label %if.else14
 
 if.then9:                                         ; preds = %land.lhs.true
@@ -738,7 +738,7 @@ land.lhs.true78:                                  ; preds = %if.else75
   %mul79 = shl i32 %13, 2
   %add80 = add i32 %mul79, 7168
   %conv81 = zext i32 %add80 to i64
-  %cmp82 = icmp ugt i64 %conv81, %addr
+  %cmp82 = icmp ult i64 %addr, %conv81
   br i1 %cmp82, label %if.then84, label %if.else89
 
 if.then84:                                        ; preds = %land.lhs.true78
@@ -789,7 +789,7 @@ if.else93:                                        ; preds = %if.else89
 land.lhs.true96:                                  ; preds = %if.else93
   %add99 = add i32 %mul79, 7424
   %conv100 = zext i32 %add99 to i64
-  %cmp101 = icmp ugt i64 %conv100, %addr
+  %cmp101 = icmp ult i64 %addr, %conv100
   br i1 %cmp101, label %if.then103, label %if.else109
 
 if.then103:                                       ; preds = %land.lhs.true96
@@ -841,7 +841,7 @@ if.else113:                                       ; preds = %if.else109
 land.lhs.true116:                                 ; preds = %if.else113
   %add119 = add i32 %mul79, 7680
   %conv120 = zext i32 %add119 to i64
-  %cmp121 = icmp ugt i64 %conv120, %addr
+  %cmp121 = icmp ult i64 %addr, %conv120
   br i1 %cmp121, label %if.then123, label %if.else129
 
 if.then123:                                       ; preds = %land.lhs.true116
@@ -890,7 +890,7 @@ if.else133:                                       ; preds = %if.else129
   %cmp134 = icmp ugt i64 %addr, 7935
   %add139 = add i32 %mul79, 7936
   %conv140 = zext i32 %add139 to i64
-  %cmp141 = icmp ugt i64 %conv140, %addr
+  %cmp141 = icmp ult i64 %addr, %conv140
   %or.cond137 = and i1 %cmp134, %cmp141
   br i1 %or.cond137, label %return, label %if.else144
 
@@ -923,7 +923,7 @@ land.lhs.true171:                                 ; preds = %if.else168
   %sub173 = shl i32 %40, 2
   %add175 = add i32 %sub173, 12288
   %conv176 = zext i32 %add175 to i64
-  %cmp177 = icmp ugt i64 %conv176, %addr
+  %cmp177 = icmp ult i64 %addr, %conv176
   br i1 %cmp177, label %if.then179, label %if.else187
 
 if.then179:                                       ; preds = %land.lhs.true171
@@ -951,7 +951,7 @@ land.lhs.true193:                                 ; preds = %if.else187
   %mul194 = shl i32 %44, 5
   %add195 = add i32 %mul194, 16384
   %conv196 = zext i32 %add195 to i64
-  %cmp197 = icmp ugt i64 %conv196, %addr
+  %cmp197 = icmp ult i64 %addr, %conv196
   br i1 %cmp197, label %if.then199, label %do.body
 
 if.then199:                                       ; preds = %land.lhs.true193
@@ -1043,7 +1043,7 @@ land.lhs.true:                                    ; preds = %if.else
   %1 = load i32, ptr %num_irqs, align 4
   %sub = shl i32 %1, 2
   %conv6 = zext i32 %sub to i64
-  %cmp7 = icmp ugt i64 %conv6, %addr
+  %cmp7 = icmp ult i64 %addr, %conv6
   br i1 %cmp7, label %if.then9, label %if.else38
 
 if.then9:                                         ; preds = %land.lhs.true
@@ -1190,7 +1190,7 @@ land.lhs.true125:                                 ; preds = %if.else122
   %mul126 = shl i32 %20, 2
   %add127 = add i32 %mul126, 7168
   %conv128 = zext i32 %add127 to i64
-  %cmp129 = icmp ugt i64 %conv128, %addr
+  %cmp129 = icmp ult i64 %addr, %conv128
   br i1 %cmp129, label %if.then131, label %if.else136
 
 if.then131:                                       ; preds = %land.lhs.true125
@@ -1254,7 +1254,7 @@ if.else141:                                       ; preds = %if.else136
 land.lhs.true144:                                 ; preds = %if.else141
   %add147 = add i32 %mul126, 7424
   %conv148 = zext i32 %add147 to i64
-  %cmp149 = icmp ugt i64 %conv148, %addr
+  %cmp149 = icmp ult i64 %addr, %conv148
   br i1 %cmp149, label %if.then151, label %if.else156
 
 if.then151:                                       ; preds = %land.lhs.true144
@@ -1281,7 +1281,7 @@ if.else161:                                       ; preds = %if.else156
 land.lhs.true164:                                 ; preds = %if.else161
   %add167 = add i32 %mul126, 7680
   %conv168 = zext i32 %add167 to i64
-  %cmp169 = icmp ugt i64 %conv168, %addr
+  %cmp169 = icmp ult i64 %addr, %conv168
   br i1 %cmp169, label %if.then171, label %if.else176
 
 if.then171:                                       ; preds = %land.lhs.true164
@@ -1305,7 +1305,7 @@ if.else181:                                       ; preds = %if.else176
   %cmp182 = icmp ugt i64 %addr, 7935
   %add187 = add i32 %mul126, 7936
   %conv188 = zext i32 %add187 to i64
-  %cmp189 = icmp ugt i64 %conv188, %addr
+  %cmp189 = icmp ult i64 %addr, %conv188
   %or.cond206 = and i1 %cmp182, %cmp189
   br i1 %or.cond206, label %if.then191, label %if.else196
 
@@ -1396,7 +1396,7 @@ land.lhs.true228:                                 ; preds = %if.else225
   %sub230 = shl i32 %36, 2
   %add232 = add i32 %sub230, 12288
   %conv233 = zext i32 %add232 to i64
-  %cmp234 = icmp ugt i64 %conv233, %addr
+  %cmp234 = icmp ult i64 %addr, %conv233
   br i1 %cmp234, label %if.then236, label %if.else260
 
 if.then236:                                       ; preds = %land.lhs.true228
@@ -1423,7 +1423,7 @@ if.else247:                                       ; preds = %if.then236
   %iprio_mask = getelementptr inbounds i8, ptr %opaque, i64 1336
   %40 = load i32, ptr %iprio_mask, align 8
   %conv249 = zext i32 %40 to i64
-  %and250 = and i64 %conv249, %value
+  %and250 = and i64 %value, %conv249
   %spec.select = tail call i64 @llvm.umax.i64(i64 %and250, i64 1)
   %or = or i64 %spec.select, %and248
   %conv255 = trunc nuw i64 %or to i32
@@ -1448,7 +1448,7 @@ land.lhs.true266:                                 ; preds = %if.else260
   %mul267 = shl i32 %43, 5
   %add268 = add i32 %mul267, 16384
   %conv269 = zext i32 %add268 to i64
-  %cmp270 = icmp ugt i64 %conv269, %addr
+  %cmp270 = icmp ult i64 %addr, %conv269
   br i1 %cmp270, label %if.then272, label %do.body
 
 if.then272:                                       ; preds = %land.lhs.true266
@@ -1988,7 +1988,7 @@ if.end.i:                                         ; preds = %if.end
 lor.lhs.false7.i:                                 ; preds = %if.end.i
   %7 = load i8, ptr %msimode.i, align 16
   %tobool8.i = trunc i8 %7 to i1
-  %brmerge.demorgan.i = and i1 %tobool8.i, %pending
+  %brmerge.demorgan.i = and i1 %pending, %tobool8.i
   %8 = and i32 %6, 6
   %or.cond.i = icmp ne i32 %8, 6
   %or.cond13.not.i = or i1 %or.cond.i, %brmerge.demorgan.i
@@ -2041,7 +2041,7 @@ lor.lhs.false7:                                   ; preds = %if.end
   %msimode = getelementptr inbounds i8, ptr %aplic, i64 1344
   %3 = load i8, ptr %msimode, align 16
   %tobool8 = trunc i8 %3 to i1
-  %brmerge.demorgan = and i1 %tobool8, %pending
+  %brmerge.demorgan = and i1 %pending, %tobool8
   %4 = and i32 %2, 6
   %or.cond = icmp ne i32 %4, 6
   %or.cond13.not = or i1 %or.cond, %brmerge.demorgan
@@ -2217,7 +2217,7 @@ if.end7:                                          ; preds = %land.rhs
   %notmask = shl nsw i64 -1, %sh_prom
   %sub = xor i64 %notmask, -1
   %4 = trunc nuw nsw i64 %sub to i32
-  %conv21 = and i32 %4, %hart_idx
+  %conv21 = and i32 %hart_idx, %4
   %conv22 = zext i32 %msicfgaddr.0 to i64
   %and23 = and i32 %msicfgaddrH.0, 4095
   %conv24 = zext nneg i32 %and23 to i64

@@ -9945,7 +9945,7 @@ add_cstring.exit5271:                             ; preds = %1016, %1011
   %1062 = load i32, ptr @hf_woww_gossip_list_id, align 4
   %1063 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %1062, i32 noundef 4, i32 noundef -2147483648) #5
   %1064 = tail call i32 @ptvcursor_current_offset(ptr noundef %82) #5
-  %.not5223 = icmp eq i32 %1064, %4
+  %.not5223 = icmp eq i32 %4, %1064
   br i1 %.not5223, label %.loopexit, label %1065
 
 1065:                                             ; preds = %1059
@@ -11131,7 +11131,7 @@ add_cstring.exit5271:                             ; preds = %1016, %1011
   %1829 = load i32, ptr @hf_woww_data, align 4
   %1830 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %1829, i32 noundef 4, i32 noundef -2147483648) #5
   %1831 = tail call i32 @ptvcursor_current_offset(ptr noundef %82) #5
-  %.not5184 = icmp eq i32 %1831, %4
+  %.not5184 = icmp eq i32 %4, %1831
   br i1 %.not5184, label %.loopexit, label %1832
 
 1832:                                             ; preds = %1824
@@ -11470,7 +11470,7 @@ add_cstring.exit5271:                             ; preds = %1016, %1011
 
 2062:                                             ; preds = %6
   %2063 = tail call i32 @ptvcursor_current_offset(ptr noundef %82) #5
-  %.not5183 = icmp eq i32 %2063, %4
+  %.not5183 = icmp eq i32 %4, %2063
   br i1 %.not5183, label %.loopexit, label %2064
 
 2064:                                             ; preds = %2062
@@ -16393,7 +16393,7 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   %5383 = load i32, ptr %5382, align 8
   %5384 = icmp ult i32 %5381, %5383
   %5385 = tail call i32 @ptvcursor_current_offset(ptr noundef %82) #5
-  %.not4991 = icmp eq i32 %5385, %4
+  %.not4991 = icmp eq i32 %4, %5385
   br i1 %5384, label %5386, label %5392
 
 5386:                                             ; preds = %5379
@@ -18098,7 +18098,7 @@ thread-pre-split5348:                             ; preds = %6086, %6092, %6089
   %6487 = load i32, ptr @hf_woww_creature_entry, align 4
   %6488 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %6487, i32 noundef 4, i32 noundef -2147483648) #5
   %6489 = tail call i32 @ptvcursor_current_offset(ptr noundef %82) #5
-  %.not4953 = icmp eq i32 %6489, %4
+  %.not4953 = icmp eq i32 %4, %6489
   br i1 %.not4953, label %.loopexit, label %6490
 
 6490:                                             ; preds = %6486
@@ -18382,7 +18382,7 @@ add_cstring.exit5291:                             ; preds = %6581, %6576
   %6671 = load i32, ptr @hf_woww_entry_id, align 4
   %6672 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %6671, i32 noundef 4, i32 noundef -2147483648) #5
   %6673 = tail call i32 @ptvcursor_current_offset(ptr noundef %82) #5
-  %.not4951 = icmp eq i32 %6673, %4
+  %.not4951 = icmp eq i32 %4, %6673
   br i1 %.not4951, label %.loopexit, label %6674
 
 6674:                                             ; preds = %6670
@@ -18634,7 +18634,7 @@ add_cstring.exit5303:                             ; preds = %6810, %6805
   %6822 = load i32, ptr @hf_woww_leader, align 4
   %6823 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %6822, i32 noundef 8, i32 noundef -2147483648) #5
   %6824 = call i32 @ptvcursor_current_offset(ptr noundef %82) #5
-  %.not4950 = icmp eq i32 %6824, %4
+  %.not4950 = icmp eq i32 %4, %6824
   br i1 %.not4950, label %.loopexit, label %6825
 
 6825:                                             ; preds = %._crit_edge5584
@@ -19092,7 +19092,7 @@ add_cstring.exit5323:                             ; preds = %6954, %6949
   %7105 = load i32, ptr @hf_woww_item, align 4
   %7106 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %7105, i32 noundef 4, i32 noundef -2147483648) #5
   %7107 = tail call i32 @ptvcursor_current_offset(ptr noundef %82) #5
-  %.not4948 = icmp eq i32 %7107, %4
+  %.not4948 = icmp eq i32 %4, %7107
   br i1 %.not4948, label %.loopexit, label %7108
 
 7108:                                             ; preds = %7104
@@ -20664,7 +20664,7 @@ add_cstring.exit5331:                             ; preds = %7682, %7677
   %8094 = load i32, ptr @hf_woww_pet, align 4
   %8095 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8094, i32 noundef 8, i32 noundef -2147483648) #5
   %8096 = tail call i32 @ptvcursor_current_offset(ptr noundef %82) #5
-  %.not4908 = icmp eq i32 %8096, %4
+  %.not4908 = icmp eq i32 %4, %8096
   br i1 %.not4908, label %.loopexit, label %8097
 
 8097:                                             ; preds = %8093
@@ -22421,7 +22421,7 @@ add_cstring.exit5339:                             ; preds = %8507, %8502
   %9186 = load i32, ptr @hf_woww_map, align 4
   %9187 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9186, i32 noundef 4, i32 noundef -2147483648) #5
   %9188 = tail call i32 @ptvcursor_current_offset(ptr noundef %82) #5
-  %.not4885 = icmp eq i32 %9188, %4
+  %.not4885 = icmp eq i32 %4, %9188
   br i1 %.not4885, label %.loopexit, label %9189
 
 9189:                                             ; preds = %9185

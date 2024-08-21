@@ -465,7 +465,7 @@ invoke.cont30.i:                                  ; preds = %for.inc.i
 _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i.i: ; preds = %.noexc43, %.noexc
   %46 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !10
   %cmp.i.i.i.i.i.i.i.i41 = icmp ult i64 %46, 17
-  %cmp.i.i.i24.i.i.i.i = icmp ugt i64 %46, %this.val9.i.i.i.i.i
+  %cmp.i.i.i24.i.i.i.i = icmp ult i64 %this.val9.i.i.i.i.i, %46
   %47 = and i1 %cmp.i.i.i.i.i.i.i.i41, %cmp.i.i.i24.i.i.i.i
   br i1 %47, label %if.end.i.i.i.i.i.i, label %if.then.i18.i.i.i.i.i
 

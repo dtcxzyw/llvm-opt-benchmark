@@ -1197,7 +1197,7 @@ define internal fastcc void @ieee80211_set_vif_links_bitmaps(ptr nocapture nound
 
 31:                                               ; preds = %27
   %32 = xor i16 %2, -1
-  %33 = and i16 %32, %1
+  %33 = and i16 %1, %32
   store i16 %33, ptr %28, align 2
   %34 = zext i16 %33 to i32
   %35 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %34) #13, !srcloc !82

@@ -1009,7 +1009,7 @@ define dso_local void @svc_reserve(ptr nocapture noundef %0, i32 noundef %1) #0 
   %5 = getelementptr inbounds i8, ptr %0, i64 672
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = add i32 %7, %1
+  %8 = add i32 %1, %7
   %9 = icmp eq ptr %4, null
   br i1 %9, label %17, label %10
 

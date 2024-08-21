@@ -43,7 +43,7 @@ define hidden i64 @lexbor_conv_long_to_data(i64 noundef %0, ptr nocapture nounde
 10:                                               ; preds = %5
   %11 = icmp slt i64 %0, 0
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
-  %12 = icmp ugt i64 %6, %2
+  %12 = icmp ult i64 %2, %6
   br i1 %12, label %13, label %.loopexit48.i
 
 13:                                               ; preds = %10
@@ -122,7 +122,7 @@ define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr nocapture nound
 
 11:                                               ; preds = %6
   %spec.select = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
-  %12 = icmp ugt i64 %7, %2
+  %12 = icmp ult i64 %2, %7
   br i1 %12, label %13, label %.loopexit48
 
 13:                                               ; preds = %11

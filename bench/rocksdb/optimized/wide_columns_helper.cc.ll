@@ -323,7 +323,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %"_Z
   %call.val.i12.i.i.i.i.i = load ptr, ptr %__next.sroa.0.011.i.i.i.i.i, align 8
   %3 = getelementptr i8, ptr %__i.sroa.0.03.i.i.i.i, i64 -24
   %call.val2.i13.i.i.i.i.i = load i64, ptr %3, align 8
-  %cmp.i.i.i14.i.i.i.i.i = icmp ugt i64 %call.val2.i13.i.i.i.i.i, %__val.sroa.3.0.copyload.i.i.i.i.i
+  %cmp.i.i.i14.i.i.i.i.i = icmp ult i64 %__val.sroa.3.0.copyload.i.i.i.i.i, %call.val2.i13.i.i.i.i.i
   %..i.i.i15.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %__val.sroa.3.0.copyload.i.i.i.i.i, i64 %call.val2.i13.i.i.i.i.i)
   %call.i.i.i16.i.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %__val.sroa.0.0.copyload.i.i.i.i.i, ptr noundef readonly %call.val.i12.i.i.i.i.i, i64 noundef %..i.i.i15.i.i.i.i.i) #14
   %cmp6.not.i.i.i17.i.i.i.i.i = icmp eq i32 %call.i.i.i16.i.i.i.i.i, 0
@@ -339,7 +339,7 @@ while.body.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i, %
   %call.val.i.i.i.i.i.i = load ptr, ptr %__next.sroa.0.0.i.i.i.i.i, align 8
   %4 = getelementptr i8, ptr %__next.sroa.0.021.i.i.i.i.i, i64 -24
   %call.val2.i.i.i.i.i.i = load i64, ptr %4, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %call.val2.i.i.i.i.i.i, %__val.sroa.3.0.copyload.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i = icmp ult i64 %__val.sroa.3.0.copyload.i.i.i.i.i, %call.val2.i.i.i.i.i.i
   %..i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %__val.sroa.3.0.copyload.i.i.i.i.i, i64 %call.val2.i.i.i.i.i.i)
   %call.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %__val.sroa.0.0.copyload.i.i.i.i.i, ptr noundef readonly %call.val.i.i.i.i.i.i, i64 noundef %..i.i.i.i.i.i.i.i) #14
   %cmp6.not.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i, 0
@@ -620,7 +620,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %while.body
@@ -770,7 +770,7 @@ if.else:                                          ; preds = %for.body
   %call.val.i12.i = load ptr, ptr %__first.coerce.pn12, align 8
   %2 = getelementptr i8, ptr %__first.coerce.pn12, i64 8
   %call.val2.i13.i = load i64, ptr %2, align 8
-  %cmp.i.i.i14.i = icmp ugt i64 %call.val2.i13.i, %call.val1.i
+  %cmp.i.i.i14.i = icmp ult i64 %call.val1.i, %call.val2.i13.i
   %..i.i.i15.i = tail call i64 @llvm.umin.i64(i64 %call.val1.i, i64 %call.val2.i13.i)
   %call.i.i.i16.i = tail call i32 @memcmp(ptr noundef readonly %call.val.i, ptr noundef readonly %call.val.i12.i, i64 noundef %..i.i.i15.i) #14
   %cmp6.not.i.i.i17.i = icmp eq i32 %call.i.i.i16.i, 0
@@ -786,7 +786,7 @@ while.body.i:                                     ; preds = %if.else, %while.bod
   %call.val.i.i = load ptr, ptr %__next.sroa.0.0.i, align 8
   %3 = getelementptr i8, ptr %__next.sroa.0.021.i, i64 -24
   %call.val2.i.i = load i64, ptr %3, align 8
-  %cmp.i.i.i.i = icmp ugt i64 %call.val2.i.i, %call.val1.i
+  %cmp.i.i.i.i = icmp ult i64 %call.val1.i, %call.val2.i.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %call.val1.i, i64 %call.val2.i.i)
   %call.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %call.val.i, ptr noundef readonly %call.val.i.i, i64 noundef %..i.i.i.i) #14
   %cmp6.not.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0

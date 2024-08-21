@@ -9,7 +9,7 @@ define void @cli_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nound
   %6 = icmp ne i64 %2, 8
   %7 = zext i1 %6 to i32
   %8 = ptrtoint ptr %0 to i64
-  %9 = or i64 %8, %2
+  %9 = or i64 %2, %8
   %10 = and i64 %9, 7
   %or.cond541 = icmp eq i64 %10, 0
   %11 = select i1 %or.cond541, i32 %7, i32 2
@@ -31,7 +31,7 @@ define void @cli_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nound
   %15 = mul i64 %.0336.lcssa, %2
   %16 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %15
   %.0351582 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %2
-  %17 = icmp sgt i64 %15, %2
+  %17 = icmp slt i64 %2, %15
   br i1 %17, label %.preheader479.lr.ph, label %.loopexit
 
 .preheader479.lr.ph:                              ; preds = %.preheader480
@@ -826,7 +826,7 @@ swapfunc.exit431:                                 ; preds = %.preheader490, %.pr
   br i1 %371, label %.preheader484, label %452
 
 .preheader484:                                    ; preds = %.critedge2._crit_edge
-  %374 = icmp sgt i64 %372, %2
+  %374 = icmp slt i64 %2, %372
   br i1 %374, label %.preheader483.lr.ph, label %.loopexit
 
 .preheader483.lr.ph:                              ; preds = %.preheader484
@@ -1098,7 +1098,7 @@ swapfunc.exit445:                                 ; preds = %.preheader494, %465
   %479 = ptrtoint ptr %.1341.lcssa to i64
   %480 = sub i64 %478, %479
   %481 = ptrtoint ptr %373 to i64
-  %482 = add i64 %478, %2
+  %482 = add i64 %2, %478
   %483 = sub i64 %481, %482
   %.400 = tail call i64 @llvm.umin.i64(i64 %480, i64 %483)
   %484 = trunc i64 %.400 to i32
@@ -1166,7 +1166,7 @@ swapfunc.exit452:                                 ; preds = %.preheader492, %492
   %.fr673 = freeze ptr %514
   %515 = udiv i64 %510, %2
   %516 = ptrtoint ptr %.fr673 to i64
-  %517 = or i64 %516, %2
+  %517 = or i64 %2, %516
   %518 = and i64 %517, 7
   %or.cond = icmp eq i64 %518, 0
   %519 = select i1 %or.cond, i32 %7, i32 2
@@ -1183,7 +1183,7 @@ define void @cli_qsort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nou
   %7 = icmp ne i64 %2, 8
   %8 = zext i1 %7 to i32
   %9 = ptrtoint ptr %0 to i64
-  %10 = or i64 %9, %2
+  %10 = or i64 %2, %9
   %11 = and i64 %10, 7
   %or.cond550 = icmp eq i64 %11, 0
   %12 = select i1 %or.cond550, i32 %8, i32 2
@@ -1205,7 +1205,7 @@ define void @cli_qsort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nou
   %16 = mul i64 %.0345.lcssa, %2
   %17 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %16
   %.0360591 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %2
-  %18 = icmp sgt i64 %16, %2
+  %18 = icmp slt i64 %2, %16
   br i1 %18, label %.preheader488.lr.ph, label %.loopexit
 
 .preheader488.lr.ph:                              ; preds = %.preheader489
@@ -2000,7 +2000,7 @@ swapfunc.exit440:                                 ; preds = %.preheader499, %.pr
   br i1 %372, label %.preheader493, label %453
 
 .preheader493:                                    ; preds = %.critedge2._crit_edge
-  %375 = icmp sgt i64 %373, %2
+  %375 = icmp slt i64 %2, %373
   br i1 %375, label %.preheader492.lr.ph, label %.loopexit
 
 .preheader492.lr.ph:                              ; preds = %.preheader493
@@ -2272,7 +2272,7 @@ swapfunc.exit454:                                 ; preds = %.preheader503, %466
   %480 = ptrtoint ptr %.1350.lcssa to i64
   %481 = sub i64 %479, %480
   %482 = ptrtoint ptr %374 to i64
-  %483 = add i64 %479, %2
+  %483 = add i64 %2, %479
   %484 = sub i64 %482, %483
   %.409 = tail call i64 @llvm.umin.i64(i64 %481, i64 %484)
   %485 = trunc i64 %.409 to i32
@@ -2340,7 +2340,7 @@ swapfunc.exit461:                                 ; preds = %.preheader501, %493
   %.fr682 = freeze ptr %515
   %516 = udiv i64 %511, %2
   %517 = ptrtoint ptr %.fr682 to i64
-  %518 = or i64 %517, %2
+  %518 = or i64 %2, %517
   %519 = and i64 %518, 7
   %or.cond = icmp eq i64 %519, 0
   %520 = select i1 %or.cond, i32 %8, i32 2

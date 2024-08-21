@@ -95,14 +95,14 @@ if.then2:                                         ; preds = %if.end
   %length.i = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i64, ptr %length.i, align 8
   %add.i = add i64 %8, %7
-  %cmp.i = icmp eq i64 %add.i, %phys_addr
+  %cmp.i = icmp eq i64 %phys_addr, %add.i
   br i1 %cmp.i, label %mapping_contiguous.exit, label %for.body.lr.ph
 
 mapping_contiguous.exit:                          ; preds = %if.then2
   %virt_addr2.i36 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load i64, ptr %virt_addr2.i36, align 8
   %add4.i = add i64 %9, %8
-  %cmp5.i = icmp eq i64 %add4.i, %virt_addr
+  %cmp5.i = icmp eq i64 %virt_addr, %add4.i
   br i1 %cmp5.i, label %if.then3, label %for.body.lr.ph
 
 if.then3:                                         ; preds = %mapping_contiguous.exit
@@ -120,14 +120,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %length.i37 = getelementptr inbounds i8, ptr %memory_mapping.091, i64 16
   %11 = load i64, ptr %length.i37, align 8
   %add.i38 = add i64 %11, %10
-  %cmp.i39 = icmp eq i64 %add.i38, %phys_addr
+  %cmp.i39 = icmp eq i64 %phys_addr, %add.i38
   br i1 %cmp.i39, label %mapping_contiguous.exit44, label %if.end14
 
 mapping_contiguous.exit44:                        ; preds = %for.body
   %virt_addr2.i41 = getelementptr inbounds i8, ptr %memory_mapping.091, i64 8
   %12 = load i64, ptr %virt_addr2.i41, align 8
   %add4.i42 = add i64 %12, %11
-  %cmp5.i43 = icmp eq i64 %add4.i42, %virt_addr
+  %cmp5.i43 = icmp eq i64 %virt_addr, %add4.i42
   br i1 %cmp5.i43, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %mapping_contiguous.exit44
@@ -142,7 +142,7 @@ if.end14:                                         ; preds = %for.body, %mapping_
   br i1 %cmp17, label %for.end, label %mapping_have_same_region.exit
 
 mapping_have_same_region.exit:                    ; preds = %if.end14
-  %cmp5.i49 = icmp ugt i64 %add.i38, %phys_addr
+  %cmp5.i49 = icmp ult i64 %phys_addr, %add.i38
   br i1 %cmp5.i49, label %if.then21, label %for.inc
 
 if.then21:                                        ; preds = %mapping_have_same_region.exit
@@ -155,7 +155,7 @@ if.then21:                                        ; preds = %mapping_have_same_r
 
 if.end24:                                         ; preds = %if.then21
   %length.i37.le = getelementptr inbounds i8, ptr %memory_mapping.091, i64 16
-  %cmp.i51 = icmp ugt i64 %memory_mapping.0.val35, %virt_addr
+  %cmp.i51 = icmp ult i64 %virt_addr, %memory_mapping.0.val35
   br i1 %cmp.i51, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end24

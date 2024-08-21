@@ -11913,7 +11913,7 @@ entry:
   %ref.tmp2 = alloca %"class.std::allocator", align 1
   %m_idx = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %m_idx, align 8
-  %cmp.not = icmp ult i32 %0, %n
+  %cmp.not = icmp ugt i32 %n, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

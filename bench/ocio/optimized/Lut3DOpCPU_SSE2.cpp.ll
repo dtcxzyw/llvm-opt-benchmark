@@ -291,7 +291,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 for.end.i:                                        ; preds = %for.body.i, %entry
   %dst.addr.0.lcssa.i = phi ptr [ %dst, %entry ], [ %add.ptr31.i, %for.body.i ]
   %src.addr.0.lcssa.i = phi ptr [ %src, %entry ], [ %add.ptr.i, %for.body.i ]
-  %tobool.not.i = icmp eq i32 %mul13.i, %total_pixel_count
+  %tobool.not.i = icmp eq i32 %total_pixel_count, %mul13.i
   br i1 %tobool.not.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124applyTetrahedralSSE2FuncILNS_8BitDepthE8ELS2_8EEEvPKfiS4_Pfi.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end.i

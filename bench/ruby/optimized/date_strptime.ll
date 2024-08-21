@@ -182,7 +182,7 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define noundef i64 @date__strptime(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i64 @date__strptime_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4)
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %5

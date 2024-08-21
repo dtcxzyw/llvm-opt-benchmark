@@ -331,7 +331,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %len = getelementptr inbounds i8, ptr %clientp, i64 8
   %0 = load i64, ptr %len, align 8
-  %cmp2.not = icmp ugt i64 %0, %offset
+  %cmp2.not = icmp ult i64 %offset, %0
   br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end
@@ -5360,7 +5360,7 @@ while.end18:                                      ; preds = %land.rhs, %while.bo
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %26 = load i64, ptr %header, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %26, i64 1)
-  %cmp.i38 = icmp ult i64 %spec.select.i, %sub.ptr.sub
+  %cmp.i38 = icmp ugt i64 %sub.ptr.sub, %spec.select.i
   br i1 %cmp.i38, label %if.then.i39, label %if.end.i
 
 if.then.i39:                                      ; preds = %while.end18
@@ -5472,7 +5472,7 @@ while.end55:                                      ; preds = %if.end46
   %sub.ptr.rhs.cast58 = ptrtoint ptr %.pre to i64
   %sub.ptr.sub59 = sub i64 %sub.ptr.lhs.cast57, %sub.ptr.rhs.cast58
   %spec.select.i60 = call i64 @llvm.usub.sat.i64(i64 %.pre104, i64 1)
-  %cmp.i61 = icmp ult i64 %spec.select.i60, %sub.ptr.sub59
+  %cmp.i61 = icmp ugt i64 %sub.ptr.sub59, %spec.select.i60
   br i1 %cmp.i61, label %if.then.i68, label %if.end.i62
 
 if.then.i68:                                      ; preds = %while.end55

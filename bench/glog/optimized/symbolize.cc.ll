@@ -2072,7 +2072,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread71: ; pre
   %.not53 = icmp ne i16 %57, 0
   %.not54 = icmp ule i64 %52, %0
   %or.cond.not75 = and i1 %.not54, %.not53
-  %58 = icmp ugt i64 %55, %0
+  %58 = icmp ult i64 %0, %55
   %or.cond55 = select i1 %or.cond.not75, i1 %58, i1 false
   br i1 %or.cond55, label %59, label %87
 

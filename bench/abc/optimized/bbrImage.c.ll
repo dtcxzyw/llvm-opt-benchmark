@@ -652,7 +652,7 @@ Bbr_FindBestVariable.exit.thread128.i:            ; preds = %Bbr_FindBestVariabl
 
 298:                                              ; preds = %Bbr_FindBestVariable.exit.thread128.i
   %299 = load ptr, ptr %84, align 8
-  %.not29.i.i = icmp eq ptr %299, %256
+  %.not29.i.i = icmp eq ptr %256, %299
   br i1 %.not29.i.i, label %Bbr_FindBestPartitions.exit.i, label %.lr.ph.i117.i
 
 .lr.ph.i117.i:                                    ; preds = %298, %311
@@ -1149,11 +1149,11 @@ define internal fastcc void @Bbr_bddPrint(ptr noundef %0, ptr noundef %1) unname
   %11 = ptrtoint ptr %10 to i64
   %12 = xor i64 %11, 1
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %.loopexit.sink.split, label %15
 
 15:                                               ; preds = %8
-  %16 = icmp eq ptr %10, %1
+  %16 = icmp eq ptr %1, %10
   br i1 %16, label %.loopexit.sink.split, label %17
 
 17:                                               ; preds = %15
@@ -1659,7 +1659,7 @@ define internal fastcc noalias noundef ptr @Bbr_CombineTwoNodes(ptr noundef %0, 
   tail call void @Cudd_Ref(ptr noundef %33) #10
   %35 = getelementptr inbounds i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
-  %.not = icmp eq ptr %36, %1
+  %.not = icmp eq ptr %1, %36
   br i1 %.not, label %39, label %37
 
 37:                                               ; preds = %4

@@ -268,7 +268,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -548,7 +548,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #18
   %cmp7 = icmp eq ptr %call, null
@@ -1199,7 +1199,7 @@ invoke.cont11:                                    ; preds = %if.end10
 if.end17:                                         ; preds = %invoke.cont11
   %pluralRules = getelementptr inbounds i8, ptr %this, i64 344
   %5 = load ptr, ptr %pluralRules, align 8
-  %cmp.not.i = icmp eq ptr %5, %call12
+  %cmp.not.i = icmp eq ptr %call12, %5
   br i1 %cmp.not.i, label %invoke.cont18, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end17
@@ -1405,7 +1405,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %cache, align 8
   %cache2 = getelementptr inbounds i8, ptr %this, i64 328
   %1 = load ptr, ptr %cache2, align 8
-  %cmp.not.i = icmp eq ptr %1, %0
+  %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %_ZN6icu_7512SharedObject7copyPtrINS_22MeasureFormatCacheDataEEEvPKT_RS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -1430,7 +1430,7 @@ _ZN6icu_7512SharedObject7copyPtrINS_22MeasureFormatCacheDataEEEvPKT_RS5_.exit: ;
   %2 = load ptr, ptr %numberFormat, align 8
   %numberFormat3 = getelementptr inbounds i8, ptr %this, i64 336
   %3 = load ptr, ptr %numberFormat3, align 8
-  %cmp.not.i8 = icmp eq ptr %3, %2
+  %cmp.not.i8 = icmp eq ptr %2, %3
   br i1 %cmp.not.i8, label %_ZN6icu_7512SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit, label %if.then.i9
 
 if.then.i9:                                       ; preds = %_ZN6icu_7512SharedObject7copyPtrINS_22MeasureFormatCacheDataEEEvPKT_RS5_.exit
@@ -1455,7 +1455,7 @@ _ZN6icu_7512SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit: ; pre
   %4 = load ptr, ptr %pluralRules, align 8
   %pluralRules4 = getelementptr inbounds i8, ptr %this, i64 344
   %5 = load ptr, ptr %pluralRules4, align 8
-  %cmp.not.i15 = icmp eq ptr %5, %4
+  %cmp.not.i15 = icmp eq ptr %4, %5
   br i1 %cmp.not.i15, label %_ZN6icu_7512SharedObject7copyPtrINS_17SharedPluralRulesEEEvPKT_RS5_.exit, label %if.then.i16
 
 if.then.i16:                                      ; preds = %_ZN6icu_7512SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit
@@ -1529,7 +1529,7 @@ declare noundef nonnull align 8 dereferenceable(322) ptr @_ZN6icu_756FormataSERK
 define linkonce_odr void @_ZN6icu_7512SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_(ptr noundef %src, ptr noundef nonnull align 8 dereferenceable(8) %dest) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = load ptr, ptr %dest, align 8
-  %cmp.not = icmp eq ptr %0, %src
+  %cmp.not = icmp eq ptr %src, %0
   br i1 %cmp.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2866,7 +2866,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %shr.i.i.i.i = sext i16 %19 to i32
   %20 = load i32, ptr %fLength.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %20, i32 %shr.i.i.i.i
-  %cmp.i.i60 = icmp ugt i32 %cond.i.i.i, %i.0122
+  %cmp.i.i60 = icmp ult i32 %i.0122, %cond.i.i.i
   br i1 %cmp.i.i60, label %invoke.cont70, label %sw.default
 
 invoke.cont70:                                    ; preds = %for.body
@@ -2919,7 +2919,7 @@ invoke.cont81:                                    ; preds = %sw.bb75
   br i1 %cmp82, label %land.lhs.true, label %if.else97
 
 land.lhs.true:                                    ; preds = %invoke.cont81
-  %cmp.i.i70 = icmp ugt i32 %cond.i.i.i, %add
+  %cmp.i.i70 = icmp ult i32 %add, %cond.i.i.i
   br i1 %cmp.i.i70, label %if.then.i.i72, label %invoke.cont85
 
 if.then.i.i72:                                    ; preds = %land.lhs.true
@@ -2994,7 +2994,7 @@ ehcleanup:                                        ; preds = %lpad100, %lpad94, %
 sw.bb109:                                         ; preds = %invoke.cont70
   %add110 = add nuw nsw i32 %i.0122, 1
   %cmp111 = icmp slt i32 %add110, %cond.i
-  %cmp.i.i87 = icmp ugt i32 %cond.i.i.i, %add110
+  %cmp.i.i87 = icmp ult i32 %add110, %cond.i.i.i
   %or.cond119 = and i1 %cmp111, %cmp.i.i87
   br i1 %or.cond119, label %invoke.cont114, label %if.else125
 
@@ -3422,7 +3422,7 @@ if.end8:                                          ; preds = %if.end
   store ptr %nfToAdopt, ptr %ptr.i, align 8
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 336
   %1 = load ptr, ptr %numberFormat, align 8
-  %cmp.not.i = icmp eq ptr %1, %call2
+  %cmp.not.i = icmp eq ptr %call2, %1
   br i1 %cmp.not.i, label %_ZN6icu_7512LocalPointerINS_12NumberFormatEED2Ev.exit8, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end8
@@ -4071,7 +4071,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then4.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %ptr, align 8
-  %cmp.not.i.i = icmp eq ptr %3, %1
+  %cmp.not.i.i = icmp eq ptr %1, %3
   br i1 %cmp.not.i.i, label %if.end5.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then4.i

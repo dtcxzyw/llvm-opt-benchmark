@@ -117,7 +117,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %.thread, %ompi_comm
 42:                                               ; preds = %ompi_comm_invalid.exit
   %or.cond9 = icmp slt i32 %4, -1
   %43 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 172), align 4
-  %44 = icmp slt i32 %43, %4
+  %44 = icmp sgt i32 %4, %43
   %or.cond79 = select i1 %or.cond9, i1 true, i1 %44
   br i1 %or.cond79, label %ompi_errcode_get_mpi_code.exit, label %45
 
@@ -134,7 +134,7 @@ ompi_comm_peer_invalid.exit:                      ; preds = %46
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 16
   %51 = load i32, ptr %50, align 8
-  %.not.i.not = icmp sgt i32 %51, %3
+  %.not.i.not = icmp slt i32 %3, %51
   br i1 %.not.i.not, label %52, label %ompi_errcode_get_mpi_code.exit
 
 52:                                               ; preds = %ompi_comm_peer_invalid.exit, %45

@@ -192,7 +192,7 @@ define dso_local i32 @get_extension_oid(ptr noundef %0, i1 noundef zeroext %1) l
   call void @systable_endscan(ptr noundef %6) #13
   call void @table_close(ptr noundef %4, i32 noundef 1) #13
   %.not12 = icmp ne i32 %.0, 0
-  %brmerge = or i1 %.not12, %1
+  %brmerge = or i1 %1, %.not12
   br i1 %brmerge, label %21, label %17
 
 17:                                               ; preds = %16
@@ -763,7 +763,7 @@ find_install_path.exit.thread127:                 ; preds = %get_ext_ver_info.ex
 102:                                              ; preds = %.thread
   %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %1) #15
   %.not108 = icmp eq i32 %103, 0
-  %brmerge = or i1 %.not108, %3
+  %brmerge = or i1 %3, %.not108
   br i1 %brmerge, label %110, label %104
 
 104:                                              ; preds = %102
@@ -1155,7 +1155,7 @@ declare void @RunObjectPostCreateHook(i32 noundef, i32 noundef, i32 noundef, i1 
 define dso_local void @RemoveExtensionById(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.ScanKeyData], align 16
   %3 = load i32, ptr @CurrentExtensionObject, align 4
-  %4 = icmp eq i32 %3, %0
+  %4 = icmp eq i32 %0, %3
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
@@ -3012,7 +3012,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 2047
   %10 = zext nneg i16 %9 to i32
-  %11 = icmp slt i32 %10, %1
+  %11 = icmp sgt i32 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4

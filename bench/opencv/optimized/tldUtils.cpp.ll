@@ -221,7 +221,7 @@ define hidden noundef double @_ZN2cv8tracking4impl3tld12scaleAndBlurERKNS_3MatEi
   %.034 = phi double [ %13, %.lr.ph ], [ 1.000000e+00, %6 ]
   %.01633 = phi i32 [ %12, %.lr.ph ], [ 0, %6 ]
   %12 = add nuw nsw i32 %.01633, 1
-  %13 = fmul double %.034, %5
+  %13 = fmul double %5, %.034
   %exitcond.not = icmp eq i32 %12, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -291,7 +291,7 @@ define hidden void @_ZN2cv8tracking4impl3tld11getClosestNERSt6vectorINS_5Rect_Id
   %11 = sub i64 %9, %10
   %12 = lshr exact i64 %11, 5
   %13 = trunc i64 %12 to i32
-  %.not = icmp sgt i32 %13, %2
+  %.not = icmp slt i32 %2, %13
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %4
@@ -478,7 +478,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %88 = sub i64 %86, %87
   %89 = lshr exact i64 %88, 5
   %90 = trunc i64 %89 to i32
-  %91 = icmp sgt i32 %90, %2
+  %91 = icmp slt i32 %2, %90
   br i1 %91, label %.lr.ph135, label %._crit_edge136
 
 .lr.ph135:                                        ; preds = %.preheader123

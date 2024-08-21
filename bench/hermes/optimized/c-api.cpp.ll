@@ -644,7 +644,7 @@ hermes_source_map_get_num_paths.exit:             ; preds = %lor.lhs.false.i
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 5
   %conv.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i.i, %index
+  %cmp.not = icmp ult i32 %index, %conv.i.i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %hermes_source_map_get_num_paths.exit

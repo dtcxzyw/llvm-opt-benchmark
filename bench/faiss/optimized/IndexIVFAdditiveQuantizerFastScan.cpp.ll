@@ -398,7 +398,7 @@ define void @_ZNK5faiss33IndexIVFAdditiveQuantizerFastScan14encode_vectorsElPKfP
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = sext i32 %39 to i64
-  %41 = mul nsw i64 %40, %1
+  %41 = mul nsw i64 %1, %40
   %42 = icmp ugt i64 %41, 2305843009213693951
   br i1 %42, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -657,7 +657,7 @@ define void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan13train_encoderElPKfPKl
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
-  %46 = mul nsw i64 %45, %1
+  %46 = mul nsw i64 %1, %45
   %47 = icmp ugt i64 %46, 2305843009213693951
   br i1 %47, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -2606,7 +2606,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread: ; preds = %5
 25:                                               ; preds = %23
   %26 = load ptr, ptr %3, align 8
   %27 = load ptr, ptr %0, align 8
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %24, i64 %.07.i36)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.07.i36, i64 %24)
   %28 = shl i64 %.sroa.speculated.i, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 %27, i64 %28, i1 false)
   br label %30

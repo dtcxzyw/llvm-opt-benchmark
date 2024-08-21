@@ -578,7 +578,7 @@ define internal fastcc i32 @vp_find_vqs_msix(ptr noundef %0, i32 noundef %1, ptr
   %88 = trunc i32 %72 to i16
   %89 = tail call zeroext i16 %87(ptr noundef %0, i16 noundef zeroext %88) #10
   %90 = icmp eq i16 %89, -1
-  %91 = or i1 %90, %5
+  %91 = or i1 %5, %90
   br i1 %91, label %106, label %92
 
 92:                                               ; preds = %83

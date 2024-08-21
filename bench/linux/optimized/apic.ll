@@ -2258,7 +2258,7 @@ define dso_local zeroext i1 @arch_match_cpu_phys_id(i32 noundef %0, i64 noundef 
   %4 = getelementptr [64 x i32], ptr @cpuid_to_apicid, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
-  %7 = icmp eq i64 %6, %1
+  %7 = icmp eq i64 %1, %6
   ret i1 %7
 }
 
@@ -2455,7 +2455,7 @@ define dso_local range(i32 -22, -2147483648) i32 @generic_processor_info(i32 nou
 79:                                               ; preds = %75
   %80 = shl nsw i32 -1, %77
   %81 = xor i32 %80, -1
-  %82 = and i32 %81, %0
+  %82 = and i32 %0, %81
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %85
 

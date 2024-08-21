@@ -2252,7 +2252,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %div = udiv i64 9223372036854775807, %size
-  %cmp1 = icmp ult i64 %div, %items
+  %cmp1 = icmp ugt i64 %items, %div
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry

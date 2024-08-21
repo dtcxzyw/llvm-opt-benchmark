@@ -59,7 +59,7 @@ define noundef zeroext i1 @_Z11convolutioniPfiPKf(i32 noundef %0, ptr noundef %1
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %24 = trunc nuw i64 %indvars.iv.next73 to i32
-  %25 = icmp slt i32 %24, %0
+  %25 = icmp sgt i32 %0, %24
   br i1 %25, label %.preheader54.us, label %.preheader53, !llvm.loop !7
 
 .preheader53:                                     ; preds = %._crit_edge.us
@@ -158,7 +158,7 @@ define noundef zeroext i1 @_Z20periodic_convolutioniPfiPKf(i32 noundef %0, ptr n
   %13 = getelementptr inbounds float, ptr %12, i64 %indvars.iv45
   %.promoted.us = load float, ptr %13, align 4
   %14 = trunc i64 %indvars.iv45 to i32
-  %15 = add i32 %14, %0
+  %15 = add i32 %0, %14
   br label %16
 
 16:                                               ; preds = %.preheader40.us, %16

@@ -325,7 +325,7 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %136
   %144 = getelementptr inbounds i8, ptr %132, i64 104
   store i16 %143, ptr %144, align 8
   %145 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
-  %146 = icmp eq i16 %145, %143
+  %146 = icmp eq i16 %143, %145
   br i1 %146, label %201, label %147
 
 147:                                              ; preds = %opal_obj_run_constructors.exit.i
@@ -612,12 +612,12 @@ fini_sm_endpoint.exit:                            ; preds = %fini_sm_endpoint.ex
 define ptr @mca_btl_sm_alloc(ptr nocapture readnone %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 5956), align 4
   %7 = zext i32 %6 to i64
-  %.not = icmp ult i64 %7, %3
+  %.not = icmp ugt i64 %3, %7
   br i1 %.not, label %8, label %18
 
 8:                                                ; preds = %5
   %9 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 8), align 8
-  %.not14 = icmp ult i64 %9, %3
+  %.not14 = icmp ugt i64 %3, %9
   br i1 %.not14, label %10, label %18
 
 10:                                               ; preds = %8
@@ -634,7 +634,7 @@ define ptr @mca_btl_sm_alloc(ptr nocapture readnone %0, ptr noundef %1, i8 nound
 mca_smsc_base_has_feature.exit:                   ; preds = %10, %12
   %16 = phi i1 [ false, %10 ], [ %15, %12 ]
   %17 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 24), align 8
-  %.not15 = icmp ult i64 %17, %3
+  %.not15 = icmp ugt i64 %3, %17
   %or.cond = select i1 %16, i1 true, i1 %.not15
   br i1 %or.cond, label %.thread, label %18
 
@@ -842,7 +842,7 @@ mca_smsc_base_has_feature.exit:                   ; preds = %.critedge, %40
   %51 = getelementptr inbounds i8, ptr %46, i64 104
   %52 = load ptr, ptr %51, align 8
   %53 = ptrtoint ptr %52 to i64
-  %54 = add i64 %53, %4
+  %54 = add i64 %4, %53
   %55 = inttoptr i64 %54 to ptr
   store ptr %55, ptr %9, align 8
   %56 = call i32 @opal_convertor_pack(ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %5) #12
@@ -1017,7 +1017,7 @@ mca_smsc_base_has_feature.exit62.thread:          ; preds = %119, %mca_smsc_base
   %141 = getelementptr inbounds i8, ptr %117, i64 104
   %142 = load ptr, ptr %141, align 8
   %143 = ptrtoint ptr %142 to i64
-  %144 = add i64 %143, %4
+  %144 = add i64 %4, %143
   %145 = inttoptr i64 %144 to ptr
   %146 = load i64, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %145, ptr align 1 %21, i64 %146, i1 false)

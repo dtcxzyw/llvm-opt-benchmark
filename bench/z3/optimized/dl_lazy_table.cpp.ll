@@ -1316,7 +1316,7 @@ if.then.i.i:                                      ; preds = %entry
   %call2.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i.i = icmp eq ptr %3, %call2.i.i
+  %cmp.not.i.i.i = icmp eq ptr %call2.i.i, %3
   %or.cond.i.i.i = or i1 %tobool.not.i.i.i, %cmp.not.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i, label %if.then.i.i.i
 
@@ -1486,7 +1486,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -1524,7 +1524,7 @@ if.then.i.i:                                      ; preds = %entry
   %call2.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i.i = icmp eq ptr %3, %call2.i.i
+  %cmp.not.i.i.i = icmp eq ptr %call2.i.i, %3
   %or.cond.i.i.i = or i1 %tobool.not.i.i.i, %cmp.not.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i, label %if.then.i.i.i
 
@@ -1667,7 +1667,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -1704,7 +1704,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -1741,7 +1741,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -1778,7 +1778,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -1815,7 +1815,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -1950,7 +1950,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -1987,7 +1987,7 @@ if.then.i.i:                                      ; preds = %entry
   %call2.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i.i = icmp eq ptr %3, %call2.i.i
+  %cmp.not.i.i.i = icmp eq ptr %call2.i.i, %3
   %or.cond.i.i.i = or i1 %tobool.not.i.i.i, %cmp.not.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i, label %if.then.i.i.i
 
@@ -2024,7 +2024,7 @@ if.then.i.i:                                      ; preds = %entry
   %call2.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i.i = icmp eq ptr %3, %call2.i.i
+  %cmp.not.i.i.i = icmp eq ptr %call2.i.i, %3
   %or.cond.i.i.i = or i1 %tobool.not.i.i.i, %cmp.not.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i, label %if.then.i.i.i
 
@@ -2062,7 +2062,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -2089,7 +2089,7 @@ if.then.i6:                                       ; preds = %_ZN7datalog14lazy_t
   %call2.i8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(48) %5)
   %8 = load ptr, ptr %m_table.i4, align 8
   %tobool.not.i.i9 = icmp eq ptr %8, null
-  %cmp.not.i.i10 = icmp eq ptr %8, %call2.i8
+  %cmp.not.i.i10 = icmp eq ptr %call2.i8, %8
   %or.cond.i.i11 = or i1 %tobool.not.i.i9, %cmp.not.i.i10
   br i1 %or.cond.i.i11, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i13, label %if.then.i.i12
 
@@ -2136,7 +2136,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   %m_table = getelementptr inbounds i8, ptr %this, i64 40
   %16 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %16, null
-  %cmp.not.i = icmp eq ptr %16, %call16
+  %cmp.not.i = icmp eq ptr %call16, %16
   %or.cond.i = or i1 %tobool.not.i, %cmp.not.i
   br i1 %or.cond.i, label %if.end.i18, label %if.then.i15
 
@@ -2210,7 +2210,7 @@ if.then.i:                                        ; preds = %dynamic_cast.end
   %call2.i = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(48) %5)
   %8 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %8, null
-  %cmp.not.i.i = icmp eq ptr %8, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %8
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -2237,7 +2237,7 @@ if.then.i24:                                      ; preds = %_ZN7datalog14lazy_t
   %call2.i26 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(48) %10)
   %13 = load ptr, ptr %m_table.i22, align 8
   %tobool.not.i.i27 = icmp eq ptr %13, null
-  %cmp.not.i.i28 = icmp eq ptr %13, %call2.i26
+  %cmp.not.i.i28 = icmp eq ptr %call2.i26, %13
   %or.cond.i.i29 = or i1 %tobool.not.i.i27, %cmp.not.i.i28
   br i1 %or.cond.i.i29, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i31, label %if.then.i.i30
 
@@ -2297,7 +2297,7 @@ invoke.cont:                                      ; preds = %if.then
   %m_table = getelementptr inbounds i8, ptr %this, i64 40
   %23 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %23, null
-  %cmp.not.i = icmp eq ptr %23, %call15
+  %cmp.not.i = icmp eq ptr %call15, %23
   %or.cond.i = or i1 %tobool.not.i, %cmp.not.i
   br i1 %or.cond.i, label %if.end.i, label %if.then.i33
 
@@ -2344,7 +2344,7 @@ if.then.i41:                                      ; preds = %dynamic_cast.end24
   %call2.i43 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(48) %27)
   %33 = load ptr, ptr %m_table.i38, align 8
   %tobool.not.i.i44 = icmp eq ptr %33, null
-  %cmp.not.i.i45 = icmp eq ptr %33, %call2.i43
+  %cmp.not.i.i45 = icmp eq ptr %call2.i43, %33
   %or.cond.i.i46 = or i1 %tobool.not.i.i44, %cmp.not.i.i45
   br i1 %or.cond.i.i46, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i48, label %if.then.i.i47
 
@@ -2391,7 +2391,7 @@ if.then.i55:                                      ; preds = %if.then34
 call2.i57.noexc:                                  ; preds = %if.then.i55
   %40 = load ptr, ptr %m_table.i38, align 8
   %tobool.not.i.i58 = icmp eq ptr %40, null
-  %cmp.not.i.i59 = icmp eq ptr %40, %call2.i5763
+  %cmp.not.i.i59 = icmp eq ptr %call2.i5763, %40
   %or.cond.i.i60 = or i1 %tobool.not.i.i58, %cmp.not.i.i59
   br i1 %or.cond.i.i60, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i62, label %if.then.i.i61
 
@@ -2415,7 +2415,7 @@ invoke.cont41:                                    ; preds = %invoke.cont37
   %m_table43 = getelementptr inbounds i8, ptr %this, i64 40
   %43 = load ptr, ptr %m_table43, align 8
   %tobool.not.i66 = icmp eq ptr %43, null
-  %cmp.not.i67 = icmp eq ptr %43, %call42
+  %cmp.not.i67 = icmp eq ptr %call42, %43
   %or.cond.i68 = or i1 %tobool.not.i66, %cmp.not.i67
   br i1 %or.cond.i68, label %if.end.i74, label %if.then.i69
 
@@ -2458,7 +2458,7 @@ if.then.i80:                                      ; preds = %dynamic_cast.end53
   %call2.i82 = tail call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(48) %47)
   %51 = load ptr, ptr %m_table.i77, align 8
   %tobool.not.i.i83 = icmp eq ptr %51, null
-  %cmp.not.i.i84 = icmp eq ptr %51, %call2.i82
+  %cmp.not.i.i84 = icmp eq ptr %call2.i82, %51
   %or.cond.i.i85 = or i1 %tobool.not.i.i83, %cmp.not.i.i84
   br i1 %or.cond.i.i85, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i87, label %if.then.i.i86
 
@@ -2497,7 +2497,7 @@ invoke.cont66:                                    ; preds = %if.then61
   %m_table68 = getelementptr inbounds i8, ptr %this, i64 40
   %58 = load ptr, ptr %m_table68, align 8
   %tobool.not.i91 = icmp eq ptr %58, null
-  %cmp.not.i92 = icmp eq ptr %58, %call67
+  %cmp.not.i92 = icmp eq ptr %call67, %58
   %or.cond.i93 = or i1 %tobool.not.i91, %cmp.not.i92
   br i1 %or.cond.i93, label %if.end.i99, label %if.then.i94
 
@@ -2542,7 +2542,7 @@ if.then.i107:                                     ; preds = %if.end78
   %call2.i109 = call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(48) %62)
   %65 = load ptr, ptr %m_table.i104, align 8
   %tobool.not.i.i110 = icmp eq ptr %65, null
-  %cmp.not.i.i111 = icmp eq ptr %65, %call2.i109
+  %cmp.not.i.i111 = icmp eq ptr %call2.i109, %65
   %or.cond.i.i112 = or i1 %tobool.not.i.i110, %cmp.not.i.i111
   br i1 %or.cond.i.i112, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i114, label %if.then.i.i113
 
@@ -2586,7 +2586,7 @@ invoke.cont93:                                    ; preds = %_ZNK6vectorIjLb0EjE
 invoke.cont97:                                    ; preds = %invoke.cont93
   %72 = load ptr, ptr %m_table73, align 8
   %tobool.not.i123 = icmp eq ptr %72, null
-  %cmp.not.i124 = icmp eq ptr %72, %call98
+  %cmp.not.i124 = icmp eq ptr %call98, %72
   %or.cond.i125 = or i1 %tobool.not.i123, %cmp.not.i124
   br i1 %or.cond.i125, label %if.end.i131, label %if.then.i126
 
@@ -2646,7 +2646,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -2691,7 +2691,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   %m_table = getelementptr inbounds i8, ptr %this, i64 40
   %10 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %10, null
-  %cmp.not.i = icmp eq ptr %10, %call12
+  %cmp.not.i = icmp eq ptr %call12, %10
   %or.cond.i = or i1 %tobool.not.i, %cmp.not.i
   br i1 %or.cond.i, label %if.end.i6, label %if.then.i3
 
@@ -2738,7 +2738,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -2755,7 +2755,7 @@ _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog
   %m_table = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  %cmp.not.i = icmp eq ptr %5, %4
+  %cmp.not.i = icmp eq ptr %4, %5
   %or.cond.i = or i1 %tobool.not.i, %cmp.not.i
   br i1 %or.cond.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit, label %if.then.i2
 
@@ -2857,7 +2857,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -2874,7 +2874,7 @@ _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog
   %m_table = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  %cmp.not.i = icmp eq ptr %5, %4
+  %cmp.not.i = icmp eq ptr %4, %5
   %or.cond.i = or i1 %tobool.not.i, %cmp.not.i
   br i1 %or.cond.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit, label %if.then.i2
 
@@ -2967,7 +2967,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -2984,7 +2984,7 @@ _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog
   %m_table = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  %cmp.not.i = icmp eq ptr %5, %4
+  %cmp.not.i = icmp eq ptr %4, %5
   %or.cond.i = or i1 %tobool.not.i, %cmp.not.i
   br i1 %or.cond.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit, label %if.then.i2
 
@@ -3077,7 +3077,7 @@ if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  %cmp.not.i.i = icmp eq ptr %3, %call2.i
+  %cmp.not.i.i = icmp eq ptr %call2.i, %3
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i, label %if.then.i.i
 
@@ -3094,7 +3094,7 @@ _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog
   %m_table = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  %cmp.not.i = icmp eq ptr %5, %4
+  %cmp.not.i = icmp eq ptr %4, %5
   %or.cond.i = or i1 %tobool.not.i, %cmp.not.i
   br i1 %or.cond.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit, label %if.then.i11
 
@@ -3162,7 +3162,7 @@ if.then.i17:                                      ; preds = %dynamic_cast.end
   %call2.i19 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(48) %15)
   %18 = load ptr, ptr %m_table.i15, align 8
   %tobool.not.i.i20 = icmp eq ptr %18, null
-  %cmp.not.i.i21 = icmp eq ptr %18, %call2.i19
+  %cmp.not.i.i21 = icmp eq ptr %call2.i19, %18
   %or.cond.i.i22 = or i1 %tobool.not.i.i20, %cmp.not.i.i21
   br i1 %or.cond.i.i22, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i24, label %if.then.i.i23
 
@@ -3189,7 +3189,7 @@ if.then.i28:                                      ; preds = %_ZN7datalog14lazy_t
   %call2.i30 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(48) %20)
   %23 = load ptr, ptr %m_table.i26, align 8
   %tobool.not.i.i31 = icmp eq ptr %23, null
-  %cmp.not.i.i32 = icmp eq ptr %23, %call2.i30
+  %cmp.not.i.i32 = icmp eq ptr %call2.i30, %23
   %or.cond.i.i33 = or i1 %tobool.not.i.i31, %cmp.not.i.i32
   br i1 %or.cond.i.i33, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i35, label %if.then.i.i34
 
@@ -3257,7 +3257,7 @@ if.then.i43:                                      ; preds = %sw.epilog
   %call2.i45 = call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(48) %32)
   %35 = load ptr, ptr %m_table.i40, align 8
   %tobool.not.i.i46 = icmp eq ptr %35, null
-  %cmp.not.i.i47 = icmp eq ptr %35, %call2.i45
+  %cmp.not.i.i47 = icmp eq ptr %call2.i45, %35
   %or.cond.i.i48 = or i1 %tobool.not.i.i46, %cmp.not.i.i47
   br i1 %or.cond.i.i48, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i50, label %if.then.i.i49
 
@@ -3418,7 +3418,7 @@ define linkonce_odr hidden noundef ptr @_ZN7datalog17tr_infrastructureINS_12tabl
 entry:
   %m_kind.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_kind.i, align 8
-  %cmp = icmp eq i32 %0, %kind
+  %cmp = icmp eq i32 %kind, %0
   %cmp2 = icmp eq i32 %kind, -1
   %or.cond = or i1 %cmp2, %cmp
   %vtable = load ptr, ptr %this, align 8
@@ -5790,7 +5790,7 @@ if.then.i.i:                                      ; preds = %_ZN7datalog17lazy_t
   %call2.i.i = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(48) %7)
   %10 = load ptr, ptr %m_table.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
-  %cmp.not.i.i.i = icmp eq ptr %10, %call2.i.i
+  %cmp.not.i.i.i = icmp eq ptr %call2.i.i, %10
   %or.cond.i.i.i = or i1 %tobool.not.i.i.i, %cmp.not.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i, label %if.then.i.i.i
 
@@ -5817,7 +5817,7 @@ if.then.i.i11:                                    ; preds = %_ZNK7datalog10lazy_
   %call2.i.i13 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(48) %12)
   %15 = load ptr, ptr %m_table.i.i9, align 8
   %tobool.not.i.i.i14 = icmp eq ptr %15, null
-  %cmp.not.i.i.i15 = icmp eq ptr %15, %call2.i.i13
+  %cmp.not.i.i.i15 = icmp eq ptr %call2.i.i13, %15
   %or.cond.i.i.i16 = or i1 %tobool.not.i.i.i14, %cmp.not.i.i.i15
   br i1 %or.cond.i.i.i16, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i18, label %if.then.i.i.i17
 
@@ -5848,7 +5848,7 @@ if.then.i.i23:                                    ; preds = %cond.true
   %call2.i.i25 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(48) %17)
   %20 = load ptr, ptr %m_table.i.i21, align 8
   %tobool.not.i.i.i26 = icmp eq ptr %20, null
-  %cmp.not.i.i.i27 = icmp eq ptr %20, %call2.i.i25
+  %cmp.not.i.i.i27 = icmp eq ptr %call2.i.i25, %20
   %or.cond.i.i.i28 = or i1 %tobool.not.i.i.i26, %cmp.not.i.i.i27
   br i1 %or.cond.i.i.i28, label %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i30, label %if.then.i.i.i29
 

@@ -1166,12 +1166,12 @@ postmaster_is_alive.exit:                         ; preds = %9
 
 17:                                               ; preds = %3
   %18 = tail call i32 @getpid() #17
-  %19 = icmp eq i32 %18, %2
+  %19 = icmp eq i32 %2, %18
   br i1 %19, label %postmaster_is_alive.exit.thread, label %20
 
 20:                                               ; preds = %17
   %21 = tail call i32 @getppid() #17
-  %22 = icmp eq i32 %21, %2
+  %22 = icmp eq i32 %2, %21
   br i1 %22, label %postmaster_is_alive.exit.thread, label %postmaster_is_alive.exit18
 
 postmaster_is_alive.exit18:                       ; preds = %20
@@ -1794,12 +1794,12 @@ postmaster_is_alive.exit:                         ; preds = %11
 postmaster_is_alive.exit.thread:                  ; preds = %11, %7, %5, %postmaster_is_alive.exit
   %.0 = phi i32 [ %8, %postmaster_is_alive.exit ], [ %1, %5 ], [ %8, %7 ], [ %8, %11 ]
   %18 = tail call i32 @getpid() #17
-  %19 = icmp eq i32 %18, %.0
+  %19 = icmp eq i32 %.0, %18
   br i1 %19, label %postmaster_is_alive.exit11.thread, label %20
 
 20:                                               ; preds = %postmaster_is_alive.exit.thread
   %21 = tail call i32 @getppid() #17
-  %22 = icmp eq i32 %21, %.0
+  %22 = icmp eq i32 %.0, %21
   br i1 %22, label %postmaster_is_alive.exit11.thread, label %postmaster_is_alive.exit11
 
 postmaster_is_alive.exit11:                       ; preds = %20

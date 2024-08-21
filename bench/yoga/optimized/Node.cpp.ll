@@ -1353,7 +1353,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %19 = phi float [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %19, %axisSize
+  %mul.i.i = fmul float %axisSize, %19
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -1526,7 +1526,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i11,
 
 sw.bb2.i.i10:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %18 = phi float [ %16, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %18, %axisSize
+  %mul.i.i = fmul float %axisSize, %18
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -1695,7 +1695,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %19 = phi float [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %19, %axisSize
+  %mul.i.i = fmul float %axisSize, %19
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -1868,7 +1868,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i11,
 
 sw.bb2.i.i10:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %18 = phi float [ %16, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %18, %axisSize
+  %mul.i.i = fmul float %axisSize, %18
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -2037,7 +2037,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %19 = phi float [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %19, %widthSize
+  %mul.i.i = fmul float %widthSize, %19
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -2210,7 +2210,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i11,
 
 sw.bb2.i.i10:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %18 = phi float [ %16, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %18, %widthSize
+  %mul.i.i = fmul float %widthSize, %18
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -2379,7 +2379,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %19 = phi float [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %19, %widthSize
+  %mul.i.i = fmul float %widthSize, %19
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -2552,7 +2552,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i11,
 
 sw.bb2.i.i10:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %18 = phi float [ %16, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %18, %widthSize
+  %mul.i.i = fmul float %widthSize, %18
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -3333,7 +3333,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i11,
 
 sw.bb2.i.i10:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %18 = phi float [ %16, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %18, %widthSize
+  %mul.i.i = fmul float %widthSize, %18
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -3505,7 +3505,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %19 = phi float [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %19, %widthSize
+  %mul.i.i = fmul float %widthSize, %19
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -3681,7 +3681,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i11,
 
 sw.bb2.i.i10:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %18 = phi float [ %16, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %18, %widthSize
+  %mul.i.i = fmul float %widthSize, %18
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -3853,7 +3853,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
   %19 = phi float [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %19, %widthSize
+  %mul.i.i = fmul float %widthSize, %19
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -4245,7 +4245,7 @@ entry:
   br i1 %cmp.not, label %if.else26, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp.i = icmp eq ptr %1, %__position.coerce
+  %cmp.i = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then
@@ -4448,7 +4448,7 @@ entry:
   %bf.load = load i8, ptr %this, align 8
   %0 = and i8 %bf.load, 4
   %1 = icmp eq i8 %0, 0
-  %cmp = xor i1 %1, %isDirty
+  %cmp = xor i1 %isDirty, %1
   br i1 %cmp, label %if.end10, label %if.end
 
 if.end:                                           ; preds = %entry

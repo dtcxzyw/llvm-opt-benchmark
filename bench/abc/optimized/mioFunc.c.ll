@@ -477,7 +477,7 @@ Mio_SopRegister.exit:                             ; preds = %111, %122
   br label %Exp_Truth6Lit.exit.i
 
 146:                                              ; preds = %141
-  %147 = icmp sgt i32 %140, %144
+  %147 = icmp slt i32 %144, %140
   %148 = and i32 %144, 1
   %.not17.i.i = icmp eq i32 %148, 0
   br i1 %147, label %149, label %161
@@ -534,7 +534,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %169, %162, %156, %1
   br label %Exp_Truth6Lit.exit31.i
 
 179:                                              ; preds = %Exp_Truth6Lit.exit.i
-  %180 = icmp sgt i32 %140, %177
+  %180 = icmp slt i32 %177, %140
   %181 = and i32 %177, 1
   %.not17.i30.i = icmp eq i32 %181, 0
   br i1 %180, label %182, label %194
@@ -601,7 +601,7 @@ Exp_Truth6Lit.exit31.i:                           ; preds = %202, %195, %189, %1
 
 215:                                              ; preds = %._crit_edge.i
   %216 = shl nsw i32 %58, 1
-  %217 = icmp sgt i32 %216, %213
+  %217 = icmp slt i32 %213, %216
   %218 = and i32 %213, 1
   %.not17.i33.i = icmp eq i32 %218, 0
   br i1 %217, label %219, label %231

@@ -3986,7 +3986,7 @@ if.end.i159:                                      ; preds = %if.end56, %for.cond
   %29 = load i16, ptr %count.i, align 4
   %conv.i160 = sext i16 %29 to i32
   %add.i = add i32 %28, %conv.i160
-  %cmp7.not.i = icmp ult i32 %add.i, %retval.0.i96
+  %cmp7.not.i = icmp ugt i32 %retval.0.i96, %add.i
   br i1 %cmp7.not.i, label %for.cond.i, label %find_nfc_index.exit
 
 find_nfc_index.exit:                              ; preds = %if.end.i159
@@ -4184,7 +4184,7 @@ if.end.i190:                                      ; preds = %if.end83, %for.cond
   %51 = load i16, ptr %count.i193, align 4
   %conv.i194 = sext i16 %51 to i32
   %add.i195 = add i32 %50, %conv.i194
-  %cmp7.not.i196 = icmp ult i32 %add.i195, %.us-phi
+  %cmp7.not.i196 = icmp ugt i32 %.us-phi, %add.i195
   br i1 %cmp7.not.i196, label %for.cond.i202, label %find_nfc_index.exit207
 
 find_nfc_index.exit207:                           ; preds = %if.end.i190
@@ -4246,7 +4246,7 @@ if.end.i210:                                      ; preds = %if.end105, %for.con
   %58 = load i16, ptr %count.i213, align 4
   %conv.i214 = sext i16 %58 to i32
   %add.i215 = add i32 %57, %conv.i214
-  %cmp7.not.i216 = icmp ult i32 %add.i215, %54
+  %cmp7.not.i216 = icmp ugt i32 %54, %add.i215
   br i1 %cmp7.not.i216, label %for.cond.i222, label %find_nfc_index.exit227
 
 find_nfc_index.exit227:                           ; preds = %if.end.i210

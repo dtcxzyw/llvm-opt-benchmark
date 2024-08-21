@@ -1891,7 +1891,7 @@ if.then.i11:                                      ; preds = %_ZN5eastl14intrusiv
   br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15: ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit, %if.then.i11
-  %cmp.not.i16 = icmp eq ptr %rightList, %this
+  %cmp.not.i16 = icmp eq ptr %this, %rightList
   br i1 %cmp.not.i16, label %if.end, label %if.then.i17
 
 if.then.i17:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15
@@ -2081,7 +2081,7 @@ if.then.i11:                                      ; preds = %_ZN5eastl14intrusiv
   br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15: ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit, %if.then.i11
-  %cmp.not.i16 = icmp eq ptr %rightList, %this
+  %cmp.not.i16 = icmp eq ptr %this, %rightList
   br i1 %cmp.not.i16, label %if.end, label %if.then.i17
 
 if.then.i17:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15

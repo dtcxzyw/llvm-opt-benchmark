@@ -338,7 +338,7 @@ entry:
   %0 = load ptr, ptr @last_exec, align 8
   %len = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len, align 8
-  %cmp = icmp ugt i32 %1, %cpu_index
+  %cmp = icmp ult i32 %cpu_index, %1
   br i1 %cmp, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -381,7 +381,7 @@ entry:
   %0 = load ptr, ptr @last_exec, align 8
   %len = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len, align 8
-  %cmp.not = icmp ugt i32 %1, %cpu_index
+  %cmp.not = icmp ult i32 %cpu_index, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -390,7 +390,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr @last_exec, align 8
   %len1.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %len1.i, align 8
-  %cmp.not2.i = icmp ugt i32 %3, %cpu_index
+  %cmp.not2.i = icmp ult i32 %cpu_index, %3
   br i1 %cmp.not2.i, label %expand_last_exec.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then, %while.body.i
@@ -400,7 +400,7 @@ while.body.i:                                     ; preds = %if.then, %while.bod
   %5 = load ptr, ptr @last_exec, align 8
   %len.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %len.i, align 8
-  %cmp.not.i = icmp ugt i32 %6, %cpu_index
+  %cmp.not.i = icmp ult i32 %cpu_index, %6
   br i1 %cmp.not.i, label %expand_last_exec.exit, label %while.body.i, !llvm.loop !10
 
 expand_last_exec.exit:                            ; preds = %while.body.i, %if.then

@@ -25,7 +25,7 @@ define void @_ZN9grpc_core17TimeAveragedStats9AddSampleEd(ptr nocapture noundef 
 entry:
   %batch_total_value_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load double, ptr %batch_total_value_, align 8
-  %add = fadd double %0, %value
+  %add = fadd double %value, %0
   store double %add, ptr %batch_total_value_, align 8
   %batch_num_samples_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load double, ptr %batch_num_samples_, align 8

@@ -26,7 +26,7 @@ if.end:                                           ; preds = %entry
   %cond5 = tail call i64 @llvm.umin.i64(i64 %max_len, i64 12288)
   %max_len6 = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %cond5, ptr %max_len6, align 8
-  %cond12 = tail call i64 @llvm.umax.i64(i64 %cond, i64 %min_len)
+  %cond12 = tail call i64 @llvm.umax.i64(i64 %min_len, i64 %cond)
   %alloc_len = getelementptr inbounds i8, ptr %call, i64 40
   %spec.select = tail call i64 @llvm.umin.i64(i64 %cond12, i64 %cond5)
   store i64 %spec.select, ptr %alloc_len, align 8
@@ -291,7 +291,7 @@ entry:
   %len1 = getelementptr inbounds i8, ptr %pool, i64 8
   %1 = load i64, ptr %len1, align 8
   %sub = sub i64 %0, %1
-  %cmp = icmp ult i64 %sub, %len
+  %cmp = icmp ugt i64 %len, %sub
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -302,7 +302,7 @@ if.then:                                          ; preds = %entry
   %3 = load i32, ptr %attached, align 8
   %tobool.not = icmp ne i32 %3, 0
   %sub5 = sub i64 %2, %1
-  %cmp6 = icmp ult i64 %sub5, %len
+  %cmp6 = icmp ugt i64 %len, %sub5
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp6
   br i1 %or.cond, label %if.then7, label %do.body
 
@@ -318,7 +318,7 @@ do.body:                                          ; preds = %if.then, %do.body
   %mul = shl nuw i64 %newlen.0, 1
   %spec.select = select i1 %cmp8, i64 %mul, i64 %2
   %sub11 = sub i64 %spec.select, %1
-  %cmp12 = icmp ult i64 %sub11, %len
+  %cmp12 = icmp ugt i64 %len, %sub11
   br i1 %cmp12, label %do.body, label %do.end, !llvm.loop !4
 
 do.end:                                           ; preds = %do.body
@@ -386,7 +386,7 @@ entry:
   %len1 = getelementptr inbounds i8, ptr %pool, i64 8
   %1 = load i64, ptr %len1, align 8
   %sub = sub i64 %0, %1
-  %cmp = icmp ult i64 %sub, %len
+  %cmp = icmp ugt i64 %len, %sub
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -464,7 +464,7 @@ if.end:                                           ; preds = %entry
   %len1 = getelementptr inbounds i8, ptr %pool, i64 8
   %1 = load i64, ptr %len1, align 8
   %sub = sub i64 %0, %1
-  %cmp2 = icmp ult i64 %sub, %len
+  %cmp2 = icmp ugt i64 %len, %sub
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -508,7 +508,7 @@ entry:
   %len1 = getelementptr inbounds i8, ptr %pool, i64 8
   %1 = load i64, ptr %len1, align 8
   %sub = sub i64 %0, %1
-  %cmp = icmp ult i64 %sub, %len
+  %cmp = icmp ugt i64 %len, %sub
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

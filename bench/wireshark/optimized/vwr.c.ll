@@ -1667,7 +1667,7 @@ get_signature_ts.exit.i:                          ; preds = %246, %find_signatur
   %433 = getelementptr inbounds i8, ptr %4, i64 216
   %434 = load i32, ptr %433, align 4
   %435 = add i32 %434, 48
-  %436 = icmp ugt i32 %435, %1
+  %436 = icmp ult i32 %1, %435
   br i1 %436, label %437, label %439
 
 437:                                              ; preds = %432
@@ -2567,7 +2567,7 @@ get_signature_ts.exit.i47:                        ; preds = %793, %791, %find_si
 
 1019:                                             ; preds = %1015
   %1020 = add i32 %1018, 148
-  %1021 = icmp ugt i32 %1020, %1
+  %1021 = icmp ult i32 %1, %1020
   br i1 %1021, label %1022, label %1024
 
 1022:                                             ; preds = %1019
@@ -2582,7 +2582,7 @@ get_signature_ts.exit.i47:                        ; preds = %793, %791, %find_si
 
 1026:                                             ; preds = %1015
   %1027 = add i32 %1018, 48
-  %1028 = icmp ugt i32 %1027, %1
+  %1028 = icmp ult i32 %1, %1027
   br i1 %1028, label %1029, label %1031
 
 1029:                                             ; preds = %1026
@@ -4016,7 +4016,7 @@ vwr_read_s3_W_rec.exit:                           ; preds = %999, %1022, %1029, 
 
 1863:                                             ; preds = %13, %13
   %1864 = load i32, ptr %4, align 4
-  %1865 = icmp ugt i32 %1864, %1
+  %1865 = icmp ult i32 %1, %1864
   br i1 %1865, label %1866, label %1868
 
 1866:                                             ; preds = %1863

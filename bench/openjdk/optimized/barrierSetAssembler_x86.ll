@@ -2351,8 +2351,8 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %411
   %418 = shl i32 %412, 6
   %419 = add i32 %418, -64
   %420 = or disjoint i32 %419, %417
-  %.not97108 = icmp eq i32 %420, -1
-  br i1 %.not97108, label %._crit_edge, label %.lr.ph
+  %.not99110 = icmp eq i32 %420, -1
+  br i1 %.not99110, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN15RegMaskIteratorC2ERK7RegMask.exit
   %421 = lshr i64 %415, %416
@@ -2369,13 +2369,13 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %411
   br label %432
 
 432:                                              ; preds = %.lr.ph, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit
-  %.0114 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
-  %.028113 = phi i32 [ 0, %.lr.ph ], [ %.129, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
-  %.030112 = phi i32 [ 0, %.lr.ph ], [ %.131, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
-  %.sroa.11.0111 = phi i32 [ %420, %.lr.ph ], [ %.sink.i, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
-  %.sroa.7.0110 = phi i32 [ %412, %.lr.ph ], [ %.sroa.7.4, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
-  %.sroa.093.0109 = phi i64 [ %422, %.lr.ph ], [ %.sroa.093.4, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
-  %.not.i = icmp eq i64 %.sroa.093.0109, 0
+  %.0116 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
+  %.028115 = phi i32 [ 0, %.lr.ph ], [ %.129, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
+  %.030114 = phi i32 [ 0, %.lr.ph ], [ %.131, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
+  %.sroa.11.0113 = phi i32 [ %420, %.lr.ph ], [ %.sink.i, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
+  %.sroa.7.0112 = phi i32 [ %412, %.lr.ph ], [ %.sroa.7.4, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
+  %.sroa.095.0111 = phi i64 [ %422, %.lr.ph ], [ %.sroa.095.4, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
+  %.not.i = icmp eq i64 %.sroa.095.0111, 0
   br i1 %.not.i, label %.preheader.i.preheader, label %434
 
 .preheader.i.preheader:                           ; preds = %432
@@ -2383,15 +2383,15 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %411
   br label %.preheader.i
 
 434:                                              ; preds = %432
-  %435 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.093.0109, i1 true)
+  %435 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.095.0111, i1 true)
   %436 = trunc nuw nsw i64 %435 to i32
-  %437 = lshr i64 %.sroa.093.0109, %435
+  %437 = lshr i64 %.sroa.095.0111, %435
   %438 = add i64 %437, -1
-  %439 = add nsw i32 %.sroa.11.0111, %436
+  %439 = add nsw i32 %.sroa.11.0113, %436
   br label %_ZN15RegMaskIterator4nextEv.exit
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %440
-  %.sroa.7.3 = phi i32 [ %441, %440 ], [ %.sroa.7.0110, %.preheader.i.preheader ]
+  %.sroa.7.3 = phi i32 [ %441, %440 ], [ %.sroa.7.0112, %.preheader.i.preheader ]
   %.not10.i = icmp ugt i32 %.sroa.7.3, %433
   br i1 %.not10.i, label %_ZN15RegMaskIterator4nextEv.exit, label %440
 
@@ -2414,14 +2414,14 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %411
   br label %_ZN15RegMaskIterator4nextEv.exit
 
 _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %.preheader.i, %434, %445
-  %.sroa.093.4 = phi i64 [ %449, %445 ], [ %438, %434 ], [ 0, %.preheader.i ]
-  %.sroa.7.4 = phi i32 [ %441, %445 ], [ %.sroa.7.0110, %434 ], [ %.sroa.7.3, %.preheader.i ]
+  %.sroa.095.4 = phi i64 [ %449, %445 ], [ %438, %434 ], [ 0, %.preheader.i ]
+  %.sroa.7.4 = phi i32 [ %441, %445 ], [ %.sroa.7.0112, %434 ], [ %.sroa.7.3, %.preheader.i ]
   %.sink.i = phi i32 [ %452, %445 ], [ %439, %434 ], [ -1, %.preheader.i ]
-  %453 = icmp slt i32 %.sroa.11.0111, 616
+  %453 = icmp slt i32 %.sroa.11.0113, 616
   br i1 %453, label %454, label %_ZN7OptoReg8as_VMRegEi.exit
 
 454:                                              ; preds = %_ZN15RegMaskIterator4nextEv.exit
-  %455 = sext i32 %.sroa.11.0111 to i64
+  %455 = sext i32 %.sroa.11.0113 to i64
   %456 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %455
   %457 = load ptr, ptr %456, align 8
   br label %_ZN7OptoReg8as_VMRegEi.exit
@@ -2435,19 +2435,19 @@ _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %_ZN15RegMaskIterato
   %461 = trunc i64 %460 to i32
   %462 = sub i32 %461, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
   %463 = icmp ult i32 %462, %..i.i
-  br i1 %463, label %464, label %494
+  br i1 %463, label %464, label %492
 
 464:                                              ; preds = %_ZN7OptoReg8as_VMRegEi.exit
-  %465 = lshr i32 %.sroa.11.0111, 6
+  %465 = lshr i32 %.sroa.11.0113, 6
   %466 = zext nneg i32 %465 to i64
   %467 = getelementptr inbounds [11 x i64], ptr %3, i64 0, i64 %466
   %468 = load i64, ptr %467, align 8
-  %469 = and i32 %.sroa.11.0111, 63
+  %469 = and i32 %.sroa.11.0113, 63
   %470 = zext nneg i32 %469 to i64
   %471 = shl nuw i64 1, %470
   %472 = and i64 %468, %471
-  %.not98 = icmp eq i64 %472, 0
-  br i1 %.not98, label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit, label %473
+  %.not100 = icmp eq i64 %472, 0
+  br i1 %.not100, label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit, label %473
 
 473:                                              ; preds = %464
   %474 = lshr i32 %462, 1
@@ -2459,239 +2459,236 @@ _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %_ZN15RegMaskIterato
 478:                                              ; preds = %473
   %479 = add nsw i32 %475, 1
   %480 = icmp sgt i32 %475, -1
-  %481 = xor i32 %475, -2147483648
-  %482 = and i32 %481, %479
-  %483 = icmp eq i32 %482, 0
-  %484 = and i1 %480, %483
-  %485 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %479, i1 true)
-  %486 = sub nuw nsw i32 32, %485
-  %487 = shl nuw i32 1, %486
-  %.0.i.i.i.i = select i1 %484, i32 %479, i32 %487
+  %481 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %479)
+  %482 = icmp ult i32 %481, 2
+  %or.cond.i.i.i.i = select i1 %480, i1 %482, i1 false
+  %483 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %479, i1 true)
+  %484 = sub nuw nsw i32 32, %483
+  %485 = shl nuw i32 1, %484
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %479, i32 %485
   tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %429, i32 noundef %.0.i.i.i.i)
   %.pre.i59 = load i32, ptr %429, align 8
   br label %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit
 
 _ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit: ; preds = %473, %478
-  %488 = phi i32 [ %.pre.i59, %478 ], [ %475, %473 ]
-  %489 = add nsw i32 %488, 1
-  store i32 %489, ptr %429, align 8
-  %490 = load ptr, ptr %431, align 8
-  %491 = sext i32 %488 to i64
-  %492 = getelementptr inbounds %class.Register, ptr %490, i64 %491
-  store i32 %474, ptr %492, align 4
-  %493 = add nsw i32 %.0114, 8
+  %486 = phi i32 [ %.pre.i59, %478 ], [ %475, %473 ]
+  %487 = add nsw i32 %486, 1
+  store i32 %487, ptr %429, align 8
+  %488 = load ptr, ptr %431, align 8
+  %489 = sext i32 %486 to i64
+  %490 = getelementptr inbounds %class.Register, ptr %488, i64 %489
+  store i32 %474, ptr %490, align 4
+  %491 = add nsw i32 %.0116, 8
   br label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit
 
-494:                                              ; preds = %_ZN7OptoReg8as_VMRegEi.exit
-  %495 = load i32, ptr @UseAVX, align 4
-  %496 = icmp sgt i32 %495, 2
-  %497 = and i32 %462, -16
-  %spec.select.i = icmp eq i32 %497, 592
-  %.0.i60 = and i1 %spec.select.i, %496
-  br i1 %.0.i60, label %498, label %526
+492:                                              ; preds = %_ZN7OptoReg8as_VMRegEi.exit
+  %493 = load i32, ptr @UseAVX, align 4
+  %494 = icmp sgt i32 %493, 2
+  %495 = and i32 %462, -16
+  %spec.select.i = icmp eq i32 %495, 592
+  %.0.i60 = and i1 %spec.select.i, %494
+  br i1 %.0.i60, label %496, label %522
 
-498:                                              ; preds = %494
-  %499 = add i32 %461, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)), i32 -592)
-  %500 = ashr i32 %499, 1
-  %or.cond.i.i61 = icmp ult i32 %500, 8
-  %spec.select.i.i62 = select i1 %or.cond.i.i61, i32 %500, i32 -1
-  %501 = load i32, ptr %426, align 8
-  %502 = icmp sgt i32 %501, 0
-  br i1 %502, label %.lr.ph.i, label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread
+496:                                              ; preds = %492
+  %497 = add i32 %461, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)), i32 -592)
+  %498 = ashr i32 %497, 1
+  %or.cond.i.i61 = icmp ult i32 %498, 8
+  %spec.select.i.i62 = select i1 %or.cond.i.i61, i32 %498, i32 -1
+  %499 = load i32, ptr %426, align 8
+  %500 = icmp sgt i32 %499, 0
+  br i1 %500, label %.lr.ph.i, label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread
 
-.lr.ph.i:                                         ; preds = %498
-  %503 = load ptr, ptr %427, align 8
-  %wide.trip.count.i = zext nneg i32 %501 to i64
-  br label %504
+.lr.ph.i:                                         ; preds = %496
+  %501 = load ptr, ptr %427, align 8
+  %wide.trip.count.i = zext nneg i32 %499 to i64
+  br label %502
 
-504:                                              ; preds = %507, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %507 ]
-  %505 = getelementptr inbounds %class.KRegister, ptr %503, i64 %indvars.iv.i
-  %506 = load i32, ptr %505, align 4
-  %.not.i64 = icmp eq i32 %506, %spec.select.i.i62
-  br i1 %.not.i64, label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit, label %507
+502:                                              ; preds = %505, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %505 ]
+  %503 = getelementptr inbounds %class.KRegister, ptr %501, i64 %indvars.iv.i
+  %504 = load i32, ptr %503, align 4
+  %.not.i64 = icmp eq i32 %504, %spec.select.i.i62
+  br i1 %.not.i64, label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit, label %505
 
-507:                                              ; preds = %504
+505:                                              ; preds = %502
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread, label %504, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread, label %502, !llvm.loop !8
 
-_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread: ; preds = %507, %498
-  %508 = load i32, ptr %428, align 4
-  %509 = icmp eq i32 %501, %508
-  br i1 %509, label %510, label %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit
+_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread: ; preds = %505, %496
+  %506 = load i32, ptr %428, align 4
+  %507 = icmp eq i32 %499, %506
+  br i1 %507, label %508, label %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit
 
-510:                                              ; preds = %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread
-  %511 = add nsw i32 %501, 1
-  %512 = icmp sgt i32 %501, -1
-  %513 = xor i32 %501, -2147483648
-  %514 = and i32 %513, %511
-  %515 = icmp eq i32 %514, 0
-  %516 = and i1 %512, %515
-  %517 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %511, i1 true)
-  %518 = sub nuw nsw i32 32, %517
-  %519 = shl nuw i32 1, %518
-  %.0.i.i.i.i67 = select i1 %516, i32 %511, i32 %519
-  tail call void @_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %426, i32 noundef %.0.i.i.i.i67)
-  %.pre.i68 = load i32, ptr %426, align 8
+508:                                              ; preds = %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread
+  %509 = add nsw i32 %499, 1
+  %510 = icmp sgt i32 %499, -1
+  %511 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %509)
+  %512 = icmp ult i32 %511, 2
+  %or.cond.i.i.i.i67 = select i1 %510, i1 %512, i1 false
+  %513 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %509, i1 true)
+  %514 = sub nuw nsw i32 32, %513
+  %515 = shl nuw i32 1, %514
+  %.0.i.i.i.i68 = select i1 %or.cond.i.i.i.i67, i32 %509, i32 %515
+  tail call void @_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %426, i32 noundef %.0.i.i.i.i68)
+  %.pre.i69 = load i32, ptr %426, align 8
   br label %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit
 
-_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit: ; preds = %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread, %510
-  %520 = phi i32 [ %.pre.i68, %510 ], [ %501, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread ]
-  %521 = add nsw i32 %520, 1
-  store i32 %521, ptr %426, align 8
-  %522 = load ptr, ptr %427, align 8
-  %523 = sext i32 %520 to i64
-  %524 = getelementptr inbounds %class.KRegister, ptr %522, i64 %523
-  store i32 %spec.select.i.i62, ptr %524, align 4
-  %525 = add nsw i32 %.028113, 8
+_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit: ; preds = %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread, %508
+  %516 = phi i32 [ %.pre.i69, %508 ], [ %499, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread ]
+  %517 = add nsw i32 %516, 1
+  store i32 %517, ptr %426, align 8
+  %518 = load ptr, ptr %427, align 8
+  %519 = sext i32 %516 to i64
+  %520 = getelementptr inbounds %class.KRegister, ptr %518, i64 %519
+  store i32 %spec.select.i.i62, ptr %520, align 4
+  %521 = add nsw i32 %.028115, 8
   br label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit
 
-526:                                              ; preds = %494
-  %527 = icmp slt i32 %495, 3
-  %528 = icmp sgt i32 %462, 79
-  %529 = select i1 %527, i32 336, i32 592
-  %530 = icmp ult i32 %462, %529
-  %531 = and i1 %528, %530
-  br i1 %531, label %532, label %579
+522:                                              ; preds = %492
+  %523 = icmp slt i32 %493, 3
+  %524 = icmp sgt i32 %462, 79
+  %525 = select i1 %523, i32 336, i32 592
+  %526 = icmp ult i32 %462, %525
+  %527 = and i1 %524, %526
+  br i1 %527, label %528, label %573
 
-532:                                              ; preds = %526
-  %533 = and i32 %.sroa.11.0111, -16
-  %534 = icmp slt i32 %533, 616
-  br i1 %534, label %535, label %_ZN7OptoReg8as_VMRegEi.exit70
+528:                                              ; preds = %522
+  %529 = and i32 %.sroa.11.0113, -16
+  %530 = icmp slt i32 %529, 616
+  br i1 %530, label %531, label %_ZN7OptoReg8as_VMRegEi.exit71
 
-535:                                              ; preds = %532
-  %536 = sext i32 %533 to i64
-  %537 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %536
-  %538 = load ptr, ptr %537, align 16
-  br label %_ZN7OptoReg8as_VMRegEi.exit70
+531:                                              ; preds = %528
+  %532 = sext i32 %529 to i64
+  %533 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %532
+  %534 = load ptr, ptr %533, align 16
+  br label %_ZN7OptoReg8as_VMRegEi.exit71
 
-_ZN7OptoReg8as_VMRegEi.exit70:                    ; preds = %532, %535
-  %.0.i69 = phi ptr [ %538, %535 ], [ @all_VMRegs, %532 ]
-  %539 = shl i32 %.sroa.11.0111, 3
-  %540 = and i32 %539, 120
-  %541 = ptrtoint ptr %.0.i69 to i64
-  %542 = trunc i64 %541 to i32
-  %543 = add i32 %542, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)), i32 -80)
-  %544 = ashr i32 %543, 4
-  %or.cond.i.i71 = icmp ult i32 %544, 32
-  %spec.select.i.i72 = select i1 %or.cond.i.i71, i32 %544, i32 -1
-  %545 = load i32, ptr %423, align 8
-  %546 = icmp sgt i32 %545, 0
-  br i1 %546, label %.lr.ph.i73, label %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread
+_ZN7OptoReg8as_VMRegEi.exit71:                    ; preds = %528, %531
+  %.0.i70 = phi ptr [ %534, %531 ], [ @all_VMRegs, %528 ]
+  %535 = shl i32 %.sroa.11.0113, 3
+  %536 = and i32 %535, 120
+  %537 = ptrtoint ptr %.0.i70 to i64
+  %538 = trunc i64 %537 to i32
+  %539 = add i32 %538, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)), i32 -80)
+  %540 = ashr i32 %539, 4
+  %or.cond.i.i72 = icmp ult i32 %540, 32
+  %spec.select.i.i73 = select i1 %or.cond.i.i72, i32 %540, i32 -1
+  %541 = load i32, ptr %423, align 8
+  %542 = icmp sgt i32 %541, 0
+  br i1 %542, label %.lr.ph.i74, label %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread
 
-.lr.ph.i73:                                       ; preds = %_ZN7OptoReg8as_VMRegEi.exit70
-  %547 = load ptr, ptr %424, align 8
-  %wide.trip.count.i74 = zext nneg i32 %545 to i64
-  br label %548
+.lr.ph.i74:                                       ; preds = %_ZN7OptoReg8as_VMRegEi.exit71
+  %543 = load ptr, ptr %424, align 8
+  %wide.trip.count.i75 = zext nneg i32 %541 to i64
+  br label %544
 
-548:                                              ; preds = %552, %.lr.ph.i73
-  %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.i73 ], [ %indvars.iv.next.i76, %552 ]
-  %549 = getelementptr inbounds %"struct.SaveLiveRegisters::XMMRegisterData", ptr %547, i64 %indvars.iv.i75
-  %550 = load i32, ptr %549, align 4
-  %551 = icmp eq i32 %550, %spec.select.i.i72
-  br i1 %551, label %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit, label %552
+544:                                              ; preds = %548, %.lr.ph.i74
+  %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.i74 ], [ %indvars.iv.next.i77, %548 ]
+  %545 = getelementptr inbounds %"struct.SaveLiveRegisters::XMMRegisterData", ptr %543, i64 %indvars.iv.i76
+  %546 = load i32, ptr %545, align 4
+  %547 = icmp eq i32 %546, %spec.select.i.i73
+  br i1 %547, label %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit, label %548
 
-552:                                              ; preds = %548
-  %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i75, 1
-  %exitcond.not.i77 = icmp eq i64 %indvars.iv.next.i76, %wide.trip.count.i74
-  br i1 %exitcond.not.i77, label %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread, label %548, !llvm.loop !9
+548:                                              ; preds = %544
+  %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 1
+  %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, %wide.trip.count.i75
+  br i1 %exitcond.not.i78, label %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread, label %544, !llvm.loop !9
 
-_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread: ; preds = %552, %_ZN7OptoReg8as_VMRegEi.exit70
-  %553 = load i32, ptr %425, align 4
-  %554 = icmp eq i32 %545, %553
-  br i1 %554, label %555, label %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit
+_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread: ; preds = %548, %_ZN7OptoReg8as_VMRegEi.exit71
+  %549 = load i32, ptr %425, align 4
+  %550 = icmp eq i32 %541, %549
+  br i1 %550, label %551, label %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit
 
-555:                                              ; preds = %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread
-  %556 = add nsw i32 %545, 1
-  %557 = icmp sgt i32 %545, -1
-  %558 = xor i32 %545, -2147483648
-  %559 = and i32 %558, %556
-  %560 = icmp eq i32 %559, 0
-  %561 = and i1 %557, %560
-  %562 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %556, i1 true)
-  %563 = sub nuw nsw i32 32, %562
-  %564 = shl nuw i32 1, %563
-  %.0.i.i.i.i79 = select i1 %561, i32 %556, i32 %564
-  tail call void @_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %423, i32 noundef %.0.i.i.i.i79)
-  %.pre.i80 = load i32, ptr %423, align 8
+551:                                              ; preds = %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread
+  %552 = add nsw i32 %541, 1
+  %553 = icmp sgt i32 %541, -1
+  %554 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %552)
+  %555 = icmp ult i32 %554, 2
+  %or.cond.i.i.i.i80 = select i1 %553, i1 %555, i1 false
+  %556 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %552, i1 true)
+  %557 = sub nuw nsw i32 32, %556
+  %558 = shl nuw i32 1, %557
+  %.0.i.i.i.i81 = select i1 %or.cond.i.i.i.i80, i32 %552, i32 %558
+  tail call void @_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %423, i32 noundef %.0.i.i.i.i81)
+  %.pre.i82 = load i32, ptr %423, align 8
   br label %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread, %555
-  %565 = phi i32 [ %.pre.i80, %555 ], [ %545, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread ]
-  %566 = add nsw i32 %565, 1
-  store i32 %566, ptr %423, align 8
-  %567 = load ptr, ptr %424, align 8
-  %568 = sext i32 %565 to i64
-  %569 = getelementptr inbounds %"struct.SaveLiveRegisters::XMMRegisterData", ptr %567, i64 %568
-  %.sroa.4.0.insert.ext = zext nneg i32 %540 to i64
+_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread, %551
+  %559 = phi i32 [ %.pre.i82, %551 ], [ %541, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread ]
+  %560 = add nsw i32 %559, 1
+  store i32 %560, ptr %423, align 8
+  %561 = load ptr, ptr %424, align 8
+  %562 = sext i32 %559 to i64
+  %563 = getelementptr inbounds %"struct.SaveLiveRegisters::XMMRegisterData", ptr %561, i64 %562
+  %.sroa.4.0.insert.ext = zext nneg i32 %536 to i64
   %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %spec.select.i.i72 to i64
+  %.sroa.0.0.insert.ext = zext i32 %spec.select.i.i73 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
-  store i64 %.sroa.0.0.insert.insert, ptr %569, align 4
-  %570 = add nsw i32 %540, %.030112
+  store i64 %.sroa.0.0.insert.insert, ptr %563, align 4
+  %564 = add nsw i32 %536, %.030114
   br label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit
 
-_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit: ; preds = %548
-  %sext = shl i64 %indvars.iv.i75, 32
-  %571 = ashr exact i64 %sext, 29
-  %572 = getelementptr inbounds i8, ptr %547, i64 %571
-  %573 = getelementptr inbounds i8, ptr %572, i64 4
-  %574 = load i32, ptr %573, align 4
-  %575 = icmp sgt i32 %540, %574
-  br i1 %575, label %576, label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit
+_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit: ; preds = %544
+  %sext = shl i64 %indvars.iv.i76, 32
+  %565 = ashr exact i64 %sext, 29
+  %566 = getelementptr inbounds i8, ptr %543, i64 %565
+  %567 = getelementptr inbounds i8, ptr %566, i64 4
+  %568 = load i32, ptr %567, align 4
+  %569 = icmp sgt i32 %536, %568
+  br i1 %569, label %570, label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit
 
-576:                                              ; preds = %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit
-  %.sroa.4.0.insert.ext86 = zext nneg i32 %540 to i64
-  %.sroa.4.0.insert.shift87 = shl nuw nsw i64 %.sroa.4.0.insert.ext86, 32
-  %.sroa.0.0.insert.ext82 = zext i32 %spec.select.i.i72 to i64
-  %.sroa.0.0.insert.insert84 = or disjoint i64 %.sroa.4.0.insert.shift87, %.sroa.0.0.insert.ext82
-  store i64 %.sroa.0.0.insert.insert84, ptr %572, align 4
-  %577 = add i32 %540, %.030112
-  %578 = sub i32 %577, %574
+570:                                              ; preds = %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit
+  %.sroa.4.0.insert.ext88 = zext nneg i32 %536 to i64
+  %.sroa.4.0.insert.shift89 = shl nuw nsw i64 %.sroa.4.0.insert.ext88, 32
+  %.sroa.0.0.insert.ext84 = zext i32 %spec.select.i.i73 to i64
+  %.sroa.0.0.insert.insert86 = or disjoint i64 %.sroa.4.0.insert.shift89, %.sroa.0.0.insert.ext84
+  store i64 %.sroa.0.0.insert.insert86, ptr %566, align 4
+  %571 = add i32 %536, %.030114
+  %572 = sub i32 %571, %568
   br label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit
 
-579:                                              ; preds = %526
-  %580 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %580, align 1
+573:                                              ; preds = %522
+  %574 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %574, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 646, ptr noundef nonnull @.str.9) #13
   unreachable
 
-_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit: ; preds = %504, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit, %576, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit, %464, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit
-  %.131 = phi i32 [ %.030112, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.030112, %464 ], [ %.030112, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %570, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %578, %576 ], [ %.030112, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.030112, %504 ]
-  %.129 = phi i32 [ %.028113, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.028113, %464 ], [ %525, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.028113, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.028113, %576 ], [ %.028113, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.028113, %504 ]
-  %.1 = phi i32 [ %493, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0114, %464 ], [ %.0114, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0114, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.0114, %576 ], [ %.0114, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.0114, %504 ]
-  %.not97 = icmp eq i32 %.sink.i, -1
-  br i1 %.not97, label %._crit_edge.loopexit, label %432, !llvm.loop !10
+_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit: ; preds = %502, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit, %570, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit, %464, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit
+  %.131 = phi i32 [ %.030114, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.030114, %464 ], [ %.030114, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %564, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %572, %570 ], [ %.030114, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.030114, %502 ]
+  %.129 = phi i32 [ %.028115, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.028115, %464 ], [ %521, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.028115, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.028115, %570 ], [ %.028115, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.028115, %502 ]
+  %.1 = phi i32 [ %491, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0116, %464 ], [ %.0116, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0116, %_ZN26GrowableArrayWithAllocatorIN17SaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.0116, %570 ], [ %.0116, %_ZNK17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.0116, %502 ]
+  %.not99 = icmp eq i32 %.sink.i, -1
+  br i1 %.not99, label %._crit_edge.loopexit, label %432, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit
-  %581 = add i32 %.131, 15
+  %575 = add i32 %.131, 15
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %410, %._crit_edge.loopexit, %_ZN15RegMaskIteratorC2ERK7RegMask.exit
-  %.030.lcssa = phi i32 [ 15, %_ZN15RegMaskIteratorC2ERK7RegMask.exit ], [ %581, %._crit_edge.loopexit ], [ 15, %410 ]
+  %.030.lcssa = phi i32 [ 15, %_ZN15RegMaskIteratorC2ERK7RegMask.exit ], [ %575, %._crit_edge.loopexit ], [ 15, %410 ]
   %.028.lcssa = phi i32 [ 0, %_ZN15RegMaskIteratorC2ERK7RegMask.exit ], [ %.129, %._crit_edge.loopexit ], [ 0, %410 ]
   %.0.lcssa = phi i32 [ 0, %_ZN15RegMaskIteratorC2ERK7RegMask.exit ], [ %.1, %._crit_edge.loopexit ], [ 0, %410 ]
-  %582 = getelementptr inbounds i8, ptr %0, i64 64
-  %583 = load ptr, ptr %582, align 8
-  %584 = icmp eq ptr %583, null
-  br i1 %584, label %_ZN17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4sortEPFiPS1_S3_E.exit, label %585
+  %576 = getelementptr inbounds i8, ptr %0, i64 64
+  %577 = load ptr, ptr %576, align 8
+  %578 = icmp eq ptr %577, null
+  br i1 %578, label %_ZN17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4sortEPFiPS1_S3_E.exit, label %579
 
-585:                                              ; preds = %._crit_edge
-  %586 = getelementptr inbounds i8, ptr %0, i64 56
-  %587 = load i32, ptr %586, align 8
-  %588 = sext i32 %587 to i64
-  tail call void @qsort(ptr noundef nonnull %583, i64 noundef %588, i64 noundef 8, ptr noundef nonnull @_ZN17SaveLiveRegisters25xmm_compare_register_sizeEPNS_15XMMRegisterDataES1_) #12
+579:                                              ; preds = %._crit_edge
+  %580 = getelementptr inbounds i8, ptr %0, i64 56
+  %581 = load i32, ptr %580, align 8
+  %582 = sext i32 %581 to i64
+  tail call void @qsort(ptr noundef nonnull %577, i64 noundef %582, i64 noundef 8, ptr noundef nonnull @_ZN17SaveLiveRegisters25xmm_compare_register_sizeEPNS_15XMMRegisterDataES1_) #12
   br label %_ZN17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4sortEPFiPS1_S3_E.exit
 
-_ZN17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4sortEPFiPS1_S3_E.exit: ; preds = %._crit_edge, %585
-  %589 = add i32 %.030.lcssa, %.028.lcssa
-  %590 = add i32 %589, %.0.lcssa
-  %591 = and i32 %590, -16
-  %592 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %591, ptr %592, align 8
-  %593 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 %591, ptr %593, align 4
+_ZN17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4sortEPFiPS1_S3_E.exit: ; preds = %._crit_edge, %579
+  %583 = add i32 %.030.lcssa, %.028.lcssa
+  %584 = add i32 %583, %.0.lcssa
+  %585 = and i32 %584, -16
+  %586 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %585, ptr %586, align 8
+  %587 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 %585, ptr %587, align 4
   ret void
 }
 
@@ -3680,6 +3677,9 @@ _ZN13GrowableArrayIN17SaveLiveRegisters15XMMRegisterDataEE10deallocateEPS1_.exit
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11

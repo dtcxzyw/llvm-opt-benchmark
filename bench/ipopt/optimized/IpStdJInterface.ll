@@ -655,7 +655,7 @@ define noundef zeroext i1 @_ZN6Jipopt6eval_gEiPKdbiPd(ptr nocapture noundef nonn
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Jipopt10eval_jac_gEiPKdbiiPiS2_Pd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #3 align 2 {
   %10 = icmp ne ptr %2, null
-  %or.cond = and i1 %10, %3
+  %or.cond = and i1 %3, %10
   br i1 %or.cond, label %11, label %19
 
 11:                                               ; preds = %9
@@ -744,7 +744,7 @@ define noundef zeroext i1 @_ZN6Jipopt10eval_jac_gEiPKdbiiPiS2_Pd(ptr nocapture n
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Jipopt6eval_hEiPKdbdiS1_biPiS2_Pd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, double noundef %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) unnamed_addr #3 align 2 {
   %13 = icmp ne ptr %2, null
-  %or.cond = and i1 %13, %3
+  %or.cond = and i1 %3, %13
   br i1 %or.cond, label %14, label %22
 
 14:                                               ; preds = %12
@@ -760,7 +760,7 @@ define noundef zeroext i1 @_ZN6Jipopt6eval_hEiPKdbdiS1_biPiS2_Pd(ptr nocapture n
 
 22:                                               ; preds = %14, %12
   %23 = icmp ne ptr %6, null
-  %or.cond3 = and i1 %23, %7
+  %or.cond3 = and i1 %7, %23
   br i1 %or.cond3, label %24, label %32
 
 24:                                               ; preds = %22

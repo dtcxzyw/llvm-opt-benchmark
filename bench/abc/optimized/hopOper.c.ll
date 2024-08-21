@@ -44,7 +44,7 @@ define ptr @Hop_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   %8 = ptrtoint ptr %2 to i64
   %9 = xor i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %7
@@ -65,7 +65,7 @@ define ptr @Hop_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %18
-  %26 = icmp eq ptr %21, %1
+  %26 = icmp eq ptr %1, %21
   br i1 %26, label %Hop_And.exit, label %27
 
 27:                                               ; preds = %25
@@ -80,7 +80,7 @@ define ptr @Hop_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %30
-  %35 = icmp eq ptr %23, %2
+  %35 = icmp eq ptr %2, %23
   br i1 %35, label %Hop_And.exit, label %36
 
 36:                                               ; preds = %34
@@ -133,7 +133,7 @@ define ptr @Hop_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   %6 = ptrtoint ptr %2 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
@@ -154,7 +154,7 @@ define ptr @Hop_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %16
-  %24 = icmp eq ptr %19, %1
+  %24 = icmp eq ptr %1, %19
   br i1 %24, label %54, label %25
 
 25:                                               ; preds = %23
@@ -169,7 +169,7 @@ define ptr @Hop_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %28
-  %33 = icmp eq ptr %21, %2
+  %33 = icmp eq ptr %2, %21
   br i1 %33, label %54, label %34
 
 34:                                               ; preds = %32
@@ -214,11 +214,11 @@ define ptr @Hop_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   %4 = ptrtoint ptr %2 to i64
   %5 = xor i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
-  %7 = icmp eq ptr %6, %1
+  %7 = icmp eq ptr %1, %6
   br i1 %7, label %Hop_And.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp eq ptr %2, %1
+  %9 = icmp eq ptr %1, %2
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %8
@@ -239,7 +239,7 @@ define ptr @Hop_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %16
-  %24 = icmp eq ptr %19, %1
+  %24 = icmp eq ptr %1, %19
   br i1 %24, label %Hop_And.exit, label %25
 
 25:                                               ; preds = %23
@@ -294,11 +294,11 @@ Hop_And.exit:                                     ; preds = %3, %10, %23, %25, %
   %54 = ptrtoint ptr %1 to i64
   %55 = xor i64 %54, 1
   %56 = inttoptr i64 %55 to ptr
-  %57 = icmp eq ptr %56, %2
+  %57 = icmp eq ptr %2, %56
   br i1 %57, label %Hop_And.exit11, label %58
 
 58:                                               ; preds = %Hop_And.exit
-  %59 = icmp eq ptr %6, %56
+  %59 = icmp eq ptr %56, %6
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %58
@@ -318,7 +318,7 @@ Hop_And.exit:                                     ; preds = %3, %10, %23, %25, %
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %66
-  %73 = icmp eq ptr %68, %56
+  %73 = icmp eq ptr %56, %68
   br i1 %73, label %Hop_And.exit11, label %74
 
 74:                                               ; preds = %72
@@ -333,7 +333,7 @@ Hop_And.exit:                                     ; preds = %3, %10, %23, %25, %
   br i1 %80, label %81, label %86
 
 81:                                               ; preds = %77
-  %82 = icmp eq ptr %79, %2
+  %82 = icmp eq ptr %2, %79
   br i1 %82, label %Hop_And.exit11, label %83
 
 83:                                               ; preds = %81
@@ -399,7 +399,7 @@ Hop_And.exit11:                                   ; preds = %Hop_And.exit, %60, 
   br i1 %122, label %123, label %128
 
 123:                                              ; preds = %117
-  %124 = icmp eq ptr %119, %104
+  %124 = icmp eq ptr %104, %119
   br i1 %124, label %Hop_Or.exit, label %125
 
 125:                                              ; preds = %123
@@ -473,7 +473,7 @@ define ptr @Hop_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   br i1 %10, label %Hop_And.exit, label %11
 
 11:                                               ; preds = %3
-  %12 = icmp eq ptr %6, %2
+  %12 = icmp eq ptr %2, %6
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %11
@@ -493,7 +493,7 @@ define ptr @Hop_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %19
-  %26 = icmp eq ptr %21, %6
+  %26 = icmp eq ptr %6, %21
   br i1 %26, label %Hop_And.exit, label %27
 
 27:                                               ; preds = %25
@@ -560,7 +560,7 @@ define ptr @Hop_Mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %7 = ptrtoint ptr %2 to i64
   %8 = xor i64 %7, 1
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
@@ -581,7 +581,7 @@ define ptr @Hop_Mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %17
-  %25 = icmp eq ptr %20, %1
+  %25 = icmp eq ptr %1, %20
   br i1 %25, label %Hop_And.exit, label %26
 
 26:                                               ; preds = %24
@@ -596,7 +596,7 @@ define ptr @Hop_Mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %29
-  %34 = icmp eq ptr %22, %2
+  %34 = icmp eq ptr %2, %22
   br i1 %34, label %Hop_And.exit, label %35
 
 35:                                               ; preds = %33
@@ -636,14 +636,14 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
   %55 = ptrtoint ptr %1 to i64
   %56 = xor i64 %55, 1
   %57 = inttoptr i64 %56 to ptr
-  %58 = icmp eq ptr %57, %3
+  %58 = icmp eq ptr %3, %57
   br i1 %58, label %Hop_And.exit11, label %59
 
 59:                                               ; preds = %Hop_And.exit
   %60 = ptrtoint ptr %3 to i64
   %61 = xor i64 %60, 1
   %62 = inttoptr i64 %61 to ptr
-  %63 = icmp eq ptr %62, %57
+  %63 = icmp eq ptr %57, %62
   br i1 %63, label %64, label %70
 
 64:                                               ; preds = %59
@@ -663,7 +663,7 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %70
-  %77 = icmp eq ptr %72, %57
+  %77 = icmp eq ptr %57, %72
   br i1 %77, label %Hop_And.exit11, label %78
 
 78:                                               ; preds = %76
@@ -678,7 +678,7 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
   br i1 %84, label %85, label %91
 
 85:                                               ; preds = %81
-  %86 = icmp eq ptr %74, %3
+  %86 = icmp eq ptr %3, %74
   br i1 %86, label %Hop_And.exit11, label %87
 
 87:                                               ; preds = %85
@@ -745,7 +745,7 @@ Hop_And.exit11:                                   ; preds = %Hop_And.exit, %64, 
   br i1 %127, label %128, label %133
 
 128:                                              ; preds = %122
-  %129 = icmp eq ptr %124, %109
+  %129 = icmp eq ptr %109, %124
   br i1 %129, label %Hop_Or.exit, label %130
 
 130:                                              ; preds = %128
@@ -812,7 +812,7 @@ define ptr @Hop_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %7 = ptrtoint ptr %2 to i64
   %8 = xor i64 %7, 1
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
@@ -833,7 +833,7 @@ define ptr @Hop_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %17
-  %25 = icmp eq ptr %20, %1
+  %25 = icmp eq ptr %1, %20
   br i1 %25, label %Hop_And.exit, label %26
 
 26:                                               ; preds = %24
@@ -848,7 +848,7 @@ define ptr @Hop_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %29
-  %34 = icmp eq ptr %22, %2
+  %34 = icmp eq ptr %2, %22
   br i1 %34, label %Hop_And.exit, label %35
 
 35:                                               ; preds = %33
@@ -892,7 +892,7 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
   %57 = ptrtoint ptr %3 to i64
   %58 = xor i64 %57, 1
   %59 = inttoptr i64 %58 to ptr
-  %60 = icmp eq ptr %59, %1
+  %60 = icmp eq ptr %1, %59
   br i1 %60, label %61, label %67
 
 61:                                               ; preds = %56
@@ -913,7 +913,7 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %67
-  %75 = icmp eq ptr %70, %1
+  %75 = icmp eq ptr %1, %70
   br i1 %75, label %Hop_And.exit15, label %76
 
 76:                                               ; preds = %74
@@ -928,7 +928,7 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
   br i1 %82, label %83, label %89
 
 83:                                               ; preds = %79
-  %84 = icmp eq ptr %72, %3
+  %84 = icmp eq ptr %3, %72
   br i1 %84, label %Hop_And.exit15, label %85
 
 85:                                               ; preds = %83
@@ -995,7 +995,7 @@ Hop_And.exit15:                                   ; preds = %Hop_And.exit, %61, 
   br i1 %125, label %126, label %131
 
 126:                                              ; preds = %120
-  %127 = icmp eq ptr %122, %107
+  %127 = icmp eq ptr %107, %122
   br i1 %127, label %Hop_Or.exit, label %128
 
 128:                                              ; preds = %126
@@ -1055,7 +1055,7 @@ Hop_Or.exit:                                      ; preds = %Hop_And.exit15, %11
   %160 = ptrtoint ptr %3 to i64
   %161 = xor i64 %160, 1
   %162 = inttoptr i64 %161 to ptr
-  %163 = icmp eq ptr %162, %2
+  %163 = icmp eq ptr %2, %162
   br i1 %163, label %164, label %170
 
 164:                                              ; preds = %159
@@ -1076,7 +1076,7 @@ Hop_Or.exit:                                      ; preds = %Hop_And.exit15, %11
   br i1 %176, label %177, label %182
 
 177:                                              ; preds = %170
-  %178 = icmp eq ptr %173, %2
+  %178 = icmp eq ptr %2, %173
   br i1 %178, label %Hop_And.exit20, label %179
 
 179:                                              ; preds = %177
@@ -1091,7 +1091,7 @@ Hop_Or.exit:                                      ; preds = %Hop_And.exit15, %11
   br i1 %185, label %186, label %191
 
 186:                                              ; preds = %182
-  %187 = icmp eq ptr %184, %3
+  %187 = icmp eq ptr %3, %184
   br i1 %187, label %Hop_And.exit20, label %188
 
 188:                                              ; preds = %186
@@ -1134,7 +1134,7 @@ Hop_And.exit20:                                   ; preds = %Hop_Or.exit, %164, 
   br i1 %210, label %Hop_Or.exit25, label %211
 
 211:                                              ; preds = %Hop_And.exit20
-  %212 = icmp eq ptr %.0.i.i, %.0.i19
+  %212 = icmp eq ptr %.0.i19, %.0.i.i
   br i1 %212, label %213, label %219
 
 213:                                              ; preds = %211
@@ -1367,7 +1367,7 @@ Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %40
-  %45 = icmp eq ptr %33, %17
+  %45 = icmp eq ptr %17, %33
   br i1 %45, label %Hop_And.exit, label %46
 
 46:                                               ; preds = %44
@@ -1456,7 +1456,7 @@ Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   br i1 %21, label %Hop_Or.exit, label %22
 
 22:                                               ; preds = %Hop_IthVar.exit
-  %23 = icmp eq ptr %.08.in.in.in10, %17
+  %23 = icmp eq ptr %17, %.08.in.in.in10
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %22

@@ -745,7 +745,7 @@ define i32 @Gia_ObjGetCnfVar(ptr noundef %0, i32 noundef %1, ptr nocapture nound
 13:                                               ; preds = %5
   %14 = load i32, ptr %9, align 8
   %15 = shl nsw i32 %14, 1
-  %16 = icmp slt i32 %15, %.val95
+  %16 = icmp sgt i32 %.val95, %15
   %.not.i.i = icmp slt i32 %14, %.val95
   br i1 %16, label %17, label %29
 

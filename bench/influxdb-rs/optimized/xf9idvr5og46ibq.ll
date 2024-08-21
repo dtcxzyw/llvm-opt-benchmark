@@ -513,7 +513,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %39 = load i64, ptr %11, align 8, !alias.scope !17, !noalias !18, !noundef !4
   %40 = load i64, ptr %12, align 8, !alias.scope !17, !noalias !18, !noundef !4
   %41 = sub i64 %39, %40
-  %42 = icmp ugt i64 %41, %17
+  %42 = icmp ult i64 %17, %41
   br i1 %42, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hc457f3e0bff3c269E.llvm.15769799167173126418.exit.thread.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hc457f3e0bff3c269E.llvm.15769799167173126418.exit.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hc457f3e0bff3c269E.llvm.15769799167173126418.exit.thread.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h533491fc70b5a692E.exit21"
@@ -1114,7 +1114,7 @@ define hidden void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$10write_co
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = sub i64 %6, %8
-  %10 = icmp ult i64 %9, %3
+  %10 = icmp ugt i64 %3, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
@@ -1128,7 +1128,7 @@ define hidden void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$10write_co
 
 14:                                               ; preds = %._crit_edge, %4
   %15 = phi i64 [ %.pre, %._crit_edge ], [ %6, %4 ]
-  %.not = icmp ugt i64 %15, %3
+  %.not = icmp ult i64 %3, %15
   br i1 %.not, label %18, label %24
 
 16:                                               ; preds = %11
@@ -1159,7 +1159,7 @@ define hidden void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$10write_co
   %29 = getelementptr inbounds i8, ptr %.val, i64 8
   %30 = load i64, ptr %29, align 8, !alias.scope !82, !noalias !75, !noundef !4
   %31 = sub i64 %30, %28
-  %32 = icmp ult i64 %31, %3
+  %32 = icmp ugt i64 %3, %31
   br i1 %32, label %33, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17hd6f02331ba72196eE.exit"
 
 33:                                               ; preds = %24
@@ -1209,7 +1209,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = sub i64 %5, %7
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %3
@@ -1223,7 +1223,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
 
 13:                                               ; preds = %._crit_edge, %3
   %14 = phi i64 [ %.pre, %._crit_edge ], [ %5, %3 ]
-  %.not = icmp ugt i64 %14, %2
+  %.not = icmp ult i64 %2, %14
   br i1 %.not, label %15, label %20
 
 15:                                               ; preds = %13
@@ -1245,7 +1245,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
   %25 = getelementptr inbounds i8, ptr %.val, i64 8
   %26 = load i64, ptr %25, align 8, !alias.scope !98, !noalias !93, !noundef !4
   %27 = sub i64 %26, %24
-  %28 = icmp ult i64 %27, %2
+  %28 = icmp ugt i64 %2, %27
   br i1 %28, label %29, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hd213f1e825fdda70E.exit"
 
 29:                                               ; preds = %20
@@ -1306,7 +1306,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9fl
   %17 = getelementptr inbounds i8, ptr %.val9, i64 8
   %18 = load i64, ptr %17, align 8, !alias.scope !115, !noalias !108, !noundef !4
   %19 = sub i64 %18, %16
-  %20 = icmp ult i64 %19, %14
+  %20 = icmp ugt i64 %14, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %12
@@ -1779,7 +1779,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h7b2f9a8eedcd04f0E.llvm.14332
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -6172,7 +6172,7 @@ _ZN3std2io5Write9write_all17h628b878a1d765891E.exit: ; preds = %10, %18
   %67 = getelementptr inbounds i8, ptr %.val.i.us.i71, i64 8
   %68 = load i64, ptr %67, align 8, !alias.scope !1256, !noalias !1249, !noundef !4
   %69 = sub i64 %68, %66
-  %70 = icmp ult i64 %69, %46
+  %70 = icmp ugt i64 %46, %69
   br i1 %70, label %71, label %._crit_edge.split.us.i
 
 71:                                               ; preds = %.lr.ph.split.us.i
@@ -6320,7 +6320,7 @@ _ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.exit.i: ; preds = %26
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !alias.scope !1279, !noalias !1277, !noundef !4
   %47 = sub i64 %46, %44
-  %48 = icmp ult i64 %47, %42
+  %48 = icmp ugt i64 %42, %47
   br i1 %48, label %49, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hdf312dbc19e38443E.exit.i"
 
 49:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.exit.i
@@ -6374,7 +6374,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !1292, !noalias !1290, !noundef !4
   %8 = sub i64 %7, %5
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hdf312dbc19e38443E.exit"
 
 10:                                               ; preds = %3
@@ -6456,7 +6456,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h102d866b7d10298fE(ptr noa
   %.val = load ptr, ptr %1, align 8, !nonnull !4, !align !6, !noundef !4
   %31 = getelementptr i8, ptr %1, i64 8
   %.val83 = load i64, ptr %31, align 8, !noundef !4
-  %32 = icmp ult i64 %28, %.val83
+  %32 = icmp ugt i64 %.val83, %28
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %25
@@ -6643,7 +6643,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h102d866b7d10298fE(ptr noa
   %.val.i158 = load ptr, ptr %.sroa.0226.0310, align 8, !noalias !1377, !nonnull !4, !align !6, !noundef !4
   %86 = getelementptr i8, ptr %.sroa.0226.0310, i64 8
   %.val3.i159 = load i64, ptr %86, align 8, !noalias !1377, !noundef !4
-  %.not.i163 = icmp ult i64 %.sroa.27.0312, %4
+  %.not.i163 = icmp ugt i64 %4, %.sroa.27.0312
   br i1 %.not.i163, label %.invoke, label %87
 
 87:                                               ; preds = %.lr.ph313
@@ -12131,7 +12131,7 @@ define hidden void @"_ZN74_$LT$influxdb3_write..wal..CrcReader$LT$R$GT$$u20$as$u
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = add i64 %12, %.cast
   store i64 %13, ptr %11, align 8
-  %14 = icmp ugt i64 %.cast, %3
+  %14 = icmp ult i64 %3, %.cast
   br i1 %14, label %15, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h75ed8be0995f68faE.llvm.14332053795908843488.exit"
 
 15:                                               ; preds = %10
@@ -16964,7 +16964,7 @@ define void @"_ZN96_$LT$influxdb3_write..wal..WalSegmentWriterImpl$u20$as$u20$in
   %96 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !3162, !noalias !3163, !noundef !4
   %97 = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !3162, !noalias !3163, !noundef !4
   %98 = sub i64 %96, %97
-  %.not69.i.i.i.i = icmp ult i64 %98, %.sroa.4.048.i.i.i
+  %.not69.i.i.i.i = icmp ugt i64 %.sroa.4.048.i.i.i, %98
   br i1 %.not69.i.i.i.i, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %95, %132
@@ -16983,7 +16983,7 @@ define void @"_ZN96_$LT$influxdb3_write..wal..WalSegmentWriterImpl$u20$as$u20$in
   %.037.lcssa.i.i.i.i = phi i64 [ 0, %95 ], [ %135, %132 ]
   %.sroa.6.0.lcssa.i.i.i.i = phi i64 [ %.sroa.4.048.i.i.i, %95 ], [ %133, %132 ]
   %.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %.sroa.0.049.i.i.i, %95 ], [ %134, %132 ]
-  %104 = icmp ult i64 %.pre-phi.i.i.i.i, %.sroa.6.0.lcssa.i.i.i.i
+  %104 = icmp ugt i64 %.sroa.6.0.lcssa.i.i.i.i, %.pre-phi.i.i.i.i
   br i1 %104, label %105, label %142
 
 105:                                              ; preds = %._crit_edge.i.i.i.i
@@ -17004,7 +17004,7 @@ define void @"_ZN96_$LT$influxdb3_write..wal..WalSegmentWriterImpl$u20$as$u20$in
   %109 = icmp ne ptr %.sroa.0.072.i.i.i.i, null
   call void @llvm.assume(i1 %109)
   %110 = sub i64 %99, %101
-  %111 = icmp ult i64 %110, %100
+  %111 = icmp ugt i64 %100, %110
   br i1 %111, label %112, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hdf312dbc19e38443E.exit45.i.i.i.i"
 
 112:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h75ed8be0995f68faE.llvm.14332053795908843488.exit.i.i.i.i"
@@ -17399,7 +17399,7 @@ _ZN3std2io5Write9write_all17h647641b7f24fc93bE.exit.thread145.i.i: ; preds = %16
 236:                                              ; preds = %231
   %237 = sub nsw i64 4, %227
   %238 = sub nsw i64 %234, %227
-  %239 = icmp ult i64 %238, %237
+  %239 = icmp ugt i64 %237, %238
   br i1 %239, label %240, label %.noexc78.i.i
 
 240:                                              ; preds = %236
@@ -17427,7 +17427,7 @@ _ZN3std2io5Write9write_all17h647641b7f24fc93bE.exit.thread145.i.i: ; preds = %16
 249:                                              ; preds = %245
   %250 = sub i64 8, %.pre19.i83.i.i
   %251 = sub i64 %247, %.pre19.i83.i.i
-  %252 = icmp ult i64 %251, %250
+  %252 = icmp ugt i64 %250, %251
   br i1 %252, label %253, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h35c17b5efee51f98E.exit.i.i.i.i84.thread.i.i"
 
 253:                                              ; preds = %249

@@ -461,7 +461,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hac7af97b0f4a6602E.exit: ; preds = %.
 
 169:                                              ; preds = %163, %.thread19.i
   %.sroa.4.0.i45.ph = phi i64 [ %.pre-phi.i, %.thread19.i ], [ %164, %163 ]
-  %170 = icmp ugt i64 %137, %.sroa.4.0.i45.ph
+  %170 = icmp ult i64 %.sroa.4.0.i45.ph, %137
   br i1 %170, label %173, label %171
 
 171:                                              ; preds = %169
@@ -492,7 +492,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hac7af97b0f4a6602E.exit: ; preds = %.
   %176 = getelementptr inbounds i8, ptr %174, i64 8
   %177 = load i64, ptr %176, align 8, !noundef !14
   %178 = add nuw i64 %.sroa.4.0.i45.ph, 1
-  %179 = icmp ugt i64 %137, %178
+  %179 = icmp ult i64 %178, %137
   br i1 %179, label %181, label %180
 
 180:                                              ; preds = %173
@@ -520,7 +520,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hac7af97b0f4a6602E.exit: ; preds = %.
   %193 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %192, i64 %175
   %194 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %186
   %195 = sub i64 %191, %175
-  %.not.i54 = icmp ult i64 %195, %175
+  %.not.i54 = icmp ugt i64 %175, %195
   %196 = icmp sgt i64 %175, 0
   br i1 %.not.i54, label %197, label %201
 
@@ -566,8 +566,8 @@ _ZN4core5slice4sort20provide_sorted_batch17hac7af97b0f4a6602E.exit: ; preds = %.
   %.026.i = select i1 %213, ptr %215, ptr %214
   %216 = getelementptr inbounds i8, ptr %.02724.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %216, ptr noundef nonnull align 8 dereferenceable(24) %.026.i, i64 24, i1 false)
-  %217 = icmp ugt ptr %214, %192
-  %218 = icmp ugt ptr %215, %14
+  %217 = icmp ult ptr %192, %214
+  %218 = icmp ult ptr %14, %215
   %or.cond.i65 = select i1 %217, i1 %218, i1 false
   br i1 %or.cond.i65, label %.lr.ph25.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h7b3abd519736a002E.exit"
 

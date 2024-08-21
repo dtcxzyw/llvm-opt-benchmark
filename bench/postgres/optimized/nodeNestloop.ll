@@ -217,7 +217,7 @@ ExecProcNode.exit:                                ; preds = %44, %46
   %75 = sext i16 %74 to i32
   %76 = getelementptr inbounds i8, ptr %70, i64 16
   %77 = load i16, ptr %58, align 2
-  %78 = icmp slt i16 %77, %74
+  %78 = icmp sgt i16 %74, %77
   br i1 %78, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph97

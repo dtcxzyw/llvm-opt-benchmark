@@ -368,8 +368,8 @@ lor.lhs.false:                                    ; preds = %entry
   %mul2.i24 = fmul double %conv1.i23, 1.562500e-02
   %sub.i27 = fsub double %mul.i22, %mul.i
   %sub3.i28 = fsub double %mul2.i24, %mul2.i
-  %3 = fneg double %sub3.i
-  %neg.i = fmul double %sub.i27, %3
+  %3 = fneg double %sub.i27
+  %neg.i = fmul double %sub3.i, %3
   %4 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i28, double %neg.i)
   %tobool = fcmp une double %4, 0.000000e+00
   br i1 %tobool, label %if.then, label %if.end

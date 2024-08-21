@@ -8791,7 +8791,7 @@ define internal i32 @md_set_read_only(ptr nocapture noundef readonly %0, i1 noun
   %15 = getelementptr inbounds i8, ptr %6, i64 212
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  %18 = or i1 %17, %1
+  %18 = or i1 %1, %17
   %19 = select i1 %17, i32 -19, i32 0
   br i1 %18, label %33, label %21
 

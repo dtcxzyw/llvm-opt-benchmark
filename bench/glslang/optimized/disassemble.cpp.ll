@@ -792,13 +792,13 @@ _ZNSt5stackIjSt5dequeIjSaIjEEE3topEv.exit:        ; preds = %41
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 508
   %46 = load i32, ptr %45, align 4
-  %47 = icmp eq i32 %46, %1
+  %47 = icmp eq i32 %1, %46
   br i1 %47, label %51, label %58
 
 _ZNSt5stackIjSt5dequeIjSaIjEEE3topEv.exit.thread: ; preds = %41
   %48 = getelementptr inbounds i8, ptr %25, i64 -4
   %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, %1
+  %50 = icmp eq i32 %1, %49
   br i1 %50, label %_ZNSt5stackIjSt5dequeIjSaIjEEE3popEv.exit, label %58
 
 51:                                               ; preds = %_ZNSt5stackIjSt5dequeIjSaIjEEE3topEv.exit
@@ -1489,7 +1489,7 @@ switch.lookup:                                    ; preds = %_ZN3spv11SpirvStrea
   %395 = getelementptr inbounds i32, ptr %394, i64 %393
   %396 = load i32, ptr %395, align 4
   %397 = load i32, ptr %358, align 8
-  %.not.i180 = icmp ugt i32 %397, %396
+  %.not.i180 = icmp ult i32 %396, %397
   %398 = load ptr, ptr %14, align 8
   br i1 %.not.i180, label %404, label %399
 
@@ -2418,7 +2418,7 @@ define void @_ZN3spv11SpirvStream8formatIdEjRNSt7__cxx1118basic_stringstreamIcSt
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
-  %.not7 = icmp ugt i32 %6, %1
+  %.not7 = icmp ult i32 %1, %6
   br i1 %.not7, label %14, label %7
 
 7:                                                ; preds = %4
@@ -2485,7 +2485,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 define void @_ZN3spv11SpirvStream8outputIdEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(180) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
-  %.not = icmp ugt i32 %4, %1
+  %.not = icmp ult i32 %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   br i1 %.not, label %12, label %7

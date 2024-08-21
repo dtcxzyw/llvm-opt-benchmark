@@ -2394,7 +2394,7 @@ define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %0) unnamed_addr #
 
 100:                                              ; preds = %97
   %101 = load i32, ptr %.0100, align 4
-  %102 = icmp sgt i32 %101, %99
+  %102 = icmp slt i32 %99, %101
   br i1 %102, label %Extra_ProgressBarUpdate.exit, label %103
 
 103:                                              ; preds = %100, %97

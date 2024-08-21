@@ -237,16 +237,16 @@ entry:
   %2 = load float, ptr %arrayidx3.i, align 8
   %arrayidx4.i = getelementptr inbounds i8, ptr %rel_pos, i64 4
   %3 = load float, ptr %arrayidx4.i, align 4
-  %4 = fneg float %2
-  %neg.i = fmul float %3, %4
+  %4 = fneg float %3
+  %neg.i = fmul float %2, %4
   %5 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %neg.i)
   %6 = load float, ptr %rel_pos, align 16
   %7 = load float, ptr %m_angVel.i, align 16
-  %8 = fneg float %7
-  %neg11.i = fmul float %1, %8
+  %8 = fneg float %1
+  %neg11.i = fmul float %7, %8
   %9 = tail call float @llvm.fmuladd.f32(float %2, float %6, float %neg11.i)
-  %10 = fneg float %0
-  %neg17.i = fmul float %6, %10
+  %10 = fneg float %6
+  %neg17.i = fmul float %0, %10
   %11 = tail call float @llvm.fmuladd.f32(float %7, float %3, float %neg17.i)
   %12 = load float, ptr %m_linVel.i, align 16
   %add.i = fadd float %5, %12
@@ -1431,7 +1431,7 @@ entry:
   store i32 %numConstraints, ptr %numConstraints.addr, align 4
   tail call void @b3EnterProfileZone(ptr noundef nonnull @.str.9)
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16batchConstraints, i64 4), align 4
-  %cmp4.i = icmp slt i32 %0, %numConstraints
+  %cmp4.i = icmp sgt i32 %numConstraints, %0
   br i1 %cmp4.i, label %for.body9.lr.ph.i, label %invoke.cont
 
 for.body9.lr.ph.i:                                ; preds = %entry
@@ -1510,7 +1510,7 @@ invoke.cont5:                                     ; preds = %call5.i.noexc190, %
   %m_tmpSolverBodyPool = getelementptr inbounds i8, ptr %this, i64 24
   %m_size.i.i192 = getelementptr inbounds i8, ptr %this, i64 28
   %12 = load i32, ptr %m_size.i.i192, align 4
-  %cmp4.i193 = icmp slt i32 %12, %11
+  %cmp4.i193 = icmp sgt i32 %11, %12
   br i1 %cmp4.i193, label %for.body9.lr.ph.i194, label %invoke.cont8
 
 for.body9.lr.ph.i194:                             ; preds = %invoke.cont5
@@ -1861,7 +1861,7 @@ if.end:                                           ; preds = %invoke.cont28, %for
   %64 = load i32, ptr %numConstraints.addr, align 4
   %m_size.i.i213 = getelementptr inbounds i8, ptr %this, i64 188
   %65 = load i32, ptr %m_size.i.i213, align 4
-  %cmp3.i214 = icmp slt i32 %65, %64
+  %cmp3.i214 = icmp sgt i32 %64, %65
   br i1 %cmp3.i214, label %if.then4.i, label %invoke.cont44
 
 if.then4.i:                                       ; preds = %if.end
@@ -2624,7 +2624,7 @@ if.end186:                                        ; preds = %if.end144, %invoke.
   %m_tmpSolverNonContactConstraintPool = getelementptr inbounds i8, ptr %this, i64 88
   %m_size.i.i385 = getelementptr inbounds i8, ptr %this, i64 92
   %197 = load i32, ptr %m_size.i.i385, align 4
-  %cmp3.i386 = icmp slt i32 %197, %totalNumRows.1
+  %cmp3.i386 = icmp sgt i32 %totalNumRows.1, %197
   br i1 %cmp3.i386, label %if.then4.i387, label %invoke.cont187
 
 if.then4.i387:                                    ; preds = %if.end186
@@ -5919,7 +5919,7 @@ entry:
   tail call void @b3EnterProfileZone(ptr noundef nonnull @.str.32)
   %mul = shl nsw i32 %simdWidth, 1
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 4), align 4
-  %cmp4.i = icmp slt i32 %0, %mul
+  %cmp4.i = icmp sgt i32 %mul, %0
   br i1 %cmp4.i, label %for.body9.lr.ph.i, label %invoke.cont
 
 for.body9.lr.ph.i:                                ; preds = %entry
@@ -5959,7 +5959,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   %div = sdiv i32 %numBodies, 32
   %add = add nsw i32 %div, 1
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 4), align 4
-  %cmp4.i54.not = icmp sgt i32 %5, %div
+  %cmp4.i54.not = icmp slt i32 %div, %5
   br i1 %cmp4.i54.not, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit64, label %for.body9.lr.ph.i55
 
 for.body9.lr.ph.i55:                              ; preds = %if.end

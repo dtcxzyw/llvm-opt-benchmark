@@ -961,7 +961,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !4
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -1042,8 +1042,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !125
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -1307,7 +1307,7 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !alias.scope !131, !noalias !134, !noundef !4
   %8 = sub nuw i64 %7, %5
-  %.not = icmp ult i64 %8, %2
+  %.not = icmp ugt i64 %2, %8
   br i1 %.not, label %_ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17h34af48e9d00f4252E.exit, label %_ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17h34af48e9d00f4252E.exit.thread
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17h34af48e9d00f4252E.exit.thread: ; preds = %3
@@ -1341,7 +1341,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = load i64, ptr %2, align 8, !noundef !4
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %10
+  %16 = icmp ugt i64 %10, %15
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %3
@@ -1361,9 +1361,9 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %.pre-phi = phi i64 [ %15, %3 ], [ %.pre20, %._crit_edge.i ]
   %22 = phi i64 [ %13, %3 ], [ %.pre, %._crit_edge.i ]
   %.pre-phi.i = phi i64 [ %15, %3 ], [ %.pre9.i, %._crit_edge.i ]
-  %23 = icmp uge i64 %.pre-phi.i, %10
+  %23 = icmp ule i64 %10, %.pre-phi.i
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ult i64 %.pre-phi, %10
+  %24 = icmp ugt i64 %10, %.pre-phi
   br i1 %24, label %25, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e3b86cf7789e245E.exit"
 
 25:                                               ; preds = %21
@@ -1619,7 +1619,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %32 = load i64, ptr %9, align 8, !alias.scope !182, !noalias !187, !noundef !4
   %33 = load i64, ptr %2, align 8, !alias.scope !189, !noalias !187, !noundef !4
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %30
+  %35 = icmp ugt i64 %30, %34
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %31
@@ -1727,7 +1727,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %10 = icmp eq i64 %7, %9
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = icmp ule i64 %12, %3
+  %13 = icmp uge i64 %3, %12
   %or.cond = select i1 %10, i1 %13, i1 false
   br i1 %or.cond, label %33, label %14
 

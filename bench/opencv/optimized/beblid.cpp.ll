@@ -2007,7 +2007,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit: ; pred
   %60 = ptrtoint ptr %.sroa.0.0137 to i64
   %61 = sub i64 %59, %60
   %62 = sdiv exact i64 %61, 24
-  %63 = icmp ult i64 %62, %58
+  %63 = icmp ugt i64 %58, %62
   br i1 %63, label %64, label %96
 
 64:                                               ; preds = %39
@@ -2099,7 +2099,7 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocate
   br label %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i
 
 96:                                               ; preds = %39
-  %97 = icmp ugt i64 %62, %58
+  %97 = icmp ult i64 %58, %62
   %98 = getelementptr inbounds i8, ptr %.sroa.0.0137, i64 %57
   %spec.select = select i1 %97, ptr %98, ptr %.sroa.15.0138
   br label %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i
@@ -3337,7 +3337,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit: ; preds = %.l
   %60 = ptrtoint ptr %.sroa.0.0137 to i64
   %61 = sub i64 %59, %60
   %62 = sdiv exact i64 %61, 24
-  %63 = icmp ult i64 %62, %58
+  %63 = icmp ugt i64 %58, %62
   br i1 %63, label %64, label %96
 
 64:                                               ; preds = %39
@@ -3429,7 +3429,7 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.
   br label %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i
 
 96:                                               ; preds = %39
-  %97 = icmp ugt i64 %62, %58
+  %97 = icmp ult i64 %58, %62
   %98 = getelementptr inbounds i8, ptr %.sroa.0.0137, i64 %57
   %spec.select = select i1 %97, ptr %98, ptr %.sroa.15.0138
   br label %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i

@@ -509,17 +509,17 @@ define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedO
   br i1 %or.cond.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %59
 
 59:                                               ; preds = %55
-  %60 = icmp eq i32 %.pre.i.i, %.0.i
+  %60 = icmp eq i32 %.0.i, %.pre.i.i
   %or.cond39.i.i = select i1 %56, i1 %60, i1 false
   br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = icmp eq i32 %.pre.i.i, %.013.i
+  %62 = icmp eq i32 %.013.i, %.pre.i.i
   %or.cond3.i.i = and i1 %57, %62
   br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %63
 
 63:                                               ; preds = %61
-  %64 = icmp slt i32 %27, %.0.i
+  %64 = icmp sgt i32 %.0.i, %27
   %or.cond = select i1 %56, i1 %64, i1 false
   br i1 %or.cond, label %65, label %67
 
@@ -529,7 +529,7 @@ define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedO
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 67:                                               ; preds = %63
-  %68 = icmp sgt i32 %27, %.0.i
+  %68 = icmp slt i32 %.0.i, %27
   %or.cond22 = select i1 %62, i1 %68, i1 false
   br i1 %or.cond22, label %69, label %71
 
@@ -539,7 +539,7 @@ define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedO
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 71:                                               ; preds = %67
-  %72 = icmp sgt i32 %27, %.013.i
+  %72 = icmp slt i32 %.013.i, %27
   %or.cond23 = select i1 %60, i1 %72, i1 false
   br i1 %or.cond23, label %73, label %75
 
@@ -552,7 +552,7 @@ define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedO
   br i1 %57, label %76, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 76:                                               ; preds = %75
-  %77 = icmp slt i32 %27, %.013.i
+  %77 = icmp sgt i32 %.013.i, %27
   br i1 %77, label %78, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 78:                                               ; preds = %76
@@ -758,7 +758,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %70 = phi ptr [ %69, %68 ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %71 = ptrtoint ptr %1 to i64
   %72 = sub i64 %71, %59
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %58, %1
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %58
   br i1 %.not.i.i.i.i.i.i.i.i.i63, label %74, label %73
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit

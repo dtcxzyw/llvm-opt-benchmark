@@ -375,7 +375,7 @@ ensureQueueActive.exit:                           ; preds = %if.end.i714, %queue
   %idxprom.i90 = zext i32 %71 to i64
   %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i90, i32 1
   %72 = load i64, ptr %location.i, align 8
-  %cmp = icmp sgt i64 %72, %loc
+  %cmp = icmp slt i64 %loc, %72
   br i1 %cmp, label %done, label %if.end15
 
 if.end15:                                         ; preds = %ensureQueueActive.exit
@@ -385,7 +385,7 @@ if.end15:                                         ; preds = %ensureQueueActive.e
   %idxprom.i638 = zext i32 %sub.i637 to i64
   %location.i640 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i638, i32 1
   %74 = load i64, ptr %location.i640, align 8
-  %cmp.i95.not = icmp sgt i64 %74, %loc
+  %cmp.i95.not = icmp slt i64 %loc, %74
   br i1 %cmp.i95.not, label %ensureEnd.exit, label %if.then.i97
 
 if.then.i97:                                      ; preds = %if.end15
@@ -4029,7 +4029,7 @@ ensureQueueActive.exit.i:                         ; preds = %if.end.i675.i, %que
   %idxprom.i59.i = zext i32 %174 to i64
   %location.i.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i, i64 0, i64 %idxprom.i59.i, i32 1
   %175 = load i64, ptr %location.i.i, align 8
-  %cmp.i337 = icmp sgt i64 %175, %loc
+  %cmp.i337 = icmp slt i64 %loc, %175
   br i1 %cmp.i337, label %if.end, label %if.end8.i
 
 if.end8.i:                                        ; preds = %ensureQueueActive.exit.i
@@ -4039,7 +4039,7 @@ if.end8.i:                                        ; preds = %ensureQueueActive.e
   %idxprom.i599.i = zext i32 %sub.i598.i to i64
   %location.i601.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i, i64 0, i64 %idxprom.i599.i, i32 1
   %177 = load i64, ptr %location.i601.i, align 8
-  %cmp.i64.i.not = icmp sgt i64 %177, %loc
+  %cmp.i64.i.not = icmp slt i64 %loc, %177
   br i1 %cmp.i64.i.not, label %ensureEnd.exit.i, label %if.then.i66.i
 
 if.then.i66.i:                                    ; preds = %if.end8.i
@@ -4987,7 +4987,7 @@ ensureQueueActive.exit.i510:                      ; preds = %if.end.i396.i, %que
   %idxprom.i19.i = zext i32 %383 to i64
   %location.i.i513 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i511, i64 0, i64 %idxprom.i19.i, i32 1
   %384 = load i64, ptr %location.i.i513, align 8
-  %cmp.i514 = icmp sgt i64 %384, %loc
+  %cmp.i514 = icmp slt i64 %loc, %384
   br i1 %cmp.i514, label %add_to_queue.exit, label %if.end6.i518
 
 if.end6.i518:                                     ; preds = %ensureQueueActive.exit.i510
@@ -4997,7 +4997,7 @@ if.end6.i518:                                     ; preds = %ensureQueueActive.e
   %idxprom.i320.i = zext i32 %sub.i319.i to i64
   %location.i322.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i511, i64 0, i64 %idxprom.i320.i, i32 1
   %386 = load i64, ptr %location.i322.i, align 8
-  %cmp.i24.i.not = icmp sgt i64 %386, %loc
+  %cmp.i24.i.not = icmp slt i64 %loc, %386
   br i1 %cmp.i24.i.not, label %ensureEnd.exit.i519, label %if.then.i26.i
 
 if.then.i26.i:                                    ; preds = %if.end6.i518
@@ -7899,7 +7899,7 @@ ensureQueueActive.exit.i:                         ; preds = %if.end.i675.i, %que
   %idxprom.i59.i = zext i32 %174 to i64
   %location.i.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i, i64 0, i64 %idxprom.i59.i, i32 1
   %175 = load i64, ptr %location.i.i, align 8
-  %cmp.i299 = icmp sgt i64 %175, %loc
+  %cmp.i299 = icmp slt i64 %loc, %175
   br i1 %cmp.i299, label %if.end, label %if.end8.i
 
 if.end8.i:                                        ; preds = %ensureQueueActive.exit.i
@@ -7909,7 +7909,7 @@ if.end8.i:                                        ; preds = %ensureQueueActive.e
   %idxprom.i599.i = zext i32 %sub.i598.i to i64
   %location.i601.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i, i64 0, i64 %idxprom.i599.i, i32 1
   %177 = load i64, ptr %location.i601.i, align 8
-  %cmp.i64.i.not = icmp sgt i64 %177, %loc
+  %cmp.i64.i.not = icmp slt i64 %loc, %177
   br i1 %cmp.i64.i.not, label %ensureEnd.exit.i, label %if.then.i66.i
 
 if.then.i66.i:                                    ; preds = %if.end8.i
@@ -8857,7 +8857,7 @@ ensureQueueActive.exit.i472:                      ; preds = %if.end.i396.i, %que
   %idxprom.i19.i = zext i32 %383 to i64
   %location.i.i475 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i473, i64 0, i64 %idxprom.i19.i, i32 1
   %384 = load i64, ptr %location.i.i475, align 8
-  %cmp.i476 = icmp sgt i64 %384, %loc
+  %cmp.i476 = icmp slt i64 %loc, %384
   br i1 %cmp.i476, label %add_to_queue.exit, label %if.end6.i480
 
 if.end6.i480:                                     ; preds = %ensureQueueActive.exit.i472
@@ -8867,7 +8867,7 @@ if.end6.i480:                                     ; preds = %ensureQueueActive.e
   %idxprom.i320.i = zext i32 %sub.i319.i to i64
   %location.i322.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i.i473, i64 0, i64 %idxprom.i320.i, i32 1
   %386 = load i64, ptr %location.i322.i, align 8
-  %cmp.i24.i.not = icmp sgt i64 %386, %loc
+  %cmp.i24.i.not = icmp slt i64 %loc, %386
   br i1 %cmp.i24.i.not, label %ensureEnd.exit.i481, label %if.then.i26.i
 
 if.then.i26.i:                                    ; preds = %if.end6.i480

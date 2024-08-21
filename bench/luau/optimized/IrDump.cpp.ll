@@ -3216,7 +3216,7 @@ define internal fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStr
   %5 = ptrtoint ptr %.0.val to i64
   %6 = sub i64 %4, %5
   %7 = sdiv exact i64 %6, 40
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   br i1 %8, label %9, label %52
 
 9:                                                ; preds = %3

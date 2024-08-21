@@ -572,12 +572,12 @@ define dso_local void @_ZN15cmInstalledFile14RemovePropertyERKNSt7__cxx1112basic
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %5
+  %10 = icmp eq ptr %5, %9
   br i1 %10, label %11, label %.critedge.i.i.i
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = icmp eq ptr %12, %6
+  %13 = icmp eq ptr %6, %12
   br i1 %13, label %14, label %.critedge.i.i.i
 
 14:                                               ; preds = %11
@@ -625,12 +625,12 @@ define dso_local void @_ZN15cmInstalledFile11SetPropertyEPK10cmMakefileRKNSt7__c
   %9 = getelementptr inbounds i8, ptr %0, i64 80
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %7
+  %12 = icmp eq ptr %7, %11
   br i1 %12, label %13, label %.critedge.i.i.i.i
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %15 = icmp eq ptr %14, %8
+  %15 = icmp eq ptr %8, %14
   br i1 %15, label %16, label %.critedge.i.i.i.i
 
 16:                                               ; preds = %13
@@ -1697,7 +1697,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -1782,7 +1782,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N15cmInstalledFile8PropertyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

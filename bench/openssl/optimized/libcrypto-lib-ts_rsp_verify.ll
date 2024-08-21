@@ -774,7 +774,7 @@ if.end15:                                         ; preds = %lor.lhs.false, %lan
   %hashed_msg = getelementptr inbounds i8, ptr %tst_info.16.val, i64 8
   %5 = load ptr, ptr %hashed_msg, align 8
   %call16 = tail call i32 @ASN1_STRING_length(ptr noundef %5) #7
-  %cmp17 = icmp eq i32 %call16, %len_a
+  %cmp17 = icmp eq i32 %len_a, %call16
   br i1 %cmp17, label %err, label %if.then24
 
 err:                                              ; preds = %if.end15

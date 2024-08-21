@@ -1822,7 +1822,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
   %num_processed.0 = phi i32 [ %call, %if.then3 ], [ 0, %if.end ]
   %sub = sub i32 %num_rows, %num_processed.0
   %conv = zext i32 %num_processed.0 to i64
-  %mul = mul i64 %conv, %length
+  %mul = mul i64 %length, %conv
   %add.ptr = getelementptr inbounds i8, ptr %keys, i64 %mul
   %add.ptr8 = getelementptr inbounds i32, ptr %hashes, i64 %conv
   br i1 %combine_hashes, label %if.then7, label %if.else
@@ -1860,7 +1860,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %1 = trunc nuw i64 %indvars.iv to i32
   %sub = sub i32 %num_rows, %1
   %conv = zext i32 %sub to i64
-  %mul = mul i64 %conv, %length
+  %mul = mul i64 %length, %conv
   %cmp1 = icmp ult i64 %mul, 16
   br i1 %cmp1, label %while.body, label %while.end
 
@@ -1923,7 +1923,7 @@ for.body18.lr.ph:                                 ; preds = %for.cond16.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
   %indvars.iv156 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next157, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ]
-  %mul6 = mul i64 %indvars.iv156, %length
+  %mul6 = mul i64 %length, %indvars.iv156
   %add.ptr = getelementptr inbounds i8, ptr %keys, i64 %mul6
   br i1 %cmp25.i, label %for.body.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
 
@@ -2026,7 +2026,7 @@ _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit: ; preds = 
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87
   %indvars.iv160 = phi i64 [ %7, %for.body18.lr.ph ], [ %indvars.iv.next161, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87 ]
-  %mul21 = mul i64 %indvars.iv160, %length
+  %mul21 = mul i64 %length, %indvars.iv160
   %add.ptr22 = getelementptr inbounds i8, ptr %keys, i64 %mul21
   br i1 %cmp25.i48, label %for.body.i54, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87
 
@@ -2144,7 +2144,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %1 = trunc nuw i64 %indvars.iv to i32
   %sub = sub i32 %num_rows, %1
   %conv = zext i32 %sub to i64
-  %mul = mul i64 %conv, %length
+  %mul = mul i64 %length, %conv
   %cmp1 = icmp ult i64 %mul, 16
   br i1 %cmp1, label %while.body, label %while.end
 
@@ -2193,7 +2193,7 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit.loopexit.us
   %indvars.iv148 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next149, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit.loopexit.us ]
-  %mul6.us = mul i64 %indvars.iv148, %length
+  %mul6.us = mul i64 %length, %indvars.iv148
   %add.ptr.us = getelementptr inbounds i8, ptr %keys, i64 %mul6.us
   br label %for.body.i.us
 
@@ -2307,7 +2307,7 @@ for.body15.lr.ph:                                 ; preds = %for.cond13.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.body
   %indvars.iv144 = phi i64 [ 0, %for.body.lr.ph.split ], [ %indvars.iv.next145, %for.body ]
-  %mul6 = mul i64 %indvars.iv144, %length
+  %mul6 = mul i64 %length, %indvars.iv144
   %gep = getelementptr i8, ptr %invariant.gep, i64 %mul6
   %add.ptr9 = getelementptr i8, ptr %gep, i64 -16
   %ret.0.copyload.i.i31 = load i32, ptr %add.ptr9, align 1
@@ -2359,7 +2359,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80
   %indvars.iv154 = phi i64 [ %8, %for.body15.lr.ph ], [ %indvars.iv.next155, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80 ]
-  %mul18 = mul i64 %indvars.iv154, %length
+  %mul18 = mul i64 %length, %indvars.iv154
   %add.ptr19 = getelementptr inbounds i8, ptr %keys, i64 %mul18
   br i1 %cmp25.i41, label %for.body.i47, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80
 
@@ -5111,7 +5111,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %1 = trunc nuw i64 %indvars.iv to i32
   %sub = sub i32 %num_rows, %1
   %conv = zext i32 %sub to i64
-  %mul = mul i64 %conv, %length
+  %mul = mul i64 %length, %conv
   %cmp1 = icmp ult i64 %mul, 32
   br i1 %cmp1, label %while.body, label %while.end
 
@@ -5174,7 +5174,7 @@ for.body18.lr.ph:                                 ; preds = %for.cond16.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit
   %indvars.iv187 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next188, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit ]
-  %mul6 = mul i64 %indvars.iv187, %length
+  %mul6 = mul i64 %length, %indvars.iv187
   %add.ptr = getelementptr inbounds i8, ptr %keys, i64 %mul6
   br i1 %cmp25.i, label %for.body.i, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit
 
@@ -5301,7 +5301,7 @@ _ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit: ; preds = 
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit94
   %indvars.iv191 = phi i64 [ %7, %for.body18.lr.ph ], [ %indvars.iv.next192, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit94 ]
-  %mul21 = mul i64 %indvars.iv191, %length
+  %mul21 = mul i64 %length, %indvars.iv191
   %add.ptr22 = getelementptr inbounds i8, ptr %keys, i64 %mul21
   br i1 %cmp25.i55, label %for.body.i61, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit94
 
@@ -5443,7 +5443,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %1 = trunc nuw i64 %indvars.iv to i32
   %sub = sub i32 %num_rows, %1
   %conv = zext i32 %sub to i64
-  %mul = mul i64 %conv, %length
+  %mul = mul i64 %length, %conv
   %cmp1 = icmp ult i64 %mul, 32
   br i1 %cmp1, label %while.body, label %while.end
 
@@ -5506,7 +5506,7 @@ for.body15.lr.ph:                                 ; preds = %for.cond13.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit
   %indvars.iv174 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next175, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit ]
-  %mul6 = mul i64 %indvars.iv174, %length
+  %mul6 = mul i64 %length, %indvars.iv174
   %add.ptr = getelementptr inbounds i8, ptr %keys, i64 %mul6
   br i1 %cmp25.i, label %for.body.i, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit
 
@@ -5626,7 +5626,7 @@ _ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit: ; preds = 
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit87
   %indvars.iv178 = phi i64 [ %7, %for.body15.lr.ph ], [ %indvars.iv.next179, %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit87 ]
-  %mul18 = mul i64 %indvars.iv178, %length
+  %mul18 = mul i64 %length, %indvars.iv178
   %add.ptr19 = getelementptr inbounds i8, ptr %keys, i64 %mul18
   br i1 %cmp25.i48, label %for.body.i54, label %_ZN5arrow7compute9Hashing6418ProcessFullStripesEmPKhPmS4_S4_S4_.exit87
 

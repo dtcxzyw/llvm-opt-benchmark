@@ -684,7 +684,7 @@ define noundef ptr @_Z7mkbbindPKcPiS1_iS1_PS1_PPPcP6t_atomP9t_resinfo(ptr nounde
   %41 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %indvars.iv216, i32 13
   %42 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %indvars.iv216, i32 11
   %43 = trunc i64 %indvars.iv216 to i32
-  %44 = add i32 %43, %3
+  %44 = add i32 %3, %43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %41, i8 -1, i64 20, i1 false)
   store i32 %44, ptr %42, align 4
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1

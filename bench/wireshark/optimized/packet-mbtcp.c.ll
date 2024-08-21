@@ -1831,12 +1831,12 @@ define internal fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef %1,
   %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %4) #5
   %11 = icmp slt i32 %4, 0
   %12 = sub nsw i32 0, %4
-  %13 = icmp eq i32 %12, %5
+  %13 = icmp eq i32 %5, %12
   %or.cond195 = select i1 %11, i1 true, i1 %13
   br i1 %or.cond195, label %.loopexit, label %14
 
 14:                                               ; preds = %9
-  %.not = icmp eq i32 %10, %5
+  %.not = icmp eq i32 %5, %10
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %14

@@ -292,7 +292,7 @@ invoke.cont20:                                    ; preds = %land.end
   %minisatSimpMode = getelementptr inbounds i8, ptr %9, i64 4
   %10 = load i32, ptr %minisatSimpMode, align 4
   %cmp.not = icmp eq i32 %10, 2
-  %brmerge = or i1 %cmp.not, %enableIncremental
+  %brmerge = or i1 %enableIncremental, %cmp.not
   br i1 %brmerge, label %invoke.cont47, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %invoke.cont20
@@ -1931,7 +1931,7 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
 
 if.then.i:                                        ; preds = %for.body60
   %37 = load i32, ptr %sz.i.i.i.i, align 8
-  %cmp.i.i.i = icmp sgt i32 %37, %34
+  %cmp.i.i.i = icmp slt i32 %34, %37
   br i1 %cmp.i.i.i, label %_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.i.i, label %lor.rhs.i.i
 
 _ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.i.i: ; preds = %if.then.i
@@ -2627,7 +2627,7 @@ _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit:   ; preds = %lor.lhs.false.i.i._
   %retval.sroa.0.0.copyload.i37 = load i32, ptr %arrayidx.i15, align 4
   %shr.i38 = ashr i32 %retval.sroa.0.0.copyload.i37, 1
   %23 = load i32, ptr %sz.i.i, align 8
-  %cmp.i39 = icmp sgt i32 %23, %shr.i38
+  %cmp.i39 = icmp slt i32 %shr.i38, %23
   br i1 %cmp.i39, label %_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit, label %for.inc
 
 _ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit: ; preds = %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
@@ -2938,7 +2938,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %retval.sroa.0.0.copyload.i81 = load i32, ptr %arrayidx.i, align 4
   %shr.i = ashr i32 %retval.sroa.0.0.copyload.i81, 1
   %5 = load i32, ptr %sz.i.i.i, align 8
-  %cmp.i.i82 = icmp sgt i32 %5, %shr.i
+  %cmp.i.i82 = icmp slt i32 %shr.i, %5
   br i1 %cmp.i.i82, label %_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.i, label %entry.lor.rhs_crit_edge.i
 
 entry.lor.rhs_crit_edge.i:                        ; preds = %for.body
@@ -3349,7 +3349,7 @@ _ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.exit: ; preds = %for.
   %elim_heap.i = getelementptr inbounds i8, ptr %this, i64 1000
   %sz.i.i.i = getelementptr inbounds i8, ptr %this, i64 1032
   %33 = load i32, ptr %sz.i.i.i, align 8
-  %cmp.i.i = icmp sgt i32 %33, %shr.i
+  %cmp.i.i = icmp slt i32 %shr.i, %33
   br i1 %cmp.i.i, label %_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.i, label %lor.rhs.i
 
 _ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.i: ; preds = %_ZN4cvc58internal7MinisatL6removeINS1_3vecIjEEjEEvRT_RKT0_.exit
@@ -5316,7 +5316,7 @@ if.end10.i:                                       ; preds = %if.end10.sink.split
   %order_heap.i.i = getelementptr inbounds i8, ptr %this, i64 648
   %sz.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 680
   %61 = load i32, ptr %sz.i.i.i.i, align 8
-  %cmp.i.i.i67 = icmp sgt i32 %61, %v
+  %cmp.i.i.i67 = icmp slt i32 %v, %61
   br i1 %cmp.i.i.i67, label %_ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %land.lhs.true.i.i68
 
 _ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %if.end10.i
@@ -5912,7 +5912,7 @@ if.end10.i:                                       ; preds = %if.end10.sink.split
   %order_heap.i.i = getelementptr inbounds i8, ptr %this, i64 648
   %sz.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 680
   %5 = load i32, ptr %sz.i.i.i.i, align 8
-  %cmp.i.i.i = icmp sgt i32 %5, %v
+  %cmp.i.i.i = icmp slt i32 %v, %5
   br i1 %cmp.i.i.i, label %_ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %land.lhs.true.i.i
 
 _ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %if.end10.i
@@ -7293,7 +7293,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver
 entry:
   %sz.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %sz.i.i, align 8
-  %cmp.i = icmp sgt i32 %0, %n
+  %cmp.i = icmp slt i32 %n, %0
   br i1 %cmp.i, label %_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit, label %if.then
 
 _ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit: ; preds = %entry

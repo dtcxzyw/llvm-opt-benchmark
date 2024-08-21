@@ -183,7 +183,7 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noc
   %12 = load ptr, ptr %11, align 8
   %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %9
   %13 = load ptr, ptr %gep.i, align 8
-  %14 = icmp eq ptr %12, %2
+  %14 = icmp eq ptr %2, %12
   %15 = icmp ne ptr %13, null
   %or.cond.i = select i1 %14, i1 %15, i1 false
   br i1 %or.cond.i, label %16, label %7
@@ -224,7 +224,7 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noc
   %30 = load ptr, ptr %29, align 8
   %gep108.i = getelementptr ptr, ptr %invariant.gep.i, i64 %27
   %31 = load ptr, ptr %gep108.i, align 8
-  %32 = icmp eq ptr %30, %2
+  %32 = icmp eq ptr %2, %30
   %33 = icmp ne ptr %31, null
   %or.cond3.i = select i1 %32, i1 %33, i1 false
   br i1 %or.cond3.i, label %34, label %25

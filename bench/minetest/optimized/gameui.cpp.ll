@@ -2413,7 +2413,7 @@ _Z13setStaticTextPN3irr3gui14IGUIStaticTextEPKw.exit845.if.end280_crit_edge: ; p
 if.then273:                                       ; preds = %_Z13setStaticTextPN3irr3gui14IGUIStaticTextEPKw.exit845
   %m_statustext_time = getelementptr inbounds i8, ptr %this, i64 112
   %172 = load float, ptr %m_statustext_time, align 8, !tbaa !30
-  %add274 = fadd nsz float %172, %dtime
+  %add274 = fadd nsz float %dtime, %172
   store float %add274, ptr %m_statustext_time, align 8, !tbaa !30
   %cmp276 = fcmp nsz ult float %add274, 1.500000e+00
   %.pre963 = load ptr, ptr %m_statustext, align 8, !tbaa !41

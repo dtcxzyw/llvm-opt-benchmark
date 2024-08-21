@@ -148,7 +148,7 @@ define void @_ZN2cv8ximgproc14RadonTransformERKNS_11_InputArrayERKNS_12_OutputAr
 
 69:                                               ; preds = %58
   %70 = fsub double %4, %3
-  %71 = fmul double %70, %2
+  %71 = fmul double %2, %70
   %72 = fcmp ogt double %71, 0.000000e+00
   br i1 %72, label %81, label %73
 

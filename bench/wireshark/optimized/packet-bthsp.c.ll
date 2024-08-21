@@ -1343,7 +1343,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
 70:                                               ; preds = %65
   %71 = load i32, ptr @hf_at_ignored, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %71, ptr noundef %0, i32 noundef %3, i32 noundef %69, i32 noundef 0) #7
-  %73 = add i32 %69, %3
+  %73 = add i32 %3, %69
   br label %74
 
 74:                                               ; preds = %70, %65

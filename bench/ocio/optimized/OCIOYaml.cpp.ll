@@ -6085,7 +6085,7 @@ sw.bb3.i.i:                                       ; preds = %invoke.cont290
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %581, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i749, align 8
   %582 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %582, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %582
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -7882,7 +7882,7 @@ sw.bb3.i.i1659:                                   ; preds = %invoke.cont609
   %incdec.ptr.i1.i.i1661 = getelementptr inbounds i8, ptr %785, i64 16
   store ptr %incdec.ptr.i1.i.i1661, ptr %m_mapIt.i.i.i1497, align 8
   %786 = load ptr, ptr %m_mapEnd.i.i.i1662, align 8
-  %cmp.i.not2.i.i.i1663 = icmp eq ptr %786, %incdec.ptr.i1.i.i1661
+  %cmp.i.not2.i.i.i1663 = icmp eq ptr %incdec.ptr.i1.i.i1661, %786
   br i1 %cmp.i.not2.i.i.i1663, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i1670, label %land.rhs.i.i.i1664
 
 land.rhs.i.i.i1664:                               ; preds = %sw.bb3.i.i1659, %while.body.i.i.i1667
@@ -9694,7 +9694,7 @@ sw.bb3.i.i.i:                                     ; preds = %cleanup.i
   %incdec.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %1011, i64 16
   store ptr %incdec.ptr.i1.i.i.i, ptr %m_mapIt.i.i.i.i, align 8
   %1012 = load ptr, ptr %m_mapEnd.i.i.i.i, align 8
-  %cmp.i.not2.i.i.i.i = icmp eq ptr %1012, %incdec.ptr.i1.i.i.i
+  %cmp.i.not2.i.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i.i, %1012
   br i1 %cmp.i.not2.i.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i.i, label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %sw.bb3.i.i.i, %while.body.i.i.i.i
@@ -12604,7 +12604,7 @@ sw.bb3.i.i.i2146:                                 ; preds = %cleanup.i2142
   %incdec.ptr.i1.i.i.i2147 = getelementptr inbounds i8, ptr %1345, i64 16
   store ptr %incdec.ptr.i1.i.i.i2147, ptr %m_mapIt.i.i.i.i2072, align 8
   %1346 = load ptr, ptr %m_mapEnd.i.i.i.i2084, align 8
-  %cmp.i.not2.i.i.i.i2148 = icmp eq ptr %1346, %incdec.ptr.i1.i.i.i2147
+  %cmp.i.not2.i.i.i.i2148 = icmp eq ptr %incdec.ptr.i1.i.i.i2147, %1346
   br i1 %cmp.i.not2.i.i.i.i2148, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i.i2155, label %land.rhs.i.i.i.i2149
 
 land.rhs.i.i.i.i2149:                             ; preds = %sw.bb3.i.i.i2146, %while.body.i.i.i.i2152
@@ -14710,7 +14710,7 @@ sw.bb3.i.i2797:                                   ; preds = %for.end1117
   %incdec.ptr.i1.i.i2799 = getelementptr inbounds i8, ptr %1584, i64 16
   store ptr %incdec.ptr.i1.i.i2799, ptr %m_mapIt.i.i.i2449, align 8
   %1585 = load ptr, ptr %m_mapEnd.i.i.i2800, align 8
-  %cmp.i.not2.i.i.i2801 = icmp eq ptr %1585, %incdec.ptr.i1.i.i2799
+  %cmp.i.not2.i.i.i2801 = icmp eq ptr %incdec.ptr.i1.i.i2799, %1585
   br i1 %cmp.i.not2.i.i.i2801, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i2808, label %land.rhs.i.i.i2802
 
 land.rhs.i.i.i2802:                               ; preds = %sw.bb3.i.i2797, %while.body.i.i.i2805
@@ -16717,7 +16717,7 @@ sw.bb3.i.i2901:                                   ; preds = %cleanup
   %incdec.ptr.i1.i.i2903 = getelementptr inbounds i8, ptr %1737, i64 16
   store ptr %incdec.ptr.i1.i.i2903, ptr %m_mapIt.i.i.i, align 8
   %1738 = load ptr, ptr %m_mapEnd.i.i.i2904, align 8
-  %cmp.i.not2.i.i.i2905 = icmp eq ptr %1738, %incdec.ptr.i1.i.i2903
+  %cmp.i.not2.i.i.i2905 = icmp eq ptr %incdec.ptr.i1.i.i2903, %1738
   br i1 %cmp.i.not2.i.i.i2905, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i2912, label %land.rhs.i.i.i2906
 
 land.rhs.i.i.i2906:                               ; preds = %sw.bb3.i.i2901, %while.body.i.i.i2909
@@ -27868,7 +27868,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   call void @llvm.memset.p0.i64(ptr align 8 %30, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %32 = load ptr, ptr %keyset, align 8
-  %cmp.i.i.i.i.i44 = icmp eq ptr %_M_single_bucket.i.i, %32
+  %cmp.i.i.i.i.i44 = icmp eq ptr %32, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i44, label %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i
@@ -28159,7 +28159,7 @@ sw.bb3.i.i:                                       ; preds = %_ZNSt13unordered_se
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %58, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %59 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %59, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %59
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -31564,7 +31564,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %178, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %179 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %179, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %179
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -34124,7 +34124,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %279, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %280 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %280, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %280
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -36074,7 +36074,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %232, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %233 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %233, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %233
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -36993,7 +36993,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %93, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %94 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %94, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %94
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -39653,7 +39653,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %344, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %345 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %345, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %345
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -42036,7 +42036,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %294, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %295 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %295, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %295
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -44494,7 +44494,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #26
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %call5.i.i.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -44597,7 +44597,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 32
-  %cmp.not5.i.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i.i12
 
 for.body.i.i.i.i12:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i.i12
@@ -44671,7 +44671,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
+  %cmp.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i
@@ -44780,7 +44780,7 @@ for.cond:                                         ; preds = %lor.lhs.false, %if.
   %__prev_p.0 = phi ptr [ %1, %if.end ], [ %__p.0, %lor.lhs.false ]
   %__p.0 = phi ptr [ %2, %if.end ], [ %5, %lor.lhs.false ]
   %add.ptr = getelementptr inbounds i8, ptr %__p.0, i64 8
-  %cmp.i.i = icmp eq i64 %3, %__code
+  %cmp.i.i = icmp eq i64 %__code, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.end3
 
 land.rhs.i:                                       ; preds = %for.cond
@@ -45088,7 +45088,7 @@ for.cond:                                         ; preds = %lor.lhs.false, %if.
   %__prev_p.0 = phi ptr [ %1, %if.end ], [ %__p.0, %lor.lhs.false ]
   %__p.0 = phi ptr [ %2, %if.end ], [ %5, %lor.lhs.false ]
   %add.ptr = getelementptr inbounds i8, ptr %__p.0, i64 8
-  %cmp.i.i = icmp eq i64 %3, %__code
+  %cmp.i.i = icmp eq i64 %__code, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.end3
 
 land.rhs.i:                                       ; preds = %for.cond
@@ -45215,7 +45215,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -47408,7 +47408,7 @@ sw.bb3.i.i:                                       ; preds = %_ZN4YAML6detail14it
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %60, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %61 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %61, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %61
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -48161,7 +48161,7 @@ sw.bb3.i.i:                                       ; preds = %_ZN4YAML6detail14it
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %62, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %63 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %63, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %63
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -50150,7 +50150,7 @@ sw.bb3.i.i:                                       ; preds = %invoke.cont21
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %71, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %72 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %72, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %72
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -50420,7 +50420,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #26
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %10
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %10, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -50723,7 +50723,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 32
-  %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i.i19
 
 for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i.i19
@@ -50842,7 +50842,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #26
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %cond.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %cond.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -50977,7 +50977,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 32
-  %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i.i19
 
 for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i.i19
@@ -52651,7 +52651,7 @@ sw.bb3.i.i.i:                                     ; preds = %cleanup.i
   %incdec.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %162, i64 16
   store ptr %incdec.ptr.i1.i.i.i, ptr %m_mapIt.i.i.i.i, align 8
   %163 = load ptr, ptr %m_mapEnd.i.i.i.i, align 8
-  %cmp.i.not2.i.i.i.i = icmp eq ptr %163, %incdec.ptr.i1.i.i.i
+  %cmp.i.not2.i.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i.i, %163
   br i1 %cmp.i.not2.i.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i.i, label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %sw.bb3.i.i.i, %while.body.i.i.i.i
@@ -53867,7 +53867,7 @@ sw.bb3.i.i.i221:                                  ; preds = %cleanup.i217
   %incdec.ptr.i1.i.i.i222 = getelementptr inbounds i8, ptr %331, i64 16
   store ptr %incdec.ptr.i1.i.i.i222, ptr %m_mapIt.i.i.i.i161, align 8
   %332 = load ptr, ptr %m_mapEnd.i.i.i.i170, align 8
-  %cmp.i.not2.i.i.i.i223 = icmp eq ptr %332, %incdec.ptr.i1.i.i.i222
+  %cmp.i.not2.i.i.i.i223 = icmp eq ptr %incdec.ptr.i1.i.i.i222, %332
   br i1 %cmp.i.not2.i.i.i.i223, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i.i230, label %land.rhs.i.i.i.i224
 
 land.rhs.i.i.i.i224:                              ; preds = %sw.bb3.i.i.i221, %while.body.i.i.i.i227
@@ -56095,7 +56095,7 @@ sw.bb3.i.i.i493:                                  ; preds = %cleanup.i489
   %incdec.ptr.i1.i.i.i494 = getelementptr inbounds i8, ptr %613, i64 16
   store ptr %incdec.ptr.i1.i.i.i494, ptr %m_mapIt.i.i.i.i412, align 8
   %614 = load ptr, ptr %m_mapEnd.i.i.i.i422, align 8
-  %cmp.i.not2.i.i.i.i495 = icmp eq ptr %614, %incdec.ptr.i1.i.i.i494
+  %cmp.i.not2.i.i.i.i495 = icmp eq ptr %incdec.ptr.i1.i.i.i494, %614
   br i1 %cmp.i.not2.i.i.i.i495, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i.i502, label %land.rhs.i.i.i.i496
 
 land.rhs.i.i.i.i496:                              ; preds = %sw.bb3.i.i.i493, %while.body.i.i.i.i499
@@ -57551,7 +57551,7 @@ sw.bb3.i.i.i788:                                  ; preds = %cleanup.i784
   %incdec.ptr.i1.i.i.i789 = getelementptr inbounds i8, ptr %810, i64 16
   store ptr %incdec.ptr.i1.i.i.i789, ptr %m_mapIt.i.i.i.i716, align 8
   %811 = load ptr, ptr %m_mapEnd.i.i.i.i727, align 8
-  %cmp.i.not2.i.i.i.i790 = icmp eq ptr %811, %incdec.ptr.i1.i.i.i789
+  %cmp.i.not2.i.i.i.i790 = icmp eq ptr %incdec.ptr.i1.i.i.i789, %811
   br i1 %cmp.i.not2.i.i.i.i790, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i.i797, label %land.rhs.i.i.i.i791
 
 land.rhs.i.i.i.i791:                              ; preds = %sw.bb3.i.i.i788, %while.body.i.i.i.i794
@@ -59218,7 +59218,7 @@ sw.bb3.i.i.i1074:                                 ; preds = %cleanup.i1070
   %incdec.ptr.i1.i.i.i1075 = getelementptr inbounds i8, ptr %1037, i64 16
   store ptr %incdec.ptr.i1.i.i.i1075, ptr %m_mapIt.i.i.i.i994, align 8
   %1038 = load ptr, ptr %m_mapEnd.i.i.i.i1007, align 8
-  %cmp.i.not2.i.i.i.i1076 = icmp eq ptr %1038, %incdec.ptr.i1.i.i.i1075
+  %cmp.i.not2.i.i.i.i1076 = icmp eq ptr %incdec.ptr.i1.i.i.i1075, %1038
   br i1 %cmp.i.not2.i.i.i.i1076, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i.i1083, label %land.rhs.i.i.i.i1077
 
 land.rhs.i.i.i.i1077:                             ; preds = %sw.bb3.i.i.i1074, %while.body.i.i.i.i1080
@@ -60585,7 +60585,7 @@ sw.bb3.i.i:                                       ; preds = %_ZN4YAML6detail14it
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %62, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %63 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %63, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %63
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -63083,7 +63083,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %237, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %238 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %238, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %238
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -65656,7 +65656,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %306, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %307 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %307, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %307
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -67792,7 +67792,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %253, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %254 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %254, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %254
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -69489,7 +69489,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %192, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %193 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %193, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %193
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -71157,7 +71157,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %192, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %193 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %193, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %193
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -74105,7 +74105,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %327, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %328 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %328, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %328
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -77292,7 +77292,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %388, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %389 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %389, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %389
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -81587,7 +81587,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %313, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %314 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %314, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %314
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -85019,7 +85019,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %445, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %446 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %446, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %446
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -87122,7 +87122,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %248, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %249 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %249, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %249
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -89414,7 +89414,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %263, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %264 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %264, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %264
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -91189,7 +91189,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %193, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %194 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %194, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %194
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -92774,7 +92774,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %180, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %181 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %181, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %181
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -94630,7 +94630,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %206, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %207 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %207, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %207
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -96533,7 +96533,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %232, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %233 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %233, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %233
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -97044,7 +97044,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !244
 
 if.else:                                          ; preds = %if.then4
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i, %__n
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, %sub.ptr.div.i
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
@@ -97128,7 +97128,7 @@ for.body.i.i.i.i.i.i.i67:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !244
 
 invoke.cont57:                                    ; preds = %for.body.i.i.i.i.i.i.i67
-  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %6, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %__position.coerce, %6
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i76, label %invoke.cont60, label %if.then.i.i.i.i.i.i.i.i.i77
 
 if.then.i.i.i.i.i.i.i.i.i77:                      ; preds = %invoke.cont57
@@ -98244,7 +98244,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %138, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %139 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %139, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %139
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -99408,7 +99408,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %143, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %144 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %144, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %144
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -100479,7 +100479,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %130, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %131 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %131, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %131
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -102085,7 +102085,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %163, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %164 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %164, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %164
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -103687,7 +103687,7 @@ sw.bb3.i.i:                                       ; preds = %cleanup
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %166, i64 16
   store ptr %incdec.ptr.i1.i.i, ptr %m_mapIt.i.i.i, align 8
   %167 = load ptr, ptr %m_mapEnd.i.i.i, align 8
-  %cmp.i.not2.i.i.i = icmp eq ptr %167, %incdec.ptr.i1.i.i
+  %cmp.i.not2.i.i.i = icmp eq ptr %incdec.ptr.i1.i.i, %167
   br i1 %cmp.i.not2.i.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb3.i.i, %while.body.i.i.i
@@ -106420,7 +106420,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 32
-  %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i.i19
 
 for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i.i19
@@ -120703,7 +120703,7 @@ entry:
   %cmp = fcmp une double %blackVal, %defaultBlackVal
   %cmp2 = fcmp une double %whiteVal, %defaultWhiteVal
   %0 = or i1 %cmp, %cmp2
-  %or.cond11 = or i1 %0, %saveContrast
+  %or.cond11 = or i1 %saveContrast, %0
   br i1 %or.cond11, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
@@ -121444,7 +121444,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt16allocator_tr
 _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
-  %cmp.not5.i.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i.i12
 
 for.body.i.i.i.i12:                               ; preds = %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %for.body.i.i.i.i12

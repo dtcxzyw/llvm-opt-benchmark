@@ -1208,7 +1208,7 @@ define hidden void @_ZN9SplitInfo6recordEmmPP12HeapWordImpl(ptr nocapture nounde
 
 17:                                               ; preds = %4
   store i32 1, ptr %16, align 8
-  %18 = icmp eq ptr %11, %3
+  %18 = icmp eq ptr %3, %11
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %17
@@ -2975,8 +2975,8 @@ define hidden noundef zeroext i1 @_ZN17PSParallelCompact24check_maximum_compacti
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, -524288
   %34 = inttoptr i64 %33 to ptr
-  %.not = icmp ule ptr %34, %2
-  %35 = icmp ult i64 %22, %0
+  %.not = icmp uge ptr %2, %34
+  %35 = icmp ugt i64 %0, %22
   %or.cond = or i1 %14, %35
   %brmerge = select i1 %or.cond, i1 true, i1 %29
   %brmerge13 = or i1 %brmerge, %.not
@@ -3212,7 +3212,7 @@ _ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl.
   %126 = and i64 %125, -524288
   %127 = inttoptr i64 %126 to ptr
   %.not.i = icmp uge ptr %.2, %127
-  %128 = icmp ult i64 %116, %93
+  %128 = icmp ugt i64 %93, %116
   %or.cond.i = or i1 %109, %128
   %brmerge.i = select i1 %or.cond.i, i1 true, i1 %123
   %brmerge13.i = or i1 %brmerge.i, %.not.i
@@ -7752,7 +7752,7 @@ define hidden noundef i32 @_ZN17PSParallelCompact8space_idEPP12HeapWordImpl(ptr 
   %.not.i = icmp ule ptr %6, %0
   %7 = getelementptr inbounds i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp ugt ptr %8, %0
+  %9 = icmp ult ptr %0, %8
   %10 = select i1 %.not.i, i1 %9, i1 false
   br i1 %10, label %.split.loop.exit8, label %11
 
@@ -7959,7 +7959,7 @@ define hidden noundef ptr @_ZN17PSParallelCompact14first_src_addrEPP12HeapWordIm
   %.idx.i = shl i64 %2, 19
   %20 = getelementptr inbounds i8, ptr %19, i64 %.idx.i
   %21 = getelementptr inbounds i8, ptr %20, i64 524288
-  %22 = icmp eq ptr %18, %0
+  %22 = icmp eq ptr %0, %18
   br i1 %22, label %23, label %67
 
 23:                                               ; preds = %12
@@ -8144,7 +8144,7 @@ define hidden void @_ZN17PSParallelCompact28decrement_destination_countsEP20ParC
   %20 = sub i64 %19, %10
   %21 = lshr i64 %20, 19
   %22 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %5, i64 %21
-  %23 = icmp sgt i64 %12, %2
+  %23 = icmp slt i64 %2, %12
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -8455,7 +8455,7 @@ define hidden noundef ptr @_ZN17PSParallelCompact15partial_obj_endEPP12HeapWordI
   %.not.i.i = icmp ule ptr %6, %0
   %7 = getelementptr inbounds i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp ugt ptr %8, %0
+  %9 = icmp ult ptr %0, %8
   %10 = select i1 %.not.i.i, i1 %9, i1 false
   br i1 %10, label %.split.loop.exit8.i, label %11
 
@@ -8551,7 +8551,7 @@ define hidden void @_ZN17PSParallelCompact11fill_regionEP20ParCompactionManagerR
   %.not.i.i = icmp ule ptr %16, %11
   %17 = getelementptr inbounds i8, ptr %14, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp ugt ptr %18, %11
+  %19 = icmp ult ptr %11, %18
   %20 = select i1 %.not.i.i, i1 %19, i1 false
   br i1 %20, label %.split.loop.exit8.i, label %21
 
@@ -8695,7 +8695,7 @@ _ZNK13ParMarkBitMap20find_obj_beg_reverseEPP12HeapWordImplS2_.exit: ; preds = %6
   %.not.i.i.i103 = icmp ule ptr %105, %89
   %106 = getelementptr inbounds i8, ptr %103, i64 48
   %107 = load ptr, ptr %106, align 8
-  %108 = icmp ugt ptr %107, %89
+  %108 = icmp ult ptr %89, %107
   %109 = select i1 %.not.i.i.i103, i1 %108, i1 false
   br i1 %109, label %.split.loop.exit8.i.i, label %110
 
@@ -9116,7 +9116,7 @@ _ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit..critedge_crit_edge: 
   %.not.i.i.i133 = icmp ule ptr %337, %277
   %338 = getelementptr inbounds i8, ptr %335, i64 48
   %339 = load ptr, ptr %338, align 8
-  %340 = icmp ugt ptr %339, %277
+  %340 = icmp ult ptr %277, %339
   %341 = select i1 %.not.i.i.i133, i1 %340, i1 false
   br i1 %341, label %.split.loop.exit8.i.i152, label %342
 
@@ -9482,7 +9482,7 @@ define hidden void @_ZN17PSParallelCompact22fill_and_update_regionEP20ParCompact
   %.not.i.i.i.i = icmp ule ptr %12, %7
   %13 = getelementptr inbounds i8, ptr %10, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp ugt ptr %14, %7
+  %15 = icmp ult ptr %7, %14
   %16 = select i1 %.not.i.i.i.i, i1 %15, i1 false
   br i1 %16, label %.split.loop.exit8.i.i.i, label %17
 
@@ -9520,7 +9520,7 @@ _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i: ; preds = %17, %.
   %.not.i.i.i = icmp ule ptr %32, %7
   %33 = getelementptr inbounds i8, ptr %30, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = icmp ugt ptr %34, %7
+  %35 = icmp ult ptr %7, %34
   %36 = select i1 %.not.i.i.i, i1 %35, i1 false
   br i1 %36, label %.split.loop.exit8.i.i, label %37
 
@@ -9574,7 +9574,7 @@ define hidden void @_ZN17PSParallelCompact29fill_and_update_shadow_regionEP20Par
   %.not.i.i.i.i = icmp ule ptr %18, %13
   %19 = getelementptr inbounds i8, ptr %16, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = icmp ugt ptr %20, %13
+  %21 = icmp ult ptr %13, %20
   %22 = select i1 %.not.i.i.i.i, i1 %21, i1 false
   br i1 %22, label %.split.loop.exit8.i.i.i, label %23
 
@@ -9612,7 +9612,7 @@ _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i: ; preds = %23, %.
   %.not.i.i.i = icmp ule ptr %38, %13
   %39 = getelementptr inbounds i8, ptr %36, i64 48
   %40 = load ptr, ptr %39, align 8
-  %41 = icmp ugt ptr %40, %13
+  %41 = icmp ult ptr %13, %40
   %42 = select i1 %.not.i.i.i, i1 %41, i1 false
   br i1 %42, label %.split.loop.exit8.i.i, label %43
 
@@ -9655,7 +9655,7 @@ _ZN20MoveAndUpdateClosureC2EP13ParMarkBitMapm.exit: ; preds = %43, %.split.loop.
   %.not.i.i.i.i.i = icmp ule ptr %60, %55
   %61 = getelementptr inbounds i8, ptr %58, i64 48
   %62 = load ptr, ptr %61, align 8
-  %63 = icmp ugt ptr %62, %55
+  %63 = icmp ult ptr %55, %62
   %64 = select i1 %.not.i.i.i.i.i, i1 %63, i1 false
   br i1 %64, label %.split.loop.exit8.i.i.i.i, label %65
 
@@ -9693,7 +9693,7 @@ _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i.i: ; preds = %65, 
   %.not.i.i.i.i12 = icmp ule ptr %80, %55
   %81 = getelementptr inbounds i8, ptr %78, i64 48
   %82 = load ptr, ptr %81, align 8
-  %83 = icmp ugt ptr %82, %55
+  %83 = icmp ult ptr %55, %82
   %84 = select i1 %.not.i.i.i.i12, i1 %83, i1 false
   br i1 %84, label %.split.loop.exit8.i.i.i16, label %85
 
@@ -10227,11 +10227,11 @@ declare void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull a
 define linkonce_odr hidden noundef zeroext i1 @_ZN29SpanSubjectToDiscoveryClosure11do_object_bEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %.not.i = icmp ule ptr %4, %1
+  %.not.i = icmp uge ptr %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds ptr, ptr %4, i64 %6
-  %8 = icmp ugt ptr %7, %1
+  %8 = icmp ult ptr %1, %7
   %9 = select i1 %.not.i, i1 %8, i1 false
   ret i1 %9
 }
@@ -10962,7 +10962,7 @@ _ZN13psStringDedup22is_candidate_from_markEP7oopDesc.exit: ; preds = %57, %66
   %.0.i.i12 = and i32 %.0.in.i.i, 15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %68 = load i32, ptr @_ZN11StringDedup18_enabled_age_limitE, align 4
-  %69 = icmp ugt i32 %68, %.0.i.i12
+  %69 = icmp ult i32 %.0.i.i12, %68
   br i1 %69, label %70, label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread
 
 70:                                               ; preds = %_ZN13psStringDedup22is_candidate_from_markEP7oopDesc.exit
@@ -11380,7 +11380,7 @@ _ZN16java_lang_String11is_instanceEP7oopDesc.exit: ; preds = %35, %45
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %48 = icmp ne ptr %.0.i.i, %47
   %49 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i12 = icmp ugt ptr %49, %4
+  %.not.i12 = icmp ult ptr %4, %49
   %or.cond = select i1 %48, i1 true, i1 %.not.i12
   br i1 %or.cond, label %_ZN13psStringDedup22is_candidate_from_markEP7oopDesc.exit.thread, label %50
 
@@ -11408,7 +11408,7 @@ _ZN13psStringDedup22is_candidate_from_markEP7oopDesc.exit: ; preds = %50, %59
   %.0.i.i13 = and i32 %.0.in.i.i, 15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %61 = load i32, ptr @_ZN11StringDedup18_enabled_age_limitE, align 4
-  %62 = icmp ugt i32 %61, %.0.i.i13
+  %62 = icmp ult i32 %.0.i.i13, %61
   br i1 %62, label %63, label %_ZN13psStringDedup22is_candidate_from_markEP7oopDesc.exit.thread
 
 63:                                               ; preds = %_ZN13psStringDedup22is_candidate_from_markEP7oopDesc.exit
@@ -12962,7 +12962,7 @@ _ZN20ParCompactionManager5stealEiRm.exit.thread.i: ; preds = %_ZN20ParCompaction
   %.not.i.i.i.i.i.i = icmp ule ptr %58, %53
   %59 = getelementptr inbounds i8, ptr %56, i64 48
   %60 = load ptr, ptr %59, align 8
-  %61 = icmp ugt ptr %60, %53
+  %61 = icmp ult ptr %53, %60
   %62 = select i1 %.not.i.i.i.i.i.i, i1 %61, i1 false
   br i1 %62, label %.split.loop.exit8.i.i.i.i.i, label %63
 
@@ -12998,7 +12998,7 @@ _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i.i.i: ; preds = %63
   %.not.i.i.i.i.i = icmp ule ptr %76, %53
   %77 = getelementptr inbounds i8, ptr %74, i64 48
   %78 = load ptr, ptr %77, align 8
-  %79 = icmp ugt ptr %78, %53
+  %79 = icmp ult ptr %53, %78
   %80 = select i1 %.not.i.i.i.i.i, i1 %79, i1 false
   br i1 %80, label %.split.loop.exit8.i.i.i.i, label %81
 
@@ -13855,7 +13855,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -13905,7 +13905,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -13955,7 +13955,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -14049,7 +14049,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -14215,7 +14215,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -14265,7 +14265,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -14315,7 +14315,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -16494,7 +16494,7 @@ define linkonce_odr hidden void @_ZN30OopOopIterateBackwardsDispatchI21PSPushCon
   %.val.i = load ptr, ptr %18, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %32, %31
+  %.not.i.i.i.i.i = icmp ult ptr %31, %32
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %33
 
 33:                                               ; preds = %.lr.ph
@@ -17050,7 +17050,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_reverseI
   %.val.i = load ptr, ptr %19, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %33, %32
+  %.not.i.i.i.i.i = icmp ult ptr %32, %33
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %34
 
 34:                                               ; preds = %.lr.ph
@@ -17184,7 +17184,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   %.val.i.i.i = load ptr, ptr %20, align 8
   %21 = load ptr, ptr %19, align 8
   %22 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i.i.i = icmp ugt ptr %22, %21
+  %.not.i.i.i.i.i.i.i = icmp ult ptr %21, %22
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN16InstanceRefKlass38oop_oop_iterate_fields_except_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit, label %23
 
 23:                                               ; preds = %14
@@ -17334,7 +17334,7 @@ _ZN16InstanceRefKlass12try_discoverIP7oopDesc21PSPushContentsClosureEEbS2_13Refe
   %.val.i.i = load ptr, ptr %27, align 8
   %28 = load ptr, ptr %26, align 8
   %29 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %29, %28
+  %.not.i.i.i.i.i.i = icmp ult ptr %28, %29
   br i1 %.not.i.i.i.i.i.i, label %_ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit, label %30
 
 30:                                               ; preds = %_ZN16InstanceRefKlass12try_discoverIP7oopDesc21PSPushContentsClosureEEbS2_13ReferenceTypePT0_.exit.thread
@@ -17435,7 +17435,7 @@ _ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysConta
   %.val.i.i8 = load ptr, ptr %27, align 8
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i.i9 = icmp ugt ptr %81, %80
+  %.not.i.i.i.i.i.i9 = icmp ult ptr %80, %81
   br i1 %.not.i.i.i.i.i.i9, label %_ZN16InstanceRefKlass13do_discoveredIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit, label %82
 
 82:                                               ; preds = %_ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit
@@ -17543,7 +17543,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass22oop_oop_iterate_fieldsIP
   %.val.i.i = load ptr, ptr %9, align 8
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit, label %12
 
 12:                                               ; preds = %3
@@ -17644,7 +17644,7 @@ _ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysConta
   %.val.i.i6 = load ptr, ptr %9, align 8
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i.i7 = icmp ugt ptr %63, %62
+  %.not.i.i.i.i.i.i7 = icmp ult ptr %62, %63
   br i1 %.not.i.i.i.i.i.i7, label %_ZN16InstanceRefKlass13do_discoveredIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit, label %64
 
 64:                                               ; preds = %_ZN16InstanceRefKlass11do_referentIP7oopDesc21PSPushContentsClosure14AlwaysContainsEEvS2_PT0_RT1_.exit
@@ -18001,7 +18001,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_rever
   %.val.i = load ptr, ptr %18, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %32, %31
+  %.not.i.i.i.i.i = icmp ult ptr %31, %32
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %33
 
 33:                                               ; preds = %.lr.ph
@@ -18125,7 +18125,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_stati
   %.val.i = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %.08, align 8
   %16 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %16, %15
+  %.not.i.i.i.i.i = icmp ult ptr %15, %16
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %17
 
 17:                                               ; preds = %14
@@ -18459,7 +18459,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %.val.i = load ptr, ptr %18, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %32, %31
+  %.not.i.i.i.i.i = icmp ult ptr %31, %32
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %33
 
 33:                                               ; preds = %.lr.ph
@@ -18930,7 +18930,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_h
   %.val.i = load ptr, ptr %13, align 8
   %14 = load ptr, ptr %8, align 8
   %15 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %15, %14
+  %.not.i.i.i.i.i = icmp ult ptr %14, %15
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %16
 
 16:                                               ; preds = %3
@@ -19027,7 +19027,7 @@ _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; pre
   %.val.i6 = load ptr, ptr %13, align 8
   %62 = load ptr, ptr %12, align 8
   %63 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i7 = icmp ugt ptr %63, %62
+  %.not.i.i.i.i.i7 = icmp ult ptr %62, %63
   br i1 %.not.i.i.i.i.i7, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit23, label %64
 
 64:                                               ; preds = %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
@@ -19215,7 +19215,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %48, %32
   %.val.i.i = load ptr, ptr %29, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %59, %58
+  %.not.i.i.i.i.i.i = icmp ult ptr %58, %59
   br i1 %.not.i.i.i.i.i.i, label %_ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitEm.exit, label %60
 
 60:                                               ; preds = %52
@@ -19397,7 +19397,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsIP7
   %.val.i = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %.08, align 8
   %24 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %24, %23
+  %.not.i.i.i.i.i = icmp ult ptr %23, %24
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %25
 
 25:                                               ; preds = %22
@@ -19563,7 +19563,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %26, i64 %29
-  %31 = icmp ult ptr %26, %3
+  %31 = icmp ugt ptr %3, %26
   %spec.select = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
   %.040 = select i1 %32, ptr %20, ptr %30
@@ -19725,7 +19725,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %26, i64 %29
-  %31 = icmp ult ptr %26, %3
+  %31 = icmp ugt ptr %3, %26
   %spec.select = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
   %.040 = select i1 %32, ptr %20, ptr %30
@@ -19737,7 +19737,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %.val.i = load ptr, ptr %21, align 8
   %34 = load ptr, ptr %.150, align 8
   %35 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %35, %34
+  %.not.i.i.i.i.i = icmp ult ptr %34, %35
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %36
 
 36:                                               ; preds = %.lr.ph
@@ -19901,7 +19901,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds i32, ptr %27, i64 %30
-  %32 = icmp ult ptr %27, %3
+  %32 = icmp ugt ptr %3, %27
   %spec.select = select i1 %32, ptr %3, ptr %27
   %33 = icmp ugt ptr %31, %21
   %.044 = select i1 %33, ptr %21, ptr %31
@@ -20225,7 +20225,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %27, i64 %30
-  %32 = icmp ult ptr %27, %3
+  %32 = icmp ugt ptr %3, %27
   %spec.select = select i1 %32, ptr %3, ptr %27
   %33 = icmp ugt ptr %31, %21
   %.044 = select i1 %33, ptr %21, ptr %31
@@ -20237,7 +20237,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
   %.val.i = load ptr, ptr %22, align 8
   %35 = load ptr, ptr %.154, align 8
   %36 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %36, %35
+  %.not.i.i.i.i.i = icmp ult ptr %35, %36
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %37
 
 37:                                               ; preds = %.lr.ph
@@ -20436,7 +20436,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass11do_referentIP7oopDesc21P
   %.val.i = load ptr, ptr %16, align 8
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %18, %17
+  %.not.i.i.i.i.i = icmp ult ptr %17, %18
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %19
 
 19:                                               ; preds = %15
@@ -20554,7 +20554,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass13do_discoveredIP7oopDesc2
   %.val.i = load ptr, ptr %16, align 8
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %18, %17
+  %.not.i.i.i.i.i = icmp ult ptr %17, %18
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %19
 
 19:                                               ; preds = %15
@@ -20707,7 +20707,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds i32, ptr %25, i64 %28
-  %30 = icmp ult ptr %25, %3
+  %30 = icmp ugt ptr %3, %25
   %spec.select = select i1 %30, ptr %3, ptr %25
   %31 = icmp ugt ptr %29, %19
   %.048 = select i1 %31, ptr %19, ptr %29
@@ -20840,7 +20840,7 @@ _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds =
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds i32, ptr %97, i64 %99
   %101 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %102 = icmp ult ptr %97, %3
+  %102 = icmp ugt ptr %3, %97
   %spec.select.i = select i1 %102, ptr %3, ptr %97
   %103 = icmp ugt ptr %100, %101
   %.014.i = select i1 %103, ptr %101, ptr %100
@@ -20897,7 +20897,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %26, i64 %29
-  %31 = icmp ult ptr %26, %3
+  %31 = icmp ugt ptr %3, %26
   %spec.select = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
   %.048 = select i1 %32, ptr %20, ptr %30
@@ -20909,7 +20909,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %.val.i = load ptr, ptr %21, align 8
   %34 = load ptr, ptr %.164, align 8
   %35 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %35, %34
+  %.not.i.i.i.i.i = icmp ult ptr %34, %35
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %36
 
 36:                                               ; preds = %.lr.ph
@@ -21028,7 +21028,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass31oop_oop_iterate_stati
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds ptr, ptr %10, i64 %12
   %14 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %15 = icmp ult ptr %10, %3
+  %15 = icmp ugt ptr %3, %10
   %spec.select = select i1 %15, ptr %3, ptr %10
   %16 = icmp ugt ptr %13, %14
   %.014 = select i1 %16, ptr %14, ptr %13
@@ -21044,7 +21044,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass31oop_oop_iterate_stati
   %.val.i = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %.120, align 8
   %21 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %21, %20
+  %.not.i.i.i.i.i = icmp ult ptr %20, %21
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %22
 
 22:                                               ; preds = %19
@@ -21202,7 +21202,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %26, i64 %29
-  %31 = icmp ult ptr %26, %3
+  %31 = icmp ugt ptr %3, %26
   %spec.select = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
   %.044 = select i1 %32, ptr %20, ptr %30
@@ -21364,7 +21364,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %26, i64 %29
-  %31 = icmp ult ptr %26, %3
+  %31 = icmp ugt ptr %3, %26
   %spec.select = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %20
   %.044 = select i1 %32, ptr %20, ptr %30
@@ -21376,7 +21376,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
   %.val.i = load ptr, ptr %21, align 8
   %34 = load ptr, ptr %.157, align 8
   %35 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %35, %34
+  %.not.i.i.i.i.i = icmp ult ptr %34, %35
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %36
 
 36:                                               ; preds = %.lr.ph
@@ -21505,7 +21505,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %12 = sext i32 %11 to i64
   %13 = add nsw i64 %12, %7
   %14 = inttoptr i64 %13 to ptr
-  %.not.i.i.i = icmp uge ptr %10, %3
+  %.not.i.i.i = icmp ule ptr %3, %10
   %15 = getelementptr inbounds ptr, ptr %3, i64 %4
   %16 = icmp ugt ptr %15, %10
   %17 = select i1 %.not.i.i.i, i1 %16, i1 false
@@ -21518,7 +21518,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   br label %20
 
 20:                                               ; preds = %18, %5
-  %.not.i8.i.i = icmp uge ptr %14, %3
+  %.not.i8.i.i = icmp ule ptr %3, %14
   %21 = icmp ugt ptr %15, %14
   %22 = select i1 %.not.i8.i.i, i1 %21, i1 false
   br i1 %22, label %23, label %_ZN23InstanceStackChunkKlass23oop_oop_iterate_boundedI9narrowOop21PSPushContentsClosureEEvP7oopDescPT0_9MemRegion.exit
@@ -21565,7 +21565,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i64, ptr %17, i64 %31
-  %33 = icmp ult ptr %25, %3
+  %33 = icmp ugt ptr %3, %25
   %spec.select.i.i = select i1 %33, ptr %3, ptr %25
   %34 = getelementptr inbounds ptr, ptr %3, i64 %4
   %35 = icmp ult ptr %34, %32
@@ -21614,7 +21614,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i64, ptr %17, i64 %31
-  %33 = icmp ult ptr %25, %3
+  %33 = icmp ugt ptr %3, %25
   %spec.select = select i1 %33, ptr %3, ptr %25
   %34 = getelementptr inbounds ptr, ptr %3, i64 %4
   %35 = icmp ult ptr %34, %32
@@ -21713,7 +21713,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass30oop_oop_iterate_h
   %12 = sext i32 %11 to i64
   %13 = add nsw i64 %12, %7
   %14 = inttoptr i64 %13 to ptr
-  %.not.i = icmp uge ptr %10, %3
+  %.not.i = icmp ule ptr %3, %10
   %15 = getelementptr inbounds ptr, ptr %3, i64 %4
   %16 = icmp ugt ptr %15, %10
   %17 = select i1 %.not.i, i1 %16, i1 false
@@ -21724,7 +21724,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass30oop_oop_iterate_h
   %.val.i = load ptr, ptr %19, align 8
   %20 = load ptr, ptr %10, align 8
   %21 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %21, %20
+  %.not.i.i.i.i.i = icmp ult ptr %20, %21
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %22
 
 22:                                               ; preds = %18
@@ -21818,7 +21818,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN
   br label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit
 
 _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i.i.i.i, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i.i.i.i, %18, %5
-  %.not.i8 = icmp uge ptr %14, %3
+  %.not.i8 = icmp ule ptr %3, %14
   %68 = icmp ugt ptr %15, %14
   %69 = select i1 %.not.i8, i1 %68, i1 false
   br i1 %69, label %70, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit26
@@ -21828,7 +21828,7 @@ _ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit: ; pre
   %.val.i9 = load ptr, ptr %71, align 8
   %72 = load ptr, ptr %14, align 8
   %73 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i10 = icmp ugt ptr %73, %72
+  %.not.i.i.i.i.i10 = icmp ult ptr %72, %73
   br i1 %.not.i.i.i.i.i10, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit26, label %74
 
 74:                                               ; preds = %70
@@ -21955,7 +21955,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i32, ptr %17, i64 %21
-  %23 = icmp ult ptr %17, %3
+  %23 = icmp ugt ptr %3, %17
   %spec.select.i.i = select i1 %23, ptr %3, ptr %17
   %24 = icmp ugt ptr %22, %6
   %.0.i7.i = select i1 %24, ptr %6, ptr %22
@@ -22004,7 +22004,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass32oop_oop_iterate_elements_bo
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds ptr, ptr %16, i64 %20
-  %22 = icmp ult ptr %16, %3
+  %22 = icmp ugt ptr %3, %16
   %spec.select = select i1 %22, ptr %3, ptr %16
   %23 = icmp ugt ptr %21, %4
   %.0 = select i1 %23, ptr %4, ptr %21
@@ -22020,7 +22020,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass32oop_oop_iterate_elements_bo
   %.val.i = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %.121, align 8
   %28 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %28, %27
+  %.not.i.i.i.i.i = icmp ult ptr %27, %28
   br i1 %.not.i.i.i.i.i, label %_ZN13Devirtualizer6do_oopI21PSPushContentsClosureP7oopDescEEvPT_PT0_.exit, label %29
 
 29:                                               ; preds = %26
@@ -22390,7 +22390,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds i32, ptr %25, i64 %28
-  %30 = icmp ult ptr %25, %3
+  %30 = icmp ugt ptr %3, %25
   %spec.select = select i1 %30, ptr %3, ptr %25
   %31 = icmp ugt ptr %29, %20
   %.040 = select i1 %31, ptr %20, ptr %29
@@ -22473,7 +22473,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds ptr, ptr %25, i64 %28
-  %30 = icmp ult ptr %25, %3
+  %30 = icmp ugt ptr %3, %25
   %spec.select = select i1 %30, ptr %3, ptr %25
   %31 = icmp ugt ptr %29, %20
   %.040 = select i1 %31, ptr %20, ptr %29
@@ -22557,7 +22557,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %26, i64 %29
-  %31 = icmp ult ptr %26, %3
+  %31 = icmp ugt ptr %3, %26
   %spec.select.i = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %21
   %.044.i = select i1 %32, ptr %21, ptr %30
@@ -22647,7 +22647,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %26, i64 %29
-  %31 = icmp ult ptr %26, %3
+  %31 = icmp ugt ptr %3, %26
   %spec.select.i = select i1 %31, ptr %3, ptr %26
   %32 = icmp ugt ptr %30, %21
   %.044.i = select i1 %32, ptr %21, ptr %30
@@ -23262,7 +23262,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds ptr, ptr %24, i64 %27
-  %29 = icmp ult ptr %24, %3
+  %29 = icmp ugt ptr %3, %24
   %spec.select.i = select i1 %29, ptr %3, ptr %24
   %30 = icmp ugt ptr %28, %19
   %.048.i = select i1 %30, ptr %19, ptr %28
@@ -23307,7 +23307,7 @@ _ZN13Devirtualizer6do_oopI22PCAdjustPointerClosureP7oopDescEEvPT_PT0_.exit.i: ; 
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds ptr, ptr %49, i64 %51
   %53 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %54 = icmp ult ptr %49, %3
+  %54 = icmp ugt ptr %3, %49
   %spec.select.i.i = select i1 %54, ptr %3, ptr %49
   %55 = icmp ugt ptr %52, %53
   %.014.i.i = select i1 %55, ptr %53, ptr %52
@@ -23375,7 +23375,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds i32, ptr %24, i64 %27
-  %29 = icmp ult ptr %24, %3
+  %29 = icmp ugt ptr %3, %24
   %spec.select = select i1 %29, ptr %3, ptr %24
   %30 = icmp ugt ptr %28, %19
   %.048 = select i1 %30, ptr %19, ptr %28
@@ -23430,7 +23430,7 @@ _ZN13Devirtualizer6do_oopI22PCAdjustPointerClosure9narrowOopEEvPT_PT0_.exit: ; p
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i32, ptr %59, i64 %61
   %63 = getelementptr inbounds ptr, ptr %3, i64 %4
-  %64 = icmp ult ptr %59, %3
+  %64 = icmp ugt ptr %3, %59
   %spec.select.i = select i1 %64, ptr %3, ptr %59
   %65 = icmp ugt ptr %62, %63
   %.014.i = select i1 %65, ptr %63, ptr %62
@@ -23518,7 +23518,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds i32, ptr %25, i64 %28
-  %30 = icmp ult ptr %25, %3
+  %30 = icmp ugt ptr %3, %25
   %spec.select.i = select i1 %30, ptr %3, ptr %25
   %31 = icmp ugt ptr %29, %20
   %.044.i = select i1 %31, ptr %20, ptr %29
@@ -23601,7 +23601,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds ptr, ptr %25, i64 %28
-  %30 = icmp ult ptr %25, %3
+  %30 = icmp ugt ptr %3, %25
   %spec.select.i = select i1 %30, ptr %3, ptr %25
   %31 = icmp ugt ptr %29, %20
   %.044.i = select i1 %31, ptr %20, ptr %29
@@ -23663,7 +23663,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   %12 = sext i32 %11 to i64
   %13 = add nsw i64 %12, %7
   %14 = inttoptr i64 %13 to ptr
-  %.not.i.i.i = icmp uge ptr %10, %3
+  %.not.i.i.i = icmp ule ptr %3, %10
   %15 = getelementptr inbounds ptr, ptr %3, i64 %4
   %16 = icmp ugt ptr %15, %10
   %17 = select i1 %.not.i.i.i, i1 %16, i1 false
@@ -23698,7 +23698,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   br label %_ZN13Devirtualizer6do_oopI22PCAdjustPointerClosure9narrowOopEEvPT_PT0_.exit.i.i
 
 _ZN13Devirtualizer6do_oopI22PCAdjustPointerClosure9narrowOopEEvPT_PT0_.exit.i.i: ; preds = %33, %21, %18, %5
-  %.not.i8.i.i = icmp uge ptr %14, %3
+  %.not.i8.i.i = icmp ule ptr %3, %14
   %39 = icmp ugt ptr %15, %14
   %40 = select i1 %.not.i8.i.i, i1 %39, i1 false
   br i1 %40, label %41, label %_ZN23InstanceStackChunkKlass23oop_oop_iterate_boundedI9narrowOop22PCAdjustPointerClosureEEvP7oopDescPT0_9MemRegion.exit
@@ -23747,7 +23747,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   %12 = sext i32 %11 to i64
   %13 = add nsw i64 %12, %7
   %14 = inttoptr i64 %13 to ptr
-  %.not.i.i.i = icmp uge ptr %10, %3
+  %.not.i.i.i = icmp ule ptr %3, %10
   %15 = getelementptr inbounds ptr, ptr %3, i64 %4
   %16 = icmp ugt ptr %15, %10
   %17 = select i1 %.not.i.i.i, i1 %16, i1 false
@@ -23772,7 +23772,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   br label %_ZN13Devirtualizer6do_oopI22PCAdjustPointerClosureP7oopDescEEvPT_PT0_.exit.i.i
 
 _ZN13Devirtualizer6do_oopI22PCAdjustPointerClosureP7oopDescEEvPT_PT0_.exit.i.i: ; preds = %25, %21, %18, %5
-  %.not.i8.i.i = icmp uge ptr %14, %3
+  %.not.i8.i.i = icmp ule ptr %3, %14
   %29 = icmp ugt ptr %15, %14
   %30 = select i1 %.not.i8.i.i, i1 %29, i1 false
   br i1 %30, label %31, label %_ZN23InstanceStackChunkKlass23oop_oop_iterate_boundedIP7oopDesc22PCAdjustPointerClosureEEvS2_PT0_9MemRegion.exit
@@ -23831,7 +23831,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i64, ptr %17, i64 %31
-  %33 = icmp ult ptr %25, %3
+  %33 = icmp ugt ptr %3, %25
   %spec.select = select i1 %33, ptr %3, ptr %25
   %34 = getelementptr inbounds ptr, ptr %3, i64 %4
   %35 = icmp ult ptr %34, %32
@@ -23976,7 +23976,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i64, ptr %17, i64 %31
-  %33 = icmp ult ptr %25, %3
+  %33 = icmp ugt ptr %3, %25
   %spec.select = select i1 %33, ptr %3, ptr %25
   %34 = getelementptr inbounds ptr, ptr %3, i64 %4
   %35 = icmp ult ptr %34, %32
@@ -24109,7 +24109,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i32, ptr %17, i64 %21
-  %23 = icmp ult ptr %17, %3
+  %23 = icmp ugt ptr %3, %17
   %spec.select.i.i = select i1 %23, ptr %3, ptr %17
   %24 = icmp ugt ptr %22, %6
   %.0.i7.i = select i1 %24, ptr %6, ptr %22
@@ -24174,7 +24174,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPoi
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds ptr, ptr %17, i64 %21
-  %23 = icmp ult ptr %17, %3
+  %23 = icmp ugt ptr %3, %17
   %spec.select.i.i = select i1 %23, ptr %3, ptr %17
   %24 = icmp ugt ptr %22, %6
   %.0.i7.i = select i1 %24, ptr %6, ptr %22

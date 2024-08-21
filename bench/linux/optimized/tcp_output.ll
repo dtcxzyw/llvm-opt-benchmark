@@ -1566,7 +1566,7 @@ define dso_local i32 @tcp_mss_to_mtu(ptr nocapture noundef readonly %0, i32 noun
   %3 = getelementptr inbounds i8, ptr %0, i64 1436
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i32
-  %6 = add i32 %5, %1
+  %6 = add i32 %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 1214
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
@@ -1907,7 +1907,7 @@ define dso_local void @tcp_chrono_start(ptr nocapture noundef %0, i32 noundef %1
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 3
   %6 = zext nneg i8 %5 to i32
-  %7 = icmp ult i32 %6, %1
+  %7 = icmp ugt i32 %1, %6
   br i1 %7, label %8, label %29
 
 8:                                                ; preds = %2
@@ -1994,7 +1994,7 @@ define dso_local void @tcp_chrono_stop(ptr noundef %0, i32 noundef %1) local_unn
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 3
   %37 = zext nneg i8 %36 to i32
-  %38 = icmp eq i32 %37, %1
+  %38 = icmp eq i32 %1, %37
   br i1 %38, label %39, label %58
 
 39:                                               ; preds = %33
@@ -2961,7 +2961,7 @@ define internal fastcc zeroext i1 @tcp_write_xmit(ptr noundef %0, i32 noundef %1
   %393 = getelementptr inbounds i8, ptr %345, i64 50
   %394 = load i16, ptr %393, align 2
   %395 = zext i16 %394 to i32
-  %396 = icmp eq i32 %395, %1
+  %396 = icmp eq i32 %1, %395
   br i1 %396, label %.thread56, label %397
 
 397:                                              ; preds = %392, %389
@@ -3599,7 +3599,7 @@ tcp_event_new_data_sent.exit:                     ; preds = %813, %816
   %824 = load i32, ptr %823, align 8
   %825 = load i16, ptr %807, align 8
   %826 = zext i16 %825 to i32
-  %827 = mul i32 %826, %1
+  %827 = mul i32 %1, %826
   %828 = icmp ult i32 %824, %827
   br i1 %828, label %829, label %831
 
@@ -10138,7 +10138,7 @@ define internal fastcc void @tcp_init_tso_segs(ptr nocapture noundef %0, i32 nou
   %6 = getelementptr inbounds i8, ptr %0, i64 50
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
-  %9 = icmp eq i32 %8, %1
+  %9 = icmp eq i32 %1, %8
   br i1 %9, label %23, label %10
 
 10:                                               ; preds = %5, %2

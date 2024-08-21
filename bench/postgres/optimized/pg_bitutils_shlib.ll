@@ -67,7 +67,7 @@ define i64 @pg_popcount(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %4 = add i64 %3, 7
   %5 = and i64 %4, -8
   %6 = inttoptr i64 %5 to ptr
-  %7 = icmp eq ptr %6, %0
+  %7 = icmp eq ptr %0, %6
   %8 = icmp sgt i32 %1, 7
   %or.cond = and i1 %7, %8
   br i1 %or.cond, label %.lr.ph, label %.loopexit

@@ -2476,7 +2476,7 @@ define hidden void @_ZN8rawspeed7TiffIFDC2EPS0_PNS_11NORangesSetINS_6BufferEEENS
   %41 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %4, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %7, i64 16
-  %43 = icmp ult i32 %9, %5
+  %43 = icmp ugt i32 %5, %9
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %39

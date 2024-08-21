@@ -3035,12 +3035,12 @@ Vec_IntInvert.exit:                               ; preds = %32, %1, %Vec_IntFil
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr i8, ptr %37, i64 24
   %.val = load i32, ptr %38, align 8
-  %.not.i11 = icmp slt i32 %35, %.val
+  %.not.i11 = icmp sgt i32 %.val, %35
   br i1 %.not.i11, label %39, label %Vec_IntFillExtra.exit
 
 39:                                               ; preds = %Vec_IntInvert.exit
   %40 = shl nsw i32 %34, 1
-  %41 = icmp slt i32 %40, %.val
+  %41 = icmp sgt i32 %.val, %40
   %.not.i.i = icmp slt i32 %34, %.val
   br i1 %41, label %42, label %50
 

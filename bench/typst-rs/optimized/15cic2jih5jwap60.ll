@@ -374,11 +374,11 @@ define { ptr, i64 } @_ZN12typst_syntax6source6Source3get17h66c768170a343c24E(ptr
   br i1 %10, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i", label %11
 
 11:                                               ; preds = %9
-  %.not.i.i = icmp ugt i64 %8, %1
+  %.not.i.i = icmp ult i64 %1, %8
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i", label %12
 
 12:                                               ; preds = %11
-  %13 = icmp eq i64 %8, %1
+  %13 = icmp eq i64 %1, %8
   br i1 %13, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i", label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hfeefebb92e499d25E.exit"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i": ; preds = %11
@@ -392,11 +392,11 @@ define { ptr, i64 } @_ZN12typst_syntax6source6Source3get17h66c768170a343c24E(ptr
   br i1 %17, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.thread.i", label %18
 
 18:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i"
-  %.not.i5.i = icmp ugt i64 %8, %2
+  %.not.i5.i = icmp ult i64 %2, %8
   br i1 %.not.i5.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i", label %19
 
 19:                                               ; preds = %18
-  %20 = icmp eq i64 %8, %2
+  %20 = icmp eq i64 %2, %8
   br i1 %20, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.thread.i", label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hfeefebb92e499d25E.exit"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i": ; preds = %18
@@ -595,7 +595,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source7replace17h736cdb1f6f08da8cE
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit48.thread": ; preds = %59, %63, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit48"
   %68 = sub i64 %2, %.036
-  %69 = icmp eq i64 %.036, %2
+  %69 = icmp eq i64 %2, %.036
   br i1 %69, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit51.thread", label %70
 
 70:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit48.thread"
@@ -699,7 +699,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source4edit17h5c4e916e908c5c9fE(pt
   %21 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds i8, ptr %21, i64 48
   %23 = load i64, ptr %22, align 16, !noalias !102, !noundef !4
-  %.not.i = icmp ult i64 %23, %1
+  %.not.i = icmp ugt i64 %1, %23
   br i1 %.not.i, label %42, label %24
 
 24:                                               ; preds = %20
@@ -1053,7 +1053,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source4edit17h5c4e916e908c5c9fE(pt
   %151 = add i64 %.sroa.3.0.i.ph, 1
   %152 = getelementptr inbounds i8, ptr %146, i64 128
   %153 = load i64, ptr %152, align 8, !noundef !4
-  %154 = icmp ult i64 %153, %151
+  %154 = icmp ugt i64 %151, %153
   br i1 %154, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h3973f417a8ac25efE.exit", label %155
 
 155:                                              ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17hf2c3ebd4735dac83E.exit"
@@ -1070,11 +1070,11 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source4edit17h5c4e916e908c5c9fE(pt
   br i1 %159, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17h0d90cbd1dccd8bcdE.exit", label %160
 
 160:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h3973f417a8ac25efE.exit"
-  %.not.i.i.i = icmp ugt i64 %.val6, %1
+  %.not.i.i.i = icmp ult i64 %1, %.val6
   br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", label %161
 
 161:                                              ; preds = %160
-  %162 = icmp eq i64 %.val6, %1
+  %162 = icmp eq i64 %1, %.val6
   br i1 %162, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17haa2f68bef91f2564E.exit", label %166
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i": ; preds = %160
@@ -1097,11 +1097,11 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source4edit17h5c4e916e908c5c9fE(pt
   br i1 %or.cond, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h75bb4cbd9f169fadE.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hde9c5b21068e8fc7E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h75bb4cbd9f169fadE.exit": ; preds = %231, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hde9c5b21068e8fc7E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17haa2f68bef91f2564E.exit"
-  %.not.i.i.i10 = icmp ugt i64 %.val6, %1
+  %.not.i.i.i10 = icmp ult i64 %1, %.val6
   br i1 %.not.i.i.i10, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i11", label %170
 
 170:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h75bb4cbd9f169fadE.exit"
-  %171 = icmp eq i64 %.val6, %1
+  %171 = icmp eq i64 %1, %.val6
   %172 = sub i64 %.val6, %1
   br i1 %171, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17h0d90cbd1dccd8bcdE.exit", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hed0867ec8f33457eE.exit.thread.i"
 
@@ -1515,7 +1515,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source13byte_to_utf1617hfd39dcaf65
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load i64, ptr %4, align 16, !noundef !4
-  %.not.i = icmp ult i64 %5, %1
+  %.not.i = icmp ugt i64 %1, %5
   br i1 %.not.i, label %.thread, label %6
 
 6:                                                ; preds = %2
@@ -1583,7 +1583,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source13byte_to_utf1617hfd39dcaf65
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i", %30
   %35 = icmp ne i64 %1, 0
-  %.not.i5.i = icmp ugt i64 %5, %1
+  %.not.i5.i = icmp ult i64 %1, %5
   %or.cond37 = and i1 %35, %.not.i5.i
   br i1 %or.cond37, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i", label %39
 
@@ -1597,7 +1597,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source13byte_to_utf1617hfd39dcaf65
   %40 = getelementptr inbounds i8, ptr %26, i64 8
   %41 = load i64, ptr %40, align 8, !noundef !4
   %42 = getelementptr inbounds i8, ptr %28, i64 %1
-  %43 = icmp eq i64 %29, %1
+  %43 = icmp eq i64 %1, %29
   br i1 %43, label %_ZN12typst_syntax6source9len_utf1617he72a4ecdd7455af4E.exit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %39
@@ -1686,7 +1686,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source12byte_to_line17h149d40b12fd
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load i64, ptr %4, align 16, !noundef !4
-  %.not = icmp ult i64 %5, %1
+  %.not = icmp ugt i64 %1, %5
   br i1 %.not, label %"_ZN12typst_syntax6source6Source12byte_to_line28_$u7b$$u7b$closure$u7d$$u7d$17h90cab4c8a5745757E.exit", label %6
 
 6:                                                ; preds = %2
@@ -1740,7 +1740,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source14byte_to_column17h931e4d614
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load i64, ptr %4, align 16, !noalias !4, !noundef !4
-  %.not.i = icmp ult i64 %5, %1
+  %.not.i = icmp ugt i64 %1, %5
   br i1 %.not.i, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hb7e61b61a4501cf1E.exit", label %6
 
 6:                                                ; preds = %2
@@ -1783,7 +1783,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source14byte_to_column17h931e4d614
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h2e45823114784fb4E.exit.i.i"
   %.sroa.3.0.i.ph = phi i64 [ %23, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h2e45823114784fb4E.exit.i.i" ], [ %12, %.lr.ph.i.i.i.i ]
-  %24 = icmp ugt i64 %10, %.sroa.3.0.i.ph
+  %24 = icmp ult i64 %.sroa.3.0.i.ph, %10
   br i1 %24, label %25, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hb7e61b61a4501cf1E.exit"
 
 25:                                               ; preds = %.loopexit
@@ -1796,7 +1796,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source14byte_to_column17h931e4d614
 
 30:                                               ; preds = %25
   %31 = icmp ne i64 %27, 0
-  %.not.i.i.i = icmp ugt i64 %5, %27
+  %.not.i.i.i = icmp ult i64 %27, %5
   %or.cond = and i1 %31, %.not.i.i.i
   br i1 %or.cond, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i.i"
 
@@ -1808,7 +1808,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source14byte_to_column17h931e4d614
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", %30
   %35 = icmp ne i64 %1, 0
-  %.not.i5.i.i = icmp ugt i64 %5, %1
+  %.not.i5.i.i = icmp ult i64 %1, %5
   %or.cond34 = and i1 %35, %.not.i5.i.i
   br i1 %or.cond34, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i.i", label %39
 
@@ -2023,7 +2023,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source12line_to_byte17hb1010177ae2
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %3, i64 128
   %5 = load i64, ptr %4, align 16, !noundef !4
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %2
@@ -2046,7 +2046,7 @@ define void @_ZN12typst_syntax6source6Source13line_to_range17h5cbfb48723cea6e1E(
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 128
   %6 = load i64, ptr %5, align 16, !noalias !4, !noundef !4
-  %7 = icmp ugt i64 %6, %2
+  %7 = icmp ult i64 %2, %6
   br i1 %7, label %8, label %_ZN12typst_syntax6source6Source12line_to_byte17hb1010177ae24fae7E.exit.thread
 
 8:                                                ; preds = %3
@@ -2055,7 +2055,7 @@ define void @_ZN12typst_syntax6source6Source13line_to_range17h5cbfb48723cea6e1E(
   %11 = getelementptr inbounds { i64, i64 }, ptr %10, i64 %2
   %12 = load i64, ptr %11, align 8, !noalias !360, !noundef !4
   %13 = add nuw i64 %2, 1
-  %14 = icmp ugt i64 %6, %13
+  %14 = icmp ult i64 %13, %6
   %15 = getelementptr inbounds i8, ptr %4, i64 48
   %16 = getelementptr inbounds { i64, i64 }, ptr %10, i64 %13
   %.in = select i1 %14, ptr %16, ptr %15
@@ -2077,7 +2077,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source19line_column_to_byte17h6f3f
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 128
   %6 = load i64, ptr %5, align 16, !noalias !363, !noundef !4
-  %7 = icmp ugt i64 %6, %1
+  %7 = icmp ult i64 %1, %6
   br i1 %7, label %8, label %_ZN12typst_syntax6source6Source3get17h66c768170a343c24E.exit.thread
 
 8:                                                ; preds = %3
@@ -2086,7 +2086,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source19line_column_to_byte17h6f3f
   %11 = getelementptr inbounds { i64, i64 }, ptr %10, i64 %1
   %12 = load i64, ptr %11, align 8, !noalias !367, !noundef !4
   %13 = add nuw i64 %1, 1
-  %14 = icmp ugt i64 %6, %13
+  %14 = icmp ult i64 %13, %6
   %15 = getelementptr inbounds i8, ptr %4, i64 48
   %16 = getelementptr inbounds { i64, i64 }, ptr %10, i64 %13
   %.in.i = select i1 %14, ptr %16, ptr %15
@@ -2102,11 +2102,11 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source19line_column_to_byte17h6f3f
   br i1 %22, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i.i", label %23
 
 23:                                               ; preds = %21
-  %.not.i.i.i = icmp ugt i64 %20, %12
+  %.not.i.i.i = icmp ult i64 %12, %20
   br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", label %24
 
 24:                                               ; preds = %23
-  %25 = icmp eq i64 %20, %12
+  %25 = icmp eq i64 %12, %20
   br i1 %25, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i.i", label %_ZN12typst_syntax6source6Source3get17h66c768170a343c24E.exit.thread
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i": ; preds = %23
@@ -2120,11 +2120,11 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source19line_column_to_byte17h6f3f
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i.i"
-  %.not.i5.i.i = icmp ugt i64 %20, %17
+  %.not.i5.i.i = icmp ult i64 %17, %20
   br i1 %.not.i5.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i.i", label %31
 
 31:                                               ; preds = %30
-  %32 = icmp eq i64 %20, %17
+  %32 = icmp eq i64 %17, %20
   br i1 %32, label %36, label %_ZN12typst_syntax6source6Source3get17h66c768170a343c24E.exit.thread
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i.i": ; preds = %30

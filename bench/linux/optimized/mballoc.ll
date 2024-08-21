@@ -3267,7 +3267,7 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
   %113 = icmp ult i8 %112, 2
   call void @llvm.assume(i1 %113)
   %114 = icmp eq i8 %112, 0
-  %115 = xor i1 %114, %2
+  %115 = xor i1 %2, %114
   %116 = zext i1 %115 to i32
   %117 = add i32 %101, %116
   %118 = add nuw i32 %100, 1
@@ -10507,7 +10507,7 @@ define dso_local void @ext4_free_blocks(ptr noundef %0, ptr noundef %1, ptr noun
 97:                                               ; preds = %94
   %98 = sub i32 %88, %92
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %99, %4
+  %100 = icmp ugt i64 %4, %99
   br i1 %100, label %101, label %592
 
 101:                                              ; preds = %97
@@ -11771,7 +11771,7 @@ define internal fastcc void @mb_free_blocks(ptr noundef readonly %0, ptr nocaptu
 189:                                              ; preds = %186
   %190 = xor i1 %55, true
   %191 = zext i1 %190 to i32
-  %192 = add i32 %191, %2
+  %192 = add i32 %2, %191
   %193 = select i1 %55, i32 -1, i32 1
   %194 = load ptr, ptr %32, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 128

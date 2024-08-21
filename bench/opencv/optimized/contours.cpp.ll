@@ -482,7 +482,7 @@ define internal fastcc noundef ptr @_ZL24cvStartFindContours_ImplPvP12CvMemStora
 61:                                               ; preds = %45
   %62 = icmp eq i32 %4, 0
   %63 = select i1 %62, i32 104, i32 128
-  %64 = icmp sgt i32 %63, %2
+  %64 = icmp slt i32 %2, %63
   br i1 %64, label %65, label %72
 
 65:                                               ; preds = %61
@@ -3258,7 +3258,7 @@ _Z21findStartContourPointPh6CvSizei.exit.i:       ; preds = %.lr.ph.i.i
   %137 = getelementptr inbounds i8, ptr %.0217441.i, i64 8
   store ptr %136, ptr %137, align 8
   %138 = add nsw i32 %121, 1
-  %139 = icmp sgt i32 %.val304372.i, %138
+  %139 = icmp slt i32 %138, %.val304372.i
   br i1 %139, label %.lr.ph.preheader.i324.i, label %_Z19findEndContourPointPh6CvSizei.exit.i
 
 .lr.ph.preheader.i324.i:                          ; preds = %127
@@ -3443,7 +3443,7 @@ _Z21findStartContourPointPh6CvSizei.exit346.i:    ; preds = %.lr.ph.i339.i
   %206 = getelementptr inbounds i8, ptr %.2219444.i, i64 8
   store ptr %205, ptr %206, align 8
   %207 = add nsw i32 %190, 1
-  %208 = icmp sgt i32 %.val304372.i, %207
+  %208 = icmp slt i32 %207, %.val304372.i
   br i1 %208, label %.lr.ph.preheader.i353.i, label %_Z19findEndContourPointPh6CvSizei.exit361.i
 
 .lr.ph.preheader.i353.i:                          ; preds = %196

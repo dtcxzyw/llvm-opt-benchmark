@@ -485,7 +485,7 @@ select.unfold28:                                  ; preds = %192, %198
   %210 = load ptr, ptr %209, align 8
   %211 = icmp ne ptr %210, %209
   %212 = sub i32 0, %4
-  %213 = icmp slt i32 %212, %5
+  %213 = icmp sgt i32 %5, %212
   %214 = and i1 %211, %213
   br i1 %214, label %.preheader.split.us.preheader, label %.thread40
 
@@ -494,7 +494,7 @@ select.unfold28:                                  ; preds = %192, %198
   %216 = load ptr, ptr %215, align 8
   %217 = icmp ne ptr %216, %215
   %218 = sub i32 0, %4
-  %219 = icmp slt i32 %218, %5
+  %219 = icmp sgt i32 %5, %218
   %220 = and i1 %217, %219
   br i1 %220, label %.preheader.split.preheader, label %.thread40
 

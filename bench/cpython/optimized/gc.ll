@@ -356,7 +356,7 @@ declare void @PyUnstable_GC_VisitObjects(ptr noundef, ptr noundef) local_unnamed
 define internal range(i32 0, 2) i32 @gc_visit_callback_basic(ptr noundef readnone %obj, ptr nocapture noundef %arg) #2 {
 entry:
   %0 = load ptr, ptr %arg, align 8
-  %cmp = icmp eq ptr %0, %obj
+  %cmp = icmp eq ptr %obj, %0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry

@@ -199,9 +199,9 @@ rb_float_new_inline.exit:                         ; preds = %20, %24, %26
 52:                                               ; preds = %30
   %53 = fmul double %1, 0x400921FB54442D18
   %54 = tail call double @cos(double noundef %53) #15
-  %55 = fmul double %54, %0
+  %55 = fmul double %0, %54
   %56 = tail call double @sin(double noundef %53) #15
-  %57 = fmul double %56, %0
+  %57 = fmul double %0, %56
   %58 = bitcast double %55 to i64
   %cond.i24 = icmp eq i64 %58, 3458764513820540928
   br i1 %cond.i24, label %70, label %59
@@ -8611,7 +8611,7 @@ declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @safe_mul(i64 noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %.not = xor i1 %3, true
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %RB_FLOAT_TYPE_P.exit.thread28, label %5
 
 5:                                                ; preds = %4
@@ -8666,7 +8666,7 @@ rb_float_value_inline.exit.thread:                ; preds = %17, %rb_float_value
 RB_FLOAT_TYPE_P.exit.thread28:                    ; preds = %rb_float_value_inline.exit.thread, %8, %4, %rb_float_value_inline.exit, %RB_FLOAT_TYPE_P.exit
   %.0 = phi i64 [ %0, %4 ], [ %0, %rb_float_value_inline.exit ], [ %0, %RB_FLOAT_TYPE_P.exit ], [ %0, %8 ], [ %spec.select, %rb_float_value_inline.exit.thread ]
   %.not14 = xor i1 %2, true
-  %brmerge15 = or i1 %.not14, %3
+  %brmerge15 = or i1 %3, %.not14
   br i1 %brmerge15, label %RB_FLOAT_TYPE_P.exit20.thread33, label %30
 
 30:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread28

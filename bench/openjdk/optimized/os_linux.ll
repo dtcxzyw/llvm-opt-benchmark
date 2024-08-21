@@ -1800,7 +1800,7 @@ define hidden noundef zeroext i1 @_ZN2os5Linux21manually_expand_stackEP10JavaThr
   %13 = getelementptr inbounds i8, ptr %0, i64 824
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ugt ptr %14, %1
-  %16 = icmp ule ptr %12, %1
+  %16 = icmp uge ptr %1, %12
   %spec.select.i.i = and i1 %16, %15
   br i1 %spec.select.i.i, label %17, label %21
 
@@ -2240,7 +2240,7 @@ _ZN2os5Linux12sched_getcpuEv.exit.i:              ; preds = %11
 
 18:                                               ; preds = %14
   %19 = load i32, ptr %15, align 4
-  %20 = icmp sgt i32 %19, %13
+  %20 = icmp slt i32 %13, %19
   br i1 %20, label %_ZN2os5Linux15get_node_by_cpuEi.exit.i, label %_ZN2os5Linux12sched_getcpuEv.exit.thread.i
 
 _ZN2os5Linux15get_node_by_cpuEi.exit.i:           ; preds = %18
@@ -2614,7 +2614,7 @@ _ZN2os5Linux12sched_getcpuEv.exit.i:              ; preds = %16
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %20, align 4
-  %25 = icmp sgt i32 %24, %18
+  %25 = icmp slt i32 %18, %24
   br i1 %25, label %_ZN2os5Linux15get_node_by_cpuEi.exit.i, label %_ZN2os5Linux12sched_getcpuEv.exit.thread.i
 
 _ZN2os5Linux15get_node_by_cpuEi.exit.i:           ; preds = %23
@@ -2676,7 +2676,7 @@ _ZN2os20is_primordial_threadEv.exit:              ; preds = %35
   %52 = getelementptr inbounds i8, ptr %0, i64 824
   %53 = load ptr, ptr %52, align 8
   %54 = icmp ugt ptr %53, %49
-  %55 = icmp ule ptr %51, %43
+  %55 = icmp uge ptr %43, %51
   %spec.select.i.i.i = and i1 %55, %54
   br i1 %spec.select.i.i.i, label %56, label %_ZN2os5Linux21manually_expand_stackEP10JavaThreadPh.exit
 
@@ -2744,7 +2744,7 @@ _ZN2os5Linux12sched_getcpuEv.exit:                ; preds = %0
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %4, align 4
-  %9 = icmp sgt i32 %8, %2
+  %9 = icmp slt i32 %2, %8
   br i1 %9, label %_ZN2os5Linux15get_node_by_cpuEi.exit, label %_ZN2os5Linux12sched_getcpuEv.exit.thread
 
 _ZN2os5Linux15get_node_by_cpuEi.exit:             ; preds = %7
@@ -3912,7 +3912,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %55 = sub i64 %54, %48
   %56 = and i64 %55, %47
   %57 = load ptr, ptr @g_assert_poison, align 8
-  %.not.i.i = icmp eq ptr %57, %41
+  %.not.i.i = icmp eq ptr %41, %57
   br i1 %.not.i.i, label %_ZN2os12guard_memoryEPcm.exit, label %58
 
 58:                                               ; preds = %35
@@ -3957,7 +3957,7 @@ define hidden noundef zeroext i1 @_ZN2os12guard_memoryEPcm(ptr noundef %0, i64 n
   %11 = sub i64 %10, %6
   %12 = and i64 %11, %5
   %13 = load ptr, ptr @g_assert_poison, align 8
-  %.not.i = icmp eq ptr %13, %0
+  %.not.i = icmp eq ptr %0, %13
   br i1 %.not.i, label %_ZL14linux_mprotectPcmi.exit, label %14
 
 14:                                               ; preds = %2
@@ -5671,7 +5671,7 @@ _ZN2os5Linux29should_madvise_anonymous_thpsEv.exit: ; preds = %3
   %6 = tail call noundef i32 @_ZNK10THPSupport4modeEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZN9HugePages12_thp_supportE) #26
   %7 = icmp eq i32 %6, 2
   %8 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = select i1 %7, i1 %9, i1 false
   br i1 %or.cond, label %10, label %_ZN2os5Linux29should_madvise_anonymous_thpsEv.exit.thread
 
@@ -5702,7 +5702,7 @@ define hidden noundef zeroext i1 @_ZN2os5Linux29should_madvise_anonymous_thpsEv(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2os14pd_free_memoryEPcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %.not = icmp ult i64 %4, %2
+  %.not = icmp ugt i64 %2, %4
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %3
@@ -5851,7 +5851,7 @@ define hidden noundef i32 @_ZN2os5Linux15get_node_by_cpuEi(i32 noundef %0) local
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %2, align 4
-  %7 = icmp sgt i32 %6, %0
+  %7 = icmp slt i32 %0, %6
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %5
@@ -6387,7 +6387,7 @@ _ZN2os5Linux13numa_max_nodeEv.exit:               ; preds = %0
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread
-  %storemerge5 = phi i32 [ %35, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread ], [ 0, %_ZN2os5Linux13numa_max_nodeEv.exit ]
+  %storemerge5 = phi i32 [ %33, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread ], [ 0, %_ZN2os5Linux13numa_max_nodeEv.exit ]
   %5 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
   %6 = icmp ne ptr %5, null
   %7 = load ptr, ptr @_ZN2os5Linux15_numa_nodes_ptrE, align 8
@@ -6418,31 +6418,30 @@ _ZN2os5Linux25is_node_in_existing_nodesEj.exit:   ; preds = %.lr.ph, %9
 19:                                               ; preds = %13
   %20 = add nsw i32 %15, 1
   %21 = icmp sgt i32 %15, -1
-  %22 = xor i32 %15, -2147483648
-  %23 = and i32 %22, %20
-  %24 = icmp eq i32 %23, 0
-  %25 = and i1 %21, %24
-  %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
-  %27 = sub nuw nsw i32 32, %26
-  %28 = shl nuw i32 1, %27
-  %.0.i.i.i.i = select i1 %25, i32 %20, i32 %28
+  %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
+  %23 = icmp ult i32 %22, 2
+  %or.cond.i.i.i.i = select i1 %21, i1 %23, i1 false
+  %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
+  %25 = sub nuw nsw i32 32, %24
+  %26 = shl nuw i32 1, %25
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %20, i32 %26
   tail call void @_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %14, align 8
   br label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = %13, %19
-  %29 = phi i32 [ %.pre.i, %19 ], [ %15, %13 ]
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %14, align 8
-  %31 = getelementptr inbounds i8, ptr %14, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = sext i32 %29 to i64
-  %34 = getelementptr inbounds i32, ptr %32, i64 %33
-  store i32 %storemerge5, ptr %34, align 4
+  %27 = phi i32 [ %.pre.i, %19 ], [ %15, %13 ]
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %14, align 8
+  %29 = getelementptr inbounds i8, ptr %14, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = sext i32 %27 to i64
+  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  store i32 %storemerge5, ptr %32, align 4
   br label %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread
 
 _ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread: ; preds = %9, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit
-  %35 = add nuw i32 %storemerge5, 1
+  %33 = add nuw i32 %storemerge5, 1
   %exitcond.not = icmp eq i32 %storemerge5, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
@@ -6461,61 +6460,60 @@ define hidden void @_ZN2os5Linux23rebuild_cpu_to_node_mapEv() local_unnamed_addr
   store i32 0, ptr %6, align 4
   %7 = load ptr, ptr @_ZN2os5Linux12_cpu_to_nodeE, align 8
   %8 = load i32, ptr %7, align 8
-  %.not.i.not = icmp slt i32 %8, %2
+  %.not.i.not = icmp sgt i32 %2, %8
   br i1 %.not.i.not, label %9, label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE7at_growEiRKi.exit
 
 9:                                                ; preds = %0
   %10 = getelementptr inbounds i8, ptr %7, i64 4
   %11 = load i32, ptr %10, align 4
-  %.not11.i.not = icmp slt i32 %11, %2
-  br i1 %.not11.i.not, label %12, label %21
+  %.not11.i.not = icmp sgt i32 %2, %11
+  br i1 %.not11.i.not, label %12, label %19
 
 12:                                               ; preds = %9
   %13 = icmp sgt i32 %2, 0
-  %14 = add i32 %2, 2147483647
-  %15 = and i32 %14, %2
-  %16 = icmp eq i32 %15, 0
-  %17 = and i1 %13, %16
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2, i1 true)
-  %19 = sub nuw nsw i32 32, %18
-  %20 = shl nuw i32 1, %19
-  %.0.i.i.i.i = select i1 %17, i32 %2, i32 %20
+  %14 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %2)
+  %15 = icmp ult i32 %14, 2
+  %or.cond.i.i.i.i = select i1 %13, i1 %15, i1 false
+  %16 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2, i1 true)
+  %17 = sub nuw nsw i32 32, %16
+  %18 = shl nuw i32 1, %17
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %2, i32 %18
   tail call void @_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %7, align 8
-  br label %21
+  br label %19
 
-21:                                               ; preds = %12, %9
-  %22 = phi i32 [ %.pre.i, %12 ], [ %8, %9 ]
-  %.not1213.i.not = icmp slt i32 %22, %2
+19:                                               ; preds = %12, %9
+  %20 = phi i32 [ %.pre.i, %12 ], [ %8, %9 ]
+  %.not1213.i.not = icmp slt i32 %20, %2
   br i1 %.not1213.i.not, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
-  %24 = sext i32 %22 to i64
-  br label %25
+.lr.ph.i:                                         ; preds = %19
+  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = sext i32 %20 to i64
+  br label %23
 
-25:                                               ; preds = %25, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %24, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
-  %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv.i
-  store i32 0, ptr %27, align 4
+23:                                               ; preds = %23, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %22, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
+  %24 = load ptr, ptr %21, align 8
+  %25 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.i
+  store i32 0, ptr %25, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %2, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %25, !llvm.loop !37
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %23, !llvm.loop !37
 
-._crit_edge.i:                                    ; preds = %25, %21
+._crit_edge.i:                                    ; preds = %23, %19
   store i32 %2, ptr %7, align 8
   br label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE7at_growEiRKi.exit
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE7at_growEiRKi.exit: ; preds = %0, %._crit_edge.i
-  %28 = load ptr, ptr @_ZN2os5Linux14_numa_max_nodeE, align 8
-  %.not.i.i = icmp eq ptr %28, null
+  %26 = load ptr, ptr @_ZN2os5Linux14_numa_max_nodeE, align 8
+  %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZN2os5Linux22get_existing_num_nodesEv.exit.thread, label %_ZN2os5Linux13numa_max_nodeEv.exit.i
 
 _ZN2os5Linux13numa_max_nodeEv.exit.i:             ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE7at_growEiRKi.exit
-  %29 = tail call noundef i32 %28() #26
-  %.not9.i = icmp slt i32 %29, 0
+  %27 = tail call noundef i32 %26() #26
+  %.not9.i = icmp slt i32 %27, 0
   br i1 %.not9.i, label %_ZN2os5Linux22get_existing_num_nodesEv.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit.i
@@ -6524,108 +6522,108 @@ _ZN2os5Linux13numa_max_nodeEv.exit.i:             ; preds = %_ZN26GrowableArrayW
   br label %.lr.ph.i50
 
 .lr.ph.i50:                                       ; preds = %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i, %.lr.ph.preheader.i
-  %30 = phi ptr [ %39, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i ], [ %.pre14.i, %.lr.ph.preheader.i ]
-  %31 = phi ptr [ %40, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i ], [ %.pre12.i, %.lr.ph.preheader.i ]
-  %.011.i = phi i32 [ %41, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i ], [ 0, %.lr.ph.preheader.i ]
-  %.0610.i = phi i32 [ %42, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i ], [ 0, %.lr.ph.preheader.i ]
-  %32 = icmp ne ptr %31, null
-  %33 = icmp ne ptr %30, null
-  %or.cond.i.i = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond.i.i, label %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i, label %34
+  %28 = phi ptr [ %37, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i ], [ %.pre14.i, %.lr.ph.preheader.i ]
+  %29 = phi ptr [ %38, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i ], [ %.pre12.i, %.lr.ph.preheader.i ]
+  %.011.i = phi i32 [ %39, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i ], [ 0, %.lr.ph.preheader.i ]
+  %.0610.i = phi i32 [ %40, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i ], [ 0, %.lr.ph.preheader.i ]
+  %30 = icmp ne ptr %29, null
+  %31 = icmp ne ptr %28, null
+  %or.cond.i.i = select i1 %30, i1 %31, i1 false
+  br i1 %or.cond.i.i, label %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i, label %32
 
-34:                                               ; preds = %.lr.ph.i50
-  %35 = load ptr, ptr @_ZN2os5Linux19_numa_all_nodes_ptrE, align 8
-  %36 = icmp ne ptr %35, null
-  %or.cond3.i.i = select i1 %32, i1 %36, i1 false
+32:                                               ; preds = %.lr.ph.i50
+  %33 = load ptr, ptr @_ZN2os5Linux19_numa_all_nodes_ptrE, align 8
+  %34 = icmp ne ptr %33, null
+  %or.cond3.i.i = select i1 %30, i1 %34, i1 false
   br i1 %or.cond3.i.i, label %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i, label %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i
 
-_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i: ; preds = %34, %.lr.ph.i50
-  %.sink8.i.i = phi ptr [ %30, %.lr.ph.i50 ], [ %35, %34 ]
-  %37 = tail call noundef i32 %31(ptr noundef nonnull %.sink8.i.i, i32 noundef %.0610.i) #26
-  %.not8.i = icmp ne i32 %37, 0
-  %38 = zext i1 %.not8.i to i32
-  %spec.select.i = add nsw i32 %.011.i, %38
+_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i: ; preds = %32, %.lr.ph.i50
+  %.sink8.i.i = phi ptr [ %28, %.lr.ph.i50 ], [ %33, %32 ]
+  %35 = tail call noundef i32 %29(ptr noundef nonnull %.sink8.i.i, i32 noundef %.0610.i) #26
+  %.not8.i = icmp ne i32 %35, 0
+  %36 = zext i1 %.not8.i to i32
+  %spec.select.i = add nsw i32 %.011.i, %36
   %.pre.i53 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
   %.pre13.i = load ptr, ptr @_ZN2os5Linux15_numa_nodes_ptrE, align 8
   br label %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i
 
-_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i: ; preds = %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i, %34
-  %39 = phi ptr [ %30, %34 ], [ %.pre13.i, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i ]
-  %40 = phi ptr [ %31, %34 ], [ %.pre.i53, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i ]
-  %41 = phi i32 [ %.011.i, %34 ], [ %spec.select.i, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i ]
-  %42 = add nuw i32 %.0610.i, 1
-  %exitcond.not.i51 = icmp eq i32 %.0610.i, %29
+_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i: ; preds = %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i, %32
+  %37 = phi ptr [ %28, %32 ], [ %.pre13.i, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i ]
+  %38 = phi ptr [ %29, %32 ], [ %.pre.i53, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i ]
+  %39 = phi i32 [ %.011.i, %32 ], [ %spec.select.i, %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.i ]
+  %40 = add nuw i32 %.0610.i, 1
+  %exitcond.not.i51 = icmp eq i32 %.0610.i, %27
   br i1 %exitcond.not.i51, label %_ZN2os5Linux22get_existing_num_nodesEv.exit, label %.lr.ph.i50, !llvm.loop !33
 
 _ZN2os5Linux22get_existing_num_nodesEv.exit.thread: ; preds = %_ZN2os5Linux13numa_max_nodeEv.exit.i, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE7at_growEiRKi.exit
-  %43 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 4096, i8 noundef zeroext 9, i32 noundef 0) #26
+  %41 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 4096, i8 noundef zeroext 9, i32 noundef 0) #26
   br label %._crit_edge
 
 _ZN2os5Linux22get_existing_num_nodesEv.exit:      ; preds = %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread.i
-  %44 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 4096, i8 noundef zeroext 9, i32 noundef 0) #26
-  %45 = icmp sgt i32 %41, 0
-  br i1 %45, label %.lr.ph92, label %._crit_edge
+  %42 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 4096, i8 noundef zeroext 9, i32 noundef 0) #26
+  %43 = icmp sgt i32 %39, 0
+  br i1 %43, label %.lr.ph92, label %._crit_edge
 
 .lr.ph92:                                         ; preds = %_ZN2os5Linux22get_existing_num_nodesEv.exit
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
-  %47 = icmp slt i32 %2, 1
+  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = icmp slt i32 %2, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count107 = zext nneg i32 %41 to i64
+  %wide.trip.count107 = zext nneg i32 %39 to i64
   %wide.trip.count102 = zext nneg i32 %smax to i64
-  br label %48
+  br label %46
 
-48:                                               ; preds = %.lr.ph92, %.loopexit82
+46:                                               ; preds = %.lr.ph92, %.loopexit82
   %indvars.iv104 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next105, %.loopexit82 ]
   %.06790 = phi i32 [ 0, %.lr.ph92 ], [ %.3, %.loopexit82 ]
-  %49 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
+  %47 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
+  %48 = icmp ne ptr %47, null
+  %49 = load ptr, ptr @_ZN2os5Linux19_numa_all_nodes_ptrE, align 8
   %50 = icmp ne ptr %49, null
-  %51 = load ptr, ptr @_ZN2os5Linux19_numa_all_nodes_ptrE, align 8
-  %52 = icmp ne ptr %51, null
-  %or.cond.i = select i1 %50, i1 %52, i1 false
+  %or.cond.i = select i1 %48, i1 %50, i1 false
   br i1 %or.cond.i, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit, label %.lr.ph.preheader
 
-_ZN2os5Linux27is_node_in_configured_nodesEj.exit: ; preds = %48
-  %53 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv104
-  %57 = load i32, ptr %56, align 4
-  %58 = call noundef i32 %49(ptr noundef nonnull %51, i32 noundef %57) #26
-  %.not75 = icmp eq i32 %58, 0
-  br i1 %.not75, label %.lr.ph.preheader, label %59
+_ZN2os5Linux27is_node_in_configured_nodesEj.exit: ; preds = %46
+  %51 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv104
+  %55 = load i32, ptr %54, align 4
+  %56 = call noundef i32 %47(ptr noundef nonnull %49, i32 noundef %55) #26
+  %.not75 = icmp eq i32 %56, 0
+  br i1 %.not75, label %.lr.ph.preheader, label %57
 
-59:                                               ; preds = %_ZN2os5Linux27is_node_in_configured_nodesEj.exit
-  %60 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv104
-  %64 = load i32, ptr %63, align 4
-  %65 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
-  %.not.i54 = icmp eq ptr %65, null
-  br i1 %.not.i54, label %.lr.ph.preheader, label %66
+57:                                               ; preds = %_ZN2os5Linux27is_node_in_configured_nodesEj.exit
+  %58 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv104
+  %62 = load i32, ptr %61, align 4
+  %63 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
+  %.not.i54 = icmp eq ptr %63, null
+  br i1 %.not.i54, label %.lr.ph.preheader, label %64
 
-66:                                               ; preds = %59
-  %67 = load i32, ptr @_ZN2os5Linux20_current_numa_policyE, align 4
-  %68 = icmp eq i32 %67, 2
-  br i1 %68, label %69, label %72
+64:                                               ; preds = %57
+  %65 = load i32, ptr @_ZN2os5Linux20_current_numa_policyE, align 4
+  %66 = icmp eq i32 %65, 2
+  br i1 %66, label %67, label %70
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr @_ZN2os5Linux24_numa_interleave_bitmaskE, align 8
-  %71 = call noundef i32 %65(ptr noundef %70, i32 noundef %64) #26
-  %.not77 = icmp eq i32 %71, 0
-  br i1 %.not77, label %.lr.ph.preheader, label %121
+67:                                               ; preds = %64
+  %68 = load ptr, ptr @_ZN2os5Linux24_numa_interleave_bitmaskE, align 8
+  %69 = call noundef i32 %63(ptr noundef %68, i32 noundef %62) #26
+  %.not77 = icmp eq i32 %69, 0
+  br i1 %.not77, label %.lr.ph.preheader, label %119
 
-72:                                               ; preds = %66
-  %73 = load ptr, ptr @_ZN2os5Linux21_numa_membind_bitmaskE, align 8
-  %.not3.i = icmp eq ptr %73, null
+70:                                               ; preds = %64
+  %71 = load ptr, ptr @_ZN2os5Linux21_numa_membind_bitmaskE, align 8
+  %.not3.i = icmp eq ptr %71, null
   br i1 %.not3.i, label %.lr.ph.preheader, label %_ZN2os5Linux22is_node_in_bound_nodesEi.exit
 
-_ZN2os5Linux22is_node_in_bound_nodesEi.exit:      ; preds = %72
-  %74 = call noundef i32 %65(ptr noundef nonnull %73, i32 noundef %64) #26
-  %.not76 = icmp eq i32 %74, 0
-  br i1 %.not76, label %.lr.ph.preheader, label %121
+_ZN2os5Linux22is_node_in_bound_nodesEi.exit:      ; preds = %70
+  %72 = call noundef i32 %63(ptr noundef nonnull %71, i32 noundef %62) #26
+  %.not76 = icmp eq i32 %72, 0
+  br i1 %.not76, label %.lr.ph.preheader, label %119
 
-.lr.ph.preheader:                                 ; preds = %_ZN2os5Linux27is_node_in_configured_nodesEj.exit, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit, %69, %48, %72, %59
+.lr.ph.preheader:                                 ; preds = %_ZN2os5Linux27is_node_in_configured_nodesEj.exit, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit, %67, %46, %70, %57
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread
@@ -6633,175 +6631,175 @@ _ZN2os5Linux22is_node_in_bound_nodesEi.exit:      ; preds = %72
   %.04385 = phi i32 [ %.1, %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread ], [ 2147483647, %.lr.ph.preheader ]
   %.16884 = phi i32 [ %.2, %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread ], [ %.06790, %.lr.ph.preheader ]
   %.not = icmp eq i64 %indvars.iv, %indvars.iv104
-  br i1 %.not, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, label %75
+  br i1 %.not, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, label %73
 
-75:                                               ; preds = %.lr.ph
-  %76 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
+73:                                               ; preds = %.lr.ph
+  %74 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
+  %75 = icmp ne ptr %74, null
+  %76 = load ptr, ptr @_ZN2os5Linux19_numa_all_nodes_ptrE, align 8
   %77 = icmp ne ptr %76, null
-  %78 = load ptr, ptr @_ZN2os5Linux19_numa_all_nodes_ptrE, align 8
-  %79 = icmp ne ptr %78, null
-  %or.cond.i56 = select i1 %77, i1 %79, i1 false
+  %or.cond.i56 = select i1 %75, i1 %77, i1 false
   br i1 %or.cond.i56, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread
 
-_ZN2os5Linux27is_node_in_configured_nodesEj.exit58: ; preds = %75
-  %80 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv
-  %84 = load i32, ptr %83, align 4
-  %85 = call noundef i32 %76(ptr noundef nonnull %78, i32 noundef %84) #26
-  %.not78 = icmp eq i32 %85, 0
-  br i1 %.not78, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, label %86
+_ZN2os5Linux27is_node_in_configured_nodesEj.exit58: ; preds = %73
+  %78 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv
+  %82 = load i32, ptr %81, align 4
+  %83 = call noundef i32 %74(ptr noundef nonnull %76, i32 noundef %82) #26
+  %.not78 = icmp eq i32 %83, 0
+  br i1 %.not78, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, label %84
 
-86:                                               ; preds = %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58
-  %87 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv
-  %91 = load i32, ptr %90, align 4
-  %92 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
-  %.not.i59 = icmp eq ptr %92, null
-  br i1 %.not.i59, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, label %93
+84:                                               ; preds = %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58
+  %85 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv
+  %89 = load i32, ptr %88, align 4
+  %90 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
+  %.not.i59 = icmp eq ptr %90, null
+  br i1 %.not.i59, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, label %91
 
-93:                                               ; preds = %86
-  %94 = load i32, ptr @_ZN2os5Linux20_current_numa_policyE, align 4
-  %95 = icmp eq i32 %94, 2
-  br i1 %95, label %96, label %99
+91:                                               ; preds = %84
+  %92 = load i32, ptr @_ZN2os5Linux20_current_numa_policyE, align 4
+  %93 = icmp eq i32 %92, 2
+  br i1 %93, label %94, label %97
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr @_ZN2os5Linux24_numa_interleave_bitmaskE, align 8
-  %98 = call noundef i32 %92(ptr noundef %97, i32 noundef %91) #26
-  %.not80 = icmp eq i32 %98, 0
-  br i1 %.not80, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, label %102
+94:                                               ; preds = %91
+  %95 = load ptr, ptr @_ZN2os5Linux24_numa_interleave_bitmaskE, align 8
+  %96 = call noundef i32 %90(ptr noundef %95, i32 noundef %89) #26
+  %.not80 = icmp eq i32 %96, 0
+  br i1 %.not80, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, label %100
 
-99:                                               ; preds = %93
-  %100 = load ptr, ptr @_ZN2os5Linux21_numa_membind_bitmaskE, align 8
-  %.not3.i60 = icmp eq ptr %100, null
+97:                                               ; preds = %91
+  %98 = load ptr, ptr @_ZN2os5Linux21_numa_membind_bitmaskE, align 8
+  %.not3.i60 = icmp eq ptr %98, null
   br i1 %.not3.i60, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, label %_ZN2os5Linux22is_node_in_bound_nodesEi.exit62
 
-_ZN2os5Linux22is_node_in_bound_nodesEi.exit62:    ; preds = %99
-  %101 = call noundef i32 %92(ptr noundef nonnull %100, i32 noundef %91) #26
-  %.not79 = icmp eq i32 %101, 0
-  br i1 %.not79, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, label %102
+_ZN2os5Linux22is_node_in_bound_nodesEi.exit62:    ; preds = %97
+  %99 = call noundef i32 %90(ptr noundef nonnull %98, i32 noundef %89) #26
+  %.not79 = icmp eq i32 %99, 0
+  br i1 %.not79, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, label %100
 
-102:                                              ; preds = %96, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit62
-  %103 = load ptr, ptr @_ZN2os5Linux14_numa_distanceE, align 8
-  %.not.i63 = icmp eq ptr %103, null
-  br i1 %.not.i63, label %_ZN2os5Linux13numa_distanceEii.exit, label %104
+100:                                              ; preds = %94, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit62
+  %101 = load ptr, ptr @_ZN2os5Linux14_numa_distanceE, align 8
+  %.not.i63 = icmp eq ptr %101, null
+  br i1 %.not.i63, label %_ZN2os5Linux13numa_distanceEii.exit, label %102
 
-104:                                              ; preds = %102
-  %105 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i32, ptr %107, i64 %indvars.iv
+102:                                              ; preds = %100
+  %103 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds i32, ptr %105, i64 %indvars.iv
+  %107 = load i32, ptr %106, align 4
+  %108 = getelementptr inbounds i32, ptr %105, i64 %indvars.iv104
   %109 = load i32, ptr %108, align 4
-  %110 = getelementptr inbounds i32, ptr %107, i64 %indvars.iv104
-  %111 = load i32, ptr %110, align 4
-  %112 = call noundef i32 %103(i32 noundef %111, i32 noundef %109) #26
+  %110 = call noundef i32 %101(i32 noundef %109, i32 noundef %107) #26
   br label %_ZN2os5Linux13numa_distanceEii.exit
 
-_ZN2os5Linux13numa_distanceEii.exit:              ; preds = %102, %104
-  %113 = phi i32 [ %112, %104 ], [ -1, %102 ]
-  %.not46 = icmp ne i32 %113, 0
-  %114 = icmp slt i32 %113, %.04385
-  %or.cond = select i1 %.not46, i1 %114, i1 false
-  br i1 %or.cond, label %115, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread
+_ZN2os5Linux13numa_distanceEii.exit:              ; preds = %100, %102
+  %111 = phi i32 [ %110, %102 ], [ -1, %100 ]
+  %.not46 = icmp ne i32 %111, 0
+  %112 = icmp slt i32 %111, %.04385
+  %or.cond = select i1 %.not46, i1 %112, i1 false
+  br i1 %or.cond, label %113, label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread
 
-115:                                              ; preds = %_ZN2os5Linux13numa_distanceEii.exit
-  %116 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv
-  %120 = load i32, ptr %119, align 4
+113:                                              ; preds = %_ZN2os5Linux13numa_distanceEii.exit
+  %114 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
+  %115 = getelementptr inbounds i8, ptr %114, i64 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i32, ptr %116, i64 %indvars.iv
+  %118 = load i32, ptr %117, align 4
   br label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread
 
-_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread: ; preds = %86, %99, %75, %96, %.lr.ph, %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit62, %115, %_ZN2os5Linux13numa_distanceEii.exit
-  %.2 = phi i32 [ %.16884, %.lr.ph ], [ %120, %115 ], [ %.16884, %_ZN2os5Linux13numa_distanceEii.exit ], [ %.16884, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit62 ], [ %.16884, %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58 ], [ %.16884, %96 ], [ %.16884, %75 ], [ %.16884, %99 ], [ %.16884, %86 ]
-  %.1 = phi i32 [ %.04385, %.lr.ph ], [ %113, %115 ], [ %.04385, %_ZN2os5Linux13numa_distanceEii.exit ], [ %.04385, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit62 ], [ %.04385, %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58 ], [ %.04385, %96 ], [ %.04385, %75 ], [ %.04385, %99 ], [ %.04385, %86 ]
+_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread: ; preds = %84, %97, %73, %94, %.lr.ph, %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit62, %113, %_ZN2os5Linux13numa_distanceEii.exit
+  %.2 = phi i32 [ %.16884, %.lr.ph ], [ %118, %113 ], [ %.16884, %_ZN2os5Linux13numa_distanceEii.exit ], [ %.16884, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit62 ], [ %.16884, %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58 ], [ %.16884, %94 ], [ %.16884, %73 ], [ %.16884, %97 ], [ %.16884, %84 ]
+  %.1 = phi i32 [ %.04385, %.lr.ph ], [ %111, %113 ], [ %.04385, %_ZN2os5Linux13numa_distanceEii.exit ], [ %.04385, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit62 ], [ %.04385, %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58 ], [ %.04385, %94 ], [ %.04385, %73 ], [ %.04385, %97 ], [ %.04385, %84 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count107
   br i1 %exitcond.not, label %.loopexit83, label %.lr.ph, !llvm.loop !38
 
-121:                                              ; preds = %69, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit
-  %122 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 8
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i32, ptr %124, i64 %indvars.iv104
-  %126 = load i32, ptr %125, align 4
+119:                                              ; preds = %67, %_ZN2os5Linux22is_node_in_bound_nodesEi.exit
+  %120 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds i32, ptr %122, i64 %indvars.iv104
+  %124 = load i32, ptr %123, align 4
   br label %.loopexit83
 
-.loopexit83:                                      ; preds = %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, %121
-  %.3 = phi i32 [ %126, %121 ], [ %.2, %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread ]
-  %127 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i32, ptr %129, i64 %indvars.iv104
-  %131 = load i32, ptr %130, align 4
+.loopexit83:                                      ; preds = %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread, %119
+  %.3 = phi i32 [ %124, %119 ], [ %.2, %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread ]
+  %125 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds i32, ptr %127, i64 %indvars.iv104
+  %129 = load i32, ptr %128, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  %132 = load ptr, ptr @_ZN2os5Linux21_numa_node_to_cpus_v2E, align 8
-  %.not.i64 = icmp eq ptr %132, null
-  br i1 %.not.i64, label %135, label %133
+  %130 = load ptr, ptr @_ZN2os5Linux21_numa_node_to_cpus_v2E, align 8
+  %.not.i64 = icmp eq ptr %130, null
+  br i1 %.not.i64, label %133, label %131
 
-133:                                              ; preds = %.loopexit83
-  store ptr %44, ptr %46, align 8
+131:                                              ; preds = %.loopexit83
+  store ptr %42, ptr %44, align 8
   store i64 32768, ptr %1, align 8
-  %134 = call noundef i32 %132(i32 noundef %131, ptr noundef nonnull %1) #26
+  %132 = call noundef i32 %130(i32 noundef %129, ptr noundef nonnull %1) #26
   br label %_ZN2os5Linux17numa_node_to_cpusEiPmi.exit
 
-135:                                              ; preds = %.loopexit83
-  %136 = load ptr, ptr @_ZN2os5Linux18_numa_node_to_cpusE, align 8
-  %.not7.i = icmp eq ptr %136, null
-  br i1 %.not7.i, label %_ZN2os5Linux17numa_node_to_cpusEiPmi.exit.thread, label %137
+133:                                              ; preds = %.loopexit83
+  %134 = load ptr, ptr @_ZN2os5Linux18_numa_node_to_cpusE, align 8
+  %.not7.i = icmp eq ptr %134, null
+  br i1 %.not7.i, label %_ZN2os5Linux17numa_node_to_cpusEiPmi.exit.thread, label %135
 
-_ZN2os5Linux17numa_node_to_cpusEiPmi.exit.thread: ; preds = %135
+_ZN2os5Linux17numa_node_to_cpusEiPmi.exit.thread: ; preds = %133
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   br label %.loopexit82
 
-137:                                              ; preds = %135
-  %138 = call noundef i32 %136(i32 noundef %131, ptr noundef %44, i32 noundef 4096) #26
+135:                                              ; preds = %133
+  %136 = call noundef i32 %134(i32 noundef %129, ptr noundef %42, i32 noundef 4096) #26
   br label %_ZN2os5Linux17numa_node_to_cpusEiPmi.exit
 
-_ZN2os5Linux17numa_node_to_cpusEiPmi.exit:        ; preds = %133, %137
-  %.0.i65 = phi i32 [ %134, %133 ], [ %138, %137 ]
+_ZN2os5Linux17numa_node_to_cpusEiPmi.exit:        ; preds = %131, %135
+  %.0.i65 = phi i32 [ %132, %131 ], [ %136, %135 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   %.not47 = icmp eq i32 %.0.i65, -1
-  %brmerge = or i1 %.not47, %47
+  %brmerge = or i1 %.not47, %45
   br i1 %brmerge, label %.loopexit82, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %_ZN2os5Linux17numa_node_to_cpusEiPmi.exit, %.loopexit
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.loopexit ], [ 0, %_ZN2os5Linux17numa_node_to_cpusEiPmi.exit ]
-  %139 = getelementptr inbounds i64, ptr %44, i64 %indvars.iv99
-  %140 = load i64, ptr %139, align 8
-  %.not48 = icmp eq i64 %140, 0
+  %137 = getelementptr inbounds i64, ptr %42, i64 %indvars.iv99
+  %138 = load i64, ptr %137, align 8
+  %.not48 = icmp eq i64 %138, 0
   br i1 %.not48, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph89
   %.idx = shl nsw i64 %indvars.iv99, 8
-  br label %141
+  br label %139
 
-141:                                              ; preds = %.preheader, %151
-  %indvars.iv95 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next96, %151 ]
-  %142 = load i64, ptr %139, align 8
-  %143 = shl nuw i64 1, %indvars.iv95
-  %144 = and i64 %142, %143
-  %.not49 = icmp eq i64 %144, 0
-  br i1 %.not49, label %151, label %145
+139:                                              ; preds = %.preheader, %149
+  %indvars.iv95 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next96, %149 ]
+  %140 = load i64, ptr %137, align 8
+  %141 = shl nuw i64 1, %indvars.iv95
+  %142 = and i64 %140, %141
+  %.not49 = icmp eq i64 %142, 0
+  br i1 %.not49, label %149, label %143
 
-145:                                              ; preds = %141
-  %146 = load ptr, ptr @_ZN2os5Linux12_cpu_to_nodeE, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i32, ptr %148, i64 %indvars.iv95
-  %150 = getelementptr inbounds i8, ptr %149, i64 %.idx
-  store i32 %.3, ptr %150, align 4
-  br label %151
+143:                                              ; preds = %139
+  %144 = load ptr, ptr @_ZN2os5Linux12_cpu_to_nodeE, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 8
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds i32, ptr %146, i64 %indvars.iv95
+  %148 = getelementptr inbounds i8, ptr %147, i64 %.idx
+  store i32 %.3, ptr %148, align 4
+  br label %149
 
-151:                                              ; preds = %141, %145
+149:                                              ; preds = %139, %143
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 64
-  br i1 %exitcond98.not, label %.loopexit, label %141, !llvm.loop !39
+  br i1 %exitcond98.not, label %.loopexit, label %139, !llvm.loop !39
 
-.loopexit:                                        ; preds = %151, %.lr.ph89
+.loopexit:                                        ; preds = %149, %.lr.ph89
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
   br i1 %exitcond103.not, label %.loopexit82, label %.lr.ph89, !llvm.loop !40
@@ -6809,11 +6807,11 @@ _ZN2os5Linux17numa_node_to_cpusEiPmi.exit:        ; preds = %133, %137
 .loopexit82:                                      ; preds = %.loopexit, %_ZN2os5Linux17numa_node_to_cpusEiPmi.exit, %_ZN2os5Linux17numa_node_to_cpusEiPmi.exit.thread
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %._crit_edge, label %48, !llvm.loop !41
+  br i1 %exitcond108.not, label %._crit_edge, label %46, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.loopexit82, %_ZN2os5Linux22get_existing_num_nodesEv.exit.thread, %_ZN2os5Linux22get_existing_num_nodesEv.exit
-  %152 = phi ptr [ %43, %_ZN2os5Linux22get_existing_num_nodesEv.exit.thread ], [ %44, %_ZN2os5Linux22get_existing_num_nodesEv.exit ], [ %44, %.loopexit82 ]
-  call void @_Z8FreeHeapPv(ptr noundef %152) #26
+  %150 = phi ptr [ %41, %_ZN2os5Linux22get_existing_num_nodesEv.exit.thread ], [ %42, %_ZN2os5Linux22get_existing_num_nodesEv.exit ], [ %42, %.loopexit82 ]
+  call void @_Z8FreeHeapPv(ptr noundef %150) #26
   ret void
 }
 
@@ -7122,7 +7120,7 @@ switch.lookup:                                    ; preds = %4
   %17 = sub i64 %16, %12
   %18 = and i64 %17, %11
   %19 = load ptr, ptr @g_assert_poison, align 8
-  %.not.i = icmp eq ptr %19, %0
+  %.not.i = icmp eq ptr %0, %19
   br i1 %.not.i, label %_ZL14linux_mprotectPcmi.exit, label %20
 
 20:                                               ; preds = %switch.lookup
@@ -7153,7 +7151,7 @@ define hidden noundef zeroext i1 @_ZN2os14unguard_memoryEPcm(ptr noundef %0, i64
   %11 = sub i64 %10, %6
   %12 = and i64 %11, %5
   %13 = load ptr, ptr @g_assert_poison, align 8
-  %.not.i = icmp eq ptr %13, %0
+  %.not.i = icmp eq ptr %0, %13
   br i1 %.not.i, label %_ZL14linux_mprotectPcmi.exit, label %14
 
 14:                                               ; preds = %2
@@ -7599,7 +7597,7 @@ _Z24exact_unit_for_byte_sizem.exit62:             ; preds = %_Z24exact_unit_for_
   %191 = call i64 @_ZNK23ExplicitHugePageSupport9pagesizesEv(ptr noundef nonnull align 8 dereferenceable(25) @_ZN9HugePages26_explicit_hugepage_supportE) #26
   store i64 %191, ptr %2, align 8
   %192 = call noundef i64 @_ZNK23ExplicitHugePageSupport21default_hugepage_sizeEv(ptr noundef nonnull align 8 dereferenceable(25) @_ZN9HugePages26_explicit_hugepage_supportE) #26
-  %.not.i.i = icmp eq i64 %192, %.018
+  %.not.i.i = icmp eq i64 %.018, %192
   %193 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.018, i1 true)
   %194 = trunc nuw nsw i64 %193 to i32
   %195 = shl nuw i32 %194, 26
@@ -7665,7 +7663,7 @@ _Z24exact_unit_for_byte_sizem.exit.i:             ; preds = %213, %_Z23byte_size
 .lr.ph.i:                                         ; preds = %218, %247
   %.050.i = phi i64 [ %248, %247 ], [ %219, %218 ]
   %222 = call noundef i64 @_ZNK23ExplicitHugePageSupport21default_hugepage_sizeEv(ptr noundef nonnull align 8 dereferenceable(25) @_ZN9HugePages26_explicit_hugepage_supportE) #26
-  %.not.i27.i = icmp eq i64 %222, %.050.i
+  %.not.i27.i = icmp eq i64 %.050.i, %222
   %223 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.050.i, i1 true)
   %224 = trunc nuw nsw i64 %223 to i32
   %225 = shl nuw i32 %224, 26
@@ -8112,9 +8110,9 @@ _ZL17anon_mmap_alignedPcmm.exit.i:                ; preds = %66, %55, %53, %22
 
 68:                                               ; preds = %_ZL17anon_mmap_alignedPcmm.exit.i
   %69 = sub i64 0, %2
-  %70 = and i64 %69, %0
+  %70 = and i64 %0, %69
   %71 = tail call fastcc noundef zeroext i1 @_ZL21commit_memory_specialmmPcb(i64 noundef %70, i64 noundef %2, ptr noundef nonnull %.045.i.i, i1 noundef zeroext %4)
-  %72 = icmp eq i64 %70, %0
+  %72 = icmp eq i64 %0, %70
   %or.cond.i = and i1 %72, %71
   br i1 %or.cond.i, label %_ZL33reserve_memory_special_huge_tlbfsmmmPcb.exit, label %73
 
@@ -10032,7 +10030,7 @@ define hidden noundef i32 @_ZN2os13get_core_pathEPcm(ptr noundef %0, i64 noundef
 
 48:                                               ; preds = %46
   %49 = zext nneg i32 %.053 to i64
-  %50 = icmp ult i64 %49, %1
+  %50 = icmp ugt i64 %1, %49
   %or.cond7 = and i1 %.not, %50
   %51 = load i8, ptr %3, align 16
   %52 = icmp ne i8 %51, 124
@@ -10255,7 +10253,7 @@ define hidden void @_ZN2os21print_memory_mappingsEPcmP12outputStream(ptr noundef
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = ptrtoint ptr %0 to i64
-  %8 = add i64 %7, %1
+  %8 = add i64 %1, %7
   %9 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull @.str.264, ptr noundef nonnull @.str.6) #26
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %28, label %10
@@ -10917,12 +10915,12 @@ declare noundef i32 @_ZNK15ShmemTHPSupport4modeEv(ptr noundef nonnull align 4 de
 define internal fastcc noundef zeroext i1 @_ZL21commit_memory_specialmmPcb(i64 noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = select i1 %3, i32 7, i32 3
   %6 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %4
   %9 = tail call noundef i64 @_ZNK23ExplicitHugePageSupport21default_hugepage_sizeEv(ptr noundef nonnull align 8 dereferenceable(25) @_ZN9HugePages26_explicit_hugepage_supportE) #26
-  %.not.i = icmp eq i64 %9, %1
+  %.not.i = icmp eq i64 %1, %9
   %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
   %11 = trunc nuw nsw i64 %10 to i32
   %12 = shl nuw i32 %11, 26
@@ -12444,6 +12442,9 @@ declare i32 @llvm.smin.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #24

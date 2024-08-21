@@ -141,7 +141,7 @@ if.then:                                          ; preds = %cond.end39
 if.then48:                                        ; preds = %if.then
   %6 = ashr i16 %5, 7
   %shr50 = sext i16 %6 to i32
-  %add51 = add nsw i32 %shr50, %c
+  %add51 = add nsw i32 %c, %shr50
   br label %return
 
 if.else:                                          ; preds = %cond.end39
@@ -295,7 +295,7 @@ if.then:                                          ; preds = %cond.end39
 if.then48:                                        ; preds = %if.then
   %6 = ashr i16 %5, 7
   %shr50 = sext i16 %6 to i32
-  %add51 = add nsw i32 %shr50, %c
+  %add51 = add nsw i32 %c, %shr50
   br label %return
 
 if.else:                                          ; preds = %cond.end39
@@ -457,7 +457,7 @@ if.then:                                          ; preds = %cond.end39
 if.then48:                                        ; preds = %if.then
   %6 = ashr i16 %5, 7
   %shr50 = sext i16 %6 to i32
-  %add51 = add nsw i32 %shr50, %c
+  %add51 = add nsw i32 %c, %shr50
   br label %return
 
 if.else:                                          ; preds = %cond.end39
@@ -632,7 +632,7 @@ if.then52:                                        ; preds = %if.then
   %add53 = getelementptr inbounds i8, ptr %sa, i64 8
   %7 = load ptr, ptr %add53, align 8
   %8 = load ptr, ptr %sa, align 8
-  %add54 = add nsw i32 %shr50, %c
+  %add54 = add nsw i32 %c, %shr50
   tail call void %7(ptr noundef %8, i32 noundef %add54)
   br label %if.end283
 
@@ -975,7 +975,7 @@ if.then52:                                        ; preds = %if.then
   %add53 = getelementptr inbounds i8, ptr %sa, i64 8
   %7 = load ptr, ptr %add53, align 8
   %8 = load ptr, ptr %sa, align 8
-  %add54 = add nsw i32 %shr50, %c
+  %add54 = add nsw i32 %c, %shr50
   tail call void %7(ptr noundef %8, i32 noundef %add54)
   br label %if.end279
 
@@ -2249,7 +2249,7 @@ if.then:                                          ; preds = %cond.end39
 if.then48:                                        ; preds = %if.then
   %5 = ashr i16 %4, 7
   %shr50 = sext i16 %5 to i32
-  %add51 = add nsw i32 %shr50, %c
+  %add51 = add nsw i32 %c, %shr50
   br label %if.end234
 
 if.else:                                          ; preds = %cond.end39
@@ -2903,7 +2903,7 @@ if.then:                                          ; preds = %cond.end39
 if.then48:                                        ; preds = %if.then
   %6 = ashr i16 %5, 7
   %shr50 = sext i16 %6 to i32
-  %add51 = add nsw i32 %shr50, %c
+  %add51 = add nsw i32 %c, %shr50
   br label %if.end236
 
 if.else:                                          ; preds = %cond.end39
@@ -3257,7 +3257,7 @@ if.then:                                          ; preds = %cond.end39
 if.then48:                                        ; preds = %if.then
   %6 = ashr i16 %5, 7
   %shr50 = sext i16 %6 to i32
-  %add51 = add nsw i32 %shr50, %c
+  %add51 = add nsw i32 %c, %shr50
   br label %return
 
 if.else:                                          ; preds = %cond.end39
@@ -3460,7 +3460,7 @@ if.then:                                          ; preds = %cond.end39
 if.then48:                                        ; preds = %if.then
   %6 = ashr i16 %5, 7
   %shr50 = sext i16 %6 to i32
-  %add51 = add nsw i32 %shr50, %c
+  %add51 = add nsw i32 %c, %shr50
   br label %if.end214
 
 if.else:                                          ; preds = %cond.end39

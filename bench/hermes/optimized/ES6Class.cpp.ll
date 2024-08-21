@@ -30679,7 +30679,7 @@ entry:
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i56 = getelementptr inbounds ptr, ptr %0, i64 %conv.i
-  %cmp = icmp eq ptr %add.ptr.i56, %I
+  %cmp = icmp eq ptr %I, %add.ptr.i56
   %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %1, %2
@@ -30762,7 +30762,7 @@ _ZSt13move_backwardIPPN6hermes6ESTree4NodeES4_ET0_T_S6_S5_.exit: ; preds = %if.e
   %cmp18.not = icmp ugt ptr %I.addr.0, %Elt
   %conv.i27 = zext i32 %add to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 %conv.i27
-  %cmp20 = icmp ugt ptr %add.ptr.i, %Elt
+  %cmp20 = icmp ult ptr %Elt, %add.ptr.i
   %spec.select.idx = select i1 %cmp20, i64 8, i64 0
   %EltPtr.0.idx = select i1 %cmp18.not, i64 0, i64 %spec.select.idx
   %EltPtr.0 = getelementptr inbounds i8, ptr %Elt, i64 %EltPtr.0.idx

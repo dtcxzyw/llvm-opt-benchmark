@@ -1129,7 +1129,7 @@ define internal fastcc void @debugFindParent(ptr nocapture noundef readonly %0, 
   %.pre41 = ptrtoint ptr %.pre to i64
   %29 = and i64 %.pre41, -2
   %30 = inttoptr i64 %29 to ptr
-  %31 = icmp eq ptr %30, %1
+  %31 = icmp eq ptr %1, %30
   %or.cond = select i1 %28, i1 true, i1 %31
   br i1 %or.cond, label %.lr.ph._crit_edge, label %39
 

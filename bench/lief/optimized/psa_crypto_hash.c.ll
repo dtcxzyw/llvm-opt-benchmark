@@ -396,7 +396,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %15
 
 15:                                               ; preds = %14, %12
-  %16 = icmp ugt i64 %13, %2
+  %16 = icmp ult i64 %2, %13
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %15

@@ -355,7 +355,7 @@ define noundef zeroext i1 @_ZN12b2BroadPhase13QueryCallbackEi(ptr nocapture noun
 entry:
   %m_queryProxyId = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_queryProxyId, align 8
-  %cmp = icmp eq i32 %0, %proxyId
+  %cmp = icmp eq i32 %proxyId, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -365,7 +365,7 @@ if.end:                                           ; preds = %entry
   %moved.i = getelementptr inbounds %struct.b2TreeNode, ptr %1, i64 %idxprom.i, i32 6
   %2 = load i8, ptr %moved.i, align 8
   %tobool.i = trunc i8 %2 to i1
-  %cmp3 = icmp slt i32 %0, %proxyId
+  %cmp3 = icmp sgt i32 %proxyId, %0
   %or.cond = and i1 %cmp3, %tobool.i
   br i1 %or.cond, label %return, label %if.end5
 

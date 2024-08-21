@@ -116,7 +116,7 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   br label %H5O__pline_decode.exit.thread
 
 26:                                               ; preds = %18
-  %27 = icmp ult ptr %.ptr186.i, %5
+  %27 = icmp ugt ptr %5, %.ptr186.i
   br i1 %27, label %33, label %28
 
 28:                                               ; preds = %26
@@ -614,7 +614,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   %6 = load i32, ptr %4, align 8
   %7 = add i32 %6, -3
   %switch = icmp ult i32 %7, -2
-  %brmerge = or i1 %switch, %1
+  %brmerge = or i1 %1, %switch
   br i1 %brmerge, label %15, label %8
 
 8:                                                ; preds = %5
@@ -1075,7 +1075,7 @@ define internal i64 @H5O__pline_shared_size(ptr noundef %0, i1 noundef zeroext %
   %4 = load i32, ptr %2, align 8
   %5 = add i32 %4, -3
   %switch = icmp ult i32 %5, -2
-  %brmerge = or i1 %switch, %1
+  %brmerge = or i1 %1, %switch
   br i1 %brmerge, label %13, label %6
 
 6:                                                ; preds = %3

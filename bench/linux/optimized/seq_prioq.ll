@@ -411,14 +411,14 @@ define dso_local void @snd_seq_prioq_leave(ptr noundef %0, i32 noundef %1, i32 n
   %18 = getelementptr inbounds i8, ptr %12, i64 12
   %19 = load i8, ptr %18, align 4
   %20 = zext i8 %19 to i32
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %.split.us
   %23 = getelementptr inbounds i8, ptr %12, i64 14
   %24 = load i8, ptr %23, align 2
   %25 = zext i8 %24 to i32
-  %26 = icmp eq i32 %25, %1
+  %26 = icmp eq i32 %1, %25
   br i1 %26, label %27, label %42
 
 27:                                               ; preds = %22, %.split.us
@@ -466,14 +466,14 @@ define dso_local void @snd_seq_prioq_leave(ptr noundef %0, i32 noundef %1, i32 n
   %53 = getelementptr inbounds i8, ptr %47, i64 12
   %54 = load i8, ptr %53, align 4
   %55 = zext i8 %54 to i32
-  %56 = icmp eq i32 %55, %1
+  %56 = icmp eq i32 %1, %55
   br i1 %56, label %76, label %57
 
 57:                                               ; preds = %.split
   %58 = getelementptr inbounds i8, ptr %47, i64 14
   %59 = load i8, ptr %58, align 2
   %60 = zext i8 %59 to i32
-  %61 = icmp eq i32 %60, %1
+  %61 = icmp eq i32 %1, %60
   br i1 %61, label %76, label %62
 
 62:                                               ; preds = %57
@@ -585,7 +585,7 @@ define dso_local void @snd_seq_prioq_remove_events(ptr noundef %0, i32 noundef %
   %25 = getelementptr inbounds i8, ptr %19, i64 12
   %26 = load i8, ptr %25, align 4
   %27 = zext i8 %26 to i32
-  %28 = icmp eq i32 %27, %1
+  %28 = icmp eq i32 %1, %27
   br i1 %28, label %29, label %132
 
 29:                                               ; preds = %18

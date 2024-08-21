@@ -136,7 +136,7 @@ define hidden void @_Z16print_raw_memoryR12FormatBufferILm8192EEPv(ptr noundef n
   %16 = lshr i64 %14, %15
   %17 = getelementptr inbounds i8, ptr %4, i64 544
   %18 = load i64, ptr %17, align 8
-  %19 = icmp ugt i64 %18, %16
+  %19 = icmp ult i64 %16, %18
   br i1 %19, label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit, label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit.thread
 
 _ZNK14ShenandoahHeap22heap_region_containingEPKv.exit: ; preds = %9
@@ -214,7 +214,7 @@ define hidden void @_ZN17ShenandoahAsserts9print_objER12FormatBufferILm8192EEP7o
   %13 = lshr i64 %11, %12
   %14 = getelementptr inbounds i8, ptr %6, i64 544
   %15 = load i64, ptr %14, align 8
-  %16 = icmp ugt i64 %15, %13
+  %16 = icmp ult i64 %13, %15
   br i1 %16, label %17, label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit
 
 17:                                               ; preds = %2
@@ -279,13 +279,13 @@ _ZNK7oopDesc5klassEv.exit27:                      ; preds = %40, %50
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
-  %.not36 = icmp ugt ptr %60, %1
+  %.not36 = icmp ult ptr %1, %60
   %61 = select i1 %.not36, ptr @.str.8, ptr @.str.7
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %61)
   %62 = getelementptr inbounds i8, ptr %.0.i.i, i64 88
   %63 = load volatile ptr, ptr %62, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %.not = icmp ugt ptr %63, %1
+  %.not = icmp ult ptr %1, %63
   %64 = select i1 %.not, ptr @.str.8, ptr @.str.7
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %64)
   %65 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
@@ -293,7 +293,7 @@ _ZNK7oopDesc5klassEv.exit27:                      ; preds = %40, %50
   %67 = load ptr, ptr %57, align 8
   %68 = getelementptr inbounds ptr, ptr %67, i64 %66
   %69 = load ptr, ptr %68, align 8
-  %.not.i = icmp ugt ptr %69, %1
+  %.not.i = icmp ult ptr %1, %69
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %_ZNK7oopDesc5klassEv.exit27
@@ -329,7 +329,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %91 = load ptr, ptr %57, align 8
   %92 = getelementptr inbounds ptr, ptr %91, i64 %90
   %93 = load ptr, ptr %92, align 8
-  %.not.i28 = icmp ugt ptr %93, %1
+  %.not.i28 = icmp ult ptr %1, %93
   br i1 %.not.i28, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit: ; preds = %87
@@ -434,7 +434,7 @@ define hidden void @_ZN17ShenandoahAsserts13print_non_objER12FormatBufferILm8192
   %17 = lshr i64 %15, %16
   %18 = getelementptr inbounds i8, ptr %5, i64 544
   %19 = load i64, ptr %18, align 8
-  %20 = icmp ugt i64 %19, %17
+  %20 = icmp ult i64 %17, %19
   br i1 %20, label %21, label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit
 
 21:                                               ; preds = %10
@@ -503,7 +503,7 @@ define hidden void @_ZN17ShenandoahAsserts14print_obj_safeER12FormatBufferILm819
   %16 = lshr i64 %14, %15
   %17 = getelementptr inbounds i8, ptr %4, i64 544
   %18 = load i64, ptr %17, align 8
-  %19 = icmp ugt i64 %18, %16
+  %19 = icmp ult i64 %16, %18
   br i1 %19, label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit, label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit.thread
 
 _ZNK14ShenandoahHeap22heap_region_containingEPKv.exit: ; preds = %10
@@ -862,7 +862,7 @@ define hidden void @_ZN17ShenandoahAsserts24assert_in_correct_regionEPvP7oopDesc
   %12 = lshr i64 %10, %11
   %13 = getelementptr inbounds i8, ptr %5, i64 544
   %14 = load i64, ptr %13, align 8
-  %15 = icmp ugt i64 %14, %12
+  %15 = icmp ult i64 %12, %14
   br i1 %15, label %16, label %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit
 
 16:                                               ; preds = %4
@@ -991,7 +991,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %45, %48, %55, %75
 
 _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %.lr.ph, %.thread
   %.037 = phi i64 [ %83, %.lr.ph ], [ %106, %.thread ]
-  %95 = icmp ugt i64 %92, %.037
+  %95 = icmp ult i64 %.037, %92
   tail call void @llvm.assume(i1 %95)
   %96 = getelementptr inbounds ptr, ptr %94, i64 %.037
   %97 = load ptr, ptr %96, align 8
@@ -1036,7 +1036,7 @@ define hidden void @_ZN17ShenandoahAsserts16assert_forwardedEPvP7oopDescPKci(ptr
   %8 = and i64 %5, -4
   %9 = inttoptr i64 %8 to ptr
   %.not.i = icmp eq i64 %8, 0
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   %11 = or i1 %.not.i, %10
   %12 = or i1 %7, %11
   br i1 %12, label %13, label %14
@@ -1058,7 +1058,7 @@ define hidden void @_ZN17ShenandoahAsserts20assert_not_forwardedEPvP7oopDescPKci
   %8 = and i64 %5, -4
   %9 = inttoptr i64 %8 to ptr
   %.not.i = icmp eq i64 %8, 0
-  %.not1011 = icmp eq ptr %9, %1
+  %.not1011 = icmp eq ptr %1, %9
   %.not10 = or i1 %.not.i, %.not1011
   %.not = or i1 %7, %.not10
   br i1 %.not, label %11, label %10
@@ -1084,7 +1084,7 @@ define hidden void @_ZN17ShenandoahAsserts13assert_markedEPvP7oopDescPKci(ptr no
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds ptr, ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
-  %.not.i = icmp ugt ptr %14, %1
+  %.not.i = icmp ult ptr %1, %14
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %4
@@ -1129,7 +1129,7 @@ define hidden void @_ZN17ShenandoahAsserts18assert_marked_weakEPvP7oopDescPKci(p
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds ptr, ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
-  %.not.i = icmp ugt ptr %14, %1
+  %.not.i = icmp ult ptr %1, %14
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit: ; preds = %4
@@ -1175,7 +1175,7 @@ define hidden void @_ZN17ShenandoahAsserts20assert_marked_strongEPvP7oopDescPKci
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds ptr, ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
-  %.not.i = icmp ugt ptr %14, %1
+  %.not.i = icmp ult ptr %1, %14
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %4

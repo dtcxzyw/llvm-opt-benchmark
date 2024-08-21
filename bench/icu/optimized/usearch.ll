@@ -753,7 +753,7 @@ if.then:                                          ; preds = %entry
   %textLength = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %textLength, align 8
   %cmp.i9 = icmp sgt i32 %position, -1
-  %cmp1.i = icmp sge i32 %2, %position
+  %cmp1.i = icmp sle i32 %position, %2
   %.not = and i1 %cmp.i9, %cmp1.i
   br i1 %.not, label %if.else, label %if.then4
 
@@ -972,7 +972,7 @@ if.then9:                                         ; preds = %if.end6
 if.end11:                                         ; preds = %if.end6
   %matchedLength = getelementptr inbounds i8, ptr %1, i64 36
   %3 = load i32, ptr %matchedLength, align 4
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %3, i32 %resultCapacity)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %resultCapacity, i32 %3)
   %cmp15 = icmp sgt i32 %spec.select, 0
   br i1 %cmp15, label %do.body, label %if.end18
 
@@ -1663,7 +1663,7 @@ if.then.i:                                        ; preds = %if.then
   %textLength.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %textLength.i, align 8
   %cmp.i9.i = icmp sgt i32 %position, -1
-  %cmp1.i.i = icmp sge i32 %4, %position
+  %cmp1.i.i = icmp sle i32 %position, %4
   %.not.i = and i1 %cmp.i9.i, %cmp1.i.i
   br i1 %.not.i, label %if.else.i, label %if.then4.i
 
@@ -1972,7 +1972,7 @@ if.then.i:                                        ; preds = %if.then
   %textLength.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %textLength.i, align 8
   %cmp.i9.i = icmp sgt i32 %position, -1
-  %cmp1.i.i = icmp sge i32 %4, %position
+  %cmp1.i.i = icmp sle i32 %position, %4
   %.not.i = and i1 %cmp.i9.i, %cmp1.i.i
   br i1 %.not.i, label %if.else.i, label %if.then4.i
 
@@ -3055,7 +3055,7 @@ lor.lhs.false2:                                   ; preds = %if.end
   %2 = load ptr, ptr %strsrch, align 8
   %textLength = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %textLength, align 8
-  %cmp3 = icmp slt i32 %3, %startIdx
+  %cmp3 = icmp sgt i32 %startIdx, %3
   br i1 %cmp3, label %if.then7, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false2
@@ -3126,9 +3126,9 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %8 = load i32, ptr %bufSize.i, align 8
   %rem.i = srem i32 %targetIx.0, %8
   %9 = load i32, ptr %firstIx.i, align 4
-  %cmp.not.i = icmp sle i32 %9, %targetIx.0
+  %cmp.not.i = icmp sge i32 %targetIx.0, %9
   %10 = load i32, ptr %limitIx.i, align 8
-  %cmp2.i = icmp sgt i32 %10, %targetIx.0
+  %cmp2.i = icmp slt i32 %targetIx.0, %10
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
@@ -3139,7 +3139,7 @@ if.then.i:                                        ; preds = %for.cond
   br label %invoke.cont17
 
 if.end.i:                                         ; preds = %for.cond
-  %cmp4.not.i = icmp eq i32 %10, %targetIx.0
+  %cmp4.not.i = icmp eq i32 %targetIx.0, %10
   br i1 %cmp4.not.i, label %if.end6.i, label %invoke.cont17.thread
 
 invoke.cont17.thread:                             ; preds = %if.end.i
@@ -3209,9 +3209,9 @@ for.body:                                         ; preds = %for.cond22.preheade
   %22 = load i32, ptr %bufSize.i, align 8
   %rem.i129 = srem i32 %add27, %22
   %23 = load i32, ptr %firstIx.i, align 4
-  %cmp.not.i131 = icmp sle i32 %23, %add27
+  %cmp.not.i131 = icmp sge i32 %add27, %23
   %24 = load i32, ptr %limitIx.i, align 8
-  %cmp2.i133 = icmp sgt i32 %24, %add27
+  %cmp2.i133 = icmp slt i32 %add27, %24
   %or.cond.i134 = select i1 %cmp.not.i131, i1 %cmp2.i133, i1 false
   br i1 %or.cond.i134, label %if.then.i154, label %if.end.i135
 
@@ -3221,7 +3221,7 @@ if.then.i154:                                     ; preds = %for.body
   br label %invoke.cont28
 
 if.end.i135:                                      ; preds = %for.body
-  %cmp4.not.i136 = icmp eq i32 %24, %add27
+  %cmp4.not.i136 = icmp eq i32 %add27, %24
   call void @llvm.assume(i1 %cmp4.not.i136)
   %inc.i139 = add nsw i32 %add27, 1
   store i32 %inc.i139, ptr %limitIx.i, align 8
@@ -3361,9 +3361,9 @@ if.end57:                                         ; preds = %for.inc, %for.cond2
   %42 = load i32, ptr %bufSize.i, align 8
   %rem.i167 = srem i32 %sub, %42
   %43 = load i32, ptr %firstIx.i, align 4
-  %cmp.not.i169 = icmp slt i32 %43, %add58
+  %cmp.not.i169 = icmp sgt i32 %add58, %43
   %44 = load i32, ptr %limitIx.i, align 8
-  %cmp2.i171 = icmp sge i32 %44, %add58
+  %cmp2.i171 = icmp sle i32 %add58, %44
   %or.cond.i172 = select i1 %cmp.not.i169, i1 %cmp2.i171, i1 false
   br i1 %or.cond.i172, label %if.then.i192, label %if.end.i173
 
@@ -3373,7 +3373,7 @@ if.then.i192:                                     ; preds = %if.end57
   br label %invoke.cont59
 
 if.end.i173:                                      ; preds = %if.end57
-  %cmp4.not.i174 = icmp eq i32 %44, %sub
+  %cmp4.not.i174 = icmp eq i32 %sub, %44
   call void @llvm.assume(i1 %cmp4.not.i174)
   store i32 %add58, ptr %limitIx.i, align 8
   %sub.i178 = sub nsw i32 %add58, %43
@@ -3434,9 +3434,9 @@ if.then65:                                        ; preds = %invoke.cont59
   %55 = load i32, ptr %bufSize.i, align 8
   %rem.i201 = srem i32 %add58, %55
   %56 = load i32, ptr %firstIx.i, align 4
-  %cmp.not.i203 = icmp sle i32 %56, %add58
+  %cmp.not.i203 = icmp sge i32 %add58, %56
   %57 = load i32, ptr %limitIx.i, align 8
-  %cmp2.i205 = icmp sgt i32 %57, %add58
+  %cmp2.i205 = icmp slt i32 %add58, %57
   %or.cond.i206 = select i1 %cmp.not.i203, i1 %cmp2.i205, i1 false
   br i1 %or.cond.i206, label %if.then.i226, label %if.end.i207
 
@@ -3446,7 +3446,7 @@ if.then.i226:                                     ; preds = %if.then65
   br label %invoke.cont67
 
 if.end.i207:                                      ; preds = %if.then65
-  %cmp4.not.i208 = icmp eq i32 %57, %add58
+  %cmp4.not.i208 = icmp eq i32 %add58, %57
   br i1 %cmp4.not.i208, label %if.end6.i210, label %invoke.cont67
 
 if.end6.i210:                                     ; preds = %if.end.i207
@@ -3504,9 +3504,9 @@ for.cond78:                                       ; preds = %for.cond78.preheade
   %66 = load i32, ptr %bufSize.i, align 8
   %rem.i235 = srem i32 %add79, %66
   %67 = load i32, ptr %firstIx.i, align 4
-  %cmp.not.i237 = icmp sle i32 %67, %add79
+  %cmp.not.i237 = icmp sge i32 %add79, %67
   %68 = load i32, ptr %limitIx.i, align 8
-  %cmp2.i239 = icmp sgt i32 %68, %add79
+  %cmp2.i239 = icmp slt i32 %add79, %68
   %or.cond.i240 = select i1 %cmp.not.i237, i1 %cmp2.i239, i1 false
   br i1 %or.cond.i240, label %if.then.i260, label %if.end.i241
 
@@ -3516,7 +3516,7 @@ if.then.i260:                                     ; preds = %for.cond78
   br label %invoke.cont80
 
 if.end.i241:                                      ; preds = %for.cond78
-  %cmp4.not.i242 = icmp eq i32 %68, %add79
+  %cmp4.not.i242 = icmp eq i32 %add79, %68
   call void @llvm.assume(i1 %cmp4.not.i242)
   %inc.i245 = add nsw i32 %add79, 1
   store i32 %inc.i245, ptr %limitIx.i, align 8
@@ -4315,7 +4315,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc noundef range(i32 -56613888, 10559488) i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi(ptr nocapture readonly %search.0.val, i32 %search.8.val, i32 noundef %index) unnamed_addr #8 {
 entry:
-  %cmp = icmp sgt i32 %search.8.val, %index
+  %cmp = icmp slt i32 %index, %search.8.val
   br i1 %cmp, label %do.body, label %return
 
 do.body:                                          ; preds = %entry
@@ -4564,7 +4564,7 @@ lor.lhs.false2:                                   ; preds = %if.end
   %2 = load ptr, ptr %strsrch, align 8
   %textLength = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %textLength, align 8
-  %cmp3 = icmp slt i32 %3, %startIdx
+  %cmp3 = icmp sgt i32 %startIdx, %3
   br i1 %cmp3, label %if.then7, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false2
@@ -4592,7 +4592,7 @@ if.end12:                                         ; preds = %if.then11, %if.end8
   %6 = load ptr, ptr %strsrch, align 8
   %textLength14 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %textLength14, align 8
-  %cmp15 = icmp sgt i32 %7, %startIdx
+  %cmp15 = icmp slt i32 %startIdx, %7
   br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.end12
@@ -4687,9 +4687,9 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %19 = load i32, ptr %bufSize.i, align 8
   %rem.i = srem i32 %targetIx.0, %19
   %20 = load i32, ptr %firstIx.i, align 4
-  %cmp.not.i122 = icmp sle i32 %20, %targetIx.0
+  %cmp.not.i122 = icmp sge i32 %targetIx.0, %20
   %21 = load i32, ptr %limitIx.i, align 8
-  %cmp2.i = icmp sgt i32 %21, %targetIx.0
+  %cmp2.i = icmp slt i32 %targetIx.0, %21
   %or.cond.i = select i1 %cmp.not.i122, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %if.end.i123
 
@@ -4700,7 +4700,7 @@ if.then.i:                                        ; preds = %for.cond
   br label %invoke.cont26
 
 if.end.i123:                                      ; preds = %for.cond
-  %cmp4.not.i = icmp eq i32 %21, %targetIx.0
+  %cmp4.not.i = icmp eq i32 %targetIx.0, %21
   call void @llvm.assume(i1 %cmp4.not.i)
   %inc.i = add nuw nsw i32 %targetIx.0, 1
   store i32 %inc.i, ptr %limitIx.i, align 8
@@ -4777,9 +4777,9 @@ for.cond39:                                       ; preds = %for.cond39.preheade
   %31 = load i32, ptr %bufSize.i129, align 8
   %rem.i130 = srem i32 %targetIx.2, %31
   %32 = load i32, ptr %firstIx.i131, align 4
-  %cmp.not.i132 = icmp sle i32 %32, %targetIx.2
+  %cmp.not.i132 = icmp sge i32 %targetIx.2, %32
   %33 = load i32, ptr %limitIx.i133, align 8
-  %cmp2.i134 = icmp sgt i32 %33, %targetIx.2
+  %cmp2.i134 = icmp slt i32 %targetIx.2, %33
   %or.cond.i135 = select i1 %cmp.not.i132, i1 %cmp2.i134, i1 false
   br i1 %or.cond.i135, label %if.then.i155, label %if.end.i136
 
@@ -4790,7 +4790,7 @@ if.then.i155:                                     ; preds = %for.cond39
   br label %invoke.cont40
 
 if.end.i136:                                      ; preds = %for.cond39
-  %cmp4.not.i137 = icmp eq i32 %33, %targetIx.2
+  %cmp4.not.i137 = icmp eq i32 %targetIx.2, %33
   br i1 %cmp4.not.i137, label %if.end6.i139, label %invoke.cont40.thread
 
 invoke.cont40.thread:                             ; preds = %if.end.i136
@@ -4863,9 +4863,9 @@ for.body:                                         ; preds = %if.end44, %for.inc7
   %46 = load i32, ptr %bufSize.i129, align 8
   %rem.i164 = srem i32 %add55, %46
   %47 = load i32, ptr %firstIx.i131, align 4
-  %cmp.not.i166 = icmp sle i32 %47, %add55
+  %cmp.not.i166 = icmp sge i32 %add55, %47
   %48 = load i32, ptr %limitIx.i133, align 8
-  %cmp2.i168 = icmp sgt i32 %48, %add55
+  %cmp2.i168 = icmp slt i32 %add55, %48
   %or.cond.i169 = select i1 %cmp.not.i166, i1 %cmp2.i168, i1 false
   br i1 %or.cond.i169, label %if.then.i189, label %if.end.i170
 
@@ -4875,7 +4875,7 @@ if.then.i189:                                     ; preds = %for.body
   br label %invoke.cont56
 
 if.end.i170:                                      ; preds = %for.body
-  %cmp4.not.i171 = icmp eq i32 %48, %add55
+  %cmp4.not.i171 = icmp eq i32 %add55, %48
   call void @llvm.assume(i1 %cmp4.not.i171)
   %inc.i174 = add nsw i32 %add55, 1
   store i32 %inc.i174, ptr %limitIx.i133, align 8
@@ -5015,9 +5015,9 @@ if.end85:                                         ; preds = %if.end85.loopexit, 
   %65 = load i32, ptr %bufSize.i129, align 8
   %rem.i202 = srem i32 %add90, %65
   %66 = load i32, ptr %firstIx.i131, align 4
-  %cmp.not.i204 = icmp sle i32 %66, %add90
+  %cmp.not.i204 = icmp sge i32 %add90, %66
   %67 = load i32, ptr %limitIx.i133, align 8
-  %cmp2.i206 = icmp sgt i32 %67, %add90
+  %cmp2.i206 = icmp slt i32 %add90, %67
   %or.cond.i207 = select i1 %cmp.not.i204, i1 %cmp2.i206, i1 false
   br i1 %or.cond.i207, label %if.then.i227, label %if.end.i208
 
@@ -5027,7 +5027,7 @@ if.then.i227:                                     ; preds = %if.end85
   br label %invoke.cont91
 
 if.end.i208:                                      ; preds = %if.end85
-  %cmp4.not.i209 = icmp eq i32 %67, %add90
+  %cmp4.not.i209 = icmp eq i32 %add90, %67
   call void @llvm.assume(i1 %cmp4.not.i209)
   %inc.i212 = add i32 %add88, %targetIxOffset.0.lcssa
   store i32 %inc.i212, ptr %limitIx.i133, align 8
@@ -5135,9 +5135,9 @@ if.then109:                                       ; preds = %if.end103
   %86 = load i32, ptr %bufSize.i129, align 8
   %rem.i243 = srem i32 %sub110, %86
   %87 = load i32, ptr %firstIx.i131, align 4
-  %cmp.not.i245 = icmp slt i32 %87, %targetIx.2
+  %cmp.not.i245 = icmp sgt i32 %targetIx.2, %87
   %88 = load i32, ptr %limitIx.i133, align 8
-  %cmp2.i247 = icmp sge i32 %88, %targetIx.2
+  %cmp2.i247 = icmp sle i32 %targetIx.2, %88
   %or.cond.i248 = select i1 %cmp.not.i245, i1 %cmp2.i247, i1 false
   br i1 %or.cond.i248, label %if.then.i268, label %if.end.i249
 
@@ -5148,7 +5148,7 @@ if.then.i268:                                     ; preds = %if.then109
   br label %invoke.cont111
 
 if.end.i249:                                      ; preds = %if.then109
-  %cmp4.not.i250 = icmp eq i32 %88, %sub110
+  %cmp4.not.i250 = icmp eq i32 %sub110, %88
   br i1 %cmp4.not.i250, label %if.end6.i252, label %invoke.cont111
 
 if.end6.i252:                                     ; preds = %if.end.i249
@@ -5466,7 +5466,7 @@ if.end5.i334:                                     ; preds = %call14.i.i.noexc348
 invoke.cont189:                                   ; preds = %call14.i.i.noexc348, %if.end5.i334
   %retval.0.i330 = phi i32 [ %85, %call14.i.i.noexc348 ], [ %call6.i351, %if.end5.i334 ]
   %cmp191 = icmp sgt i32 %retval.0.i330, 0
-  %148 = call i32 @llvm.smin.i32(i32 %retval.0.i330, i32 %startIdx)
+  %148 = call i32 @llvm.smin.i32(i32 %startIdx, i32 %retval.0.i330)
   %cond = select i1 %cmp191, i32 %148, i32 %startIdx
   br label %if.end194
 

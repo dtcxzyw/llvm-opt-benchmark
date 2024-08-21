@@ -824,7 +824,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 42:                                               ; preds = %40
   %43 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8
-  %44 = icmp eq i64 %43, %2
+  %44 = icmp eq i64 %2, %43
   br i1 %44, label %45, label %100
 
 45:                                               ; preds = %42
@@ -942,7 +942,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 100:                                              ; preds = %42
   %101 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8
-  %102 = icmp eq i64 %101, %2
+  %102 = icmp eq i64 %2, %101
   br i1 %102, label %103, label %158
 
 103:                                              ; preds = %100
@@ -1060,7 +1060,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 158:                                              ; preds = %100
   %159 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8
-  %160 = icmp eq i64 %159, %2
+  %160 = icmp eq i64 %2, %159
   br i1 %160, label %161, label %216
 
 161:                                              ; preds = %158
@@ -1178,7 +1178,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 216:                                              ; preds = %158
   %217 = load i64, ptr @H5T_NATIVE_USHORT_g, align 8
-  %218 = icmp eq i64 %217, %2
+  %218 = icmp eq i64 %2, %217
   br i1 %218, label %219, label %274
 
 219:                                              ; preds = %216
@@ -1296,7 +1296,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 274:                                              ; preds = %216
   %275 = load i64, ptr @H5T_NATIVE_INT_g, align 8
-  %276 = icmp eq i64 %275, %2
+  %276 = icmp eq i64 %2, %275
   br i1 %276, label %277, label %332
 
 277:                                              ; preds = %274
@@ -1414,7 +1414,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 332:                                              ; preds = %274
   %333 = load i64, ptr @H5T_NATIVE_UINT_g, align 8
-  %334 = icmp eq i64 %333, %2
+  %334 = icmp eq i64 %2, %333
   br i1 %334, label %335, label %390
 
 335:                                              ; preds = %332
@@ -1532,7 +1532,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 390:                                              ; preds = %332
   %391 = load i64, ptr @H5T_NATIVE_LONG_g, align 8
-  %392 = icmp eq i64 %391, %2
+  %392 = icmp eq i64 %2, %391
   br i1 %392, label %393, label %448
 
 393:                                              ; preds = %390
@@ -1650,7 +1650,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 448:                                              ; preds = %390
   %449 = load i64, ptr @H5T_NATIVE_ULONG_g, align 8
-  %450 = icmp eq i64 %449, %2
+  %450 = icmp eq i64 %2, %449
   br i1 %450, label %451, label %506
 
 451:                                              ; preds = %448
@@ -1768,7 +1768,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 506:                                              ; preds = %448
   %507 = load i64, ptr @H5T_NATIVE_LLONG_g, align 8
-  %508 = icmp eq i64 %507, %2
+  %508 = icmp eq i64 %2, %507
   br i1 %508, label %509, label %564
 
 509:                                              ; preds = %506
@@ -1886,7 +1886,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 564:                                              ; preds = %506
   %565 = load i64, ptr @H5T_NATIVE_ULLONG_g, align 8
-  %566 = icmp eq i64 %565, %2
+  %566 = icmp eq i64 %2, %565
   br i1 %566, label %567, label %622
 
 567:                                              ; preds = %564
@@ -2004,7 +2004,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 622:                                              ; preds = %564
   %623 = load i64, ptr @H5T_NATIVE_FLOAT_g, align 8
-  %624 = icmp eq i64 %623, %2
+  %624 = icmp eq i64 %2, %623
   br i1 %624, label %625, label %680
 
 625:                                              ; preds = %622
@@ -2122,7 +2122,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 680:                                              ; preds = %622
   %681 = load i64, ptr @H5T_NATIVE_DOUBLE_g, align 8
-  %682 = icmp eq i64 %681, %2
+  %682 = icmp eq i64 %2, %681
   br i1 %682, label %683, label %734
 
 683:                                              ; preds = %680
@@ -2236,7 +2236,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 734:                                              ; preds = %680
   %735 = load i64, ptr @H5T_NATIVE_LDOUBLE_g, align 8
-  %736 = icmp eq i64 %735, %2
+  %736 = icmp eq i64 %2, %735
   br i1 %736, label %737, label %.loopexit
 
 737:                                              ; preds = %734
@@ -2354,7 +2354,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 792:                                              ; preds = %40
   %793 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8
-  %794 = icmp eq i64 %793, %2
+  %794 = icmp eq i64 %2, %793
   br i1 %794, label %795, label %850
 
 795:                                              ; preds = %792
@@ -2472,7 +2472,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 850:                                              ; preds = %792
   %851 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8
-  %852 = icmp eq i64 %851, %2
+  %852 = icmp eq i64 %2, %851
   br i1 %852, label %853, label %908
 
 853:                                              ; preds = %850
@@ -2590,7 +2590,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 908:                                              ; preds = %850
   %909 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8
-  %910 = icmp eq i64 %909, %2
+  %910 = icmp eq i64 %2, %909
   br i1 %910, label %911, label %966
 
 911:                                              ; preds = %908
@@ -2708,7 +2708,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 966:                                              ; preds = %908
   %967 = load i64, ptr @H5T_NATIVE_USHORT_g, align 8
-  %968 = icmp eq i64 %967, %2
+  %968 = icmp eq i64 %2, %967
   br i1 %968, label %969, label %1024
 
 969:                                              ; preds = %966
@@ -2826,7 +2826,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1024:                                             ; preds = %966
   %1025 = load i64, ptr @H5T_NATIVE_INT_g, align 8
-  %1026 = icmp eq i64 %1025, %2
+  %1026 = icmp eq i64 %2, %1025
   br i1 %1026, label %1027, label %1082
 
 1027:                                             ; preds = %1024
@@ -2944,7 +2944,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1082:                                             ; preds = %1024
   %1083 = load i64, ptr @H5T_NATIVE_UINT_g, align 8
-  %1084 = icmp eq i64 %1083, %2
+  %1084 = icmp eq i64 %2, %1083
   br i1 %1084, label %1085, label %1140
 
 1085:                                             ; preds = %1082
@@ -3062,7 +3062,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1140:                                             ; preds = %1082
   %1141 = load i64, ptr @H5T_NATIVE_LONG_g, align 8
-  %1142 = icmp eq i64 %1141, %2
+  %1142 = icmp eq i64 %2, %1141
   br i1 %1142, label %1143, label %1198
 
 1143:                                             ; preds = %1140
@@ -3180,7 +3180,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1198:                                             ; preds = %1140
   %1199 = load i64, ptr @H5T_NATIVE_ULONG_g, align 8
-  %1200 = icmp eq i64 %1199, %2
+  %1200 = icmp eq i64 %2, %1199
   br i1 %1200, label %1201, label %1256
 
 1201:                                             ; preds = %1198
@@ -3298,7 +3298,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1256:                                             ; preds = %1198
   %1257 = load i64, ptr @H5T_NATIVE_LLONG_g, align 8
-  %1258 = icmp eq i64 %1257, %2
+  %1258 = icmp eq i64 %2, %1257
   br i1 %1258, label %1259, label %1314
 
 1259:                                             ; preds = %1256
@@ -3416,7 +3416,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1314:                                             ; preds = %1256
   %1315 = load i64, ptr @H5T_NATIVE_ULLONG_g, align 8
-  %1316 = icmp eq i64 %1315, %2
+  %1316 = icmp eq i64 %2, %1315
   br i1 %1316, label %1317, label %1372
 
 1317:                                             ; preds = %1314
@@ -3534,7 +3534,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1372:                                             ; preds = %1314
   %1373 = load i64, ptr @H5T_NATIVE_FLOAT_g, align 8
-  %1374 = icmp eq i64 %1373, %2
+  %1374 = icmp eq i64 %2, %1373
   br i1 %1374, label %1375, label %1430
 
 1375:                                             ; preds = %1372
@@ -3652,7 +3652,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1430:                                             ; preds = %1372
   %1431 = load i64, ptr @H5T_NATIVE_DOUBLE_g, align 8
-  %1432 = icmp eq i64 %1431, %2
+  %1432 = icmp eq i64 %2, %1431
   br i1 %1432, label %1433, label %1484
 
 1433:                                             ; preds = %1430
@@ -3766,7 +3766,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1484:                                             ; preds = %1430
   %1485 = load i64, ptr @H5T_NATIVE_LDOUBLE_g, align 8
-  %1486 = icmp eq i64 %1485, %2
+  %1486 = icmp eq i64 %2, %1485
   br i1 %1486, label %1487, label %.loopexit
 
 1487:                                             ; preds = %1484
@@ -3884,7 +3884,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1542:                                             ; preds = %40
   %1543 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8
-  %1544 = icmp eq i64 %1543, %2
+  %1544 = icmp eq i64 %2, %1543
   br i1 %1544, label %1545, label %1600
 
 1545:                                             ; preds = %1542
@@ -4002,7 +4002,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1600:                                             ; preds = %1542
   %1601 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8
-  %1602 = icmp eq i64 %1601, %2
+  %1602 = icmp eq i64 %2, %1601
   br i1 %1602, label %1603, label %1658
 
 1603:                                             ; preds = %1600
@@ -4120,7 +4120,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1658:                                             ; preds = %1600
   %1659 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8
-  %1660 = icmp eq i64 %1659, %2
+  %1660 = icmp eq i64 %2, %1659
   br i1 %1660, label %1661, label %1716
 
 1661:                                             ; preds = %1658
@@ -4238,7 +4238,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1716:                                             ; preds = %1658
   %1717 = load i64, ptr @H5T_NATIVE_USHORT_g, align 8
-  %1718 = icmp eq i64 %1717, %2
+  %1718 = icmp eq i64 %2, %1717
   br i1 %1718, label %1719, label %1774
 
 1719:                                             ; preds = %1716
@@ -4356,7 +4356,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1774:                                             ; preds = %1716
   %1775 = load i64, ptr @H5T_NATIVE_INT_g, align 8
-  %1776 = icmp eq i64 %1775, %2
+  %1776 = icmp eq i64 %2, %1775
   br i1 %1776, label %1777, label %1832
 
 1777:                                             ; preds = %1774
@@ -4474,7 +4474,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1832:                                             ; preds = %1774
   %1833 = load i64, ptr @H5T_NATIVE_UINT_g, align 8
-  %1834 = icmp eq i64 %1833, %2
+  %1834 = icmp eq i64 %2, %1833
   br i1 %1834, label %1835, label %1890
 
 1835:                                             ; preds = %1832
@@ -4592,7 +4592,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1890:                                             ; preds = %1832
   %1891 = load i64, ptr @H5T_NATIVE_LONG_g, align 8
-  %1892 = icmp eq i64 %1891, %2
+  %1892 = icmp eq i64 %2, %1891
   br i1 %1892, label %1893, label %1948
 
 1893:                                             ; preds = %1890
@@ -4710,7 +4710,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 1948:                                             ; preds = %1890
   %1949 = load i64, ptr @H5T_NATIVE_ULONG_g, align 8
-  %1950 = icmp eq i64 %1949, %2
+  %1950 = icmp eq i64 %2, %1949
   br i1 %1950, label %1951, label %2006
 
 1951:                                             ; preds = %1948
@@ -4828,7 +4828,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2006:                                             ; preds = %1948
   %2007 = load i64, ptr @H5T_NATIVE_LLONG_g, align 8
-  %2008 = icmp eq i64 %2007, %2
+  %2008 = icmp eq i64 %2, %2007
   br i1 %2008, label %2009, label %2064
 
 2009:                                             ; preds = %2006
@@ -4946,7 +4946,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2064:                                             ; preds = %2006
   %2065 = load i64, ptr @H5T_NATIVE_ULLONG_g, align 8
-  %2066 = icmp eq i64 %2065, %2
+  %2066 = icmp eq i64 %2, %2065
   br i1 %2066, label %2067, label %2122
 
 2067:                                             ; preds = %2064
@@ -5064,7 +5064,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2122:                                             ; preds = %2064
   %2123 = load i64, ptr @H5T_NATIVE_FLOAT_g, align 8
-  %2124 = icmp eq i64 %2123, %2
+  %2124 = icmp eq i64 %2, %2123
   br i1 %2124, label %2125, label %2180
 
 2125:                                             ; preds = %2122
@@ -5182,7 +5182,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2180:                                             ; preds = %2122
   %2181 = load i64, ptr @H5T_NATIVE_DOUBLE_g, align 8
-  %2182 = icmp eq i64 %2181, %2
+  %2182 = icmp eq i64 %2, %2181
   br i1 %2182, label %2183, label %2234
 
 2183:                                             ; preds = %2180
@@ -5296,7 +5296,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2234:                                             ; preds = %2180
   %2235 = load i64, ptr @H5T_NATIVE_LDOUBLE_g, align 8
-  %2236 = icmp eq i64 %2235, %2
+  %2236 = icmp eq i64 %2, %2235
   br i1 %2236, label %2237, label %.loopexit
 
 2237:                                             ; preds = %2234
@@ -5414,7 +5414,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2292:                                             ; preds = %40
   %2293 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8
-  %2294 = icmp eq i64 %2293, %2
+  %2294 = icmp eq i64 %2, %2293
   br i1 %2294, label %2295, label %2351
 
 2295:                                             ; preds = %2292
@@ -5535,7 +5535,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2351:                                             ; preds = %2292
   %2352 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8
-  %2353 = icmp eq i64 %2352, %2
+  %2353 = icmp eq i64 %2, %2352
   br i1 %2353, label %2354, label %2409
 
 2354:                                             ; preds = %2351
@@ -5653,7 +5653,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2409:                                             ; preds = %2351
   %2410 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8
-  %2411 = icmp eq i64 %2410, %2
+  %2411 = icmp eq i64 %2, %2410
   br i1 %2411, label %2412, label %2470
 
 2412:                                             ; preds = %2409
@@ -5774,7 +5774,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2470:                                             ; preds = %2409
   %2471 = load i64, ptr @H5T_NATIVE_USHORT_g, align 8
-  %2472 = icmp eq i64 %2471, %2
+  %2472 = icmp eq i64 %2, %2471
   br i1 %2472, label %2473, label %2528
 
 2473:                                             ; preds = %2470
@@ -5892,7 +5892,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2528:                                             ; preds = %2470
   %2529 = load i64, ptr @H5T_NATIVE_INT_g, align 8
-  %2530 = icmp eq i64 %2529, %2
+  %2530 = icmp eq i64 %2, %2529
   br i1 %2530, label %2531, label %2586
 
 2531:                                             ; preds = %2528
@@ -6010,7 +6010,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2586:                                             ; preds = %2528
   %2587 = load i64, ptr @H5T_NATIVE_UINT_g, align 8
-  %2588 = icmp eq i64 %2587, %2
+  %2588 = icmp eq i64 %2, %2587
   br i1 %2588, label %2589, label %2644
 
 2589:                                             ; preds = %2586
@@ -6128,7 +6128,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2644:                                             ; preds = %2586
   %2645 = load i64, ptr @H5T_NATIVE_LONG_g, align 8
-  %2646 = icmp eq i64 %2645, %2
+  %2646 = icmp eq i64 %2, %2645
   br i1 %2646, label %2647, label %2702
 
 2647:                                             ; preds = %2644
@@ -6246,7 +6246,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2702:                                             ; preds = %2644
   %2703 = load i64, ptr @H5T_NATIVE_ULONG_g, align 8
-  %2704 = icmp eq i64 %2703, %2
+  %2704 = icmp eq i64 %2, %2703
   br i1 %2704, label %2705, label %2760
 
 2705:                                             ; preds = %2702
@@ -6364,7 +6364,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2760:                                             ; preds = %2702
   %2761 = load i64, ptr @H5T_NATIVE_LLONG_g, align 8
-  %2762 = icmp eq i64 %2761, %2
+  %2762 = icmp eq i64 %2, %2761
   br i1 %2762, label %2763, label %2818
 
 2763:                                             ; preds = %2760
@@ -6482,7 +6482,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2818:                                             ; preds = %2760
   %2819 = load i64, ptr @H5T_NATIVE_ULLONG_g, align 8
-  %2820 = icmp eq i64 %2819, %2
+  %2820 = icmp eq i64 %2, %2819
   br i1 %2820, label %2821, label %2876
 
 2821:                                             ; preds = %2818
@@ -6600,7 +6600,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2876:                                             ; preds = %2818
   %2877 = load i64, ptr @H5T_NATIVE_FLOAT_g, align 8
-  %2878 = icmp eq i64 %2877, %2
+  %2878 = icmp eq i64 %2, %2877
   br i1 %2878, label %2879, label %2934
 
 2879:                                             ; preds = %2876
@@ -6718,7 +6718,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2934:                                             ; preds = %2876
   %2935 = load i64, ptr @H5T_NATIVE_DOUBLE_g, align 8
-  %2936 = icmp eq i64 %2935, %2
+  %2936 = icmp eq i64 %2, %2935
   br i1 %2936, label %2937, label %2988
 
 2937:                                             ; preds = %2934
@@ -6832,7 +6832,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture 
 
 2988:                                             ; preds = %2934
   %2989 = load i64, ptr @H5T_NATIVE_LDOUBLE_g, align 8
-  %2990 = icmp eq i64 %2989, %2
+  %2990 = icmp eq i64 %2, %2989
   br i1 %2990, label %2991, label %.loopexit
 
 2991:                                             ; preds = %2988

@@ -740,7 +740,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hwmon_notify_event(ptr noundef %
   %22 = icmp ne i32 %1, 2
   %23 = and i1 %21, %22
   %24 = zext i1 %23 to i32
-  %25 = add i32 %24, %3
+  %25 = add i32 %3, %24
   %26 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef %20, i32 noundef %25) #18
   %27 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %5, i64 noundef 37, ptr noundef nonnull @.str, ptr noundef nonnull %6) #18
   call void @sysfs_notify(ptr noundef %0, ptr noundef null, ptr noundef nonnull %6) #18

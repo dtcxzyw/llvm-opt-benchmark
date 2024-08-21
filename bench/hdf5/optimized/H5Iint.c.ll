@@ -203,7 +203,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 define i64 @H5I_nmembers(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp sgt i32 %0, -1
   %3 = load i32, ptr @H5I_next_type_g, align 4
-  %.not = icmp sgt i32 %3, %0
+  %.not = icmp slt i32 %0, %3
   %or.cond = select i1 %2, i1 %.not, i1 false
   br i1 %or.cond, label %8, label %4
 
@@ -240,7 +240,7 @@ define i64 @H5I_nmembers(i32 noundef %0) local_unnamed_addr #0 {
 define range(i32 -1, 1) i32 @H5I_clear_type(i32 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %0, -1
   %5 = load i32, ptr @H5I_next_type_g, align 4
-  %.not = icmp sgt i32 %5, %0
+  %.not = icmp slt i32 %0, %5
   %or.cond = select i1 %4, i1 %.not, i1 false
   br i1 %or.cond, label %10, label %6
 
@@ -645,7 +645,7 @@ define range(i32 -1, 1) i32 @H5I__destroy_type(i32 noundef %0) local_unnamed_add
   %4 = alloca ptr, align 8
   %5 = icmp sgt i32 %0, -1
   %6 = load i32, ptr @H5I_next_type_g, align 4
-  %.not = icmp sgt i32 %6, %0
+  %.not = icmp slt i32 %0, %6
   %or.cond = select i1 %5, i1 %.not, i1 false
   br i1 %or.cond, label %11, label %7
 
@@ -763,7 +763,7 @@ declare ptr @H5MM_xfree_const(ptr noundef) local_unnamed_addr #1
 define range(i64 -1, -9223372036854775808) i64 @H5I__register(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %0, -1
   %7 = load i32, ptr @H5I_next_type_g, align 4
-  %.not = icmp sgt i32 %7, %0
+  %.not = icmp slt i32 %0, %7
   %or.cond = select i1 %6, i1 %.not, i1 false
   br i1 %or.cond, label %12, label %8
 
@@ -1431,7 +1431,7 @@ define range(i32 -1, 1) i32 @H5I_register_using_existing_id(i32 noundef %0, ptr 
 10:                                               ; preds = %4
   %11 = icmp sgt i32 %0, -1
   %12 = load i32, ptr @H5I_next_type_g, align 4
-  %.not382 = icmp sgt i32 %12, %0
+  %.not382 = icmp slt i32 %0, %12
   %or.cond = select i1 %11, i1 %.not382, i1 false
   br i1 %or.cond, label %17, label %13
 
@@ -2318,7 +2318,7 @@ define ptr @H5I_object_verify(i64 noundef %0, i32 noundef %1) local_unnamed_addr
   %3 = lshr i64 %0, 56
   %4 = trunc nuw nsw i64 %3 to i32
   %5 = and i32 %4, 127
-  %6 = icmp eq i32 %5, %1
+  %6 = icmp eq i32 %1, %5
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %2
@@ -2405,7 +2405,7 @@ define ptr @H5I__remove_verify(i64 noundef %0, i32 noundef %1) local_unnamed_add
   %3 = lshr i64 %0, 56
   %4 = trunc nuw nsw i64 %3 to i32
   %5 = and i32 %4, 127
-  %6 = icmp eq i32 %5, %1
+  %6 = icmp eq i32 %1, %5
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
@@ -3102,7 +3102,7 @@ define i32 @H5I__inc_type_ref(i32 noundef %0) local_unnamed_addr #0 {
 define noundef i32 @H5I_dec_type_ref(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp sgt i32 %0, -1
   %3 = load i32, ptr @H5I_next_type_g, align 4
-  %.not = icmp sgt i32 %3, %0
+  %.not = icmp slt i32 %0, %3
   %or.cond = select i1 %2, i1 %.not, i1 false
   br i1 %or.cond, label %8, label %4
 
@@ -3175,7 +3175,7 @@ define i32 @H5I__get_type_ref(i32 noundef %0) local_unnamed_addr #0 {
 define range(i32 -1, 1) i32 @H5I_iterate(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %0, -1
   %6 = load i32, ptr @H5I_next_type_g, align 4
-  %.not = icmp sgt i32 %6, %0
+  %.not = icmp slt i32 %0, %6
   %or.cond = select i1 %5, i1 %.not, i1 false
   br i1 %or.cond, label %11, label %7
 

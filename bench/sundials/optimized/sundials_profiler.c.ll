@@ -566,7 +566,7 @@ fnv1a_hash.exit:                                  ; preds = %.lr.ph.i, %7
 
 29:                                               ; preds = %26
   %30 = add nsw i32 %19, 1
-  %31 = icmp sgt i32 %16, %30
+  %31 = icmp slt i32 %30, %16
   br i1 %31, label %.lr.ph.preheader.i, label %SUNHashMap_Iterate.exit
 
 .lr.ph.preheader.i:                               ; preds = %29
@@ -941,7 +941,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Print(ptr noundef %0, ptr nocapture 
 
 25:                                               ; preds = %22
   %26 = add nsw i32 %15, 1
-  %27 = icmp sgt i32 %12, %26
+  %27 = icmp slt i32 %26, %12
   br i1 %27, label %.lr.ph.preheader.i.i, label %SUNHashMap_Iterate.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %25

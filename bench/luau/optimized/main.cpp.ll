@@ -2148,7 +2148,7 @@ define dso_local noundef i32 @_ZNK7doctest6String4findEcj(ptr noundef nonnull al
   %.0.i = select i1 %7, i32 %12, i32 %10
   %13 = zext i32 %.0.i to i64
   %14 = getelementptr inbounds i8, ptr %.0.i.i, i64 %13
-  %15 = icmp ugt i32 %.0.i, %2
+  %15 = icmp ult i32 %2, %.0.i
   br i1 %15, label %.lr.ph.preheader, label %.critedge14
 
 .lr.ph.preheader:                                 ; preds = %3
@@ -3489,7 +3489,7 @@ define dso_local noundef zeroext i1 @_ZN7doctestneERKNS_6ApproxEd(ptr nocapture 
 define dso_local noundef zeroext i1 @_ZN7doctestleEdRKNS_6ApproxE(double noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load double, ptr %3, align 8
-  %5 = fcmp ogt double %4, %0
+  %5 = fcmp olt double %0, %4
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %2
@@ -3543,7 +3543,7 @@ define dso_local noundef zeroext i1 @_ZN7doctestleERKNS_6ApproxEd(ptr nocapture 
 define dso_local noundef zeroext i1 @_ZN7doctestgeEdRKNS_6ApproxE(double noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load double, ptr %3, align 8
-  %5 = fcmp olt double %4, %0
+  %5 = fcmp ogt double %0, %4
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %2
@@ -3597,7 +3597,7 @@ define dso_local noundef zeroext i1 @_ZN7doctestgeERKNS_6ApproxEd(ptr nocapture 
 define dso_local noundef zeroext i1 @_ZN7doctestltEdRKNS_6ApproxE(double noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load double, ptr %3, align 8
-  %5 = fcmp ogt double %4, %0
+  %5 = fcmp olt double %0, %4
   br i1 %5, label %6, label %18
 
 6:                                                ; preds = %2
@@ -3651,7 +3651,7 @@ define dso_local noundef zeroext i1 @_ZN7doctestltERKNS_6ApproxEd(ptr nocapture 
 define dso_local noundef zeroext i1 @_ZN7doctestgtEdRKNS_6ApproxE(double noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load double, ptr %3, align 8
-  %5 = fcmp olt double %4, %0
+  %5 = fcmp ogt double %0, %4
   br i1 %5, label %6, label %18
 
 6:                                                ; preds = %2
@@ -9330,7 +9330,7 @@ define dso_local noundef zeroext i1 @_ZN7doctest6detail14MessageBuilder3logEv(pt
 
 6:                                                ; preds = %1
   call void @_ZN7doctest6detail7tlssPopEv(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %2)
-  %.not.i = icmp eq ptr %2, %0
+  %.not.i = icmp eq ptr %0, %2
   br i1 %.not.i, label %_ZN7doctest6StringaSEOS0_.exit, label %7
 
 7:                                                ; preds = %6
@@ -9790,7 +9790,7 @@ _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i31
           to label %_ZN7doctest6StringD2Ev.exit320 unwind label %141
 
 _ZN7doctest6StringD2Ev.exit320:                   ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i314
-  %spec.select = or i1 %105, %3
+  %spec.select = or i1 %3, %105
   br i1 %spec.select, label %_ZN7doctest6StringD2Ev.exit320.thread402, label %_ZN7doctest6StringaSERKS0_.exit
 
 _ZN7doctest6StringD2Ev.exit320.thread402:         ; preds = %.noexc305, %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit, %.noexc317, %_ZN7doctest6StringD2Ev.exit320
@@ -9938,7 +9938,7 @@ _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i34
           to label %_ZN7doctest6StringD2Ev.exit354 unwind label %193
 
 _ZN7doctest6StringD2Ev.exit354:                   ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i347
-  %spec.select303 = or i1 %158, %3
+  %spec.select303 = or i1 %3, %158
   br i1 %spec.select303, label %_ZN7doctest6StringD2Ev.exit354.thread405, label %_ZN7doctest6StringaSERKS0_.exit359
 
 _ZN7doctest6StringD2Ev.exit354.thread405:         ; preds = %.noexc336, %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit338, %.noexc350, %_ZN7doctest6StringD2Ev.exit354
@@ -11345,7 +11345,7 @@ _ZNSt10_HashtableIyySaIyENSt8__detail9_IdentityESt8equal_toIyESt4hashIyENS1_18_M
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 4472
-  %12 = icmp eq ptr %11, %10
+  %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNSt13unordered_setIySt4hashIyESt8equal_toIyESaIyEED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZNSt10_HashtableIyySaIyENSt8__detail9_IdentityESt8equal_toIyESt4hashIyENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -17455,7 +17455,7 @@ define internal void @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler12handleSi
   %.01133 = phi i64 [ 0, %1 ], [ %6, %5 ]
   %8 = getelementptr inbounds [6 x %"struct.doctest::(anonymous namespace)::SignalDefs"], ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 0, i64 %.01133
   %9 = load i32, ptr %8, align 16
-  %10 = icmp eq i32 %9, %0
+  %10 = icmp eq i32 %0, %9
   br i1 %10, label %11, label %5
 
 11:                                               ; preds = %7
@@ -18449,7 +18449,7 @@ _ZN7doctest6String8allocateEj.exit.i.i.i.i.i:     ; preds = %.noexc, %33
 _ZNSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %49
   %.0.lcssa.i.i.i = phi ptr [ %23, %49 ], [ %56, %.lr.ph.i.i.i ]
   %57 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i27
@@ -18712,7 +18712,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vect
   %94 = load ptr, ptr %12, align 8
   %95 = getelementptr inbounds %"struct.doctest::SubcaseSignature", ptr %94, i64 %93
   store ptr %95, ptr %12, align 8
-  %.not11.i.i.i.i.i56 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i56 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i56, label %_ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit62, label %.lr.ph.i.i.i.i.i57
 
 .lr.ph.i.i.i.i.i57:                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, %.lr.ph.i.i.i.i.i57
@@ -18878,7 +18878,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_E
           to label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit unwind label %184
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %.not11.i.i.i.i.i80 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i80 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit86, label %.lr.ph.i.i.i.i.i81
 
 .lr.ph.i.i.i.i.i81:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit, %.lr.ph.i.i.i.i.i81
@@ -19387,7 +19387,7 @@ _ZNSt10_HashtableIyySaIyENSt8__detail9_IdentityESt8equal_toIyESt4hashIyENS1_18_M
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableIyySaIyENSt8__detail9_IdentityESt8equal_toIyESt4hashIyENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableIyySaIyENSt8__detail9_IdentityESt8equal_toIyESt4hashIyENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge
@@ -19564,7 +19564,7 @@ _ZNKSt4lessIN7doctest6detail8TestCaseEEclERKS2_S5_.exit11: ; preds = %62
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN7doctest6detail8TestCaseES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #7 comdat align 2 {
   %.not = icmp ne ptr %1, null
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = icmp eq ptr %6, %2
+  %7 = icmp eq ptr %2, %6
   %or.cond = select i1 %.not, i1 true, i1 %7
   br i1 %or.cond, label %_ZNKSt4lessIN7doctest6detail8TestCaseEEclERKS2_S5_.exit, label %8
 
@@ -19790,7 +19790,7 @@ _ZNSt12_Vector_baseIN7doctest6StringESaIS1_EE11_M_allocateEm.exit: ; preds = %_Z
 _ZNSt6vectorIN7doctest6StringESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN7doctest6StringESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7doctest6StringESaIS1_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
   %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN7doctest6StringESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN7doctest6StringESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17
@@ -24970,7 +24970,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -30502,7 +30502,7 @@ _ZNSt16allocator_traitsISaIN7doctest6StringEEE9constructIS1_JRKS1_EEEvRS2_PT_DpO
 _ZNSt6vectorIN7doctest6StringESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN7doctest6StringEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN7doctest6StringEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %51, %.lr.ph.i.i.i ]
   %52 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN7doctest6StringESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN7doctest6StringESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i27
@@ -34781,7 +34781,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorIPN7doctest9IReporterESaIS2_EE14_
   br i1 %.not, label %31, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp eq ptr %9, %1
+  %13 = icmp eq ptr %1, %9
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
@@ -35483,7 +35483,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %phi.call.us = getelementptr inbounds ptr, ptr %0, i64 %.0.us
   %19 = load ptr, ptr %phi.call.us, align 8
   %.sroa.0.0.copyload.us = load ptr, ptr %2, align 8
-  %20 = icmp sgt i64 %12, %.0.us
+  %20 = icmp slt i64 %.0.us, %12
   br i1 %20, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN7doctest6detail8TestCaseESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_T0_SI_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.split.us, %.lr.ph.i.us
@@ -35537,7 +35537,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN7doctest6detail8TestCaseE
   %phi.call = getelementptr inbounds ptr, ptr %0, i64 %.0
   %44 = load ptr, ptr %phi.call, align 8
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %45 = icmp sgt i64 %12, %.0
+  %45 = icmp slt i64 %.0, %12
   br i1 %45, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split, %.lr.ph.i
@@ -35675,7 +35675,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIN7doctest6StringES1_St
 
 select.unfold:                                    ; preds = %22, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.021.lcssa30.i, %._crit_edge.thread.i ], [ %.021.lcssa31.i, %22 ]
-  %32 = icmp eq ptr %4, %.sroa.4.0.i.ph
+  %32 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %32, label %_ZNSt8_Rb_treeIN7doctest6StringES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit, label %33
 
 33:                                               ; preds = %select.unfold
@@ -35728,7 +35728,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIiN7doctest6Str
 6:                                                ; preds = %2
   %.not.i = icmp ne ptr %4, null
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = icmp eq ptr %7, %5
+  %8 = icmp eq ptr %5, %7
   %or.cond.i = select i1 %.not.i, i1 true, i1 %8
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeISt4pairIiN7doctest6StringEES0_IKS3_PFPNS1_9IReporterERKNS1_14ContextOptionsEEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE10_M_insert_ISC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit, label %9
 

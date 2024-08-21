@@ -32,7 +32,7 @@ if.then3:                                         ; preds = %if.then
   %nactvar = getelementptr inbounds i8, ptr %fs, i64 74
   %2 = load i8, ptr %nactvar, align 2, !tbaa !12
   %conv = zext i8 %2 to i32
-  %cmp4.not = icmp sgt i32 %conv, %from
+  %cmp4.not = icmp slt i32 %from, %conv
   br i1 %cmp4.not, label %if.end34, label %cleanup37
 
 if.else:                                          ; preds = %if.then
@@ -230,7 +230,7 @@ while.cond:                                       ; preds = %while.cond, %while.
 while.end:                                        ; preds = %while.cond
   %arrayidx.i.le = getelementptr inbounds i32, ptr %2, i64 %idxprom.i
   %add.neg.i = xor i32 %list.0, -1
-  %sub.i13 = add i32 %add.neg.i, %l2
+  %sub.i13 = add i32 %l2, %add.neg.i
   %4 = tail call i32 @llvm.abs.i32(i32 %sub.i13, i1 true)
   %cmp.i14 = icmp ugt i32 %4, 131071
   br i1 %cmp.i14, label %if.then.i, label %fixjump.exit
@@ -328,7 +328,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %wh
 while.end.i.i:                                    ; preds = %while.cond.i.i
   %arrayidx.i.i.i.le = getelementptr inbounds i32, ptr %3, i64 %idxprom.i.i.i
   %add.neg.i.i.i = xor i32 %list.0.i.i, -1
-  %sub.i13.i.i = add i32 %add.neg.i.i.i, %list
+  %sub.i13.i.i = add i32 %list, %add.neg.i.i.i
   %5 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i.i, i1 true)
   %cmp.i14.i.i = icmp ugt i32 %5, 131071
   br i1 %cmp.i14.i.i, label %if.then.i.i.i, label %fixjump.exit.i.i
@@ -400,14 +400,14 @@ if.end.i.i:                                       ; preds = %getjumpcontrol.exit
   %15 = or i32 %shl10.i.i, %or11.i.i
   store i32 %15, ptr %retval.0.i.i.i, align 4, !tbaa !16
   %add.neg.i.i = xor i32 %list.addr.037.i, -1
-  %sub.i11.i = add i32 %add.neg.i.i, %target
+  %sub.i11.i = add i32 %target, %add.neg.i.i
   %16 = tail call i32 @llvm.abs.i32(i32 %sub.i11.i, i1 true)
   %cmp.i12.i = icmp ugt i32 %16, 131071
   br i1 %cmp.i12.i, label %if.end.sink.split.sink.split.i, label %if.end.sink.split.i
 
 if.else.i:                                        ; preds = %getjumpcontrol.exit.i.i
   %add.neg.i21.i = xor i32 %list.addr.037.i, -1
-  %sub.i22.i = add i32 %add.neg.i21.i, %target
+  %sub.i22.i = add i32 %target, %add.neg.i21.i
   %17 = tail call i32 @llvm.abs.i32(i32 %sub.i22.i, i1 true)
   %cmp.i23.i = icmp ugt i32 %17, 131071
   br i1 %cmp.i23.i, label %if.end.sink.split.sink.split.i, label %if.end.i
@@ -482,7 +482,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %whil
 while.end.i:                                      ; preds = %while.cond.i
   %arrayidx.i.i.le = getelementptr inbounds i32, ptr %3, i64 %idxprom.i.i
   %add.neg.i.i = xor i32 %list.0.i, -1
-  %sub.i13.i = add i32 %add.neg.i.i, %list
+  %sub.i13.i = add i32 %list, %add.neg.i.i
   %5 = tail call i32 @llvm.abs.i32(i32 %sub.i13.i, i1 true)
   %cmp.i14.i = icmp ugt i32 %5, 131071
   br i1 %cmp.i14.i, label %if.then.i.i, label %fixjump.exit.i
@@ -569,14 +569,14 @@ if.end.i:                                         ; preds = %getjumpcontrol.exit
   %or16.i = select i1 %or.cond.i, i32 %7, i32 %8
   store i32 %or16.i, ptr %retval.0.i.i, align 4, !tbaa !16
   %add.neg.i = xor i32 %list.addr.037, -1
-  %sub.i11 = add i32 %add.neg.i, %vtarget
+  %sub.i11 = add i32 %vtarget, %add.neg.i
   %9 = tail call i32 @llvm.abs.i32(i32 %sub.i11, i1 true)
   %cmp.i12 = icmp ugt i32 %9, 131071
   br i1 %cmp.i12, label %if.end.sink.split.sink.split, label %if.end.sink.split
 
 if.else:                                          ; preds = %getjumpcontrol.exit.i
   %add.neg.i21 = xor i32 %list.addr.037, -1
-  %sub.i22 = add i32 %add.neg.i21, %dtarget
+  %sub.i22 = add i32 %dtarget, %add.neg.i21
   %10 = tail call i32 @llvm.abs.i32(i32 %sub.i22, i1 true)
   %cmp.i23 = icmp ugt i32 %10, 131071
   br i1 %cmp.i23, label %if.end.sink.split.sink.split, label %if.end
@@ -4766,7 +4766,7 @@ if.then3.i:                                       ; preds = %if.then.i
   %nactvar.i = getelementptr inbounds i8, ptr %fs, i64 74
   %3 = load i8, ptr %nactvar.i, align 2, !tbaa !12
   %conv.i = zext i8 %3 to i32
-  %cmp4.not.i = icmp sgt i32 %conv.i, %reg
+  %cmp4.not.i = icmp slt i32 %reg, %conv.i
   br i1 %cmp4.not.i, label %if.end34.i, label %sw.epilog
 
 if.else.i:                                        ; preds = %if.then.i

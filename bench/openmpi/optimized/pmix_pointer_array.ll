@@ -290,7 +290,7 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr noundef %0, i32 nounde
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %2
-  %.not50 = icmp sgt i32 %11, %1
+  %.not50 = icmp slt i32 %1, %11
   br i1 %.not50, label %13, label %65
 
 13:                                               ; preds = %12, %2
@@ -445,7 +445,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %0, i64 120
   %20 = load i32, ptr %19, align 8
-  %21 = icmp sgt i32 %20, %1
+  %21 = icmp slt i32 %1, %20
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
@@ -491,7 +491,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   store i64 %51, ptr %49, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 120
   %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, %1
+  %54 = icmp eq i32 %1, %53
   br i1 %54, label %55, label %91
 
 55:                                               ; preds = %38
@@ -571,7 +571,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
 define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
-  %6 = icmp sgt i32 %5, %1
+  %6 = icmp slt i32 %1, %5
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %3
@@ -620,7 +620,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
 32:                                               ; preds = %.thread
   %33 = getelementptr inbounds i8, ptr %0, i64 120
   %34 = load i32, ptr %33, align 8
-  %35 = icmp eq i32 %34, %1
+  %35 = icmp eq i32 %1, %34
   br i1 %35, label %.preheader, label %70
 
 .preheader:                                       ; preds = %32
@@ -689,7 +689,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
 define range(i32 -1, 1) i32 @pmix_pointer_array_set_size(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
-  %5 = icmp slt i32 %4, %1
+  %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2

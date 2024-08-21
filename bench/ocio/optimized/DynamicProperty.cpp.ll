@@ -1589,7 +1589,7 @@ invoke.cont:                                      ; preds = %entry, %if.then.i.i
   %sub.ptr.rhs.cast.i.i4 = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i5 = sub i64 %sub.ptr.lhs.cast.i.i3, %sub.ptr.rhs.cast.i.i4
   %sub.ptr.div.i.i6 = ashr exact i64 %sub.ptr.sub.i.i5, 2
-  %cmp.i7 = icmp ult i64 %sub.ptr.div.i.i6, %mul
+  %cmp.i7 = icmp ugt i64 %mul, %sub.ptr.div.i.i6
   br i1 %cmp.i7, label %if.then.i14, label %if.else.i8
 
 if.then.i14:                                      ; preds = %invoke.cont
@@ -1598,7 +1598,7 @@ if.then.i14:                                      ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad
 
 if.else.i8:                                       ; preds = %invoke.cont
-  %cmp4.i9 = icmp ugt i64 %sub.ptr.div.i.i6, %mul
+  %cmp4.i9 = icmp ult i64 %mul, %sub.ptr.div.i.i6
   br i1 %cmp4.i9, label %if.then5.i10, label %invoke.cont5
 
 if.then5.i10:                                     ; preds = %if.else.i8

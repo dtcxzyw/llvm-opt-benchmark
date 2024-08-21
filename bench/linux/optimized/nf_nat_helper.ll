@@ -95,7 +95,7 @@ define dso_local noundef zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, 
   %55 = lshr i16 %54, 2
   %56 = and i16 %55, 60
   %57 = zext nneg i16 %56 to i32
-  %58 = add i32 %57, %3
+  %58 = add i32 %3, %57
   tail call fastcc void @mangle_contents(ptr noundef %0, i32 noundef %58, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7)
   %59 = load i32, ptr %10, align 8
   %60 = sub i32 %59, %3
@@ -433,7 +433,7 @@ define dso_local zeroext i16 @nf_nat_exp_find_port(ptr noundef %0, i16 noundef z
   %15 = add nsw i32 %9, -1
   %16 = tail call i32 @__get_random_u32_below(i32 noundef %4) #5
   %17 = trunc i32 %16 to i16
-  %18 = add i16 %17, %1
+  %18 = add i16 %1, %17
   br label %7
 
 .thread1.loopexit:                                ; preds = %7

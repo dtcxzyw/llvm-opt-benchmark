@@ -169,7 +169,7 @@ if.end12.i:                                       ; preds = %if.end6.i
   %3 = load i32, ptr %incdec.ptr7.i, align 1
   %conv.i = zext i32 %3 to i64
   %add.i = add nuw nsw i64 %conv.i, 104
-  %cmp17.not.i = icmp eq i64 %add.i, %length
+  %cmp17.not.i = icmp eq i64 %length, %add.i
   br i1 %cmp17.not.i, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end12.i
@@ -259,7 +259,7 @@ if.end12.i:                                       ; preds = %if.end6.i
   %2 = load i32, ptr %incdec.ptr7.i, align 1
   %conv.i = zext i32 %2 to i64
   %add.i = add nuw nsw i64 %conv.i, 104
-  %cmp17.not.i = icmp eq i64 %add.i, %length
+  %cmp17.not.i = icmp eq i64 %length, %add.i
   br i1 %cmp17.not.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end12.i
@@ -402,7 +402,7 @@ if.end12.i:                                       ; preds = %if.end6.i
   %2 = load i32, ptr %incdec.ptr7.i, align 1
   %conv.i = zext i32 %2 to i64
   %add.i = add nuw nsw i64 %conv.i, 104
-  %cmp17.not.i = icmp ne i64 %add.i, %length
+  %cmp17.not.i = icmp ne i64 %length, %add.i
   %tobool.not = icmp eq ptr %size, null
   %or.cond = or i1 %tobool.not, %cmp17.not.i
   br i1 %or.cond, label %return, label %if.end2
@@ -490,7 +490,7 @@ if.end12.i:                                       ; preds = %if.end6.i
   %2 = load i32, ptr %incdec.ptr7.i, align 1
   %conv.i = zext i32 %2 to i64
   %add.i = add nuw nsw i64 %conv.i, 104
-  %cmp17.not.i = icmp eq i64 %add.i, %length
+  %cmp17.not.i = icmp eq i64 %length, %add.i
   br i1 %cmp17.not.i, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end12.i

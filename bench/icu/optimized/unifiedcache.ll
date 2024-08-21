@@ -444,7 +444,7 @@ if.end.us:                                        ; preds = %_ZNK6icu_7512Unifie
   %fCreationStatus.i.us = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %fCreationStatus.i.us, align 8
   %6 = load ptr, ptr %fNoValue.i.i, align 8
-  %cmp.i.i.us = icmp ne ptr %6, %4
+  %cmp.i.i.us = icmp ne ptr %4, %6
   %cmp2.i.i.us = icmp ne i32 %5, 0
   %.not.i.us = or i1 %cmp2.i.i.us, %cmp.i.i.us
   br i1 %.not.i.us, label %if.end.i.us, label %for.inc.us
@@ -647,7 +647,7 @@ if.end6:                                          ; preds = %for.body, %_ZNK6icu
   %fCreationStatus.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i32, ptr %fCreationStatus.i, align 8
   %10 = load ptr, ptr %fNoValue.i.i, align 8
-  %cmp.i.i = icmp ne ptr %10, %8
+  %cmp.i.i = icmp ne ptr %8, %10
   %cmp2.i.i = icmp ne i32 %9, 0
   %.not.i = or i1 %cmp2.i.i, %cmp.i.i
   br i1 %.not.i, label %if.end.i, label %for.inc
@@ -858,7 +858,7 @@ entry:
   %2 = load i32, ptr %fCreationStatus, align 8
   %fNoValue.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %fNoValue.i, align 8
-  %cmp.i = icmp ne ptr %3, %1
+  %cmp.i = icmp ne ptr %1, %3
   %cmp2.i = icmp ne i32 %2, 0
   %.not = or i1 %cmp2.i, %cmp.i
   br i1 %.not, label %if.end, label %return
@@ -1081,7 +1081,7 @@ _ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorC
 if.then.i.i10:                                    ; preds = %if.then2.i9.i.i, %if.then.i5.i.i
   %fNoValue.i4.i = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load ptr, ptr %fNoValue.i4.i, align 8
-  %cmp.i5.i = icmp eq ptr %9, %4
+  %cmp.i5.i = icmp eq ptr %4, %9
   %cmp2.i6.i = icmp eq i32 %3, 0
   %10 = and i1 %cmp2.i6.i, %cmp.i5.i
   %11 = atomicrmw sub ptr %hardRefCount.i6.i.i, i32 1 seq_cst, align 4
@@ -1318,7 +1318,7 @@ _ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorC
 if.then.i:                                        ; preds = %if.then.i5.i, %if.then2.i9.i
   %fNoValue.i4 = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load ptr, ptr %fNoValue.i4, align 8
-  %cmp.i5 = icmp eq ptr %7, %2
+  %cmp.i5 = icmp eq ptr %2, %7
   %cmp2.i6 = icmp eq i32 %1, 0
   %8 = and i1 %cmp2.i6, %cmp.i5
   %9 = atomicrmw sub ptr %hardRefCount.i6.i, i32 1 seq_cst, align 4
@@ -1519,7 +1519,7 @@ _ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorC
 
 if.then.i.i:                                      ; preds = %if.then2.i9.i.i, %if.then.i5.i.i
   %9 = load ptr, ptr %fNoValue.i4.i, align 8
-  %cmp.i5.i = icmp eq ptr %9, %4
+  %cmp.i5.i = icmp eq ptr %4, %9
   %cmp2.i6.i = icmp eq i32 %3, 0
   %10 = and i1 %cmp2.i6.i, %cmp.i5.i
   %11 = atomicrmw sub ptr %hardRefCount.i6.i.i, i32 1 seq_cst, align 4
@@ -1813,7 +1813,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512UnifiedCache11_inProgress
 entry:
   %fNoValue = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %fNoValue, align 8
-  %cmp = icmp eq ptr %0, %theValue
+  %cmp = icmp eq ptr %theValue, %0
   %cmp2 = icmp eq i32 %creationStatus, 0
   %1 = and i1 %cmp2, %cmp
   %conv = zext i1 %1 to i8

@@ -802,7 +802,7 @@ define hidden void @_ZN16EllipticKeyPoint7convertERKSt6vectorIN2cv8KeyPointESaIS
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
-  %22 = icmp ult i64 %21, %14
+  %22 = icmp ugt i64 %14, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %10
@@ -811,7 +811,7 @@ define hidden void @_ZN16EllipticKeyPoint7convertERKSt6vectorIN2cv8KeyPointESaIS
           to label %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit unwind label %38
 
 25:                                               ; preds = %10
-  %26 = icmp ugt i64 %21, %14
+  %26 = icmp ult i64 %14, %21
   br i1 %26, label %27, label %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit
 
 27:                                               ; preds = %25
@@ -1031,7 +1031,7 @@ define hidden void @_ZN16EllipticKeyPoint7convertERKSt6vectorIS_SaIS_EERS0_IN2cv
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = sdiv exact i64 %18, 28
-  %20 = icmp ult i64 %19, %12
+  %20 = icmp ugt i64 %12, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %8
@@ -1040,7 +1040,7 @@ define hidden void @_ZN16EllipticKeyPoint7convertERKSt6vectorIS_SaIS_EERS0_IN2cv
           to label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit unwind label %48
 
 23:                                               ; preds = %8
-  %24 = icmp ugt i64 %19, %12
+  %24 = icmp ult i64 %12, %19
   br i1 %24, label %25, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit
 
 25:                                               ; preds = %23
@@ -1187,7 +1187,7 @@ define hidden void @_ZN16EllipticKeyPoint14calcProjectionERKSt6vectorIS_SaIS_EER
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = sdiv exact i64 %38, 56
-  %40 = icmp ult i64 %39, %32
+  %40 = icmp ugt i64 %32, %39
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %26
@@ -1198,7 +1198,7 @@ define hidden void @_ZN16EllipticKeyPoint14calcProjectionERKSt6vectorIS_SaIS_EER
   br label %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit
 
 43:                                               ; preds = %26
-  %44 = icmp ugt i64 %39, %32
+  %44 = icmp ult i64 %32, %39
   br i1 %44, label %45, label %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit
 
 45:                                               ; preds = %43
@@ -2800,7 +2800,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -2874,7 +2874,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; pre
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -3503,7 +3503,7 @@ _ZNSt12_Vector_baseI16EllipticKeyPointSaIS0_EE11_M_allocateEm.exit: ; preds = %_
 _ZNSt6vectorI16EllipticKeyPointSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseI16EllipticKeyPointSaIS0_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseI16EllipticKeyPointSaIS0_EE11_M_allocateEm.exit ], [ %46, %.lr.ph.i.i.i.i ]
   %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 56
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i.i27
@@ -4375,7 +4375,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
   %.sroa.04.0.copyload.i = load i64, ptr %phi.call.i, align 4
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %phi.call.i, i64 8
   %.sroa.25.0.copyload.i = load i32, ptr %.sroa.25.0..sroa_idx.i, align 4
-  %19 = icmp sgt i64 %12, %.0.i
+  %19 = icmp slt i64 %.0.i, %12
   br i1 %19, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
@@ -5502,7 +5502,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
   %.sroa.217.0.copyload.i = load float, ptr %.sroa.217.0..sroa.0.0..sroa_idx.i, align 4
   %.sroa.318.0..sroa.0.0..sroa_idx.i = getelementptr inbounds i8, ptr %phi.call.i, i64 16
   %.sroa.318.0.copyload.i = load i32, ptr %.sroa.318.0..sroa.0.0..sroa_idx.i, align 4
-  %19 = icmp sgt i64 %12, %.0.i
+  %19 = icmp slt i64 %.0.i, %12
   br i1 %19, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i

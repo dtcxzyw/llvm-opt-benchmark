@@ -293,7 +293,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IPK10btDbvtNodeE
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -341,7 +341,7 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit: ; preds = %for.body, %if.the
   br i1 %exitcond23.not, label %if.end15, label %for.body, !llvm.loop !5
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
 
 for.body8.lr.ph:                                  ; preds = %if.else
@@ -443,7 +443,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 _ZN20btAlignedObjectArrayIPK10btDbvtNodeEC2ERKS3_.exit: ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE6resizeEiRKS2_.exit.thread.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %newsize
+  %exitcond.not = icmp eq i32 %newsize, %lftr.wideiv
   br i1 %exitcond.not, label %if.end15, label %for.body8, !llvm.loop !9
 
 if.end15:                                         ; preds = %_ZN20btAlignedObjectArrayIPK10btDbvtNodeEC2ERKS3_.exit, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev.exit, %if.else
@@ -1363,7 +1363,7 @@ if.then16:                                        ; preds = %if.then14
 if.then17:                                        ; preds = %if.then16
   %42 = load i32, ptr %m_size.i.i, align 4
   %mul = shl nsw i32 %42, 1
-  %cmp3.i43 = icmp slt i32 %42, %mul
+  %cmp3.i43 = icmp sgt i32 %mul, %42
   br i1 %cmp3.i43, label %if.then4.i44, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE6resizeEiRKS2_.exit77
 
 if.then4.i44:                                     ; preds = %if.then17
@@ -1836,7 +1836,7 @@ do.body:                                          ; preds = %do.cond, %_ZN20btAl
 if.then7:                                         ; preds = %do.body
   %7 = load i32, ptr %m_size.i.i, align 4
   %mul = shl nsw i32 %7, 1
-  %cmp3.i50 = icmp slt i32 %7, %mul
+  %cmp3.i50 = icmp sgt i32 %mul, %7
   %8 = load i32, ptr %m_capacity.i.i.i52, align 8
   %cmp.i.i53 = icmp slt i32 %8, %mul
   %or.cond143 = select i1 %cmp3.i50, i1 %cmp.i.i53, i1 false
@@ -3195,7 +3195,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 _ZN20btAlignedObjectArrayIPK10btDbvtNodeEC2ERKS3_.exit: ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE6resizeEiRKS2_.exit.thread.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %end
+  %exitcond.not = icmp eq i32 %end, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %_ZN20btAlignedObjectArrayIPK10btDbvtNodeEC2ERKS3_.exit, %entry
@@ -3403,7 +3403,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !24
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo.tr
+  %cmp15 = icmp slt i32 %lo.tr, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end

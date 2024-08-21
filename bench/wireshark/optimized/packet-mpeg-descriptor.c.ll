@@ -2800,7 +2800,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_carousel_identifier(p
   %40 = load i32, ptr @hf_mpeg_descr_carousel_identifier_object_key_data, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef %36, i32 noundef 0) #5
   %42 = add nuw nsw i32 %36, 20
-  %43 = icmp ult i32 %42, %2
+  %43 = icmp ugt i32 %2, %42
   br i1 %43, label %47, label %.thread
 
 44:                                               ; preds = %4
@@ -2923,7 +2923,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_network_name(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_service_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -3189,7 +3189,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_cable_delivery(ptr no
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_vbi_data(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph43, label %._crit_edge
 
 .lr.ph43:                                         ; preds = %4, %.loopexit
@@ -3469,7 +3469,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_linkage(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_nvod_reference(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -3856,7 +3856,7 @@ proto_mpeg_descriptor_dissect_mosaic_measure_l_cell_len.exit: ; preds = %.lr.ph9
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_ca_identifier(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -3874,7 +3874,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_ca_identifier(ptr nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_content(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -3911,7 +3911,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_parental_rating(ptr n
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_teletext(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -4052,7 +4052,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_local_time_offset(ptr
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.nstime_t, align 8
   %8 = add i32 %2, %1
-  %9 = icmp ugt i32 %8, %1
+  %9 = icmp ult i32 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %47
@@ -4140,7 +4140,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_local_time_offset(ptr
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_subtitling(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -4796,7 +4796,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_service_availability(
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_tva_id(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -4825,7 +4825,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_tva_id(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_content_identifier(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %40
@@ -5111,7 +5111,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_nordig_lcd_v1(ptr nou
   %5 = add i32 %2, %1
   %6 = and i32 %2, 3
   %.not = icmp eq i32 %6, 0
-  %7 = icmp ugt i32 %5, %1
+  %7 = icmp ult i32 %1, %5
   %or.cond = and i1 %.not, %7
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
@@ -5394,7 +5394,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_logon_initialize(ptr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_rcs_content(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = add i32 %2, %1
-  %6 = icmp ugt i32 %5, %1
+  %6 = icmp ult i32 %1, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph

@@ -261,7 +261,7 @@ define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef %0, i64
 
 26:                                               ; preds = %12
   %27 = add i64 %3, 4
-  %28 = add i64 %27, %6
+  %28 = add i64 %6, %27
   %29 = add i64 %28, 6
   %30 = icmp ugt i64 %29, 256
   br i1 %30, label %31, label %32

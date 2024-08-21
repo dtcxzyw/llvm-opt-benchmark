@@ -964,7 +964,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3) #16
   %11 = icmp sgt i32 %10, -1
   %12 = zext nneg i32 %10 to i64
-  %.not249 = icmp ult i64 %12, %1
+  %.not249 = icmp ugt i64 %1, %12
   %or.cond = select i1 %11, i1 %.not249, i1 false
   %spec.select = select i1 %or.cond, i32 %10, i32 -10624
   br label %245
@@ -978,7 +978,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 18:                                               ; preds = %13
   %19 = zext nneg i32 %16 to i64
-  %.not = icmp ult i64 %19, %1
+  %.not = icmp ugt i64 %1, %19
   br i1 %.not, label %20, label %245
 
 20:                                               ; preds = %18

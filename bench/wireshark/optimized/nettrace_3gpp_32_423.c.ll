@@ -531,7 +531,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
 70:                                               ; preds = %68
   %71 = getelementptr i8, ptr %69, i64 10
   %72 = ptrtoint ptr %71 to i64
-  %.neg = add i64 %26, %4
+  %.neg = add i64 %4, %26
   %73 = sub i64 %.neg, %72
   %74 = call ptr @g_strstr_len(ptr noundef %71, i64 noundef %73, ptr noundef nonnull @.str.8) #11
   %75 = ptrtoint ptr %74 to i64
@@ -563,7 +563,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
 88:                                               ; preds = %86
   %89 = getelementptr i8, ptr %87, i64 6
   %90 = ptrtoint ptr %89 to i64
-  %.neg227 = add i64 %26, %4
+  %.neg227 = add i64 %4, %26
   %91 = sub i64 %.neg227, %90
   %92 = call ptr @g_strstr_len(ptr noundef %89, i64 noundef %91, ptr noundef nonnull @.str.8) #11
   %93 = ptrtoint ptr %92 to i64
@@ -594,7 +594,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
 106:                                              ; preds = %104
   %107 = getelementptr i8, ptr %105, i64 10
   %108 = ptrtoint ptr %107 to i64
-  %.neg230 = add i64 %26, %4
+  %.neg230 = add i64 %4, %26
   %109 = sub i64 %.neg230, %108
   %110 = call ptr @g_strstr_len(ptr noundef %107, i64 noundef %109, ptr noundef nonnull @c_e_initiator) #11
   %.not231 = icmp eq ptr %107, null
@@ -612,7 +612,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
 114:                                              ; preds = %112
   %115 = getelementptr i8, ptr %113, i64 7
   %116 = ptrtoint ptr %115 to i64
-  %.neg233 = add i64 %26, %4
+  %.neg233 = add i64 %4, %26
   %117 = sub i64 %.neg233, %116
   %118 = call ptr @g_strstr_len(ptr noundef %115, i64 noundef %117, ptr noundef nonnull @c_e_target) #11
   %.not234 = icmp eq ptr %115, null
@@ -635,7 +635,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
 
 125:                                              ; preds = %120
   %126 = ptrtoint ptr %121 to i64
-  %.neg235 = add i64 %26, %4
+  %.neg235 = add i64 %4, %26
   %127 = sub i64 %.neg235, %126
   %128 = call ptr @g_strstr_len(ptr noundef nonnull %121, i64 noundef %127, ptr noundef nonnull @c_protocol) #11
   %129 = icmp eq ptr %128, null

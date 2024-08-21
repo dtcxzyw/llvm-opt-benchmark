@@ -436,7 +436,7 @@ define internal fastcc i32 @sendchunk(ptr noundef %0, ptr noundef %1, i64 nounde
   %.pre-phi = phi i64 [ %.pre94, %23 ], [ %8, %12 ]
   %27 = phi i64 [ %.pre, %23 ], [ %9, %12 ]
   %28 = phi i32 [ %25, %23 ], [ %7, %12 ]
-  %29 = add i64 %.pre-phi, %2
+  %29 = add i64 %2, %.pre-phi
   %30 = icmp ugt i64 %29, %27
   %31 = sub i64 %27, %.pre-phi
   %spec.select = select i1 %30, i64 %31, i64 %2

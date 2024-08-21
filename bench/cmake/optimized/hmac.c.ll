@@ -37,7 +37,7 @@ define dso_local ptr @Curl_HMAC_init(ptr noundef %0, ptr noundef %1, i32 noundef
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 28
   %24 = load i32, ptr %23, align 4
-  %25 = icmp ult i32 %24, %2
+  %25 = icmp ugt i32 %2, %24
   br i1 %25, label %26, label %40
 
 26:                                               ; preds = %16

@@ -25,7 +25,7 @@ define range(i32 -5, 1) i32 @prte_backtrace_print(ptr noundef %0, ptr noundef re
 
 11:                                               ; preds = %9
   %12 = call i32 @backtrace(ptr noundef nonnull %4, i32 noundef 32) #6
-  %13 = icmp sgt i32 %12, %2
+  %13 = icmp slt i32 %2, %12
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %11

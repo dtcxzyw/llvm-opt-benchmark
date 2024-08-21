@@ -502,7 +502,7 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   store i32 0, ptr %24, align 8
   %32 = getelementptr inbounds i8, ptr %15, i64 80
   %33 = load i32, ptr %32, align 8
-  %.not85 = icmp ugt i32 %33, %2
+  %.not85 = icmp ult i32 %2, %33
   br i1 %.not85, label %62, label %39
 
 .thread90.thread:                                 ; preds = %27
@@ -513,7 +513,7 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   store i32 0, ptr %24, align 8
   %37 = getelementptr inbounds i8, ptr %15, i64 80
   %38 = load i32, ptr %37, align 8
-  %.not8593 = icmp ugt i32 %38, %2
+  %.not8593 = icmp ult i32 %2, %38
   br i1 %.not8593, label %62, label %.thread94
 
 39:                                               ; preds = %.thread90
@@ -1412,7 +1412,7 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   %25 = getelementptr inbounds i8, ptr %15, i64 196
   %26 = getelementptr inbounds i8, ptr %15, i64 200
   %27 = load i32, ptr %26, align 8
-  %.not52 = icmp eq i32 %27, %2
+  %.not52 = icmp eq i32 %2, %27
   br i1 %.not52, label %28, label %36
 
 28:                                               ; preds = %24

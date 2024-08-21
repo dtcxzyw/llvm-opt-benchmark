@@ -335,7 +335,7 @@ define ptr @H5A__create(ptr nocapture noundef readonly %0, ptr noundef %1, ptr n
 
 52:                                               ; preds = %44
   %53 = load i64, ptr @H5P_LST_ATTRIBUTE_CREATE_ID_g, align 8
-  %54 = icmp eq i64 %53, %4
+  %54 = icmp eq i64 %4, %53
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %52
@@ -2505,13 +2505,13 @@ define i32 @H5A__attr_iterate_table(ptr nocapture noundef readonly %0, i64 nound
 
 8:                                                ; preds = %6
   %9 = load i64, ptr %0, align 8
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %.lr.ph.split.us.preheader, label %._crit_edge.thread
 
 .thread:                                          ; preds = %6
   store i64 %1, ptr %2, align 8
   %11 = load i64, ptr %0, align 8
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %.lr.ph.split.preheader, label %._crit_edge.thread
 
 .lr.ph.split.preheader:                           ; preds = %.thread

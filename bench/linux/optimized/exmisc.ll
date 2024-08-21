@@ -130,7 +130,7 @@ define dso_local i64 @acpi_ex_do_math_op(i16 noundef zeroext %0, i64 noundef %1,
 20:                                               ; preds = %3
   %21 = load i8, ptr @acpi_gbl_integer_bit_width, align 1
   %22 = zext i8 %21 to i64
-  %23 = icmp ugt i64 %22, %2
+  %23 = icmp ult i64 %2, %22
   %24 = shl i64 %1, %2
   %25 = select i1 %23, i64 %24, i64 0
   br label %34
@@ -138,7 +138,7 @@ define dso_local i64 @acpi_ex_do_math_op(i16 noundef zeroext %0, i64 noundef %1,
 26:                                               ; preds = %3
   %27 = load i8, ptr @acpi_gbl_integer_bit_width, align 1
   %28 = zext i8 %27 to i64
-  %29 = icmp ugt i64 %28, %2
+  %29 = icmp ult i64 %2, %28
   %30 = lshr i64 %1, %2
   %31 = select i1 %29, i64 %30, i64 0
   br label %34

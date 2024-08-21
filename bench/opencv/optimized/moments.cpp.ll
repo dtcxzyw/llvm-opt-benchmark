@@ -84,7 +84,7 @@ define void @_ZN2cv7MomentsC2Edddddddddd(ptr nocapture noundef nonnull writeonly
   %21 = tail call noundef double @llvm.fabs.f64(double %1)
   %22 = fcmp ogt double %21, 0x3CB0000000000000
   %23 = fdiv double 1.000000e+00, %1
-  %24 = fmul double %23, %2
+  %24 = fmul double %2, %23
   %25 = fmul double %23, %3
   %.039 = select i1 %22, double %23, double 0.000000e+00
   %.038 = select i1 %22, double %25, double 0.000000e+00
@@ -100,26 +100,26 @@ define void @_ZN2cv7MomentsC2Edddddddddd(ptr nocapture noundef nonnull writeonly
   %32 = tail call double @llvm.fmuladd.f64(double %31, double %.038, double %6)
   %33 = getelementptr inbounds i8, ptr %0, i64 96
   store double %32, ptr %33, align 8
-  %34 = fmul double %.0, %2
+  %34 = fmul double %2, %.0
   %35 = tail call double @llvm.fmuladd.f64(double %27, double 3.000000e+00, double %34)
   %36 = fneg double %.0
   %37 = tail call double @llvm.fmuladd.f64(double %36, double %35, double %7)
   %38 = getelementptr inbounds i8, ptr %0, i64 104
   store double %37, ptr %38, align 8
-  %39 = fmul double %.0, %3
+  %39 = fmul double %3, %.0
   %40 = tail call double @llvm.fmuladd.f64(double %29, double 2.000000e+00, double %39)
   %41 = tail call double @llvm.fmuladd.f64(double %36, double %40, double %8)
   %42 = fneg double %.038
   %43 = tail call double @llvm.fmuladd.f64(double %42, double %27, double %41)
   %44 = getelementptr inbounds i8, ptr %0, i64 112
   store double %43, ptr %44, align 8
-  %45 = fmul double %.038, %2
+  %45 = fmul double %2, %.038
   %46 = tail call double @llvm.fmuladd.f64(double %29, double 2.000000e+00, double %45)
   %47 = tail call double @llvm.fmuladd.f64(double %42, double %46, double %9)
   %48 = tail call double @llvm.fmuladd.f64(double %36, double %32, double %47)
   %49 = getelementptr inbounds i8, ptr %0, i64 120
   store double %48, ptr %49, align 8
-  %50 = fmul double %.038, %3
+  %50 = fmul double %3, %.038
   %51 = tail call double @llvm.fmuladd.f64(double %32, double 3.000000e+00, double %50)
   %52 = tail call double @llvm.fmuladd.f64(double %42, double %51, double %10)
   %53 = getelementptr inbounds i8, ptr %0, i64 128
@@ -422,8 +422,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %38, %41
   %.0145.i = phi double [ %120, %114 ], [ %113, %107 ]
   %122 = fmul double %.0146.i, %.0146.i
   %123 = fmul double %.0145.i, %.0145.i
-  %124 = fneg double %.0146.i
-  %125 = fmul double %.1172.i, %124
+  %124 = fneg double %.1172.i
+  %125 = fmul double %.0146.i, %124
   %126 = call double @llvm.fmuladd.f64(double %.1142171.i, double %.0145.i, double %125)
   %127 = fadd double %.1142171.i, %.0146.i
   %128 = fadd double %.1172.i, %.0145.i
@@ -627,7 +627,7 @@ _ZN2cvL14contourMomentsERKNS_3MatE.exit:          ; preds = %82, %.thread.i, %._
 
 245:                                              ; preds = %235
   %246 = icmp eq i32 %27, 0
-  %or.cond6 = or i1 %246, %2
+  %or.cond6 = or i1 %2, %246
   br i1 %or.cond6, label %258, label %247
 
 247:                                              ; preds = %245
@@ -1810,8 +1810,8 @@ define void @_ZN2cv9HuMomentsERKNS_7MomentsEPd(ptr nocapture noundef nonnull rea
   %52 = call double @llvm.fmuladd.f64(double %43, double %37, double %51)
   %53 = getelementptr inbounds i8, ptr %1, i64 32
   store double %52, ptr %53, align 8
-  %54 = fneg double %43
-  %55 = fmul double %40, %54
+  %54 = fneg double %40
+  %55 = fmul double %43, %54
   %56 = call double @llvm.fmuladd.f64(double %47, double %37, double %55)
   %57 = getelementptr inbounds i8, ptr %1, i64 48
   store double %56, ptr %57, align 8
@@ -2463,8 +2463,8 @@ define void @cvGetHuMoments(ptr noundef readonly %0, ptr noundef writeonly %1) l
   %71 = tail call double @llvm.fmuladd.f64(double %64, double %60, double %70)
   %72 = getelementptr inbounds i8, ptr %1, i64 32
   store double %71, ptr %72, align 8
-  %73 = fneg double %64
-  %74 = fmul double %63, %73
+  %73 = fneg double %63
+  %74 = fmul double %64, %73
   %75 = tail call double @llvm.fmuladd.f64(double %66, double %60, double %74)
   %76 = getelementptr inbounds i8, ptr %1, i64 48
   store double %75, ptr %76, align 8

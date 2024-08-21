@@ -3213,7 +3213,7 @@ check_index_only.exit:                            ; preds = %.thread197, %._crit
   %293 = icmp ne ptr %.0130.lcssa, null
   %294 = icmp ne ptr %.0138208, null
   %or.cond = select i1 %293, i1 true, i1 %294
-  %brmerge154 = or i1 %or.cond, %4
+  %brmerge154 = or i1 %4, %or.cond
   %brmerge155 = select i1 %brmerge154, i1 true, i1 %292
   br i1 %brmerge155, label %295, label %313
 

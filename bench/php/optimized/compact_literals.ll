@@ -1382,7 +1382,7 @@ create_str_cache_key.exit:                        ; preds = %449, %454, %bias_ke
 
 689:                                              ; preds = %686
   %690 = load i32, ptr %659, align 8
-  %.not34.i = icmp ult i32 %690, %685
+  %.not34.i = icmp ugt i32 %685, %690
   br i1 %.not34.i, label %696, label %691
 
 691:                                              ; preds = %689

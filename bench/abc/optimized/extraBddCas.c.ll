@@ -147,7 +147,7 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %.loopexit79, label %12
 
 12:                                               ; preds = %8
@@ -312,7 +312,7 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @s_nVarsBest, align 4
-  %8 = icmp eq i32 %7, %2
+  %8 = icmp eq i32 %2, %7
   br i1 %8, label %9, label %47
 
 9:                                                ; preds = %4
@@ -483,7 +483,7 @@ define ptr @Extra_bddNodePathsUnderCut(ptr noundef %0, ptr noundef %1, i32 nound
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %1
+  %17 = icmp eq ptr %1, %16
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %14
@@ -1209,7 +1209,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %56, label %57, label %71
 
 57:                                               ; preds = %50
-  %.not104 = icmp eq ptr %7, %1
+  %.not104 = icmp eq ptr %1, %7
   %58 = getelementptr inbounds i8, ptr %7, i64 16
   %59 = getelementptr inbounds i8, ptr %7, i64 24
   %60 = load ptr, ptr %59, align 8
@@ -1236,7 +1236,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %72, label %73, label %104
 
 73:                                               ; preds = %71
-  %.not105 = icmp eq ptr %43, %2
+  %.not105 = icmp eq ptr %2, %43
   %74 = getelementptr inbounds i8, ptr %43, i64 16
   %75 = getelementptr inbounds i8, ptr %43, i64 24
   %76 = load ptr, ptr %75, align 8
@@ -1375,7 +1375,7 @@ common.ret25:                                     ; preds = %29, %13, %32, %5
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr @s_Terminal, align 8
-  %15 = icmp eq ptr %14, %0
+  %15 = icmp eq ptr %0, %14
   %16 = select i1 %15, i32 0, i32 %1
   br label %common.ret25
 

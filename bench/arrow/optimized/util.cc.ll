@@ -22185,7 +22185,7 @@ sw.bb2.i:                                         ; preds = %entry
   %add.i.i.i1146 = add nsw i64 %shr.i.i.i1142, %conv.i.i.i1145
   %buffer_length_.i.i1147 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %buffer_length_.i.i1147, align 8
-  %cmp.i.i1148 = icmp slt i64 %4, %add.i.i.i1146
+  %cmp.i.i1148 = icmp sgt i64 %add.i.i.i1146, %4
   br i1 %cmp.i.i1148, label %if.then.i.i1150, label %do.end6
 
 if.then.i.i1150:                                  ; preds = %sw.bb2.i
@@ -22197,7 +22197,7 @@ sw.bb4.i:                                         ; preds = %entry
   %5 = load i64, ptr %length_.i1136, align 8, !noalias !1249
   %buffer_length_.i.i1137 = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load i64, ptr %buffer_length_.i.i1137, align 8
-  %cmp.i.i1138 = icmp slt i64 %6, %5
+  %cmp.i.i1138 = icmp sgt i64 %5, %6
   br i1 %cmp.i.i1138, label %if.then.i.i1140, label %do.end6
 
 if.then.i.i1140:                                  ; preds = %sw.bb4.i
@@ -22209,7 +22209,7 @@ sw.bb6.i:                                         ; preds = %entry
   %7 = load i64, ptr %length_.i1131, align 8, !noalias !1255
   %buffer_length_.i.i1132 = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %buffer_length_.i.i1132, align 8
-  %cmp.i.i1133 = icmp slt i64 %8, %7
+  %cmp.i.i1133 = icmp sgt i64 %7, %8
   br i1 %cmp.i.i1133, label %if.then.i.i1135, label %do.end6
 
 if.then.i.i1135:                                  ; preds = %sw.bb6.i
@@ -22222,7 +22222,7 @@ sw.bb8.i:                                         ; preds = %entry
   %mul.i.i1126 = shl nsw i64 %9, 1
   %buffer_length_.i.i1127 = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i64, ptr %buffer_length_.i.i1127, align 8
-  %cmp.i.i1128 = icmp slt i64 %10, %mul.i.i1126
+  %cmp.i.i1128 = icmp sgt i64 %mul.i.i1126, %10
   br i1 %cmp.i.i1128, label %if.then.i.i1130, label %do.end6
 
 if.then.i.i1130:                                  ; preds = %sw.bb8.i
@@ -22235,7 +22235,7 @@ sw.bb10.i:                                        ; preds = %entry
   %mul.i.i1120 = shl nsw i64 %11, 1
   %buffer_length_.i.i1121 = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i64, ptr %buffer_length_.i.i1121, align 8
-  %cmp.i.i1122 = icmp slt i64 %12, %mul.i.i1120
+  %cmp.i.i1122 = icmp sgt i64 %mul.i.i1120, %12
   br i1 %cmp.i.i1122, label %if.then.i.i1124, label %do.end6
 
 if.then.i.i1124:                                  ; preds = %sw.bb10.i
@@ -22248,7 +22248,7 @@ sw.bb12.i:                                        ; preds = %entry
   %mul.i.i1114 = shl nsw i64 %13, 2
   %buffer_length_.i.i1115 = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load i64, ptr %buffer_length_.i.i1115, align 8
-  %cmp.i.i1116 = icmp slt i64 %14, %mul.i.i1114
+  %cmp.i.i1116 = icmp sgt i64 %mul.i.i1114, %14
   br i1 %cmp.i.i1116, label %if.then.i.i1118, label %do.end6
 
 if.then.i.i1118:                                  ; preds = %sw.bb12.i
@@ -22261,7 +22261,7 @@ sw.bb14.i:                                        ; preds = %entry
   %mul.i.i1108 = shl nsw i64 %15, 2
   %buffer_length_.i.i1109 = getelementptr inbounds i8, ptr %this, i64 16
   %16 = load i64, ptr %buffer_length_.i.i1109, align 8
-  %cmp.i.i1110 = icmp slt i64 %16, %mul.i.i1108
+  %cmp.i.i1110 = icmp sgt i64 %mul.i.i1108, %16
   br i1 %cmp.i.i1110, label %if.then.i.i1112, label %do.end6
 
 if.then.i.i1112:                                  ; preds = %sw.bb14.i
@@ -22274,7 +22274,7 @@ sw.bb16.i:                                        ; preds = %entry
   %mul.i.i1102 = shl nsw i64 %17, 3
   %buffer_length_.i.i1103 = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load i64, ptr %buffer_length_.i.i1103, align 8
-  %cmp.i.i1104 = icmp slt i64 %18, %mul.i.i1102
+  %cmp.i.i1104 = icmp sgt i64 %mul.i.i1102, %18
   br i1 %cmp.i.i1104, label %if.then.i.i1106, label %do.end6
 
 if.then.i.i1106:                                  ; preds = %sw.bb16.i
@@ -22287,7 +22287,7 @@ sw.bb18.i:                                        ; preds = %entry
   %mul.i.i1096 = shl nsw i64 %19, 3
   %buffer_length_.i.i1097 = getelementptr inbounds i8, ptr %this, i64 16
   %20 = load i64, ptr %buffer_length_.i.i1097, align 8
-  %cmp.i.i1098 = icmp slt i64 %20, %mul.i.i1096
+  %cmp.i.i1098 = icmp sgt i64 %mul.i.i1096, %20
   br i1 %cmp.i.i1098, label %if.then.i.i1100, label %do.end6
 
 if.then.i.i1100:                                  ; preds = %sw.bb18.i
@@ -22300,7 +22300,7 @@ sw.bb20.i:                                        ; preds = %entry
   %mul.i.i1090 = shl nsw i64 %21, 1
   %buffer_length_.i.i1091 = getelementptr inbounds i8, ptr %this, i64 16
   %22 = load i64, ptr %buffer_length_.i.i1091, align 8
-  %cmp.i.i1092 = icmp slt i64 %22, %mul.i.i1090
+  %cmp.i.i1092 = icmp sgt i64 %mul.i.i1090, %22
   br i1 %cmp.i.i1092, label %if.then.i.i1094, label %do.end6
 
 if.then.i.i1094:                                  ; preds = %sw.bb20.i
@@ -22313,7 +22313,7 @@ sw.bb22.i:                                        ; preds = %entry
   %mul.i.i1084 = shl nsw i64 %23, 2
   %buffer_length_.i.i1085 = getelementptr inbounds i8, ptr %this, i64 16
   %24 = load i64, ptr %buffer_length_.i.i1085, align 8
-  %cmp.i.i1086 = icmp slt i64 %24, %mul.i.i1084
+  %cmp.i.i1086 = icmp sgt i64 %mul.i.i1084, %24
   br i1 %cmp.i.i1086, label %if.then.i.i1088, label %do.end6
 
 if.then.i.i1088:                                  ; preds = %sw.bb22.i
@@ -22326,7 +22326,7 @@ sw.bb24.i:                                        ; preds = %entry
   %mul.i.i1078 = shl nsw i64 %25, 3
   %buffer_length_.i.i1079 = getelementptr inbounds i8, ptr %this, i64 16
   %26 = load i64, ptr %buffer_length_.i.i1079, align 8
-  %cmp.i.i1080 = icmp slt i64 %26, %mul.i.i1078
+  %cmp.i.i1080 = icmp sgt i64 %mul.i.i1078, %26
   br i1 %cmp.i.i1080, label %if.then.i.i1082, label %do.end6
 
 if.then.i.i1082:                                  ; preds = %sw.bb24.i
@@ -22340,7 +22340,7 @@ sw.bb26.i:                                        ; preds = %entry
   %mul.i1072 = add i64 %add.i1071, 4
   %buffer_length_.i.i1073 = getelementptr inbounds i8, ptr %this, i64 16
   %28 = load i64, ptr %buffer_length_.i.i1073, align 8
-  %cmp.i.i1074 = icmp slt i64 %28, %mul.i1072
+  %cmp.i.i1074 = icmp sgt i64 %mul.i1072, %28
   br i1 %cmp.i.i1074, label %if.then.i.i1076, label %do.end6
 
 if.then.i.i1076:                                  ; preds = %sw.bb26.i
@@ -22353,7 +22353,7 @@ sw.bb28.i:                                        ; preds = %entry
   %mul.i1064 = shl i64 %29, 4
   %buffer_length_.i.i1065 = getelementptr inbounds i8, ptr %this, i64 16
   %30 = load i64, ptr %buffer_length_.i.i1065, align 8
-  %cmp.i.i1066 = icmp slt i64 %30, %mul.i1064
+  %cmp.i.i1066 = icmp sgt i64 %mul.i1064, %30
   br i1 %cmp.i.i1066, label %if.then.i.i1068, label %do.end6
 
 if.then.i.i1068:                                  ; preds = %sw.bb28.i
@@ -22367,7 +22367,7 @@ sw.bb30.i:                                        ; preds = %entry
   %mul.i1058 = add i64 %add.i1057, 4
   %buffer_length_.i.i1059 = getelementptr inbounds i8, ptr %this, i64 16
   %32 = load i64, ptr %buffer_length_.i.i1059, align 8
-  %cmp.i.i1060 = icmp slt i64 %32, %mul.i1058
+  %cmp.i.i1060 = icmp sgt i64 %mul.i1058, %32
   br i1 %cmp.i.i1060, label %if.then.i.i1062, label %do.end6
 
 if.then.i.i1062:                                  ; preds = %sw.bb30.i
@@ -22380,7 +22380,7 @@ sw.bb32.i:                                        ; preds = %entry
   %mul.i1051 = shl i64 %33, 4
   %buffer_length_.i.i1052 = getelementptr inbounds i8, ptr %this, i64 16
   %34 = load i64, ptr %buffer_length_.i.i1052, align 8
-  %cmp.i.i1053 = icmp slt i64 %34, %mul.i1051
+  %cmp.i.i1053 = icmp sgt i64 %mul.i1051, %34
   br i1 %cmp.i.i1053, label %if.then.i.i1055, label %do.end6
 
 if.then.i.i1055:                                  ; preds = %sw.bb32.i
@@ -22394,7 +22394,7 @@ sw.bb34.i:                                        ; preds = %entry
   %mul.i1045 = add i64 %add.i1044, 8
   %buffer_length_.i.i1046 = getelementptr inbounds i8, ptr %this, i64 16
   %36 = load i64, ptr %buffer_length_.i.i1046, align 8
-  %cmp.i.i1047 = icmp slt i64 %36, %mul.i1045
+  %cmp.i.i1047 = icmp sgt i64 %mul.i1045, %36
   br i1 %cmp.i.i1047, label %if.then.i.i1049, label %do.end6
 
 if.then.i.i1049:                                  ; preds = %sw.bb34.i
@@ -22408,7 +22408,7 @@ sw.bb36.i:                                        ; preds = %entry
   %mul.i1038 = add i64 %add.i1037, 8
   %buffer_length_.i.i1039 = getelementptr inbounds i8, ptr %this, i64 16
   %38 = load i64, ptr %buffer_length_.i.i1039, align 8
-  %cmp.i.i1040 = icmp slt i64 %38, %mul.i1038
+  %cmp.i.i1040 = icmp sgt i64 %mul.i1038, %38
   br i1 %cmp.i.i1040, label %if.then.i.i1042, label %do.end6
 
 if.then.i.i1042:                                  ; preds = %sw.bb36.i
@@ -22426,7 +22426,7 @@ sw.bb38.i:                                        ; preds = %entry
   %mul.i1030 = mul nsw i64 %40, %conv.i1028
   %buffer_length_.i.i1031 = getelementptr inbounds i8, ptr %this, i64 16
   %41 = load i64, ptr %buffer_length_.i.i1031, align 8
-  %cmp.i.i1032 = icmp slt i64 %41, %mul.i1030
+  %cmp.i.i1032 = icmp sgt i64 %mul.i1030, %41
   br i1 %cmp.i.i1032, label %if.then.i.i1034, label %do.end6
 
 if.then.i.i1034:                                  ; preds = %sw.bb38.i
@@ -22439,7 +22439,7 @@ sw.bb40.i:                                        ; preds = %entry
   %mul.i.i1020 = shl nsw i64 %42, 3
   %buffer_length_.i.i1021 = getelementptr inbounds i8, ptr %this, i64 16
   %43 = load i64, ptr %buffer_length_.i.i1021, align 8
-  %cmp.i.i1022 = icmp slt i64 %43, %mul.i.i1020
+  %cmp.i.i1022 = icmp sgt i64 %mul.i.i1020, %43
   br i1 %cmp.i.i1022, label %if.then.i.i1024, label %do.end6
 
 if.then.i.i1024:                                  ; preds = %sw.bb40.i
@@ -22452,7 +22452,7 @@ sw.bb42.i:                                        ; preds = %entry
   %mul.i.i1014 = shl nsw i64 %44, 2
   %buffer_length_.i.i1015 = getelementptr inbounds i8, ptr %this, i64 16
   %45 = load i64, ptr %buffer_length_.i.i1015, align 8
-  %cmp.i.i1016 = icmp slt i64 %45, %mul.i.i1014
+  %cmp.i.i1016 = icmp sgt i64 %mul.i.i1014, %45
   br i1 %cmp.i.i1016, label %if.then.i.i1018, label %do.end6
 
 if.then.i.i1018:                                  ; preds = %sw.bb42.i
@@ -22465,7 +22465,7 @@ sw.bb44.i:                                        ; preds = %entry
   %mul.i.i1008 = shl nsw i64 %46, 3
   %buffer_length_.i.i1009 = getelementptr inbounds i8, ptr %this, i64 16
   %47 = load i64, ptr %buffer_length_.i.i1009, align 8
-  %cmp.i.i1010 = icmp slt i64 %47, %mul.i.i1008
+  %cmp.i.i1010 = icmp sgt i64 %mul.i.i1008, %47
   br i1 %cmp.i.i1010, label %if.then.i.i1012, label %do.end6
 
 if.then.i.i1012:                                  ; preds = %sw.bb44.i
@@ -22478,7 +22478,7 @@ sw.bb46.i:                                        ; preds = %entry
   %mul.i.i1002 = shl nsw i64 %48, 3
   %buffer_length_.i.i1003 = getelementptr inbounds i8, ptr %this, i64 16
   %49 = load i64, ptr %buffer_length_.i.i1003, align 8
-  %cmp.i.i1004 = icmp slt i64 %49, %mul.i.i1002
+  %cmp.i.i1004 = icmp sgt i64 %mul.i.i1002, %49
   br i1 %cmp.i.i1004, label %if.then.i.i1006, label %do.end6
 
 if.then.i.i1006:                                  ; preds = %sw.bb46.i
@@ -22491,7 +22491,7 @@ sw.bb48.i:                                        ; preds = %entry
   %mul.i.i996 = shl nsw i64 %50, 2
   %buffer_length_.i.i997 = getelementptr inbounds i8, ptr %this, i64 16
   %51 = load i64, ptr %buffer_length_.i.i997, align 8
-  %cmp.i.i998 = icmp slt i64 %51, %mul.i.i996
+  %cmp.i.i998 = icmp sgt i64 %mul.i.i996, %51
   br i1 %cmp.i.i998, label %if.then.i.i1000, label %do.end6
 
 if.then.i.i1000:                                  ; preds = %sw.bb48.i
@@ -22504,7 +22504,7 @@ sw.bb50.i:                                        ; preds = %entry
   %mul.i.i990 = shl nsw i64 %52, 3
   %buffer_length_.i.i991 = getelementptr inbounds i8, ptr %this, i64 16
   %53 = load i64, ptr %buffer_length_.i.i991, align 8
-  %cmp.i.i992 = icmp slt i64 %53, %mul.i.i990
+  %cmp.i.i992 = icmp sgt i64 %mul.i.i990, %53
   br i1 %cmp.i.i992, label %if.then.i.i994, label %do.end6
 
 if.then.i.i994:                                   ; preds = %sw.bb50.i
@@ -22517,7 +22517,7 @@ sw.bb52.i:                                        ; preds = %entry
   %mul.i.i984 = shl nsw i64 %54, 4
   %buffer_length_.i.i985 = getelementptr inbounds i8, ptr %this, i64 16
   %55 = load i64, ptr %buffer_length_.i.i985, align 8
-  %cmp.i.i986 = icmp slt i64 %55, %mul.i.i984
+  %cmp.i.i986 = icmp sgt i64 %mul.i.i984, %55
   br i1 %cmp.i.i986, label %if.then.i.i988, label %do.end6
 
 if.then.i.i988:                                   ; preds = %sw.bb52.i
@@ -22530,7 +22530,7 @@ sw.bb54.i:                                        ; preds = %entry
   %mul.i.i978 = shl nsw i64 %56, 2
   %buffer_length_.i.i979 = getelementptr inbounds i8, ptr %this, i64 16
   %57 = load i64, ptr %buffer_length_.i.i979, align 8
-  %cmp.i.i980 = icmp slt i64 %57, %mul.i.i978
+  %cmp.i.i980 = icmp sgt i64 %mul.i.i978, %57
   br i1 %cmp.i.i980, label %if.then.i.i982, label %do.end6
 
 if.then.i.i982:                                   ; preds = %sw.bb54.i
@@ -22543,7 +22543,7 @@ sw.bb56.i:                                        ; preds = %entry
   %mul.i.i = shl nsw i64 %58, 3
   %buffer_length_.i.i973 = getelementptr inbounds i8, ptr %this, i64 16
   %59 = load i64, ptr %buffer_length_.i.i973, align 8
-  %cmp.i.i974 = icmp slt i64 %59, %mul.i.i
+  %cmp.i.i974 = icmp sgt i64 %mul.i.i, %59
   br i1 %cmp.i.i974, label %if.then.i.i976, label %do.end6
 
 if.then.i.i976:                                   ; preds = %sw.bb56.i
@@ -22561,7 +22561,7 @@ sw.bb58.i:                                        ; preds = %entry
   %mul.i966 = mul nsw i64 %61, %conv.i964
   %buffer_length_.i.i967 = getelementptr inbounds i8, ptr %this, i64 16
   %62 = load i64, ptr %buffer_length_.i.i967, align 8
-  %cmp.i.i968 = icmp slt i64 %62, %mul.i966
+  %cmp.i.i968 = icmp sgt i64 %mul.i966, %62
   br i1 %cmp.i.i968, label %if.then.i.i970, label %do.end6
 
 if.then.i.i970:                                   ; preds = %sw.bb58.i
@@ -22579,7 +22579,7 @@ sw.bb60.i:                                        ; preds = %entry
   %mul.i956 = mul nsw i64 %64, %conv.i954
   %buffer_length_.i.i957 = getelementptr inbounds i8, ptr %this, i64 16
   %65 = load i64, ptr %buffer_length_.i.i957, align 8
-  %cmp.i.i958 = icmp slt i64 %65, %mul.i956
+  %cmp.i.i958 = icmp sgt i64 %mul.i956, %65
   br i1 %cmp.i.i958, label %if.then.i.i960, label %do.end6
 
 if.then.i.i960:                                   ; preds = %sw.bb60.i
@@ -22595,7 +22595,7 @@ sw.bb62.i:                                        ; preds = %entry
   %mul.i789 = add i64 %add.i788, 4
   %buffer_length_.i.i790 = getelementptr inbounds i8, ptr %this, i64 16
   %67 = load i64, ptr %buffer_length_.i.i790, align 8, !noalias !1426
-  %cmp.i.i791 = icmp slt i64 %67, %mul.i789
+  %cmp.i.i791 = icmp sgt i64 %mul.i789, %67
   br i1 %cmp.i.i791, label %if.then.i.i952, label %_ZN5arrow6StatusD2Ev.exit76.i835
 
 if.then.i.i952:                                   ; preds = %sw.bb62.i
@@ -22627,7 +22627,7 @@ sw.bb64.i:                                        ; preds = %entry
   %mul.i620 = add i64 %add.i619, 8
   %buffer_length_.i.i621 = getelementptr inbounds i8, ptr %this, i64 16
   %72 = load i64, ptr %buffer_length_.i.i621, align 8, !noalias !1435
-  %cmp.i.i622 = icmp slt i64 %72, %mul.i620
+  %cmp.i.i622 = icmp sgt i64 %mul.i620, %72
   br i1 %cmp.i.i622, label %if.then.i.i783, label %_ZN5arrow6StatusD2Ev.exit76.i666
 
 if.then.i.i783:                                   ; preds = %sw.bb64.i
@@ -22658,7 +22658,7 @@ sw.bb66.i:                                        ; preds = %entry
   %mul.i451 = shl i64 %76, 2
   %buffer_length_.i.i452 = getelementptr inbounds i8, ptr %this, i64 16
   %77 = load i64, ptr %buffer_length_.i.i452, align 8, !noalias !1444
-  %cmp.i.i453 = icmp slt i64 %77, %mul.i451
+  %cmp.i.i453 = icmp sgt i64 %mul.i451, %77
   br i1 %cmp.i.i453, label %if.then.i.i614, label %_ZN5arrow6StatusD2Ev.exit76.i497
 
 if.then.i.i614:                                   ; preds = %sw.bb66.i
@@ -22689,7 +22689,7 @@ sw.bb68.i:                                        ; preds = %entry
   %mul.i283 = shl i64 %81, 3
   %buffer_length_.i.i284 = getelementptr inbounds i8, ptr %this, i64 16
   %82 = load i64, ptr %buffer_length_.i.i284, align 8, !noalias !1453
-  %cmp.i.i285 = icmp slt i64 %82, %mul.i283
+  %cmp.i.i285 = icmp sgt i64 %mul.i283, %82
   br i1 %cmp.i.i285, label %if.then.i.i446, label %_ZN5arrow6StatusD2Ev.exit76.i329
 
 if.then.i.i446:                                   ; preds = %sw.bb68.i
@@ -22721,7 +22721,7 @@ sw.bb70.i:                                        ; preds = %entry
   %mul.i230 = add i64 %add.i, 4
   %buffer_length_.i.i231 = getelementptr inbounds i8, ptr %this, i64 16
   %87 = load i64, ptr %buffer_length_.i.i231, align 8, !noalias !1462
-  %cmp.i.i232 = icmp slt i64 %87, %mul.i230
+  %cmp.i.i232 = icmp sgt i64 %mul.i230, %87
   br i1 %cmp.i.i232, label %if.then.i.i278, label %_ZN5arrow6StatusD2Ev.exit76.i
 
 if.then.i.i278:                                   ; preds = %sw.bb70.i
@@ -22828,7 +22828,7 @@ sw.bb76.i:                                        ; preds = %entry
   %100 = load i64, ptr %length_.i97, align 8, !noalias !1477
   %buffer_length_.i.i98 = getelementptr inbounds i8, ptr %this, i64 16
   %101 = load i64, ptr %buffer_length_.i.i98, align 8
-  %cmp.i.i99 = icmp slt i64 %101, %100
+  %cmp.i.i99 = icmp sgt i64 %100, %101
   br i1 %cmp.i.i99, label %if.then.i.i155, label %do.end6.i
 
 if.then.i.i155:                                   ; preds = %sw.bb76.i
@@ -22888,15 +22888,15 @@ sw.bb78.i:                                        ; preds = %entry
   %107 = load i64, ptr %length_.i51, align 8, !noalias !1486
   %buffer_length_.i.i52 = getelementptr inbounds i8, ptr %this, i64 16
   %108 = load i64, ptr %buffer_length_.i.i52, align 8
-  %cmp.i.i53.not = icmp slt i64 %108, %107
-  %109 = tail call i64 @llvm.smax.i64(i64 %108, i64 %107)
+  %cmp.i.i53.not = icmp sgt i64 %107, %108
+  %109 = tail call i64 @llvm.smax.i64(i64 %107, i64 %108)
   %mul.i = shl i64 %107, 2
-  %cmp.i44.i.not = icmp slt i64 %109, %mul.i
+  %cmp.i44.i.not = icmp sgt i64 %mul.i, %109
   %110 = or i1 %cmp.i.i53.not, %cmp.i44.i.not
   br i1 %110, label %111, label %112
 
 111:                                              ; preds = %sw.bb78.i
-  %simplifycfg.merge = tail call i64 @llvm.smax.i64(i64 %109, i64 %mul.i)
+  %simplifycfg.merge = tail call i64 @llvm.smax.i64(i64 %mul.i, i64 %109)
   store i64 %simplifycfg.merge, ptr %buffer_length_.i.i52, align 8, !noalias !1486
   br label %112
 
@@ -23428,7 +23428,7 @@ invoke.cont7:                                     ; preds = %entry
   %9 = load i64, ptr %storage_.i.i, align 8
   %buffer_length_.i = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i64, ptr %buffer_length_.i, align 8, !noalias !1511
-  %cmp.i4 = icmp slt i64 %10, %9
+  %cmp.i4 = icmp sgt i64 %9, %10
   br i1 %cmp.i4, label %if.then.i, label %cleanup
 
 if.then.i:                                        ; preds = %invoke.cont7
@@ -25160,7 +25160,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -25169,7 +25169,7 @@ if.then:                                          ; preds = %entry
   br label %if.end8
 
 if.else:                                          ; preds = %entry
-  %cmp6 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp6 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.else
@@ -25606,7 +25606,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i:
 invoke.cont27:                                    ; preds = %_ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i, %for.body.i.i.i.i.us, %if.else
   %42 = phi ptr [ %7, %if.else ], [ %incdec.ptr.i.i.i.i.us, %for.body.i.i.i.i.us ], [ %incdec.ptr.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i ]
   store ptr %42, ptr %_M_finish, align 8
-  %cmp.i.i.not7.i.i.i.i.i66 = icmp eq ptr %7, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i66 = icmp eq ptr %__position.coerce, %7
   br i1 %cmp.i.i.not7.i.i.i.i.i66, label %invoke.cont35.thread, label %for.body.i.i.i.i.i67
 
 invoke.cont35.thread:                             ; preds = %invoke.cont27
@@ -25912,7 +25912,7 @@ for.body.i.i.i.i.i183:                            ; preds = %invoke.cont57, %for
 invoke.cont60:                                    ; preds = %for.body.i.i.i.i.i183, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i191 = phi ptr [ %cond.i161, %invoke.cont57 ], [ %incdec.ptr.i.i.i.i.i189, %for.body.i.i.i.i.i183 ]
   %add.ptr62 = getelementptr inbounds %"class.std::shared_ptr.26", ptr %__cur.0.lcssa.i.i.i.i.i191, i64 %__n
-  %cmp.i.i.not7.i.i.i.i.i192 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i192 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i192, label %invoke.cont64, label %for.body.i.i.i.i.i193
 
 for.body.i.i.i.i.i193:                            ; preds = %invoke.cont60, %for.body.i.i.i.i.i193
@@ -26179,7 +26179,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -26188,7 +26188,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -28796,7 +28796,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -28805,7 +28805,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -39951,7 +39951,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
 _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN5arrow6BufferEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt10shared_ptrIN5arrow6BufferEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -44084,7 +44084,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -53229,7 +53229,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN5arrow5ArrayEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt10shared_ptrIN5arrow5ArrayEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12

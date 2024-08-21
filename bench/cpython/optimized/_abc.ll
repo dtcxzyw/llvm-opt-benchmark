@@ -2702,7 +2702,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %pos.0124.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %pos.0124.i
   %34 = load ptr, ptr %arrayidx.i, align 8
-  %cmp57.i = icmp eq ptr %34, %0
+  %cmp57.i = icmp eq ptr %0, %34
   br i1 %cmp57.i, label %if.then58.i, label %for.cond.i
 
 if.then58.i:                                      ; preds = %for.body.i

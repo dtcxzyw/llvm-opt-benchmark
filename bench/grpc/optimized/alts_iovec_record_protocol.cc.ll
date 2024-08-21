@@ -165,7 +165,7 @@ if.then.i14.i:                                    ; preds = %if.then9.i
 if.end10.i:                                       ; preds = %if.end6.i
   %tag_length.i = getelementptr inbounds i8, ptr %rp, i64 16
   %2 = load i64, ptr %tag_length.i, align 8
-  %cmp12.not.i = icmp eq i64 %2, %agg.tmp6.sroa.2.0.copyload
+  %cmp12.not.i = icmp eq i64 %agg.tmp6.sroa.2.0.copyload, %2
   br i1 %cmp12.not.i, label %if.end9, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end10.i
@@ -415,7 +415,7 @@ if.then.i14.i:                                    ; preds = %if.then9.i
 if.end10.i:                                       ; preds = %if.end6.i
   %tag_length.i = getelementptr inbounds i8, ptr %rp, i64 16
   %2 = load i64, ptr %tag_length.i, align 8
-  %cmp12.not.i = icmp eq i64 %2, %agg.tmp6.sroa.2.0.copyload
+  %cmp12.not.i = icmp eq i64 %agg.tmp6.sroa.2.0.copyload, %2
   br i1 %cmp12.not.i, label %if.end9, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end10.i
@@ -681,7 +681,7 @@ if.end8:                                          ; preds = %_ZL16get_total_leng
   %tag_length = getelementptr inbounds i8, ptr %rp, i64 16
   %3 = load i64, ptr %tag_length, align 8
   %add10 = add i64 %add, %3
-  %cmp11.not = icmp eq i64 %add10, %protected_frame.coerce1
+  %cmp11.not = icmp eq i64 %protected_frame.coerce1, %add10
   br i1 %cmp11.not, label %if.end20, label %if.then12
 
 if.then12:                                        ; preds = %if.end8

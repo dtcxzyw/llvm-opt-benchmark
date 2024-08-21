@@ -21,6 +21,15 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cxx20::detail::expected_view_base" = type { %"struct.cxx20::detail::expected_storage_base" }
 %"struct.cxx20::detail::expected_storage_base" = type { i8, %union.anon }
 %union.anon = type { i32 }
+%"class.cxx20::expected.52" = type { %"struct.cxx20::detail::expected_move_assign_base.53" }
+%"struct.cxx20::detail::expected_move_assign_base.53" = type { %"struct.cxx20::detail::expected_copy_assign_base.54" }
+%"struct.cxx20::detail::expected_copy_assign_base.54" = type { %"struct.cxx20::detail::expected_move_base.55" }
+%"struct.cxx20::detail::expected_move_base.55" = type { %"struct.cxx20::detail::expected_copy_base.56" }
+%"struct.cxx20::detail::expected_copy_base.56" = type { %"struct.cxx20::detail::expected_operations_base.57" }
+%"struct.cxx20::detail::expected_operations_base.57" = type { %"struct.cxx20::detail::expected_view_base.58" }
+%"struct.cxx20::detail::expected_view_base.58" = type { %"struct.cxx20::detail::expected_storage_base.59" }
+%"struct.cxx20::detail::expected_storage_base.59" = type { i8, %union.anon.60 }
+%union.anon.60 = type { %"class.WasmEdge::Host::WASI::EVPoller" }
 %"class.WasmEdge::Host::WASI::EVPoller" = type { %"class.WasmEdge::Host::WASI::VPoller" }
 %"class.WasmEdge::Host::WASI::VPoller" = type { %"class.WasmEdge::Host::WASI::Poller" }
 %"class.WasmEdge::Host::WASI::Poller" = type { %"struct.WasmEdge::Host::WASI::FdHolder.base", %"class.std::reference_wrapper", %"struct.cxx20::span.50", %"class.std::vector.61", %"class.std::unordered_map.66", %"class.std::unordered_map.66", %"class.std::vector.80", %"class.std::vector.85" }
@@ -44,22 +53,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.86" = type { %"struct.std::_Vector_base<epoll_event, std::allocator<epoll_event>>::_Vector_impl" }
 %"struct.std::_Vector_base<epoll_event, std::allocator<epoll_event>>::_Vector_impl" = type { %"struct.std::_Vector_base<epoll_event, std::allocator<epoll_event>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<epoll_event, std::allocator<epoll_event>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.anon.711 = type { ptr }
-%"class.cxx20::expected.52" = type { %"struct.cxx20::detail::expected_move_assign_base.53" }
-%"struct.cxx20::detail::expected_move_assign_base.53" = type { %"struct.cxx20::detail::expected_copy_assign_base.54" }
-%"struct.cxx20::detail::expected_copy_assign_base.54" = type { %"struct.cxx20::detail::expected_move_base.55" }
-%"struct.cxx20::detail::expected_move_base.55" = type { %"struct.cxx20::detail::expected_copy_base.56" }
-%"struct.cxx20::detail::expected_copy_base.56" = type { %"struct.cxx20::detail::expected_operations_base.57" }
-%"struct.cxx20::detail::expected_operations_base.57" = type { %"struct.cxx20::detail::expected_view_base.58" }
-%"struct.cxx20::detail::expected_view_base.58" = type { %"struct.cxx20::detail::expected_storage_base.59" }
-%"struct.cxx20::detail::expected_storage_base.59" = type { i8, %union.anon.60 }
-%union.anon.60 = type { %"class.WasmEdge::Host::WASI::EVPoller" }
 %struct.__wasi_subscription_t = type { i64, %struct.__wasi_subscription_u_t }
 %struct.__wasi_subscription_u_t = type { i8, %union.__wasi_subscription_u_u_t }
 %union.__wasi_subscription_u_u_t = type { %struct.__wasi_subscription_clock_t }
 %struct.__wasi_subscription_clock_t = type { i32, i64, i64, i16 }
 %struct.__wasi_event_t = type { i64, i16, i8, %struct.__wasi_event_fd_readwrite_t }
 %struct.__wasi_event_fd_readwrite_t = type { i64, i16 }
+%class.anon.711 = type { ptr }
 %"struct.WasmEdge::Host::WASI::Poller::OptionalEvent" = type <{ %struct.__wasi_event_t, i8, [7 x i8] }>
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
@@ -151,6 +151,8 @@ target triple = "x86_64-pc-linux-gnu"
 $_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EEC5ERNS2_7EnvironE = comdat any
 
 $_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EE4bodyERKNS_7Runtime12CallingFrameEjjjj = comdat any
+
+$_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE = comdat any
 
 $_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t = comdat any
 
@@ -462,354 +464,679 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EEEEC2ERNS3
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EE4bodyERKNS_7Runtime12CallingFrameEjjjj(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %8 = alloca %"class.WasmEdge::Host::WASI::EVPoller", align 8
-  %9 = alloca %class.anon.711, align 8
-  %10 = alloca %"class.cxx20::expected.52", align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %.sink.split, label %14
+  %8 = alloca %"class.cxx20::expected.52", align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %.sink.split, label %12
 
-14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %12, i64 56
-  br label %16
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %10, i64 56
+  br label %14
 
-16:                                               ; preds = %16, %14
-  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !4
-  switch i32 %17, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
-    i32 11, label %16
-    i32 35, label %18
+14:                                               ; preds = %14, %12
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !4
+  switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
+    i32 11, label %14
+    i32 35, label %16
   ]
 
-18:                                               ; preds = %16
+16:                                               ; preds = %14
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %24, !noalias !4
+          to label %.noexc.i.i unwind label %22, !noalias !4
 
-.noexc.i.i:                                       ; preds = %18
+.noexc.i.i:                                       ; preds = %16
   unreachable
 
-_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %12, i64 456
-  %20 = getelementptr inbounds i8, ptr %12, i64 464
-  %21 = load ptr, ptr %20, align 8, !noalias !4
-  %22 = load ptr, ptr %19, align 8, !noalias !4
-  %.not.i.i.not = icmp eq ptr %21, %22
+_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
+  %17 = getelementptr inbounds i8, ptr %10, i64 456
+  %18 = getelementptr inbounds i8, ptr %10, i64 464
+  %19 = load ptr, ptr %18, align 8, !noalias !4
+  %20 = load ptr, ptr %17, align 8, !noalias !4
+  %.not.i.i.not = icmp eq ptr %19, %20
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !4
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !4
   br label %.sink.split
 
-24:                                               ; preds = %18
-  %25 = landingpad { ptr, i32 }
+22:                                               ; preds = %16
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #18
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #18
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %27 = load ptr, ptr %22, align 8, !noalias !4
-  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !4
-  %29 = icmp eq ptr %27, null
-  br i1 %29, label %.sink.split, label %30
+  %25 = load ptr, ptr %20, align 8, !noalias !4
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !4
+  %27 = icmp eq ptr %25, null
+  br i1 %27, label %.sink.split, label %28
 
-30:                                               ; preds = %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
-  %31 = mul i32 %5, 48
-  %32 = zext i32 %3 to i64
-  %33 = zext i32 %31 to i64
-  %34 = add nuw nsw i64 %33, %32
-  %35 = getelementptr inbounds i8, ptr %27, i64 4
-  %36 = load i32, ptr %35, align 4
-  %37 = zext i32 %36 to i64
-  %38 = shl nuw nsw i64 %37, 16
-  %.not.i = icmp ule i64 %34, %38
-  %39 = zext i32 %5 to i64
-  %40 = getelementptr inbounds i8, ptr %27, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 %32
-  %.sroa.0.0.i = select i1 %.not.i, ptr %42, ptr null
+28:                                               ; preds = %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
+  %29 = mul i32 %5, 48
+  %30 = zext i32 %3 to i64
+  %31 = zext i32 %29 to i64
+  %32 = add nuw nsw i64 %31, %30
+  %33 = getelementptr inbounds i8, ptr %25, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = zext i32 %34 to i64
+  %36 = shl nuw nsw i64 %35, 16
+  %.not.i = icmp ule i64 %32, %36
+  %37 = zext i32 %5 to i64
+  %38 = getelementptr inbounds i8, ptr %25, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 %30
+  %.sroa.0.0.i = select i1 %.not.i, ptr %40, ptr null
   %.not112122 = icmp eq i32 %5, 0
   %.not112 = or i1 %.not.i, %.not112122
-  br i1 %.not112, label %43, label %.sink.split
+  br i1 %.not112, label %41, label %.sink.split
 
-43:                                               ; preds = %30
-  %44 = shl i32 %5, 5
-  %45 = zext i32 %4 to i64
-  %46 = zext i32 %44 to i64
-  %47 = add nuw nsw i64 %46, %45
-  %.not.i70 = icmp ule i64 %47, %38
-  %48 = getelementptr inbounds i8, ptr %41, i64 %45
-  %.sroa.0.0.i71 = select i1 %.not.i70, ptr %48, ptr null
+41:                                               ; preds = %28
+  %42 = shl i32 %5, 5
+  %43 = zext i32 %4 to i64
+  %44 = zext i32 %42 to i64
+  %45 = add nuw nsw i64 %44, %43
+  %.not.i70 = icmp ule i64 %45, %36
+  %46 = getelementptr inbounds i8, ptr %39, i64 %43
+  %.sroa.0.0.i71 = select i1 %.not.i70, ptr %46, ptr null
   %.not113123 = icmp eq i32 %5, 0
   %.not113 = or i1 %.not.i70, %.not113123
-  br i1 %.not113, label %49, label %.sink.split
+  br i1 %.not113, label %47, label %.sink.split
 
-49:                                               ; preds = %43
-  %50 = zext i32 %6 to i64
-  %51 = add nuw nsw i64 %50, 4
-  %.not.i75 = icmp ugt i64 %51, %38
-  %52 = getelementptr inbounds i8, ptr %41, i64 %50
-  %53 = icmp eq ptr %41, null
-  %54 = select i1 %.not.i75, i1 true, i1 %53
-  br i1 %54, label %.sink.split, label %55
+47:                                               ; preds = %41
+  %48 = zext i32 %6 to i64
+  %49 = add nuw nsw i64 %48, 4
+  %.not.i75 = icmp ugt i64 %49, %36
+  %50 = getelementptr inbounds i8, ptr %39, i64 %48
+  %51 = icmp eq ptr %39, null
+  %52 = select i1 %.not.i75, i1 true, i1 %51
+  br i1 %52, label %.sink.split, label %53
 
-55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %1, i64 160
-  %57 = load ptr, ptr %56, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store ptr %57, ptr %9, align 8, !noalias !7
-  call void @_ZZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEEENKUlvE_clEv(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::Host::WASI::EVPoller") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #19, !noalias !7
-  %58 = call i32 @_ZN8WasmEdge4Host4WASI6Poller7prepareEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(216) %8, ptr %.sroa.0.0.i71, i64 %39) #19, !noalias !7
-  %59 = trunc i32 %58 to i1
-  br i1 %59, label %62, label %60
+53:                                               ; preds = %47
+  %54 = getelementptr inbounds i8, ptr %1, i64 160
+  %55 = load ptr, ptr %54, align 8
+  call void @_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.52") align 8 %8, ptr noundef nonnull align 8 dereferenceable(344) %55, ptr %.sroa.0.0.i71, i64 %37) #19
+  %56 = load i8, ptr %8, align 8
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %72, label %.preheader
 
-60:                                               ; preds = %55
-  %.sroa.24.0.extract.shift.i = lshr i32 %58, 16
-  %.sroa.24.0.extract.trunc.i = trunc nuw i32 %.sroa.24.0.extract.shift.i to i16
-  store i8 0, ptr %10, align 8, !alias.scope !7
-  %61 = getelementptr inbounds i8, ptr %10, i64 8
-  store i16 %.sroa.24.0.extract.trunc.i, ptr %61, align 8, !alias.scope !7
-  br label %_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE.exit
-
-62:                                               ; preds = %55
-  store i8 1, ptr %10, align 8, !alias.scope !7
-  %63 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @_ZN8WasmEdge4Host4WASI6PollerC2EOS2_(ptr noundef nonnull align 8 dereferenceable(216) %63, ptr noundef nonnull align 8 dereferenceable(216) %8) #19
-  br label %_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE.exit
-
-_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE.exit: ; preds = %60, %62
-  call void @_ZN8WasmEdge4Host4WASI6PollerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %8) #19
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %64 = load i8, ptr %10, align 8
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %80, label %.preheader
-
-.preheader:                                       ; preds = %_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE.exit
+.preheader:                                       ; preds = %53
   %.not120 = icmp eq i32 %5, 0
   br i1 %.not120, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %66 = getelementptr inbounds i8, ptr %10, i64 8
-  br label %67
+  %58 = getelementptr inbounds i8, ptr %8, i64 8
+  br label %59
 
-67:                                               ; preds = %.lr.ph, %67
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds %struct.__wasi_subscription_t, ptr %.sroa.0.0.i, i64 %indvars.iv
-  %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.__wasi_event_t, ptr %.sroa.0.0.i71, i64 %indvars.iv
-  store i64 %69, ptr %70, align 8
-  %71 = load i16, ptr %66, align 8
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
-  store i16 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %68, i64 8
-  %74 = load i8, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %70, i64 10
-  store i8 %74, ptr %75, align 2
+59:                                               ; preds = %.lr.ph, %59
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
+  %60 = getelementptr inbounds %struct.__wasi_subscription_t, ptr %.sroa.0.0.i, i64 %indvars.iv
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds %struct.__wasi_event_t, ptr %.sroa.0.0.i71, i64 %indvars.iv
+  store i64 %61, ptr %62, align 8
+  %63 = load i16, ptr %58, align 8
+  %64 = getelementptr inbounds i8, ptr %62, i64 8
+  store i16 %63, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %60, i64 8
+  %66 = load i8, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %62, i64 10
+  store i8 %66, ptr %67, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %39
-  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !10
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %37
+  br i1 %exitcond.not, label %._crit_edge, label %59, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %67, %.preheader
-  store i32 %5, ptr %52, align 4
-  %76 = getelementptr inbounds i8, ptr %10, i64 8
+._crit_edge:                                      ; preds = %59, %.preheader
+  store i32 %5, ptr %50, align 4
+  %68 = getelementptr inbounds i8, ptr %8, i64 8
   store i8 1, ptr %0, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 4
-  %78 = load i16, ptr %76, align 8
-  %79 = zext i16 %78 to i32
-  store i32 %79, ptr %77, align 4
-  br label %147
+  %69 = getelementptr inbounds i8, ptr %0, i64 4
+  %70 = load i16, ptr %68, align 8
+  %71 = zext i16 %70 to i32
+  store i32 %71, ptr %69, align 4
+  br label %238
 
-80:                                               ; preds = %_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE.exit
-  %81 = getelementptr inbounds i8, ptr %10, i64 8
-  %82 = getelementptr inbounds %struct.__wasi_subscription_t, ptr %.sroa.0.0.i, i64 %39
+72:                                               ; preds = %53
+  %73 = getelementptr inbounds i8, ptr %8, i64 8
+  %74 = getelementptr inbounds %struct.__wasi_subscription_t, ptr %.sroa.0.0.i, i64 %37
   %.not115 = icmp eq i32 %5, 0
   br i1 %.not115, label %._crit_edge119, label %.lr.ph118
 
-.lr.ph118:                                        ; preds = %80, %105
-  %.067116 = phi ptr [ %106, %105 ], [ %.sroa.0.0.i, %80 ]
-  %83 = load i64, ptr %.067116, align 8
-  %84 = getelementptr inbounds i8, ptr %.067116, i64 8
-  %85 = load i8, ptr %84, align 8
-  %switch.i = icmp ugt i8 %85, 2
-  br i1 %switch.i, label %86, label %87
+.lr.ph118:                                        ; preds = %72, %97
+  %.067116 = phi ptr [ %98, %97 ], [ %.sroa.0.0.i, %72 ]
+  %75 = load i64, ptr %.067116, align 8
+  %76 = getelementptr inbounds i8, ptr %.067116, i64 8
+  %77 = load i8, ptr %76, align 8
+  %switch.i = icmp ugt i8 %77, 2
+  br i1 %switch.i, label %78, label %79
 
-86:                                               ; preds = %.lr.ph118
-  call void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %81, i64 noundef %83, i16 noundef zeroext 28, i8 noundef zeroext %85) #19
-  br label %105
+78:                                               ; preds = %.lr.ph118
+  call void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %73, i64 noundef %75, i16 noundef zeroext 28, i8 noundef zeroext %77) #19
+  br label %97
 
-87:                                               ; preds = %.lr.ph118
-  %88 = getelementptr inbounds i8, ptr %.067116, i64 16
-  %89 = load i32, ptr %88, align 8
-  switch i8 %85, label %104 [
-    i8 0, label %90
-    i8 1, label %102
-    i8 2, label %103
+79:                                               ; preds = %.lr.ph118
+  %80 = getelementptr inbounds i8, ptr %.067116, i64 16
+  %81 = load i32, ptr %80, align 8
+  switch i8 %77, label %96 [
+    i8 0, label %82
+    i8 1, label %94
+    i8 2, label %95
   ]
 
-90:                                               ; preds = %87
-  %switch.i77 = icmp ugt i32 %89, 3
-  br i1 %switch.i77, label %91, label %92
+82:                                               ; preds = %79
+  %switch.i77 = icmp ugt i32 %81, 3
+  br i1 %switch.i77, label %83, label %84
 
-91:                                               ; preds = %90
-  call void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %81, i64 noundef %83, i16 noundef zeroext 28, i8 noundef zeroext %85) #19
-  br label %105
+83:                                               ; preds = %82
+  call void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %73, i64 noundef %75, i16 noundef zeroext 28, i8 noundef zeroext %77) #19
+  br label %97
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %.067116, i64 40
-  %94 = load i16, ptr %93, align 8
-  %95 = icmp ugt i16 %94, 1
-  br i1 %95, label %96, label %97
+84:                                               ; preds = %82
+  %85 = getelementptr inbounds i8, ptr %.067116, i64 40
+  %86 = load i16, ptr %85, align 8
+  %87 = icmp ugt i16 %86, 1
+  br i1 %87, label %88, label %89
 
-96:                                               ; preds = %92
-  call void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %81, i64 noundef %83, i16 noundef zeroext 28, i8 noundef zeroext %85) #19
-  br label %105
+88:                                               ; preds = %84
+  call void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %73, i64 noundef %75, i16 noundef zeroext 28, i8 noundef zeroext %77) #19
+  br label %97
 
-97:                                               ; preds = %92
-  %98 = getelementptr inbounds i8, ptr %.067116, i64 24
-  %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %.067116, i64 32
-  %101 = load i64, ptr %100, align 8
-  call void @_ZN8WasmEdge4Host4WASI6Poller5clockE16__wasi_clockid_tmm22__wasi_subclockflags_tm(ptr noundef nonnull align 8 dereferenceable(216) %81, i32 noundef %89, i64 noundef %99, i64 noundef %101, i16 noundef zeroext %94, i64 noundef %83) #19
-  br label %105
+89:                                               ; preds = %84
+  %90 = getelementptr inbounds i8, ptr %.067116, i64 24
+  %91 = load i64, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %.067116, i64 32
+  %93 = load i64, ptr %92, align 8
+  call void @_ZN8WasmEdge4Host4WASI6Poller5clockE16__wasi_clockid_tmm22__wasi_subclockflags_tm(ptr noundef nonnull align 8 dereferenceable(216) %73, i32 noundef %81, i64 noundef %91, i64 noundef %93, i16 noundef zeroext %86, i64 noundef %75) #19
+  br label %97
 
-102:                                              ; preds = %87
-  call void @_ZN8WasmEdge4Host4WASI8EVPoller4readEiNS1_11TriggerTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %81, i32 noundef %89, i32 noundef 0, i64 noundef %83) #19
-  br label %105
+94:                                               ; preds = %79
+  call void @_ZN8WasmEdge4Host4WASI8EVPoller4readEiNS1_11TriggerTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %73, i32 noundef %81, i32 noundef 0, i64 noundef %75) #19
+  br label %97
 
-103:                                              ; preds = %87
-  call void @_ZN8WasmEdge4Host4WASI8EVPoller5writeEiNS1_11TriggerTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %81, i32 noundef %89, i32 noundef 0, i64 noundef %83) #19
-  br label %105
+95:                                               ; preds = %79
+  call void @_ZN8WasmEdge4Host4WASI8EVPoller5writeEiNS1_11TriggerTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %73, i32 noundef %81, i32 noundef 0, i64 noundef %75) #19
+  br label %97
 
-104:                                              ; preds = %87
+96:                                               ; preds = %79
   unreachable
 
-105:                                              ; preds = %103, %102, %97, %96, %91, %86
-  %106 = getelementptr inbounds i8, ptr %.067116, i64 48
-  %.not = icmp eq ptr %106, %82
+97:                                               ; preds = %95, %94, %89, %88, %83, %78
+  %98 = getelementptr inbounds i8, ptr %.067116, i64 48
+  %.not = icmp eq ptr %98, %74
   br i1 %.not, label %._crit_edge119, label %.lr.ph118
 
-._crit_edge119:                                   ; preds = %105, %80
-  call void @_ZN8WasmEdge4Host4WASI6Poller4waitEv(ptr noundef nonnull align 8 dereferenceable(216) %81) #19
-  %107 = getelementptr inbounds i8, ptr %10, i64 40
-  %108 = getelementptr inbounds i8, ptr %10, i64 48
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %107, align 8
-  %111 = ptrtoint ptr %109 to i64
-  %112 = ptrtoint ptr %110 to i64
-  %113 = sub i64 %111, %112
-  %114 = sdiv exact i64 %113, 40
-  %115 = getelementptr inbounds i8, ptr %10, i64 24
-  %116 = getelementptr inbounds i8, ptr %10, i64 32
-  %117 = load i64, ptr %116, align 8
-  %118 = icmp eq i64 %114, %117
-  call void @llvm.assume(i1 %118)
-  %.not10.i = icmp eq ptr %110, %109
+._crit_edge119:                                   ; preds = %97, %72
+  call void @_ZN8WasmEdge4Host4WASI6Poller4waitEv(ptr noundef nonnull align 8 dereferenceable(216) %73) #19
+  %99 = getelementptr inbounds i8, ptr %8, i64 40
+  %100 = getelementptr inbounds i8, ptr %8, i64 48
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %99, align 8
+  %103 = ptrtoint ptr %101 to i64
+  %104 = ptrtoint ptr %102 to i64
+  %105 = sub i64 %103, %104
+  %106 = sdiv exact i64 %105, 40
+  %107 = getelementptr inbounds i8, ptr %8, i64 24
+  %108 = getelementptr inbounds i8, ptr %8, i64 32
+  %109 = load i64, ptr %108, align 8
+  %110 = icmp eq i64 %106, %109
+  call void @llvm.assume(i1 %110)
+  %.not10.i = icmp eq ptr %102, %101
   br i1 %.not10.i, label %_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge119, %127
-  %.012.i = phi i32 [ %.1.i, %127 ], [ 0, %._crit_edge119 ]
-  %.sroa.07.011.i = phi ptr [ %128, %127 ], [ %110, %._crit_edge119 ]
-  %119 = getelementptr inbounds i8, ptr %.sroa.07.011.i, i64 32
-  %120 = load i8, ptr %119, align 8
-  %121 = trunc i8 %120 to i1
-  br i1 %121, label %122, label %127
+.lr.ph.i:                                         ; preds = %._crit_edge119, %119
+  %.012.i = phi i32 [ %.1.i, %119 ], [ 0, %._crit_edge119 ]
+  %.sroa.07.011.i = phi ptr [ %120, %119 ], [ %102, %._crit_edge119 ]
+  %111 = getelementptr inbounds i8, ptr %.sroa.07.011.i, i64 32
+  %112 = load i8, ptr %111, align 8
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %119
 
-122:                                              ; preds = %.lr.ph.i
-  %123 = zext i32 %.012.i to i64
-  %124 = load ptr, ptr %115, align 8
-  %125 = getelementptr inbounds %struct.__wasi_event_t, ptr %124, i64 %123
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.011.i, i64 32, i1 false)
-  %126 = add i32 %.012.i, 1
-  br label %127
+114:                                              ; preds = %.lr.ph.i
+  %115 = zext i32 %.012.i to i64
+  %116 = load ptr, ptr %107, align 8
+  %117 = getelementptr inbounds %struct.__wasi_event_t, ptr %116, i64 %115
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.011.i, i64 32, i1 false)
+  %118 = add i32 %.012.i, 1
+  br label %119
 
-127:                                              ; preds = %122, %.lr.ph.i
-  %.1.i = phi i32 [ %126, %122 ], [ %.012.i, %.lr.ph.i ]
-  %128 = getelementptr inbounds i8, ptr %.sroa.07.011.i, i64 40
-  %.not.i84 = icmp eq ptr %128, %109
+119:                                              ; preds = %114, %.lr.ph.i
+  %.1.i = phi i32 [ %118, %114 ], [ %.012.i, %.lr.ph.i ]
+  %120 = getelementptr inbounds i8, ptr %.sroa.07.011.i, i64 40
+  %.not.i84 = icmp eq ptr %120, %101
   br i1 %.not.i84, label %_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit, label %.lr.ph.i
 
-_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit:     ; preds = %127, %._crit_edge119
-  %.0.lcssa.i = phi i32 [ 0, %._crit_edge119 ], [ %.1.i, %127 ]
-  store i32 %.0.lcssa.i, ptr %52, align 4
-  call void @_ZN8WasmEdge4Host4WASI6Poller5resetEv(ptr noundef nonnull align 8 dereferenceable(216) %81) #19
-  %129 = load ptr, ptr %56, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 152
-  %131 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %130) #19
-  %132 = icmp eq i32 %131, 35
-  br i1 %132, label %133, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
+_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit:     ; preds = %119, %._crit_edge119
+  %.0.lcssa.i = phi i32 [ 0, %._crit_edge119 ], [ %.1.i, %119 ]
+  store i32 %.0.lcssa.i, ptr %50, align 4
+  call void @_ZN8WasmEdge4Host4WASI6Poller5resetEv(ptr noundef nonnull align 8 dereferenceable(216) %73) #19
+  %121 = load ptr, ptr %54, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 152
+  %123 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %122) #19
+  %124 = icmp eq i32 %123, 35
+  br i1 %124, label %125, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
 
-133:                                              ; preds = %_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit
+125:                                              ; preds = %_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i unwind label %143
+          to label %.noexc.i unwind label %234
 
-.noexc.i:                                         ; preds = %133
+.noexc.i:                                         ; preds = %125
   unreachable
 
 _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit
-  %134 = getelementptr inbounds i8, ptr %129, i64 216
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %129, i64 224
-  %137 = load ptr, ptr %136, align 8
-  %.not.i.i.i = icmp eq ptr %135, %137
-  br i1 %.not.i.i.i, label %141, label %138
+  %126 = getelementptr inbounds i8, ptr %121, i64 216
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %121, i64 224
+  %129 = load ptr, ptr %128, align 8
+  %.not.i.i.i = icmp eq ptr %127, %129
+  br i1 %.not.i.i.i, label %232, label %130
 
-138:                                              ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
-  call void @_ZN8WasmEdge4Host4WASI6PollerC2EOS2_(ptr noundef nonnull align 8 dereferenceable(216) %135, ptr noundef nonnull align 8 dereferenceable(216) %81) #19
-  %139 = load ptr, ptr %134, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 216
-  store ptr %140, ptr %134, align 8
+130:                                              ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
+  %131 = load i32, ptr %73, align 8
+  store i32 -1, ptr %73, align 8
+  store i32 %131, ptr %127, align 4
+  %132 = getelementptr inbounds i8, ptr %127, i64 4
+  %133 = getelementptr inbounds i8, ptr %8, i64 12
+  %134 = load i8, ptr %133, align 4
+  %135 = and i8 %134, 1
+  %136 = load i8, ptr %132, align 4
+  %137 = and i8 %136, -2
+  %138 = or disjoint i8 %137, %135
+  store i8 %138, ptr %132, align 4
+  %139 = load i8, ptr %133, align 4
+  %.lobit.i.i = and i8 %139, 2
+  %140 = and i8 %138, -3
+  %141 = or disjoint i8 %140, %.lobit.i.i
+  store i8 %141, ptr %132, align 4
+  %142 = load i8, ptr %133, align 4
+  %143 = and i8 %142, -4
+  %144 = or disjoint i8 %143, 1
+  store i8 %144, ptr %133, align 4
+  %145 = getelementptr inbounds i8, ptr %127, i64 8
+  %146 = getelementptr inbounds i8, ptr %8, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr noundef nonnull align 8 dereferenceable(24) %146, i64 24, i1 false)
+  %147 = getelementptr inbounds i8, ptr %127, i64 32
+  %148 = load ptr, ptr %99, align 8
+  store ptr %148, ptr %147, align 8
+  %149 = getelementptr inbounds i8, ptr %127, i64 40
+  %150 = load ptr, ptr %100, align 8
+  store ptr %150, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %127, i64 48
+  %152 = getelementptr inbounds i8, ptr %8, i64 56
+  %153 = load ptr, ptr %152, align 8
+  store ptr %153, ptr %151, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
+  %154 = getelementptr inbounds i8, ptr %127, i64 56
+  %155 = getelementptr inbounds i8, ptr %8, i64 64
+  %156 = load ptr, ptr %155, align 8
+  store ptr %156, ptr %154, align 8
+  %157 = getelementptr inbounds i8, ptr %127, i64 64
+  %158 = getelementptr inbounds i8, ptr %8, i64 72
+  %159 = load i64, ptr %158, align 8
+  store i64 %159, ptr %157, align 8
+  %160 = getelementptr inbounds i8, ptr %127, i64 72
+  %161 = getelementptr inbounds i8, ptr %8, i64 80
+  %162 = load ptr, ptr %161, align 8
+  store ptr %162, ptr %160, align 8
+  %163 = getelementptr inbounds i8, ptr %127, i64 80
+  %164 = getelementptr inbounds i8, ptr %8, i64 88
+  %165 = load i64, ptr %164, align 8
+  store i64 %165, ptr %163, align 8
+  %166 = getelementptr inbounds i8, ptr %127, i64 88
+  %167 = getelementptr inbounds i8, ptr %8, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull align 8 dereferenceable(16) %167, i64 16, i1 false)
+  %168 = getelementptr inbounds i8, ptr %127, i64 104
+  store ptr null, ptr %168, align 8
+  %169 = load ptr, ptr %155, align 8
+  %170 = getelementptr inbounds i8, ptr %8, i64 112
+  %171 = icmp eq ptr %169, %170
+  br i1 %171, label %172, label %174
+
+172:                                              ; preds = %130
+  store ptr %168, ptr %154, align 8
+  %173 = load ptr, ptr %170, align 8
+  store ptr %173, ptr %168, align 8
+  br label %174
+
+174:                                              ; preds = %172, %130
+  %175 = phi ptr [ %168, %172 ], [ %156, %130 ]
+  %.not.i.i.i.i.i = icmp eq ptr %162, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i, label %176
+
+176:                                              ; preds = %174
+  %177 = getelementptr inbounds i8, ptr %162, i64 8
+  %178 = load i32, ptr %177, align 4
+  %179 = sext i32 %178 to i64
+  %180 = urem i64 %179, %159
+  %181 = getelementptr inbounds ptr, ptr %175, i64 %180
+  store ptr %160, ptr %181, align 8
+  br label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i
+
+_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i: ; preds = %176, %174
+  %182 = getelementptr inbounds i8, ptr %8, i64 104
+  store i64 0, ptr %182, align 8
+  store i64 1, ptr %158, align 8
+  store ptr null, ptr %170, align 8
+  store ptr %170, ptr %155, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %161, i8 0, i64 16, i1 false)
+  %183 = getelementptr inbounds i8, ptr %127, i64 112
+  %184 = getelementptr inbounds i8, ptr %8, i64 120
+  %185 = load ptr, ptr %184, align 8
+  store ptr %185, ptr %183, align 8
+  %186 = getelementptr inbounds i8, ptr %127, i64 120
+  %187 = getelementptr inbounds i8, ptr %8, i64 128
+  %188 = load i64, ptr %187, align 8
+  store i64 %188, ptr %186, align 8
+  %189 = getelementptr inbounds i8, ptr %127, i64 128
+  %190 = getelementptr inbounds i8, ptr %8, i64 136
+  %191 = load ptr, ptr %190, align 8
+  store ptr %191, ptr %189, align 8
+  %192 = getelementptr inbounds i8, ptr %127, i64 136
+  %193 = getelementptr inbounds i8, ptr %8, i64 144
+  %194 = load i64, ptr %193, align 8
+  store i64 %194, ptr %192, align 8
+  %195 = getelementptr inbounds i8, ptr %127, i64 144
+  %196 = getelementptr inbounds i8, ptr %8, i64 152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %195, ptr noundef nonnull align 8 dereferenceable(16) %196, i64 16, i1 false)
+  %197 = getelementptr inbounds i8, ptr %127, i64 160
+  store ptr null, ptr %197, align 8
+  %198 = load ptr, ptr %184, align 8
+  %199 = getelementptr inbounds i8, ptr %8, i64 168
+  %200 = icmp eq ptr %198, %199
+  br i1 %200, label %201, label %203
+
+201:                                              ; preds = %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i
+  store ptr %197, ptr %183, align 8
+  %202 = load ptr, ptr %199, align 8
+  store ptr %202, ptr %197, align 8
+  br label %203
+
+203:                                              ; preds = %201, %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i
+  %204 = phi ptr [ %197, %201 ], [ %185, %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i ]
+  %.not.i.i.i.i8.i = icmp eq ptr %191, null
+  br i1 %.not.i.i.i.i8.i, label %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit, label %205
+
+205:                                              ; preds = %203
+  %206 = getelementptr inbounds i8, ptr %191, i64 8
+  %207 = load i32, ptr %206, align 4
+  %208 = sext i32 %207 to i64
+  %209 = urem i64 %208, %188
+  %210 = getelementptr inbounds ptr, ptr %204, i64 %209
+  store ptr %189, ptr %210, align 8
+  br label %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit
+
+_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit:        ; preds = %203, %205
+  %211 = getelementptr inbounds i8, ptr %8, i64 160
+  store i64 0, ptr %211, align 8
+  store i64 1, ptr %187, align 8
+  store ptr null, ptr %199, align 8
+  store ptr %199, ptr %184, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, i8 0, i64 16, i1 false)
+  %212 = getelementptr inbounds i8, ptr %127, i64 168
+  %213 = getelementptr inbounds i8, ptr %8, i64 176
+  %214 = load ptr, ptr %213, align 8
+  store ptr %214, ptr %212, align 8
+  %215 = getelementptr inbounds i8, ptr %127, i64 176
+  %216 = getelementptr inbounds i8, ptr %8, i64 184
+  %217 = load ptr, ptr %216, align 8
+  store ptr %217, ptr %215, align 8
+  %218 = getelementptr inbounds i8, ptr %127, i64 184
+  %219 = getelementptr inbounds i8, ptr %8, i64 192
+  %220 = load ptr, ptr %219, align 8
+  store ptr %220, ptr %218, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %213, i8 0, i64 24, i1 false)
+  %221 = getelementptr inbounds i8, ptr %127, i64 192
+  %222 = getelementptr inbounds i8, ptr %8, i64 200
+  %223 = load ptr, ptr %222, align 8
+  store ptr %223, ptr %221, align 8
+  %224 = getelementptr inbounds i8, ptr %127, i64 200
+  %225 = getelementptr inbounds i8, ptr %8, i64 208
+  %226 = load ptr, ptr %225, align 8
+  store ptr %226, ptr %224, align 8
+  %227 = getelementptr inbounds i8, ptr %127, i64 208
+  %228 = getelementptr inbounds i8, ptr %8, i64 216
+  %229 = load ptr, ptr %228, align 8
+  store ptr %229, ptr %227, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %222, i8 0, i64 24, i1 false)
+  %230 = load ptr, ptr %126, align 8
+  %231 = getelementptr inbounds i8, ptr %230, i64 216
+  store ptr %231, ptr %126, align 8
   br label %_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit
 
-141:                                              ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
-  %142 = getelementptr inbounds i8, ptr %129, i64 208
-  invoke void @_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %142, ptr %135, ptr noundef nonnull align 8 dereferenceable(216) %81)
-          to label %_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit unwind label %143
+232:                                              ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
+  %233 = getelementptr inbounds i8, ptr %121, i64 208
+  invoke void @_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %233, ptr %127, ptr noundef nonnull align 8 dereferenceable(216) %73)
+          to label %_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit unwind label %234
 
-143:                                              ; preds = %141, %133
-  %144 = landingpad { ptr, i32 }
+234:                                              ; preds = %232, %125
+  %235 = landingpad { ptr, i32 }
           catch ptr null
-  %145 = extractvalue { ptr, i32 } %144, 0
-  call void @__clang_call_terminate(ptr %145) #18
+  %236 = extractvalue { ptr, i32 } %235, 0
+  call void @__clang_call_terminate(ptr %236) #18
   unreachable
 
-_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit: ; preds = %138, %141
-  %146 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %130) #19
-  br label %147
+_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit: ; preds = %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit, %232
+  %237 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %122) #19
+  br label %238
 
-147:                                              ; preds = %_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit, %._crit_edge
-  %148 = load i8, ptr %10, align 8
-  %149 = trunc i8 %148 to i1
-  br i1 %149, label %150, label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit
+238:                                              ; preds = %_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit, %._crit_edge
+  %239 = load i8, ptr %8, align 8
+  %240 = trunc i8 %239 to i1
+  br i1 %240, label %241, label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit
 
-150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @_ZN8WasmEdge4Host4WASI6PollerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %151) #19
+241:                                              ; preds = %238
+  %242 = getelementptr inbounds i8, ptr %8, i64 8
+  call void @_ZN8WasmEdge4Host4WASI6PollerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %242) #19
   br label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit
 
-_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit: ; preds = %147, %150
-  br i1 %65, label %.sink.split, label %153
+_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit: ; preds = %238, %241
+  br i1 %57, label %.sink.split, label %244
 
-.sink.split:                                      ; preds = %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit, %49, %43, %30, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110, %7
-  %.sink = phi i32 [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %30 ], [ 21, %43 ], [ 21, %49 ], [ 0, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit ]
+.sink.split:                                      ; preds = %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit, %47, %41, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110, %7
+  %.sink = phi i32 [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %28 ], [ 21, %41 ], [ 21, %47 ], [ 0, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit ]
   store i8 1, ptr %0, align 4
-  %152 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink, ptr %152, align 4
-  br label %153
+  %243 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink, ptr %243, align 4
+  br label %244
 
-153:                                              ; preds = %.sink.split, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit
+244:                                              ; preds = %.sink.split, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.52") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr %2, i64 %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.WasmEdge::Host::WASI::EVPoller", align 8
+  %6 = alloca %class.anon.711, align 8
+  store ptr %1, ptr %6, align 8
+  call void @_ZZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEEENKUlvE_clEv(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::Host::WASI::EVPoller") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #19
+  %7 = call i32 @_ZN8WasmEdge4Host4WASI6Poller7prepareEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(216) %5, ptr %2, i64 %3) #19
+  %8 = trunc i32 %7 to i1
+  br i1 %8, label %11, label %9
+
+9:                                                ; preds = %4
+  %.sroa.24.0.extract.shift = lshr i32 %7, 16
+  %.sroa.24.0.extract.trunc = trunc nuw i32 %.sroa.24.0.extract.shift to i16
+  store i8 0, ptr %0, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i16 %.sroa.24.0.extract.trunc, ptr %10, align 8
+  br label %108
+
+11:                                               ; preds = %4
+  store i8 1, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load i32, ptr %5, align 8
+  store i32 -1, ptr %5, align 8
+  store i32 %13, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = load i8, ptr %15, align 4
+  %17 = load i8, ptr %14, align 4
+  %18 = and i8 %17, -4
+  %19 = and i8 %16, 3
+  %20 = or disjoint i8 %18, %19
+  store i8 %20, ptr %14, align 4
+  %21 = and i8 %16, -4
+  %22 = or disjoint i8 %21, 1
+  store i8 %22, ptr %15, align 4
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
+  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds i8, ptr %5, i64 32
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds i8, ptr %5, i64 40
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds i8, ptr %5, i64 48
+  %33 = load ptr, ptr %32, align 8
+  store ptr %33, ptr %31, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %35 = getelementptr inbounds i8, ptr %5, i64 56
+  %36 = load ptr, ptr %35, align 8
+  store ptr %36, ptr %34, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 72
+  %38 = getelementptr inbounds i8, ptr %5, i64 64
+  %39 = load i64, ptr %38, align 8
+  store i64 %39, ptr %37, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds i8, ptr %5, i64 72
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %40, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 88
+  %44 = getelementptr inbounds i8, ptr %5, i64 80
+  %45 = load i64, ptr %44, align 8
+  store i64 %45, ptr %43, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 96
+  %47 = getelementptr inbounds i8, ptr %5, i64 88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
+  %48 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr null, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %5, i64 104
+  %50 = icmp eq ptr %36, %49
+  br i1 %50, label %51, label %53
+
+51:                                               ; preds = %11
+  store ptr %48, ptr %34, align 8
+  %52 = load ptr, ptr %49, align 8
+  store ptr %52, ptr %48, align 8
+  br label %53
+
+53:                                               ; preds = %51, %11
+  %54 = phi ptr [ %48, %51 ], [ %36, %11 ]
+  %.not.i.i.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i, label %55
+
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds i8, ptr %42, i64 8
+  %57 = load i32, ptr %56, align 4
+  %58 = sext i32 %57 to i64
+  %59 = urem i64 %58, %39
+  %60 = getelementptr inbounds ptr, ptr %54, i64 %59
+  store ptr %40, ptr %60, align 8
+  br label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i
+
+_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i: ; preds = %55, %53
+  %61 = getelementptr inbounds i8, ptr %5, i64 96
+  store i64 0, ptr %61, align 8
+  store i64 1, ptr %38, align 8
+  store ptr null, ptr %49, align 8
+  store ptr %49, ptr %35, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
+  %62 = getelementptr inbounds i8, ptr %0, i64 120
+  %63 = getelementptr inbounds i8, ptr %5, i64 112
+  %64 = load ptr, ptr %63, align 8
+  store ptr %64, ptr %62, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 128
+  %66 = getelementptr inbounds i8, ptr %5, i64 120
+  %67 = load i64, ptr %66, align 8
+  store i64 %67, ptr %65, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 136
+  %69 = getelementptr inbounds i8, ptr %5, i64 128
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %68, align 8
+  %71 = getelementptr inbounds i8, ptr %0, i64 144
+  %72 = getelementptr inbounds i8, ptr %5, i64 136
+  %73 = load i64, ptr %72, align 8
+  store i64 %73, ptr %71, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 152
+  %75 = getelementptr inbounds i8, ptr %5, i64 144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false)
+  %76 = getelementptr inbounds i8, ptr %0, i64 168
+  store ptr null, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %5, i64 160
+  %78 = icmp eq ptr %64, %77
+  br i1 %78, label %79, label %81
+
+79:                                               ; preds = %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i
+  store ptr %76, ptr %62, align 8
+  %80 = load ptr, ptr %77, align 8
+  store ptr %80, ptr %76, align 8
+  br label %81
+
+81:                                               ; preds = %79, %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i
+  %82 = phi ptr [ %76, %79 ], [ %64, %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i ]
+  %.not.i.i.i.i8.i = icmp eq ptr %70, null
+  br i1 %.not.i.i.i.i8.i, label %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit, label %83
+
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds i8, ptr %70, i64 8
+  %85 = load i32, ptr %84, align 4
+  %86 = sext i32 %85 to i64
+  %87 = urem i64 %86, %67
+  %88 = getelementptr inbounds ptr, ptr %82, i64 %87
+  store ptr %68, ptr %88, align 8
+  br label %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit
+
+_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit:        ; preds = %81, %83
+  %89 = getelementptr inbounds i8, ptr %5, i64 152
+  store i64 0, ptr %89, align 8
+  store i64 1, ptr %66, align 8
+  store ptr null, ptr %77, align 8
+  store ptr %77, ptr %63, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
+  %90 = getelementptr inbounds i8, ptr %0, i64 176
+  %91 = getelementptr inbounds i8, ptr %5, i64 168
+  %92 = load ptr, ptr %91, align 8
+  store ptr %92, ptr %90, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 184
+  %94 = getelementptr inbounds i8, ptr %5, i64 176
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %93, align 8
+  %96 = getelementptr inbounds i8, ptr %0, i64 192
+  %97 = getelementptr inbounds i8, ptr %5, i64 184
+  %98 = load ptr, ptr %97, align 8
+  store ptr %98, ptr %96, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, i8 0, i64 24, i1 false)
+  %99 = getelementptr inbounds i8, ptr %0, i64 200
+  %100 = getelementptr inbounds i8, ptr %5, i64 192
+  %101 = load ptr, ptr %100, align 8
+  store ptr %101, ptr %99, align 8
+  %102 = getelementptr inbounds i8, ptr %0, i64 208
+  %103 = getelementptr inbounds i8, ptr %5, i64 200
+  %104 = load ptr, ptr %103, align 8
+  store ptr %104, ptr %102, align 8
+  %105 = getelementptr inbounds i8, ptr %0, i64 216
+  %106 = getelementptr inbounds i8, ptr %5, i64 208
+  %107 = load ptr, ptr %106, align 8
+  store ptr %107, ptr %105, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
+  br label %108
+
+108:                                              ; preds = %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit, %9
+  call void @_ZN8WasmEdge4Host4WASI6PollerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %5) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %0, i64 noundef %1, i16 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %0, i64 noundef %1, i16 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -922,7 +1249,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJ
 declare void @_ZN8WasmEdge4Host4WASI6Poller5clockE16__wasi_clockid_tmm22__wasi_subclockflags_tm(ptr noundef nonnull align 8 dereferenceable(216), i32 noundef, i64 noundef, i64 noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI8EVPoller4readEiNS1_11TriggerTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI8EVPoller4readEiNS1_11TriggerTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1133,7 +1460,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12: ; preds = %_ZNSt10sh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI8EVPoller5writeEiNS1_11TriggerTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI8EVPoller5writeEiNS1_11TriggerTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1402,349 +1729,486 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EEEEC2ERNS3
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EE4bodyERKNS_7Runtime12CallingFrameEjjjj(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %8 = alloca %"class.WasmEdge::Host::WASI::EVPoller", align 8
-  %9 = alloca %class.anon.711, align 8
-  %10 = alloca %"class.cxx20::expected.52", align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %.sink.split, label %14
+  %8 = alloca %"class.cxx20::expected.52", align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %.sink.split, label %12
 
-14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %12, i64 56
-  br label %16
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %10, i64 56
+  br label %14
 
-16:                                               ; preds = %16, %14
-  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !12
-  switch i32 %17, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
-    i32 11, label %16
-    i32 35, label %18
+14:                                               ; preds = %14, %12
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !9
+  switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
+    i32 11, label %14
+    i32 35, label %16
   ]
 
-18:                                               ; preds = %16
+16:                                               ; preds = %14
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %24, !noalias !12
+          to label %.noexc.i.i unwind label %22, !noalias !9
 
-.noexc.i.i:                                       ; preds = %18
+.noexc.i.i:                                       ; preds = %16
   unreachable
 
-_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %12, i64 456
-  %20 = getelementptr inbounds i8, ptr %12, i64 464
-  %21 = load ptr, ptr %20, align 8, !noalias !12
-  %22 = load ptr, ptr %19, align 8, !noalias !12
-  %.not.i.i.not = icmp eq ptr %21, %22
+_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
+  %17 = getelementptr inbounds i8, ptr %10, i64 456
+  %18 = getelementptr inbounds i8, ptr %10, i64 464
+  %19 = load ptr, ptr %18, align 8, !noalias !9
+  %20 = load ptr, ptr %17, align 8, !noalias !9
+  %.not.i.i.not = icmp eq ptr %19, %20
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !12
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !9
   br label %.sink.split
 
-24:                                               ; preds = %18
-  %25 = landingpad { ptr, i32 }
+22:                                               ; preds = %16
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #18
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #18
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %27 = load ptr, ptr %22, align 8, !noalias !12
-  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !12
-  %29 = icmp eq ptr %27, null
-  br i1 %29, label %.sink.split, label %30
+  %25 = load ptr, ptr %20, align 8, !noalias !9
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !9
+  %27 = icmp eq ptr %25, null
+  br i1 %27, label %.sink.split, label %28
 
-30:                                               ; preds = %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
-  %31 = mul i32 %5, 48
-  %32 = zext i32 %3 to i64
-  %33 = zext i32 %31 to i64
-  %34 = add nuw nsw i64 %33, %32
-  %35 = getelementptr inbounds i8, ptr %27, i64 4
-  %36 = load i32, ptr %35, align 4
-  %37 = zext i32 %36 to i64
-  %38 = shl nuw nsw i64 %37, 16
-  %.not.i = icmp ule i64 %34, %38
-  %39 = zext i32 %5 to i64
-  %40 = getelementptr inbounds i8, ptr %27, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 %32
-  %.sroa.0.0.i = select i1 %.not.i, ptr %42, ptr null
+28:                                               ; preds = %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
+  %29 = mul i32 %5, 48
+  %30 = zext i32 %3 to i64
+  %31 = zext i32 %29 to i64
+  %32 = add nuw nsw i64 %31, %30
+  %33 = getelementptr inbounds i8, ptr %25, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = zext i32 %34 to i64
+  %36 = shl nuw nsw i64 %35, 16
+  %.not.i = icmp ule i64 %32, %36
+  %37 = zext i32 %5 to i64
+  %38 = getelementptr inbounds i8, ptr %25, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 %30
+  %.sroa.0.0.i = select i1 %.not.i, ptr %40, ptr null
   %.not112122 = icmp eq i32 %5, 0
   %.not112 = or i1 %.not.i, %.not112122
-  br i1 %.not112, label %43, label %.sink.split
+  br i1 %.not112, label %41, label %.sink.split
 
-43:                                               ; preds = %30
-  %44 = shl i32 %5, 5
-  %45 = zext i32 %4 to i64
-  %46 = zext i32 %44 to i64
-  %47 = add nuw nsw i64 %46, %45
-  %.not.i70 = icmp ule i64 %47, %38
-  %48 = getelementptr inbounds i8, ptr %41, i64 %45
-  %.sroa.0.0.i71 = select i1 %.not.i70, ptr %48, ptr null
+41:                                               ; preds = %28
+  %42 = shl i32 %5, 5
+  %43 = zext i32 %4 to i64
+  %44 = zext i32 %42 to i64
+  %45 = add nuw nsw i64 %44, %43
+  %.not.i70 = icmp ule i64 %45, %36
+  %46 = getelementptr inbounds i8, ptr %39, i64 %43
+  %.sroa.0.0.i71 = select i1 %.not.i70, ptr %46, ptr null
   %.not113123 = icmp eq i32 %5, 0
   %.not113 = or i1 %.not.i70, %.not113123
-  br i1 %.not113, label %49, label %.sink.split
+  br i1 %.not113, label %47, label %.sink.split
 
-49:                                               ; preds = %43
-  %50 = zext i32 %6 to i64
-  %51 = add nuw nsw i64 %50, 4
-  %.not.i75 = icmp ugt i64 %51, %38
-  %52 = getelementptr inbounds i8, ptr %41, i64 %50
-  %53 = icmp eq ptr %41, null
-  %54 = select i1 %.not.i75, i1 true, i1 %53
-  br i1 %54, label %.sink.split, label %55
+47:                                               ; preds = %41
+  %48 = zext i32 %6 to i64
+  %49 = add nuw nsw i64 %48, 4
+  %.not.i75 = icmp ugt i64 %49, %36
+  %50 = getelementptr inbounds i8, ptr %39, i64 %48
+  %51 = icmp eq ptr %39, null
+  %52 = select i1 %.not.i75, i1 true, i1 %51
+  br i1 %52, label %.sink.split, label %53
 
-55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %1, i64 160
-  %57 = load ptr, ptr %56, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store ptr %57, ptr %9, align 8, !noalias !15
-  call void @_ZZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEEENKUlvE_clEv(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::Host::WASI::EVPoller") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #19, !noalias !15
-  %58 = call i32 @_ZN8WasmEdge4Host4WASI6Poller7prepareEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(216) %8, ptr %.sroa.0.0.i71, i64 %39) #19, !noalias !15
-  %59 = trunc i32 %58 to i1
-  br i1 %59, label %62, label %60
+53:                                               ; preds = %47
+  %54 = getelementptr inbounds i8, ptr %1, i64 160
+  %55 = load ptr, ptr %54, align 8
+  call void @_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.52") align 8 %8, ptr noundef nonnull align 8 dereferenceable(344) %55, ptr %.sroa.0.0.i71, i64 %37) #19
+  %56 = load i8, ptr %8, align 8
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %72, label %.preheader
 
-60:                                               ; preds = %55
-  %.sroa.24.0.extract.shift.i = lshr i32 %58, 16
-  %.sroa.24.0.extract.trunc.i = trunc nuw i32 %.sroa.24.0.extract.shift.i to i16
-  store i8 0, ptr %10, align 8, !alias.scope !15
-  %61 = getelementptr inbounds i8, ptr %10, i64 8
-  store i16 %.sroa.24.0.extract.trunc.i, ptr %61, align 8, !alias.scope !15
-  br label %_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE.exit
-
-62:                                               ; preds = %55
-  store i8 1, ptr %10, align 8, !alias.scope !15
-  %63 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @_ZN8WasmEdge4Host4WASI6PollerC2EOS2_(ptr noundef nonnull align 8 dereferenceable(216) %63, ptr noundef nonnull align 8 dereferenceable(216) %8) #19
-  br label %_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE.exit
-
-_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE.exit: ; preds = %60, %62
-  call void @_ZN8WasmEdge4Host4WASI6PollerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %8) #19
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %64 = load i8, ptr %10, align 8
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %80, label %.preheader
-
-.preheader:                                       ; preds = %_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE.exit
+.preheader:                                       ; preds = %53
   %.not120 = icmp eq i32 %5, 0
   br i1 %.not120, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %66 = getelementptr inbounds i8, ptr %10, i64 8
-  br label %67
+  %58 = getelementptr inbounds i8, ptr %8, i64 8
+  br label %59
 
-67:                                               ; preds = %.lr.ph, %67
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds %struct.__wasi_subscription_t, ptr %.sroa.0.0.i, i64 %indvars.iv
-  %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.__wasi_event_t, ptr %.sroa.0.0.i71, i64 %indvars.iv
-  store i64 %69, ptr %70, align 8
-  %71 = load i16, ptr %66, align 8
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
-  store i16 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %68, i64 8
-  %74 = load i8, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %70, i64 10
-  store i8 %74, ptr %75, align 2
+59:                                               ; preds = %.lr.ph, %59
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
+  %60 = getelementptr inbounds %struct.__wasi_subscription_t, ptr %.sroa.0.0.i, i64 %indvars.iv
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds %struct.__wasi_event_t, ptr %.sroa.0.0.i71, i64 %indvars.iv
+  store i64 %61, ptr %62, align 8
+  %63 = load i16, ptr %58, align 8
+  %64 = getelementptr inbounds i8, ptr %62, i64 8
+  store i16 %63, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %60, i64 8
+  %66 = load i8, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %62, i64 10
+  store i8 %66, ptr %67, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %39
-  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !18
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %37
+  br i1 %exitcond.not, label %._crit_edge, label %59, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %67, %.preheader
-  store i32 %5, ptr %52, align 4
-  %76 = getelementptr inbounds i8, ptr %10, i64 8
+._crit_edge:                                      ; preds = %59, %.preheader
+  store i32 %5, ptr %50, align 4
+  %68 = getelementptr inbounds i8, ptr %8, i64 8
   store i8 1, ptr %0, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 4
-  %78 = load i16, ptr %76, align 8
-  %79 = zext i16 %78 to i32
-  store i32 %79, ptr %77, align 4
-  br label %147
+  %69 = getelementptr inbounds i8, ptr %0, i64 4
+  %70 = load i16, ptr %68, align 8
+  %71 = zext i16 %70 to i32
+  store i32 %71, ptr %69, align 4
+  br label %238
 
-80:                                               ; preds = %_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE.exit
-  %81 = getelementptr inbounds i8, ptr %10, i64 8
-  %82 = getelementptr inbounds %struct.__wasi_subscription_t, ptr %.sroa.0.0.i, i64 %39
+72:                                               ; preds = %53
+  %73 = getelementptr inbounds i8, ptr %8, i64 8
+  %74 = getelementptr inbounds %struct.__wasi_subscription_t, ptr %.sroa.0.0.i, i64 %37
   %.not115 = icmp eq i32 %5, 0
   br i1 %.not115, label %._crit_edge119, label %.lr.ph118
 
-.lr.ph118:                                        ; preds = %80, %105
-  %.067116 = phi ptr [ %106, %105 ], [ %.sroa.0.0.i, %80 ]
-  %83 = load i64, ptr %.067116, align 8
-  %84 = getelementptr inbounds i8, ptr %.067116, i64 8
-  %85 = load i8, ptr %84, align 8
-  %switch.i = icmp ugt i8 %85, 2
-  br i1 %switch.i, label %86, label %87
+.lr.ph118:                                        ; preds = %72, %97
+  %.067116 = phi ptr [ %98, %97 ], [ %.sroa.0.0.i, %72 ]
+  %75 = load i64, ptr %.067116, align 8
+  %76 = getelementptr inbounds i8, ptr %.067116, i64 8
+  %77 = load i8, ptr %76, align 8
+  %switch.i = icmp ugt i8 %77, 2
+  br i1 %switch.i, label %78, label %79
 
-86:                                               ; preds = %.lr.ph118
-  call void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %81, i64 noundef %83, i16 noundef zeroext 28, i8 noundef zeroext %85) #19
-  br label %105
+78:                                               ; preds = %.lr.ph118
+  call void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %73, i64 noundef %75, i16 noundef zeroext 28, i8 noundef zeroext %77) #19
+  br label %97
 
-87:                                               ; preds = %.lr.ph118
-  %88 = getelementptr inbounds i8, ptr %.067116, i64 16
-  %89 = load i32, ptr %88, align 8
-  switch i8 %85, label %104 [
-    i8 0, label %90
-    i8 1, label %102
-    i8 2, label %103
+79:                                               ; preds = %.lr.ph118
+  %80 = getelementptr inbounds i8, ptr %.067116, i64 16
+  %81 = load i32, ptr %80, align 8
+  switch i8 %77, label %96 [
+    i8 0, label %82
+    i8 1, label %94
+    i8 2, label %95
   ]
 
-90:                                               ; preds = %87
-  %switch.i77 = icmp ugt i32 %89, 3
-  br i1 %switch.i77, label %91, label %92
+82:                                               ; preds = %79
+  %switch.i77 = icmp ugt i32 %81, 3
+  br i1 %switch.i77, label %83, label %84
 
-91:                                               ; preds = %90
-  call void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %81, i64 noundef %83, i16 noundef zeroext 28, i8 noundef zeroext %85) #19
-  br label %105
+83:                                               ; preds = %82
+  call void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %73, i64 noundef %75, i16 noundef zeroext 28, i8 noundef zeroext %77) #19
+  br label %97
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %.067116, i64 40
-  %94 = load i16, ptr %93, align 8
-  %95 = icmp ugt i16 %94, 1
-  br i1 %95, label %96, label %97
+84:                                               ; preds = %82
+  %85 = getelementptr inbounds i8, ptr %.067116, i64 40
+  %86 = load i16, ptr %85, align 8
+  %87 = icmp ugt i16 %86, 1
+  br i1 %87, label %88, label %89
 
-96:                                               ; preds = %92
-  call void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %81, i64 noundef %83, i16 noundef zeroext 28, i8 noundef zeroext %85) #19
-  br label %105
+88:                                               ; preds = %84
+  call void @_ZN8WasmEdge4Host4WASI6Poller5errorEm14__wasi_errno_t18__wasi_eventtype_t(ptr noundef nonnull align 8 dereferenceable(216) %73, i64 noundef %75, i16 noundef zeroext 28, i8 noundef zeroext %77) #19
+  br label %97
 
-97:                                               ; preds = %92
-  %98 = getelementptr inbounds i8, ptr %.067116, i64 24
-  %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %.067116, i64 32
-  %101 = load i64, ptr %100, align 8
-  call void @_ZN8WasmEdge4Host4WASI6Poller5clockE16__wasi_clockid_tmm22__wasi_subclockflags_tm(ptr noundef nonnull align 8 dereferenceable(216) %81, i32 noundef %89, i64 noundef %99, i64 noundef %101, i16 noundef zeroext %94, i64 noundef %83) #19
-  br label %105
+89:                                               ; preds = %84
+  %90 = getelementptr inbounds i8, ptr %.067116, i64 24
+  %91 = load i64, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %.067116, i64 32
+  %93 = load i64, ptr %92, align 8
+  call void @_ZN8WasmEdge4Host4WASI6Poller5clockE16__wasi_clockid_tmm22__wasi_subclockflags_tm(ptr noundef nonnull align 8 dereferenceable(216) %73, i32 noundef %81, i64 noundef %91, i64 noundef %93, i16 noundef zeroext %86, i64 noundef %75) #19
+  br label %97
 
-102:                                              ; preds = %87
-  call void @_ZN8WasmEdge4Host4WASI8EVPoller4readEiNS1_11TriggerTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %81, i32 noundef %89, i32 noundef 1, i64 noundef %83) #19
-  br label %105
+94:                                               ; preds = %79
+  call void @_ZN8WasmEdge4Host4WASI8EVPoller4readEiNS1_11TriggerTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %73, i32 noundef %81, i32 noundef 1, i64 noundef %75) #19
+  br label %97
 
-103:                                              ; preds = %87
-  call void @_ZN8WasmEdge4Host4WASI8EVPoller5writeEiNS1_11TriggerTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %81, i32 noundef %89, i32 noundef 1, i64 noundef %83) #19
-  br label %105
+95:                                               ; preds = %79
+  call void @_ZN8WasmEdge4Host4WASI8EVPoller5writeEiNS1_11TriggerTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %73, i32 noundef %81, i32 noundef 1, i64 noundef %75) #19
+  br label %97
 
-104:                                              ; preds = %87
+96:                                               ; preds = %79
   unreachable
 
-105:                                              ; preds = %103, %102, %97, %96, %91, %86
-  %106 = getelementptr inbounds i8, ptr %.067116, i64 48
-  %.not = icmp eq ptr %106, %82
+97:                                               ; preds = %95, %94, %89, %88, %83, %78
+  %98 = getelementptr inbounds i8, ptr %.067116, i64 48
+  %.not = icmp eq ptr %98, %74
   br i1 %.not, label %._crit_edge119, label %.lr.ph118
 
-._crit_edge119:                                   ; preds = %105, %80
-  call void @_ZN8WasmEdge4Host4WASI6Poller4waitEv(ptr noundef nonnull align 8 dereferenceable(216) %81) #19
-  %107 = getelementptr inbounds i8, ptr %10, i64 40
-  %108 = getelementptr inbounds i8, ptr %10, i64 48
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %107, align 8
-  %111 = ptrtoint ptr %109 to i64
-  %112 = ptrtoint ptr %110 to i64
-  %113 = sub i64 %111, %112
-  %114 = sdiv exact i64 %113, 40
-  %115 = getelementptr inbounds i8, ptr %10, i64 24
-  %116 = getelementptr inbounds i8, ptr %10, i64 32
-  %117 = load i64, ptr %116, align 8
-  %118 = icmp eq i64 %114, %117
-  call void @llvm.assume(i1 %118)
-  %.not10.i = icmp eq ptr %110, %109
+._crit_edge119:                                   ; preds = %97, %72
+  call void @_ZN8WasmEdge4Host4WASI6Poller4waitEv(ptr noundef nonnull align 8 dereferenceable(216) %73) #19
+  %99 = getelementptr inbounds i8, ptr %8, i64 40
+  %100 = getelementptr inbounds i8, ptr %8, i64 48
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %99, align 8
+  %103 = ptrtoint ptr %101 to i64
+  %104 = ptrtoint ptr %102 to i64
+  %105 = sub i64 %103, %104
+  %106 = sdiv exact i64 %105, 40
+  %107 = getelementptr inbounds i8, ptr %8, i64 24
+  %108 = getelementptr inbounds i8, ptr %8, i64 32
+  %109 = load i64, ptr %108, align 8
+  %110 = icmp eq i64 %106, %109
+  call void @llvm.assume(i1 %110)
+  %.not10.i = icmp eq ptr %102, %101
   br i1 %.not10.i, label %_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge119, %127
-  %.012.i = phi i32 [ %.1.i, %127 ], [ 0, %._crit_edge119 ]
-  %.sroa.07.011.i = phi ptr [ %128, %127 ], [ %110, %._crit_edge119 ]
-  %119 = getelementptr inbounds i8, ptr %.sroa.07.011.i, i64 32
-  %120 = load i8, ptr %119, align 8
-  %121 = trunc i8 %120 to i1
-  br i1 %121, label %122, label %127
+.lr.ph.i:                                         ; preds = %._crit_edge119, %119
+  %.012.i = phi i32 [ %.1.i, %119 ], [ 0, %._crit_edge119 ]
+  %.sroa.07.011.i = phi ptr [ %120, %119 ], [ %102, %._crit_edge119 ]
+  %111 = getelementptr inbounds i8, ptr %.sroa.07.011.i, i64 32
+  %112 = load i8, ptr %111, align 8
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %119
 
-122:                                              ; preds = %.lr.ph.i
-  %123 = zext i32 %.012.i to i64
-  %124 = load ptr, ptr %115, align 8
-  %125 = getelementptr inbounds %struct.__wasi_event_t, ptr %124, i64 %123
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.011.i, i64 32, i1 false)
-  %126 = add i32 %.012.i, 1
-  br label %127
+114:                                              ; preds = %.lr.ph.i
+  %115 = zext i32 %.012.i to i64
+  %116 = load ptr, ptr %107, align 8
+  %117 = getelementptr inbounds %struct.__wasi_event_t, ptr %116, i64 %115
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.011.i, i64 32, i1 false)
+  %118 = add i32 %.012.i, 1
+  br label %119
 
-127:                                              ; preds = %122, %.lr.ph.i
-  %.1.i = phi i32 [ %126, %122 ], [ %.012.i, %.lr.ph.i ]
-  %128 = getelementptr inbounds i8, ptr %.sroa.07.011.i, i64 40
-  %.not.i84 = icmp eq ptr %128, %109
+119:                                              ; preds = %114, %.lr.ph.i
+  %.1.i = phi i32 [ %118, %114 ], [ %.012.i, %.lr.ph.i ]
+  %120 = getelementptr inbounds i8, ptr %.sroa.07.011.i, i64 40
+  %.not.i84 = icmp eq ptr %120, %101
   br i1 %.not.i84, label %_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit, label %.lr.ph.i
 
-_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit:     ; preds = %127, %._crit_edge119
-  %.0.lcssa.i = phi i32 [ 0, %._crit_edge119 ], [ %.1.i, %127 ]
-  store i32 %.0.lcssa.i, ptr %52, align 4
-  call void @_ZN8WasmEdge4Host4WASI6Poller5resetEv(ptr noundef nonnull align 8 dereferenceable(216) %81) #19
-  %129 = load ptr, ptr %56, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 152
-  %131 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %130) #19
-  %132 = icmp eq i32 %131, 35
-  br i1 %132, label %133, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
+_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit:     ; preds = %119, %._crit_edge119
+  %.0.lcssa.i = phi i32 [ 0, %._crit_edge119 ], [ %.1.i, %119 ]
+  store i32 %.0.lcssa.i, ptr %50, align 4
+  call void @_ZN8WasmEdge4Host4WASI6Poller5resetEv(ptr noundef nonnull align 8 dereferenceable(216) %73) #19
+  %121 = load ptr, ptr %54, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 152
+  %123 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %122) #19
+  %124 = icmp eq i32 %123, 35
+  br i1 %124, label %125, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
 
-133:                                              ; preds = %_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit
+125:                                              ; preds = %_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i unwind label %143
+          to label %.noexc.i unwind label %234
 
-.noexc.i:                                         ; preds = %133
+.noexc.i:                                         ; preds = %125
   unreachable
 
 _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %_ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit
-  %134 = getelementptr inbounds i8, ptr %129, i64 216
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %129, i64 224
-  %137 = load ptr, ptr %136, align 8
-  %.not.i.i.i = icmp eq ptr %135, %137
-  br i1 %.not.i.i.i, label %141, label %138
+  %126 = getelementptr inbounds i8, ptr %121, i64 216
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %121, i64 224
+  %129 = load ptr, ptr %128, align 8
+  %.not.i.i.i = icmp eq ptr %127, %129
+  br i1 %.not.i.i.i, label %232, label %130
 
-138:                                              ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
-  call void @_ZN8WasmEdge4Host4WASI6PollerC2EOS2_(ptr noundef nonnull align 8 dereferenceable(216) %135, ptr noundef nonnull align 8 dereferenceable(216) %81) #19
-  %139 = load ptr, ptr %134, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 216
-  store ptr %140, ptr %134, align 8
+130:                                              ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
+  %131 = load i32, ptr %73, align 8
+  store i32 -1, ptr %73, align 8
+  store i32 %131, ptr %127, align 4
+  %132 = getelementptr inbounds i8, ptr %127, i64 4
+  %133 = getelementptr inbounds i8, ptr %8, i64 12
+  %134 = load i8, ptr %133, align 4
+  %135 = and i8 %134, 1
+  %136 = load i8, ptr %132, align 4
+  %137 = and i8 %136, -2
+  %138 = or disjoint i8 %137, %135
+  store i8 %138, ptr %132, align 4
+  %139 = load i8, ptr %133, align 4
+  %.lobit.i.i = and i8 %139, 2
+  %140 = and i8 %138, -3
+  %141 = or disjoint i8 %140, %.lobit.i.i
+  store i8 %141, ptr %132, align 4
+  %142 = load i8, ptr %133, align 4
+  %143 = and i8 %142, -4
+  %144 = or disjoint i8 %143, 1
+  store i8 %144, ptr %133, align 4
+  %145 = getelementptr inbounds i8, ptr %127, i64 8
+  %146 = getelementptr inbounds i8, ptr %8, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr noundef nonnull align 8 dereferenceable(24) %146, i64 24, i1 false)
+  %147 = getelementptr inbounds i8, ptr %127, i64 32
+  %148 = load ptr, ptr %99, align 8
+  store ptr %148, ptr %147, align 8
+  %149 = getelementptr inbounds i8, ptr %127, i64 40
+  %150 = load ptr, ptr %100, align 8
+  store ptr %150, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %127, i64 48
+  %152 = getelementptr inbounds i8, ptr %8, i64 56
+  %153 = load ptr, ptr %152, align 8
+  store ptr %153, ptr %151, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
+  %154 = getelementptr inbounds i8, ptr %127, i64 56
+  %155 = getelementptr inbounds i8, ptr %8, i64 64
+  %156 = load ptr, ptr %155, align 8
+  store ptr %156, ptr %154, align 8
+  %157 = getelementptr inbounds i8, ptr %127, i64 64
+  %158 = getelementptr inbounds i8, ptr %8, i64 72
+  %159 = load i64, ptr %158, align 8
+  store i64 %159, ptr %157, align 8
+  %160 = getelementptr inbounds i8, ptr %127, i64 72
+  %161 = getelementptr inbounds i8, ptr %8, i64 80
+  %162 = load ptr, ptr %161, align 8
+  store ptr %162, ptr %160, align 8
+  %163 = getelementptr inbounds i8, ptr %127, i64 80
+  %164 = getelementptr inbounds i8, ptr %8, i64 88
+  %165 = load i64, ptr %164, align 8
+  store i64 %165, ptr %163, align 8
+  %166 = getelementptr inbounds i8, ptr %127, i64 88
+  %167 = getelementptr inbounds i8, ptr %8, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull align 8 dereferenceable(16) %167, i64 16, i1 false)
+  %168 = getelementptr inbounds i8, ptr %127, i64 104
+  store ptr null, ptr %168, align 8
+  %169 = load ptr, ptr %155, align 8
+  %170 = getelementptr inbounds i8, ptr %8, i64 112
+  %171 = icmp eq ptr %169, %170
+  br i1 %171, label %172, label %174
+
+172:                                              ; preds = %130
+  store ptr %168, ptr %154, align 8
+  %173 = load ptr, ptr %170, align 8
+  store ptr %173, ptr %168, align 8
+  br label %174
+
+174:                                              ; preds = %172, %130
+  %175 = phi ptr [ %168, %172 ], [ %156, %130 ]
+  %.not.i.i.i.i.i = icmp eq ptr %162, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i, label %176
+
+176:                                              ; preds = %174
+  %177 = getelementptr inbounds i8, ptr %162, i64 8
+  %178 = load i32, ptr %177, align 4
+  %179 = sext i32 %178 to i64
+  %180 = urem i64 %179, %159
+  %181 = getelementptr inbounds ptr, ptr %175, i64 %180
+  store ptr %160, ptr %181, align 8
+  br label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i
+
+_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i: ; preds = %176, %174
+  %182 = getelementptr inbounds i8, ptr %8, i64 104
+  store i64 0, ptr %182, align 8
+  store i64 1, ptr %158, align 8
+  store ptr null, ptr %170, align 8
+  store ptr %170, ptr %155, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %161, i8 0, i64 16, i1 false)
+  %183 = getelementptr inbounds i8, ptr %127, i64 112
+  %184 = getelementptr inbounds i8, ptr %8, i64 120
+  %185 = load ptr, ptr %184, align 8
+  store ptr %185, ptr %183, align 8
+  %186 = getelementptr inbounds i8, ptr %127, i64 120
+  %187 = getelementptr inbounds i8, ptr %8, i64 128
+  %188 = load i64, ptr %187, align 8
+  store i64 %188, ptr %186, align 8
+  %189 = getelementptr inbounds i8, ptr %127, i64 128
+  %190 = getelementptr inbounds i8, ptr %8, i64 136
+  %191 = load ptr, ptr %190, align 8
+  store ptr %191, ptr %189, align 8
+  %192 = getelementptr inbounds i8, ptr %127, i64 136
+  %193 = getelementptr inbounds i8, ptr %8, i64 144
+  %194 = load i64, ptr %193, align 8
+  store i64 %194, ptr %192, align 8
+  %195 = getelementptr inbounds i8, ptr %127, i64 144
+  %196 = getelementptr inbounds i8, ptr %8, i64 152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %195, ptr noundef nonnull align 8 dereferenceable(16) %196, i64 16, i1 false)
+  %197 = getelementptr inbounds i8, ptr %127, i64 160
+  store ptr null, ptr %197, align 8
+  %198 = load ptr, ptr %184, align 8
+  %199 = getelementptr inbounds i8, ptr %8, i64 168
+  %200 = icmp eq ptr %198, %199
+  br i1 %200, label %201, label %203
+
+201:                                              ; preds = %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i
+  store ptr %197, ptr %183, align 8
+  %202 = load ptr, ptr %199, align 8
+  store ptr %202, ptr %197, align 8
+  br label %203
+
+203:                                              ; preds = %201, %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i
+  %204 = phi ptr [ %197, %201 ], [ %185, %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit.i ]
+  %.not.i.i.i.i8.i = icmp eq ptr %191, null
+  br i1 %.not.i.i.i.i8.i, label %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit, label %205
+
+205:                                              ; preds = %203
+  %206 = getelementptr inbounds i8, ptr %191, i64 8
+  %207 = load i32, ptr %206, align 4
+  %208 = sext i32 %207 to i64
+  %209 = urem i64 %208, %188
+  %210 = getelementptr inbounds ptr, ptr %204, i64 %209
+  store ptr %189, ptr %210, align 8
+  br label %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit
+
+_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit:        ; preds = %203, %205
+  %211 = getelementptr inbounds i8, ptr %8, i64 160
+  store i64 0, ptr %211, align 8
+  store i64 1, ptr %187, align 8
+  store ptr null, ptr %199, align 8
+  store ptr %199, ptr %184, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, i8 0, i64 16, i1 false)
+  %212 = getelementptr inbounds i8, ptr %127, i64 168
+  %213 = getelementptr inbounds i8, ptr %8, i64 176
+  %214 = load ptr, ptr %213, align 8
+  store ptr %214, ptr %212, align 8
+  %215 = getelementptr inbounds i8, ptr %127, i64 176
+  %216 = getelementptr inbounds i8, ptr %8, i64 184
+  %217 = load ptr, ptr %216, align 8
+  store ptr %217, ptr %215, align 8
+  %218 = getelementptr inbounds i8, ptr %127, i64 184
+  %219 = getelementptr inbounds i8, ptr %8, i64 192
+  %220 = load ptr, ptr %219, align 8
+  store ptr %220, ptr %218, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %213, i8 0, i64 24, i1 false)
+  %221 = getelementptr inbounds i8, ptr %127, i64 192
+  %222 = getelementptr inbounds i8, ptr %8, i64 200
+  %223 = load ptr, ptr %222, align 8
+  store ptr %223, ptr %221, align 8
+  %224 = getelementptr inbounds i8, ptr %127, i64 200
+  %225 = getelementptr inbounds i8, ptr %8, i64 208
+  %226 = load ptr, ptr %225, align 8
+  store ptr %226, ptr %224, align 8
+  %227 = getelementptr inbounds i8, ptr %127, i64 208
+  %228 = getelementptr inbounds i8, ptr %8, i64 216
+  %229 = load ptr, ptr %228, align 8
+  store ptr %229, ptr %227, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %222, i8 0, i64 24, i1 false)
+  %230 = load ptr, ptr %126, align 8
+  %231 = getelementptr inbounds i8, ptr %230, i64 216
+  store ptr %231, ptr %126, align 8
   br label %_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit
 
-141:                                              ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
-  %142 = getelementptr inbounds i8, ptr %129, i64 208
-  invoke void @_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %142, ptr %135, ptr noundef nonnull align 8 dereferenceable(216) %81)
-          to label %_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit unwind label %143
+232:                                              ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
+  %233 = getelementptr inbounds i8, ptr %121, i64 208
+  invoke void @_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %233, ptr %127, ptr noundef nonnull align 8 dereferenceable(216) %73)
+          to label %_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit unwind label %234
 
-143:                                              ; preds = %141, %133
-  %144 = landingpad { ptr, i32 }
+234:                                              ; preds = %232, %125
+  %235 = landingpad { ptr, i32 }
           catch ptr null
-  %145 = extractvalue { ptr, i32 } %144, 0
-  call void @__clang_call_terminate(ptr %145) #18
+  %236 = extractvalue { ptr, i32 } %235, 0
+  call void @__clang_call_terminate(ptr %236) #18
   unreachable
 
-_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit: ; preds = %138, %141
-  %146 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %130) #19
-  br label %147
+_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit: ; preds = %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit, %232
+  %237 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %122) #19
+  br label %238
 
-147:                                              ; preds = %_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit, %._crit_edge
-  %148 = load i8, ptr %10, align 8
-  %149 = trunc i8 %148 to i1
-  br i1 %149, label %150, label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit
+238:                                              ; preds = %_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit, %._crit_edge
+  %239 = load i8, ptr %8, align 8
+  %240 = trunc i8 %239 to i1
+  br i1 %240, label %241, label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit
 
-150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @_ZN8WasmEdge4Host4WASI6PollerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %151) #19
+241:                                              ; preds = %238
+  %242 = getelementptr inbounds i8, ptr %8, i64 8
+  call void @_ZN8WasmEdge4Host4WASI6PollerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %242) #19
   br label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit
 
-_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit: ; preds = %147, %150
-  br i1 %65, label %.sink.split, label %153
+_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit: ; preds = %238, %241
+  br i1 %57, label %.sink.split, label %244
 
-.sink.split:                                      ; preds = %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit, %49, %43, %30, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110, %7
-  %.sink = phi i32 [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %30 ], [ 21, %43 ], [ 21, %49 ], [ 0, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit ]
+.sink.split:                                      ; preds = %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit, %47, %41, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110, %7
+  %.sink = phi i32 [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %28 ], [ 21, %41 ], [ 21, %47 ], [ 0, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit ]
   store i8 1, ptr %0, align 4
-  %152 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink, ptr %152, align 4
-  br label %153
+  %243 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink, ptr %243, align 4
+  br label %244
 
-153:                                              ; preds = %.sink.split, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit
+244:                                              ; preds = %.sink.split, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host11WasiArgsGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host11WasiArgsGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -1755,7 +2219,7 @@ define void @_ZN8WasmEdge4Host11WasiArgsGet4bodyERKNS_7Runtime12CallingFrameEjj(
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !19
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !13
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -1763,7 +2227,7 @@ define void @_ZN8WasmEdge4Host11WasiArgsGet4bodyERKNS_7Runtime12CallingFrameEjj(
 
 13:                                               ; preds = %11
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %19, !noalias !19
+          to label %.noexc.i.i unwind label %19, !noalias !13
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -1771,13 +2235,13 @@ define void @_ZN8WasmEdge4Host11WasiArgsGet4bodyERKNS_7Runtime12CallingFrameEjj(
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   %14 = getelementptr inbounds i8, ptr %7, i64 456
   %15 = getelementptr inbounds i8, ptr %7, i64 464
-  %16 = load ptr, ptr %15, align 8, !noalias !19
-  %17 = load ptr, ptr %14, align 8, !noalias !19
+  %16 = load ptr, ptr %15, align 8, !noalias !13
+  %17 = load ptr, ptr %14, align 8, !noalias !13
   %.not.i.i.not = icmp eq ptr %16, %17
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !19
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !13
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -1788,8 +2252,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = load ptr, ptr %17, align 8, !noalias !19
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !19
+  %22 = load ptr, ptr %17, align 8, !noalias !13
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !13
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -1876,7 +2340,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %71 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
   %72 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
-  br i1 %72, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEjPhET1_T_T0_SC_.exit.i, !llvm.loop !22
+  br i1 %72, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEjPhET1_T_T0_SC_.exit.i, !llvm.loop !16
 
 _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEjPhET1_T_T0_SC_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i
   %.pre-phi.i = phi i64 [ 0, %.lr.ph.i ], [ %67, %.lr.ph.i.i.i.i.i.i.i.i ]
@@ -1912,7 +2376,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEjRKT_(ptr %.0.val, ptr %.8.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEjRKT_(ptr %.0.val, ptr %.8.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %1 = ptrtoint ptr %.8.val to i64
   %2 = ptrtoint ptr %.0.val to i64
   %3 = sub i64 %1, %2
@@ -1962,7 +2426,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc8
   %17 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 32
   %18 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 4
   %.not.i = icmp eq ptr %17, %.8.val
-  br i1 %.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit: ; preds = %.lr.ph.i
   %.not5.i = icmp eq ptr %9, %.0.i.i.i.i.i.ph
@@ -1975,7 +2439,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11c
   %20 = add i32 %19, %.07.i
   %21 = getelementptr inbounds i8, ptr %.sroa.02.06.i, i64 4
   %.not.i10 = icmp eq ptr %21, %.0.i.i.i.i.i.ph
-  br i1 %.not.i10, label %.loopexit, label %.lr.ph.i9, !llvm.loop !24
+  br i1 %.not.i10, label %.loopexit, label %.lr.ph.i9, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph.i9, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit
   %.0.lcssa.i.ph = phi i32 [ 0, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPjSA_IjSaIjEEEEZN8WasmEdge4Host12_GLOBAL__N_119calculateBufferSizeISC_EEjRKT_EUlSO_E_ET0_SM_SM_SQ_T1_.exit ], [ %20, %.lr.ph.i9 ]
@@ -1996,7 +2460,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiArgsSizesGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiArgsSizesGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -2007,7 +2471,7 @@ define void @_ZN8WasmEdge4Host16WasiArgsSizesGet4bodyERKNS_7Runtime12CallingFram
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !25
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !19
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -2015,7 +2479,7 @@ define void @_ZN8WasmEdge4Host16WasiArgsSizesGet4bodyERKNS_7Runtime12CallingFram
 
 13:                                               ; preds = %11
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %19, !noalias !25
+          to label %.noexc.i.i unwind label %19, !noalias !19
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -2023,13 +2487,13 @@ define void @_ZN8WasmEdge4Host16WasiArgsSizesGet4bodyERKNS_7Runtime12CallingFram
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   %14 = getelementptr inbounds i8, ptr %7, i64 456
   %15 = getelementptr inbounds i8, ptr %7, i64 464
-  %16 = load ptr, ptr %15, align 8, !noalias !25
-  %17 = load ptr, ptr %14, align 8, !noalias !25
+  %16 = load ptr, ptr %15, align 8, !noalias !19
+  %17 = load ptr, ptr %14, align 8, !noalias !19
   %.not.i.i.not = icmp eq ptr %16, %17
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !25
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !19
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -2040,8 +2504,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = load ptr, ptr %17, align 8, !noalias !25
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !25
+  %22 = load ptr, ptr %17, align 8, !noalias !19
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !19
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -2107,7 +2571,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiEnvironGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiEnvironGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -2118,7 +2582,7 @@ define void @_ZN8WasmEdge4Host14WasiEnvironGet4bodyERKNS_7Runtime12CallingFrameE
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !28
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !22
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -2126,7 +2590,7 @@ define void @_ZN8WasmEdge4Host14WasiEnvironGet4bodyERKNS_7Runtime12CallingFrameE
 
 13:                                               ; preds = %11
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %19, !noalias !28
+          to label %.noexc.i.i unwind label %19, !noalias !22
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -2134,13 +2598,13 @@ define void @_ZN8WasmEdge4Host14WasiEnvironGet4bodyERKNS_7Runtime12CallingFrameE
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   %14 = getelementptr inbounds i8, ptr %7, i64 456
   %15 = getelementptr inbounds i8, ptr %7, i64 464
-  %16 = load ptr, ptr %15, align 8, !noalias !28
-  %17 = load ptr, ptr %14, align 8, !noalias !28
+  %16 = load ptr, ptr %15, align 8, !noalias !22
+  %17 = load ptr, ptr %14, align 8, !noalias !22
   %.not.i.i.not = icmp eq ptr %16, %17
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !28
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !22
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -2151,8 +2615,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = load ptr, ptr %17, align 8, !noalias !28
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !28
+  %22 = load ptr, ptr %17, align 8, !noalias !22
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !22
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -2239,7 +2703,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %71 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
   %72 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
-  br i1 %72, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEjPhET1_T_T0_SC_.exit.i, !llvm.loop !22
+  br i1 %72, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEjPhET1_T_T0_SC_.exit.i, !llvm.loop !16
 
 _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEjPhET1_T_T0_SC_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i
   %.pre-phi.i = phi i64 [ 0, %.lr.ph.i ], [ %67, %.lr.ph.i.i.i.i.i.i.i.i ]
@@ -2275,7 +2739,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host19WasiEnvironSizesGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host19WasiEnvironSizesGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -2286,7 +2750,7 @@ define void @_ZN8WasmEdge4Host19WasiEnvironSizesGet4bodyERKNS_7Runtime12CallingF
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !31
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !25
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -2294,7 +2758,7 @@ define void @_ZN8WasmEdge4Host19WasiEnvironSizesGet4bodyERKNS_7Runtime12CallingF
 
 13:                                               ; preds = %11
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %19, !noalias !31
+          to label %.noexc.i.i unwind label %19, !noalias !25
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -2302,13 +2766,13 @@ define void @_ZN8WasmEdge4Host19WasiEnvironSizesGet4bodyERKNS_7Runtime12CallingF
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   %14 = getelementptr inbounds i8, ptr %7, i64 456
   %15 = getelementptr inbounds i8, ptr %7, i64 464
-  %16 = load ptr, ptr %15, align 8, !noalias !31
-  %17 = load ptr, ptr %14, align 8, !noalias !31
+  %16 = load ptr, ptr %15, align 8, !noalias !25
+  %17 = load ptr, ptr %14, align 8, !noalias !25
   %.not.i.i.not = icmp eq ptr %16, %17
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !31
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !25
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -2319,8 +2783,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = load ptr, ptr %17, align 8, !noalias !31
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !31
+  %22 = load ptr, ptr %17, align 8, !noalias !25
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !25
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -2386,7 +2850,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host15WasiClockResGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host15WasiClockResGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -2397,7 +2861,7 @@ define void @_ZN8WasmEdge4Host15WasiClockResGet4bodyERKNS_7Runtime12CallingFrame
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !34
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !28
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -2405,7 +2869,7 @@ define void @_ZN8WasmEdge4Host15WasiClockResGet4bodyERKNS_7Runtime12CallingFrame
 
 13:                                               ; preds = %11
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %19, !noalias !34
+          to label %.noexc.i.i unwind label %19, !noalias !28
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -2413,13 +2877,13 @@ define void @_ZN8WasmEdge4Host15WasiClockResGet4bodyERKNS_7Runtime12CallingFrame
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   %14 = getelementptr inbounds i8, ptr %7, i64 456
   %15 = getelementptr inbounds i8, ptr %7, i64 464
-  %16 = load ptr, ptr %15, align 8, !noalias !34
-  %17 = load ptr, ptr %14, align 8, !noalias !34
+  %16 = load ptr, ptr %15, align 8, !noalias !28
+  %17 = load ptr, ptr %14, align 8, !noalias !28
   %.not.i.i.not = icmp eq ptr %16, %17
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread16, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread16: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !34
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !28
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -2430,8 +2894,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread16: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = load ptr, ptr %17, align 8, !noalias !34
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !34
+  %22 = load ptr, ptr %17, align 8, !noalias !28
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !28
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -2470,7 +2934,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiClockTimeGet4bodyERKNS_7Runtime12CallingFrameEjmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiClockTimeGet4bodyERKNS_7Runtime12CallingFrameEjmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -2481,7 +2945,7 @@ define void @_ZN8WasmEdge4Host16WasiClockTimeGet4bodyERKNS_7Runtime12CallingFram
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !37
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !31
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -2489,7 +2953,7 @@ define void @_ZN8WasmEdge4Host16WasiClockTimeGet4bodyERKNS_7Runtime12CallingFram
 
 14:                                               ; preds = %12
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %20, !noalias !37
+          to label %.noexc.i.i unwind label %20, !noalias !31
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -2497,13 +2961,13 @@ define void @_ZN8WasmEdge4Host16WasiClockTimeGet4bodyERKNS_7Runtime12CallingFram
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 456
   %16 = getelementptr inbounds i8, ptr %8, i64 464
-  %17 = load ptr, ptr %16, align 8, !noalias !37
-  %18 = load ptr, ptr %15, align 8, !noalias !37
+  %17 = load ptr, ptr %16, align 8, !noalias !31
+  %18 = load ptr, ptr %15, align 8, !noalias !31
   %.not.i.i.not = icmp eq ptr %17, %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread18, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread18: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !37
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !31
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -2514,8 +2978,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread18: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = load ptr, ptr %18, align 8, !noalias !37
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !37
+  %23 = load ptr, ptr %18, align 8, !noalias !31
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !31
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -2554,7 +3018,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host12WasiFdAdvise4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host12WasiFdAdvise4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = trunc i32 %6 to i8
   %switch.i = icmp ugt i8 %8, 5
   br i1 %switch.i, label %14, label %9
@@ -2577,7 +3041,7 @@ define void @_ZN8WasmEdge4Host12WasiFdAdvise4bodyERKNS_7Runtime12CallingFrameEim
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ8fdAdviseEimm15__wasi_advice_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ8fdAdviseEimm15__wasi_advice_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %7 unwind label %55
@@ -2697,7 +3161,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %18, %37, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiFdAllocate4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiFdAllocate4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 160
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ10fdAllocateEimm(ptr noundef nonnull align 8 dereferenceable(344) %8, i32 noundef %3, i64 noundef %4, i64 noundef %5) #19
@@ -2711,7 +3175,7 @@ define void @_ZN8WasmEdge4Host14WasiFdAllocate4bodyERKNS_7Runtime12CallingFrameE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ10fdAllocateEimm(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ10fdAllocateEimm(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %5, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %6 unwind label %54
@@ -2831,7 +3295,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %17, %36, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host11WasiFdClose4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host11WasiFdClose4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @_ZN8WasmEdge4Host4WASI7Environ7fdCloseEi(ptr noundef nonnull align 8 dereferenceable(344) %6, i32 noundef %3) #19
@@ -2845,7 +3309,7 @@ define void @_ZN8WasmEdge4Host11WasiFdClose4bodyERKNS_7Runtime12CallingFrameEi(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ7fdCloseEi(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ7fdCloseEi(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 232
   %5 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #19
@@ -2879,8 +3343,8 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %2
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 8
   %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %16, %1
-  br i1 %17, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %13, !llvm.loop !40
+  %17 = icmp eq i32 %1, %16
+  br i1 %17, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %13, !llvm.loop !34
 
 18:                                               ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
   %19 = sext i32 %1 to i64
@@ -2897,12 +3361,12 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %2
   %27 = load ptr, ptr %25, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 4
-  %30 = icmp eq i32 %29, %1
+  %30 = icmp eq i32 %1, %29
   br i1 %30, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i
 
 31:                                               ; preds = %34
-  %32 = icmp eq i32 %36, %1
-  br i1 %32, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !41
+  %32 = icmp eq i32 %1, %36
+  br i1 %32, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !35
 
 .lr.ph.i.i.i.i:                                   ; preds = %26, %31
   %.018.i.i.i.i = phi ptr [ %33, %31 ], [ %27, %26 ]
@@ -2916,7 +3380,7 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %2
   %37 = sext i32 %36 to i64
   %38 = urem i64 %37, %21
   %.not17.i.i.i.i = icmp eq i64 %38, %22
-  br i1 %.not17.i.i.i.i, label %31, label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, !llvm.loop !41
+  br i1 %.not17.i.i.i.i, label %31, label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, !llvm.loop !35
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %31, %14, %26
   %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
@@ -3036,7 +3500,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNSt10shar
   %.0.i.i.i.i5 = phi ptr [ %95, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %97, %96 ]
   %97 = load ptr, ptr %.0.i.i.i.i5, align 8
   %.not.i.i.i.i6 = icmp eq ptr %97, %.sroa.06.1.i.i
-  br i1 %.not.i.i.i.i6, label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i, label %96, !llvm.loop !42
+  br i1 %.not.i.i.i.i6, label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i, label %96, !llvm.loop !36
 
 _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i: ; preds = %96
   %98 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %8, i64 noundef %92, ptr noundef nonnull %.0.i.i.i.i5, ptr noundef %.sroa.06.1.i.i)
@@ -3056,7 +3520,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %34, %.lr.ph.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiFdDatasync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiFdDatasync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ10fdDatasyncEi(ptr noundef nonnull align 8 dereferenceable(344) %6, i32 noundef %3) #19
@@ -3070,7 +3534,7 @@ define void @_ZN8WasmEdge4Host14WasiFdDatasync4bodyERKNS_7Runtime12CallingFrameE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ10fdDatasyncEi(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ10fdDatasyncEi(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %4 unwind label %52
@@ -3190,7 +3654,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %15, %34, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host15WasiFdFdstatGet4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host15WasiFdFdstatGet4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -3201,7 +3665,7 @@ define void @_ZN8WasmEdge4Host15WasiFdFdstatGet4bodyERKNS_7Runtime12CallingFrame
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !43
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !37
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -3209,7 +3673,7 @@ define void @_ZN8WasmEdge4Host15WasiFdFdstatGet4bodyERKNS_7Runtime12CallingFrame
 
 13:                                               ; preds = %11
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %19, !noalias !43
+          to label %.noexc.i.i unwind label %19, !noalias !37
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -3217,13 +3681,13 @@ define void @_ZN8WasmEdge4Host15WasiFdFdstatGet4bodyERKNS_7Runtime12CallingFrame
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   %14 = getelementptr inbounds i8, ptr %7, i64 456
   %15 = getelementptr inbounds i8, ptr %7, i64 464
-  %16 = load ptr, ptr %15, align 8, !noalias !43
-  %17 = load ptr, ptr %14, align 8, !noalias !43
+  %16 = load ptr, ptr %15, align 8, !noalias !37
+  %17 = load ptr, ptr %14, align 8, !noalias !37
   %.not.i.i.not = icmp eq ptr %16, %17
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !43
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !37
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -3234,8 +3698,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = load ptr, ptr %17, align 8, !noalias !43
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !43
+  %22 = load ptr, ptr %17, align 8, !noalias !37
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !37
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -3272,7 +3736,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ11fdFdstatGetEiR15__wasi_fdstat_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ11fdFdstatGetEiR15__wasi_fdstat_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %5 unwind label %55
@@ -3389,7 +3853,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %18, %37, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host20WasiFdFdstatSetFlags4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host20WasiFdFdstatSetFlags4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = and i32 %4, 65504
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %13
@@ -3413,7 +3877,7 @@ define void @_ZN8WasmEdge4Host20WasiFdFdstatSetFlags4bodyERKNS_7Runtime12Calling
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ16fdFdstatSetFlagsEi16__wasi_fdflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ16fdFdstatSetFlagsEi16__wasi_fdflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %5 unwind label %62
@@ -3544,7 +4008,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %25, %44, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host21WasiFdFdstatSetRights4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host21WasiFdFdstatSetRights4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = or i64 %4, %5
   %or.cond.not = icmp ult i64 %7, 68719476736
   br i1 %or.cond.not, label %8, label %13
@@ -3567,7 +4031,7 @@ define void @_ZN8WasmEdge4Host21WasiFdFdstatSetRights4bodyERKNS_7Runtime12Callin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ17fdFdstatSetRightsEi15__wasi_rights_tS3_(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ17fdFdstatSetRightsEi15__wasi_rights_tS3_(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %5, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %6 unwind label %67
@@ -3701,7 +4165,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %30, %49, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host17WasiFdFilestatGet4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host17WasiFdFilestatGet4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -3712,7 +4176,7 @@ define void @_ZN8WasmEdge4Host17WasiFdFilestatGet4bodyERKNS_7Runtime12CallingFra
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !46
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !40
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -3720,7 +4184,7 @@ define void @_ZN8WasmEdge4Host17WasiFdFilestatGet4bodyERKNS_7Runtime12CallingFra
 
 13:                                               ; preds = %11
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %19, !noalias !46
+          to label %.noexc.i.i unwind label %19, !noalias !40
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -3728,13 +4192,13 @@ define void @_ZN8WasmEdge4Host17WasiFdFilestatGet4bodyERKNS_7Runtime12CallingFra
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   %14 = getelementptr inbounds i8, ptr %7, i64 456
   %15 = getelementptr inbounds i8, ptr %7, i64 464
-  %16 = load ptr, ptr %15, align 8, !noalias !46
-  %17 = load ptr, ptr %14, align 8, !noalias !46
+  %16 = load ptr, ptr %15, align 8, !noalias !40
+  %17 = load ptr, ptr %14, align 8, !noalias !40
   %.not.i.i.not = icmp eq ptr %16, %17
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !46
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !40
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -3745,8 +4209,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = load ptr, ptr %17, align 8, !noalias !46
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !46
+  %22 = load ptr, ptr %17, align 8, !noalias !40
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !40
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -3783,7 +4247,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ13fdFilestatGetEiR17__wasi_filestat_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ13fdFilestatGetEiR17__wasi_filestat_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %5 unwind label %53
@@ -3903,7 +4367,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %16, %35, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host21WasiFdFilestatSetSize4bodyERKNS_7Runtime12CallingFrameEim(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host21WasiFdFilestatSetSize4bodyERKNS_7Runtime12CallingFrameEim(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 160
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ17fdFilestatSetSizeEim(ptr noundef nonnull align 8 dereferenceable(344) %7, i32 noundef %3, i64 noundef %4) #19
@@ -3917,7 +4381,7 @@ define void @_ZN8WasmEdge4Host21WasiFdFilestatSetSize4bodyERKNS_7Runtime12Callin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ17fdFilestatSetSizeEim(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ17fdFilestatSetSizeEim(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %5 unwind label %53
@@ -4037,7 +4501,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %16, %35, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimes4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimes4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = and i32 %6, 65520
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit
@@ -4085,7 +4549,7 @@ _ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ18fdFilestatSetTimesEimm17__wasi_fstflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ18fdFilestatSetTimesEimm17__wasi_fstflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %7 unwind label %55
@@ -4205,7 +4669,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %18, %37, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host11WasiFdPread4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host11WasiFdPread4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.WasmEdge::Host::(anonymous namespace)::StaticVector", align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -4217,7 +4681,7 @@ define void @_ZN8WasmEdge4Host11WasiFdPread4bodyERKNS_7Runtime12CallingFrameEijj
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !49
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !43
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -4225,7 +4689,7 @@ define void @_ZN8WasmEdge4Host11WasiFdPread4bodyERKNS_7Runtime12CallingFrameEijj
 
 17:                                               ; preds = %15
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %23, !noalias !49
+          to label %.noexc.i.i unwind label %23, !noalias !43
 
 .noexc.i.i:                                       ; preds = %17
   unreachable
@@ -4233,13 +4697,13 @@ define void @_ZN8WasmEdge4Host11WasiFdPread4bodyERKNS_7Runtime12CallingFrameEijj
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   %18 = getelementptr inbounds i8, ptr %11, i64 456
   %19 = getelementptr inbounds i8, ptr %11, i64 464
-  %20 = load ptr, ptr %19, align 8, !noalias !49
-  %21 = load ptr, ptr %18, align 8, !noalias !49
+  %20 = load ptr, ptr %19, align 8, !noalias !43
+  %21 = load ptr, ptr %18, align 8, !noalias !43
   %.not.i.i.not = icmp eq ptr %20, %21
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !49
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !43
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -4250,8 +4714,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %26 = load ptr, ptr %21, align 8, !noalias !49
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !49
+  %26 = load ptr, ptr %21, align 8, !noalias !43
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !43
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -4350,7 +4814,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ7fdPreadEiN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEEmRj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i64 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ7fdPreadEiN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEEmRj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i64 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %8 unwind label %57
@@ -4470,7 +4934,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %20, %39, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host20WasiFdPrestatDirName4bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host20WasiFdPrestatDirName4bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -4481,7 +4945,7 @@ define void @_ZN8WasmEdge4Host20WasiFdPrestatDirName4bodyERKNS_7Runtime12Calling
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !52
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !46
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -4489,7 +4953,7 @@ define void @_ZN8WasmEdge4Host20WasiFdPrestatDirName4bodyERKNS_7Runtime12Calling
 
 14:                                               ; preds = %12
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %20, !noalias !52
+          to label %.noexc.i.i unwind label %20, !noalias !46
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -4497,13 +4961,13 @@ define void @_ZN8WasmEdge4Host20WasiFdPrestatDirName4bodyERKNS_7Runtime12Calling
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 456
   %16 = getelementptr inbounds i8, ptr %8, i64 464
-  %17 = load ptr, ptr %16, align 8, !noalias !52
-  %18 = load ptr, ptr %15, align 8, !noalias !52
+  %17 = load ptr, ptr %16, align 8, !noalias !46
+  %18 = load ptr, ptr %15, align 8, !noalias !46
   %.not.i.i.not = icmp eq ptr %17, %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !52
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !46
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -4514,8 +4978,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = load ptr, ptr %18, align 8, !noalias !52
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !52
+  %23 = load ptr, ptr %18, align 8, !noalias !46
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !46
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -4554,7 +5018,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ16fdPrestatDirNameEiN5cxx204spanIhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ16fdPrestatDirNameEiN5cxx204spanIhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %5, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %6 unwind label %59
@@ -4571,7 +5035,7 @@ define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ16fdPrestatDirNam
 
 11:                                               ; preds = %8
   %12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
-  %13 = icmp ugt i64 %12, %3
+  %13 = icmp ult i64 %3, %12
   br i1 %13, label %_ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmPhET1_T_T0_SC_.exit, label %14
 
 14:                                               ; preds = %11
@@ -4590,7 +5054,7 @@ define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ16fdPrestatDirNam
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 1
   %21 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
   %22 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %22, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmPhET1_T_T0_SC_.exit, !llvm.loop !22
+  br i1 %22, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmPhET1_T_T0_SC_.exit, !llvm.loop !16
 
 _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmPhET1_T_T0_SC_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %14, %11, %8, %6
   %.sroa.08.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %11 ], [ 1, %14 ], [ 1, %.lr.ph.i.i.i.i.i.i.i ]
@@ -4681,7 +5145,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZSt6copy_n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiFdPrestatGet4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiFdPrestatGet4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -4692,7 +5156,7 @@ define void @_ZN8WasmEdge4Host16WasiFdPrestatGet4bodyERKNS_7Runtime12CallingFram
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !55
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !49
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -4700,7 +5164,7 @@ define void @_ZN8WasmEdge4Host16WasiFdPrestatGet4bodyERKNS_7Runtime12CallingFram
 
 13:                                               ; preds = %11
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %19, !noalias !55
+          to label %.noexc.i.i unwind label %19, !noalias !49
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -4708,13 +5172,13 @@ define void @_ZN8WasmEdge4Host16WasiFdPrestatGet4bodyERKNS_7Runtime12CallingFram
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   %14 = getelementptr inbounds i8, ptr %7, i64 456
   %15 = getelementptr inbounds i8, ptr %7, i64 464
-  %16 = load ptr, ptr %15, align 8, !noalias !55
-  %17 = load ptr, ptr %14, align 8, !noalias !55
+  %16 = load ptr, ptr %15, align 8, !noalias !49
+  %17 = load ptr, ptr %14, align 8, !noalias !49
   %.not.i.i.not = icmp eq ptr %16, %17
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !55
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !49
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -4725,8 +5189,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = load ptr, ptr %17, align 8, !noalias !55
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !55
+  %22 = load ptr, ptr %17, align 8, !noalias !49
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !49
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -4763,7 +5227,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ12fdPrestatGetEiR16__wasi_prestat_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ12fdPrestatGetEiR16__wasi_prestat_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %5 unwind label %51
@@ -4875,7 +5339,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %14, %33, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host12WasiFdPwrite4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host12WasiFdPwrite4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.WasmEdge::Host::(anonymous namespace)::StaticVector.250", align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -4887,7 +5351,7 @@ define void @_ZN8WasmEdge4Host12WasiFdPwrite4bodyERKNS_7Runtime12CallingFrameEij
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !58
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !52
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -4895,7 +5359,7 @@ define void @_ZN8WasmEdge4Host12WasiFdPwrite4bodyERKNS_7Runtime12CallingFrameEij
 
 17:                                               ; preds = %15
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %23, !noalias !58
+          to label %.noexc.i.i unwind label %23, !noalias !52
 
 .noexc.i.i:                                       ; preds = %17
   unreachable
@@ -4903,13 +5367,13 @@ define void @_ZN8WasmEdge4Host12WasiFdPwrite4bodyERKNS_7Runtime12CallingFrameEij
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   %18 = getelementptr inbounds i8, ptr %11, i64 456
   %19 = getelementptr inbounds i8, ptr %11, i64 464
-  %20 = load ptr, ptr %19, align 8, !noalias !58
-  %21 = load ptr, ptr %18, align 8, !noalias !58
+  %20 = load ptr, ptr %19, align 8, !noalias !52
+  %21 = load ptr, ptr %18, align 8, !noalias !52
   %.not.i.i.not = icmp eq ptr %20, %21
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !58
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !52
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -4920,8 +5384,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %26 = load ptr, ptr %21, align 8, !noalias !58
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !58
+  %26 = load ptr, ptr %21, align 8, !noalias !52
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !52
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -5020,7 +5484,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ8fdPwriteEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEmRj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i64 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ8fdPwriteEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEmRj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i64 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %8 unwind label %57
@@ -5140,7 +5604,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %20, %39, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host10WasiFdRead4bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host10WasiFdRead4bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.WasmEdge::Host::(anonymous namespace)::StaticVector", align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -5152,7 +5616,7 @@ define void @_ZN8WasmEdge4Host10WasiFdRead4bodyERKNS_7Runtime12CallingFrameEijjj
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !61
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !55
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -5160,7 +5624,7 @@ define void @_ZN8WasmEdge4Host10WasiFdRead4bodyERKNS_7Runtime12CallingFrameEijjj
 
 16:                                               ; preds = %14
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %22, !noalias !61
+          to label %.noexc.i.i unwind label %22, !noalias !55
 
 .noexc.i.i:                                       ; preds = %16
   unreachable
@@ -5168,13 +5632,13 @@ define void @_ZN8WasmEdge4Host10WasiFdRead4bodyERKNS_7Runtime12CallingFrameEijjj
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   %17 = getelementptr inbounds i8, ptr %10, i64 456
   %18 = getelementptr inbounds i8, ptr %10, i64 464
-  %19 = load ptr, ptr %18, align 8, !noalias !61
-  %20 = load ptr, ptr %17, align 8, !noalias !61
+  %19 = load ptr, ptr %18, align 8, !noalias !55
+  %20 = load ptr, ptr %17, align 8, !noalias !55
   %.not.i.i.not = icmp eq ptr %19, %20
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !61
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !55
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -5185,8 +5649,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = load ptr, ptr %20, align 8, !noalias !61
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !61
+  %25 = load ptr, ptr %20, align 8, !noalias !55
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !55
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -5285,7 +5749,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ6fdReadEiN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEERj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ6fdReadEiN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEERj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %7 unwind label %55
@@ -5405,7 +5869,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %18, %37, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host13WasiFdReadDir4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host13WasiFdReadDir4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -5416,7 +5880,7 @@ define void @_ZN8WasmEdge4Host13WasiFdReadDir4bodyERKNS_7Runtime12CallingFrameEi
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !64
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !58
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -5424,7 +5888,7 @@ define void @_ZN8WasmEdge4Host13WasiFdReadDir4bodyERKNS_7Runtime12CallingFrameEi
 
 16:                                               ; preds = %14
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %22, !noalias !64
+          to label %.noexc.i.i unwind label %22, !noalias !58
 
 .noexc.i.i:                                       ; preds = %16
   unreachable
@@ -5432,13 +5896,13 @@ define void @_ZN8WasmEdge4Host13WasiFdReadDir4bodyERKNS_7Runtime12CallingFrameEi
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   %17 = getelementptr inbounds i8, ptr %10, i64 456
   %18 = getelementptr inbounds i8, ptr %10, i64 464
-  %19 = load ptr, ptr %18, align 8, !noalias !64
-  %20 = load ptr, ptr %17, align 8, !noalias !64
+  %19 = load ptr, ptr %18, align 8, !noalias !58
+  %20 = load ptr, ptr %17, align 8, !noalias !58
   %.not.i.i.not = icmp eq ptr %19, %20
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread25: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !64
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !58
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -5449,8 +5913,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread25: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = load ptr, ptr %20, align 8, !noalias !64
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !64
+  %25 = load ptr, ptr %20, align 8, !noalias !58
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !58
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -5498,7 +5962,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ9fdReaddirEiN5cxx204spanIhLm18446744073709551615EEEmRj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i64 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ9fdReaddirEiN5cxx204spanIhLm18446744073709551615EEEmRj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i64 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %8 unwind label %56
@@ -5618,7 +6082,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %19, %38, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiFdRenumber4bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiFdRenumber4bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 160
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @_ZN8WasmEdge4Host4WASI7Environ10fdRenumberEii(ptr noundef nonnull align 8 dereferenceable(344) %7, i32 noundef %3, i32 noundef %4) #19
@@ -5632,7 +6096,7 @@ define void @_ZN8WasmEdge4Host14WasiFdRenumber4bodyERKNS_7Runtime12CallingFrameE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ10fdRenumberEii(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ10fdRenumberEii(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::_Node_handle", align 8
   %5 = alloca %"struct.std::_Node_insert_return", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 232
@@ -5667,8 +6131,8 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %3
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 8
   %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %18, %1
-  br i1 %19, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %15, !llvm.loop !40
+  %19 = icmp eq i32 %1, %18
+  br i1 %19, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %15, !llvm.loop !34
 
 20:                                               ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
   %21 = sext i32 %1 to i64
@@ -5685,12 +6149,12 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %3
   %29 = load ptr, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 4
-  %32 = icmp eq i32 %31, %1
+  %32 = icmp eq i32 %1, %31
   br i1 %32, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread38, label %.lr.ph.i.i.i.i
 
 33:                                               ; preds = %36
-  %34 = icmp eq i32 %38, %1
-  br i1 %34, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !41
+  %34 = icmp eq i32 %1, %38
+  br i1 %34, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !35
 
 .lr.ph.i.i.i.i:                                   ; preds = %28, %33
   %.018.i.i.i.i = phi ptr [ %35, %33 ], [ %29, %28 ]
@@ -5704,7 +6168,7 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %3
   %39 = sext i32 %38 to i64
   %40 = urem i64 %39, %23
   %.not17.i.i.i.i = icmp eq i64 %40, %24
-  br i1 %.not17.i.i.i.i, label %33, label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, !llvm.loop !41
+  br i1 %.not17.i.i.i.i, label %33, label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, !llvm.loop !35
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %33, %16
   %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %16 ], [ %35, %33 ]
@@ -5737,8 +6201,8 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8e
 47:                                               ; preds = %46
   %48 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i10, i64 8
   %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, %2
-  br i1 %50, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit12.loopexit, label %46, !llvm.loop !40
+  %50 = icmp eq i32 %2, %49
+  br i1 %50, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit12.loopexit, label %46, !llvm.loop !34
 
 .thread:                                          ; preds = %..thread_crit_edge, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread38
   %51 = phi ptr [ %.pre68, %..thread_crit_edge ], [ %25, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread38 ]
@@ -5755,12 +6219,12 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8e
   %58 = load ptr, ptr %56, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %60, %2
+  %61 = icmp eq i32 %2, %60
   br i1 %61, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit12, label %.lr.ph.i.i.i.i4
 
 62:                                               ; preds = %65
-  %63 = icmp eq i32 %67, %2
-  br i1 %63, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit12, label %.lr.ph.i.i.i.i4, !llvm.loop !41
+  %63 = icmp eq i32 %2, %67
+  br i1 %63, label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit12, label %.lr.ph.i.i.i.i4, !llvm.loop !35
 
 .lr.ph.i.i.i.i4:                                  ; preds = %57, %62
   %.018.i.i.i.i5 = phi ptr [ %64, %62 ], [ %58, %57 ]
@@ -5774,7 +6238,7 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8e
   %68 = sext i32 %67 to i64
   %69 = urem i64 %68, %52
   %.not17.i.i.i.i7 = icmp eq i64 %69, %54
-  br i1 %.not17.i.i.i.i7, label %62, label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, !llvm.loop !41
+  br i1 %.not17.i.i.i.i7, label %62, label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, !llvm.loop !35
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit12.loopexit: ; preds = %47
   %.phi.trans.insert69 = getelementptr inbounds i8, ptr %0, i64 296
@@ -5798,35 +6262,35 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8e
   %.0.i.i.i.i = phi ptr [ %73, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit12 ], [ %75, %74 ]
   %75 = load ptr, ptr %.0.i.i.i.i, align 8
   %.not.i.i.i.i13 = icmp eq ptr %75, %.sroa.06.1.i.i8
-  br i1 %.not.i.i.i.i13, label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i, label %74, !llvm.loop !42
+  br i1 %.not.i.i.i.i13, label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i, label %74, !llvm.loop !36
 
 _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i: ; preds = %74
   %76 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %10, i64 noundef %.pre-phi74, ptr noundef nonnull %.0.i.i.i.i, ptr noundef %.sroa.06.1.i.i8)
           to label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit unwind label %202
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit: ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %77 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i4042, i64 8
-  %78 = load i64, ptr %71, align 8, !noalias !73
-  %79 = load i32, ptr %77, align 4, !noalias !73
+  %78 = load i64, ptr %71, align 8, !noalias !67
+  %79 = load i32, ptr %77, align 4, !noalias !67
   %80 = sext i32 %79 to i64
   %81 = urem i64 %80, %78
-  %82 = load ptr, ptr %10, align 8, !noalias !73
+  %82 = load ptr, ptr %10, align 8, !noalias !67
   %83 = getelementptr inbounds ptr, ptr %82, i64 %81
-  %84 = load ptr, ptr %83, align 8, !noalias !73
+  %84 = load ptr, ptr %83, align 8, !noalias !67
   br label %85
 
 85:                                               ; preds = %85, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit
   %.0.i.i.i = phi ptr [ %84, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit ], [ %86, %85 ]
-  %86 = load ptr, ptr %.0.i.i.i, align 8, !noalias !73
+  %86 = load ptr, ptr %.0.i.i.i, align 8, !noalias !67
   %.not.i.i.i = icmp eq ptr %86, %.sroa.06.1.i.i4042
-  br i1 %.not.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit.i.i, label %85, !llvm.loop !42
+  br i1 %.not.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit.i.i, label %85, !llvm.loop !36
 
 _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit.i.i: ; preds = %85
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %87 = icmp eq ptr %84, %.0.i.i.i
-  %88 = load ptr, ptr %86, align 8, !noalias !77
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  %87 = icmp eq ptr %.0.i.i.i, %84
+  %88 = load ptr, ptr %86, align 8, !noalias !71
   %.not19.i.i.i = icmp eq ptr %88, null
   br i1 %87, label %89, label %104
 
@@ -5835,7 +6299,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
 
 90:                                               ; preds = %89
   %91 = getelementptr inbounds i8, ptr %88, i64 8
-  %92 = load i32, ptr %91, align 4, !noalias !77
+  %92 = load i32, ptr %91, align 4, !noalias !71
   %93 = sext i32 %92 to i64
   %94 = urem i64 %93, %78
   %.not9.i.i.i.i = icmp eq i64 %94, %81
@@ -5843,10 +6307,10 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
 
 95:                                               ; preds = %90
   %96 = getelementptr inbounds ptr, ptr %82, i64 %94
-  store ptr %84, ptr %96, align 8, !noalias !77
-  %.pre.i.i.i = load ptr, ptr %10, align 8, !noalias !77
+  store ptr %84, ptr %96, align 8, !noalias !71
+  %.pre.i.i.i = load ptr, ptr %10, align 8, !noalias !71
   %.phi.trans.insert.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i, i64 %81
-  %.pre27.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !noalias !77
+  %.pre27.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !noalias !71
   br label %.thread25.i.i.i
 
 .thread25.i.i.i:                                  ; preds = %95, %89
@@ -5858,11 +6322,11 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   br i1 %101, label %102, label %103
 
 102:                                              ; preds = %.thread25.i.i.i
-  store ptr %88, ptr %99, align 8, !noalias !77
+  store ptr %88, ptr %99, align 8, !noalias !71
   br label %103
 
 103:                                              ; preds = %102, %.thread25.i.i.i
-  store ptr null, ptr %100, align 8, !noalias !77
+  store ptr null, ptr %100, align 8, !noalias !71
   br label %112
 
 104:                                              ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit.i.i
@@ -5870,7 +6334,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
 
 105:                                              ; preds = %104
   %106 = getelementptr inbounds i8, ptr %88, i64 8
-  %107 = load i32, ptr %106, align 4, !noalias !77
+  %107 = load i32, ptr %106, align 4, !noalias !71
   %108 = sext i32 %107 to i64
   %109 = urem i64 %108, %78
   %.not18.i.i.i = icmp eq i64 %109, %81
@@ -5878,23 +6342,23 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
 
 110:                                              ; preds = %105
   %111 = getelementptr inbounds ptr, ptr %82, i64 %109
-  store ptr %.0.i.i.i, ptr %111, align 8, !noalias !77
+  store ptr %.0.i.i.i, ptr %111, align 8, !noalias !71
   br label %112
 
 112:                                              ; preds = %110, %105, %104, %103, %90
-  %113 = load ptr, ptr %86, align 8, !noalias !77
-  store ptr %113, ptr %.0.i.i.i, align 8, !noalias !77
-  store ptr null, ptr %86, align 8, !noalias !77
-  %114 = load i64, ptr %11, align 8, !noalias !77
+  %113 = load ptr, ptr %86, align 8, !noalias !71
+  store ptr %113, ptr %.0.i.i.i, align 8, !noalias !71
+  store ptr null, ptr %86, align 8, !noalias !71
+  %114 = load i64, ptr %11, align 8, !noalias !71
   %115 = add i64 %114, -1
-  store i64 %115, ptr %11, align 8, !noalias !77
-  store ptr %86, ptr %4, align 8, !alias.scope !77
+  store i64 %115, ptr %11, align 8, !noalias !71
+  store ptr %86, ptr %4, align 8, !alias.scope !71
   %116 = getelementptr inbounds i8, ptr %4, i64 8
   %117 = getelementptr inbounds i8, ptr %4, i64 16
   %118 = getelementptr inbounds i8, ptr %86, i64 8
   %119 = getelementptr inbounds i8, ptr %86, i64 16
-  store ptr %118, ptr %116, align 8, !alias.scope !77
-  store ptr %119, ptr %117, align 8, !alias.scope !77
+  store ptr %118, ptr %116, align 8, !alias.scope !71
+  store ptr %119, ptr %117, align 8, !alias.scope !71
   store i32 %2, ptr %118, align 4
   invoke void @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_reinsert_nodeEOSt12_Node_handleIiS8_SaINSA_10_Hash_nodeIS8_Lb0EEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Node_insert_return") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE6insertEOSt12_Node_handleIiSC_SaINSt8__detail10_Hash_nodeISC_Lb0EEEEE.exit unwind label %202
@@ -6084,7 +6548,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %36, %.lr.ph.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host10WasiFdSeek4bodyERKNS_7Runtime12CallingFrameEiljj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.263") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host10WasiFdSeek4bodyERKNS_7Runtime12CallingFrameEiljj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.263") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -6095,7 +6559,7 @@ define void @_ZN8WasmEdge4Host10WasiFdSeek4bodyERKNS_7Runtime12CallingFrameEiljj
   br label %13
 
 13:                                               ; preds = %13, %11
-  %14 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %12) #19, !noalias !78
+  %14 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %12) #19, !noalias !72
   switch i32 %14, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %13
     i32 35, label %15
@@ -6103,7 +6567,7 @@ define void @_ZN8WasmEdge4Host10WasiFdSeek4bodyERKNS_7Runtime12CallingFrameEiljj
 
 15:                                               ; preds = %13
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %21, !noalias !78
+          to label %.noexc.i.i unwind label %21, !noalias !72
 
 .noexc.i.i:                                       ; preds = %15
   unreachable
@@ -6111,13 +6575,13 @@ define void @_ZN8WasmEdge4Host10WasiFdSeek4bodyERKNS_7Runtime12CallingFrameEiljj
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %13
   %16 = getelementptr inbounds i8, ptr %9, i64 456
   %17 = getelementptr inbounds i8, ptr %9, i64 464
-  %18 = load ptr, ptr %17, align 8, !noalias !78
-  %19 = load ptr, ptr %16, align 8, !noalias !78
+  %18 = load ptr, ptr %17, align 8, !noalias !72
+  %19 = load ptr, ptr %16, align 8, !noalias !72
   %.not.i.i.not = icmp eq ptr %18, %19
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread21, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread21: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %20 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #19, !noalias !78
+  %20 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #19, !noalias !72
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 21:                                               ; preds = %15
@@ -6128,8 +6592,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread21: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %24 = load ptr, ptr %19, align 8, !noalias !78
-  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #19, !noalias !78
+  %24 = load ptr, ptr %19, align 8, !noalias !72
+  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #19, !noalias !72
   %26 = icmp eq ptr %24, null
   br i1 %26, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %27
 
@@ -6171,7 +6635,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ6fdSeekEil15__wasi_whence_tRm(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ6fdSeekEil15__wasi_whence_tRm(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %7 unwind label %55
@@ -6291,7 +6755,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %18, %37, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host10WasiFdSync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host10WasiFdSync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ6fdSyncEi(ptr noundef nonnull align 8 dereferenceable(344) %6, i32 noundef %3) #19
@@ -6305,7 +6769,7 @@ define void @_ZN8WasmEdge4Host10WasiFdSync4bodyERKNS_7Runtime12CallingFrameEi(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ6fdSyncEi(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ6fdSyncEi(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %4 unwind label %52
@@ -6425,7 +6889,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %15, %34, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host10WasiFdTell4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host10WasiFdTell4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -6436,7 +6900,7 @@ define void @_ZN8WasmEdge4Host10WasiFdTell4bodyERKNS_7Runtime12CallingFrameEij(p
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !81
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !75
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -6444,7 +6908,7 @@ define void @_ZN8WasmEdge4Host10WasiFdTell4bodyERKNS_7Runtime12CallingFrameEij(p
 
 13:                                               ; preds = %11
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %19, !noalias !81
+          to label %.noexc.i.i unwind label %19, !noalias !75
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -6452,13 +6916,13 @@ define void @_ZN8WasmEdge4Host10WasiFdTell4bodyERKNS_7Runtime12CallingFrameEij(p
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   %14 = getelementptr inbounds i8, ptr %7, i64 456
   %15 = getelementptr inbounds i8, ptr %7, i64 464
-  %16 = load ptr, ptr %15, align 8, !noalias !81
-  %17 = load ptr, ptr %14, align 8, !noalias !81
+  %16 = load ptr, ptr %15, align 8, !noalias !75
+  %17 = load ptr, ptr %14, align 8, !noalias !75
   %.not.i.i.not = icmp eq ptr %16, %17
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !81
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !75
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -6469,8 +6933,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = load ptr, ptr %17, align 8, !noalias !81
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !81
+  %22 = load ptr, ptr %17, align 8, !noalias !75
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !75
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -6507,7 +6971,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ6fdTellEiRm(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ6fdTellEiRm(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %5 unwind label %54
@@ -6629,7 +7093,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %17, %36, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host11WasiFdWrite4bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host11WasiFdWrite4bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.WasmEdge::Host::(anonymous namespace)::StaticVector.250", align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -6641,7 +7105,7 @@ define void @_ZN8WasmEdge4Host11WasiFdWrite4bodyERKNS_7Runtime12CallingFrameEijj
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !84
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !78
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -6649,7 +7113,7 @@ define void @_ZN8WasmEdge4Host11WasiFdWrite4bodyERKNS_7Runtime12CallingFrameEijj
 
 16:                                               ; preds = %14
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %22, !noalias !84
+          to label %.noexc.i.i unwind label %22, !noalias !78
 
 .noexc.i.i:                                       ; preds = %16
   unreachable
@@ -6657,13 +7121,13 @@ define void @_ZN8WasmEdge4Host11WasiFdWrite4bodyERKNS_7Runtime12CallingFrameEijj
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   %17 = getelementptr inbounds i8, ptr %10, i64 456
   %18 = getelementptr inbounds i8, ptr %10, i64 464
-  %19 = load ptr, ptr %18, align 8, !noalias !84
-  %20 = load ptr, ptr %17, align 8, !noalias !84
+  %19 = load ptr, ptr %18, align 8, !noalias !78
+  %20 = load ptr, ptr %17, align 8, !noalias !78
   %.not.i.i.not = icmp eq ptr %19, %20
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !84
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !78
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -6674,8 +7138,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = load ptr, ptr %20, align 8, !noalias !84
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !84
+  %25 = load ptr, ptr %20, align 8, !noalias !78
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !78
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -6774,7 +7238,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ7fdWriteEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEERj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ7fdWriteEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEERj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %7 unwind label %55
@@ -6905,7 +7369,7 @@ define void @_ZN8WasmEdge4Host23WasiPathCreateDirectory4bodyERKNS_7Runtime12Call
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !87
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !81
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -6913,7 +7377,7 @@ define void @_ZN8WasmEdge4Host23WasiPathCreateDirectory4bodyERKNS_7Runtime12Call
 
 14:                                               ; preds = %12
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %20, !noalias !87
+          to label %.noexc.i.i unwind label %20, !noalias !81
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -6921,13 +7385,13 @@ define void @_ZN8WasmEdge4Host23WasiPathCreateDirectory4bodyERKNS_7Runtime12Call
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 456
   %16 = getelementptr inbounds i8, ptr %8, i64 464
-  %17 = load ptr, ptr %16, align 8, !noalias !87
-  %18 = load ptr, ptr %15, align 8, !noalias !87
+  %17 = load ptr, ptr %16, align 8, !noalias !81
+  %18 = load ptr, ptr %15, align 8, !noalias !81
   %.not.i.i.not = icmp eq ptr %17, %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !87
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !81
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -6938,8 +7402,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = load ptr, ptr %18, align 8, !noalias !87
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !87
+  %23 = load ptr, ptr %18, align 8, !noalias !81
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !81
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -7187,7 +7651,7 @@ define void @_ZN8WasmEdge4Host19WasiPathFilestatGet4bodyERKNS_7Runtime12CallingF
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !90
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !84
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -7195,7 +7659,7 @@ define void @_ZN8WasmEdge4Host19WasiPathFilestatGet4bodyERKNS_7Runtime12CallingF
 
 16:                                               ; preds = %14
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %22, !noalias !90
+          to label %.noexc.i.i unwind label %22, !noalias !84
 
 .noexc.i.i:                                       ; preds = %16
   unreachable
@@ -7203,13 +7667,13 @@ define void @_ZN8WasmEdge4Host19WasiPathFilestatGet4bodyERKNS_7Runtime12CallingF
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   %17 = getelementptr inbounds i8, ptr %10, i64 456
   %18 = getelementptr inbounds i8, ptr %10, i64 464
-  %19 = load ptr, ptr %18, align 8, !noalias !90
-  %20 = load ptr, ptr %17, align 8, !noalias !90
+  %19 = load ptr, ptr %18, align 8, !noalias !84
+  %20 = load ptr, ptr %17, align 8, !noalias !84
   %.not.i.i.not = icmp eq ptr %19, %20
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread28: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !90
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !84
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -7220,8 +7684,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread28: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = load ptr, ptr %20, align 8, !noalias !90
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !90
+  %25 = load ptr, ptr %20, align 8, !noalias !84
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !84
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -7482,7 +7946,7 @@ define void @_ZN8WasmEdge4Host24WasiPathFilestatSetTimes4bodyERKNS_7Runtime12Cal
   br label %16
 
 16:                                               ; preds = %16, %14
-  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !93
+  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !87
   switch i32 %17, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %16
     i32 35, label %18
@@ -7490,7 +7954,7 @@ define void @_ZN8WasmEdge4Host24WasiPathFilestatSetTimes4bodyERKNS_7Runtime12Cal
 
 18:                                               ; preds = %16
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %24, !noalias !93
+          to label %.noexc.i.i unwind label %24, !noalias !87
 
 .noexc.i.i:                                       ; preds = %18
   unreachable
@@ -7498,13 +7962,13 @@ define void @_ZN8WasmEdge4Host24WasiPathFilestatSetTimes4bodyERKNS_7Runtime12Cal
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %16
   %19 = getelementptr inbounds i8, ptr %12, i64 456
   %20 = getelementptr inbounds i8, ptr %12, i64 464
-  %21 = load ptr, ptr %20, align 8, !noalias !93
-  %22 = load ptr, ptr %19, align 8, !noalias !93
+  %21 = load ptr, ptr %20, align 8, !noalias !87
+  %22 = load ptr, ptr %19, align 8, !noalias !87
   %.not.i.i.not = icmp eq ptr %21, %22
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !93
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !87
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 24:                                               ; preds = %18
@@ -7515,8 +7979,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %27 = load ptr, ptr %22, align 8, !noalias !93
-  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !93
+  %27 = load ptr, ptr %22, align 8, !noalias !87
+  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !87
   %29 = icmp eq ptr %27, null
   br i1 %29, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %30
 
@@ -7799,7 +8263,7 @@ define void @_ZN8WasmEdge4Host12WasiPathLink4bodyERKNS_7Runtime12CallingFrameEij
   br label %17
 
 17:                                               ; preds = %17, %15
-  %18 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %16) #19, !noalias !96
+  %18 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %16) #19, !noalias !90
   switch i32 %18, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %17
     i32 35, label %19
@@ -7807,7 +8271,7 @@ define void @_ZN8WasmEdge4Host12WasiPathLink4bodyERKNS_7Runtime12CallingFrameEij
 
 19:                                               ; preds = %17
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %25, !noalias !96
+          to label %.noexc.i.i unwind label %25, !noalias !90
 
 .noexc.i.i:                                       ; preds = %19
   unreachable
@@ -7815,13 +8279,13 @@ define void @_ZN8WasmEdge4Host12WasiPathLink4bodyERKNS_7Runtime12CallingFrameEij
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %17
   %20 = getelementptr inbounds i8, ptr %13, i64 456
   %21 = getelementptr inbounds i8, ptr %13, i64 464
-  %22 = load ptr, ptr %21, align 8, !noalias !96
-  %23 = load ptr, ptr %20, align 8, !noalias !96
+  %22 = load ptr, ptr %21, align 8, !noalias !90
+  %23 = load ptr, ptr %20, align 8, !noalias !90
   %.not.i.i.not = icmp eq ptr %22, %23
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread36, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread36: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %16) #19, !noalias !96
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %16) #19, !noalias !90
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 25:                                               ; preds = %19
@@ -7832,8 +8296,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread36: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %28 = load ptr, ptr %23, align 8, !noalias !96
-  %29 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %16) #19, !noalias !96
+  %28 = load ptr, ptr %23, align 8, !noalias !90
+  %29 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %16) #19, !noalias !90
   %30 = icmp eq ptr %28, null
   br i1 %30, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %31
 
@@ -8287,7 +8751,7 @@ define void @_ZN8WasmEdge4Host12WasiPathOpen4bodyERKNS_7Runtime12CallingFrameEij
   br label %18
 
 18:                                               ; preds = %18, %16
-  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %17) #19, !noalias !99
+  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %17) #19, !noalias !93
   switch i32 %19, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %18
     i32 35, label %20
@@ -8295,7 +8759,7 @@ define void @_ZN8WasmEdge4Host12WasiPathOpen4bodyERKNS_7Runtime12CallingFrameEij
 
 20:                                               ; preds = %18
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %26, !noalias !99
+          to label %.noexc.i.i unwind label %26, !noalias !93
 
 .noexc.i.i:                                       ; preds = %20
   unreachable
@@ -8303,13 +8767,13 @@ define void @_ZN8WasmEdge4Host12WasiPathOpen4bodyERKNS_7Runtime12CallingFrameEij
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %18
   %21 = getelementptr inbounds i8, ptr %14, i64 456
   %22 = getelementptr inbounds i8, ptr %14, i64 464
-  %23 = load ptr, ptr %22, align 8, !noalias !99
-  %24 = load ptr, ptr %21, align 8, !noalias !99
+  %23 = load ptr, ptr %22, align 8, !noalias !93
+  %24 = load ptr, ptr %21, align 8, !noalias !93
   %.not.i.i.not = icmp eq ptr %23, %24
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread77, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread77: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !99
+  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !93
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 26:                                               ; preds = %20
@@ -8320,8 +8784,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread77: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %29 = load ptr, ptr %24, align 8, !noalias !99
-  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !99
+  %29 = load ptr, ptr %24, align 8, !noalias !93
+  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !93
   %31 = icmp eq ptr %29, null
   br i1 %31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %33
 
@@ -8974,7 +9438,7 @@ define void @_ZN8WasmEdge4Host16WasiPathReadLink4bodyERKNS_7Runtime12CallingFram
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !102
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !96
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -8982,7 +9446,7 @@ define void @_ZN8WasmEdge4Host16WasiPathReadLink4bodyERKNS_7Runtime12CallingFram
 
 17:                                               ; preds = %15
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %23, !noalias !102
+          to label %.noexc.i.i unwind label %23, !noalias !96
 
 .noexc.i.i:                                       ; preds = %17
   unreachable
@@ -8990,13 +9454,13 @@ define void @_ZN8WasmEdge4Host16WasiPathReadLink4bodyERKNS_7Runtime12CallingFram
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   %18 = getelementptr inbounds i8, ptr %11, i64 456
   %19 = getelementptr inbounds i8, ptr %11, i64 464
-  %20 = load ptr, ptr %19, align 8, !noalias !102
-  %21 = load ptr, ptr %18, align 8, !noalias !102
+  %20 = load ptr, ptr %19, align 8, !noalias !96
+  %21 = load ptr, ptr %18, align 8, !noalias !96
   %.not.i.i.not = icmp eq ptr %20, %21
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !102
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !96
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -9007,8 +9471,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %26 = load ptr, ptr %21, align 8, !noalias !102
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !102
+  %26 = load ptr, ptr %21, align 8, !noalias !96
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !96
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -9276,7 +9740,7 @@ define void @_ZN8WasmEdge4Host23WasiPathRemoveDirectory4bodyERKNS_7Runtime12Call
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !105
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !99
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -9284,7 +9748,7 @@ define void @_ZN8WasmEdge4Host23WasiPathRemoveDirectory4bodyERKNS_7Runtime12Call
 
 14:                                               ; preds = %12
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %20, !noalias !105
+          to label %.noexc.i.i unwind label %20, !noalias !99
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -9292,13 +9756,13 @@ define void @_ZN8WasmEdge4Host23WasiPathRemoveDirectory4bodyERKNS_7Runtime12Call
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 456
   %16 = getelementptr inbounds i8, ptr %8, i64 464
-  %17 = load ptr, ptr %16, align 8, !noalias !105
-  %18 = load ptr, ptr %15, align 8, !noalias !105
+  %17 = load ptr, ptr %16, align 8, !noalias !99
+  %18 = load ptr, ptr %15, align 8, !noalias !99
   %.not.i.i.not = icmp eq ptr %17, %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !105
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !99
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -9309,8 +9773,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = load ptr, ptr %18, align 8, !noalias !105
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !105
+  %23 = load ptr, ptr %18, align 8, !noalias !99
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !99
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -9559,7 +10023,7 @@ define void @_ZN8WasmEdge4Host14WasiPathRename4bodyERKNS_7Runtime12CallingFrameE
   br label %16
 
 16:                                               ; preds = %16, %14
-  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !108
+  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !102
   switch i32 %17, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %16
     i32 35, label %18
@@ -9567,7 +10031,7 @@ define void @_ZN8WasmEdge4Host14WasiPathRename4bodyERKNS_7Runtime12CallingFrameE
 
 18:                                               ; preds = %16
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %24, !noalias !108
+          to label %.noexc.i.i unwind label %24, !noalias !102
 
 .noexc.i.i:                                       ; preds = %18
   unreachable
@@ -9575,13 +10039,13 @@ define void @_ZN8WasmEdge4Host14WasiPathRename4bodyERKNS_7Runtime12CallingFrameE
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %16
   %19 = getelementptr inbounds i8, ptr %12, i64 456
   %20 = getelementptr inbounds i8, ptr %12, i64 464
-  %21 = load ptr, ptr %20, align 8, !noalias !108
-  %22 = load ptr, ptr %19, align 8, !noalias !108
+  %21 = load ptr, ptr %20, align 8, !noalias !102
+  %22 = load ptr, ptr %19, align 8, !noalias !102
   %.not.i.i.not = icmp eq ptr %21, %22
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !108
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !102
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 24:                                               ; preds = %18
@@ -9592,8 +10056,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %27 = load ptr, ptr %22, align 8, !noalias !108
-  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !108
+  %27 = load ptr, ptr %22, align 8, !noalias !102
+  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !102
   %29 = icmp eq ptr %27, null
   br i1 %29, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %30
 
@@ -10043,7 +10507,7 @@ define void @_ZN8WasmEdge4Host15WasiPathSymlink4bodyERKNS_7Runtime12CallingFrame
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !111
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !105
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -10051,7 +10515,7 @@ define void @_ZN8WasmEdge4Host15WasiPathSymlink4bodyERKNS_7Runtime12CallingFrame
 
 16:                                               ; preds = %14
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %22, !noalias !111
+          to label %.noexc.i.i unwind label %22, !noalias !105
 
 .noexc.i.i:                                       ; preds = %16
   unreachable
@@ -10059,13 +10523,13 @@ define void @_ZN8WasmEdge4Host15WasiPathSymlink4bodyERKNS_7Runtime12CallingFrame
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   %17 = getelementptr inbounds i8, ptr %10, i64 456
   %18 = getelementptr inbounds i8, ptr %10, i64 464
-  %19 = load ptr, ptr %18, align 8, !noalias !111
-  %20 = load ptr, ptr %17, align 8, !noalias !111
+  %19 = load ptr, ptr %18, align 8, !noalias !105
+  %20 = load ptr, ptr %17, align 8, !noalias !105
   %.not.i.i.not = icmp eq ptr %19, %20
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !111
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !105
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -10076,8 +10540,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = load ptr, ptr %20, align 8, !noalias !111
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !111
+  %25 = load ptr, ptr %20, align 8, !noalias !105
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !105
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -10364,7 +10828,7 @@ define void @_ZN8WasmEdge4Host18WasiPathUnlinkFile4bodyERKNS_7Runtime12CallingFr
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !114
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !108
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -10372,7 +10836,7 @@ define void @_ZN8WasmEdge4Host18WasiPathUnlinkFile4bodyERKNS_7Runtime12CallingFr
 
 14:                                               ; preds = %12
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %20, !noalias !114
+          to label %.noexc.i.i unwind label %20, !noalias !108
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -10380,13 +10844,13 @@ define void @_ZN8WasmEdge4Host18WasiPathUnlinkFile4bodyERKNS_7Runtime12CallingFr
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 456
   %16 = getelementptr inbounds i8, ptr %8, i64 464
-  %17 = load ptr, ptr %16, align 8, !noalias !114
-  %18 = load ptr, ptr %15, align 8, !noalias !114
+  %17 = load ptr, ptr %16, align 8, !noalias !108
+  %18 = load ptr, ptr %15, align 8, !noalias !108
   %.not.i.i.not = icmp eq ptr %17, %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !114
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !108
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -10397,8 +10861,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = load ptr, ptr %18, align 8, !noalias !114
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !114
+  %23 = load ptr, ptr %18, align 8, !noalias !108
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !108
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -10647,7 +11111,7 @@ define void @_ZN8WasmEdge4Host12WasiProcExit4bodyERKNS_7Runtime12CallingFrameEj(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host13WasiProcRaise4bodyERKNS_7Runtime12CallingFrameEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host13WasiProcRaise4bodyERKNS_7Runtime12CallingFrameEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = trunc i32 %3 to i8
   %switch.i = icmp ugt i8 %5, 30
   br i1 %switch.i, label %11, label %6
@@ -10673,7 +11137,7 @@ define void @_ZN8WasmEdge4Host13WasiProcRaise4bodyERKNS_7Runtime12CallingFrameEj
 declare i32 @_ZNK8WasmEdge4Host4WASI7Environ9procRaiseE15__wasi_signal_t(ptr noundef nonnull align 8 dereferenceable(344), i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiSchedYield4bodyERKNS_7Runtime12CallingFrameE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiSchedYield4bodyERKNS_7Runtime12CallingFrameE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ10schedYieldEv(ptr noundef nonnull align 8 dereferenceable(344) %5) #19
@@ -10690,7 +11154,7 @@ define void @_ZN8WasmEdge4Host14WasiSchedYield4bodyERKNS_7Runtime12CallingFrameE
 declare i32 @_ZNK8WasmEdge4Host4WASI7Environ10schedYieldEv(ptr noundef nonnull align 8 dereferenceable(344)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host13WasiRandomGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host13WasiRandomGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -10701,7 +11165,7 @@ define void @_ZN8WasmEdge4Host13WasiRandomGet4bodyERKNS_7Runtime12CallingFrameEj
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !117
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !111
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -10709,7 +11173,7 @@ define void @_ZN8WasmEdge4Host13WasiRandomGet4bodyERKNS_7Runtime12CallingFrameEj
 
 13:                                               ; preds = %11
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %19, !noalias !117
+          to label %.noexc.i.i unwind label %19, !noalias !111
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -10717,13 +11181,13 @@ define void @_ZN8WasmEdge4Host13WasiRandomGet4bodyERKNS_7Runtime12CallingFrameEj
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   %14 = getelementptr inbounds i8, ptr %7, i64 456
   %15 = getelementptr inbounds i8, ptr %7, i64 464
-  %16 = load ptr, ptr %15, align 8, !noalias !117
-  %17 = load ptr, ptr %14, align 8, !noalias !117
+  %16 = load ptr, ptr %15, align 8, !noalias !111
+  %17 = load ptr, ptr %14, align 8, !noalias !111
   %.not.i.i.not = icmp eq ptr %16, %17
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread14, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread14: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !117
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !111
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -10734,8 +11198,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread14: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = load ptr, ptr %17, align 8, !noalias !117
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !117
+  %22 = load ptr, ptr %17, align 8, !noalias !111
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !111
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -10774,7 +11238,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ9randomGetEN5cxx204spanIhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr %1, i64 %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ9randomGetEN5cxx204spanIhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr %1, i64 %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::random_device", align 8
   %5 = alloca %"class.std::linear_congruential_engine", align 8
   %6 = alloca %"class.std::uniform_int_distribution.758", align 4
@@ -10810,7 +11274,7 @@ define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ9randomGetEN5cxx2
   %17 = sub i64 %.pn1822, %.sroa.speculated
   %18 = getelementptr inbounds i8, ptr %.sroa.09.021, i64 %.sroa.speculated
   %19 = icmp eq i64 %17, 0
-  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !120
+  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %16, %10
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
@@ -10844,7 +11308,7 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiSockOpenV14bodyERKNS_7Runtime12CallingFrameEjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiSockOpenV14bodyERKNS_7Runtime12CallingFrameEjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -10855,7 +11319,7 @@ define void @_ZN8WasmEdge4Host14WasiSockOpenV14bodyERKNS_7Runtime12CallingFrameE
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !121
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !115
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -10863,7 +11327,7 @@ define void @_ZN8WasmEdge4Host14WasiSockOpenV14bodyERKNS_7Runtime12CallingFrameE
 
 14:                                               ; preds = %12
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %20, !noalias !121
+          to label %.noexc.i.i unwind label %20, !noalias !115
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -10871,13 +11335,13 @@ define void @_ZN8WasmEdge4Host14WasiSockOpenV14bodyERKNS_7Runtime12CallingFrameE
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 456
   %16 = getelementptr inbounds i8, ptr %8, i64 464
-  %17 = load ptr, ptr %16, align 8, !noalias !121
-  %18 = load ptr, ptr %15, align 8, !noalias !121
+  %17 = load ptr, ptr %16, align 8, !noalias !115
+  %18 = load ptr, ptr %15, align 8, !noalias !115
   %.not.i.i.not = icmp eq ptr %17, %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !121
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !115
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -10888,8 +11352,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = load ptr, ptr %18, align 8, !noalias !121
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !121
+  %23 = load ptr, ptr %18, align 8, !noalias !115
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !115
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %27
 
@@ -10989,7 +11453,7 @@ _ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__was
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i64 @_ZN8WasmEdge4Host4WASI7Environ8sockOpenE23__wasi_address_family_t18__wasi_sock_type_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i64 @_ZN8WasmEdge4Host4WASI7Environ8sockOpenE23__wasi_address_family_t18__wasi_sock_type_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected.741", align 8
   %5 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZN8WasmEdge4Host4WASI6VINode8sockOpenE23__wasi_address_family_t18__wasi_sock_type_t(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.741") align 8 %4, i8 noundef zeroext %1, i8 noundef zeroext %2)
@@ -11284,7 +11748,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12: ; preds = %_ZNSt10sh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiSockBindV14bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiSockBindV14bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -11295,7 +11759,7 @@ define void @_ZN8WasmEdge4Host14WasiSockBindV14bodyERKNS_7Runtime12CallingFrameE
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !124
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !118
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -11303,7 +11767,7 @@ define void @_ZN8WasmEdge4Host14WasiSockBindV14bodyERKNS_7Runtime12CallingFrameE
 
 14:                                               ; preds = %12
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %20, !noalias !124
+          to label %.noexc.i.i unwind label %20, !noalias !118
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -11311,13 +11775,13 @@ define void @_ZN8WasmEdge4Host14WasiSockBindV14bodyERKNS_7Runtime12CallingFrameE
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 456
   %16 = getelementptr inbounds i8, ptr %8, i64 464
-  %17 = load ptr, ptr %16, align 8, !noalias !124
-  %18 = load ptr, ptr %15, align 8, !noalias !124
+  %17 = load ptr, ptr %16, align 8, !noalias !118
+  %18 = load ptr, ptr %15, align 8, !noalias !118
   %.not.i.i.not = icmp eq ptr %17, %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread27: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !124
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !118
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -11328,8 +11792,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread27: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = load ptr, ptr %18, align 8, !noalias !124
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !124
+  %23 = load ptr, ptr %18, align 8, !noalias !118
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !118
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -11391,7 +11855,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ8sockBindEi23__wasi_address_family_tN5cxx204spanIKhLm18446744073709551615EEEt(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i8 noundef zeroext %2, ptr %3, i64 %4, i16 noundef zeroext %5) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ8sockBindEi23__wasi_address_family_tN5cxx204spanIKhLm18446744073709551615EEEt(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i8 noundef zeroext %2, ptr %3, i64 %4, i16 noundef zeroext %5) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %8 unwind label %52
@@ -11500,7 +11964,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %15, %34, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiSockListenV14bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiSockListenV14bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 160
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @_ZN8WasmEdge4Host4WASI7Environ10sockListenEii(ptr noundef nonnull align 8 dereferenceable(344) %7, i32 noundef %3, i32 noundef %4) #19
@@ -11514,7 +11978,7 @@ define void @_ZN8WasmEdge4Host16WasiSockListenV14bodyERKNS_7Runtime12CallingFram
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ10sockListenEii(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ10sockListenEii(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %5 unwind label %49
@@ -11623,7 +12087,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %12, %31, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiSockAcceptV14bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiSockAcceptV14bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -11634,7 +12098,7 @@ define void @_ZN8WasmEdge4Host16WasiSockAcceptV14bodyERKNS_7Runtime12CallingFram
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !127
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !121
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -11642,7 +12106,7 @@ define void @_ZN8WasmEdge4Host16WasiSockAcceptV14bodyERKNS_7Runtime12CallingFram
 
 13:                                               ; preds = %11
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %19, !noalias !127
+          to label %.noexc.i.i unwind label %19, !noalias !121
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -11650,13 +12114,13 @@ define void @_ZN8WasmEdge4Host16WasiSockAcceptV14bodyERKNS_7Runtime12CallingFram
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   %14 = getelementptr inbounds i8, ptr %7, i64 456
   %15 = getelementptr inbounds i8, ptr %7, i64 464
-  %16 = load ptr, ptr %15, align 8, !noalias !127
-  %17 = load ptr, ptr %14, align 8, !noalias !127
+  %16 = load ptr, ptr %15, align 8, !noalias !121
+  %17 = load ptr, ptr %14, align 8, !noalias !121
   %.not.i.i.not = icmp eq ptr %16, %17
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !127
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !121
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -11667,8 +12131,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = load ptr, ptr %17, align 8, !noalias !127
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !127
+  %22 = load ptr, ptr %17, align 8, !noalias !121
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !121
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -11727,7 +12191,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i64 @_ZN8WasmEdge4Host4WASI7Environ10sockAcceptEi16__wasi_fdflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i64 @_ZN8WasmEdge4Host4WASI7Environ10sockAcceptEi16__wasi_fdflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   %5 = alloca %"class.cxx20::expected.741", align 8
   %6 = alloca %"class.std::shared_ptr", align 8
@@ -12106,7 +12570,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit19: ; preds = %_ZNSt10sh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiSockAcceptV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiSockAcceptV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -12117,7 +12581,7 @@ define void @_ZN8WasmEdge4Host16WasiSockAcceptV24bodyERKNS_7Runtime12CallingFram
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !130
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !124
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -12125,7 +12589,7 @@ define void @_ZN8WasmEdge4Host16WasiSockAcceptV24bodyERKNS_7Runtime12CallingFram
 
 14:                                               ; preds = %12
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %20, !noalias !130
+          to label %.noexc.i.i unwind label %20, !noalias !124
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -12133,13 +12597,13 @@ define void @_ZN8WasmEdge4Host16WasiSockAcceptV24bodyERKNS_7Runtime12CallingFram
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 456
   %16 = getelementptr inbounds i8, ptr %8, i64 464
-  %17 = load ptr, ptr %16, align 8, !noalias !130
-  %18 = load ptr, ptr %15, align 8, !noalias !130
+  %17 = load ptr, ptr %16, align 8, !noalias !124
+  %18 = load ptr, ptr %15, align 8, !noalias !124
   %.not.i.i.not = icmp eq ptr %17, %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread22, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread22: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !130
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !124
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -12150,8 +12614,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread22: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = load ptr, ptr %18, align 8, !noalias !130
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !130
+  %23 = load ptr, ptr %18, align 8, !noalias !124
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !124
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %27
 
@@ -12222,7 +12686,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host17WasiSockConnectV14bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host17WasiSockConnectV14bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -12233,7 +12697,7 @@ define void @_ZN8WasmEdge4Host17WasiSockConnectV14bodyERKNS_7Runtime12CallingFra
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !133
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !127
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -12241,7 +12705,7 @@ define void @_ZN8WasmEdge4Host17WasiSockConnectV14bodyERKNS_7Runtime12CallingFra
 
 14:                                               ; preds = %12
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %20, !noalias !133
+          to label %.noexc.i.i unwind label %20, !noalias !127
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -12249,13 +12713,13 @@ define void @_ZN8WasmEdge4Host17WasiSockConnectV14bodyERKNS_7Runtime12CallingFra
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 456
   %16 = getelementptr inbounds i8, ptr %8, i64 464
-  %17 = load ptr, ptr %16, align 8, !noalias !133
-  %18 = load ptr, ptr %15, align 8, !noalias !133
+  %17 = load ptr, ptr %16, align 8, !noalias !127
+  %18 = load ptr, ptr %15, align 8, !noalias !127
   %.not.i.i.not = icmp eq ptr %17, %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread29, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread29: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !133
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !127
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -12266,8 +12730,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread29: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = load ptr, ptr %18, align 8, !noalias !133
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !133
+  %23 = load ptr, ptr %18, align 8, !noalias !127
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !127
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -12329,7 +12793,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ11sockConnectEi23__wasi_address_family_tN5cxx204spanIKhLm18446744073709551615EEEt(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i8 noundef zeroext %2, ptr %3, i64 %4, i16 noundef zeroext %5) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ11sockConnectEi23__wasi_address_family_tN5cxx204spanIKhLm18446744073709551615EEEt(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i8 noundef zeroext %2, ptr %3, i64 %4, i16 noundef zeroext %5) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %8 unwind label %52
@@ -12438,7 +12902,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %15, %34, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiSockRecvV14bodyERKNS_7Runtime12CallingFrameEijjjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiSockRecvV14bodyERKNS_7Runtime12CallingFrameEijjjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.WasmEdge::Host::(anonymous namespace)::StaticVector", align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -12450,7 +12914,7 @@ define void @_ZN8WasmEdge4Host14WasiSockRecvV14bodyERKNS_7Runtime12CallingFrameE
   br label %16
 
 16:                                               ; preds = %16, %14
-  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !136
+  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !130
   switch i32 %17, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %16
     i32 35, label %18
@@ -12458,7 +12922,7 @@ define void @_ZN8WasmEdge4Host14WasiSockRecvV14bodyERKNS_7Runtime12CallingFrameE
 
 18:                                               ; preds = %16
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %24, !noalias !136
+          to label %.noexc.i.i unwind label %24, !noalias !130
 
 .noexc.i.i:                                       ; preds = %18
   unreachable
@@ -12466,13 +12930,13 @@ define void @_ZN8WasmEdge4Host14WasiSockRecvV14bodyERKNS_7Runtime12CallingFrameE
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %16
   %19 = getelementptr inbounds i8, ptr %12, i64 456
   %20 = getelementptr inbounds i8, ptr %12, i64 464
-  %21 = load ptr, ptr %20, align 8, !noalias !136
-  %22 = load ptr, ptr %19, align 8, !noalias !136
+  %21 = load ptr, ptr %20, align 8, !noalias !130
+  %22 = load ptr, ptr %19, align 8, !noalias !130
   %.not.i.i.not = icmp eq ptr %21, %22
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !136
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !130
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 24:                                               ; preds = %18
@@ -12483,8 +12947,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %27 = load ptr, ptr %22, align 8, !noalias !136
-  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !136
+  %27 = load ptr, ptr %22, align 8, !noalias !130
+  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !130
   %29 = icmp eq ptr %27, null
   br i1 %29, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %30
 
@@ -12595,7 +13059,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ8sockRecvEiN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tRjR16__wasi_roflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i16 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 2 dereferenceable(2) %6) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ8sockRecvEiN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tRjR16__wasi_roflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i16 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 2 dereferenceable(2) %6) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %8, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %9 unwind label %53
@@ -12704,7 +13168,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %16, %35, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host18WasiSockRecvFromV14bodyERKNS_7Runtime12CallingFrameEijjjjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host18WasiSockRecvFromV14bodyERKNS_7Runtime12CallingFrameEijjjjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.WasmEdge::Host::(anonymous namespace)::StaticVector", align 8
   %12 = alloca %"struct.cxx20::span.141", align 8
   %13 = getelementptr inbounds i8, ptr %2, i64 8
@@ -12717,7 +13181,7 @@ define void @_ZN8WasmEdge4Host18WasiSockRecvFromV14bodyERKNS_7Runtime12CallingFr
   br label %18
 
 18:                                               ; preds = %18, %16
-  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %17) #19, !noalias !139
+  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %17) #19, !noalias !133
   switch i32 %19, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %18
     i32 35, label %20
@@ -12725,7 +13189,7 @@ define void @_ZN8WasmEdge4Host18WasiSockRecvFromV14bodyERKNS_7Runtime12CallingFr
 
 20:                                               ; preds = %18
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %26, !noalias !139
+          to label %.noexc.i.i unwind label %26, !noalias !133
 
 .noexc.i.i:                                       ; preds = %20
   unreachable
@@ -12733,13 +13197,13 @@ define void @_ZN8WasmEdge4Host18WasiSockRecvFromV14bodyERKNS_7Runtime12CallingFr
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %18
   %21 = getelementptr inbounds i8, ptr %14, i64 456
   %22 = getelementptr inbounds i8, ptr %14, i64 464
-  %23 = load ptr, ptr %22, align 8, !noalias !139
-  %24 = load ptr, ptr %21, align 8, !noalias !139
+  %23 = load ptr, ptr %22, align 8, !noalias !133
+  %24 = load ptr, ptr %21, align 8, !noalias !133
   %.not.i.i.not = icmp eq ptr %23, %24
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread87, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread87: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !139
+  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !133
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 26:                                               ; preds = %20
@@ -12750,8 +13214,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread87: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %29 = load ptr, ptr %24, align 8, !noalias !139
-  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !139
+  %29 = load ptr, ptr %24, align 8, !noalias !133
+  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !133
   %31 = icmp eq ptr %29, null
   br i1 %31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %32
 
@@ -12886,7 +13350,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ12sockRecvFromEiN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tP23__wasi_address_family_tS5_PtRjR16__wasi_roflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef byval(%"struct.cxx20::span.141") align 8 %6, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 2 dereferenceable(2) %9) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ12sockRecvFromEiN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tP23__wasi_address_family_tS5_PtRjR16__wasi_roflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef byval(%"struct.cxx20::span.141") align 8 %6, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 2 dereferenceable(2) %9) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"struct.cxx20::span.141", align 8
   %12 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %12, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
@@ -13004,7 +13468,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %24, %43, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiSockSendV14bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiSockSendV14bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.WasmEdge::Host::(anonymous namespace)::StaticVector.250", align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -13016,7 +13480,7 @@ define void @_ZN8WasmEdge4Host14WasiSockSendV14bodyERKNS_7Runtime12CallingFrameE
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !142
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !136
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -13024,7 +13488,7 @@ define void @_ZN8WasmEdge4Host14WasiSockSendV14bodyERKNS_7Runtime12CallingFrameE
 
 17:                                               ; preds = %15
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %23, !noalias !142
+          to label %.noexc.i.i unwind label %23, !noalias !136
 
 .noexc.i.i:                                       ; preds = %17
   unreachable
@@ -13032,13 +13496,13 @@ define void @_ZN8WasmEdge4Host14WasiSockSendV14bodyERKNS_7Runtime12CallingFrameE
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   %18 = getelementptr inbounds i8, ptr %11, i64 456
   %19 = getelementptr inbounds i8, ptr %11, i64 464
-  %20 = load ptr, ptr %19, align 8, !noalias !142
-  %21 = load ptr, ptr %18, align 8, !noalias !142
+  %20 = load ptr, ptr %19, align 8, !noalias !136
+  %21 = load ptr, ptr %18, align 8, !noalias !136
   %.not.i.i.not = icmp eq ptr %20, %21
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !142
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !136
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -13049,8 +13513,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %26 = load ptr, ptr %21, align 8, !noalias !142
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !142
+  %26 = load ptr, ptr %21, align 8, !noalias !136
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !136
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -13153,7 +13617,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ8sockSendEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEtRj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i16 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ8sockSendEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEtRj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i16 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %8 unwind label %52
@@ -13262,7 +13726,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %15, %34, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiSockSendToV14bodyERKNS_7Runtime12CallingFrameEijjjijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiSockSendToV14bodyERKNS_7Runtime12CallingFrameEijjjijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.WasmEdge::Host::(anonymous namespace)::StaticVector.250", align 8
   %12 = alloca %"struct.cxx20::span.251", align 8
   %13 = getelementptr inbounds i8, ptr %2, i64 8
@@ -13275,7 +13739,7 @@ define void @_ZN8WasmEdge4Host16WasiSockSendToV14bodyERKNS_7Runtime12CallingFram
   br label %18
 
 18:                                               ; preds = %18, %16
-  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %17) #19, !noalias !145
+  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %17) #19, !noalias !139
   switch i32 %19, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %18
     i32 35, label %20
@@ -13283,7 +13747,7 @@ define void @_ZN8WasmEdge4Host16WasiSockSendToV14bodyERKNS_7Runtime12CallingFram
 
 20:                                               ; preds = %18
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %26, !noalias !145
+          to label %.noexc.i.i unwind label %26, !noalias !139
 
 .noexc.i.i:                                       ; preds = %20
   unreachable
@@ -13291,13 +13755,13 @@ define void @_ZN8WasmEdge4Host16WasiSockSendToV14bodyERKNS_7Runtime12CallingFram
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %18
   %21 = getelementptr inbounds i8, ptr %14, i64 456
   %22 = getelementptr inbounds i8, ptr %14, i64 464
-  %23 = load ptr, ptr %22, align 8, !noalias !145
-  %24 = load ptr, ptr %21, align 8, !noalias !145
+  %23 = load ptr, ptr %22, align 8, !noalias !139
+  %24 = load ptr, ptr %21, align 8, !noalias !139
   %.not.i.i.not = icmp eq ptr %23, %24
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !145
+  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !139
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 26:                                               ; preds = %20
@@ -13308,8 +13772,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %29 = load ptr, ptr %24, align 8, !noalias !145
-  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !145
+  %29 = load ptr, ptr %24, align 8, !noalias !139
+  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !139
   %31 = icmp eq ptr %29, null
   br i1 %31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %32
 
@@ -13447,7 +13911,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockSendToEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEt23__wasi_address_family_tS6_tRj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i16 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef byval(%"struct.cxx20::span.251") align 8 %6, i16 noundef zeroext %7, ptr noundef nonnull align 4 dereferenceable(4) %8) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockSendToEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEt23__wasi_address_family_tS6_tRj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr %2, i64 %3, i16 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef byval(%"struct.cxx20::span.251") align 8 %6, i16 noundef zeroext %7, ptr noundef nonnull align 4 dereferenceable(4) %8) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.cxx20::span.251", align 8
   %11 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %11, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
@@ -13565,7 +14029,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %23, %42, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiSockShutdown4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiSockShutdown4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = and i32 %4, 252
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %13
@@ -13589,7 +14053,7 @@ define void @_ZN8WasmEdge4Host16WasiSockShutdown4bodyERKNS_7Runtime12CallingFram
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ12sockShutdownEi16__wasi_sdflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ12sockShutdownEi16__wasi_sdflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %5 unwind label %49
@@ -13698,7 +14162,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %12, %31, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiSockSetOpt4bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiSockSetOpt4bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -13709,7 +14173,7 @@ define void @_ZN8WasmEdge4Host14WasiSockSetOpt4bodyERKNS_7Runtime12CallingFrameE
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !148
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !142
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -13717,7 +14181,7 @@ define void @_ZN8WasmEdge4Host14WasiSockSetOpt4bodyERKNS_7Runtime12CallingFrameE
 
 16:                                               ; preds = %14
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %22, !noalias !148
+          to label %.noexc.i.i unwind label %22, !noalias !142
 
 .noexc.i.i:                                       ; preds = %16
   unreachable
@@ -13725,13 +14189,13 @@ define void @_ZN8WasmEdge4Host14WasiSockSetOpt4bodyERKNS_7Runtime12CallingFrameE
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   %17 = getelementptr inbounds i8, ptr %10, i64 456
   %18 = getelementptr inbounds i8, ptr %10, i64 464
-  %19 = load ptr, ptr %18, align 8, !noalias !148
-  %20 = load ptr, ptr %17, align 8, !noalias !148
+  %19 = load ptr, ptr %18, align 8, !noalias !142
+  %20 = load ptr, ptr %17, align 8, !noalias !142
   %.not.i.i.not = icmp eq ptr %19, %20
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !148
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !142
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -13742,8 +14206,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = load ptr, ptr %20, align 8, !noalias !148
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !148
+  %25 = load ptr, ptr %20, align 8, !noalias !142
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !142
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -13788,7 +14252,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockSetOptEi23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr %4, i64 %5) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockSetOptEi23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr %4, i64 %5) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %8 unwind label %52
@@ -13924,7 +14388,7 @@ define void @_ZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingF
   br label %33
 
 33:                                               ; preds = %33, %31
-  %34 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %32) #19, !noalias !151
+  %34 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %32) #19, !noalias !145
   switch i32 %34, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %33
     i32 35, label %35
@@ -13932,7 +14396,7 @@ define void @_ZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingF
 
 35:                                               ; preds = %33
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %41, !noalias !151
+          to label %.noexc.i.i unwind label %41, !noalias !145
 
 .noexc.i.i:                                       ; preds = %35
   unreachable
@@ -13940,13 +14404,13 @@ define void @_ZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingF
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %33
   %36 = getelementptr inbounds i8, ptr %29, i64 456
   %37 = getelementptr inbounds i8, ptr %29, i64 464
-  %38 = load ptr, ptr %37, align 8, !noalias !151
-  %39 = load ptr, ptr %36, align 8, !noalias !151
+  %38 = load ptr, ptr %37, align 8, !noalias !145
+  %39 = load ptr, ptr %36, align 8, !noalias !145
   %.not.i.i.not = icmp eq ptr %38, %39
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread168, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread168: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %40 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %32) #19, !noalias !151
+  %40 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %32) #19, !noalias !145
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 41:                                               ; preds = %35
@@ -13957,8 +14421,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread168: ; preds 
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %44 = load ptr, ptr %39, align 8, !noalias !151
-  %45 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %32) #19, !noalias !151
+  %44 = load ptr, ptr %39, align 8, !noalias !145
+  %45 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %32) #19, !noalias !145
   %46 = icmp eq ptr %44, null
   br i1 %46, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %48
 
@@ -14175,7 +14639,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
   %137 = getelementptr inbounds i8, ptr %135, i64 24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %121
-  br i1 %exitcond.not.i, label %145, label %.lr.ph.i, !llvm.loop !154
+  br i1 %exitcond.not.i, label %145, label %.lr.ph.i, !llvm.loop !148
 
 138:                                              ; preds = %120
   %139 = landingpad { ptr, i32 }
@@ -14231,7 +14695,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
   %170 = add i32 %.013.i, 1
   %171 = zext i32 %170 to i64
   %172 = icmp ugt i64 %151, %171
-  br i1 %172, label %.lr.ph.i65, label %"_ZZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingFrameEjjjjjjjjENK3$_1clEN5cxx204spanIP17__wasi_addrinfo_tLm18446744073709551615EEENS8_IP17__wasi_sockaddr_tLm18446744073709551615EEE.exit.loopexit", !llvm.loop !155
+  br i1 %172, label %.lr.ph.i65, label %"_ZZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingFrameEjjjjjjjjENK3$_1clEN5cxx204spanIP17__wasi_addrinfo_tLm18446744073709551615EEENS8_IP17__wasi_sockaddr_tLm18446744073709551615EEE.exit.loopexit", !llvm.loop !149
 
 "_ZZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingFrameEjjjjjjjjENK3$_1clEN5cxx204spanIP17__wasi_addrinfo_tLm18446744073709551615EEENS8_IP17__wasi_sockaddr_tLm18446744073709551615EEE.exit.loopexit": ; preds = %167, %.lr.ph.i65
   %.pre = load ptr, ptr %19, align 8
@@ -14278,7 +14742,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
   %198 = add i32 %.017.i, 1
   %199 = zext i32 %198 to i64
   %200 = icmp ugt i64 %178, %199
-  br i1 %200, label %.lr.ph.i68, label %.loopexit187, !llvm.loop !156
+  br i1 %200, label %.lr.ph.i68, label %.loopexit187, !llvm.loop !150
 
 .loopexit187:                                     ; preds = %194, %"_ZZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingFrameEjjjjjjjjENK3$_1clEN5cxx204spanIP17__wasi_addrinfo_tLm18446744073709551615EEENS8_IP17__wasi_sockaddr_tLm18446744073709551615EEE.exit"
   %201 = load ptr, ptr %16, align 8
@@ -14321,7 +14785,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
   %226 = add i32 %.017.i73, 1
   %227 = zext i32 %226 to i64
   %228 = icmp ugt i64 %206, %227
-  br i1 %228, label %.lr.ph.i72, label %.loopexit.loopexit, !llvm.loop !157
+  br i1 %228, label %.lr.ph.i72, label %.loopexit.loopexit, !llvm.loop !151
 
 .loopexit.loopexit:                               ; preds = %222
   %.pre188 = load ptr, ptr %16, align 8
@@ -14524,7 +14988,7 @@ _ZNSt12_Vector_baseIP17__wasi_addrinfo_tSaIS1_EEC2EmRKS2_.exit.thread: ; preds =
   store ptr %14, ptr %.07.i.i.i.i.i.i.i.i, align 8
   %15 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %15, %12
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !158
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !152
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIP17__wasi_addrinfo_tSaIS1_EEC2EmRKS2_.exit.thread
   %16 = phi ptr [ %7, %_ZNSt12_Vector_baseIP17__wasi_addrinfo_tSaIS1_EEC2EmRKS2_.exit.thread ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i ]
@@ -14569,7 +15033,7 @@ _ZNSt12_Vector_baseIP17__wasi_sockaddr_tSaIS1_EEC2EmRKS2_.exit.thread: ; preds =
   store ptr %14, ptr %.07.i.i.i.i.i.i.i.i, align 8
   %15 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %15, %12
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !159
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !153
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIP17__wasi_sockaddr_tSaIS1_EEC2EmRKS2_.exit.thread
   %16 = phi ptr [ %7, %_ZNSt12_Vector_baseIP17__wasi_sockaddr_tSaIS1_EEC2EmRKS2_.exit.thread ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i ]
@@ -14614,7 +15078,7 @@ _ZNSt12_Vector_baseIPcSaIS0_EEC2EmRKS1_.exit.thread: ; preds = %_ZNSt6vectorIPcS
   store ptr %14, ptr %.07.i.i.i.i.i.i.i.i, align 8
   %15 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %15, %12
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !160
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !154
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPcSaIS0_EEC2EmRKS1_.exit.thread
   %16 = phi ptr [ %7, %_ZNSt12_Vector_baseIPcSaIS0_EEC2EmRKS1_.exit.thread ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i ]
@@ -14624,7 +15088,7 @@ _ZNSt12_Vector_baseIPcSaIS0_EEC2EmRKS1_.exit.thread: ; preds = %_ZNSt6vectorIPcS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV14bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV14bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca i8, align 1
   %9 = alloca i16, align 2
   %10 = getelementptr inbounds i8, ptr %2, i64 8
@@ -14637,7 +15101,7 @@ define void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV14bodyERKNS_7Runtime12Calli
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !161
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !155
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -14645,7 +15109,7 @@ define void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV14bodyERKNS_7Runtime12Calli
 
 17:                                               ; preds = %15
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %23, !noalias !161
+          to label %.noexc.i.i unwind label %23, !noalias !155
 
 .noexc.i.i:                                       ; preds = %17
   unreachable
@@ -14653,13 +15117,13 @@ define void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV14bodyERKNS_7Runtime12Calli
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   %18 = getelementptr inbounds i8, ptr %11, i64 456
   %19 = getelementptr inbounds i8, ptr %11, i64 464
-  %20 = load ptr, ptr %19, align 8, !noalias !161
-  %21 = load ptr, ptr %18, align 8, !noalias !161
+  %20 = load ptr, ptr %19, align 8, !noalias !155
+  %21 = load ptr, ptr %18, align 8, !noalias !155
   %.not.i.i.not = icmp eq ptr %20, %21
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !161
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !155
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -14670,8 +15134,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %26 = load ptr, ptr %21, align 8, !noalias !161
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !161
+  %26 = load ptr, ptr %21, align 8, !noalias !155
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !155
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -14754,7 +15218,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ16sockGetLocalAddrEiP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef %5) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ16sockGetLocalAddrEiP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef %5) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %8 unwind label %52
@@ -14863,7 +15327,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %15, %34, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV14bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV14bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca i8, align 1
   %9 = alloca i16, align 2
   %10 = getelementptr inbounds i8, ptr %2, i64 8
@@ -14876,7 +15340,7 @@ define void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV14bodyERKNS_7Runtime12Callin
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !164
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !158
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -14884,7 +15348,7 @@ define void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV14bodyERKNS_7Runtime12Callin
 
 17:                                               ; preds = %15
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %23, !noalias !164
+          to label %.noexc.i.i unwind label %23, !noalias !158
 
 .noexc.i.i:                                       ; preds = %17
   unreachable
@@ -14892,13 +15356,13 @@ define void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV14bodyERKNS_7Runtime12Callin
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   %18 = getelementptr inbounds i8, ptr %11, i64 456
   %19 = getelementptr inbounds i8, ptr %11, i64 464
-  %20 = load ptr, ptr %19, align 8, !noalias !164
-  %21 = load ptr, ptr %18, align 8, !noalias !164
+  %20 = load ptr, ptr %19, align 8, !noalias !158
+  %21 = load ptr, ptr %18, align 8, !noalias !158
   %.not.i.i.not = icmp eq ptr %20, %21
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !164
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !158
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -14909,8 +15373,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %26 = load ptr, ptr %21, align 8, !noalias !164
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !164
+  %26 = load ptr, ptr %21, align 8, !noalias !158
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !158
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -14993,7 +15457,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ15sockGetPeerAddrEiP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef %5) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ15sockGetPeerAddrEiP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef %5) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %8 unwind label %52
@@ -15102,7 +15566,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %15, %34, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiSockOpenV24bodyERKNS_7Runtime12CallingFrameEjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiSockOpenV24bodyERKNS_7Runtime12CallingFrameEjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -15113,7 +15577,7 @@ define void @_ZN8WasmEdge4Host14WasiSockOpenV24bodyERKNS_7Runtime12CallingFrameE
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !167
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !161
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -15121,7 +15585,7 @@ define void @_ZN8WasmEdge4Host14WasiSockOpenV24bodyERKNS_7Runtime12CallingFrameE
 
 14:                                               ; preds = %12
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %20, !noalias !167
+          to label %.noexc.i.i unwind label %20, !noalias !161
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -15129,13 +15593,13 @@ define void @_ZN8WasmEdge4Host14WasiSockOpenV24bodyERKNS_7Runtime12CallingFrameE
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 456
   %16 = getelementptr inbounds i8, ptr %8, i64 464
-  %17 = load ptr, ptr %16, align 8, !noalias !167
-  %18 = load ptr, ptr %15, align 8, !noalias !167
+  %17 = load ptr, ptr %16, align 8, !noalias !161
+  %18 = load ptr, ptr %15, align 8, !noalias !161
   %.not.i.i.not = icmp eq ptr %17, %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !167
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !161
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -15146,8 +15610,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = load ptr, ptr %18, align 8, !noalias !167
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !167
+  %23 = load ptr, ptr %18, align 8, !noalias !161
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !161
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %27
 
@@ -15247,7 +15711,7 @@ _ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__was
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiSockBindV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiSockBindV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -15258,7 +15722,7 @@ define void @_ZN8WasmEdge4Host14WasiSockBindV24bodyERKNS_7Runtime12CallingFrameE
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !170
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !164
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -15266,7 +15730,7 @@ define void @_ZN8WasmEdge4Host14WasiSockBindV24bodyERKNS_7Runtime12CallingFrameE
 
 14:                                               ; preds = %12
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %20, !noalias !170
+          to label %.noexc.i.i unwind label %20, !noalias !164
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -15274,13 +15738,13 @@ define void @_ZN8WasmEdge4Host14WasiSockBindV24bodyERKNS_7Runtime12CallingFrameE
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 456
   %16 = getelementptr inbounds i8, ptr %8, i64 464
-  %17 = load ptr, ptr %16, align 8, !noalias !170
-  %18 = load ptr, ptr %15, align 8, !noalias !170
+  %17 = load ptr, ptr %16, align 8, !noalias !164
+  %18 = load ptr, ptr %15, align 8, !noalias !164
   %.not.i.i.not = icmp eq ptr %17, %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !170
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !164
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -15291,8 +15755,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = load ptr, ptr %18, align 8, !noalias !170
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !170
+  %23 = load ptr, ptr %18, align 8, !noalias !164
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !164
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -15363,7 +15827,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiSockListenV24bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiSockListenV24bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 160
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @_ZN8WasmEdge4Host4WASI7Environ10sockListenEii(ptr noundef nonnull align 8 dereferenceable(344) %7, i32 noundef %3, i32 noundef %4) #19
@@ -15377,7 +15841,7 @@ define void @_ZN8WasmEdge4Host16WasiSockListenV24bodyERKNS_7Runtime12CallingFram
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host17WasiSockConnectV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host17WasiSockConnectV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -15388,7 +15852,7 @@ define void @_ZN8WasmEdge4Host17WasiSockConnectV24bodyERKNS_7Runtime12CallingFra
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !173
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !167
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -15396,7 +15860,7 @@ define void @_ZN8WasmEdge4Host17WasiSockConnectV24bodyERKNS_7Runtime12CallingFra
 
 14:                                               ; preds = %12
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %20, !noalias !173
+          to label %.noexc.i.i unwind label %20, !noalias !167
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -15404,13 +15868,13 @@ define void @_ZN8WasmEdge4Host17WasiSockConnectV24bodyERKNS_7Runtime12CallingFra
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 456
   %16 = getelementptr inbounds i8, ptr %8, i64 464
-  %17 = load ptr, ptr %16, align 8, !noalias !173
-  %18 = load ptr, ptr %15, align 8, !noalias !173
+  %17 = load ptr, ptr %16, align 8, !noalias !167
+  %18 = load ptr, ptr %15, align 8, !noalias !167
   %.not.i.i.not = icmp eq ptr %17, %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !173
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !167
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -15421,8 +15885,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = load ptr, ptr %18, align 8, !noalias !173
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !173
+  %23 = load ptr, ptr %18, align 8, !noalias !167
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !167
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -15493,7 +15957,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiSockRecvV24bodyERKNS_7Runtime12CallingFrameEijjjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiSockRecvV24bodyERKNS_7Runtime12CallingFrameEijjjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.WasmEdge::Host::(anonymous namespace)::StaticVector", align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -15505,7 +15969,7 @@ define void @_ZN8WasmEdge4Host14WasiSockRecvV24bodyERKNS_7Runtime12CallingFrameE
   br label %16
 
 16:                                               ; preds = %16, %14
-  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !176
+  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !170
   switch i32 %17, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %16
     i32 35, label %18
@@ -15513,7 +15977,7 @@ define void @_ZN8WasmEdge4Host14WasiSockRecvV24bodyERKNS_7Runtime12CallingFrameE
 
 18:                                               ; preds = %16
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %24, !noalias !176
+          to label %.noexc.i.i unwind label %24, !noalias !170
 
 .noexc.i.i:                                       ; preds = %18
   unreachable
@@ -15521,13 +15985,13 @@ define void @_ZN8WasmEdge4Host14WasiSockRecvV24bodyERKNS_7Runtime12CallingFrameE
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %16
   %19 = getelementptr inbounds i8, ptr %12, i64 456
   %20 = getelementptr inbounds i8, ptr %12, i64 464
-  %21 = load ptr, ptr %20, align 8, !noalias !176
-  %22 = load ptr, ptr %19, align 8, !noalias !176
+  %21 = load ptr, ptr %20, align 8, !noalias !170
+  %22 = load ptr, ptr %19, align 8, !noalias !170
   %.not.i.i.not = icmp eq ptr %21, %22
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !176
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !170
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 24:                                               ; preds = %18
@@ -15538,8 +16002,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %27 = load ptr, ptr %22, align 8, !noalias !176
-  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !176
+  %27 = load ptr, ptr %22, align 8, !noalias !170
+  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !170
   %29 = icmp eq ptr %27, null
   br i1 %29, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %30
 
@@ -15650,7 +16114,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host18WasiSockRecvFromV24bodyERKNS_7Runtime12CallingFrameEijjjjjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host18WasiSockRecvFromV24bodyERKNS_7Runtime12CallingFrameEijjjjjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca i8, align 1
   %13 = alloca %"class.WasmEdge::Host::(anonymous namespace)::StaticVector", align 8
   %14 = alloca %"struct.cxx20::span.141", align 8
@@ -15664,7 +16128,7 @@ define void @_ZN8WasmEdge4Host18WasiSockRecvFromV24bodyERKNS_7Runtime12CallingFr
   br label %20
 
 20:                                               ; preds = %20, %18
-  %21 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %19) #19, !noalias !179
+  %21 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %19) #19, !noalias !173
   switch i32 %21, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %20
     i32 35, label %22
@@ -15672,7 +16136,7 @@ define void @_ZN8WasmEdge4Host18WasiSockRecvFromV24bodyERKNS_7Runtime12CallingFr
 
 22:                                               ; preds = %20
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %28, !noalias !179
+          to label %.noexc.i.i unwind label %28, !noalias !173
 
 .noexc.i.i:                                       ; preds = %22
   unreachable
@@ -15680,13 +16144,13 @@ define void @_ZN8WasmEdge4Host18WasiSockRecvFromV24bodyERKNS_7Runtime12CallingFr
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %20
   %23 = getelementptr inbounds i8, ptr %16, i64 456
   %24 = getelementptr inbounds i8, ptr %16, i64 464
-  %25 = load ptr, ptr %24, align 8, !noalias !179
-  %26 = load ptr, ptr %23, align 8, !noalias !179
+  %25 = load ptr, ptr %24, align 8, !noalias !173
+  %26 = load ptr, ptr %23, align 8, !noalias !173
   %.not.i.i.not = icmp eq ptr %25, %26
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread105, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread105: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %19) #19, !noalias !179
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %19) #19, !noalias !173
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 28:                                               ; preds = %22
@@ -15697,8 +16161,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread105: ; preds 
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %31 = load ptr, ptr %26, align 8, !noalias !179
-  %32 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %19) #19, !noalias !179
+  %31 = load ptr, ptr %26, align 8, !noalias !173
+  %32 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %19) #19, !noalias !173
   %33 = icmp eq ptr %31, null
   br i1 %33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %34
 
@@ -15866,7 +16330,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiSockSendV24bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiSockSendV24bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.WasmEdge::Host::(anonymous namespace)::StaticVector.250", align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -15878,7 +16342,7 @@ define void @_ZN8WasmEdge4Host14WasiSockSendV24bodyERKNS_7Runtime12CallingFrameE
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !182
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !176
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -15886,7 +16350,7 @@ define void @_ZN8WasmEdge4Host14WasiSockSendV24bodyERKNS_7Runtime12CallingFrameE
 
 17:                                               ; preds = %15
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %23, !noalias !182
+          to label %.noexc.i.i unwind label %23, !noalias !176
 
 .noexc.i.i:                                       ; preds = %17
   unreachable
@@ -15894,13 +16358,13 @@ define void @_ZN8WasmEdge4Host14WasiSockSendV24bodyERKNS_7Runtime12CallingFrameE
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   %18 = getelementptr inbounds i8, ptr %11, i64 456
   %19 = getelementptr inbounds i8, ptr %11, i64 464
-  %20 = load ptr, ptr %19, align 8, !noalias !182
-  %21 = load ptr, ptr %18, align 8, !noalias !182
+  %20 = load ptr, ptr %19, align 8, !noalias !176
+  %21 = load ptr, ptr %18, align 8, !noalias !176
   %.not.i.i.not = icmp eq ptr %20, %21
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !182
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !176
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -15911,8 +16375,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %26 = load ptr, ptr %21, align 8, !noalias !182
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !182
+  %26 = load ptr, ptr %21, align 8, !noalias !176
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !176
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -16015,7 +16479,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiSockSendToV24bodyERKNS_7Runtime12CallingFrameEijjjijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiSockSendToV24bodyERKNS_7Runtime12CallingFrameEijjjijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.WasmEdge::Host::(anonymous namespace)::StaticVector.250", align 8
   %12 = alloca %"struct.cxx20::span.251", align 8
   %13 = getelementptr inbounds i8, ptr %2, i64 8
@@ -16028,7 +16492,7 @@ define void @_ZN8WasmEdge4Host16WasiSockSendToV24bodyERKNS_7Runtime12CallingFram
   br label %18
 
 18:                                               ; preds = %18, %16
-  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %17) #19, !noalias !185
+  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %17) #19, !noalias !179
   switch i32 %19, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %18
     i32 35, label %20
@@ -16036,7 +16500,7 @@ define void @_ZN8WasmEdge4Host16WasiSockSendToV24bodyERKNS_7Runtime12CallingFram
 
 20:                                               ; preds = %18
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %26, !noalias !185
+          to label %.noexc.i.i unwind label %26, !noalias !179
 
 .noexc.i.i:                                       ; preds = %20
   unreachable
@@ -16044,13 +16508,13 @@ define void @_ZN8WasmEdge4Host16WasiSockSendToV24bodyERKNS_7Runtime12CallingFram
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %18
   %21 = getelementptr inbounds i8, ptr %14, i64 456
   %22 = getelementptr inbounds i8, ptr %14, i64 464
-  %23 = load ptr, ptr %22, align 8, !noalias !185
-  %24 = load ptr, ptr %21, align 8, !noalias !185
+  %23 = load ptr, ptr %22, align 8, !noalias !179
+  %24 = load ptr, ptr %21, align 8, !noalias !179
   %.not.i.i.not = icmp eq ptr %23, %24
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !185
+  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !179
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 26:                                               ; preds = %20
@@ -16061,8 +16525,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %29 = load ptr, ptr %24, align 8, !noalias !185
-  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !185
+  %29 = load ptr, ptr %24, align 8, !noalias !179
+  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !179
   %31 = icmp eq ptr %29, null
   br i1 %31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %32
 
@@ -16209,7 +16673,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiSockGetOpt4bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiSockGetOpt4bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.cxx20::span.141", align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -16221,7 +16685,7 @@ define void @_ZN8WasmEdge4Host14WasiSockGetOpt4bodyERKNS_7Runtime12CallingFrameE
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !188
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !182
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -16229,7 +16693,7 @@ define void @_ZN8WasmEdge4Host14WasiSockGetOpt4bodyERKNS_7Runtime12CallingFrameE
 
 17:                                               ; preds = %15
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %23, !noalias !188
+          to label %.noexc.i.i unwind label %23, !noalias !182
 
 .noexc.i.i:                                       ; preds = %17
   unreachable
@@ -16237,13 +16701,13 @@ define void @_ZN8WasmEdge4Host14WasiSockGetOpt4bodyERKNS_7Runtime12CallingFrameE
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   %18 = getelementptr inbounds i8, ptr %11, i64 456
   %19 = getelementptr inbounds i8, ptr %11, i64 464
-  %20 = load ptr, ptr %19, align 8, !noalias !188
-  %21 = load ptr, ptr %18, align 8, !noalias !188
+  %20 = load ptr, ptr %19, align 8, !noalias !182
+  %21 = load ptr, ptr %18, align 8, !noalias !182
   %.not.i.i.not = icmp eq ptr %20, %21
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !188
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !182
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -16254,8 +16718,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %26 = load ptr, ptr %21, align 8, !noalias !188
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !188
+  %26 = load ptr, ptr %21, align 8, !noalias !182
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !182
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -16321,7 +16785,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockGetOptEi23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockGetOptEi23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr", align 8
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %7 unwind label %51
@@ -16430,7 +16894,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %14, %33, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i8, align 1
   %8 = alloca i16, align 2
   %9 = getelementptr inbounds i8, ptr %2, i64 8
@@ -16443,7 +16907,7 @@ define void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV24bodyERKNS_7Runtime12Calli
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !191
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !185
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -16451,7 +16915,7 @@ define void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV24bodyERKNS_7Runtime12Calli
 
 16:                                               ; preds = %14
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %22, !noalias !191
+          to label %.noexc.i.i unwind label %22, !noalias !185
 
 .noexc.i.i:                                       ; preds = %16
   unreachable
@@ -16459,13 +16923,13 @@ define void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV24bodyERKNS_7Runtime12Calli
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   %17 = getelementptr inbounds i8, ptr %10, i64 456
   %18 = getelementptr inbounds i8, ptr %10, i64 464
-  %19 = load ptr, ptr %18, align 8, !noalias !191
-  %20 = load ptr, ptr %17, align 8, !noalias !191
+  %19 = load ptr, ptr %18, align 8, !noalias !185
+  %20 = load ptr, ptr %17, align 8, !noalias !185
   %.not.i.i.not = icmp eq ptr %19, %20
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !191
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !185
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -16476,8 +16940,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = load ptr, ptr %20, align 8, !noalias !191
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !191
+  %25 = load ptr, ptr %20, align 8, !noalias !185
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !185
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -16551,7 +17015,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i8, align 1
   %8 = alloca i16, align 2
   %9 = getelementptr inbounds i8, ptr %2, i64 8
@@ -16564,7 +17028,7 @@ define void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV24bodyERKNS_7Runtime12Callin
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !194
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !188
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -16572,7 +17036,7 @@ define void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV24bodyERKNS_7Runtime12Callin
 
 16:                                               ; preds = %14
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i.i unwind label %22, !noalias !194
+          to label %.noexc.i.i unwind label %22, !noalias !188
 
 .noexc.i.i:                                       ; preds = %16
   unreachable
@@ -16580,13 +17044,13 @@ define void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV24bodyERKNS_7Runtime12Callin
 _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   %17 = getelementptr inbounds i8, ptr %10, i64 456
   %18 = getelementptr inbounds i8, ptr %10, i64 464
-  %19 = load ptr, ptr %18, align 8, !noalias !194
-  %20 = load ptr, ptr %17, align 8, !noalias !194
+  %19 = load ptr, ptr %18, align 8, !noalias !188
+  %20 = load ptr, ptr %17, align 8, !noalias !188
   %.not.i.i.not = icmp eq ptr %19, %20
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !194
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !188
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -16597,8 +17061,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39: ; preds =
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = load ptr, ptr %20, align 8, !noalias !194
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !194
+  %25 = load ptr, ptr %20, align 8, !noalias !188
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !188
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -16672,7 +17136,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -16724,7 +17188,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EED0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EED0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -16802,35 +17266,35 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   %18 = getelementptr inbounds i8, ptr %3, i64 32
   %19 = getelementptr inbounds i8, ptr %3, i64 48
-  %20 = load i32, ptr %19, align 4, !noalias !200
-  %21 = load i32, ptr %18, align 4, !noalias !200
-  %22 = load i32, ptr %17, align 4, !noalias !200
-  %23 = load i32, ptr %3, align 4, !noalias !200
-  call void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EE4bodyERKNS_7Runtime12CallingFrameEjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !197
-  %24 = load i8, ptr %7, align 4, !noalias !197
+  %20 = load i32, ptr %19, align 4, !noalias !194
+  %21 = load i32, ptr %18, align 4, !noalias !194
+  %22 = load i32, ptr %17, align 4, !noalias !194
+  %23 = load i32, ptr %3, align 4, !noalias !194
+  call void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EE4bodyERKNS_7Runtime12CallingFrameEjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !191
+  %24 = load i8, ptr %7, align 4, !noalias !191
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds i8, ptr %7, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !197
+  %27 = load i32, ptr %26, align 4, !noalias !191
   br i1 %25, label %28, label %29
 
 28:                                               ; preds = %15
-  store i32 %27, ptr %16, align 16, !noalias !197
-  store i64 0, ptr %0, align 4, !alias.scope !197
+  store i32 %27, ptr %16, align 16, !noalias !191
+  store i64 0, ptr %0, align 4, !alias.scope !191
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %27, ptr %30, align 4, !alias.scope !197
+  store i32 %27, ptr %30, align 4, !alias.scope !191
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !197
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !191
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %31
 
@@ -16839,7 +17303,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -16891,7 +17355,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -16969,35 +17433,35 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   %18 = getelementptr inbounds i8, ptr %3, i64 32
   %19 = getelementptr inbounds i8, ptr %3, i64 48
-  %20 = load i32, ptr %19, align 4, !noalias !206
-  %21 = load i32, ptr %18, align 4, !noalias !206
-  %22 = load i32, ptr %17, align 4, !noalias !206
-  %23 = load i32, ptr %3, align 4, !noalias !206
-  call void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EE4bodyERKNS_7Runtime12CallingFrameEjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !203
-  %24 = load i8, ptr %7, align 4, !noalias !203
+  %20 = load i32, ptr %19, align 4, !noalias !200
+  %21 = load i32, ptr %18, align 4, !noalias !200
+  %22 = load i32, ptr %17, align 4, !noalias !200
+  %23 = load i32, ptr %3, align 4, !noalias !200
+  call void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EE4bodyERKNS_7Runtime12CallingFrameEjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !197
+  %24 = load i8, ptr %7, align 4, !noalias !197
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds i8, ptr %7, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !203
+  %27 = load i32, ptr %26, align 4, !noalias !197
   br i1 %25, label %28, label %29
 
 28:                                               ; preds = %15
-  store i32 %27, ptr %16, align 16, !noalias !203
-  store i64 0, ptr %0, align 4, !alias.scope !203
+  store i32 %27, ptr %16, align 16, !noalias !197
+  store i64 0, ptr %0, align 4, !alias.scope !197
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %27, ptr %30, align 4, !alias.scope !203
+  store i32 %27, ptr %30, align 4, !alias.scope !197
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !203
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !197
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %31
 
@@ -17027,7 +17491,7 @@ declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEEENKUlvE_clEv(ptr dead_on_unwind noalias writable sret(%"class.WasmEdge::Host::WASI::EVPoller") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEEENKUlvE_clEv(ptr dead_on_unwind noalias writable sret(%"class.WasmEdge::Host::WASI::EVPoller") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 152
   %5 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #19
@@ -17084,7 +17548,7 @@ declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #3
 declare void @_ZN8WasmEdge4Host4WASI6PollerC2ERNS1_13PollerContextE(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI6PollerC2EOS2_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI6PollerC2EOS2_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   store i32 -1, ptr %1, align 8
   store i32 %3, ptr %0, align 8
@@ -17144,7 +17608,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI6PollerC2EOS2_(ptr nounde
   store ptr null, ptr %42, align 8
   %43 = load ptr, ptr %29, align 8
   %44 = getelementptr inbounds i8, ptr %1, i64 104
-  %45 = icmp eq ptr %44, %43
+  %45 = icmp eq ptr %43, %44
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %2
@@ -17197,7 +17661,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   store ptr null, ptr %71, align 8
   %72 = load ptr, ptr %58, align 8
   %73 = getelementptr inbounds i8, ptr %1, i64 160
-  %74 = icmp eq ptr %73, %72
+  %74 = icmp eq ptr %72, %73
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEC2EOSD_.exit
@@ -17257,7 +17721,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI6PollerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI6PollerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -17294,7 +17758,7 @@ _ZNSt6vectorI11epoll_eventSaIS0_EED2Ev.exit:      ; preds = %1, %4
 _ZSt8_DestroyIN8WasmEdge4Host4WASI6Poller5TimerEEvPT_.exit.i.i.i.i: ; preds = %17, %.lr.ph.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 12
   %.not.i.i.i.i = icmp eq ptr %18, %13
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN8WasmEdge4Host4WASI6Poller5TimerES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !209
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN8WasmEdge4Host4WASI6Poller5TimerES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !203
 
 _ZSt8_DestroyIPN8WasmEdge4Host4WASI6Poller5TimerES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN8WasmEdge4Host4WASI6Poller5TimerEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %10, align 8
@@ -17326,7 +17790,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EED2Ev.exit: ; preds = %_ZS
   %29 = load ptr, ptr %.06.i.i.i.i, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i, i64 noundef 32) #22
   %.not.i.i.i.i3 = icmp eq ptr %29, null
-  br i1 %.not.i.i.i.i3, label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i2, !llvm.loop !210
+  br i1 %.not.i.i.i.i3, label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i2, !llvm.loop !204
 
 _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i2, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EED2Ev.exit
   %30 = load ptr, ptr %26, align 8
@@ -17337,7 +17801,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %34 = load ptr, ptr %26, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 160
-  %36 = icmp eq ptr %35, %34
+  %36 = icmp eq ptr %34, %35
   br i1 %36, label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEED2Ev.exit, label %37
 
 37:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -17358,7 +17822,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %43 = load ptr, ptr %.06.i.i.i.i6, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i6, i64 noundef 32) #22
   %.not.i.i.i.i7 = icmp eq ptr %43, null
-  br i1 %.not.i.i.i.i7, label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i8, label %.lr.ph.i.i.i.i5, !llvm.loop !210
+  br i1 %.not.i.i.i.i7, label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i8, label %.lr.ph.i.i.i.i5, !llvm.loop !204
 
 _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i8: ; preds = %.lr.ph.i.i.i.i5, %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEED2Ev.exit
   %44 = load ptr, ptr %40, align 8
@@ -17369,7 +17833,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   %48 = load ptr, ptr %40, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 104
-  %50 = icmp eq ptr %49, %48
+  %50 = icmp eq ptr %48, %49
   br i1 %50, label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEED2Ev.exit9, label %51
 
 51:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i8
@@ -17429,7 +17893,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17466,8 +17930,8 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %5
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 8
   %15 = load i32, ptr %14, align 4
-  %16 = icmp eq i32 %15, %2
-  br i1 %16, label %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %12, !llvm.loop !211
+  %16 = icmp eq i32 %2, %15
+  br i1 %16, label %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %12, !llvm.loop !205
 
 17:                                               ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit
   %18 = getelementptr inbounds i8, ptr %1, i64 288
@@ -17485,12 +17949,12 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %5
   %27 = load ptr, ptr %25, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 4
-  %30 = icmp eq i32 %29, %2
+  %30 = icmp eq i32 %2, %29
   br i1 %30, label %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i
 
 31:                                               ; preds = %34
-  %32 = icmp eq i32 %36, %2
-  br i1 %32, label %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !41
+  %32 = icmp eq i32 %2, %36
+  br i1 %32, label %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !35
 
 .lr.ph.i.i.i.i:                                   ; preds = %26, %31
   %.018.i.i.i.i = phi ptr [ %33, %31 ], [ %27, %26 ]
@@ -17504,7 +17968,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %5
   %37 = sext i32 %36 to i64
   %38 = urem i64 %37, %21
   %.not17.i.i.i.i = icmp eq i64 %38, %22
-  br i1 %.not17.i.i.i.i, label %31, label %.loopexit, !llvm.loop !41
+  br i1 %.not17.i.i.i.i, label %31, label %.loopexit, !llvm.loop !35
 
 _ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %31, %13, %26
   %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %13 ], [ %33, %31 ]
@@ -17544,7 +18008,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit3:   ; preds = %50, %47, %_ZNKSt13u
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -17676,12 +18140,12 @@ _ZNSt12_Vector_baseIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_M_allocateEm.exit: 
   %25 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 216
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 216
   %.not.i.i.i = icmp eq ptr %25, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !212
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !206
 
 _ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 216
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i17
@@ -17692,7 +18156,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 216
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 216
   %.not.i.i.i20 = icmp eq ptr %28, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !212
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !206
 
 _ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %27, %_ZNSt6vectorIN8WasmEdge4Host4WASI8EVPollerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %29, %.lr.ph.i.i.i17 ]
@@ -17734,7 +18198,7 @@ declare i32 @_ZNK8WasmEdge4Host4WASI5INode8fdAdviseEmm15__wasi_advice_t(ptr noun
 declare i32 @_ZNK8WasmEdge4Host4WASI5INode10fdAllocateEmm(ptr noundef nonnull align 8 dereferenceable(200), i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI7Environ5closeESt10shared_ptrINS1_6VINodeEE(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI7Environ5closeESt10shared_ptrINS1_6VINodeEE(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #19
@@ -17878,7 +18342,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI8EVPoller5closeESt10shared_ptrINS1_6VINodeEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI8EVPoller5closeESt10shared_ptrINS1_6VINodeEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -17987,7 +18451,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds ptr, ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %9, null
   br i1 %8, label %10, label %27
@@ -18166,7 +18630,7 @@ declare i32 @_ZNK8WasmEdge4Host4WASI5INode6fdReadEN5cxx204spanINS4_IhLm184467440
 declare i32 @_ZN8WasmEdge4Host4WASI5INode9fdReaddirEN5cxx204spanIhLm18446744073709551615EEEmRj(ptr noundef nonnull align 8 dereferenceable(200), ptr, i64, i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt19_Node_insert_returnINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0ELb0EEESt12_Node_handleIiSA_SaINS0_10_Hash_nodeISA_Lb0EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt19_Node_insert_returnINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0ELb0EEESt12_Node_handleIiSA_SaINS0_10_Hash_nodeISA_Lb0EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -18288,7 +18752,7 @@ define linkonce_odr hidden void @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8W
 
 23:                                               ; preds = %26
   %24 = icmp eq i32 %10, %28
-  br i1 %24, label %_ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i, !llvm.loop !41
+  br i1 %24, label %_ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i, !llvm.loop !35
 
 .lr.ph.i.i:                                       ; preds = %18, %23
   %.018.i.i = phi ptr [ %25, %23 ], [ %19, %18 ]
@@ -18302,7 +18766,7 @@ define linkonce_odr hidden void @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8W
   %29 = sext i32 %28 to i64
   %30 = urem i64 %29, %13
   %.not17.i.i = icmp eq i64 %30, %14
-  br i1 %.not17.i.i, label %23, label %.loopexit, !llvm.loop !41
+  br i1 %.not17.i.i, label %23, label %.loopexit, !llvm.loop !35
 
 _ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %23, %18
   %.0.i = phi ptr [ %19, %18 ], [ %25, %23 ]
@@ -18441,7 +18905,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEEaSEOSD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEEaSEOSD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr %1, align 8
@@ -18707,12 +19171,12 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
 29:                                               ; preds = %.sink.split, %21
   %.1 = phi i64 [ %18, %21 ], [ %.1.ph, %.sink.split ]
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !213
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !207
 
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -18985,7 +19449,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_d
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -19039,7 +19503,7 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear
   %19 = urem i64 %18, 2147483647
   %20 = add nsw i64 %19, -1
   %.not27 = icmp ult i64 %20, %15
-  br i1 %.not27, label %21, label %16, !llvm.loop !214
+  br i1 %.not27, label %21, label %16, !llvm.loop !208
 
 21:                                               ; preds = %16
   store i64 %19, ptr %1, align 8
@@ -19071,7 +19535,7 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear
   %36 = icmp ugt i64 %35, %10
   %37 = icmp ult i64 %35, %30
   %38 = or i1 %36, %37
-  br i1 %38, label %27, label %.loopexit, !llvm.loop !215
+  br i1 %38, label %27, label %.loopexit, !llvm.loop !209
 
 39:                                               ; preds = %23
   %40 = load i64, ptr %1, align 8
@@ -19159,7 +19623,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   %37 = load i32, ptr %6, align 4
   %38 = load i32, ptr %36, align 4
   %39 = icmp eq i32 %37, %38
-  br i1 %39, label %_ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %34, !llvm.loop !216
+  br i1 %39, label %_ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %34, !llvm.loop !210
 
 40:                                               ; preds = %_ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit.thread
   %41 = landingpad { ptr, i32 }
@@ -19184,7 +19648,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
 
 53:                                               ; preds = %56
   %54 = icmp eq i32 %24, %58
-  br i1 %54, label %_ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i, !llvm.loop !41
+  br i1 %54, label %_ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i, !llvm.loop !35
 
 .lr.ph.i.i:                                       ; preds = %48, %53
   %.018.i.i = phi ptr [ %55, %53 ], [ %49, %48 ]
@@ -19198,7 +19662,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   %59 = sext i32 %58 to i64
   %60 = urem i64 %59, %27
   %.not17.i.i = icmp eq i64 %60, %28
-  br i1 %.not17.i.i, label %53, label %_ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit.thread, !llvm.loop !41
+  br i1 %.not17.i.i, label %53, label %_ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit.thread, !llvm.loop !35
 
 _ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit.thread: ; preds = %.lr.ph.i.i, %56, %42, %.thread
   %61 = phi i64 [ %47, %42 ], [ %28, %.thread ], [ %28, %56 ], [ %28, %.lr.ph.i.i ]
@@ -19293,7 +19757,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -19423,7 +19887,7 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIjEclISt26linear
   %19 = urem i64 %18, 2147483647
   %20 = add nsw i64 %19, -1
   %.not27 = icmp ult i64 %20, %15
-  br i1 %.not27, label %21, label %16, !llvm.loop !217
+  br i1 %.not27, label %21, label %16, !llvm.loop !211
 
 21:                                               ; preds = %16
   store i64 %19, ptr %1, align 8
@@ -19455,7 +19919,7 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIjEclISt26linear
   %36 = icmp ugt i64 %35, %10
   %37 = icmp ult i64 %35, %30
   %38 = or i1 %36, %37
-  br i1 %38, label %27, label %.loopexit, !llvm.loop !218
+  br i1 %38, label %27, label %.loopexit, !llvm.loop !212
 
 39:                                               ; preds = %23
   %40 = load i64, ptr %1, align 8
@@ -19517,7 +19981,7 @@ declare i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrEP23__wasi_address_fa
 declare i32 @_ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -19569,7 +20033,7 @@ _ZN8WasmEdge3AST7SubTypeD2Ev.exit:                ; preds = %_ZN8WasmEdge3AST13C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge7Runtime16HostFunctionBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 {
+define linkonce_odr hidden void @_ZN8WasmEdge7Runtime16HostFunctionBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 comdat align 2 {
   tail call void @llvm.trap() #18
   unreachable
 }
@@ -19577,7 +20041,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime16HostFunctionBaseD0Ev(ptr 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -19849,7 +20313,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -19901,7 +20365,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -20557,7 +21021,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -20609,7 +21073,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -20976,8 +21440,8 @@ declare i32 @llvm.uadd.sat.i32(i32, i32) #15
 declare i32 @llvm.umax.i32(i32, i32) #15
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -21008,24 +21472,24 @@ attributes #22 = { builtin nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !6 = distinct !{!6, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE: argument 0"}
-!9 = distinct !{!9, !"_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE"}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
-!14 = distinct !{!14, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE: argument 0"}
-!17 = distinct !{!17, !"_ZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE"}
-!18 = distinct !{!18, !11}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
+!11 = distinct !{!11, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
+!12 = distinct !{!12, !8}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
+!15 = distinct !{!15, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
 !19 = !{!20}
 !20 = distinct !{!20, !21, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !21 = distinct !{!21, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11}
-!24 = distinct !{!24, !11}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
+!24 = distinct !{!24, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !27 = distinct !{!27, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
@@ -21035,15 +21499,15 @@ attributes #22 = { builtin nounwind }
 !31 = !{!32}
 !32 = distinct !{!32, !33, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !33 = distinct !{!33, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
-!36 = distinct !{!36, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
+!34 = distinct !{!34, !8}
+!35 = distinct !{!35, !8}
+!36 = distinct !{!36, !8}
 !37 = !{!38}
 !38 = distinct !{!38, !39, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !39 = distinct !{!39, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!40 = distinct !{!40, !11}
-!41 = distinct !{!41, !11}
-!42 = distinct !{!42, !11}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
+!42 = distinct !{!42, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
 !43 = !{!44}
 !44 = distinct !{!44, !45, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !45 = distinct !{!45, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
@@ -21063,22 +21527,22 @@ attributes #22 = { builtin nounwind }
 !59 = distinct !{!59, !60, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !60 = distinct !{!60, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
-!63 = distinct !{!63, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
+!62 = distinct !{!62, !63, !"_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE7extractENSt8__detail20_Node_const_iteratorISC_Lb0ELb0EEE: argument 0"}
+!63 = distinct !{!63, !"_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE7extractENSt8__detail20_Node_const_iteratorISC_Lb0ELb0EEE"}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
-!66 = distinct !{!66, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE7extractENSt8__detail20_Node_const_iteratorISC_Lb0ELb0EEE: argument 0"}
-!69 = distinct !{!69, !"_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE7extractENSt8__detail20_Node_const_iteratorISC_Lb0ELb0EEE"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE7extractENSA_20_Node_const_iteratorIS8_Lb0ELb0EEE: argument 0"}
-!72 = distinct !{!72, !"_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE7extractENSA_20_Node_const_iteratorIS8_Lb0ELb0EEE"}
-!73 = !{!71, !68}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_extract_nodeEmPNSA_15_Hash_node_baseE: argument 0"}
-!76 = distinct !{!76, !"_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_extract_nodeEmPNSA_15_Hash_node_baseE"}
-!77 = !{!75, !71, !68}
+!65 = distinct !{!65, !66, !"_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE7extractENSA_20_Node_const_iteratorIS8_Lb0ELb0EEE: argument 0"}
+!66 = distinct !{!66, !"_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE7extractENSA_20_Node_const_iteratorIS8_Lb0ELb0EEE"}
+!67 = !{!65, !62}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_extract_nodeEmPNSA_15_Hash_node_baseE: argument 0"}
+!70 = distinct !{!70, !"_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_extract_nodeEmPNSA_15_Hash_node_baseE"}
+!71 = !{!69, !65, !62}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
+!74 = distinct !{!74, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
+!77 = distinct !{!77, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
 !78 = !{!79}
 !79 = distinct !{!79, !80, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !80 = distinct !{!80, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
@@ -21115,13 +21579,13 @@ attributes #22 = { builtin nounwind }
 !111 = !{!112}
 !112 = distinct !{!112, !113, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !113 = distinct !{!113, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
-!116 = distinct !{!116, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
-!119 = distinct !{!119, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!120 = distinct !{!120, !11}
+!114 = distinct !{!114, !8}
+!115 = !{!116}
+!116 = distinct !{!116, !117, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
+!117 = distinct !{!117, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
+!120 = distinct !{!120, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
 !121 = !{!122}
 !122 = distinct !{!122, !123, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !123 = distinct !{!123, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
@@ -21149,19 +21613,19 @@ attributes #22 = { builtin nounwind }
 !145 = !{!146}
 !146 = distinct !{!146, !147, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !147 = distinct !{!147, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
-!150 = distinct !{!150, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
-!153 = distinct !{!153, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!154 = distinct !{!154, !11}
-!155 = distinct !{!155, !11}
-!156 = distinct !{!156, !11}
-!157 = distinct !{!157, !11}
-!158 = distinct !{!158, !11}
-!159 = distinct !{!159, !11}
-!160 = distinct !{!160, !11}
+!148 = distinct !{!148, !8}
+!149 = distinct !{!149, !8}
+!150 = distinct !{!150, !8}
+!151 = distinct !{!151, !8}
+!152 = distinct !{!152, !8}
+!153 = distinct !{!153, !8}
+!154 = distinct !{!154, !8}
+!155 = !{!156}
+!156 = distinct !{!156, !157, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
+!157 = distinct !{!157, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
+!158 = !{!159}
+!159 = distinct !{!159, !160, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
+!160 = distinct !{!160, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
 !161 = !{!162}
 !162 = distinct !{!162, !163, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !163 = distinct !{!163, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
@@ -21193,30 +21657,24 @@ attributes #22 = { builtin nounwind }
 !189 = distinct !{!189, !190, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !190 = distinct !{!190, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
 !191 = !{!192}
-!192 = distinct !{!192, !193, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
-!193 = distinct !{!193, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
-!194 = !{!195}
-!195 = distinct !{!195, !196, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
-!196 = distinct !{!196, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
+!192 = distinct !{!192, !193, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!193 = distinct !{!193, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!194 = !{!195, !192}
+!195 = distinct !{!195, !196, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!196 = distinct !{!196, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
 !197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!199 = distinct !{!199, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!198 = distinct !{!198, !199, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!199 = distinct !{!199, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
 !200 = !{!201, !198}
-!201 = distinct !{!201, !202, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!202 = distinct !{!202, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!205 = distinct !{!205, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!206 = !{!207, !204}
-!207 = distinct !{!207, !208, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!208 = distinct !{!208, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!209 = distinct !{!209, !11}
-!210 = distinct !{!210, !11}
-!211 = distinct !{!211, !11}
-!212 = distinct !{!212, !11}
-!213 = distinct !{!213, !11}
-!214 = distinct !{!214, !11}
-!215 = distinct !{!215, !11}
-!216 = distinct !{!216, !11}
-!217 = distinct !{!217, !11}
-!218 = distinct !{!218, !11}
+!201 = distinct !{!201, !202, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!202 = distinct !{!202, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!203 = distinct !{!203, !8}
+!204 = distinct !{!204, !8}
+!205 = distinct !{!205, !8}
+!206 = distinct !{!206, !8}
+!207 = distinct !{!207, !8}
+!208 = distinct !{!208, !8}
+!209 = distinct !{!209, !8}
+!210 = distinct !{!210, !8}
+!211 = distinct !{!211, !8}
+!212 = distinct !{!212, !8}

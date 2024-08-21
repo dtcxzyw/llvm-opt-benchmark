@@ -973,7 +973,7 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   %.sroa.2.0..sroa_idx = getelementptr i8, ptr %11, i64 -8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %13 = icmp sgt i32 %2, 0
-  %or.cond = and i1 %13, %3
+  %or.cond = and i1 %3, %13
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %4
@@ -2986,22 +2986,22 @@ define internal fastcc void @scaleBB(ptr nocapture noundef readonly %0, double n
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 48
   %7 = load double, ptr %6, align 8
-  %8 = fmul double %7, %1
+  %8 = fmul double %1, %7
   store double %8, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 56
   %11 = load double, ptr %10, align 8
-  %12 = fmul double %11, %2
+  %12 = fmul double %2, %11
   store double %12, ptr %10, align 8
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   %15 = load double, ptr %14, align 8
-  %16 = fmul double %15, %1
+  %16 = fmul double %1, %15
   store double %16, ptr %14, align 8
   %17 = load ptr, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load double, ptr %18, align 8
-  %20 = fmul double %19, %2
+  %20 = fmul double %2, %19
   store double %20, ptr %18, align 8
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 24
@@ -3018,14 +3018,14 @@ define internal fastcc void @scaleBB(ptr nocapture noundef readonly %0, double n
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %23, i64 72
   %30 = load double, ptr %29, align 8
-  %31 = fmul double %30, %1
+  %31 = fmul double %1, %30
   store double %31, ptr %29, align 8
   %32 = load ptr, ptr %4, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 80
   %36 = load double, ptr %35, align 8
-  %37 = fmul double %36, %2
+  %37 = fmul double %2, %36
   store double %37, ptr %35, align 8
   %.pre = load ptr, ptr %4, align 8
   br label %38

@@ -372,7 +372,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %l.sroa.0.0.copyload = load i32, ptr %__begin1.07, align 4
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %2 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i = icmp eq i32 %2, %l.sroa.0.0.copyload
+  %cmp.i.i = icmp eq i32 %l.sroa.0.0.copyload, %2
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -411,7 +411,7 @@ define hidden void @_ZNK2pb10constraint11display_litERSoRKNS_16solver_interfaceE
 entry:
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %0 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.not = icmp eq i32 %0, %lit.coerce
+  %cmp.i.not = icmp eq i32 %lit.coerce, %0
   br i1 %cmp.i.not, label %if.end32, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -482,7 +482,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
   %retval.sroa.0.0.copyload.i21.us = load i32, ptr %arrayidx.i.us, align 4
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %2 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i.us = icmp eq i32 %2, %retval.sroa.0.0.copyload.i21.us
+  %cmp.i.i.us = icmp eq i32 %retval.sroa.0.0.copyload.i21.us, %2
   br i1 %cmp.i.i.us, label %if.then.i.us, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %for.body.us
@@ -535,7 +535,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %retval.sroa.0.0.copyload.i21 = load i32, ptr %arrayidx.i, align 4
   %.b30 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %9 = select i1 %.b30, i32 -2, i32 0
-  %cmp.i.i = icmp eq i32 %9, %retval.sroa.0.0.copyload.i21
+  %cmp.i.i = icmp eq i32 %retval.sroa.0.0.copyload.i21, %9
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body

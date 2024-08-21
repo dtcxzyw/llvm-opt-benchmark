@@ -1236,7 +1236,7 @@ if.then.i:                                        ; preds = %while.body.i
   %5 = inttoptr i64 %4 to ptr
   %subtree_last.i = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load i64, ptr %subtree_last.i, align 8
-  %cmp.not.i = icmp ult i64 %6, %start
+  %cmp.not.i = icmp ugt i64 %start, %6
   br i1 %cmp.not.i, label %if.end6.i, label %while.body.i.backedge
 
 if.end6.i:                                        ; preds = %if.then.i, %while.body.i
@@ -1248,7 +1248,7 @@ if.end6.i:                                        ; preds = %if.then.i, %while.b
 if.then9.i:                                       ; preds = %if.end6.i
   %last10.i = getelementptr inbounds i8, ptr %node.addr.0.i, i64 32
   %8 = load i64, ptr %last10.i, align 8
-  %cmp11.not.i = icmp ult i64 %8, %start
+  %cmp11.not.i = icmp ugt i64 %start, %8
   br i1 %cmp11.not.i, label %while.end18.i, label %return
 
 while.end18.i:                                    ; preds = %if.then9.i
@@ -1261,7 +1261,7 @@ if.then23.i:                                      ; preds = %while.end18.i
   %10 = inttoptr i64 %9 to ptr
   %subtree_last27.i = getelementptr inbounds i8, ptr %10, i64 40
   %11 = load i64, ptr %subtree_last27.i, align 8
-  %cmp28.not.i = icmp ult i64 %11, %start
+  %cmp28.not.i = icmp ugt i64 %start, %11
   br i1 %cmp28.not.i, label %return, label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %if.then23.i, %if.then.i
@@ -1293,7 +1293,7 @@ do.body7.preheader:                               ; preds = %if.then, %while.bod
 if.then:                                          ; preds = %while.body3
   %subtree_last = getelementptr inbounds i8, ptr %rb.0, i64 40
   %2 = load i64, ptr %subtree_last, align 8
-  %cmp.not = icmp ult i64 %2, %start
+  %cmp.not = icmp ugt i64 %start, %2
   br i1 %cmp.not, label %do.body7.preheader, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then, %while.body.i.backedge
@@ -1307,7 +1307,7 @@ if.then.i:                                        ; preds = %while.body.i
   %4 = inttoptr i64 %3 to ptr
   %subtree_last.i = getelementptr inbounds i8, ptr %4, i64 40
   %5 = load i64, ptr %subtree_last.i, align 8
-  %cmp.not.i = icmp ult i64 %5, %start
+  %cmp.not.i = icmp ugt i64 %start, %5
   br i1 %cmp.not.i, label %if.end6.i, label %while.body.i.backedge
 
 if.end6.i:                                        ; preds = %if.then.i, %while.body.i
@@ -1319,7 +1319,7 @@ if.end6.i:                                        ; preds = %if.then.i, %while.b
 if.then9.i:                                       ; preds = %if.end6.i
   %last10.i = getelementptr inbounds i8, ptr %node.addr.0.i, i64 32
   %7 = load i64, ptr %last10.i, align 8
-  %cmp11.not.i = icmp ult i64 %7, %start
+  %cmp11.not.i = icmp ugt i64 %start, %7
   br i1 %cmp11.not.i, label %while.end18.i, label %return
 
 while.end18.i:                                    ; preds = %if.then9.i
@@ -1332,7 +1332,7 @@ if.then23.i:                                      ; preds = %while.end18.i
   %9 = inttoptr i64 %8 to ptr
   %subtree_last27.i = getelementptr inbounds i8, ptr %9, i64 40
   %10 = load i64, ptr %subtree_last27.i, align 8
-  %cmp28.not.i = icmp ult i64 %10, %start
+  %cmp28.not.i = icmp ugt i64 %start, %10
   br i1 %cmp28.not.i, label %return, label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %if.then23.i, %if.then.i
@@ -1357,13 +1357,13 @@ if.end12:                                         ; preds = %do.body7
 do.end27:                                         ; preds = %if.end12
   %start28 = getelementptr inbounds i8, ptr %12, i64 24
   %15 = load i64, ptr %start28, align 8
-  %cmp29 = icmp ugt i64 %15, %last
+  %cmp29 = icmp ult i64 %last, %15
   br i1 %cmp29, label %return, label %if.end31
 
 if.end31:                                         ; preds = %do.end27
   %last32 = getelementptr inbounds i8, ptr %12, i64 32
   %16 = load i64, ptr %last32, align 8
-  %cmp33.not = icmp ult i64 %16, %start
+  %cmp33.not = icmp ugt i64 %start, %16
   br i1 %cmp33.not, label %while.body3, label %return
 
 return:                                           ; preds = %if.end31, %do.end27, %do.body7, %if.then23.i, %while.end18.i, %if.then9.i, %if.end6.i

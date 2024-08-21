@@ -406,7 +406,7 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %.val126244 = load ptr, ptr %18, align 8
   %165 = getelementptr i8, ptr %.val126244, i64 4
   %.val126.val245 = load i32, ptr %165, align 4
-  %166 = icmp sgt i32 %.val126.val245, %1
+  %166 = icmp slt i32 %1, %.val126.val245
   br i1 %166, label %.lr.ph247, label %._crit_edge
 
 .lr.ph247:                                        ; preds = %Vec_IntStart.exit160
@@ -460,7 +460,7 @@ Abc_NtkVectorClearPars.exit:                      ; preds = %178, %._crit_edge
   %.val6.i = load ptr, ptr %18, align 8
   %185 = getelementptr i8, ptr %.val6.i, i64 4
   %.val.val7.i = load i32, ptr %185, align 4
-  %186 = icmp sgt i32 %.val.val7.i, %1
+  %186 = icmp slt i32 %1, %.val.val7.i
   br i1 %186, label %.lr.ph.i161, label %Abc_NtkVectorPrintVars.exit
 
 .lr.ph.i161:                                      ; preds = %181
@@ -570,7 +570,7 @@ Abc_NtkModelToVector.exit:                        ; preds = %.lr.ph.i169, %218, 
   %.val6.i174 = load ptr, ptr %18, align 8
   %230 = getelementptr i8, ptr %.val6.i174, i64 4
   %.val.val7.i175 = load i32, ptr %230, align 4
-  %231 = icmp sgt i32 %.val.val7.i175, %1
+  %231 = icmp slt i32 %1, %.val.val7.i175
   br i1 %231, label %.lr.ph.i176, label %Abc_NtkVectorClearVars.exit
 
 .lr.ph.i176:                                      ; preds = %Abc_NtkModelToVector.exit, %.lr.ph.i176
@@ -671,7 +671,7 @@ Abc_NtkVectorClearPars.exit201:                   ; preds = %.lr.ph.i195, %258
   %.val6.i202 = load ptr, ptr %18, align 8
   %266 = getelementptr i8, ptr %.val6.i202, i64 4
   %.val.val7.i203 = load i32, ptr %266, align 4
-  %267 = icmp sgt i32 %.val.val7.i203, %1
+  %267 = icmp slt i32 %1, %.val.val7.i203
   br i1 %267, label %.lr.ph.i204, label %Abc_NtkVectorPrintVars.exit210
 
 .lr.ph.i204:                                      ; preds = %262, %.lr.ph.i204

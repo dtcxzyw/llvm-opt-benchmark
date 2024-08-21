@@ -893,7 +893,7 @@ if.then.i115:                                     ; preds = %for.body
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %if.then.i115, %for.body
   %12 = load i64, ptr %bufs_arr, align 8
-  %cmp.not.i = icmp ugt i64 %12, %i.040
+  %cmp.not.i = icmp ult i64 %i.040, %12
   br i1 %cmp.not.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit, label %do.body4.i
 
 do.body4.i:                                       ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit

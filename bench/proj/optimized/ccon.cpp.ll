@@ -212,12 +212,12 @@ define internal { double, double } @_ZL12ccon_forward5PJ_LPP8PJconsts(double %0,
   %11 = fsub double %7, %10
   %12 = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load double, ptr %12, align 8
-  %14 = fmul double %13, %0
+  %14 = fmul double %0, %13
   %15 = tail call double @sin(double noundef %14) #10
   %16 = fmul double %11, %15
   %17 = load double, ptr %6, align 8
   %18 = load double, ptr %12, align 8
-  %19 = fmul double %18, %0
+  %19 = fmul double %0, %18
   %20 = tail call double @cos(double noundef %19) #10
   %21 = fneg double %11
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %20, double %17)

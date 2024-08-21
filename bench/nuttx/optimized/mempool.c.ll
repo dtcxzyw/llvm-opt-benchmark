@@ -354,11 +354,11 @@ define void @mempool_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
-  %.not41 = icmp ule ptr %15, %1
+  %.not41 = icmp uge ptr %1, %15
   %16 = getelementptr inbounds i8, ptr %15, i64 %11
   %17 = sub i64 0, %6
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
-  %19 = icmp ugt ptr %18, %1
+  %19 = icmp ult ptr %1, %18
   %or.cond = select i1 %.not41, i1 %19, i1 false
   br i1 %or.cond, label %20, label %23
 

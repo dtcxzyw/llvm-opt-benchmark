@@ -1754,7 +1754,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr no
 
 21:                                               ; preds = %12
   %22 = icmp eq i32 %17, 4
-  %23 = xor i1 %22, %3
+  %23 = xor i1 %3, %22
   %24 = zext i1 %23 to i32
   %25 = call noundef ptr @palloc(i64 noundef 32) #8
   store i32 %24, ptr %25, align 8

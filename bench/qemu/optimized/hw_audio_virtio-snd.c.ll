@@ -1418,7 +1418,7 @@ define internal fastcc noundef i32 @virtio_snd_set_pcm_params(ptr noundef %s, i3
 entry:
   %streams = getelementptr inbounds i8, ptr %s, i64 612
   %0 = load i32, ptr %streams, align 4
-  %cmp.not = icmp ugt i32 %0, %stream_id
+  %cmp.not = icmp ult i32 %stream_id, %0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
@@ -1519,7 +1519,7 @@ lor.lhs.false:                                    ; preds = %entry
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
   %streams4 = getelementptr inbounds i8, ptr %s, i64 612
   %3 = load i32, ptr %streams4, align 4
-  %cmp5.not = icmp ugt i32 %3, %stream_id
+  %cmp5.not = icmp ult i32 %stream_id, %3
   br i1 %cmp5.not, label %virtio_snd_pcm_get_params.exit, label %return
 
 virtio_snd_pcm_get_params.exit:                   ; preds = %lor.lhs.false3
@@ -1613,7 +1613,7 @@ switch.lookup60:                                  ; preds = %switch.lookup
   %div51 = lshr i32 %16, 1
   %and = and i32 %16, 1
   %add = add nuw i32 %div51, %and
-  %cmp35 = icmp ule i32 %add, %stream_id
+  %cmp35 = icmp uge i32 %stream_id, %add
   %conv = zext i1 %cmp35 to i8
   %info = getelementptr inbounds i8, ptr %stream.0, i64 8
   %direction = getelementptr inbounds i8, ptr %stream.0, i64 32
@@ -1979,7 +1979,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
 trace_virtio_snd_handle_pcm_info.exit.i.i:        ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %for.body.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %42 = load i32, ptr %streams.i.i93.i, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %42, %add33.i.i
+  %cmp.not.i.i.i = icmp ult i32 %add33.i.i, %42
   br i1 %cmp.not.i.i.i, label %virtio_snd_pcm_get_stream.exit.i.i, label %if.then36.i.i
 
 virtio_snd_pcm_get_stream.exit.i.i:               ; preds = %trace_virtio_snd_handle_pcm_info.exit.i.i
@@ -2259,7 +2259,7 @@ trace_virtio_snd_handle_pcm_release.exit.i.i:     ; preds = %if.else.i.i.i105.i,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i77.i)
   %87 = load i32, ptr %stream_id.i78.i, align 4
   %88 = load i32, ptr %streams.i.i93.i, align 4
-  %cmp.not.i9.i.i = icmp ugt i32 %88, %87
+  %cmp.not.i9.i.i = icmp ult i32 %87, %88
   br i1 %cmp.not.i9.i.i, label %virtio_snd_pcm_get_stream.exit.i94.i, label %if.then11.i.i
 
 virtio_snd_pcm_get_stream.exit.i94.i:             ; preds = %trace_virtio_snd_handle_pcm_release.exit.i.i
@@ -2593,7 +2593,7 @@ trace_virtio_snd_handle_pcm_start_stop.exit:      ; preds = %if.end6, %land.lhs.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %streams.i = getelementptr inbounds i8, ptr %s, i64 612
   %16 = load i32, ptr %streams.i, align 4
-  %cmp.not.i = icmp ugt i32 %16, %9
+  %cmp.not.i = icmp ult i32 %9, %16
   br i1 %cmp.not.i, label %virtio_snd_pcm_get_stream.exit, label %if.else31
 
 virtio_snd_pcm_get_stream.exit:                   ; preds = %trace_virtio_snd_handle_pcm_start_stop.exit
@@ -2776,7 +2776,7 @@ entry:
 land.lhs.true1.i34:                               ; preds = %entry
   %iov_len.i35 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load i64, ptr %iov_len.i35, align 8
-  %cmp.not.i = icmp ult i64 %8, %7
+  %cmp.not.i = icmp ugt i64 %7, %8
   %sub.i = sub nuw i64 %8, %7
   %cmp5.not.i36 = icmp ult i64 %sub.i, 8
   %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i36

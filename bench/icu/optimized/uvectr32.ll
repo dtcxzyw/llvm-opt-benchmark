@@ -241,7 +241,7 @@ if.end6.i.i:                                      ; preds = %if.end3.i.i
   %maxCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %maxCapacity.i.i, align 8
   %cmp7.i.i = icmp sgt i32 %3, 0
-  %cmp9.i.i = icmp slt i32 %3, %0
+  %cmp9.i.i = icmp sgt i32 %0, %3
   %or.cond.i.i = and i1 %cmp7.i.i, %cmp9.i.i
   br i1 %or.cond.i.i, label %if.end.sink.split, label %if.end11.i.i
 
@@ -278,7 +278,7 @@ if.end.i:                                         ; preds = %entry, %if.end3.i.i
   %7 = phi i32 [ %newCap.1.i.i, %if.then ], [ %1, %if.end3.i.i ], [ %1, %entry ]
   %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i32, ptr %count.i, align 8
-  %cmp2.i = icmp slt i32 %8, %6
+  %cmp2.i = icmp sgt i32 %6, %8
   br i1 %cmp2.i, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -289,7 +289,7 @@ if.end6.i.i.i:                                    ; preds = %if.then3.i
   %maxCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i32, ptr %maxCapacity.i.i.i, align 8
   %cmp7.i.i.i = icmp sgt i32 %9, 0
-  %cmp9.i.i.i = icmp slt i32 %9, %6
+  %cmp9.i.i.i = icmp sgt i32 %6, %9
   %or.cond.i.i.i = and i1 %cmp7.i.i.i, %cmp9.i.i.i
   %cmp13.i.i.i = icmp sgt i32 %7, 1073741823
   %or.cond.i8 = or i1 %cmp13.i.i.i, %or.cond.i.i.i
@@ -384,7 +384,7 @@ entry:
 if.end:                                           ; preds = %entry
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
-  %cmp2 = icmp slt i32 %0, %newSize
+  %cmp2 = icmp sgt i32 %newSize, %0
   br i1 %cmp2, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
@@ -397,7 +397,7 @@ if.end6.i.i:                                      ; preds = %if.then3
   %maxCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %maxCapacity.i.i, align 8
   %cmp7.i.i = icmp sgt i32 %2, 0
-  %cmp9.i.i = icmp slt i32 %2, %newSize
+  %cmp9.i.i = icmp sgt i32 %newSize, %2
   %or.cond.i.i = and i1 %cmp7.i.i, %cmp9.i.i
   %cmp13.i.i = icmp sgt i32 %1, 1073741823
   %or.cond = or i1 %cmp13.i.i, %or.cond.i.i
@@ -499,7 +499,7 @@ entry:
   %cmp = icmp sgt i32 %index, -1
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
-  %cmp2 = icmp sgt i32 %0, %index
+  %cmp2 = icmp slt i32 %index, %0
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then, label %if.end
 
@@ -524,7 +524,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
-  %cmp2.not = icmp slt i32 %0, %index
+  %cmp2.not = icmp sgt i32 %index, %0
   br i1 %cmp2.not, label %if.end, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
@@ -543,7 +543,7 @@ if.end6.i.i:                                      ; preds = %if.else.i
   %maxCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %maxCapacity.i.i, align 8
   %cmp7.i.i = icmp sgt i32 %3, 0
-  %cmp9.i.i = icmp sle i32 %3, %0
+  %cmp9.i.i = icmp sge i32 %0, %3
   %or.cond.i.i = and i1 %cmp7.i.i, %cmp9.i.i
   br i1 %or.cond.i.i, label %if.then10.i.i, label %if.end11.i.i
 
@@ -660,7 +660,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
   %5 = load i32, ptr %arrayidx.i, align 4
-  %cmp2.i = icmp eq i32 %5, %4
+  %cmp2.i = icmp eq i32 %4, %5
   br i1 %cmp2.i, label %for.inc, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -683,7 +683,7 @@ define noundef i32 @_ZNK6icu_759UVector327indexOfEii(ptr nocapture noundef nonnu
 entry:
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
-  %cmp4 = icmp sgt i32 %0, %startIndex
+  %cmp4 = icmp slt i32 %startIndex, %0
   br i1 %cmp4, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -696,7 +696,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ %2, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx, align 4
-  %cmp2 = icmp eq i32 %3, %key
+  %cmp2 = icmp eq i32 %key, %3
   br i1 %cmp2, label %return.loopexit.split.loop.exit8, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -747,7 +747,7 @@ for.body.i.us:                                    ; preds = %for.inc.i.us, %for.
   %indvars.iv.i.us = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next.i.us, %for.inc.i.us ]
   %arrayidx.i.us = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i.us
   %5 = load i32, ptr %arrayidx.i.us, align 4
-  %cmp2.i.us = icmp eq i32 %5, %4
+  %cmp2.i.us = icmp eq i32 %4, %5
   br i1 %cmp2.i.us, label %return, label %for.inc.i.us
 
 for.inc.i.us:                                     ; preds = %for.body.i.us
@@ -801,7 +801,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i
   %8 = load i32, ptr %arrayidx.i, align 4
-  %cmp2.i = icmp eq i32 %8, %6
+  %cmp2.i = icmp eq i32 %6, %8
   br i1 %cmp2.i, label %for.cond.preheader.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -863,7 +863,7 @@ for.cond.preheader:                               ; preds = %entry
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %sub5 = add nsw i32 %0, -1
-  %cmp26 = icmp sgt i32 %sub5, %index
+  %cmp26 = icmp slt i32 %index, %sub5
   br i1 %cmp26, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -930,7 +930,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i
   %7 = load i32, ptr %arrayidx.i, align 4
-  %cmp2.i = icmp eq i32 %7, %4
+  %cmp2.i = icmp eq i32 %4, %7
   br i1 %cmp2.i, label %for.inc, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -1048,7 +1048,7 @@ if.end6:                                          ; preds = %if.end3
   %maxCapacity = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %maxCapacity, align 8
   %cmp7 = icmp sgt i32 %2, 0
-  %cmp9 = icmp slt i32 %2, %minimumCapacity
+  %cmp9 = icmp sgt i32 %minimumCapacity, %2
   %or.cond = and i1 %cmp7, %cmp9
   br i1 %or.cond, label %if.then10, label %if.end11
 
@@ -1202,7 +1202,7 @@ if.end6.i.i:                                      ; preds = %if.end3.i.i
   %maxCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i32, ptr %maxCapacity.i.i, align 8
   %cmp7.i.i = icmp sgt i32 %5, 0
-  %cmp9.i.i = icmp sle i32 %5, %0
+  %cmp9.i.i = icmp sge i32 %0, %5
   %or.cond.i.i = and i1 %cmp7.i.i, %cmp9.i.i
   br i1 %or.cond.i.i, label %if.then10.i.i, label %if.end11.i.i
 

@@ -225,7 +225,7 @@ define hidden void @_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread(i32
 7:                                                ; preds = %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %8 = trunc nsw i64 %indvars.iv.next to i32
-  %.not = icmp eq i32 %8, %0
+  %.not = icmp eq i32 %0, %8
   br i1 %.not, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph, %7

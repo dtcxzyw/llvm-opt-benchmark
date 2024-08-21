@@ -72,7 +72,7 @@ if.else:                                          ; preds = %if.end23
 lor.lhs.false29:                                  ; preds = %if.else
   %6 = load i32, ptr %inData, align 4
   %call31 = call i32 @udata_readInt32_75(ptr noundef nonnull %ds, i32 noundef %6)
-  %cmp33 = icmp sgt i32 %call31, %length
+  %cmp33 = icmp slt i32 %length, %call31
   br i1 %cmp33, label %return, label %if.end36
 
 if.end36:                                         ; preds = %lor.lhs.false29, %if.then25
@@ -261,7 +261,7 @@ if.else:                                          ; preds = %if.end8
 lor.lhs.false14:                                  ; preds = %if.else
   %2 = load i32, ptr %inData, align 4
   %call16 = tail call i32 @udata_readInt32_75(ptr noundef nonnull %ds, i32 noundef %2)
-  %cmp18 = icmp sgt i32 %call16, %length
+  %cmp18 = icmp slt i32 %length, %call16
   br i1 %cmp18, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %lor.lhs.false14, %if.else
@@ -582,7 +582,7 @@ if.end3:                                          ; preds = %if.end
   %call4 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %1)
   store i32 %call4, ptr %indexes, align 16
   %mul = shl nsw i32 %call4, 2
-  %cmp8 = icmp sgt i32 %mul, %length
+  %cmp8 = icmp slt i32 %length, %mul
   %or.cond167 = select i1 %cmp, i1 %cmp8, i1 false
   br i1 %or.cond167, label %if.then9, label %for.cond.preheader
 
@@ -649,7 +649,7 @@ if.end36:                                         ; preds = %if.end36.sink.split
   br i1 %cmp37, label %return, label %if.end39
 
 if.end39:                                         ; preds = %if.end36
-  %cmp40 = icmp sgt i32 %size.0, %length
+  %cmp40 = icmp slt i32 %length, %size.0
   br i1 %cmp40, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end39

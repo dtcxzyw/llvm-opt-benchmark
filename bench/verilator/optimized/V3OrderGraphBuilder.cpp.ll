@@ -4387,7 +4387,7 @@ _ZNSt11_Deque_baseI9OrderUserSaIS0_EE16_M_allocate_nodeEv.exit.i: ; preds = %.lr
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
   %20 = tail call ptr @__cxa_begin_catch(ptr %19) #21
-  %21 = icmp ugt ptr %.011.i, %12
+  %21 = icmp ult ptr %12, %.011.i
   br i1 %21, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseI9OrderUserSaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
@@ -5057,7 +5057,7 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
   %54 = sub i64 %52, %53
   %55 = ashr exact i64 %54, 3
   %56 = ashr exact i64 %54, 2
-  %57 = icmp ult i64 %55, %56
+  %57 = icmp ugt i64 %56, %55
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %49
@@ -5070,7 +5070,7 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
   br label %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 60:                                               ; preds = %49
-  %61 = icmp ugt i64 %55, %56
+  %61 = icmp ult i64 %56, %55
   br i1 %61, label %62, label %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 62:                                               ; preds = %60

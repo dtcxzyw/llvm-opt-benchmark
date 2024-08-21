@@ -146,7 +146,7 @@ if.then53:                                        ; preds = %if.end51
 
 if.end55:                                         ; preds = %if.then53, %if.end51
   %cmp5854 = icmp ne i32 %num_lits, 0
-  %or.cond = and i1 %cmp5854, %save_atoms
+  %or.cond = and i1 %save_atoms, %cmp5854
   br i1 %or.cond, label %for.body, label %if.end69
 
 for.body:                                         ; preds = %if.end55, %_ZN11ast_manager7inc_refEP3ast.exit

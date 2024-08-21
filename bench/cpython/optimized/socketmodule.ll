@@ -2953,7 +2953,7 @@ if.end9:                                          ; preds = %sw.epilog
   %ai_addrlen = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i32, ptr %ai_addrlen, align 8
   %conv10 = zext i32 %11 to i64
-  %spec.select = call i64 @llvm.umin.i64(i64 %conv10, i64 %addr_ret_size)
+  %spec.select = call i64 @llvm.umin.i64(i64 %addr_ret_size, i64 %conv10)
   %ai_addr = getelementptr inbounds i8, ptr %6, i64 24
   %12 = load ptr, ptr %ai_addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %addr_ret, ptr align 2 %12, i64 %spec.select, i1 false)
@@ -3076,7 +3076,7 @@ if.end70:                                         ; preds = %if.end62
   %ai_addrlen71 = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load i32, ptr %ai_addrlen71, align 8
   %conv72 = zext i32 %21 to i64
-  %spec.select35 = call i64 @llvm.umin.i64(i64 %conv72, i64 %addr_ret_size)
+  %spec.select35 = call i64 @llvm.umin.i64(i64 %addr_ret_size, i64 %conv72)
   %ai_addr79 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %ai_addr79, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %addr_ret, ptr align 2 %22, i64 %spec.select35, i1 false)
@@ -11552,7 +11552,7 @@ entry:
   %0 = load ptr, ptr %data, align 8
   %1 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %1, align 8
-  %cmp = icmp sgt i64 %.val, %received
+  %cmp = icmp slt i64 %received, %.val
   br i1 %cmp, label %if.end, label %if.then.i.i
 
 if.end:                                           ; preds = %entry

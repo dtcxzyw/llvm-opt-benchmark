@@ -3259,7 +3259,7 @@ define internal fastcc void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u
   %17 = load i64, ptr %16, align 8, !alias.scope !1052, !noalias !1057, !noundef !8
   %18 = load i64, ptr %.8.val, align 8, !alias.scope !1059, !noalias !1057, !noundef !8
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %15
+  %20 = icmp ugt i64 %15, %19
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %10
@@ -3546,7 +3546,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !1135, !noalias !1140, !noundef !8
   %45 = load i64, ptr %0, align 8, !alias.scope !1142, !noalias !1140, !noundef !8
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48dd1b19a959c7a3E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -3603,7 +3603,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !1148, !noalias !1153, !noundef !8
   %6 = load i64, ptr %0, align 8, !alias.scope !1155, !noalias !1153, !noundef !8
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48dd1b19a959c7a3E.exit"
 
 9:                                                ; preds = %3
@@ -4483,7 +4483,7 @@ define hidden void @_ZN9itertools9Itertools4join17h2da4a0cef5d7c083E(ptr noalias
   %53 = load i64, ptr %.sroa.59.0..sroa_idx, align 8, !alias.scope !1444, !noalias !1449, !noundef !8
   %54 = load i64, ptr %13, align 8, !alias.scope !1451, !noalias !1449, !noundef !8
   %55 = sub i64 %54, %53
-  %56 = icmp ult i64 %55, %3
+  %56 = icmp ugt i64 %3, %55
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %52

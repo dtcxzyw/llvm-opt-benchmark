@@ -94,7 +94,7 @@ entry:
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %out0.i.i)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %state.i)
   %call2 = call i32 @crypto_verify_32(ptr noundef nonnull %h, ptr noundef nonnull %correct) #5
-  %cmp = icmp eq ptr %correct, %h
+  %cmp = icmp eq ptr %h, %correct
   %or = select i1 %cmp, i32 -1, i32 %call2
   %call5 = call i32 @sodium_memcmp(ptr noundef nonnull %correct, ptr noundef nonnull %h, i64 noundef 32) #5
   %or6 = or i32 %or, %call5

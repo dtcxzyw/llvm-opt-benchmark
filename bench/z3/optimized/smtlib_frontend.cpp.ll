@@ -3068,7 +3068,7 @@ if.then:                                          ; preds = %while.body
   %0 = load ptr, ptr %add.ptr9.i.i.i, align 8
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i13.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp23.i.i.i.i = icmp ugt i64 %div.i13.i.i.i, %div11.i.i.i
+  %cmp23.i.i.i.i = icmp ult i64 %div11.i.i.i, %div.i13.i.i.i
   br i1 %cmp23.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i
@@ -3148,7 +3148,7 @@ if.end7.split.i.i.i:                              ; preds = %_ZSt13__adjust_heap
   %dec.i.i.i = add nsw i64 %__parent.05.i.i.i, -1
   %add.ptr10.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i.i
   %5 = load ptr, ptr %add.ptr10.i.i.i, align 8
-  %cmp23.i14.not.i.i.i = icmp slt i64 %div.i13.i.i.i, %__parent.05.i.i.i
+  %cmp23.i14.not.i.i.i = icmp sgt i64 %__parent.05.i.i.i, %div.i13.i.i.i
   br i1 %cmp23.i14.not.i.i.i, label %while.end.i15.i.i.i, label %while.body.i44.i.i.i
 
 while.body.i44.i.i.i:                             ; preds = %if.end7.split.i.i.i, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit72.i.i.i
@@ -3917,7 +3917,7 @@ if.then:                                          ; preds = %while.body
   %0 = load ptr, ptr %add.ptr9.i.i.i, align 8
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i13.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp23.i.i.i.i = icmp ugt i64 %div.i13.i.i.i, %div11.i.i.i
+  %cmp23.i.i.i.i = icmp ult i64 %div11.i.i.i, %div.i13.i.i.i
   br i1 %cmp23.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i
@@ -3997,7 +3997,7 @@ if.end7.split.i.i.i:                              ; preds = %_ZSt13__adjust_heap
   %dec.i.i.i = add nsw i64 %__parent.05.i.i.i, -1
   %add.ptr10.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i.i
   %5 = load ptr, ptr %add.ptr10.i.i.i, align 8
-  %cmp23.i14.not.i.i.i = icmp slt i64 %div.i13.i.i.i, %__parent.05.i.i.i
+  %cmp23.i14.not.i.i.i = icmp sgt i64 %__parent.05.i.i.i, %div.i13.i.i.i
   br i1 %cmp23.i14.not.i.i.i, label %while.end.i15.i.i.i, label %while.body.i44.i.i.i
 
 while.body.i44.i.i.i:                             ; preds = %if.end7.split.i.i.i, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit72.i.i.i
@@ -4761,7 +4761,7 @@ if.then:                                          ; preds = %while.body
   %0 = load ptr, ptr %add.ptr9.i.i.i, align 8
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i13.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp23.i.i.i.i = icmp ugt i64 %div.i13.i.i.i, %div11.i.i.i
+  %cmp23.i.i.i.i = icmp ult i64 %div11.i.i.i, %div.i13.i.i.i
   br i1 %cmp23.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i
@@ -4841,7 +4841,7 @@ if.end7.split.i.i.i:                              ; preds = %_ZSt13__adjust_heap
   %dec.i.i.i = add nsw i64 %__parent.05.i.i.i, -1
   %add.ptr10.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i.i
   %5 = load ptr, ptr %add.ptr10.i.i.i, align 8
-  %cmp23.i14.not.i.i.i = icmp slt i64 %div.i13.i.i.i, %__parent.05.i.i.i
+  %cmp23.i14.not.i.i.i = icmp sgt i64 %__parent.05.i.i.i, %div.i13.i.i.i
   br i1 %cmp23.i14.not.i.i.i, label %while.end.i15.i.i.i, label %while.body.i44.i.i.i
 
 while.body.i44.i.i.i:                             ; preds = %if.end7.split.i.i.i, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit72.i.i.i

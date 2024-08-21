@@ -328,7 +328,7 @@ _ZN7mitsuba3refIKNS_20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEEL
 
 _ZN7mitsuba3refIKNS_20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS8_EERS9_PS8_.exit: ; preds = %43
   %.not17 = icmp ne ptr %.pre, null
-  %brmerge.not = and i1 %.not17, %5
+  %brmerge.not = and i1 %5, %.not17
   br i1 %brmerge.not, label %50, label %_ZN7mitsuba3refIKNS_20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS8_EERS9_PS8_.exit.thread
 
 50:                                               ; preds = %_ZN7mitsuba3refIKNS_20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS8_EERS9_PS8_.exit
@@ -773,7 +773,7 @@ define weak_odr void @_ZN7mitsuba10ImageBlockIfN5drjit6MatrixINS_8SpectrumIfLm4E
 _ZN7mitsuba3refIKNS_20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS8_EERS9_PS8_.exit: ; preds = %._ZN7mitsuba3refIKNS_20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS8_EERS9_PS8_.exit_crit_edge, %50
   %53 = phi ptr [ %.pre, %._ZN7mitsuba3refIKNS_20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS8_EERS9_PS8_.exit_crit_edge ], [ %.pre103, %50 ]
   %.not76 = icmp ne ptr %53, null
-  %brmerge.not = and i1 %.not76, %4
+  %brmerge.not = and i1 %4, %.not76
   br i1 %brmerge.not, label %54, label %_ZN7mitsuba3refIKNS_20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS8_EERS9_PS8_.exit.thread
 
 54:                                               ; preds = %_ZN7mitsuba3refIKNS_20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS8_EERS9_PS8_.exit
@@ -1423,8 +1423,8 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   %sext = shl i64 %1, 32
   %34 = ashr exact i64 %sext, 32
   %35 = icmp sgt i32 %32, 0
-  %36 = mul i64 %34, %7
-  %37 = mul i64 %33, %7
+  %36 = mul i64 %7, %34
+  %37 = mul i64 %7, %33
   br i1 %35, label %.preheader.us.preheader, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -1990,7 +1990,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %121 = icmp ult i32 %113, %116
   %122 = icmp ult i32 %114, %120
   %123 = and i1 %122, %121
-  %or.cond = and i1 %123, %3
+  %or.cond = and i1 %3, %123
   %.not782 = icmp ne i32 %118, 0
   %or.cond847.not = select i1 %or.cond, i1 %.not782, i1 false
   br i1 %or.cond847.not, label %.lr.ph770.preheader, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4all_Ev.exit.thread
@@ -2434,7 +2434,7 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit.critedge: ; 
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit522: ; preds = %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit.critedge, %68, %.critedge849
   %.fr764 = phi i1 [ false, %.critedge849 ], [ %70, %68 ], [ false, %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit.critedge ]
-  %71 = and i1 %.fr764, %3
+  %71 = and i1 %3, %.fr764
   %72 = getelementptr inbounds i8, ptr %0, i64 28
   %73 = load i32, ptr %72, align 4
   %.not756 = icmp eq i32 %73, 0
@@ -5752,7 +5752,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %41 = zext nneg i8 %40 to i64
   %42 = select i1 %.not.i.i.i, i64 %41, i64 %39
   %43 = trunc i64 %42 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %43, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %43)
   %44 = sext i32 %.sroa.speculated to i64
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %37, i64 noundef %44)
           to label %46 unwind label %54
@@ -6295,7 +6295,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63

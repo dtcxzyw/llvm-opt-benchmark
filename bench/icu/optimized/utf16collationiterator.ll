@@ -141,7 +141,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -421,7 +421,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #15
   %cmp7 = icmp eq ptr %call, null
@@ -2201,7 +2201,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i, label %_ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit, label %if.end15.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp7.i = icmp ugt ptr %incdec.ptr.i, %3
+  %cmp7.i = icmp ult ptr %3, %incdec.ptr.i
   br i1 %cmp7.i, label %land.lhs.true.i, label %if.end15.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
@@ -2306,7 +2306,7 @@ if.then4.i24:                                     ; preds = %if.end.i21
   br i1 %tobool.not.i34, label %do.end, label %_ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit50
 
 if.else.i39:                                      ; preds = %if.end.i21
-  %cmp7.i40 = icmp ugt ptr %incdec.ptr.i17, %14
+  %cmp7.i40 = icmp ult ptr %14, %incdec.ptr.i17
   br i1 %cmp7.i40, label %land.lhs.true.i41, label %_ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit50
 
 land.lhs.true.i41:                                ; preds = %if.else.i39

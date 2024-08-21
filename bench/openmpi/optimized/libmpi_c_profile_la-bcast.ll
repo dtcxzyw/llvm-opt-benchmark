@@ -112,7 +112,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %25, %23, %20
   %.val75 = load ptr, ptr %44, align 8
   %45 = getelementptr i8, ptr %.val75, i64 16
   %.val75.val = load i32, ptr %45, align 8
-  %46 = icmp sle i32 %.val75.val, %3
+  %46 = icmp sge i32 %3, %.val75.val
   %47 = icmp slt i32 %3, 0
   %or.cond3 = or i1 %47, %46
   br i1 %or.cond3, label %48, label %68
@@ -134,7 +134,7 @@ ompi_comm_remote_size.exit:                       ; preds = %54
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 8
-  %60 = icmp sgt i32 %59, %3
+  %60 = icmp slt i32 %3, %59
   br i1 %60, label %68, label %62
 
 61:                                               ; preds = %54

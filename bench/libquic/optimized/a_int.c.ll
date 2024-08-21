@@ -288,7 +288,7 @@ if.then16:                                        ; preds = %if.else13
   %p.0.idx = zext i1 %or.cond to i64
   %p.0 = getelementptr inbounds i8, ptr %1, i64 %p.0.idx
   %dec = sext i1 %or.cond to i64
-  %len.addr.1 = add nsw i64 %dec, %len
+  %len.addr.1 = add nsw i64 %len, %dec
   %conv25 = trunc i64 %len.addr.1 to i32
   %sub = shl i64 %len.addr.1, 32
   %sext61 = add i64 %sub, -4294967296
@@ -357,7 +357,7 @@ if.else53:                                        ; preds = %if.else13
   %p.3.idx = zext i1 %or.cond1 to i64
   %p.3 = getelementptr inbounds i8, ptr %1, i64 %p.3.idx
   %dec63 = sext i1 %or.cond1 to i64
-  %len.addr.2 = add nsw i64 %dec63, %len
+  %len.addr.2 = add nsw i64 %len, %dec63
   %sext60 = shl i64 %len.addr.2, 32
   %conv66 = ashr exact i64 %sext60, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call6, ptr nonnull align 1 %p.3, i64 %conv66, i1 false)

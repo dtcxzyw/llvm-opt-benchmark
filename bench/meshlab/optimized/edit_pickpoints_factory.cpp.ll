@@ -223,7 +223,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -791,7 +791,7 @@ define void @_ZThn16_NK21EditPickPointsFactory10pluginNameEv(ptr dead_on_unwind 
 define noundef ptr @_ZN21EditPickPointsFactory11getEditToolEPK7QAction(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef readnone %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
@@ -820,7 +820,7 @@ declare void @_ZN20EditPickPointsPluginC1Ev(ptr noundef nonnull align 8 derefere
 define noundef ptr @_ZThn16_N21EditPickPointsFactory11getEditToolEPK7QAction(ptr nocapture noundef readonly %0, ptr noundef readnone %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %_ZN21EditPickPointsFactory11getEditToolEPK7QAction.exit
 
 6:                                                ; preds = %2

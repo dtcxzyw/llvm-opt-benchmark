@@ -95,7 +95,7 @@ define range(i32 -4, 1) i32 @CVBand(ptr noundef %0, i64 noundef %1, i64 noundef 
 
 37:                                               ; preds = %27
   %38 = add nuw nsw i64 %3, %2
-  %.not79 = icmp slt i64 %38, %1
+  %.not79 = icmp sgt i64 %1, %38
   %39 = add nsw i64 %1, -1
   %40 = select i1 %.not79, i64 %38, i64 %39
   %41 = getelementptr inbounds i8, ptr %24, i64 32
@@ -393,7 +393,7 @@ define range(i32 -101, 1) i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 nound
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load i32, ptr %16, align 8
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
@@ -408,7 +408,7 @@ define range(i32 -101, 1) i32 @CVBandB(ptr noundef %0, i32 noundef %1, i64 nound
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
   %.028 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %21 = load i32, ptr %.028, align 8
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   %23 = getelementptr inbounds i8, ptr %.028, i64 120
   br i1 %22, label %._crit_edge, label %.lr.ph
 

@@ -643,7 +643,7 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
   br label %27
 
 27:                                               ; preds = %25, %19
-  %28 = icmp ugt ptr %20, %1
+  %28 = icmp ult ptr %1, %20
   br i1 %28, label %.lr.ph.i, label %ExecuteSimpleCommands.exit
 
 .lr.ph.i:                                         ; preds = %27

@@ -26,7 +26,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %3
@@ -35,13 +35,13 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   br label %146
 
 13:                                               ; preds = %3
-  %14 = icmp eq ptr %5, %1
+  %14 = icmp eq ptr %1, %5
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 140
   %17 = load i32, ptr %16, align 4
-  %.not121 = icmp sgt i32 %17, %2
+  %.not121 = icmp slt i32 %2, %17
   br i1 %.not121, label %18, label %146
 
 18:                                               ; preds = %15
@@ -75,7 +75,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
 
 38:                                               ; preds = %29, %32
   %39 = phi i32 [ %37, %32 ], [ 2147483647, %29 ]
-  %40 = icmp sgt i32 %39, %2
+  %40 = icmp slt i32 %2, %39
   br i1 %40, label %41, label %146
 
 41:                                               ; preds = %38
@@ -286,7 +286,7 @@ define internal fastcc ptr @zddPortToBddStep(ptr noundef %0, ptr noundef %1, i32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %1
+  %8 = icmp eq ptr %1, %7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
@@ -298,7 +298,7 @@ define internal fastcc ptr @zddPortToBddStep(ptr noundef %0, ptr noundef %1, i32
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %0, i64 140
   %15 = load i32, ptr %14, align 4
-  %16 = icmp eq i32 %15, %2
+  %16 = icmp eq i32 %2, %15
   br i1 %16, label %111, label %17
 
 17:                                               ; preds = %13

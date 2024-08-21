@@ -1012,7 +1012,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
 
 159:                                              ; preds = %153, %.thread19.i
   %.sroa.4.0.i56.ph = phi i64 [ %.pre-phi.i, %.thread19.i ], [ %154, %153 ]
-  %160 = icmp ugt i64 %127, %.sroa.4.0.i56.ph
+  %160 = icmp ult i64 %.sroa.4.0.i56.ph, %127
   br i1 %160, label %162, label %161
 
 161:                                              ; preds = %159
@@ -1026,7 +1026,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
   %165 = getelementptr inbounds i8, ptr %163, i64 8
   %166 = load i64, ptr %165, align 8, !noundef !16
   %167 = add nuw i64 %.sroa.4.0.i56.ph, 1
-  %168 = icmp ugt i64 %127, %167
+  %168 = icmp ult i64 %167, %127
   br i1 %168, label %171, label %169
 
 169:                                              ; preds = %162
@@ -1089,7 +1089,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
   %188 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %187, i64 %164
   %189 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %0, i64 %176
   %190 = sub i64 %186, %164
-  %.not.i65 = icmp ult i64 %190, %164
+  %.not.i65 = icmp ugt i64 %164, %190
   %191 = icmp sgt i64 %164, 0
   br i1 %.not.i65, label %192, label %196
 
@@ -1127,8 +1127,8 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
   %.026.i = select i1 %202, ptr %204, ptr %206
   %207 = getelementptr inbounds i8, ptr %.02728.i, i64 -40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %207, ptr noundef nonnull align 8 dereferenceable(40) %.026.i, i64 40, i1 false)
-  %208 = icmp ugt ptr %204, %187
-  %209 = icmp ugt ptr %206, %16
+  %208 = icmp ult ptr %187, %204
+  %209 = icmp ult ptr %16, %206
   %or.cond.i70 = select i1 %208, i1 %209, i1 false
   br i1 %or.cond.i70, label %.lr.ph29.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h0f724e5ad5439e18E.exit"
 

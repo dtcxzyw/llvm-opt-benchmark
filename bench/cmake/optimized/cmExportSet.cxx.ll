@@ -831,7 +831,7 @@ _ZNKSt3mapIP9cmFileSetP25cmInstallFileSetGeneratorSt4lessIS1_ESaISt4pairIKS1_S3_
 207:                                              ; preds = %.noexc22, %.noexc21, %.noexc20, %._crit_edge.i.i.i.i, %.noexc.thread, %.noexc17.thread, %.noexc18.thread, %.noexc19.thread
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %.noexc20 ], [ %.sroa.025.1.i.i.i.i, %.noexc21 ], [ %64, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %.noexc22 ], [ %.sroa.025.035.i.i.i.i, %.noexc.thread ], [ %100, %.noexc17.thread ], [ %131, %.noexc18.thread ], [ %162, %.noexc19.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %208 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %64
+  %208 = icmp eq ptr %64, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   %209 = load ptr, ptr %12, align 8
   %210 = load ptr, ptr %16, align 8
   %.not4.i.i.i.i = icmp eq ptr %209, %210
@@ -1279,7 +1279,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -1357,7 +1357,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N11cmExportSet17PackageDependencyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -1909,7 +1909,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI14cmTargetExportSt14default_deleteIS1_EESaIS4
 _ZNSt6vectorISt10unique_ptrI14cmTargetExportSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrI14cmTargetExportSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrI14cmTargetExportSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
   %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrI14cmTargetExportSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10unique_ptrI14cmTargetExportSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i17
@@ -2053,7 +2053,7 @@ select.unfold:                                    ; preds = %_ZNKSt4lessINSt7__c
   %41 = load ptr, ptr %5, align 8
   %42 = load ptr, ptr %20, align 8
   %43 = getelementptr inbounds i8, ptr %41, i64 8
-  %44 = icmp eq ptr %43, %.sroa.4.0.i.ph
+  %44 = icmp eq ptr %.sroa.4.0.i.ph, %43
   br i1 %44, label %53, label %45
 
 45:                                               ; preds = %select.unfold

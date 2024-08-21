@@ -4139,7 +4139,7 @@ _ZN6vectorISt4pairI8rationaljELb1EjE3endEv.exit.i: ; preds = %_ZN6vectorISt4pair
   %141 = load i32, ptr %arrayidx.i.i.i258, align 4
   %142 = zext i32 %141 to i64
   %add.ptr.i.i259 = getelementptr inbounds %"struct.std::pair.103", ptr %140, i64 %142
-  %cmp.not4.i = icmp eq i32 %141, %j.0.lcssa477
+  %cmp.not4.i = icmp eq i32 %j.0.lcssa477, %141
   br i1 %cmp.not4.i, label %for.end.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZN6vectorISt4pairI8rationaljELb1EjE3endEv.exit.i

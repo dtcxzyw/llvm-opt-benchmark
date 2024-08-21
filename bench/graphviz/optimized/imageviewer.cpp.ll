@@ -1369,7 +1369,7 @@ define void @_ZN11ImageViewer10scaleImageEd(ptr nocapture noundef nonnull align 
   %4 = alloca %class.QPixmap, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load double, ptr %5, align 8
-  %7 = fmul double %6, %1
+  %7 = fmul double %1, %6
   store double %7, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8

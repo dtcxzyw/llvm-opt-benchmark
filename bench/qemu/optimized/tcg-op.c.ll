@@ -247,7 +247,7 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local void @tcg_gen_movi_i32(ptr noundef %ret, i32 noundef %arg) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tcg_constant_i32(i32 noundef %arg) #5
-  %cmp.not.i = icmp eq ptr %call, %ret
+  %cmp.not.i = icmp eq ptr %ret, %call
   br i1 %cmp.not.i, label %tcg_gen_mov_i32.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -528,7 +528,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 0) #5
-  %cmp.not.i.i = icmp eq ptr %call.i, %ret
+  %cmp.not.i.i = icmp eq ptr %ret, %call.i
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb
@@ -659,7 +659,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef -1) #5
-  %cmp.not.i.i = icmp eq ptr %call.i, %ret
+  %cmp.not.i.i = icmp eq ptr %ret, %call.i
   br i1 %cmp.not.i.i, label %if.end4, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -1225,7 +1225,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 1) #5
-  %cmp.not.i.i = icmp eq ptr %call.i, %ret
+  %cmp.not.i.i = icmp eq ptr %ret, %call.i
   br i1 %cmp.not.i.i, label %if.end4, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -1246,7 +1246,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 if.then2:                                         ; preds = %entry
   %call.i5 = tail call ptr @tcg_constant_i32(i32 noundef 0) #5
-  %cmp.not.i.i6 = icmp eq ptr %call.i5, %ret
+  %cmp.not.i.i6 = icmp eq ptr %ret, %call.i5
   br i1 %cmp.not.i.i6, label %if.end4, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %if.then2
@@ -1304,7 +1304,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i.i = tail call ptr @tcg_constant_i32(i32 noundef 1) #5
-  %cmp.not.i.i.i = icmp eq ptr %call.i.i, %ret
+  %cmp.not.i.i.i = icmp eq ptr %ret, %call.i.i
   br i1 %cmp.not.i.i.i, label %tcg_gen_setcond_i32.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
@@ -1325,7 +1325,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
 
 if.then2.i:                                       ; preds = %entry
   %call.i5.i = tail call ptr @tcg_constant_i32(i32 noundef 0) #5
-  %cmp.not.i.i6.i = icmp eq ptr %call.i5.i, %ret
+  %cmp.not.i.i6.i = icmp eq ptr %ret, %call.i5.i
   br i1 %cmp.not.i.i6.i, label %tcg_gen_setcond_i32.exit, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then2.i
@@ -1382,7 +1382,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef -1) #5
-  %cmp.not.i.i = icmp eq ptr %call.i, %ret
+  %cmp.not.i.i = icmp eq ptr %ret, %call.i
   br i1 %cmp.not.i.i, label %if.end4, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -1403,7 +1403,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 if.then2:                                         ; preds = %entry
   %call.i5 = tail call ptr @tcg_constant_i32(i32 noundef 0) #5
-  %cmp.not.i.i6 = icmp eq ptr %call.i5, %ret
+  %cmp.not.i.i6 = icmp eq ptr %ret, %call.i5
   br i1 %cmp.not.i.i6, label %if.end4, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %if.then2
@@ -1461,7 +1461,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i.i = tail call ptr @tcg_constant_i32(i32 noundef -1) #5
-  %cmp.not.i.i.i = icmp eq ptr %call.i.i, %ret
+  %cmp.not.i.i.i = icmp eq ptr %ret, %call.i.i
   br i1 %cmp.not.i.i.i, label %tcg_gen_negsetcond_i32.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
@@ -1482,7 +1482,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
 
 if.then2.i:                                       ; preds = %entry
   %call.i5.i = tail call ptr @tcg_constant_i32(i32 noundef 0) #5
-  %cmp.not.i.i6.i = icmp eq ptr %call.i5.i, %ret
+  %cmp.not.i.i6.i = icmp eq ptr %ret, %call.i5.i
   br i1 %cmp.not.i.i6.i, label %tcg_gen_negsetcond_i32.exit, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then2.i
@@ -1561,7 +1561,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 0) #5
-  %cmp.not.i.i = icmp eq ptr %call.i, %ret
+  %cmp.not.i.i = icmp eq ptr %ret, %call.i
   br i1 %cmp.not.i.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -4518,7 +4518,7 @@ return:                                           ; preds = %entry, %if.end
 define dso_local void @tcg_gen_movi_i64(ptr noundef %ret, i64 noundef %arg) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tcg_constant_i64(i64 noundef %arg) #5
-  %cmp.i = icmp eq ptr %call, %ret
+  %cmp.i = icmp eq ptr %ret, %call
   br i1 %cmp.i, label %tcg_gen_mov_i64.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -5151,7 +5151,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %call.i = tail call ptr @tcg_constant_i64(i64 noundef 0) #5
-  %cmp.i.i = icmp eq ptr %call.i, %ret
+  %cmp.i.i = icmp eq ptr %ret, %call.i
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb
@@ -5274,7 +5274,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_constant_i64(i64 noundef -1) #5
-  %cmp.i.i = icmp eq ptr %call.i, %ret
+  %cmp.i.i = icmp eq ptr %ret, %call.i
   br i1 %cmp.i.i, label %if.end4, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
@@ -5677,7 +5677,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_constant_i64(i64 noundef 1) #5
-  %cmp.i.i = icmp eq ptr %call.i, %ret
+  %cmp.i.i = icmp eq ptr %ret, %call.i
   br i1 %cmp.i.i, label %if.end4, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
@@ -5698,7 +5698,7 @@ if.end.i.i:                                       ; preds = %if.then
 
 if.then2:                                         ; preds = %entry
   %call.i5 = tail call ptr @tcg_constant_i64(i64 noundef 0) #5
-  %cmp.i.i6 = icmp eq ptr %call.i5, %ret
+  %cmp.i.i6 = icmp eq ptr %ret, %call.i5
   br i1 %cmp.i.i6, label %if.end4, label %if.end.i.i7
 
 if.end.i.i7:                                      ; preds = %if.then2
@@ -5756,7 +5756,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i.i = tail call ptr @tcg_constant_i64(i64 noundef 1) #5
-  %cmp.i.i.i = icmp eq ptr %call.i.i, %ret
+  %cmp.i.i.i = icmp eq ptr %ret, %call.i.i
   br i1 %cmp.i.i.i, label %tcg_gen_setcond_i64.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i
@@ -5777,7 +5777,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 
 if.then2.i:                                       ; preds = %entry
   %call.i5.i = tail call ptr @tcg_constant_i64(i64 noundef 0) #5
-  %cmp.i.i6.i = icmp eq ptr %call.i5.i, %ret
+  %cmp.i.i6.i = icmp eq ptr %ret, %call.i5.i
   br i1 %cmp.i.i6.i, label %tcg_gen_setcond_i64.exit, label %if.end.i.i7.i
 
 if.end.i.i7.i:                                    ; preds = %if.then2.i
@@ -5835,7 +5835,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i.i = tail call ptr @tcg_constant_i64(i64 noundef -1) #5
-  %cmp.i.i.i = icmp eq ptr %call.i.i, %ret
+  %cmp.i.i.i = icmp eq ptr %ret, %call.i.i
   br i1 %cmp.i.i.i, label %tcg_gen_negsetcond_i64.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i
@@ -5856,7 +5856,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 
 if.then2.i:                                       ; preds = %entry
   %call.i5.i = tail call ptr @tcg_constant_i64(i64 noundef 0) #5
-  %cmp.i.i6.i = icmp eq ptr %call.i5.i, %ret
+  %cmp.i.i6.i = icmp eq ptr %ret, %call.i5.i
   br i1 %cmp.i.i6.i, label %tcg_gen_negsetcond_i64.exit, label %if.end.i.i7.i
 
 if.end.i.i7.i:                                    ; preds = %if.then2.i
@@ -5913,7 +5913,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_constant_i64(i64 noundef -1) #5
-  %cmp.i.i = icmp eq ptr %call.i, %ret
+  %cmp.i.i = icmp eq ptr %ret, %call.i
   br i1 %cmp.i.i, label %if.end4, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
@@ -5934,7 +5934,7 @@ if.end.i.i:                                       ; preds = %if.then
 
 if.then2:                                         ; preds = %entry
   %call.i5 = tail call ptr @tcg_constant_i64(i64 noundef 0) #5
-  %cmp.i.i6 = icmp eq ptr %call.i5, %ret
+  %cmp.i.i6 = icmp eq ptr %ret, %call.i5
   br i1 %cmp.i.i6, label %if.end4, label %if.end.i.i7
 
 if.end.i.i7:                                      ; preds = %if.then2
@@ -5989,7 +5989,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_constant_i64(i64 noundef 0) #5
-  %cmp.i.i = icmp eq ptr %call.i, %ret
+  %cmp.i.i = icmp eq ptr %ret, %call.i
   br i1 %cmp.i.i, label %if.end5, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
@@ -8729,7 +8729,7 @@ entry:
   store i64 %22, ptr %arrayidx2.i.i.i23, align 8
   %arrayidx4.i.i.i24 = getelementptr i8, ptr %call.i.i.i21, i64 48
   store i64 %23, ptr %arrayidx4.i.i.i24, align 8
-  %cmp.i = icmp eq ptr %call, %rl
+  %cmp.i = icmp eq ptr %rl, %call
   br i1 %cmp.i, label %tcg_gen_mov_i64.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -9149,7 +9149,7 @@ tcg_gen_mov_i64.exit:                             ; preds = %entry.tcg_gen_mov_i
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %6 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
-  %cmp.i2 = icmp eq ptr %6, %hi
+  %cmp.i2 = icmp eq ptr %hi, %6
   br i1 %cmp.i2, label %tcg_gen_mov_i64.exit9, label %if.end.i3
 
 if.end.i3:                                        ; preds = %tcg_gen_mov_i64.exit
@@ -9202,7 +9202,7 @@ tcg_gen_mov_i64.exit:                             ; preds = %entry.tcg_gen_mov_i
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %6 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
-  %cmp.i2 = icmp eq ptr %6, %hi
+  %cmp.i2 = icmp eq ptr %hi, %6
   br i1 %cmp.i2, label %tcg_gen_mov_i64.exit9, label %if.end.i3
 
 if.end.i3:                                        ; preds = %tcg_gen_mov_i64.exit
@@ -9352,7 +9352,7 @@ if.else:                                          ; preds = %entry
 if.end16.sink.split:                              ; preds = %if.else, %entry
   %.sink = phi i32 [ 0, %entry ], [ 3, %if.else ]
   %cond.i.ph = phi ptr [ null, %entry ], [ %add.ptr.i, %if.else ]
-  %cmp10 = icmp eq i32 %.sink, %idx
+  %cmp10 = icmp eq i32 %idx, %.sink
   tail call void @llvm.assume(i1 %cmp10)
   br label %if.end16
 

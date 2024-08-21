@@ -1101,7 +1101,7 @@ define internal fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17h
   br i1 %or.cond.not, label %64, label %61
 
 58:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd69ca6984ea4b8f5E.exit._crit_edge"
-  %brmerge = or i1 %56, %6
+  %brmerge = or i1 %6, %56
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   %60 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %brmerge, label %72, label %71
@@ -4752,7 +4752,7 @@ _ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c
   call void @llvm.experimental.noalias.scope.decl(metadata !441)
   %291 = and i32 %290, 255
   %292 = and i64 %289, 255
-  %293 = icmp ult i64 %292, %260
+  %293 = icmp ugt i64 %260, %292
   br i1 %293, label %294, label %.invoke, !prof !61
 
 294:                                              ; preds = %_ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c34853ac7883aE.exit.i
@@ -5416,7 +5416,7 @@ _ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c
   call void @llvm.experimental.noalias.scope.decl(metadata !514)
   %655 = and i32 %654, 255
   %656 = and i64 %653, 255
-  %657 = icmp ult i64 %656, %623
+  %657 = icmp ugt i64 %623, %656
   br i1 %657, label %658, label %.invoke, !prof !61
 
 658:                                              ; preds = %_ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c34853ac7883aE.exit
@@ -5791,7 +5791,7 @@ _ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c
   call void @llvm.experimental.noalias.scope.decl(metadata !546)
   %839 = and i32 %838, 255
   %840 = and i64 %837, 255
-  %841 = icmp ult i64 %840, %810
+  %841 = icmp ugt i64 %810, %840
   br i1 %841, label %842, label %.invoke, !prof !61
 
 842:                                              ; preds = %_ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c34853ac7883aE.exit.i275
@@ -7283,7 +7283,7 @@ _ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !825)
   %64 = and i32 %63, 255
   %65 = and i64 %62, 255
-  %66 = icmp ult i64 %65, %30
+  %66 = icmp ugt i64 %30, %65
   br i1 %66, label %67, label %73, !prof !61
 
 67:                                               ; preds = %_ZN19brotli_decompressor10bit_reader35BrotliFillBitWindowCompileTimeNbits17ha46c34853ac7883aE.exit

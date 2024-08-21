@@ -1033,7 +1033,7 @@ define noundef i64 @_ZN9syscall_t10sys_getcwdEmmmmmmm(ptr nocapture noundef nonn
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %11, i64 8
   %29 = load i64, ptr %28, align 8
-  %.not = icmp ult i64 %29, %2
+  %.not = icmp ugt i64 %2, %29
   br i1 %.not, label %30, label %43
 
 30:                                               ; preds = %27
@@ -1118,7 +1118,7 @@ define noundef i64 @_ZN9syscall_t9sys_fcntlEmmmmmmm(ptr nocapture noundef nonnul
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 2
-  %.not.i = icmp ugt i64 %19, %1
+  %.not.i = icmp ult i64 %1, %19
   br i1 %.not.i, label %20, label %_ZN5fds_t6lookupEm.exit
 
 20:                                               ; preds = %11
@@ -1180,7 +1180,7 @@ define noundef i64 @_ZN9syscall_t11sys_mkdiratEmmmmmmm(ptr noundef nonnull align
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 2
-  %.not.i = icmp ugt i64 %31, %1
+  %.not.i = icmp ult i64 %1, %31
   br i1 %.not.i, label %32, label %49
 
 32:                                               ; preds = %23
@@ -1335,7 +1335,7 @@ define noundef i64 @_ZN9syscall_t12sys_unlinkatEmmmmmmm(ptr noundef nonnull alig
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 2
-  %.not.i = icmp ugt i64 %31, %1
+  %.not.i = icmp ult i64 %1, %31
   br i1 %.not.i, label %32, label %49
 
 32:                                               ; preds = %23
@@ -1509,7 +1509,7 @@ define noundef i64 @_ZN9syscall_t10sys_linkatEmmmmmmm(ptr noundef nonnull align 
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 2
-  %.not.i = icmp ugt i64 %42, %1
+  %.not.i = icmp ult i64 %1, %42
   br i1 %.not.i, label %43, label %60
 
 43:                                               ; preds = %35
@@ -1570,7 +1570,7 @@ _ZN5fds_t6lookupEm.exit:                          ; preds = %31
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 2
-  %.not.i25 = icmp ugt i64 %71, %4
+  %.not.i25 = icmp ult i64 %4, %71
   br i1 %.not.i25, label %72, label %89
 
 72:                                               ; preds = %64
@@ -1802,7 +1802,7 @@ define noundef i64 @_ZN9syscall_t12sys_renameatEmmmmmmm(ptr noundef nonnull alig
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 2
-  %.not.i = icmp ugt i64 %42, %1
+  %.not.i = icmp ult i64 %1, %42
   br i1 %.not.i, label %43, label %60
 
 43:                                               ; preds = %35
@@ -1863,7 +1863,7 @@ _ZN5fds_t6lookupEm.exit:                          ; preds = %31
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 2
-  %.not.i24 = icmp ugt i64 %71, %4
+  %.not.i24 = icmp ult i64 %4, %71
   br i1 %.not.i24, label %72, label %89
 
 72:                                               ; preds = %64
@@ -2055,7 +2055,7 @@ define noundef i64 @_ZN9syscall_t13sys_ftruncateEmmmmmmm(ptr nocapture noundef n
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 2
-  %.not.i = icmp ugt i64 %19, %1
+  %.not.i = icmp ult i64 %1, %19
   br i1 %.not.i, label %20, label %_ZN5fds_t6lookupEm.exit
 
 20:                                               ; preds = %11
@@ -2116,7 +2116,7 @@ define noundef i64 @_ZN9syscall_t13sys_faccessatEmmmmmmm(ptr noundef nonnull ali
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 2
-  %.not.i = icmp ugt i64 %31, %1
+  %.not.i = icmp ult i64 %1, %31
   br i1 %.not.i, label %32, label %49
 
 32:                                               ; preds = %23
@@ -2363,7 +2363,7 @@ define noundef i64 @_ZN9syscall_t10sys_openatEmmmmmmm(ptr noundef nonnull align 
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 2
-  %.not.i = icmp ugt i64 %31, %1
+  %.not.i = icmp ult i64 %1, %31
   br i1 %.not.i, label %32, label %49
 
 32:                                               ; preds = %24
@@ -2637,7 +2637,7 @@ define noundef i64 @_ZN9syscall_t9sys_closeEmmmmmmm(ptr nocapture noundef nonnul
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 2
-  %.not.i = icmp ugt i64 %19, %1
+  %.not.i = icmp ult i64 %1, %19
   br i1 %.not.i, label %20, label %_ZN5fds_t6lookupEm.exit
 
 20:                                               ; preds = %12
@@ -2684,7 +2684,7 @@ define noundef i64 @_ZN9syscall_t9sys_lseekEmmmmmmm(ptr nocapture noundef nonnul
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 2
-  %.not.i = icmp ugt i64 %19, %1
+  %.not.i = icmp ult i64 %1, %19
   br i1 %.not.i, label %20, label %_ZN5fds_t6lookupEm.exit
 
 20:                                               ; preds = %11
@@ -2734,7 +2734,7 @@ define noundef i64 @_ZN9syscall_t8sys_readEmmmmmmm(ptr nocapture noundef nonnull
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 2
-  %.not.i = icmp ugt i64 %22, %1
+  %.not.i = icmp ult i64 %1, %22
   br i1 %.not.i, label %23, label %_ZN5fds_t6lookupEm.exit
 
 23:                                               ; preds = %14
@@ -2837,7 +2837,7 @@ define noundef i64 @_ZN9syscall_t9sys_writeEmmmmmmm(ptr nocapture noundef nonnul
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 2
-  %.not.i = icmp ugt i64 %29, %1
+  %.not.i = icmp ult i64 %1, %29
   br i1 %.not.i, label %30, label %_ZN5fds_t6lookupEm.exit
 
 30:                                               ; preds = %21
@@ -2916,7 +2916,7 @@ define noundef i64 @_ZN9syscall_t9sys_preadEmmmmmmm(ptr nocapture noundef nonnul
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 2
-  %.not.i = icmp ugt i64 %22, %1
+  %.not.i = icmp ult i64 %1, %22
   br i1 %.not.i, label %23, label %_ZN5fds_t6lookupEm.exit
 
 23:                                               ; preds = %14
@@ -3019,7 +3019,7 @@ define noundef i64 @_ZN9syscall_t10sys_pwriteEmmmmmmm(ptr nocapture noundef nonn
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 2
-  %.not.i = icmp ugt i64 %29, %1
+  %.not.i = icmp ult i64 %1, %29
   br i1 %.not.i, label %30, label %_ZN5fds_t6lookupEm.exit
 
 30:                                               ; preds = %21
@@ -3112,7 +3112,7 @@ define noundef i64 @_ZN9syscall_t11sys_fstatatEmmmmmmm(ptr noundef nonnull align
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 2
-  %.not.i = icmp ugt i64 %33, %1
+  %.not.i = icmp ult i64 %1, %33
   br i1 %.not.i, label %34, label %51
 
 34:                                               ; preds = %25
@@ -3267,7 +3267,7 @@ define noundef i64 @_ZN9syscall_t9sys_fstatEmmmmmmm(ptr nocapture noundef nonnul
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 2
-  %.not.i = icmp ugt i64 %21, %1
+  %.not.i = icmp ult i64 %1, %21
   br i1 %.not.i, label %22, label %_ZN5fds_t6lookupEm.exit
 
 22:                                               ; preds = %13
@@ -3356,7 +3356,7 @@ define noundef i64 @_ZN9syscall_t9sys_statxEmmmmmmm(ptr noundef nonnull align 8 
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 2
-  %.not.i = icmp ugt i64 %33, %1
+  %.not.i = icmp ult i64 %1, %33
   br i1 %.not.i, label %34, label %_ZN5fds_t6lookupEm.exit
 
 34:                                               ; preds = %25
@@ -4096,7 +4096,7 @@ define void @_ZN9syscall_tD2Ev(ptr noundef nonnull align 8 dereferenceable(176) 
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 2
-  %.not.i = icmp ugt i64 %19, %10
+  %.not.i = icmp ult i64 %10, %19
   br i1 %.not.i, label %20, label %_ZN5fds_t6lookupEm.exit
 
 20:                                               ; preds = %13
@@ -4193,7 +4193,7 @@ define noundef i32 @_ZN5fds_t6lookupEm(ptr nocapture noundef nonnull readonly al
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 2
-  %.not = icmp ugt i64 %12, %1
+  %.not = icmp ult i64 %1, %12
   br i1 %.not, label %13, label %16
 
 13:                                               ; preds = %5
@@ -6116,7 +6116,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   %21 = getelementptr inbounds i8, ptr %13, i64 %1
   %22 = add i64 %2, %1
   %23 = sub i64 %7, %22
-  %24 = icmp ugt ptr %13, %3
+  %24 = icmp ult ptr %3, %13
   %25 = getelementptr inbounds i8, ptr %13, i64 %7
   %26 = icmp ult ptr %25, %3
   %27 = select i1 %24, i1 true, i1 %26
@@ -6225,7 +6225,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94: ; p
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
 
 57:                                               ; preds = %50
-  %.not87 = icmp ugt ptr %52, %3
+  %.not87 = icmp ult ptr %3, %52
   br i1 %.not87, label %67, label %58
 
 58:                                               ; preds = %57

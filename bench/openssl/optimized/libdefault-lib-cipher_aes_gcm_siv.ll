@@ -540,7 +540,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %key_len = getelementptr inbounds i8, ptr %vctx, i64 48
   %1 = load i64, ptr %key_len, align 8
-  %cmp3.not = icmp eq i64 %1, %keylen
+  %cmp3.not = icmp eq i64 %keylen, %1
   br i1 %cmp3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.then2

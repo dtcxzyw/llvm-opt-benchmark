@@ -164,7 +164,7 @@ declare double @log(double noundef) local_unnamed_addr #3
 define dso_local double @reservoir_get_next_S(ptr noundef %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sitofp i32 %2 to double
   %5 = fmul double %4, 2.200000e+01
-  %6 = fcmp ult double %5, %1
+  %6 = fcmp ugt double %1, %5
   br i1 %6, label %22, label %7
 
 7:                                                ; preds = %3
@@ -215,13 +215,13 @@ sampler_random_fract.exit:                        ; preds = %9
 
 sampler_random_fract.exit90:                      ; preds = %30
   %33 = fadd double %.079, -1.000000e+00
-  %34 = fmul double %33, %1
+  %34 = fmul double %1, %33
   %35 = tail call double @llvm.floor.f64(double %34)
   %36 = fmul double %28, %31
   %37 = fmul double %28, %36
   %38 = fadd double %25, %35
   %39 = fmul double %38, %37
-  %40 = fadd double %34, %1
+  %40 = fadd double %1, %34
   %41 = fdiv double %39, %40
   %42 = tail call double @log(double noundef %41) #6
   %43 = fdiv double %42, %4
@@ -239,7 +239,7 @@ sampler_random_fract.exit90:                      ; preds = %30
 51:                                               ; preds = %sampler_random_fract.exit90
   %52 = fmul double %27, %31
   %53 = fdiv double %52, %25
-  %54 = fadd double %35, %1
+  %54 = fadd double %1, %35
   %55 = fadd double %54, 1.000000e+00
   %56 = fmul double %55, %53
   %57 = fdiv double %56, %40

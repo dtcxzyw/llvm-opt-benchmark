@@ -745,7 +745,7 @@ if.then88:                                        ; preds = %for.end
   br label %return
 
 if.end95:                                         ; preds = %for.end
-  %tobool97.not = icmp eq i64 %last.0.lcssa, %nread
+  %tobool97.not = icmp eq i64 %nread, %last.0.lcssa
   br i1 %tobool97.not, label %return, label %if.then98
 
 if.then98:                                        ; preds = %if.end95

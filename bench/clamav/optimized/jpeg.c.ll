@@ -393,7 +393,7 @@ fmap_readn.exit227.thread:                        ; preds = %75, %.thread._crit_
 
 111:                                              ; preds = %109
   %112 = add nuw nsw i64 %59, 2
-  %or.cond300.not = icmp ugt i64 %99, %112
+  %or.cond300.not = icmp ult i64 %112, %99
   br i1 %or.cond300.not, label %113, label %fmap_readn.exit232.thread
 
 113:                                              ; preds = %111
@@ -483,7 +483,7 @@ fmap_readn.exit232.thread:                        ; preds = %113, %111, %118, %f
 
 149:                                              ; preds = %109
   %150 = add nuw nsw i64 %59, 2
-  %or.cond302.not = icmp ugt i64 %99, %150
+  %or.cond302.not = icmp ult i64 %150, %99
   br i1 %or.cond302.not, label %151, label %fmap_readn.exit237.thread
 
 151:                                              ; preds = %149
@@ -557,7 +557,7 @@ fmap_readn.exit237:                               ; preds = %151
 
 fmap_readn.exit237.thread:                        ; preds = %151, %149, %156, %fmap_readn.exit237
   %183 = load i64, ptr %10, align 8
-  %or.cond303.not = icmp ugt i64 %183, %150
+  %or.cond303.not = icmp ult i64 %150, %183
   br i1 %or.cond303.not, label %184, label %fmap_readn.exit242.thread
 
 184:                                              ; preds = %fmap_readn.exit237.thread
@@ -588,7 +588,7 @@ fmap_readn.exit242.thread:                        ; preds = %184, %fmap_readn.ex
 
 192:                                              ; preds = %109
   %193 = add nuw nsw i64 %59, 2
-  %or.cond304.not = icmp ugt i64 %99, %193
+  %or.cond304.not = icmp ult i64 %193, %99
   br i1 %or.cond304.not, label %194, label %fmap_readn.exit247.thread
 
 194:                                              ; preds = %192
@@ -621,7 +621,7 @@ fmap_readn.exit247.thread:                        ; preds = %194, %192, %199, %f
 
 204:                                              ; preds = %109
   %205 = add nuw nsw i64 %59, 2
-  %or.cond305.not = icmp ugt i64 %99, %205
+  %or.cond305.not = icmp ult i64 %205, %99
   br i1 %or.cond305.not, label %206, label %fmap_readn.exit252.thread
 
 206:                                              ; preds = %204
@@ -697,7 +697,7 @@ fmap_readn.exit252.thread:                        ; preds = %206, %204, %211, %f
 
 234:                                              ; preds = %109
   %235 = add nuw nsw i64 %59, 2
-  %or.cond306.not = icmp ugt i64 %99, %235
+  %or.cond306.not = icmp ult i64 %235, %99
   br i1 %or.cond306.not, label %236, label %fmap_readn.exit257.thread
 
 236:                                              ; preds = %234
@@ -757,7 +757,7 @@ fmap_readn.exit257:                               ; preds = %236
   %266 = add i64 %265, %263
   %267 = getelementptr inbounds i8, ptr %246, i64 88
   %268 = load i64, ptr %267, align 8
-  %or.cond.not.i = icmp ugt i64 %268, %266
+  %or.cond.not.i = icmp ult i64 %266, %268
   br i1 %or.cond.not.i, label %269, label %.thread295
 
 269:                                              ; preds = %251
@@ -840,7 +840,7 @@ fmap_readn.exit257.thread:                        ; preds = %236, %234, %241, %f
 
 291:                                              ; preds = %109
   %292 = add nuw nsw i64 %59, 2
-  %or.cond307.not = icmp ugt i64 %99, %292
+  %or.cond307.not = icmp ult i64 %292, %99
   br i1 %or.cond307.not, label %293, label %fmap_readn.exit265.thread
 
 293:                                              ; preds = %291

@@ -682,7 +682,7 @@ cond.false:                                       ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.false
   %cond.in = phi i8 [ %2, %cond.false ], [ %0, %entry ]
   %conv4 = zext i8 %cond.in to i64
-  %cmp = icmp ugt i64 %conv4, %len
+  %cmp = icmp ult i64 %len, %conv4
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end
@@ -723,7 +723,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %add = add nuw nsw i32 %conv12, %conv10
   %add13 = add nuw nsw i32 %add, %conv11
   %conv14 = zext nneg i32 %add13 to i64
-  %cmp = icmp ugt i64 %conv14, %len
+  %cmp = icmp ult i64 %len, %conv14
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end
@@ -1358,7 +1358,7 @@ while.body:                                       ; preds = %if.end17, %while.bo
   %add23 = or disjoint i32 %conv22, 1
   %cmp25 = icmp ult i32 %add23, %conv24
   %conv29 = zext nneg i32 %add23 to i64
-  %cmp30 = icmp ult i64 %conv29, %len
+  %cmp30 = icmp ugt i64 %len, %conv29
   %or.cond = select i1 %cmp25, i1 %cmp30, i1 false
   br i1 %or.cond, label %while.body, label %return, !llvm.loop !14
 
@@ -2045,7 +2045,7 @@ if.then81:                                        ; preds = %sw.epilog.if.then81
   %conv86.pre-phi = phi i32 [ %.pre, %sw.epilog.if.then81_crit_edge ], [ %conv18, %trace_usb_desc_device.exit ], [ %conv73, %trace_usb_desc_bos.exit ]
   %ret.0151 = phi i32 [ %ret.0, %sw.epilog.if.then81_crit_edge ], [ 18, %trace_usb_desc_device.exit ], [ %conv42.i, %trace_usb_desc_bos.exit ]
   %conv82 = zext nneg i32 %ret.0151 to i64
-  %cmp83 = icmp ugt i64 %conv82, %len
+  %cmp83 = icmp ult i64 %len, %conv82
   %spec.select57 = select i1 %cmp83, i32 %conv86.pre-phi, i32 %ret.0151
   %conv88 = zext nneg i32 %spec.select57 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dest, ptr align 1 %call1, i64 %conv88, i1 false)
@@ -2205,7 +2205,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %bConfigurationValue.i = getelementptr %struct.USBDescConfig, ptr %12, i64 %indvars.iv.i, i32 1
   %13 = load i8, ptr %bConfigurationValue.i, align 1
   %conv4.i = zext i8 %13 to i32
-  %cmp5.i = icmp eq i32 %conv4.i, %value
+  %cmp5.i = icmp eq i32 %value, %conv4.i
   br i1 %cmp5.i, label %if.then7.i, label %for.inc.i
 
 if.then7.i:                                       ; preds = %for.body.i
@@ -2535,7 +2535,7 @@ sw.bb64:                                          ; preds = %if.end
 lor.lhs.false:                                    ; preds = %sw.bb64
   %ninterfaces = getelementptr inbounds i8, ptr %dev, i64 5660
   %65 = load i32, ptr %ninterfaces, align 4
-  %cmp67.not = icmp sgt i32 %65, %index
+  %cmp67.not = icmp slt i32 %index, %65
   br i1 %cmp67.not, label %if.end70, label %sw.epilog
 
 if.end70:                                         ; preds = %lor.lhs.false
@@ -2736,14 +2736,14 @@ for.body9.i:                                      ; preds = %for.inc.i, %for.bod
   %arrayidx15.i = getelementptr %struct.USBDescIface, ptr %4, i64 %indvars.iv.i
   %7 = load i8, ptr %arrayidx15.i, align 8
   %conv16.i = zext i8 %7 to i32
-  %cmp17.i = icmp eq i32 %conv16.i, %index
+  %cmp17.i = icmp eq i32 %index, %conv16.i
   br i1 %cmp17.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body9.i
   %bAlternateSetting.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 1
   %8 = load i8, ptr %bAlternateSetting.i, align 1
   %conv19.i = zext i8 %8 to i32
-  %cmp20.i = icmp eq i32 %conv19.i, %value
+  %cmp20.i = icmp eq i32 %value, %conv19.i
   br i1 %cmp20.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body9.i
@@ -2761,14 +2761,14 @@ for.body33.i:                                     ; preds = %for.inc49.i, %for.b
   %arrayidx37.i = getelementptr %struct.USBDescIface, ptr %6, i64 %indvars.iv17.i
   %9 = load i8, ptr %arrayidx37.i, align 8
   %conv39.i = zext i8 %9 to i32
-  %cmp40.i = icmp eq i32 %conv39.i, %index
+  %cmp40.i = icmp eq i32 %index, %conv39.i
   br i1 %cmp40.i, label %land.lhs.true42.i, label %for.inc49.i
 
 land.lhs.true42.i:                                ; preds = %for.body33.i
   %bAlternateSetting43.i = getelementptr inbounds i8, ptr %arrayidx37.i, i64 1
   %10 = load i8, ptr %bAlternateSetting43.i, align 1
   %conv44.i = zext i8 %10 to i32
-  %cmp45.i = icmp eq i32 %conv44.i, %value
+  %cmp45.i = icmp eq i32 %value, %conv44.i
   br i1 %cmp45.i, label %if.end, label %for.inc49.i
 
 for.inc49.i:                                      ; preds = %land.lhs.true42.i, %for.body33.i

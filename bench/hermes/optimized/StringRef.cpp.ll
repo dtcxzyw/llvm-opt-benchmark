@@ -52,7 +52,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %Length = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %Length, align 8
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %1, i64 %RHS.coerce1)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %RHS.coerce1, i64 %1)
   %cmp8.not.i = icmp eq i64 %.sroa.speculated, 0
   br i1 %cmp8.not.i, label %if.end, label %for.body.i
 
@@ -226,7 +226,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK4llvh9StringRef15compare_numeric
 entry:
   %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %RHS.coerce1)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %RHS.coerce1, i64 %0)
   %cmp.not60 = icmp eq i64 %.sroa.speculated, 0
   br i1 %cmp.not60, label %for.end62, label %for.body.lr.ph
 
@@ -410,7 +410,7 @@ for.body7.us.us.preheader:                        ; preds = %for.body7.lr.ph.spl
 for.body7.us:                                     ; preds = %for.body7.lr.ph.split.us, %for.cond5.us
   %y.068.us = phi i64 [ %inc62.us, %for.cond5.us ], [ 1, %for.body7.lr.ph.split.us ]
   %conv8.us = trunc i64 %y.068.us to i32
-  %cmp57.us = icmp ugt i32 %conv8.us, %MaxEditDistance
+  %cmp57.us = icmp ult i32 %MaxEditDistance, %conv8.us
   br i1 %cmp57.us, label %if.then58.split.us, label %for.cond5.us
 
 for.cond5.us:                                     ; preds = %for.body7.us
@@ -574,7 +574,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %i.061, ptr %arrayidx, align 4
   %inc = add i32 %i.061, 1
   %conv = zext i32 %inc to i64
-  %cmp4.not = icmp ugt i64 %conv, %ToArray.coerce1
+  %cmp4.not = icmp ult i64 %ToArray.coerce1, %conv
   br i1 %cmp4.not, label %for.cond5.preheader, label %for.body, !llvm.loop !11
 
 for.cond5:                                        ; preds = %for.cond12.for.end55_crit_edge.split
@@ -729,7 +729,7 @@ entry:
   %BadCharSkip = alloca [256 x i8], align 16
   %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
-  %cmp = icmp ult i64 %0, %From
+  %cmp = icmp ugt i64 %From, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -953,7 +953,7 @@ entry:
   %Str.coerce1.fr = freeze i64 %Str.coerce1
   %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
-  %cmp = icmp ult i64 %0, %Str.coerce1.fr
+  %cmp = icmp ugt i64 %Str.coerce1.fr, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -972,7 +972,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %dec = add i64 %i.019, -1
   %.sroa.speculated14 = tail call i64 @llvm.umin.i64(i64 %0, i64 %dec)
   %sub.i = sub i64 %0, %.sroa.speculated14
-  %cmp.i.not = icmp ult i64 %sub.i, %Str.coerce1.fr
+  %cmp.i.not = icmp ugt i64 %Str.coerce1.fr, %sub.i
   br i1 %cmp.i.not, label %if.end7, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body
@@ -996,7 +996,7 @@ entry:
   %Str.coerce1.fr = freeze i64 %Str.coerce1
   %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
-  %cmp = icmp ult i64 %0, %Str.coerce1.fr
+  %cmp = icmp ugt i64 %Str.coerce1.fr, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1016,7 +1016,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %.sroa.speculated12 = tail call i64 @llvm.umin.i64(i64 %0, i64 %dec)
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %.sroa.speculated12
   %sub.i = sub i64 %0, %.sroa.speculated12
-  %cmp.i9.not = icmp ult i64 %sub.i, %Str.coerce1.fr
+  %cmp.i9.not = icmp ugt i64 %Str.coerce1.fr, %sub.i
   br i1 %cmp.i9.not, label %_ZNK4llvh9StringRef12equals_lowerES0_.exit, label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
@@ -1646,7 +1646,7 @@ entry:
   %Str.coerce1.fr = freeze i64 %Str.coerce1
   %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
-  %cmp = icmp ult i64 %0, %Str.coerce1.fr
+  %cmp = icmp ugt i64 %Str.coerce1.fr, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1672,7 +1672,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.022 = phi i64 [ %inc8, %for.inc ], [ 0, %for.body.lr.ph ]
   %.sroa.speculated14 = tail call i64 @llvm.umin.i64(i64 %0, i64 %i.022)
   %sub.i = sub i64 %0, %.sroa.speculated14
-  %cmp.i.not = icmp ult i64 %sub.i, %Str.coerce1.fr
+  %cmp.i.not = icmp ugt i64 %Str.coerce1.fr, %sub.i
   br i1 %cmp.i.not, label %for.inc, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body
@@ -2377,7 +2377,7 @@ if.end85.us:                                      ; preds = %if.end82.us
   br i1 %cmp.i.i107.us, label %_ZN4llvh5APIntlSEj.exit.us.thread, label %_ZN4llvh5APIntlSEj.exit.us
 
 _ZN4llvh5APIntlSEj.exit.us.thread:                ; preds = %if.end85.us
-  %cmp.i109.us = icmp eq i32 %24, %Log2Radix.0
+  %cmp.i109.us = icmp eq i32 %Log2Radix.0, %24
   %25 = load i64, ptr %Result, align 8
   %shl.i.us = shl i64 %25, %sh_prom.i
   %storemerge.i.us = select i1 %cmp.i109.us, i64 0, i64 %shl.i.us
@@ -2561,7 +2561,7 @@ entry:
 if.then:                                          ; preds = %entry
   %and = and i32 %call, 16
   %tobool2.not = icmp ne i32 %and, 0
-  %or.cond.not = and i1 %tobool2.not, %AllowInexact
+  %or.cond.not = and i1 %AllowInexact, %tobool2.not
   br i1 %or.cond.not, label %if.end4, label %if.then.cleanup_crit_edge
 
 if.then.cleanup_crit_edge:                        ; preds = %if.then
@@ -2571,7 +2571,7 @@ if.then.cleanup_crit_edge:                        ; preds = %if.then
 if.end4:                                          ; preds = %if.then, %entry
   %0 = load ptr, ptr %U.i, align 8
   %call.i.i.i = tail call noundef nonnull align 1 ptr @_ZN4llvh11APFloatBase15PPCDoubleDoubleEv() #21
-  %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %0
+  %cmp.i.not.i.i = icmp eq ptr %0, %call.i.i.i
   %Floats.i.i.i = getelementptr inbounds i8, ptr %F, i64 16
   %1 = load ptr, ptr %Floats.i.i.i, align 8
   %U8.i.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -2584,7 +2584,7 @@ cleanup:                                          ; preds = %if.then.cleanup_cri
   %call.i1.i.pre-phi = phi ptr [ %.pre, %if.then.cleanup_crit_edge ], [ %call.i.i.i, %if.end4 ]
   %retval.0 = phi i1 [ true, %if.then.cleanup_crit_edge ], [ false, %if.end4 ]
   %2 = load ptr, ptr %U.i, align 8
-  %cmp.i.not.i = icmp eq ptr %call.i1.i.pre-phi, %2
+  %cmp.i.not.i = icmp eq ptr %2, %call.i1.i.pre-phi
   br i1 %cmp.i.not.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
@@ -2655,7 +2655,7 @@ arraydestroy.body.i:                              ; preds = %arraydestroy.body.i
   %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -32
   %U.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -24
   %3 = load ptr, ptr %U.i.i, align 8
-  %cmp.i2.not = icmp eq ptr %call.i1, %3
+  %cmp.i2.not = icmp eq ptr %3, %call.i1
   br i1 %cmp.i2.not, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %arraydestroy.body.i
@@ -3014,7 +3014,7 @@ if.then:                                          ; preds = %entry
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %result.0.copyload.i3.i = load i32, ptr %add.ptr1.i, align 1
   %conv3.i = zext i32 %result.0.copyload.i3.i to i64
-  %xor.i = xor i64 %conv3.i, %seed
+  %xor.i = xor i64 %seed, %conv3.i
   %xor.i.i = xor i64 %xor.i, %add.i
   %mul.i.i = mul i64 %xor.i.i, -7070675565921424023
   %shr.i.i = lshr i64 %mul.i.i, 47

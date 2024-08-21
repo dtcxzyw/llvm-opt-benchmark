@@ -1222,7 +1222,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit112: ; preds = %46
 62:                                               ; preds = %36
   %63 = fcmp olt double %1, 0.000000e+00
   %64 = fneg double %41
-  %65 = fcmp olt double %64, %1
+  %65 = fcmp ogt double %1, %64
   %or.cond102 = and i1 %63, %65
   br i1 %or.cond102, label %68, label %66
 
@@ -1250,7 +1250,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit117: ; preds = %70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   %75 = xor i32 %.0, -1
   %76 = sext i32 %75 to i64
-  %77 = add i64 %76, %3
+  %77 = add i64 %3, %76
   store i64 %77, ptr %17, align 8
   %78 = load ptr, ptr @_ZN4core3fmt2rt12USIZE_MARKER17hef2d4d0250b80c97E, align 8, !nonnull !13, !noundef !13
   store ptr %27, ptr %18, align 8

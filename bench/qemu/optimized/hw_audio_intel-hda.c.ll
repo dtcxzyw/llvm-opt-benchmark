@@ -809,7 +809,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %1 = load i32, ptr %arrayidx, align 8
   %shr = lshr i32 %1, 20
   %and = and i32 %shr, 15
-  %cmp5 = icmp eq i32 %and, %stnr
+  %cmp5 = icmp eq i32 %stnr, %and
   br i1 %cmp5, label %if.end9, label %for.inc
 
 for.inc:                                          ; preds = %for.body

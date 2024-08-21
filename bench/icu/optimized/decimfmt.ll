@@ -237,7 +237,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -517,7 +517,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #18
   %cmp7 = icmp eq ptr %call, null
@@ -1554,7 +1554,7 @@ entry:
 if.end:                                           ; preds = %entry
   %parseAllInput = getelementptr inbounds i8, ptr %0, i64 480
   %1 = load i32, ptr %parseAllInput, align 8
-  %cmp3 = icmp eq i32 %1, %value
+  %cmp3 = icmp eq i32 %value, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -1763,7 +1763,7 @@ sw.bb63:                                          ; preds = %if.end3
 if.end.i:                                         ; preds = %if.end3
   %parseAllInput.i = getelementptr inbounds i8, ptr %1, i64 480
   %20 = load i32, ptr %parseAllInput.i, align 8
-  %cmp3.i = icmp eq i32 %20, %newValue
+  %cmp3.i = icmp eq i32 %newValue, %20
   br i1 %cmp3.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -1878,7 +1878,7 @@ entry:
 if.end:                                           ; preds = %entry
   %maximumSignificantDigits = getelementptr inbounds i8, ptr %0, i64 104
   %1 = load i32, ptr %maximumSignificantDigits, align 8
-  %cmp3 = icmp eq i32 %1, %value
+  %cmp3 = icmp eq i32 %value, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -1920,7 +1920,7 @@ entry:
 if.end:                                           ; preds = %entry
   %minimumSignificantDigits = getelementptr inbounds i8, ptr %0, i64 124
   %1 = load i32, ptr %minimumSignificantDigits, align 4
-  %cmp3 = icmp eq i32 %1, %value
+  %cmp3 = icmp eq i32 %value, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -1962,7 +1962,7 @@ entry:
 if.end:                                           ; preds = %entry
   %multiplierScale = getelementptr inbounds i8, ptr %0, i64 132
   %1 = load i32, ptr %multiplierScale, align 4
-  %cmp3 = icmp eq i32 %1, %newValue
+  %cmp3 = icmp eq i32 %newValue, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -1990,7 +1990,7 @@ if.end:                                           ; preds = %entry
   %parseNoExponent = getelementptr inbounds i8, ptr %0, i64 476
   %1 = load i8, ptr %parseNoExponent, align 4
   %2 = and i8 %1, 1
-  %cmp4 = icmp eq i8 %2, %value
+  %cmp4 = icmp eq i8 %value, %2
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
@@ -2033,7 +2033,7 @@ if.end3:                                          ; preds = %if.end
 land.lhs.true:                                    ; preds = %if.end3
   %fValue.i = getelementptr inbounds i8, ptr %1, i64 68
   %3 = load i32, ptr %fValue.i, align 4
-  %cmp10 = icmp eq i32 %3, %newUsage
+  %cmp10 = icmp eq i32 %newUsage, %3
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %land.lhs.true, %if.end3
@@ -2059,7 +2059,7 @@ entry:
 if.end:                                           ; preds = %entry
   %minimumGroupingDigits = getelementptr inbounds i8, ptr %0, i64 116
   %1 = load i32, ptr %minimumGroupingDigits, align 4
-  %cmp3 = icmp eq i32 %1, %newValue
+  %cmp3 = icmp eq i32 %newValue, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -2087,7 +2087,7 @@ if.end:                                           ; preds = %entry
   %parseCaseSensitive = getelementptr inbounds i8, ptr %0, i64 464
   %1 = load i8, ptr %parseCaseSensitive, align 8
   %2 = and i8 %1, 1
-  %cmp4 = icmp eq i8 %2, %value
+  %cmp4 = icmp eq i8 %value, %2
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
@@ -2117,7 +2117,7 @@ if.end:                                           ; preds = %entry
   %signAlwaysShown = getelementptr inbounds i8, ptr %0, i64 764
   %1 = load i8, ptr %signAlwaysShown, align 4
   %2 = and i8 %1, 1
-  %cmp4 = icmp eq i8 %2, %value
+  %cmp4 = icmp eq i8 %value, %2
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
@@ -2147,7 +2147,7 @@ if.end:                                           ; preds = %entry
   %formatFailIfMoreThanMaxDigits = getelementptr inbounds i8, ptr %0, i64 76
   %1 = load i8, ptr %formatFailIfMoreThanMaxDigits, align 4
   %2 = and i8 %1, 1
-  %cmp4 = icmp eq i8 %2, %value
+  %cmp4 = icmp eq i8 %value, %2
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
@@ -2792,7 +2792,7 @@ if.end:                                           ; preds = %entry
   %groupingUsed = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load i8, ptr %groupingUsed, align 8
   %2 = and i8 %1, 1
-  %cmp4 = icmp eq i8 %2, %enabled
+  %cmp4 = icmp eq i8 %enabled, %2
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
@@ -2836,7 +2836,7 @@ if.end:                                           ; preds = %entry
   %parseIntegerOnly = getelementptr inbounds i8, ptr %0, i64 465
   %1 = load i8, ptr %parseIntegerOnly, align 1
   %2 = and i8 %1, 1
-  %cmp4 = icmp eq i8 %2, %value
+  %cmp4 = icmp eq i8 %value, %2
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
@@ -6631,7 +6631,7 @@ entry:
 if.end:                                           ; preds = %entry
   %roundingIncrement = getelementptr inbounds i8, ptr %0, i64 744
   %1 = load double, ptr %roundingIncrement, align 8
-  %cmp3 = fcmp oeq double %1, %newValue
+  %cmp3 = fcmp oeq double %newValue, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -6687,7 +6687,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %fValue.i = getelementptr inbounds i8, ptr %0, i64 756
   %2 = load i32, ptr %fValue.i, align 4
-  %cmp8 = icmp eq i32 %2, %roundingMode
+  %cmp8 = icmp eq i32 %roundingMode, %2
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %land.lhs.true, %if.end
@@ -6744,7 +6744,7 @@ entry:
 if.end:                                           ; preds = %entry
   %formatWidth = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load i32, ptr %formatWidth, align 8
-  %cmp3 = icmp eq i32 %1, %width
+  %cmp3 = icmp eq i32 %width, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -6946,7 +6946,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %fValue.i = getelementptr inbounds i8, ptr %0, i64 396
   %2 = load i32, ptr %fValue.i, align 4
-  %cmp7 = icmp eq i32 %2, %padPos
+  %cmp7 = icmp eq i32 %padPos, %2
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %land.lhs.true, %if.end
@@ -7106,7 +7106,7 @@ if.end:                                           ; preds = %entry
   %exponentSignAlwaysShown = getelementptr inbounds i8, ptr %0, i64 74
   %1 = load i8, ptr %exponentSignAlwaysShown, align 2
   %2 = and i8 %1, 1
-  %cmp4 = icmp eq i8 %2, %expSignAlways
+  %cmp4 = icmp eq i8 %expSignAlways, %2
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
@@ -7135,7 +7135,7 @@ entry:
 if.end:                                           ; preds = %entry
   %groupingSize = getelementptr inbounds i8, ptr %0, i64 84
   %1 = load i32, ptr %groupingSize, align 4
-  %cmp3 = icmp eq i32 %1, %newValue
+  %cmp3 = icmp eq i32 %newValue, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -7162,7 +7162,7 @@ entry:
 if.end:                                           ; preds = %entry
   %secondaryGroupingSize = getelementptr inbounds i8, ptr %0, i64 760
   %1 = load i32, ptr %secondaryGroupingSize, align 8
-  %cmp3 = icmp eq i32 %1, %newValue
+  %cmp3 = icmp eq i32 %newValue, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -7190,7 +7190,7 @@ if.end:                                           ; preds = %entry
   %decimalSeparatorAlwaysShown = getelementptr inbounds i8, ptr %0, i64 73
   %1 = load i8, ptr %decimalSeparatorAlwaysShown, align 1
   %2 = and i8 %1, 1
-  %cmp4 = icmp eq i8 %2, %newValue
+  %cmp4 = icmp eq i8 %newValue, %2
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
@@ -7220,7 +7220,7 @@ if.end:                                           ; preds = %entry
   %decimalPatternMatchRequired = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load i8, ptr %decimalPatternMatchRequired, align 8
   %2 = and i8 %1, 1
-  %cmp4 = icmp eq i8 %2, %newValue
+  %cmp4 = icmp eq i8 %newValue, %2
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
@@ -7790,7 +7790,7 @@ entry:
 if.end:                                           ; preds = %entry
   %maximumIntegerDigits = getelementptr inbounds i8, ptr %0, i64 100
   %1 = load i32, ptr %maximumIntegerDigits, align 4
-  %cmp3 = icmp eq i32 %1, %newValue
+  %cmp3 = icmp eq i32 %newValue, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -7832,7 +7832,7 @@ entry:
 if.end:                                           ; preds = %entry
   %minimumIntegerDigits = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load i32, ptr %minimumIntegerDigits, align 8
-  %cmp3 = icmp eq i32 %1, %newValue
+  %cmp3 = icmp eq i32 %newValue, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -7874,7 +7874,7 @@ entry:
 if.end:                                           ; preds = %entry
   %maximumFractionDigits = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load i32, ptr %maximumFractionDigits, align 8
-  %cmp3 = icmp eq i32 %1, %newValue
+  %cmp3 = icmp eq i32 %newValue, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -7917,7 +7917,7 @@ entry:
 if.end:                                           ; preds = %entry
   %minimumFractionDigits = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load i32, ptr %minimumFractionDigits, align 8
-  %cmp3 = icmp eq i32 %1, %newValue
+  %cmp3 = icmp eq i32 %newValue, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end

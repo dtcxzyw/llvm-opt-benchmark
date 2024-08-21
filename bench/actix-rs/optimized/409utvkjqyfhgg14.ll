@@ -1302,7 +1302,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit259
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.sroa.2.0.copyload, ptr %6, align 8, !noalias !67
   %295 = load i64, ptr %127, align 8, !alias.scope !67, !noundef !10
-  %.not.i = icmp ult i64 %295, %.sroa.2.0.copyload
+  %.not.i = icmp ugt i64 %.sroa.2.0.copyload, %295
   br i1 %.not.i, label %296, label %"_ZN72_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f718963cf504a65E.exit"
 
 296:                                              ; preds = %294
@@ -2163,7 +2163,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit259
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.sroa.2.0.copyload, ptr %6, align 8, !noalias !123
   %322 = load i64, ptr %128, align 8, !alias.scope !123, !noundef !10
-  %.not.i = icmp ult i64 %322, %.sroa.2.0.copyload
+  %.not.i = icmp ugt i64 %.sroa.2.0.copyload, %322
   br i1 %.not.i, label %323, label %"_ZN72_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f718963cf504a65E.exit"
 
 323:                                              ; preds = %321
@@ -2990,7 +2990,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit259
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.sroa.2.0.copyload, ptr %6, align 8, !noalias !184
   %309 = load i64, ptr %127, align 8, !alias.scope !184, !noundef !10
-  %.not.i = icmp ult i64 %309, %.sroa.2.0.copyload
+  %.not.i = icmp ugt i64 %.sroa.2.0.copyload, %309
   br i1 %.not.i, label %310, label %"_ZN72_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f718963cf504a65E.exit"
 
 310:                                              ; preds = %308

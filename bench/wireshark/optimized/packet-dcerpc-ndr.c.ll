@@ -183,7 +183,7 @@ define i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %.not18 = icmp ne i32 %16, 0
   %or.cond.not = and i1 %.not18, %.not17
   %17 = zext i1 %or.cond.not to i32
-  %.014 = add i32 %17, %1
+  %.014 = add i32 %1, %17
   %18 = tail call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.014, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %6, ptr noundef %7) #6
   br label %19
 
@@ -210,7 +210,7 @@ define hidden i32 @PIDL_dissect_uint16_val(ptr noundef %0, i32 noundef %1, ptr n
   %.not35 = icmp ne i32 %16, 0
   %or.cond.not = and i1 %.not35, %.not34
   %17 = zext i1 %or.cond.not to i32
-  %.030 = add i32 %17, %1
+  %.030 = add i32 %1, %17
   %18 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %10) #6
   %19 = and i32 %7, 268435456
   %.not36 = icmp eq i32 %19, 0
@@ -541,7 +541,7 @@ define i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %.not18.i = icmp ne i32 %34, 0
   %or.cond.not.i = and i1 %.not18.i, %.not17.i
   %35 = zext i1 %or.cond.not.i to i32
-  %.014.i = add i32 %35, %1
+  %.014.i = add i32 %1, %35
   %36 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.014.i, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #6
   br label %dissect_ndr_uint16.exit
 

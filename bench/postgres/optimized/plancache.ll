@@ -2381,7 +2381,7 @@ define dso_local noundef zeroext i1 @CachedPlanIsSimplyValid(ptr nocapture nound
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 136
   %10 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %10, %1
+  %.not = icmp eq ptr %1, %10
   br i1 %.not, label %11, label %25
 
 11:                                               ; preds = %8

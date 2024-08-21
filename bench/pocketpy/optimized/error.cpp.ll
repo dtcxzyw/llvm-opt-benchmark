@@ -141,7 +141,7 @@ sub_2:                                            ; preds = %sub_1
   br label %_ZN4pkpy7SStreamC2Ei.exit
 
 _ZN4pkpy7SStreamC2Ei.exit:                        ; preds = %.tail, %28, %31
-  %32 = icmp ult i64 %spec.select, %1
+  %32 = icmp ugt i64 %1, %spec.select
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 33:                                               ; preds = %5
@@ -214,7 +214,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 54:                                               ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
   %55 = shl nsw i32 %51, 1
-  %.not.i.i20 = icmp slt i32 %51, %55
+  %.not.i.i20 = icmp sgt i32 %55, %51
   br i1 %.not.i.i20, label %56, label %64
 
 56:                                               ; preds = %54
@@ -365,7 +365,7 @@ define void @_ZN4pkpy10SourceDataC2ERKNS_3StrENS_11CompileModeE(ptr noundef nonn
 
 17:                                               ; preds = %6
   %18 = shl nsw i32 %14, 1
-  %.not.i.i = icmp slt i32 %14, %18
+  %.not.i.i = icmp sgt i32 %18, %14
   br i1 %.not.i.i, label %19, label %26
 
 19:                                               ; preds = %17
@@ -704,9 +704,9 @@ _ZNK4pkpy3Str6lstripEv.exit:                      ; preds = %70
 
 96:                                               ; preds = %94
   %.not40 = xor i1 %95, true
-  %.not33 = icmp ugt ptr %.sroa.0.0.i, %3
+  %.not33 = icmp ult ptr %3, %.sroa.0.0.i
   %or.cond41 = select i1 %.not40, i1 true, i1 %.not33
-  %.not34 = icmp ult ptr %.sroa.3.0.i, %3
+  %.not34 = icmp ugt ptr %3, %.sroa.3.0.i
   %or.cond42 = select i1 %or.cond41, i1 true, i1 %.not34
   br i1 %or.cond42, label %118, label %97
 
@@ -1535,7 +1535,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -1574,7 +1574,7 @@ _ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessItESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 2 dereferenceable(2) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

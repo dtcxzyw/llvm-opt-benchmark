@@ -3004,7 +3004,7 @@ define internal fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %1
   %11 = load i32, ptr %2, align 4
   %12 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %11, i32 noundef %3) #5
   %13 = zext i16 %12 to i32
-  %14 = icmp slt i32 %13, %6
+  %14 = icmp sgt i32 %6, %13
   br i1 %14, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %8, %18
@@ -3020,7 +3020,7 @@ define internal fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %1
   br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !7
 
 20:                                               ; preds = %.preheader
-  %21 = add i32 %13, %7
+  %21 = add i32 %7, %13
   %22 = sub nsw i32 %.030, %13
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %21, i32 noundef %22, i32 noundef 0) #5
   %.not.i = icmp eq ptr %23, null

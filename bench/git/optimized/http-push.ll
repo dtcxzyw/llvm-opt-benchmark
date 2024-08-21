@@ -1098,7 +1098,7 @@ while.body:                                       ; preds = %if.end321, %release
   %next324 = getelementptr inbounds i8, ptr %request.0181, i64 368
   %120 = load ptr, ptr %next324, align 8
   %121 = load ptr, ptr @request_queue_head, align 8
-  %cmp.i131 = icmp eq ptr %121, %request.0181
+  %cmp.i131 = icmp eq ptr %request.0181, %121
   br i1 %cmp.i131, label %if.end9.sink.split.i, label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body, %land.rhs.i
@@ -2225,7 +2225,7 @@ declare void @http_cleanup() local_unnamed_addr #2
 define internal fastcc void @release_request(ptr noundef %request) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @request_queue_head, align 8
-  %cmp = icmp eq ptr %0, %request
+  %cmp = icmp eq ptr %request, %0
   br i1 %cmp, label %if.end9.sink.split, label %while.cond
 
 while.cond:                                       ; preds = %entry, %land.rhs
@@ -3202,7 +3202,7 @@ if.then6.i:                                       ; preds = %if.end.i
   store i32 0, ptr %can_update_info_refs.i, align 8
   tail call void @release_http_object_request(ptr noundef nonnull %call.i) #14
   %9 = load ptr, ptr @request_queue_head, align 8
-  %cmp.i.i = icmp eq ptr %9, %.us-phi
+  %cmp.i.i = icmp eq ptr %.us-phi, %9
   br i1 %cmp.i.i, label %if.end9.sink.split.i.i, label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %if.then6.i, %land.rhs.i.i
@@ -3576,7 +3576,7 @@ if.end56.i:                                       ; preds = %if.then51.i, %if.th
   %bf.set.i = or i32 %bf.load.i, 65536
   store i32 %bf.set.i, ptr %28, align 4
   %29 = load ptr, ptr @request_queue_head, align 8
-  %cmp.i.i = icmp eq ptr %29, %callback_data
+  %cmp.i.i = icmp eq ptr %callback_data, %29
   br i1 %cmp.i.i, label %if.end9.sink.split.i.i, label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %if.end56.i, %land.rhs.i.i
@@ -3650,7 +3650,7 @@ if.end87.i:                                       ; preds = %if.then76.i, %if.th
 if.then92.i:                                      ; preds = %if.end87.i
   tail call void @release_http_object_request(ptr noundef %37) #14
   %42 = load ptr, ptr @request_queue_head, align 8
-  %cmp.i57.i = icmp eq ptr %42, %callback_data
+  %cmp.i57.i = icmp eq ptr %callback_data, %42
   br i1 %cmp.i57.i, label %if.end9.sink.split.i66.i, label %while.cond.i58.i
 
 while.cond.i58.i:                                 ; preds = %if.then92.i, %land.rhs.i61.i
@@ -3702,7 +3702,7 @@ if.then.i77.i:                                    ; preds = %if.else93.i
   %can_update_info_refs.i.i = getelementptr inbounds i8, ptr %51, i64 24
   store i32 0, ptr %can_update_info_refs.i.i, align 8
   %52 = load ptr, ptr @request_queue_head, align 8
-  %cmp.i.i.i = icmp eq ptr %52, %callback_data
+  %cmp.i.i.i = icmp eq ptr %callback_data, %52
   br i1 %cmp.i.i.i, label %if.end9.sink.split.i.i.i, label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %if.then.i77.i, %land.rhs.i.i.i
@@ -3781,7 +3781,7 @@ land.lhs.true.i.i:                                ; preds = %while.body.i.i
 if.then26.i.i:                                    ; preds = %land.lhs.true.i.i
   tail call void @release_http_pack_request(ptr noundef nonnull %call16.i.i) #14
   %65 = load ptr, ptr @request_queue_head, align 8
-  %cmp.i26.i.i = icmp eq ptr %65, %callback_data
+  %cmp.i26.i.i = icmp eq ptr %callback_data, %65
   br i1 %cmp.i26.i.i, label %if.end9.sink.split.i35.i.i, label %while.cond.i27.i.i
 
 while.cond.i27.i.i:                               ; preds = %if.then26.i.i, %land.rhs.i30.i.i
@@ -3886,7 +3886,7 @@ if.else116.i:                                     ; preds = %if.then107.i
 
 if.end117.i:                                      ; preds = %if.else116.i, %if.then115.i
   %84 = load ptr, ptr @request_queue_head, align 8
-  %cmp.i79.i = icmp eq ptr %84, %callback_data
+  %cmp.i79.i = icmp eq ptr %callback_data, %84
   br i1 %cmp.i79.i, label %if.end9.sink.split.i88.i, label %while.cond.i80.i
 
 while.cond.i80.i:                                 ; preds = %if.end117.i, %land.rhs.i83.i

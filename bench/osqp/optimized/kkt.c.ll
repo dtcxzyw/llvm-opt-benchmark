@@ -600,7 +600,7 @@ _kkt_assemble_csc.exit:                           ; preds = %332, %_kkt_fill_dia
   %347 = getelementptr double, ptr %342, i64 %346
   %348 = getelementptr i8, ptr %347, i64 -8
   %349 = load double, ptr %348, align 8
-  %350 = fadd double %349, %3
+  %350 = fadd double %3, %349
   store double %350, ptr %348, align 8
   %351 = add nuw nsw i64 %.09.i, 1
   %exitcond.not.i49 = icmp eq i64 %351, %12
@@ -1194,7 +1194,7 @@ _kkt_assemble_csr.exit:                           ; preds = %665, %_kkt_fill_dia
   %678 = load i64, ptr %677, align 8
   %679 = getelementptr inbounds double, ptr %675, i64 %678
   %680 = load double, ptr %679, align 8
-  %681 = fadd double %680, %3
+  %681 = fadd double %3, %680
   store double %681, ptr %679, align 8
   %682 = add nuw nsw i64 %.09.i124, 1
   %exitcond.not.i125 = icmp eq i64 %682, %12
@@ -1304,7 +1304,7 @@ define void @update_KKT_P(ptr nocapture noundef readonly %0, ptr nocapture nound
   %39 = load ptr, ptr %14, align 8
   %40 = getelementptr inbounds double, ptr %39, i64 %18
   %41 = load double, ptr %40, align 8
-  %42 = fadd double %41, %5
+  %42 = fadd double %5, %41
   store double %42, ptr %40, align 8
   br label %43
 
@@ -1347,7 +1347,7 @@ define void @update_KKT_P(ptr nocapture noundef readonly %0, ptr nocapture nound
   %69 = load ptr, ptr %14, align 8
   %70 = getelementptr inbounds double, ptr %69, i64 %48
   %71 = load double, ptr %70, align 8
-  %72 = fadd double %71, %5
+  %72 = fadd double %5, %71
   store double %72, ptr %70, align 8
   br label %73
 

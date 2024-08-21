@@ -5983,7 +5983,7 @@ if.end25.i:                                       ; preds = %for.body.i.i
 
 if.then28.i:                                      ; preds = %if.end25.i
   %114 = load ptr, ptr %contexts.i, align 8
-  %cmp.not.i.i = icmp eq ptr %114, %exp.06.i.i
+  %cmp.not.i.i = icmp eq ptr %exp.06.i.i, %114
   br i1 %cmp.not.i.i, label %if.end29.i, label %if.then.i133.i
 
 if.then.i133.i:                                   ; preds = %if.then28.i
@@ -6543,7 +6543,7 @@ trace_nbd_negotiate_meta_query_skip.exit.i.i:     ; preds = %if.else.i.i.i.i276,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i227)
   %190 = load i32, ptr %len.i.i228, align 4
   %191 = load i32, ptr %optlen, align 4
-  %cmp.i13.i.i = icmp ult i32 %191, %190
+  %cmp.i13.i.i = icmp ugt i32 %190, %191
   br i1 %cmp.i13.i.i, label %nbd_negotiate_meta_query.exit.i, label %if.end.i14.i.i
 
 if.end.i14.i.i:                                   ; preds = %trace_nbd_negotiate_meta_query_skip.exit.i.i
@@ -6562,7 +6562,7 @@ if.end5.i.i:                                      ; preds = %if.end.i73.i
   %193 = load i32, ptr %len.i.i228, align 4
   %conv8.i.i = zext i32 %193 to i64
   %194 = load i32, ptr %optlen, align 4
-  %cmp.i22.i.i = icmp ult i32 %194, %193
+  %cmp.i22.i.i = icmp ugt i32 %193, %194
   br i1 %cmp.i22.i.i, label %nbd_opt_read.exit34.i.i, label %if.end.i23.i.i
 
 if.end.i23.i.i:                                   ; preds = %if.end5.i.i
@@ -7578,7 +7578,7 @@ if.end23:                                         ; preds = %for.body.i
   store ptr %exp.06.i, ptr %exp, align 8
   %contexts.i = getelementptr inbounds i8, ptr %client, i64 160
   %18 = load ptr, ptr %contexts.i, align 8
-  %cmp.not.i = icmp eq ptr %18, %exp.06.i
+  %cmp.not.i = icmp eq ptr %exp.06.i, %18
   br i1 %cmp.not.i, label %nbd_check_meta_export.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end23
@@ -7983,7 +7983,7 @@ if.end5:                                          ; preds = %if.end
   %5 = load i32, ptr %len, align 4
   %conv7 = zext i32 %5 to i64
   %6 = load i32, ptr %optlen.i, align 4
-  %cmp.i12 = icmp ult i32 %6, %5
+  %cmp.i12 = icmp ugt i32 %5, %6
   br i1 %cmp.i12, label %nbd_opt_read.exit24, label %if.end.i13
 
 if.end.i13:                                       ; preds = %if.end5

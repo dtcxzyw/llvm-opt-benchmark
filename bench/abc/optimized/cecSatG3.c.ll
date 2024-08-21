@@ -6778,7 +6778,7 @@ Gia_ObjIsXor.exit:                                ; preds = %84
   %.in.i193 = select i1 %.not.i192.not, i32 %107, i32 %119
   %120 = xor i32 %.in.i193, %.in.i
   %121 = and i32 %120, 1
-  %122 = icmp eq i32 %121, %2
+  %122 = icmp eq i32 %2, %121
   %123 = zext i1 %122 to i32
   br label %284
 
@@ -6845,7 +6845,7 @@ Gia_ObjIsXor.exit:                                ; preds = %84
 159:                                              ; preds = %145
   %160 = trunc nuw nsw i64 %146 to i32
   %161 = and i32 %160, 1
-  %.not.i204 = icmp eq i32 %161, %2
+  %.not.i204 = icmp eq i32 %2, %161
   %.in.i205 = select i1 %.not.i204, i32 %157, i32 %155
   %162 = and i32 %.in.i205, 1
   %.not165 = icmp eq i32 %162, 0
@@ -6866,7 +6866,7 @@ Gia_ObjIsXor.exit:                                ; preds = %84
   %168 = lshr i64 %.val.i206, 61
   %169 = trunc nuw nsw i64 %168 to i32
   %170 = and i32 %169, 1
-  %.not.i207 = icmp eq i32 %170, %2
+  %.not.i207 = icmp eq i32 %2, %170
   %171 = lshr i64 %.val.i206, 32
   %172 = and i64 %171, 536870911
   %173 = sub nsw i64 0, %172
@@ -7124,7 +7124,7 @@ define internal fastcc range(i32 0, 2) i32 @Cec5_ObjFan0IsImpliedValue(ptr nocap
   %11 = trunc i64 %3 to i32
   %12 = lshr i32 %11, 29
   %13 = and i32 %12, 1
-  %.not.i4 = icmp eq i32 %13, %1
+  %.not.i4 = icmp eq i32 %1, %13
   %14 = and i64 %.val3, 536870912
   %.not.i11.i = icmp eq i64 %14, 0
   %15 = sub nsw i64 0, %8
@@ -7204,7 +7204,7 @@ define internal fastcc range(i32 0, 2) i32 @Cec5_ObjFan1IsImpliedValue(ptr nocap
   %12 = lshr i64 %3, 61
   %13 = trunc nuw nsw i64 %12 to i32
   %14 = and i32 %13, 1
-  %.not.i4 = icmp eq i32 %14, %1
+  %.not.i4 = icmp eq i32 %1, %14
   %15 = and i64 %.val3, 536870912
   %.not.i11.i = icmp eq i64 %15, 0
   %16 = sub nsw i64 0, %9
@@ -10256,7 +10256,7 @@ Cec5_ObjSimEqual.exit:                            ; preds = %.lr.ph.i, %.lr.ph8.
   %99 = getelementptr inbounds i32, ptr %.val74, i64 %98
   %.060122 = load i32, ptr %99, align 4
   %100 = icmp slt i32 %.060122, 1
-  %101 = icmp eq i32 %.060122, %2
+  %101 = icmp eq i32 %2, %.060122
   %or.cond123 = or i1 %100, %101
   br i1 %or.cond123, label %._crit_edge, label %.lr.ph
 
@@ -10395,7 +10395,7 @@ Cec5_ObjSimEqual.exit104:                         ; preds = %.lr.ph.i91, %.lr.ph
   %159 = getelementptr inbounds i32, ptr %.val73, i64 %104
   %.060 = load i32, ptr %159, align 4
   %160 = icmp slt i32 %.060, 1
-  %161 = icmp eq i32 %.060, %2
+  %161 = icmp eq i32 %2, %.060
   %or.cond = or i1 %160, %161
   br i1 %or.cond, label %._crit_edge, label %103, !llvm.loop !73
 

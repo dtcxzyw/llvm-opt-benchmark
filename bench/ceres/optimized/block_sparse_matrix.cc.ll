@@ -2391,7 +2391,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   br i1 %135, label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix25LeftMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_25LeftMultiplyAndAccumulateES4_S5_S7_iE3$_1EEvS7_iiiOT_PKT0_OT1_.exit", label %136
 
 136:                                              ; preds = %134
-  %.not.i32 = icmp sgt i32 %111, %4
+  %.not.i32 = icmp slt i32 %4, %111
   br i1 %.not.i32, label %358, label %137
 
 137:                                              ; preds = %136
@@ -3103,7 +3103,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   %.pn.i.i = phi ptr [ %439, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33.i.i.i ], [ %397, %424 ]
   %.sroa.01.4.i.i = phi ptr [ %435, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33.i.i.i ], [ %.sroa.01.3.i.i, %424 ]
   %.sroa.11.5.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 4
-  %.not.i.i.i = icmp slt i32 %418, %111
+  %.not.i.i.i = icmp sgt i32 %111, %418
   br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %.loopexit26.i.i, !llvm.loop !35
 
 .loopexit26.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i
@@ -5124,7 +5124,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   br i1 %80, label %"_ZN5ceres8internal11ParallelForIZNKS0_17BlockSparseMatrix17SquaredColumnNormEPdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNKS2_17SquaredColumnNormES3_S5_iE3$_1EEvS5_iiiOT_PKT0_OT1_.exit", label %81
 
 81:                                               ; preds = %79
-  %.not.i20 = icmp sgt i32 %61, %3
+  %.not.i20 = icmp slt i32 %3, %61
   br i1 %.not.i20, label %369, label %82
 
 82:                                               ; preds = %81
@@ -5983,7 +5983,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   %.pn.i.i = phi ptr [ %449, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33.i.i.i ], [ %407, %434 ]
   %.sroa.01.4.i.i = phi ptr [ %445, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33.i.i.i ], [ %.sroa.01.3.i.i, %434 ]
   %.sroa.11.5.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 4
-  %.not.i.i.i = icmp slt i32 %428, %61
+  %.not.i.i.i = icmp sgt i32 %61, %428
   br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %.loopexit26.i.i, !llvm.loop !60
 
 .loopexit26.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i
@@ -7273,7 +7273,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   br i1 %77, label %"_ZN5ceres8internal11ParallelForIZNS0_17BlockSparseMatrix12ScaleColumnsEPKdPNS0_11ContextImplEiE3$_0NS0_14CompressedListEZNS2_12ScaleColumnsES4_S6_iE3$_1EEvS6_iiiOT_PKT0_OT1_.exit", label %78
 
 78:                                               ; preds = %76
-  %.not.i17 = icmp sgt i32 %58, %3
+  %.not.i17 = icmp slt i32 %3, %58
   br i1 %.not.i17, label %310, label %79
 
 79:                                               ; preds = %78
@@ -8032,7 +8032,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   %.pn.i.i = phi ptr [ %390, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33.i.i.i ], [ %348, %375 ]
   %.sroa.01.4.i.i = phi ptr [ %386, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i33.i.i.i ], [ %.sroa.01.3.i.i, %375 ]
   %.sroa.11.5.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 4
-  %.not.i.i.i = icmp slt i32 %369, %58
+  %.not.i.i.i = icmp sgt i32 %58, %369
   br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %.loopexit26.i.i, !llvm.loop !81
 
 .loopexit26.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit34.i.i.i
@@ -10771,7 +10771,7 @@ _ZN5ceres8internal14CompressedListC2Ei.exit:      ; preds = %3
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = sdiv exact i64 %31, 40
-  %33 = icmp ult i64 %32, %14
+  %33 = icmp ugt i64 %14, %32
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %_ZN5ceres8internal14CompressedListC2Ei.exit
@@ -10780,7 +10780,7 @@ _ZN5ceres8internal14CompressedListC2Ei.exit:      ; preds = %3
           to label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEmRKS2_.exit unwind label %66
 
 36:                                               ; preds = %_ZN5ceres8internal14CompressedListC2Ei.exit
-  %37 = icmp ugt i64 %32, %14
+  %37 = icmp ult i64 %14, %32
   br i1 %37, label %38, label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEmRKS2_.exit.thread
 
 38:                                               ; preds = %36
@@ -11265,7 +11265,7 @@ _ZN6google12Check_EQImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %82 = sub i64 %80, %81
   %83 = sdiv exact i64 %82, 40
   %84 = add nsw i64 %75, %83
-  %85 = icmp ult i64 %74, %84
+  %85 = icmp ugt i64 %84, %74
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %63
@@ -11274,7 +11274,7 @@ _ZN6google12Check_EQImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit
 
 88:                                               ; preds = %63
-  %89 = icmp ugt i64 %74, %84
+  %89 = icmp ult i64 %84, %74
   br i1 %89, label %90, label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit
 
 90:                                               ; preds = %88
@@ -11695,7 +11695,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE6res
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -11769,7 +11769,7 @@ _ZNSt12_Vector_baseIN5ceres8internal4CellESaIS2_EE13_M_deallocateEPS2_m.exit37.i
   br label %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -13474,7 +13474,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE6re
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -13548,7 +13548,7 @@ _ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE13_M_deallocateEPS2_m.exit37.
   br label %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -20417,7 +20417,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6r
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
-  %.not = icmp eq i64 %9, %1
+  %.not = icmp eq i64 %1, %9
   br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %4
@@ -20699,7 +20699,7 @@ _ZSt13move_backwardIPN5ceres8internal14CompressedListES3_ET0_T_S5_S4_.exit: ; pr
 
 _ZSt24__uninitialized_fill_n_aIPN5ceres8internal14CompressedListEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit: ; preds = %99
   store ptr %101, ptr %9, align 8
-  %.not11.i.i.i.i.i70 = icmp eq ptr %10, %1
+  %.not11.i.i.i.i.i70 = icmp eq ptr %1, %10
   br i1 %.not11.i.i.i.i.i70, label %_ZSt22__uninitialized_move_aIPN5ceres8internal14CompressedListES3_SaIS2_EET0_T_S6_S5_RT1_.exit76.thread, label %.lr.ph.i.i.i.i.i71
 
 _ZSt22__uninitialized_move_aIPN5ceres8internal14CompressedListES3_SaIS2_EET0_T_S6_S5_RT1_.exit76.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN5ceres8internal14CompressedListEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit
@@ -20834,7 +20834,7 @@ _ZSt24__uninitialized_fill_n_aIPN5ceres8internal14CompressedListEmS2_S2_ET_S4_T0
 _ZSt34__uninitialized_move_if_noexcept_aIPN5ceres8internal14CompressedListES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i88, %_ZSt24__uninitialized_fill_n_aIPN5ceres8internal14CompressedListEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit86
   %.0.lcssa.i.i.i.i.i92 = phi ptr [ %146, %_ZSt24__uninitialized_fill_n_aIPN5ceres8internal14CompressedListEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit86 ], [ %163, %.lr.ph.i.i.i.i.i88 ]
   %164 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %.0.lcssa.i.i.i.i.i92, i64 %2
-  %.not11.i.i.i.i.i93 = icmp eq ptr %10, %1
+  %.not11.i.i.i.i.i93 = icmp eq ptr %1, %10
   br i1 %.not11.i.i.i.i.i93, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5ceres8internal14CompressedListES3_SaIS2_EET0_T_S6_S5_RT1_.exit99, label %.lr.ph.i.i.i.i.i94
 
 .lr.ph.i.i.i.i.i94:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5ceres8internal14CompressedListES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %.lr.ph.i.i.i.i.i94
@@ -21167,7 +21167,7 @@ _ZNSt16allocator_traitsISaIN5ceres8internal4CellEEE8allocateERS3_m.exit.i.i.i.i.
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit14 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %33 = extractvalue { ptr, i32 } %lpad.phi, 0
   %34 = tail call ptr @__cxa_begin_catch(ptr %33) #28
-  %.not4.i.i = icmp eq ptr %.020, %0
+  %.not4.i.i = icmp eq ptr %0, %.020
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN5ceres8internal14CompressedListEEvT_S4_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %32, %_ZSt8_DestroyIN5ceres8internal14CompressedListEEvPT_.exit.i.i

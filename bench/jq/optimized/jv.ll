@@ -810,7 +810,7 @@ define { i64, ptr } @jv_array_get(i64 %0, ptr %1, i32 noundef %2) local_unnamed_
   %4 = icmp slt i32 %2, 0
   %.sroa.1.0.extract.shift.i.i = lshr i64 %0, 32
   %.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i to i32
-  %5 = icmp sle i32 %.sroa.1.0.extract.trunc.i.i, %2
+  %5 = icmp sge i32 %2, %.sroa.1.0.extract.trunc.i.i
   %or.cond.i.not = select i1 %4, i1 true, i1 %5
   br i1 %or.cond.i.not, label %jv_copy.exit, label %6
 
@@ -818,7 +818,7 @@ define { i64, ptr } @jv_array_get(i64 %0, ptr %1, i32 noundef %2) local_unnamed_
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = trunc i64 %0 to i32
   %9 = lshr i32 %8, 16
-  %10 = add nuw nsw i32 %9, %2
+  %10 = add nuw nsw i32 %2, %9
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds [0 x %struct.jv], ptr %7, i64 0, i64 %11
   %13 = load i64, ptr %12, align 8
@@ -851,7 +851,7 @@ define { i64, ptr } @jv_array_set(i64 %0, ptr %1, i32 noundef %2, i64 %3, ptr %4
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %5
-  %8 = add nsw i32 %.sroa.10.0.extract.trunc, %2
+  %8 = add nsw i32 %2, %.sroa.10.0.extract.trunc
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %.thread
 
@@ -2880,7 +2880,7 @@ jv_copy.exit:                                     ; preds = %4, %8
   tail call void @jv_free(i64 %0, ptr %1)
   %13 = icmp slt i32 %2, 0
   %14 = select i1 %13, i32 %12, i32 0
-  %spec.select = add nsw i32 %14, %2
+  %spec.select = add nsw i32 %2, %14
   %15 = icmp slt i32 %3, 0
   %16 = select i1 %15, i32 %12, i32 0
   %.055 = add i32 %16, %3

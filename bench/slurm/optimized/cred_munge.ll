@@ -228,7 +228,7 @@ _verify_signature.exit.thread:                    ; preds = %10
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8
-  %.not9.i = icmp eq i32 %23, %16
+  %.not9.i = icmp eq i32 %16, %23
   %24 = getelementptr inbounds i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
   br i1 %.not9.i, label %_verify_signature.exit, label %.critedge
@@ -396,7 +396,7 @@ define internal fastcc noundef i32 @_decode(ptr noundef %0, i1 noundef zeroext %
 
 .critedge:                                        ; preds = %.preheader
   %.not29 = icmp eq i32 %12, 17
-  %brmerge.not = and i1 %.not29, %1
+  %brmerge.not = and i1 %1, %.not29
   %.mux = select i1 %.not29, i32 5003, i32 %12
   br i1 %brmerge.not, label %23, label %45
 
@@ -558,7 +558,7 @@ _verify_signature.exit.thread:                    ; preds = %19
   %30 = load ptr, ptr %4, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 8
-  %.not9.i = icmp eq i32 %32, %24
+  %.not9.i = icmp eq i32 %24, %32
   %33 = getelementptr inbounds i8, ptr %30, i64 8
   %34 = load ptr, ptr %33, align 8
   br i1 %.not9.i, label %_verify_signature.exit, label %.critedge

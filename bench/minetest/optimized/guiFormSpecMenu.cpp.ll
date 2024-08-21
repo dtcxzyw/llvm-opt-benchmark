@@ -31862,7 +31862,7 @@ entry:
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %spec, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !11
   %cmp.i = icmp ne i64 %0, 0
-  %brmerge = or i1 %cmp.i, %is_multiline
+  %brmerge = or i1 %is_multiline, %cmp.i
   br i1 %brmerge, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

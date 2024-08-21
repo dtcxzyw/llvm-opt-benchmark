@@ -2264,7 +2264,7 @@ declare ptr @bms_del_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal fastcc void @generate_dependencies_recurse(ptr nocapture noundef %0, i32 noundef %1, i16 noundef signext %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 8
   %6 = add i32 %5, -1
-  %7 = icmp sgt i32 %6, %1
+  %7 = icmp slt i32 %1, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   br i1 %7, label %.preheader, label %.preheader41
 

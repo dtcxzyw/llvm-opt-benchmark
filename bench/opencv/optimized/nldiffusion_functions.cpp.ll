@@ -81,12 +81,12 @@ define hidden void @_ZN2cv23gaussian_2D_convolutionERKNS_3MatERS0_iif(ptr nounde
   %6 = alloca %"class.cv::_InputArray", align 8
   %7 = alloca %"class.cv::_OutputArray", align 8
   %8 = sitofp i32 %2 to float
-  %9 = fcmp olt float %8, %4
+  %9 = fcmp ogt float %4, %8
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %5
   %11 = sitofp i32 %3 to float
-  %12 = fcmp olt float %11, %4
+  %12 = fcmp ogt float %4, %11
   %13 = icmp eq i32 %2, 0
   %or.cond = or i1 %13, %12
   %14 = icmp eq i32 %3, 0
@@ -1075,12 +1075,12 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit106:              ; preds = %52
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %61 = sitofp i32 %4 to float
-  %62 = fcmp olt float %61, %2
+  %62 = fcmp ogt float %2, %61
   br i1 %62, label %68, label %63
 
 63:                                               ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit106
   %64 = sitofp i32 %5 to float
-  %65 = fcmp olt float %64, %2
+  %65 = fcmp ogt float %2, %64
   %66 = icmp eq i32 %4, 0
   %or.cond.i = or i1 %66, %65
   %67 = icmp eq i32 %5, 0
@@ -1302,7 +1302,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit106:              ; preds = %52
   %174 = fmul float %173, %156
   %175 = call noundef float @llvm.floor.f32(float %174)
   %176 = fptosi float %175 to i32
-  %177 = icmp eq i32 %176, %3
+  %177 = icmp eq i32 %3, %176
   %178 = sext i1 %177 to i32
   %spec.select.us = add nsw i32 %178, %176
   %179 = sext i32 %spec.select.us to i64
@@ -1326,7 +1326,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit106:              ; preds = %52
 
 ._crit_edge130:                                   ; preds = %._crit_edge.us133, %.lr.ph129, %._crit_edge122
   %.085.lcssa = phi float [ 0.000000e+00, %._crit_edge122 ], [ 0.000000e+00, %.lr.ph129 ], [ %.287.us, %._crit_edge.us133 ]
-  %185 = fmul float %.085.lcssa, %1
+  %185 = fmul float %1, %.085.lcssa
   %186 = fptosi float %185 to i32
   %187 = icmp sgt i32 %186, 0
   %188 = icmp ne i32 %3, 0

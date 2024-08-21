@@ -1740,7 +1740,7 @@ if.then.i:                                        ; preds = %while.end11
 
 while.cond12:                                     ; preds = %while.end11, %while.cond12
   %mask.0 = phi i32 [ %shl, %while.cond12 ], [ 1, %while.end11 ]
-  %cmp13.not = icmp sgt i32 %mask.0, %power_exponent
+  %cmp13.not = icmp slt i32 %power_exponent, %mask.0
   %shl = shl i32 %mask.0, 1
   br i1 %cmp13.not, label %while.end15, label %while.cond12, !llvm.loop !30
 
@@ -2576,8 +2576,8 @@ entry:
   %1 = load i16, ptr %exponent_.i, align 2
   %conv2.i = sext i16 %1 to i32
   %add.i = add nsw i32 %conv2.i, %conv.i
-  %cmp.not = icmp sle i32 %add.i, %index
-  %cmp2 = icmp sgt i32 %conv2.i, %index
+  %cmp.not = icmp sge i32 %index, %add.i
+  %cmp2 = icmp slt i32 %index, %conv2.i
   %or.cond = or i1 %cmp2, %cmp.not
   br i1 %or.cond, label %return, label %if.end4
 

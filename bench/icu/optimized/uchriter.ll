@@ -389,7 +389,7 @@ define noundef zeroext i16 @_ZN6icu_7522UCharCharacterIterator8setIndexEi(ptr no
 entry:
   %begin = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %begin, align 8
-  %cmp = icmp sgt i32 %0, %position
+  %cmp = icmp slt i32 %position, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -402,7 +402,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %end = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %end, align 4
-  %cmp3 = icmp slt i32 %1, %position
+  %cmp3 = icmp sgt i32 %position, %1
   %pos6 = getelementptr inbounds i8, ptr %this, i64 12
   br i1 %cmp3, label %if.end9.thread, label %if.else7
 
@@ -713,10 +713,10 @@ define noundef range(i32 -56613888, 10559488) i32 @_ZN6icu_7522UCharCharacterIte
 entry:
   %begin = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %begin, align 8
-  %cmp = icmp sgt i32 %0, %position
+  %cmp = icmp slt i32 %position, %0
   %end = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %end, align 4
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %position)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %position, i32 %1)
   %position.addr.0 = select i1 %cmp, i32 %0, i32 %spec.select
   %cmp8 = icmp slt i32 %position.addr.0, %1
   br i1 %cmp8, label %do.body, label %if.else46

@@ -10,7 +10,7 @@ define x86_fp80 @ceill(x86_fp80 noundef %0) local_unnamed_addr #0 {
   %3 = call x86_fp80 @modfl(x86_fp80 noundef %0, ptr noundef nonnull %2) #2
   %4 = fcmp ule x86_fp80 %0, 0xK00000000000000000000
   %.pre = load x86_fp80, ptr %2, align 16
-  %5 = fcmp ueq x86_fp80 %.pre, %0
+  %5 = fcmp ueq x86_fp80 %0, %.pre
   %or.cond = select i1 %4, i1 true, i1 %5
   %6 = fadd x86_fp80 %.pre, 0xK3FFF8000000000000000
   %7 = select i1 %or.cond, x86_fp80 %.pre, x86_fp80 %6

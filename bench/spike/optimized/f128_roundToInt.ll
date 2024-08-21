@@ -63,7 +63,7 @@ define { i64, i64 } @f128_roundToInt(i64 %0, i64 %1, i8 noundef zeroext %2, i1 n
   %34 = add i64 %33, %0
   %35 = icmp ult i64 %34, %0
   %36 = zext i1 %35 to i64
-  %37 = add i64 %36, %1
+  %37 = add i64 %1, %36
   %38 = and i64 %34, %22
   %.not104 = icmp eq i64 %38, 0
   %or.cond = select i1 %23, i1 %.not104, i1 false
@@ -85,7 +85,7 @@ define { i64, i64 } @f128_roundToInt(i64 %0, i64 %1, i8 noundef zeroext %2, i1 n
   %47 = add i64 %22, %0
   %48 = icmp ult i64 %47, %0
   %49 = zext i1 %48 to i64
-  %50 = add i64 %49, %1
+  %50 = add i64 %1, %49
   br label %51
 
 51:                                               ; preds = %28, %42, %46, %26, %39, %32
@@ -186,7 +186,7 @@ define { i64, i64 } @f128_roundToInt(i64 %0, i64 %1, i8 noundef zeroext %2, i1 n
 94:                                               ; preds = %90
   %95 = icmp ne i64 %0, 0
   %96 = zext i1 %95 to i64
-  %97 = or i64 %96, %1
+  %97 = or i64 %1, %96
   %98 = add i64 %78, %97
   br label %99
 

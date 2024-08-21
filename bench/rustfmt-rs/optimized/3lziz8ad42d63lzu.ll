@@ -584,7 +584,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117hf40ea9300502eef6E.llvm.16014
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -7585,7 +7585,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %1805
   %1815 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1097, !noalias !1102, !noundef !5
   %1816 = load i64, ptr %137, align 8, !alias.scope !1104, !noalias !1102, !noundef !5
   %1817 = sub i64 %1816, %1815
-  %1818 = icmp ult i64 %1817, %1814
+  %1818 = icmp ugt i64 %1814, %1817
   br i1 %1818, label %1819, label %1822
 
 1819:                                             ; preds = %_ZN5alloc3fmt6format17h35125637d547cb53E.exit
@@ -7728,7 +7728,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit109: ; preds = %"_ZN73_$LT$$u5b$A$u
   %1857 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1147, !noalias !1152, !noundef !5
   %1858 = load i64, ptr %137, align 8, !alias.scope !1154, !noalias !1152, !noundef !5
   %1859 = sub i64 %1858, %1857
-  %1860 = icmp ult i64 %1859, %1856
+  %1860 = icmp ugt i64 %1856, %1859
   br i1 %1860, label %1861, label %1864
 
 1861:                                             ; preds = %_ZN5alloc3fmt6format17h35125637d547cb53E.exit109
@@ -61517,7 +61517,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   br i1 %39, label %44, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit"
 
 44:                                               ; preds = %2
-  %45 = icmp ult i64 %36, %41
+  %45 = icmp ugt i64 %41, %36
   br i1 %45, label %46, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit"
 
 46:                                               ; preds = %44
@@ -61585,7 +61585,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   br i1 %56, label %62, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit62"
 
 62:                                               ; preds = %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit"
-  %63 = icmp ult i64 %36, %58
+  %63 = icmp ugt i64 %58, %36
   br i1 %63, label %64, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit62"
 
 64:                                               ; preds = %62
@@ -61653,7 +61653,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   br i1 %74, label %80, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit74"
 
 80:                                               ; preds = %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit62"
-  %81 = icmp ult i64 %36, %76
+  %81 = icmp ugt i64 %76, %36
   br i1 %81, label %82, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit74"
 
 82:                                               ; preds = %80
@@ -61721,7 +61721,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   br i1 %92, label %98, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit86"
 
 98:                                               ; preds = %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit74"
-  %99 = icmp ult i64 %36, %94
+  %99 = icmp ugt i64 %94, %36
   br i1 %99, label %100, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit86"
 
 100:                                              ; preds = %98
@@ -61789,7 +61789,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   br i1 %110, label %116, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit98"
 
 116:                                              ; preds = %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit86"
-  %117 = icmp ult i64 %36, %112
+  %117 = icmp ugt i64 %112, %36
   br i1 %117, label %118, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit98"
 
 118:                                              ; preds = %116
@@ -61857,7 +61857,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   br i1 %128, label %134, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit110"
 
 134:                                              ; preds = %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit98"
-  %135 = icmp ult i64 %36, %130
+  %135 = icmp ugt i64 %130, %36
   br i1 %135, label %136, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit110"
 
 136:                                              ; preds = %134
@@ -61925,7 +61925,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   br i1 %146, label %152, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit122"
 
 152:                                              ; preds = %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit110"
-  %153 = icmp ult i64 %36, %148
+  %153 = icmp ugt i64 %148, %36
   br i1 %153, label %154, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit122"
 
 154:                                              ; preds = %152
@@ -61993,7 +61993,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   br i1 %164, label %170, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit134"
 
 170:                                              ; preds = %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit122"
-  %171 = icmp ult i64 %36, %166
+  %171 = icmp ugt i64 %166, %36
   br i1 %171, label %172, label %"_ZN15rustfmt_nightly6config6Config20set_width_heuristics28_$u7b$$u7b$closure$u7d$$u7d$17h6ca2310ba80dc245E.exit134"
 
 172:                                              ; preds = %170

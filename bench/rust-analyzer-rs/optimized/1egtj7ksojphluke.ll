@@ -8151,7 +8151,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !1975, !noalias !1980, !noundef !9
   %6 = load i64, ptr %0, align 8, !alias.scope !1982, !noalias !1980, !noundef !9
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha597a032ad8ee589E.exit"
 
 9:                                                ; preds = %3
@@ -8413,7 +8413,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !2015, !noalias !2020, !noundef !9
   %45 = load i64, ptr %0, align 8, !alias.scope !2022, !noalias !2020, !noundef !9
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha597a032ad8ee589E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -37810,7 +37810,7 @@ _ZN5alloc6string6String8truncate17ha32b28e51c269527E.exit: ; preds = %"_ZN5alloc
   %142 = load i64, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !9246, !noalias !9251, !noundef !9
   %143 = load i64, ptr %23, align 8, !alias.scope !9253, !noalias !9251, !noundef !9
   %144 = sub i64 %143, %142
-  %145 = icmp ult i64 %144, %141
+  %145 = icmp ugt i64 %141, %144
   br i1 %145, label %146, label %152
 
 146:                                              ; preds = %139
@@ -40909,7 +40909,7 @@ thread-pre-split:                                 ; preds = %331, %"_ZN4core3ptr
   %594 = load i64, ptr %.sroa.537.0..sroa_idx, align 8, !alias.scope !9841, !noalias !9846, !noundef !9
   %595 = load i64, ptr %71, align 8, !alias.scope !9848, !noalias !9846, !noundef !9
   %596 = sub i64 %595, %594
-  %597 = icmp ult i64 %596, %593
+  %597 = icmp ugt i64 %593, %596
   br i1 %597, label %598, label %604
 
 598:                                              ; preds = %589
@@ -41002,7 +41002,7 @@ thread-pre-split:                                 ; preds = %331, %"_ZN4core3ptr
   %632 = getelementptr inbounds i8, ptr %68, i64 16
   %633 = load i64, ptr %632, align 8, !noundef !9
   %634 = sub i64 %.pre215, %.pre213
-  %635 = icmp ult i64 %634, %633
+  %635 = icmp ugt i64 %633, %634
   br i1 %635, label %636, label %655
 
 636:                                              ; preds = %629
@@ -41028,7 +41028,7 @@ thread-pre-split:                                 ; preds = %331, %"_ZN4core3ptr
   %645 = getelementptr inbounds i8, ptr %90, i64 16
   %646 = load i64, ptr %645, align 8, !noundef !9
   %647 = sub i64 %641, %642
-  %648 = icmp ult i64 %647, %646
+  %648 = icmp ugt i64 %646, %647
   br i1 %648, label %649, label %679
 
 649:                                              ; preds = %640
@@ -41168,7 +41168,7 @@ thread-pre-split:                                 ; preds = %331, %"_ZN4core3ptr
   %707 = load i64, ptr %706, align 8, !noundef !9
   %708 = load i64, ptr %71, align 8, !alias.scope !9906, !noalias !9913, !noundef !9
   %709 = sub i64 %708, %703
-  %710 = icmp ult i64 %709, %707
+  %710 = icmp ugt i64 %707, %709
   br i1 %710, label %711, label %715
 
 711:                                              ; preds = %698
@@ -41464,7 +41464,7 @@ define internal fastcc void @_ZN3ide5hover6render28render_notable_trait_comment1
   %33 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !9955, !noalias !9960, !noundef !9
   %34 = load i64, ptr %14, align 8, !alias.scope !9962, !noalias !9960, !noundef !9
   %35 = sub i64 %34, %33
-  %36 = icmp ult i64 %35, %.
+  %36 = icmp ugt i64 %., %35
   br i1 %36, label %37, label %51
 
 37:                                               ; preds = %31
@@ -42024,7 +42024,7 @@ common.resume:                                    ; preds = %460, %473, %469, %7
   %147 = load i64, ptr %.sroa.048.sroa.5.0..sroa_idx, align 8, !alias.scope !10047, !noalias !10052, !noundef !9
   %148 = load i64, ptr %57, align 8, !alias.scope !10054, !noalias !10052, !noundef !9
   %149 = sub i64 %148, %147
-  %150 = icmp ult i64 %149, %.
+  %150 = icmp ugt i64 %., %149
   br i1 %150, label %151, label %284
 
 151:                                              ; preds = %146
@@ -45060,7 +45060,7 @@ define internal fastcc void @_ZN3ide14signature_help13SignatureHelp10push_param1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6)
   %31 = load i64, ptr %7, align 8, !alias.scope !10670, !noalias !10677, !noundef !9
   %32 = sub i64 %31, %.val6
-  %33 = icmp ult i64 %32, %4
+  %33 = icmp ugt i64 %4, %32
   br i1 %33, label %34, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha597a032ad8ee589E.exit8"
 
 34:                                               ; preds = %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit"

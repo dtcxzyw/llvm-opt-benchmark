@@ -1580,7 +1580,7 @@ define hidden noundef zeroext i1 @_ZNK18CompiledDirectCall22is_call_to_interpret
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
-  %14 = icmp ugt ptr %13, %5
+  %14 = icmp ult ptr %5, %13
   %15 = select i1 %.not.i, i1 %14, i1 false
   ret i1 %15
 }
@@ -1603,7 +1603,7 @@ define hidden noundef zeroext i1 @_ZNK18CompiledDirectCall19is_call_to_compiledE
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %3, i64 %15
-  %17 = icmp ugt ptr %16, %8
+  %17 = icmp ult ptr %8, %16
   %18 = select i1 %.not.i, i1 %17, i1 false
   br i1 %18, label %23, label %19
 

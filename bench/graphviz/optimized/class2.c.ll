@@ -992,7 +992,7 @@ interclrep.exit:                                  ; preds = %283, %.lr.ph.i, %44
 
 ._crit_edge269:                                   ; preds = %._crit_edge264, %._crit_edge253
   %461 = tail call ptr @dot_root(ptr noundef %0) #9
-  %.not215 = icmp eq ptr %461, %0
+  %.not215 = icmp eq ptr %0, %461
   br i1 %.not215, label %478, label %462
 
 462:                                              ; preds = %._crit_edge269

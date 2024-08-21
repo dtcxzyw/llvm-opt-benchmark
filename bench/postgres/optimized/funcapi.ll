@@ -2967,7 +2967,7 @@ define dso_local i32 @extract_variadic_args(ptr nocapture noundef readonly %0, i
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %.lr.ph ]
   %56 = trunc nuw nsw i64 %indvars.iv to i32
-  %57 = add i32 %56, %1
+  %57 = add i32 %1, %56
   %58 = sext i32 %57 to i64
   %59 = getelementptr [0 x %struct.NullableDatum], ptr %55, i64 0, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 8
@@ -2994,7 +2994,7 @@ define dso_local i32 @extract_variadic_args(ptr nocapture noundef readonly %0, i
 .lr.ph.split:                                     ; preds = %.lr.ph, %104
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %104 ], [ 0, %.lr.ph ]
   %72 = trunc nuw nsw i64 %indvars.iv77 to i32
-  %73 = add i32 %72, %1
+  %73 = add i32 %1, %72
   %74 = sext i32 %73 to i64
   %75 = getelementptr [0 x %struct.NullableDatum], ptr %55, i64 0, i64 %74
   %76 = getelementptr inbounds i8, ptr %75, i64 8

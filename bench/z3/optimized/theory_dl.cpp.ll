@@ -627,7 +627,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit:    ; preds = %entry, %if.end.i.i.i.i
   %retval.0.i.i.i.i = phi i32 [ %3, %if.end.i.i.i.i ], [ 0, %entry ]
-  %cmp.not.i.i.i = icmp ugt i32 %retval.0.i.i.i.i, %1
+  %cmp.not.i.i.i = icmp ult i32 %1, %retval.0.i.i.i.i
   %idxprom.i.i.i = zext i32 %1 to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.not.i.i.i, ptr %arrayidx.i.i.i, ptr @_ZN3smtL13null_bool_varE
@@ -3069,7 +3069,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %for.end
   %5 = load i32, ptr %n, align 4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 -4
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %6, %5
+  %cmp.not.i.i = icmp ult i32 %5, %6
   br i1 %cmp.not.i.i, label %_ZNK3smt7context14e_internalizedEPK4expr.exit, label %if.else
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i
@@ -5469,7 +5469,7 @@ if.end.i.i:                                       ; preds = %invoke.cont18
 _ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i: ; preds = %if.end.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %15, %call.i.i10
+  %cmp.not.i.i.i = icmp ult i32 %call.i.i10, %15
   br i1 %cmp.not.i.i.i, label %invoke.cont20, label %invoke.cont22
 
 invoke.cont20:                                    ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i
@@ -5510,7 +5510,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %invoke.cont22
   %21 = load i32, ptr %call.i7, align 4
   %arrayidx.i.i.i12 = getelementptr inbounds i8, ptr %20, i64 -4
   %22 = load i32, ptr %arrayidx.i.i.i12, align 4
-  %cmp.not.i.i = icmp ugt i32 %22, %21
+  %cmp.not.i.i = icmp ult i32 %21, %22
   br i1 %cmp.not.i.i, label %invoke.cont25, label %if.else
 
 invoke.cont25:                                    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i

@@ -16717,7 +16717,7 @@ define hidden noundef align 8 dereferenceable_or_null(72) ptr @_ZN10serde_json5v
   %3 = icmp eq i64 %2, -9223372036854775804
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   %or.cond = select i1 %3, i1 %6, i1 false
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !nonnull !5
@@ -29765,7 +29765,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !5699, !noalias !5704, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !5706, !noalias !5704, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -29822,7 +29822,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !5712, !noalias !5717, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !5719, !noalias !5717, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit"
 
 9:                                                ; preds = %3
@@ -38177,7 +38177,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h2cfc08d6f2cdf
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !8185, !noalias !8190
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -38266,7 +38266,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h3f4bf607b053c
   %15 = getelementptr inbounds i8, ptr %1, i64 72
   %16 = load i64, ptr %15, align 8, !alias.scope !8210, !noalias !8215
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -38355,7 +38355,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h8ae1ffd606b61
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !8235, !noalias !8240
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -38444,7 +38444,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h9f44dc12abf83
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !8260, !noalias !8265
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -38533,7 +38533,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17hafa60e5530416
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !8285, !noalias !8290
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -38622,7 +38622,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17hb6cadec6a5ed8
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !8310, !noalias !8315
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -38711,7 +38711,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17hbc7f51bb7687c
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !8335, !noalias !8340
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -38800,7 +38800,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17he2de19ffde19e
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !8360, !noalias !8365
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -56715,7 +56715,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.
   store i64 %333, ptr %.sroa.513.0..sroa_idx.i, align 8, !alias.scope !11352, !noalias !11357
   %334 = load i64, ptr %16, align 8, !alias.scope !11361, !noalias !11368, !noundef !5
   %335 = sub i64 %334, %333
-  %336 = icmp ult i64 %335, %.sroa.33.0.i.i
+  %336 = icmp ugt i64 %.sroa.33.0.i.i, %335
   br i1 %336, label %337, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48.i"
 
 337:                                              ; preds = %328
@@ -58041,7 +58041,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.
   store i64 %339, ptr %.sroa.513.0..sroa_idx.i, align 8, !alias.scope !11485, !noalias !11490
   %340 = load i64, ptr %17, align 8, !alias.scope !11494, !noalias !11501, !noundef !5
   %341 = sub i64 %340, %339
-  %342 = icmp ult i64 %341, %.sroa.33.0.i.i
+  %342 = icmp ugt i64 %.sroa.33.0.i.i, %341
   br i1 %342, label %343, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48.i"
 
 343:                                              ; preds = %334
@@ -59347,7 +59347,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.
   store i64 %329, ptr %.sroa.513.0..sroa_idx.i, align 8, !alias.scope !11611, !noalias !11616
   %330 = load i64, ptr %16, align 8, !alias.scope !11620, !noalias !11627, !noundef !5
   %331 = sub i64 %330, %329
-  %332 = icmp ult i64 %331, %.sroa.33.0.i.i
+  %332 = icmp ugt i64 %.sroa.33.0.i.i, %331
   br i1 %332, label %333, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48.i"
 
 333:                                              ; preds = %324
@@ -60661,7 +60661,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.
   store i64 %333, ptr %.sroa.513.0..sroa_idx.i, align 8, !alias.scope !11737, !noalias !11742
   %334 = load i64, ptr %16, align 8, !alias.scope !11746, !noalias !11753, !noundef !5
   %335 = sub i64 %334, %333
-  %336 = icmp ult i64 %335, %.sroa.33.0.i.i
+  %336 = icmp ugt i64 %.sroa.33.0.i.i, %335
   br i1 %336, label %337, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48.i"
 
 337:                                              ; preds = %328
@@ -61975,7 +61975,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit81.
   store i64 %333, ptr %.sroa.513.0..sroa_idx.i, align 8, !alias.scope !11863, !noalias !11868
   %334 = load i64, ptr %16, align 8, !alias.scope !11872, !noalias !11879, !noundef !5
   %335 = sub i64 %334, %333
-  %336 = icmp ult i64 %335, %.sroa.33.0.i.i
+  %336 = icmp ugt i64 %.sroa.33.0.i.i, %335
   br i1 %336, label %337, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48.i"
 
 337:                                              ; preds = %328
@@ -98305,7 +98305,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h000
   store i64 %167, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !15383, !noalias !15388
   %168 = load i64, ptr %16, align 8, !alias.scope !15390, !noalias !15397, !noundef !5
   %169 = sub i64 %168, %167
-  %170 = icmp ult i64 %169, %.sroa.33.0.i
+  %170 = icmp ugt i64 %.sroa.33.0.i, %169
   br i1 %170, label %171, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 171:                                              ; preds = %162
@@ -98847,7 +98847,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h026
   store i64 %167, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !15459, !noalias !15464
   %168 = load i64, ptr %16, align 8, !alias.scope !15466, !noalias !15473, !noundef !5
   %169 = sub i64 %168, %167
-  %170 = icmp ult i64 %169, %.sroa.33.0.i
+  %170 = icmp ugt i64 %.sroa.33.0.i, %169
   br i1 %170, label %171, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 171:                                              ; preds = %162
@@ -99357,7 +99357,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h037
   store i64 %160, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !15520, !noalias !15525
   %161 = load i64, ptr %16, align 8, !alias.scope !15527, !noalias !15534, !noundef !5
   %162 = sub i64 %161, %160
-  %163 = icmp ult i64 %162, %.sroa.33.0.i
+  %163 = icmp ugt i64 %.sroa.33.0.i, %162
   br i1 %163, label %164, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit49"
 
 164:                                              ; preds = %155
@@ -99855,7 +99855,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h057
   store i64 %157, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !15580, !noalias !15585
   %158 = load i64, ptr %16, align 8, !alias.scope !15587, !noalias !15594, !noundef !5
   %159 = sub i64 %158, %157
-  %160 = icmp ult i64 %159, %.sroa.33.0.i
+  %160 = icmp ugt i64 %.sroa.33.0.i, %159
   br i1 %160, label %161, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 161:                                              ; preds = %152
@@ -100364,7 +100364,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h0eb
   store i64 %161, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !15640, !noalias !15645
   %162 = load i64, ptr %16, align 8, !alias.scope !15647, !noalias !15654, !noundef !5
   %163 = sub i64 %162, %161
-  %164 = icmp ult i64 %163, %.sroa.33.0.i
+  %164 = icmp ugt i64 %.sroa.33.0.i, %163
   br i1 %164, label %165, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 165:                                              ; preds = %156
@@ -100906,7 +100906,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h191
   store i64 %167, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !15716, !noalias !15721
   %168 = load i64, ptr %16, align 8, !alias.scope !15723, !noalias !15730, !noundef !5
   %169 = sub i64 %168, %167
-  %170 = icmp ult i64 %169, %.sroa.33.0.i
+  %170 = icmp ugt i64 %.sroa.33.0.i, %169
   br i1 %170, label %171, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 171:                                              ; preds = %162
@@ -101403,7 +101403,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h1a5
   store i64 %157, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !15776, !noalias !15781
   %158 = load i64, ptr %16, align 8, !alias.scope !15783, !noalias !15790, !noundef !5
   %159 = sub i64 %158, %157
-  %160 = icmp ult i64 %159, %.sroa.33.0.i
+  %160 = icmp ugt i64 %.sroa.33.0.i, %159
   br i1 %160, label %161, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 161:                                              ; preds = %152
@@ -101944,7 +101944,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h1c8
   store i64 %174, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !15853, !noalias !15858
   %175 = load i64, ptr %17, align 8, !alias.scope !15860, !noalias !15867, !noundef !5
   %176 = sub i64 %175, %174
-  %177 = icmp ult i64 %176, %.sroa.33.0.i
+  %177 = icmp ugt i64 %.sroa.33.0.i, %176
   br i1 %177, label %178, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit50"
 
 178:                                              ; preds = %169
@@ -102453,7 +102453,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h2c7
   store i64 %161, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !15913, !noalias !15918
   %162 = load i64, ptr %16, align 8, !alias.scope !15920, !noalias !15927, !noundef !5
   %163 = sub i64 %162, %161
-  %164 = icmp ult i64 %163, %.sroa.33.0.i
+  %164 = icmp ugt i64 %.sroa.33.0.i, %163
   br i1 %164, label %165, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 165:                                              ; preds = %156
@@ -102994,7 +102994,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h386
   store i64 %174, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !15990, !noalias !15995
   %175 = load i64, ptr %17, align 8, !alias.scope !15997, !noalias !16004, !noundef !5
   %176 = sub i64 %175, %174
-  %177 = icmp ult i64 %176, %.sroa.33.0.i
+  %177 = icmp ugt i64 %.sroa.33.0.i, %176
   br i1 %177, label %178, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit50"
 
 178:                                              ; preds = %169
@@ -103535,7 +103535,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h3d6
   store i64 %174, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16067, !noalias !16072
   %175 = load i64, ptr %17, align 8, !alias.scope !16074, !noalias !16081, !noundef !5
   %176 = sub i64 %175, %174
-  %177 = icmp ult i64 %176, %.sroa.33.0.i
+  %177 = icmp ugt i64 %.sroa.33.0.i, %176
   br i1 %177, label %178, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit50"
 
 178:                                              ; preds = %169
@@ -104043,7 +104043,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h421
   store i64 %161, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16128, !noalias !16133
   %162 = load i64, ptr %16, align 8, !alias.scope !16135, !noalias !16142, !noundef !5
   %163 = sub i64 %162, %161
-  %164 = icmp ult i64 %163, %.sroa.33.0.i
+  %164 = icmp ugt i64 %.sroa.33.0.i, %163
   br i1 %164, label %165, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 165:                                              ; preds = %156
@@ -104577,7 +104577,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h4a1
   store i64 %172, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16198, !noalias !16203
   %173 = load i64, ptr %17, align 8, !alias.scope !16205, !noalias !16212, !noundef !5
   %174 = sub i64 %173, %172
-  %175 = icmp ult i64 %174, %.sroa.33.0.i
+  %175 = icmp ugt i64 %.sroa.33.0.i, %174
   br i1 %175, label %176, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 176:                                              ; preds = %167
@@ -105074,7 +105074,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h4ee
   store i64 %157, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16258, !noalias !16263
   %158 = load i64, ptr %16, align 8, !alias.scope !16265, !noalias !16272, !noundef !5
   %159 = sub i64 %158, %157
-  %160 = icmp ult i64 %159, %.sroa.33.0.i
+  %160 = icmp ugt i64 %.sroa.33.0.i, %159
   br i1 %160, label %161, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 161:                                              ; preds = %152
@@ -105571,7 +105571,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h56e
   store i64 %157, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16318, !noalias !16323
   %158 = load i64, ptr %16, align 8, !alias.scope !16325, !noalias !16332, !noundef !5
   %159 = sub i64 %158, %157
-  %160 = icmp ult i64 %159, %.sroa.33.0.i
+  %160 = icmp ugt i64 %.sroa.33.0.i, %159
   br i1 %160, label %161, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 161:                                              ; preds = %152
@@ -106080,7 +106080,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h59e
   store i64 %161, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16378, !noalias !16383
   %162 = load i64, ptr %16, align 8, !alias.scope !16385, !noalias !16392, !noundef !5
   %163 = sub i64 %162, %161
-  %164 = icmp ult i64 %163, %.sroa.33.0.i
+  %164 = icmp ugt i64 %.sroa.33.0.i, %163
   br i1 %164, label %165, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 165:                                              ; preds = %156
@@ -106621,7 +106621,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h59e
   store i64 %174, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16455, !noalias !16460
   %175 = load i64, ptr %17, align 8, !alias.scope !16462, !noalias !16469, !noundef !5
   %176 = sub i64 %175, %174
-  %177 = icmp ult i64 %176, %.sroa.33.0.i
+  %177 = icmp ugt i64 %.sroa.33.0.i, %176
   br i1 %177, label %178, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit50"
 
 178:                                              ; preds = %169
@@ -107163,7 +107163,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h619
   store i64 %167, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16531, !noalias !16536
   %168 = load i64, ptr %16, align 8, !alias.scope !16538, !noalias !16545, !noundef !5
   %169 = sub i64 %168, %167
-  %170 = icmp ult i64 %169, %.sroa.33.0.i
+  %170 = icmp ugt i64 %.sroa.33.0.i, %169
   br i1 %170, label %171, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 171:                                              ; preds = %162
@@ -107672,7 +107672,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h638
   store i64 %161, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16591, !noalias !16596
   %162 = load i64, ptr %16, align 8, !alias.scope !16598, !noalias !16605, !noundef !5
   %163 = sub i64 %162, %161
-  %164 = icmp ult i64 %163, %.sroa.33.0.i
+  %164 = icmp ugt i64 %.sroa.33.0.i, %163
   br i1 %164, label %165, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 165:                                              ; preds = %156
@@ -108170,7 +108170,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h650
   store i64 %157, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16651, !noalias !16656
   %158 = load i64, ptr %16, align 8, !alias.scope !16658, !noalias !16665, !noundef !5
   %159 = sub i64 %158, %157
-  %160 = icmp ult i64 %159, %.sroa.33.0.i
+  %160 = icmp ugt i64 %.sroa.33.0.i, %159
   br i1 %160, label %161, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 161:                                              ; preds = %152
@@ -108711,7 +108711,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h6df
   store i64 %174, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16728, !noalias !16733
   %175 = load i64, ptr %17, align 8, !alias.scope !16735, !noalias !16742, !noundef !5
   %176 = sub i64 %175, %174
-  %177 = icmp ult i64 %176, %.sroa.33.0.i
+  %177 = icmp ugt i64 %.sroa.33.0.i, %176
   br i1 %177, label %178, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit50"
 
 178:                                              ; preds = %169
@@ -109241,7 +109241,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h6e6
   store i64 %168, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16801, !noalias !16806
   %169 = load i64, ptr %17, align 8, !alias.scope !16808, !noalias !16815, !noundef !5
   %170 = sub i64 %169, %168
-  %171 = icmp ult i64 %170, %.sroa.33.0.i
+  %171 = icmp ugt i64 %.sroa.33.0.i, %170
   br i1 %171, label %172, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit49"
 
 172:                                              ; preds = %163
@@ -109749,7 +109749,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h6f6
   store i64 %161, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16861, !noalias !16866
   %162 = load i64, ptr %16, align 8, !alias.scope !16868, !noalias !16875, !noundef !5
   %163 = sub i64 %162, %161
-  %164 = icmp ult i64 %163, %.sroa.33.0.i
+  %164 = icmp ugt i64 %.sroa.33.0.i, %163
   br i1 %164, label %165, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 165:                                              ; preds = %156
@@ -110246,7 +110246,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h6ff
   store i64 %157, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16921, !noalias !16926
   %158 = load i64, ptr %16, align 8, !alias.scope !16928, !noalias !16935, !noundef !5
   %159 = sub i64 %158, %157
-  %160 = icmp ult i64 %159, %.sroa.33.0.i
+  %160 = icmp ugt i64 %.sroa.33.0.i, %159
   br i1 %160, label %161, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 161:                                              ; preds = %152
@@ -110787,7 +110787,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h728
   store i64 %173, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !16991, !noalias !16996
   %174 = load i64, ptr %17, align 8, !alias.scope !16998, !noalias !17005, !noundef !5
   %175 = sub i64 %174, %173
-  %176 = icmp ult i64 %175, %.sroa.33.0.i
+  %176 = icmp ugt i64 %.sroa.33.0.i, %175
   br i1 %176, label %177, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 177:                                              ; preds = %168
@@ -111317,7 +111317,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h75b
   store i64 %168, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17064, !noalias !17069
   %169 = load i64, ptr %17, align 8, !alias.scope !17071, !noalias !17078, !noundef !5
   %170 = sub i64 %169, %168
-  %171 = icmp ult i64 %170, %.sroa.33.0.i
+  %171 = icmp ugt i64 %.sroa.33.0.i, %170
   br i1 %171, label %172, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit49"
 
 172:                                              ; preds = %163
@@ -111858,7 +111858,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h773
   store i64 %174, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17141, !noalias !17146
   %175 = load i64, ptr %17, align 8, !alias.scope !17148, !noalias !17155, !noundef !5
   %176 = sub i64 %175, %174
-  %177 = icmp ult i64 %176, %.sroa.33.0.i
+  %177 = icmp ugt i64 %.sroa.33.0.i, %176
   br i1 %177, label %178, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit50"
 
 178:                                              ; preds = %169
@@ -112366,7 +112366,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h78a
   store i64 %161, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17201, !noalias !17206
   %162 = load i64, ptr %16, align 8, !alias.scope !17208, !noalias !17215, !noundef !5
   %163 = sub i64 %162, %161
-  %164 = icmp ult i64 %163, %.sroa.33.0.i
+  %164 = icmp ugt i64 %.sroa.33.0.i, %163
   br i1 %164, label %165, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 165:                                              ; preds = %156
@@ -112908,7 +112908,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h7b8
   store i64 %167, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17277, !noalias !17282
   %168 = load i64, ptr %16, align 8, !alias.scope !17284, !noalias !17291, !noundef !5
   %169 = sub i64 %168, %167
-  %170 = icmp ult i64 %169, %.sroa.33.0.i
+  %170 = icmp ugt i64 %.sroa.33.0.i, %169
   br i1 %170, label %171, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 171:                                              ; preds = %162
@@ -113417,7 +113417,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h89d
   store i64 %161, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17337, !noalias !17342
   %162 = load i64, ptr %16, align 8, !alias.scope !17344, !noalias !17351, !noundef !5
   %163 = sub i64 %162, %161
-  %164 = icmp ult i64 %163, %.sroa.33.0.i
+  %164 = icmp ugt i64 %.sroa.33.0.i, %163
   br i1 %164, label %165, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 165:                                              ; preds = %156
@@ -113914,7 +113914,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h8c2
   store i64 %157, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17397, !noalias !17402
   %158 = load i64, ptr %16, align 8, !alias.scope !17404, !noalias !17411, !noundef !5
   %159 = sub i64 %158, %157
-  %160 = icmp ult i64 %159, %.sroa.33.0.i
+  %160 = icmp ugt i64 %.sroa.33.0.i, %159
   br i1 %160, label %161, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 161:                                              ; preds = %152
@@ -114422,7 +114422,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h8c9
   store i64 %161, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17457, !noalias !17462
   %162 = load i64, ptr %16, align 8, !alias.scope !17464, !noalias !17471, !noundef !5
   %163 = sub i64 %162, %161
-  %164 = icmp ult i64 %163, %.sroa.33.0.i
+  %164 = icmp ugt i64 %.sroa.33.0.i, %163
   br i1 %164, label %165, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 165:                                              ; preds = %156
@@ -114934,7 +114934,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h9c0
   store i64 %163, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17517, !noalias !17522
   %164 = load i64, ptr %16, align 8, !alias.scope !17524, !noalias !17531, !noundef !5
   %165 = sub i64 %164, %163
-  %166 = icmp ult i64 %165, %.sroa.33.0.i
+  %166 = icmp ugt i64 %.sroa.33.0.i, %165
   br i1 %166, label %167, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 167:                                              ; preds = %158
@@ -115443,7 +115443,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h9c4
   store i64 %161, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17577, !noalias !17582
   %162 = load i64, ptr %16, align 8, !alias.scope !17584, !noalias !17591, !noundef !5
   %163 = sub i64 %162, %161
-  %164 = icmp ult i64 %163, %.sroa.33.0.i
+  %164 = icmp ugt i64 %.sroa.33.0.i, %163
   br i1 %164, label %165, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 165:                                              ; preds = %156
@@ -115940,7 +115940,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17ha12
   store i64 %157, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17637, !noalias !17642
   %158 = load i64, ptr %16, align 8, !alias.scope !17644, !noalias !17651, !noundef !5
   %159 = sub i64 %158, %157
-  %160 = icmp ult i64 %159, %.sroa.33.0.i
+  %160 = icmp ugt i64 %.sroa.33.0.i, %159
   br i1 %160, label %161, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 161:                                              ; preds = %152
@@ -116482,7 +116482,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17haf3
   store i64 %167, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17713, !noalias !17718
   %168 = load i64, ptr %16, align 8, !alias.scope !17720, !noalias !17727, !noundef !5
   %169 = sub i64 %168, %167
-  %170 = icmp ult i64 %169, %.sroa.33.0.i
+  %170 = icmp ugt i64 %.sroa.33.0.i, %169
   br i1 %170, label %171, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 171:                                              ; preds = %162
@@ -117014,7 +117014,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hb58
   store i64 %171, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17788, !noalias !17793
   %172 = load i64, ptr %17, align 8, !alias.scope !17795, !noalias !17802, !noundef !5
   %173 = sub i64 %172, %171
-  %174 = icmp ult i64 %173, %.sroa.33.0.i
+  %174 = icmp ugt i64 %.sroa.33.0.i, %173
   br i1 %174, label %175, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit49"
 
 175:                                              ; preds = %166
@@ -117556,7 +117556,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hb95
   store i64 %167, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17864, !noalias !17869
   %168 = load i64, ptr %16, align 8, !alias.scope !17871, !noalias !17878, !noundef !5
   %169 = sub i64 %168, %167
-  %170 = icmp ult i64 %169, %.sroa.33.0.i
+  %170 = icmp ugt i64 %.sroa.33.0.i, %169
   br i1 %170, label %171, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 171:                                              ; preds = %162
@@ -118098,7 +118098,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hc40
   store i64 %167, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !17940, !noalias !17945
   %168 = load i64, ptr %16, align 8, !alias.scope !17947, !noalias !17954, !noundef !5
   %169 = sub i64 %168, %167
-  %170 = icmp ult i64 %169, %.sroa.33.0.i
+  %170 = icmp ugt i64 %.sroa.33.0.i, %169
   br i1 %170, label %171, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 171:                                              ; preds = %162
@@ -118628,7 +118628,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hc46
   store i64 %170, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !18013, !noalias !18018
   %171 = load i64, ptr %17, align 8, !alias.scope !18020, !noalias !18027, !noundef !5
   %172 = sub i64 %171, %170
-  %173 = icmp ult i64 %172, %.sroa.33.0.i
+  %173 = icmp ugt i64 %.sroa.33.0.i, %172
   br i1 %173, label %174, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 174:                                              ; preds = %165
@@ -119169,7 +119169,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hc80
   store i64 %173, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !18085, !noalias !18090
   %174 = load i64, ptr %17, align 8, !alias.scope !18092, !noalias !18099, !noundef !5
   %175 = sub i64 %174, %173
-  %176 = icmp ult i64 %175, %.sroa.33.0.i
+  %176 = icmp ugt i64 %.sroa.33.0.i, %175
   br i1 %176, label %177, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 177:                                              ; preds = %168
@@ -119713,7 +119713,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hcd6
   store i64 %174, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !18163, !noalias !18168
   %175 = load i64, ptr %17, align 8, !alias.scope !18170, !noalias !18177, !noundef !5
   %176 = sub i64 %175, %174
-  %177 = icmp ult i64 %176, %.sroa.33.0.i
+  %177 = icmp ugt i64 %.sroa.33.0.i, %176
   br i1 %177, label %178, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 178:                                              ; preds = %169
@@ -120222,7 +120222,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hcde
   store i64 %161, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !18223, !noalias !18228
   %162 = load i64, ptr %16, align 8, !alias.scope !18230, !noalias !18237, !noundef !5
   %163 = sub i64 %162, %161
-  %164 = icmp ult i64 %163, %.sroa.33.0.i
+  %164 = icmp ugt i64 %.sroa.33.0.i, %163
   br i1 %164, label %165, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 165:                                              ; preds = %156
@@ -120763,7 +120763,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hcee
   store i64 %173, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !18293, !noalias !18298
   %174 = load i64, ptr %17, align 8, !alias.scope !18300, !noalias !18307, !noundef !5
   %175 = sub i64 %174, %173
-  %176 = icmp ult i64 %175, %.sroa.33.0.i
+  %176 = icmp ugt i64 %.sroa.33.0.i, %175
   br i1 %176, label %177, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 177:                                              ; preds = %168
@@ -121295,7 +121295,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hd2f
   store i64 %172, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !18361, !noalias !18366
   %173 = load i64, ptr %16, align 8, !alias.scope !18368, !noalias !18375, !noundef !5
   %174 = sub i64 %173, %172
-  %175 = icmp ult i64 %174, %.sroa.33.0.i
+  %175 = icmp ugt i64 %.sroa.33.0.i, %174
   br i1 %175, label %176, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 176:                                              ; preds = %167
@@ -121793,7 +121793,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hd57
   store i64 %157, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !18421, !noalias !18426
   %158 = load i64, ptr %16, align 8, !alias.scope !18428, !noalias !18435, !noundef !5
   %159 = sub i64 %158, %157
-  %160 = icmp ult i64 %159, %.sroa.33.0.i
+  %160 = icmp ugt i64 %.sroa.33.0.i, %159
   br i1 %160, label %161, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 161:                                              ; preds = %152
@@ -122318,7 +122318,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hd90
   store i64 %168, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !18490, !noalias !18495
   %169 = load i64, ptr %17, align 8, !alias.scope !18497, !noalias !18504, !noundef !5
   %170 = sub i64 %169, %168
-  %171 = icmp ult i64 %170, %.sroa.33.0.i
+  %171 = icmp ugt i64 %.sroa.33.0.i, %170
   br i1 %171, label %172, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 172:                                              ; preds = %163
@@ -122828,7 +122828,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hdc8
   store i64 %160, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !18550, !noalias !18555
   %161 = load i64, ptr %16, align 8, !alias.scope !18557, !noalias !18564, !noundef !5
   %162 = sub i64 %161, %160
-  %163 = icmp ult i64 %162, %.sroa.33.0.i
+  %163 = icmp ugt i64 %.sroa.33.0.i, %162
   br i1 %163, label %164, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit49"
 
 164:                                              ; preds = %155
@@ -123369,7 +123369,7 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17he7e
   store i64 %173, ptr %.sroa.513.0..sroa_idx, align 8, !alias.scope !18620, !noalias !18625
   %174 = load i64, ptr %17, align 8, !alias.scope !18627, !noalias !18634, !noundef !5
   %175 = sub i64 %174, %173
-  %176 = icmp ult i64 %175, %.sroa.33.0.i
+  %176 = icmp ugt i64 %.sroa.33.0.i, %175
   br i1 %176, label %177, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb712ed584acd186bE.exit48"
 
 177:                                              ; preds = %168

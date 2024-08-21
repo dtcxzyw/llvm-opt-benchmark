@@ -11046,7 +11046,7 @@ _ZN6vectorIN2bv10undo_boundELb1EjE3endEv.exit:    ; preds = %entry
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds %"struct.bv::undo_bound", ptr %0, i64 %2
-  %cmp.not4 = icmp eq i32 %1, %s
+  %cmp.not4 = icmp eq i32 %s, %1
   br i1 %cmp.not4, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN6vectorIN2bv10undo_boundELb1EjE3endEv.exit

@@ -252,7 +252,7 @@ define void @_ZN6google8RawLog__ENS_11LogSeverityEPKciS2_z(i32 noundef %0, ptr n
   %15 = load i8, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1
   %16 = trunc i8 %15 to i1
   %17 = load i32, ptr @_ZN3fLI21FLAGS_stderrthresholdE, align 4
-  %.not = icmp sle i32 %17, %0
+  %.not = icmp sge i32 %0, %17
   %or.cond.not = select i1 %16, i1 true, i1 %.not
   br i1 %or.cond.not, label %23, label %18
 

@@ -1549,7 +1549,7 @@ _ZNKSt6bitsetILm119EE4testEm.exit:                ; preds = %_ZNK17FileLineSingl
   %23 = shl nuw i64 1, %22
   %24 = and i64 %21, %23
   %25 = icmp ne i64 %24, 0
-  %26 = xor i1 %25, %3
+  %26 = xor i1 %3, %25
   br i1 %26, label %_ZNKSt6bitsetILm119EE8_M_checkEmPKc.exit.i, label %37
 
 _ZNKSt6bitsetILm119EE8_M_checkEmPKc.exit.i:       ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit
@@ -2201,7 +2201,7 @@ define dso_local void @_ZNK12VFileContent7getLineB5cxx11Ei(ptr dead_on_unwind no
   %41 = lshr exact i64 %40, 5
   %42 = add i64 %34, %41
   %43 = trunc i64 %42 to i32
-  %.not24 = icmp sgt i32 %43, %2
+  %.not24 = icmp slt i32 %2, %43
   br i1 %.not24, label %91, label %.critedge
 
 .critedge:                                        ; preds = %3, %13
@@ -6801,7 +6801,7 @@ define dso_local void @_ZNK8FileLine12sourcePrefixB5cxx11Ei(ptr dead_on_unwind n
   call void @_ZNK8FileLine6sourceB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %7 = trunc i64 %6 to i32
-  %8 = icmp slt i32 %7, %2
+  %8 = icmp sgt i32 %2, %7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
@@ -7737,7 +7737,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
   %20 = tail call ptr @__cxa_begin_catch(ptr %19) #21
-  %21 = icmp ugt ptr %.011.i, %12
+  %21 = icmp ult ptr %12, %.011.i
   br i1 %21, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
@@ -8017,7 +8017,7 @@ _ZNSt10_HashtableISt6bitsetILm119EESt4pairIKS1_tESaIS4_ENSt8__detail10_Select1st
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 48
-  %16 = icmp eq ptr %15, %14
+  %16 = icmp eq ptr %14, %15
   br i1 %16, label %_ZNSt13unordered_mapISt6bitsetILm119EEtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEED2Ev.exit, label %17
 
 17:                                               ; preds = %_ZNSt10_HashtableISt6bitsetILm119EESt4pairIKS1_tESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -8134,7 +8134,7 @@ _ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE16_M_allocate_nodeEv.exit.i: ; preds = %.
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #21
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -8317,7 +8317,7 @@ _ZNKSt6bitsetILm119EE4testEm.exit.i:              ; preds = %_ZNK17FileLineSingl
   %34 = shl nuw i64 1, %33
   %35 = and i64 %32, %34
   %36 = icmp ne i64 %35, 0
-  %37 = xor i1 %36, %2
+  %37 = xor i1 %2, %36
   br i1 %37, label %_ZNKSt6bitsetILm119EE8_M_checkEmPKc.exit.i.i, label %_ZN17FileLineSingleton11msgEnSetBitEtmb.exit
 
 _ZNKSt6bitsetILm119EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit.i
@@ -8982,7 +8982,7 @@ common.resume:                                    ; preds = %12, %41
 27:                                               ; preds = %24
   %.not.i.i = icmp ne ptr %25, null
   %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = icmp eq ptr %28, %26
+  %29 = icmp eq ptr %26, %28
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %29
   br i1 %or.cond.i.i, label %.thread, label %30
 
@@ -9030,7 +9030,7 @@ _ZNSt8_Rb_treeIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_t
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_tESt10_Select1stIS8_ESt4lessIS6_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -10193,7 +10193,7 @@ _ZNKSt8__detail15_Hash_code_baseISt6bitsetILm119EESt4pairIKS2_tENS_10_Select1stE
 ._crit_edge:                                      ; preds = %31, %_ZNSt10_HashtableISt6bitsetILm119EESt4pairIKS1_tESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 48
-  %34 = icmp eq ptr %33, %32
+  %34 = icmp eq ptr %32, %33
   br i1 %34, label %_ZNSt10_HashtableISt6bitsetILm119EESt4pairIKS1_tESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %35
 
 35:                                               ; preds = %._crit_edge

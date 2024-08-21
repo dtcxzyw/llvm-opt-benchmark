@@ -92,13 +92,13 @@ define internal ptr @mca_btl_self_alloc(ptr nocapture noundef readonly %0, ptr n
 
 7:                                                ; preds = %5
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 8), align 8
-  %.not = icmp ult i64 %8, %3
+  %.not = icmp ugt i64 %3, %8
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
-  %.not13 = icmp ult i64 %11, %3
+  %.not13 = icmp ugt i64 %3, %11
   br i1 %.not13, label %.thread, label %12
 
 12:                                               ; preds = %9, %7, %5
@@ -248,13 +248,13 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %15
 
 28:                                               ; preds = %23
   %29 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 8), align 8
-  %.not.i30 = icmp ult i64 %29, %26
+  %.not.i30 = icmp ugt i64 %26, %29
   br i1 %.not.i30, label %30, label %33
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   %32 = load i64, ptr %31, align 8
-  %.not13.i = icmp ult i64 %32, %26
+  %.not13.i = icmp ugt i64 %26, %32
   br i1 %.not13.i, label %mca_btl_self_free.exit, label %33
 
 33:                                               ; preds = %30, %28, %23
@@ -275,7 +275,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %15
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %34, i64 160
   %42 = ptrtoint ptr %41 to i64
-  %43 = add i64 %42, %4
+  %43 = add i64 %4, %42
   %44 = inttoptr i64 %43 to ptr
   store ptr %44, ptr %8, align 8
   %45 = getelementptr inbounds i8, ptr %8, i64 8

@@ -4018,7 +4018,7 @@ check_length.exit1812:                            ; preds = %1102, %1103
 
 1145:                                             ; preds = %1143
   %1146 = add i32 %8, %4
-  %1147 = icmp ugt i32 %1146, %4
+  %1147 = icmp ult i32 %4, %1146
   br i1 %1147, label %.lr.ph, label %.critedge133
 
 .lr.ph:                                           ; preds = %1145, %1150
@@ -4323,7 +4323,7 @@ define internal fastcc void @dissect_sapdiag_uievent(ptr noundef %0, ptr noundef
 49:                                               ; preds = %37, %34
   %.sink = phi i32 [ -9, %37 ], [ -6, %34 ]
   %.090 = phi i32 [ %48, %37 ], [ %33, %34 ]
-  %50 = add nsw i32 %.sink, %4
+  %50 = add nsw i32 %4, %.sink
   %51 = load i32, ptr @hf_sapdiag_item_ui_event_control_row, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %.090, i32 noundef 2, i32 noundef 0) #2
   %53 = add i32 %.090, 2
@@ -4373,7 +4373,7 @@ define internal fastcc void @dissect_sapdiag_uievent(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = add i32 %4, %3
-  %7 = icmp ugt i32 %6, %3
+  %7 = icmp ult i32 %3, %6
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
@@ -4923,7 +4923,7 @@ define internal fastcc void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_sapdiag_menu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = add i32 %4, %3
-  %7 = icmp ugt i32 %6, %3
+  %7 = icmp ult i32 %3, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5

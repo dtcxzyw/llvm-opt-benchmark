@@ -90,7 +90,7 @@ define hidden void @_ZN8AgeTableC2Eb(ptr nocapture noundef nonnull writeonly ali
   %5 = getelementptr inbounds i8, ptr %0, i64 128
   %6 = load i8, ptr @UsePerfData, align 1
   %7 = trunc i8 %6 to i1
-  %8 = and i1 %7, %1
+  %8 = and i1 %1, %7
   %9 = zext i1 %8 to i8
   store i8 %9, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)

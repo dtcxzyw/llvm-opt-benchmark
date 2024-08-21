@@ -221,7 +221,7 @@ openFile.exit.i:                                  ; preds = %43
 
 74:                                               ; preds = %37
   %75 = load i32, ptr @optind, align 4
-  %.not9.i = icmp eq i32 %75, %0
+  %.not9.i = icmp eq i32 %0, %75
   br i1 %.not9.i, label %79, label %76
 
 76:                                               ; preds = %74
@@ -286,7 +286,7 @@ initargs.exit:                                    ; preds = %79, %81
   store ptr %96, ptr %3, align 8
   %102 = call double @strtod(ptr noundef nonnull %96, ptr noundef nonnull %3) #16
   %103 = load ptr, ptr %3, align 8
-  %.not.i5.i113 = icmp eq ptr %103, %96
+  %.not.i5.i113 = icmp eq ptr %96, %103
   br i1 %.not.i5.i113, label %.loopexit.i115, label %.preheader.i.i114
 
 .preheader.i.i114:                                ; preds = %.lr.ph.i.i109, %106
@@ -448,7 +448,7 @@ indent.exit.i104:                                 ; preds = %.lr.ph.i.i101
   store ptr %161, ptr %4, align 8
   %166 = call double @strtod(ptr noundef %161, ptr noundef nonnull %4) #16
   %167 = load ptr, ptr %4, align 8
-  %.not.i5.i105 = icmp eq ptr %167, %161
+  %.not.i5.i105 = icmp eq ptr %161, %167
   br i1 %.not.i5.i105, label %.loopexit.i107, label %.preheader.i.i106
 
 .preheader.i.i106:                                ; preds = %indent.exit.i104, %170
@@ -505,7 +505,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   store ptr %146, ptr %5, align 8
   %187 = call double @strtod(ptr noundef nonnull %146, ptr noundef nonnull %5) #16
   %188 = load ptr, ptr %5, align 8
-  %.not.i5.i97 = icmp eq ptr %188, %146
+  %.not.i5.i97 = icmp eq ptr %146, %188
   br i1 %.not.i5.i97, label %.loopexit.i99, label %.preheader.i.i98
 
 .preheader.i.i98:                                 ; preds = %indent.exit.i96, %191
@@ -714,7 +714,7 @@ indent.exit.i88:                                  ; preds = %.lr.ph.i.i85
   store ptr %279, ptr %6, align 8
   %287 = call double @strtod(ptr noundef %279, ptr noundef nonnull %6) #16
   %288 = load ptr, ptr %6, align 8
-  %.not.i5.i89 = icmp eq ptr %288, %279
+  %.not.i5.i89 = icmp eq ptr %279, %288
   br i1 %.not.i5.i89, label %.loopexit.i91, label %.preheader.i.i90
 
 .preheader.i.i90:                                 ; preds = %indent.exit.i88, %291
@@ -897,7 +897,7 @@ indent.exit.i80:                                  ; preds = %.lr.ph.i.i77
   store ptr %.sroa.24.1.i.i.i, ptr %7, align 8
   %349 = call double @strtod(ptr noundef nonnull %.sroa.24.1.i.i.i, ptr noundef nonnull %7) #16
   %350 = load ptr, ptr %7, align 8
-  %.not.i5.i81 = icmp eq ptr %350, %.sroa.24.1.i.i.i
+  %.not.i5.i81 = icmp eq ptr %.sroa.24.1.i.i.i, %350
   br i1 %.not.i5.i81, label %.loopexit.i83, label %.preheader.i.i82
 
 .preheader.i.i82:                                 ; preds = %indent.exit.i80, %353
@@ -950,7 +950,7 @@ indent.exit.i72:                                  ; preds = %.lr.ph.i.i69
   store ptr %.sroa.29.1.i.i.i, ptr %8, align 8
   %367 = call double @strtod(ptr noundef nonnull %.sroa.29.1.i.i.i, ptr noundef nonnull %8) #16
   %368 = load ptr, ptr %8, align 8
-  %.not.i5.i73 = icmp eq ptr %368, %.sroa.29.1.i.i.i
+  %.not.i5.i73 = icmp eq ptr %.sroa.29.1.i.i.i, %368
   br i1 %.not.i5.i73, label %.loopexit.i75, label %.preheader.i.i74
 
 .preheader.i.i74:                                 ; preds = %indent.exit.i72, %371
@@ -1003,7 +1003,7 @@ indent.exit.i64:                                  ; preds = %.lr.ph.i.i61
   store ptr %.sroa.33.1.i.i.i, ptr %9, align 8
   %385 = call double @strtod(ptr noundef nonnull %.sroa.33.1.i.i.i, ptr noundef nonnull %9) #16
   %386 = load ptr, ptr %9, align 8
-  %.not.i5.i65 = icmp eq ptr %386, %.sroa.33.1.i.i.i
+  %.not.i5.i65 = icmp eq ptr %.sroa.33.1.i.i.i, %386
   br i1 %.not.i5.i65, label %.loopexit.i67, label %.preheader.i.i66
 
 .preheader.i.i66:                                 ; preds = %indent.exit.i64, %389
@@ -1056,7 +1056,7 @@ indent.exit.i56:                                  ; preds = %.lr.ph.i.i53
   store ptr %.sroa.37.1.i.i.i, ptr %10, align 8
   %403 = call double @strtod(ptr noundef nonnull %.sroa.37.1.i.i.i, ptr noundef nonnull %10) #16
   %404 = load ptr, ptr %10, align 8
-  %.not.i5.i57 = icmp eq ptr %404, %.sroa.37.1.i.i.i
+  %.not.i5.i57 = icmp eq ptr %.sroa.37.1.i.i.i, %404
   br i1 %.not.i5.i57, label %.loopexit.i59, label %.preheader.i.i58
 
 .preheader.i.i58:                                 ; preds = %indent.exit.i56, %407
@@ -1109,7 +1109,7 @@ indent.exit.i48:                                  ; preds = %.lr.ph.i.i45
   store ptr %.sroa.40.4.i.i.i, ptr %11, align 8
   %421 = call double @strtod(ptr noundef nonnull %.sroa.40.4.i.i.i, ptr noundef nonnull %11) #16
   %422 = load ptr, ptr %11, align 8
-  %.not.i5.i49 = icmp eq ptr %422, %.sroa.40.4.i.i.i
+  %.not.i5.i49 = icmp eq ptr %.sroa.40.4.i.i.i, %422
   br i1 %.not.i5.i49, label %.loopexit.i51, label %.preheader.i.i50
 
 .preheader.i.i50:                                 ; preds = %indent.exit.i48, %425
@@ -1173,7 +1173,7 @@ indent.exit.i40:                                  ; preds = %.lr.ph.i.i37
   store ptr %.1.i.i.i, ptr %12, align 8
   %445 = call double @strtod(ptr noundef nonnull %.1.i.i.i, ptr noundef nonnull %12) #16
   %446 = load ptr, ptr %12, align 8
-  %.not.i5.i41 = icmp eq ptr %446, %.1.i.i.i
+  %.not.i5.i41 = icmp eq ptr %.1.i.i.i, %446
   br i1 %.not.i5.i41, label %.loopexit.i43, label %.preheader.i.i42
 
 .preheader.i.i42:                                 ; preds = %indent.exit.i40, %449
@@ -1231,7 +1231,7 @@ indent.exit.i32:                                  ; preds = %.lr.ph.i.i29
   store ptr %.sroa.45.1.i.i.i, ptr %13, align 8
   %465 = call double @strtod(ptr noundef nonnull %.sroa.45.1.i.i.i, ptr noundef nonnull %13) #16
   %466 = load ptr, ptr %13, align 8
-  %.not.i5.i33 = icmp eq ptr %466, %.sroa.45.1.i.i.i
+  %.not.i5.i33 = icmp eq ptr %.sroa.45.1.i.i.i, %466
   br i1 %.not.i5.i33, label %.loopexit.i35, label %.preheader.i.i34
 
 .preheader.i.i34:                                 ; preds = %indent.exit.i32, %469
@@ -1284,7 +1284,7 @@ indent.exit.i24:                                  ; preds = %.lr.ph.i.i21
   store ptr %.sroa.48.1.i.i.i, ptr %14, align 8
   %483 = call double @strtod(ptr noundef nonnull %.sroa.48.1.i.i.i, ptr noundef nonnull %14) #16
   %484 = load ptr, ptr %14, align 8
-  %.not.i5.i25 = icmp eq ptr %484, %.sroa.48.1.i.i.i
+  %.not.i5.i25 = icmp eq ptr %.sroa.48.1.i.i.i, %484
   br i1 %.not.i5.i25, label %.loopexit.i27, label %.preheader.i.i26
 
 .preheader.i.i26:                                 ; preds = %indent.exit.i24, %487
@@ -1337,7 +1337,7 @@ indent.exit.i16:                                  ; preds = %.lr.ph.i.i13
   store ptr %.sroa.51.1.i.i.i, ptr %15, align 8
   %501 = call double @strtod(ptr noundef nonnull %.sroa.51.1.i.i.i, ptr noundef nonnull %15) #16
   %502 = load ptr, ptr %15, align 8
-  %.not.i5.i17 = icmp eq ptr %502, %.sroa.51.1.i.i.i
+  %.not.i5.i17 = icmp eq ptr %.sroa.51.1.i.i.i, %502
   br i1 %.not.i5.i17, label %.loopexit.i19, label %.preheader.i.i18
 
 .preheader.i.i18:                                 ; preds = %indent.exit.i16, %505
@@ -1506,7 +1506,7 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   store ptr %565, ptr %17, align 8
   %572 = call double @strtod(ptr noundef nonnull %565, ptr noundef nonnull %17) #16
   %573 = load ptr, ptr %17, align 8
-  %.not.i5.i144.i = icmp eq ptr %573, %565
+  %.not.i5.i144.i = icmp eq ptr %565, %573
   br i1 %.not.i5.i144.i, label %.loopexit.i146.i, label %.preheader.i.i145.i
 
 .preheader.i.i145.i:                              ; preds = %indent.exit.i143.i, %576
@@ -1689,7 +1689,7 @@ indent.exit.i:                                    ; preds = %.lr.ph.i.i10
   store ptr %644, ptr %16, align 8
   %652 = call double @strtod(ptr noundef %644, ptr noundef nonnull %16) #16
   %653 = load ptr, ptr %16, align 8
-  %.not.i5.i = icmp eq ptr %653, %644
+  %.not.i5.i = icmp eq ptr %644, %653
   br i1 %.not.i5.i, label %.loopexit.i12, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %indent.exit.i, %656
@@ -2111,7 +2111,7 @@ indent.exit.i124.i:                               ; preds = %.lr.ph.i.i121.i
   store ptr %.sroa.17.1.i2665.i.i, ptr %20, align 8
   %776 = call double @strtod(ptr noundef nonnull %.sroa.17.1.i2665.i.i, ptr noundef nonnull %20) #16
   %777 = load ptr, ptr %20, align 8
-  %.not.i5.i125.i = icmp eq ptr %777, %.sroa.17.1.i2665.i.i
+  %.not.i5.i125.i = icmp eq ptr %.sroa.17.1.i2665.i.i, %777
   br i1 %.not.i5.i125.i, label %.loopexit.i127.i, label %.preheader.i.i126.i
 
 .preheader.i.i126.i:                              ; preds = %indent.exit.i124.i, %780
@@ -2164,7 +2164,7 @@ indent.exit.i116.i:                               ; preds = %.lr.ph.i.i113.i
   store ptr %.sroa.1316.2.i2566.i.i, ptr %21, align 8
   %794 = call double @strtod(ptr noundef nonnull %.sroa.1316.2.i2566.i.i, ptr noundef nonnull %21) #16
   %795 = load ptr, ptr %21, align 8
-  %.not.i5.i117.i = icmp eq ptr %795, %.sroa.1316.2.i2566.i.i
+  %.not.i5.i117.i = icmp eq ptr %.sroa.1316.2.i2566.i.i, %795
   br i1 %.not.i5.i117.i, label %.loopexit.i119.i, label %.preheader.i.i118.i
 
 .preheader.i.i118.i:                              ; preds = %indent.exit.i116.i, %798
@@ -2217,7 +2217,7 @@ indent.exit.i108.i:                               ; preds = %.lr.ph.i.i105.i
   store ptr %.sroa.27.1.i2863.i.i, ptr %22, align 8
   %812 = call double @strtod(ptr noundef nonnull %.sroa.27.1.i2863.i.i, ptr noundef nonnull %22) #16
   %813 = load ptr, ptr %22, align 8
-  %.not.i5.i109.i = icmp eq ptr %813, %.sroa.27.1.i2863.i.i
+  %.not.i5.i109.i = icmp eq ptr %.sroa.27.1.i2863.i.i, %813
   br i1 %.not.i5.i109.i, label %.loopexit.i111.i, label %.preheader.i.i110.i
 
 .preheader.i.i110.i:                              ; preds = %indent.exit.i108.i, %816
@@ -2270,7 +2270,7 @@ indent.exit.i100.i:                               ; preds = %.lr.ph.i.i97.i
   store ptr %.sroa.30.1.i2962.i.i, ptr %23, align 8
   %830 = call double @strtod(ptr noundef nonnull %.sroa.30.1.i2962.i.i, ptr noundef nonnull %23) #16
   %831 = load ptr, ptr %23, align 8
-  %.not.i5.i101.i = icmp eq ptr %831, %.sroa.30.1.i2962.i.i
+  %.not.i5.i101.i = icmp eq ptr %.sroa.30.1.i2962.i.i, %831
   br i1 %.not.i5.i101.i, label %.loopexit.i103.i, label %.preheader.i.i102.i
 
 .preheader.i.i102.i:                              ; preds = %indent.exit.i100.i, %834
@@ -2338,7 +2338,7 @@ indent.exit.i92.i:                                ; preds = %.lr.ph.i.i89.i
   store ptr %.str.25.sink.i.i.i, ptr %24, align 8
   %853 = call double @strtod(ptr noundef nonnull %.str.25.sink.i.i.i, ptr noundef nonnull %24) #16
   %854 = load ptr, ptr %24, align 8
-  %.not.i5.i93.i = icmp eq ptr %854, %.str.25.sink.i.i.i
+  %.not.i5.i93.i = icmp eq ptr %.str.25.sink.i.i.i, %854
   br i1 %.not.i5.i93.i, label %.loopexit.i95.i, label %.preheader.i.i94.i
 
 .preheader.i.i94.i:                               ; preds = %indent.exit.i92.i, %857
@@ -2415,7 +2415,7 @@ indent.exit.i84.i:                                ; preds = %.lr.ph.i.i81.i
   store ptr %.str.75.sink.i.i.i, ptr %25, align 8
   %883 = call double @strtod(ptr noundef nonnull %.str.75.sink.i.i.i, ptr noundef nonnull %25) #16
   %884 = load ptr, ptr %25, align 8
-  %.not.i5.i85.i = icmp eq ptr %884, %.str.75.sink.i.i.i
+  %.not.i5.i85.i = icmp eq ptr %.str.75.sink.i.i.i, %884
   br i1 %.not.i5.i85.i, label %.loopexit.i87.i, label %.preheader.i.i86.i
 
 .preheader.i.i86.i:                               ; preds = %indent.exit.i84.i, %887
@@ -2488,7 +2488,7 @@ indent.exit.i76.i:                                ; preds = %.lr.ph.i.i73.i
   store ptr %.1.i3652.i.i, ptr %26, align 8
   %907 = call double @strtod(ptr noundef nonnull %.1.i3652.i.i, ptr noundef nonnull %26) #16
   %908 = load ptr, ptr %26, align 8
-  %.not.i5.i77.i = icmp eq ptr %908, %.1.i3652.i.i
+  %.not.i5.i77.i = icmp eq ptr %.1.i3652.i.i, %908
   br i1 %.not.i5.i77.i, label %.loopexit.i79.i, label %.preheader.i.i78.i
 
 .preheader.i.i78.i:                               ; preds = %indent.exit.i76.i, %911
@@ -2546,7 +2546,7 @@ indent.exit.i68.i:                                ; preds = %.lr.ph.i.i65.i
   store ptr %.sroa.36.1.i3160.i.i, ptr %27, align 8
   %927 = call double @strtod(ptr noundef nonnull %.sroa.36.1.i3160.i.i, ptr noundef nonnull %27) #16
   %928 = load ptr, ptr %27, align 8
-  %.not.i5.i69.i = icmp eq ptr %928, %.sroa.36.1.i3160.i.i
+  %.not.i5.i69.i = icmp eq ptr %.sroa.36.1.i3160.i.i, %928
   br i1 %.not.i5.i69.i, label %.loopexit.i71.i, label %.preheader.i.i70.i
 
 .preheader.i.i70.i:                               ; preds = %indent.exit.i68.i, %931
@@ -2599,7 +2599,7 @@ indent.exit.i60.i:                                ; preds = %.lr.ph.i.i57.i
   store ptr %.sroa.39.1.i3258.i.i, ptr %28, align 8
   %945 = call double @strtod(ptr noundef nonnull %.sroa.39.1.i3258.i.i, ptr noundef nonnull %28) #16
   %946 = load ptr, ptr %28, align 8
-  %.not.i5.i61.i = icmp eq ptr %946, %.sroa.39.1.i3258.i.i
+  %.not.i5.i61.i = icmp eq ptr %.sroa.39.1.i3258.i.i, %946
   br i1 %.not.i5.i61.i, label %.loopexit.i63.i, label %.preheader.i.i62.i
 
 .preheader.i.i62.i:                               ; preds = %indent.exit.i60.i, %949
@@ -2652,7 +2652,7 @@ indent.exit.i.i:                                  ; preds = %.lr.ph.i.i54.i
   store ptr %.sroa.42.1.i3356.i.i, ptr %29, align 8
   %963 = call double @strtod(ptr noundef nonnull %.sroa.42.1.i3356.i.i, ptr noundef nonnull %29) #16
   %964 = load ptr, ptr %29, align 8
-  %.not.i5.i.i = icmp eq ptr %964, %.sroa.42.1.i3356.i.i
+  %.not.i5.i.i = icmp eq ptr %.sroa.42.1.i3356.i.i, %964
   br i1 %.not.i5.i.i, label %.loopexit.i56.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %indent.exit.i.i, %967

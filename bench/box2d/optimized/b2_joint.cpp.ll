@@ -50,7 +50,7 @@ if.end6:                                          ; preds = %if.else, %if.then
   %mul9 = fmul float %mul7, %mul8
   store float %mul9, ptr %stiffness, align 4
   %mul10 = fmul float %mass.0, 2.000000e+00
-  %mul11 = fmul float %mul10, %dampingRatio
+  %mul11 = fmul float %dampingRatio, %mul10
   %mul12 = fmul float %mul7, %mul11
   store float %mul12, ptr %damping, align 4
   ret void
@@ -103,7 +103,7 @@ if.end6:                                          ; preds = %if.else, %if.then
   %mul9 = fmul float %mul7, %mul8
   store float %mul9, ptr %stiffness, align 4
   %mul10 = fmul float %I.0, 2.000000e+00
-  %mul11 = fmul float %mul10, %dampingRatio
+  %mul11 = fmul float %dampingRatio, %mul10
   %mul12 = fmul float %mul7, %mul11
   store float %mul12, ptr %damping, align 4
   ret void

@@ -480,10 +480,10 @@ _Z11do_per_stepll.exit:                           ; preds = %14, %11, %4
   %18 = phi i1 [ false, %4 ], [ %17, %14 ], [ false, %11 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
-  %21 = icmp eq i64 %20, %1
+  %21 = icmp eq i64 %1, %20
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   %23 = load i64, ptr %22, align 8
-  %24 = icmp eq i64 %23, %1
+  %24 = icmp eq i64 %1, %23
   %or.cond = select i1 %21, i1 true, i1 %24
   %brmerge = or i1 %18, %or.cond
   br i1 %brmerge, label %_Z11do_per_stepll.exit31, label %25
@@ -576,7 +576,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx19SimulationSignaller
 
 _ZSt11make_sharedIN3gmx19SimulationSignallerEJRPSt5arrayINS0_16SimulationSignalELm3EERP9t_commrecDnRKbSB_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_.exit: ; preds = %57
   %.mux = select i1 %45, i32 16, i32 0
-  %68 = icmp eq i64 %58, %1
+  %68 = icmp eq i64 %1, %58
   %69 = select i1 %68, i32 64, i32 0
   %70 = select i1 %18, i32 904, i32 896
   %71 = or disjoint i32 %70, %.mux
@@ -1004,10 +1004,10 @@ _Z11do_per_stepll.exit:                           ; preds = %15, %12, %4
   %19 = phi i1 [ false, %4 ], [ %18, %15 ], [ false, %12 ]
   %20 = getelementptr inbounds i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
-  %22 = icmp eq i64 %21, %1
+  %22 = icmp eq i64 %1, %21
   %23 = getelementptr inbounds i8, ptr %0, i64 32
   %24 = load i64, ptr %23, align 8
-  %25 = icmp eq i64 %24, %1
+  %25 = icmp eq i64 %1, %24
   %or.cond = select i1 %22, i1 true, i1 %25
   %brmerge = or i1 %19, %or.cond
   br i1 %brmerge, label %_Z11do_per_stepll.exit41, label %26
@@ -1053,7 +1053,7 @@ _Z11do_per_stepll.exit41:                         ; preds = %41, %39, %_Z11do_pe
   %46 = phi i1 [ true, %_Z11do_per_stepll.exit38 ], [ true, %_Z11do_per_stepll.exit ], [ false, %37 ], [ false, %_Z11do_per_stepll.exit38.thread ], [ %45, %41 ], [ false, %39 ]
   %47 = getelementptr inbounds i8, ptr %0, i64 40
   %48 = load i64, ptr %47, align 8
-  %.not = icmp eq i64 %48, %1
+  %.not = icmp eq i64 %1, %48
   br i1 %.not, label %101, label %49
 
 49:                                               ; preds = %_Z11do_per_stepll.exit41
@@ -1076,7 +1076,7 @@ _Z11do_per_stepll.exit44:                         ; preds = %50
 57:                                               ; preds = %_Z11do_per_stepll.exit44, %49
   %58 = getelementptr inbounds i8, ptr %0, i64 72
   %59 = load i64, ptr %58, align 8
-  %.not31 = icmp eq i64 %59, %1
+  %.not31 = icmp eq i64 %1, %59
   br i1 %.not31, label %60, label %67
 
 60:                                               ; preds = %57
@@ -1091,7 +1091,7 @@ _Z11do_per_stepll.exit44:                         ; preds = %50
 67:                                               ; preds = %60, %57
   %68 = phi i32 [ 128, %57 ], [ %66, %60 ]
   %69 = load i64, ptr %20, align 8
-  %70 = icmp eq i64 %69, %1
+  %70 = icmp eq i64 %1, %69
   %71 = select i1 %46, i32 16, i32 0
   %72 = select i1 %70, i32 64, i32 0
   %73 = select i1 %19, i32 2824, i32 2816
@@ -5488,7 +5488,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -5558,7 +5558,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3anyESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

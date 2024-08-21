@@ -546,7 +546,7 @@ define internal noundef i32 @cstate_cpu_exit(i32 noundef %0) #3 align 16 {
   %24 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %21) #10, !srcloc !9
   %25 = trunc i64 %24 to i32
   %26 = icmp ult i32 %25, 64
-  %27 = icmp eq i32 %25, %0
+  %27 = icmp eq i32 %0, %25
   %28 = and i1 %26, %27
   %29 = add i64 %24, 1
   br i1 %28, label %14, label %.thread, !llvm.loop !13
@@ -601,7 +601,7 @@ define internal noundef i32 @cstate_cpu_exit(i32 noundef %0) #3 align 16 {
   %59 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %56) #10, !srcloc !9
   %60 = trunc i64 %59 to i32
   %61 = icmp ult i32 %60, 64
-  %62 = icmp eq i32 %60, %0
+  %62 = icmp eq i32 %0, %60
   %63 = and i1 %61, %62
   %64 = add i64 %59, 1
   br i1 %63, label %49, label %.thread10, !llvm.loop !13
@@ -653,7 +653,7 @@ define internal noundef i32 @cstate_cpu_exit(i32 noundef %0) #3 align 16 {
   %91 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %88) #10, !srcloc !9
   %92 = trunc i64 %91 to i32
   %93 = icmp ult i32 %92, 64
-  %94 = icmp eq i32 %92, %0
+  %94 = icmp eq i32 %0, %92
   %95 = and i1 %93, %94
   %96 = add i64 %91, 1
   br i1 %95, label %81, label %.thread12, !llvm.loop !13

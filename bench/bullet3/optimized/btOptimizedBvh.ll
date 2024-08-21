@@ -106,7 +106,7 @@ invoke.cont:                                      ; preds = %if.then
   %mul = shl nsw i32 %1, 1
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 172
   %2 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %2, %mul
+  %cmp3.i = icmp sgt i32 %mul, %2
   br i1 %cmp3.i, label %if.then4.i, label %invoke.cont7
 
 if.then4.i:                                       ; preds = %invoke.cont
@@ -228,7 +228,7 @@ invoke.cont26:                                    ; preds = %if.else
   %mul24 = shl nsw i32 %12, 1
   %m_size.i.i13 = getelementptr inbounds i8, ptr %this, i64 108
   %13 = load i32, ptr %m_size.i.i13, align 4
-  %cmp3.i16 = icmp slt i32 %13, %mul24
+  %cmp3.i16 = icmp sgt i32 %mul24, %13
   br i1 %cmp3.i16, label %if.then4.i17, label %invoke.cont27
 
 if.then4.i17:                                     ; preds = %invoke.cont26

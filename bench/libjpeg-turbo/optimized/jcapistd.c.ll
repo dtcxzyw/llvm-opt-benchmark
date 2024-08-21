@@ -157,7 +157,7 @@ define i32 @jpeg_write_scanlines(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %59 = load i32, ptr %29, align 4
   %60 = load i32, ptr %27, align 8
   %61 = sub i32 %59, %60
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %61, i32 %2)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %2, i32 %61)
   store i32 0, ptr %4, align 4
   %62 = getelementptr inbounds i8, ptr %0, i64 440
   %63 = load ptr, ptr %62, align 8
@@ -282,7 +282,7 @@ define i32 @jpeg_write_raw_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   %66 = getelementptr inbounds i8, ptr %0, i64 316
   %67 = load i32, ptr %66, align 4
   %68 = shl nsw i32 %67, 3
-  %69 = icmp ugt i32 %68, %2
+  %69 = icmp ult i32 %2, %68
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %65

@@ -543,7 +543,7 @@ define ptr @Mem_FlexEntryFetch(ptr nocapture noundef %0, i32 noundef %1) local_u
 30:                                               ; preds = %28, %12
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   %32 = load i32, ptr %31, align 8
-  %33 = icmp slt i32 %32, %1
+  %33 = icmp sgt i32 %1, %32
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
@@ -875,7 +875,7 @@ define ptr @Mem_StepEntryFetch(ptr nocapture noundef %0, i32 noundef %1) local_u
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = icmp slt i32 %6, %1
+  %7 = icmp sgt i32 %1, %6
   br i1 %7, label %8, label %43
 
 8:                                                ; preds = %4
@@ -959,7 +959,7 @@ define void @Mem_StepEntryRecycle(ptr nocapture noundef readonly %0, ptr noundef
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
-  %8 = icmp slt i32 %7, %2
+  %8 = icmp sgt i32 %2, %7
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %5

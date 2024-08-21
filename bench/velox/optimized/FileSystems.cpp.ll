@@ -668,8 +668,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.i.i.i: ; preds = %
   br i1 %cmp.i.i.i, label %_ZSt10__invoke_rIbRZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem13schemeMatcherEvEUlSt17basic_string_viewIcSt11char_traitsIcEEE_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.end20.i.i.i.i.i, %while.body.i.i.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.i.i.i
-  %switch.i.i.i = icmp ult i64 %__args.val, 5
-  br i1 %switch.i.i.i, label %_ZSt10__invoke_rIbRZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem13schemeMatcherEvEUlSt17basic_string_viewIcSt11char_traitsIcEEE_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit, label %while.body.i.i10.i.i.i
+  %cmp11.not20.i.i6.i.i.i = icmp ult i64 %__args.val, 5
+  br i1 %cmp11.not20.i.i6.i.i.i, label %_ZSt10__invoke_rIbRZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem13schemeMatcherEvEUlSt17basic_string_viewIcSt11char_traitsIcEEE_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit, label %while.body.i.i10.i.i.i
 
 while.body.i.i10.i.i.i:                           ; preds = %lor.rhs.i.i.i, %if.end20.i.i22.i.i.i
   %__len.022.i.i11.i.i.i = phi i64 [ %sub.ptr.sub23.i.i25.i.i.i, %if.end20.i.i22.i.i.i ], [ %__args.val, %lor.rhs.i.i.i ]
@@ -696,7 +696,7 @@ if.end20.i.i22.i.i.i:                             ; preds = %_ZNSt11char_traitsI
   br i1 %cmp11.not.i.i26.i.i.i, label %_ZSt10__invoke_rIbRZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem13schemeMatcherEvEUlSt17basic_string_viewIcSt11char_traitsIcEEE_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit, label %while.body.i.i10.i.i.i, !llvm.loop !14
 
 _ZSt10__invoke_rIbRZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem13schemeMatcherEvEUlSt17basic_string_viewIcSt11char_traitsIcEEE_JS8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit: ; preds = %while.body.i.i10.i.i.i, %if.end20.i.i22.i.i.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.i.i.i, %lor.rhs.i.i.i, %if.then18.i.i27.i.i.i
-  %2 = phi i1 [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.i.i.i ], [ %1, %if.then18.i.i27.i.i.i ], [ false, %entry ], [ false, %lor.rhs.i.i.i ], [ false, %if.end20.i.i22.i.i.i ], [ false, %while.body.i.i10.i.i.i ]
+  %2 = phi i1 [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.i.i.i ], [ %1, %if.then18.i.i27.i.i.i ], [ false, %lor.rhs.i.i.i ], [ false, %entry ], [ false, %if.end20.i.i22.i.i.i ], [ false, %while.body.i.i10.i.i.i ]
   ret i1 %2
 }
 
@@ -3323,7 +3323,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12
@@ -3469,7 +3469,7 @@ _ZSt19__relocate_object_aISt4pairISt8functionIFbSt17basic_string_viewIcSt11char_
 _ZNSt6vectorISt4pairISt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEES1_IFSt10shared_ptrIN8facebook5velox11filesystems10FileSystemEES8_IKNSA_6ConfigEES5_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit: ; preds = %_ZSt19__relocate_object_aISt4pairISt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEES1_IFSt10shared_ptrIN8facebook5velox11filesystems10FileSystemEES8_IKNSA_6ConfigEES5_EEESJ_SaISJ_EEvPT_PT0_RT1_.exit.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aISt4pairISt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEES1_IFSt10shared_ptrIN8facebook5velox11filesystems10FileSystemEES8_IKNSA_6ConfigEES5_EEESJ_SaISJ_EEvPT_PT0_RT1_.exit.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 64
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorISt4pairISt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEES1_IFSt10shared_ptrIN8facebook5velox11filesystems10FileSystemEES8_IKNSA_6ConfigEES5_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit42, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorISt4pairISt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEES1_IFSt10shared_ptrIN8facebook5velox11filesystems10FileSystemEES8_IKNSA_6ConfigEES5_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit, %_ZSt19__relocate_object_aISt4pairISt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEES1_IFSt10shared_ptrIN8facebook5velox11filesystems10FileSystemEES8_IKNSA_6ConfigEES5_EEESJ_SaISJ_EEvPT_PT0_RT1_.exit.i.i.i37

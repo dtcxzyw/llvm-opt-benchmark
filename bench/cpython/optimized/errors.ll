@@ -1010,7 +1010,7 @@ if.end.split:                                     ; preds = %if.end
 land.lhs.true:                                    ; preds = %if.end
   %3 = getelementptr i8, ptr %value, i64 8
   %value.val = load ptr, ptr %3, align 8
-  %cmp2 = icmp eq ptr %value.val, %type
+  %cmp2 = icmp eq ptr %type, %value.val
   br i1 %cmp2, label %if.end8, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true

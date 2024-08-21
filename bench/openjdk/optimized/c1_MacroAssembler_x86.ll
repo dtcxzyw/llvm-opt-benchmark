@@ -566,7 +566,7 @@ define hidden void @_ZN17C1_MacroAssembler17initialize_objectE8RegisterS0_S0_iS0
   %17 = trunc i8 %16 to i1
   %18 = load i8, ptr @ZeroTLAB, align 1
   %19 = trunc i8 %18 to i1
-  %brmerge.demorgan = and i1 %19, %7
+  %brmerge.demorgan = and i1 %7, %19
   %or.cond = select i1 %17, i1 %brmerge.demorgan, i1 false
   br i1 %or.cond, label %.loopexit, label %20
 

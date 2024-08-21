@@ -2372,10 +2372,10 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
   %hf_wisun_usie_channel_plan_id.sink = phi ptr [ @hf_wisun_usie_channel_plan_id, %21 ], [ @hf_wisun_usie_operating_class, %11 ], [ @hf_wisun_usie_number_channels, %19 ], [ @hf_wisun_usie_number_channels, %14 ]
   %.sink98 = phi i32 [ 1, %21 ], [ 1, %11 ], [ 2, %19 ], [ 2, %14 ]
   %.sink = phi i32 [ 3, %21 ], [ 3, %11 ], [ 7, %19 ], [ 7, %14 ]
-  %28 = add nuw nsw i32 %.sink99, %2
+  %28 = add nuw nsw i32 %2, %.sink99
   %29 = load i32, ptr %hf_wisun_usie_channel_plan_id.sink, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef %.sink98, i32 noundef -2147483648) #3
-  %31 = add nuw nsw i32 %.sink, %2
+  %31 = add nuw nsw i32 %2, %.sink
   %32 = lshr i32 %9, 3
   %33 = and i32 %32, 7
   switch i32 %33, label %.loopexit86 [

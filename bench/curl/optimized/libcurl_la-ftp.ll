@@ -1141,7 +1141,7 @@ land.lhs.true119:                                 ; preds = %land.lhs.true112
   %45 = load i8, ptr %pending_resp, align 8
   %tobool120 = trunc i8 %45 to i1
   %tobool120.not = xor i1 %tobool120, true
-  %brmerge = or i1 %tobool120.not, %premature
+  %brmerge = or i1 %premature, %tobool120.not
   br i1 %brmerge, label %if.end183, label %if.then124
 
 if.then124:                                       ; preds = %land.lhs.true119
@@ -1320,7 +1320,7 @@ if.end269:                                        ; preds = %sw.bb179, %sw.defau
   store i8 %bf.clear273, ptr %dont_check271, align 2
   %67 = or i32 %result.5, %status
   %or.cond1.not = icmp ne i32 %67, 0
-  %brmerge121 = or i1 %or.cond1.not, %premature
+  %brmerge121 = or i1 %premature, %or.cond1.not
   br i1 %brmerge121, label %do.body288, label %land.lhs.true280
 
 land.lhs.true280:                                 ; preds = %if.end269
@@ -5047,7 +5047,7 @@ entry:
   %max_filesize = getelementptr inbounds i8, ptr %data, i64 1768
   %2 = load i64, ptr %max_filesize, align 8
   %tobool.not = icmp ne i64 %2, 0
-  %cmp = icmp slt i64 %2, %filesize
+  %cmp = icmp sgt i64 %filesize, %2
   %or.cond = and i1 %tobool.not, %cmp
   br i1 %or.cond, label %if.then, label %if.end
 
@@ -5084,7 +5084,7 @@ if.else:                                          ; preds = %if.then5
 
 if.then19:                                        ; preds = %if.else
   %sub = sub nsw i64 0, %3
-  %cmp22 = icmp sgt i64 %sub, %filesize
+  %cmp22 = icmp slt i64 %filesize, %sub
   br i1 %cmp22, label %if.then23, label %if.end26
 
 if.then23:                                        ; preds = %if.then19
@@ -5098,7 +5098,7 @@ if.end26:                                         ; preds = %if.then19
   br label %if.end48thread-pre-split
 
 if.else35:                                        ; preds = %if.else
-  %cmp38 = icmp sgt i64 %3, %filesize
+  %cmp38 = icmp slt i64 %filesize, %3
   br i1 %cmp38, label %if.then39, label %if.end42
 
 if.then39:                                        ; preds = %if.else35
@@ -5194,12 +5194,12 @@ entry:
   %resume_from = getelementptr inbounds i8, ptr %data, i64 4536
   %2 = load i64, ptr %resume_from, align 8
   %tobool3.not = icmp eq i64 %2, 0
-  %brmerge = or i1 %tobool3.not, %sizechecked
+  %brmerge = or i1 %sizechecked, %tobool3.not
   br i1 %brmerge, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
   %cmp = icmp sgt i64 %2, 0
-  %brmerge49.not = and i1 %cmp, %sizechecked
+  %brmerge49.not = and i1 %sizechecked, %cmp
   br i1 %brmerge49.not, label %if.end15, label %if.end85
 
 if.then:                                          ; preds = %entry

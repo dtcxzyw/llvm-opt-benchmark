@@ -3222,7 +3222,7 @@ define internal noundef align 8 dereferenceable_or_null(96) ptr @_ZN4core4iter6t
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h0626ff959b9fdf1bE.exit: ; preds = %10
   store ptr null, ptr %.phi.trans.insert, align 8, !alias.scope !740
-  %.not = icmp eq i64 %.sroa.01.012.i, %1
+  %.not = icmp eq i64 %1, %.sroa.01.012.i
   br i1 %.not, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h0626ff959b9fdf1bE.exit.thread.thread, label %"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h9ce6e2d1350d0807E.exit"
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h0626ff959b9fdf1bE.exit.thread.thread: ; preds = %"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h9ce6e2d1350d0807E.exit.i", %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h0626ff959b9fdf1bE.exit
@@ -3291,7 +3291,7 @@ define internal noundef align 8 dereferenceable_or_null(176) ptr @_ZN4core4iter6
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hf7bb9bc3a3f64c7dE.exit: ; preds = %10
   store ptr null, ptr %.phi.trans.insert, align 8, !alias.scope !773
-  %.not = icmp eq i64 %.sroa.01.012.i, %1
+  %.not = icmp eq i64 %1, %.sroa.01.012.i
   br i1 %.not, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hf7bb9bc3a3f64c7dE.exit.thread.thread, label %"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd22a43c6a08a31d7E.exit"
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hf7bb9bc3a3f64c7dE.exit.thread.thread: ; preds = %"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd22a43c6a08a31d7E.exit.i", %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hf7bb9bc3a3f64c7dE.exit
@@ -3360,7 +3360,7 @@ define internal noundef align 8 dereferenceable_or_null(104) ptr @_ZN4core4iter6
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hef54c49e766b496aE.exit: ; preds = %10
   store ptr null, ptr %.phi.trans.insert, align 8, !alias.scope !806
-  %.not = icmp eq i64 %.sroa.01.012.i, %1
+  %.not = icmp eq i64 %1, %.sroa.01.012.i
   br i1 %.not, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hef54c49e766b496aE.exit.thread.thread, label %"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb1c2e303dec0aa91E.exit"
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hef54c49e766b496aE.exit.thread.thread: ; preds = %"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb1c2e303dec0aa91E.exit.i", %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hef54c49e766b496aE.exit
@@ -3429,7 +3429,7 @@ define internal noundef align 8 dereferenceable_or_null(328) ptr @_ZN4core4iter6
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h0aec6ead5245ae74E.exit: ; preds = %10
   store ptr null, ptr %.phi.trans.insert, align 8, !alias.scope !839
-  %.not = icmp eq i64 %.sroa.01.012.i, %1
+  %.not = icmp eq i64 %1, %.sroa.01.012.i
   br i1 %.not, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h0aec6ead5245ae74E.exit.thread.thread, label %"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hdd3e68430ef8031aE.exit"
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h0aec6ead5245ae74E.exit.thread.thread: ; preds = %"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hdd3e68430ef8031aE.exit.i", %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h0aec6ead5245ae74E.exit
@@ -3498,7 +3498,7 @@ define internal noundef align 8 dereferenceable_or_null(96) ptr @_ZN4core4iter6t
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h96ce4baa34162b34E.exit: ; preds = %10
   store ptr null, ptr %.phi.trans.insert, align 8, !alias.scope !872
-  %.not = icmp eq i64 %.sroa.01.012.i, %1
+  %.not = icmp eq i64 %1, %.sroa.01.012.i
   br i1 %.not, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h96ce4baa34162b34E.exit.thread.thread, label %"_ZN118_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h7d104ff938575042E.exit"
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h96ce4baa34162b34E.exit.thread.thread: ; preds = %"_ZN118_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h7d104ff938575042E.exit.i", %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h96ce4baa34162b34E.exit
@@ -3567,7 +3567,7 @@ define internal noundef align 8 dereferenceable_or_null(184) ptr @_ZN4core4iter6
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hca7c7d999efce6f8E.exit: ; preds = %10
   store ptr null, ptr %.phi.trans.insert, align 8, !alias.scope !905
-  %.not = icmp eq i64 %.sroa.01.012.i, %1
+  %.not = icmp eq i64 %1, %.sroa.01.012.i
   br i1 %.not, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hca7c7d999efce6f8E.exit.thread.thread, label %"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h692f88f40c20140bE.exit"
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hca7c7d999efce6f8E.exit.thread.thread: ; preds = %"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h692f88f40c20140bE.exit.i", %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hca7c7d999efce6f8E.exit
@@ -3636,7 +3636,7 @@ define internal noundef align 8 dereferenceable_or_null(232) ptr @_ZN4core4iter6
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h6361640122ba75f8E.exit: ; preds = %10
   store ptr null, ptr %.phi.trans.insert, align 8, !alias.scope !938
-  %.not = icmp eq i64 %.sroa.01.012.i, %1
+  %.not = icmp eq i64 %1, %.sroa.01.012.i
   br i1 %.not, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h6361640122ba75f8E.exit.thread.thread, label %"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h337dae951110fbccE.exit"
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h6361640122ba75f8E.exit.thread.thread: ; preds = %"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h337dae951110fbccE.exit.i", %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h6361640122ba75f8E.exit
@@ -4892,7 +4892,7 @@ define hidden noundef nonnull align 8 dereferenceable(184) ptr @"_ZN75_$LT$usize
 define hidden noundef nonnull align 8 dereferenceable(184) ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf3f01389d94555c2E.llvm.5761680391814234304.exit", label %7, !prof !1374
 
 7:                                                ; preds = %3
@@ -4910,7 +4910,7 @@ define hidden noundef nonnull align 8 dereferenceable(184) ptr @"_ZN81_$LT$alloc
 define hidden noundef nonnull align 8 dereferenceable(240) ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3506c4843f97b2b4E.llvm.5761680391814234304.exit", label %7, !prof !1374
 
 7:                                                ; preds = %3
@@ -4978,12 +4978,12 @@ define hidden noundef align 8 dereferenceable(232) ptr @"_ZN97_$LT$syn..punctuat
   %. = zext i1 %.not to i64
   %8 = add i64 %5, -1
   %9 = add i64 %8, %.
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %17, label %11
 
 11:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1381)
-  %12 = icmp ugt i64 %5, %1
+  %12 = icmp ult i64 %1, %5
   br i1 %12, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit", label %13, !prof !1374
 
 13:                                               ; preds = %11
@@ -5005,7 +5005,7 @@ define hidden noundef align 8 dereferenceable(232) ptr @"_ZN97_$LT$syn..punctuat
 
 19:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1389)
-  %20 = icmp ugt i64 %5, %1
+  %20 = icmp ult i64 %1, %5
   br i1 %20, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hca80d49dcdc529c6E.llvm.5761680391814234304.exit3", label %21, !prof !1374
 
 21:                                               ; preds = %19
@@ -5029,12 +5029,12 @@ define hidden noundef align 8 dereferenceable(176) ptr @"_ZN97_$LT$syn..punctuat
   %. = zext i1 %.not to i64
   %8 = add i64 %5, -1
   %9 = add i64 %8, %.
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %17, label %11
 
 11:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1397)
-  %12 = icmp ugt i64 %5, %1
+  %12 = icmp ult i64 %1, %5
   br i1 %12, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit", label %13, !prof !1374
 
 13:                                               ; preds = %11
@@ -5056,7 +5056,7 @@ define hidden noundef align 8 dereferenceable(176) ptr @"_ZN97_$LT$syn..punctuat
 
 19:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1405)
-  %20 = icmp ugt i64 %5, %1
+  %20 = icmp ult i64 %1, %5
   br i1 %20, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3926c6c6e217ba37E.llvm.5761680391814234304.exit3", label %21, !prof !1374
 
 21:                                               ; preds = %19

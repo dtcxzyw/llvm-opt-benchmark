@@ -869,7 +869,7 @@ define hidden void @"_ZN6diesel10type_impls10primitives13foreign_impls1_131_$LT$
   %7 = load i64, ptr %6, align 8, !alias.scope !95, !noalias !100, !noundef !5
   %8 = load i64, ptr %5, align 8, !alias.scope !102, !noalias !100, !noundef !5
   %9 = sub i64 %8, %7
-  %10 = icmp ult i64 %9, %2
+  %10 = icmp ugt i64 %2, %9
   br i1 %10, label %11, label %"_ZN6diesel10type_impls10primitives94_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Text$C$DB$GT$$u20$for$u20$str$GT$6to_sql17ha188d3b5858184a6E.exit"
 
 11:                                               ; preds = %4

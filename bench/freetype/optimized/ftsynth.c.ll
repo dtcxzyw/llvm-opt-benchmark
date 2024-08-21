@@ -94,12 +94,12 @@ define void @FT_GlyphSlot_AdjustWeight(ptr noundef %0, i64 noundef %1, i64 nound
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load i16, ptr %13, align 8
   %15 = zext i16 %14 to i64
-  %16 = mul nsw i64 %15, %1
+  %16 = mul nsw i64 %1, %15
   %17 = sdiv i64 %16, 1024
   %18 = getelementptr inbounds i8, ptr %12, i64 26
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = mul nsw i64 %20, %2
+  %21 = mul nsw i64 %2, %20
   %22 = sdiv i64 %21, 1024
   %23 = icmp eq i32 %7, 1869968492
   br i1 %23, label %24, label %27

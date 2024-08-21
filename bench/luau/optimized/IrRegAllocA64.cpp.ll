@@ -1256,7 +1256,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18Assemb
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %13 = icmp ugt i64 %12, %2
+  %13 = icmp ult i64 %2, %12
   br i1 %13, label %.lr.ph, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE6resizeEm.exit
 
 .lr.ph:                                           ; preds = %3
@@ -1302,7 +1302,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18Assemb
   br i1 %41, label %15, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %15
-  %42 = icmp ult i64 %40, %2
+  %42 = icmp ugt i64 %2, %40
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %._crit_edge
@@ -1311,7 +1311,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18Assemb
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE6resizeEm.exit
 
 45:                                               ; preds = %._crit_edge
-  %46 = icmp ugt i64 %40, %2
+  %46 = icmp ult i64 %2, %40
   br i1 %46, label %47, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE6resizeEm.exit
 
 47:                                               ; preds = %45

@@ -2262,7 +2262,7 @@ define linkonce_odr noundef zeroext i1 @_ZN14RARPPM_CONTEXT13decodeSymbol2EP8Mod
   %20 = load i16, ptr %19, align 1
   %21 = zext i16 %20 to i32
   %22 = sub nsw i32 %21, %5
-  %23 = icmp sgt i32 %22, %8
+  %23 = icmp slt i32 %8, %22
   %24 = zext i1 %23 to i64
   %25 = getelementptr inbounds %struct.RARPPM_SEE2_CONTEXT, ptr %17, i64 %24
   %26 = getelementptr inbounds i8, ptr %0, i64 2
@@ -10853,7 +10853,7 @@ define void @_ZN6Unpack12UnpWriteAreaEmm(ptr nocapture noundef nonnull align 8 d
   %indvars.iv.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i, %27 ]
   %29 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %indvars.iv.i
   %30 = load i64, ptr %29, align 8
-  %31 = icmp ugt i64 %30, %.045
+  %31 = icmp ult i64 %.045, %30
   br i1 %31, label %32, label %27
 
 32:                                               ; preds = %28
@@ -10864,7 +10864,7 @@ define void @_ZN6Unpack12UnpWriteAreaEmm(ptr nocapture noundef nonnull align 8 d
 _ZN16FragmentedWindow12GetBlockSizeEmm.exit:      ; preds = %27, %32
   %.011.i = phi i64 [ %..i, %32 ], [ 0, %27 ]
   %34 = load i64, ptr %22, align 8
-  %35 = icmp ugt i64 %34, %.045
+  %35 = icmp ult i64 %.045, %34
   br i1 %35, label %36, label %.preheader.i
 
 36:                                               ; preds = %_ZN16FragmentedWindow12GetBlockSizeEmm.exit
@@ -10876,7 +10876,7 @@ _ZN16FragmentedWindow12GetBlockSizeEmm.exit:      ; preds = %27, %32
   %indvars.iv.i28 = phi i64 [ %indvars.iv.next.i29, %51 ], [ 1, %_ZN16FragmentedWindow12GetBlockSizeEmm.exit ]
   %39 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %indvars.iv.i28
   %40 = load i64, ptr %39, align 8
-  %41 = icmp ugt i64 %40, %.045
+  %41 = icmp ult i64 %.045, %40
   br i1 %41, label %42, label %51
 
 42:                                               ; preds = %.preheader.i
@@ -10908,7 +10908,7 @@ _ZN16FragmentedWindowixEm.exit:                   ; preds = %36, %42, %52
 
 56:                                               ; preds = %_ZN16FragmentedWindowixEm.exit
   %57 = sub nsw i64 %55, %54
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %57, i64 %.011.i)
+  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %.011.i, i64 %57)
   %58 = load ptr, ptr %0, align 8
   tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %58, ptr noundef %.010.i, i64 noundef %spec.select.i)
   %59 = load i64, ptr %23, align 8
@@ -10941,7 +10941,7 @@ _ZN6Unpack12UnpWriteDataEPhm.exit:                ; preds = %_ZN16FragmentedWind
   %75 = load ptr, ptr %66, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 %1
   %77 = sub nsw i64 %70, %68
-  %spec.select.i32 = tail call i64 @llvm.smin.i64(i64 %77, i64 %74)
+  %spec.select.i32 = tail call i64 @llvm.smin.i64(i64 %74, i64 %77)
   %78 = load ptr, ptr %0, align 8
   tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %78, ptr noundef nonnull %76, i64 noundef %spec.select.i32)
   %79 = load i64, ptr %67, align 8
@@ -10959,7 +10959,7 @@ _ZN6Unpack12UnpWriteDataEPhm.exit33:              ; preds = %65, %71
 83:                                               ; preds = %_ZN6Unpack12UnpWriteDataEPhm.exit33
   %84 = load ptr, ptr %66, align 8
   %85 = sub nsw i64 %81, %82
-  %spec.select.i35 = tail call i64 @llvm.smin.i64(i64 %85, i64 %2)
+  %spec.select.i35 = tail call i64 @llvm.smin.i64(i64 %2, i64 %85)
   %86 = load ptr, ptr %0, align 8
   tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %86, ptr noundef %84, i64 noundef %spec.select.i35)
   br label %_ZN6Unpack12UnpWriteDataEPhm.exit36.sink.split
@@ -10978,7 +10978,7 @@ _ZN6Unpack12UnpWriteDataEPhm.exit33:              ; preds = %65, %71
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 %1
   %96 = sub nsw i64 %90, %88
-  %spec.select.i38 = tail call i64 @llvm.smin.i64(i64 %96, i64 %92)
+  %spec.select.i38 = tail call i64 @llvm.smin.i64(i64 %92, i64 %96)
   %97 = load ptr, ptr %0, align 8
   tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %97, ptr noundef %95, i64 noundef %spec.select.i38)
   br label %_ZN6Unpack12UnpWriteDataEPhm.exit36.sink.split
@@ -11516,7 +11516,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %203, %.prehea
   %248 = add i64 %247, 1
   store i64 %248, ptr %62, align 8
   %249 = load i64, ptr %86, align 8
-  %250 = icmp ugt i64 %249, %247
+  %250 = icmp ult i64 %247, %249
   br i1 %250, label %251, label %.preheader.i87
 
 251:                                              ; preds = %246
@@ -11528,7 +11528,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %203, %.prehea
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %266 ], [ 1, %246 ]
   %254 = getelementptr inbounds [32 x i64], ptr %86, i64 0, i64 %indvars.iv.i
   %255 = load i64, ptr %254, align 8
-  %256 = icmp ugt i64 %255, %247
+  %256 = icmp ult i64 %247, %255
   br i1 %256, label %257, label %266
 
 257:                                              ; preds = %.preheader.i87
@@ -11880,7 +11880,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit111: ; preds = %396, %.pre
   %469 = add i64 %.020.i, 1
   %470 = and i64 %.020.i, %462
   %471 = load i64, ptr %86, align 8
-  %472 = icmp ugt i64 %471, %470
+  %472 = icmp ult i64 %470, %471
   br i1 %472, label %473, label %.preheader.i.i
 
 473:                                              ; preds = %466
@@ -11892,7 +11892,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit111: ; preds = %396, %.pre
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %488 ], [ 1, %466 ]
   %476 = getelementptr inbounds [32 x i64], ptr %86, i64 0, i64 %indvars.iv.i.i
   %477 = load i64, ptr %476, align 8
-  %478 = icmp ugt i64 %477, %470
+  %478 = icmp ult i64 %470, %477
   br i1 %478, label %479, label %488
 
 479:                                              ; preds = %.preheader.i.i
@@ -11918,7 +11918,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit111: ; preds = %396, %.pre
 _ZN16FragmentedWindowixEm.exit.i:                 ; preds = %489, %479, %473
   %.010.i.i = phi ptr [ %475, %473 ], [ %487, %479 ], [ %490, %489 ]
   %491 = load i8, ptr %.010.i.i, align 1
-  %492 = icmp ugt i64 %471, %467
+  %492 = icmp ult i64 %467, %471
   br i1 %492, label %493, label %.preheader.i10.i
 
 493:                                              ; preds = %_ZN16FragmentedWindowixEm.exit.i
@@ -11930,7 +11930,7 @@ _ZN16FragmentedWindowixEm.exit.i:                 ; preds = %489, %479, %473
   %indvars.iv.i11.i = phi i64 [ %indvars.iv.next.i12.i, %508 ], [ 1, %_ZN16FragmentedWindowixEm.exit.i ]
   %496 = getelementptr inbounds [32 x i64], ptr %86, i64 0, i64 %indvars.iv.i11.i
   %497 = load i64, ptr %496, align 8
-  %498 = icmp ugt i64 %497, %467
+  %498 = icmp ult i64 %467, %497
   br i1 %498, label %499, label %508
 
 499:                                              ; preds = %.preheader.i10.i
@@ -12054,7 +12054,7 @@ _ZN6Unpack9AddFilterER12UnpackFilter.exit:        ; preds = %._crit_edge.i, %528
   %554 = add i64 %.020.i118, 1
   %555 = and i64 %.020.i118, %547
   %556 = load i64, ptr %86, align 8
-  %557 = icmp ugt i64 %556, %555
+  %557 = icmp ult i64 %555, %556
   br i1 %557, label %558, label %.preheader.i.i120
 
 558:                                              ; preds = %551
@@ -12066,7 +12066,7 @@ _ZN6Unpack9AddFilterER12UnpackFilter.exit:        ; preds = %._crit_edge.i, %528
   %indvars.iv.i.i121 = phi i64 [ %indvars.iv.next.i.i122, %573 ], [ 1, %551 ]
   %561 = getelementptr inbounds [32 x i64], ptr %86, i64 0, i64 %indvars.iv.i.i121
   %562 = load i64, ptr %561, align 8
-  %563 = icmp ugt i64 %562, %555
+  %563 = icmp ult i64 %555, %562
   br i1 %563, label %564, label %573
 
 564:                                              ; preds = %.preheader.i.i120
@@ -12092,7 +12092,7 @@ _ZN6Unpack9AddFilterER12UnpackFilter.exit:        ; preds = %._crit_edge.i, %528
 _ZN16FragmentedWindowixEm.exit.i124:              ; preds = %574, %564, %558
   %.010.i.i125 = phi ptr [ %560, %558 ], [ %572, %564 ], [ %575, %574 ]
   %576 = load i8, ptr %.010.i.i125, align 1
-  %577 = icmp ugt i64 %556, %552
+  %577 = icmp ult i64 %552, %556
   br i1 %577, label %578, label %.preheader.i10.i126
 
 578:                                              ; preds = %_ZN16FragmentedWindowixEm.exit.i124
@@ -12104,7 +12104,7 @@ _ZN16FragmentedWindowixEm.exit.i124:              ; preds = %574, %564, %558
   %indvars.iv.i11.i127 = phi i64 [ %indvars.iv.next.i12.i128, %593 ], [ 1, %_ZN16FragmentedWindowixEm.exit.i124 ]
   %581 = getelementptr inbounds [32 x i64], ptr %86, i64 0, i64 %indvars.iv.i11.i127
   %582 = load i64, ptr %581, align 8
-  %583 = icmp ugt i64 %582, %552
+  %583 = icmp ult i64 %552, %582
   br i1 %583, label %584, label %593
 
 584:                                              ; preds = %.preheader.i10.i126
@@ -12303,7 +12303,7 @@ _ZN6Unpack12SlotToLengthER8BitInputj.exit150:     ; preds = %.thread.i148, %663
   %693 = add i64 %.020.i153, 1
   %694 = and i64 %.020.i153, %686
   %695 = load i64, ptr %86, align 8
-  %696 = icmp ugt i64 %695, %694
+  %696 = icmp ult i64 %694, %695
   br i1 %696, label %697, label %.preheader.i.i155
 
 697:                                              ; preds = %690
@@ -12315,7 +12315,7 @@ _ZN6Unpack12SlotToLengthER8BitInputj.exit150:     ; preds = %.thread.i148, %663
   %indvars.iv.i.i156 = phi i64 [ %indvars.iv.next.i.i157, %712 ], [ 1, %690 ]
   %700 = getelementptr inbounds [32 x i64], ptr %86, i64 0, i64 %indvars.iv.i.i156
   %701 = load i64, ptr %700, align 8
-  %702 = icmp ugt i64 %701, %694
+  %702 = icmp ult i64 %694, %701
   br i1 %702, label %703, label %712
 
 703:                                              ; preds = %.preheader.i.i155
@@ -12341,7 +12341,7 @@ _ZN6Unpack12SlotToLengthER8BitInputj.exit150:     ; preds = %.thread.i148, %663
 _ZN16FragmentedWindowixEm.exit.i159:              ; preds = %713, %703, %697
   %.010.i.i160 = phi ptr [ %699, %697 ], [ %711, %703 ], [ %714, %713 ]
   %715 = load i8, ptr %.010.i.i160, align 1
-  %716 = icmp ugt i64 %695, %691
+  %716 = icmp ult i64 %691, %695
   br i1 %716, label %717, label %.preheader.i10.i161
 
 717:                                              ; preds = %_ZN16FragmentedWindowixEm.exit.i159
@@ -12353,7 +12353,7 @@ _ZN16FragmentedWindowixEm.exit.i159:              ; preds = %713, %703, %697
   %indvars.iv.i11.i162 = phi i64 [ %indvars.iv.next.i12.i163, %732 ], [ 1, %_ZN16FragmentedWindowixEm.exit.i159 ]
   %720 = getelementptr inbounds [32 x i64], ptr %86, i64 0, i64 %indvars.iv.i11.i162
   %721 = load i64, ptr %720, align 8
-  %722 = icmp ugt i64 %721, %691
+  %722 = icmp ult i64 %691, %721
   br i1 %722, label %723, label %732
 
 723:                                              ; preds = %.preheader.i10.i161
@@ -13229,7 +13229,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %._ZN5ArrayIhE5Alloc
   %.08.i = phi i64 [ %108, %_ZN16FragmentedWindowixEm.exit.i ], [ 0, %82 ]
   %85 = add i64 %.08.i, %45
   %86 = load i64, ptr %20, align 8
-  %87 = icmp ugt i64 %86, %85
+  %87 = icmp ult i64 %85, %86
   br i1 %87, label %88, label %.preheader.i.i
 
 88:                                               ; preds = %.lr.ph.i
@@ -13241,7 +13241,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %._ZN5ArrayIhE5Alloc
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %103 ], [ 1, %.lr.ph.i ]
   %91 = getelementptr inbounds [32 x i64], ptr %20, i64 0, i64 %indvars.iv.i.i
   %92 = load i64, ptr %91, align 8
-  %93 = icmp ugt i64 %92, %85
+  %93 = icmp ult i64 %85, %92
   br i1 %93, label %94, label %103
 
 94:                                               ; preds = %.preheader.i.i
@@ -13294,7 +13294,7 @@ _ZN16FragmentedWindowixEm.exit.i:                 ; preds = %104, %94, %88
   %.08.i108 = phi i64 [ %141, %_ZN16FragmentedWindowixEm.exit.i113 ], [ 0, %117 ]
   %118 = add i64 %.08.i108, %45
   %119 = load i64, ptr %20, align 8
-  %120 = icmp ugt i64 %119, %118
+  %120 = icmp ult i64 %118, %119
   br i1 %120, label %121, label %.preheader.i.i109
 
 121:                                              ; preds = %.lr.ph.i107
@@ -13306,7 +13306,7 @@ _ZN16FragmentedWindowixEm.exit.i:                 ; preds = %104, %94, %88
   %indvars.iv.i.i110 = phi i64 [ %indvars.iv.next.i.i111, %136 ], [ 1, %.lr.ph.i107 ]
   %124 = getelementptr inbounds [32 x i64], ptr %20, i64 0, i64 %indvars.iv.i.i110
   %125 = load i64, ptr %124, align 8
-  %126 = icmp ugt i64 %125, %118
+  %126 = icmp ult i64 %118, %125
   br i1 %126, label %127, label %136
 
 127:                                              ; preds = %.preheader.i.i109
@@ -13350,7 +13350,7 @@ _ZN16FragmentedWindow8CopyDataEPhmm.exit116:      ; preds = %_ZN16FragmentedWind
 .lr.ph.i118:                                      ; preds = %.lr.ph.i118.preheader, %_ZN16FragmentedWindowixEm.exit.i124
   %.08.i119 = phi i64 [ %166, %_ZN16FragmentedWindowixEm.exit.i124 ], [ 0, %.lr.ph.i118.preheader ]
   %144 = load i64, ptr %20, align 8
-  %145 = icmp ugt i64 %144, %.08.i119
+  %145 = icmp ult i64 %.08.i119, %144
   br i1 %145, label %146, label %.preheader.i.i120
 
 146:                                              ; preds = %.lr.ph.i118
@@ -13362,7 +13362,7 @@ _ZN16FragmentedWindow8CopyDataEPhmm.exit116:      ; preds = %_ZN16FragmentedWind
   %indvars.iv.i.i121 = phi i64 [ %indvars.iv.next.i.i122, %161 ], [ 1, %.lr.ph.i118 ]
   %149 = getelementptr inbounds [32 x i64], ptr %20, i64 0, i64 %indvars.iv.i.i121
   %150 = load i64, ptr %149, align 8
-  %151 = icmp ugt i64 %150, %.08.i119
+  %151 = icmp ult i64 %.08.i119, %150
   br i1 %151, label %152, label %161
 
 152:                                              ; preds = %.preheader.i.i120
@@ -13516,7 +13516,7 @@ _ZN16FragmentedWindow8CopyDataEPhmm.exit:         ; preds = %_ZN16FragmentedWind
   %219 = sub i64 %211, %spec.select
   %220 = getelementptr inbounds i8, ptr %0, i64 112
   %221 = load i64, ptr %220, align 8
-  %222 = icmp ult i64 %221, %219
+  %222 = icmp ugt i64 %219, %221
   store i64 %219, ptr %11, align 8
   br i1 %222, label %223, label %_ZN5ArrayI12UnpackFilterE5AllocEm.exit
 
@@ -13524,7 +13524,7 @@ _ZN16FragmentedWindow8CopyDataEPhmm.exit:         ; preds = %_ZN16FragmentedWind
   %224 = getelementptr inbounds i8, ptr %0, i64 120
   %225 = load i64, ptr %224, align 8
   %.not.i.i128 = icmp ne i64 %225, 0
-  %226 = icmp ult i64 %225, %219
+  %226 = icmp ugt i64 %219, %225
   %or.cond.i.i129 = and i1 %.not.i.i128, %226
   br i1 %or.cond.i.i129, label %227, label %228
 
@@ -13613,7 +13613,7 @@ _ZN5ArrayI12UnpackFilterE5AllocEm.exit._crit_edge: ; preds = %_ZN5ArrayI12Unpack
 define noundef nonnull align 1 dereferenceable(1) ptr @_ZN16FragmentedWindowixEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, i64 noundef %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %.preheader
 
 6:                                                ; preds = %2
@@ -13625,7 +13625,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZN16FragmentedWindowixEm
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 1, %2 ]
   %9 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %.preheader
@@ -13673,7 +13673,7 @@ define void @_ZN16FragmentedWindow10CopyStringEjjRmm(ptr nocapture noundef nonnu
   %13 = add i64 %.020, 1
   %14 = and i64 %.020, %4
   %15 = load i64, ptr %9, align 8
-  %16 = icmp ugt i64 %15, %14
+  %16 = icmp ult i64 %14, %15
   br i1 %16, label %17, label %.preheader.i
 
 17:                                               ; preds = %10
@@ -13685,7 +13685,7 @@ define void @_ZN16FragmentedWindow10CopyStringEjjRmm(ptr nocapture noundef nonnu
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 1, %10 ]
   %20 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %indvars.iv.i
   %21 = load i64, ptr %20, align 8
-  %22 = icmp ugt i64 %21, %14
+  %22 = icmp ult i64 %14, %21
   br i1 %22, label %23, label %32
 
 23:                                               ; preds = %.preheader.i
@@ -13711,7 +13711,7 @@ define void @_ZN16FragmentedWindow10CopyStringEjjRmm(ptr nocapture noundef nonnu
 _ZN16FragmentedWindowixEm.exit:                   ; preds = %17, %23, %33
   %.010.i = phi ptr [ %19, %17 ], [ %31, %23 ], [ %34, %33 ]
   %35 = load i8, ptr %.010.i, align 1
-  %36 = icmp ugt i64 %15, %11
+  %36 = icmp ult i64 %11, %15
   br i1 %36, label %37, label %.preheader.i10
 
 37:                                               ; preds = %_ZN16FragmentedWindowixEm.exit
@@ -13723,7 +13723,7 @@ _ZN16FragmentedWindowixEm.exit:                   ; preds = %17, %23, %33
   %indvars.iv.i11 = phi i64 [ %indvars.iv.next.i12, %52 ], [ 1, %_ZN16FragmentedWindowixEm.exit ]
   %40 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %indvars.iv.i11
   %41 = load i64, ptr %40, align 8
-  %42 = icmp ugt i64 %41, %11
+  %42 = icmp ult i64 %11, %41
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %.preheader.i10
@@ -14142,7 +14142,7 @@ define void @_ZN16FragmentedWindow8CopyDataEPhmm(ptr nocapture noundef nonnull r
   %.08 = phi i64 [ 0, %.lr.ph ], [ %30, %_ZN16FragmentedWindowixEm.exit ]
   %7 = add i64 %.08, %2
   %8 = load i64, ptr %5, align 8
-  %9 = icmp ugt i64 %8, %7
+  %9 = icmp ult i64 %7, %8
   br i1 %9, label %10, label %.preheader.i
 
 10:                                               ; preds = %6
@@ -14154,7 +14154,7 @@ define void @_ZN16FragmentedWindow8CopyDataEPhmm(ptr nocapture noundef nonnull r
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 1, %6 ]
   %13 = getelementptr inbounds [32 x i64], ptr %5, i64 0, i64 %indvars.iv.i
   %14 = load i64, ptr %13, align 8
-  %15 = icmp ugt i64 %14, %7
+  %15 = icmp ult i64 %7, %14
   br i1 %15, label %16, label %25
 
 16:                                               ; preds = %.preheader.i
@@ -14416,7 +14416,7 @@ define noundef i64 @_ZN16FragmentedWindow12GetBlockSizeEmm(ptr nocapture noundef
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
   %7 = getelementptr inbounds [32 x i64], ptr %4, i64 0, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %10, label %5
 
 10:                                               ; preds = %6
@@ -14440,7 +14440,7 @@ define void @_ZN6Unpack12UnpWriteDataEPhm(ptr nocapture noundef nonnull align 8 
 
 8:                                                ; preds = %3
   %9 = sub nsw i64 %7, %5
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %9, i64 %2)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %2, i64 %9)
   %10 = load ptr, ptr %0, align 8
   tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %10, ptr noundef %1, i64 noundef %spec.select)
   %11 = load i64, ptr %4, align 8

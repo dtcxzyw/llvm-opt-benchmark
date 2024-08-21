@@ -544,7 +544,7 @@ thread-pre-split.i:                               ; preds = %ompi_osc_rdma_btl_c
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds i8, ptr %228, i64 136
   %230 = load i32, ptr %229, align 8
-  %231 = icmp eq i32 %230, %223
+  %231 = icmp eq i32 %223, %230
   br i1 %231, label %232, label %226
 
 232:                                              ; preds = %.lr.ph.i53.i
@@ -1137,7 +1137,7 @@ opal_obj_run_destructors.exit.us:                 ; preds = %.lr.ph.i.us, %87
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 136
   %124 = load i32, ptr %123, align 8
-  %125 = icmp eq i32 %124, %117
+  %125 = icmp eq i32 %117, %124
   br i1 %125, label %126, label %120
 
 126:                                              ; preds = %.lr.ph.i63
@@ -2209,7 +2209,7 @@ define internal fastcc void @ompi_osc_rdma_handle_post(ptr noundef %0, i32 nound
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 136
   %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, %1
+  %13 = icmp eq i32 %1, %12
   br i1 %13, label %14, label %8
 
 14:                                               ; preds = %.lr.ph

@@ -5540,7 +5540,7 @@ _ZSt10_ConstructIN2cv4face11FacemarkLBF4BBoxEJEEvPT_DpOT0_.exit.i.i.i.i: ; preds
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #25
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %8
+  %.not4.i.i.i.i.i.i = icmp eq ptr %8, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv4face11FacemarkLBF4BBoxEEvT_S5_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %14, %.lr.ph.i.i.i.i.i.i
@@ -6323,7 +6323,7 @@ define hidden void @_ZN2cv4face15FacemarkLBFImpl9Regressor14trainRegressorERSt6v
   %26 = alloca %"class.cv::MatExpr", align 8
   %27 = icmp sgt i32 %6, -1
   %28 = load i32, ptr %0, align 8
-  %29 = icmp sgt i32 %28, %6
+  %29 = icmp slt i32 %6, %28
   %or.cond = select i1 %27, i1 %29, i1 false
   br i1 %or.cond, label %38, label %30
 
@@ -6359,7 +6359,7 @@ define hidden void @_ZN2cv4face15FacemarkLBFImpl9Regressor14trainRegressorERSt6v
   %39 = getelementptr inbounds i8, ptr %0, i64 8
   %40 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(96) %5)
   %41 = load i32, ptr %0, align 8
-  %42 = icmp sgt i32 %41, %6
+  %42 = icmp slt i32 %6, %41
   br i1 %42, label %.lr.ph125, label %._crit_edge126
 
 .lr.ph125:                                        ; preds = %38
@@ -10108,11 +10108,11 @@ define void @_ZN2cv4face11FacemarkLBF4BBoxC2Edddd(ptr nocapture noundef nonnull 
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   store double %4, ptr %8, align 8
   %9 = fmul double %3, 5.000000e-01
-  %10 = fadd double %9, %1
+  %10 = fadd double %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   store double %10, ptr %11, align 8
   %12 = fmul double %4, 5.000000e-01
-  %13 = fadd double %12, %2
+  %13 = fadd double %2, %12
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   store double %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 32
@@ -11954,7 +11954,7 @@ _ZN2cv4Mat_IdEC2ERKNS_3MatE.exit83:               ; preds = %.lr.ph, %_ZN2cv4Mat
 
 ._crit_edge120:                                   ; preds = %._crit_edge114, %6
   %.063.lcssa = phi double [ 0.000000e+00, %6 ], [ %130, %._crit_edge114 ]
-  %131 = mul nsw i32 %24, %3
+  %131 = mul nsw i32 %3, %24
   %132 = sitofp i32 %131 to double
   %133 = fdiv double %.063.lcssa, %132
   ret double %133
@@ -14726,7 +14726,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv4face15FacemarkLBFImpl10Random
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 184
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -14735,7 +14735,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv4face15FacemarkLBFImpl10Random
   br label %_ZNSt6vectorIN2cv4face15FacemarkLBFImpl10RandomTreeESaIS3_EE15_M_erase_at_endEPS3_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv4face15FacemarkLBFImpl10RandomTreeESaIS3_EE15_M_erase_at_endEPS3_.exit
 
 15:                                               ; preds = %13
@@ -17028,8 +17028,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit256.thread:          ; preds = %36
   %205 = tail call double @llvm.fabs.f64(double %204)
   %206 = getelementptr inbounds double, ptr %3, i64 %indvars.iv458
   %207 = load double, ptr %206, align 8
-  %208 = fneg double %207
-  %209 = fmul double %204, %208
+  %208 = fneg double %204
+  %209 = fmul double %207, %208
   %210 = tail call double @llvm.fmuladd.f64(double %205, double 0.000000e+00, double %209)
   %211 = fmul double %201, %204
   %212 = tail call double @llvm.fmuladd.f64(double %211, double %204, double %210)
@@ -18265,7 +18265,7 @@ _ZNSt12_Vector_baseIN2cv4face11FacemarkLBF4BBoxESaIS3_EE11_M_allocateEm.exit: ; 
 _ZNSt6vectorIN2cv4face11FacemarkLBF4BBoxESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN2cv4face11FacemarkLBF4BBoxESaIS3_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv4face11FacemarkLBF4BBoxESaIS3_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 64
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv4face11FacemarkLBF4BBoxESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv4face11FacemarkLBF4BBoxESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i.i17
@@ -18353,7 +18353,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 96
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i27
@@ -18482,7 +18482,7 @@ _ZNSt12_Vector_baseIN2cv4face11FacemarkLBF4BBoxESaIS3_EE11_M_allocateEm.exit: ; 
 _ZNSt6vectorIN2cv4face11FacemarkLBF4BBoxESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN2cv4face11FacemarkLBF4BBoxESaIS3_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv4face11FacemarkLBF4BBoxESaIS3_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 64
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv4face11FacemarkLBF4BBoxESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv4face11FacemarkLBF4BBoxESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i.i17
@@ -18787,7 +18787,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyIiLi1EEclERSt6v
   store i8 105, ptr %9, align 1
   %10 = getelementptr inbounds i8, ptr %4, i64 2
   store i8 0, ptr %10, align 1
-  %11 = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
+  %11 = tail call i64 @llvm.umin.i64(i64 %2, i64 %8)
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %1, align 8
@@ -18795,7 +18795,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyIiLi1EEclERSt6v
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2
-  %19 = icmp ult i64 %18, %11
+  %19 = icmp ugt i64 %11, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %3
@@ -18804,7 +18804,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyIiLi1EEclERSt6v
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 22:                                               ; preds = %3
-  %23 = icmp ugt i64 %18, %11
+  %23 = icmp ult i64 %11, %18
   br i1 %23, label %24, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 24:                                               ; preds = %22

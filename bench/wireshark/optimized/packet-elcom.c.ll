@@ -556,7 +556,7 @@ define internal fastcc noundef i32 @dissect_lower_address(ptr noundef %0, ptr no
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %1, i32 noundef %2) #3
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #3
   %12 = zext i8 %11 to i32
-  %13 = add i32 %12, %4
+  %13 = add i32 %4, %12
   %14 = add i32 %13, 1
   %15 = tail call i32 @tvb_captured_length_remaining(ptr noundef %3, i32 noundef %14) #3
   %16 = icmp slt i32 %15, 1

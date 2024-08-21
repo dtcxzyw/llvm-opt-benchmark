@@ -741,7 +741,7 @@ get_pid_analysis.exit.i.i:                        ; preds = %172, %169
 192:                                              ; preds = %get_pid_analysis.exit.i.i
   %193 = add nsw i32 %186, 1
   %194 = and i32 %193, 15
-  %.not72.i.i = icmp eq i32 %194, %95
+  %.not72.i.i = icmp eq i32 %95, %194
   br i1 %.not72.i.i, label %.thread.i.i, label %195
 
 195:                                              ; preds = %192

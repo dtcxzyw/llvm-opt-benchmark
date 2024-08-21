@@ -834,7 +834,7 @@ _ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %_ZN5ZXing6ReduceIPK
   br i1 %.not43.i, label %.thread157, label %277
 
 277:                                              ; preds = %.noexc46
-  %.sroa.speculated8.i.i = call i32 @llvm.smin.i32(i32 %.078.i, i32 %276)
+  %.sroa.speculated8.i.i = call i32 @llvm.smin.i32(i32 %276, i32 %.078.i)
   %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %.07177.i, i32 %276)
   %.035.add.i = add nuw nsw i64 %.035.idx79.i, 8
   %.not.i = icmp eq i64 %.035.add.i, 16
@@ -863,7 +863,7 @@ _ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %_ZN5ZXing6ReduceIPK
   br i1 %.not42.i, label %.thread157, label %282
 
 282:                                              ; preds = %.noexc47
-  %.sroa.speculated8.i44.i = call i32 @llvm.smin.i32(i32 %.181.i, i32 %281)
+  %.sroa.speculated8.i44.i = call i32 @llvm.smin.i32(i32 %281, i32 %.181.i)
   %.sroa.speculated.i45.i = call i32 @llvm.smax.i32(i32 %.17280.i, i32 %281)
   %.036.add.i = add nuw nsw i64 %.036.idx82.i, 8
   %.not41.i = icmp eq i64 %.036.add.i, 16
@@ -1123,7 +1123,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternES
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.019.i.ptr.i.i.i, i64 16, i1 false)
   %26 = getelementptr i8, ptr %.pn18.i.i.i.i, i64 16
   %.val2.i9.i.i.i.i.i = load i32, ptr %26, align 8
-  %27 = icmp sgt i32 %.val2.i9.i.i.i.i.i, %.val.i.i.i.i.i
+  %27 = icmp slt i32 %.val.i.i.i.i.i, %.val2.i9.i.i.i.i.i
   br i1 %27, label %.lr.ph.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_.exit.i.i.i.i"
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %25, %.lr.ph.i.i.i.i.i
@@ -1132,7 +1132,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternES
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.06.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.0.i.i.i.i.i, i64 20, i1 false)
   %28 = getelementptr i8, ptr %.sroa.06.010.i.i.i.i.i, i64 -32
   %.val2.i.i.i.i.i.i = load i32, ptr %28, align 8
-  %29 = icmp sgt i32 %.val2.i.i.i.i.i.i, %.val.i.i.i.i.i
+  %29 = icmp slt i32 %.val.i.i.i.i.i, %.val2.i.i.i.i.i.i
   br i1 %29, label %.lr.ph.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_.exit.i.i.i.i", !llvm.loop !36
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i, %25
@@ -1162,7 +1162,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternES
   %.sroa.2.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %32 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i, i64 -8
   %.val2.i9.i.i14.i.i.i = load i32, ptr %32, align 8
-  %33 = icmp sgt i32 %.val2.i9.i.i14.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i
+  %33 = icmp slt i32 %.sroa.2.0.copyload.i.i.i.i.i, %.val2.i9.i.i14.i.i.i
   br i1 %33, label %.lr.ph.i.i19.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_.exit.i15.i.i.i"
 
 .lr.ph.i.i19.i.i.i:                               ; preds = %.lr.ph.i13.i.i.i, %.lr.ph.i.i19.i.i.i
@@ -1171,7 +1171,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternES
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.06.010.i.i20.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.0.i.i21.i.i.i, i64 20, i1 false)
   %34 = getelementptr i8, ptr %.sroa.06.010.i.i20.i.i.i, i64 -32
   %.val2.i.i.i22.i.i.i = load i32, ptr %34, align 8
-  %35 = icmp sgt i32 %.val2.i.i.i22.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i
+  %35 = icmp slt i32 %.sroa.2.0.copyload.i.i.i.i.i, %.val2.i.i.i22.i.i.i
   br i1 %35, label %.lr.ph.i.i19.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_.exit.i15.i.i.i", !llvm.loop !36
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_.exit.i15.i.i.i": ; preds = %.lr.ph.i.i19.i.i.i, %.lr.ph.i13.i.i.i
@@ -1219,7 +1219,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternES
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i23.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.019.i28.i.i.i, i64 16, i1 false)
   %46 = getelementptr i8, ptr %.pn18.i29.i.i.i, i64 16
   %.val2.i9.i.i32.i.i.i = load i32, ptr %46, align 8
-  %47 = icmp sgt i32 %.val2.i9.i.i32.i.i.i, %.val.i.i30.i.i.i
+  %47 = icmp slt i32 %.val.i.i30.i.i.i, %.val2.i9.i.i32.i.i.i
   br i1 %47, label %.lr.ph.i.i38.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_.exit.i33.i.i.i"
 
 .lr.ph.i.i38.i.i.i:                               ; preds = %45, %.lr.ph.i.i38.i.i.i
@@ -1228,7 +1228,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternES
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.06.010.i.i39.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.0.i.i40.i.i.i, i64 20, i1 false)
   %48 = getelementptr i8, ptr %.sroa.06.010.i.i39.i.i.i, i64 -32
   %.val2.i.i.i41.i.i.i = load i32, ptr %48, align 8
-  %49 = icmp sgt i32 %.val2.i.i.i41.i.i.i, %.val.i.i30.i.i.i
+  %49 = icmp slt i32 %.val.i.i30.i.i.i, %.val2.i.i.i41.i.i.i
   br i1 %49, label %.lr.ph.i.i38.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_.exit.i33.i.i.i", !llvm.loop !36
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_1EEEvT_T0_.exit.i33.i.i.i": ; preds = %.lr.ph.i.i38.i.i.i, %45
@@ -1440,8 +1440,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternES
   %171 = getelementptr inbounds i8, ptr %.0, i64 8
   %172 = load double, ptr %171, align 8
   %173 = fsub double %172, %167
-  %174 = fneg double %170
-  %175 = fmul double %168, %174
+  %174 = fneg double %168
+  %175 = fmul double %170, %174
   %176 = call noundef double @llvm.fmuladd.f64(double %163, double %173, double %175)
   %177 = fcmp olt double %176, 0.000000e+00
   %.1130 = select i1 %177, ptr %.0, ptr %.0129
@@ -1485,7 +1485,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternES
   br i1 %.not.i.i.i, label %191, label %.lr.ph.i.i.i, !llvm.loop !40
 
 191:                                              ; preds = %.lr.ph.i.i.i
-  %192 = icmp eq ptr %51, %.0710.i.i.i
+  %192 = icmp eq ptr %.0710.i.i.i, %51
   %spec.select.i.i = or i1 %192, %190
   br label %193
 
@@ -1907,39 +1907,39 @@ _ZN5ZXing6QRCodeL17EstimateDimensionERKNS_9BitMatrixENS_17ConcentricPatternES4_.
   %104 = load double, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %14, i64 48
   %106 = load double, ptr %105, align 8
-  %107 = fneg double %106
-  %108 = fmul double %92, %107
+  %107 = fneg double %92
+  %108 = fmul double %106, %107
   %109 = call double @llvm.fmuladd.f64(double %88, double %104, double %108)
   %110 = getelementptr inbounds i8, ptr %14, i64 56
   %111 = load double, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %16, i64 56
   %113 = load double, ptr %112, align 8
-  %114 = fmul double %113, %107
-  %115 = call double @llvm.fmuladd.f64(double %111, double %104, double %114)
-  %116 = fdiv double %115, %109
-  %117 = fneg double %111
-  %118 = fmul double %92, %117
+  %114 = fneg double %113
+  %115 = fmul double %106, %114
+  %116 = call double @llvm.fmuladd.f64(double %111, double %104, double %115)
+  %117 = fdiv double %116, %109
+  %118 = fmul double %111, %107
   %119 = call double @llvm.fmuladd.f64(double %88, double %113, double %118)
   %120 = fdiv double %119, %109
   %121 = getelementptr inbounds i8, ptr %17, i64 48
   %122 = load double, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %15, i64 48
   %124 = load double, ptr %123, align 8
-  %125 = fneg double %124
-  %126 = fmul double %100, %125
+  %125 = fneg double %100
+  %126 = fmul double %124, %125
   %127 = call double @llvm.fmuladd.f64(double %96, double %122, double %126)
   %128 = getelementptr inbounds i8, ptr %15, i64 56
   %129 = load double, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %17, i64 56
   %131 = load double, ptr %130, align 8
-  %132 = fmul double %131, %125
-  %133 = call double @llvm.fmuladd.f64(double %129, double %122, double %132)
-  %134 = fdiv double %133, %127
-  %135 = fneg double %129
-  %136 = fmul double %100, %135
+  %132 = fneg double %131
+  %133 = fmul double %124, %132
+  %134 = call double @llvm.fmuladd.f64(double %129, double %122, double %133)
+  %135 = fdiv double %134, %127
+  %136 = fmul double %129, %125
   %137 = call double @llvm.fmuladd.f64(double %96, double %131, double %136)
   %138 = fdiv double %137, %127
-  %139 = fadd double %116, %134
+  %139 = fadd double %117, %135
   %140 = fadd double %120, %138
   %141 = fmul double %139, 5.000000e-01
   %142 = fmul double %140, 5.000000e-01
@@ -2873,19 +2873,19 @@ _ZNK5ZXing6QRCode7Version9dimensionEv.exit357:    ; preds = %340, %338, %335, %3
   %522 = load double, ptr %473, align 8
   %523 = load double, ptr %470, align 8
   %524 = load double, ptr %472, align 8
-  %525 = fneg double %523
-  %526 = fmul double %524, %525
+  %525 = fneg double %524
+  %526 = fmul double %523, %525
   %527 = call double @llvm.fmuladd.f64(double %521, double %522, double %526)
   %528 = load double, ptr %471, align 8
   %529 = load double, ptr %474, align 8
-  %530 = fmul double %529, %525
-  %531 = call double @llvm.fmuladd.f64(double %528, double %522, double %530)
-  %532 = fdiv double %531, %527
-  %533 = fneg double %528
-  %534 = fmul double %524, %533
+  %530 = fneg double %529
+  %531 = fmul double %523, %530
+  %532 = call double @llvm.fmuladd.f64(double %528, double %522, double %531)
+  %533 = fdiv double %532, %527
+  %534 = fmul double %528, %525
   %535 = call double @llvm.fmuladd.f64(double %521, double %529, double %534)
   %536 = fdiv double %535, %527
-  store double %532, ptr %26, align 8
+  store double %533, ptr %26, align 8
   store double %536, ptr %475, align 8
   %537 = load ptr, ptr %28, align 8
   %.not.i.i.i.i.us = icmp eq ptr %537, null
@@ -2905,7 +2905,7 @@ _ZN5ZXing14RegressionLineD2Ev.exit.us:            ; preds = %538, %520
   br label %_ZN5ZXing14RegressionLineD2Ev.exit454.us
 
 _ZN5ZXing14RegressionLineD2Ev.exit454.us:         ; preds = %540, %_ZN5ZXing14RegressionLineD2Ev.exit.us
-  invoke fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %83, double %532, double %536)
+  invoke fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %83, double %533, double %536)
           to label %.thread621.us unwind label %.loopexit.split-lp642.loopexit.split-lp.loopexit.split.us
 
 .thread621.us:                                    ; preds = %_ZN5ZXing14RegressionLineD2Ev.exit454.us
@@ -4119,8 +4119,8 @@ define internal fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9Bit
   %.sroa.241.0.copyload = load double, ptr %.sroa.241.0..0.sroa_idx, align 8
   %20 = fmul double %10, %.sroa.040.0.copyload
   %21 = fmul double %10, %.sroa.241.0.copyload
-  %22 = fadd double %20, %3
-  %23 = fadd double %21, %4
+  %22 = fadd double %3, %20
+  %23 = fadd double %4, %21
   %24 = fptosi double %22 to i32
   %25 = fptosi double %23 to i32
   %.sroa.239.0.insert.ext = zext i32 %25 to i64
@@ -4298,11 +4298,11 @@ define linkonce_odr noundef zeroext i1 @_ZNK5ZXing14RegressionLine9isHighResEv(p
   %.sroa.03.0.copyload = load double, ptr %.sroa.011.023, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.011.023, i64 8
   %.sroa.24.0.copyload = load double, ptr %.sroa.24.0..sroa_idx, align 8
-  %5 = fcmp ogt double %.sroa.017.025, %.sroa.03.0.copyload
+  %5 = fcmp olt double %.sroa.03.0.copyload, %.sroa.017.025
   %.sroa.speculated8.i = select i1 %5, double %.sroa.03.0.copyload, double %.sroa.017.025
   %6 = fcmp olt double %.sroa.014.022, %.sroa.03.0.copyload
   %.sroa.speculated.i = select i1 %6, double %.sroa.03.0.copyload, double %.sroa.014.022
-  %7 = fcmp ogt double %.sroa.419.026, %.sroa.24.0.copyload
+  %7 = fcmp olt double %.sroa.24.0.copyload, %.sroa.419.026
   %.sroa.speculated8.i8 = select i1 %7, double %.sroa.24.0.copyload, double %.sroa.419.026
   %8 = fcmp olt double %.sroa.4.024, %.sroa.24.0.copyload
   %.sroa.speculated.i9 = select i1 %8, double %.sroa.24.0.copyload, double %.sroa.4.024
@@ -4754,7 +4754,7 @@ _ZN5ZXing6QRCodeL17EstimateDimensionERKNS_9BitMatrixENS_17ConcentricPatternES4_.
   %113 = fpext float %105 to double
   %114 = load i32, ptr %1, align 8
   %115 = sitofp i32 %114 to double
-  %116 = fcmp ule double %115, %113
+  %116 = fcmp uge double %113, %115
   %117 = fcmp ult float %109, 0.000000e+00
   %or.cond.i50 = select i1 %116, i1 true, i1 %117
   br i1 %or.cond.i50, label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit.thread, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit
@@ -4763,7 +4763,7 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit: ; preds = %112
   %118 = getelementptr inbounds i8, ptr %1, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = sitofp i32 %119 to double
-  %121 = fcmp ogt double %120, %110
+  %121 = fcmp olt double %110, %120
   br i1 %121, label %122, label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit.thread
 
 _ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit.thread: ; preds = %98, %112, %_ZN5ZXing6QRCodeL17EstimateDimensionERKNS_9BitMatrixENS_17ConcentricPatternES4_.exit, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit
@@ -5203,7 +5203,7 @@ _ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
   %76 = fpext float %68 to double
   %77 = load i32, ptr %1, align 8
   %78 = sitofp i32 %77 to double
-  %79 = fcmp ule double %78, %76
+  %79 = fcmp uge double %76, %78
   %80 = fcmp ult float %72, 0.000000e+00
   %or.cond.i = select i1 %79, i1 true, i1 %80
   br i1 %or.cond.i, label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit.thread, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit
@@ -5212,7 +5212,7 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit: ; preds = %75
   %81 = getelementptr inbounds i8, ptr %1, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = sitofp i32 %82 to double
-  %84 = fcmp ogt double %83, %73
+  %84 = fcmp olt double %73, %83
   br i1 %84, label %85, label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit.thread
 
 _ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit.thread: ; preds = %61, %75, %_ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit
@@ -7528,29 +7528,29 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i: ; preds
   %.sroa.3.0.i45.i267.i = select i1 %533, double %.sroa.10.0.i, double 0.000000e+00
   %535 = fmul double %407, %.sroa.3.0.i45.i267.i
   %536 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i46.i268.i, double %406, double %535)
-  %537 = fneg double %536
-  %538 = fmul double %.sroa.8295.0, %537
+  %537 = fneg double %.sroa.8295.0
+  %538 = fmul double %536, %537
   %539 = call double @llvm.fmuladd.f64(double %.sroa.6.0.i, double %465, double %538)
-  %540 = fneg double %.sroa.10.0.i
-  %541 = fmul double %.sroa.8295.0, %540
-  %542 = call double @llvm.fmuladd.f64(double %.sroa.6.0.i, double %.sroa.12296.0, double %541)
-  %543 = fdiv double %539, %542
-  %544 = fneg double %498
-  %545 = fmul double %.sroa.7282.0, %544
-  %546 = call double @llvm.fmuladd.f64(double %.sroa.8288.0, double %515, double %545)
-  %547 = fneg double %.sroa.12289.0
-  %548 = fmul double %.sroa.7282.0, %547
-  %549 = call double @llvm.fmuladd.f64(double %.sroa.8288.0, double %.sroa.11.0, double %548)
-  %550 = fdiv double %546, %549
-  %551 = fadd double %543, %550
-  %552 = fmul double %551, 5.000000e-01
-  %553 = fmul double %465, %540
-  %554 = call double @llvm.fmuladd.f64(double %536, double %.sroa.12296.0, double %553)
-  %555 = fdiv double %554, %542
-  %556 = fmul double %515, %547
+  %540 = fmul double %.sroa.10.0.i, %537
+  %541 = call double @llvm.fmuladd.f64(double %.sroa.6.0.i, double %.sroa.12296.0, double %540)
+  %542 = fdiv double %539, %541
+  %543 = fneg double %.sroa.7282.0
+  %544 = fmul double %498, %543
+  %545 = call double @llvm.fmuladd.f64(double %.sroa.8288.0, double %515, double %544)
+  %546 = fmul double %.sroa.12289.0, %543
+  %547 = call double @llvm.fmuladd.f64(double %.sroa.8288.0, double %.sroa.11.0, double %546)
+  %548 = fdiv double %545, %547
+  %549 = fadd double %542, %548
+  %550 = fmul double %549, 5.000000e-01
+  %551 = fneg double %465
+  %552 = fmul double %.sroa.10.0.i, %551
+  %553 = call double @llvm.fmuladd.f64(double %536, double %.sroa.12296.0, double %552)
+  %554 = fdiv double %553, %541
+  %555 = fneg double %515
+  %556 = fmul double %.sroa.12289.0, %555
   %557 = call double @llvm.fmuladd.f64(double %498, double %.sroa.11.0, double %556)
-  %558 = fdiv double %557, %549
-  %559 = fadd double %555, %558
+  %558 = fdiv double %557, %547
+  %559 = fadd double %554, %558
   %560 = fmul double %559, 5.000000e-01
   %sqrt69.i.i = call double @llvm.sqrt.f64(double %.sink.i.i)
   %561 = fdiv double %.lcssa.sink.i.i, %sqrt69.i.i
@@ -7571,29 +7571,29 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i: ; preds
   %.sroa.3.0.i45.i.i = select i1 %570, double %.sroa.1016.0.i, double 0.000000e+00
   %572 = fmul double %289, %.sroa.3.0.i45.i.i
   %573 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i46.i.i, double %288, double %572)
-  %574 = fneg double %573
-  %575 = fmul double %.sroa.8318.0, %574
+  %574 = fneg double %.sroa.8318.0
+  %575 = fmul double %573, %574
   %576 = call double @llvm.fmuladd.f64(double %.sroa.615.0.i, double %349, double %575)
-  %577 = fneg double %.sroa.1016.0.i
-  %578 = fmul double %.sroa.8318.0, %577
-  %579 = call double @llvm.fmuladd.f64(double %.sroa.615.0.i, double %.sroa.12319.0, double %578)
-  %580 = fdiv double %576, %579
-  %581 = fneg double %383
-  %582 = fmul double %.sroa.7302.0, %581
-  %583 = call double @llvm.fmuladd.f64(double %.sroa.8310.0, double %432, double %582)
-  %584 = fneg double %.sroa.12311.0
-  %585 = fmul double %.sroa.7302.0, %584
-  %586 = call double @llvm.fmuladd.f64(double %.sroa.8310.0, double %.sroa.11303.0, double %585)
-  %587 = fdiv double %583, %586
-  %588 = fadd double %580, %587
-  %589 = fmul double %588, 5.000000e-01
-  %590 = fmul double %349, %577
-  %591 = call double @llvm.fmuladd.f64(double %573, double %.sroa.12319.0, double %590)
-  %592 = fdiv double %591, %579
-  %593 = fmul double %432, %584
+  %577 = fmul double %.sroa.1016.0.i, %574
+  %578 = call double @llvm.fmuladd.f64(double %.sroa.615.0.i, double %.sroa.12319.0, double %577)
+  %579 = fdiv double %576, %578
+  %580 = fneg double %.sroa.7302.0
+  %581 = fmul double %383, %580
+  %582 = call double @llvm.fmuladd.f64(double %.sroa.8310.0, double %432, double %581)
+  %583 = fmul double %.sroa.12311.0, %580
+  %584 = call double @llvm.fmuladd.f64(double %.sroa.8310.0, double %.sroa.11303.0, double %583)
+  %585 = fdiv double %582, %584
+  %586 = fadd double %579, %585
+  %587 = fmul double %586, 5.000000e-01
+  %588 = fneg double %349
+  %589 = fmul double %.sroa.1016.0.i, %588
+  %590 = call double @llvm.fmuladd.f64(double %573, double %.sroa.12319.0, double %589)
+  %591 = fdiv double %590, %578
+  %592 = fneg double %432
+  %593 = fmul double %.sroa.12311.0, %592
   %594 = call double @llvm.fmuladd.f64(double %383, double %.sroa.11303.0, double %593)
-  %595 = fdiv double %594, %586
-  %596 = fadd double %592, %595
+  %595 = fdiv double %594, %584
+  %596 = fadd double %591, %595
   %597 = fmul double %596, 5.000000e-01
   store double %246, ptr %13, align 8, !alias.scope !137
   %.sroa.26.0..sroa_idx.i.i71 = getelementptr inbounds i8, ptr %13, i64 8
@@ -7601,7 +7601,7 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i: ; preds
   %598 = getelementptr inbounds i8, ptr %13, i64 16
   store double %597, ptr %598, align 8, !alias.scope !137
   %.sroa.24.0..sroa_idx.i.i72 = getelementptr inbounds i8, ptr %13, i64 24
-  store double %589, ptr %.sroa.24.0..sroa_idx.i.i72, align 8, !alias.scope !137
+  store double %587, ptr %.sroa.24.0..sroa_idx.i.i72, align 8, !alias.scope !137
   %599 = getelementptr inbounds i8, ptr %13, i64 32
   store double %232, ptr %599, align 8, !alias.scope !137
   %.sroa.22.0..sroa_idx.i.i73 = getelementptr inbounds i8, ptr %13, i64 40
@@ -7609,7 +7609,7 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i: ; preds
   %600 = getelementptr inbounds i8, ptr %13, i64 48
   store double %560, ptr %600, align 8, !alias.scope !137
   %.sroa.2.0..sroa_idx.i227.i = getelementptr inbounds i8, ptr %13, i64 56
-  store double %552, ptr %.sroa.2.0..sroa_idx.i227.i, align 8, !alias.scope !137
+  store double %550, ptr %.sroa.2.0..sroa_idx.i227.i, align 8, !alias.scope !137
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   %601 = icmp slt i32 %.sroa.15.0.i, 10
@@ -7991,7 +7991,7 @@ _ZNK5ZXing12FixedPatternILi5ELi7ELb0EE4sumsEv.exit: ; preds = %20
 
 39:                                               ; preds = %37
   %40 = sitofp i32 %2 to double
-  %41 = fmul double %31, %3
+  %41 = fmul double %3, %31
   %42 = fcmp ogt double %41, %40
   br i1 %42, label %.loopexit, label %43
 
@@ -8207,7 +8207,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing15BitMatrixCursorINS_6PointTIiE
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %4, align 8
-  %8 = mul i32 %6, %1
+  %8 = mul i32 %1, %6
   %9 = sub i32 0, %8
   %10 = mul nsw i32 %7, %1
   %.sroa.2.0.insert.ext.i1.i.i = zext i32 %10 to i64
@@ -8221,7 +8221,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing15BitMatrixCursorINS_6PointTIiE
 12:                                               ; preds = %3
   %13 = load i32, ptr %5, align 4
   %14 = load i32, ptr %4, align 8
-  %15 = mul i32 %13, %1
+  %15 = mul i32 %1, %13
   %16 = sub i32 0, %15
   %17 = mul nsw i32 %14, %1
   %.sroa.2.0.insert.ext.i1.i.i12 = zext i32 %17 to i64
@@ -8303,11 +8303,11 @@ _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit: ; preds = %42
   %45 = getelementptr inbounds i8, ptr %41, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %46, %.sroa.3.0.extract.trunc.i.i.i
-  %brmerge.demorgan = and i1 %47, %2
+  %brmerge.demorgan = and i1 %2, %47
   br i1 %brmerge.demorgan, label %48, label %.critedge
 
 48:                                               ; preds = %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit
-  %49 = mul i32 %33, %1
+  %49 = mul i32 %1, %33
   %50 = sub i32 0, %49
   %51 = mul nsw i32 %34, %1
   %.sroa.2.0.insert.ext.i1.i.i26 = zext i32 %51 to i64
@@ -8321,7 +8321,7 @@ _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit: ; preds = %42
 53:                                               ; preds = %48
   %54 = load i32, ptr %5, align 4
   %55 = load i32, ptr %4, align 8
-  %56 = mul i32 %54, %1
+  %56 = mul i32 %1, %54
   %57 = sub i32 0, %56
   %58 = mul nsw i32 %55, %1
   %.sroa.2.0.insert.ext.i1.i.i30 = zext i32 %58 to i64
@@ -9107,7 +9107,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit:
 _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit22: ; preds = %56, %54, %58
   %63 = phi i32 [ %62, %58 ], [ 2147483647, %54 ], [ %.sroa.9.8.extract.trunc, %56 ]
   %.sroa.speculated.i21 = tail call i32 @llvm.smin.i32(i32 %63, i32 %55)
-  %.sroa.speculated.i23 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated.i, i32 %3)
+  %.sroa.speculated.i23 = tail call i32 @llvm.smin.i32(i32 %3, i32 %.sroa.speculated.i)
   %64 = sext i32 %16 to i64
   %smax.i = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i23, i32 0)
   %65 = zext nneg i32 %smax.i to i64
@@ -9142,7 +9142,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit2
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i8, ptr %27, i64 %79
   %81 = sub nsw i32 %.sroa.speculated.i, %77
-  %.sroa.speculated.i24 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated.i21, i32 %3)
+  %.sroa.speculated.i24 = tail call i32 @llvm.smin.i32(i32 %3, i32 %.sroa.speculated.i21)
   %82 = sext i32 %43 to i64
   %smax.i25 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i24, i32 0)
   %83 = zext nneg i32 %smax.i25 to i64
@@ -9194,7 +9194,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit2
   %.sroa.060.0101 = phi ptr [ %98, %94 ], [ %143, %139 ]
   %.sroa.963.0100 = phi i32 [ %99, %94 ], [ %144, %139 ]
   %.07999 = phi i32 [ %105, %94 ], [ %148, %139 ]
-  %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %.sroa.970.0102, i32 %.07999)
+  %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %.07999, i32 %.sroa.970.0102)
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i.i, i32 0)
   %107 = zext nneg i32 %smax.i.i to i64
   %108 = add nuw i32 %smax.i.i, 1
@@ -9233,7 +9233,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit2
   %126 = getelementptr inbounds [5 x i16], ptr %7, i64 0, i64 %125
   store i16 %124, ptr %126, align 2
   %127 = sub nsw i32 %.07999, %119
-  %.sroa.speculated.i.i34 = tail call i32 @llvm.smin.i32(i32 %.sroa.963.0100, i32 %127)
+  %.sroa.speculated.i.i34 = tail call i32 @llvm.smin.i32(i32 %127, i32 %.sroa.963.0100)
   %smax.i.i35 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i.i34, i32 0)
   %128 = zext nneg i32 %smax.i.i35 to i64
   %129 = add nuw i32 %smax.i.i35, 1
@@ -9382,7 +9382,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %phi.call.i.i.i, i64 16, i1 false)
   %.sroa.210.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %phi.call.i.i.i, i64 16
   %.sroa.210.0.copyload.i.i.i = load i32, ptr %.sroa.210.0..sroa.0.0..sroa_idx.i.i.i, align 8
-  %31 = icmp sgt i64 %24, %.0.i.i.i
+  %31 = icmp slt i64 %.0.i.i.i, %24
   br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %30, %.lr.ph.i.i.i.i

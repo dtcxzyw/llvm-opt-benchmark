@@ -182,7 +182,7 @@ entry:
   %call = tail call zeroext i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef %nbits) #2
   %cmp.not = icmp eq i32 %strength, -1
   %conv = zext i16 %call to i32
-  %cmp2.not = icmp eq i32 %conv, %strength
+  %cmp2.not = icmp eq i32 %strength, %conv
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2.not
   br i1 %or.cond, label %return, label %if.then
 

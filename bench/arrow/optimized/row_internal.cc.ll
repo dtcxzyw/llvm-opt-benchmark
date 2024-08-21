@@ -150,7 +150,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.i = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -159,7 +159,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp4.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -211,7 +211,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   %sub.ptr.rhs.cast.i.i56 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i57 = sub i64 %sub.ptr.lhs.cast.i.i55, %sub.ptr.rhs.cast.i.i56
   %sub.ptr.div.i.i58 = ashr exact i64 %sub.ptr.sub.i.i57, 2
-  %cmp.i59 = icmp ult i64 %sub.ptr.div.i.i58, %conv7
+  %cmp.i59 = icmp ugt i64 %conv7, %sub.ptr.div.i.i58
   br i1 %cmp.i59, label %if.then.i66, label %if.else.i60
 
 if.then.i66:                                      ; preds = %for.end
@@ -220,7 +220,7 @@ if.then.i66:                                      ; preds = %for.end
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 if.else.i60:                                      ; preds = %for.end
-  %cmp4.i61 = icmp ugt i64 %sub.ptr.div.i.i58, %conv7
+  %cmp4.i61 = icmp ult i64 %conv7, %sub.ptr.div.i.i58
   br i1 %cmp4.i61, label %if.then5.i62, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 if.then5.i62:                                     ; preds = %if.else.i60
@@ -341,7 +341,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %cond.end47.i.i.i.i.
   br i1 %23, label %if.end59.i.i.i.i.i.i.i, label %if.then57.i.i.i.i.i.i.i
 
 if.then57.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i
-  %cmp58.i.i.i.i.i.i.i = icmp ugt i32 %19, %18
+  %cmp58.i.i.i.i.i.i.i = icmp ult i32 %18, %19
   br i1 %cmp58.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_.exit.i.i.i.i"
 
 if.end59.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
@@ -356,7 +356,7 @@ if.end63.i.i.i.i.i.i.i:                           ; preds = %if.end59.i.i.i.i.i.
   %30 = xor i8 %24, %20
   %31 = and i8 %30, 1
   %cmp68.not.i.i.i.i.i.i.i = icmp eq i8 %31, 0
-  %cmp72.i.i.i.i.i.i.i = icmp ugt i32 %19, %18
+  %cmp72.i.i.i.i.i.i.i = icmp ult i32 %18, %19
   %spec.select.i.i.i.i.i.i.i = select i1 %cmp68.not.i.i.i.i.i.i.i, i1 %cmp72.i.i.i.i.i.i.i, i1 %tobool.i.i.i.i.i.i.i
   br i1 %spec.select.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INSA_17KeyColumnMetadataESaISC_EEiiE3$_0EEEvT_T0_.exit.i.i.i.i"
 
@@ -386,7 +386,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   %sub.ptr.rhs.cast.i.i72 = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i.i73 = sub i64 %sub.ptr.lhs.cast.i.i71, %sub.ptr.rhs.cast.i.i72
   %sub.ptr.div.i.i74 = ashr exact i64 %sub.ptr.sub.i.i73, 2
-  %cmp.i75 = icmp ult i64 %sub.ptr.div.i.i74, %conv7
+  %cmp.i75 = icmp ugt i64 %conv7, %sub.ptr.div.i.i74
   br i1 %cmp.i75, label %if.then.i82, label %if.else.i76
 
 if.then.i82:                                      ; preds = %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INS8_17KeyColumnMetadataESaISA_EEiiE3$_0EvT_SG_T0_.exit"
@@ -395,7 +395,7 @@ if.then.i82:                                      ; preds = %"_ZSt4sortIN9__gnu_
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit84
 
 if.else.i76:                                      ; preds = %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INS8_17KeyColumnMetadataESaISA_EEiiE3$_0EvT_SG_T0_.exit"
-  %cmp4.i77 = icmp ugt i64 %sub.ptr.div.i.i74, %conv7
+  %cmp4.i77 = icmp ult i64 %conv7, %sub.ptr.div.i.i74
   br i1 %cmp4.i77, label %if.then5.i78, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit84
 
 if.then5.i78:                                     ; preds = %if.else.i76
@@ -443,7 +443,7 @@ for.end41:                                        ; preds = %for.body32, %_ZNSt6
   %sub.ptr.rhs.cast.i.i89 = ptrtoint ptr %39 to i64
   %sub.ptr.sub.i.i90 = sub i64 %sub.ptr.lhs.cast.i.i88, %sub.ptr.rhs.cast.i.i89
   %sub.ptr.div.i.i91 = ashr exact i64 %sub.ptr.sub.i.i90, 2
-  %cmp.i92 = icmp ult i64 %sub.ptr.div.i.i91, %conv7
+  %cmp.i92 = icmp ugt i64 %conv7, %sub.ptr.div.i.i91
   br i1 %cmp.i92, label %if.then.i99, label %if.else.i93
 
 if.then.i99:                                      ; preds = %for.end41
@@ -452,7 +452,7 @@ if.then.i99:                                      ; preds = %for.end41
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit101
 
 if.else.i93:                                      ; preds = %for.end41
-  %cmp4.i94 = icmp ugt i64 %sub.ptr.div.i.i91, %conv7
+  %cmp4.i94 = icmp ult i64 %conv7, %sub.ptr.div.i.i91
   br i1 %cmp4.i94, label %if.then5.i95, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit101
 
 if.then5.i95:                                     ; preds = %if.else.i93
@@ -1171,7 +1171,7 @@ entry:
   %null_masks_bytes_per_row = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %null_masks_bytes_per_row, align 4
   %conv = sext i32 %0 to i64
-  %mul = mul nsw i64 %conv, %num_rows
+  %mul = mul nsw i64 %num_rows, %conv
   %add = add nsw i64 %mul, 64
   ret i64 %add
 }
@@ -1311,7 +1311,7 @@ entry:
   %fixed_length = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %fixed_length, align 4
   %conv = zext i32 %0 to i64
-  %mul = mul nsw i64 %conv, %num_rows
+  %mul = mul nsw i64 %num_rows, %conv
   %add = add nsw i64 %mul, 64
   ret i64 %add
 }
@@ -1666,7 +1666,7 @@ entry:
   %conv = zext i32 %2 to i64
   %bytes_capacity_ = getelementptr inbounds i8, ptr %this, i64 192
   %3 = load i64, ptr %bytes_capacity_, align 8
-  %add = add nsw i64 %conv, %num_extra_bytes
+  %add = add nsw i64 %num_extra_bytes, %conv
   %cmp.not = icmp slt i64 %3, %add
   br i1 %cmp.not, label %lor.lhs.false, label %return.sink.split
 
@@ -3393,7 +3393,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp28 = icmp sgt i64 %div, %__holeIndex
+  %cmp28 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp28, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKSt6vectorINS3_17KeyColumnMetadataESaIS6_EEiiE3$_0EclINS_17__normal_iteratorIPjS5_IjSaIjEEEESI_EEbT_T0_.exit"
@@ -3797,7 +3797,7 @@ if.end.i.i.i:                                     ; preds = %cond.end47.i.i.i
   br i1 %18, label %if.end59.i.i.i, label %if.then57.i.i.i
 
 if.then57.i.i.i:                                  ; preds = %if.end.i.i.i
-  %cmp58.i.i.i = icmp ugt i32 %15, %0
+  %cmp58.i.i.i = icmp ult i32 %0, %15
   br i1 %cmp58.i.i.i, label %while.body.i, label %for.inc
 
 if.end59.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -3812,7 +3812,7 @@ if.end63.i.i.i:                                   ; preds = %if.end59.i.i.i
   %25 = xor i8 %19, %14
   %26 = and i8 %25, 1
   %cmp68.not.i.i.i = icmp eq i8 %26, 0
-  %cmp72.i.i.i = icmp ugt i32 %15, %0
+  %cmp72.i.i.i = icmp ult i32 %0, %15
   %spec.select.i.i.i = select i1 %cmp68.not.i.i.i, i1 %cmp72.i.i.i, i1 %tobool.i.i.i
   br i1 %spec.select.i.i.i, label %while.body.i, label %for.inc
 

@@ -80,8 +80,8 @@ fmap_readn.exit:                                  ; preds = %13
   %20 = phi ptr [ @.str.5, %17 ], [ @.str.6, %18 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %20) #5
   %21 = load i64, ptr %11, align 8
-  %switch = icmp ult i64 %21, 5
-  br i1 %switch, label %fmap_readn.exit85.thread, label %22
+  %or.cond145 = icmp ult i64 %21, 5
+  br i1 %or.cond145, label %fmap_readn.exit85.thread, label %22
 
 22:                                               ; preds = %19
   %23 = add i64 %21, -4
@@ -96,7 +96,7 @@ fmap_readn.exit85:                                ; preds = %22
   %.not60 = icmp ugt i64 %23, 3
   br i1 %.not60, label %27, label %fmap_readn.exit85.thread
 
-fmap_readn.exit85.thread:                         ; preds = %19, %22, %fmap_readn.exit85
+fmap_readn.exit85.thread:                         ; preds = %22, %19, %fmap_readn.exit85
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #5
   %26 = tail call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #5
   br label %fmap_readn.exit.thread

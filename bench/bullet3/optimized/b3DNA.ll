@@ -1013,7 +1013,7 @@ entry:
   %0 = load i32, ptr %m_size.i, align 4
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i.i, align 4
-  %cmp4.i = icmp slt i32 %1, %0
+  %cmp4.i = icmp sgt i32 %0, %1
   br i1 %cmp4.i, label %for.body9.lr.ph.i, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
 
 for.body9.lr.ph.i:                                ; preds = %entry
@@ -2883,7 +2883,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body9.i
   store i32 %1, ptr %m_size.i, align 4
   %m_size.i.i17 = getelementptr inbounds i8, ptr %this, i64 36
   %5 = load i32, ptr %m_size.i.i17, align 4
-  %cmp4.i18 = icmp slt i32 %5, %1
+  %cmp4.i18 = icmp sgt i32 %1, %5
   br i1 %cmp4.i18, label %for.body9.lr.ph.i19, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit28
 
 for.body9.lr.ph.i19:                              ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
@@ -3094,7 +3094,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body9.i
   store i32 %1, ptr %m_size.i, align 4
   %m_size.i.i17 = getelementptr inbounds i8, ptr %this, i64 36
   %5 = load i32, ptr %m_size.i.i17, align 4
-  %cmp4.i18 = icmp slt i32 %5, %1
+  %cmp4.i18 = icmp sgt i32 %1, %5
   br i1 %cmp4.i18, label %for.body9.lr.ph.i19, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit28
 
 for.body9.lr.ph.i19:                              ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit

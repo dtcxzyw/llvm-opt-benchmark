@@ -4643,7 +4643,7 @@ if.end10:                                         ; preds = %_ZNK8datatype4util1
 _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %if.end10
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx.i, align 4
-  %cmp13.not = icmp ugt i32 %7, %idx
+  %cmp13.not = icmp ult i32 %idx, %7
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %if.end10, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit
@@ -4847,7 +4847,7 @@ invoke.cont25:                                    ; preds = %if.end24
 _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %invoke.cont25
   %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not = icmp ugt i32 %14, %idx
+  %cmp.not = icmp ult i32 %idx, %14
   br i1 %cmp.not, label %if.end42, label %if.then29
 
 if.then29:                                        ; preds = %invoke.cont25, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit
@@ -5004,7 +5004,7 @@ invoke.cont25:                                    ; preds = %if.end24
 _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %invoke.cont25
   %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not = icmp ugt i32 %14, %idx_c
+  %cmp.not = icmp ult i32 %idx_c, %14
   br i1 %cmp.not, label %if.end33, label %if.then29
 
 if.then29:                                        ; preds = %invoke.cont25, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit

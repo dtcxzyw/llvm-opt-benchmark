@@ -1463,7 +1463,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
 
 71:                                               ; preds = %67
   %72 = load ptr, ptr %2, align 8
-  %73 = icmp ugt ptr %72, %70
+  %73 = icmp ult ptr %70, %72
   br i1 %73, label %74, label %.backedge
 
 74:                                               ; preds = %71
@@ -1707,7 +1707,7 @@ _ZN17opencv_tensorflow19AttrValue_ListValue19_internal_add_shapeEv.exit: ; preds
 
 172:                                              ; preds = %_ZN17opencv_tensorflow19AttrValue_ListValue19_internal_add_shapeEv.exit
   %173 = load ptr, ptr %2, align 8
-  %174 = icmp ugt ptr %173, %171
+  %174 = icmp ult ptr %171, %173
   br i1 %174, label %175, label %.backedge
 
 175:                                              ; preds = %172
@@ -1760,7 +1760,7 @@ _ZN17opencv_tensorflow19AttrValue_ListValue20_internal_add_tensorEv.exit: ; pred
 
 201:                                              ; preds = %_ZN17opencv_tensorflow19AttrValue_ListValue20_internal_add_tensorEv.exit
   %202 = load ptr, ptr %2, align 8
-  %203 = icmp ugt ptr %202, %200
+  %203 = icmp ult ptr %200, %202
   br i1 %203, label %204, label %.backedge
 
 204:                                              ; preds = %201
@@ -1952,7 +1952,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream10WriteBytesINSt7__cxx1112basic_strin
 27:                                               ; preds = %._crit_edge
   %28 = getelementptr inbounds i8, ptr %0, i64 40
   %29 = load ptr, ptr %2, align 8
-  %.not.i = icmp ugt ptr %29, %.0322.lcssa
+  %.not.i = icmp ult ptr %.0322.lcssa, %29
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %30
 
 30:                                               ; preds = %27
@@ -1994,7 +1994,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %27,
   %.0347 = phi ptr [ %39, %._crit_edge395 ], [ %47, %.loopexit386 ]
   %.0346 = phi ptr [ %38, %._crit_edge395 ], [ %.0343, %.loopexit386 ]
   %44 = load ptr, ptr %2, align 8
-  %.not.i358 = icmp ugt ptr %44, %.0346
+  %.not.i358 = icmp ult ptr %.0346, %44
   br i1 %.not.i358, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit360, label %45
 
 45:                                               ; preds = %43
@@ -2058,7 +2058,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit360: ; preds = %
 
 71:                                               ; preds = %.loopexit387
   %72 = load ptr, ptr %2, align 8
-  %.not.i361 = icmp ugt ptr %72, %.1
+  %.not.i361 = icmp ult ptr %.1, %72
   br i1 %.not.i361, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit363, label %73
 
 73:                                               ; preds = %71
@@ -2119,7 +2119,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawLittleEndianILi4EEEPhPKviS4
 
 98:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawLittleEndianILi4EEEPhPKviS4_.exit
   %99 = load ptr, ptr %2, align 8
-  %.not.i364 = icmp ugt ptr %99, %.2
+  %.not.i364 = icmp ult ptr %.2, %99
   br i1 %.not.i364, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit366, label %100
 
 100:                                              ; preds = %98
@@ -2180,7 +2180,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawLittleEndianILi1EEEPhPKviS4
 124:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawLittleEndianILi1EEEPhPKviS4_.exit
   %125 = getelementptr inbounds i8, ptr %0, i64 96
   %126 = load ptr, ptr %2, align 8
-  %.not.i368 = icmp ugt ptr %126, %.3
+  %.not.i368 = icmp ult ptr %.3, %126
   br i1 %.not.i368, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit370, label %127
 
 127:                                              ; preds = %124
@@ -2222,7 +2222,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit370: ; preds = %
   %.0326 = phi ptr [ %136, %._crit_edge419 ], [ %144, %.loopexit ]
   %.0325 = phi ptr [ %135, %._crit_edge419 ], [ %.0320, %.loopexit ]
   %141 = load ptr, ptr %2, align 8
-  %.not.i371 = icmp ugt ptr %141, %.0325
+  %.not.i371 = icmp ult ptr %.0325, %141
   br i1 %.not.i371, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit373, label %142
 
 142:                                              ; preds = %140
@@ -2293,7 +2293,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit373: ; preds = %
   %.0315424 = phi i32 [ 0, %.lr.ph426 ], [ %188, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit ]
   %.5423 = phi ptr [ %.4, %.lr.ph426 ], [ %187, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit ]
   %170 = load ptr, ptr %2, align 8
-  %.not.i374 = icmp ugt ptr %170, %.5423
+  %.not.i374 = icmp ult ptr %.5423, %170
   br i1 %.not.i374, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit376, label %171
 
 171:                                              ; preds = %169
@@ -2346,7 +2346,7 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
   %.0313430 = phi i32 [ 0, %.lr.ph432 ], [ %211, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit384 ]
   %.6429 = phi ptr [ %.5.lcssa, %.lr.ph432 ], [ %210, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit384 ]
   %193 = load ptr, ptr %2, align 8
-  %.not.i379 = icmp ugt ptr %193, %.6429
+  %.not.i379 = icmp ult ptr %.6429, %193
   br i1 %.not.i379, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit381, label %194
 
 194:                                              ; preds = %192
@@ -4807,7 +4807,7 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow9AttrValue18_InternalSerialize
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %2, align 8
-  %.not.i = icmp ugt ptr %8, %1
+  %.not.i = icmp ult ptr %1, %8
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %9
 
 9:                                                ; preds = %7
@@ -4889,7 +4889,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 49:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit187
   %50 = load ptr, ptr %2, align 8
-  %.not.i138 = icmp ugt ptr %50, %.1
+  %.not.i138 = icmp ult ptr %.1, %50
   br i1 %.not.i138, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit140.thread, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit140
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit140: ; preds = %49
@@ -4964,7 +4964,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit: ; pred
 
 75:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit
   %76 = load ptr, ptr %2, align 8
-  %.not.i144 = icmp ugt ptr %76, %.2
+  %.not.i144 = icmp ult ptr %.2, %76
   br i1 %.not.i144, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit146.thread, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit146
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit146.thread: ; preds = %75
@@ -5001,7 +5001,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit146: ; preds = %
 
 90:                                               ; preds = %87
   %91 = load ptr, ptr %2, align 8
-  %.not.i149 = icmp ugt ptr %91, %.3
+  %.not.i149 = icmp ult ptr %.3, %91
   br i1 %.not.i149, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit151.thread, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit151
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit151.thread: ; preds = %90
@@ -5040,7 +5040,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit151: ; preds = %
 
 107:                                              ; preds = %104
   %108 = load ptr, ptr %2, align 8
-  %.not.i157 = icmp ugt ptr %108, %.4
+  %.not.i157 = icmp ult ptr %.4, %108
   br i1 %.not.i157, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit159.thread, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit159
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit159: ; preds = %107
@@ -5111,7 +5111,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 
 134:                                              ; preds = %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit
   %135 = load ptr, ptr %2, align 8
-  %.not.i162 = icmp ugt ptr %135, %.5
+  %.not.i162 = icmp ult ptr %.5, %135
   br i1 %.not.i162, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit164, label %136
 
 136:                                              ; preds = %134
@@ -5153,7 +5153,7 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 
 153:                                              ; preds = %150
   %154 = load ptr, ptr %2, align 8
-  %.not.i168 = icmp ugt ptr %154, %.6
+  %.not.i168 = icmp ult ptr %.6, %154
   br i1 %.not.i168, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit170, label %155
 
 155:                                              ; preds = %153
@@ -5258,7 +5258,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 211:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit
   %212 = load ptr, ptr %2, align 8
-  %.not.i178 = icmp ugt ptr %212, %.8
+  %.not.i178 = icmp ult ptr %.8, %212
   br i1 %.not.i178, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit180, label %213
 
 213:                                              ; preds = %211
@@ -6130,7 +6130,7 @@ define hidden void @_ZN17opencv_tensorflow12NameAttrListC2EPN6google8protobuf5Ar
   %18 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %18, align 8
   %.not.i = icmp eq ptr %1, null
-  %or.cond = or i1 %.not.i, %2
+  %or.cond = or i1 %2, %.not.i
   br i1 %or.cond, label %_ZN17opencv_tensorflow12NameAttrList17RegisterArenaDtorEPN6google8protobuf5ArenaE.exit, label %19
 
 19:                                               ; preds = %3
@@ -6762,7 +6762,7 @@ _ZN17opencv_tensorflow12NameAttrList22_internal_mutable_nameB5cxx11Ev.exit: ; pr
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %2, align 8
-  %74 = icmp ugt ptr %73, %71
+  %74 = icmp ult ptr %71, %73
   br i1 %74, label %75, label %.backedge
 
 75:                                               ; preds = %72
@@ -7029,7 +7029,7 @@ _ZNK17opencv_tensorflow12NameAttrList14_internal_attrB5cxx11Ev.exit: ; preds = %
   %62 = load i64, ptr %61, align 8, !noalias !43
   %63 = getelementptr inbounds i8, ptr %0, i64 96
   %64 = load i64, ptr %63, align 8, !noalias !43
-  %65 = icmp ugt i64 %64, %62
+  %65 = icmp ult i64 %62, %64
   br i1 %65, label %.lr.ph.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK17opencv_tensorflow12NameAttrList14_internal_attrB5cxx11Ev.exit
@@ -7144,7 +7144,7 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 32
   %97 = load ptr, ptr %2, align 8
-  %.not.i74 = icmp ugt ptr %97, %.2128
+  %.not.i74 = icmp ult ptr %.2128, %97
   br i1 %.not.i74, label %.noexc35, label %98
 
 98:                                               ; preds = %.lr.ph130
@@ -7217,7 +7217,7 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
 .noexc36:                                         ; preds = %.preheader, %125, %123
   %.0.i = phi ptr [ %124, %123 ], [ %131, %125 ], [ %136, %.preheader ]
   %138 = load ptr, ptr %2, align 8
-  %.not.i.i64 = icmp ugt ptr %138, %.0.i
+  %.not.i.i64 = icmp ult ptr %.0.i, %138
   br i1 %.not.i.i64, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i65, label %139
 
 139:                                              ; preds = %.noexc36
@@ -7257,7 +7257,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i65: ; preds = 
 .noexc37:                                         ; preds = %150, %.critedge.i67
   %.045.i = phi ptr [ %155, %150 ], [ %149, %.critedge.i67 ]
   %156 = load ptr, ptr %2, align 8
-  %.not.i.i60 = icmp ugt ptr %156, %.045.i
+  %.not.i.i60 = icmp ult ptr %.045.i, %156
   br i1 %.not.i.i60, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %157
 
 157:                                              ; preds = %.noexc37
@@ -7312,7 +7312,7 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   %176 = load i64, ptr %175, align 8, !noalias !53
   %177 = getelementptr inbounds i8, ptr %0, i64 96
   %178 = load i64, ptr %177, align 8, !noalias !53
-  %179 = icmp ugt i64 %178, %176
+  %179 = icmp ult i64 %176, %178
   br i1 %179, label %.lr.ph.i.i.i.i47, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit59
 
 .lr.ph.i.i.i.i47:                                 ; preds = %174
@@ -7372,7 +7372,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %.3127 = phi ptr [ %268, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN17opencv_tensorflow9AttrValueEE5WriteEiRKS6_PhPNS0_2io19EpsCopyOutputStreamE.exit82 ], [ %.029, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit59 ]
   %197 = getelementptr inbounds i8, ptr %196, i64 32
   %198 = load ptr, ptr %2, align 8
-  %.not.i98 = icmp ugt ptr %198, %.3127
+  %.not.i98 = icmp ult ptr %.3127, %198
   br i1 %.not.i98, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit97, label %199
 
 199:                                              ; preds = %.lr.ph
@@ -7445,7 +7445,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit97: ; pr
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit93: ; preds = %.preheader118, %224, %226
   %.0.i92 = phi ptr [ %225, %224 ], [ %232, %226 ], [ %237, %.preheader118 ]
   %239 = load ptr, ptr %2, align 8
-  %.not.i.i83 = icmp ugt ptr %239, %.0.i92
+  %.not.i.i83 = icmp ult ptr %.0.i92, %239
   br i1 %.not.i.i83, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i84, label %240
 
 240:                                              ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit93
@@ -7485,7 +7485,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i84: ; preds = 
 _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5WriteEiRKSA_PhPNS0_2io19EpsCopyOutputStreamE.exit89: ; preds = %.critedge.i88, %251
   %.045.i87 = phi ptr [ %250, %.critedge.i88 ], [ %256, %251 ]
   %257 = load ptr, ptr %2, align 8
-  %.not.i.i77 = icmp ugt ptr %257, %.045.i87
+  %.not.i.i77 = icmp ult ptr %.045.i87, %257
   br i1 %.not.i.i77, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i78, label %258
 
 258:                                              ; preds = %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5WriteEiRKSA_PhPNS0_2io19EpsCopyOutputStreamE.exit89
@@ -7561,7 +7561,7 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow12NameAttrList12ByteSizeLongEv
   %8 = load i64, ptr %7, align 8, !noalias !60
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   %10 = load i64, ptr %9, align 8, !noalias !60
-  %11 = icmp ugt i64 %10, %8
+  %11 = icmp ult i64 %8, %10
   br i1 %11, label %.lr.ph.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %1
@@ -8546,7 +8546,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal12MapEntryI
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr %6(ptr noundef nonnull align 8 dereferenceable(36) %0)
   %8 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %8, %1
+  %.not.i.i = icmp ult ptr %1, %8
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %9
 
 9:                                                ; preds = %3
@@ -8590,7 +8590,7 @@ _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9EN
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef nonnull align 8 dereferenceable(32) ptr %28(ptr noundef nonnull align 8 dereferenceable(36) %0)
   %30 = load ptr, ptr %2, align 8
-  %.not.i.i5 = icmp ugt ptr %30, %.045.i
+  %.not.i.i5 = icmp ult ptr %.045.i, %30
   br i1 %.not.i.i5, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i6, label %31
 
 31:                                               ; preds = %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5WriteEiRKSA_PhPNS0_2io19EpsCopyOutputStreamE.exit
@@ -8885,7 +8885,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal23TypeDefinedMapFi
   %8 = load i64, ptr %7, align 8, !noalias !98
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8, !noalias !98
-  %11 = icmp ugt i64 %10, %8
+  %11 = icmp ult i64 %8, %10
   br i1 %11, label %.lr.ph.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %2
@@ -9192,7 +9192,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow31NameAttrList_AttrEnt
   %37 = load i64, ptr %36, align 8, !noalias !108
   %38 = getelementptr inbounds i8, ptr %0, i64 80
   %39 = load i64, ptr %38, align 8, !noalias !108
-  %40 = icmp ugt i64 %39, %37
+  %40 = icmp ult i64 %37, %39
   br i1 %40, label %.lr.ph.i.i.i.i, label %._crit_edge
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow31NameAttrList_AttrEntry_DoNotUseEE5ClearEv.exit
@@ -10529,7 +10529,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal12MapFieldLiteIN17o
   %6 = load i64, ptr %5, align 8, !noalias !121
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !121
-  %9 = icmp ugt i64 %8, %6
+  %9 = icmp ult i64 %6, %8
   br i1 %9, label %.lr.ph.i.i.i.i, label %._crit_edge
 
 .lr.ph.i.i.i.i:                                   ; preds = %2
@@ -10666,7 +10666,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   %17 = load i64, ptr %16, align 8
   %18 = mul i64 %17, 12
   %19 = lshr i64 %18, 4
-  %.not.i = icmp ugt i64 %19, %15
+  %.not.i = icmp ult i64 %15, %19
   br i1 %.not.i, label %23, label %20
 
 20:                                               ; preds = %13
@@ -10679,7 +10679,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
 
 23:                                               ; preds = %13
   %24 = lshr i64 %18, 6
-  %.not18.i = icmp uge i64 %24, %15
+  %.not18.i = icmp ule i64 %15, %24
   %25 = icmp ugt i64 %17, 8
   %or.cond.i = and i1 %25, %.not18.i
   br i1 %or.cond.i, label %26, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread
@@ -11474,7 +11474,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeISt17reference_wrapperIKNS
 6:                                                ; preds = %2
   %.not.i = icmp ne ptr %4, null
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = icmp eq ptr %7, %5
+  %8 = icmp eq ptr %5, %7
   %or.cond.i = select i1 %.not.i, i1 true, i1 %8
   br i1 %or.cond.i, label %18, label %9
 
@@ -11620,7 +11620,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal12MapEntryIm
   %6 = getelementptr inbounds i8, ptr %2, i64 92
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
-  %9 = icmp ugt ptr %8, %1
+  %9 = icmp ult ptr %1, %8
   br i1 %9, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30, label %10
 
 10:                                               ; preds = %3
@@ -12604,7 +12604,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   %42 = getelementptr inbounds i8, ptr %39, i64 8
   store i64 %41, ptr %14, align 8
   %43 = load i64, ptr %42, align 8
-  %44 = icmp ugt i64 %43, %41
+  %44 = icmp ult i64 %41, %43
   br i1 %44, label %.lr.ph.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE10SearchFromEm.exit
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE23revalidate_if_necessaryEPSt17_Rb_tree_iteratorISt4pairIKSt17reference_wrapperIKS7_EPvEE.exit.thread
@@ -12647,7 +12647,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %63 = getelementptr inbounds i8, ptr %30, i64 8
   store i64 %62, ptr %14, align 8
   %64 = load i64, ptr %63, align 8
-  %65 = icmp ugt i64 %64, %62
+  %65 = icmp ult i64 %62, %64
   br i1 %65, label %.lr.ph.i5, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE10SearchFromEm.exit
 
 .lr.ph.i5:                                        ; preds = %61, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i13
@@ -12800,7 +12800,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   %42 = getelementptr inbounds i8, ptr %39, i64 8
   store i64 %41, ptr %14, align 8
   %43 = load i64, ptr %42, align 8
-  %44 = icmp ugt i64 %43, %41
+  %44 = icmp ult i64 %41, %43
   br i1 %44, label %.lr.ph.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE10SearchFromEm.exit
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE23revalidate_if_necessaryEPSt17_Rb_tree_iteratorISt4pairIKSt17reference_wrapperIKS7_EPvEE.exit.thread
@@ -12843,7 +12843,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %63 = getelementptr inbounds i8, ptr %30, i64 8
   store i64 %62, ptr %14, align 8
   %64 = load i64, ptr %63, align 8
-  %65 = icmp ugt i64 %64, %62
+  %65 = icmp ult i64 %62, %64
   br i1 %65, label %.lr.ph.i5, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE10SearchFromEm.exit
 
 .lr.ph.i5:                                        ; preds = %61, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i13
@@ -13207,7 +13207,7 @@ _ZSt21__unguarded_partitionIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stri
 define linkonce_odr hidden void @_ZSt13__adjust_heapIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEElSD_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_SN_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
-  %7 = icmp sgt i64 %6, %1
+  %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SL_EEbT_T0_.exit
@@ -13622,7 +13622,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   %42 = load i64, ptr %41, align 8, !noalias !203
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   %44 = load i64, ptr %43, align 8, !noalias !203
-  %45 = icmp ugt i64 %44, %42
+  %45 = icmp ult i64 %42, %44
   br i1 %45, label %.lr.ph.i.i.i.i.i, label %.loopexit.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %35
@@ -13705,7 +13705,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   %66 = load i64, ptr %65, align 8, !noalias !212
   %67 = getelementptr inbounds i8, ptr %1, i64 8
   %68 = load i64, ptr %67, align 8, !noalias !212
-  %69 = icmp ugt i64 %68, %66
+  %69 = icmp ult i64 %66, %68
   br i1 %69, label %.lr.ph.i.i.i.i.i10, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit.i
 
 .lr.ph.i.i.i.i.i10:                               ; preds = %.noexc
@@ -13765,7 +13765,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %.not.i23 = icmp eq ptr %9, %1
+  %.not.i23 = icmp eq ptr %1, %9
   br i1 %.not.i23, label %106, label %87
 
 87:                                               ; preds = %86
@@ -13776,7 +13776,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   call void @llvm.experimental.noalias.scope.decl(metadata !218)
   %88 = load i64, ptr %38, align 8, !noalias !221
   %89 = load i64, ptr %36, align 8, !noalias !221
-  %90 = icmp ugt i64 %89, %88
+  %90 = icmp ult i64 %88, %89
   br i1 %90, label %.lr.ph.i.i.i.i.i29, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit.i24
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %.noexc41
@@ -13945,7 +13945,7 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal17SpaceUsedI
   %4 = load i64, ptr %3, align 8, !noalias !237
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noalias !237
-  %7 = icmp ugt i64 %6, %4
+  %7 = icmp ult i64 %4, %6
   br i1 %7, label %.lr.ph.i.i.i.i, label %._crit_edge
 
 .lr.ph.i.i.i.i:                                   ; preds = %1

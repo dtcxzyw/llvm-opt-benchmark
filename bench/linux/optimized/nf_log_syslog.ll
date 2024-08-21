@@ -576,7 +576,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 116
   %22 = load i32, ptr %21, align 4
-  %23 = add i32 %22, %4
+  %23 = add i32 %4, %22
   %24 = sub i32 %20, %23
   %25 = icmp slt i32 %24, 20
   br i1 %25, label %26, label %31, !prof !9
@@ -731,7 +731,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %130 = load i32, ptr %19, align 8
   %131 = load i32, ptr %21, align 4
   %132 = add i32 %130, -20
-  %133 = add i32 %131, %4
+  %133 = add i32 %4, %131
   %134 = sub i32 %132, %133
   %135 = icmp slt i32 %134, %128
   br i1 %135, label %136, label %141, !prof !9
@@ -799,7 +799,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %170 = shl i8 %169, 2
   %171 = and i8 %170, 60
   %172 = zext nneg i8 %171 to i32
-  %173 = add i32 %172, %4
+  %173 = add i32 %4, %172
   %174 = call fastcc i32 @nf_log_dump_tcp_header(ptr noundef %1, ptr noundef %3, i32 noundef %168, i32 noundef %173, i32 noundef %18)
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %362, label %413
@@ -813,7 +813,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %182 = shl i8 %181, 2
   %183 = and i8 %182, 60
   %184 = zext nneg i8 %183 to i32
-  %185 = add i32 %184, %4
+  %185 = add i32 %4, %184
   %186 = call fastcc i32 @nf_log_dump_udp_header(ptr noundef %1, ptr noundef %3, i8 noundef zeroext %163, i32 noundef %180, i32 noundef %185), !range !11
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %362, label %413
@@ -832,7 +832,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %195 = shl i8 %194, 2
   %196 = and i8 %195, 60
   %197 = zext nneg i8 %196 to i32
-  %198 = add i32 %197, %4
+  %198 = add i32 %4, %197
   %199 = load i32, ptr %19, align 8
   %200 = load i32, ptr %21, align 4
   %201 = add i32 %200, %198
@@ -855,7 +855,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %.pre62 = shl i8 %.pre61, 2
   %.pre63 = and i8 %.pre62, 60
   %.pre65 = zext nneg i8 %.pre63 to i32
-  %.pre67 = add i32 %.pre65, %4
+  %.pre67 = add i32 %4, %.pre65
   br label %.thread21
 
 209:                                              ; preds = %193
@@ -900,7 +900,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %237 = shl i8 %236, 2
   %238 = and i8 %237, 60
   %239 = zext nneg i8 %238 to i32
-  %240 = add i32 %239, %4
+  %240 = add i32 %4, %239
   %241 = sub i32 %235, %240
   %242 = zext i32 %241 to i64
   %243 = icmp ugt i64 %234, %242
@@ -996,7 +996,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %295 = shl i8 %294, 2
   %296 = and i8 %295, 60
   %297 = zext nneg i8 %296 to i32
-  %298 = add i32 %297, %4
+  %298 = add i32 %4, %297
   %299 = load i32, ptr %19, align 8
   %300 = load i32, ptr %21, align 4
   %301 = add i32 %300, %298
@@ -1019,7 +1019,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %.pre69 = shl i8 %.pre59, 2
   %.pre71 = and i8 %.pre69, 60
   %.pre73 = zext nneg i8 %.pre71 to i32
-  %.pre75 = add i32 %.pre73, %4
+  %.pre75 = add i32 %4, %.pre73
   br label %.thread25
 
 309:                                              ; preds = %292
@@ -1063,7 +1063,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %331 = shl i8 %330, 2
   %332 = and i8 %331, 60
   %333 = zext nneg i8 %332 to i32
-  %334 = add i32 %333, %4
+  %334 = add i32 %4, %333
   %335 = load i32, ptr %19, align 8
   %336 = load i32, ptr %21, align 4
   %337 = add i32 %336, %334
@@ -1086,7 +1086,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %.pre77 = shl i8 %.pre57, 2
   %.pre79 = and i8 %.pre77, 60
   %.pre81 = zext nneg i8 %.pre79 to i32
-  %.pre83 = add i32 %.pre81, %4
+  %.pre83 = add i32 %4, %.pre81
   br label %.thread29
 
 345:                                              ; preds = %329
@@ -1232,7 +1232,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 116
   %14 = load i32, ptr %13, align 4
-  %15 = add i32 %14, %3
+  %15 = add i32 %3, %14
   %16 = sub i32 %12, %15
   %17 = icmp slt i32 %16, 20
   br i1 %17, label %18, label %23, !prof !9
@@ -1410,7 +1410,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %125 = load i32, ptr %11, align 8
   %126 = load i32, ptr %13, align 4
   %127 = add i32 %125, -20
-  %128 = add i32 %126, %3
+  %128 = add i32 %3, %126
   %129 = sub i32 %127, %128
   %130 = icmp slt i32 %129, %123
   br i1 %130, label %131, label %136, !prof !9
@@ -1480,7 +1480,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr n
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 116
   %15 = load i32, ptr %14, align 4
-  %16 = add i32 %15, %4
+  %16 = add i32 %4, %15
   %17 = sub i32 %13, %16
   %18 = icmp slt i32 %17, 8
   br i1 %18, label %19, label %24, !prof !9
@@ -1601,7 +1601,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr nocapture nound
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 116
   %10 = load i32, ptr %9, align 4
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub i32 %8, %11
   %13 = icmp slt i32 %12, 8
   br i1 %13, label %14, label %19, !prof !9
@@ -1708,7 +1708,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr nocapture nound
   %87 = load i32, ptr %7, align 8
   %88 = load i32, ptr %9, align 4
   %89 = add i32 %87, -8
-  %90 = add i32 %88, %3
+  %90 = add i32 %3, %88
   %91 = sub i32 %89, %90
   %92 = icmp slt i32 %91, 20
   br i1 %92, label %93, label %98, !prof !9
@@ -1831,7 +1831,7 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, pt
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %3, i64 116
   %24 = load i32, ptr %23, align 4
-  %25 = add i32 %24, %4
+  %25 = add i32 %4, %24
   %26 = sub i32 %22, %25
   %27 = icmp slt i32 %26, 40
   br i1 %27, label %28, label %33, !prof !9

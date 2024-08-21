@@ -19030,7 +19030,7 @@ define internal fastcc void @ivb_load_lut_10(ptr nocapture noundef readonly %0, 
 17:                                               ; preds = %ilk_lut_write.exit6, %11
   %18 = phi i64 [ 0, %11 ], [ %115, %ilk_lut_write.exit6 ]
   %19 = trunc i64 %18 to i32
-  %20 = add i32 %19, %1
+  %20 = add i32 %1, %19
   %.val4 = load ptr, ptr %0, align 8
   %.val5 = load ptr, ptr %14, align 8
   %.val4.val = load ptr, ptr %.val4, align 8
@@ -19304,7 +19304,7 @@ define internal fastcc ptr @ivb_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 nou
 19:                                               ; preds = %83, %8
   %20 = phi i64 [ 0, %8 ], [ %104, %83 ]
   %21 = trunc i64 %20 to i32
-  %22 = add i32 %21, %0
+  %22 = add i32 %0, %21
   %23 = zext i32 %22 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %44 [label %24], !srcloc !60

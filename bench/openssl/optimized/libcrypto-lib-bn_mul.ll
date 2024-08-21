@@ -195,7 +195,7 @@ define void @bn_mul_recursive(ptr noundef %r, ptr noundef %a, ptr noundef %b, i3
 entry:
   %div = sdiv i32 %n2, 2
   %add = add nsw i32 %div, %dna
-  %add1 = add nsw i32 %div, %dnb
+  %add1 = add nsw i32 %dnb, %div
   %cmp = icmp eq i32 %n2, 8
   %0 = or i32 %dnb, %dna
   %1 = icmp eq i32 %0, 0
@@ -973,7 +973,7 @@ end:                                              ; preds = %if.end99, %if.end91
   %xor = xor i32 %19, %18
   %neg105 = getelementptr inbounds i8, ptr %rr.0, i64 16
   store i32 %xor, ptr %neg105, align 8
-  %cmp106.not = icmp eq ptr %rr.0, %r
+  %cmp106.not = icmp eq ptr %r, %rr.0
   br i1 %cmp106.not, label %if.end113, label %land.lhs.true108
 
 land.lhs.true108:                                 ; preds = %end

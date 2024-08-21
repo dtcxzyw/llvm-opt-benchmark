@@ -983,7 +983,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit56:              ; preds = %_ZNSt6vectorIiSaIiE
   %67 = ptrtoint ptr %60 to i64
   %68 = sub i64 %66, %67
   %69 = ashr exact i64 %68, 2
-  %70 = icmp ult i64 %69, %65
+  %70 = icmp ugt i64 %65, %69
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit56
@@ -992,7 +992,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit56:              ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit58
 
 73:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit56
-  %74 = icmp ugt i64 %69, %65
+  %74 = icmp ult i64 %65, %69
   br i1 %74, label %75, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit58
 
 75:                                               ; preds = %73
@@ -1734,7 +1734,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %52, %._ZNSt6vectorI
   %75 = ptrtoint ptr %65 to i64
   %76 = sub i64 %74, %75
   %77 = ashr exact i64 %76, 2
-  %78 = icmp ult i64 %77, %72
+  %78 = icmp ugt i64 %72, %77
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
@@ -1743,7 +1743,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %52, %._ZNSt6vectorI
           to label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit20 unwind label %90
 
 81:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
-  %82 = icmp ugt i64 %77, %72
+  %82 = icmp ult i64 %72, %77
   br i1 %82, label %83, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit20
 
 83:                                               ; preds = %81
@@ -1837,7 +1837,7 @@ _ZNSt10_HashtableIPKN7nanogui6WidgetESt4pairIKS3_NS0_18AdvancedGridLayout6Anchor
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = icmp eq ptr %10, %9
+  %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt10_HashtableIPKN7nanogui6WidgetESt4pairIKS3_NS0_18AdvancedGridLayout6AnchorEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableIPKN7nanogui6WidgetESt4pairIKS3_NS0_18AdvancedGridLayout6AnchorEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -2549,7 +2549,7 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
 76:                                               ; preds = %.preheader99
   %77 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = icmp eq ptr %78, %68
+  %79 = icmp eq ptr %68, %78
   br i1 %79, label %.loopexit, label %.preheader99, !llvm.loop !26
 
 80:                                               ; preds = %74
@@ -2566,11 +2566,11 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
   %88 = load ptr, ptr %86, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
-  %91 = icmp eq ptr %90, %68
+  %91 = icmp eq ptr %68, %90
   br i1 %91, label %.loopexit, label %.lr.ph.i.i.i.i.i
 
 92:                                               ; preds = %95
-  %93 = icmp eq ptr %97, %68
+  %93 = icmp eq ptr %68, %97
   br i1 %93, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !27
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %87, %92
@@ -2751,7 +2751,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__no
   br i1 %.not, label %32, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp eq ptr %9, %1
+  %13 = icmp eq ptr %1, %9
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
@@ -3146,7 +3146,7 @@ _ZNSt10_HashtableIPKN7nanogui6WidgetESt4pairIKS3_NS0_18AdvancedGridLayout6Anchor
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 160
-  %12 = icmp eq ptr %11, %10
+  %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNSt13unordered_mapIPKN7nanogui6WidgetENS0_18AdvancedGridLayout6AnchorESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZNSt10_HashtableIPKN7nanogui6WidgetESt4pairIKS3_NS0_18AdvancedGridLayout6AnchorEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -3394,7 +3394,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !29
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -3478,7 +3478,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !29
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -3583,7 +3583,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !30
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -3667,7 +3667,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !30
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -3717,7 +3717,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorIiSaIiEE14_M_insert_rvalEN9__gnu_
   br i1 %.not, label %31, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp eq ptr %9, %1
+  %13 = icmp eq ptr %1, %9
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12

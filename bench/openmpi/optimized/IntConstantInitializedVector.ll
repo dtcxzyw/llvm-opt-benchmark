@@ -72,7 +72,7 @@ define hidden range(i32 -1, 1) i32 @tm_intCIV_set(ptr noundef %0, i32 noundef %1
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %9, label %36
 
 9:                                                ; preds = %6
@@ -137,7 +137,7 @@ define hidden i32 @tm_intCIV_get(ptr noundef readonly %0, i32 noundef %1) local_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   br i1 %.not, label %8, label %33
 
 8:                                                ; preds = %5

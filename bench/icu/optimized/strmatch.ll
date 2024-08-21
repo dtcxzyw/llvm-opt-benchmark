@@ -143,7 +143,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -423,7 +423,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #15
   %cmp7 = icmp eq ptr %call, null
@@ -710,7 +710,7 @@ entry:
   %cursor = alloca i32, align 4
   %0 = load i32, ptr %offset, align 4
   store i32 %0, ptr %cursor, align 4
-  %cmp = icmp sgt i32 %0, %limit
+  %cmp = icmp slt i32 %limit, %0
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br i1 %cmp, label %if.then, label %for.cond27.preheader
 
@@ -1171,7 +1171,7 @@ if.end:                                           ; preds = %entry
 
 cond.true:                                        ; preds = %if.end
   %4 = trunc i32 %call3 to i8
-  %cmp6 = icmp eq i8 %4, %v
+  %cmp6 = icmp eq i8 %v, %4
   %5 = zext i1 %cmp6 to i8
   br label %return
 
@@ -1214,7 +1214,7 @@ if.end.i:                                         ; preds = %entry
 
 cond.true.i:                                      ; preds = %if.end.i
   %4 = trunc i32 %call3.i to i8
-  %cmp6.i = icmp eq i8 %4, %v
+  %cmp6.i = icmp eq i8 %v, %4
   %5 = zext i1 %cmp6.i to i8
   br label %_ZNK6icu_7513StringMatcher17matchesIndexValueEh.exit
 

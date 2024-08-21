@@ -279,7 +279,7 @@ define dso_local i32 @io_fixed_fd_remove(ptr nocapture noundef %0, i32 noundef %
   %12 = zext i32 %8 to i64
   %13 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %12, i64 %11) #8, !srcloc !9
   %14 = trunc i64 %13 to i32
-  %15 = and i32 %14, %1
+  %15 = and i32 %1, %14
   %16 = getelementptr inbounds i8, ptr %0, i64 136
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64

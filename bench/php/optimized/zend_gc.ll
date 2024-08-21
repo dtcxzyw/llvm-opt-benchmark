@@ -434,7 +434,7 @@ define void @gc_remove_from_buffer(ptr noundef %0) local_unnamed_addr #6 {
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, -4
   %16 = inttoptr i64 %15 to ptr
-  %17 = icmp eq ptr %16, %0
+  %17 = icmp eq ptr %0, %16
   br i1 %17, label %gc_remove_compressed.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %9, %.preheader.i
@@ -448,7 +448,7 @@ define void @gc_remove_from_buffer(ptr noundef %0) local_unnamed_addr #6 {
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, -4
   %25 = inttoptr i64 %24 to ptr
-  %26 = icmp eq ptr %25, %0
+  %26 = icmp eq ptr %0, %25
   br i1 %26, label %gc_remove_compressed.exit.loopexit, label %.preheader.i
 
 gc_remove_compressed.exit.loopexit:               ; preds = %.preheader.i

@@ -621,7 +621,7 @@ define hidden void @_ZN2cv22convertAndUnrollScalarERKNS_3MatEiPhm(ptr noundef no
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %42, %30
-  %50 = mul i64 %19, %3
+  %50 = mul i64 %3, %19
   %51 = icmp ugt i64 %50, %19
   br i1 %51, label %.lr.ph51, label %._crit_edge
 
@@ -3112,8 +3112,8 @@ define void @_ZN2cv6repeatERKNS_11_InputArrayEiiRKNS_12_OutputArrayE(ptr noundef
           to label %55 unwind label %18
 
 55:                                               ; preds = %53
-  %56 = mul nsw i32 %.sroa.016.0.extract.trunc, %2
-  %57 = mul nsw i32 %.sroa.6.0.extract.trunc, %1
+  %56 = mul nsw i32 %2, %.sroa.016.0.extract.trunc
+  %57 = mul nsw i32 %1, %.sroa.6.0.extract.trunc
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %57, i32 noundef %56, i32 noundef %54, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
           to label %58 unwind label %18
 
@@ -3414,10 +3414,10 @@ define noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %0, i32 noundef %1
 
 39:                                               ; preds = %37
   %40 = xor i32 %0, -1
-  %.neg53 = add nuw i32 %40, %1
+  %.neg53 = add nuw i32 %1, %40
   %41 = urem i32 %.neg53, %1
   %42 = xor i32 %41, -1
-  %43 = add nsw i32 %42, %1
+  %43 = add nsw i32 %1, %42
   br label %44
 
 44:                                               ; preds = %39, %37
@@ -3566,21 +3566,21 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %42, %45
 
 55:                                               ; preds = %52
   %56 = load i32, ptr %54, align 4
-  %.sroa.speculated145 = call i32 @llvm.smin.i32(i32 %56, i32 %2)
+  %.sroa.speculated145 = call i32 @llvm.smin.i32(i32 %2, i32 %56)
   %57 = load i32, ptr %53, align 4
   %58 = getelementptr inbounds i8, ptr %14, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %56, %59
   %61 = sub i32 %57, %60
-  %.sroa.speculated108 = call i32 @llvm.smin.i32(i32 %61, i32 %3)
+  %.sroa.speculated108 = call i32 @llvm.smin.i32(i32 %3, i32 %61)
   %62 = load i32, ptr %16, align 4
-  %.sroa.speculated123 = call i32 @llvm.smin.i32(i32 %62, i32 %4)
+  %.sroa.speculated123 = call i32 @llvm.smin.i32(i32 %4, i32 %62)
   %63 = load i32, ptr %15, align 4
   %64 = getelementptr inbounds i8, ptr %14, i64 12
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %62, %65
   %67 = sub i32 %63, %66
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %67, i32 %5)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %5, i32 %67)
   %68 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3Mat9adjustROIEiiii(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef %.sroa.speculated145, i32 noundef %.sroa.speculated108, i32 noundef %.sroa.speculated123, i32 noundef %.sroa.speculated)
           to label %69 unwind label %74
 

@@ -49,8 +49,8 @@ define double @intersection_angle(ptr nocapture noundef readonly %0, ptr nocaptu
   %.sroa.3256.0..sroa.3256.8..val93 = load double, ptr %.sroa.3256, align 8
   %.sroa.0251.0..sroa.0251.0..val94 = load double, ptr %.sroa.0251, align 16
   %.sroa.3.0..sroa.3.8..val95 = load double, ptr %.sroa.3, align 8
-  %25 = fneg double %.sroa.3256.0..sroa.3256.8..val93
-  %26 = fmul double %.sroa.0251.0..sroa.0251.0..val94, %25
+  %25 = fneg double %.sroa.0251.0..sroa.0251.0..val94
+  %26 = fmul double %.sroa.3256.0..sroa.3256.8..val93, %25
   br label %27
 
 27:                                               ; preds = %27, %23
@@ -489,15 +489,15 @@ line_segments_distance.exit:                      ; preds = %dist.exit.i70.i, %2
   %280 = getelementptr inbounds i8, ptr %0, i64 8
   %281 = load double, ptr %280, align 8
   %282 = fsub double %279, %281
-  %283 = fneg double %282
-  %284 = fmul double %.sroa.0251.0..sroa.0251.0..val94, %283
-  %285 = tail call double @llvm.fmuladd.f64(double %277, double %.sroa.3.0..sroa.3.8..val95, double %284)
-  %286 = fdiv double %285, %40
-  %287 = fmul double %.sroa.0255.0..sroa.0255.0..val, %283
+  %283 = fmul double %282, %25
+  %284 = tail call double @llvm.fmuladd.f64(double %277, double %.sroa.3.0..sroa.3.8..val95, double %283)
+  %285 = fdiv double %284, %40
+  %286 = fneg double %.sroa.0255.0..sroa.0255.0..val
+  %287 = fmul double %282, %286
   %288 = tail call double @llvm.fmuladd.f64(double %277, double %.sroa.3256.0..sroa.3256.8..val93, double %287)
   %289 = fdiv double %288, %40
-  %290 = fcmp oge double %286, 0.000000e+00
-  %291 = fcmp ole double %286, 1.000000e+00
+  %290 = fcmp oge double %285, 0.000000e+00
+  %291 = fcmp ole double %285, 1.000000e+00
   %or.cond = and i1 %290, %291
   %292 = fcmp oge double %289, 0.000000e+00
   %293 = fcmp ole double %289, 1.000000e+00

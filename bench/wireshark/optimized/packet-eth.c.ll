@@ -827,7 +827,7 @@ define internal i32 @capture_eth(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %66 = trunc i32 %6 to i16
   %67 = add i16 %16, %66
   %68 = zext i16 %67 to i32
-  %spec.select81 = tail call i32 @llvm.smin.i32(i32 %68, i32 %2)
+  %spec.select81 = tail call i32 @llvm.smin.i32(i32 %2, i32 %68)
   %69 = load ptr, ptr @ipx_cap_handle, align 8
   %70 = tail call i32 @call_capture_dissector(ptr noundef %69, ptr noundef nonnull %0, i32 noundef %6, i32 noundef %spec.select81, ptr noundef %3, ptr noundef %4) #8
   br label %78
@@ -836,7 +836,7 @@ define internal i32 @capture_eth(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %72 = trunc i32 %6 to i16
   %73 = add i16 %16, %72
   %74 = zext i16 %73 to i32
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %74, i32 %2)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %74)
   %75 = load ptr, ptr @llc_cap_handle, align 8
   %76 = tail call i32 @call_capture_dissector(ptr noundef %75, ptr noundef nonnull %0, i32 noundef %6, i32 noundef %spec.select, ptr noundef %3, ptr noundef %4) #8
   br label %78

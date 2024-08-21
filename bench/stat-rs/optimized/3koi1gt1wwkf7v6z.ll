@@ -84,7 +84,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$f64$u20$as$u20$approx..relative_eq.
 17:                                               ; preds = %13
   %18 = fcmp ogt double %11, %9
   %.sroa.01.0 = select i1 %18, double %11, double %9
-  %19 = fmul double %.sroa.01.0, %3
+  %19 = fmul double %3, %.sroa.01.0
   %20 = fcmp ole double %15, %19
   br label %21
 
@@ -158,13 +158,13 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef double @"_ZN126_$LT$statrs..distribution..discrete_uniform..DiscreteUniform$u20$as$u20$statrs..distribution..DiscreteCDF$LT$i64$C$f64$GT$$GT$3cdf17h0d1d37aa57e05834E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8, !noundef !4
-  %4 = icmp sgt i64 %3, %1
+  %4 = icmp slt i64 %1, %3
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %.not = icmp sgt i64 %7, %1
+  %.not = icmp slt i64 %1, %7
   br i1 %.not, label %8, label %19
 
 8:                                                ; preds = %5
@@ -190,13 +190,13 @@ define noundef double @"_ZN126_$LT$statrs..distribution..discrete_uniform..Discr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef double @"_ZN126_$LT$statrs..distribution..discrete_uniform..DiscreteUniform$u20$as$u20$statrs..distribution..DiscreteCDF$LT$i64$C$f64$GT$$GT$2sf17h1463e8255201fe60E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8, !noundef !4
-  %4 = icmp sgt i64 %3, %1
+  %4 = icmp slt i64 %1, %3
   br i1 %4, label %18, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %.not = icmp sgt i64 %7, %1
+  %.not = icmp slt i64 %1, %7
   br i1 %.not, label %8, label %18
 
 8:                                                ; preds = %5
@@ -304,13 +304,13 @@ define { i64, i64 } @"_ZN147_$LT$statrs..distribution..discrete_uniform..Discret
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef double @"_ZN123_$LT$statrs..distribution..discrete_uniform..DiscreteUniform$u20$as$u20$statrs..distribution..Discrete$LT$i64$C$f64$GT$$GT$3pmf17h1c67352287d8a8a7E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8, !noundef !4
-  %.not = icmp sgt i64 %3, %1
+  %.not = icmp slt i64 %1, %3
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %.not3 = icmp slt i64 %6, %1
+  %.not3 = icmp sgt i64 %1, %6
   br i1 %.not3, label %11, label %7
 
 7:                                                ; preds = %4
@@ -328,13 +328,13 @@ define noundef double @"_ZN123_$LT$statrs..distribution..discrete_uniform..Discr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef double @"_ZN123_$LT$statrs..distribution..discrete_uniform..DiscreteUniform$u20$as$u20$statrs..distribution..Discrete$LT$i64$C$f64$GT$$GT$6ln_pmf17hf1b66b10b8c677bdE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !noundef !4
-  %.not = icmp sgt i64 %3, %1
+  %.not = icmp slt i64 %1, %3
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %.not3 = icmp slt i64 %6, %1
+  %.not3 = icmp sgt i64 %1, %6
   br i1 %.not3, label %12, label %7
 
 7:                                                ; preds = %4
@@ -933,7 +933,7 @@ define void @"_ZN368_$LT$statrs..distribution..multinomial..Multinomial$u20$as$u
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
   %24 = getelementptr inbounds i8, ptr %4, i64 16
   %25 = load i64, ptr %24, align 8, !alias.scope !62, !noalias !65, !noundef !4
-  %26 = icmp eq i64 %25, %17
+  %26 = icmp eq i64 %17, %25
   br i1 %26, label %"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE.exit", label %29
 
 27:                                               ; preds = %29
@@ -1043,7 +1043,7 @@ define void @"_ZN338_$LT$statrs..distribution..multinomial..Multinomial$u20$as$u
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
   %28 = getelementptr inbounds i8, ptr %7, i64 16
   %29 = load i64, ptr %28, align 8, !alias.scope !90, !noalias !93, !noundef !4
-  %30 = icmp eq i64 %29, %21
+  %30 = icmp eq i64 %21, %29
   br i1 %30, label %"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE.exit", label %33
 
 31:                                               ; preds = %33
@@ -1545,7 +1545,7 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %10
   %23 = load double, ptr %22, align 8, !alias.scope !159, !noalias !162, !noundef !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %24 = fmul double %23, 5.000000e-01
-  %25 = fcmp ult double %9, %1
+  %25 = fcmp ugt double %1, %9
   br i1 %25, label %40, label %_ZN6statrs12distribution6normal13cdf_unchecked17hd2819d6b1763c1ddE.exit
 
 26:                                               ; preds = %2
@@ -1617,7 +1617,7 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %10
   %23 = load double, ptr %22, align 8, !alias.scope !165, !noalias !168, !noundef !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %24 = fmul double %23, 5.000000e-01
-  %25 = fcmp ult double %9, %1
+  %25 = fcmp ugt double %1, %9
   br i1 %25, label %_ZN6statrs12distribution6normal12sf_unchecked17h0c729da1b4fd172fE.exit, label %40
 
 26:                                               ; preds = %2

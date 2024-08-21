@@ -1983,7 +1983,7 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge12, %234
 .critedge16:                                      ; preds = %.lr.ph521, %249, %.critedge14
   %259 = getelementptr inbounds i8, ptr %1, i64 4
   %260 = load i32, ptr %259, align 4
-  %.not306586 = icmp slt i32 %260, %4
+  %.not306586 = icmp sgt i32 %4, %260
   br i1 %.not306586, label %._crit_edge588, label %.preheader460.lr.ph
 
 .preheader460.lr.ph:                              ; preds = %.critedge16
@@ -2040,7 +2040,7 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge12, %234
 
 .critedge18:                                      ; preds = %.lr.ph526, %267, %.preheader460
   %.val372528629 = phi i32 [ %.val396523, %.preheader460 ], [ %.val396525, %.lr.ph526 ], [ %.val396, %267 ]
-  %291 = icmp sgt i32 %.0280587, %4
+  %291 = icmp slt i32 %4, %.0280587
   br i1 %291, label %.preheader458, label %.preheader459
 
 .preheader459:                                    ; preds = %.critedge26, %.critedge18
@@ -3067,7 +3067,7 @@ Abc_UtilStrsav.exit:                              ; preds = %._crit_edge, %198
   tail call void @Gia_ManHashStart(ptr noundef nonnull %196) #16
   %236 = getelementptr inbounds i8, ptr %1, i64 4
   %237 = load i32, ptr %236, align 4
-  %.not203374 = icmp slt i32 %237, %4
+  %.not203374 = icmp sgt i32 %4, %237
   br i1 %.not203374, label %.critedge21._crit_edge, label %.preheader293.lr.ph
 
 .preheader293.lr.ph:                              ; preds = %.critedge14
@@ -3383,7 +3383,7 @@ define ptr @Bmc_GiaTargetStates(ptr noundef %0, ptr nocapture noundef readonly %
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = icmp slt i32 %17, %2
+  %18 = icmp sgt i32 %2, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %15
@@ -3391,7 +3391,7 @@ define ptr @Bmc_GiaTargetStates(ptr noundef %0, ptr nocapture noundef readonly %
   br label %48
 
 21:                                               ; preds = %15
-  %22 = icmp ult i32 %17, %3
+  %22 = icmp ugt i32 %3, %17
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21

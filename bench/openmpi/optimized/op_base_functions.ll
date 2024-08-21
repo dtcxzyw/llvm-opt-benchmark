@@ -2420,8 +2420,8 @@ define internal void @ompi_op_base_2buff_prod_c_short_float_complex(ptr nocaptur
   %15 = getelementptr inbounds i8, ptr %.01718, i64 2
   %16 = load half, ptr %15, align 2
   %17 = fpext half %16 to float
-  %18 = fneg float %14
-  %19 = fmul float %18, %17
+  %18 = fneg float %17
+  %19 = fmul float %14, %18
   %20 = tail call float @llvm.fmuladd.f32(float %9, float %11, float %19)
   %21 = fptrunc float %20 to half
   %22 = fmul float %11, %14
@@ -8366,8 +8366,8 @@ define internal void @ompi_op_base_3buff_prod_c_short_float_complex(ptr noalias 
   %16 = getelementptr inbounds i8, ptr %.01823, i64 2
   %17 = load half, ptr %16, align 2
   %18 = fpext half %17 to float
-  %19 = fneg float %15
-  %20 = fmul float %19, %18
+  %19 = fneg float %18
+  %20 = fmul float %15, %19
   %21 = tail call float @llvm.fmuladd.f32(float %10, float %12, float %20)
   %22 = fptrunc float %21 to half
   store half %22, ptr %.024, align 2

@@ -36,7 +36,7 @@ define dso_local range(i32 -97, 1) i32 @uv_inet_ntop(i32 noundef %0, ptr nocaptu
   %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 16, ptr noundef nonnull @inet_ntop4.fmt, i32 noundef %11, i32 noundef %14, i32 noundef %17, i32 noundef %20) #9
   %22 = icmp sgt i32 %21, 0
   %23 = zext nneg i32 %21 to i64
-  %.not.i = icmp ult i64 %23, %3
+  %.not.i = icmp ugt i64 %3, %23
   %or.cond.i = select i1 %22, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %24, label %inet_ntop4.exit
 

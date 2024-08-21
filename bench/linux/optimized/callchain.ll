@@ -402,7 +402,7 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
 87:                                               ; preds = %80, %69
   %88 = phi ptr [ %0, %69 ], [ %86, %80 ]
   %89 = icmp eq ptr %88, null
-  %90 = or i1 %89, %5
+  %90 = or i1 %5, %89
   br i1 %90, label %.thread5, label %91
 
 91:                                               ; preds = %87

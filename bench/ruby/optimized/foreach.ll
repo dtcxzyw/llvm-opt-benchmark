@@ -380,7 +380,7 @@ define internal fastcc void @force_unpack_check(ptr nocapture noundef %0, i64 no
 
 20:                                               ; preds = %._crit_edge, %3
   %21 = phi i64 [ %.pre, %._crit_edge ], [ %5, %3 ]
-  %.not19 = icmp eq i64 %21, %1
+  %.not19 = icmp eq i64 %1, %21
   br i1 %.not19, label %23, label %22
 
 22:                                               ; preds = %20
@@ -388,7 +388,7 @@ define internal fastcc void @force_unpack_check(ptr nocapture noundef %0, i64 no
   unreachable
 
 23:                                               ; preds = %20
-  %.not20 = icmp eq i64 %1, %2
+  %.not20 = icmp eq i64 %2, %1
   br i1 %.not20, label %25, label %24
 
 24:                                               ; preds = %23

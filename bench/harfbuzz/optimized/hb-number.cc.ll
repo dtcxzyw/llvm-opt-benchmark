@@ -400,7 +400,7 @@ _ZL9strtod_rlPKcPS0_.exit:                        ; preds = %while.end.i, %if.th
 
 if.end:                                           ; preds = %_ZL9strtod_rlPKcPS0_.exit
   store ptr %pend.0, ptr %pp, align 8
-  %cmp1 = icmp eq ptr %pend.0, %end
+  %cmp1 = icmp eq ptr %end, %pend.0
   %not.whole_buffer = xor i1 %whole_buffer, true
   %21 = or i1 %cmp1, %not.whole_buffer
   br label %return

@@ -501,7 +501,7 @@ if.then21.i.i:                                    ; preds = %if.then.i.i.i.i67, 
   %r.addr.0.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i68, %if.then.i.i.i.i67 ], [ %call5.i.i.i.i.i.i.i78, %invoke.cont8.i.i ]
   store i16 %12, ptr %r.addr.0.i.i.i.i, align 2, !noalias !34
   %add.ptr.i.i69 = getelementptr inbounds i8, ptr %r.addr.0.i.i.i.i, i64 2
-  %cmp.i.i15.i.i = icmp ne ptr %add.ptr.i.i, %agg.tmp14.i.sroa.0.0
+  %cmp.i.i15.i.i = icmp ne ptr %agg.tmp14.i.sroa.0.0, %add.ptr.i.i
   %tobool5.i.i18.i.i = icmp ne ptr %agg.tmp14.i.sroa.0.0, null
   %or.cond1.i.i19.i.i = and i1 %tobool5.i.i18.i.i, %cmp.i.i15.i.i
   br i1 %or.cond1.i.i19.i.i, label %if.then.i.i21.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItSaIvEvEEPtS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit26.i.i

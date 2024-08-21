@@ -267,7 +267,7 @@ define dso_local void @hda_widget_sysfs_exit(ptr nocapture noundef %0) local_unn
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @hda_widget_sysfs_reinit(ptr nocapture noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = trunc i32 %2 to i16
-  %5 = add i16 %4, %1
+  %5 = add i16 %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 872
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null

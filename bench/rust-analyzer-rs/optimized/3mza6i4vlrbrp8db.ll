@@ -774,7 +774,7 @@ define hidden void @"_ZN9text_edit15coalesce_indels28_$u7b$$u7b$closure$u7d$$u7d
   %19 = load i64, ptr %18, align 8, !alias.scope !265, !noalias !270, !noundef !4
   %20 = load i64, ptr %2, align 8, !alias.scope !272, !noalias !270, !noundef !4
   %21 = sub i64 %20, %19
-  %22 = icmp ult i64 %21, %17
+  %22 = icmp ugt i64 %17, %21
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %13

@@ -569,7 +569,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %notmask = shl nsw i64 -1, %35
   %36 = trunc i64 %notmask to i32
   %37 = xor i32 %36, -1
-  %38 = and i32 %37, %2
+  %38 = and i32 %2, %37
   %39 = shl i32 %38, %31
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %15, i64 80
@@ -3431,7 +3431,7 @@ default.unreachable2862:                          ; preds = %488
 
 1141:                                             ; preds = %1135, %1130
   %1142 = phi i32 [ %1138, %1135 ], [ %1133, %1130 ]
-  %.not.i1263 = icmp ugt i32 %1142, %1116
+  %.not.i1263 = icmp ult i32 %1116, %1142
   br i1 %.not.i1263, label %1150, label %1143
 
 1143:                                             ; preds = %1141
@@ -3458,7 +3458,7 @@ default.unreachable2862:                          ; preds = %488
   %1158 = getelementptr inbounds i8, ptr %1115, i64 %1157
   %1159 = zext i32 %spec.select.i1264 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1155, ptr readonly align 1 %1158, i64 %1159, i1 false)
-  %.not57.not.i = icmp ult i32 %1153, %1116
+  %.not57.not.i = icmp ugt i32 %1116, %1153
   br i1 %.not57.not.i, label %1160, label %1168
 
 1160:                                             ; preds = %1150
@@ -3830,7 +3830,7 @@ inflateStateCheck.exit:                           ; preds = %17
 
 59:                                               ; preds = %53, %48
   %60 = phi i32 [ %56, %53 ], [ %51, %48 ]
-  %.not.i21 = icmp ugt i32 %60, %2
+  %.not.i21 = icmp ult i32 %2, %60
   br i1 %.not.i21, label %68, label %61
 
 61:                                               ; preds = %59
@@ -3854,7 +3854,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %73 = getelementptr inbounds i8, ptr %49, i64 %72
   %74 = zext i32 %spec.select.i22 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr readonly align 1 %1, i64 %74, i1 false)
-  %.not57.not.i = icmp ult i32 %71, %2
+  %.not57.not.i = icmp ugt i32 %2, %71
   br i1 %.not57.not.i, label %75, label %83
 
 75:                                               ; preds = %68

@@ -6254,7 +6254,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_in_code_range(ptr nocapture nounde
   %8 = zext i32 %7 to i64
   %9 = getelementptr i32, ptr %4, i64 %8
   %10 = load i32, ptr %9, align 4
-  %11 = icmp ult i32 %10, %1
+  %11 = icmp ugt i32 %1, %10
   %12 = add nuw i32 %6, 1
   %.118 = select i1 %11, i32 %12, i32 %.01719
   %.1 = select i1 %11, i32 %.020, i32 %6
@@ -6271,7 +6271,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_in_code_range(ptr nocapture nounde
   %17 = zext i32 %16 to i64
   %18 = getelementptr i32, ptr %4, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = icmp ule i32 %19, %1
+  %20 = icmp uge i32 %1, %19
   %21 = zext i1 %20 to i32
   br label %22
 
@@ -6309,7 +6309,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_code_in_cc_len(i32 noundef %0, i32
   %17 = zext i32 %16 to i64
   %18 = getelementptr i32, ptr %13, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = icmp ult i32 %19, %1
+  %20 = icmp ugt i32 %1, %19
   %21 = add nuw i32 %15, 1
   %.118.i = select i1 %20, i32 %21, i32 %.01719.i
   %.1.i = select i1 %20, i32 %.020.i, i32 %15
@@ -6326,7 +6326,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_code_in_cc_len(i32 noundef %0, i32
   %26 = zext i32 %25 to i64
   %27 = getelementptr i32, ptr %13, i64 %26
   %28 = load i32, ptr %27, align 4
-  %29 = icmp ule i32 %28, %1
+  %29 = icmp uge i32 %1, %28
   %30 = zext i1 %29 to i32
   br label %onig_is_in_code_range.exit
 
@@ -6388,7 +6388,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_code_in_cc(ptr noundef %0, i32 nou
   %23 = zext i32 %22 to i64
   %24 = getelementptr i32, ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4
-  %26 = icmp ult i32 %25, %1
+  %26 = icmp ugt i32 %1, %25
   %27 = add nuw i32 %21, 1
   %.118.i.i = select i1 %26, i32 %27, i32 %.01719.i.i
   %.1.i.i = select i1 %26, i32 %.020.i.i, i32 %21
@@ -6405,7 +6405,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_code_in_cc(ptr noundef %0, i32 nou
   %32 = zext i32 %31 to i64
   %33 = getelementptr i32, ptr %19, i64 %32
   %34 = load i32, ptr %33, align 4
-  %35 = icmp ule i32 %34, %1
+  %35 = icmp uge i32 %1, %34
   %36 = zext i1 %35 to i32
   br label %onig_is_code_in_cc_len.exit
 
@@ -7112,7 +7112,7 @@ tailrecurse.backedge:                             ; preds = %49, %115, %115, %11
   %110 = load i64, ptr %1, align 8
   %111 = sext i32 %107 to i64
   %112 = udiv i64 -1, %111
-  %113 = icmp ugt i64 %112, %110
+  %113 = icmp ult i64 %110, %112
   %114 = mul i64 %110, %111
   %spec.select.i = select i1 %113, i64 %114, i64 -1
   br label %distance_multiply.exit
@@ -7990,7 +7990,7 @@ define internal fastcc i32 @is_not_included(ptr nocapture noundef readonly %0, p
   %214 = zext i32 %213 to i64
   %215 = getelementptr i32, ptr %210, i64 %214
   %216 = load i32, ptr %215, align 4
-  %217 = icmp ult i32 %216, %193
+  %217 = icmp ugt i32 %193, %216
   %218 = add nuw i32 %212, 1
   %.118.i.i.i = select i1 %217, i32 %218, i32 %.01719.i.i.i
   %.1.i.i.i = select i1 %217, i32 %.020.i.i.i, i32 %212
@@ -8007,7 +8007,7 @@ define internal fastcc i32 @is_not_included(ptr nocapture noundef readonly %0, p
   %223 = zext i32 %222 to i64
   %224 = getelementptr i32, ptr %210, i64 %223
   %225 = load i32, ptr %224, align 4
-  %226 = icmp ule i32 %225, %193
+  %226 = icmp uge i32 %193, %225
   %227 = zext i1 %226 to i32
   br label %onig_is_code_in_cc.exit
 
@@ -10123,7 +10123,7 @@ concat_opt_exact_info.exit:                       ; preds = %788, %._crit_edge.i
   %850 = load i64, ptr %12, align 8
   %851 = sext i32 %847 to i64
   %852 = udiv i64 -1, %851
-  %853 = icmp ugt i64 %852, %850
+  %853 = icmp ult i64 %850, %852
   %854 = mul i64 %850, %851
   %spec.select.i362 = select i1 %853, i64 %854, i64 -1
   br label %distance_multiply.exit
@@ -10148,7 +10148,7 @@ distance_multiply.exit:                           ; preds = %845, %849
   %862 = load i64, ptr %861, align 8
   %863 = sext i32 %855 to i64
   %864 = udiv i64 -1, %863
-  %865 = icmp ugt i64 %864, %862
+  %865 = icmp ult i64 %862, %864
   %866 = mul i64 %862, %863
   %spec.select.i363 = select i1 %865, i64 %866, i64 -1
   br label %distance_multiply.exit365
@@ -10755,7 +10755,7 @@ tailrecurse.backedge:                             ; preds = %88, %112, %112, %11
 106:                                              ; preds = %104
   %107 = sext i32 %105 to i64
   %108 = udiv i64 -1, %107
-  %109 = icmp ugt i64 %108, %103
+  %109 = icmp ult i64 %103, %108
   %110 = mul i64 %103, %107
   %spec.select.i = select i1 %109, i64 %110, i64 -1
   br label %distance_multiply.exit
@@ -12229,8 +12229,8 @@ define internal fastcc range(i32 -5, 1) i32 @add_mem_num(ptr nocapture noundef %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @add_compile_string(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #4 {
   %6 = sext i32 %1 to i64
-  %7 = add i64 %2, -1
-  %8 = add i64 %7, %6
+  %7 = add nsw i64 %6, -1
+  %8 = add i64 %7, %2
   %9 = udiv i64 %8, %6
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %11, label %10

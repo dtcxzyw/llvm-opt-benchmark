@@ -4192,11 +4192,11 @@ default.unreachable:                              ; preds = %2023
   %.042.i.i = phi i32 [ %1608, %1605 ], [ %.04353.i.i, %.lr.ph.i.i170 ]
   %.0.i.i.i.i = call noundef i32 @llvm.abs.i32(i32 %1604, i1 true)
   %.0.i4.i.i.i = call noundef i32 @llvm.abs.i32(i32 %1603, i1 true)
-  %1610 = icmp eq i32 %1603, %1558
+  %1610 = icmp eq i32 %1558, %1603
   br i1 %1610, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i.i, label %1611
 
 1611:                                             ; preds = %1609
-  %1612 = icmp eq i32 %.056.i.i, %.0372
+  %1612 = icmp eq i32 %.0372, %.056.i.i
   br i1 %1612, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i.i, label %1613
 
 1613:                                             ; preds = %1611

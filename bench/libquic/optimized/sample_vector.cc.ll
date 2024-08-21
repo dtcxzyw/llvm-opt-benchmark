@@ -619,7 +619,7 @@ if.end:                                           ; preds = %entry, %_ZN7logging
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v2.addr.i)
   store i32 %value, ptr %v1.addr.i, align 4
   store i32 %5, ptr %v2.addr.i, align 4
-  %cmp.not.i12 = icmp sgt i32 %5, %value
+  %cmp.not.i12 = icmp slt i32 %value, %5
   br i1 %cmp.not.i12, label %_ZN7logging11CheckGEImplB5cxx11EiiPKc.exit, label %_ZN7logging11CheckGEImplB5cxx11EiiPKc.exit.thread
 
 _ZN7logging11CheckGEImplB5cxx11EiiPKc.exit.thread: ; preds = %if.end
@@ -649,7 +649,7 @@ if.end19:                                         ; preds = %_ZN7logging11CheckG
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v2.addr.i19)
   store i32 %value, ptr %v1.addr.i18, align 4
   store i32 %9, ptr %v2.addr.i19, align 4
-  %cmp.i = icmp sgt i32 %9, %value
+  %cmp.i = icmp slt i32 %value, %9
   br i1 %cmp.i, label %_ZN7logging11CheckLTImplB5cxx11EiiPKc.exit.thread, label %_ZN7logging11CheckLTImplB5cxx11EiiPKc.exit
 
 _ZN7logging11CheckLTImplB5cxx11EiiPKc.exit.thread: ; preds = %if.end19

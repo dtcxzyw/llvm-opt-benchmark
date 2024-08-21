@@ -447,7 +447,7 @@ do.body.i:                                        ; preds = %entry, %if.end5.i
   %bf.load.i.i = load i32, ptr %l.0.i, align 8
   %bf.shl.i.i = shl i32 %bf.load.i.i, 24
   %bf.ashr.i.i = ashr exact i32 %bf.shl.i.i, 24
-  %cmp.i = icmp eq i32 %bf.ashr.i.i, %th_id
+  %cmp.i = icmp eq i32 %th_id, %bf.ashr.i.i
   br i1 %cmp.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %do.body.i
@@ -1239,7 +1239,7 @@ define hidden noundef ptr @_ZN3smt9tmp_enode3setEP9func_decljPKPNS_5enodeE(ptr n
 entry:
   %m_capacity = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %m_capacity, align 8
-  %cmp = icmp ult i32 %0, %num_args
+  %cmp = icmp ugt i32 %num_args, %0
   br i1 %cmp, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry

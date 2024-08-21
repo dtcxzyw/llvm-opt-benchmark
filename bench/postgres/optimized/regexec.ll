@@ -74,7 +74,7 @@ define dso_local i32 @pg_regexec(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 39:                                               ; preds = %36
   %40 = getelementptr inbounds i8, ptr %25, i64 16
   %41 = load i64, ptr %40, align 8
-  %.not169 = icmp ult i64 %41, %5
+  %.not169 = icmp ugt i64 %5, %41
   br i1 %.not169, label %.thread, label %43
 
 .thread:                                          ; preds = %39
@@ -130,7 +130,7 @@ zapallsubs.exit188:                               ; preds = %56, %.lr.ph.prehead
   %60 = getelementptr inbounds i8, ptr %25, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, 1
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %62, i64 %5)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %5, i64 %62)
   %63 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 %spec.select, ptr %63, align 8
   br label %zapallsubs.exit
@@ -1601,10 +1601,10 @@ freedfa.exit:                                     ; preds = %92, %95
 define internal fastcc ptr @shortest(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %3
+  %10 = icmp eq ptr %3, %9
   %.idx = select i1 %10, i64 0, i64 4
   %11 = getelementptr i8, ptr %3, i64 %.idx
-  %12 = icmp eq ptr %9, %4
+  %12 = icmp eq ptr %4, %9
   %.idx152 = select i1 %12, i64 0, i64 4
   %13 = getelementptr i8, ptr %4, i64 %.idx152
   %14 = getelementptr inbounds i8, ptr %1, i64 72
@@ -1789,7 +1789,7 @@ dfa_backref.exit:                                 ; preds = %44, %63, %.split.us
 106:                                              ; preds = %103
   %107 = getelementptr inbounds i8, ptr %0, i64 48
   %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, %2
+  %109 = icmp eq ptr %2, %108
   br i1 %109, label %110, label %120
 
 110:                                              ; preds = %106
@@ -1957,7 +1957,7 @@ lastcold.exit:                                    ; preds = %187, %174
 197:                                              ; preds = %191
   %198 = load ptr, ptr %8, align 8
   %199 = icmp eq ptr %.1128.ph, %198
-  %200 = icmp eq ptr %198, %4
+  %200 = icmp eq ptr %4, %198
   %or.cond165 = and i1 %199, %200
   br i1 %or.cond165, label %201, label %.thread179
 
@@ -2013,7 +2013,7 @@ dfa_backref.exit.thread:                          ; preds = %157, %.thread179, %
 define internal fastcc ptr @longest(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %3
+  %8 = icmp eq ptr %3, %7
   %.idx = select i1 %8, i64 0, i64 4
   %9 = getelementptr i8, ptr %3, i64 %.idx
   %10 = getelementptr inbounds i8, ptr %1, i64 72
@@ -2105,7 +2105,7 @@ dfa_backref.exit:                                 ; preds = %37, %38, %.split.us
   %.055.i = phi ptr [ null, %38 ], [ %..1.i, %.split.us.i ], [ %spec.select80.i, %37 ]
   %55 = load ptr, ptr %6, align 8
   %56 = icmp eq ptr %.055.i, %55
-  %57 = icmp eq ptr %55, %3
+  %57 = icmp eq ptr %3, %55
   %58 = and i1 %57, %56
   %or.cond166 = and i1 %12, %58
   br i1 %or.cond166, label %59, label %201
@@ -2140,7 +2140,7 @@ dfa_backref.exit:                                 ; preds = %37, %38, %.split.us
 78:                                               ; preds = %66
   %79 = icmp eq i32 %72, 256
   %80 = load ptr, ptr %6, align 8
-  %81 = icmp eq ptr %80, %3
+  %81 = icmp eq ptr %3, %80
   br i1 %79, label %82, label %84
 
 82:                                               ; preds = %78
@@ -2178,7 +2178,7 @@ dfa_backref.exit:                                 ; preds = %37, %38, %.split.us
 95:                                               ; preds = %92
   %96 = getelementptr inbounds i8, ptr %0, i64 48
   %97 = load ptr, ptr %96, align 8
-  %98 = icmp eq ptr %97, %2
+  %98 = icmp eq ptr %2, %97
   br i1 %98, label %99, label %109
 
 99:                                               ; preds = %95
@@ -2220,7 +2220,7 @@ dfa_backref.exit:                                 ; preds = %37, %38, %.split.us
 124:                                              ; preds = %121
   %125 = getelementptr inbounds i8, ptr %122, i64 32
   store ptr %2, ptr %125, align 8
-  %126 = icmp ugt ptr %9, %2
+  %126 = icmp ult ptr %2, %9
   br i1 %126, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %124
@@ -2280,7 +2280,7 @@ dfa_backref.exit:                                 ; preds = %37, %38, %.split.us
 155:                                              ; preds = %._crit_edge
   %156 = load ptr, ptr %6, align 8
   %157 = icmp eq ptr %.0130.lcssa, %156
-  %158 = icmp eq ptr %156, %3
+  %158 = icmp eq ptr %3, %156
   %or.cond167 = and i1 %157, %158
   br i1 %or.cond167, label %159, label %.critedge
 

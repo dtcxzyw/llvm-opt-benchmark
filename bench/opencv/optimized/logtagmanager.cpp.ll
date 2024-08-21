@@ -549,7 +549,7 @@ _ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 264
-  %12 = icmp eq ptr %11, %10
+  %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE5clearEv.exit.i.i
@@ -579,7 +579,7 @@ _ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %22 = load ptr, ptr %14, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 208
-  %24 = icmp eq ptr %23, %22
+  %24 = icmp eq ptr %22, %23
   br i1 %24, label %_ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEED2Ev.exit6, label %25
 
 25:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE5clearEv.exit.i.i5
@@ -611,7 +611,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %35 = load ptr, ptr %26, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 152
-  %37 = icmp eq ptr %36, %35
+  %37 = icmp eq ptr %35, %36
   br i1 %37, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_mEEED2Ev.exit, label %38
 
 38:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -643,7 +643,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %48 = load ptr, ptr %39, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 96
-  %50 = icmp eq ptr %49, %48
+  %50 = icmp eq ptr %48, %49
   br i1 %50, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_mEEED2Ev.exit16, label %51
 
 51:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i15
@@ -1112,7 +1112,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = ashr exact i64 %36, 4
-  %.not.i.i.i13 = icmp ugt i64 %37, %30
+  %.not.i.i.i13 = icmp ult i64 %30, %37
   br i1 %.not.i.i.i13, label %_ZN2cv5utils7logging13LogTagManager9NameTable24internal_getFullNameInfoEm.exit, label %38
 
 38:                                               ; preds = %29
@@ -1368,7 +1368,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %2
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 4
-  %.not.i.i.i.i = icmp ugt i64 %19, %12
+  %.not.i.i.i.i = icmp ult i64 %12, %19
   br i1 %.not.i.i.i.i, label %_ZN2cv5utils7logging13LogTagManager9NameTable15getFullNameInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %20
 
 20:                                               ; preds = %10
@@ -1447,7 +1447,7 @@ define hidden noundef ptr @_ZN2cv5utils7logging13LogTagManager9NameTable15getFul
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 4
-  %.not.i.i.i = icmp ugt i64 %15, %8
+  %.not.i.i.i = icmp ult i64 %8, %15
   br i1 %.not.i.i.i, label %_ZN2cv5utils7logging13LogTagManager9NameTable24internal_getFullNameInfoEm.exit, label %16
 
 16:                                               ; preds = %6
@@ -1504,7 +1504,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %4
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
-  %.not.i.i.i.i = icmp ugt i64 %22, %14
+  %.not.i.i.i.i = icmp ult i64 %14, %22
   br i1 %.not.i.i.i.i, label %_ZN2cv5utils7logging13LogTagManager9NameTable24internal_getNamePartInfoEm.exit.i, label %23
 
 23:                                               ; preds = %.noexc16
@@ -1619,7 +1619,7 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager9NameTable19addOrLookupNa
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %.not.i.i.i = icmp ugt i64 %12, %3
+  %.not.i.i.i = icmp ult i64 %3, %12
   br i1 %.not.i.i.i, label %_ZN2cv5utils7logging13LogTagManager9NameTable24internal_getNamePartInfoEm.exit, label %13
 
 13:                                               ; preds = %2
@@ -1738,7 +1738,7 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager42internal_applyNamePartC
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
   %44 = sdiv exact i64 %43, 40
-  %.not.i.i.us = icmp ugt i64 %44, %.02739.us
+  %.not.i.i.us = icmp ult i64 %.02739.us, %44
   br i1 %.not.i.i.us, label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us, label %.split.us
 
 _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us: ; preds = %.lr.ph.split.us
@@ -1779,7 +1779,7 @@ _ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScop
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
   %63 = sdiv exact i64 %62, 40
-  %.not.i.i.us43 = icmp ugt i64 %63, %.02739.us42
+  %.not.i.i.us43 = icmp ult i64 %.02739.us42, %63
   br i1 %.not.i.i.us43, label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us44, label %.split.us
 
 _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us44: ; preds = %.lr.ph.split.us41
@@ -2100,7 +2100,7 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager9NameTable29internal_addO
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
-  %19 = icmp ult i64 %18, %11
+  %19 = icmp ugt i64 %11, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %3
@@ -2109,7 +2109,7 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager9NameTable29internal_addO
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 22:                                               ; preds = %3
-  %23 = icmp ugt i64 %18, %11
+  %23 = icmp ult i64 %11, %18
   br i1 %23, label %24, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 24:                                               ; preds = %22
@@ -2137,7 +2137,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %20, %22, %24, %26
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 5
-  %.not.i.i12 = icmp ugt i64 %32, %.018
+  %.not.i.i12 = icmp ult i64 %.018, %32
   br i1 %.not.i.i12, label %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit, label %33
 
 33:                                               ; preds = %.lr.ph
@@ -2153,7 +2153,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 3
-  %.not.i.i13 = icmp ugt i64 %41, %.018
+  %.not.i.i13 = icmp ult i64 %.018, %41
   br i1 %.not.i.i13, label %_ZNSt6vectorImSaImEE2atEm.exit, label %42
 
 42:                                               ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit
@@ -2201,7 +2201,7 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager9NameTable26internal_addC
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
   %23 = ashr exact i64 %22, 3
-  %.not.i.i = icmp ugt i64 %23, %storemerge29
+  %.not.i.i = icmp ult i64 %storemerge29, %23
   br i1 %.not.i.i, label %_ZNKSt6vectorImSaImEE2atEm.exit, label %24
 
 24:                                               ; preds = %17
@@ -2232,7 +2232,7 @@ _ZNKSt6vectorImSaImEE2atEm.exit:                  ; preds = %17
 31:                                               ; preds = %.preheader30
   %32 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = icmp eq i64 %33, %1
+  %34 = icmp eq i64 %1, %33
   br i1 %34, label %.loopexit.i.i.i.i, label %.preheader30, !llvm.loop !20
 
 .loopexit.i.i.i.i:                                ; preds = %31, %.preheader30, %_ZNKSt6vectorImSaImEE2atEm.exit
@@ -2304,7 +2304,7 @@ define hidden noundef ptr @_ZN2cv5utils7logging13LogTagManager9NameTable24intern
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
-  %.not.i.i = icmp ugt i64 %9, %1
+  %.not.i.i = icmp ult i64 %1, %9
   br i1 %.not.i.i, label %_ZNSt6vectorIN2cv5utils7logging13LogTagManager12FullNameInfoESaIS4_EE2atEm.exit, label %10
 
 10:                                               ; preds = %2
@@ -2413,7 +2413,7 @@ _ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE7reserveE
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %47, %48
   %50 = ashr exact i64 %49, 3
-  %.not.i.i20 = icmp ugt i64 %50, %.041
+  %.not.i.i20 = icmp ult i64 %.041, %50
   br i1 %.not.i.i20, label %_ZNKSt6vectorImSaImEE2atEm.exit, label %51
 
 51:                                               ; preds = %43
@@ -2429,7 +2429,7 @@ _ZNKSt6vectorImSaImEE2atEm.exit:                  ; preds = %43
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
   %59 = ashr exact i64 %58, 3
-  %.not.i.i.i = icmp ugt i64 %59, %53
+  %.not.i.i.i = icmp ult i64 %53, %59
   br i1 %.not.i.i.i, label %_ZN2cv5utils7logging13LogTagManager9NameTable24internal_getNamePartInfoEm.exit, label %60
 
 60:                                               ; preds = %_ZNKSt6vectorImSaImEE2atEm.exit
@@ -2647,7 +2647,7 @@ define hidden noundef ptr @_ZN2cv5utils7logging13LogTagManager9NameTable24intern
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %.not.i.i = icmp ugt i64 %10, %1
+  %.not.i.i = icmp ult i64 %1, %10
   br i1 %.not.i.i, label %_ZNSt6vectorIN2cv5utils7logging13LogTagManager12NamePartInfoESaIS4_EE2atEm.exit, label %11
 
 11:                                               ; preds = %2
@@ -2902,7 +2902,7 @@ _ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE11e
   %112 = ptrtoint ptr %110 to i64
   %113 = sub i64 %111, %112
   %114 = ashr exact i64 %113, 4
-  %.not.i.i.i27 = icmp ugt i64 %114, %106
+  %.not.i.i.i27 = icmp ult i64 %106, %114
   br i1 %.not.i.i.i27, label %_ZN2cv5utils7logging13LogTagManager9NameTable24internal_getFullNameInfoEm.exit, label %115
 
 115:                                              ; preds = %103
@@ -3159,7 +3159,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i17
@@ -3295,7 +3295,7 @@ define linkonce_odr noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcS
   %.013 = phi ptr [ %7, %8 ], [ %.0, %26 ]
   %.0 = phi ptr [ %9, %8 ], [ %25, %26 ]
   %13 = getelementptr inbounds i8, ptr %.0, i64 8
-  %14 = icmp eq i64 %12, %3
+  %14 = icmp eq i64 %3, %12
   br i1 %14, label %15, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_mENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread
 
 15:                                               ; preds = %11
@@ -3682,7 +3682,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge
@@ -3753,7 +3753,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !57
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -3837,7 +3837,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !57
 
 _ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -4195,7 +4195,7 @@ _ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
 ._crit_edge.thread:                               ; preds = %_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit, %46, %50, %44, %._crit_edge
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 48
-  %54 = icmp eq ptr %53, %52
+  %54 = icmp eq ptr %52, %53
   br i1 %54, label %_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE21_M_deallocate_bucketsEv.exit, label %55
 
 55:                                               ; preds = %._crit_edge.thread

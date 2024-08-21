@@ -216,7 +216,7 @@ if.end:                                           ; preds = %entry
   %memsize = getelementptr inbounds i8, ptr %state, i64 40
   %2 = load i32, ptr %memsize, align 4
   %conv8 = zext i32 %2 to i64
-  %add9 = add i64 %conv8, %len
+  %add9 = add i64 %len, %conv8
   %cmp10 = icmp ult i64 %add9, 16
   br i1 %cmp10, label %if.then12, label %if.end18
 
@@ -700,7 +700,7 @@ if.end:                                           ; preds = %entry
   %memsize = getelementptr inbounds i8, ptr %state, i64 72
   %1 = load i32, ptr %memsize, align 8
   %conv = zext i32 %1 to i64
-  %add2 = add i64 %conv, %len
+  %add2 = add i64 %len, %conv
   %cmp3 = icmp ult i64 %add2, 32
   br i1 %cmp3, label %if.then5, label %if.end11
 

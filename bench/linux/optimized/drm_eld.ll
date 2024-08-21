@@ -16,7 +16,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_eld_sad_get(ptr noundef %0, 
   %5 = load i8, ptr %4, align 1
   %6 = lshr i8 %5, 4
   %7 = zext nneg i8 %6 to i32
-  %8 = icmp sgt i32 %7, %1
+  %8 = icmp slt i32 %1, %7
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %3
@@ -46,7 +46,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_eld_sad_set(ptr noundef %0, 
   %5 = load i8, ptr %4, align 1
   %6 = lshr i8 %5, 4
   %7 = zext nneg i8 %6 to i32
-  %8 = icmp sgt i32 %7, %1
+  %8 = icmp slt i32 %1, %7
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %3

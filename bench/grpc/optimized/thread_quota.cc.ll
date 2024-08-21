@@ -126,7 +126,7 @@ entry:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
   %allocated_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %allocated_, align 8
-  %cmp.not = icmp ult i64 %0, %num_threads
+  %cmp.not = icmp ugt i64 %num_threads, %0
   br i1 %cmp.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry

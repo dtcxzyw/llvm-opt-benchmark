@@ -691,7 +691,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   %18 = icmp ule i64 %17, %11
   %19 = icmp ugt i64 %17, %15
   %20 = or i1 %18, %19
-  %21 = or i1 %20, %3
+  %21 = or i1 %3, %20
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %4
@@ -1228,7 +1228,7 @@ thread-pre-split.thread:                          ; preds = %138, %29
   %43 = icmp ne i64 %42, 0
   %44 = lshr i64 %39, 59
   %45 = trunc nuw nsw i64 %44 to i32
-  %46 = icmp eq i32 %45, %0
+  %46 = icmp eq i32 %0, %45
   %47 = and i1 %43, %46
   br i1 %47, label %48, label %62
 
@@ -2476,7 +2476,7 @@ define internal i32 @shmem_write_begin(ptr nocapture readnone %0, ptr nocapture 
 
 20:                                               ; preds = %17
   %21 = zext i32 %3 to i64
-  %22 = add i64 %21, %2
+  %22 = add i64 %2, %21
   %23 = getelementptr inbounds i8, ptr %8, i64 80
   %24 = load i64, ptr %23, align 8
   %25 = icmp sgt i64 %22, %24
@@ -2569,7 +2569,7 @@ define internal noundef i32 @shmem_write_end(ptr nocapture readnone %0, ptr noca
   %36 = inttoptr i64 %35 to ptr
   %37 = load ptr, ptr %1, align 8
   %38 = zext i32 %4 to i64
-  %39 = add i64 %38, %2
+  %39 = add i64 %2, %38
   %40 = getelementptr inbounds i8, ptr %37, i64 80
   %41 = load i64, ptr %40, align 8
   %42 = icmp sgt i64 %39, %41

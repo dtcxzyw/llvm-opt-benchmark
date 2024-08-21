@@ -1120,7 +1120,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he8ac9c3c5d217007E.exit: ; preds = %
   tail call void @llvm.experimental.noalias.scope.decl(metadata !297)
   %99 = getelementptr inbounds i8, ptr %12, i64 16
   %100 = load i64, ptr %99, align 8, !alias.scope !297, !noalias !300, !noundef !5
-  %.not.i40 = icmp ugt i64 %100, %.sroa.8.059
+  %.not.i40 = icmp ult i64 %.sroa.8.059, %100
   br i1 %.not.i40, label %102, label %101
 
 101:                                              ; preds = %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17haad141fcf5cf710cE.exit39"

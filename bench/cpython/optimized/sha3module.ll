@@ -511,37 +511,37 @@ do.body.i.i:                                      ; preds = %skip_optional_kwonl
   %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i8 0, ptr %use_mutex.i.i, align 8
   %7 = load ptr, ptr %type.val.val.i, align 8
-  %cmp2.i = icmp eq ptr %7, %type
+  %cmp2.i = icmp eq ptr %type, %7
   br i1 %cmp2.i, label %if.end35.i, label %if.else.i
 
 if.else.i:                                        ; preds = %do.body.i.i
   %sha3_256_type.i = getelementptr inbounds i8, ptr %type.val.val.i, i64 8
   %8 = load ptr, ptr %sha3_256_type.i, align 8
-  %cmp5.i = icmp eq ptr %8, %type
+  %cmp5.i = icmp eq ptr %type, %8
   br i1 %cmp5.i, label %if.end35.i, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %sha3_384_type.i = getelementptr inbounds i8, ptr %type.val.val.i, i64 16
   %9 = load ptr, ptr %sha3_384_type.i, align 8
-  %cmp10.i = icmp eq ptr %9, %type
+  %cmp10.i = icmp eq ptr %type, %9
   br i1 %cmp10.i, label %if.end35.i, label %if.else14.i
 
 if.else14.i:                                      ; preds = %if.else9.i
   %sha3_512_type.i = getelementptr inbounds i8, ptr %type.val.val.i, i64 24
   %10 = load ptr, ptr %sha3_512_type.i, align 8
-  %cmp15.i = icmp eq ptr %10, %type
+  %cmp15.i = icmp eq ptr %type, %10
   br i1 %cmp15.i, label %if.end35.i, label %if.else19.i
 
 if.else19.i:                                      ; preds = %if.else14.i
   %shake_128_type.i = getelementptr inbounds i8, ptr %type.val.val.i, i64 32
   %11 = load ptr, ptr %shake_128_type.i, align 8
-  %cmp20.i = icmp eq ptr %11, %type
+  %cmp20.i = icmp eq ptr %type, %11
   br i1 %cmp20.i, label %if.end35.i, label %if.else24.i
 
 if.else24.i:                                      ; preds = %if.else19.i
   %shake_256_type.i = getelementptr inbounds i8, ptr %type.val.val.i, i64 40
   %12 = load ptr, ptr %shake_256_type.i, align 8
-  %cmp25.i = icmp eq ptr %12, %type
+  %cmp25.i = icmp eq ptr %type, %12
   br i1 %cmp25.i, label %if.end35.i, label %error.i
 
 if.end35.i:                                       ; preds = %if.else24.i, %if.else19.i, %if.else14.i, %if.else9.i, %if.else.i, %do.body.i.i

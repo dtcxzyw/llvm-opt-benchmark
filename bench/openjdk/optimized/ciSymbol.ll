@@ -402,7 +402,7 @@ define hidden noundef zeroext i1 @_ZNK8ciSymbol11starts_withEPKci(ptr nocapture 
   %8 = getelementptr inbounds i8, ptr %7, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i32
-  %11 = icmp slt i32 %10, %2
+  %11 = icmp sgt i32 %2, %10
   br i1 %11, label %_ZNK6Symbol11starts_withEPKci.exit, label %12
 
 12:                                               ; preds = %5
@@ -456,7 +456,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = load i16, ptr %34, align 4
   %36 = zext i16 %35 to i32
-  %37 = icmp slt i32 %36, %2
+  %37 = icmp sgt i32 %2, %36
   br i1 %37, label %_ZNK6Symbol11starts_withEPKci.exit10, label %38
 
 38:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit

@@ -2774,12 +2774,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
   %17 = getelementptr inbounds i8, ptr %0, i64 264
   %18 = getelementptr inbounds i8, ptr %0, i64 312
   %19 = load i32, ptr %18, align 8
-  %20 = icmp ugt i32 %19, %5
+  %20 = icmp ult i32 %5, %19
   br i1 %20, label %21, label %34
 
 21:                                               ; preds = %9
   %22 = add i32 %19, -1
-  %. = tail call i32 @llvm.umin.i32(i32 %22, i32 %7)
+  %. = tail call i32 @llvm.umin.i32(i32 %7, i32 %22)
   %23 = sub i32 %., %5
   %24 = add i32 %23, 1
   %25 = getelementptr inbounds i8, ptr %1, i64 80
@@ -2805,12 +2805,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
 36:                                               ; preds = %21, %34
   %.0161 = phi i32 [ %24, %21 ], [ 0, %34 ]
   %37 = load i32, ptr %18, align 8
-  %.not = icmp ugt i32 %37, %7
+  %.not = icmp ult i32 %7, %37
   br i1 %.not, label %53, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ugt i32 %37, %5
-  %.186 = tail call i32 @llvm.umax.i32(i32 %37, i32 %5)
+  %39 = icmp ult i32 %5, %37
+  %.186 = tail call i32 @llvm.umax.i32(i32 %5, i32 %37)
   %.187 = select i1 %39, i32 0, i32 %6
   %40 = load i32, ptr %17, align 8
   %reass.add = sub i32 %7, %.186
@@ -3735,7 +3735,7 @@ H5HF__sect_indirect_is_first.exit:                ; preds = %tailrecurse.i, %24
   br label %.thread
 
 44:                                               ; preds = %36, %37, %19
-  %45 = icmp eq i32 %12, %2
+  %45 = icmp eq i32 %2, %12
   br i1 %45, label %46, label %86
 
 46:                                               ; preds = %44
@@ -3795,7 +3795,7 @@ H5HF__sect_indirect_is_first.exit:                ; preds = %tailrecurse.i, %24
   br label %.thread
 
 86:                                               ; preds = %44
-  %87 = icmp eq i32 %16, %2
+  %87 = icmp eq i32 %2, %16
   br i1 %87, label %88, label %103
 
 88:                                               ; preds = %86

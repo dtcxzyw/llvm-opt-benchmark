@@ -673,13 +673,13 @@ define internal fastcc void @Vec_PtrSetEntry(ptr nocapture noundef %0, i32 nound
   %4 = add nsw i32 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not.i.not = icmp sgt i32 %6, %1
+  %.not.i.not = icmp slt i32 %1, %6
   br i1 %.not.i.not, label %Vec_PtrFillExtra.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 8
   %9 = shl nsw i32 %8, 1
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   %.not.i.i.not = icmp sgt i32 %8, %1
   br i1 %.not, label %22, label %10
 
@@ -1172,13 +1172,13 @@ define internal fastcc void @Vec_BitSetEntry(ptr nocapture noundef %0, i32 nound
   %4 = add nsw i32 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not.i.not = icmp sgt i32 %6, %1
+  %.not.i.not = icmp slt i32 %1, %6
   br i1 %.not.i.not, label %Vec_BitFillExtra.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 8
   %9 = shl nsw i32 %8, 1
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   %.not.i.i.not = icmp sgt i32 %8, %1
   br i1 %.not, label %27, label %10
 
@@ -1653,13 +1653,13 @@ define void @Bnd_ManFinalizeMappings() local_unnamed_addr #1 {
   %32 = load i32, ptr %.val48, align 4
   %33 = add nsw i32 %31, 1
   %34 = load i32, ptr %14, align 4
-  %.not.i.not.i = icmp sgt i32 %34, %31
+  %.not.i.not.i = icmp slt i32 %31, %34
   br i1 %.not.i.not.i, label %Vec_IntSetEntry.exit, label %35
 
 35:                                               ; preds = %29
   %36 = load i32, ptr %7, align 8
   %37 = shl nsw i32 %36, 1
-  %.not.i = icmp sgt i32 %37, %31
+  %.not.i = icmp slt i32 %31, %37
   %.not.i.i.not.i = icmp sgt i32 %36, %31
   br i1 %.not.i, label %47, label %38
 
@@ -1742,13 +1742,13 @@ Vec_IntSetEntry.exit:                             ; preds = %29, %._crit_edge.i.
   %66 = add nsw i32 %.val41, -1
   %67 = getelementptr inbounds i8, ptr %65, i64 4
   %68 = load i32, ptr %67, align 4
-  %.not.i.not.i50 = icmp sgt i32 %68, %31
+  %.not.i.not.i50 = icmp slt i32 %31, %68
   br i1 %.not.i.not.i50, label %Vec_IntSetEntry.exit67, label %69
 
 69:                                               ; preds = %Vec_IntSetEntry.exit
   %70 = load i32, ptr %65, align 8
   %71 = shl nsw i32 %70, 1
-  %.not.i51 = icmp sgt i32 %71, %31
+  %.not.i51 = icmp slt i32 %31, %71
   %.not.i.i.not.i52 = icmp sgt i32 %70, %31
   br i1 %.not.i51, label %84, label %72
 
@@ -1854,13 +1854,13 @@ Vec_IntSetEntry.exit67:                           ; preds = %Vec_IntSetEntry.exi
   %113 = add nsw i32 %108, 1
   %114 = getelementptr inbounds i8, ptr %111, i64 4
   %115 = load i32, ptr %114, align 4
-  %.not.i.not.i68 = icmp sgt i32 %115, %108
+  %.not.i.not.i68 = icmp slt i32 %108, %115
   br i1 %.not.i.not.i68, label %Vec_IntSetEntry.exit85, label %116
 
 116:                                              ; preds = %106
   %117 = load i32, ptr %111, align 8
   %118 = shl nsw i32 %117, 1
-  %.not.i69 = icmp sgt i32 %118, %108
+  %.not.i69 = icmp slt i32 %108, %118
   %.not.i.i.not.i70 = icmp sgt i32 %117, %108
   br i1 %.not.i69, label %131, label %119
 
@@ -2004,13 +2004,13 @@ define internal fastcc void @Vec_IntSetEntry(ptr nocapture noundef %0, i32 nound
   %4 = add nsw i32 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not.i.not = icmp sgt i32 %6, %1
+  %.not.i.not = icmp slt i32 %1, %6
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 8
   %9 = shl nsw i32 %8, 1
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   %.not.i.i.not = icmp sgt i32 %8, %1
   br i1 %.not, label %22, label %10
 

@@ -419,8 +419,8 @@ _ZN4nori6BitmapC2ERKNS_7TVectorIiLi2EEE.exit.preheader: ; preds = %_ZN5Eigen15Pl
   %39 = load ptr, ptr %0, align 8
   %40 = load i64, ptr %22, align 8
   %41 = mul nsw i64 %40, %35
-  %42 = getelementptr %"struct.nori::Color4f", ptr %39, i64 %41
-  %43 = getelementptr %"struct.nori::Color4f", ptr %42, i64 %38
+  %42 = getelementptr %"struct.nori::Color4f", ptr %39, i64 %38
+  %43 = getelementptr %"struct.nori::Color4f", ptr %42, i64 %41
   %44 = getelementptr inbounds i8, ptr %43, i64 12
   %45 = load float, ptr %44, align 4, !noalias !7
   %46 = fcmp une float %45, 0.000000e+00
@@ -444,8 +444,8 @@ _ZNK4nori7Color4f20divideByFilterWeightEv.exit:   ; preds = %32, %47
   %56 = load ptr, ptr %calloc, align 8
   %57 = load i64, ptr %23, align 8
   %58 = mul nsw i64 %57, %indvars.iv17
-  %59 = getelementptr %"struct.nori::Color3f", ptr %56, i64 %58
-  %60 = getelementptr %"struct.nori::Color3f", ptr %59, i64 %indvars.iv
+  %59 = getelementptr %"struct.nori::Color3f", ptr %56, i64 %indvars.iv
+  %60 = getelementptr %"struct.nori::Color3f", ptr %59, i64 %58
   store float %.sink6.i, ptr %60, align 4
   %61 = getelementptr inbounds i8, ptr %60, i64 4
   store float %.sink5.i, ptr %61, align 4
@@ -527,13 +527,13 @@ define hidden void @_ZN4nori10ImageBlock10fromBitmapERKNS_6BitmapE(ptr nocapture
   %26 = load ptr, ptr %0, align 8
   %27 = load i64, ptr %5, align 8
   %28 = mul nsw i64 %27, %indvars.iv25
-  %29 = getelementptr %"struct.nori::Color4f", ptr %26, i64 %28
-  %30 = getelementptr %"struct.nori::Color4f", ptr %29, i64 %indvars.iv
+  %29 = getelementptr %"struct.nori::Color4f", ptr %26, i64 %indvars.iv
+  %30 = getelementptr %"struct.nori::Color4f", ptr %29, i64 %28
   %31 = load ptr, ptr %1, align 8
   %32 = load i64, ptr %3, align 8
   %33 = mul nsw i64 %32, %indvars.iv25
-  %34 = getelementptr %"struct.nori::Color3f", ptr %31, i64 %33
-  %35 = getelementptr %"struct.nori::Color3f", ptr %34, i64 %indvars.iv
+  %34 = getelementptr %"struct.nori::Color3f", ptr %31, i64 %indvars.iv
+  %35 = getelementptr %"struct.nori::Color3f", ptr %34, i64 %33
   br label %.lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph
@@ -857,8 +857,8 @@ _ZNK4nori7Color3f8toStringB5cxx11Ev.exit:         ; preds = %22
   %133 = load ptr, ptr %0, align 8
   %134 = load i64, ptr %63, align 8
   %135 = mul nsw i64 %134, %indvars.iv101
-  %136 = getelementptr %"struct.nori::Color4f", ptr %133, i64 %135
-  %137 = getelementptr %"struct.nori::Color4f", ptr %136, i64 %indvars.iv92
+  %136 = getelementptr %"struct.nori::Color4f", ptr %133, i64 %indvars.iv92
+  %137 = getelementptr %"struct.nori::Color4f", ptr %136, i64 %135
   %138 = shufflevector <4 x float> %.sroa.236.20.vec.insert, <4 x float> poison, <4 x i32> zeroinitializer
   %139 = fmul <4 x float> %.sroa.0.12.vec.insert, %138
   %140 = insertelement <4 x float> poison, float %132, i64 0
@@ -1400,7 +1400,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIN4nori7Color3fELin1ELin
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
-  %.not = icmp eq i64 %9, %1
+  %.not = icmp eq i64 %1, %9
   br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %4
@@ -2281,7 +2281,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedIfEEvRSo
   %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   %12 = trunc i64 %11 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %12, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %12)
   %13 = sext i32 %.sroa.speculated to i64
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %10, i64 noundef %13)
           to label %15 unwind label %18
@@ -2334,7 +2334,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIN4nori7Color4fELin1ELin
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
-  %.not = icmp eq i64 %9, %1
+  %.not = icmp eq i64 %1, %9
   br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %4
@@ -2644,7 +2644,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6detail15formatTruncatedINSt7__c
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   %10 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   %11 = trunc i64 %10 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %11, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %11)
   %12 = sext i32 %.sroa.speculated to i64
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9, i64 noundef %12)
           to label %14 unwind label %17

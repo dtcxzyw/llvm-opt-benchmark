@@ -181,14 +181,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr [32 x %struct.VuDevRegion], ptr %regions, i64 0, i64 %indvars.iv
   %2 = load i64, ptr %arrayidx, align 8
-  %cmp2.not = icmp ugt i64 %2, %guest_addr
+  %cmp2.not = icmp ult i64 %guest_addr, %2
   br i1 %cmp2.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
   %size = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load i64, ptr %size, align 8
   %add = add i64 %3, %2
-  %cmp4 = icmp ugt i64 %add, %guest_addr
+  %cmp4 = icmp ult i64 %guest_addr, %add
   br i1 %cmp4, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %land.lhs.true
@@ -1639,7 +1639,7 @@ entry:
   %max_queues = getelementptr inbounds i8, ptr %dev, i64 1410
   %0 = load i16, ptr %max_queues, align 2
   %conv = zext i16 %0 to i32
-  %cmp = icmp sgt i32 %conv, %qidx
+  %cmp = icmp slt i32 %qidx, %conv
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -1789,14 +1789,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [32 x %struct.VuDevRegion], ptr %regions.i, i64 0, i64 %indvars.iv.i
   %16 = load i64, ptr %arrayidx.i, align 8
-  %cmp2.not.i = icmp ugt i64 %16, %14
+  %cmp2.not.i = icmp ult i64 %14, %16
   br i1 %cmp2.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %17 = load i64, ptr %size.i, align 8
   %add.i = add i64 %17, %16
-  %cmp4.i = icmp ugt i64 %add.i, %14
+  %cmp4.i = icmp ult i64 %14, %add.i
   br i1 %cmp4.i, label %if.then5.i46, label %for.inc.i
 
 if.then5.i46:                                     ; preds = %land.lhs.true.i
@@ -1852,14 +1852,14 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.c
   %indvars.iv.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i47 = getelementptr [32 x %struct.VuDevRegion], ptr %regions.i, i64 0, i64 %indvars.iv.i.i
   %26 = load i64, ptr %arrayidx.i.i47, align 8
-  %cmp2.not.i.i = icmp ugt i64 %26, %addr.addr.017.i
+  %cmp2.not.i.i = icmp ult i64 %addr.addr.017.i, %26
   br i1 %cmp2.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %size.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i47, i64 8
   %27 = load i64, ptr %size.i.i, align 8
   %add.i.i = add i64 %27, %26
-  %cmp4.i.i = icmp ugt i64 %add.i.i, %addr.addr.017.i
+  %cmp4.i.i = icmp ult i64 %addr.addr.017.i, %add.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %for.inc.i.i
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
@@ -2027,9 +2027,9 @@ entry:
   %out_total = alloca i32, align 4
   call void @vu_queue_get_avail_bytes(ptr noundef %dev, ptr noundef %vq, ptr noundef nonnull %in_total, ptr noundef nonnull %out_total, i32 noundef %in_bytes, i32 noundef %out_bytes)
   %0 = load i32, ptr %in_total, align 4
-  %cmp = icmp uge i32 %0, %in_bytes
+  %cmp = icmp ule i32 %in_bytes, %0
   %1 = load i32, ptr %out_total, align 4
-  %cmp1 = icmp uge i32 %1, %out_bytes
+  %cmp1 = icmp ule i32 %out_bytes, %1
   %2 = select i1 %cmp, i1 %cmp1, i1 false
   ret i1 %2
 }
@@ -2204,7 +2204,7 @@ if.then20:                                        ; preds = %land.lhs.true
   store i32 %conv22, ptr %payload, align 4
   %and.i.i21 = and i64 %dev.val17, 8
   %tobool.i.i22 = icmp ne i64 %and.i.i21, 0
-  %or.cond26 = and i1 %tobool.i.i22, %sync
+  %or.cond26 = and i1 %sync, %tobool.i.i22
   br i1 %or.cond26, label %if.then34, label %if.end31.thread
 
 if.end31.thread:                                  ; preds = %if.then20
@@ -2524,14 +2524,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [32 x %struct.VuDevRegion], ptr %regions.i, i64 0, i64 %indvars.iv.i
   %6 = load i64, ptr %arrayidx.i, align 8
-  %cmp2.not.i = icmp ugt i64 %6, %4
+  %cmp2.not.i = icmp ult i64 %4, %6
   br i1 %cmp2.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %7 = load i64, ptr %size.i, align 8
   %add.i = add i64 %7, %6
-  %cmp4.i = icmp ugt i64 %add.i, %4
+  %cmp4.i = icmp ult i64 %4, %add.i
   br i1 %cmp4.i, label %if.then5.i, label %for.inc.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
@@ -2587,14 +2587,14 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.c
   %indvars.iv.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr [32 x %struct.VuDevRegion], ptr %regions.i, i64 0, i64 %indvars.iv.i.i
   %16 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp2.not.i.i = icmp ugt i64 %16, %addr.addr.017.i
+  %cmp2.not.i.i = icmp ult i64 %addr.addr.017.i, %16
   br i1 %cmp2.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %size.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %17 = load i64, ptr %size.i.i, align 8
   %add.i.i = add i64 %17, %16
-  %cmp4.i.i = icmp ugt i64 %add.i.i, %addr.addr.017.i
+  %cmp4.i.i = icmp ult i64 %addr.addr.017.i, %add.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %for.inc.i.i
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
@@ -2804,7 +2804,7 @@ define dso_local noundef zeroext i1 @vu_queue_rewind(ptr nocapture noundef readn
 entry:
   %inuse = getelementptr inbounds i8, ptr %vq, i64 92
   %0 = load i32, ptr %inuse, align 4
-  %cmp = icmp uge i32 %0, %num
+  %cmp = icmp ule i32 %num, %0
   br i1 %cmp, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2883,14 +2883,14 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr [32 x %struct.VuDevRegion], ptr %regions.i.i, i64 0, i64 %indvars.iv.i.i
   %9 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp2.not.i.i = icmp ugt i64 %9, %7
+  %cmp2.not.i.i = icmp ult i64 %7, %9
   br i1 %cmp2.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %size.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %10 = load i64, ptr %size.i.i, align 8
   %add.i.i = add i64 %10, %9
-  %cmp4.i.i = icmp ugt i64 %add.i.i, %7
+  %cmp4.i.i = icmp ult i64 %7, %add.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %for.inc.i.i
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
@@ -2946,14 +2946,14 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   %indvars.iv.i.i.i = phi i64 [ 0, %for.cond.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr [32 x %struct.VuDevRegion], ptr %regions.i.i, i64 0, i64 %indvars.iv.i.i.i
   %19 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp2.not.i.i.i = icmp ugt i64 %19, %addr.addr.017.i.i
+  %cmp2.not.i.i.i = icmp ult i64 %addr.addr.017.i.i, %19
   br i1 %cmp2.not.i.i.i, label %for.inc.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.body.i.i.i
   %size.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %20 = load i64, ptr %size.i.i.i, align 8
   %add.i.i.i = add i64 %20, %19
-  %cmp4.i.i.i = icmp ugt i64 %add.i.i.i, %addr.addr.017.i.i
+  %cmp4.i.i.i = icmp ult i64 %addr.addr.017.i.i, %add.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %for.inc.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
@@ -3064,7 +3064,7 @@ vu_log_queue_fill.exit:                           ; preds = %do.cond.i, %land.rh
   %used_idx = getelementptr inbounds i8, ptr %vq, i64 84
   %31 = load i16, ptr %used_idx, align 4
   %conv12 = zext i16 %31 to i32
-  %add = add i32 %conv12, %idx
+  %add = add i32 %idx, %conv12
   %32 = load i32, ptr %vq, align 8
   %rem = urem i32 %add, %32
   %33 = load i32, ptr %elem, align 8
@@ -4697,7 +4697,7 @@ entry:
   %max_queues = getelementptr inbounds i8, ptr %dev, i64 1410
   %0 = load i16, ptr %max_queues, align 2
   %conv = zext i16 %0 to i32
-  %cmp.not = icmp ugt i32 %conv, %vmsg.12.val
+  %cmp.not = icmp ult i32 %vmsg.12.val, %conv
   br i1 %cmp.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -5104,14 +5104,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr [32 x %struct.VuDevRegion], ptr %regions.i, i64 0, i64 %indvars.iv.i
   %qva.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %2 = load i64, ptr %qva.i, align 8
-  %cmp1.not.i = icmp ugt i64 %2, %0
+  %cmp1.not.i = icmp ult i64 %0, %2
   br i1 %cmp1.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %3 = load i64, ptr %size.i, align 8
   %add.i = add i64 %3, %2
-  %cmp3.i = icmp ugt i64 %add.i, %0
+  %cmp3.i = icmp ult i64 %0, %add.i
   br i1 %cmp3.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -5151,14 +5151,14 @@ for.body.i16:                                     ; preds = %for.inc.i25, %for.b
   %arrayidx.i18 = getelementptr [32 x %struct.VuDevRegion], ptr %regions.i14, i64 0, i64 %indvars.iv.i17
   %qva.i19 = getelementptr inbounds i8, ptr %arrayidx.i18, i64 16
   %9 = load i64, ptr %qva.i19, align 8
-  %cmp1.not.i20 = icmp ugt i64 %9, %7
+  %cmp1.not.i20 = icmp ult i64 %7, %9
   br i1 %cmp1.not.i20, label %for.inc.i25, label %land.lhs.true.i21
 
 land.lhs.true.i21:                                ; preds = %for.body.i16
   %size.i22 = getelementptr inbounds i8, ptr %arrayidx.i18, i64 8
   %10 = load i64, ptr %size.i22, align 8
   %add.i23 = add i64 %10, %9
-  %cmp3.i24 = icmp ugt i64 %add.i23, %7
+  %cmp3.i24 = icmp ult i64 %7, %add.i23
   br i1 %cmp3.i24, label %if.then.i29, label %for.inc.i25
 
 if.then.i29:                                      ; preds = %land.lhs.true.i21
@@ -5198,14 +5198,14 @@ for.body.i42:                                     ; preds = %for.inc.i51, %for.b
   %arrayidx.i44 = getelementptr [32 x %struct.VuDevRegion], ptr %regions.i40, i64 0, i64 %indvars.iv.i43
   %qva.i45 = getelementptr inbounds i8, ptr %arrayidx.i44, i64 16
   %16 = load i64, ptr %qva.i45, align 8
-  %cmp1.not.i46 = icmp ugt i64 %16, %14
+  %cmp1.not.i46 = icmp ult i64 %14, %16
   br i1 %cmp1.not.i46, label %for.inc.i51, label %land.lhs.true.i47
 
 land.lhs.true.i47:                                ; preds = %for.body.i42
   %size.i48 = getelementptr inbounds i8, ptr %arrayidx.i44, i64 8
   %17 = load i64, ptr %size.i48, align 8
   %add.i49 = add i64 %17, %16
-  %cmp3.i50 = icmp ugt i64 %add.i49, %14
+  %cmp3.i50 = icmp ult i64 %14, %add.i49
   br i1 %cmp3.i50, label %if.then.i55, label %for.inc.i51
 
 if.then.i55:                                      ; preds = %land.lhs.true.i47
@@ -5437,14 +5437,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [32 x %struct.VuDevRegion], ptr %regions.i, i64 0, i64 %indvars.iv.i
   %2 = load i64, ptr %arrayidx.i, align 8
-  %cmp2.not.i = icmp ugt i64 %2, %pa.addr.032
+  %cmp2.not.i = icmp ult i64 %pa.addr.032, %2
   br i1 %cmp2.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %3 = load i64, ptr %size.i, align 8
   %add.i = add i64 %3, %2
-  %cmp4.i = icmp ugt i64 %add.i, %pa.addr.032
+  %cmp4.i = icmp ult i64 %pa.addr.032, %add.i
   br i1 %cmp4.i, label %if.then5.i, label %for.inc.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i

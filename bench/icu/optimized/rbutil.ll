@@ -77,13 +77,13 @@ do.body:                                          ; preds = %do.body, %entry
   %arrayidx2 = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv
   store i8 %0, ptr %arrayidx2, align 1
   %div = udiv i32 %i.addr.1, %radix
-  %tobool.not = icmp ult i32 %i.addr.1, %radix
+  %tobool.not = icmp ugt i32 %radix, %i.addr.1
   br i1 %tobool.not, label %while.cond.preheader, label %do.body, !llvm.loop !5
 
 while.cond.preheader:                             ; preds = %do.body
   %cmp = icmp slt i32 %i, 0
   %1 = trunc nuw i64 %indvars.iv.next to i32
-  %cmp331 = icmp slt i32 %1, %pad
+  %cmp331 = icmp sgt i32 %pad, %1
   br i1 %cmp331, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %while.cond.preheader
@@ -119,7 +119,7 @@ if.then14:                                        ; preds = %if.end12
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %if.end12
-  %cond = tail call i32 @llvm.smax.i32(i32 %length.2, i32 %pad)
+  %cond = tail call i32 @llvm.smax.i32(i32 %pad, i32 %length.2)
   %cmp2033 = icmp sgt i32 %cond, 1
   br i1 %cmp2033, label %for.body.preheader, label %for.end
 

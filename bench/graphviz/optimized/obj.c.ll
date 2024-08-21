@@ -14,7 +14,7 @@ define i32 @agdelete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 6:                                                ; preds = %2
   %7 = tail call ptr @agparent(ptr noundef nonnull %1) #4
-  %.not = icmp eq ptr %7, %0
+  %.not = icmp eq ptr %0, %7
   br i1 %.not, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %6

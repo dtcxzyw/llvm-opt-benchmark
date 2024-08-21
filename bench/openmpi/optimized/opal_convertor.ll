@@ -150,7 +150,7 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
   %13 = getelementptr inbounds i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %13, ptr noundef nonnull align 16 dereferenceable(224) @opal_datatype_local_sizes, i64 224, i1 false)
   %14 = load i32, ptr @opal_local_arch, align 4
-  %15 = icmp eq i32 %14, %0
+  %15 = icmp eq i32 %0, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %7

@@ -906,7 +906,7 @@ define hidden void @_ZN6uu_env15string_expander14StringExpander10put_string17h14
   %12 = load i64, ptr %11, align 8, !alias.scope !243, !noundef !4
   %13 = load i64, ptr %0, align 8, !alias.scope !246, !noundef !4
   %14 = sub i64 %13, %12
-  %15 = icmp ult i64 %14, %8
+  %15 = icmp ugt i64 %8, %14
   br i1 %15, label %24, label %.thread
 
 .thread:                                          ; preds = %2
@@ -999,7 +999,7 @@ define hidden void @_ZN6uu_env15string_expander14StringExpander10put_string17h9a
   %13 = load i64, ptr %12, align 8, !alias.scope !267, !noundef !4
   %14 = load i64, ptr %0, align 8, !alias.scope !270, !noundef !4
   %15 = sub i64 %14, %13
-  %16 = icmp ult i64 %15, %9
+  %16 = icmp ugt i64 %9, %15
   br i1 %16, label %27, label %.thread
 
 .thread:                                          ; preds = %2

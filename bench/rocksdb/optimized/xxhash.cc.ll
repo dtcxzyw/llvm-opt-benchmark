@@ -222,7 +222,7 @@ if.end3:                                          ; preds = %entry
   %memsize = getelementptr inbounds i8, ptr %state, i64 40
   %2 = load i32, ptr %memsize, align 4
   %conv10 = zext i32 %2 to i64
-  %add11 = add i64 %conv10, %len
+  %add11 = add i64 %len, %conv10
   %cmp12 = icmp ult i64 %add11, 16
   br i1 %cmp12, label %if.then13, label %if.end19
 
@@ -710,7 +710,7 @@ if.end3:                                          ; preds = %entry
   %memsize = getelementptr inbounds i8, ptr %state, i64 72
   %1 = load i32, ptr %memsize, align 8
   %conv = zext i32 %1 to i64
-  %add4 = add i64 %conv, %len
+  %add4 = add i64 %len, %conv
   %cmp5 = icmp ult i64 %add4, 32
   br i1 %cmp5, label %if.then6, label %if.end12
 
@@ -1131,7 +1131,7 @@ if.then8.i:                                       ; preds = %if.end7.i
   %add.ptr.val.i37.i = load i32, ptr %add.ptr.i36.i, align 1
   %xor.i38.i = xor i32 %add.ptr.val.i37.i, %secret.val.i.i
   %conv19.i.i = zext i32 %xor.i38.i to i64
-  %add.i39.i = add i64 %conv19.i.i, %seed64
+  %add.i39.i = add i64 %seed64, %conv19.i.i
   %or.i.i = or disjoint i64 %shl.i35.i, %shl16.i.i
   %or14.i.i = or disjoint i64 %or.i.i, %shl11.i.i
   %conv20.i.i = or disjoint i64 %or14.i.i, %conv12.i.i
@@ -2441,7 +2441,7 @@ ROCKSDB_XXH3_64bits_reset.exit:                   ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %seed4 = getelementptr inbounds i8, ptr %statePtr, i64 552
   %0 = load i64, ptr %seed4, align 8
-  %cmp5.not = icmp eq i64 %0, %seed
+  %cmp5.not = icmp eq i64 %seed, %0
   br i1 %cmp5.not, label %lor.lhs.false, label %if.then7
 
 lor.lhs.false:                                    ; preds = %if.end3
@@ -2594,7 +2594,7 @@ if.end3:                                          ; preds = %entry
   %cmp11 = icmp ult i32 %2, 257
   tail call void @llvm.assume(i1 %cmp11)
   %conv = zext nneg i32 %2 to i64
-  %add15 = add i64 %conv, %len
+  %add15 = add i64 %len, %conv
   %cmp16 = icmp ult i64 %add15, 257
   br i1 %cmp16, label %if.then17, label %do.end
 
@@ -3512,7 +3512,7 @@ if.then8.i:                                       ; preds = %if.end7.i
   %add.ptr.val.i51.i = load i32, ptr %add.ptr.i50.i, align 1
   %xor.i52.i = xor i32 %add.ptr.val.i51.i, %secret.val.i.i
   %conv20.i.i = zext i32 %xor.i52.i to i64
-  %add.i53.i = add i64 %conv20.i.i, %seed64
+  %add.i53.i = add i64 %seed64, %conv20.i.i
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %secret, i64 8
   %add.ptr21.val.i.i = load i32, ptr %add.ptr21.i.i, align 1
   %add.ptr23.i.i = getelementptr inbounds i8, ptr %secret, i64 12
@@ -4225,7 +4225,7 @@ ROCKSDB_XXH3_64bits_reset.exit.i:                 ; preds = %if.end.i
 if.end3.i:                                        ; preds = %if.end.i
   %seed4.i = getelementptr inbounds i8, ptr %statePtr, i64 552
   %0 = load i64, ptr %seed4.i, align 8
-  %cmp5.not.i = icmp eq i64 %0, %seed
+  %cmp5.not.i = icmp eq i64 %seed, %0
   br i1 %cmp5.not.i, label %lor.lhs.false.i, label %if.then7.i
 
 lor.lhs.false.i:                                  ; preds = %if.end3.i

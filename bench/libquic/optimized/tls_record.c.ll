@@ -403,7 +403,7 @@ if.then:                                          ; preds = %ssl_needs_record_sp
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 1
   %cmp5.not = icmp ule ptr %add.ptr, %out
   %add.ptr8 = getelementptr inbounds i8, ptr %in, i64 %in_len
-  %cmp9 = icmp ugt ptr %add.ptr8, %out
+  %cmp9 = icmp ult ptr %out, %add.ptr8
   %or.cond26 = select i1 %cmp5.not, i1 %cmp9, i1 false
   br i1 %or.cond26, label %if.then11, label %if.end
 
@@ -412,7 +412,7 @@ if.then11:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %cmp13.not = icmp uge ptr %add.ptr, %out
+  %cmp13.not = icmp ule ptr %out, %add.ptr
   %add.ptr17 = getelementptr inbounds i8, ptr %out, i64 %max_out
   %cmp18 = icmp ult ptr %add.ptr, %add.ptr17
   %or.cond27 = select i1 %cmp13.not, i1 %cmp18, i1 false
@@ -465,9 +465,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 5
-  %cmp1 = icmp ugt ptr %add.ptr, %in
+  %cmp1 = icmp ult ptr %in, %add.ptr
   %add.ptr2 = getelementptr inbounds i8, ptr %in, i64 %in_len
-  %cmp3 = icmp ugt ptr %add.ptr2, %out
+  %cmp3 = icmp ult ptr %out, %add.ptr2
   %or.cond = select i1 %cmp1, i1 %cmp3, i1 false
   br i1 %or.cond, label %if.then4, label %if.end5
 

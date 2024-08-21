@@ -2174,14 +2174,14 @@ define internal noundef i32 @vhost_user_get_vq_index(ptr nocapture noundef reado
 entry:
   %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
   %0 = load i32, ptr %vq_index, align 4
-  %cmp.not = icmp sgt i32 %0, %idx
+  %cmp.not = icmp slt i32 %idx, %0
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
   %1 = load i32, ptr %nvqs, align 8
   %add = add i32 %1, %0
-  %cmp2 = icmp ugt i32 %add, %idx
+  %cmp2 = icmp ult i32 %idx, %add
   br i1 %cmp2, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %entry
@@ -2938,7 +2938,7 @@ if.end:                                           ; preds = %entry
   %vq_index_end = getelementptr inbounds i8, ptr %dev, i64 448
   %3 = load i32, ptr %vq_index_end, align 8
   %cmp.not = icmp eq i32 %add, %3
-  %brmerge.not = and i1 %cmp.not, %started
+  %brmerge.not = and i1 %started, %cmp.not
   br i1 %brmerge.not, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
@@ -3696,7 +3696,7 @@ if.then3:                                         ; preds = %if.then
 if.end4:                                          ; preds = %if.then, %if.then3, %entry
   %call5 = tail call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef %msg, ptr noundef null, i32 noundef 0)
   %cmp = icmp sgt i32 %call5, -1
-  %brmerge.not = and i1 %cmp, %wait_for_reply
+  %brmerge.not = and i1 %wait_for_reply, %cmp
   %call5.mux = select i1 %cmp, i32 0, i32 %call5
   br i1 %brmerge.not, label %if.then9, label %return
 
@@ -4042,7 +4042,7 @@ if.end:                                           ; preds = %lor.lhs.false5
   %6 = load ptr, ptr %notifiers.i, align 8
   %len.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %len.i, align 8
-  %cmp.not.i = icmp ugt i32 %7, %conv
+  %cmp.not.i = icmp ult i32 %conv, %7
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -4578,14 +4578,14 @@ land.lhs.true:                                    ; preds = %for.body
   %13 = load ptr, ptr %region_rb_offset, align 8
   %arrayidx8 = getelementptr i64, ptr %13, i64 %conv59
   %14 = load i64, ptr %arrayidx8, align 8
-  %cmp9.not = icmp ugt i64 %14, %offset
+  %cmp9.not = icmp ult i64 %offset, %14
   br i1 %cmp9.not, label %for.inc, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
   %memory_size = getelementptr [0 x %struct.vhost_memory_region], ptr %regions, i64 0, i64 %conv59, i32 1
   %15 = load i64, ptr %memory_size, align 8
   %add = add i64 %15, %14
-  %cmp18 = icmp ugt i64 %add, %offset
+  %cmp18 = icmp ult i64 %offset, %add
   br i1 %cmp18, label %if.then20, label %for.inc
 
 if.then20:                                        ; preds = %land.lhs.true11
@@ -5710,12 +5710,12 @@ if.end:                                           ; preds = %if.end16.i.i
   %5 = load i64, ptr %payload.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i.i)
   %conv.i = trunc i64 %5 to i8
-  %and5 = and i8 %conv.i, %status
+  %and5 = and i8 %status, %conv.i
   %cmp3 = icmp eq i8 %and5, %status
   br i1 %cmp3, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %or = or i8 %conv.i, %status
+  %or = or i8 %status, %conv.i
   %conv.i7 = zext i8 %or to i64
   call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg.i.i6)
   %6 = getelementptr inbounds i8, ptr %msg.i.i6, i64 20

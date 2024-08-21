@@ -36,7 +36,7 @@ define i32 @softfloat_roundPackToF32(i1 noundef zeroext %0, i64 noundef %1, i64 
 
 20:                                               ; preds = %16
   %21 = zext nneg i8 %.046 to i64
-  %22 = add i64 %21, %2
+  %22 = add i64 %2, %21
   %23 = icmp ult i64 %22, 2147483648
   br label %24
 
@@ -82,7 +82,7 @@ softfloat_shiftRightJam32.exit:                   ; preds = %29, %38
 
 49:                                               ; preds = %47
   %50 = zext nneg i8 %.046 to i64
-  %51 = add i64 %50, %2
+  %51 = add i64 %2, %50
   %52 = icmp ugt i64 %51, 2147483647
   br i1 %52, label %53, label %56
 

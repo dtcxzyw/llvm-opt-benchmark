@@ -192,7 +192,7 @@ enough_space.exit:                                ; preds = %65
   %73 = uitofp i64 %2 to double
   %74 = fmul double %73, 5.000000e-02
   %75 = fptoui double %74 to i64
-  %76 = add i64 %75, %2
+  %76 = add i64 %2, %75
   %.not17.i.not = icmp ult i64 %70, %76
   br i1 %.not17.i.not, label %77, label %85
 

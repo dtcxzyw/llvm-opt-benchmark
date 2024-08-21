@@ -395,7 +395,7 @@ declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 define internal fastcc i32 @avlCollectFields(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %1
+  %7 = icmp eq ptr %1, %6
   br i1 %7, label %tailrecurse._crit_edge, label %tailrecurse
 
 tailrecurse:                                      ; preds = %4, %tailrecurse
@@ -411,7 +411,7 @@ tailrecurse:                                      ; preds = %4, %tailrecurse
   %14 = load ptr, ptr %13, align 8
   %15 = add i32 %10, 1
   %16 = load ptr, ptr %5, align 8
-  %17 = icmp eq ptr %16, %14
+  %17 = icmp eq ptr %14, %16
   br i1 %17, label %tailrecurse._crit_edge, label %tailrecurse
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
@@ -605,7 +605,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   br i1 %exitcond145.not, label %._crit_edge119, label %42, !llvm.loop !13
 
 ._crit_edge119:                                   ; preds = %42, %._crit_edge115
-  %54 = mul i32 %14, %4
+  %54 = mul i32 %4, %14
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds i8, ptr %10, i64 56
   store i64 %55, ptr %56, align 8
@@ -781,12 +781,12 @@ define internal fastcc void @avlFree(ptr noundef %0, ptr noundef %1) unnamed_add
 15:                                               ; preds = %13, %9
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, %1
+  %18 = icmp eq ptr %1, %17
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %5, align 8
-  %.not19 = icmp eq ptr %20, %1
+  %.not19 = icmp eq ptr %1, %20
   br i1 %.not19, label %22, label %21
 
 21:                                               ; preds = %19

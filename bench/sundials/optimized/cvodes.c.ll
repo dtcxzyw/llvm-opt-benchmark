@@ -4380,7 +4380,7 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %0, i64 2392
   %42 = load ptr, ptr %41, align 8
-  %.not137 = icmp eq ptr %42, %2
+  %.not137 = icmp eq ptr %2, %42
   br i1 %.not137, label %116, label %43
 
 43:                                               ; preds = %40
@@ -6005,7 +6005,7 @@ thread-pre-split:                                 ; preds = %444, %440
   %822 = load ptr, ptr %582, align 8
   %823 = load ptr, ptr %583, align 8
   %824 = call double @N_VWrmsNorm(ptr noundef %822, ptr noundef %823) #13
-  %825 = fcmp olt double %824, %817
+  %825 = fcmp ogt double %817, %824
   %..i = select i1 %825, double %817, double %824
   br label %826
 
@@ -6049,7 +6049,7 @@ thread-pre-split:                                 ; preds = %444, %440
 
 cvSensUpdateNorm.exit:                            ; preds = %.lr.ph.i.i, %830
   %.0.lcssa.i.i = phi double [ %837, %830 ], [ %.1.i.i, %.lr.ph.i.i ]
-  %843 = fcmp olt double %.0.lcssa.i.i, %.0495
+  %843 = fcmp ogt double %.0495, %.0.lcssa.i.i
   %..i574 = select i1 %843, double %.0495, double %.0.lcssa.i.i
   br label %844
 
@@ -6093,7 +6093,7 @@ cvSensUpdateNorm.exit:                            ; preds = %.lr.ph.i.i, %830
 
 cvQuadSensUpdateNorm.exit:                        ; preds = %.lr.ph.i.i579, %848
   %.0.lcssa.i.i575 = phi double [ %855, %848 ], [ %.1.i.i582, %.lr.ph.i.i579 ]
-  %861 = fcmp olt double %.0.lcssa.i.i575, %.1
+  %861 = fcmp ogt double %.1, %.0.lcssa.i.i575
   %..i576 = select i1 %861, double %.1, double %.0.lcssa.i.i575
   br label %862
 
@@ -8000,7 +8000,7 @@ cvCompleteStep.exit.i:                            ; preds = %1701, %1654, %1650
   %1768 = load ptr, ptr %1767, align 8
   %1769 = load ptr, ptr %583, align 8
   %1770 = call double @N_VWrmsNorm(ptr noundef %1768, ptr noundef %1769) #13
-  %1771 = fcmp olt double %1770, %1760
+  %1771 = fcmp ogt double %1760, %1770
   %..i.i.i.i = select i1 %1771, double %1760, double %1770
   br label %1772
 
@@ -8047,7 +8047,7 @@ cvCompleteStep.exit.i:                            ; preds = %1701, %1654, %1650
 
 cvSensUpdateNorm.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %1776
   %.0.lcssa.i.i.i.i.i = phi double [ %1786, %1776 ], [ %.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %1792 = fcmp olt double %.0.lcssa.i.i.i.i.i, %.0.i.i.i
+  %1792 = fcmp ogt double %.0.i.i.i, %.0.lcssa.i.i.i.i.i
   %..i38.i.i.i = select i1 %1792, double %.0.i.i.i, double %.0.lcssa.i.i.i.i.i
   br label %1793
 
@@ -8094,7 +8094,7 @@ cvSensUpdateNorm.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
 
 cvQuadSensUpdateNorm.exit.i.i.i:                  ; preds = %.lr.ph.i.i43.i.i.i, %1797
   %.0.lcssa.i.i39.i.i.i = phi double [ %1807, %1797 ], [ %.1.i.i46.i.i.i, %.lr.ph.i.i43.i.i.i ]
-  %1813 = fcmp olt double %.0.lcssa.i.i39.i.i.i, %.1.i.i.i
+  %1813 = fcmp ogt double %.1.i.i.i, %.0.lcssa.i.i39.i.i.i
   %..i40.i.i.i = select i1 %1813, double %.1.i.i.i, double %.0.lcssa.i.i39.i.i.i
   br label %1814
 
@@ -8128,14 +8128,14 @@ cvComputeEtaqm1.exit.i.i:                         ; preds = %1814, %1752
 
 1830:                                             ; preds = %1827
   %1831 = load double, ptr %616, align 8
-  %1832 = load double, ptr %572, align 8
-  %1833 = load double, ptr %692, align 8
-  %1834 = fdiv double %1832, %1833
-  %1835 = load i32, ptr %604, align 8
-  %1836 = call double @SUNRpowerI(double noundef %1834, i32 noundef %1835) #13
-  %1837 = fneg double %1831
-  %1838 = fdiv double %1837, %1828
-  %1839 = fmul double %1838, %1836
+  %1832 = fdiv double %1831, %1828
+  %1833 = load double, ptr %572, align 8
+  %1834 = load double, ptr %692, align 8
+  %1835 = fdiv double %1833, %1834
+  %1836 = load i32, ptr %604, align 8
+  %1837 = call double @SUNRpowerI(double noundef %1835, i32 noundef %1836) #13
+  %1838 = fneg double %1837
+  %1839 = fmul double %1832, %1838
   %1840 = load i32, ptr %693, align 8
   %1841 = sext i32 %1840 to i64
   %1842 = getelementptr inbounds [13 x ptr], ptr %577, i64 0, i64 %1841
@@ -8166,7 +8166,7 @@ cvComputeEtaqm1.exit.i.i:                         ; preds = %1814, %1752
   %1859 = load ptr, ptr %682, align 8
   %1860 = load ptr, ptr %583, align 8
   %1861 = call double @N_VWrmsNorm(ptr noundef %1859, ptr noundef %1860) #13
-  %1862 = fcmp olt double %1861, %1848
+  %1862 = fcmp ogt double %1848, %1861
   %..i.i26.i.i = select i1 %1862, double %1848, double %1861
   br label %1863
 
@@ -8218,7 +8218,7 @@ cvComputeEtaqm1.exit.i.i:                         ; preds = %1814, %1752
 
 cvSensUpdateNorm.exit.i27.i.i:                    ; preds = %.lr.ph.i.i.i34.i.i, %1867
   %.0.lcssa.i.i.i28.i.i = phi double [ %1882, %1867 ], [ %.1.i.i.i37.i.i, %.lr.ph.i.i.i34.i.i ]
-  %1888 = fcmp olt double %.0.lcssa.i.i.i28.i.i, %.059.i.i.i
+  %1888 = fcmp ogt double %.059.i.i.i, %.0.lcssa.i.i.i28.i.i
   %..i67.i.i.i = select i1 %1888, double %.059.i.i.i, double %.0.lcssa.i.i.i28.i.i
   br label %1889
 
@@ -8270,7 +8270,7 @@ cvSensUpdateNorm.exit.i27.i.i:                    ; preds = %.lr.ph.i.i.i34.i.i,
 
 cvSensUpdateNorm.exit78.i.i.i:                    ; preds = %.lr.ph.i.i72.i.i.i, %1893
   %.0.lcssa.i.i68.i.i.i = phi double [ %1908, %1893 ], [ %.1.i.i75.i.i.i, %.lr.ph.i.i72.i.i.i ]
-  %1914 = fcmp olt double %.0.lcssa.i.i68.i.i.i, %.1.i29.i.i
+  %1914 = fcmp ogt double %.1.i29.i.i, %.0.lcssa.i.i68.i.i.i
   %..i69.i.i.i = select i1 %1914, double %.1.i29.i.i, double %.0.lcssa.i.i68.i.i.i
   br label %1915
 
@@ -8673,8 +8673,8 @@ cvPrepareNextStep.exit.i:                         ; preds = %2037, %2031, %2008,
   store double %2125, ptr %2126, align 8
   %2127 = getelementptr inbounds [4 x double], ptr %715, i64 0, i64 %indvars.iv382.i.i.i
   %2128 = load double, ptr %2127, align 8
-  %2129 = fneg double %2090
-  %2130 = fmul double %2128, %2129
+  %2129 = fneg double %2128
+  %2130 = fmul double %2090, %2129
   %2131 = call double @llvm.fmuladd.f64(double %2122, double %2120, double %2130)
   %2132 = getelementptr inbounds [4 x double], ptr %716, i64 0, i64 %indvars.iv382.i.i.i
   store double %2131, ptr %2132, align 8
@@ -8682,12 +8682,12 @@ cvPrepareNextStep.exit.i:                         ; preds = %2037, %2031, %2008,
   store double 0.000000e+00, ptr %2133, align 8
   %2134 = getelementptr inbounds [4 x double], ptr %718, i64 0, i64 %indvars.iv382.i.i.i
   %2135 = load double, ptr %2134, align 8
-  %2136 = fneg double %2120
-  %2137 = fmul double %2128, %2136
-  %2138 = call double @llvm.fmuladd.f64(double %2122, double %2135, double %2137)
-  %2139 = getelementptr inbounds [4 x double], ptr %719, i64 0, i64 %indvars.iv382.i.i.i
-  store double %2138, ptr %2139, align 8
-  %2140 = fmul double %2135, %2136
+  %2136 = fmul double %2120, %2129
+  %2137 = call double @llvm.fmuladd.f64(double %2122, double %2135, double %2136)
+  %2138 = getelementptr inbounds [4 x double], ptr %719, i64 0, i64 %indvars.iv382.i.i.i
+  store double %2137, ptr %2138, align 8
+  %2139 = fneg double %2135
+  %2140 = fmul double %2120, %2139
   %2141 = call double @llvm.fmuladd.f64(double %2128, double %2128, double %2140)
   %2142 = getelementptr inbounds [4 x double], ptr %720, i64 0, i64 %indvars.iv382.i.i.i
   store double %2141, ptr %2142, align 8
@@ -10099,7 +10099,7 @@ cvSensRhsWrapper.exit.i:                          ; preds = %.lr.ph.i.i, %227
   %285 = load ptr, ptr %139, align 8
   %286 = load ptr, ptr %156, align 8
   %287 = tail call double @N_VWrmsNorm(ptr noundef %285, ptr noundef %286) #13
-  %288 = fcmp olt double %287, %278
+  %288 = fcmp ogt double %278, %287
   %..i.i = select i1 %288, double %278, double %287
   br label %289
 
@@ -10151,7 +10151,7 @@ cvSensRhsWrapper.exit.i:                          ; preds = %.lr.ph.i.i, %227
 
 cvSensUpdateNorm.exit:                            ; preds = %.lr.ph.i.i99, %298
   %.0.lcssa.i.i = phi double [ %305, %298 ], [ %.1.i.i, %.lr.ph.i.i99 ]
-  %311 = fcmp olt double %.0.lcssa.i.i, %.3
+  %311 = fcmp ogt double %.3, %.0.lcssa.i.i
   %..i = select i1 %311, double %.3, double %.0.lcssa.i.i
   br label %312
 
@@ -11625,7 +11625,7 @@ define range(i32 -28, 1) i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 960
   %14 = load i32, ptr %13, align 8
-  %15 = icmp slt i32 %14, %2
+  %15 = icmp sgt i32 %2, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12, %10
@@ -12148,7 +12148,7 @@ define double @cvSensUpdateNorm(ptr nocapture noundef readonly %0, double nounde
 
 cvSensNorm.exit:                                  ; preds = %.lr.ph.i, %4
   %.0.lcssa.i = phi double [ %11, %4 ], [ %.1.i, %.lr.ph.i ]
-  %17 = fcmp olt double %.0.lcssa.i, %1
+  %17 = fcmp ogt double %1, %.0.lcssa.i
   %. = select i1 %17, double %1, double %.0.lcssa.i
   ret double %.
 }
@@ -12183,7 +12183,7 @@ define internal fastcc double @cvQuadSensUpdateNorm(ptr nocapture noundef readon
 
 cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i, %4
   %.0.lcssa.i = phi double [ %11, %4 ], [ %.1.i, %.lr.ph.i ]
-  %17 = fcmp olt double %.0.lcssa.i, %1
+  %17 = fcmp ogt double %1, %.0.lcssa.i
   %. = select i1 %17, double %1, double %.0.lcssa.i
   ret double %.
 }
@@ -12318,7 +12318,7 @@ define range(i32 -30, 1) i32 @CVodeGetQuadDky(ptr noundef %0, double noundef %1,
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %0, i64 960
   %18 = load i32, ptr %17, align 8
-  %19 = icmp slt i32 %18, %2
+  %19 = icmp sgt i32 %2, %18
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16, %14
@@ -12586,7 +12586,7 @@ define range(i32 -45, 1) i32 @CVodeGetSensDky1(ptr noundef %0, double noundef %1
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %0, i64 960
   %19 = load i32, ptr %18, align 8
-  %20 = icmp slt i32 %19, %2
+  %20 = icmp sgt i32 %2, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17, %15
@@ -12600,7 +12600,7 @@ define range(i32 -45, 1) i32 @CVodeGetSensDky1(ptr noundef %0, double noundef %1
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %0, i64 144
   %26 = load i32, ptr %25, align 8
-  %.not78 = icmp sgt i32 %26, %3
+  %.not78 = icmp slt i32 %3, %26
   br i1 %.not78, label %28, label %27
 
 27:                                               ; preds = %24, %22
@@ -12871,7 +12871,7 @@ define range(i32 -50, 1) i32 @CVodeGetQuadSensDky1(ptr noundef %0, double nounde
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %0, i64 960
   %19 = load i32, ptr %18, align 8
-  %20 = icmp slt i32 %19, %2
+  %20 = icmp sgt i32 %2, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17, %15
@@ -12885,7 +12885,7 @@ define range(i32 -50, 1) i32 @CVodeGetQuadSensDky1(ptr noundef %0, double nounde
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %0, i64 144
   %26 = load i32, ptr %25, align 8
-  %.not78 = icmp sgt i32 %26, %3
+  %.not78 = icmp slt i32 %3, %26
   br i1 %.not78, label %28, label %27
 
 27:                                               ; preds = %24, %22
@@ -14123,7 +14123,7 @@ declare i32 @cvDoProjection(ptr noundef, ptr noundef, double noundef, ptr nounde
 define internal fastcc range(i32 -54, 6) i32 @cvDoErrorTest(ptr noundef %0, ptr nocapture noundef writeonly %1, double noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 1176
   %9 = load double, ptr %8, align 8
-  %10 = fmul double %9, %3
+  %10 = fmul double %3, %9
   store double %10, ptr %6, align 8
   %11 = fcmp ugt double %10, 1.000000e+00
   br i1 %11, label %12, label %199

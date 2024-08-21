@@ -3658,7 +3658,7 @@ define dso_local zeroext i1 @io_match_task_safe(ptr noundef readonly %0, ptr nou
   %6 = getelementptr inbounds i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, %1
-  %9 = or i1 %8, %2
+  %9 = or i1 %2, %8
   %10 = xor i1 %8, true
   br i1 %9, label %.loopexit, label %12
 
@@ -7490,7 +7490,7 @@ define dso_local ptr @io_file_get_fixed(ptr nocapture noundef %0, i32 noundef %1
   %16 = zext i32 %12 to i64
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %16, i64 %15) #23, !srcloc !124
   %18 = trunc i64 %17 to i32
-  %19 = and i32 %18, %1
+  %19 = and i32 %1, %18
   %20 = getelementptr inbounds i8, ptr %5, i64 136
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %19 to i64
@@ -8840,7 +8840,7 @@ define internal fastcc zeroext i1 @io_uring_try_cancel_requests(ptr noundef %0, 
   %37 = load i32, ptr %0, align 64
   %38 = and i32 %37, 2
   %39 = icmp eq i32 %38, 0
-  %40 = and i1 %39, %2
+  %40 = and i1 %2, %39
   br i1 %40, label %51, label %41
 
 41:                                               ; preds = %35

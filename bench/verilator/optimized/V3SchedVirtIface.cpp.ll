@@ -2499,7 +2499,7 @@ _ZZN7AstNode13predicateImplIS_Lb0EZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor5vis
   %46 = sub i64 %44, %45
   %47 = ashr exact i64 %46, 3
   %48 = ashr exact i64 %46, 2
-  %49 = icmp ult i64 %47, %48
+  %49 = icmp ugt i64 %48, %47
   br i1 %49, label %50, label %81
 
 50:                                               ; preds = %43
@@ -2582,7 +2582,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   br label %_ZZN7AstNode13predicateImplIS_Lb0EZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor5visitEP11AstNodeStmtEUlPS_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit19.i.i
 
 81:                                               ; preds = %43
-  %82 = icmp ugt i64 %47, %48
+  %82 = icmp ult i64 %48, %47
   %83 = getelementptr inbounds ptr, ptr %.sroa.0.4.i, i64 %48
   %spec.select.i = select i1 %82, ptr %83, ptr %.sroa.12.1.i
   br label %_ZZN7AstNode13predicateImplIS_Lb0EZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor5visitEP11AstNodeStmtEUlPS_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit19.i.i
@@ -3975,7 +3975,7 @@ _ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i: ; preds = %_ZNK7Ast
   %65 = sub i64 %63, %64
   %66 = ashr exact i64 %65, 3
   %67 = ashr exact i64 %65, 2
-  %68 = icmp ult i64 %66, %67
+  %68 = icmp ugt i64 %67, %66
   br i1 %68, label %69, label %100
 
 69:                                               ; preds = %62
@@ -4058,7 +4058,7 @@ _ZNSt12_Vector_baseIPK7AstNodeSaIS2_EE13_M_deallocateEPS2_m.exit35.i.i: ; preds 
   br label %_ZZN7AstNode13predicateImplIK9AstVarRefLb0EZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor17writesToVirtIfaceEPKS_EUlPS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueES6_S_E4typeERKT1_ENKUlmE_clEm.exit19.i.i
 
 100:                                              ; preds = %62
-  %101 = icmp ugt i64 %66, %67
+  %101 = icmp ult i64 %67, %66
   %102 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %67
   %spec.select.i = select i1 %101, ptr %102, ptr %.sroa.12.1.i
   br label %_ZZN7AstNode13predicateImplIK9AstVarRefLb0EZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor17writesToVirtIfaceEPKS_EUlPS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueES6_S_E4typeERKT1_ENKUlmE_clEm.exit19.i.i
@@ -4502,7 +4502,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %11, %.loopexit.i.i
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 3
   %30 = ashr exact i64 %28, 2
-  %31 = icmp ult i64 %29, %30
+  %31 = icmp ugt i64 %30, %29
   br i1 %31, label %32, label %63
 
 32:                                               ; preds = %25
@@ -4585,7 +4585,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i
 
 63:                                               ; preds = %25
-  %64 = icmp ugt i64 %29, %30
+  %64 = icmp ult i64 %30, %29
   %65 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %30
   %spec.select.i = select i1 %64, ptr %65, ptr %.sroa.12.0.i
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor23foreachWrittenVirtIfaceEPS_RKSt8functionIFvPS1_P8AstIfaceEEEUlS7_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i
@@ -4869,7 +4869,7 @@ define internal void @_ZNSt17_Function_handlerIFvP9AstVarRefP8AstIfaceEZN7V3Sche
   %7 = load ptr, ptr %.val, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
-  %.not.i.i.i = icmp eq ptr %9, %.val3
+  %.not.i.i.i = icmp eq ptr %.val3, %9
   br i1 %.not.i.i.i, label %11, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %3
@@ -5752,7 +5752,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -5800,7 +5800,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_j
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

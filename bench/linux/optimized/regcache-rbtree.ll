@@ -307,7 +307,7 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
   %68 = udiv i64 %64, %67
   %69 = trunc i64 %68 to i32
   %70 = tail call i32 @llvm.usub.sat.i32(i32 %1, i32 %69)
-  %71 = add i32 %69, %1
+  %71 = add i32 %1, %69
   br i1 %24, label %.thread24, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %105

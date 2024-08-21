@@ -102,7 +102,7 @@ define void @_ZN4LIEF5MachO14RelocationDyld11pc_relativeEb(ptr noundef nonnull a
   %4 = getelementptr inbounds i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %7 = xor i1 %6, %1
+  %7 = xor i1 %1, %6
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2

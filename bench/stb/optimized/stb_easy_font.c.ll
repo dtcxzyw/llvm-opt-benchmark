@@ -42,7 +42,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.then.us:                                       ; preds = %for.body.us
   %shr12.us = lshr i32 %conv.us, 4
   %conv13.us = uitofp nneg i32 %shr12.us to float
-  %add14.us = fadd float %conv13.us, %y
+  %add14.us = fadd float %y, %conv13.us
   %1 = sext i32 %offset.addr.029.us to i64
   br label %for.body18.us
 
@@ -101,7 +101,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then:                                          ; preds = %for.body
   %shr12 = lshr i32 %conv, 4
   %conv13 = uitofp nneg i32 %shr12 to float
-  %add14 = fadd float %conv13, %y
+  %add14 = fadd float %y, %conv13
   %5 = sext i32 %offset.addr.029 to i64
   br label %for.body18
 

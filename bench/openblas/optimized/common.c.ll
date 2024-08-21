@@ -249,7 +249,7 @@ define void @stranspose(i32 noundef %0, i32 noundef %1, float noundef %2, ptr no
   %21 = mul nsw i64 %20, %11
   %22 = getelementptr float, ptr %17, i64 %21
   %23 = load float, ptr %22, align 4, !tbaa !3
-  %24 = fmul float %23, %2
+  %24 = fmul float %2, %23
   %25 = getelementptr float, ptr %18, i64 %20
   store float %24, ptr %25, align 4, !tbaa !3
   %26 = add nuw nsw i64 %20, 1
@@ -290,7 +290,7 @@ define void @dtranspose(i32 noundef %0, i32 noundef %1, double noundef %2, ptr n
   %21 = mul nsw i64 %20, %11
   %22 = getelementptr double, ptr %17, i64 %21
   %23 = load double, ptr %22, align 8, !tbaa !10
-  %24 = fmul double %23, %2
+  %24 = fmul double %2, %23
   %25 = getelementptr double, ptr %18, i64 %20
   store double %24, ptr %25, align 8, !tbaa !10
   %26 = add nuw nsw i64 %20, 1
@@ -475,7 +475,7 @@ define void @scopy(i32 noundef %0, i32 noundef %1, float noundef %2, ptr nocaptu
   %21 = phi i64 [ 0, %.split ], [ %26, %20 ]
   %22 = getelementptr float, ptr %18, i64 %21
   %23 = load float, ptr %22, align 4, !tbaa !3
-  %24 = fmul float %23, %2
+  %24 = fmul float %2, %23
   %25 = getelementptr float, ptr %19, i64 %21
   store float %24, ptr %25, align 4, !tbaa !3
   %26 = add nuw nsw i64 %21, 1
@@ -516,7 +516,7 @@ define void @dcopy(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapt
   %21 = phi i64 [ 0, %.split ], [ %26, %20 ]
   %22 = getelementptr double, ptr %18, i64 %21
   %23 = load double, ptr %22, align 8, !tbaa !10
-  %24 = fmul double %23, %2
+  %24 = fmul double %2, %23
   %25 = getelementptr double, ptr %19, i64 %21
   store double %24, ptr %25, align 8, !tbaa !10
   %26 = add nuw nsw i64 %21, 1

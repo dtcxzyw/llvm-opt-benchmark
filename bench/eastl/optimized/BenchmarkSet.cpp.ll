@@ -219,7 +219,7 @@ if.end12.i.i.i.i:                                 ; preds = %while.body.i.i.i.i,
   br i1 %cmp.i5.i.i.i.not.i, label %invoke.cont22, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end12.i.i.i.i
-  %cmp2.i.i.i.i = icmp eq ptr %0, %__y.0.lcssa26.i.i.i.i
+  %cmp2.i.i.i.i = icmp eq ptr %__y.0.lcssa26.i.i.i.i, %0
   br label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i.i
 
 _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i.i: ; preds = %if.then.i.i.i, %if.then.i.i.i3.i
@@ -371,7 +371,7 @@ while.body.i.i.i:                                 ; preds = %.noexc57, %while.bo
 
 if.then7.i.i.i:                                   ; preds = %.noexc57
   %22 = load ptr, ptr %mpNodeLeft.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %22, %eaSetUint32
+  %cmp.not.i.i.i = icmp eq ptr %eaSetUint32, %22
   br i1 %cmp.not.i.i.i, label %if.then.i.thread.i, label %if.then12.i.i.i
 
 if.then.i.thread.i:                               ; preds = %if.then7.i.i.i
@@ -1653,8 +1653,8 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE11equal_rangeERKj.exit.i: ; pred
   %retval.sroa.0.0.i.i824 = phi ptr [ %__y.addr.0.lcssa.i.i.i, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i ], [ %0, %while.body.i561 ], [ %__y.addr.0.lcssa.i.i.i, %while.body.i23.i.i ], [ %__y.1.i.i, %if.end19.i.i ]
   %retval.sroa.3.0.i.i = phi ptr [ %__y.040.i.i, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i ], [ %0, %while.body.i561 ], [ %__y.addr.1.i28.i.i, %while.body.i23.i.i ], [ %__y.1.i.i, %if.end19.i.i ]
   %153 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i2.i = icmp eq ptr %153, %retval.sroa.0.0.i.i824
-  %cmp.i1.i.i = icmp eq ptr %0, %retval.sroa.3.0.i.i
+  %cmp.i.i2.i = icmp eq ptr %retval.sroa.0.0.i.i824, %153
+  %cmp.i1.i.i = icmp eq ptr %retval.sroa.3.0.i.i, %0
   %or.cond.i = select i1 %cmp.i.i2.i, i1 %cmp.i1.i.i, i1 false
   br i1 %or.cond.i, label %if.then.i.i827, label %if.else.i3.i
 
@@ -2030,8 +2030,8 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i694:        ; preds = %_ZN2EA4StdC9Stopwat
   %.sink.i.i.i695 = phi i64 [ %188, %if.then2.i.i.i704 ], [ %add.i.i.i.i693, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i690 ]
   store i64 %.sink.i.i.i695, ptr %stopwatch1, align 8
   %191 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i696 = icmp eq ptr %191, %185
-  %cmp.i1.i.i.i.i = icmp eq ptr %0, %it2.sroa.0.0.lcssa.i
+  %cmp.i.i.i.i.i696 = icmp eq ptr %185, %191
+  %cmp.i1.i.i.i.i = icmp eq ptr %it2.sroa.0.0.lcssa.i, %0
   %or.cond = and i1 %cmp.i1.i.i.i.i, %cmp.i.i.i.i.i696
   br i1 %or.cond, label %if.then.i.i.i7.i, label %if.else.i.i.i.i697
 
@@ -2124,7 +2124,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i728:        ; preds = %_ZN2EA4StdC9Stopwat
   %.sink.i.i.i729 = phi i64 [ %199, %if.then2.i.i.i736 ], [ %add.i.i.i.i727, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i724 ]
   store i64 %.sink.i.i.i729, ptr %stopwatch2, align 8
   %202 = load ptr, ptr %mpNodeLeft.i.i.i, align 8
-  %cmp.i.i7.i = icmp ne ptr %202, %196
+  %cmp.i.i7.i = icmp ne ptr %196, %202
   %cmp5.i.i.i = icmp ne ptr %it2.sroa.0.0.lcssa.i718, %eaSetUint32
   %203 = or i1 %cmp5.i.i.i, %cmp.i.i7.i
   br i1 %203, label %while.cond.preheader.i.i.i, label %if.end.i.i.i
@@ -2536,7 +2536,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
 
 if.then.i.i:                                      ; preds = %if.end12.i.i, %land.lhs.true.i, %if.then.i.i2
   %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa25.i.i, %if.then.i.i2 ], [ %1, %land.lhs.true.i ], [ %__y.0.lcssa26.i.i, %if.end12.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.12.0.i.ph
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.12.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i

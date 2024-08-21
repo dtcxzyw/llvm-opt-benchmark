@@ -189,7 +189,7 @@ define internal fastcc void @shdepChangeDep(ptr noundef %0, i32 noundef %1, i32 
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load i8, ptr %29, align 4
   %31 = sext i8 %30 to i32
-  %.not50 = icmp eq i32 %31, %5
+  %.not50 = icmp eq i32 %5, %31
   br i1 %.not50, label %32, label %20, !llvm.loop !5
 
 32:                                               ; preds = %22
@@ -335,7 +335,7 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
   %34 = getelementptr inbounds i8, ptr %33, i64 24
   %35 = load i8, ptr %34, align 4
   %36 = sext i8 %35 to i32
-  %.not30.us.us = icmp eq i32 %36, %7
+  %.not30.us.us = icmp eq i32 %7, %36
   br i1 %.not30.us.us, label %37, label %.backedge.us.us
 
 37:                                               ; preds = %.lr.ph.split.us.split.us.split
@@ -391,7 +391,7 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
   %62 = getelementptr inbounds i8, ptr %58, i64 24
   %63 = load i8, ptr %62, align 4
   %64 = sext i8 %63 to i32
-  %.not30.us = icmp eq i32 %64, %7
+  %.not30.us = icmp eq i32 %7, %64
   br i1 %.not30.us, label %65, label %.backedge.us
 
 65:                                               ; preds = %61
@@ -450,7 +450,7 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
   %90 = getelementptr inbounds i8, ptr %86, i64 24
   %91 = load i8, ptr %90, align 4
   %92 = sext i8 %91 to i32
-  %.not30.us32 = icmp eq i32 %92, %7
+  %.not30.us32 = icmp eq i32 %7, %92
   br i1 %.not30.us32, label %93, label %.backedge.us33
 
 93:                                               ; preds = %89
@@ -518,7 +518,7 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
   %124 = getelementptr inbounds i8, ptr %117, i64 24
   %125 = load i8, ptr %124, align 4
   %126 = sext i8 %125 to i32
-  %.not30 = icmp eq i32 %126, %7
+  %.not30 = icmp eq i32 %7, %126
   br i1 %.not30, label %127, label %.backedge
 
 127:                                              ; preds = %123

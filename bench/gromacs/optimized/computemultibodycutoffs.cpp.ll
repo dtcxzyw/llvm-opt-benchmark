@@ -517,7 +517,7 @@ _ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_g
   %206 = fsub float %204, %205
   %207 = fmul float %206, %206
   %208 = fadd float %202, %207
-  %209 = fcmp olt float %.sroa.0122.9.us.us.us, %208
+  %209 = fcmp ogt float %208, %.sroa.0122.9.us.us.us
   br i1 %209, label %210, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us
 
 210:                                              ; preds = %190
@@ -590,7 +590,7 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us: ; pr
   %234 = fsub float %232, %233
   %235 = fmul float %234, %234
   %236 = fadd float %230, %235
-  %237 = fcmp olt float %.sroa.0112.5, %236
+  %237 = fcmp ogt float %236, %.sroa.0112.5
   br i1 %237, label %.else, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i
 
 .else:                                            ; preds = %218
@@ -712,7 +712,7 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i: ; preds = %.e
   %287 = fsub float %285, %286
   %288 = fmul float %287, %287
   %289 = fadd float %283, %288
-  %290 = fcmp olt float %.sroa.0122.3, %289
+  %290 = fcmp ogt float %289, %.sroa.0122.3
   br i1 %290, label %291, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit64.i
 
 291:                                              ; preds = %272
@@ -742,7 +742,7 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit64.i: ; preds = %291
   %.sroa.6.11 = phi i32 [ %.sroa.6.1, %245 ], [ %.sroa.6.1, %244 ], [ %.sroa.6.5, %._crit_edge.i ]
   %.sroa.0122.11 = phi float [ %.sroa.0122.1, %245 ], [ %.sroa.0122.1, %244 ], [ %.sroa.0122.5, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %13)
-  %294 = fcmp olt float %.sroa.0162.1341, %.sroa.0122.11
+  %294 = fcmp ogt float %.sroa.0122.11, %.sroa.0162.1341
   br i1 %294, label %295, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit
 
 295:                                              ; preds = %.loopexit
@@ -755,7 +755,7 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit: ; preds = %.loopex
   %.sroa.6164.4 = phi i32 [ %.sroa.6.11, %295 ], [ %.sroa.6164.1342, %.loopexit ]
   %.sroa.9165.4 = phi i32 [ %297, %295 ], [ %.sroa.9165.1343, %.loopexit ]
   %.sroa.12166.4 = phi i32 [ %296, %295 ], [ %.sroa.12166.1344, %.loopexit ]
-  %298 = fcmp olt float %.sroa.0146.1340, %.sroa.0112.1
+  %298 = fcmp ogt float %.sroa.0112.1, %.sroa.0146.1340
   br i1 %298, label %299, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72
 
 299:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit
@@ -1013,7 +1013,7 @@ _ZN7t_graphD2Ev.exit82:                           ; preds = %317, %_ZNSt6vectorI
   %374 = call float @llvm.fmuladd.f32(float %371, float %371, float %373)
   %375 = load float, ptr %333, align 4
   %376 = call noundef float @llvm.fmuladd.f32(float %375, float %375, float %374)
-  %377 = fcmp olt float %.sroa.0162.10.us.us.us, %376
+  %377 = fcmp ogt float %376, %.sroa.0162.10.us.us.us
   br i1 %377, label %378, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89.us.us.us
 
 378:                                              ; preds = %364
@@ -1084,7 +1084,7 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89.us.us.us: ; 
   %405 = call float @llvm.fmuladd.f32(float %402, float %402, float %404)
   %406 = load float, ptr %333, align 4
   %407 = call noundef float @llvm.fmuladd.f32(float %406, float %406, float %405)
-  %408 = fcmp olt float %.sroa.0146.10, %407
+  %408 = fcmp ogt float %407, %.sroa.0146.10
   br i1 %408, label %.else151, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89
 
 .else151:                                         ; preds = %395

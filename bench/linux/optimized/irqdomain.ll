@@ -598,7 +598,7 @@ define dso_local ptr @irq_domain_create_simple(ptr noundef %0, i32 noundef %1, i
 23:                                               ; preds = %23, %21
   %24 = phi i64 [ 0, %21 ], [ %32, %23 ]
   %25 = trunc i64 %24 to i32
-  %26 = add i32 %25, %2
+  %26 = add i32 %2, %25
   %27 = load ptr, ptr %22, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 48
   tail call void @mutex_lock(ptr noundef %28) #16
@@ -633,7 +633,7 @@ define dso_local void @irq_domain_associate_many(ptr noundef %0, i32 noundef %1,
 9:                                                ; preds = %9, %6
   %10 = phi i64 [ 0, %6 ], [ %19, %9 ]
   %11 = trunc i64 %10 to i32
-  %12 = add i32 %11, %1
+  %12 = add i32 %1, %11
   %13 = add i64 %10, %2
   %14 = load ptr, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 48
@@ -662,7 +662,7 @@ define dso_local ptr @irq_domain_add_legacy(ptr noundef %0, i32 noundef %1, i32 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @irq_domain_create_legacy(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) #1 align 16 {
   %7 = zext i32 %1 to i64
-  %8 = add i64 %7, %3
+  %8 = add i64 %3, %7
   %9 = trunc i64 %8 to i32
   %10 = tail call fastcc ptr @__irq_domain_create(ptr noundef %0, i32 noundef %9, i64 noundef %8, i32 noundef 0, ptr noundef %4, ptr noundef %5)
   %11 = icmp eq ptr %10, null
@@ -688,7 +688,7 @@ define dso_local ptr @irq_domain_create_legacy(ptr noundef %0, i32 noundef %1, i
 19:                                               ; preds = %19, %17
   %20 = phi i64 [ 0, %17 ], [ %29, %19 ]
   %21 = trunc i64 %20 to i32
-  %22 = add i32 %21, %2
+  %22 = add i32 %2, %21
   %23 = add i64 %20, %3
   %24 = load ptr, ptr %18, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 48
@@ -963,7 +963,7 @@ define internal fastcc noundef i32 @irq_domain_associate_locked(ptr noundef %0, 
   %38 = getelementptr inbounds i8, ptr %0, i64 152
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
-  %41 = icmp ugt i64 %40, %2
+  %41 = icmp ult i64 %2, %40
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %34
@@ -1013,7 +1013,7 @@ define dso_local i32 @irq_create_mapping_affinity(ptr noundef %0, i64 noundef %1
   %13 = getelementptr inbounds i8, ptr %6, i64 152
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ugt i64 %15, %1
+  %16 = icmp ult i64 %1, %15
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %9
@@ -2174,7 +2174,7 @@ define dso_local ptr @__irq_resolve_mapping(ptr noundef %0, i64 noundef %1, ptr 
   %9 = getelementptr inbounds i8, ptr %6, i64 152
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %8

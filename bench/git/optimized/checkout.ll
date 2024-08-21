@@ -1291,7 +1291,7 @@ if.end46.i:                                       ; preds = %land.lhs.true42.i, 
   %or.cond50.v.i = phi i32 [ 1, %land.lhs.true42.i ], [ 2, %if.then34.i ]
   %land.ext4058.i = phi i1 [ %tobool38.i, %land.lhs.true42.i ], [ false, %if.then34.i ]
   %recover_with_dwim.0.i = phi i32 [ %spec.select.i135, %land.lhs.true42.i ], [ %land.ext, %if.then34.i ]
-  %or.cond50.i = icmp eq i32 %or.cond50.v.i, %call
+  %or.cond50.i = icmp eq i32 %call, %or.cond50.v.i
   br i1 %or.cond50.i, label %if.end58.i, label %land.lhs.true54.i
 
 land.lhs.true54.i:                                ; preds = %if.end46.i

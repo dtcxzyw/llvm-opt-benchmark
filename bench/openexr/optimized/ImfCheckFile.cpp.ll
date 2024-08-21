@@ -1454,7 +1454,7 @@ if.then55.i:                                      ; preds = %for.end.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %imgdata.sroa.6.076.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %imgdata.sroa.0.275.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i.i.i, %add49.i
+  %cmp.i.i = icmp ugt i64 %add49.i, %sub.ptr.sub.i.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then55.i
@@ -1535,7 +1535,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i: ; preds = %if.then.
 if.else.i.i:                                      ; preds = %if.then55.i, %if.then55.thread.i
   %sub.ptr.sub.i.i112.i = phi i64 [ %sub.ptr.sub.i.i108.i, %if.then55.thread.i ], [ %sub.ptr.sub.i.i.i, %if.then55.i ]
   %bytes.0.lcssa101111.i = phi i64 [ 0, %if.then55.thread.i ], [ %add49.i, %if.then55.i ]
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.sub.i.i112.i, %bytes.0.lcssa101111.i
+  %cmp4.i.i = icmp ult i64 %bytes.0.lcssa101111.i, %sub.ptr.sub.i.i112.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %imgdata.sroa.0.275.i, i64 %bytes.0.lcssa101111.i
   %spec.select.i = select i1 %cmp4.i.i, ptr %add.ptr.i.i, ptr %imgdata.sroa.6.076.i
   br label %if.end57.i
@@ -1608,7 +1608,7 @@ for.end100.i:                                     ; preds = %for.body80.i, %for.
 
 invoke.cont101.i:                                 ; preds = %for.end100.i
   %cmp103.not.i = icmp ne i32 %call102.i, 0
-  %brmerge.not.i = and i1 %cmp103.not.i, %reduceTime
+  %brmerge.not.i = and i1 %reduceTime, %cmp103.not.i
   br i1 %brmerge.not.i, label %for.end113.loopexit.i, label %for.inc110.i
 
 for.inc110.i:                                     ; preds = %invoke.cont101.i, %if.end71.i, %if.then66.i, %if.then24.i
@@ -1867,7 +1867,7 @@ if.then76.i:                                      ; preds = %for.end.i46
   %sub.ptr.lhs.cast.i.i.i48 = ptrtoint ptr %tiledata.sroa.6.4118.i to i64
   %sub.ptr.rhs.cast.i.i.i49 = ptrtoint ptr %tiledata.sroa.0.4117.i to i64
   %sub.ptr.sub.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i48, %sub.ptr.rhs.cast.i.i.i49
-  %cmp.i.i51 = icmp ult i64 %sub.ptr.sub.i.i.i50, %add.i44
+  %cmp.i.i51 = icmp ugt i64 %add.i44, %sub.ptr.sub.i.i.i50
   br i1 %cmp.i.i51, label %if.then.i.i52, label %if.else.i.i33
 
 if.then.i.i52:                                    ; preds = %if.then76.i
@@ -1948,7 +1948,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i.i83: ; preds = %if.the
 if.else.i.i33:                                    ; preds = %if.then76.i, %if.then76.thread.i
   %sub.ptr.sub.i.i227.i = phi i64 [ %sub.ptr.sub.i.i223.i, %if.then76.thread.i ], [ %sub.ptr.sub.i.i.i50, %if.then76.i ]
   %bytes.0.lcssa216226.i = phi i64 [ 0, %if.then76.thread.i ], [ %add.i44, %if.then76.i ]
-  %cmp4.i.i34 = icmp ugt i64 %sub.ptr.sub.i.i227.i, %bytes.0.lcssa216226.i
+  %cmp4.i.i34 = icmp ult i64 %bytes.0.lcssa216226.i, %sub.ptr.sub.i.i227.i
   %add.ptr.i.i35 = getelementptr inbounds i8, ptr %tiledata.sroa.0.4117.i, i64 %bytes.0.lcssa216226.i
   %spec.select.i36 = select i1 %cmp4.i.i34, ptr %add.ptr.i.i35, ptr %tiledata.sroa.6.4118.i
   br label %if.end78.i
@@ -2024,7 +2024,7 @@ for.end121.i:                                     ; preds = %for.body101.i, %for
 
 invoke.cont122.i:                                 ; preds = %for.end121.i
   %cmp124.not.i = icmp ne i32 %call123.i, 0
-  %brmerge.not.i32 = and i1 %cmp124.not.i, %reduceTime
+  %brmerge.not.i32 = and i1 %reduceTime, %cmp124.not.i
   br i1 %brmerge.not.i32, label %for.inc136.loopexit.i, label %for.inc131.i
 
 for.inc131.i:                                     ; preds = %invoke.cont122.i, %if.end92.i, %if.then87.i, %if.then46.i
@@ -2233,8 +2233,8 @@ entry:
 if.then:                                          ; preds = %entry
   %bytes = getelementptr inbounds i8, ptr %userdata, i64 8
   %0 = load i64, ptr %bytes, align 8
-  %cmp = icmp ult i64 %0, %offset
-  %cmp2 = icmp ult i64 %0, %sz
+  %cmp = icmp ugt i64 %offset, %0
+  %cmp2 = icmp ugt i64 %sz, %0
   %or.cond = or i1 %cmp, %cmp2
   %add = add i64 %offset, %sz
   %cmp5 = icmp ugt i64 %add, %0
@@ -2242,7 +2242,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond16, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %cmp8 = icmp ugt i64 %0, %offset
+  %cmp8 = icmp ult i64 %offset, %0
   %sub = sub nuw i64 %0, %offset
   br i1 %cmp8, label %if.end, label %if.end13
 
@@ -3202,7 +3202,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 if.end60:                                         ; preds = %land.rhs.i.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %try.cont.thread276, %try.cont, %lor.lhs.false
   %threw.2 = phi i1 [ %6, %lor.lhs.false ], [ %6, %try.cont ], [ %6, %try.cont.thread276 ], [ true, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ], [ %6, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %6, %land.rhs.i.i ]
-  %brmerge.demorgan = and i1 %largeTiles.0, %reduceMemory
+  %brmerge.demorgan = and i1 %reduceMemory, %largeTiles.0
   br i1 %brmerge.demorgan, label %if.end85, label %if.then64
 
 if.then64:                                        ; preds = %if.end60
@@ -4140,7 +4140,7 @@ if.then135.i:                                     ; preds = %for.end130.i
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %pixelBuffer.sroa.0.0198.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  %cmp.i.i178 = icmp ult i64 %sub.ptr.div.i.i.i, %bufferSize.0.lcssa.i
+  %cmp.i.i178 = icmp ugt i64 %bufferSize.0.lcssa.i, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i178, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then135.i
@@ -4223,7 +4223,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit33.i.i: ; preds = %if.then.i3
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then135.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %bufferSize.0.lcssa.i
+  %cmp4.i.i = icmp ult i64 %bufferSize.0.lcssa.i, %sub.ptr.div.i.i.i
   %add.ptr.i.i179 = getelementptr inbounds float, ptr %pixelBuffer.sroa.0.0198.i, i64 %bufferSize.0.lcssa.i
   %spec.select.i = select i1 %cmp4.i.i, ptr %add.ptr.i.i179, ptr %pixelBuffer.sroa.7.0199.i
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
@@ -4745,7 +4745,7 @@ for.cond104.preheader.us.i.us:                    ; preds = %for.cond101.prehead
   %cmp233.us.i.us = icmp eq i32 %xlevel.0434.us.i.us, %ylevel.0445.us.i
   %or.cond.not227.not228.us.i.us = or i1 %cmp96.i, %cmp233.us.i.us
   %or.cond.not227.not228.us.i.us.fr = freeze i1 %or.cond.not227.not228.us.i.us
-  %brmerge.not.us.i251.us = and i1 %or.cond.not227.not228.us.i.us.fr, %reduceTime
+  %brmerge.not.us.i251.us = and i1 %reduceTime, %or.cond.not227.not228.us.i.us.fr
   br i1 %brmerge.not.us.i251.us, label %for.cond104.us.i.us.us.us, label %for.cond104.us.i.us.us518
 
 for.cond104.us.i.us.us518:                        ; preds = %for.cond104.preheader.us.i.us, %for.inc246.us.i.split.us.us.split.us
@@ -4866,7 +4866,7 @@ for.cond104.preheader.us.i.us549:                 ; preds = %for.cond101.prehead
   %cmp233.us.i.us555 = icmp eq i32 %xlevel.0434.us.i.us550, %ylevel.0445.us.i
   %or.cond.not227.not228.us.i.us556 = or i1 %cmp96.i, %cmp233.us.i.us555
   %or.cond.not227.not228.us.i.us556.fr = freeze i1 %or.cond.not227.not228.us.i.us556
-  %brmerge.not.us.i251.us557 = and i1 %or.cond.not227.not228.us.i.us556.fr, %reduceTime
+  %brmerge.not.us.i251.us557 = and i1 %reduceTime, %or.cond.not227.not228.us.i.us556.fr
   br i1 %brmerge.not.us.i251.us557, label %for.cond104.us.i.us420.us.us, label %for.cond104.us.i.us420.us560
 
 for.cond104.us.i.us420.us560:                     ; preds = %for.cond104.preheader.us.i.us549, %for.inc246.us.i.split.split.us.us.split.us
@@ -5037,11 +5037,11 @@ if.then162.us.i:                                  ; preds = %lor.lhs.false157.us
   %sub.ptr.rhs.cast.i.i.us.i = ptrtoint ptr %pixelBuffer.sroa.0.4.us.i to i64
   %sub.ptr.sub.i.i.us.i = sub i64 %sub.ptr.lhs.cast.i.i.us.i, %sub.ptr.rhs.cast.i.i.us.i
   %sub.ptr.div.i.i.us.i = ashr exact i64 %sub.ptr.sub.i.i.us.i, 2
-  %cmp.i.us.i = icmp ult i64 %sub.ptr.div.i.i.us.i, %bufferSize.0.lcssa.us.i
+  %cmp.i.us.i = icmp ugt i64 %bufferSize.0.lcssa.us.i, %sub.ptr.div.i.i.us.i
   br i1 %cmp.i.us.i, label %if.then.i.us.i, label %if.else.i.us.i
 
 if.else.i.us.i:                                   ; preds = %if.then162.us.i
-  %cmp4.i.us.i = icmp ugt i64 %sub.ptr.div.i.i.us.i, %bufferSize.0.lcssa.us.i
+  %cmp4.i.us.i = icmp ult i64 %bufferSize.0.lcssa.us.i, %sub.ptr.div.i.i.us.i
   %add.ptr.i118.us.i = getelementptr inbounds float, ptr %pixelBuffer.sroa.0.4.us.i, i64 %bufferSize.0.lcssa.us.i
   %spec.select.us.i = select i1 %cmp4.i.us.i, ptr %add.ptr.i118.us.i, ptr %pixelBuffer.sroa.7.3.us.i
   br label %for.cond169.preheader.lr.ph.split.us.us.i
@@ -5160,7 +5160,7 @@ for.cond104.preheader.us.i:                       ; preds = %for.cond101.prehead
   %pixelBuffer.sroa.0.1429.us.i = phi ptr [ %pixelBuffer.sroa.0.2.us.i, %for.inc249.us.i.split.split ], [ %pixelBuffer.sroa.0.0440.us.i, %for.cond101.preheader.us.i250.split ]
   %cmp233.us.i = icmp eq i32 %xlevel.0434.us.i, %ylevel.0445.us.i
   %or.cond.not227.not228.us.i = or i1 %cmp96.i, %cmp233.us.i
-  %brmerge.not.us.i251 = and i1 %or.cond.not227.not228.us.i, %reduceTime
+  %brmerge.not.us.i251 = and i1 %reduceTime, %or.cond.not227.not228.us.i
   br label %for.cond104.us.i
 
 lpad105.loopexit.split.us.i.split.us.split.us.split.us.loopexit.split-lp: ; preds = %lpad117.us.i.us.us.us.split.us.split.us
@@ -6475,7 +6475,7 @@ for.cond101.preheader.us:                         ; preds = %for.cond98.preheade
   %cmp119.us = icmp eq i32 %xlevel.0211.us, %ylevel.0216.us
   %or.cond.not154.not155.us = or i1 %cmp93, %cmp119.us
   %or.cond.not154.not155.us.fr = freeze i1 %or.cond.not154.not155.us
-  %brmerge.not.us = and i1 %or.cond.not154.not155.us.fr, %reduceTime
+  %brmerge.not.us = and i1 %reduceTime, %or.cond.not154.not155.us.fr
   br i1 %brmerge.not.us, label %for.cond101.us.us, label %for.cond101.us220
 
 for.inc135.us:                                    ; preds = %invoke.cont102.us224, %invoke.cont102.us.us
@@ -6939,7 +6939,7 @@ if.then128:                                       ; preds = %for.cond99.preheade
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %pixelBuffer.sroa.0.0162 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %24
+  %cmp.i = icmp ugt i64 %24, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then128
@@ -7024,7 +7024,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit33.i: ; preds = %if.then.i32.
 if.else.i:                                        ; preds = %if.then128.thread, %if.then128
   %sub.ptr.div.i.i203 = phi i64 [ %sub.ptr.div.i.i200, %if.then128.thread ], [ %sub.ptr.div.i.i, %if.then128 ]
   %bufferSize.0.lcssa202 = phi i64 [ 0, %if.then128.thread ], [ %24, %if.then128 ]
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i203, %bufferSize.0.lcssa202
+  %cmp4.i = icmp ult i64 %bufferSize.0.lcssa202, %sub.ptr.div.i.i203
   %add.ptr.i = getelementptr inbounds float, ptr %pixelBuffer.sroa.0.0162, i64 %bufferSize.0.lcssa202
   %spec.select = select i1 %cmp4.i, ptr %add.ptr.i, ptr %pixelBuffer.sroa.7.0163
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -7512,11 +7512,11 @@ if.then155.us:                                    ; preds = %lor.lhs.false150.us
   %sub.ptr.rhs.cast.i.i.us = ptrtoint ptr %pixelBuffer.sroa.0.4.us to i64
   %sub.ptr.sub.i.i.us = sub i64 %sub.ptr.lhs.cast.i.i.us, %sub.ptr.rhs.cast.i.i.us
   %sub.ptr.div.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.us, 2
-  %cmp.i.us = icmp ult i64 %sub.ptr.div.i.i.us, %bufferSize.0.lcssa.us
+  %cmp.i.us = icmp ugt i64 %bufferSize.0.lcssa.us, %sub.ptr.div.i.i.us
   br i1 %cmp.i.us, label %if.then.i.us, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %if.then155.us
-  %cmp4.i.us = icmp ugt i64 %sub.ptr.div.i.i.us, %bufferSize.0.lcssa.us
+  %cmp4.i.us = icmp ult i64 %bufferSize.0.lcssa.us, %sub.ptr.div.i.i.us
   %add.ptr.i118.us = getelementptr inbounds float, ptr %pixelBuffer.sroa.0.4.us, i64 %bufferSize.0.lcssa.us
   %spec.select.us = select i1 %cmp4.i.us, ptr %add.ptr.i118.us, ptr %pixelBuffer.sroa.7.3.us
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.us
@@ -7641,7 +7641,7 @@ for.cond100.preheader.us:                         ; preds = %for.cond97.preheade
   %pixelBuffer.sroa.0.1429.us = phi ptr [ %pixelBuffer.sroa.0.0440.us, %for.cond97.preheader.us ], [ %pixelBuffer.sroa.0.2.us, %for.inc236.us ]
   %cmp220.us = icmp eq i32 %xlevel.0434.us, %ylevel.0445.us
   %or.cond.not227.not228.us = or i1 %cmp92, %cmp220.us
-  %brmerge.not.us = and i1 %or.cond.not227.not228.us, %reduceTime
+  %brmerge.not.us = and i1 %reduceTime, %or.cond.not227.not228.us
   br label %for.cond100.us
 
 for.cond118.preheader.lr.ph.us:                   ; preds = %for.cond115.preheader.us

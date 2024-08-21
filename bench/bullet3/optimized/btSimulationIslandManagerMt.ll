@@ -1002,7 +1002,7 @@ entry:
   %0 = load i32, ptr %m_size.i.i, align 4
   %m_size.i.i8 = getelementptr inbounds i8, ptr %this, i64 212
   %1 = load i32, ptr %m_size.i.i8, align 4
-  %cmp3.i = icmp slt i32 %1, %0
+  %cmp3.i = icmp sgt i32 %0, %1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit
 
 if.then4.i:                                       ; preds = %entry
@@ -1555,7 +1555,7 @@ define dso_local noundef ptr @_ZN27btSimulationIslandManagerMt14allocateIslandEi
 entry:
   %m_batchIslandMinBodyCount = getelementptr inbounds i8, ptr %this, i64 252
   %0 = load i32, ptr %m_batchIslandMinBodyCount, align 4
-  %cmp = icmp sgt i32 %0, %numBodies
+  %cmp = icmp slt i32 %numBodies, %0
   br i1 %cmp, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %entry
@@ -1809,7 +1809,7 @@ if.end41:                                         ; preds = %if.end35.thread, %_
   %arrayidx.i54 = getelementptr inbounds ptr, ptr %32, i64 %idxprom.i53
   store ptr %island.3, ptr %arrayidx.i54, align 8
   %33 = load i32, ptr %m_batchIslandMinBodyCount, align 4
-  %cmp45 = icmp sgt i32 %33, %numBodies
+  %cmp45 = icmp slt i32 %numBodies, %33
   br i1 %cmp45, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %if.end41
@@ -3496,7 +3496,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call18.i = tail call noundef float %16(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %11, i32 noundef %12, ptr noundef %cond.i, i32 noundef %7, ptr noundef %cond10.i, i32 noundef %9, ptr noundef nonnull align 4 dereferenceable(128) %13, ptr noundef %14, ptr noundef %15)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !43
 
 for.end:                                          ; preds = %for.body, %entry
@@ -3577,7 +3577,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !46
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo.tr
+  %cmp15 = icmp slt i32 %lo.tr, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end
@@ -3688,7 +3688,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !49
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo.tr
+  %cmp15 = icmp slt i32 %lo.tr, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end

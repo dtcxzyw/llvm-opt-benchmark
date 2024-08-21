@@ -171,7 +171,7 @@ RelationGetSmgr.exit:                             ; preds = %3, %8
 
 20:                                               ; preds = %18, %RelationGetSmgr.exit
   %21 = phi i32 [ %.pre, %18 ], [ %14, %RelationGetSmgr.exit ]
-  %.not = icmp ugt i32 %21, %1
+  %.not = icmp ult i32 %1, %21
   br i1 %.not, label %38, label %22
 
 22:                                               ; preds = %.thread, %20

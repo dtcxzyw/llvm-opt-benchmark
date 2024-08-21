@@ -76,8 +76,8 @@ entry:
   %sub3.i = fsub double %p1.coerce1, %p0.coerce1
   %sub.i3 = fsub double %p2.coerce0, %p1.coerce0
   %sub3.i4 = fsub double %p2.coerce1, %p1.coerce1
-  %0 = fneg double %sub3.i
-  %neg.i = fmul double %sub.i3, %0
+  %0 = fneg double %sub.i3
+  %neg.i = fmul double %sub3.i, %0
   %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i4, double %neg.i)
   %tobool = fcmp une double %1, 0.000000e+00
   br i1 %tobool, label %if.end, label %if.then
@@ -128,8 +128,8 @@ entry:
   %sub3.i = fsub double %p2.coerce1, %p1.coerce1
   %sub.i4 = fsub double %p1.coerce0, %p0.coerce0
   %sub3.i5 = fsub double %p1.coerce1, %p0.coerce1
-  %0 = fneg double %sub3.i5
-  %neg.i = fmul double %sub.i, %0
+  %0 = fneg double %sub.i
+  %neg.i = fmul double %sub3.i5, %0
   %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i4, double %sub3.i, double %neg.i)
   %tobool = fcmp une double %1, 0.000000e+00
   br i1 %tobool, label %if.end, label %land.lhs.true
@@ -137,8 +137,8 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %sub.i8 = fsub double %p3.coerce0, %p2.coerce0
   %sub3.i9 = fsub double %p3.coerce1, %p2.coerce1
-  %2 = fneg double %sub3.i
-  %neg.i12 = fmul double %sub.i8, %2
+  %2 = fneg double %sub.i8
+  %neg.i12 = fmul double %sub3.i, %2
   %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i9, double %neg.i12)
   %tobool14 = fcmp une double %3, 0.000000e+00
   br i1 %tobool14, label %if.end, label %if.then
@@ -257,8 +257,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp11, label %if.then12, label %if.end53
 
 if.then12:                                        ; preds = %if.then
-  %8 = fneg double %sub3.i
-  %neg.i = fmul double %retval.sroa.0.0.i, %8
+  %8 = fneg double %retval.sroa.0.0.i
+  %neg.i = fmul double %sub3.i, %8
   %9 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %retval.sroa.3.0.i, double %neg.i)
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = load double, ptr %distance, align 8
@@ -299,8 +299,8 @@ if.then22:                                        ; preds = %if.else
   br i1 %cmp39, label %if.then40, label %if.end53
 
 if.then40:                                        ; preds = %if.then22
-  %21 = fneg double %sub3.i22
-  %neg.i26 = fmul double %retval.sroa.0.0.i18, %21
+  %21 = fneg double %retval.sroa.0.0.i18
+  %neg.i26 = fmul double %sub3.i22, %21
   %22 = tail call noundef double @llvm.fmuladd.f64(double %sub.i21, double %retval.sroa.3.0.i17, double %neg.i26)
   %23 = tail call double @llvm.fabs.f64(double %22)
   %24 = load double, ptr %distance, align 8
@@ -546,8 +546,8 @@ entry:
   %sub.i = fsub double 1.000000e+00, %param
   %mul.i.i = fmul double %sub.i, %agg.tmp.sroa.0.0.copyload
   %mul1.i.i = fmul double %sub.i, %agg.tmp.sroa.2.0.copyload
-  %mul.i2.i = fmul double %agg.tmp2.sroa.0.0.copyload, %param
-  %mul1.i3.i = fmul double %agg.tmp2.sroa.2.0.copyload, %param
+  %mul.i2.i = fmul double %param, %agg.tmp2.sroa.0.0.copyload
+  %mul1.i3.i = fmul double %param, %agg.tmp2.sroa.2.0.copyload
   %add.i.i = fadd double %mul.i.i, %mul.i2.i
   %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
   %.fca.0.insert.i6.i = insertvalue { double, double } poison, double %add.i.i, 0
@@ -569,8 +569,8 @@ entry:
   %sub.i = fsub double 1.000000e+00, %param
   %mul.i.i = fmul double %sub.i, %agg.tmp2.sroa.0.0.copyload
   %mul1.i.i = fmul double %sub.i, %agg.tmp2.sroa.2.0.copyload
-  %mul.i2.i = fmul double %agg.tmp3.sroa.0.0.copyload, %param
-  %mul1.i3.i = fmul double %agg.tmp3.sroa.2.0.copyload, %param
+  %mul.i2.i = fmul double %param, %agg.tmp3.sroa.0.0.copyload
+  %mul1.i3.i = fmul double %param, %agg.tmp3.sroa.2.0.copyload
   %add.i.i = fadd double %mul.i.i, %mul.i2.i
   %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
   %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 48
@@ -579,14 +579,14 @@ entry:
   %agg.tmp10.sroa.2.0.copyload = load double, ptr %agg.tmp10.sroa.2.0.arrayidx12.sroa_idx, align 8
   %mul.i.i4 = fmul double %sub.i, %agg.tmp3.sroa.0.0.copyload
   %mul1.i.i5 = fmul double %sub.i, %agg.tmp3.sroa.2.0.copyload
-  %mul.i2.i6 = fmul double %agg.tmp10.sroa.0.0.copyload, %param
-  %mul1.i3.i7 = fmul double %agg.tmp10.sroa.2.0.copyload, %param
+  %mul.i2.i6 = fmul double %param, %agg.tmp10.sroa.0.0.copyload
+  %mul1.i3.i7 = fmul double %param, %agg.tmp10.sroa.2.0.copyload
   %add.i.i8 = fadd double %mul.i.i4, %mul.i2.i6
   %add3.i.i9 = fadd double %mul1.i.i5, %mul1.i3.i7
   %mul.i.i13 = fmul double %sub.i, %add.i.i
   %mul1.i.i14 = fmul double %sub.i, %add3.i.i
-  %mul.i2.i15 = fmul double %add.i.i8, %param
-  %mul1.i3.i16 = fmul double %add3.i.i9, %param
+  %mul.i2.i15 = fmul double %param, %add.i.i8
+  %mul1.i3.i16 = fmul double %param, %add3.i.i9
   %add.i.i17 = fadd double %mul.i.i13, %mul.i2.i15
   %add3.i.i18 = fadd double %mul1.i.i14, %mul1.i3.i16
   %.fca.0.insert.i6.i19 = insertvalue { double, double } poison, double %add.i.i17, 0
@@ -609,8 +609,8 @@ entry:
   %sub.i = fsub double 1.000000e+00, %param
   %mul.i.i = fmul double %sub.i, %agg.tmp.sroa.0.0.copyload
   %mul1.i.i = fmul double %sub.i, %agg.tmp.sroa.2.0.copyload
-  %mul.i2.i = fmul double %agg.tmp2.sroa.0.0.copyload, %param
-  %mul1.i3.i = fmul double %agg.tmp2.sroa.2.0.copyload, %param
+  %mul.i2.i = fmul double %param, %agg.tmp2.sroa.0.0.copyload
+  %mul1.i3.i = fmul double %param, %agg.tmp2.sroa.2.0.copyload
   %add.i.i = fadd double %mul.i.i, %mul.i2.i
   %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
   %agg.tmp7.sroa.0.0.copyload = load double, ptr %p, align 8
@@ -618,14 +618,14 @@ entry:
   %agg.tmp7.sroa.2.0.copyload = load double, ptr %agg.tmp7.sroa.2.0.arrayidx9.sroa_idx, align 8
   %mul.i.i7 = fmul double %sub.i, %agg.tmp7.sroa.0.0.copyload
   %mul1.i.i8 = fmul double %sub.i, %agg.tmp7.sroa.2.0.copyload
-  %mul.i2.i9 = fmul double %agg.tmp.sroa.0.0.copyload, %param
-  %mul1.i3.i10 = fmul double %agg.tmp.sroa.2.0.copyload, %param
+  %mul.i2.i9 = fmul double %param, %agg.tmp.sroa.0.0.copyload
+  %mul1.i3.i10 = fmul double %param, %agg.tmp.sroa.2.0.copyload
   %add.i.i11 = fadd double %mul.i2.i9, %mul.i.i7
   %add3.i.i12 = fadd double %mul1.i3.i10, %mul1.i.i8
   %mul.i.i16 = fmul double %sub.i, %add.i.i11
   %mul1.i.i17 = fmul double %sub.i, %add3.i.i12
-  %mul.i2.i18 = fmul double %add.i.i, %param
-  %mul1.i3.i19 = fmul double %add3.i.i, %param
+  %mul.i2.i18 = fmul double %param, %add.i.i
+  %mul1.i3.i19 = fmul double %param, %add3.i.i
   %add.i.i20 = fadd double %mul.i2.i18, %mul.i.i16
   %add3.i.i21 = fadd double %mul1.i3.i19, %mul1.i.i17
   %arrayidx24 = getelementptr inbounds i8, ptr %this, i64 64
@@ -634,20 +634,20 @@ entry:
   %agg.tmp22.sroa.2.0.copyload = load double, ptr %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx, align 8
   %mul.i.i25 = fmul double %sub.i, %agg.tmp2.sroa.0.0.copyload
   %mul1.i.i26 = fmul double %sub.i, %agg.tmp2.sroa.2.0.copyload
-  %mul.i2.i27 = fmul double %agg.tmp22.sroa.0.0.copyload, %param
-  %mul1.i3.i28 = fmul double %agg.tmp22.sroa.2.0.copyload, %param
+  %mul.i2.i27 = fmul double %param, %agg.tmp22.sroa.0.0.copyload
+  %mul1.i3.i28 = fmul double %param, %agg.tmp22.sroa.2.0.copyload
   %add.i.i29 = fadd double %mul.i.i25, %mul.i2.i27
   %add3.i.i30 = fadd double %mul1.i.i26, %mul1.i3.i28
   %mul.i.i34 = fmul double %sub.i, %add.i.i
   %mul1.i.i35 = fmul double %sub.i, %add3.i.i
-  %mul.i2.i36 = fmul double %add.i.i29, %param
-  %mul1.i3.i37 = fmul double %add3.i.i30, %param
+  %mul.i2.i36 = fmul double %param, %add.i.i29
+  %mul1.i3.i37 = fmul double %param, %add3.i.i30
   %add.i.i38 = fadd double %mul.i.i34, %mul.i2.i36
   %add3.i.i39 = fadd double %mul1.i.i35, %mul1.i3.i37
   %mul.i.i43 = fmul double %sub.i, %add.i.i20
   %mul1.i.i44 = fmul double %sub.i, %add3.i.i21
-  %mul.i2.i45 = fmul double %add.i.i38, %param
-  %mul1.i3.i46 = fmul double %add3.i.i39, %param
+  %mul.i2.i45 = fmul double %param, %add.i.i38
+  %mul1.i3.i46 = fmul double %param, %add3.i.i39
   %add.i.i47 = fadd double %mul.i.i43, %mul.i2.i45
   %add3.i.i48 = fadd double %mul1.i.i44, %mul1.i3.i46
   %.fca.0.insert.i6.i49 = insertvalue { double, double } poison, double %add.i.i47, 0
@@ -695,8 +695,8 @@ entry:
   %sub.i5 = fsub double 1.000000e+00, %param
   %mul.i.i = fmul double %sub.i5, %sub.i
   %mul1.i.i = fmul double %sub.i5, %sub3.i
-  %mul.i2.i = fmul double %sub.i1, %param
-  %mul1.i3.i = fmul double %sub3.i2, %param
+  %mul.i2.i = fmul double %param, %sub.i1
+  %mul1.i3.i = fmul double %param, %sub3.i2
   %add.i.i = fadd double %mul.i.i, %mul.i2.i
   %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
   %.fca.0.insert.i6.i = insertvalue { double, double } poison, double %add.i.i, 0
@@ -734,8 +734,8 @@ entry:
   %sub.i9 = fsub double 1.000000e+00, %param
   %mul.i.i = fmul double %sub.i9, %sub.i
   %mul1.i.i = fmul double %sub.i9, %sub3.i
-  %mul.i2.i = fmul double %sub.i5, %param
-  %mul1.i3.i = fmul double %sub3.i6, %param
+  %mul.i2.i = fmul double %param, %sub.i5
+  %mul1.i3.i = fmul double %param, %sub3.i6
   %add.i.i = fadd double %mul.i.i, %mul.i2.i
   %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
   %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 64
@@ -746,14 +746,14 @@ entry:
   %sub3.i15 = fsub double %agg.tmp26.sroa.2.0.copyload, %agg.tmp8.sroa.2.0.copyload
   %mul.i.i19 = fmul double %sub.i9, %sub.i5
   %mul1.i.i20 = fmul double %sub.i9, %sub3.i6
-  %mul.i2.i21 = fmul double %sub.i14, %param
-  %mul1.i3.i22 = fmul double %sub3.i15, %param
+  %mul.i2.i21 = fmul double %param, %sub.i14
+  %mul1.i3.i22 = fmul double %param, %sub3.i15
   %add.i.i23 = fadd double %mul.i.i19, %mul.i2.i21
   %add3.i.i24 = fadd double %mul1.i.i20, %mul1.i3.i22
   %mul.i.i28 = fmul double %sub.i9, %add.i.i
   %mul1.i.i29 = fmul double %sub.i9, %add3.i.i
-  %mul.i2.i30 = fmul double %add.i.i23, %param
-  %mul1.i3.i31 = fmul double %add3.i.i24, %param
+  %mul.i2.i30 = fmul double %param, %add.i.i23
+  %mul1.i3.i31 = fmul double %param, %add3.i.i24
   %add.i.i32 = fadd double %mul.i.i28, %mul.i2.i30
   %add3.i.i33 = fadd double %mul1.i.i29, %mul1.i3.i31
   %tobool.i = fcmp oeq double %add.i.i32, 0.000000e+00
@@ -851,8 +851,8 @@ entry:
   %sub.i21 = fsub double 1.000000e+00, %param
   %mul.i.i = fmul double %sub.i21, %sub.i5
   %mul1.i.i = fmul double %sub.i21, %sub3.i6
-  %mul.i2.i = fmul double %sub.i17, %param
-  %mul1.i3.i = fmul double %sub3.i18, %param
+  %mul.i2.i = fmul double %param, %sub.i17
+  %mul1.i3.i = fmul double %param, %sub3.i18
   %add.i.i = fadd double %mul.i.i, %mul.i2.i
   %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
   %.fca.0.insert.i6.i = insertvalue { double, double } poison, double %add.i.i, 0
@@ -908,16 +908,16 @@ entry:
   %2 = tail call noundef double @llvm.fmuladd.f64(double %sub.i21, double %sub.i21, double %mul3.i26)
   %sqrt27 = tail call double @llvm.sqrt.f64(double %0)
   %sqrt = tail call double @llvm.sqrt.f64(double %2)
-  %3 = fneg double %sub3.i
-  %neg.i = fmul double %sub.i21, %3
+  %3 = fneg double %sub.i21
+  %neg.i = fmul double %sub3.i, %3
   %4 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i22, double %neg.i)
   %add = fadd double %0, %1
   %add29 = fadd double %1, %add
   %add30 = fadd double %2, %add29
   %call31 = tail call double @sqrt(double noundef %add30) #16
   %add32 = fadd double %1, %2
-  %5 = fneg double %1
-  %neg = fmul double %sqrt27, %5
+  %5 = fneg double %sqrt27
+  %neg = fmul double %1, %5
   %6 = tail call double @llvm.fmuladd.f64(double %add32, double %call31, double %neg)
   %mul34 = fmul double %4, %4
   %7 = tail call double @llvm.fmuladd.f64(double %sqrt, double %call31, double %1)
@@ -976,14 +976,16 @@ entry:
   %cmp22 = fcmp ogt double %div, 0.000000e+00
   %cmp23 = fcmp olt double %div, 1.000000e+00
   %or.cond = and i1 %cmp22, %cmp23
-  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %1)
   br i1 %or.cond, label %if.then, label %entry.if.end30_crit_edge
 
 entry.if.end30_crit_edge:                         ; preds = %entry
-  %.pre42 = fdiv double %sub3.i7, %sqrt.i.i
+  %.pre = fneg double %sub.i6
+  %.pre42 = tail call noundef double @llvm.sqrt.f64(double %1)
+  %.pre43 = fdiv double %sub3.i7, %.pre42
   br label %if.end30
 
 if.then:                                          ; preds = %entry
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %1)
   %tobool.i = fcmp une double %1, 0.000000e+00
   %div6.i = fdiv double %sub3.i7, %sqrt.i.i
   %fneg8.i = fneg double %sub.i6
@@ -997,15 +999,16 @@ if.then:                                          ; preds = %entry
   br i1 %cmp28, label %return, label %if.end30
 
 if.end30:                                         ; preds = %entry.if.end30_crit_edge, %if.then
-  %div2.i.pre-phi = phi double [ %.pre42, %entry.if.end30_crit_edge ], [ %div6.i, %if.then ]
-  %5 = fneg double %sub3.i
-  %neg.i = fmul double %sub.i6, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i7, double %neg.i)
-  %cmp.i = fcmp ogt double %6, 0.000000e+00
-  %7 = fneg double %sqrt.i
-  %mul = select i1 %cmp.i, double %sqrt.i, double %7
+  %div2.i.pre-phi = phi double [ %.pre43, %entry.if.end30_crit_edge ], [ %div6.i, %if.then ]
+  %sqrt.i.i21.pre-phi = phi double [ %.pre42, %entry.if.end30_crit_edge ], [ %sqrt.i.i, %if.then ]
+  %.pre-phi = phi double [ %.pre, %entry.if.end30_crit_edge ], [ %fneg8.i, %if.then ]
+  %neg.i = fmul double %sub3.i, %.pre-phi
+  %5 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i7, double %neg.i)
+  %cmp.i = fcmp ogt double %5, 0.000000e+00
+  %6 = fneg double %sqrt.i
+  %mul = select i1 %cmp.i, double %sqrt.i, double %6
   %tobool.i22 = fcmp une double %1, 0.000000e+00
-  %div.i = fdiv double %sub.i6, %sqrt.i.i
+  %div.i = fdiv double %sub.i6, %sqrt.i.i21.pre-phi
   %retval.sroa.3.0.i = select i1 %tobool.i22, double %div2.i.pre-phi, double 1.000000e+00
   %retval.sroa.0.0.i23 = select i1 %tobool.i22, double %div.i, double 0.000000e+00
   %tobool.i29 = fcmp une double %2, 0.000000e+00
@@ -1014,13 +1017,13 @@ if.end30:                                         ; preds = %entry.if.end30_crit
   %retval.sroa.3.0.i32 = select i1 %tobool.i29, double %div2.i31, double 1.000000e+00
   %retval.sroa.0.0.i33 = select i1 %tobool.i29, double %div.i30, double 0.000000e+00
   %mul3.i36 = fmul double %retval.sroa.3.0.i, %retval.sroa.3.0.i32
-  %8 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i23, double %retval.sroa.0.0.i33, double %mul3.i36)
-  %9 = tail call double @llvm.fabs.f64(double %8)
+  %7 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i23, double %retval.sroa.0.0.i33, double %mul3.i36)
+  %8 = tail call double @llvm.fabs.f64(double %7)
   br label %return
 
 return:                                           ; preds = %if.then, %if.end30
   %retval.sroa.0.0 = phi double [ %mul, %if.end30 ], [ %3, %if.then ]
-  %retval.sroa.3.0 = phi double [ %9, %if.end30 ], [ 0.000000e+00, %if.then ]
+  %retval.sroa.3.0 = phi double [ %8, %if.end30 ], [ 0.000000e+00, %if.then ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
@@ -1069,8 +1072,8 @@ entry:
   %call37 = call { double, double } %6(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0.000000e+00)
   %7 = extractvalue { double, double } %call37, 0
   %8 = extractvalue { double, double } %call37, 1
-  %9 = fneg double %8
-  %neg.i = fmul double %sub.i, %9
+  %9 = fneg double %sub.i
+  %neg.i = fmul double %8, %9
   %10 = call noundef double @llvm.fmuladd.f64(double %7, double %sub3.i, double %neg.i)
   %cmp.i = fcmp ogt double %10, 0.000000e+00
   %mul4.i = fmul double %sub3.i, %sub3.i
@@ -1103,8 +1106,8 @@ entry:
 if.then:                                          ; preds = %entry
   %18 = extractvalue { double, double } %call52, 1
   %19 = extractvalue { double, double } %call52, 0
-  %20 = fneg double %18
-  %neg.i52 = fmul double %sub.i41, %20
+  %20 = fneg double %sub.i41
+  %neg.i52 = fmul double %18, %20
   %21 = call noundef double @llvm.fmuladd.f64(double %19, double %sub3.i42, double %neg.i52)
   %cmp.i53 = fcmp ogt double %21, 0.000000e+00
   %22 = fneg double %sqrt.i47
@@ -1163,8 +1166,8 @@ if.then111:                                       ; preds = %if.then89
   %mul1.i77 = fmul double %sub3.i31, %25
   %add.i80 = fadd double %sub.i22, %mul.i76
   %add3.i81 = fadd double %sub3.i23, %mul1.i77
-  %28 = fneg double %add3.i81
-  %neg.i84 = fmul double %add.i69, %28
+  %28 = fneg double %add.i69
+  %neg.i84 = fmul double %add3.i81, %28
   %29 = call noundef double @llvm.fmuladd.f64(double %add.i80, double %add3.i70, double %neg.i84)
   %cmp.i85 = fcmp ogt double %29, 0.000000e+00
   %30 = fneg double %sqrt.i75
@@ -1292,8 +1295,8 @@ entry:
   %call40 = tail call { double, double } %0(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0.000000e+00)
   %1 = extractvalue { double, double } %call40, 0
   %2 = extractvalue { double, double } %call40, 1
-  %3 = fneg double %2
-  %neg.i = fmul double %sub.i, %3
+  %3 = fneg double %sub.i
+  %neg.i = fmul double %2, %3
   %4 = tail call noundef double @llvm.fmuladd.f64(double %1, double %sub3.i, double %neg.i)
   %cmp.i = fcmp ogt double %4, 0.000000e+00
   %mul4.i = fmul double %sub3.i, %sub3.i
@@ -1326,8 +1329,8 @@ entry:
 if.then:                                          ; preds = %entry
   %12 = extractvalue { double, double } %call54, 1
   %13 = extractvalue { double, double } %call54, 0
-  %14 = fneg double %12
-  %neg.i76 = fmul double %sub.i65, %14
+  %14 = fneg double %sub.i65
+  %neg.i76 = fmul double %12, %14
   %15 = tail call noundef double @llvm.fmuladd.f64(double %13, double %sub3.i66, double %neg.i76)
   %cmp.i77 = fcmp ogt double %15, 0.000000e+00
   %16 = fneg double %sqrt.i71
@@ -1433,8 +1436,8 @@ if.end150:                                        ; preds = %for.body113
   br i1 %cmp174, label %if.then175, label %for.inc
 
 if.then175:                                       ; preds = %if.end150
-  %24 = fneg double %add3.i126
-  %neg.i171 = fmul double %add.i164, %24
+  %24 = fneg double %add.i164
+  %neg.i171 = fmul double %add3.i126, %24
   %25 = tail call noundef double @llvm.fmuladd.f64(double %add.i125, double %add3.i165, double %neg.i171)
   %cmp.i172 = fcmp ogt double %25, 0.000000e+00
   %26 = fneg double %sqrt.i170
@@ -1532,16 +1535,16 @@ entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
   %y2 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load double, ptr %y2, align 8
-  %cmp = fcmp ole double %0, %y
+  %cmp = fcmp oge double %y, %0
   %y5 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load double, ptr %y5, align 8
-  %cmp6 = fcmp ogt double %1, %y
+  %cmp6 = fcmp olt double %y, %1
   %or.cond = select i1 %cmp, i1 %cmp6, i1 false
   br i1 %or.cond, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %cmp10 = fcmp ole double %1, %y
-  %cmp15 = fcmp ogt double %0, %y
+  %cmp10 = fcmp oge double %y, %1
+  %cmp15 = fcmp olt double %y, %0
   %or.cond5 = and i1 %cmp15, %cmp10
   br i1 %or.cond5, label %if.then, label %return
 
@@ -1579,7 +1582,7 @@ entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
   %y2 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load double, ptr %y2, align 8
-  %cmp = fcmp olt double %0, %y
+  %cmp = fcmp ogt double %y, %0
   %cond = select i1 %cmp, i32 1, i32 -1
   %1 = load double, ptr %p, align 8
   store double %1, ptr %x, align 8
@@ -1745,14 +1748,14 @@ if.end158:                                        ; preds = %lor.lhs.false127, %
   %nextDY.3 = phi i32 [ 1, %if.then152 ], [ %nextDY.1.lcssa, %if.then145 ], [ %spec.select, %land.lhs.true135 ], [ %spec.select, %lor.lhs.false127 ], [ %nextDY.1.lcssa, %for.end ]
   %total.3 = phi i32 [ %inc153, %if.then152 ], [ %spec.select53, %if.then145 ], [ %spec.select53, %land.lhs.true135 ], [ %spec.select53, %lor.lhs.false127 ], [ %total.1.lcssa, %for.end ]
   %18 = load double, ptr %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx, align 8
-  %cmp162 = fcmp ole double %18, %y
+  %cmp162 = fcmp oge double %y, %18
   %cond163 = select i1 %cmp162, i32 1, i32 -1
   %cmp164.not = icmp eq i32 %nextDY.3, %cond163
   br i1 %cmp164.not, label %if.end190, label %if.then165
 
 if.end158.thread:                                 ; preds = %land.lhs.true143
   %19 = load double, ptr %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx, align 8
-  %cmp16273 = fcmp ole double %19, %y
+  %cmp16273 = fcmp oge double %y, %19
   %cond16374 = select i1 %cmp16273, i32 1, i32 -1
   %cmp164.not75 = icmp eq i32 %spec.select, %cond16374
   br i1 %cmp164.not75, label %if.end190, label %if.then167
@@ -1807,7 +1810,7 @@ entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
   %y2 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load double, ptr %y2, align 8
-  %cmp = fcmp olt double %0, %y
+  %cmp = fcmp ogt double %y, %0
   %cond = select i1 %cmp, i32 1, i32 -1
   %1 = load double, ptr %p, align 8
   store double %1, ptr %x, align 8
@@ -2031,14 +2034,14 @@ if.end252:                                        ; preds = %lor.lhs.false205, %
   %nextDY.3 = phi i32 [ 1, %if.then246 ], [ %nextDY.1.lcssa, %if.then239 ], [ %spec.select, %land.lhs.true229 ], [ %spec.select, %lor.lhs.false221 ], [ %spec.select, %lor.lhs.false205 ], [ %nextDY.1.lcssa, %for.end ]
   %total.3 = phi i32 [ %inc247, %if.then246 ], [ %spec.select68, %if.then239 ], [ %spec.select68, %land.lhs.true229 ], [ %spec.select68, %lor.lhs.false221 ], [ %spec.select68, %lor.lhs.false205 ], [ %total.1.lcssa, %for.end ]
   %25 = load double, ptr %agg.tmp69.sroa.2.0.arrayidx71.sroa_idx, align 8
-  %cmp256 = fcmp ole double %25, %y
+  %cmp256 = fcmp oge double %y, %25
   %cond257 = select i1 %cmp256, i32 1, i32 -1
   %cmp258.not = icmp eq i32 %nextDY.3, %cond257
   br i1 %cmp258.not, label %if.end284, label %if.then259
 
 if.end252.thread:                                 ; preds = %land.lhs.true237
   %26 = load double, ptr %agg.tmp69.sroa.2.0.arrayidx71.sroa_idx, align 8
-  %cmp256104 = fcmp ole double %26, %y
+  %cmp256104 = fcmp oge double %y, %26
   %cond257105 = select i1 %cmp256104, i32 1, i32 -1
   %cmp258.not106 = icmp eq i32 %spec.select, %cond257105
   br i1 %cmp258.not106, label %if.end284, label %if.then261
@@ -2092,7 +2095,7 @@ entry:
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %0 = load double, ptr %l, align 8
-  %cmp.i = fcmp ogt double %0, %agg.tmp.sroa.0.0.copyload
+  %cmp.i = fcmp olt double %agg.tmp.sroa.0.0.copyload, %0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -2101,7 +2104,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %1 = load double, ptr %b, align 8
-  %cmp2.i = fcmp ogt double %1, %agg.tmp.sroa.2.0.copyload
+  %cmp2.i = fcmp olt double %agg.tmp.sroa.2.0.copyload, %1
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -2110,7 +2113,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
   %2 = load double, ptr %r, align 8
-  %cmp7.i = fcmp olt double %2, %agg.tmp.sroa.0.0.copyload
+  %cmp7.i = fcmp ogt double %agg.tmp.sroa.0.0.copyload, %2
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %if.end5.i
@@ -2119,7 +2122,7 @@ if.then8.i:                                       ; preds = %if.end5.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %if.end5.i
   %3 = load double, ptr %t, align 8
-  %cmp12.i = fcmp olt double %3, %agg.tmp.sroa.2.0.copyload
+  %cmp12.i = fcmp ogt double %agg.tmp.sroa.2.0.copyload, %3
   br i1 %cmp12.i, label %if.then13.i, label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
 
 if.then13.i:                                      ; preds = %if.end10.i
@@ -2132,7 +2135,7 @@ _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit: ; preds = %if.end10.i, %
   %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %4 = load double, ptr %l, align 8
-  %cmp.i5 = fcmp ogt double %4, %agg.tmp2.sroa.0.0.copyload
+  %cmp.i5 = fcmp olt double %agg.tmp2.sroa.0.0.copyload, %4
   br i1 %cmp.i5, label %if.then.i15, label %if.end.i6
 
 if.then.i15:                                      ; preds = %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
@@ -2141,7 +2144,7 @@ if.then.i15:                                      ; preds = %_ZN7msdfgenL11point
 
 if.end.i6:                                        ; preds = %if.then.i15, %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
   %5 = load double, ptr %b, align 8
-  %cmp2.i7 = fcmp ogt double %5, %agg.tmp2.sroa.2.0.copyload
+  %cmp2.i7 = fcmp olt double %agg.tmp2.sroa.2.0.copyload, %5
   br i1 %cmp2.i7, label %if.then3.i14, label %if.end5.i8
 
 if.then3.i14:                                     ; preds = %if.end.i6
@@ -2150,7 +2153,7 @@ if.then3.i14:                                     ; preds = %if.end.i6
 
 if.end5.i8:                                       ; preds = %if.then3.i14, %if.end.i6
   %6 = load double, ptr %r, align 8
-  %cmp7.i9 = fcmp olt double %6, %agg.tmp2.sroa.0.0.copyload
+  %cmp7.i9 = fcmp ogt double %agg.tmp2.sroa.0.0.copyload, %6
   br i1 %cmp7.i9, label %if.then8.i13, label %if.end10.i10
 
 if.then8.i13:                                     ; preds = %if.end5.i8
@@ -2159,7 +2162,7 @@ if.then8.i13:                                     ; preds = %if.end5.i8
 
 if.end10.i10:                                     ; preds = %if.then8.i13, %if.end5.i8
   %7 = load double, ptr %t, align 8
-  %cmp12.i11 = fcmp olt double %7, %agg.tmp2.sroa.2.0.copyload
+  %cmp12.i11 = fcmp ogt double %agg.tmp2.sroa.2.0.copyload, %7
   br i1 %cmp12.i11, label %if.then13.i12, label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit16
 
 if.then13.i12:                                    ; preds = %if.end10.i10
@@ -2178,7 +2181,7 @@ entry:
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %0 = load double, ptr %l, align 8
-  %cmp.i = fcmp ogt double %0, %agg.tmp.sroa.0.0.copyload
+  %cmp.i = fcmp olt double %agg.tmp.sroa.0.0.copyload, %0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -2187,7 +2190,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %1 = load double, ptr %b, align 8
-  %cmp2.i = fcmp ogt double %1, %agg.tmp.sroa.2.0.copyload
+  %cmp2.i = fcmp olt double %agg.tmp.sroa.2.0.copyload, %1
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -2196,7 +2199,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
   %2 = load double, ptr %r, align 8
-  %cmp7.i = fcmp olt double %2, %agg.tmp.sroa.0.0.copyload
+  %cmp7.i = fcmp ogt double %agg.tmp.sroa.0.0.copyload, %2
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %if.end5.i
@@ -2205,7 +2208,7 @@ if.then8.i:                                       ; preds = %if.end5.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %if.end5.i
   %3 = load double, ptr %t, align 8
-  %cmp12.i = fcmp olt double %3, %agg.tmp.sroa.2.0.copyload
+  %cmp12.i = fcmp ogt double %agg.tmp.sroa.2.0.copyload, %3
   br i1 %cmp12.i, label %if.then13.i, label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
 
 if.then13.i:                                      ; preds = %if.end10.i
@@ -2218,7 +2221,7 @@ _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit: ; preds = %if.end10.i, %
   %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %4 = load double, ptr %l, align 8
-  %cmp.i21 = fcmp ogt double %4, %agg.tmp2.sroa.0.0.copyload
+  %cmp.i21 = fcmp olt double %agg.tmp2.sroa.0.0.copyload, %4
   br i1 %cmp.i21, label %if.then.i31, label %if.end.i22
 
 if.then.i31:                                      ; preds = %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
@@ -2227,7 +2230,7 @@ if.then.i31:                                      ; preds = %_ZN7msdfgenL11point
 
 if.end.i22:                                       ; preds = %if.then.i31, %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
   %5 = load double, ptr %b, align 8
-  %cmp2.i23 = fcmp ogt double %5, %agg.tmp2.sroa.2.0.copyload
+  %cmp2.i23 = fcmp olt double %agg.tmp2.sroa.2.0.copyload, %5
   br i1 %cmp2.i23, label %if.then3.i30, label %if.end5.i24
 
 if.then3.i30:                                     ; preds = %if.end.i22
@@ -2236,7 +2239,7 @@ if.then3.i30:                                     ; preds = %if.end.i22
 
 if.end5.i24:                                      ; preds = %if.then3.i30, %if.end.i22
   %6 = load double, ptr %r, align 8
-  %cmp7.i25 = fcmp olt double %6, %agg.tmp2.sroa.0.0.copyload
+  %cmp7.i25 = fcmp ogt double %agg.tmp2.sroa.0.0.copyload, %6
   br i1 %cmp7.i25, label %if.then8.i29, label %if.end10.i26
 
 if.then8.i29:                                     ; preds = %if.end5.i24
@@ -2245,7 +2248,7 @@ if.then8.i29:                                     ; preds = %if.end5.i24
 
 if.end10.i26:                                     ; preds = %if.then8.i29, %if.end5.i24
   %7 = load double, ptr %t, align 8
-  %cmp12.i27 = fcmp olt double %7, %agg.tmp2.sroa.2.0.copyload
+  %cmp12.i27 = fcmp ogt double %agg.tmp2.sroa.2.0.copyload, %7
   br i1 %cmp12.i27, label %if.then13.i28, label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit32
 
 if.then13.i28:                                    ; preds = %if.end10.i26
@@ -2285,7 +2288,7 @@ if.then29:                                        ; preds = %if.then
   %9 = extractvalue { double, double } %call31, 0
   %10 = extractvalue { double, double } %call31, 1
   %11 = load double, ptr %l, align 8
-  %cmp.i41 = fcmp ogt double %11, %9
+  %cmp.i41 = fcmp olt double %9, %11
   br i1 %cmp.i41, label %if.then.i51, label %if.end.i42
 
 if.then.i51:                                      ; preds = %if.then29
@@ -2294,7 +2297,7 @@ if.then.i51:                                      ; preds = %if.then29
 
 if.end.i42:                                       ; preds = %if.then.i51, %if.then29
   %12 = load double, ptr %b, align 8
-  %cmp2.i43 = fcmp ogt double %12, %10
+  %cmp2.i43 = fcmp olt double %10, %12
   br i1 %cmp2.i43, label %if.then3.i50, label %if.end5.i44
 
 if.then3.i50:                                     ; preds = %if.end.i42
@@ -2303,7 +2306,7 @@ if.then3.i50:                                     ; preds = %if.end.i42
 
 if.end5.i44:                                      ; preds = %if.then3.i50, %if.end.i42
   %13 = load double, ptr %r, align 8
-  %cmp7.i45 = fcmp olt double %13, %9
+  %cmp7.i45 = fcmp ogt double %9, %13
   br i1 %cmp7.i45, label %if.then8.i49, label %if.end10.i46
 
 if.then8.i49:                                     ; preds = %if.end5.i44
@@ -2312,7 +2315,7 @@ if.then8.i49:                                     ; preds = %if.end5.i44
 
 if.end10.i46:                                     ; preds = %if.then8.i49, %if.end5.i44
   %14 = load double, ptr %t, align 8
-  %cmp12.i47 = fcmp olt double %14, %10
+  %cmp12.i47 = fcmp ogt double %10, %14
   br i1 %cmp12.i47, label %if.then13.i48, label %if.end32
 
 if.then13.i48:                                    ; preds = %if.end10.i46
@@ -2341,7 +2344,7 @@ if.then48:                                        ; preds = %if.then34
   %18 = extractvalue { double, double } %call52, 0
   %19 = extractvalue { double, double } %call52, 1
   %20 = load double, ptr %l, align 8
-  %cmp.i53 = fcmp ogt double %20, %18
+  %cmp.i53 = fcmp olt double %18, %20
   br i1 %cmp.i53, label %if.then.i63, label %if.end.i54
 
 if.then.i63:                                      ; preds = %if.then48
@@ -2350,7 +2353,7 @@ if.then.i63:                                      ; preds = %if.then48
 
 if.end.i54:                                       ; preds = %if.then.i63, %if.then48
   %21 = load double, ptr %b, align 8
-  %cmp2.i55 = fcmp ogt double %21, %19
+  %cmp2.i55 = fcmp olt double %19, %21
   br i1 %cmp2.i55, label %if.then3.i62, label %if.end5.i56
 
 if.then3.i62:                                     ; preds = %if.end.i54
@@ -2359,7 +2362,7 @@ if.then3.i62:                                     ; preds = %if.end.i54
 
 if.end5.i56:                                      ; preds = %if.then3.i62, %if.end.i54
   %22 = load double, ptr %r, align 8
-  %cmp7.i57 = fcmp olt double %22, %18
+  %cmp7.i57 = fcmp ogt double %18, %22
   br i1 %cmp7.i57, label %if.then8.i61, label %if.end10.i58
 
 if.then8.i61:                                     ; preds = %if.end5.i56
@@ -2368,7 +2371,7 @@ if.then8.i61:                                     ; preds = %if.end5.i56
 
 if.end10.i58:                                     ; preds = %if.then8.i61, %if.end5.i56
   %23 = load double, ptr %t, align 8
-  %cmp12.i59 = fcmp olt double %23, %19
+  %cmp12.i59 = fcmp ogt double %19, %23
   br i1 %cmp12.i59, label %if.then13.i60, label %if.end54
 
 if.then13.i60:                                    ; preds = %if.end10.i58
@@ -2388,7 +2391,7 @@ entry:
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %0 = load double, ptr %l, align 8
-  %cmp.i = fcmp ogt double %0, %agg.tmp.sroa.0.0.copyload
+  %cmp.i = fcmp olt double %agg.tmp.sroa.0.0.copyload, %0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -2397,7 +2400,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %1 = load double, ptr %b, align 8
-  %cmp2.i = fcmp ogt double %1, %agg.tmp.sroa.2.0.copyload
+  %cmp2.i = fcmp olt double %agg.tmp.sroa.2.0.copyload, %1
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -2406,7 +2409,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
   %2 = load double, ptr %r, align 8
-  %cmp7.i = fcmp olt double %2, %agg.tmp.sroa.0.0.copyload
+  %cmp7.i = fcmp ogt double %agg.tmp.sroa.0.0.copyload, %2
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %if.end5.i
@@ -2415,7 +2418,7 @@ if.then8.i:                                       ; preds = %if.end5.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %if.end5.i
   %3 = load double, ptr %t, align 8
-  %cmp12.i = fcmp olt double %3, %agg.tmp.sroa.2.0.copyload
+  %cmp12.i = fcmp ogt double %agg.tmp.sroa.2.0.copyload, %3
   br i1 %cmp12.i, label %if.then13.i, label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
 
 if.then13.i:                                      ; preds = %if.end10.i
@@ -2428,7 +2431,7 @@ _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit: ; preds = %if.end10.i, %
   %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %4 = load double, ptr %l, align 8
-  %cmp.i24 = fcmp ogt double %4, %agg.tmp2.sroa.0.0.copyload
+  %cmp.i24 = fcmp olt double %agg.tmp2.sroa.0.0.copyload, %4
   br i1 %cmp.i24, label %if.then.i34, label %if.end.i25
 
 if.then.i34:                                      ; preds = %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
@@ -2437,7 +2440,7 @@ if.then.i34:                                      ; preds = %_ZN7msdfgenL11point
 
 if.end.i25:                                       ; preds = %if.then.i34, %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
   %5 = load double, ptr %b, align 8
-  %cmp2.i26 = fcmp ogt double %5, %agg.tmp2.sroa.2.0.copyload
+  %cmp2.i26 = fcmp olt double %agg.tmp2.sroa.2.0.copyload, %5
   br i1 %cmp2.i26, label %if.then3.i33, label %if.end5.i27
 
 if.then3.i33:                                     ; preds = %if.end.i25
@@ -2446,7 +2449,7 @@ if.then3.i33:                                     ; preds = %if.end.i25
 
 if.end5.i27:                                      ; preds = %if.then3.i33, %if.end.i25
   %6 = load double, ptr %r, align 8
-  %cmp7.i28 = fcmp olt double %6, %agg.tmp2.sroa.0.0.copyload
+  %cmp7.i28 = fcmp ogt double %agg.tmp2.sroa.0.0.copyload, %6
   br i1 %cmp7.i28, label %if.then8.i32, label %if.end10.i29
 
 if.then8.i32:                                     ; preds = %if.end5.i27
@@ -2455,7 +2458,7 @@ if.then8.i32:                                     ; preds = %if.end5.i27
 
 if.end10.i29:                                     ; preds = %if.then8.i32, %if.end5.i27
   %7 = load double, ptr %t, align 8
-  %cmp12.i30 = fcmp olt double %7, %agg.tmp2.sroa.2.0.copyload
+  %cmp12.i30 = fcmp ogt double %agg.tmp2.sroa.2.0.copyload, %7
   br i1 %cmp12.i30, label %if.then13.i31, label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit35
 
 if.then13.i31:                                    ; preds = %if.end10.i29
@@ -2518,7 +2521,7 @@ if.then:                                          ; preds = %for.body
   %10 = extractvalue { double, double } %call55, 0
   %11 = extractvalue { double, double } %call55, 1
   %12 = load double, ptr %l, align 8
-  %cmp.i64 = fcmp ogt double %12, %10
+  %cmp.i64 = fcmp olt double %10, %12
   br i1 %cmp.i64, label %if.then.i74, label %if.end.i65
 
 if.then.i74:                                      ; preds = %if.then
@@ -2527,7 +2530,7 @@ if.then.i74:                                      ; preds = %if.then
 
 if.end.i65:                                       ; preds = %if.then.i74, %if.then
   %13 = load double, ptr %b, align 8
-  %cmp2.i66 = fcmp ogt double %13, %11
+  %cmp2.i66 = fcmp olt double %11, %13
   br i1 %cmp2.i66, label %if.then3.i73, label %if.end5.i67
 
 if.then3.i73:                                     ; preds = %if.end.i65
@@ -2536,7 +2539,7 @@ if.then3.i73:                                     ; preds = %if.end.i65
 
 if.end5.i67:                                      ; preds = %if.then3.i73, %if.end.i65
   %14 = load double, ptr %r, align 8
-  %cmp7.i68 = fcmp olt double %14, %10
+  %cmp7.i68 = fcmp ogt double %10, %14
   br i1 %cmp7.i68, label %if.then8.i72, label %if.end10.i69
 
 if.then8.i72:                                     ; preds = %if.end5.i67
@@ -2545,7 +2548,7 @@ if.then8.i72:                                     ; preds = %if.end5.i67
 
 if.end10.i69:                                     ; preds = %if.then8.i72, %if.end5.i67
   %15 = load double, ptr %t, align 8
-  %cmp12.i70 = fcmp olt double %15, %11
+  %cmp12.i70 = fcmp ogt double %11, %15
   br i1 %cmp12.i70, label %if.then13.i71, label %for.inc
 
 if.then13.i71:                                    ; preds = %if.end10.i69
@@ -2583,7 +2586,7 @@ if.then71:                                        ; preds = %for.body63
   %18 = extractvalue { double, double } %call77, 0
   %19 = extractvalue { double, double } %call77, 1
   %20 = load double, ptr %l, align 8
-  %cmp.i76 = fcmp ogt double %20, %18
+  %cmp.i76 = fcmp olt double %18, %20
   br i1 %cmp.i76, label %if.then.i86, label %if.end.i77
 
 if.then.i86:                                      ; preds = %if.then71
@@ -2592,7 +2595,7 @@ if.then.i86:                                      ; preds = %if.then71
 
 if.end.i77:                                       ; preds = %if.then.i86, %if.then71
   %21 = load double, ptr %b, align 8
-  %cmp2.i78 = fcmp ogt double %21, %19
+  %cmp2.i78 = fcmp olt double %19, %21
   br i1 %cmp2.i78, label %if.then3.i85, label %if.end5.i79
 
 if.then3.i85:                                     ; preds = %if.end.i77
@@ -2601,7 +2604,7 @@ if.then3.i85:                                     ; preds = %if.end.i77
 
 if.end5.i79:                                      ; preds = %if.then3.i85, %if.end.i77
   %22 = load double, ptr %r, align 8
-  %cmp7.i80 = fcmp olt double %22, %18
+  %cmp7.i80 = fcmp ogt double %18, %22
   br i1 %cmp7.i80, label %if.then8.i84, label %if.end10.i81
 
 if.then8.i84:                                     ; preds = %if.end5.i79
@@ -2610,7 +2613,7 @@ if.then8.i84:                                     ; preds = %if.end5.i79
 
 if.end10.i81:                                     ; preds = %if.then8.i84, %if.end5.i79
   %23 = load double, ptr %t, align 8
-  %cmp12.i82 = fcmp olt double %23, %19
+  %cmp12.i82 = fcmp ogt double %19, %23
   br i1 %cmp12.i82, label %if.then13.i83, label %for.inc79
 
 if.then13.i83:                                    ; preds = %if.end10.i81
@@ -2694,8 +2697,8 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %origP1, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4, i64 16, i1 false)
   %sub.i5 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
   %sub3.i6 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
-  %0 = fneg double %sub3.i
-  %neg.i = fmul double %sub.i5, %0
+  %0 = fneg double %sub.i5
+  %neg.i = fmul double %sub3.i, %0
   %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i6, double %neg.i)
   %arrayidx34 = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp32.sroa.0.0.copyload = load double, ptr %arrayidx34, align 8
@@ -2703,9 +2706,10 @@ entry:
   %agg.tmp32.sroa.2.0.copyload = load double, ptr %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx, align 8
   %sub.i13 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i14 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
-  %neg.i17 = fmul double %sub.i13, %0
-  %2 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i14, double %neg.i17)
-  %div = fdiv double %1, %2
+  %2 = fneg double %sub.i13
+  %neg.i17 = fmul double %sub3.i, %2
+  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i14, double %neg.i17)
+  %div = fdiv double %1, %3
   %mul.i = fmul double %sub.i13, %div
   %mul1.i = fmul double %sub3.i14, %div
   %add.i = fadd double %agg.tmp2.sroa.0.0.copyload, %mul.i
@@ -2717,8 +2721,8 @@ entry:
   %sub.i24 = fsub double %to.coerce0, %add.i
   %sub3.i25 = fsub double %to.coerce1, %add4.i
   %mul3.i = fmul double %sub3.i, %sub3.i25
-  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i24, double %mul3.i)
-  %cmp = fcmp olt double %3, 0.000000e+00
+  %4 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i24, double %mul3.i)
+  %cmp = fcmp olt double %4, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2779,17 +2783,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %origP1, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4, i64 16, i1 false)
   %sub.i5 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
   %sub3.i6 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
-  %0 = fneg double %sub3.i
-  %neg.i = fmul double %sub.i5, %0
+  %0 = fneg double %sub.i5
+  %neg.i = fmul double %sub3.i, %0
   %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i6, double %neg.i)
   %agg.tmp32.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp32.sroa.2.0.copyload = load double, ptr %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx, align 8
   %sub.i13 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i14 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
-  %neg.i17 = fmul double %sub.i13, %0
-  %2 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i14, double %neg.i17)
-  %div = fdiv double %1, %2
+  %2 = fneg double %sub.i13
+  %neg.i17 = fmul double %sub3.i, %2
+  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i14, double %neg.i17)
+  %div = fdiv double %1, %3
   %mul.i = fmul double %sub.i13, %div
   %mul1.i = fmul double %sub3.i14, %div
   %add.i = fadd double %agg.tmp2.sroa.0.0.copyload, %mul.i
@@ -2801,8 +2806,8 @@ entry:
   %sub.i24 = fsub double %to.coerce0, %add.i
   %sub3.i25 = fsub double %to.coerce1, %add4.i
   %mul3.i = fmul double %sub3.i, %sub3.i25
-  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i24, double %mul3.i)
-  %cmp = fcmp olt double %3, 0.000000e+00
+  %4 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i24, double %mul3.i)
+  %cmp = fcmp olt double %4, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -3503,8 +3508,8 @@ sw.bb:                                            ; preds = %entry
   %mul1.i = fmul double %retval.sroa.5.0.i, %mul
   %add.i = fadd double %1, %mul.i
   %add3.i = fadd double %2, %mul1.i
-  %mul.i14 = fmul double %add.i, %amount
-  %mul1.i15 = fmul double %add3.i, %amount
+  %mul.i14 = fmul double %amount, %add.i
+  %mul1.i15 = fmul double %amount, %add3.i
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load double, ptr %arrayidx, align 8
   %add.i18 = fadd double %mul.i14, %9
@@ -3529,8 +3534,8 @@ sw.bb24:                                          ; preds = %entry
   %mul1.i25 = fmul double %retval.sroa.5.0.i, %mul32
   %sub.i28 = fsub double %1, %mul.i24
   %sub3.i29 = fsub double %2, %mul1.i25
-  %mul.i32 = fmul double %sub.i28, %amount
-  %mul1.i33 = fmul double %sub3.i29, %amount
+  %mul.i32 = fmul double %amount, %sub.i28
+  %mul1.i33 = fmul double %amount, %sub3.i29
   %arrayidx38 = getelementptr inbounds i8, ptr %this, i64 48
   %12 = load double, ptr %arrayidx38, align 8
   %sub.i36 = fsub double %12, %mul.i32

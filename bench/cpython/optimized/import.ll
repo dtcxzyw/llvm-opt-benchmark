@@ -2025,7 +2025,7 @@ if.end.i.i:                                       ; preds = %if.end
 if.end3.i.i:                                      ; preds = %if.end.i.i
   %6 = getelementptr i8, ptr %5, i64 16
   %.val.i.i = load i64, ptr %6, align 8
-  %cmp6.i.i = icmp slt i64 %.val.i.i, %module.val
+  %cmp6.i.i = icmp sgt i64 %module.val, %.val.i.i
   br i1 %cmp6.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end3.i.i
@@ -2155,7 +2155,7 @@ land.lhs.true9:                                   ; preds = %land.lhs.true
   %8 = load ptr, ptr %ob_item, align 8
   %arrayidx = getelementptr ptr, ptr %8, i64 %5
   %9 = load ptr, ptr %arrayidx, align 8
-  %cmp12 = icmp eq ptr %9, %module
+  %cmp12 = icmp eq ptr %module, %9
   br i1 %cmp12, label %if.then13, label %if.end7.i
 
 if.then13:                                        ; preds = %land.lhs.true9
@@ -2242,7 +2242,7 @@ if.end.i.i:                                       ; preds = %if.end
 if.end3.i.i:                                      ; preds = %if.end.i.i
   %7 = getelementptr i8, ptr %6, i64 16
   %.val.i.i = load i64, ptr %7, align 8
-  %cmp6.i.i = icmp slt i64 %.val.i.i, %def.val
+  %cmp6.i.i = icmp sgt i64 %def.val, %.val.i.i
   br i1 %cmp6.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end3.i.i, %if.end.i.i, %if.end
@@ -2520,7 +2520,7 @@ if.end.i15.i:                                     ; preds = %do.end.i
 if.end3.i17.i:                                    ; preds = %if.end.i15.i
   %16 = getelementptr i8, ptr %15, i64 16
   %.val.i.i = load i64, ptr %16, align 8
-  %cmp6.i18.i = icmp slt i64 %.val.i.i, %14
+  %cmp6.i18.i = icmp sgt i64 %14, %.val.i.i
   br i1 %cmp6.i18.i, label %if.end16.i, label %if.end.i19.i
 
 if.end.i19.i:                                     ; preds = %if.end3.i17.i
@@ -2797,7 +2797,7 @@ if.end27:                                         ; preds = %if.end23
 if.end37:                                         ; preds = %if.end.i28, %if.then.i26, %if.end27, %if.end9
   %13 = load ptr, ptr %interp, align 8
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i29.not = icmp eq ptr %14, %13
+  %cmp.i29.not = icmp eq ptr %13, %14
   br i1 %cmp.i29.not, label %if.then44, label %lor.lhs.false41
 
 lor.lhs.false41:                                  ; preds = %if.end37
@@ -4666,7 +4666,7 @@ define hidden range(i32 0, 2) i32 @_PyImport_IsDefaultImportFunc(ptr nocapture n
 entry:
   %import_func = getelementptr inbounds i8, ptr %interp, i64 1296
   %0 = load ptr, ptr %import_func, align 8
-  %cmp = icmp eq ptr %0, %func
+  %cmp = icmp eq ptr %func, %0
   %conv = zext i1 %cmp to i32
   ret i32 %conv
 }
@@ -8309,7 +8309,7 @@ entry.split:                                      ; preds = %entry
   %interp.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not.i = icmp eq ptr %3, %2
+  %cmp.i.not.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry.split
@@ -8336,7 +8336,7 @@ land.lhs.true.split:                              ; preds = %land.lhs.true
   %interp.i.i4 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %interp.i.i4, align 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not.i5 = icmp eq ptr %9, %8
+  %cmp.i.not.i5 = icmp eq ptr %8, %9
   br i1 %cmp.i.not.i5, label %if.then.i11, label %if.end.i6
 
 if.then.i11:                                      ; preds = %land.lhs.true.split

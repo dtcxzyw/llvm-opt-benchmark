@@ -463,7 +463,7 @@ define internal i32 @dissect_iperf3_udp(ptr noundef %0, ptr noundef %1, ptr noun
 102:                                              ; preds = %96
   %103 = load i64, ptr %.0.i, align 8
   %104 = add i64 %103, 1
-  %.not17.i = icmp eq i64 %104, %84
+  %.not17.i = icmp eq i64 %84, %104
   store i64 %84, ptr %.0.i, align 8
   br i1 %.not17.i, label %113, label %105
 

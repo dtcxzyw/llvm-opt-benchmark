@@ -2515,7 +2515,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast7.i.i, %sub.ptr.rhs.cast8.i.i
   %sub.ptr.div10.i.i = ashr exact i64 %sub.ptr.sub9.i.i, 2
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp2 = icmp ugt i64 %add11.i.i, %n
+  %cmp2 = icmp ult i64 %n, %add11.i.i
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.else
@@ -2571,7 +2571,7 @@ entry:
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast7.i.i, %sub.ptr.rhs.cast8.i.i
   %sub.ptr.div10.i.i = ashr exact i64 %sub.ptr.sub9.i.i, 2
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp = icmp ult i64 %add11.i.i, %n
+  %cmp = icmp ugt i64 %n, %add11.i.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -2975,7 +2975,7 @@ entry:
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast7.i.i, %sub.ptr.rhs.cast8.i.i
   %sub.ptr.div10.i.i = ashr exact i64 %sub.ptr.sub9.i.i, 2
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp = icmp ult i64 %add11.i.i, %n
+  %cmp = icmp ugt i64 %n, %add11.i.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -9092,7 +9092,7 @@ if.else:                                          ; preds = %entry
   %mul.i.i = sub i64 %sub.ptr.sub.i.i, %sub.ptr.rhs.cast.i.i
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div5.i.i
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp2 = icmp ugt i64 %add11.i.i, %n
+  %cmp2 = icmp ult i64 %n, %add11.i.i
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.else
@@ -9204,7 +9204,7 @@ entry:
   %mul.i.i = sub i64 %sub.ptr.sub.i.i, %sub.ptr.rhs.cast.i.i
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div5.i.i
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp = icmp ult i64 %add11.i.i, %n
+  %cmp = icmp ugt i64 %n, %add11.i.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -9225,7 +9225,7 @@ for.body.i.i:                                     ; preds = %_ZN5eastl13DequeIte
   %agg.tmp.sroa.10.0.i = phi ptr [ %1, %for.body.lr.ph.i.i ], [ %agg.tmp.sroa.10.1.i, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit.i.i ]
   %inc.i.i.i = add nsw i64 %6, 1
   store i64 %inc.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.i, %value
+  %cmp.not.i.i.i = icmp eq ptr %value, %agg.tmp.sroa.0.0.i
   br i1 %cmp.not.i.i.i, label %_ZN10TestObjectaSERKS_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
@@ -9352,7 +9352,7 @@ for.body.i.i58:                                   ; preds = %_ZN5eastl13DequeIte
   %agg.tmp.sroa.10.0.i61 = phi ptr [ %21, %for.body.lr.ph.i.i52 ], [ %agg.tmp.sroa.10.1.i75, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit.i.i72 ]
   %inc.i.i.i62 = add nsw i64 %23, 1
   store i64 %inc.i.i.i62, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i63 = icmp eq ptr %agg.tmp.sroa.0.0.i59, %value
+  %cmp.not.i.i.i63 = icmp eq ptr %value, %agg.tmp.sroa.0.0.i59
   br i1 %cmp.not.i.i.i63, label %_ZN10TestObjectaSERKS_.exit.i.i69, label %if.then.i.i.i64
 
 if.then.i.i.i64:                                  ; preds = %for.body.i.i58
@@ -9654,7 +9654,7 @@ entry:
   %mul.i.i = sub i64 %sub.ptr.sub.i.i, %sub.ptr.rhs.cast.i.i
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div5.i.i
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp = icmp ult i64 %add11.i.i, %n
+  %cmp = icmp ugt i64 %n, %add11.i.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -19804,7 +19804,7 @@ _ZN5eastl13DequeIteratorIZ9TestDequevE1aPS1_RS1_Lj32EEmmEv.exit13.i.i.i.i.i.i: ;
   %721 = load ptr, ptr %incdec.ptr8.i.i.i.i.i.i.i, align 8, !noalias !704
   store ptr null, ptr %incdec.ptr8.i.i.i.i.i.i.i, align 8, !noalias !704
   %722 = load ptr, ptr %incdec.ptr8.i7.i.i.i.i.i.i, align 8, !noalias !704
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %722, %721
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %721, %722
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZZ9TestDequevEN1aaSEOS_.exit.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i.i.i.i.i
 
 invoke.cont3.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5eastl13DequeIteratorIZ9TestDequevE1aPS1_RS1_Lj32EEmmEv.exit13.i.i.i.i.i.i
@@ -19899,7 +19899,7 @@ for.body.i.i.i.i.i39.i:                           ; preds = %if.else.i1981, %_ZN
   %730 = load ptr, ptr %agg.tmp.sroa.0.0.i.i.i.i.i, align 8, !noalias !714
   store ptr null, ptr %agg.tmp.sroa.0.0.i.i.i.i.i, align 8, !noalias !714
   %731 = load ptr, ptr %agg.tmp2.sroa.0.0.i.i.i.i40.i, align 8, !noalias !714
-  %cmp.not.i.i.i.i.i.i.i.i42.i = icmp eq ptr %731, %730
+  %cmp.not.i.i.i.i.i.i.i.i42.i = icmp eq ptr %730, %731
   br i1 %cmp.not.i.i.i.i.i.i.i.i42.i, label %_ZZ9TestDequevEN1aaSEOS_.exit.i.i.i.i.i46.i, label %invoke.cont3.i.i.i.i.i.i.i.i43.i
 
 invoke.cont3.i.i.i.i.i.i.i.i43.i:                 ; preds = %for.body.i.i.i.i.i39.i
@@ -67942,13 +67942,13 @@ entry:
   %.neg = sub i64 %3, %sub.ptr.div
   %sub9 = add i64 %.neg, %add.neg
   %cmp = icmp ne i32 %allocationSide, 1
-  %cmp10.not = icmp ult i64 %sub.ptr.div, %nAdditionalCapacity
+  %cmp10.not = icmp ugt i64 %nAdditionalCapacity, %sub.ptr.div
   %or.cond = select i1 %cmp, i1 true, i1 %cmp10.not
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %div27, i64 %nAdditionalCapacity)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
   %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
@@ -67959,12 +67959,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp18, label %land.lhs.true19, label %if.else32
 
 land.lhs.true19:                                  ; preds = %if.else
-  %cmp20.not = icmp ult i64 %sub9, %nAdditionalCapacity
+  %cmp20.not = icmp ugt i64 %nAdditionalCapacity, %sub9
   br i1 %cmp20.not, label %if.else32, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
-  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %div2226, i64 %nAdditionalCapacity)
+  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
   %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
@@ -70784,13 +70784,13 @@ entry:
   %.neg = sub i64 %3, %sub.ptr.div
   %sub9 = add i64 %.neg, %add.neg
   %cmp = icmp ne i32 %allocationSide, 1
-  %cmp10.not = icmp ult i64 %sub.ptr.div, %nAdditionalCapacity
+  %cmp10.not = icmp ugt i64 %nAdditionalCapacity, %sub.ptr.div
   %or.cond = select i1 %cmp, i1 true, i1 %cmp10.not
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %div27, i64 %nAdditionalCapacity)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
   %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
@@ -70801,12 +70801,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp18, label %land.lhs.true19, label %if.else32
 
 land.lhs.true19:                                  ; preds = %if.else
-  %cmp20.not = icmp ult i64 %sub9, %nAdditionalCapacity
+  %cmp20.not = icmp ugt i64 %nAdditionalCapacity, %sub9
   br i1 %cmp20.not, label %if.else32, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
-  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %div2226, i64 %nAdditionalCapacity)
+  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
   %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
@@ -74799,13 +74799,13 @@ entry:
   %.neg = sub i64 %3, %sub.ptr.div
   %sub9 = add i64 %.neg, %add.neg
   %cmp = icmp ne i32 %allocationSide, 1
-  %cmp10.not = icmp ult i64 %sub.ptr.div, %nAdditionalCapacity
+  %cmp10.not = icmp ugt i64 %nAdditionalCapacity, %sub.ptr.div
   %or.cond = select i1 %cmp, i1 true, i1 %cmp10.not
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %div27, i64 %nAdditionalCapacity)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
   %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
@@ -74816,12 +74816,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp18, label %land.lhs.true19, label %if.else32
 
 land.lhs.true19:                                  ; preds = %if.else
-  %cmp20.not = icmp ult i64 %sub9, %nAdditionalCapacity
+  %cmp20.not = icmp ugt i64 %nAdditionalCapacity, %sub9
   br i1 %cmp20.not, label %if.else32, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
-  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %div2226, i64 %nAdditionalCapacity)
+  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
   %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
@@ -77408,13 +77408,13 @@ entry:
   %.neg = sub i64 %3, %sub.ptr.div
   %sub9 = add i64 %.neg, %add.neg
   %cmp = icmp ne i32 %allocationSide, 1
-  %cmp10.not = icmp ult i64 %sub.ptr.div, %nAdditionalCapacity
+  %cmp10.not = icmp ugt i64 %nAdditionalCapacity, %sub.ptr.div
   %or.cond = select i1 %cmp, i1 true, i1 %cmp10.not
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %div27, i64 %nAdditionalCapacity)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
   %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
@@ -77425,12 +77425,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp18, label %land.lhs.true19, label %if.else32
 
 land.lhs.true19:                                  ; preds = %if.else
-  %cmp20.not = icmp ult i64 %sub9, %nAdditionalCapacity
+  %cmp20.not = icmp ugt i64 %nAdditionalCapacity, %sub9
   br i1 %cmp20.not, label %if.else32, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
-  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %div2226, i64 %nAdditionalCapacity)
+  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
   %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
@@ -81268,13 +81268,13 @@ entry:
   %.neg = sub i64 %3, %sub.ptr.div
   %sub9 = add i64 %.neg, %add.neg
   %cmp = icmp ne i32 %allocationSide, 1
-  %cmp10.not = icmp ult i64 %sub.ptr.div, %nAdditionalCapacity
+  %cmp10.not = icmp ugt i64 %nAdditionalCapacity, %sub.ptr.div
   %or.cond = select i1 %cmp, i1 true, i1 %cmp10.not
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %div27, i64 %nAdditionalCapacity)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
   %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
@@ -81285,12 +81285,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp18, label %land.lhs.true19, label %if.else32
 
 land.lhs.true19:                                  ; preds = %if.else
-  %cmp20.not = icmp ult i64 %sub9, %nAdditionalCapacity
+  %cmp20.not = icmp ugt i64 %nAdditionalCapacity, %sub9
   br i1 %cmp20.not, label %if.else32, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
-  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %div2226, i64 %nAdditionalCapacity)
+  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
   %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
@@ -84929,13 +84929,13 @@ entry:
   %.neg = sub i64 %3, %sub.ptr.div
   %sub9 = add i64 %.neg, %add.neg
   %cmp = icmp ne i32 %allocationSide, 1
-  %cmp10.not = icmp ult i64 %sub.ptr.div, %nAdditionalCapacity
+  %cmp10.not = icmp ugt i64 %nAdditionalCapacity, %sub.ptr.div
   %or.cond = select i1 %cmp, i1 true, i1 %cmp10.not
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %div27, i64 %nAdditionalCapacity)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
   %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
@@ -84946,12 +84946,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp18, label %land.lhs.true19, label %if.else32
 
 land.lhs.true19:                                  ; preds = %if.else
-  %cmp20.not = icmp ult i64 %sub9, %nAdditionalCapacity
+  %cmp20.not = icmp ugt i64 %nAdditionalCapacity, %sub9
   br i1 %cmp20.not, label %if.else32, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
-  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %div2226, i64 %nAdditionalCapacity)
+  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
   %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
@@ -85044,7 +85044,7 @@ entry:
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast7.i.i, %sub.ptr.rhs.cast8.i.i
   %sub.ptr.div10.i.i = ashr exact i64 %sub.ptr.sub9.i.i, 2
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp = icmp ult i64 %add11.i.i, %n
+  %cmp = icmp ugt i64 %n, %add11.i.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -86246,7 +86246,7 @@ entry:
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast7.i.i, %sub.ptr.rhs.cast8.i.i
   %sub.ptr.div10.i.i = ashr exact i64 %sub.ptr.sub9.i.i, 2
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp = icmp ult i64 %add11.i.i, %n
+  %cmp = icmp ugt i64 %n, %add11.i.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -87242,7 +87242,7 @@ entry:
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast7.i.i, %sub.ptr.rhs.cast8.i.i
   %sub.ptr.div10.i.i = sdiv exact i64 %sub.ptr.sub9.i.i, 24
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp = icmp ult i64 %add11.i.i, %n
+  %cmp = icmp ugt i64 %n, %add11.i.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -89051,7 +89051,7 @@ entry:
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast7.i.i, %sub.ptr.rhs.cast8.i.i
   %sub.ptr.div10.i.i = sdiv exact i64 %sub.ptr.sub9.i.i, 24
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp = icmp ult i64 %add11.i.i, %n
+  %cmp = icmp ugt i64 %n, %add11.i.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -93313,7 +93313,7 @@ entry:
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast7.i.i, %sub.ptr.rhs.cast8.i.i
   %sub.ptr.div10.i.i = ashr exact i64 %sub.ptr.sub9.i.i, 2
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp = icmp ult i64 %add11.i.i, %n
+  %cmp = icmp ugt i64 %n, %add11.i.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -97219,7 +97219,7 @@ entry:
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast7.i.i, %sub.ptr.rhs.cast8.i.i
   %sub.ptr.div10.i.i = ashr exact i64 %sub.ptr.sub9.i.i, 2
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp = icmp ult i64 %add11.i.i, %n
+  %cmp = icmp ugt i64 %n, %add11.i.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -103908,7 +103908,7 @@ entry:
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast7.i.i, %sub.ptr.rhs.cast8.i.i
   %sub.ptr.div10.i.i = sdiv exact i64 %sub.ptr.sub9.i.i, 24
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp = icmp ult i64 %add11.i.i, %n
+  %cmp = icmp ugt i64 %n, %add11.i.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -103929,7 +103929,7 @@ for.body.i.i:                                     ; preds = %_ZN5eastl13DequeIte
   %agg.tmp.sroa.10.0.i = phi ptr [ %1, %for.body.lr.ph.i.i ], [ %agg.tmp.sroa.10.1.i, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit.i.i ]
   %inc.i.i.i = add nsw i64 %6, 1
   store i64 %inc.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.i, %value
+  %cmp.not.i.i.i = icmp eq ptr %value, %agg.tmp.sroa.0.0.i
   br i1 %cmp.not.i.i.i, label %_ZN10TestObjectaSERKS_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
@@ -104050,7 +104050,7 @@ for.body.i.i58:                                   ; preds = %_ZN5eastl13DequeIte
   %agg.tmp.sroa.10.0.i61 = phi ptr [ %21, %for.body.lr.ph.i.i52 ], [ %agg.tmp.sroa.10.1.i75, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit.i.i72 ]
   %inc.i.i.i62 = add nsw i64 %23, 1
   store i64 %inc.i.i.i62, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i63 = icmp eq ptr %agg.tmp.sroa.0.0.i59, %value
+  %cmp.not.i.i.i63 = icmp eq ptr %value, %agg.tmp.sroa.0.0.i59
   br i1 %cmp.not.i.i.i63, label %_ZN10TestObjectaSERKS_.exit.i.i69, label %if.then.i.i.i64
 
 if.then.i.i.i64:                                  ; preds = %for.body.i.i58
@@ -108902,7 +108902,7 @@ entry:
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast7.i.i, %sub.ptr.rhs.cast8.i.i
   %sub.ptr.div10.i.i = sdiv exact i64 %sub.ptr.sub9.i.i, 24
   %add11.i.i = add nsw i64 %add.i.i, %sub.ptr.div10.i.i
-  %cmp = icmp ult i64 %add11.i.i, %n
+  %cmp = icmp ugt i64 %n, %add11.i.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -108923,7 +108923,7 @@ for.body.i.i:                                     ; preds = %_ZN5eastl13DequeIte
   %agg.tmp.sroa.10.0.i = phi ptr [ %1, %for.body.lr.ph.i.i ], [ %agg.tmp.sroa.10.1.i, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit.i.i ]
   %inc.i.i.i = add nsw i64 %6, 1
   store i64 %inc.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.i, %value
+  %cmp.not.i.i.i = icmp eq ptr %value, %agg.tmp.sroa.0.0.i
   br i1 %cmp.not.i.i.i, label %_ZN10TestObjectaSERKS_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
@@ -109050,7 +109050,7 @@ for.body.i.i59:                                   ; preds = %_ZN5eastl13DequeIte
   %agg.tmp.sroa.10.0.i62 = phi ptr [ %21, %for.body.lr.ph.i.i53 ], [ %agg.tmp.sroa.10.1.i76, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit.i.i73 ]
   %inc.i.i.i63 = add nsw i64 %23, 1
   store i64 %inc.i.i.i63, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i64 = icmp eq ptr %agg.tmp.sroa.0.0.i60, %value
+  %cmp.not.i.i.i64 = icmp eq ptr %value, %agg.tmp.sroa.0.0.i60
   br i1 %cmp.not.i.i.i64, label %_ZN10TestObjectaSERKS_.exit.i.i70, label %if.then.i.i.i65
 
 if.then.i.i.i65:                                  ; preds = %for.body.i.i59
@@ -113027,13 +113027,13 @@ entry:
   %.neg = sub i64 %3, %sub.ptr.div
   %sub9 = add i64 %.neg, %add.neg
   %cmp = icmp ne i32 %allocationSide, 1
-  %cmp10.not = icmp ult i64 %sub.ptr.div, %nAdditionalCapacity
+  %cmp10.not = icmp ugt i64 %nAdditionalCapacity, %sub.ptr.div
   %or.cond = select i1 %cmp, i1 true, i1 %cmp10.not
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %div27, i64 %nAdditionalCapacity)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
   %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
@@ -113044,12 +113044,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp18, label %land.lhs.true19, label %if.else32
 
 land.lhs.true19:                                  ; preds = %if.else
-  %cmp20.not = icmp ult i64 %sub9, %nAdditionalCapacity
+  %cmp20.not = icmp ugt i64 %nAdditionalCapacity, %sub9
   br i1 %cmp20.not, label %if.else32, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
-  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %div2226, i64 %nAdditionalCapacity)
+  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
   %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
@@ -113134,13 +113134,13 @@ entry:
   %.neg = sub i64 %3, %sub.ptr.div
   %sub9 = add i64 %.neg, %add.neg
   %cmp = icmp ne i32 %allocationSide, 1
-  %cmp10.not = icmp ult i64 %sub.ptr.div, %nAdditionalCapacity
+  %cmp10.not = icmp ugt i64 %nAdditionalCapacity, %sub.ptr.div
   %or.cond = select i1 %cmp, i1 true, i1 %cmp10.not
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %div27, i64 %nAdditionalCapacity)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
   %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
@@ -113151,12 +113151,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp18, label %land.lhs.true19, label %if.else32
 
 land.lhs.true19:                                  ; preds = %if.else
-  %cmp20.not = icmp ult i64 %sub9, %nAdditionalCapacity
+  %cmp20.not = icmp ugt i64 %nAdditionalCapacity, %sub9
   br i1 %cmp20.not, label %if.else32, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
-  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %div2226, i64 %nAdditionalCapacity)
+  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
   %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
@@ -116233,13 +116233,13 @@ entry:
   %.neg = sub i64 %3, %sub.ptr.div
   %sub9 = add i64 %.neg, %add.neg
   %cmp = icmp ne i32 %allocationSide, 1
-  %cmp10.not = icmp ult i64 %sub.ptr.div, %nAdditionalCapacity
+  %cmp10.not = icmp ugt i64 %nAdditionalCapacity, %sub.ptr.div
   %or.cond = select i1 %cmp, i1 true, i1 %cmp10.not
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %div27, i64 %nAdditionalCapacity)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
   %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
@@ -116250,12 +116250,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp18, label %land.lhs.true19, label %if.else32
 
 land.lhs.true19:                                  ; preds = %if.else
-  %cmp20.not = icmp ult i64 %sub9, %nAdditionalCapacity
+  %cmp20.not = icmp ugt i64 %nAdditionalCapacity, %sub9
   br i1 %cmp20.not, label %if.else32, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
-  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %div2226, i64 %nAdditionalCapacity)
+  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
   %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
@@ -116534,13 +116534,13 @@ entry:
   %.neg = sub i64 %3, %sub.ptr.div
   %sub9 = add i64 %.neg, %add.neg
   %cmp = icmp ne i32 %allocationSide, 1
-  %cmp10.not = icmp ult i64 %sub.ptr.div, %nAdditionalCapacity
+  %cmp10.not = icmp ugt i64 %nAdditionalCapacity, %sub.ptr.div
   %or.cond = select i1 %cmp, i1 true, i1 %cmp10.not
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %div27, i64 %nAdditionalCapacity)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
   %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
@@ -116551,12 +116551,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp18, label %land.lhs.true19, label %if.else32
 
 land.lhs.true19:                                  ; preds = %if.else
-  %cmp20.not = icmp ult i64 %sub9, %nAdditionalCapacity
+  %cmp20.not = icmp ugt i64 %nAdditionalCapacity, %sub9
   br i1 %cmp20.not, label %if.else32, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
-  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %div2226, i64 %nAdditionalCapacity)
+  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
   %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58

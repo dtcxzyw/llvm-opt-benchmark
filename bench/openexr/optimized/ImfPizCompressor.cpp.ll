@@ -105,13 +105,13 @@ lpad.i26:                                         ; preds = %if.then.i24
   br label %lpad.body
 
 invoke.cont8:                                     ; preds = %invoke.cont, %invoke.cont6
-  %mul.i4455 = phi i64 [ %mul.i, %invoke.cont6 ], [ 0, %invoke.cont ]
-  %div104554 = phi i64 [ %div10, %invoke.cont6 ], [ 0, %invoke.cont ]
-  %call13 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %div104554) #18
+  %mul.i4450 = phi i64 [ %mul.i, %invoke.cont6 ], [ 0, %invoke.cont ]
+  %div104549 = phi i64 [ %div10, %invoke.cont6 ], [ 0, %invoke.cont ]
+  %call13 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %div104549) #18
           to label %invoke.cont12 unwind label %lpad.loopexit.split-lp
 
 invoke.cont12:                                    ; preds = %invoke.cont8
-  %add.i = add nuw i64 %mul.i4455, 73728
+  %add.i = add nuw i64 %mul.i4450, 73728
   store ptr %call13, ptr %_tmpBuffer, align 8
   %call16 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #18
           to label %invoke.cont15 unwind label %lpad.loopexit.split-lp
@@ -149,17 +149,17 @@ for.body:                                         ; preds = %invoke.cont29
   br label %for.cond, !llvm.loop !4
 
 lpad.loopexit:                                    ; preds = %for.cond
-  %lpad.loopexit47 = landingpad { ptr, i32 }
+  %lpad.loopexit52 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp:                           ; preds = %invoke.cont.i.invoke, %entry, %invoke.cont8, %invoke.cont12, %invoke.cont15, %invoke.cont20, %for.end, %invoke.cont38, %land.lhs.true
-  %lpad.loopexit.split-lp48 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp53 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i26, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad.i ], [ %2, %lpad.i26 ], [ %lpad.loopexit47, %lpad.loopexit ], [ %lpad.loopexit.split-lp48, %lpad.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad.i ], [ %2, %lpad.i26 ], [ %lpad.loopexit52, %lpad.loopexit ], [ %lpad.loopexit.split-lp53, %lpad.loopexit.split-lp ]
   tail call void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #16
   resume { ptr, i32 } %eh.lpad-body
 

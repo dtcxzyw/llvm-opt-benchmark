@@ -486,13 +486,13 @@ opal_list_remove_first.exit12:                    ; preds = %36
 define ptr @mca_btl_tcp_alloc(ptr noundef %0, ptr nocapture readnone %1, i8 zeroext %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
-  %.not = icmp ult i64 %7, %3
+  %.not = icmp ugt i64 %3, %7
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
-  %.not20 = icmp ult i64 %10, %3
+  %.not20 = icmp ugt i64 %3, %10
   br i1 %.not20, label %.thread, label %11
 
 11:                                               ; preds = %8, %5

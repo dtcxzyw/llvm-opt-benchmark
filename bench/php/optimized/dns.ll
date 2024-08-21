@@ -1723,7 +1723,7 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
 57:                                               ; preds = %18
   %.not = icmp ne i32 %3, 255
   %58 = zext i16 %25 to i32
-  %.not743 = icmp ne i32 %58, %3
+  %.not743 = icmp ne i32 %3, %58
   %or.cond756.not769 = select i1 %.not, i1 %.not743, i1 false
   %.not744 = icmp eq i32 %4, 0
   %or.cond758 = or i1 %.not744, %or.cond756.not769

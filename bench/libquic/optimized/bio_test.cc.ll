@@ -506,7 +506,7 @@ if.end.i.i:                                       ; preds = %call.i.noexc.i
 call3.i.noexc.i:                                  ; preds = %if.end.i.i
   %40 = load i64, ptr %available_bytes.i.i, align 8
   %add.i.i = add i64 %40, %len_written.0.i.i
-  %cmp.i.i = icmp ne i64 %add.i.i, %35
+  %cmp.i.i = icmp ne i64 %35, %add.i.i
   %cmp5.i.i = icmp ne i64 %40, 0
   %41 = and i1 %cmp5.i.i, %cmp.i.i
   br i1 %41, label %do.body.i.i, label %invoke.cont.i, !llvm.loop !11
@@ -609,7 +609,7 @@ if.end.i40.i:                                     ; preds = %call.i.noexc49.i
 call3.i.noexc51.i:                                ; preds = %if.end.i40.i
   %55 = load i64, ptr %available_bytes.i36.i, align 8
   %add.i45.i = add i64 %55, %len_written.0.i38.i
-  %cmp.i46.i = icmp ne i64 %add.i45.i, %sub.i
+  %cmp.i46.i = icmp ne i64 %sub.i, %add.i45.i
   %cmp5.i47.i = icmp ne i64 %55, 0
   %56 = and i1 %cmp5.i47.i, %cmp.i46.i
   br i1 %56, label %do.body.i37.i, label %invoke.cont38.i, !llvm.loop !11
@@ -657,7 +657,7 @@ if.end.i57.i:                                     ; preds = %call.i.noexc66.i
 call3.i.noexc68.i:                                ; preds = %if.end.i57.i
   %62 = load i64, ptr %available_bytes.i54.i, align 8
   %add.i62.i = add i64 %62, %len_read.0.i.i
-  %cmp.i63.i = icmp ne i64 %add.i62.i, %call42.i
+  %cmp.i63.i = icmp ne i64 %call42.i, %add.i62.i
   %cmp5.i64.i = icmp ne i64 %62, 0
   %63 = and i1 %cmp5.i64.i, %cmp.i63.i
   br i1 %63, label %do.body.i55.i, label %invoke.cont45.i, !llvm.loop !12
@@ -987,8 +987,8 @@ lpad:                                             ; preds = %entry
 if.end:                                           ; preds = %invoke.cont
   %.pr = load ptr, ptr %out, align 8
   %1 = icmp eq i32 %call2, 1
-  %cmp6.not.not = xor i1 %1, %should_succeed
-  %2 = and i1 %1, %should_succeed
+  %cmp6.not.not = xor i1 %should_succeed, %1
+  %2 = and i1 %should_succeed, %1
   %not.cmp6.not.not = xor i1 %cmp6.not.not, true
   br i1 %2, label %land.lhs.true, label %cleanup
 

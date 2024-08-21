@@ -2595,7 +2595,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   br i1 %.not308, label %248, label %251
 
 248:                                              ; preds = %.thread
-  %249 = icmp eq ptr %.0249, %0
+  %249 = icmp eq ptr %0, %.0249
   %250 = icmp sgt i32 %.0251, 0
   %or.cond4 = and i1 %250, %249
   br i1 %or.cond4, label %251, label %273
@@ -8128,7 +8128,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned %0, ptr noundef
   br i1 %.not49, label %56, label %27
 
 27:                                               ; preds = %24
-  %28 = icmp eq ptr %.0, %0
+  %28 = icmp eq ptr %0, %.0
   br i1 %28, label %decNumberCopy.exit, label %29
 
 29:                                               ; preds = %27
@@ -8744,7 +8744,7 @@ decNumberFromInt32.exit:                          ; preds = %decNumberFromUInt32
   br i1 %130, label %131, label %160
 
 131:                                              ; preds = %128, %120
-  %132 = icmp eq ptr %.063, %0
+  %132 = icmp eq ptr %0, %.063
   br i1 %132, label %decNumberCopy.exit, label %133
 
 133:                                              ; preds = %131
@@ -12068,7 +12068,7 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
 
 5:                                                ; preds = %3
   %6 = mul nsw i32 %1, 3
-  %7 = icmp eq i32 %6, %2
+  %7 = icmp eq i32 %2, %6
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
@@ -12165,7 +12165,7 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
   %67 = sub nsw i32 3, %43
   %68 = trunc nuw nsw i32 %66 to i16
   store i16 %68, ptr %0, align 2
-  %69 = add i32 %67, %2
+  %69 = add i32 %2, %67
   %70 = sub i32 %6, %69
   %71 = icmp slt i32 %70, 1
   br i1 %71, label %._crit_edge, label %.lr.ph
@@ -12570,7 +12570,7 @@ decStatus.exit:                                   ; preds = %76, %80, %.thread69
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef ptr @decDecap(ptr noundef returned %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
-  %.not = icmp sgt i32 %3, %1
+  %.not = icmp slt i32 %1, %3
   %.ptr36 = getelementptr inbounds i8, ptr %0, i64 10
   br i1 %.not, label %5, label %4
 
@@ -13065,7 +13065,7 @@ decNumberCopy.exit260:                            ; preds = %.decNumberCopy.exit
 
 200:                                              ; preds = %._crit_edge
   store i32 %198, ptr %9, align 4
-  %201 = icmp eq ptr %.0194, %0
+  %201 = icmp eq ptr %0, %.0194
   br i1 %201, label %decNumberCopy.exit, label %202
 
 202:                                              ; preds = %200
@@ -13551,7 +13551,7 @@ condstore.split:                                  ; preds = %437
   br label %452
 
 452:                                              ; preds = %450, %condstore.split, %437
-  %453 = icmp eq ptr %.0194, %0
+  %453 = icmp eq ptr %0, %.0194
   br i1 %453, label %decNumberCopy.exit, label %454
 
 454:                                              ; preds = %452
@@ -14617,7 +14617,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly %0, i32 noundef %
   %34 = getelementptr inbounds i8, ptr %.2135176, i64 2
   %35 = load i16, ptr %.0138175, align 2
   %36 = zext i16 %35 to i32
-  %37 = mul nsw i32 %36, %6
+  %37 = mul nsw i32 %6, %36
   %38 = add nsw i32 %33, %37
   %39 = getelementptr inbounds i8, ptr %.0138175, i64 2
   %40 = icmp ult i32 %38, 1000
@@ -14708,7 +14708,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly %0, i32 noundef %
 80:                                               ; preds = %74
   %81 = load i16, ptr %.1139184, align 2
   %82 = zext i16 %81 to i32
-  %83 = mul nsw i32 %82, %6
+  %83 = mul nsw i32 %6, %82
   %84 = getelementptr inbounds i8, ptr %.1139184, i64 2
   br label %85
 
@@ -14787,7 +14787,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly %0, i32 noundef %
   br i1 %120, label %122, label %.preheader
 
 .preheader:                                       ; preds = %119
-  %121 = icmp ugt ptr %spec.select166, %5
+  %121 = icmp ult ptr %5, %spec.select166
   br i1 %121, label %.lr.ph189, label %._crit_edge190
 
 122:                                              ; preds = %119
@@ -14884,15 +14884,15 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
   %27 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %30 = add nuw nsw i32 %29, %3
-  %31 = icmp slt i32 %30, %1
+  %30 = add nuw nsw i32 %3, %29
+  %31 = icmp sgt i32 %1, %30
   br i1 %31, label %.loopexit, label %36
 
 .thread:                                          ; preds = %23
   %32 = add nuw nsw i32 %4, 2
   %33 = udiv i32 %32, 3
   %34 = add nuw nsw i32 %33, %3
-  %35 = icmp slt i32 %34, %1
+  %35 = icmp sgt i32 %1, %34
   br i1 %35, label %.loopexit, label %.thread78
 
 36:                                               ; preds = %25

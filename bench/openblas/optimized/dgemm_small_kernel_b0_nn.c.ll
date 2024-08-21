@@ -2212,23 +2212,23 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1585 = phi <8 x double> [ %1554, %.loopexit142._crit_edge ], [ %1580, %1560 ]
   %1586 = phi <8 x double> [ %1555, %.loopexit142._crit_edge ], [ %1581, %1560 ]
   %1587 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1583)
-  %1588 = fmul double %1587, %5
+  %1588 = fmul double %5, %1587
   %1589 = mul nsw i64 %1525, %9
   %1590 = add nsw i64 %1589, %1344
   %1591 = getelementptr inbounds double, ptr %8, i64 %1590
   store double %1588, ptr %1591, align 8, !tbaa !35
   %1592 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1584)
-  %1593 = fmul double %1592, %5
+  %1593 = fmul double %5, %1592
   %1594 = or disjoint i64 %1590, 1
   %1595 = getelementptr inbounds double, ptr %8, i64 %1594
   store double %1593, ptr %1595, align 8, !tbaa !35
   %1596 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1585)
-  %1597 = fmul double %1596, %5
+  %1597 = fmul double %5, %1596
   %1598 = mul nsw i64 %.pre-phi598, %9
   %1599 = getelementptr double, ptr %1366, i64 %1598
   store double %1597, ptr %1599, align 8, !tbaa !35
   %1600 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1586)
-  %1601 = fmul double %1600, %5
+  %1601 = fmul double %5, %1600
   %1602 = getelementptr i8, ptr %1599, i64 8
   store double %1601, ptr %1602, align 8, !tbaa !35
   %1603 = add nuw nsw i64 %1525, 2
@@ -2290,12 +2290,12 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1646 = phi <8 x double> [ %1643, %1630 ], [ %1624, %.loopexit141 ]
   %1647 = phi <8 x double> [ %1644, %1630 ], [ %1625, %.loopexit141 ]
   %1648 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1646)
-  %1649 = fmul double %1648, %5
+  %1649 = fmul double %5, %1648
   %1650 = mul nsw i64 %1606, %9
   %1651 = getelementptr double, ptr %1366, i64 %1650
   store double %1649, ptr %1651, align 8, !tbaa !35
   %1652 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1647)
-  %1653 = fmul double %1652, %5
+  %1653 = fmul double %5, %1652
   %1654 = getelementptr i8, ptr %1651, i64 8
   store double %1653, ptr %1654, align 8, !tbaa !35
   %1655 = add nuw nsw i64 %1606, 1
@@ -2517,12 +2517,12 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1822 = phi <8 x double> [ %1797, %.loopexit135._crit_edge ], [ %1819, %1803 ]
   %1823 = phi <8 x double> [ %1798, %.loopexit135._crit_edge ], [ %1820, %1803 ]
   %1824 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1822)
-  %1825 = fmul double %1824, %5
+  %1825 = fmul double %5, %1824
   %1826 = mul nsw i64 %1776, %9
   %1827 = getelementptr double, ptr %1663, i64 %1826
   store double %1825, ptr %1827, align 8, !tbaa !35
   %1828 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1823)
-  %1829 = fmul double %1828, %5
+  %1829 = fmul double %5, %1828
   %1830 = mul nsw i64 %.pre-phi600, %9
   %1831 = getelementptr double, ptr %1663, i64 %1830
   store double %1829, ptr %1831, align 8, !tbaa !35
@@ -2576,7 +2576,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
 1866:                                             ; preds = %1854, %.loopexit134
   %1867 = phi <8 x double> [ %1865, %1854 ], [ %1849, %.loopexit134 ]
   %1868 = tail call reassoc double @llvm.vector.reduce.fadd.v8f64(double -0.000000e+00, <8 x double> %1867)
-  %1869 = fmul double %1868, %5
+  %1869 = fmul double %5, %1868
   %1870 = mul nsw i64 %1835, %9
   %1871 = getelementptr double, ptr %1663, i64 %1870
   store double %1869, ptr %1871, align 8, !tbaa !35

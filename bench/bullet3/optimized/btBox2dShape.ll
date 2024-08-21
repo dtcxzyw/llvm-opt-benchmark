@@ -628,24 +628,24 @@ entry:
   %sub = xor i32 %and, 1
   %conv = uitofp nneg i32 %sub to float
   %conv6 = uitofp nneg i32 %and to float
-  %0 = fneg float %halfExtents.sroa.0.0.copyload
-  %neg = fmul float %conv6, %0
+  %0 = fneg float %conv6
+  %neg = fmul float %halfExtents.sroa.0.0.copyload, %0
   %1 = tail call float @llvm.fmuladd.f32(float %halfExtents.sroa.0.0.copyload, float %conv, float %neg)
   %and10 = lshr i32 %i, 1
   %shr = and i32 %and10, 1
   %sub11 = xor i32 %shr, 1
   %conv12 = uitofp nneg i32 %sub11 to float
   %conv16 = uitofp nneg i32 %shr to float
-  %2 = fneg float %halfExtents.sroa.3.0.copyload
-  %neg18 = fmul float %conv16, %2
+  %2 = fneg float %conv16
+  %neg18 = fmul float %halfExtents.sroa.3.0.copyload, %2
   %3 = tail call float @llvm.fmuladd.f32(float %halfExtents.sroa.3.0.copyload, float %conv12, float %neg18)
   %and21 = lshr i32 %i, 2
   %shr22 = and i32 %and21, 1
   %sub23 = xor i32 %shr22, 1
   %conv24 = uitofp nneg i32 %sub23 to float
   %conv28 = uitofp nneg i32 %shr22 to float
-  %4 = fneg float %halfExtents.sroa.5.0.copyload
-  %neg30 = fmul float %conv28, %4
+  %4 = fneg float %conv28
+  %neg30 = fmul float %halfExtents.sroa.5.0.copyload, %4
   %5 = tail call float @llvm.fmuladd.f32(float %halfExtents.sroa.5.0.copyload, float %conv24, float %neg30)
   store float %1, ptr %vtx, align 4
   %ref.tmp.sroa.2.0.vtx.sroa_idx = getelementptr inbounds i8, ptr %vtx, i64 4
@@ -715,7 +715,7 @@ entry:
   %halfExtents.sroa.5.0.m_implicitShapeDimensions.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %halfExtents.sroa.5.0.copyload = load float, ptr %halfExtents.sroa.5.0.m_implicitShapeDimensions.i.sroa_idx, align 8
   %0 = load float, ptr %pt, align 4
-  %add = fadd float %halfExtents.sroa.0.0.copyload, %tolerance
+  %add = fadd float %tolerance, %halfExtents.sroa.0.0.copyload
   %cmp = fcmp ugt float %0, %add
   br i1 %cmp, label %land.end, label %land.lhs.true
 
@@ -728,7 +728,7 @@ land.lhs.true:                                    ; preds = %entry
 land.lhs.true7:                                   ; preds = %land.lhs.true
   %arrayidx.i = getelementptr inbounds i8, ptr %pt, i64 4
   %1 = load float, ptr %arrayidx.i, align 4
-  %add10 = fadd float %halfExtents.sroa.3.0.copyload, %tolerance
+  %add10 = fadd float %tolerance, %halfExtents.sroa.3.0.copyload
   %cmp11 = fcmp ugt float %1, %add10
   br i1 %cmp11, label %land.end, label %land.lhs.true12
 
@@ -741,7 +741,7 @@ land.lhs.true12:                                  ; preds = %land.lhs.true7
 land.lhs.true18:                                  ; preds = %land.lhs.true12
   %arrayidx.i14 = getelementptr inbounds i8, ptr %pt, i64 8
   %2 = load float, ptr %arrayidx.i14, align 4
-  %add21 = fadd float %halfExtents.sroa.5.0.copyload, %tolerance
+  %add21 = fadd float %tolerance, %halfExtents.sroa.5.0.copyload
   %cmp22 = fcmp ugt float %2, %add21
   br i1 %cmp22, label %land.end, label %land.rhs
 

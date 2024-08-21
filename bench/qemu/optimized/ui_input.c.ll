@@ -1533,7 +1533,7 @@ if.end:                                           ; preds = %entry
 return:                                           ; preds = %if.end, %if.then
   %.pn.in = phi i64 [ %div, %if.then ], [ %div11, %if.end ]
   %.pn = trunc i64 %.pn.in to i32
-  %retval.0 = add i32 %.pn, %min_out
+  %retval.0 = add i32 %min_out, %.pn
   ret i32 %retval.0
 }
 

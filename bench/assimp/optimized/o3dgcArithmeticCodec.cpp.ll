@@ -715,7 +715,7 @@ entry:
   %0 = load i32, ptr %base, align 8
   %last_symbol = getelementptr inbounds i8, ptr %M, i64 20
   %1 = load i32, ptr %last_symbol, align 4
-  %cmp = icmp eq i32 %1, %data
+  %cmp = icmp eq i32 %data, %1
   %2 = load ptr, ptr %M, align 8
   %idxprom = zext i32 %data to i64
   %arrayidx = getelementptr inbounds i32, ptr %2, i64 %idxprom
@@ -953,7 +953,7 @@ entry:
   %0 = load i32, ptr %base, align 8
   %last_symbol = getelementptr inbounds i8, ptr %M, i64 40
   %1 = load i32, ptr %last_symbol, align 8
-  %cmp = icmp eq i32 %1, %data
+  %cmp = icmp eq i32 %data, %1
   %2 = load ptr, ptr %M, align 8
   %idxprom = zext i32 %data to i64
   %arrayidx = getelementptr inbounds i32, ptr %2, i64 %idxprom
@@ -1547,7 +1547,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
 
 if.end7:                                          ; preds = %if.end3
   %2 = load i32, ptr %buffer_size8, align 4
-  %cmp9.not = icmp ult i32 %2, %max_code_bytes
+  %cmp9.not = icmp ugt i32 %max_code_bytes, %2
   br i1 %cmp9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end7

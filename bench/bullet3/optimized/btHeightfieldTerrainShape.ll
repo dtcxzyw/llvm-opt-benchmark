@@ -2177,11 +2177,11 @@ entry:
   %or.cond.not = icmp sgt i32 %0, -1
   %width = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %width, align 4
-  %cmp4.not = icmp sgt i32 %1, %x
+  %cmp4.not = icmp slt i32 %x, %1
   %or.cond = select i1 %or.cond.not, i1 %cmp4.not, i1 false
   %length = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %length, align 8
-  %cmp6.not = icmp sgt i32 %2, %z
+  %cmp6.not = icmp slt i32 %z, %2
   %or.cond37 = select i1 %or.cond, i1 %cmp6.not, i1 false
   br i1 %or.cond37, label %arrayctor.loop.preheader, label %if.end57
 
@@ -3751,7 +3751,7 @@ if.end23:                                         ; preds = %if.end18
   %mul = mul nsw i32 %nChunksZ.0, %spec.select
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 156
   %8 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %8, %mul
+  %cmp3.i = icmp sgt i32 %mul, %8
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit
 
 if.then4.i:                                       ; preds = %if.end23
@@ -3838,7 +3838,7 @@ for.body28.us76.preheader:                        ; preds = %for.cond26.for.inc7
   %18 = mul nuw nsw i64 %indvars.iv106, %16
   %19 = trunc nuw i64 %17 to i32
   %20 = trunc i64 %17 to i32
-  %21 = add i32 %20, %chunkSize
+  %21 = add i32 %chunkSize, %20
   br label %for.body34.us82.preheader
 
 for.body34.us82.preheader:                        ; preds = %for.cond31.for.end64_crit_edge.us, %for.body28.us76.preheader
@@ -3850,7 +3850,7 @@ for.body34.us82.preheader:                        ; preds = %for.cond31.for.end6
   %24 = trunc nuw i64 %22 to i32
   %call.us81 = tail call noundef float %23(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %24, i32 noundef %19)
   %25 = trunc i64 %22 to i32
-  %26 = add i32 %25, %chunkSize
+  %26 = add i32 %chunkSize, %25
   br label %for.body34.us82
 
 for.body34.us82:                                  ; preds = %for.body34.us82.preheader, %for.inc62.us85

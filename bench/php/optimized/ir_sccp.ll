@@ -3919,7 +3919,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %20 = getelementptr inbounds i8, ptr %19, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
-  %23 = icmp eq i32 %22, %1
+  %23 = icmp eq i32 %1, %22
   br label %switch.edge
 
 24:                                               ; preds = %11, %11, %11

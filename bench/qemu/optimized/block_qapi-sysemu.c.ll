@@ -134,7 +134,7 @@ if.then19:                                        ; preds = %if.end10, %if.then1
 
 if.end20:                                         ; preds = %if.then14, %if.then19
   %call11.not18 = xor i1 %call11, true
-  %brmerge19 = or i1 %call11.not18, %force
+  %brmerge19 = or i1 %force, %call11.not18
   br i1 %brmerge19, label %return, label %if.then23
 
 if.then23:                                        ; preds = %if.end20

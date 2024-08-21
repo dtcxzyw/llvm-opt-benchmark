@@ -918,7 +918,7 @@ define linkonce_odr hidden noundef i64 @_ZN22ThreadLocalAllocBuffer12compute_siz
   %12 = load i32, ptr @MinObjAlignment, align 4
   %13 = add nsw i32 %12, -1
   %14 = sext i32 %13 to i64
-  %15 = add i64 %14, %1
+  %15 = add i64 %1, %14
   %16 = sub i32 0, %12
   %17 = sext i32 %16 to i64
   %18 = and i64 %15, %17

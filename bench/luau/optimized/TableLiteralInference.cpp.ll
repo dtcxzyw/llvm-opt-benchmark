@@ -1368,21 +1368,21 @@ define dso_local noundef ptr @_ZN4Luau16matchLiteralTypeENS_7NotNullINS_12DenseH
   %28 = getelementptr i8, ptr %7, i64 8
   %.val = load i32, ptr %28, align 8
   %29 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprTableEE5valueE, align 4
-  %30 = icmp eq i32 %29, %.val
+  %30 = icmp eq i32 %.val, %29
   %31 = load i32, ptr @_ZN4Luau7AstRttiINS_15AstExprFunctionEE5valueE, align 4
-  %32 = icmp eq i32 %31, %.val
+  %32 = icmp eq i32 %.val, %31
   %or.cond.i = select i1 %30, i1 true, i1 %32
   %33 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantNumberEE5valueE, align 4
-  %34 = icmp eq i32 %33, %.val
+  %34 = icmp eq i32 %.val, %33
   %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %34
   %35 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantStringEE5valueE, align 4
-  %36 = icmp eq i32 %35, %.val
+  %36 = icmp eq i32 %.val, %35
   %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %36
   %37 = load i32, ptr @_ZN4Luau7AstRttiINS_19AstExprConstantBoolEE5valueE, align 4
-  %38 = icmp eq i32 %37, %.val
+  %38 = icmp eq i32 %.val, %37
   %or.cond7.i = select i1 %or.cond5.i, i1 true, i1 %38
   %39 = load i32, ptr @_ZN4Luau7AstRttiINS_18AstExprConstantNilEE5valueE, align 4
-  %40 = icmp eq i32 %39, %.val
+  %40 = icmp eq i32 %.val, %39
   %or.cond400 = select i1 %or.cond7.i, i1 true, i1 %40
   br i1 %or.cond400, label %_ZN4LuauL9isLiteralEPKNS_7AstExprE.exit.thread, label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
 
@@ -5557,12 +5557,12 @@ define linkonce_odr dso_local noundef i64 @_ZNSt8_Rb_treeINSt7__cxx1112basic_str
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %4
+  %10 = icmp eq ptr %4, %9
   br i1 %10, label %11, label %.critedge.i
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = icmp eq ptr %12, %5
+  %13 = icmp eq ptr %5, %12
   br i1 %13, label %14, label %.critedge.i
 
 14:                                               ; preds = %11
@@ -6433,7 +6433,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
 12:                                               ; preds = %9
   %.not.i.i = icmp ne ptr %10, null
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = icmp eq ptr %13, %11
+  %14 = icmp eq ptr %11, %13
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %14
   br i1 %or.cond.i.i, label %.thread, label %15
 
@@ -6480,7 +6480,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau8PropertyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

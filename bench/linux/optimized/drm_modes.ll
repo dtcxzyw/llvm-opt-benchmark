@@ -396,7 +396,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly %0, i32 no
   %29 = load i32, ptr %26, align 16
   %.rhs.trunc = trunc nuw nsw i64 %15 to i32
   %30 = udiv i32 %29, %.rhs.trunc
-  %31 = icmp ult i32 %30, %3
+  %31 = icmp ugt i32 %3, %30
   %32 = icmp ult i32 %3, 721
   %33 = and i1 %32, %31
   br i1 %33, label %34, label %40
@@ -419,7 +419,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly %0, i32 no
   %42 = getelementptr inbounds i8, ptr %14, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %43 to i64
-  %45 = mul i64 %44, %2
+  %45 = mul i64 %2, %44
   %46 = udiv i64 %45, 1000000000
   %47 = trunc i64 %46 to i32
   br i1 %16, label %51, label %48
@@ -433,7 +433,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly %0, i32 no
   %52 = phi ptr [ %50, %48 ], [ null, %40 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %52, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef %47) #14
   %53 = trunc nuw nsw i64 %15 to i32
-  %54 = mul i32 %53, %3
+  %54 = mul i32 %3, %53
   br i1 %41, label %60, label %55
 
 55:                                               ; preds = %51
@@ -699,7 +699,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly %0, i32 no
 
 204:                                              ; preds = %.thread, %200
   %205 = phi ptr [ %203, %200 ], [ null, %.thread ]
-  %206 = add i32 %199, %4
+  %206 = add i32 %4, %199
   %207 = sub i32 %23, %206
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %205, i32 noundef 2, ptr noundef nonnull @.str.24, i32 noundef %207) #14
   %208 = add i32 %198, %197
@@ -1938,7 +1938,7 @@ define dso_local noundef range(i32 0, 13) i32 @drm_mode_validate_size(ptr nocapt
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
-  %9 = icmp ugt i32 %8, %1
+  %9 = icmp ult i32 %1, %8
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %5, %3
@@ -1949,7 +1949,7 @@ define dso_local noundef range(i32 0, 13) i32 @drm_mode_validate_size(ptr nocapt
   %13 = getelementptr inbounds i8, ptr %0, i64 14
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
-  %16 = icmp ugt i32 %15, %2
+  %16 = icmp ult i32 %2, %15
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %12, %10

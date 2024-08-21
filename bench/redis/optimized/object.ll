@@ -268,7 +268,7 @@ entry:
   %flags = getelementptr inbounds i8, ptr %call, i64 18
   store i8 1, ptr %flags, align 1
   %0 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp = icmp eq ptr %0, %ptr
+  %cmp = icmp eq ptr %ptr, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -324,7 +324,7 @@ if.then:                                          ; preds = %entry
   %flags.i = getelementptr inbounds i8, ptr %call.i, i64 18
   store i8 1, ptr %flags.i, align 1
   %0 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp.i = icmp eq ptr %0, %ptr
+  %cmp.i = icmp eq ptr %ptr, %0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -408,7 +408,7 @@ if.then:                                          ; preds = %entry
   %flags.i = getelementptr inbounds i8, ptr %call.i, i64 18
   store i8 1, ptr %flags.i, align 1
   %0 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp.i = icmp eq ptr %0, %ptr
+  %cmp.i = icmp eq ptr %ptr, %0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -501,7 +501,7 @@ if.then.i:                                        ; preds = %if.else10
   %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 18
   store i8 1, ptr %flags.i.i, align 1
   %2 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp.i.i = icmp eq ptr %2, %buf
+  %cmp.i.i = icmp eq ptr %buf, %2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -632,7 +632,7 @@ if.then.i.i:                                      ; preds = %entry
   %flags.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 18
   store i8 1, ptr %flags.i.i.i, align 1
   %0 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %buf.i
+  %cmp.i.i.i = icmp eq ptr %buf.i, %0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -690,7 +690,7 @@ if.then.i:                                        ; preds = %entry
   %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 18
   store i8 1, ptr %flags.i.i, align 1
   %0 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp.i.i = icmp eq ptr %0, %buf
+  %cmp.i.i = icmp eq ptr %buf, %0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -858,7 +858,7 @@ sdslen.exit27:                                    ; preds = %sw.bb6, %sw.bb.i24,
   %flags.i = getelementptr inbounds i8, ptr %call.i28, i64 18
   store i8 1, ptr %flags.i, align 1
   %12 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp.i = icmp eq ptr %12, %6
+  %cmp.i = icmp eq ptr %6, %12
   br i1 %cmp.i, label %if.then.i, label %if.then13.i
 
 if.then.i:                                        ; preds = %sdslen.exit27
@@ -2526,7 +2526,7 @@ sdslen.exit46:                                    ; preds = %if.end62, %sw.bb.i4
   %flags.i = getelementptr inbounds i8, ptr %call.i, i64 18
   store i8 1, ptr %flags.i, align 1
   %28 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp.i49 = icmp eq ptr %28, %0
+  %cmp.i49 = icmp eq ptr %0, %28
   br i1 %cmp.i49, label %createEmbeddedStringObject.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %sdslen.exit46
@@ -2626,7 +2626,7 @@ if.then.i9:                                       ; preds = %if.then12
   %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 18
   store i8 1, ptr %flags.i.i, align 1
   %3 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp.i.i = icmp eq ptr %3, %buf
+  %cmp.i.i = icmp eq ptr %buf, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i9
@@ -4670,7 +4670,7 @@ if.else:                                          ; preds = %entry
 
 if.then8:                                         ; preds = %if.else
   %conv9 = sext i32 %lru_multiplier to i64
-  %mul = mul nsw i64 %conv9, %lru_idle
+  %mul = mul nsw i64 %lru_idle, %conv9
   %div.neg = sdiv i64 %mul, -1000
   %sub = add i64 %div.neg, %lru_clock
   %cmp10 = icmp slt i64 %sub, 0

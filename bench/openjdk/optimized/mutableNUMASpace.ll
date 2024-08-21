@@ -137,7 +137,7 @@ _ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE7reserveEi.exit, %_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE6appendERKS2_.exit
-  %.016 = phi i64 [ %69, %_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE6appendERKS2_.exit ], [ 0, %_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE7reserveEi.exit ]
+  %.016 = phi i64 [ %67, %_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE6appendERKS2_.exit ], [ 0, %_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE7reserveEi.exit ]
   %33 = load ptr, ptr %12, align 8
   %34 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i8 noundef zeroext 5, i32 noundef 0) #11
   %35 = getelementptr inbounds i32, ptr %25, i64 %.016
@@ -174,29 +174,28 @@ _ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS
 53:                                               ; preds = %.lr.ph
   %54 = add nsw i32 %49, 1
   %55 = icmp sgt i32 %49, -1
-  %56 = xor i32 %49, -2147483648
-  %57 = and i32 %56, %54
-  %58 = icmp eq i32 %57, 0
-  %59 = and i1 %55, %58
-  %60 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %54, i1 true)
-  %61 = sub nuw nsw i32 32, %60
-  %62 = shl nuw i32 1, %61
-  %.0.i.i.i.i = select i1 %59, i32 %54, i32 %62
+  %56 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %54)
+  %57 = icmp ult i32 %56, 2
+  %or.cond.i.i.i.i = select i1 %55, i1 %57, i1 false
+  %58 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %54, i1 true)
+  %59 = sub nuw nsw i32 32, %58
+  %60 = shl nuw i32 1, %59
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %54, i32 %60
   tail call void @_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %33, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE6appendERKS2_.exit
 
 _ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE6appendERKS2_.exit: ; preds = %.lr.ph, %53
-  %63 = phi i32 [ %.pre.i, %53 ], [ %49, %.lr.ph ]
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %33, align 8
-  %65 = getelementptr inbounds i8, ptr %33, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
-  store ptr %34, ptr %68, align 8
-  %69 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %69, %26
+  %61 = phi i32 [ %.pre.i, %53 ], [ %49, %.lr.ph ]
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %33, align 8
+  %63 = getelementptr inbounds i8, ptr %33, i64 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = sext i32 %61 to i64
+  %66 = getelementptr inbounds ptr, ptr %64, i64 %65
+  store ptr %34, ptr %66, align 8
+  %67 = add nuw i64 %.016, 1
+  %exitcond.not = icmp eq i64 %67, %26
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE6appendERKS2_.exit, %_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE7reserveEi.exit
@@ -903,7 +902,7 @@ define hidden noundef i64 @_ZN16MutableNUMASpace18current_chunk_sizeEi(ptr nocap
   %.0 = load ptr, ptr %.0.in, align 8
   %20 = load i32, ptr %19, align 4
   %21 = add nsw i32 %20, -1
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %18
@@ -1021,7 +1020,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
   %44 = add i32 %42, %43
   %45 = sext i32 %44 to i64
   %46 = sub i64 %.044.lcssa, %45
-  %47 = icmp sgt i32 %42, %1
+  %47 = icmp slt i32 %1, %42
   br i1 %47, label %.lr.ph103, label %._crit_edge104._crit_edge
 
 .lr.ph103:                                        ; preds = %._crit_edge
@@ -1080,7 +1079,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
 
 78:                                               ; preds = %75
   %79 = sub i64 0, %76
-  %80 = and i64 %79, %2
+  %80 = and i64 %2, %79
   %81 = icmp eq i32 %1, 0
   br i1 %81, label %82, label %84
 
@@ -1104,7 +1103,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
   %.0.in.i53 = phi ptr [ %83, %82 ], [ %93, %84 ]
   %.0.i54 = load ptr, ptr %.0.in.i53, align 8
   %95 = add nsw i32 %42, -1
-  %96 = icmp eq i32 %95, %1
+  %96 = icmp eq i32 %1, %95
   br i1 %96, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61, label %97
 
 97:                                               ; preds = %94
@@ -1359,7 +1358,7 @@ define hidden void @_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_(ptr
   %21 = sub i64 0, %16
   %22 = and i64 %20, %21
   %23 = inttoptr i64 %22 to ptr
-  %.not.i = icmp ult ptr %23, %1
+  %.not.i = icmp ugt ptr %1, %23
   %24 = getelementptr inbounds ptr, ptr %1, i64 %2
   %25 = icmp ule ptr %24, %23
   %.not66 = select i1 %.not.i, i1 true, i1 %25
@@ -1370,7 +1369,7 @@ define hidden void @_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_(ptr
   br i1 %or.cond, label %36, label %28
 
 28:                                               ; preds = %17
-  %.not.i20 = icmp uge ptr %23, %3
+  %.not.i20 = icmp ule ptr %3, %23
   %29 = getelementptr inbounds ptr, ptr %3, i64 %4
   %30 = icmp ugt ptr %29, %23
   %31 = select i1 %.not.i20, i1 %30, i1 false
@@ -1424,7 +1423,7 @@ define hidden void @_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_(ptr
   %56 = sub i64 0, %53
   %57 = and i64 %56, %55
   %58 = inttoptr i64 %57 to ptr
-  %.not.i21 = icmp ult ptr %58, %1
+  %.not.i21 = icmp ugt ptr %1, %58
   %59 = icmp ule ptr %44, %58
   %.not68 = or i1 %.not.i21, %59
   %60 = ptrtoint ptr %44 to i64
@@ -2248,7 +2247,7 @@ define hidden void @_ZN16MutableNUMASpace7set_topEPP12HeapWordImpl(ptr noundef n
   %.not.i = icmp ule ptr %21, %.038
   %22 = getelementptr inbounds i8, ptr %17, i64 48
   %23 = load ptr, ptr %22, align 8
-  %24 = icmp ugt ptr %23, %.038
+  %24 = icmp ult ptr %.038, %23
   %25 = select i1 %.not.i, i1 %24, i1 false
   br i1 %25, label %26, label %52
 
@@ -3175,6 +3174,9 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9

@@ -1382,7 +1382,7 @@ define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr nocapture noun
 29:                                               ; preds = %25
   %30 = and i16 %27, 255
   %31 = zext nneg i16 %30 to i32
-  %.not80 = icmp eq i32 %31, %3
+  %.not80 = icmp eq i32 %3, %31
   %or.cond83 = select i1 %.not79, i1 true, i1 %.not80
   br i1 %or.cond83, label %32, label %.loopexit
 
@@ -2432,7 +2432,7 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
   %14 = xor i32 %notmask10.i.i, -1
   %15 = lshr i32 %1, %13
   %16 = and i32 %15, %11
-  %17 = and i32 %14, %1
+  %17 = and i32 %1, %14
   %18 = getelementptr inbounds i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %16 to i64
@@ -2690,7 +2690,7 @@ define void @_ZNK9dtNavMesh25getTileAndPolyByRefUnsafeEjPPK10dtMeshTilePPK6dtPol
   %10 = xor i32 %notmask10.i, -1
   %11 = lshr i32 %1, %9
   %12 = and i32 %11, %7
-  %13 = and i32 %10, %1
+  %13 = and i32 %1, %10
   %14 = getelementptr inbounds i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i32 %12 to i64
@@ -3527,7 +3527,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh19getTileAn
   %11 = xor i32 %notmask10.i, -1
   %12 = lshr i32 %1, %10
   %13 = and i32 %12, %8
-  %14 = and i32 %11, %1
+  %14 = and i32 %1, %11
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 8
   %.not8 = icmp ult i32 %13, %16
@@ -3592,7 +3592,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh14isValidPolyRefEj(ptr nocapture nounde
   %9 = xor i32 %notmask10.i, -1
   %10 = lshr i32 %1, %8
   %11 = and i32 %10, %6
-  %12 = and i32 %9, %1
+  %12 = and i32 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
   %.not6 = icmp ult i32 %11, %14
@@ -4223,7 +4223,7 @@ define noundef range(i32 1073741824, -2147483631) i32 @_ZNK9dtNavMesh14storeTile
 
 _ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit: ; preds = %4, %5
   %.0.i = phi i32 [ %11, %5 ], [ 0, %4 ]
-  %12 = icmp sgt i32 %.0.i, %3
+  %12 = icmp slt i32 %3, %.0.i
   br i1 %12, label %.loopexit, label %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit
 
 _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit
@@ -4302,7 +4302,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh16restoreTil
 
 _ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit: ; preds = %4, %5
   %.0.i = phi i32 [ %11, %5 ], [ 0, %4 ]
-  %12 = icmp sgt i32 %.0.i, %3
+  %12 = icmp slt i32 %3, %.0.i
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit
@@ -4396,7 +4396,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh33getOffMes
   %12 = xor i32 %notmask10.i, -1
   %13 = lshr i32 %2, %11
   %14 = and i32 %13, %9
-  %15 = and i32 %12, %2
+  %15 = and i32 %2, %12
   %16 = getelementptr inbounds i8, ptr %0, i64 48
   %17 = load i32, ptr %16, align 8
   %.not30 = icmp ult i32 %14, %17
@@ -4534,7 +4534,7 @@ define noundef ptr @_ZNK9dtNavMesh25getOffMeshConnectionByRefEj(ptr nocapture no
   %9 = xor i32 %notmask10.i, -1
   %10 = lshr i32 %1, %8
   %11 = and i32 %10, %6
-  %12 = and i32 %9, %1
+  %12 = and i32 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
   %.not18 = icmp ult i32 %11, %14
@@ -4627,7 +4627,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh12setPolyFla
   %10 = xor i32 %notmask10.i, -1
   %11 = lshr i32 %1, %9
   %12 = and i32 %11, %7
-  %13 = and i32 %10, %1
+  %13 = and i32 %1, %10
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %.not11 = icmp ult i32 %12, %15
@@ -4690,7 +4690,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh12getPolyFl
   %10 = xor i32 %notmask10.i, -1
   %11 = lshr i32 %1, %9
   %12 = and i32 %11, %7
-  %13 = and i32 %10, %1
+  %13 = and i32 %1, %10
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %.not11 = icmp ult i32 %12, %15
@@ -4754,7 +4754,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh11setPolyAre
   %10 = xor i32 %notmask10.i, -1
   %11 = lshr i32 %1, %9
   %12 = and i32 %11, %7
-  %13 = and i32 %10, %1
+  %13 = and i32 %1, %10
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %.not11 = icmp ult i32 %12, %15
@@ -4821,7 +4821,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh11getPolyAr
   %10 = xor i32 %notmask10.i, -1
   %11 = lshr i32 %1, %9
   %12 = and i32 %11, %7
-  %13 = and i32 %10, %1
+  %13 = and i32 %1, %10
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %.not11 = icmp ult i32 %12, %15

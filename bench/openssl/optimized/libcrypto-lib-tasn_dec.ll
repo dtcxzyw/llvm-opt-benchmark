@@ -1314,7 +1314,7 @@ if.end10.i:                                       ; preds = %if.then6.i
 if.end11.i:                                       ; preds = %if.end10.i, %if.then4.i32
   %typ.2.i = phi ptr [ %call7.i, %if.end10.i ], [ %36, %if.then4.i32 ]
   %37 = load i32, ptr %typ.2.i, align 8
-  %cmp12.not.i = icmp eq i32 %37, %32
+  %cmp12.not.i = icmp eq i32 %32, %37
   br i1 %cmp12.not.i, label %if.end14.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end11.i
@@ -1632,9 +1632,9 @@ if.end31:                                         ; preds = %if.end26
 
 if.then34:                                        ; preds = %if.end31
   %11 = load i32, ptr %ptag, align 4
-  %cmp35.not = icmp eq i32 %11, %exptag
+  %cmp35.not = icmp eq i32 %exptag, %11
   %12 = load i32, ptr %pclass, align 4
-  %cmp37.not = icmp eq i32 %12, %expclass
+  %cmp37.not = icmp eq i32 %expclass, %12
   %or.cond = select i1 %cmp35.not, i1 %cmp37.not, i1 false
   br i1 %or.cond, label %do.body, label %if.then39
 
@@ -1664,7 +1664,7 @@ if.then55:                                        ; preds = %if.end51
   %13 = load ptr, ptr %p, align 8
   %sub.ptr.lhs.cast56 = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast57 = ptrtoint ptr %0 to i64
-  %sub.ptr.sub58.neg = add i64 %sub.ptr.rhs.cast57, %len
+  %sub.ptr.sub58.neg = add i64 %len, %sub.ptr.rhs.cast57
   %sub = sub i64 %sub.ptr.sub58.neg, %sub.ptr.lhs.cast56
   store i64 %sub, ptr %plen, align 8
   br label %if.end59

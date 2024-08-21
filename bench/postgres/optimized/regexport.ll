@@ -44,7 +44,7 @@ define dso_local i32 @pg_reg_getnumoutarcs(ptr nocapture noundef readonly %0, i3
 
 8:                                                ; preds = %2
   %9 = load i32, ptr %6, align 8
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %8
@@ -128,7 +128,7 @@ define dso_local void @pg_reg_getoutarcs(ptr nocapture noundef readonly %0, i32 
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %8, align 8
-  %12 = icmp sle i32 %11, %1
+  %12 = icmp sge i32 %1, %11
   %13 = icmp slt i32 %3, 1
   %or.cond = or i1 %13, %12
   br i1 %or.cond, label %15, label %14
@@ -160,14 +160,14 @@ define dso_local range(i32 0, 2) i32 @pg_reg_colorisbegin(ptr nocapture noundef 
   %5 = getelementptr inbounds i8, ptr %4, i64 52
   %6 = load i16, ptr %5, align 4
   %7 = sext i16 %6 to i32
-  %8 = icmp eq i32 %7, %1
+  %8 = icmp eq i32 %1, %7
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %4, i64 54
   %11 = load i16, ptr %10, align 2
   %12 = sext i16 %11 to i32
-  %13 = icmp eq i32 %12, %1
+  %13 = icmp eq i32 %1, %12
   %spec.select = zext i1 %13 to i32
   br label %14
 
@@ -183,14 +183,14 @@ define dso_local range(i32 0, 2) i32 @pg_reg_colorisend(ptr nocapture noundef re
   %5 = getelementptr inbounds i8, ptr %4, i64 56
   %6 = load i16, ptr %5, align 8
   %7 = sext i16 %6 to i32
-  %8 = icmp eq i32 %7, %1
+  %8 = icmp eq i32 %1, %7
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %4, i64 58
   %11 = load i16, ptr %10, align 2
   %12 = sext i16 %11 to i32
-  %13 = icmp eq i32 %12, %1
+  %13 = icmp eq i32 %1, %12
   %spec.select = zext i1 %13 to i32
   br label %14
 
@@ -275,7 +275,7 @@ define dso_local void @pg_reg_getcharacters(ptr nocapture noundef readonly %0, i
   %23 = getelementptr i16, ptr %22, i64 %indvars.iv
   %24 = load i16, ptr %23, align 2
   %25 = sext i16 %24 to i32
-  %26 = icmp eq i32 %25, %1
+  %26 = icmp eq i32 %1, %25
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %21

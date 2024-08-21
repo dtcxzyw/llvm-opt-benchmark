@@ -2334,7 +2334,7 @@ define void @_Z14gmx_fwrite_tngP18gmx_tng_trajectoryblffPA3_KfiS3_S3_S3_(ptr nou
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i64, ptr %36, align 8
-  %.not76 = icmp slt i64 %37, %2
+  %.not76 = icmp sgt i64 %2, %37
   %38 = add nsw i64 %37, 1
   %spec.select = select i1 %.not76, i64 %2, i64 %38
   br label %39
@@ -2370,7 +2370,7 @@ define void @_Z14gmx_fwrite_tngP18gmx_tng_trajectoryblffPA3_KfiS3_S3_S3_(ptr nou
   %57 = call i32 @tng_num_particles_get(ptr noundef %31, ptr noundef nonnull %12)
   %58 = load i64, ptr %12, align 8
   %59 = trunc i64 %58 to i32
-  %.not77 = icmp eq i32 %59, %6
+  %.not77 = icmp eq i32 %6, %59
   br i1 %.not77, label %63, label %60
 
 60:                                               ; preds = %56
@@ -3783,7 +3783,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127convert_array_to_real_arrayEPvPf
   %28 = getelementptr inbounds i64, ptr %0, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = sitofp i64 %29 to float
-  %31 = fmul float %30, %2
+  %31 = fmul float %2, %30
   %32 = getelementptr inbounds float, ptr %1, i64 %27
   store float %31, ptr %32, align 4
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
@@ -3820,7 +3820,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127convert_array_to_real_arrayEPvPf
   %40 = add nuw nsw i64 %indvars.iv101, %38
   %41 = getelementptr inbounds float, ptr %0, i64 %40
   %42 = load float, ptr %41, align 4
-  %43 = fmul float %42, %2
+  %43 = fmul float %2, %42
   %44 = getelementptr inbounds float, ptr %1, i64 %40
   store float %43, ptr %44, align 4
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1

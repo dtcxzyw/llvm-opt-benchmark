@@ -2388,7 +2388,7 @@ define internal fastcc void @FilterLoop26_C(ptr nocapture noundef %0, i32 nounde
   %36 = getelementptr inbounds i8, ptr %15, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
-  %39 = icmp sgt i32 %38, %6
+  %39 = icmp slt i32 %6, %38
   %.pre = load i8, ptr %.018, align 1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.018, i64 %16
   %.pre19 = load i8, ptr %.phi.trans.insert, align 1
@@ -2401,7 +2401,7 @@ Hev.exit:                                         ; preds = %28
   %42 = getelementptr inbounds i8, ptr %15, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
-  %.not17 = icmp ugt i32 %44, %6
+  %.not17 = icmp ult i32 %6, %44
   br i1 %.not17, label %Hev.exit.thread, label %71
 
 Hev.exit.thread:                                  ; preds = %28, %Hev.exit
@@ -2572,7 +2572,7 @@ define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef
   %58 = getelementptr inbounds i8, ptr %36, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
-  %.not = icmp sgt i32 %60, %3
+  %.not = icmp slt i32 %3, %60
   br i1 %.not, label %93, label %61
 
 61:                                               ; preds = %50
@@ -2581,7 +2581,7 @@ define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef
   %64 = getelementptr inbounds i8, ptr %36, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
-  %.not39 = icmp ugt i32 %66, %3
+  %.not39 = icmp ult i32 %3, %66
   br i1 %.not39, label %93, label %67
 
 67:                                               ; preds = %61
@@ -2590,7 +2590,7 @@ define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef
   %70 = getelementptr inbounds i8, ptr %36, i64 %69
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
-  %.not40 = icmp ugt i32 %72, %3
+  %.not40 = icmp ult i32 %3, %72
   br i1 %.not40, label %93, label %73
 
 73:                                               ; preds = %67
@@ -2599,7 +2599,7 @@ define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef
   %76 = getelementptr inbounds i8, ptr %36, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
-  %.not41 = icmp ugt i32 %78, %3
+  %.not41 = icmp ult i32 %3, %78
   br i1 %.not41, label %93, label %79
 
 79:                                               ; preds = %73
@@ -2608,7 +2608,7 @@ define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef
   %82 = getelementptr inbounds i8, ptr %36, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
-  %.not42 = icmp ugt i32 %84, %3
+  %.not42 = icmp ult i32 %3, %84
   br i1 %.not42, label %93, label %85
 
 85:                                               ; preds = %79
@@ -2617,7 +2617,7 @@ define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef
   %88 = getelementptr inbounds i8, ptr %36, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
-  %91 = icmp ule i32 %90, %3
+  %91 = icmp uge i32 %3, %90
   %92 = zext i1 %91 to i32
   br label %93
 
@@ -2665,7 +2665,7 @@ define internal fastcc void @FilterLoop24_C(ptr nocapture noundef %0, i32 nounde
   %32 = getelementptr inbounds i8, ptr %15, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
-  %35 = icmp sgt i32 %34, %6
+  %35 = icmp slt i32 %6, %34
   %.pre = load i8, ptr %.018, align 1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.018, i64 %16
   %.pre19 = load i8, ptr %.phi.trans.insert, align 1
@@ -2678,7 +2678,7 @@ Hev.exit:                                         ; preds = %24
   %38 = getelementptr inbounds i8, ptr %15, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
-  %.not17 = icmp ugt i32 %40, %6
+  %.not17 = icmp ult i32 %6, %40
   br i1 %.not17, label %Hev.exit.thread, label %67
 
 Hev.exit.thread:                                  ; preds = %24, %Hev.exit

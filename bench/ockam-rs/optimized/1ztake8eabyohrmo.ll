@@ -803,7 +803,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.llvm.16200
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -5048,7 +5048,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br i1 %92, label %57, label %.outer._crit_edge
 
 93:                                               ; preds = %57
-  %94 = icmp ugt i64 %5, %.1.ph51
+  %94 = icmp ult i64 %.1.ph51, %5
   br i1 %94, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h3dce076452136832E.exit", label %95
 
 95:                                               ; preds = %93
@@ -5169,7 +5169,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
 
 57:                                               ; preds = %.outer._crit_edge
   tail call void @llvm.experimental.noalias.scope.decl(metadata !811)
-  %.not.i31 = icmp ugt i64 %6, %.1.ph.lcssa44
+  %.not.i31 = icmp ult i64 %.1.ph.lcssa44, %6
   br i1 %.not.i31, label %58, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17hdf253842fed08040E.exit"
 
 58:                                               ; preds = %57
@@ -5209,7 +5209,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   %.sroa.11.0.i.i = phi i64 [ %73, %72 ], [ 0, %74 ], [ 0, %58 ]
   %76 = load ptr, ptr %0, align 8, !alias.scope !825, !noalias !826, !nonnull !4, !noundef !4
   %77 = sub i64 %.sroa.5.0.i.i, %.sroa.0.0.i.i
-  %78 = icmp ult i64 %77, %.1.ph.lcssa44
+  %78 = icmp ugt i64 %.1.ph.lcssa44, %77
   store i64 %.1.ph.lcssa44, ptr %5, align 8, !alias.scope !811
   br i1 %78, label %101, label %79
 
@@ -5439,7 +5439,7 @@ common.resume.i:                                  ; preds = %132, %113, %.body.i
   br i1 %178, label %143, label %.outer._crit_edge
 
 179:                                              ; preds = %143
-  %180 = icmp ugt i64 %6, %.1.ph58
+  %180 = icmp ult i64 %.1.ph58, %6
   br i1 %180, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb94a7ca4456585bdE.exit", label %181
 
 181:                                              ; preds = %179
@@ -5612,7 +5612,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br i1 %92, label %57, label %.outer._crit_edge
 
 93:                                               ; preds = %57
-  %94 = icmp ugt i64 %5, %.1.ph51
+  %94 = icmp ult i64 %.1.ph51, %5
   br i1 %94, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17h3dce076452136832E.exit", label %95
 
 95:                                               ; preds = %93
@@ -6184,7 +6184,7 @@ define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$
   %3 = alloca { ptr, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %.not = icmp ugt i64 %5, %1
+  %.not = icmp ult i64 %1, %5
   br i1 %.not, label %6, label %"_ZN4core3ptr256drop_in_place$LT$$u5b$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$u5d$$GT$17hdb18f2250435c40cE.exit17"
 
 6:                                                ; preds = %2
@@ -6224,7 +6224,7 @@ define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$
   %.sroa.11.0.i = phi i64 [ %21, %20 ], [ 0, %22 ], [ 0, %6 ]
   %24 = load ptr, ptr %0, align 8, !alias.scope !910, !noalias !921, !nonnull !4, !noundef !4
   %25 = sub i64 %.sroa.5.0.i, %.sroa.0.0.i
-  %26 = icmp ult i64 %25, %1
+  %26 = icmp ugt i64 %1, %25
   store i64 %1, ptr %4, align 8
   br i1 %26, label %49, label %27
 

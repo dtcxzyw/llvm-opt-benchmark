@@ -384,7 +384,7 @@ declare ptr @g_array_insert_vals(ptr noundef, i32 noundef, ptr noundef, i32 noun
 define void @stat_tap_init_table_row(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
-  %.not = icmp ugt i32 %6, %1
+  %.not = icmp ult i32 %1, %6
   br i1 %.not, label %.loopexit, label %7
 
 7:                                                ; preds = %4

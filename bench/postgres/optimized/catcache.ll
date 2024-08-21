@@ -110,7 +110,7 @@ define dso_local void @CatCacheInvalidate(ptr noundef %0, i32 noundef %1) local_
   %29 = getelementptr i8, ptr %.sroa.0.146, i64 -40
   %30 = getelementptr i8, ptr %.sroa.0.146, i64 -36
   %31 = load i32, ptr %30, align 4
-  %32 = icmp eq i32 %31, %1
+  %32 = icmp eq i32 %1, %31
   br i1 %32, label %33, label %CatCacheRemoveCTup.exit
 
 33:                                               ; preds = %28
@@ -1623,7 +1623,7 @@ CatalogCacheComputeHashValue.exit:                ; preds = %15, %30
   %55 = getelementptr i8, ptr %.sroa.092.0205, i64 54
   %56 = load i16, ptr %55, align 2
   %57 = sext i16 %56 to i32
-  %.not175 = icmp eq i32 %57, %1
+  %.not175 = icmp eq i32 %1, %57
   br i1 %.not175, label %.lr.ph.preheader.i, label %.critedge
 
 .lr.ph.preheader.i:                               ; preds = %54

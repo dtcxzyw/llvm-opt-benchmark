@@ -51,7 +51,7 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bed
   %9 = load i64, ptr %5, align 8, !alias.scope !7, !noalias !15, !noundef !20
   %10 = load i64, ptr %0, align 8, !alias.scope !21, !noalias !15, !noundef !20
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %2
+  %12 = icmp ugt i64 %2, %11
   br i1 %12, label %13, label %._crit_edge.split.us
 
 13:                                               ; preds = %.lr.ph.split.us

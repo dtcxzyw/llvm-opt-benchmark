@@ -104,7 +104,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %41 = getelementptr [512 x %struct.prefix_code_symbol], ptr %4, i64 0, i64 %39
   store i16 %40, ptr %41, align 8
   %42 = trunc nuw nsw i64 %indvars.iv74.i.i to i32
-  %43 = add i32 %42, %1
+  %43 = add i32 %1, %42
   %44 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %43) #10
   %45 = and i8 %44, 15
   %46 = zext nneg i8 %45 to i16
@@ -217,8 +217,8 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %.1.i.i.i = phi i32 [ %95, %91 ], [ %.026.i.i.i, %80 ]
   %98 = sext i16 %97 to i64
   %99 = getelementptr %struct.prefix_code_node, ptr %31, i64 %98
-  %.not6.i.i.i.i = icmp ugt ptr %31, %99
-  %100 = icmp ule ptr %64, %99
+  %.not6.i.i.i.i = icmp ult ptr %99, %31
+  %100 = icmp uge ptr %99, %64
   %narrow.i.not.i.i.i = or i1 %100, %.not6.i.i.i.i
   br i1 %narrow.i.not.i.i.i, label %PrefixCodeTreeRebuild.exit.thread.i, label %78, !llvm.loop !8
 
@@ -293,8 +293,8 @@ bitstring_skip.exit.i.i:                          ; preds = %123, %bitstring_loo
   %135 = load i16, ptr %134, align 2
   %136 = sext i16 %135 to i64
   %137 = getelementptr %struct.prefix_code_node, ptr %31, i64 %136
-  %.not6.i.i.i = icmp ugt ptr %31, %137
-  %138 = icmp ule ptr %116, %137
+  %.not6.i.i.i = icmp ult ptr %137, %31
+  %138 = icmp uge ptr %137, %116
   %narrow.i.not.i.i = or i1 %138, %.not6.i.i.i
   br i1 %narrow.i.not.i.i, label %do_uncompress.exit, label %139
 
@@ -342,7 +342,7 @@ bitstring_skip.exit.i.i:                          ; preds = %123, %bitstring_loo
 
 160:                                              ; preds = %155
   %161 = icmp slt i32 %.sroa.32.2.i, 0
-  %162 = icmp ult i32 %.sroa.32.2.i, %158
+  %162 = icmp ugt i32 %158, %.sroa.32.2.i
   %or.cond.i.i = or i1 %161, %162
   br i1 %or.cond.i.i, label %bitstring_lookup.exit.i, label %163
 

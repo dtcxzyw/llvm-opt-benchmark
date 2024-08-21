@@ -1173,7 +1173,7 @@ if.then6.i:                                       ; preds = %if.then4.i
   %idxprom7.i = zext i16 %4 to i64
   %arrayidx8.i = getelementptr inbounds i16, ptr %5, i64 %idxprom7.i
   %6 = load i16, ptr %arrayidx8.i, align 2
-  %cmp12.i = icmp ugt i16 %6, %n
+  %cmp12.i = icmp ult i16 %n, %6
   br i1 %cmp12.i, label %if.then13.i, label %if.end.i
 
 if.then13.i:                                      ; preds = %if.then6.i

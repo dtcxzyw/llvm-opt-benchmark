@@ -174,7 +174,7 @@ define dso_local i32 @psmouse_smbus_init(ptr noundef %0, ptr nocapture noundef r
   tail call void @kfree(ptr noundef %57) #9
   store ptr null, ptr %56, align 8
   %58 = icmp sgt i32 %32, -1
-  %59 = and i1 %58, %5
+  %59 = and i1 %5, %58
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %55

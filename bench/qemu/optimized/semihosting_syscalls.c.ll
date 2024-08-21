@@ -288,7 +288,7 @@ sw.bb2:                                           ; preds = %entry
   %off.i = getelementptr inbounds i8, ptr %gf, i64 24
   %6 = load i64, ptr %off.i, align 8
   %sub.i = sub i64 %5, %6
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %spec.store.select)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %spec.store.select, i64 %sub.i)
   %call2.i18 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %buf, i64 noundef %spec.select.i, i1 noundef zeroext false) #12
   %tobool.not.i19 = icmp eq ptr %call2.i18, null
   br i1 %tobool.not.i19, label %if.then3.i, label %if.end4.i

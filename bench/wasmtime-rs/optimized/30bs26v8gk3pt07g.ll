@@ -362,7 +362,7 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
   %8 = add i64 %7, -1
-  %9 = icmp eq i64 %8, %4
+  %9 = icmp eq i64 %4, %8
   br i1 %9, label %10, label %.invoke
 
 10:                                               ; preds = %5
@@ -446,7 +446,7 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
   %8 = add i64 %7, -1
-  %9 = icmp eq i64 %8, %4
+  %9 = icmp eq i64 %4, %8
   br i1 %9, label %10, label %.invoke
 
 10:                                               ; preds = %5
@@ -910,7 +910,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..coll
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5alloc11collections5btree4node12slice_insert17h11c40ebdec02d905E(ptr nocapture align 8 %0, i64 %1, i64 %2, ptr nocapture readonly align 8 %3) unnamed_addr #2 {
   %5 = add i64 %2, 1
-  %6 = icmp ult i64 %5, %1
+  %6 = icmp ugt i64 %1, %5
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %9, %4
@@ -922,7 +922,7 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17h11c40ebdec02d905E
   %10 = getelementptr inbounds { [6 x i64] }, ptr %0, i64 %2
   %11 = getelementptr inbounds { [6 x i64] }, ptr %0, i64 %5
   %12 = xor i64 %2, -1
-  %13 = add i64 %12, %1
+  %13 = add i64 %1, %12
   %14 = mul i64 %13, 48
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %11, ptr align 8 %10, i64 %14, i1 false)
   br label %7
@@ -931,7 +931,7 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17h11c40ebdec02d905E
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5alloc11collections5btree4node12slice_insert17h16a63b0c9178e39aE(ptr nocapture align 8 %0, i64 %1, i64 %2, ptr nocapture readonly align 8 %3) unnamed_addr #2 {
   %5 = add i64 %2, 1
-  %6 = icmp ult i64 %5, %1
+  %6 = icmp ugt i64 %1, %5
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %9, %4
@@ -943,7 +943,7 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17h16a63b0c9178e39aE
   %10 = getelementptr inbounds { [6 x i64] }, ptr %0, i64 %2
   %11 = getelementptr inbounds { [6 x i64] }, ptr %0, i64 %5
   %12 = xor i64 %2, -1
-  %13 = add i64 %12, %1
+  %13 = add i64 %1, %12
   %14 = mul i64 %13, 48
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %11, ptr align 8 %10, i64 %14, i1 false)
   br label %7
@@ -952,7 +952,7 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17h16a63b0c9178e39aE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define void @_ZN5alloc11collections5btree4node12slice_insert17h2529154a862e1e58E(ptr nocapture align 8 %0, i64 %1, i64 %2, ptr %3) unnamed_addr #3 {
   %5 = add i64 %2, 1
-  %6 = icmp ult i64 %5, %1
+  %6 = icmp ugt i64 %1, %5
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %10, %4
@@ -966,7 +966,7 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17h2529154a862e1e58E
   %11 = getelementptr inbounds ptr, ptr %0, i64 %2
   %12 = getelementptr inbounds ptr, ptr %0, i64 %5
   %13 = xor i64 %2, -1
-  %14 = add i64 %13, %1
+  %14 = add i64 %1, %13
   %15 = shl i64 %14, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %11, i64 %15, i1 false)
   br label %7
@@ -975,7 +975,7 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17h2529154a862e1e58E
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define void @_ZN5alloc11collections5btree4node12slice_insert17h83db1771095d7181E(ptr nocapture align 8 %0, i64 %1, i64 %2, ptr %3) unnamed_addr #3 {
   %5 = add i64 %2, 1
-  %6 = icmp ult i64 %5, %1
+  %6 = icmp ugt i64 %1, %5
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %10, %4
@@ -989,7 +989,7 @@ define void @_ZN5alloc11collections5btree4node12slice_insert17h83db1771095d7181E
   %11 = getelementptr inbounds ptr, ptr %0, i64 %2
   %12 = getelementptr inbounds ptr, ptr %0, i64 %5
   %13 = xor i64 %2, -1
-  %14 = add i64 %13, %1
+  %14 = add i64 %1, %13
   %15 = shl i64 %14, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %11, i64 %15, i1 false)
   br label %7
@@ -1856,7 +1856,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   %23 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   %24 = add i64 %23, 1
-  %25 = icmp ult i64 %24, %22
+  %25 = icmp ugt i64 %22, %24
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h29d664afafcdf048E.exit"
@@ -1943,7 +1943,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   %23 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   %24 = add i64 %23, 1
-  %25 = icmp ult i64 %24, %22
+  %25 = icmp ugt i64 %22, %24
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h841d5073a8771142E.exit"
@@ -2955,7 +2955,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   %25 = load i64, ptr %18, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %26 = add i64 %25, 1
-  %27 = icmp ult i64 %26, %24
+  %27 = icmp ugt i64 %24, %26
   br i1 %27, label %28, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h5a6649dcc10f3764E.exit"
 
 28:                                               ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h8e172c1fb66862cdE.exit"
@@ -2979,7 +2979,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   %41 = load i64, ptr %18, align 8, !noundef !3
   %42 = add i64 %41, 1
   %43 = add i64 %41, 2
-  %44 = icmp ult i64 %43, %40
+  %44 = icmp ugt i64 %40, %43
   br i1 %44, label %45, label %.noexc
 
 45:                                               ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h5a6649dcc10f3764E.exit"
@@ -3092,7 +3092,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   %25 = load i64, ptr %18, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %26 = add i64 %25, 1
-  %27 = icmp ult i64 %26, %24
+  %27 = icmp ugt i64 %24, %26
   br i1 %27, label %28, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h6e33ed09111e5ba6E.exit"
 
 28:                                               ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17hca54d06e95efffe3E.exit"
@@ -3116,7 +3116,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   %41 = load i64, ptr %18, align 8, !noundef !3
   %42 = add i64 %41, 1
   %43 = add i64 %41, 2
-  %44 = icmp ult i64 %43, %40
+  %44 = icmp ugt i64 %40, %43
   br i1 %44, label %45, label %.noexc
 
 45:                                               ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$13edge_area_mut17h6e33ed09111e5ba6E.exit"
@@ -3243,7 +3243,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = add i64 %15, -1
-  %17 = icmp eq i64 %16, %5
+  %17 = icmp eq i64 %5, %16
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %6
@@ -3361,7 +3361,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = add i64 %15, -1
-  %17 = icmp eq i64 %16, %5
+  %17 = icmp eq i64 %5, %16
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %6

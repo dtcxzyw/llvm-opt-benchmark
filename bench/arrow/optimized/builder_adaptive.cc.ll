@@ -340,7 +340,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %length_.i, align 8, !noalias !4
-  %cmp3.i = icmp sgt i64 %0, %capacity
+  %cmp3.i = icmp slt i64 %capacity, %0
   br i1 %cmp3.i, label %if.then6.i, label %nrvo.skipdtor.thread
 
 if.then6.i:                                       ; preds = %if.end.i
@@ -2582,7 +2582,7 @@ nrvo.skipdtor.thread:                             ; preds = %do.body
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
   %mul.i.i = shl nsw i64 %1, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !56
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %3 = load ptr, ptr %vfn5.i, align 8, !noalias !56
@@ -2919,7 +2919,7 @@ nrvo.skipdtor.thread:                             ; preds = %do.body
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
   %mul.i.i = shl nsw i64 %1, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !113
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %3 = load ptr, ptr %vfn5.i, align 8, !noalias !113
@@ -3142,7 +3142,7 @@ nrvo.skipdtor28.thread:                           ; preds = %do.body9
 
 _ZN5arrow6StatusD2Ev.exit77:                      ; preds = %do.body9
   %mul.i.i = shl nsw i64 %2, 1
-  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !134
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %4 = load ptr, ptr %vfn5.i, align 8, !noalias !134
@@ -4447,7 +4447,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !272
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !272
@@ -4973,7 +4973,7 @@ nrvo.skipdtor25.thread:                           ; preds = %do.body10
 
 _ZN5arrow6StatusD2Ev.exit79:                      ; preds = %do.body10
   %mul.i.i = shl nsw i64 %2, 1
-  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !362
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %4 = load ptr, ptr %vfn5.i, align 8, !noalias !362
@@ -5005,7 +5005,7 @@ do.end29:                                         ; preds = %nrvo.skipdtor25.thr
   %conv = zext i8 %11 to i64
   %mul = mul nsw i64 %10, %conv
   %add.ptr = getelementptr inbounds i8, ptr %cond.i, i64 %mul
-  %mul34 = mul nuw nsw i64 %conv, %length
+  %mul34 = mul nuw nsw i64 %length, %conv
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %mul34, i1 false)
   call void @_ZN5arrow12ArrayBuilder13UnsafeSetNullEl(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %length)
   br label %if.end35
@@ -5096,7 +5096,7 @@ nrvo.skipdtor25.thread:                           ; preds = %do.body10
 
 _ZN5arrow6StatusD2Ev.exit79:                      ; preds = %do.body10
   %mul.i.i = shl nsw i64 %2, 1
-  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !379
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %4 = load ptr, ptr %vfn5.i, align 8, !noalias !379
@@ -5128,7 +5128,7 @@ do.end29:                                         ; preds = %nrvo.skipdtor25.thr
   %conv = zext i8 %11 to i64
   %mul = mul nsw i64 %10, %conv
   %add.ptr = getelementptr inbounds i8, ptr %cond.i, i64 %mul
-  %mul34 = mul nuw nsw i64 %conv, %length
+  %mul34 = mul nuw nsw i64 %length, %conv
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %mul34, i1 false)
   call void @_ZN5arrow12ArrayBuilder16UnsafeSetNotNullEl(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %length)
   br label %if.end35

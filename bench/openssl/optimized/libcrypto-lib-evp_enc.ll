@@ -1468,7 +1468,7 @@ if.then116:                                       ; preds = %lor.lhs.false, %if.
 
 if.end117:                                        ; preds = %lor.lhs.false
   %not = sub nsw i32 0, %8
-  %and118 = and i32 %not, %inl
+  %and118 = and i32 %inl, %not
   %sub119 = sub nuw nsw i32 2147483647, %8
   %cmp120 = icmp ugt i32 %and118, %sub119
   br i1 %cmp120, label %if.then122, label %if.end123

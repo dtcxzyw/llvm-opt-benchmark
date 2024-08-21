@@ -84,7 +84,7 @@ define ptr @pmix_gds_hash_get_tracker(ptr nocapture noundef readonly %0, i1 noun
 ._crit_edge:                                      ; preds = %7, %.lr.ph, %2
   %.046 = phi ptr [ null, %2 ], [ %.04571, %.lr.ph ], [ null, %7 ]
   %9 = icmp eq ptr %.046, null
-  %brmerge.not = and i1 %9, %1
+  %brmerge.not = and i1 %1, %9
   br i1 %brmerge.not, label %10, label %104
 
 10:                                               ; preds = %._crit_edge

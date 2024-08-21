@@ -32,7 +32,7 @@ define i32 @ADIOI_Calc_aggregator(ptr nocapture noundef readonly %0, i64 noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %7 ]
   %18 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
-  %20 = icmp slt i64 %19, %1
+  %20 = icmp sgt i64 %1, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %20, label %.preheader, label %.loopexit.loopexit, !llvm.loop !4
 
@@ -309,7 +309,7 @@ define void @ADIOI_Calc_my_req(ptr nocapture noundef readonly %0, ptr nocapture 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %28 ]
   %39 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i
   %40 = load i64, ptr %39, align 8
-  %41 = icmp slt i64 %40, %30
+  %41 = icmp sgt i64 %30, %40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %41, label %.preheader.i, label %.loopexit.loopexit.i, !llvm.loop !4
 
@@ -374,7 +374,7 @@ ADIOI_Calc_aggregator.exit:                       ; preds = %47, %.loopexit.i
   %indvars.iv.i159 = phi i64 [ %indvars.iv.next.i160, %.preheader.i158 ], [ 0, %.lr.ph211 ]
   %75 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i159
   %76 = load i64, ptr %75, align 8
-  %77 = icmp slt i64 %76, %66
+  %77 = icmp sgt i64 %66, %76
   %indvars.iv.next.i160 = add nuw nsw i64 %indvars.iv.i159, 1
   br i1 %77, label %.preheader.i158, label %.loopexit.loopexit.i161, !llvm.loop !4
 
@@ -527,7 +527,7 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
   %indvars.iv.i168 = phi i64 [ %indvars.iv.next.i169, %.preheader.i167 ], [ 0, %130 ]
   %141 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i168
   %142 = load i64, ptr %141, align 8
-  %143 = icmp slt i64 %142, %132
+  %143 = icmp sgt i64 %132, %142
   %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i168, 1
   br i1 %143, label %.preheader.i167, label %.loopexit.loopexit.i170, !llvm.loop !4
 
@@ -614,7 +614,7 @@ ADIOI_Calc_aggregator.exit171:                    ; preds = %149, %.loopexit.i16
   %indvars.iv.i177 = phi i64 [ %indvars.iv.next.i178, %.preheader.i176 ], [ 0, %.lr.ph231 ]
   %191 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i177
   %192 = load i64, ptr %191, align 8
-  %193 = icmp slt i64 %192, %182
+  %193 = icmp sgt i64 %182, %192
   %indvars.iv.next.i178 = add nuw nsw i64 %indvars.iv.i177, 1
   br i1 %193, label %.preheader.i176, label %.loopexit.loopexit.i179, !llvm.loop !4
 
@@ -816,7 +816,7 @@ define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 nounde
   %indvars133 = trunc i64 %indvars.iv131 to i32
   %56 = load ptr, ptr %52, align 8
   %57 = shl nsw i32 %54, 1
-  %58 = add nsw i32 %indvars133, %5
+  %58 = add nsw i32 %5, %indvars133
   %59 = load ptr, ptr %12, align 8
   %60 = add nsw i32 %.094115, 1
   %61 = sext i32 %.094115 to i64
@@ -843,7 +843,7 @@ define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 nounde
   %indvars138 = trunc i64 %indvars.iv136 to i32
   %69 = load ptr, ptr %65, align 8
   %70 = shl nsw i32 %67, 1
-  %71 = add nsw i32 %indvars138, %5
+  %71 = add nsw i32 %5, %indvars138
   %72 = load ptr, ptr %12, align 8
   %73 = add nsw i32 %.296120, 1
   %74 = sext i32 %.296120 to i64

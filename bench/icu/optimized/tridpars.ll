@@ -151,7 +151,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -431,7 +431,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #11
   %cmp7 = icmp eq ptr %call, null
@@ -1156,7 +1156,7 @@ for.cond.outer.us.us:                             ; preds = %if.then51.us.us, %f
           to label %invoke.cont9.us.us.us unwind label %lpad7.loopexit.loopexit.split.us.split.us.split.us
 
 if.then36.us.us:                                  ; preds = %if.end.us.us.us
-  %cmp.i.i43.us.us = icmp ugt i32 %cond.i.us.us.us, %15
+  %cmp.i.i43.us.us = icmp ult i32 %15, %cond.i.us.us.us
   br i1 %cmp.i.i43.us.us, label %invoke.cont37.us.us, label %if.end53.split.us.us
 
 invoke.cont37.us.us:                              ; preds = %if.then36.us.us
@@ -1345,7 +1345,7 @@ if.then36:                                        ; preds = %if.end34.split
   %shr.i.i.i.i = sext i16 %37 to i32
   %38 = load i32, ptr %fLength.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %38, i32 %shr.i.i.i.i
-  %cmp.i.i43 = icmp ugt i32 %cond.i.i.i, %35
+  %cmp.i.i43 = icmp ult i32 %35, %cond.i.i.i
   br i1 %cmp.i.i43, label %invoke.cont37, label %if.end53.split
 
 invoke.cont37:                                    ; preds = %if.then36
@@ -3201,7 +3201,7 @@ if.else.i.i:                                      ; preds = %land.lhs.true
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
   %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
   %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %cond.i6.i)
+  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
   %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
   %12 = and i16 %5, 2
   %tobool.not.i.i.i = icmp eq i16 %12, 0

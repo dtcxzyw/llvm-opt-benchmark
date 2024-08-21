@@ -48,7 +48,7 @@ define dso_local range(i32 -6, 1) i32 @lifebook_detect(ptr nocapture noundef %0,
   %11 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = tail call i32 @strcmp(ptr noundef %11, ptr noundef nonnull dereferenceable(1) %6) #11
   %13 = icmp eq i32 %12, 0
-  %14 = and i1 %13, %1
+  %14 = and i1 %1, %13
   %15 = select i1 %13, i32 0, i32 -6
   br i1 %14, label %17, label %20
 

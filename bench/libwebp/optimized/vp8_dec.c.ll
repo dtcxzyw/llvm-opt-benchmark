@@ -317,7 +317,7 @@ VP8CheckSignature.exit:                           ; preds = %12
   %or.cond42.not46 = icmp eq i32 %42, 16
   %43 = lshr i32 %25, 5
   %44 = zext nneg i32 %43 to i64
-  %.not38 = icmp ult i64 %44, %2
+  %.not38 = icmp ugt i64 %2, %44
   %or.cond44 = select i1 %or.cond42.not46, i1 %.not38, i1 false
   br i1 %or.cond44, label %45, label %VP8CheckSignature.exit.thread
 
@@ -861,7 +861,7 @@ define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef %0, ptr 
   store i32 %7, ptr %8, align 8
   %9 = zext nneg i32 %7 to i64
   %10 = mul nuw nsw i64 %9, 3
-  %11 = icmp ugt i64 %10, %2
+  %11 = icmp ult i64 %2, %10
   br i1 %11, label %36, label %12
 
 12:                                               ; preds = %3

@@ -18717,7 +18717,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
 
 for.cond.cleanup:                                 ; preds = %cleanup86
   %cmp96 = icmp ne i32 %priority_best.5, 0
-  %brmerge.demorgan = and i1 %cmp96, %decrementInput
+  %brmerge.demorgan = and i1 %decrementInput, %cmp96
   br i1 %brmerge.demorgan, label %if.then99, label %cleanup105
 
 lpad:                                             ; preds = %if.end

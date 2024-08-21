@@ -1725,7 +1725,7 @@ define hidden void @"_ZN75_$LT$$u5b$T$u5d$$u20$as$u20$alloc..slice..SpecCloneInt
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %4, align 8
   %5 = load i64, ptr %2, align 8, !alias.scope !574, !noalias !581, !noundef !4
-  %6 = icmp ult i64 %5, %1
+  %6 = icmp ugt i64 %1, %5
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hd196618cf7acc12bE.exit"
 
 7:                                                ; preds = %3

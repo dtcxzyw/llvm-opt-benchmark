@@ -970,7 +970,7 @@ entry:
   %size = getelementptr inbounds i8, ptr %conn, i64 776
   %0 = load i64, ptr %size, align 8
   %tobool.not = icmp eq i64 %0, 0
-  %brmerge = or i1 %tobool.not, %dead_connection
+  %brmerge = or i1 %dead_connection, %tobool.not
   br i1 %brmerge, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -989,7 +989,7 @@ if.end16:                                         ; preds = %if.then13, %if.end
   %connect_only = getelementptr inbounds i8, ptr %conn, i64 1169
   %2 = load i8, ptr %connect_only, align 1
   %tobool17.not = icmp ne i8 %2, 0
-  %spec.select = or i1 %tobool17.not, %dead_connection
+  %spec.select = or i1 %dead_connection, %tobool17.not
   tail call void @Curl_attach_connection(ptr noundef %data, ptr noundef nonnull %conn) #11
   %handler = getelementptr inbounds i8, ptr %conn, i64 712
   %3 = load ptr, ptr %handler, align 8

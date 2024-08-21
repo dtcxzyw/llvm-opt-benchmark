@@ -247,9 +247,9 @@ Abc_Clock.exit:                                   ; preds = %5, %18
   %110 = trunc nuw nsw i64 %109 to i32
   %111 = and i32 %110, 1
   %112 = add nuw nsw i32 %103, 1
-  %113 = icmp eq i32 %112, %100
+  %113 = icmp eq i32 %100, %112
   %114 = add nuw nsw i32 %111, 1
-  %115 = icmp eq i32 %114, %108
+  %115 = icmp eq i32 %108, %114
   %or.cond11.i = select i1 %113, i1 true, i1 %115
   %116 = icmp eq i32 %100, 3
   %117 = icmp eq i32 %108, 3
@@ -300,7 +300,7 @@ Abc_Clock.exit:                                   ; preds = %5, %18
   %141 = and i32 %140, 1
   %142 = icmp eq i32 %138, 3
   %143 = add nuw nsw i32 %141, 1
-  %144 = icmp eq i32 %143, %138
+  %144 = icmp eq i32 %138, %143
   %..i155 = select i1 %144, i32 1, i32 2
   %.0.i156 = select i1 %142, i32 3, i32 %..i155
   %145 = getelementptr inbounds i8, ptr %133, i64 8
@@ -571,9 +571,9 @@ define void @Bmc_MnaCollect_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %33 = trunc nuw nsw i64 %32 to i32
   %34 = and i32 %33, 1
   %35 = add nuw nsw i32 %26, 1
-  %36 = icmp eq i32 %35, %23
+  %36 = icmp eq i32 %23, %35
   %37 = add nuw nsw i32 %34, 1
-  %38 = icmp eq i32 %37, %31
+  %38 = icmp eq i32 %31, %37
   %or.cond11.i = select i1 %36, i1 true, i1 %38
   %39 = icmp eq i32 %23, 3
   %40 = icmp eq i32 %31, 3
@@ -769,7 +769,7 @@ define void @Bmc_MnaCollect(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %30 = and i32 %29, 1
   %31 = icmp eq i32 %27, 3
   %32 = add nuw nsw i32 %30, 1
-  %33 = icmp eq i32 %32, %27
+  %33 = icmp eq i32 %27, %32
   %..i = select i1 %33, i32 1, i32 2
   %.0.i = select i1 %31, i32 3, i32 %..i
   %34 = getelementptr inbounds i8, ptr %18, i64 8
@@ -1759,7 +1759,7 @@ Bmc_MnaCollect.exit.thread:                       ; preds = %Vec_IntAppend.exit
   %161 = and i32 %160, 1
   %162 = icmp eq i32 %158, 3
   %163 = add nuw nsw i32 %161, 1
-  %164 = icmp eq i32 %163, %158
+  %164 = icmp eq i32 %158, %163
   %..i.i = select i1 %164, i32 1, i32 2
   %.0.i.i = select i1 %162, i32 3, i32 %..i.i
   %165 = getelementptr inbounds i8, ptr %149, i64 8
@@ -2216,7 +2216,7 @@ Vec_IntPush.exit224:                              ; preds = %.Vec_IntGrow.exit10
   %368 = and i32 %367, 1
   %369 = icmp eq i32 %365, 3
   %370 = add nuw nsw i32 %368, 1
-  %371 = icmp eq i32 %370, %365
+  %371 = icmp eq i32 %365, %370
   %..i.i234 = select i1 %371, i32 1, i32 2
   %.0.i.i235 = select i1 %369, i32 3, i32 %..i.i234
   %372 = getelementptr inbounds i8, ptr %356, i64 8
@@ -3976,7 +3976,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 80:                                               ; preds = %.lr.ph, %Vec_IntPush.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !38
 
 .lr.ph49:                                         ; preds = %.preheader, %84
@@ -4048,13 +4048,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -5419,7 +5419,7 @@ define void @Gia_ManBmcAddCnfNew(ptr noundef %0, i32 noundef %1, i32 noundef %2)
 20:                                               ; preds = %.lr.ph, %19
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %20, %3

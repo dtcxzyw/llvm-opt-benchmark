@@ -1552,7 +1552,7 @@ define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4Luau7Compi
 5:                                                ; preds = %3
   %6 = fptosi double %0 to i32
   %7 = sitofp i32 %6 to double
-  %8 = fcmp oeq double %7, %0
+  %8 = fcmp oeq double %0, %7
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
@@ -1567,7 +1567,7 @@ define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4Luau7Compi
 13:                                               ; preds = %10
   %14 = fptosi double %1 to i32
   %15 = sitofp i32 %14 to double
-  %16 = fcmp oeq double %15, %1
+  %16 = fcmp oeq double %1, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
@@ -1582,7 +1582,7 @@ define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4Luau7Compi
 21:                                               ; preds = %18
   %22 = fptosi double %2 to i32
   %23 = sitofp i32 %22 to double
-  %24 = fcmp oeq double %23, %2
+  %24 = fcmp oeq double %2, %23
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %21

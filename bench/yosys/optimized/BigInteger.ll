@@ -41,7 +41,7 @@ define void @_ZN10BigIntegeraSERKS_(ptr noundef nonnull align 8 dereferenceable(
   %9 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %8, ptr %9, align 4
   %10 = load i32, ptr %6, align 8
-  %11 = icmp ult i32 %10, %8
+  %11 = icmp ugt i32 %8, %10
   br i1 %11, label %12, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 12:                                               ; preds = %4
@@ -665,7 +665,7 @@ define void @_ZN10BigInteger3addERKS_S1_(ptr noundef nonnull align 8 dereference
           to label %10 unwind label %45
 
 10:                                               ; preds = %8
-  %11 = icmp eq ptr %4, %0
+  %11 = icmp eq ptr %0, %4
   br i1 %11, label %_ZN10BigIntegeraSERKS_.exit, label %12
 
 12:                                               ; preds = %10
@@ -677,7 +677,7 @@ define void @_ZN10BigInteger3addERKS_S1_(ptr noundef nonnull align 8 dereference
   %17 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %16, ptr %17, align 4
   %18 = load i32, ptr %14, align 8
-  %19 = icmp ult i32 %18, %16
+  %19 = icmp ugt i32 %16, %18
   br i1 %19, label %20, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i
 
 20:                                               ; preds = %12
@@ -759,7 +759,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   %58 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %57, ptr %58, align 4
   %59 = load i32, ptr %55, align 8
-  %60 = icmp ult i32 %59, %57
+  %60 = icmp ugt i32 %57, %59
   br i1 %60, label %61, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i32
 
 61:                                               ; preds = %54
@@ -818,7 +818,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i32:  ; preds = %66, %54
   %88 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %87, ptr %88, align 4
   %89 = load i32, ptr %85, align 8
-  %90 = icmp ult i32 %89, %87
+  %90 = icmp ugt i32 %87, %89
   br i1 %90, label %91, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i40
 
 91:                                               ; preds = %84
@@ -899,7 +899,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i40:  ; preds = %96, %84
   %128 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %127, ptr %128, align 4
   %129 = load i32, ptr %123, align 8
-  %130 = icmp ult i32 %129, %127
+  %130 = icmp ugt i32 %127, %129
   br i1 %130, label %131, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 131:                                              ; preds = %125
@@ -1022,7 +1022,7 @@ define void @_ZN10BigInteger8subtractERKS_S1_(ptr noundef nonnull align 8 derefe
           to label %10 unwind label %45
 
 10:                                               ; preds = %8
-  %11 = icmp eq ptr %4, %0
+  %11 = icmp eq ptr %0, %4
   br i1 %11, label %_ZN10BigIntegeraSERKS_.exit, label %12
 
 12:                                               ; preds = %10
@@ -1034,7 +1034,7 @@ define void @_ZN10BigInteger8subtractERKS_S1_(ptr noundef nonnull align 8 derefe
   %17 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %16, ptr %17, align 4
   %18 = load i32, ptr %14, align 8
-  %19 = icmp ult i32 %18, %16
+  %19 = icmp ugt i32 %16, %18
   br i1 %19, label %20, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i
 
 20:                                               ; preds = %12
@@ -1114,7 +1114,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   %57 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %56, ptr %57, align 4
   %58 = load i32, ptr %54, align 8
-  %59 = icmp ult i32 %58, %56
+  %59 = icmp ugt i32 %56, %58
   br i1 %59, label %60, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 60:                                               ; preds = %53
@@ -1180,7 +1180,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %72, %_ZN15Numberlik
   %90 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %89, ptr %90, align 4
   %91 = load i32, ptr %87, align 8
-  %92 = icmp ult i32 %91, %89
+  %92 = icmp ugt i32 %89, %91
   br i1 %92, label %93, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33
 
 93:                                               ; preds = %86
@@ -1261,7 +1261,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33:  ; preds = %98, %86
   %129 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %128, ptr %129, align 4
   %130 = load i32, ptr %124, align 8
-  %131 = icmp ult i32 %130, %128
+  %131 = icmp ugt i32 %128, %130
   br i1 %131, label %132, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i41
 
 132:                                              ; preds = %126
@@ -1379,7 +1379,7 @@ define void @_ZN10BigInteger8multiplyERKS_S1_(ptr noundef nonnull align 8 derefe
           to label %10 unwind label %45
 
 10:                                               ; preds = %8
-  %11 = icmp eq ptr %4, %0
+  %11 = icmp eq ptr %0, %4
   br i1 %11, label %_ZN10BigIntegeraSERKS_.exit, label %12
 
 12:                                               ; preds = %10
@@ -1391,7 +1391,7 @@ define void @_ZN10BigInteger8multiplyERKS_S1_(ptr noundef nonnull align 8 derefe
   %17 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %16, ptr %17, align 4
   %18 = load i32, ptr %14, align 8
-  %19 = icmp ult i32 %18, %16
+  %19 = icmp ugt i32 %16, %18
   br i1 %19, label %20, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i
 
 20:                                               ; preds = %12
@@ -1482,7 +1482,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   %62 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %61, ptr %62, align 4
   %63 = load i32, ptr %57, align 8
-  %64 = icmp ult i32 %63, %61
+  %64 = icmp ugt i32 %61, %63
   br i1 %64, label %65, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 65:                                               ; preds = %59
@@ -1664,7 +1664,7 @@ _ZN10BigIntegerC2ERKS_.exit:                      ; preds = %25, %14
   %46 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %45, ptr %46, align 4
   %47 = load i32, ptr %41, align 8
-  %48 = icmp ult i32 %47, %45
+  %48 = icmp ugt i32 %45, %47
   br i1 %48, label %49, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 49:                                               ; preds = %43
@@ -1753,7 +1753,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSE
   %88 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %87, ptr %88, align 4
   %89 = load i32, ptr %83, align 8
-  %90 = icmp ult i32 %89, %87
+  %90 = icmp ugt i32 %87, %89
   br i1 %90, label %91, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i33
 
 91:                                               ; preds = %85
@@ -1906,7 +1906,7 @@ define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereference
           to label %7 unwind label %42
 
 7:                                                ; preds = %5
-  %8 = icmp eq ptr %3, %0
+  %8 = icmp eq ptr %0, %3
   br i1 %8, label %_ZN10BigIntegeraSERKS_.exit, label %9
 
 9:                                                ; preds = %7
@@ -1918,7 +1918,7 @@ define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereference
   %14 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %13, ptr %14, align 4
   %15 = load i32, ptr %11, align 8
-  %16 = icmp ult i32 %15, %13
+  %16 = icmp ugt i32 %13, %15
   br i1 %16, label %17, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i
 
 17:                                               ; preds = %9
@@ -2000,7 +2000,7 @@ _ZN10BigIntegerD2Ev.exit8:                        ; preds = %42, %47
   %52 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %51, ptr %52, align 4
   %53 = load i32, ptr %49, align 8
-  %54 = icmp ult i32 %53, %51
+  %54 = icmp ugt i32 %51, %53
   br i1 %54, label %55, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 55:                                               ; preds = %48

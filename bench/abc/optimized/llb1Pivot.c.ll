@@ -12,7 +12,7 @@ define range(i32 0, 2) i32 @Llb_ManTracePaths_rec(ptr nocapture noundef readonly
   %5 = getelementptr i8, ptr %1, i64 32
   %.val36 = load i32, ptr %5, align 8
   %6 = add nsw i32 %.val, -1
-  %.not = icmp eq i32 %6, %.val36
+  %.not = icmp eq i32 %.val36, %6
   br i1 %.not, label %Saig_ObjIsPo.exit, label %7
 
 7:                                                ; preds = %3

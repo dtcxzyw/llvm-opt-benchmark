@@ -63,7 +63,7 @@ define i32 @PMPI_Group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   br label %opal_thread_add_fetch_32.exit
 
 23:                                               ; preds = %18
-  %24 = icmp slt i32 %.val, %1
+  %24 = icmp sgt i32 %1, %.val
   br i1 %24, label %25, label %.preheader
 
 .preheader:                                       ; preds = %23
@@ -96,7 +96,7 @@ define i32 @PMPI_Group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   br label %opal_thread_add_fetch_32.exit
 
 .loopexit:                                        ; preds = %27, %.preheader, %4
-  %33 = icmp eq i32 %.val, %1
+  %33 = icmp eq i32 %1, %.val
   br i1 %33, label %34, label %43
 
 34:                                               ; preds = %.loopexit

@@ -134,9 +134,9 @@ define dso_local zeroext i1 @intel_vrr_is_in_range(ptr nocapture noundef readonl
   %35 = zext i16 %34 to i32
   %36 = sub nsw i32 %33, %35
   %37 = icmp sgt i32 %36, 10
-  %38 = icmp sle i32 %35, %1
+  %38 = icmp sge i32 %1, %35
   %or.cond.not = and i1 %38, %37
-  %39 = icmp sge i32 %33, %1
+  %39 = icmp sle i32 %1, %33
   %spec.select = select i1 %or.cond.not, i1 %39, i1 false
   br label %40
 

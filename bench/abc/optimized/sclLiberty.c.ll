@@ -444,7 +444,7 @@ define i32 @Scl_LibertyCountItems(ptr noundef readonly %0, ptr noundef readnone 
 define void @Scl_LibertyWipeOutComments(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #3 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds i8, ptr %1, i64 -1
-  %5 = icmp ugt ptr %4, %0
+  %5 = icmp ult ptr %0, %4
   br i1 %5, label %.lr.ph50.preheader, label %._crit_edge
 
 .lr.ph50.preheader:                               ; preds = %2
@@ -1907,7 +1907,7 @@ define noundef ptr @Scl_LibertyParse(ptr noundef %0, i32 noundef %1) local_unnam
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
   %14 = ptrtoint ptr %13 to i64
   %15 = getelementptr inbounds i8, ptr %13, i64 -1
-  %16 = icmp ugt ptr %15, %10
+  %16 = icmp ult ptr %10, %15
   br i1 %16, label %.lr.ph50.preheader.i, label %Scl_LibertyWipeOutComments.exit
 
 .lr.ph50.preheader.i:                             ; preds = %8

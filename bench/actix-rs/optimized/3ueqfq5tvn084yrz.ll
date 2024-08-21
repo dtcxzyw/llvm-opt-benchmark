@@ -777,7 +777,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   store i64 %28, ptr %7, align 8, !noalias !102
   %36 = getelementptr inbounds i8, ptr %9, i64 16
   %37 = load i64, ptr %36, align 8, !noalias !95, !noundef !13
-  %.not.i.i.i = icmp ult i64 %37, %28
+  %.not.i.i.i = icmp ugt i64 %28, %37
   br i1 %.not.i.i.i, label %38, label %"_ZN10actix_http4body12message_body13foreign_impls100_$LT$impl$u20$actix_http..body..message_body..MessageBody$u20$for$u20$bytes..bytes_mut..BytesMut$GT$9poll_next17h333b4f31ed1b400dE.exit"
 
 38:                                               ; preds = %27
@@ -2089,7 +2089,7 @@ select.unfold:                                    ; preds = %56
   store i64 %85, ptr %8, align 8, !noalias !319
   %93 = getelementptr inbounds i8, ptr %10, i64 16
   %94 = load i64, ptr %93, align 8, !noalias !312, !noundef !13
-  %.not.i.i.i.i = icmp ult i64 %94, %85
+  %.not.i.i.i.i = icmp ugt i64 %85, %94
   br i1 %.not.i.i.i.i, label %95, label %111
 
 95:                                               ; preds = %.noexc25

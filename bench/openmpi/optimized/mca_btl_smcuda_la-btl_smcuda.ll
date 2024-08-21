@@ -1144,12 +1144,12 @@ define noundef i32 @mca_btl_smcuda_finalize(ptr nocapture readnone %0) #1 {
 ; Function Attrs: nounwind uwtable
 define ptr @mca_btl_smcuda_alloc(ptr nocapture readnone %0, ptr nocapture readnone %1, i8 zeroext %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 336), align 16
-  %.not = icmp ult i64 %6, %3
+  %.not = icmp ugt i64 %3, %6
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %5
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
-  %.not8 = icmp ult i64 %8, %3
+  %.not8 = icmp ugt i64 %3, %8
   br i1 %.not8, label %.thread, label %9
 
 9:                                                ; preds = %7, %5
@@ -1861,12 +1861,12 @@ add_pending.exit:                                 ; preds = %153, %141, %sm_fifo
 
 157:                                              ; preds = %156
   %158 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 336), align 16
-  %.not.i60 = icmp ult i64 %158, %14
+  %.not.i60 = icmp ugt i64 %14, %158
   br i1 %.not.i60, label %159, label %161
 
 159:                                              ; preds = %157
   %160 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
-  %.not8.i = icmp ult i64 %160, %14
+  %.not8.i = icmp ugt i64 %14, %160
   br i1 %.not8.i, label %mca_btl_smcuda_alloc.exit, label %161
 
 161:                                              ; preds = %159, %157
@@ -2482,7 +2482,7 @@ define i32 @mca_btl_smcuda_get_cuda(ptr nocapture noundef readnone %0, ptr nound
   %57 = getelementptr inbounds i8, ptr %50, i64 80
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 %56
-  %.not47 = icmp eq i64 %55, %3
+  %.not47 = icmp eq i64 %3, %55
   br i1 %.not47, label %62, label %60
 
 60:                                               ; preds = %49

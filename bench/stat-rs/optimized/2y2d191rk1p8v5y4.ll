@@ -291,7 +291,7 @@ define hidden { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %13 = sub i64 %.val13.i, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
   store i64 %13, ptr %5, align 8, !alias.scope !73, !noalias !62
   %14 = sub i64 %.sroa.01.0.i, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
-  %.not.i.i.i.i.not.i = icmp ult i64 %.val13.i, %.sroa.01.0.i
+  %.not.i.i.i.i.not.i = icmp ugt i64 %.sroa.01.0.i, %.val13.i
   br i1 %.not.i.i.i.i.not.i, label %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h22c59d5136256d19E.llvm.9554138872291501309.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h22c59d5136256d19E.llvm.9554138872291501309.exit: ; preds = %6, %10
@@ -694,7 +694,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h22
   %13 = sub i64 %.val13, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
   store i64 %13, ptr %5, align 8, !alias.scope !183
   %14 = sub i64 %.sroa.01.0, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
-  %.not.i.i.i.i.not = icmp ult i64 %.val13, %.sroa.01.0
+  %.not.i.i.i.i.not = icmp ugt i64 %.sroa.01.0, %.val13
   br i1 %.not.i.i.i.i.not, label %6, label %15
 
 15:                                               ; preds = %6, %10
@@ -1781,7 +1781,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit105: ; preds = 
   %.sroa.03.0 = phi double [ 0x3FD6047E2008B773, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9 ], [ 0x3FDAE121A0053AF5, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17 ], [ 0x3FDF59E83FFA28EC, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit25 ], [ 0x3FE103FD8005E540, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit33 ], [ 0x3FE19162E001DA61, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit41 ], [ 0x3FE1D45EC0040581, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit49 ], [ 0x3FE1F38DFFFE14A8, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit57 ], [ 0x3FE201393FFA8769, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit65 ], [ 0x3FE207DCE000B652, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit73 ], [ 0x3FE20B0A7FFC32C3, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit81 ], [ 0x3FE20CB87FFF37DB, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit89 ], [ 0x3FE20D5C400153BB, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit105 ], [ 0x3FE20D95FFFB0541, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit97 ]
   %.sroa.02.0 = phi double [ %27, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9 ], [ %42, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17 ], [ %57, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit25 ], [ %72, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit33 ], [ %87, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit41 ], [ %102, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit49 ], [ %117, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit57 ], [ %132, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit65 ], [ %147, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit73 ], [ %162, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit81 ], [ %177, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit89 ], [ %203, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit105 ], [ %190, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit97 ]
   %205 = fneg double %0
-  %206 = fmul double %205, %0
+  %206 = fmul double %0, %205
   %207 = tail call double @llvm.exp.f64(double %206)
   %208 = fdiv double %207, %0
   %209 = fmul double %208, %.sroa.03.0
@@ -1799,7 +1799,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit105: ; preds = 
   %.sroa.4.012.i108 = phi ptr [ %214, %.lr.ph.i106 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.38, i64 56), %9 ]
   %214 = getelementptr inbounds i8, ptr %.sroa.4.012.i108, i64 -8
   %215 = load double, ptr %214, align 8, !alias.scope !416, !noundef !4
-  %216 = fmul double %.sroa.0.113.i107, %0
+  %216 = fmul double %0, %.sroa.0.113.i107
   %217 = fadd double %216, %215
   %218 = icmp eq ptr %214, @anon.2e0ec6afcc8886635c093ddcdbf46286.38
   br i1 %218, label %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit109, label %.lr.ph.i106
@@ -1813,13 +1813,13 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit109: ; preds = 
   %.sroa.4.012.i112 = phi ptr [ %220, %.lr.ph.i110 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.39, i64 56), %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit109 ]
   %220 = getelementptr inbounds i8, ptr %.sroa.4.012.i112, i64 -8
   %221 = load double, ptr %220, align 8, !alias.scope !419, !noundef !4
-  %222 = fmul double %.sroa.0.113.i111, %0
+  %222 = fmul double %0, %.sroa.0.113.i111
   %223 = fadd double %222, %221
   %224 = icmp eq ptr %220, @anon.2e0ec6afcc8886635c093ddcdbf46286.39
   br i1 %224, label %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit113, label %.lr.ph.i110
 
 _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit113: ; preds = %.lr.ph.i110
-  %225 = fmul double %217, %0
+  %225 = fmul double %0, %217
   %226 = fdiv double %225, %223
   %227 = fadd double %219, %226
   br label %212
@@ -1885,7 +1885,7 @@ define hidden noundef double @_ZN6statrs8function3erf12erf_inv_impl17h61c441acf9
   %.sroa.4.012.i = phi ptr [ %10, %.lr.ph.i ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.52, i64 56), %8 ]
   %10 = getelementptr inbounds i8, ptr %.sroa.4.012.i, i64 -8
   %11 = load double, ptr %10, align 8, !alias.scope !422, !noundef !4
-  %12 = fmul double %.sroa.0.113.i, %0
+  %12 = fmul double %0, %.sroa.0.113.i
   %13 = fadd double %12, %11
   %14 = icmp eq ptr %10, @anon.2e0ec6afcc8886635c093ddcdbf46286.52
   br i1 %14, label %.lr.ph.i6, label %.lr.ph.i
@@ -1895,13 +1895,13 @@ define hidden noundef double @_ZN6statrs8function3erf12erf_inv_impl17h61c441acf9
   %.sroa.4.012.i8 = phi ptr [ %15, %.lr.ph.i6 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.53, i64 72), %.lr.ph.i ]
   %15 = getelementptr inbounds i8, ptr %.sroa.4.012.i8, i64 -8
   %16 = load double, ptr %15, align 8, !alias.scope !425, !noundef !4
-  %17 = fmul double %.sroa.0.113.i7, %0
+  %17 = fmul double %0, %.sroa.0.113.i7
   %18 = fadd double %17, %16
   %19 = icmp eq ptr %15, @anon.2e0ec6afcc8886635c093ddcdbf46286.53
   br i1 %19, label %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9, label %.lr.ph.i6
 
 _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9: ; preds = %.lr.ph.i6
-  %20 = fmul double %9, %0
+  %20 = fmul double %0, %9
   %21 = fdiv double %13, %18
   %22 = fmul double %20, 0x3FB6D15200000000
   %23 = fmul double %20, %21
@@ -2115,7 +2115,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit57: ; preds = %
 
 132:                                              ; preds = %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit33, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit49, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit57, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit41, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit25, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9
   %.sroa.0.0 = phi double [ %24, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9 ], [ %45, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17 ], [ %63, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit25 ], [ %81, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit33 ], [ %99, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit41 ], [ %131, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit57 ], [ %115, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit49 ]
-  %133 = fmul double %.sroa.0.0, %2
+  %133 = fmul double %2, %.sroa.0.0
   ret double %133
 }
 
@@ -2140,9 +2140,9 @@ define noundef double @_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb
   %.sroa.4.012 = phi ptr [ %9, %.lr.ph ], [ %6, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit" ]
   %9 = getelementptr inbounds i8, ptr %.sroa.4.012, i64 -8
   %10 = load double, ptr %9, align 8, !noundef !4
-  %11 = fmul double %.sroa.0.113, %0
+  %11 = fmul double %0, %.sroa.0.113
   %12 = fadd double %11, %10
-  %13 = icmp eq ptr %9, %1
+  %13 = icmp eq ptr %1, %9
   br i1 %13, label %.loopexit, label %.lr.ph
 }
 

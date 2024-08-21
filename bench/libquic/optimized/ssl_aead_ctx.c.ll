@@ -262,7 +262,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 SSL_AEAD_CTX_max_overhead.exit:                   ; preds = %land.lhs.true.i.i, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv1.i.i, %if.then.i.i ], [ 0, %land.lhs.true.i.i ]
   %add.i = add i64 %retval.0.i.i, %call.i
-  %cmp5 = icmp ugt i64 %add.i, %in_len
+  %cmp5 = icmp ult i64 %in_len, %add.i
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %SSL_AEAD_CTX_max_overhead.exit
@@ -348,7 +348,7 @@ if.then24:                                        ; preds = %if.end22
   %variable_nonce_len25 = getelementptr inbounds i8, ptr %aead, i64 37
   %13 = load i8, ptr %variable_nonce_len25, align 1
   %conv26 = zext i8 %13 to i64
-  %cmp27 = icmp ugt i64 %conv26, %in_len
+  %cmp27 = icmp ult i64 %in_len, %conv26
   br i1 %cmp27, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %if.then24
@@ -534,7 +534,7 @@ if.end29:                                         ; preds = %if.then16.if.end29_
   br i1 %tobool33.not, label %if.end67, label %if.then34
 
 if.then34:                                        ; preds = %if.end29
-  %cmp37 = icmp ugt i64 %conv31.pre-phi, %max_out
+  %cmp37 = icmp ult i64 %max_out, %conv31.pre-phi
   br i1 %cmp37, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %if.then34
@@ -543,9 +543,9 @@ if.then39:                                        ; preds = %if.then34
 
 if.end40:                                         ; preds = %if.then34
   %add.ptr41 = getelementptr inbounds i8, ptr %in, i64 %in_len
-  %cmp42 = icmp ugt ptr %add.ptr41, %out
+  %cmp42 = icmp ult ptr %out, %add.ptr41
   %add.ptr46 = getelementptr inbounds i8, ptr %out, i64 %conv31.pre-phi
-  %cmp47 = icmp ugt ptr %add.ptr46, %in
+  %cmp47 = icmp ult ptr %in, %add.ptr46
   %or.cond = select i1 %cmp42, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then49, label %if.end50
 

@@ -1766,7 +1766,7 @@ entry:
   %1 = load ptr, ptr %range, align 8, !noalias !11
   %end_.i.i = getelementptr inbounds i8, ptr %range, i64 16
   %2 = load i64, ptr %end_.i.i, align 8, !noalias !14
-  %cmp2.i.i = icmp ugt i64 %2, %0
+  %cmp2.i.i = icmp ult i64 %0, %2
   br i1 %cmp2.i.i, label %land.rhs.lr.ph.i.i, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
 
 land.rhs.lr.ph.i.i:                               ; preds = %entry
@@ -1872,7 +1872,7 @@ entry:
   %1 = load ptr, ptr %range, align 8, !noalias !19
   %end_.i.i = getelementptr inbounds i8, ptr %range, i64 16
   %2 = load i64, ptr %end_.i.i, align 8, !noalias !14
-  %cmp2.i.i = icmp ugt i64 %2, %0
+  %cmp2.i.i = icmp ult i64 %0, %2
   br i1 %cmp2.i.i, label %land.rhs.lr.ph.i.i, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
 
 land.rhs.lr.ph.i.i:                               ; preds = %entry

@@ -477,13 +477,13 @@ default.unreachable:                              ; preds = %240, %"_ZN5alloc6bo
 136:                                              ; preds = %.critedge.i
   %137 = getelementptr inbounds i8, ptr %1, i64 24
   %138 = load i64, ptr %137, align 8, !alias.scope !96, !noalias !99, !noundef !42
-  %139 = icmp sgt i64 %138, %125
+  %139 = icmp slt i64 %125, %138
   br i1 %139, label %_ZN4core3ops5range11RangeBounds8contains17hef2d1ba133f522f4E.exit.thread73, label %_ZN4core3ops5range11RangeBounds8contains17hef2d1ba133f522f4E.exit.thread
 
 _ZN4core3ops5range11RangeBounds8contains17hef2d1ba133f522f4E.exit: ; preds = %.critedge.i
   %140 = getelementptr inbounds i8, ptr %1, i64 24
   %141 = load i64, ptr %140, align 8, !alias.scope !101, !noalias !104, !noundef !42
-  %.not = icmp slt i64 %141, %125
+  %.not = icmp sgt i64 %125, %141
   br i1 %.not, label %_ZN4core3ops5range11RangeBounds8contains17hef2d1ba133f522f4E.exit.thread, label %_ZN4core3ops5range11RangeBounds8contains17hef2d1ba133f522f4E.exit.thread73
 
 142:                                              ; preds = %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h4f03f3e0c0e4ca43E.exit.i.i"
@@ -1036,7 +1036,7 @@ _ZN4core3ops5range11RangeBounds8contains17hef2d1ba133f522f4E.exit.thread: ; pred
   %309 = load i64, ptr %229, align 8, !alias.scope !178, !noalias !183, !noundef !42
   %310 = load i64, ptr %32, align 8, !alias.scope !185, !noalias !183, !noundef !42
   %311 = sub i64 %310, %309
-  %312 = icmp ult i64 %311, %308
+  %312 = icmp ugt i64 %308, %311
   br i1 %312, label %313, label %319
 
 313:                                              ; preds = %304
@@ -1108,7 +1108,7 @@ _ZN4core3ops5range11RangeBounds8contains17hef2d1ba133f522f4E.exit.thread: ; pred
   %339 = load i64, ptr %229, align 8, !alias.scope !198, !noalias !203, !noundef !42
   %340 = load i64, ptr %32, align 8, !alias.scope !205, !noalias !203, !noundef !42
   %341 = sub i64 %340, %339
-  %342 = icmp ult i64 %341, %338
+  %342 = icmp ugt i64 %338, %341
   br i1 %342, label %343, label %349
 
 343:                                              ; preds = %334
@@ -1174,7 +1174,7 @@ _ZN4core3ops5range11RangeBounds8contains17hef2d1ba133f522f4E.exit.thread: ; pred
   %367 = load i64, ptr %229, align 8, !alias.scope !218, !noalias !223, !noundef !42
   %368 = load i64, ptr %32, align 8, !alias.scope !225, !noalias !223, !noundef !42
   %369 = sub i64 %368, %367
-  %370 = icmp ult i64 %369, %366
+  %370 = icmp ugt i64 %366, %369
   br i1 %370, label %371, label %377
 
 371:                                              ; preds = %362
@@ -1676,13 +1676,13 @@ default.unreachable:                              ; preds = %240, %"_ZN5alloc6bo
 136:                                              ; preds = %.critedge.i
   %137 = getelementptr inbounds i8, ptr %1, i64 24
   %138 = load i64, ptr %137, align 8, !alias.scope !309, !noalias !312, !noundef !42
-  %139 = icmp ugt i64 %138, %125
+  %139 = icmp ult i64 %125, %138
   br i1 %139, label %_ZN4core3ops5range11RangeBounds8contains17h84204717f3806306E.exit.thread73, label %_ZN4core3ops5range11RangeBounds8contains17h84204717f3806306E.exit.thread
 
 _ZN4core3ops5range11RangeBounds8contains17h84204717f3806306E.exit: ; preds = %.critedge.i
   %140 = getelementptr inbounds i8, ptr %1, i64 24
   %141 = load i64, ptr %140, align 8, !alias.scope !314, !noalias !317, !noundef !42
-  %.not = icmp ult i64 %141, %125
+  %.not = icmp ugt i64 %125, %141
   br i1 %.not, label %_ZN4core3ops5range11RangeBounds8contains17h84204717f3806306E.exit.thread, label %_ZN4core3ops5range11RangeBounds8contains17h84204717f3806306E.exit.thread73
 
 142:                                              ; preds = %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h4f03f3e0c0e4ca43E.exit.i.i"
@@ -2235,7 +2235,7 @@ _ZN4core3ops5range11RangeBounds8contains17h84204717f3806306E.exit.thread: ; pred
   %309 = load i64, ptr %229, align 8, !alias.scope !391, !noalias !396, !noundef !42
   %310 = load i64, ptr %32, align 8, !alias.scope !398, !noalias !396, !noundef !42
   %311 = sub i64 %310, %309
-  %312 = icmp ult i64 %311, %308
+  %312 = icmp ugt i64 %308, %311
   br i1 %312, label %313, label %319
 
 313:                                              ; preds = %304
@@ -2307,7 +2307,7 @@ _ZN4core3ops5range11RangeBounds8contains17h84204717f3806306E.exit.thread: ; pred
   %339 = load i64, ptr %229, align 8, !alias.scope !411, !noalias !416, !noundef !42
   %340 = load i64, ptr %32, align 8, !alias.scope !418, !noalias !416, !noundef !42
   %341 = sub i64 %340, %339
-  %342 = icmp ult i64 %341, %338
+  %342 = icmp ugt i64 %338, %341
   br i1 %342, label %343, label %349
 
 343:                                              ; preds = %334
@@ -2373,7 +2373,7 @@ _ZN4core3ops5range11RangeBounds8contains17h84204717f3806306E.exit.thread: ; pred
   %367 = load i64, ptr %229, align 8, !alias.scope !431, !noalias !436, !noundef !42
   %368 = load i64, ptr %32, align 8, !alias.scope !438, !noalias !436, !noundef !42
   %369 = sub i64 %368, %367
-  %370 = icmp ult i64 %369, %366
+  %370 = icmp ugt i64 %366, %369
   br i1 %370, label %371, label %377
 
 371:                                              ; preds = %362
@@ -2707,7 +2707,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !494, !noalias !499, !noundef !42
   %6 = load i64, ptr %0, align 8, !alias.scope !501, !noalias !499, !noundef !42
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9780d9a18b66d53fE.exit"
 
 9:                                                ; preds = %3
@@ -2941,7 +2941,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !507, !noalias !512, !noundef !42
   %45 = load i64, ptr %0, align 8, !alias.scope !514, !noalias !512, !noundef !42
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9780d9a18b66d53fE.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit

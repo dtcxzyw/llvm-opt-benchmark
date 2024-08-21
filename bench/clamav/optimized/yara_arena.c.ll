@@ -56,14 +56,14 @@ define ptr @_yr_arena_page_for_address(ptr nocapture noundef readonly %0, ptr no
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not23 = icmp ugt ptr %7, %1
+  %.not23 = icmp ult ptr %1, %7
   br i1 %.not23, label %13, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  %12 = icmp ugt ptr %11, %1
+  %12 = icmp ult ptr %1, %11
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %8, %5, %2
@@ -76,14 +76,14 @@ define ptr @_yr_arena_page_for_address(ptr nocapture noundef readonly %0, ptr no
   %.028 = phi ptr [ %.0, %22 ], [ %.026, %13 ]
   %15 = getelementptr inbounds i8, ptr %.028, i64 8
   %16 = load ptr, ptr %15, align 8
-  %.not25 = icmp ugt ptr %16, %1
+  %.not25 = icmp ult ptr %1, %16
   br i1 %.not25, label %22, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds i8, ptr %.028, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %16, i64 %19
-  %21 = icmp ugt ptr %20, %1
+  %21 = icmp ult ptr %1, %20
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %17, %.lr.ph
@@ -107,14 +107,14 @@ define range(i32 0, 2) i32 @_yr_arena_make_relocatable(ptr nocapture noundef rea
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
-  %.not23.i = icmp ugt ptr %8, %1
+  %.not23.i = icmp ult ptr %1, %8
   br i1 %.not23.i, label %14, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  %13 = icmp ugt ptr %12, %1
+  %13 = icmp ult ptr %1, %12
   br i1 %13, label %_yr_arena_page_for_address.exit, label %14
 
 14:                                               ; preds = %9, %6, %3
@@ -127,14 +127,14 @@ define range(i32 0, 2) i32 @_yr_arena_make_relocatable(ptr nocapture noundef rea
   %.028.i = phi ptr [ %.0.i, %23 ], [ %.026.i, %14 ]
   %16 = getelementptr inbounds i8, ptr %.028.i, i64 8
   %17 = load ptr, ptr %16, align 8
-  %.not25.i = icmp ugt ptr %17, %1
+  %.not25.i = icmp ult ptr %1, %17
   br i1 %.not25.i, label %23, label %18
 
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds i8, ptr %.028.i, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %20
-  %22 = icmp ugt ptr %21, %1
+  %22 = icmp ult ptr %1, %21
   br i1 %22, label %_yr_arena_page_for_address.exit, label %23
 
 23:                                               ; preds = %18, %.lr.ph.i
@@ -363,14 +363,14 @@ define ptr @yr_arena_next_address(ptr nocapture noundef readonly %0, ptr noundef
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
-  %.not23.i = icmp ugt ptr %8, %1
+  %.not23.i = icmp ult ptr %1, %8
   br i1 %.not23.i, label %14, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  %13 = icmp ugt ptr %12, %1
+  %13 = icmp ult ptr %1, %12
   br i1 %13, label %_yr_arena_page_for_address.exit, label %14
 
 14:                                               ; preds = %9, %6, %3
@@ -383,14 +383,14 @@ define ptr @yr_arena_next_address(ptr nocapture noundef readonly %0, ptr noundef
   %.028.i = phi ptr [ %.0.i, %23 ], [ %.026.i, %14 ]
   %16 = getelementptr inbounds i8, ptr %.028.i, i64 8
   %17 = load ptr, ptr %16, align 8
-  %.not25.i = icmp ugt ptr %17, %1
+  %.not25.i = icmp ult ptr %1, %17
   br i1 %.not25.i, label %23, label %18
 
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds i8, ptr %.028.i, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %20
-  %22 = icmp ugt ptr %21, %1
+  %22 = icmp ult ptr %1, %21
   br i1 %22, label %_yr_arena_page_for_address.exit, label %23
 
 23:                                               ; preds = %18, %.lr.ph.i
@@ -426,7 +426,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
 
 .lr.ph.preheader:                                 ; preds = %31
   %32 = ptrtoint ptr %1 to i64
-  %.neg = add i64 %32, %2
+  %.neg = add i64 %2, %32
   %33 = getelementptr inbounds i8, ptr %26, i64 %25
   %34 = ptrtoint ptr %33 to i64
   %35 = sub i64 %.neg, %34
@@ -636,14 +636,14 @@ _yr_arena_new_page.exit:                          ; preds = %11
 61:                                               ; preds = %59
   %62 = getelementptr inbounds i8, ptr %60, i64 8
   %63 = load ptr, ptr %62, align 8
-  %.not23.i = icmp ugt ptr %63, %58
+  %.not23.i = icmp ult ptr %58, %63
   br i1 %.not23.i, label %69, label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds i8, ptr %60, i64 24
   %66 = load i64, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %63, i64 %66
-  %68 = icmp ugt ptr %67, %58
+  %68 = icmp ult ptr %58, %67
   br i1 %68, label %_yr_arena_page_for_address.exit, label %69
 
 69:                                               ; preds = %64, %61, %59
@@ -655,14 +655,14 @@ _yr_arena_new_page.exit:                          ; preds = %11
   %.028.i = phi ptr [ %.0.i74, %77 ], [ %.026.i, %69 ]
   %70 = getelementptr inbounds i8, ptr %.028.i, i64 8
   %71 = load ptr, ptr %70, align 8
-  %.not25.i = icmp ugt ptr %71, %58
+  %.not25.i = icmp ult ptr %58, %71
   br i1 %.not25.i, label %77, label %72
 
 72:                                               ; preds = %.lr.ph.i
   %73 = getelementptr inbounds i8, ptr %.028.i, i64 24
   %74 = load i64, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %71, i64 %74
-  %76 = icmp ugt ptr %75, %58
+  %76 = icmp ult ptr %58, %75
   br i1 %76, label %_yr_arena_page_for_address.exit, label %77
 
 77:                                               ; preds = %72, %.lr.ph.i
@@ -734,7 +734,7 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr nocapture noundef %0, i6
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %6, %8
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %_yr_arena_new_page.exit.thread
 
 11:                                               ; preds = %2
@@ -896,7 +896,7 @@ define noundef i32 @yr_arena_write_data(ptr nocapture noundef %0, ptr nocapture 
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %8, %10
-  %12 = icmp ult i64 %11, %2
+  %12 = icmp ugt i64 %2, %11
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %4
@@ -949,7 +949,7 @@ define noundef i32 @yr_arena_write_string(ptr nocapture noundef %0, ptr nocaptur
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %9, %11
-  %13 = icmp ult i64 %12, %5
+  %13 = icmp ugt i64 %5, %12
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %3

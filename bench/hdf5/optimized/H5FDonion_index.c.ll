@@ -169,7 +169,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_revision_record(ptr nocapture no
 
 77:                                               ; preds = %69
   %78 = load i64, ptr %39, align 8
-  %79 = icmp eq i64 %78, %3
+  %79 = icmp eq i64 %3, %78
   br i1 %79, label %.loopexit, label %80
 
 80:                                               ; preds = %77
@@ -255,7 +255,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_revision_record(ptr nocapture no
 127:                                              ; preds = %118
   %128 = getelementptr inbounds i8, ptr %0, i64 8
   %129 = load i64, ptr %128, align 8
-  %.not125 = icmp eq i64 %129, %3
+  %.not125 = icmp eq i64 %3, %129
   br i1 %.not125, label %.loopexit, label %130
 
 130:                                              ; preds = %127
@@ -772,12 +772,12 @@ define range(i32 0, 2) i32 @H5FD__onion_archival_index_find(ptr nocapture nounde
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds %struct.H5FD_onion_index_entry_t, ptr %10, i64 %6
   %12 = load i64, ptr %11, align 8
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %38, label %14
 
 14:                                               ; preds = %8
   %15 = load i64, ptr %10, align 8
-  %16 = icmp ugt i64 %15, %1
+  %16 = icmp ult i64 %1, %15
   br i1 %16, label %38, label %.preheader
 
 .preheader:                                       ; preds = %14
@@ -1185,7 +1185,7 @@ define range(i32 0, 2) i32 @H5FD__onion_revision_index_find(ptr nocapture nounde
   %.015 = phi ptr [ %19, %17 ], [ %11, %3 ]
   %12 = getelementptr inbounds i8, ptr %.015, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = icmp eq i64 %13, %1
+  %14 = icmp eq i64 %1, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %.preheader
@@ -1568,12 +1568,12 @@ H5FD__onion_archival_index_find.exit.us:          ; preds = %.lr.ph76, %H5FD__on
   %.04573 = phi i64 [ %.146, %H5FD__onion_archival_index_find.exit ], [ 0, %.lr.ph76.split ]
   %47 = getelementptr inbounds %struct.H5FD_onion_index_entry_t, ptr %36, i64 %.074
   %48 = load i64, ptr %47, align 8
-  %49 = icmp ult i64 %43, %48
+  %49 = icmp ugt i64 %48, %43
   br i1 %49, label %74, label %50
 
 50:                                               ; preds = %.lr.ph76.split.split
   %51 = load i64, ptr %8, align 8
-  %52 = icmp ugt i64 %51, %48
+  %52 = icmp ult i64 %48, %51
   br i1 %52, label %74, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %50, %68

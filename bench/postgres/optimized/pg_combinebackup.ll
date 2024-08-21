@@ -681,7 +681,7 @@ check_backup_label_files.exit:                    ; preds = %check_control_files
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %225 = load i32, ptr @optind, align 4
   %226 = xor i32 %225, -1
-  %227 = add i32 %226, %0
+  %227 = add i32 %0, %226
   %228 = sext i32 %225 to i64
   %229 = getelementptr ptr, ptr %1, i64 %228
   %230 = call ptr @load_backup_manifests(i32 noundef %136, ptr noundef %229) #12

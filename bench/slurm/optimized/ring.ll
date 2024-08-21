@@ -45,8 +45,8 @@ define i32 @pmix_ring_id_by_rank(i32 noundef %0) local_unnamed_addr #0 {
   %3 = load i32, ptr @pmix_stepd_width, align 4
   %4 = mul nsw i32 %3, %2
   %.neg = xor i32 %4, -1
-  %5 = add i32 %.neg, %0
-  %.not.not = icmp slt i32 %4, %0
+  %5 = add i32 %0, %.neg
+  %.not.not = icmp sgt i32 %0, %4
   %6 = load i32, ptr @pmix_stepd_children, align 4
   %7 = icmp slt i32 %5, %6
   %or.cond = select i1 %.not.not, i1 %7, i1 false

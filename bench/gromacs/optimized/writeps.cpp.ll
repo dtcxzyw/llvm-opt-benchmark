@@ -420,7 +420,7 @@ define void @_Z11ps_rgb_nboxP8t_psdataP5t_rgbf(ptr nocapture noundef %0, ptr noc
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 32
   %24 = load float, ptr %23, align 8
-  %25 = fmul float %24, %2
+  %25 = fmul float %2, %24
   %26 = fpext float %25 to double
   %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.31, double noundef %26) #16
   br label %.loopexit
@@ -438,7 +438,7 @@ define void @_Z11ps_rgb_nboxP8t_psdataP5t_rgbf(ptr nocapture noundef %0, ptr noc
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.33, i64 noundef %36) #16
   %38 = add nuw nsw i32 %.011, 1
   %39 = uitofp nneg i32 %38 to float
-  %40 = fcmp olt float %39, %2
+  %40 = fcmp ogt float %2, %39
   br i1 %40, label %28, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %28, %.preheader, %9

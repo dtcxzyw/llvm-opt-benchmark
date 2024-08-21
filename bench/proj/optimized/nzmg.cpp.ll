@@ -110,8 +110,8 @@ define internal { double, double } @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts(double %
   %19 = call double @llvm.fmuladd.f64(double %12, double %14, double %18)
   %20 = fneg double %19
   %21 = fdiv double %20, %17
-  %22 = fneg double %12
-  %23 = fmul double %15, %22
+  %22 = fneg double %15
+  %23 = fmul double %12, %22
   %24 = call double @llvm.fmuladd.f64(double %13, double %14, double %23)
   %25 = fneg double %24
   %26 = fdiv double %25, %17

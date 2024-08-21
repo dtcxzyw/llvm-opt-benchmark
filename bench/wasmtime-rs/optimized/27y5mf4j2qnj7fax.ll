@@ -4045,7 +4045,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   %17 = and i64 %10, 63
   %18 = shl nuw nsw i64 4, %17
   %19 = add i64 %16, %18
-  %20 = icmp ult i64 %16, %19
+  %20 = icmp ugt i64 %19, %16
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h60c5569799464174E.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h60c5569799464174E.exit.i.i": ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8dd2cbe01b8b2d57E.exit.thread.i"
@@ -4098,7 +4098,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   %43 = load i64, ptr %42, align 8, !alias.scope !719, !noundef !4
-  %44 = icmp ugt i64 %43, %1
+  %44 = icmp ult i64 %1, %43
   br i1 %44, label %45, label %51, !prof !531
 
 45:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8f07d7ea8acf5b77E.exit.i"
@@ -4155,11 +4155,11 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   %.val = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
   %72 = getelementptr inbounds i8, ptr %0, i64 16
   %.val3 = load i64, ptr %72, align 8
-  %73 = icmp ugt i64 %.0.i, %1
+  %73 = icmp ult i64 %1, %.0.i
   br i1 %73, label %80, label %74
 
 74:                                               ; preds = %70
-  %.not.i.i.i = icmp ult i64 %.val3, %1
+  %.not.i.i.i = icmp ugt i64 %1, %.val3
   br i1 %.not.i.i.i, label %75, label %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17h7dda1dc9f80e8fe7E.exit"
 
 75:                                               ; preds = %74
@@ -4201,7 +4201,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   %.sink6.i = getelementptr inbounds i32, ptr %.val, i64 %.0.i
   %.sink8.i = sub nuw i64 %.pn.i, %1
   %.sink10.i = getelementptr inbounds i32, ptr %.val, i64 %1
-  %86 = icmp ult i64 %.sink.i, %4
+  %86 = icmp ugt i64 %4, %.sink.i
   br i1 %86, label %87, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38bfb3b01835ed4eE.exit"
 
 87:                                               ; preds = %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17h7dda1dc9f80e8fe7E.exit"
@@ -4209,7 +4209,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38bfb3b01835ed4eE.exit": ; preds = %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17h7dda1dc9f80e8fe7E.exit"
-  %88 = icmp ult i64 %.sink8.i, %4
+  %88 = icmp ugt i64 %4, %.sink8.i
   br i1 %88, label %89, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcdf78765b3e942abE.exit"
 
 89:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38bfb3b01835ed4eE.exit"
@@ -4431,7 +4431,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17hd6
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8dd2cbe01b8b2d57E.exit.thread.i.i": ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8dd2cbe01b8b2d57E.exit.i.i", %30
   %41 = shl nuw nsw i64 4, %34
   %42 = add i64 %.val29.i, %41
-  %43 = icmp ult i64 %.val29.i, %42
+  %43 = icmp ugt i64 %42, %.val29.i
   br i1 %43, label %44, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h60c5569799464174E.exit.i.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h60c5569799464174E.exit.i.i.i": ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8dd2cbe01b8b2d57E.exit.thread.i.i"
@@ -8876,7 +8876,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reser
 23:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1365)
   %24 = icmp ult i64 %5, 17
-  %.not.i = icmp ugt i64 %9, %22
+  %.not.i = icmp ult i64 %22, %9
   br i1 %.not.i, label %25, label %26
 
 25:                                               ; preds = %23
@@ -9003,7 +9003,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reser
 23:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1371)
   %24 = icmp ult i64 %5, 1025
-  %.not.i = icmp ugt i64 %9, %22
+  %.not.i = icmp ult i64 %22, %9
   br i1 %.not.i, label %25, label %26
 
 25:                                               ; preds = %23
@@ -9115,7 +9115,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reser
 23:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1377)
   %24 = icmp ult i64 %5, 65
-  %.not.i = icmp ugt i64 %9, %22
+  %.not.i = icmp ult i64 %22, %9
   br i1 %.not.i, label %25, label %26
 
 25:                                               ; preds = %23
@@ -9245,7 +9245,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reser
 23:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1383)
   %24 = icmp ult i64 %5, 9
-  %.not.i = icmp ugt i64 %9, %22
+  %.not.i = icmp ult i64 %22, %9
   br i1 %.not.i, label %25, label %26
 
 25:                                               ; preds = %23
@@ -9375,7 +9375,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reser
 23:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1389)
   %24 = icmp ult i64 %5, 9
-  %.not.i = icmp ugt i64 %9, %22
+  %.not.i = icmp ult i64 %22, %9
   br i1 %.not.i, label %25, label %26
 
 25:                                               ; preds = %23
@@ -9502,7 +9502,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reser
 23:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1395)
   %24 = icmp ult i64 %5, 17
-  %.not.i = icmp ugt i64 %9, %22
+  %.not.i = icmp ult i64 %22, %9
   br i1 %.not.i, label %25, label %26
 
 25:                                               ; preds = %23
@@ -9629,7 +9629,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reser
 23:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1401)
   %24 = icmp ult i64 %5, 17
-  %.not.i = icmp ugt i64 %9, %22
+  %.not.i = icmp ult i64 %22, %9
   br i1 %.not.i, label %25, label %26
 
 25:                                               ; preds = %23

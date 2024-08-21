@@ -30,7 +30,7 @@ define i64 @php_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
   %8 = ptrtoint ptr %.024.lcssa to i64
   %9 = ptrtoint ptr %0 to i64
   %10 = sub i64 %8, %9
-  %11 = icmp eq i64 %10, %2
+  %11 = icmp eq i64 %2, %10
   br i1 %11, label %15, label %.preheader
 
 .preheader:                                       ; preds = %.critedge
@@ -40,7 +40,7 @@ define i64 @php_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
 
 .lr.ph39.preheader:                               ; preds = %.preheader
   %13 = xor i64 %10, -1
-  %14 = add i64 %13, %2
+  %14 = add i64 %2, %13
   br label %.lr.ph39
 
 15:                                               ; preds = %.critedge

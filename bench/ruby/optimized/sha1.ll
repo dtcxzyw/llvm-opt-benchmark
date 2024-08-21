@@ -1084,7 +1084,7 @@ define void @rb_Digest_SHA1_Update(ptr nocapture noundef %0, ptr nocapture nound
   %17 = lshr i32 %5, 3
   %18 = and i32 %17, 63
   %19 = zext nneg i32 %18 to i64
-  %20 = add i64 %19, %2
+  %20 = add i64 %2, %19
   %21 = icmp ugt i64 %20, 63
   br i1 %21, label %22, label %._crit_edge
 
@@ -1097,7 +1097,7 @@ define void @rb_Digest_SHA1_Update(ptr nocapture noundef %0, ptr nocapture nound
   tail call void @rb_Digest_SHA1_Transform(ptr noundef nonnull %0, ptr noundef nonnull %23)
   %27 = xor i32 %18, 127
   %28 = zext nneg i32 %27 to i64
-  %29 = icmp ult i64 %28, %2
+  %29 = icmp ugt i64 %2, %28
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
@@ -1108,7 +1108,7 @@ define void @rb_Digest_SHA1_Update(ptr nocapture noundef %0, ptr nocapture nound
   %32 = add i32 %.02627, 64
   %33 = add i32 %.02627, 127
   %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %34, %2
+  %35 = icmp ugt i64 %2, %34
   br i1 %35, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

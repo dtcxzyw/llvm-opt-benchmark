@@ -149,7 +149,7 @@ define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_tag(ptr nocapture noundef
 10:                                               ; preds = %4
   %11 = load i8, ptr %5, align 1
   %12 = zext i8 %11 to i32
-  %.not = icmp eq i32 %12, %3
+  %.not = icmp eq i32 %3, %12
   br i1 %.not, label %13, label %16
 
 13:                                               ; preds = %10

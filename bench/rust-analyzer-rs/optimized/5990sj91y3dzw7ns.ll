@@ -3004,7 +3004,7 @@ define hidden void @_ZN8flycheck13FlycheckActor3run17hed23002bd912c6fbE(ptr noal
   call void @llvm.experimental.noalias.scope.decl(metadata !467)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %48), !noalias !457
   %274 = load ptr, ptr %134, align 8, !alias.scope !467, !noalias !470, !noundef !4
-  %275 = icmp eq ptr %274, %123
+  %275 = icmp eq ptr %123, %274
   br i1 %275, label %281, label %276
 
 276:                                              ; preds = %273
@@ -3080,7 +3080,7 @@ define hidden void @_ZN8flycheck13FlycheckActor3run17hed23002bd912c6fbE(ptr noal
   call void @llvm.experimental.noalias.scope.decl(metadata !481)
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %46), !noalias !457
   %293 = load ptr, ptr %132, align 8, !alias.scope !481, !noalias !484, !noundef !4
-  %294 = icmp eq ptr %293, %.032.i
+  %294 = icmp eq ptr %.032.i, %293
   br i1 %294, label %300, label %295
 
 295:                                              ; preds = %292
@@ -5994,7 +5994,7 @@ define void @"_ZN80_$LT$flycheck..CargoCheckMessage$u20$as$u20$flycheck..command
   %84 = load i64, ptr %83, align 8, !alias.scope !1019, !noalias !1024, !noundef !4
   %85 = load i64, ptr %3, align 8, !alias.scope !1026, !noalias !1024, !noundef !4
   %86 = sub i64 %85, %84
-  %87 = icmp ult i64 %86, %2
+  %87 = icmp ugt i64 %2, %86
   br i1 %87, label %88, label %92
 
 88:                                               ; preds = %82

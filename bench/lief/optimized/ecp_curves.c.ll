@@ -3772,7 +3772,7 @@ define internal fastcc i32 @ecp_mod_koblitz(ptr noundef %0, ptr noundef %1, i64 
 
 38:                                               ; preds = %32, %29
   %39 = load i64, ptr %10, align 8
-  %40 = icmp ugt i64 %39, %2
+  %40 = icmp ult i64 %2, %39
   br i1 %40, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
@@ -3835,7 +3835,7 @@ define internal fastcc i32 @ecp_mod_koblitz(ptr noundef %0, ptr noundef %1, i64 
 
 68:                                               ; preds = %62, %58
   %69 = load i64, ptr %10, align 8
-  %70 = icmp ugt i64 %69, %2
+  %70 = icmp ult i64 %2, %69
   br i1 %70, label %.lr.ph77, label %._crit_edge78
 
 .lr.ph77:                                         ; preds = %68, %.lr.ph77

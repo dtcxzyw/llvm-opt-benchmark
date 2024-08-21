@@ -558,7 +558,7 @@ define hidden i64 @rb_malloc_grow_capa(i64 noundef %0, i64 noundef %1) local_unn
   %13 = load i64, ptr @malloc_offset, align 8
   %14 = sub i64 %.0, %13
   %15 = udiv i64 %14, %1
-  %16 = icmp ult i64 %15, %0
+  %16 = icmp ugt i64 %0, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %12
@@ -1624,7 +1624,7 @@ rb_current_ractor.exit:                           ; preds = %.split, %8, %12
 
 .split8:                                          ; preds = %6
   %20 = load i64, ptr @rb_cObject, align 8
-  %.not.i = icmp eq i64 %20, %0
+  %.not.i = icmp eq i64 %0, %20
   br i1 %.not.i, label %rb_data_object_check.exit, label %21
 
 21:                                               ; preds = %.split8
@@ -1705,7 +1705,7 @@ define dso_local i64 @rb_data_typed_object_wrap(i64 noundef %0, ptr noundef %1, 
 9:                                                ; preds = %3
   %.not.i = icmp eq i64 %0, 0
   %10 = load i64, ptr @rb_cObject, align 8
-  %.not.i.i = icmp eq i64 %10, %0
+  %.not.i.i = icmp eq i64 %0, %10
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not.i.i
   br i1 %or.cond.i, label %rb_data_object_check.exit.i, label %11
 
@@ -1788,7 +1788,7 @@ define dso_local i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef %1
 14:                                               ; preds = %11
   %.not.i = icmp eq i64 %0, 0
   %15 = load i64, ptr @rb_cObject, align 8
-  %.not.i.i = icmp eq i64 %15, %0
+  %.not.i.i = icmp eq i64 %0, %15
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not.i.i
   br i1 %or.cond.i, label %rb_data_object_check.exit.i, label %16
 
@@ -1846,7 +1846,7 @@ typed_data_alloc.exit:                            ; preds = %26, %29, %33
 40:                                               ; preds = %11, %3
   %.not.i16 = icmp eq i64 %0, 0
   %41 = load i64, ptr @rb_cObject, align 8
-  %.not.i.i17 = icmp eq i64 %41, %0
+  %.not.i.i17 = icmp eq i64 %0, %41
   %or.cond.i18 = select i1 %.not.i16, i1 true, i1 %.not.i.i17
   br i1 %or.cond.i18, label %rb_data_object_check.exit.i19, label %42
 
@@ -13706,7 +13706,7 @@ define internal fastcc range(i64 -4294967296, 4294967295) i64 @rb_raw_obj_info_c
   %9 = tail call fastcc ptr @obj_type_name(i64 noundef %2)
   %10 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.108, ptr noundef nonnull %9) #38
   %11 = sext i32 %10 to i64
-  %.not91 = icmp ult i64 %11, %1
+  %.not91 = icmp ugt i64 %1, %11
   br i1 %.not91, label %12, label %RB_SYMBOL_P.exit
 
 12:                                               ; preds = %8
@@ -13900,14 +13900,14 @@ rb_objspace_garbage_object_p.exit.thread:         ; preds = %.lr.ph.i.i, %has_sw
   %132 = tail call fastcc ptr @obj_type_name(i64 noundef %2)
   %133 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.295, ptr noundef %51, i32 noundef %47, ptr noundef nonnull %96, ptr noundef nonnull %101, ptr noundef nonnull %106, ptr noundef nonnull %111, ptr noundef nonnull %116, ptr noundef nonnull %131, ptr noundef nonnull %132) #38
   %134 = sext i32 %133 to i64
-  %.not88 = icmp ult i64 %134, %1
+  %.not88 = icmp ugt i64 %1, %134
   br i1 %.not88, label %138, label %RB_SYMBOL_P.exit
 
 is_pointer_to_heap.exit.thread:                   ; preds = %60, %heap_page_for_ptr.exit.i, %75, %71, %67, %32, %55, %is_pointer_to_heap.exit
   %135 = tail call fastcc ptr @obj_type_name(i64 noundef %2)
   %136 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.303, ptr noundef %51, i32 noundef %47, ptr noundef nonnull %135) #38
   %137 = sext i32 %136 to i64
-  %.not81 = icmp ult i64 %137, %1
+  %.not81 = icmp ugt i64 %1, %137
   br i1 %.not81, label %138, label %RB_SYMBOL_P.exit
 
 138:                                              ; preds = %is_pointer_to_heap.exit.thread, %130
@@ -24879,7 +24879,7 @@ heap_page_allocate.exit.i:                        ; preds = %131, %124
 heap_page_create.exit:                            ; preds = %heap_page_resurrect.exit.i, %heap_page_allocate.exit.i
   %.0.i = phi ptr [ %53, %heap_page_allocate.exit.i ], [ %.014.le.i.i, %heap_page_resurrect.exit.i ]
   %153 = getelementptr inbounds i8, ptr %1, i64 152
-  %154 = icmp eq ptr %153, %2
+  %154 = icmp eq ptr %2, %153
   %155 = getelementptr inbounds i8, ptr %.0.i, i64 12
   %156 = load i8, ptr %155, align 4
   %157 = select i1 %154, i8 8, i8 0
@@ -26784,7 +26784,7 @@ is_pointer_to_heap.exit.i:                        ; preds = %42
   %66 = sext i16 %65 to i64
   %67 = mul nsw i64 %66, %64
   %68 = add i64 %67, %60
-  %69 = icmp ugt i64 %68, %0
+  %69 = icmp ult i64 %0, %68
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %61

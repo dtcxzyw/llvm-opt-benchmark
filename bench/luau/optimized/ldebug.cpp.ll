@@ -46,7 +46,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z15lua_getargumentP9lua_Stateii(p
   %10 = sub i64 %8, %9
   %11 = sdiv exact i64 %10, 40
   %12 = trunc i64 %11 to i32
-  %.not = icmp ugt i32 %12, %1
+  %.not = icmp ult i32 %1, %12
   br i1 %.not, label %13, label %_ZL11getluaprotoP8CallInfo.exit.thread
 
 13:                                               ; preds = %3
@@ -86,7 +86,7 @@ _ZL11getluaprotoP8CallInfo.exit:                  ; preds = %25
   %34 = getelementptr inbounds i8, ptr %30, i64 4
   %35 = load i8, ptr %34, align 4
   %36 = zext i8 %35 to i32
-  %.not37 = icmp ult i32 %36, %2
+  %.not37 = icmp ugt i32 %2, %36
   br i1 %.not37, label %48, label %37
 
 37:                                               ; preds = %33
@@ -164,7 +164,7 @@ define dso_local noundef ptr @_Z12lua_getlocalP9lua_Stateii(ptr noundef %0, i32 
   %10 = sub i64 %8, %9
   %11 = sdiv exact i64 %10, 40
   %12 = trunc i64 %11 to i32
-  %.not = icmp ugt i32 %12, %1
+  %.not = icmp ult i32 %1, %12
   br i1 %.not, label %13, label %.critedge
 
 13:                                               ; preds = %3
@@ -262,7 +262,7 @@ define dso_local noundef ptr @_Z12lua_setlocalP9lua_Stateii(ptr nocapture nounde
   %10 = sub i64 %8, %9
   %11 = sdiv exact i64 %10, 40
   %12 = trunc i64 %11 to i32
-  %.not = icmp ugt i32 %12, %1
+  %.not = icmp ult i32 %1, %12
   br i1 %.not, label %13, label %62
 
 13:                                               ; preds = %3
@@ -402,7 +402,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z11lua_getinfoP9lua_StateiPKcP9lu
   %31 = sub i64 %29, %30
   %32 = sdiv exact i64 %31, 40
   %33 = trunc i64 %32 to i32
-  %34 = icmp ugt i32 %33, %1
+  %34 = icmp ult i32 %1, %33
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %24
@@ -1166,7 +1166,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z13luaG_isnativeP9lua_Statei(ptr noc
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 40
   %11 = trunc i64 %10 to i32
-  %.not = icmp ugt i32 %11, %1
+  %.not = icmp ult i32 %1, %11
   br i1 %.not, label %12, label %18
 
 12:                                               ; preds = %2

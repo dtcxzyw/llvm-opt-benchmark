@@ -178,7 +178,7 @@ invoke.cont:                                      ; preds = %entry
   %1 = load float, ptr %cfg_scale.i, align 8
   %cfg_scale8.i = getelementptr inbounds i8, ptr %call, i64 160
   store float %1, ptr %cfg_scale8.i, align 8
-  %cmp.i.i.i = icmp eq ptr %call, %params
+  %cmp.i.i.i = icmp eq ptr %params, %call
   br i1 %cmp.i.i.i, label %_ZN21llama_sampling_paramsaSERKS_.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont
@@ -665,7 +665,7 @@ _ZNSt10_HashtableIiSt4pairIKifESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %logit_bias.i, align 8
   %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %13
+  %cmp.i.i.i.i.i.i = icmp eq ptr %13, %_M_single_bucket.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN21llama_sampling_paramsD2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableIiSt4pairIKifESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -1022,7 +1022,7 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr i64 %sub.ptr.sub.i, 2
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv, i32 %n)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %n, i32 %conv)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
   %cmp12 = icmp sgt i32 %.sroa.speculated, 0
   br i1 %cmp12, label %for.body.preheader, label %nrvo.skipdtor
@@ -1813,7 +1813,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %if.then.i, %_ZNSt6v
   %grammar = getelementptr inbounds i8, ptr %ctx_sampling, i64 232
   %7 = load ptr, ptr %grammar, align 8
   %cmp.not = icmp ne ptr %7, null
-  %brmerge.not = and i1 %cmp.not, %apply_grammar
+  %brmerge.not = and i1 %apply_grammar, %cmp.not
   br i1 %brmerge.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -1989,7 +1989,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt10_H
 invoke.cont17:                                    ; preds = %if.end
   %tobool.not = icmp eq ptr %__former_buckets.0, null
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i = icmp eq ptr %_M_single_bucket.i.i, %__former_buckets.0
+  %cmp.i.i = icmp eq ptr %__former_buckets.0, %_M_single_bucket.i.i
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.i.i
   br i1 %or.cond, label %if.end20, label %if.end.i11
 
@@ -2024,7 +2024,7 @@ _ZNSt8__detail17_ReuseOrAllocNodeISaINS_10_Hash_nodeISt4pairIKifELb0EEEEED2Ev.ex
 
 if.then22:                                        ; preds = %_ZNSt8__detail17_ReuseOrAllocNodeISaINS_10_Hash_nodeISt4pairIKifELb0EEEEED2Ev.exit
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %.pre
+  %cmp.i.i.i = icmp eq ptr %.pre, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %invoke.cont24, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then22
@@ -2224,7 +2224,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 if.then35:                                        ; preds = %lpad
   %18 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %18
+  %cmp.i.i.i = icmp eq ptr %18, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %if.end38, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then35

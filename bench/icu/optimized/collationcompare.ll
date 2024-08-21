@@ -805,7 +805,7 @@ cond.false17.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false17.i
   %highStart.i = getelementptr inbounds i8, ptr %13, i64 44
   %19 = load i32, ptr %highStart.i, align 4
-  %cmp22.not.i = icmp sgt i32 %19, %8
+  %cmp22.not.i = icmp slt i32 %8, %19
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i

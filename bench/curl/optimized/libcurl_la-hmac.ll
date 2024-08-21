@@ -38,7 +38,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr5, ptr %hmac_hashctxt2, align 8
   %hmac_maxkeylen = getelementptr inbounds i8, ptr %hashparams, i64 28
   %4 = load i32, ptr %hmac_maxkeylen, align 4
-  %cmp = icmp ult i32 %4, %keylen
+  %cmp = icmp ugt i32 %keylen, %4
   br i1 %cmp, label %if.then7, label %if.end17
 
 if.then7:                                         ; preds = %if.end

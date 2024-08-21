@@ -454,7 +454,7 @@ if.end:                                           ; preds = %entry
   %rawsz = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz, align 8
   %add = add i64 %2, 1080
-  %cmp = icmp ugt i64 %add, %graph_size
+  %cmp = icmp ult i64 %graph_size, %add
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
@@ -566,7 +566,7 @@ if.end32:                                         ; preds = %if.end16
   %rawsz46 = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load i64, ptr %rawsz46, align 8
   %add47 = add i64 %add44, %21
-  %cmp48 = icmp ugt i64 %add47, %graph_size
+  %cmp48 = icmp ult i64 %graph_size, %add47
   br i1 %cmp48, label %if.then50, label %if.end56
 
 if.then50:                                        ; preds = %if.end32
@@ -2062,7 +2062,7 @@ define internal fastcc range(i32 0, 2) i32 @fill_commit_in_graph(ptr noundef %r,
 entry:
   %num_commits_in_base64 = getelementptr inbounds i8, ptr %g, i64 80
   %0 = load i32, ptr %num_commits_in_base64, align 8
-  %cmp65 = icmp ugt i32 %0, %pos
+  %cmp65 = icmp ult i32 %pos, %0
   br i1 %cmp65, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %while.body
@@ -2071,7 +2071,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load ptr, ptr %base_graph, align 8
   %num_commits_in_base = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load i32, ptr %num_commits_in_base, align 8
-  %cmp = icmp ugt i32 %2, %pos
+  %cmp = icmp ult i32 %pos, %2
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %while.body, %entry
@@ -2413,7 +2413,7 @@ define internal fastcc void @fill_commit_graph_info(ptr nocapture noundef %item,
 entry:
   %num_commits_in_base100 = getelementptr inbounds i8, ptr %g, i64 80
   %0 = load i32, ptr %num_commits_in_base100, align 8
-  %cmp101 = icmp ugt i32 %0, %pos
+  %cmp101 = icmp ult i32 %pos, %0
   br i1 %cmp101, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %while.body
@@ -2422,7 +2422,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load ptr, ptr %base_graph, align 8
   %num_commits_in_base = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load i32, ptr %num_commits_in_base, align 8
-  %cmp = icmp ugt i32 %2, %pos
+  %cmp = icmp ult i32 %pos, %2
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !20
 
 while.end:                                        ; preds = %while.body, %entry
@@ -2431,7 +2431,7 @@ while.end:                                        ; preds = %while.body, %entry
   %num_commits = getelementptr inbounds i8, ptr %g.addr.0.lcssa, i64 20
   %3 = load i32, ptr %num_commits, align 4
   %add = add i32 %3, %.lcssa
-  %cmp2.not = icmp ugt i32 %add, %pos
+  %cmp2.not = icmp ult i32 %pos, %add
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
@@ -3452,7 +3452,7 @@ for.body.i:                                       ; preds = %if.end24.i, %for.bo
   %i.030.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %if.end24.i ]
   %53 = load i64, ptr %packname.i, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %53, i64 1)
-  %cmp.i15.i = icmp ult i64 %spec.select.i.i, %conv6.i
+  %cmp.i15.i = icmp ugt i64 %conv6.i, %spec.select.i.i
   br i1 %cmp.i15.i, label %if.then.i17.i, label %if.end.i16.i
 
 if.then.i17.i:                                    ; preds = %for.body.i
@@ -5686,7 +5686,7 @@ while.body.i443:                                  ; preds = %while.cond.backedge
   %call1728.i = phi ptr [ %call1726.i, %while.body.lr.ph.i ], [ %call17.i453, %while.cond.backedge.i ]
   %416 = load i64, ptr %path.i425, align 8
   %spec.select.i.i444 = call i64 @llvm.usub.sat.i64(i64 %416, i64 1)
-  %cmp.i.i445 = icmp ult i64 %spec.select.i.i444, %415
+  %cmp.i.i445 = icmp ugt i64 %415, %spec.select.i.i444
   br i1 %cmp.i.i445, label %if.then.i22.i, label %if.end.i.i446
 
 if.then.i22.i:                                    ; preds = %while.body.i443
@@ -7310,7 +7310,7 @@ entry:
   %num_commits_in_base = getelementptr inbounds i8, ptr %g, i64 80
   %1 = load i32, ptr %num_commits_in_base, align 8
   %add = add i32 %1, %0
-  %cmp.not = icmp ugt i32 %add, %pos
+  %cmp.not = icmp ult i32 %pos, %add
   br i1 %cmp.not, label %land.rhs.i, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -7321,7 +7321,7 @@ land.rhs.i:                                       ; preds = %entry, %while.body.
   %g.addr.014.i = phi ptr [ %3, %while.body.i ], [ %g, %entry ]
   %num_commits_in_base.i = getelementptr inbounds i8, ptr %g.addr.014.i, i64 80
   %2 = load i32, ptr %num_commits_in_base.i, align 8
-  %cmp.i = icmp ugt i32 %2, %pos
+  %cmp.i = icmp ult i32 %pos, %2
   br i1 %cmp.i, label %while.body.i, label %if.end.i
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -7338,7 +7338,7 @@ if.end.i:                                         ; preds = %land.rhs.i
   %num_commits.i = getelementptr inbounds i8, ptr %g.addr.014.i, i64 20
   %4 = load i32, ptr %num_commits.i, align 4
   %add.i = add i32 %4, %2
-  %cmp3.not.i = icmp ugt i32 %add.i, %pos
+  %cmp3.not.i = icmp ult i32 %pos, %add.i
   br i1 %cmp3.not.i, label %load_oid_from_graph.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -7668,7 +7668,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define internal fastcc noundef i64 @st_add(i64 noundef %a, i64 noundef %b) unnamed_addr #0 {
 entry:
   %sub = xor i64 %a, -1
-  %cmp = icmp ult i64 %sub, %b
+  %cmp = icmp ugt i64 %b, %sub
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

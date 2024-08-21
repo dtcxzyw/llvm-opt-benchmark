@@ -1502,7 +1502,7 @@ _ZN9QtPrivate20q_relocate_overlap_nIdxEEvPT_T0_S2_.exit.i.i33.i: ; preds = %99, 
   %102 = phi ptr [ %.pre, %.critedge.i ], [ %95, %_ZN9QtPrivate20q_relocate_overlap_nIdxEEvPT_T0_S2_.exit.i.i33.i ], [ %80, %_ZNK17QArrayDataPointerIdE14freeSpaceAtEndEv.exit.i92 ]
   %103 = getelementptr double, ptr %102, i64 %49
   %104 = load i64, ptr %22, align 8
-  %105 = icmp sgt i64 %104, %49
+  %105 = icmp slt i64 %49, %104
   br i1 %105, label %106, label %_ZN9QtPrivate12QPodArrayOpsIdE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
 
 106:                                              ; preds = %101
@@ -1636,7 +1636,7 @@ _ZN9QtPrivate20q_relocate_overlap_nIdxEEvPT_T0_S2_.exit.i.i33.i105: ; preds = %1
   %171 = phi ptr [ %.pre175, %.critedge.i101 ], [ %164, %_ZN9QtPrivate20q_relocate_overlap_nIdxEEvPT_T0_S2_.exit.i.i33.i105 ], [ %149, %_ZNK17QArrayDataPointerIdE14freeSpaceAtEndEv.exit.i97 ]
   %172 = getelementptr double, ptr %171, i64 %118
   %173 = load i64, ptr %25, align 8
-  %174 = icmp sgt i64 %173, %118
+  %174 = icmp slt i64 %118, %173
   br i1 %174, label %175, label %_ZN9QtPrivate12QPodArrayOpsIdE10createHoleEN10QArrayData14GrowthPositionExx.exit.i77
 
 175:                                              ; preds = %170
@@ -1765,7 +1765,7 @@ _ZN9QtPrivate20q_relocate_overlap_nIjxEEvPT_T0_S2_.exit.i.i33.i: ; preds = %232,
   %235 = phi ptr [ %.pre177, %.critedge.i131 ], [ %228, %_ZN9QtPrivate20q_relocate_overlap_nIjxEEvPT_T0_S2_.exit.i.i33.i ], [ %213, %_ZNK17QArrayDataPointerIjE14freeSpaceAtEndEv.exit.i128 ]
   %236 = getelementptr i32, ptr %235, i64 %182
   %237 = load i64, ptr %28, align 8
-  %238 = icmp sgt i64 %237, %182
+  %238 = icmp slt i64 %182, %237
   br i1 %238, label %239, label %_ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
 
 239:                                              ; preds = %234
@@ -3236,7 +3236,7 @@ _ZNK17QArrayDataPointerIdE22constAllocatedCapacityEv.exit.thread: ; preds = %4
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerIdE22constAllocatedCapacityEv.exit31
 
@@ -3279,7 +3279,7 @@ _ZNK17QArrayDataPointerIdE16freeSpaceAtBeginEv.exit33: ; preds = %37
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)
@@ -3539,7 +3539,7 @@ _ZNK17QArrayDataPointerIjE22constAllocatedCapacityEv.exit.thread: ; preds = %4
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerIjE22constAllocatedCapacityEv.exit31
 
@@ -3582,7 +3582,7 @@ _ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33: ; preds = %37
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)

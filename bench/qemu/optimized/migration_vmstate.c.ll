@@ -142,7 +142,7 @@ trace_vmstate_load_state.exit:                    ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %version_id1 = getelementptr inbounds i8, ptr %vmsd, i64 12
   %8 = load i32, ptr %version_id1, align 4
-  %cmp = icmp slt i32 %8, %version_id
+  %cmp = icmp sgt i32 %version_id, %8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %trace_vmstate_load_state.exit
@@ -188,7 +188,7 @@ trace_vmstate_load_state_end.exit:                ; preds = %if.then, %land.lhs.
 if.end:                                           ; preds = %trace_vmstate_load_state.exit
   %minimum_version_id = getelementptr inbounds i8, ptr %vmsd, i64 16
   %17 = load i32, ptr %minimum_version_id, align 8
-  %cmp5 = icmp sgt i32 %17, %version_id
+  %cmp5 = icmp slt i32 %version_id, %17
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.end

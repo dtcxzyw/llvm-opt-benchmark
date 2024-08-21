@@ -351,7 +351,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %78
   %103 = load i16, ptr %102, align 2, !noalias !15
   %104 = zext i16 %103 to i32
   %105 = add nuw nsw i32 %104, %101
-  %.sroa.speculated8.i.i.i.i = call i32 @llvm.smin.i32(i32 %.056.i.i.i, i32 %105)
+  %.sroa.speculated8.i.i.i.i = call i32 @llvm.smin.i32(i32 %105, i32 %.056.i.i.i)
   %.sroa.speculated.i.i.i.i = call i32 @llvm.smax.i32(i32 %.047.i.i.i, i32 %105)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 6
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
@@ -569,7 +569,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.
 _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit53.i.i.i: ; preds = %190, %188, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i
   %194 = phi i32 [ %193, %190 ], [ 2147483647, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i ], [ %.sroa.10.073.i.i, %188 ]
   %.sroa.speculated.i52.i.i.i = call i32 @llvm.smin.i32(i32 %194, i32 %187)
-  %.sroa.speculated.i54.i.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated.i.i.i39.i, i32 %162)
+  %.sroa.speculated.i54.i.i.i = call i32 @llvm.smin.i32(i32 %162, i32 %.sroa.speculated.i.i.i39.i)
   %195 = sext i32 %169 to i64
   %smax.i.i.i.i = call i32 @llvm.smax.i32(i32 %.sroa.speculated.i54.i.i.i, i32 0)
   %196 = zext nneg i32 %smax.i.i.i.i to i64
@@ -606,7 +606,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit5
   store ptr %211, ptr %11, align 8, !noalias !22
   %212 = sub nsw i32 %.sroa.speculated.i.i.i39.i, %208
   store i32 %212, ptr %74, align 4, !noalias !22
-  %.sroa.speculated.i55.i.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated.i52.i.i.i, i32 %162)
+  %.sroa.speculated.i55.i.i.i = call i32 @llvm.smin.i32(i32 %162, i32 %.sroa.speculated.i52.i.i.i)
   %213 = sext i32 %185 to i64
   %smax.i56.i.i.i = call i32 @llvm.smax.i32(i32 %.sroa.speculated.i55.i.i.i, i32 0)
   %214 = zext nneg i32 %smax.i56.i.i.i to i64
@@ -679,7 +679,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit5
   %241 = phi i32 [ %.promoted.i.i.i, %235 ], [ %260, %269 ]
   %242 = phi ptr [ %.promoted105.i.i.i, %235 ], [ %259, %269 ]
   %243 = sub nsw i32 %160, %.1108.i.i.i
-  %.sroa.speculated.i65.i.i.i = call i32 @llvm.smin.i32(i32 %241, i32 %243)
+  %.sroa.speculated.i65.i.i.i = call i32 @llvm.smin.i32(i32 %243, i32 %241)
   %smax.i66.i.i.i = call i32 @llvm.smax.i32(i32 %.sroa.speculated.i65.i.i.i, i32 0)
   %244 = zext nneg i32 %smax.i66.i.i.i to i64
   %245 = add nuw i32 %smax.i66.i.i.i, 1
@@ -720,7 +720,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit5
   br i1 %262, label %264, label %263
 
 263:                                              ; preds = %255
-  %.sroa.speculated8.i.i.i41.i = call i32 @llvm.smin.i32(i32 %.192107.i.i.i, i32 %261)
+  %.sroa.speculated8.i.i.i41.i = call i32 @llvm.smin.i32(i32 %261, i32 %.192107.i.i.i)
   %.sroa.speculated.i75.i.i.i = call i32 @llvm.smax.i32(i32 %.194106.i.i.i, i32 %261)
   br label %264
 
@@ -762,7 +762,7 @@ _ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6Poi
   %275 = mul nsw i32 %274, %.sroa.3.0.copyload.i.i
   %276 = select i1 %166, i32 %275, i32 0
   %.sroa.10.1.i.i = add nsw i32 %276, %.sroa.10.073.i.i
-  %.sroa.speculated8.i.i.i = call i32 @llvm.smin.i32(i32 %.05572.i.i, i32 %270)
+  %.sroa.speculated8.i.i.i = call i32 @llvm.smin.i32(i32 %270, i32 %.05572.i.i)
   %.sroa.speculated.i.i.i = call i32 @llvm.smax.i32(i32 %.05671.i.i, i32 %270)
   %.0.add.i.i = add nuw nsw i64 %.0.idx74.i.i, 8
   %.not.i43.i = icmp eq i64 %.0.add.i.i, 32
@@ -1680,7 +1680,7 @@ _ZNSt6vectorIN5ZXing5Aztec14DetectorResultESaIS2_EE12emplace_backIJNS0_14Detecto
   %630 = sub i64 %628, %629
   %631 = sdiv exact i64 %630, 88
   %632 = trunc i64 %631 to i32
-  %633 = icmp eq i32 %632, %4
+  %633 = icmp eq i32 %4, %632
   br label %634
 
 634:                                              ; preds = %_ZNSt6vectorIN5ZXing5Aztec14DetectorResultESaIS2_EE12emplace_backIJNS0_14DetectorResultEbRiS7_RbbiEEERS2_DpOT_.exit, %591
@@ -1802,8 +1802,8 @@ define internal fastcc noundef i32 @_ZN5ZXing5AztecL21SampleOrientationBitsERKNS
   %.sroa.049.0.extract.trunc = trunc i64 %11 to i32
   %.sroa.452.0.extract.shift = lshr i64 %11, 32
   %.sroa.452.0.extract.trunc = trunc nuw i64 %.sroa.452.0.extract.shift to i32
-  %12 = mul nsw i32 %.sroa.049.0.extract.trunc, %2
-  %13 = mul nsw i32 %.sroa.452.0.extract.trunc, %2
+  %12 = mul nsw i32 %2, %.sroa.049.0.extract.trunc
+  %13 = mul nsw i32 %2, %.sroa.452.0.extract.trunc
   %.sroa.2.0.insert.ext.i = zext i32 %13 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %14 = sub nsw i32 %13, %.sroa.452.0.extract.trunc
@@ -1937,7 +1937,7 @@ define linkonce_odr void @_ZN5ZXing23LocateConcentricPatternILb0ENS_12FixedPatte
   br i1 %.not43, label %.loopexit, label %22
 
 22:                                               ; preds = %20
-  %.sroa.speculated8.i = call i32 @llvm.smin.i32(i32 %.078, i32 %21)
+  %.sroa.speculated8.i = call i32 @llvm.smin.i32(i32 %21, i32 %.078)
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %.07177, i32 %21)
   %.035.add = add nuw nsw i64 %.035.idx79, 8
   %.not = icmp eq i64 %.035.add, 16
@@ -1966,7 +1966,7 @@ define linkonce_odr void @_ZN5ZXing23LocateConcentricPatternILb0ENS_12FixedPatte
   br i1 %.not42, label %.loopexit, label %30
 
 30:                                               ; preds = %28
-  %.sroa.speculated8.i44 = call i32 @llvm.smin.i32(i32 %.181, i32 %29)
+  %.sroa.speculated8.i44 = call i32 @llvm.smin.i32(i32 %29, i32 %.181)
   %.sroa.speculated.i45 = call i32 @llvm.smax.i32(i32 %.17280, i32 %29)
   %.036.add = add nuw nsw i64 %.036.idx82, 8
   %.not41 = icmp eq i64 %.036.add, 16
@@ -2101,7 +2101,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit:
 _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit22: ; preds = %55, %53, %57
   %62 = phi i32 [ %61, %57 ], [ 2147483647, %53 ], [ %.sroa.9.8.extract.trunc, %55 ]
   %.sroa.speculated.i21 = tail call i32 @llvm.smin.i32(i32 %62, i32 %54)
-  %.sroa.speculated.i23 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated.i, i32 %3)
+  %.sroa.speculated.i23 = tail call i32 @llvm.smin.i32(i32 %3, i32 %.sroa.speculated.i)
   %63 = sext i32 %15 to i64
   %smax.i = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i23, i32 0)
   %64 = zext nneg i32 %smax.i to i64
@@ -2136,7 +2136,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit2
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %26, i64 %78
   %80 = sub nsw i32 %.sroa.speculated.i, %76
-  %.sroa.speculated.i24 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated.i21, i32 %3)
+  %.sroa.speculated.i24 = tail call i32 @llvm.smin.i32(i32 %3, i32 %.sroa.speculated.i21)
   %81 = sext i32 %42 to i64
   %smax.i25 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i24, i32 0)
   %82 = zext nneg i32 %smax.i25 to i64
@@ -2188,7 +2188,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit2
   %.sroa.065.0108 = phi ptr [ %97, %93 ], [ %142, %138 ]
   %.sroa.968.0107 = phi i32 [ %98, %93 ], [ %143, %138 ]
   %.084106 = phi i32 [ %104, %93 ], [ %147, %138 ]
-  %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %.sroa.975.0109, i32 %.084106)
+  %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %.084106, i32 %.sroa.975.0109)
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i.i, i32 0)
   %106 = zext nneg i32 %smax.i.i to i64
   %107 = add nuw i32 %smax.i.i, 1
@@ -2227,7 +2227,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit2
   %125 = getelementptr inbounds [7 x i16], ptr %7, i64 0, i64 %124
   store i16 %123, ptr %125, align 2
   %126 = sub nsw i32 %.084106, %118
-  %.sroa.speculated.i.i34 = tail call i32 @llvm.smin.i32(i32 %.sroa.968.0107, i32 %126)
+  %.sroa.speculated.i.i34 = tail call i32 @llvm.smin.i32(i32 %126, i32 %.sroa.968.0107)
   %smax.i.i35 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i.i34, i32 0)
   %127 = zext nneg i32 %smax.i.i35 to i64
   %128 = add nuw i32 %smax.i.i35, 1
@@ -2445,7 +2445,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit:
 _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit22: ; preds = %56, %54, %58
   %63 = phi i32 [ %62, %58 ], [ 2147483647, %54 ], [ %.sroa.9.8.extract.trunc, %56 ]
   %.sroa.speculated.i21 = tail call i32 @llvm.smin.i32(i32 %63, i32 %55)
-  %.sroa.speculated.i23 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated.i, i32 %3)
+  %.sroa.speculated.i23 = tail call i32 @llvm.smin.i32(i32 %3, i32 %.sroa.speculated.i)
   %64 = sext i32 %16 to i64
   %smax.i = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i23, i32 0)
   %65 = zext nneg i32 %smax.i to i64
@@ -2480,7 +2480,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit2
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i8, ptr %27, i64 %79
   %81 = sub nsw i32 %.sroa.speculated.i, %77
-  %.sroa.speculated.i24 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated.i21, i32 %3)
+  %.sroa.speculated.i24 = tail call i32 @llvm.smin.i32(i32 %3, i32 %.sroa.speculated.i21)
   %82 = sext i32 %43 to i64
   %smax.i25 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i24, i32 0)
   %83 = zext nneg i32 %smax.i25 to i64
@@ -2532,7 +2532,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit2
   %.sroa.060.0101 = phi ptr [ %98, %94 ], [ %143, %139 ]
   %.sroa.963.0100 = phi i32 [ %99, %94 ], [ %144, %139 ]
   %.07999 = phi i32 [ %105, %94 ], [ %148, %139 ]
-  %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %.sroa.970.0102, i32 %.07999)
+  %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %.07999, i32 %.sroa.970.0102)
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i.i, i32 0)
   %107 = zext nneg i32 %smax.i.i to i64
   %108 = add nuw i32 %smax.i.i, 1
@@ -2571,7 +2571,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit2
   %126 = getelementptr inbounds [7 x i16], ptr %7, i64 0, i64 %125
   store i16 %124, ptr %126, align 2
   %127 = sub nsw i32 %.07999, %119
-  %.sroa.speculated.i.i34 = tail call i32 @llvm.smin.i32(i32 %.sroa.963.0100, i32 %127)
+  %.sroa.speculated.i.i34 = tail call i32 @llvm.smin.i32(i32 %127, i32 %.sroa.963.0100)
   %smax.i.i35 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i.i34, i32 0)
   %128 = zext nneg i32 %smax.i.i35 to i64
   %129 = add nuw i32 %smax.i.i35, 1
@@ -2750,7 +2750,7 @@ _ZNK5ZXing12FixedPatternILi7ELi7ELb0EE4sumsEv.exit: ; preds = %20
 
 39:                                               ; preds = %37
   %40 = sitofp i32 %2 to double
-  %41 = fmul double %31, %3
+  %41 = fmul double %3, %31
   %42 = fcmp ogt double %41, %40
   br i1 %42, label %.loopexit, label %43
 
@@ -2932,7 +2932,7 @@ _ZNKSt6vectorIN5ZXing5Aztec14DetectorResultESaIS2_EE12_M_check_lenEmPKc.exit: ; 
 _ZNSt6vectorIN5ZXing5Aztec14DetectorResultESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %29
   %.0.lcssa.i.i.i = phi ptr [ %30, %29 ], [ %74, %.lr.ph.i.i.i ]
   %75 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 88
-  %.not10.i.i.i32 = icmp eq ptr %11, %1
+  %.not10.i.i.i32 = icmp eq ptr %1, %11
   br i1 %.not10.i.i.i32, label %_ZNSt6vectorIN5ZXing5Aztec14DetectorResultESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, label %.lr.ph.i.i.i33
 
 .lr.ph.i.i.i33:                                   ; preds = %_ZNSt6vectorIN5ZXing5Aztec14DetectorResultESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i33

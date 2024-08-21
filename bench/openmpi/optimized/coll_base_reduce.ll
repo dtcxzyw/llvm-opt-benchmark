@@ -167,7 +167,7 @@ define i32 @ompi_coll_base_reduce_generic(ptr noundef %0, ptr noundef %1, i32 no
 
 29:                                               ; preds = %11
   %30 = icmp ne ptr %1, null
-  %.not269 = icmp eq i32 %.val289, %5
+  %.not269 = icmp eq i32 %5, %.val289
   %or.cond = select i1 %30, i1 %.not269, i1 false
   br i1 %or.cond, label %49, label %31
 
@@ -306,7 +306,7 @@ opal_datatype_span.exit297:                       ; preds = %ompi_datatype_copy_
   %.0218369 = phi i32 [ 0, %.lr.ph372.split.preheader ], [ %.1219, %._crit_edge363 ]
   %99 = icmp eq i64 %indvars.iv400, %97
   %100 = trunc nuw nsw i64 %indvars.iv400 to i32
-  %101 = mul i32 %100, %9
+  %101 = mul i32 %9, %100
   %102 = sub i32 %2, %101
   %.1219 = select i1 %99, i32 %102, i32 %9
   %103 = load i32, ptr %26, align 4
@@ -481,7 +481,7 @@ opal_datatype_span.exit297:                       ; preds = %ompi_datatype_copy_
 
 178:                                              ; preds = %11
   %179 = icmp ne i32 %10, 0
-  %.not263 = icmp sgt i32 %22, %10
+  %.not263 = icmp slt i32 %10, %22
   %or.cond285 = select i1 %179, i1 %.not263, i1 false
   br i1 %or.cond285, label %192, label %.preheader340
 
@@ -1131,7 +1131,7 @@ define i32 @ompi_coll_base_reduce_intra_in_order_binary(ptr noundef %0, ptr noun
 opal_datatype_span.exit:                          ; preds = %38, %42
   %.0108 = phi i64 [ %44, %42 ], [ 0, %38 ]
   %.0.i = phi i64 [ %55, %42 ], [ 0, %38 ]
-  %56 = icmp eq i32 %.val, %5
+  %56 = icmp eq i32 %5, %.val
   %57 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   %or.cond = and i1 %57, %56
   br i1 %or.cond, label %58, label %73
@@ -1344,7 +1344,7 @@ opal_datatype_span.exit:                          ; preds = %.opal_datatype_span
   %.074 = phi ptr [ %46, %50 ], [ null, %43 ]
   %.073 = phi ptr [ %52, %50 ], [ null, %43 ]
   %54 = add nsw i32 %.val98.val, -1
-  %55 = icmp eq i32 %54, %5
+  %55 = icmp eq i32 %5, %54
   br i1 %55, label %56, label %ompi_datatype_copy_content_same_ddt.exit
 
 56:                                               ; preds = %53
@@ -1401,7 +1401,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %59, %56, %ompi_data
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %78
   %.079123 = phi i32 [ %79, %78 ], [ %69, %.lr.ph.preheader ]
-  %70 = icmp eq i32 %.079123, %5
+  %70 = icmp eq i32 %5, %.079123
   br i1 %70, label %78, label %71
 
 71:                                               ; preds = %.lr.ph
@@ -1501,7 +1501,7 @@ define i32 @ompi_coll_base_reduce_intra_redscat_gather(ptr noundef %0, ptr nound
 20:                                               ; preds = %8
   %21 = shl nuw nsw i32 1, %19
   %22 = icmp eq i32 %18, 31
-  %23 = icmp sgt i32 %21, %2
+  %23 = icmp slt i32 %2, %21
   %or.cond380 = or i1 %22, %23
   br i1 %or.cond380, label %27, label %24
 
@@ -1776,7 +1776,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %143, %145
   br i1 %167, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %165, %106
-  %168 = icmp sle i32 %65, %5
+  %168 = icmp sge i32 %5, %65
   br i1 %168, label %199, label %169
 
 169:                                              ; preds = %.loopexit

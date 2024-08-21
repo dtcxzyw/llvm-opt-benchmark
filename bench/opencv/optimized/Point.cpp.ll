@@ -1118,7 +1118,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %phi.call.us = getelementptr inbounds %"struct.logos::MatchPoint", ptr %0, i64 %.0.us
   %.sroa.03.0.copyload.us = load i64, ptr %phi.call.us, align 4
   %.sroa.0.0.copyload.us = load ptr, ptr %2, align 8
-  %20 = icmp sgt i64 %13, %.0.us
+  %20 = icmp slt i64 %.0.us, %13
   br i1 %20, label %.lr.ph.i.us, label %._crit_edge.i.us.thread
 
 ._crit_edge.i.us.thread:                          ; preds = %.split.split.us
@@ -1182,7 +1182,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vecto
   %phi.call = getelementptr inbounds %"struct.logos::MatchPoint", ptr %0, i64 %.0
   %.sroa.03.0.copyload = load i64, ptr %phi.call, align 4
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %42 = icmp sgt i64 %13, %.0
+  %42 = icmp slt i64 %.0, %13
   br i1 %42, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split, %.lr.ph.i

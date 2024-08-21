@@ -1610,7 +1610,7 @@ indent.exit75.thread:                             ; preds = %109, %106, %97
   %.val.val.val = load ptr, ptr %118, align 8
   %119 = tail call i32 %.val.val.val(ptr noundef %1, ptr noundef nonnull @.str.23) #9
   %120 = icmp eq i32 %119, -1
-  %brmerge = or i1 %120, %4
+  %brmerge = or i1 %4, %120
   %.mux = sext i1 %120 to i32
   br i1 %brmerge, label %indent.exit, label %121
 
@@ -1722,7 +1722,7 @@ define internal fastcc noundef zeroext i1 @write_node_test(ptr noundef %0, ptr n
   %10 = load i32, ptr %1, align 8
   %11 = lshr i32 %10, 4
   %12 = zext nneg i32 %11 to i64
-  %13 = icmp ult i64 %12, %2
+  %13 = icmp ugt i64 %2, %12
   br i1 %13, label %not_default_attrs.exit, label %14
 
 14:                                               ; preds = %.loopexit17

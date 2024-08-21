@@ -5450,7 +5450,7 @@ if.end53:                                         ; preds = %_ZNK7datalog12dl_de
   %66 = load ptr, ptr %this, align 8
   %m_bool_sort.i = getelementptr inbounds i8, ptr %66, i64 840
   %67 = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i117 = icmp eq ptr %67, %s
+  %cmp.i117 = icmp eq ptr %s, %67
   br i1 %cmp.i117, label %if.then56, label %if.end64
 
 if.then56:                                        ; preds = %if.end53
@@ -5643,13 +5643,13 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8
   %m_true.i = getelementptr inbounds i8, ptr %0, i64 856
   %1 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %1, %e
+  %cmp.i = icmp eq ptr %e, %1
   br i1 %cmp.i, label %return.sink.split, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %m_false.i = getelementptr inbounds i8, ptr %0, i64 864
   %2 = load ptr, ptr %m_false.i, align 8
-  %cmp.i17 = icmp eq ptr %2, %e
+  %cmp.i17 = icmp eq ptr %e, %2
   br i1 %cmp.i17, label %return.sink.split, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
@@ -6037,13 +6037,13 @@ if.end15:                                         ; preds = %invoke.cont11
   %21 = load ptr, ptr %this, align 8
   %m_true.i = getelementptr inbounds i8, ptr %21, i64 856
   %22 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %22, %c
+  %cmp.i = icmp eq ptr %c, %22
   br i1 %cmp.i, label %cleanup35, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end15
   %m_false.i = getelementptr inbounds i8, ptr %21, i64 864
   %23 = load ptr, ptr %m_false.i, align 8
-  %cmp.i28 = icmp eq ptr %23, %c
+  %cmp.i28 = icmp eq ptr %c, %23
   br i1 %cmp.i28, label %cleanup35, label %if.end22
 
 if.end22:                                         ; preds = %lor.lhs.false

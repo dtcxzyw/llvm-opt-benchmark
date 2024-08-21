@@ -713,7 +713,7 @@ entry:
   %bf.load = load i32, ptr %parserPaused_, align 8
   %0 = and i32 %bf.load, 16
   %1 = icmp ne i32 %0, 0
-  %cmp.not = xor i1 %1, %paused
+  %cmp.not = xor i1 %paused, %1
   %2 = and i32 %bf.load, 32
   %bf.cast6.not = icmp eq i32 %2, 0
   %or.cond = and i1 %bf.cast6.not, %cmp.not
@@ -1492,7 +1492,7 @@ if.then10:                                        ; preds = %if.end
   %sub.ptr.lhs.cast.i18 = ptrtoint ptr %24 to i64
   %sub.ptr.rhs.cast.i19 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i19
-  %cmp.not.i21 = icmp ult i64 %sub.ptr.sub.i20, %sub
+  %cmp.not.i21 = icmp ugt i64 %sub, %sub.ptr.sub.i20
   br i1 %cmp.not.i21, label %for.body.lr.ph.i.i.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then10
@@ -4227,7 +4227,7 @@ entry:
   %div.i.i = udiv i64 %add.i.i, 3
   %mul.i.i = shl i64 %div.i.i, 2
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #27
-  %cmp.not.i = icmp ult i64 %call.i, %mul.i.i
+  %cmp.not.i = icmp ugt i64 %mul.i.i, %call.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -4236,7 +4236,7 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #27
-  %cmp2.i = icmp ult i64 %call1.i, %mul.i.i
+  %cmp2.i = icmp ugt i64 %mul.i.i, %call1.i
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -4746,11 +4746,11 @@ if.else:                                          ; preds = %if.end
   %egressTxnID_55 = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i64, ptr %egressTxnID_55, align 8
   %add = add i64 %2, 1
-  %cmp56.not = icmp eq i64 %add, %txn
+  %cmp56.not = icmp eq i64 %txn, %add
   br i1 %cmp56.not, label %lor.lhs.false, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %if.else
-  %cmp59 = icmp eq i64 %2, %txn
+  %cmp59 = icmp eq i64 %txn, %2
   br i1 %cmp59, label %land.lhs.true60, label %if.then66
 
 land.lhs.true60:                                  ; preds = %land.lhs.true57
@@ -4758,14 +4758,14 @@ land.lhs.true60:                                  ; preds = %land.lhs.true57
   %bf.cast64.not = icmp eq i32 %3, 0
   %ingressTxnID_ = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i64, ptr %ingressTxnID_, align 8
-  %cmp65 = icmp ult i64 %4, %txn
+  %cmp65 = icmp ugt i64 %txn, %4
   %or.cond368 = select i1 %bf.cast64.not, i1 true, i1 %cmp65
   br i1 %or.cond368, label %if.then66, label %if.end73
 
 lor.lhs.false:                                    ; preds = %if.else
   %ingressTxnID_.old = getelementptr inbounds i8, ptr %this, i64 48
   %.old = load i64, ptr %ingressTxnID_.old, align 8
-  %cmp65.old = icmp ult i64 %.old, %txn
+  %cmp65.old = icmp ugt i64 %txn, %.old
   br i1 %cmp65.old, label %if.then66, label %if.end73
 
 if.then66:                                        ; preds = %lor.lhs.false, %land.lhs.true60, %land.lhs.true57
@@ -6596,7 +6596,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %i.i.06.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit.i.i.i ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i.i
   %4 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i.i = icmp ugt i64 %4, %3
+  %cmp1.i.i.i.i.i.i.i = icmp ult i64 %3, %4
   br i1 %cmp1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
@@ -7780,7 +7780,7 @@ if.then22:                                        ; preds = %if.then20
 if.then25:                                        ; preds = %if.then22
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %buf to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i8 = icmp ult i64 %sub.ptr.sub.i.i, %len
+  %cmp.i8 = icmp ugt i64 %len, %sub.ptr.sub.i.i
   br i1 %cmp.i8, label %if.then.i, label %_ZN5folly5RangeIPKcE7advanceEm.exit
 
 if.then.i:                                        ; preds = %if.then25
@@ -9080,10 +9080,10 @@ entry:
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp eq i64 %1, %2
-  %cmp2.not.i = icmp ule ptr %0, %value
+  %cmp2.not.i = icmp uge ptr %value, %0
   %or.cond.not8.i = and i1 %cmp2.not.i, %cmp.i
   %add.ptr.i2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %1
-  %cmp5.i = icmp ugt ptr %add.ptr.i2, %value
+  %cmp5.i = icmp ult ptr %value, %add.ptr.i2
   %or.cond7.i = select i1 %or.cond.not8.i, i1 %cmp5.i, i1 false
   br i1 %or.cond7.i, label %if.then.i, label %if.else.i
 
@@ -9583,7 +9583,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -9654,7 +9654,7 @@ _ZNSt12_Vector_baseIN5folly5RangeIPKcEESaIS4_EE13_M_deallocateEPS4_m.exit29.i: ;
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -9831,7 +9831,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i, %
   %i.i.015.i.i.i.i = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit ], [ %inc.i.i.i.i.i, %if.end.i.i.i.i.i ]
   %arrayidx.i9.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.015.i.i.i.i
   %8 = load i64, ptr %arrayidx.i9.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i = icmp ugt i64 %8, %7
+  %cmp1.i.i.i.i.i = icmp ult i64 %7, %8
   br i1 %cmp1.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i

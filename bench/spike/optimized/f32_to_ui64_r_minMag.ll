@@ -18,7 +18,7 @@ define range(i64 -1, -1099511627775) i64 @f32_to_ui64_r_minMag(i32 %0, i1 nounde
 9:                                                ; preds = %2
   %10 = or i64 %5, %6
   %.not32 = icmp ne i64 %10, 0
-  %or.cond34.not = and i1 %.not32, %1
+  %or.cond34.not = and i1 %1, %.not32
   br i1 %or.cond34.not, label %11, label %34
 
 11:                                               ; preds = %9
@@ -48,7 +48,7 @@ define range(i64 -1, -1099511627775) i64 @f32_to_ui64_r_minMag(i32 %0, i1 nounde
   %23 = shl nuw i64 %22, 40
   %24 = lshr i64 %23, %7
   %25 = icmp ult i64 %5, 150
-  %or.cond5 = and i1 %25, %1
+  %or.cond5 = and i1 %1, %25
   br i1 %or.cond5, label %26, label %34
 
 26:                                               ; preds = %21

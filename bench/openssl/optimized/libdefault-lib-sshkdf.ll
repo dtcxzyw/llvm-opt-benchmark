@@ -314,7 +314,7 @@ if.end19.i:                                       ; preds = %if.end15.i
 if.end23.i:                                       ; preds = %if.end19.i
   %7 = load i32, ptr %dsize.i, align 4
   %conv.i = zext i32 %7 to i64
-  %cmp24.i = icmp ugt i64 %conv.i, %keylen
+  %cmp24.i = icmp ult i64 %keylen, %conv.i
   br i1 %cmp24.i, label %if.then26.i, label %if.end28.i
 
 if.then26.i:                                      ; preds = %if.end23.i
@@ -323,7 +323,7 @@ if.then26.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.end23.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %key, ptr nonnull align 16 %digest.i, i64 %conv.i, i1 false)
-  %cmp3233.i = icmp ult i64 %conv.i, %keylen
+  %cmp3233.i = icmp ugt i64 %keylen, %conv.i
   br i1 %cmp3233.i, label %for.body.i, label %out.i
 
 for.body.i:                                       ; preds = %if.end28.i, %if.end60.i
@@ -356,7 +356,7 @@ if.end54.i:                                       ; preds = %if.end49.i
   %8 = load i32, ptr %dsize.i, align 4
   %conv55.i = zext i32 %8 to i64
   %add.i = add i64 %cursize.034.i, %conv55.i
-  %cmp56.i = icmp ugt i64 %add.i, %keylen
+  %cmp56.i = icmp ult i64 %keylen, %add.i
   %add.ptr.i = getelementptr inbounds i8, ptr %key, i64 %cursize.034.i
   br i1 %cmp56.i, label %if.then58.i, label %if.end60.i
 

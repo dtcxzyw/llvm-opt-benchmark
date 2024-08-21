@@ -438,7 +438,7 @@ define dso_local i32 @e1000_enable_ulp_lpt_lp(ptr noundef %0, i1 noundef zeroext
   %114 = getelementptr inbounds i8, ptr %0, i64 1032
   %115 = load i32, ptr %114, align 8
   %116 = icmp eq i32 %115, 6
-  %117 = and i1 %116, %1
+  %117 = and i1 %1, %116
   br i1 %117, label %118, label %.thread10
 
 118:                                              ; preds = %113
@@ -2814,7 +2814,7 @@ define internal noundef range(i32 -3, 1) i32 @e1000_rar_set_pch2lan(ptr noundef 
   %39 = getelementptr inbounds i8, ptr %0, i64 776
   %40 = load i16, ptr %39, align 8
   %41 = zext i16 %40 to i32
-  %42 = icmp ugt i32 %41, %2
+  %42 = icmp ult i32 %2, %41
   br i1 %42, label %43, label %79
 
 43:                                               ; preds = %38
@@ -3150,7 +3150,7 @@ define internal noundef range(i32 -3, 1) i32 @e1000_rar_set_pch_lpt(ptr noundef 
   %39 = getelementptr inbounds i8, ptr %0, i64 776
   %40 = load i16, ptr %39, align 8
   %41 = zext i16 %40 to i32
-  %42 = icmp ugt i32 %41, %2
+  %42 = icmp ult i32 %2, %41
   br i1 %42, label %43, label %87
 
 43:                                               ; preds = %38

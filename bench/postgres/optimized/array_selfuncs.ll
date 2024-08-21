@@ -231,7 +231,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc double @mcelem_array_contain_overlap_selec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = add i32 %1, 3
-  %.not = icmp eq i32 %9, %3
+  %.not = icmp eq i32 %3, %9
   %spec.select = select i1 %.not, ptr %2, ptr null
   %10 = icmp ne ptr %spec.select, null
   br i1 %10, label %11, label %17
@@ -426,7 +426,7 @@ find_next_mcelem.exit.loopexit.us:                ; preds = %.lr.ph.i.us
 106:                                              ; preds = %98
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %find_next_mcelem.exit.thread, label %98, !llvm.loop !8
 
 find_next_mcelem.exit:                            ; preds = %98
@@ -487,7 +487,7 @@ find_next_mcelem.exit.thread:                     ; preds = %106, %find_next_mce
 define internal fastcc double @mcelem_array_contained_selec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = icmp ne ptr %2, null
   %11 = add i32 %1, 3
-  %.not = icmp eq i32 %11, %3
+  %.not = icmp eq i32 %3, %11
   %or.cond138 = and i1 %10, %.not
   br i1 %or.cond138, label %12, label %240
 

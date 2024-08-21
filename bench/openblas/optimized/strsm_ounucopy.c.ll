@@ -284,7 +284,7 @@ define noundef i32 @strsm_ounucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 188:                                              ; preds = %182
   %189 = and i64 %1, -4
-  %190 = add i64 %189, %4
+  %190 = add i64 %4, %189
   br label %191
 
 191:                                              ; preds = %188, %6

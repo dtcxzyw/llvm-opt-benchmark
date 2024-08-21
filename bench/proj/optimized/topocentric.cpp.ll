@@ -304,10 +304,10 @@ define internal void @_ZL15topocentric_fwdR8PJ_COORDP8PJconsts(ptr nocapture nou
   %26 = load double, ptr %25, align 8
   %27 = fmul double %26, %18
   %28 = load double, ptr %21, align 8
-  %29 = load double, ptr %19, align 8
-  %30 = fneg double %12
-  %31 = fmul double %26, %30
-  %32 = fmul double %31, %29
+  %29 = fmul double %12, %26
+  %30 = load double, ptr %19, align 8
+  %31 = fneg double %30
+  %32 = fmul double %29, %31
   %33 = tail call double @llvm.fmuladd.f64(double %27, double %28, double %32)
   %34 = getelementptr inbounds i8, ptr %4, i64 32
   %35 = load double, ptr %34, align 8
@@ -344,8 +344,8 @@ define internal void @_ZL15topocentric_invR8PJ_COORDP8PJconsts(ptr nocapture nou
   %16 = load double, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 48
   %18 = load double, ptr %17, align 8
-  %19 = fneg double %7
-  %20 = fmul double %16, %19
+  %19 = fneg double %16
+  %20 = fmul double %7, %19
   %21 = tail call double @llvm.fmuladd.f64(double %20, double %18, double %14)
   %22 = getelementptr inbounds i8, ptr %4, i64 32
   %23 = load double, ptr %22, align 8
@@ -358,19 +358,20 @@ define internal void @_ZL15topocentric_invR8PJ_COORDP8PJconsts(ptr nocapture nou
   %29 = tail call double @llvm.fmuladd.f64(double %5, double %28, double %27)
   %30 = load double, ptr %15, align 8
   %31 = load double, ptr %11, align 8
-  %32 = fmul double %30, %19
-  %33 = tail call double @llvm.fmuladd.f64(double %32, double %31, double %29)
-  %34 = load double, ptr %22, align 8
-  %35 = fmul double %9, %34
-  %36 = tail call double @llvm.fmuladd.f64(double %35, double %31, double %33)
-  store double %36, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
-  %38 = load double, ptr %37, align 8
-  %39 = load double, ptr %22, align 8
-  %40 = tail call double @llvm.fmuladd.f64(double %7, double %39, double %38)
-  %41 = load double, ptr %15, align 8
-  %42 = tail call double @llvm.fmuladd.f64(double %9, double %41, double %40)
-  store double %42, ptr %8, align 8
+  %32 = fneg double %30
+  %33 = fmul double %7, %32
+  %34 = tail call double @llvm.fmuladd.f64(double %33, double %31, double %29)
+  %35 = load double, ptr %22, align 8
+  %36 = fmul double %9, %35
+  %37 = tail call double @llvm.fmuladd.f64(double %36, double %31, double %34)
+  store double %37, ptr %6, align 8
+  %38 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = load double, ptr %38, align 8
+  %40 = load double, ptr %22, align 8
+  %41 = tail call double @llvm.fmuladd.f64(double %7, double %40, double %39)
+  %42 = load double, ptr %15, align 8
+  %43 = tail call double @llvm.fmuladd.f64(double %9, double %42, double %41)
+  store double %43, ptr %8, align 8
   ret void
 }
 

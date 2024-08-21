@@ -576,7 +576,7 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
   %60 = zext i16 %59 to i32
   %61 = add nuw nsw i32 %60, 24
   %62 = and i32 %61, 65535
-  %63 = icmp ugt i32 %62, %5
+  %63 = icmp ult i32 %5, %62
   br i1 %63, label %dissect_dlm3_2.exit, label %64
 
 64:                                               ; preds = %48
@@ -818,7 +818,7 @@ define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr nocapture noundef
   %100 = load i32, ptr @hf_dlm3_m_result, align 4
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 4, i32 noundef -2147483648) #2
   %102 = add i32 %6, 88
-  %.not.i = icmp eq i32 %102, %5
+  %.not.i = icmp eq i32 %5, %102
   br i1 %.not.i, label %dissect_dlm3_msg.exit, label %103
 
 103:                                              ; preds = %38
@@ -853,7 +853,7 @@ define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr nocapture noundef
   %127 = load i32, ptr @hf_dlm3_rc_seq_reply, align 4
   %128 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %127, ptr noundef %0, i32 noundef %126, i32 noundef 8, i32 noundef -2147483648) #2
   %129 = add i32 %6, 48
-  %130 = icmp eq i32 %129, %5
+  %130 = icmp eq i32 %5, %129
   br i1 %130, label %dissect_dlm3_msg.exit, label %131
 
 131:                                              ; preds = %108
@@ -966,7 +966,7 @@ define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr nocapture noundef
 
 220:                                              ; preds = %208, %156
   %221 = add i32 %6, 156
-  %.not.i.i = icmp eq i32 %221, %5
+  %.not.i.i = icmp eq i32 %5, %221
   %222 = and i32 %175, 8
   %.not89.i.i = icmp eq i32 %222, 0
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not89.i.i

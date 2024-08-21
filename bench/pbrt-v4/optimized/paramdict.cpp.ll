@@ -510,7 +510,7 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
   %add.ptr.i5 = getelementptr inbounds ptr, ptr %cond.i, i64 %9
   %cmp.i.i = icmp ne i64 %9, 0
   %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i5, i64 -8
-  %cmp19.i.i = icmp ugt ptr %__last.addr.08.i.i, %cond.i
+  %cmp19.i.i = icmp ult ptr %cond.i, %__last.addr.08.i.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp19.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %invoke.cont10
 
@@ -843,7 +843,7 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
   %add.ptr.i6 = getelementptr inbounds ptr, ptr %cond.i, i64 %9
   %cmp.i.i = icmp ne i64 %9, 0
   %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i6, i64 -8
-  %cmp19.i.i = icmp ugt ptr %__last.addr.08.i.i, %cond.i
+  %cmp19.i.i = icmp ult ptr %cond.i, %__last.addr.08.i.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp19.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %invoke.cont10
 
@@ -915,7 +915,7 @@ entry:
   %nStored.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i64, ptr %nStored.i, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i.i, i64 %2
-  %cmp = icmp eq ptr %add.ptr.i, %pos
+  %cmp = icmp eq ptr %pos, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -5060,7 +5060,7 @@ if.then:                                          ; preds = %land.lhs.true
   %7 = load i64, ptr %nStored.i, align 8
   %add.ptr.i17.i = getelementptr inbounds ptr, ptr %cond.i.i9, i64 %7
   %add.ptr418.i = getelementptr inbounds i8, ptr %add.ptr.i17.i, i64 -8
-  %cmp.not19.i = icmp eq ptr %add.ptr418.i, %iter.018
+  %cmp.not19.i = icmp eq ptr %iter.018, %add.ptr418.i
   br i1 %cmp.not19.i, label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEE5eraseEPKS2_.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %if.then
@@ -10284,7 +10284,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %8, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %9
+  %cmp2.i.i = icmp eq ptr %9, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -10333,7 +10333,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

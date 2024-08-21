@@ -955,7 +955,7 @@ switch.early.test:                                ; preds = %33
   %84 = load ptr, ptr %1, align 8
   %85 = tail call i32 @atoi(ptr nocapture noundef %84) #9
   %86 = icmp sgt i32 %85, -1
-  %brmerge = or i1 %86, %6
+  %brmerge = or i1 %6, %86
   br i1 %brmerge, label %sub_0, label %.tail.thread.sink.split
 
 sub_0:                                            ; preds = %83

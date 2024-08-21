@@ -314,7 +314,7 @@ while.body37:                                     ; preds = %while.body37.prehea
   %and38 = and i64 %one.056, %word.1
   %cmp39 = icmp ne i64 %and38, 0
   %conv40 = zext i1 %cmp39 to i32
-  %cmp41 = icmp eq i32 %conv40, %bit
+  %cmp41 = icmp eq i32 %bit, %conv40
   br i1 %cmp41, label %return, label %if.end44
 
 if.end44:                                         ; preds = %while.body37
@@ -349,7 +349,7 @@ for.body:                                         ; preds = %entry, %for.body
   %j.013 = phi i64 [ %inc14, %for.body ], [ 0, %entry ]
   %offset.addr.012 = phi i64 [ %inc, %for.body ], [ %offset, %entry ]
   %0 = xor i64 %j.013, -1
-  %sub1 = add i64 %0, %bits
+  %sub1 = add i64 %bits, %0
   %1 = lshr i64 %value, %sub1
   %conv3 = and i64 %1, 1
   %shr = lshr i64 %offset.addr.012, 3
@@ -386,7 +386,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %j.013.i = phi i64 [ %inc14.i, %for.body.i ], [ 0, %entry ]
   %offset.addr.012.i = phi i64 [ %inc.i, %for.body.i ], [ %offset, %entry ]
   %0 = xor i64 %j.013.i, -1
-  %sub1.i = add i64 %0, %bits
+  %sub1.i = add i64 %bits, %0
   %1 = lshr i64 %value, %sub1.i
   %conv3.i = and i64 %1, 1
   %shr.i = lshr i64 %offset.addr.012.i, 3
@@ -498,13 +498,13 @@ entry:
   %sub = xor i64 %notmask, -1
   %cond = select i1 %cmp, i64 -1, i64 %sub
   %sub2 = sub i64 0, %value
-  %cmp3 = icmp ult i64 %cond, %value
+  %cmp3 = icmp ugt i64 %value, %cond
   br i1 %cmp3, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %sub1 = sub nuw i64 %cond, %value
   %cmp4 = icmp sgt i64 %incr, 0
-  %cmp5 = icmp slt i64 %sub1, %incr
+  %cmp5 = icmp sgt i64 %incr, %sub1
   %or.cond = and i1 %cmp4, %cmp5
   br i1 %or.cond, label %if.then, label %if.else13
 
@@ -520,7 +520,7 @@ if.then6:                                         ; preds = %if.then
 
 if.else13:                                        ; preds = %lor.lhs.false
   %cmp14 = icmp slt i64 %incr, 0
-  %cmp16 = icmp sgt i64 %sub2, %incr
+  %cmp16 = icmp slt i64 %incr, %sub2
   %or.cond20 = and i1 %cmp14, %cmp16
   br i1 %or.cond20, label %if.then17, label %return
 
@@ -560,12 +560,12 @@ entry:
   %cond = select i1 %cmp, i64 %sub1, i64 9223372036854775807
   %sub3 = xor i64 %cond, -1
   %sub5 = sub nsw i64 %sub3, %value
-  %cmp6 = icmp slt i64 %cond, %value
+  %cmp6 = icmp sgt i64 %value, %cond
   br i1 %cmp6, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %sub4 = sub i64 %cond, %value
-  %cmp8 = icmp slt i64 %sub4, %incr
+  %cmp8 = icmp sgt i64 %incr, %sub4
   %or.cond38 = and i1 %cmp, %cmp8
   br i1 %or.cond38, label %if.then, label %lor.lhs.false9
 
@@ -587,11 +587,11 @@ if.then15:                                        ; preds = %if.then
   ]
 
 if.else22:                                        ; preds = %lor.lhs.false9
-  %cmp23 = icmp sgt i64 %sub3, %value
+  %cmp23 = icmp slt i64 %value, %sub3
   br i1 %cmp23, label %if.then34, label %lor.lhs.false24
 
 lor.lhs.false24:                                  ; preds = %if.else22
-  %cmp27 = icmp sgt i64 %sub5, %incr
+  %cmp27 = icmp slt i64 %incr, %sub5
   %or.cond41 = select i1 %cmp, i1 %cmp27, i1 false
   br i1 %or.cond41, label %if.then34, label %lor.lhs.false28
 
@@ -3145,12 +3145,12 @@ getSignedBitfield.exit:                           ; preds = %getUnsignedBitfield
 
 if.then151:                                       ; preds = %getSignedBitfield.exit
   %sub5.i = sub nsw i64 %sub3.i, %value.0.i
-  %cmp6.i = icmp slt i64 %cond.i, %value.0.i
+  %cmp6.i = icmp sgt i64 %value.0.i, %cond.i
   br i1 %cmp6.i, label %if.then.i164, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then151
   %sub4.i = sub i64 %cond.i, %value.0.i
-  %cmp8.i = icmp slt i64 %sub4.i, %35
+  %cmp8.i = icmp sgt i64 %35, %sub4.i
   %or.cond38.i = and i1 %cmp.i157, %cmp8.i
   br i1 %or.cond38.i, label %if.then.i164, label %lor.lhs.false9.i
 
@@ -3172,7 +3172,7 @@ if.else22.i:                                      ; preds = %lor.lhs.false9.i
   br i1 %cmp23.i, label %if.then34.i, label %lor.lhs.false24.i
 
 lor.lhs.false24.i:                                ; preds = %if.else22.i
-  %cmp27.i = icmp sgt i64 %sub5.i, %35
+  %cmp27.i = icmp slt i64 %35, %sub5.i
   %or.cond41.i = select i1 %cmp.i157, i1 %cmp27.i, i1 false
   br i1 %or.cond41.i, label %if.then34.i, label %lor.lhs.false28.i
 
@@ -3213,7 +3213,7 @@ cond.false:                                       ; preds = %lor.lhs.false28.i
   br label %if.then175
 
 if.else160:                                       ; preds = %getSignedBitfield.exit
-  %cmp6.i173 = icmp slt i64 %cond.i, %35
+  %cmp6.i173 = icmp sgt i64 %35, %cond.i
   br i1 %cmp6.i173, label %if.then.i207, label %lor.lhs.false.i174
 
 lor.lhs.false.i174:                               ; preds = %if.else160
@@ -3359,13 +3359,13 @@ if.then203:                                       ; preds = %getUnsignedBitfield
   %sub.i221 = xor i64 %notmask.i, -1
   %cond.i222 = select i1 %cmp.i220, i64 -1, i64 %sub.i221
   %sub2.i = sub i64 0, %value.0.lcssa.i
-  %cmp3.i = icmp ult i64 %cond.i222, %value.0.lcssa.i
+  %cmp3.i = icmp ugt i64 %value.0.lcssa.i, %cond.i222
   br i1 %cmp3.i, label %if.then.i233, label %lor.lhs.false.i223
 
 lor.lhs.false.i223:                               ; preds = %if.then203
   %sub1.i224 = sub nuw i64 %cond.i222, %value.0.lcssa.i
   %cmp4.i = icmp sgt i64 %49, 0
-  %cmp5.i = icmp slt i64 %sub1.i224, %49
+  %cmp5.i = icmp sgt i64 %49, %sub1.i224
   %or.cond.i225 = and i1 %cmp4.i, %cmp5.i
   br i1 %or.cond.i225, label %if.then.i233, label %if.else13.i
 

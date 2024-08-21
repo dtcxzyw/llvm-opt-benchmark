@@ -637,7 +637,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dst) #16
-  %cmp = icmp ugt i64 %call, %dstSize
+  %cmp = icmp ult i64 %dstSize, %call
   br i1 %cmp, label %if.then1, label %if.end3
 
 if.then1:                                         ; preds = %if.end
@@ -646,13 +646,13 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %tobool.not.i = icmp eq i64 %call, %dstSize
+  %tobool.not.i = icmp eq i64 %dstSize, %call
   br i1 %tobool.not.i, label %wc_strlcpy.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end3
   %add.ptr = getelementptr inbounds i8, ptr %dst, i64 %call
   %0 = xor i64 %call, -1
-  %sub.i = add i64 %0, %dstSize
+  %sub.i = add i64 %dstSize, %0
   %cmp6.not.i = icmp eq i64 %sub.i, 0
   br i1 %cmp6.not.i, label %for.end.i, label %land.rhs.i
 
@@ -858,7 +858,7 @@ entry:
 
 while.cond.preheader:                             ; preds = %entry
   %conv12 = and i64 %call, 4294967295
-  %cmp2.not11 = icmp ugt i32 %conv, %n
+  %cmp2.not11 = icmp ult i32 %n, %conv
   br i1 %cmp2.not11, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond.preheader, %if.end18

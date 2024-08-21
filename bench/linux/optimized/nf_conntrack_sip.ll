@@ -2827,7 +2827,7 @@ define internal i32 @sip_help_tcp(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 116
   %15 = load i32, ptr %14, align 4
-  %16 = add i32 %15, %1
+  %16 = add i32 %1, %15
   %17 = sub i32 %13, %16
   %18 = icmp sgt i32 %17, 19
   br i1 %18, label %24, label %19, !prof !28
@@ -2861,7 +2861,7 @@ define internal i32 @sip_help_tcp(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %34 = lshr i16 %33, 2
   %35 = and i16 %34, 60
   %36 = zext nneg i16 %35 to i32
-  %37 = add i32 %36, %1
+  %37 = add i32 %1, %36
   %38 = icmp ult i32 %37, %30
   br i1 %38, label %39, label %.thread
 

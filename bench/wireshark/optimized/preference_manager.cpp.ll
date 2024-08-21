@@ -488,7 +488,7 @@ _ZNSt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit: ; p
 
 select.unfold.i.i:                                ; preds = %32, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %32 ]
-  %35 = icmp eq ptr %15, %.sroa.4.0.i.ph.i.i
+  %35 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %15
   br i1 %35, label %_ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %36
 
 36:                                               ; preds = %select.unfold.i.i

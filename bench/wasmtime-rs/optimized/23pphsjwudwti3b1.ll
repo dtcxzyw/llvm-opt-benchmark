@@ -10965,7 +10965,7 @@ define noundef i32 @_ZN16wasmtime_environ9component3dfg12ComponentDfg14resource_
   %3 = getelementptr inbounds i8, ptr %0, i64 592
   %4 = load i64, ptr %3, align 8, !noundef !9
   %5 = trunc i64 %4 to i32
-  %6 = add i32 %5, %1
+  %6 = add i32 %1, %5
   ret i32 %6
 }
 
@@ -11315,8 +11315,8 @@ define hidden noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg10tr
 
 47:                                               ; preds = %63, %14
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %14 ], [ %64, %63 ]
-  %.pn.i.i = phi i64 [ %43, %14 ], [ %65, %63 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val5.i
+  %.pn.i.i.i.i = phi i64 [ %43, %14 ], [ %65, %63 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i
   %48 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i25.i.i.i = load <16 x i8>, ptr %48, align 1, !noalias !1333
   %49 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, %.15.vec.insert.i.i.i.i
@@ -11344,7 +11344,7 @@ define hidden noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg10tr
   %61 = sub nsw i64 0, %60
   %gep.i.i.i = getelementptr { i32, i32 }, ptr %invariant.gep.i.i.i, i64 %61
   %.val4.i.i.i.i = load i32, ptr %gep.i.i.i, align 4, !alias.scope !1341, !noalias !1346, !noundef !9
-  %62 = icmp eq i32 %.val4.i.i.i.i, %1
+  %62 = icmp eq i32 %1, %.val4.i.i.i.i
   br i1 %62, label %66, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
 
 63:                                               ; preds = %51

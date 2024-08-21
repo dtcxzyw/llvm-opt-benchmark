@@ -529,7 +529,7 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %55 = add nsw i32 %53, 1
   %56 = getelementptr inbounds i8, ptr %21, i64 4
   %57 = load i32, ptr %56, align 4
-  %.not.i.not.i = icmp sgt i32 %57, %53
+  %.not.i.not.i = icmp slt i32 %53, %57
   br i1 %.not.i.not.i, label %Vec_IntSetEntry.exit, label %58
 
 58:                                               ; preds = %Aig_ObjFaninId1.exit
@@ -539,7 +539,7 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
 
 Vec_IntGrow.exit.sink.split.i.i:                  ; preds = %58
   %60 = shl nsw i32 %59, 1
-  %.not.i34 = icmp sgt i32 %60, %53
+  %.not.i34 = icmp slt i32 %53, %60
   %. = select i1 %.not.i34, i32 %60, i32 %55
   %61 = sext i32 %. to i64
   %62 = shl nsw i64 %61, 2
@@ -1362,7 +1362,7 @@ define void @Aig_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %9 = ptrtoint ptr %.val58 to i64
   %10 = and i64 %9, -2
   %11 = inttoptr i64 %10 to ptr
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %4
@@ -1371,7 +1371,7 @@ define void @Aig_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %15 = ptrtoint ptr %.val59 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = icmp eq ptr %17, %1
+  %18 = icmp eq ptr %1, %17
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %13, %4

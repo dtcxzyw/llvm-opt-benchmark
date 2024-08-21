@@ -505,7 +505,7 @@ define dso_local ptr @trace_print_array_seq(ptr noundef %0, ptr noundef readonly
   %7 = getelementptr inbounds i8, ptr %0, i64 8168
   %8 = load i64, ptr %7, align 8
   %9 = sext i32 %2 to i64
-  %10 = mul i64 %9, %3
+  %10 = mul i64 %3, %9
   tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext 123) #10
   %11 = getelementptr i8, ptr %1, i64 %10
   %12 = icmp ugt ptr %11, %1

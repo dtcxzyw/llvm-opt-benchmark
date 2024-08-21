@@ -245,7 +245,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 define hidden range(i32 0, 2) i32 @_is_int(double noundef %0) local_unnamed_addr #0 {
   %2 = fptosi double %0 to i32
   %3 = sitofp i32 %2 to double
-  %4 = fcmp reassoc nsz arcp contract afn oeq double %3, %0
+  %4 = fcmp reassoc nsz arcp contract afn oeq double %0, %3
   %5 = zext i1 %4 to i32
   ret i32 %5
 }
@@ -4186,7 +4186,7 @@ define internal fastcc i32 @print2pixels(ptr nocapture noundef readonly %0, floa
   %22 = tail call i64 @strtol(ptr nocapture noundef nonnull %21, ptr noundef null, i32 noundef 10) #18
   %23 = trunc i64 %22 to i32
   %24 = sitofp i32 %23 to float
-  %25 = fmul reassoc nsz arcp contract afn float %24, %1
+  %25 = fmul reassoc nsz arcp contract afn float %1, %24
   br label %26
 
 26:                                               ; preds = %16, %5, %2

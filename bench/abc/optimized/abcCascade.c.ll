@@ -484,7 +484,7 @@ define range(i32 0, 2) i32 @Abc_ResCheckUnique(ptr nocapture noundef readonly %0
   %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %8 = sext i8 %7 to i32
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   br i1 %9, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5, %3
@@ -538,7 +538,7 @@ define i32 @Abc_ResCheckNonStrict(ptr nocapture noundef readonly %0, i32 noundef
   %indvars.iv.i44.us = phi i64 [ 0, %.lr.ph.preheader.i41.us ], [ %indvars.iv.next.i45.us, %20 ]
   %17 = getelementptr inbounds i8, ptr @Abc_ResCheckNonStrict.Pat1, i64 %indvars.iv.i44.us
   %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, %14
+  %19 = icmp eq i8 %14, %18
   br i1 %19, label %Abc_ResCheckUnique.exit.us, label %20
 
 20:                                               ; preds = %.lr.ph.i43.us
@@ -566,7 +566,7 @@ define i32 @Abc_ResCheckNonStrict(ptr nocapture noundef readonly %0, i32 noundef
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %29 ]
   %26 = getelementptr inbounds i8, ptr @Abc_ResCheckNonStrict.Pat0, i64 %indvars.iv.i.us
   %27 = load i8, ptr %26, align 1
-  %28 = icmp eq i8 %27, %14
+  %28 = icmp eq i8 %14, %27
   br i1 %28, label %Abc_ResCheckUnique.exit.us, label %29
 
 29:                                               ; preds = %.lr.ph.i.us
@@ -841,7 +841,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.crite
   %indvars.iv.i44.us.i = phi i64 [ 0, %.lr.ph.preheader.i41.us.i ], [ %indvars.iv.next.i45.us.i, %89 ]
   %86 = getelementptr inbounds i8, ptr @Abc_ResCheckNonStrict.Pat1, i64 %indvars.iv.i44.us.i
   %87 = load i8, ptr %86, align 1
-  %88 = icmp eq i8 %87, %83
+  %88 = icmp eq i8 %83, %87
   br i1 %88, label %Abc_ResCheckUnique.exit.us.i, label %89
 
 89:                                               ; preds = %.lr.ph.i43.us.i
@@ -869,7 +869,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.crite
   %indvars.iv.i.us.i = phi i64 [ 0, %.lr.ph.preheader.i.us.i ], [ %indvars.iv.next.i.us.i, %98 ]
   %95 = getelementptr inbounds i8, ptr @Abc_ResCheckNonStrict.Pat0, i64 %indvars.iv.i.us.i
   %96 = load i8, ptr %95, align 1
-  %97 = icmp eq i8 %96, %83
+  %97 = icmp eq i8 %83, %96
   br i1 %97, label %Abc_ResCheckUnique.exit.us.i, label %98
 
 98:                                               ; preds = %.lr.ph.i.us.i
@@ -4509,7 +4509,7 @@ define ptr @Abc_NtkBddDec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
   %18 = getelementptr i8, ptr %.val45.val.val, i64 56
   %.val45.val.val.val = load ptr, ptr %18, align 8
   %19 = load i32, ptr %.val45.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %19, %.val46
+  %.not.i.i = icmp slt i32 %.val46, %19
   br i1 %.not.i.i, label %Vec_AttGrow.exit.i.i, label %20
 
 20:                                               ; preds = %.lr.ph

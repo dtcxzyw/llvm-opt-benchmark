@@ -6647,11 +6647,11 @@ define hidden { ptr, i64 } @"_ZN70_$LT$core..ops..range..RangeTo$LT$u32$GT$$u20$
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %3
-  %.not.i.i = icmp ult i64 %5, %2
+  %.not.i.i = icmp ugt i64 %2, %5
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %8
 
 8:                                                ; preds = %7
-  %9 = icmp eq i64 %5, %2
+  %9 = icmp eq i64 %2, %5
   br i1 %9, label %14, label %13
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %7

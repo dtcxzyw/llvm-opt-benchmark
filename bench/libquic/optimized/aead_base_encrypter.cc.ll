@@ -202,7 +202,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   %call2 = call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %call)
-  %cmp = icmp ugt i64 %call2, %max_output_length
+  %cmp = icmp ult i64 %max_output_length, %call2
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

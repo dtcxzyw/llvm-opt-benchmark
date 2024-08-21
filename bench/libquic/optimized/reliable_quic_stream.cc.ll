@@ -749,7 +749,7 @@ entry:
   %frombool = zext i1 %fin to i8
   %call = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
   %call.not = xor i1 %call, true
-  %brmerge = or i1 %call.not, %fin
+  %brmerge = or i1 %fin, %call.not
   br i1 %brmerge, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -957,7 +957,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 _ZN3net16TotalIovecLengthEPK5iovecm.exit:         ; preds = %for.body.i, %if.end
   %length.0.i = phi i64 [ 0, %if.end ], [ %add.i, %for.body.i ]
   %cmp = icmp eq i64 %length.0.i, 0
-  %2 = and i1 %cmp, %fin
+  %2 = and i1 %fin, %cmp
   %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
   %call4 = tail call noundef i64 @_ZNK3net18QuicFlowController14SendWindowSizeEv(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_)
   %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
@@ -1024,7 +1024,7 @@ _ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit: ; preds = %if.then18, %if.
 if.end19:                                         ; preds = %if.end15
   %cmp20 = icmp ule i64 %length.0.i, %send_window.0
   %spec.select = tail call i64 @llvm.umin.i64(i64 %length.0.i, i64 %send_window.0)
-  %spec.select10 = and i1 %cmp20, %fin
+  %spec.select10 = and i1 %fin, %cmp20
   store ptr %iov, ptr %agg.tmp, align 8
   %iov_count3.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %iov_count, ptr %iov_count3.i, align 8

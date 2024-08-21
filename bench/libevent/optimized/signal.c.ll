@@ -231,7 +231,7 @@ define dso_local range(i32 -1, 1) i32 @evsig_ensure_saved_(ptr nocapture noundef
 entry:
   %sh_old_max = getelementptr inbounds i8, ptr %sig, i64 664
   %0 = load i32, ptr %sh_old_max, align 8
-  %cmp.not = icmp sgt i32 %0, %evsignal
+  %cmp.not = icmp slt i32 %evsignal, %0
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -290,7 +290,7 @@ entry:
   %sa = alloca %struct.sigaction, align 8
   %sh_old_max.i = getelementptr inbounds i8, ptr %base, i64 704
   %0 = load i32, ptr %sh_old_max.i, align 8
-  %cmp.not.i = icmp sgt i32 %0, %evsignal
+  %cmp.not.i = icmp slt i32 %evsignal, %0
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -390,7 +390,7 @@ define dso_local range(i32 -1, 1) i32 @evsig_restore_handler_(ptr nocapture noun
 entry:
   %sh_old_max = getelementptr inbounds i8, ptr %base, i64 704
   %0 = load i32, ptr %sh_old_max, align 8
-  %cmp.not = icmp sgt i32 %0, %evsignal
+  %cmp.not = icmp slt i32 %evsignal, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -484,7 +484,7 @@ if.then14:                                        ; preds = %do.body
 
 do.end:                                           ; preds = %do.body, %if.then14
   %8 = load ptr, ptr @evsig_base, align 8
-  %cmp17 = icmp eq ptr %8, %base
+  %cmp17 = icmp eq ptr %base, %8
   br i1 %cmp17, label %if.then18, label %do.body20
 
 if.then18:                                        ; preds = %do.end
@@ -747,7 +747,7 @@ if.then11:                                        ; preds = %do.end7
 do.end14:                                         ; preds = %do.end7, %if.then11
   %sh_old_max.i = getelementptr inbounds i8, ptr %base, i64 704
   %7 = load i32, ptr %sh_old_max.i, align 8
-  %cmp.not.i = icmp sgt i32 %7, %evsignal
+  %cmp.not.i = icmp slt i32 %evsignal, %7
   br i1 %cmp.not.i, label %if.end.i, label %evsig_restore_handler_.exit
 
 if.end.i:                                         ; preds = %do.end14

@@ -5934,12 +5934,12 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
 110:                                              ; preds = %104, %99
   %.171.ph.i = phi i32 [ %.010.i.i.i, %104 ], [ %101, %99 ]
   %111 = load i32, ptr %94, align 4
-  %.not.i.i = icmp sgt i32 %111, %.171.ph.i
+  %.not.i.i = icmp slt i32 %.171.ph.i, %111
   br i1 %.not.i.i, label %131, label %112
 
 112:                                              ; preds = %110
   %113 = load i32, ptr %95, align 8
-  %.not14.i.i = icmp slt i32 %113, %.171.ph.i
+  %.not14.i.i = icmp sgt i32 %.171.ph.i, %113
   br i1 %.not14.i.i, label %131, label %114
 
 114:                                              ; preds = %112

@@ -1348,7 +1348,7 @@ define internal fastcc i32 @find_irq_entry(i32 noundef %0, i32 noundef %1) unnam
   %23 = getelementptr inbounds i8, ptr %11, i64 7
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
-  %26 = icmp eq i32 %25, %1
+  %26 = icmp eq i32 %1, %25
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %22, %15, %9
@@ -1703,7 +1703,7 @@ define dso_local i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %0, i32 noundef %1,
   %26 = getelementptr inbounds i8, ptr %25, i64 4
   %27 = load i8, ptr %26, align 4
   %28 = zext i8 %27 to i32
-  %29 = icmp eq i32 %28, %0
+  %29 = icmp eq i32 %0, %28
   br i1 %29, label %30, label %.loopexit
 
 30:                                               ; preds = %.preheader
@@ -1718,7 +1718,7 @@ define dso_local i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %0, i32 noundef %1,
   %37 = lshr i8 %36, 2
   %38 = and i8 %37, 31
   %39 = zext nneg i8 %38 to i32
-  %40 = icmp eq i32 %39, %1
+  %40 = icmp eq i32 %1, %39
   br i1 %40, label %41, label %.loopexit
 
 41:                                               ; preds = %34
@@ -1821,7 +1821,7 @@ mp_map_pin_to_irq.exit.thread:                    ; preds = %71, %.loopexit19, %
   %97 = load i8, ptr %35, align 1
   %98 = and i8 %97, 3
   %99 = zext nneg i8 %98 to i32
-  %100 = icmp eq i32 %99, %2
+  %100 = icmp eq i32 %2, %99
   br i1 %100, label %.loopexit9, label %101
 
 101:                                              ; preds = %mp_map_pin_to_irq.exit.thread
@@ -2262,14 +2262,14 @@ define internal fastcc i32 @find_isa_irq_pin(i32 noundef %0, i32 noundef %1) unn
   %19 = getelementptr inbounds i8, ptr %11, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   br i1 %22, label %23, label %5
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %11, i64 5
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = icmp eq i32 %26, %0
+  %27 = icmp eq i32 %0, %26
   br i1 %27, label %28, label %5
 
 28:                                               ; preds = %23
@@ -2305,14 +2305,14 @@ define internal fastcc i32 @find_isa_irq_apic(i32 noundef %0, i32 noundef %1) un
   %14 = getelementptr inbounds i8, ptr %6, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = icmp eq i32 %16, %1
+  %17 = icmp eq i32 %1, %16
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %6, i64 5
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
-  %22 = icmp eq i32 %21, %0
+  %22 = icmp eq i32 %0, %21
   br i1 %22, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %18

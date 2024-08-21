@@ -245,7 +245,7 @@ define hidden noundef zeroext i1 @_ZN12outputStream15update_positionEPKcm(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) local_unnamed_addr #0 align 2 {
   %7 = sext i1 %4 to i64
-  %spec.select = add i64 %7, %1
+  %spec.select = add i64 %1, %7
   %8 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 37) #22
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %sub_0
@@ -2285,7 +2285,7 @@ define hidden void @_ZN13defaultStream9start_logEv(ptr noundef nonnull align 8 d
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @tty, align 8
-  %6 = icmp eq ptr %5, %0
+  %6 = icmp eq ptr %0, %5
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
@@ -2678,7 +2678,7 @@ _ZN13defaultStream12has_log_fileEv.exit:          ; preds = %2, %6, %8
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %37) #21
   %38 = getelementptr inbounds i8, ptr %0, i64 88
   %39 = load i64, ptr %38, align 8
-  %.not = icmp eq i64 %39, %1
+  %.not = icmp eq i64 %1, %39
   br i1 %.not, label %52, label %40
 
 40:                                               ; preds = %36
@@ -3277,7 +3277,7 @@ define hidden void @_ZN14bufferedStream5writeEPKcm(ptr noundef nonnull align 8 d
 
 27:                                               ; preds = %21
   %28 = sub i64 %25, %18
-  %.not28 = icmp ugt i64 %28, %2
+  %.not28 = icmp ult i64 %2, %28
   br i1 %.not28, label %31, label %29
 
 29:                                               ; preds = %27

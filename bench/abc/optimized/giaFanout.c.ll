@@ -835,7 +835,7 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntAlloc.e
   %48 = getelementptr inbounds i32, ptr %.val22, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
   %50 = add nsw i32 %49, %.01935
-  %.not.i24 = icmp slt i32 %41, %50
+  %.not.i24 = icmp sgt i32 %50, %41
   br i1 %.not.i24, label %51, label %Vec_IntFillExtra.exit
 
 51:                                               ; preds = %46
@@ -844,7 +844,7 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntAlloc.e
 
 Vec_IntGrow.exit.sink.split.i:                    ; preds = %51
   %52 = shl nsw i32 %40, 1
-  %. = tail call i32 @llvm.smax.i32(i32 %52, i32 %50)
+  %. = tail call i32 @llvm.smax.i32(i32 %50, i32 %52)
   %53 = sext i32 %. to i64
   %54 = shl nsw i64 %53, 2
   %55 = tail call ptr @realloc(ptr noundef nonnull %.val21, i64 noundef %54) #14

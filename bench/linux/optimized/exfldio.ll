@@ -221,12 +221,12 @@ define dso_local i32 @acpi_ex_write_with_update_rule(ptr noundef %0, i64 noundef
 26:                                               ; preds = %23
   %27 = load i64, ptr %6, align 8
   %28 = and i64 %27, %14
-  %29 = or i64 %28, %2
+  %29 = or i64 %2, %28
   br label %.sink.split
 
 30:                                               ; preds = %8
   %31 = xor i64 %1, -1
-  %32 = or i64 %31, %2
+  %32 = or i64 %2, %31
   br label %.sink.split
 
 33:                                               ; preds = %8

@@ -82,7 +82,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN3net5Cubic31
 entry:
   %last_max_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %last_max_congestion_window_, align 8
-  %cmp = icmp ugt i64 %0, %current_congestion_window
+  %cmp = icmp ult i64 %current_congestion_window, %0
   %conv = uitofp i64 %current_congestion_window to float
   %mul = fmul float %conv, 0x3FEB333340000000
   %conv2 = fptosi float %mul to i32

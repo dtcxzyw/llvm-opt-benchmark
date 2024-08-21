@@ -664,7 +664,7 @@ _ZN17crossbeam_channel7context7Context12store_packet17hbbe90e382767dd1bE.exit.i.
   call void @llvm.assume(i1 %98)
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %99 = load i64, ptr %46, align 8, !alias.scope !89, !noalias !90, !noundef !4
-  %.not.i.i = icmp ugt i64 %99, %.016.i.i
+  %.not.i.i = icmp ult i64 %.016.i.i, %99
   br i1 %.not.i.i, label %_ZN17crossbeam_channel5waker5Waker10try_select17hb3b14812dad24739E.exit, label %100
 
 100:                                              ; preds = %.noexc14
@@ -1678,7 +1678,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.6870446237543784614.exit
 
 146:                                              ; preds = %141
   call void @llvm.experimental.noalias.scope.decl(metadata !268)
-  %.not.i13.i = icmp ugt i64 %135, %138
+  %.not.i13.i = icmp ult i64 %138, %135
   br i1 %.not.i13.i, label %150, label %147
 
 147:                                              ; preds = %146
@@ -1894,7 +1894,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.6870446237543784614.exit
 
 224:                                              ; preds = %219
   call void @llvm.experimental.noalias.scope.decl(metadata !334)
-  %.not.i13.i57 = icmp ugt i64 %213, %216
+  %.not.i13.i57 = icmp ult i64 %216, %213
   br i1 %.not.i13.i57, label %228, label %225
 
 225:                                              ; preds = %224

@@ -1503,7 +1503,7 @@ define internal noundef i64 @iso9660_write_data(ptr noundef %0, ptr noundef %1, 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %5, i64 56
   %15 = load i64, ptr %14, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %15, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %15)
   %16 = icmp eq i64 %spec.select, 0
   br i1 %16, label %23, label %17
 
@@ -1647,7 +1647,7 @@ define internal range(i32 -30, 1) i32 @iso9660_finish_entry(ptr noundef %0) #0 {
   %78 = load ptr, ptr %3, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 66272
   %80 = load i64, ptr %79, align 8
-  %81 = icmp ult i64 %80, %spec.select.i.i
+  %81 = icmp ugt i64 %spec.select.i.i, %80
   %82 = icmp eq i64 %80, 0
   %or.cond.i.i.i = or i1 %81, %82
   br i1 %or.cond.i.i.i, label %wb_consume.exit.thread45.i.i, label %83
@@ -2169,7 +2169,7 @@ zisofs_extract_init.exit.i.thread.i:              ; preds = %zisofs_extract_init
   %226 = load ptr, ptr %7, align 8
   %227 = getelementptr inbounds i8, ptr %226, i64 66272
   %228 = load i64, ptr %227, align 8
-  %229 = icmp ult i64 %228, %..091.i.i
+  %229 = icmp ugt i64 %..091.i.i, %228
   %230 = icmp eq i64 %228, 0
   %or.cond.i.i.i = or i1 %229, %230
   br i1 %or.cond.i.i.i, label %wb_consume.exit.thread.i.i, label %231
@@ -6185,7 +6185,7 @@ define internal fastcc i32 @write_null(ptr noundef %0, i64 noundef %1) unnamed_a
   %7 = getelementptr inbounds i8, ptr %4, i64 732
   %8 = sub i64 65536, %6
   %9 = getelementptr inbounds [65536 x i8], ptr %7, i64 0, i64 %8
-  %.not = icmp ult i64 %6, %1
+  %.not = icmp ugt i64 %1, %6
   br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %2
@@ -6193,7 +6193,7 @@ define internal fastcc i32 @write_null(ptr noundef %0, i64 noundef %1) unnamed_a
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 66272
   %13 = load i64, ptr %12, align 8
-  %14 = icmp ult i64 %13, %1
+  %14 = icmp ugt i64 %1, %13
   %15 = icmp eq i64 %13, 0
   %or.cond.i = or i1 %14, %15
   br i1 %or.cond.i, label %16, label %17
@@ -6217,7 +6217,7 @@ define internal fastcc i32 @write_null(ptr noundef %0, i64 noundef %1) unnamed_a
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 66272
   %25 = load i64, ptr %24, align 8
-  %26 = icmp ult i64 %25, %6
+  %26 = icmp ugt i64 %6, %25
   %27 = icmp eq i64 %25, 0
   %or.cond.i44 = or i1 %26, %27
   br i1 %or.cond.i44, label %wb_consume.exit46.thread52, label %28
@@ -6261,7 +6261,7 @@ wb_consume.exit46.thread:                         ; preds = %28, %wb_consume.exi
   %44 = load ptr, ptr %3, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 66272
   %46 = load i64, ptr %45, align 8
-  %47 = icmp ult i64 %46, %spec.select
+  %47 = icmp ugt i64 %spec.select, %46
   %48 = icmp eq i64 %46, 0
   %or.cond.i47 = or i1 %47, %48
   br i1 %or.cond.i47, label %wb_consume.exit49.thread57, label %49
@@ -6301,7 +6301,7 @@ define internal fastcc i32 @wb_consume(ptr noundef %0, i64 noundef %1) unnamed_a
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 66272
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   %8 = icmp eq i64 %6, 0
   %or.cond = or i1 %7, %8
   br i1 %or.cond, label %9, label %10
@@ -6611,7 +6611,7 @@ define internal fastcc void @zisofs_detect_magic(ptr %.248.val, ptr noundef read
   %11 = icmp ne i32 %10, 0
   %sext = shl i64 %.0751, 32
   %12 = ashr exact i64 %sext, 32
-  %.not = icmp ugt i64 %12, %1
+  %.not = icmp ult i64 %1, %12
   %or.cond90 = select i1 %11, i1 true, i1 %.not
   br i1 %or.cond90, label %13, label %26
 
@@ -6859,7 +6859,7 @@ define internal fastcc i32 @zisofs_write_to_temp(ptr noundef %0, ptr noundef %1,
   %77 = load ptr, ptr %4, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 66272
   %79 = load i64, ptr %78, align 8
-  %80 = icmp ult i64 %79, %76
+  %80 = icmp ugt i64 %76, %79
   %81 = icmp eq i64 %79, 0
   %or.cond.i = or i1 %80, %81
   br i1 %or.cond.i, label %wb_consume.exit.thread99, label %82
@@ -7035,7 +7035,7 @@ write_to_temp.exit:                               ; preds = %18
   %36 = load ptr, ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 66272
   %38 = load i64, ptr %37, align 8
-  %39 = icmp ult i64 %38, %spec.select
+  %39 = icmp ugt i64 %spec.select, %38
   %40 = icmp eq i64 %38, 0
   %or.cond.i = or i1 %39, %40
   br i1 %or.cond.i, label %wb_consume.exit.thread45, label %41
@@ -7136,7 +7136,7 @@ write_to_temp.exit:                               ; preds = %29
   br label %.loopexit
 
 38:                                               ; preds = %19
-  %39 = icmp sgt i64 %13, %1
+  %39 = icmp slt i64 %1, %13
   br i1 %39, label %46, label %53
 
 .thread.loopexit:                                 ; preds = %33
@@ -7151,7 +7151,7 @@ write_to_temp.exit:                               ; preds = %29
   %43 = tail call i64 @lseek(i32 noundef %42, i64 noundef %40, i32 noundef 0) #23
   store i64 65536, ptr %9, align 8
   %44 = load i64, ptr %12, align 8
-  %45 = icmp sgt i64 %44, %1
+  %45 = icmp slt i64 %1, %44
   br i1 %45, label %.thread68, label %.thread._crit_edge
 
 .thread._crit_edge:                               ; preds = %.thread
@@ -7177,7 +7177,7 @@ write_to_temp.exit:                               ; preds = %29
 53:                                               ; preds = %.thread._crit_edge, %38
   %54 = phi i64 [ %.pre75, %.thread._crit_edge ], [ %20, %38 ]
   %55 = phi i64 [ %44, %.thread._crit_edge ], [ %13, %38 ]
-  %.not58 = icmp slt i64 %54, %1
+  %.not58 = icmp sgt i64 %1, %54
   br i1 %.not58, label %58, label %56
 
 56:                                               ; preds = %53
@@ -8195,7 +8195,7 @@ define internal fastcc i32 @write_path_table(ptr noundef %0, i32 noundef %1, ptr
   %44 = load ptr, ptr %8, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 66272
   %46 = load i64, ptr %45, align 8
-  %47 = icmp ult i64 %46, %38
+  %47 = icmp ugt i64 %38, %46
   %48 = icmp eq i64 %46, 0
   %or.cond.i.i = or i1 %47, %48
   br i1 %or.cond.i.i, label %wb_consume.exit.thread.i, label %49
@@ -8343,7 +8343,7 @@ wb_consume.exit.thread80.i:                       ; preds = %wb_consume.exit.i, 
   %126 = load ptr, ptr %8, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 66272
   %128 = load i64, ptr %127, align 8
-  %129 = icmp ult i64 %128, %125
+  %129 = icmp ugt i64 %125, %128
   %130 = icmp eq i64 %128, 0
   %or.cond.i76.i = or i1 %129, %130
   br i1 %or.cond.i76.i, label %wb_consume.exit78.thread.i, label %131
@@ -11152,7 +11152,7 @@ define internal fastcc i32 @set_directory_record(ptr noundef %0, i64 noundef %1,
   %21 = getelementptr inbounds i8, ptr %2, i64 %.sink
   %.085.in = load i32, ptr %21, align 4
   %.085 = sext i32 %.085.in to i64
-  %22 = icmp ugt i64 %.085, %1
+  %22 = icmp ult i64 %1, %.085
   br i1 %22, label %1240, label %23
 
 23:                                               ; preds = %19, %6
@@ -11539,7 +11539,7 @@ default.unreachable:                              ; preds = %1230, %95
 224:                                              ; preds = %201
   %225 = getelementptr inbounds i8, ptr %2, i64 32
   %226 = load ptr, ptr %225, align 8
-  %227 = icmp eq ptr %226, %2
+  %227 = icmp eq ptr %2, %226
   br i1 %227, label %228, label %.thread521.i
 
 228:                                              ; preds = %224
@@ -14708,7 +14708,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @write_file_contents(ptr no
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 66272
   %26 = load i64, ptr %25, align 8
-  %27 = icmp ult i64 %26, %17
+  %27 = icmp ugt i64 %17, %26
   br i1 %27, label %wb_consume.exit.thread, label %28
 
 wb_consume.exit.thread:                           ; preds = %22

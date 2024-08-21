@@ -460,13 +460,13 @@ if.else.i.i:                                      ; preds = %if.then4.i
   %idxprom.i.i.i = zext i8 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, i64 0, i64 %idxprom.i.i.i
   %25 = load i8, ptr %arrayidx.i.i.i, align 1
-  %cmp5.i.i = icmp eq i8 %25, %14
+  %cmp5.i.i = icmp eq i8 %14, %25
   br i1 %cmp5.i.i, label %if.end17.i.i, label %if.else8.i.i
 
 if.else8.i.i:                                     ; preds = %if.else.i.i
   %arrayidx.i7.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, i64 0, i64 %idxprom.i.i.i
   %26 = load i8, ptr %arrayidx.i7.i.i, align 1
-  %cmp12.i.i = icmp eq i8 %26, %14
+  %cmp12.i.i = icmp eq i8 %14, %26
   br i1 %cmp12.i.i, label %if.end17.i.i, label %if.else
 
 if.end17.i.i:                                     ; preds = %if.else8.i.i, %if.else.i.i, %if.then4.i
@@ -521,7 +521,7 @@ if.end15.i:                                       ; preds = %if.end5.i
   %idxprom.i.i = zext i8 %21 to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, i64 0, i64 %idxprom.i.i
   %38 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp19.i = icmp eq i8 %38, %14
+  %cmp19.i = icmp eq i8 %14, %38
   br i1 %cmp19.i, label %land.lhs.true.i, label %if.end22.i
 
 land.lhs.true.i:                                  ; preds = %if.end15.i
@@ -565,7 +565,7 @@ if.else.i62.i:                                    ; preds = %if.then7.i56.i, %if
 if.else8.i66.i:                                   ; preds = %if.else.i62.i
   %arrayidx.i7.i67.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, i64 0, i64 %idxprom.i.i
   %47 = load i8, ptr %arrayidx.i7.i67.i, align 1
-  %cmp12.i68.i = icmp eq i8 %47, %14
+  %cmp12.i68.i = icmp eq i8 %14, %47
   br i1 %cmp12.i68.i, label %if.end17.i70.i, label %if.else
 
 if.end17.i70.i:                                   ; preds = %if.else8.i66.i, %if.else.i62.i
@@ -777,7 +777,7 @@ invoke.cont4:                                     ; preds = %call.i.i.noexc.invo
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
   %sub.ptr.div.i.i9 = sdiv exact i64 %sub.ptr.sub.i.i8, 40
   %conv = trunc i64 %sub.ptr.div.i.i9 to i32
-  %cmp.not.i.i = icmp ugt ptr %6, %7
+  %cmp.not.i.i = icmp ult ptr %7, %6
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %invoke.cont4
@@ -817,7 +817,7 @@ for.body:                                         ; preds = %invoke.cont8, %for.
   %i.sroa.0.044 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %11, %invoke.cont8 ]
   %14 = load i32, ptr %i.sroa.0.044, align 8
   %15 = load ptr, ptr %output_stream, align 8
-  %cmp.not.i.i16 = icmp ugt ptr %15, %13
+  %cmp.not.i.i16 = icmp ult ptr %13, %15
   br i1 %cmp.not.i.i16, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i18, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %for.body
@@ -1053,7 +1053,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %for.body.i.i.i12

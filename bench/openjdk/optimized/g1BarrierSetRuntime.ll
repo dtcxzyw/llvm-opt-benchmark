@@ -61,7 +61,7 @@ define hidden void @_ZN19G1BarrierSetRuntime26write_ref_array_post_entryEPP12Hea
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %4 = load i32, ptr @heapOopSize, align 4
   %5 = sext i32 %4 to i64
-  %6 = mul i64 %5, %1
+  %6 = mul i64 %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   %8 = ptrtoint ptr %0 to i64
   %9 = and i64 %8, -8

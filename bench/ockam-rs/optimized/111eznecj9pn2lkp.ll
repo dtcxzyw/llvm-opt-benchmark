@@ -2989,7 +2989,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.llvm.27000
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -4805,7 +4805,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i: ; preds = %26
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !alias.scope !588, !noalias !586, !noundef !10
   %47 = sub i64 %46, %44
-  %48 = icmp ult i64 %47, %42
+  %48 = icmp ugt i64 %42, %47
   br i1 %48, label %49, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h85e9aae7825bfc49E.exit.i"
 
 49:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
@@ -4859,7 +4859,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !601, !noalias !599, !noundef !10
   %8 = sub i64 %7, %5
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h85e9aae7825bfc49E.exit"
 
 10:                                               ; preds = %3
@@ -12970,7 +12970,7 @@ common.resume:                                    ; preds = %.body, %477, %461, 
 76:                                               ; preds = %.noexc17.i
   %77 = getelementptr inbounds i8, ptr %74, i64 8
   %78 = load i64, ptr %77, align 8, !noalias !2048
-  %79 = icmp ugt i64 %78, %2
+  %79 = icmp ult i64 %2, %78
   br i1 %79, label %.thread.i, label %80
 
 80:                                               ; preds = %76
@@ -13017,7 +13017,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.i.i: ; preds = %.noexc20.i
   %98 = getelementptr inbounds i8, ptr %95, i64 24
   %99 = load i64, ptr %98, align 8, !noalias !2060
-  %100 = icmp ult i64 %99, %2
+  %100 = icmp ugt i64 %2, %99
   br i1 %100, label %.thread.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.i.i, %.noexc20.i, %.noexc19.i, %.noexc18.i, %.noexc17.i

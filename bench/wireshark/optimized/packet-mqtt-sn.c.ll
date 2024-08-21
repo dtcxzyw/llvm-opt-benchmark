@@ -255,7 +255,7 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %30 = add nuw nsw i32 %3, 1
   %31 = load i32, ptr @hf_mqttsn_msg_len, align 4
   %32 = zext i1 %.not to i32
-  %33 = add nuw nsw i32 %32, %3
+  %33 = add nuw nsw i32 %3, %32
   %34 = select i1 %.not, i32 2, i32 1
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %31, ptr noundef %0, i32 noundef %33, i32 noundef %34, i32 noundef 0) #2
   %36 = add nuw nsw i32 %30, %11

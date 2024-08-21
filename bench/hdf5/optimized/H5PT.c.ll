@@ -692,7 +692,7 @@ define range(i32 -1, 1) i32 @H5PTset_index(i64 noundef %0, i64 noundef %1) local
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %10, label %H5PT_set_index.exit
 
 10:                                               ; preds = %6

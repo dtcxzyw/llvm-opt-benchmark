@@ -5410,7 +5410,7 @@ cond.false.i.i47:                                 ; preds = %if.end.i.i43
 
 _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i: ; preds = %cond.false.i.i47, %cond.true.i.i51
   %storage.i.pn.i.i49 = phi ptr [ %storage.i.i.i52, %cond.true.i.i51 ], [ %38, %cond.false.i.i47 ]
-  %cmp.i.i5.i = icmp ult i64 %33, %29
+  %cmp.i.i5.i = icmp ugt i64 %29, %33
   br i1 %cmp.i.i5.i, label %if.then.i.i.i127.invoke, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i
@@ -5752,7 +5752,7 @@ cond.false.i.i114:                                ; preds = %if.end.i.i110
 
 _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i116: ; preds = %cond.false.i.i114, %cond.true.i.i128
   %storage.i.pn.i.i117 = phi ptr [ %storage.i.i.i129, %cond.true.i.i128 ], [ %81, %cond.false.i.i114 ]
-  %cmp.i.i5.i118 = icmp ult i64 %76, %72
+  %cmp.i.i5.i118 = icmp ugt i64 %72, %76
   br i1 %cmp.i.i5.i118, label %if.then.i.i.i127.invoke, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i119
 
 if.then.i.i.i127.invoke:                          ; preds = %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i116
@@ -6177,7 +6177,7 @@ cond.false.i.i59:                                 ; preds = %if.end.i.i55
 
 _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i: ; preds = %cond.false.i.i59, %cond.true.i.i63
   %storage.i.pn.i.i61 = phi ptr [ %storage.i.i.i64, %cond.true.i.i63 ], [ %22, %cond.false.i.i59 ]
-  %cmp.i.i5.i = icmp ult i64 %17, %14
+  %cmp.i.i5.i = icmp ugt i64 %14, %17
   br i1 %cmp.i.i5.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i
@@ -6576,7 +6576,7 @@ _ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.ex
   %arrayidx.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i.i, i64 0, i64 %idxprom.i.i
   %20 = load ptr, ptr %arrayidx.i.i, align 8
   %21 = load i64, ptr %20, align 8
-  %cmp.not.i.i = icmp ugt i64 %21, %seek.0136
+  %cmp.not.i.i = icmp ult i64 %seek.0136, %21
   br i1 %cmp.not.i.i, label %if.end.i.i29, label %invoke.cont20
 
 if.end.i.i29:                                     ; preds = %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.i
@@ -6587,7 +6587,7 @@ if.end.i.i29:                                     ; preds = %_ZN4absl13cord_inte
   %arrayidx5.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i.i, i64 0, i64 %conv.i.i.i.i31
   %23 = load ptr, ptr %arrayidx5.i.i.i, align 8
   %24 = load i64, ptr %23, align 8
-  %cmp.not6.i.i.i = icmp ugt i64 %24, %seek.0136
+  %cmp.not6.i.i.i = icmp ult i64 %seek.0136, %24
   br i1 %cmp.not6.i.i.i, label %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit.i.i, label %while.body.i.i.i32
 
 while.body.i.i.i32:                               ; preds = %if.end.i.i29, %while.body.i.i.i32
@@ -6633,7 +6633,7 @@ while.body.i.i:                                   ; preds = %_ZNK4absl13cord_int
   %arrayidx5.i20.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i.i, i64 0, i64 %conv.i.i18.i.i
   %31 = load ptr, ptr %arrayidx5.i20.i.i, align 8
   %32 = load i64, ptr %31, align 8
-  %cmp.not6.i21.i.i = icmp ugt i64 %32, %offset.addr.0.lcssa.i.pn39.i.i
+  %cmp.not6.i21.i.i = icmp ult i64 %offset.addr.0.lcssa.i.pn39.i.i, %32
   br i1 %cmp.not6.i21.i.i, label %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit33.i.i, label %while.body.i22.i.i
 
 while.body.i22.i.i:                               ; preds = %while.body.i.i, %while.body.i22.i.i
@@ -6701,7 +6701,7 @@ cond.false.i.i40:                                 ; preds = %if.end.i3.i
 
 _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i: ; preds = %cond.false.i.i40, %cond.true.i.i43
   %storage.i.pn.i.i42 = phi ptr [ %storage.i.i.i44, %cond.true.i.i43 ], [ %42, %cond.false.i.i40 ]
-  %cmp.i.i7.i = icmp ult i64 %37, %offset.addr.0.lcssa.i.pn.lcssa.i.i
+  %cmp.i.i7.i = icmp ugt i64 %offset.addr.0.lcssa.i.pn.lcssa.i.i, %37
   br i1 %cmp.i.i7.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i
@@ -7165,7 +7165,7 @@ entry:
   %arrayidx.i = getelementptr inbounds [12 x ptr], ptr %node_.i, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %2 = load i64, ptr %1, align 8
-  %cmp.not.i = icmp ugt i64 %2, %offset
+  %cmp.not.i = icmp ult i64 %offset, %2
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
@@ -7176,7 +7176,7 @@ if.end.i:                                         ; preds = %entry
   %arrayidx5.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i, i64 0, i64 %conv.i.i.i
   %4 = load ptr, ptr %arrayidx5.i.i, align 8
   %5 = load i64, ptr %4, align 8
-  %cmp.not6.i.i = icmp ugt i64 %5, %offset
+  %cmp.not6.i.i = icmp ult i64 %offset, %5
   br i1 %cmp.not6.i.i, label %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i, %while.body.i.i
@@ -7223,7 +7223,7 @@ while.body.i:                                     ; preds = %_ZNK4absl13cord_int
   %arrayidx5.i20.i = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i, i64 0, i64 %conv.i.i18.i
   %12 = load ptr, ptr %arrayidx5.i20.i, align 8
   %13 = load i64, ptr %12, align 8
-  %cmp.not6.i21.i = icmp ugt i64 %13, %offset.addr.0.lcssa.i.pn39.i
+  %cmp.not6.i21.i = icmp ult i64 %offset.addr.0.lcssa.i.pn39.i, %13
   br i1 %cmp.not6.i21.i, label %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit33.i, label %while.body.i22.i
 
 while.body.i22.i:                                 ; preds = %while.body.i, %while.body.i22.i
@@ -7291,7 +7291,7 @@ cond.false.i:                                     ; preds = %if.end.i3
 
 _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit: ; preds = %cond.true.i, %cond.false.i
   %storage.i.pn.i = phi ptr [ %storage.i.i, %cond.true.i ], [ %23, %cond.false.i ]
-  %cmp.i.i7 = icmp ult i64 %18, %offset.addr.0.lcssa.i.pn.lcssa.i
+  %cmp.i.i7 = icmp ugt i64 %offset.addr.0.lcssa.i.pn.lcssa.i, %18
   br i1 %cmp.i.i7, label %if.then.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
 if.then.i.i:                                      ; preds = %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit

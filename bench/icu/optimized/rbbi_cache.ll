@@ -65,10 +65,10 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator15Di
 entry:
   %fLimit = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %fLimit, align 8
-  %cmp.not = icmp sle i32 %0, %fromPos
+  %cmp.not = icmp sge i32 %fromPos, %0
   %fStart = getelementptr inbounds i8, ptr %this, i64 44
   %1 = load i32, ptr %fStart, align 4
-  %cmp2 = icmp sgt i32 %1, %fromPos
+  %cmp2 = icmp slt i32 %fromPos, %1
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   %fPositionInCache = getelementptr inbounds i8, ptr %this, i64 40
   br i1 %or.cond, label %if.then, label %if.end
@@ -168,13 +168,13 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator15Di
 entry:
   %fStart = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %fStart, align 4
-  %cmp.not = icmp slt i32 %0, %fromPos
+  %cmp.not = icmp sgt i32 %fromPos, %0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
   %fLimit = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %fLimit, align 8
-  %cmp2 = icmp slt i32 %1, %fromPos
+  %cmp2 = icmp sgt i32 %fromPos, %1
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -183,7 +183,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %cmp4 = icmp eq i32 %1, %fromPos
+  %cmp4 = icmp eq i32 %fromPos, %1
   br i1 %cmp4, label %if.then5, label %if.end.if.end11_crit_edge
 
 if.end.if.end11_crit_edge:                        ; preds = %if.end
@@ -380,7 +380,7 @@ cond.false:                                       ; preds = %while.cond8
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i64 [ %add, %cond.true ], [ %call12, %cond.false ]
   %conv13 = trunc i64 %cond to i32
-  %cmp14 = icmp slt i32 %conv13, %endPos
+  %cmp14 = icmp sgt i32 %endPos, %conv13
   %conv15 = and i32 %category.1.in, 65535
   %cmp16 = icmp ult i32 %conv15, %7
   %13 = select i1 %cmp14, i1 %cmp16, i1 false
@@ -450,7 +450,7 @@ cond.true.i:                                      ; preds = %if.then46
 
 _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %if.then46, %cond.true.i
   %cond.i = phi i32 [ %27, %cond.true.i ], [ 0, %if.then46 ]
-  %cmp49 = icmp sgt i32 %cond.i, %startPos
+  %cmp49 = icmp slt i32 %startPos, %cond.i
   br i1 %cmp49, label %if.then50, label %if.end52
 
 if.then50:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
@@ -474,7 +474,7 @@ cond.true.i.i.i:                                  ; preds = %if.end52
 
 _ZNK6icu_759UVector325peekiEv.exit:               ; preds = %if.end52, %cond.true.i.i.i
   %cond.i.i.i = phi i32 [ %32, %cond.true.i.i.i ], [ 0, %if.end52 ]
-  %cmp55 = icmp slt i32 %cond.i.i.i, %endPos
+  %cmp55 = icmp sgt i32 %endPos, %cond.i.i.i
   br i1 %cmp55, label %if.then56, label %if.end59
 
 if.then56:                                        ; preds = %_ZNK6icu_759UVector325peekiEv.exit
@@ -641,7 +641,7 @@ entry:
 if.end:                                           ; preds = %entry
   %fTextIdx = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %fTextIdx, align 8
-  %cmp = icmp eq i32 %1, %startPos
+  %cmp = icmp eq i32 %startPos, %1
   br i1 %cmp, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
@@ -651,7 +651,7 @@ lor.lhs.false:                                    ; preds = %if.end
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr inbounds [128 x i32], ptr %fBoundaries.i, i64 0, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
-  %cmp.i4 = icmp sgt i32 %3, %startPos
+  %cmp.i4 = icmp slt i32 %startPos, %3
   br i1 %cmp.i4, label %lor.lhs.false4, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false
@@ -660,11 +660,11 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   %idxprom3.i = sext i32 %4 to i64
   %arrayidx4.i = getelementptr inbounds [128 x i32], ptr %fBoundaries.i, i64 0, i64 %idxprom3.i
   %5 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp slt i32 %5, %startPos
+  %cmp5.i = icmp sgt i32 %startPos, %5
   br i1 %cmp5.i, label %lor.lhs.false4, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp10.i = icmp eq i32 %3, %startPos
+  %cmp10.i = icmp eq i32 %startPos, %3
   br i1 %cmp10.i, label %if.then11.i, label %if.end17.i
 
 if.then11.i:                                      ; preds = %if.end.i
@@ -673,7 +673,7 @@ if.then11.i:                                      ; preds = %if.end.i
   br label %_ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi.exit
 
 if.end17.i:                                       ; preds = %if.end.i
-  %cmp22.i = icmp eq i32 %5, %startPos
+  %cmp22.i = icmp eq i32 %startPos, %5
   br i1 %cmp22.i, label %if.then23.i, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.end17.i
@@ -789,7 +789,7 @@ entry:
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
-  %cmp = icmp sgt i32 %1, %pos
+  %cmp = icmp slt i32 %pos, %1
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -798,11 +798,11 @@ lor.lhs.false:                                    ; preds = %entry
   %idxprom3 = sext i32 %2 to i64
   %arrayidx4 = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom3
   %3 = load i32, ptr %arrayidx4, align 4
-  %cmp5 = icmp slt i32 %3, %pos
+  %cmp5 = icmp sgt i32 %pos, %3
   br i1 %cmp5, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %cmp10 = icmp eq i32 %1, %pos
+  %cmp10 = icmp eq i32 %pos, %1
   br i1 %cmp10, label %if.then11, label %if.end17
 
 if.then11:                                        ; preds = %if.end
@@ -811,7 +811,7 @@ if.then11:                                        ; preds = %if.end
   br label %return.sink.split
 
 if.end17:                                         ; preds = %if.end
-  %cmp22 = icmp eq i32 %3, %pos
+  %cmp22 = icmp eq i32 %pos, %3
   br i1 %cmp22, label %if.then23, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end17
@@ -880,7 +880,7 @@ if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
   %sub = add nsw i32 %2, -15
-  %cmp = icmp slt i32 %sub, %position
+  %cmp = icmp sgt i32 %position, %sub
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
@@ -890,7 +890,7 @@ land.lhs.true:                                    ; preds = %if.end
   %arrayidx4 = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom3
   %4 = load i32, ptr %arrayidx4, align 4
   %add = add nsw i32 %4, 15
-  %cmp5 = icmp sgt i32 %add, %position
+  %cmp5 = icmp slt i32 %position, %add
   br i1 %cmp5, label %if.end67, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
@@ -1229,7 +1229,7 @@ entry:
 if.end:                                           ; preds = %entry
   %fTextIdx = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %fTextIdx, align 8
-  %cmp = icmp eq i32 %1, %startPos
+  %cmp = icmp eq i32 %startPos, %1
   br i1 %cmp, label %if.then10, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
@@ -1239,7 +1239,7 @@ lor.lhs.false:                                    ; preds = %if.end
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr inbounds [128 x i32], ptr %fBoundaries.i, i64 0, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
-  %cmp.i6 = icmp sgt i32 %3, %startPos
+  %cmp.i6 = icmp slt i32 %startPos, %3
   br i1 %cmp.i6, label %lor.lhs.false4, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false
@@ -1248,11 +1248,11 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   %idxprom3.i = sext i32 %4 to i64
   %arrayidx4.i = getelementptr inbounds [128 x i32], ptr %fBoundaries.i, i64 0, i64 %idxprom3.i
   %5 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp slt i32 %5, %startPos
+  %cmp5.i = icmp sgt i32 %startPos, %5
   br i1 %cmp5.i, label %lor.lhs.false4, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp10.i = icmp eq i32 %3, %startPos
+  %cmp10.i = icmp eq i32 %startPos, %3
   br i1 %cmp10.i, label %if.then11.i, label %if.end17.i
 
 if.then11.i:                                      ; preds = %if.end.i
@@ -1261,7 +1261,7 @@ if.then11.i:                                      ; preds = %if.end.i
   br label %_ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi.exit
 
 if.end17.i:                                       ; preds = %if.end.i
-  %cmp22.i = icmp eq i32 %5, %startPos
+  %cmp22.i = icmp eq i32 %startPos, %5
   br i1 %cmp22.i, label %if.then23.i, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.end17.i
@@ -1320,7 +1320,7 @@ lor.lhs.false4.if.then7_crit_edge:                ; preds = %lor.lhs.false4
 
 if.then7:                                         ; preds = %lor.lhs.false4.if.then7_crit_edge, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi.exit
   %8 = phi i32 [ %.pre, %lor.lhs.false4.if.then7_crit_edge ], [ %7, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi.exit ]
-  %cmp9 = icmp eq i32 %8, %startPos
+  %cmp9 = icmp eq i32 %startPos, %8
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.end, %if.then7
@@ -1505,10 +1505,10 @@ entry:
   %4 = load ptr, ptr %fDictionaryCache, align 8
   %fLimit.i = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load i32, ptr %fLimit.i, align 8
-  %cmp.not.i = icmp sle i32 %5, %1
+  %cmp.not.i = icmp sge i32 %1, %5
   %fStart.i = getelementptr inbounds i8, ptr %4, i64 44
   %6 = load i32, ptr %fStart.i, align 4
-  %cmp2.i = icmp sgt i32 %6, %1
+  %cmp2.i = icmp slt i32 %1, %6
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
   %fPositionInCache.i = getelementptr inbounds i8, ptr %4, i64 40
   br i1 %or.cond.i, label %if.end, label %if.end.i
@@ -1620,10 +1620,10 @@ if.then13:                                        ; preds = %if.end9
   %24 = load ptr, ptr %fDictionaryCache17, align 8
   %fLimit.i7 = getelementptr inbounds i8, ptr %24, i64 48
   %25 = load i32, ptr %fLimit.i7, align 8
-  %cmp.not.i8 = icmp sle i32 %25, %1
+  %cmp.not.i8 = icmp sge i32 %1, %25
   %fStart.i9 = getelementptr inbounds i8, ptr %24, i64 44
   %26 = load i32, ptr %fStart.i9, align 4
-  %cmp2.i10 = icmp sgt i32 %26, %1
+  %cmp2.i10 = icmp slt i32 %1, %26
   %or.cond.i11 = select i1 %cmp.not.i8, i1 true, i1 %cmp2.i10
   %fPositionInCache.i12 = getelementptr inbounds i8, ptr %24, i64 40
   br i1 %or.cond.i11, label %if.end22.sink.split, label %if.end.i13
@@ -1840,13 +1840,13 @@ if.end3:                                          ; preds = %if.end
   %4 = load ptr, ptr %fDictionaryCache, align 8
   %fStart.i = getelementptr inbounds i8, ptr %4, i64 44
   %5 = load i32, ptr %fStart.i, align 4
-  %cmp.not.i = icmp slt i32 %5, %2
+  %cmp.not.i = icmp sgt i32 %2, %5
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %if.end3
   %fLimit.i = getelementptr inbounds i8, ptr %4, i64 48
   %6 = load i32, ptr %fLimit.i, align 8
-  %cmp2.i = icmp slt i32 %6, %2
+  %cmp2.i = icmp sgt i32 %2, %6
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end3
@@ -1854,7 +1854,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9precedingEiPiS2_.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp4.i = icmp eq i32 %6, %2
+  %cmp4.i = icmp eq i32 %2, %6
   br i1 %cmp4.i, label %if.then5.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
@@ -2135,10 +2135,10 @@ if.then51:                                        ; preds = %if.end48
   %46 = load ptr, ptr %fDictionaryCache55285, align 8
   %fLimit.i53286 = getelementptr inbounds i8, ptr %46, i64 48
   %47 = load i32, ptr %fLimit.i53286, align 8
-  %cmp.not.i54287 = icmp sle i32 %47, %position.2
+  %cmp.not.i54287 = icmp sge i32 %position.2, %47
   %fStart.i55288 = getelementptr inbounds i8, ptr %46, i64 44
   %48 = load i32, ptr %fStart.i55288, align 4
-  %cmp2.i56289 = icmp sgt i32 %48, %position.2
+  %cmp2.i56289 = icmp slt i32 %position.2, %48
   %or.cond.i290 = select i1 %cmp.not.i54287, i1 true, i1 %cmp2.i56289
   %fPositionInCache.i57291 = getelementptr inbounds i8, ptr %46, i64 40
   br i1 %or.cond.i290, label %if.end63.thread, label %if.end.i58
@@ -2284,10 +2284,10 @@ _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107: ; preds = %_ZN6icu_759U
   %69 = load ptr, ptr %fDictionaryCache55, align 8
   %fLimit.i53 = getelementptr inbounds i8, ptr %69, i64 48
   %70 = load i32, ptr %fLimit.i53, align 8
-  %cmp.not.i54 = icmp sle i32 %70, %position.6
+  %cmp.not.i54 = icmp sge i32 %position.6, %70
   %fStart.i55 = getelementptr inbounds i8, ptr %69, i64 44
   %71 = load i32, ptr %fStart.i55, align 4
-  %cmp2.i56 = icmp sgt i32 %71, %position.6
+  %cmp2.i56 = icmp slt i32 %position.6, %71
   %or.cond.i = select i1 %cmp.not.i54, i1 true, i1 %cmp2.i56
   %fPositionInCache.i57 = getelementptr inbounds i8, ptr %69, i64 40
   br i1 %or.cond.i, label %if.end63.thread317, label %if.end.i58, !llvm.loop !17

@@ -1031,7 +1031,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %
   %307 = fptrunc double %306 to float
   %308 = fmul reassoc nsz arcp contract afn float %307, 2.000000e+00
   %309 = fpext float %308 to double
-  %310 = fmul reassoc nsz arcp contract afn float %17, %2
+  %310 = fmul reassoc nsz arcp contract afn float %2, %17
   %311 = fadd reassoc nsz arcp contract afn float %310, %99
   %312 = fsub reassoc nsz arcp contract afn float %36, %311
   %313 = fpext float %312 to double

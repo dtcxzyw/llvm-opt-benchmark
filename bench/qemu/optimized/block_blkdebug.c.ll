@@ -901,7 +901,7 @@ if.end10:                                         ; preds = %if.end
   %1 = load i32, ptr %max_transfer, align 8
   %tobool.not = icmp ne i32 %1, 0
   %conv15 = zext i32 %1 to i64
-  %cmp16.not = icmp slt i64 %conv15, %bytes
+  %cmp16.not = icmp sgt i64 %bytes, %conv15
   %or.cond = and i1 %tobool.not, %cmp16.not
   br i1 %or.cond, label %if.else19, label %if.end21
 
@@ -953,7 +953,7 @@ if.end10:                                         ; preds = %if.end
   %1 = load i32, ptr %max_transfer, align 8
   %tobool.not = icmp ne i32 %1, 0
   %conv15 = zext i32 %1 to i64
-  %cmp16.not = icmp slt i64 %conv15, %bytes
+  %cmp16.not = icmp sgt i64 %bytes, %conv15
   %or.cond = and i1 %tobool.not, %cmp16.not
   br i1 %or.cond, label %if.else19, label %if.end21
 
@@ -986,7 +986,7 @@ entry:
   %1 = load i32, ptr %pwrite_zeroes_alignment, align 8
   %cond = tail call i32 @llvm.umax.i32(i32 %0, i32 %1)
   %conv = zext i32 %cond to i64
-  %cmp2 = icmp sgt i64 %conv, %bytes
+  %cmp2 = icmp slt i64 %bytes, %conv
   %rem = srem i64 %offset, %conv
   %cmp5 = icmp eq i64 %rem, 0
   br i1 %cmp2, label %if.then, label %if.end24
@@ -1034,7 +1034,7 @@ if.end38:                                         ; preds = %if.end31
   %max_pwrite_zeroes = getelementptr inbounds i8, ptr %bs, i64 16488
   %2 = load i64, ptr %max_pwrite_zeroes, align 8
   %tobool.not = icmp ne i64 %2, 0
-  %cmp43.not = icmp slt i64 %2, %bytes
+  %cmp43.not = icmp sgt i64 %bytes, %2
   %or.cond = and i1 %tobool.not, %cmp43.not
   br i1 %or.cond, label %if.else46, label %if.end48
 
@@ -1066,7 +1066,7 @@ entry:
   %0 = load i32, ptr %pdiscard_alignment, align 8
   %1 = load i32, ptr %bl, align 8
   %conv = zext i32 %1 to i64
-  %cmp = icmp sgt i64 %conv, %bytes
+  %cmp = icmp slt i64 %bytes, %conv
   br i1 %cmp, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %entry
@@ -1119,7 +1119,7 @@ if.end41:                                         ; preds = %if.end32
 
 land.lhs.true:                                    ; preds = %if.end41
   %conv42 = zext i32 %0 to i64
-  %cmp43.not = icmp ugt i64 %conv42, %bytes
+  %cmp43.not = icmp ult i64 %bytes, %conv42
   br i1 %cmp43.not, label %if.end60, label %if.then45
 
 if.then45:                                        ; preds = %land.lhs.true
@@ -1144,7 +1144,7 @@ if.end60:                                         ; preds = %if.end52, %land.lhs
   %max_pdiscard = getelementptr inbounds i8, ptr %bs, i64 16472
   %2 = load i64, ptr %max_pdiscard, align 8
   %tobool62.not = icmp ne i64 %2, 0
-  %cmp66.not = icmp slt i64 %2, %bytes
+  %cmp66.not = icmp sgt i64 %bytes, %2
   %or.cond = and i1 %tobool62.not, %cmp66.not
   br i1 %or.cond, label %if.else69, label %if.end71
 

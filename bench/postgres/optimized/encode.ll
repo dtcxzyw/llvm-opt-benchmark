@@ -287,7 +287,7 @@ define dso_local i64 @binary_decode(ptr nocapture noundef readonly %0) local_unn
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @hex_encode(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #3 {
   %4 = getelementptr i8, ptr %0, i64 %1
-  %5 = icmp ugt ptr %4, %0
+  %5 = icmp ult ptr %0, %4
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -325,7 +325,7 @@ define dso_local i64 @hex_decode(ptr noundef %0, i64 noundef %1, ptr noundef %2)
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @hex_decode_safe(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 %1
-  %6 = icmp ugt ptr %5, %0
+  %6 = icmp ult ptr %0, %5
   br i1 %6, label %.lr.ph, label %.outer._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.outer
@@ -469,7 +469,7 @@ define internal noundef range(i64 0, 4611686018427387904) i64 @pg_base64_dec_len
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i64 @pg_base64_encode(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) #3 {
   %4 = getelementptr i8, ptr %0, i64 %1
-  %5 = icmp ugt ptr %4, %0
+  %5 = icmp ult ptr %0, %4
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %3
@@ -590,7 +590,7 @@ define internal i64 @pg_base64_encode(ptr noundef readonly %0, i64 noundef %1, p
 ; Function Attrs: nounwind uwtable
 define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 %1
-  %5 = icmp ugt ptr %4, %0
+  %5 = icmp ult ptr %0, %4
   br i1 %5, label %.lr.ph, label %.outer._crit_edge.thread
 
 .lr.ph:                                           ; preds = %3, %.outer
@@ -747,7 +747,7 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i64 @esc_enc_len(ptr noundef readonly %0, i64 noundef %1) #5 {
   %3 = getelementptr i8, ptr %0, i64 %1
-  %4 = icmp ugt ptr %3, %0
+  %4 = icmp ult ptr %0, %3
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -771,7 +771,7 @@ define internal i64 @esc_enc_len(ptr noundef readonly %0, i64 noundef %1) #5 {
 ; Function Attrs: nounwind uwtable
 define internal i64 @esc_dec_len(ptr noundef readonly %0, i64 noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 %1
-  %4 = icmp ugt ptr %3, %0
+  %4 = icmp ult ptr %0, %3
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %30
@@ -839,7 +839,7 @@ define internal i64 @esc_dec_len(ptr noundef readonly %0, i64 noundef %1) #0 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i64 @esc_encode(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #3 {
   %4 = getelementptr i8, ptr %0, i64 %1
-  %5 = icmp ugt ptr %4, %0
+  %5 = icmp ult ptr %0, %4
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %26
@@ -900,7 +900,7 @@ define internal i64 @esc_encode(ptr noundef readonly %0, i64 noundef %1, ptr noc
 ; Function Attrs: nounwind uwtable
 define internal i64 @esc_decode(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 %1
-  %5 = icmp ugt ptr %4, %0
+  %5 = icmp ult ptr %0, %4
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %42

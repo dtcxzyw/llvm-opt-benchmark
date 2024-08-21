@@ -464,7 +464,7 @@ _ZN3ozz2io12MemoryStream6ResizeEm.exit22:         ; preds = %._crit_edge.i18, %6
 define dso_local noundef zeroext i1 @_ZN3ozz2io12MemoryStream6ResizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2

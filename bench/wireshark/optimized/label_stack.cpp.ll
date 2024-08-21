@@ -646,7 +646,7 @@ define void @_ZN10LabelStack8pushTextERK7QStringi(ptr noundef nonnull align 8 de
   tail call void @_ZN10LabelStack7popTextEi(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
-  %7 = icmp eq i32 %6, %2
+  %7 = icmp eq i32 %2, %6
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
@@ -1554,7 +1554,7 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE22constAllocatedCapacityEv.ex
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE22constAllocatedCapacityEv.exit31
 
@@ -1597,7 +1597,7 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE16freeSpaceAtBeginEv.exit33: 
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)
@@ -1654,7 +1654,7 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit: ; preds
 7:                                                ; preds = %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE14freeSpaceAtEndEv.exit, label %38
 
 _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -2034,7 +2034,7 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE14freeSpaceAtEndEv.exit: ; pr
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %32
-  %38 = add i64 %34, %2
+  %38 = add i64 %2, %34
   %39 = sub i64 %22, %38
   %40 = sdiv i64 %39, 2
   %41 = tail call noundef i64 @llvm.smax.i64(i64 %40, i64 0)
@@ -2115,10 +2115,10 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10Labe
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr %"struct.LabelStack::_StackItem", ptr %2, i64 %1
-  %7 = icmp ugt ptr %6, %0
+  %7 = icmp ult ptr %0, %6
   %8 = select i1 %7, ptr %0, ptr %6
   %9 = select i1 %7, ptr %6, ptr %0
-  %.not12 = icmp eq ptr %8, %2
+  %.not12 = icmp eq ptr %2, %8
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph

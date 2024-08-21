@@ -1337,7 +1337,7 @@ define dso_local void @tcp_fastopen_active_detect_blackhole(ptr nocapture nounde
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 2
   %11 = icmp ult i8 %9, 2
-  %12 = and i1 %11, %1
+  %12 = and i1 %1, %11
   %13 = or i1 %10, %12
   br i1 %13, label %14, label %32
 

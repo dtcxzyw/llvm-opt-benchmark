@@ -295,7 +295,7 @@ entry:
   store ptr null, ptr %encoded, align 8
   %call = tail call i32 @RSA_size(ptr noundef %rsa) #5
   %conv = sext i32 %call to i64
-  %cmp.not = icmp eq i64 %conv, %siglen
+  %cmp.not = icmp eq i64 %siglen, %conv
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

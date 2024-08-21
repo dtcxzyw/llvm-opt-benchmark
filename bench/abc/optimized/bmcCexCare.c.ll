@@ -1775,7 +1775,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   %193 = getelementptr i8, ptr %.val250303, i64 4
   %.val250.val304 = load i32, ptr %193, align 4
   %194 = sub nsw i32 %.val250.val304, %.val249302
-  %195 = icmp sgt i32 %194, %1
+  %195 = icmp slt i32 %1, %194
   br i1 %195, label %.lr.ph307, label %._crit_edge308
 
 .lr.ph307:                                        ; preds = %.preheader280, %.lr.ph307
@@ -1883,7 +1883,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   %248 = getelementptr i8, ptr %.val248287, i64 4
   %.val248.val288 = load i32, ptr %248, align 4
   %249 = sub nsw i32 %.val248.val288, %.val247286
-  %250 = icmp sgt i32 %249, %1
+  %250 = icmp slt i32 %1, %249
   br i1 %250, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader282, %.lr.ph

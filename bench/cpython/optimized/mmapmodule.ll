@@ -832,7 +832,7 @@ do.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %do.end
   %size = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %size, align 8
-  %cmp2.not = icmp sgt i64 %2, %i
+  %cmp2.not = icmp slt i64 %i, %2
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %do.end
@@ -870,7 +870,7 @@ do.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %do.end
   %size = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %size, align 8
-  %cmp2.not = icmp sgt i64 %2, %i
+  %cmp2.not = icmp slt i64 %i, %2
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %do.end

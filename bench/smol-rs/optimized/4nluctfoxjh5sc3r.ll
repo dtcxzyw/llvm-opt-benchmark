@@ -965,7 +965,7 @@ default.unreachable:                              ; preds = %311, %1
   %146 = load i64, ptr %145, align 8, !alias.scope !181, !noalias !187, !noundef !7
   %147 = load i64, ptr %117, align 8, !alias.scope !188, !noalias !187, !noundef !7
   %148 = sub i64 %147, %146
-  %149 = icmp ult i64 %148, %144
+  %149 = icmp ugt i64 %144, %148
   br i1 %149, label %150, label %153
 
 150:                                              ; preds = %136
@@ -1090,7 +1090,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i.i: ; preds 
 203:                                              ; preds = %197
   call void @llvm.experimental.noalias.scope.decl(metadata !197)
   %204 = load i64, ptr %177, align 8, !alias.scope !197, !noalias !200, !noundef !7
-  %.not.i.i38.i.i.i.i.i = icmp ugt i64 %204, %202
+  %.not.i.i38.i.i.i.i.i = icmp ult i64 %202, %204
   br i1 %.not.i.i38.i.i.i.i.i, label %212, label %205
 
 205:                                              ; preds = %203
@@ -1302,7 +1302,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i.i: ; preds 
   %274 = load i64, ptr %273, align 8, !alias.scope !224, !noalias !230, !noundef !7
   %275 = load i64, ptr %270, align 8, !alias.scope !231, !noalias !230, !noundef !7
   %276 = sub i64 %275, %274
-  %277 = icmp ult i64 %276, %272
+  %277 = icmp ugt i64 %272, %276
   br i1 %277, label %278, label %281
 
 278:                                              ; preds = %265

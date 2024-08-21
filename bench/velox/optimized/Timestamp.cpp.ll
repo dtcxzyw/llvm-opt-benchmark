@@ -792,7 +792,7 @@ if.end26:                                         ; preds = %while.cond18, %land
   %call33 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
   %cmp.i.i.i = icmp ne ptr %add.ptr.i, %call33
   %__last.sroa.0.09.i.i = getelementptr inbounds i8, ptr %call33, i64 -1
-  %cmp.i110.i.i = icmp ugt ptr %__last.sroa.0.09.i.i, %add.ptr.i
+  %cmp.i110.i.i = icmp ult ptr %add.ptr.i, %__last.sroa.0.09.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %cmp.i110.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %invoke.cont37
 
@@ -923,7 +923,7 @@ while.end87:                                      ; preds = %while.cond78
   %call96 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
   %cmp.i.i.i42 = icmp ne ptr %add.ptr.i41, %call96
   %__last.sroa.0.09.i.i43 = getelementptr inbounds i8, ptr %call96, i64 -1
-  %cmp.i110.i.i44 = icmp ugt ptr %__last.sroa.0.09.i.i43, %add.ptr.i41
+  %cmp.i110.i.i44 = icmp ult ptr %add.ptr.i41, %__last.sroa.0.09.i.i43
   %or.cond.i.i45 = select i1 %cmp.i.i.i42, i1 %cmp.i110.i.i44, i1 false
   br i1 %or.cond.i.i45, label %while.body.i.i46, label %nrvo.skipdtor
 

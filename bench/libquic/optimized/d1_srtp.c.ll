@@ -55,7 +55,7 @@ while.body.i:                                     ; preds = %if.end.i, %cond.end
   %0 = phi ptr [ @.str, %cond.end ], [ %1, %if.end.i ]
   %p.07.i = phi ptr [ @kSRTPProfiles, %cond.end ], [ %incdec.ptr.i, %if.end.i ]
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
-  %cmp.i = icmp eq i64 %call.i, %cond
+  %cmp.i = icmp eq i64 %cond, %call.i
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i

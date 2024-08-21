@@ -688,13 +688,13 @@ define range(i32 0, 2) i32 @Ssw_ManUniqueAddConstraint(ptr nocapture noundef %0,
   %46 = add nsw i32 %.val37, 1
   %47 = getelementptr inbounds i8, ptr %.val36, i64 4
   %48 = load i32, ptr %47, align 4
-  %.not.i.not.i.i = icmp sgt i32 %48, %.val37
+  %.not.i.not.i.i = icmp slt i32 %.val37, %48
   br i1 %.not.i.not.i.i, label %Ssw_ObjSatNum.exit, label %49
 
 49:                                               ; preds = %40
   %50 = load i32, ptr %.val36, align 8
   %51 = shl nsw i32 %50, 1
-  %.not.i.i = icmp sgt i32 %51, %.val37
+  %.not.i.i = icmp slt i32 %.val37, %51
   %.not.i.i.not.i.i = icmp sgt i32 %50, %.val37
   br i1 %.not.i.i, label %64, label %52
 

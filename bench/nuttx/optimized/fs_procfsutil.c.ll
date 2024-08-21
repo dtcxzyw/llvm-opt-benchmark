@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i64 @procfs_memcpy(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = sext i32 %6 to i64
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
@@ -74,7 +74,7 @@ define void @procfs_sprintf(ptr nocapture noundef writeonly %0, i64 noundef %1, 
 16:                                               ; preds = %12
   %narrow = sub nuw nsw i32 %8, %10
   %17 = zext nneg i32 %narrow to i64
-  %. = call i64 @llvm.umin.i64(i64 %17, i64 %1)
+  %. = call i64 @llvm.umin.i64(i64 %1, i64 %17)
   %18 = zext nneg i32 %10 to i64
   %19 = getelementptr inbounds i8, ptr %5, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %19, i64 %., i1 false)
@@ -82,7 +82,7 @@ define void @procfs_sprintf(ptr nocapture noundef writeonly %0, i64 noundef %1, 
 
 20:                                               ; preds = %4
   %21 = sext i32 %10 to i64
-  %22 = add i64 %21, %1
+  %22 = add i64 %1, %21
   %.not = icmp eq i64 %22, 0
   br i1 %.not, label %26, label %23
 

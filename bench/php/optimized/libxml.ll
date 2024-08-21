@@ -1102,7 +1102,7 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
 40:                                               ; preds = %37
   %41 = getelementptr inbounds i8, ptr %36, i64 40
   %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, %0
+  %43 = icmp eq ptr %0, %42
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %40
@@ -3522,7 +3522,7 @@ define void @php_libxml_node_decrement_resource(ptr noundef %0) local_unnamed_ad
   store ptr null, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, %0
+  %16 = icmp eq ptr %0, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13

@@ -2314,7 +2314,7 @@ define dso_local void @ProcSendSignal(i32 noundef %0) local_unnamed_addr #0 {
   %4 = load ptr, ptr @ProcGlobal, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
-  %.not = icmp ugt i32 %6, %0
+  %.not = icmp ult i32 %0, %6
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3, %1

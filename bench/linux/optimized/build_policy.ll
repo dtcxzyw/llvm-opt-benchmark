@@ -3019,7 +3019,7 @@ define internal void @rq_offline_rt(ptr noundef %0) #2 align 16 {
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, ptrtoint (ptr @runqueues to i64)
   %53 = inttoptr i64 %52 to ptr
-  %54 = icmp eq ptr %53, %0
+  %54 = icmp eq ptr %0, %53
   br i1 %54, label %71, label %55
 
 55:                                               ; preds = %48
@@ -3204,7 +3204,7 @@ define internal ptr @find_lock_lowest_rq(ptr noundef %0, ptr noundef %1) #2 alig
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, ptrtoint (ptr @runqueues to i64)
   %33 = inttoptr i64 %32 to ptr
-  %34 = icmp eq ptr %33, %1
+  %34 = icmp eq ptr %1, %33
   br i1 %34, label %35, label %54, !prof !29
 
 35:                                               ; preds = %27
@@ -3238,7 +3238,7 @@ define internal ptr @find_lock_lowest_rq(ptr noundef %0, ptr noundef %1) #2 alig
   br i1 %53, label %57, label %54, !prof !29
 
 54:                                               ; preds = %51, %48, %45, %42, %35, %27
-  %55 = icmp eq ptr %22, %1
+  %55 = icmp eq ptr %1, %22
   br i1 %55, label %.loopexit, label %56
 
 56:                                               ; preds = %54
@@ -3251,7 +3251,7 @@ define internal ptr @find_lock_lowest_rq(ptr noundef %0, ptr noundef %1) #2 alig
   br i1 %59, label %.loopexit, label %60
 
 60:                                               ; preds = %57
-  %61 = icmp eq ptr %22, %1
+  %61 = icmp eq ptr %1, %22
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %60
@@ -9215,7 +9215,7 @@ define internal ptr @find_lock_later_rq(ptr noundef %0, ptr noundef %1) #2 align
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, ptrtoint (ptr @runqueues to i64)
   %39 = inttoptr i64 %38 to ptr
-  %40 = icmp eq ptr %39, %1
+  %40 = icmp eq ptr %1, %39
   br i1 %40, label %41, label %60, !prof !29
 
 41:                                               ; preds = %33
@@ -9249,7 +9249,7 @@ define internal ptr @find_lock_later_rq(ptr noundef %0, ptr noundef %1) #2 align
   br i1 %59, label %63, label %60, !prof !29
 
 60:                                               ; preds = %57, %54, %51, %48, %41, %33
-  %61 = icmp eq ptr %23, %1
+  %61 = icmp eq ptr %1, %23
   br i1 %61, label %.loopexit, label %62
 
 62:                                               ; preds = %60
@@ -9270,7 +9270,7 @@ define internal ptr @find_lock_later_rq(ptr noundef %0, ptr noundef %1) #2 align
   br i1 %71, label %.loopexit, label %72
 
 72:                                               ; preds = %66
-  %73 = icmp eq ptr %23, %1
+  %73 = icmp eq ptr %1, %23
   br i1 %73, label %75, label %74
 
 74:                                               ; preds = %72
@@ -13272,7 +13272,7 @@ define internal void @pull_dl_task(ptr noundef %0) #2 align 16 {
   %87 = phi i64 [ %15, %42 ], [ %15, %71 ], [ %15, %82 ], [ %85, %84 ], [ %15, %57 ], [ %15, %49 ], [ %15, %46 ]
   %88 = phi i8 [ %14, %42 ], [ %14, %71 ], [ %14, %82 ], [ 1, %84 ], [ %14, %57 ], [ %14, %49 ], [ %14, %46 ]
   %89 = phi ptr [ null, %42 ], [ null, %71 ], [ %83, %82 ], [ null, %84 ], [ null, %57 ], [ null, %49 ], [ null, %46 ]
-  %90 = icmp eq ptr %33, %0
+  %90 = icmp eq ptr %0, %33
   br i1 %90, label %92, label %91
 
 91:                                               ; preds = %86

@@ -625,7 +625,7 @@ entry:
   %1 = load ptr, ptr %arrayidx, align 8
   %log_length = getelementptr inbounds i8, ptr %1, i64 68
   %2 = load i32, ptr %log_length, align 1
-  %cmp = icmp ult i32 %2, %length
+  %cmp = icmp ugt i32 %length, %2
   br i1 %cmp, label %exit, label %if.end
 
 if.end:                                           ; preds = %entry

@@ -7540,7 +7540,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %80
   %200 = getelementptr inbounds i8, ptr %198, i64 32
   %201 = getelementptr i8, ptr %198, i64 24
   %.val3.i = load i8, ptr %201, align 8, !noalias !1032, !noundef !19
-  %202 = icmp eq i8 %.sroa.679.1, %.val3.i
+  %202 = icmp eq i8 %.val3.i, %.sroa.679.1
   br i1 %202, label %257, label %197
 
 203:                                              ; preds = %189
@@ -8379,7 +8379,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %101
   %213 = getelementptr inbounds i8, ptr %211, i64 32
   %214 = getelementptr i8, ptr %211, i64 24
   %.val3.i = load i8, ptr %214, align 8, !noalias !1147, !noundef !19
-  %215 = icmp eq i8 %206, %.val3.i
+  %215 = icmp eq i8 %.val3.i, %206
   br i1 %215, label %268, label %210
 
 216:                                              ; preds = %.noexc
@@ -9212,7 +9212,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %93
   %223 = getelementptr inbounds i8, ptr %221, i64 32
   %224 = getelementptr i8, ptr %221, i64 24
   %.val3.i = load i8, ptr %224, align 8, !noalias !1267, !noundef !19
-  %225 = icmp eq i8 %.sroa.679.1, %.val3.i
+  %225 = icmp eq i8 %.val3.i, %.sroa.679.1
   br i1 %225, label %280, label %220
 
 226:                                              ; preds = %212
@@ -10267,7 +10267,7 @@ switch.lookup:                                    ; preds = %214, %195, %255
   %305 = phi ptr [ %309, %308 ], [ %126, %.lr.ph.i.preheader ]
   %306 = getelementptr i8, ptr %305, i64 24
   %.val7.i = load i8, ptr %306, align 8, !noalias !1373, !noundef !19
-  %307 = icmp eq i8 %304, %.val7.i
+  %307 = icmp eq i8 %.val7.i, %304
   br i1 %307, label %313, label %308
 
 308:                                              ; preds = %.lr.ph.i
@@ -11471,7 +11471,7 @@ switch.lookup:                                    ; preds = %204, %185, %245
   %295 = phi ptr [ %299, %298 ], [ %127, %.lr.ph.i.preheader ]
   %296 = getelementptr i8, ptr %295, i64 24
   %.val7.i = load i8, ptr %296, align 8, !noalias !1562, !noundef !19
-  %297 = icmp eq i8 %294, %.val7.i
+  %297 = icmp eq i8 %.val7.i, %294
   br i1 %297, label %303, label %298
 
 298:                                              ; preds = %.lr.ph.i
@@ -12671,7 +12671,7 @@ switch.lookup:                                    ; preds = %219, %200, %260
   %311 = phi ptr [ %315, %314 ], [ %123, %.lr.ph.i.preheader ]
   %312 = getelementptr i8, ptr %311, i64 24
   %.val7.i = load i8, ptr %312, align 8, !noalias !1735, !noundef !19
-  %313 = icmp eq i8 %310, %.val7.i
+  %313 = icmp eq i8 %.val7.i, %310
   br i1 %313, label %319, label %314
 
 314:                                              ; preds = %.lr.ph.i
@@ -13320,7 +13320,7 @@ default.unreachable356:                           ; preds = %"_ZN3png7decoder15R
   %59 = add i64 %58, -1
   %60 = zext i32 %54 to i64
   %61 = mul i64 %59, %60
-  %62 = icmp ugt i64 %61, %3
+  %62 = icmp ult i64 %3, %61
   br i1 %62, label %99, label %64
 
 63:                                               ; preds = %.critedge168
@@ -13554,7 +13554,7 @@ default.unreachable356:                           ; preds = %"_ZN3png7decoder15R
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.429.0..sroa_idx.i, align 8, !alias.scope !1893, !noalias !1910
   store i64 0, ptr %.sroa.530.0..sroa_idx.i, align 8, !alias.scope !1893, !noalias !1910
   %164 = load i64, ptr %94, align 8, !alias.scope !1915, !noalias !1914, !noundef !19
-  %165 = icmp ult i64 %164, %163
+  %165 = icmp ugt i64 %163, %164
   br i1 %165, label %166, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i.i": ; preds = %157
@@ -14117,7 +14117,7 @@ default.unreachable356:                           ; preds = %"_ZN3png7decoder15R
   %59 = add i64 %58, -1
   %60 = zext i32 %54 to i64
   %61 = mul i64 %59, %60
-  %62 = icmp ugt i64 %61, %3
+  %62 = icmp ult i64 %3, %61
   br i1 %62, label %99, label %64
 
 63:                                               ; preds = %.critedge168
@@ -14351,7 +14351,7 @@ default.unreachable356:                           ; preds = %"_ZN3png7decoder15R
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.429.0..sroa_idx.i, align 8, !alias.scope !2009, !noalias !2025
   store i64 0, ptr %.sroa.530.0..sroa_idx.i, align 8, !alias.scope !2009, !noalias !2025
   %164 = load i64, ptr %94, align 8, !alias.scope !2030, !noalias !2029, !noundef !19
-  %165 = icmp ult i64 %164, %163
+  %165 = icmp ugt i64 %163, %164
   br i1 %165, label %166, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i.i": ; preds = %157
@@ -15688,7 +15688,7 @@ define internal fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %57, i64 %56, i1 false), !alias.scope !2170, !noalias !2174
   %58 = load i64, ptr %12, align 8, !alias.scope !2157, !noalias !2160, !noundef !19
   %59 = load i64, ptr %19, align 8, !alias.scope !2157, !noalias !2160, !noundef !19
-  %60 = icmp ult i64 %58, %59
+  %60 = icmp ugt i64 %59, %58
   br i1 %60, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i", label %61
 
 61:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17hb6211592225ad28dE.exit.i"
@@ -16068,7 +16068,7 @@ define internal fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %57, i64 %56, i1 false), !alias.scope !2206, !noalias !2210
   %58 = load i64, ptr %12, align 8, !alias.scope !2194, !noalias !2197, !noundef !19
   %59 = load i64, ptr %19, align 8, !alias.scope !2194, !noalias !2197, !noundef !19
-  %60 = icmp ult i64 %58, %59
+  %60 = icmp ugt i64 %59, %58
   br i1 %60, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i", label %61
 
 61:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17hb6211592225ad28dE.exit.i"
@@ -18744,7 +18744,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h5b95afaec6688
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hf2c930c63a227263E.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !2582
-  %19 = icmp eq i64 %.sroa.01.013.i, %2
+  %19 = icmp eq i64 %2, %.sroa.01.013.i
   br i1 %19, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf2c930c63a227263E.exit.thread, label %20
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hf2c930c63a227263E.exit.thread: ; preds = %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$image..animation..Frame$C$image..error..ImageError$GT$$GT$$GT$17h3177ff5f17eef087E.exit.i", %3, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hf2c930c63a227263E.exit
@@ -23842,7 +23842,7 @@ switch.lookup523:                                 ; preds = %69
   %119 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %118, ptr %119, align 8
   %120 = zext i32 %97 to i64
-  %121 = icmp eq i64 %120, %4
+  %121 = icmp eq i64 %4, %120
   %122 = icmp eq i32 %91, %97
   %or.cond = and i1 %122, %121
   br i1 %or.cond, label %126, label %124
@@ -24624,7 +24624,7 @@ switch.lookup523:                                 ; preds = %69
   %119 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %118, ptr %119, align 8
   %120 = zext i32 %97 to i64
-  %121 = icmp eq i64 %120, %4
+  %121 = icmp eq i64 %4, %120
   %122 = icmp eq i32 %91, %97
   %or.cond = and i1 %122, %121
   br i1 %or.cond, label %126, label %124
@@ -26403,7 +26403,7 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT
   store ptr %9, ptr %0, align 8, !alias.scope !2912
   %.val3 = load i8, ptr %8, align 1, !noundef !19
   %10 = load i8, ptr %.val.i, align 1, !noundef !19
-  %.not = icmp eq i8 %10, %.val3
+  %.not = icmp eq i8 %.val3, %10
   br i1 %.not, label %.split, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit": ; preds = %"_ZN4tiff7decoder5image5Image11from_reader28_$u7b$$u7b$closure$u7d$$u7d$17h563d946c2e8f5f2dE.exit", %.split, %.split.us
@@ -26444,7 +26444,7 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT
   store ptr %9, ptr %0, align 8, !alias.scope !2918
   %.val3 = load i8, ptr %8, align 1, !noundef !19
   %10 = load i8, ptr %.val.i, align 1, !noundef !19
-  %.not = icmp eq i8 %10, %.val3
+  %.not = icmp eq i8 %.val3, %10
   br i1 %.not, label %.split, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit": ; preds = %"_ZN4tiff7decoder5image5Image11from_reader28_$u7b$$u7b$closure$u7d$$u7d$17h36dff06dc6a73991E.exit", %.split, %.split.us
@@ -28093,7 +28093,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %48 = getelementptr inbounds i8, ptr %37, i64 8
   store i64 %47, ptr %48, align 8
   store i64 0, ptr %37, align 8
-  %49 = icmp eq i64 %47, %3
+  %49 = icmp eq i64 %3, %47
   br i1 %49, label %53, label %52
 
 .body:                                            ; preds = %227, %.thread395, %.thread383, %209, %.thread367, %.body.i.i.i.i200, %.body.i.i.i.i, %50, %.thread359
@@ -28749,9 +28749,9 @@ common.resume:                                    ; preds = %.body, %309, %153
 247:                                              ; preds = %240
   call void @llvm.experimental.noalias.scope.decl(metadata !3401)
   %248 = load i32, ptr %232, align 8, !alias.scope !3401, !noalias !3404, !noundef !19
-  %249 = icmp ule i32 %248, %242
+  %249 = icmp uge i32 %242, %248
   %250 = load i32, ptr %233, align 4, !alias.scope !3401, !noalias !3404
-  %251 = icmp ule i32 %250, %244
+  %251 = icmp uge i32 %244, %250
   %or.cond.i.i.us = select i1 %249, i1 true, i1 %251
   br i1 %or.cond.i.i.us, label %.split.us, label %252
 
@@ -29066,7 +29066,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %48 = getelementptr inbounds i8, ptr %37, i64 8
   store i64 %47, ptr %48, align 8
   store i64 0, ptr %37, align 8
-  %49 = icmp eq i64 %47, %3
+  %49 = icmp eq i64 %3, %47
   br i1 %49, label %54, label %53
 
 .body:                                            ; preds = %217, %.thread394, %.thread382, %199, %.thread366, %.body.i.i.i.i201, %.body.i.i.i.i, %51, %.thread358
@@ -29688,9 +29688,9 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 237:                                              ; preds = %230
   call void @llvm.experimental.noalias.scope.decl(metadata !3558)
   %238 = load i32, ptr %222, align 8, !alias.scope !3558, !noalias !3561, !noundef !19
-  %239 = icmp ule i32 %238, %232
+  %239 = icmp uge i32 %232, %238
   %240 = load i32, ptr %223, align 4, !alias.scope !3558, !noalias !3561
-  %241 = icmp ule i32 %240, %234
+  %241 = icmp uge i32 %234, %240
   %or.cond.i.i.us = select i1 %239, i1 true, i1 %241
   br i1 %or.cond.i.i.us, label %.split.us, label %242
 
@@ -31062,7 +31062,7 @@ default.unreachable:                              ; preds = %4
   %31 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %30, ptr %31, align 8
   store i64 0, ptr %13, align 8
-  %32 = icmp eq i64 %30, %3
+  %32 = icmp eq i64 %3, %30
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %26
@@ -31205,7 +31205,7 @@ default.unreachable:                              ; preds = %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %63 = getelementptr inbounds i8, ptr %11, i64 16
   %64 = load i64, ptr %63, align 8, !noundef !19
-  %.not.i = icmp eq i64 %64, %3
+  %.not.i = icmp eq i64 %3, %64
   br i1 %.not.i, label %75, label %65
 
 65:                                               ; preds = %62
@@ -31353,7 +31353,7 @@ default.unreachable:                              ; preds = %4
   %31 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %30, ptr %31, align 8
   store i64 0, ptr %13, align 8
-  %32 = icmp eq i64 %30, %3
+  %32 = icmp eq i64 %3, %30
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %26
@@ -31496,7 +31496,7 @@ default.unreachable:                              ; preds = %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %63 = getelementptr inbounds i8, ptr %11, i64 16
   %64 = load i64, ptr %63, align 8, !noundef !19
-  %.not.i = icmp eq i64 %64, %3
+  %.not.i = icmp eq i64 %3, %64
   br i1 %.not.i, label %75, label %65
 
 65:                                               ; preds = %62
@@ -33424,7 +33424,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit..thread110_c
   %240 = add nuw i32 %.sroa.025.0402.us, 1
   %241 = add i32 %235, %.sroa.025.0402.us
   %.fr = freeze i32 %241
-  %.not426 = icmp ugt i32 %221, %.fr
+  %.not426 = icmp ult i32 %.fr, %221
   %242 = zext i32 %.fr to i64
   br i1 %.not426, label %.lr.ph.split.us405, label %.split391
 
@@ -33599,7 +33599,7 @@ default.unreachable:                              ; preds = %24
   %31 = load i64, ptr %30, align 8, !alias.scope !3999, !noalias !4002, !noundef !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4004)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4007)
-  %.not.i.i = icmp eq i64 %31, %2
+  %.not.i.i = icmp eq i64 %2, %31
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.i", label %32
 
 32:                                               ; preds = %27
@@ -33617,7 +33617,7 @@ default.unreachable:                              ; preds = %24
   %37 = load i64, ptr %36, align 8, !alias.scope !3999, !noalias !4002, !noundef !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4013)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4016)
-  %.not.i7.i = icmp eq i64 %37, %2
+  %.not.i7.i = icmp eq i64 %2, %37
   br i1 %.not.i7.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit8.i", label %38
 
 38:                                               ; preds = %33
@@ -33666,7 +33666,7 @@ default.unreachable9.i16:                         ; preds = %46
   %51 = load i64, ptr %50, align 8, !alias.scope !4022, !noalias !4025, !noundef !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4027)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4030)
-  %.not.i.i14 = icmp eq i64 %51, %2
+  %.not.i.i14 = icmp eq i64 %2, %51
   br i1 %.not.i.i14, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.i15", label %52
 
 52:                                               ; preds = %47
@@ -33684,7 +33684,7 @@ default.unreachable9.i16:                         ; preds = %46
   %57 = load i64, ptr %56, align 8, !alias.scope !4022, !noalias !4025, !noundef !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4036)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4039)
-  %.not.i7.i12 = icmp eq i64 %57, %2
+  %.not.i7.i12 = icmp eq i64 %2, %57
   br i1 %.not.i7.i12, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit8.i13", label %58
 
 58:                                               ; preds = %53
@@ -33782,7 +33782,7 @@ default.unreachable9.i16:                         ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %83 = getelementptr inbounds i8, ptr %7, i64 16
   %84 = load i64, ptr %83, align 8, !noundef !19
-  %.not.i = icmp eq i64 %84, %2
+  %.not.i = icmp eq i64 %2, %84
   br i1 %.not.i, label %.noexc20, label %85
 
 85:                                               ; preds = %82

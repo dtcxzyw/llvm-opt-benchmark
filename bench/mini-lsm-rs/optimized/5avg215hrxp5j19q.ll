@@ -139,7 +139,7 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
   %.0.i = phi i64 [ %11, %10 ], [ %15, %12 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !8, !noalias !11, !noundef !7
-  %19 = icmp ult i64 %18, %.0.i
+  %19 = icmp ugt i64 %.0.i, %18
   br i1 %19, label %20, label %"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17he3b13ac76b7ca09fE.exit"
 
 20:                                               ; preds = %16
@@ -3901,7 +3901,7 @@ default.unreachable11.i226:                       ; preds = %.noexc229
   %1389 = phi i64 [ %.pre.i.i.i.i.i.i, %1386 ], [ 8, %1384 ]
   %.sink3.i.i.i.i.i.i.i = phi ptr [ %1388, %1386 ], [ %144, %1384 ]
   %1390 = icmp ult i64 %1363, 9
-  %.not.i.i.i.i.i.i = icmp ugt i64 %1389, %1382
+  %.not.i.i.i.i.i.i = icmp ult i64 %1382, %1389
   br i1 %.not.i.i.i.i.i.i, label %.invoke.i.i.i, label %1394
 
 .invoke.i.i.i:                                    ; preds = %1403, %1398, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h29d88b5d2a11cbddE.llvm.18053240611608392576.exit.i.i.i.i.i.i", %1375, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h29d88b5d2a11cbddE.llvm.18053240611608392576.exit.i.i.i.i.i"
@@ -3919,7 +3919,7 @@ default.unreachable11.i226:                       ; preds = %.noexc229
   br i1 %1395, label %1397, label %1396
 
 1396:                                             ; preds = %1394
-  %.not77.i.i.i.i.i.i = icmp eq i64 %1363, %1382
+  %.not77.i.i.i.i.i.i = icmp eq i64 %1382, %1363
   br i1 %.not77.i.i.i.i.i.i, label %_ZN8smallvec10infallible17hc7405d8a7bbba02fE.exit.i.i.i.i, label %1398
 
 1397:                                             ; preds = %1394
@@ -5495,7 +5495,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !7
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
@@ -5509,7 +5509,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
 
 12:                                               ; preds = %._crit_edge, %3
   %13 = phi i64 [ %.pre, %._crit_edge ], [ %4, %3 ]
-  %.not = icmp ugt i64 %13, %2
+  %.not = icmp ult i64 %2, %13
   br i1 %.not, label %14, label %20
 
 14:                                               ; preds = %12
@@ -12232,7 +12232,7 @@ define hidden void @"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Bu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2817)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !2817, !noundef !7
-  %6 = icmp ult i64 %5, %1
+  %6 = icmp ugt i64 %1, %5
   br i1 %6, label %7, label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18053240611608392576.exit"
 
 7:                                                ; preds = %2
@@ -12272,7 +12272,7 @@ define hidden void @_ZN5bytes3buf8buf_impl3Buf13copy_to_bytes17h502960829c0c5a35
   %10 = alloca { ptr, i64, i64, ptr }, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !alias.scope !2823, !noundef !7
-  %.not = icmp ult i64 %12, %2
+  %.not = icmp ugt i64 %2, %12
   br i1 %.not, label %13, label %14
 
 13:                                               ; preds = %3
@@ -12348,7 +12348,7 @@ define hidden void @_ZN5bytes3buf8buf_impl3Buf13copy_to_bytes17h502960829c0c5a35
   store i64 %36, ptr %7, align 8, !noalias !2840
   %42 = getelementptr inbounds i8, ptr %9, i64 16
   %43 = load i64, ptr %42, align 8, !noalias !2836, !noundef !7
-  %.not.i.i = icmp ult i64 %43, %36
+  %.not.i.i = icmp ugt i64 %36, %43
   br i1 %.not.i.i, label %44, label %60
 
 44:                                               ; preds = %.noexc
@@ -12600,7 +12600,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut6freeze17h6a0ba5143776ed0fE.llvm
   store i64 %21, ptr %6, align 8, !noalias !2882
   %31 = getelementptr inbounds i8, ptr %8, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !7
-  %.not.i = icmp ult i64 %32, %21
+  %.not.i = icmp ugt i64 %21, %32
   br i1 %.not.i, label %33, label %50
 
 33:                                               ; preds = %20
@@ -12707,7 +12707,7 @@ define hidden { ptr, i64 } @"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..b
 define hidden void @"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18053240611608392576"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !7
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
@@ -12976,7 +12976,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !7
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -13057,8 +13057,8 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   br label %78
 
 84:                                               ; preds = %78
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload14.i18 = load i16, ptr %86, align 1, !alias.scope !2907
   %87 = zext i16 %.0.copyload14.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -13684,7 +13684,7 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2a8f3ddffa9
   %34 = phi i64 [ %.pre.i.i, %30 ], [ 4, %28 ]
   %.sink3.i.i.i = phi ptr [ %32, %30 ], [ %8, %28 ]
   %35 = icmp ult i64 %5, 5
-  %.not.i.i = icmp ugt i64 %34, %26
+  %.not.i.i = icmp ult i64 %26, %34
   br i1 %.not.i.i, label %36, label %37
 
 36:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h1ef62acda3105d79E.llvm.18053240611608392576.exit.i.i"
@@ -13696,7 +13696,7 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2a8f3ddffa9
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %37
-  %.not77.i.i = icmp eq i64 %5, %26
+  %.not77.i.i = icmp eq i64 %26, %5
   br i1 %.not77.i.i, label %_ZN8smallvec10infallible17hc7405d8a7bbba02fE.exit, label %41
 
 40:                                               ; preds = %37

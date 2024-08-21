@@ -136,7 +136,7 @@ up_irq_restore.exit86:                            ; preds = %50, %52
 61:                                               ; preds = %60
   %62 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
   %63 = load i8, ptr %62, align 8
-  %.not12.i.i = icmp eq i8 %63, %55
+  %.not12.i.i = icmp eq i8 %55, %63
   br i1 %.not12.i.i, label %.critedge.i.i, label %60, !llvm.loop !9
 
 .critedge.i.i:                                    ; preds = %61, %60

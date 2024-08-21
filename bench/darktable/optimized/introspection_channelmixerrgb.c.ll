@@ -17029,7 +17029,7 @@ define internal fastcc void @matrice_pseudoinverse(ptr nocapture noundef readonl
   %36 = fmul reassoc nsz arcp contract afn float %13, %13
   %37 = fadd reassoc nsz arcp contract afn float %35, %36
   %38 = fdiv reassoc nsz arcp contract afn float %30, %24
-  %39 = fmul reassoc nsz arcp contract afn float %38, %30
+  %39 = fmul reassoc nsz arcp contract afn float %30, %38
   %40 = fsub reassoc nsz arcp contract afn float %37, %39
   %41 = fdiv reassoc nsz arcp contract afn float %32, %40
   %42 = fmul reassoc nsz arcp contract afn float %15, %3
@@ -17045,7 +17045,7 @@ define internal fastcc void @matrice_pseudoinverse(ptr nocapture noundef readonl
   %52 = fadd reassoc nsz arcp contract afn float %50, %51
   %53 = fmul reassoc nsz arcp contract afn float %46, %38
   %54 = fsub reassoc nsz arcp contract afn float %52, %53
-  %55 = fmul reassoc nsz arcp contract afn float %54, %41
+  %55 = fmul reassoc nsz arcp contract afn float %41, %54
   %56 = fadd reassoc nsz arcp contract afn float %47, %55
   %57 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %56
   %58 = fmul reassoc nsz arcp contract afn float %15, %15
@@ -17085,15 +17085,15 @@ define internal fastcc void @matrice_pseudoinverse(ptr nocapture noundef readonl
   %89 = fmul reassoc nsz arcp contract afn float %64, %38
   %90 = fsub reassoc nsz arcp contract afn float %61, %89
   %.neg7 = fmul reassoc nsz arcp contract afn float %41, %38
-  %91 = fmul reassoc nsz arcp contract afn float %68, %90
+  %91 = fmul reassoc nsz arcp contract afn float %90, %68
   %92 = fadd reassoc nsz arcp contract afn float %.neg7, %91
   %93 = fsub reassoc nsz arcp contract afn float %25, %92
   %.neg10 = fmul reassoc nsz arcp contract afn float %72, %38
-  %94 = fmul reassoc nsz arcp contract afn float %76, %90
+  %94 = fmul reassoc nsz arcp contract afn float %90, %76
   %95 = fadd reassoc nsz arcp contract afn float %.neg10, %94
   %96 = fsub reassoc nsz arcp contract afn float %25, %95
   %.neg13 = fmul reassoc nsz arcp contract afn float %82, %38
-  %97 = fmul reassoc nsz arcp contract afn float %86, %90
+  %97 = fmul reassoc nsz arcp contract afn float %90, %86
   %98 = fadd reassoc nsz arcp contract afn float %.neg13, %97
   %99 = fsub reassoc nsz arcp contract afn float %79, %98
   store float 0.000000e+00, ptr %1, align 4, !tbaa !12

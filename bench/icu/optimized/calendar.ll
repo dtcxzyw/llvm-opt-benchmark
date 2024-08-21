@@ -281,7 +281,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -561,7 +561,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #25
   %cmp7 = icmp eq ptr %call, null
@@ -5725,7 +5725,7 @@ if.then19:                                        ; preds = %if.end
   %add22 = add nsw i32 %call21, %3
   %8 = load i32, ptr %fFirstDayOfWeek.i, align 8
   %.neg45 = add i32 %2, 1
-  %9 = add i32 %add22, %8
+  %9 = add i32 %8, %add22
   %add.i.i = sub i32 %.neg45, %9
   %rem.i.i = srem i32 %add.i.i, 7
   %cmp.i.i = icmp slt i32 %rem.i.i, 0
@@ -5871,7 +5871,7 @@ entry:
   %fFirstDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i32, ptr %fFirstDayOfWeek.i, align 8
   %1 = add i32 %dayOfWeek, 1
-  %2 = add i32 %0, %dayOfPeriod
+  %2 = add i32 %dayOfPeriod, %0
   %add = sub i32 %1, %2
   %rem = srem i32 %add, 7
   %cmp = icmp slt i32 %rem, 0
@@ -8140,7 +8140,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %if.then6, label %if.end12
 
 if.then6:                                         ; preds = %if.end4
-  %cmp8.not = icmp eq i32 %2, %dayOfWeek
+  %cmp8.not = icmp eq i32 %dayOfWeek, %2
   br i1 %cmp8.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.then6
@@ -8155,19 +8155,19 @@ if.end12:                                         ; preds = %if.end4
   br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.end12
-  %cmp18 = icmp sgt i32 %2, %dayOfWeek
-  %cmp21 = icmp slt i32 %3, %dayOfWeek
+  %cmp18 = icmp slt i32 %dayOfWeek, %2
+  %cmp21 = icmp sgt i32 %dayOfWeek, %3
   %or.cond11 = or i1 %cmp18, %cmp21
   br i1 %or.cond11, label %return, label %if.end30
 
 if.else:                                          ; preds = %if.end12
-  %cmp25 = icmp slt i32 %3, %dayOfWeek
-  %cmp27 = icmp sgt i32 %2, %dayOfWeek
+  %cmp25 = icmp sgt i32 %dayOfWeek, %3
+  %cmp27 = icmp slt i32 %dayOfWeek, %2
   %or.cond12 = and i1 %cmp27, %cmp25
   br i1 %or.cond12, label %return, label %if.end30
 
 if.end30:                                         ; preds = %if.then16, %if.else
-  %cmp32 = icmp eq i32 %2, %dayOfWeek
+  %cmp32 = icmp eq i32 %dayOfWeek, %2
   br i1 %cmp32, label %if.then33, label %if.end37
 
 if.then33:                                        ; preds = %if.end30
@@ -8178,7 +8178,7 @@ if.then33:                                        ; preds = %if.end30
   br label %return
 
 if.end37:                                         ; preds = %if.end30
-  %cmp39 = icmp eq i32 %3, %dayOfWeek
+  %cmp39 = icmp eq i32 %dayOfWeek, %3
   br i1 %cmp39, label %if.then40, label %return
 
 if.then40:                                        ; preds = %if.end37
@@ -8203,7 +8203,7 @@ entry:
 if.end:                                           ; preds = %entry
   %fWeekendOnset = getelementptr inbounds i8, ptr %this, i64 272
   %1 = load i32, ptr %fWeekendOnset, align 8
-  %cmp = icmp eq i32 %1, %dayOfWeek
+  %cmp = icmp eq i32 %dayOfWeek, %1
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
@@ -8214,7 +8214,7 @@ if.then2:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %fWeekendCease = getelementptr inbounds i8, ptr %this, i64 280
   %3 = load i32, ptr %fWeekendCease, align 8
-  %cmp3 = icmp eq i32 %3, %dayOfWeek
+  %cmp3 = icmp eq i32 %dayOfWeek, %3
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.else
@@ -10591,7 +10591,7 @@ if.then18:                                        ; preds = %sw.bb
   %cmp20 = icmp slt i32 %spec.select.i, %spec.select
   %or.cond = select i1 %cmp14.not, i1 %cmp20, i1 false
   %sub22 = sext i1 %or.cond to i32
-  %spec.select30 = add nsw i32 %sub22, %yearWoy
+  %spec.select30 = add nsw i32 %yearWoy, %sub22
   br label %return
 
 if.else24:                                        ; preds = %sw.bb
@@ -10599,7 +10599,7 @@ if.else24:                                        ; preds = %sw.bb
   %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 160
   %7 = load ptr, ptr %vfn26, align 8
   %call27 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 3)
-  %cmp28.not = icmp sgt i32 %call27, %woy
+  %cmp28.not = icmp slt i32 %woy, %call27
   br i1 %cmp28.not, label %return, label %if.then29
 
 if.then29:                                        ; preds = %if.else24
@@ -10628,7 +10628,7 @@ land.lhs.true:                                    ; preds = %sw.bb46
   %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 160
   %10 = load ptr, ptr %vfn52, align 8
   %call53 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 3)
-  %cmp54.not = icmp sgt i32 %call53, %woy
+  %cmp54.not = icmp slt i32 %woy, %call53
   br i1 %cmp54.not, label %if.else57, label %return
 
 if.else57:                                        ; preds = %land.lhs.true, %sw.bb46
@@ -10637,7 +10637,7 @@ if.else57:                                        ; preds = %land.lhs.true, %sw.
 
 if.then59:                                        ; preds = %if.else57
   %sub63 = sext i1 %cmp50 to i32
-  %spec.select29 = add nsw i32 %sub63, %yearWoy
+  %spec.select29 = add nsw i32 %yearWoy, %sub63
   br label %return
 
 return:                                           ; preds = %if.then18, %if.then59, %if.then29, %_ZN6icu_758Calendar11getLocalDOWEv.exit, %if.else57, %land.lhs.true, %if.else24
@@ -12852,7 +12852,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then4.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %ptr, align 8
-  %cmp.not.i.i = icmp eq ptr %3, %1
+  %cmp.not.i.i = icmp eq ptr %1, %3
   br i1 %cmp.not.i.i, label %if.end5.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then4.i

@@ -2892,7 +2892,7 @@ if.end297:                                        ; preds = %land.lhs.true162, %
   br i1 %cmp311.not, label %lor.lhs.false312, label %if.then316
 
 lor.lhs.false312:                                 ; preds = %if.end297
-  %cmp313 = icmp eq ptr %rhs.addr.0, %res
+  %cmp313 = icmp eq ptr %res, %rhs.addr.0
   %cmp315 = icmp sgt i32 %rhsshift.0, 0
   %or.cond1 = and i1 %cmp315, %cmp313
   br i1 %or.cond1, label %if.then316, label %if.end342
@@ -8243,7 +8243,7 @@ if.end18:                                         ; preds = %if.else9, %if.else,
   br i1 %cmp20.not, label %if.else22, label %if.then21
 
 if.then21:                                        ; preds = %if.end18
-  %cmp.i = icmp eq ptr %lhs.addr.0, %res
+  %cmp.i = icmp eq ptr %res, %lhs.addr.0
   br i1 %cmp.i, label %if.end60, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then21
@@ -8723,7 +8723,7 @@ land.lhs.true70:                                  ; preds = %lor.lhs.false
   br i1 %cmp72, label %if.then78, label %if.end80
 
 if.then78:                                        ; preds = %land.lhs.true70, %if.end61
-  %cmp.i65 = icmp eq ptr %a.0, %res
+  %cmp.i65 = icmp eq ptr %res, %a.0
   br i1 %cmp.i65, label %if.end120, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then78
@@ -12371,7 +12371,7 @@ cond.true29:                                      ; preds = %cond.end
   %sub52 = sub nsw i32 1, %sub7
   %conv5158 = trunc i32 %shr49 to i8
   store i8 %conv5158, ptr %uar, align 1
-  %6 = add i32 %sub52, %shift
+  %6 = add i32 %shift, %sub52
   %sub5359 = sub i32 %units, %6
   %cmp5460 = icmp slt i32 %sub5359, 1
   br i1 %cmp5460, label %for.end82, label %if.end56.lr.ph
@@ -12920,7 +12920,7 @@ if.end89:                                         ; preds = %lor.lhs.false47, %i
 define internal fastcc noundef ptr @_ZL8decDecapP9decNumberi(ptr noundef returned %dn, i32 noundef %drop) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %dn, align 4
-  %cmp.not = icmp sgt i32 %0, %drop
+  %cmp.not = icmp slt i32 %drop, %0
   %lsu2 = getelementptr inbounds i8, ptr %dn, i64 9
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -13376,7 +13376,7 @@ for.end:                                          ; preds = %for.body
 
 if.then179:                                       ; preds = %for.end
   store i32 %45, ptr %status, align 4
-  %cmp.i255 = icmp eq ptr %a.0, %res
+  %cmp.i255 = icmp eq ptr %res, %a.0
   br i1 %cmp.i255, label %do.end, label %if.end.i256
 
 if.end.i256:                                      ; preds = %if.then179
@@ -13737,7 +13737,7 @@ if.then324:                                       ; preds = %if.end321
   br label %if.end340
 
 if.end340:                                        ; preds = %101, %if.then324, %if.end321
-  %cmp.i342 = icmp eq ptr %a.0, %res
+  %cmp.i342 = icmp eq ptr %res, %a.0
   br i1 %cmp.i342, label %do.end, label %if.end.i343
 
 if.end.i343:                                      ; preds = %if.end340
@@ -14693,7 +14693,7 @@ for.body28:                                       ; preds = %if.end22, %for.inc5
   %incdec.ptr30 = getelementptr inbounds i8, ptr %a.addr.2110, i64 1
   %2 = load i8, ptr %b.addr.0109, align 1
   %conv31 = zext i8 %2 to i32
-  %mul = mul nsw i32 %conv31, %m
+  %mul = mul nsw i32 %m, %conv31
   %add32 = add nsw i32 %add29, %mul
   %incdec.ptr33 = getelementptr inbounds i8, ptr %b.addr.0109, i64 1
   %cmp34 = icmp ult i32 %add32, 10
@@ -14765,7 +14765,7 @@ if.then64:                                        ; preds = %for.body60
 if.else68:                                        ; preds = %for.body60
   %4 = load i8, ptr %b.addr.1117, align 1
   %conv69 = zext i8 %4 to i32
-  %mul70 = mul nsw i32 %conv69, %m
+  %mul70 = mul nsw i32 %m, %conv69
   %incdec.ptr72 = getelementptr inbounds i8, ptr %b.addr.1117, i64 1
   br label %if.end73
 
@@ -14825,7 +14825,7 @@ if.end102:                                        ; preds = %if.end98
   br i1 %cmp103, label %if.then104, label %for.cond112.preheader
 
 for.cond112.preheader:                            ; preds = %if.end102
-  %cmp113120 = icmp ugt ptr %spec.select102, %c
+  %cmp113120 = icmp ult ptr %c, %spec.select102
   br i1 %cmp113120, label %for.body114, label %for.end125
 
 if.then104:                                       ; preds = %if.end102
@@ -14922,13 +14922,13 @@ cond.end:                                         ; preds = %if.end21
   %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
   %conv23 = zext i8 %2 to i32
-  %add24 = add nuw nsw i32 %conv23, %blength
-  %cmp25 = icmp slt i32 %add24, %alength
+  %add24 = add nuw nsw i32 %blength, %conv23
+  %cmp25 = icmp sgt i32 %alength, %add24
   br i1 %cmp25, label %return, label %cond.end38.thread
 
 cond.end.thread:                                  ; preds = %if.end21
   %add2446 = add nuw nsw i32 %exp, %blength
-  %cmp2547 = icmp slt i32 %add2446, %alength
+  %cmp2547 = icmp sgt i32 %alength, %add2446
   br i1 %cmp2547, label %return, label %cond.end38
 
 cond.end38:                                       ; preds = %cond.end.thread

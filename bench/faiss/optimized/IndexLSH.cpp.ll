@@ -208,7 +208,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %20, %22, %24, %26
   store i8 1, ptr %4, align 1
   %30 = load i32, ptr %9, align 8
   %31 = sext i32 %30 to i64
-  %32 = mul nsw i64 %31, %1
+  %32 = mul nsw i64 %1, %31
   %33 = icmp ugt i64 %32, 4611686018427387903
   %34 = shl i64 %32, 2
   %35 = select i1 %33, i64 -1, i64 %34
@@ -727,7 +727,7 @@ define void @_ZNK5faiss8IndexLSH9sa_decodeElPKhPf(ptr noundef nonnull align 8 de
   br i1 %or.cond56.not, label %._crit_edge51, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit
 
 ._crit_edge51:                                    ; preds = %4
-  %10 = mul nsw i64 %.pre52, %1
+  %10 = mul nsw i64 %1, %.pre52
   %11 = icmp ugt i64 %10, 4611686018427387903
   %12 = shl i64 %10, 2
   %13 = select i1 %11, i64 -1, i64 %12
@@ -897,7 +897,7 @@ define void @_ZN5faiss8IndexLSHC2Elibb(ptr noundef nonnull align 8 dereferenceab
 
 27:                                               ; preds = %17
   %28 = sext i32 %2 to i64
-  %.not = icmp sgt i64 %28, %1
+  %.not = icmp slt i64 %1, %28
   br i1 %.not, label %29, label %45
 
 29:                                               ; preds = %27
@@ -1110,7 +1110,7 @@ define noundef ptr @_ZNK5faiss8IndexLSH16apply_preprocessElPKf(ptr noundef nonnu
 
 15:                                               ; preds = %10
   %16 = sext i32 %14 to i64
-  %17 = mul nsw i64 %16, %1
+  %17 = mul nsw i64 %1, %16
   %18 = icmp ugt i64 %17, 4611686018427387903
   %19 = shl i64 %17, 2
   %20 = select i1 %18, i64 -1, i64 %19
@@ -1176,7 +1176,7 @@ define noundef ptr @_ZNK5faiss8IndexLSH16apply_preprocessElPKf(ptr noundef nonnu
 .thread42:                                        ; preds = %..thread42_crit_edge, %.thread
   %46 = phi i32 [ %.pre, %..thread42_crit_edge ], [ %12, %.thread ]
   %47 = sext i32 %46 to i64
-  %48 = mul nsw i64 %47, %1
+  %48 = mul nsw i64 %1, %47
   %49 = icmp ugt i64 %48, 4611686018427387903
   %50 = shl i64 %48, 2
   %51 = select i1 %49, i64 -1, i64 %50
@@ -1707,7 +1707,7 @@ define linkonce_odr void @_ZSt11__make_heapIPfN9__gnu_cxx5__ops15_Iter_less_iter
   %12 = load float, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -1787,7 +1787,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds float, ptr %0, i64 %51
   %53 = load float, ptr %52, align 4
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -1839,7 +1839,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds float, ptr %0, i64 %73
   %75 = load float, ptr %74, align 4
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -2113,7 +2113,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !30
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -2197,7 +2197,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !30
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79

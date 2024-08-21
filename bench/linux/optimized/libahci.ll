@@ -4984,7 +4984,7 @@ define internal noundef range(i64 -22, 4294967296) i64 @ahci_store_em_buffer(ptr
   %30 = getelementptr inbounds i8, ptr %10, i64 176
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %32, %3
+  %33 = icmp ugt i64 %3, %32
   br i1 %33, label %83, label %34
 
 34:                                               ; preds = %29
@@ -5035,7 +5035,7 @@ define internal noundef range(i64 -22, 4294967296) i64 @ahci_store_em_buffer(ptr
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %72, ptr elementtype(i32) %73) #12, !srcloc !10
   %74 = add i32 %48, 4
   %75 = sext i32 %74 to i64
-  %76 = icmp ult i64 %75, %3
+  %76 = icmp ugt i64 %3, %75
   br i1 %76, label %.preheader, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.preheader, %45

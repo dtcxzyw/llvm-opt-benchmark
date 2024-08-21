@@ -2477,7 +2477,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ra
   store i64 %4, ptr %upb2.i, align 8
   %cmp.not.i.i.i = icmp ule i64 %3, %4
   %add.i.i.i = add i64 %4, 1
-  %cmp3.i.i.i = icmp eq i64 %add.i.i.i, %3
+  %cmp3.i.i.i = icmp eq i64 %3, %add.i.i.i
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp3.i.i.i
   br i1 %or.cond.i.i.i, label %range_is_empty.exit.i, label %if.else.i.i.i
 

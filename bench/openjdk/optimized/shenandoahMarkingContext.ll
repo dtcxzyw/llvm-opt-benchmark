@@ -283,7 +283,7 @@ define hidden noundef zeroext i1 @_ZNK24ShenandoahMarkingContext15is_bitmap_clea
   %8 = phi i1 [ false, %.lr.ph ], [ %25, %23 ]
   %.01112 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
   %9 = load i64, ptr %3, align 8
-  %10 = icmp ugt i64 %9, %.01112
+  %10 = icmp ult i64 %.01112, %9
   br i1 %10, label %11, label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 11:                                               ; preds = %7

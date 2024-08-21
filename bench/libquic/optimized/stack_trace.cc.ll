@@ -160,7 +160,7 @@ if.end5.i:                                        ; preds = %if.end
   br i1 %tobool6.not.i, label %while.cond.backedge, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %cmp9.i = icmp ult i64 %sub8.i, %7
+  %cmp9.i = icmp ugt i64 %7, %sub8.i
   br i1 %cmp9.i, label %if.end.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then7.i
@@ -175,7 +175,7 @@ if.end6:                                          ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.then7.i, %if.end11.i, %if.end6
   %add1.i = add i64 %fp.023, 8200
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %add1.i, i64 %retval.0.i)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %retval.0.i, i64 %add1.i)
   %sub.i13 = add i64 %.sroa.speculated.i, -8
   %fp.addr.038.i = add i64 %fp.023, 8
   %cmp.not39.i = icmp ugt i64 %fp.addr.038.i, %sub.i13
@@ -192,7 +192,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.inc.
   %and.i.i = and i64 %11, 7
   %tobool.not.i.i = icmp ne i64 %and.i.i, 0
   %or.cond7.i.not34.i = or i1 %tobool.not.i.i, %or.cond.not8.i.not35.i
-  %cmp9.i.i = icmp ult i64 %sub8.i, %11
+  %cmp9.i.i = icmp ugt i64 %11, %sub8.i
   %or.cond.i = or i1 %cmp9.i.i, %or.cond7.i.not34.i
   br i1 %or.cond.i, label %for.inc.i, label %if.end11.i.i
 
@@ -212,7 +212,7 @@ if.then4.i:                                       ; preds = %if.end11.i.i
   %and.i13.i = and i64 %14, 7
   %tobool.not.i14.i = icmp ne i64 %and.i13.i, 0
   %or.cond7.i15.not36.i = or i1 %tobool.not.i14.i, %or.cond.not8.i12.not37.i
-  %cmp9.i21.i = icmp ult i64 %sub8.i, %14
+  %cmp9.i21.i = icmp ugt i64 %14, %sub8.i
   %or.cond33.i = or i1 %cmp9.i21.i, %or.cond7.i15.not36.i
   br i1 %or.cond33.i, label %for.inc.i, label %if.end11.i22.i
 

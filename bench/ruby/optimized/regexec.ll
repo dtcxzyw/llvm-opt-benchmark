@@ -158,7 +158,7 @@ define dso_local range(i32 -30, 1) i32 @onig_region_set(ptr nocapture noundef %0
 
 6:                                                ; preds = %4
   %7 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
@@ -4071,7 +4071,7 @@ rb_enc_asciicompat.exit3000.thread:               ; preds = %1997, %rb_enc_ascii
   br i1 %2026, label %2027, label %2034
 
 2027:                                             ; preds = %2024
-  %2028 = icmp ugt ptr %.02174, %1
+  %2028 = icmp ult ptr %1, %.02174
   br i1 %2028, label %2029, label %2048
 
 2029:                                             ; preds = %2027
@@ -4114,7 +4114,7 @@ rb_enc_asciicompat.exit3000.thread:               ; preds = %1997, %rb_enc_ascii
   br i1 %2052, label %2053, label %2071
 
 2053:                                             ; preds = %2050
-  %2054 = icmp ugt ptr %.02174, %1
+  %2054 = icmp ult ptr %1, %.02174
   br i1 %2054, label %2055, label %2124
 
 2055:                                             ; preds = %2053
@@ -5653,7 +5653,7 @@ enclen_approx.exit3061:                           ; preds = %2835, %2837
   store ptr %.02251, ptr %15, align 8
   store ptr %2891, ptr %18, align 8
   %2895 = getelementptr i8, ptr %.02251, i64 %2890
-  %2896 = icmp ugt ptr %2895, %.02251
+  %2896 = icmp ult ptr %.02251, %2895
   br i1 %2896, label %.lr.ph28.i, label %string_cmp_ic.exit
 
 .loopexit.i:                                      ; preds = %2907, %.preheader.i
@@ -5994,7 +5994,7 @@ enclen_approx.exit3069:                           ; preds = %2989, %2991
   store ptr %.02260, ptr %11, align 8
   store ptr %3054, ptr %14, align 8
   %3058 = getelementptr i8, ptr %.02260, i64 %3053
-  %3059 = icmp ugt ptr %3058, %.02260
+  %3059 = icmp ult ptr %.02260, %3058
   br i1 %3059, label %.lr.ph28.i3072, label %.loopexit3558
 
 .loopexit.i3075:                                  ; preds = %3070, %.preheader.i3074
@@ -13134,7 +13134,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %27, %21, %8
 159:                                              ; preds = %152, %133, %129, %126
   %.1352 = phi ptr [ %121, %133 ], [ %121, %129 ], [ %121, %126 ], [ %spec.select461, %152 ]
   %160 = icmp ule ptr %.1352, %1
-  %.not426 = icmp ult ptr %.1352, %4
+  %.not426 = icmp ugt ptr %4, %.1352
   %or.cond462 = or i1 %160, %.not426
   br i1 %or.cond462, label %188, label %63
 
@@ -13840,7 +13840,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr nocapture n
   br i1 %.not178, label %.preheader, label %slow_search.exit.thread
 
 .preheader:                                       ; preds = %24
-  %25 = icmp ugt ptr %23, %3
+  %25 = icmp ult ptr %3, %23
   br i1 %25, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
@@ -13924,14 +13924,14 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr nocapture n
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %66, %68
   %70 = getelementptr i8, ptr %59, i64 1
-  %71 = icmp ugt ptr %spec.select.i, %.2
+  %71 = icmp ult ptr %.2, %spec.select.i
   br i1 %69, label %.preheader.i, label %.preheader60.i
 
 .preheader60.i:                                   ; preds = %57
   br i1 %71, label %.lr.ph.i, label %slow_search.exit.thread
 
 .lr.ph.i:                                         ; preds = %.preheader60.i
-  %72 = icmp eq ptr %70, %60
+  %72 = icmp eq ptr %60, %70
   %73 = ptrtoint ptr %70 to i64
   %74 = sub i64 %61, %73
   br i1 %72, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -13970,7 +13970,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr nocapture n
 
 .lr.ph71.i:                                       ; preds = %.preheader.i
   %91 = load i8, ptr %59, align 1
-  %92 = icmp eq ptr %70, %60
+  %92 = icmp eq ptr %60, %70
   %93 = ptrtoint ptr %70 to i64
   %94 = sub i64 %61, %93
   %95 = sext i32 %66 to i64
@@ -14051,7 +14051,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr nocapture n
   %135 = getelementptr i8, ptr %2, i64 %.neg31.i
   %136 = icmp ugt ptr %135, %4
   %spec.select.i194 = select i1 %136, ptr %4, ptr %135
-  %137 = icmp ugt ptr %spec.select.i194, %.2
+  %137 = icmp ult ptr %.2, %spec.select.i194
   br i1 %137, label %.lr.ph.i195, label %slow_search.exit.thread
 
 .lr.ph.i195:                                      ; preds = %128
@@ -14208,7 +14208,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
   %.046.i = select i1 %208, ptr %210, ptr %4
   %211 = load ptr, ptr %52, align 8
   %212 = icmp eq ptr %211, null
-  %213 = icmp ugt ptr %.046.i, %.2
+  %213 = icmp ult ptr %.2, %.046.i
   %or.cond.i201 = and i1 %212, %213
   br i1 %or.cond.i201, label %.lr.ph57.i, label %slow_search.exit.thread
 
@@ -14420,7 +14420,7 @@ str_lower_case_match.exit.thread.i212:            ; preds = %str_lower_case_matc
   %.044.i = select i1 %320, ptr %322, ptr %4
   %323 = load ptr, ptr %52, align 8
   %324 = icmp eq ptr %323, null
-  %325 = icmp ugt ptr %.044.i, %.2
+  %325 = icmp ult ptr %.2, %.044.i
   %or.cond.i226 = and i1 %324, %325
   br i1 %or.cond.i226, label %.lr.ph.i228, label %slow_search.exit.thread
 
@@ -16000,7 +16000,7 @@ define internal fastcc range(i32 0, 2) i32 @string_cmp_ic(ptr noundef %0, i32 no
   %11 = load ptr, ptr %3, align 8
   store ptr %11, ptr %10, align 8
   %12 = getelementptr i8, ptr %2, i64 %4
-  %13 = icmp ugt ptr %12, %2
+  %13 = icmp ult ptr %2, %12
   br i1 %13, label %.lr.ph28, label %._crit_edge
 
 .lr.ph28:                                         ; preds = %6

@@ -120,7 +120,7 @@ define hidden void @_ZN23G1PageBasedVirtualSpace25initialize_with_page_sizeE13Re
 23:                                               ; preds = %15
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = load i64, ptr %24, align 8
-  %.not = icmp ult i64 %25, %2
+  %.not = icmp ugt i64 %2, %25
   br i1 %.not, label %26, label %28
 
 26:                                               ; preds = %23
@@ -296,7 +296,7 @@ _ZNK23G1PageBasedVirtualSpace14committed_sizeEv.exit: ; preds = %1, %14, %25
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace17is_area_committedEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = add i64 %2, %1
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %.loopexit.i.i
 
 6:                                                ; preds = %3
@@ -358,7 +358,7 @@ _ZNK6BitMap20find_first_clear_bitEmm.exit:        ; preds = %6, %30, %.loopexit.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = add i64 %2, %1
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %.loopexit.i.i
 
 6:                                                ; preds = %3
@@ -436,7 +436,7 @@ define hidden noundef i64 @_ZNK23G1PageBasedVirtualSpace9page_sizeEv(ptr nocaptu
 define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
-  %.not = icmp ult i64 %4, %1
+  %.not = icmp ugt i64 %1, %4
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
@@ -447,7 +447,7 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace18is_after_last_p
   unreachable
 
 8:                                                ; preds = %2
-  %9 = icmp eq i64 %4, %1
+  %9 = icmp eq i64 %1, %4
   ret i1 %9
 }
 
@@ -473,7 +473,7 @@ define hidden void @_ZN23G1PageBasedVirtualSpace11commit_tailEv(ptr nocapture no
   %5 = load i64, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = sub i64 0, %5
-  %8 = and i64 %7, %6
+  %8 = and i64 %6, %7
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
@@ -496,7 +496,7 @@ define hidden void @_ZN23G1PageBasedVirtualSpace15commit_internalEmm(ptr nocaptu
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8
-  %.not = icmp ult i64 %9, %2
+  %.not = icmp ugt i64 %2, %9
   br i1 %.not, label %10, label %_ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm.exit
 
 10:                                               ; preds = %7
@@ -508,7 +508,7 @@ define hidden void @_ZN23G1PageBasedVirtualSpace15commit_internalEmm(ptr nocaptu
 
 _ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm.exit: ; preds = %7
   %13 = sub i64 %2, %1
-  %14 = icmp eq i64 %9, %2
+  %14 = icmp eq i64 %2, %9
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %_ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm.exit
@@ -551,7 +551,7 @@ _ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm.exit: ; preds = %7
   %39 = load i64, ptr %38, align 8
   %40 = ptrtoint ptr %37 to i64
   %41 = sub i64 0, %39
-  %42 = and i64 %41, %40
+  %42 = and i64 %40, %41
   %43 = inttoptr i64 %42 to ptr
   %44 = getelementptr inbounds i8, ptr %0, i64 16
   %45 = load i64, ptr %44, align 8
@@ -580,7 +580,7 @@ define hidden noundef ptr @_ZNK23G1PageBasedVirtualSpace16bounded_end_addrEm(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN23G1PageBasedVirtualSpace6commitEmm(ptr noundef nonnull align 8 dereferenceable(81) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = add i64 %2, %1
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread.thread
 
 6:                                                ; preds = %3
@@ -749,7 +749,7 @@ declare noundef zeroext i1 @_ZN2os15uncommit_memoryEPcmb(ptr noundef, i64 nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23G1PageBasedVirtualSpace8uncommitEmm(ptr noundef nonnull align 8 dereferenceable(81) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = add i64 %2, %1
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %_ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit.thread.thread
 
 6:                                                ; preds = %3
@@ -883,7 +883,7 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace8containsEPKv(ptr
   %.not = icmp ule ptr %3, %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp ugt ptr %5, %1
+  %6 = icmp ult ptr %1, %5
   %7 = select i1 %.not, i1 %6, i1 false
   ret i1 %7
 }

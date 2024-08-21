@@ -691,10 +691,10 @@ define hidden void @_mi_fputs(ptr noundef readonly %out, ptr noundef %arg, ptr n
 entry:
   %cmp = icmp eq ptr %out, null
   %0 = load ptr, ptr @stdout, align 8
-  %cmp1 = icmp eq ptr %0, %out
+  %cmp1 = icmp eq ptr %out, %0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp1
   %1 = load ptr, ptr @stderr, align 8
-  %cmp3 = icmp eq ptr %1, %out
+  %cmp3 = icmp eq ptr %out, %1
   %or.cond11 = select i1 %or.cond, i1 true, i1 %cmp3
   br i1 %or.cond11, label %if.then, label %if.else
 
@@ -761,10 +761,10 @@ if.end2.i:                                        ; preds = %if.end.i
   store i8 0, ptr %0, align 1
   %cmp.i.i = icmp eq ptr %out, null
   %2 = load ptr, ptr @stdout, align 8
-  %cmp1.i.i = icmp eq ptr %2, %out
+  %cmp1.i.i = icmp eq ptr %out, %2
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
   %3 = load ptr, ptr @stderr, align 8
-  %cmp3.i.i = icmp eq ptr %3, %out
+  %cmp3.i.i = icmp eq ptr %out, %3
   %or.cond11.i.i = select i1 %or.cond.i.i, i1 true, i1 %cmp3.i.i
   br i1 %or.cond11.i.i, label %if.end.i.i, label %if.else.i.i
 

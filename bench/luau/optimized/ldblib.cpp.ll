@@ -38,7 +38,7 @@ define internal noundef i32 @_ZL7db_infoP9lua_State(ptr noundef %0) #0 {
 
 _ZL9getthreadP9lua_StatePi.exit:                  ; preds = %1
   %5 = tail call noundef ptr @_Z12lua_tothreadP9lua_Statei(ptr noundef %0, i32 noundef 1)
-  %.not = icmp eq ptr %5, %0
+  %.not = icmp eq ptr %0, %5
   br i1 %.not, label %_ZL9getthreadP9lua_StatePi.exit.thread, label %6
 
 6:                                                ; preds = %_ZL9getthreadP9lua_StatePi.exit
@@ -293,7 +293,7 @@ _ZL9getthreadP9lua_StatePi.exit:                  ; preds = %1, %7
   %9 = add nuw nsw i32 %.033, 1
   %10 = tail call noundef ptr @_Z15luaL_optlstringP9lua_StateiPKcPm(ptr noundef %0, i32 noundef %9, ptr noundef null, ptr noundef null)
   %11 = or disjoint i32 %.033, 2
-  %12 = icmp eq ptr %.0.i, %0
+  %12 = icmp eq ptr %0, %.0.i
   %13 = zext i1 %12 to i32
   %14 = tail call noundef i32 @_Z15luaL_optintegerP9lua_Stateii(ptr noundef %0, i32 noundef %11, i32 noundef %13)
   %15 = icmp sgt i32 %14, -1

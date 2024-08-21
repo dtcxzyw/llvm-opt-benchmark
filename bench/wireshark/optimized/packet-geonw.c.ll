@@ -3514,7 +3514,7 @@ define internal fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr nocapture nound
   %35 = sub i32 %34, %7
   %36 = tail call ptr @proto_tree_add_bits_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %33, i32 noundef %35, i32 noundef 0) #12
   %37 = load i32, ptr @hf_sgeonw_app_id, align 4
-  %.not = icmp ne i32 %37, %4
+  %.not = icmp ne i32 %4, %37
   %.pre = load i32, ptr %1, align 4
   %38 = sub i32 %.pre, %7
   %39 = icmp sgt i32 %38, 4

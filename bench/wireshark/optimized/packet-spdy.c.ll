@@ -1024,7 +1024,7 @@ dissect_spdy_data_payload.exit:                   ; preds = %spdy_get_num_data_f
   %316 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %317 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %315, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
   %318 = load i32, ptr @hf_spdy_streamid, align 4
-  %319 = icmp eq i32 %318, %315
+  %319 = icmp eq i32 %315, %318
   br i1 %319, label %320, label %dissect_spdy_stream_id_field.exit.i
 
 320:                                              ; preds = %312
@@ -1044,7 +1044,7 @@ dissect_spdy_stream_id_field.exit.i:              ; preds = %320, %312
   %324 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #7
   %325 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %323, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #7
   %326 = load i32, ptr @hf_spdy_streamid, align 4
-  %327 = icmp eq i32 %326, %323
+  %327 = icmp eq i32 %323, %326
   br i1 %327, label %328, label %.thread
 
 328:                                              ; preds = %322
@@ -1584,7 +1584,7 @@ define internal fastcc void @dissect_spdy_rst_stream_payload(ptr noundef %0, ptr
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
   %8 = load i32, ptr @hf_spdy_streamid, align 4
-  %9 = icmp eq i32 %8, %5
+  %9 = icmp eq i32 %5, %8
   br i1 %9, label %10, label %dissect_spdy_stream_id_field.exit
 
 10:                                               ; preds = %4
@@ -1695,7 +1695,7 @@ define internal fastcc void @dissect_spdy_goaway_payload(ptr noundef %0, ptr nou
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
   %8 = load i32, ptr @hf_spdy_streamid, align 4
-  %9 = icmp eq i32 %8, %5
+  %9 = icmp eq i32 %5, %8
   br i1 %9, label %10, label %dissect_spdy_stream_id_field.exit
 
 10:                                               ; preds = %4
@@ -1727,7 +1727,7 @@ define internal fastcc void @dissect_spdy_window_update_payload(ptr noundef %0, 
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
   %7 = load i32, ptr @hf_spdy_streamid, align 4
-  %8 = icmp eq i32 %7, %4
+  %8 = icmp eq i32 %4, %7
   br i1 %8, label %9, label %dissect_spdy_stream_id_field.exit
 
 9:                                                ; preds = %3

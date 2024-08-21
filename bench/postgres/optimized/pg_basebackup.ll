@@ -647,7 +647,7 @@ sub_1116:                                         ; preds = %sub_0115
   store i32 0, ptr %130, align 4
   %131 = call double @strtod(ptr noundef %129, ptr noundef nonnull %23) #17
   %132 = load ptr, ptr %23, align 8
-  %133 = icmp eq ptr %132, %129
+  %133 = icmp eq ptr %129, %132
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %128
@@ -3387,8 +3387,8 @@ define internal fastcc void @progress_report(i32 noundef %0, i1 noundef zeroext 
   %7 = tail call i64 @time(ptr noundef null) #17
   %8 = load i64, ptr @last_progress_report, align 8
   %9 = icmp ne i64 %7, %8
-  %brmerge = or i1 %9, %1
-  %brmerge23 = or i1 %brmerge, %2
+  %brmerge = or i1 %1, %9
+  %brmerge23 = or i1 %2, %brmerge
   br i1 %brmerge23, label %10, label %67
 
 10:                                               ; preds = %6
@@ -3695,7 +3695,7 @@ define internal zeroext i1 @reached_end_position(i64 noundef %0, i32 %1, i1 zero
 
 37:                                               ; preds = %._crit_edge, %30
   %38 = phi i64 [ %.pre, %._crit_edge ], [ %36, %30 ]
-  %.not10 = icmp ule i64 %38, %0
+  %.not10 = icmp uge i64 %0, %38
   br label %39
 
 39:                                               ; preds = %37, %9
@@ -3863,7 +3863,7 @@ GetCopyDataString.exit:                           ; preds = %.lr.ph.i
 
 GetCopyDataString.exit75:                         ; preds = %.lr.ph.i72
   %34 = getelementptr i8, ptr %1, i64 %24
-  %.not.i76 = icmp eq i64 %32, %0
+  %.not.i76 = icmp eq i64 %0, %32
   br i1 %.not.i76, label %GetCopyDataEnd.exit, label %35
 
 35:                                               ; preds = %GetCopyDataString.exit75

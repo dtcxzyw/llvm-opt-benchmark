@@ -1054,14 +1054,14 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
   %arrayidx13.i94 = getelementptr inbounds i8, ptr %arrayidx.i86, i64 8
   %18 = load float, ptr %arrayidx13.i94, align 4
   %sub14.i95 = fsub float %14, %18
-  %19 = fneg float %sub14.i
-  %neg.i = fmul float %sub8.i92, %19
+  %19 = fneg float %sub8.i92
+  %neg.i = fmul float %sub14.i, %19
   %20 = tail call float @llvm.fmuladd.f32(float %sub8.i, float %sub14.i95, float %neg.i)
-  %21 = fneg float %sub.i
-  %neg19.i = fmul float %sub14.i95, %21
+  %21 = fneg float %sub14.i95
+  %neg19.i = fmul float %sub.i, %21
   %22 = tail call float @llvm.fmuladd.f32(float %sub14.i, float %sub.i89, float %neg19.i)
-  %23 = fneg float %sub8.i
-  %neg30.i = fmul float %sub.i89, %23
+  %23 = fneg float %sub.i89
+  %neg30.i = fmul float %sub8.i, %23
   %24 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub8.i92, float %neg30.i)
   %mul8.i.i.i = fmul float %22, %22
   %25 = tail call float @llvm.fmuladd.f32(float %20, float %20, float %mul8.i.i.i)
@@ -1861,7 +1861,7 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body8.i
   store i32 %1, ptr %m_size.i, align 4
   %m_size.i.i17 = getelementptr inbounds i8, ptr %this, i64 36
   %11 = load i32, ptr %m_size.i.i17, align 4
-  %cmp3.i20 = icmp slt i32 %11, %1
+  %cmp3.i20 = icmp sgt i32 %1, %11
   br i1 %cmp3.i20, label %if.then4.i21, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit61
 
 if.then4.i21:                                     ; preds = %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit

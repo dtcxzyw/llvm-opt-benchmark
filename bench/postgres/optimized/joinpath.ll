@@ -1937,7 +1937,7 @@ list_length.exit109:                              ; preds = %33
   %37 = getelementptr inbounds i8, ptr %32, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %38, 2
-  %brmerge = or i1 %39, %6
+  %brmerge = or i1 %6, %39
   br i1 %brmerge, label %list_length.exit109.thread, label %list_length.exit109.thread.thread
 
 list_length.exit109.thread.thread:                ; preds = %list_length.exit109

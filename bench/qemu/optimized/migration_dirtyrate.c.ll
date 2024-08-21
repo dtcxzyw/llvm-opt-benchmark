@@ -1167,7 +1167,7 @@ if.then4:                                         ; preds = %convert_time_unit.e
 if.end5:                                          ; preds = %convert_time_unit.exit
   %spec.select = select i1 %has_mode, i32 %mode, i32 0
   %cmp10 = icmp ne i32 %spec.select, 0
-  %or.cond = and i1 %cmp10, %has_sample_pages
+  %or.cond = and i1 %has_sample_pages, %cmp10
   br i1 %or.cond, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end5

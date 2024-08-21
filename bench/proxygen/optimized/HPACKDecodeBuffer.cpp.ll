@@ -1140,7 +1140,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %i.i.06.i.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i.i = icmp ugt i64 %1, %0
+  %cmp1.i.i.i.i.i.i.i = icmp ult i64 %0, %1
   br i1 %cmp1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
@@ -1640,7 +1640,7 @@ if.then:                                          ; preds = %entry
   %add = add i64 %sub.i, %delta
   store i64 %add, ptr %newSz, align 8
   %cmp4 = icmp ugt i64 %add, 23
-  %or.cond.not = or i1 %cmp4, %disableSSO
+  %or.cond.not = or i1 %disableSSO, %cmp4
   br i1 %or.cond.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then
@@ -2511,7 +2511,7 @@ entry:
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %capacity_.i, align 8
   %and.i = and i64 %0, 4611686018427387903
-  %cmp.not = icmp ult i64 %and.i, %minCapacity
+  %cmp.not = icmp ugt i64 %minCapacity, %and.i
   br i1 %cmp.not, label %if.end, label %if.end19
 
 if.end:                                           ; preds = %entry
@@ -2670,7 +2670,7 @@ if.then:                                          ; preds = %entry
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %capacity_.i.i, align 8
   %and.i.i = and i64 %3, 4611686018427387903
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %and.i.i, i64 %2)
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %2, i64 %and.i.i)
   store i64 %.sroa.speculated.i, ptr %effectiveCapacity.i, align 8
   %call3.i = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i)
   %4 = load ptr, ptr %this, align 8
@@ -2870,7 +2870,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i,
   %i.i.i.015.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i = icmp ugt i64 %2, %1
+  %cmp1.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i

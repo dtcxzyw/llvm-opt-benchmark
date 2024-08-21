@@ -6308,7 +6308,7 @@ define dso_local ptr @llvm_emit_coerce(ptr noundef %0, ptr noundef %1, ptr nound
   %49 = tail call ptr @LLVMStructGetTypeAtIndex(ptr noundef %.0.i, i32 noundef 0) #10
   %50 = tail call i32 @llvm_store_size(ptr noundef %0, ptr noundef %49) #10
   %51 = zext i32 %50 to i64
-  %52 = icmp ult i32 %50, %38
+  %52 = icmp ugt i32 %38, %50
   %53 = icmp ugt i64 %.013.i, %51
   %or.cond.i = select i1 %52, i1 %53, i1 false
   br i1 %or.cond.i, label %llvm_find_inner_struct_type_for_coerce.exit, label %44
@@ -6424,7 +6424,7 @@ define dso_local void @llvm_emit_coerce_store(ptr noundef %0, ptr noundef %1, i3
   %22 = tail call ptr @LLVMStructGetTypeAtIndex(ptr noundef %.0.i, i32 noundef 0) #10
   %23 = tail call i32 @llvm_store_size(ptr noundef %0, ptr noundef %22) #10
   %24 = zext i32 %23 to i64
-  %25 = icmp ult i32 %23, %11
+  %25 = icmp ugt i32 %11, %23
   %26 = icmp ugt i64 %.013.i, %24
   %or.cond.i = select i1 %25, i1 %26, i1 false
   br i1 %or.cond.i, label %llvm_find_inner_struct_type_for_coerce.exit, label %17
@@ -8821,7 +8821,7 @@ define dso_local ptr @llvm_emit_struct_gep_raw(ptr nocapture noundef readonly %0
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @LLVMOffsetOfElement(ptr noundef %9, ptr noundef %2, i32 noundef %3) #10
   %11 = trunc i64 %10 to i32
-  %12 = or i32 %11, %4
+  %12 = or i32 %4, %11
   %13 = sub i32 0, %12
   %14 = and i32 %12, %13
   store i32 %14, ptr %5, align 4
@@ -15741,7 +15741,7 @@ define internal fastcc void @llvm_emit_initialize_designated_element(ptr noundef
   %54 = getelementptr inbounds i8, ptr %53, i64 48
   %55 = load i64, ptr %54, align 8
   %56 = trunc i64 %55 to i32
-  %57 = add i32 %56, %2
+  %57 = add i32 %2, %56
   %58 = load i32, ptr %42, align 8
   %59 = icmp eq i32 %58, 27
   br i1 %59, label %60, label %72
@@ -16478,14 +16478,14 @@ define internal fastcc nonnull ptr @expand_(ptr noundef %0, i64 noundef %1) unna
   %15 = getelementptr inbounds i8, ptr %.0, i64 4
   %16 = shl i32 %11, 1
   %17 = zext i32 %16 to i64
-  %18 = mul nuw nsw i64 %17, %1
+  %18 = mul nuw nsw i64 %1, %17
   %19 = add nuw nsw i64 %18, 8
   %20 = tail call ptr @calloc_arena(i64 noundef %19) #10
   %21 = getelementptr inbounds i8, ptr %20, i64 4
   store i32 %16, ptr %21, align 4
   %22 = load i32, ptr %15, align 4
   %23 = zext i32 %22 to i64
-  %24 = mul nuw nsw i64 %23, %1
+  %24 = mul nuw nsw i64 %1, %23
   %25 = add nuw nsw i64 %24, 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %20, ptr noundef nonnull align 4 dereferenceable(1) %.0, i64 %25, i1 false)
   %26 = load i32, ptr %21, align 4
@@ -18842,7 +18842,7 @@ define internal fastcc i32 @find_member_index(ptr nocapture noundef readonly %0,
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
   %8 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %._crit_edge.loopexit.split.loop.exit35, label %11
 
 11:                                               ; preds = %.lr.ph

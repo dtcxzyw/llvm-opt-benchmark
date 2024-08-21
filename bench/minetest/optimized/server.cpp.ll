@@ -2610,7 +2610,7 @@ invoke.cont65:                                    ; preds = %if.end63
   %48 = load float, ptr %m_max_lag_estimate.i, align 4, !tbaa !153
   %m_max_lag_decrease = getelementptr inbounds i8, ptr %this, i64 620
   %49 = load float, ptr %m_max_lag_decrease, align 4, !tbaa !211
-  %add.i = fadd nsz float %49, %dtime
+  %add.i = fadd nsz float %dtime, %49
   %cmp.i = fcmp nsz uge float %add.i, 5.000000e-01
   %sub.i = fadd nsz float %add.i, -5.000000e-01
   %storemerge.i = select i1 %cmp.i, float %sub.i, float %add.i
@@ -2801,7 +2801,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.end107
   %call1.i.i.i.i1343 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_env_mutex) #34
   %m_map_timer_and_unload_interval = getelementptr inbounds i8, ptr %this, i64 616
   %67 = load float, ptr %m_map_timer_and_unload_interval, align 8, !tbaa !211
-  %add.i1345 = fadd nsz float %67, %dtime
+  %add.i1345 = fadd nsz float %dtime, %67
   %cmp.i1346 = fcmp nsz uge float %add.i1345, 0x40075C2900000000
   %sub.i1347 = fadd nsz float %add.i1345, 0xC0075C2900000000
   %storemerge.i1348 = select i1 %cmp.i1346, float %sub.i1347, float %add.i1345
@@ -3269,7 +3269,7 @@ ehcleanup209:                                     ; preds = %lpad199, %lpad195, 
 if.end210:                                        ; preds = %invoke.cont208, %invoke.cont167
   %m_liquid_transform_timer = getelementptr inbounds i8, ptr %this, i64 596
   %119 = load float, ptr %m_liquid_transform_timer, align 4, !tbaa !251
-  %add = fadd nsz float %119, %dtime
+  %add = fadd nsz float %dtime, %119
   store float %add, ptr %m_liquid_transform_timer, align 4, !tbaa !251
   %m_liquid_transform_every = getelementptr inbounds i8, ptr %this, i64 600
   %120 = load float, ptr %m_liquid_transform_every, align 8, !tbaa !252
@@ -3579,7 +3579,7 @@ invoke.cont265:                                   ; preds = %invoke.cont261
 if.end283:                                        ; preds = %invoke.cont265
   %m_step_pending_dyn_media_timer = getelementptr inbounds i8, ptr %this, i64 1368
   %157 = load float, ptr %m_step_pending_dyn_media_timer, align 8, !tbaa !275
-  %add284 = fadd nsz float %157, %dtime
+  %add284 = fadd nsz float %dtime, %157
   store float %add284, ptr %m_step_pending_dyn_media_timer, align 8, !tbaa !275
   %cmp285 = fcmp nsz ult float %add284, 5.000000e+00
   br i1 %cmp285, label %if.end289, label %if.then286
@@ -3823,7 +3823,7 @@ ehcleanup375:                                     ; preds = %if.then.i.i1607, %_
 
 if.end376:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1598, %cleanup.done330, %land.lhs.true295, %if.end289
   %193 = phi float [ %.pre, %if.end289 ], [ %.pre, %land.lhs.true295 ], [ 0x3F847AE140000000, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1598 ], [ %.pre2621, %cleanup.done330 ]
-  %add377 = fadd nsz float %193, %dtime
+  %add377 = fadd nsz float %dtime, %193
   store float %add377, ptr %m_masterserver_timer, align 4, !tbaa !275
   %call1.i.i.i.i1614 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_env_mutex) #34
   %tobool.not.i.i.i1615 = icmp eq i32 %call1.i.i.i.i1614, 0
@@ -6237,7 +6237,7 @@ lpad1004:                                         ; preds = %if.then1001
 if.end1006:                                       ; preds = %if.then1001, %_ZNSt11unique_lockISt5mutexED2Ev.exit2285
   %m_savemap_timer = getelementptr inbounds i8, ptr %this, i64 612
   %505 = load float, ptr %m_savemap_timer, align 4, !tbaa !275
-  %add1009 = fadd nsz float %505, %dtime
+  %add1009 = fadd nsz float %dtime, %505
   store float %add1009, ptr %m_savemap_timer, align 4, !tbaa !275
   %.b = load i1, ptr @_ZGVZN6Server12AsyncRunStepEfbE13save_interval, align 1
   br i1 %.b, label %if.end1006.init.end_crit_edge, label %init.check, !prof !437
@@ -25222,7 +25222,7 @@ invoke.cont57:                                    ; preds = %_ZNKSt8__detail15_H
   %conv1.i.i.i = fptosi float %59 to i32
   %conv13.i.i = trunc i32 %conv1.i.i.i to i16
   %conv59 = sitofp i16 %conv13.i.i to float
-  %cmp = fcmp nsz ogt float %conv59, %far_d_nodes
+  %cmp = fcmp nsz olt float %far_d_nodes, %conv59
   br i1 %cmp, label %if.then60, label %if.end63
 
 if.then60:                                        ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.inc.i.i.i, %invoke.cont57, %if.end15.i.i.i, %if.then.i.i.i194
@@ -28521,7 +28521,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %os) #34
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1ESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(112) %os, i32 noundef 4)
   %cmp = icmp ugt i16 %0, 37
-  %and29 = and i1 %cmp, %incremental
+  %and29 = and i1 %incremental, %cmp
   %inventory = getelementptr inbounds i8, ptr %player, i64 48
   invoke void @_ZNK9Inventory9serializeERSob(ptr noundef nonnull align 8 dereferenceable(33) %inventory, ptr noundef nonnull align 8 dereferenceable(8) %os, i1 noundef zeroext %and29)
           to label %invoke.cont8 unwind label %lpad7
@@ -55726,7 +55726,7 @@ if.then18:                                        ; preds = %if.else16
 invoke.cont20:                                    ; preds = %if.then18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp22) #34
   %cond.v.i = select i1 %cmp3, float -5.000000e-01, float 5.000000e-01
-  %cond.i = fadd nsz float %cond.v.i, %delay
+  %cond.i = fadd nsz float %delay, %cond.v.i
   %conv.i = fptosi float %cond.i to i32
   invoke void @_Z18duration_to_stringB5cxx11i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp22, i32 noundef %conv.i)
           to label %invoke.cont26 unwind label %lpad23

@@ -4473,7 +4473,7 @@ _ZSt10_ConstructIN4Luau11LintWarningEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = 
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
   %27 = tail call ptr @__cxa_begin_catch(ptr %26) #20
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau11LintWarningEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %24, %.lr.ph.i.i.i.i.i.i
@@ -6630,7 +6630,7 @@ _ZNSt16allocator_traitsISaIN4Luau11LintWarningEEE9constructIS1_JRKS1_EEEvRS2_PT_
 _ZNSt6vectorIN4Luau11LintWarningESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN4Luau11LintWarningEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN4Luau11LintWarningEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %30, %.lr.ph.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 56
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN4Luau11LintWarningESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN4Luau11LintWarningESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i27
@@ -7352,7 +7352,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIPKN4Luau15Lint
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
   %37 = tail call ptr @__cxa_begin_catch(ptr %36) #20
-  %.not4.i.i = icmp eq ptr %.016, %2
+  %.not4.i.i = icmp eq ptr %2, %.016
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN4Luau15LintGlobalLocal12FunctionInfoEEvT_S4_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %34, %_ZSt8_DestroyIN4Luau15LintGlobalLocal12FunctionInfoEEvPT_.exit.i.i
@@ -10438,13 +10438,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau24LintUnbalancedAssign
   %6 = getelementptr inbounds i8, ptr %1, i64 12
   %7 = getelementptr inbounds i8, ptr %1, i64 56
   %8 = load i64, ptr %7, align 8
-  %.not.i = icmp eq i64 %8, %4
+  %.not.i = icmp eq i64 %4, %8
   %.not17.i = icmp eq i64 %8, 0
   %or.cond.i = or i1 %.not.i, %.not17.i
   br i1 %or.cond.i, label %_ZN4Luau24LintUnbalancedAssignment6assignEmRKNS_8AstArrayIPNS_7AstExprEEERKNS_8LocationE.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = icmp ugt i64 %8, %4
+  %10 = icmp ult i64 %4, %8
   br i1 %10, label %.sink.split.i, label %11
 
 11:                                               ; preds = %9
@@ -10485,13 +10485,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau24LintUnbalancedAssign
   %6 = getelementptr inbounds i8, ptr %1, i64 12
   %7 = getelementptr inbounds i8, ptr %1, i64 56
   %8 = load i64, ptr %7, align 8
-  %.not.i = icmp eq i64 %8, %4
+  %.not.i = icmp eq i64 %4, %8
   %.not17.i = icmp eq i64 %8, 0
   %or.cond.i = or i1 %.not.i, %.not17.i
   br i1 %or.cond.i, label %_ZN4Luau24LintUnbalancedAssignment6assignEmRKNS_8AstArrayIPNS_7AstExprEEERKNS_8LocationE.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = icmp ugt i64 %8, %4
+  %10 = icmp ult i64 %4, %8
   br i1 %10, label %.sink.split.i, label %11
 
 11:                                               ; preds = %9
@@ -10738,7 +10738,7 @@ define linkonce_odr dso_local void @_ZN4Luau16LintFormatString9matchCallEPNS_11A
 39:                                               ; preds = %34
   %40 = getelementptr inbounds i8, ptr %33, i64 320
   %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, %21
+  %42 = icmp eq ptr %21, %41
   br i1 %42, label %_ZN4Luau11LintContext7getTypeEPNS_7AstExprE.exit.thread, label %43
 
 43:                                               ; preds = %39
@@ -15061,7 +15061,7 @@ _ZNK4Luau7AstNameeqEPKc.exit16:                   ; preds = %_ZNK4Luau7AstNameeq
 36:                                               ; preds = %31
   %37 = getelementptr inbounds i8, ptr %30, i64 320
   %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, %26
+  %39 = icmp eq ptr %26, %38
   br i1 %39, label %_ZN4Luau11LintContext7getTypeEPNS_7AstExprE.exit.thread, label %40
 
 40:                                               ; preds = %36
@@ -15151,7 +15151,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau17LintDeprecatedApi5vi
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %8, i64 320
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %6
+  %17 = icmp eq ptr %6, %16
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %14
@@ -15492,7 +15492,7 @@ define linkonce_odr dso_local void @_ZN4Luau17LintDeprecatedApi5checkERKNS_8Loca
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %8, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, %2
+  %16 = icmp eq ptr %2, %15
   br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %13
@@ -15857,7 +15857,7 @@ define linkonce_odr dso_local void @_ZN4Luau19LintTableOperations12checkIndexerE
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %8, i64 320
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %2
+  %17 = icmp eq ptr %2, %16
   br i1 %17, label %_ZN4Luau11LintContext7getTypeEPNS_7AstExprE.exit.thread, label %18
 
 18:                                               ; preds = %14
@@ -15988,7 +15988,7 @@ _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %3
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %27, i64 320
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, %25
+  %36 = icmp eq ptr %25, %35
   br i1 %36, label %_ZN4Luau11LintContext7getTypeEPNS_7AstExprE.exit.thread, label %37
 
 37:                                               ; preds = %33
@@ -18765,7 +18765,7 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %5 = alloca %"struct.Luau::LintWarning", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
-  %8 = icmp sgt i64 %7, %1
+  %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4Luau17WarningComparatorEEclINS_17__normal_iteratorIPNS2_11LintWarningESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit

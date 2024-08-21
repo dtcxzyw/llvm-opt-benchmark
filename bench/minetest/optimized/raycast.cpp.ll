@@ -271,12 +271,12 @@ if.then3:                                         ; preds = %if.end
   br i1 %or.cond, label %if.then18, label %if.end46
 
 if.then18:                                        ; preds = %if.then3
-  %mul3.i = fmul nsz float %m.0, %dir.coerce1
+  %mul3.i = fmul nsz float %dir.coerce1, %m.0
   %9 = insertelement <2 x float> poison, float %m.0, i64 0
   %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> zeroinitializer
-  %11 = fmul nsz <2 x float> %10, %dir.coerce0
-  %12 = fadd nsz <2 x float> %11, %start.coerce0
-  %add6.i = fadd nsz float %mul3.i, %start.coerce1
+  %11 = fmul nsz <2 x float> %dir.coerce0, %10
+  %12 = fadd nsz <2 x float> %start.coerce0, %11
+  %add6.i = fadd nsz float %start.coerce1, %mul3.i
   store <2 x float> %12, ptr %collision_point, align 4, !tbaa.struct !50
   %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %collision_point, i64 8
   store float %add6.i, ptr %ref.tmp.sroa.4.0..sroa_idx, align 4, !tbaa !19
@@ -324,10 +324,10 @@ if.then49:                                        ; preds = %if.end46
 if.then70:                                        ; preds = %if.then49
   %19 = insertelement <2 x float> poison, float %m.1, i64 0
   %20 = shufflevector <2 x float> %19, <2 x float> poison, <2 x i32> zeroinitializer
-  %21 = fmul nsz <2 x float> %20, %dir.coerce0
-  %mul3.i239 = fmul nsz float %m.1, %dir.coerce1
-  %22 = fadd nsz <2 x float> %21, %start.coerce0
-  %add6.i250 = fadd nsz float %mul3.i239, %start.coerce1
+  %21 = fmul nsz <2 x float> %dir.coerce0, %20
+  %mul3.i239 = fmul nsz float %dir.coerce1, %m.1
+  %22 = fadd nsz <2 x float> %start.coerce0, %21
+  %add6.i250 = fadd nsz float %start.coerce1, %mul3.i239
   store <2 x float> %22, ptr %collision_point, align 4, !tbaa.struct !50
   %ref.tmp71.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %collision_point, i64 8
   store float %add6.i250, ptr %ref.tmp71.sroa.4.0..sroa_idx, align 4, !tbaa !19
@@ -374,10 +374,10 @@ if.then107:                                       ; preds = %if.end104
 if.then128:                                       ; preds = %if.then107
   %30 = insertelement <2 x float> poison, float %m.2, i64 0
   %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
-  %32 = fmul nsz <2 x float> %31, %dir.coerce0
-  %mul3.i261 = fmul nsz float %m.2, %dir.coerce1
-  %33 = fadd nsz <2 x float> %32, %start.coerce0
-  %add6.i272 = fadd nsz float %mul3.i261, %start.coerce1
+  %32 = fmul nsz <2 x float> %dir.coerce0, %31
+  %mul3.i261 = fmul nsz float %dir.coerce1, %m.2
+  %33 = fadd nsz <2 x float> %start.coerce0, %32
+  %add6.i272 = fadd nsz float %start.coerce1, %mul3.i261
   store <2 x float> %33, ptr %collision_point, align 4, !tbaa.struct !50
   %ref.tmp129.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %collision_point, i64 8
   store float %add6.i272, ptr %ref.tmp129.sroa.4.0..sroa_idx, align 4, !tbaa !19
@@ -483,7 +483,7 @@ entry:
   %neg.i.i33 = fmul nsz float %start.sroa.0.4.vec.extract, %37
   %38 = tail call nsz float @llvm.fmuladd.f32(float %fneg3.i, float %start.coerce1, float %neg.i.i33)
   %start.sroa.0.0.vec.extract = extractelement <2 x float> %start.coerce0, i64 0
-  %39 = fmul nsz <2 x float> %32, %start.coerce0
+  %39 = fmul nsz <2 x float> %start.coerce0, %32
   %neg15.i.i = extractelement <2 x float> %39, i64 0
   %40 = extractelement <2 x float> %36, i64 1
   %41 = tail call nsz float @llvm.fmuladd.f32(float %40, float %start.sroa.0.4.vec.extract, float %neg15.i.i)
@@ -510,7 +510,7 @@ entry:
   %add.i.i = fadd nsz float %start.sroa.0.0.vec.extract, %mul.i.i35
   %55 = extractelement <2 x float> %54, i64 0
   %add4.i.i = fadd nsz float %start.sroa.0.4.vec.extract, %55
-  %add6.i.i = fadd nsz float %mul3.i.i36, %start.coerce1
+  %add6.i.i = fadd nsz float %start.coerce1, %mul3.i.i36
   %add.i44.i = fadd nsz float %add.i.i, %mul.i32.i
   %56 = extractelement <2 x float> %54, i64 1
   %add4.i47.i = fadd nsz float %56, %add4.i.i
@@ -521,7 +521,7 @@ entry:
   %neg.i.i41 = fmul nsz float %dir.sroa.0.4.vec.extract, %37
   %57 = tail call nsz float @llvm.fmuladd.f32(float %fneg3.i, float %dir.coerce1, float %neg.i.i41)
   %dir.sroa.0.0.vec.extract = extractelement <2 x float> %dir.coerce0, i64 0
-  %58 = fmul nsz <2 x float> %32, %dir.coerce0
+  %58 = fmul nsz <2 x float> %dir.coerce0, %32
   %neg15.i.i43 = extractelement <2 x float> %58, i64 0
   %59 = tail call nsz float @llvm.fmuladd.f32(float %40, float %dir.sroa.0.4.vec.extract, float %neg15.i.i43)
   %neg15.i25.i46 = fmul nsz float %33, %57
@@ -542,7 +542,7 @@ entry:
   %add.i.i55 = fadd nsz float %dir.sroa.0.0.vec.extract, %mul.i.i49
   %69 = extractelement <2 x float> %68, i64 0
   %add4.i.i56 = fadd nsz float %dir.sroa.0.4.vec.extract, %69
-  %add6.i.i57 = fadd nsz float %mul3.i.i51, %dir.coerce1
+  %add6.i.i57 = fadd nsz float %dir.coerce1, %mul3.i.i51
   %add.i44.i58 = fadd nsz float %add.i.i55, %mul.i32.i52
   %70 = extractelement <2 x float> %68, i64 1
   %add4.i47.i59 = fadd nsz float %70, %add4.i.i56

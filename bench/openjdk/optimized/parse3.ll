@@ -54,7 +54,7 @@ define hidden void @_ZN5Parse15do_field_accessEbb(ptr noundef nonnull align 8 de
   %.sroa.0.0.copyload.i.i = load i64, ptr %7, align 8
   %10 = and i64 %.sroa.0.0.copyload.i.i, 8
   %11 = icmp ne i64 %10, 0
-  %12 = xor i1 %11, %2
+  %12 = xor i1 %2, %11
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %3

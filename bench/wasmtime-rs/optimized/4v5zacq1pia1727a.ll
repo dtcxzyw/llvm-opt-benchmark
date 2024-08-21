@@ -471,7 +471,7 @@ define hidden void @"_ZN14cranelift_isle9serialize13Decomposition17make_control_
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   br i1 %8, label %9, label %18, !prof !7
 
 9:                                                ; preds = %3
@@ -508,7 +508,7 @@ define hidden void @"_ZN14cranelift_isle9serialize13Decomposition17make_control_
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !4, !noundef !3
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3
-  %10 = icmp ugt i64 %9, %5
+  %10 = icmp ult i64 %5, %9
   br i1 %10, label %11, label %20, !prof !7
 
 11:                                               ; preds = %3
@@ -682,7 +682,7 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
   %33 = phi ptr [ %30, %.lr.ph.i.i.i ], [ %31, %.loopexit.i.i.i ]
   %.val12.i.i.i = load i64, ptr %33, align 8, !noundef !3
   %34 = load i64, ptr %28, align 8, !noundef !3
-  %35 = icmp ugt i64 %34, %.val12.i.i.i
+  %35 = icmp ult i64 %.val12.i.i.i, %34
   br i1 %35, label %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit.i.i.i", label %36, !prof !7
 
 36:                                               ; preds = %32
@@ -711,7 +711,7 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
 44:                                               ; preds = %.preheader.i.i.i
   %.val15.i.i.i = load i64, ptr %42, align 8, !noundef !3
   %45 = load i64, ptr %28, align 8, !noundef !3
-  %46 = icmp ugt i64 %45, %.val15.i.i.i
+  %46 = icmp ult i64 %.val15.i.i.i, %45
   br i1 %46, label %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit16.i.i.i", label %47, !prof !7
 
 47:                                               ; preds = %44
@@ -806,7 +806,7 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %24 = load i64, ptr %15, align 8, !noundef !3
-  %25 = icmp ugt i64 %24, %.val12
+  %25 = icmp ult i64 %.val12, %24
   br i1 %25, label %26, label %31, !prof !7
 
 26:                                               ; preds = %22
@@ -876,7 +876,7 @@ default.unreachable:                              ; preds = %45
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %43 = load i64, ptr %15, align 8, !noundef !3
-  %44 = icmp ugt i64 %43, %.val15
+  %44 = icmp ult i64 %.val15, %43
   br i1 %44, label %45, label %50, !prof !7
 
 45:                                               ; preds = %.lr.ph
@@ -966,7 +966,7 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc
   %17 = phi ptr [ %14, %.lr.ph ], [ %15, %.loopexit ]
   %.val12 = load i64, ptr %17, align 8, !noundef !3
   %18 = load i64, ptr %11, align 8, !noundef !3
-  %19 = icmp ugt i64 %18, %.val12
+  %19 = icmp ult i64 %.val12, %18
   br i1 %19, label %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit", label %20, !prof !7
 
 20:                                               ; preds = %16
@@ -1000,7 +1000,7 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc
 27:                                               ; preds = %.preheader
   %.val15 = load i64, ptr %25, align 8, !noundef !3
   %28 = load i64, ptr %11, align 8, !noundef !3
-  %29 = icmp ugt i64 %28, %.val15
+  %29 = icmp ult i64 %.val15, %28
   br i1 %29, label %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16", label %30, !prof !7
 
 30:                                               ; preds = %27
@@ -1101,7 +1101,7 @@ define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$clos
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !4, !noundef !3
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !3
-  %17 = icmp ugt i64 %16, %.val
+  %17 = icmp ult i64 %.val, %16
   br i1 %17, label %18, label %27, !prof !7
 
 18:                                               ; preds = %10
@@ -1132,7 +1132,7 @@ define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$clos
   %30 = load ptr, ptr %29, align 8, !nonnull !3, !align !4, !noundef !3
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !3
-  %33 = icmp ugt i64 %32, %.val2
+  %33 = icmp ult i64 %.val2, %32
   br i1 %33, label %34, label %43, !prof !7
 
 34:                                               ; preds = %"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit.i"

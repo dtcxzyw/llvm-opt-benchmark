@@ -665,7 +665,7 @@ timelib_days_in_month.exit:                       ; preds = %9, %13
   %.in.i = getelementptr inbounds [13 x i32], ptr %ml_table_leap.pn.i, i64 0, i64 %1
   %14 = load i32, ptr %.in.i, align 4
   %15 = sext i32 %14 to i64
-  %16 = icmp sge i64 %15, %2
+  %16 = icmp sle i64 %2, %15
   %spec.select = zext i1 %16 to i32
   br label %17
 

@@ -753,7 +753,7 @@ define internal void @bssmap_le_perf_loc_request(ptr noundef %0, ptr noundef %1,
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -923,7 +923,7 @@ define internal void @bssmap_le_perf_loc_resp(ptr noundef %0, ptr noundef %1, pt
   br i1 %11, label %44, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 70, i32 noundef 8, i32 noundef 5, i32 noundef %13, i32 noundef %10, ptr noundef null) #2
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -985,7 +985,7 @@ define internal void @bssmap_le_perf_loc_info(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -1028,7 +1028,7 @@ define internal void @bssmap_le_connection_oriented(ptr noundef %0, ptr noundef 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 

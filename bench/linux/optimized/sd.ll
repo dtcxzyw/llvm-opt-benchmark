@@ -6501,13 +6501,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sd_suspend_common(ptr %.12
   %30 = load i64, ptr %29, align 4
   %31 = and i64 %30, 1
   %32 = icmp eq i64 %31, 0
-  %33 = or i1 %32, %0
+  %33 = or i1 %0, %32
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %27
   %35 = and i64 %30, 2
   %36 = icmp ne i64 %35, 0
-  %37 = and i1 %36, %0
+  %37 = and i1 %0, %36
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %34, %27

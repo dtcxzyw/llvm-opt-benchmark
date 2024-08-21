@@ -228,7 +228,7 @@ _ZSt10_ConstructIN4LIEF2PE11ExportEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i: ; preds
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #11
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4LIEF2PE11ExportEntryEEvT_S4_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -468,7 +468,7 @@ _ZSt10_ConstructIN4LIEF2PE11ExportEntryEJRS2_EEvPT_DpOT0_.exit.i.i.i.i: ; preds 
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
   %67 = tail call ptr @__cxa_begin_catch(ptr %66) #11
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %59
+  %.not4.i.i.i.i.i.i = icmp eq ptr %59, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4LIEF2PE11ExportEntryEEvT_S4_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %64, %.lr.ph.i.i.i.i.i.i
@@ -723,7 +723,7 @@ _ZSt10_ConstructIN4LIEF2PE11ExportEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i: ; preds
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #11
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %13
+  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4LIEF2PE11ExportEntryEEvT_S4_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i

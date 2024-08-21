@@ -329,7 +329,7 @@ if.end:                                           ; preds = %entry
   %agg.tmp.sroa.0.0.copyload = load i48, ptr %m_p, align 2, !tbaa.struct !22
   %call2 = tail call noundef ptr @_ZN3Map15getNodeMetadataEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %call, i48 %agg.tmp.sroa.0.0.copyload)
   %cmp = icmp eq ptr %call2, null
-  %brmerge.not = and i1 %cmp, %auto_create
+  %brmerge.not = and i1 %auto_create, %cmp
   br i1 %brmerge.not, label %if.then4, label %if.end18
 
 if.then4:                                         ; preds = %if.end

@@ -129,7 +129,7 @@ while.body:                                       ; preds = %if.end, %if.end21
   %nkey10 = getelementptr inbounds i8, ptr %it.112, i64 41
   %3 = load i8, ptr %nkey10, align 1
   %conv11 = zext i8 %3 to i64
-  %cmp12 = icmp eq i64 %conv11, %nkey
+  %cmp12 = icmp eq i64 %nkey, %conv11
   br i1 %cmp12, label %land.lhs.true14, label %if.end21
 
 land.lhs.true14:                                  ; preds = %while.body
@@ -167,7 +167,7 @@ if.then:                                          ; preds = %entry
   %sh_prom = zext nneg i32 %0 to i64
   %mul1 = shl i64 3, %sh_prom
   %div2 = lshr i64 %mul1, 1
-  %cmp1 = icmp ult i64 %div2, %curr_items
+  %cmp1 = icmp ugt i64 %curr_items, %div2
   %cmp2 = icmp ult i32 %0, 32
   %or.cond = and i1 %cmp2, %cmp1
   br i1 %or.cond, label %if.then3, label %if.end
@@ -278,7 +278,7 @@ land.rhs.i:                                       ; preds = %if.end.i, %while.bo
   %nkey10.i = getelementptr inbounds i8, ptr %.pr, i64 41
   %4 = load i8, ptr %nkey10.i, align 1
   %conv11.i = zext i8 %4 to i64
-  %cmp12.not.i = icmp eq i64 %conv11.i, %nkey
+  %cmp12.not.i = icmp eq i64 %nkey, %conv11.i
   br i1 %cmp12.not.i, label %lor.rhs.i, label %while.body.i
 
 lor.rhs.i:                                        ; preds = %land.rhs.i

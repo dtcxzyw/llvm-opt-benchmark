@@ -2793,7 +2793,7 @@ invoke.cont52:                                    ; preds = %invoke.cont50
   %47 = load ptr, ptr %cga, align 8
   %m_true.i = getelementptr inbounds i8, ptr %46, i64 856
   %48 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp ne ptr %48, %47
+  %cmp.i = icmp ne ptr %47, %48
   br i1 %cmp.i, label %if.end59, label %cleanup
 
 lpad29:                                           ; preds = %invoke.cont27

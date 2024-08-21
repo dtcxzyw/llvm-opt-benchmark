@@ -44,7 +44,7 @@ define i64 @softfloat_roundToI64(i1 noundef zeroext %0, i64 noundef %1, i64 noun
   %26 = select i1 %0, i64 %25, i64 %.028
   %.not34 = icmp eq i64 %.028, 0
   %27 = icmp sgt i64 %26, -1
-  %.not3536 = xor i1 %27, %0
+  %.not3536 = xor i1 %0, %27
   %or.cond37 = or i1 %.not34, %.not3536
   br i1 %or.cond37, label %28, label %33
 

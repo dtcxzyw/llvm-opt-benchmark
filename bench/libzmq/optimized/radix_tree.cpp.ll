@@ -149,7 +149,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
   %u32.0.copyload.i = load i32, ptr %add.ptr.i, align 1
   %conv = zext i32 %u32.0.copyload.i to i64
-  %cmp.not = icmp ugt i64 %conv, %index_
+  %cmp.not = icmp ult i64 %index_, %conv
   br i1 %cmp.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -188,7 +188,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
   %u32.0.copyload.i = load i32, ptr %add.ptr.i, align 1
   %conv = zext i32 %u32.0.copyload.i to i64
-  %cmp.not = icmp ugt i64 %conv, %index_
+  %cmp.not = icmp ult i64 %index_, %conv
   br i1 %cmp.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -254,7 +254,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
   %u32.0.copyload.i = load i32, ptr %add.ptr.i, align 1
   %conv = zext i32 %u32.0.copyload.i to i64
-  %cmp.not = icmp ugt i64 %conv, %index_
+  %cmp.not = icmp ult i64 %index_, %conv
   br i1 %cmp.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -293,7 +293,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
   %u32.0.copyload.i = load i32, ptr %add.ptr.i, align 1
   %conv = zext i32 %u32.0.copyload.i to i64
-  %cmp.not = icmp ugt i64 %conv, %index_
+  %cmp.not = icmp ult i64 %index_, %conv
   br i1 %cmp.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -330,7 +330,7 @@ entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %u32.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 1
   %conv.i = zext i32 %u32.0.copyload.i.i to i64
-  %cmp.not.i = icmp ugt i64 %conv.i, %index_
+  %cmp.not.i = icmp ult i64 %index_, %conv.i
   br i1 %cmp.not.i, label %_ZN6node_t17set_first_byte_atEmh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -355,7 +355,7 @@ _ZN6node_t17set_first_byte_atEmh.exit:            ; preds = %entry, %if.then.i
   %add.ptr.i.i2 = getelementptr inbounds i8, ptr %4, i64 8
   %u32.0.copyload.i.i3 = load i32, ptr %add.ptr.i.i2, align 1
   %conv.i4 = zext i32 %u32.0.copyload.i.i3 to i64
-  %cmp.not.i5 = icmp ugt i64 %conv.i4, %index_
+  %cmp.not.i5 = icmp ult i64 %index_, %conv.i4
   br i1 %cmp.not.i5, label %_ZN6node_t11set_node_atEmS_.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %_ZN6node_t17set_first_byte_atEmh.exit
@@ -682,7 +682,7 @@ for.end:                                          ; preds = %for.inc, %for.body,
   %prefix_byte_index.2.lcssa = phi i64 [ 0, %while.body ], [ 0, %lor.rhs ], [ %inc, %for.inc ], [ %prefix_byte_index.270, %for.body ]
   %key_byte_index.2.lcssa = phi i64 [ %key_byte_index.0, %while.body ], [ %key_byte_index.0, %lor.rhs ], [ %inc16, %for.inc ], [ %key_byte_index.271, %for.body ]
   %cmp18 = icmp eq i64 %prefix_byte_index.2.lcssa, %conv109
-  %or.cond = and i1 %cmp18, %is_lookup_
+  %or.cond = and i1 %is_lookup_, %cmp18
   br i1 %or.cond, label %land.lhs.true19, label %if.end23
 
 land.lhs.true19:                                  ; preds = %for.end
@@ -1824,7 +1824,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1907,7 +1907,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i: ; preds = %if.then.i31.
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else

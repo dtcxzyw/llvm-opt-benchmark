@@ -1107,7 +1107,7 @@ define dso_local ptr @vm_normal_page(ptr noundef %0, i64 noundef %1, i64 %2) loc
   %6 = icmp eq i64 %5, 0
   %7 = and i1 %4, %6
   %8 = sext i1 %7 to i64
-  %9 = xor i64 %8, %2
+  %9 = xor i64 %2, %8
   %10 = lshr i64 %9, 12
   %11 = and i64 %10, 1099511627775
   %12 = and i64 %2, 512
@@ -1352,7 +1352,7 @@ define dso_local ptr @vm_normal_folio(ptr noundef %0, i64 noundef %1, i64 %2) lo
   %6 = icmp eq i64 %5, 0
   %7 = and i1 %4, %6
   %8 = sext i1 %7 to i64
-  %9 = xor i64 %8, %2
+  %9 = xor i64 %2, %8
   %10 = lshr i64 %9, 12
   %11 = and i64 %10, 1099511627775
   %12 = and i64 %2, 512
@@ -4071,7 +4071,7 @@ define internal fastcc void @unmap_single_vma(ptr noundef %0, ptr noundef %1, i6
 
 12:                                               ; preds = %6
   %13 = tail call i64 @llvm.umin.i64(i64 %10, i64 %3)
-  %14 = icmp ult i64 %7, %3
+  %14 = icmp ugt i64 %3, %7
   br i1 %14, label %15, label %43
 
 15:                                               ; preds = %12
@@ -6038,7 +6038,7 @@ declare dso_local void @untrack_pfn(ptr noundef, i64 noundef, i64 noundef, i1 no
 define dso_local i32 @vm_iomap_memory(ptr noundef %0, i64 noundef %1, i64 noundef %2) #2 align 16 {
   %4 = alloca %struct.pgprot, align 8
   %5 = xor i64 %1, -1
-  %6 = icmp ult i64 %5, %2
+  %6 = icmp ugt i64 %2, %5
   br i1 %6, label %39, label %7
 
 7:                                                ; preds = %3
@@ -6145,7 +6145,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
 
 36:                                               ; preds = %23, %23
   %37 = icmp ne i64 %35, 0
-  %38 = or i1 %37, %5
+  %38 = or i1 %5, %37
   br i1 %38, label %.thread, label %.loopexit44
 
 .thread:                                          ; preds = %23, %36
@@ -6251,7 +6251,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %92 = load i64, ptr %85, align 8
   %93 = and i64 %92, -97
   %94 = icmp ne i64 %93, 0
-  %95 = or i1 %94, %5
+  %95 = or i1 %5, %94
   br i1 %95, label %96, label %.loopexit42
 
 96:                                               ; preds = %84
@@ -6326,7 +6326,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %138 = load i64, ptr %131, align 8
   %139 = and i64 %138, -97
   %140 = icmp ne i64 %139, 0
-  %141 = or i1 %140, %5
+  %141 = or i1 %5, %140
   br i1 %141, label %142, label %.loopexit40
 
 142:                                              ; preds = %130
@@ -6441,7 +6441,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %205 = load i64, ptr %198, align 8
   %206 = and i64 %205, -97
   %207 = icmp ne i64 %206, 0
-  %208 = or i1 %207, %5
+  %208 = or i1 %5, %207
   br i1 %208, label %209, label %293
 
 209:                                              ; preds = %197
@@ -12587,7 +12587,7 @@ define dso_local void @clear_huge_page(ptr noundef %0, i64 noundef %1, i32 nound
   %8 = mul nuw nsw i64 %7, 17592186040320
   %9 = tail call i32 @__SCT__might_resched() #18
   %10 = xor i64 %8, -1
-  %11 = and i64 %10, %1
+  %11 = and i64 %1, %10
   %12 = lshr i64 %11, 12
   %13 = trunc i64 %12 to i32
   %14 = shl i32 %13, 1
@@ -12760,7 +12760,7 @@ define dso_local noundef i32 @copy_user_large_folio(ptr noundef %0, ptr noundef 
   %17 = mul nuw i64 %16, 17592186040320
   %18 = tail call i32 @__SCT__might_resched() #18
   %19 = xor i64 %17, -1
-  %20 = and i64 %19, %2
+  %20 = and i64 %2, %19
   %21 = lshr i64 %20, 12
   %22 = trunc i64 %21 to i32
   %23 = shl i32 %22, 1

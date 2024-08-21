@@ -137,17 +137,17 @@ define noundef ptr @stream_add_frag(ptr noundef %0, i32 noundef %1, i32 noundef 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
-  %11 = icmp ult i32 %10, %1
+  %11 = icmp ugt i32 %1, %10
   br i1 %11, label %19, label %12
 
 12:                                               ; preds = %8
-  %13 = icmp eq i32 %10, %1
+  %13 = icmp eq i32 %1, %10
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = icmp ult i32 %16, %2
+  %17 = icmp ugt i32 %2, %16
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %14, %12

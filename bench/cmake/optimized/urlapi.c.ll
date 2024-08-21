@@ -111,7 +111,7 @@ switch.early.test:                                ; preds = %12
   %24 = getelementptr inbounds i8, ptr %20, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = icmp ne i8 %25, 47
-  %brmerge.not72 = and i1 %26, %3
+  %brmerge.not72 = and i1 %3, %26
   %brmerge66 = or i1 %.not, %brmerge.not72
   %.mux = select i1 %brmerge.not72, i64 0, i64 %19
   br i1 %brmerge66, label %.loopexit, label %27
@@ -3058,7 +3058,7 @@ define internal fastcc range(i32 0, 23) i32 @hostname_check(ptr nocapture nounde
 
 9:                                                ; preds = %4
   %10 = tail call i64 @strcspn(ptr noundef nonnull %1, ptr noundef nonnull @.str.50) #11
-  %.not9 = icmp eq i64 %10, %2
+  %.not9 = icmp eq i64 %2, %10
   %. = select i1 %.not9, i32 0, i32 21
   br label %11
 

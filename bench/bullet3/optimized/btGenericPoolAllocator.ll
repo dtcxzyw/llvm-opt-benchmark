@@ -307,7 +307,7 @@ return:                                           ; preds = %if.end6, %_ZN19btGe
 define dso_local noundef zeroext i1 @_ZN19btGenericMemoryPool10freeMemoryEPv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %pointer) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %cmp = icmp ugt ptr %0, %pointer
+  %cmp = icmp ult ptr %pointer, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -545,7 +545,7 @@ entry:
   %m_pool_element_count.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %m_pool_element_count.i, align 8
   %mul.i = mul i64 %1, %0
-  %cmp.not = icmp ult i64 %mul.i, %size_bytes
+  %cmp.not = icmp ugt i64 %size_bytes, %mul.i
   br i1 %cmp.not, label %if.then4, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -606,7 +606,7 @@ if.end:                                           ; preds = %entry, %while.end
   %m_pool_element_count.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i64, ptr %m_pool_element_count.i.i, align 8
   %mul.i.i = mul i64 %5, %4
-  %cmp.not.i = icmp ult i64 %mul.i.i, %size_bytes
+  %cmp.not.i = icmp ugt i64 %size_bytes, %mul.i.i
   br i1 %cmp.not.i, label %if.then4.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
@@ -645,7 +645,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx = getelementptr inbounds [16 x ptr], ptr %m_pools, i64 0, i64 %i.06
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load ptr, ptr %1, align 8
-  %cmp.i = icmp ugt ptr %2, %pointer
+  %cmp.i = icmp ult ptr %pointer, %2
   br i1 %cmp.i, label %_ZN19btGenericMemoryPool10freeMemoryEPv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -771,7 +771,7 @@ if.end.i:                                         ; preds = %while.end.i, %entry
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 8), align 8
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 16), align 8
   %mul.i.i.i = mul i64 %5, %4
-  %cmp.not.i.i = icmp ult i64 %mul.i.i.i, %size
+  %cmp.not.i.i = icmp ugt i64 %size, %mul.i.i.i
   br i1 %cmp.not.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
@@ -818,7 +818,7 @@ if.end.i.i:                                       ; preds = %while.end.i.i, %ent
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 8), align 8
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 16), align 8
   %mul.i.i.i.i = mul i64 %5, %4
-  %cmp.not.i.i.i = icmp ult i64 %mul.i.i.i.i, %newsize
+  %cmp.not.i.i.i = icmp ugt i64 %newsize, %mul.i.i.i.i
   br i1 %cmp.not.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
@@ -851,7 +851,7 @@ while.body.i.i6:                                  ; preds = %_ZN19btGenericMemor
   %arrayidx.i.i7 = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 24), i64 0, i64 %i.06.i.i
   %7 = load ptr, ptr %arrayidx.i.i7, align 8
   %8 = load ptr, ptr %7, align 8
-  %cmp.i.i.i = icmp ugt ptr %8, %ptr
+  %cmp.i.i.i = icmp ult ptr %ptr, %8
   br i1 %cmp.i.i.i, label %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i.i, label %if.end.i.i.i8
 
 if.end.i.i.i8:                                    ; preds = %while.body.i.i6
@@ -910,7 +910,7 @@ while.body.i:                                     ; preds = %_ZN19btGenericMemor
   %arrayidx.i = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @g_main_allocator, i64 24), i64 0, i64 %i.06.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %2 = load ptr, ptr %1, align 8
-  %cmp.i.i = icmp ugt ptr %2, %ptr
+  %cmp.i.i = icmp ult ptr %ptr, %2
   br i1 %cmp.i.i, label %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i

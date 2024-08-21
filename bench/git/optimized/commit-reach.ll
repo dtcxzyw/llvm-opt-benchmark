@@ -150,7 +150,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %twos, i64 %indvars.iv.i
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %cmp1.i = icmp eq ptr %0, %one
+  %cmp1.i = icmp eq ptr %one, %0
   br i1 %cmp1.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -231,7 +231,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds ptr, ptr %twos, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
-  %cmp1 = icmp eq ptr %4, %one
+  %cmp1 = icmp eq ptr %one, %4
   br i1 %cmp1, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %merge_bases_many.exit
@@ -2884,7 +2884,7 @@ while.cond43:                                     ; preds = %land.rhs, %if.then4
   %k.0.in = phi i32 [ %13, %if.then41 ], [ %k.0, %land.rhs ]
   %k.0 = add i32 %k.0.in, 1
   %conv44 = zext i32 %k.0 to i64
-  %cmp45 = icmp ult i64 %conv44, %tips_nr
+  %cmp45 = icmp ugt i64 %tips_nr, %conv44
   br i1 %cmp45, label %land.rhs, label %done
 
 land.rhs:                                         ; preds = %while.cond43

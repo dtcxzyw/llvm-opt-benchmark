@@ -579,7 +579,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %st
 while.body:                                       ; preds = %land.rhs
   %11 = load i64, ptr %cleaned_message, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %11, i64 1)
-  %cmp.i13 = icmp ult i64 %spec.select.i, %sub
+  %cmp.i13 = icmp ugt i64 %sub, %spec.select.i
   br i1 %cmp.i13, label %if.then.i14, label %if.end.i
 
 if.then.i14:                                      ; preds = %while.body

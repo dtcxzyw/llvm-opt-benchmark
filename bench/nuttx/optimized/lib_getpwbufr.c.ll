@@ -16,7 +16,7 @@ define range(i32 0, 35) i32 @getpwbuf_r(i32 noundef %0, i32 noundef %1, ptr noun
   %19 = add i64 %14, %12
   %20 = add i64 %19, %16
   %21 = add i64 %20, %18
-  %22 = icmp ugt i64 %21, %8
+  %22 = icmp ult i64 %8, %21
   br i1 %22, label %39, label %23
 
 23:                                               ; preds = %10

@@ -833,7 +833,7 @@ define internal fastcc i32 @AlterObjectNamespace_internal(ptr noundef %0, i32 no
   %26 = load ptr, ptr %22, align 8
   %27 = call fastcc i64 @heap_getattr(ptr noundef nonnull %13, i32 noundef %25, ptr noundef %26, ptr noundef nonnull %4)
   %28 = trunc i64 %27 to i32
-  %29 = icmp eq i32 %28, %2
+  %29 = icmp eq i32 %2, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %20
@@ -1282,7 +1282,7 @@ define dso_local void @AlterObjectOwner_internal(i32 noundef %0, i32 noundef %1,
 
 33:                                               ; preds = %28, %22
   %.0 = phi i32 [ %32, %28 ], [ 0, %22 ]
-  %.not87 = icmp eq i32 %27, %2
+  %.not87 = icmp eq i32 %2, %27
   br i1 %.not87, label %89, label %34
 
 34:                                               ; preds = %33
@@ -1421,7 +1421,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
   %12 = zext nneg i16 %11 to i32
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6

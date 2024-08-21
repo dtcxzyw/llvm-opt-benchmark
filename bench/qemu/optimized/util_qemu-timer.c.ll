@@ -1019,7 +1019,7 @@ entry:
   %scale = getelementptr inbounds i8, ptr %ts, i64 44
   %0 = load i32, ptr %scale, align 4
   %conv = sext i32 %0 to i64
-  %mul = mul i64 %conv, %expire_time
+  %mul = mul i64 %expire_time, %conv
   tail call void @timer_mod_ns(ptr noundef %ts, i64 noundef %mul)
   ret void
 }
@@ -1030,7 +1030,7 @@ entry:
   %scale = getelementptr inbounds i8, ptr %ts, i64 44
   %0 = load i32, ptr %scale, align 4
   %conv = sext i32 %0 to i64
-  %mul = mul i64 %conv, %expire_time
+  %mul = mul i64 %expire_time, %conv
   tail call void @timer_mod_anticipate_ns(ptr noundef %ts, i64 noundef %mul)
   ret void
 }
@@ -1049,7 +1049,7 @@ timer_expired_ns.exit:
   %scale = getelementptr inbounds i8, ptr %timer_head, i64 44
   %0 = load i32, ptr %scale, align 4
   %conv = sext i32 %0 to i64
-  %mul = mul i64 %conv, %current_time
+  %mul = mul i64 %current_time, %conv
   %1 = load i64, ptr %timer_head, align 8
   %cmp.i = icmp sle i64 %1, %mul
   ret i1 %cmp.i

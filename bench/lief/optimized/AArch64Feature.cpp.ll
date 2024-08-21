@@ -374,7 +374,7 @@ define noundef ptr @_ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE(i32 nou
 3:                                                ; preds = %1
   %.ptr14.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE.enums2str, i64 %.add12.i.i
   %4 = load i32, ptr %.ptr14.i.i, align 8
-  %.not15.i.i = icmp sgt i32 %4, %0
+  %.not15.i.i = icmp slt i32 %0, %4
   br i1 %.not15.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF14AArch64Feature7FEATUREEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %5
 
 5:                                                ; preds = %3
@@ -614,7 +614,7 @@ _ZN3fmt2v96detail8copy_strIcRKNS0_17basic_string_viewIcEESt20back_insert_iterato
 25:                                               ; preds = %_ZN3fmt2v96detail8copy_strIcRKNS0_17basic_string_viewIcEESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_OT0_SF_.exit19
   %.ptr14.i.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE.enums2str, i64 %.add12.i.i.i.i
   %26 = load i32, ptr %.ptr14.i.i.i.i, align 8
-  %.not15.i.i.i.i = icmp sgt i32 %26, %23
+  %.not15.i.i.i.i = icmp slt i32 %23, %26
   br i1 %.not15.i.i.i.i, label %_ZNK3fmt2v99formatterIN4LIEF3ELF14AArch64Feature7FEATUREEcvE6formatINS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTcldtfp0_3outEERKS5_RT_.exit, label %_ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE.exit.i
 
 _ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE.exit.i: ; preds = %25

@@ -2116,7 +2116,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread.i
   br i1 %39, label %40, label %78
 
 40:                                               ; preds = %38
-  %41 = icmp ult i64 %34, %.sroa.speculated.i33.i
+  %41 = icmp ugt i64 %.sroa.speculated.i33.i, %34
   br i1 %41, label %42, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i
 
 42:                                               ; preds = %40

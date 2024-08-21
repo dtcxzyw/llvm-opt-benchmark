@@ -286,7 +286,7 @@ declare ptr @Pdr_ManReduceClause(ptr noundef, i32 noundef, ptr noundef) local_un
 define void @IPdr_ManPrintClauses(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 4
   %.val2024 = load i32, ptr %4, align 4
-  %5 = icmp sgt i32 %.val2024, %1
+  %5 = icmp slt i32 %1, %.val2024
   br i1 %5, label %.lr.ph27, label %.critedge
 
 .lr.ph27:                                         ; preds = %3
@@ -904,7 +904,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr i8, ptr %81, i64 4
   %.val3541 = load i32, ptr %82, align 4
-  %83 = icmp sgt i32 %.val3541, %1
+  %83 = icmp slt i32 %1, %.val3541
   br i1 %83, label %.lr.ph43.preheader, label %.critedge
 
 .lr.ph43.preheader:                               ; preds = %.preheader

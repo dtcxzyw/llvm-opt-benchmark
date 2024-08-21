@@ -703,7 +703,7 @@ entry:
   %ready_list = alloca %struct.AioHandlerList, align 8
   store i64 0, ptr %ready_list, align 8
   %call = tail call ptr @iohandler_get_aio_context() #10
-  %cmp = icmp eq ptr %call, %ctx
+  %cmp = icmp eq ptr %ctx, %call
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
@@ -713,12 +713,12 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %call1, %cond.true ], [ %ctx, %entry ]
   %call.i = tail call ptr @qemu_get_current_aio_context() #10
-  %cmp.i = icmp eq ptr %call.i, %cond
+  %cmp.i = icmp eq ptr %cond, %call.i
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end
   %call1.i = tail call ptr @qemu_get_aio_context() #10
-  %cmp2.i = icmp eq ptr %call1.i, %cond
+  %cmp2.i = icmp eq ptr %cond, %call1.i
   br i1 %cmp2.i, label %in_aio_context_home_thread.exit, label %if.else
 
 in_aio_context_home_thread.exit:                  ; preds = %if.end.i
@@ -1014,7 +1014,7 @@ if.then1.i.i.i:                                   ; preds = %land.rhs.i31.i.i
   br label %for.inc.i34.i.i
 
 if.else.i.i.i:                                    ; preds = %land.rhs.i31.i.i
-  %cmp4.not.i.i.i = icmp sgt i64 %32, %call4.i.i
+  %cmp4.not.i.i.i = icmp slt i64 %call4.i.i, %32
   br i1 %cmp4.not.i.i.i, label %for.inc.i34.i.i, label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i

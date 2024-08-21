@@ -12590,7 +12590,7 @@ common.resume:                                    ; preds = %52, %29
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h3c67aa4699fe3eabE.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   %.us-phi.i = phi i64 [ %.sroa.01.021.us.i, %.lr.ph.split.us.i ], [ %.sroa.01.021.i, %.lr.ph.split.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !6350
-  %40 = icmp eq i64 %.us-phi.i, %1
+  %40 = icmp eq i64 %1, %.us-phi.i
   br i1 %40, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h3c67aa4699fe3eabE.exit.thread.thread, label %61
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h3c67aa4699fe3eabE.exit.thread.thread: ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h3c67aa4699fe3eabE.exit

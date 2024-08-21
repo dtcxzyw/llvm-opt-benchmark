@@ -97,7 +97,7 @@ sw.bb9:                                           ; preds = %if.end
   %key_epoch = getelementptr inbounds [4 x %struct.ossl_qrl_enc_level_st], ptr %els, i64 0, i64 %idxprom.i, i32 5
   %2 = load i64, ptr %key_epoch, align 8
   %and = and i64 %2, 1
-  %cmp10 = icmp eq i64 %and, %keyslot
+  %cmp10 = icmp eq i64 %keyslot, %and
   br label %return
 
 return:                                           ; preds = %entry, %if.end, %ossl_qrl_enc_level_set_get.exit, %sw.bb9, %sw.bb
@@ -300,7 +300,7 @@ sw.bb9.i.i:                                       ; preds = %if.end.i13.i
   %key_epoch.i.i = getelementptr inbounds [4 x %struct.ossl_qrl_enc_level_st], ptr %els, i64 0, i64 %idxprom.i, i32 5
   %5 = load i64, ptr %key_epoch.i.i, align 8
   %and.i.i = and i64 %5, 1
-  %cmp10.i.i = icmp eq i64 %and.i.i, %cond
+  %cmp10.i.i = icmp eq i64 %cond, %and.i.i
   br i1 %cmp10.i.i, label %if.end.i75, label %if.end115
 
 ossl_qrl_enc_level_set_has_keyslot.exit.i:        ; preds = %if.end.i13.i, %if.end.i13.i
@@ -354,7 +354,7 @@ sw.bb9.i.i85:                                     ; preds = %if.end.i13.i83
   %key_epoch.i.i86 = getelementptr inbounds [4 x %struct.ossl_qrl_enc_level_st], ptr %els, i64 0, i64 %idxprom.i, i32 5
   %10 = load i64, ptr %key_epoch.i.i86, align 8
   %and.i.i87 = and i64 %10, 1
-  %cmp10.i.i88 = icmp eq i64 %and.i.i87, %lnot.ext120
+  %cmp10.i.i88 = icmp eq i64 %lnot.ext120, %and.i.i87
   br i1 %cmp10.i.i88, label %if.end.i89, label %if.end122
 
 ossl_qrl_enc_level_set_has_keyslot.exit.i97:      ; preds = %if.end.i13.i83, %if.end.i13.i83
@@ -562,7 +562,7 @@ if.end15:                                         ; preds = %if.end
   %4 = load i32, ptr %suite_id, align 8
   %call17 = tail call i32 @ossl_qrl_get_suite_secret_len(i32 noundef %4) #5
   %conv18 = zext i32 %call17 to i64
-  %cmp19 = icmp ne i64 %conv18, %secret_len
+  %cmp19 = icmp ne i64 %secret_len, %conv18
   %cmp21 = icmp ugt i64 %secret_len, 64
   %or.cond = or i1 %cmp21, %cmp19
   br i1 %or.cond, label %if.then23, label %if.end24
@@ -820,7 +820,7 @@ sw.bb9.i.i:                                       ; preds = %if.end
   %key_epoch.i.i = getelementptr inbounds i8, ptr %els, i64 704
   %2 = load i64, ptr %key_epoch.i.i, align 8
   %and.i.i = and i64 %2, 1
-  %cmp10.i.i = icmp eq i64 %and.i.i, %and
+  %cmp10.i.i = icmp eq i64 %and, %and.i.i
   br i1 %cmp10.i.i, label %if.end.i6, label %el_teardown_keyslot.exit
 
 if.end.i6:                                        ; preds = %if.end, %if.end, %sw.bb9.i.i
@@ -945,7 +945,7 @@ sw.bb9.i.i:                                       ; preds = %if.then30
   %key_epoch.i.i = getelementptr inbounds i8, ptr %els, i64 704
   %9 = load i64, ptr %key_epoch.i.i, align 8
   %and.i.i = and i64 %9, 1
-  %cmp10.i.i = icmp eq i64 %and.i.i, %and33
+  %cmp10.i.i = icmp eq i64 %and33, %and.i.i
   br i1 %cmp10.i.i, label %if.end.i22, label %return
 
 if.end.i22:                                       ; preds = %if.then30, %if.then30, %sw.bb9.i.i

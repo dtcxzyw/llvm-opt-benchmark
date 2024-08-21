@@ -65,7 +65,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_init(ptr noundef %0, i32 noundef %1) l
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 132
   %7 = load i32, ptr %6, align 4
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   br i1 %8, label %pmix_bitmap_clear_all_bits.exit, label %9
 
 9:                                                ; preds = %5
@@ -140,7 +140,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_set_bit(ptr noundef %0, i32 noundef %1
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 132
   %7 = load i32, ptr %6, align 4
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   br i1 %8, label %37, label %9
 
 9:                                                ; preds = %5
@@ -213,7 +213,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_clear_bit(ptr noundef readonly %0, i32
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load i32, ptr %6, align 8
   %8 = shl nsw i32 %7, 6
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %9, label %21
 
 9:                                                ; preds = %5
@@ -247,7 +247,7 @@ define zeroext i1 @pmix_bitmap_is_set_bit(ptr noundef readonly %0, i32 noundef %
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load i32, ptr %6, align 8
   %8 = shl nsw i32 %7, 6
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %9, label %20
 
 9:                                                ; preds = %5
@@ -337,7 +337,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_find_and_set_first_unset_bit(ptr nound
 19:                                               ; preds = %.critedge.thread
   %20 = getelementptr inbounds i8, ptr %0, i64 132
   %21 = load i32, ptr %20, align 4
-  %22 = icmp slt i32 %21, %17
+  %22 = icmp sgt i32 %17, %21
   br i1 %22, label %pmix_bitmap_set_bit.exit, label %23
 
 23:                                               ; preds = %19

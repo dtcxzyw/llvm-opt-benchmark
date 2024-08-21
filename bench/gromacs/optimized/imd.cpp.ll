@@ -2675,7 +2675,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %21
   %49 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv42
   %50 = load i32, ptr %49, align 4
   %.not.i = icmp sle i32 %41, %50
-  %51 = icmp sgt i32 %43, %50
+  %51 = icmp slt i32 %50, %43
   %52 = and i1 %.not.i, %51
   %53 = zext i1 %52 to i32
   %spec.select = add nuw nsw i32 %.01634, %53
@@ -3856,7 +3856,7 @@ _Z11do_per_stepll.exit:                           ; preds = %69
   %77 = getelementptr inbounds i8, ptr %0, i64 126
   %78 = load i8, ptr %77, align 2
   %79 = trunc i8 %78 to i1
-  %brmerge = or i1 %79, %2
+  %brmerge = or i1 %2, %79
   br i1 %brmerge, label %80, label %112
 
 .critedge:                                        ; preds = %69, %_Z11do_per_stepll.exit

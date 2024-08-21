@@ -639,7 +639,7 @@ define dso_local i32 @dma_buf_read(ptr noundef %ptr, i64 noundef %len, ptr nound
 entry:
   %size.i = getelementptr inbounds i8, ptr %sg, i64 16
   %0 = load i64, ptr %size.i, align 8
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %len, i64 %0)
   %cmp1.not18.i = icmp eq i64 %cond.i, 0
   br i1 %cmp1.not18.i, label %while.end.i, label %while.body.lr.ph.i
 
@@ -691,7 +691,7 @@ define dso_local i32 @dma_buf_write(ptr noundef %ptr, i64 noundef %len, ptr noun
 entry:
   %size.i = getelementptr inbounds i8, ptr %sg, i64 16
   %0 = load i64, ptr %size.i, align 8
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %len)
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %len, i64 %0)
   %cmp1.not18.i = icmp eq i64 %cond.i, 0
   br i1 %cmp1.not18.i, label %while.end.i, label %while.body.lr.ph.i
 

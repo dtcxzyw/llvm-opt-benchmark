@@ -241,7 +241,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !38, !noalias !43, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !45, !noalias !43, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4484f9203803deb3E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -295,7 +295,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !51, !noalias !56, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !58, !noalias !56, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4484f9203803deb3E.exit"
 
 9:                                                ; preds = %3
@@ -869,7 +869,7 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h38f6a991289cb4
   %159 = load i64, ptr %33, align 8, !alias.scope !195, !noalias !198, !noundef !5
   %160 = load i64, ptr %28, align 8, !alias.scope !200, !noalias !198, !noundef !5
   %161 = sub i64 %160, %159
-  %162 = icmp ult i64 %161, %158
+  %162 = icmp ugt i64 %158, %161
   br i1 %162, label %163, label %169
 
 163:                                              ; preds = %154
@@ -912,7 +912,7 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h38f6a991289cb4
   %178 = load i64, ptr %31, align 8, !alias.scope !203, !noalias !206, !noundef !5
   %179 = load i64, ptr %29, align 8, !alias.scope !208, !noalias !206, !noundef !5
   %180 = sub i64 %179, %178
-  %181 = icmp ult i64 %180, %177
+  %181 = icmp ugt i64 %177, %180
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %169
@@ -1541,7 +1541,7 @@ define internal fastcc void @_ZN8fs_extra3dir16get_dir_content217h5a8b06470fd5fb
   %146 = load i64, ptr %33, align 8, !alias.scope !330, !noalias !336, !noundef !5
   %147 = load i64, ptr %26, align 8, !alias.scope !337, !noalias !336, !noundef !5
   %148 = sub i64 %147, %146
-  %149 = icmp ult i64 %148, %145
+  %149 = icmp ugt i64 %145, %148
   br i1 %149, label %150, label %156
 
 150:                                              ; preds = %141
@@ -1584,7 +1584,7 @@ define internal fastcc void @_ZN8fs_extra3dir16get_dir_content217h5a8b06470fd5fb
   %165 = load i64, ptr %31, align 8, !alias.scope !341, !noalias !347, !noundef !5
   %166 = load i64, ptr %27, align 8, !alias.scope !348, !noalias !347, !noundef !5
   %167 = sub i64 %166, %165
-  %168 = icmp ult i64 %167, %164
+  %168 = icmp ugt i64 %164, %167
   br i1 %168, label %169, label %170
 
 169:                                              ; preds = %156

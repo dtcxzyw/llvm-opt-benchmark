@@ -65,7 +65,7 @@ define i32 @FT_Get_Advance(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr n
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
-  %.not29 = icmp ugt i32 %9, %1
+  %.not29 = icmp ult i32 %1, %9
   br i1 %.not29, label %10, label %ft_face_scale_advances_.exit
 
 10:                                               ; preds = %6
@@ -199,7 +199,7 @@ define i32 @FT_Get_Advances(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   %11 = add i32 %2, %1
-  %.not61 = icmp ule i32 %10, %1
+  %.not61 = icmp uge i32 %1, %10
   %12 = icmp ult i32 %11, %1
   %or.cond = or i1 %12, %.not61
   %13 = icmp ugt i32 %11, %10
@@ -262,7 +262,7 @@ define i32 @FT_Get_Advances(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 .split.us:                                        ; preds = %35, %45
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %45 ], [ 0, %35 ]
   %42 = trunc nuw i64 %indvars.iv77 to i32
-  %43 = add i32 %42, %1
+  %43 = add i32 %1, %42
   %44 = tail call i32 @FT_Load_Glyph(ptr noundef nonnull %0, i32 noundef %43, i32 noundef %36)
   %.not68.us = icmp eq i32 %44, 0
   br i1 %.not68.us, label %45, label %.loopexit
@@ -281,7 +281,7 @@ define i32 @FT_Get_Advances(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 .split:                                           ; preds = %35, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %35 ]
   %51 = trunc nuw i64 %indvars.iv to i32
-  %52 = add i32 %51, %1
+  %52 = add i32 %1, %51
   %53 = tail call i32 @FT_Load_Glyph(ptr noundef nonnull %0, i32 noundef %52, i32 noundef %36)
   %.not68 = icmp eq i32 %53, 0
   br i1 %.not68, label %54, label %.loopexit
@@ -2649,7 +2649,7 @@ define hidden ptr @ft_mem_realloc(ptr noundef %0, i64 noundef %1, i64 noundef %2
 
 16:                                               ; preds = %9
   %17 = udiv i64 2147483647, %1
-  %18 = icmp slt i64 %17, %3
+  %18 = icmp sgt i64 %3, %17
   br i1 %18, label %ft_mem_qrealloc.exit.thread, label %19
 
 19:                                               ; preds = %16
@@ -2822,7 +2822,7 @@ FT_GlyphLoader_CreateExtra.exit:                  ; preds = %19, %17
   %71 = getelementptr inbounds i8, ptr %0, i64 98
   %72 = load i16, ptr %71, align 2
   %73 = zext i16 %72 to i32
-  %74 = add i32 %70, %1
+  %74 = add i32 %1, %70
   %75 = add i32 %74, %73
   %.not = icmp ugt i32 %75, %67
   br i1 %.not, label %76, label %162
@@ -2900,7 +2900,7 @@ ft_mem_realloc.exit.thread123:                    ; preds = %93
 
 ft_mem_realloc.exit:                              ; preds = %ft_mem_qrealloc.exit.i
   store ptr %.0.i.i, ptr %86, align 8
-  br i1 %109, label %.thread142, label %FT_GlyphLoader_Adjust_Points.exit.thread
+  br i1 %109, label %.thread141, label %FT_GlyphLoader_Adjust_Points.exit.thread
 
 112:                                              ; preds = %ft_mem_qrealloc.exit.i
   %113 = shl nuw nsw i64 %84, 4
@@ -2909,7 +2909,7 @@ ft_mem_realloc.exit:                              ; preds = %ft_mem_qrealloc.exi
   %116 = shl nsw i64 %115, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %114, i8 0, i64 %116, i1 false)
   store ptr %.0.i.i, ptr %86, align 8
-  br label %.thread142
+  br label %.thread141
 
 117:                                              ; preds = %89, %90
   store ptr null, ptr %86, align 8
@@ -2924,12 +2924,12 @@ ft_mem_realloc.exit:                              ; preds = %ft_mem_qrealloc.exi
   tail call void %122(ptr noundef %5, ptr noundef nonnull %119) #34
   br label %ft_mem_realloc.exit100.thread
 
-.thread142:                                       ; preds = %ft_mem_realloc.exit, %112
+.thread141:                                       ; preds = %ft_mem_realloc.exit, %112
   %123 = getelementptr inbounds i8, ptr %0, i64 40
   %124 = icmp eq i32 %67, 0
   br i1 %124, label %125, label %130
 
-125:                                              ; preds = %.thread142
+125:                                              ; preds = %.thread141
   %126 = getelementptr inbounds i8, ptr %5, i64 8
   %127 = load ptr, ptr %126, align 8
   %128 = tail call ptr %127(ptr noundef nonnull %5, i64 noundef %85) #34
@@ -2937,7 +2937,7 @@ ft_mem_realloc.exit:                              ; preds = %ft_mem_qrealloc.exi
   %spec.select.i.i98 = select i1 %129, i32 64, i32 0
   br label %ft_mem_qrealloc.exit.i93
 
-130:                                              ; preds = %.thread142
+130:                                              ; preds = %.thread141
   %131 = load ptr, ptr %123, align 8
   %132 = getelementptr inbounds i8, ptr %5, i64 24
   %133 = load ptr, ptr %132, align 8
@@ -3122,7 +3122,7 @@ FT_GlyphLoader_CreateExtra.exit113:               ; preds = %174, %172
   %222 = zext i16 %221 to i32
   %223 = load i16, ptr %7, align 8
   %224 = zext i16 %223 to i32
-  %225 = add i32 %222, %2
+  %225 = add i32 %2, %222
   %226 = add i32 %225, %224
   %227 = icmp ugt i32 %226, %220
   br i1 %227, label %228, label %242
@@ -8539,7 +8539,7 @@ define i32 @FT_Select_Size(ptr noundef readonly %0, i32 noundef %1) local_unname
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load i32, ptr %10, align 8
-  %.not18 = icmp sgt i32 %11, %1
+  %.not18 = icmp slt i32 %1, %11
   br i1 %.not18, label %12, label %26
 
 12:                                               ; preds = %9
@@ -9308,7 +9308,7 @@ define hidden ptr @ft_mem_qrealloc(ptr noundef %0, i64 noundef %1, i64 noundef %
 
 16:                                               ; preds = %9
   %17 = udiv i64 2147483647, %1
-  %18 = icmp slt i64 %17, %3
+  %18 = icmp sgt i64 %3, %17
   br i1 %18, label %ft_mem_free.exit, label %19
 
 19:                                               ; preds = %16
@@ -11177,7 +11177,7 @@ define zeroext i8 @FT_Get_Color_Glyph_Layer(ptr noundef %0, i32 noundef %1, ptr 
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
-  %.not = icmp ugt i32 %13, %1
+  %.not = icmp ult i32 %1, %13
   br i1 %.not, label %14, label %25
 
 14:                                               ; preds = %10
@@ -12431,7 +12431,7 @@ define range(i32 0, 7) i32 @FT_Get_SubGlyph_Info(ptr noundef readonly %0, i32 no
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 240
   %17 = load i32, ptr %16, align 8
-  %18 = icmp ugt i32 %17, %1
+  %18 = icmp ult i32 %1, %17
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %15
@@ -12958,8 +12958,8 @@ ft_mem_realloc.exit.thread.thread:                ; preds = %15
   %21 = load ptr, ptr %20, align 8
   %22 = shl nuw nsw i64 %16, 4
   %23 = tail call ptr %21(ptr noundef nonnull %7, i64 noundef %22) #34
-  %.not59 = icmp eq ptr %23, null
-  br i1 %.not59, label %ft_mem_realloc.exit, label %25
+  %.not57 = icmp eq ptr %23, null
+  br i1 %.not57, label %ft_mem_realloc.exit, label %25
 
 ft_mem_realloc.exit:                              ; preds = %19
   %24 = getelementptr inbounds i8, ptr %3, i64 8
@@ -12972,8 +12972,8 @@ ft_mem_realloc.exit:                              ; preds = %19
   %27 = getelementptr inbounds i8, ptr %7, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %7, i64 noundef %16) #34
-  %.not60 = icmp eq ptr %29, null
-  br i1 %.not60, label %ft_mem_realloc.exit42, label %30
+  %.not58 = icmp eq ptr %29, null
+  br i1 %.not58, label %ft_mem_realloc.exit42, label %30
 
 30:                                               ; preds = %25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %29, i8 0, i64 %16, i1 false)
@@ -14372,7 +14372,7 @@ define hidden i32 @FT_Raccess_Get_HeaderInfo(ptr nocapture readnone %0, ptr noun
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
-  %.not17.i = icmp ult i64 %15, %2
+  %.not17.i = icmp ugt i64 %2, %15
   br i1 %.not17.i, label %FT_Stream_Seek.exit.thread, label %16
 
 16:                                               ; preds = %._crit_edge, %13
@@ -14380,7 +14380,7 @@ define hidden i32 @FT_Raccess_Get_HeaderInfo(ptr nocapture readnone %0, ptr noun
   %18 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %2, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 8
-  %.not.i.i = icmp ugt i64 %17, %2
+  %.not.i.i = icmp ult i64 %2, %17
   br i1 %.not.i.i, label %20, label %FT_Stream_Seek.exit.thread
 
 20:                                               ; preds = %16
@@ -14528,7 +14528,7 @@ define hidden i32 @FT_Raccess_Get_HeaderInfo(ptr nocapture readnone %0, ptr noun
   br i1 %129, label %FT_Stream_Seek.exit.thread, label %130
 
 130:                                              ; preds = %125
-  %131 = add nsw i64 %76, %2
+  %131 = add nsw i64 %2, %76
   %132 = add nsw i64 %108, %131
   %133 = icmp ugt i64 %132, %128
   br i1 %133, label %FT_Stream_Seek.exit.thread, label %134
@@ -14550,7 +14550,7 @@ define hidden i32 @FT_Raccess_Get_HeaderInfo(ptr nocapture readnone %0, ptr noun
 
 138:                                              ; preds = %134
   %139 = load i64, ptr %19, align 8
-  %.not17.i97 = icmp ult i64 %139, %131
+  %.not17.i97 = icmp ugt i64 %131, %139
   br i1 %.not17.i97, label %FT_Stream_Seek.exit.thread, label %140
 
 140:                                              ; preds = %._crit_edge117, %138
@@ -14599,7 +14599,7 @@ define hidden i32 @FT_Raccess_Get_HeaderInfo(ptr nocapture readnone %0, ptr noun
 
 158:                                              ; preds = %152
   %159 = load i64, ptr %19, align 8
-  %.not17.i.i = icmp ult i64 %159, %154
+  %.not17.i.i = icmp ugt i64 %154, %159
   br i1 %.not17.i.i, label %FT_Stream_Skip.exit, label %160
 
 160:                                              ; preds = %158, %156
@@ -14632,7 +14632,7 @@ FT_Stream_Skip.exit:                              ; preds = %156, %158, %160
 
 171:                                              ; preds = %166
   %172 = load i64, ptr %19, align 8
-  %.not17.i103 = icmp ult i64 %172, %167
+  %.not17.i103 = icmp ugt i64 %167, %172
   br i1 %.not17.i103, label %FT_Stream_Seek.exit.thread, label %173
 
 173:                                              ; preds = %171, %169
@@ -14660,7 +14660,7 @@ define hidden range(i32 0, 86) i32 @FT_Stream_Seek(ptr noundef %0, i64 noundef %
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
-  %.not17 = icmp ult i64 %9, %1
+  %.not17 = icmp ugt i64 %1, %9
   br i1 %.not17, label %12, label %10
 
 10:                                               ; preds = %5, %7
@@ -14679,7 +14679,7 @@ define hidden range(i32 0, 86) i32 @FT_Stream_Read(ptr noundef %0, ptr noundef %
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
-  %.not.i = icmp ugt i64 %7, %5
+  %.not.i = icmp ult i64 %5, %7
   br i1 %.not.i, label %8, label %FT_Stream_ReadAt.exit
 
 8:                                                ; preds = %3
@@ -14739,7 +14739,7 @@ define hidden range(i32 0, 86) i32 @FT_Stream_Skip(ptr noundef %0, i64 noundef %
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
-  %.not17.i = icmp ult i64 %14, %7
+  %.not17.i = icmp ugt i64 %7, %14
   br i1 %.not17.i, label %FT_Stream_Seek.exit, label %15
 
 15:                                               ; preds = %12, %10
@@ -14835,7 +14835,7 @@ define hidden i32 @FT_Raccess_Get_DataOffsets(ptr nocapture noundef readonly %0,
 19:                                               ; preds = %8
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   %21 = load i64, ptr %20, align 8
-  %.not17.i = icmp ult i64 %21, %2
+  %.not17.i = icmp ugt i64 %2, %21
   br i1 %.not17.i, label %ft_mem_free.exit, label %22
 
 22:                                               ; preds = %._crit_edge189, %19
@@ -15071,7 +15071,7 @@ FT_Stream_ReadUShort.exit113.thread:              ; preds = %100, %108
   %122 = add i64 %121, 2
   store i64 %122, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
-  %123 = icmp eq i64 %83, %4
+  %123 = icmp eq i64 %4, %83
   br i1 %123, label %124, label %49
 
 124:                                              ; preds = %120
@@ -15079,7 +15079,7 @@ FT_Stream_ReadUShort.exit113.thread:              ; preds = %100, %108
   %126 = sext i16 %.0.i111 to i64
   %127 = add nsw i64 %125, 1
   store i64 %127, ptr %7, align 8
-  %128 = add nsw i64 %126, %2
+  %128 = add nsw i64 %2, %126
   %or.cond = icmp ugt i16 %.0.i99, 2726
   br i1 %or.cond, label %ft_mem_free.exit, label %129
 
@@ -15095,7 +15095,7 @@ FT_Stream_ReadUShort.exit113.thread:              ; preds = %100, %108
 
 133:                                              ; preds = %129
   %134 = load i64, ptr %26, align 8
-  %.not17.i117 = icmp ult i64 %134, %128
+  %.not17.i117 = icmp ugt i64 %128, %134
   br i1 %.not17.i117, label %ft_mem_free.exit, label %135
 
 135:                                              ; preds = %133, %131
@@ -15149,7 +15149,7 @@ ft_mem_qrealloc.exit:                             ; preds = %141
 
 157:                                              ; preds = %151
   %158 = load i64, ptr %26, align 8
-  %.not17.i.i = icmp ult i64 %158, %153
+  %.not17.i.i = icmp ugt i64 %153, %158
   br i1 %.not17.i.i, label %.thread.sink.split, label %159
 
 159:                                              ; preds = %157, %155
@@ -15174,7 +15174,7 @@ ft_mem_qrealloc.exit:                             ; preds = %141
 
 168:                                              ; preds = %162
   %169 = load i64, ptr %26, align 8
-  %.not17.i.i124 = icmp ult i64 %169, %164
+  %.not17.i.i124 = icmp ugt i64 %164, %169
   br i1 %.not17.i.i124, label %.thread.sink.split, label %170
 
 170:                                              ; preds = %168, %166
@@ -15453,7 +15453,7 @@ define noundef i32 @FT_Get_Sfnt_Name(ptr noundef readonly %0, i32 noundef %1, pt
   %11 = getelementptr inbounds i8, ptr %0, i64 560
   %12 = load i16, ptr %11, align 8
   %13 = zext i16 %12 to i32
-  %14 = icmp ugt i32 %13, %1
+  %14 = icmp ult i32 %1, %13
   br i1 %14, label %15, label %71
 
 15:                                               ; preds = %10
@@ -15501,7 +15501,7 @@ define noundef i32 @FT_Get_Sfnt_Name(ptr noundef readonly %0, i32 noundef %1, pt
 42:                                               ; preds = %35
   %43 = getelementptr inbounds i8, ptr %29, i64 8
   %44 = load i64, ptr %43, align 8
-  %.not17.i = icmp ult i64 %44, %37
+  %.not17.i = icmp ugt i64 %37, %44
   br i1 %.not17.i, label %FT_Stream_Seek.exit.thread, label %45
 
 45:                                               ; preds = %42, %40
@@ -15635,7 +15635,7 @@ define noundef i32 @FT_Get_Sfnt_LangTag(ptr noundef readonly %0, i32 noundef %1,
 46:                                               ; preds = %39
   %47 = getelementptr inbounds i8, ptr %33, i64 8
   %48 = load i64, ptr %47, align 8
-  %.not17.i = icmp ult i64 %48, %41
+  %.not17.i = icmp ugt i64 %41, %48
   br i1 %.not17.i, label %FT_Stream_Seek.exit.thread, label %49
 
 49:                                               ; preds = %46, %44
@@ -15690,7 +15690,7 @@ define hidden i64 @FT_Stream_Pos(ptr nocapture noundef readonly %0) local_unname
 define hidden range(i32 0, 86) i32 @FT_Stream_ReadAt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %.not = icmp ugt i64 %6, %1
+  %.not = icmp ult i64 %1, %6
   br i1 %.not, label %7, label %21
 
 7:                                                ; preds = %4
@@ -15784,7 +15784,7 @@ define hidden noundef i32 @FT_Stream_ExtractFrame(ptr noundef %0, i64 noundef %1
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp ult i64 %7, %1
+  %11 = icmp ugt i64 %1, %7
   br i1 %11, label %FT_Stream_EnterFrame.exit.thread, label %12
 
 12:                                               ; preds = %8
@@ -15891,7 +15891,7 @@ define hidden noundef i32 @FT_Stream_EnterFrame(ptr noundef %0, i64 noundef %1) 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp ult i64 %6, %1
+  %10 = icmp ugt i64 %1, %6
   br i1 %10, label %46, label %11
 
 11:                                               ; preds = %7
@@ -17521,19 +17521,19 @@ define range(i64 -11796479, 11796481) i64 @FT_Angle_Diff(i64 noundef %0, i64 nou
 .preheader.preheader:
   %2 = sub i64 %1, %0
   %smax = tail call i64 @llvm.smax.i64(i64 %2, i64 -11796479)
-  %3 = add i64 %smax, %0
+  %3 = add i64 %0, %smax
   %4 = icmp ne i64 %3, %1
   %umin = zext i1 %4 to i64
-  %5 = add i64 %umin, %1
+  %5 = add i64 %1, %umin
   %6 = sub i64 %3, %5
   %7 = udiv i64 %6, 23592960
   %8 = add nuw nsw i64 %7, %umin
   %9 = mul i64 %8, 23592960
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = sub i64 %10, %0
   %12 = add i64 %10, 23592959
   %smin = tail call i64 @llvm.smin.i64(i64 %11, i64 11796480)
-  %13 = add i64 %smin, %0
+  %13 = add i64 %0, %smin
   %14 = sub i64 %12, %13
   %.fr = freeze i64 %14
   %15 = urem i64 %.fr, 23592960
@@ -18263,7 +18263,7 @@ FT_Stream_ReadUShort.exit.thread.i:               ; preds = %53, %47
   %73 = phi i64 [ %49, %.thread138.i ], [ %.pre, %._crit_edge ]
   %74 = phi i64 [ %59, %.thread138.i ], [ %69, %._crit_edge ]
   %.0.i52142.i = phi i32 [ 0, %.thread138.i ], [ %67, %._crit_edge ]
-  %.not17.i.i.i = icmp ult i64 %73, %74
+  %.not17.i.i.i = icmp ugt i64 %74, %73
   br i1 %.not17.i.i.i, label %ft_mem_qalloc.exit.thread41, label %75
 
 75:                                               ; preds = %72, %70
@@ -18372,7 +18372,7 @@ FT_Stream_ReadULong.exit65.thread.i:              ; preds = %88, %81
   %119 = phi i64 [ %94, %.thread143.i ], [ %114, %._crit_edge54 ]
   %.0.i63147.i = phi i32 [ 0, %.thread143.i ], [ %112, %._crit_edge54 ]
   %120 = phi i64 [ %82, %.thread143.i ], [ %.pre.i61.i, %._crit_edge54 ]
-  %.not17.i.i69.i = icmp ult i64 %118, %119
+  %.not17.i.i69.i = icmp ugt i64 %119, %118
   br i1 %.not17.i.i69.i, label %ft_mem_qalloc.exit.thread41, label %121
 
 121:                                              ; preds = %117, %._crit_edge.i
@@ -18547,7 +18547,7 @@ ft_lookup_PS_in_sfnt_stream.exit:                 ; preds = %192, %188, %184
   br i1 %.not10.i, label %204, label %ft_mem_qalloc.exit.thread41
 
 203:                                              ; preds = %198
-  %.not17.i = icmp ult i64 %194, %199
+  %.not17.i = icmp ugt i64 %199, %194
   br i1 %.not17.i, label %ft_mem_qalloc.exit.thread41, label %204
 
 204:                                              ; preds = %203, %201
@@ -18609,7 +18609,7 @@ ft_mem_qalloc.exit.thread50:                      ; preds = %28, %.thread.i, %ft
 
 226:                                              ; preds = %ft_mem_qalloc.exit.thread50
   %227 = load i64, ptr %16, align 8
-  %.not17.i42 = icmp ult i64 %227, %14
+  %.not17.i42 = icmp ugt i64 %14, %227
   br i1 %.not17.i42, label %ft_mem_qalloc.exit.thread41, label %FT_Stream_Seek.exit43
 
 FT_Stream_Seek.exit43:                            ; preds = %224, %226
@@ -18798,7 +18798,7 @@ define internal fastcc i32 @IsMacResource(ptr noundef %0, ptr noundef %1, i64 no
 
 34:                                               ; preds = %28
   %35 = load i64, ptr %26, align 8
-  %.not17.i55 = icmp ult i64 %35, %30
+  %.not17.i55 = icmp ugt i64 %30, %35
   br i1 %.not17.i55, label %Mac_Read_POST_Resource.exit.thread, label %36
 
 36:                                               ; preds = %._crit_edge137, %34
@@ -18919,7 +18919,7 @@ ft_mem_qalloc.exit:                               ; preds = %72
 
 90:                                               ; preds = %84
   %91 = load i64, ptr %82, align 8
-  %.not17.i = icmp ult i64 %91, %86
+  %.not17.i = icmp ugt i64 %86, %91
   br i1 %.not17.i, label %ft_mem_free.exit45, label %92
 
 92:                                               ; preds = %90, %88
@@ -19134,7 +19134,7 @@ ft_mem_free.exit:                                 ; preds = %Mac_Read_POST_Resou
 188:                                              ; preds = %181
   %189 = getelementptr inbounds i8, ptr %1, i64 8
   %190 = load i64, ptr %189, align 8
-  %.not17.i74 = icmp ult i64 %190, %183
+  %.not17.i74 = icmp ugt i64 %183, %190
   br i1 %.not17.i74, label %Mac_Read_sfnt_Resource.exit.thread, label %191
 
 191:                                              ; preds = %188, %186
@@ -19174,7 +19174,7 @@ ft_mem_free.exit:                                 ; preds = %Mac_Read_POST_Resou
 206:                                              ; preds = %201
   %207 = getelementptr inbounds i8, ptr %1, i64 8
   %208 = load i64, ptr %207, align 8
-  %.not17.i69 = icmp ult i64 %208, %202
+  %.not17.i69 = icmp ugt i64 %202, %208
   br i1 %.not17.i69, label %Mac_Read_sfnt_Resource.exit.thread, label %ft_mem_qalloc.exit65
 
 ft_mem_qalloc.exit65:                             ; preds = %206, %204
@@ -19696,7 +19696,7 @@ FT_Stream_ReadULong.exit48.thread:                ; preds = %44, %52
   %59 = phi i64 [ %51, %.thread.i43.thread ], [ %55, %.thread.i43 ]
   %60 = phi i64 [ %43, %.thread.i43.thread ], [ %.pre.pre.i42, %.thread.i43 ]
   %61 = load i64, ptr %13, align 8
-  %.not17.i.i = icmp ult i64 %61, %59
+  %.not17.i.i = icmp ugt i64 %59, %61
   br i1 %.not17.i.i, label %.loopexit, label %62
 
 62:                                               ; preds = %._crit_edge, %58
@@ -19907,7 +19907,7 @@ FT_Stream_ReadULong.exit80.thread:                ; preds = %119, %125
 158:                                              ; preds = %.thread27, %154
   %159 = phi i64 [ %.reass, %.thread27 ], [ %155, %154 ]
   %160 = load i64, ptr %13, align 8
-  %.not17.i.i84 = icmp ult i64 %160, %159
+  %.not17.i.i84 = icmp ugt i64 %159, %160
   br i1 %.not17.i.i84, label %.loopexit, label %FT_Stream_Skip.exit85
 
 FT_Stream_Skip.exit85:                            ; preds = %156, %158

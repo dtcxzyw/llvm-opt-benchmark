@@ -2080,7 +2080,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -2089,7 +2089,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS
   br label %_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE15_M_erase_at_endEPS3_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE15_M_erase_at_endEPS3_.exit
 
 15:                                               ; preds = %13
@@ -2782,7 +2782,7 @@ define hidden void @_ZN2cv10ThreadPool3runERKNS_5RangeERKNS_16ParallelLoopBodyEd
   %18 = load i32, ptr %1, align 4
   %19 = sub nsw i32 %17, %18
   %20 = sitofp i32 %19 to double
-  %21 = fmul double %20, %3
+  %21 = fmul double %3, %20
   %22 = fcmp ult double %21, 2.000000e+00
   br i1 %22, label %23, label %26
 
@@ -3664,7 +3664,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv10ThreadPool15setNumOfThreadsEj(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i32, ptr %0, align 8
-  %.not = icmp eq i32 %3, %1
+  %.not = icmp eq i32 %1, %3
   br i1 %.not, label %_ZN2cv10ThreadPool11reconfigureEj.exit, label %4
 
 4:                                                ; preds = %2
@@ -3831,7 +3831,7 @@ _ZN2cv10ThreadPool8instanceEv.exit:               ; preds = %5, %6, %11
 _ZN2cv10ThreadPool8instanceEv.exit5:              ; preds = %19, %20, %25
   %30 = load ptr, ptr @_ZZN2cv10ThreadPool8instanceEvE8instance, align 8
   %31 = load i32, ptr %30, align 8
-  %.not.i6 = icmp eq i32 %31, %0
+  %.not.i6 = icmp eq i32 %0, %31
   br i1 %.not.i6, label %_ZN2cv10ThreadPool15setNumOfThreadsEj.exit, label %32
 
 32:                                               ; preds = %_ZN2cv10ThreadPool8instanceEv.exit5
@@ -4286,7 +4286,7 @@ _ZNSt12_Vector_baseIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE11_M_allocateEm.exit: 
 _ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i.i ]
   %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i.i17

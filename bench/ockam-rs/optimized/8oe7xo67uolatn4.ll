@@ -543,7 +543,7 @@ define hidden void @"_ZN4sec15point24EncodedPoint$LT$Size$GT$10from_bytes17h6765
   %10 = load i8, ptr %9, align 8, !range !148, !noundef !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   %11 = tail call noundef i64 @_ZN4sec15point3Tag11message_len17h230a553fea613c7eE(i8 noundef %10, i64 noundef 32)
-  %.not42 = icmp eq i64 %11, %2
+  %.not42 = icmp eq i64 %2, %11
   br i1 %.not42, label %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h41a0bbede7120de6E.exit", label %17
 
 .thread:                                          ; preds = %3, %5
@@ -1659,7 +1659,7 @@ define hidden void @"_ZN5ecdsa3der18Signature$LT$C$GT$10from_bytes17h1893b388d8c
 
 46:                                               ; preds = %37
   %47 = ptrtoint ptr %45 to i64
-  %.not = icmp eq i64 %47, %2
+  %.not = icmp eq i64 %2, %47
   br i1 %.not, label %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17ha81a4e8f9845f45dE.exit", label %.sink.split
 
 "_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17ha81a4e8f9845f45dE.exit": ; preds = %46

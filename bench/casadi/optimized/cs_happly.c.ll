@@ -52,7 +52,7 @@ define range(i32 0, 2) i32 @cs_happly(ptr noundef readonly %0, i32 noundef %1, d
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %32 = fmul double %31, %2
+  %32 = fmul double %2, %31
   br i1 %22, label %.lr.ph41.preheader, label %.loopexit
 
 .lr.ph41.preheader:                               ; preds = %._crit_edge

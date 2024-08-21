@@ -19,7 +19,7 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
-  %.not.i = icmp ugt i64 %8, %1
+  %.not.i = icmp ult i64 %1, %8
   %9 = getelementptr inbounds i8, ptr %5, i64 %1
   %10 = getelementptr inbounds i8, ptr %9, i64 1
   %storemerge.i = select i1 %.not.i, ptr %10, ptr %4
@@ -64,7 +64,7 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub nuw i64 %15, %16
-  %.not.i.i.i = icmp ugt i64 %17, %1
+  %.not.i.i.i = icmp ult i64 %1, %17
   br i1 %.not.i.i.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread8", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread5"
 
 18:                                               ; preds = %7
@@ -85,7 +85,7 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %27 = add i64 %10, -1
   %28 = ptrtoint ptr %23 to i64
   %29 = sub nuw i64 %24, %28
-  %.not.i8.not.i.i = icmp ugt i64 %29, %27
+  %.not.i8.not.i.i = icmp ult i64 %27, %29
   %30 = getelementptr inbounds i8, ptr %23, i64 %10
   %storemerge.i9.i.i = select i1 %.not.i8.not.i.i, ptr %30, ptr %22
   store ptr %storemerge.i9.i.i, ptr %0, align 8, !alias.scope !17
@@ -96,7 +96,7 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %.05.i.i = phi i64 [ %25, %._crit_edge.i.i ], [ %1, %26 ]
   %33 = ptrtoint ptr %32 to i64
   %34 = sub nuw i64 %24, %33
-  %.not.i11.i.i = icmp ugt i64 %34, %.05.i.i
+  %.not.i11.i.i = icmp ult i64 %.05.i.i, %34
   br i1 %.not.i11.i.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread5"
 
 35:                                               ; preds = %6
@@ -113,7 +113,7 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %43 = ptrtoint ptr %41 to i64
   %44 = ptrtoint ptr %42 to i64
   %45 = sub nuw i64 %43, %44
-  %.not.i.i15.i = icmp ugt i64 %45, %36
+  %.not.i.i15.i = icmp ult i64 %36, %45
   %46 = getelementptr inbounds i8, ptr %42, i64 %36
   %47 = getelementptr inbounds i8, ptr %46, i64 1
   %storemerge.i.i16.i = select i1 %.not.i.i15.i, ptr %47, ptr %41
@@ -137,7 +137,7 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %57 = add i64 %38, -1
   %58 = ptrtoint ptr %53 to i64
   %59 = sub nuw i64 %54, %58
-  %.not.i8.not.i13.i = icmp ugt i64 %59, %57
+  %.not.i8.not.i13.i = icmp ult i64 %57, %59
   %60 = getelementptr inbounds i8, ptr %53, i64 %38
   %storemerge.i9.i14.i = select i1 %.not.i8.not.i13.i, ptr %60, ptr %52
   store ptr %storemerge.i9.i14.i, ptr %0, align 8, !alias.scope !26
@@ -148,7 +148,7 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %.05.i5.i = phi i64 [ %55, %._crit_edge.i4.i ], [ %36, %56 ]
   %63 = ptrtoint ptr %62 to i64
   %64 = sub nuw i64 %54, %63
-  %.not.i11.i6.i = icmp ugt i64 %64, %.05.i5.i
+  %.not.i11.i6.i = icmp ult i64 %.05.i5.i, %64
   %65 = getelementptr inbounds i8, ptr %62, i64 %.05.i5.i
   %66 = getelementptr inbounds i8, ptr %65, i64 1
   %storemerge.i12.i7.i = select i1 %.not.i11.i6.i, ptr %66, ptr %52
@@ -262,7 +262,7 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub nuw i64 %18, %19
-  %.not.i.i.i = icmp ugt i64 %20, %8
+  %.not.i.i.i = icmp ult i64 %8, %20
   %21 = getelementptr inbounds i8, ptr %17, i64 %8
   br i1 %.not.i.i.i, label %select.unfold, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51aad62f48c1dc76E.exit"
 

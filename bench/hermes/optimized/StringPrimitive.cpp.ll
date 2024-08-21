@@ -2981,7 +2981,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i.
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i.i39.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE15_M_check_lengthEmmPKc.exit.i.i.i.i37.i
   %11 = load i64, ptr %2, align 8
-  %cmp.not.i.i.i.i41.i63 = icmp ult i64 %11, %sub.ptr.div.i
+  %cmp.not.i.i.i.i41.i63 = icmp ugt i64 %sub.ptr.div.i, %11
   br i1 %cmp.not.i.i.i.i41.i63, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i, label %if.then12.i.i.i.i42.i
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i.i39.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i.i39.i.thread
@@ -3049,7 +3049,7 @@ if.then.i21.i.i.i.i46.i:                          ; preds = %if.then12.i.i.i.i42
   br label %if.end5.sink.split.i.i31.i
 
 if.else.i.i29.i:                                  ; preds = %sw.epilog.i
-  %cmp3.i.i30.i = icmp ugt i64 %10, %sub.ptr.div.i
+  %cmp3.i.i30.i = icmp ult i64 %sub.ptr.div.i, %10
   br i1 %cmp3.i.i30.i, label %if.end5.sink.split.i.i31.i, label %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit.thread
 
 if.end5.sink.split.i.i31.i:                       ; preds = %if.else.i.i29.i, %if.then.i21.i.i.i.i46.i, %for.body.i.i.i.i.i.preheader.i45.i
@@ -3548,7 +3548,7 @@ if.else13.i.i.i:                                  ; preds = %if.else.i.i.i
 _ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit: ; preds = %if.then.i.i.i, %if.then5.i.i.i, %if.then10.i.i.i, %if.else13.i.i.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i.i15, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.then5.i.i.i ], [ %add.ptr.i.i.i4.i.i.i, %if.then10.i.i.i ], [ %call.i.i.i.i.i, %if.else13.i.i.i ]
   %and.i.i = and i32 %3, 2147483647
-  %cmp.not.i = icmp eq i32 %and.i.i, %length
+  %cmp.not.i = icmp eq i32 %length, %and.i.i
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
@@ -3635,7 +3635,7 @@ if.else13.i.i.i54:                                ; preds = %if.else.i.i.i43
 _ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit: ; preds = %if.then.i.i.i59, %if.then5.i.i.i52, %if.then10.i.i.i45, %if.else13.i.i.i54
   %retval.0.i.i.i47 = phi ptr [ %7, %if.then.i.i.i59 ], [ %add.ptr.i.i.i.i.i.i53, %if.then5.i.i.i52 ], [ %add.ptr.i.i.i4.i.i.i46, %if.then10.i.i.i45 ], [ %9, %if.else13.i.i.i54 ]
   %and.i.i48 = and i32 %6, 2147483647
-  %cmp.not.i61 = icmp eq i32 %and.i.i48, %length
+  %cmp.not.i61 = icmp eq i32 %length, %and.i.i48
   br i1 %cmp.not.i61, label %if.end.i63, label %return
 
 if.end.i63:                                       ; preds = %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
@@ -3734,7 +3734,7 @@ if.else13.i.i.i101:                               ; preds = %if.else.i.i.i90
 _ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit110: ; preds = %if.then.i.i.i107, %if.then5.i.i.i99, %if.then10.i.i.i92, %if.else13.i.i.i101
   %retval.0.i.i.i94 = phi ptr [ %call.i.i.i.i109, %if.then.i.i.i107 ], [ %add.ptr.i.i.i.i.i.i100, %if.then5.i.i.i99 ], [ %add.ptr.i.i.i4.i.i.i93, %if.then10.i.i.i92 ], [ %call.i.i.i.i.i106, %if.else13.i.i.i101 ]
   %and.i.i95 = and i32 %15, 2147483647
-  %cmp.not.i111 = icmp eq i32 %and.i.i95, %length
+  %cmp.not.i111 = icmp eq i32 %length, %and.i.i95
   br i1 %cmp.not.i111, label %if.end.i113, label %return
 
 if.end.i113:                                      ; preds = %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit110
@@ -3830,7 +3830,7 @@ if.else13.i.i.i162:                               ; preds = %if.else.i.i.i151
 _ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit169: ; preds = %if.then.i.i.i167, %if.then5.i.i.i160, %if.then10.i.i.i153, %if.else13.i.i.i162
   %retval.0.i.i.i155 = phi ptr [ %23, %if.then.i.i.i167 ], [ %add.ptr.i.i.i.i.i.i161, %if.then5.i.i.i160 ], [ %add.ptr.i.i.i4.i.i.i154, %if.then10.i.i.i153 ], [ %25, %if.else13.i.i.i162 ]
   %and.i.i156 = and i32 %22, 2147483647
-  %cmp.not.i170 = icmp eq i32 %and.i.i156, %length
+  %cmp.not.i170 = icmp eq i32 %length, %and.i.i156
   br i1 %cmp.not.i170, label %if.end.i172, label %return
 
 if.end.i172:                                      ; preds = %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit169
@@ -7077,7 +7077,7 @@ if.then:                                          ; preds = %_ZNKSt7__cxx1112bas
   %add.ptr = getelementptr inbounds i16, ptr %1, i64 %__pos
   %4 = add i64 %__len1, %__pos
   %sub5 = sub i64 %0, %4
-  %cmp.i.i68 = icmp ugt ptr %1, %__s
+  %cmp.i.i68 = icmp ult ptr %__s, %1
   %add.ptr.i = getelementptr inbounds i16, ptr %1, i64 %0
   %cmp.i2.i = icmp ult ptr %add.ptr.i, %__s
   %5 = select i1 %cmp.i.i68, i1 true, i1 %cmp.i2.i
@@ -7191,7 +7191,7 @@ if.end.i.i83:                                     ; preds = %if.then32
   br label %if.end54
 
 if.else33:                                        ; preds = %if.then28
-  %cmp35.not = icmp ugt ptr %add.ptr30, %__s
+  %cmp35.not = icmp ult ptr %__s, %add.ptr30
   br i1 %cmp35.not, label %if.else40, label %if.then36
 
 if.then36:                                        ; preds = %if.else33

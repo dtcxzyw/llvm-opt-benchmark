@@ -396,13 +396,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 define hidden noundef zeroext i16 @_ZN5zxing11UnicomBlock19GetUnicomBlockIndexEii(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
-  %.not = icmp sgt i32 %5, %1
+  %.not = icmp slt i32 %1, %5
   br i1 %.not, label %6, label %28
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  %.not14 = icmp sgt i32 %8, %2
+  %.not14 = icmp slt i32 %2, %8
   br i1 %.not14, label %9, label %28
 
 9:                                                ; preds = %6
@@ -636,13 +636,13 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr nocapture noundef nonnull 
 define hidden noundef i32 @_ZN5zxing11UnicomBlock18GetUnicomBlockSizeEii(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
-  %.not = icmp sgt i32 %5, %1
+  %.not = icmp slt i32 %1, %5
   br i1 %.not, label %6, label %25
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  %.not14 = icmp sgt i32 %8, %2
+  %.not14 = icmp slt i32 %2, %8
   br i1 %.not14, label %9, label %25
 
 9:                                                ; preds = %6
@@ -681,13 +681,13 @@ define hidden noundef i32 @_ZN5zxing11UnicomBlock18GetUnicomBlockSizeEii(ptr noc
 define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMinPointEiiRiS1_(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   br i1 %.not, label %8, label %36
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %.not22 = icmp sgt i32 %10, %2
+  %.not22 = icmp slt i32 %2, %10
   br i1 %.not22, label %11, label %36
 
 11:                                               ; preds = %8
@@ -737,13 +737,13 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMinPointE
 define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMaxPointEiiRiS1_(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   br i1 %.not, label %8, label %36
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %.not22 = icmp sgt i32 %10, %2
+  %.not22 = icmp slt i32 %2, %10
   br i1 %.not22, label %11, label %36
 
 11:                                               ; preds = %8

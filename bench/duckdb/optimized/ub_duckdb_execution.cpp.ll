@@ -2462,7 +2462,7 @@ entry:
   store i64 %inc, ptr %iteration_count, align 8, !tbaa !45
   %runtime_sum = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load double, ptr %runtime_sum, align 8, !tbaa !46
-  %add = fadd double %1, %duration
+  %add = fadd double %duration, %1
   store double %add, ptr %runtime_sum, align 8, !tbaa !46
   %warmup = getelementptr inbounds i8, ptr %this, i64 81
   %2 = load i8, ptr %warmup, align 1, !tbaa !18, !range !47, !noundef !48

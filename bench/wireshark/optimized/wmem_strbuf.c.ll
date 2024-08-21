@@ -1053,7 +1053,7 @@ append_hex_any.exit:                              ; preds = %80, %86, %88
 define void @wmem_strbuf_truncate(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %.not = icmp ugt i64 %4, %1
+  %.not = icmp ult i64 %1, %4
   br i1 %.not, label %5, label %9
 
 5:                                                ; preds = %2
@@ -1218,7 +1218,7 @@ define internal fastcc zeroext i1 @string_utf8_validate(ptr noundef %0, i64 noun
 17:                                               ; preds = %11
   %18 = ptrtoint ptr %12 to i64
   %19 = ptrtoint ptr %0 to i64
-  %.neg = add i64 %19, %1
+  %.neg = add i64 %1, %19
   %20 = sub i64 %.neg, %18
   %21 = icmp sgt i64 %20, 0
   br i1 %21, label %.lr.ph, label %.critedge

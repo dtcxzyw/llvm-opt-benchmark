@@ -116,14 +116,14 @@ define noundef ptr @agopen1(ptr noundef returned %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %6, ptr %7, align 8
   %8 = tail call ptr @agroot(ptr noundef %0) #12
-  %9 = icmp eq ptr %8, %0
+  %9 = icmp eq ptr %0, %8
   %10 = select i1 %9, ptr @Ag_mainedge_seq_disc, ptr @Ag_subedge_seq_disc
   %11 = load ptr, ptr @Dttree, align 8
   %12 = tail call ptr @agdtopen(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %11) #12
   %13 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %12, ptr %13, align 8
   %14 = tail call ptr @agroot(ptr noundef %0) #12
-  %15 = icmp eq ptr %14, %0
+  %15 = icmp eq ptr %0, %14
   %16 = select i1 %15, ptr @Ag_mainedge_id_disc, ptr @Ag_subedge_id_disc
   %17 = load ptr, ptr @Dttree, align 8
   %18 = tail call ptr @agdtopen(ptr noundef %0, ptr noundef nonnull %16, ptr noundef %17) #12

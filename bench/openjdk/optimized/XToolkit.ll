@@ -599,7 +599,7 @@ define void @Java_sun_awt_X11_XToolkit_waitForEvents(ptr noundef %0, ptr nocaptu
   br label %get_poll_timeout.exit.i.i
 
 47:                                               ; preds = %3
-  %48 = icmp slt i64 %14, %2
+  %48 = icmp sgt i64 %2, %14
   %49 = sub nsw i64 %2, %14
   %50 = icmp eq i64 %2, -1
   %51 = sext i1 %50 to i64

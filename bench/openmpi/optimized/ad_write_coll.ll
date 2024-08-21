@@ -887,7 +887,7 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   %82 = getelementptr inbounds i64, ptr %80, i64 %81
   %83 = load i64, ptr %82, align 8
   %84 = sext i32 %.4292 to i64
-  %85 = mul nsw i64 %84, %20
+  %85 = mul nsw i64 %20, %84
   %86 = add nsw i64 %85, %83
   %87 = load ptr, ptr %30, align 8
   %88 = getelementptr inbounds i64, ptr %87, i64 %81
@@ -963,7 +963,7 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   %118 = getelementptr inbounds i64, ptr %116, i64 %117
   %119 = load i64, ptr %118, align 8
   %120 = sext i32 %.7295 to i64
-  %121 = mul nsw i64 %120, %20
+  %121 = mul nsw i64 %20, %120
   %122 = add nsw i64 %121, %119
   %123 = load ptr, ptr %30, align 8
   %124 = getelementptr inbounds i64, ptr %123, i64 %117
@@ -1006,7 +1006,7 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   %141 = getelementptr inbounds i64, ptr %139, i64 %140
   %142 = load i64, ptr %141, align 8
   %143 = sext i32 %.10298 to i64
-  %144 = mul nsw i64 %143, %20
+  %144 = mul nsw i64 %20, %143
   %145 = add nsw i64 %144, %142
   %146 = load ptr, ptr %30, align 8
   %147 = getelementptr inbounds i64, ptr %146, i64 %140
@@ -1081,7 +1081,7 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   %176 = getelementptr inbounds i64, ptr %174, i64 %175
   %177 = load i64, ptr %176, align 8
   %178 = sext i32 %.14302 to i64
-  %179 = mul nsw i64 %178, %20
+  %179 = mul nsw i64 %20, %178
   %180 = add nsw i64 %179, %177
   %181 = load ptr, ptr %30, align 8
   %182 = getelementptr inbounds i64, ptr %181, i64 %175
@@ -1124,7 +1124,7 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   %199 = getelementptr inbounds i64, ptr %197, i64 %198
   %200 = load i64, ptr %199, align 8
   %201 = sext i32 %.17305 to i64
-  %202 = mul nsw i64 %201, %20
+  %202 = mul nsw i64 %20, %201
   %203 = add nsw i64 %202, %200
   %204 = load ptr, ptr %30, align 8
   %205 = getelementptr inbounds i64, ptr %204, i64 %198
@@ -1193,7 +1193,7 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   %235 = getelementptr inbounds i64, ptr %233, i64 %234
   %236 = load i64, ptr %235, align 8
   %237 = sext i32 %.20 to i64
-  %238 = mul nsw i64 %237, %20
+  %238 = mul nsw i64 %20, %237
   %239 = add nsw i64 %238, %236
   %240 = load ptr, ptr %30, align 8
   %241 = getelementptr inbounds i64, ptr %240, i64 %234
@@ -1240,7 +1240,7 @@ define void @ADIOI_Fill_send_buffer(ptr noundef %0, ptr nocapture noundef readon
   %259 = getelementptr inbounds i64, ptr %257, i64 %258
   %260 = load i64, ptr %259, align 8
   %261 = sext i32 %.24 to i64
-  %262 = mul nsw i64 %261, %20
+  %262 = mul nsw i64 %20, %261
   %263 = add nsw i64 %262, %260
   %264 = load ptr, ptr %30, align 8
   %265 = getelementptr inbounds i64, ptr %264, i64 %258
@@ -1765,7 +1765,7 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
 
 121:                                              ; preds = %._crit_edge295
   %122 = load i64, ptr %.0234, align 8
-  %.not257 = icmp eq i64 %122, %8
+  %.not257 = icmp eq i64 %8, %122
   br i1 %.not257, label %.preheader279, label %.sink.split
 
 .preheader279:                                    ; preds = %121
@@ -1810,7 +1810,7 @@ define internal fastcc void @ADIOI_W_Exchange_data(ptr noundef %0, ptr noundef %
 
 .critedge:                                        ; preds = %139, %.preheader279
   %141 = phi i32 [ %.pre370, %.preheader279 ], [ %140, %139 ]
-  %.not259 = icmp eq i32 %141, %9
+  %.not259 = icmp eq i32 %9, %141
   br i1 %.not259, label %142, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph297, %.critedge, %121

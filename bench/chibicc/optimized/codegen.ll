@@ -3825,7 +3825,7 @@ if.end:                                           ; preds = %entry
   %pass_by_stack = getelementptr inbounds i8, ptr %args, i64 136
   %1 = load i8, ptr %pass_by_stack, align 8
   %tobool3 = trunc i8 %1 to i1
-  %2 = xor i1 %tobool3, %first_pass
+  %2 = xor i1 %first_pass, %tobool3
   br i1 %2, label %sw.epilog, label %if.end9
 
 if.end9:                                          ; preds = %if.end

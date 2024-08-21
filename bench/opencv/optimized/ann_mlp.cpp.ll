@@ -1106,7 +1106,7 @@ _ZN2cv2ml11ANN_MLPImpl5clearEv.exit:              ; preds = %2, %_ZSt8_DestroyIP
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = sdiv exact i64 %32, 96
-  %34 = icmp ult i64 %33, %27
+  %34 = icmp ugt i64 %27, %33
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %_ZN2cv2ml11ANN_MLPImpl5clearEv.exit
@@ -1115,7 +1115,7 @@ _ZN2cv2ml11ANN_MLPImpl5clearEv.exit:              ; preds = %2, %_ZSt8_DestroyIP
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 37:                                               ; preds = %_ZN2cv2ml11ANN_MLPImpl5clearEv.exit
-  %38 = icmp ugt i64 %33, %27
+  %38 = icmp ult i64 %27, %33
   br i1 %38, label %39, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 39:                                               ; preds = %37
@@ -1728,7 +1728,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyIiLi1EEclERSt6v
   store i8 105, ptr %9, align 1
   %10 = getelementptr inbounds i8, ptr %4, i64 2
   store i8 0, ptr %10, align 1
-  %11 = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
+  %11 = tail call i64 @llvm.umin.i64(i64 %2, i64 %8)
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %1, align 8
@@ -1736,7 +1736,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyIiLi1EEclERSt6v
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2
-  %19 = icmp ult i64 %18, %11
+  %19 = icmp ugt i64 %11, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %3
@@ -1745,7 +1745,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyIiLi1EEclERSt6v
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 22:                                               ; preds = %3
-  %23 = icmp ugt i64 %18, %11
+  %23 = icmp ult i64 %11, %18
   br i1 %23, label %24, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -4581,7 +4581,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml11ANN_MLPImpl10getWeightsEi(ptr dead_
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 96
   %16 = trunc i64 %15 to i32
-  %17 = icmp sgt i32 %16, %2
+  %17 = icmp slt i32 %2, %16
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %7, %3
@@ -6356,7 +6356,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv2ml11ANN_MLPImpl14train_backpropER
   %50 = and i64 %4, 2
   %.not = icmp eq i64 %50, 0
   %51 = sitofp i32 %48 to double
-  %52 = fmul double %51, %5
+  %52 = fmul double %5, %51
   %53 = select i1 %.not, double 0.000000e+00, double %52
   %54 = getelementptr inbounds i8, ptr %0, i64 8
   %55 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10900,7 +10900,7 @@ _ZN2cv2ml25SimulatedAnnealingANN_MLP11changeStateEv.exit: ; preds = %64, %67
   br i1 %exitcond.not, label %138, label %64, !llvm.loop !115
 
 138:                                              ; preds = %136
-  %139 = fmul double %.04565, %3
+  %139 = fmul double %3, %.04565
   %140 = fcmp ogt double %139, %2
   br i1 %140, label %.preheader, label %._crit_edge, !llvm.loop !116
 

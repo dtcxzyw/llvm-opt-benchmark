@@ -412,7 +412,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   ]
 
 19:                                               ; preds = %16
-  %20 = icmp ugt i64 %.val1.i.i.i.i, %.val22.i
+  %20 = icmp ult i64 %.val22.i, %.val1.i.i.i.i
   br i1 %20, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hade10c463f6b6fabE.exit.i.i.i.i", label %21, !prof !52
 
 21:                                               ; preds = %19
@@ -742,7 +742,7 @@ define hidden { i8, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %29 = add nuw nsw i32 %28, %27
   %30 = mul nuw nsw i32 %26, %26
   %31 = add nuw nsw i32 %29, %30
-  %switch.i.i.i.i.i.i.i = icmp ult i32 %31, %.sroa.67.0.i.i
+  %switch.i.i.i.i.i.i.i = icmp ugt i32 %.sroa.67.0.i.i, %31
   %.sroa.3.0.i.i.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.67.0.i.i, i32 %31)
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i8 %.sroa.01.0.extract.trunc.i.i.i.i.i.i, i8 %.sroa.05.0.i.i
   %32 = add i64 %12, 1
@@ -2253,7 +2253,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.f733b5516a4ddd6d48855c4e541218b3.68, i64 32, i1 false), !noalias !651
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false), !alias.scope !656, !noalias !651
   %.val1.i.i.i = load i64, ptr %20, align 8, !noalias !651, !noundef !4
-  %26 = icmp ugt i64 %.val1.i.i.i, %.val20.i
+  %26 = icmp ult i64 %.val20.i, %.val1.i.i.i
   br i1 %26, label %29, label %27, !prof !52
 
 27:                                               ; preds = %24
@@ -3429,7 +3429,7 @@ define hidden { i8, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %29 = add nuw nsw i32 %28, %27
   %30 = mul nuw nsw i32 %26, %26
   %31 = add nuw nsw i32 %29, %30
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %31, %.sroa.67.0.i.i.i
+  %switch.i.i.i.i.i.i.i.i = icmp ugt i32 %.sroa.67.0.i.i.i, %31
   %.sroa.3.0.i.i.i.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.67.0.i.i.i, i32 %31)
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i8 %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i, i8 %.sroa.05.0.i.i.i
   %32 = add i64 %12, 1
@@ -5821,7 +5821,7 @@ define hidden { i8, i32 } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerat
   %34 = add nuw nsw i32 %33, %32
   %35 = mul nuw nsw i32 %31, %31
   %36 = add nuw nsw i32 %34, %35
-  %switch.i.i.i.i.i.i = icmp ult i32 %36, %.sroa.67.0.i
+  %switch.i.i.i.i.i.i = icmp ugt i32 %.sroa.67.0.i, %36
   %.sroa.3.0.i.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.67.0.i, i32 %36)
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i8 %.sroa.01.0.extract.trunc.i.i.i.i.i, i8 %.sroa.05.0.i
   %37 = add i64 %17, 1
@@ -7937,7 +7937,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2260)
   %13 = getelementptr inbounds i8, ptr %4, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !2263, !noalias !2264, !noundef !4
-  %15 = icmp ugt i64 %14, %12
+  %15 = icmp ult i64 %12, %14
   br i1 %15, label %_ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenIndex8contains17hc478088068a74348E.exit.i, label %16, !prof !52
 
 16:                                               ; preds = %2
@@ -7963,7 +7963,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2273)
   %28 = getelementptr inbounds i8, ptr %23, i64 16
   %29 = load i64, ptr %28, align 8, !alias.scope !2276, !noalias !2277, !noundef !4
-  %30 = icmp ugt i64 %29, %27
+  %30 = icmp ult i64 %27, %29
   br i1 %30, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit.i.i", label %31, !prof !52
 
 31:                                               ; preds = %21
@@ -8071,7 +8071,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2347)
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !2350, !noalias !2351, !noundef !4
-  %17 = icmp ugt i64 %16, %14
+  %17 = icmp ult i64 %14, %16
   br i1 %17, label %_ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenIndex8contains17hc478088068a74348E.exit.i.i.i, label %18, !prof !52
 
 18:                                               ; preds = %2
@@ -8097,7 +8097,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2360)
   %30 = getelementptr inbounds i8, ptr %25, i64 16
   %31 = load i64, ptr %30, align 8, !alias.scope !2363, !noalias !2364, !noundef !4
-  %32 = icmp ugt i64 %31, %29
+  %32 = icmp ult i64 %29, %31
   br i1 %32, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit.i.i.i.i", label %33, !prof !52
 
 33:                                               ; preds = %23
@@ -8167,7 +8167,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2390)
   %14 = getelementptr inbounds i8, ptr %5, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !2393, !noalias !2394, !noundef !4
-  %16 = icmp ugt i64 %15, %13
+  %16 = icmp ult i64 %13, %15
   br i1 %16, label %_ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenIndex8contains17hc478088068a74348E.exit.i.i, label %17, !prof !52
 
 17:                                               ; preds = %2
@@ -8193,7 +8193,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2403)
   %29 = getelementptr inbounds i8, ptr %24, i64 16
   %30 = load i64, ptr %29, align 8, !alias.scope !2406, !noalias !2407, !noundef !4
-  %31 = icmp ugt i64 %30, %28
+  %31 = icmp ult i64 %28, %30
   br i1 %31, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit.i.i.i", label %32, !prof !52
 
 32:                                               ; preds = %22
@@ -11787,9 +11787,9 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !3448
   store i64 %.sroa.8.0.i.i.i.i, ptr %18, align 8, !noalias !3448
   store i64 %165, ptr %.fca.1.gep.i.i.i.i.i, align 8, !noalias !3448
-  %.not.i.i.i.i.i = icmp ult i64 %164, %165
+  %.not.i.i.i.i.i = icmp ugt i64 %165, %164
   %166 = add i64 %165, 1
-  %.not3.i.i.i.i.i = icmp ult i64 %166, %.sroa.8.0.i.i.i.i
+  %.not3.i.i.i.i.i = icmp ugt i64 %.sroa.8.0.i.i.i.i, %166
   %or.cond.i.i.i.i.i = or i1 %.not.i.i.i.i.i, %.not3.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %167, label %_ZN14regex_automata4util6search5Input8set_span17hd305cc554220db07E.exit.i.i.i.i
 
@@ -15154,7 +15154,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   %19 = getelementptr inbounds [0 x { { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, i8, [7 x i8] }], ptr %.val10.i, i64 0, i64 %.sroa.47.0.copyload, i32 1
   %20 = getelementptr i8, ptr %19, i64 16
   %.val1.i.i.i = load i64, ptr %20, align 8, !noalias !4475, !noundef !4
-  %21 = icmp ugt i64 %.val1.i.i.i, %.sroa.58.0.copyload
+  %21 = icmp ult i64 %.sroa.58.0.copyload, %.val1.i.i.i
   br i1 %21, label %"_ZN15tree_sitter_cli8generate15prepare_grammar15process_inlines27InlinedProductionMapBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$17hd0dc4175dc06d65dE.llvm.10157987788164207885.exit", label %.invoke.i, !prof !52
 
 .invoke.i:                                        ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h065661e0bb5f267fE.exit.i.i.i", %15, %10
@@ -18022,7 +18022,7 @@ define hidden void @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
 define hidden noundef nonnull align 1 dereferenceable(6) ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #11 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8804c207f0611199E.llvm.10157987788164207885.exit", label %7, !prof !52
 
 7:                                                ; preds = %3
@@ -23025,7 +23025,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   ]
 
 17:                                               ; preds = %14
-  %18 = icmp ugt i64 %.val1.i.i.i, %.val22
+  %18 = icmp ult i64 %.val22, %.val1.i.i.i
   br i1 %18, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hade10c463f6b6fabE.exit.i.i.i", label %19, !prof !52
 
 19:                                               ; preds = %17
@@ -23253,7 +23253,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.f733b5516a4ddd6d48855c4e541218b3.68, i64 32, i1 false), !noalias !6572
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !6575, !noalias !6572
   %.val1.i.i = load i64, ptr %17, align 8, !noalias !6572, !noundef !4
-  %27 = icmp ugt i64 %.val1.i.i, %.val20
+  %27 = icmp ult i64 %.val20, %.val1.i.i
   br i1 %27, label %30, label %28, !prof !52
 
 28:                                               ; preds = %25
@@ -23808,7 +23808,7 @@ define hidden { i8, i32 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %37 = add nuw nsw i32 %36, %35
   %38 = mul nuw nsw i32 %34, %34
   %39 = add nuw nsw i32 %37, %38
-  %switch.i.i.i.i.i = icmp ult i32 %39, %.sroa.67.0
+  %switch.i.i.i.i.i = icmp ugt i32 %.sroa.67.0, %39
   %.sroa.3.0.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.67.0, i32 %39)
   %.sroa.0.0.sroa.speculated.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i8 %.sroa.01.0.extract.trunc.i.i.i.i, i8 %.sroa.05.0
   %40 = add i64 %20, 1
@@ -23981,8 +23981,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 77:                                               ; preds = %98, %.noexc22
   %.sroa.9.0.i.i.i.i.i.i = phi i64 [ 0, %.noexc22 ], [ %99, %98 ]
-  %.pn.i.i.i.i = phi i64 [ %74, %.noexc22 ], [ %100, %98 ]
-  %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i.i.i
+  %.pn.i.i.i.i.i = phi i64 [ %74, %.noexc22 ], [ %100, %98 ]
+  %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i.i
   %78 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i
   %.0.copyload.i30.i.i.i.i.i = load <16 x i8>, ptr %78, align 1, !noalias !6899
   %79 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i.i, %.15.vec.insert.i.i.i.i.i.i
@@ -24013,8 +24013,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %.val4.i.i.i.i.i.i = load i64, ptr %94, align 8, !alias.scope !6907, !noalias !6912
   %95 = getelementptr i8, ptr %93, i64 -40
   %.val5.i.i.i.i.i.i = load i8, ptr %95, align 8, !range !48, !alias.scope !6907, !noalias !6912, !noundef !4
-  %96 = icmp eq i8 %.val5.i.i.i.i.i.i, %.val6.i.i
-  %97 = icmp eq i64 %.val4.i.i.i.i.i.i, %.val5.i.i
+  %96 = icmp eq i8 %.val6.i.i, %.val5.i.i.i.i.i.i
+  %97 = icmp eq i64 %.val5.i.i, %.val4.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i.i.i = select i1 %96, i1 %97, i1 false
   br i1 %.0.i.i.i.i.i.i.i.i.i, label %104, label %81
 
@@ -24440,7 +24440,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !7046
   store i64 0, ptr %.sroa.56.0..sroa_idx.i.i, align 8, !noalias !7046
   %.val9.i.i = load i64, ptr %18, align 8, !noalias !7046, !noundef !4
-  %31 = icmp ugt i64 %.val9.i.i, %.val20
+  %31 = icmp ult i64 %.val20, %.val9.i.i
   br i1 %31, label %44, label %.invoke.i.i, !prof !52
 
 32:                                               ; preds = %.invoke.i.i
@@ -27900,7 +27900,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet6insert17hd5ca867a7dd68ffaE.exit.bac
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i: ; preds = %631, %628
   %.0.i.i = phi i64 [ %630, %628 ], [ %634, %631 ]
-  %.not.i158 = icmp ugt i64 %.0.i.i, %.fca.0.extract.i
+  %.not.i158 = icmp ult i64 %.fca.0.extract.i, %.0.i.i
   br i1 %.not.i158, label %637, label %635
 
 635:                                              ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i
@@ -27935,7 +27935,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i.i160: ; preds = %644, %641
   %.0.i.i.i161 = phi i64 [ %643, %641 ], [ %647, %644 ]
-  %648 = icmp ugt i64 %.0.i.i.i161, %.fca.0.extract.i
+  %648 = icmp ult i64 %.fca.0.extract.i, %.0.i.i.i161
   br i1 %648, label %_ZN11smallbitvec11SmallBitVec3set17h72321cce85bb7443E.llvm.16258808753110442553.exit.i, label %649
 
 649:                                              ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i.i160
@@ -28051,7 +28051,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet10insert_all17h1f049547356b84aaE.exi
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i.i: ; preds = %682, %679
   %.0.i.i.i = phi i64 [ %681, %679 ], [ %685, %682 ]
-  %686 = icmp ugt i64 %.0.i.i.i, %.sroa.01.047.i
+  %686 = icmp ult i64 %.sroa.01.047.i, %.0.i.i.i
   br i1 %686, label %687, label %_ZN15tree_sitter_cli8generate5rules8TokenSet17contains_terminal17h41bfed38f0d49c36E.exit.i
 
 687:                                              ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i.i
@@ -28068,7 +28068,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet17contains_terminal17h41bfed38f0d49c
 
 _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i11.i: ; preds = %689, %_ZN15tree_sitter_cli8generate5rules8TokenSet17contains_terminal17h41bfed38f0d49c36E.exit.i
   %.0.i.i12.i = phi i64 [ %690, %689 ], [ %663, %_ZN15tree_sitter_cli8generate5rules8TokenSet17contains_terminal17h41bfed38f0d49c36E.exit.i ]
-  %691 = icmp ugt i64 %.0.i.i12.i, %.sroa.01.047.i
+  %691 = icmp ult i64 %.sroa.01.047.i, %.0.i.i12.i
   br i1 %691, label %_ZN15tree_sitter_cli8generate5rules8TokenSet17contains_terminal17h41bfed38f0d49c36E.exit14.i, label %_ZN15tree_sitter_cli8generate5rules8TokenSet17contains_terminal17h41bfed38f0d49c36E.exit14.thread.i
 
 _ZN15tree_sitter_cli8generate5rules8TokenSet17contains_terminal17h41bfed38f0d49c36E.exit14.i: ; preds = %_ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.exit.i11.i
@@ -28168,7 +28168,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet9terminals17he1dd3602dd75c411E.exit.
   %.us-phi52.i = phi i64 [ %712, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.us.i" ], [ %720, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i" ]
   %.us-phi53.i = phi i64 [ %709, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.us.i" ], [ %717, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i" ]
   %729 = add i64 %.us-phi53.i, %707
-  %730 = icmp ugt i64 %126, %729
+  %730 = icmp ult i64 %729, %126
   br i1 %730, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit.i.i", label %.invoke434, !prof !52
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit.i.i": ; preds = %.split50.us.i
@@ -28200,7 +28200,7 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap17
   %.6.i.i.i = call i64 @llvm.umax.i64(i64 %.sroa.01.047.i, i64 %.us-phi53.i)
   %745 = mul i64 %..i.i.i, %130
   %746 = add i64 %745, %.6.i.i.i
-  %747 = icmp ugt i64 %132, %746
+  %747 = icmp ult i64 %746, %132
   br i1 %747, label %_ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenIndex8contains17hc478088068a74348E.exit.i, label %.invoke434, !prof !52
 
 _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenIndex8contains17hc478088068a74348E.exit.i: ; preds = %744
@@ -28212,7 +28212,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
 750:                                              ; preds = %_ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenIndex8contains17hc478088068a74348E.exit.i
   %751 = mul i64 %.us-phi53.i, %124
   %752 = add i64 %751, %.sroa.01.047.i
-  %753 = icmp ugt i64 %126, %752
+  %753 = icmp ult i64 %752, %126
   br i1 %753, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit.i19.i", label %.invoke434, !prof !52
 
 .invoke434:                                       ; preds = %750, %744, %.split50.us.i
@@ -28850,7 +28850,7 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap12
 156:                                              ; preds = %154
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !7890
   %.val45.i = load i64, ptr %51, align 8, !alias.scope !7846, !noalias !7849, !noundef !4
-  %157 = icmp ugt i64 %.val45.i, %.sroa.8151.0.copyload
+  %157 = icmp ult i64 %.sroa.8151.0.copyload, %.val45.i
   br i1 %157, label %158, label %.invoke.i, !prof !52
 
 158:                                              ; preds = %156
@@ -28917,7 +28917,7 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap12
 
 175:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h194798a99173f7d1E.exit.thread.i"
   %.val43.i = load i64, ptr %51, align 8, !alias.scope !7846, !noalias !7849, !noundef !4
-  %176 = icmp ugt i64 %.val43.i, %.sroa.8151.0.copyload
+  %176 = icmp ult i64 %.sroa.8151.0.copyload, %.val43.i
   br i1 %176, label %.sink.split.i, label %.noexc55.i, !prof !52
 
 .noexc55.i:                                       ; preds = %175
@@ -28937,7 +28937,7 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap12
 
 180:                                              ; preds = %172
   %.val41.i = load i64, ptr %51, align 8, !alias.scope !7846, !noalias !7849, !noundef !4
-  %181 = icmp ugt i64 %.val41.i, %.sroa.8151.0.copyload
+  %181 = icmp ult i64 %.sroa.8151.0.copyload, %.val41.i
   br i1 %181, label %.sink.split.i, label %.noexc57.i, !prof !52
 
 .noexc57.i:                                       ; preds = %180
@@ -29094,7 +29094,7 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap17
 226:                                              ; preds = %_ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap17prefer_transition17he758c8de0020f64cE.exit.thread107.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !7890
   %.val39.i = load i64, ptr %51, align 8, !alias.scope !7846, !noalias !7849, !noundef !4
-  %227 = icmp ugt i64 %.val39.i, %.sroa.8151.0.copyload
+  %227 = icmp ult i64 %.sroa.8151.0.copyload, %.val39.i
   br i1 %227, label %229, label %228, !prof !52
 
 228:                                              ; preds = %226
@@ -31611,7 +31611,7 @@ define hidden noundef zeroext i1 @_ZN15tree_sitter_cli8generate12build_tables15t
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8476)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !8476, !noalias !8479, !noundef !4
-  %10 = icmp ugt i64 %9, %7
+  %10 = icmp ult i64 %7, %9
   br i1 %10, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit", label %11, !prof !52
 
 11:                                               ; preds = %3
@@ -31636,7 +31636,7 @@ define hidden noundef zeroext i1 @_ZN15tree_sitter_cli8generate12build_tables15t
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8484)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !8484, !noalias !8487, !noundef !4
-  %10 = icmp ugt i64 %9, %7
+  %10 = icmp ult i64 %7, %9
   br i1 %10, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit", label %11, !prof !52
 
 11:                                               ; preds = %3
@@ -31678,7 +31678,7 @@ define hidden noundef zeroext i1 @_ZN15tree_sitter_cli8generate12build_tables15t
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8492)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !8492, !noalias !8495, !noundef !4
-  %10 = icmp ugt i64 %9, %7
+  %10 = icmp ult i64 %7, %9
   br i1 %10, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit", label %11, !prof !52
 
 11:                                               ; preds = %3
@@ -32192,7 +32192,7 @@ define noundef zeroext i1 @"_ZN111_$LT$tree_sitter_cli..generate..build_tables..
 
 196:                                              ; preds = %192
   %197 = add nuw i64 %.sroa.064.0330, %189
-  %198 = icmp ugt i64 %151, %197
+  %198 = icmp ult i64 %197, %151
   br i1 %198, label %199, label %.invoke, !prof !52
 
 199:                                              ; preds = %196
@@ -32362,7 +32362,7 @@ define hidden { i64, i8 } @"_ZN15tree_sitter_cli8generate12build_tables20populat
   %24 = add i64 %23, %.6.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8544)
   %25 = load i64, ptr %12, align 8, !alias.scope !8547, !noalias !8548, !noundef !4
-  %26 = icmp ugt i64 %25, %24
+  %26 = icmp ult i64 %24, %25
   br i1 %26, label %_ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenIndex8contains17hc478088068a74348E.exit.i.i.i, label %27, !prof !52
 
 27:                                               ; preds = %21
@@ -32382,7 +32382,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
   %33 = mul i64 %32, %1
   %34 = add i64 %33, %19
   %35 = load i64, ptr %15, align 8, !alias.scope !8554, !noalias !8536, !noundef !4
-  %36 = icmp ugt i64 %35, %34
+  %36 = icmp ult i64 %34, %35
   br i1 %36, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit.i.i.i.i", label %37, !prof !52
 
 37:                                               ; preds = %31
@@ -32394,7 +32394,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
   %39 = getelementptr inbounds [0 x { i8, i8, i8, i8, i8, i8 }], ptr %38, i64 0, i64 %34
   %40 = mul i64 %32, %19
   %41 = add i64 %40, %1
-  %42 = icmp ugt i64 %35, %41
+  %42 = icmp ult i64 %41, %35
   br i1 %42, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit1.i.i.i.i", label %43, !prof !52
 
 43:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit.i.i.i.i"
@@ -32445,7 +32445,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hb07de7fbe6d4562eE.exit: ; pred
   %58 = load ptr, ptr %57, align 8, !nonnull !4, !align !44, !noundef !4
   %59 = getelementptr i8, ptr %58, i64 40
   %.val14 = load i64, ptr %59, align 8, !noundef !4
-  %60 = icmp ugt i64 %.val14, %1
+  %60 = icmp ult i64 %1, %.val14
   br i1 %60, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.exit", label %61, !prof !52
 
 61:                                               ; preds = %.critedge13
@@ -32497,7 +32497,7 @@ define hidden noundef zeroext i1 @"_ZN15tree_sitter_cli8generate12build_tables20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8583)
   %12 = getelementptr inbounds i8, ptr %3, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !8586, !noalias !8587, !noundef !4
-  %14 = icmp ugt i64 %13, %11
+  %14 = icmp ult i64 %11, %13
   br i1 %14, label %_ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenIndex8contains17hc478088068a74348E.exit, label %15, !prof !52
 
 15:                                               ; preds = %2
@@ -32523,7 +32523,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8595)
   %27 = getelementptr inbounds i8, ptr %22, i64 16
   %28 = load i64, ptr %27, align 8, !alias.scope !8598, !noalias !8599, !noundef !4
-  %29 = icmp ugt i64 %28, %26
+  %29 = icmp ult i64 %26, %28
   br i1 %29, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit.i", label %30, !prof !52
 
 30:                                               ; preds = %20
@@ -32651,7 +32651,7 @@ _ZN15tree_sitter_cli8generate3nfa9NfaCursor5reset17h81d15317a3c06c47E.exit: ; pr
   %45 = add i64 %44, %41
   %46 = getelementptr inbounds i8, ptr %38, i64 16
   %47 = load i64, ptr %46, align 8, !noalias !4, !noundef !4
-  %48 = icmp ugt i64 %47, %45
+  %48 = icmp ult i64 %45, %47
   br i1 %48, label %_ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap22does_match_same_string17hc1a387fd2b4def82E.exit, label %49, !prof !52
 
 49:                                               ; preds = %36
@@ -32689,7 +32689,7 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap27
   %61 = load ptr, ptr %60, align 8, !nonnull !4, !align !44, !noundef !4
   %62 = getelementptr i8, ptr %61, i64 40
   %.val12 = load i64, ptr %62, align 8, !noundef !4
-  %63 = icmp ugt i64 %.val12, %1
+  %63 = icmp ult i64 %1, %.val12
   br i1 %63, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.exit", label %64, !prof !52
 
 64:                                               ; preds = %.critedge11
@@ -32869,7 +32869,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i.us: ;
   %47 = add i64 %46, %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8686)
   %48 = load i64, ptr %15, align 8, !alias.scope !8689, !noalias !8690, !noundef !4
-  %49 = icmp ugt i64 %48, %47
+  %49 = icmp ult i64 %47, %48
   br i1 %49, label %_ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap22does_match_same_string17hc1a387fd2b4def82E.exit.us, label %.split135.us, !prof !52
 
 _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap22does_match_same_string17hc1a387fd2b4def82E.exit.us: ; preds = %44
@@ -33036,7 +33036,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i: ; pr
   %104 = add i64 %103, %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8686)
   %105 = load i64, ptr %15, align 8, !alias.scope !8689, !noalias !8690, !noundef !4
-  %106 = icmp ugt i64 %105, %104
+  %106 = icmp ult i64 %104, %105
   br i1 %106, label %_ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap22does_match_same_string17hc1a387fd2b4def82E.exit, label %.split135.us, !prof !52
 
 .split135.us:                                     ; preds = %101, %44
@@ -33223,7 +33223,7 @@ define hidden noundef zeroext i1 @"_ZN15tree_sitter_cli8generate12build_tables17
   %56 = add i64 %55, %.6.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !8738)
   %57 = load i64, ptr %19, align 8, !alias.scope !8741, !noalias !8742, !noundef !4
-  %58 = icmp ugt i64 %57, %56
+  %58 = icmp ult i64 %56, %57
   br i1 %58, label %_ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenIndex11states_with17hc69fd24350d07db9E.exit, label %59, !prof !52
 
 59:                                               ; preds = %53
@@ -33259,7 +33259,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
   %76 = phi ptr [ %63, %.lr.ph.i ], [ %77, %.backedge.i ]
   %77 = getelementptr inbounds i8, ptr %76, i64 8
   %.val4.i = load i64, ptr %76, align 8, !noalias !8754, !noundef !4
-  %78 = icmp ugt i64 %.val1.i.i, %.val4.i
+  %78 = icmp ult i64 %.val4.i, %.val1.i.i
   br i1 %78, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4fda92a760849fb0E.exit.i.i", label %79, !prof !52
 
 79:                                               ; preds = %75
@@ -33313,7 +33313,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
   %99 = mul i64 %98, %17
   %100 = add i64 %99, %.sroa.01.0103
   %101 = load i64, ptr %33, align 8, !alias.scope !8779, !noalias !4, !noundef !4
-  %102 = icmp ugt i64 %101, %100
+  %102 = icmp ult i64 %100, %101
   br i1 %102, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit.i", label %103, !prof !52
 
 103:                                              ; preds = %96
@@ -33325,7 +33325,7 @@ _ZN15tree_sitter_cli8generate12build_tables17coincident_tokens20CoincidentTokenI
   %105 = getelementptr inbounds [0 x { i8, i8, i8, i8, i8, i8 }], ptr %104, i64 0, i64 %100
   %106 = mul i64 %98, %97
   %107 = add i64 %106, %.sroa.01.0103
-  %108 = icmp ugt i64 %101, %107
+  %108 = icmp ult i64 %107, %101
   br i1 %108, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit2.i", label %109, !prof !52
 
 109:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha3f98f3dd6ba813dE.llvm.10157987788164207885.exit.i"
@@ -33798,7 +33798,7 @@ define hidden void @"_ZN15tree_sitter_cli8generate15prepare_grammar15process_inl
   %17 = getelementptr inbounds [0 x { { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, i8, [7 x i8] }], ptr %.val10, i64 0, i64 %.sroa.4.0.copyload, i32 1
   %18 = getelementptr i8, ptr %17, i64 16
   %.val1.i.i = load i64, ptr %18, align 8, !noundef !4
-  %19 = icmp ugt i64 %.val1.i.i, %.sroa.5.0.copyload
+  %19 = icmp ult i64 %.sroa.5.0.copyload, %.val1.i.i
   br i1 %19, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h5e2af395d44f6419E.exit", label %.invoke, !prof !52
 
 .invoke:                                          ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h065661e0bb5f267fE.exit.i.i", %13, %9

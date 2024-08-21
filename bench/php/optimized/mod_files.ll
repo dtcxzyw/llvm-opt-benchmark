@@ -868,7 +868,7 @@ define internal fastcc void @ps_files_open(ptr nocapture noundef %0, ptr noundef
   br i1 %.not, label %.critedge2.thread.thread, label %9
 
 9:                                                ; preds = %8
-  %10 = icmp eq ptr %.pr.pre68, %1
+  %10 = icmp eq ptr %1, %.pr.pre68
   br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %9

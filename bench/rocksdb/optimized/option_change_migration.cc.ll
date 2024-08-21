@@ -657,7 +657,7 @@ if.end13:                                         ; preds = %if.then12, %if.end1
           to label %invoke.cont15 unwind label %lpad7
 
 invoke.cont15:                                    ; preds = %if.end13
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i9
 
 if.then.i9:                                       ; preds = %invoke.cont15
@@ -718,7 +718,7 @@ invoke.cont17:                                    ; preds = %_ZNKSt14default_del
   store ptr null, ptr %state_.i11, align 8
   %17 = load i8, ptr %agg.result, align 8
   %cmp.i15 = icmp eq i8 %17, 0
-  %brmerge.not = and i1 %cmp.i15, %need_reopen
+  %brmerge.not = and i1 %need_reopen, %cmp.i15
   br i1 %brmerge.not, label %invoke.cont.i21, label %nrvo.skipdtor
 
 invoke.cont.i21:                                  ; preds = %invoke.cont17
@@ -736,7 +736,7 @@ invoke.cont.i21:                                  ; preds = %invoke.cont17
   %20 = load ptr, ptr %tmpdb.i16, align 8
   %spec.select = select i1 %cmp.i.i22, ptr %20, ptr null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmpdb.i16)
-  %cmp.not.i30 = icmp eq ptr %ref.tmp20, %agg.result
+  %cmp.not.i30 = icmp eq ptr %agg.result, %ref.tmp20
   br i1 %cmp.not.i30, label %_ZN7rocksdb6StatusaSEOS0_.exit48, label %if.then.i31
 
 if.then.i31:                                      ; preds = %.noexc28
@@ -2423,7 +2423,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #13
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %cond.i.i.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i

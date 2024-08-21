@@ -3502,7 +3502,7 @@ define void @_Z22_gmx_selelem_set_vtypeRKSt10shared_ptrIN3gmx20SelectionTreeElem
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
-  %12 = icmp eq i32 %10, %1
+  %12 = icmp eq i32 %1, %10
   %or.cond12 = or i1 %11, %12
   br i1 %or.cond12, label %14, label %13
 

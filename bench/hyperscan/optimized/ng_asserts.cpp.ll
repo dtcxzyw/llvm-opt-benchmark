@@ -1397,7 +1397,7 @@ call5.i.i.noexc:                                  ; preds = %.noexc
   %127 = load i64, ptr %props.i.i.i.i, align 8
   %128 = load i64, ptr %props.i345.i, align 8, !noalias !109
   store i64 %128, ptr %props.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %agg.tmp3.sroa.0.0.copyload.i.i.i, %agg.tmp164.sroa.0.0.copyload.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %agg.tmp164.sroa.0.0.copyload.i, %agg.tmp3.sroa.0.0.copyload.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %if.then101.i.invoke.sink.split, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %.noexc109
@@ -1466,7 +1466,7 @@ call5.i358.i.noexc:                               ; preds = %.noexc113
   %133 = load i64, ptr %props.i.i.i365.i, align 8
   %134 = load i64, ptr %props.i361.i, align 8, !noalias !116
   store i64 %134, ptr %props.i.i.i365.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i366.i = icmp eq ptr %agg.tmp3.sroa.0.0.copyload.i.i364.i, %agg.tmp188.sroa.0.0.copyload.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i366.i = icmp eq ptr %agg.tmp188.sroa.0.0.copyload.i, %agg.tmp3.sroa.0.0.copyload.i.i364.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i366.i, label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit376.i, label %if.then.i.i.i.i.i.i.i.i.i.i367.i
 
 if.then.i.i.i.i.i.i.i.i.i.i367.i:                 ; preds = %.noexc117
@@ -1571,7 +1571,7 @@ if.else208.i:                                     ; preds = %for.cond19.i.i.i, %
   %144 = load i64, ptr %props.i.i.i385.i, align 8
   %145 = load i64, ptr %props.i382.i, align 8, !noalias !128
   store i64 %145, ptr %props.i.i.i385.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i386.i = icmp eq ptr %agg.tmp3.sroa.0.0.copyload.i.i384.i, %agg.tmp213.sroa.0.0.copyload.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i386.i = icmp eq ptr %agg.tmp213.sroa.0.0.copyload.i, %agg.tmp3.sroa.0.0.copyload.i.i384.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i386.i, label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit396.i, label %if.then.i.i.i.i.i.i.i.i.i.i387.i
 
 if.then.i.i.i.i.i.i.i.i.i.i387.i:                 ; preds = %.noexc120
@@ -1748,7 +1748,7 @@ call5.i445.i.noexc:                               ; preds = %.noexc124
   %171 = load i64, ptr %props.i.i.i452.i, align 8
   %172 = load i64, ptr %props.i448.i, align 8, !noalias !141
   store i64 %172, ptr %props.i.i.i452.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i453.i = icmp eq ptr %agg.tmp3.sroa.0.0.copyload.i.i451.i, %agg.tmp304.sroa.0.0.copyload.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i453.i = icmp eq ptr %agg.tmp304.sroa.0.0.copyload.i, %agg.tmp3.sroa.0.0.copyload.i.i451.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i453.i, label %if.then101.i.invoke.sink.split, label %if.then.i.i.i.i.i.i.i.i.i.i454.i
 
 if.then.i.i.i.i.i.i.i.i.i.i454.i:                 ; preds = %.noexc128
@@ -1817,7 +1817,7 @@ call5.i474.i.noexc:                               ; preds = %.noexc132
   %177 = load i64, ptr %props.i.i.i481.i, align 8
   %178 = load i64, ptr %props.i477.i, align 8, !noalias !148
   store i64 %178, ptr %props.i.i.i481.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i482.i = icmp eq ptr %agg.tmp3.sroa.0.0.copyload.i.i480.i, %agg.tmp328.sroa.0.0.copyload.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i482.i = icmp eq ptr %agg.tmp328.sroa.0.0.copyload.i, %agg.tmp3.sroa.0.0.copyload.i.i480.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i482.i, label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit492.i, label %if.then.i.i.i.i.i.i.i.i.i.i483.i
 
 if.then.i.i.i.i.i.i.i.i.i.i483.i:                 ; preds = %.noexc136
@@ -1914,7 +1914,7 @@ if.else349.i:                                     ; preds = %for.cond19.i.i498.i
   %186 = load i64, ptr %props.i.i.i533.i, align 8
   %187 = load i64, ptr %props.i530.i, align 8, !noalias !160
   store i64 %187, ptr %props.i.i.i533.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i534.i = icmp eq ptr %agg.tmp3.sroa.0.0.copyload.i.i532.i, %agg.tmp354.sroa.0.0.copyload.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i534.i = icmp eq ptr %agg.tmp354.sroa.0.0.copyload.i, %agg.tmp3.sroa.0.0.copyload.i.i532.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i534.i, label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit544.i, label %if.then.i.i.i.i.i.i.i.i.i.i535.i
 
 if.then.i.i.i.i.i.i.i.i.i.i535.i:                 ; preds = %.noexc139
@@ -2865,7 +2865,7 @@ _ZN3ue29CharReachC2Ehh.exit:                      ; preds = %_ZN3ue24edgeINS_8NG
   %7 = load i64, ptr %props.i.i.i, align 8
   %8 = load i64, ptr %props.i88, align 8, !noalias !288
   store i64 %8, ptr %props.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %agg.tmp3.sroa.0.0.copyload.i.i, %ref.tmp.sroa.0.0
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0, %agg.tmp3.sroa.0.0.copyload.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZN3ue29CharReachC2Ehh.exit
@@ -2935,7 +2935,7 @@ _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pa
   %20 = load i64, ptr %props.i.i.i116, align 8
   %21 = load i64, ptr %props.i88, align 8, !noalias !295
   store i64 %21, ptr %props.i.i.i116, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i117 = icmp eq ptr %agg.tmp3.sroa.0.0.copyload.i.i115, %ref.tmp.sroa.0.0
+  %cmp.not.i.i.i.i.i.i.i.i.i.i117 = icmp eq ptr %ref.tmp.sroa.0.0, %agg.tmp3.sroa.0.0.copyload.i.i115
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i117, label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit127, label %if.then.i.i.i.i.i.i.i.i.i.i118
 
 if.then.i.i.i.i.i.i.i.i.i.i118:                   ; preds = %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit
@@ -3337,7 +3337,7 @@ invoke.cont5.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont5.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %4, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %5
+  %cmp2.i.i.i.i = icmp eq ptr %5, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -3379,7 +3379,7 @@ return:                                           ; preds = %lor.rhs, %if.then.i
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEEESt10_Select1stISB_ESt4lessIjESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -3631,7 +3631,7 @@ entry:
   tail call void @_ZN3ue214clone_in_edgesERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEES8_(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %v.coerce0, i64 %v.coerce1, ptr %0, i64 %1)
   %startDs = getelementptr inbounds i8, ptr %g, i64 88
   %agg.tmp7.sroa.0.0.copyload = load ptr, ptr %startDs, align 8
-  %cmp.i = icmp eq ptr %agg.tmp7.sroa.0.0.copyload, %v.coerce0
+  %cmp.i = icmp eq ptr %v.coerce0, %agg.tmp7.sroa.0.0.copyload
   br i1 %cmp.i, label %if.then, label %if.end19
 
 if.then:                                          ; preds = %entry
@@ -3910,7 +3910,7 @@ if.then21.i:                                      ; preds = %if.then.i.i.i, %inv
   store i32 %7, ptr %r.addr.0.i.i.i, align 4
   %add.ptr.i = getelementptr inbounds i32, ptr %r.addr.0.i.i.i, i64 %n
   %add.ptr25.i = getelementptr inbounds i32, ptr %1, i64 %3
-  %cmp.i.i15.i = icmp ne ptr %add.ptr25.i, %0
+  %cmp.i.i15.i = icmp ne ptr %0, %add.ptr25.i
   %tobool5.i.i18.i = icmp ne ptr %0, null
   %or.cond1.i.i19.i = and i1 %tobool5.i.i18.i, %cmp.i.i15.i
   br i1 %or.cond1.i.i19.i, label %if.then.i.i21.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit26.i
@@ -4066,7 +4066,7 @@ _ZNKSt4lessIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS
 
 if.then:                                          ; preds = %if.then.i, %if.then.i.i11.i, %_ZNKSt4lessIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa40.i, %_ZNKSt4lessIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i ], [ %__y.0.lcssa40.i, %if.then.i.i11.i ], [ %__y.0.lcssa41.i, %if.then.i ]
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then
@@ -4120,12 +4120,12 @@ entry:
   %2 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, %0
+  %cmp.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp.i1.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.i1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -5005,7 +5005,7 @@ if.then19.i:                                      ; preds = %if.then.i.i.i, %inv
   store i32 %7, ptr %r.addr.0.i.i.i, align 4
   %add.ptr.i = getelementptr inbounds i32, ptr %r.addr.0.i.i.i, i64 %n
   %add.ptr23.i = getelementptr inbounds i32, ptr %1, i64 %3
-  %cmp.i.i15.i = icmp ne ptr %add.ptr23.i, %0
+  %cmp.i.i15.i = icmp ne ptr %0, %add.ptr23.i
   %tobool5.i.i18.i = icmp ne ptr %0, null
   %or.cond1.i.i19.i = and i1 %tobool5.i.i18.i, %cmp.i.i15.i
   br i1 %or.cond1.i.i19.i, label %if.then.i.i21.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit26.i

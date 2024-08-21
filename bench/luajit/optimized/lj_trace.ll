@@ -240,7 +240,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %sizetrace = getelementptr inbounds i8, ptr %J, i64 396
   %0 = load i32, ptr %sizetrace, align 4
-  %cmp1 = icmp ugt i32 %0, %traceno
+  %cmp1 = icmp ult i32 %traceno, %0
   br i1 %cmp1, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %land.lhs.true
@@ -1491,7 +1491,7 @@ for.body.i:                                       ; preds = %for.inc.i114, %if.e
   %arrayidx.i113 = getelementptr inbounds [64 x %struct.HotPenalty], ptr %penalty.i, i64 0, i64 %indvars.iv.i
   %123 = load i64, ptr %arrayidx.i113, align 8
   %124 = inttoptr i64 %123 to ptr
-  %cmp2.i = icmp eq ptr %124, %119
+  %cmp2.i = icmp eq ptr %119, %124
   br i1 %cmp2.i, label %if.then.i120, label %for.inc.i114
 
 if.then.i120:                                     ; preds = %for.body.i
@@ -2410,7 +2410,7 @@ land.lhs.true:                                    ; preds = %entry
   %mcode = getelementptr inbounds i8, ptr %3, i64 88
   %4 = load ptr, ptr %mcode, align 8
   %5 = ptrtoint ptr %4 to i64
-  %cmp.not = icmp ugt i64 %5, %addr
+  %cmp.not = icmp ult i64 %addr, %5
   br i1 %cmp.not, label %return, label %land.lhs.true1
 
 land.lhs.true1:                                   ; preds = %land.lhs.true
@@ -2418,7 +2418,7 @@ land.lhs.true1:                                   ; preds = %land.lhs.true
   %6 = load i32, ptr %szmcode, align 4
   %conv = zext i32 %6 to i64
   %add = add i64 %conv, %5
-  %cmp3 = icmp ugt i64 %add, %addr
+  %cmp3 = icmp ult i64 %addr, %add
   br i1 %cmp3, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true1

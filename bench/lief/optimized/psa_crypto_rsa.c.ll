@@ -194,7 +194,7 @@ define hidden i32 @mbedtls_psa_rsa_import_key(ptr nocapture noundef readonly %0,
   br label %43
 
 36:                                               ; preds = %30
-  %37 = icmp ult i64 %31, %4
+  %37 = icmp ugt i64 %4, %31
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %36
@@ -269,7 +269,7 @@ define hidden i32 @mbedtls_psa_rsa_export_key(i16 noundef zeroext %0, ptr nounde
   br label %33
 
 26:                                               ; preds = %20
-  %27 = icmp ult i64 %21, %3
+  %27 = icmp ugt i64 %3, %21
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %26
@@ -352,7 +352,7 @@ define hidden i32 @mbedtls_psa_rsa_export_public_key(ptr nocapture noundef reado
   br label %33
 
 26:                                               ; preds = %20
-  %27 = icmp ult i64 %21, %4
+  %27 = icmp ugt i64 %4, %21
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %26
@@ -474,7 +474,7 @@ define hidden i32 @mbedtls_psa_rsa_generate_key(ptr nocapture noundef readonly %
   br label %57
 
 50:                                               ; preds = %44
-  %51 = icmp ult i64 %45, %2
+  %51 = icmp ugt i64 %2, %45
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %50
@@ -556,13 +556,13 @@ switch.early.test.i:                              ; preds = %13
 27:                                               ; preds = %25
   %28 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %21) #7
   %29 = zext i8 %28 to i64
-  %.not22.i = icmp eq i64 %29, %5
+  %.not22.i = icmp eq i64 %5, %29
   br i1 %.not22.i, label %psa_rsa_decode_md_type.exit, label %psa_rsa_decode_md_type.exit.thread
 
 psa_rsa_decode_md_type.exit:                      ; preds = %27, %24
   %30 = load ptr, ptr %10, align 8
   %31 = tail call i64 @mbedtls_rsa_get_len(ptr noundef %30) #7
-  %32 = icmp ugt i64 %31, %7
+  %32 = icmp ult i64 %7, %31
   br i1 %32, label %psa_rsa_decode_md_type.exit.thread, label %33
 
 33:                                               ; preds = %psa_rsa_decode_md_type.exit
@@ -677,13 +677,13 @@ switch.early.test.i:                              ; preds = %12
 26:                                               ; preds = %24
   %27 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %20) #7
   %28 = zext i8 %27 to i64
-  %.not22.i = icmp eq i64 %28, %5
+  %.not22.i = icmp eq i64 %5, %28
   br i1 %.not22.i, label %psa_rsa_decode_md_type.exit, label %psa_rsa_decode_md_type.exit.thread
 
 psa_rsa_decode_md_type.exit:                      ; preds = %26, %23
   %29 = load ptr, ptr %9, align 8
   %30 = tail call i64 @mbedtls_rsa_get_len(ptr noundef %29) #7
-  %.not31 = icmp eq i64 %30, %7
+  %.not31 = icmp eq i64 %7, %30
   br i1 %.not31, label %31, label %psa_rsa_decode_md_type.exit.thread
 
 31:                                               ; preds = %psa_rsa_decode_md_type.exit
@@ -773,7 +773,7 @@ define hidden i32 @mbedtls_psa_asymmetric_encrypt(ptr nocapture noundef readonly
 
 18:                                               ; preds = %16
   %19 = tail call i64 @mbedtls_rsa_get_len(ptr noundef %.pre) #7
-  %20 = icmp ugt i64 %19, %9
+  %20 = icmp ult i64 %9, %19
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %18
@@ -847,7 +847,7 @@ define hidden i32 @mbedtls_psa_asymmetric_decrypt(ptr nocapture noundef readonly
 
 17:                                               ; preds = %15
   %18 = tail call i64 @mbedtls_rsa_get_len(ptr noundef %.pre) #7
-  %.not24 = icmp eq i64 %18, %5
+  %.not24 = icmp eq i64 %5, %18
   br i1 %.not24, label %19, label %37
 
 19:                                               ; preds = %17

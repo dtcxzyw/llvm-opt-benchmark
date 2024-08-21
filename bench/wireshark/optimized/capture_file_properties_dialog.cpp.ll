@@ -12627,7 +12627,7 @@ define void @_ZN27CaptureFilePropertiesDialog20on_buttonBox_clickedEP15QAbstract
   %15 = getelementptr inbounds i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 33554432)
-  %18 = icmp eq ptr %17, %1
+  %18 = icmp eq ptr %1, %17
   br i1 %18, label %19, label %122
 
 19:                                               ; preds = %2
@@ -12962,7 +12962,7 @@ _ZN7QStringD2Ev.exit72:                           ; preds = %_ZN7QStringD2Ev.exi
   %124 = getelementptr inbounds i8, ptr %123, i64 48
   %125 = load ptr, ptr %124, align 8
   %126 = tail call noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %125, i32 noundef 67108864)
-  %127 = icmp eq ptr %126, %1
+  %127 = icmp eq ptr %1, %126
   br i1 %127, label %128, label %_ZN7QStringD2Ev.exit64
 
 128:                                              ; preds = %122

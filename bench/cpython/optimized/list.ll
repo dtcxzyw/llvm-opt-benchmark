@@ -445,7 +445,7 @@ cond.false3.i:                                    ; preds = %cond.end.i
 cond.end4.i:                                      ; preds = %cond.end.i
   %allocated.i = getelementptr inbounds i8, ptr %1, i64 32
   %11 = load i64, ptr %allocated.i, align 8
-  %cmp5.i = icmp sgt i64 %11, %6
+  %cmp5.i = icmp slt i64 %6, %11
   br i1 %cmp5.i, label %PyList_SET_ITEM.exit, label %cond.false7.i
 
 cond.false7.i:                                    ; preds = %cond.end4.i

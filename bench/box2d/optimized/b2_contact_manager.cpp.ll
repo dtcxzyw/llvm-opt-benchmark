@@ -132,7 +132,7 @@ if.then14:                                        ; preds = %if.end11
 if.end18:                                         ; preds = %if.then14, %if.end11
   %m_contactList = getelementptr inbounds i8, ptr %this, i64 80
   %9 = load ptr, ptr %m_contactList, align 8
-  %cmp = icmp eq ptr %9, %c
+  %cmp = icmp eq ptr %c, %9
   br i1 %cmp, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %if.end18

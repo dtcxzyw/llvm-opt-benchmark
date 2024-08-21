@@ -3279,7 +3279,7 @@ define internal fastcc void @dissect_value(ptr noundef %0, ptr noundef %1, ptr n
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #3
   %16 = load i32, ptr @ett_observe, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #3
-  %18 = icmp sgt i32 %13, %3
+  %18 = icmp slt i32 %3, %13
   br i1 %18, label %.lr.ph, label %.thread514
 
 .lr.ph:                                           ; preds = %12
@@ -3399,7 +3399,7 @@ define internal fastcc void @dissect_value(ptr noundef %0, ptr noundef %1, ptr n
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %76, %85, %88
-  %92 = icmp sgt i32 %77, %3
+  %92 = icmp slt i32 %3, %77
   br i1 %92, label %.lr.ph531, label %.loopexit
 
 .lr.ph531:                                        ; preds = %proto_item_set_generated.exit, %.lr.ph531
@@ -3454,7 +3454,7 @@ proto_item_set_generated.exit:                    ; preds = %76, %85, %88
   br label %proto_item_set_generated.exit488
 
 proto_item_set_generated.exit488:                 ; preds = %107, %116, %119
-  %123 = icmp sgt i32 %108, %3
+  %123 = icmp slt i32 %3, %108
   br i1 %123, label %.lr.ph539, label %.thread514
 
 .lr.ph539:                                        ; preds = %proto_item_set_generated.exit488, %.lr.ph539
@@ -3529,7 +3529,7 @@ has_json_value.exit.thread:                       ; preds = %has_json_value.exit
   %153 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %152, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #3
   %154 = load i32, ptr @ett_hello_features, align 4
   %155 = tail call ptr @proto_item_add_subtree(ptr noundef %153, i32 noundef %154) #3
-  %156 = icmp sgt i32 %151, %3
+  %156 = icmp slt i32 %3, %151
   br i1 %156, label %.lr.ph537, label %.thread514
 
 .lr.ph537:                                        ; preds = %150, %.lr.ph537
@@ -3558,13 +3558,13 @@ has_json_value.exit.thread:                       ; preds = %has_json_value.exit
 168:                                              ; preds = %166
   %169 = load i32, ptr @hf_path, align 4
   %170 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %169, ptr noundef %0, i32 noundef %3, i32 noundef %167, i32 noundef 0) #3
-  %.not469 = icmp eq i32 %167, %4
+  %.not469 = icmp eq i32 %4, %167
   br i1 %.not469, label %322, label %171
 
 171:                                              ; preds = %168
   %172 = sub i32 %4, %167
   %173 = load i32, ptr @hf_value, align 4
-  %174 = add nuw nsw i32 %167, %3
+  %174 = add nuw nsw i32 %3, %167
   %175 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %173, ptr noundef %0, i32 noundef %174, i32 noundef %172, i32 noundef 0) #3
   br label %.loopexit
 
@@ -3589,7 +3589,7 @@ has_json_value.exit.thread:                       ; preds = %has_json_value.exit
   %187 = sub i32 %179, %3
   %188 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %186, ptr noundef %0, i32 noundef %3, i32 noundef %187, i32 noundef 0) #3
   %189 = xor i32 %187, -1
-  %190 = add i32 %189, %4
+  %190 = add i32 %4, %189
   %191 = icmp slt i32 %190, 1
   br i1 %191, label %192, label %.lr.ph535.preheader
 
@@ -3896,7 +3896,7 @@ define internal fastcc void @dissect_multipath_lookup_response(ptr noundef %0, p
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = add i32 %4, %3
-  %9 = icmp sgt i32 %8, %3
+  %9 = icmp slt i32 %3, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %30
@@ -3947,7 +3947,7 @@ define internal fastcc void @dissect_multipath_mutation_response(ptr noundef %0,
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = add i32 %4, %3
-  %10 = icmp sgt i32 %9, %3
+  %10 = icmp slt i32 %3, %9
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %41
@@ -4017,7 +4017,7 @@ define internal fastcc void @dissect_multipath_value(ptr noundef %0, ptr noundef
 
 12:                                               ; preds = %7
   %13 = select i1 %.not49, i32 4, i32 8
-  %14 = add i32 %13, %3
+  %14 = add i32 %3, %13
   %.not5154 = icmp sgt i32 %14, %11
   br i1 %.not5154, label %.loopexit, label %.lr.ph
 

@@ -3676,7 +3676,7 @@ _ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURB
 
 if.then:                                          ; preds = %_ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEjRT_.exit
   %conv.i.i = trunc i64 %5 to i32
-  %and2 = and i32 %conv.i.i, %R
+  %and2 = and i32 %R, %conv.i.i
   br label %return
 
 if.end:                                           ; preds = %_ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEjRT_.exit
@@ -4273,7 +4273,7 @@ _ZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin12UpdateLockedENS_19LoadBalan
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK15AddressLessThanclERKNS_17EndpointAddressesES7_.exit16.i.i.i.i.i.i.i, %if.then.i9.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.sroa.4.0.i.ph.i.i.i.i.i.i = phi ptr [ %__y.0.lcssa21.i.i.i.i.i.i.i, %_ZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK15AddressLessThanclERKNS_17EndpointAddressesES7_.exit16.i.i.i.i.i.i.i ], [ %__y.0.lcssa21.i.i.i.i.i.i.i, %if.then.i9.i.i.i.i.i.i.i ], [ %__y.0.lcssa22.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ]
-  %cmp2.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i, %retval.sroa.4.0.i.ph.i.i.i.i.i.i
+  %cmp2.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i.i.i, label %lor.end.i.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
@@ -5921,7 +5921,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %invoke.cont5.i.i.i.
   %retval.sroa.12.0.i24.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.12.0.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i109.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i108.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i57.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i56.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i31.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa30.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa30.i43.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i48.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa30.i95.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i100.i.i.i.i.i.i.i.i.i.i.i.i ]
   %retval.sroa.0.0.i23.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i108.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i56.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then64.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i48.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i100.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.not.i.i5.i.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %retval.sroa.0.0.i23.i.i.i.i.i.i.i.i.i.i.i, null
-  %cmp2.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, %retval.sroa.12.0.i24.i.i.i.i.i.i.i.i.i.i.i
+  %cmp2.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i24.i.i.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i.i.i
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.not.i.i5.i.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i, label %cleanup.i.i.i.i.i.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -8218,7 +8218,7 @@ if.end9:                                          ; preds = %entry
   %conv = fpext float %error_utilization_penalty to double
   %mul = fmul double %div, %conv
   %penalty.0 = select i1 %or.cond1, double %mul, double 0.000000e+00
-  %add = fadd double %penalty.0, %utilization
+  %add = fadd double %utilization, %penalty.0
   %div7 = fdiv double %qps, %add
   %conv8 = fptrunc double %div7 to float
   %cmp10 = fcmp oeq float %conv8, 0.000000e+00
@@ -12949,7 +12949,7 @@ if.end12.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end12.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.sroa.4.0.i.ph.i.i.i.i.i.i = phi ptr [ %__y.0.lcssa26.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %__y.0.lcssa27.i.i.i.i.i.i.i, %if.end12.i.i.i.i.i.i.i ]
-  %cmp2.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i, %retval.sroa.4.0.i.ph.i.i.i.i.i.i
+  %cmp2.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i.i.i, label %lor.end.i.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
@@ -13153,7 +13153,7 @@ call3.i.i.noexc:                                  ; preds = %call8.i.noexc
 
 if.then.i.i:                                      ; preds = %call16.i.i.noexc, %if.then.i.i6, %call3.i.i.noexc
   %retval.sroa.12.0.i16 = phi ptr [ %4, %call3.i.i.noexc ], [ %__y.0.lcssa23.i.i, %if.then.i.i6 ], [ %__y.0.lcssa24.i.i, %call16.i.i.noexc ]
-  %cmp2.i.i.i = icmp eq ptr %0, %retval.sroa.12.0.i16
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.12.0.i16, %0
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeI21grpc_resolved_addressS0_St9_IdentityIS0_EN9grpc_core23ResolvedAddressLessThanESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -14140,7 +14140,7 @@ if.then.i.i.i.i.i.i7.i.i.i.i:                     ; preds = %invoke.cont5.i.i.i.
   %retval.sroa.12.0.i33.i.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.12.0.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa24.i86.i.i.i.i.i.i.i.i.i.i.i, %if.then.i85.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa24.i46.i.i.i.i.i.i.i.i.i.i.i, %if.then.i45.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa24.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i17.i.i.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa25.i.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i.i.noexc.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa25.i35.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i38.i.noexc.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa25.i75.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i78.i.noexc.i.i.i.i.i.i.i.i.i.i ]
   %retval.sroa.0.0.i32.i.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i85.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i45.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then32.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then64.i.i.i.i.i.i.i.i.i.i.i ], [ null, %call.i7.i.i.noexc.i.i.i.i.i.i.i.i.i.i ], [ null, %call.i7.i38.i.noexc.i.i.i.i.i.i.i.i.i.i ], [ null, %call.i7.i78.i.noexc.i.i.i.i.i.i.i.i.i.i ]
   %cmp.not.i.i16.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %retval.sroa.0.0.i32.i.i.i.i.i.i.i.i.i.i, null
-  %cmp2.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, %retval.sroa.12.0.i33.i.i.i.i.i.i.i.i.i.i
+  %cmp2.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i33.i.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i.i
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.not.i.i16.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i, label %cleanup.i.i.i.i.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -14857,7 +14857,7 @@ terminate.lpad.i.i:                               ; preds = %if.then21
 
 if.end25:                                         ; preds = %if.then21, %if.end, %if.then17, %if.end15
   %tobool.i.i17 = trunc i64 %old_state.sroa.5.0.extract.shift to i1
-  %cmp28.not = icmp eq i32 %old_state.sroa.0.0.extract.trunc, %new_state
+  %cmp28.not = icmp eq i32 %new_state, %old_state.sroa.0.0.extract.trunc
   %or.cond = and i1 %cmp28.not, %tobool.i.i17
   br i1 %or.cond, label %if.end32, label %if.then29
 
@@ -19288,7 +19288,7 @@ if.end9:                                          ; preds = %entry
   %conv = fpext float %error_utilization_penalty to double
   %mul = fmul double %div, %conv
   %penalty.0 = select i1 %or.cond1, double %mul, double 0.000000e+00
-  %add = fadd double %penalty.0, %utilization
+  %add = fadd double %utilization, %penalty.0
   %div7 = fdiv double %qps, %add
   %conv8 = fptrunc double %div7 to float
   %cmp10 = fcmp oeq float %conv8, 0.000000e+00

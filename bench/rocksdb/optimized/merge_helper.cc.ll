@@ -1977,7 +1977,7 @@ for.cond.preheader:                               ; preds = %invoke.cont9
   %size_.i86 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
   %assert_valid_internal_key_ = getelementptr inbounds i8, ptr %this, i64 56
   %state_.i.i89 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %cmp.not.i.i90 = icmp eq ptr %pik_status, %agg.result
+  %cmp.not.i.i90 = icmp eq ptr %agg.result, %pik_status
   %subcode_.i.i92 = getelementptr inbounds i8, ptr %pik_status, i64 1
   %subcode_4.i.i93 = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i.i94 = getelementptr inbounds i8, ptr %pik_status, i64 2
@@ -2059,7 +2059,7 @@ for.cond.preheader:                               ; preds = %invoke.cont9
   %_M_node.i.i.i363 = getelementptr inbounds i8, ptr %agg.tmp.i357, i64 24
   %copied_operands_.i374 = getelementptr inbounds i8, ptr %this, i64 176
   %size_.i390 = getelementptr inbounds i8, ptr %ref.tmp248, i64 8
-  %cmp.not.i.i419 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i419 = icmp eq ptr %agg.result, %s
   %23 = getelementptr inbounds i8, ptr %value_slice, i64 8
   %latest_snapshot_ = getelementptr inbounds i8, ptr %this, i64 64
   %cmp279 = icmp ne ptr %range_del_agg, null
@@ -2087,7 +2087,7 @@ if.then11:                                        ; preds = %invoke.cont9
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i, label %cleanup527, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then11
@@ -2440,7 +2440,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %84 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ne ptr %83, %84
   %__last.sroa.0.09.i.i.i.i.i = getelementptr inbounds i8, ptr %84, i64 -16
-  %cmp.i110.i.i.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i.i.i, %83
+  %cmp.i110.i.i.i.i.i = icmp ult ptr %83, %__last.sroa.0.09.i.i.i.i.i
   %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.i110.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i
 
@@ -2580,7 +2580,7 @@ if.then.i.i.i156:                                 ; preds = %if.end.i.i152
   %110 = load ptr, ptr %_M_finish.i.i.i.i157, align 8
   %cmp.i.i.i.i.i.i158 = icmp ne ptr %109, %110
   %__last.sroa.0.09.i.i.i.i.i159 = getelementptr inbounds i8, ptr %110, i64 -16
-  %cmp.i110.i.i.i.i.i160 = icmp ugt ptr %__last.sroa.0.09.i.i.i.i.i159, %109
+  %cmp.i110.i.i.i.i.i160 = icmp ult ptr %109, %__last.sroa.0.09.i.i.i.i.i159
   %or.cond.i.i.i.i.i161 = select i1 %cmp.i.i.i.i.i.i158, i1 %cmp.i110.i.i.i.i.i160, i1 false
   br i1 %or.cond.i.i.i.i.i161, label %while.body.i.i.i.i.i164, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i162
 
@@ -2865,7 +2865,7 @@ if.then.i.i.i250:                                 ; preds = %if.end.i.i246
   %158 = load ptr, ptr %_M_finish.i.i.i.i251, align 8
   %cmp.i.i.i.i.i.i252 = icmp ne ptr %157, %158
   %__last.sroa.0.09.i.i.i.i.i253 = getelementptr inbounds i8, ptr %158, i64 -16
-  %cmp.i110.i.i.i.i.i254 = icmp ugt ptr %__last.sroa.0.09.i.i.i.i.i253, %157
+  %cmp.i110.i.i.i.i.i254 = icmp ult ptr %157, %__last.sroa.0.09.i.i.i.i.i253
   %or.cond.i.i.i.i.i255 = select i1 %cmp.i.i.i.i.i.i252, i1 %cmp.i110.i.i.i.i.i254, i1 false
   br i1 %or.cond.i.i.i.i.i255, label %while.body.i.i.i.i.i258, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i256
 
@@ -2950,7 +2950,7 @@ if.then.i.i.i295:                                 ; preds = %if.end.i.i291
   %174 = load ptr, ptr %_M_finish.i.i.i.i296, align 8
   %cmp.i.i.i.i.i.i297 = icmp ne ptr %173, %174
   %__last.sroa.0.09.i.i.i.i.i298 = getelementptr inbounds i8, ptr %174, i64 -16
-  %cmp.i110.i.i.i.i.i299 = icmp ugt ptr %__last.sroa.0.09.i.i.i.i.i298, %173
+  %cmp.i110.i.i.i.i.i299 = icmp ult ptr %173, %__last.sroa.0.09.i.i.i.i.i298
   %or.cond.i.i.i.i.i300 = select i1 %cmp.i.i.i.i.i.i297, i1 %cmp.i110.i.i.i.i.i299, i1 false
   br i1 %or.cond.i.i.i.i.i300, label %while.body.i.i.i.i.i303, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i301
 
@@ -3790,7 +3790,7 @@ if.then.i.i.i605:                                 ; preds = %if.end.i.i601
   %307 = load ptr, ptr %_M_finish.i.i.i.i606, align 8
   %cmp.i.i.i.i.i.i607 = icmp ne ptr %306, %307
   %__last.sroa.0.09.i.i.i.i.i608 = getelementptr inbounds i8, ptr %307, i64 -16
-  %cmp.i110.i.i.i.i.i609 = icmp ugt ptr %__last.sroa.0.09.i.i.i.i.i608, %306
+  %cmp.i110.i.i.i.i.i609 = icmp ult ptr %306, %__last.sroa.0.09.i.i.i.i.i608
   %or.cond.i.i.i.i.i610 = select i1 %cmp.i.i.i.i.i.i607, i1 %cmp.i110.i.i.i.i.i609, i1 false
   br i1 %or.cond.i.i.i.i.i610, label %while.body.i.i.i.i.i613, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i611
 
@@ -4120,7 +4120,7 @@ if.then.i.i.i747:                                 ; preds = %if.end.i.i743
   %357 = load ptr, ptr %_M_finish.i.i.i.i748, align 8
   %cmp.i.i.i.i.i.i749 = icmp ne ptr %356, %357
   %__last.sroa.0.09.i.i.i.i.i750 = getelementptr inbounds i8, ptr %357, i64 -16
-  %cmp.i110.i.i.i.i.i751 = icmp ugt ptr %__last.sroa.0.09.i.i.i.i.i750, %356
+  %cmp.i110.i.i.i.i.i751 = icmp ult ptr %356, %__last.sroa.0.09.i.i.i.i.i750
   %or.cond.i.i.i.i.i752 = select i1 %cmp.i.i.i.i.i.i749, i1 %cmp.i110.i.i.i.i.i751, i1 false
   br i1 %or.cond.i.i.i.i.i752, label %while.body.i.i.i.i.i755, label %if.end.i.i766.thread
 
@@ -4156,7 +4156,7 @@ if.then.i.i.i770:                                 ; preds = %if.end.i.i766
   %359 = load ptr, ptr %_M_finish.i.i.i.i771, align 8
   %cmp.i.i.i.i.i.i772 = icmp ne ptr %356, %359
   %__last.sroa.0.09.i.i.i.i.i773 = getelementptr inbounds i8, ptr %359, i64 -16
-  %cmp.i110.i.i.i.i.i774 = icmp ugt ptr %__last.sroa.0.09.i.i.i.i.i773, %356
+  %cmp.i110.i.i.i.i.i774 = icmp ult ptr %356, %__last.sroa.0.09.i.i.i.i.i773
   %or.cond.i.i.i.i.i775 = select i1 %cmp.i.i.i.i.i.i772, i1 %cmp.i110.i.i.i.i.i774, i1 false
   br i1 %or.cond.i.i.i.i.i775, label %while.body.i.i.i.i.i778, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i776
 
@@ -4941,7 +4941,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ne ptr %2, %3
   %__last.sroa.0.09.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -16
-  %cmp.i110.i.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i.i, %2
+  %cmp.i110.i.i.i.i = icmp ult ptr %2, %__last.sroa.0.09.i.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %cmp.i110.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i
 
@@ -5433,7 +5433,7 @@ if.then.i:                                        ; preds = %entry
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %3, %4
   %__last.sroa.0.09.i.i.i = getelementptr inbounds i8, ptr %4, i64 -16
-  %cmp.i110.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i, %3
+  %cmp.i110.i.i.i = icmp ult ptr %3, %__last.sroa.0.09.i.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i110.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %while.body.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i
 
@@ -5986,7 +5986,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %7 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne ptr %6, %7
   %__last.sroa.0.09.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -16
-  %cmp.i110.i.i.i.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i.i.i.i, %6
+  %cmp.i110.i.i.i.i.i.i = icmp ult ptr %6, %__last.sroa.0.09.i.i.i.i.i.i
   %or.cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i1 %cmp.i110.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i.i
 
@@ -6043,7 +6043,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %4 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne ptr %3, %4
   %__last.sroa.0.09.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -16
-  %cmp.i110.i.i.i.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i.i.i.i, %3
+  %cmp.i110.i.i.i.i.i.i = icmp ult ptr %3, %__last.sroa.0.09.i.i.i.i.i.i
   %or.cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i1 %cmp.i110.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i.i
 
@@ -6175,7 +6175,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #23
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -6810,7 +6810,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i19
@@ -7328,7 +7328,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #23
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN7rocksdb5SliceESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i

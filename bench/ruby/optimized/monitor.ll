@@ -98,7 +98,7 @@ define internal range(i64 0, 21) i64 @monitor_try_enter(i64 noundef %0) #0 {
   %3 = getelementptr i8, ptr %2, i64 8
   %.val = load i64, ptr %3, align 8
   %4 = tail call i64 @rb_fiber_current() #5
-  %.not = icmp eq i64 %4, %.val
+  %.not = icmp eq i64 %.val, %4
   br i1 %.not, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %1
@@ -142,7 +142,7 @@ define internal noundef i64 @monitor_enter(i64 noundef %0) #0 {
   %3 = getelementptr i8, ptr %2, i64 8
   %.val = load i64, ptr %3, align 8
   %4 = tail call i64 @rb_fiber_current() #5
-  %.not = icmp eq i64 %4, %.val
+  %.not = icmp eq i64 %.val, %4
   br i1 %.not, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %1
@@ -178,7 +178,7 @@ define internal noundef i64 @monitor_exit(i64 noundef %0) #0 {
   %3 = getelementptr i8, ptr %2, i64 8
   %.val.i = load i64, ptr %3, align 8
   %4 = tail call i64 @rb_fiber_current() #5
-  %.not.i = icmp eq i64 %4, %.val.i
+  %.not.i = icmp eq i64 %.val.i, %4
   br i1 %.not.i, label %monitor_check_owner.exit, label %5
 
 5:                                                ; preds = %1
@@ -221,7 +221,7 @@ define internal i64 @monitor_synchronize(i64 noundef %0) #0 {
   %3 = getelementptr i8, ptr %2, i64 8
   %.val.i = load i64, ptr %3, align 8
   %4 = tail call i64 @rb_fiber_current() #5
-  %.not.i = icmp eq i64 %4, %.val.i
+  %.not.i = icmp eq i64 %.val.i, %4
   br i1 %.not.i, label %._crit_edge.i, label %6
 
 ._crit_edge.i:                                    ; preds = %1
@@ -267,7 +267,7 @@ define internal noundef i64 @monitor_check_owner(i64 noundef %0) #0 {
   %3 = getelementptr i8, ptr %2, i64 8
   %.val = load i64, ptr %3, align 8
   %4 = tail call i64 @rb_fiber_current() #5
-  %.not = icmp eq i64 %4, %.val
+  %.not = icmp eq i64 %.val, %4
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
@@ -292,7 +292,7 @@ define internal range(i64 0, 21) i64 @monitor_owned_p(i64 noundef %0) #0 {
   %7 = getelementptr i8, ptr %2, i64 8
   %.val = load i64, ptr %7, align 8
   %8 = tail call i64 @rb_fiber_current() #5
-  %.not3 = icmp eq i64 %8, %.val
+  %.not3 = icmp eq i64 %.val, %8
   %9 = select i1 %.not3, i64 20, i64 0
   br label %10
 

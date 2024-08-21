@@ -855,7 +855,7 @@ define hidden void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$9init_with17h1db
   %.val = load i64, ptr %2, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = icmp ugt i64 %6, %.val
+  %7 = icmp ult i64 %.val, %6
   br i1 %7, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h5605222c7b1e3499E.exit", label %8
 
 8:                                                ; preds = %4

@@ -862,7 +862,7 @@ for.body:                                         ; preds = %_ZN6vectorIN3sat7wa
 land.rhs:                                         ; preds = %for.body
   %17 = load i64, ptr %__begin1.011, align 8
   %conv.i = trunc i64 %17 to i32
-  %cmp.i8 = icmp eq i32 %conv.i, %b.coerce
+  %cmp.i8 = icmp eq i32 %b.coerce, %conv.i
   br i1 %cmp.i8, label %return, label %for.inc
 
 for.inc:                                          ; preds = %land.rhs, %for.body
@@ -2291,7 +2291,7 @@ if.then3:                                         ; preds = %if.then
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull @.str.3)
   %.b158 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %0 = select i1 %.b158, i32 -2, i32 0
-  %cmp.i.i = icmp eq i32 %0, %head.coerce
+  %cmp.i.i = icmp eq i32 %head.coerce, %0
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then3
@@ -2337,7 +2337,7 @@ if.end.i3.i:                                      ; preds = %if.then.i.i, %for.b
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i4.i, align 4
   %.b157 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %5 = select i1 %.b157, i32 -2, i32 0
-  %cmp.i.i.i.i = icmp eq i32 %5, %agg.tmp.sroa.0.0.copyload.i.i
+  %cmp.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i, %5
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i3.i
@@ -2368,7 +2368,7 @@ if.else:                                          ; preds = %if.then
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.3)
   %.b156 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %7 = select i1 %.b156, i32 -2, i32 0
-  %cmp.i.i13 = icmp eq i32 %7, %head.coerce
+  %cmp.i.i13 = icmp eq i32 %head.coerce, %7
   br i1 %cmp.i.i13, label %if.then.i20, label %if.else.i14
 
 if.then.i20:                                      ; preds = %if.else
@@ -2414,7 +2414,7 @@ if.end.i3.i33:                                    ; preds = %if.then.i.i31, %for
   %agg.tmp.sroa.0.0.copyload.i.i35 = load i32, ptr %arrayidx.i4.i34, align 4
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %12 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i.i.i36 = icmp eq i32 %12, %agg.tmp.sroa.0.0.copyload.i.i35
+  %cmp.i.i.i.i36 = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i35, %12
   br i1 %cmp.i.i.i.i36, label %if.then.i.i.i46, label %if.else.i.i.i37
 
 if.then.i.i.i46:                                  ; preds = %if.end.i3.i33
@@ -2927,7 +2927,7 @@ if.then6:                                         ; preds = %if.then
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef nonnull @.str.6)
   %.b269 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %0 = select i1 %.b269, i32 -2, i32 0
-  %cmp.i.i = icmp eq i32 %0, %x.coerce
+  %cmp.i.i = icmp eq i32 %x.coerce, %0
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then6
@@ -2947,7 +2947,7 @@ _ZN3satlsERSoNS_7literalE.exit:                   ; preds = %if.then.i, %if.else
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull @.str.4)
   %.b268 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %2 = select i1 %.b268, i32 -2, i32 0
-  %cmp.i.i25 = icmp eq i32 %2, %c.coerce
+  %cmp.i.i25 = icmp eq i32 %c.coerce, %2
   br i1 %cmp.i.i25, label %if.then.i32, label %if.else.i26
 
 if.then.i32:                                      ; preds = %_ZN3satlsERSoNS_7literalE.exit
@@ -2967,7 +2967,7 @@ _ZN3satlsERSoNS_7literalE.exit34:                 ; preds = %if.then.i32, %if.el
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.7)
   %.b267 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %4 = select i1 %.b267, i32 -2, i32 0
-  %cmp.i.i35 = icmp eq i32 %4, %t.coerce
+  %cmp.i.i35 = icmp eq i32 %t.coerce, %4
   br i1 %cmp.i.i35, label %if.then.i42, label %if.else.i36
 
 if.then.i42:                                      ; preds = %_ZN3satlsERSoNS_7literalE.exit34
@@ -2987,7 +2987,7 @@ _ZN3satlsERSoNS_7literalE.exit44:                 ; preds = %if.then.i42, %if.el
   %call19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull @.str.8)
   %.b266 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %6 = select i1 %.b266, i32 -2, i32 0
-  %cmp.i.i45 = icmp eq i32 %6, %e.coerce
+  %cmp.i.i45 = icmp eq i32 %e.coerce, %6
   br i1 %cmp.i.i45, label %if.then.i52, label %if.else.i46
 
 if.then.i52:                                      ; preds = %_ZN3satlsERSoNS_7literalE.exit44
@@ -3013,7 +3013,7 @@ if.else:                                          ; preds = %if.then
   %call25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call24, ptr noundef nonnull @.str.6)
   %.b265 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %8 = select i1 %.b265, i32 -2, i32 0
-  %cmp.i.i55 = icmp eq i32 %8, %x.coerce
+  %cmp.i.i55 = icmp eq i32 %x.coerce, %8
   br i1 %cmp.i.i55, label %if.then.i62, label %if.else.i56
 
 if.then.i62:                                      ; preds = %if.else
@@ -3033,7 +3033,7 @@ _ZN3satlsERSoNS_7literalE.exit64:                 ; preds = %if.then.i62, %if.el
   %call29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call25, ptr noundef nonnull @.str.4)
   %.b264 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %10 = select i1 %.b264, i32 -2, i32 0
-  %cmp.i.i65 = icmp eq i32 %10, %c.coerce
+  %cmp.i.i65 = icmp eq i32 %c.coerce, %10
   br i1 %cmp.i.i65, label %if.then.i72, label %if.else.i66
 
 if.then.i72:                                      ; preds = %_ZN3satlsERSoNS_7literalE.exit64
@@ -3053,7 +3053,7 @@ _ZN3satlsERSoNS_7literalE.exit74:                 ; preds = %if.then.i72, %if.el
   %call33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call29, ptr noundef nonnull @.str.7)
   %.b263 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %12 = select i1 %.b263, i32 -2, i32 0
-  %cmp.i.i75 = icmp eq i32 %12, %t.coerce
+  %cmp.i.i75 = icmp eq i32 %t.coerce, %12
   br i1 %cmp.i.i75, label %if.then.i82, label %if.else.i76
 
 if.then.i82:                                      ; preds = %_ZN3satlsERSoNS_7literalE.exit74
@@ -3073,7 +3073,7 @@ _ZN3satlsERSoNS_7literalE.exit84:                 ; preds = %if.then.i82, %if.el
   %call37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call33, ptr noundef nonnull @.str.8)
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %14 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i85 = icmp eq i32 %14, %e.coerce
+  %cmp.i.i85 = icmp eq i32 %e.coerce, %14
   br i1 %cmp.i.i85, label %if.then.i92, label %if.else.i86
 
 if.then.i92:                                      ; preds = %_ZN3satlsERSoNS_7literalE.exit84
@@ -4436,7 +4436,7 @@ entry:
   %t.sroa.0.0 = tail call i32 @llvm.umin.i32(i32 %x.coerce, i32 %y.coerce)
   %t.sroa.10.0 = tail call i32 @llvm.umax.i32(i32 %t.sroa.5.0, i32 %z.coerce)
   %t.sroa.5.1 = tail call i32 @llvm.umin.i32(i32 %t.sroa.5.0, i32 %z.coerce)
-  %cmp22.i = icmp ugt i32 %t.sroa.0.0, %z.coerce
+  %cmp22.i = icmp ult i32 %z.coerce, %t.sroa.0.0
   %t.sroa.5.2 = select i1 %cmp22.i, i32 %t.sroa.0.0, i32 %t.sroa.5.1
   %t.sroa.0.1 = select i1 %cmp22.i, i32 %t.sroa.5.1, i32 %t.sroa.0.0
   %.val = load ptr, ptr %this.0.val, align 8
@@ -4643,7 +4643,7 @@ for.body.i:                                       ; preds = %_ZN6vectorIN3sat7wa
 land.rhs.i:                                       ; preds = %for.body.i
   %35 = load i64, ptr %__begin1.011.i, align 8
   %conv.i.i = trunc i64 %35 to i32
-  %cmp.i8.i = icmp eq i32 %conv.i.i, %z.coerce
+  %cmp.i8.i = icmp eq i32 %z.coerce, %conv.i.i
   br i1 %cmp.i8.i, label %return.sink.split, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.rhs.i, %for.body.i
@@ -4711,7 +4711,7 @@ for.body.i34:                                     ; preds = %_ZN6vectorIN3sat7wa
 land.rhs.i43:                                     ; preds = %for.body.i34
   %48 = load i64, ptr %__begin1.011.i35, align 8
   %conv.i.i44 = trunc i64 %48 to i32
-  %cmp.i8.i45 = icmp eq i32 %conv.i.i44, %y.coerce
+  %cmp.i8.i45 = icmp eq i32 %y.coerce, %conv.i.i44
   br i1 %cmp.i8.i45, label %return.sink.split, label %for.inc.i39
 
 for.inc.i39:                                      ; preds = %land.rhs.i43, %for.body.i34
@@ -4769,7 +4769,7 @@ for.body.i79:                                     ; preds = %_ZN6vectorIN3sat7wa
 land.rhs.i88:                                     ; preds = %for.body.i79
   %58 = load i64, ptr %__begin1.011.i80, align 8
   %conv.i.i89 = trunc i64 %58 to i32
-  %cmp.i8.i90 = icmp eq i32 %conv.i.i89, %z.coerce
+  %cmp.i8.i90 = icmp eq i32 %z.coerce, %conv.i.i89
   br i1 %cmp.i8.i90, label %return.sink.split, label %for.inc.i84
 
 for.inc.i84:                                      ; preds = %land.rhs.i88, %for.body.i79

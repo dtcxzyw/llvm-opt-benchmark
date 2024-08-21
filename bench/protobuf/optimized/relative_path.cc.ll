@@ -205,7 +205,7 @@ invoke.cont14:                                    ; preds = %if.end
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %5, %6
   %__last.sroa.0.09.i.i.i = getelementptr inbounds i8, ptr %6, i64 -16
-  %cmp.i110.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i, %5
+  %cmp.i110.i.i.i = icmp ult ptr %5, %__last.sroa.0.09.i.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i110.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %while.body.i.i.i, label %invoke.cont16
 
@@ -228,7 +228,7 @@ invoke.cont16:                                    ; preds = %while.body.i.i.i, %
   %8 = load ptr, ptr %_M_finish.i.i.i.i24, align 8
   %cmp.i.i.i.i25 = icmp ne ptr %7, %8
   %__last.sroa.0.09.i.i.i26 = getelementptr inbounds i8, ptr %8, i64 -16
-  %cmp.i110.i.i.i27 = icmp ugt ptr %__last.sroa.0.09.i.i.i26, %7
+  %cmp.i110.i.i.i27 = icmp ult ptr %7, %__last.sroa.0.09.i.i.i26
   %or.cond.i.i.i28 = select i1 %cmp.i.i.i.i25, i1 %cmp.i110.i.i.i27, i1 false
   br i1 %or.cond.i.i.i28, label %while.body.i.i.i29, label %_ZN4absl12lts_202308029c_reverseISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEEvRT_.exit35
 
@@ -546,7 +546,7 @@ for.end48:                                        ; preds = %for.inc47, %for.con
   %result.sroa.0.2.lcssa = phi ptr [ %result.sroa.0.1.lcssa, %for.cond42.preheader ], [ %result.sroa.0.6, %for.inc47 ]
   %cmp.i.i.i.i90 = icmp ne ptr %result.sroa.0.2.lcssa, %result.sroa.13.1.lcssa
   %__last.sroa.0.09.i.i.i91 = getelementptr inbounds i8, ptr %result.sroa.13.1.lcssa, i64 -16
-  %cmp.i110.i.i.i92 = icmp ugt ptr %__last.sroa.0.09.i.i.i91, %result.sroa.0.2.lcssa
+  %cmp.i110.i.i.i92 = icmp ult ptr %result.sroa.0.2.lcssa, %__last.sroa.0.09.i.i.i91
   %or.cond.i.i.i93 = select i1 %cmp.i.i.i.i90, i1 %cmp.i110.i.i.i92, i1 false
   br i1 %or.cond.i.i.i93, label %while.body.i.i.i94, label %invoke.cont49
 
@@ -856,7 +856,7 @@ if.then8.i:                                       ; preds = %call3.i.noexc
 
 if.end10.i:                                       ; preds = %if.then8.i, %call3.i.noexc
   %9 = load i64, ptr %it, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %9
+  %cmp.i.i.i = icmp ugt i64 %9, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i24.invoke, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.end10.i
@@ -1112,7 +1112,7 @@ if.then8:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.then8, %if.end
   %5 = load i64, ptr %this, align 8
-  %cmp.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i, %5
+  %cmp.i.i = icmp ugt i64 %5, %retval.sroa.0.0.copyload.i
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
 if.then.i.i:                                      ; preds = %if.end10
@@ -1527,7 +1527,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterI
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"class.std::basic_string_view", ptr %7, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
-  %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i42, label %_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit50, label %for.body.i.i.i.i.i43
 
 for.body.i.i.i.i.i43:                             ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_6ByCharENS1_14SkipWhitespaceESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit, %for.body.i.i.i.i.i43
@@ -1627,7 +1627,7 @@ for.body.i.i.i.i86:                               ; preds = %for.body.i.i.i.i86.
   br i1 %cmp.not.i.i.i.i92, label %invoke.cont61, label %for.body.i.i.i.i86, !llvm.loop !59
 
 invoke.cont61:                                    ; preds = %for.body.i.i.i.i86
-  %cmp.i.i.not7.i.i.i.i.i95 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i95 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i95, label %invoke.cont65, label %for.body.i.i.i.i.i96
 
 for.body.i.i.i.i.i96:                             ; preds = %invoke.cont61, %for.body.i.i.i.i.i96

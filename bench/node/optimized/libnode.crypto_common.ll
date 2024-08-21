@@ -4926,7 +4926,7 @@ if.else25:                                        ; preds = %for.body
   %11 = icmp ult i8 %10, 95
   %or.cond1 = and i1 %cmp29, %11
   %tobool36.not = icmp slt i8 %7, 0
-  %or.cond.not = and i1 %tobool36.not, %utf8
+  %or.cond.not = and i1 %utf8, %tobool36.not
   %or.cond = or i1 %or.cond.not, %or.cond1
   br i1 %or.cond, label %if.then37, label %if.else40
 

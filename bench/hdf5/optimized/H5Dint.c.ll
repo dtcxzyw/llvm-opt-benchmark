@@ -1590,9 +1590,9 @@ define internal fastcc ptr @H5D__new(i64 noundef %0, i64 noundef %1, i1 noundef 
 11:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4672) %5, ptr noundef nonnull align 8 dereferenceable(4672) @H5D_def_dset, i64 4672, i1 false)
   %.not53 = xor i1 %3, true
-  %brmerge.not = and i1 %.not53, %2
+  %brmerge.not = and i1 %2, %.not53
   %12 = load i64, ptr @H5P_LST_DATASET_CREATE_ID_g, align 8
-  %13 = icmp eq i64 %12, %0
+  %13 = icmp eq i64 %0, %12
   %or.cond46 = select i1 %brmerge.not, i1 %13, i1 false
   br i1 %or.cond46, label %14, label %21
 
@@ -1627,7 +1627,7 @@ define internal fastcc ptr @H5D__new(i64 noundef %0, i64 noundef %1, i1 noundef 
   %31 = getelementptr inbounds i8, ptr %5, i64 40
   store i64 %.sink, ptr %31, align 8
   %32 = load i64, ptr @H5P_LST_DATASET_ACCESS_ID_g, align 8
-  %33 = icmp eq i64 %32, %1
+  %33 = icmp eq i64 %1, %32
   %or.cond50 = select i1 %brmerge.not, i1 %33, i1 false
   br i1 %or.cond50, label %34, label %43
 
@@ -2340,7 +2340,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr nocaptu
   %8 = getelementptr inbounds i8, ptr %7, i64 4376
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %8, i8 0, i64 280, i1 false)
   %9 = load i64, ptr @H5P_LST_DATASET_ACCESS_ID_g, align 8
-  %.not = icmp eq i64 %9, %1
+  %.not = icmp eq i64 %1, %9
   br i1 %.not, label %80, label %10
 
 10:                                               ; preds = %2
@@ -4673,7 +4673,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__init_storage(ptr noundef %0, i
   %22 = getelementptr inbounds i8, ptr %6, i64 120
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  %brmerge = or i1 %.not, %1
+  %brmerge = or i1 %1, %.not
   br i1 %brmerge, label %44, label %25
 
 24:                                               ; preds = %17
@@ -5109,7 +5109,7 @@ declare i32 @H5CX_set_vlen_alloc_info(ptr noundef, ptr noundef, ptr noundef, ptr
 define internal ptr @H5D__vlen_get_buf_size_alloc(i64 noundef %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ult i64 %4, %0
+  %5 = icmp ugt i64 %0, %4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   br i1 %5, label %8, label %._crit_edge
@@ -6678,7 +6678,7 @@ declare i32 @H5I_iterate(i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroe
 define internal range(i32 -1, 1) i32 @H5D__flush_all_cb(ptr noundef %0, i64 %1, ptr noundef readnone %2) #0 {
   %4 = alloca i64, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = icmp eq ptr %5, %2
+  %6 = icmp eq ptr %2, %5
   br i1 %6, label %7, label %32
 
 7:                                                ; preds = %3

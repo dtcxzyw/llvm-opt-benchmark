@@ -19751,7 +19751,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %15 = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !2981, !noalias !2982, !noundef !12
   %17 = sub i64 %14, %16
-  %18 = icmp ugt i64 %17, %9
+  %18 = icmp ult i64 %9, %17
   br i1 %18, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -19783,7 +19783,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   call void @llvm.experimental.noalias.scope.decl(metadata !3003)
   %30 = load i64, ptr %13, align 8, !alias.scope !2990, !noalias !2995, !noundef !12
   %31 = sub i64 %30, %26
-  %32 = icmp ugt i64 %31, %3
+  %32 = icmp ult i64 %3, %31
   br i1 %32, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i": ; preds = %25
@@ -19858,7 +19858,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !3031, !noalias !3032, !noundef !12
   %18 = sub i64 %15, %17
-  %19 = icmp ugt i64 %18, %9
+  %19 = icmp ult i64 %9, %18
   br i1 %19, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -19889,7 +19889,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %32 = getelementptr inbounds i8, ptr %30, i64 16
   %33 = load i64, ptr %32, align 8, !alias.scope !3052, !noalias !3053, !noundef !12
   %34 = sub i64 %31, %33
-  %35 = icmp ugt i64 %34, %3
+  %35 = icmp ult i64 %3, %34
   br i1 %35, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i": ; preds = %26
@@ -19959,7 +19959,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %15 = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !3075, !noalias !3076, !noundef !12
   %17 = sub i64 %14, %16
-  %18 = icmp ugt i64 %17, %9
+  %18 = icmp ult i64 %9, %17
   br i1 %18, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -19991,7 +19991,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   call void @llvm.experimental.noalias.scope.decl(metadata !3097)
   %30 = load i64, ptr %13, align 8, !alias.scope !3084, !noalias !3089, !noundef !12
   %31 = sub i64 %30, %26
-  %32 = icmp ugt i64 %31, %3
+  %32 = icmp ult i64 %3, %31
   br i1 %32, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i": ; preds = %25
@@ -20066,7 +20066,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !3125, !noalias !3126, !noundef !12
   %18 = sub i64 %15, %17
-  %19 = icmp ugt i64 %18, %9
+  %19 = icmp ult i64 %9, %18
   br i1 %19, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -20097,7 +20097,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %32 = getelementptr inbounds i8, ptr %30, i64 16
   %33 = load i64, ptr %32, align 8, !alias.scope !3146, !noalias !3147, !noundef !12
   %34 = sub i64 %31, %33
-  %35 = icmp ugt i64 %34, %3
+  %35 = icmp ult i64 %3, %34
   br i1 %35, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i": ; preds = %26
@@ -21719,7 +21719,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %12 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !3621, !noalias !3622, !noundef !12
   %14 = sub i64 %11, %13
-  %15 = icmp ugt i64 %14, %6
+  %15 = icmp ult i64 %6, %14
   br i1 %15, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -21802,7 +21802,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %12 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !3659, !noalias !3660, !noundef !12
   %14 = sub i64 %11, %13
-  %15 = icmp ugt i64 %14, %6
+  %15 = icmp ult i64 %6, %14
   br i1 %15, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -21895,7 +21895,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %12 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !3697, !noalias !3698, !noundef !12
   %14 = sub i64 %11, %13
-  %15 = icmp ugt i64 %14, %6
+  %15 = icmp ult i64 %6, %14
   br i1 %15, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -21978,7 +21978,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %12 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !3735, !noalias !3736, !noundef !12
   %14 = sub i64 %11, %13
-  %15 = icmp ugt i64 %14, %6
+  %15 = icmp ult i64 %6, %14
   br i1 %15, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -22063,7 +22063,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !3778, !noalias !3779, !noundef !12
   %15 = sub i64 %12, %14
-  %16 = icmp ugt i64 %15, %6
+  %16 = icmp ult i64 %6, %15
   br i1 %16, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -22148,7 +22148,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !3821, !noalias !3822, !noundef !12
   %15 = sub i64 %12, %14
-  %16 = icmp ugt i64 %15, %6
+  %16 = icmp ult i64 %6, %15
   br i1 %16, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -22251,7 +22251,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %12 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !3859, !noalias !3860, !noundef !12
   %14 = sub i64 %11, %13
-  %15 = icmp ugt i64 %14, %6
+  %15 = icmp ult i64 %6, %14
   br i1 %15, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -22336,7 +22336,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !3902, !noalias !3903, !noundef !12
   %15 = sub i64 %12, %14
-  %16 = icmp ugt i64 %15, %6
+  %16 = icmp ult i64 %6, %15
   br i1 %16, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -22419,7 +22419,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %12 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !3940, !noalias !3941, !noundef !12
   %14 = sub i64 %11, %13
-  %15 = icmp ugt i64 %14, %6
+  %15 = icmp ult i64 %6, %14
   br i1 %15, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -22504,7 +22504,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !3983, !noalias !3984, !noundef !12
   %15 = sub i64 %12, %14
-  %16 = icmp ugt i64 %15, %6
+  %16 = icmp ult i64 %6, %15
   br i1 %16, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -24853,7 +24853,7 @@ define hidden { ptr, i64 } @"_ZN11arrow_array5array10byte_array25GenericByteArra
   %8 = load i64, ptr %7, align 8, !noundef !12
   %9 = lshr i64 %8, 2
   %10 = add nsw i64 %9, -1
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %24, label %12
 
 12:                                               ; preds = %2
@@ -24929,7 +24929,7 @@ define hidden { ptr, i64 } @"_ZN11arrow_array5array10byte_array25GenericByteArra
   %8 = load i64, ptr %7, align 8, !noundef !12
   %9 = lshr i64 %8, 2
   %10 = add nsw i64 %9, -1
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %24, label %12
 
 12:                                               ; preds = %2
@@ -25005,7 +25005,7 @@ define hidden { ptr, i64 } @"_ZN11arrow_array5array10byte_array25GenericByteArra
   %8 = load i64, ptr %7, align 8, !noundef !12
   %9 = lshr i64 %8, 3
   %10 = add nsw i64 %9, -1
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %24, label %12
 
 12:                                               ; preds = %2
@@ -25079,7 +25079,7 @@ define hidden { ptr, i64 } @"_ZN11arrow_array5array10byte_array25GenericByteArra
   %8 = load i64, ptr %7, align 8, !noundef !12
   %9 = lshr i64 %8, 3
   %10 = add nsw i64 %9, -1
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %24, label %12
 
 12:                                               ; preds = %2
@@ -30059,7 +30059,7 @@ define hidden noundef i16 @"_ZN11arrow_array5array15primitive_array23PrimitiveAr
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8, !noundef !12
   %7 = lshr i64 %6, 1
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds i16, ptr %4, i64 %1
   %10 = load i16, ptr %9, align 2, !noundef !12
@@ -37059,7 +37059,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h064c19b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6265)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6265, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37102,7 +37102,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h08a845a
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6271)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6271, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37145,7 +37145,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h158b039
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6277)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6277, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37188,7 +37188,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h18142
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6283)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6283, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37231,7 +37231,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h22a7724
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6289)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6289, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37274,7 +37274,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h351e2f7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6295)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6295, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37317,7 +37317,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h3c4341a
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6301)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6301, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37360,7 +37360,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h3d1e285
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6307)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6307, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37403,7 +37403,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h3e5eaa9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6313)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6313, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37446,7 +37446,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h479d885
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6319)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6319, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37489,7 +37489,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h55a7c79
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6325)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6325, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37532,7 +37532,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h5786a8e
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6331)
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load i64, ptr %8, align 8, !alias.scope !6331, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37575,7 +37575,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h5fb1a30
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6337)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6337, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37618,7 +37618,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h69c68f2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6343)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6343, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37661,7 +37661,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h6ac56b0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6349)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6349, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37704,7 +37704,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h6ba7126
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6355)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6355, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37747,7 +37747,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h6d6a6cf
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6361)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6361, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37790,7 +37790,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h6ff9732
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6367)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6367, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37833,7 +37833,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h79a48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6373)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6373, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37876,7 +37876,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h7f968
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6379)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6379, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37919,7 +37919,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h84628
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6385)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6385, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -37962,7 +37962,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h8702d52
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6391)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6391, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38005,7 +38005,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h8e545d6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6397)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6397, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38048,7 +38048,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h9235700
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6403)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6403, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38091,7 +38091,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h9304b91
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6409)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6409, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38134,7 +38134,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h953d95d
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6415)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6415, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38177,7 +38177,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h98ad3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6421)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6421, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38220,7 +38220,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17h99064
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6427)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6427, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38263,7 +38263,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17ha0876c4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6433)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6433, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38306,7 +38306,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17haf90130
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6439)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6439, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38349,7 +38349,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17hb2749f3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6445)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6445, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38392,7 +38392,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17hc6da7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6451)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6451, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38435,7 +38435,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17hcccf3d7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6457)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6457, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38478,7 +38478,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17hecc9cf1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6463)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6463, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38521,7 +38521,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17hf1a0845
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6469)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6469, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38564,7 +38564,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17hf5af29e
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6475)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6475, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38607,7 +38607,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17hf6fa5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6481)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6481, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38650,7 +38650,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array7is_null17hf8f5b0d
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6487)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6487, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit, label %11
 
 11:                                               ; preds = %7
@@ -38694,7 +38694,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h01a0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6496)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6499, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -38738,7 +38738,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h0dfd
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6506)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6509, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -38782,7 +38782,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h0f29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6516)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6519, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -38826,7 +38826,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h22be
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6526)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6529, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -38870,7 +38870,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h28c4af
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6536)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6539, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -38914,7 +38914,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h2abf
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6546)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6549, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -38958,7 +38958,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h34c582
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6556)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6559, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39002,7 +39002,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h3f97d8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6566)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6569, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39046,7 +39046,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h4603
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6576)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6579, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39090,7 +39090,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h4861de
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6586)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6589, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39134,7 +39134,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h5e4ca4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6596)
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load i64, ptr %8, align 8, !alias.scope !6599, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39178,7 +39178,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h5e7318
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6606)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6609, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39222,7 +39222,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h74c3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6616)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6619, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39266,7 +39266,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h76f72f
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6626)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6629, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39310,7 +39310,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h77aa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6636)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6639, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39354,7 +39354,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h8358
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6646)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6649, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39398,7 +39398,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h85a1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6656)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6659, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39442,7 +39442,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h86afd1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6666)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6669, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39486,7 +39486,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h8b45
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6676)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6679, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39530,7 +39530,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17h93e2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6686)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6689, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39574,7 +39574,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17ha1b8b0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6696)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6699, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39618,7 +39618,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17ha8e3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6706)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6709, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39662,7 +39662,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hac50
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6716)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6719, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39706,7 +39706,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hb164
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6726)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6729, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39750,7 +39750,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hb2bb54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6736)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6739, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39794,7 +39794,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hbe0480
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6746)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6749, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39838,7 +39838,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hc553
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6756)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6759, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39882,7 +39882,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hcdfb
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6766)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6769, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39926,7 +39926,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hd65a
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6776)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6779, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -39970,7 +39970,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hd944
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6786)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6789, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -40014,7 +40014,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hd96326
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6796)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6799, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -40058,7 +40058,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hdac7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6806)
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !6809, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -40102,7 +40102,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hdbe255
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6816)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6819, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -40146,7 +40146,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hdc7a
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6826)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6829, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -40190,7 +40190,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17he2a281
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6836)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6839, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -40234,7 +40234,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17heecc0f
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6846)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6849, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -40278,7 +40278,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hf4d6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6856)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6859, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -40322,7 +40322,7 @@ define internal noundef zeroext i1 @_ZN11arrow_array5array5Array8is_valid17hfa65
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6866)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8, !alias.scope !6869, !noundef !12
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %_ZN12arrow_buffer6buffer7boolean13BooleanBuffer5value17h73fdfe2bf8fb2668E.llvm.18016462908235130027.exit.i, label %11
 
 11:                                               ; preds = %7
@@ -47344,7 +47344,7 @@ define hidden { ptr, i64 } @"_ZN125_$LT$arrow_array..array..dictionary_array..Ty
   %6 = getelementptr inbounds i8, ptr %3, i64 64
   %7 = load i64, ptr %6, align 8, !alias.scope !7871, !noundef !12
   %8 = lshr i64 %7, 1
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds i16, ptr %5, i64 %1
   %11 = load i16, ptr %10, align 2, !noalias !7871, !noundef !12
@@ -48838,7 +48838,7 @@ define hidden noundef zeroext i1 @_ZN12arrow_buffer6buffer7boolean13BooleanBuffe
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !12
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
@@ -51103,7 +51103,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h43b1ba7445ba05bdE.exit343: ;
   %414 = load i64, ptr %413, align 8, !alias.scope !8378, !noalias !8385, !noundef !12
   %415 = load i64, ptr %.val18.i, align 8, !alias.scope !8390, !noalias !8385, !noundef !12
   %416 = sub i64 %415, %414
-  %417 = icmp ult i64 %416, %411
+  %417 = icmp ugt i64 %411, %416
   br i1 %417, label %418, label %422
 
 418:                                              ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h1064ce1d7de07942E.exit.i.i.i"
@@ -100071,7 +100071,7 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h5
   br i1 %.not.i.i.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0292d09de98e040cE.exit.i.i", label %159
 
 159:                                              ; preds = %.lr.ph.i.split.i
-  %160 = icmp ugt i64 %146, %155
+  %160 = icmp ult i64 %155, %146
   br i1 %160, label %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h33c5c471749f30daE.exit.i.i.i.i", label %161
 
 161:                                              ; preds = %159
@@ -100745,7 +100745,7 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h5
   br i1 %or.cond.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h7bb4b8ddf4e2ea58E.exit.i.i", label %163
 
 163:                                              ; preds = %.lr.ph.i.split.i
-  %164 = icmp ugt i64 %146, %157
+  %164 = icmp ult i64 %157, %146
   br i1 %164, label %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hf2438b580cda48bbE.exit.i.i.i.i", label %165
 
 165:                                              ; preds = %163
@@ -101414,7 +101414,7 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h8
   br i1 %.not.i.i.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hfc62c8485ce597d2E.exit.i.i", label %160
 
 160:                                              ; preds = %.lr.ph.i.split.i
-  %161 = icmp ugt i64 %145, %155
+  %161 = icmp ult i64 %155, %145
   br i1 %161, label %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hc0523d206826c1a5E.exit.i.i.i.i", label %162
 
 162:                                              ; preds = %160
@@ -102086,7 +102086,7 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h9
   br i1 %or.cond.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0a542172776aa430E.exit.i.i", label %161
 
 161:                                              ; preds = %.lr.ph.i.split.i
-  %162 = icmp ugt i64 %146, %156
+  %162 = icmp ult i64 %156, %146
   br i1 %162, label %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hc92d72c9621137baE.exit.i.i.i.i", label %163
 
 163:                                              ; preds = %161
@@ -102756,7 +102756,7 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17h9
   br i1 %.not.i.i.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2fdb063d141f75a0E.exit.i.i", label %161
 
 161:                                              ; preds = %.lr.ph.i.split.i
-  %162 = icmp ugt i64 %146, %156
+  %162 = icmp ult i64 %156, %146
   br i1 %162, label %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h73c62dd5cfbfc20cE.exit.i.i.i.i", label %163
 
 163:                                              ; preds = %161
@@ -103430,7 +103430,7 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17he
   br i1 %or.cond.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hb31206fbc312472fE.exit.i.i", label %163
 
 163:                                              ; preds = %.lr.ph.i.split.i
-  %164 = icmp ugt i64 %146, %157
+  %164 = icmp ult i64 %157, %146
   br i1 %164, label %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h4fe3a52577b74360E.exit.i.i.i.i", label %165
 
 165:                                              ; preds = %163
@@ -104103,7 +104103,7 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17he
   br i1 %or.cond.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h78fbed42970ac9f2E.exit.i.i", label %162
 
 162:                                              ; preds = %.lr.ph.i.split.i
-  %163 = icmp ugt i64 %145, %156
+  %163 = icmp ult i64 %156, %145
   br i1 %163, label %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17hb333e8b86fdda0bcE.exit.i.i.i.i", label %164
 
 164:                                              ; preds = %162
@@ -104773,7 +104773,7 @@ define internal fastcc void @_ZN17datafusion_common6scalar16dict_from_values17hf
   br i1 %.not.i.i.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9d69c73ca8603316E.exit.i.i", label %161
 
 161:                                              ; preds = %.lr.ph.i.split.i
-  %162 = icmp ugt i64 %146, %156
+  %162 = icmp ult i64 %156, %146
   br i1 %162, label %"_ZN11arrow_array5array16dictionary_array24DictionaryArray$LT$K$GT$7try_new28_$u7b$$u7b$closure$u7d$$u7d$17h07ae494e711bff05E.exit.i.i.i.i", label %163
 
 163:                                              ; preds = %161
@@ -106594,7 +106594,7 @@ define hidden void @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !17483, !noalias !17484, !noundef !12
   %11 = sub i64 %8, %10
-  %12 = icmp ugt i64 %11, %3
+  %12 = icmp ult i64 %3, %11
   br i1 %12, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h804bfb363226f0c9E.llvm.7925137649769596059.exit.thread.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h804bfb363226f0c9E.llvm.7925137649769596059.exit.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h804bfb363226f0c9E.llvm.7925137649769596059.exit.thread.i.i": ; preds = %4
@@ -106646,7 +106646,7 @@ define hidden void @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$
   %8 = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !17502, !noalias !17503, !noundef !12
   %10 = sub i64 %7, %9
-  %11 = icmp ugt i64 %10, %3
+  %11 = icmp ult i64 %3, %10
   br i1 %11, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h804bfb363226f0c9E.llvm.7925137649769596059.exit.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h804bfb363226f0c9E.llvm.7925137649769596059.exit.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h804bfb363226f0c9E.llvm.7925137649769596059.exit.thread.i": ; preds = %4
@@ -106701,7 +106701,7 @@ define hidden void @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !17526, !noalias !17527, !noundef !12
   %11 = sub i64 %8, %10
-  %12 = icmp ugt i64 %11, %3
+  %12 = icmp ult i64 %3, %11
   br i1 %12, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h9ab6f9c741d7d144E.llvm.7925137649769596059.exit.thread.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h9ab6f9c741d7d144E.llvm.7925137649769596059.exit.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h9ab6f9c741d7d144E.llvm.7925137649769596059.exit.thread.i.i": ; preds = %4
@@ -106753,7 +106753,7 @@ define hidden void @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$
   %8 = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !17545, !noalias !17546, !noundef !12
   %10 = sub i64 %7, %9
-  %11 = icmp ugt i64 %10, %3
+  %11 = icmp ult i64 %3, %10
   br i1 %11, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h9ab6f9c741d7d144E.llvm.7925137649769596059.exit.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h9ab6f9c741d7d144E.llvm.7925137649769596059.exit.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h9ab6f9c741d7d144E.llvm.7925137649769596059.exit.thread.i": ; preds = %4
@@ -106804,7 +106804,7 @@ define hidden noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$f
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !17563, !noalias !17564, !noundef !12
   %9 = sub i64 %6, %8
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i": ; preds = %3
@@ -106842,7 +106842,7 @@ define hidden noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$f
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !17575, !noalias !17576, !noundef !12
   %8 = sub i64 %5, %7
-  %9 = icmp ugt i64 %8, %2
+  %9 = icmp ult i64 %2, %8
   br i1 %9, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i": ; preds = %3
@@ -106880,7 +106880,7 @@ define hidden noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$f
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !17586, !noalias !17587, !noundef !12
   %8 = sub i64 %5, %7
-  %9 = icmp ugt i64 %8, %2
+  %9 = icmp ult i64 %2, %8
   br i1 %9, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i": ; preds = %3
@@ -106920,7 +106920,7 @@ define hidden noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$f
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !17602, !noalias !17603, !noundef !12
   %9 = sub i64 %6, %8
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i": ; preds = %3
@@ -107356,7 +107356,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.18016
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -117868,7 +117868,7 @@ split:                                            ; preds = %59, %"_ZN71_$LT$htt
   %89 = getelementptr inbounds i8, ptr %1, i64 64
   %.promoted.i.i = load i64, ptr %89, align 8, !alias.scope !20105, !noalias !20108
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !20110
-  %90 = icmp ugt i64 %.promoted.i.i, %86
+  %90 = icmp ult i64 %86, %.promoted.i.i
   br i1 %90, label %.lr.ph.i.i, label %.invoke.i, !prof !20111
 
 .lr.ph.i.i:                                       ; preds = %84
@@ -118039,7 +118039,7 @@ split:                                            ; preds = %59, %"_ZN71_$LT$htt
   br label %168
 
 168:                                              ; preds = %167, %164
-  %.not.i.i.i = icmp eq i64 %159, %.066.i.i
+  %.not.i.i.i = icmp eq i64 %.066.i.i, %159
   br i1 %.not.i.i.i, label %_ZN4http6header3map18remove_extra_value17h9f5872b2bbfdf0deE.exit.i.i, label %169
 
 .sink.split.i.i.i:                                ; preds = %197, %195
@@ -118048,7 +118048,7 @@ split:                                            ; preds = %59, %"_ZN71_$LT$htt
   br label %_ZN4http6header3map18remove_extra_value17h9f5872b2bbfdf0deE.exit.i.i
 
 169:                                              ; preds = %168
-  %170 = icmp ugt i64 %159, %.066.i.i
+  %170 = icmp ult i64 %.066.i.i, %159
   br i1 %170, label %171, label %.invoke.i.i.i, !prof !1810
 
 171:                                              ; preds = %169
@@ -118157,7 +118157,7 @@ _ZN4http6header3map18remove_extra_value17h9f5872b2bbfdf0deE.exit.i.i: ; preds = 
 .noexc20.i:                                       ; preds = %206
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !20110
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !20110
-  %213 = icmp ugt i64 %159, %207
+  %213 = icmp ult i64 %207, %159
   br i1 %213, label %100, label %.invoke.i, !prof !20151
 
 214:                                              ; preds = %_ZN4http6header3map18remove_extra_value17h9f5872b2bbfdf0deE.exit.i.i
@@ -120031,7 +120031,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent
 define hidden noundef zeroext i1 @"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h58a633dd82b56228E.llvm.18016462908235130027"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #27 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !20543, !noundef !12
-  %.not.i.i = icmp eq i64 %5, %1
+  %.not.i.i = icmp eq i64 %1, %5
   br i1 %.not.i.i, label %6, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.18016462908235130027.exit"
 
 6:                                                ; preds = %3
@@ -124397,7 +124397,7 @@ define hidden void @"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT
   %66 = getelementptr inbounds i8, ptr %64, i64 16
   %67 = load i64, ptr %66, align 8, !alias.scope !21265, !noalias !21266, !noundef !12
   %68 = sub i64 %65, %67
-  %69 = icmp ugt i64 %68, %61
+  %69 = icmp ult i64 %61, %68
   br i1 %69, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i.i"
@@ -125048,7 +125048,7 @@ define hidden void @"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT
   %66 = getelementptr inbounds i8, ptr %64, i64 16
   %67 = load i64, ptr %66, align 8, !alias.scope !21506, !noalias !21507, !noundef !12
   %68 = sub i64 %65, %67
-  %69 = icmp ugt i64 %68, %61
+  %69 = icmp ult i64 %61, %68
   br i1 %69, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i.i"
@@ -125311,7 +125311,7 @@ define hidden void @"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT
   %63 = load i64, ptr %18, align 8, !alias.scope !21602, !noalias !21603, !noundef !12
   %64 = load i64, ptr %20, align 8, !alias.scope !21602, !noalias !21603, !noundef !12
   %65 = sub i64 %63, %64
-  %66 = icmp ugt i64 %65, %60
+  %66 = icmp ult i64 %60, %65
   br i1 %66, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -125563,7 +125563,7 @@ define hidden void @"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT
   %67 = getelementptr inbounds i8, ptr %65, i64 16
   %68 = load i64, ptr %67, align 8, !alias.scope !21727, !noalias !21728, !noundef !12
   %69 = sub i64 %66, %68
-  %70 = icmp ugt i64 %69, %62
+  %70 = icmp ult i64 %62, %69
   br i1 %70, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -125815,7 +125815,7 @@ define hidden void @"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT
   %67 = getelementptr inbounds i8, ptr %65, i64 16
   %68 = load i64, ptr %67, align 8, !alias.scope !21849, !noalias !21850, !noundef !12
   %69 = sub i64 %66, %68
-  %70 = icmp ugt i64 %69, %62
+  %70 = icmp ult i64 %62, %69
   br i1 %70, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.i.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hb13f0f22913f5befE.llvm.7925137649769596059.exit.thread.i.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -126060,7 +126060,7 @@ define hidden void @"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT
   %63 = load i64, ptr %18, align 8, !alias.scope !21951, !noalias !21952, !noundef !12
   %64 = load i64, ptr %20, align 8, !alias.scope !21951, !noalias !21952, !noundef !12
   %65 = sub i64 %63, %64
-  %66 = icmp ugt i64 %65, %60
+  %66 = icmp ult i64 %60, %65
   br i1 %66, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.i.i.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h7d07d106875da797E.llvm.7925137649769596059.exit.thread.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4550da8e323605d0E.llvm.7925137649769596059.exit.i"
@@ -126886,7 +126886,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !12
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -126967,8 +126967,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !22027
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -132672,7 +132672,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23082)
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !alias.scope !23085, !noalias !23088, !noundef !12
-  %.not.i.i.i = icmp eq i64 %13, %2
+  %.not.i.i.i = icmp eq i64 %2, %13
   br i1 %.not.i.i.i, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h58a633dd82b56228E.llvm.18016462908235130027.exit", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h58a633dd82b56228E.llvm.18016462908235130027.exit.thread"
 
 "_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h58a633dd82b56228E.llvm.18016462908235130027.exit": ; preds = %9
@@ -132729,7 +132729,7 @@ define hidden { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$13get_ke
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23103)
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !alias.scope !23106, !noalias !23109, !noundef !12
-  %.not.i.i.i.i = icmp eq i64 %11, %2
+  %.not.i.i.i.i = icmp eq i64 %2, %11
   br i1 %.not.i.i.i.i, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hc7fac03b31b9cad3E.llvm.18016462908235130027.exit.thread11", label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hc7fac03b31b9cad3E.llvm.18016462908235130027.exit.thread"
 
 12:                                               ; preds = %3
@@ -133893,7 +133893,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i: ; p
   %71 = load i64, ptr %70, align 8, !alias.scope !23262, !noalias !23269, !noundef !12
   %72 = load i64, ptr %.val5.i, align 8, !alias.scope !23274, !noalias !23269, !noundef !12
   %73 = sub i64 %72, %71
-  %74 = icmp ult i64 %73, %68
+  %74 = icmp ugt i64 %68, %73
   br i1 %74, label %75, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$17serialize_element17h4e05fb7a78e99f02E.exit"
 
 75:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h1064ce1d7de07942E.exit.i.i.i.i"
@@ -134067,7 +134067,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i: ; p
   %48 = load i64, ptr %47, align 8, !alias.scope !23317, !noalias !23324, !noundef !12
   %49 = load i64, ptr %.val6.i, align 8, !alias.scope !23329, !noalias !23324, !noundef !12
   %50 = sub i64 %49, %48
-  %51 = icmp ult i64 %50, %45
+  %51 = icmp ugt i64 %45, %50
   br i1 %51, label %52, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$17serialize_element17h2d22971d7d688a5eE.exit"
 
 52:                                               ; preds = %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i8$GT$5write17h5558e49094185ec8E.exit.i.i.i.i"
@@ -134182,7 +134182,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i: ; p
   %44 = load i64, ptr %43, align 8, !alias.scope !23354, !noalias !23361, !noundef !12
   %45 = load i64, ptr %.val6.i, align 8, !alias.scope !23366, !noalias !23361, !noundef !12
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %41
+  %47 = icmp ugt i64 %41, %46
   br i1 %47, label %48, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$17serialize_element17hcb6564dbcbcafc02E.exit"
 
 48:                                               ; preds = %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hab5db7216d2f3d64E.exit.i.i.i.i"
@@ -138380,8 +138380,8 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   %17 = sub nuw i64 %15, %16
   %18 = lshr exact i64 %17, 6
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %12, i64 %18)
-  %.not106 = icmp eq i64 %.0.sroa.speculated.i.i, 0
-  br i1 %.not106, label %._crit_edge, label %.lr.ph
+  %.not105 = icmp eq i64 %.0.sroa.speculated.i.i, 0
+  br i1 %.not105, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %.sroa.8.32..sroa_idx = getelementptr inbounds i8, ptr %3, i64 1
@@ -138401,8 +138401,8 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
 24:                                               ; preds = %.lr.ph, %190
   %.sroa.6.sroa.0.0 = phi ptr [ undef, %.lr.ph ], [ %.sroa.6.sroa.0.1, %190 ]
   %.sroa.6.sroa.4.0 = phi i64 [ undef, %.lr.ph ], [ %.sroa.6.sroa.4.1, %190 ]
-  %.sroa.01.0105 = phi i64 [ 0, %.lr.ph ], [ %25, %190 ]
-  %25 = add nuw nsw i64 %.sroa.01.0105, 1
+  %.sroa.01.0104 = phi i64 [ 0, %.lr.ph ], [ %25, %190 ]
+  %25 = add nuw nsw i64 %.sroa.01.0104, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !24321)
   %26 = load ptr, ptr %8, align 8, !alias.scope !24321, !noalias !24324, !nonnull !12, !noundef !12
   %27 = load ptr, ptr %7, align 8, !alias.scope !24321, !noalias !24324, !nonnull !12, !noundef !12
@@ -138513,8 +138513,8 @@ common.resume:                                    ; preds = %22, %31
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %58
-  %62 = getelementptr i8, ptr %.sroa.6.sroa.0.1, i64 %.0.i14.i22
-  %63 = getelementptr i8, ptr %62, i64 %.09.lcssa.i20
+  %62 = getelementptr i8, ptr %.sroa.6.sroa.0.1, i64 %.09.lcssa.i20
+  %63 = getelementptr i8, ptr %62, i64 %.0.i14.i22
   %.0.copyload15.i18.i28 = load i16, ptr %63, align 1, !alias.scope !24351, !noalias !24356
   %64 = zext i16 %.0.copyload15.i18.i28 to i64
   %65 = shl nuw nsw i64 %.0.i14.i22, 3
@@ -138578,12 +138578,12 @@ common.resume:                                    ; preds = %22, %31
 
 _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027.exit39", %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027.exit39.thread"
   %106 = phi i64 [ %80, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027.exit39.thread" ], [ %104, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027.exit39" ]
-  %.2.i17.i2688 = phi i64 [ %79, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027.exit39.thread" ], [ %.118.i15.i23, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027.exit39" ]
+  %.2.i17.i2687 = phi i64 [ %79, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027.exit39.thread" ], [ %.118.i15.i23, %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027.exit39" ]
   %107 = shl nuw nsw i64 %52, 3
   %108 = shl nuw i64 255, %107
-  %109 = or i64 %108, %.2.i17.i2688
-  %.not99 = icmp eq i64 %52, 7
-  br i1 %.not99, label %._crit_edge.i.thread.thread, label %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027.exit"
+  %109 = or i64 %108, %.2.i17.i2687
+  %.not98 = icmp eq i64 %52, 7
+  br i1 %.not98, label %._crit_edge.i.thread.thread, label %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027.exit"
 
 ._crit_edge.i.thread.thread:                      ; preds = %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i
   %110 = xor i64 %109, %.sroa.32.4
@@ -138713,7 +138713,7 @@ define hidden void @"_ZN9itertools11groupbylazy24GroupBy$LT$K$C$I$C$F$GT$10drop_
   %6 = getelementptr inbounds i8, ptr %0, i64 192
   %7 = load i64, ptr %6, align 8, !noundef !12
   %8 = icmp eq i64 %7, -1
-  %9 = icmp ult i64 %7, %1
+  %9 = icmp ugt i64 %1, %7
   %or.cond = or i1 %8, %9
   br i1 %or.cond, label %11, label %12
 
@@ -138743,17 +138743,17 @@ define hidden void @"_ZN9itertools11groupbylazy24GroupBy$LT$K$C$I$C$F$GT$4step17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24376)
   %8 = getelementptr inbounds i8, ptr %1, i64 176
   %9 = load i64, ptr %8, align 8, !alias.scope !24376, !noalias !24373, !noundef !12
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17hbcfb6f90155691caE.llvm.18016462908235130027.exit.sink.split", label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 168
   %13 = load i64, ptr %12, align 8, !alias.scope !24376, !noalias !24373, !noundef !12
-  %14 = icmp ugt i64 %13, %2
+  %14 = icmp ult i64 %2, %13
   br i1 %14, label %31, label %15
 
 15:                                               ; preds = %11
-  %16 = icmp eq i64 %13, %2
+  %16 = icmp eq i64 %2, %13
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15
@@ -138887,7 +138887,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$12st
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24403)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24406)
   %26 = load i64, ptr %.val, align 8, !noalias !24409, !noundef !12
-  %27 = icmp ugt i64 %26, %.val14
+  %27 = icmp ult i64 %.val14, %26
   %28 = icmp ne ptr %.val13, null
   br i1 %27, label %33, label %29
 
@@ -139138,7 +139138,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$13lo
   %10 = getelementptr inbounds i8, ptr %1, i64 176
   %11 = getelementptr inbounds i8, ptr %1, i64 168
   %12 = load i64, ptr %11, align 8, !noundef !12
-  %13 = icmp ugt i64 %12, %2
+  %13 = icmp ult i64 %2, %12
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %3
@@ -139178,7 +139178,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$13lo
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc9b72f3ccab09dcE.exit": ; preds = %21, %14, %29
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload31, %29 ], [ -9223372036854775808, %14 ], [ -9223372036854775808, %21 ]
   %.not = phi i1 [ %31, %29 ], [ true, %14 ], [ true, %21 ]
-  %32 = icmp eq i64 %12, %2
+  %32 = icmp eq i64 %2, %12
   %or.cond = and i1 %.not, %32
   br i1 %or.cond, label %.preheader, label %34
 
@@ -139447,7 +139447,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   call void @llvm.experimental.noalias.scope.decl(metadata !24503)
   call void @llvm.experimental.noalias.scope.decl(metadata !24506)
   %64 = load i64, ptr %.val, align 8, !noalias !24509, !noundef !12
-  %65 = icmp ugt i64 %64, %.val44
+  %65 = icmp ult i64 %.val44, %64
   %66 = icmp ne ptr %.val43, null
   br i1 %65, label %71, label %67
 
@@ -139929,13 +139929,13 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
 define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17hbcfb6f90155691caE.llvm.18016462908235130027"(ptr noalias nocapture noundef sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(200) %1, i64 noundef %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 168
   %5 = load i64, ptr %4, align 8, !noundef !12
-  %6 = icmp ugt i64 %5, %2
+  %6 = icmp ult i64 %2, %5
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 160
   %9 = load i64, ptr %8, align 8, !noundef !12
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %28, label %12
 
 11:                                               ; preds = %3
@@ -139943,7 +139943,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4ste
   br label %32
 
 12:                                               ; preds = %7
-  %13 = icmp eq i64 %9, %2
+  %13 = icmp eq i64 %2, %9
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %12
@@ -140050,7 +140050,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$9gro
   %24 = getelementptr inbounds i8, ptr %6, i64 16
   %.val16 = load i64, ptr %24, align 8, !noundef !12
   %25 = load i64, ptr %.val, align 8, !noalias !24605, !noundef !12
-  %26 = icmp ugt i64 %25, %.val16
+  %26 = icmp ult i64 %.val16, %25
   %27 = icmp ne ptr %.val15, null
   br i1 %26, label %32, label %28
 

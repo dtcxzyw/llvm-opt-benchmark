@@ -241,7 +241,7 @@ entry:
   %3 = and i16 %2, 7
   %shr.i = zext nneg i16 %3 to i32
   %shl.i = shl nuw nsw i32 1, %shr.i
-  %cmp = icmp ugt i32 %shl.i, %vector
+  %cmp = icmp ult i32 %vector, %shl.i
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -663,7 +663,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %11 = and i16 %10, 7
   %shr.i.i = zext nneg i16 %11 to i32
   %shl.i.i = shl nuw nsw i32 1, %shr.i.i
-  %cmp.i50 = icmp ugt i32 %shl.i.i, %vector.0114
+  %cmp.i50 = icmp ult i32 %vector.0114, %shl.i.i
   br i1 %cmp.i50, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body

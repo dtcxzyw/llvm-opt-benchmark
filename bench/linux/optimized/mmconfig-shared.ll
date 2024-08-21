@@ -129,7 +129,7 @@ define internal fastcc noundef ptr @pci_mmconfig_alloc(i32 noundef %0, i32 nound
   %18 = getelementptr inbounds i8, ptr %8, i64 16
   %19 = shl i32 %1, 20
   %20 = sext i32 %19 to i64
-  %21 = add i64 %20, %3
+  %21 = add i64 %3, %20
   store i64 %21, ptr %18, align 8
   %22 = shl i32 %2, 20
   %23 = add i32 %22, 1048576
@@ -234,21 +234,21 @@ define dso_local ptr @pci_mmconfig_lookup(i32 noundef %0, i32 noundef %1) local_
   %6 = getelementptr inbounds i8, ptr %5, i64 96
   %7 = load i16, ptr %6, align 8
   %8 = zext i16 %7 to i32
-  %9 = icmp eq i32 %8, %0
+  %9 = icmp eq i32 %0, %8
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %.preheader
   %11 = getelementptr inbounds i8, ptr %5, i64 98
   %12 = load i8, ptr %11, align 2
   %13 = zext i8 %12 to i32
-  %14 = icmp sgt i32 %13, %1
+  %14 = icmp slt i32 %1, %13
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %5, i64 99
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
-  %19 = icmp ult i32 %18, %1
+  %19 = icmp ugt i32 %1, %18
   br i1 %19, label %20, label %.loopexit
 
 20:                                               ; preds = %15, %10, %.preheader

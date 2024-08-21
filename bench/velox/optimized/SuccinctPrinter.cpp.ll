@@ -53,7 +53,7 @@ entry:
   %arrayidx = getelementptr inbounds [4 x i64], ptr @_ZN8facebook5veloxL18kTimeUnitsInSecondE, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 8
   %mul = mul i64 %0, 60
-  %cmp = icmp ult i64 %mul, %duration
+  %cmp = icmp ugt i64 %duration, %mul
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

@@ -580,7 +580,7 @@ if.end21.i:                                       ; preds = %if.end16.i
 if.end:                                           ; preds = %if.end21.i, %if.end3.i
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %count, align 8
-  %cmp = icmp slt i32 %4, %newSize
+  %cmp = icmp sgt i32 %newSize, %4
   br i1 %cmp, label %for.cond.preheader, label %for.cond7.preheader
 
 for.cond7.preheader:                              ; preds = %if.end
@@ -611,7 +611,7 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %_
   %i5.0.in15 = phi i32 [ %4, %for.body9.lr.ph ], [ %i5.0, %_ZN6icu_757UVector15removeElementAtEi.exit ]
   %i5.0 = add nsw i32 %i5.0.in15, -1
   %7 = load i32, ptr %count, align 8
-  %cmp2.i.i.not = icmp slt i32 %7, %i5.0.in15
+  %cmp2.i.i.not = icmp sgt i32 %i5.0.in15, %7
   br i1 %cmp2.i.i.not, label %_ZN6icu_757UVector15removeElementAtEi.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body9
@@ -620,7 +620,7 @@ if.then.i.i:                                      ; preds = %for.body9
   %arrayidx.i.i = getelementptr inbounds %union.UElement, ptr %8, i64 %idxprom.i.i
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %sub7.i.i = add nsw i32 %7, -1
-  %cmp48.i.i = icmp ugt i32 %sub7.i.i, %i5.0
+  %cmp48.i.i = icmp ult i32 %i5.0, %sub7.i.i
   br i1 %cmp48.i.i, label %for.body.i.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.body.i.i
@@ -962,7 +962,7 @@ entry:
   %cmp = icmp sgt i32 %index, -1
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
-  %cmp2 = icmp sgt i32 %0, %index
+  %cmp2 = icmp slt i32 %index, %0
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then, label %if.else
 
@@ -1012,7 +1012,7 @@ entry:
   %cmp = icmp sgt i32 %index, -1
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
-  %cmp2 = icmp sgt i32 %0, %index
+  %cmp2 = icmp slt i32 %index, %0
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then, label %if.end
 
@@ -1079,7 +1079,7 @@ if.end21.i:                                       ; preds = %if.end16.i
 if.then:                                          ; preds = %if.end21.i, %if.end3.i
   %5 = phi i32 [ %.pre, %if.end21.i ], [ %0, %if.end3.i ]
   %cmp = icmp slt i32 %index, 0
-  %cmp3.not = icmp slt i32 %5, %index
+  %cmp3.not = icmp sgt i32 %index, %5
   %or.cond = select i1 %cmp, i1 true, i1 %cmp3.not
   br i1 %or.cond, label %land.lhs.true17.sink.split, label %for.cond.preheader
 
@@ -1200,7 +1200,7 @@ if.end21.i:                                       ; preds = %if.end16.i
 if.then:                                          ; preds = %if.end21.i, %if.end3.i
   %5 = phi i32 [ %.pre, %if.end21.i ], [ %0, %if.end3.i ]
   %cmp = icmp slt i32 %index, 0
-  %cmp3.not = icmp slt i32 %5, %index
+  %cmp3.not = icmp sgt i32 %index, %5
   %or.cond = select i1 %cmp, i1 true, i1 %cmp3.not
   br i1 %or.cond, label %if.else, label %for.cond.preheader
 
@@ -1253,7 +1253,7 @@ entry:
   %cmp = icmp sgt i32 %index, -1
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
-  %cmp2 = icmp sgt i32 %0, %index
+  %cmp2 = icmp slt i32 %index, %0
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %cond.true, label %cond.end
 
@@ -1276,7 +1276,7 @@ entry:
   %cmp = icmp sgt i32 %index, -1
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
-  %cmp2 = icmp sgt i32 %0, %index
+  %cmp2 = icmp slt i32 %index, %0
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %cond.true, label %cond.end
 
@@ -1440,7 +1440,7 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %count, align 8
-  %cmp212 = icmp sgt i32 %1, %startIndex
+  %cmp212 = icmp slt i32 %startIndex, %1
   br i1 %cmp212, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -1453,7 +1453,7 @@ for.cond9.preheader:                              ; preds = %entry
   %key.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %count10 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %count10, align 8
-  %cmp1115 = icmp sgt i32 %4, %startIndex
+  %cmp1115 = icmp slt i32 %startIndex, %4
   br i1 %cmp1115, label %for.body12.lr.ph, label %return
 
 for.body12.lr.ph:                                 ; preds = %for.cond9.preheader
@@ -1498,7 +1498,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %for.inc29 ], [ %7, %for.body12.lr.ph ]
   %arrayidx17 = getelementptr inbounds %union.UElement, ptr %6, i64 %indvars.iv26
   %13 = load ptr, ptr %arrayidx17, align 8
-  %cmp18 = icmp eq ptr %13, %key.coerce
+  %cmp18 = icmp eq ptr %key.coerce, %13
   br i1 %cmp18, label %return.loopexit34.split.loop.exit40, label %for.inc29
 
 for.inc29:                                        ; preds = %for.body12
@@ -1802,7 +1802,7 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count.i, align 8
-  %cmp2.i = icmp sgt i32 %0, %index
+  %cmp2.i = icmp slt i32 %index, %0
   br i1 %cmp2.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -1812,7 +1812,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx.i = getelementptr inbounds %union.UElement, ptr %1, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %sub7.i = add nsw i32 %0, -1
-  %cmp48.i = icmp ugt i32 %sub7.i, %index
+  %cmp48.i = icmp ult i32 %index, %sub7.i
   br i1 %cmp48.i, label %for.body.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
@@ -1992,7 +1992,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
-  %cmp2 = icmp sgt i32 %0, %index
+  %cmp2 = icmp slt i32 %index, %0
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
@@ -2002,7 +2002,7 @@ if.then:                                          ; preds = %land.lhs.true
   %arrayidx = getelementptr inbounds %union.UElement, ptr %1, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %sub7 = add nsw i32 %0, -1
-  %cmp48 = icmp ugt i32 %sub7, %index
+  %cmp48 = icmp ult i32 %index, %sub7
   br i1 %cmp48, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.then, %for.body
@@ -2077,7 +2077,7 @@ for.body12.i.i:                                   ; preds = %for.inc29.i.i, %for
   %indvars.iv26.i.i = phi i64 [ %indvars.iv.next27.i.i, %for.inc29.i.i ], [ 0, %for.body12.lr.ph.i.i ]
   %arrayidx17.i.i = getelementptr inbounds %union.UElement, ptr %2, i64 %indvars.iv26.i.i
   %7 = load ptr, ptr %arrayidx17.i.i, align 8
-  %cmp18.i.i = icmp eq ptr %7, %obj
+  %cmp18.i.i = icmp eq ptr %obj, %7
   br i1 %cmp18.i.i, label %_ZNK6icu_757UVector7indexOfEPvi.exit, label %for.inc29.i.i
 
 for.inc29.i.i:                                    ; preds = %for.body12.i.i
@@ -2149,7 +2149,7 @@ entry:
   %cmp.not.i = icmp eq ptr %0, null
   %count10.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %count10.i, align 8
-  %cmp1115.i = icmp sgt i32 %1, %startIndex
+  %cmp1115.i = icmp slt i32 %startIndex, %1
   br i1 %cmp.not.i, label %for.cond9.preheader.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
@@ -2191,7 +2191,7 @@ for.body12.i:                                     ; preds = %for.inc29.i, %for.b
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %for.inc29.i ], [ %4, %for.body12.lr.ph.i ]
   %arrayidx17.i = getelementptr inbounds %union.UElement, ptr %3, i64 %indvars.iv26.i
   %9 = load ptr, ptr %arrayidx17.i, align 8
-  %cmp18.i = icmp eq ptr %9, %obj
+  %cmp18.i = icmp eq ptr %obj, %9
   br i1 %cmp18.i, label %return.loopexit34.split.loop.exit40.i, label %for.inc29.i
 
 for.inc29.i:                                      ; preds = %for.body12.i
@@ -2297,7 +2297,7 @@ entry:
   %cmp.not.i = icmp eq ptr %1, null
   %count10.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %count10.i, align 8
-  %cmp1115.i = icmp sgt i32 %2, %startIndex
+  %cmp1115.i = icmp slt i32 %startIndex, %2
   br i1 %cmp.not.i, label %for.cond9.preheader.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry

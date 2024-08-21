@@ -15,7 +15,7 @@ entry:
   %0 = load i64, ptr %preffrag, align 8
   %cmp.i = icmp ne i8 %type, 23
   %mul.i = shl i64 %0, 2
-  %cmp2.not.i = icmp ugt i64 %mul.i, %len
+  %cmp2.not.i = icmp ult i64 %len, %mul.i
   %or.cond.i = or i1 %cmp.i, %cmp2.not.i
   br i1 %or.cond.i, label %if.end5, label %land.lhs.true4.i
 
@@ -73,7 +73,7 @@ if.then1:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then1, %if.then
   %9 = phi i64 [ %sub, %if.then1 ], [ %8, %if.then ]
   %mul = shl i64 %9, 3
-  %cmp2.not = icmp ugt i64 %mul, %len
+  %cmp2.not = icmp ult i64 %len, %mul
   %. = select i1 %cmp2.not, i64 4, i64 8
   br label %return
 
@@ -141,7 +141,7 @@ for.end.i:                                        ; preds = %for.cond.i
   %8 = load i8, ptr %templates, align 8
   %cmp.i.i = icmp ne i8 %8, 23
   %mul.i.i = shl i64 %7, 2
-  %cmp2.not.i.i = icmp ugt i64 %mul.i.i, %mul.i
+  %cmp2.not.i.i = icmp ult i64 %mul.i, %mul.i.i
   %or.cond.i.i = or i1 %cmp.i.i, %cmp2.not.i.i
   br i1 %or.cond.i.i, label %if.then2, label %land.lhs.true4.i.i
 
@@ -191,7 +191,7 @@ if.end33.i:                                       ; preds = %land.lhs.true19.i.i
   %conv36.i = trunc i64 %17 to i32
   %call37.i = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %16, i32 noundef 28, i32 noundef %conv36.i, ptr noundef null) #3
   %conv38.i = sext i32 %call37.i to i64
-  %mul39.i = mul nsw i64 %conv38.i, %numtempl
+  %mul39.i = mul nsw i64 %numtempl, %conv38.i
   %call40.i = tail call i32 @tls_setup_write_buffer(ptr noundef nonnull %rl, i64 noundef 1, i64 noundef %mul39.i, i64 noundef %mul39.i) #3
   %tobool41.not.i = icmp eq i32 %call40.i, 0
   br i1 %tobool41.not.i, label %tls_write_records_multiblock_int.exit, label %if.end43.i

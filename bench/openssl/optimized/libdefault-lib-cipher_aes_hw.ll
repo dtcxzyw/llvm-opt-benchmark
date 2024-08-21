@@ -355,7 +355,7 @@ define internal noundef i32 @cipher_hw_aesni_ecb(ptr nocapture noundef readonly 
 entry:
   %blocksize = getelementptr inbounds i8, ptr %ctx, i64 88
   %0 = load i64, ptr %blocksize, align 8
-  %cmp = icmp ugt i64 %0, %len
+  %cmp = icmp ult i64 %len, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

@@ -40,7 +40,7 @@ define dso_local ptr @RelationGetPartitionDesc(ptr noundef %0, i1 noundef zeroex
   %12 = getelementptr inbounds i8, ptr %10, i64 4
   %13 = load i8, ptr %12, align 4
   %14 = trunc i8 %13 to i1
-  %brmerge.demorgan = and i1 %14, %1
+  %brmerge.demorgan = and i1 %1, %14
   br i1 %brmerge.demorgan, label %15, label %.critedge16
 
 15:                                               ; preds = %11

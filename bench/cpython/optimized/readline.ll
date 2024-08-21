@@ -362,9 +362,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @_Py_SetLocaleFromEnv(i32 noundef 0) #14
   %0 = load ptr, ptr @rl_instream, align 8
-  %cmp.not = icmp eq ptr %0, %sys_stdin
+  %cmp.not = icmp eq ptr %sys_stdin, %0
   %1 = load ptr, ptr @rl_outstream, align 8
-  %cmp3.not = icmp eq ptr %1, %sys_stdout
+  %cmp3.not = icmp eq ptr %sys_stdout, %1
   %or.cond30 = select i1 %cmp.not, i1 %cmp3.not, i1 false
   br i1 %or.cond30, label %if.end5, label %if.then4
 

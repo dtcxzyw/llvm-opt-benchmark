@@ -189,14 +189,14 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8, !alias.scope !22, !noundef !21
-  %17 = icmp ult i64 %16, %.0
+  %17 = icmp ugt i64 %.0, %16
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %23, %3
   %19 = load i64, ptr %0, align 8, !alias.scope !22, !noundef !21
   %20 = load i64, ptr %14, align 8, !alias.scope !22, !noundef !21
   %21 = sub i64 %19, %20
-  %22 = icmp ult i64 %21, %.0
+  %22 = icmp ugt i64 %.0, %21
   br i1 %22, label %31, label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17hde00a85b901d1ab2E.exit"
 
 23:                                               ; preds = %3

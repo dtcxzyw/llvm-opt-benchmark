@@ -2825,7 +2825,7 @@ define noundef i32 @_Z13gmx_file_copyRKNSt10filesystem7__cxx114pathES3_b(ptr nou
   store ptr %8, ptr %7, align 8
   %9 = tail call noundef zeroext i1 @_ZNSt10filesystem8is_emptyERKNS_7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %.not = xor i1 %9, true
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %10, label %13
 
 10:                                               ; preds = %6

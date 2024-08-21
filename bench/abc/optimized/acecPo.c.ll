@@ -1299,7 +1299,7 @@ define void @Gia_PolynPrintMono(ptr nocapture noundef readonly %0, ptr nocapture
   %.val19 = load ptr, ptr %4, align 8
   %5 = load i32, ptr %.val19, align 4
   %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
-  %.not = icmp eq i32 %6, %2
+  %.not = icmp eq i32 %2, %6
   %7 = select i1 %.not, i32 32, i32 124
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %7)
   %9 = getelementptr i8, ptr %0, i64 4

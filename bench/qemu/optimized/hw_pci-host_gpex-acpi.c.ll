@@ -424,7 +424,7 @@ for.end12:                                        ; preds = %for.inc10
 for.body17:                                       ; preds = %for.end12, %for.body17
   %indvars.iv37 = phi i64 [ 0, %for.end12 ], [ %indvars.iv.next38, %for.body17 ]
   %4 = trunc nuw nsw i64 %indvars.iv37 to i32
-  %add18 = add i32 %4, %irq
+  %add18 = add i32 %irq, %4
   store i32 %add18, ptr %irqs, align 4
   %call19 = call ptr (ptr, ...) @aml_device(ptr noundef nonnull @.str.20, i32 noundef %4) #3
   %call20 = call ptr (ptr, ...) @aml_string(ptr noundef nonnull @.str.22) #3

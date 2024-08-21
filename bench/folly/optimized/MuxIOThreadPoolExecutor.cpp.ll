@@ -4734,7 +4734,7 @@ entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp34 = alloca %"class.google::LogMessageFatal", align 8
   %lnot = xor i1 %first, true
-  %0 = and i1 %lnot, %persist
+  %0 = and i1 %persist, %lnot
   br i1 %0, label %cond.false, label %cleanup.done16, !prof !77
 
 cond.false:                                       ; preds = %entry

@@ -837,7 +837,7 @@ define internal fastcc i64 @do_msgsnd(i32 noundef %0, i64 noundef %1, ptr nounde
   %15 = getelementptr inbounds i8, ptr %14, i64 668
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %17, %3
+  %18 = icmp ugt i64 %3, %17
   %19 = icmp slt i64 %3, 0
   %20 = or i1 %19, %18
   %21 = icmp slt i32 %0, 0

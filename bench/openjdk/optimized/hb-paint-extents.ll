@@ -52,7 +52,7 @@ define hidden noundef ptr @_Z26hb_paint_extents_get_funcsv() local_unnamed_addr 
 
 10:                                               ; preds = %9
   %11 = tail call noundef ptr @hb_paint_funcs_get_empty()
-  %.not3.i.i.i = icmp eq ptr %11, %.1.i.i
+  %.not3.i.i.i = icmp eq ptr %.1.i.i, %11
   br i1 %.not3.i.i.i, label %_ZN16hb_lazy_loader_tI16hb_paint_funcs_t36hb_paint_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit.i.i, label %12
 
 12:                                               ; preds = %10
@@ -202,7 +202,7 @@ define internal void @_ZL27hb_paint_extents_push_groupP16hb_paint_funcs_tPvS1_(p
   br i1 %10, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i.i, label %11
 
 11:                                               ; preds = %8
-  %.not.i.i.i = icmp ult i32 %7, %9
+  %.not.i.i.i = icmp ugt i32 %9, %7
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i.i
 
 .preheader.i.i.i:                                 ; preds = %11, %.preheader.i.i.i
@@ -210,7 +210,7 @@ define internal void @_ZL27hb_paint_extents_push_groupP16hb_paint_funcs_tPvS1_(p
   %12 = lshr i32 %.142.i.i.i, 1
   %13 = add i32 %.142.i.i.i, 8
   %14 = add i32 %13, %12
-  %15 = icmp ult i32 %14, %9
+  %15 = icmp ugt i32 %9, %14
   br i1 %15, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !12
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
@@ -866,7 +866,7 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit: ; preds = %5, %6
   br i1 %41, label %_ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.thread6.i, label %42
 
 42:                                               ; preds = %39
-  %.not.i.i = icmp ult i32 %38, %40
+  %.not.i.i = icmp ugt i32 %40, %38
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %42, %.preheader.i.i
@@ -874,7 +874,7 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit: ; preds = %5, %6
   %43 = lshr i32 %.142.i.i, 1
   %44 = add i32 %.142.i.i, 8
   %45 = add i32 %44, %43
-  %46 = icmp ult i32 %45, %40
+  %46 = icmp ugt i32 %40, %45
   br i1 %46, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !17
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -1067,7 +1067,7 @@ _ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit: ; preds = %_ZN12hb
   br i1 %63, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i, label %64
 
 64:                                               ; preds = %61
-  %.not.i.i = icmp ult i32 %60, %62
+  %.not.i.i = icmp ugt i32 %62, %60
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %64, %.preheader.i.i
@@ -1075,7 +1075,7 @@ _ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit: ; preds = %_ZN12hb
   %65 = lshr i32 %.142.i.i, 1
   %66 = add i32 %.142.i.i, 8
   %67 = add i32 %66, %65
-  %68 = icmp ult i32 %67, %62
+  %68 = icmp ugt i32 %62, %67
   br i1 %68, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -1163,7 +1163,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tI15hb_draw_funcs_t
 
 11:                                               ; preds = %10
   %12 = tail call noundef ptr @hb_draw_funcs_get_empty()
-  %.not3.i = icmp eq ptr %12, %.1
+  %.not3.i = icmp eq ptr %.1, %12
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tI15hb_draw_funcs_t35hb_draw_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit, label %13
 
 13:                                               ; preds = %11

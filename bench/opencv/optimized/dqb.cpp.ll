@@ -283,7 +283,7 @@ define hidden void @_ZN2cv6dynafumlEfRKNS0_10QuaternionE(ptr dead_on_unwind noal
   %indvars.iv.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i, %5 ]
   %6 = getelementptr inbounds [4 x float], ptr %2, i64 0, i64 %indvars.iv.i.i.i
   %7 = load float, ptr %6, align 4, !noalias !6
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   %9 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i
   store float %8, ptr %9, align 4, !alias.scope !6
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -320,7 +320,7 @@ define hidden void @_ZN2cv6dynafumlERKNS0_10QuaternionEf(ptr dead_on_unwind noal
   %indvars.iv.i.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i.i, %5 ]
   %6 = getelementptr inbounds [4 x float], ptr %1, i64 0, i64 %indvars.iv.i.i.i.i
   %7 = load float, ptr %6, align 4, !noalias !16
-  %8 = fmul float %7, %2
+  %8 = fmul float %2, %7
   %9 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i
   store float %8, ptr %9, align 4, !alias.scope !13, !noalias !10
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -498,8 +498,8 @@ define hidden void @_ZN2cv6dynafu14DualQuaternionC2ERKNS_7Affine3IfEE(ptr nocapt
   %29 = tail call float @llvm.fmuladd.f32(float %27, float %18, float %28)
   %30 = tail call float @llvm.fmuladd.f32(float %10, float %12, float %29)
   %31 = fmul float %30, 5.000000e-01
-  %32 = fneg float %8
-  %33 = fmul float %12, %32
+  %32 = fneg float %12
+  %33 = fmul float %8, %32
   %34 = tail call float @llvm.fmuladd.f32(float %6, float %14, float %33)
   %35 = tail call float @llvm.fmuladd.f32(float %10, float %21, float %34)
   %36 = fmul float %35, 5.000000e-01
@@ -643,7 +643,7 @@ define hidden void @_ZN2cv6dynafumlEfRKNS0_14DualQuaternionE(ptr dead_on_unwind 
   %indvars.iv.i.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i.i, %6 ]
   %7 = getelementptr inbounds [4 x float], ptr %2, i64 0, i64 %indvars.iv.i.i.i.i
   %8 = load float, ptr %7, align 4, !noalias !34
-  %9 = fmul float %8, %1
+  %9 = fmul float %1, %8
   %10 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
   store float %9, ptr %10, align 4, !alias.scope !31, !noalias !37
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -668,7 +668,7 @@ _ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit:        ; preds = %6
   %indvars.iv.i.i.i.i4 = phi i64 [ 0, %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit ], [ %indvars.iv.next.i.i.i.i5, %19 ]
   %20 = getelementptr inbounds [4 x float], ptr %18, i64 0, i64 %indvars.iv.i.i.i.i4
   %21 = load float, ptr %20, align 4, !noalias !41
-  %22 = fmul float %21, %1
+  %22 = fmul float %1, %21
   %23 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i4
   store float %22, ptr %23, align 4, !alias.scope !38, !noalias !44
   %indvars.iv.next.i.i.i.i5 = add nuw nsw i64 %indvars.iv.i.i.i.i4, 1
@@ -808,8 +808,8 @@ _ZN2cv6dynafudvERKNS0_10QuaternionEf.exit:        ; preds = %12
   %81 = tail call float @llvm.fmuladd.f32(float %80, float %58, float %79)
   %82 = fmul float %81, 2.000000e+00
   %83 = fdiv float %82, %10
-  %84 = fneg float %60
-  %85 = fmul float %73, %84
+  %84 = fneg float %73
+  %85 = fmul float %60, %84
   %86 = tail call float @llvm.fmuladd.f32(float %56, float %67, float %85)
   %87 = tail call float @llvm.fmuladd.f32(float %65, float %58, float %86)
   %88 = tail call float @llvm.fmuladd.f32(float %71, float %61, float %87)
@@ -1089,8 +1089,8 @@ _ZNSt6vectorIN2cv6dynafu14DualQuaternionESaIS2_EE17_S_check_init_lenEmRKS3_.exit
   %38 = tail call float @llvm.fmuladd.f32(float %36, float %.sroa.5.0.copyload8.i, float %37)
   %39 = tail call float @llvm.fmuladd.f32(float %26, float %.sroa.3.0.copyload4.i, float %38)
   %40 = fmul float %39, 5.000000e-01
-  %41 = fneg float %24
-  %42 = fmul float %.sroa.3.0.copyload4.i, %41
+  %41 = fneg float %.sroa.3.0.copyload4.i
+  %42 = fmul float %24, %41
   %43 = tail call float @llvm.fmuladd.f32(float %22, float %.sroa.4.0.copyload6.i, float %42)
   %44 = tail call float @llvm.fmuladd.f32(float %26, float %.sroa.0.0.copyload2.i, float %43)
   %45 = fmul float %44, 5.000000e-01

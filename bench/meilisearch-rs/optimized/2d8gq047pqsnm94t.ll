@@ -2518,7 +2518,7 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.9153134991762065841.exit: ; preds 
   %151 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !938, !noalias !945, !noundef !40
   %152 = load i64, ptr %57, align 8, !alias.scope !947, !noalias !945, !noundef !40
   %153 = sub i64 %152, %151
-  %154 = icmp ult i64 %153, %150
+  %154 = icmp ugt i64 %150, %153
   br i1 %154, label %155, label %331
 
 155:                                              ; preds = %146
@@ -3796,7 +3796,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.exit.i: ; preds 
   %38 = getelementptr inbounds i8, ptr %0, i64 %.sroa.7.0.ph.i.i
   %39 = load i64, ptr %.0.val, align 8, !alias.scope !1414, !noalias !1425, !noundef !40
   %40 = sub i64 %39, %16
-  %41 = icmp ult i64 %40, %37
+  %41 = icmp ugt i64 %37, %40
   br i1 %41, label %42, label %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.exit.i.i
 
 42:                                               ; preds = %36
@@ -3957,7 +3957,7 @@ _ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.exit.i.i: ;
   %101 = getelementptr inbounds i8, ptr %0, i64 %.sroa.7.0.ph.i.i
   %102 = load i64, ptr %.0.val, align 8, !alias.scope !1478, !noalias !1489, !noundef !40
   %103 = sub i64 %102, %16
-  %104 = icmp ult i64 %103, %100
+  %104 = icmp ugt i64 %100, %103
   br i1 %104, label %105, label %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.exit38.i.i
 
 105:                                              ; preds = %99

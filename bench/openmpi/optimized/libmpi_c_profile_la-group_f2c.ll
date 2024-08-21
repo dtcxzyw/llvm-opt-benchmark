@@ -36,7 +36,7 @@ define ptr @PMPI_Group_f2c(i32 noundef %0) #0 {
 9:                                                ; preds = %4, %7, %1
   %10 = icmp sgt i32 %0, -1
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_group_f_to_c_table, i64 88), align 8
-  %.not = icmp sgt i32 %11, %0
+  %.not = icmp slt i32 %0, %11
   %or.cond = select i1 %10, i1 %.not, i1 false
   br i1 %or.cond, label %12, label %opal_pointer_array_get_item.exit
 

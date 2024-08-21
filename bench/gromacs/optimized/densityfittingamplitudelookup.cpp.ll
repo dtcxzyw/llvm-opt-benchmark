@@ -154,7 +154,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZN3gmx12_GLOBA
 
 22:                                               ; preds = %6
   store float 1.000000e+00, ptr %7, align 4
-  %23 = icmp ult i64 %15, %21
+  %23 = icmp ugt i64 %21, %15
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
@@ -163,7 +163,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZN3gmx12_GLOBA
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 26:                                               ; preds = %22
-  %27 = icmp ugt i64 %15, %21
+  %27 = icmp ult i64 %21, %15
   br i1 %27, label %28, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 28:                                               ; preds = %26
@@ -306,7 +306,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !18
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -390,7 +390,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !18
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -487,7 +487,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZN3gmx12_GLOBA
   br i1 %.not, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %21
 
 21:                                               ; preds = %6
-  %22 = icmp ult i64 %14, %20
+  %22 = icmp ugt i64 %20, %14
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
@@ -497,7 +497,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZN3gmx12_GLOBA
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 25:                                               ; preds = %21
-  %26 = icmp ugt i64 %14, %20
+  %26 = icmp ult i64 %20, %14
   br i1 %26, label %27, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 27:                                               ; preds = %25
@@ -745,7 +745,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZN3gmx12_GLOBA
   br i1 %.not, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %21
 
 21:                                               ; preds = %6
-  %22 = icmp ult i64 %14, %20
+  %22 = icmp ugt i64 %20, %14
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
@@ -755,7 +755,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZN3gmx12_GLOBA
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 25:                                               ; preds = %21
-  %26 = icmp ugt i64 %14, %20
+  %26 = icmp ult i64 %20, %14
   br i1 %26, label %27, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 27:                                               ; preds = %25

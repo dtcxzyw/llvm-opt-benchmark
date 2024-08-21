@@ -369,7 +369,7 @@ define void @_ZN8grep_cli7pattern15pattern_from_os17hfdb218031bf42c68E(ptr noali
           to label %.noexc.i unwind label %.loopexit.i, !noalias !56
 
 20:                                               ; preds = %.lr.ph.split.split.i.i.i
-  %.not.i.i.i.i = icmp eq i64 %16, %.sroa.5.0.i.i
+  %.not.i.i.i.i = icmp eq i64 %.sroa.5.0.i.i, %16
   br i1 %.not.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %20, %24

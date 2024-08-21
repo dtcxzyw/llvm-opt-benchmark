@@ -3019,7 +3019,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %32, i64 48
   %37 = load i32, ptr %36, align 8
-  %38 = icmp sle i32 %37, %8
+  %38 = icmp sge i32 %8, %37
   %39 = icmp slt i32 %9, 0
   %or.cond7 = or i1 %39, %38
   br i1 %or.cond7, label %54, label %40
@@ -3027,19 +3027,19 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
 40:                                               ; preds = %35
   %41 = getelementptr inbounds i8, ptr %32, i64 52
   %42 = load i32, ptr %41, align 4
-  %43 = icmp sle i32 %42, %9
+  %43 = icmp sge i32 %9, %42
   %44 = icmp slt i32 %10, 1
   %or.cond9 = or i1 %44, %43
   br i1 %or.cond9, label %54, label %45
 
 45:                                               ; preds = %40
-  %46 = icmp ult i32 %37, %10
+  %46 = icmp ugt i32 %10, %37
   %47 = icmp slt i32 %11, 1
   %or.cond11 = or i1 %47, %46
   br i1 %or.cond11, label %54, label %48
 
 48:                                               ; preds = %45
-  %49 = icmp ult i32 %42, %11
+  %49 = icmp ugt i32 %11, %42
   %50 = icmp slt i32 %12, 1
   %or.cond13 = or i1 %50, %49
   %51 = icmp slt i32 %13, 1
@@ -3055,8 +3055,8 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
   br label %371
 
 55:                                               ; preds = %48
-  %spec.select = call i32 @llvm.umin.i32(i32 %37, i32 %12)
-  %.0294 = call i32 @llvm.umin.i32(i32 %42, i32 %13)
+  %spec.select = call i32 @llvm.umin.i32(i32 %12, i32 %37)
+  %.0294 = call i32 @llvm.umin.i32(i32 %13, i32 %42)
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 1496
   %58 = load ptr, ptr %57, align 8
@@ -3214,7 +3214,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
   %134 = call i32 @jStrtDecompress(ptr noundef nonnull %32) #13
   %135 = getelementptr inbounds i8, ptr %32, i64 148
   %136 = load i32, ptr %135, align 4
-  %.not334 = icmp eq i32 %136, %5
+  %.not334 = icmp eq i32 %5, %136
   br i1 %.not334, label %141, label %137
 
 137:                                              ; preds = %132

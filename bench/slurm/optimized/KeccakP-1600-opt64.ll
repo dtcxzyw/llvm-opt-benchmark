@@ -6915,7 +6915,7 @@ define void @KeccakP1600_ExtractAndAddBytesInLane(ptr nocapture noundef readonly
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = trunc nuw i64 %indvars.iv to i32
-  %14 = add i32 %13, %4
+  %14 = add i32 %4, %13
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %7, i64 %15
   %17 = load i8, ptr %16, align 1
@@ -7123,7 +7123,7 @@ define i64 @KeccakF1600_FastLoop_Absorb(ptr nocapture noundef %0, i32 noundef %1
   %53 = load i64, ptr %52, align 8
   %54 = shl i32 %1, 3
   %55 = zext i32 %54 to i64
-  %.not5969 = icmp ugt i64 %55, %3
+  %.not5969 = icmp ult i64 %3, %55
   br i1 %.not5969, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
@@ -11417,7 +11417,7 @@ define i64 @KeccakP1600_12rounds_FastLoop_Absorb(ptr nocapture noundef %0, i32 n
   %53 = load i64, ptr %52, align 8
   %54 = shl i32 %1, 3
   %55 = zext i32 %54 to i64
-  %.not3149 = icmp ugt i64 %55, %3
+  %.not3149 = icmp ult i64 %3, %55
   br i1 %.not3149, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4

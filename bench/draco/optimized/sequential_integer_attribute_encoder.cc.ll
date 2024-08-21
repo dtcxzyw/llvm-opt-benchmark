@@ -1885,7 +1885,7 @@ _ZSt13move_backwardIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4
 _ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %39
   %43 = phi ptr [ %9, %39 ], [ %42, %.lr.ph.i.i.i.i ]
   store ptr %43, ptr %8, align 8
-  %.not11.i.i.i.i.i69 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i69 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit
@@ -1977,7 +1977,7 @@ _ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag
 _ZSt34__uninitialized_move_if_noexcept_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i93, %_ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit91
   %.0.lcssa.i.i.i.i.i97 = phi ptr [ %68, %_ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit91 ], [ %74, %.lr.ph.i.i.i.i.i93 ]
   %75 = getelementptr %"class.draco::IndexType", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
-  %.not11.i.i.i.i.i98 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i98 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit104, label %.lr.ph.i.i.i.i.i99
 
 .lr.ph.i.i.i.i.i99:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %.lr.ph.i.i.i.i.i99
@@ -2197,7 +2197,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %70 = phi ptr [ %69, %68 ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %71 = ptrtoint ptr %1 to i64
   %72 = sub i64 %71, %59
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %58, %1
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %58
   br i1 %.not.i.i.i.i.i.i.i.i.i63, label %74, label %73
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
@@ -5453,7 +5453,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit20.i306: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.thread.i310, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i302
   %435 = sub i64 %129, %434
-  %.not.i.i.i.i.i.i.i.i.i308 = icmp eq ptr %433, %.0.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i.i.i308 = icmp eq ptr %.0.i.i.i.i.i, %433
   br i1 %.not.i.i.i.i.i.i.i.i.i308, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i309, label %436
 
 436:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit20.i306
@@ -5536,7 +5536,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit20.i329: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.thread.i333, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i325
   %456 = sub i64 %125, %455
-  %.not.i.i.i.i.i.i.i.i.i331 = icmp eq ptr %454, %.0.i.i.i.i.i165
+  %.not.i.i.i.i.i.i.i.i.i331 = icmp eq ptr %.0.i.i.i.i.i165, %454
   br i1 %.not.i.i.i.i.i.i.i.i.i331, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i332, label %457
 
 457:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit20.i329
@@ -6409,7 +6409,7 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %59
   %75 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %74) #20
   %76 = ptrtoint ptr %1 to i64
   %77 = sub i64 %76, %61
-  %.not.i.i.i.i.i.i26 = icmp eq ptr %60, %1
+  %.not.i.i.i.i.i.i26 = icmp eq ptr %1, %60
   br i1 %.not.i.i.i.i.i.i26, label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, label %78
 
 78:                                               ; preds = %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit
@@ -7662,7 +7662,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i8, ptr %10, align 8
-  %.sroa.speculated24.i = tail call i8 @llvm.umin.i8(i8 %11, i8 %2)
+  %.sroa.speculated24.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %11)
   %12 = icmp eq i8 %.sroa.speculated24.i, 0
   br i1 %12, label %._crit_edge.i, label %.lr.ph.preheader.i
 
@@ -7696,7 +7696,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %31 = getelementptr inbounds i8, ptr %.01525.i, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = load i8, ptr %10, align 8
-  %.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %32, i8 %2)
+  %.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %32)
   %33 = zext i8 %.sroa.speculated.i to i64
   %.not.i = icmp ult i64 %indvars.iv.next.i, %33
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !96
@@ -7709,7 +7709,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 35:                                               ; preds = %6
   %36 = getelementptr inbounds i8, ptr %0, i64 24
   %37 = load i8, ptr %36, align 8
-  %.sroa.speculated24.i46 = tail call i8 @llvm.umin.i8(i8 %37, i8 %2)
+  %.sroa.speculated24.i46 = tail call i8 @llvm.umin.i8(i8 %2, i8 %37)
   %38 = icmp eq i8 %.sroa.speculated24.i46, 0
   br i1 %38, label %._crit_edge.i54, label %.lr.ph.preheader.i47
 
@@ -7743,7 +7743,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %57 = getelementptr inbounds i8, ptr %.01525.i50, i64 1
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
   %58 = load i8, ptr %36, align 8
-  %.sroa.speculated.i52 = tail call i8 @llvm.umin.i8(i8 %58, i8 %2)
+  %.sroa.speculated.i52 = tail call i8 @llvm.umin.i8(i8 %2, i8 %58)
   %59 = zext i8 %.sroa.speculated.i52 to i64
   %.not.i53 = icmp ult i64 %indvars.iv.next.i51, %59
   br i1 %.not.i53, label %.lr.ph.i48, label %._crit_edge.i54, !llvm.loop !97
@@ -7756,7 +7756,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 61:                                               ; preds = %6
   %62 = getelementptr inbounds i8, ptr %0, i64 24
   %63 = load i8, ptr %62, align 8
-  %.sroa.speculated24.i58 = tail call i8 @llvm.umin.i8(i8 %63, i8 %2)
+  %.sroa.speculated24.i58 = tail call i8 @llvm.umin.i8(i8 %2, i8 %63)
   %64 = icmp eq i8 %.sroa.speculated24.i58, 0
   br i1 %64, label %._crit_edge.i66, label %.lr.ph.preheader.i59
 
@@ -7790,7 +7790,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %83 = getelementptr inbounds i8, ptr %.01525.i62, i64 2
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i61, 1
   %84 = load i8, ptr %62, align 8
-  %.sroa.speculated.i64 = tail call i8 @llvm.umin.i8(i8 %84, i8 %2)
+  %.sroa.speculated.i64 = tail call i8 @llvm.umin.i8(i8 %2, i8 %84)
   %85 = zext i8 %.sroa.speculated.i64 to i64
   %.not.i65 = icmp ult i64 %indvars.iv.next.i63, %85
   br i1 %.not.i65, label %.lr.ph.i60, label %._crit_edge.i66, !llvm.loop !98
@@ -7803,7 +7803,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 87:                                               ; preds = %6
   %88 = getelementptr inbounds i8, ptr %0, i64 24
   %89 = load i8, ptr %88, align 8
-  %.sroa.speculated24.i70 = tail call i8 @llvm.umin.i8(i8 %89, i8 %2)
+  %.sroa.speculated24.i70 = tail call i8 @llvm.umin.i8(i8 %2, i8 %89)
   %90 = icmp eq i8 %.sroa.speculated24.i70, 0
   br i1 %90, label %._crit_edge.i78, label %.lr.ph.preheader.i71
 
@@ -7837,7 +7837,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %109 = getelementptr inbounds i8, ptr %.01525.i74, i64 2
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i73, 1
   %110 = load i8, ptr %88, align 8
-  %.sroa.speculated.i76 = tail call i8 @llvm.umin.i8(i8 %110, i8 %2)
+  %.sroa.speculated.i76 = tail call i8 @llvm.umin.i8(i8 %2, i8 %110)
   %111 = zext i8 %.sroa.speculated.i76 to i64
   %.not.i77 = icmp ult i64 %indvars.iv.next.i75, %111
   br i1 %.not.i77, label %.lr.ph.i72, label %._crit_edge.i78, !llvm.loop !99
@@ -7850,7 +7850,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 113:                                              ; preds = %6
   %114 = getelementptr inbounds i8, ptr %0, i64 24
   %115 = load i8, ptr %114, align 8
-  %.sroa.speculated24.i82 = tail call i8 @llvm.umin.i8(i8 %115, i8 %2)
+  %.sroa.speculated24.i82 = tail call i8 @llvm.umin.i8(i8 %2, i8 %115)
   %116 = icmp eq i8 %.sroa.speculated24.i82, 0
   br i1 %116, label %._crit_edge.i90, label %.lr.ph.preheader.i83
 
@@ -7884,7 +7884,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %135 = getelementptr inbounds i8, ptr %.01525.i86, i64 4
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i85, 1
   %136 = load i8, ptr %114, align 8
-  %.sroa.speculated.i88 = tail call i8 @llvm.umin.i8(i8 %136, i8 %2)
+  %.sroa.speculated.i88 = tail call i8 @llvm.umin.i8(i8 %2, i8 %136)
   %137 = zext i8 %.sroa.speculated.i88 to i64
   %.not.i89 = icmp ult i64 %indvars.iv.next.i87, %137
   br i1 %.not.i89, label %.lr.ph.i84, label %._crit_edge.i90, !llvm.loop !100
@@ -7897,7 +7897,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 139:                                              ; preds = %6
   %140 = getelementptr inbounds i8, ptr %0, i64 24
   %141 = load i8, ptr %140, align 8
-  %.sroa.speculated24.i94 = tail call i8 @llvm.umin.i8(i8 %141, i8 %2)
+  %.sroa.speculated24.i94 = tail call i8 @llvm.umin.i8(i8 %2, i8 %141)
   %142 = icmp eq i8 %.sroa.speculated24.i94, 0
   br i1 %142, label %._crit_edge.i102, label %.lr.ph.preheader.i95
 
@@ -7931,7 +7931,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %161 = getelementptr inbounds i8, ptr %.01525.i98, i64 4
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i97, 1
   %162 = load i8, ptr %140, align 8
-  %.sroa.speculated.i100 = tail call i8 @llvm.umin.i8(i8 %162, i8 %2)
+  %.sroa.speculated.i100 = tail call i8 @llvm.umin.i8(i8 %2, i8 %162)
   %163 = zext i8 %.sroa.speculated.i100 to i64
   %.not.i101 = icmp ult i64 %indvars.iv.next.i99, %163
   br i1 %.not.i101, label %.lr.ph.i96, label %._crit_edge.i102, !llvm.loop !101
@@ -7944,7 +7944,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 165:                                              ; preds = %6
   %166 = getelementptr inbounds i8, ptr %0, i64 24
   %167 = load i8, ptr %166, align 8
-  %.sroa.speculated24.i106 = tail call i8 @llvm.umin.i8(i8 %167, i8 %2)
+  %.sroa.speculated24.i106 = tail call i8 @llvm.umin.i8(i8 %2, i8 %167)
   %168 = icmp eq i8 %.sroa.speculated24.i106, 0
   br i1 %168, label %._crit_edge.i114, label %.lr.ph.preheader.i107
 
@@ -7977,7 +7977,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %186 = getelementptr inbounds i8, ptr %.01525.i110, i64 8
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i109, 1
   %187 = load i8, ptr %166, align 8
-  %.sroa.speculated.i112 = tail call i8 @llvm.umin.i8(i8 %187, i8 %2)
+  %.sroa.speculated.i112 = tail call i8 @llvm.umin.i8(i8 %2, i8 %187)
   %188 = zext i8 %.sroa.speculated.i112 to i64
   %.not.i113 = icmp ult i64 %indvars.iv.next.i111, %188
   br i1 %.not.i113, label %.lr.ph.i108, label %._crit_edge.i114, !llvm.loop !102
@@ -7990,7 +7990,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 190:                                              ; preds = %6
   %191 = getelementptr inbounds i8, ptr %0, i64 24
   %192 = load i8, ptr %191, align 8
-  %.sroa.speculated24.i118 = tail call i8 @llvm.umin.i8(i8 %192, i8 %2)
+  %.sroa.speculated24.i118 = tail call i8 @llvm.umin.i8(i8 %2, i8 %192)
   %193 = icmp eq i8 %.sroa.speculated24.i118, 0
   br i1 %193, label %._crit_edge.i126, label %.lr.ph.preheader.i119
 
@@ -8027,7 +8027,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %213 = getelementptr inbounds i8, ptr %.01525.i122, i64 8
   %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i121, 1
   %214 = load i8, ptr %191, align 8
-  %.sroa.speculated.i124 = tail call i8 @llvm.umin.i8(i8 %214, i8 %2)
+  %.sroa.speculated.i124 = tail call i8 @llvm.umin.i8(i8 %2, i8 %214)
   %215 = zext i8 %.sroa.speculated.i124 to i64
   %.not.i125 = icmp ult i64 %indvars.iv.next.i123, %215
   br i1 %.not.i125, label %.lr.ph.i120, label %._crit_edge.i126, !llvm.loop !103
@@ -8040,7 +8040,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 217:                                              ; preds = %6
   %218 = getelementptr inbounds i8, ptr %0, i64 24
   %219 = load i8, ptr %218, align 8
-  %.sroa.speculated25.i = tail call i8 @llvm.umin.i8(i8 %219, i8 %2)
+  %.sroa.speculated25.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %219)
   %220 = icmp eq i8 %.sroa.speculated25.i, 0
   br i1 %220, label %._crit_edge.i135, label %.lr.ph.i130
 
@@ -8087,7 +8087,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %247 = getelementptr inbounds i8, ptr %.01526.i, i64 4
   %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i131, 1
   %248 = load i8, ptr %218, align 8
-  %.sroa.speculated.i133 = tail call i8 @llvm.umin.i8(i8 %248, i8 %2)
+  %.sroa.speculated.i133 = tail call i8 @llvm.umin.i8(i8 %2, i8 %248)
   %249 = zext i8 %.sroa.speculated.i133 to i64
   %.not.i134 = icmp ult i64 %indvars.iv.next.i132, %249
   br i1 %.not.i134, label %232, label %._crit_edge.i135, !llvm.loop !104
@@ -8100,7 +8100,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 251:                                              ; preds = %6
   %252 = getelementptr inbounds i8, ptr %0, i64 24
   %253 = load i8, ptr %252, align 8
-  %.sroa.speculated25.i137 = tail call i8 @llvm.umin.i8(i8 %253, i8 %2)
+  %.sroa.speculated25.i137 = tail call i8 @llvm.umin.i8(i8 %2, i8 %253)
   %254 = icmp eq i8 %.sroa.speculated25.i137, 0
   br i1 %254, label %._crit_edge.i148, label %.lr.ph.i138
 
@@ -8147,7 +8147,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %281 = getelementptr inbounds i8, ptr %.01526.i140, i64 8
   %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i139, 1
   %282 = load i8, ptr %252, align 8
-  %.sroa.speculated.i146 = tail call i8 @llvm.umin.i8(i8 %282, i8 %2)
+  %.sroa.speculated.i146 = tail call i8 @llvm.umin.i8(i8 %2, i8 %282)
   %283 = zext i8 %.sroa.speculated.i146 to i64
   %.not.i147 = icmp ult i64 %indvars.iv.next.i145, %283
   br i1 %.not.i147, label %266, label %._crit_edge.i148, !llvm.loop !105
@@ -8160,7 +8160,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 285:                                              ; preds = %6
   %286 = getelementptr inbounds i8, ptr %0, i64 24
   %287 = load i8, ptr %286, align 8
-  %.sroa.speculated24.i152 = tail call i8 @llvm.umin.i8(i8 %287, i8 %2)
+  %.sroa.speculated24.i152 = tail call i8 @llvm.umin.i8(i8 %2, i8 %287)
   %288 = icmp eq i8 %.sroa.speculated24.i152, 0
   br i1 %288, label %._crit_edge.i160, label %.lr.ph.preheader.i153
 
@@ -8195,7 +8195,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %308 = getelementptr inbounds i8, ptr %.01525.i156, i64 1
   %indvars.iv.next.i157 = add nuw nsw i64 %indvars.iv.i155, 1
   %309 = load i8, ptr %286, align 8
-  %.sroa.speculated.i158 = tail call i8 @llvm.umin.i8(i8 %309, i8 %2)
+  %.sroa.speculated.i158 = tail call i8 @llvm.umin.i8(i8 %2, i8 %309)
   %310 = zext i8 %.sroa.speculated.i158 to i64
   %.not.i159 = icmp ult i64 %indvars.iv.next.i157, %310
   br i1 %.not.i159, label %.lr.ph.i154, label %._crit_edge.i160, !llvm.loop !106
@@ -8560,17 +8560,17 @@ _ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds =
   br i1 %or.cond.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %107
 
 107:                                              ; preds = %103
-  %108 = icmp eq i32 %.pre.i.i, %.0.i
+  %108 = icmp eq i32 %.0.i, %.pre.i.i
   %or.cond39.i.i = select i1 %104, i1 %108, i1 false
   br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %109
 
 109:                                              ; preds = %107
-  %110 = icmp eq i32 %.pre.i.i, %.013.i
+  %110 = icmp eq i32 %.013.i, %.pre.i.i
   %or.cond3.i.i = and i1 %105, %110
   br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %111
 
 111:                                              ; preds = %109
-  %112 = icmp slt i32 %79, %.0.i
+  %112 = icmp sgt i32 %.0.i, %79
   %or.cond = select i1 %104, i1 %112, i1 false
   br i1 %or.cond, label %113, label %115
 
@@ -8580,7 +8580,7 @@ _ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds =
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 115:                                              ; preds = %111
-  %116 = icmp sgt i32 %79, %.0.i
+  %116 = icmp slt i32 %.0.i, %79
   %or.cond82 = select i1 %110, i1 %116, i1 false
   br i1 %or.cond82, label %117, label %119
 
@@ -8590,7 +8590,7 @@ _ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds =
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 119:                                              ; preds = %115
-  %120 = icmp sgt i32 %79, %.013.i
+  %120 = icmp slt i32 %.013.i, %79
   %or.cond83 = select i1 %108, i1 %120, i1 false
   br i1 %or.cond83, label %121, label %123
 
@@ -8603,7 +8603,7 @@ _ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds =
   br i1 %105, label %124, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 124:                                              ; preds = %123
-  %125 = icmp slt i32 %79, %.013.i
+  %125 = icmp sgt i32 %.013.i, %79
   br i1 %125, label %126, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 126:                                              ; preds = %124
@@ -8665,17 +8665,17 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %128
   br i1 %or.cond.i.i22, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33, label %151
 
 151:                                              ; preds = %147
-  %152 = icmp eq i32 %.pre.i.i, %.0.i21
+  %152 = icmp eq i32 %.0.i21, %.pre.i.i
   %or.cond39.i.i25 = select i1 %148, i1 %152, i1 false
   br i1 %or.cond39.i.i25, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33, label %153
 
 153:                                              ; preds = %151
-  %154 = icmp eq i32 %.pre.i.i, %.013.i20
+  %154 = icmp eq i32 %.013.i20, %.pre.i.i
   %or.cond3.i.i26 = and i1 %154, %149
   br i1 %or.cond3.i.i26, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33, label %155
 
 155:                                              ; preds = %153
-  %156 = icmp slt i32 %79, %.0.i21
+  %156 = icmp sgt i32 %.0.i21, %79
   %or.cond84 = select i1 %148, i1 %156, i1 false
   br i1 %or.cond84, label %157, label %159
 
@@ -8685,7 +8685,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %128
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33
 
 159:                                              ; preds = %155
-  %160 = icmp sgt i32 %79, %.0.i21
+  %160 = icmp slt i32 %.0.i21, %79
   %or.cond85 = select i1 %154, i1 %160, i1 false
   br i1 %or.cond85, label %161, label %163
 
@@ -8695,7 +8695,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %128
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33
 
 163:                                              ; preds = %159
-  %164 = icmp sgt i32 %79, %.013.i20
+  %164 = icmp slt i32 %.013.i20, %79
   %or.cond86 = select i1 %152, i1 %164, i1 false
   br i1 %or.cond86, label %165, label %167
 
@@ -8708,7 +8708,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %128
   br i1 %149, label %168, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33
 
 168:                                              ; preds = %167
-  %169 = icmp slt i32 %79, %.013.i20
+  %169 = icmp sgt i32 %.013.i20, %79
   br i1 %169, label %170, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33
 
 170:                                              ; preds = %168
@@ -8907,7 +8907,7 @@ _ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i
 _ZNK5draco37PredictionSchemeWrapEncodingTransformIiiE17ComputeCorrectionEPKiS3_Pi.exit46: ; preds = %260, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33, %_ZNK5draco37PredictionSchemeWrapEncodingTransformIiiE17ComputeCorrectionEPKiS3_Pi.exit
   %263 = load i32, ptr %10, align 8
   %264 = load i32, ptr %29, align 8
-  %265 = icmp slt i32 %264, %263
+  %265 = icmp sgt i32 %263, %264
   br i1 %265, label %266, label %269
 
 266:                                              ; preds = %_ZNK5draco37PredictionSchemeWrapEncodingTransformIiiE17ComputeCorrectionEPKiS3_Pi.exit46
@@ -8929,7 +8929,7 @@ _ZNK5draco17OctahedronToolBox6ModMaxEi.exit:      ; preds = %266, %269, %272
   %.0.i47 = phi i32 [ %268, %266 ], [ %274, %272 ], [ %263, %269 ]
   store i32 %.0.i47, ptr %10, align 8
   %275 = load i32, ptr %indvars.iv.i54.sroa.gep65, align 4
-  %276 = icmp slt i32 %264, %275
+  %276 = icmp sgt i32 %275, %264
   br i1 %276, label %277, label %280
 
 277:                                              ; preds = %_ZNK5draco17OctahedronToolBox6ModMaxEi.exit
@@ -8951,7 +8951,7 @@ _ZNK5draco17OctahedronToolBox6ModMaxEi.exit49:    ; preds = %277, %280, %283
   %.0.i48 = phi i32 [ %279, %277 ], [ %285, %283 ], [ %275, %280 ]
   store i32 %.0.i48, ptr %indvars.iv.i54.sroa.gep65, align 4
   %286 = load i32, ptr %11, align 8
-  %287 = icmp slt i32 %264, %286
+  %287 = icmp sgt i32 %286, %264
   br i1 %287, label %288, label %291
 
 288:                                              ; preds = %_ZNK5draco17OctahedronToolBox6ModMaxEi.exit49
@@ -8973,7 +8973,7 @@ _ZNK5draco17OctahedronToolBox6ModMaxEi.exit51:    ; preds = %288, %291, %294
   %.0.i50 = phi i32 [ %290, %288 ], [ %296, %294 ], [ %286, %291 ]
   store i32 %.0.i50, ptr %11, align 8
   %297 = load i32, ptr %indvars.iv.i56.sroa.gep64, align 4
-  %298 = icmp slt i32 %264, %297
+  %298 = icmp sgt i32 %297, %264
   br i1 %298, label %299, label %302
 
 299:                                              ; preds = %_ZNK5draco17OctahedronToolBox6ModMaxEi.exit51
@@ -9177,7 +9177,7 @@ _ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_37PredictionSch
   %66 = getelementptr inbounds i8, ptr %6, i64 8
   %67 = getelementptr inbounds i8, ptr %6, i64 16
   %..v = select i1 %.not.i.i33, i32 2, i32 -1
-  %. = add i32 %..v, %1
+  %. = add i32 %1, %..v
   %spec.select = select i1 %57, i32 -1, i32 %.
   %spec.select109 = select i1 %57, i32 -1, i32 %spec.select.i.i
   br label %68
@@ -11895,7 +11895,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit20.i299: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.thread.i303, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i295
   %398 = sub i64 %128, %397
-  %.not.i.i.i.i.i.i.i.i.i301 = icmp eq ptr %396, %.0.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i.i.i301 = icmp eq ptr %.0.i.i.i.i.i, %396
   br i1 %.not.i.i.i.i.i.i.i.i.i301, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i302, label %399
 
 399:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit20.i299
@@ -11978,7 +11978,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit20.i322: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.thread.i326, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i318
   %419 = sub i64 %124, %418
-  %.not.i.i.i.i.i.i.i.i.i324 = icmp eq ptr %417, %.0.i.i.i.i.i165
+  %.not.i.i.i.i.i.i.i.i.i324 = icmp eq ptr %.0.i.i.i.i.i165, %417
   br i1 %.not.i.i.i.i.i.i.i.i.i324, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i325, label %420
 
 420:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit20.i322
@@ -13882,17 +13882,17 @@ _ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds =
   br i1 %or.cond.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %107
 
 107:                                              ; preds = %103
-  %108 = icmp eq i32 %.pre.i.i, %.0.i
+  %108 = icmp eq i32 %.0.i, %.pre.i.i
   %or.cond39.i.i = select i1 %104, i1 %108, i1 false
   br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %109
 
 109:                                              ; preds = %107
-  %110 = icmp eq i32 %.pre.i.i, %.013.i
+  %110 = icmp eq i32 %.013.i, %.pre.i.i
   %or.cond3.i.i = and i1 %105, %110
   br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %111
 
 111:                                              ; preds = %109
-  %112 = icmp slt i32 %79, %.0.i
+  %112 = icmp sgt i32 %.0.i, %79
   %or.cond = select i1 %104, i1 %112, i1 false
   br i1 %or.cond, label %113, label %115
 
@@ -13902,7 +13902,7 @@ _ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds =
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 115:                                              ; preds = %111
-  %116 = icmp sgt i32 %79, %.0.i
+  %116 = icmp slt i32 %.0.i, %79
   %or.cond82 = select i1 %110, i1 %116, i1 false
   br i1 %or.cond82, label %117, label %119
 
@@ -13912,7 +13912,7 @@ _ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds =
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 119:                                              ; preds = %115
-  %120 = icmp sgt i32 %79, %.013.i
+  %120 = icmp slt i32 %.013.i, %79
   %or.cond83 = select i1 %108, i1 %120, i1 false
   br i1 %or.cond83, label %121, label %123
 
@@ -13925,7 +13925,7 @@ _ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds =
   br i1 %105, label %124, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 124:                                              ; preds = %123
-  %125 = icmp slt i32 %79, %.013.i
+  %125 = icmp sgt i32 %.013.i, %79
   br i1 %125, label %126, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 126:                                              ; preds = %124
@@ -13987,17 +13987,17 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %128
   br i1 %or.cond.i.i22, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33, label %151
 
 151:                                              ; preds = %147
-  %152 = icmp eq i32 %.pre.i.i, %.0.i21
+  %152 = icmp eq i32 %.0.i21, %.pre.i.i
   %or.cond39.i.i25 = select i1 %148, i1 %152, i1 false
   br i1 %or.cond39.i.i25, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33, label %153
 
 153:                                              ; preds = %151
-  %154 = icmp eq i32 %.pre.i.i, %.013.i20
+  %154 = icmp eq i32 %.013.i20, %.pre.i.i
   %or.cond3.i.i26 = and i1 %154, %149
   br i1 %or.cond3.i.i26, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33, label %155
 
 155:                                              ; preds = %153
-  %156 = icmp slt i32 %79, %.0.i21
+  %156 = icmp sgt i32 %.0.i21, %79
   %or.cond84 = select i1 %148, i1 %156, i1 false
   br i1 %or.cond84, label %157, label %159
 
@@ -14007,7 +14007,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %128
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33
 
 159:                                              ; preds = %155
-  %160 = icmp sgt i32 %79, %.0.i21
+  %160 = icmp slt i32 %.0.i21, %79
   %or.cond85 = select i1 %154, i1 %160, i1 false
   br i1 %or.cond85, label %161, label %163
 
@@ -14017,7 +14017,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %128
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33
 
 163:                                              ; preds = %159
-  %164 = icmp sgt i32 %79, %.013.i20
+  %164 = icmp slt i32 %.013.i20, %79
   %or.cond86 = select i1 %152, i1 %164, i1 false
   br i1 %or.cond86, label %165, label %167
 
@@ -14030,7 +14030,7 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %128
   br i1 %149, label %168, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33
 
 168:                                              ; preds = %167
-  %169 = icmp slt i32 %79, %.013.i20
+  %169 = icmp sgt i32 %.013.i20, %79
   br i1 %169, label %170, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33
 
 170:                                              ; preds = %168
@@ -14229,7 +14229,7 @@ _ZNK5draco33PredictionSchemeWrapTransformBaseIiE19ClampPredictedValueEPKi.exit.i
 _ZNK5draco37PredictionSchemeWrapEncodingTransformIiiE17ComputeCorrectionEPKiS3_Pi.exit46: ; preds = %260, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit33, %_ZNK5draco37PredictionSchemeWrapEncodingTransformIiiE17ComputeCorrectionEPKiS3_Pi.exit
   %263 = load i32, ptr %10, align 8
   %264 = load i32, ptr %29, align 8
-  %265 = icmp slt i32 %264, %263
+  %265 = icmp sgt i32 %263, %264
   br i1 %265, label %266, label %269
 
 266:                                              ; preds = %_ZNK5draco37PredictionSchemeWrapEncodingTransformIiiE17ComputeCorrectionEPKiS3_Pi.exit46
@@ -14251,7 +14251,7 @@ _ZNK5draco17OctahedronToolBox6ModMaxEi.exit:      ; preds = %266, %269, %272
   %.0.i47 = phi i32 [ %268, %266 ], [ %274, %272 ], [ %263, %269 ]
   store i32 %.0.i47, ptr %10, align 8
   %275 = load i32, ptr %indvars.iv.i54.sroa.gep65, align 4
-  %276 = icmp slt i32 %264, %275
+  %276 = icmp sgt i32 %275, %264
   br i1 %276, label %277, label %280
 
 277:                                              ; preds = %_ZNK5draco17OctahedronToolBox6ModMaxEi.exit
@@ -14273,7 +14273,7 @@ _ZNK5draco17OctahedronToolBox6ModMaxEi.exit49:    ; preds = %277, %280, %283
   %.0.i48 = phi i32 [ %279, %277 ], [ %285, %283 ], [ %275, %280 ]
   store i32 %.0.i48, ptr %indvars.iv.i54.sroa.gep65, align 4
   %286 = load i32, ptr %11, align 8
-  %287 = icmp slt i32 %264, %286
+  %287 = icmp sgt i32 %286, %264
   br i1 %287, label %288, label %291
 
 288:                                              ; preds = %_ZNK5draco17OctahedronToolBox6ModMaxEi.exit49
@@ -14295,7 +14295,7 @@ _ZNK5draco17OctahedronToolBox6ModMaxEi.exit51:    ; preds = %288, %291, %294
   %.0.i50 = phi i32 [ %290, %288 ], [ %296, %294 ], [ %286, %291 ]
   store i32 %.0.i50, ptr %11, align 8
   %297 = load i32, ptr %indvars.iv.i56.sroa.gep64, align 4
-  %298 = icmp slt i32 %264, %297
+  %298 = icmp sgt i32 %297, %264
   br i1 %298, label %299, label %302
 
 299:                                              ; preds = %_ZNK5draco17OctahedronToolBox6ModMaxEi.exit51
@@ -14446,7 +14446,7 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 2
-  %.not.i.i.i = icmp ugt i64 %32, %.sroa.01.0.i.i
+  %.not.i.i.i = icmp ult i64 %.sroa.01.0.i.i, %32
   br i1 %.not.i.i.i, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i, label %33
 
 33:                                               ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i
@@ -14505,7 +14505,7 @@ _ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_37PredictionSch
   %66 = getelementptr inbounds i8, ptr %6, i64 8
   %67 = getelementptr inbounds i8, ptr %6, i64 16
   %..v = select i1 %.not.i33, i32 2, i32 -1
-  %. = add i32 %..v, %1
+  %. = add i32 %1, %..v
   br label %68
 
 68:                                               ; preds = %.lr.ph, %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit62
@@ -14565,7 +14565,7 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %97 = ptrtoint ptr %95 to i64
   %98 = sub i64 %96, %97
   %99 = ashr exact i64 %98, 2
-  %.not.i.i.i46 = icmp ugt i64 %99, %.sroa.01.0.i.i45
+  %.not.i.i.i46 = icmp ult i64 %.sroa.01.0.i.i45, %99
   br i1 %.not.i.i.i46, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i47, label %100
 
 100:                                              ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i44
@@ -14623,7 +14623,7 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %131 = ptrtoint ptr %129 to i64
   %132 = sub i64 %130, %131
   %133 = ashr exact i64 %132, 2
-  %.not.i.i.i54 = icmp ugt i64 %133, %.sroa.01.0.i.i53
+  %.not.i.i.i54 = icmp ult i64 %.sroa.01.0.i.i53, %133
   br i1 %.not.i.i.i54, label %_ZNKSt6vectorIiSaIiEE2atEm.exit.i55, label %134
 
 134:                                              ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i52
@@ -15384,7 +15384,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i8, ptr %10, align 8
-  %.sroa.speculated24.i = tail call i8 @llvm.umin.i8(i8 %11, i8 %2)
+  %.sroa.speculated24.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %11)
   %12 = icmp eq i8 %.sroa.speculated24.i, 0
   br i1 %12, label %._crit_edge.i, label %.lr.ph.preheader.i
 
@@ -15418,7 +15418,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %31 = getelementptr inbounds i8, ptr %.01525.i, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = load i8, ptr %10, align 8
-  %.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %32, i8 %2)
+  %.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %32)
   %33 = zext i8 %.sroa.speculated.i to i64
   %.not.i = icmp ult i64 %indvars.iv.next.i, %33
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !252
@@ -15431,7 +15431,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 35:                                               ; preds = %6
   %36 = getelementptr inbounds i8, ptr %0, i64 24
   %37 = load i8, ptr %36, align 8
-  %.sroa.speculated24.i46 = tail call i8 @llvm.umin.i8(i8 %37, i8 %2)
+  %.sroa.speculated24.i46 = tail call i8 @llvm.umin.i8(i8 %2, i8 %37)
   %38 = icmp eq i8 %.sroa.speculated24.i46, 0
   br i1 %38, label %._crit_edge.i54, label %.lr.ph.preheader.i47
 
@@ -15465,7 +15465,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %57 = getelementptr inbounds i8, ptr %.01525.i50, i64 1
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
   %58 = load i8, ptr %36, align 8
-  %.sroa.speculated.i52 = tail call i8 @llvm.umin.i8(i8 %58, i8 %2)
+  %.sroa.speculated.i52 = tail call i8 @llvm.umin.i8(i8 %2, i8 %58)
   %59 = zext i8 %.sroa.speculated.i52 to i64
   %.not.i53 = icmp ult i64 %indvars.iv.next.i51, %59
   br i1 %.not.i53, label %.lr.ph.i48, label %._crit_edge.i54, !llvm.loop !253
@@ -15478,7 +15478,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 61:                                               ; preds = %6
   %62 = getelementptr inbounds i8, ptr %0, i64 24
   %63 = load i8, ptr %62, align 8
-  %.sroa.speculated24.i58 = tail call i8 @llvm.umin.i8(i8 %63, i8 %2)
+  %.sroa.speculated24.i58 = tail call i8 @llvm.umin.i8(i8 %2, i8 %63)
   %64 = icmp eq i8 %.sroa.speculated24.i58, 0
   br i1 %64, label %._crit_edge.i66, label %.lr.ph.preheader.i59
 
@@ -15512,7 +15512,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %83 = getelementptr inbounds i8, ptr %.01525.i62, i64 2
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i61, 1
   %84 = load i8, ptr %62, align 8
-  %.sroa.speculated.i64 = tail call i8 @llvm.umin.i8(i8 %84, i8 %2)
+  %.sroa.speculated.i64 = tail call i8 @llvm.umin.i8(i8 %2, i8 %84)
   %85 = zext i8 %.sroa.speculated.i64 to i64
   %.not.i65 = icmp ult i64 %indvars.iv.next.i63, %85
   br i1 %.not.i65, label %.lr.ph.i60, label %._crit_edge.i66, !llvm.loop !254
@@ -15525,7 +15525,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 87:                                               ; preds = %6
   %88 = getelementptr inbounds i8, ptr %0, i64 24
   %89 = load i8, ptr %88, align 8
-  %.sroa.speculated24.i70 = tail call i8 @llvm.umin.i8(i8 %89, i8 %2)
+  %.sroa.speculated24.i70 = tail call i8 @llvm.umin.i8(i8 %2, i8 %89)
   %90 = icmp eq i8 %.sroa.speculated24.i70, 0
   br i1 %90, label %._crit_edge.i78, label %.lr.ph.preheader.i71
 
@@ -15559,7 +15559,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %109 = getelementptr inbounds i8, ptr %.01525.i74, i64 2
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i73, 1
   %110 = load i8, ptr %88, align 8
-  %.sroa.speculated.i76 = tail call i8 @llvm.umin.i8(i8 %110, i8 %2)
+  %.sroa.speculated.i76 = tail call i8 @llvm.umin.i8(i8 %2, i8 %110)
   %111 = zext i8 %.sroa.speculated.i76 to i64
   %.not.i77 = icmp ult i64 %indvars.iv.next.i75, %111
   br i1 %.not.i77, label %.lr.ph.i72, label %._crit_edge.i78, !llvm.loop !255
@@ -15572,7 +15572,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 113:                                              ; preds = %6
   %114 = getelementptr inbounds i8, ptr %0, i64 24
   %115 = load i8, ptr %114, align 8
-  %.sroa.speculated24.i82 = tail call i8 @llvm.umin.i8(i8 %115, i8 %2)
+  %.sroa.speculated24.i82 = tail call i8 @llvm.umin.i8(i8 %2, i8 %115)
   %116 = icmp eq i8 %.sroa.speculated24.i82, 0
   br i1 %116, label %._crit_edge.i90, label %.lr.ph.preheader.i83
 
@@ -15605,7 +15605,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %134 = getelementptr inbounds i8, ptr %.01525.i86, i64 4
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i85, 1
   %135 = load i8, ptr %114, align 8
-  %.sroa.speculated.i88 = tail call i8 @llvm.umin.i8(i8 %135, i8 %2)
+  %.sroa.speculated.i88 = tail call i8 @llvm.umin.i8(i8 %2, i8 %135)
   %136 = zext i8 %.sroa.speculated.i88 to i64
   %.not.i89 = icmp ult i64 %indvars.iv.next.i87, %136
   br i1 %.not.i89, label %.lr.ph.i84, label %._crit_edge.i90, !llvm.loop !256
@@ -15618,7 +15618,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 138:                                              ; preds = %6
   %139 = getelementptr inbounds i8, ptr %0, i64 24
   %140 = load i8, ptr %139, align 8
-  %.sroa.speculated24.i94 = tail call i8 @llvm.umin.i8(i8 %140, i8 %2)
+  %.sroa.speculated24.i94 = tail call i8 @llvm.umin.i8(i8 %2, i8 %140)
   %141 = icmp eq i8 %.sroa.speculated24.i94, 0
   br i1 %141, label %._crit_edge.i102, label %.lr.ph.preheader.i95
 
@@ -15655,7 +15655,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %161 = getelementptr inbounds i8, ptr %.01525.i98, i64 4
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i97, 1
   %162 = load i8, ptr %139, align 8
-  %.sroa.speculated.i100 = tail call i8 @llvm.umin.i8(i8 %162, i8 %2)
+  %.sroa.speculated.i100 = tail call i8 @llvm.umin.i8(i8 %2, i8 %162)
   %163 = zext i8 %.sroa.speculated.i100 to i64
   %.not.i101 = icmp ult i64 %indvars.iv.next.i99, %163
   br i1 %.not.i101, label %.lr.ph.i96, label %._crit_edge.i102, !llvm.loop !257
@@ -15668,7 +15668,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 165:                                              ; preds = %6
   %166 = getelementptr inbounds i8, ptr %0, i64 24
   %167 = load i8, ptr %166, align 8
-  %.sroa.speculated24.i106 = tail call i8 @llvm.umin.i8(i8 %167, i8 %2)
+  %.sroa.speculated24.i106 = tail call i8 @llvm.umin.i8(i8 %2, i8 %167)
   %168 = icmp eq i8 %.sroa.speculated24.i106, 0
   br i1 %168, label %._crit_edge.i114, label %.lr.ph.preheader.i107
 
@@ -15707,7 +15707,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %189 = getelementptr inbounds i8, ptr %.01525.i110, i64 8
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i109, 1
   %190 = load i8, ptr %166, align 8
-  %.sroa.speculated.i112 = tail call i8 @llvm.umin.i8(i8 %190, i8 %2)
+  %.sroa.speculated.i112 = tail call i8 @llvm.umin.i8(i8 %2, i8 %190)
   %191 = zext i8 %.sroa.speculated.i112 to i64
   %.not.i113 = icmp ult i64 %indvars.iv.next.i111, %191
   br i1 %.not.i113, label %.lr.ph.i108, label %._crit_edge.i114, !llvm.loop !258
@@ -15720,7 +15720,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 193:                                              ; preds = %6
   %194 = getelementptr inbounds i8, ptr %0, i64 24
   %195 = load i8, ptr %194, align 8
-  %.sroa.speculated24.i118 = tail call i8 @llvm.umin.i8(i8 %195, i8 %2)
+  %.sroa.speculated24.i118 = tail call i8 @llvm.umin.i8(i8 %2, i8 %195)
   %196 = icmp eq i8 %.sroa.speculated24.i118, 0
   br i1 %196, label %._crit_edge.i126, label %.lr.ph.preheader.i119
 
@@ -15758,7 +15758,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %217 = getelementptr inbounds i8, ptr %.01525.i122, i64 8
   %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i121, 1
   %218 = load i8, ptr %194, align 8
-  %.sroa.speculated.i124 = tail call i8 @llvm.umin.i8(i8 %218, i8 %2)
+  %.sroa.speculated.i124 = tail call i8 @llvm.umin.i8(i8 %2, i8 %218)
   %219 = zext i8 %.sroa.speculated.i124 to i64
   %.not.i125 = icmp ult i64 %indvars.iv.next.i123, %219
   br i1 %.not.i125, label %.lr.ph.i120, label %._crit_edge.i126, !llvm.loop !259
@@ -15771,7 +15771,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 221:                                              ; preds = %6
   %222 = getelementptr inbounds i8, ptr %0, i64 24
   %223 = load i8, ptr %222, align 8
-  %.sroa.speculated25.i = tail call i8 @llvm.umin.i8(i8 %223, i8 %2)
+  %.sroa.speculated25.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %223)
   %224 = icmp eq i8 %.sroa.speculated25.i, 0
   br i1 %224, label %._crit_edge.i135, label %.lr.ph.i130
 
@@ -15837,7 +15837,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %261 = getelementptr inbounds i8, ptr %.01526.i, i64 4
   %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i131, 1
   %262 = load i8, ptr %222, align 8
-  %.sroa.speculated.i133 = tail call i8 @llvm.umin.i8(i8 %262, i8 %2)
+  %.sroa.speculated.i133 = tail call i8 @llvm.umin.i8(i8 %2, i8 %262)
   %263 = zext i8 %.sroa.speculated.i133 to i64
   %.not.i134 = icmp ult i64 %indvars.iv.next.i132, %263
   br i1 %.not.i134, label %236, label %._crit_edge.i135, !llvm.loop !260
@@ -15850,7 +15850,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 265:                                              ; preds = %6
   %266 = getelementptr inbounds i8, ptr %0, i64 24
   %267 = load i8, ptr %266, align 8
-  %.sroa.speculated25.i138 = tail call i8 @llvm.umin.i8(i8 %267, i8 %2)
+  %.sroa.speculated25.i138 = tail call i8 @llvm.umin.i8(i8 %2, i8 %267)
   %268 = icmp eq i8 %.sroa.speculated25.i138, 0
   br i1 %268, label %._crit_edge.i149, label %.lr.ph.i139
 
@@ -15911,7 +15911,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %301 = getelementptr inbounds i8, ptr %.01526.i141, i64 8
   %indvars.iv.next.i146 = add nuw nsw i64 %indvars.iv.i140, 1
   %302 = load i8, ptr %266, align 8
-  %.sroa.speculated.i147 = tail call i8 @llvm.umin.i8(i8 %302, i8 %2)
+  %.sroa.speculated.i147 = tail call i8 @llvm.umin.i8(i8 %2, i8 %302)
   %303 = zext i8 %.sroa.speculated.i147 to i64
   %.not.i148 = icmp ult i64 %indvars.iv.next.i146, %303
   br i1 %.not.i148, label %280, label %._crit_edge.i149, !llvm.loop !261
@@ -15924,7 +15924,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 305:                                              ; preds = %6
   %306 = getelementptr inbounds i8, ptr %0, i64 24
   %307 = load i8, ptr %306, align 8
-  %.sroa.speculated24.i154 = tail call i8 @llvm.umin.i8(i8 %307, i8 %2)
+  %.sroa.speculated24.i154 = tail call i8 @llvm.umin.i8(i8 %2, i8 %307)
   %308 = icmp eq i8 %.sroa.speculated24.i154, 0
   br i1 %308, label %._crit_edge.i162, label %.lr.ph.preheader.i155
 
@@ -15959,7 +15959,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %328 = getelementptr inbounds i8, ptr %.01525.i158, i64 1
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i157, 1
   %329 = load i8, ptr %306, align 8
-  %.sroa.speculated.i160 = tail call i8 @llvm.umin.i8(i8 %329, i8 %2)
+  %.sroa.speculated.i160 = tail call i8 @llvm.umin.i8(i8 %2, i8 %329)
   %330 = zext i8 %.sroa.speculated.i160 to i64
   %.not.i161 = icmp ult i64 %indvars.iv.next.i159, %330
   br i1 %.not.i161, label %.lr.ph.i156, label %._crit_edge.i162, !llvm.loop !262

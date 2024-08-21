@@ -963,7 +963,7 @@ extract_not_arg.exit118.thread:                   ; preds = %201, %199, %209, %1
   br label %219
 
 219:                                              ; preds = %218, %extract_not_arg.exit118.thread
-  %220 = icmp eq ptr %.075, %1
+  %220 = icmp eq ptr %1, %.075
   br i1 %220, label %predicate_refuted_by_simple_clause.exit, label %221
 
 221:                                              ; preds = %219
@@ -1973,7 +1973,7 @@ list_length.exit136:                              ; preds = %15
 
 102:                                              ; preds = %100
   %.not123 = xor i1 %3, true
-  %brmerge = or i1 %.not123, %2
+  %brmerge = or i1 %2, %.not123
   br i1 %brmerge, label %is_opclause.exit.thread, label %103
 
 103:                                              ; preds = %102

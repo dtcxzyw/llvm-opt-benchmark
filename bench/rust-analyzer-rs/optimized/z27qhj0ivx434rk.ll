@@ -754,7 +754,7 @@ common.resume:                                    ; preds = %129, %"_ZN4core3ptr
 51:                                               ; preds = %18
   %52 = getelementptr inbounds i8, ptr %1, i64 56
   %53 = load i64, ptr %52, align 8, !noundef !10
-  %54 = icmp ult i64 %53, %20
+  %54 = icmp ugt i64 %20, %53
   br i1 %54, label %55, label %"_ZN9itertools11lazy_buffer19LazyBuffer$LT$I$GT$7prefill17h78bb1892b0072011E.exit"
 
 55:                                               ; preds = %51
@@ -13472,7 +13472,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h06fe8ff3e6bc7
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !3669, !noalias !3674
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -13561,7 +13561,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h347af92e3a59b
   %15 = getelementptr inbounds i8, ptr %1, i64 72
   %16 = load i64, ptr %15, align 8, !alias.scope !3694, !noalias !3699
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -13650,7 +13650,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h66591bc889d43
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !3719, !noalias !3724
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -13739,7 +13739,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h6819ab316e188
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !3744, !noalias !3749
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -13828,7 +13828,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h9742e374d1233
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !3769, !noalias !3774
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -13917,7 +13917,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h99c4733480256
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !3794, !noalias !3799
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -14006,7 +14006,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h9a0a61cc5d37c
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !3819, !noalias !3824
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -14095,7 +14095,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17hde86a38e93775
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i64, ptr %15, align 8, !alias.scope !3844, !noalias !3849
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -14184,7 +14184,7 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17he22d2ad2a3884
   %15 = getelementptr inbounds i8, ptr %1, i64 72
   %16 = load i64, ptr %15, align 8, !alias.scope !3869, !noalias !3874
   %.sink4.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %17 = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %17, label %20, label %21
 
 18:                                               ; preds = %20, %39, %21
@@ -18770,7 +18770,7 @@ define hidden { ptr, i64 } @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$co
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !4876, !noalias !4879
   %.sink4.i = select i1 %6, i64 %8, i64 %5
-  %9 = icmp ult i64 %.sink4.i, %1
+  %9 = icmp ugt i64 %1, %.sink4.i
   br i1 %9, label %10, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd69d724cff6f53ffE.llvm.6948074339591148053.exit"
 
 10:                                               ; preds = %3
@@ -19894,7 +19894,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 2)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %2
@@ -19998,7 +19998,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 2)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %2

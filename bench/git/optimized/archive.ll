@@ -606,7 +606,7 @@ get_archive_attrs.exit:                           ; preds = %strbuf_addch.exit, 
   %19 = load ptr, ptr @get_archive_attrs.check, align 8
   %20 = load i64, ptr %base, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %20, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %6
+  %cmp.i = icmp ugt i64 %6, %spec.select.i
   br i1 %cmp.i, label %if.then.i31, label %if.end.i
 
 if.then.i31:                                      ; preds = %get_archive_attrs.exit
@@ -649,7 +649,7 @@ st_add.exit.i:                                    ; preds = %if.end
   %add.i.i = add nuw i64 %24, 1
   %call2.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #20
   %sub.i13.i = sub nuw i64 -2, %24
-  %cmp.i14.i = icmp ult i64 %sub.i13.i, %call2.i
+  %cmp.i14.i = icmp ugt i64 %call2.i, %sub.i13.i
   br i1 %cmp.i14.i, label %if.then.i16.i, label %st_add.exit17.i
 
 if.then.i16.i:                                    ; preds = %st_add.exit.i

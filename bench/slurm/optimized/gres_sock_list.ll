@@ -424,7 +424,7 @@ _can_use_gres_exc_topo.exit.thread3._crit_edge.i: ; preds = %_can_use_gres_exc_t
 216:                                              ; preds = %212
   %217 = load i64, ptr %120, align 8
   %218 = icmp ule i64 %.1316.i, %217
-  %brmerge.i = or i1 %218, %3
+  %brmerge.i = or i1 %3, %218
   br i1 %brmerge.i, label %220, label %219
 
 219:                                              ; preds = %216
@@ -690,7 +690,7 @@ _can_use_gres_exc_topo.exit.thread.i:             ; preds = %.loopexit24.us.i, %
 .loopexit21.i:                                    ; preds = %313, %291
   %314 = icmp ult i32 %.091, %42
   %315 = and i1 %49, %314
-  %or.cond403.i = and i1 %315, %9
+  %or.cond403.i = and i1 %9, %315
   br i1 %or.cond403.i, label %316, label %.critedge401.i
 
 316:                                              ; preds = %.loopexit21.i

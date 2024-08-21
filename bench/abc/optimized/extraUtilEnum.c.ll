@@ -2006,7 +2006,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   %.0.i.neg = phi i64 [ %.neg33, %9 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %13 = add nsw i32 %1, 1
-  %14 = icmp slt i32 %13, %0
+  %14 = icmp sgt i32 %0, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %Abc_Clock.exit

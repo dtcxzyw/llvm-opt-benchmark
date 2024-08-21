@@ -1262,7 +1262,7 @@ get_conn_by_number.exit:                          ; preds = %.lr.ph.i
   %15 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.01628) #15
   %16 = ptrtoint ptr %15 to i64
   %17 = trunc i64 %16 to i32
-  %18 = icmp ugt i32 %17, %1
+  %18 = icmp ult i32 %1, %17
   %19 = icmp ne i32 %.029, -1
   %or.cond = select i1 %18, i1 %19, i1 false
   br i1 %or.cond, label %get_conn_by_number.exit.thread.sink.split, label %20
@@ -1330,7 +1330,7 @@ get_conn_by_number.exit:                          ; preds = %.lr.ph.i
   %15 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.022) #15
   %16 = ptrtoint ptr %15 to i64
   %17 = trunc i64 %16 to i32
-  %.not15 = icmp ult i32 %17, %1
+  %.not15 = icmp ugt i32 %1, %17
   br i1 %.not15, label %22, label %18
 
 18:                                               ; preds = %.lr.ph
@@ -5547,7 +5547,7 @@ quic_is_pp_cipher_initialized.exit:               ; preds = %21
   %43 = trunc i64 %42 to i8
   %44 = trunc nuw nsw i64 %indvars.iv.i to i32
   %45 = xor i32 %44, -1
-  %46 = add i32 %45, %4
+  %46 = add i32 %4, %45
   %47 = zext i32 %46 to i64
   %48 = getelementptr i8, ptr %40, i64 %47
   store i8 %43, ptr %48, align 1
@@ -7897,7 +7897,7 @@ define internal fastcc void @dissect_quic_crypto_payload(ptr noundef %0, i32 nou
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
-  %15 = add i32 %14, %2
+  %15 = add i32 %2, %14
   %16 = getelementptr inbounds i8, ptr %3, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef 16) #15
@@ -7951,7 +7951,7 @@ define internal fastcc void @dissect_quic_crypto_payload(ptr noundef %0, i32 nou
   %51 = trunc i64 %50 to i32
   %52 = sub i32 %2, %51
   %53 = trunc i64 %48 to i32
-  %54 = add i32 %51, %1
+  %54 = add i32 %1, %51
   %55 = tail call ptr @wmem_file_scope() #15
   %56 = tail call noalias ptr @wmem_alloc(ptr noundef %55, i64 noundef 8) #15
   %57 = load i64, ptr %6, align 8
@@ -7995,7 +7995,7 @@ define internal fastcc void @dissect_quic_crypto_payload(ptr noundef %0, i32 nou
   %81 = trunc i64 %80 to i32
   %82 = sub i32 %2, %81
   %83 = trunc i64 %78 to i32
-  %84 = add i32 %81, %1
+  %84 = add i32 %1, %81
   br label %86
 
 85:                                               ; preds = %74

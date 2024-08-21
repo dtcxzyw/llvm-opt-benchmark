@@ -111,7 +111,7 @@ define noundef i32 @_ZNK3gmx17AnalysisDataProxy5flagsEv(ptr nocapture nonnull re
 define void @_ZN3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
@@ -148,7 +148,7 @@ define void @_ZN3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataE
 define noundef zeroext i1 @_ZN3gmx17AnalysisDataProxy19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef %1, ptr noundef nonnull align 1 %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3

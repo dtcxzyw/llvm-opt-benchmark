@@ -719,7 +719,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !136, !noalias !141, !noundef !13
   %45 = load i64, ptr %0, align 8, !alias.scope !143, !noalias !141, !noundef !13
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h40c8483e9cbd89edE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -773,7 +773,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !149, !noalias !154, !noundef !13
   %6 = load i64, ptr %0, align 8, !alias.scope !156, !noalias !154, !noundef !13
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h40c8483e9cbd89edE.exit"
 
 9:                                                ; preds = %3
@@ -1756,7 +1756,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   %.val = load ptr, ptr %44, align 8, !nonnull !13, !noundef !13
   %45 = getelementptr i8, ptr %1, i64 16
   %.val71 = load i64, ptr %45, align 8, !noundef !13
-  %46 = icmp ult i64 %40, %.val71
+  %46 = icmp ugt i64 %.val71, %40
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %38
@@ -1994,7 +1994,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   %.val.i172 = load ptr, ptr %114, align 8, !noalias !382, !nonnull !13, !noundef !13
   %115 = getelementptr i8, ptr %.sroa.0246.0335, i64 16
   %.val3.i173 = load i64, ptr %115, align 8, !noalias !382, !noundef !13
-  %.not.i.i177 = icmp ult i64 %.sroa.27.0337, %4
+  %.not.i.i177 = icmp ugt i64 %4, %.sroa.27.0337
   br i1 %.not.i.i177, label %116, label %117
 
 116:                                              ; preds = %.lr.ph338
@@ -2143,7 +2143,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %10 = load i64, ptr %9, align 8, !alias.scope !419, !noundef !13
   %11 = load i64, ptr %0, align 8, !alias.scope !419, !noundef !13
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %8
+  %13 = icmp ugt i64 %8, %12
   br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h08eba3580a696f3eE.exit"
 
 14:                                               ; preds = %3
@@ -2167,7 +2167,7 @@ define hidden void @"_ZN93_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %10 = load i64, ptr %9, align 8, !alias.scope !422, !noundef !13
   %11 = load i64, ptr %0, align 8, !alias.scope !422, !noundef !13
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %8
+  %13 = icmp ugt i64 %8, %12
   br i1 %13, label %14, label %"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17he018635eea6e8cc9E.llvm.1608441457073776224.exit"
 
 14:                                               ; preds = %3

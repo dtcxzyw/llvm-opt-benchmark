@@ -759,13 +759,13 @@ declare i32 @cs_fkeep(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 define internal range(i32 0, 2) i32 @cs_rprune(i32 noundef %0, i32 %1, double %2, ptr nocapture noundef readonly %3) #2 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not = icmp sgt i32 %6, %0
+  %.not = icmp slt i32 %0, %6
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = icmp sgt i32 %9, %0
+  %10 = icmp slt i32 %0, %9
   %11 = zext i1 %10 to i32
   br label %12
 

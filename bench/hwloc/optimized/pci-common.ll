@@ -1426,25 +1426,25 @@ tailrecurse.loopexit.i:                           ; preds = %82, %66
   %36 = getelementptr inbounds i8, ptr %32, i64 4
   %37 = load i8, ptr %36, align 4
   %38 = zext i8 %37 to i32
-  %39 = icmp eq i32 %38, %2
+  %39 = icmp eq i32 %2, %38
   br i1 %39, label %40, label %50
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds i8, ptr %32, i64 5
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
-  %44 = icmp eq i32 %43, %3
+  %44 = icmp eq i32 %3, %43
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %32, i64 6
   %47 = load i8, ptr %46, align 2
   %48 = zext i8 %47 to i32
-  %49 = icmp eq i32 %48, %4
+  %49 = icmp eq i32 %4, %48
   br i1 %49, label %hwloc__pci_find_by_busid.exit, label %50
 
 50:                                               ; preds = %45, %40, %35
-  %51 = icmp ugt i32 %38, %2
+  %51 = icmp ult i32 %2, %38
   br i1 %51, label %hwloc__pci_find_by_busid.exit, label %.thread61.i
 
 .thread.i:                                        ; preds = %31
@@ -1471,14 +1471,14 @@ tailrecurse.loopexit.i:                           ; preds = %82, %66
   %63 = getelementptr inbounds i8, ptr %32, i64 32
   %64 = load i8, ptr %63, align 4
   %65 = zext i8 %64 to i32
-  %.not59.i = icmp ugt i32 %65, %2
+  %.not59.i = icmp ult i32 %2, %65
   br i1 %.not59.i, label %86, label %66
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds i8, ptr %32, i64 33
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
-  %.not60.i = icmp ult i32 %69, %2
+  %.not60.i = icmp ugt i32 %2, %69
   br i1 %.not60.i, label %86, label %tailrecurse.loopexit.i
 
 70:                                               ; preds = %25
@@ -1497,14 +1497,14 @@ tailrecurse.loopexit.i:                           ; preds = %82, %66
   %79 = getelementptr inbounds i8, ptr %27, i64 32
   %80 = load i8, ptr %79, align 4
   %81 = zext i8 %80 to i32
-  %.not57.i = icmp ugt i32 %81, %2
+  %.not57.i = icmp ult i32 %2, %81
   br i1 %.not57.i, label %86, label %82
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds i8, ptr %27, i64 33
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
-  %.not58.i = icmp ult i32 %85, %2
+  %.not58.i = icmp ugt i32 %2, %85
   br i1 %.not58.i, label %86, label %tailrecurse.loopexit.i
 
 86:                                               ; preds = %82, %78, %74, %70, %66, %62, %58, %54, %.thread61.i, %23
@@ -1557,7 +1557,7 @@ define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr nocapture noundef reado
   %15 = getelementptr inbounds i8, ptr %0, i64 %11
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
-  %18 = icmp eq i32 %17, %1
+  %18 = icmp eq i32 %1, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %14
@@ -1647,8 +1647,8 @@ define range(i32 -1, 1) i32 @hwloc_pcidisc_find_bridge_buses(i32 noundef %0, i32
   %11 = getelementptr inbounds i8, ptr %6, i64 26
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
-  %.not29 = icmp ule i32 %10, %1
-  %.not30 = icmp ule i32 %13, %1
+  %.not29 = icmp uge i32 %1, %10
+  %.not30 = icmp uge i32 %1, %13
   %14 = icmp ugt i8 %9, %12
   %15 = or i1 %14, %.not30
   %or.cond31 = select i1 %.not29, i1 true, i1 %15

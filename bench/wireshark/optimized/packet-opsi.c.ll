@@ -445,7 +445,7 @@ tailrecurse.outer.i.i:                            ; preds = %._crit_edge.i
   %58 = getelementptr [53 x %struct.opsi_attribute_handle_t], ptr @opsi_attributes, i64 0, i64 %57
   %59 = load i16, ptr %58, align 8
   %60 = zext i16 %59 to i32
-  %61 = icmp eq i16 %59, %46
+  %61 = icmp eq i16 %46, %59
   br i1 %61, label %get_opsi_attribute_index.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %52, %tailrecurse.outer.i.i
@@ -482,7 +482,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i
   %72 = zext nneg i32 %71 to i64
   %73 = getelementptr [53 x %struct.opsi_attribute_handle_t], ptr @opsi_attributes, i64 0, i64 %72
   %74 = load i16, ptr %73, align 8
-  %75 = icmp eq i16 %74, %46
+  %75 = icmp eq i16 %46, %74
   br i1 %75, label %get_opsi_attribute_index.exit.i, label %65
 
 get_opsi_attribute_index.exit.i:                  ; preds = %tailrecurse.outer.i.i, %tailrecurse.i.i

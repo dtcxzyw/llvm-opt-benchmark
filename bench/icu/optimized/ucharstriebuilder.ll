@@ -110,7 +110,7 @@ entry:
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %strings, i64 12
   %3 = load i32, ptr %fLength.i.i.i.i, align 4, !noalias !4
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %3, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %0
+  %cmp.i.i.i = icmp ult i32 %0, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -137,7 +137,7 @@ _ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit: ; preds = %
   %shr.i.i.i.i.i5 = sext i16 %10 to i32
   %11 = load i32, ptr %fLength.i.i.i.i, align 4, !noalias !7
   %cond.i.i.i.i7 = select i1 %cmp.i.i.i.i.i4, i32 %11, i32 %shr.i.i.i.i.i5
-  %cmp.i.i.i8 = icmp ugt i32 %cond.i.i.i.i7, %8
+  %cmp.i.i.i8 = icmp ult i32 %8, %cond.i.i.i.i7
   br i1 %cmp.i.i.i8, label %if.then.i.i.i11, label %_ZNK6icu_7513UnicodeStringixEi.exit.i
 
 if.then.i.i.i11:                                  ; preds = %_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit
@@ -190,7 +190,7 @@ if.else.i.i:                                      ; preds = %invoke.cont
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
   %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
   %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %cond.i6.i)
+  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
   %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
   %24 = and i16 %17, 2
   %tobool.not.i.i.i = icmp eq i16 %24, 0
@@ -237,7 +237,7 @@ entry:
   %fLength.i.i.i = getelementptr inbounds i8, ptr %strings, i64 12
   %3 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %3, i32 %shr.i.i.i.i
-  %cmp.i.i = icmp ugt i32 %cond.i.i.i, %0
+  %cmp.i.i = icmp ult i32 %0, %cond.i.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit
 
 if.then.i.i:                                      ; preds = %entry
@@ -615,7 +615,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %shr.i.i.i.i.i = sext i16 %12 to i32
   %13 = load i32, ptr %fLength.i.i.i.i, align 4, !noalias !10
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %13, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %10
+  %cmp.i.i.i = icmp ult i32 %10, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit.i
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -834,7 +834,7 @@ entry:
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %4 = load i32, ptr %fLength.i.i.i.i, align 4
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %4, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %1
+  %cmp.i.i.i = icmp ult i32 %1, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6icu_7517UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -873,7 +873,7 @@ entry:
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %4 = load i32, ptr %fLength.i.i.i.i, align 4
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %4, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %add2.i
+  %cmp.i.i.i = icmp ult i32 %add2.i, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -922,7 +922,7 @@ entry:
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %4 = load i32, ptr %fLength.i.i.i.i, align 4
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %4, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %1
+  %cmp.i.i.i = icmp ult i32 %1, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %entry._ZNK6icu_7517UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit_crit_edge
 
 entry._ZNK6icu_7517UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit_crit_edge: ; preds = %entry
@@ -967,7 +967,7 @@ while.cond:                                       ; preds = %_ZNK6icu_7517UChars
 land.rhs:                                         ; preds = %while.cond
   %13 = trunc nsw i64 %indvars.iv to i32
   %add2.i.reass = add i32 %invariant.op, %13
-  %cmp.i.i.i10 = icmp ugt i32 %cond.i.i.i.i, %add2.i.reass
+  %cmp.i.i.i10 = icmp ult i32 %add2.i.reass, %cond.i.i.i.i
   br i1 %cmp.i.i.i10, label %if.then.i.i.i12, label %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
 if.then.i.i.i12:                                  ; preds = %land.rhs
@@ -982,7 +982,7 @@ _ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %la
   %16 = trunc i64 %indvars.iv to i32
   %17 = add i32 %16, 2
   %add2.i20 = add i32 %15, %17
-  %cmp.i.i.i26 = icmp ugt i32 %cond.i.i.i.i, %add2.i20
+  %cmp.i.i.i26 = icmp ult i32 %add2.i20, %cond.i.i.i.i
   br i1 %cmp.i.i.i26, label %if.then.i.i.i28, label %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit35
 
 if.then.i.i.i28:                                  ; preds = %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
@@ -1035,7 +1035,7 @@ do.body:                                          ; preds = %while.end, %entry
   %arrayidx = getelementptr inbounds %"class.icu_75::UCharsTrieElement", ptr %0, i64 %idxprom
   %7 = load i32, ptr %arrayidx, align 4
   %add2.i = add i32 %7, %add.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %add2.i
+  %cmp.i.i.i = icmp ult i32 %add2.i, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
 if.then.i.i.i:                                    ; preds = %do.body
@@ -1058,7 +1058,7 @@ land.rhs:                                         ; preds = %while.cond
   %arrayidx4 = getelementptr inbounds %"class.icu_75::UCharsTrieElement", ptr %0, i64 %indvars.iv.next
   %9 = load i32, ptr %arrayidx4, align 4
   %add2.i9 = add i32 %9, %add.i
-  %cmp.i.i.i15 = icmp ugt i32 %cond.i.i.i.i, %add2.i9
+  %cmp.i.i.i15 = icmp ult i32 %add2.i9, %cond.i.i.i.i
   br i1 %cmp.i.i.i15, label %if.then.i.i.i17, label %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit24
 
 if.then.i.i.i17:                                  ; preds = %land.rhs
@@ -1111,7 +1111,7 @@ do.body:                                          ; preds = %do.cond, %entry
   %arrayidx = getelementptr inbounds %"class.icu_75::UCharsTrieElement", ptr %0, i64 %idxprom
   %6 = load i32, ptr %arrayidx, align 4
   %add2.i = add i32 %6, %add.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %add2.i
+  %cmp.i.i.i = icmp ult i32 %add2.i, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
 if.then.i.i.i:                                    ; preds = %do.body
@@ -1130,7 +1130,7 @@ while.cond:                                       ; preds = %_ZNK6icu_7517UChars
   %arrayidx4 = getelementptr inbounds %"class.icu_75::UCharsTrieElement", ptr %0, i64 %indvars.iv.next
   %8 = load i32, ptr %arrayidx4, align 4
   %add2.i6 = add i32 %8, %add.i
-  %cmp.i.i.i12 = icmp ugt i32 %cond.i.i.i.i, %add2.i6
+  %cmp.i.i.i12 = icmp ult i32 %add2.i6, %cond.i.i.i.i
   br i1 %cmp.i.i.i12, label %if.then.i.i.i14, label %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit21
 
 if.then.i.i.i14:                                  ; preds = %while.cond
@@ -1182,7 +1182,7 @@ while.cond:                                       ; preds = %_ZNK6icu_7517UChars
   %arrayidx = getelementptr inbounds %"class.icu_75::UCharsTrieElement", ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %arrayidx, align 4
   %add2.i = add i32 %add.i, %7
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %add2.i
+  %cmp.i.i.i = icmp ult i32 %add2.i, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
 if.then.i.i.i:                                    ; preds = %while.cond
@@ -1193,7 +1193,7 @@ if.then.i.i.i:                                    ; preds = %while.cond
 
 _ZNK6icu_7517UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %while.cond, %if.then.i.i.i
   %retval.0.i.i.i = phi i16 [ %8, %if.then.i.i.i ], [ -1, %while.cond ]
-  %cmp = icmp eq i16 %retval.0.i.i.i, %unit
+  %cmp = icmp eq i16 %unit, %retval.0.i.i.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !20
 
@@ -1329,7 +1329,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %ucharsCapacity.i = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load i32, ptr %ucharsCapacity.i, align 8
-  %cmp2.i = icmp slt i32 %2, %add
+  %cmp2.i = icmp sgt i32 %add, %2
   br i1 %cmp2.i, label %do.body.i, label %if.then
 
 do.body.i:                                        ; preds = %if.end.i, %do.body.i
@@ -1407,7 +1407,7 @@ new.notnull:                                      ; preds = %entry
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %4 = load i32, ptr %fLength.i.i.i.i, align 4, !noalias !22
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %4, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %1
+  %cmp.i.i.i = icmp ult i32 %1, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit.i
 
 if.then.i.i.i:                                    ; preds = %new.notnull
@@ -1493,7 +1493,7 @@ entry:
 if.end:                                           ; preds = %entry
   %ucharsCapacity = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i32, ptr %ucharsCapacity, align 8
-  %cmp2 = icmp slt i32 %1, %length
+  %cmp2 = icmp sgt i32 %length, %1
   br i1 %cmp2, label %do.body, label %return
 
 do.body:                                          ; preds = %if.end, %do.body
@@ -1554,7 +1554,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %ucharsCapacity.i = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load i32, ptr %ucharsCapacity.i, align 8
-  %cmp2.i.not = icmp sgt i32 %2, %0
+  %cmp2.i.not = icmp slt i32 %0, %2
   br i1 %cmp2.i.not, label %if.then, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i, %do.body.i
@@ -1628,7 +1628,7 @@ entry:
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %4 = load i32, ptr %fLength.i.i.i.i, align 4, !noalias !25
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %4, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i = icmp ugt i32 %cond.i.i.i.i, %1
+  %cmp.i.i.i = icmp ult i32 %1, %cond.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6icu_7517UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit
 
 if.then.i.i.i:                                    ; preds = %entry

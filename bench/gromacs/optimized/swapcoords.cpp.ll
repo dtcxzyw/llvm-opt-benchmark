@@ -679,13 +679,13 @@ _ZL18bConvertFromOldTprP12t_swapcoords.exit.thread.thread: ; preds = %_ZL18bConv
   %126 = getelementptr inbounds i8, ptr %125, i64 4
   %127 = load i32, ptr %126, align 4
   %.fr1.i.i.i = freeze i32 %127
-  %128 = icmp sgt i32 %.fr1.i.i.i, %114
+  %128 = icmp slt i32 %114, %.fr1.i.i.i
   br i1 %128, label %132, label %129
 
 129:                                              ; preds = %123
   %130 = getelementptr inbounds i8, ptr %125, i64 8
   %131 = load i32, ptr %130, align 4
-  %.not.i.i.i = icmp sgt i32 %131, %114
+  %.not.i.i.i = icmp slt i32 %114, %131
   br i1 %.not.i.i.i, label %_ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit.i, label %132
 
 132:                                              ; preds = %129, %123
@@ -1339,13 +1339,13 @@ _ZL28outputStartStructureIfWantedRK10gmx_mtop_tPA3_f7PbcTypePA3_Kf.exit.i: ; pre
   %478 = getelementptr inbounds i8, ptr %477, i64 4
   %479 = load i32, ptr %478, align 4
   %.fr1.i.i = freeze i32 %479
-  %480 = icmp sgt i32 %.fr1.i.i, %466
+  %480 = icmp slt i32 %466, %.fr1.i.i
   br i1 %480, label %484, label %481
 
 481:                                              ; preds = %475
   %482 = getelementptr inbounds i8, ptr %477, i64 8
   %483 = load i32, ptr %482, align 4
-  %.not.i.i352 = icmp sgt i32 %483, %466
+  %.not.i.i352 = icmp slt i32 %466, %483
   br i1 %.not.i.i352, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, label %484
 
 484:                                              ; preds = %481, %475
@@ -1407,13 +1407,13 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %481
   %514 = getelementptr inbounds i8, ptr %513, i64 4
   %515 = load i32, ptr %514, align 4
   %.fr1.i29.i = freeze i32 %515
-  %516 = icmp sgt i32 %.fr1.i29.i, %510
+  %516 = icmp slt i32 %510, %.fr1.i29.i
   br i1 %516, label %520, label %517
 
 517:                                              ; preds = %511
   %518 = getelementptr inbounds i8, ptr %513, i64 8
   %519 = load i32, ptr %518, align 4
-  %.not.i30.i = icmp sgt i32 %519, %510
+  %.not.i30.i = icmp slt i32 %510, %519
   br i1 %.not.i30.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit33.i, label %520
 
 520:                                              ; preds = %517, %511
@@ -1483,13 +1483,13 @@ _ZL19get_group_apm_checkiP6t_swapbRK10gmx_mtop_t.exit: ; preds = %507, %497
   %551 = getelementptr inbounds i8, ptr %550, i64 4
   %552 = load i32, ptr %551, align 4
   %.fr1.i.i362 = freeze i32 %552
-  %553 = icmp sgt i32 %.fr1.i.i362, %539
+  %553 = icmp slt i32 %539, %.fr1.i.i362
   br i1 %553, label %557, label %554
 
 554:                                              ; preds = %548
   %555 = getelementptr inbounds i8, ptr %550, i64 8
   %556 = load i32, ptr %555, align 4
-  %.not.i.i363 = icmp sgt i32 %556, %539
+  %.not.i.i363 = icmp slt i32 %539, %556
   br i1 %.not.i.i363, label %_ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit, label %557
 
 557:                                              ; preds = %554, %548
@@ -1581,13 +1581,13 @@ _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit: ; preds = %554
   %613 = getelementptr inbounds i8, ptr %612, i64 4
   %614 = load i32, ptr %613, align 4
   %.fr1.i.i.i369 = freeze i32 %614
-  %615 = icmp sgt i32 %.fr1.i.i.i369, %601
+  %615 = icmp slt i32 %601, %.fr1.i.i.i369
   br i1 %615, label %619, label %616
 
 616:                                              ; preds = %610
   %617 = getelementptr inbounds i8, ptr %612, i64 8
   %618 = load i32, ptr %617, align 4
-  %.not.i.i.i370 = icmp sgt i32 %618, %601
+  %.not.i.i.i370 = icmp slt i32 %601, %618
   br i1 %.not.i.i.i370, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, label %619
 
 619:                                              ; preds = %616, %610
@@ -3744,7 +3744,7 @@ define internal fastcc void @_ZL18copyIndicesToGroupPKiiP11t_swapGroupP9t_commre
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, -1
   %13 = add nsw i32 %11, %7
-  %.not = icmp eq i32 %13, %1
+  %.not = icmp eq i32 %1, %13
   %or.cond = select i1 %12, i1 true, i1 %.not
   br i1 %or.cond, label %33, label %14
 
@@ -3863,7 +3863,7 @@ _ZNSt16allocator_traitsISaI10swap_groupEE9constructIS0_JN3gmx12LocalAtomSetEEEEv
 _ZNSt6vectorI10swap_groupSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaI10swap_groupEE9constructIS0_JN3gmx12LocalAtomSetEEEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaI10swap_groupEE9constructIS0_JN3gmx12LocalAtomSetEEEEvRS1_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 240
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorI10swap_groupSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorI10swap_groupSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i27
@@ -4196,7 +4196,7 @@ _ZL11add_to_listiP16swap_compartmentf.exit:       ; preds = %108, %111
 133:                                              ; preds = %130, %_ZL11add_to_listiP16swap_compartmentf.exit
   %134 = load ptr, ptr %34, align 8
   %.not95 = icmp eq ptr %134, null
-  %brmerge = or i1 %.not95, %8
+  %brmerge = or i1 %8, %.not95
   br i1 %brmerge, label %270, label %135
 
 135:                                              ; preds = %133
@@ -4507,7 +4507,7 @@ _ZL18update_time_windowP16swap_compartmentii.exit: ; preds = %288, %284
 300:                                              ; preds = %297
   %301 = load i32, ptr %33, align 8
   %302 = icmp sgt i32 %301, 1
-  %brmerge96 = or i1 %302, %8
+  %brmerge96 = or i1 %8, %302
   br i1 %brmerge96, label %316, label %304
 
 303:                                              ; preds = %297
@@ -4685,7 +4685,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17
@@ -4775,7 +4775,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRA8_KcEEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRA8_KcEEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -5726,7 +5726,7 @@ _ZL19translate_positionsPA3_fiPfS1_P5t_pbc.exit243: ; preds = %430, %_ZL19transl
 
 497:                                              ; preds = %._crit_edge335
   %.not191 = icmp ne i32 %.1.lcssa, 0
-  %brmerge.not = and i1 %.not191, %8
+  %brmerge.not = and i1 %8, %.not191
   br i1 %brmerge.not, label %498, label %505
 
 498:                                              ; preds = %497

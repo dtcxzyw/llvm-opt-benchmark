@@ -159,11 +159,11 @@ declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #3
 define void @Ssw_ReportOneOutput(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %3, align 8
-  %4 = icmp eq ptr %.val, %1
+  %4 = icmp eq ptr %1, %.val
   %5 = ptrtoint ptr %.val to i64
   %6 = xor i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
-  %8 = icmp eq ptr %7, %1
+  %8 = icmp eq ptr %1, %7
   %.str.1..str.2 = select i1 %8, ptr @.str.1, ptr @.str.2
   %.str.1.sink = select i1 %4, ptr @.str, ptr %.str.1..str.2
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull %.str.1.sink)
@@ -235,7 +235,7 @@ define void @Ssw_ReportOutputs(ptr nocapture noundef readonly %0) local_unnamed_
   %15 = getelementptr i8, ptr %11, i64 8
   %.val12 = load ptr, ptr %15, align 8
   %.val.i = load ptr, ptr %6, align 8
-  %16 = icmp eq ptr %.val.i, %.val12
+  %16 = icmp eq ptr %.val12, %.val.i
   %17 = ptrtoint ptr %.val.i to i64
   %18 = xor i64 %17, 1
   %19 = inttoptr i64 %18 to ptr

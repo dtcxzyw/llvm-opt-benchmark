@@ -261,13 +261,13 @@ define range(i32 -1, 2) i32 @H5T__vlen_set_loc(ptr noundef %0, ptr noundef %1, i
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 52
   %9 = load i32, ptr %8, align 4
-  %.not = icmp eq i32 %9, %2
+  %.not = icmp eq i32 %2, %9
   br i1 %.not, label %10, label %13
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %7, i64 64
   %12 = load ptr, ptr %11, align 8
-  %.not33 = icmp eq ptr %12, %1
+  %.not33 = icmp eq ptr %1, %12
   br i1 %.not33, label %73, label %13
 
 13:                                               ; preds = %10, %3

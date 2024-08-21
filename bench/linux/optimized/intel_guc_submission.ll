@@ -6677,7 +6677,7 @@ define internal fastcc i32 @guc_submission_send_busy_loop(ptr noundef %0, ptr no
   %24 = or disjoint i32 %23, -2147483648
   %25 = call i32 @intel_guc_ct_send(ptr noundef %22, ptr noundef %1, i32 noundef %2, ptr noundef null, i32 noundef 0, i32 noundef %24) #20
   %26 = icmp eq i32 %25, -16
-  %27 = and i1 %26, %4
+  %27 = and i1 %4, %26
   br i1 %27, label %.preheader, label %.loopexit, !prof !66
 
 .preheader:                                       ; preds = %.thread

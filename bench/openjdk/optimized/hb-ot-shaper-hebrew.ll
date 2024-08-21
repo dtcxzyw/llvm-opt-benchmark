@@ -242,7 +242,7 @@ define internal void @_ZL20reorder_marks_hebrewPK18hb_ot_shape_plan_tP11hb_buffe
 40:                                               ; preds = %29, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %3
+  %exitcond.not = icmp eq i32 %3, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %40, %4, %38

@@ -5234,7 +5234,7 @@ while.cond:                                       ; preds = %_ZN6vectorIjLb0EjE9
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %while.cond
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not = icmp ugt i32 %1, %src
+  %cmp.not = icmp ult i32 %src, %1
   br i1 %cmp.not, label %while.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
@@ -5266,7 +5266,7 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %lor.lhs.false.i, %i
 while.end:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %m_elems_start = getelementptr inbounds i8, ptr %this, i64 4
   %7 = load i32, ptr %m_elems_start, align 4
-  %cmp4 = icmp ugt i32 %7, %src
+  %cmp4 = icmp ult i32 %src, %7
   br i1 %cmp4, label %if.then, label %while.end.if.end_crit_edge
 
 while.end.if.end_crit_edge:                       ; preds = %while.end

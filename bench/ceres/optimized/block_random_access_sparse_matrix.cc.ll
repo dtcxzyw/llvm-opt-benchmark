@@ -322,7 +322,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %110 = ptrtoint ptr %108 to i64
   %111 = sub i64 %109, %110
   %112 = sdiv exact i64 %111, 40
-  %113 = icmp ult i64 %112, %80
+  %113 = icmp ugt i64 %80, %112
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %104
@@ -331,7 +331,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
           to label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 116:                                              ; preds = %104
-  %117 = icmp ugt i64 %112, %80
+  %117 = icmp ult i64 %80, %112
   br i1 %117, label %118, label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit
 
 118:                                              ; preds = %116
@@ -1031,7 +1031,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt10unique_ptrIN5ceres8internal8CellInfoESt14defaul
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = icmp eq ptr %12, %11
+  %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZNSt10_HashtableIlSt4pairIKlSt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZNSt10_HashtableIlSt4pairIKlSt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -1914,7 +1914,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt10unique_ptrIN5ceres8internal8CellInfoESt14defaul
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 96
-  %16 = icmp eq ptr %15, %14
+  %16 = icmp eq ptr %14, %15
   br i1 %16, label %_ZNSt13unordered_mapIlSt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESt4hashIlESt8equal_toIlESaISt4pairIKlS6_EEED2Ev.exit, label %17
 
 17:                                               ; preds = %_ZNSt10_HashtableIlSt4pairIKlSt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -2361,7 +2361,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt10unique_ptrIN5ceres8internal8CellInfoESt14defaul
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableIlSt4pairIKlSt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableIlSt4pairIKlSt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge

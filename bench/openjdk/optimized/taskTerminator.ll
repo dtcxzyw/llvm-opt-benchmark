@@ -213,7 +213,7 @@ define hidden void @_ZN14TaskTerminator18prepare_for_returnEP6Threadm(ptr nounde
   %10 = load volatile i32, ptr %9, align 8
   %11 = add i32 %10, -1
   %12 = zext i32 %11 to i64
-  %.not = icmp ugt i64 %12, %2
+  %.not = icmp ult i64 %2, %12
   br i1 %.not, label %.preheader, label %15
 
 .preheader:                                       ; preds = %8
@@ -506,7 +506,7 @@ _ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit20: ; preds = %.split49.us
 116:                                              ; preds = %115, %.split51.us
   %117 = load volatile i32, ptr %11, align 8
   %118 = add i32 %117, -1
-  %.not.i21 = icmp ugt i32 %118, %.us-phi52
+  %.not.i21 = icmp ult i32 %.us-phi52, %118
   br i1 %.not.i21, label %.preheader.i22, label %120
 
 .preheader.i22:                                   ; preds = %116

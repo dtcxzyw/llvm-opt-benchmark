@@ -1912,7 +1912,7 @@ Xz_ParseHeader.exit:                              ; preds = %118
   %297 = sext i32 %296 to i64
   %298 = shl nsw i64 %297, 2
   %299 = add nsw i64 %298, 4
-  %300 = icmp eq i64 %299, %295
+  %300 = icmp eq i64 %295, %299
   br i1 %300, label %301, label %Xz_ParseHeader.exit.thread
 
 301:                                              ; preds = %291

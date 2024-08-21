@@ -1342,7 +1342,7 @@ entry:
   %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr %d_charClass.i, i64 0, i64 %conv2.i
   %1 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv3.i = zext i8 %1 to i32
-  %and.i = and i32 %conv3.i, %cc
+  %and.i = and i32 %cc, %conv3.i
   %tobool.i = icmp ne i32 %and.i, 0
   br i1 %tobool.i, label %if.end, label %return
 
@@ -1515,7 +1515,7 @@ entry:
   %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr %d_charClass.i, i64 0, i64 %conv2.i
   %1 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv3.i = zext i8 %1 to i32
-  %and.i = and i32 %conv3.i, %cc
+  %and.i = and i32 %cc, %conv3.i
   %tobool.i = icmp ne i32 %and.i, 0
   br i1 %tobool.i, label %if.end, label %return
 
@@ -1602,7 +1602,7 @@ entry:
   %arrayidx.i.i.i6 = getelementptr inbounds [256 x i8], ptr %d_charClass.i, i64 0, i64 %conv2.i5
   %1 = load i8, ptr %arrayidx.i.i.i6, align 1
   %conv3.i7 = zext i8 %1 to i32
-  %and.i8 = and i32 %conv3.i7, %cc
+  %and.i8 = and i32 %cc, %conv3.i7
   %tobool.i.not9 = icmp eq i32 %and.i8, 0
   br i1 %tobool.i.not9, label %if.then, label %if.end.lr.ph
 
@@ -1694,7 +1694,7 @@ _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %if.then.i.i.i, %_ZN
   %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr %d_charClass.i, i64 0, i64 %conv2.i
   %8 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv3.i = zext i8 %8 to i32
-  %and.i = and i32 %conv3.i, %cc
+  %and.i = and i32 %cc, %conv3.i
   %tobool.i.not = icmp eq i32 %and.i, 0
   br i1 %tobool.i.not, label %if.then, label %if.end, !llvm.loop !13
 }

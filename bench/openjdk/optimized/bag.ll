@@ -197,7 +197,7 @@ define hidden void @bagDelete(ptr nocapture noundef %0, ptr noundef writeonly %1
   %9 = mul nsw i32 %7, %5
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %8, i64 %10
-  %.not = icmp eq ptr %11, %1
+  %.not = icmp eq ptr %1, %11
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %2

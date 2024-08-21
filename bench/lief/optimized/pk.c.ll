@@ -304,7 +304,7 @@ mbedtls_pk_get_len.exit:                          ; preds = %39
   %47 = tail call i64 %44(ptr noundef %46) #6
   %48 = add i64 %47, 7
   %49 = lshr i64 %48, 3
-  %50 = icmp ugt i64 %49, %7
+  %50 = icmp ult i64 %7, %49
   br i1 %50, label %mbedtls_pk_verify.exit, label %51
 
 51:                                               ; preds = %mbedtls_pk_get_len.exit
@@ -347,7 +347,7 @@ mbedtls_pk_rsa.exit:                              ; preds = %.thread, %51, %mbed
 
 mbedtls_pk_get_len.exit38:                        ; preds = %62, %65
   %.0.i.i37 = phi i64 [ %71, %65 ], [ 0, %62 ]
-  %72 = icmp ult i64 %.0.i.i37, %7
+  %72 = icmp ugt i64 %7, %.0.i.i37
   %. = select i1 %72, i32 -14592, i32 0
   br label %mbedtls_pk_verify.exit
 

@@ -883,7 +883,7 @@ define void @_Z20gmx_ana_poscalc_freeP17gmx_ana_poscalc_t(ptr noundef %0) local_
 16:                                               ; preds = %7
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, %0
+  %19 = icmp eq ptr %0, %18
   %20 = getelementptr inbounds i8, ptr %0, i64 112
   %21 = load ptr, ptr %20, align 8
   br i1 %19, label %22, label %._crit_edge.i
@@ -906,7 +906,7 @@ define void @_Z20gmx_ana_poscalc_freeP17gmx_ana_poscalc_t(ptr noundef %0) local_
 27:                                               ; preds = %._crit_edge.i
   %28 = getelementptr inbounds i8, ptr %9, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, %0
+  %30 = icmp eq ptr %0, %29
   br i1 %30, label %31, label %_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit
 
 31:                                               ; preds = %27
@@ -1074,7 +1074,7 @@ define void @_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17g
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %1
+  %17 = icmp eq ptr %1, %16
   %18 = getelementptr inbounds i8, ptr %1, i64 112
   %19 = load ptr, ptr %18, align 8
   br i1 %17, label %20, label %._crit_edge
@@ -1097,7 +1097,7 @@ define void @_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17g
 25:                                               ; preds = %._crit_edge
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, %1
+  %28 = icmp eq ptr %1, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %25
@@ -2460,7 +2460,7 @@ _ZL12should_mergeP17gmx_ana_poscalc_tS0_P15gmx_ana_index_tS2_.exit.thread.i: ; p
 96:                                               ; preds = %88
   %97 = getelementptr inbounds i8, ptr %90, i64 8
   %98 = load ptr, ptr %97, align 8
-  %99 = icmp eq ptr %98, %.064.i
+  %99 = icmp eq ptr %.064.i, %98
   %100 = load ptr, ptr %27, align 8
   br i1 %99, label %101, label %._crit_edge.i.i.i
 
@@ -2482,7 +2482,7 @@ _ZL12should_mergeP17gmx_ana_poscalc_tS0_P15gmx_ana_index_tS2_.exit.thread.i: ; p
 106:                                              ; preds = %._crit_edge.i.i.i
   %107 = getelementptr inbounds i8, ptr %90, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, %.064.i
+  %109 = icmp eq ptr %.064.i, %108
   br i1 %109, label %110, label %_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit.i.i
 
 110:                                              ; preds = %106
@@ -2629,7 +2629,7 @@ define internal fastcc void @_ZL20set_poscalc_maxindexP17gmx_ana_poscalc_tP15gmx
   %33 = phi i32 [ %21, %24 ], [ %31, %29 ], [ %.pre32, %26 ], [ %21, %20 ]
   %34 = and i32 %33, 4
   %.not30 = icmp eq i32 %34, 0
-  %brmerge = or i1 %.not30, %2
+  %brmerge = or i1 %2, %.not30
   %.pre33 = load i32, ptr %15, align 8
   br i1 %brmerge, label %40, label %35
 
@@ -2761,7 +2761,7 @@ _ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.ex
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i8, ptr %34, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, %7
+  %46 = icmp eq ptr %7, %45
   %47 = load ptr, ptr %19, align 8
   br i1 %46, label %48, label %._crit_edge.i
 
@@ -2783,7 +2783,7 @@ _ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.ex
 53:                                               ; preds = %._crit_edge.i
   %54 = getelementptr inbounds i8, ptr %34, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, %7
+  %56 = icmp eq ptr %7, %55
   br i1 %56, label %57, label %_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17gmx_ana_poscalc_t.exit
 
 57:                                               ; preds = %53

@@ -77,7 +77,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
   %sub.ptr.lhs.cast = ptrtoint ptr %dst.addr.0.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %dst to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp4 = icmp eq i64 %sub.ptr.sub, %dsize
+  %cmp4 = icmp eq i64 %dsize, %sub.ptr.sub
   br i1 %cmp4, label %if.then, label %while.cond6.preheader
 
 while.cond6.preheader:                            ; preds = %while.end
@@ -87,7 +87,7 @@ while.cond6.preheader:                            ; preds = %while.end
 
 while.body10.preheader:                           ; preds = %while.cond6.preheader
   %2 = xor i64 %sub.ptr.sub, -1
-  %dec3 = add i64 %2, %dsize
+  %dec3 = add i64 %dsize, %2
   br label %while.body10
 
 if.then:                                          ; preds = %while.end

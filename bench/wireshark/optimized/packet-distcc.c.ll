@@ -225,7 +225,7 @@ define internal i32 @dissect_distcc(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 56:                                               ; preds = %52
   %57 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %28) #4
-  %58 = icmp ult i32 %57, %42
+  %58 = icmp ugt i32 %42, %57
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %56
@@ -293,7 +293,7 @@ dissect_distcc_argv.exit:                         ; preds = %59, %63, %69
 
 87:                                               ; preds = %83
   %88 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %28) #4
-  %89 = icmp ult i32 %88, %73
+  %89 = icmp ugt i32 %73, %88
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %87
@@ -385,7 +385,7 @@ dissect_distcc_doti.exit:                         ; preds = %90, %94, %98
 
 128:                                              ; preds = %124
   %129 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %28) #4
-  %130 = icmp ult i32 %129, %114
+  %130 = icmp ugt i32 %114, %129
   br i1 %130, label %131, label %135
 
 131:                                              ; preds = %128
@@ -454,7 +454,7 @@ dissect_distcc_serr.exit:                         ; preds = %131, %135, %141
 
 159:                                              ; preds = %155
   %160 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %28) #4
-  %161 = icmp ult i32 %160, %145
+  %161 = icmp ugt i32 %145, %160
   br i1 %161, label %162, label %166
 
 162:                                              ; preds = %159
@@ -522,7 +522,7 @@ dissect_distcc_sout.exit:                         ; preds = %162, %166, %172
 
 190:                                              ; preds = %186
   %191 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %28) #4
-  %192 = icmp ult i32 %191, %176
+  %192 = icmp ugt i32 %176, %191
   br i1 %192, label %193, label %197
 
 193:                                              ; preds = %190

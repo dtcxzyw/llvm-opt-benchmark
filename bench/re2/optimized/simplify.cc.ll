@@ -2082,7 +2082,7 @@ _ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit180: ;
 
 _ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit: ; preds = %for.body.i.i.i.i, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit178, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit180, %sw.bb.i.i.i.i, %sw.bb21.i.i.i.i, %sw.bb26.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb21.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %sw.bb26.i.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit178 ], [ %incdec.ptr8.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit180 ], [ %__first.addr.055.i.i.i.i, %for.body.i.i.i.i ]
-  %cmp.i47 = icmp eq ptr %retval.0.i.i.i.i, %add.ptr
+  %cmp.i47 = icmp eq ptr %add.ptr, %retval.0.i.i.i.i
   br i1 %cmp.i47, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb26.i.i.i.i, %for.end.i.i.i.i, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit, %entry
@@ -2750,7 +2750,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #15
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIPNS0_6RegexpEEESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -3181,7 +3181,7 @@ if.then35:                                        ; preds = %sw.default
 
 if.then41:                                        ; preds = %if.then35
   %cmp44 = icmp sgt i32 %.pre79, 0
-  %or.cond = and i1 %cmp44, %use_copy
+  %or.cond = and i1 %use_copy, %cmp44
   br i1 %or.cond, label %land.lhs.true45, label %if.then41.if.else66_crit_edge
 
 if.then41.if.else66_crit_edge:                    ; preds = %if.then41

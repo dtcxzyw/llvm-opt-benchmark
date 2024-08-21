@@ -45,7 +45,7 @@ land.lhs.true:                                    ; preds = %sw.epilog
 if.then.i:                                        ; preds = %land.lhs.true
   %sub.i = sub i32 16, %0
   %conv.i = zext i32 %sub.i to i64
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %conv.i, i64 %in_len)
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %in_len, i64 %conv.i)
   %block.i = getelementptr inbounds i8, ptr %ctx, i64 184
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %block.i, i64 %idx.ext.i
@@ -174,7 +174,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %call1 = tail call i32 @EVP_CIPHER_key_length(ptr noundef %cipher) #8
   %conv = zext i32 %call1 to i64
-  %cmp2.not = icmp eq i64 %conv, %key_len
+  %cmp2.not = icmp eq i64 %key_len, %conv
   br i1 %cmp2.not, label %lor.lhs.false4, label %return
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
@@ -262,7 +262,7 @@ entry:
 if.then:                                          ; preds = %entry
   %sub = sub i32 16, %0
   %conv = zext i32 %sub to i64
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %conv, i64 %in_len)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %in_len, i64 %conv)
   %block = getelementptr inbounds i8, ptr %ctx, i64 184
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %block, i64 %idx.ext

@@ -3376,9 +3376,9 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   %17 = getelementptr inbounds i8, ptr %0, i64 232
   %18 = load i64, ptr %17, align 8
   %.not = icmp ne i64 %18, 0
-  %19 = icmp slt i64 %18, %2
+  %19 = icmp sgt i64 %2, %18
   %20 = and i1 %.not, %19
-  %or.cond = and i1 %20, %3
+  %or.cond = and i1 %3, %20
   %.0138 = select i1 %or.cond, i64 %18, i64 %2
   %21 = tail call double @difftime(i64 noundef %.0138, i64 noundef %spec.select) #17
   %22 = fcmp olt double %21, 0.000000e+00
@@ -3939,7 +3939,7 @@ define void @set_priority_factors(i64 noundef %0, ptr nocapture noundef %1) loca
   br i1 %.not128, label %31, label %.sink.split
 
 .sink.split:                                      ; preds = %16
-  %21 = icmp slt i64 %20, %0
+  %21 = icmp sgt i64 %0, %20
   %22 = sub nsw i64 %0, %20
   %23 = trunc i64 %22 to i32
   %.0103 = select i1 %21, i32 %23, i32 0

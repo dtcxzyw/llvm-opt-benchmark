@@ -449,7 +449,7 @@ define noundef i32 @ompi_fetch_opal_pointer_array_info(ptr noundef %0, i64 nound
   %22 = getelementptr inbounds i8, ptr %20, i64 284
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
-  %25 = add i64 %24, %1
+  %25 = add i64 %1, %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %26 = getelementptr inbounds i8, ptr %2, i64 12
@@ -478,7 +478,7 @@ ompi_fetch_int.exit:                              ; preds = %6, %33
   store i32 %38, ptr %3, align 4
   %39 = load i32, ptr %21, align 4
   %40 = sext i32 %39 to i64
-  %41 = add i64 %40, %1
+  %41 = add i64 %1, %40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %42 = load i32, ptr %26, align 4
@@ -507,7 +507,7 @@ ompi_fetch_int.exit18:                            ; preds = %ompi_fetch_int.exit
   %54 = getelementptr inbounds i8, ptr %20, i64 280
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
-  %57 = add i64 %56, %1
+  %57 = add i64 %1, %56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %58 = load i32, ptr %26, align 4
@@ -559,14 +559,14 @@ define range(i32 0, 2) i32 @ompi_fetch_opal_pointer_array_item(ptr noundef %0, i
 22:                                               ; preds = %5
   %23 = call i32 @ompi_fetch_opal_pointer_array_info(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %24 = load i32, ptr %10, align 4
-  %.not = icmp sgt i32 %24, %3
+  %.not = icmp slt i32 %3, %24
   br i1 %.not, label %25, label %56
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %20, i64 288
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
-  %29 = add i64 %28, %1
+  %29 = add i64 %1, %28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %30 = getelementptr inbounds i8, ptr %2, i64 24

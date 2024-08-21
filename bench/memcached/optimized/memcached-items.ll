@@ -527,7 +527,7 @@ if.end76:                                         ; preds = %cond.end.i, %lor.lh
 sw.bb:                                            ; preds = %if.end76
   %41 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 200), align 8
   %conv77 = sext i32 %41 to i64
-  %mul = mul i64 %conv77, %total_bytes
+  %mul = mul i64 %total_bytes, %conv77
   %div = udiv i64 %mul, 100
   br label %sw.bb78
 
@@ -539,7 +539,7 @@ sw.bb78:                                          ; preds = %sw.bb, %if.end76
 if.then81:                                        ; preds = %sw.bb78
   %42 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 204), align 4
   %conv82 = sext i32 %42 to i64
-  %mul83 = mul i64 %conv82, %total_bytes
+  %mul83 = mul i64 %total_bytes, %conv82
   %div84 = udiv i64 %mul83, 100
   br label %if.end85
 

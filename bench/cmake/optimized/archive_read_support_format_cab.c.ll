@@ -2291,7 +2291,7 @@ define internal fastcc i64 @cab_minimum_consume_cfdata(ptr noundef %0, i64 nound
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %13
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %20, i64 %1)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %1, i64 %20)
   %23 = sub nsw i64 %1, %spec.select
   %24 = trunc i64 %spec.select to i16
   %25 = add i16 %18, %24
@@ -2316,7 +2316,7 @@ define internal fastcc i64 @cab_minimum_consume_cfdata(ptr noundef %0, i64 nound
 32:                                               ; preds = %2
   %33 = getelementptr inbounds i8, ptr %7, i64 16
   %34 = load i64, ptr %33, align 8
-  %. = tail call i64 @llvm.smin.i64(i64 %34, i64 %1)
+  %. = tail call i64 @llvm.smin.i64(i64 %1, i64 %34)
   %35 = sub nsw i64 %1, %.
   %36 = trunc i64 %. to i16
   %37 = getelementptr inbounds i8, ptr %7, i64 14

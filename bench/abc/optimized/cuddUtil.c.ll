@@ -95,9 +95,9 @@ define internal fastcc void @ddPrintMintermAux(ptr noundef %0, ptr noundef %1, p
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr @background, align 8
-  %.not37 = icmp eq ptr %10, %1
+  %.not37 = icmp eq ptr %1, %10
   %11 = load ptr, ptr @zero, align 8
-  %.not38 = icmp eq ptr %11, %1
+  %.not38 = icmp eq ptr %1, %11
   %or.cond = select i1 %.not37, i1 true, i1 %.not38
   br i1 %or.cond, label %common.ret45, label %.preheader
 
@@ -187,7 +187,7 @@ define range(i32 0, 2) i32 @Cudd_bddPrintCover(ptr noundef %0, ptr noundef %1, p
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 4
   %19 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %0) #22
-  %.not97 = icmp eq ptr %19, %1
+  %.not97 = icmp eq ptr %1, %19
   br i1 %.not97, label %._crit_edge101, label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %12
@@ -493,7 +493,7 @@ define range(i32 0, 2) i32 @Cudd_PrintDebug(ptr noundef %0, ptr noundef %1, i32 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %22, label %14
 
 14:                                               ; preds = %10
@@ -502,7 +502,7 @@ define range(i32 0, 2) i32 @Cudd_PrintDebug(ptr noundef %0, ptr noundef %1, i32 
   %17 = ptrtoint ptr %16 to i64
   %18 = xor i64 %17, 1
   %19 = inttoptr i64 %18 to ptr
-  %20 = icmp eq ptr %19, %1
+  %20 = icmp eq ptr %1, %19
   %21 = icmp sgt i32 %3, 0
   %or.cond = and i1 %21, %20
   br i1 %or.cond, label %23, label %27
@@ -977,7 +977,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
   %108 = load i32, ptr %2, align 8
   %109 = getelementptr inbounds i8, ptr %0, i64 136
   %110 = load i32, ptr %109, align 8
-  %.not.i = icmp sgt i32 %110, %108
+  %.not.i = icmp slt i32 %108, %110
   br i1 %.not.i, label %111, label %cuddUniqueLookup.exit.thread
 
 111:                                              ; preds = %107
@@ -1018,13 +1018,13 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 16
   %148 = load ptr, ptr %147, align 8
-  %149 = icmp ugt ptr %148, %96
+  %149 = icmp ult ptr %96, %148
   br i1 %149, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %111
   %150 = phi ptr [ %148, %111 ], [ %158, %.lr.ph.i ]
   %.027.lcssa.i = phi ptr [ %146, %111 ], [ %156, %.lr.ph.i ]
-  %151 = icmp eq ptr %150, %96
+  %151 = icmp eq ptr %96, %150
   br i1 %151, label %.lr.ph32.i, label %cuddUniqueLookup.exit.thread
 
 .lr.ph.i:                                         ; preds = %111, %.lr.ph.i
@@ -1036,7 +1036,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
   %156 = inttoptr i64 %155 to ptr
   %157 = getelementptr inbounds i8, ptr %156, i64 16
   %158 = load ptr, ptr %157, align 8
-  %159 = icmp ugt ptr %158, %96
+  %159 = icmp ult ptr %96, %158
   br i1 %159, label %.lr.ph.i, label %.preheader.i, !llvm.loop !11
 
 .lr.ph32.i:                                       ; preds = %.preheader.i, %163
@@ -1054,7 +1054,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
   %168 = inttoptr i64 %167 to ptr
   %169 = getelementptr inbounds i8, ptr %168, i64 16
   %170 = load ptr, ptr %169, align 8
-  %171 = icmp eq ptr %170, %96
+  %171 = icmp eq ptr %96, %170
   br i1 %171, label %.lr.ph32.i, label %cuddUniqueLookup.exit.thread, !llvm.loop !12
 
 172:                                              ; preds = %.lr.ph32.i
@@ -1227,9 +1227,9 @@ define internal fastcc double @ddCountMintermAux(ptr noundef %0, double noundef 
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr @background, align 8
-  %11 = icmp eq ptr %10, %0
+  %11 = icmp eq ptr %0, %10
   %12 = load ptr, ptr @zero, align 8
-  %13 = icmp eq ptr %12, %0
+  %13 = icmp eq ptr %0, %12
   %or.cond = select i1 %11, i1 true, i1 %13
   br i1 %or.cond, label %73, label %14
 
@@ -1488,9 +1488,9 @@ define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr @background, align 8
-  %12 = icmp eq ptr %11, %0
+  %12 = icmp eq ptr %0, %11
   %13 = load ptr, ptr @zero, align 8
-  %14 = icmp eq ptr %13, %0
+  %14 = icmp eq ptr %0, %13
   %or.cond = select i1 %12, i1 true, i1 %14
   br i1 %or.cond, label %15, label %16
 
@@ -1637,7 +1637,7 @@ define internal fastcc double @ddCountPathsToNonZero(ptr noundef %0, ptr noundef
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %6, i64 24
   %25 = load ptr, ptr %24, align 8
-  %.not36 = icmp eq ptr %6, %0
+  %.not36 = icmp eq ptr %0, %6
   %26 = ptrtoint ptr %23 to i64
   %27 = xor i64 %26, 1
   %28 = inttoptr i64 %27 to ptr
@@ -2652,7 +2652,7 @@ define range(i32 0, 2) i32 @Cudd_bddPickOneCube(ptr nocapture noundef readonly %
   %9 = ptrtoint ptr %8 to i64
   %10 = xor i64 %9, 1
   %11 = inttoptr i64 %10 to ptr
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %.loopexit, label %.preheader45
 
 .preheader45:                                     ; preds = %6
@@ -2662,7 +2662,7 @@ define range(i32 0, 2) i32 @Cudd_bddPickOneCube(ptr nocapture noundef readonly %
   br i1 %15, label %.lr.ph, label %.preheader44
 
 .preheader44:                                     ; preds = %.lr.ph, %.preheader45
-  %16 = icmp eq ptr %8, %1
+  %16 = icmp eq ptr %1, %8
   br i1 %16, label %.loopexit, label %.lr.ph48.preheader
 
 .lr.ph48.preheader:                               ; preds = %.preheader44
@@ -3847,7 +3847,7 @@ define internal fastcc range(i32 0, 2) i32 @ddPickArbitraryMinterms(ptr noundef 
   %14 = inttoptr i64 %13 to ptr
   %15 = icmp eq ptr %.tr6977, %14
   %or.cond67 = select i1 %11, i1 true, i1 %15
-  %16 = icmp eq ptr %10, %.tr6977
+  %16 = icmp eq ptr %.tr6977, %10
   %or.cond68 = select i1 %or.cond67, i1 true, i1 %16
   br i1 %or.cond68, label %._crit_edge82, label %17
 
@@ -4113,11 +4113,11 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr nocaptur
   %80 = ptrtoint ptr %79 to i64
   %81 = xor i64 %80, 1
   %82 = inttoptr i64 %81 to ptr
-  %83 = icmp eq ptr %82, %1
+  %83 = icmp eq ptr %1, %82
   br i1 %83, label %118, label %84
 
 84:                                               ; preds = %77
-  %85 = icmp eq ptr %79, %1
+  %85 = icmp eq ptr %1, %79
   %86 = ptrtoint ptr %1 to i64
   %87 = and i64 %86, -2
   %88 = inttoptr i64 %87 to ptr
@@ -4897,7 +4897,7 @@ define noalias noundef ptr @Cudd_FirstPrime(ptr noundef %0, ptr noundef %1, ptr 
 
 38:                                               ; preds = %16
   %39 = tail call ptr @Cudd_ReadLogicZero(ptr noundef nonnull %0) #22
-  %40 = icmp eq ptr %39, %1
+  %40 = icmp eq ptr %1, %39
   br i1 %40, label %108, label %41
 
 41:                                               ; preds = %38

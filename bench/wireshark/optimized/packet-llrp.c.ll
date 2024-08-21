@@ -1591,7 +1591,7 @@ define internal fastcc noundef i32 @dissect_llrp_impinj_message(ptr noundef %0, 
   %.sink = phi i32 [ 2, %13 ], [ 5, %4 ]
   %14 = load i32, ptr %hf_llrp_save_config.sink, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %12, i32 noundef %.sink18, i32 noundef 0) #3
-  %16 = add i32 %.sink, %3
+  %16 = add i32 %3, %.sink
   br label %17
 
 17:                                               ; preds = %.sink.split, %4
@@ -3427,7 +3427,7 @@ define internal fastcc i32 @dissect_llrp_utf8_parameter(ptr noundef %0, ptr noun
 
 13:                                               ; preds = %5
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 2) #3
-  %15 = add i32 %7, %4
+  %15 = add i32 %4, %7
   br label %16
 
 16:                                               ; preds = %13, %10
@@ -3443,7 +3443,7 @@ define internal fastcc i32 @dissect_llrp_item_array(ptr noundef %0, ptr noundef 
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 0) #3
   %11 = add i32 %6, 2
   %12 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %11) #3
-  %13 = mul nuw nsw i32 %9, %5
+  %13 = mul nuw nsw i32 %5, %9
   %14 = icmp slt i32 %12, %13
   br i1 %14, label %15, label %.preheader
 

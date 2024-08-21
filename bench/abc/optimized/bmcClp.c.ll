@@ -1456,7 +1456,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 Vec_IntFill.exit:                                 ; preds = %63, %73
   %75 = phi ptr [ %74, %73 ], [ %64, %63 ]
   %76 = trunc i64 %indvars.iv188 to i32
-  %.tr = add i32 %76, %2
+  %.tr = add i32 %2, %76
   %77 = shl i32 %.tr, 1
   %78 = or disjoint i32 %77, 1
   store i32 %78, ptr %75, align 4
@@ -1646,7 +1646,7 @@ Vec_IntPush.exit144:                              ; preds = %.Vec_IntGrow.exit10
   %151 = sext i32 %126 to i64
   %152 = getelementptr inbounds i32, ptr %149, i64 %151
   %153 = trunc i64 %indvars.iv191 to i32
-  %.tr224 = add i32 %153, %2
+  %.tr224 = add i32 %2, %153
   %154 = shl i32 %.tr224, 1
   store i32 %154, ptr %152, align 4
   br label %155
@@ -3249,7 +3249,7 @@ Vec_IntPush.exit167:                              ; preds = %.Vec_IntGrow.exit10
   %265 = load i32, ptr %85, align 4
   %266 = add nsw i32 %265, -1
   store i32 %266, ptr %85, align 4
-  %267 = icmp sgt i32 %266, %.2107204
+  %267 = icmp slt i32 %.2107204, %266
   br i1 %267, label %.lr.ph.i, label %Vec_IntDrop.exit
 
 .lr.ph.i:                                         ; preds = %264
@@ -4644,13 +4644,13 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 define internal fastcc void @Vec_StrFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %38
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %20
 

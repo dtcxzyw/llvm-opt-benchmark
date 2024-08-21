@@ -6394,7 +6394,7 @@ define internal void @rcu_tasks_pregp_step(ptr nocapture readnone %0) #1 align 1
 define internal void @rcu_tasks_pertask(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !61
   %4 = inttoptr i64 %3 to ptr
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   br i1 %5, label %41, label %6
 
 6:                                                ; preds = %2

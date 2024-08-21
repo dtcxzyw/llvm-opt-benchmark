@@ -2042,7 +2042,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp.
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h11e6934a80da70bbE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !171, !noundef !9
-  %.not.i.i = icmp eq i64 %5, %1
+  %.not.i.i = icmp eq i64 %1, %5
   br i1 %.not.i.i, label %6, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h0a6f45b168ae3f7aE.llvm.12037910688442169627.exit"
 
 6:                                                ; preds = %3
@@ -2208,7 +2208,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hc7651cf20a9d0d7dE(ptr noa
   %45 = load ptr, ptr %44, align 8, !alias.scope !190, !nonnull !9, !noundef !9
   %46 = getelementptr inbounds i8, ptr %1, i64 16
   %47 = load i64, ptr %46, align 8, !alias.scope !190, !noundef !9
-  %48 = icmp ult i64 %40, %47
+  %48 = icmp ugt i64 %47, %40
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %38
@@ -2452,7 +2452,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hc7651cf20a9d0d7dE(ptr noa
   %.val.i172 = load ptr, ptr %119, align 8, !alias.scope !323, !noalias !326, !nonnull !9, !noundef !9
   %120 = getelementptr i8, ptr %.sroa.0246.0335, i64 16
   %.val3.i173 = load i64, ptr %120, align 8, !alias.scope !323, !noalias !326, !noundef !9
-  %.not.i.i177 = icmp ult i64 %.sroa.27.0337, %4
+  %.not.i.i177 = icmp ugt i64 %4, %.sroa.27.0337
   br i1 %.not.i.i177, label %121, label %122
 
 121:                                              ; preds = %.lr.ph338

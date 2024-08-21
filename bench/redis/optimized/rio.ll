@@ -465,7 +465,7 @@ sdslen.exit95:                                    ; preds = %if.then, %sw.bb.i92
 
 if.end:                                           ; preds = %sdslen.exit95, %sdsavail.exit
   %20 = phi ptr [ %call15, %sdslen.exit95 ], [ %0, %sdsavail.exit ]
-  %cmp18 = icmp ult i64 %sub, %len
+  %cmp18 = icmp ugt i64 %len, %sub
   br i1 %cmp18, label %land.lhs.true, label %if.end31
 
 land.lhs.true:                                    ; preds = %if.end
@@ -596,7 +596,7 @@ sdslen.exit138:                                   ; preds = %while.cond, %sw.bb.
   %retval.0.i125 = phi i64 [ %39, %sw.bb13.i123 ], [ %conv12.i128, %sw.bb9.i126 ], [ %conv8.i131, %sw.bb5.i129 ], [ %conv4.i134, %sw.bb3.i132 ], [ %conv2.i137, %sw.bb.i135 ], [ 0, %while.cond ]
   %40 = load i64, ptr %pos, align 8
   %sub48 = sub i64 %retval.0.i125, %40
-  %cmp49 = icmp ult i64 %sub48, %len
+  %cmp49 = icmp ugt i64 %len, %sub48
   br i1 %cmp49, label %while.body, label %while.end
 
 while.body:                                       ; preds = %sdslen.exit138
@@ -1283,7 +1283,7 @@ if.end108:                                        ; preds = %if.then103, %if.end
 
 if.end111:                                        ; preds = %if.end108, %if.end25
   %17 = phi i64 [ 0, %if.end108 ], [ %add28, %if.end25 ]
-  %cmp.not = icmp eq i64 %add, %len
+  %cmp.not = icmp eq i64 %len, %add
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !8
 
 return:                                           ; preds = %cond.end, %cond.end67, %if.then85, %if.end111, %while.cond.preheader, %if.then

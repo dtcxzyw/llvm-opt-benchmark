@@ -1244,7 +1244,7 @@ _ZNSt6vectorIN2cv8tracking10TrackerKCF4MODEESaIS3_EE9push_backEOS3_.exit73: ; pr
   %391 = ptrtoint ptr %389 to i64
   %392 = sub i64 %390, %391
   %393 = sdiv exact i64 %392, 96
-  %394 = icmp ult i64 %393, %386
+  %394 = icmp ugt i64 %386, %393
   br i1 %394, label %395, label %397
 
 395:                                              ; preds = %_ZNSt6vectorIN2cv8tracking10TrackerKCF4MODEESaIS3_EE9push_backEOS3_.exit73
@@ -1253,7 +1253,7 @@ _ZNSt6vectorIN2cv8tracking10TrackerKCF4MODEESaIS3_EE9push_backEOS3_.exit73: ; pr
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %153
 
 397:                                              ; preds = %_ZNSt6vectorIN2cv8tracking10TrackerKCF4MODEESaIS3_EE9push_backEOS3_.exit73
-  %398 = icmp ugt i64 %393, %386
+  %398 = icmp ult i64 %386, %393
   br i1 %398, label %399, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 399:                                              ; preds = %397
@@ -1520,7 +1520,7 @@ _ZNSt6vectorIN2cv8tracking10TrackerKCF4MODEESaIS3_EE9push_backEOS3_.exit109: ; p
   %515 = ptrtoint ptr %513 to i64
   %516 = sub i64 %514, %515
   %517 = sdiv exact i64 %516, 96
-  %518 = icmp ult i64 %517, %510
+  %518 = icmp ugt i64 %510, %517
   br i1 %518, label %519, label %521
 
 519:                                              ; preds = %_ZNSt6vectorIN2cv8tracking10TrackerKCF4MODEESaIS3_EE9push_backEOS3_.exit109
@@ -1529,7 +1529,7 @@ _ZNSt6vectorIN2cv8tracking10TrackerKCF4MODEESaIS3_EE9push_backEOS3_.exit109: ; p
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit116 unwind label %153
 
 521:                                              ; preds = %_ZNSt6vectorIN2cv8tracking10TrackerKCF4MODEESaIS3_EE9push_backEOS3_.exit109
-  %522 = icmp ugt i64 %517, %510
+  %522 = icmp ult i64 %510, %517
   br i1 %522, label %523, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit116
 
 523:                                              ; preds = %521
@@ -2029,7 +2029,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm(ptr nou
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 96
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -2038,7 +2038,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm(ptr nou
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3MatESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 15:                                               ; preds = %13
@@ -4307,8 +4307,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit308:              ; preds = %1012
   %1127 = load float, ptr %1117, align 4
   %1128 = getelementptr inbounds i8, ptr %1125, i64 4
   %1129 = load float, ptr %1128, align 4
-  %1130 = fneg float %1127
-  %1131 = fmul float %1129, %1130
+  %1130 = fneg float %1129
+  %1131 = fmul float %1127, %1130
   %1132 = call float @llvm.fmuladd.f32(float %1119, float %1126, float %1131)
   %1133 = fmul float %1093, %1132
   %1134 = load ptr, ptr %1032, align 8
@@ -5925,7 +5925,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #25
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -6110,8 +6110,8 @@ define hidden void @_ZNK2cv8tracking4impl14TrackerKCFImpl12calcResponseENS_3MatE
   %82 = load float, ptr %72, align 4
   %83 = getelementptr inbounds i8, ptr %80, i64 4
   %84 = load float, ptr %83, align 4
-  %85 = fneg float %82
-  %86 = fmul float %84, %85
+  %85 = fneg float %84
+  %86 = fmul float %82, %85
   %87 = call float @llvm.fmuladd.f32(float %74, float %81, float %86)
   %88 = fmul float %48, %87
   %89 = load ptr, ptr %30, align 8
@@ -6249,7 +6249,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 5
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -6258,7 +6258,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE6resizeEm(
   br label %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -6314,7 +6314,7 @@ define linkonce_odr hidden void @_ZN2cv8tracking4impl14TrackerKCFImpl22updatePro
   %49 = lshr i32 %48, 3
   %50 = and i32 %49, 511
   %51 = add nuw nsw i32 %50, 1
-  %.not = icmp slt i32 %51, %5
+  %.not = icmp sgt i32 %5, %51
   br i1 %.not, label %52, label %60
 
 52:                                               ; preds = %13
@@ -9506,7 +9506,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 96
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i27

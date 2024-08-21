@@ -1044,7 +1044,7 @@ php_handle_png.exit.i:                            ; preds = %109, %106, %104
 php_swf_get_bits.exit.i.i:                        ; preds = %157
   %170 = add i32 %168, 5
   %171 = add i32 %170, %168
-  %172 = icmp ugt i32 %171, %170
+  %172 = icmp ult i32 %170, %171
   br i1 %172, label %.lr.ph.i.i.i, label %php_swf_get_bits.exit18.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %php_swf_get_bits.exit.i.i
@@ -1110,7 +1110,7 @@ php_swf_get_bits.exit24.i.i:                      ; preds = %191, %php_swf_get_b
   %209 = mul i32 %168, 3
   %210 = add i32 %209, 5
   %211 = add i32 %210, %168
-  %212 = icmp ugt i32 %211, %210
+  %212 = icmp ult i32 %210, %211
   br i1 %212, label %.lr.ph.i26.i.i, label %php_swf_get_bits.exit31.i.i
 
 .lr.ph.i26.i.i:                                   ; preds = %php_swf_get_bits.exit24.i.i
@@ -1143,7 +1143,7 @@ php_swf_get_bits.exit31.i.i:                      ; preds = %214, %php_swf_get_b
   %229 = shl i32 %168, 1
   %230 = add i32 %229, 5
   %231 = add i32 %230, %168
-  %232 = icmp ugt i32 %231, %230
+  %232 = icmp ult i32 %230, %231
   br i1 %232, label %.lr.ph.i33.i.i, label %php_swf_get_bits.exit38.i.i
 
 .lr.ph.i33.i.i:                                   ; preds = %php_swf_get_bits.exit31.i.i

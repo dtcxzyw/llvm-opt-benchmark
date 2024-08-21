@@ -99,8 +99,8 @@ define internal { double, double } @_ZL15putp3_s_inverse5PJ_XYP8PJconsts(double 
   %5 = getelementptr inbounds i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = load double, ptr %6, align 8
-  %8 = fneg double %7
-  %9 = fmul double %4, %8
+  %8 = fneg double %4
+  %9 = fmul double %7, %8
   %10 = tail call double @llvm.fmuladd.f64(double %9, double %4, double 1.000000e+00)
   %11 = fmul double %10, 0x3FE988453365DE00
   %12 = fdiv double %0, %11
@@ -115,8 +115,8 @@ define internal { double, double } @_ZL15putp3_s_forward5PJ_LPP8PJconsts(double 
   %5 = getelementptr inbounds i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = load double, ptr %6, align 8
-  %8 = fneg double %7
-  %9 = fmul double %8, %1
+  %8 = fneg double %1
+  %9 = fmul double %7, %8
   %10 = tail call double @llvm.fmuladd.f64(double %9, double %1, double 1.000000e+00)
   %11 = fmul double %4, %10
   %12 = fmul double %1, 0x3FE988453365DE00

@@ -3797,7 +3797,7 @@ if.then.us22:                                     ; preds = %invoke.cont27.us21,
 
 invoke.cont29.us24:                               ; preds = %if.then.us22
   %second31.us25 = getelementptr inbounds i8, ptr %call30.us23, i64 32
-  %13 = and i1 %tobool.i.us10, %valid
+  %13 = and i1 %valid, %tobool.i.us10
   %call35.us26 = invoke noundef i32 @_ZN6duckdb11Comparators20CompareValAndAdvanceERPhS2_RKNS_11LogicalTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %left_ptr, ptr noundef nonnull align 8 dereferenceable(8) %right_ptr, ptr noundef nonnull align 8 dereferenceable(24) %second31.us25, i1 noundef zeroext %13)
           to label %if.end.us27 unwind label %lpad19.split.split.us
 
@@ -3859,7 +3859,7 @@ if.then:                                          ; preds = %invoke.cont27, %inv
 
 invoke.cont29:                                    ; preds = %if.then
   %second31 = getelementptr inbounds i8, ptr %call30, i64 32
-  %20 = and i1 %tobool.i, %valid
+  %20 = and i1 %valid, %tobool.i
   %call35 = invoke noundef i32 @_ZN6duckdb11Comparators20CompareValAndAdvanceERPhS2_RKNS_11LogicalTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %left_ptr, ptr noundef nonnull align 8 dereferenceable(8) %right_ptr, ptr noundef nonnull align 8 dereferenceable(24) %second31, i1 noundef zeroext %20)
           to label %if.end unwind label %lpad19.split.split
 
@@ -25937,7 +25937,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
   %sub.ptr.rhs.cast.i = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp ne i64 %sub.ptr.sub.i, 8
-  %brmerge = or i1 %cmp, %keep_radix_data
+  %brmerge = or i1 %keep_radix_data, %cmp
   br i1 %brmerge, label %if.end32, label %if.then20
 
 if.then20:                                        ; preds = %if.end
@@ -33030,7 +33030,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorIN6duck
 invoke.cont52:                                    ; preds = %.noexc, %if.then.i.i
   %52 = load i8, ptr %all_constant.i, align 8, !tbaa !234, !range !110, !noundef !111
   %tobool.i209 = icmp eq i8 %52, 0
-  %brmerge.not = and i1 %tobool.i209, %reorder_heap
+  %brmerge.not = and i1 %reorder_heap, %tobool.i209
   br i1 %brmerge.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont52

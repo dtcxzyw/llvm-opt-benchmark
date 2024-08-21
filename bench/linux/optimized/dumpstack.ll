@@ -264,7 +264,7 @@ define internal fastcc void @show_trace_log_lvl(ptr noundef %0, ptr noundef %1, 
 16:                                               ; preds = %10
   %17 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !7
   %18 = inttoptr i64 %17 to ptr
-  %19 = icmp eq ptr %18, %0
+  %19 = icmp eq ptr %0, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
@@ -305,7 +305,7 @@ define internal fastcc void @show_trace_log_lvl(ptr noundef %0, ptr noundef %1, 
 43:                                               ; preds = %37
   %44 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !7
   %45 = inttoptr i64 %44 to ptr
-  %46 = icmp eq ptr %45, %0
+  %46 = icmp eq ptr %0, %45
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %43

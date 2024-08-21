@@ -33,7 +33,7 @@ define void @_ZN3gmx22EnergyGroupsPerClusterC2Eii(ptr nocapture noundef nonnull 
 4:                                                ; preds = %4, %3
   %.0.i = phi i32 [ 0, %3 ], [ %7, %4 ]
   %5 = shl nuw i32 1, %.0.i
-  %6 = icmp slt i32 %5, %1
+  %6 = icmp sgt i32 %1, %5
   %7 = add nuw nsw i32 %.0.i, 1
   br i1 %6, label %4, label %_ZN3gmx12_GLOBAL__N_112log2LargerEqEi.exit, !llvm.loop !5
 
@@ -71,7 +71,7 @@ define void @_ZN3gmx22EnergyGroupsPerCluster15setEnergyGroupsENS_8ArrayRefIKiEE(
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 2
-  %22 = icmp ult i64 %21, %14
+  %22 = icmp ugt i64 %14, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %3
@@ -80,7 +80,7 @@ define void @_ZN3gmx22EnergyGroupsPerCluster15setEnergyGroupsENS_8ArrayRefIKiEE(
   br label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
 25:                                               ; preds = %3
-  %26 = icmp ugt i64 %21, %14
+  %26 = icmp ult i64 %14, %21
   br i1 %26, label %27, label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
 27:                                               ; preds = %25
@@ -282,7 +282,7 @@ define void @_ZN3gmx17EnergyAccumulatorILb1ELb1EEC2Eiii(ptr noundef nonnull alig
 5:                                                ; preds = %5, %4
   %.0.i = phi i32 [ 0, %4 ], [ %8, %5 ]
   %6 = shl nuw i32 1, %.0.i
-  %7 = icmp slt i32 %6, %1
+  %7 = icmp sgt i32 %1, %6
   %8 = add nuw nsw i32 %.0.i, 1
   br i1 %7, label %5, label %_ZN3gmx12_GLOBAL__N_112log2LargerEqEi.exit, !llvm.loop !5
 
@@ -294,7 +294,7 @@ _ZN3gmx12_GLOBAL__N_112log2LargerEqEi.exit:       ; preds = %5
 10:                                               ; preds = %10, %_ZN3gmx12_GLOBAL__N_112log2LargerEqEi.exit
   %.0.i18 = phi i32 [ 0, %_ZN3gmx12_GLOBAL__N_112log2LargerEqEi.exit ], [ %13, %10 ]
   %11 = shl nuw i32 1, %.0.i18
-  %12 = icmp slt i32 %11, %1
+  %12 = icmp sgt i32 %1, %11
   %13 = add nuw nsw i32 %.0.i18, 1
   br i1 %12, label %10, label %_ZN3gmx12_GLOBAL__N_112log2LargerEqEi.exit19, !llvm.loop !5
 
@@ -310,7 +310,7 @@ _ZN3gmx12_GLOBAL__N_112log2LargerEqEi.exit19:     ; preds = %10
 17:                                               ; preds = %17, %_ZN3gmx12_GLOBAL__N_112log2LargerEqEi.exit19
   %.0.i20 = phi i32 [ 0, %_ZN3gmx12_GLOBAL__N_112log2LargerEqEi.exit19 ], [ %20, %17 ]
   %18 = shl nuw i32 1, %.0.i20
-  %19 = icmp slt i32 %18, %1
+  %19 = icmp sgt i32 %1, %18
   %20 = add nuw nsw i32 %.0.i20, 1
   br i1 %19, label %17, label %_ZN3gmx12_GLOBAL__N_112log2LargerEqEi.exit21, !llvm.loop !5
 

@@ -3817,7 +3817,7 @@ _ZN6duckdb23OverflowCheckedAddition9OperationIjmEEbT_S2_RS2_.exit: ; preds = %if
 define noundef zeroext i1 @_ZN6duckdb14TryAddOperator9OperationImmmEEbT_T0_RT1_(i64 noundef %left, i64 noundef %right, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) local_unnamed_addr #6 align 2 {
 entry:
   %sub = xor i64 %left, -1
-  %cmp = icmp uge i64 %sub, %right
+  %cmp = icmp ule i64 %right, %sub
   br i1 %cmp, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -86774,7 +86774,7 @@ entry:
   %agg.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %sub.i = xor i64 %left, -1
-  %cmp.i.not = icmp ult i64 %sub.i, %right
+  %cmp.i.not = icmp ugt i64 %right, %sub.i
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

@@ -319,7 +319,7 @@ if.end12:                                         ; preds = %land.lhs.true.if.en
 
 if.end.i:                                         ; preds = %if.end12
   %div.i = udiv i64 1073741823, %11
-  %cmp5.i = icmp ult i64 %div.i, %12
+  %cmp5.i = icmp ugt i64 %12, %div.i
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i

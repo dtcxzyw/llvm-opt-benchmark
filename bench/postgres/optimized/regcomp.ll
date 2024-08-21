@@ -11557,13 +11557,13 @@ define dso_local signext i16 @pg_reg_getcolor(ptr nocapture noundef readonly %0,
   %12 = sext i32 %11 to i64
   %13 = getelementptr %struct.colormaprange, ptr %7, i64 %12
   %14 = load i32, ptr %13, align 4
-  %15 = icmp ugt i32 %14, %1
+  %15 = icmp ult i32 %1, %14
   br i1 %15, label %25, label %16
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds i8, ptr %13, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = icmp ult i32 %18, %1
+  %19 = icmp ugt i32 %1, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
@@ -22552,7 +22552,7 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
   %.1135189.i = phi i32 [ %175, %.thread.i ], [ %.0134160.i172, %176 ]
   %178 = getelementptr inbounds i8, ptr %.1129162.i168, i64 4
   %179 = load i32, ptr %178, align 4
-  %.not149.i = icmp ugt i32 %179, %36
+  %.not149.i = icmp ult i32 %36, %179
   br i1 %.not149.i, label %195, label %180
 
 180:                                              ; preds = %177
@@ -22586,7 +22586,7 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
   store i32 %.1135188.i, ptr %197, align 4
   %198 = getelementptr inbounds i8, ptr %.1129162.i168, i64 4
   %199 = load i32, ptr %198, align 4
-  %..i = tail call i32 @llvm.umin.i32(i32 %199, i32 %36)
+  %..i = tail call i32 @llvm.umin.i32(i32 %36, i32 %199)
   %200 = getelementptr inbounds i8, ptr %197, i64 4
   store i32 %..i, ptr %200, align 4
   %201 = getelementptr inbounds i8, ptr %.1129162.i168, i64 8
@@ -22596,7 +22596,7 @@ newarc.exit:                                      ; preds = %107, %119, %.loopex
   store i32 %203, ptr %204, align 4
   %205 = add i32 %.4.i, 1
   %206 = load i32, ptr %198, align 4
-  %207 = icmp ugt i32 %206, %36
+  %207 = icmp ult i32 %36, %206
   br i1 %207, label %208, label %222
 
 208:                                              ; preds = %195
@@ -24366,7 +24366,7 @@ newarc.exit:                                      ; preds = %83, %96, %.loopexit
   br label %187
 
 147:                                              ; preds = %138
-  %148 = icmp ult i32 %130, %1
+  %148 = icmp ugt i32 %1, %130
   br i1 %148, label %149, label %158
 
 149:                                              ; preds = %147
@@ -24398,7 +24398,7 @@ newarc.exit:                                      ; preds = %83, %96, %.loopexit
   store i32 %164, ptr %165, align 4
   %166 = add i32 %.2, 1
   %167 = load i32, ptr %129, align 4
-  %168 = icmp ugt i32 %167, %1
+  %168 = icmp ult i32 %1, %167
   br i1 %168, label %169, label %184
 
 169:                                              ; preds = %158
@@ -24410,7 +24410,7 @@ newarc.exit:                                      ; preds = %83, %96, %.loopexit
   %174 = getelementptr inbounds i8, ptr %172, i64 4
   store i32 %173, ptr %174, align 4
   %175 = load i32, ptr %.0113137, align 4
-  %176 = icmp ult i32 %175, %1
+  %176 = icmp ugt i32 %1, %175
   %177 = load i32, ptr %162, align 4
   br i1 %176, label %178, label %180
 
@@ -25727,7 +25727,7 @@ getcvec.exit:                                     ; preds = %19, %newcvec.exit.i
 60:                                               ; preds = %55
   %61 = getelementptr inbounds i8, ptr %59, i64 4
   %62 = load i32, ptr %61, align 4
-  %.not20.i89 = icmp slt i32 %62, %spec.store.select
+  %.not20.i89 = icmp sgt i32 %spec.store.select, %62
   br i1 %.not20.i89, label %69, label %63
 
 63:                                               ; preds = %60
@@ -25824,7 +25824,7 @@ getcvec.exit95:                                   ; preds = %66, %newcvec.exit.i
 
 109:                                              ; preds = %107
   %.not101 = icmp ult i32 %108, %1
-  %.not102 = icmp ugt i32 %108, %2
+  %.not102 = icmp ult i32 %2, %108
   %or.cond105 = or i1 %.not101, %.not102
   br i1 %or.cond105, label %110, label %121
 
@@ -25859,7 +25859,7 @@ getcvec.exit95:                                   ; preds = %66, %newcvec.exit.i
 
 123:                                              ; preds = %121
   %.not103 = icmp ult i32 %122, %1
-  %.not104 = icmp ugt i32 %122, %2
+  %.not104 = icmp ult i32 %2, %122
   %or.cond106 = or i1 %.not103, %.not104
   br i1 %or.cond106, label %124, label %135
 

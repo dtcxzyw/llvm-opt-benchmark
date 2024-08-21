@@ -241,7 +241,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -521,7 +521,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #19
   %cmp7 = icmp eq ptr %call, null
@@ -654,7 +654,7 @@ if.end:                                           ; preds = %entry
   %1 = load i32, ptr %capacity_, align 8
   %mul = shl nsw i32 %1, 1
   %mul2 = shl nsw i32 %appendCapacity, 1
-  %add = add nsw i32 %mul2, %length
+  %add = add nsw i32 %length, %mul2
   %spec.select = tail call i32 @llvm.smax.i32(i32 %mul, i32 %add)
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 200)
   %key_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -1145,7 +1145,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %settings, align 8
   %settings2 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %settings2, align 8
-  %cmp.not.i = icmp eq ptr %1, %0
+  %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %_ZN6icu_7512SharedObject7copyPtrINS_17CollationSettingsEEEvPKT_RS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -1174,7 +1174,7 @@ _ZN6icu_7512SharedObject7copyPtrINS_17CollationSettingsEEEvPKT_RS5_.exit: ; pred
   %3 = load ptr, ptr %cacheEntry, align 8
   %cacheEntry4 = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %cacheEntry4, align 8
-  %cmp.not.i7 = icmp eq ptr %4, %3
+  %cmp.not.i7 = icmp eq ptr %3, %4
   br i1 %cmp.not.i7, label %_ZN6icu_7512SharedObject7copyPtrINS_19CollationCacheEntryEEEvPKT_RS5_.exit, label %if.then.i8
 
 if.then.i8:                                       ; preds = %_ZN6icu_7512SharedObject7copyPtrINS_17CollationSettingsEEEvPKT_RS5_.exit
@@ -1593,7 +1593,7 @@ cond.false17.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false17.i
   %highStart.i = getelementptr inbounds i8, ptr %7, i64 44
   %13 = load i32, ptr %highStart.i, align 4
-  %cmp22.not.i = icmp sgt i32 %13, %5
+  %cmp22.not.i = icmp slt i32 %5, %13
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
@@ -2205,7 +2205,7 @@ sw.epilog.i:                                      ; preds = %sw.bb13.i, %sw.bb8.
 
 if.end:                                           ; preds = %sw.epilog.i, %sw.bb9.i, %sw.bb4.i, %sw.bb2.i, %if.end.i
   %retval.0.i.ph = phi i32 [ 16, %if.end.i ], [ %cond.i.i, %sw.bb2.i ], [ %cond3.i.i, %sw.bb4.i ], [ %shr.i.i.i, %sw.bb9.i ], [ %cond.i, %sw.epilog.i ]
-  %cmp = icmp eq i32 %retval.0.i.ph, %value
+  %cmp = icmp eq i32 %value, %retval.0.i.ph
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -2928,7 +2928,7 @@ cond.false17.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false17.i
   %highStart.i = getelementptr inbounds i8, ptr %13, i64 44
   %19 = load i32, ptr %highStart.i, align 4
-  %cmp22.not.i = icmp sgt i32 %19, %8
+  %cmp22.not.i = icmp slt i32 %8, %19
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
@@ -3041,7 +3041,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %settings, align 8
   %variableTop = getelementptr inbounds i8, ptr %1, i64 28
   %2 = load i32, ptr %variableTop, align 4
-  %cmp.not = icmp eq i32 %2, %varTop
+  %cmp.not = icmp eq i32 %varTop, %2
   br i1 %cmp.not, label %if.end26, label %if.then2
 
 if.then2:                                         ; preds = %if.end
@@ -4263,7 +4263,7 @@ if.end29:                                         ; preds = %lor.lhs.false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv272, 1
   %14 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %14, ptr %equalPrefixLength, align 4
-  %cmp13 = icmp eq i32 %14, %leftLength
+  %cmp13 = icmp eq i32 %leftLength, %14
   br i1 %cmp13, label %if.then14, label %if.else18, !llvm.loop !10
 
 if.end31:                                         ; preds = %lor.lhs.false, %if.else18, %if.end12, %if.else18.preheader, %if.then14
@@ -5179,7 +5179,7 @@ cond.false17.i.i:                                 ; preds = %cond.false.i.i
 cond.false20.i.i:                                 ; preds = %cond.false17.i.i
   %highStart.i.i = getelementptr inbounds i8, ptr %3, i64 44
   %9 = load i32, ptr %highStart.i.i, align 4
-  %cmp22.not.i.i = icmp sgt i32 %9, %c
+  %cmp22.not.i.i = icmp slt i32 %c, %9
   br i1 %cmp22.not.i.i, label %cond.false25.i.i, label %cond.true23.i.i
 
 cond.true23.i.i:                                  ; preds = %cond.false20.i.i
@@ -7114,7 +7114,7 @@ while.body.preheader:                             ; preds = %if.end101
   %38 = sext i32 %37 to i64
   %scevgep = getelementptr i8, ptr %dest, i64 %38
   %39 = xor i32 %37, -1
-  %40 = add i32 %39, %count
+  %40 = add i32 %count, %39
   %41 = zext i32 %40 to i64
   %42 = add nuw nsw i64 %41, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %42, i1 false)

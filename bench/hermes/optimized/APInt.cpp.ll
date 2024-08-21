@@ -75,7 +75,7 @@ entry:
   store ptr %call.i, ptr %this, align 8
   store i64 %val, ptr %call.i, align 8
   %cmp = icmp slt i64 %val, 0
-  %or.cond = and i1 %cmp, %isSigned
+  %or.cond = and i1 %isSigned, %cmp
   br i1 %or.cond, label %for.cond.preheader, label %if.end
 
 for.cond.preheader:                               ; preds = %entry
@@ -296,7 +296,7 @@ entry:
   %cmp6 = icmp eq i8 %0, 43
   %or.cond = or i1 %cmp, %cmp6
   %dec = sext i1 %or.cond to i64
-  %slen.0 = add i64 %dec, %str.coerce1
+  %slen.0 = add i64 %str.coerce1, %dec
   %p.0.idx = zext i1 %or.cond to i64
   %p.0 = getelementptr inbounds i8, ptr %str.coerce0, i64 %p.0.idx
   %BitWidth.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -323,7 +323,7 @@ if.end12:                                         ; preds = %entry, %if.else
   %cond21 = select i1 %cmp16, i32 3, i32 %cond
   %cond23 = select i1 %cmp14, i32 4, i32 %cond21
   %add.ptr.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
-  %cmp25.not21 = icmp eq i64 %p.0.idx, %str.coerce1
+  %cmp25.not21 = icmp eq i64 %str.coerce1, %p.0.idx
   br i1 %cmp25.not21, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end12
@@ -1274,7 +1274,7 @@ if.else:                                          ; preds = %entry
   store ptr %call.i.i, ptr %this, align 8
   store i64 %val, ptr %call.i.i, align 8
   %cmp.i5 = icmp slt i64 %val, 0
-  %or.cond.i = and i1 %cmp.i5, %isSigned
+  %or.cond.i = and i1 %isSigned, %cmp.i5
   br i1 %or.cond.i, label %for.body.i, label %if.else.if.else.i.i_crit_edge
 
 if.else.if.else.i.i_crit_edge:                    ; preds = %if.else
@@ -2841,7 +2841,7 @@ entry:
   %p.0.idx = zext i1 %or.cond to i64
   %p.0 = getelementptr inbounds i8, ptr %str.coerce0, i64 %p.0.idx
   %dec = sext i1 %or.cond to i64
-  %slen.0 = add i64 %dec, %str.coerce1
+  %slen.0 = add i64 %str.coerce1, %dec
   %1 = add i8 %radix, -2
   %2 = tail call i8 @llvm.fshl.i8(i8 %1, i8 %1, i8 7)
   switch i8 %2, label %cond.false33 [
@@ -3161,7 +3161,7 @@ if.end4.i.i:                                      ; preds = %_ZNK4llvh5APInt3shl
 
 if.end.i.i.i.i:                                   ; preds = %if.end4.i.i
   %div24.i.i.i.i = lshr i32 %sub, 6
-  %.sroa.speculated.i.i.i.i = call i32 @llvm.umin.i32(i32 %div24.i.i.i.i, i32 %conv1.i.i.i.i.i)
+  %.sroa.speculated.i.i.i.i = call i32 @llvm.umin.i32(i32 %conv1.i.i.i.i.i, i32 %div24.i.i.i.i)
   %rem.i.i.i.i = and i32 %sub, 63
   %sub.i.i.i.i10 = sub nsw i32 %conv1.i.i.i.i.i, %.sroa.speculated.i.i.i.i
   %cmp.i.i.i.i = icmp eq i32 %rem.i.i.i.i, 0
@@ -3312,7 +3312,7 @@ if.end4.i.i:                                      ; preds = %entry
 
 if.end.i.i.i.i:                                   ; preds = %if.end4.i.i
   %div24.i.i.i.i = lshr i32 %sub, 6
-  %.sroa.speculated.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %div24.i.i.i.i, i32 %conv1.i.i.i.i.i)
+  %.sroa.speculated.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %conv1.i.i.i.i.i, i32 %div24.i.i.i.i)
   %rem.i.i.i.i = and i32 %sub, 63
   %sub.i.i.i.i = sub nsw i32 %conv1.i.i.i.i.i, %.sroa.speculated.i.i.i.i
   %cmp.i.i.i.i = icmp eq i32 %rem.i.i.i.i, 0
@@ -4193,7 +4193,7 @@ if.else.i55:                                      ; preds = %if.then.i
 if.end.i.i.i:                                     ; preds = %if.then45
   %19 = and i32 %conv1.i.i, 67108863
   %div24.i.i.i = lshr i32 %sub48, 6
-  %.sroa.speculated.i.i.i = tail call i32 @llvm.umin.i32(i32 %div24.i.i.i, i32 %19)
+  %.sroa.speculated.i.i.i = tail call i32 @llvm.umin.i32(i32 %19, i32 %div24.i.i.i)
   %rem.i.i.i49 = and i32 %sub48, 63
   %sub.i.i.i50 = sub nsw i32 %19, %.sroa.speculated.i.i.i
   %cmp.i.i.i = icmp eq i32 %rem.i.i.i49, 0
@@ -4789,7 +4789,7 @@ entry:
   br i1 %cmp.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit, label %if.end5
 
 _ZN4llvh5APInt15clearUnusedBitsEv.exit:           ; preds = %entry
-  %cmp = icmp eq i32 %0, %ShiftAmt
+  %cmp = icmp eq i32 %ShiftAmt, %0
   %1 = load i64, ptr %this, align 8
   %sh_prom = zext nneg i32 %ShiftAmt to i64
   %shl = shl i64 %1, %sh_prom
@@ -4814,7 +4814,7 @@ if.end5:                                          ; preds = %entry
 
 if.end.i.i:                                       ; preds = %if.end5
   %div18.i.i = lshr i32 %ShiftAmt, 6
-  %.sroa.speculated.i.i = tail call i32 @llvm.umin.i32(i32 %div18.i.i, i32 %conv1.i.i.i)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umin.i32(i32 %conv1.i.i.i, i32 %div18.i.i)
   %rem.i.i = and i32 %ShiftAmt, 63
   %cmp.i.i7 = icmp eq i32 %rem.i.i, 0
   br i1 %cmp.i.i7, label %if.then1.i.i, label %while.cond.preheader.i.i
@@ -5156,7 +5156,7 @@ if.then9:                                         ; preds = %_ZNK4llvh5APInt18co
   br i1 %cmp.i.i, label %if.then.i99, label %if.end4.i
 
 if.then.i99:                                      ; preds = %if.then9
-  %cmp.i100 = icmp eq i32 %0, %sub
+  %cmp.i100 = icmp eq i32 %sub, %0
   br i1 %cmp.i100, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i99
@@ -5175,7 +5175,7 @@ if.end4.i:                                        ; preds = %if.then9
   %div1.i.i.i.i97 = lshr i64 %sub.i.i.i.i96, 6
   %conv1.i.i.i.i98 = trunc nuw nsw i64 %div1.i.i.i.i97 to i32
   %div24.i.i.i = lshr i32 %sub, 6
-  %.sroa.speculated.i.i.i = tail call i32 @llvm.umin.i32(i32 %div24.i.i.i, i32 %conv1.i.i.i.i98)
+  %.sroa.speculated.i.i.i = tail call i32 @llvm.umin.i32(i32 %conv1.i.i.i.i98, i32 %div24.i.i.i)
   %rem.i.i.i = and i32 %sub, 63
   %sub.i.i.i = sub nsw i32 %conv1.i.i.i.i98, %.sroa.speculated.i.i.i
   %cmp.i.i.i = icmp eq i32 %rem.i.i.i, 0
@@ -5248,7 +5248,7 @@ if.then11:                                        ; preds = %if.else
   br i1 %cmp.i.i21, label %if.then.i152, label %if.end4.i103
 
 if.then.i152:                                     ; preds = %if.then11
-  %cmp.i153 = icmp eq i32 %20, %sub12
+  %cmp.i153 = icmp eq i32 %sub12, %20
   br i1 %cmp.i153, label %if.then2.i157, label %if.else.i154
 
 if.then2.i157:                                    ; preds = %if.then.i152
@@ -5267,7 +5267,7 @@ if.end4.i103:                                     ; preds = %if.then11
   %div1.i.i.i.i106 = lshr i64 %sub.i.i.i.i105, 6
   %conv1.i.i.i.i107 = trunc nuw nsw i64 %div1.i.i.i.i106 to i32
   %div24.i.i.i110 = lshr i32 %sub12, 6
-  %.sroa.speculated.i.i.i111 = tail call i32 @llvm.umin.i32(i32 %div24.i.i.i110, i32 %conv1.i.i.i.i107)
+  %.sroa.speculated.i.i.i111 = tail call i32 @llvm.umin.i32(i32 %conv1.i.i.i.i107, i32 %div24.i.i.i110)
   %rem.i.i.i112 = and i32 %sub12, 63
   %sub.i.i.i113 = sub nsw i32 %conv1.i.i.i.i107, %.sroa.speculated.i.i.i111
   %cmp.i.i.i114 = icmp eq i32 %rem.i.i.i112, 0
@@ -5458,7 +5458,7 @@ _ZNK4llvh5APInt18countTrailingZerosEv.exit210.thread: ; preds = %_ZN4llvh5APIntm
   %conv.i208 = trunc nuw nsw i64 %68 to i32
   %.sroa.speculated.i209 = tail call i32 @llvm.umin.i32(i32 %66, i32 %conv.i208)
   %sub21406 = sub i32 %.sroa.speculated.i209, %Pow2.0
-  %cmp.i263 = icmp eq i32 %66, %sub21406
+  %cmp.i263 = icmp eq i32 %sub21406, %66
   br i1 %cmp.i263, label %if.then2.i267, label %if.else.i264
 
 land.rhs.lr.ph.i.i185:                            ; preds = %_ZN4llvh5APIntmIERKS0_.exit
@@ -5512,7 +5512,7 @@ if.else.i264:                                     ; preds = %_ZNK4llvh5APInt18co
 if.end.i.i.i219:                                  ; preds = %_ZNK4llvh5APInt18countTrailingZerosEv.exit210
   %sub21 = sub i32 %.sroa.speculated.i.i201, %Pow2.0
   %div24.i.i.i220 = lshr i32 %sub21, 6
-  %.sroa.speculated.i.i.i221 = tail call i32 @llvm.umin.i32(i32 %div24.i.i.i220, i32 %conv1.i.i.i.i189)
+  %.sroa.speculated.i.i.i221 = tail call i32 @llvm.umin.i32(i32 %conv1.i.i.i.i189, i32 %div24.i.i.i220)
   %rem.i.i.i222 = and i32 %sub21, 63
   %sub.i.i.i223 = sub nsw i32 %conv1.i.i.i.i189, %.sroa.speculated.i.i.i221
   %cmp.i.i.i224 = icmp eq i32 %rem.i.i.i222, 0
@@ -5662,7 +5662,7 @@ _ZNK4llvh5APInt18countTrailingZerosEv.exit341.thread: ; preds = %_ZN4llvh5APIntm
   %conv.i339 = trunc nuw nsw i64 %93 to i32
   %.sroa.speculated.i340 = tail call i32 @llvm.umin.i32(i32 %91, i32 %conv.i339)
   %sub25409 = sub i32 %.sroa.speculated.i340, %Pow2.0
-  %cmp.i394 = icmp eq i32 %91, %sub25409
+  %cmp.i394 = icmp eq i32 %sub25409, %91
   br i1 %cmp.i394, label %if.then2.i398, label %if.else.i395
 
 land.rhs.lr.ph.i.i316:                            ; preds = %_ZN4llvh5APIntmIERKS0_.exit313
@@ -5716,7 +5716,7 @@ if.else.i395:                                     ; preds = %_ZNK4llvh5APInt18co
 if.end.i.i.i350:                                  ; preds = %_ZNK4llvh5APInt18countTrailingZerosEv.exit341
   %sub25 = sub i32 %.sroa.speculated.i.i332, %Pow2.0
   %div24.i.i.i351 = lshr i32 %sub25, 6
-  %.sroa.speculated.i.i.i352 = tail call i32 @llvm.umin.i32(i32 %div24.i.i.i351, i32 %conv1.i.i.i.i320)
+  %.sroa.speculated.i.i.i352 = tail call i32 @llvm.umin.i32(i32 %conv1.i.i.i.i320, i32 %div24.i.i.i351)
   %rem.i.i.i353 = and i32 %sub25, 63
   %sub.i.i.i354 = sub nsw i32 %conv1.i.i.i.i320, %.sroa.speculated.i.i.i352
   %cmp.i.i.i355 = icmp eq i32 %rem.i.i.i353, 0
@@ -6345,7 +6345,7 @@ _ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i54: ; preds = %if.then.i.i.
   br i1 %cmp18, label %if.then19, label %if.end27
 
 if.then19:                                        ; preds = %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i54
-  %brmerge.demorgan = and i1 %cond104109, %isSigned
+  %brmerge.demorgan = and i1 %isSigned, %cond104109
   br i1 %brmerge.demorgan, label %if.else25, label %delete.notnull.i74
 
 if.else25:                                        ; preds = %if.then19
@@ -6977,7 +6977,7 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i:         ; preds = %_ZNK4llvh5APInt15ge
   %sh_prom.i.i = zext nneg i32 %sub.i.i to i64
   %shl.i.i = shl i64 %8, %sh_prom.i.i
   %shr.i.i = ashr exact i64 %shl.i.i, %sh_prom.i.i
-  %cmp.i = icmp eq i32 %0, %cond.i
+  %cmp.i = icmp eq i32 %cond.i, %0
   %narrow.i = select i1 %cmp.i, i32 63, i32 %cond.i
   %sh_prom.pn.i = zext nneg i32 %narrow.i to i64
   %storemerge.i = ashr i64 %shr.i.i, %sh_prom.pn.i
@@ -7217,7 +7217,7 @@ _ZNK4llvh5APInt15getLimitedValueEm.exit:          ; preds = %_ZNK4llvh5APInt13ge
   br i1 %cmp.i.i1, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %_ZNK4llvh5APInt15getLimitedValueEm.exit
-  %cmp.i = icmp eq i32 %0, %cond.i
+  %cmp.i = icmp eq i32 %cond.i, %0
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -7241,7 +7241,7 @@ if.end4.i:                                        ; preds = %_ZNK4llvh5APInt15ge
 
 if.end.i.i.i:                                     ; preds = %if.end4.i
   %div24.i.i.i = lshr i32 %cond.i, 6
-  %.sroa.speculated.i.i.i = tail call i32 @llvm.umin.i32(i32 %div24.i.i.i, i32 %conv1.i.i.i.i)
+  %.sroa.speculated.i.i.i = tail call i32 @llvm.umin.i32(i32 %conv1.i.i.i.i, i32 %div24.i.i.i)
   %rem.i.i.i = and i32 %cond.i, 63
   %sub.i.i.i2 = sub nsw i32 %conv1.i.i.i.i, %.sroa.speculated.i.i.i
   %cmp.i.i.i3 = icmp eq i32 %rem.i.i.i, 0
@@ -7324,7 +7324,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %div24.i = lshr i32 %ShiftAmt, 6
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %div24.i, i32 %conv1.i.i)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %conv1.i.i, i32 %div24.i)
   %rem.i = and i32 %ShiftAmt, 63
   %sub.i = sub nsw i32 %conv1.i.i, %.sroa.speculated.i
   %cmp.i = icmp eq i32 %rem.i, 0
@@ -7400,7 +7400,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %div24 = lshr i32 %Count, 6
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %div24, i32 %Words)
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %Words, i32 %div24)
   %rem = and i32 %Count, 63
   %sub = sub i32 %Words, %.sroa.speculated
   %cmp = icmp eq i32 %rem, 0
@@ -7408,7 +7408,7 @@ if.end:                                           ; preds = %entry
 
 for.cond.preheader:                               ; preds = %if.end
   %invariant.op = add nuw nsw i32 %.sroa.speculated, 1
-  %cmp2.not28.not = icmp ult i32 %div24, %Words
+  %cmp2.not28.not = icmp ugt i32 %Words, %div24
   br i1 %cmp2.not28.not, label %for.body.lr.ph, label %if.end17
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -7555,7 +7555,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %div18.i = lshr i32 %ShiftAmt, 6
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %div18.i, i32 %conv1.i.i)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %conv1.i.i, i32 %div18.i)
   %rem.i = and i32 %ShiftAmt, 63
   %cmp.i = icmp eq i32 %rem.i, 0
   br i1 %cmp.i, label %if.then1.i, label %while.cond.preheader.i
@@ -7663,7 +7663,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %div18 = lshr i32 %Count, 6
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %div18, i32 %Words)
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %Words, i32 %div18)
   %rem = and i32 %Count, 63
   %cmp = icmp eq i32 %rem, 0
   br i1 %cmp, label %if.then1, label %while.cond.preheader
@@ -8047,7 +8047,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
   %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %div24.i.i.i.i = lshr i32 %rem, 6
-  %.sroa.speculated.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %div24.i.i.i.i, i32 %conv1.i.i.i.i.i)
+  %.sroa.speculated.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %conv1.i.i.i.i.i, i32 %div24.i.i.i.i)
   %rem.i.i.i.i = and i32 %rem, 63
   %sub.i.i.i.i4 = sub nsw i32 %conv1.i.i.i.i.i, %.sroa.speculated.i.i.i.i
   %cmp.i.i.i.i = icmp eq i32 %rem.i.i.i.i, 0
@@ -10848,7 +10848,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4llvh5APIntD2Ev.
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
   %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %div24.i.i.i.i = lshr i32 %sub, 6
-  %.sroa.speculated.i.i.i.i = call i32 @llvm.umin.i32(i32 %div24.i.i.i.i, i32 %conv1.i.i.i.i.i)
+  %.sroa.speculated.i.i.i.i = call i32 @llvm.umin.i32(i32 %conv1.i.i.i.i.i, i32 %div24.i.i.i.i)
   %rem.i.i.i.i27 = and i32 %sub, 63
   %sub.i.i.i.i28 = sub nsw i32 %conv1.i.i.i.i.i, %.sroa.speculated.i.i.i.i
   %cmp.i.i.i.i = icmp eq i32 %rem.i.i.i.i27, 0
@@ -12734,7 +12734,7 @@ _ZN4llvh5APIntD2Ev.exit.thread:                   ; preds = %entry
   %sub2.i.i.i = xor i32 %rem.i.i.i, 63
   %sh_prom.i.i.i = zext nneg i32 %sub2.i.i.i to i64
   %shr.i.i.i = lshr i64 -1, %sh_prom.i.i.i
-  %cmp.i.i = icmp eq i32 %0, %LeadingZeros
+  %cmp.i.i = icmp eq i32 %LeadingZeros, %0
   %sh_prom.i.i = zext nneg i32 %LeadingZeros to i64
   %shr.i.i = lshr i64 %shr.i.i.i, %sh_prom.i.i
   %allOnes.sroa.0.0.ph = select i1 %cmp.i.i, i64 0, i64 %shr.i.i
@@ -12775,7 +12775,7 @@ if.end4.i.i:                                      ; preds = %entry
 
 if.end.i.i.i.i:                                   ; preds = %if.end4.i.i
   %div24.i.i.i.i = lshr i32 %LeadingZeros, 6
-  %.sroa.speculated.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %div24.i.i.i.i, i32 %conv1.i.i.i.i.i)
+  %.sroa.speculated.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %conv1.i.i.i.i.i, i32 %div24.i.i.i.i)
   %rem.i.i.i.i25 = and i32 %LeadingZeros, 63
   %sub.i.i.i.i26 = sub nsw i32 %conv1.i.i.i.i.i, %.sroa.speculated.i.i.i.i
   %cmp.i.i.i.i = icmp eq i32 %rem.i.i.i.i25, 0
@@ -21480,7 +21480,7 @@ if.end71:                                         ; preds = %_ZNK4llvh5APInt12ge
   %add.ptr.i = getelementptr inbounds i8, ptr %90, i64 %conv.i224
   %cmp.i.i225 = icmp ne i32 %60, %89
   %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -1
-  %cmp19.i.i = icmp ugt ptr %__last.addr.08.i.i, %add.ptr
+  %cmp19.i.i = icmp ult ptr %add.ptr, %__last.addr.08.i.i
   %or.cond.i.i226 = select i1 %cmp.i.i225, i1 %cmp19.i.i, i1 false
   br i1 %or.cond.i.i226, label %while.body.i.i, label %_ZSt7reverseIPcEvT_S1_.exit
 
@@ -21904,7 +21904,7 @@ while.body.preheader:                             ; preds = %if.end20
   %10 = zext nneg i32 %9 to i64
   %scevgep = getelementptr i8, ptr %dst, i64 %10
   %11 = xor i32 %div24, -1
-  %12 = add i32 %11, %dstCount
+  %12 = add i32 %dstCount, %11
   %13 = zext i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 3
   %15 = add nuw nsw i64 %14, 8
@@ -22057,7 +22057,7 @@ _ZN4llvh5APInt8tcAssignEPmPKmj.exit:              ; preds = %for.body.i, %if.end
   br i1 %tobool.not.i29, label %_ZN4llvh5APInt11tcShiftLeftEPmjj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN4llvh5APInt8tcAssignEPmPKmj.exit
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %div26, i32 %parts)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %parts, i32 %div26)
   %cmp.i = icmp eq i32 %rem, 0
   br i1 %cmp.i, label %if.then1.i, label %while.cond.preheader.i
 
@@ -22335,7 +22335,7 @@ while.body7.preheader:                            ; preds = %if.end
   %8 = shl nuw nsw i64 %7, 3
   %scevgep = getelementptr i8, ptr %dst, i64 %8
   %9 = xor i32 %i.1, -1
-  %10 = add i32 %9, %parts
+  %10 = add i32 %parts, %9
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 3
   %13 = add nuw nsw i64 %12, 8
@@ -25905,7 +25905,7 @@ if.then:                                          ; preds = %entry
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %result.0.copyload.i3.i = load i32, ptr %add.ptr1.i, align 1
   %conv3.i = zext i32 %result.0.copyload.i3.i to i64
-  %xor.i = xor i64 %conv3.i, %seed
+  %xor.i = xor i64 %seed, %conv3.i
   %xor.i.i = xor i64 %xor.i, %add.i
   %mul.i.i = mul i64 %xor.i.i, -7070675565921424023
   %shr.i.i = lshr i64 %mul.i.i, 47

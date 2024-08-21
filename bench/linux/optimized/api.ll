@@ -1428,7 +1428,7 @@ define internal fastcc ptr @crypto_alg_lookup(ptr nocapture noundef readonly %0,
 
 18:                                               ; preds = %13
   %19 = xor i32 %1, -1
-  %20 = or i32 %19, %2
+  %20 = or i32 %2, %19
   %21 = and i32 %20, 131072
   %22 = xor i32 %15, %1
   %23 = and i32 %21, %22

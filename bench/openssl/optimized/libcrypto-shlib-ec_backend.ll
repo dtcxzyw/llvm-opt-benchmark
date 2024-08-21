@@ -87,7 +87,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
   %arrayidx = getelementptr inbounds [3 x %struct.ossl_item_st], ptr @check_group_type_nameid_map, i64 0, i64 %i.04
   %0 = load i32, ptr %arrayidx, align 16
-  %cmp2 = icmp eq i32 %0, %id
+  %cmp2 = icmp eq i32 %id, %0
   br i1 %cmp2, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
@@ -183,7 +183,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
   %arrayidx = getelementptr inbounds [3 x %struct.ossl_item_st], ptr @format_nameid_map, i64 0, i64 %i.04
   %0 = load i32, ptr %arrayidx, align 16
-  %cmp2 = icmp eq i32 %0, %id
+  %cmp2 = icmp eq i32 %id, %0
   br i1 %cmp2, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
@@ -220,7 +220,7 @@ for.body.i:                                       ; preds = %for.cond.i, %if.end
   %i.04.i = phi i64 [ 0, %if.end ], [ %inc.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds [3 x %struct.ossl_item_st], ptr @format_nameid_map, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 16
-  %cmp2.i = icmp eq i32 %0, %call
+  %cmp2.i = icmp eq i32 %call, %0
   br i1 %cmp2.i, label %ossl_ec_pt_format_id2name.exit, label %for.cond.i
 
 ossl_ec_pt_format_id2name.exit:                   ; preds = %for.body.i
@@ -252,7 +252,7 @@ for.body.i20:                                     ; preds = %for.cond.i24, %if.e
   %i.04.i21 = phi i64 [ 0, %if.end5 ], [ 1, %for.cond.i24 ]
   %arrayidx.i22 = getelementptr inbounds [2 x %struct.ossl_item_st], ptr @encoding_nameid_map, i64 0, i64 %i.04.i21
   %2 = load i32, ptr %arrayidx.i22, align 16
-  %cmp2.i23 = icmp eq i32 %2, %and
+  %cmp2.i23 = icmp eq i32 %and, %2
   br i1 %cmp2.i23, label %ec_param_encoding_id2name.exit, label %for.cond.i24
 
 ec_param_encoding_id2name.exit:                   ; preds = %for.body.i20

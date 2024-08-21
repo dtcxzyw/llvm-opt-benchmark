@@ -120,7 +120,7 @@ define dso_local i32 @get_opfamily_oid(i32 noundef %0, ptr noundef %1, i1 nounde
 21:                                               ; preds = %18, %15, %9, %7
   %.0.i = phi ptr [ %14, %9 ], [ %20, %18 ], [ null, %7 ], [ null, %15 ]
   %.not22.i = icmp ne ptr %.0.i, null
-  %brmerge.i = or i1 %.not22.i, %2
+  %brmerge.i = or i1 %2, %.not22.i
   br i1 %brmerge.i, label %OpFamilyCacheLookup.exit, label %22
 
 22:                                               ; preds = %21
@@ -212,7 +212,7 @@ define dso_local i32 @get_opclass_oid(i32 noundef %0, ptr noundef %1, i1 noundef
 21:                                               ; preds = %18, %15, %9, %7
   %.0.i = phi ptr [ %14, %9 ], [ %20, %18 ], [ null, %7 ], [ null, %15 ]
   %.not22.i = icmp ne ptr %.0.i, null
-  %brmerge.i = or i1 %.not22.i, %2
+  %brmerge.i = or i1 %2, %.not22.i
   br i1 %brmerge.i, label %OpClassCacheLookup.exit, label %22
 
 22:                                               ; preds = %21

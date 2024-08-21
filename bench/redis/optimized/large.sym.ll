@@ -116,7 +116,7 @@ if.end5.i82:                                      ; preds = %if.end.i65
   %sub10.i = sub nuw nsw i64 60, %3
   %notmask57 = shl nsw i64 -1, %sub10.i
   %sub12.i = xor i64 %notmask57, -1
-  %add.i85 = add nuw nsw i64 %sub12.i, %usize
+  %add.i85 = add nuw nsw i64 %usize, %sub12.i
   %and.i87 = and i64 %add.i85, %notmask57
   br label %sz_s2u.exit68
 
@@ -151,7 +151,7 @@ if.end:                                           ; preds = %sz_sa2u.exit
 
 if.end.i39:                                       ; preds = %if.end
   %7 = load i64, ptr @oversize_threshold, align 8
-  %cmp1.i40.not = icmp ugt i64 %7, %usize
+  %cmp1.i40.not = icmp ult i64 %usize, %7
   br i1 %cmp1.i40.not, label %if.end11.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i39
@@ -164,7 +164,7 @@ lor.lhs.false.i:                                  ; preds = %if.then3.i
   %9 = getelementptr i8, ptr %8, i64 78928
   %.val = load i32, ptr %9, align 8
   %10 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i60 = icmp ugt i32 %10, %.val
+  %cmp.i60 = icmp ult i32 %.val, %10
   br i1 %cmp.i60, label %if.then8.i45, label %if.end11.i
 
 if.then8.i45:                                     ; preds = %lor.lhs.false.i, %if.then3.i
@@ -322,7 +322,7 @@ if.end29:                                         ; preds = %lor.lhs.false
   %29 = getelementptr i8, ptr %arena.addr.076, i64 78928
   %arena.addr.0.val = load i32, ptr %29, align 8
   %30 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i61 = icmp ugt i32 %30, %arena.addr.0.val
+  %cmp.i61 = icmp ult i32 %arena.addr.0.val, %30
   br i1 %cmp.i61, label %if.end33, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
@@ -448,7 +448,7 @@ entry:
   %conv.i.i.i = and i64 %0, 255
   %arrayidx.i.i.i = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp = icmp ult i64 %1, %usize_max
+  %cmp = icmp ugt i64 %usize_max, %1
   br i1 %cmp, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %entry
@@ -494,7 +494,7 @@ if.then12.i:                                      ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.then
   %cmp6 = icmp ult i64 %usize_min, %usize_max
-  %cmp7 = icmp ult i64 %1, %usize_min
+  %cmp7 = icmp ugt i64 %usize_min, %1
   %or.cond = and i1 %cmp6, %cmp7
   br i1 %or.cond, label %land.lhs.true8, label %if.end14
 
@@ -873,7 +873,7 @@ if.end10:                                         ; preds = %if.end
   %tobool17 = trunc i8 %17 to i1
   %cond18 = select i1 %tobool17, i32 3, i32 4
   call void @hook_invoke_dalloc(i32 noundef %cond18, ptr noundef %ptr, ptr noundef nonnull %args14) #10
-  %cond22 = call i64 @llvm.umin.i64(i64 %13, i64 %usize)
+  %cond22 = call i64 @llvm.umin.i64(i64 %usize, i64 %13)
   %18 = getelementptr i8, ptr %14, i64 8
   %.val105 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2.i, ptr align 1 %.val105, i64 %cond22, i1 false)
@@ -1141,7 +1141,7 @@ entry:
   %2 = getelementptr i8, ptr %1, i64 78928
   %arena.val.i = load i32, ptr %2, align 8
   %3 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i18.i = icmp ugt i32 %3, %arena.val.i
+  %cmp.i18.i = icmp ult i32 %arena.val.i, %3
   br i1 %cmp.i18.i, label %large_dalloc_prep_impl.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %entry
@@ -1202,7 +1202,7 @@ entry:
   %0 = getelementptr i8, ptr %arena, i64 78928
   %arena.val = load i32, ptr %0, align 8
   %1 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i18 = icmp ugt i32 %1, %arena.val
+  %cmp.i18 = icmp ult i32 %arena.val, %1
   br i1 %locked, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry

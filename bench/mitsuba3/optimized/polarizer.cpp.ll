@@ -925,8 +925,8 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS1_6VectorIS3_Lm3EEEE4sub_ER
 194:                                              ; preds = %189
   %195 = tail call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %192, <4 x float> zeroinitializer, i8 -1)
   %196 = fmul contract <4 x float> %195, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %197 = fneg contract <4 x float> %195
-  %198 = fmul contract <4 x float> %192, %197
+  %197 = fneg contract <4 x float> %192
+  %198 = fmul contract <4 x float> %195, %197
   %199 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %198, <4 x float> %195, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
   %200 = fmul contract <4 x float> %196, %199
   %201 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %200, <4 x float> %192, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
@@ -1028,8 +1028,8 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS1_6VectorIS3_Lm3EEEE4mul_ER
   %249 = fadd contract <4 x float> %.cast.i.i, %248
   %250 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %249, <4 x float> zeroinitializer, i8 -1)
   %251 = fadd contract <4 x float> %250, %250
-  %252 = fneg contract <4 x float> %250
-  %253 = fmul contract <4 x float> %249, %252
+  %252 = fneg contract <4 x float> %249
+  %253 = fmul contract <4 x float> %250, %252
   %254 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %253, <4 x float> %250, <4 x float> %251)
   %255 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %254, <4 x float> %249, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   %256 = fneg <4 x float> %255
@@ -1798,8 +1798,8 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS1_6VectorIS3_Lm3EEEE4sub_ER
 178:                                              ; preds = %173
   %179 = tail call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %176, <4 x float> zeroinitializer, i8 -1)
   %180 = fmul contract <4 x float> %179, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %181 = fneg contract <4 x float> %179
-  %182 = fmul contract <4 x float> %176, %181
+  %181 = fneg contract <4 x float> %176
+  %182 = fmul contract <4 x float> %179, %181
   %183 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %182, <4 x float> %179, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
   %184 = fmul contract <4 x float> %180, %183
   %185 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %184, <4 x float> %176, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
@@ -1901,8 +1901,8 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS1_6VectorIS3_Lm3EEEE4mul_ER
   %233 = fadd contract <4 x float> %.cast.i.i, %232
   %234 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %233, <4 x float> zeroinitializer, i8 -1)
   %235 = fadd contract <4 x float> %234, %234
-  %236 = fneg contract <4 x float> %234
-  %237 = fmul contract <4 x float> %233, %236
+  %236 = fneg contract <4 x float> %233
+  %237 = fmul contract <4 x float> %234, %236
   %238 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %237, <4 x float> %234, <4 x float> %235)
   %239 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %238, <4 x float> %233, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   %240 = fneg <4 x float> %239
@@ -4605,7 +4605,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63
@@ -4740,8 +4740,8 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller19rotate_stokes_basisINS_6Ve
 26:                                               ; preds = %21
   %27 = tail call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %24, <4 x float> zeroinitializer, i8 -1)
   %28 = fmul contract <4 x float> %27, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %29 = fneg contract <4 x float> %27
-  %30 = fmul contract <4 x float> %24, %29
+  %29 = fneg contract <4 x float> %24
+  %30 = fmul contract <4 x float> %27, %29
   %31 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %30, <4 x float> %27, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
   %32 = fmul contract <4 x float> %28, %31
   %33 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %32, <4 x float> %24, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
@@ -4790,8 +4790,8 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS1_6VectorIS3_Lm3EEEE4mul_ER
 52:                                               ; preds = %47
   %53 = tail call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %50, <4 x float> zeroinitializer, i8 -1)
   %54 = fmul contract <4 x float> %53, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %55 = fneg contract <4 x float> %53
-  %56 = fmul contract <4 x float> %50, %55
+  %55 = fneg contract <4 x float> %50
+  %56 = fmul contract <4 x float> %53, %55
   %57 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %56, <4 x float> %53, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
   %58 = fmul contract <4 x float> %54, %57
   %59 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %58, <4 x float> %50, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)

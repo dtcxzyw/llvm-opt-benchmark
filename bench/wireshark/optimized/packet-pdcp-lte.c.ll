@@ -3399,7 +3399,7 @@ define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr nounde
   %86 = add i32 %85, 1
   %87 = add nsw i32 %.090, -1
   %88 = and i32 %86, %87
-  %89 = icmp eq i32 %88, %3
+  %89 = icmp eq i32 %3, %88
   %90 = zext i1 %89 to i32
   store i32 %90, ptr %66, align 4
   %91 = getelementptr inbounds i8, ptr %.0, i64 8
@@ -3856,7 +3856,7 @@ proto_item_set_generated.exit160:                 ; preds = %108, %115, %118
   %151 = getelementptr [32 x %struct.key_entry_t], ptr %139, i64 0, i64 %indvars.iv.next.i
   %152 = getelementptr inbounds i8, ptr %151, i64 36
   %153 = load i32, ptr %152, align 4
-  %154 = icmp ult i32 %153, %126
+  %154 = icmp ugt i32 %126, %153
   br i1 %154, label %155, label %181
 
 155:                                              ; preds = %150

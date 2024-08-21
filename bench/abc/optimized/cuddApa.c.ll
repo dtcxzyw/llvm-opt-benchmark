@@ -1053,9 +1053,9 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @background, align 8
-  %11 = icmp eq ptr %10, %0
+  %11 = icmp eq ptr %0, %10
   %12 = load ptr, ptr @zero, align 8
-  %13 = icmp eq ptr %12, %0
+  %13 = icmp eq ptr %0, %12
   %or.cond = select i1 %11, i1 true, i1 %13
   %spec.select = select i1 %or.cond, ptr %3, ptr %2
   br label %114

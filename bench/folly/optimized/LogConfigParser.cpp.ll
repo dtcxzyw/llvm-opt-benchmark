@@ -18080,7 +18080,7 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detai
   %25 = phi ptr [ %.pre, %if.end9 ], [ %.pre138, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit ]
   %notmask.i62 = shl nsw i64 -1, %sh_prom.i61.pre-phi
   %sub.i63 = xor i64 %notmask.i62, -1
-  %and.i64 = and i64 %sub.i63, %hp.coerce0
+  %and.i64 = and i64 %hp.coerce0, %sub.i63
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %25, i64 %and.i64
   %26 = load <16 x i8>, ptr %add.ptr, align 16, !tbaa !7
   %27 = icmp slt <16 x i8> %26, zeroinitializer
@@ -18956,7 +18956,7 @@ if.then:                                          ; preds = %_ZN5folly3f146detai
   %sh_prom.i = and i64 %3, 255
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %and.i37 = and i64 %sub.i, %hp.coerce0
+  %and.i37 = and i64 %hp.coerce0, %sub.i
   %add.ptr38 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %and.i37
   %cmp839 = icmp eq ptr %add.ptr38, %add.ptr1.i.i
   br i1 %cmp839, label %cleanup.thread, label %if.end
@@ -19126,7 +19126,7 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detai
   %14 = phi ptr [ %10, %if.end9 ], [ %.pre117, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit ]
   %notmask.i60 = shl nsw i64 -1, %sh_prom.i59.pre-phi
   %sub.i61 = xor i64 %notmask.i60, -1
-  %and.i62 = and i64 %sub.i61, %hp.coerce0
+  %and.i62 = and i64 %hp.coerce0, %sub.i61
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %14, i64 %and.i62
   %15 = load <16 x i8>, ptr %add.ptr, align 16, !tbaa !7
   %16 = icmp slt <16 x i8> %15, zeroinitializer

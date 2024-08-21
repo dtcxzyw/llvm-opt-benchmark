@@ -178,7 +178,7 @@ define internal fastcc range(i32 -1, 1) i32 @check_dev_quirk(i32 noundef %0, i32
 59:                                               ; preds = %.loopexit
   %60 = tail call zeroext i8 @read_pci_config_byte(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 25) #4
   %61 = zext i8 %60 to i32
-  %62 = icmp sgt i32 %61, %0
+  %62 = icmp slt i32 %0, %61
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %59
@@ -735,7 +735,7 @@ define internal i64 @i85x_stolen_base(i32 %0, i32 %1, i32 %2, i64 noundef %3) #0
   %9 = and i8 %8, 1
   %10 = zext nneg i8 %9 to i64
   %11 = shl nuw nsw i64 %10, 20
-  %12 = add i64 %11, %3
+  %12 = add i64 %3, %11
   %13 = sub i64 %7, %12
   ret i64 %13
 }

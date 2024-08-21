@@ -195,14 +195,14 @@ invoke.cont53:                                    ; preds = %invoke.cont5.i12, %
   store float %mul4.i.i.i22, ptr %arrayidx5.i.i.i.i16, align 4
   %mul7.i.i.i23 = fmul float %14, %div.i.i20
   store float %mul7.i.i.i23, ptr %arrayidx10.i.i.i.i18, align 4
-  %16 = fneg float %mul7.i.i.i
-  %neg.i = fmul float %mul4.i.i.i22, %16
+  %16 = fneg float %mul4.i.i.i22
+  %neg.i = fmul float %mul7.i.i.i, %16
   %17 = tail call float @llvm.fmuladd.f32(float %mul4.i.i.i, float %mul7.i.i.i23, float %neg.i)
-  %18 = fneg float %mul.i.i.i
-  %neg19.i = fmul float %mul7.i.i.i23, %18
+  %18 = fneg float %mul7.i.i.i23
+  %neg19.i = fmul float %mul.i.i.i, %18
   %19 = tail call float @llvm.fmuladd.f32(float %mul7.i.i.i, float %mul.i.i.i21, float %neg19.i)
-  %20 = fneg float %mul4.i.i.i
-  %neg30.i = fmul float %mul.i.i.i21, %20
+  %20 = fneg float %mul.i.i.i21
+  %neg30.i = fmul float %mul4.i.i.i, %20
   %21 = tail call float @llvm.fmuladd.f32(float %mul.i.i.i, float %mul4.i.i.i22, float %neg30.i)
   %frameInW.sroa.36.48.copyload = load float, ptr %anchor, align 4
   %frameInW.sroa.39.48.anchor.sroa_idx = getelementptr inbounds i8, ptr %anchor, i64 4

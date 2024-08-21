@@ -25,7 +25,7 @@ define hidden noundef double @_Z7pj_qsfnddd(double noundef %0, double noundef %1
   %16 = tail call double @log(double noundef %15) #3
   %17 = fdiv double -5.000000e-01, %1
   %18 = tail call double @llvm.fmuladd.f64(double %17, double %16, double %13)
-  %19 = fmul double %18, %2
+  %19 = fmul double %2, %18
   br label %22
 
 20:                                               ; preds = %3

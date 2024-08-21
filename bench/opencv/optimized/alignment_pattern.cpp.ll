@@ -76,13 +76,13 @@ define hidden void @_ZNK5zxing6qrcode16AlignmentPattern15combineEstimateEfff(ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef float %8(ptr noundef nonnull align 8 dereferenceable(20) %1)
-  %10 = fadd float %9, %3
+  %10 = fadd float %3, %9
   %11 = fmul float %10, 5.000000e-01
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef float %14(ptr noundef nonnull align 8 dereferenceable(20) %1)
-  %16 = fadd float %15, %2
+  %16 = fadd float %2, %15
   %17 = fmul float %16, 5.000000e-01
   %18 = getelementptr inbounds i8, ptr %1, i64 20
   %19 = load float, ptr %18, align 4
@@ -91,7 +91,7 @@ define hidden void @_ZNK5zxing6qrcode16AlignmentPattern15combineEstimateEfff(ptr
           to label %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2EPS2_.exit unwind label %27
 
 _ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2EPS2_.exit: ; preds = %5
-  %21 = fadd float %19, %4
+  %21 = fadd float %4, %19
   %22 = fmul float %21, 5.000000e-01
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode16AlignmentPatternE, i64 16), ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 20

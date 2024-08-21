@@ -39,7 +39,7 @@ define internal i64 @ia64_code(ptr nocapture readnone %0, i32 noundef %1, i1 nou
   %12 = getelementptr inbounds [32 x i32], ptr @ia64_code.BRANCH_TABLE, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = trunc i64 %.05872 to i32
-  %15 = add i32 %14, %1
+  %15 = add i32 %1, %14
   %16 = sub i32 0, %15
   %.055.p = select i1 %2, i32 %15, i32 %16
   %17 = lshr i32 %.055.p, 4

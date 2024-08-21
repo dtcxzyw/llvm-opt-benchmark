@@ -270,7 +270,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %2, %target
+  %cmp.not.i = icmp ult ptr %target, %2
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.then

@@ -1277,14 +1277,14 @@ _ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit271: ; preds = %._crit_ed
 _ZN10rcIntArrayC2Ei.exit:                         ; preds = %_ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit271
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %145 = sub nsw i32 %23, %2
-  %146 = icmp sgt i32 %145, %2
+  %146 = icmp slt i32 %2, %145
   br i1 %146, label %.lr.ph390, label %._crit_edge391
 
 .lr.ph390:                                        ; preds = %_ZN10rcIntArrayC2Ei.exit
   %147 = getelementptr inbounds i8, ptr %7, i64 8
   %148 = getelementptr inbounds i8, ptr %7, i64 16
   %149 = sub i32 %21, %2
-  %150 = icmp sgt i32 %149, %2
+  %150 = icmp slt i32 %2, %149
   %151 = getelementptr inbounds i8, ptr %1, i64 64
   %152 = getelementptr inbounds i8, ptr %1, i64 88
   %153 = getelementptr inbounds i8, ptr %1, i64 72
@@ -1299,7 +1299,7 @@ _ZN10rcIntArrayC2Ei.exit:                         ; preds = %_ZL15paintRectRegio
   %157 = zext i16 %.1169389 to i64
   %158 = add nuw nsw i64 %157, 1
   %159 = load i64, ptr %7, align 8
-  %160 = icmp sgt i64 %159, %158
+  %160 = icmp slt i64 %158, %159
   br i1 %160, label %.sink.split.i, label %161
 
 161:                                              ; preds = %156
@@ -7755,14 +7755,14 @@ _ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit267: ; preds = %._crit_ed
 _ZN10rcIntArrayC2Ei.exit:                         ; preds = %_ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit267
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %149 = sub nsw i32 %27, %2
-  %150 = icmp sgt i32 %149, %2
+  %150 = icmp slt i32 %2, %149
   br i1 %150, label %.lr.ph399, label %._crit_edge400
 
 .lr.ph399:                                        ; preds = %_ZN10rcIntArrayC2Ei.exit
   %151 = getelementptr inbounds i8, ptr %12, i64 8
   %152 = getelementptr inbounds i8, ptr %12, i64 16
   %153 = sub i32 %25, %2
-  %154 = icmp sgt i32 %153, %2
+  %154 = icmp slt i32 %2, %153
   %155 = getelementptr inbounds i8, ptr %1, i64 64
   %156 = getelementptr inbounds i8, ptr %1, i64 88
   %157 = getelementptr inbounds i8, ptr %1, i64 72
@@ -7777,7 +7777,7 @@ _ZN10rcIntArrayC2Ei.exit:                         ; preds = %_ZL15paintRectRegio
   %161 = zext i16 %.1168398 to i64
   %162 = add nuw nsw i64 %161, 1
   %163 = load i64, ptr %12, align 8
-  %164 = icmp sgt i64 %163, %162
+  %164 = icmp slt i64 %162, %163
   br i1 %164, label %.sink.split.i, label %165
 
 165:                                              ; preds = %160
@@ -10728,17 +10728,17 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = load i64, ptr %0, align 8
-  %5 = icmp sgt i64 %4, %1
+  %5 = icmp slt i64 %1, %4
   br i1 %5, label %.sink.split, label %6
 
 6:                                                ; preds = %3
-  %7 = icmp slt i64 %4, %1
+  %7 = icmp sgt i64 %1, %4
   br i1 %7, label %8, label %48
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
-  %.not = icmp slt i64 %10, %1
+  %.not = icmp sgt i64 %1, %10
   br i1 %.not, label %18, label %11
 
 11:                                               ; preds = %8
@@ -10842,7 +10842,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE15construct_rangeEPiS2_RKi.exit33: ; preds =
 define linkonce_odr noundef zeroext i1 @_ZN12rcVectorBaseI8rcRegionL11rcAllocHint1EE7reserveEl(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %.not = icmp slt i64 %4, %1
+  %.not = icmp sgt i64 %1, %4
   br i1 %.not, label %5, label %_ZN12rcVectorBaseI8rcRegionL11rcAllocHint1EE17allocate_and_copyEl.exit.thread
 
 5:                                                ; preds = %2

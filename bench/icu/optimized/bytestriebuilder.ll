@@ -152,7 +152,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -432,7 +432,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #17
   %cmp7 = icmp eq ptr %call, null
@@ -1629,7 +1629,7 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %bytesCapacity.i.i = getelementptr inbounds i8, ptr %builder, i64 48
   %6 = load i32, ptr %bytesCapacity.i.i, align 8
-  %cmp2.i.i = icmp slt i32 %6, %add.i
+  %cmp2.i.i = icmp sgt i32 %add.i, %6
   br i1 %cmp2.i.i, label %do.body.i.i, label %if.then.i
 
 do.body.i.i:                                      ; preds = %if.end.i.i, %do.body.i.i
@@ -1710,7 +1710,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %bytesCapacity.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i32, ptr %bytesCapacity.i, align 8
-  %cmp2.i = icmp slt i32 %2, %add
+  %cmp2.i = icmp sgt i32 %add, %2
   br i1 %cmp2.i, label %do.body.i, label %if.then
 
 do.body.i:                                        ; preds = %if.end.i, %do.body.i
@@ -1811,7 +1811,7 @@ entry:
 if.end:                                           ; preds = %entry
   %bytesCapacity = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %bytesCapacity, align 8
-  %cmp2 = icmp slt i32 %1, %length
+  %cmp2 = icmp sgt i32 %length, %1
   br i1 %cmp2, label %do.body, label %return
 
 do.body:                                          ; preds = %if.end, %do.body
@@ -1874,7 +1874,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %bytesCapacity.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i32, ptr %bytesCapacity.i, align 8
-  %cmp2.i.not = icmp sgt i32 %2, %0
+  %cmp2.i.not = icmp slt i32 %0, %2
   br i1 %cmp2.i.not, label %if.then, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i, %do.body.i
@@ -1957,7 +1957,7 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %bytesCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load i32, ptr %bytesCapacity.i.i, align 8
-  %cmp2.i.i = icmp slt i32 %6, %add.i1
+  %cmp2.i.i = icmp sgt i32 %add.i1, %6
   br i1 %cmp2.i.i, label %do.body.i.i, label %if.then.i2
 
 do.body.i.i:                                      ; preds = %if.end.i.i, %do.body.i.i
@@ -2115,7 +2115,7 @@ if.end43:                                         ; preds = %if.end38, %if.then5
 if.end.i.i:                                       ; preds = %if.end43
   %bytesCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load i32, ptr %bytesCapacity.i.i, align 8
-  %cmp2.i.i = icmp slt i32 %7, %add.i
+  %cmp2.i.i = icmp sgt i32 %add.i, %7
   br i1 %cmp2.i.i, label %do.body.i.i, label %if.then.i
 
 do.body.i.i:                                      ; preds = %if.end.i.i, %do.body.i.i
@@ -2284,7 +2284,7 @@ _ZN6icu_7516BytesTrieBuilder19internalEncodeDeltaEiPc.exit: ; preds = %if.then2.
 if.end.i.i:                                       ; preds = %_ZN6icu_7516BytesTrieBuilder19internalEncodeDeltaEiPc.exit
   %bytesCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load i32, ptr %bytesCapacity.i.i, align 8
-  %cmp2.i.i = icmp slt i32 %5, %add.i
+  %cmp2.i.i = icmp sgt i32 %add.i, %5
   br i1 %cmp2.i.i, label %do.body.i.i, label %if.then.i3
 
 do.body.i.i:                                      ; preds = %if.end.i.i, %do.body.i.i

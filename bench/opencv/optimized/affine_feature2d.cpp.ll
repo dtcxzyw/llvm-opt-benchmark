@@ -651,8 +651,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_126calcAffineCovariantRegionsERKN2c
   store float %300, ptr %.sroa.5335.0..sroa_idx.i, align 4
   store float 0.000000e+00, ptr %.sroa.6336.0..sroa_idx.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 4 dereferenceable(24) %71, i64 24, i1 false)
-  %301 = fneg float %298
-  %302 = fmul float %299, %301
+  %301 = fneg float %299
+  %302 = fmul float %298, %301
   %303 = call float @llvm.fmuladd.f32(float %297, float %300, float %302)
   %304 = fdiv float %300, %303
   %305 = fmul float %304, 3.000000e+00
@@ -1628,8 +1628,8 @@ _ZNK2cv4MatxIfLi2ELi2EEcvNS0_IT_Li2ELi2EEEIdEEv.exit.i: ; preds = %654
   %660 = load double, ptr %224, align 8, !noalias !33
   %661 = load double, ptr %225, align 8, !noalias !33
   %662 = load double, ptr %226, align 8, !noalias !33
-  %663 = fneg double %661
-  %664 = fmul double %662, %663
+  %663 = fneg double %662
+  %664 = fmul double %661, %663
   %665 = call noundef double @llvm.fmuladd.f64(double %659, double %660, double %664)
   %666 = fcmp une double %665, 0.000000e+00
   br i1 %666, label %667, label %_ZNK2cv8internal14Matx_FastInvOpIdLi2ELi2EEclERKNS_4MatxIdLi2ELi2EEERS4_i.exit.i.i
@@ -1638,11 +1638,11 @@ _ZNK2cv4MatxIfLi2ELi2EEcvNS0_IT_Li2ELi2EEEIdEEv.exit.i: ; preds = %654
   %668 = fdiv double 1.000000e+00, %665
   %669 = fmul double %659, %668
   %670 = fmul double %660, %668
-  %671 = fmul double %668, %663
-  %672 = fneg double %662
-  %673 = fmul double %668, %672
+  %671 = fneg double %661
+  %672 = fmul double %668, %671
+  %673 = fmul double %668, %663
   store double %670, ptr %90, align 8, !alias.scope !33
-  store double %671, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !33
+  store double %672, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !33
   store double %673, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !33
   store double %669, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !33
   br label %_ZNK2cv4MatxIdLi2ELi2EE3invEiPb.exit.i
@@ -2828,8 +2828,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_130calcAffineCovariantDescriptorsER
   store float %102, ptr %59, align 4
   %103 = getelementptr inbounds i8, ptr %.sroa.0182.0194, i64 44
   %104 = load float, ptr %103, align 4
-  %105 = fneg float %100
-  %106 = fmul float %101, %105
+  %105 = fneg float %101
+  %106 = fmul float %100, %105
   %107 = call float @llvm.fmuladd.f32(float %99, float %102, float %106)
   %108 = fdiv float %102, %107
   %109 = fmul float %108, 3.000000e+00
@@ -3734,7 +3734,7 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d17Elliptic_KeyPointESaIS2_EE11_M_allocateEm
 _ZNSt6vectorIN2cv11xfeatures2d17Elliptic_KeyPointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17Elliptic_KeyPointESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17Elliptic_KeyPointESaIS2_EE11_M_allocateEm.exit ], [ %36, %.lr.ph.i.i.i.i ]
   %37 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 72
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv11xfeatures2d17Elliptic_KeyPointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv11xfeatures2d17Elliptic_KeyPointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i.i17

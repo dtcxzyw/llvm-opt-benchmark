@@ -25,7 +25,7 @@ define noundef ptr @itoa(i32 noundef %0, ptr noundef returned %1, i32 noundef %2
   %10 = load i8, ptr %9, align 1
   %11 = getelementptr inbounds i8, ptr %.1, i64 1
   store i8 %10, ptr %.1, align 1
-  %.not = icmp ult i32 %.0, %2
+  %.not = icmp ugt i32 %2, %.0
   br i1 %.not, label %12, label %.preheader, !llvm.loop !6
 
 12:                                               ; preds = %.preheader

@@ -117,7 +117,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
 39:                                               ; preds = %lookup_prop_name.exit, %33
   %.085 = phi i32 [ %38, %33 ], [ 0, %lookup_prop_name.exit ]
   %.084 = phi i32 [ %35, %33 ], [ %2, %lookup_prop_name.exit ]
-  %40 = icmp slt i32 %.085, %4
+  %40 = icmp sgt i32 %4, %.085
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
@@ -193,7 +193,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   %80 = getelementptr inbounds i8, ptr %79, i64 10
   %81 = load i16, ptr %80, align 2
   %82 = sext i16 %81 to i32
-  %83 = icmp sge i32 %82, %4
+  %83 = icmp sle i32 %4, %82
   br label %84
 
 84:                                               ; preds = %77, %69

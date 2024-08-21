@@ -1279,7 +1279,7 @@ define internal fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef 
 15:                                               ; preds = %10
   %16 = and i8 %12, 2
   %17 = icmp eq i8 %16, 0
-  %18 = and i1 %17, %3
+  %18 = and i1 %3, %17
   %19 = select i1 %17, ptr @.str.27, ptr @.str.31
   br i1 %18, label %21, label %.thread7
 

@@ -113,7 +113,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN75_$LT$usize
 define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hd10c49145e234e9eE.llvm.10823498929142229777"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h911ab2dabfa0236dE.llvm.10823498929142229777.exit", label %7, !prof !27
 
 7:                                                ; preds = %3
@@ -209,7 +209,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entr
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hd454ed00507b445eE.exit.thread.i": ; preds = %.noexc8
   %.pre.i.i = load i64, ptr %0, align 8
   %.pre8.i.i = sub i64 %.pre.i.i, %7
-  %27 = icmp uge i64 %.pre8.i.i, %16
+  %27 = icmp ule i64 %16, %.pre8.i.i
   tail call void @llvm.assume(i1 %27)
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17hf3e84ab1a633bf2fE.exit"
 
@@ -306,7 +306,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !45, !noalias !48, !noundef !5
-  %15 = icmp ugt i64 %14, %.fca.1.extract
+  %15 = icmp ult i64 %.fca.1.extract, %14
   br i1 %15, label %18, label %16, !prof !27
 
 16:                                               ; preds = %12
@@ -443,7 +443,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
   %30 = sub nsw i64 0, %29
   %gep.i.i = getelementptr i64, ptr %invariant.gep.i.i, i64 %30
   %.val3.i.i.i = load i64, ptr %gep.i.i, align 8, !noundef !5
-  %31 = icmp ugt i64 %7, %.val3.i.i.i
+  %31 = icmp ult i64 %.val3.i.i.i, %7
   br i1 %31, label %32, label %38, !prof !27
 
 32:                                               ; preds = %.lr.ph.i.i

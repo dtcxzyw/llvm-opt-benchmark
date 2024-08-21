@@ -128,8 +128,8 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
   %40 = fcmp ogt float %33, %36
   %.011.i = select i1 %40, float %36, float %33
   %.010.i = select i1 %40, float %33, float %36
-  %41 = fcmp olt float %.010.i, %39
-  %42 = fcmp olt float %.011.i, %39
+  %41 = fcmp ogt float %39, %.010.i
+  %42 = fcmp ogt float %39, %.011.i
   %..i = select i1 %42, float %39, float %.011.i
   %.0.i = select i1 %41, float %.010.i, float %..i
   %sext = shl i64 %2, 32
@@ -158,7 +158,7 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
   %.01112.i.us = phi i64 [ %57, %56 ], [ 0, %.split.us ]
   %49 = getelementptr inbounds i8, ptr %.013.i.us, i64 4
   %50 = load float, ptr %.013.i.us, align 4
-  %51 = fcmp ogt float %50, %.05389.us
+  %51 = fcmp olt float %.05389.us, %50
   br i1 %51, label %.sink.split.i.us, label %52
 
 52:                                               ; preds = %.lr.ph.i.us
@@ -216,7 +216,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_
   %.01112.i = phi i64 [ %72, %71 ], [ 0, %.split ]
   %64 = getelementptr inbounds i8, ptr %.013.i, i64 4
   %65 = load float, ptr %.013.i, align 4
-  %66 = fcmp ogt float %65, %.05389
+  %66 = fcmp olt float %.05389, %65
   br i1 %66, label %.sink.split.i, label %67
 
 67:                                               ; preds = %.lr.ph.i
@@ -264,7 +264,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   %78 = getelementptr inbounds float, ptr %0, i64 %77
   %79 = load float, ptr %78, align 4
   %80 = fcmp olt float %79, %.158
-  %81 = fcmp ogt float %79, %.156
+  %81 = fcmp olt float %.156, %79
   %or.cond.i = and i1 %80, %81
   br i1 %or.cond.i, label %82, label %87
 
@@ -295,8 +295,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   %92 = fcmp ogt float %89, %90
   %.011.i.i = select i1 %92, float %90, float %89
   %.010.i.i = select i1 %92, float %89, float %90
-  %93 = fcmp olt float %.010.i.i, %91
-  %94 = fcmp olt float %.011.i.i, %91
+  %93 = fcmp ogt float %91, %.010.i.i
+  %94 = fcmp ogt float %91, %.011.i.i
   %..i.i = select i1 %94, float %91, float %.011.i.i
   %.0.i.i = select i1 %93, float %.010.i.i, float %..i.i
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit
@@ -335,7 +335,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_
   %.03033.i = phi i64 [ %.131.i, %122 ], [ %.049, %102 ]
   %103 = getelementptr inbounds float, ptr %0, i64 %.035.i
   %104 = load float, ptr %103, align 4
-  %105 = fcmp ogt float %104, %.154
+  %105 = fcmp olt float %.154, %104
   br i1 %105, label %106, label %112
 
 106:                                              ; preds = %.lr.ph.i81
@@ -511,8 +511,8 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
   %40 = fcmp ogt float %33, %36
   %.011.i = select i1 %40, float %36, float %33
   %.010.i = select i1 %40, float %33, float %36
-  %41 = fcmp olt float %.010.i, %39
-  %42 = fcmp olt float %.011.i, %39
+  %41 = fcmp ogt float %39, %.010.i
+  %42 = fcmp ogt float %39, %.011.i
   %..i = select i1 %42, float %39, float %.011.i
   %.0.i = select i1 %41, float %.010.i, float %..i
   %sext = shl i64 %2, 32
@@ -541,7 +541,7 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
   %.01112.i.us = phi i64 [ %57, %56 ], [ 0, %.split.us ]
   %49 = getelementptr inbounds i8, ptr %.013.i.us, i64 4
   %50 = load float, ptr %.013.i.us, align 4
-  %51 = fcmp olt float %50, %.05389.us
+  %51 = fcmp ogt float %.05389.us, %50
   br i1 %51, label %.sink.split.i.us, label %52
 
 52:                                               ; preds = %.lr.ph.i.us
@@ -599,7 +599,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_
   %.01112.i = phi i64 [ %72, %71 ], [ 0, %.split ]
   %64 = getelementptr inbounds i8, ptr %.013.i, i64 4
   %65 = load float, ptr %.013.i, align 4
-  %66 = fcmp olt float %65, %.05389
+  %66 = fcmp ogt float %.05389, %65
   br i1 %66, label %.sink.split.i, label %67
 
 67:                                               ; preds = %.lr.ph.i
@@ -647,7 +647,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   %78 = getelementptr inbounds float, ptr %0, i64 %77
   %79 = load float, ptr %78, align 4
   %80 = fcmp ogt float %79, %.158
-  %81 = fcmp olt float %79, %.156
+  %81 = fcmp ogt float %.156, %79
   %or.cond.i = and i1 %80, %81
   br i1 %or.cond.i, label %82, label %87
 
@@ -678,8 +678,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   %92 = fcmp ogt float %89, %90
   %.011.i.i = select i1 %92, float %90, float %89
   %.010.i.i = select i1 %92, float %89, float %90
-  %93 = fcmp olt float %.010.i.i, %91
-  %94 = fcmp olt float %.011.i.i, %91
+  %93 = fcmp ogt float %91, %.010.i.i
+  %94 = fcmp ogt float %91, %.011.i.i
   %..i.i = select i1 %94, float %91, float %.011.i.i
   %.0.i.i = select i1 %93, float %.010.i.i, float %..i.i
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit
@@ -718,7 +718,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_
   %.03033.i = phi i64 [ %.131.i, %122 ], [ %.049, %102 ]
   %103 = getelementptr inbounds float, ptr %0, i64 %.035.i
   %104 = load float, ptr %103, align 4
-  %105 = fcmp olt float %104, %.154
+  %105 = fcmp ogt float %.154, %104
   br i1 %105, label %106, label %112
 
 106:                                              ; preds = %.lr.ph.i81
@@ -855,8 +855,8 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   %40 = load i16, ptr %39, align 2
   %spec.select.i = tail call i16 @llvm.umin.i16(i16 %34, i16 %37)
   %spec.select10.i = tail call i16 @llvm.umax.i16(i16 %34, i16 %37)
-  %41 = icmp ult i16 %spec.select10.i, %40
-  %..i = tail call i16 @llvm.umax.i16(i16 %spec.select.i, i16 %40)
+  %41 = icmp ugt i16 %40, %spec.select10.i
+  %..i = tail call i16 @llvm.umax.i16(i16 %40, i16 %spec.select.i)
   %.0.i = select i1 %41, i16 %spec.select10.i, i16 %..i
   %sext = shl i64 %2, 32
   %42 = ashr exact i64 %sext, 32
@@ -876,7 +876,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   %.01112.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
   %46 = getelementptr inbounds i8, ptr %.013.i.us, i64 2
   %47 = load i16, ptr %.013.i.us, align 2
-  %48 = icmp ugt i16 %47, %.0.i
+  %48 = icmp ult i16 %.0.i, %47
   br i1 %48, label %.sink.split.i.us, label %49
 
 49:                                               ; preds = %.lr.ph.i.us
@@ -933,7 +933,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_
   %.01112.i = phi i64 [ %68, %67 ], [ 0, %.split ]
   %60 = getelementptr inbounds i8, ptr %.013.i, i64 2
   %61 = load i16, ptr %.013.i, align 2
-  %62 = icmp ugt i16 %61, %.05391
+  %62 = icmp ult i16 %.05391, %61
   br i1 %62, label %.sink.split.i, label %63
 
 63:                                               ; preds = %.lr.ph.i
@@ -981,7 +981,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   %74 = getelementptr inbounds i16, ptr %0, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = icmp ult i16 %75, %.158
-  %77 = icmp ugt i16 %75, %.156
+  %77 = icmp ult i16 %.156, %75
   %or.cond.i = and i1 %76, %77
   br i1 %or.cond.i, label %78, label %83
 
@@ -1011,8 +1011,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   %87 = load i16, ptr %45, align 2
   %spec.select.i.i = tail call i16 @llvm.umin.i16(i16 %85, i16 %86)
   %spec.select10.i.i = tail call i16 @llvm.umax.i16(i16 %85, i16 %86)
-  %88 = icmp ult i16 %spec.select10.i.i, %87
-  %..i.i = tail call i16 @llvm.umax.i16(i16 %spec.select.i.i, i16 %87)
+  %88 = icmp ugt i16 %87, %spec.select10.i.i
+  %..i.i = tail call i16 @llvm.umax.i16(i16 %87, i16 %spec.select.i.i)
   %.0.i.i = select i1 %88, i16 %spec.select10.i.i, i16 %..i.i
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit
 
@@ -1050,7 +1050,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_
   %.03032.i = phi i64 [ %.131.i, %114 ], [ %.049, %.loopexit ]
   %95 = getelementptr inbounds i16, ptr %0, i64 %.034.i
   %96 = load i16, ptr %95, align 2
-  %97 = icmp ugt i16 %96, %.154
+  %97 = icmp ult i16 %.154, %96
   br i1 %97, label %98, label %104
 
 98:                                               ; preds = %.lr.ph.i80
@@ -1191,8 +1191,8 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   %40 = load i16, ptr %39, align 2
   %spec.select.i = tail call i16 @llvm.umin.i16(i16 %34, i16 %37)
   %spec.select10.i = tail call i16 @llvm.umax.i16(i16 %34, i16 %37)
-  %41 = icmp ult i16 %spec.select10.i, %40
-  %..i = tail call i16 @llvm.umax.i16(i16 %spec.select.i, i16 %40)
+  %41 = icmp ugt i16 %40, %spec.select10.i
+  %..i = tail call i16 @llvm.umax.i16(i16 %40, i16 %spec.select.i)
   %.0.i = select i1 %41, i16 %spec.select10.i, i16 %..i
   %sext = shl i64 %2, 32
   %42 = ashr exact i64 %sext, 32
@@ -1212,7 +1212,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   %.01112.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
   %46 = getelementptr inbounds i8, ptr %.013.i.us, i64 2
   %47 = load i16, ptr %.013.i.us, align 2
-  %48 = icmp ult i16 %47, %.0.i
+  %48 = icmp ugt i16 %.0.i, %47
   br i1 %48, label %.sink.split.i.us, label %49
 
 49:                                               ; preds = %.lr.ph.i.us
@@ -1269,7 +1269,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_
   %.01112.i = phi i64 [ %68, %67 ], [ 0, %.split ]
   %60 = getelementptr inbounds i8, ptr %.013.i, i64 2
   %61 = load i16, ptr %.013.i, align 2
-  %62 = icmp ult i16 %61, %.05391
+  %62 = icmp ugt i16 %.05391, %61
   br i1 %62, label %.sink.split.i, label %63
 
 63:                                               ; preds = %.lr.ph.i
@@ -1317,7 +1317,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   %74 = getelementptr inbounds i16, ptr %0, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = icmp ugt i16 %75, %.158
-  %77 = icmp ult i16 %75, %.156
+  %77 = icmp ugt i16 %.156, %75
   %or.cond.i = and i1 %76, %77
   br i1 %or.cond.i, label %78, label %83
 
@@ -1347,8 +1347,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   %87 = load i16, ptr %45, align 2
   %spec.select.i.i = tail call i16 @llvm.umin.i16(i16 %85, i16 %86)
   %spec.select10.i.i = tail call i16 @llvm.umax.i16(i16 %85, i16 %86)
-  %88 = icmp ult i16 %spec.select10.i.i, %87
-  %..i.i = tail call i16 @llvm.umax.i16(i16 %spec.select.i.i, i16 %87)
+  %88 = icmp ugt i16 %87, %spec.select10.i.i
+  %..i.i = tail call i16 @llvm.umax.i16(i16 %87, i16 %spec.select.i.i)
   %.0.i.i = select i1 %88, i16 %spec.select10.i.i, i16 %..i.i
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit
 
@@ -1386,7 +1386,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_
   %.03032.i = phi i64 [ %.131.i, %114 ], [ %.049, %.loopexit ]
   %95 = getelementptr inbounds i16, ptr %0, i64 %.034.i
   %96 = load i16, ptr %95, align 2
-  %97 = icmp ult i16 %96, %.154
+  %97 = icmp ugt i16 %.154, %96
   br i1 %97, label %98, label %104
 
 98:                                               ; preds = %.lr.ph.i80
@@ -1527,8 +1527,8 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   %40 = load i16, ptr %39, align 2
   %spec.select.i = tail call i16 @llvm.umin.i16(i16 %34, i16 %37)
   %spec.select10.i = tail call i16 @llvm.umax.i16(i16 %34, i16 %37)
-  %41 = icmp ult i16 %spec.select10.i, %40
-  %..i = tail call i16 @llvm.umax.i16(i16 %spec.select.i, i16 %40)
+  %41 = icmp ugt i16 %40, %spec.select10.i
+  %..i = tail call i16 @llvm.umax.i16(i16 %40, i16 %spec.select.i)
   %.0.i = select i1 %41, i16 %spec.select10.i, i16 %..i
   %sext = shl i64 %2, 32
   %42 = ashr exact i64 %sext, 32
@@ -1548,7 +1548,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   %.01112.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
   %46 = getelementptr inbounds i8, ptr %.013.i.us, i64 2
   %47 = load i16, ptr %.013.i.us, align 2
-  %48 = icmp ugt i16 %47, %.0.i
+  %48 = icmp ult i16 %.0.i, %47
   br i1 %48, label %.sink.split.i.us, label %49
 
 49:                                               ; preds = %.lr.ph.i.us
@@ -1605,7 +1605,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_
   %.01112.i = phi i64 [ %68, %67 ], [ 0, %.split ]
   %60 = getelementptr inbounds i8, ptr %.013.i, i64 2
   %61 = load i16, ptr %.013.i, align 2
-  %62 = icmp ugt i16 %61, %.05391
+  %62 = icmp ult i16 %.05391, %61
   br i1 %62, label %.sink.split.i, label %63
 
 63:                                               ; preds = %.lr.ph.i
@@ -1653,7 +1653,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   %74 = getelementptr inbounds i16, ptr %0, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = icmp ult i16 %75, %.158
-  %77 = icmp ugt i16 %75, %.156
+  %77 = icmp ult i16 %.156, %75
   %or.cond.i = and i1 %76, %77
   br i1 %or.cond.i, label %78, label %83
 
@@ -1683,8 +1683,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   %87 = load i16, ptr %45, align 2
   %spec.select.i.i = tail call i16 @llvm.umin.i16(i16 %85, i16 %86)
   %spec.select10.i.i = tail call i16 @llvm.umax.i16(i16 %85, i16 %86)
-  %88 = icmp ult i16 %spec.select10.i.i, %87
-  %..i.i = tail call i16 @llvm.umax.i16(i16 %spec.select.i.i, i16 %87)
+  %88 = icmp ugt i16 %87, %spec.select10.i.i
+  %..i.i = tail call i16 @llvm.umax.i16(i16 %87, i16 %spec.select.i.i)
   %.0.i.i = select i1 %88, i16 %spec.select10.i.i, i16 %..i.i
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit
 
@@ -1722,7 +1722,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_
   %.03032.i = phi i64 [ %.131.i, %114 ], [ %.049, %.loopexit ]
   %95 = getelementptr inbounds i16, ptr %0, i64 %.034.i
   %96 = load i16, ptr %95, align 2
-  %97 = icmp ugt i16 %96, %.154
+  %97 = icmp ult i16 %.154, %96
   br i1 %97, label %98, label %104
 
 98:                                               ; preds = %.lr.ph.i80
@@ -1863,8 +1863,8 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   %40 = load i16, ptr %39, align 2
   %spec.select.i = tail call i16 @llvm.umin.i16(i16 %34, i16 %37)
   %spec.select10.i = tail call i16 @llvm.umax.i16(i16 %34, i16 %37)
-  %41 = icmp ult i16 %spec.select10.i, %40
-  %..i = tail call i16 @llvm.umax.i16(i16 %spec.select.i, i16 %40)
+  %41 = icmp ugt i16 %40, %spec.select10.i
+  %..i = tail call i16 @llvm.umax.i16(i16 %40, i16 %spec.select.i)
   %.0.i = select i1 %41, i16 %spec.select10.i, i16 %..i
   %sext = shl i64 %2, 32
   %42 = ashr exact i64 %sext, 32
@@ -1884,7 +1884,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   %.01112.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
   %46 = getelementptr inbounds i8, ptr %.013.i.us, i64 2
   %47 = load i16, ptr %.013.i.us, align 2
-  %48 = icmp ult i16 %47, %.0.i
+  %48 = icmp ugt i16 %.0.i, %47
   br i1 %48, label %.sink.split.i.us, label %49
 
 49:                                               ; preds = %.lr.ph.i.us
@@ -1941,7 +1941,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_
   %.01112.i = phi i64 [ %68, %67 ], [ 0, %.split ]
   %60 = getelementptr inbounds i8, ptr %.013.i, i64 2
   %61 = load i16, ptr %.013.i, align 2
-  %62 = icmp ult i16 %61, %.05391
+  %62 = icmp ugt i16 %.05391, %61
   br i1 %62, label %.sink.split.i, label %63
 
 63:                                               ; preds = %.lr.ph.i
@@ -1989,7 +1989,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   %74 = getelementptr inbounds i16, ptr %0, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = icmp ugt i16 %75, %.158
-  %77 = icmp ult i16 %75, %.156
+  %77 = icmp ugt i16 %.156, %75
   %or.cond.i = and i1 %76, %77
   br i1 %or.cond.i, label %78, label %83
 
@@ -2019,8 +2019,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   %87 = load i16, ptr %45, align 2
   %spec.select.i.i = tail call i16 @llvm.umin.i16(i16 %85, i16 %86)
   %spec.select10.i.i = tail call i16 @llvm.umax.i16(i16 %85, i16 %86)
-  %88 = icmp ult i16 %spec.select10.i.i, %87
-  %..i.i = tail call i16 @llvm.umax.i16(i16 %spec.select.i.i, i16 %87)
+  %88 = icmp ugt i16 %87, %spec.select10.i.i
+  %..i.i = tail call i16 @llvm.umax.i16(i16 %87, i16 %spec.select.i.i)
   %.0.i.i = select i1 %88, i16 %spec.select10.i.i, i16 %..i.i
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit
 
@@ -2058,7 +2058,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_
   %.03032.i = phi i64 [ %.131.i, %114 ], [ %.049, %.loopexit ]
   %95 = getelementptr inbounds i16, ptr %0, i64 %.034.i
   %96 = load i16, ptr %95, align 2
-  %97 = icmp ult i16 %96, %.154
+  %97 = icmp ugt i16 %.154, %96
   br i1 %97, label %98, label %104
 
 98:                                               ; preds = %.lr.ph.i80

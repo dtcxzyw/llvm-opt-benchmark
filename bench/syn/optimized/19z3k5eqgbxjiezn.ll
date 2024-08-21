@@ -1400,7 +1400,7 @@ define void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias nounde
   br i1 %22, label %.thread29, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h82aedcb391543ad9E.exit19.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h82aedcb391543ad9E.exit19.i": ; preds = %19
-  %23 = icmp ne ptr %20, %0
+  %23 = icmp ne ptr %0, %20
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds i8, ptr %16, i64 -2
   %25 = load i8, ptr %24, align 1, !noalias !228, !noundef !4
@@ -1414,7 +1414,7 @@ define void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias nounde
   br label %56
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h82aedcb391543ad9E.exit21.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h82aedcb391543ad9E.exit19.i"
-  %30 = icmp ne ptr %24, %0
+  %30 = icmp ne ptr %0, %24
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds i8, ptr %16, i64 -3
   %32 = load i8, ptr %31, align 1, !noalias !228, !noundef !4
@@ -1433,7 +1433,7 @@ define void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias nounde
   br label %50
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h82aedcb391543ad9E.exit23.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h82aedcb391543ad9E.exit21.i"
-  %41 = icmp ne ptr %31, %0
+  %41 = icmp ne ptr %0, %31
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds i8, ptr %16, i64 -4
   %43 = load i8, ptr %42, align 1, !noalias !228, !noundef !4
@@ -1463,7 +1463,7 @@ define void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias nounde
   %.sroa.4.1.i.ph33 = phi i32 [ %29, %.thread29 ], [ %54, %50 ]
   %.sroa.5.2.ph32 = phi ptr [ %20, %.thread29 ], [ %.sroa.5.0, %50 ]
   %57 = getelementptr inbounds i8, ptr %17, i64 -4
-  %58 = icmp eq ptr %.sroa.5.2.ph32, %0
+  %58 = icmp eq ptr %0, %.sroa.5.2.ph32
   br i1 %58, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5e0d92634ac9abd4E.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %56

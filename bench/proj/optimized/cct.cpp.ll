@@ -804,7 +804,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 
 150:                                              ; preds = %144
   %151 = add nsw i32 %.6350, 1
-  %152 = icmp eq i32 %151, %0
+  %152 = icmp eq i32 %0, %151
   br i1 %152, label %158, label %153
 
 153:                                              ; preds = %150
@@ -877,7 +877,7 @@ _ZL14opt_raise_flagP7OPTARGSi.exit261:            ; preds = %177, %179
 
 185:                                              ; preds = %181
   %186 = add nsw i32 %.6350, 1
-  %187 = icmp eq i32 %186, %0
+  %187 = icmp eq i32 %0, %186
   br i1 %187, label %193, label %188
 
 188:                                              ; preds = %185
@@ -978,7 +978,7 @@ sub_2:                                            ; preds = %sub_1
   %229 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 %228, ptr %229, align 8
   %.neg249 = xor i32 %225, -1
-  %230 = add nsw i32 %.neg249, %0
+  %230 = add nsw i32 %0, %.neg249
   %231 = getelementptr inbounds i8, ptr %10, i64 12
   store i32 %230, ptr %231, align 4
   %.not250 = icmp eq i32 %230, 0
@@ -1014,7 +1014,7 @@ sub_2:                                            ; preds = %sub_1
   store i32 %246, ptr %207, align 8
   %indvars.iv.next410 = add nsw i64 %indvars.iv409, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next410 to i32
-  %exitcond412.not = icmp eq i32 %lftr.wideiv, %0
+  %exitcond412.not = icmp eq i32 %0, %lftr.wideiv
   br i1 %exitcond412.not, label %._crit_edge359.thread, label %237, !llvm.loop !13
 
 ._crit_edge359.thread:                            ; preds = %244
@@ -1031,7 +1031,7 @@ sub_2:                                            ; preds = %sub_1
   %249 = sub nsw i32 %0, %.8.lcssa
   %250 = getelementptr inbounds i8, ptr %10, i64 12
   store i32 %249, ptr %250, align 4
-  %.not248 = icmp eq i32 %.8.lcssa, %0
+  %.not248 = icmp eq i32 %0, %.8.lcssa
   br i1 %.not248, label %255, label %251
 
 251:                                              ; preds = %._crit_edge359
@@ -2367,7 +2367,7 @@ define internal void @_ZL6loggerPviPKc(ptr nocapture noundef %0, i32 noundef %1,
   br label %14
 
 8:                                                ; preds = %3
-  %9 = icmp sge i32 %4, %1
+  %9 = icmp sle i32 %1, %4
   %10 = icmp eq i32 %1, 1
   %or.cond = or i1 %10, %9
   br i1 %or.cond, label %11, label %14
@@ -2405,7 +2405,7 @@ define internal void @_ZL5print12PJ_LOG_LEVELPKcz(i32 noundef %0, ptr nocapture 
   br label %_ZL6loggerPviPKc.exit
 
 14:                                               ; preds = %7
-  %15 = icmp sge i32 %10, %0
+  %15 = icmp sle i32 %0, %10
   %16 = icmp eq i32 %0, 1
   %or.cond.i = or i1 %16, %15
   br i1 %or.cond.i, label %17, label %_ZL6loggerPviPKc.exit

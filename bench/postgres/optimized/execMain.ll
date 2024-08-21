@@ -764,7 +764,7 @@ define dso_local void @standard_ExecutorRun(ptr nocapture noundef %0, i32 nounde
   %48 = trunc i8 %47 to i1
   %49 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %1, ptr %49, align 4
-  %spec.select.i = and i1 %48, %3
+  %spec.select.i = and i1 %3, %48
   %50 = getelementptr inbounds i8, ptr %6, i64 248
   %51 = zext i1 %spec.select.i to i8
   store i8 %51, ptr %50, align 8
@@ -905,7 +905,7 @@ ExecProcNode.exit.us.i:                           ; preds = %89, %87
 
 108:                                              ; preds = %105, %104
   %109 = add nuw i64 %.0.us.i, 1
-  %110 = icmp eq i64 %109, %2
+  %110 = icmp eq i64 %2, %109
   br i1 %110, label %.split37.us.i, label %.split.us.split.i
 
 .split.i:                                         ; preds = %53
@@ -1010,7 +1010,7 @@ ExecProcNode.exit.us41.i:                         ; preds = %138, %136
   %152 = add i64 %151, 1
   store i64 %152, ptr %17, align 8
   %153 = add nuw i64 %.0.us38.i, 1
-  %154 = icmp eq i64 %153, %2
+  %154 = icmp eq i64 %2, %153
   br i1 %154, label %.split37.us.i, label %.split.split.us.split.i
 
 .split.split.i:                                   ; preds = %.split.i
@@ -1106,7 +1106,7 @@ ExecProcNode.exit.i:                              ; preds = %179, %177
 
 191:                                              ; preds = %189, %187
   %192 = add nuw i64 %.0.i, 1
-  %193 = icmp eq i64 %192, %2
+  %193 = icmp eq i64 %2, %192
   br i1 %193, label %.split37.us.i, label %.split.split.split.i
 
 .split37.us.i:                                    ; preds = %191, %183, %ExecProcNode.exit.i, %165, %ExecProcNode.exit.us48.i, %150, %142, %ExecProcNode.exit.us41.i, %121, %ExecProcNode.exit.us41.us.i, %108, %101, %93, %ExecProcNode.exit.us.i, %76, %68, %ExecProcNode.exit.us.us.i
@@ -1798,7 +1798,7 @@ define dso_local void @InitResultRelInfo(ptr noundef %0, ptr noundef %1, i32 nou
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %0, i64 360
-  %11 = icmp ugt ptr %10, %0
+  %11 = icmp ult ptr %0, %10
   br i1 %11, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %9
@@ -3199,7 +3199,7 @@ define dso_local ptr @ExecFindRowMark(ptr nocapture noundef readonly %0, i32 nou
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
-  %.not13 = icmp ult i32 %6, %1
+  %.not13 = icmp ugt i32 %1, %6
   br i1 %.not13, label %15, label %7
 
 7:                                                ; preds = %4
@@ -3214,7 +3214,7 @@ define dso_local ptr @ExecFindRowMark(ptr nocapture noundef readonly %0, i32 nou
   %13 = getelementptr ptr, ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp ne ptr %14, null
-  %brmerge = or i1 %.not15, %2
+  %brmerge = or i1 %2, %.not15
   br i1 %brmerge, label %19, label %16
 
 15:                                               ; preds = %7, %4, %3
@@ -3960,7 +3960,7 @@ define dso_local noundef zeroext i1 @EvalPlanQualFetchRowMark(ptr nocapture noun
   %28 = sext i16 %27 to i32
   %29 = getelementptr inbounds i8, ptr %25, i64 6
   %30 = load i16, ptr %29, align 2
-  %31 = icmp slt i16 %30, %27
+  %31 = icmp sgt i16 %27, %30
   br i1 %31, label %slot_getsomeattrs.exit.i.i, label %ExecGetJunkAttribute.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %23
@@ -4005,7 +4005,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %23, %slot_getsomeat
   %55 = getelementptr inbounds i8, ptr %10, i64 8
   %56 = load i16, ptr %55, align 8
   %57 = sext i16 %56 to i32
-  %58 = icmp slt i16 %53, %56
+  %58 = icmp sgt i16 %56, %53
   br i1 %58, label %slot_getsomeattrs.exit.i.i36, label %ExecGetJunkAttribute.exit37
 
 slot_getsomeattrs.exit.i.i36:                     ; preds = %54
@@ -4111,7 +4111,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %101
   %119 = getelementptr inbounds i8, ptr %10, i64 12
   %120 = load i16, ptr %119, align 4
   %121 = sext i16 %120 to i32
-  %122 = icmp slt i16 %53, %120
+  %122 = icmp sgt i16 %120, %53
   br i1 %122, label %slot_getsomeattrs.exit.i.i38, label %ExecGetJunkAttribute.exit39
 
 slot_getsomeattrs.exit.i.i38:                     ; preds = %118

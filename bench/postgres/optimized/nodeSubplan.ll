@@ -2116,7 +2116,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
   %12 = zext nneg i16 %11 to i32
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
@@ -2421,7 +2421,7 @@ define internal fastcc noundef zeroext i1 @findPartialMatch(ptr nocapture nounde
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i32
   %38 = load i16, ptr %17, align 2
-  %39 = icmp slt i16 %38, %36
+  %39 = icmp sgt i16 %36, %38
   br i1 %39, label %slot_getsomeattrs.exit.i.i.us, label %slot_getattr.exit.i.us
 
 slot_getsomeattrs.exit.i.i.us:                    ; preds = %34
@@ -2442,7 +2442,7 @@ slot_getattr.exit.i.us:                           ; preds = %slot_getsomeattrs.e
 
 49:                                               ; preds = %slot_getattr.exit.i.us
   %50 = load i16, ptr %32, align 2
-  %51 = icmp slt i16 %50, %36
+  %51 = icmp sgt i16 %36, %50
   br i1 %51, label %slot_getsomeattrs.exit.i19.i.us, label %slot_getattr.exit20.i.us
 
 slot_getsomeattrs.exit.i19.i.us:                  ; preds = %49

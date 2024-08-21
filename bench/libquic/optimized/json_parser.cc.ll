@@ -3383,7 +3383,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.end:                                           ; preds = %while.body
   %cmp4 = icmp eq i32 %len.012, 0
-  %or.cond.not = or i1 %cmp4, %allow_leading_zeros
+  %or.cond.not = or i1 %allow_leading_zeros, %cmp4
   %cmp6 = icmp ne i8 %1, 48
   %or.cond1.not = select i1 %or.cond.not, i1 true, i1 %cmp6
   br label %return

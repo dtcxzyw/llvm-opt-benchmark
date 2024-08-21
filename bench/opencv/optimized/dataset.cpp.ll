@@ -19,7 +19,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset8
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
   %11 = trunc i64 %10 to i32
-  %.not = icmp sgt i32 %11, %1
+  %.not = icmp slt i32 %1, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 80
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds %"class.std::vector.0", ptr %6, i64 %13
@@ -38,7 +38,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset7
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
   %11 = trunc i64 %10 to i32
-  %.not = icmp sgt i32 %11, %1
+  %.not = icmp slt i32 %1, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 80
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds %"class.std::vector.0", ptr %6, i64 %13
@@ -57,7 +57,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset1
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
   %11 = trunc i64 %10 to i32
-  %.not = icmp sgt i32 %11, %1
+  %.not = icmp slt i32 %1, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 80
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds %"class.std::vector.0", ptr %6, i64 %13

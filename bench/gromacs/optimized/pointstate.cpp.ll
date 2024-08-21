@@ -16,7 +16,7 @@ define void @_ZN3gmx10PointState9samplePmfEd(ptr nocapture noundef nonnull align
   %9 = fneg double %1
   %10 = fcmp ogt double %8, %9
   %11 = select i1 %10, double %8, double %9
-  %12 = fadd double %8, %1
+  %12 = fadd double %1, %8
   %13 = tail call double @llvm.fabs.f64(double %12)
   %14 = fneg double %13
   %15 = tail call double @exp(double noundef %14) #3
@@ -55,7 +55,7 @@ define void @_ZN3gmx10PointState18updatePmfUnvisitedEd(ptr nocapture noundef non
   %9 = fneg double %1
   %10 = fcmp ogt double %8, %9
   %11 = select i1 %10, double %8, double %9
-  %12 = fadd double %8, %1
+  %12 = fadd double %1, %8
   %13 = tail call double @llvm.fabs.f64(double %12)
   %14 = fneg double %13
   %15 = tail call double @exp(double noundef %14) #3

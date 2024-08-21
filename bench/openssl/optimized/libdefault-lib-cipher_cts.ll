@@ -339,7 +339,7 @@ if.then:                                          ; preds = %entry
 if.end2:                                          ; preds = %entry
   %add = or disjoint i64 %rem, 16
   %sub = sub i64 %len, %add
-  %cmp3.not = icmp eq i64 %add, %len
+  %cmp3.not = icmp eq i64 %len, %add
   br i1 %cmp3.not, label %if.end12, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
@@ -464,7 +464,7 @@ if.end3:                                          ; preds = %entry
   %spec.store.select = select i1 %cmp4, i64 16, i64 %rem
   %add = add nuw nsw i64 %spec.store.select, 16
   %sub = sub i64 %len, %add
-  %cmp7.not = icmp eq i64 %add, %len
+  %cmp7.not = icmp eq i64 %len, %add
   br i1 %cmp7.not, label %if.end16, label %if.then8
 
 if.then8:                                         ; preds = %if.end3

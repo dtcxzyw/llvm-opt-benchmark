@@ -702,7 +702,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Symbol6equalsEPKc(ptr nounde
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
-  %.not.i = icmp eq i32 %7, %4
+  %.not.i = icmp eq i32 %4, %7
   br i1 %.not.i, label %_ZNK6Symbol16contains_utf8_atEiPKci.exit.i, label %_ZNK6Symbol6equalsEPKci.exit
 
 _ZNK6Symbol16contains_utf8_atEiPKci.exit.i:       ; preds = %2

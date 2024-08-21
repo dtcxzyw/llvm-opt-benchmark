@@ -44,7 +44,7 @@ if.end7:                                          ; preds = %if.end
   %mul = shl nuw nsw i32 %call4, 1
   %0 = xor i32 %mul, -1
   %sub9 = add i32 %sub, %0
-  %cmp10 = icmp slt i32 %sub9, %flen
+  %cmp10 = icmp sgt i32 %flen, %sub9
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end7
@@ -55,7 +55,7 @@ if.then11:                                        ; preds = %if.end7
 
 if.end12:                                         ; preds = %if.end7
   %add = or disjoint i32 %mul, 1
-  %cmp14.not = icmp slt i32 %add, %tlen
+  %cmp14.not = icmp sgt i32 %tlen, %add
   br i1 %cmp14.not, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
@@ -323,7 +323,7 @@ if.end8:                                          ; preds = %if.end
 lor.lhs.false10:                                  ; preds = %if.end8
   %mul = shl nsw i32 %call4, 1
   %add = add nsw i32 %mul, 2
-  %cmp11 = icmp sgt i32 %add, %num
+  %cmp11 = icmp slt i32 %num, %add
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %lor.lhs.false10, %if.end8
@@ -334,7 +334,7 @@ if.then12:                                        ; preds = %lor.lhs.false10, %i
 
 if.end13:                                         ; preds = %lor.lhs.false10
   %0 = xor i32 %call4, -1
-  %sub14 = add i32 %0, %num
+  %sub14 = add i32 %num, %0
   %conv = sext i32 %sub14 to i64
   %call15 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 203) #5
   %cmp16 = icmp eq ptr %call15, null

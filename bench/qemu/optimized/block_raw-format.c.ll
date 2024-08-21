@@ -411,16 +411,16 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
   %2 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp ult i64 %2, %offset
+  %cmp.i = icmp ugt i64 %offset, %2
   %sub.i = sub nuw i64 %2, %offset
-  %cmp2.i = icmp ult i64 %sub.i, %bytes
+  %cmp2.i = icmp ugt i64 %bytes, %sub.i
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   %3 = load i64, ptr %bs.val, align 8
   %sub5.i = sub i64 9223372036854775807, %3
-  %cmp6.i = icmp ult i64 %sub5.i, %offset
+  %cmp6.i = icmp ugt i64 %offset, %sub5.i
   br i1 %cmp6.i, label %return, label %do.body
 
 do.body:                                          ; preds = %if.end.i
@@ -517,16 +517,16 @@ if.end22:                                         ; preds = %if.end21, %entry
 land.lhs.true.i:                                  ; preds = %if.end22
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
   %9 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp ult i64 %9, %offset
+  %cmp.i = icmp ugt i64 %offset, %9
   %sub.i = sub nuw i64 %9, %offset
-  %cmp2.i = icmp ult i64 %sub.i, %bytes
+  %cmp2.i = icmp ugt i64 %bytes, %sub.i
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %fail, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end22
   %10 = load i64, ptr %bs.val, align 8
   %sub5.i = sub i64 9223372036854775807, %10
-  %cmp6.i = icmp ult i64 %sub5.i, %offset
+  %cmp6.i = icmp ugt i64 %offset, %sub5.i
   br i1 %cmp6.i, label %fail, label %do.body
 
 do.body:                                          ; preds = %if.end.i
@@ -576,16 +576,16 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
   %2 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp ult i64 %2, %offset
+  %cmp.i = icmp ugt i64 %offset, %2
   %sub.i = sub nuw i64 %2, %offset
-  %cmp2.i = icmp ult i64 %sub.i, %bytes
+  %cmp2.i = icmp ugt i64 %bytes, %sub.i
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   %3 = load i64, ptr %bs.val, align 8
   %sub5.i = sub i64 9223372036854775807, %3
-  %cmp6.i = icmp ult i64 %sub5.i, %offset
+  %cmp6.i = icmp ugt i64 %offset, %sub5.i
   br i1 %cmp6.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
@@ -613,16 +613,16 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
   %2 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp ult i64 %2, %offset
+  %cmp.i = icmp ugt i64 %offset, %2
   %sub.i = sub nuw i64 %2, %offset
-  %cmp2.i = icmp ult i64 %sub.i, %bytes
+  %cmp2.i = icmp ugt i64 %bytes, %sub.i
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   %3 = load i64, ptr %bs.val, align 8
   %sub5.i = sub i64 9223372036854775807, %3
-  %cmp6.i = icmp ult i64 %sub5.i, %offset
+  %cmp6.i = icmp ugt i64 %offset, %sub5.i
   br i1 %cmp6.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
@@ -650,16 +650,16 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
   %2 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp ult i64 %2, %src_offset
+  %cmp.i = icmp ugt i64 %src_offset, %2
   %sub.i = sub nuw i64 %2, %src_offset
-  %cmp2.i = icmp ult i64 %sub.i, %bytes
+  %cmp2.i = icmp ugt i64 %bytes, %sub.i
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   %3 = load i64, ptr %bs.val, align 8
   %sub5.i = sub i64 9223372036854775807, %3
-  %cmp6.i = icmp ult i64 %sub5.i, %src_offset
+  %cmp6.i = icmp ugt i64 %src_offset, %sub5.i
   br i1 %cmp6.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
@@ -687,16 +687,16 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
   %2 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp ult i64 %2, %dst_offset
+  %cmp.i = icmp ugt i64 %dst_offset, %2
   %sub.i = sub nuw i64 %2, %dst_offset
-  %cmp2.i = icmp ult i64 %sub.i, %bytes
+  %cmp2.i = icmp ugt i64 %bytes, %sub.i
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   %3 = load i64, ptr %bs.val, align 8
   %sub5.i = sub i64 9223372036854775807, %3
-  %cmp6.i = icmp ult i64 %sub5.i, %dst_offset
+  %cmp6.i = icmp ugt i64 %dst_offset, %sub5.i
   br i1 %cmp6.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
@@ -975,7 +975,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp3 = icmp ult i64 %call, %offset
+  %cmp3 = icmp ugt i64 %offset, %call
   br i1 %cmp3, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
@@ -999,7 +999,7 @@ if.then12:                                        ; preds = %if.end7
 if.end15:                                         ; preds = %if.end7
   %rem = and i64 %size, 511
   %cmp19 = icmp ne i64 %rem, 0
-  %or.cond24.not = and i1 %cmp19, %has_size
+  %or.cond24.not = and i1 %has_size, %cmp19
   br i1 %or.cond24.not, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end15

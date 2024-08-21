@@ -755,7 +755,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -1267,7 +1267,7 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE5clearEv.exit: ; pr
 
 _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE5clearEv.exit83: ; preds = %67, %63, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE5clearEv.exit
   %68 = icmp ne ptr %.056, null
-  %brmerge75.not = and i1 %68, %3
+  %brmerge75.not = and i1 %3, %68
   br i1 %brmerge75.not, label %69, label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE5clearEv.exit85
 
 69:                                               ; preds = %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE5clearEv.exit83
@@ -1726,7 +1726,7 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exi
 .split.us:                                        ; preds = %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140.us, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140
   %.us-phi = phi i1 [ %.1, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140 ], [ %.054.mux.mux.us, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit140.us ]
   %or.cond = and i1 %68, %.us-phi
-  %brmerge81.demorgan = and i1 %or.cond, %3
+  %brmerge81.demorgan = and i1 %3, %or.cond
   br i1 %brmerge81.demorgan, label %239, label %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit212
 
 239:                                              ; preds = %.split.us
@@ -2024,7 +2024,7 @@ define void @_ZN23MLDefaultMeshDecorators26cleanBoundaryDecoratorDataER9MeshMode
 
 21:                                               ; preds = %15
   %22 = icmp eq i32 %20, 0
-  %or.cond3 = and i1 %22, %2
+  %or.cond3 = and i1 %2, %22
   br i1 %or.cond3, label %23, label %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerMeshAttributeISt6vectorISt4pairINS_6Point3IfEENS_6Color4IhEEESaISB_EEEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESO_SO_E22PerMeshAttributeHandleIT_EE.exit
 
 23:                                               ; preds = %21
@@ -2135,7 +2135,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerMeshAttributeISt6vectorISt4pairINS_6Poi
 
 68:                                               ; preds = %64
   %69 = icmp eq i32 %67, 0
-  %or.cond5 = and i1 %69, %3
+  %or.cond5 = and i1 %3, %69
   br i1 %or.cond5, label %70, label %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerMeshAttributeISt6vectorISt4pairINS_6Point3IfEENS_6Color4IhEEESaISB_EEEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESO_SO_E22PerMeshAttributeHandleIT_EE.exit49
 
 70:                                               ; preds = %68
@@ -2664,7 +2664,7 @@ _ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit5.i.i: ; preds = %130
 
 135:                                              ; preds = %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit5.i.i, %._crit_edge.i.thread.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa30.i.i, %._crit_edge.i.thread.i ], [ %.020.lcssa30.i.i, %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit5.i.i ], [ %.020.lcssa31.i.i, %._crit_edge.thread.i.i ]
-  %136 = icmp eq ptr %67, %.sroa.4.0.i.ph.i
+  %136 = icmp eq ptr %.sroa.4.0.i.ph.i, %67
   br i1 %136, label %_ZNSt8_Rb_treeISt4pairIP8CVertexOS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i, label %137
 
 137:                                              ; preds = %135
@@ -2763,7 +2763,7 @@ _ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit5.i.i199: ; preds = %167
 
 172:                                              ; preds = %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit5.i.i199, %._crit_edge.i.thread.i196, %._crit_edge.thread.i.i209
   %.sroa.4.0.i.ph.i204 = phi ptr [ %.020.lcssa30.i.i197, %._crit_edge.i.thread.i196 ], [ %.020.lcssa30.i.i197, %_ZNKSt4lessISt4pairIP8CVertexOS2_EEclERKS3_S6_.exit5.i.i199 ], [ %.020.lcssa31.i.i210, %._crit_edge.thread.i.i209 ]
-  %173 = icmp eq ptr %67, %.sroa.4.0.i.ph.i204
+  %173 = icmp eq ptr %.sroa.4.0.i.ph.i204, %67
   br i1 %173, label %_ZNSt8_Rb_treeISt4pairIP8CVertexOS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i205, label %174
 
 174:                                              ; preds = %172
@@ -8898,7 +8898,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identit
   %6 = alloca %"class.vcg::PointerToAttribute", align 8
   %.not = icmp ne ptr %1, null
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   %or.cond = select i1 %.not, i1 true, i1 %8
   br i1 %or.cond, label %31, label %9
 
@@ -9959,7 +9959,7 @@ define void @_ZN23MLDefaultMeshDecorators14drawQuotedLineERKN3vcg6Point3IdEES4_f
 26:                                               ; preds = %9
   %27 = tail call noundef float @fmodf(float noundef %2, float noundef %4) #25
   %28 = fsub float %2, %27
-  %29 = fadd float %28, %4
+  %29 = fadd float %4, %28
   br label %30
 
 30:                                               ; preds = %26, %9
@@ -9972,14 +9972,14 @@ define void @_ZN23MLDefaultMeshDecorators14drawQuotedLineERKN3vcg6Point3IdEES4_f
 33:                                               ; preds = %30
   %34 = tail call noundef float @llvm.fabs.f32(float %2)
   %35 = tail call noundef float @fmodf(float noundef %34, float noundef %4) #25
-  %36 = fadd float %35, %2
+  %36 = fadd float %2, %35
   br label %37
 
 37:                                               ; preds = %33, %30
   %.2 = phi float [ %36, %33 ], [ %.1, %30 ]
   %38 = fsub float %.2, %2
   %39 = fcmp olt float %38, %24
-  %40 = fadd float %.2, %4
+  %40 = fadd float %4, %.2
   %.3 = select i1 %39, float %40, float %.2
   %41 = fdiv float %4, 1.000000e+01
   %42 = tail call noundef float @fmodf(float noundef %2, float noundef %41) #25
@@ -10088,7 +10088,7 @@ _ZN3vcg7glLabel4ModeC2ER5QFontNS_6Color4IhEEfb.exit: ; preds = %37
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit:           ; preds = %94
-  %105 = fadd float %.097201, %4
+  %105 = fadd float %4, %.097201
   %106 = fcmp olt float %105, %3
   br i1 %106, label %94, label %._crit_edge, !llvm.loop !153
 
@@ -10202,7 +10202,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i113: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit118
 
 _ZN7QStringD2Ev.exit118:                          ; preds = %_ZN7QStringD2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i114, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i113
-  %136 = fadd float %.198202, %4
+  %136 = fadd float %4, %.198202
   %137 = fadd float %24, %136
   %138 = fcmp olt float %137, %3
   br i1 %138, label %110, label %._crit_edge204, !llvm.loop !157
@@ -11770,7 +11770,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3vc
   %.sroa.319.0..sroa.0.0..sroa_idx = getelementptr inbounds i8, ptr %phi.call, i64 16
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.319.0..sroa.0.0..sroa_idx, i64 12, i1 false)
-  %20 = icmp sgt i64 %12, %.0
+  %20 = icmp slt i64 %.0, %12
   br i1 %20, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %19, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg3tri11UpdateFlagsI6CMeshOE10EdgeSorterESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread41.i
@@ -12897,7 +12897,7 @@ _ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
 
 _ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit:    ; preds = %_ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfEEEE4cFFpEi.exit10.i, %88
   %.0.i11.i = phi ptr [ %101, %88 ], [ null, %_ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfEEEE4cFFpEi.exit10.i ]
-  %102 = icmp eq ptr %.0.i11.i, %.sroa.048.187
+  %102 = icmp eq ptr %.sroa.048.187, %.0.i11.i
   br i1 %102, label %_ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit.thread, label %103
 
 103:                                              ; preds = %_ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit
@@ -13906,7 +13906,7 @@ _ZN3vcg9VectorNBWIbJEE7reserveEm.exit:            ; preds = %10, %2
   br label %_ZN3vcg9VectorNBWIbJEE6resizeEm.exit
 
 24:                                               ; preds = %_ZN3vcg9VectorNBWIbJEE7reserveEm.exit
-  %25 = icmp ult i64 %15, %20
+  %25 = icmp ugt i64 %20, %15
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -14014,7 +14014,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
@@ -14043,7 +14043,7 @@ _ZN3vcg9VectorNBWIbJEE7reserveEm.exit.i:          ; preds = %16, %_ZSt4copyIPbS0
 17:                                               ; preds = %_ZN3vcg9VectorNBWIbJEE7reserveEm.exit.i, %9
   store i64 %1, ptr %4, align 8
   %18 = and i64 %5, 4294967295
-  %19 = icmp ult i64 %18, %1
+  %19 = icmp ugt i64 %1, %18
   br i1 %19, label %.lr.ph.i, label %_ZN3vcg9VectorNBWIbJEE6resizeEm.exit
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
@@ -14297,7 +14297,7 @@ _ZN3vcg9VectorNBWIbJEE7reserveEm.exit:            ; preds = %10, %2
   br label %_ZN3vcg9VectorNBWIbJEE6resizeEm.exit
 
 24:                                               ; preds = %_ZN3vcg9VectorNBWIbJEE7reserveEm.exit
-  %25 = icmp ult i64 %15, %20
+  %25 = icmp ugt i64 %20, %15
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -14405,7 +14405,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI6CEdgeOSaIS2_EEbE6Re
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
@@ -14434,7 +14434,7 @@ _ZN3vcg9VectorNBWIbJEE7reserveEm.exit.i:          ; preds = %16, %_ZSt4copyIPbS0
 17:                                               ; preds = %_ZN3vcg9VectorNBWIbJEE7reserveEm.exit.i, %9
   store i64 %1, ptr %4, align 8
   %18 = and i64 %5, 4294967295
-  %19 = icmp ult i64 %18, %1
+  %19 = icmp ugt i64 %1, %18
   br i1 %19, label %.lr.ph.i, label %_ZN3vcg9VectorNBWIbJEE6resizeEm.exit
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
@@ -14682,7 +14682,7 @@ _ZN3vcg9VectorNBWIbJEE7reserveEm.exit:            ; preds = %10, %2
   br label %_ZN3vcg9VectorNBWIbJEE6resizeEm.exit
 
 24:                                               ; preds = %_ZN3vcg9VectorNBWIbJEE7reserveEm.exit
-  %25 = icmp ult i64 %15, %20
+  %25 = icmp ugt i64 %20, %15
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -14790,7 +14790,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEE
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
@@ -14819,7 +14819,7 @@ _ZN3vcg9VectorNBWIbJEE7reserveEm.exit.i:          ; preds = %16, %_ZSt4copyIPbS0
 17:                                               ; preds = %_ZN3vcg9VectorNBWIbJEE7reserveEm.exit.i, %9
   store i64 %1, ptr %4, align 8
   %18 = and i64 %5, 4294967295
-  %19 = icmp ult i64 %18, %1
+  %19 = icmp ugt i64 %1, %18
   br i1 %19, label %.lr.ph.i, label %_ZN3vcg9VectorNBWIbJEE6resizeEm.exit
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
@@ -15064,7 +15064,7 @@ _ZN3vcg9VectorNBWIbJEE7reserveEm.exit:            ; preds = %12, %2
   br label %_ZN3vcg9VectorNBWIbJEE6resizeEm.exit
 
 21:                                               ; preds = %_ZN3vcg9VectorNBWIbJEE7reserveEm.exit
-  %22 = icmp ult i64 %10, %17
+  %22 = icmp ugt i64 %17, %10
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
@@ -15172,7 +15172,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorINS_9TetraSimpINS_9Us
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
@@ -15201,7 +15201,7 @@ _ZN3vcg9VectorNBWIbJEE7reserveEm.exit.i:          ; preds = %16, %_ZSt4copyIPbS0
 17:                                               ; preds = %_ZN3vcg9VectorNBWIbJEE7reserveEm.exit.i, %9
   store i64 %1, ptr %4, align 8
   %18 = and i64 %5, 4294967295
-  %19 = icmp ult i64 %18, %1
+  %19 = icmp ugt i64 %1, %18
   br i1 %19, label %.lr.ph.i, label %_ZN3vcg9VectorNBWIbJEE6resizeEm.exit
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
@@ -15524,7 +15524,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
@@ -15533,7 +15533,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 14:                                               ; preds = %2
-  %15 = icmp ugt i64 %10, %1
+  %15 = icmp ult i64 %1, %10
   br i1 %15, label %16, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 16:                                               ; preds = %14
@@ -16898,7 +16898,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3vc
   %.sroa.319.0..sroa.0.0..sroa_idx = getelementptr inbounds i8, ptr %phi.call, i64 16
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %.sroa.5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(13) %.sroa.319.0..sroa.0.0..sroa_idx, i64 13, i1 false)
-  %20 = icmp sgt i64 %12, %.0
+  %20 = icmp slt i64 %.0, %12
   br i1 %20, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %19, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread41.i

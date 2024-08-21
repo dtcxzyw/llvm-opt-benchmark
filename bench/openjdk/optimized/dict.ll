@@ -75,48 +75,47 @@ define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_EP5Arenai(ptr nocapture noundef n
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
-  %9 = add nuw i32 %4, 2147483647
-  %10 = and i32 %9, %4
-  %11 = icmp eq i32 %10, 0
-  %12 = select i1 %8, i1 %11, i1 false
-  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %4, i1 true)
-  %14 = sub nuw nsw i32 32, %13
-  %15 = shl nuw i32 1, %14
-  %.0.i = select i1 %12, i32 %4, i32 %15
-  %16 = tail call noundef i32 @llvm.smax.i32(i32 %.0.i, i32 16)
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 0, ptr %18, align 4
-  %19 = zext nneg i32 %16 to i64
-  %20 = shl nuw nsw i64 %19, 4
-  %21 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %4)
+  %10 = icmp ult i32 %9, 2
+  %or.cond.i = select i1 %8, i1 %10, i1 false
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %4, i1 true)
+  %12 = sub nuw nsw i32 32, %11
+  %13 = shl nuw i32 1, %12
+  %.0.i = select i1 %or.cond.i, i32 %4, i32 %13
+  %14 = tail call noundef i32 @llvm.smax.i32(i32 %.0.i, i32 16)
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %14, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 0, ptr %16, align 4
+  %17 = zext nneg i32 %14 to i64
+  %18 = shl nuw nsw i64 %17, 4
+  %19 = getelementptr inbounds i8, ptr %3, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %25 = ptrtoint ptr %22 to i64
-  %26 = ptrtoint ptr %24 to i64
-  %27 = sub i64 %25, %26
-  %.not.i.i = icmp ult i64 %27, %20
-  br i1 %.not.i.i, label %30, label %28
+  %23 = ptrtoint ptr %20 to i64
+  %24 = ptrtoint ptr %22 to i64
+  %25 = sub i64 %23, %24
+  %.not.i.i = icmp ult i64 %25, %18
+  br i1 %.not.i.i, label %28, label %26
+
+26:                                               ; preds = %5
+  %27 = getelementptr inbounds i8, ptr %22, i64 %18
+  store ptr %27, ptr %21, align 8
+  br label %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
 
 28:                                               ; preds = %5
-  %29 = getelementptr inbounds i8, ptr %24, i64 %20
-  store ptr %29, ptr %23, align 8
+  %29 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %18, i32 noundef 0) #11
   br label %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
 
-30:                                               ; preds = %5
-  %31 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %20, i32 noundef 0) #11
-  br label %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
-
-_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %28, %30
-  %.0.i.i = phi ptr [ %24, %28 ], [ %31, %30 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.0.i.i, ptr %32, align 8
-  %33 = load i32, ptr %17, align 8
-  %34 = zext i32 %33 to i64
-  %35 = shl nuw nsw i64 %34, 4
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0.i.i, i8 0, i64 %35, i1 false)
+_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %26, %28
+  %.0.i.i = phi ptr [ %22, %26 ], [ %29, %28 ]
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.0.i.i, ptr %30, align 8
+  %31 = load i32, ptr %15, align 8
+  %32 = zext i32 %31 to i64
+  %33 = shl nuw nsw i64 %32, 4
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0.i.i, i8 0, i64 %33, i1 false)
   ret void
 }
 
@@ -1076,6 +1075,9 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -131,7 +131,7 @@ for.body:                                         ; preds = %_ZN6vectorIN3sat7wa
 land.rhs:                                         ; preds = %for.body
   %4 = load i64, ptr %__begin1.08, align 8
   %conv.i = trunc i64 %4 to i32
-  %cmp.i6 = icmp eq i32 %conv.i, %l.coerce
+  %cmp.i6 = icmp eq i32 %l.coerce, %conv.i
   br i1 %cmp.i6, label %return, label %for.inc
 
 for.inc:                                          ; preds = %land.rhs, %for.body
@@ -170,7 +170,7 @@ for.body:                                         ; preds = %_ZNK6vectorIN3sat7w
 land.rhs:                                         ; preds = %for.body
   %4 = load i64, ptr %__begin1.08, align 8
   %conv.i = trunc i64 %4 to i32
-  %cmp.i6 = icmp eq i32 %conv.i, %l.coerce
+  %cmp.i6 = icmp eq i32 %l.coerce, %conv.i
   br i1 %cmp.i6, label %return, label %for.inc
 
 for.inc:                                          ; preds = %land.rhs, %for.body
@@ -216,7 +216,7 @@ for.body:                                         ; preds = %_ZN6vectorIN3sat7wa
 land.lhs.true:                                    ; preds = %for.body
   %4 = load i64, ptr %it.014, align 8
   %conv.i = trunc i64 %4 to i32
-  %cmp.i11 = icmp ne i32 %conv.i, %l.coerce
+  %cmp.i11 = icmp ne i32 %l.coerce, %conv.i
   %tobool = trunc nuw i8 %found.017 to i1
   %5 = select i1 %cmp.i11, i1 true, i1 %tobool
   br i1 %5, label %if.else, label %for.inc
@@ -282,7 +282,7 @@ if.end.i.i:                                       ; preds = %entry
 _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
   %add.ptr.i = getelementptr inbounds %"class.sat::watched", ptr %0, i64 %retval.0.i.i
-  %cmp.not6 = icmp eq ptr %add.ptr.i, %it
+  %cmp.not6 = icmp eq ptr %it, %add.ptr.i
   br i1 %cmp.not6, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %for.body

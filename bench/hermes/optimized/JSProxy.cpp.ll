@@ -4761,10 +4761,10 @@ for.body48:                                       ; preds = %for.body48.lr.ph, %
   %27 = inttoptr i64 %and.i.i.i.i.i44 to ptr
   %beginIndex_.i45 = getelementptr inbounds i8, ptr %27, i64 20
   %28 = load i32, ptr %beginIndex_.i45, align 4
-  %cmp.not.i46 = icmp ule i32 %28, %i45.0129
+  %cmp.not.i46 = icmp uge i32 %i45.0129, %28
   %endIndex_.i47 = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load i32, ptr %endIndex_.i47, align 4
-  %cmp2.i48 = icmp ugt i32 %29, %i45.0129
+  %cmp2.i48 = icmp ult i32 %i45.0129, %29
   %or.cond.i49 = select i1 %cmp.not.i46, i1 %cmp2.i48, i1 false
   br i1 %or.cond.i49, label %cond.true.i51, label %cond.false
 
@@ -5271,10 +5271,10 @@ define linkonce_odr hidden i32 @_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj(ptr 
 entry:
   %beginIndex_ = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %beginIndex_, align 4
-  %cmp.not = icmp ule i32 %0, %index
+  %cmp.not = icmp uge i32 %index, %0
   %endIndex_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %endIndex_, align 4
-  %cmp2 = icmp ugt i32 %1, %index
+  %cmp2 = icmp ult i32 %index, %1
   %or.cond = select i1 %cmp.not, i1 %cmp2, i1 false
   br i1 %or.cond, label %cond.true, label %cond.end
 
@@ -5471,7 +5471,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %add.ptr.i.i.i.i
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -5599,7 +5599,7 @@ if.end12.i.i.i36:                                 ; preds = %if.else.i.i.i59, %w
 
 if.then.i.i44:                                    ; preds = %if.end12.i.i.i36, %if.then.i.i.i55
   %retval.sroa.4.0.i.ph.i.i45 = phi ptr [ %__y.0.lcssa25.i.i.i56, %if.then.i.i.i55 ], [ %__y.0.lcssa26.i.i.i37, %if.end12.i.i.i36 ]
-  %cmp2.i.i.i46 = icmp eq ptr %add.ptr.i.i.i.i23, %retval.sroa.4.0.i.ph.i.i45
+  %cmp2.i.i.i46 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i45, %add.ptr.i.i.i.i23
   br i1 %cmp2.i.i.i46, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i50, label %lor.rhs.i.i.i47
 
 lor.rhs.i.i.i47:                                  ; preds = %if.then.i.i44
@@ -5670,7 +5670,7 @@ if.end12.i.i.i79:                                 ; preds = %if.else.i.i.i102, %
 
 if.then.i.i87:                                    ; preds = %if.end12.i.i.i79, %if.then.i.i.i98
   %retval.sroa.4.0.i.ph.i.i88 = phi ptr [ %__y.0.lcssa25.i.i.i99, %if.then.i.i.i98 ], [ %__y.0.lcssa26.i.i.i80, %if.end12.i.i.i79 ]
-  %cmp2.i.i.i89 = icmp eq ptr %add.ptr.i.i.i.i66, %retval.sroa.4.0.i.ph.i.i88
+  %cmp2.i.i.i89 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i88, %add.ptr.i.i.i.i66
   br i1 %cmp2.i.i.i89, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i93, label %lor.rhs.i.i.i90
 
 lor.rhs.i.i.i90:                                  ; preds = %if.then.i.i87
@@ -5748,10 +5748,10 @@ for.body:                                         ; preds = %_ZN6hermes2vm7JSArr
   %10 = inttoptr i64 %and.i.i.i.i.i3 to ptr
   %beginIndex_.i = getelementptr inbounds i8, ptr %10, i64 20
   %11 = load i32, ptr %beginIndex_.i, align 4
-  %cmp.not.i = icmp ule i32 %11, %j.017
+  %cmp.not.i = icmp uge i32 %j.017, %11
   %endIndex_.i = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load i32, ptr %endIndex_.i, align 4
-  %cmp2.i = icmp ugt i32 %12, %j.017
+  %cmp2.i = icmp ult i32 %j.017, %12
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i, label %sw.bb36.i
 

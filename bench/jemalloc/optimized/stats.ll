@@ -3200,7 +3200,7 @@ if.then216:                                       ; preds = %for.end209
 
 do.end219:                                        ; preds = %for.end209
   %merged.not = xor i1 %merged, true
-  %brmerge73.not = and i1 %ninitialized.0.lcssa, %unmerged
+  %brmerge73.not = and i1 %unmerged, %ninitialized.0.lcssa
   %or.cond = select i1 %merged.not, i1 true, i1 %brmerge73.not
   br i1 %or.cond, label %if.end232, label %if.then226
 
@@ -3215,7 +3215,7 @@ if.then226:                                       ; preds = %do.end219
 if.end232:                                        ; preds = %if.then226, %do.end219
   %75 = load i8, ptr %destroyed_initialized, align 1
   %tobool233 = trunc i8 %75 to i1
-  %brmerge74.demorgan = and i1 %tobool233, %destroyed
+  %brmerge74.demorgan = and i1 %destroyed, %tobool233
   br i1 %brmerge74.demorgan, label %if.then238, label %if.end244
 
 if.then238:                                       ; preds = %if.end232

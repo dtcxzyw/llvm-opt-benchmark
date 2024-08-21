@@ -331,14 +331,14 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr nocapture noundef nonnull
 .preheader47:                                     ; preds = %.lr.ph55, %.preheader48
   %.039.lcssa78 = phi i32 [ %22, %.preheader48 ], [ %.039.lcssa77, %.lr.ph55 ]
   %.037.lcssa = phi i32 [ 0, %.preheader48 ], [ %47, %.lr.ph55 ]
-  %23 = icmp sgt i32 %.033, %7
-  %24 = icmp sgt i32 %spec.select, %5
+  %23 = icmp slt i32 %7, %.033
+  %24 = icmp slt i32 %5, %spec.select
   %or.cond = and i1 %23, %24
   br i1 %or.cond, label %.lr.ph59.us.preheader, label %._crit_edge62
 
 .lr.ph59.us.preheader:                            ; preds = %.preheader47
   %25 = mul i32 %7, %1
-  %26 = add i32 %25, %5
+  %26 = add i32 %5, %25
   br label %.lr.ph59.us
 
 .lr.ph59.us:                                      ; preds = %.lr.ph59.us.preheader, %._crit_edge.us

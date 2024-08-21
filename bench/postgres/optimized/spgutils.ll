@@ -2373,7 +2373,7 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr nocapture noundef readnon
 60:                                               ; preds = %.split65.us, %13, %6
   %61 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext 0, i32 noundef 0) #9
   %62 = icmp ne i16 %61, 0
-  %brmerge = or i1 %62, %5
+  %brmerge = or i1 %5, %62
   br i1 %brmerge, label %66, label %63
 
 63:                                               ; preds = %60

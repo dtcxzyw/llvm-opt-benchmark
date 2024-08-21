@@ -66,7 +66,7 @@ define noundef i32 @dscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %46 = shl i64 %5, 3
   %47 = mul i64 %5, 24
   %48 = call { i64, ptr, ptr } asm sideeffect "movddup               ($3), %xmm0                 \0A\09leaq\09\09($1,$4,4), $2\09\09            \0A\09.p2align 4                                          \0A\091:                                                 \0A\09movsd\09($1)     , %xmm4\09\09\09    \0A\09movhpd ($1,$4,1), %xmm4\09\09\09    \0A\09movsd\09($1,$4,2), %xmm5\09\09\09    \0A\09movhpd ($1,$5,1), %xmm5\09\09\09    \0A\09movsd\09($2)     , %xmm6\09\09\09    \0A\09movhpd ($2,$4,1), %xmm6\09\09\09    \0A\09movsd\09($2,$4,2), %xmm7\09\09\09    \0A\09movhpd ($2,$5,1), %xmm7\09\09\09    \0A\09mulpd  %xmm0, %xmm4\09\09\09\09    \0A\09mulpd  %xmm0, %xmm5\09\09\09\09    \0A\09mulpd  %xmm0, %xmm6\09\09\09\09    \0A\09mulpd  %xmm0, %xmm7\09\09\09\09    \0A\09movsd  %xmm4 , ($1)\09\09\09\09    \0A\09movhpd %xmm4 , ($1,$4,1)\09\09\09    \0A\09movsd  %xmm5 , ($1,$4,2)\09\09\09    \0A\09movhpd %xmm5 , ($1,$5,1)\09\09\09    \0A\09movsd  %xmm6 , ($2)\09\09\09\09    \0A\09movhpd %xmm6 , ($2,$4,1)\09\09\09    \0A\09movsd  %xmm7 , ($2,$4,2)\09\09\09    \0A\09movhpd %xmm7 , ($2,$5,1)\09\09\09    \0A\09leaq   ($1,$4,8), $1\09\09\09\09    \0A\09leaq   ($2,$4,8), $2\09\09\09\09    \0A\09subq\09$$8, $0\09\09\09\09\09    \0A\09jnz    1b\09\09\09\09\09    \0A\09", "=r,=r,=r,r,r,r,0,1,2,~{cc},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, i64 %46, i64 %47, i64 %43, ptr %4, ptr null) #2, !srcloc !11
-  %49 = mul nsw i64 %43, %5
+  %49 = mul nsw i64 %5, %43
   br label %50
 
 50:                                               ; preds = %45, %42
@@ -146,7 +146,7 @@ define noundef i32 @dscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %93 = phi i64 [ %97, %.preheader ], [ %66, %86 ]
   %94 = getelementptr inbounds double, ptr %4, i64 %93
   %95 = load double, ptr %94, align 8, !tbaa !3
-  %96 = fmul double %95, %3
+  %96 = fmul double %3, %95
   store double %96, ptr %94, align 8, !tbaa !3
   %97 = add nsw i64 %93, 1
   %98 = icmp eq i64 %97, %0

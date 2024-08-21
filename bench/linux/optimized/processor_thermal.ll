@@ -358,12 +358,12 @@ define internal i32 @processor_set_cur_state(ptr nocapture noundef readonly %0, 
 37:                                               ; preds = %32, %.thread
   %38 = phi i32 [ %36, %32 ], [ %27, %.thread ]
   %39 = sext i32 %38 to i64
-  %40 = icmp ult i64 %39, %1
+  %40 = icmp ugt i64 %1, %39
   br i1 %40, label %60, label %41
 
 41:                                               ; preds = %37
   %42 = zext nneg i32 %26 to i64
-  %43 = icmp ult i64 %42, %1
+  %43 = icmp ugt i64 %1, %42
   br i1 %43, label %55, label %44
 
 44:                                               ; preds = %41

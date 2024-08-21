@@ -209,7 +209,7 @@ define dso_local i32 @drm_lease_filter_crtcs(ptr noundef %0, i32 noundef %1) loc
   %25 = zext nneg i32 %23 to i64
   %26 = shl nuw i64 1, %25
   %27 = trunc i64 %26 to i32
-  %28 = and i32 %27, %1
+  %28 = and i32 %1, %27
   %29 = icmp eq i32 %28, 0
   %30 = select i1 %29, i32 0, i32 %27
   %31 = or i32 %30, %24
@@ -244,7 +244,7 @@ define dso_local i32 @drm_lease_filter_crtcs(ptr noundef %0, i32 noundef %1) loc
   %47 = zext nneg i32 %38 to i64
   %48 = shl nuw i64 1, %47
   %49 = trunc i64 %48 to i32
-  %50 = and i32 %49, %1
+  %50 = and i32 %1, %49
   %51 = icmp eq i32 %50, 0
   %52 = zext nneg i32 %39 to i64
   %53 = shl nuw i64 1, %52

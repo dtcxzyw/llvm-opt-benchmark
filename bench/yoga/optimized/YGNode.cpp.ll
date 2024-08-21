@@ -213,7 +213,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
-  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %i.018
+  %cmp.not.i.i.i = icmp ult i64 %i.018, %sub.ptr.div.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZNK8facebook4yoga4Node8getChildEm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -401,7 +401,7 @@ if.end:                                           ; preds = %entry
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end
-  %cmp6 = icmp eq ptr %2, %ownerRef
+  %cmp6 = icmp eq ptr %ownerRef, %2
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.then5
@@ -659,7 +659,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sub.ptr.rhs.cast.i.i.i.i16 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i.i.i15, %sub.ptr.rhs.cast.i.i.i.i16
   %sub.ptr.div.i.i.i.i18 = ashr exact i64 %sub.ptr.sub.i.i.i.i17, 3
-  %cmp.not.i.i.i19 = icmp ugt i64 %sub.ptr.div.i.i.i.i18, %i.031
+  %cmp.not.i.i.i19 = icmp ult i64 %i.031, %sub.ptr.div.i.i.i.i18
   br i1 %cmp.not.i.i.i19, label %_ZNK8facebook4yoga4Node8getChildEm.exit21, label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %for.body
@@ -1136,7 +1136,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ugt i64 %sub.ptr.div.i, %index
+  %cmp = icmp ult i64 %index, %sub.ptr.div.i
   br i1 %cmp, label %_ZNK8facebook4yoga4Node8getChildEm.exit, label %return
 
 _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %entry
@@ -1245,7 +1245,7 @@ entry:
   %bf.load.i = load i8, ptr %nodeRef, align 8
   %0 = and i8 %bf.load.i, 2
   %bf.cast.i = icmp ne i8 %0, 0
-  %1 = xor i1 %bf.cast.i, %isReferenceBaseline
+  %1 = xor i1 %isReferenceBaseline, %bf.cast.i
   br i1 %1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

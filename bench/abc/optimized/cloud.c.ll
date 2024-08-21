@@ -752,7 +752,7 @@ define ptr @cloudBddAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = icmp eq ptr %6, %1
+  %21 = icmp eq ptr %1, %6
   %. = select i1 %21, ptr %2, ptr %1
   br label %133
 
@@ -1088,7 +1088,7 @@ define ptr @Cloud_bddXor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
 23:                                               ; preds = %13, %9
   %24 = xor i64 %7, 1
   %25 = inttoptr i64 %24 to ptr
-  %.not.i = icmp ult ptr %25, %1
+  %.not.i = icmp ugt ptr %1, %25
   br i1 %.not.i, label %28, label %26
 
 26:                                               ; preds = %23
@@ -1107,7 +1107,7 @@ cloudBddAnd_gate.exit:                            ; preds = %26, %28
 31:                                               ; preds = %cloudBddAnd_gate.exit
   %32 = xor i64 %4, 1
   %33 = inttoptr i64 %32 to ptr
-  %.not.i19 = icmp ugt ptr %33, %2
+  %.not.i19 = icmp ult ptr %2, %33
   br i1 %.not.i19, label %36, label %34
 
 34:                                               ; preds = %31
@@ -1724,13 +1724,13 @@ Cloud_bddAnd.exit:                                ; preds = %92, %90, %66, %61, 
 define void @Cloud_bddPrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %.loopexit.sink.split, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   br i1 %9, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %6

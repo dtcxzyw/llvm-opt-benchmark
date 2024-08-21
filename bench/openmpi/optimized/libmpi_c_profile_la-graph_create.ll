@@ -107,7 +107,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %15, %ompi_comm_inva
   %.val = load ptr, ptr %47, align 8
   %48 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %48, align 8
-  %49 = icmp slt i32 %.val.val, %1
+  %49 = icmp sgt i32 %1, %.val.val
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %46
@@ -131,7 +131,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %15, %ompi_comm_inva
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 8
-  %64 = icmp slt i32 %63, %1
+  %64 = icmp sgt i32 %1, %63
   br i1 %64, label %65, label %71
 
 65:                                               ; preds = %59

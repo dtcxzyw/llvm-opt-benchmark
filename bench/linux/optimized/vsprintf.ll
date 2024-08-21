@@ -8106,7 +8106,7 @@ fwnode_full_name_string.exit.i:                   ; preds = %3495, %3487, %3484
   %3508 = shl i64 %4, 32
   %3509 = ashr i64 %3508, 40
   %3510 = trunc nsw i64 %3509 to i32
-  %3511 = icmp sgt i32 %3510, %3507
+  %3511 = icmp slt i32 %3507, %3510
   br i1 %3511, label %3512, label %hex_string.exit, !prof !13
 
 3512:                                             ; preds = %fwnode_full_name_string.exit.i
@@ -8802,7 +8802,7 @@ define dso_local i32 @vscnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 6:                                                ; preds = %4
   %7 = tail call i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #19
   %8 = sext i32 %7 to i64
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %13, label %10, !prof !17
 
 10:                                               ; preds = %6
@@ -8839,7 +8839,7 @@ define dso_local i32 @scnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
 6:                                                ; preds = %3
   %7 = call i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #19
   %8 = sext i32 %7 to i64
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %13, label %10, !prof !17
 
 10:                                               ; preds = %6
@@ -10908,7 +10908,7 @@ define internal fastcc ptr @widen_string(ptr noundef %0, i32 noundef %1, ptr nou
   %5 = shl i64 %3, 32
   %6 = ashr i64 %5, 40
   %7 = trunc nsw i64 %6 to i32
-  %8 = icmp sgt i32 %7, %1
+  %8 = icmp slt i32 %1, %7
   br i1 %8, label %9, label %.loopexit, !prof !13
 
 9:                                                ; preds = %4

@@ -860,8 +860,8 @@ do.end:                                           ; preds = %lor.lhs.false
   %bf.load = load i16, ptr %header, align 1
   %bf.clear = and i16 %bf.load, 1
   %tobool4.not = icmp eq i16 %bf.clear, 0
-  %tobool5.not = icmp ne i64 %1, %blen
-  %brmerge = or i1 %tobool5.not, %is_eos
+  %tobool5.not = icmp ne i64 %blen, %1
+  %brmerge = or i1 %is_eos, %tobool5.not
   %or.cond = select i1 %tobool4.not, i1 %brmerge, i1 false
   br i1 %or.cond, label %if.then8, label %out
 
@@ -1665,7 +1665,7 @@ if.end33:                                         ; preds = %if.then30, %land.lh
 land.lhs.true38:                                  ; preds = %if.end33
   %7 = and i32 %bf.load35, 8
   %8 = icmp eq i32 %7, 0
-  %cmp = xor i1 %8, %proxytunnel
+  %cmp = xor i1 %proxytunnel, %8
   br i1 %cmp, label %if.then45, label %if.else49
 
 if.then45:                                        ; preds = %land.lhs.true38
@@ -2367,7 +2367,7 @@ if.then30:                                        ; preds = %if.then
 
 if.end31:                                         ; preds = %if.then
   %tobool15.not = icmp ne i64 %6, 0
-  %cmp19 = icmp slt i64 %6, %included_body_bytes
+  %cmp19 = icmp sgt i64 %included_body_bytes, %6
   %or.cond = and i1 %tobool15.not, %cmp19
   %sub24.neg = sub i64 %6, %included_body_bytes
   %sub27 = select i1 %or.cond, i64 %sub24.neg, i64 0
@@ -2386,7 +2386,7 @@ if.else43:                                        ; preds = %lor.lhs.false, %lan
   %max_send_speed45 = getelementptr inbounds i8, ptr %data, i64 776
   %10 = load i64, ptr %max_send_speed45, align 8
   %tobool46.not = icmp ne i64 %10, 0
-  %cmp50 = icmp slt i64 %10, %included_body_bytes
+  %cmp50 = icmp sgt i64 %included_body_bytes, %10
   %or.cond80 = and i1 %tobool46.not, %cmp50
   %sub56.neg = sub i64 %10, %included_body_bytes
   %sub59 = select i1 %or.cond80, i64 %sub56.neg, i64 0
@@ -6116,7 +6116,7 @@ if.else26:                                        ; preds = %entry
   %allheadercount28 = getelementptr inbounds i8, ptr %data, i64 284
   %3 = load i32, ptr %allheadercount28, align 4
   %conv29 = zext i32 %3 to i64
-  %add30 = add i64 %conv29, %delta
+  %add30 = add i64 %delta, %conv29
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else, %if.else26
@@ -7970,11 +7970,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds [6 x %struct.name_const], ptr @H2_NON_FIELD, i64 0, i64 %i.06.i
   %namelen1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %12 = load i64, ptr %namelen1.i, align 8
-  %cmp2.i = icmp ugt i64 %12, %11
+  %cmp2.i = icmp ult i64 %11, %12
   br i1 %cmp2.i, label %if.then79, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %cmp5.i = icmp eq i64 %12, %11
+  %cmp5.i = icmp eq i64 %11, %12
   br i1 %cmp5.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i

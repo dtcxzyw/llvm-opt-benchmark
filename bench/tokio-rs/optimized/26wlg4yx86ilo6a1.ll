@@ -690,7 +690,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.76004
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -1628,7 +1628,7 @@ define hidden void @"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_
 define hidden noundef nonnull align 8 dereferenceable(1040) ptr @"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hb075122f21d30f2cE.llvm.7600499188078001995"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h141927274015578eE.llvm.7600499188078001995.exit", label %7, !prof !153
 
 7:                                                ; preds = %3
@@ -1724,7 +1724,7 @@ define void @"_ZN76_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$tokio..io..async_buf_read..A
 define void @"_ZN76_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$tokio..io..async_buf_read..AsyncBufRead$GT$7consume17h0f19399c7870de0bE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
@@ -12679,7 +12679,7 @@ define hidden noundef ptr @_ZN5tokio7runtime4time5wheel5Wheel4poll17hb273eee50d7
   unreachable
 
 29:                                               ; preds = %19
-  %30 = icmp ult i64 %20, %1
+  %30 = icmp ugt i64 %1, %20
   br i1 %30, label %31, label %_ZN5tokio7runtime4time5wheel5Wheel11set_elapsed17h5b11a8031e6b1218E.llvm.7600499188078001995.exit
 
 31:                                               ; preds = %29
@@ -12724,7 +12724,7 @@ _ZN5tokio7runtime4time5wheel5Wheel11set_elapsed17h5b11a8031e6b1218E.llvm.7600499
   unreachable
 
 43:                                               ; preds = %33
-  %44 = icmp ult i64 %34, %18
+  %44 = icmp ugt i64 %18, %34
   br i1 %44, label %45, label %_ZN5tokio7runtime4time5wheel5Wheel11set_elapsed17h5b11a8031e6b1218E.llvm.7600499188078001995.exit9
 
 45:                                               ; preds = %43
@@ -12872,7 +12872,7 @@ define hidden void @_ZN5tokio7runtime4time5wheel5Wheel18process_expiration17he44
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2397)
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !2400, !noalias !2401, !noundef !5
-  %12 = icmp ugt i64 %11, %9
+  %12 = icmp ult i64 %9, %11
   br i1 %12, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hb075122f21d30f2cE.llvm.7600499188078001995.exit.i", label %13, !prof !153
 
 13:                                               ; preds = %2
@@ -13115,7 +13115,7 @@ define hidden void @_ZN5tokio7runtime4time5wheel5Wheel11set_elapsed17h5b11a8031e
   unreachable
 
 16:                                               ; preds = %2
-  %17 = icmp ult i64 %7, %1
+  %17 = icmp ugt i64 %1, %7
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %16
@@ -13132,7 +13132,7 @@ define hidden { ptr, ptr } @_ZN5tokio7runtime4time5wheel5Wheel12take_entries17ha
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2441)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !2441, !noalias !2444, !noundef !5
-  %6 = icmp ugt i64 %5, %3
+  %6 = icmp ult i64 %3, %5
   br i1 %6, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hb075122f21d30f2cE.llvm.7600499188078001995.exit", label %7, !prof !153
 
 7:                                                ; preds = %2

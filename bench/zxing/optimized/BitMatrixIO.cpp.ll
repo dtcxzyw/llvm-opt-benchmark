@@ -239,7 +239,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEb(ptr dead_on_unwind noal
           to label %19 unwind label %42
 
 19:                                               ; preds = %16
-  %20 = xor i1 %18, %2
+  %20 = xor i1 %2, %18
   %21 = zext i1 %20 to i64
   %22 = load i32, ptr %6, align 4, !tbaa !19
   %23 = icmp eq i32 %22, 1
@@ -255,7 +255,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEb(ptr dead_on_unwind noal
           to label %29 unwind label %44
 
 29:                                               ; preds = %27
-  %30 = xor i1 %28, %2
+  %30 = xor i1 %2, %28
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %29, %19

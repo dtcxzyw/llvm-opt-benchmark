@@ -1626,11 +1626,11 @@ define noundef zeroext i1 @_ZN8proxygen11HeaderTable11setCapacityEj(ptr noundef 
 entry:
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity_, align 8
-  %cmp = icmp eq i32 %0, %newCapacity
+  %cmp = icmp eq i32 %newCapacity, %0
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp ugt i32 %0, %newCapacity
+  %cmp3 = icmp ult i32 %newCapacity, %0
   br i1 %cmp3, label %if.then4, label %if.else7
 
 if.then4:                                         ; preds = %if.else
@@ -2366,7 +2366,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit29, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i19
@@ -2661,7 +2661,7 @@ if.end9:                                          ; preds = %if.end20.i, %while.
   %sh_prom.i35 = and i64 %16, 255
   %notmask.i36 = shl nsw i64 -1, %sh_prom.i35
   %sub.i37 = xor i64 %notmask.i36, -1
-  %and.i38 = and i64 %sub.i37, %hp.coerce0
+  %and.i38 = and i64 %hp.coerce0, %sub.i37
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %15, i64 %and.i38
   %17 = load <16 x i8>, ptr %add.ptr, align 16
   %18 = icmp slt <16 x i8> %17, zeroinitializer
@@ -3647,7 +3647,7 @@ if.then:                                          ; preds = %_ZN5folly3f146detai
   %sh_prom.i23 = and i64 %3, 255
   %notmask.i24 = shl nsw i64 -1, %sh_prom.i23
   %sub.i25 = xor i64 %notmask.i24, -1
-  %and.i26 = and i64 %sub.i25, %hp.coerce0
+  %and.i26 = and i64 %hp.coerce0, %sub.i25
   %add.ptr27 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %and.i26
   %cmp828 = icmp eq ptr %add.ptr27, %add.ptr1.i.i
   br i1 %cmp828, label %if.then9, label %if.end

@@ -5356,7 +5356,7 @@ define internal i32 @selinux_inode_follow_link(ptr noundef %0, ptr noundef %1, i
   %30 = getelementptr inbounds i8, ptr %23, i64 34
   %31 = load i8, ptr %30, align 2
   %32 = icmp eq i8 %31, 1
-  %33 = or i1 %32, %2
+  %33 = or i1 %2, %32
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %29
@@ -13938,7 +13938,7 @@ define internal fastcc i32 @selinux_lsm_getattr(i32 noundef %0, ptr noundef %1, 
   %11 = getelementptr i8, ptr %8, i64 %10
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %27, label %15
 
 15:                                               ; preds = %3

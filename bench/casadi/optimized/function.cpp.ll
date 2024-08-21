@@ -8561,7 +8561,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal4callINS_6MatrixId
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
   %62 = sdiv exact i64 %61, 40
-  %63 = icmp ult i64 %62, %55
+  %63 = icmp ugt i64 %55, %62
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %53
@@ -8570,7 +8570,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal4callINS_6MatrixId
   br label %_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EE6resizeEm.exit
 
 66:                                               ; preds = %53
-  %67 = icmp ugt i64 %62, %55
+  %67 = icmp ult i64 %55, %62
   br i1 %67, label %68, label %_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EE6resizeEm.exit
 
 68:                                               ; preds = %66
@@ -9742,7 +9742,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal4callINS_6MatrixIN
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58
   %60 = sdiv exact i64 %59, 40
-  %61 = icmp ult i64 %60, %53
+  %61 = icmp ugt i64 %53, %60
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %51
@@ -9751,7 +9751,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal4callINS_6MatrixIN
   br label %_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE6resizeEm.exit
 
 64:                                               ; preds = %51
-  %65 = icmp ugt i64 %60, %53
+  %65 = icmp ult i64 %53, %60
   br i1 %65, label %66, label %_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE6resizeEm.exit
 
 66:                                               ; preds = %64
@@ -11082,7 +11082,7 @@ define linkonce_odr void @_ZNK6casadi16FunctionInternal4callINS_2MXEEEvRKSt6vect
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
-  %58 = icmp ult i64 %57, %50
+  %58 = icmp ugt i64 %50, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %48
@@ -11091,7 +11091,7 @@ define linkonce_odr void @_ZNK6casadi16FunctionInternal4callINS_2MXEEEvRKSt6vect
   br label %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit
 
 61:                                               ; preds = %48
-  %62 = icmp ugt i64 %57, %50
+  %62 = icmp ult i64 %50, %57
   br i1 %62, label %63, label %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit
 
 63:                                               ; preds = %61
@@ -11932,7 +11932,7 @@ _ZSt6fill_nIPPKdmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc62
   %103 = ptrtoint ptr %101 to i64
   %104 = sub i64 %102, %103
   %105 = ashr exact i64 %104, 3
-  %.not.i.i.i.i.i = icmp ugt i64 %105, %.01284
+  %.not.i.i.i.i.i = icmp ult i64 %.01284, %105
   br i1 %.not.i.i.i.i.i, label %_ZNK6casadi16FunctionInternal6nnz_inEx.exit.i, label %106
 
 106:                                              ; preds = %.noexc63
@@ -12158,7 +12158,7 @@ define noundef i64 @_ZNK6casadi8Function6nnz_inEx(ptr noundef nonnull align 8 de
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %1
+  %.not.i.i.i.i = icmp ult i64 %1, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal6nnz_inEx.exit, label %12
 
 12:                                               ; preds = %2
@@ -12183,7 +12183,7 @@ define void @_ZNK6casadi8Function7buf_outERSt6vectorIS1_IdSaIdEESaIS3_EE(ptr dea
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 24
-  %14 = icmp ult i64 %13, %6
+  %14 = icmp ugt i64 %6, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
@@ -12192,7 +12192,7 @@ define void @_ZNK6casadi8Function7buf_outERSt6vectorIS1_IdSaIdEESaIS3_EE(ptr dea
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
 
 17:                                               ; preds = %3
-  %18 = icmp ugt i64 %13, %6
+  %18 = icmp ult i64 %6, %13
   br i1 %18, label %19, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
 
 19:                                               ; preds = %17
@@ -12284,7 +12284,7 @@ _ZSt6fill_nIPPdmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc13
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 3
-  %.not.i.i.i.i.i14 = icmp ugt i64 %52, %.025
+  %.not.i.i.i.i.i14 = icmp ult i64 %.025, %52
   br i1 %.not.i.i.i.i.i14, label %_ZNK6casadi16FunctionInternal7nnz_outEx.exit.i, label %53
 
 53:                                               ; preds = %.noexc15
@@ -12307,7 +12307,7 @@ _ZNK6casadi8Function7nnz_outEx.exit:              ; preds = %_ZNK6casadi16Functi
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
   %62 = ashr exact i64 %61, 3
-  %63 = icmp ult i64 %62, %55
+  %63 = icmp ugt i64 %55, %62
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %_ZNK6casadi8Function7nnz_outEx.exit
@@ -12321,7 +12321,7 @@ _ZNK6casadi8Function7nnz_outEx.exit:              ; preds = %_ZNK6casadi16Functi
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 66:                                               ; preds = %_ZNK6casadi8Function7nnz_outEx.exit
-  %67 = icmp ugt i64 %62, %55
+  %67 = icmp ult i64 %55, %62
   br i1 %67, label %68, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 68:                                               ; preds = %66
@@ -12407,7 +12407,7 @@ define noundef i64 @_ZNK6casadi8Function7nnz_outEx(ptr noundef nonnull align 8 d
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %1
+  %.not.i.i.i.i = icmp ult i64 %1, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal7nnz_outEx.exit, label %12
 
 12:                                               ; preds = %2
@@ -12783,7 +12783,7 @@ _ZSt6fill_nIPPdmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc60
   %132 = ptrtoint ptr %130 to i64
   %133 = sub i64 %131, %132
   %134 = ashr exact i64 %133, 3
-  %.not.i.i.i.i.i = icmp ugt i64 %134, %.0983
+  %.not.i.i.i.i.i = icmp ult i64 %.0983, %134
   br i1 %.not.i.i.i.i.i, label %_ZNK6casadi16FunctionInternal7nnz_outEx.exit.i, label %135
 
 135:                                              ; preds = %.noexc65
@@ -12806,7 +12806,7 @@ _ZNK6casadi8Function7nnz_outEx.exit:              ; preds = %_ZNK6casadi16Functi
   %142 = ptrtoint ptr %140 to i64
   %143 = sub i64 %141, %142
   %144 = ashr exact i64 %143, 3
-  %145 = icmp ult i64 %144, %137
+  %145 = icmp ugt i64 %137, %144
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %_ZNK6casadi8Function7nnz_outEx.exit
@@ -12815,7 +12815,7 @@ _ZNK6casadi8Function7nnz_outEx.exit:              ; preds = %_ZNK6casadi16Functi
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %.loopexit
 
 148:                                              ; preds = %_ZNK6casadi8Function7nnz_outEx.exit
-  %149 = icmp ugt i64 %144, %137
+  %149 = icmp ult i64 %137, %144
   br i1 %149, label %150, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 150:                                              ; preds = %148
@@ -12960,7 +12960,7 @@ _ZNSt12_Vector_baseIPKdSaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %_ZNSt6vectorI
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %47, %48
   %50 = ashr exact i64 %49, 3
-  %.not.i.i.i.i.i = icmp ugt i64 %50, %32
+  %.not.i.i.i.i.i = icmp ult i64 %32, %50
   br i1 %.not.i.i.i.i.i, label %_ZNK6casadi16FunctionInternal6nnz_inEx.exit.i, label %51
 
 51:                                               ; preds = %.noexc35
@@ -13461,7 +13461,7 @@ _ZNSt12_Vector_baseIPdSaIS0_EEC2EmRKS1_.exit.thread.i: ; preds = %_ZNSt6vectorIP
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 3
-  %.not.i.i.i.i.i = icmp ugt i64 %32, %22
+  %.not.i.i.i.i.i = icmp ult i64 %22, %32
   br i1 %.not.i.i.i.i.i, label %_ZNK6casadi16FunctionInternal7nnz_outEx.exit.i, label %33
 
 33:                                               ; preds = %.noexc10
@@ -13485,7 +13485,7 @@ _ZNK6casadi8Function7nnz_outEx.exit:              ; preds = %_ZNK6casadi16Functi
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
   %43 = ashr exact i64 %42, 3
-  %44 = icmp ult i64 %43, %35
+  %44 = icmp ugt i64 %35, %43
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %_ZNK6casadi8Function7nnz_outEx.exit
@@ -13499,7 +13499,7 @@ _ZNK6casadi8Function7nnz_outEx.exit:              ; preds = %_ZNK6casadi16Functi
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 47:                                               ; preds = %_ZNK6casadi8Function7nnz_outEx.exit
-  %48 = icmp ugt i64 %43, %35
+  %48 = icmp ult i64 %35, %43
   br i1 %48, label %49, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 49:                                               ; preds = %47
@@ -14016,7 +14016,7 @@ _ZNSt12_Vector_baseIPdSaIS0_EEC2EmRKS1_.exit.thread.i: ; preds = %_ZNSt6vectorIP
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 3
-  %.not.i.i.i.i.i = icmp ugt i64 %79, %32
+  %.not.i.i.i.i.i = icmp ult i64 %32, %79
   br i1 %.not.i.i.i.i.i, label %_ZNK6casadi16FunctionInternal7nnz_outEx.exit.i, label %80
 
 80:                                               ; preds = %.noexc36
@@ -14039,7 +14039,7 @@ _ZNK6casadi8Function7nnz_outEx.exit:              ; preds = %_ZNK6casadi16Functi
   %87 = ptrtoint ptr %85 to i64
   %88 = sub i64 %86, %87
   %89 = ashr exact i64 %88, 3
-  %90 = icmp ult i64 %89, %82
+  %90 = icmp ugt i64 %82, %89
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %_ZNK6casadi8Function7nnz_outEx.exit
@@ -14048,7 +14048,7 @@ _ZNK6casadi8Function7nnz_outEx.exit:              ; preds = %_ZNK6casadi16Functi
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %.loopexit
 
 93:                                               ; preds = %_ZNK6casadi8Function7nnz_outEx.exit
-  %94 = icmp ugt i64 %89, %82
+  %94 = icmp ult i64 %82, %89
   br i1 %94, label %95, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 95:                                               ; preds = %93
@@ -14419,7 +14419,7 @@ define linkonce_odr void @_ZNK6casadi8Function8call_genIdEEvSt6vectorIPKT_SaIS5_
   %78 = ptrtoint ptr %76 to i64
   %79 = sub i64 %77, %78
   %80 = ashr exact i64 %79, 3
-  %81 = icmp ult i64 %80, %74
+  %81 = icmp ugt i64 %74, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %68
@@ -14428,7 +14428,7 @@ define linkonce_odr void @_ZNK6casadi8Function8call_genIdEEvSt6vectorIPKT_SaIS5_
   br label %_ZNSt6vectorIPKdSaIS1_EE6resizeEm.exit
 
 84:                                               ; preds = %68
-  %85 = icmp ugt i64 %80, %74
+  %85 = icmp ult i64 %74, %80
   br i1 %85, label %86, label %_ZNSt6vectorIPKdSaIS1_EE6resizeEm.exit
 
 86:                                               ; preds = %84
@@ -14596,7 +14596,7 @@ _ZNSt6vectorIPKdSaIS1_EE6resizeEm.exit:           ; preds = %82, %84, %86, %88
   %143 = ptrtoint ptr %141 to i64
   %144 = sub i64 %142, %143
   %145 = ashr exact i64 %144, 3
-  %146 = icmp ult i64 %145, %139
+  %146 = icmp ugt i64 %139, %145
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %133
@@ -14605,7 +14605,7 @@ _ZNSt6vectorIPKdSaIS1_EE6resizeEm.exit:           ; preds = %82, %84, %86, %88
   br label %_ZNSt6vectorIPdSaIS0_EE6resizeEm.exit
 
 149:                                              ; preds = %133
-  %150 = icmp ugt i64 %145, %139
+  %150 = icmp ult i64 %139, %145
   br i1 %150, label %151, label %_ZNSt6vectorIPdSaIS0_EE6resizeEm.exit
 
 151:                                              ; preds = %149
@@ -15091,7 +15091,7 @@ define linkonce_odr void @_ZNK6casadi8Function8call_genIyEEvSt6vectorIPKT_SaIS5_
   %78 = ptrtoint ptr %76 to i64
   %79 = sub i64 %77, %78
   %80 = ashr exact i64 %79, 3
-  %81 = icmp ult i64 %80, %74
+  %81 = icmp ugt i64 %74, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %68
@@ -15100,7 +15100,7 @@ define linkonce_odr void @_ZNK6casadi8Function8call_genIyEEvSt6vectorIPKT_SaIS5_
   br label %_ZNSt6vectorIPKySaIS1_EE6resizeEm.exit
 
 84:                                               ; preds = %68
-  %85 = icmp ugt i64 %80, %74
+  %85 = icmp ult i64 %74, %80
   br i1 %85, label %86, label %_ZNSt6vectorIPKySaIS1_EE6resizeEm.exit
 
 86:                                               ; preds = %84
@@ -15268,7 +15268,7 @@ _ZNSt6vectorIPKySaIS1_EE6resizeEm.exit:           ; preds = %82, %84, %86, %88
   %143 = ptrtoint ptr %141 to i64
   %144 = sub i64 %142, %143
   %145 = ashr exact i64 %144, 3
-  %146 = icmp ult i64 %145, %139
+  %146 = icmp ugt i64 %139, %145
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %133
@@ -15277,7 +15277,7 @@ _ZNSt6vectorIPKySaIS1_EE6resizeEm.exit:           ; preds = %82, %84, %86, %88
   br label %_ZNSt6vectorIPySaIS0_EE6resizeEm.exit
 
 149:                                              ; preds = %133
-  %150 = icmp ugt i64 %145, %139
+  %150 = icmp ult i64 %139, %145
   br i1 %150, label %151, label %_ZNSt6vectorIPySaIS0_EE6resizeEm.exit
 
 151:                                              ; preds = %149
@@ -15765,7 +15765,7 @@ define linkonce_odr void @_ZNK6casadi8Function8call_genINS_6SXElemEEEvSt6vectorI
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
   %82 = ashr exact i64 %81, 3
-  %83 = icmp ult i64 %82, %76
+  %83 = icmp ugt i64 %76, %82
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %70
@@ -15774,7 +15774,7 @@ define linkonce_odr void @_ZNK6casadi8Function8call_genINS_6SXElemEEEvSt6vectorI
   br label %_ZNSt6vectorIPKN6casadi6SXElemESaIS3_EE6resizeEm.exit
 
 86:                                               ; preds = %70
-  %87 = icmp ugt i64 %82, %76
+  %87 = icmp ult i64 %76, %82
   br i1 %87, label %88, label %_ZNSt6vectorIPKN6casadi6SXElemESaIS3_EE6resizeEm.exit
 
 88:                                               ; preds = %86
@@ -15942,7 +15942,7 @@ _ZNSt6vectorIPKN6casadi6SXElemESaIS3_EE6resizeEm.exit: ; preds = %84, %86, %88, 
   %145 = ptrtoint ptr %143 to i64
   %146 = sub i64 %144, %145
   %147 = ashr exact i64 %146, 3
-  %148 = icmp ult i64 %147, %141
+  %148 = icmp ugt i64 %141, %147
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %135
@@ -15951,7 +15951,7 @@ _ZNSt6vectorIPKN6casadi6SXElemESaIS3_EE6resizeEm.exit: ; preds = %84, %86, %88, 
   br label %_ZNSt6vectorIPN6casadi6SXElemESaIS2_EE6resizeEm.exit
 
 151:                                              ; preds = %135
-  %152 = icmp ugt i64 %147, %141
+  %152 = icmp ult i64 %141, %147
   br i1 %152, label %153, label %_ZNSt6vectorIPN6casadi6SXElemESaIS2_EE6resizeEm.exit
 
 153:                                              ; preds = %151
@@ -16276,7 +16276,7 @@ define noundef i32 @_ZNK6casadi8Function3revESt6vectorIPySaIS2_EES4_(ptr noundef
   %78 = ptrtoint ptr %76 to i64
   %79 = sub i64 %77, %78
   %80 = ashr exact i64 %79, 3
-  %81 = icmp ult i64 %80, %74
+  %81 = icmp ugt i64 %74, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %68
@@ -16285,7 +16285,7 @@ define noundef i32 @_ZNK6casadi8Function3revESt6vectorIPySaIS2_EES4_(ptr noundef
   br label %_ZNSt6vectorIPySaIS0_EE6resizeEm.exit
 
 84:                                               ; preds = %68
-  %85 = icmp ugt i64 %80, %74
+  %85 = icmp ult i64 %74, %80
   br i1 %85, label %86, label %_ZNSt6vectorIPySaIS0_EE6resizeEm.exit
 
 86:                                               ; preds = %84
@@ -16453,7 +16453,7 @@ _ZNSt6vectorIPySaIS0_EE6resizeEm.exit:            ; preds = %82, %84, %86, %88
   %143 = ptrtoint ptr %141 to i64
   %144 = sub i64 %142, %143
   %145 = ashr exact i64 %144, 3
-  %146 = icmp ult i64 %145, %139
+  %146 = icmp ugt i64 %139, %145
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %133
@@ -16462,7 +16462,7 @@ _ZNSt6vectorIPySaIS0_EE6resizeEm.exit:            ; preds = %82, %84, %86, %88
   br label %_ZNSt6vectorIPySaIS0_EE6resizeEm.exit59
 
 149:                                              ; preds = %133
-  %150 = icmp ugt i64 %145, %139
+  %150 = icmp ult i64 %139, %145
   br i1 %150, label %151, label %_ZNSt6vectorIPySaIS0_EE6resizeEm.exit59
 
 151:                                              ; preds = %149
@@ -17221,7 +17221,7 @@ define noundef i64 @_ZNK6casadi8Function9size2_outEx(ptr noundef nonnull align 8
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %1
+  %.not.i.i.i.i = icmp ult i64 %1, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal9size2_outEx.exit, label %12
 
 12:                                               ; preds = %2
@@ -18270,7 +18270,7 @@ define void @_ZNK6casadi8Function8mapaccumERKNSt7__cxx1112basic_stringIcSt11char
 
 85:                                               ; preds = %6
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %46, i64 %43)
-  %.not = icmp slt i64 %.sroa.speculated, %4
+  %.not = icmp sgt i64 %4, %.sroa.speculated
   br i1 %.not, label %86, label %120
 
 86:                                               ; preds = %85
@@ -18588,7 +18588,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc138, %1
   br i1 %.not269311, label %.preheader270, label %.preheader281.lr.ph
 
 .preheader281.lr.ph:                              ; preds = %._crit_edge
-  %166 = icmp sgt i64 %43, %4
+  %166 = icmp slt i64 %4, %43
   %167 = getelementptr inbounds i8, ptr %7, i64 16
   %168 = getelementptr inbounds i8, ptr %29, i64 8
   %169 = getelementptr inbounds i8, ptr %29, i64 16
@@ -18901,7 +18901,7 @@ _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS3_SaIS3_EEEEx
   %264 = ptrtoint ptr %262 to i64
   %265 = sub i64 %263, %264
   %266 = ashr exact i64 %265, 3
-  %.not.i.i.i.i.i162 = icmp ugt i64 %266, %.091308
+  %.not.i.i.i.i.i162 = icmp ult i64 %.091308, %266
   br i1 %.not.i.i.i.i.i162, label %_ZNK6casadi16FunctionInternal9size2_outEx.exit.i, label %.invoke
 
 .invoke:                                          ; preds = %.noexc167, %.noexc163
@@ -18930,7 +18930,7 @@ _ZNK6casadi8Function9size2_outEx.exit:            ; preds = %_ZNK6casadi16Functi
   %276 = ptrtoint ptr %274 to i64
   %277 = sub i64 %275, %276
   %278 = ashr exact i64 %277, 3
-  %.not.i.i.i.i.i166 = icmp ugt i64 %278, %.091308
+  %.not.i.i.i.i.i166 = icmp ult i64 %.091308, %278
   br i1 %.not.i.i.i.i.i166, label %_ZNK6casadi16FunctionInternal8size2_inEx.exit.i, label %.invoke
 
 _ZNK6casadi16FunctionInternal8size2_inEx.exit.i:  ; preds = %.noexc167
@@ -19333,7 +19333,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #27
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %9
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %9, %.015.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi8FunctionEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %15, %.lr.ph.i.i.i.i.i.i.i
@@ -19465,7 +19465,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6casadi8Function7nam
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 5
-  %.not.i.i = icmp ugt i64 %25, %1
+  %.not.i.i = icmp ult i64 %1, %25
   br i1 %.not.i.i, label %27, label %26
 
 26:                                               ; preds = %17
@@ -19727,7 +19727,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi8Function11spa
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %.not.i.i = icmp ugt i64 %25, %1
+  %.not.i.i = icmp ult i64 %1, %25
   br i1 %.not.i.i, label %27, label %26
 
 26:                                               ; preds = %17
@@ -19976,7 +19976,7 @@ define noundef i64 @_ZNK6casadi8Function8size2_inEx(ptr noundef nonnull align 8 
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %1
+  %.not.i.i.i.i = icmp ult i64 %1, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal8size2_inEx.exit, label %12
 
 12:                                               ; preds = %2
@@ -23039,7 +23039,7 @@ _ZSt10_ConstructIN6casadi2MXEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #27
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -23732,7 +23732,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc120, %1
   %135 = ptrtoint ptr %133 to i64
   %136 = sub i64 %134, %135
   %137 = ashr exact i64 %136, 3
-  %.not.i.i.i.i.i = icmp ugt i64 %137, %.063
+  %.not.i.i.i.i.i = icmp ult i64 %.063, %137
   br i1 %.not.i.i.i.i.i, label %_ZNK6casadi16FunctionInternal8size2_inEx.exit.i, label %.invoke
 
 .invoke:                                          ; preds = %.noexc127, %.noexc122
@@ -23761,7 +23761,7 @@ _ZNK6casadi8Function8size2_inEx.exit:             ; preds = %_ZNK6casadi16Functi
   %147 = ptrtoint ptr %145 to i64
   %148 = sub i64 %146, %147
   %149 = ashr exact i64 %148, 3
-  %.not.i.i.i.i.i125 = icmp ugt i64 %149, %.063
+  %.not.i.i.i.i.i125 = icmp ult i64 %.063, %149
   br i1 %.not.i.i.i.i.i125, label %_ZNK6casadi16FunctionInternal8size2_inEx.exit.i126, label %.invoke
 
 _ZNK6casadi16FunctionInternal8size2_inEx.exit.i126: ; preds = %.noexc127
@@ -24000,7 +24000,7 @@ _ZNK6casadi8FunctionclERKSt6vectorINS_2MXESaIS2_EE.exit: ; preds = %_ZNK6casadi8
   %218 = ptrtoint ptr %216 to i64
   %219 = sub i64 %217, %218
   %220 = ashr exact i64 %219, 3
-  %.not.i.i.i.i.i141 = icmp ugt i64 %220, %.062
+  %.not.i.i.i.i.i141 = icmp ult i64 %.062, %220
   br i1 %.not.i.i.i.i.i141, label %_ZNK6casadi16FunctionInternal9size2_outEx.exit.i, label %221
 
 221:                                              ; preds = %.noexc142
@@ -24355,7 +24355,7 @@ _ZSt10_ConstructIN6casadi2MXEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.p
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = call ptr @__cxa_begin_catch(ptr %13) #27
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %7
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %7, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %11, %.lr.ph.i.i.i.i.i.i.i
@@ -24519,7 +24519,7 @@ _ZSt10_ConstructIN6casadi2MXEJEEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #27
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %8
+  %.not4.i.i.i.i.i.i = icmp eq ptr %8, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %14, %.lr.ph.i.i.i.i.i.i
@@ -25208,7 +25208,7 @@ _ZN6casadi13GenericMatrixINS_2MXEE5zerosERKNS_8SparsityE.exit: ; preds = %34
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 3
-  %.not.i.i = icmp ugt i64 %40, %.02895
+  %.not.i.i = icmp ult i64 %.02895, %40
   br i1 %.not.i.i, label %42, label %41
 
 41:                                               ; preds = %_ZN6casadi13GenericMatrixINS_2MXEE5zerosERKNS_8SparsityE.exit
@@ -25618,7 +25618,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi8Function12spa
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %.not.i.i = icmp ugt i64 %25, %1
+  %.not.i.i = icmp ult i64 %1, %25
   br i1 %.not.i.i, label %27, label %26
 
 26:                                               ; preds = %17
@@ -27190,7 +27190,7 @@ define noundef i64 @_ZNK6casadi8Function8size1_inEx(ptr noundef nonnull align 8 
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %1
+  %.not.i.i.i.i = icmp ult i64 %1, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal8size1_inEx.exit, label %12
 
 12:                                               ; preds = %2
@@ -27213,7 +27213,7 @@ define linkonce_odr hidden noundef i64 @_ZNK6casadi16FunctionInternal8size1_inEx
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %.not.i.i.i = icmp ugt i64 %10, %1
+  %.not.i.i.i = icmp ult i64 %1, %10
   br i1 %.not.i.i.i, label %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit, label %11
 
 11:                                               ; preds = %2
@@ -27236,7 +27236,7 @@ define linkonce_odr hidden noundef i64 @_ZNK6casadi16FunctionInternal8size2_inEx
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %.not.i.i.i = icmp ugt i64 %10, %1
+  %.not.i.i.i = icmp ult i64 %1, %10
   br i1 %.not.i.i.i, label %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit, label %11
 
 11:                                               ; preds = %2
@@ -27260,7 +27260,7 @@ define noundef i64 @_ZNK6casadi8Function9size1_outEx(ptr noundef nonnull align 8
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %1
+  %.not.i.i.i.i = icmp ult i64 %1, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal9size1_outEx.exit, label %12
 
 12:                                               ; preds = %2
@@ -27284,7 +27284,7 @@ define { i64, i64 } @_ZNK6casadi8Function7size_inEx(ptr noundef nonnull align 8 
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %1
+  %.not.i.i.i.i = icmp ult i64 %1, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal7size_inEx.exit, label %12
 
 12:                                               ; preds = %2
@@ -27308,7 +27308,7 @@ define { i64, i64 } @_ZNK6casadi8Function8size_outEx(ptr noundef nonnull align 8
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %1
+  %.not.i.i.i.i = icmp ult i64 %1, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal8size_outEx.exit, label %12
 
 12:                                               ; preds = %2
@@ -27368,7 +27368,7 @@ define noundef i64 @_ZNK6casadi8Function8numel_inEx(ptr noundef nonnull align 8 
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %1
+  %.not.i.i.i.i = icmp ult i64 %1, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal8numel_inEx.exit, label %12
 
 12:                                               ; preds = %2
@@ -27392,7 +27392,7 @@ define noundef i64 @_ZNK6casadi8Function9numel_outEx(ptr noundef nonnull align 8
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %1
+  %.not.i.i.i.i = icmp ult i64 %1, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal9numel_outEx.exit, label %12
 
 12:                                               ; preds = %2
@@ -27698,7 +27698,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #27
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -27773,7 +27773,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6casadi8Function8nam
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 5
-  %.not.i.i = icmp ugt i64 %25, %1
+  %.not.i.i = icmp ult i64 %1, %25
   br i1 %.not.i.i, label %27, label %26
 
 26:                                               ; preds = %17
@@ -30634,7 +30634,7 @@ define noundef zeroext i1 @_ZNK6casadi8Function10is_diff_inEx(ptr noundef nonnul
   %27 = shl nsw i64 %26, 3
   %28 = zext i32 %22 to i64
   %29 = add nsw i64 %27, %28
-  %.not.i.i = icmp ugt i64 %29, %1
+  %.not.i.i = icmp ult i64 %1, %29
   br i1 %.not.i.i, label %31, label %30
 
 30:                                               ; preds = %17
@@ -30910,7 +30910,7 @@ define noundef zeroext i1 @_ZNK6casadi8Function11is_diff_outEx(ptr noundef nonnu
   %27 = shl nsw i64 %26, 3
   %28 = zext i32 %22 to i64
   %29 = add nsw i64 %27, %28
-  %.not.i.i = icmp ugt i64 %29, %1
+  %.not.i.i = icmp ult i64 %1, %29
   br i1 %.not.i.i, label %31, label %30
 
 30:                                               ; preds = %17
@@ -36283,7 +36283,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 48
-  %17 = icmp eq ptr %16, %15
+  %17 = icmp eq ptr %15, %16
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %_ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i
@@ -36347,7 +36347,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 48
-  %15 = icmp eq ptr %14, %13
+  %15 = icmp eq ptr %13, %14
   br i1 %15, label %_ZN6casadi17SerializingStreamD2Ev.exit, label %16
 
 16:                                               ; preds = %_ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -36513,7 +36513,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = icmp eq ptr %10, %9
+  %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt13unordered_mapIPvxSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_xEEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -40667,7 +40667,7 @@ _ZN6casadi6MatrixIdED2Ev.exit:                    ; preds = %23, %25
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = sdiv exact i64 %47, 40
-  %.not.i.i = icmp ugt i64 %48, %41
+  %.not.i.i = icmp ult i64 %41, %48
   br i1 %.not.i.i, label %50, label %49
 
 49:                                               ; preds = %42
@@ -41085,7 +41085,7 @@ _ZN6casadi6MatrixIdED2Ev.exit:                    ; preds = %19, %21
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = sdiv exact i64 %47, 40
-  %.not.i.i = icmp ugt i64 %48, %41
+  %.not.i.i = icmp ult i64 %41, %48
   br i1 %.not.i.i, label %50, label %49
 
 49:                                               ; preds = %42
@@ -41548,7 +41548,7 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN6ca
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
   %52 = sdiv exact i64 %51, 40
-  %.not.i.i = icmp ugt i64 %52, %45
+  %.not.i.i = icmp ult i64 %45, %52
   br i1 %.not.i.i, label %54, label %53
 
 53:                                               ; preds = %46
@@ -41985,7 +41985,7 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN6ca
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = sdiv exact i64 %52, 40
-  %.not.i.i = icmp ugt i64 %53, %46
+  %.not.i.i = icmp ult i64 %46, %53
   br i1 %.not.i.i, label %55, label %54
 
 54:                                               ; preds = %47
@@ -42433,7 +42433,7 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %16
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 3
-  %.not.i.i = icmp ugt i64 %42, %35
+  %.not.i.i = icmp ult i64 %35, %42
   br i1 %.not.i.i, label %44, label %43
 
 43:                                               ; preds = %36
@@ -42832,7 +42832,7 @@ _ZN6casadi2MXC2ERKS0_.exit:                       ; preds = %.lr.ph34
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 3
-  %.not.i.i = icmp ugt i64 %38, %31
+  %.not.i.i = icmp ult i64 %31, %38
   br i1 %.not.i.i, label %40, label %39
 
 39:                                               ; preds = %32
@@ -45713,7 +45713,7 @@ define void @_ZNK6casadi8Function14assert_size_inExxx(ptr noundef nonnull align 
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = ashr exact i64 %44, 3
-  %.not.i.i.i.i.i = icmp ugt i64 %45, %1
+  %.not.i.i.i.i.i = icmp ult i64 %1, %45
   br i1 %.not.i.i.i.i.i, label %_ZNK6casadi8Function8size1_inEx.exit, label %46
 
 46:                                               ; preds = %4
@@ -45736,7 +45736,7 @@ _ZNK6casadi8Function8size1_inEx.exit:             ; preds = %4
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
   %59 = ashr exact i64 %58, 3
-  %.not.i.i.i.i.i84 = icmp ugt i64 %59, %1
+  %.not.i.i.i.i.i84 = icmp ult i64 %1, %59
   br i1 %.not.i.i.i.i.i84, label %_ZNK6casadi8Function8size2_inEx.exit, label %60
 
 60:                                               ; preds = %50
@@ -46251,7 +46251,7 @@ define void @_ZNK6casadi8Function15assert_size_outExxx(ptr noundef nonnull align
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = ashr exact i64 %44, 3
-  %.not.i.i.i.i.i = icmp ugt i64 %45, %1
+  %.not.i.i.i.i.i = icmp ult i64 %1, %45
   br i1 %.not.i.i.i.i.i, label %_ZNK6casadi8Function9size1_outEx.exit, label %46
 
 46:                                               ; preds = %4
@@ -46274,7 +46274,7 @@ _ZNK6casadi8Function9size1_outEx.exit:            ; preds = %4
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
   %59 = ashr exact i64 %58, 3
-  %.not.i.i.i.i.i84 = icmp ugt i64 %59, %1
+  %.not.i.i.i.i.i84 = icmp ult i64 %1, %59
   br i1 %.not.i.i.i.i.i84, label %_ZNK6casadi8Function9size2_outEx.exit, label %60
 
 60:                                               ; preds = %50
@@ -50128,7 +50128,7 @@ define void @_ZN6casadi14FunctionBufferC2ERKNS_8FunctionE(ptr noundef nonnull al
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
-  %21 = icmp ult i64 %20, %13
+  %21 = icmp ugt i64 %13, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %8
@@ -50137,7 +50137,7 @@ define void @_ZN6casadi14FunctionBufferC2ERKNS_8FunctionE(ptr noundef nonnull al
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %107
 
 24:                                               ; preds = %8
-  %25 = icmp ugt i64 %20, %13
+  %25 = icmp ult i64 %13, %20
   br i1 %25, label %26, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 26:                                               ; preds = %24
@@ -50166,7 +50166,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %28, %26, %24, %22
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 3
-  %43 = icmp ult i64 %42, %35
+  %43 = icmp ugt i64 %35, %42
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %30
@@ -50175,7 +50175,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %28, %26, %24, %22
           to label %_ZNSt6vectorIxSaIxEE6resizeEm.exit unwind label %107
 
 46:                                               ; preds = %30
-  %47 = icmp ugt i64 %42, %35
+  %47 = icmp ult i64 %35, %42
   br i1 %47, label %48, label %_ZNSt6vectorIxSaIxEE6resizeEm.exit
 
 48:                                               ; preds = %46
@@ -50204,7 +50204,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit:               ; preds = %50, %48, %46, %44
   %62 = ptrtoint ptr %60 to i64
   %63 = sub i64 %61, %62
   %64 = ashr exact i64 %63, 3
-  %65 = icmp ult i64 %64, %57
+  %65 = icmp ugt i64 %57, %64
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %52
@@ -50213,7 +50213,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit:               ; preds = %50, %48, %46, %44
           to label %_ZNSt6vectorIPKdSaIS1_EE6resizeEm.exit unwind label %107
 
 68:                                               ; preds = %52
-  %69 = icmp ugt i64 %64, %57
+  %69 = icmp ult i64 %57, %64
   br i1 %69, label %70, label %_ZNSt6vectorIPKdSaIS1_EE6resizeEm.exit
 
 70:                                               ; preds = %68
@@ -50242,7 +50242,7 @@ _ZNSt6vectorIPKdSaIS1_EE6resizeEm.exit:           ; preds = %72, %70, %68, %66
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
   %86 = ashr exact i64 %85, 3
-  %87 = icmp ult i64 %86, %79
+  %87 = icmp ugt i64 %79, %86
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %74
@@ -50251,7 +50251,7 @@ _ZNSt6vectorIPKdSaIS1_EE6resizeEm.exit:           ; preds = %72, %70, %68, %66
           to label %_ZNSt6vectorIPdSaIS0_EE6resizeEm.exit unwind label %107
 
 90:                                               ; preds = %74
-  %91 = icmp ugt i64 %86, %79
+  %91 = icmp ult i64 %79, %86
   br i1 %91, label %92, label %_ZNSt6vectorIPdSaIS0_EE6resizeEm.exit
 
 92:                                               ; preds = %90
@@ -50998,7 +50998,7 @@ define void @_ZN6casadi14FunctionBuffer7set_argExPKdx(ptr noundef nonnull align 
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 3
-  %.not.i.i.i.i.i = icmp ugt i64 %29, %1
+  %.not.i.i.i.i.i = icmp ult i64 %1, %29
   br i1 %.not.i.i.i.i.i, label %_ZNK6casadi8Function6nnz_inEx.exit, label %30
 
 30:                                               ; preds = %4
@@ -51009,7 +51009,7 @@ _ZNK6casadi8Function6nnz_inEx.exit:               ; preds = %4
   %31 = getelementptr inbounds %"class.casadi::Sparsity", ptr %25, i64 %1
   %32 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %31)
   %33 = shl i64 %32, 3
-  %.not = icmp ugt i64 %33, %3
+  %.not = icmp ult i64 %3, %33
   br i1 %.not, label %34, label %94
 
 34:                                               ; preds = %_ZNK6casadi8Function6nnz_inEx.exit
@@ -51232,7 +51232,7 @@ _ZNK6casadi8Function6nnz_inEx.exit:               ; preds = %4
   %100 = ptrtoint ptr %98 to i64
   %101 = sub i64 %99, %100
   %102 = ashr exact i64 %101, 3
-  %.not.i.i = icmp ugt i64 %102, %1
+  %.not.i.i = icmp ult i64 %1, %102
   br i1 %.not.i.i, label %_ZNSt6vectorIPKdSaIS1_EE2atEm.exit, label %103
 
 103:                                              ; preds = %94
@@ -51304,7 +51304,7 @@ define void @_ZN6casadi14FunctionBuffer7set_resExPdx(ptr noundef nonnull align 8
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 3
-  %.not.i.i.i.i.i = icmp ugt i64 %29, %1
+  %.not.i.i.i.i.i = icmp ult i64 %1, %29
   br i1 %.not.i.i.i.i.i, label %_ZNK6casadi8Function7nnz_outEx.exit, label %30
 
 30:                                               ; preds = %4
@@ -51315,7 +51315,7 @@ _ZNK6casadi8Function7nnz_outEx.exit:              ; preds = %4
   %31 = getelementptr inbounds %"class.casadi::Sparsity", ptr %25, i64 %1
   %32 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %31)
   %33 = shl i64 %32, 3
-  %.not = icmp ugt i64 %33, %3
+  %.not = icmp ult i64 %3, %33
   br i1 %.not, label %34, label %94
 
 34:                                               ; preds = %_ZNK6casadi8Function7nnz_outEx.exit
@@ -51538,7 +51538,7 @@ _ZNK6casadi8Function7nnz_outEx.exit:              ; preds = %4
   %100 = ptrtoint ptr %98 to i64
   %101 = sub i64 %99, %100
   %102 = ashr exact i64 %101, 3
-  %.not.i.i = icmp ugt i64 %102, %1
+  %.not.i.i = icmp ult i64 %1, %102
   br i1 %.not.i.i, label %_ZNSt6vectorIPdSaIS0_EE2atEm.exit, label %103
 
 103:                                              ; preds = %94
@@ -52815,7 +52815,7 @@ _ZSt10_ConstructIN6casadi2MXEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #27
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %11
+  %.not4.i.i.i.i.i.i = icmp eq ptr %11, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -52911,7 +52911,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #27
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %11
+  %.not4.i.i.i.i.i.i = icmp eq ptr %11, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -53184,7 +53184,7 @@ _ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #27
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %9
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %9, %.015.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi8SparsityEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %15, %.lr.ph.i.i.i.i.i.i.i
@@ -53536,7 +53536,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -53590,7 +53590,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -54115,7 +54115,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6casadi16FunctionInternal12ma
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 40
-  %.not.i.i = icmp ugt i64 %16, %.058
+  %.not.i.i = icmp ult i64 %.058, %16
   br i1 %.not.i.i, label %_ZNKSt6vectorIN6casadi6MatrixIdEESaIS2_EE2atEm.exit, label %17
 
 17:                                               ; preds = %10
@@ -54132,7 +54132,7 @@ _ZNKSt6vectorIN6casadi6MatrixIdEESaIS2_EE2atEm.exit: ; preds = %10
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 3
-  %.not.i.i.i.i = icmp ugt i64 %26, %.058
+  %.not.i.i.i.i = icmp ult i64 %.058, %26
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal8size1_inEx.exit, label %27
 
 27:                                               ; preds = %_ZNKSt6vectorIN6casadi6MatrixIdEESaIS2_EE2atEm.exit
@@ -54152,7 +54152,7 @@ _ZNK6casadi16FunctionInternal8size1_inEx.exit:    ; preds = %_ZNKSt6vectorIN6cas
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = sdiv exact i64 %35, 40
-  %.not.i.i18 = icmp ugt i64 %36, %.058
+  %.not.i.i18 = icmp ult i64 %.058, %36
   br i1 %.not.i.i18, label %_ZNKSt6vectorIN6casadi6MatrixIdEESaIS2_EE2atEm.exit19, label %37
 
 37:                                               ; preds = %30
@@ -54169,7 +54169,7 @@ _ZNKSt6vectorIN6casadi6MatrixIdEESaIS2_EE2atEm.exit19: ; preds = %30
   %44 = ptrtoint ptr %42 to i64
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i20 = icmp ugt i64 %46, %.058
+  %.not.i.i.i.i20 = icmp ult i64 %.058, %46
   br i1 %.not.i.i.i.i20, label %_ZNK6casadi16FunctionInternal8size2_inEx.exit, label %47
 
 47:                                               ; preds = %_ZNKSt6vectorIN6casadi6MatrixIdEESaIS2_EE2atEm.exit19
@@ -54189,7 +54189,7 @@ _ZNK6casadi16FunctionInternal8size2_inEx.exit:    ; preds = %_ZNKSt6vectorIN6cas
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = sdiv exact i64 %55, 40
-  %.not.i.i21 = icmp ugt i64 %56, %.058
+  %.not.i.i21 = icmp ult i64 %.058, %56
   br i1 %.not.i.i21, label %_ZNKSt6vectorIN6casadi6MatrixIdEESaIS2_EE2atEm.exit22, label %57
 
 57:                                               ; preds = %50
@@ -54206,7 +54206,7 @@ _ZNKSt6vectorIN6casadi6MatrixIdEESaIS2_EE2atEm.exit22: ; preds = %50
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
   %66 = ashr exact i64 %65, 3
-  %.not.i.i.i.i23 = icmp ugt i64 %66, %.058
+  %.not.i.i.i.i23 = icmp ult i64 %.058, %66
   br i1 %.not.i.i.i.i23, label %_ZNK6casadi16FunctionInternal8size2_inEx.exit24, label %67
 
 67:                                               ; preds = %_ZNKSt6vectorIN6casadi6MatrixIdEESaIS2_EE2atEm.exit22
@@ -54265,7 +54265,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal11replace_argINS_6
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
-  %.not.i.i.i = icmp ugt i64 %27, %.021
+  %.not.i.i.i = icmp ult i64 %.021, %27
   br i1 %.not.i.i.i, label %29, label %28
 
 28:                                               ; preds = %21
@@ -54536,7 +54536,7 @@ _ZNK6casadi13GenericMatrixINS_6MatrixIdEEE5size2Ev.exit: ; preds = %.noexc
   %85 = ptrtoint ptr %83 to i64
   %86 = sub i64 %84, %85
   %87 = ashr exact i64 %86, 3
-  %.not.i.i.i.i = icmp ugt i64 %87, %.053275
+  %.not.i.i.i.i = icmp ult i64 %.053275, %87
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit.i, label %88
 
 88:                                               ; preds = %_ZNK6casadi13GenericMatrixINS_6MatrixIdEEE5size2Ev.exit
@@ -54607,7 +54607,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit177.thread:          ; preds = %77, %.noexc, %_ZNK6
   %112 = ptrtoint ptr %110 to i64
   %113 = sub i64 %111, %112
   %114 = sdiv exact i64 %113, 40
-  %115 = icmp ult i64 %114, %107
+  %115 = icmp ugt i64 %107, %114
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %._crit_edge
@@ -54616,7 +54616,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit177.thread:          ; preds = %77, %.noexc, %_ZNK6
           to label %_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp247.loopexit.split-lp
 
 118:                                              ; preds = %._crit_edge
-  %119 = icmp ugt i64 %114, %107
+  %119 = icmp ult i64 %107, %114
   br i1 %119, label %120, label %_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EE6resizeEm.exit
 
 120:                                              ; preds = %118
@@ -54672,7 +54672,7 @@ _ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EE6resizeEm.exit: ; preds = %116, %118, %1
   %140 = ptrtoint ptr %138 to i64
   %141 = sub i64 %139, %140
   %142 = ashr exact i64 %141, 3
-  %.not.i.i.i121 = icmp ugt i64 %142, %.052276
+  %.not.i.i.i121 = icmp ult i64 %.052276, %142
   br i1 %.not.i.i.i121, label %143, label %.invoke
 
 143:                                              ; preds = %136
@@ -54690,7 +54690,7 @@ _ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EE6resizeEm.exit: ; preds = %116, %118, %1
   %151 = ptrtoint ptr %149 to i64
   %152 = sub i64 %150, %151
   %153 = ashr exact i64 %152, 3
-  %.not.i.i.i123 = icmp ugt i64 %153, %.052276
+  %.not.i.i.i123 = icmp ult i64 %.052276, %153
   br i1 %.not.i.i.i123, label %155, label %.invoke
 
 .invoke:                                          ; preds = %147, %136
@@ -55186,7 +55186,7 @@ _ZN6casadi7get_ptrERNS_6MatrixIdEE.exit146:       ; preds = %.lr.ph283
   %318 = ptrtoint ptr %316 to i64
   %319 = sub i64 %317, %318
   %320 = ashr exact i64 %319, 3
-  %.not.i.i.i.i156 = icmp ugt i64 %320, %.047284
+  %.not.i.i.i.i156 = icmp ult i64 %.047284, %320
   br i1 %.not.i.i.i.i156, label %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit.i157, label %.invoke364
 
 _ZNK6casadi16FunctionInternal11sparsity_inEx.exit.i157: ; preds = %314
@@ -55216,7 +55216,7 @@ _ZNK6casadi16FunctionInternal6nnz_inEx.exit:      ; preds = %_ZNK6casadi16Functi
   %333 = ptrtoint ptr %331 to i64
   %334 = sub i64 %332, %333
   %335 = ashr exact i64 %334, 3
-  %.not.i.i.i.i160 = icmp ugt i64 %335, %.0286
+  %.not.i.i.i.i160 = icmp ult i64 %.0286, %335
   br i1 %.not.i.i.i.i160, label %_ZNK6casadi16FunctionInternal12sparsity_outEx.exit.i, label %.invoke364
 
 .invoke364:                                       ; preds = %314, %.lr.ph287
@@ -55962,7 +55962,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal9check_argINS_6Mat
   %127 = ptrtoint ptr %125 to i64
   %128 = sub i64 %126, %127
   %129 = ashr exact i64 %128, 3
-  %.not.i.i.i = icmp ugt i64 %129, %storemerge141
+  %.not.i.i.i = icmp ult i64 %storemerge141, %129
   br i1 %.not.i.i.i, label %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit, label %130
 
 130:                                              ; preds = %120
@@ -57317,7 +57317,7 @@ _ZNK6casadi13GenericMatrixINS_6MatrixIdEEE5size2Ev.exit: ; preds = %.noexc
   %79 = ptrtoint ptr %77 to i64
   %80 = sub i64 %78, %79
   %81 = ashr exact i64 %80, 3
-  %.not.i.i.i.i = icmp ugt i64 %81, %.041234
+  %.not.i.i.i.i = icmp ult i64 %.041234, %81
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit.i, label %82
 
 82:                                               ; preds = %_ZNK6casadi13GenericMatrixINS_6MatrixIdEEE5size2Ev.exit
@@ -57419,7 +57419,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit155:          ; preds = %100
   %124 = ptrtoint ptr %122 to i64
   %125 = sub i64 %123, %124
   %126 = ashr exact i64 %125, 3
-  %.not.i.i.i94 = icmp ugt i64 %126, %.039236
+  %.not.i.i.i94 = icmp ult i64 %.039236, %126
   br i1 %.not.i.i.i94, label %127, label %.invoke357
 
 127:                                              ; preds = %120
@@ -57455,7 +57455,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit155:          ; preds = %100
   %145 = ptrtoint ptr %143 to i64
   %146 = sub i64 %144, %145
   %147 = ashr exact i64 %146, 3
-  %.not.i.i.i101 = icmp ugt i64 %147, %.039236
+  %.not.i.i.i101 = icmp ult i64 %.039236, %147
   br i1 %.not.i.i.i101, label %149, label %.invoke357
 
 .invoke357:                                       ; preds = %141, %120
@@ -57557,7 +57557,7 @@ _ZNSt14_Bit_referenceaSEb.exit100:                ; preds = %157, %154, %135, %1
   %192 = ptrtoint ptr %190 to i64
   %193 = sub i64 %191, %192
   %194 = ashr exact i64 %193, 3
-  %.not.i.i.i122 = icmp ugt i64 %194, %.0240
+  %.not.i.i.i122 = icmp ult i64 %.0240, %194
   br i1 %.not.i.i.i122, label %196, label %.invoke
 
 .invoke:                                          ; preds = %186, %209
@@ -57629,7 +57629,7 @@ _ZN6casadi6MatrixIdED2Ev.exit:                    ; preds = %201, %203
   %213 = ptrtoint ptr %211 to i64
   %214 = sub i64 %212, %213
   %215 = ashr exact i64 %214, 3
-  %.not.i.i.i128 = icmp ugt i64 %215, %.0240
+  %.not.i.i.i128 = icmp ult i64 %.0240, %215
   br i1 %.not.i.i.i128, label %216, label %.invoke
 
 216:                                              ; preds = %209
@@ -57969,7 +57969,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6casadi16FunctionInternal12ma
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 40
-  %.not.i.i = icmp ugt i64 %16, %.058
+  %.not.i.i = icmp ult i64 %.058, %16
   br i1 %.not.i.i, label %_ZNKSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE2atEm.exit, label %17
 
 17:                                               ; preds = %10
@@ -57986,7 +57986,7 @@ _ZNKSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE2atEm.exit: ; preds = %10
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 3
-  %.not.i.i.i.i = icmp ugt i64 %26, %.058
+  %.not.i.i.i.i = icmp ult i64 %.058, %26
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal8size1_inEx.exit, label %27
 
 27:                                               ; preds = %_ZNKSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE2atEm.exit
@@ -58006,7 +58006,7 @@ _ZNK6casadi16FunctionInternal8size1_inEx.exit:    ; preds = %_ZNKSt6vectorIN6cas
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = sdiv exact i64 %35, 40
-  %.not.i.i18 = icmp ugt i64 %36, %.058
+  %.not.i.i18 = icmp ult i64 %.058, %36
   br i1 %.not.i.i18, label %_ZNKSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE2atEm.exit19, label %37
 
 37:                                               ; preds = %30
@@ -58023,7 +58023,7 @@ _ZNKSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE2atEm.exit19: ; preds = %30
   %44 = ptrtoint ptr %42 to i64
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i20 = icmp ugt i64 %46, %.058
+  %.not.i.i.i.i20 = icmp ult i64 %.058, %46
   br i1 %.not.i.i.i.i20, label %_ZNK6casadi16FunctionInternal8size2_inEx.exit, label %47
 
 47:                                               ; preds = %_ZNKSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE2atEm.exit19
@@ -58043,7 +58043,7 @@ _ZNK6casadi16FunctionInternal8size2_inEx.exit:    ; preds = %_ZNKSt6vectorIN6cas
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = sdiv exact i64 %55, 40
-  %.not.i.i21 = icmp ugt i64 %56, %.058
+  %.not.i.i21 = icmp ult i64 %.058, %56
   br i1 %.not.i.i21, label %_ZNKSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE2atEm.exit22, label %57
 
 57:                                               ; preds = %50
@@ -58060,7 +58060,7 @@ _ZNKSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE2atEm.exit22: ; preds = %50
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
   %66 = ashr exact i64 %65, 3
-  %.not.i.i.i.i23 = icmp ugt i64 %66, %.058
+  %.not.i.i.i.i23 = icmp ult i64 %.058, %66
   br i1 %.not.i.i.i.i23, label %_ZNK6casadi16FunctionInternal8size2_inEx.exit24, label %67
 
 67:                                               ; preds = %_ZNKSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE2atEm.exit22
@@ -58120,7 +58120,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal11replace_argINS_6
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
-  %.not.i.i.i = icmp ugt i64 %28, %.021
+  %.not.i.i.i = icmp ult i64 %.021, %28
   br i1 %.not.i.i.i, label %30, label %29
 
 29:                                               ; preds = %22
@@ -58410,7 +58410,7 @@ _ZNK6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE5size2Ev.exit: ; preds = %.n
   %87 = ptrtoint ptr %85 to i64
   %88 = sub i64 %86, %87
   %89 = ashr exact i64 %88, 3
-  %.not.i.i.i.i = icmp ugt i64 %89, %.053276
+  %.not.i.i.i.i = icmp ult i64 %.053276, %89
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit.i, label %90
 
 90:                                               ; preds = %_ZNK6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE5size2Ev.exit
@@ -58481,7 +58481,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit183.thread:          ; preds = %79, %.noexc, %_ZNK6
   %114 = ptrtoint ptr %112 to i64
   %115 = sub i64 %113, %114
   %116 = sdiv exact i64 %115, 40
-  %117 = icmp ult i64 %116, %109
+  %117 = icmp ugt i64 %109, %116
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %._crit_edge
@@ -58490,7 +58490,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit183.thread:          ; preds = %79, %.noexc, %_ZNK6
           to label %_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE6resizeEm.exit unwind label %.loopexit.split-lp245.loopexit.split-lp
 
 120:                                              ; preds = %._crit_edge
-  %121 = icmp ugt i64 %116, %109
+  %121 = icmp ult i64 %109, %116
   br i1 %121, label %122, label %_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE6resizeEm.exit
 
 122:                                              ; preds = %120
@@ -58565,7 +58565,7 @@ _ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE6resizeEm.exit: ; preds = %11
   %147 = ptrtoint ptr %145 to i64
   %148 = sub i64 %146, %147
   %149 = ashr exact i64 %148, 3
-  %.not.i.i.i121 = icmp ugt i64 %149, %.052277
+  %.not.i.i.i121 = icmp ult i64 %.052277, %149
   br i1 %.not.i.i.i121, label %150, label %.invoke
 
 150:                                              ; preds = %143
@@ -58583,7 +58583,7 @@ _ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE6resizeEm.exit: ; preds = %11
   %158 = ptrtoint ptr %156 to i64
   %159 = sub i64 %157, %158
   %160 = ashr exact i64 %159, 3
-  %.not.i.i.i123 = icmp ugt i64 %160, %.052277
+  %.not.i.i.i123 = icmp ult i64 %.052277, %160
   br i1 %.not.i.i.i123, label %162, label %.invoke
 
 .invoke:                                          ; preds = %154, %143
@@ -59082,7 +59082,7 @@ _ZNK6casadi16FunctionInternal8eval_genEPPKNS_6SXElemEPPS1_PxS5_Pv.exit: ; preds 
   %326 = ptrtoint ptr %324 to i64
   %327 = sub i64 %325, %326
   %328 = ashr exact i64 %327, 3
-  %.not.i.i.i.i158 = icmp ugt i64 %328, %.047285
+  %.not.i.i.i.i158 = icmp ult i64 %.047285, %328
   br i1 %.not.i.i.i.i158, label %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit.i159, label %.invoke371
 
 _ZNK6casadi16FunctionInternal11sparsity_inEx.exit.i159: ; preds = %322
@@ -59112,7 +59112,7 @@ _ZNK6casadi16FunctionInternal6nnz_inEx.exit:      ; preds = %_ZNK6casadi16Functi
   %341 = ptrtoint ptr %339 to i64
   %342 = sub i64 %340, %341
   %343 = ashr exact i64 %342, 3
-  %.not.i.i.i.i162 = icmp ugt i64 %343, %.0287
+  %.not.i.i.i.i162 = icmp ult i64 %.0287, %343
   br i1 %.not.i.i.i.i162, label %_ZNK6casadi16FunctionInternal12sparsity_outEx.exit.i, label %.invoke371
 
 .invoke371:                                       ; preds = %322, %.lr.ph288
@@ -59922,7 +59922,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal9check_argINS_6Mat
   %127 = ptrtoint ptr %125 to i64
   %128 = sub i64 %126, %127
   %129 = ashr exact i64 %128, 3
-  %.not.i.i.i = icmp ugt i64 %129, %storemerge141
+  %.not.i.i.i = icmp ult i64 %storemerge141, %129
   br i1 %.not.i.i.i, label %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit, label %130
 
 130:                                              ; preds = %120
@@ -61278,7 +61278,7 @@ _ZNK6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE5size2Ev.exit: ; preds = %.n
   %79 = ptrtoint ptr %77 to i64
   %80 = sub i64 %78, %79
   %81 = ashr exact i64 %80, 3
-  %.not.i.i.i.i = icmp ugt i64 %81, %.041241
+  %.not.i.i.i.i = icmp ult i64 %.041241, %81
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit.i, label %82
 
 82:                                               ; preds = %_ZNK6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE5size2Ev.exit
@@ -61380,7 +61380,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit162:          ; preds = %100
   %124 = ptrtoint ptr %122 to i64
   %125 = sub i64 %123, %124
   %126 = ashr exact i64 %125, 3
-  %.not.i.i.i94 = icmp ugt i64 %126, %.039243
+  %.not.i.i.i94 = icmp ult i64 %.039243, %126
   br i1 %.not.i.i.i94, label %127, label %.invoke364
 
 127:                                              ; preds = %120
@@ -61416,7 +61416,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit162:          ; preds = %100
   %145 = ptrtoint ptr %143 to i64
   %146 = sub i64 %144, %145
   %147 = ashr exact i64 %146, 3
-  %.not.i.i.i101 = icmp ugt i64 %147, %.039243
+  %.not.i.i.i101 = icmp ult i64 %.039243, %147
   br i1 %.not.i.i.i101, label %149, label %.invoke364
 
 .invoke364:                                       ; preds = %141, %120
@@ -61520,7 +61520,7 @@ _ZNSt14_Bit_referenceaSEb.exit100:                ; preds = %157, %154, %135, %1
   %194 = ptrtoint ptr %192 to i64
   %195 = sub i64 %193, %194
   %196 = ashr exact i64 %195, 3
-  %.not.i.i.i122 = icmp ugt i64 %196, %.0247
+  %.not.i.i.i122 = icmp ult i64 %.0247, %196
   br i1 %.not.i.i.i122, label %198, label %.invoke
 
 .invoke:                                          ; preds = %188, %214
@@ -61609,7 +61609,7 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN6ca
   %218 = ptrtoint ptr %216 to i64
   %219 = sub i64 %217, %218
   %220 = ashr exact i64 %219, 3
-  %.not.i.i.i128 = icmp ugt i64 %220, %.0247
+  %.not.i.i.i128 = icmp ult i64 %.0247, %220
   br i1 %.not.i.i.i128, label %221, label %.invoke
 
 221:                                              ; preds = %214
@@ -61824,7 +61824,7 @@ _ZSt10_ConstructIN6casadi6SXElemEJEEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #27
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %8
+  %.not4.i.i.i.i.i.i = icmp eq ptr %8, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi6SXElemEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %14, %.lr.ph.i.i.i.i.i.i
@@ -61901,7 +61901,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK6casadi16FunctionInternal12matching_
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 3
-  %.not.i.i = icmp ugt i64 %16, %.058
+  %.not.i.i = icmp ult i64 %.058, %16
   br i1 %.not.i.i, label %_ZNKSt6vectorIN6casadi2MXESaIS1_EE2atEm.exit, label %17
 
 17:                                               ; preds = %10
@@ -61918,7 +61918,7 @@ _ZNKSt6vectorIN6casadi2MXESaIS1_EE2atEm.exit:     ; preds = %10
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 3
-  %.not.i.i.i.i = icmp ugt i64 %26, %.058
+  %.not.i.i.i.i = icmp ult i64 %.058, %26
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal8size1_inEx.exit, label %27
 
 27:                                               ; preds = %_ZNKSt6vectorIN6casadi2MXESaIS1_EE2atEm.exit
@@ -61938,7 +61938,7 @@ _ZNK6casadi16FunctionInternal8size1_inEx.exit:    ; preds = %_ZNKSt6vectorIN6cas
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 3
-  %.not.i.i18 = icmp ugt i64 %36, %.058
+  %.not.i.i18 = icmp ult i64 %.058, %36
   br i1 %.not.i.i18, label %_ZNKSt6vectorIN6casadi2MXESaIS1_EE2atEm.exit19, label %37
 
 37:                                               ; preds = %30
@@ -61955,7 +61955,7 @@ _ZNKSt6vectorIN6casadi2MXESaIS1_EE2atEm.exit19:   ; preds = %30
   %44 = ptrtoint ptr %42 to i64
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i20 = icmp ugt i64 %46, %.058
+  %.not.i.i.i.i20 = icmp ult i64 %.058, %46
   br i1 %.not.i.i.i.i20, label %_ZNK6casadi16FunctionInternal8size2_inEx.exit, label %47
 
 47:                                               ; preds = %_ZNKSt6vectorIN6casadi2MXESaIS1_EE2atEm.exit19
@@ -61975,7 +61975,7 @@ _ZNK6casadi16FunctionInternal8size2_inEx.exit:    ; preds = %_ZNKSt6vectorIN6cas
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 3
-  %.not.i.i21 = icmp ugt i64 %56, %.058
+  %.not.i.i21 = icmp ult i64 %.058, %56
   br i1 %.not.i.i21, label %_ZNKSt6vectorIN6casadi2MXESaIS1_EE2atEm.exit22, label %57
 
 57:                                               ; preds = %50
@@ -61992,7 +61992,7 @@ _ZNKSt6vectorIN6casadi2MXESaIS1_EE2atEm.exit22:   ; preds = %50
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
   %66 = ashr exact i64 %65, 3
-  %.not.i.i.i.i23 = icmp ugt i64 %66, %.058
+  %.not.i.i.i.i23 = icmp ult i64 %.058, %66
   br i1 %.not.i.i.i.i23, label %_ZNK6casadi16FunctionInternal8size2_inEx.exit24, label %67
 
 67:                                               ; preds = %_ZNKSt6vectorIN6casadi2MXESaIS1_EE2atEm.exit22
@@ -62049,7 +62049,7 @@ define linkonce_odr void @_ZNK6casadi16FunctionInternal11replace_argINS_2MXEEESt
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
-  %.not.i.i.i = icmp ugt i64 %25, %.022
+  %.not.i.i.i = icmp ult i64 %.022, %25
   br i1 %.not.i.i.i, label %27, label %26
 
 26:                                               ; preds = %19
@@ -62156,7 +62156,7 @@ _ZSt10_ConstructIN6casadi2MXEJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #27
-  %.not4.i.i.i.i.i = icmp eq ptr %.014.i.i.i, %5
+  %.not4.i.i.i.i.i = icmp eq ptr %5, %.014.i.i.i
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %21, %.lr.ph.i.i.i.i.i
@@ -62228,7 +62228,7 @@ _ZSt10_ConstructIN6casadi2MXEJEEvPT_DpOT0_.exit.i.i.i48: ; preds = %.lr.ph.i.i.i
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = tail call ptr @__cxa_begin_catch(ptr %44) #27
-  %.not4.i.i.i.i.i43 = icmp eq ptr %.014.i.i.i41, %39
+  %.not4.i.i.i.i.i43 = icmp eq ptr %39, %.014.i.i.i41
   br i1 %.not4.i.i.i.i.i43, label %_ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i47, label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %42, %.lr.ph.i.i.i.i.i44
@@ -62284,7 +62284,7 @@ _ZSt10_ConstructIN6casadi2MXEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.p
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
   %60 = tail call ptr @__cxa_begin_catch(ptr %59) #27
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %38
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %38, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %57, %.lr.ph.i.i.i.i.i.i.i
@@ -62717,7 +62717,7 @@ define linkonce_odr void @_ZNK6casadi16FunctionInternal9check_argINS_2MXEEEvRKSt
   %127 = ptrtoint ptr %125 to i64
   %128 = sub i64 %126, %127
   %129 = ashr exact i64 %128, 3
-  %.not.i.i.i = icmp ugt i64 %129, %storemerge141
+  %.not.i.i.i = icmp ult i64 %storemerge141, %129
   br i1 %.not.i.i.i, label %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit, label %130
 
 130:                                              ; preds = %120
@@ -64202,7 +64202,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = call ptr @__cxa_begin_catch(ptr %30) #27
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i.i, %17
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %17, %.014.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi8FunctionEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %28, %.lr.ph.i.i.i.i.i.i.i
@@ -64312,7 +64312,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
   %60 = call ptr @__cxa_begin_catch(ptr %59) #27
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i, %17
+  %.not4.i.i.i.i.i.i = icmp eq ptr %17, %.015.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi8FunctionEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %57, %.lr.ph.i.i.i.i.i.i
@@ -64345,7 +64345,7 @@ _ZSt8_DestroyIPN6casadi8FunctionEEvT_S3_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
 _ZSt24__uninitialized_fill_n_aIPN6casadi8FunctionEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit: ; preds = %_ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %53
   %68 = phi ptr [ %17, %53 ], [ %56, %_ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ]
   store ptr %68, ptr %9, align 8
-  %.not12.i.i.i.i.i72 = icmp eq ptr %17, %1
+  %.not12.i.i.i.i.i72 = icmp eq ptr %1, %17
   br i1 %.not12.i.i.i.i.i72, label %_ZSt22__uninitialized_move_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit86.thread, label %.lr.ph.i.i.i.i.i73
 
 _ZSt22__uninitialized_move_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit86.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN6casadi8FunctionEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit
@@ -64370,7 +64370,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i81: ; preds = 
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
   %75 = call ptr @__cxa_begin_catch(ptr %74) #27
-  %.not4.i.i.i.i.i.i.i76 = icmp eq ptr %.014.i.i.i.i.i74, %68
+  %.not4.i.i.i.i.i.i.i76 = icmp eq ptr %68, %.014.i.i.i.i.i74
   br i1 %.not4.i.i.i.i.i.i.i76, label %_ZSt8_DestroyIPN6casadi8FunctionEEvT_S3_.exit.i.i.i.i.i80, label %.lr.ph.i.i.i.i.i.i.i77
 
 .lr.ph.i.i.i.i.i.i.i77:                           ; preds = %72, %.lr.ph.i.i.i.i.i.i.i77
@@ -64471,7 +64471,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i102: ; preds =
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
   %111 = tail call ptr @__cxa_begin_catch(ptr %110) #27
-  %.not4.i.i.i.i.i.i97 = icmp eq ptr %.015.i.i.i.i95, %105
+  %.not4.i.i.i.i.i.i97 = icmp eq ptr %105, %.015.i.i.i.i95
   br i1 %.not4.i.i.i.i.i.i97, label %_ZSt8_DestroyIPN6casadi8FunctionEEvT_S3_.exit.i.i.i.i101, label %.lr.ph.i.i.i.i.i.i98
 
 .lr.ph.i.i.i.i.i.i98:                             ; preds = %108, %.lr.ph.i.i.i.i.i.i98
@@ -64522,7 +64522,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
           catch ptr null
   %123 = extractvalue { ptr, i32 } %122, 0
   %124 = tail call ptr @__cxa_begin_catch(ptr %123) #27
-  %.not4.i.i.i.i.i.i.i109 = icmp eq ptr %.016.i.i.i.i.i, %104
+  %.not4.i.i.i.i.i.i.i109 = icmp eq ptr %104, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i109, label %_ZSt8_DestroyIPN6casadi8FunctionEEvT_S3_.exit.i.i.i.i.i113, label %.lr.ph.i.i.i.i.i.i.i110
 
 .lr.ph.i.i.i.i.i.i.i110:                          ; preds = %121, %.lr.ph.i.i.i.i.i.i.i110
@@ -64560,7 +64560,7 @@ _ZSt8_DestroyIPN6casadi8FunctionEEvT_S3_.exit.i.i.i.i.i113: ; preds = %.lr.ph.i.
 _ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZSt24__uninitialized_fill_n_aIPN6casadi8FunctionEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit107
   %.0.lcssa.i.i.i.i.i115 = phi ptr [ %104, %_ZSt24__uninitialized_fill_n_aIPN6casadi8FunctionEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit107 ], [ %120, %_ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %134 = getelementptr inbounds %"class.casadi::Function", ptr %.0.lcssa.i.i.i.i.i115, i64 %2
-  %.not14.i.i.i.i.i119 = icmp eq ptr %10, %1
+  %.not14.i.i.i.i.i119 = icmp eq ptr %1, %10
   br i1 %.not14.i.i.i.i.i119, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit133, label %.lr.ph.i.i.i.i.i120
 
 .lr.ph.i.i.i.i.i120:                              ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %_ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i128
@@ -64580,7 +64580,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i128: ; preds
           catch ptr null
   %139 = extractvalue { ptr, i32 } %138, 0
   %140 = tail call ptr @__cxa_begin_catch(ptr %139) #27
-  %.not4.i.i.i.i.i.i.i123 = icmp eq ptr %.016.i.i.i.i.i121, %134
+  %.not4.i.i.i.i.i.i.i123 = icmp eq ptr %134, %.016.i.i.i.i.i121
   br i1 %.not4.i.i.i.i.i.i.i123, label %_ZSt8_DestroyIPN6casadi8FunctionEEvT_S3_.exit.i.i.i.i.i127, label %.lr.ph.i.i.i.i.i.i.i124
 
 .lr.ph.i.i.i.i.i.i.i124:                          ; preds = %137, %.lr.ph.i.i.i.i.i.i.i124
@@ -64805,7 +64805,7 @@ _ZSt10_ConstructIN6casadi2MXEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.p
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #27
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %23
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %27, %.lr.ph.i.i.i.i.i.i.i
@@ -64843,7 +64843,7 @@ _ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
 _ZSt34__uninitialized_move_if_noexcept_aIPN6casadi2MXES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt10_ConstructIN6casadi2MXEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN6casadi2MXEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN6casadi2MXEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %_ZSt10_ConstructIN6casadi2MXEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi2MXES2_SaIS1_EET0_T_S5_S4_RT1_.exit43, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi2MXES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %_ZSt10_ConstructIN6casadi2MXEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i37
@@ -65060,7 +65060,7 @@ define linkonce_odr hidden void @_ZNSt3setIxSt4lessIxESaIxEEC2IN9__gnu_cxx17__no
 
 select.unfold:                                    ; preds = %22, %9, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %10, %9 ], [ %.019.lcssa29.i.i, %22 ]
-  %25 = icmp eq ptr %4, %.sroa.12.0.i.ph
+  %25 = icmp eq ptr %.sroa.12.0.i.ph, %4
   br i1 %25, label %_ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE10_M_insert_IRKxNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIxEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %26
 
 26:                                               ; preds = %select.unfold
@@ -65189,7 +65189,7 @@ _ZSt13move_backwardIPxS0_ET0_T_S2_S1_.exit:       ; preds = %25, %_ZSt22__uninit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit: ; preds = %17
   %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %30, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES2_xET0_T_S8_S7_RSaIT1_E.exit, label %31
 
 31:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit
@@ -65254,7 +65254,7 @@ _ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIxSaIx
   %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorIxSaIxEE12_M_check_lenEmPKc.exit ]
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %60, label %59
 
 59:                                               ; preds = %_ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit
@@ -65357,7 +65357,7 @@ _ZSt10_ConstructIN6casadi2MXEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.p
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #27
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %23
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %27, %.lr.ph.i.i.i.i.i.i.i
@@ -65395,7 +65395,7 @@ _ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
 _ZSt34__uninitialized_move_if_noexcept_aIPN6casadi2MXES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt10_ConstructIN6casadi2MXEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN6casadi2MXEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN6casadi2MXEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %_ZSt10_ConstructIN6casadi2MXEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi2MXES2_SaIS1_EET0_T_S5_S4_RT1_.exit43, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi2MXES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %_ZSt10_ConstructIN6casadi2MXEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i37
@@ -65559,7 +65559,7 @@ define linkonce_odr ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traits
   br i1 %.not, label %33, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp eq ptr %9, %1
+  %13 = icmp eq ptr %1, %9
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %12
@@ -65662,7 +65662,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17
@@ -65792,7 +65792,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -65852,7 +65852,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi6MatrixIdEEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -66336,7 +66336,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -66414,7 +66414,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi6MatrixINS8_6SXElemEEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -66916,7 +66916,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -66966,7 +66966,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi2MXEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -67410,7 +67410,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #27
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %13
+  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi8FunctionEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -67537,7 +67537,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #27
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %23
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi8FunctionEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %27, %.lr.ph.i.i.i.i.i.i.i
@@ -67575,7 +67575,7 @@ _ZSt8_DestroyIPN6casadi8FunctionEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 _ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN6casadi8FunctionEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN6casadi8FunctionEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %_ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit43, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %_ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i37

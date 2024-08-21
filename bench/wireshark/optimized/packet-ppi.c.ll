@@ -1857,7 +1857,7 @@ define internal i32 @capture_ppi(ptr noundef %0, i32 %1, i32 noundef %2, ptr nou
   %11 = or disjoint i16 %9, %10
   %12 = zext i16 %11 to i32
   %13 = icmp ult i16 %11, 8
-  %.not = icmp ugt i32 %12, %2
+  %.not = icmp ult i32 %2, %12
   %or.cond = or i1 %13, %.not
   br i1 %or.cond, label %18, label %14
 

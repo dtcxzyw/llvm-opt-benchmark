@@ -141,13 +141,13 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = lshr i64 %6, 51
-  %8 = icmp eq i64 %7, %1
+  %8 = icmp eq i64 %1, %7
   br i1 %8, label %.lr.ph32, label %.loopexit
 
 .lr.ph32:                                         ; preds = %4
   %.cmp = icmp ult i64 %1, 8190
   %.v = select i1 %.cmp, i64 1, i64 -8190
-  %9 = add i64 %.v, %1
+  %9 = add i64 %1, %.v
   %10 = shl nuw i64 %9, 51
   br label %11
 
@@ -213,7 +213,7 @@ _ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit: ; pre
   %.117 = phi i1 [ %.01628, %11 ], [ true, %29 ], [ true, %27 ]
   %.1 = phi i64 [ %.sroa.07.0.i, %11 ], [ %.01529, %29 ], [ %.01529, %27 ]
   %30 = lshr i64 %.1, 51
-  %31 = icmp eq i64 %30, %1
+  %31 = icmp eq i64 %1, %30
   %or.cond.not = or i1 %.117, %31
   br i1 %or.cond.not, label %11, label %.loopexit
 }
@@ -223,13 +223,13 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = lshr i64 %6, 51
-  %8 = icmp eq i64 %7, %1
+  %8 = icmp eq i64 %1, %7
   br i1 %8, label %.lr.ph33, label %"_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17h8cd59a3a2ad2cce9E.exit"
 
 .lr.ph33:                                         ; preds = %4
   %.cmp = icmp ult i64 %1, 8190
   %.v = select i1 %.cmp, i64 1, i64 -8190
-  %9 = add i64 %.v, %1
+  %9 = add i64 %1, %.v
   %10 = shl nuw i64 %9, 51
   br label %11
 
@@ -306,7 +306,7 @@ _ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit: ; pre
   %.117 = phi i1 [ %.01629, %11 ], [ true, %32 ], [ true, %30 ]
   %.1 = phi i64 [ %.sroa.07.0.i, %11 ], [ %.01530, %32 ], [ %.01530, %30 ]
   %33 = lshr i64 %.1, 51
-  %34 = icmp eq i64 %33, %1
+  %34 = icmp eq i64 %1, %33
   %or.cond.not = or i1 %.117, %34
   br i1 %or.cond.not, label %11, label %"_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17h8cd59a3a2ad2cce9E.exit"
 }
@@ -435,7 +435,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$11
   %32 = getelementptr inbounds i8, ptr %30, i64 80
   %33 = load atomic i64, ptr %32 acquire, align 8, !noalias !23
   %34 = lshr i64 %33, 51
-  %35 = icmp eq i64 %34, %16
+  %35 = icmp eq i64 %16, %34
   br i1 %35, label %.lr.ph32.i.i.i, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear17hce45450e6713bcb5E.exit"
 
 .lr.ph32.i.i.i:                                   ; preds = %31
@@ -503,7 +503,7 @@ _ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i:
   %.117.i.i.i = phi i1 [ %.01628.i.i.i, %38 ], [ true, %56 ], [ true, %54 ]
   %.1.i.i.i = phi i64 [ %.sroa.07.0.i.i.i.i, %38 ], [ %.01529.i.i.i, %56 ], [ %.01529.i.i.i, %54 ]
   %57 = lshr i64 %.1.i.i.i, 51
-  %58 = icmp eq i64 %57, %16
+  %58 = icmp eq i64 %16, %57
   %or.cond.not.i.i.i = or i1 %.117.i.i.i, %58
   br i1 %or.cond.not.i.i.i, label %38, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear17hce45450e6713bcb5E.exit"
 
@@ -2933,7 +2933,7 @@ common.resume:                                    ; preds = %34, %13
   %36 = icmp ult i64 %.011.i, %25
   tail call void @llvm.assume(i1 %36)
   %.val2.i = load i64, ptr %24, align 8, !noundef !8
-  %37 = icmp ugt i64 %.val2.i, %.011.i
+  %37 = icmp ult i64 %.011.i, %.val2.i
   br i1 %37, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h40a2a92860122a81E.exit.i", label %38, !prof !21
 
 38:                                               ; preds = %35
@@ -2958,7 +2958,7 @@ common.resume:                                    ; preds = %34, %13
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   %43 = load i64, ptr %24, align 8, !alias.scope !296, !noalias !299, !noundef !8
-  %.not.i.i = icmp ugt i64 %43, %.011.i
+  %.not.i.i = icmp ult i64 %.011.i, %43
   br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hcd12376c15528adfE.exit.i", label %44
 
 44:                                               ; preds = %42
@@ -3131,7 +3131,7 @@ common.resume:                                    ; preds = %.body, %26
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
   %49 = load i64, ptr %37, align 8, !alias.scope !313, !noalias !316, !noundef !8
-  %.not.i = icmp ugt i64 %49, %.011.i
+  %.not.i = icmp ult i64 %.011.i, %49
   br i1 %.not.i, label %120, label %50
 
 50:                                               ; preds = %47

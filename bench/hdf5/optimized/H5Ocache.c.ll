@@ -1247,7 +1247,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds i8, ptr %5, i64 256
   store i64 %19, ptr %20, align 8
-  %21 = icmp ult ptr %.ptr286, %0
+  %21 = icmp ugt ptr %0, %.ptr286
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %11
@@ -1922,7 +1922,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
 53:                                               ; preds = %36, %40
   %54 = phi i32 [ %52, %40 ], [ 16, %36 ]
   %55 = zext nneg i32 %54 to i64
-  %56 = add i64 %55, %2
+  %56 = add i64 %2, %55
   %57 = load ptr, ptr %30, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   store i64 %56, ptr %58, align 8
@@ -1959,7 +1959,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %78 = getelementptr inbounds %struct.H5O_chunk_t, ptr %77, i64 %31
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load i64, ptr %79, align 8
-  %81 = icmp ugt i64 %80, %4
+  %81 = icmp ult i64 %4, %80
   br i1 %81, label %82, label %86
 
 82:                                               ; preds = %74

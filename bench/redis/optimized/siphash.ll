@@ -30,7 +30,7 @@ entry:
   %xor3 = xor i64 %0, 7816392313619706465
   %xor4 = xor i64 %1, 7237128888997146477
   %xor5 = xor i64 %0, 8317987319222330741
-  %cmp.not148 = icmp eq ptr %add.ptr2, %in
+  %cmp.not148 = icmp eq ptr %in, %add.ptr2
   br i1 %cmp.not148, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -206,7 +206,7 @@ entry:
   %xor3 = xor i64 %0, 7816392313619706465
   %xor4 = xor i64 %1, 7237128888997146477
   %xor5 = xor i64 %0, 8317987319222330741
-  %cmp.not200 = icmp eq ptr %add.ptr2, %in
+  %cmp.not200 = icmp eq ptr %in, %add.ptr2
   br i1 %cmp.not200, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body

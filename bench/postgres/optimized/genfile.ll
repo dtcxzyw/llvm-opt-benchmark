@@ -784,7 +784,7 @@ define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #8
   %10 = tail call ptr @AllocateDir(ptr noundef %1) #8
   %.not = icmp eq ptr %10, null
-  %brmerge.not = and i1 %.not, %2
+  %brmerge.not = and i1 %2, %.not
   br i1 %brmerge.not, label %11, label %15
 
 11:                                               ; preds = %3

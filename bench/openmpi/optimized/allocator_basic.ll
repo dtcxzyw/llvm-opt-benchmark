@@ -404,7 +404,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
 define ptr @mca_allocator_basic_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 -8
   %5 = load i64, ptr %4, align 8
-  %.not = icmp ult i64 %5, %2
+  %.not = icmp ugt i64 %2, %5
   br i1 %.not, label %6, label %10
 
 6:                                                ; preds = %3

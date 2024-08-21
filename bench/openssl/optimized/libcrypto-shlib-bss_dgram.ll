@@ -686,7 +686,7 @@ sw.bb151:                                         ; preds = %entry
   %call153 = tail call i32 @BIO_ADDR_sockaddr_size(ptr noundef %0) #11
   %conv154 = zext i32 %call153 to i64
   %cmp155 = icmp eq i64 %num, 0
-  %27 = tail call i64 @llvm.smin.i64(i64 %conv154, i64 %num)
+  %27 = tail call i64 @llvm.smin.i64(i64 %num, i64 %conv154)
   %num.addr.0 = select i1 %cmp155, i64 %conv154, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ptr, ptr align 8 %0, i64 %num.addr.0, i1 false)
   br label %sw.epilog333
@@ -719,7 +719,7 @@ if.end186:                                        ; preds = %land.lhs.true179, %
   %call187 = call i32 @BIO_ADDR_sockaddr_size(ptr noundef %p.0) #11
   %conv188 = zext i32 %call187 to i64
   %cmp189 = icmp eq i64 %num, 0
-  %29 = call i64 @llvm.smin.i64(i64 %conv188, i64 %num)
+  %29 = call i64 @llvm.smin.i64(i64 %num, i64 %conv188)
   %num.addr.1 = select i1 %cmp189, i64 %conv188, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ptr, ptr align 4 %p.0, i64 %num.addr.1, i1 false)
   br label %sw.epilog333

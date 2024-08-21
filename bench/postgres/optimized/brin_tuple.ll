@@ -626,7 +626,7 @@ define dso_local ptr @brin_copy_tuple(ptr nocapture noundef readonly %0, i64 nou
   br label %14
 
 10:                                               ; preds = %5
-  %11 = icmp ult i64 %6, %1
+  %11 = icmp ugt i64 %1, %6
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10

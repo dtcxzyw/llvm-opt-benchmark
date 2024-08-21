@@ -362,7 +362,7 @@ if.end5:                                          ; preds = %while.end
 
 land.lhs.true:                                    ; preds = %if.end5
   %call7 = tail call ptr @qemu_get_aio_context() #5
-  %cmp.not = icmp eq ptr %call7, %ctx
+  %cmp.not = icmp eq ptr %ctx, %call7
   br i1 %cmp.not, label %qemu_lockable_auto_unlock.exit.us, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true

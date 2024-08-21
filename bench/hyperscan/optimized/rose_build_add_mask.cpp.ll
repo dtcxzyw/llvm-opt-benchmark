@@ -481,7 +481,7 @@ call.i.i.i.i.i.noexc.i:                           ; preds = %call.i.i.i.i.noexc.
   %17 = load i32, ptr %delay.i.i.i.i, align 8
   %delay4.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 88
   store i32 %17, ptr %delay4.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %props.i.i.i.i, %ref.tmp.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %ref.tmp.i, %props.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont2.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %call.i.i.i.i.i.noexc.i
@@ -635,7 +635,7 @@ call.i.i.i.i.i.noexc78.i:                         ; preds = %call.i.i.i.i.noexc7
   %33 = load i32, ptr %delay.i.i.i, align 8
   %delay4.i.i.i65.i = getelementptr inbounds i8, ptr %29, i64 88
   store i32 %33, ptr %delay4.i.i.i65.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i66.i = icmp eq ptr %props.i.i.i56.i, %ref.tmp3.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i66.i = icmp eq ptr %ref.tmp3.i, %props.i.i.i56.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i66.i, label %invoke.cont6.i, label %if.then.i.i.i.i.i.i.i.i.i.i67.i
 
 if.then.i.i.i.i.i.i.i.i.i.i67.i:                  ; preds = %call.i.i.i.i.i.noexc78.i
@@ -689,7 +689,7 @@ land.lhs.true.i8:                                 ; preds = %if.then.i
   %42 = load ptr, ptr %cc, align 8
   %maxAnchoredRegion.i = getelementptr inbounds i8, ptr %42, i64 104
   %43 = load i32, ptr %maxAnchoredRegion.i, align 8
-  %cmp.i9 = icmp ult i32 %43, %conv7.i
+  %cmp.i9 = icmp ugt i32 %conv7.i, %43
   br i1 %cmp.i9, label %invoke.cont16.i, label %if.end129.i
 
 invoke.cont16.i:                                  ; preds = %land.lhs.true.i8
@@ -958,7 +958,7 @@ call.i.i.i.i.i.noexc170.i:                        ; preds = %call.i.i.i.i.noexc1
   %63 = load i32, ptr %delay.i.i131.i, align 8
   %delay4.i.i.i157.i = getelementptr inbounds i8, ptr %59, i64 88
   store i32 %63, ptr %delay4.i.i.i157.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i158.i = icmp eq ptr %props.i.i.i148.i, %ref.tmp40.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i158.i = icmp eq ptr %ref.tmp40.i, %props.i.i.i148.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i158.i, label %invoke.cont43.i, label %if.then.i.i.i.i.i.i.i.i.i.i159.i
 
 if.then.i.i.i.i.i.i.i.i.i.i159.i:                 ; preds = %call.i.i.i.i.i.noexc170.i
@@ -2254,7 +2254,7 @@ if.then17.i.i.i.i:                                ; preds = %if.then.i.i.i.i30.i
   %235 = load i32, ptr %agg.tmp9.sroa.0.0.i.i, align 4, !noalias !66
   store i32 %235, ptr %r.addr.0.i.i.i.i.i.i, align 4, !noalias !66
   %add.ptr.i.i32.i.i = getelementptr inbounds i8, ptr %r.addr.0.i.i.i.i.i.i, i64 4
-  %cmp.i.i15.i.i.i.i = icmp ne ptr %add.ptr.i.i.i520.i, %agg.tmp14.i.sroa.0.0.i.i
+  %cmp.i.i15.i.i.i.i = icmp ne ptr %agg.tmp14.i.sroa.0.0.i.i, %add.ptr.i.i.i520.i
   %tobool5.i.i18.i.i.i.i = icmp ne ptr %agg.tmp14.i.sroa.0.0.i.i, null
   %or.cond1.i.i19.i.i.i.i = and i1 %tobool5.i.i18.i.i.i.i, %cmp.i.i15.i.i.i.i
   br i1 %or.cond1.i.i19.i.i.i.i, label %if.then.i.i21.i.i.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit26.i.i.i.i
@@ -2475,7 +2475,7 @@ call.i.i.i.i.i.noexc574.i:                        ; preds = %call.i.i.i.i.noexc5
   %254 = load i32, ptr %delay.i.i.i560.i, align 8
   %delay4.i.i.i561.i = getelementptr inbounds i8, ptr %250, i64 88
   store i32 %254, ptr %delay4.i.i.i561.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i562.i = icmp eq ptr %props.i.i.i552.i, %ref.tmp172.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i562.i = icmp eq ptr %ref.tmp172.i, %props.i.i.i552.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i562.i, label %invoke.cont177.i, label %if.then.i.i.i.i.i.i.i.i.i.i563.i
 
 if.then.i.i.i.i.i.i.i.i.i.i563.i:                 ; preds = %call.i.i.i.i.i.noexc574.i
@@ -2861,7 +2861,7 @@ call.i.i.i.i.i.noexc723.i:                        ; preds = %call.i.i.i.i.noexc7
   %306 = load i32, ptr %delay.i.i.i709.i, align 8
   %delay4.i.i.i710.i = getelementptr inbounds i8, ptr %302, i64 88
   store i32 %306, ptr %delay4.i.i.i710.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i711.i = icmp eq ptr %props.i.i.i701.i, %ref.tmp195.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i711.i = icmp eq ptr %ref.tmp195.i, %props.i.i.i701.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i711.i, label %invoke.cont198.i, label %if.then.i.i.i.i.i.i.i.i.i.i712.i
 
 if.then.i.i.i.i.i.i.i.i.i.i712.i:                 ; preds = %call.i.i.i.i.i.noexc723.i
@@ -3806,7 +3806,7 @@ if.then21.i.i.i:                                  ; preds = %if.then.i.i.i.i64.i
   %u.sroa.7.0.r.addr.0.i.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %r.addr.0.i.i.i.i.i, i64 8
   store i64 %40, ptr %u.sroa.7.0.r.addr.0.i.i.i.i.sroa_idx.i, align 8, !noalias !126
   %add.ptr.i.i66.i = getelementptr inbounds i8, ptr %r.addr.0.i.i.i.i.i, i64 16
-  %cmp.i.i15.i.i.i = icmp ne ptr %add.ptr.i.i17.i, %agg.tmp14.i.sroa.0.0.i
+  %cmp.i.i15.i.i.i = icmp ne ptr %agg.tmp14.i.sroa.0.0.i, %add.ptr.i.i17.i
   %tobool5.i.i18.i.i.i = icmp ne ptr %agg.tmp14.i.sroa.0.0.i, null
   %or.cond1.i.i19.i.i.i = and i1 %tobool5.i.i18.i.i.i, %cmp.i.i15.i.i.i
   br i1 %or.cond1.i.i19.i.i.i, label %if.then.i.i21.i.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit26.i.i.i
@@ -4545,7 +4545,7 @@ invoke.cont15.i.i:                                ; preds = %invoke.cont11.i.i, 
   %u.sroa.0.0.lcssa.i.i = phi ptr [ %u.sroa.0.0.copyload.i.i, %_ZN5boost11make_uniqueIN3ue28NGHolderEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEv.exit.i.i ], [ %5, %invoke.cont11.i.i ]
   %u.sroa.5.0.lcssa.i.i = phi i64 [ %u.sroa.5.0.copyload.i.i, %_ZN5boost11make_uniqueIN3ue28NGHolderEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEv.exit.i.i ], [ %6, %invoke.cont11.i.i ]
   %reports17.i.i = getelementptr inbounds i8, ptr %u.sroa.0.0.lcssa.i.i, i64 48
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %reports17.i.i, %reports
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %reports, %reports17.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont18.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont15.i.i
@@ -5406,7 +5406,7 @@ call2.i23.i.i.i.i.i.i.noexc:                      ; preds = %sw.bb38.i.i.i.i.i.i
 
 _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN3ue211ue2_literalESt6vectorIS3_SaIS3_EEEEPFbRKS3_EEbT_SD_T0_.exit.i: ; preds = %call3.i.i.noexc, %call3.i50.i.noexc, %call3.i52.i.noexc, %call3.i54.i.noexc, %call2.i23.i.i.i.i.i.i.noexc, %call2.i21.i.i.i.i.i.i.noexc, %call2.i19.i.i.i.i.i.i.noexc
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %call2.i19.i.i.i.i.i.i.noexc ], [ %__first.sroa.0.1.i.i.i.i.i.i, %call2.i21.i.i.i.i.i.i.noexc ], [ %spec.select.i.i.i.i.i.i, %call2.i23.i.i.i.i.i.i.noexc ], [ %incdec.ptr.i12.i.i.i.i.i.i, %call3.i.i.noexc ], [ %incdec.ptr.i10.i.i.i.i.i.i, %call3.i50.i.noexc ], [ %incdec.ptr.i.i.i.i.i.i.i, %call3.i52.i.noexc ], [ %__first.sroa.0.042.i.i.i.i.i.i, %call3.i54.i.noexc ]
-  %cmp.i.i.i.not.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i, %57
+  %cmp.i.i.i.not.i = icmp eq ptr %57, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %cmp.i.i.i.not.i, label %invoke.cont18, label %while.end
 
 invoke.cont18:                                    ; preds = %for.end28.i, %for.end.i.i.i.i.i.i, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPN3ue211ue2_literalESt6vectorIS3_SaIS3_EEEEPFbRKS3_EEbT_SD_T0_.exit.i
@@ -7331,7 +7331,7 @@ if.then21.i:                                      ; preds = %if.then.i.i.i, %if.
   store i32 %7, ptr %r.addr.0.i.i.i, align 4
   %add.ptr.i = getelementptr inbounds i32, ptr %r.addr.0.i.i.i, i64 %n
   %add.ptr25.i = getelementptr inbounds i32, ptr %1, i64 %3
-  %cmp.i.i15.i = icmp ne ptr %add.ptr25.i, %0
+  %cmp.i.i15.i = icmp ne ptr %0, %add.ptr25.i
   %tobool5.i.i18.i = icmp ne ptr %0, null
   %or.cond1.i.i19.i = and i1 %tobool5.i.i18.i, %cmp.i.i15.i
   br i1 %or.cond1.i.i19.i, label %if.then.i.i21.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit26.i
@@ -8054,7 +8054,7 @@ if.then17.i:                                      ; preds = %if.then.i.i.i, %if.
   store i32 %7, ptr %r.addr.0.i.i.i, align 4
   %add.ptr.i = getelementptr inbounds i32, ptr %r.addr.0.i.i.i, i64 %n
   %add.ptr21.i = getelementptr inbounds i32, ptr %1, i64 %3
-  %cmp.i.i15.i = icmp ne ptr %add.ptr21.i, %0
+  %cmp.i.i15.i = icmp ne ptr %0, %add.ptr21.i
   %tobool5.i.i18.i = icmp ne ptr %0, null
   %or.cond1.i.i19.i = and i1 %tobool5.i.i18.i, %cmp.i.i15.i
   br i1 %or.cond1.i.i19.i, label %if.then.i.i21.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit26.i
@@ -8501,7 +8501,7 @@ if.then21.i:                                      ; preds = %if.then.i.i.i, %inv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r.addr.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %insert_range_proxy.coerce, i64 16, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor.132", ptr %r.addr.0.i.i.i, i64 %n
   %add.ptr25.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor.132", ptr %1, i64 %3
-  %cmp.i.i15.i = icmp ne ptr %add.ptr25.i, %0
+  %cmp.i.i15.i = icmp ne ptr %0, %add.ptr25.i
   %tobool5.i.i18.i = icmp ne ptr %0, null
   %or.cond1.i.i19.i = and i1 %tobool5.i.i18.i, %cmp.i.i15.i
   br i1 %or.cond1.i.i19.i, label %if.then.i.i21.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit26.i

@@ -670,7 +670,7 @@ if.then.i.i183:                                   ; preds = %invoke.cont7.i.i, %
   %retval.sroa.12.0.i11.i.i = phi ptr [ %retval.sroa.12.0.i.i.i, %invoke.cont7.i.i ], [ %__y.0.lcssa28.i94.i.i.i, %if.then.i93.i.i.i ], [ %__y.0.lcssa28.i50.i.i.i, %if.then.i49.i.i.i ], [ %__y.0.lcssa28.i.i.i.i, %if.then.i.i.i.i ], [ %call.i18.i.i.i, %if.then32.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i, %if.then64.i.i.i ], [ %__y.0.lcssa29.i.i.i.i, %if.end12.i.i.i.i ], [ %__y.0.lcssa29.i38.i.i.i, %if.end12.i37.i.i.i ], [ %__y.0.lcssa29.i82.i.i.i, %if.end12.i81.i.i.i ]
   %retval.sroa.0.0.i10.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %invoke.cont7.i.i ], [ null, %if.then.i93.i.i.i ], [ null, %if.then.i49.i.i.i ], [ null, %if.then.i.i.i.i ], [ null, %if.then32.i.i.i ], [ null, %if.then64.i.i.i ], [ null, %if.end12.i.i.i.i ], [ null, %if.end12.i37.i.i.i ], [ null, %if.end12.i81.i.i.i ]
   %cmp.not.i.i5.i.i = icmp ne ptr %retval.sroa.0.0.i10.i.i, null
-  %cmp2.i.i.i.i = icmp eq ptr %75, %retval.sroa.12.0.i11.i.i
+  %cmp2.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i11.i.i, %75
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i5.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.i.i, label %lor.rhs.i.i.i.i
 

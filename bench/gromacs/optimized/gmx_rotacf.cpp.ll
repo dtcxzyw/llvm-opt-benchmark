@@ -416,16 +416,16 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %_ZNSt10filesystem7_
   %150 = getelementptr inbounds i8, ptr %144, i64 8
   %151 = load float, ptr %150, align 4
   %152 = fsub float %141, %151
-  %153 = fneg float %142
-  %154 = fmul float %149, %153
+  %153 = fneg float %149
+  %154 = fmul float %142, %153
   %155 = call float @llvm.fmuladd.f32(float %137, float %152, float %154)
   store float %155, ptr %12, align 4
-  %156 = fneg float %132
-  %157 = fmul float %152, %156
+  %156 = fneg float %152
+  %157 = fmul float %132, %156
   %158 = call float @llvm.fmuladd.f32(float %142, float %146, float %157)
   store float %158, ptr %98, align 4
-  %159 = fneg float %137
-  %160 = fmul float %146, %159
+  %159 = fneg float %146
+  %160 = fmul float %137, %159
   %161 = call float @llvm.fmuladd.f32(float %132, float %149, float %160)
   store float %161, ptr %99, align 4
   %162 = getelementptr inbounds ptr, ptr %76, i64 %indvars.iv144

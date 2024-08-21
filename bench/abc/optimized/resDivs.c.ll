@@ -491,13 +491,13 @@ Vec_PtrPush.exit127:                              ; preds = %.Vec_PtrGrow.exit11
   %245 = add nsw i32 %.val3.i129, 1
   %246 = getelementptr inbounds i8, ptr %.val2.i128, i64 228
   %247 = load i32, ptr %246, align 4
-  %.not.i155.not = icmp sgt i32 %247, %.val3.i129
+  %.not.i155.not = icmp slt i32 %.val3.i129, %247
   br i1 %.not.i155.not, label %Vec_IntFillExtra.exit, label %248
 
 248:                                              ; preds = %242
   %249 = load i32, ptr %244, align 8
   %250 = shl nsw i32 %249, 1
-  %.not188 = icmp sgt i32 %250, %.val3.i129
+  %.not188 = icmp slt i32 %.val3.i129, %250
   %.not.i.i.not = icmp sgt i32 %249, %.val3.i129
   br i1 %.not188, label %263, label %251
 
@@ -599,13 +599,13 @@ Vec_IntFillExtra.exit:                            ; preds = %242, %._crit_edge.i
   %290 = add nsw i32 %.val3.i133, 1
   %291 = getelementptr inbounds i8, ptr %.val.i131, i64 228
   %292 = load i32, ptr %291, align 4
-  %.not.i160.not = icmp sgt i32 %292, %.val3.i133
+  %.not.i160.not = icmp slt i32 %.val3.i133, %292
   br i1 %.not.i160.not, label %Vec_IntFillExtra.exit173, label %293
 
 293:                                              ; preds = %288
   %294 = load i32, ptr %289, align 8
   %295 = shl nsw i32 %294, 1
-  %.not190 = icmp sgt i32 %295, %.val3.i133
+  %.not190 = icmp slt i32 %.val3.i133, %295
   %.not.i.i161.not = icmp sgt i32 %294, %.val3.i133
   br i1 %.not190, label %308, label %296
 
@@ -744,13 +744,13 @@ Vec_IntFillExtra.exit173:                         ; preds = %288, %._crit_edge.i
   %351 = add nsw i32 %.val3.i137, 1
   %352 = getelementptr inbounds i8, ptr %.val2.i136, i64 228
   %353 = load i32, ptr %352, align 4
-  %.not.i174.not = icmp sgt i32 %353, %.val3.i137
+  %.not.i174.not = icmp slt i32 %.val3.i137, %353
   br i1 %.not.i174.not, label %Vec_IntFillExtra.exit187, label %354
 
 354:                                              ; preds = %341
   %355 = load i32, ptr %350, align 8
   %356 = shl nsw i32 %355, 1
-  %.not194 = icmp sgt i32 %356, %.val3.i137
+  %.not194 = icmp slt i32 %.val3.i137, %356
   %.not.i.i175.not = icmp sgt i32 %355, %.val3.i137
   br i1 %.not194, label %369, label %357
 
@@ -1325,13 +1325,13 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

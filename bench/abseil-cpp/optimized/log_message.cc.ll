@@ -647,7 +647,7 @@ if.then:                                          ; preds = %entry
   %4 = extractvalue { ptr, i64 } %call3, 0
   %len_.i.i = getelementptr inbounds i8, ptr %encoded_remaining_copy, i64 8
   %5 = load i64, ptr %len_.i.i, align 8
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %5, i64 %num)
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %num, i64 %5)
   %6 = load ptr, ptr %encoded_remaining_copy, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %6, i8 %ch, i64 %spec.select.i, i1 false)
   %7 = load ptr, ptr %encoded_remaining_copy, align 8
@@ -694,7 +694,7 @@ if.then:                                          ; preds = %entry
   %4 = extractvalue { ptr, i64 } %call3, 0
   %len_.i.i = getelementptr inbounds i8, ptr %encoded_remaining_copy, i64 8
   %5 = load i64, ptr %len_.i.i, align 8
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %5, i64 %num)
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %num, i64 %5)
   %6 = load ptr, ptr %encoded_remaining_copy, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %6, i8 %ch, i64 %spec.select.i, i1 false)
   %7 = load ptr, ptr %encoded_remaining_copy, align 8
@@ -965,7 +965,7 @@ if.then5.i:                                       ; preds = %sw.bb.i
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %data_.i.i, align 8
   %retval.sroa.2.0.copyload.i.i.i = load i64, ptr %retval.sroa.2.0.data_.sroa_idx.i.i.i, align 8
   %12 = load i64, ptr %len_.i.i, align 8
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %12, i64 %retval.sroa.2.0.copyload.i.i.i)
+  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %retval.sroa.2.0.copyload.i.i.i, i64 %12)
   %13 = load ptr, ptr %string_remaining, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %retval.sroa.0.0.copyload.i.i.i, i64 %spec.select.i.i, i1 false)
   %14 = load ptr, ptr %string_remaining, align 8

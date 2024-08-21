@@ -2204,7 +2204,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h48
   %30 = sub nsw i64 0, %29
   %gep.i = getelementptr { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %invariant.gep.i, i64 %30
   %.val4.i.i.i = load i128, ptr %gep.i, align 16, !alias.scope !452, !noalias !457, !noundef !7
-  %31 = icmp eq i128 %.val4.i.i.i, %2
+  %31 = icmp eq i128 %2, %.val4.i.i.i
   br i1 %31, label %57, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
 
 32:                                               ; preds = %22

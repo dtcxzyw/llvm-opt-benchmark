@@ -5518,7 +5518,7 @@ if.else.us:                                       ; preds = %for.body.us
 if.else13.us:                                     ; preds = %if.else.us
   %add.us = add i32 %i.025.us, 2
   %conv14.us = zext i32 %add.us to i64
-  %cmp15.us = icmp ult i64 %conv14.us, %length
+  %cmp15.us = icmp ugt i64 %length, %conv14.us
   %cmp19.us = icmp eq i8 %0, 37
   %or.cond1.us = and i1 %cmp15.us, %cmp19.us
   br i1 %or.cond1.us, label %land.lhs.true21.us, label %if.end47.us
@@ -5558,7 +5558,7 @@ if.end47.us:                                      ; preds = %for.body.us, %if.th
   store i8 %c.0.us, ptr %arrayidx49.us, align 1
   %inc50.us = add i32 %i.1.us, 1
   %conv.us = zext i32 %inc50.us to i64
-  %cmp1.us = icmp ult i64 %conv.us, %length
+  %cmp1.us = icmp ugt i64 %length, %conv.us
   br i1 %cmp1.us, label %for.body.us, label %for.end.loopexit, !llvm.loop !21
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end47
@@ -5580,7 +5580,7 @@ if.else:                                          ; preds = %for.body
 if.else13:                                        ; preds = %if.else
   %add = add i32 %i.025, 2
   %conv14 = zext i32 %add to i64
-  %cmp15 = icmp ult i64 %conv14, %length
+  %cmp15 = icmp ugt i64 %length, %conv14
   %cmp19 = icmp eq i8 %5, 37
   %or.cond1 = and i1 %cmp15, %cmp19
   br i1 %or.cond1, label %land.lhs.true21, label %if.end47
@@ -5620,7 +5620,7 @@ if.end47:                                         ; preds = %for.body, %if.else,
   store i8 %c.0, ptr %arrayidx49, align 1
   %inc50 = add i32 %i.1, 1
   %conv = zext i32 %inc50 to i64
-  %cmp1 = icmp ult i64 %conv, %length
+  %cmp1 = icmp ugt i64 %length, %conv
   br i1 %cmp1, label %for.body, label %for.end.loopexit27, !llvm.loop !21
 
 for.end.loopexit:                                 ; preds = %if.end47.us
@@ -8128,7 +8128,7 @@ if.end4:                                          ; preds = %entry
   br i1 %or.cond, label %if.then7, label %if.end17
 
 if.then7:                                         ; preds = %if.end4
-  %cmp13.i = icmp ugt ptr %call5, %s
+  %cmp13.i = icmp ult ptr %s, %call5
   br i1 %cmp13.i, label %while.body.i, label %if.end11
 
 while.body.i:                                     ; preds = %if.then7, %if.end23.i

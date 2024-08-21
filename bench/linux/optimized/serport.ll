@@ -314,7 +314,7 @@ define internal void @serport_ldisc_receive(ptr nocapture noundef readonly %0, p
   %23 = tail call i32 @serio_interrupt(ptr noundef %20, i8 noundef zeroext %22, i32 noundef 0) #11
   %24 = add i32 %19, 1
   %25 = sext i32 %24 to i64
-  %26 = icmp ult i64 %25, %3
+  %26 = icmp ugt i64 %3, %25
   br i1 %26, label %.split.us, label %.loopexit, !llvm.loop !12
 
 .split:                                           ; preds = %15, %.split
@@ -332,7 +332,7 @@ define internal void @serport_ldisc_receive(ptr nocapture noundef readonly %0, p
   %38 = tail call i32 @serio_interrupt(ptr noundef %35, i8 noundef zeroext %37, i32 noundef %34) #11
   %39 = add i32 %28, 1
   %40 = sext i32 %39 to i64
-  %41 = icmp ult i64 %40, %3
+  %41 = icmp ugt i64 %3, %40
   br i1 %41, label %.split, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.split, %.split.us, %4

@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @p_add_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %0
+  %8 = icmp eq ptr %0, %7
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
@@ -23,7 +23,7 @@ define void @p_add_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 
 11:                                               ; preds = %5
   %12 = tail call ptr @wmem_file_scope() #5
-  %13 = icmp eq ptr %12, %0
+  %13 = icmp eq ptr %0, %12
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %11
@@ -71,7 +71,7 @@ define void @p_set_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %0
+  %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %5
@@ -80,7 +80,7 @@ define void @p_set_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 
 14:                                               ; preds = %5
   %15 = tail call ptr @wmem_file_scope() #5
-  %16 = icmp eq ptr %15, %0
+  %16 = icmp eq ptr %0, %15
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %14
@@ -108,7 +108,7 @@ define void @p_set_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %9, align 8
-  %30 = icmp eq ptr %29, %0
+  %30 = icmp eq ptr %0, %29
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
@@ -117,7 +117,7 @@ define void @p_set_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 
 33:                                               ; preds = %28
   %34 = call ptr @wmem_file_scope() #5
-  %35 = icmp eq ptr %34, %0
+  %35 = icmp eq ptr %0, %34
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %33
@@ -190,7 +190,7 @@ define ptr @p_get_proto_data(ptr noundef readnone %0, ptr nocapture noundef read
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %0
+  %10 = icmp eq ptr %0, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %4
@@ -199,7 +199,7 @@ define ptr @p_get_proto_data(ptr noundef readnone %0, ptr nocapture noundef read
 
 13:                                               ; preds = %4
   %14 = tail call ptr @wmem_file_scope() #5
-  %15 = icmp eq ptr %14, %0
+  %15 = icmp eq ptr %0, %14
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %13
@@ -240,7 +240,7 @@ define void @p_remove_proto_data(ptr noundef readnone %0, ptr nocapture noundef 
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %0
+  %10 = icmp eq ptr %0, %9
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %4
@@ -251,7 +251,7 @@ define void @p_remove_proto_data(ptr noundef readnone %0, ptr nocapture noundef 
 
 15:                                               ; preds = %4
   %16 = tail call ptr @wmem_file_scope() #5
-  %17 = icmp eq ptr %16, %0
+  %17 = icmp eq ptr %0, %16
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %15
@@ -291,7 +291,7 @@ declare ptr @g_slist_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden noalias ptr @p_get_proto_name_and_key(ptr noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 408
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %0
+  %6 = icmp eq ptr %0, %5
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
@@ -300,7 +300,7 @@ define hidden noalias ptr @p_get_proto_name_and_key(ptr noundef readnone %0, ptr
 
 9:                                                ; preds = %3
   %10 = tail call ptr @wmem_file_scope() #5
-  %11 = icmp eq ptr %10, %0
+  %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %9

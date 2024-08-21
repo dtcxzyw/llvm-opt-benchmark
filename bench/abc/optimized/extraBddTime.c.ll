@@ -50,7 +50,7 @@ define internal fastcc ptr @cuddBddAndRecurTime(ptr noundef %0, ptr noundef %1, 
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
-  %24 = icmp eq ptr %7, %1
+  %24 = icmp eq ptr %1, %7
   %. = select i1 %24, ptr %2, ptr %1
   br label %140
 
@@ -59,7 +59,7 @@ define internal fastcc ptr @cuddBddAndRecurTime(ptr noundef %0, ptr noundef %1, 
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = icmp eq ptr %7, %2
+  %28 = icmp eq ptr %2, %7
   %.141 = select i1 %28, ptr %1, ptr %2
   br label %140
 
@@ -293,24 +293,24 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   %8 = ptrtoint ptr %7 to i64
   %9 = xor i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %10, %1
-  %12 = icmp eq ptr %10, %2
+  %11 = icmp eq ptr %1, %10
+  %12 = icmp eq ptr %2, %10
   %or.cond = or i1 %11, %12
   %13 = ptrtoint ptr %2 to i64
   %14 = xor i64 %13, 1
   %15 = inttoptr i64 %14 to ptr
-  %16 = icmp eq ptr %15, %1
+  %16 = icmp eq ptr %1, %15
   %or.cond249 = or i1 %16, %or.cond
   br i1 %or.cond249, label %217, label %17
 
 17:                                               ; preds = %5
-  %18 = icmp eq ptr %7, %1
-  %19 = icmp eq ptr %7, %2
+  %18 = icmp eq ptr %1, %7
+  %19 = icmp eq ptr %2, %7
   %or.cond250 = and i1 %18, %19
   br i1 %or.cond250, label %217, label %20
 
 20:                                               ; preds = %17
-  %21 = icmp eq ptr %7, %3
+  %21 = icmp eq ptr %3, %7
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20

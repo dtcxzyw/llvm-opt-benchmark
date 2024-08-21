@@ -1031,7 +1031,7 @@ for.body:                                         ; preds = %core_list_insert_ne
   %memblock.addr.053 = phi ptr [ %memblock.addr.2, %core_list_insert_new.exit38 ], [ %memblock.addr.1, %core_list_insert_new.exit ]
   %datablock.052 = phi ptr [ %datablock.2, %core_list_insert_new.exit38 ], [ %datablock.1, %core_list_insert_new.exit ]
   %2 = trunc i32 %i.054 to i16
-  %conv9 = xor i16 %2, %seed
+  %conv9 = xor i16 %seed, %2
   %3 = shl i16 %conv9, 3
   %4 = and i16 %3, 120
   %5 = and i16 %2, 7
@@ -1073,7 +1073,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp27, label %if.end, label %if.else
 
 if.else:                                          ; preds = %while.body
-  %conv36 = xor i16 %conv30, %seed
+  %conv36 = xor i16 %seed, %conv30
   %7 = and i16 %conv36, 16383
   %inc33.tr = trunc i32 %inc29 to i16
   %8 = shl i16 %inc33.tr, 8

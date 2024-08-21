@@ -261,7 +261,7 @@ define weak_odr void @_ZN7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
 
 15:                                               ; preds = %._crit_edge
   %16 = load ptr, ptr %12, align 8
-  %.not6.i.i.i.i = icmp eq ptr %16, %14
+  %.not6.i.i.i.i = icmp eq ptr %14, %16
   br i1 %.not6.i.i.i.i, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %15, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i.i
@@ -278,7 +278,7 @@ define weak_odr void @_ZN7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i.i: ; preds = %20, %.lr.ph.i.i.i.i
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #22
-  %.not.i.i.i.i = icmp eq ptr %17, %14
+  %.not.i.i.i.i = icmp eq ptr %14, %17
   br i1 %.not.i.i.i.i, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i
 
 _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i.i
@@ -683,7 +683,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not6.i.i.i = icmp eq ptr %5, %2
+  %.not6.i.i.i = icmp eq ptr %2, %5
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i
@@ -700,7 +700,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i: ; preds = %9, %.lr.ph.i.i.i
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #22
-  %.not.i.i.i = icmp eq ptr %6, %2
+  %.not.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i
 
 _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i.loopexit: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i
@@ -1027,8 +1027,8 @@ define weak_odr void @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %47 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %48 = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %49 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %50 = fneg contract <4 x float> %48
-  %51 = fmul contract <4 x float> %49, %50
+  %50 = fneg contract <4 x float> %49
+  %51 = fmul contract <4 x float> %48, %50
   %52 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %46, <4 x float> %47, <4 x float> %51)
   %53 = getelementptr inbounds i8, ptr %12, i64 80
   store <4 x float> %45, ptr %53, align 16
@@ -1058,7 +1058,7 @@ define weak_odr void @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %70 = shufflevector <4 x i1> %69, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %71 = bitcast <8 x i1> %70 to i8
   %.not = icmp ne i8 %71, 0
-  %72 = and i1 %.not, %6
+  %72 = and i1 %6, %.not
   br i1 %72, label %89, label %73
 
 73:                                               ; preds = %7
@@ -1226,8 +1226,8 @@ define weak_odr void @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %38 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %39 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %40 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %41 = fneg contract <4 x float> %39
-  %42 = fmul contract <4 x float> %40, %41
+  %41 = fneg contract <4 x float> %40
+  %42 = fmul contract <4 x float> %39, %41
   %43 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %37, <4 x float> %38, <4 x float> %42)
   %44 = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x float> %43, ptr %44, align 16
@@ -1281,8 +1281,8 @@ define weak_odr void @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %44 = shufflevector <4 x float> %42, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %45 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %46 = shufflevector <4 x float> %42, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %47 = fneg contract <4 x float> %45
-  %48 = fmul contract <4 x float> %46, %47
+  %47 = fneg contract <4 x float> %46
+  %48 = fmul contract <4 x float> %45, %47
   %49 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %43, <4 x float> %44, <4 x float> %48)
   %50 = getelementptr inbounds i8, ptr %9, i64 80
   store <4 x float> %42, ptr %50, align 16
@@ -1312,7 +1312,7 @@ define weak_odr void @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %67 = fmul contract <4 x float> %shift21, %63
   %68 = extractelement <4 x float> %67, i64 0
   %69 = fcmp contract ogt float %68, 0.000000e+00
-  %70 = and i1 %69, %5
+  %70 = and i1 %5, %69
   %71 = getelementptr inbounds i8, ptr %1, i64 64
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %72, align 8
@@ -1412,8 +1412,8 @@ define weak_odr noundef float @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8Spectr
   %40 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %41 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %42 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %43 = fneg contract <4 x float> %41
-  %44 = fmul contract <4 x float> %42, %43
+  %43 = fneg contract <4 x float> %42
+  %44 = fmul contract <4 x float> %41, %43
   %45 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %39, <4 x float> %40, <4 x float> %44)
   %46 = getelementptr inbounds i8, ptr %6, i64 80
   store <4 x float> %38, ptr %46, align 16
@@ -1443,7 +1443,7 @@ define weak_odr noundef float @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8Spectr
   %63 = fmul contract <4 x float> %shift19, %59
   %64 = extractelement <4 x float> %63, i64 0
   %65 = fcmp contract ogt float %64, 0.000000e+00
-  %66 = and i1 %65, %4
+  %66 = and i1 %4, %65
   %67 = getelementptr inbounds i8, ptr %0, i64 64
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %68, align 8
@@ -1502,8 +1502,8 @@ define weak_odr void @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %45 = shufflevector <4 x float> %43, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %46 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %47 = shufflevector <4 x float> %43, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %48 = fneg contract <4 x float> %46
-  %49 = fmul contract <4 x float> %47, %48
+  %48 = fneg contract <4 x float> %47
+  %49 = fmul contract <4 x float> %46, %48
   %50 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %44, <4 x float> %45, <4 x float> %49)
   %51 = getelementptr inbounds i8, ptr %9, i64 80
   store <4 x float> %43, ptr %51, align 16
@@ -3985,7 +3985,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63

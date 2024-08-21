@@ -241,7 +241,7 @@ if.then14:                                        ; preds = %if.end11
 
 if.end15:                                         ; preds = %if.end11
   %conv = zext nneg i32 %call12 to i64
-  %cmp16 = icmp ugt i64 %conv, %keylen
+  %cmp16 = icmp ult i64 %keylen, %conv
   br i1 %cmp16, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end15

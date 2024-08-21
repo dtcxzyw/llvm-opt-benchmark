@@ -5434,7 +5434,7 @@ define void @assoc_mgr_get_shares(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 30:                                               ; preds = %27
   %31 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %32 = icmp eq i32 %31, %1
+  %32 = icmp eq i32 %1, %31
   %33 = icmp eq i32 %1, 0
   %or.cond = or i1 %33, %32
   br i1 %or.cond, label %53, label %34
@@ -5935,7 +5935,7 @@ define noundef ptr @assoc_mgr_info_get_pack_msg(ptr noundef readonly %0, i32 nou
 
 37:                                               ; preds = %34
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %39 = icmp eq i32 %38, %1
+  %39 = icmp eq i32 %1, %38
   %40 = icmp eq i32 %1, 0
   %or.cond = or i1 %40, %39
   br i1 %or.cond, label %60, label %41
@@ -11606,7 +11606,7 @@ define internal fastcc void @_set_assoc_parent_and_user(ptr noundef %0) unnamed_
   %77 = phi ptr [ %.pre99, %74 ], [ %48, %46 ]
   %78 = getelementptr inbounds i8, ptr %77, i64 72
   %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %79, %0
+  %80 = icmp eq ptr %0, %79
   br i1 %80, label %81, label %112
 
 81:                                               ; preds = %76
@@ -16527,7 +16527,7 @@ define i32 @assoc_mgr_get_old_tres_pos(i32 noundef %0) local_unnamed_addr #14 {
   %2 = load ptr, ptr @assoc_mgr_tres_old_pos, align 8
   %.not = icmp ne ptr %2, null
   %3 = load i32, ptr @g_tres_count, align 4
-  %.not5 = icmp ugt i32 %3, %0
+  %.not5 = icmp ult i32 %0, %3
   %or.cond = select i1 %.not, i1 %.not5, i1 false
   br i1 %or.cond, label %4, label %8
 

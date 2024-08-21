@@ -7617,7 +7617,7 @@ if.end161:                                        ; preds = %_ZNSt7__cxx1112basi
   %_M_string_length.i.i822 = getelementptr inbounds i8, ptr %5, i64 376
   %250 = load i64, ptr %_M_string_length.i.i822, align 8, !tbaa !91
   %cmp.i823 = icmp ne i64 %250, 0
-  %brmerge.not = and i1 %cmp.i823, %force_match
+  %brmerge.not = and i1 %force_match, %cmp.i823
   br i1 %brmerge.not, label %if.then165, label %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit
 
 if.then165:                                       ; preds = %if.end161
@@ -7680,7 +7680,7 @@ if.end179:                                        ; preds = %_ZN6duckdb10SetColu
   %_M_string_length.i.i850 = getelementptr inbounds i8, ptr %5, i64 376
   %256 = load i64, ptr %_M_string_length.i.i850, align 8, !tbaa !91
   %cmp.i851 = icmp ne i64 %256, 0
-  %brmerge251.not = and i1 %cmp.i851, %force_match
+  %brmerge251.not = and i1 %force_match, %cmp.i851
   br i1 %brmerge251.not, label %if.then183, label %if.end188
 
 if.then183:                                       ; preds = %if.end179

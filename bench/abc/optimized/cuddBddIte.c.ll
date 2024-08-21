@@ -25,24 +25,24 @@ define ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 define ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %1
+  %7 = icmp eq ptr %1, %6
   br i1 %7, label %187, label %8
 
 8:                                                ; preds = %4
   %9 = ptrtoint ptr %6 to i64
   %10 = xor i64 %9, 1
   %11 = inttoptr i64 %10 to ptr
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %187, label %13
 
 13:                                               ; preds = %8
-  %14 = icmp eq ptr %6, %2
-  %15 = icmp eq ptr %2, %1
+  %14 = icmp eq ptr %2, %6
+  %15 = icmp eq ptr %1, %2
   %or.cond = or i1 %15, %14
   br i1 %or.cond, label %16, label %31
 
 16:                                               ; preds = %13
-  %17 = icmp eq ptr %11, %3
+  %17 = icmp eq ptr %3, %11
   br i1 %17, label %187, label %18
 
 18:                                               ; preds = %16
@@ -61,16 +61,16 @@ define ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br label %187
 
 31:                                               ; preds = %13
-  %32 = icmp eq ptr %11, %2
+  %32 = icmp eq ptr %2, %11
   %33 = ptrtoint ptr %2 to i64
   %34 = xor i64 %33, 1
   %35 = inttoptr i64 %34 to ptr
-  %36 = icmp eq ptr %35, %1
+  %36 = icmp eq ptr %1, %35
   %or.cond101 = or i1 %36, %32
   br i1 %or.cond101, label %37, label %44
 
 37:                                               ; preds = %31
-  %38 = icmp eq ptr %6, %3
+  %38 = icmp eq ptr %3, %6
   %39 = ptrtoint ptr %1 to i64
   %40 = xor i64 %39, 1
   %41 = inttoptr i64 %40 to ptr
@@ -81,7 +81,7 @@ define ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br label %187
 
 44:                                               ; preds = %31
-  %45 = icmp eq ptr %11, %3
+  %45 = icmp eq ptr %3, %11
   %46 = icmp eq ptr %1, %3
   %or.cond102 = or i1 %46, %45
   br i1 %or.cond102, label %47, label %49
@@ -91,14 +91,14 @@ define ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br label %187
 
 49:                                               ; preds = %44
-  %50 = icmp eq ptr %6, %3
+  %50 = icmp eq ptr %3, %6
   br i1 %50, label %56, label %51
 
 51:                                               ; preds = %49
   %52 = ptrtoint ptr %3 to i64
   %53 = xor i64 %52, 1
   %54 = inttoptr i64 %53 to ptr
-  %55 = icmp eq ptr %54, %1
+  %55 = icmp eq ptr %1, %54
   br i1 %55, label %56, label %63
 
 56:                                               ; preds = %51, %49
@@ -115,7 +115,7 @@ define ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br i1 %64, label %187, label %65
 
 65:                                               ; preds = %63
-  %66 = icmp eq ptr %54, %2
+  %66 = icmp eq ptr %2, %54
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %65
@@ -339,26 +339,26 @@ define ptr @Cudd_bddIteConstant(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %7 = ptrtoint ptr %6 to i64
   %8 = xor i64 %7, 1
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %6, %1
+  %10 = icmp eq ptr %1, %6
   br i1 %10, label %241, label %11
 
 11:                                               ; preds = %4
-  %12 = icmp eq ptr %9, %1
+  %12 = icmp eq ptr %1, %9
   br i1 %12, label %241, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %11
-  %13 = icmp eq ptr %2, %1
+  %13 = icmp eq ptr %1, %2
   %14 = ptrtoint ptr %2 to i64
   %15 = xor i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
-  %17 = icmp eq ptr %16, %1
+  %17 = icmp eq ptr %1, %16
   %spec.select = select i1 %17, ptr %9, ptr %2
   %.098 = select i1 %13, ptr %6, ptr %spec.select
-  %18 = icmp eq ptr %3, %1
+  %18 = icmp eq ptr %1, %3
   %19 = ptrtoint ptr %3 to i64
   %20 = xor i64 %19, 1
   %21 = inttoptr i64 %20 to ptr
-  %22 = icmp eq ptr %21, %1
+  %22 = icmp eq ptr %1, %21
   %spec.select101 = select i1 %22, ptr %6, ptr %3
   %.099 = select i1 %18, ptr %9, ptr %spec.select101
   %23 = icmp eq ptr %.098, %.099
@@ -754,8 +754,8 @@ define ptr @cuddBddIntersectRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %1
-  %10 = icmp eq ptr %8, %2
+  %9 = icmp eq ptr %1, %8
+  %10 = icmp eq ptr %2, %8
   %or.cond = or i1 %9, %10
   br i1 %or.cond, label %126, label %11
 
@@ -763,17 +763,17 @@ define ptr @cuddBddIntersectRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %12 = ptrtoint ptr %2 to i64
   %13 = xor i64 %12, 1
   %14 = inttoptr i64 %13 to ptr
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %126, label %16
 
 16:                                               ; preds = %11
   %17 = icmp eq ptr %1, %2
-  %18 = icmp eq ptr %5, %2
+  %18 = icmp eq ptr %2, %5
   %or.cond122 = or i1 %17, %18
   br i1 %or.cond122, label %126, label %19
 
 19:                                               ; preds = %16
-  %20 = icmp eq ptr %5, %1
+  %20 = icmp eq ptr %1, %5
   br i1 %20, label %126, label %21
 
 21:                                               ; preds = %19
@@ -995,7 +995,7 @@ define ptr @cuddBddAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
-  %23 = icmp eq ptr %6, %1
+  %23 = icmp eq ptr %1, %6
   %. = select i1 %23, ptr %2, ptr %1
   br label %151
 
@@ -1004,7 +1004,7 @@ define ptr @cuddBddAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
-  %27 = icmp eq ptr %6, %2
+  %27 = icmp eq ptr %2, %6
   %.136 = select i1 %27, ptr %1, ptr %2
   br label %151
 
@@ -1359,7 +1359,7 @@ define ptr @cuddBddXorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   %11 = ptrtoint ptr %2 to i64
   %12 = xor i64 %11, 1
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %128, label %15
 
 15:                                               ; preds = %10

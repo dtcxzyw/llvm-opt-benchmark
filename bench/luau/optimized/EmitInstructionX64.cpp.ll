@@ -254,7 +254,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6414emitInstReturnERNS1_18AssemblyBuild
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %18 = trunc i64 %indvars.iv to i32
-  %19 = add i32 %18, %2
+  %19 = add i32 %2, %18
   %20 = shl i32 %19, 4
   %.sroa.5.0.insert.ext.i132 = zext i32 %20 to i64
   %.sroa.5.0.insert.shift.i133 = shl nuw i64 %.sroa.5.0.insert.ext.i132, 32
@@ -385,7 +385,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415emitInstSetListERNS1_13IrRegAllocX6
   %.sroa.2329.0.insert.insert = or disjoint i64 %.sroa.3330.0.insert.shift, 268468224
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 %.sroa.2329.0.insert.insert, i64 %.sroa.0.0.insert.insert.i169)
   %22 = icmp slt i32 %6, 0
-  %23 = icmp sgt i32 %15, %6
+  %23 = icmp slt i32 %6, %15
   %24 = or i1 %22, %23
   %or.cond165 = or i1 %16, %24
   br i1 %or.cond165, label %25, label %27
@@ -432,14 +432,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6415emitInstSetListERNS1_13IrRegAllocX6
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %31 = trunc i64 %indvars.iv to i32
-  %32 = add i32 %31, %3
+  %32 = add i32 %3, %31
   %33 = shl i32 %32, 4
   %.sroa.21.0.insert.ext.i.i181 = zext i32 %33 to i64
   %.sroa.21.0.insert.shift.i.i182 = shl nuw i64 %.sroa.21.0.insert.ext.i.i181, 32
   %.sroa.0.0.insert.insert.i183 = or disjoint i64 %.sroa.21.0.insert.shift.i.i182, 343179265
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX647vmovupsENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 268795904, i64 %.sroa.0.0.insert.insert.i183)
   %34 = trunc nuw nsw i64 %indvars.iv to i32
-  %35 = add i32 %34, %5
+  %35 = add i32 %5, %34
   %36 = shl i32 %35, 4
   %37 = add i32 %36, -16
   %.sroa.5275.0.insert.ext = zext i32 %37 to i64

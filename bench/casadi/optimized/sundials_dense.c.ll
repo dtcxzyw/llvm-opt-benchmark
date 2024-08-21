@@ -787,8 +787,8 @@ define noundef i32 @denseGEQRF(ptr nocapture noundef readonly %0, i64 noundef %1
 
 .lr.ph114:                                        ; preds = %._crit_edge108
   %52 = load double, ptr %42, align 8
-  %53 = fneg double %49
-  %54 = fmul double %52, %53
+  %53 = fneg double %52
+  %54 = fmul double %49, %53
   br label %55
 
 55:                                               ; preds = %.lr.ph114, %55
@@ -907,8 +907,8 @@ define noundef i32 @DenseORMQR(ptr nocapture noundef readonly %0, ptr nocapture 
 .lr.ph63.i:                                       ; preds = %._crit_edge.i
   %38 = getelementptr inbounds double, ptr %1, i64 %.065.i
   %39 = load double, ptr %38, align 8
-  %40 = fneg double %.049.lcssa.i
-  %41 = fmul double %39, %40
+  %40 = fneg double %39
+  %41 = fmul double %.049.lcssa.i, %40
   br label %42
 
 42:                                               ; preds = %42, %.lr.ph63.i
@@ -996,8 +996,8 @@ define noundef i32 @denseORMQR(ptr nocapture noundef readonly %0, i64 noundef %1
 .lr.ph63:                                         ; preds = %._crit_edge
   %34 = getelementptr inbounds double, ptr %3, i64 %.065
   %35 = load double, ptr %34, align 8
-  %36 = fneg double %.049.lcssa
-  %37 = fmul double %35, %36
+  %36 = fneg double %35
+  %37 = fmul double %.049.lcssa, %36
   br label %38
 
 38:                                               ; preds = %.lr.ph63, %38
@@ -1115,7 +1115,7 @@ define void @DenseScale(double noundef %0, ptr nocapture noundef readonly %1) lo
   %.011.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %17, %13 ]
   %14 = getelementptr inbounds double, ptr %12, i64 %.011.us.i
   %15 = load double, ptr %14, align 8
-  %16 = fmul double %15, %0
+  %16 = fmul double %0, %15
   store double %16, ptr %14, align 8
   %17 = add nuw nsw i64 %.011.us.i, 1
   %exitcond.not.i = icmp eq i64 %17, %6
@@ -1147,7 +1147,7 @@ define void @denseScale(double noundef %0, ptr nocapture noundef readonly %1, i6
   %.011.us = phi i64 [ 0, %.lr.ph.us ], [ %13, %9 ]
   %10 = getelementptr inbounds double, ptr %8, i64 %.011.us
   %11 = load double, ptr %10, align 8
-  %12 = fmul double %11, %0
+  %12 = fmul double %0, %11
   store double %12, ptr %10, align 8
   %13 = add nuw nsw i64 %.011.us, 1
   %exitcond.not = icmp eq i64 %13, %2

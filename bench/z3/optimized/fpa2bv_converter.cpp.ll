@@ -3697,7 +3697,7 @@ terminate.lpad.i39:                               ; preds = %if.then2.i.i.i38
 _ZN7obj_refI4expr11ast_managerED2Ev.exit40:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i33, %if.then2.i.i.i38
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next54 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %num
+  %exitcond.not = icmp eq i32 %num, %lftr.wideiv
   br i1 %exitcond.not, label %for.cond.loopexit, label %for.body5, !llvm.loop !11
 
 lpad10:                                           ; preds = %if.then2.i.i.i.i, %if.then.i, %if.else4.i.i, %if.then3.i.i, %_ZN13bool_rewriter11mk_and_coreEjPKP4exprR7obj_refIS0_11ast_managerE.exit.thread.i, %invoke.cont11, %for.body5
@@ -6121,7 +6121,7 @@ entry:
   %m_buffer = getelementptr inbounds i8, ptr %this, i64 8
   %m_pos.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %m_pos.i, align 8
-  %cmp = icmp ugt i32 %0, %sz
+  %cmp = icmp ult i32 %sz, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -6162,7 +6162,7 @@ if.end.loopexit:                                  ; preds = %_ZN15ref_buffer_cor
 
 if.end:                                           ; preds = %if.end.loopexit, %entry
   %5 = phi i32 [ %.pre, %if.end.loopexit ], [ %0, %entry ]
-  %cmp.i4 = icmp ult i32 %5, %sz
+  %cmp.i4 = icmp ugt i32 %sz, %5
   br i1 %cmp.i4, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %if.end
@@ -6236,7 +6236,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP4expr
   br i1 %exitcond.not.i, label %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit, label %for.body.i6, !llvm.loop !20
 
 if.else.i:                                        ; preds = %if.end
-  %cmp3.i5 = icmp ugt i32 %5, %sz
+  %cmp3.i5 = icmp ult i32 %sz, %5
   br i1 %cmp3.i5, label %for.cond6.preheader.i, label %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit
 
 for.cond6.preheader.i:                            ; preds = %if.else.i

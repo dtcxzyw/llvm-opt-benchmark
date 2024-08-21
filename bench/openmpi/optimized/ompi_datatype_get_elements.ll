@@ -47,7 +47,7 @@ define range(i32 -18, 1) i32 @ompi_datatype_get_elements(ptr noundef %0, i64 nou
 
 22:                                               ; preds = %20, %11
   %.022 = phi i64 [ %21, %20 ], [ 0, %11 ]
-  %.not29 = icmp eq i64 %8, %1
+  %.not29 = icmp eq i64 %1, %8
   br i1 %.not29, label %31, label %23
 
 23:                                               ; preds = %22
@@ -63,7 +63,7 @@ define range(i32 -18, 1) i32 @ompi_datatype_get_elements(ptr noundef %0, i64 nou
   br label %31
 
 30:                                               ; preds = %6
-  %.not30 = icmp eq i64 %8, %1
+  %.not30 = icmp eq i64 %1, %8
   br i1 %.not30, label %31, label %32
 
 31:                                               ; preds = %30, %22, %27

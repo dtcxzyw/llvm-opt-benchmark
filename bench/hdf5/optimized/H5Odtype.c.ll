@@ -348,7 +348,7 @@ define internal range(i32 -1, 1) i32 @H5O__dtype_shared_encode(ptr noundef %0, i
   %7 = load i32, ptr %4, align 8
   %8 = add i32 %7, -3
   %switch = icmp ult i32 %8, -2
-  %brmerge = or i1 %switch, %1
+  %brmerge = or i1 %1, %switch
   br i1 %brmerge, label %16, label %9
 
 9:                                                ; preds = %5
@@ -419,7 +419,7 @@ define internal i64 @H5O__dtype_shared_size(ptr noundef %0, i1 noundef zeroext %
   %4 = load i32, ptr %2, align 8
   %5 = add i32 %4, -3
   %switch = icmp ult i32 %5, -2
-  %brmerge = or i1 %switch, %1
+  %brmerge = or i1 %1, %switch
   br i1 %brmerge, label %13, label %6
 
 6:                                                ; preds = %3
@@ -3412,7 +3412,7 @@ default.unreachable1352:                          ; preds = %196
 1656:                                             ; preds = %._crit_edge
   %.mask951 = and i32 %.lcssa1188, 1073741823
   %.not950 = icmp eq i32 %.mask951, 0
-  %or.cond1012 = or i1 %.not950, %3
+  %or.cond1012 = or i1 %3, %.not950
   %.pre1307 = load ptr, ptr %1, align 8
   br i1 %or.cond1012, label %._crit_edge1347, label %1657
 

@@ -3806,7 +3806,7 @@ define internal fastcc range(i32 0, 2) i32 @gauss_make_triangular(ptr nocapture 
 
 46:                                               ; preds = %14
   %47 = xor i32 %18, -1
-  %48 = add i32 %47, %2
+  %48 = add i32 %2, %47
   %49 = getelementptr double, ptr %0, i64 %17
   %50 = and i32 %48, 3
   %51 = icmp eq i32 %50, 0
@@ -3952,7 +3952,7 @@ define internal fastcc range(i32 0, 2) i32 @gauss_make_triangular(ptr nocapture 
   %160 = select i1 %158, i32 %159, i32 %147
   %161 = add nsw i64 %108, 4
   %162 = trunc i64 %161 to i32
-  %163 = icmp eq i32 %162, %2
+  %163 = icmp eq i32 %2, %162
   br i1 %163, label %.loopexit19, label %.preheader18
 
 .loopexit15:                                      ; preds = %210, %.loopexit17
@@ -4064,7 +4064,7 @@ define internal fastcc range(i32 0, 2) i32 @gauss_make_triangular(ptr nocapture 
   store double %230, ptr %228, align 8, !tbaa !63
   %231 = add nsw i64 %211, 4
   %232 = trunc i64 %231 to i32
-  %233 = icmp eq i32 %232, %2
+  %233 = icmp eq i32 %2, %232
   br i1 %233, label %.loopexit15, label %210, !llvm.loop !117
 
 .preheader11:                                     ; preds = %.loopexit14, %.preheader11
@@ -4098,7 +4098,7 @@ define internal fastcc range(i32 0, 2) i32 @gauss_make_triangular(ptr nocapture 
   store double %251, ptr %252, align 8, !tbaa !63
   %254 = add nsw i64 %234, 4
   %255 = trunc i64 %254 to i32
-  %256 = icmp eq i32 %255, %2
+  %256 = icmp eq i32 %2, %255
   br i1 %256, label %.loopexit12, label %.preheader11, !llvm.loop !118
 
 .loopexit12:                                      ; preds = %.preheader11, %.loopexit15, %192, %.loopexit14
@@ -4238,13 +4238,13 @@ define internal fastcc range(i32 0, 2) i32 @gauss_make_triangular(ptr nocapture 
   store double %356, ptr %354, align 8, !tbaa !63
   %357 = add nsw i64 %325, 4
   %358 = trunc i64 %357 to i32
-  %359 = icmp eq i32 %358, %2
+  %359 = icmp eq i32 %2, %358
   br i1 %359, label %.loopexit, label %.preheader, !llvm.loop !129
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit9, %307
   %360 = add nsw i64 %270, 1
   %lftr.wideiv = trunc i64 %360 to i32
-  %exitcond = icmp eq i32 %lftr.wideiv, %2
+  %exitcond = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond, label %.loopexit10, label %269
 
 .loopexit10:                                      ; preds = %.loopexit, %86

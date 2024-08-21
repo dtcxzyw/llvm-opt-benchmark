@@ -273,7 +273,7 @@ define internal { double, double } @_ZL16somerc_e_forward5PJ_LPP8PJconsts(double
   %26 = tail call double @atan(double noundef %25) #6
   %27 = tail call double @llvm.fmuladd.f64(double %26, double 2.000000e+00, double 0xBFF921FB54442D18)
   %28 = load double, ptr %10, align 8
-  %29 = fmul double %28, %0
+  %29 = fmul double %0, %28
   %30 = tail call double @cos(double noundef %27) #6
   %31 = load ptr, ptr %2, align 8
   %32 = getelementptr inbounds i8, ptr %5, i64 32
@@ -281,10 +281,10 @@ define internal { double, double } @_ZL16somerc_e_forward5PJ_LPP8PJconsts(double
   %34 = tail call double @sin(double noundef %27) #6
   %35 = getelementptr inbounds i8, ptr %5, i64 40
   %36 = load double, ptr %35, align 8
-  %37 = tail call double @cos(double noundef %29) #6
-  %38 = fneg double %36
-  %39 = fmul double %30, %38
-  %40 = fmul double %39, %37
+  %37 = fmul double %30, %36
+  %38 = tail call double @cos(double noundef %29) #6
+  %39 = fneg double %38
+  %40 = fmul double %37, %39
   %41 = tail call double @llvm.fmuladd.f64(double %33, double %34, double %40)
   %42 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %31, double noundef %41)
   %43 = load ptr, ptr %2, align 8

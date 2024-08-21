@@ -261,7 +261,7 @@ ssl_generate_random.exit.i:                       ; preds = %48, %._crit_edge.i
   %130 = getelementptr inbounds i8, ptr %129, i64 24
   %131 = load i64, ptr %130, align 8
   %132 = add i64 %131, 1
-  %.not = icmp ult i64 %124, %132
+  %.not = icmp ugt i64 %132, %124
   br i1 %.not, label %ssl_write_client_hello_body.exit.thread, label %133
 
 133:                                              ; preds = %126
@@ -616,7 +616,7 @@ define internal fastcc range(i32 -27136, 1) i32 @ssl_write_hostname_ext(ptr noun
   %13 = ptrtoint ptr %2 to i64
   %14 = ptrtoint ptr %1 to i64
   %15 = sub i64 %13, %14
-  %16 = icmp uge i64 %15, %11
+  %16 = icmp ule i64 %11, %15
   %narrow.i.not = and i1 %12, %16
   br i1 %narrow.i.not, label %17, label %39
 
@@ -700,7 +700,7 @@ define internal fastcc range(i32 -27136, 1) i32 @ssl_write_alpn_ext(ptr noundef 
   %25 = icmp ule ptr %.03545, %2
   %26 = ptrtoint ptr %.03545 to i64
   %27 = sub i64 %11, %26
-  %28 = icmp uge i64 %27, %24
+  %28 = icmp ule i64 %24, %27
   %narrow.i39.not = and i1 %25, %28
   br i1 %narrow.i39.not, label %29, label %.loopexit
 

@@ -555,7 +555,7 @@ fstrndup.exit48:                                  ; preds = %fstrndup.exit46, %4
 
 62:                                               ; preds = %62, %59
   %.0.i.i.i = phi i64 [ %spec.store.select.i.i, %59 ], [ %64, %62 ]
-  %63 = icmp ult i64 %.0.i.i.i, %58
+  %63 = icmp ugt i64 %58, %.0.i.i.i
   %64 = shl i64 %.0.i.i.i, 1
   br i1 %63, label %62, label %65, !llvm.loop !6
 
@@ -611,7 +611,7 @@ fbuffer_dup.exit:                                 ; preds = %50, %ruby_nonempty_
 
 87:                                               ; preds = %87, %84
   %.0.i.i.i51 = phi i64 [ %spec.store.select.i.i49, %84 ], [ %89, %87 ]
-  %88 = icmp ult i64 %.0.i.i.i51, %83
+  %88 = icmp ugt i64 %83, %.0.i.i.i51
   %89 = shl i64 %.0.i.i.i51, 1
   br i1 %88, label %87, label %90, !llvm.loop !6
 
@@ -667,7 +667,7 @@ fbuffer_dup.exit53:                               ; preds = %75, %ruby_nonempty_
 
 112:                                              ; preds = %112, %109
   %.0.i.i.i56 = phi i64 [ %spec.store.select.i.i54, %109 ], [ %114, %112 ]
-  %113 = icmp ult i64 %.0.i.i.i56, %108
+  %113 = icmp ugt i64 %108, %.0.i.i.i56
   %114 = shl i64 %.0.i.i.i56, 1
   br i1 %113, label %112, label %115, !llvm.loop !6
 
@@ -3025,7 +3025,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 rb_type.exit.i:                                   ; preds = %switch.lookup, %17, %15, %7
   %.0.i.i = phi i32 [ %11, %7 ], [ 21, %15 ], [ %spec.select.i.i, %17 ], [ %switch.load, %switch.lookup ]
-  %20 = icmp eq i32 %.0.i.i, %1
+  %20 = icmp eq i32 %1, %.0.i.i
   br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %rb_type.exit.i
@@ -3261,7 +3261,7 @@ fbuffer_append_char.exit:                         ; preds = %33, %35
 69:                                               ; preds = %69, %64
   %.0.i.i40 = phi i64 [ %66, %64 ], [ %72, %69 ]
   %70 = sub i64 %.0.i.i40, %68
-  %71 = icmp ult i64 %70, %55
+  %71 = icmp ugt i64 %55, %70
   %72 = shl i64 %.0.i.i40, 1
   br i1 %71, label %69, label %73, !llvm.loop !6
 
@@ -3384,7 +3384,7 @@ fbuffer_append_char.exit48:                       ; preds = %99, %101
 128:                                              ; preds = %128, %123
   %.0.i.i54 = phi i64 [ %125, %123 ], [ %131, %128 ]
   %129 = sub i64 %.0.i.i54, %127
-  %130 = icmp ult i64 %129, %114
+  %130 = icmp ugt i64 %114, %129
   %131 = shl i64 %.0.i.i54, 1
   br i1 %130, label %128, label %132, !llvm.loop !6
 
@@ -3528,7 +3528,7 @@ fbuffer_append_char.exit64:                       ; preds = %167, %169
 196:                                              ; preds = %196, %191
   %.0.i.i70 = phi i64 [ %193, %191 ], [ %199, %196 ]
   %197 = sub i64 %.0.i.i70, %195
-  %198 = icmp ult i64 %197, %182
+  %198 = icmp ugt i64 %182, %197
   %199 = shl i64 %.0.i.i70, 1
   br i1 %198, label %196, label %200, !llvm.loop !6
 
@@ -4042,7 +4042,7 @@ fbuffer_append_char.exit:                         ; preds = %38, %40
 66:                                               ; preds = %66, %62
   %.0.i.i38 = phi i64 [ %64, %62 ], [ %69, %66 ]
   %67 = sub i64 %.0.i.i38, %65
-  %68 = icmp ult i64 %67, %9
+  %68 = icmp ugt i64 %9, %67
   %69 = shl i64 %.0.i.i38, 1
   br i1 %68, label %66, label %70, !llvm.loop !6
 
@@ -4106,7 +4106,7 @@ fbuffer_append.exit:                              ; preds = %54, %ruby_nonempty_
 90:                                               ; preds = %90, %86
   %.0.i.i45 = phi i64 [ %88, %86 ], [ %93, %90 ]
   %91 = sub i64 %.0.i.i45, %89
-  %92 = icmp ult i64 %91, %12
+  %92 = icmp ugt i64 %12, %91
   %93 = shl i64 %.0.i.i45, 1
   br i1 %92, label %90, label %94, !llvm.loop !6
 
@@ -4309,7 +4309,7 @@ fbuffer_append_char.exit:                         ; preds = %43, %45
 64:                                               ; preds = %64, %60
   %.0.i.i67 = phi i64 [ %63, %60 ], [ %67, %64 ]
   %65 = sub i64 %.0.i.i67, %61
-  %66 = icmp ult i64 %65, %8
+  %66 = icmp ugt i64 %8, %65
   %67 = shl i64 %.0.i.i67, 1
   br i1 %66, label %64, label %68, !llvm.loop !6
 
@@ -4399,7 +4399,7 @@ rb_array_len.exit:                                ; preds = %83, %86
 100:                                              ; preds = %100, %96
   %.0.i.i75 = phi i64 [ %98, %96 ], [ %103, %100 ]
   %101 = sub i64 %.0.i.i75, %99
-  %102 = icmp ult i64 %101, %19
+  %102 = icmp ugt i64 %19, %101
   %103 = shl i64 %.0.i.i75, 1
   br i1 %102, label %100, label %104, !llvm.loop !6
 
@@ -4454,7 +4454,7 @@ fbuffer_append.exit78:                            ; preds = %ruby_nonempty_memcp
 122:                                              ; preds = %122, %118
   %.0.i.i84 = phi i64 [ %120, %118 ], [ %125, %122 ]
   %123 = sub i64 %.0.i.i84, %121
-  %124 = icmp ult i64 %123, %11
+  %124 = icmp ugt i64 %11, %123
   %125 = shl i64 %.0.i.i84, 1
   br i1 %124, label %122, label %126, !llvm.loop !6
 
@@ -4520,7 +4520,7 @@ ruby_nonempty_memcpy.exit.i85:                    ; preds = %128, %126
 148:                                              ; preds = %148, %144
   %.0.i.i93 = phi i64 [ %146, %144 ], [ %151, %148 ]
   %149 = sub i64 %.0.i.i93, %147
-  %150 = icmp ult i64 %149, %8
+  %150 = icmp ugt i64 %8, %149
   %151 = shl i64 %.0.i.i93, 1
   br i1 %150, label %148, label %152, !llvm.loop !6
 
@@ -4579,7 +4579,7 @@ fbuffer_append.exit96:                            ; preds = %137, %ruby_nonempty
 171:                                              ; preds = %171, %167
   %.0.i.i102 = phi i64 [ %169, %167 ], [ %174, %171 ]
   %172 = sub i64 %.0.i.i102, %170
-  %173 = icmp ult i64 %172, %11
+  %173 = icmp ugt i64 %11, %172
   %174 = shl i64 %.0.i.i102, 1
   br i1 %173, label %171, label %175, !llvm.loop !6
 
@@ -4716,12 +4716,12 @@ fbuffer_append_char.exit:                         ; preds = %22, %24
   store i64 %31, ptr %17, align 8
   %32 = tail call ptr @rb_enc_get(i64 noundef %2) #15
   %33 = tail call nonnull ptr @rb_usascii_encoding() #15
-  %34 = icmp eq ptr %33, %32
+  %34 = icmp eq ptr %32, %33
   br i1 %34, label %enc_utf8_compatible_p.exit.thread, label %enc_utf8_compatible_p.exit
 
 enc_utf8_compatible_p.exit:                       ; preds = %fbuffer_append_char.exit
   %35 = tail call nonnull ptr @rb_utf8_encoding() #15
-  %.not = icmp eq ptr %35, %32
+  %.not = icmp eq ptr %32, %35
   br i1 %.not, label %enc_utf8_compatible_p.exit.thread, label %36
 
 36:                                               ; preds = %enc_utf8_compatible_p.exit
@@ -5728,7 +5728,7 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
 485:                                              ; preds = %485, %481
   %.0.i.i.i27 = phi i64 [ %483, %481 ], [ %488, %485 ]
   %486 = sub i64 %.0.i.i.i27, %484
-  %487 = icmp ult i64 %486, %474
+  %487 = icmp ugt i64 %474, %486
   %488 = shl i64 %.0.i.i.i27, 1
   br i1 %487, label %485, label %489, !llvm.loop !6
 
@@ -5921,7 +5921,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 563:                                              ; preds = %563, %559
   %.0.i.i89.i = phi i64 [ %561, %559 ], [ %566, %563 ]
   %564 = sub i64 %.0.i.i89.i, %562
-  %565 = icmp ult i64 %564, %552
+  %565 = icmp ugt i64 %552, %564
   %566 = shl i64 %.0.i.i89.i, 1
   br i1 %565, label %563, label %567, !llvm.loop !6
 
@@ -5972,7 +5972,7 @@ fbuffer_append.exit92.i:                          ; preds = %ruby_nonempty_memcp
 585:                                              ; preds = %585, %581
   %.0.i.i98.i22 = phi i64 [ %583, %581 ], [ %588, %585 ]
   %586 = sub i64 %.0.i.i98.i22, %584
-  %587 = icmp ult i64 %586, %.061.i
+  %587 = icmp ugt i64 %.061.i, %586
   %588 = shl i64 %.0.i.i98.i22, 1
   br i1 %587, label %585, label %589, !llvm.loop !6
 
@@ -6035,7 +6035,7 @@ fbuffer_append.exit101.i:                         ; preds = %591, %589
 612:                                              ; preds = %612, %608
   %.0.i.i107.i = phi i64 [ %610, %608 ], [ %615, %612 ]
   %613 = sub i64 %.0.i.i107.i, %611
-  %614 = icmp ult i64 %613, %601
+  %614 = icmp ugt i64 %601, %613
   %615 = shl i64 %.0.i.i107.i, 1
   br i1 %614, label %612, label %616, !llvm.loop !6
 
@@ -6202,7 +6202,7 @@ fltoa.exit.i:                                     ; preds = %.lr.ph.i.i.i, %15
 39:                                               ; preds = %39, %34
   %.0.i.i.i = phi i64 [ %36, %34 ], [ %42, %39 ]
   %40 = sub i64 %.0.i.i.i, %38
-  %41 = icmp ult i64 %40, %25
+  %41 = icmp ugt i64 %25, %40
   %42 = shl i64 %.0.i.i.i, 1
   br i1 %41, label %39, label %43, !llvm.loop !6
 
@@ -6324,7 +6324,7 @@ define internal fastcc void @fbuffer_append_str(ptr nocapture noundef %0, i64 no
 25:                                               ; preds = %25, %20
   %.0.i.i = phi i64 [ %22, %20 ], [ %28, %25 ]
   %26 = sub i64 %.0.i.i, %24
-  %27 = icmp ult i64 %26, %9
+  %27 = icmp ugt i64 %9, %26
   %28 = shl i64 %.0.i.i, 1
   br i1 %27, label %25, label %29, !llvm.loop !6
 
@@ -6424,7 +6424,7 @@ define internal noundef i32 @json_object_i(i64 noundef %0, i64 noundef %1, i64 n
 48:                                               ; preds = %48, %43
   %.0.i.i = phi i64 [ %45, %43 ], [ %51, %48 ]
   %49 = sub i64 %.0.i.i, %47
-  %50 = icmp ult i64 %49, %32
+  %50 = icmp ugt i64 %32, %49
   %51 = shl i64 %.0.i.i, 1
   br i1 %50, label %48, label %52, !llvm.loop !6
 
@@ -6486,7 +6486,7 @@ fbuffer_append.exit:                              ; preds = %ruby_nonempty_memcp
 75:                                               ; preds = %75, %70
   %.0.i.i56 = phi i64 [ %72, %70 ], [ %78, %75 ]
   %76 = sub i64 %.0.i.i56, %74
-  %77 = icmp ult i64 %76, %13
+  %77 = icmp ugt i64 %13, %76
   %78 = shl i64 %.0.i.i56, 1
   br i1 %77, label %75, label %79, !llvm.loop !6
 
@@ -6552,7 +6552,7 @@ fbuffer_append.exit59:                            ; preds = %ruby_nonempty_memcp
 101:                                              ; preds = %101, %97
   %.0.i.i65 = phi i64 [ %99, %97 ], [ %104, %101 ]
   %102 = sub i64 %.0.i.i65, %100
-  %103 = icmp ult i64 %102, %16
+  %103 = icmp ugt i64 %16, %102
   %104 = shl i64 %.0.i.i65, 1
   br i1 %103, label %101, label %105, !llvm.loop !6
 
@@ -6690,7 +6690,7 @@ Check_Type.exit:                                  ; preds = %144
 162:                                              ; preds = %162, %157
   %.0.i.i75 = phi i64 [ %159, %157 ], [ %165, %162 ]
   %163 = sub i64 %.0.i.i75, %161
-  %164 = icmp ult i64 %163, %22
+  %164 = icmp ugt i64 %22, %163
   %165 = shl i64 %.0.i.i75, 1
   br i1 %164, label %162, label %166, !llvm.loop !6
 

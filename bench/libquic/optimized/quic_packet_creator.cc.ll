@@ -208,7 +208,7 @@ define dso_local void @_ZN3net17QuicPacketCreator18SetMaxPacketLengthEm(ptr noca
 entry:
   %max_packet_length_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %max_packet_length_, align 8
-  %cmp = icmp eq i64 %0, %length
+  %cmp = icmp eq i64 %length, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -248,7 +248,7 @@ _ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
+  %cmp.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4hashIhENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4hashIhENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -293,7 +293,7 @@ _ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %multipath_packet_number_, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 304
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4hashIhENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -1098,13 +1098,13 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 cleanup.done:                                     ; preds = %_ZN3net17QuicPacketCreator21HasRoomForStreamFrameEjm.exit, %if.end5, %invoke.cont23
   %total_length = getelementptr inbounds i8, ptr %iov, i64 16
   %44 = load i64, ptr %total_length, align 8
-  %cmp = icmp eq i64 %44, %iov_offset
+  %cmp = icmp eq i64 %iov_offset, %44
   br i1 %cmp, label %if.then29, label %if.end56
 
 if.then29:                                        ; preds = %cleanup.done
   %call30 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   %call30.not = xor i1 %call30, true
-  %brmerge = or i1 %call30.not, %fin
+  %brmerge = or i1 %fin, %call30.not
   br i1 %brmerge, label %cleanup.done47, label %cond.false34
 
 cond.false34:                                     ; preds = %if.then29
@@ -1237,7 +1237,7 @@ _ZN3net17QuicPacketCreator9BytesFreeEv.exit68:    ; preds = %_ZN3net17QuicPacket
   %sub61 = sub i64 %51, %71
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %sub61)
   %cmp64 = icmp ule i64 %sub, %sub61
-  %72 = and i1 %cmp64, %fin
+  %72 = and i1 %fin, %cmp64
   %buffer_allocator_ = getelementptr inbounds i8, ptr %this, i64 48
   %73 = load ptr, ptr %buffer_allocator_, align 8
   call void @_ZN3net15NewStreamBufferEPNS_19QuicBufferAllocatorEm(ptr nonnull sret(%"class.std::unique_ptr.40") align 8 %buffer, ptr noundef %73, i64 noundef %.sroa.speculated)
@@ -2092,7 +2092,7 @@ if.end23:                                         ; preds = %if.end18
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %iov_offset.addr.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer, ptr align 1 %add.ptr, i64 %.sroa.speculated, i1 false)
   %sub4850 = sub i64 %length, %.sroa.speculated
-  %cmp5052.not = icmp ult i64 %sub28, %length
+  %cmp5052.not = icmp ugt i64 %length, %sub28
   br i1 %cmp5052.not, label %lor.lhs.false51.preheader, label %while.end66
 
 lor.lhs.false51.preheader:                        ; preds = %if.end23
@@ -3082,10 +3082,10 @@ if.end:                                           ; preds = %invoke.cont4
 invoke.cont19:                                    ; preds = %if.end
   %total_length = getelementptr inbounds i8, ptr %iov, i64 16
   %20 = load i64, ptr %total_length, align 8
-  %cmp = icmp ne i64 %20, %iov_offset
+  %cmp = icmp ne i64 %iov_offset, %20
   %not.call20 = xor i1 %call20, true
   %or.cond = select i1 %not.call20, i1 true, i1 %cmp
-  %brmerge = or i1 %or.cond, %fin
+  %brmerge = or i1 %fin, %or.cond
   br i1 %brmerge, label %cleanup.done38, label %cond.false23
 
 cond.false23:                                     ; preds = %invoke.cont19
@@ -3117,7 +3117,7 @@ invoke.cont43:                                    ; preds = %cleanup.done38
   %sub48 = sub i64 %22, %24
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %sub48)
   %cmp52 = icmp ule i64 %sub, %sub48
-  %25 = and i1 %cmp52, %fin
+  %25 = and i1 %fin, %cmp52
   %buffer_allocator_ = getelementptr inbounds i8, ptr %this, i64 48
   %26 = load ptr, ptr %buffer_allocator_, align 8
   invoke void @_ZN3net15NewStreamBufferEPNS_19QuicBufferAllocatorEm(ptr nonnull sret(%"class.std::unique_ptr.40") align 8 %stream_buffer, ptr noundef %26, i64 noundef %.sroa.speculated)
@@ -4043,7 +4043,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   %14 = load i8, ptr %add.ptr.i.i, align 1
-  %cmp.i.i.i.i = icmp eq i8 %14, %path_id
+  %cmp.i.i.i.i = icmp eq i8 %path_id, %14
   br i1 %cmp.i.i.i.i, label %cond.false29, label %for.cond.i.i, !llvm.loop !28
 
 if.end15.i.i:                                     ; preds = %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit
@@ -4060,11 +4060,11 @@ if.end.i.i.i.i6:                                  ; preds = %if.end15.i.i
   %18 = load ptr, ptr %17, align 8
   %add.ptr8.i.i.i.i7 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i8, ptr %add.ptr8.i.i.i.i7, align 1
-  %cmp.i.i.i9.i.i.i.i8 = icmp eq i8 %19, %path_id
+  %cmp.i.i.i9.i.i.i.i8 = icmp eq i8 %path_id, %19
   br i1 %cmp.i.i.i9.i.i.i.i8, label %cond.false29, label %if.end3.i.i.i.i9
 
 for.cond.i.i.i.i17:                               ; preds = %lor.lhs.false.i.i.i.i12
-  %cmp.i.i.i.i.i.i.i18 = icmp eq i8 %21, %path_id
+  %cmp.i.i.i.i.i.i.i18 = icmp eq i8 %path_id, %21
   br i1 %cmp.i.i.i.i.i.i.i18, label %cond.false29, label %if.end3.i.i.i.i9, !llvm.loop !27
 
 if.end3.i.i.i.i9:                                 ; preds = %if.end.i.i.i.i6, %for.cond.i.i.i.i17
@@ -4434,7 +4434,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4hashIhENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4hashIhENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end

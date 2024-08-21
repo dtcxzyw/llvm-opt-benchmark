@@ -30,7 +30,7 @@ $_ZSt10noshowbaseRSt8ios_base = comdat any
 define dso_local void @_ZN4absl7uint128C2Ef(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(16) %this, float noundef %v) unnamed_addr #0 align 2 {
 entry:
   %call.i.i = tail call noundef float @ldexpf(float noundef 1.000000e+00, i32 noundef 64) #6
-  %cmp.i = fcmp ugt float %call.i.i, %v
+  %cmp.i = fcmp ult float %v, %call.i.i
   br i1 %cmp.i, label %_ZN4absl12_GLOBAL__N_120MakeUint128FromFloatIfEENS_7uint128ET_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -55,7 +55,7 @@ _ZN4absl12_GLOBAL__N_120MakeUint128FromFloatIfEENS_7uint128ET_.exit: ; preds = %
 define dso_local void @_ZN4absl7uint128C2Ed(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(16) %this, double noundef %v) unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 64) #6
-  %cmp.i = fcmp ugt double %call.i, %v
+  %cmp.i = fcmp ult double %v, %call.i
   br i1 %cmp.i, label %_ZN4absl12_GLOBAL__N_120MakeUint128FromFloatIdEENS_7uint128ET_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -80,7 +80,7 @@ _ZN4absl12_GLOBAL__N_120MakeUint128FromFloatIdEENS_7uint128ET_.exit: ; preds = %
 define dso_local void @_ZN4absl7uint128C2Ee(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(16) %this, x86_fp80 noundef %v) unnamed_addr #0 align 2 {
 entry:
   %call.i.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef 64) #6
-  %cmp.i = fcmp ugt x86_fp80 %call.i.i, %v
+  %cmp.i = fcmp ult x86_fp80 %v, %call.i.i
   br i1 %cmp.i, label %_ZN4absl12_GLOBAL__N_120MakeUint128FromFloatIeEENS_7uint128ET_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry

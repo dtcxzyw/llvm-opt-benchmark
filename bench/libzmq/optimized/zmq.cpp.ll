@@ -1177,7 +1177,7 @@ _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit: ; preds = %do.end
   %call.i.i = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg)
   %cond.i = call i64 @llvm.umin.i64(i64 %call.i.i, i64 2147483647)
   %conv.i = trunc nuw nsw i64 %cond.i to i32
-  %cond = call i64 @llvm.umin.i64(i64 %cond.i, i64 %len_)
+  %cond = call i64 @llvm.umin.i64(i64 %len_, i64 %cond.i)
   %tobool28.not = icmp eq i64 %cond, 0
   br i1 %tobool28.not, label %if.end31, label %if.then29
 

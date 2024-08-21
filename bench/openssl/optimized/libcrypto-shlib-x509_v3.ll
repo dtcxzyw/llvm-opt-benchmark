@@ -197,7 +197,7 @@ if.end6:                                          ; preds = %if.end, %if.then2
 
 if.end19:                                         ; preds = %if.end6
   %cmp12 = icmp slt i32 %loc, 0
-  %1 = tail call i32 @llvm.smin.i32(i32 %call8, i32 %loc)
+  %1 = tail call i32 @llvm.smin.i32(i32 %loc, i32 %call8)
   %loc.addr.0 = select i1 %cmp12, i32 %call8, i32 %1
   %call22 = tail call i32 @OPENSSL_sk_insert(ptr noundef nonnull %sk.1, ptr noundef nonnull %call16, i32 noundef %loc.addr.0) #6
   %tobool.not = icmp eq i32 %call22, 0

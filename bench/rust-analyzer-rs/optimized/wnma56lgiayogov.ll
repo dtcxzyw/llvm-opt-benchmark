@@ -19539,7 +19539,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !3645, !noalias !3650, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !3652, !noalias !3650, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17haf0bb1feeaeb7437E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -19596,7 +19596,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !3658, !noalias !3663, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !3665, !noalias !3663, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17haf0bb1feeaeb7437E.exit"
 
 9:                                                ; preds = %3
@@ -19886,7 +19886,7 @@ define hidden void @_ZN9itertools9Itertools4join17h33c9b37353fa630eE(ptr noalias
   %71 = load i64, ptr %.sroa.59.0..sroa_idx, align 8, !alias.scope !3717, !noalias !3722, !noundef !4
   %72 = load i64, ptr %16, align 8, !alias.scope !3726, !noalias !3722, !noundef !4
   %73 = sub i64 %72, %71
-  %74 = icmp ult i64 %73, %3
+  %74 = icmp ugt i64 %3, %73
   br i1 %74, label %75, label %80
 
 75:                                               ; preds = %"_ZN6syntax3ast4make5impl_28_$u7b$$u7b$closure$u7d$$u7d$17hd2fb29b415a0e440E.exit.i.i.i.i"
@@ -20228,7 +20228,7 @@ define hidden void @_ZN9itertools9Itertools4join17h39e34fc1022593bfE(ptr noalias
   %71 = load i64, ptr %.sroa.59.0..sroa_idx, align 8, !alias.scope !3805, !noalias !3810, !noundef !4
   %72 = load i64, ptr %16, align 8, !alias.scope !3814, !noalias !3810, !noundef !4
   %73 = sub i64 %72, %71
-  %74 = icmp ult i64 %73, %3
+  %74 = icmp ugt i64 %3, %73
   br i1 %74, label %75, label %80
 
 75:                                               ; preds = %"_ZN6syntax3ast4make10impl_trait28_$u7b$$u7b$closure$u7d$$u7d$17ha3a2362552026e3eE.exit.i.i.i.i"

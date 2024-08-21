@@ -1244,7 +1244,7 @@ define internal fastcc i64 @Exp_Truth6(i32 noundef %0, ptr nocapture noundef rea
   br label %Exp_Truth6Lit.exit
 
 17:                                               ; preds = %12
-  %18 = icmp sgt i32 %11, %15
+  %18 = icmp slt i32 %15, %11
   %19 = and i32 %15, 1
   %.not17.i = icmp ne i32 %19, 0
   br i1 %18, label %20, label %32
@@ -1291,7 +1291,7 @@ Exp_Truth6Lit.exit:                               ; preds = %12, %16, %21, %27, 
   br label %Exp_Truth6Lit.exit32
 
 43:                                               ; preds = %Exp_Truth6Lit.exit
-  %44 = icmp sgt i32 %11, %41
+  %44 = icmp slt i32 %41, %11
   %45 = and i32 %41, 1
   %.not17.i30 = icmp ne i32 %45, 0
   br i1 %44, label %46, label %58
@@ -1348,7 +1348,7 @@ Exp_Truth6Lit.exit32:                             ; preds = %Exp_Truth6Lit.exit,
 
 72:                                               ; preds = %._crit_edge
   %73 = shl nuw nsw i32 %0, 1
-  %74 = icmp sgt i32 %73, %70
+  %74 = icmp slt i32 %70, %73
   %75 = and i32 %70, 1
   %.not17.i34 = icmp ne i32 %75, 0
   br i1 %74, label %76, label %Exp_Truth6Lit.exit36.thread
@@ -2115,7 +2115,7 @@ Vec_IntPush.exit203:                              ; preds = %.Vec_IntGrow.exit10
   %195 = getelementptr inbounds i32, ptr %.val173, i64 %194
   %196 = getelementptr i8, ptr %.0247, i64 4
   %.0.val = load i32, ptr %196, align 4
-  %197 = icmp sgt i32 %.0.val, %19
+  %197 = icmp slt i32 %19, %.0.val
   br i1 %197, label %Sfm_LibFun.exit209, label %.preheader.i
 
 .preheader.i:                                     ; preds = %Vec_IntPush.exit203
@@ -2170,7 +2170,7 @@ Sfm_LibFun.exit210:                               ; preds = %Sfm_LibFun.exit210.
   %219 = load ptr, ptr %152, align 8
   %220 = getelementptr %struct.Sfm_Fun_t_, ptr %219, i64 %213, i32 1
   %.val177 = load i32, ptr %220, align 4
-  %221 = icmp slt i32 %.val177, %19
+  %221 = icmp sgt i32 %19, %.val177
   br i1 %221, label %.loopexit244, label %.preheader.i211
 
 .preheader.i211:                                  ; preds = %Sfm_LibFun.exit210
@@ -3689,7 +3689,7 @@ Sfm_LibTruth8Two.exit:                            ; preds = %.lr.ph.i157, %200
   br label %Exp_Truth6Lit.exit.i215
 
 230:                                              ; preds = %225
-  %231 = icmp sgt i32 %224, %228
+  %231 = icmp slt i32 %228, %224
   %232 = and i32 %228, 1
   %.not17.i.i223 = icmp ne i32 %232, 0
   br i1 %231, label %233, label %245
@@ -3736,7 +3736,7 @@ Exp_Truth6Lit.exit.i215:                          ; preds = %245, %240, %234, %2
   br label %Exp_Truth6Lit.exit32.i217
 
 256:                                              ; preds = %Exp_Truth6Lit.exit.i215
-  %257 = icmp sgt i32 %224, %254
+  %257 = icmp slt i32 %254, %224
   %258 = and i32 %254, 1
   %.not17.i30.i221 = icmp ne i32 %258, 0
   br i1 %257, label %259, label %271
@@ -3793,7 +3793,7 @@ Exp_Truth6Lit.exit32.i217:                        ; preds = %271, %266, %260, %2
 
 285:                                              ; preds = %._crit_edge.i203
   %286 = shl nuw nsw i32 %192, 1
-  %287 = icmp sgt i32 %286, %283
+  %287 = icmp slt i32 %283, %286
   %288 = and i32 %283, 1
   %.not17.i34.i209 = icmp ne i32 %288, 0
   br i1 %287, label %289, label %Exp_Truth6Lit.exit36.thread.i210
@@ -3903,7 +3903,7 @@ Sfm_LibTruth6Two.exit:                            ; preds = %318, %Exp_Truth6.ex
   br label %Exp_Truth6Lit.exit.i
 
 333:                                              ; preds = %328
-  %334 = icmp sgt i32 %327, %331
+  %334 = icmp slt i32 %331, %327
   %335 = and i32 %331, 1
   %.not17.i.i = icmp ne i32 %335, 0
   br i1 %334, label %336, label %348
@@ -3950,7 +3950,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %348, %343, %337, %3
   br label %Exp_Truth6Lit.exit32.i
 
 359:                                              ; preds = %Exp_Truth6Lit.exit.i
-  %360 = icmp sgt i32 %327, %357
+  %360 = icmp slt i32 %357, %327
   %361 = and i32 %357, 1
   %.not17.i30.i = icmp ne i32 %361, 0
   br i1 %360, label %362, label %374
@@ -4007,7 +4007,7 @@ Exp_Truth6Lit.exit32.i:                           ; preds = %374, %369, %363, %3
 
 388:                                              ; preds = %._crit_edge.i
   %389 = shl nuw nsw i32 %309, 1
-  %390 = icmp sgt i32 %389, %386
+  %390 = icmp slt i32 %386, %389
   %391 = and i32 %386, 1
   %.not17.i34.i = icmp ne i32 %391, 0
   br i1 %390, label %392, label %Exp_Truth6Lit.exit36.thread.i

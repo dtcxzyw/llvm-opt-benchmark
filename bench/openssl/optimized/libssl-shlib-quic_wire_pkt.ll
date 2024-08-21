@@ -59,7 +59,7 @@ if.end:                                           ; preds = %switch.lookup
 lor.lhs.false:                                    ; preds = %if.end
   %call8 = tail call i32 @EVP_CIPHER_get_key_length(ptr noundef nonnull %call4) #9
   %conv = sext i32 %call8 to i64
-  %cmp9.not = icmp eq i64 %conv, %quic_hp_key_len
+  %cmp9.not = icmp eq i64 %quic_hp_key_len, %conv
   br i1 %cmp9.not, label %if.end12, label %err
 
 if.end12:                                         ; preds = %lor.lhs.false
@@ -987,7 +987,7 @@ lor.lhs.false:                                    ; preds = %if.end11
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %conv17 = zext i8 %2 to i64
-  %cmp18.not = icmp ne i64 %conv17, %short_conn_id_len
+  %cmp18.not = icmp ne i64 %short_conn_id_len, %conv17
   %cmp33 = icmp ugt i64 %short_conn_id_len, 20
   %or.cond = or i1 %cmp18.not, %cmp33
   br i1 %or.cond, label %return, label %lor.lhs.false35
@@ -1302,7 +1302,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %conv = zext i8 %1 to i64
-  %cmp3.not = icmp ne i64 %conv, %short_conn_id_len
+  %cmp3.not = icmp ne i64 %short_conn_id_len, %conv
   %cmp16 = icmp ugt i64 %short_conn_id_len, 20
   %or.cond = or i1 %cmp3.not, %cmp16
   br i1 %or.cond, label %return, label %lor.lhs.false18
@@ -1469,14 +1469,14 @@ if.end24:                                         ; preds = %land.lhs.true, %lor
   %conv26 = zext i8 %6 to i64
   %cmp27 = icmp ugt i8 %6, 20
   %add = add nuw nsw i64 %conv26, 7
-  %cmp30 = icmp ugt i64 %add, %buf_len
+  %cmp30 = icmp ult i64 %buf_len, %add
   %or.cond22 = select i1 %cmp27, i1 true, i1 %cmp30
   br i1 %or.cond22, label %return, label %return.sink.split
 
 if.else:                                          ; preds = %if.end
   %cmp37 = icmp ult i8 %0, 64
   %add41 = add nuw nsw i64 %short_conn_id_len, 21
-  %cmp42 = icmp ugt i64 %add41, %buf_len
+  %cmp42 = icmp ult i64 %buf_len, %add41
   %or.cond23 = select i1 %cmp37, i1 true, i1 %cmp42
   br i1 %or.cond23, label %return, label %if.end45
 

@@ -1700,7 +1700,7 @@ do.end:                                           ; preds = %if.then24, %if.then
   call fastcc void @trace_encoding(ptr noundef nonnull @.str.54, ptr noundef %path, ptr noundef nonnull %enc, ptr noundef %call25, i64 noundef %16)
   %tobool30.not = icmp ne ptr %call25, null
   %17 = load i64, ptr %re_src_len, align 8
-  %cmp.not = icmp eq i64 %17, %src_len
+  %cmp.not = icmp eq i64 %src_len, %17
   %or.cond38 = select i1 %tobool30.not, i1 %cmp.not, i1 false
   br i1 %or.cond38, label %lor.lhs.false32, label %if.then35
 
@@ -2123,7 +2123,7 @@ if.end93:                                         ; preds = %do.cond89, %do.cond
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %33 = load i64, ptr %buf, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %33, i64 1)
-  %cmp.i63 = icmp ult i64 %spec.select.i, %sub.ptr.sub
+  %cmp.i63 = icmp ugt i64 %sub.ptr.sub, %spec.select.i
   br i1 %cmp.i63, label %if.then.i67, label %if.end.i64
 
 if.then.i67:                                      ; preds = %if.end93
@@ -2326,7 +2326,7 @@ for.end:                                          ; preds = %for.cond.backedge, 
   %sub.ptr.sub59 = sub i64 %sub.ptr.lhs.cast57, %sub.ptr.rhs.cast58
   %7 = load i64, ptr %buf, align 8
   %spec.select.i43 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i43, %sub.ptr.sub59
+  %cmp.i = icmp ugt i64 %sub.ptr.sub59, %spec.select.i43
   br i1 %cmp.i, label %if.then.i, label %if.end.i44
 
 if.then.i:                                        ; preds = %for.end
@@ -2482,7 +2482,7 @@ count_ident.exit.i:                               ; preds = %while.cond19.i.i, %
 if.end3.i:                                        ; preds = %count_ident.exit.i
   %buf4.i = getelementptr inbounds i8, ptr %dst, i64 16
   %4 = load ptr, ptr %buf4.i, align 8
-  %cmp.i = icmp eq ptr %4, %src
+  %cmp.i = icmp eq ptr %src, %4
   br i1 %cmp.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.end3.i
@@ -2852,7 +2852,7 @@ if.then7.i.i:                                     ; preds = %if.end2.i.i
 if.end4.i:                                        ; preds = %if.then7.i.i, %if.end2.i.i
   %buf5.i = getelementptr inbounds i8, ptr %dst, i64 16
   %44 = load ptr, ptr %buf5.i, align 8
-  %cmp6.i = icmp eq ptr %44, %src.addr.0
+  %cmp6.i = icmp eq ptr %src.addr.0, %44
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end4.i
@@ -3719,7 +3719,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %rem20 = and i64 %indvars.iv.next, 7
   %tobool16.not = icmp ne i64 %rem20, 0
-  %cmp20 = icmp ult i64 %indvars.iv.next, %len
+  %cmp20 = icmp ugt i64 %len, %indvars.iv.next
   %3 = and i1 %tobool16.not, %cmp20
   %cond23 = select i1 %3, i32 32, i32 10
   %4 = trunc nuw nsw i64 %indvars.iv to i32

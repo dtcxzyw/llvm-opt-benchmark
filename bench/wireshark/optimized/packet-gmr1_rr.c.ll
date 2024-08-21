@@ -1305,7 +1305,7 @@ define internal void @gmr1_rr_msg_imm_ass(ptr noundef %0, ptr noundef %1, ptr no
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -1581,7 +1581,7 @@ define internal void @gmr1_rr_msg_imm_ass_rej_1(ptr noundef %0, ptr noundef %1, 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -1880,7 +1880,7 @@ define internal void @gmr1_rr_msg_pos_verif_notify(ptr noundef %0, ptr noundef %
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -1959,7 +1959,7 @@ define internal void @gmr1_rr_msg_imm_ass_2(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -2299,11 +2299,11 @@ define internal void @gmr1_rr_msg_ciph_mode_complete(ptr noundef %0, ptr noundef
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 23, i32 noundef 4, i32 noundef 3, i32 noundef %3, i32 noundef %4, ptr noundef null) #7
   %9 = zext i16 %8 to i32
-  %.not = icmp ult i32 %9, %4
+  %.not = icmp ugt i32 %4, %9
   br i1 %.not, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = add i32 %9, %3
+  %11 = add i32 %3, %9
   %12 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 118, i32 noundef 15, i32 noundef 18, i32 noundef %11, ptr noundef null) #7
   br label %13
 
@@ -2323,7 +2323,7 @@ define internal void @gmr1_rr_msg_ass_cmd_1(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -2767,7 +2767,7 @@ define internal void @gmr1_rr_msg_chan_mode_modify(ptr noundef %0, ptr noundef %
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -2808,7 +2808,7 @@ define internal void @gmr1_rr_msg_chan_mode_mod_ack(ptr noundef %0, ptr noundef 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 

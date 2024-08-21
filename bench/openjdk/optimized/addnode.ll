@@ -3596,21 +3596,21 @@ define internal fastcc noundef ptr @_ZL12rotate_shiftP8PhaseGVNP4NodeS2_i(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK7OrINode8add_ringEPK4TypeS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(52) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   %6 = load ptr, ptr @_ZN7TypeInt3ONEE, align 8
   br i1 %5, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = icmp eq ptr %6, %2
+  %8 = icmp eq ptr %2, %6
   br i1 %8, label %31, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp eq ptr %1, %2
+  %10 = icmp eq ptr %2, %1
   br i1 %10, label %31, label %14
 
 11:                                               ; preds = %3
-  %12 = icmp eq ptr %6, %1
-  %13 = icmp eq ptr %4, %2
+  %12 = icmp eq ptr %1, %6
+  %13 = icmp eq ptr %2, %4
   %or.cond = and i1 %13, %12
   br i1 %or.cond, label %31, label %14
 
@@ -4554,13 +4554,13 @@ _ZNK7AddNode5ValueEP8PhaseGVN.exit:               ; preds = %95, %90, %68, %2, %
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK8XorINode8add_ringEPK4TypeS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(52) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @_ZN7TypeInt3ONEE, align 8
-  %8 = icmp eq ptr %7, %2
-  %9 = icmp eq ptr %1, %2
+  %8 = icmp eq ptr %2, %7
+  %9 = icmp eq ptr %2, %1
   %or.cond = or i1 %9, %8
   br i1 %or.cond, label %27, label %10
 
@@ -4992,7 +4992,7 @@ define hidden noundef ptr @_ZN7MaxNode18build_min_max_longEP8PhaseGVNP4NodeS3_b(
 _ZN4NodenwEm.exit:                                ; preds = %21, %23
   %.0.i.i.i = phi ptr [ %16, %21 ], [ %24, %23 ]
   %25 = icmp eq ptr %.0.i.i.i, null
-  br i1 %25, label %70, label %26
+  br i1 %25, label %68, label %26
 
 26:                                               ; preds = %_ZN4NodenwEm.exit
   %27 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5027,7 +5027,7 @@ _ZN4NodenwEm.exit:                                ; preds = %21, %23
 _ZN4NodenwEm.exit11:                              ; preds = %39, %41
   %.0.i.i.i10 = phi ptr [ %16, %39 ], [ %42, %41 ]
   %43 = icmp eq ptr %.0.i.i.i10, null
-  br i1 %43, label %70, label %44
+  br i1 %43, label %68, label %44
 
 44:                                               ; preds = %_ZN4NodenwEm.exit11
   %45 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5048,39 +5048,38 @@ _ZN4NodenwEm.exit11:                              ; preds = %39, %41
   br i1 %55, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %44, %26
-  %.sink35 = phi i32 [ %34, %26 ], [ %52, %44 ]
-  %.sink21 = phi ptr [ %33, %26 ], [ %51, %44 ]
-  %.sink17.ph = phi ptr [ %28, %26 ], [ %46, %44 ]
+  %.sink33 = phi i32 [ %34, %26 ], [ %52, %44 ]
+  %.sink22 = phi ptr [ %33, %26 ], [ %51, %44 ]
+  %.sink18.ph = phi ptr [ %28, %26 ], [ %46, %44 ]
   %.0.i.i.i10.sink.ph = phi ptr [ %.0.i.i.i, %26 ], [ %.0.i.i.i10, %44 ]
-  %56 = add nsw i32 %.sink35, 1
-  %57 = icmp sgt i32 %.sink35, -1
-  %58 = xor i32 %.sink35, -2147483648
-  %59 = and i32 %58, %56
-  %60 = icmp eq i32 %59, 0
-  %61 = and i1 %57, %60
-  %62 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %56, i1 true)
-  %63 = sub nuw nsw i32 32, %62
-  %64 = shl nuw i32 1, %63
-  %.0.i.i.i.i.i.i12 = select i1 %61, i32 %56, i32 %64
-  tail call void @_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink21, i32 noundef %.0.i.i.i.i.i.i12)
-  %.pre.i.i.i13 = load i32, ptr %.sink21, align 8
+  %56 = add nsw i32 %.sink33, 1
+  %57 = icmp sgt i32 %.sink33, -1
+  %58 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %56)
+  %59 = icmp ult i32 %58, 2
+  %or.cond.i.i.i.i.i.i12 = select i1 %57, i1 %59, i1 false
+  %60 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %56, i1 true)
+  %61 = sub nuw nsw i32 32, %60
+  %62 = shl nuw i32 1, %61
+  %.0.i.i.i.i.i.i13 = select i1 %or.cond.i.i.i.i.i.i12, i32 %56, i32 %62
+  tail call void @_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink22, i32 noundef %.0.i.i.i.i.i.i13)
+  %.pre.i.i.i14 = load i32, ptr %.sink22, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %44, %26
-  %.sink20 = phi i32 [ %34, %26 ], [ %52, %44 ], [ %.pre.i.i.i13, %.sink.split.sink.split ]
-  %.sink19 = phi ptr [ %33, %26 ], [ %51, %44 ], [ %.sink21, %.sink.split.sink.split ]
-  %.sink17 = phi ptr [ %28, %26 ], [ %46, %44 ], [ %.sink17.ph, %.sink.split.sink.split ]
+  %.sink21 = phi i32 [ %34, %26 ], [ %52, %44 ], [ %.pre.i.i.i14, %.sink.split.sink.split ]
+  %.sink20 = phi ptr [ %33, %26 ], [ %51, %44 ], [ %.sink22, %.sink.split.sink.split ]
+  %.sink18 = phi ptr [ %28, %26 ], [ %46, %44 ], [ %.sink18.ph, %.sink.split.sink.split ]
   %.0.i.i.i10.sink = phi ptr [ %.0.i.i.i, %26 ], [ %.0.i.i.i10, %44 ], [ %.0.i.i.i10.sink.ph, %.sink.split.sink.split ]
-  %65 = add nsw i32 %.sink20, 1
-  store i32 %65, ptr %.sink19, align 8
-  %66 = getelementptr inbounds i8, ptr %.sink17, i64 424
-  %67 = load ptr, ptr %66, align 8
-  %68 = sext i32 %.sink20 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
-  store ptr %.0.i.i.i10.sink, ptr %69, align 8
-  br label %70
+  %63 = add nsw i32 %.sink21, 1
+  store i32 %63, ptr %.sink20, align 8
+  %64 = getelementptr inbounds i8, ptr %.sink18, i64 424
+  %65 = load ptr, ptr %64, align 8
+  %66 = sext i32 %.sink21 to i64
+  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  store ptr %.0.i.i.i10.sink, ptr %67, align 8
+  br label %68
 
-70:                                               ; preds = %.sink.split, %_ZN4NodenwEm.exit11, %_ZN4NodenwEm.exit
+68:                                               ; preds = %.sink.split, %_ZN4NodenwEm.exit11, %_ZN4NodenwEm.exit
   %.0 = phi ptr [ null, %_ZN4NodenwEm.exit ], [ null, %_ZN4NodenwEm.exit11 ], [ %.0.i.i.i10.sink, %.sink.split ]
   ret ptr %.0
 }
@@ -5216,7 +5215,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %45, %58
 
 _ZN4Node8init_reqEjPS_.exit45:                    ; preds = %77, %66, %_ZN4Node8init_reqEjPS_.exit, %6
   %.0 = phi ptr [ null, %6 ], [ %.0.i.i.i, %_ZN4Node8init_reqEjPS_.exit ], [ %.0.i.i.i, %66 ], [ %.0.i.i.i, %77 ]
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %85, label %83
 
 83:                                               ; preds = %_ZN4Node8init_reqEjPS_.exit45
@@ -6027,7 +6026,7 @@ define hidden noundef ptr @_ZN7MaxNode8IdentityEP8PhaseGVN(ptr noundef nonnull a
 define hidden noundef ptr @_ZN8MaxLNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN7AddNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 zeroext poison)
   %.not = icmp eq ptr %4, null
-  %brmerge.not = and i1 %.not, %2
+  %brmerge.not = and i1 %2, %.not
   br i1 %brmerge.not, label %5, label %7
 
 5:                                                ; preds = %3
@@ -6303,7 +6302,7 @@ _ZN7MaxNode8IdentityEP8PhaseGVN.exit:             ; preds = %33, %27, %2
 define hidden noundef ptr @_ZN8MinLNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN7AddNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 zeroext poison)
   %.not = icmp eq ptr %4, null
-  %brmerge.not = and i1 %.not, %2
+  %brmerge.not = and i1 %2, %.not
   br i1 %brmerge.not, label %5, label %7
 
 5:                                                ; preds = %3
@@ -6939,6 +6938,9 @@ declare i64 @llvm.smin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

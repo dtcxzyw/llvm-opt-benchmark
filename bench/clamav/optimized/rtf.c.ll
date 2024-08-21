@@ -725,7 +725,7 @@ pop_state.exit:                                   ; preds = %90, %80, %151, %150
   %311 = load ptr, ptr %42, align 8
   %312 = getelementptr inbounds i8, ptr %311, i64 88
   %313 = load i64, ptr %312, align 8
-  %.not.i = icmp ugt i64 %313, %310
+  %.not.i = icmp ult i64 %310, %313
   br i1 %.not.i, label %fmap_need_off_once_len.exit, label %fmap_need_off_once_len.exit.thread
 
 fmap_need_off_once_len.exit.thread:               ; preds = %fmap_need_off_once_len.exit, %._crit_edge219

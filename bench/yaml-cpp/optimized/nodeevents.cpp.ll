@@ -256,7 +256,7 @@ sw.bb3.i11:                                       ; preds = %for.body
   %incdec.ptr.i1.i = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %incdec.ptr.i1.i, ptr %m_mapIt.i.i, align 8
   %19 = load ptr, ptr %m_mapEnd.i.i, align 8
-  %cmp.i.not2.i.i = icmp eq ptr %19, %incdec.ptr.i1.i
+  %cmp.i.not2.i.i = icmp eq ptr %incdec.ptr.i1.i, %19
   br i1 %cmp.i.not2.i.i, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %sw.bb3.i11, %while.body.i.i
@@ -353,7 +353,7 @@ sw.bb3.i45:                                       ; preds = %for.body14
   %incdec.ptr.i1.i47 = getelementptr inbounds i8, ptr %41, i64 16
   store ptr %incdec.ptr.i1.i47, ptr %m_mapIt.i.i26, align 8
   %42 = load ptr, ptr %m_mapEnd.i.i48, align 8
-  %cmp.i.not2.i.i49 = icmp eq ptr %42, %incdec.ptr.i1.i47
+  %cmp.i.not2.i.i49 = icmp eq ptr %incdec.ptr.i1.i47, %42
   br i1 %cmp.i.not2.i.i49, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i56, label %land.rhs.i.i50
 
 land.rhs.i.i50:                                   ; preds = %sw.bb3.i45, %while.body.i.i53
@@ -540,7 +540,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -900,7 +900,7 @@ sw.bb3.i84:                                       ; preds = %for.body
   %incdec.ptr.i1.i = getelementptr inbounds i8, ptr %39, i64 16
   store ptr %incdec.ptr.i1.i, ptr %m_mapIt.i.i, align 8
   %40 = load ptr, ptr %m_mapEnd.i.i, align 8
-  %cmp.i.not2.i.i = icmp eq ptr %40, %incdec.ptr.i1.i
+  %cmp.i.not2.i.i = icmp eq ptr %incdec.ptr.i1.i, %40
   br i1 %cmp.i.not2.i.i, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %sw.bb3.i84, %while.body.i.i
@@ -1018,7 +1018,7 @@ sw.bb3.i119:                                      ; preds = %for.body39
   %incdec.ptr.i1.i121 = getelementptr inbounds i8, ptr %67, i64 16
   store ptr %incdec.ptr.i1.i121, ptr %m_mapIt.i.i100, align 8
   %68 = load ptr, ptr %m_mapEnd.i.i122, align 8
-  %cmp.i.not2.i.i123 = icmp eq ptr %68, %incdec.ptr.i1.i121
+  %cmp.i.not2.i.i123 = icmp eq ptr %incdec.ptr.i1.i121, %68
   br i1 %cmp.i.not2.i.i123, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i130, label %land.rhs.i.i124
 
 land.rhs.i.i124:                                  ; preds = %sw.bb3.i119, %while.body.i.i127
@@ -1237,7 +1237,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa25.i, %if.then.i ], [ %__y.0.lcssa26.i, %if.end12.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
@@ -1280,7 +1280,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPKN4YAML6detail8node_refESt4pairIKS4_iESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

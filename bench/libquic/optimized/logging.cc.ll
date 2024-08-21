@@ -826,7 +826,7 @@ entry:
 define dso_local noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef %severity) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr @_ZN7logging12_GLOBAL__N_115g_min_log_levelE, align 4
-  %cmp = icmp sgt i32 %0, %severity
+  %cmp = icmp slt i32 %severity, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1593,7 +1593,7 @@ _ZN7logging12_GLOBAL__N_111LoggingLockD2Ev.exit:  ; preds = %if.then.i.i4, %if.e
 define dso_local void @_ZN7logging6RawLogEiPKc(i32 noundef %level, ptr noundef readonly %message) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @_ZN7logging12_GLOBAL__N_115g_min_log_levelE, align 4
-  %cmp = icmp sle i32 %0, %level
+  %cmp = icmp sge i32 %level, %0
   %tobool = icmp ne ptr %message, null
   %or.cond = and i1 %tobool, %cmp
   br i1 %or.cond, label %if.then, label %if.end35

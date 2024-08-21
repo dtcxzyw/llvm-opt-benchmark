@@ -20,7 +20,7 @@ define hidden void @_ZN14C2CodeStubListC2Ev(ptr nocapture noundef nonnull writeo
   %6 = getelementptr inbounds i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 296
-  %9 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %8) #4
+  %9 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %8) #5
   store i32 0, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 2, ptr %10, align 4
@@ -54,7 +54,7 @@ define hidden void @_ZN14C2CodeStubList4emitER17C2_MacroAssembler(ptr nocapture 
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(88) %11) #4
+  %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(88) %11) #5
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 80
   %18 = load ptr, ptr %17, align 8
@@ -73,7 +73,7 @@ define hidden void @_ZN14C2CodeStubList4emitER17C2_MacroAssembler(ptr nocapture 
   %29 = getelementptr inbounds i8, ptr %18, i64 96
   %30 = getelementptr inbounds i8, ptr %18, i64 176
   %31 = load ptr, ptr %30, align 8
-  tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %31, ptr noundef nonnull %29, i32 noundef %15) #4
+  tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %31, ptr noundef nonnull %29, i32 noundef %15) #5
   %32 = load ptr, ptr %6, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 80
   %34 = load ptr, ptr %33, align 8
@@ -87,13 +87,13 @@ define hidden void @_ZN14C2CodeStubList4emitER17C2_MacroAssembler(ptr nocapture 
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 1808
   %42 = load ptr, ptr %41, align 8
-  tail call void @_ZN5ciEnv14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %42, ptr noundef nonnull @.str) #4
+  tail call void @_ZN5ciEnv14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %42, ptr noundef nonnull @.str) #5
   br label %.loopexit
 
 _ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit: ; preds = %8, %28
   %43 = load ptr, ptr %11, align 8
   %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #4
+  tail call void %44(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #5
   %45 = icmp ugt i64 %indvars.iv, 1
   br i1 %45, label %8, label %.loopexit, !llvm.loop !6
 
@@ -116,7 +116,7 @@ define hidden void @_ZN10C2CodeStub16add_to_stub_listEv(ptr noundef nonnull alig
   %10 = getelementptr inbounds i8, ptr %9, i64 572
   %11 = load i8, ptr %10, align 4
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %35, label %13
+  br i1 %12, label %33, label %13
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds i8, ptr %9, i64 520
@@ -129,30 +129,29 @@ define hidden void @_ZN10C2CodeStub16add_to_stub_listEv(ptr noundef nonnull alig
 19:                                               ; preds = %13
   %20 = add nsw i32 %15, 1
   %21 = icmp sgt i32 %15, -1
-  %22 = xor i32 %15, -2147483648
-  %23 = and i32 %22, %20
-  %24 = icmp eq i32 %23, 0
-  %25 = and i1 %21, %24
-  %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
-  %27 = sub nuw nsw i32 32, %26
-  %28 = shl nuw i32 1, %27
-  %.0.i.i.i.i.i.i = select i1 %25, i32 %20, i32 %28
+  %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
+  %23 = icmp ult i32 %22, 2
+  %or.cond.i.i.i.i.i.i = select i1 %21, i1 %23, i1 false
+  %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
+  %25 = sub nuw nsw i32 32, %24
+  %26 = shl nuw i32 1, %25
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %20, i32 %26
   tail call void @_ZN26GrowableArrayWithAllocatorIP10C2CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %14, align 8
   br label %_ZN11PhaseOutput8add_stubEP10C2CodeStub.exit
 
 _ZN11PhaseOutput8add_stubEP10C2CodeStub.exit:     ; preds = %13, %19
-  %29 = phi i32 [ %.pre.i.i.i, %19 ], [ %15, %13 ]
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %14, align 8
-  %31 = getelementptr inbounds i8, ptr %9, i64 528
-  %32 = load ptr, ptr %31, align 8
-  %33 = sext i32 %29 to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
-  store ptr %0, ptr %34, align 8
-  br label %35
+  %27 = phi i32 [ %.pre.i.i.i, %19 ], [ %15, %13 ]
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %14, align 8
+  %29 = getelementptr inbounds i8, ptr %9, i64 528
+  %30 = load ptr, ptr %29, align 8
+  %31 = sext i32 %27 to i64
+  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  store ptr %0, ptr %32, align 8
+  br label %33
 
-35:                                               ; preds = %_ZN11PhaseOutput8add_stubEP10C2CodeStub.exit, %1
+33:                                               ; preds = %_ZN11PhaseOutput8add_stubEP10C2CodeStub.exit, %1
   ret void
 }
 
@@ -171,7 +170,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP10C2CodeStub13
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #4
+  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #5
   br label %_ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit
 
 9:                                                ; preds = %2
@@ -182,12 +181,12 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP10C2CodeStub13
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
   %13 = trunc i64 %12 to i8
-  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #4
+  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #5
   br label %_ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit
 
 15:                                               ; preds = %9
   %16 = inttoptr i64 %5 to ptr
-  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #4
+  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #5
   br label %_ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit
 
 _ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit: ; preds = %7, %11, %15
@@ -250,7 +249,7 @@ _ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %.not.i15, label %_ZN13GrowableArrayIP10C2CodeStubE10deallocateEPS1_.exit, label %42
 
 42:                                               ; preds = %39
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #4
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #5
   br label %_ZN13GrowableArrayIP10C2CodeStubE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP10C2CodeStubE10deallocateEPS1_.exit: ; preds = %42, %39, %.preheader
@@ -269,14 +268,18 @@ declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #3
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

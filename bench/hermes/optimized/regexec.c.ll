@@ -145,7 +145,7 @@ if.end34.i:                                       ; preds = %for.end.i, %if.end9
 for.cond40.i:                                     ; preds = %if.end159.i, %if.end34.i
   %start.1.i = phi ptr [ %start.0.i, %if.end34.i ], [ %add.ptr166.i, %if.end159.i ]
   %14 = load ptr, ptr %beginp.i, align 8
-  %cmp.i.i = icmp eq ptr %14, %start.1.i
+  %cmp.i.i = icmp eq ptr %start.1.i, %14
   br i1 %cmp.i.i, label %cond.end.i.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %for.cond40.i
@@ -709,7 +709,7 @@ for.cond76.i:                                     ; preds = %if.end200.i, %if.en
   %71 = load ptr, ptr %fresh.i, align 8
   %72 = load ptr, ptr %tmp.i, align 8
   %73 = load ptr, ptr %beginp.i42, align 8
-  %cmp.i.i49 = icmp eq ptr %73, %start.1.i48
+  %cmp.i.i49 = icmp eq ptr %start.1.i48, %73
   br i1 %cmp.i.i49, label %cond.end.i.i53, label %cond.false.i.i50
 
 cond.false.i.i50:                                 ; preds = %for.cond76.i
@@ -1190,7 +1190,7 @@ entry:
   %0 = load i64, ptr %empty2, align 8
   %beginp = getelementptr inbounds i8, ptr %m, i64 32
   %1 = load ptr, ptr %beginp, align 8
-  %cmp = icmp eq ptr %1, %start
+  %cmp = icmp eq ptr %start, %1
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -2167,7 +2167,7 @@ sw.bb1:                                           ; preds = %for.body
   %conv = trunc i64 %4 to i32
   %sext = shl i32 %conv, 24
   %conv3 = ashr exact i32 %sext, 24
-  %cmp4 = icmp eq i32 %conv3, %ch
+  %cmp4 = icmp eq i32 %ch, %conv3
   br i1 %cmp4, label %if.then, label %for.inc163
 
 if.then:                                          ; preds = %sw.bb1
@@ -2392,7 +2392,7 @@ entry:
   %2 = load ptr, ptr %tmp3, align 8
   %beginp = getelementptr inbounds i8, ptr %m, i64 32
   %3 = load ptr, ptr %beginp, align 8
-  %cmp = icmp eq ptr %3, %start
+  %cmp = icmp eq ptr %start, %3
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -3396,7 +3396,7 @@ sw.bb1:                                           ; preds = %for.body
   %conv = trunc i64 %4 to i32
   %sext = shl i32 %conv, 24
   %conv3 = ashr exact i32 %sext, 24
-  %cmp4 = icmp eq i32 %conv3, %ch
+  %cmp4 = icmp eq i32 %ch, %conv3
   br i1 %cmp4, label %if.then, label %for.inc245
 
 if.then:                                          ; preds = %sw.bb1

@@ -313,7 +313,7 @@ define dso_local void @mpi_rshift_limbs(ptr nocapture noundef %0, i32 noundef %1
 11:                                               ; preds = %11, %8
   %12 = phi i64 [ 0, %8 ], [ %19, %11 ]
   %13 = trunc i64 %12 to i32
-  %14 = add i32 %13, %1
+  %14 = add i32 %1, %13
   %15 = zext i32 %14 to i64
   %16 = getelementptr i64, ptr %4, i64 %15
   %17 = load i64, ptr %16, align 8
@@ -598,7 +598,7 @@ define dso_local void @mpi_lshift_limbs(ptr noundef %0, i32 noundef %1) local_un
   %23 = getelementptr i64, ptr %16, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = trunc i64 %22 to i32
-  %26 = add i32 %25, %1
+  %26 = add i32 %1, %25
   %27 = zext i32 %26 to i64
   %28 = getelementptr i64, ptr %16, i64 %27
   store i64 %24, ptr %28, align 8

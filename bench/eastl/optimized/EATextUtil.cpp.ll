@@ -2943,7 +2943,7 @@ for.body.if.else_crit_edge.i:                     ; preds = %for.body.i
 land.lhs.true.i:                                  ; preds = %for.body.i
   %2 = xor i32 %f.069.i, -1
   %3 = trunc i64 %indvars.iv83.i to i32
-  %4 = add i32 %3, %nPatternLength
+  %4 = add i32 %nPatternLength, %3
   %sub5.i = add i32 %4, %2
   %idxprom6.i = sext i32 %sub5.i to i64
   %arrayidx7.i = getelementptr inbounds i32, ptr %pPatternBuffer2, i64 %idxprom6.i
@@ -2960,7 +2960,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %f
 
 land.rhs.lr.ph.i:                                 ; preds = %if.else.i
   %6 = xor i32 %.pre-phi.i, -1
-  %add22.i = add i32 %6, %nPatternLength
+  %add22.i = add i32 %nPatternLength, %6
   %smin.i = tail call i64 @llvm.smin.i64(i64 %indvars.iv83.i, i64 %1)
   br label %land.rhs.i
 
@@ -3112,7 +3112,7 @@ for.body3.i:                                      ; preds = %for.body3.i, %for.b
   %indvars.iv15.i = phi i64 [ 0, %for.body3.preheader.i ], [ %indvars.iv.next16.i, %for.body3.i ]
   %18 = trunc nuw nsw i64 %indvars.iv15.i to i32
   %19 = xor i32 %18, -1
-  %sub5.i53 = add nsw i32 %19, %nPatternLength
+  %sub5.i53 = add nsw i32 %nPatternLength, %19
   %arrayidx7.i54 = getelementptr inbounds i8, ptr %pPattern, i64 %indvars.iv15.i
   %20 = load i8, ptr %arrayidx7.i54, align 1
   %idxprom8.i = sext i8 %20 to i64

@@ -606,7 +606,7 @@ define range(i32 0, 2) i32 @If_Dec10Perform(ptr noundef %0, i32 noundef %1, i32 
   %.1291 = phi i32 [ %.087295, %.lr.ph292 ], [ %.2.lcssa, %.loopexit277 ]
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %104 = trunc nuw i64 %indvars.iv.next356 to i32
-  %105 = icmp slt i32 %104, %1
+  %105 = icmp sgt i32 %1, %104
   br i1 %105, label %.lr.ph288, label %.loopexit277
 
 .lr.ph288:                                        ; preds = %103
@@ -628,7 +628,7 @@ define range(i32 0, 2) i32 @If_Dec10Perform(ptr noundef %0, i32 noundef %1, i32 
   %.2287 = phi i32 [ %.1291, %.lr.ph288 ], [ %111, %.loopexit276 ]
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %113 = trunc nuw i64 %indvars.iv.next351 to i32
-  %114 = icmp slt i32 %113, %1
+  %114 = icmp sgt i32 %1, %113
   br i1 %114, label %.lr.ph285, label %.loopexit277
 
 .lr.ph285:                                        ; preds = %112

@@ -1711,7 +1711,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %17 = phi i64 [ %.pre, %12 ], [ %5, %9 ]
   %.sink3.i = phi ptr [ %15, %12 ], [ %11, %9 ]
   %.sink.i = phi i64 [ %5, %12 ], [ 16, %9 ]
-  %.not = icmp ugt i64 %17, %1
+  %.not = icmp ult i64 %1, %17
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h28f4d85d54595873E.llvm.368415048798493651.exit"
@@ -1723,7 +1723,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %19
-  %.not62 = icmp eq i64 %.sink.i, %1
+  %.not62 = icmp eq i64 %1, %.sink.i
   br i1 %.not62, label %_ZN8smallvec12layout_array17h4bae2da7da4818d8E.exit.thread, label %23
 
 22:                                               ; preds = %19

@@ -4018,7 +4018,7 @@ for.body:                                         ; preds = %for.body.outer, %fo
 
 _ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i:            ; preds = %for.body
   %7 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %7, %6
+  %cmp.not.i.i.i = icmp ult i32 %6, %7
   br i1 %cmp.not.i.i.i, label %_ZNK3nla4core12is_monic_varEj.exit, label %for.inc
 
 _ZNK3nla4core12is_monic_varEj.exit:               ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i
@@ -5927,7 +5927,7 @@ for.cond.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %retval.sroa.0.0.i.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i, align 8, !nonnull !33, !noundef !33
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
   %7 = load i32, ptr %add.ptr.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i = icmp eq i32 %7, %j
+  %cmp.i.i.i.i.i.i = icmp eq i32 %j, %7
   br i1 %cmp.i.i.i.i.i.i, label %_ZNK2lp12var_register17external_to_localEj.exit.i, label %for.cond.i.i.i.i, !llvm.loop !34
 
 if.end15.i.i.i.i:                                 ; preds = %if.then.i
@@ -5942,7 +5942,7 @@ if.end15.i.i.i.i:                                 ; preds = %if.then.i
   %11 = load ptr, ptr %10, align 8
   %add.ptr8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i32, ptr %add.ptr8.i.i.i.i.i.i, align 4
-  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq i32 %12, %j
+  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq i32 %j, %12
   br i1 %cmp.i.i.i9.i.i.i.i.i.i, label %_ZNK2lp12var_register17external_to_localEj.exit.i, label %if.end3.i.i.i.i.i.i
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end15.i.i.i.i, %if.end3.i.i.i.i.i.i
@@ -5954,7 +5954,7 @@ if.end3.i.i.i.i.i.i:                              ; preds = %if.end15.i.i.i.i, %
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i.i.i, %8
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i
   tail call void @llvm.assume(i1 %cmp.not.i.i.i.i.i.i)
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %14, %j
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %j, %14
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZNK2lp12var_register17external_to_localEj.exit.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !35
 
 _ZNK2lp12var_register17external_to_localEj.exit.i: ; preds = %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end15.i.i.i.i
@@ -6029,7 +6029,7 @@ for.cond.i.i.i.i30:                               ; preds = %for.cond.i.i.i.i30,
   %retval.sroa.0.0.i.i.i.i32 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i31, align 8, !nonnull !33, !noundef !33
   %add.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i32, i64 8
   %25 = load i32, ptr %add.ptr.i.i.i.i33, align 4
-  %cmp.i.i.i.i.i.i34 = icmp eq i32 %25, %j
+  %cmp.i.i.i.i.i.i34 = icmp eq i32 %j, %25
   br i1 %cmp.i.i.i.i.i.i34, label %_ZNK2lp12var_register17external_to_localEj.exit.i25, label %for.cond.i.i.i.i30, !llvm.loop !34
 
 if.end15.i.i.i.i10:                               ; preds = %if.then.i7
@@ -6044,7 +6044,7 @@ if.end15.i.i.i.i10:                               ; preds = %if.then.i7
   %29 = load ptr, ptr %28, align 8
   %add.ptr8.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load i32, ptr %add.ptr8.i.i.i.i.i.i16, align 4
-  %cmp.i.i.i9.i.i.i.i.i.i17 = icmp eq i32 %30, %j
+  %cmp.i.i.i9.i.i.i.i.i.i17 = icmp eq i32 %j, %30
   br i1 %cmp.i.i.i9.i.i.i.i.i.i17, label %_ZNK2lp12var_register17external_to_localEj.exit.i25, label %if.end3.i.i.i.i.i.i18
 
 if.end3.i.i.i.i.i.i18:                            ; preds = %if.end15.i.i.i.i10, %if.end3.i.i.i.i.i.i18
@@ -6056,7 +6056,7 @@ if.end3.i.i.i.i.i.i18:                            ; preds = %if.end15.i.i.i.i10,
   %rem.i.i.i.i.i.i.i.i.i22 = urem i64 %conv.i.i.i.i.i.i.i.i.i.i21, %26
   %cmp.not.i.i.i.i.i.i23 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i22, %rem.i.i.i.i.i.i.i14
   tail call void @llvm.assume(i1 %cmp.not.i.i.i.i.i.i23)
-  %cmp.i.i.i.i.i.i.i.i.i24 = icmp eq i32 %32, %j
+  %cmp.i.i.i.i.i.i.i.i.i24 = icmp eq i32 %j, %32
   br i1 %cmp.i.i.i.i.i.i.i.i.i24, label %_ZNK2lp12var_register17external_to_localEj.exit.i25, label %if.end3.i.i.i.i.i.i18, !llvm.loop !35
 
 _ZNK2lp12var_register17external_to_localEj.exit.i25: ; preds = %if.end3.i.i.i.i.i.i18, %for.cond.i.i.i.i30, %if.end15.i.i.i.i10
@@ -6238,7 +6238,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
+  %cmp.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -6273,7 +6273,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3nla3occEESaIS4_ENSt8__detail10_Select1stESt8equal
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
+  %cmp.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjN3nla3occEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableIjSt4pairIKjN3nla3occEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i

@@ -392,7 +392,7 @@ define dso_local i64 @calc_next_cron_start(ptr nocapture noundef readonly %0, i6
   store i64 %5, ptr %4, align 8
   %.not = icmp ne i64 %1, 0
   %6 = add nsw i64 %5, 60
-  %7 = icmp slt i64 %6, %1
+  %7 = icmp sgt i64 %1, %6
   %or.cond42 = select i1 %.not, i1 %7, i1 false
   br i1 %or.cond42, label %8, label %10
 

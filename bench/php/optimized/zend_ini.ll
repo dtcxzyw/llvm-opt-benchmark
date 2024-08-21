@@ -757,7 +757,7 @@ define range(i32 -1, 1) i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef
 
 20:                                               ; preds = %18
   %21 = zext i8 %19 to i32
-  %22 = and i32 %21, %2
+  %22 = and i32 %2, %21
   %.not75 = icmp eq i32 %22, 0
   br i1 %.not75, label %.thread, label %23
 

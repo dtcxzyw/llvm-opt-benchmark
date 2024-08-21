@@ -496,7 +496,7 @@ define void @remapInConstraints(ptr nocapture noundef %0, ptr noundef %1, double
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 16
   %15 = load double, ptr %14, align 8
-  %16 = fadd double %15, %2
+  %16 = fadd double %2, %15
   store double %16, ptr %14, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = load ptr, ptr %10, align 8
@@ -605,7 +605,7 @@ define void @remapOutConstraints(ptr nocapture noundef %0, ptr noundef %1, doubl
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load double, ptr %13, align 8
-  %15 = fadd double %14, %2
+  %15 = fadd double %2, %14
   store double %15, ptr %13, align 8
   %16 = load ptr, ptr %9, align 8
   %17 = load ptr, ptr %10, align 8
@@ -762,7 +762,7 @@ _ZNSt16allocator_traitsISaI9RectangleEE9constructIS0_JRdS4_S4_S4_EEEvRS1_PT_DpOT
 _ZNSt6vectorI9RectangleSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaI9RectangleEE9constructIS0_JRdS4_S4_S4_EEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %26, %_ZNSt16allocator_traitsISaI9RectangleEE9constructIS0_JRdS4_S4_S4_EEEvRS1_PT_DpOT0_.exit ], [ %33, %.lr.ph.i.i.i.i ]
   %34 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i29 = icmp eq ptr %8, %1
+  %.not10.i.i.i.i29 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i.i29, label %_ZNSt6vectorI9RectangleSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, label %.lr.ph.i.i.i.i30
 
 .lr.ph.i.i.i.i30:                                 ; preds = %_ZNSt6vectorI9RectangleSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i.i30

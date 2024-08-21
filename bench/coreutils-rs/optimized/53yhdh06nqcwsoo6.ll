@@ -300,7 +300,7 @@ define void @_ZN5uu_od12inputdecoder13MemoryDecoder12clone_buffer17h6a4dc7b66c6d
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 0, ptr %8, align 8, !alias.scope !48, !noalias !51
   %9 = load i64, ptr %1, align 8, !alias.scope !53, !noalias !60, !noundef !4
-  %10 = icmp ult i64 %9, %7
+  %10 = icmp ugt i64 %7, %9
   br i1 %10, label %11, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17ha19a699fa3c04d79E.exit"
 
 11:                                               ; preds = %2
@@ -322,7 +322,7 @@ define void @_ZN5uu_od12inputdecoder13MemoryDecoder12clone_buffer17h6a4dc7b66c6d
   store i64 %20, ptr %8, align 8, !alias.scope !62, !noalias !60
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = icmp ult i64 %20, %22
+  %23 = icmp ugt i64 %22, %20
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h4c1f51f72cbdf51cE.llvm.399940785433822248.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h4c1f51f72cbdf51cE.llvm.399940785433822248.exit.i": ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17ha19a699fa3c04d79E.exit"
@@ -347,7 +347,7 @@ define { ptr, i64 } @_ZN5uu_od12inputdecoder13MemoryDecoder10get_buffer17hd427da
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = icmp ult i64 %5, %1
+  %10 = icmp ugt i64 %1, %5
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %2
@@ -382,7 +382,7 @@ define hidden { ptr, i64 } @_ZN5uu_od12inputdecoder13MemoryDecoder15get_full_buf
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = icmp ult i64 %8, %1
+  %13 = icmp ugt i64 %1, %8
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %2
@@ -440,7 +440,7 @@ define hidden noundef i64 @_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h31
   %14 = load ptr, ptr %0, align 8, !nonnull !4, !align !41, !noundef !4
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = icmp ugt i64 %16, %1
+  %17 = icmp ult i64 %1, %16
   br i1 %17, label %63, label %69, !prof !42
 
 18:                                               ; preds = %3

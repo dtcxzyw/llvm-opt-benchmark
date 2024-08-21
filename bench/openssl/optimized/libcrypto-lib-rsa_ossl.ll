@@ -286,7 +286,7 @@ if.end24:                                         ; preds = %if.end19
   br i1 %cmp28, label %err, label %if.end31
 
 if.end31:                                         ; preds = %if.end24
-  %cmp32 = icmp slt i32 %div, %flen
+  %cmp32 = icmp sgt i32 %flen, %div
   br i1 %cmp32, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.end31
@@ -729,7 +729,7 @@ if.end8:                                          ; preds = %if.end3
   br i1 %cmp11, label %err, label %if.end14
 
 if.end14:                                         ; preds = %if.end8
-  %cmp15 = icmp slt i32 %div, %flen
+  %cmp15 = icmp sgt i32 %flen, %div
   br i1 %cmp15, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end14

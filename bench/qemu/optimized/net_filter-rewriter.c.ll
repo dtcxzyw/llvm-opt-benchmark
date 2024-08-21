@@ -193,7 +193,7 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true
 if.then11:                                        ; preds = %land.lhs.true.i
   %netdev12 = getelementptr inbounds i8, ptr %nf, i64 48
   %6 = load ptr, ptr %netdev12, align 8
-  %cmp = icmp eq ptr %6, %sender
+  %cmp = icmp eq ptr %sender, %6
   call void @fill_connection_key(ptr noundef nonnull %call7, ptr noundef nonnull %key, i1 noundef zeroext %cmp) #9
   %failover_mode = getelementptr inbounds i8, ptr %call.i, i64 113
   %7 = load i8, ptr %failover_mode, align 1
@@ -211,7 +211,7 @@ if.end19:                                         ; preds = %land.lhs.true16, %i
   %9 = load ptr, ptr %connection_track_table20, align 8
   %call21 = call ptr @connection_get(ptr noundef %9, ptr noundef nonnull %key, ptr noundef null) #9
   %10 = load ptr, ptr %netdev12, align 8
-  %cmp23 = icmp eq ptr %10, %sender
+  %cmp23 = icmp eq ptr %sender, %10
   %transport_header.i = getelementptr inbounds i8, ptr %call7, i64 16
   %11 = load ptr, ptr %transport_header.i, align 8
   %12 = load i32, ptr @trace_events_enabled_count, align 4

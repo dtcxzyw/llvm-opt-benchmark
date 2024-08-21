@@ -170,7 +170,7 @@ define noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParam
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
-  %brmerge.demorgan = and i1 %16, %3
+  %brmerge.demorgan = and i1 %3, %16
   br i1 %brmerge.demorgan, label %17, label %72
 
 17:                                               ; preds = %13

@@ -4073,7 +4073,7 @@ _ZN4Luau12DenseHashMapIPKNS_11TypePackVarESt10unique_ptrINS_15PendingTypePackESt
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %61, i64 8
   call void %65(ptr noundef nonnull %53, ptr noundef nonnull %66)
-  %.not.i.i.i = icmp eq ptr %2, %60
+  %.not.i.i.i = icmp eq ptr %60, %2
   br i1 %.not.i.i.i, label %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEEaSEOSE_.exit.i.i, label %67
 
 67:                                               ; preds = %55
@@ -4176,7 +4176,7 @@ define linkonce_odr dso_local void @_ZN4Luau4Type8reassignERKS0_(ptr noundef non
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   call void %7(ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %.not.i.i = icmp eq ptr %3, %0
+  %.not.i.i = icmp eq ptr %0, %3
   br i1 %.not.i.i, label %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEaSEOSQ_.exit.i, label %10
 
 10:                                               ; preds = %2
@@ -5363,7 +5363,7 @@ define dso_local noundef ptr @_ZNK4Luau6TxnLog7pendingEPKNS_4TypeE(ptr nocapture
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %.0814, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %_ZNK4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread, label %15
 
 15:                                               ; preds = %11
@@ -5430,7 +5430,7 @@ define dso_local noundef ptr @_ZNK4Luau6TxnLog7pendingEPKNS_11TypePackVarE(ptr n
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %.0714, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %12
@@ -5495,7 +5495,7 @@ define dso_local noundef ptr @_ZN4Luau6TxnLog7replaceEPKNS_11TypePackVarES1_(ptr
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   call void %9(ptr noundef nonnull %10, ptr noundef nonnull %11)
-  %.not.i.i.i = icmp eq ptr %4, %5
+  %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEEaSEOSE_.exit.i.i, label %12
 
 12:                                               ; preds = %3
@@ -5767,7 +5767,7 @@ define dso_local { i64, i8 } @_ZNK4Luau6TxnLog8getLevelEPKNS_4TypeE(ptr nocaptur
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %.0814.i.i, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %_ZNK4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread.i.i, label %15
 
 15:                                               ; preds = %11
@@ -5843,7 +5843,7 @@ _ZNK4Luau6TxnLog10getMutableINS_8FreeTypeEPKNS_4TypeEEEPT_T0_.exit: ; preds = %_
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %.0814.i.i17, i64 24
   %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, %1
+  %50 = icmp eq ptr %1, %49
   br i1 %50, label %_ZNK4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread.i.i22, label %51
 
 51:                                               ; preds = %47
@@ -5926,7 +5926,7 @@ _ZNK4Luau6TxnLog10getMutableINS_9TableTypeEPKNS_4TypeEEEPT_T0_.exit.thread: ; pr
 86:                                               ; preds = %_ZNK4Luau6TxnLog10getMutableINS_9TableTypeEPKNS_4TypeEEEPT_T0_.exit.thread
   %87 = getelementptr inbounds i8, ptr %.0814.i.i29, i64 24
   %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, %1
+  %89 = icmp eq ptr %1, %88
   br i1 %89, label %_ZNK4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread.i.i34, label %90
 
 90:                                               ; preds = %86
@@ -6409,7 +6409,7 @@ _ZNSt10_HashtableIPKN4Luau11TypePackVarESt4pairIKS3_NSt7__cxx1112basic_stringIcS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 104
-  %13 = icmp eq ptr %12, %11
+  %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZNSt13unordered_mapIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S9_EEED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZNSt10_HashtableIPKN4Luau11TypePackVarESt4pairIKS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -6442,7 +6442,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NSt7__cxx1112basic_stringIcSt11char_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 48
-  %27 = icmp eq ptr %26, %25
+  %27 = icmp eq ptr %25, %26
   br i1 %27, label %_ZNSt13unordered_mapIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S9_EEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -7434,7 +7434,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #21
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -7570,7 +7570,7 @@ _ZSt10_ConstructISt8optionalIN4Luau16FunctionArgumentEEJRKS3_EEvPT_DpOT0_.exit: 
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #21
-  %.not4.i.i = icmp eq ptr %.014, %2
+  %.not4.i.i = icmp eq ptr %2, %.014
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPSt8optionalIN4Luau16FunctionArgumentEEEvT_S5_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %12, %_ZSt8_DestroyISt8optionalIN4Luau16FunctionArgumentEEEvPT_.exit.i.i
@@ -8943,7 +8943,7 @@ define internal noundef ptr @"_ZZNK4Luau6TxnLog6followEPKNS_4TypeEEN3$_08__invok
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %.0814.i.i, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %_ZNK4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit.thread.i.i, label %15
 
 15:                                               ; preds = %11
@@ -9012,7 +9012,7 @@ define internal noundef ptr @"_ZZNK4Luau6TxnLog6followEPKNS_11TypePackVarEEN3$_0
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %.0714.i.i, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %.loopexit.i.i, label %16
 
 16:                                               ; preds = %12

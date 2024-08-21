@@ -296,7 +296,7 @@ _ZN3gmx19MrcDensityMapHeaderD2Ev.exit:            ; preds = %42, %_ZN3gmx19MrcDe
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
   %62 = ashr exact i64 %61, 2
-  %63 = icmp ult i64 %62, %54
+  %63 = icmp ugt i64 %54, %62
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %55
@@ -310,7 +310,7 @@ _ZN3gmx19MrcDensityMapHeaderD2Ev.exit:            ; preds = %42, %_ZN3gmx19MrcDe
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 66:                                               ; preds = %55
-  %67 = icmp ugt i64 %62, %54
+  %67 = icmp ult i64 %54, %62
   br i1 %67, label %68, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 68:                                               ; preds = %66

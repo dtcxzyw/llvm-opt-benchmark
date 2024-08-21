@@ -404,7 +404,7 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not20.us.i, label %.outer._crit_edge.i, label %.lr.ph.split.us.i12.split, !llvm.loop !9
 
 .lr.ph.split.i9:                                  ; preds = %.lr.ph.i8
-  %65 = icmp eq ptr %48, %43
+  %65 = icmp eq ptr %43, %48
   %66 = tail call ptr @list_next(ptr noundef %46) #16
   %.not2023.i = icmp eq ptr %66, null
   br i1 %.not2023.i, label %.outer._crit_edge.i, label %.lr.ph.i8, !llvm.loop !9
@@ -1245,7 +1245,7 @@ _opt_args.exit:                                   ; preds = %284, %291, %296, %2
 325:                                              ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %326 = trunc nuw i64 %indvars.iv.next to i32
-  %327 = icmp slt i32 %326, %0
+  %327 = icmp sgt i32 %0, %326
   br i1 %327, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .preheader:                                       ; preds = %.preheader.preheader, %325

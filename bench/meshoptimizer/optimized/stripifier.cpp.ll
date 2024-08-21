@@ -162,8 +162,8 @@ for.body.i:                                       ; preds = %if.then, %for.inc.i
   %20 = load i32, ptr %arrayidx3.i, align 4
   %arrayidx5.i = getelementptr inbounds i8, ptr %arrayidx.i149, i64 8
   %21 = load i32, ptr %arrayidx5.i, align 4
-  %cmp6.i = icmp eq i32 %19, %cond
-  %cmp7.i = icmp eq i32 %20, %cond65
+  %cmp6.i = icmp eq i32 %cond, %19
+  %cmp7.i = icmp eq i32 %cond65, %20
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
@@ -174,8 +174,8 @@ if.then.i:                                        ; preds = %for.body.i
   br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp9.i = icmp eq i32 %20, %cond
-  %cmp11.i = icmp eq i32 %21, %cond65
+  %cmp9.i = icmp eq i32 %cond, %20
+  %cmp11.i = icmp eq i32 %cond65, %21
   %or.cond17.i = select i1 %cmp9.i, i1 %cmp11.i, i1 false
   br i1 %or.cond17.i, label %if.then12.i, label %if.else16.i
 
@@ -185,8 +185,8 @@ if.then12.i:                                      ; preds = %if.else.i
   br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit
 
 if.else16.i:                                      ; preds = %if.else.i
-  %cmp17.i = icmp eq i32 %21, %cond
-  %cmp19.i = icmp eq i32 %19, %cond65
+  %cmp17.i = icmp eq i32 %cond, %21
+  %cmp19.i = icmp eq i32 %cond65, %19
   %or.cond18.i = and i1 %cmp19.i, %cmp17.i
   br i1 %or.cond18.i, label %if.then20.i, label %for.inc.i
 
@@ -220,8 +220,8 @@ for.body.i153:                                    ; preds = %for.body.i153.prehe
   %23 = load i32, ptr %arrayidx3.i156, align 4
   %arrayidx5.i157 = getelementptr inbounds i8, ptr %arrayidx.i155, i64 8
   %24 = load i32, ptr %arrayidx5.i157, align 4
-  %cmp6.i158 = icmp eq i32 %22, %cond76
-  %cmp7.i159 = icmp eq i32 %23, %cond82
+  %cmp6.i158 = icmp eq i32 %cond76, %22
+  %cmp7.i159 = icmp eq i32 %cond82, %23
   %or.cond.i160 = select i1 %cmp6.i158, i1 %cmp7.i159, i1 false
   br i1 %or.cond.i160, label %if.then.i180, label %if.else.i161
 
@@ -232,8 +232,8 @@ if.then.i180:                                     ; preds = %for.body.i153
   br label %cond.end86
 
 if.else.i161:                                     ; preds = %for.body.i153
-  %cmp9.i162 = icmp eq i32 %23, %cond76
-  %cmp11.i163 = icmp eq i32 %24, %cond82
+  %cmp9.i162 = icmp eq i32 %cond76, %23
+  %cmp11.i163 = icmp eq i32 %cond82, %24
   %or.cond17.i164 = select i1 %cmp9.i162, i1 %cmp11.i163, i1 false
   br i1 %or.cond17.i164, label %if.then12.i177, label %if.else16.i165
 
@@ -243,8 +243,8 @@ if.then12.i177:                                   ; preds = %if.else.i161
   br label %cond.end86
 
 if.else16.i165:                                   ; preds = %if.else.i161
-  %cmp17.i166 = icmp eq i32 %24, %cond76
-  %cmp19.i167 = icmp eq i32 %22, %cond82
+  %cmp17.i166 = icmp eq i32 %cond76, %24
+  %cmp19.i167 = icmp eq i32 %cond82, %22
   %or.cond18.i168 = and i1 %cmp19.i167, %cmp17.i166
   br i1 %or.cond18.i168, label %if.then20.i173, label %for.inc.i169
 
@@ -362,8 +362,8 @@ for.body.i195:                                    ; preds = %_ZN7meshoptL14findS
   %39 = load i32, ptr %arrayidx3.i198, align 4
   %arrayidx5.i199 = getelementptr inbounds i8, ptr %arrayidx.i197, i64 8
   %40 = load i32, ptr %arrayidx5.i199, align 4
-  %cmp6.i200 = icmp eq i32 %38, %33
-  %cmp7.i201 = icmp eq i32 %39, %32
+  %cmp6.i200 = icmp eq i32 %33, %38
+  %cmp7.i201 = icmp eq i32 %32, %39
   %or.cond.i202 = select i1 %cmp6.i200, i1 %cmp7.i201, i1 false
   br i1 %or.cond.i202, label %if.then.i222, label %if.else.i203
 
@@ -374,8 +374,8 @@ if.then.i222:                                     ; preds = %for.body.i195
   br label %for.body.i229.preheader
 
 if.else.i203:                                     ; preds = %for.body.i195
-  %cmp9.i204 = icmp eq i32 %39, %33
-  %cmp11.i205 = icmp eq i32 %40, %32
+  %cmp9.i204 = icmp eq i32 %33, %39
+  %cmp11.i205 = icmp eq i32 %32, %40
   %or.cond17.i206 = select i1 %cmp9.i204, i1 %cmp11.i205, i1 false
   br i1 %or.cond17.i206, label %if.then12.i219, label %if.else16.i207
 
@@ -385,8 +385,8 @@ if.then12.i219:                                   ; preds = %if.else.i203
   br label %for.body.i229.preheader
 
 if.else16.i207:                                   ; preds = %if.else.i203
-  %cmp17.i208 = icmp eq i32 %40, %33
-  %cmp19.i209 = icmp eq i32 %38, %32
+  %cmp17.i208 = icmp eq i32 %33, %40
+  %cmp19.i209 = icmp eq i32 %32, %38
   %or.cond18.i210 = and i1 %cmp19.i209, %cmp17.i208
   br i1 %or.cond18.i210, label %if.then20.i215, label %for.inc.i211
 
@@ -414,8 +414,8 @@ for.body.i229:                                    ; preds = %for.body.i229.prehe
   %42 = load i32, ptr %arrayidx3.i232, align 4
   %arrayidx5.i233 = getelementptr inbounds i8, ptr %arrayidx.i231, i64 8
   %43 = load i32, ptr %arrayidx5.i233, align 4
-  %cmp6.i234 = icmp eq i32 %41, %31
-  %cmp7.i235 = icmp eq i32 %42, %33
+  %cmp6.i234 = icmp eq i32 %31, %41
+  %cmp7.i235 = icmp eq i32 %33, %42
   %or.cond.i236 = select i1 %cmp6.i234, i1 %cmp7.i235, i1 false
   br i1 %or.cond.i236, label %if.then.i256, label %if.else.i237
 
@@ -426,8 +426,8 @@ if.then.i256:                                     ; preds = %for.body.i229
   br label %for.body.i263.preheader
 
 if.else.i237:                                     ; preds = %for.body.i229
-  %cmp9.i238 = icmp eq i32 %42, %31
-  %cmp11.i239 = icmp eq i32 %43, %33
+  %cmp9.i238 = icmp eq i32 %31, %42
+  %cmp11.i239 = icmp eq i32 %33, %43
   %or.cond17.i240 = select i1 %cmp9.i238, i1 %cmp11.i239, i1 false
   br i1 %or.cond17.i240, label %if.then12.i253, label %if.else16.i241
 
@@ -437,8 +437,8 @@ if.then12.i253:                                   ; preds = %if.else.i237
   br label %for.body.i263.preheader
 
 if.else16.i241:                                   ; preds = %if.else.i237
-  %cmp17.i242 = icmp eq i32 %43, %31
-  %cmp19.i243 = icmp eq i32 %41, %33
+  %cmp17.i242 = icmp eq i32 %31, %43
+  %cmp19.i243 = icmp eq i32 %33, %41
   %or.cond18.i244 = and i1 %cmp19.i243, %cmp17.i242
   br i1 %or.cond18.i244, label %if.then20.i249, label %for.inc.i245
 
@@ -465,8 +465,8 @@ for.body.i263:                                    ; preds = %for.body.i263.prehe
   %45 = load i32, ptr %arrayidx3.i266, align 4
   %arrayidx5.i267 = getelementptr inbounds i8, ptr %arrayidx.i265, i64 8
   %46 = load i32, ptr %arrayidx5.i267, align 4
-  %cmp6.i268 = icmp eq i32 %44, %32
-  %cmp7.i269 = icmp eq i32 %45, %31
+  %cmp6.i268 = icmp eq i32 %32, %44
+  %cmp7.i269 = icmp eq i32 %31, %45
   %or.cond.i270 = select i1 %cmp6.i268, i1 %cmp7.i269, i1 false
   br i1 %or.cond.i270, label %if.then.i290, label %if.else.i271
 
@@ -477,8 +477,8 @@ if.then.i290:                                     ; preds = %for.body.i263
   br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit294.thread
 
 if.else.i271:                                     ; preds = %for.body.i263
-  %cmp9.i272 = icmp eq i32 %45, %32
-  %cmp11.i273 = icmp eq i32 %46, %31
+  %cmp9.i272 = icmp eq i32 %32, %45
+  %cmp11.i273 = icmp eq i32 %31, %46
   %or.cond17.i274 = select i1 %cmp9.i272, i1 %cmp11.i273, i1 false
   br i1 %or.cond17.i274, label %if.then12.i287, label %if.else16.i275
 
@@ -488,8 +488,8 @@ if.then12.i287:                                   ; preds = %if.else.i271
   br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit294.thread
 
 if.else16.i275:                                   ; preds = %if.else.i271
-  %cmp17.i276 = icmp eq i32 %46, %32
-  %cmp19.i277 = icmp eq i32 %44, %31
+  %cmp17.i276 = icmp eq i32 %32, %46
+  %cmp19.i277 = icmp eq i32 %31, %44
   %or.cond18.i278 = and i1 %cmp19.i277, %cmp17.i276
   br i1 %or.cond18.i278, label %if.then20.i283, label %for.inc.i279
 

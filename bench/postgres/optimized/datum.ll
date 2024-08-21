@@ -218,7 +218,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @datumTransfer(i64 noundef %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne i32 %2, -1
-  %or.cond.not = or i1 %4, %1
+  %or.cond.not = or i1 %1, %4
   br i1 %or.cond.not, label %16, label %5
 
 5:                                                ; preds = %3

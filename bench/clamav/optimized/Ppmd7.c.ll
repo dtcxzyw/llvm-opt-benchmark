@@ -358,7 +358,7 @@ define nonnull ptr @Ppmd7_MakeEscFreq(ptr noundef %0, i32 noundef %1, ptr nocapt
   %33 = icmp ugt i32 %32, %31
   %34 = select i1 %33, i64 2, i64 0
   %35 = getelementptr inbounds %struct.CPpmd_See, ptr %28, i64 %34
-  %36 = icmp ult i32 %8, %1
+  %36 = icmp ugt i32 %1, %8
   %37 = select i1 %36, i64 4, i64 0
   %38 = getelementptr inbounds %struct.CPpmd_See, ptr %35, i64 %37
   %39 = getelementptr inbounds i8, ptr %0, i64 40

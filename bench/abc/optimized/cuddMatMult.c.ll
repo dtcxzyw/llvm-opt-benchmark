@@ -75,8 +75,8 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %1
-  %9 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %1, %7
+  %9 = icmp eq ptr %2, %7
   %or.cond = or i1 %8, %9
   br i1 %or.cond, label %._crit_edge.thread, label %10
 
@@ -682,8 +682,8 @@ declare ptr @Cudd_addComputeCube(ptr noundef, ptr noundef, ptr noundef, i32 noun
 define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %1
-  %9 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %1, %7
+  %9 = icmp eq ptr %2, %7
   %or.cond = or i1 %8, %9
   br i1 %or.cond, label %122, label %10
 
@@ -909,8 +909,8 @@ define ptr @Cudd_addOuterSum(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 define internal fastcc ptr @cuddAddOuterSumRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %2
-  %8 = icmp eq ptr %6, %3
+  %7 = icmp eq ptr %2, %6
+  %8 = icmp eq ptr %3, %6
   %or.cond = or i1 %7, %8
   br i1 %or.cond, label %142, label %9
 

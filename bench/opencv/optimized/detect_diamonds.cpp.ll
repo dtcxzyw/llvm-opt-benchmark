@@ -1670,7 +1670,7 @@ _ZNKSt6vectorIN2cv3VecIdLi3EEESaIS2_EE12_M_check_lenEmPKc.exit.i290: ; preds = %
   %560 = ptrtoint ptr %558 to i64
   %561 = sub i64 %559, %560
   %562 = sdiv exact i64 %561, 24
-  %.not.i.i216 = icmp ugt i64 %562, %.0121435
+  %.not.i.i216 = icmp ult i64 %.0121435, %562
   br i1 %.not.i.i216, label %564, label %563
 
 563:                                              ; preds = %.lr.ph
@@ -1817,7 +1817,7 @@ _ZNKSt6vectorIN2cv3VecIdLi3EEESaIS2_EE12_M_check_lenEmPKc.exit.i290: ; preds = %
   %607 = ptrtoint ptr %605 to i64
   %608 = sub i64 %606, %607
   %609 = sdiv exact i64 %608, 24
-  %.not.i.i226 = icmp ugt i64 %609, %.0120436
+  %.not.i.i226 = icmp ult i64 %.0120436, %609
   br i1 %.not.i.i226, label %611, label %610
 
 610:                                              ; preds = %593
@@ -3062,7 +3062,7 @@ _ZNSt16allocator_traitsISaIN2cv6Point_IfEEEE8allocateERS3_m.exit.i.i.i.i.i.i: ; 
 _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %.loopexit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %.loopexit ], [ %52, %.lr.ph.i.i.i.i ]
   %53 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i.i28

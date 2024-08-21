@@ -7478,7 +7478,7 @@ if.end:                                           ; preds = %entry
   %brmerge = or i1 %tobool.not, %shrink_to_fit.not
   %size_ = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i64, ptr %size_, align 8
-  %cmp5.not = icmp slt i64 %4, %new_size
+  %cmp5.not = icmp sgt i64 %new_size, %4
   %or.cond = select i1 %brmerge, i1 true, i1 %cmp5.not
   br i1 %or.cond, label %_ZN5arrow6StatusD2Ev.exit77, label %if.then6
 
@@ -7561,7 +7561,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i64, ptr %capacity_, align 8
-  %cmp2 = icmp slt i64 %4, %capacity
+  %cmp2 = icmp sgt i64 %capacity, %4
   br i1 %cmp2, label %_ZN5arrow6StatusD2Ev.exit, label %if.end42
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %lor.lhs.false
@@ -8533,7 +8533,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12

@@ -121,7 +121,7 @@ define hidden void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..colle
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !7
   %11 = add i64 %10, -1
-  %12 = icmp eq i64 %11, %5
+  %12 = icmp eq i64 %5, %11
   br i1 %12, label %16, label %.invoke
 
 .invoke:                                          ; preds = %16, %6
@@ -681,7 +681,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr %122, ptr %11, align 8, !noalias !115
   %147 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %121, ptr %147, align 8, !noalias !115
-  %148 = icmp eq i64 %129, %.lcssa217
+  %148 = icmp eq i64 %.lcssa217, %129
   br i1 %148, label %152, label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %152, %140
@@ -751,7 +751,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store ptr %.sroa.50.1, ptr %10, align 8, !noalias !130
   store ptr %.sroa.52.1, ptr %117, align 8, !noalias !130
-  %179 = icmp eq i64 %172, %174
+  %179 = icmp eq i64 %174, %172
   br i1 %179, label %181, label %180
 
 180:                                              ; preds = %169
@@ -1071,7 +1071,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %320 = add nuw nsw i64 %304, 2
   %321 = getelementptr inbounds i8, ptr %spec.select.i, i64 368
   %322 = add nsw i64 %.sroa.7.0.i, 2
-  %323 = icmp ult i64 %322, %320
+  %323 = icmp ugt i64 %320, %322
   br i1 %323, label %324, label %329
 
 324:                                              ; preds = %315

@@ -159,7 +159,7 @@ switch.early.test:                                ; preds = %77
 
 86:                                               ; preds = %83
   %87 = sub nsw i32 %4, %5
-  %88 = icmp sgt i32 %87, %5
+  %88 = icmp slt i32 %5, %87
   %or.cond381 = select i1 %78, i1 true, i1 %88
   br i1 %or.cond381, label %97, label %89
 
@@ -822,7 +822,7 @@ switch.early.test:                                ; preds = %77
   %418 = getelementptr i8, ptr %414, i64 %417
   %419 = getelementptr inbounds i8, ptr %418, i64 4
   %420 = load i8, ptr %419, align 4
-  %.not369 = icmp eq i8 %420, %3
+  %.not369 = icmp eq i8 %3, %420
   br i1 %.not369, label %430, label %421
 
 421:                                              ; preds = %412
@@ -856,7 +856,7 @@ switch.early.test:                                ; preds = %77
   %431 = getelementptr inbounds i8, ptr %418, i64 6
   %432 = load i16, ptr %431, align 2
   %433 = sext i16 %432 to i32
-  %.not370 = icmp eq i32 %433, %5
+  %.not370 = icmp eq i32 %5, %433
   br i1 %.not370, label %438, label %434
 
 434:                                              ; preds = %430

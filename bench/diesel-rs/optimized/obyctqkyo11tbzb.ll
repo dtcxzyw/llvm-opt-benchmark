@@ -165,7 +165,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd8e03250ced6bd
   %26 = load i64, ptr %6, align 8, !noundef !4
   %27 = load i64, ptr %0, align 8, !noundef !4
   %28 = sub i64 %27, %26
-  %29 = icmp ult i64 %28, %25
+  %29 = icmp ugt i64 %25, %28
   br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb73da21b232e22c4E.exit"
 
 30:                                               ; preds = %23
@@ -192,7 +192,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb73da21b232e22c4E"(ptr a
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2

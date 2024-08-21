@@ -2479,7 +2479,7 @@ define internal fastcc noundef i32 @rhashtable_remove_fast(ptr noundef %0, ptr n
 
 90:                                               ; preds = %.loopexit13
   %91 = inttoptr i64 %87 to ptr
-  %92 = icmp eq ptr %91, %1
+  %92 = icmp eq ptr %1, %91
   br i1 %92, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %90

@@ -86,7 +86,7 @@ entry:
   %uncompression_dict = alloca %"class.rocksdb::CachableEntry", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %uncompression_dict, i8 0, i64 25, i1 false)
   %use_cache.not = xor i1 %use_cache, true
-  %brmerge = or i1 %use_cache.not, %prefetch
+  %brmerge = or i1 %prefetch, %use_cache.not
   br i1 %brmerge, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %entry
@@ -105,7 +105,7 @@ lpad:                                             ; preds = %if.end13, %if.then
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %invoke.cont6
-  %brmerge6 = or i1 %use_cache.not, %pin
+  %brmerge6 = or i1 %pin, %use_cache.not
   br i1 %brmerge6, label %nrvo.unused, label %if.then10
 
 if.then10:                                        ; preds = %if.end

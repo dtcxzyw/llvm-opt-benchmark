@@ -1568,7 +1568,7 @@ define void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$ockam_multiaddr..Bu
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !221, !noalias !219, !noundef !7
   %8 = sub i64 %7, %5
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h68790ac863436014E.exit"
 
 10:                                               ; preds = %3

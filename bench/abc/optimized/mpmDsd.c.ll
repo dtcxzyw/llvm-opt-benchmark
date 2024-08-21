@@ -1749,7 +1749,7 @@ define i32 @Mpm_CutCheckDsd6(ptr nocapture noundef readonly %0, i64 noundef %1) 
   %4 = and i64 %1, 1
   %.not = icmp ne i64 %4, 0
   %5 = sext i1 %.not to i64
-  %spec.select = xor i64 %5, %1
+  %spec.select = xor i64 %1, %5
   store i64 %spec.select, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 6952
   %7 = load ptr, ptr %6, align 8

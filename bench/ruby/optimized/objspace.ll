@@ -1535,7 +1535,7 @@ declare void @rb_objspace_reachable_objects_from_root(ptr noundef, ptr noundef) 
 define internal void @reachable_object_from_root_i(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %0
+  %6 = icmp eq ptr %0, %5
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
@@ -1573,13 +1573,13 @@ define internal void @reachable_object_from_root_i(ptr noundef %0, i64 noundef %
 
 24:                                               ; preds = %22
   %25 = load i64, ptr %2, align 8
-  %.not27 = icmp eq i64 %25, %1
+  %.not27 = icmp eq i64 %1, %25
   br i1 %.not27, label %37, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %2, i64 24
   %28 = load i64, ptr %27, align 8
-  %.not28 = icmp eq i64 %28, %1
+  %.not28 = icmp eq i64 %1, %28
   br i1 %.not28, label %37, label %29
 
 29:                                               ; preds = %26

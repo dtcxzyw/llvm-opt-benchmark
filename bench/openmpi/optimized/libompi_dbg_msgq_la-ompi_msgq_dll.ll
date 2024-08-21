@@ -1089,7 +1089,7 @@ define internal fastcc void @opal_free_list_t_init_parser(ptr noundef %0, ptr no
   %15 = getelementptr inbounds i8, ptr %12, i64 76
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = add i64 %17, %3
+  %18 = add i64 %3, %17
   %19 = tail call i64 @ompi_fetch_size_t(ptr noundef %0, i64 noundef %18, ptr noundef nonnull %1) #12
   %20 = getelementptr inbounds i8, ptr %2, i64 72
   store i64 %19, ptr %20, align 8

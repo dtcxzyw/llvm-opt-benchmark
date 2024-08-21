@@ -196,7 +196,7 @@ define hidden noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
   %12 = ptrtoint ptr %6 to i64
   %13 = sub nuw i64 %11, %12
   %14 = lshr exact i64 %13, 4
-  %.not.i.not.i.i = icmp ugt i64 %14, %9
+  %.not.i.not.i.i = icmp ult i64 %9, %14
   %15 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 %9
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   br i1 %.not.i.not.i.i, label %._crit_edge.i.i, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf420de0cd25dfac9E.exit"
@@ -1841,7 +1841,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   br i1 %26, label %29, label %28
 
 27:                                               ; preds = %20
-  %.not = icmp eq i64 %10, %1
+  %.not = icmp eq i64 %1, %10
   br i1 %.not, label %28, label %31
 
 28:                                               ; preds = %34, %31, %27, %24
@@ -1966,7 +1966,7 @@ _ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i: ; preds = %27, %25
   %39 = load i64, ptr %38, align 8, !alias.scope !320, !noalias !323, !noundef !7
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8, !alias.scope !320, !noalias !323
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %50, %3
@@ -2047,8 +2047,8 @@ _ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i: ; preds = %27, %25
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14.i
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa.i
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa.i
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14.i
   %.0.copyload15.i18.i = load i16, ptr %86, align 1, !alias.scope !334, !noalias !320
   %87 = zext i16 %.0.copyload15.i18.i to i64
   %88 = shl nuw nsw i64 %.0.i14.i, 3

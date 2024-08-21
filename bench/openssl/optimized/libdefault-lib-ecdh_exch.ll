@@ -738,7 +738,7 @@ lor.lhs.false9:                                   ; preds = %if.end5
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %lor.lhs.false9
-  %cond = tail call i64 @llvm.umin.i64(i64 %retval.0.i, i64 %outlen)
+  %cond = tail call i64 @llvm.umin.i64(i64 %outlen, i64 %retval.0.i)
   %3 = load ptr, ptr %k, align 8
   %call16 = tail call i32 @EC_KEY_get_flags(ptr noundef %3) #7
   %cofactor_mode = getelementptr inbounds i8, ptr %vpecdhctx, i64 24

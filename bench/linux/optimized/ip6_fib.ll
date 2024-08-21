@@ -2671,11 +2671,11 @@ define dso_local ptr @fib6_locate(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %13, label %17, label %19
 
 17:                                               ; preds = %.lr.ph
-  %18 = icmp slt i32 %16, %2
+  %18 = icmp sgt i32 %2, %16
   br i1 %18, label %61, label %.thread
 
 19:                                               ; preds = %.lr.ph
-  %20 = icmp sgt i32 %16, %2
+  %20 = icmp slt i32 %2, %16
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %19
@@ -2723,7 +2723,7 @@ define dso_local ptr @fib6_locate(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %52, label %53, label %.thread
 
 53:                                               ; preds = %43, %41, %30, %28
-  %54 = icmp eq i32 %16, %2
+  %54 = icmp eq i32 %2, %16
   br i1 %54, label %.thread8, label %55
 
 55:                                               ; preds = %53

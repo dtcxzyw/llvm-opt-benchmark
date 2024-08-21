@@ -1143,7 +1143,7 @@ invoke.cont172.i.loopexit.split.loop.exit139:     ; preds = %if.end.i.i.i.i.i.i
 
 invoke.cont172.i:                                 ; preds = %for.body.i.i.i.i.i.i, %invoke.cont172.i.loopexit.split.loop.exit, %invoke.cont172.i.loopexit.split.loop.exit137, %invoke.cont172.i.loopexit.split.loop.exit139, %sw.bb25.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i, %sw.bb25.i.i.i.i.i.i ], [ %incdec.ptr8.i.i.i.i.i.i.le, %invoke.cont172.i.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.i.i.le, %invoke.cont172.i.loopexit.split.loop.exit137 ], [ %incdec.ptr.i.i.i.i.i175.i.le, %invoke.cont172.i.loopexit.split.loop.exit139 ], [ %__first.addr.049.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %cmp.i.i174.not.i = icmp eq ptr %retval.0.i.i.i.i.i.i, %add.ptr171.i
+  %cmp.i.i174.not.i = icmp eq ptr %add.ptr171.i, %retval.0.i.i.i.i.i.i
   br i1 %cmp.i.i174.not.i, label %for.inc.i, label %if.then174.i
 
 if.then174.i:                                     ; preds = %invoke.cont172.i
@@ -2301,7 +2301,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit82:  ; preds = %invoke.cont13, %_ZN
   %46 = load ptr, ptr %vfn18, align 8
   %call19 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(72) %45)
   %conv = sext i32 %call19 to i64
-  %mul = mul nsw i64 %conv, %tensor_size
+  %mul = mul nsw i64 %tensor_size, %conv
   call void @_ZN5arrow14AllocateBufferElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result.23") align 8 %ref.tmp20, i64 noundef %mul, ptr noundef %pool)
   %47 = load ptr, ptr %ref.tmp20, align 8
   %cmp.i.i = icmp eq ptr %47, null

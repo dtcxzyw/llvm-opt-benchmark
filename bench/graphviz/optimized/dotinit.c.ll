@@ -509,7 +509,7 @@ define internal fastcc void @dot_cleanup_graph(ptr noundef %0) unnamed_addr #0 {
 
 41:                                               ; preds = %38, %40, %5
   %42 = tail call ptr @agroot(ptr noundef nonnull %0) #14
-  %.not24 = icmp eq ptr %42, %0
+  %.not24 = icmp eq ptr %0, %42
   br i1 %.not24, label %47, label %43
 
 43:                                               ; preds = %41
@@ -1151,7 +1151,7 @@ declare void @setAspect(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dot_init_subg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @agroot(ptr noundef %0) #14
-  %.not = icmp eq ptr %3, %0
+  %.not = icmp eq ptr %0, %3
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2

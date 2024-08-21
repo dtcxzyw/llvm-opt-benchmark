@@ -8958,7 +8958,7 @@ parse_num.exit:                                   ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %parse_num.exit
-  %add = add i32 %conv2.i, %offset
+  %add = add i32 %offset, %conv2.i
   %sext44 = shl i64 %sub.ptr.sub.i, 32
   %idx.ext4 = ashr exact i64 %sext44, 32
   %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext4
@@ -11112,7 +11112,7 @@ land.lhs.true133.i:                               ; preds = %land.lhs.true124.i
 if.then141.i:                                     ; preds = %land.lhs.true133.i
   %88 = load i64, ptr %newlines.i, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %88, i64 1)
-  %cmp.i276.i = icmp ult i64 %spec.select.i.i, %sub136.i
+  %cmp.i276.i = icmp ugt i64 %sub136.i, %spec.select.i.i
   br i1 %cmp.i276.i, label %if.then.i279.i, label %if.end.i.i
 
 if.then.i279.i:                                   ; preds = %if.then141.i
@@ -11474,7 +11474,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i, %
   ]
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i, %land.rhs.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ugt ptr %arrayidx.i.i.i.i.i, %add.ptr7.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ult ptr %add.ptr7.i.i.i.i, %arrayidx.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %while.end.i.i.i.i.i, !llvm.loop !52
 
 while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %for.body.i.i.i.i
@@ -11493,14 +11493,14 @@ land.rhs11.i.i.i.i.i:                             ; preds = %while.end.i.i.i.i.i
   ]
 
 while.body23.i.i.i.i.i:                           ; preds = %land.rhs11.i.i.i.i.i, %land.rhs11.i.i.i.i.i
-  %cmp9.i.i.i.i.i = icmp ugt ptr %arrayidx12.i.i.i.i.i, %add.ptr9.i.i.i.i
+  %cmp9.i.i.i.i.i = icmp ult ptr %add.ptr9.i.i.i.i, %arrayidx12.i.i.i.i.i
   br i1 %cmp9.i.i.i.i.i, label %land.rhs11.i.i.i.i.i, label %while.end25.i.i.i.i.i, !llvm.loop !53
 
 while.end25.i.i.i.i.i:                            ; preds = %while.body23.i.i.i.i.i, %land.rhs11.i.i.i.i.i, %while.end.i.i.i.i.i
   %end2.0.lcssa.i.i.i.i.i = phi ptr [ %add.ptr1.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %arrayidx12.i.i.i.i.i, %while.body23.i.i.i.i.i ], [ %end2.035.i.i.i.i.i, %land.rhs11.i.i.i.i.i ]
   %end2.0.lcssa55.i.i.i.i.i = ptrtoint ptr %end2.0.lcssa.i.i.i.i.i to i64
-  %cmp2746.i.i.i.i.i = icmp ugt ptr %end1.0.lcssa.i.i.i.i.i, %add.ptr7.i.i.i.i
-  %cmp3047.i.i.i.i.i = icmp ugt ptr %end2.0.lcssa.i.i.i.i.i, %add.ptr9.i.i.i.i
+  %cmp2746.i.i.i.i.i = icmp ult ptr %add.ptr7.i.i.i.i, %end1.0.lcssa.i.i.i.i.i
+  %cmp3047.i.i.i.i.i = icmp ult ptr %add.ptr9.i.i.i.i, %end2.0.lcssa.i.i.i.i.i
   %147 = select i1 %cmp2746.i.i.i.i.i, i1 %cmp3047.i.i.i.i.i, i1 false
   br i1 %147, label %while.body33.i.i.i.i.i, label %fuzzy_matchlines.exit.i.i.i.i
 
@@ -13690,7 +13690,7 @@ cond.true:                                        ; preds = %for.end69
   %sub.ptr.lhs.cast = ptrtoint ptr %new_buf.1.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %24 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp72 = icmp ugt i64 %sub.ptr.sub, %postlen
+  %cmp72 = icmp ult i64 %postlen, %sub.ptr.sub
   br i1 %cmp72, label %cond.true.if.then81_crit_edge, label %if.end90
 
 cond.true.if.then81_crit_edge:                    ; preds = %cond.true

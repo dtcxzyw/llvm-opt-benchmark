@@ -3257,7 +3257,7 @@ for.body790:                                      ; preds = %_ZN19OpenColorIO_v2
 if.end.i571:                                      ; preds = %for.body790
   %267 = load ptr, ptr %stims.i572, align 8
   %268 = load float, ptr %267, align 4
-  %cmp.i573 = fcmp ogt float %268, %265
+  %cmp.i573 = fcmp olt float %265, %268
   br i1 %cmp.i573, label %if.then1.i, label %if.end2.i
 
 if.then1.i:                                       ; preds = %if.end.i571
@@ -3270,7 +3270,7 @@ if.end2.i:                                        ; preds = %if.end.i571
   %272 = getelementptr float, ptr %267, i64 %271
   %arrayidx4.i = getelementptr i8, ptr %272, i64 -4
   %273 = load float, ptr %arrayidx4.i, align 4
-  %cmp5.i = fcmp olt float %273, %265
+  %cmp5.i = fcmp ogt float %265, %273
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end2.i
@@ -3290,7 +3290,7 @@ if.end.i.i.i:                                     ; preds = %if.end7.i, %if.end.
   %idxprom.i.i.i = sext i32 %div.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %267, i64 %idxprom.i.i.i
   %275 = load float, ptr %arrayidx.i.i.i, align 4
-  %cmp1.i.i.i = fcmp ogt float %275, %265
+  %cmp1.i.i.i = fcmp olt float %265, %275
   %low.tr.div.i.i.i = select i1 %cmp1.i.i.i, i32 %low.tr14.i.i.i, i32 %div.i.i.i
   %div.high.tr.i.i.i = select i1 %cmp1.i.i.i, i32 %div.i.i.i, i32 %high.tr15.i.i.i
   %sub.i.i.i = sub nsw i32 %div.high.tr.i.i.i, %low.tr.div.i.i.i
@@ -6149,7 +6149,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 72
-  %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30, label %for.body.i.i.i.i19
 
 for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i.i19
@@ -7087,7 +7087,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 32
-  %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i.i19
 
 for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i.i19

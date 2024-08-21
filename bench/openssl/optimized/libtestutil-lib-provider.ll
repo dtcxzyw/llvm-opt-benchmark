@@ -155,14 +155,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %prov, align 4
-  %cmp3 = icmp eq i32 %0, %major
+  %cmp3 = icmp eq i32 %major, %0
   %minor5 = getelementptr inbounds i8, ptr %prov, i64 4
   %1 = load i32, ptr %minor5, align 4
-  %cmp6 = icmp eq i32 %1, %minor
+  %cmp6 = icmp eq i32 %minor, %1
   %or.cond = select i1 %cmp3, i1 %cmp6, i1 false
   %patch8 = getelementptr inbounds i8, ptr %prov, i64 8
   %2 = load i32, ptr %patch8, align 4
-  %cmp9 = icmp eq i32 %2, %patch
+  %cmp9 = icmp eq i32 %patch, %2
   %narrow = select i1 %or.cond, i1 %cmp9, i1 false
   br label %return
 
@@ -233,14 +233,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %prov, align 4
-  %cmp3.not = icmp ne i32 %0, %major
+  %cmp3.not = icmp ne i32 %major, %0
   %minor5 = getelementptr inbounds i8, ptr %prov, i64 4
   %1 = load i32, ptr %minor5, align 4
-  %cmp6.not = icmp ne i32 %1, %minor
+  %cmp6.not = icmp ne i32 %minor, %1
   %or.cond.not = select i1 %cmp3.not, i1 true, i1 %cmp6.not
   %patch8 = getelementptr inbounds i8, ptr %prov, i64 8
   %2 = load i32, ptr %patch8, align 4
-  %cmp9 = icmp ne i32 %2, %patch
+  %cmp9 = icmp ne i32 %patch, %2
   %narrow = select i1 %or.cond.not, i1 true, i1 %cmp9
   br label %return
 
@@ -586,12 +586,12 @@ if.then.i41:                                      ; preds = %sw.bb87
 
 fips_provider_version_ne.exit:                    ; preds = %sw.bb87
   %18 = load i32, ptr %prov.i31, align 4
-  %cmp3.not.i = icmp ne i32 %18, %15
+  %cmp3.not.i = icmp ne i32 %15, %18
   %19 = load i32, ptr %minor5.i35, align 4
-  %cmp6.not.i = icmp ne i32 %19, %16
+  %cmp6.not.i = icmp ne i32 %16, %19
   %or.cond.not.i = select i1 %cmp3.not.i, i1 true, i1 %cmp6.not.i
   %20 = load i32, ptr %patch8.i36, align 4
-  %cmp9.i37 = icmp ne i32 %20, %17
+  %cmp9.i37 = icmp ne i32 %17, %20
   %narrow.i38 = select i1 %or.cond.not.i, i1 true, i1 %cmp9.i37
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i31)
   br i1 %narrow.i38, label %while.cond.backedge, label %return
@@ -765,12 +765,12 @@ default.unreachable129:                           ; preds = %if.end85
 
 if.end100:                                        ; preds = %sw.bb
   %37 = load i32, ptr %prov.i, align 4
-  %cmp3.i = icmp eq i32 %37, %15
+  %cmp3.i = icmp eq i32 %15, %37
   %38 = load i32, ptr %minor5.i, align 4
-  %cmp6.i = icmp eq i32 %38, %16
+  %cmp6.i = icmp eq i32 %16, %38
   %or.cond.i = select i1 %cmp3.i, i1 %cmp6.i, i1 false
   %39 = load i32, ptr %patch8.i, align 4
-  %cmp9.i = icmp eq i32 %39, %17
+  %cmp9.i = icmp eq i32 %17, %39
   %narrow.i = select i1 %or.cond.i, i1 %cmp9.i, i1 false
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i)
   br i1 %narrow.i, label %while.cond.backedge, label %return

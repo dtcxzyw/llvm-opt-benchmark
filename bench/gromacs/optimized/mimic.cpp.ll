@@ -632,7 +632,7 @@ _ZNSt5arrayIN3gmx16SimulationSignalELm3EEC2Ev.exit: ; preds = %53
 
 .loopexit252:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit252.loopexit.split.loop.exit, %.loopexit252.loopexit.split.loop.exit314, %.loopexit252.loopexit.split.loop.exit316, %158, %155, %152
   %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %152 ], [ %.1.i.i.i.i.i, %155 ], [ %.2.i.i.i.i.i, %158 ], [ %159, %.loopexit252.loopexit.split.loop.exit ], [ %160, %.loopexit252.loopexit.split.loop.exit314 ], [ %161, %.loopexit252.loopexit.split.loop.exit316 ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.not239 = icmp eq ptr %.028.i.i.i.i.i, %137
+  %.not239 = icmp eq ptr %137, %.028.i.i.i.i.i
   br i1 %.not239, label %.thread, label %162
 
 162:                                              ; preds = %.loopexit252

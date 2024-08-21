@@ -217,7 +217,7 @@ entry:
   store i64 %offset, ptr %offset_, align 8
   %2 = load ptr, ptr %store_, align 8
   %call4 = tail call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
-  %cmp.not = icmp ult i64 %call4, %offset
+  %cmp.not = icmp ugt i64 %offset, %call4
   br i1 %cmp.not, label %do.body7, label %do.body9
 
 do.body7:                                         ; preds = %entry
@@ -262,7 +262,7 @@ entry:
   store i64 %offset, ptr %offset_, align 8
   %0 = load ptr, ptr %store_, align 8
   %call4 = tail call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #16
-  %cmp.not = icmp ult i64 %call4, %offset
+  %cmp.not = icmp ugt i64 %offset, %call4
   br i1 %cmp.not, label %do.body7, label %do.body9
 
 do.body7:                                         ; preds = %entry
@@ -439,7 +439,7 @@ entry:
   %offset_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %call12, ptr %offset_.i, align 8
   %call4.i = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #16
-  %cmp.not.i = icmp ult i64 %call4.i, %call12
+  %cmp.not.i = icmp ugt i64 %call12, %call4.i
   br i1 %cmp.not.i, label %do.body7.i, label %do.body9.i
 
 do.body7.i:                                       ; preds = %entry

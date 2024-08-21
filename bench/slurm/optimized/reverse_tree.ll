@@ -109,7 +109,7 @@ tailrecurse.loopexit.i:                           ; preds = %50
   %37 = add nsw i32 %.03755.i, 1
   %38 = sdiv i32 %41, %2
   %39 = add nsw i32 %38, -1
-  %40 = icmp eq i32 %37, %0
+  %40 = icmp eq i32 %0, %37
   br i1 %40, label %search_tree.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %tailrecurse.loopexit.i
@@ -129,12 +129,12 @@ tailrecurse.loopexit.i:                           ; preds = %50
   %.056.i = phi i32 [ 1, %.preheader.i ], [ %46, %45 ]
   %.03755.i = phi i32 [ %43, %.preheader.i ], [ %48, %45 ]
   %48 = add i32 %.03755.i, %42
-  %49 = icmp eq i32 %48, %0
+  %49 = icmp eq i32 %0, %48
   br i1 %49, label %search_tree.exit, label %50
 
 50:                                               ; preds = %47
-  %51 = icmp slt i32 %.03755.i, %0
-  %52 = icmp sgt i32 %48, %0
+  %51 = icmp sgt i32 %0, %.03755.i
+  %52 = icmp slt i32 %0, %48
   %or.cond.i = and i1 %51, %52
   br i1 %or.cond.i, label %tailrecurse.loopexit.i, label %45
 
@@ -146,7 +146,7 @@ search_tree.exit:                                 ; preds = %tailrecurse.loopexi
   %53 = add nsw i32 %.sink.i, %0
   %.not34 = icmp slt i32 %53, %1
   %54 = xor i32 %0, -1
-  %55 = add i32 %54, %1
+  %55 = add i32 %1, %54
   %.0 = select i1 %.not34, i32 %.sink.i, i32 %55
   store i32 %.sink88.i, ptr %3, align 4
   store i32 %.0, ptr %4, align 4

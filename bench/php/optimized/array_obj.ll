@@ -304,7 +304,7 @@ define hidden ptr @lexbor_array_obj_pop(ptr nocapture noundef %0) local_unnamed_
 define hidden void @lexbor_array_obj_delete(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = icmp ule i64 %5, %1
+  %6 = icmp uge i64 %1, %5
   %7 = icmp eq i64 %2, 0
   %or.cond = or i1 %7, %6
   br i1 %or.cond, label %23, label %8
@@ -352,7 +352,7 @@ define hidden void @lexbor_array_obj_erase_noi(ptr nocapture noundef writeonly %
 define hidden ptr @lexbor_array_obj_get_noi(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %.not.i = icmp ugt i64 %4, %1
+  %.not.i = icmp ult i64 %1, %4
   br i1 %.not.i, label %5, label %lexbor_array_obj_get.exit
 
 5:                                                ; preds = %2

@@ -2466,7 +2466,7 @@ if.then:                                          ; preds = %_ZNSt11char_traitsI
   %sub.ptr.lhs.cast.i.i3 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i4 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i5 = sub i64 %sub.ptr.lhs.cast.i.i3, %sub.ptr.rhs.cast.i.i4
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i5, %call3
+  %cmp.i = icmp ugt i64 %call3, %sub.ptr.sub.i.i5
   br i1 %cmp.i, label %if.then.i, label %_ZN5folly5RangeIPKcE7advanceEm.exit
 
 if.then.i:                                        ; preds = %if.then
@@ -2871,7 +2871,7 @@ _ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i: ; preds = %for.inc.i.i, %land
 
 if.then9.i:                                       ; preds = %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i
   %add.ptr.i = getelementptr inbounds i8, ptr %begin.addr.0.i, i64 3
-  %cmp10.not.i = icmp eq ptr %add.ptr.i, %add.ptr.i2.i.i
+  %cmp10.not.i = icmp eq ptr %add.ptr.i2.i.i, %add.ptr.i
   br i1 %cmp10.not.i, label %if.end28.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then9.i
@@ -3235,7 +3235,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11DecodeErr
 entry:
   %cmp.not = icmp ne ptr %__x, null
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2 = icmp eq ptr %add.ptr.i, %__p
+  %cmp2 = icmp eq ptr %__p, %add.ptr.i
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %entry.lor.end_crit_edge, label %lor.rhs
 
@@ -3316,7 +3316,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErr
 entry:
   %cmp.not = icmp ne ptr %__x, null
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2 = icmp eq ptr %add.ptr.i, %__p
+  %cmp2 = icmp eq ptr %__p, %add.ptr.i
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %entry.lor.end_crit_edge, label %lor.rhs
 
@@ -3548,7 +3548,7 @@ _ZN5folly17base64DecodedSizeESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; 
   %add.i.neg.i.i.i = add i64 %mul.i.i.i, %conv5.i.neg.i.i.i
   %sub.i.i.i = add i64 %add.i.neg.i.i.i, %conv8.i.neg.i.i.i
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
-  %cmp.not.i = icmp ult i64 %call.i, %sub.i.i.i
+  %cmp.not.i = icmp ugt i64 %sub.i.i.i, %call.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5folly17base64DecodedSizeESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, %_ZN5folly17base64DecodedSizeESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -3558,7 +3558,7 @@ if.then.i:                                        ; preds = %_ZN5folly17base64De
 
 if.else.i:                                        ; preds = %_ZN5folly17base64DecodedSizeESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
-  %cmp2.i = icmp ult i64 %call1.i, %sub.i.i.i
+  %cmp2.i = icmp ugt i64 %sub.i.i.i, %call1.i
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -5003,7 +5003,7 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %cmp = icmp slt i64 %off, 0
-  %cmp10 = icmp slt i64 %sub.ptr.sub, %off
+  %cmp10 = icmp sgt i64 %off, %sub.ptr.sub
   %or.cond = or i1 %cmp, %cmp10
   br i1 %or.cond, label %return, label %if.else
 
@@ -5015,7 +5015,7 @@ if.else:                                          ; preds = %sw.bb
 
 sw.bb14:                                          ; preds = %if.end
   %cmp15 = icmp slt i64 %off, 0
-  %cmp17 = icmp slt i64 %sub.ptr.sub, %off
+  %cmp17 = icmp sgt i64 %off, %sub.ptr.sub
   %or.cond23 = or i1 %cmp15, %cmp17
   br i1 %or.cond23, label %return, label %if.else19
 
@@ -5071,7 +5071,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %call3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call4 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5ebackEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
-  %cmp.not = icmp slt i64 %sub.ptr.sub, %sp.coerce0
+  %cmp.not = icmp sgt i64 %sp.coerce0, %sub.ptr.sub
   br i1 %cmp.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end

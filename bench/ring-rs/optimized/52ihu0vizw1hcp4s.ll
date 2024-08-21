@@ -1260,7 +1260,7 @@ define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h182ba6429db4f694
 "_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i": ; preds = %.lr.ph.i.i, %.critedge.i.i
   %.lcssa.i.i = phi i64 [ %28, %.critedge.i.i ], [ %32, %.lr.ph.i.i ]
   %35 = add i64 %.lcssa.i.i, 64
-  %36 = icmp eq ptr %26, %0
+  %36 = icmp eq ptr %0, %26
   br i1 %36, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hd72182f069108e24E.exit, label %25
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hd72182f069108e24E.exit: ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i"
@@ -1341,7 +1341,7 @@ define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h847f698419fd7a90
 "_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i": ; preds = %.lr.ph.i.i, %.critedge.i.i
   %.lcssa.i.i = phi i64 [ %28, %.critedge.i.i ], [ %32, %.lr.ph.i.i ]
   %35 = add i64 %.lcssa.i.i, 64
-  %36 = icmp eq ptr %26, %0
+  %36 = icmp eq ptr %0, %26
   br i1 %36, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hb160ad6756f962f3E.exit, label %25
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hb160ad6756f962f3E.exit: ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i"
@@ -1725,7 +1725,7 @@ define hidden { ptr, i64 } @_ZN4ring3rsa10public_key5Inner12exponentiate17hcd4c5
   %19 = zext i1 %18 to i64
   %20 = lshr i64 %13, 3
   %21 = add nuw nsw i64 %20, %19
-  %.not = icmp eq i64 %21, %2
+  %.not = icmp eq i64 %2, %21
   br i1 %.not, label %22, label %64
 
 22:                                               ; preds = %4
@@ -1797,7 +1797,7 @@ define hidden { ptr, i64 } @_ZN4ring3rsa10public_key5Inner12exponentiate17hcd4c5
           to label %47 unwind label %44
 
 47:                                               ; preds = %46
-  %.not.i = icmp ult i64 %41, %2
+  %.not.i = icmp ugt i64 %2, %41
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h2303a783267c09e5E.exit.invoke.i", label %48
 
 48:                                               ; preds = %47

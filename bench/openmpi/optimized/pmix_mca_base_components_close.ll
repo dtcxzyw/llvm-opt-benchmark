@@ -140,7 +140,7 @@ define noundef i32 @pmix_mca_base_components_close(i32 noundef %0, ptr noundef %
   %.035 = load ptr, ptr %.0.in34, align 8
   %9 = getelementptr inbounds i8, ptr %.02533, i64 144
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %2
+  %11 = icmp eq ptr %2, %10
   br i1 %11, label %45, label %12
 
 12:                                               ; preds = %8

@@ -1222,7 +1222,7 @@ define range(i32 0, 2) i32 @cuddSwapping(ptr noundef %0, i32 noundef %1, i32 nou
 
 ._crit_edge:                                      ; preds = %22, %.preheader95
   %.1.lcssa = phi i32 [ %.062112, %.preheader95 ], [ %spec.select85, %22 ]
-  %27 = icmp eq i32 %.1.lcssa, %2
+  %27 = icmp eq i32 %2, %.1.lcssa
   br i1 %27, label %35, label %28
 
 28:                                               ; preds = %._crit_edge
@@ -3006,7 +3006,7 @@ define internal fastcc ptr @ddSiftingUp(ptr noundef %0, i32 noundef %1, i32 noun
   %.1 = phi i32 [ %35, %24 ], [ %.098, %19 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %36, %3

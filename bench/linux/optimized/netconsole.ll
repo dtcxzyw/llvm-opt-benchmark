@@ -415,7 +415,7 @@ define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i
   %58 = sub i64 %57, %18
   %59 = trunc i64 %58 to i32
   %60 = xor i32 %59, -1
-  %61 = add i32 %60, %2
+  %61 = add i32 %2, %60
   %62 = getelementptr i8, ptr %53, i64 1
   br i1 %39, label %65, label %63
 

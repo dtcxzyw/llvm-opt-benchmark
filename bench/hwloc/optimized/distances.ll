@@ -839,7 +839,7 @@ define range(i32 -1, 1) i32 @hwloc_backend_distances_add_values(ptr nocapture re
 
 .preheader54.i:                                   ; preds = %38
   %41 = trunc nuw i64 %indvars.iv72.i to i32
-  %42 = mul i32 %41, %2
+  %42 = mul i32 %2, %41
   %43 = mul i32 %.04158.i, %30
   br label %44
 
@@ -1137,7 +1137,7 @@ define internal fastcc void @hwloc_internal_distances_restrict(ptr nocapture nou
 
 .preheader54:                                     ; preds = %35
   %38 = trunc nuw i64 %indvars.iv72 to i32
-  %39 = mul i32 %38, %4
+  %39 = mul i32 %4, %38
   %40 = mul i32 %.04158, %7
   br label %41
 
@@ -1566,7 +1566,7 @@ define internal fastcc void @hwloc__groups_by_distances(ptr noundef %0, i32 noun
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph95.split.us.i
   %30 = trunc nuw i64 %indvars.iv144.i to i32
-  %31 = mul i32 %30, %1
+  %31 = mul i32 %1, %30
   %.pn.in.us.i = add i32 %31, %30
   %.pn.us.i = zext i32 %.pn.in.us.i to i64
   %.in.us.i = getelementptr inbounds i64, ptr %3, i64 %.pn.us.i
@@ -1579,7 +1579,7 @@ define internal fastcc void @hwloc__groups_by_distances(ptr noundef %0, i32 noun
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds i64, ptr %3, i64 %35
   %37 = load i64, ptr %36, align 8
-  %38 = mul i32 %33, %1
+  %38 = mul i32 %1, %33
   %39 = add i32 %38, %30
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds i64, ptr %3, i64 %40
@@ -1607,7 +1607,7 @@ define internal fastcc void @hwloc__groups_by_distances(ptr noundef %0, i32 noun
 54:                                               ; preds = %.thread.us.us.i
   %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
   %lftr.wideiv249 = trunc i64 %indvars.iv.next140.i to i32
-  %exitcond250 = icmp eq i32 %lftr.wideiv249, %1
+  %exitcond250 = icmp eq i32 %1, %lftr.wideiv249
   br i1 %exitcond250, label %.loopexit.us.i, label %32, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %78, %.lr.ph95.split.i
@@ -1624,7 +1624,7 @@ define internal fastcc void @hwloc__groups_by_distances(ptr noundef %0, i32 noun
 
 .lr.ph.i:                                         ; preds = %.lr.ph95.split.i
   %56 = trunc nuw i64 %indvars.iv133.i to i32
-  %57 = mul i32 %56, %1
+  %57 = mul i32 %1, %56
   %58 = add i32 %57, %56
   %59 = zext i32 %58 to i64
   %60 = getelementptr inbounds i64, ptr %3, i64 %59
@@ -1637,7 +1637,7 @@ hwloc_compare_values.exit.thread60.i:             ; preds = %78, %.lr.ph.i
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds i64, ptr %3, i64 %63
   %65 = load i64, ptr %64, align 8
-  %66 = mul i32 %61, %1
+  %66 = mul i32 %1, %61
   %67 = add i32 %66, %56
   %68 = zext i32 %67 to i64
   %69 = getelementptr inbounds i64, ptr %3, i64 %68
@@ -1677,7 +1677,7 @@ hwloc_compare_values.exit57.thread.i:             ; preds = %.thread62.i, %.thre
 78:                                               ; preds = %.thread62.i
   %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next131.i to i32
-  %exitcond = icmp eq i32 %lftr.wideiv, %1
+  %exitcond = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond, label %.loopexit.i, label %hwloc_compare_values.exit.thread60.i, !llvm.loop !21
 
 hwloc__check_grouping_matrix.exit:                ; preds = %.loopexit.i, %.loopexit.us.i, %27
@@ -1688,7 +1688,7 @@ hwloc__check_grouping_matrix.exit:                ; preds = %.loopexit.i, %.loop
   %indvars.iv148.i = phi i64 [ %indvars.iv.next149.i, %89 ], [ 0, %hwloc__check_grouping_matrix.exit ]
   %.091114.i = phi i64 [ %.293.i, %89 ], [ -1, %hwloc__check_grouping_matrix.exit ]
   %79 = trunc nuw i64 %indvars.iv148.i to i32
-  %80 = mul i32 %79, %1
+  %80 = mul i32 %1, %79
   br label %81
 
 81:                                               ; preds = %88, %.preheader111.i
@@ -1799,7 +1799,7 @@ hwloc__check_grouping_matrix.exit:                ; preds = %.loopexit.i, %.loop
 
 .preheader.us.us.us.i:                            ; preds = %.lr.ph.us.us.i
   %111 = trunc nuw i64 %indvars.iv173.i to i32
-  %112 = mul i32 %111, %1
+  %112 = mul i32 %1, %111
   br label %113
 
 113:                                              ; preds = %129, %.preheader.us.us.us.i
@@ -1879,7 +1879,7 @@ hwloc_compare_values.exit.thread.us.us.us.us.i:   ; preds = %116
 
 .preheader.i:                                     ; preds = %.lr.ph.i148
   %138 = trunc nuw i64 %indvars.iv158.i to i32
-  %139 = mul i32 %138, %1
+  %139 = mul i32 %1, %138
   br label %140
 
 140:                                              ; preds = %150, %.preheader.i
@@ -2066,7 +2066,7 @@ hwloc__check_grouping_matrix.exit.thread:         ; preds = %._crit_edge.i, %._c
 
 .preheader166:                                    ; preds = %.lr.ph210
   %212 = trunc nuw i64 %indvars.iv268 to i32
-  %213 = mul i32 %212, %1
+  %213 = mul i32 %1, %212
   %214 = add i32 %211, -1
   %215 = mul i32 %214, %162
   %216 = add i32 %215, -1
@@ -3004,7 +3004,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_get(ptr noundef %0
 19:                                               ; preds = %18
   %20 = getelementptr inbounds i8, ptr %.04379, i64 12
   %21 = load i32, ptr %20, align 4
-  %.not57 = icmp eq i32 %21, %2
+  %.not57 = icmp eq i32 %2, %21
   br i1 %.not57, label %22, label %66
 
 22:                                               ; preds = %19, %18

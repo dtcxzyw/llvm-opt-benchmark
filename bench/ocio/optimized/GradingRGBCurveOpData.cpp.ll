@@ -2136,7 +2136,7 @@ entry:
   %ref.tmp = alloca %"class.std::shared_ptr.27", align 8
   %m_style = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i32, ptr %m_style, align 8
-  %cmp.not = icmp eq i32 %0, %style
+  %cmp.not = icmp eq i32 %style, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

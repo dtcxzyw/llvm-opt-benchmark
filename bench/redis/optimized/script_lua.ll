@@ -473,9 +473,9 @@ for.inc:                                          ; preds = %sdsalloc.exit, %if.
 
 for.end:                                          ; preds = %for.inc, %entry
   %15 = load ptr, ptr @lua_argv, align 8
-  %cmp23.not = icmp eq ptr %15, %argv
+  %cmp23.not = icmp eq ptr %argv, %15
   %16 = load i32, ptr @lua_argv_size, align 4
-  %cmp25.not = icmp eq i32 %16, %argv_len
+  %cmp25.not = icmp eq i32 %argv_len, %16
   %or.cond = select i1 %cmp23.not, i1 %cmp25.not, i1 false
   br i1 %or.cond, label %if.end27, label %if.then26
 

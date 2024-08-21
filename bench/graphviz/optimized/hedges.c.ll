@@ -156,7 +156,7 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
   %7 = icmp eq ptr %4, null
   %8 = icmp eq ptr %6, null
   %or.cond = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond, label %64, label %9
+  br i1 %or.cond, label %63, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 48
@@ -164,7 +164,7 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
   %12 = getelementptr inbounds i8, ptr %6, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
-  br i1 %14, label %64, label %15
+  br i1 %14, label %63, label %15
 
 15:                                               ; preds = %9
   %16 = load double, ptr %4, align 8
@@ -173,74 +173,73 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   %20 = load double, ptr %19, align 8
   %21 = load double, ptr %6, align 8
-  %22 = fneg double %20
-  %23 = fmul double %21, %22
+  %22 = fneg double %21
+  %23 = fmul double %20, %22
   %24 = tail call double @llvm.fmuladd.f64(double %16, double %18, double %23)
   %25 = tail call double @llvm.fabs.f64(double %24)
   %or.cond3 = fcmp olt double %25, 1.000000e-10
-  br i1 %or.cond3, label %64, label %26
+  br i1 %or.cond3, label %63, label %26
 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds i8, ptr %4, i64 16
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %6, i64 16
   %30 = load double, ptr %29, align 8
-  %31 = fneg double %30
-  %32 = fmul double %20, %31
+  %31 = fneg double %20
+  %32 = fmul double %30, %31
   %33 = tail call double @llvm.fmuladd.f64(double %28, double %18, double %32)
   %34 = fdiv double %33, %24
-  %35 = fneg double %28
-  %36 = fmul double %21, %35
-  %37 = tail call double @llvm.fmuladd.f64(double %30, double %16, double %36)
-  %38 = fdiv double %37, %24
-  %39 = getelementptr inbounds i8, ptr %11, i64 8
-  %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %13, i64 8
-  %42 = load double, ptr %41, align 8
-  %43 = fcmp olt double %40, %42
-  br i1 %43, label %51, label %44
+  %35 = fmul double %28, %22
+  %36 = tail call double @llvm.fmuladd.f64(double %30, double %16, double %35)
+  %37 = fdiv double %36, %24
+  %38 = getelementptr inbounds i8, ptr %11, i64 8
+  %39 = load double, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %13, i64 8
+  %41 = load double, ptr %40, align 8
+  %42 = fcmp olt double %39, %41
+  br i1 %42, label %50, label %43
 
-44:                                               ; preds = %26
-  %45 = fcmp oeq double %40, %42
-  br i1 %45, label %46, label %50
+43:                                               ; preds = %26
+  %44 = fcmp oeq double %39, %41
+  br i1 %44, label %45, label %49
 
-46:                                               ; preds = %44
-  %47 = load double, ptr %11, align 8
-  %48 = load double, ptr %13, align 8
-  %49 = fcmp olt double %47, %48
-  br i1 %49, label %51, label %50
+45:                                               ; preds = %43
+  %46 = load double, ptr %11, align 8
+  %47 = load double, ptr %13, align 8
+  %48 = fcmp olt double %46, %47
+  br i1 %48, label %50, label %49
 
-50:                                               ; preds = %46, %44
-  br label %51
+49:                                               ; preds = %45, %43
+  br label %50
 
-51:                                               ; preds = %26, %46, %50
-  %52 = phi ptr [ %13, %50 ], [ %11, %46 ], [ %11, %26 ]
-  %.048 = phi ptr [ %1, %50 ], [ %0, %46 ], [ %0, %26 ]
-  %53 = load double, ptr %52, align 8
-  %54 = fcmp ult double %34, %53
-  %55 = getelementptr inbounds i8, ptr %.048, i64 28
-  %56 = load i8, ptr %55, align 4
-  br i1 %54, label %.critedge, label %57
+50:                                               ; preds = %26, %45, %49
+  %51 = phi ptr [ %13, %49 ], [ %11, %45 ], [ %11, %26 ]
+  %.048 = phi ptr [ %1, %49 ], [ %0, %45 ], [ %0, %26 ]
+  %52 = load double, ptr %51, align 8
+  %53 = fcmp ult double %34, %52
+  %54 = getelementptr inbounds i8, ptr %.048, i64 28
+  %55 = load i8, ptr %54, align 4
+  br i1 %53, label %.critedge, label %56
 
-57:                                               ; preds = %51
-  %58 = icmp eq i8 %56, 0
-  br i1 %58, label %64, label %60
+56:                                               ; preds = %50
+  %57 = icmp eq i8 %55, 0
+  br i1 %57, label %63, label %59
 
-.critedge:                                        ; preds = %51
-  %59 = icmp eq i8 %56, 1
-  br i1 %59, label %64, label %60
+.critedge:                                        ; preds = %50
+  %58 = icmp eq i8 %55, 1
+  br i1 %58, label %63, label %59
 
-60:                                               ; preds = %57, %.critedge
-  %61 = tail call ptr @getsite() #13
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
-  store i32 0, ptr %62, align 8
-  store double %34, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
-  store double %38, ptr %63, align 8
-  br label %64
+59:                                               ; preds = %56, %.critedge
+  %60 = tail call ptr @getsite() #13
+  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  store i32 0, ptr %61, align 8
+  store double %34, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  store double %37, ptr %62, align 8
+  br label %63
 
-64:                                               ; preds = %57, %.critedge, %15, %9, %2, %60
-  %.0 = phi ptr [ %61, %60 ], [ null, %2 ], [ null, %9 ], [ null, %15 ], [ null, %.critedge ], [ null, %57 ]
+63:                                               ; preds = %56, %.critedge, %15, %9, %2, %59
+  %.0 = phi ptr [ %60, %59 ], [ null, %2 ], [ null, %9 ], [ null, %15 ], [ null, %.critedge ], [ null, %56 ]
   ret ptr %.0
 }
 
@@ -495,7 +494,7 @@ ELgethash.exit:                                   ; preds = %1, %13, %22, %27
   %49 = phi i32 [ %30, %29 ], [ %30, %34 ], [ %.pre71, %47 ], [ %30, %42 ]
   %50 = add nsw i64 %indvars.iv, %28
   %51 = icmp sgt i64 %50, -1
-  %.not.i57 = icmp sgt i64 %.pre-phi, %50
+  %.not.i57 = icmp slt i64 %50, %.pre-phi
   %or.cond.i58 = select i1 %51, i1 %.not.i57, i1 false
   br i1 %or.cond.i58, label %52, label %66
 

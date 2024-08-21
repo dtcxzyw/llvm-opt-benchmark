@@ -105,7 +105,7 @@ define ptr @select_plugin_id_to_string(i32 noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %2 ]
   %5 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16
-  %7 = icmp eq i32 %6, %0
+  %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %2
 
 8:                                                ; preds = %3
@@ -1004,7 +1004,7 @@ select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_i
   %indvars.iv.i27 = phi i64 [ 1, %23 ], [ 0, %select_get_plugin_id_pos.exit.thread.preheader ]
   %25 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i27
   %26 = load i32, ptr %25, align 16
-  %27 = icmp eq i32 %26, %13
+  %27 = icmp eq i32 %13, %26
   br i1 %27, label %28, label %23
 
 28:                                               ; preds = %select_get_plugin_id_pos.exit.thread
@@ -1069,7 +1069,7 @@ select_get_plugin_id_pos.exit36.thread:           ; preds = %select_get_plugin_i
   %indvars.iv.i37 = phi i64 [ 1, %52 ], [ 0, %select_get_plugin_id_pos.exit36.thread.preheader ]
   %54 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i37
   %55 = load i32, ptr %54, align 16
-  %56 = icmp eq i32 %55, %42
+  %56 = icmp eq i32 %42, %55
   br i1 %56, label %57, label %52
 
 57:                                               ; preds = %select_get_plugin_id_pos.exit36.thread
@@ -1472,7 +1472,7 @@ select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_i
   %indvars.iv.i27 = phi i64 [ 1, %23 ], [ 0, %select_get_plugin_id_pos.exit.thread.preheader ]
   %25 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i27
   %26 = load i32, ptr %25, align 16
-  %27 = icmp eq i32 %26, %13
+  %27 = icmp eq i32 %13, %26
   br i1 %27, label %28, label %23
 
 28:                                               ; preds = %select_get_plugin_id_pos.exit.thread
@@ -1537,7 +1537,7 @@ select_get_plugin_id_pos.exit36.thread:           ; preds = %select_get_plugin_i
   %indvars.iv.i37 = phi i64 [ 1, %52 ], [ 0, %select_get_plugin_id_pos.exit36.thread.preheader ]
   %54 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i37
   %55 = load i32, ptr %54, align 16
-  %56 = icmp eq i32 %55, %42
+  %56 = icmp eq i32 %42, %55
   br i1 %56, label %57, label %52
 
 57:                                               ; preds = %select_get_plugin_id_pos.exit36.thread

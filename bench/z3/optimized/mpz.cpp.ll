@@ -938,7 +938,7 @@ entry:
 if.end:                                           ; preds = %entry
   %m_init_cell_capacity = getelementptr inbounds i8, ptr %this, i64 564
   %0 = load i32, ptr %m_init_cell_capacity, align 4
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %0, i32 %capacity)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %capacity, i32 %0)
   %m_kind.i = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load.i = load i8, ptr %m_kind.i, align 4
   %bf.clear.i = and i8 %bf.load.i, 1
@@ -11806,7 +11806,7 @@ if.else:                                          ; preds = %invoke.cont2
   %m_digits.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %5, align 4
   %mul22 = shl i32 %6, 5
-  %cmp.not = icmp ugt i32 %mul22, %num_bits
+  %cmp.not = icmp ult i32 %num_bits, %mul22
   br i1 %cmp.not, label %if.else29, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.else
@@ -11967,7 +11967,7 @@ if.else:                                          ; preds = %entry
   %m_digits.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %1, align 4
   %mul = shl i32 %2, 5
-  %cmp = icmp ult i32 %mul, %num_bits
+  %cmp = icmp ugt i32 %num_bits, %mul
   br i1 %cmp, label %for.body.preheader, label %if.end
 
 for.body.preheader:                               ; preds = %if.else
@@ -15355,7 +15355,7 @@ entry:
 if.end:                                           ; preds = %entry
   %m_init_cell_capacity = getelementptr inbounds i8, ptr %this, i64 564
   %0 = load i32, ptr %m_init_cell_capacity, align 4
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %0, i32 %capacity)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %capacity, i32 %0)
   %m_kind.i = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load.i = load i8, ptr %m_kind.i, align 4
   %bf.clear.i = and i8 %bf.load.i, 1
@@ -26507,7 +26507,7 @@ if.else:                                          ; preds = %invoke.cont2
   %m_digits.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %5, align 4
   %mul22 = shl i32 %6, 5
-  %cmp.not = icmp ugt i32 %mul22, %num_bits
+  %cmp.not = icmp ult i32 %num_bits, %mul22
   br i1 %cmp.not, label %if.else29, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.else
@@ -26640,7 +26640,7 @@ if.else:                                          ; preds = %entry
   %m_digits.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %1, align 4
   %mul = shl i32 %2, 5
-  %cmp = icmp ult i32 %mul, %num_bits
+  %cmp = icmp ugt i32 %num_bits, %mul
   br i1 %cmp, label %for.body.preheader, label %if.end
 
 for.body.preheader:                               ; preds = %if.else

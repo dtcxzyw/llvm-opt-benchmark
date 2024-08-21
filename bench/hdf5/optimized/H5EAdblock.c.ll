@@ -78,7 +78,7 @@ define ptr @H5EA__dblock_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) l
   store i64 %2, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 448
   %22 = load i64, ptr %21, align 8
-  %23 = icmp ult i64 %22, %2
+  %23 = icmp ugt i64 %2, %22
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %17
@@ -583,7 +583,7 @@ define range(i32 -1, 1) i32 @H5EA__dblock_delete(ptr noundef %0, ptr noundef %1,
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 448
   %12 = load i64, ptr %11, align 8
-  %13 = icmp ult i64 %12, %3
+  %13 = icmp ugt i64 %3, %12
   br i1 %13, label %.lr.ph, label %.thread33
 
 .lr.ph:                                           ; preds = %10

@@ -1302,7 +1302,7 @@ thread-pre-split:                                 ; preds = %.preheader, %241, %
 
 251:                                              ; preds = %235
   %252 = load ptr, ptr @type_untypedlist, align 8
-  %253 = icmp eq ptr %252, %1
+  %253 = icmp eq ptr %1, %252
   br i1 %253, label %.lr.ph.preheader.i74, label %272
 
 .lr.ph.preheader.i74:                             ; preds = %251

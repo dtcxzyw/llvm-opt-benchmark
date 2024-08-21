@@ -153,7 +153,7 @@ agfindnode_by_id.exit:                            ; preds = %3, %8
 
 14:                                               ; preds = %agfindnode_by_id.exit
   %15 = tail call ptr @agroot(ptr noundef nonnull %0) #4
-  %.not = icmp eq ptr %15, %0
+  %.not = icmp eq ptr %0, %15
   br i1 %.not, label %agfindnode_by_id.exit27.thread, label %16
 
 16:                                               ; preds = %14
@@ -218,7 +218,7 @@ tailrecurse.i:                                    ; preds = %installnode.exit.i,
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @dtsize(ptr noundef %47) #4
   %49 = tail call ptr @agroot(ptr noundef nonnull %.tr.i) #4
-  %50 = icmp eq ptr %49, %.tr.i
+  %50 = icmp eq ptr %.tr.i, %49
   br i1 %50, label %installnode.exit.i, label %51
 
 51:                                               ; preds = %tailrecurse.i
@@ -305,7 +305,7 @@ agfindnode_by_id.exit:                            ; preds = %7, %14
   %24 = load ptr, ptr %10, align 8
   %25 = tail call i32 @dtsize(ptr noundef %24) #4
   %26 = tail call ptr @agroot(ptr noundef nonnull %0) #4
-  %27 = icmp eq ptr %26, %0
+  %27 = icmp eq ptr %0, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %22
@@ -365,7 +365,7 @@ agfindnode_by_id.exit:                            ; preds = %7
 
 agfindnode_by_id.exit.thread:                     ; preds = %7, %agfindnode_by_id.exit
   %.not28 = icmp eq i32 %2, 0
-  %.not29 = icmp eq ptr %5, %0
+  %.not29 = icmp eq ptr %0, %5
   %or.cond = select i1 %.not28, i1 true, i1 %.not29
   br i1 %or.cond, label %25, label %15
 
@@ -437,7 +437,7 @@ tailrecurse.i:                                    ; preds = %installnode.exit.i,
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 @dtsize(ptr noundef %49) #4
   %51 = call ptr @agroot(ptr noundef %.tr.i) #4
-  %52 = icmp eq ptr %51, %.tr.i
+  %52 = icmp eq ptr %.tr.i, %51
   br i1 %52, label %installnode.exit.i, label %53
 
 53:                                               ; preds = %tailrecurse.i
@@ -538,7 +538,7 @@ agfindnode_by_id.exit:                            ; preds = %2
 
 11:                                               ; preds = %agfindnode_by_id.exit
   %12 = tail call ptr @agroot(ptr noundef nonnull %0) #4
-  %13 = icmp eq ptr %12, %0
+  %13 = icmp eq ptr %0, %12
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %11
@@ -578,7 +578,7 @@ agfindnode_by_id.exit:                            ; preds = %2
 
 27:                                               ; preds = %24
   %28 = tail call ptr @agroot(ptr noundef nonnull %0) #4
-  %29 = icmp eq ptr %28, %0
+  %29 = icmp eq ptr %0, %28
   br i1 %29, label %30, label %agfindnode_by_id.exit.thread
 
 30:                                               ; preds = %27
@@ -719,7 +719,7 @@ define internal void @free_subnode(ptr noundef %0, ptr nocapture readnone %1) #0
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
-  %6 = icmp eq ptr %5, %0
+  %6 = icmp eq ptr %0, %5
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2

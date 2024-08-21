@@ -1895,7 +1895,7 @@ define hidden void @_ZN5zxing13GenericGFPoly18multiplyByMonomialEiiRNS_12ErrorHa
   %32 = lshr i64 %31, 2
   %33 = trunc i64 %32 to i32
   %34 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
-  %35 = add nsw i32 %33, %2
+  %35 = add nsw i32 %2, %33
   %36 = getelementptr inbounds i8, ptr %34, i64 8
   store i32 0, ptr %36, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing5ArrayIiEE, i64 16), ptr %34, align 8

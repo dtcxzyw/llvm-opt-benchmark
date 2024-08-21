@@ -1126,7 +1126,7 @@ define internal range(i32 -19, 1) i32 @thinking_detect(ptr noundef %0, i1 nounde
   %15 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 754) #14
   %16 = load i8, ptr %3, align 2
   %17 = icmp eq i8 %16, 2
-  %18 = and i1 %17, %1
+  %18 = and i1 %1, %17
   %19 = select i1 %17, i32 0, i32 -19
   br i1 %18, label %20, label %28
 
@@ -1177,7 +1177,7 @@ define internal range(i32 -19, 1) i32 @genius_detect(ptr noundef %0, i1 noundef 
   %16 = load i8, ptr %15, align 2
   %17 = icmp eq i8 %16, 85
   %.not4 = select i1 %.not6, i1 %17, i1 false
-  %.not1 = and i1 %.not4, %1
+  %.not1 = and i1 %1, %.not4
   %18 = select i1 %.not4, i32 0, i32 -19
   br i1 %.not1, label %19, label %32
 
@@ -1223,7 +1223,7 @@ define internal range(i32 -19, 1) i32 @intellimouse_detect(ptr noundef %0, i1 no
   %8 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 754) #14
   %9 = load i8, ptr %3, align 2
   %10 = icmp eq i8 %9, 3
-  %11 = and i1 %10, %1
+  %11 = and i1 %1, %10
   %12 = select i1 %10, i32 0, i32 -19
   br i1 %11, label %13, label %30
 
@@ -2080,7 +2080,7 @@ thread-pre-split:                                 ; preds = %26, %3, %35
   %81 = load i8, ptr %80, align 2, !range !5, !noundef !6
   %82 = icmp ne i8 %81, 0
   %83 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %79, ptr noundef %0, i1 noundef zeroext %82, i1 noundef zeroext %2)
-  %84 = and i1 %83, %2
+  %84 = and i1 %2, %83
   br i1 %84, label %85, label %93
 
 85:                                               ; preds = %77
@@ -2362,7 +2362,7 @@ psmouse_do_detect.exit:                           ; preds = %98, %99
   %219 = load i8, ptr %218, align 2, !range !5, !noundef !6
   %220 = icmp ne i8 %219, 0
   %221 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %217, ptr noundef %0, i1 noundef zeroext %220, i1 noundef zeroext %2)
-  %222 = and i1 %221, %2
+  %222 = and i1 %2, %221
   br i1 %222, label %223, label %230
 
 223:                                              ; preds = %215
@@ -2406,7 +2406,7 @@ psmouse_do_detect.exit:                           ; preds = %98, %99
   %245 = icmp ne i8 %244, 0
   %246 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %242, ptr noundef %0, i1 noundef zeroext %245, i1 noundef zeroext %2)
   %247 = xor i1 %246, true
-  %248 = or i1 %247, %2
+  %248 = or i1 %2, %247
   br i1 %248, label %.thread44, label %335
 
 .thread44:                                        ; preds = %231, %238, %240
@@ -2453,7 +2453,7 @@ psmouse_do_detect.exit:                           ; preds = %98, %99
   %270 = load i8, ptr %269, align 2, !range !5, !noundef !6
   %271 = icmp ne i8 %270, 0
   %272 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %268, ptr noundef %0, i1 noundef zeroext %271, i1 noundef zeroext %2)
-  %273 = and i1 %272, %2
+  %273 = and i1 %2, %272
   br i1 %273, label %274, label %281
 
 274:                                              ; preds = %266
@@ -2615,7 +2615,7 @@ define internal void @psmouse_set_rate(ptr noundef %0, i32 noundef %1) #2 align 
   %7 = getelementptr [8 x i8], ptr @psmouse_set_rate.rates, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = icmp ugt i32 %9, %1
+  %10 = icmp ult i32 %1, %9
   %11 = add i32 %5, 1
   br i1 %10, label %4, label %12, !llvm.loop !22
 
@@ -2660,7 +2660,7 @@ define internal fastcc zeroext i1 @psmouse_do_detect(ptr nocapture noundef reado
   %7 = getelementptr inbounds i8, ptr %6, i64 201
   %8 = load i8, ptr %7, align 1
   %9 = icmp ne i8 %8, 5
-  %10 = or i1 %9, %2
+  %10 = or i1 %2, %9
   br i1 %10, label %11, label %29
 
 11:                                               ; preds = %4
@@ -2734,7 +2734,7 @@ define internal fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noun
   %19 = load i8, ptr %18, align 2, !range !5, !noundef !6
   %20 = icmp ne i8 %19, 0
   %21 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %17, ptr noundef %0, i1 noundef zeroext %20, i1 noundef zeroext %3)
-  %22 = and i1 %21, %3
+  %22 = and i1 %3, %21
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %15

@@ -1219,7 +1219,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 if.then.i:                                        ; preds = %while.body.i
   %3 = load ptr, ptr %__to_destroy.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %3, %__first.sroa.0.04.i
-  %cmp.i3.i.i.i = icmp eq ptr %1, %3
+  %cmp.i3.i.i.i = icmp eq ptr %3, %1
   %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i3.i.i.i
   br i1 %or.cond.i.i.i, label %if.end.i, label %if.end8.i.i.i
 
@@ -2318,7 +2318,7 @@ while.body.us:                                    ; preds = %if.end, %_ZSt13__ad
   %phi.call.us = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__parent.0.us
   %1 = load ptr, ptr %phi.call.us, align 8
   %agg.tmp6.sroa.0.0.copyload.us = load ptr, ptr %__comp, align 8
-  %cmp28.i.us = icmp sgt i64 %div.i2123, %__parent.0.us
+  %cmp28.i.us = icmp slt i64 %__parent.0.us, %div.i2123
   br i1 %cmp28.i.us, label %while.body.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_T0_SI_T1_T2_.exit.us
 
 while.body.i.us:                                  ; preds = %while.body.us, %while.body.i.us
@@ -2372,7 +2372,7 @@ while.body:                                       ; preds = %while.body.preheade
   %phi.call = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__parent.0
   %7 = load ptr, ptr %phi.call, align 8
   %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %__comp, align 8
-  %cmp28.i = icmp sgt i64 %div.i2123, %__parent.0
+  %cmp28.i = icmp slt i64 %__parent.0, %div.i2123
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %while.body.i

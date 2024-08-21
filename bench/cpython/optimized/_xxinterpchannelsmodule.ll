@@ -2860,7 +2860,7 @@ if.end.i.i:                                       ; preds = %while.body.i.prehea
 if.end4.i:                                        ; preds = %while.body.i.i, %while.body.i.preheader.i
   %ref.08.i.lcssa.i = phi ptr [ %1, %while.body.i.preheader.i ], [ %4, %while.body.i.i ]
   %prev.07.i.lcssa.i = phi ptr [ null, %while.body.i.preheader.i ], [ %ref.08.i7.i, %while.body.i.i ]
-  %cmp.i.i = icmp eq ptr %1, %ref.08.i.lcssa.i
+  %cmp.i.i = icmp eq ptr %ref.08.i.lcssa.i, %1
   %next.i7.i = getelementptr inbounds i8, ptr %ref.08.i.lcssa.i, i64 16
   %5 = load ptr, ptr %next.i7.i, align 8
   %next3.i.i = getelementptr inbounds i8, ptr %prev.07.i.lcssa.i, i64 16
@@ -4642,7 +4642,7 @@ if.end.i7:                                        ; preds = %while.body.i.i, %wh
 
 if.then4.i:                                       ; preds = %if.end.i7
   %12 = load ptr, ptr %head.i, align 8
-  %cmp.i.i = icmp eq ptr %12, %ref.08.i.lcssa.i
+  %cmp.i.i = icmp eq ptr %ref.08.i.lcssa.i, %12
   %next.i7.i = getelementptr inbounds i8, ptr %ref.08.i.lcssa.i, i64 16
   %13 = load ptr, ptr %next.i7.i, align 8
   %next3.i.i = getelementptr inbounds i8, ptr %prev.07.i.lcssa.i, i64 16

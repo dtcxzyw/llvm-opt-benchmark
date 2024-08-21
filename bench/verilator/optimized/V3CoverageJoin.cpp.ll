@@ -2262,7 +2262,7 @@ _ZN11V3DupFinderC2Ev.exit:                        ; preds = %33
   br i1 %.not.i.i.i.i, label %56, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
 56:                                               ; preds = %.lr.ph.i.i.i.i
-  %57 = icmp eq ptr %27, %.0710.i.i.i.i
+  %57 = icmp eq ptr %.0710.i.i.i.i, %27
   %spec.select.i.i.i = or i1 %57, %55
   br label %58
 

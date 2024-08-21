@@ -683,7 +683,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.end.i.i.i
 
 if.end10.i.i.i.i:                                 ; preds = %if.then8.i.i.i.i, %if.end.i.i.i
   %6 = load i64, ptr %__begin2.i, align 8, !alias.scope !9
-  %cmp.i.i.i.i.i.i = icmp ult i64 %1, %6
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %6, %1
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end10.i.i.i.i
@@ -817,7 +817,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %name.i.i = getelementptr inbounds i8, ptr %18, i64 224
   %19 = load ptr, ptr %name.i.i, align 8
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #19
-  %cmp.i2.i.i.i = icmp eq i64 %call.i.i.i.i, %engine.coerce0.fr.i.i
+  %cmp.i2.i.i.i = icmp eq i64 %engine.coerce0.fr.i.i, %call.i.i.i.i
   br i1 %cmp.i2.i.i.i, label %land.rhs.i3.i.i.i, label %for.inc.i.i
 
 land.rhs.i3.i.i.i:                                ; preds = %land.lhs.true.i.i
@@ -882,7 +882,7 @@ if.then8.i.i:                                     ; preds = %if.end.i13.i
 
 if.end10.i.i:                                     ; preds = %if.then8.i.i, %if.end.i13.i
   %29 = load i64, ptr %__begin2.i, align 8
-  %cmp.i.i.i14.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i.i, %29
+  %cmp.i.i.i14.i = icmp ugt i64 %29, %retval.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i14.i, label %if.then.i.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end10.i.i

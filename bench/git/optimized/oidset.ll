@@ -743,7 +743,7 @@ if.then5.us:                                      ; preds = %while.body.us
   %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast.us, %sub.ptr.rhs.cast.us
   %1 = load i64, ptr %sb, align 8
   %spec.select.i.us = call i64 @llvm.usub.sat.i64(i64 %1, i64 1)
-  %cmp.i.us = icmp ult i64 %spec.select.i.us, %sub.ptr.sub.us
+  %cmp.i.us = icmp ugt i64 %sub.ptr.sub.us, %spec.select.i.us
   br i1 %cmp.i.us, label %if.then.i, label %if.end.i.us
 
 if.end.i.us:                                      ; preds = %if.then5.us
@@ -799,7 +799,7 @@ if.then5:                                         ; preds = %while.body
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %7 = load i64, ptr %sb, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %7, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %sub.ptr.sub
+  %cmp.i = icmp ugt i64 %sub.ptr.sub, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then5, %if.then5.us

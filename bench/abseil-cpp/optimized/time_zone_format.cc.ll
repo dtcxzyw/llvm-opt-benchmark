@@ -2399,7 +2399,7 @@ for.cond1.i:                                      ; preds = %for.cond.i, %for.co
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
   %arrayidx3.i = getelementptr inbounds [14 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.k_weekdays_back, i64 0, i64 %indvars.iv.next11.i
   %14 = load i32, ptr %arrayidx3.i, align 4
-  %cmp4.i = icmp eq i32 %14, %week_start
+  %cmp4.i = icmp eq i32 %week_start, %14
   br i1 %cmp4.i, label %_ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit, label %for.cond1.i, !llvm.loop !17
 
 _ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit: ; preds = %for.cond1.i
@@ -2511,7 +2511,7 @@ while.end:                                        ; preds = %if.end24, %while.bo
 if.then36:                                        ; preds = %while.end
   %sub39 = sub nsw i32 0, %value.1
   %spec.select = select i1 %cmp1, i32 %value.1, i32 %sub39
-  %cmp41.not = icmp slt i32 %spec.select, %min
+  %cmp41.not = icmp sgt i32 %min, %spec.select
   %cmp43.not = icmp sgt i32 %spec.select, %max
   %or.cond28 = or i1 %cmp41.not, %cmp43.not
   br i1 %or.cond28, label %if.end52, label %if.then44
@@ -4064,7 +4064,7 @@ for.cond1.i.i:                                    ; preds = %for.cond.i.i, %for.
   %indvars.iv.next11.i.i = add nuw nsw i64 %indvars.iv10.i.i, 1
   %arrayidx3.i.i = getelementptr inbounds [14 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.k_weekdays_back, i64 0, i64 %indvars.iv.next11.i.i
   %98 = load i32, ptr %arrayidx3.i.i, align 4
-  %cmp4.i.i = icmp eq i32 %98, %week_start.0.lcssa898
+  %cmp4.i.i = icmp eq i32 %week_start.0.lcssa898, %98
   br i1 %cmp4.i.i, label %_ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i, label %for.cond1.i.i, !llvm.loop !17
 
 _ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i: ; preds = %for.cond1.i.i
@@ -4128,7 +4128,7 @@ for.cond1.i41.i:                                  ; preds = %for.cond.i35.i, %fo
   %indvars.iv.next11.i43.i = add nuw nsw i64 %indvars.iv10.i42.i, 1
   %arrayidx3.i44.i = getelementptr inbounds [14 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.k_weekdays_forw, i64 0, i64 %indvars.iv.next11.i43.i
   %107 = load i32, ptr %arrayidx3.i44.i, align 4
-  %cmp4.i45.i = icmp eq i32 %107, %spec.select1048
+  %cmp4.i45.i = icmp eq i32 %spec.select1048, %107
   br i1 %cmp4.i45.i, label %_ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i, label %for.cond1.i41.i, !llvm.loop !26
 
 _ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i: ; preds = %for.cond1.i41.i
@@ -4428,7 +4428,7 @@ while.end:                                        ; preds = %if.end26, %while.bo
 if.then38:                                        ; preds = %while.end
   %sub41 = sub nsw i64 0, %value.1
   %spec.select = select i1 %cmp1, i64 %value.1, i64 %sub41
-  %cmp43.not = icmp slt i64 %spec.select, %min
+  %cmp43.not = icmp sgt i64 %min, %spec.select
   %cmp45.not = icmp sgt i64 %spec.select, %max
   %or.cond28 = or i1 %cmp43.not, %cmp45.not
   br i1 %or.cond28, label %if.end54, label %if.then46

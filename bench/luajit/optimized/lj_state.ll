@@ -105,7 +105,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true5
   %cur_L = getelementptr inbounds i8, ptr %4, i64 368
   %6 = load i64, ptr %cur_L, align 8
   %7 = inttoptr i64 %6 to ptr
-  %cmp10.not = icmp eq ptr %7, %L
+  %cmp10.not = icmp eq ptr %L, %7
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %lor.lhs.false, %land.lhs.true5
@@ -770,7 +770,7 @@ entry:
   %cur_L = getelementptr inbounds i8, ptr %g, i64 368
   %0 = load i64, ptr %cur_L, align 8
   %1 = inttoptr i64 %0 to ptr
-  %cmp = icmp eq ptr %1, %L
+  %cmp = icmp eq ptr %L, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

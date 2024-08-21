@@ -4760,7 +4760,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.llvm.10195
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -8404,7 +8404,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17he9b6e3fe4a
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = sub i64 %7, %5
-  %.not = icmp ult i64 %8, %2
+  %.not = icmp ugt i64 %2, %8
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %3
@@ -8420,7 +8420,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17he9b6e3fe4a
   %14 = load i64, ptr %6, align 8, !noundef !4
   %15 = load i64, ptr %4, align 8, !noundef !4
   %16 = sub i64 %14, %15
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %10
@@ -9283,7 +9283,7 @@ define hidden void @"_ZN72_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %.not = icmp ult i64 %8, %1
+  %.not = icmp ugt i64 %1, %8
   br i1 %.not, label %9, label %17
 
 9:                                                ; preds = %2
@@ -9333,7 +9333,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %6 = load i64, ptr %4, align 8, !alias.scope !1304, !noalias !1307, !noundef !4
   %7 = load i64, ptr %5, align 8, !alias.scope !1304, !noalias !1307, !noundef !4
   %8 = sub i64 %7, %6
-  %.not.i.us = icmp ult i64 %8, %2
+  %.not.i.us = icmp ugt i64 %2, %8
   br i1 %.not.i.us, label %9, label %10
 
 9:                                                ; preds = %.lr.ph.split.us
@@ -9349,7 +9349,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %14 = load i64, ptr %5, align 8, !alias.scope !1304, !noalias !1307, !noundef !4
   %15 = load i64, ptr %4, align 8, !alias.scope !1304, !noalias !1307, !noundef !4
   %16 = sub i64 %14, %15
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %.split.us, label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h4361df63f577aee7E.llvm.101954639100057123.exit.us"
 
 "_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h4361df63f577aee7E.llvm.101954639100057123.exit.us": ; preds = %10

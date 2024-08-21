@@ -1390,7 +1390,7 @@ write_section_info.exit.i:                        ; preds = %173, %172, %171
   %218 = call i32 @tvb_get_bits(ptr noundef %0, i32 noundef %.01335.i, i32 noundef %161, i32 noundef 0) #9
   %219 = load i32, ptr %43, align 4
   %220 = shl nuw i32 1, %219
-  %.not.i146.i = icmp sgt i32 %186, %218
+  %.not.i146.i = icmp slt i32 %218, %186
   %221 = select i1 %.not.i146.i, i32 0, i32 %.neg.i.i
   %.012.i.i = add i32 %221, %218
   %222 = sitofp i32 %.012.i.i to float
@@ -1409,7 +1409,7 @@ write_section_info.exit.i:                        ; preds = %173, %172, %171
   %234 = call i32 @tvb_get_bits(ptr noundef %0, i32 noundef %233, i32 noundef %161, i32 noundef 0) #9
   %235 = load i32, ptr %43, align 4
   %236 = shl nuw i32 1, %235
-  %.not.i147.i = icmp sgt i32 %186, %234
+  %.not.i147.i = icmp slt i32 %234, %186
   %237 = select i1 %.not.i147.i, i32 0, i32 %.neg.i.i
   %.012.i149.i = add i32 %237, %234
   %238 = sitofp i32 %.012.i149.i to float
@@ -2617,7 +2617,7 @@ switch.edge:                                      ; preds = %312, %327
   %378 = call i32 @tvb_get_bits(ptr noundef %0, i32 noundef %.08891082, i32 noundef %362, i32 noundef 0) #9
   %379 = load i32, ptr %27, align 4
   %380 = shl nuw i32 1, %379
-  %.not.i966 = icmp sgt i32 %367, %378
+  %.not.i966 = icmp slt i32 %378, %367
   %381 = select i1 %.not.i966, i32 0, i32 %.neg.i
   %.012.i = add i32 %381, %378
   %382 = sitofp i32 %.012.i to float
@@ -2633,7 +2633,7 @@ switch.edge:                                      ; preds = %312, %327
   %390 = call i32 @tvb_get_bits(ptr noundef %0, i32 noundef %389, i32 noundef %362, i32 noundef 0) #9
   %391 = load i32, ptr %27, align 4
   %392 = shl nuw i32 1, %391
-  %.not.i967 = icmp sgt i32 %367, %390
+  %.not.i967 = icmp slt i32 %390, %367
   %393 = select i1 %.not.i967, i32 0, i32 %.neg.i
   %.012.i969 = add i32 %393, %390
   %394 = sitofp i32 %.012.i969 to float
@@ -3221,7 +3221,7 @@ proto_item_set_generated.exit89.i:                ; preds = %722, %719, %710
 741:                                              ; preds = %.lr.ph.i
   %742 = load i32, ptr %8, align 4
   %743 = shl nuw i32 1, %742
-  %.not.i90.i = icmp sgt i32 %671, %736
+  %.not.i90.i = icmp slt i32 %736, %671
   %744 = select i1 %.not.i90.i, i32 0, i32 %.neg.i.i
   %.012.i.i = add i32 %744, %736
   %745 = sitofp i32 %.012.i.i to float
@@ -3252,7 +3252,7 @@ decompress_value.exit.i:                          ; preds = %741, %737, %.lr.ph.
 758:                                              ; preds = %decompress_value.exit.i
   %759 = load i32, ptr %8, align 4
   %760 = shl nuw i32 1, %759
-  %.not.i91.i = icmp sgt i32 %671, %753
+  %.not.i91.i = icmp slt i32 %753, %671
   %761 = select i1 %.not.i91.i, i32 0, i32 %.neg.i.i
   %.012.i93.i = add i32 %761, %753
   %762 = sitofp i32 %.012.i93.i to float
@@ -3714,7 +3714,7 @@ dissect_bfw_bundle.exit._crit_edge:               ; preds = %dissect_bfw_bundle.
 1014:                                             ; preds = %998
   %1015 = load i32, ptr %55, align 4
   %1016 = shl nuw i32 1, %1015
-  %.not.i971 = icmp sgt i32 %992, %1008
+  %.not.i971 = icmp slt i32 %1008, %992
   %1017 = select i1 %.not.i971, i32 0, i32 %.neg.i972
   %.012.i973 = add i32 %1017, %1008
   %1018 = sitofp i32 %.012.i973 to float
@@ -3746,7 +3746,7 @@ decompress_value.exit:                            ; preds = %998, %1010, %1014
 1032:                                             ; preds = %decompress_value.exit
   %1033 = load i32, ptr %55, align 4
   %1034 = shl nuw i32 1, %1033
-  %.not.i975 = icmp sgt i32 %992, %1026
+  %.not.i975 = icmp slt i32 %1026, %992
   %1035 = select i1 %.not.i975, i32 0, i32 %.neg.i972
   %.012.i977 = add i32 %1035, %1026
   %1036 = sitofp i32 %.012.i977 to float
@@ -4078,7 +4078,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %51 = getelementptr inbounds i8, ptr %3, i64 820
   %spec.select = tail call i32 @llvm.umin.i32(i32 %50, i32 512)
   store i32 %spec.select, ptr %51, align 4
-  %.not249 = icmp ult i32 %49, %2
+  %.not249 = icmp ugt i32 %2, %49
   br i1 %.not249, label %._crit_edge229, label %.lr.ph228
 
 .lr.ph228:                                        ; preds = %47
@@ -4091,7 +4091,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 56:                                               ; preds = %.lr.ph228, %66
   %indvars.iv263 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next264, %66 ]
   %57 = trunc nuw nsw i64 %indvars.iv263 to i32
-  %58 = mul i32 %57, %2
+  %58 = mul i32 %2, %57
   %59 = add i32 %58, %0
   %60 = getelementptr [512 x %struct.anon.1], ptr %52, i64 0, i64 %indvars.iv263
   store i32 %59, ptr %60, align 4
@@ -4141,7 +4141,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %82 = zext i8 %81 to i32
   %83 = add i32 %48, %82
   %84 = udiv i32 %83, %2
-  %.not251 = icmp ult i32 %83, %2
+  %.not251 = icmp ugt i32 %2, %83
   br i1 %.not251, label %._crit_edge233, label %.lr.ph232.preheader
 
 .lr.ph232.preheader:                              ; preds = %75
@@ -4214,7 +4214,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   br i1 %.not252, label %.loopexit, label %.lr.ph244
 
 .lr.ph244:                                        ; preds = %111
-  %.not253 = icmp ult i32 %109, %2
+  %.not253 = icmp ugt i32 %2, %109
   %116 = getelementptr inbounds i8, ptr %3, i64 308
   %117 = getelementptr inbounds i8, ptr %3, i64 824
   br i1 %.not253, label %.loopexit, label %.lr.ph240.us.preheader
@@ -4241,7 +4241,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 126:                                              ; preds = %123
   %127 = load i32, ptr %121, align 4
   %128 = trunc nuw nsw i64 %indvars.iv271 to i32
-  %129 = mul i32 %128, %2
+  %129 = mul i32 %2, %128
   %130 = add i32 %129, %0
   %131 = add i32 %130, %127
   %132 = getelementptr [512 x %struct.anon.1], ptr %117, i64 0, i64 %124
@@ -4274,7 +4274,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %143 = getelementptr inbounds i8, ptr %3, i64 820
   %spec.select216 = tail call i32 @llvm.umin.i32(i32 %110, i32 512)
   store i32 %spec.select216, ptr %143, align 4
-  %.not254 = icmp ult i32 %109, %2
+  %.not254 = icmp ugt i32 %2, %109
   br i1 %.not254, label %.loopexit, label %.lr.ph247
 
 .lr.ph247:                                        ; preds = %142
@@ -4287,7 +4287,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 148:                                              ; preds = %.lr.ph247, %158
   %indvars.iv279 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next280, %158 ]
   %149 = trunc nuw nsw i64 %indvars.iv279 to i32
-  %150 = mul i32 %149, %2
+  %150 = mul i32 %2, %149
   %151 = add i32 %150, %0
   %152 = getelementptr [512 x %struct.anon.1], ptr %144, i64 0, i64 %indvars.iv279
   store i32 %151, ptr %152, align 4

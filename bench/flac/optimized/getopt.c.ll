@@ -248,7 +248,7 @@ while.body:                                       ; preds = %land.rhs, %lor.rhs
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %25 = trunc i64 %indvars.iv.next to i32
   store i32 %25, ptr @share__optind, align 4
-  %exitcond.not = icmp eq i32 %25, %argc
+  %exitcond.not = icmp eq i32 %argc, %25
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !9
 
 while.end.loopexit.split.loop.exit295:            ; preds = %lor.rhs

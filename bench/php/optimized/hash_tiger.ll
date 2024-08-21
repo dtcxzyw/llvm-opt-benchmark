@@ -54,7 +54,7 @@ define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = add i64 %6, %2
+  %7 = add i64 %2, %6
   %8 = icmp ult i64 %7, 64
   br i1 %8, label %9, label %15
 
@@ -64,7 +64,7 @@ define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %1, i64 %2, i1 false)
   %12 = load i32, ptr %4, align 8
   %13 = zext i32 %12 to i64
-  %14 = add i64 %13, %2
+  %14 = add i64 %2, %13
   br label %2764
 
 15:                                               ; preds = %3

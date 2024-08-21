@@ -329,7 +329,7 @@ define i32 @uv_backend_timeout(ptr noundef %loop) local_unnamed_addr #0 {
 entry:
   %watcher_queue = getelementptr inbounds i8, ptr %loop, i64 88
   %0 = load ptr, ptr %watcher_queue, align 8
-  %cmp.i.not = icmp eq ptr %0, %watcher_queue
+  %cmp.i.not = icmp eq ptr %watcher_queue, %0
   br i1 %cmp.i.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -353,13 +353,13 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
 land.lhs.true3.i:                                 ; preds = %lor.lhs.false.i, %land.lhs.true.i
   %pending_queue.i = getelementptr inbounds i8, ptr %loop, i64 72
   %4 = load ptr, ptr %pending_queue.i, align 8
-  %cmp.i.not.i = icmp eq ptr %4, %pending_queue.i
+  %cmp.i.not.i = icmp eq ptr %pending_queue.i, %4
   br i1 %cmp.i.not.i, label %land.lhs.true4.i, label %return
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true3.i
   %idle_handles.i = getelementptr inbounds i8, ptr %loop, i64 416
   %5 = load ptr, ptr %idle_handles.i, align 8
-  %cmp.i8.not.i = icmp eq ptr %5, %idle_handles.i
+  %cmp.i8.not.i = icmp eq ptr %idle_handles.i, %5
   br i1 %cmp.i8.not.i, label %land.lhs.true7.i, label %return
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true4.i
@@ -401,7 +401,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %pending_queue.i = getelementptr inbounds i8, ptr %loop, i64 72
   %2 = load ptr, ptr %pending_queue.i, align 8
-  %cmp.i.not.i = icmp eq ptr %2, %pending_queue.i
+  %cmp.i.not.i = icmp eq ptr %pending_queue.i, %2
   br i1 %cmp.i.not.i, label %lor.rhs.i, label %uv__loop_alive.exit
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false2.i
@@ -435,7 +435,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %pending_queue.i = getelementptr inbounds i8, ptr %loop, i64 72
   %2 = load ptr, ptr %pending_queue.i, align 8
-  %cmp.i.not.i = icmp eq ptr %2, %pending_queue.i
+  %cmp.i.not.i = icmp eq ptr %pending_queue.i, %2
   br i1 %cmp.i.not.i, label %uv__loop_alive.exit, label %if.end
 
 uv__loop_alive.exit:                              ; preds = %lor.lhs.false2.i
@@ -493,12 +493,12 @@ land.rhs:                                         ; preds = %if.end5, %uv__loop_
 
 while.body:                                       ; preds = %land.rhs
   %7 = load ptr, ptr %pending_queue, align 8
-  %cmp.i.not = icmp eq ptr %7, %pending_queue
+  %cmp.i.not = icmp eq ptr %pending_queue, %7
   br i1 %cmp.i.not, label %land.end14.thread, label %uv__queue_move.exit.i
 
 land.end14.thread:                                ; preds = %while.body
   %8 = load ptr, ptr %idle_handles, align 8
-  %cmp.i41 = icmp eq ptr %8, %idle_handles
+  %cmp.i41 = icmp eq ptr %idle_handles, %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pq.i)
   br label %uv__run_pending.exit
 
@@ -514,7 +514,7 @@ uv__queue_move.exit.i:                            ; preds = %while.body
   store ptr %pending_queue, ptr %10, align 8
   %.pre.i = load ptr, ptr %pq.i, align 8
   store ptr %pq.i, ptr %prev4.i.i.i, align 8
-  %cmp.i.not6.i = icmp eq ptr %.pre.i, %pq.i
+  %cmp.i.not6.i = icmp eq ptr %pq.i, %.pre.i
   br i1 %cmp.i.not6.i, label %uv__run_pending.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %uv__queue_move.exit.i, %while.body.i
@@ -532,7 +532,7 @@ while.body.i:                                     ; preds = %uv__queue_move.exit
   %15 = load ptr, ptr %add.ptr.i, align 8
   call void %15(ptr noundef %loop, ptr noundef nonnull %add.ptr.i, i32 noundef 4) #23
   %16 = load ptr, ptr %pq.i, align 8
-  %cmp.i.not.i44 = icmp eq ptr %16, %pq.i
+  %cmp.i.not.i44 = icmp eq ptr %pq.i, %16
   br i1 %cmp.i.not.i44, label %uv__run_pending.exit, label %while.body.i
 
 uv__run_pending.exit:                             ; preds = %while.body.i, %land.end14.thread, %uv__queue_move.exit.i
@@ -561,12 +561,12 @@ lor.lhs.false.i51:                                ; preds = %land.lhs.true.i
 
 land.lhs.true3.i:                                 ; preds = %lor.lhs.false.i51, %land.lhs.true.i
   %21 = load ptr, ptr %pending_queue, align 8
-  %cmp.i.not.i49 = icmp eq ptr %21, %pending_queue
+  %cmp.i.not.i49 = icmp eq ptr %pending_queue, %21
   br i1 %cmp.i.not.i49, label %land.lhs.true4.i, label %do.body
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true3.i
   %22 = load ptr, ptr %idle_handles, align 8
-  %cmp.i8.not.i = icmp eq ptr %22, %idle_handles
+  %cmp.i8.not.i = icmp eq ptr %idle_handles, %22
   br i1 %cmp.i8.not.i, label %land.lhs.true7.i, label %do.body
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true4.i
@@ -597,7 +597,7 @@ do.body:                                          ; preds = %if.then.i, %land.lh
 land.rhs23:                                       ; preds = %do.body, %uv__run_pending.exit69
   %r.299 = phi i32 [ 0, %do.body ], [ %inc29, %uv__run_pending.exit69 ]
   %27 = load ptr, ptr %pending_queue, align 8
-  %cmp.i53.not = icmp eq ptr %27, %pending_queue
+  %cmp.i53.not = icmp eq ptr %pending_queue, %27
   br i1 %cmp.i53.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs23
@@ -612,7 +612,7 @@ for.body:                                         ; preds = %land.rhs23
   store ptr %pending_queue, ptr %29, align 8
   %.pre.i62 = load ptr, ptr %pq.i55, align 8
   store ptr %pq.i55, ptr %prev4.i.i.i61, align 8
-  %cmp.i.not6.i63 = icmp eq ptr %.pre.i62, %pq.i55
+  %cmp.i.not6.i63 = icmp eq ptr %pq.i55, %.pre.i62
   br i1 %cmp.i.not6.i63, label %uv__run_pending.exit69, label %while.body.i64
 
 while.body.i64:                                   ; preds = %for.body, %while.body.i64
@@ -630,7 +630,7 @@ while.body.i64:                                   ; preds = %for.body, %while.bo
   %34 = load ptr, ptr %add.ptr.i67, align 8
   call void %34(ptr noundef %loop, ptr noundef nonnull %add.ptr.i67, i32 noundef 4) #23
   %35 = load ptr, ptr %pq.i55, align 8
-  %cmp.i.not.i68 = icmp eq ptr %35, %pq.i55
+  %cmp.i.not.i68 = icmp eq ptr %pq.i55, %35
   br i1 %cmp.i.not.i68, label %uv__run_pending.exit69, label %while.body.i64
 
 uv__run_pending.exit69:                           ; preds = %while.body.i64, %for.body
@@ -752,7 +752,7 @@ lor.lhs.false.i79:                                ; preds = %uv__run_closing_han
 
 lor.lhs.false2.i82:                               ; preds = %lor.lhs.false.i79
   %54 = load ptr, ptr %pending_queue, align 8
-  %cmp.i.not.i84 = icmp eq ptr %54, %pending_queue
+  %cmp.i.not.i84 = icmp eq ptr %pending_queue, %54
   br i1 %cmp.i.not.i84, label %lor.rhs.i85, label %uv__loop_alive.exit88
 
 lor.rhs.i85:                                      ; preds = %lor.lhs.false2.i82
@@ -1435,7 +1435,7 @@ entry:
   %add = add nsw i32 %1, 1
   %nwatchers1.i = getelementptr inbounds i8, ptr %loop, i64 112
   %2 = load i32, ptr %nwatchers1.i, align 8
-  %cmp.not.i = icmp ult i32 %2, %add
+  %cmp.not.i = icmp ugt i32 %add, %2
   br i1 %cmp.not.i, label %if.end.i, label %maybe_resize.exit
 
 if.end.i:                                         ; preds = %entry
@@ -1519,7 +1519,7 @@ maybe_resize.exit:                                ; preds = %entry, %for.end.i
 if.end:                                           ; preds = %maybe_resize.exit
   %watcher_queue = getelementptr inbounds i8, ptr %w, i64 24
   %16 = load ptr, ptr %watcher_queue, align 8
-  %cmp.i.not = icmp eq ptr %16, %watcher_queue
+  %cmp.i.not = icmp eq ptr %watcher_queue, %16
   br i1 %cmp.i.not, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %if.end
@@ -1597,7 +1597,7 @@ if.then7:                                         ; preds = %if.end4
   %idxprom = sext i32 %7 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
   %8 = load ptr, ptr %arrayidx, align 8
-  %cmp11 = icmp eq ptr %8, %w
+  %cmp11 = icmp eq ptr %w, %8
   br i1 %cmp11, label %if.then12, label %if.end23
 
 if.then12:                                        ; preds = %if.then7
@@ -1609,7 +1609,7 @@ if.then12:                                        ; preds = %if.then7
   br label %if.end23
 
 if.else:                                          ; preds = %if.end4
-  %cmp.i.not = icmp eq ptr %3, %watcher_queue
+  %cmp.i.not = icmp eq ptr %watcher_queue, %3
   br i1 %cmp.i.not, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %if.else
@@ -1668,7 +1668,7 @@ if.then7.i:                                       ; preds = %if.end4.i
   %idxprom.i = sext i32 %7 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 8
-  %cmp11.i = icmp eq ptr %8, %w
+  %cmp11.i = icmp eq ptr %w, %8
   br i1 %cmp11.i, label %if.then12.i, label %uv__io_stop.exit
 
 if.then12.i:                                      ; preds = %if.then7.i
@@ -1680,7 +1680,7 @@ if.then12.i:                                      ; preds = %if.then7.i
   br label %uv__io_stop.exit
 
 if.else.i:                                        ; preds = %if.end4.i
-  %cmp.i.not.i = icmp eq ptr %3, %watcher_queue.i
+  %cmp.i.not.i = icmp eq ptr %watcher_queue.i, %3
   br i1 %cmp.i.not.i, label %if.then19.i, label %uv__io_stop.exit
 
 if.then19.i:                                      ; preds = %if.else.i
@@ -1722,7 +1722,7 @@ define hidden void @uv__io_feed(ptr noundef %loop, ptr noundef %w) local_unnamed
 entry:
   %pending_queue = getelementptr inbounds i8, ptr %w, i64 8
   %0 = load ptr, ptr %pending_queue, align 8
-  %cmp.i.not = icmp eq ptr %0, %pending_queue
+  %cmp.i.not = icmp eq ptr %pending_queue, %0
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1756,7 +1756,7 @@ define hidden range(i32 0, 2) i32 @uv__fd_exists(ptr nocapture noundef readonly 
 entry:
   %nwatchers = getelementptr inbounds i8, ptr %loop, i64 112
   %0 = load i32, ptr %nwatchers, align 8
-  %cmp = icmp ugt i32 %0, %fd
+  %cmp = icmp ult i32 %fd, %0
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry

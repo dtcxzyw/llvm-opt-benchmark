@@ -225,25 +225,25 @@ if.then.i.i.i:                                    ; preds = %if.end
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %if.end
   %buffer_offset_.i = getelementptr inbounds i8, ptr %this, i64 112
   %4 = load i64, ptr %buffer_offset_.i, align 8
-  %cmp.i = icmp ugt i64 %4, %offset
+  %cmp.i = icmp ult i64 %offset, %4
   br i1 %cmp.i, label %if.end11, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %cursize_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %5 = load i64, ptr %cursize_.i.i, align 8
   %add.i = add i64 %5, %4
-  %cmp3.not.i = icmp ugt i64 %add.i, %offset
+  %cmp3.not.i = icmp ult i64 %offset, %add.i
   br i1 %cmp3.not.i, label %land.lhs.true, label %if.end11
 
 land.lhs.true:                                    ; preds = %lor.lhs.false.i
   %sub.i = sub i64 %offset, %4
   %sub7.i = sub i64 %5, %sub.i
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub7.i, i64 %n)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %n, i64 %sub7.i)
   %bufstart_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load ptr, ptr %bufstart_.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %sub.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scratch, ptr align 1 %add.ptr.i, i64 %.sroa.speculated.i, i1 false)
-  %cmp3.not = icmp ult i64 %sub7.i, %n
+  %cmp3.not = icmp ugt i64 %n, %sub7.i
   br i1 %cmp3.not, label %lor.lhs.false, label %if.then8
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
@@ -281,7 +281,7 @@ if.end11:                                         ; preds = %_ZNSt11unique_lockI
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result.i)
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %12 = load i64, ptr %capacity_.i.i, align 8, !noalias !7
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %12, i64 %11)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %12)
   store ptr @.str.1, ptr %result.i, align 8, !noalias !7
   %size_.i.i = getelementptr inbounds i8, ptr %result.i, i64 8
   store i64 0, ptr %size_.i.i, align 8, !noalias !7
@@ -311,7 +311,7 @@ lor.lhs.false.i23:                                ; preds = %.noexc
   store i64 %17, ptr %cursize_.i.i19, align 8, !noalias !7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result.i)
   %add.i25 = add i64 %17, %sub1.i
-  %cmp3.not.i26 = icmp ugt i64 %add.i25, %add12
+  %cmp3.not.i26 = icmp ult i64 %add12, %add.i25
   br i1 %cmp3.not.i26, label %if.end.i29, label %invoke.cont22
 
 if.end.i29:                                       ; preds = %lor.lhs.false.i23
@@ -319,7 +319,7 @@ if.end.i29:                                       ; preds = %lor.lhs.false.i23
   %sub = sub i64 %n, %cached_len.056
   %sub.i30 = sub i64 %add12, %sub1.i
   %sub7.i31 = sub i64 %17, %sub.i30
-  %.sroa.speculated.i32 = call i64 @llvm.umin.i64(i64 %sub7.i31, i64 %sub)
+  %.sroa.speculated.i32 = call i64 @llvm.umin.i64(i64 %sub, i64 %sub7.i31)
   %18 = load ptr, ptr %bufstart_.i.i17, align 8
   %add.ptr.i34 = getelementptr inbounds i8, ptr %18, i64 %sub.i30
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr.i34, i64 %.sroa.speculated.i32, i1 false)
@@ -347,7 +347,7 @@ entry:
   %result.i = alloca %"class.rocksdb::Slice", align 8
   %readahead_size_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %readahead_size_, align 8
-  %cmp = icmp ugt i64 %0, %n
+  %cmp = icmp ult i64 %n, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -374,7 +374,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %if.end
   %alignment_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %alignment_, align 8
   %sub.not.i = sub i64 0, %1
-  %sub1.i = and i64 %sub.not.i, %offset
+  %sub1.i = and i64 %offset, %sub.not.i
   %buffer_offset_ = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load i64, ptr %buffer_offset_, align 8
   %cmp2 = icmp eq i64 %sub1.i, %2
@@ -407,7 +407,7 @@ if.end4:                                          ; preds = %_ZNSt11unique_lockI
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result.i)
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %6 = load i64, ptr %capacity_.i.i, align 8, !noalias !16
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %sub)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub, i64 %6)
   store ptr @.str.1, ptr %result.i, align 8, !noalias !16
   %size_.i.i = getelementptr inbounds i8, ptr %result.i, i64 8
   store i64 0, ptr %size_.i.i, align 8, !noalias !16

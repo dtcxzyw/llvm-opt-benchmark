@@ -191,7 +191,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr nocaptur
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
   %28 = sub i64 %24, %27
-  %.not72 = icmp ugt i64 %28, %1
+  %.not72 = icmp ult i64 %1, %28
   br i1 %.not72, label %.loopexit, label %.preheader81, !llvm.loop !4
 
 .preheader:                                       ; preds = %12, %.preheader
@@ -204,7 +204,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr nocaptur
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   %35 = sub nsw i64 %31, %34
-  %36 = icmp ugt i64 %35, %1
+  %36 = icmp ult i64 %1, %35
   %..068 = select i1 %36, i64 %30, i64 %.06883
   %.2. = select i1 %36, i64 %.284, i64 %30
   %37 = add nuw nsw i64 %.2., 1
@@ -398,7 +398,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
   %24 = getelementptr inbounds %"class.marisa::grimoire::vector::RankIndex", ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
-  %.not69 = icmp ugt i64 %26, %1
+  %.not69 = icmp ult i64 %1, %26
   br i1 %.not69, label %.loopexit, label %.preheader71, !llvm.loop !7
 
 .preheader:                                       ; preds = %12, %.preheader
@@ -409,7 +409,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
   %29 = getelementptr inbounds %"class.marisa::grimoire::vector::RankIndex", ptr %22, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = zext i32 %30 to i64
-  %32 = icmp ugt i64 %31, %1
+  %32 = icmp ult i64 %1, %31
   %..065 = select i1 %32, i64 %28, i64 %.06573
   %.2. = select i1 %32, i64 %.274, i64 %28
   %33 = add nuw nsw i64 %.2., 1
@@ -564,7 +564,7 @@ define void @_ZN6marisa8grimoire6vector9BitVector11build_indexERKS2_bb(ptr nound
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds i8, ptr %0, i64 96
   %14 = load i64, ptr %13, align 8
-  %.not.i.i.not = icmp ugt i64 %14, %11
+  %.not.i.i.not = icmp ult i64 %11, %14
   br i1 %.not.i.i.not, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i, label %15
 
 15:                                               ; preds = %4
@@ -801,7 +801,7 @@ default.unreachable161:                           ; preds = %202
   %140 = load i64, ptr %47, align 8
   %141 = add i64 %140, 1
   %142 = load i64, ptr %48, align 8
-  %.not.i.i84 = icmp ult i64 %142, %141
+  %.not.i.i84 = icmp ugt i64 %141, %142
   br i1 %.not.i.i84, label %143, label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit
 
 143:                                              ; preds = %138
@@ -869,7 +869,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit: ; preds = %138, %.prehe
   %171 = load i64, ptr %52, align 8
   %172 = add i64 %171, 1
   %173 = load i64, ptr %53, align 8
-  %.not.i.i92 = icmp ult i64 %173, %172
+  %.not.i.i92 = icmp ugt i64 %172, %173
   br i1 %.not.i.i92, label %174, label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit101
 
 174:                                              ; preds = %169
@@ -1117,7 +1117,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit101: ; preds = %169, %.pr
   %302 = add i64 %301, 1
   %303 = getelementptr inbounds i8, ptr %0, i64 144
   %304 = load i64, ptr %303, align 8
-  %.not.i.i107 = icmp ult i64 %304, %302
+  %.not.i.i107 = icmp ugt i64 %302, %304
   br i1 %.not.i.i107, label %305, label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit116
 
 305:                                              ; preds = %296
@@ -1187,7 +1187,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit116: ; preds = %296, %.pr
   %337 = add i64 %336, 1
   %338 = getelementptr inbounds i8, ptr %0, i64 192
   %339 = load i64, ptr %338, align 8
-  %.not.i.i117 = icmp ult i64 %339, %337
+  %.not.i.i117 = icmp ugt i64 %337, %339
   br i1 %.not.i.i117, label %340, label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit126
 
 340:                                              ; preds = %331

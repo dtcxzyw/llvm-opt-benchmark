@@ -591,7 +591,7 @@ arena_init_locked.exit.thread:                    ; preds = %malloc_mutex_lock.e
 
 if.end.i5:                                        ; preds = %malloc_mutex_lock.exit
   %3 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i = icmp eq i32 %3, %ind
+  %cmp1.i = icmp eq i32 %ind, %3
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i5
@@ -869,7 +869,7 @@ if.else77:                                        ; preds = %for.body53
 
 if.end.i86:                                       ; preds = %if.else77
   %34 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i = icmp eq i32 %34, %first_null.0.lcssa
+  %cmp1.i = icmp eq i32 %first_null.0.lcssa, %34
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i86
@@ -1017,7 +1017,7 @@ entry:
   %0 = load atomic i64, ptr %arrayidx acquire, align 8
   %1 = inttoptr i64 %0 to ptr
   %cmp = icmp eq i64 %0, 0
-  %brmerge.not = and i1 %cmp, %init_if_missing
+  %brmerge.not = and i1 %init_if_missing, %cmp
   br i1 %brmerge.not, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %entry
@@ -1056,7 +1056,7 @@ arena_init_locked.exit.thread:                    ; preds = %malloc_mutex_lock.e
 
 if.end.i3:                                        ; preds = %malloc_mutex_lock.exit
   %5 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i = icmp eq i32 %5, %ind
+  %cmp1.i = icmp eq i32 %ind, %5
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i3
@@ -1341,7 +1341,7 @@ if.end14.i.i832:                                  ; preds = %if.end.i165.i818
   %sub23.i.i840 = sub nuw nsw i64 60, %27
   %notmask755 = shl nsw i64 -1, %sub23.i.i840
   %sub27.i.i844 = xor i64 %notmask755, -1
-  %add.i.i845 = add nuw nsw i64 %sub27.i.i844, %size
+  %add.i.i845 = add nuw nsw i64 %size, %sub27.i.i844
   %and.i.i847 = and i64 %add.i.i845, %notmask755
   br label %sz_s2u.exit.i849
 
@@ -1672,7 +1672,7 @@ if.end14.i.i470:                                  ; preds = %if.end.i165.i
   %sub23.i.i477 = sub nuw nsw i64 60, %71
   %notmask = shl nsw i64 -1, %sub23.i.i477
   %sub27.i.i481 = xor i64 %notmask, -1
-  %add.i.i482 = add nuw nsw i64 %sub27.i.i481, %size
+  %add.i.i482 = add nuw nsw i64 %size, %sub27.i.i481
   %and.i.i484 = and i64 %add.i.i482, %notmask
   br label %sz_s2u.exit.i486
 
@@ -4000,7 +4000,7 @@ if.end14.i70.i1446:                               ; preds = %if.end.i.i1437
   %sub23.i78.i1454 = sub nuw nsw i64 60, %6
   %notmask758 = shl nsw i64 -1, %sub23.i78.i1454
   %sub27.i82.i1458 = xor i64 %notmask758, -1
-  %add.i83.i1459 = add nuw nsw i64 %sub27.i82.i1458, %size
+  %add.i83.i1459 = add nuw nsw i64 %size, %sub27.i82.i1458
   %and.i85.i1461 = and i64 %add.i83.i1459, %notmask758
   br label %sz_s2u.exit.i1463
 
@@ -4144,7 +4144,7 @@ if.end14.i70.i:                                   ; preds = %if.end.i.i1336
   %sub23.i78.i = sub nuw nsw i64 60, %17
   %notmask756 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask756, -1
-  %add.i83.i = add nuw nsw i64 %sub27.i82.i, %size
+  %add.i83.i = add nuw nsw i64 %size, %sub27.i82.i
   %and.i85.i = and i64 %add.i83.i, %notmask756
   br label %sz_s2u.exit.i1337
 
@@ -4382,7 +4382,7 @@ if.end14.i70.i1445:                               ; preds = %if.end.i.i1436
   %sub23.i78.i1453 = sub nuw nsw i64 60, %5
   %notmask757 = shl nsw i64 -1, %sub23.i78.i1453
   %sub27.i82.i1457 = xor i64 %notmask757, -1
-  %add.i83.i1458 = add nuw nsw i64 %sub27.i82.i1457, %size
+  %add.i83.i1458 = add nuw nsw i64 %size, %sub27.i82.i1457
   %and.i85.i1460 = and i64 %add.i83.i1458, %notmask757
   br label %sz_s2u.exit.i1462
 
@@ -4504,7 +4504,7 @@ if.end14.i70.i:                                   ; preds = %if.end.i.i1335
   %sub23.i78.i = sub nuw nsw i64 60, %16
   %notmask755 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask755, -1
-  %add.i83.i = add nuw nsw i64 %sub27.i82.i, %size
+  %add.i83.i = add nuw nsw i64 %size, %sub27.i82.i
   %and.i85.i = and i64 %add.i83.i, %notmask755
   br label %sz_s2u.exit.i1336
 
@@ -5178,7 +5178,7 @@ if.end14.i70.i1477:                               ; preds = %if.end.i.i1468
   %sub23.i78.i1485 = sub nuw nsw i64 60, %12
   %notmask766 = shl nsw i64 -1, %sub23.i78.i1485
   %sub27.i82.i1489 = xor i64 %notmask766, -1
-  %add.i83.i1490 = add nuw nsw i64 %sub27.i82.i1489, %size
+  %add.i83.i1490 = add nuw nsw i64 %size, %sub27.i82.i1489
   %and.i85.i1492 = and i64 %add.i83.i1490, %notmask766
   br label %sz_s2u.exit.i1494
 
@@ -5412,7 +5412,7 @@ if.end14.i.i865:                                  ; preds = %if.end.i224.i856
   %sub23.i.i873 = sub nuw nsw i64 60, %39
   %notmask767 = shl nsw i64 -1, %sub23.i.i873
   %sub27.i.i877 = xor i64 %notmask767, -1
-  %add.i.i878 = add nuw nsw i64 %sub27.i.i877, %size
+  %add.i.i878 = add nuw nsw i64 %size, %sub27.i.i877
   %and.i.i880 = and i64 %add.i.i878, %notmask767
   br label %sz_s2u.exit.i882
 
@@ -5597,7 +5597,7 @@ if.end14.i70.i:                                   ; preds = %if.end.i.i1366
   %sub23.i78.i = sub nuw nsw i64 60, %54
   %notmask763 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask763, -1
-  %add.i83.i = add nuw nsw i64 %sub27.i82.i, %size
+  %add.i83.i = add nuw nsw i64 %size, %sub27.i82.i
   %and.i85.i = and i64 %add.i83.i, %notmask763
   br label %sz_s2u.exit.i1367
 
@@ -5839,7 +5839,7 @@ if.end14.i.i503:                                  ; preds = %if.end.i224.i
   %sub23.i.i510 = sub nuw nsw i64 60, %83
   %notmask764 = shl nsw i64 -1, %sub23.i.i510
   %sub27.i.i514 = xor i64 %notmask764, -1
-  %add.i.i515 = add nuw nsw i64 %sub27.i.i514, %size
+  %add.i.i515 = add nuw nsw i64 %size, %sub27.i.i514
   %and.i.i517 = and i64 %add.i.i515, %notmask764
   br label %sz_s2u.exit.i519
 
@@ -6082,7 +6082,7 @@ if.end14.i:                                       ; preds = %if.end.i138
   %sub23.i = sub nuw nsw i64 60, %13
   %notmask373 = shl nsw i64 -1, %sub23.i
   %sub27.i = xor i64 %notmask373, -1
-  %add.i = add nuw nsw i64 %sub27.i, %size
+  %add.i = add nuw nsw i64 %size, %sub27.i
   %and.i154 = and i64 %add.i, %notmask373
   br label %if.end26.i
 
@@ -6145,7 +6145,7 @@ if.end14.i70.i425:                                ; preds = %if.end.i.i416
   %sub23.i78.i433 = sub nuw nsw i64 60, %17
   %notmask372 = shl nsw i64 -1, %sub23.i78.i433
   %sub27.i82.i437 = xor i64 %notmask372, -1
-  %add.i83.i438 = add nuw nsw i64 %sub27.i82.i437, %size
+  %add.i83.i438 = add nuw nsw i64 %size, %sub27.i82.i437
   %and.i85.i440 = and i64 %add.i83.i438, %notmask372
   br label %sz_s2u.exit.i442
 
@@ -6246,7 +6246,7 @@ if.end14.i70.i:                                   ; preds = %if.end.i.i347
   %sub23.i78.i = sub nuw nsw i64 60, %23
   %notmask375 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask375, -1
-  %add.i83.i = add nuw nsw i64 %sub27.i82.i, %size
+  %add.i83.i = add nuw nsw i64 %size, %sub27.i82.i
   %and.i85.i = and i64 %add.i83.i, %notmask375
   br label %sz_s2u.exit.i
 
@@ -6279,7 +6279,7 @@ if.end.i314:                                      ; preds = %sz_sa2u.exit
   br i1 %cmp8.i, label %return, label %if.end11.i318
 
 if.end11.i318:                                    ; preds = %if.end.i314
-  %cond.i321 = call i64 @llvm.umin.i64(i64 %10, i64 %size)
+  %cond.i321 = call i64 @llvm.umin.i64(i64 %size, i64 %10)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call12.i.i, ptr align 1 %ptr, i64 %cond.i321, i1 false)
   %27 = load i8, ptr %hook_args, align 8
   %tobool14.i = trunc i8 %27 to i1
@@ -6950,7 +6950,7 @@ if.end14.i.i852:                                  ; preds = %if.end.i165.i838
   %sub23.i.i860 = sub nuw nsw i64 60, %64
   %notmask763 = shl nsw i64 -1, %sub23.i.i860
   %sub27.i.i864 = xor i64 %notmask763, -1
-  %add.i.i865 = add nuw nsw i64 %sub27.i.i864, %size
+  %add.i.i865 = add nuw nsw i64 %size, %sub27.i.i864
   %and.i.i867 = and i64 %add.i.i865, %notmask763
   br label %sz_s2u.exit.i869
 
@@ -7281,7 +7281,7 @@ if.end14.i.i490:                                  ; preds = %if.end.i165.i
   %sub23.i.i497 = sub nuw nsw i64 60, %108
   %notmask = shl nsw i64 -1, %sub23.i.i497
   %sub27.i.i501 = xor i64 %notmask, -1
-  %add.i.i502 = add nuw nsw i64 %sub27.i.i501, %size
+  %add.i.i502 = add nuw nsw i64 %size, %sub27.i.i501
   %and.i.i504 = and i64 %add.i.i502, %notmask
   br label %sz_s2u.exit.i506
 
@@ -8043,7 +8043,7 @@ if.end14.i:                                       ; preds = %if.end.i154
   %sub23.i = sub nuw nsw i64 60, %5
   %notmask566 = shl nsw i64 -1, %sub23.i
   %sub27.i = xor i64 %notmask566, -1
-  %add.i = add nuw nsw i64 %sub27.i, %size
+  %add.i = add nuw nsw i64 %size, %sub27.i
   %and.i169 = and i64 %add.i, %notmask566
   br label %if.end26.i
 
@@ -8106,7 +8106,7 @@ if.end14.i70.i:                                   ; preds = %if.end.i.i
   %sub23.i78.i = sub nuw nsw i64 60, %9
   %notmask565 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask565, -1
-  %add.i83.i = add nuw nsw i64 %sub27.i82.i, %size
+  %add.i83.i = add nuw nsw i64 %size, %sub27.i82.i
   %and.i85.i = and i64 %add.i83.i, %notmask565
   br label %sz_s2u.exit.i
 
@@ -8623,7 +8623,7 @@ if.end14.i:                                       ; preds = %if.end.i50
   %sub23.i = sub nuw nsw i64 60, %6
   %notmask75 = shl nsw i64 -1, %sub23.i
   %sub27.i = xor i64 %notmask75, -1
-  %add.i = add nuw nsw i64 %sub27.i, %size
+  %add.i = add nuw nsw i64 %size, %sub27.i
   %and.i65 = and i64 %add.i, %notmask75
   br label %if.end26.i
 
@@ -8686,7 +8686,7 @@ if.end14.i70.i:                                   ; preds = %if.end.i.i
   %sub23.i78.i = sub nuw nsw i64 60, %10
   %notmask74 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask74, -1
-  %add.i83.i = add nuw nsw i64 %sub27.i82.i, %size
+  %add.i83.i = add nuw nsw i64 %size, %sub27.i82.i
   %and.i85.i = and i64 %add.i83.i, %notmask74
   br label %sz_s2u.exit.i
 
@@ -8967,7 +8967,7 @@ if.end14.i:                                       ; preds = %if.end.i252
   %sub23.i = sub nuw nsw i64 60, %5
   %notmask205 = shl nsw i64 -1, %sub23.i
   %sub27.i = xor i64 %notmask205, -1
-  %add.i = add nuw nsw i64 %sub27.i, %size
+  %add.i = add nuw nsw i64 %size, %sub27.i
   %and.i268 = and i64 %add.i, %notmask205
   br label %if.end26.i
 
@@ -9030,7 +9030,7 @@ if.end14.i70.i:                                   ; preds = %if.end.i.i
   %sub23.i78.i = sub nuw nsw i64 60, %9
   %notmask204 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask204, -1
-  %add.i83.i = add nuw nsw i64 %sub27.i82.i, %size
+  %add.i83.i = add nuw nsw i64 %size, %sub27.i82.i
   %and.i85.i = and i64 %add.i83.i, %notmask204
   br label %sz_s2u.exit.i
 

@@ -1868,7 +1868,7 @@ define range(i32 -1, 1) i32 @H5R__decode_token_region_compat(ptr noundef %0, ptr
   br label %.thread
 
 40:                                               ; preds = %33
-  %.not26 = icmp sgt i64 %20, %4
+  %.not26 = icmp slt i64 %4, %20
   br i1 %.not26, label %45, label %41
 
 41:                                               ; preds = %40

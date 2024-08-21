@@ -9015,7 +9015,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit: ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %2, %if.end.i ], [ 0, %entry ]
-  %cmp = icmp ugt i32 %retval.0.i, %x
+  %cmp = icmp ult i32 %x, %retval.0.i
   ret i1 %cmp
 }
 

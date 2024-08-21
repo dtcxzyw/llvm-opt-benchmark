@@ -20,7 +20,7 @@ define range(i32 -22, 1) i32 @nxsched_get_param(i32 noundef %0, ptr noundef writ
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load i32, ptr %8, align 8
-  %10 = icmp eq i32 %9, %0
+  %10 = icmp eq i32 %0, %9
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %7, %4
@@ -72,7 +72,7 @@ define range(i32 -1, 1) i32 @sched_getparam(i32 noundef %0, ptr noundef writeonl
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load i32, ptr %8, align 8
-  %10 = icmp eq i32 %9, %0
+  %10 = icmp eq i32 %0, %9
   br i1 %10, label %nxsched_get_param.exit.thread7, label %14
 
 nxsched_get_param.exit.thread7:                   ; preds = %4, %7

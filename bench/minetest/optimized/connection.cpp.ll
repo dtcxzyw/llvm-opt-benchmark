@@ -3399,7 +3399,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %2 = load i32, ptr %resend_count, align 8, !tbaa !42
   %conv = uitofp i32 %2 to float
   %3 = tail call nsz float @llvm.pow.f32(float 1.500000e+00, float %conv)
-  %mul = fmul nsz float %3, %timeout
+  %mul = fmul nsz float %timeout, %3
   %time = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load float, ptr %time, align 8, !tbaa !95
   %cmp = fcmp nsz olt float %4, %mul
@@ -4900,7 +4900,7 @@ for.body:                                         ; preds = %_ZNSt11unique_lockI
 
 if.end:                                           ; preds = %for.body
   %4 = load float, ptr %2, align 8, !tbaa !125
-  %add = fadd nsz float %4, %dtime
+  %add = fadd nsz float %dtime, %4
   store float %add, ptr %2, align 8, !tbaa !125
   %cmp = fcmp nsz ult float %add, %timeout
   br i1 %cmp, label %cleanup, label %if.then7
@@ -6093,11 +6093,11 @@ define dso_local void @_ZN3con7Channel12UpdateTimersEf(ptr noundef nonnull align
 entry:
   %bpm_counter = getelementptr inbounds i8, ptr %this, i64 504
   %0 = load float, ptr %bpm_counter, align 8, !tbaa !195
-  %add = fadd nsz float %0, %dtime
+  %add = fadd nsz float %dtime, %0
   store float %add, ptr %bpm_counter, align 8, !tbaa !195
   %packet_loss_counter = getelementptr inbounds i8, ptr %this, i64 452
   %1 = load float, ptr %packet_loss_counter, align 4, !tbaa !196
-  %add2 = fadd nsz float %1, %dtime
+  %add2 = fadd nsz float %dtime, %1
   store float %add2, ptr %packet_loss_counter, align 4, !tbaa !196
   %cmp = fcmp nsz ogt float %add2, 1.000000e+00
   br i1 %cmp, label %if.then, label %if.end60
@@ -6583,7 +6583,7 @@ if.else:                                          ; preds = %if.end11
   %conv19 = uitofp i32 %div to float
   %4 = icmp eq i32 %num_samples, 1
   %conv21 = uitofp i1 %4 to float
-  %mul22 = fmul nsz float %conv21, %rtt
+  %mul22 = fmul nsz float %rtt, %conv21
   %5 = tail call nsz float @llvm.fmuladd.f32(float %3, float %conv19, float %mul22)
   br label %if.end25
 
@@ -6995,7 +6995,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.then
 if.else:                                          ; preds = %invoke.cont
   %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 64
   %8 = load float, ptr %second, align 8, !tbaa !227
-  %add = fadd nsz float %8, %value
+  %add = fadd nsz float %value, %8
   store float %add, ptr %second, align 8, !tbaa !227
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit21
 
@@ -8057,7 +8057,7 @@ define dso_local noundef zeroext i1 @_ZN3con7UDPPeer4PingEfR12SharedBufferIhE(pt
 entry:
   %m_ping_timer = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load float, ptr %m_ping_timer, align 8, !tbaa !270
-  %add = fadd nsz float %0, %dtime
+  %add = fadd nsz float %dtime, %0
   store float %add, ptr %m_ping_timer, align 8, !tbaa !270
   %m_exclusive_access_mutex.i = getelementptr inbounds i8, ptr %this, i64 16
   %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_exclusive_access_mutex.i) #31

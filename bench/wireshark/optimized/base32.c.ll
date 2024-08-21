@@ -63,7 +63,7 @@ define i32 @ws_base32_decode(ptr nocapture noundef writeonly %0, i32 noundef %1,
   br i1 %23, label %._crit_edge.thread, label %26
 
 26:                                               ; preds = %._crit_edge
-  %.not32 = icmp ult i32 %5, %1
+  %.not32 = icmp ugt i32 %1, %5
   br i1 %.not32, label %27, label %.loopexit34
 
 27:                                               ; preds = %26

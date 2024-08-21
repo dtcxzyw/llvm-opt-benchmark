@@ -754,13 +754,13 @@ define dso_local ptr @get_eclass_for_sort_expr(ptr noundef %0, ptr noundef %1, p
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %23, i64 60
   %30 = load i32, ptr %29, align 4
-  %.not103 = icmp eq i32 %30, %5
+  %.not103 = icmp eq i32 %5, %30
   br i1 %.not103, label %31, label %.thread111
 
 31:                                               ; preds = %28, %.lr.ph127
   %32 = getelementptr inbounds i8, ptr %23, i64 16
   %33 = load i32, ptr %32, align 8
-  %.not104 = icmp eq i32 %33, %4
+  %.not104 = icmp eq i32 %4, %33
   br i1 %.not104, label %34, label %.thread111
 
 34:                                               ; preds = %31
@@ -813,7 +813,7 @@ define dso_local ptr @get_eclass_for_sort_expr(ptr noundef %0, ptr noundef %1, p
 62:                                               ; preds = %59, %55
   %63 = getelementptr inbounds i8, ptr %47, i64 28
   %64 = load i32, ptr %63, align 4
-  %65 = icmp eq i32 %64, %3
+  %65 = icmp eq i32 %3, %64
   br i1 %65, label %66, label %75
 
 66:                                               ; preds = %62
@@ -4994,7 +4994,7 @@ define dso_local zeroext i1 @is_redundant_with_indexclauses(ptr noundef readonly
   %15 = getelementptr inbounds i8, ptr %12, i64 24
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
-  %18 = icmp ne ptr %14, %0
+  %18 = icmp ne ptr %0, %14
   %or.cond51.not = select i1 %17, i1 true, i1 %18
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp ne i64 %indvars.iv.next57, %wide.trip.count59
@@ -5021,7 +5021,7 @@ define dso_local zeroext i1 @is_redundant_with_indexclauses(ptr noundef readonly
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %20
-  %29 = icmp eq ptr %24, %0
+  %29 = icmp eq ptr %0, %24
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %28

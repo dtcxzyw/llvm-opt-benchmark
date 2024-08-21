@@ -1060,7 +1060,7 @@ iax2_add_ts_fields.exit.i:                        ; preds = %163, %148
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %180 = call i32 @tvb_reported_length(ptr noundef %0) #13
-  %181 = icmp ugt i32 %180, %175
+  %181 = icmp ult i32 %175, %180
   br i1 %181, label %.lr.ph.i.i.i, label %dissect_ies.exit.thread.i.i
 
 dissect_ies.exit.thread.i.i:                      ; preds = %179
@@ -2351,7 +2351,7 @@ define internal fastcc ptr @iax_lookup_call(ptr noundef %0, i32 noundef %1, i32 
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %28 ]
   %29 = getelementptr [2 x i32], ptr %25, i64 0, i64 %indvars.iv.i.i
   %30 = load i32, ptr %29, align 4
-  %31 = icmp eq i32 %30, %16
+  %31 = icmp eq i32 %16, %30
   br i1 %31, label %is_forward_circuit.exit.i, label %28
 
 is_forward_circuit.exit.i:                        ; preds = %.lr.ph.i.i
@@ -2387,7 +2387,7 @@ iax2_new_circuit_for_call.exit.i:                 ; preds = %is_forward_circuit.
   %indvars.iv.i58.i = phi i64 [ 0, %.lr.ph.preheader.i55.i ], [ %indvars.iv.next.i59.i, %43 ]
   %44 = getelementptr [2 x i32], ptr %42, i64 0, i64 %indvars.iv.i58.i
   %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %45, %10
+  %46 = icmp eq i32 %10, %45
   br i1 %46, label %iax_lookup_call_from_dest.exit, label %43
 
 47:                                               ; preds = %43
@@ -2416,7 +2416,7 @@ iax2_new_circuit_for_call.exit.i:                 ; preds = %is_forward_circuit.
   %indvars.iv.i66.i = phi i64 [ 0, %.lr.ph.preheader.i63.i ], [ %indvars.iv.next.i67.i, %54 ]
   %55 = getelementptr [2 x i32], ptr %51, i64 0, i64 %indvars.iv.i66.i
   %56 = load i32, ptr %55, align 4
-  %57 = icmp eq i32 %56, %16
+  %57 = icmp eq i32 %16, %56
   br i1 %57, label %is_reverse_circuit.exit70.i, label %54
 
 is_reverse_circuit.exit70.i:                      ; preds = %.lr.ph.i65.i
@@ -2435,7 +2435,7 @@ is_reverse_circuit.exit70.i:                      ; preds = %.lr.ph.i65.i
   %indvars.iv.i75.i = phi i64 [ 0, %.lr.ph.preheader.i72.i ], [ %indvars.iv.next.i76.i, %58 ]
   %59 = getelementptr [2 x i32], ptr %25, i64 0, i64 %indvars.iv.i75.i
   %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %60, %10
+  %61 = icmp eq i32 %10, %60
   br i1 %61, label %iax_lookup_call_from_dest.exit, label %58
 
 .loopexit.i:                                      ; preds = %58, %is_reverse_circuit.exit70.i
@@ -2485,7 +2485,7 @@ is_reverse_circuit.exit70.i:                      ; preds = %.lr.ph.i65.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %77 ]
   %78 = getelementptr [2 x i32], ptr %74, i64 0, i64 %indvars.iv.i
   %79 = load i32, ptr %78, align 4
-  %80 = icmp eq i32 %79, %10
+  %80 = icmp eq i32 %10, %79
   br i1 %80, label %iax_lookup_call_from_dest.exit, label %77
 
 .loopexit48:                                      ; preds = %77, %73
@@ -2508,7 +2508,7 @@ is_reverse_circuit.exit70.i:                      ; preds = %.lr.ph.i65.i
   %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.preheader.i35 ], [ %indvars.iv.next.i39, %84 ]
   %85 = getelementptr [2 x i32], ptr %81, i64 0, i64 %indvars.iv.i38
   %86 = load i32, ptr %85, align 4
-  %87 = icmp eq i32 %86, %10
+  %87 = icmp eq i32 %10, %86
   br i1 %87, label %iax_lookup_call_from_dest.exit, label %84
 
 .loopexit:                                        ; preds = %84, %.loopexit48
@@ -2711,7 +2711,7 @@ define internal fastcc void @dissect_payload(ptr noundef %0, i32 noundef %1, ptr
   %13 = getelementptr inbounds i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
-  %.not = icmp ugt i32 %15, %1
+  %.not = icmp ult i32 %1, %15
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %7

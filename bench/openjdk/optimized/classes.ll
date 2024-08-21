@@ -5089,14 +5089,14 @@ declare noundef ptr @_ZN10IfProjNode8IdentityEP8PhaseGVN(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK10IfTrueNode12always_takenEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = load ptr, ptr @_ZN9TypeTuple6IFTRUEE, align 8
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK11IfFalseNode12always_takenEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = load ptr, ptr @_ZN9TypeTuple7IFFALSEE, align 8
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   ret i1 %4
 }
 

@@ -1011,11 +1011,11 @@ define dso_local i40 @_ZNK8TGAImage3getEii(ptr nocapture noundef nonnull readonl
   %11 = icmp sgt i32 %10, -1
   %or.cond3.not22 = and i1 %11, %9
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   %or.cond = select i1 %or.cond3.not22, i1 %.not, i1 false
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
-  %.not16 = icmp sgt i32 %14, %2
+  %.not16 = icmp slt i32 %2, %14
   %or.cond19 = select i1 %or.cond, i1 %.not16, i1 false
   %15 = getelementptr inbounds i8, ptr %4, i64 4
   br i1 %or.cond19, label %17, label %16
@@ -1068,11 +1068,11 @@ define dso_local void @_ZN8TGAImage3setEiiRK8TGAColor(ptr nocapture noundef nonn
   %11 = icmp sgt i32 %10, -1
   %or.cond3.not16 = and i1 %11, %9
   %12 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   %or.cond = select i1 %or.cond3.not16, i1 %.not, i1 false
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
-  %.not11 = icmp sgt i32 %14, %2
+  %.not11 = icmp slt i32 %2, %14
   %or.cond13 = select i1 %or.cond, i1 %.not11, i1 false
   br i1 %or.cond13, label %15, label %25
 

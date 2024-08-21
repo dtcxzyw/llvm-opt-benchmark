@@ -1505,7 +1505,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %property_bag, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -2449,7 +2449,7 @@ if.then6:                                         ; preds = %if.end
   %add4.i.i = add nuw nsw i64 %conv9, 8
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %9 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %9, %add4.i.i
+  %cmp.i.i.i = icmp ugt i64 %add4.i.i, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEmNS_9ValueTypeEPS2_.exit
 
 if.then.i.i.i:                                    ; preds = %if.then6
@@ -3076,7 +3076,7 @@ entry:
   %1 = load ptr, ptr %mget_range, align 8, !noalias !18
   %end_.i.i = getelementptr inbounds i8, ptr %mget_range, i64 16
   %2 = load i64, ptr %end_.i.i, align 8, !noalias !21
-  %cmp2.i.i = icmp ugt i64 %2, %0
+  %cmp2.i.i = icmp ult i64 %0, %2
   br i1 %cmp2.i.i, label %land.rhs.lr.ph.i.i, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
 
 land.rhs.lr.ph.i.i:                               ; preds = %entry
@@ -4999,7 +4999,7 @@ entry:
   %ref.tmp16.i.i = alloca %"class.rocksdb::Slice", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp36 = icmp sgt i64 %div, %__holeIndex
+  %cmp36 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp36, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry

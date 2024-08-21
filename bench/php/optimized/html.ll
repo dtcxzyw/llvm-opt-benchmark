@@ -4290,7 +4290,7 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
   %6 = load i64, ptr %3, align 8
   store i32 0, ptr %4, align 4
   %7 = sub i64 %2, %6
-  %.not = icmp eq i64 %6, %2
+  %.not = icmp eq i64 %2, %6
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %5
@@ -6803,7 +6803,7 @@ define internal fastcc range(i32 -1, 1) i32 @resolve_named_entity_html(ptr nocap
   %112 = getelementptr inbounds i8, ptr %.05067, i64 8
   %113 = load i16, ptr %112, align 8
   %114 = zext i16 %113 to i64
-  %115 = icmp eq i64 %114, %1
+  %115 = icmp eq i64 %1, %114
   br i1 %115, label %116, label %123
 
 116:                                              ; preds = %.lr.ph69
@@ -7878,7 +7878,7 @@ define internal fastcc range(i32 -1, 1) i32 @map_from_unicode(i32 noundef %0, i3
   %26 = getelementptr inbounds %struct.uni_to_enc, ptr %.01725.i, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
-  %29 = icmp sgt i32 %28, %0
+  %29 = icmp slt i32 %0, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %.lr.ph.i
@@ -7886,7 +7886,7 @@ define internal fastcc range(i32 -1, 1) i32 @map_from_unicode(i32 noundef %0, i3
   br label %36
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = icmp ult i32 %28, %0
+  %33 = icmp ugt i32 %0, %28
   br i1 %33, label %34, label %unimap_bsearch.exit
 
 34:                                               ; preds = %32
@@ -7931,7 +7931,7 @@ unimap_bsearch.exit:                              ; preds = %32
   %51 = getelementptr inbounds %struct.uni_to_enc, ptr %.01725.i83, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
-  %54 = icmp sgt i32 %53, %0
+  %54 = icmp slt i32 %0, %53
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %.lr.ph.i82
@@ -7939,7 +7939,7 @@ unimap_bsearch.exit:                              ; preds = %32
   br label %61
 
 57:                                               ; preds = %.lr.ph.i82
-  %58 = icmp ult i32 %53, %0
+  %58 = icmp ugt i32 %0, %53
   br i1 %58, label %59, label %unimap_bsearch.exit89
 
 59:                                               ; preds = %57
@@ -7982,7 +7982,7 @@ unimap_bsearch.exit89:                            ; preds = %57
   %73 = icmp ugt i32 %0, 65535
   %74 = getelementptr %struct.uni_to_enc, ptr %.071, i64 %.0
   %75 = getelementptr i8, ptr %74, i64 -4
-  %.not23.i = icmp ult ptr %75, %.071
+  %.not23.i = icmp ugt ptr %.071, %75
   %or.cond.i = or i1 %73, %.not23.i
   br i1 %or.cond.i, label %unimap_bsearch.exit.thread, label %.lr.ph.i90
 
@@ -7997,7 +7997,7 @@ unimap_bsearch.exit89:                            ; preds = %57
   %81 = getelementptr inbounds %struct.uni_to_enc, ptr %.01725.i91, i64 %80
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
-  %84 = icmp sgt i32 %83, %0
+  %84 = icmp slt i32 %0, %83
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %.lr.ph.i90
@@ -8005,7 +8005,7 @@ unimap_bsearch.exit89:                            ; preds = %57
   br label %91
 
 87:                                               ; preds = %.lr.ph.i90
-  %88 = icmp ult i32 %83, %0
+  %88 = icmp ugt i32 %0, %83
   br i1 %88, label %89, label %unimap_bsearch.exit97
 
 89:                                               ; preds = %87

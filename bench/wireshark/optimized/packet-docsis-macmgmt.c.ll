@@ -5517,7 +5517,7 @@ define internal i32 @dissect_mdd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   %67 = and i32 %66, 65535
   %68 = add i32 %67, %55
-  %69 = icmp sgt i32 %68, %55
+  %69 = icmp slt i32 %55, %68
   br i1 %69, label %.lr.ph.i, label %dissect_mdd_ds_active_channel_list.exit
 
 .lr.ph.i:                                         ; preds = %65, %108
@@ -5606,7 +5606,7 @@ dissect_mdd_ds_active_channel_list.exit:          ; preds = %108, %65
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   %114 = and i32 %113, 65535
   %115 = add i32 %114, %55
-  %116 = icmp sgt i32 %115, %55
+  %116 = icmp slt i32 %55, %115
   br i1 %116, label %.lr.ph3.i, label %dissect_mdd_ds_service_group.exit
 
 .lr.ph3.i:                                        ; preds = %112, %.loopexit.i
@@ -5678,7 +5678,7 @@ dissect_mdd_ds_service_group.exit:                ; preds = %.loopexit.i, %112
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   %152 = and i32 %151, 65535
   %153 = add i32 %152, %55
-  %154 = icmp sgt i32 %153, %55
+  %154 = icmp slt i32 %55, %153
   br i1 %154, label %.lr.ph.i143, label %dissect_mdd_channel_profile_reporting_control.exit
 
 .lr.ph.i143:                                      ; preds = %150, %173
@@ -5727,7 +5727,7 @@ dissect_mdd_channel_profile_reporting_control.exit: ; preds = %173, %150
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   %179 = and i32 %178, 65535
   %180 = add i32 %179, %55
-  %181 = icmp sgt i32 %180, %55
+  %181 = icmp slt i32 %55, %180
   br i1 %181, label %.lr.ph.i145, label %dissect_mdd_ip_init_param.exit
 
 .lr.ph.i145:                                      ; preds = %177, %199
@@ -5784,7 +5784,7 @@ dissect_mdd_ip_init_param.exit:                   ; preds = %199, %177
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   %208 = and i32 %207, 65535
   %209 = add i32 %208, %55
-  %210 = icmp sgt i32 %209, %55
+  %210 = icmp slt i32 %55, %209
   br i1 %210, label %.lr.ph.i148, label %dissect_mdd_upstream_active_channel_list.exit
 
 .lr.ph.i148:                                      ; preds = %206, %dissect_mdd_upstream_active_channel_list_dschids_maps_ucds.exit.i
@@ -5896,7 +5896,7 @@ dissect_mdd_upstream_active_channel_list.exit:    ; preds = %dissect_mdd_upstrea
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   %268 = and i32 %267, 65535
   %269 = add i32 %268, %55
-  %270 = icmp sgt i32 %269, %55
+  %270 = icmp slt i32 %55, %269
   br i1 %270, label %.lr.ph.i150, label %dissect_mdd_cm_status_event_control.exit
 
 .lr.ph.i150:                                      ; preds = %266, %296
@@ -5963,7 +5963,7 @@ dissect_mdd_cm_status_event_control.exit:         ; preds = %296, %266
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   %305 = and i32 %304, 65535
   %306 = add i32 %305, %55
-  %307 = icmp sgt i32 %306, %55
+  %307 = icmp slt i32 %55, %306
   br i1 %307, label %.lr.ph.i152, label %dissect_mdd_dsg_da_to_dsid.exit
 
 .lr.ph.i152:                                      ; preds = %303, %325
@@ -6091,7 +6091,7 @@ dissect_mdd_dsg_da_to_dsid.exit:                  ; preds = %325, %303
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %376 = and i32 %375, 65535
   %377 = add i32 %376, %55
-  %378 = icmp sgt i32 %377, %55
+  %378 = icmp slt i32 %55, %377
   br i1 %378, label %.lr.ph.i157, label %dissect_mdd_diplexer_band_edge.exit
 
 .lr.ph.i157:                                      ; preds = %374, %435
@@ -6224,7 +6224,7 @@ dissect_mdd_diplexer_band_edge.exit:              ; preds = %435, %374, %432
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %441 = and i32 %440, 65535
   %442 = add i32 %441, %55
-  %443 = icmp sgt i32 %442, %55
+  %443 = icmp slt i32 %55, %442
   br i1 %443, label %.lr.ph74.i, label %dissect_mdd_full_duplex_descriptor.exit
 
 .lr.ph74.i:                                       ; preds = %439, %.loopexit.i159
@@ -9369,7 +9369,7 @@ define internal fastcc ptr @dissect_multipart(ptr noundef %0, ptr noundef %1, pt
 
 21:                                               ; preds = %14
   %22 = shl nuw nsw i32 %3, 24
-  %23 = add i32 %22, %4
+  %23 = add i32 %4, %22
   %24 = and i32 %19, 15
   %25 = lshr i32 %19, 4
   %26 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %5) #6

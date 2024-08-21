@@ -184,7 +184,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   br i1 %.not163, label %42, label %29
 
 29:                                               ; preds = %RARRAY_LENINT.exit
-  %30 = icmp sgt i32 %27, %0
+  %30 = icmp slt i32 %0, %27
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %29
@@ -210,7 +210,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   br label %44
 
 42:                                               ; preds = %RARRAY_LENINT.exit
-  %.not = icmp eq i32 %27, %0
+  %.not = icmp eq i32 %0, %27
   br i1 %.not, label %44, label %43
 
 43:                                               ; preds = %42
@@ -250,7 +250,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
 
 .thread:                                          ; preds = %51, %52, %53
   %54 = tail call i64 @rb_ary_dup(i64 noundef %10) #8
-  %55 = icmp slt i32 %27, %0
+  %55 = icmp sgt i32 %0, %27
   br i1 %55, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.thread

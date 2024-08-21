@@ -127,7 +127,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %106 = fcmp ogt float %104, %105
   %107 = select i1 %106, float %104, float %105
   store i32 -2, ptr %12, align 4
-  br label %510
+  br label %512
 
 108:                                              ; preds = %98
   %109 = fcmp ogt float %64, %50
@@ -145,7 +145,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %119 = fcmp ogt float %.1406, %118
   %120 = select i1 %119, float %.1406, float %118
   store i32 -3, ptr %12, align 4
-  br label %510
+  br label %512
 
 121:                                              ; preds = %71, %41
   store i32 -4, ptr %12, align 4
@@ -263,7 +263,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %189 = fptrunc double %188 to float
   %190 = fpext float %189 to double
   %191 = fcmp olt double %190, 5.630000e-01
-  br i1 %191, label %192, label %510
+  br i1 %191, label %192, label %512
 
 192:                                              ; preds = %._crit_edge499
   %193 = fpext float %.0389 to double
@@ -274,7 +274,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %198 = fadd double %190, 1.000000e+00
   %199 = fdiv double %197, %198
   %200 = fptrunc double %199 to float
-  br label %510
+  br label %512
 
 201:                                              ; preds = %33
   %202 = load float, ptr %10, align 4
@@ -396,7 +396,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %.3402 = phi float [ %278, %._crit_edge ], [ %236, %229 ]
   %280 = fpext float %.3402 to double
   %281 = fcmp olt double %280, 5.630000e-01
-  br i1 %281, label %282, label %510
+  br i1 %281, label %282, label %512
 
 282:                                              ; preds = %279
   %283 = fpext float %221 to double
@@ -407,7 +407,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %288 = fadd double %280, 1.000000e+00
   %289 = fdiv double %287, %288
   %290 = fptrunc double %289 to float
-  br label %510
+  br label %512
 
 291:                                              ; preds = %201
   %292 = load i32, ptr %12, align 4
@@ -417,12 +417,12 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %switch.select459 = select i1 %switch.selectcmp458, float 0x3FD54FDF40000000, float %switch.select
   %293 = fmul float %14, %switch.select459
   store i32 -6, ptr %12, align 4
-  br label %510
+  br label %512
 
 294:                                              ; preds = %18
   %295 = add nsw i32 %19, 1
   %296 = icmp eq i32 %23, %295
-  br i1 %296, label %297, label %399
+  br i1 %296, label %297, label %400
 
 297:                                              ; preds = %294
   %298 = load float, ptr %6, align 4
@@ -433,7 +433,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %303 = tail call noundef float @llvm.fabs.f32(float %302)
   %304 = fmul float %303, 0x3E80000000000000
   %305 = fcmp olt float %301, %304
-  br i1 %305, label %306, label %397
+  br i1 %305, label %306, label %398
 
 306:                                              ; preds = %297
   %307 = load float, ptr %7, align 4
@@ -444,7 +444,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %312 = tail call noundef float @llvm.fabs.f32(float %311)
   %313 = fmul float %312, 0x3E80000000000000
   %314 = fcmp olt float %310, %313
-  br i1 %314, label %315, label %397
+  br i1 %314, label %315, label %398
 
 315:                                              ; preds = %306
   store i32 -7, ptr %12, align 4
@@ -534,200 +534,202 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %376 = fmul float %361, %368
   %377 = fcmp olt float %376, %374
   %or.cond455 = select i1 %375, i1 %377, i1 false
-  br i1 %or.cond455, label %378, label %389
+  br i1 %or.cond455, label %378, label %390
 
 378:                                              ; preds = %.loopexit465
-  %379 = fdiv float %361, %374
-  %380 = fpext float %379 to double
-  %381 = fpext float %361 to double
-  %382 = fmul double %371, -1.010000e+00
-  %383 = fmul double %382, %380
-  %384 = tail call double @llvm.fmuladd.f64(double %383, double %381, double 1.000000e+00)
-  %385 = fmul double %384, %371
-  %386 = fptrunc double %385 to float
-  %387 = fcmp ogt float %319, %386
-  %388 = select i1 %387, float %319, float %386
-  br label %510
+  %379 = fmul double %371, 1.010000e+00
+  %380 = fdiv float %361, %374
+  %381 = fpext float %380 to double
+  %382 = fpext float %361 to double
+  %383 = fneg double %381
+  %384 = fmul double %379, %383
+  %385 = tail call double @llvm.fmuladd.f64(double %384, double %382, double 1.000000e+00)
+  %386 = fmul double %385, %371
+  %387 = fptrunc double %386 to float
+  %388 = fcmp ogt float %319, %387
+  %389 = select i1 %388, float %319, float %387
+  br label %512
 
-389:                                              ; preds = %.loopexit465
-  %390 = fpext float %361 to double
-  %391 = fneg double %390
-  %392 = tail call double @llvm.fmuladd.f64(double %391, double 1.010000e+00, double 1.000000e+00)
-  %393 = fmul double %392, %371
-  %394 = fptrunc double %393 to float
-  %395 = fcmp ogt float %319, %394
-  %396 = select i1 %395, float %319, float %394
+390:                                              ; preds = %.loopexit465
+  %391 = fpext float %361 to double
+  %392 = fneg double %391
+  %393 = tail call double @llvm.fmuladd.f64(double %392, double 1.010000e+00, double 1.000000e+00)
+  %394 = fmul double %393, %371
+  %395 = fptrunc double %394 to float
+  %396 = fcmp ogt float %319, %395
+  %397 = select i1 %396, float %319, float %395
   store i32 -8, ptr %12, align 4
-  br label %510
+  br label %512
 
-397:                                              ; preds = %306, %297
+398:                                              ; preds = %306, %297
   %.sink = phi float [ 2.500000e-01, %297 ], [ 5.000000e-01, %306 ]
-  %398 = fmul float %298, %.sink
+  %399 = fmul float %298, %.sink
   store i32 -9, ptr %12, align 4
-  br label %510
+  br label %512
 
-399:                                              ; preds = %294
-  %400 = add nsw i32 %19, 2
-  %401 = icmp eq i32 %23, %400
-  br i1 %401, label %402, label %507
+400:                                              ; preds = %294
+  %401 = add nsw i32 %19, 2
+  %402 = icmp eq i32 %23, %401
+  br i1 %402, label %403, label %509
 
-402:                                              ; preds = %399
-  %403 = load float, ptr %7, align 4
-  %404 = load float, ptr %10, align 4
-  %405 = fsub float %403, %404
-  %406 = tail call noundef float @llvm.fabs.f32(float %405)
-  %407 = fadd float %403, %404
-  %408 = tail call noundef float @llvm.fabs.f32(float %407)
-  %409 = fmul float %408, 0x3E80000000000000
-  %410 = fcmp olt float %406, %409
-  br i1 %410, label %411, label %505
+403:                                              ; preds = %400
+  %404 = load float, ptr %7, align 4
+  %405 = load float, ptr %10, align 4
+  %406 = fsub float %404, %405
+  %407 = tail call noundef float @llvm.fabs.f32(float %406)
+  %408 = fadd float %404, %405
+  %409 = tail call noundef float @llvm.fabs.f32(float %408)
+  %410 = fmul float %409, 0x3E80000000000000
+  %411 = fcmp olt float %407, %410
+  br i1 %411, label %412, label %507
 
-411:                                              ; preds = %402
-  %412 = sext i32 %22 to i64
-  %413 = getelementptr float, ptr %2, i64 %412
-  %414 = getelementptr i8, ptr %413, i64 -20
-  %415 = load float, ptr %414, align 4
-  %416 = fpext float %415 to double
-  %417 = fmul double %416, 2.000000e+00
-  %418 = getelementptr i8, ptr %413, i64 -28
-  %419 = load float, ptr %418, align 4
-  %420 = fpext float %419 to double
-  %421 = fcmp olt double %417, %420
-  br i1 %421, label %422, label %505
+412:                                              ; preds = %403
+  %413 = sext i32 %22 to i64
+  %414 = getelementptr float, ptr %2, i64 %413
+  %415 = getelementptr i8, ptr %414, i64 -20
+  %416 = load float, ptr %415, align 4
+  %417 = fpext float %416 to double
+  %418 = fmul double %417, 2.000000e+00
+  %419 = getelementptr i8, ptr %414, i64 -28
+  %420 = load float, ptr %419, align 4
+  %421 = fpext float %420 to double
+  %422 = fcmp olt double %418, %421
+  br i1 %422, label %423, label %507
 
-422:                                              ; preds = %411
+423:                                              ; preds = %412
   store i32 -10, ptr %12, align 4
-  %423 = load float, ptr %7, align 4
-  %424 = fpext float %423 to double
-  %425 = fmul double %424, 3.330000e-01
-  %426 = fptrunc double %425 to float
-  %427 = load float, ptr %414, align 4
-  %428 = load float, ptr %418, align 4
-  %429 = fcmp ogt float %427, %428
-  br i1 %429, label %.loopexit, label %430
+  %424 = load float, ptr %7, align 4
+  %425 = fpext float %424 to double
+  %426 = fmul double %425, 3.330000e-01
+  %427 = fptrunc double %426 to float
+  %428 = load float, ptr %415, align 4
+  %429 = load float, ptr %419, align 4
+  %430 = fcmp ogt float %428, %429
+  br i1 %430, label %.loopexit, label %431
 
-430:                                              ; preds = %422
-  %431 = fdiv float %427, %428
-  %432 = tail call noundef float @llvm.fabs.f32(float %431)
-  %433 = fcmp olt float %432, 0x3810000000000000
-  br i1 %433, label %.loopexit467, label %434
+431:                                              ; preds = %423
+  %432 = fdiv float %428, %429
+  %433 = tail call noundef float @llvm.fabs.f32(float %432)
+  %434 = fcmp olt float %433, 0x3810000000000000
+  br i1 %434, label %.loopexit467, label %435
 
-434:                                              ; preds = %430
-  %435 = load i32, ptr %0, align 4
-  %436 = shl i32 %435, 2
-  %437 = add nsw i32 %436, -1
-  %438 = load i32, ptr %3, align 4
-  %439 = add nsw i32 %437, %438
-  %440 = load i32, ptr %1, align 4
-  %441 = shl i32 %440, 2
-  %442 = add i32 %438, -9
-  %443 = add i32 %442, %441
-  %.not469 = icmp slt i32 %443, %439
+435:                                              ; preds = %431
+  %436 = load i32, ptr %0, align 4
+  %437 = shl i32 %436, 2
+  %438 = add nsw i32 %437, -1
+  %439 = load i32, ptr %3, align 4
+  %440 = add nsw i32 %438, %439
+  %441 = load i32, ptr %1, align 4
+  %442 = shl i32 %441, 2
+  %443 = add i32 %439, -9
+  %444 = add i32 %443, %442
+  %.not469 = icmp slt i32 %444, %440
   br i1 %.not469, label %.loopexit467, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %434
-  %444 = sext i32 %443 to i64
-  %445 = sext i32 %439 to i64
+.lr.ph.preheader:                                 ; preds = %435
+  %445 = sext i32 %444 to i64
+  %446 = sext i32 %440 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %451, %.lr.ph.preheader
-  %indvars.iv = phi i64 [ %444, %.lr.ph.preheader ], [ %indvars.iv.next, %451 ]
-  %.6471 = phi float [ %431, %.lr.ph.preheader ], [ %454, %451 ]
-  %.1398470 = phi float [ %431, %.lr.ph.preheader ], [ %453, %451 ]
-  %446 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
-  %447 = load float, ptr %446, align 4
-  %448 = getelementptr i8, ptr %446, i64 -8
-  %449 = load float, ptr %448, align 4
-  %450 = fcmp ogt float %447, %449
-  br i1 %450, label %.loopexit, label %451
+.lr.ph:                                           ; preds = %452, %.lr.ph.preheader
+  %indvars.iv = phi i64 [ %445, %.lr.ph.preheader ], [ %indvars.iv.next, %452 ]
+  %.6471 = phi float [ %432, %.lr.ph.preheader ], [ %455, %452 ]
+  %.1398470 = phi float [ %432, %.lr.ph.preheader ], [ %454, %452 ]
+  %447 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %448 = load float, ptr %447, align 4
+  %449 = getelementptr i8, ptr %447, i64 -8
+  %450 = load float, ptr %449, align 4
+  %451 = fcmp ogt float %448, %450
+  br i1 %451, label %.loopexit, label %452
 
-451:                                              ; preds = %.lr.ph
-  %452 = fdiv float %447, %449
-  %453 = fmul float %.1398470, %452
-  %454 = fadd float %.6471, %453
-  %455 = fpext float %453 to double
-  %456 = fmul double %455, 1.000000e+02
-  %457 = fpext float %454 to double
-  %458 = fcmp olt double %456, %457
+452:                                              ; preds = %.lr.ph
+  %453 = fdiv float %448, %450
+  %454 = fmul float %.1398470, %453
+  %455 = fadd float %.6471, %454
+  %456 = fpext float %454 to double
+  %457 = fmul double %456, 1.000000e+02
+  %458 = fpext float %455 to double
+  %459 = fcmp olt double %457, %458
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
-  %.not = icmp slt i64 %indvars.iv.next, %445
-  %or.cond529 = select i1 %458, i1 true, i1 %.not
+  %.not = icmp slt i64 %indvars.iv.next, %446
+  %or.cond529 = select i1 %459, i1 true, i1 %.not
   br i1 %or.cond529, label %.loopexit467, label %.lr.ph, !llvm.loop !8
 
-.loopexit467:                                     ; preds = %451, %434, %430
-  %.5 = phi float [ %431, %430 ], [ %431, %434 ], [ %454, %451 ]
-  %459 = fpext float %.5 to double
-  %460 = fmul double %459, 1.050000e+00
-  %461 = tail call double @sqrt(double noundef %460) #3
-  %462 = fptrunc double %461 to float
-  %463 = load float, ptr %7, align 4
-  %464 = fpext float %463 to double
-  %465 = fmul float %462, %462
-  %466 = fpext float %465 to double
-  %467 = fadd double %466, 1.000000e+00
-  %468 = fdiv double %464, %467
-  %469 = fptrunc double %468 to float
-  %470 = load float, ptr %418, align 4
-  %471 = getelementptr i8, ptr %413, i64 -36
-  %472 = load float, ptr %471, align 4
-  %473 = fadd float %470, %472
-  %474 = getelementptr i8, ptr %413, i64 -44
-  %475 = load float, ptr %474, align 4
-  %476 = tail call noundef float @sqrtf(float noundef %475) #3
-  %477 = load float, ptr %471, align 4
-  %478 = tail call noundef float @sqrtf(float noundef %477) #3
-  %479 = fneg float %476
-  %480 = tail call float @llvm.fmuladd.f32(float %479, float %478, float %473)
-  %481 = fsub float %480, %469
-  %482 = fcmp ogt float %481, 0.000000e+00
-  %483 = fmul float %462, %469
-  %484 = fcmp ogt float %481, %483
-  %or.cond457 = and i1 %482, %484
-  %485 = fpext float %469 to double
-  br i1 %or.cond457, label %486, label %497
+.loopexit467:                                     ; preds = %452, %435, %431
+  %.5 = phi float [ %432, %431 ], [ %432, %435 ], [ %455, %452 ]
+  %460 = fpext float %.5 to double
+  %461 = fmul double %460, 1.050000e+00
+  %462 = tail call double @sqrt(double noundef %461) #3
+  %463 = fptrunc double %462 to float
+  %464 = load float, ptr %7, align 4
+  %465 = fpext float %464 to double
+  %466 = fmul float %463, %463
+  %467 = fpext float %466 to double
+  %468 = fadd double %467, 1.000000e+00
+  %469 = fdiv double %465, %468
+  %470 = fptrunc double %469 to float
+  %471 = load float, ptr %419, align 4
+  %472 = getelementptr i8, ptr %414, i64 -36
+  %473 = load float, ptr %472, align 4
+  %474 = fadd float %471, %473
+  %475 = getelementptr i8, ptr %414, i64 -44
+  %476 = load float, ptr %475, align 4
+  %477 = tail call noundef float @sqrtf(float noundef %476) #3
+  %478 = load float, ptr %472, align 4
+  %479 = tail call noundef float @sqrtf(float noundef %478) #3
+  %480 = fneg float %477
+  %481 = tail call float @llvm.fmuladd.f32(float %480, float %479, float %474)
+  %482 = fsub float %481, %470
+  %483 = fcmp ogt float %482, 0.000000e+00
+  %484 = fmul float %463, %470
+  %485 = fcmp ogt float %482, %484
+  %or.cond457 = and i1 %483, %485
+  %486 = fpext float %470 to double
+  br i1 %or.cond457, label %487, label %499
 
-486:                                              ; preds = %.loopexit467
-  %487 = fdiv float %462, %481
-  %488 = fpext float %487 to double
-  %489 = fpext float %462 to double
-  %490 = fmul double %485, -1.010000e+00
-  %491 = fmul double %490, %488
-  %492 = tail call double @llvm.fmuladd.f64(double %491, double %489, double 1.000000e+00)
-  %493 = fmul double %492, %485
-  %494 = fptrunc double %493 to float
-  %495 = fcmp ogt float %426, %494
-  %496 = select i1 %495, float %426, float %494
-  br label %510
+487:                                              ; preds = %.loopexit467
+  %488 = fmul double %486, 1.010000e+00
+  %489 = fdiv float %463, %482
+  %490 = fpext float %489 to double
+  %491 = fpext float %463 to double
+  %492 = fneg double %490
+  %493 = fmul double %488, %492
+  %494 = tail call double @llvm.fmuladd.f64(double %493, double %491, double 1.000000e+00)
+  %495 = fmul double %494, %486
+  %496 = fptrunc double %495 to float
+  %497 = fcmp ogt float %427, %496
+  %498 = select i1 %497, float %427, float %496
+  br label %512
 
-497:                                              ; preds = %.loopexit467
-  %498 = fpext float %462 to double
-  %499 = fneg double %498
-  %500 = tail call double @llvm.fmuladd.f64(double %499, double 1.010000e+00, double 1.000000e+00)
-  %501 = fmul double %500, %485
-  %502 = fptrunc double %501 to float
-  %503 = fcmp ogt float %426, %502
-  %504 = select i1 %503, float %426, float %502
-  br label %510
+499:                                              ; preds = %.loopexit467
+  %500 = fpext float %463 to double
+  %501 = fneg double %500
+  %502 = tail call double @llvm.fmuladd.f64(double %501, double 1.010000e+00, double 1.000000e+00)
+  %503 = fmul double %502, %486
+  %504 = fptrunc double %503 to float
+  %505 = fcmp ogt float %427, %504
+  %506 = select i1 %505, float %427, float %504
+  br label %512
 
-505:                                              ; preds = %411, %402
-  %506 = fmul float %403, 2.500000e-01
+507:                                              ; preds = %412, %403
+  %508 = fmul float %404, 2.500000e-01
   store i32 -11, ptr %12, align 4
-  br label %510
+  br label %512
 
-507:                                              ; preds = %399
-  %508 = icmp sgt i32 %23, %400
-  br i1 %508, label %509, label %510
+509:                                              ; preds = %400
+  %510 = icmp sgt i32 %23, %401
+  br i1 %510, label %511, label %512
 
-509:                                              ; preds = %507
+511:                                              ; preds = %509
   store i32 -12, ptr %12, align 4
-  br label %510
+  br label %512
 
-510:                                              ; preds = %378, %389, %397, %507, %509, %505, %497, %486, %._crit_edge499, %192, %101, %108, %279, %282, %291
-  %.2407 = phi float [ %107, %101 ], [ %120, %108 ], [ %200, %192 ], [ %123, %._crit_edge499 ], [ %290, %282 ], [ %211, %279 ], [ %293, %291 ], [ %388, %378 ], [ %396, %389 ], [ %398, %397 ], [ %496, %486 ], [ %504, %497 ], [ %506, %505 ], [ 0.000000e+00, %509 ], [ 0.000000e+00, %507 ]
+512:                                              ; preds = %378, %390, %398, %509, %511, %507, %499, %487, %._crit_edge499, %192, %101, %108, %279, %282, %291
+  %.2407 = phi float [ %107, %101 ], [ %120, %108 ], [ %200, %192 ], [ %123, %._crit_edge499 ], [ %290, %282 ], [ %211, %279 ], [ %293, %291 ], [ %389, %378 ], [ %397, %390 ], [ %399, %398 ], [ %498, %487 ], [ %506, %499 ], [ %508, %507 ], [ 0.000000e+00, %511 ], [ 0.000000e+00, %509 ]
   store float %.2407, ptr %11, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph479, %.lr.ph488, %.lr.ph498, %422, %315, %209, %225, %149, %137, %131, %510, %16
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph479, %.lr.ph488, %.lr.ph498, %423, %315, %209, %225, %149, %137, %131, %512, %16
   ret void
 }
 

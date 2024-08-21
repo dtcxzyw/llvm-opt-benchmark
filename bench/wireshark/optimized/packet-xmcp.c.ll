@@ -1411,7 +1411,7 @@ get_xmcp_attr_fixed_len.exit.fold.split.i.i:      ; preds = %.thread388.i, %.thr
 
 get_xmcp_attr_min_len.exit.i:                     ; preds = %get_xmcp_attr_fixed_len.exit.fold.split.i.i, %511, %510, %.thread388.thread.i, %.thread388.thread396.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i
   %.0.i.i = phi i16 [ 20, %510 ], [ 8, %.thread388.thread.i ], [ 4, %.thread388.thread396.i ], [ 1, %.thread388.i ], [ 1, %.thread388.i ], [ 1, %.thread388.i ], [ 1, %.thread388.i ], [ 20, %511 ], [ 4, %get_xmcp_attr_fixed_len.exit.fold.split.i.i ]
-  %512 = icmp ugt i16 %.0.i.i, %172
+  %512 = icmp ult i16 %172, %.0.i.i
   br i1 %512, label %get_xmcp_attr_max_len.exit.thread.sink.split.i, label %get_xmcp_attr_min_len.exit.thread.i
 
 get_xmcp_attr_min_len.exit.thread.i:              ; preds = %get_xmcp_attr_min_len.exit.i
@@ -1444,7 +1444,7 @@ get_xmcp_attr_fixed_len.exit.thread.i.i:          ; preds = %get_xmcp_attr_min_l
 
 get_xmcp_attr_max_len.exit.i:                     ; preds = %get_xmcp_attr_fixed_len.exit.thread.i.i, %514, %513, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i
   %.0.i383.i = phi i16 [ 255, %514 ], [ 32, %513 ], [ 20, %get_xmcp_attr_min_len.exit.thread.i ], [ 4, %get_xmcp_attr_fixed_len.exit.thread.i.i ], [ 20, %get_xmcp_attr_min_len.exit.thread.i ]
-  %515 = icmp ult i16 %.0.i383.i, %172
+  %515 = icmp ugt i16 %172, %.0.i383.i
   br i1 %515, label %get_xmcp_attr_max_len.exit.thread.sink.split.i, label %decode_xmcp_attr_value.exit
 
 get_xmcp_attr_max_len.exit.thread.sink.split.i:   ; preds = %get_xmcp_attr_max_len.exit.i, %get_xmcp_attr_min_len.exit.i

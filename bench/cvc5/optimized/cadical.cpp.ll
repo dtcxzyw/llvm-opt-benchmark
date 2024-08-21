@@ -3641,7 +3641,7 @@ entry:
   br i1 %cmp.not, label %if.else21, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp.i = icmp eq ptr %1, %__position.coerce
+  %cmp.i = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then
@@ -3771,7 +3771,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp.i = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -3917,7 +3917,7 @@ if.then24:                                        ; preds = %if.else
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i8
   %sub.ptr.div.i10 = ashr exact i64 %sub.ptr.sub.i9, 2
   %sub.i11 = add nsw i64 %sub.ptr.div.i10, -1
-  %cmp.i12 = icmp ult i64 %sub.i11, %sub.ptr.div.i.i.i
+  %cmp.i12 = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.i11
   br i1 %cmp.i12, label %if.then.i22, label %if.end.i13
 
 if.then.i22:                                      ; preds = %if.then24
@@ -4158,7 +4158,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i21 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.rhs.cast9.i, %sub.ptr.rhs.cast.i21
   %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i23, %__n
+  %cmp.i = icmp ugt i64 %__n, %sub.ptr.div.i23
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -4719,7 +4719,7 @@ if.else58:                                        ; preds = %entry
   %sub.ptr.sub.i245 = sub i64 %sub.ptr.lhs.cast.i243, %sub.ptr.lhs.cast3.i.i
   %sub.ptr.div.i246 = ashr exact i64 %sub.ptr.sub.i245, 2
   %sub.i247 = add nsw i64 %sub.ptr.div.i246, -1
-  %cmp.i248 = icmp ult i64 %sub.i247, %__n
+  %cmp.i248 = icmp ugt i64 %__n, %sub.i247
   br i1 %cmp.i248, label %if.then.i275, label %if.end.i249
 
 if.then.i275:                                     ; preds = %if.else58
@@ -5224,7 +5224,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %div9
+  %cmp.i = icmp ugt i64 %div9, %sub.ptr.div.i
   br i1 %cmp.i, label %if.then.i, label %_ZNSt5dequeIiSaIiEE23_M_reserve_map_at_frontEm.exit
 
 if.then.i:                                        ; preds = %if.end
@@ -7315,7 +7315,7 @@ for.end:                                          ; preds = %for.body
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %level
+  %cmp.i = icmp ugt i64 %level, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i49, label %if.else.i
 
 if.then.i49:                                      ; preds = %for.end
@@ -7324,7 +7324,7 @@ if.then.i49:                                      ; preds = %for.end
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %for.end
-  %cmp4.i46 = icmp ule i64 %sub.ptr.div.i.i, %level
+  %cmp4.i46 = icmp uge i64 %level, %sub.ptr.div.i.i
   %tobool.not.i.i = icmp eq ptr %6, %add.ptr.i45
   %or.cond = or i1 %tobool.not.i.i, %cmp4.i46
   br i1 %or.cond, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %invoke.cont.i.i
@@ -8431,7 +8431,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #29
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN4cvc58internal4prop10SatLiteralESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -8551,7 +8551,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #29
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIiSaIiEE16_M_destroy_nodesEPPiS3_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -8968,7 +8968,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp.i = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -9075,7 +9075,7 @@ if.then24:                                        ; preds = %if.else
   %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.rhs.cast.i9
   %sub.ptr.div.i11 = ashr exact i64 %sub.ptr.sub.i10, 3
   %sub.i12 = add nsw i64 %sub.ptr.div.i11, -1
-  %cmp.i13 = icmp ult i64 %sub.i12, %sub.ptr.div.i.i.i
+  %cmp.i13 = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.i12
   br i1 %cmp.i13, label %if.then.i23, label %if.end.i14
 
 if.then.i23:                                      ; preds = %if.then24
@@ -9257,7 +9257,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i21 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.rhs.cast9.i, %sub.ptr.rhs.cast.i21
   %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i23, %__n
+  %cmp.i = icmp ugt i64 %__n, %sub.ptr.div.i23
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -9686,7 +9686,7 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorIN4cvc58internal4prop10SatLitera
   %__mid.sroa.0.0.i = phi ptr [ %storemerge.i.i.i.i, %if.else ], [ %56, %_ZNSt15_Deque_iteratorIN4cvc58internal4prop10SatLiteralERS3_PS3_EppEv.exit.i.i.i.i.i.i ]
   %__mid.sroa.8.2.i = phi ptr [ %__new_start.sroa.9.0, %if.else ], [ %__mid.sroa.8.1.i, %_ZNSt15_Deque_iteratorIN4cvc58internal4prop10SatLiteralERS3_PS3_EppEv.exit.i.i.i.i.i.i ]
   %__mid.sroa.12.2.i = phi ptr [ %__new_start.sroa.13.0, %if.else ], [ %__mid.sroa.12.1.i, %_ZNSt15_Deque_iteratorIN4cvc58internal4prop10SatLiteralERS3_PS3_EppEv.exit.i.i.i.i.i.i ]
-  %cmp.i.not7.i.i.i.i.i = icmp eq i64 %add12.i, %__n
+  %cmp.i.not7.i.i.i.i.i = icmp eq i64 %__n, %add12.i
   br i1 %cmp.i.not7.i.i.i.i.i, label %invoke.cont43, label %for.body.i.i.i.i.i174
 
 for.body.i.i.i.i.i174:                            ; preds = %_ZSt22__uninitialized_move_aISt15_Deque_iteratorIN4cvc58internal4prop10SatLiteralERS4_PS4_ES7_SaIS4_EET0_T_SA_S9_RT1_.exit.i, %_ZNSt15_Deque_iteratorIN4cvc58internal4prop10SatLiteralERS3_PS3_EppEv.exit.i.i.i.i.i176
@@ -9803,7 +9803,7 @@ if.else58:                                        ; preds = %entry
   %sub.ptr.sub.i250 = sub i64 %sub.ptr.lhs.cast.i248, %sub.ptr.lhs.cast3.i.i
   %sub.ptr.div.i251 = ashr exact i64 %sub.ptr.sub.i250, 3
   %sub.i252 = add nsw i64 %sub.ptr.div.i251, -1
-  %cmp.i253 = icmp ult i64 %sub.i252, %__n
+  %cmp.i253 = icmp ugt i64 %__n, %sub.i252
   br i1 %cmp.i253, label %if.then.i280, label %if.end.i254
 
 if.then.i280:                                     ; preds = %if.else58
@@ -10371,7 +10371,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %div9
+  %cmp.i = icmp ugt i64 %div9, %sub.ptr.div.i
   br i1 %cmp.i, label %if.then.i, label %_ZNSt5dequeIN4cvc58internal4prop10SatLiteralESaIS3_EE23_M_reserve_map_at_frontEm.exit
 
 if.then.i:                                        ; preds = %if.end
@@ -11513,7 +11513,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorImSaIm
   %cond.i54 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i55 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i57 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i55, %sub.ptr.rhs.cast.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i58 = icmp eq ptr %15, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i58 = icmp eq ptr %__position.coerce, %15
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i58, label %for.body.i.i.i.i.preheader.i.i.i.i65, label %if.then.i.i.i.i.i.i.i.i.i59
 
 if.then.i.i.i.i.i.i.i.i.i59:                      ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit

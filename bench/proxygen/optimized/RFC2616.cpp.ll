@@ -1804,7 +1804,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   %4 = extractvalue { ptr, i32 } %lpad.phi, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #29
-  %cmp.not3.i.i = icmp eq ptr %__cur.015, %__result
+  %cmp.not3.i.i = icmp eq ptr %__result, %__cur.015
   br i1 %cmp.not3.i.i, label %invoke.cont5, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lpad, %_ZSt8_DestroyISt4pairIN5folly5RangeIPKcEESt6vectorIS0_IS5_S5_ESaIS7_EEEEvPT_.exit.i.i
@@ -2155,7 +2155,7 @@ if.end3:                                          ; preds = %entry
   %div1.i = add nuw nsw i64 %2, %retval.0.i.i
   %3 = tail call i64 @llvm.umin.i64(i64 %div1.i, i64 16382)
   %.sroa.speculated.i = add nuw nsw i64 %3, 1
-  %.sroa.speculated49 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
+  %.sroa.speculated49 = tail call i64 @llvm.umax.i64(i64 %newSize, i64 %.sroa.speculated.i)
   %4 = mul nuw nsw i64 %.sroa.speculated49, 24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
   %5 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
@@ -2754,7 +2754,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorISt4pairIN5folly5RangeIPKcEES_IS0_IS5_S5_ESaIS6_EEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorISt4pairIN5folly5RangeIPKcEES_IS0_IS5_S5_ESaIS6_EEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit32, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorISt4pairIN5folly5RangeIPKcEES_IS0_IS5_S5_ESaIS6_EEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, %for.body.i.i.i19

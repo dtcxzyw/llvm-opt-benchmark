@@ -1541,7 +1541,7 @@ define void @_ZNK2cv5MatOp3addERKNS_7MatExprES3_RS1_(ptr noundef nonnull readnon
   %8 = alloca %"class.cv::Mat", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv5MatOp3addERKNS_7MatExprES3_RS1_E25__cv_trace_location_fn328)
   %9 = load ptr, ptr %2, align 8
-  %10 = icmp eq ptr %9, %0
+  %10 = icmp eq ptr %0, %9
   br i1 %10, label %11, label %83
 
 11:                                               ; preds = %4
@@ -1899,7 +1899,7 @@ define void @_ZNK2cv5MatOp8subtractERKNS_7MatExprES3_RS1_(ptr noundef nonnull re
   %8 = alloca %"class.cv::Mat", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv5MatOp8subtractERKNS_7MatExprES3_RS1_E25__cv_trace_location_fn371)
   %9 = load ptr, ptr %2, align 8
-  %10 = icmp eq ptr %9, %0
+  %10 = icmp eq ptr %0, %9
   br i1 %10, label %11, label %84
 
 11:                                               ; preds = %4
@@ -2130,7 +2130,7 @@ define void @_ZNK2cv5MatOp8multiplyERKNS_7MatExprES3_RS1_d(ptr noundef nonnull r
   %8 = alloca %"class.cv::Mat", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv5MatOp8multiplyERKNS_7MatExprES3_RS1_dE25__cv_trace_location_fn414)
   %9 = load ptr, ptr %2, align 8
-  %10 = icmp eq ptr %9, %0
+  %10 = icmp eq ptr %0, %9
   br i1 %10, label %11, label %142
 
 11:                                               ; preds = %5
@@ -2190,7 +2190,7 @@ _ZN2cvL12isReciprocalERKNS_7MatExprE.exit.thread: ; preds = %16
 42:                                               ; preds = %29
   %43 = getelementptr inbounds i8, ptr %2, i64 304
   %44 = load double, ptr %43, align 8
-  %45 = fmul double %44, %4
+  %45 = fmul double %4, %44
   %46 = getelementptr inbounds i8, ptr %2, i64 16
   %47 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %46)
           to label %53 unwind label %48
@@ -2257,7 +2257,7 @@ _ZN2cvL8isScaledERKNS_7MatExprE.exit.thread:      ; preds = %29, %23, %_ZN2cvL12
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %1, i64 304
   %84 = load double, ptr %83, align 8
-  %85 = fmul double %84, %4
+  %85 = fmul double %4, %84
   br label %89
 
 _ZN2cvL8isScaledERKNS_7MatExprE.exit50.thread:    ; preds = %16, %66, %60, %58
@@ -2573,7 +2573,7 @@ define void @_ZNK2cv5MatOp6divideERKNS_7MatExprES3_RS1_d(ptr noundef nonnull rea
   %8 = alloca %"class.cv::Mat", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv5MatOp6divideERKNS_7MatExprES3_RS1_dE25__cv_trace_location_fn477)
   %9 = load ptr, ptr %2, align 8
-  %10 = icmp eq ptr %9, %0
+  %10 = icmp eq ptr %0, %9
   br i1 %10, label %11, label %123
 
 11:                                               ; preds = %5
@@ -2672,7 +2672,7 @@ _ZN2cvL12isReciprocalERKNS_7MatExprE.exit.thread56: ; preds = %26, %16, %_ZN2cvL
 64:                                               ; preds = %61
   %65 = getelementptr inbounds i8, ptr %1, i64 304
   %66 = load double, ptr %65, align 8
-  %67 = fmul double %66, %4
+  %67 = fmul double %4, %66
   br label %73
 
 68:                                               ; preds = %121, %_ZN2cvL12isReciprocalERKNS_7MatExprE.exit54.thread, %_ZN2cvL12isReciprocalERKNS_7MatExprE.exit54.thread61, %94, %_ZN2cvL8isScaledERKNS_7MatExprE.exit.thread, %61
@@ -3088,7 +3088,7 @@ define void @_ZNK2cv5MatOp6matmulERKNS_7MatExprES3_RS1_(ptr noundef nonnull read
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.cv::Mat", align 8
   %8 = load ptr, ptr %2, align 8
-  %9 = icmp eq ptr %8, %0
+  %9 = icmp eq ptr %0, %8
   br i1 %9, label %10, label %92
 
 10:                                               ; preds = %4
@@ -8564,7 +8564,7 @@ define hidden void @_ZNK2cv14MatOp_Identity6assignERKNS_7MatExprERNS_3MatEi(ptr 
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 4095
-  %13 = icmp eq i32 %12, %3
+  %13 = icmp eq i32 %3, %12
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %9, %4
@@ -9604,19 +9604,19 @@ define hidden void @_ZNK2cv11MatOp_AddEx8multiplyERKNS_7MatExprEdRS1_(ptr nocapt
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %3, i64 344
   %30 = load double, ptr %16, align 8
-  %31 = fmul double %30, %2
+  %31 = fmul double %2, %30
   store double %31, ptr %16, align 8
   %32 = getelementptr inbounds i8, ptr %3, i64 312
   %33 = load double, ptr %32, align 8
-  %34 = fmul double %33, %2
+  %34 = fmul double %2, %33
   store double %34, ptr %32, align 8
-  %35 = fmul double %20, %2
+  %35 = fmul double %2, %20
   store double %35, ptr %18, align 8
-  %36 = fmul double %22, %2
+  %36 = fmul double %2, %22
   store double %36, ptr %23, align 8
-  %37 = fmul double %25, %2
+  %37 = fmul double %2, %25
   store double %37, ptr %26, align 8
-  %38 = fmul double %28, %2
+  %38 = fmul double %2, %28
   store double %38, ptr %29, align 8
   %39 = getelementptr inbounds i8, ptr %5, i64 8
   %40 = load i32, ptr %39, align 8
@@ -10601,7 +10601,7 @@ define hidden void @_ZNK2cv9MatOp_Bin8multiplyERKNS_7MatExprEdRS1_(ptr nocapture
   %32 = getelementptr inbounds i8, ptr %3, i64 344
   store double %31, ptr %32, align 8
   %33 = load double, ptr %19, align 8
-  %34 = fmul double %33, %2
+  %34 = fmul double %2, %33
   store double %34, ptr %19, align 8
   br label %38
 
@@ -10844,7 +10844,7 @@ define hidden void @_ZNK2cv7MatOp_T6assignERKNS_7MatExprERNS_3MatEi(ptr nocaptur
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 4095
-  %14 = icmp eq i32 %13, %3
+  %14 = icmp eq i32 %3, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10, %4
@@ -10953,7 +10953,7 @@ define hidden void @_ZNK2cv7MatOp_T8multiplyERKNS_7MatExprEdRS1_(ptr nocapture n
   %29 = getelementptr inbounds i8, ptr %3, i64 344
   store double %28, ptr %29, align 8
   %30 = load double, ptr %16, align 8
-  %31 = fmul double %30, %2
+  %31 = fmul double %2, %30
   store double %31, ptr %16, align 8
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = load i32, ptr %32, align 8
@@ -11168,7 +11168,7 @@ define hidden void @_ZNK2cv10MatOp_GEMM6assignERKNS_7MatExprERNS_3MatEi(ptr noca
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 4095
-  %16 = icmp eq i32 %15, %3
+  %16 = icmp eq i32 %3, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %12, %4
@@ -11396,7 +11396,7 @@ _ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60: ; preds = %47
           to label %93 unwind label %44
 
 _ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread:   ; preds = %47, %61, %55, %29, %23, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread56, %74
-  %87 = icmp eq ptr %.val44, %0
+  %87 = icmp eq ptr %0, %.val44
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread
@@ -11589,7 +11589,7 @@ _ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread60: ; preds = %54
           to label %103 unwind label %51
 
 _ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread:   ; preds = %54, %68, %62, %28, %22, %_ZN2cvL9isMatProdERKNS_7MatExprE.exit.thread56, %81
-  %97 = icmp eq ptr %.val44, %0
+  %97 = icmp eq ptr %0, %.val44
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %_ZN2cvL9isMatProdERKNS_7MatExprE.exit48.thread
@@ -11667,11 +11667,11 @@ define hidden void @_ZNK2cv10MatOp_GEMM8multiplyERKNS_7MatExprEdRS1_(ptr nocaptu
   %29 = getelementptr inbounds i8, ptr %3, i64 344
   store double %28, ptr %29, align 8
   %30 = load double, ptr %16, align 8
-  %31 = fmul double %30, %2
+  %31 = fmul double %2, %30
   store double %31, ptr %16, align 8
   %32 = getelementptr inbounds i8, ptr %3, i64 312
   %33 = load double, ptr %32, align 8
-  %34 = fmul double %33, %2
+  %34 = fmul double %2, %33
   store double %34, ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %5, i64 8
   %36 = load i32, ptr %35, align 8
@@ -11800,7 +11800,7 @@ define hidden void @_ZNK2cv12MatOp_Invert6assignERKNS_7MatExprERNS_3MatEi(ptr no
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 4095
-  %14 = icmp eq i32 %13, %3
+  %14 = icmp eq i32 %3, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10, %4
@@ -11882,7 +11882,7 @@ define hidden void @_ZNK2cv12MatOp_Invert6matmulERKNS_7MatExprES3_RS1_(ptr nound
   br label %19
 
 12:                                               ; preds = %4
-  %13 = icmp eq ptr %.val, %0
+  %13 = icmp eq ptr %0, %.val
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
@@ -12018,7 +12018,7 @@ define hidden void @_ZNK2cv11MatOp_Solve6assignERKNS_7MatExprERNS_3MatEi(ptr noc
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 4095
-  %15 = icmp eq i32 %14, %3
+  %15 = icmp eq i32 %3, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %11, %4
@@ -12251,7 +12251,7 @@ define hidden void @_ZNK2cv17MatOp_Initializer8multiplyERKNS_7MatExprEdRS1_(ptr 
   %29 = getelementptr inbounds i8, ptr %3, i64 344
   store double %28, ptr %29, align 8
   %30 = load double, ptr %16, align 8
-  %31 = fmul double %30, %2
+  %31 = fmul double %2, %30
   store double %31, ptr %16, align 8
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = load i32, ptr %32, align 8

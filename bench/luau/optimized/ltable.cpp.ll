@@ -234,7 +234,7 @@ define internal fastcc noundef i32 @_ZL11adjustasizeP5TableiPK10lua_TValue(ptr n
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %.fr19 = freeze i32 %8
-  %9 = icmp sgt i32 %.fr19, %1
+  %9 = icmp slt i32 %1, %.fr19
   br label %10
 
 10:                                               ; preds = %6, %3
@@ -407,7 +407,7 @@ define internal fastcc void @_ZL6resizeP9lua_StateP5Tableii(ptr noundef %0, ptr 
   %15 = zext nneg i8 %14 to i32
   %16 = getelementptr inbounds i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp slt i32 %12, %2
+  %18 = icmp sgt i32 %2, %12
   br i1 %18, label %19, label %36
 
 19:                                               ; preds = %10
@@ -502,7 +502,7 @@ _ZL13setnodevectorP9lua_StateP5Tablei.exit:       ; preds = %52, %38
   store i8 %59, ptr %60, align 1
   %61 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %.0.i, ptr %61, align 4
-  %62 = icmp sgt i32 %12, %2
+  %62 = icmp slt i32 %2, %12
   br i1 %62, label %63, label %88
 
 63:                                               ; preds = %_ZL13setnodevectorP9lua_StateP5Tablei.exit

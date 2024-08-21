@@ -773,7 +773,7 @@ define noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P3
 
 9:                                                ; preds = %5
   %10 = sub nsw i32 0, %1
-  %11 = or i32 %10, %0
+  %11 = or i32 %0, %10
   br label %8
 
 12:                                               ; preds = %5
@@ -2240,7 +2240,7 @@ define noundef i32 @"_ZN9softposit5p32e23ops75_$LT$impl$u20$core..ops..arith..Re
 
 41:                                               ; preds = %38
   %42 = sub nsw i32 0, %35
-  %43 = or i32 %42, %0
+  %43 = or i32 %0, %42
   br label %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3rem17hbe6618c8752db420E.exit"
 
 44:                                               ; preds = %38
@@ -3154,7 +3154,7 @@ define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..fl
 
 38:                                               ; preds = %35
   %39 = sub nsw i32 0, %.0.i
-  %40 = or i32 %39, %0
+  %40 = or i32 %0, %39
   br label %"_ZN9softposit5p32e24math41_$LT$impl$u20$softposit..p32e2..P32E2$GT$5fract17h7c5e91d01278ffb3E.exit"
 
 41:                                               ; preds = %35

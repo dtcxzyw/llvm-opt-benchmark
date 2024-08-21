@@ -1174,7 +1174,7 @@ define void @If_DsdManFree(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4
   %14 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef nonnull %4, i32 noundef %10) #38
   %15 = call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull @.str.4)
   %.pre.i = load ptr, ptr @stdout, align 8
-  %16 = icmp eq ptr %.pre.i, %15
+  %16 = icmp eq ptr %15, %.pre.i
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %9
@@ -2132,7 +2132,7 @@ If_DsdManHasMarks.exit:                           ; preds = %80, %81, %.critedge
   %.val183 = load i32, ptr %217, align 4
   %218 = lshr i32 %.val183, 3
   %219 = and i32 %218, 31
-  %.not166 = icmp eq i32 %219, %3
+  %.not166 = icmp eq i32 %3, %219
   br i1 %.not166, label %220, label %281
 
 220:                                              ; preds = %216, %215
@@ -2490,7 +2490,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 46:                                               ; preds = %42
   %47 = lshr i32 %.val43, 3
   %48 = and i32 %47, 31
-  %.not36 = icmp eq i32 %48, %1
+  %.not36 = icmp eq i32 %1, %48
   br i1 %.not36, label %._crit_edge68, label %103
 
 ._crit_edge68:                                    ; preds = %42, %46
@@ -2681,7 +2681,7 @@ define void @If_DsdManDumpAll(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %.val24 = load i32, ptr %19, align 4
   %20 = lshr i32 %.val24, 3
   %21 = and i32 %20, 31
-  %.not22 = icmp eq i32 %21, %1
+  %.not22 = icmp eq i32 %1, %21
   br i1 %.not22, label %22, label %75
 
 22:                                               ; preds = %16, %15
@@ -4484,7 +4484,7 @@ If_DsdObjHashKey.exit:                            ; preds = %._crit_edge.i, %22
 
 If_DsdObjTruthId.exit:                            ; preds = %50, %52
   %57 = phi i32 [ %56, %52 ], [ -1, %50 ]
-  %58 = icmp eq i32 %57, %4
+  %58 = icmp eq i32 %4, %57
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %If_DsdObjTruthId.exit
@@ -6427,13 +6427,13 @@ Abc_UtilStrsav.exit:                              ; preds = %19, %20
   %33 = load i32, ptr %3, align 4
   %34 = getelementptr inbounds i8, ptr %16, i64 44
   %35 = load i32, ptr %34, align 4
-  %.not.i113 = icmp slt i32 %35, %33
+  %.not.i113 = icmp sgt i32 %33, %35
   br i1 %.not.i113, label %36, label %Vec_PtrFillExtra.exit
 
 36:                                               ; preds = %Abc_UtilStrsav.exit
   %37 = load i32, ptr %32, align 8
   %38 = shl nsw i32 %37, 1
-  %39 = icmp slt i32 %38, %33
+  %39 = icmp sgt i32 %33, %38
   %.not.i.i = icmp slt i32 %37, %33
   br i1 %39, label %40, label %52
 
@@ -7464,13 +7464,13 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %226
 define internal fastcc void @Vec_WrdFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -8962,7 +8962,7 @@ define i32 @If_DsdManOperation(ptr noundef %0, i32 noundef %1, ptr nocapture nou
   %28 = getelementptr i8, ptr %27, i64 4
   %.val251 = load i32, ptr %28, align 4
   %29 = and i32 %.val251, 7
-  %30 = icmp eq i32 %29, %1
+  %30 = icmp eq i32 %1, %29
   %31 = and i32 %23, 1
   %.not241 = icmp eq i32 %31, 0
   br i1 %30, label %32, label %53
@@ -9513,7 +9513,7 @@ If_DsdManPushInv.exit273:                         ; preds = %240, %259, %261
   %.5.lcssa482 = phi i32 [ %.5.lcssa, %.lr.ph295.preheader ], [ %.5.lcssa, %.preheader286 ], [ 0, %219 ]
   %274 = getelementptr inbounds i8, ptr %0, i64 8
   %275 = load i32, ptr %274, align 8
-  %276 = icmp eq i32 %275, %3
+  %276 = icmp eq i32 %3, %275
   br i1 %276, label %Abc_TtStretch6.exit, label %277
 
 277:                                              ; preds = %._crit_edge296
@@ -10173,7 +10173,7 @@ If_DsdManGetSuppSizes.exit.thread:                ; preds = %8
   %23 = lshr i32 %.val, 3
   %24 = and i32 %23, 31
   %25 = xor i32 %4, -1
-  %.neg333 = add i32 %25, %5
+  %.neg333 = add i32 %5, %25
   %26 = add i32 %.neg333, %24
   br label %._crit_edge
 
@@ -10209,7 +10209,7 @@ If_DsdManGetSuppSizes.exit:                       ; preds = %29, %36
   %41 = lshr i32 %.val, 3
   %42 = and i32 %41, 31
   %43 = xor i32 %4, -1
-  %.neg = add i32 %43, %5
+  %.neg = add i32 %5, %43
   %44 = add i32 %.neg, %42
   br i1 %.not14.i, label %._crit_edge, label %.lr.ph178
 
@@ -10898,7 +10898,7 @@ If_DsdManGetSuppSizes.exit:                       ; preds = %If_DsdManGetSuppSiz
   %34 = lshr i32 %.val11.i, 3
   %35 = and i32 %34, 31
   %36 = xor i32 %4, -1
-  %.neg = add i32 %36, %5
+  %.neg = add i32 %5, %36
   %37 = add i32 %.neg, %35
   %38 = add nsw i32 %32, %33
   %.not = icmp sle i32 %38, %5
@@ -11150,7 +11150,7 @@ If_DsdManGetSuppSizes.exit:                       ; preds = %39, %46, %.critedge
   %51 = lshr i32 %.val11.i, 3
   %52 = and i32 %51, 31
   %53 = xor i32 %4, -1
-  %.neg = add i32 %53, %5
+  %.neg = add i32 %5, %53
   %54 = add i32 %.neg, %52
   %55 = getelementptr i8, ptr %33, i64 4
   %.val83102 = load i32, ptr %55, align 4
@@ -12752,7 +12752,7 @@ define i32 @If_CutDsdPermLitMax(ptr nocapture noundef readonly %0, i32 noundef %
   %6 = load i8, ptr %5, align 1
   %7 = ashr i8 %6, 1
   %8 = sext i8 %7 to i32
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   br i1 %9, label %._crit_edge.loopexit.split.loop.exit12, label %10
 
 10:                                               ; preds = %.lr.ph
@@ -14973,7 +14973,7 @@ Abc_Clock.exit185.us:                             ; preds = %204, %If_DsdManComp
 
 224:                                              ; preds = %223
   %225 = load i32, ptr %.fr, align 4
-  %226 = icmp sgt i32 %225, %.1222.us
+  %226 = icmp slt i32 %.1222.us, %225
   br i1 %226, label %Extra_ProgressBarUpdate.exit.us.us, label %227
 
 227:                                              ; preds = %224, %223

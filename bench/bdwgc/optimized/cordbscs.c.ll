@@ -831,7 +831,7 @@ define ptr @CORD_substr(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_un
 
 CORD_len.exit:                                    ; preds = %7, %9
   %12 = phi i64 [ %8, %7 ], [ %11, %9 ]
-  %13 = icmp ule i64 %12, %1
+  %13 = icmp uge i64 %1, %12
   %14 = icmp eq i64 %2, 0
   %or.cond = or i1 %14, %13
   br i1 %or.cond, label %CORD_len.exit.thread, label %15
@@ -1011,14 +1011,14 @@ CORD__call_oom_fn.exit:                           ; preds = %37, %39
 
 76:                                               ; preds = %70, %73, %54
   %77 = phi i64 [ %55, %54 ], [ %72, %70 ], [ %75, %73 ]
-  %.not112 = icmp ugt i64 %77, %.tr155.ph190
+  %.not112 = icmp ult i64 %.tr155.ph190, %77
   br i1 %.not112, label %87, label %78
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds i8, ptr %.tr184, i64 8
   %80 = load i64, ptr %79, align 8
   %81 = sub i64 %80, %77
-  %82 = icmp eq i64 %81, %2
+  %82 = icmp eq i64 %2, %81
   %83 = getelementptr inbounds i8, ptr %.tr184, i64 24
   %84 = load ptr, ptr %83, align 8
   br i1 %82, label %CORD_substr_closure.exit, label %tailrecurse.outer
@@ -1034,7 +1034,7 @@ tailrecurse.outer:                                ; preds = %78
   br i1 %.not113, label %92, label %88
 
 88:                                               ; preds = %87
-  %89 = icmp eq i64 %77, %2
+  %89 = icmp eq i64 %2, %77
   %90 = load ptr, ptr %51, align 8
   br i1 %89, label %CORD_substr_closure.exit, label %tailrecurse
 
@@ -1471,7 +1471,7 @@ define i32 @CORD_iter5(ptr noundef %0, i64 noundef %1, ptr nocapture noundef rea
 
 53:                                               ; preds = %47, %50, %31
   %54 = phi i64 [ %32, %31 ], [ %49, %47 ], [ %52, %50 ]
-  %.not65 = icmp ugt i64 %54, %.tr7084
+  %.not65 = icmp ult i64 %.tr7084, %54
   br i1 %.not65, label %58, label %55
 
 55:                                               ; preds = %53
@@ -1627,7 +1627,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
 
 52:                                               ; preds = %46, %49, %31
   %53 = phi i64 [ %32, %31 ], [ %48, %46 ], [ %51, %49 ]
-  %.not56 = icmp ugt i64 %53, %.tr59.ph
+  %.not56 = icmp ult i64 %.tr59.ph, %53
   br i1 %.not56, label %tailrecurse, label %54
 
 54:                                               ; preds = %52
@@ -1711,7 +1711,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
   %.tr.lcssa = phi ptr [ %0, %3 ], [ %74, %tailrecurse ]
   %.tr43.lcssa = phi i64 [ %1, %3 ], [ %75, %tailrecurse ]
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @min_len, i64 8), align 8
-  %6 = icmp ult i64 %5, %.tr43.lcssa
+  %6 = icmp ugt i64 %.tr43.lcssa, %5
   br i1 %6, label %.lr.ph55, label %._crit_edge
 
 .lr.ph55:                                         ; preds = %.preheader, %14
@@ -1738,7 +1738,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %15 = getelementptr inbounds [48 x i64], ptr @min_len, i64 0, i64 %indvars.iv.next103
   %16 = load i64, ptr %15, align 8
-  %17 = icmp ult i64 %16, %.tr43.lcssa
+  %17 = icmp ugt i64 %.tr43.lcssa, %16
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   br i1 %17, label %.lr.ph55, label %._crit_edge.loopexit, !llvm.loop !17
 
@@ -1801,7 +1801,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
   %41 = sext i8 %38 to i64
   %42 = getelementptr inbounds [48 x i64], ptr @min_len, i64 0, i64 %41
   %43 = load i64, ptr %42, align 8
-  %44 = icmp ugt i64 %43, %.tr4350
+  %44 = icmp ult i64 %.tr4350, %43
   br i1 %44, label %45, label %77
 
 45:                                               ; preds = %40, %36
@@ -1863,7 +1863,7 @@ tailrecurse:                                      ; preds = %65, %68, %49
 
 77:                                               ; preds = %40, %.lr.ph
   %78 = load i64, ptr getelementptr inbounds (i8, ptr @min_len, i64 8), align 8
-  %79 = icmp ult i64 %78, %.tr4350
+  %79 = icmp ugt i64 %.tr4350, %78
   br i1 %79, label %.lr.ph72, label %._crit_edge73
 
 .lr.ph72:                                         ; preds = %77, %87
@@ -1890,7 +1890,7 @@ tailrecurse:                                      ; preds = %65, %68, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = getelementptr inbounds [48 x i64], ptr @min_len, i64 0, i64 %indvars.iv.next
   %89 = load i64, ptr %88, align 8
-  %90 = icmp ult i64 %89, %.tr4350
+  %90 = icmp ugt i64 %.tr4350, %89
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   br i1 %90, label %.lr.ph72, label %._crit_edge73.loopexit, !llvm.loop !17
 
@@ -2505,8 +2505,8 @@ define internal signext i8 @CORD_index_access_fn(i64 noundef %0, ptr nocapture n
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr i8, ptr %3, i64 %5
-  %7 = getelementptr i8, ptr %6, i64 %0
+  %6 = getelementptr i8, ptr %3, i64 %0
+  %7 = getelementptr i8, ptr %6, i64 %5
   %8 = load i8, ptr %7, align 1
   ret i8 %8
 }

@@ -430,7 +430,7 @@ if.end:                                           ; preds = %entry
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex) #9
   %threadCapacity.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load i64, ptr %threadCapacity.i, align 8
-  %cmp.not.i = icmp ult i64 %0, %numThreads
+  %cmp.not.i = icmp ugt i64 %numThreads, %0
   br i1 %cmp.not.i, label %if.end2.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end

@@ -4233,7 +4233,7 @@ entry:
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i89 = getelementptr inbounds i16, ptr %0, i64 %conv.i
-  %cmp = icmp eq ptr %add.ptr.i89, %I
+  %cmp = icmp eq ptr %I, %add.ptr.i89
   %tobool.not.i.i.i.i = icmp eq ptr %To.coerce0, null
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %To.coerce0 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %From.coerce0 to i64

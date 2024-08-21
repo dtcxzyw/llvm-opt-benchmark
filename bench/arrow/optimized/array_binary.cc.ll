@@ -3634,7 +3634,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.else21.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp.i.i.i = icmp eq ptr %1, %0
+  %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %if.then9.i.i, label %if.else.i.i
 
 if.then9.i.i:                                     ; preds = %if.then.i.i
@@ -3668,7 +3668,7 @@ invoke.cont:                                      ; preds = %if.then9.i.i, %if.e
   br i1 %cmp.not.i.i9, label %if.else21.i.i19, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %invoke.cont
-  %cmp.i.i.i11 = icmp eq ptr %7, %6
+  %cmp.i.i.i11 = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i11, label %if.then9.i.i15, label %if.else.i.i12
 
 if.then9.i.i15:                                   ; preds = %if.then.i.i10
@@ -6412,7 +6412,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12

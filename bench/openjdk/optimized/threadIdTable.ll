@@ -958,7 +958,7 @@ _ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE10get_bucketEm.exit.
   %43 = getelementptr inbounds i8, ptr %.018.i.i.i, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load i64, ptr %44, align 8
-  %46 = icmp eq i64 %45, %0
+  %46 = icmp eq i64 %0, %45
   br i1 %46, label %_ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE8get_nodeI19ThreadIdTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread.i.i, label %47
 
 47:                                               ; preds = %.lr.ph.i.i.i

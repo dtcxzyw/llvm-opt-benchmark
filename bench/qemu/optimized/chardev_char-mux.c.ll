@@ -105,7 +105,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %mux_cnt = getelementptr inbounds i8, ptr %call.i, i64 244
   %0 = load i32, ptr %mux_cnt, align 4
-  %cmp1 = icmp sgt i32 %0, %focus
+  %cmp1 = icmp slt i32 %focus, %0
   br i1 %cmp1, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end

@@ -10980,12 +10980,12 @@ RARRAY_AREF.exit39:                               ; preds = %25, %27
 
 39:                                               ; preds = %RARRAY_AREF.exit39
   %40 = load i64, ptr %8, align 8
-  %41 = icmp eq i64 %40, %3
+  %41 = icmp eq i64 %3, %40
   br i1 %41, label %55, label %42
 
 42:                                               ; preds = %39
   %43 = load i64, ptr %9, align 8
-  %44 = icmp eq i64 %43, %3
+  %44 = icmp eq i64 %3, %43
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %42
@@ -11014,12 +11014,12 @@ RARRAY_AREF.exit42:                               ; preds = %48, %50
   %56 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %34, i64 noundef %.sink) #26
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.1, i32 %32)
   %57 = load i64, ptr %8, align 8
-  %58 = icmp eq i64 %57, %3
+  %58 = icmp eq i64 %3, %57
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %55
   %60 = load i64, ptr %9, align 8
-  %61 = icmp eq i64 %60, %3
+  %61 = icmp eq i64 %3, %60
   br i1 %61, label %62, label %74
 
 62:                                               ; preds = %59, %55
@@ -12504,7 +12504,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #7
 define internal fastcc i64 @make_clock_result(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = load i64, ptr @id_nanosecond, align 8
   %6 = tail call i64 @rb_id2sym(i64 noundef %5) #26
-  %7 = icmp eq i64 %6, %3
+  %7 = icmp eq i64 %3, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
@@ -12515,7 +12515,7 @@ define internal fastcc i64 @make_clock_result(ptr nocapture noundef readonly %0,
 10:                                               ; preds = %4
   %11 = load i64, ptr @id_microsecond, align 8
   %12 = tail call i64 @rb_id2sym(i64 noundef %11) #26
-  %13 = icmp eq i64 %12, %3
+  %13 = icmp eq i64 %3, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
@@ -12526,7 +12526,7 @@ define internal fastcc i64 @make_clock_result(ptr nocapture noundef readonly %0,
 16:                                               ; preds = %10
   %17 = load i64, ptr @id_millisecond, align 8
   %18 = tail call i64 @rb_id2sym(i64 noundef %17) #26
-  %19 = icmp eq i64 %18, %3
+  %19 = icmp eq i64 %3, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
@@ -12537,7 +12537,7 @@ define internal fastcc i64 @make_clock_result(ptr nocapture noundef readonly %0,
 22:                                               ; preds = %16
   %23 = load i64, ptr @id_second, align 8
   %24 = tail call i64 @rb_id2sym(i64 noundef %23) #26
-  %25 = icmp eq i64 %24, %3
+  %25 = icmp eq i64 %3, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %22
@@ -12547,7 +12547,7 @@ define internal fastcc i64 @make_clock_result(ptr nocapture noundef readonly %0,
 28:                                               ; preds = %22
   %29 = load i64, ptr @id_float_microsecond, align 8
   %30 = tail call i64 @rb_id2sym(i64 noundef %29) #26
-  %31 = icmp eq i64 %30, %3
+  %31 = icmp eq i64 %3, %30
   br i1 %31, label %.lr.ph.split.i.preheader.i, label %76
 
 .lr.ph.split.i.preheader.i:                       ; preds = %28
@@ -12638,7 +12638,7 @@ reduce_factors.exit.i:                            ; preds = %38, %gcd_timetick_i
 76:                                               ; preds = %28
   %77 = load i64, ptr @id_float_millisecond, align 8
   %78 = tail call i64 @rb_id2sym(i64 noundef %77) #26
-  %79 = icmp eq i64 %78, %3
+  %79 = icmp eq i64 %3, %78
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %76
@@ -12653,7 +12653,7 @@ reduce_factors.exit.i:                            ; preds = %38, %gcd_timetick_i
 84:                                               ; preds = %82
   %85 = load i64, ptr @id_float_second, align 8
   %86 = tail call i64 @rb_id2sym(i64 noundef %85) #26
-  %87 = icmp eq i64 %86, %3
+  %87 = icmp eq i64 %3, %86
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %84, %82

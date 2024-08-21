@@ -41,7 +41,7 @@ define dso_local range(i32 -19, 1) i32 @cypress_detect(ptr noundef %0, i1 nounde
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, -52
   %.not4 = select i1 %8, i1 %11, i1 false
-  %.not1 = and i1 %.not4, %1
+  %.not1 = and i1 %1, %.not4
   %12 = select i1 %.not4, i32 0, i32 -19
   br i1 %.not1, label %13, label %16
 

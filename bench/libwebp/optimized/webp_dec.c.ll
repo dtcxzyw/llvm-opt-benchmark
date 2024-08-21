@@ -1460,14 +1460,14 @@ define hidden range(i32 0, 2) i32 @WebPCheckCropDimensions(i32 noundef %0, i32 n
   %10 = icmp sgt i32 %4, %0
   %or.cond30.not47.not57 = or i1 %10, %or.cond29.not39.not48.not58
   %11 = sub nsw i32 %0, %2
-  %12 = icmp slt i32 %11, %4
+  %12 = icmp sgt i32 %4, %11
   %or.cond32.not45.not55 = select i1 %or.cond30.not47.not57, i1 true, i1 %12
   %.not28 = icmp sge i32 %3, %1
   %or.cond33.not53 = or i1 %.not28, %or.cond32.not45.not55
   %13 = icmp sgt i32 %5, %1
   %or.cond34 = or i1 %13, %or.cond33.not53
   %14 = sub nsw i32 %1, %3
-  %15 = icmp sge i32 %14, %5
+  %15 = icmp sle i32 %5, %14
   %not.or.cond34 = xor i1 %or.cond34, true
   %narrow = select i1 %not.or.cond34, i1 %15, i1 false
   %16 = zext i1 %narrow to i32
@@ -1518,14 +1518,14 @@ define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0
   %30 = icmp sgt i32 %17, %6
   %or.cond30.not47.not57.i = or i1 %30, %or.cond29.not39.not48.not58.i
   %31 = sub nsw i32 %6, %.161
-  %32 = icmp slt i32 %31, %17
+  %32 = icmp sgt i32 %17, %31
   %or.cond32.not45.not55.i = select i1 %or.cond30.not47.not57.i, i1 true, i1 %32
   %.not28.i = icmp sge i32 %.1, %8
   %or.cond33.not53.i = or i1 %.not28.i, %or.cond32.not45.not55.i
   %33 = icmp sgt i32 %19, %8
   %or.cond34.i = or i1 %33, %or.cond33.not53.i
   %34 = sub nsw i32 %8, %.1
-  %35 = icmp slt i32 %34, %19
+  %35 = icmp sgt i32 %19, %34
   %narrow.i.not = select i1 %or.cond34.i, i1 true, i1 %35
   br i1 %narrow.i.not, label %92, label %37
 
@@ -1727,7 +1727,7 @@ define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture no
   %40 = and i32 %39, -2
   %41 = add i32 %40, %.03143
   %42 = zext i32 %41 to i64
-  %43 = icmp ugt i64 %42, %2
+  %43 = icmp ult i64 %2, %42
   br i1 %43, label %._crit_edge, label %44
 
 44:                                               ; preds = %38

@@ -143,7 +143,7 @@ for.body.i.i:                                     ; preds = %curr_cflags.exit, %
   %bp.015.i.i = phi ptr [ %bp.0.i.i, %for.inc.i.i ], [ %6, %curr_cflags.exit ]
   %match_page.014.i.i = phi i1 [ %match_page.1.i.i, %for.inc.i.i ], [ false, %curr_cflags.exit ]
   %8 = load i64, ptr %bp.015.i.i, align 8
-  %cmp.i.i = icmp eq i64 %8, %5
+  %cmp.i.i = icmp eq i64 %5, %8
   br i1 %cmp.i.i, label %if.then3.i.i, label %if.else15.i.i
 
 if.then3.i.i:                                     ; preds = %for.body.i.i
@@ -402,7 +402,7 @@ if.then:                                          ; preds = %entry
   call void @start_exclusive() #12
   %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %cmp2 = icmp eq ptr %1, %cpu
+  %cmp2 = icmp eq ptr %cpu, %1
   br i1 %cmp2, label %do.body4, label %if.else
 
 if.else:                                          ; preds = %if.then
@@ -525,7 +525,7 @@ if.then.i25:                                      ; preds = %trace_exec_tb.exit
 if.else17:                                        ; preds = %entry
   %23 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %24 = load ptr, ptr %23, align 8
-  %cmp.i = icmp eq ptr %24, %cpu
+  %cmp.i = icmp eq ptr %cpu, %24
   br i1 %cmp.i, label %do.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.else17
@@ -896,7 +896,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %cmp.i = icmp eq ptr %1, %cpu
+  %cmp.i = icmp eq ptr %cpu, %1
   br i1 %cmp.i, label %do.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
@@ -1130,7 +1130,7 @@ for.body.i.i26.i:                                 ; preds = %land.rhs.i.i, %for.
   %bp.015.i.i.i = phi ptr [ %bp.0.i.i.i, %for.inc.i.i.i ], [ %25, %land.rhs.i.i ]
   %match_page.014.i.i.i = phi i1 [ %match_page.1.i.i.i, %for.inc.i.i.i ], [ false, %land.rhs.i.i ]
   %27 = load i64, ptr %bp.015.i.i.i, align 8
-  %cmp.i.i.i = icmp eq i64 %27, %24
+  %cmp.i.i.i = icmp eq i64 %24, %27
   br i1 %cmp.i.i.i, label %if.then3.i.i.i, label %if.else15.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %for.body.i.i26.i

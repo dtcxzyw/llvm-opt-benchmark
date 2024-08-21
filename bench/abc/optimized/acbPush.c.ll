@@ -314,7 +314,7 @@ Acb_ObjWhatFanin.exit.i.i:                        ; preds = %159, %.critedge.spl
   %165 = add nsw i32 %158, -1
   store i32 %165, ptr %157, align 4
   %invariant.gep.i.i.i = getelementptr i8, ptr %157, i64 8
-  %166 = icmp sgt i32 %165, %.0.i.i.i
+  %166 = icmp slt i32 %.0.i.i.i, %165
   br i1 %166, label %.lr.ph.preheader.i.i.i, label %.._crit_edge_crit_edge.i.i.i
 
 .._crit_edge_crit_edge.i.i.i:                     ; preds = %Acb_ObjWhatFanin.exit.i.i
@@ -708,7 +708,7 @@ Acb_ObjWhatFanin.exit.i.i:                        ; preds = %124, %.critedge.spl
   %130 = add nsw i32 %123, -1
   store i32 %130, ptr %122, align 4
   %invariant.gep.i.i.i = getelementptr i8, ptr %122, i64 8
-  %131 = icmp sgt i32 %130, %.0.i.i.i
+  %131 = icmp slt i32 %.0.i.i.i, %130
   br i1 %131, label %.lr.ph.preheader.i.i.i, label %.._crit_edge_crit_edge.i.i.i
 
 .._crit_edge_crit_edge.i.i.i:                     ; preds = %Acb_ObjWhatFanin.exit.i.i
@@ -1148,7 +1148,7 @@ Abc_Tt6RemoveVar.exit:                            ; preds = %.lr.ph.i, %4
   %64 = add nsw i32 %63, -1
   store i32 %64, ptr %62, align 4
   %invariant.gep.i = getelementptr i8, ptr %62, i64 8
-  %65 = icmp sgt i32 %64, %3
+  %65 = icmp slt i32 %3, %64
   br i1 %65, label %.lr.ph.i32, label %.._crit_edge_crit_edge.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %Abc_Tt6RemoveVar.exit
@@ -1561,7 +1561,7 @@ Acb_ObjWhatFanin.exit.i.i:                        ; preds = %62, %.critedge.spli
   %68 = add nsw i32 %60, -1
   store i32 %68, ptr %61, align 4
   %invariant.gep.i.i.i = getelementptr i8, ptr %61, i64 8
-  %69 = icmp sgt i32 %68, %.0.i.i.i
+  %69 = icmp slt i32 %.0.i.i.i, %68
   br i1 %69, label %.lr.ph.preheader.i.i.i, label %.._crit_edge_crit_edge.i.i.i
 
 .._crit_edge_crit_edge.i.i.i:                     ; preds = %Acb_ObjWhatFanin.exit.i.i

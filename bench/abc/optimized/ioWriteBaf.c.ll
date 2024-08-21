@@ -293,7 +293,7 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 134:                                              ; preds = %133
   %135 = load i32, ptr %118, align 4
-  %136 = icmp sgt i32 %135, %.0202
+  %136 = icmp slt i32 %.0202, %135
   br i1 %136, label %Extra_ProgressBarUpdate.exit, label %137
 
 137:                                              ; preds = %134, %133

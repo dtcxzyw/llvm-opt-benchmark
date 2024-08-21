@@ -12590,7 +12590,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.014) #18
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #18
-  %.not4.i.i = icmp eq ptr %.014, %2
+  %.not4.i.i = icmp eq ptr %2, %.014
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN4Luau10ParseErrorEEvT_S3_.exit, label %.lr.ph.i.i
 
 _ZSt10_ConstructIN4Luau10ParseErrorEJRKS1_EEvPT_DpOT0_.exit: ; preds = %.lr.ph
@@ -12674,7 +12674,7 @@ define internal noundef zeroext i8 @"_ZZL18getCodegenAssemblyB5cxx11PKcbiEN3$_08
   %.085.i = phi ptr [ %18, %16 ], [ %0, %.lr.ph.i ]
   %.094.i = phi i8 [ %17, %16 ], [ 0, %.lr.ph.i ]
   %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #18
-  %14 = icmp eq i64 %13, %2
+  %14 = icmp eq i64 %2, %13
   br i1 %14, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, label %16
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.split.i

@@ -669,7 +669,7 @@ sw.bb39:                                          ; preds = %entry
 sw.bb41:                                          ; preds = %entry
   %sh_addr = getelementptr inbounds i8, ptr %this, i64 40
   %x.0.copyload.i41 = load i64, ptr %sh_addr, align 8
-  %15 = add i64 %x.0.copyload.i41, %offset
+  %15 = add i64 %offset, %x.0.copyload.i41
   %sub45 = sub i64 %val, %15
   %conv46 = trunc i64 %sub45 to i32
   store i32 %conv46, ptr %add.ptr2, align 1
@@ -678,7 +678,7 @@ sw.bb41:                                          ; preds = %entry
 sw.bb48:                                          ; preds = %entry
   %sh_addr50 = getelementptr inbounds i8, ptr %this, i64 40
   %x.0.copyload.i42 = load i64, ptr %sh_addr50, align 8
-  %16 = add i64 %x.0.copyload.i42, %offset
+  %16 = add i64 %offset, %x.0.copyload.i42
   %sub53 = sub i64 %val, %16
   store i64 %sub53, ptr %add.ptr2, align 1
   br label %sw.epilog
@@ -3788,7 +3788,7 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %if.then.i.i.i, %entry
   %4 = load i64, ptr %0, align 8
   %cond.i.i = select i1 %cmp.i.i.i, i64 15, i64 %4
-  %cmp.not.i = icmp ult i64 %cond.i.i, %add
+  %cmp.not.i = icmp ugt i64 %add, %cond.i.i
   br i1 %cmp.not.i, label %if.end.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm.exit
 
 if.end.i:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -3801,7 +3801,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
   %mul.i.i = shl nuw i64 %cond.i.i, 1
-  %cmp3.i.i = icmp ugt i64 %mul.i.i, %add
+  %cmp3.i.i = icmp ult i64 %add, %mul.i.i
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i, i64 9223372036854775807)
   %__res.addr.0.i = select i1 %cmp3.i.i, i64 %spec.store.select.i.i, i64 %add
   %add.i.i = add nuw i64 %__res.addr.0.i, 1
@@ -4279,7 +4279,7 @@ entry:
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %call.i.i)
   %_M_str.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_str.i.i, align 8
-  %cmp.i.not.i = icmp ult i64 %0, %call.i.i
+  %cmp.i.not.i = icmp ugt i64 %call.i.i, %0
   br i1 %cmp.i.not.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withES2_.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %entry

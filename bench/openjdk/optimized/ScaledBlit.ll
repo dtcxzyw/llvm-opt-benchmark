@@ -559,7 +559,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 define internal fastcc i32 @refine(i32 noundef %0, double noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 {
   %7 = sitofp i32 %4 to double
   %8 = fdiv double %7, %3
-  %9 = fadd double %8, %1
+  %9 = fadd double %1, %8
   %10 = fadd double %9, -5.000000e-01
   %11 = tail call double @llvm.ceil.f64(double %10)
   %12 = fptosi double %11 to i32

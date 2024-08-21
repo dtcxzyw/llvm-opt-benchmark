@@ -4628,13 +4628,13 @@ entry:
   %.neg = sub i64 %3, %sub.ptr.div
   %sub9 = add i64 %.neg, %add.neg
   %cmp = icmp ne i32 %allocationSide, 1
-  %cmp10.not = icmp ult i64 %sub.ptr.div, %nAdditionalCapacity
+  %cmp10.not = icmp ugt i64 %nAdditionalCapacity, %sub.ptr.div
   %or.cond = select i1 %cmp, i1 true, i1 %cmp10.not
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %div27, i64 %nAdditionalCapacity)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
   %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
@@ -4645,12 +4645,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp18, label %land.lhs.true19, label %if.else32
 
 land.lhs.true19:                                  ; preds = %if.else
-  %cmp20.not = icmp ult i64 %sub9, %nAdditionalCapacity
+  %cmp20.not = icmp ugt i64 %nAdditionalCapacity, %sub9
   br i1 %cmp20.not, label %if.else32, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
-  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %div2226, i64 %nAdditionalCapacity)
+  %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
   %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
@@ -4800,7 +4800,7 @@ _ZN5eastl22uninitialized_copy_ptrINS_16reverse_iteratorIPiEES3_S2_EET1_T_T0_S4_.
 
 _ZN5eastl22uninitialized_copy_ptrINS_16reverse_iteratorIPiEES3_S2_EET1_T_T0_S4_.exit: ; preds = %_ZN5eastl22uninitialized_copy_ptrINS_16reverse_iteratorIPiEES3_S2_EET1_T_T0_S4_.exit.loopexit, %if.else
   %9 = phi ptr [ %.pre, %_ZN5eastl22uninitialized_copy_ptrINS_16reverse_iteratorIPiEES3_S2_EET1_T_T0_S4_.exit.loopexit ], [ %3, %if.else ]
-  %cmp.i.i.i.i.i.i26 = icmp eq ptr %9, %position
+  %cmp.i.i.i.i.i.i26 = icmp eq ptr %position, %9
   br i1 %cmp.i.i.i.i.i.i26, label %_ZN5eastl22uninitialized_move_ptrIPiS1_S1_EET1_T_T0_S2_.exit31, label %if.end.i.i.i.i.i.i27
 
 if.end.i.i.i.i.i.i27:                             ; preds = %_ZN5eastl22uninitialized_copy_ptrINS_16reverse_iteratorIPiEES3_S2_EET1_T_T0_S4_.exit
@@ -4895,7 +4895,7 @@ for.body.i.i.i43:                                 ; preds = %_ZN5eastl34uninitia
 _ZN5eastl22uninitialized_copy_ptrINS_16reverse_iteratorIPiEES3_S2_EET1_T_T0_S4_.exit50: ; preds = %for.body.i.i.i43, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit
   %dest.addr.0.lcssa.i.i.i49 = phi ptr [ %retval.0.i.i.i.i.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit ], [ %incdec.ptr.i.i.i47, %for.body.i.i.i43 ]
   %21 = load ptr, ptr %mpEnd, align 8
-  %cmp.i.i.i.i.i.i.i51 = icmp eq ptr %21, %position
+  %cmp.i.i.i.i.i.i.i51 = icmp eq ptr %position, %21
   br i1 %cmp.i.i.i.i.i.i.i51, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit56, label %if.end.i.i.i.i.i.i.i52
 
 if.end.i.i.i.i.i.i.i52:                           ; preds = %_ZN5eastl22uninitialized_copy_ptrINS_16reverse_iteratorIPiEES3_S2_EET1_T_T0_S4_.exit50
@@ -5051,7 +5051,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 24
-  %cmp = icmp ult i64 %sub.ptr.div, %n
+  %cmp = icmp ugt i64 %n, %sub.ptr.div
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -5656,7 +5656,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else

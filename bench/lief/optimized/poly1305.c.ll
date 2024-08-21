@@ -103,7 +103,7 @@ define hidden noundef i32 @mbedtls_poly1305_update(ptr nocapture noundef %0, ptr
 
 7:                                                ; preds = %4
   %8 = sub i64 16, %6
-  %9 = icmp ugt i64 %8, %2
+  %9 = icmp ult i64 %2, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 52
   %11 = getelementptr inbounds [16 x i8], ptr %10, i64 0, i64 %6
   br i1 %9, label %12, label %15

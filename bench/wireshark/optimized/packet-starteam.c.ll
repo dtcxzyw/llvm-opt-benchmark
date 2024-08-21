@@ -411,7 +411,7 @@ define internal i32 @get_starteam_pdu_len(ptr nocapture readnone %0, ptr noundef
 .sink.split:                                      ; preds = %13, %7
   %.sink = phi i32 [ 4, %7 ], [ 24, %13 ]
   %.sink12 = phi i32 [ 16, %7 ], [ 36, %13 ]
-  %17 = add i32 %.sink, %2
+  %17 = add i32 %2, %.sink
   %18 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %17) #3
   %19 = add i32 %18, %.sink12
   br label %20

@@ -103,7 +103,7 @@ define dso_local ptr @gistGetNodeBuffer(ptr nocapture noundef %0, ptr nocapture 
   store i32 %3, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %0, i64 72
   %22 = load i32, ptr %21, align 8
-  %.not = icmp sgt i32 %22, %3
+  %.not = icmp slt i32 %3, %22
   br i1 %.not, label %35, label %23
 
 23:                                               ; preds = %12
@@ -690,7 +690,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %0, i64 96
   %21 = load i32, ptr %20, align 8
-  %.not95 = icmp eq i32 %21, %3
+  %.not95 = icmp eq i32 %3, %21
   br i1 %.not95, label %137, label %22
 
 22:                                               ; preds = %19

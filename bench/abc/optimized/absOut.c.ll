@@ -1257,7 +1257,7 @@ define void @Gia_ManCheckCex(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %23 = getelementptr i8, ptr %0, i64 64
   %24 = getelementptr inbounds i8, ptr %1, i64 4
   %25 = load i32, ptr %24, align 4
-  %.not77147 = icmp slt i32 %25, %2
+  %.not77147 = icmp sgt i32 %2, %25
   br i1 %.not77147, label %.critedge6._crit_edge, label %.preheader117.lr.ph
 
 .preheader117.lr.ph:                              ; preds = %.critedge

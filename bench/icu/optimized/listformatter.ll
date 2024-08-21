@@ -232,7 +232,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -512,7 +512,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #18
   %cmp7 = icmp eq ptr %call, null
@@ -3688,7 +3688,7 @@ land.lhs.true:                                    ; preds = %_ZNK6icu_7513Unicod
   %cmp6.old = icmp sgt i32 %cond.i, 1
   br i1 %cmp6.old, label %_ZNK6icu_7513UnicodeStringixEi.exit40, label %_ZNK6icu_7513UnicodeStringixEi.exit138
 
-_ZNK6icu_7513UnicodeStringixEi.exit40:            ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit27, %land.lhs.true
+_ZNK6icu_7513UnicodeStringixEi.exit40:            ; preds = %land.lhs.true, %_ZNK6icu_7513UnicodeStringixEi.exit27
   %arrayidx.i.i = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 2
   %6 = load i16, ptr %arrayidx.i.i, align 2
   switch i16 %6, label %_ZNK6icu_7513UnicodeStringixEi.exit138 [
@@ -3850,7 +3850,7 @@ land.lhs.true:                                    ; preds = %_ZNK6icu_7513Unicod
   %cmp19.old = icmp sgt i32 %cond.i, 1
   br i1 %cmp19.old, label %_ZNK6icu_7513UnicodeStringixEi.exit80, label %if.end46
 
-_ZNK6icu_7513UnicodeStringixEi.exit80:            ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit67, %land.lhs.true
+_ZNK6icu_7513UnicodeStringixEi.exit80:            ; preds = %land.lhs.true, %_ZNK6icu_7513UnicodeStringixEi.exit67
   %arrayidx.i.i = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 2
   %6 = load i16, ptr %arrayidx.i.i, align 2
   %7 = add i16 %6, -79
@@ -3860,8 +3860,8 @@ _ZNK6icu_7513UnicodeStringixEi.exit80:            ; preds = %_ZNK6icu_7513Unicod
 
 if.end29:                                         ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit67
   %cmp34 = icmp eq i16 %5, 49
-  %or.cond141 = and i1 %cmp19, %cmp34
-  br i1 %or.cond141, label %_ZNK6icu_7513UnicodeStringixEi.exit122, label %if.end46
+  %or.cond149 = and i1 %cmp19, %cmp34
+  br i1 %or.cond149, label %_ZNK6icu_7513UnicodeStringixEi.exit122, label %if.end46
 
 _ZNK6icu_7513UnicodeStringixEi.exit122:           ; preds = %if.end29
   %arrayidx.i.i121 = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 2
@@ -4209,7 +4209,7 @@ if.end:                                           ; preds = %entry
   %shr.i.i.i.i9 = sext i16 %2 to i32
   %3 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i11 = select i1 %cmp.i.i.i.i8, i32 %3, i32 %shr.i.i.i.i9
-  %spec.select.i12 = tail call i32 @llvm.smin.i32(i32 %cond.i.i.i11, i32 %add)
+  %spec.select.i12 = tail call i32 @llvm.smin.i32(i32 %add, i32 %cond.i.i.i11)
   %sub.i15 = sub nsw i32 %cond.i.i.i11, %spec.select.i12
   %call2.i16 = tail call noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %alias, i16 noundef zeroext 47, i32 noundef %spec.select.i12, i32 noundef %sub.i15)
   %cmp3 = icmp slt i32 %call2.i16, 0

@@ -320,7 +320,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -600,7 +600,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #35
   %cmp7 = icmp eq ptr %call, null
@@ -6143,7 +6143,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %shr.i.i.i.i = sext i16 %6 to i32
   %7 = load i32, ptr %fLength.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %7, i32 %shr.i.i.i.i
-  %cmp.i.i44 = icmp ugt i32 %cond.i.i.i, %patPos.099
+  %cmp.i.i44 = icmp ult i32 %patPos.099, %cond.i.i.i
   br i1 %cmp.i.i44, label %invoke.cont4, label %if.else
 
 invoke.cont4:                                     ; preds = %for.body
@@ -8392,7 +8392,7 @@ if.else.i.i:                                      ; preds = %do.body
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
   %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
   %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %cond.i6.i)
+  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
   %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
   %16 = and i16 %9, 2
   %tobool.not.i.i.i8 = icmp eq i16 %16, 0
@@ -8748,7 +8748,7 @@ if.else.i.i.i:                                    ; preds = %do.body.i
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i6.i.i, i32 0)
   %cmp5.i.i.i.i = icmp slt i32 %cond.i6.i.i, 0
   %sub.i.i.i.i = sub nsw i32 %cond.i6.i.i, %spec.select.i.i.i
-  %spec.select9.i.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i.i, i32 %cond.i6.i.i)
+  %spec.select9.i.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i6.i.i, i32 %sub.i.i.i.i)
   %srcLength.addr.0.i.i.i = select i1 %cmp5.i.i.i.i, i32 0, i32 %spec.select9.i.i.i
   %27 = and i16 %20, 2
   %tobool.not.i.i.i.i = icmp eq i16 %27, 0
@@ -10652,7 +10652,7 @@ if.else.i.i:                                      ; preds = %do.body
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
   %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
   %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %cond.i6.i)
+  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
   %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
   %8 = and i16 %1, 2
   %tobool.not.i.i.i = icmp eq i16 %8, 0
@@ -11050,7 +11050,7 @@ entry:
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %cond.i.fr = freeze i32 %cond.i
-  %cmp.not = icmp sgt i32 %cond.i.fr, %startPos
+  %cmp.not = icmp slt i32 %startPos, %cond.i.fr
   br i1 %cmp.not, label %do.body.preheader, label %return
 
 do.body.preheader:                                ; preds = %entry
@@ -11060,7 +11060,7 @@ do.body.preheader:                                ; preds = %entry
   %fArray.i.i.i = getelementptr inbounds i8, ptr %pattern, i64 24
   %4 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %4, ptr %fBuffer.i.i.i
-  %cmp.i.i40 = icmp ugt i32 %cond.i.fr, %startPos
+  %cmp.i.i40 = icmp ult i32 %startPos, %cond.i.fr
   %idxprom.i.i47 = sext i32 %startPos to i64
   %arrayidx.i.i48 = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %idxprom.i.i47
   %5 = sext i32 %cond.i.fr to i64
@@ -12786,8 +12786,8 @@ _ZNK6icu_7513UnicodeStringixEi.exit.i:            ; preds = %invoke.cont51
   switch i16 %27, label %if.end77.i [
     i16 104, label %invoke.cont53
     i16 72, label %return.fold.split.i
-    i16 75, label %return.fold.split11.i
-    i16 107, label %return.fold.split12.i
+    i16 75, label %return.fold.split21.i
+    i16 107, label %return.fold.split22.i
   ]
 
 _ZNK6icu_7513UnicodeStringixEi.exit75.i:          ; preds = %invoke.cont51
@@ -12838,14 +12838,14 @@ if.end77.i:                                       ; preds = %_ZNK6icu_7513Unicod
 return.fold.split.i:                              ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit.i
   br label %invoke.cont53
 
-return.fold.split11.i:                            ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit.i
+return.fold.split21.i:                            ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit.i
   br label %invoke.cont53
 
-return.fold.split12.i:                            ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit.i
+return.fold.split22.i:                            ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit.i
   br label %invoke.cont53
 
-invoke.cont53:                                    ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit200.i, %_ZNK6icu_7513UnicodeStringixEi.exit144.i, %_ZNK6icu_7513UnicodeStringixEi.exit88.i, %return.fold.split12.i, %return.fold.split11.i, %return.fold.split.i, %if.end77.i, %_ZNK6icu_7513UnicodeStringixEi.exit.i
-  %retval.0.i60 = phi i32 [ -1, %if.end77.i ], [ 0, %_ZNK6icu_7513UnicodeStringixEi.exit.i ], [ 1, %return.fold.split.i ], [ 2, %return.fold.split11.i ], [ 3, %return.fold.split12.i ], [ %switch.select133, %_ZNK6icu_7513UnicodeStringixEi.exit88.i ], [ %switch.select137, %_ZNK6icu_7513UnicodeStringixEi.exit144.i ], [ %switch.select141, %_ZNK6icu_7513UnicodeStringixEi.exit200.i ]
+invoke.cont53:                                    ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit200.i, %_ZNK6icu_7513UnicodeStringixEi.exit144.i, %_ZNK6icu_7513UnicodeStringixEi.exit88.i, %return.fold.split22.i, %return.fold.split21.i, %return.fold.split.i, %if.end77.i, %_ZNK6icu_7513UnicodeStringixEi.exit.i
+  %retval.0.i60 = phi i32 [ -1, %if.end77.i ], [ 0, %_ZNK6icu_7513UnicodeStringixEi.exit.i ], [ 1, %return.fold.split.i ], [ 2, %return.fold.split21.i ], [ 3, %return.fold.split22.i ], [ %switch.select133, %_ZNK6icu_7513UnicodeStringixEi.exit88.i ], [ %switch.select137, %_ZNK6icu_7513UnicodeStringixEi.exit144.i ], [ %switch.select141, %_ZNK6icu_7513UnicodeStringixEi.exit200.i ]
   %arrayidx.i61 = getelementptr inbounds i32, ptr %call.i47, i64 %indvars.iv
   store i32 %retval.0.i60, ptr %arrayidx.i61, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp50) #34
@@ -13027,8 +13027,8 @@ _ZNK6icu_7513UnicodeStringixEi.exit:              ; preds = %entry
   switch i16 %5, label %if.end77 [
     i16 104, label %return
     i16 72, label %return.fold.split
-    i16 75, label %return.fold.split11
-    i16 107, label %return.fold.split12
+    i16 75, label %return.fold.split21
+    i16 107, label %return.fold.split22
   ]
 
 _ZNK6icu_7513UnicodeStringixEi.exit75:            ; preds = %entry
@@ -13087,14 +13087,14 @@ if.end77:                                         ; preds = %_ZNK6icu_7513Unicod
 return.fold.split:                                ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit
   br label %return
 
-return.fold.split11:                              ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit
+return.fold.split21:                              ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit
   br label %return
 
-return.fold.split12:                              ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit
+return.fold.split22:                              ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit
   br label %return
 
-return:                                           ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit, %return.fold.split12, %return.fold.split11, %return.fold.split, %_ZNK6icu_7513UnicodeStringixEi.exit228, %_ZNK6icu_7513UnicodeStringixEi.exit200, %_ZNK6icu_7513UnicodeStringixEi.exit172, %_ZNK6icu_7513UnicodeStringixEi.exit144, %_ZNK6icu_7513UnicodeStringixEi.exit116, %_ZNK6icu_7513UnicodeStringixEi.exit88, %if.end77
-  %retval.0 = phi i32 [ -1, %if.end77 ], [ 0, %_ZNK6icu_7513UnicodeStringixEi.exit ], [ 4, %_ZNK6icu_7513UnicodeStringixEi.exit88 ], [ 5, %_ZNK6icu_7513UnicodeStringixEi.exit116 ], [ 6, %_ZNK6icu_7513UnicodeStringixEi.exit144 ], [ 7, %_ZNK6icu_7513UnicodeStringixEi.exit172 ], [ 8, %_ZNK6icu_7513UnicodeStringixEi.exit200 ], [ 9, %_ZNK6icu_7513UnicodeStringixEi.exit228 ], [ 1, %return.fold.split ], [ 2, %return.fold.split11 ], [ 3, %return.fold.split12 ]
+return:                                           ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit, %return.fold.split22, %return.fold.split21, %return.fold.split, %_ZNK6icu_7513UnicodeStringixEi.exit228, %_ZNK6icu_7513UnicodeStringixEi.exit200, %_ZNK6icu_7513UnicodeStringixEi.exit172, %_ZNK6icu_7513UnicodeStringixEi.exit144, %_ZNK6icu_7513UnicodeStringixEi.exit116, %_ZNK6icu_7513UnicodeStringixEi.exit88, %if.end77
+  %retval.0 = phi i32 [ -1, %if.end77 ], [ 0, %_ZNK6icu_7513UnicodeStringixEi.exit ], [ 4, %_ZNK6icu_7513UnicodeStringixEi.exit88 ], [ 5, %_ZNK6icu_7513UnicodeStringixEi.exit116 ], [ 6, %_ZNK6icu_7513UnicodeStringixEi.exit144 ], [ 7, %_ZNK6icu_7513UnicodeStringixEi.exit172 ], [ 8, %_ZNK6icu_7513UnicodeStringixEi.exit200 ], [ 9, %_ZNK6icu_7513UnicodeStringixEi.exit228 ], [ 1, %return.fold.split ], [ 2, %return.fold.split21 ], [ 3, %return.fold.split22 ]
   ret i32 %retval.0
 }
 

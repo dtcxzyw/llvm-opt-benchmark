@@ -3646,7 +3646,7 @@ define internal fastcc void @CheckVarSlotCompatibility(ptr nocapture noundef rea
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %5
@@ -3681,7 +3681,7 @@ define internal fastcc void @CheckVarSlotCompatibility(ptr nocapture noundef rea
 29:                                               ; preds = %14
   %30 = getelementptr inbounds i8, ptr %18, i64 68
   %31 = load i32, ptr %30, align 4
-  %.not = icmp eq i32 %31, %2
+  %.not = icmp eq i32 %2, %31
   br i1 %.not, label %43, label %32
 
 32:                                               ; preds = %29
@@ -5276,7 +5276,7 @@ expanded_record_get_field.exit:                   ; preds = %73, %83
   %135 = getelementptr inbounds i8, ptr %87, i64 18
   %136 = load i16, ptr %135, align 2
   %137 = and i16 %136, 2047
-  %138 = icmp ult i16 %137, %6
+  %138 = icmp ugt i16 %6, %137
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %130
@@ -5462,7 +5462,7 @@ define internal fastcc ptr @get_cached_rowtype(i32 noundef %0, i32 noundef %1, p
 39:                                               ; preds = %36
   %40 = getelementptr inbounds i8, ptr %5, i64 8
   %41 = load i32, ptr %40, align 8
-  %.not48 = icmp eq i32 %41, %1
+  %.not48 = icmp eq i32 %1, %41
   br i1 %.not48, label %50, label %.critedge46
 
 .critedge46:                                      ; preds = %36, %33, %32, %39

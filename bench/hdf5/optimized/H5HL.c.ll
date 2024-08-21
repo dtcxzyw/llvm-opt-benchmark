@@ -74,7 +74,7 @@ define range(i32 -1, 1) i32 @H5HL_create(ptr noundef %0, i64 noundef %1, ptr noc
   %9 = add nuw nsw i64 %6, 7
   %10 = add nuw nsw i64 %9, %8
   %11 = and i64 %10, 1016
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %4
@@ -414,7 +414,7 @@ declare i32 @H5AC_unprotect(ptr noundef, ptr noundef, i64 noundef, ptr noundef, 
 define ptr @H5HL_offset_into(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8
-  %.not = icmp ugt i64 %4, %1
+  %.not = icmp ult i64 %1, %4
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
@@ -814,7 +814,7 @@ H5HL__remove_free.exit:                           ; preds = %63, %64
 191:                                              ; preds = %181
   %192 = getelementptr inbounds i8, ptr %185, i64 %.2
   %193 = getelementptr inbounds i8, ptr %192, i64 %2
-  %194 = add i64 %.2, %2
+  %194 = add i64 %2, %.2
   %195 = sub i64 %97, %194
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %193, i8 0, i64 %195, i1 false)
   br label %.thread

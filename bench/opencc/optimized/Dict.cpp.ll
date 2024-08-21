@@ -87,7 +87,7 @@ define ptr @_ZNK6opencc4Dict11MatchPrefixEPKcm(ptr noundef nonnull align 8 deref
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %10, i64 %2)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %2, i64 %10)
   call void @_ZN6opencc8UTF8Util12TruncateUTF8B5cxx11EPKcm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef %1, i64 noundef %.sroa.speculated)
   %11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   %12 = icmp sgt i64 %.sroa.speculated, 0
@@ -374,7 +374,7 @@ define void @_ZNK6opencc4Dict16MatchAllPrefixesEPKcm(ptr dead_on_unwind noalias 
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %11, i64 %3)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %3, i64 %11)
   call void @_ZN6opencc8UTF8Util12TruncateUTF8B5cxx11EPKcm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %2, i64 noundef %.sroa.speculated)
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %13 = icmp sgt i64 %.sroa.speculated, 0

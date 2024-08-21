@@ -143,7 +143,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -423,7 +423,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #12
   %cmp7 = icmp eq ptr %call, null
@@ -613,7 +613,7 @@ if.then45:                                        ; preds = %if.else42
 if.end49:                                         ; preds = %if.then45, %if.then39
   %replacement.0 = phi ptr [ %call41, %if.then39 ], [ %call47, %if.then45 ]
   %cmp50.not = icmp eq ptr %replacement.0, null
-  %cmp52.not = icmp eq ptr %replacement.0, %itemKey
+  %cmp52.not = icmp eq ptr %itemKey, %replacement.0
   %or.cond = or i1 %cmp50.not, %cmp52.not
   br i1 %or.cond, label %if.end66, label %if.then53
 

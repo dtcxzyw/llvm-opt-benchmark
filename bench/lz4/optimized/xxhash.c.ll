@@ -150,7 +150,7 @@ if.end.i17:                                       ; preds = %entry
   %memsize.i28 = getelementptr inbounds i8, ptr %state_in, i64 40
   %2 = load i32, ptr %memsize.i28, align 4
   %conv7.i29 = zext i32 %2 to i64
-  %add8.i30 = add i64 %conv7.i29, %len
+  %add8.i30 = add i64 %len, %conv7.i29
   %cmp9.i31 = icmp ult i64 %add8.i30, 16
   br i1 %cmp9.i31, label %if.then11.i111, label %if.end17.i32
 
@@ -503,7 +503,7 @@ if.end.i16:                                       ; preds = %entry
   %memsize.i19 = getelementptr inbounds i8, ptr %state_in, i64 72
   %1 = load i32, ptr %memsize.i19, align 8
   %conv.i20 = zext i32 %1 to i64
-  %add1.i21 = add i64 %conv.i20, %len
+  %add1.i21 = add i64 %len, %conv.i20
   %cmp2.i22 = icmp ult i64 %add1.i21, 32
   br i1 %cmp2.i22, label %if.then4.i105, label %if.end10.i23
 

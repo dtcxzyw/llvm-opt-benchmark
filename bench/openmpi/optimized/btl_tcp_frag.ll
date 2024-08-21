@@ -118,7 +118,7 @@ define i64 @mca_btl_tcp_frag_dump(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %8, i64 noundef %10) #12
   %12 = sext i32 %11 to i64
-  %.not = icmp ult i64 %12, %3
+  %.not = icmp ugt i64 %3, %12
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4
@@ -154,7 +154,7 @@ define i64 @mca_btl_tcp_frag_dump(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %22, i64 noundef %23, ptr noundef nonnull @.str.5, ptr noundef nonnull %27, ptr noundef %29, i64 noundef %31) #12
   %33 = add nsw i32 %32, %.034
   %34 = sext i32 %33 to i64
-  %.not31 = icmp ult i64 %34, %3
+  %.not31 = icmp ugt i64 %3, %34
   br i1 %.not31, label %16, label %.loopexit
 
 .loopexit:                                        ; preds = %20, %16, %.preheader, %4

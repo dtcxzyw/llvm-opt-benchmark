@@ -1427,7 +1427,7 @@ _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit: ; preds = %329, %354, %357
   %418 = or i64 %417, %416
   %or.cond.i209 = icmp slt i64 %418, 0
   %419 = sub nuw nsw i64 9223372036854775807, %417
-  %.not.i210 = icmp slt i64 %419, %416
+  %.not.i210 = icmp sgt i64 %416, %419
   %or.cond9.i = select i1 %or.cond.i209, i1 true, i1 %.not.i210
   %420 = add nuw nsw i64 %417, %416
   %421 = select i1 %or.cond9.i, i64 0, i64 %420
@@ -2505,7 +2505,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   %275 = or i64 %273, %.0110
   %or.cond.i202 = icmp slt i64 %275, 0
   %276 = sub nuw nsw i64 9223372036854775807, %.0110
-  %.not.i203 = icmp slt i64 %276, %273
+  %.not.i203 = icmp sgt i64 %273, %276
   %or.cond9.i = select i1 %or.cond.i202, i1 true, i1 %.not.i203
   %277 = add nuw nsw i64 %273, %.0110
   %278 = select i1 %or.cond9.i, i64 0, i64 %277
@@ -3566,7 +3566,7 @@ declare noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef, ptr noundef, i64 n
 define linkonce_odr void @_ZN5ArrayIhE5AllocEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %6, align 8
   br i1 %5, label %7, label %22
@@ -3575,7 +3575,7 @@ define linkonce_odr void @_ZN5ArrayIhE5AllocEm(ptr noundef nonnull align 8 deref
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp ne i64 %9, 0
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   %or.cond.i = and i1 %.not.i, %10
   br i1 %or.cond.i, label %11, label %12
 
@@ -4387,7 +4387,7 @@ _ZN7Archive12UnkEncVerMsgEPKwS1_.exit235:         ; preds = %213
 347:                                              ; preds = %342, %340
   %.0 = phi i64 [ %88, %340 ], [ %spec.select, %342 ]
   %348 = load i64, ptr %36, align 8
-  %349 = icmp ult i64 %348, %.0
+  %349 = icmp ugt i64 %.0, %348
   store i64 %.0, ptr %37, align 8
   br i1 %349, label %350, label %._ZN5ArrayIhE5AllocEm.exit_crit_edge
 
@@ -4398,7 +4398,7 @@ _ZN7Archive12UnkEncVerMsgEPKwS1_.exit235:         ; preds = %213
 350:                                              ; preds = %347
   %351 = load i64, ptr %38, align 8
   %.not.i.i236 = icmp ne i64 %351, 0
-  %352 = icmp ult i64 %351, %.0
+  %352 = icmp ugt i64 %.0, %351
   %or.cond.i.i = and i1 %.not.i.i236, %352
   br i1 %or.cond.i.i, label %353, label %354
 

@@ -233,7 +233,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %8, %3, %rb_enc_asci
   %.0135 = phi i64 [ %19, %RSTRING_PTR.exit ], [ 0, %rb_enc_asciicompat.exit ], [ 0, %3 ], [ 0, %8 ]
   %.0 = phi ptr [ %.sroa.2.0.i, %RSTRING_PTR.exit ], [ @.str, %rb_enc_asciicompat.exit ], [ @.str, %3 ], [ @.str, %8 ]
   %20 = load i64, ptr @rb_eRuntimeError, align 8
-  %21 = icmp eq i64 %20, %0
+  %21 = icmp eq i64 %0, %20
   %22 = icmp eq i64 %.0135, 0
   %or.cond = select i1 %21, i1 %22, i1 false
   br i1 %or.cond, label %23, label %33
@@ -889,7 +889,7 @@ rb_array_len.exit:                                ; preds = %11, %14
 29:                                               ; preds = %rb_array_len.exit, %18
   %30 = phi i32 [ %28, %18 ], [ -2147483648, %rb_array_len.exit ]
   %31 = load i64, ptr @rb_eSysStackError, align 8
-  %32 = icmp eq i64 %31, %0
+  %32 = icmp eq i64 %0, %31
   %33 = icmp sgt i64 %.0.i, 18
   %or.cond = and i1 %33, %32
   %34 = add nsw i64 %.0.i, -13
@@ -1150,7 +1150,7 @@ RARRAY_AREF.exit:                                 ; preds = %.thread, %17
 36:                                               ; preds = %31, %29
   %.0 = phi i1 [ true, %29 ], [ %35, %31 ]
   %37 = load i64, ptr @rb_eRuntimeError, align 8
-  %38 = icmp eq i64 %37, %0
+  %38 = icmp eq i64 %0, %37
   %or.cond = select i1 %38, i1 %.0, i1 false
   br i1 %or.cond, label %39, label %50
 
@@ -3235,7 +3235,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 rb_type.exit.i:                                   ; preds = %switch.lookup, %7, %15, %17
   %.0.i.i.pn = phi i32 [ %11, %7 ], [ 21, %15 ], [ %spec.select.i.i, %17 ], [ %switch.load, %switch.lookup ]
-  %.023.i.not = icmp eq i32 %.0.i.i.pn, %1
+  %.023.i.not = icmp eq i32 %1, %.0.i.i.pn
   br i1 %.023.i.not, label %.thread28, label %.thread30
 
 .thread28:                                        ; preds = %rb_type.exit.i
@@ -6118,7 +6118,7 @@ define internal i64 @rb_mod_s_constants(i32 noundef %0, ptr noundef %1, i64 noun
   %4 = tail call ptr @rb_vm_cref() #9
   %5 = icmp slt i32 %0, 1
   %6 = load i64, ptr @rb_cModule, align 8
-  %.not = icmp eq i64 %6, %2
+  %.not = icmp eq i64 %2, %6
   %or.cond = select i1 %5, i1 %.not, i1 false
   br i1 %or.cond, label %.preheader, label %7
 
@@ -7195,7 +7195,7 @@ imemo_throw_data_p.exit:                          ; preds = %.thread117
 imemo_throw_data_p.exit.thread:                   ; preds = %.thread117, %imemo_throw_data_p.exit
   %.0..0..0..0.44 = load volatile i64, ptr %6, align 8
   %92 = icmp eq i64 %3, 4
-  %.not.i93 = icmp eq i64 %.0..0..0..0.44, %3
+  %.not.i93 = icmp eq i64 %3, %.0..0..0..0.44
   %or.cond.i = or i1 %92, %.not.i93
   br i1 %or.cond.i, label %exc_setup_cause.exit, label %93
 

@@ -1734,7 +1734,7 @@ if.end.i:                                         ; preds = %if.then.i101, %sw.b
   %71 = phi i64 [ %70, %if.then.i101 ], [ %68, %sw.bb747 ]
   %72 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %72, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %71
+  %cmp.i.i = icmp ugt i64 %71, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -2991,7 +2991,7 @@ if.end.i217:                                      ; preds = %if.then.i226, %if.t
   %225 = phi i64 [ %224, %if.then.i226 ], [ %222, %if.then1365 ]
   %226 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i218 = call i64 @llvm.usub.sat.i64(i64 %226, i64 1)
-  %cmp.i.i219 = icmp ult i64 %spec.select.i.i218, %225
+  %cmp.i.i219 = icmp ugt i64 %225, %spec.select.i.i218
   br i1 %cmp.i.i219, label %if.then.i.i225, label %if.end.i.i220
 
 if.then.i.i225:                                   ; preds = %if.end.i217
@@ -4314,7 +4314,7 @@ if.end.i30.i:                                     ; preds = %if.then.i35.i, %if.
   %380 = phi i64 [ %379, %if.then.i35.i ], [ %377, %if.then27.i ]
   %381 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %381, i64 1)
-  %cmp.i.i31.i = icmp ult i64 %spec.select.i.i.i, %380
+  %cmp.i.i31.i = icmp ugt i64 %380, %spec.select.i.i.i
   br i1 %cmp.i.i31.i, label %if.then.i.i34.i, label %if.end.i.i32.i
 
 if.then.i.i34.i:                                  ; preds = %if.end.i30.i
@@ -4827,7 +4827,7 @@ define internal fastcc void @strbuf_setlen(ptr nocapture noundef %sb, i64 nounde
 entry:
   %0 = load i64, ptr %sb, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 1)
-  %cmp = icmp ult i64 %spec.select, %len
+  %cmp = icmp ugt i64 %len, %spec.select
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -4936,7 +4936,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %3 = phi i64 [ %2, %if.then.i ], [ %0, %entry ]
   %4 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %3
+  %cmp.i.i = icmp ugt i64 %3, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -4978,7 +4978,7 @@ if.end.i25:                                       ; preds = %if.then.i34, %lor.l
   %10 = phi i64 [ %9, %if.then.i34 ], [ %7, %lor.lhs.false ]
   %11 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i26 = call i64 @llvm.usub.sat.i64(i64 %11, i64 1)
-  %cmp.i.i27 = icmp ult i64 %spec.select.i.i26, %10
+  %cmp.i.i27 = icmp ugt i64 %10, %spec.select.i.i26
   br i1 %cmp.i.i27, label %if.then.i.i33, label %if.end.i.i28
 
 if.then.i.i33:                                    ; preds = %if.end.i25
@@ -5077,7 +5077,7 @@ if.end.i41:                                       ; preds = %if.then.i50, %strbu
   %24 = phi i64 [ %23, %if.then.i50 ], [ %21, %strbuf_setlen.exit ]
   %25 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i42 = call i64 @llvm.usub.sat.i64(i64 %25, i64 1)
-  %cmp.i.i43 = icmp ult i64 %spec.select.i.i42, %24
+  %cmp.i.i43 = icmp ugt i64 %24, %spec.select.i.i42
   br i1 %cmp.i.i43, label %if.then.i.i49, label %if.end.i.i44
 
 if.then.i.i49:                                    ; preds = %if.end.i41
@@ -5119,7 +5119,7 @@ if.end.i54:                                       ; preds = %if.then.i63, %if.th
   %31 = phi i64 [ %30, %if.then.i63 ], [ %28, %if.then26 ]
   %32 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i55 = call i64 @llvm.usub.sat.i64(i64 %32, i64 1)
-  %cmp.i.i56 = icmp ult i64 %spec.select.i.i55, %31
+  %cmp.i.i56 = icmp ugt i64 %31, %spec.select.i.i55
   br i1 %cmp.i.i56, label %if.then.i.i62, label %if.end.i.i57
 
 if.then.i.i62:                                    ; preds = %if.end.i54
@@ -5159,7 +5159,7 @@ if.end.i67:                                       ; preds = %if.then.i76, %if.el
   %37 = phi i64 [ %36, %if.then.i76 ], [ %28, %if.else ]
   %38 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i68 = call i64 @llvm.usub.sat.i64(i64 %38, i64 1)
-  %cmp.i.i69 = icmp ult i64 %spec.select.i.i68, %37
+  %cmp.i.i69 = icmp ugt i64 %37, %spec.select.i.i68
   br i1 %cmp.i.i69, label %if.then.i.i75, label %if.end.i.i70
 
 if.then.i.i75:                                    ; preds = %if.end.i67
@@ -5387,7 +5387,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %4 = phi i64 [ %3, %if.then.i ], [ %1, %entry ]
   %5 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %4
+  %cmp.i.i = icmp ugt i64 %4, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -5481,7 +5481,7 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = phi i64 [ %2, %if.then ], [ %0, %entry ]
   %4 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %3
+  %cmp.i = icmp ugt i64 %3, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -6180,7 +6180,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %3 = phi i64 [ %2, %if.then.i ], [ %0, %entry ]
   %4 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %3
+  %cmp.i.i = icmp ugt i64 %3, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -6222,7 +6222,7 @@ if.end.i22:                                       ; preds = %if.then.i31, %state
   %11 = phi i64 [ %10, %if.then.i31 ], [ %8, %state_dir_path.exit ]
   %12 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i23 = tail call i64 @llvm.usub.sat.i64(i64 %12, i64 1)
-  %cmp.i.i24 = icmp ult i64 %spec.select.i.i23, %11
+  %cmp.i.i24 = icmp ugt i64 %11, %spec.select.i.i23
   br i1 %cmp.i.i24, label %if.then.i.i30, label %if.end.i.i25
 
 if.then.i.i30:                                    ; preds = %if.end.i22
@@ -6272,7 +6272,7 @@ if.end.i35:                                       ; preds = %if.then.i44, %cond.
   %19 = phi i64 [ %18, %if.then.i44 ], [ %16, %cond.end8 ]
   %20 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i36 = tail call i64 @llvm.usub.sat.i64(i64 %20, i64 1)
-  %cmp.i.i37 = icmp ult i64 %spec.select.i.i36, %19
+  %cmp.i.i37 = icmp ugt i64 %19, %spec.select.i.i36
   br i1 %cmp.i.i37, label %if.then.i.i43, label %if.end.i.i38
 
 if.then.i.i43:                                    ; preds = %if.end.i35
@@ -6321,7 +6321,7 @@ if.end.i48:                                       ; preds = %if.then.i57, %if.th
   %28 = phi i64 [ %27, %if.then.i57 ], [ %25, %if.then ]
   %29 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i49 = tail call i64 @llvm.usub.sat.i64(i64 %29, i64 1)
-  %cmp.i.i50 = icmp ult i64 %spec.select.i.i49, %28
+  %cmp.i.i50 = icmp ugt i64 %28, %spec.select.i.i49
   br i1 %cmp.i.i50, label %if.then.i.i56, label %if.end.i.i51
 
 if.then.i.i56:                                    ; preds = %if.end.i48
@@ -6369,7 +6369,7 @@ if.end.i61:                                       ; preds = %if.then.i70, %if.th
   %36 = phi i64 [ %35, %if.then.i70 ], [ %33, %if.then19 ]
   %37 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i62 = tail call i64 @llvm.usub.sat.i64(i64 %37, i64 1)
-  %cmp.i.i63 = icmp ult i64 %spec.select.i.i62, %36
+  %cmp.i.i63 = icmp ugt i64 %36, %spec.select.i.i62
   br i1 %cmp.i.i63, label %if.then.i.i69, label %if.end.i.i64
 
 if.then.i.i69:                                    ; preds = %if.end.i61
@@ -6416,7 +6416,7 @@ if.end.i74:                                       ; preds = %if.then.i83, %if.th
   %44 = phi i64 [ %43, %if.then.i83 ], [ %41, %if.then22 ]
   %45 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i75 = tail call i64 @llvm.usub.sat.i64(i64 %45, i64 1)
-  %cmp.i.i76 = icmp ult i64 %spec.select.i.i75, %44
+  %cmp.i.i76 = icmp ugt i64 %44, %spec.select.i.i75
   br i1 %cmp.i.i76, label %if.then.i.i82, label %if.end.i.i77
 
 if.then.i.i82:                                    ; preds = %if.end.i74
@@ -6466,7 +6466,7 @@ if.end.i87:                                       ; preds = %if.then.i96, %if.th
   %53 = phi i64 [ %52, %if.then.i96 ], [ %50, %if.then29 ]
   %54 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i88 = tail call i64 @llvm.usub.sat.i64(i64 %54, i64 1)
-  %cmp.i.i89 = icmp ult i64 %spec.select.i.i88, %53
+  %cmp.i.i89 = icmp ugt i64 %53, %spec.select.i.i88
   br i1 %cmp.i.i89, label %if.then.i.i95, label %if.end.i.i90
 
 if.then.i.i95:                                    ; preds = %if.end.i87
@@ -6514,7 +6514,7 @@ if.end.i100:                                      ; preds = %if.then.i109, %if.t
   %62 = phi i64 [ %61, %if.then.i109 ], [ %59, %if.then34 ]
   %63 = load i64, ptr @state_dir_path.path, align 8
   %spec.select.i.i101 = tail call i64 @llvm.usub.sat.i64(i64 %63, i64 1)
-  %cmp.i.i102 = icmp ult i64 %spec.select.i.i101, %62
+  %cmp.i.i102 = icmp ugt i64 %62, %spec.select.i.i101
   br i1 %cmp.i.i102, label %if.then.i.i108, label %if.end.i.i103
 
 if.then.i.i108:                                   ; preds = %if.end.i100

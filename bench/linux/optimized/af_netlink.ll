@@ -6477,7 +6477,7 @@ define internal i32 @netlink_sendmsg(ptr noundef %0, ptr noundef %1, i64 noundef
   %94 = load i32, ptr %93, align 4
   %95 = add i32 %94, -32
   %96 = sext i32 %95 to i64
-  %97 = icmp ult i64 %96, %2
+  %97 = icmp ugt i64 %2, %96
   br i1 %97, label %.thread16, label %98
 
 98:                                               ; preds = %92
@@ -6631,7 +6631,7 @@ define internal i32 @netlink_recvmsg(ptr noundef %0, ptr noundef %1, i64 noundef
   %23 = getelementptr inbounds i8, ptr %16, i64 112
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  %26 = icmp ugt i64 %25, %2
+  %26 = icmp ult i64 %2, %25
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %18
@@ -7481,7 +7481,7 @@ define internal noundef range(i32 -94, 1) i32 @netlink_create(ptr noundef %0, pt
   %12 = zext nneg i32 %2 to i64
   %13 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 32, i64 %12) #23, !srcloc !161
   %14 = trunc i64 %13 to i32
-  %15 = and i32 %14, %2
+  %15 = and i32 %2, %14
   %16 = tail call i64 @_raw_read_lock_irqsave(ptr noundef nonnull @nl_table_lock) #23
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @nl_table_users, ptr nonnull elementtype(i32) @nl_table_users) #23, !srcloc !29
   tail call void @_raw_read_unlock_irqrestore(ptr noundef nonnull @nl_table_lock, i64 noundef %16) #23

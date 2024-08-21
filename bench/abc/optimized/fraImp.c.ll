@@ -1509,7 +1509,7 @@ define void @Fra_ImpCompactArray(ptr nocapture noundef %0) local_unnamed_addr #8
 define i32 @Fra_ImpCheckForNode(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val67 = load i32, ptr %5, align 4
-  %6 = icmp sgt i32 %.val67, %3
+  %6 = icmp slt i32 %3, %.val67
   br i1 %6, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4

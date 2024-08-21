@@ -1436,7 +1436,7 @@ if.end46:                                         ; preds = %if.end38
 if.end54:                                         ; preds = %if.then26, %if.end46
   %setWords.0 = phi i32 [ 2, %if.end46 ], [ 0, %if.then26 ]
   %eow.1 = phi ptr [ %call22.pn, %if.end46 ], [ %add.ptr, %if.then26 ]
-  %cmp5587 = icmp ugt ptr %eow.1, %src
+  %cmp5587 = icmp ult ptr %src, %eow.1
   br i1 %cmp5587, label %while.body, label %return
 
 while.body:                                       ; preds = %if.end54, %if.end124
@@ -2389,7 +2389,7 @@ if.then:                                          ; preds = %entry
   %call13 = tail call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef %dst, i64 noundef %len, ptr noundef nonnull @.str.18, i32 noundef %shr, i32 noundef %conv5, i32 noundef %conv9, i32 noundef %conv12)
   %cmp14 = icmp sgt i32 %call13, -1
   %conv16 = zext nneg i32 %call13 to i64
-  %cmp17.not = icmp ult i64 %conv16, %len
+  %cmp17.not = icmp ugt i64 %len, %conv16
   %or.cond64 = select i1 %cmp14, i1 %cmp17.not, i1 false
   %spec.select68 = select i1 %or.cond64, ptr %dst, ptr null
   br label %return

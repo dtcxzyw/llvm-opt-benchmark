@@ -559,7 +559,7 @@ define void @_ZN3gmx11MttkElement12scheduleTaskEldRKSt8functionIFvS1_IFvvEEEE(pt
   %6 = alloca %"class.std::function.515", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
-  %9 = icmp eq i64 %8, %1
+  %9 = icmp eq i64 %1, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 1
@@ -574,7 +574,7 @@ define void @_ZN3gmx11MttkElement12scheduleTaskEldRKSt8functionIFvS1_IFvvEEEE(pt
 
 _Z11do_per_stepll.exit:                           ; preds = %13
   %16 = sext i32 %15 to i64
-  %17 = add nsw i64 %16, %1
+  %17 = add nsw i64 %1, %16
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
@@ -662,7 +662,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %13, %34, %_ZNKSt8fu
   %.sroa.05.09.i.i = phi ptr [ %64, %_ZNKSt8functionIFvlEEclEl.exit.i.i ], [ %52, %_ZNSt8functionIFvvEED2Ev.exit ]
   %55 = load i32, ptr %.sroa.05.09.i.i, align 4
   %56 = sext i32 %55 to i64
-  %57 = add nsw i64 %56, %1
+  %57 = add nsw i64 %1, %56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %57, ptr %5, align 8
   %58 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i, i64 24
@@ -836,24 +836,24 @@ define void @_ZN3gmx8MttkData5buildEPNS_19LegacySimulatorDataEPNS_38ModularSimul
   %37 = load float, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %28, i64 20
   %39 = load float, ptr %38, align 4
-  %40 = fneg float %37
-  %41 = fmul float %39, %40
+  %40 = fneg float %39
+  %41 = fmul float %37, %40
   %42 = tail call float @llvm.fmuladd.f32(float %32, float %35, float %41)
   %43 = load float, ptr %30, align 4
   %44 = getelementptr inbounds i8, ptr %28, i64 4
   %45 = load float, ptr %44, align 4
   %46 = getelementptr inbounds i8, ptr %28, i64 8
   %47 = load float, ptr %46, align 4
-  %48 = fmul float %47, %40
-  %49 = tail call float @llvm.fmuladd.f32(float %45, float %35, float %48)
-  %50 = fneg float %43
-  %51 = fmul float %49, %50
-  %52 = tail call float @llvm.fmuladd.f32(float %29, float %42, float %51)
-  %53 = load float, ptr %33, align 4
-  %54 = fneg float %32
-  %55 = fmul float %47, %54
+  %48 = fneg float %47
+  %49 = fmul float %37, %48
+  %50 = tail call float @llvm.fmuladd.f32(float %45, float %35, float %49)
+  %51 = fneg float %50
+  %52 = fmul float %43, %51
+  %53 = tail call float @llvm.fmuladd.f32(float %29, float %42, float %52)
+  %54 = load float, ptr %33, align 4
+  %55 = fmul float %32, %48
   %56 = tail call float @llvm.fmuladd.f32(float %45, float %39, float %55)
-  %57 = tail call noundef float @llvm.fmuladd.f32(float %53, float %56, float %52)
+  %57 = tail call noundef float @llvm.fmuladd.f32(float %54, float %56, float %53)
   store float %57, ptr %6, align 4
   %58 = getelementptr inbounds i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8
@@ -889,24 +889,24 @@ define void @_ZN3gmx8MttkData5buildEPNS_19LegacySimulatorDataEPNS_38ModularSimul
   %81 = load float, ptr %80, align 4
   %82 = getelementptr inbounds i8, ptr %71, i64 72
   %83 = load float, ptr %82, align 4
-  %84 = fneg float %81
-  %85 = fmul float %83, %84
+  %84 = fneg float %83
+  %85 = fmul float %81, %84
   %86 = tail call float @llvm.fmuladd.f32(float %76, float %79, float %85)
   %87 = load float, ptr %74, align 4
   %88 = getelementptr inbounds i8, ptr %71, i64 56
   %89 = load float, ptr %88, align 4
   %90 = getelementptr inbounds i8, ptr %71, i64 60
   %91 = load float, ptr %90, align 4
-  %92 = fmul float %91, %84
-  %93 = tail call float @llvm.fmuladd.f32(float %89, float %79, float %92)
-  %94 = fneg float %87
-  %95 = fmul float %93, %94
-  %96 = tail call float @llvm.fmuladd.f32(float %73, float %86, float %95)
-  %97 = load float, ptr %77, align 4
-  %98 = fneg float %76
-  %99 = fmul float %91, %98
+  %92 = fneg float %91
+  %93 = fmul float %81, %92
+  %94 = tail call float @llvm.fmuladd.f32(float %89, float %79, float %93)
+  %95 = fneg float %94
+  %96 = fmul float %87, %95
+  %97 = tail call float @llvm.fmuladd.f32(float %73, float %86, float %96)
+  %98 = load float, ptr %77, align 4
+  %99 = fmul float %76, %92
   %100 = tail call float @llvm.fmuladd.f32(float %89, float %83, float %99)
-  %101 = tail call noundef float @llvm.fmuladd.f32(float %97, float %100, float %96)
+  %101 = tail call noundef float @llvm.fmuladd.f32(float %98, float %100, float %97)
   store float %101, ptr %6, align 4
   br label %102
 
@@ -3478,7 +3478,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -3552,7 +3552,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrISt3anySt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -4352,7 +4352,7 @@ define void @_ZN3gmx8MttkDataC2EfffffffPA3_KfPKNS_19StatePropagatorDataEPNS_24Mt
   %58 = fptrunc double %57 to float
   %59 = fpext float %58 to double
   %60 = load float, ptr %37, align 8
-  %61 = fmul float %60, %5
+  %61 = fmul float %5, %60
   %62 = fpext float %61 to double
   %63 = fdiv double %62, 0x40309AFAE1F7C60E
   %64 = fadd double %63, %59
@@ -4387,7 +4387,7 @@ define void @_ZN3gmx8MttkData17calculateIntegralEf(ptr nocapture noundef nonnull
   %13 = fpext float %12 to double
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load float, ptr %14, align 8
-  %16 = fmul float %15, %1
+  %16 = fmul float %1, %15
   %17 = fpext float %16 to double
   %18 = fdiv double %17, 0x40309AFAE1F7C60E
   %19 = fadd double %18, %13
@@ -4552,24 +4552,24 @@ define void @_ZN3gmx8MttkData25calculateIntegralIfNeededEv(ptr nocapture noundef
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds i8, ptr %20, i64 20
   %31 = load float, ptr %30, align 4
-  %32 = fneg float %29
-  %33 = fmul float %31, %32
+  %32 = fneg float %31
+  %33 = fmul float %29, %32
   %34 = tail call float @llvm.fmuladd.f32(float %24, float %27, float %33)
   %35 = load float, ptr %22, align 4
   %36 = getelementptr inbounds i8, ptr %20, i64 4
   %37 = load float, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %20, i64 8
   %39 = load float, ptr %38, align 4
-  %40 = fmul float %39, %32
-  %41 = tail call float @llvm.fmuladd.f32(float %37, float %27, float %40)
-  %42 = fneg float %35
-  %43 = fmul float %41, %42
-  %44 = tail call float @llvm.fmuladd.f32(float %21, float %34, float %43)
-  %45 = load float, ptr %25, align 4
-  %46 = fneg float %24
-  %47 = fmul float %39, %46
+  %40 = fneg float %39
+  %41 = fmul float %29, %40
+  %42 = tail call float @llvm.fmuladd.f32(float %37, float %27, float %41)
+  %43 = fneg float %42
+  %44 = fmul float %35, %43
+  %45 = tail call float @llvm.fmuladd.f32(float %21, float %34, float %44)
+  %46 = load float, ptr %25, align 4
+  %47 = fmul float %24, %40
   %48 = tail call float @llvm.fmuladd.f32(float %37, float %31, float %47)
-  %49 = tail call noundef float @llvm.fmuladd.f32(float %45, float %48, float %44)
+  %49 = tail call noundef float @llvm.fmuladd.f32(float %46, float %48, float %45)
   %50 = getelementptr inbounds i8, ptr %0, i64 12
   %51 = load float, ptr %50, align 4
   %52 = fpext float %51 to double
@@ -4620,7 +4620,7 @@ define noundef float @_ZNK3gmx8MttkData13kineticEnergyEv(ptr nocapture noundef n
 define void @_ZN3gmx8MttkData5scaleEfb(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, float noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load float, ptr %4, align 4
-  %6 = fmul float %5, %1
+  %6 = fmul float %1, %5
   store float %6, ptr %4, align 4
   br i1 %2, label %7, label %8
 
@@ -5763,7 +5763,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 15:                                               ; preds = %12
   %.not.i.i = icmp ne ptr %13, null
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = icmp eq ptr %16, %14
+  %17 = icmp eq ptr %14, %16
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %17
   br i1 %or.cond.i.i, label %.thread, label %18
 
@@ -5824,7 +5824,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -6986,7 +6986,7 @@ define void @_ZNK3gmx8MttkData18propagatorCallbackEl(ptr nocapture noundef nonnu
   %.sroa.05.09.i = phi ptr [ %19, %_ZNKSt8functionIFvlEEclEl.exit.i ], [ %7, %2 ]
   %10 = load i32, ptr %.sroa.05.09.i, align 4
   %11 = sext i32 %10 to i64
-  %12 = add nsw i64 %11, %1
+  %12 = add nsw i64 %1, %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %12, ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %.sroa.05.09.i, i64 24
@@ -7026,7 +7026,7 @@ define void @_ZNK3gmx24MttkPropagatorConnection18propagatorCallbackEl(ptr nocapt
   %.sroa.05.09 = phi ptr [ %17, %_ZNKSt8functionIFvlEEclEl.exit ], [ %5, %2 ]
   %8 = load i32, ptr %.sroa.05.09, align 4
   %9 = sext i32 %8 to i64
-  %10 = add nsw i64 %9, %1
+  %10 = add nsw i64 %1, %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %10, ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 24
@@ -9105,7 +9105,7 @@ _ZSt19__relocate_object_aISt5tupleIJSt8functionIFvlEEiEES4_SaIS4_EEvPT_PT0_RT1_.
 _ZNSt6vectorISt5tupleIJSt8functionIFvlEEiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %_ZSt19__relocate_object_aISt5tupleIJSt8functionIFvlEEiEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaISt5tupleIJSt8functionIFvlEEiEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt5tupleIJSt8functionIFvlEEiEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ], [ %45, %_ZSt19__relocate_object_aISt5tupleIJSt8functionIFvlEEiEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i ]
   %46 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt5tupleIJSt8functionIFvlEEiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit25, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt5tupleIJSt8functionIFvlEEiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %_ZSt19__relocate_object_aISt5tupleIJSt8functionIFvlEEiEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i22
@@ -9184,24 +9184,24 @@ define void @_ZN3gmx11MttkElement20propagateEtaVelocityEl(ptr nocapture noundef 
   %21 = load float, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %12, i64 20
   %23 = load float, ptr %22, align 4
-  %24 = fneg float %21
-  %25 = fmul float %23, %24
+  %24 = fneg float %23
+  %25 = fmul float %21, %24
   %26 = tail call float @llvm.fmuladd.f32(float %16, float %19, float %25)
   %27 = load float, ptr %14, align 4
   %28 = getelementptr inbounds i8, ptr %12, i64 4
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds i8, ptr %12, i64 8
   %31 = load float, ptr %30, align 4
-  %32 = fmul float %31, %24
-  %33 = tail call float @llvm.fmuladd.f32(float %29, float %19, float %32)
-  %34 = fneg float %27
-  %35 = fmul float %33, %34
-  %36 = tail call float @llvm.fmuladd.f32(float %13, float %26, float %35)
-  %37 = load float, ptr %17, align 4
-  %38 = fneg float %16
-  %39 = fmul float %31, %38
+  %32 = fneg float %31
+  %33 = fmul float %21, %32
+  %34 = tail call float @llvm.fmuladd.f32(float %29, float %19, float %33)
+  %35 = fneg float %34
+  %36 = fmul float %27, %35
+  %37 = tail call float @llvm.fmuladd.f32(float %13, float %26, float %36)
+  %38 = load float, ptr %17, align 4
+  %39 = fmul float %16, %32
   %40 = tail call float @llvm.fmuladd.f32(float %29, float %23, float %39)
-  %41 = tail call noundef float @llvm.fmuladd.f32(float %37, float %40, float %36)
+  %41 = tail call noundef float @llvm.fmuladd.f32(float %38, float %40, float %37)
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   %43 = load float, ptr %42, align 8
   %44 = fdiv float 3.000000e+00, %43

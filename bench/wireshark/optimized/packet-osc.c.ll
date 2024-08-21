@@ -497,7 +497,7 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 26:                                               ; preds = %19
   %27 = and i64 %23, 4294967295
   %28 = getelementptr i8, ptr %12, i64 %27
-  %29 = icmp ugt ptr %28, %12
+  %29 = icmp ult ptr %12, %28
   br i1 %29, label %.lr.ph.i.i, label %dissect_osc_tcp_1_1.exit
 
 .lr.ph.i.i:                                       ; preds = %26, %38

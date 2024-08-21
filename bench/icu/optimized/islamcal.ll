@@ -422,7 +422,7 @@ if.then3:                                         ; preds = %if.else
   %inc.nonneg = xor i32 %month, -1
   %div410 = udiv i32 %inc.nonneg, 12
   %sub = xor i32 %div410, -1
-  %add5 = add nsw i32 %sub, %eyear
+  %add5 = add nsw i32 %eyear, %sub
   %rem612 = urem i32 %inc.nonneg, 12
   %add7 = sub nuw nsw i32 11, %rem612
   br label %if.end8

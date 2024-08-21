@@ -1649,7 +1649,7 @@ entry:
   %outlen1 = getelementptr inbounds i8, ptr %S, i64 180
   %0 = load i8, ptr %outlen1, align 1
   %conv = zext i8 %0 to i64
-  %cmp.not = icmp eq i64 %conv, %outlen
+  %cmp.not = icmp eq i64 %outlen, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1829,7 +1829,7 @@ while.body.lr.ph.i:                               ; preds = %if.end26
   %.pre.i = load i32, ptr %buflen.i, align 16
   %sub.i22 = sub i32 128, %.pre.i
   %conv.i1723 = zext i32 %sub.i22 to i64
-  %cmp1.i24 = icmp ult i64 %conv.i1723, %inlen
+  %cmp1.i24 = icmp ugt i64 %inlen, %conv.i1723
   br i1 %cmp1.i24, label %if.end.i18, label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %if.end.i18, %while.body.lr.ph.i

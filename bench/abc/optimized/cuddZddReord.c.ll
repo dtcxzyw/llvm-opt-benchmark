@@ -1189,7 +1189,7 @@ define range(i32 0, 2) i32 @cuddZddSwapping(ptr noundef %0, i32 noundef %1, i32 
 
 ._crit_edge:                                      ; preds = %18, %.preheader94
   %.1.lcssa = phi i32 [ %.060114, %.preheader94 ], [ %spec.select82, %18 ]
-  %23 = icmp eq i32 %.1.lcssa, %2
+  %23 = icmp eq i32 %2, %.1.lcssa
   br i1 %23, label %32, label %24
 
 24:                                               ; preds = %._crit_edge
@@ -1228,9 +1228,9 @@ define range(i32 0, 2) i32 @cuddZddSwapping(ptr noundef %0, i32 noundef %1, i32 
   br i1 %46, label %43, label %.loopexit95, !llvm.loop !23
 
 .loopexit95:                                      ; preds = %43
-  %47 = add nsw i32 %42, %1
+  %47 = add nsw i32 %1, %42
   %48 = trunc nsw i64 %45 to i32
-  %49 = add nsw i32 %48, %1
+  %49 = add nsw i32 %1, %48
   br label %.loopexit93
 
 .loopexit93:                                      ; preds = %.preheader, %.loopexit95, %32

@@ -206,7 +206,7 @@ define void @_ZN10dtNodePool5clearEv(ptr nocapture noundef nonnull align 8 deref
 define noundef i32 @_ZN10dtNodePool9findNodesEjPP6dtNodei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
   %5 = shl i32 %1, 15
   %6 = xor i32 %5, -1
-  %7 = add i32 %6, %1
+  %7 = add i32 %1, %6
   %8 = lshr i32 %7, 10
   %9 = xor i32 %8, %7
   %10 = mul i32 %9, 9
@@ -272,7 +272,7 @@ define noundef i32 @_ZN10dtNodePool9findNodesEjPP6dtNodei(ptr nocapture noundef 
 define noundef ptr @_ZN10dtNodePool8findNodeEjh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #8 align 2 {
   %4 = shl i32 %1, 15
   %5 = xor i32 %4, -1
-  %6 = add i32 %5, %1
+  %6 = add i32 %1, %5
   %7 = lshr i32 %6, 10
   %8 = xor i32 %7, %6
   %9 = mul i32 %8, 9
@@ -334,7 +334,7 @@ define noundef ptr @_ZN10dtNodePool8findNodeEjh(ptr nocapture noundef nonnull re
 define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #9 align 2 {
   %4 = shl i32 %1, 15
   %5 = xor i32 %4, -1
-  %6 = add i32 %5, %1
+  %6 = add i32 %1, %5
   %7 = lshr i32 %6, 10
   %8 = xor i32 %7, %6
   %9 = mul i32 %8, 9

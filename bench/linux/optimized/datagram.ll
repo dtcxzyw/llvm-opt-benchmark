@@ -834,7 +834,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr no
 30:                                               ; preds = %28, %26, %25
   %31 = phi i64 [ %29, %28 ], [ %27, %26 ], [ 0, %25 ]
   %32 = trunc i64 %31 to i32
-  %33 = add i32 %32, %1
+  %33 = add i32 %1, %32
   %34 = icmp eq i32 %16, %32
   br i1 %34, label %35, label %.thread9
 

@@ -701,7 +701,7 @@ lor.lhs.false:                                    ; preds = %entry
   %target_name_ = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %target_name_, align 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
-  %cmp.i.i = icmp eq i64 %call.i.i, %host.coerce0
+  %cmp.i.i = icmp eq i64 %host.coerce0, %call.i.i
   br i1 %cmp.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, label %_ZN9grpc_core14promise_detail9ImmediateIN4absl12lts_202308026StatusEED2Ev.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %lor.lhs.false

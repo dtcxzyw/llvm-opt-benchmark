@@ -940,7 +940,7 @@ _ZN2cvL13iplImageToMatEPK9_IplImageb.exit:        ; preds = %299, %326
   %375 = lshr i64 %374, 3
   %376 = getelementptr inbounds i8, ptr %5, i64 8
   %377 = load i64, ptr %376, align 8
-  %.not.i76 = icmp ult i64 %377, %375
+  %.not.i76 = icmp ugt i64 %375, %377
   br i1 %.not.i76, label %379, label %378
 
 378:                                              ; preds = %370

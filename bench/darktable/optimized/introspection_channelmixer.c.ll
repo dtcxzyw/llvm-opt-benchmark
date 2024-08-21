@@ -574,7 +574,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 
 277:                                              ; preds = %269
   %278 = fadd reassoc nsz arcp contract afn float %264, %265
-  %279 = fmul reassoc nsz arcp contract afn float %264, %265
+  %279 = fmul reassoc nsz arcp contract afn float %265, %264
   %280 = fsub reassoc nsz arcp contract afn float %278, %279
   br label %281
 
@@ -896,7 +896,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 
 529:                                              ; preds = %521
   %530 = fadd reassoc nsz arcp contract afn float %518, %519
-  %531 = fmul reassoc nsz arcp contract afn float %518, %519
+  %531 = fmul reassoc nsz arcp contract afn float %519, %518
   %532 = fsub reassoc nsz arcp contract afn float %530, %531
   br label %533
 

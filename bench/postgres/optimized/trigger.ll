@@ -1283,7 +1283,7 @@ define dso_local { i64, i32 } @CreateTriggerFiringOn(ptr noundef %0, ptr noundef
   %551 = trunc i8 %535 to i1
   %not. = xor i1 %551, true
   %brmerge532 = select i1 %not., i1 %550, i1 false
-  %552 = or i1 %brmerge532, %10
+  %552 = or i1 %10, %brmerge532
   br i1 %552, label %560, label %553
 
 553:                                              ; preds = %549
@@ -2727,7 +2727,7 @@ define dso_local void @EnableDisableTrigger(ptr noundef %0, ptr noundef %1, i32 
   %47 = getelementptr i8, ptr %43, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 4
-  %.not60.us = icmp eq i32 %49, %2
+  %.not60.us = icmp eq i32 %2, %49
   br i1 %.not60.us, label %50, label %.backedge.us80
 
 50:                                               ; preds = %.lr.ph.split.split.us
@@ -2751,7 +2751,7 @@ define dso_local void @EnableDisableTrigger(ptr noundef %0, ptr noundef %1, i32 
   %61 = getelementptr i8, ptr %57, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   %63 = load i32, ptr %62, align 4
-  %.not60 = icmp eq i32 %63, %2
+  %.not60 = icmp eq i32 %2, %63
   br i1 %.not60, label %65, label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph.split.split
@@ -4373,7 +4373,7 @@ define internal fastcc void @AfterTriggerSaveEvent(ptr noundef %0, ptr noundef %
 
 AfterTriggerEnlargeQueryState.exit:               ; preds = %.lr.ph.i, %46, %28
   %54 = icmp ne ptr %10, null
-  %or.cond = and i1 %54, %5
+  %or.cond = and i1 %5, %54
   br i1 %or.cond, label %55, label %.critedge
 
 55:                                               ; preds = %AfterTriggerEnlargeQueryState.exit
@@ -4662,12 +4662,12 @@ default.unreachable:                              ; preds = %98, %.critedge
 192:                                              ; preds = %165, %156, %141, %126, %185
   %.0145 = phi i32 [ 32, %185 ], [ 16, %165 ], [ 16, %156 ], [ 8, %141 ], [ 4, %126 ]
   %193 = icmp eq i8 %22, 102
-  %brmerge.not = and i1 %193, %5
+  %brmerge.not = and i1 %5, %193
   br i1 %brmerge.not, label %198, label %194
 
 194:                                              ; preds = %192
   %195 = icmp eq i32 %4, 2
-  %or.cond3 = and i1 %195, %5
+  %or.cond3 = and i1 %5, %195
   br i1 %or.cond3, label %196, label %.sink.split
 
 196:                                              ; preds = %194
@@ -6025,7 +6025,7 @@ define dso_local noundef zeroext i1 @ExecBRUpdateTriggers(ptr noundef %0, ptr no
 
 23:                                               ; preds = %21
   %24 = call ptr @ExecGetUpdateNewTuple(ptr noundef nonnull %2, ptr noundef nonnull %22, ptr noundef %15) #15
-  %.not75 = icmp eq ptr %24, %5
+  %.not75 = icmp eq ptr %5, %24
   br i1 %.not75, label %30, label %25
 
 25:                                               ; preds = %23

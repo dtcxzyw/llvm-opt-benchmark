@@ -2321,7 +2321,7 @@ lj_meta_lookup.exit:                              ; preds = %if.then21.i, %if.en
 
 for.cond.preheader:                               ; preds = %lj_meta_lookup.exit
   %add.ptr = getelementptr inbounds i8, ptr %func, i64 16
-  %cmp217 = icmp ult ptr %add.ptr, %top
+  %cmp217 = icmp ugt ptr %top, %add.ptr
   br i1 %cmp217, label %for.body, label %for.end
 
 if.then:                                          ; preds = %lj_meta_lookup.exit

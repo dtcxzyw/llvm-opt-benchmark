@@ -4929,12 +4929,12 @@ alloc_address_wmem.exit339:                       ; preds = %alloc_address_wmem.
   %170 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0914.i) #8
   %171 = getelementptr inbounds i8, ptr %170, i64 4
   %172 = load i32, ptr %171, align 4
-  %.not11.i = icmp ult i32 %172, %168
+  %.not11.i = icmp ugt i32 %168, %172
   br i1 %.not11.i, label %175, label %173
 
 173:                                              ; preds = %.lr.ph.i
   %174 = load i32, ptr %170, align 4
-  %.not12.i = icmp ugt i32 %174, %168
+  %.not12.i = icmp ult i32 %168, %174
   br i1 %.not12.i, label %175, label %findIdentifierFor.exit
 
 175:                                              ; preds = %173, %.lr.ph.i

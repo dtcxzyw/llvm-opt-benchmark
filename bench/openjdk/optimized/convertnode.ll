@@ -3531,7 +3531,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %.053.ph.i51 = phi i64 [ %101, %102 ], [ %85, %86 ]
   %.052.in.ph.i52 = phi i1 [ %spec.select.i78.i46, %102 ], [ %spec.select.i.i67, %86 ]
   %.052.in.not.i53 = xor i1 %.052.in.ph.i52, true
-  %.not60.i54 = icmp slt i64 %.054.ph.i50, %26
+  %.not60.i54 = icmp sgt i64 %26, %.054.ph.i50
   %or.cond.i55 = or i1 %.not60.i54, %.052.in.not.i53
   %.not61.i56 = icmp sgt i64 %.054.ph.i50, %30
   %or.cond64.i57 = or i1 %.not61.i56, %or.cond.i55
@@ -3545,7 +3545,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
 116:                                              ; preds = %114
   %.not62.i59 = icmp sgt i64 %.054.ph.i50, %26
   %or.cond65.i60 = and i1 %.not62.i59, %.052.in.ph.i52
-  %.not63.i61 = icmp slt i64 %.053.ph.i51, %26
+  %.not63.i61 = icmp sgt i64 %26, %.053.ph.i51
   %or.cond66.i62 = or i1 %.not63.i61, %or.cond65.i60
   br i1 %or.cond66.i62, label %119, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
@@ -3555,7 +3555,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %.052.in.i31 = phi i1 [ %spec.select.i73.i64, %92 ], [ %spec.select.i79.i26, %108 ]
   %.0.in.i32 = phi i1 [ %spec.select.i76.i66, %92 ], [ %spec.select.i83.i28, %108 ]
   %.0.in.not.i33 = xor i1 %.0.in.i32, true
-  %.not.i34 = icmp slt i64 %.053.i30, %26
+  %.not.i34 = icmp sgt i64 %26, %.053.i30
   %or.cond67.i35 = or i1 %.not.i34, %.0.in.not.i33
   %.not57.i36 = icmp sgt i64 %.053.i30, %30
   %or.cond68.i37 = or i1 %.not57.i36, %or.cond67.i35
@@ -3565,7 +3565,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %.052.in.not69.i39 = xor i1 %.052.in.i31, true
   %.not58.i40 = icmp sgt i64 %.054.i29, %30
   %or.cond70.i41 = or i1 %.not58.i40, %.052.in.not69.i39
-  %.not59.i42 = icmp slt i64 %.053.i30, %30
+  %.not59.i42 = icmp sgt i64 %30, %.053.i30
   %or.cond71.i43 = and i1 %.not59.i42, %.0.in.i32
   %or.cond72.i44 = or i1 %or.cond70.i41, %or.cond71.i43
   br i1 %or.cond72.i44, label %119, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit

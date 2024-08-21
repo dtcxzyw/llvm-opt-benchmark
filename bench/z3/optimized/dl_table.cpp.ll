@@ -871,7 +871,7 @@ cleanup.action49:                                 ; preds = %if.then36
 for.end54:                                        ; preds = %for.cond
   %.pre = load i32, ptr %m_bv, align 8
   %shl56 = shl nuw i32 1, %add
-  %cmp.i39 = icmp ult i32 %.pre, %shl56
+  %cmp.i39 = icmp ugt i32 %shl56, %.pre
   br i1 %cmp.i39, label %if.then.i41, label %invoke.cont57
 
 if.then.i41:                                      ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit.thread, %_ZNK6vectorImLb0EjE4sizeEv.exit, %for.end54
@@ -1422,7 +1422,7 @@ define linkonce_odr hidden noundef ptr @_ZN7datalog17tr_infrastructureINS_12tabl
 entry:
   %m_kind.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_kind.i, align 8
-  %cmp = icmp eq i32 %0, %kind
+  %cmp = icmp eq i32 %kind, %0
   %cmp2 = icmp eq i32 %kind, -1
   %or.cond = or i1 %cmp2, %cmp
   %vtable = load ptr, ptr %this, align 8
@@ -4303,7 +4303,7 @@ entry:
   %m_inner = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_inner, align 8
   %m_data.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %cmp.i.i = icmp eq ptr %m_data.i.i, %result
+  %cmp.i.i = icmp eq ptr %result, %m_data.i.i
   br i1 %cmp.i.i, label %_ZN7svectorImjEaSERKS0_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -4639,7 +4639,7 @@ _ZNK7datalog10table_base13row_interface4sizeEv.exit9: ; preds = %_ZNK7datalog10t
 _ZNK6vectorImLb0EjE4sizeEv.exit.thread.i:         ; preds = %_ZNK7datalog10table_base13row_interface4sizeEv.exit9
   %arrayidx.i.i11 = getelementptr inbounds i8, ptr %0, i64 -4
   %5 = load i32, ptr %arrayidx.i.i11, align 4
-  %cmp.not15.i = icmp ult i32 %5, %4
+  %cmp.not15.i = icmp ugt i32 %4, %5
   br i1 %cmp.not15.i, label %while.cond.i.preheader, label %if.then.i.i
 
 while.cond.i.preheader:                           ; preds = %_ZNK7datalog10table_base13row_interface4sizeEv.exit9, %_ZNK6vectorImLb0EjE4sizeEv.exit.thread.i
@@ -4654,19 +4654,15 @@ if.then.i.i:                                      ; preds = %_ZNK6vectorImLb0EjE
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %while.body.i
   %6 = phi ptr [ %.pr.pre.i, %while.body.i ], [ %.ph, %while.cond.i.preheader ]
   %cmp.i10.i = icmp eq ptr %6, null
-  br i1 %cmp.i10.i, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i, label %if.end.i11.i
+  br i1 %cmp.i10.i, label %while.body.i, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i
 
-if.end.i11.i:                                     ; preds = %while.cond.i
+_ZNK6vectorImLb0EjE8capacityEv.exit.i:            ; preds = %while.cond.i
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load i32, ptr %arrayidx.i12.i, align 4
-  br label %_ZNK6vectorImLb0EjE8capacityEv.exit.i
-
-_ZNK6vectorImLb0EjE8capacityEv.exit.i:            ; preds = %if.end.i11.i, %while.cond.i
-  %retval.0.i13.i = phi i32 [ %7, %if.end.i11.i ], [ 0, %while.cond.i ]
-  %cmp3.i = icmp ult i32 %retval.0.i13.i, %4
+  %cmp3.i = icmp ugt i32 %4, %7
   br i1 %cmp3.i, label %while.body.i, label %while.end.i
 
-while.body.i:                                     ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i
+while.body.i:                                     ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i, %while.cond.i
   tail call void @_ZN6vectorImLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %result)
   %.pr.pre.i = load ptr, ptr %result, align 8
   br label %while.cond.i, !llvm.loop !37
@@ -4674,8 +4670,8 @@ while.body.i:                                     ; preds = %_ZNK6vectorImLb0EjE
 while.end.i:                                      ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i
   %arrayidx.i12 = getelementptr inbounds i8, ptr %6, i64 -4
   store i32 %4, ptr %arrayidx.i12, align 4
-  %cmp8.not17.i = icmp eq i32 %retval.0.i16.i.ph, %4
-  br i1 %cmp8.not17.i, label %if.end, label %for.body.lr.ph.i
+  %cmp8.not19.i = icmp eq i32 %retval.0.i16.i.ph, %4
+  br i1 %cmp8.not19.i, label %if.end, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %while.end.i
   %idx.ext6.i = zext i32 %4 to i64

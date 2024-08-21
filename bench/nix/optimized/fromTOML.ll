@@ -3790,7 +3790,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %40 = load ptr, ptr %23, align 8
   %41 = getelementptr inbounds i8, ptr %23, i64 48
-  %42 = icmp eq ptr %41, %40
+  %42 = icmp eq ptr %40, %41
   br i1 %42, label %_ZNKSt14default_deleteISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4toml11basic_valueINS7_16discard_commentsES0_St6vectorEESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_SB_EEEEclEPSK_.exit, label %43
 
 43:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -4198,7 +4198,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %71, i8 0, i64 %73, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %74 = load ptr, ptr %5, align 8
-  %75 = icmp eq ptr %27, %74
+  %75 = icmp eq ptr %74, %27
   br i1 %75, label %"_ZSt10__invoke_rIvRZN3nixL13prim_fromTOMLERNS0_9EvalStateENS0_6PosIdxEPPNS0_5ValueERS4_E3$_0JS7_N4toml11basic_valueINSA_16discard_commentsESt13unordered_mapSt6vectorEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %76
 
 76:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i
@@ -4895,7 +4895,7 @@ _ZSt10_ConstructIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
   %81 = tail call ptr @__cxa_begin_catch(ptr %80) #30, !noalias !14
-  %.not.i2.i.i = icmp eq ptr %.013.i, %71
+  %.not.i2.i.i = icmp eq ptr %71, %.013.i
   br i1 %.not.i2.i.i, label %_ZSt8_DestroyIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEEvT_S7_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %78, %.lr.ph.i.i
@@ -5041,7 +5041,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 48
-  %19 = icmp eq ptr %18, %17
+  %19 = icmp eq ptr %17, %18
   br i1 %19, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %20
 
 20:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i
@@ -5107,7 +5107,7 @@ _ZSt10_ConstructIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
   %27 = tail call ptr @__cxa_begin_catch(ptr %26) #30
-  %.not.i2.i.i = icmp eq ptr %.013.i, %14
+  %.not.i2.i.i = icmp eq ptr %14, %.013.i
   br i1 %.not.i2.i.i, label %_ZSt8_DestroyIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEEvT_S7_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
@@ -5233,7 +5233,7 @@ _ZN4toml6detail13comment_indexIcSt11char_traitsIcEEEiRSt13basic_ostreamIT_T0_E.e
   %25 = load i32, ptr @_ZZN4toml6detail13comment_indexIcSt11char_traitsIcEEEiRSt13basic_ostreamIT_T0_EE5index, align 4
   %26 = getelementptr inbounds i8, ptr %18, i64 192
   %27 = load i32, ptr %26, align 8
-  %28 = icmp ugt i32 %27, %25
+  %28 = icmp ult i32 %25, %27
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %_ZN4toml6detail13comment_indexIcSt11char_traitsIcEEEiRSt13basic_ostreamIT_T0_E.exit
@@ -6021,7 +6021,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   %126 = phi ptr [ %116, %.lr.ph104 ], [ %188, %185 ]
   %.036103 = phi i64 [ 1, %.lr.ph104 ], [ %186, %185 ]
   %127 = add i64 %.036103, -1
-  %.not.i.i47 = icmp ugt i64 %125, %127
+  %.not.i.i47 = icmp ult i64 %127, %125
   br i1 %.not.i.i47, label %129, label %128
 
 128:                                              ; preds = %124
@@ -6907,7 +6907,7 @@ _ZN4toml10color_ansi6detail14colorize_indexEv.exit: ; preds = %1, %8, %10
   %12 = load i32, ptr @_ZZN4toml10color_ansi6detail14colorize_indexEvE5index, align 4
   %13 = getelementptr inbounds i8, ptr %5, i64 192
   %14 = load i32, ptr %13, align 8
-  %15 = icmp ugt i32 %14, %12
+  %15 = icmp ult i32 %12, %14
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %_ZN4toml10color_ansi6detail14colorize_indexEv.exit
@@ -6983,7 +6983,7 @@ _ZN4toml10color_ansi6detail14colorize_indexEv.exit: ; preds = %1, %8, %10
   %12 = load i32, ptr @_ZZN4toml10color_ansi6detail14colorize_indexEvE5index, align 4
   %13 = getelementptr inbounds i8, ptr %5, i64 192
   %14 = load i32, ptr %13, align 8
-  %15 = icmp ugt i32 %14, %12
+  %15 = icmp ult i32 %12, %14
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %_ZN4toml10color_ansi6detail14colorize_indexEv.exit
@@ -7037,7 +7037,7 @@ _ZN4toml10color_ansi6detail14colorize_indexEv.exit: ; preds = %1, %8, %10
   %12 = load i32, ptr @_ZZN4toml10color_ansi6detail14colorize_indexEvE5index, align 4
   %13 = getelementptr inbounds i8, ptr %5, i64 192
   %14 = load i32, ptr %13, align 8
-  %15 = icmp ugt i32 %14, %12
+  %15 = icmp ult i32 %12, %14
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %_ZN4toml10color_ansi6detail14colorize_indexEv.exit
@@ -7091,7 +7091,7 @@ _ZN4toml10color_ansi6detail14colorize_indexEv.exit: ; preds = %1, %8, %10
   %12 = load i32, ptr @_ZZN4toml10color_ansi6detail14colorize_indexEvE5index, align 4
   %13 = getelementptr inbounds i8, ptr %5, i64 192
   %14 = load i32, ptr %13, align 8
-  %15 = icmp ugt i32 %14, %12
+  %15 = icmp ult i32 %12, %14
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %_ZN4toml10color_ansi6detail14colorize_indexEv.exit
@@ -7145,7 +7145,7 @@ _ZN4toml10color_ansi6detail14colorize_indexEv.exit: ; preds = %1, %8, %10
   %12 = load i32, ptr @_ZZN4toml10color_ansi6detail14colorize_indexEvE5index, align 4
   %13 = getelementptr inbounds i8, ptr %5, i64 192
   %14 = load i32, ptr %13, align 8
-  %15 = icmp ugt i32 %14, %12
+  %15 = icmp ult i32 %12, %14
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %_ZN4toml10color_ansi6detail14colorize_indexEv.exit
@@ -7451,7 +7451,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #30
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit
 
 10:                                               ; preds = %4
@@ -7465,7 +7465,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit: ; pre
   %11 = load ptr, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %2
   %13 = sub nuw i64 %8, %2
-  %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %13, i64 %3)
+  %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %3, i64 %13)
   %14 = icmp ugt i64 %spec.select.i, 15
   br i1 %14, label %15, label %._crit_edge.i
 
@@ -8664,7 +8664,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
 78:                                               ; preds = %.body
   %79 = load ptr, ptr %0, align 8
   %80 = getelementptr inbounds i8, ptr %0, i64 48
-  %81 = icmp eq ptr %80, %79
+  %81 = icmp eq ptr %79, %80
   br i1 %81, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %82
 
 82:                                               ; preds = %78
@@ -11060,7 +11060,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i11
 
 356:                                              ; preds = %328
   %357 = add i64 %330, -2
-  %.not.i124 = icmp ugt i64 %329, %357
+  %.not.i124 = icmp ult i64 %357, %329
   br i1 %.not.i124, label %359, label %358
 
 358:                                              ; preds = %356
@@ -11201,7 +11201,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i139:
 
 410:                                              ; preds = %405
   %411 = add i64 %408, -2
-  %spec.select.i.i = call noundef i64 @llvm.umin.i64(i64 %409, i64 %411)
+  %spec.select.i.i = call noundef i64 @llvm.umin.i64(i64 %411, i64 %409)
   %412 = icmp ugt i64 %409, %411
   %413 = icmp ne i64 %spec.select.i.i, 0
   %or.cond.i.i = and i1 %412, %413
@@ -11377,7 +11377,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i160:
 
 473:                                              ; preds = %468
   %474 = add i64 %471, -1
-  %spec.select.i.i169 = call noundef i64 @llvm.umin.i64(i64 %472, i64 %474)
+  %spec.select.i.i169 = call noundef i64 @llvm.umin.i64(i64 %474, i64 %472)
   %475 = icmp ugt i64 %472, %474
   %476 = icmp ne i64 %spec.select.i.i169, 0
   %or.cond.i.i170 = and i1 %475, %476
@@ -12162,7 +12162,7 @@ _ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt
 
 _ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS4_IS5_SaIS5_EE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS4_IS5_SaIS5_EE.exit.loopexit.split.loop.exit, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS4_IS5_SaIS5_EE.exit.loopexit.split.loop.exit225, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS4_IS5_SaIS5_EE.exit.loopexit.split.loop.exit227, %44, %48, %52
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %44 ], [ %.sroa.025.1.i.i.i.i.i, %48 ], [ %spec.select.i.i.i.i.i, %52 ], [ %54, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS4_IS5_SaIS5_EE.exit.loopexit.split.loop.exit ], [ %55, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS4_IS5_SaIS5_EE.exit.loopexit.split.loop.exit225 ], [ %56, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS4_IS5_SaIS5_EE.exit.loopexit.split.loop.exit227 ], [ %.sroa.025.050.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %57 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %15
+  %57 = icmp eq ptr %15, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %57, label %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS4_IS5_SaIS5_EE.exit.thread, label %58
 
 _ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS4_IS5_SaIS5_EE.exit.thread: ; preds = %._crit_edge.i.i.i.i.i, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS4_IS5_SaIS5_EE.exit
@@ -14815,7 +14815,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit: ; preds =
 .lr.ph125:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit103
   %202 = phi i64 [ %207, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit103 ], [ %187, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit ]
   %.0124 = phi i64 [ %221, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit103 ], [ %201, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit ]
-  %203 = icmp ult i64 %202, %.0124
+  %203 = icmp ugt i64 %.0124, %202
   br i1 %203, label %204, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i
 
 204:                                              ; preds = %.lr.ph125
@@ -15525,7 +15525,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   %21 = getelementptr inbounds i8, ptr %13, i64 %1
   %22 = add i64 %2, %1
   %23 = sub i64 %7, %22
-  %24 = icmp ugt ptr %13, %3
+  %24 = icmp ult ptr %3, %13
   %25 = getelementptr inbounds i8, ptr %13, i64 %7
   %26 = icmp ult ptr %25, %3
   %27 = select i1 %24, i1 true, i1 %26
@@ -15634,7 +15634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94: ; p
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
 
 57:                                               ; preds = %50
-  %.not87 = icmp ugt ptr %52, %3
+  %.not87 = icmp ult ptr %3, %52
   br i1 %.not87, label %67, label %58
 
 58:                                               ; preds = %57
@@ -19501,7 +19501,7 @@ _ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt
 
 _ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit.loopexit.split.loop.exit, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit.loopexit.split.loop.exit342, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit.loopexit.split.loop.exit344, %102, %106, %110
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %102 ], [ %.sroa.025.1.i.i.i.i.i.i, %106 ], [ %spec.select.i.i.i.i.i.i, %110 ], [ %112, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit.loopexit.split.loop.exit ], [ %113, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit.loopexit.split.loop.exit342 ], [ %114, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit.loopexit.split.loop.exit344 ], [ %.sroa.025.050.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %115 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %78
+  %115 = icmp eq ptr %78, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %115, label %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit.thread225, label %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit.thread
 
 .loopexit:                                        ; preds = %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit101.thread228
@@ -20098,7 +20098,7 @@ _ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt
 
 _ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit101: ; preds = %.lr.ph.i.i.i.i.i.i88, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit101.loopexit.split.loop.exit, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit101.loopexit.split.loop.exit350, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit101.loopexit.split.loop.exit352, %288, %292, %296
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i82 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i77, %288 ], [ %.sroa.025.1.i.i.i.i.i.i83, %292 ], [ %spec.select.i.i.i.i.i.i80, %296 ], [ %298, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit101.loopexit.split.loop.exit ], [ %299, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit101.loopexit.split.loop.exit350 ], [ %300, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit101.loopexit.split.loop.exit352 ], [ %.sroa.025.050.i.i.i.i.i.i90, %.lr.ph.i.i.i.i.i.i88 ]
-  %301 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i82, %264
+  %301 = icmp eq ptr %264, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i82
   br i1 %301, label %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit101.thread228, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit211
 
 _ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit101.thread228: ; preds = %256, %._crit_edge.i.i.i.i.i.i75, %_ZNK4toml10serializerINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEEE18is_array_of_tablesERKS5_.exit101
@@ -21050,7 +21050,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %32 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %33 = sub i64 %31, %32
   %34 = icmp sgt i64 %33, -1
-  %35 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %35 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %34, label %36, label %45
 
 36:                                               ; preds = %30
@@ -22915,7 +22915,7 @@ define linkonce_odr void @_ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_i
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
   %7 = icmp sgt i64 %6, -1
-  %8 = icmp eq ptr %.sroa.04.0.copyload, %1
+  %8 = icmp eq ptr %1, %.sroa.04.0.copyload
   br i1 %7, label %9, label %18
 
 9:                                                ; preds = %2
@@ -24826,7 +24826,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcET_S8_S8_RKT0_.e
           to label %286 unwind label %.loopexit163
 
 286:                                              ; preds = %284
-  %287 = icmp eq ptr %285, %.sroa.08.0.in.sroa.speculated.i.i.i50
+  %287 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i50, %285
   br i1 %287, label %288, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcET_S8_S8_RKT0_.exit.thread.loopexit
 
 288:                                              ; preds = %286
@@ -24945,7 +24945,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcET_S8_S8_RKT0_.e
 334:                                              ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcET_S8_S8_RKT0_.exit.thread
   %335 = icmp ne ptr %327, %328
   %.sroa.0.010.i.i = getelementptr inbounds i8, ptr %328, i64 -32
-  %.not11.i.i = icmp ugt ptr %.sroa.0.010.i.i, %327
+  %.not11.i.i = icmp ult ptr %327, %.sroa.0.010.i.i
   %or.cond.i.i = select i1 %335, i1 %.not11.i.i, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit
 
@@ -25812,7 +25812,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ], [ %52, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ]
   %53 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23
@@ -28514,7 +28514,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %39, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ]
   %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i33
@@ -29185,7 +29185,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %149, i8 0, i64 %151, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
   %152 = load ptr, ptr %5, align 8
-  %153 = icmp eq ptr %60, %152
+  %153 = icmp eq ptr %152, %60
   br i1 %153, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4toml11basic_valueINS6_16discard_commentsES_St6vectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit, label %154
 
 154:                                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -31961,7 +31961,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %1217, i8 0, i64 %1219, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %551, i8 0, i64 16, i1 false)
   %1220 = load ptr, ptr %19, align 8
-  %1221 = icmp eq ptr %549, %1220
+  %1221 = icmp eq ptr %1220, %549
   br i1 %1221, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4toml11basic_valueINS6_16discard_commentsES_St6vectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit416, label %1222
 
 1222:                                             ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i414
@@ -32708,7 +32708,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS1_IJNS0_5maybe
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -33816,7 +33816,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc35EEENS0_6r
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -34638,7 +34638,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit107: ; preds = %200, %_Z
   %248 = ptrtoint ptr %.sroa.0.0.copyload.i108 to i64
   %249 = sub i64 %247, %248
   %250 = icmp sgt i64 %249, -1
-  %251 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i108
+  %251 = icmp eq ptr %.sroa.0.0.copyload.i108, %.sroa.04.0.copyload.i
   br i1 %250, label %252, label %261
 
 252:                                              ; preds = %246
@@ -34723,7 +34723,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %284, ptr noundef nonnull align 8 dereferenceable(16) %276, i64 16, i1 false)
   %285 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr null, ptr %285, align 8
-  %286 = icmp eq ptr %277, %279
+  %286 = icmp eq ptr %279, %277
   br i1 %286, label %287, label %289
 
 287:                                              ; preds = %278
@@ -34826,7 +34826,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %318 = ptrtoint ptr %.sroa.0.0.copyload.i108 to i64
   %319 = sub i64 %317, %318
   %320 = icmp sgt i64 %319, -1
-  %321 = icmp eq ptr %.sroa.04.0.copyload.i126, %.sroa.0.0.copyload.i108
+  %321 = icmp eq ptr %.sroa.0.0.copyload.i108, %.sroa.04.0.copyload.i126
   br i1 %320, label %322, label %331
 
 322:                                              ; preds = %316
@@ -34911,7 +34911,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %354, ptr noundef nonnull align 8 dereferenceable(16) %346, i64 16, i1 false)
   %355 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr null, ptr %355, align 8
-  %356 = icmp eq ptr %347, %349
+  %356 = icmp eq ptr %349, %347
   br i1 %356, label %357, label %359
 
 357:                                              ; preds = %348
@@ -35862,7 +35862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237: ; preds = %_Z
   %717 = ptrtoint ptr %.sroa.0.0.copyload.i208 to i64
   %718 = sub i64 %716, %717
   %719 = icmp sgt i64 %718, -1
-  %720 = icmp eq ptr %.sroa.04.0.copyload.i238, %.sroa.0.0.copyload.i208
+  %720 = icmp eq ptr %.sroa.0.0.copyload.i208, %.sroa.04.0.copyload.i238
   br i1 %719, label %721, label %730
 
 721:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237
@@ -36481,7 +36481,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit302: ; preds = %_ZN4toml
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %962, ptr noundef nonnull align 8 dereferenceable(16) %951, i64 16, i1 false)
   %963 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr null, ptr %963, align 8
-  %964 = icmp eq ptr %952, %955
+  %964 = icmp eq ptr %955, %952
   br i1 %964, label %965, label %967
 
 965:                                              ; preds = %953
@@ -36552,7 +36552,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %985, i8 0, i64 %987, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, i8 0, i64 16, i1 false)
   %988 = load ptr, ptr %8, align 8
-  %989 = icmp eq ptr %140, %988
+  %989 = icmp eq ptr %988, %140
   br i1 %989, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4toml11basic_valueINS6_16discard_commentsES_St6vectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit, label %990
 
 990:                                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i322
@@ -41423,7 +41423,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %992, i8 0, i64 %994, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, i8 0, i64 16, i1 false)
   %995 = load ptr, ptr %119, align 8
-  %996 = icmp eq ptr %160, %995
+  %996 = icmp eq ptr %995, %160
   br i1 %996, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4toml11basic_valueINS6_16discard_commentsES_St6vectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit, label %997
 
 997:                                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -44572,7 +44572,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %32 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %33 = sub i64 %31, %32
   %34 = icmp sgt i64 %33, -1
-  %35 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %35 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %34, label %36, label %45
 
 36:                                               ; preds = %30
@@ -45158,7 +45158,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_5maybeINS0_6repeat
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -45513,7 +45513,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -45844,7 +45844,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_9characterILc35EEE
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -46180,7 +46180,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS0_9characterI
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -46535,7 +46535,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -46986,7 +46986,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %32 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %33 = sub i64 %31, %32
   %34 = icmp sgt i64 %33, -1
-  %35 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %35 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %34, label %36, label %45
 
 36:                                               ; preds = %30
@@ -48732,7 +48732,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc13EEENS2_IL
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -49390,7 +49390,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc10EEEEE6inv
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -50071,7 +50071,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_6eitherIJNS3
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -51724,7 +51724,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILcn62ELcn33EEE
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -52557,7 +52557,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILcn128ELcn65EE
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -53239,7 +53239,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS1_IJNS0_9char
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -53745,7 +53745,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILcn32EEENS0_8
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -54577,7 +54577,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILcn96ELcn65EEE
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -55260,7 +55260,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILcn31ELcn20EEE
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -56094,7 +56094,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILcn19EEENS0_8
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -56752,7 +56752,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILcn128ELcn97EE
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -57434,7 +57434,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILcn18ELcn17EEE
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -58094,7 +58094,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS1_IJNS0_9char
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -58599,7 +58599,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILcn128ELcn65EE
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -58936,7 +58936,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILcn16EEENS0_8
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -59768,7 +59768,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILcn112ELcn65EE
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -60451,7 +60451,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILcn15ELcn13EEE
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -61111,7 +61111,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILcn12EEENS0_8
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -61769,7 +61769,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILcn128ELcn113E
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -62506,7 +62506,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %32 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %33 = sub i64 %31, %32
   %34 = icmp sgt i64 %33, -1
-  %35 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %35 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %34, label %36, label %45
 
 36:                                               ; preds = %30
@@ -63180,7 +63180,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %58
   %72 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %73 = sub i64 %71, %72
   %74 = icmp sgt i64 %73, -1
-  %75 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %75 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %74, label %76, label %85
 
 76:                                               ; preds = %70
@@ -64828,7 +64828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226: ; preds = %_Z
   %650 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %651 = sub i64 %649, %650
   %652 = icmp sgt i64 %651, -1
-  %653 = icmp eq ptr %.sroa.04.0.copyload.i275, %.sroa.0.0.copyload.i
+  %653 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i275
   br i1 %652, label %654, label %663
 
 654:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226
@@ -64991,7 +64991,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit301: ; preds = %_Z
   %707 = ptrtoint ptr %.sroa.0.0.copyload.i302 to i64
   %708 = sub i64 %706, %707
   %709 = icmp sgt i64 %708, -1
-  %710 = icmp eq ptr %.sroa.04.0.copyload.i303, %.sroa.0.0.copyload.i302
+  %710 = icmp eq ptr %.sroa.0.0.copyload.i302, %.sroa.04.0.copyload.i303
   br i1 %709, label %711, label %720
 
 711:                                              ; preds = %702
@@ -65146,7 +65146,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %777 = ptrtoint ptr %.sroa.04.0.copyload.i327 to i64
   %778 = sub i64 %777, %707
   %779 = icmp sgt i64 %778, -1
-  %780 = icmp eq ptr %.sroa.04.0.copyload.i327, %.sroa.0.0.copyload.i302
+  %780 = icmp eq ptr %.sroa.0.0.copyload.i302, %.sroa.04.0.copyload.i327
   br i1 %779, label %781, label %790
 
 781:                                              ; preds = %776
@@ -65669,7 +65669,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit399: ; preds = 
   %963 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %964 = sub i64 %962, %963
   %965 = icmp sgt i64 %964, -1
-  %966 = icmp eq ptr %.sroa.04.0.copyload.i400, %.sroa.0.0.copyload.i
+  %966 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i400
   br i1 %965, label %967, label %976
 
 967:                                              ; preds = %961
@@ -66383,7 +66383,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -66714,7 +66714,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS1_IJNS0_9charac
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -68735,7 +68735,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit174: ; preds = %_ZN4toml
   %505 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %506 = sub i64 %504, %505
   %507 = icmp sgt i64 %506, -1
-  %508 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %508 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %507, label %509, label %518
 
 509:                                              ; preds = %503
@@ -69603,7 +69603,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -71133,7 +71133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
   %327 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %328 = sub i64 %326, %327
   %329 = icmp sgt i64 %328, -1
-  %330 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %330 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %329, label %331, label %340
 
 331:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114
@@ -71558,7 +71558,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS0_6repeatINS2
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -73979,7 +73979,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS1_IJNS1_IJNS0_
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -74508,7 +74508,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc34EEENS0_6r
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -75166,7 +75166,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_6eitherIJNS0
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -75950,7 +75950,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc34EEEEE6inv
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -76492,7 +76492,7 @@ define linkonce_odr void @_ZN4toml6detail7excludeINS0_6eitherIJNS0_8in_rangeILc0
   %18 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %19 = sub i64 %17, %18
   %20 = icmp sgt i64 %19, -1
-  %21 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %21 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %20, label %22, label %31
 
 22:                                               ; preds = %16
@@ -76551,7 +76551,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = icmp sgt i64 %44, -1
-  %46 = icmp eq ptr %.sroa.04.0.copyload.i15, %41
+  %46 = icmp eq ptr %41, %.sroa.04.0.copyload.i15
   br i1 %45, label %47, label %56
 
 47:                                               ; preds = %40
@@ -79026,7 +79026,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc92EEENS0_6e
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -79357,7 +79357,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS0_9characterI
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -82739,7 +82739,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc117EEENS0_6
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -83397,7 +83397,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_6eitherIJNS0
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -83819,7 +83819,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %40 = ptrtoint ptr %.sroa.04.0.copyload.i to i64
   %41 = sub i64 %40, %27
   %42 = icmp sgt i64 %41, -1
-  %43 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %43 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %42, label %44, label %52
 
 44:                                               ; preds = %39
@@ -85272,7 +85272,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc85EEENS0_6r
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -85930,7 +85930,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_6eitherIJNS0
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -86352,7 +86352,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %40 = ptrtoint ptr %.sroa.04.0.copyload.i to i64
   %41 = sub i64 %40, %27
   %42 = icmp sgt i64 %41, -1
-  %43 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %43 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %42, label %44, label %52
 
 44:                                               ; preds = %39
@@ -86801,7 +86801,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc39EEENS0_6r
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -87459,7 +87459,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_7excludeINS0
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -88243,7 +88243,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc39EEEEE6inv
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -88611,7 +88611,7 @@ define linkonce_odr void @_ZN4toml6detail7excludeINS0_6eitherIJNS0_8in_rangeILc0
   %18 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %19 = sub i64 %17, %18
   %20 = icmp sgt i64 %19, -1
-  %21 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %21 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %20, label %22, label %31
 
 22:                                               ; preds = %16
@@ -88670,7 +88670,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = icmp sgt i64 %44, -1
-  %46 = icmp eq ptr %.sroa.04.0.copyload.i15, %41
+  %46 = icmp eq ptr %41, %.sroa.04.0.copyload.i15
   br i1 %45, label %47, label %56
 
 47:                                               ; preds = %40
@@ -89711,7 +89711,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %32 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %33 = sub i64 %31, %32
   %34 = icmp sgt i64 %33, -1
-  %35 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %35 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %34, label %36, label %45
 
 36:                                               ; preds = %30
@@ -90298,7 +90298,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_5maybeINS0_6repeat
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -90630,7 +90630,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -90961,7 +90961,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS0_6repeatINS2
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -91315,7 +91315,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc46EEENS0_5m
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -91978,7 +91978,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -92633,7 +92633,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %144, %136
   %147 = load i64, ptr %132, align 8
   %148 = select i1 %143, i64 15, i64 %147
-  %.not.i = icmp ult i64 %148, %141
+  %.not.i = icmp ugt i64 %141, %148
   br i1 %.not.i, label %149, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm.exit
 
 149:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -92649,7 +92649,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 
 152:                                              ; preds = %149
   %153 = shl nuw i64 %148, 1
-  %154 = icmp ugt i64 %153, %141
+  %154 = icmp ult i64 %141, %153
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %153, i64 9223372036854775807)
   %.0.i = select i1 %154, i64 %spec.store.select.i.i, i64 %141
   %155 = add nuw i64 %.0.i, 1
@@ -93830,7 +93830,7 @@ _ZN4toml6detail8location7advanceEl.exit:          ; preds = %.lr.ph.i.i.i191, %5
   %580 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %581 = sub i64 %579, %580
   %582 = icmp sgt i64 %581, -1
-  %583 = icmp eq ptr %.sroa.04.0.copyload.i197, %.sroa.0.0.copyload.i
+  %583 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i197
   br i1 %582, label %584, label %593
 
 584:                                              ; preds = %578
@@ -95706,7 +95706,7 @@ _ZN4toml6detail8location7advanceEl.exit:          ; preds = %.lr.ph.i.i.i, %415
   %458 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %459 = sub i64 %457, %458
   %460 = icmp sgt i64 %459, -1
-  %461 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %461 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %460, label %462, label %471
 
 462:                                              ; preds = %456
@@ -98921,7 +98921,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320: ; preds = %_Z
   %691 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %692 = sub i64 %690, %691
   %693 = icmp sgt i64 %692, -1
-  %694 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %694 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %693, label %695, label %703
 
 695:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320
@@ -102540,7 +102540,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc61EEENS0_5m
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -104789,7 +104789,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit: ; preds = %_ZN4toml6de
   %451 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %452 = sub i64 %450, %451
   %453 = icmp sgt i64 %452, -1
-  %454 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %454 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %453, label %455, label %464
 
 455:                                              ; preds = %449
@@ -106980,7 +106980,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit: ; preds = %542, %_ZNSt
   %591 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %592 = sub i64 %590, %591
   %593 = icmp sgt i64 %592, -1
-  %594 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %594 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %593, label %595, label %604
 
 595:                                              ; preds = %589
@@ -108960,7 +108960,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit: ; preds = %490, %_ZNSt
   %539 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %540 = sub i64 %538, %539
   %541 = icmp sgt i64 %540, -1
-  %542 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %542 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %541, label %543, label %552
 
 543:                                              ; preds = %537
@@ -111712,7 +111712,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %474 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %475 = sub i64 %473, %474
   %476 = icmp sgt i64 %475, -1
-  %477 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %477 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %476, label %478, label %487
 
 478:                                              ; preds = %472
@@ -113522,7 +113522,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %362 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %363 = sub i64 %361, %362
   %364 = icmp sgt i64 %363, -1
-  %365 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %365 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %364, label %366, label %375
 
 366:                                              ; preds = %360
@@ -116007,7 +116007,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %633 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %634 = sub i64 %632, %633
   %635 = icmp sgt i64 %634, -1
-  %636 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %636 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %635, label %637, label %646
 
 637:                                              ; preds = %631
@@ -119218,7 +119218,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %866 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %867 = sub i64 %865, %866
   %868 = icmp sgt i64 %867, -1
-  %869 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %869 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %868, label %870, label %879
 
 870:                                              ; preds = %864
@@ -124286,7 +124286,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %865, i8 0, i64 %867, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
   %868 = load ptr, ptr %5, align 8
-  %869 = icmp eq ptr %76, %868
+  %869 = icmp eq ptr %868, %76
   br i1 %869, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4toml11basic_valueINS6_16discard_commentsES_St6vectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit, label %870
 
 870:                                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -124789,7 +124789,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit: ; preds = %182
   %234 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %235 = sub i64 %233, %234
   %236 = icmp sgt i64 %235, -1
-  %237 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %237 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %236, label %238, label %246
 
 238:                                              ; preds = %_ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit
@@ -125443,7 +125443,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit456: ; preds = %254
   %456 = ptrtoint ptr %.sroa.0.0.copyload.i480 to i64
   %457 = sub i64 %455, %456
   %458 = icmp sgt i64 %457, -1
-  %459 = icmp eq ptr %.sroa.04.0.copyload.i481, %.sroa.0.0.copyload.i480
+  %459 = icmp eq ptr %.sroa.0.0.copyload.i480, %.sroa.04.0.copyload.i481
   br i1 %458, label %460, label %468
 
 460:                                              ; preds = %_ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit456
@@ -126565,7 +126565,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit504: ; preds = %476
   %823 = ptrtoint ptr %.sroa.0.0.copyload.i598 to i64
   %824 = sub i64 %822, %823
   %825 = icmp sgt i64 %824, -1
-  %826 = icmp eq ptr %.sroa.04.0.copyload.i599, %.sroa.0.0.copyload.i598
+  %826 = icmp eq ptr %.sroa.0.0.copyload.i598, %.sroa.04.0.copyload.i599
   br i1 %825, label %827, label %835
 
 827:                                              ; preds = %_ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit504
@@ -126726,7 +126726,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit622: ; preds = %843
   %893 = ptrtoint ptr %.sroa.0.0.copyload.i623 to i64
   %894 = sub i64 %892, %893
   %895 = icmp sgt i64 %894, -1
-  %896 = icmp eq ptr %.sroa.04.0.copyload.i624, %.sroa.0.0.copyload.i623
+  %896 = icmp eq ptr %.sroa.0.0.copyload.i623, %.sroa.04.0.copyload.i624
   br i1 %895, label %897, label %905
 
 897:                                              ; preds = %_ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit622
@@ -127125,7 +127125,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit647: ; preds = %913
   %1037 = ptrtoint ptr %.sroa.0.0.copyload.i662 to i64
   %1038 = sub i64 %1036, %1037
   %1039 = icmp sgt i64 %1038, -1
-  %1040 = icmp eq ptr %.sroa.04.0.copyload.i663, %.sroa.0.0.copyload.i662
+  %1040 = icmp eq ptr %.sroa.0.0.copyload.i662, %.sroa.04.0.copyload.i663
   br i1 %1039, label %1041, label %1049
 
 1041:                                             ; preds = %_ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit647
@@ -128934,7 +128934,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_6repeatINS0_8in_ra
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -129266,7 +129266,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_6repeatINS0_8in_ra
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -129636,7 +129636,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_8in_rangeILc
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -130055,7 +130055,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_8in_rangeILc
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -130821,7 +130821,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS0_9characterI
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -131331,7 +131331,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS1_IJNS0_6repeatINS0_
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -132187,7 +132187,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_6repeatINS0_8in_ra
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -132518,7 +132518,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS0_9characterI
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -133875,7 +133875,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS0_9characterI
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -134380,7 +134380,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_6repeatINS0_8in_ra
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -135062,7 +135062,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_8in_rangeILc
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -135459,7 +135459,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %40 = ptrtoint ptr %.sroa.04.0.copyload.i to i64
   %41 = sub i64 %40, %27
   %42 = icmp sgt i64 %41, -1
-  %43 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %43 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %42, label %44, label %52
 
 44:                                               ; preds = %39
@@ -135907,7 +135907,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc58EEENS0_6r
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -136570,7 +136570,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_8in_rangeILc
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -136924,7 +136924,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS0_9characterI
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -137260,7 +137260,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_6repeatINS0_8in_ra
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -137682,7 +137682,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %40 = ptrtoint ptr %.sroa.04.0.copyload.i to i64
   %41 = sub i64 %40, %27
   %42 = icmp sgt i64 %41, -1
-  %43 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %43 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %42, label %44, label %52
 
 44:                                               ; preds = %39
@@ -138130,7 +138130,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc45EEENS0_6r
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -138466,7 +138466,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_8in_rangeILc
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -138802,7 +138802,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc45EEENS0_6r
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -139138,7 +139138,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc58EEENS0_6r
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -139474,7 +139474,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_8in_rangeILc
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -139810,7 +139810,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc58EEENS0_6r
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -140146,7 +140146,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_8in_rangeILc
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -140482,7 +140482,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS1_IJNS0_9charac
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -141303,7 +141303,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc46EEENS0_6r
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -141634,7 +141634,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_8in_rangeILc
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -142044,7 +142044,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %32 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %33 = sub i64 %31, %32
   %34 = icmp sgt i64 %33, -1
-  %35 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %35 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %34, label %36, label %45
 
 36:                                               ; preds = %30
@@ -142631,7 +142631,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6eitherIJNS0_
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -143428,7 +143428,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS1_IJNS0_9char
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -143957,7 +143957,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc105EEENS2_I
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -144615,7 +144615,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc110EEENS2_I
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -144951,7 +144951,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc102EEEEE6in
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -145306,7 +145306,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc110EEENS2_I
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -145637,7 +145637,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc97EEENS2_IL
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -146300,7 +146300,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc110EEEEE6in
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -146655,7 +146655,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_5maybeINS0_6either
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -146987,7 +146987,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6eitherIJNS0_
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -147318,7 +147318,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS1_IJNS2_IJNS0
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -147672,7 +147672,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS1_IJNS0_8in_r
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -148201,7 +148201,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILc49ELc57EEENS
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -148860,7 +148860,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_6eitherIJNS0
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -149270,7 +149270,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %32 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %33 = sub i64 %31, %32
   %34 = icmp sgt i64 %33, -1
-  %35 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %35 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %34, label %36, label %45
 
 36:                                               ; preds = %30
@@ -150031,7 +150031,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc95EEENS0_8i
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -150362,7 +150362,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILc48ELc57EEEEE
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -150891,7 +150891,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS0_9characterI
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -151396,7 +151396,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6eitherIJNS0_
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -152386,7 +152386,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_8in_rangeILc48ELc5
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -152741,7 +152741,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILc48ELc57EEENS
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -153072,7 +153072,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_6eitherIJNS0
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -153875,7 +153875,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_9characterILc46EEE
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -154207,7 +154207,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc46EEENS1_IJ
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -154538,7 +154538,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS1_IJNS0_6either
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -155359,7 +155359,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_9characterILc48EEE
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -155865,7 +155865,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc48EEENS2_IL
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -156196,7 +156196,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_8in_rangeILc48ELc4
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -156877,7 +156877,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc98EEEEE6inv
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -157232,7 +157232,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILc48ELc49EEENS
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -157891,7 +157891,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_6eitherIJNS0
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -158868,7 +158868,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc95EEENS0_8i
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -159199,7 +159199,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILc48ELc49EEEEE
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -159554,7 +159554,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_9characterILc48EEE
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -160060,7 +160060,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc48EEENS2_IL
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -160391,7 +160391,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_8in_rangeILc48ELc5
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -160745,7 +160745,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc111EEEEE6in
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -161427,7 +161427,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILc48ELc55EEENS
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -162086,7 +162086,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_6eitherIJNS0
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -163063,7 +163063,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc95EEENS0_8i
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -163394,7 +163394,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_8in_rangeILc48ELc55EEEEE
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -163749,7 +163749,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_9characterILc48EEE
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -164081,7 +164081,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc48EEENS2_IL
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -164412,7 +164412,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_6eitherIJNS0_8in_r
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -164766,7 +164766,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc120EEEEE6in
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -165448,7 +165448,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS0_8in_rangeIL
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -165779,7 +165779,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_6eitherIJNS3
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -166756,7 +166756,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc95EEENS0_6e
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -167087,7 +167087,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS0_8in_rangeIL
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -168242,7 +168242,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc116EEENS2_I
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -168573,7 +168573,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc114EEENS2_I
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -168909,7 +168909,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc117EEENS2_I
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -169245,7 +169245,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc101EEEEE6in
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -169600,7 +169600,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc102EEENS2_I
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -169931,7 +169931,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc97EEENS2_IL
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -170267,7 +170267,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc108EEENS2_I
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -170930,7 +170930,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc115EEENS2_I
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -172702,7 +172702,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit: ; preds = %219, %_ZNSt
   %268 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %269 = sub i64 %267, %268
   %270 = icmp sgt i64 %269, -1
-  %271 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %271 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %270, label %272, label %281
 
 272:                                              ; preds = %266
@@ -173795,7 +173795,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit: ; preds = %262, %_ZNSt
   %311 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %312 = sub i64 %310, %311
   %313 = icmp sgt i64 %312, -1
-  %314 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %314 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %313, label %315, label %324
 
 315:                                              ; preds = %309
@@ -174885,7 +174885,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEED2Ev.exit: ; preds = %262, %_ZNSt
   %311 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %312 = sub i64 %310, %311
   %313 = icmp sgt i64 %312, -1
-  %314 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %314 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %313, label %315, label %324
 
 315:                                              ; preds = %309
@@ -175414,7 +175414,7 @@ define linkonce_odr ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5e
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 %9
-  %11 = icmp eq ptr %10, %2
+  %11 = icmp eq ptr %2, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %3
@@ -177201,7 +177201,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %123, %115
   %126 = load i64, ptr %111, align 8
   %127 = select i1 %122, i64 15, i64 %126
-  %.not.i = icmp ult i64 %127, %120
+  %.not.i = icmp ugt i64 %120, %127
   br i1 %.not.i, label %128, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm.exit
 
 128:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -177217,7 +177217,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 
 131:                                              ; preds = %128
   %132 = shl nuw i64 %127, 1
-  %133 = icmp ugt i64 %132, %120
+  %133 = icmp ult i64 %120, %132
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %132, i64 9223372036854775807)
   %.0.i = select i1 %133, i64 %spec.store.select.i.i, i64 %120
   %134 = add nuw i64 %.0.i, 1
@@ -178928,7 +178928,7 @@ _ZN4toml6detail8location7advanceEl.exit:          ; preds = %.lr.ph.i.i.i251, %7
   %747 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %748 = sub i64 %746, %747
   %749 = icmp sgt i64 %748, -1
-  %750 = icmp eq ptr %.sroa.04.0.copyload.i257, %.sroa.0.0.copyload.i
+  %750 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i257
   br i1 %749, label %751, label %760
 
 751:                                              ; preds = %745
@@ -180903,7 +180903,7 @@ _ZN4toml6detail8location7advanceEl.exit:          ; preds = %.lr.ph.i.i.i, %532
   %576 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %577 = sub i64 %575, %576
   %578 = icmp sgt i64 %577, -1
-  %579 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %579 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %578, label %580, label %589
 
 580:                                              ; preds = %574
@@ -181496,7 +181496,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_9characterIL
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -181895,7 +181895,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %40 = ptrtoint ptr %.sroa.04.0.copyload.i to i64
   %41 = sub i64 %40, %27
   %42 = icmp sgt i64 %41, -1
-  %43 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %43 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %42, label %44, label %52
 
 44:                                               ; preds = %39
@@ -182792,7 +182792,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc92EEENS0_5m
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -183124,7 +183124,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_9characterIL
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -183455,7 +183455,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_6eitherIJNS3
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -184239,7 +184239,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_6repeatINS0_9chara
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -185129,7 +185129,7 @@ define linkonce_odr void @_ZN4toml6detail7excludeINS0_6eitherIJNS0_8in_rangeILc0
   %18 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %19 = sub i64 %17, %18
   %20 = icmp sgt i64 %19, -1
-  %21 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %21 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %20, label %22, label %31
 
 22:                                               ; preds = %16
@@ -185188,7 +185188,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = icmp sgt i64 %44, -1
-  %46 = icmp eq ptr %.sroa.04.0.copyload.i15, %41
+  %46 = icmp eq ptr %41, %.sroa.04.0.copyload.i15
   br i1 %45, label %47, label %56
 
 47:                                               ; preds = %40
@@ -186521,7 +186521,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -186857,7 +186857,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS0_9characterI
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -187193,7 +187193,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_6eitherIJNS2
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -188169,7 +188169,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_9characterILc
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -188971,7 +188971,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_9characterILc
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -189326,7 +189326,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_9characterIL
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -189725,7 +189725,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
   %40 = ptrtoint ptr %.sroa.04.0.copyload.i to i64
   %41 = sub i64 %40, %27
   %42 = icmp sgt i64 %41, -1
-  %43 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i.i
+  %43 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.04.0.copyload.i
   br i1 %42, label %44, label %52
 
 44:                                               ; preds = %39
@@ -190622,7 +190622,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_9characterIL
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -190953,7 +190953,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6repeatINS0_6eitherIJNS0
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -191289,7 +191289,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_6repeatINS0_9chara
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -191831,7 +191831,7 @@ define linkonce_odr void @_ZN4toml6detail7excludeINS0_6eitherIJNS0_8in_rangeILc0
   %18 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %19 = sub i64 %17, %18
   %20 = icmp sgt i64 %19, -1
-  %21 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %21 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %20, label %22, label %31
 
 22:                                               ; preds = %16
@@ -191890,7 +191890,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = icmp sgt i64 %44, -1
-  %46 = icmp eq ptr %.sroa.04.0.copyload.i15, %41
+  %46 = icmp eq ptr %41, %.sroa.04.0.copyload.i15
   br i1 %45, label %47, label %56
 
 47:                                               ; preds = %40
@@ -192875,7 +192875,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_9characterILc
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -193677,7 +193677,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_9characterILc
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -197741,7 +197741,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -198551,7 +198551,7 @@ _ZSt10_ConstructIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #30
-  %.not.i2.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %23
+  %.not.i2.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i.i
   br i1 %.not.i2.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEEvT_S7_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %27, %.lr.ph.i.i.i.i.i.i
@@ -198589,7 +198589,7 @@ _ZSt8_DestroyIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6ve
 _ZSt34__uninitialized_move_if_noexcept_aIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %_ZSt10_ConstructIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %_ZSt10_ConstructIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 72
-  %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEES6_SaIS5_EET0_T_S9_S8_RT1_.exit43, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEES6_SaIS5_EET0_T_S9_S8_RT1_.exit, %_ZSt10_ConstructIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i37
@@ -199215,7 +199215,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc44EEEEE6inv
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -199903,7 +199903,7 @@ define linkonce_odr void @_ZNSt4pairISt13unordered_mapINSt7__cxx1112basic_string
   store ptr null, ptr %15, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 48
-  %18 = icmp eq ptr %17, %16
+  %18 = icmp eq ptr %16, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %2
@@ -200331,7 +200331,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 48
-  %62 = icmp eq ptr %61, %60
+  %62 = icmp eq ptr %60, %61
   br i1 %62, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4toml11basic_valueINS6_16discard_commentsES_St6vectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit, label %63
 
 63:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -200373,7 +200373,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %14, %3
   %17 = load i64, ptr %7, align 8
   %18 = select i1 %13, i64 15, i64 %17
-  %.not.i = icmp ult i64 %18, %11
+  %.not.i = icmp ugt i64 %11, %18
   br i1 %.not.i, label %19, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm.exit
 
 19:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -200382,7 +200382,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 
 21:                                               ; preds = %19
   %22 = shl nuw i64 %18, 1
-  %23 = icmp ugt i64 %22, %11
+  %23 = icmp ult i64 %11, %22
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %22, i64 9223372036854775807)
   %.0.i = select i1 %23, i64 %spec.store.select.i.i, i64 %11
   %24 = add nuw i64 %.0.i, 1
@@ -200561,7 +200561,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -201044,7 +201044,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 35:                                               ; preds = %27
   %.not18 = icmp eq ptr %.0, null
   %36 = getelementptr inbounds i8, ptr %0, i64 48
-  %37 = icmp eq ptr %36, %.0
+  %37 = icmp eq ptr %.0, %36
   %or.cond = select i1 %.not18, i1 true, i1 %37
   br i1 %or.cond, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEPPNSG_15_Hash_node_baseEm.exit, label %38
 
@@ -201068,7 +201068,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %0, i64 48
-  %45 = icmp eq ptr %44, %.pre
+  %45 = icmp eq ptr %.pre, %44
   br i1 %45, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %46
 
 46:                                               ; preds = %43
@@ -201263,7 +201263,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 51:                                               ; preds = %48
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 48
-  %54 = icmp eq ptr %53, %52
+  %54 = icmp eq ptr %52, %53
   br i1 %54, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %55
 
 55:                                               ; preds = %51
@@ -201478,7 +201478,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 56
-  %23 = icmp eq ptr %22, %21
+  %23 = icmp eq ptr %21, %22
   br i1 %23, label %_ZN4toml7successISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11basic_valueINS_16discard_commentsES1_St6vectorEESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_SB_EEEED2Ev.exit, label %24
 
 24:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -201527,7 +201527,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_9characterILc91EEE
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -201859,7 +201859,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc91EEES3_EE6
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -202278,7 +202278,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc93EEES3_EE6
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -202609,7 +202609,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -202945,7 +202945,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS1_IJNS2_IJNS0
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -203455,7 +203455,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -203791,7 +203791,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS1_IJNS0_9characterILc93EEE
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -204472,7 +204472,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc91EEEEE6inv
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -205153,7 +205153,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc93EEEEE6inv
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -206158,7 +206158,7 @@ _ZSt10_ConstructIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #30
-  %.not.i2.i.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %9
+  %.not.i2.i.i.i.i.i.i = icmp eq ptr %9, %.015.i.i.i.i.i
   br i1 %.not.i2.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEEvT_S7_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %15, %.lr.ph.i.i.i.i.i.i
@@ -208213,7 +208213,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 .split.us.i.i:                                    ; preds = %37, %49
   %42 = phi i64 [ %51, %49 ], [ %.pre24.i.i, %37 ]
   %.0.us.i.i = phi ptr [ %48, %49 ], [ %38, %37 ]
-  %43 = icmp eq i64 %42, %27
+  %43 = icmp eq i64 %27, %42
   br i1 %43, label %44, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4toml11basic_valueINS9_16discard_commentsESt13unordered_mapSt6vectorEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.thread.us.i.i
 
 44:                                               ; preds = %.split.us.i.i
@@ -208238,7 +208238,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %53 = phi i64 [ %65, %63 ], [ %.pre24.i.i, %37 ]
   %.0.i.i = phi ptr [ %62, %63 ], [ %38, %37 ]
   %54 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %55 = icmp eq i64 %53, %27
+  %55 = icmp eq i64 %27, %53
   br i1 %55, label %56, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4toml11basic_valueINS9_16discard_commentsESt13unordered_mapSt6vectorEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.thread.i.i
 
 56:                                               ; preds = %.split.i.i
@@ -208361,7 +208361,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 .split.us.i.i:                                    ; preds = %37, %49
   %42 = phi i64 [ %51, %49 ], [ %.pre24.i.i, %37 ]
   %.0.us.i.i = phi ptr [ %48, %49 ], [ %38, %37 ]
-  %43 = icmp eq i64 %42, %27
+  %43 = icmp eq i64 %27, %42
   br i1 %43, label %44, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4toml11basic_valueINS9_16discard_commentsESt13unordered_mapSt6vectorEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.thread.us.i.i
 
 44:                                               ; preds = %.split.us.i.i
@@ -208386,7 +208386,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %53 = phi i64 [ %65, %63 ], [ %.pre24.i.i, %37 ]
   %.0.i.i = phi ptr [ %62, %63 ], [ %38, %37 ]
   %54 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %55 = icmp eq i64 %53, %27
+  %55 = icmp eq i64 %27, %53
   br i1 %55, label %56, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4toml11basic_valueINS9_16discard_commentsESt13unordered_mapSt6vectorEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.thread.i.i
 
 56:                                               ; preds = %.split.i.i
@@ -208478,7 +208478,7 @@ _ZSt10_ConstructIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #30
-  %.not.i2.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %23
+  %.not.i2.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i.i
   br i1 %.not.i2.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEEvT_S7_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %27, %.lr.ph.i.i.i.i.i.i
@@ -208516,7 +208516,7 @@ _ZSt8_DestroyIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6ve
 _ZSt34__uninitialized_move_if_noexcept_aIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %_ZSt10_ConstructIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %_ZSt10_ConstructIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 72
-  %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEES6_SaIS5_EET0_T_S9_S8_RT1_.exit43, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEES6_SaIS5_EET0_T_S9_S8_RT1_.exit, %_ZSt10_ConstructIN4toml11basic_valueINS0_16discard_commentsESt13unordered_mapSt6vectorEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i37
@@ -208766,7 +208766,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 .split.us.i.i:                                    ; preds = %46, %58
   %51 = phi i64 [ %60, %58 ], [ %.pre24.i.i, %46 ]
   %.0.us.i.i = phi ptr [ %57, %58 ], [ %47, %46 ]
-  %52 = icmp eq i64 %51, %32
+  %52 = icmp eq i64 %32, %51
   br i1 %52, label %53, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4toml11basic_valueINS9_16discard_commentsESt13unordered_mapSt6vectorEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.thread.us.i.i
 
 53:                                               ; preds = %.split.us.i.i
@@ -208791,7 +208791,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %62 = phi i64 [ %74, %72 ], [ %.pre24.i.i, %46 ]
   %.0.i.i = phi ptr [ %71, %72 ], [ %47, %46 ]
   %63 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %64 = icmp eq i64 %62, %32
+  %64 = icmp eq i64 %32, %62
   br i1 %64, label %65, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4toml11basic_valueINS9_16discard_commentsESt13unordered_mapSt6vectorEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.thread.i.i
 
 65:                                               ; preds = %.split.i.i
@@ -209162,7 +209162,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ._crit_edge:                                      ; preds = %30, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 48
-  %33 = icmp eq ptr %32, %31
+  %33 = icmp eq ptr %31, %32
   br i1 %33, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %34
 
 34:                                               ; preds = %._crit_edge
@@ -209217,7 +209217,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 .split.us.i.i:                                    ; preds = %19, %31
   %24 = phi i64 [ %33, %31 ], [ %.pre24.i.i, %19 ]
   %.0.us.i.i = phi ptr [ %30, %31 ], [ %20, %19 ]
-  %25 = icmp eq i64 %24, %9
+  %25 = icmp eq i64 %9, %24
   br i1 %25, label %26, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4toml11basic_valueINS9_16discard_commentsESt13unordered_mapSt6vectorEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.thread.us.i.i
 
 26:                                               ; preds = %.split.us.i.i
@@ -209242,7 +209242,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %35 = phi i64 [ %47, %45 ], [ %.pre24.i.i, %19 ]
   %.0.i.i = phi ptr [ %44, %45 ], [ %20, %19 ]
   %36 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %37 = icmp eq i64 %35, %9
+  %37 = icmp eq i64 %9, %35
   br i1 %37, label %38, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4toml11basic_valueINS9_16discard_commentsESt13unordered_mapSt6vectorEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.thread.i.i
 
 38:                                               ; preds = %.split.i.i
@@ -209553,7 +209553,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %20 = load ptr, ptr %1, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 48
-  %22 = icmp eq ptr %21, %20
+  %22 = icmp eq ptr %20, %21
   br i1 %22, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %23
 
 23:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4toml11basic_valueINS8_16discard_commentsESt13unordered_mapSt6vectorEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i
@@ -209585,7 +209585,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_9characterILc91EEENS0_5m
   %10 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %11 = sub i64 %9, %10
   %12 = icmp sgt i64 %11, -1
-  %13 = icmp eq ptr %.sroa.04.0.copyload.i, %.sroa.0.0.copyload.i
+  %13 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.04.0.copyload.i
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
@@ -209916,7 +209916,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -210252,7 +210252,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_6eitherIJNS1_IJNS2_IJNS0
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -210588,7 +210588,7 @@ define linkonce_odr void @_ZN4toml6detail8sequenceIJNS0_5maybeINS0_6repeatINS0_6
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp sgt i64 %13, -1
-  %15 = icmp eq ptr %.sroa.04.0.copyload.i, %3
+  %15 = icmp eq ptr %3, %.sroa.04.0.copyload.i
   br i1 %14, label %16, label %25
 
 16:                                               ; preds = %9
@@ -211513,7 +211513,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit: ; preds = %
   %.083.be = phi i64 [ %63, %58 ], [ %87, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exit ], [ %.184, %74 ]
   %.082.be = phi i64 [ %63, %58 ], [ %87, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exit ], [ %87, %74 ]
   %64 = load i64, ptr %32, align 8
-  %65 = icmp ugt i64 %64, %.082.be
+  %65 = icmp ult i64 %.082.be, %64
   br i1 %65, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread, !llvm.loop !1391
 
 66:                                               ; preds = %_ZNK5boost12basic_formatIcSt11char_traitsIcESaIcEE6getlocEv.exit
@@ -211629,7 +211629,7 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exi
   %118 = add nuw nsw i32 %.078.ph146, 1
   %indvars.iv.next = add i64 %indvars.iv, 1
   %119 = load i64, ptr %32, align 8
-  %120 = icmp ugt i64 %119, %87
+  %120 = icmp ult i64 %87, %119
   br i1 %120, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread201, !llvm.loop !1391
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread201: ; preds = %.outer
@@ -212086,7 +212086,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   %25 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4gptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %26 = ptrtoint ptr %.sink38 to i64
   %27 = ptrtoint ptr %25 to i64
-  %28 = add i64 %26, %1
+  %28 = add i64 %1, %26
   %29 = sub i64 %28, %27
   br label %30
 
@@ -212229,7 +212229,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
-  %.not18 = icmp slt i64 %26, %1
+  %.not18 = icmp sgt i64 %1, %26
   br i1 %.not18, label %64, label %27
 
 27:                                               ; preds = %20
@@ -212237,7 +212237,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   %29 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4gptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %30 = ptrtoint ptr %28 to i64
   %31 = ptrtoint ptr %29 to i64
-  %32 = add i64 %30, %1
+  %32 = add i64 %1, %30
   %33 = sub i64 %32, %31
   %34 = trunc i64 %33 to i32
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE5gbumpEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %34)
@@ -212277,7 +212277,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
-  %.not17 = icmp slt i64 %55, %1
+  %.not17 = icmp sgt i64 %1, %55
   br i1 %.not17, label %64, label %56
 
 56:                                               ; preds = %49
@@ -212285,7 +212285,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   %58 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %59 = ptrtoint ptr %57 to i64
   %60 = ptrtoint ptr %58 to i64
-  %61 = add i64 %59, %1
+  %61 = add i64 %1, %59
   %62 = sub i64 %61, %60
   br label %.sink.split
 
@@ -212700,7 +212700,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit: ; preds = %
 
 37:                                               ; preds = %31
   %38 = add nuw i64 %18, 2
-  %39 = icmp ugt i64 %7, %38
+  %39 = icmp ult i64 %38, %7
   br i1 %39, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread, !llvm.loop !1395
 
 .lr.ph.i:                                         ; preds = %31
@@ -212740,7 +212740,7 @@ _ZN5boost2io6detail18wrap_scan_notdigitIN9__gnu_cxx17__normal_iteratorIPKcNSt7__
 .outer:                                           ; preds = %53, %_ZN5boost2io6detail18wrap_scan_notdigitIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5ctypeIcEEET_RKT0_SG_SG_.exit
   %.1 = phi i64 [ %51, %_ZN5boost2io6detail18wrap_scan_notdigitIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5ctypeIcEEET_RKT0_SG_SG_.exit ], [ %spec.select, %53 ]
   %58 = add nuw nsw i32 %.030.ph55, 1
-  %59 = icmp ugt i64 %7, %.1
+  %59 = icmp ult i64 %.1, %7
   br i1 %59, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread, !llvm.loop !1395
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %.outer, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %37, %4, %29
@@ -212916,7 +212916,7 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %
   %68 = ptrtoint ptr %30 to i64
   %69 = sub i64 %67, %68
   %70 = sdiv exact i64 %69, 136
-  %71 = icmp ult i64 %70, %1
+  %71 = icmp ugt i64 %1, %70
   br i1 %71, label %72, label %105
 
 72:                                               ; preds = %66
@@ -214297,7 +214297,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 136
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %3
@@ -214306,7 +214306,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_
   br label %_ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE15_M_erase_at_endEPS7_.exit
 
 14:                                               ; preds = %3
-  %15 = icmp ugt i64 %10, %1
+  %15 = icmp ult i64 %1, %10
   br i1 %15, label %16, label %_ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE15_M_erase_at_endEPS7_.exit
 
 16:                                               ; preds = %14
@@ -214451,7 +214451,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = sdiv exact i64 %10, 136
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %3
@@ -214497,7 +214497,7 @@ _ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EEC2
   %30 = ptrtoint ptr %29 to i64
   %31 = sub i64 %30, %9
   %32 = sdiv exact i64 %31, 136
-  %33 = icmp ult i64 %32, %1
+  %33 = icmp ugt i64 %1, %32
   br i1 %33, label %34, label %63
 
 34:                                               ; preds = %27
@@ -215770,7 +215770,7 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i: ;
 
 _ZSt24__uninitialized_fill_n_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEEmS7_S7_ET_S9_T0_RKT1_RSaIT2_E.exit: ; preds = %80
   store ptr %82, ptr %9, align 8
-  %83 = icmp eq ptr %35, %1
+  %83 = icmp eq ptr %1, %35
   br i1 %83, label %_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i71
 
 _ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEEmS7_S7_ET_S9_T0_RKT1_RSaIT2_E.exit
@@ -215947,7 +215947,7 @@ _ZSt24__uninitialized_fill_n_aIPN5boost2io6detail11format_itemIcSt11char_traitsI
 _ZSt34__uninitialized_move_if_noexcept_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i87, %_ZSt24__uninitialized_fill_n_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEEmS7_S7_ET_S9_T0_RKT1_RSaIT2_E.exit86
   %.0.lcssa.i.i.i.i.i90 = phi ptr [ %143, %_ZSt24__uninitialized_fill_n_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEEmS7_S7_ET_S9_T0_RKT1_RSaIT2_E.exit86 ], [ %148, %.lr.ph.i.i.i.i.i87 ]
   %150 = getelementptr inbounds %"struct.boost::io::detail::format_item", ptr %.0.lcssa.i.i.i.i.i90, i64 %2
-  %151 = icmp eq ptr %10, %1
+  %151 = icmp eq ptr %1, %10
   br i1 %151, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit95, label %.lr.ph.i.i.i.i.i91
 
 .lr.ph.i.i.i.i.i91:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit, %.lr.ph.i.i.i.i.i91
@@ -218431,7 +218431,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 13:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
   %14 = icmp ne i8 %6, 0
   %15 = zext i1 %14 to i64
-  %16 = add i64 %15, %2
+  %16 = add i64 %2, %15
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = icmp eq ptr %17, %18
@@ -218446,7 +218446,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %20, %13
   %23 = load i64, ptr %18, align 8
   %24 = select i1 %19, i64 15, i64 %23
-  %.not.i = icmp ult i64 %24, %16
+  %.not.i = icmp ugt i64 %16, %24
   br i1 %.not.i, label %25, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm.exit
 
 25:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -218459,7 +218459,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 
 28:                                               ; preds = %25
   %29 = shl nuw i64 %24, 1
-  %30 = icmp ugt i64 %29, %16
+  %30 = icmp ult i64 %16, %29
   %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %29, i64 9223372036854775807)
   %.0.i = select i1 %30, i64 %spec.store.select.i.i, i64 %16
   %31 = add nuw i64 %.0.i, 1
@@ -218609,12 +218609,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i51: ; 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i53: ; preds = %80, %73
   %83 = load i64, ptr %78, align 8
   %84 = select i1 %79, i64 15, i64 %83
-  %.not.i54 = icmp ult i64 %84, %3
+  %.not.i54 = icmp ugt i64 %3, %84
   br i1 %.not.i54, label %85, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm.exit62
 
 85:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i53
   %86 = shl nuw i64 %84, 1
-  %87 = icmp ugt i64 %86, %3
+  %87 = icmp ult i64 %3, %86
   %spec.store.select.i.i55 = tail call i64 @llvm.umin.i64(i64 %86, i64 9223372036854775807)
   %.0.i56 = select i1 %87, i64 %spec.store.select.i.i55, i64 %3
   %88 = add nuw i64 %.0.i56, 1

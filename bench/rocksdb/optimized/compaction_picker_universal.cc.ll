@@ -986,7 +986,7 @@ for.body33.i.i:                                   ; preds = %for.cond31.preheade
   %j.068.i.i = phi i64 [ %inc.i.i92, %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i ], [ %num_l0_to_exclude.070.i.i, %for.cond31.preheader.i.i ]
   %current_candidate_size.067.i.i = phi i64 [ %sub37.i.i, %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i ], [ %candidate_size_post_exclusion.071.i.i, %for.cond31.preheader.i.i ]
   %add35.i.i = add i64 %j.068.i.i, %start_index.0110.i
-  %cmp.not.i.i.i.i90 = icmp ugt i64 %sub.ptr.div.i.i.i.i.i73, %add35.i.i
+  %cmp.not.i.i.i.i90 = icmp ult i64 %add35.i.i, %sub.ptr.div.i.i.i.i.i73
   br i1 %cmp.not.i.i.i.i90, label %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i, label %if.then.i.i.i.i91
 
 if.then.i.i.i.i91:                                ; preds = %for.body33.i.i
@@ -3911,7 +3911,7 @@ land.lhs.true.i:                                  ; preds = %if.end17.i178
   %sub.ptr.rhs.cast.i.i.i181 = ptrtoint ptr %466 to i64
   %sub.ptr.sub.i.i.i182 = sub i64 %sub.ptr.lhs.cast.i.i.i180, %sub.ptr.rhs.cast.i.i.i181
   %sub.ptr.div.i.i.i183 = sdiv exact i64 %sub.ptr.sub.i.i.i182, 56
-  %cmp.i22.i = icmp ugt i64 %sub.ptr.div.i.i.i183, %curr.sroa.5.0.copyload.i
+  %cmp.i22.i = icmp ult i64 %curr.sroa.5.0.copyload.i, %sub.ptr.div.i.i.i183
   br i1 %cmp.i22.i, label %if.then.i23.i, label %_ZNK7rocksdb10Compaction15num_input_filesEm.exit.i
 
 if.then.i23.i:                                    ; preds = %land.lhs.true.i
@@ -4112,7 +4112,7 @@ entry:
   %1 = load i32, ptr %min_merge_width2, align 4
   %max_merge_width5 = getelementptr inbounds i8, ptr %0, i64 272
   %2 = load i32, ptr %max_merge_width5, align 8
-  %.sroa.speculated319 = tail call i32 @llvm.umin.i32(i32 %2, i32 %max_number_of_files_to_compact)
+  %.sroa.speculated319 = tail call i32 @llvm.umin.i32(i32 %max_number_of_files_to_compact, i32 %2)
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %1, i32 2)
   %sorted_runs_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = getelementptr inbounds i8, ptr %this, i64 32
@@ -5618,7 +5618,7 @@ for.end77:                                        ; preds = %invoke.cont74, %for
   %sub.ptr.sub.i99 = sub i64 %sub.ptr.lhs.cast.i97, %sub.ptr.rhs.cast.i98
   %sub.ptr.div.i100 = sdiv exact i64 %sub.ptr.sub.i99, 40
   %sub80 = add nsw i64 %sub.ptr.div.i100, -1
-  %cmp81 = icmp eq i64 %sub80, %end_index
+  %cmp81 = icmp eq i64 %end_index, %sub80
   br i1 %cmp81, label %if.end89, label %if.else83
 
 if.else83:                                        ; preds = %for.end77
@@ -6459,7 +6459,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb20CompactionInputFilesESaIS1_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN7rocksdb20CompactionInputFilesESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 56
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i12
@@ -6629,7 +6629,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 56
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i19

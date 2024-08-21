@@ -159,7 +159,7 @@ define { i64, i64 } @_Z31globalAtomIndexToMoltypeIndicesN3gmx8ArrayRefIK15Molblo
   %13 = getelementptr inbounds %struct.MolblockIndices, ptr %0, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
-  %.not = icmp sgt i32 %15, %2
+  %.not = icmp slt i32 %2, %15
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %9
@@ -168,7 +168,7 @@ define { i64, i64 } @_Z31globalAtomIndexToMoltypeIndicesN3gmx8ArrayRefIK15Molblo
 
 18:                                               ; preds = %9
   %19 = load i32, ptr %13, align 4
-  %20 = icmp sgt i32 %19, %2
+  %20 = icmp slt i32 %2, %19
   br i1 %20, label %.outer, label %21, !llvm.loop !5
 
 21:                                               ; preds = %18
@@ -1914,7 +1914,7 @@ _ZNSt12_Vector_baseI13thread_work_tSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNK
 _ZNSt6vectorI13thread_work_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %29
   %.0.lcssa.i.i.i = phi ptr [ %23, %29 ], [ %35, %.lr.ph.i.i.i ]
   %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 2800
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorI13thread_work_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorI13thread_work_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i27

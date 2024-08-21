@@ -295,7 +295,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub
+  %cmp.i = icmp ugt i64 %sub.ptr.sub, %sub.ptr.sub.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
@@ -367,7 +367,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i: ; preds = %if.then.i.
   br label %cleanup.thread
 
 if.else.i:                                        ; preds = %for.end
-  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub
+  %cmp4.i = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i
   br i1 %cmp4.i, label %if.then5.i, label %cleanup.thread
 
 if.then5.i:                                       ; preds = %if.else.i

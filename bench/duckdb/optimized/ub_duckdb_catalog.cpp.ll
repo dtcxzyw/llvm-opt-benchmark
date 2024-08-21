@@ -24399,7 +24399,7 @@ if.end:                                           ; preds = %entry
   %internal = getelementptr inbounds i8, ptr %0, i64 66
   %1 = load i8, ptr %internal, align 2, !tbaa !34, !range !219, !noundef !220
   %tobool.not = icmp eq i8 %1, 0
-  %brmerge = or i1 %tobool.not, %allow_drop_internal
+  %brmerge = or i1 %allow_drop_internal, %tobool.not
   br i1 %brmerge, label %if.end20, label %if.then6
 
 if.then6:                                         ; preds = %if.end
@@ -26298,7 +26298,7 @@ if.end:                                           ; preds = %entry
   %internal = getelementptr inbounds i8, ptr %1, i64 66
   %2 = load i8, ptr %internal, align 2, !tbaa !34, !range !219, !noundef !220
   %tobool.not = icmp eq i8 %2, 0
-  %brmerge = or i1 %tobool.not, %allow_drop_internal
+  %brmerge = or i1 %allow_drop_internal, %tobool.not
   br i1 %brmerge, label %if.end21, label %if.then7
 
 if.then7:                                         ; preds = %if.end

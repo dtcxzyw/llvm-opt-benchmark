@@ -343,7 +343,7 @@ if.else11.i.i:                                    ; preds = %if.else
 
 _intsetGet.exit:                                  ; preds = %if.then.i.i, %if.then5.i.i, %if.else11.i.i
   %retval.0.i.i = phi i64 [ %v64.0.copyload.i.i, %if.then.i.i ], [ %conv10.i.i, %if.then5.i.i ], [ %conv16.i.i, %if.else11.i.i ]
-  %cmp3 = icmp slt i64 %retval.0.i.i, %value
+  %cmp3 = icmp sgt i64 %value, %retval.0.i.i
   br i1 %cmp3, label %if.then4, label %if.else9
 
 if.then4:                                         ; preds = %_intsetGet.exit
@@ -372,7 +372,7 @@ if.else11.i.i38:                                  ; preds = %if.else9
 
 _intsetGet.exit42:                                ; preds = %if.then.i.i35, %if.then5.i.i30, %if.else11.i.i38
   %retval.0.i.i34 = phi i64 [ %v64.0.copyload.i.i37, %if.then.i.i35 ], [ %conv10.i.i33, %if.then5.i.i30 ], [ %conv16.i.i41, %if.else11.i.i38 ]
-  %cmp11 = icmp sgt i64 %retval.0.i.i34, %value
+  %cmp11 = icmp slt i64 %value, %retval.0.i.i34
   br i1 %cmp11, label %if.then12, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %_intsetGet.exit42
@@ -393,11 +393,11 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %idx.ext14.i.i45.us = zext nneg i32 %shr.us to i64
   %add.ptr.i.i52.us = getelementptr inbounds i64, ptr %contents12.i.i, i64 %idx.ext14.i.i45.us
   %v64.0.copyload.i.i53.us = load i64, ptr %add.ptr.i.i52.us, align 8
-  %cmp21.us = icmp slt i64 %v64.0.copyload.i.i53.us, %value
+  %cmp21.us = icmp sgt i64 %value, %v64.0.copyload.i.i53.us
   br i1 %cmp21.us, label %if.then22.us, label %if.else24.us
 
 if.else24.us:                                     ; preds = %while.body.us
-  %cmp25.us = icmp sgt i64 %v64.0.copyload.i.i53.us, %value
+  %cmp25.us = icmp slt i64 %value, %v64.0.copyload.i.i53.us
   br i1 %cmp25.us, label %if.then26.us, label %while.end
 
 if.then26.us:                                     ; preds = %if.else24.us
@@ -423,11 +423,11 @@ while.body.us73:                                  ; preds = %while.body.lr.ph, %
   %add.ptr9.i.i47.us = getelementptr inbounds i32, ptr %contents12.i.i, i64 %idx.ext14.i.i45.us78
   %v32.0.copyload.i.i48.us = load i32, ptr %add.ptr9.i.i47.us, align 4
   %conv10.i.i49.us = sext i32 %v32.0.copyload.i.i48.us to i64
-  %cmp21.us81 = icmp slt i64 %conv10.i.i49.us, %value
+  %cmp21.us81 = icmp sgt i64 %value, %conv10.i.i49.us
   br i1 %cmp21.us81, label %if.then22.us86, label %if.else24.us82
 
 if.else24.us82:                                   ; preds = %while.body.us73
-  %cmp25.us83 = icmp sgt i64 %conv10.i.i49.us, %value
+  %cmp25.us83 = icmp slt i64 %value, %conv10.i.i49.us
   br i1 %cmp25.us83, label %if.then26.us84, label %while.end
 
 if.then26.us84:                                   ; preds = %if.else24.us82
@@ -457,7 +457,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add.ptr15.i.i55 = getelementptr inbounds i16, ptr %contents12.i.i, i64 %idx.ext14.i.i45
   %v16.0.copyload.i.i56 = load i16, ptr %add.ptr15.i.i55, align 2
   %conv16.i.i57 = sext i16 %v16.0.copyload.i.i56 to i64
-  %cmp21 = icmp slt i64 %conv16.i.i57, %value
+  %cmp21 = icmp sgt i64 %value, %conv16.i.i57
   br i1 %cmp21, label %if.then22, label %if.else24
 
 if.then22:                                        ; preds = %while.body
@@ -465,7 +465,7 @@ if.then22:                                        ; preds = %while.body
   br label %if.end30
 
 if.else24:                                        ; preds = %while.body
-  %cmp25 = icmp sgt i64 %conv16.i.i57, %value
+  %cmp25 = icmp slt i64 %value, %conv16.i.i57
   br i1 %cmp25, label %if.then26, label %while.end
 
 if.then26:                                        ; preds = %if.else24
@@ -482,7 +482,7 @@ while.end:                                        ; preds = %if.end30.us88, %if.
   %min.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %min.060, %if.else24 ], [ %min.1, %if.end30 ], [ %min.060.us, %if.else24.us ], [ %min.1.us, %if.end30.us ], [ %min.060.us75, %if.else24.us82 ], [ %min.1.us89, %if.end30.us88 ]
   %mid.1 = phi i32 [ -1, %while.cond.preheader ], [ %shr, %if.else24 ], [ %shr, %if.end30 ], [ %shr.us, %if.else24.us ], [ %shr.us, %if.end30.us ], [ %shr.us77, %if.else24.us82 ], [ %shr.us77, %if.end30.us88 ]
   %cur.1 = phi i64 [ -1, %while.cond.preheader ], [ %conv16.i.i57, %if.else24 ], [ %conv16.i.i57, %if.end30 ], [ %v64.0.copyload.i.i53.us, %if.else24.us ], [ %v64.0.copyload.i.i53.us, %if.end30.us ], [ %conv10.i.i49.us, %if.else24.us82 ], [ %conv10.i.i49.us, %if.end30.us88 ]
-  %cmp31 = icmp eq i64 %cur.1, %value
+  %cmp31 = icmp eq i64 %value, %cur.1
   %tobool33.not = icmp eq ptr %pos, null
   %. = zext i1 %cmp31 to i8
   %mid.1.min.0.lcssa = select i1 %cmp31, i32 %mid.1, i32 %min.0.lcssa
@@ -745,7 +745,7 @@ define dso_local zeroext range(i8 0, 2) i8 @intsetGet(ptr nocapture noundef read
 entry:
   %length = getelementptr inbounds i8, ptr %is, i64 4
   %0 = load i32, ptr %length, align 4
-  %cmp = icmp ugt i32 %0, %pos
+  %cmp = icmp ult i32 %pos, %0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry

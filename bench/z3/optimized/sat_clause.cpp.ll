@@ -350,7 +350,7 @@ define hidden void @_ZN3sat6clause6shrinkEj(ptr nocapture noundef nonnull align 
 entry:
   %m_size = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size, align 4
-  %cmp = icmp ugt i32 %0, %num_lits
+  %cmp = icmp ult i32 %num_lits, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1144,7 +1144,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %arrayidx.i, align 4
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %1 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i = icmp eq i32 %1, %agg.tmp.sroa.0.0.copyload
+  %cmp.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload, %1
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
@@ -1278,7 +1278,7 @@ for.cond.us:                                      ; preds = %for.cond.us.prehead
 for.body.lr.ph.split:                             ; preds = %entry
   %6 = ptrtoint ptr %2 to i64
   %7 = trunc i64 %6 to i32
-  %cmp.i511 = icmp eq i32 %7, %l.coerce
+  %cmp.i511 = icmp eq i32 %l.coerce, %7
   br i1 %cmp.i511, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %for.body.lr.ph.split
@@ -1403,7 +1403,7 @@ if.then:                                          ; preds = %entry
   %m_lits.i.i = getelementptr inbounds i8, ptr %4, i64 20
   %retval.sroa.0.0.i.in = select i1 %cmp.i.not.i, ptr %m_lits.i.i, ptr %c
   %retval.sroa.0.0.i = load i32, ptr %retval.sroa.0.0.i.in, align 4
-  %cmp.i.i = icmp eq i32 %3, %retval.sroa.0.0.i
+  %cmp.i.i = icmp eq i32 %retval.sroa.0.0.i, %3
   br i1 %cmp.i.i, label %if.then.i8, label %if.else.i7
 
 if.then.i8:                                       ; preds = %if.then
@@ -1435,7 +1435,7 @@ if.else.i13:                                      ; preds = %_ZN3satlsERSoNS_7li
 
 _ZNK3sat14clause_wrapperixEj.exit16:              ; preds = %_ZN3satlsERSoNS_7literalE.exit, %if.else.i13
   %retval.sroa.0.0.i12 = phi i32 [ %retval.sroa.0.0.copyload.i15, %if.else.i13 ], [ %6, %_ZN3satlsERSoNS_7literalE.exit ]
-  %cmp.i.i17 = icmp eq i32 %7, %retval.sroa.0.0.i12
+  %cmp.i.i17 = icmp eq i32 %retval.sroa.0.0.i12, %7
   br i1 %cmp.i.i17, label %if.then.i24, label %if.else.i18
 
 if.then.i24:                                      ; preds = %_ZNK3sat14clause_wrapperixEj.exit16

@@ -2052,7 +2052,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread: ; preds = %entry
   %3 = load i64, ptr %1, align 8
-  %cmp16 = icmp ult i64 %3, %sz
+  %cmp16 = icmp ugt i64 %sz, %3
   br i1 %cmp16, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.thread
@@ -2066,7 +2066,7 @@ if.then.i.i13:                                    ; preds = %if.end.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
   %mul.i.i = shl nuw i64 %cond.i1719, 1
-  %cmp3.i.i11 = icmp ugt i64 %mul.i.i, %sz
+  %cmp3.i.i11 = icmp ult i64 %sz, %mul.i.i
   %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %mul.i.i, i64 9223372036854775807)
   %__res.addr.0.i = select i1 %cmp3.i.i11, i64 %spec.store.select.i.i, i64 %sz
   %add.i.i = add nuw i64 %__res.addr.0.i, 1

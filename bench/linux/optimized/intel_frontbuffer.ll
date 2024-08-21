@@ -84,7 +84,7 @@ define internal fastcc void @frontbuffer_flush(ptr noundef %0, i32 noundef %1, i
   %5 = getelementptr inbounds i8, ptr %0, i64 6028
   %6 = load i32, ptr %5, align 4
   %7 = xor i32 %6, -1
-  %8 = and i32 %7, %1
+  %8 = and i32 %1, %7
   tail call void @_raw_spin_unlock(ptr noundef %4) #7
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %33, label %10

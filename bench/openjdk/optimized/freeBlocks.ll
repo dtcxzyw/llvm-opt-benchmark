@@ -11,7 +11,7 @@ $_ZN9metaspace9BlockTree21remove_node_from_treeEPNS0_4NodeE = comdat any
 define hidden void @_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm(ptr nocapture noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 296
   %5 = load i64, ptr %4, align 8
-  %6 = icmp ult i64 %5, %2
+  %6 = icmp ugt i64 %2, %5
   br i1 %6, label %7, label %38
 
 7:                                                ; preds = %3
@@ -32,7 +32,7 @@ define hidden void @_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm(ptr no
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %11, i64 40
   %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, %2
+  %17 = icmp eq i64 %2, %16
   br i1 %17, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %34, %14
@@ -47,7 +47,7 @@ define hidden void @_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm(ptr no
 .lr.ph.i.i:                                       ; preds = %14, %34
   %21 = phi i64 [ %36, %34 ], [ %16, %14 ]
   %.024.i.i = phi ptr [ %.1.i.i, %34 ], [ %11, %14 ]
-  %22 = icmp ult i64 %21, %2
+  %22 = icmp ugt i64 %2, %21
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %.lr.ph.i.i
@@ -78,7 +78,7 @@ _ZN9metaspace9BlockTree6insertEPNS0_4NodeES2_.exit.thread.i: ; preds = %23
   %.1.i.i = phi ptr [ %25, %23 ], [ %30, %28 ]
   %35 = getelementptr inbounds i8, ptr %.1.i.i, i64 40
   %36 = load i64, ptr %35, align 8
-  %37 = icmp eq i64 %36, %2
+  %37 = icmp eq i64 %2, %36
   br i1 %37, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
 
 38:                                               ; preds = %3
@@ -113,7 +113,7 @@ _ZN9metaspace11BinListImplILi32EE9add_blockEPP12MetaWordImplm.exit: ; preds = %_
 define hidden noundef ptr @_ZN9metaspace10FreeBlocks12remove_blockEm(ptr noundef nonnull align 8 dereferenceable(304) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %6, label %24
 
 6:                                                ; preds = %2
@@ -238,7 +238,7 @@ _ZN9metaspace9BlockTree12remove_blockEmPm.exit:   ; preds = %_ZN9metaspace9Block
   %47 = sub i64 %.016, %1
   %48 = getelementptr inbounds ptr, ptr %.0, i64 %1
   %49 = load i64, ptr %3, align 8
-  %50 = icmp ult i64 %49, %47
+  %50 = icmp ugt i64 %47, %49
   br i1 %50, label %51, label %82
 
 51:                                               ; preds = %46
@@ -259,7 +259,7 @@ _ZN9metaspace9BlockTree12remove_blockEmPm.exit:   ; preds = %_ZN9metaspace9Block
 58:                                               ; preds = %51
   %59 = getelementptr inbounds i8, ptr %55, i64 40
   %60 = load i64, ptr %59, align 8
-  %61 = icmp eq i64 %60, %47
+  %61 = icmp eq i64 %47, %60
   br i1 %61, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i15
 
 ._crit_edge.i.i.i:                                ; preds = %78, %58
@@ -274,7 +274,7 @@ _ZN9metaspace9BlockTree12remove_blockEmPm.exit:   ; preds = %_ZN9metaspace9Block
 .lr.ph.i.i.i15:                                   ; preds = %58, %78
   %65 = phi i64 [ %80, %78 ], [ %60, %58 ]
   %.024.i.i.i = phi ptr [ %.1.i.i.i, %78 ], [ %55, %58 ]
-  %66 = icmp ult i64 %65, %47
+  %66 = icmp ugt i64 %47, %65
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %.lr.ph.i.i.i15
@@ -305,7 +305,7 @@ _ZN9metaspace9BlockTree6insertEPNS0_4NodeES2_.exit.thread.i.i: ; preds = %67
   %.1.i.i.i = phi ptr [ %69, %67 ], [ %74, %72 ]
   %79 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 40
   %80 = load i64, ptr %79, align 8
-  %81 = icmp eq i64 %80, %47
+  %81 = icmp eq i64 %47, %80
   br i1 %81, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i15, !llvm.loop !6
 
 82:                                               ; preds = %46

@@ -122,7 +122,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %.not.i7.i = icmp ule ptr %14, %5
   %15 = getelementptr inbounds i8, ptr %12, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp ugt ptr %16, %5
+  %17 = icmp ult ptr %5, %16
   %18 = select i1 %.not.i7.i, i1 %17, i1 false
   br i1 %18, label %.preheader33, label %.lr.ph.i
 
@@ -136,7 +136,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %.not.i.i = icmp ule ptr %22, %5
   %23 = getelementptr inbounds i8, ptr %20, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp ugt ptr %24, %5
+  %25 = icmp ult ptr %5, %24
   %26 = select i1 %.not.i.i, i1 %25, i1 false
   br i1 %26, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit, label %.lr.ph.i, !llvm.loop !9
 

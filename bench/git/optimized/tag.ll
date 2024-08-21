@@ -335,7 +335,7 @@ if.end5:                                          ; preds = %do.body, %if.end
   %hexsz = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i64, ptr %hexsz, align 8
   %add = add i64 %3, 24
-  %cmp = icmp ugt i64 %add, %size
+  %cmp = icmp ult i64 %size, %add
   br i1 %cmp, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end5

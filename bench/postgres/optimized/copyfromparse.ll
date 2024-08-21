@@ -2068,7 +2068,7 @@ list_length.exit:                                 ; preds = %4, %28
 
 38:                                               ; preds = %list_length.exit
   %39 = getelementptr i8, ptr %2, i64 %33
-  %40 = icmp ugt ptr %39, %2
+  %40 = icmp ult ptr %2, %39
   br i1 %40, label %.lr.ph.preheader, label %.loopexit208
 
 .lr.ph.preheader:                                 ; preds = %38

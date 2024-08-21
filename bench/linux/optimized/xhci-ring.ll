@@ -5154,7 +5154,7 @@ define internal fastcc void @queue_trb(ptr nocapture noundef readonly %0, ptr no
   %48 = getelementptr i8, ptr %34, i64 16
   store ptr %48, ptr %8, align 8
   %49 = icmp ne i32 %38, 0
-  %50 = or i1 %49, %2
+  %50 = or i1 %2, %49
   %51 = getelementptr inbounds i8, ptr %1, i64 84
   %52 = getelementptr inbounds i8, ptr %0, i64 2488
   %53 = getelementptr inbounds i8, ptr %1, i64 64

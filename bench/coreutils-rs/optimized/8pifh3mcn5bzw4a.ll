@@ -53,7 +53,7 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_mess
   %4 = getelementptr inbounds i8, ptr %0, i64 400
   %5 = load i64, ptr %4, align 16, !noundef !4
   %6 = xor i64 %5, -1
-  %7 = and i64 %6, %1
+  %7 = and i64 %1, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 392
   %9 = getelementptr inbounds i8, ptr %0, i64 408
   %10 = getelementptr inbounds i8, ptr %0, i64 416
@@ -1635,7 +1635,7 @@ common.resume:                                    ; preds = %47, %19
 
 39:                                               ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
-  %.not.i13.i = icmp ugt i64 %28, %31
+  %.not.i13.i = icmp ult i64 %31, %28
   br i1 %.not.i13.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hf148fa94b7be4fd8E.exit.i", label %40
 
 40:                                               ; preds = %39
@@ -1891,7 +1891,7 @@ _ZN3std4sync4mpmc7context7Context12store_packet17h71587165d6a8dce1E.exit.i.i.i: 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
   %77 = load i64, ptr %37, align 8, !alias.scope !270, !noalias !271, !noundef !4
-  %.not.i.i = icmp ugt i64 %77, %.016.i.i
+  %.not.i.i = icmp ult i64 %.016.i.i, %77
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5waker5Waker10try_select17ha74c1d6f879212f7E.exit, label %78
 
 78:                                               ; preds = %.noexc5

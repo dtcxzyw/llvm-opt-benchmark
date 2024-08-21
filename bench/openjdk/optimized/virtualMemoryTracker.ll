@@ -289,7 +289,7 @@ define hidden noundef i32 @_Z24compare_committed_regionRK21CommittedMemoryRegion
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = icmp ult ptr %6, %3
+  %7 = icmp ugt ptr %3, %6
   %8 = select i1 %7, ptr %3, ptr %6
   %9 = getelementptr inbounds i8, ptr %3, i64 %5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -310,7 +310,7 @@ define hidden noundef i32 @_Z28compare_reserved_region_baseRK20ReservedMemoryReg
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = icmp ult ptr %6, %3
+  %7 = icmp ugt ptr %3, %6
   %8 = select i1 %7, ptr %3, ptr %6
   %9 = getelementptr inbounds i8, ptr %3, i64 %5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -367,10 +367,10 @@ _ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit.t
   %20 = phi ptr [ %.pre, %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit.thread65 ], [ %7, %.lr.ph.i.preheader ]
   %.0.lcssa.i61105 = phi ptr [ %.0810.i87, %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit.thread65 ], [ null, %.lr.ph.i.preheader ]
   %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, %1
+  %22 = icmp eq ptr %1, %21
   %23 = getelementptr inbounds i8, ptr %20, i64 8
   %24 = load i64, ptr %23, align 8
-  %25 = icmp eq i64 %24, %2
+  %25 = icmp eq i64 %2, %24
   %26 = select i1 %22, i1 %25, i1 false
   br i1 %26, label %_ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack.exit, label %_ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack.exit.thread
 
@@ -381,7 +381,7 @@ _ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack.exit: ; preds = %_
   br i1 %28, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit, label %_ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack.exit.thread
 
 _ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack.exit.thread: ; preds = %_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit.thread65.thread100, %_ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack.exit
-  %29 = icmp ult ptr %21, %1
+  %29 = icmp ugt ptr %1, %21
   %30 = select i1 %29, ptr %1, ptr %21
   %31 = getelementptr inbounds i8, ptr %1, i64 %2
   %32 = getelementptr inbounds i8, ptr %21, i64 %24
@@ -459,7 +459,7 @@ _ZN20VirtualMemorySummary23record_committed_memoryEm8MEMFLAGS.exit: ; preds = %6
   %67 = getelementptr inbounds i8, ptr %.034, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %66, i64 %68
-  %70 = icmp eq ptr %69, %1
+  %70 = icmp eq ptr %1, %69
   %71 = getelementptr inbounds i8, ptr %1, i64 %2
   %72 = icmp eq ptr %71, %66
   %73 = select i1 %70, i1 true, i1 %72
@@ -490,7 +490,7 @@ _ZL17is_mergeable_withP21CommittedMemoryRegionPhmRK15NativeCallStack.exit.i: ; p
   %84 = getelementptr inbounds i8, ptr %.0, i64 8
   %85 = load i64, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %79, i64 %80
-  %87 = icmp eq ptr %86, %83
+  %87 = icmp eq ptr %83, %86
   %88 = getelementptr inbounds i8, ptr %83, i64 %85
   %89 = icmp eq ptr %88, %79
   %90 = select i1 %87, i1 true, i1 %89
@@ -533,7 +533,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %104 = getelementptr inbounds i8, ptr %.0, i64 8
   %105 = load i64, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %103, i64 %105
-  %107 = icmp eq ptr %106, %1
+  %107 = icmp eq ptr %1, %106
   %108 = getelementptr inbounds i8, ptr %1, i64 %2
   %109 = icmp eq ptr %108, %103
   %110 = select i1 %107, i1 true, i1 %109
@@ -612,16 +612,16 @@ define hidden noundef zeroext i1 @_ZN20ReservedMemoryRegion25remove_uncommitted_
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit48.us
   %.03973.us = phi ptr [ %33, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit48.us ], [ %.039.ph82, %.lr.ph ]
   %13 = load ptr, ptr %.03973.us, align 8
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   %15 = getelementptr inbounds i8, ptr %.03973.us, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, %2
+  %17 = icmp eq i64 %2, %16
   %18 = select i1 %14, i1 %17, i1 false
   br i1 %18, label %43, label %19
 
 19:                                               ; preds = %.lr.ph.split.us
   %.not.i.i41.us = icmp uge ptr %13, %1
-  %20 = icmp ugt ptr %4, %13
+  %20 = icmp ult ptr %13, %4
   %21 = select i1 %.not.i.i41.us, i1 %20, i1 false
   br i1 %21, label %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.us, label %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread
 
@@ -629,7 +629,7 @@ _ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.us: ; preds = %19
   %22 = getelementptr inbounds i8, ptr %13, i64 %16
   %23 = getelementptr inbounds i8, ptr %22, i64 -1
   %.not.i3.i.us = icmp uge ptr %23, %1
-  %24 = icmp ugt ptr %4, %23
+  %24 = icmp ult ptr %23, %4
   %25 = select i1 %.not.i3.i.us, i1 %24, i1 false
   br i1 %25, label %26, label %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread
 
@@ -660,10 +660,10 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit48
   %.03973 = phi ptr [ %74, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit48 ], [ %.039.ph82, %.lr.ph ]
   %37 = load ptr, ptr %.03973, align 8
-  %38 = icmp eq ptr %37, %1
+  %38 = icmp eq ptr %1, %37
   %39 = getelementptr inbounds i8, ptr %.03973, i64 8
   %40 = load i64, ptr %39, align 8
-  %41 = icmp eq i64 %40, %2
+  %41 = icmp eq i64 %2, %40
   %42 = select i1 %38, i1 %41, i1 false
   br i1 %42, label %50, label %60
 
@@ -701,7 +701,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
 
 60:                                               ; preds = %.lr.ph.split
   %.not.i.i41 = icmp uge ptr %37, %1
-  %61 = icmp ugt ptr %4, %37
+  %61 = icmp ult ptr %37, %4
   %62 = select i1 %.not.i.i41, i1 %61, i1 false
   br i1 %62, label %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit, label %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread
 
@@ -709,7 +709,7 @@ _ZNK19VirtualMemoryRegion14contain_regionEPhm.exit: ; preds = %60
   %63 = getelementptr inbounds i8, ptr %37, i64 %40
   %64 = getelementptr inbounds i8, ptr %63, i64 -1
   %.not.i3.i = icmp uge ptr %64, %1
-  %65 = icmp ugt ptr %4, %64
+  %65 = icmp ult ptr %64, %4
   %66 = select i1 %.not.i3.i, i1 %65, i1 false
   br i1 %66, label %67, label %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread
 
@@ -743,12 +743,12 @@ _ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread: ; preds = %_ZNK19Virt
   %.us-phi77 = phi i1 [ %14, %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.us ], [ %14, %19 ], [ %38, %60 ], [ %38, %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit ]
   %.us-phi78 = phi i64 [ %16, %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.us ], [ %16, %19 ], [ %40, %60 ], [ %40, %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit ]
   %78 = getelementptr inbounds i8, ptr %.us-phi75, i64 8
-  %.not.i49 = icmp ule ptr %.us-phi76, %1
+  %.not.i49 = icmp uge ptr %1, %.us-phi76
   %79 = getelementptr inbounds i8, ptr %.us-phi76, i64 %.us-phi78
-  %80 = icmp ugt ptr %79, %1
+  %80 = icmp ult ptr %1, %79
   %81 = select i1 %.not.i49, i1 %80, i1 false
-  %.not.i50 = icmp ule ptr %.us-phi76, %9
-  %82 = icmp ugt ptr %79, %9
+  %.not.i50 = icmp uge ptr %9, %.us-phi76
+  %82 = icmp ult ptr %9, %79
   %83 = select i1 %.not.i50, i1 %82, i1 false
   br i1 %81, label %84, label %123
 
@@ -1247,10 +1247,10 @@ define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_region
 
 38:                                               ; preds = %25
   %39 = load ptr, ptr %15, align 8
-  %40 = icmp eq ptr %39, %0
+  %40 = icmp eq ptr %0, %39
   %41 = getelementptr inbounds i8, ptr %15, i64 8
   %42 = load i64, ptr %41, align 8
-  %43 = icmp eq i64 %42, %1
+  %43 = icmp eq i64 %1, %42
   %44 = select i1 %40, i1 %43, i1 false
   %45 = getelementptr inbounds i8, ptr %15, i64 72
   %46 = load i8, ptr %45, align 8
@@ -1924,10 +1924,10 @@ define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker22remove_released_reg
 
 23:                                               ; preds = %19, %17, %2
   %24 = load ptr, ptr %15, align 8
-  %25 = icmp eq ptr %24, %0
+  %25 = icmp eq ptr %0, %24
   %26 = getelementptr inbounds i8, ptr %15, i64 8
   %27 = load i64, ptr %26, align 8
-  %28 = icmp eq i64 %27, %1
+  %28 = icmp eq i64 %1, %27
   %29 = select i1 %25, i1 %28, i1 false
   br i1 %29, label %30, label %32
 
@@ -1947,23 +1947,23 @@ define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker22remove_released_reg
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %15, align 8
-  %.not.i.i = icmp ule ptr %39, %0
+  %.not.i.i = icmp uge ptr %0, %39
   %40 = load i64, ptr %26, align 8
   %41 = getelementptr inbounds i8, ptr %39, i64 %40
-  %42 = icmp ugt ptr %41, %0
+  %42 = icmp ult ptr %0, %41
   %43 = select i1 %.not.i.i, i1 %42, i1 false
   br i1 %43, label %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit, label %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread
 
 _ZNK19VirtualMemoryRegion14contain_regionEPhm.exit: ; preds = %38
   %44 = getelementptr inbounds i8, ptr %0, i64 %1
   %45 = getelementptr inbounds i8, ptr %44, i64 -1
-  %.not.i3.i = icmp ule ptr %39, %45
-  %46 = icmp ugt ptr %41, %45
+  %.not.i3.i = icmp uge ptr %45, %39
+  %46 = icmp ult ptr %45, %41
   %47 = select i1 %.not.i3.i, i1 %46, i1 false
   br i1 %47, label %_ZN20ReservedMemoryRegionD2Ev.exit, label %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread
 
 _ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread: ; preds = %38, %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit
-  %48 = icmp ult i64 %40, %1
+  %48 = icmp ugt i64 %1, %40
   br i1 %48, label %49, label %67
 
 49:                                               ; preds = %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread
@@ -2442,7 +2442,7 @@ define linkonce_odr hidden void @_ZN16SortedLinkedListI21CommittedMemoryRegionXa
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = load ptr, ptr %4, align 8
-  %10 = icmp ult ptr %9, %5
+  %10 = icmp ugt ptr %5, %9
   %11 = select i1 %10, ptr %5, ptr %9
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8
@@ -2456,7 +2456,7 @@ define linkonce_odr hidden void @_ZN16SortedLinkedListI21CommittedMemoryRegionXa
 
 19:                                               ; preds = %.lr.ph34
   %20 = load ptr, ptr %31, align 8
-  %21 = icmp ult ptr %20, %5
+  %21 = icmp ugt ptr %5, %20
   %22 = select i1 %21, ptr %5, ptr %20
   %23 = getelementptr inbounds i8, ptr %31, i64 8
   %24 = load i64, ptr %23, align 8
@@ -2539,7 +2539,7 @@ define linkonce_odr hidden noundef ptr @_ZN16SortedLinkedListI21CommittedMemoryR
 8:                                                ; preds = %.lr.ph, %19
   %.0812 = phi ptr [ %.0810, %.lr.ph ], [ %.08, %19 ]
   %9 = load ptr, ptr %.0812, align 8
-  %10 = icmp ult ptr %9, %4
+  %10 = icmp ugt ptr %4, %9
   %11 = select i1 %10, ptr %4, ptr %9
   %12 = getelementptr inbounds i8, ptr %.0812, i64 8
   %13 = load i64, ptr %12, align 8
@@ -2585,7 +2585,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %2
+  %10 = icmp eq ptr %2, %9
   br i1 %10, label %11, label %.preheader
 
 11:                                               ; preds = %6
@@ -2650,7 +2650,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMe
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
   %8 = load ptr, ptr %.0811, align 8
-  %9 = icmp ult ptr %8, %4
+  %9 = icmp ugt ptr %4, %8
   %10 = select i1 %9, ptr %4, ptr %8
   %11 = getelementptr inbounds i8, ptr %.0811, i64 8
   %12 = load i64, ptr %11, align 8
@@ -2669,7 +2669,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMe
 
 18:                                               ; preds = %.lr.ph19
   %19 = load ptr, ptr %.08, align 8
-  %20 = icmp ult ptr %19, %4
+  %20 = icmp ugt ptr %4, %19
   %21 = select i1 %20, ptr %4, ptr %19
   %22 = getelementptr inbounds i8, ptr %.08, i64 8
   %23 = load i64, ptr %22, align 8
@@ -2936,7 +2936,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
 8:                                                ; preds = %.lr.ph, %18
   %.08 = phi ptr [ %.06, %.lr.ph ], [ %.0, %18 ]
   %9 = load ptr, ptr %.08, align 8
-  %10 = icmp ult ptr %9, %4
+  %10 = icmp ugt ptr %4, %9
   %11 = select i1 %10, ptr %4, ptr %9
   %12 = getelementptr inbounds i8, ptr %.08, i64 8
   %13 = load i64, ptr %12, align 8
@@ -3069,11 +3069,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17PrintRegionWalker18do_alloca
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
-  %.not.i = icmp ugt ptr %5, %4
+  %.not.i = icmp ult ptr %4, %5
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
-  %9 = icmp ule ptr %8, %4
+  %9 = icmp uge ptr %4, %8
   %.not8 = select i1 %.not.i, i1 true, i1 %9
   br i1 %.not8, label %27, label %10
 
@@ -3296,7 +3296,7 @@ define linkonce_odr hidden void @_ZN16SortedLinkedListI20ReservedMemoryRegionXad
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = load ptr, ptr %4, align 8
-  %10 = icmp ult ptr %9, %5
+  %10 = icmp ugt ptr %5, %9
   %11 = select i1 %10, ptr %5, ptr %9
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8
@@ -3310,7 +3310,7 @@ define linkonce_odr hidden void @_ZN16SortedLinkedListI20ReservedMemoryRegionXad
 
 19:                                               ; preds = %.lr.ph34
   %20 = load ptr, ptr %31, align 8
-  %21 = icmp ult ptr %20, %5
+  %21 = icmp ugt ptr %5, %20
   %22 = select i1 %21, ptr %5, ptr %20
   %23 = getelementptr inbounds i8, ptr %31, i64 8
   %24 = load i64, ptr %23, align 8
@@ -3393,7 +3393,7 @@ define linkonce_odr hidden noundef ptr @_ZN16SortedLinkedListI20ReservedMemoryRe
 8:                                                ; preds = %.lr.ph, %19
   %.0812 = phi ptr [ %.0810, %.lr.ph ], [ %.08, %19 ]
   %9 = load ptr, ptr %.0812, align 8
-  %10 = icmp ult ptr %9, %4
+  %10 = icmp ugt ptr %4, %9
   %11 = select i1 %10, ptr %4, ptr %9
   %12 = getelementptr inbounds i8, ptr %.0812, i64 8
   %13 = load i64, ptr %12, align 8
@@ -3489,7 +3489,7 @@ _ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, %2
+  %34 = icmp eq ptr %2, %33
   br i1 %34, label %35, label %.preheader
 
 35:                                               ; preds = %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread21
@@ -3607,7 +3607,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMem
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
   %8 = load ptr, ptr %.0811, align 8
-  %9 = icmp ult ptr %8, %4
+  %9 = icmp ugt ptr %4, %8
   %10 = select i1 %9, ptr %4, ptr %8
   %11 = getelementptr inbounds i8, ptr %.0811, i64 8
   %12 = load i64, ptr %11, align 8
@@ -3626,7 +3626,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMem
 
 18:                                               ; preds = %.lr.ph19
   %19 = load ptr, ptr %.08, align 8
-  %20 = icmp ult ptr %19, %4
+  %20 = icmp ugt ptr %4, %19
   %21 = select i1 %20, ptr %4, ptr %19
   %22 = getelementptr inbounds i8, ptr %.08, i64 8
   %23 = load i64, ptr %22, align 8
@@ -4090,7 +4090,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegi
 8:                                                ; preds = %.lr.ph, %18
   %.08 = phi ptr [ %.06, %.lr.ph ], [ %.0, %18 ]
   %9 = load ptr, ptr %.08, align 8
-  %10 = icmp ult ptr %9, %4
+  %10 = icmp ugt ptr %4, %9
   %11 = select i1 %10, ptr %4, ptr %9
   %12 = getelementptr inbounds i8, ptr %.08, i64 8
   %13 = load i64, ptr %12, align 8

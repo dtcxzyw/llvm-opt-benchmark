@@ -2272,7 +2272,7 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 nounde
   %16 = getelementptr inbounds [385 x i16], ptr @yy_chk, i64 0, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
-  %.not1819 = icmp eq i32 %18, %0
+  %.not1819 = icmp eq i32 %0, %18
   br i1 %.not1819, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
@@ -2458,88 +2458,76 @@ define internal fastcc void @jq_yy_init_buffer(ptr noundef %0, ptr noundef %1, p
   %16 = getelementptr inbounds i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not15.i = icmp eq ptr %17, null
-  br i1 %.not15.i, label %23, label %18
+  br i1 %.not15.i, label %jq_yy_flush_buffer.exit, label %18
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds i8, ptr %2, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds ptr, ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
-  br label %23
+  %23 = icmp eq ptr %0, %22
+  br i1 %23, label %24, label %jq_yy_flush_buffer.exit
 
-23:                                               ; preds = %18, %6
-  %24 = phi ptr [ %22, %18 ], [ null, %6 ]
-  %25 = icmp eq ptr %24, %0
-  br i1 %25, label %26, label %jq_yy_flush_buffer.exit
-
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %17, i64 %28
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %22, i64 28
+  %26 = load i32, ptr %25, align 4
+  %27 = getelementptr inbounds i8, ptr %2, i64 52
+  store i32 %26, ptr %27, align 4
+  %28 = load ptr, ptr %21, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 28
-  %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %2, i64 52
-  store i32 %32, ptr %33, align 4
-  %34 = load ptr, ptr %29, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 64
-  store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 128
-  store ptr %36, ptr %38, align 8
-  %39 = load ptr, ptr %29, align 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %40, ptr %41, align 8
-  %42 = load i8, ptr %36, align 1
-  %43 = getelementptr inbounds i8, ptr %2, i64 48
-  store i8 %42, ptr %43, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 64
+  store ptr %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 128
+  store ptr %30, ptr %32, align 8
+  %33 = load ptr, ptr %21, align 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %34, ptr %35, align 8
+  %36 = load i8, ptr %30, align 1
+  %37 = getelementptr inbounds i8, ptr %2, i64 48
+  store i8 %36, ptr %37, align 8
   br label %jq_yy_flush_buffer.exit
 
-jq_yy_flush_buffer.exit:                          ; preds = %3, %23, %26
+jq_yy_flush_buffer.exit:                          ; preds = %3, %6, %18, %24
   store ptr %1, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 1, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %2, i64 40
-  %46 = load ptr, ptr %45, align 8
-  %.not = icmp eq ptr %46, null
-  br i1 %.not, label %52, label %47
+  %38 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 1, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %2, i64 40
+  %40 = load ptr, ptr %39, align 8
+  %.not = icmp eq ptr %40, null
+  br i1 %.not, label %.thread, label %41
 
-47:                                               ; preds = %jq_yy_flush_buffer.exit
-  %48 = getelementptr inbounds i8, ptr %2, i64 24
-  %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %49
-  %51 = load ptr, ptr %50, align 8
-  br label %52
+41:                                               ; preds = %jq_yy_flush_buffer.exit
+  %42 = getelementptr inbounds i8, ptr %2, i64 24
+  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds ptr, ptr %40, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %.not17 = icmp eq ptr %0, %45
+  br i1 %.not17, label %48, label %.thread
 
-52:                                               ; preds = %jq_yy_flush_buffer.exit, %47
-  %53 = phi ptr [ %51, %47 ], [ null, %jq_yy_flush_buffer.exit ]
-  %.not17 = icmp eq ptr %53, %0
-  br i1 %.not17, label %57, label %54
+.thread:                                          ; preds = %jq_yy_flush_buffer.exit, %41
+  %46 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 1, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 0, ptr %47, align 8
+  br label %48
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 1, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 0, ptr %56, align 8
-  br label %57
-
-57:                                               ; preds = %54, %52
+48:                                               ; preds = %.thread, %41
   %.not18 = icmp eq ptr %1, null
-  br i1 %.not18, label %63, label %58
+  br i1 %.not18, label %54, label %49
 
-58:                                               ; preds = %57
-  %59 = tail call i32 @fileno(ptr noundef nonnull %1) #19
-  %60 = tail call i32 @isatty(i32 noundef %59) #19
-  %61 = icmp sgt i32 %60, 0
-  %62 = zext i1 %61 to i32
-  br label %63
+49:                                               ; preds = %48
+  %50 = tail call i32 @fileno(ptr noundef nonnull %1) #19
+  %51 = tail call i32 @isatty(i32 noundef %50) #19
+  %52 = icmp sgt i32 %51, 0
+  %53 = zext i1 %52 to i32
+  br label %54
 
-63:                                               ; preds = %57, %58
-  %64 = phi i32 [ %62, %58 ], [ 0, %57 ]
-  %65 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 %64, ptr %65, align 4
+54:                                               ; preds = %48, %49
+  %55 = phi i32 [ %53, %49 ], [ 0, %48 ]
+  %56 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 %55, ptr %56, align 4
   store i32 %5, ptr %4, align 4
   ret void
 }
@@ -2688,50 +2676,43 @@ define ptr @jq_yyalloc(i64 noundef %0, ptr nocapture noundef readnone %1) local_
 ; Function Attrs: nounwind uwtable
 define void @jq_yy_delete_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %25, label %3
+  br i1 %.not, label %19, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not14 = icmp eq ptr %5, null
-  br i1 %.not14, label %11, label %6
+  br i1 %.not14, label %.thread, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
-  br label %11
+  %11 = icmp eq ptr %0, %10
+  br i1 %11, label %12, label %.thread
 
-11:                                               ; preds = %3, %6
-  %12 = phi ptr [ %10, %6 ], [ null, %3 ]
-  %13 = icmp eq ptr %12, %0
-  br i1 %13, label %14, label %18
+12:                                               ; preds = %6
+  store ptr null, ptr %9, align 8
+  br label %.thread
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds ptr, ptr %5, i64 %16
-  store ptr null, ptr %17, align 8
+.thread:                                          ; preds = %3, %12, %6
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = load i32, ptr %13, align 8
+  %.not15 = icmp eq i32 %14, 0
+  br i1 %.not15, label %18, label %15
+
+15:                                               ; preds = %.thread
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8
+  tail call void @jv_mem_free(ptr noundef %17) #19
   br label %18
 
-18:                                               ; preds = %14, %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  %20 = load i32, ptr %19, align 8
-  %.not15 = icmp eq i32 %20, 0
-  br i1 %.not15, label %24, label %21
-
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8
-  tail call void @jv_mem_free(ptr noundef %23) #19
-  br label %24
-
-24:                                               ; preds = %21, %18
+18:                                               ; preds = %15, %.thread
   tail call void @jv_mem_free(ptr noundef nonnull %0) #19
-  br label %25
+  br label %19
 
-25:                                               ; preds = %2, %24
+19:                                               ; preds = %2, %18
   ret void
 }
 
@@ -2744,7 +2725,7 @@ define void @jq_yyfree(ptr noundef %0, ptr nocapture noundef readnone %1) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @jq_yy_flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %41, label %3
+  br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 28
@@ -2765,46 +2746,38 @@ define void @jq_yy_flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_
   %13 = getelementptr inbounds i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %20, label %15
+  br i1 %.not15, label %.thread, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
-  br label %20
+  %20 = icmp eq ptr %0, %19
+  br i1 %20, label %21, label %.thread
 
-20:                                               ; preds = %3, %15
-  %21 = phi ptr [ %19, %15 ], [ null, %3 ]
-  %22 = icmp eq ptr %21, %0
-  br i1 %22, label %23, label %41
-
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds ptr, ptr %14, i64 %25
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds i8, ptr %19, i64 28
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %1, i64 52
+  store i32 %23, ptr %24, align 4
+  %25 = load ptr, ptr %18, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 28
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 52
-  store i32 %29, ptr %30, align 4
-  %31 = load ptr, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 64
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 128
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %26, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %37, ptr %38, align 8
-  %39 = load i8, ptr %33, align 1
-  %40 = getelementptr inbounds i8, ptr %1, i64 48
-  store i8 %39, ptr %40, align 8
-  br label %41
+  %28 = getelementptr inbounds i8, ptr %1, i64 64
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 128
+  store ptr %27, ptr %29, align 8
+  %30 = load ptr, ptr %18, align 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %31, ptr %32, align 8
+  %33 = load i8, ptr %27, align 1
+  %34 = getelementptr inbounds i8, ptr %1, i64 48
+  store i8 %33, ptr %34, align 8
+  br label %.thread
 
-41:                                               ; preds = %2, %23, %20
+.thread:                                          ; preds = %3, %2, %21, %15
   ret void
 }
 
@@ -2948,7 +2921,7 @@ define void @jq_yypop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr 
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %42, label %4
+  br i1 %.not, label %41, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2956,72 +2929,72 @@ define void @jq_yypop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr 
   %7 = getelementptr inbounds ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %8, null
-  br i1 %.not20, label %42, label %9
+  br i1 %.not20, label %41, label %.thread.i
 
-9:                                                ; preds = %4
+.thread.i:                                        ; preds = %4
   store ptr null, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
-  %11 = load i32, ptr %10, align 8
-  %.not15.i = icmp eq i32 %11, 0
-  br i1 %.not15.i, label %jq_yy_delete_buffer.exit, label %12
+  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = load i32, ptr %9, align 8
+  %.not15.i = icmp eq i32 %10, 0
+  br i1 %.not15.i, label %jq_yy_delete_buffer.exit, label %11
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
-  %14 = load ptr, ptr %13, align 8
-  tail call void @jv_mem_free(ptr noundef %14) #19
+11:                                               ; preds = %.thread.i
+  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = load ptr, ptr %12, align 8
+  tail call void @jv_mem_free(ptr noundef %13) #19
   br label %jq_yy_delete_buffer.exit
 
-jq_yy_delete_buffer.exit:                         ; preds = %9, %12
+jq_yy_delete_buffer.exit:                         ; preds = %.thread.i, %11
   tail call void @jv_mem_free(ptr noundef nonnull %8) #19
-  %15 = load ptr, ptr %2, align 8
-  %16 = load i64, ptr %5, align 8
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
-  store ptr null, ptr %17, align 8
-  %18 = load i64, ptr %5, align 8
-  %.not21 = icmp eq i64 %18, 0
-  br i1 %.not21, label %21, label %19
+  %14 = load ptr, ptr %2, align 8
+  %15 = load i64, ptr %5, align 8
+  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  store ptr null, ptr %16, align 8
+  %17 = load i64, ptr %5, align 8
+  %.not21 = icmp eq i64 %17, 0
+  br i1 %.not21, label %20, label %18
 
-19:                                               ; preds = %jq_yy_delete_buffer.exit
-  %20 = add i64 %18, -1
-  store i64 %20, ptr %5, align 8
-  br label %21
+18:                                               ; preds = %jq_yy_delete_buffer.exit
+  %19 = add i64 %17, -1
+  store i64 %19, ptr %5, align 8
+  br label %20
 
-21:                                               ; preds = %19, %jq_yy_delete_buffer.exit
-  %22 = phi i64 [ %20, %19 ], [ 0, %jq_yy_delete_buffer.exit ]
-  %23 = load ptr, ptr %2, align 8
-  %.not22 = icmp eq ptr %23, null
-  br i1 %.not22, label %42, label %24
+20:                                               ; preds = %18, %jq_yy_delete_buffer.exit
+  %21 = phi i64 [ %19, %18 ], [ 0, %jq_yy_delete_buffer.exit ]
+  %22 = load ptr, ptr %2, align 8
+  %.not22 = icmp eq ptr %22, null
+  br i1 %.not22, label %41, label %23
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %22
-  %26 = load ptr, ptr %25, align 8
-  %.not23 = icmp eq ptr %26, null
-  br i1 %.not23, label %42, label %27
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds ptr, ptr %22, i64 %21
+  %25 = load ptr, ptr %24, align 8
+  %.not23 = icmp eq ptr %25, null
+  br i1 %.not23, label %41, label %26
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 28
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 %29, ptr %30, align 4
-  %31 = load ptr, ptr %25, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %25, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %37, ptr %38, align 8
-  %39 = load i8, ptr %33, align 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
-  store i8 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 1, ptr %41, align 8
-  br label %42
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %25, i64 28
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 %28, ptr %29, align 4
+  %30 = load ptr, ptr %24, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 128
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %24, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %36, ptr %37, align 8
+  %38 = load i8, ptr %32, align 1
+  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  store i8 %38, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 1, ptr %40, align 8
+  br label %41
 
-42:                                               ; preds = %21, %4, %1, %27, %24
+41:                                               ; preds = %20, %4, %1, %26, %23
   ret void
 }
 
@@ -3463,24 +3436,24 @@ define noundef i32 @jq_yylex_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %12 = getelementptr inbounds ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not2133 = icmp eq ptr %13, null
-  br i1 %.not2133, label %.thread, label %.lr.ph34
+  br i1 %.not2133, label %.thread, label %.thread.i
 
-.lr.ph34:                                         ; preds = %.lr.ph, %jq_yypop_buffer_state.exit
-  %14 = phi ptr [ %57, %jq_yypop_buffer_state.exit ], [ %13, %.lr.ph ]
-  %15 = phi ptr [ %56, %jq_yypop_buffer_state.exit ], [ %12, %.lr.ph ]
+.thread.i:                                        ; preds = %.lr.ph, %jq_yypop_buffer_state.exit
+  %14 = phi ptr [ %56, %jq_yypop_buffer_state.exit ], [ %13, %.lr.ph ]
+  %15 = phi ptr [ %55, %jq_yypop_buffer_state.exit ], [ %12, %.lr.ph ]
   store ptr null, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 32
   %17 = load i32, ptr %16, align 8
   %.not15.i = icmp eq i32 %17, 0
   br i1 %.not15.i, label %jq_yy_delete_buffer.exit, label %18
 
-18:                                               ; preds = %.lr.ph34
+18:                                               ; preds = %.thread.i
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @jv_mem_free(ptr noundef %20) #19
   br label %jq_yy_delete_buffer.exit
 
-jq_yy_delete_buffer.exit:                         ; preds = %.lr.ph34, %18
+jq_yy_delete_buffer.exit:                         ; preds = %.thread.i, %18
   tail call void @jv_mem_free(ptr noundef nonnull %14) #19
   %.pre31 = load i64, ptr %2, align 8
   %.pre = load ptr, ptr %3, align 8
@@ -3495,89 +3468,89 @@ jq_yy_delete_buffer.exit:                         ; preds = %.lr.ph34, %18
   %25 = getelementptr inbounds ptr, ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not20.i = icmp eq ptr %26, null
-  br i1 %.not20.i, label %jq_yypop_buffer_state.exit, label %27
+  br i1 %.not20.i, label %jq_yypop_buffer_state.exit, label %.thread.i.i
 
-27:                                               ; preds = %23
+.thread.i.i:                                      ; preds = %23
   store ptr null, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 32
-  %29 = load i32, ptr %28, align 8
-  %.not15.i.i = icmp eq i32 %29, 0
-  br i1 %.not15.i.i, label %jq_yy_delete_buffer.exit.i, label %30
+  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %28 = load i32, ptr %27, align 8
+  %.not15.i.i = icmp eq i32 %28, 0
+  br i1 %.not15.i.i, label %jq_yy_delete_buffer.exit.i, label %29
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
-  %32 = load ptr, ptr %31, align 8
-  tail call void @jv_mem_free(ptr noundef %32) #19
+29:                                               ; preds = %.thread.i.i
+  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = load ptr, ptr %30, align 8
+  tail call void @jv_mem_free(ptr noundef %31) #19
   br label %jq_yy_delete_buffer.exit.i
 
-jq_yy_delete_buffer.exit.i:                       ; preds = %30, %27
+jq_yy_delete_buffer.exit.i:                       ; preds = %29, %.thread.i.i
   tail call void @jv_mem_free(ptr noundef nonnull %26) #19
-  %33 = load ptr, ptr %3, align 8
-  %34 = load i64, ptr %2, align 8
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
-  store ptr null, ptr %35, align 8
-  %36 = load i64, ptr %2, align 8
-  %.not21.i = icmp eq i64 %36, 0
-  br i1 %.not21.i, label %39, label %37
+  %32 = load ptr, ptr %3, align 8
+  %33 = load i64, ptr %2, align 8
+  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
+  store ptr null, ptr %34, align 8
+  %35 = load i64, ptr %2, align 8
+  %.not21.i = icmp eq i64 %35, 0
+  br i1 %.not21.i, label %38, label %36
 
-37:                                               ; preds = %jq_yy_delete_buffer.exit.i
-  %38 = add i64 %36, -1
-  store i64 %38, ptr %2, align 8
-  br label %39
+36:                                               ; preds = %jq_yy_delete_buffer.exit.i
+  %37 = add i64 %35, -1
+  store i64 %37, ptr %2, align 8
+  br label %38
 
-39:                                               ; preds = %37, %jq_yy_delete_buffer.exit.i
-  %40 = phi i64 [ %38, %37 ], [ 0, %jq_yy_delete_buffer.exit.i ]
-  %41 = load ptr, ptr %3, align 8
-  %.not22.i = icmp eq ptr %41, null
-  br i1 %.not22.i, label %.thread, label %42
+38:                                               ; preds = %36, %jq_yy_delete_buffer.exit.i
+  %39 = phi i64 [ %37, %36 ], [ 0, %jq_yy_delete_buffer.exit.i ]
+  %40 = load ptr, ptr %3, align 8
+  %.not22.i = icmp eq ptr %40, null
+  br i1 %.not22.i, label %.thread, label %41
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %40
-  %44 = load ptr, ptr %43, align 8
-  %.not23.i = icmp eq ptr %44, null
-  br i1 %.not23.i, label %jq_yypop_buffer_state.exit, label %45
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds ptr, ptr %40, i64 %39
+  %43 = load ptr, ptr %42, align 8
+  %.not23.i = icmp eq ptr %43, null
+  br i1 %.not23.i, label %jq_yypop_buffer_state.exit, label %44
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %44, i64 28
-  %47 = load i32, ptr %46, align 4
-  store i32 %47, ptr %5, align 4
-  %48 = load ptr, ptr %43, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %6, align 8
-  store ptr %50, ptr %7, align 8
-  %51 = load ptr, ptr %43, align 8
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %8, align 8
-  %53 = load i8, ptr %50, align 1
-  store i8 %53, ptr %9, align 8
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %43, i64 28
+  %46 = load i32, ptr %45, align 4
+  store i32 %46, ptr %5, align 4
+  %47 = load ptr, ptr %42, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8
+  store ptr %49, ptr %6, align 8
+  store ptr %49, ptr %7, align 8
+  %50 = load ptr, ptr %42, align 8
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %8, align 8
+  %52 = load i8, ptr %49, align 1
+  store i8 %52, ptr %9, align 8
   store i32 1, ptr %10, align 8
   br label %jq_yypop_buffer_state.exit
 
-jq_yypop_buffer_state.exit:                       ; preds = %23, %42, %45
-  %54 = phi ptr [ %22, %23 ], [ %41, %42 ], [ %41, %45 ]
-  %55 = load i64, ptr %2, align 8
-  %56 = getelementptr inbounds ptr, ptr %54, i64 %55
-  %57 = load ptr, ptr %56, align 8
-  %.not21 = icmp eq ptr %57, null
-  br i1 %.not21, label %.thread, label %.lr.ph34, !llvm.loop !16
+jq_yypop_buffer_state.exit:                       ; preds = %23, %41, %44
+  %53 = phi ptr [ %22, %23 ], [ %40, %41 ], [ %40, %44 ]
+  %54 = load i64, ptr %2, align 8
+  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %56 = load ptr, ptr %55, align 8
+  %.not21 = icmp eq ptr %56, null
+  br i1 %.not21, label %.thread, label %.thread.i, !llvm.loop !16
 
-.thread:                                          ; preds = %jq_yypop_buffer_state.exit, %jq_yy_delete_buffer.exit, %39, %.lr.ph, %1
-  %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %jq_yy_delete_buffer.exit ], [ %54, %jq_yypop_buffer_state.exit ]
+.thread:                                          ; preds = %jq_yypop_buffer_state.exit, %jq_yy_delete_buffer.exit, %38, %.lr.ph, %1
+  %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %38 ], [ null, %jq_yy_delete_buffer.exit ], [ %53, %jq_yypop_buffer_state.exit ]
   tail call void @jv_mem_free(ptr noundef %.lcssa) #19
   store ptr null, ptr %3, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 96
-  %59 = load ptr, ptr %58, align 8
-  tail call void @jv_mem_free(ptr noundef %59) #19
-  %60 = getelementptr inbounds i8, ptr %0, i64 64
-  %61 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 0, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 0, ptr %62, align 8
-  store ptr null, ptr %58, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %63, i8 0, i64 40, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
+  %57 = getelementptr inbounds i8, ptr %0, i64 96
+  %58 = load ptr, ptr %57, align 8
+  tail call void @jv_mem_free(ptr noundef %58) #19
+  %59 = getelementptr inbounds i8, ptr %0, i64 64
+  %60 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 0, ptr %61, align 8
+  store ptr null, ptr %57, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   tail call void @jv_mem_free(ptr noundef nonnull %0) #19
   ret i32 0
 }

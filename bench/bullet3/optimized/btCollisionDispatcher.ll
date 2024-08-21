@@ -669,7 +669,7 @@ if.then.i:
   %10 = load ptr, ptr %m_persistentManifoldPoolAllocator, align 8
   %m_pool.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %m_pool.i, align 8
-  %cmp.not.i = icmp ugt ptr %11, %manifold
+  %cmp.not.i = icmp ult ptr %manifold, %11
   br i1 %cmp.not.i, label %if.else, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
@@ -679,7 +679,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   %mul.i = mul nsw i32 %13, %12
   %idx.ext.i = sext i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext.i
-  %cmp3.i = icmp ugt ptr %add.ptr.i, %manifold
+  %cmp3.i = icmp ult ptr %manifold, %add.ptr.i
   br i1 %cmp3.i, label %_ZN15btPoolAllocator10freeMemoryEPv.exit, label %if.else
 
 _ZN15btPoolAllocator10freeMemoryEPv.exit:         ; preds = %land.lhs.true.i
@@ -898,7 +898,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %m_pool.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_pool.i, align 8
-  %cmp.not.i = icmp ugt ptr %1, %ptr
+  %cmp.not.i = icmp ult ptr %ptr, %1
   br i1 %cmp.not.i, label %if.else, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
@@ -908,7 +908,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   %mul.i = mul nsw i32 %3, %2
   %idx.ext.i = sext i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %idx.ext.i
-  %cmp3.i = icmp ugt ptr %add.ptr.i, %ptr
+  %cmp3.i = icmp ult ptr %ptr, %add.ptr.i
   br i1 %cmp3.i, label %_ZN15btPoolAllocator10freeMemoryEPv.exit, label %if.else
 
 _ZN15btPoolAllocator10freeMemoryEPv.exit:         ; preds = %land.lhs.true.i

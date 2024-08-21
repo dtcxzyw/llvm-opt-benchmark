@@ -229,7 +229,7 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope8split_at17h4cf1c3318155b4
 
 19:                                               ; preds = %13
   %20 = extractvalue { ptr, i64 } %14, 1
-  %21 = icmp eq i64 %20, %2
+  %21 = icmp eq i64 %2, %20
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %19
@@ -242,7 +242,7 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope8split_at17h4cf1c3318155b4
 
 25:                                               ; preds = %22
   %26 = extractvalue { ptr, i64 } %23, 1
-  %.not = icmp ult i64 %26, %2
+  %.not = icmp ugt i64 %2, %26
   br i1 %.not, label %27, label %32
 
 27:                                               ; preds = %25

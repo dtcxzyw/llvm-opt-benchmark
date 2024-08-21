@@ -1335,7 +1335,7 @@ if.end:                                           ; preds = %entry
   %conv2 = and i32 %sub, %2
   %sub4 = sub i32 %1, %conv2
   %conv5 = sext i32 %sub4 to i64
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %conv5, i64 %bytes)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %bytes, i64 %conv5)
   store i64 %spec.select, ptr %pnum, align 8
   %3 = load i64, ptr %cluster_offset, align 8
   %tobool.not = icmp eq i64 %3, 0
@@ -1379,11 +1379,11 @@ entry:
   %call = tail call ptr @qemu_blockalign(ptr noundef %bs, i64 noundef %conv) #15
   %2 = load i32, ptr %cluster_size, align 4
   %conv2 = sext i32 %2 to i64
-  %cmp.not = icmp eq i64 %conv2, %bytes
+  %cmp.not = icmp eq i64 %bytes, %conv2
   br i1 %cmp.not, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp6 = icmp slt i64 %conv2, %bytes
+  %cmp6 = icmp sgt i64 %bytes, %conv2
   br i1 %cmp6, label %if.then10, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
@@ -2028,7 +2028,7 @@ if.else248:                                       ; preds = %if.then245
 if.end249:                                        ; preds = %if.then245
   %not = sub nsw i32 0, %56
   %conv252 = sext i32 %not to i64
-  %and253 = and i64 %conv252, %offset
+  %and253 = and i64 %offset, %conv252
   %cmp256181 = icmp sgt i32 %56, 0
   br i1 %cmp256181, label %for.body258.lr.ph, label %do.body327.sink.split
 

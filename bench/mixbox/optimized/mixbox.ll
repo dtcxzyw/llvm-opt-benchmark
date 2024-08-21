@@ -1886,7 +1886,7 @@ define dso_local void @mixbox_lerp(i8 noundef zeroext %0, i8 noundef zeroext %1,
   %519 = load float, ptr %518, align 4
   %520 = getelementptr inbounds [7 x float], ptr %12, i64 0, i64 %indvars.iv
   %521 = load float, ptr %520, align 4
-  %522 = fmul float %521, %6
+  %522 = fmul float %6, %521
   %523 = tail call float @llvm.fmuladd.f32(float %516, float %519, float %522)
   %524 = getelementptr inbounds [7 x float], ptr %13, i64 0, i64 %indvars.iv
   store float %523, ptr %524, align 4
@@ -2576,7 +2576,7 @@ define dso_local void @mixbox_lerp_float(float noundef %0, float noundef %1, flo
   %519 = load float, ptr %518, align 4
   %520 = getelementptr inbounds [7 x float], ptr %12, i64 0, i64 %indvars.iv
   %521 = load float, ptr %520, align 4
-  %522 = fmul float %521, %6
+  %522 = fmul float %6, %521
   %523 = tail call float @llvm.fmuladd.f32(float %516, float %519, float %522)
   %524 = getelementptr inbounds [7 x float], ptr %13, i64 0, i64 %indvars.iv
   store float %523, ptr %524, align 4
@@ -3338,7 +3338,7 @@ define dso_local void @mixbox_lerp_linear_float(float noundef %0, float noundef 
   %567 = load float, ptr %566, align 4
   %568 = getelementptr inbounds [7 x float], ptr %12, i64 0, i64 %indvars.iv
   %569 = load float, ptr %568, align 4
-  %570 = fmul float %569, %6
+  %570 = fmul float %6, %569
   %571 = tail call float @llvm.fmuladd.f32(float %564, float %567, float %570)
   %572 = getelementptr inbounds [7 x float], ptr %13, i64 0, i64 %indvars.iv
   store float %571, ptr %572, align 4

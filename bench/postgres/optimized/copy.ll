@@ -895,7 +895,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
 60:                                               ; preds = %55, %54, %57, %59, %53
   %.250 = phi i8 [ 1, %59 ], [ %.04872, %57 ], [ %.04872, %53 ], [ %.04872, %54 ], [ %.04872, %55 ]
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
-  %62 = icmp eq ptr %61, %1
+  %62 = icmp eq ptr %1, %61
   br i1 %62, label %63, label %68
 
 63:                                               ; preds = %60

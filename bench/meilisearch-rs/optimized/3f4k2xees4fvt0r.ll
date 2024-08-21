@@ -12957,7 +12957,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_e
   %6 = alloca [24 x i8], align 8
   %7 = alloca [16 x i8], align 8
   %.not = xor i1 %4, true
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   br i1 %brmerge, label %.preheader, label %33
 
@@ -13067,7 +13067,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_e
 define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17h2394746380a33266E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %6 = alloca [24 x i8], align 8
   %.not = xor i1 %4, true
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %.preheader, label %13
 
 .preheader:                                       ; preds = %5
@@ -13125,7 +13125,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_e
 define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17he602ad1caaa95db2E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %6 = alloca [24 x i8], align 8
   %.not = xor i1 %4, true
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %.preheader, label %13
 
 .preheader:                                       ; preds = %5
@@ -23862,7 +23862,7 @@ define hidden noundef align 2 dereferenceable_or_null(98) ptr @_ZN12clap_builder
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4430)
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load i64, ptr %18, align 8, !alias.scope !4433, !noalias !4434, !noundef !8
-  %20 = icmp ugt i64 %19, %.sroa.8.0.i
+  %20 = icmp ult i64 %.sroa.8.0.i, %19
   br i1 %20, label %22, label %21, !prof !4436
 
 21:                                               ; preds = %17
@@ -43985,7 +43985,7 @@ _ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !8427, !noalias !8434, !noundef !8
   %45 = load i64, ptr %0, align 8, !alias.scope !8436, !noalias !8434, !noundef !8
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3210038351630652E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i
@@ -44036,7 +44036,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %5 = load i64, ptr %4, align 8, !alias.scope !8442, !noalias !8449, !noundef !8
   %6 = load i64, ptr %0, align 8, !alias.scope !8451, !noalias !8449, !noundef !8
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3210038351630652E.exit"
 
 9:                                                ; preds = %3
@@ -70128,7 +70128,7 @@ _ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i: ; preds = %23
   %248 = load i64, ptr %29, align 8, !alias.scope !13043, !noalias !13050, !noundef !8
   %249 = load i64, ptr %2, align 8, !alias.scope !13052, !noalias !13050, !noundef !8
   %250 = sub i64 %249, %248
-  %251 = icmp ult i64 %250, %247
+  %251 = icmp ugt i64 %247, %250
   br i1 %251, label %252, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3210038351630652E.exit.i"
 
 252:                                              ; preds = %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i

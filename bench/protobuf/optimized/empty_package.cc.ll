@@ -65,7 +65,7 @@ while.body.i.i.i:                                 ; preds = %if.end, %_ZNK9__gnu
   %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.014.i.i.i, i64 %shr.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i, i64 %name.coerce0)
+  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %name.coerce0, i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i)
   %cmp.i2.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
@@ -116,7 +116,7 @@ if.then8:                                         ; preds = %if.then3
   br i1 %cmp.i.i, label %return, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then8
-  %cmp.not.i = icmp ugt i64 %agg.tmp9.sroa.0.0.copyload, %name.coerce0
+  %cmp.not.i = icmp ult i64 %name.coerce0, %agg.tmp9.sroa.0.0.copyload
   br i1 %cmp.not.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
@@ -128,7 +128,7 @@ if.end13:                                         ; preds = %_ZN4absl12lts_20230
   %agg.tmp15.sroa.0.0.copyload = load i64, ptr %__first.addr.0.lcssa.i.i.i, align 8
   %agg.tmp15.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i, i64 8
   %agg.tmp15.sroa.2.0.copyload = load ptr, ptr %agg.tmp15.sroa.2.0..sroa_idx, align 8
-  %cmp.i8 = icmp eq i64 %agg.tmp15.sroa.0.0.copyload, %name.coerce0
+  %cmp.i8 = icmp eq i64 %name.coerce0, %agg.tmp15.sroa.0.0.copyload
   br i1 %cmp.i8, label %land.rhs.i9, label %if.end18
 
 land.rhs.i9:                                      ; preds = %if.end13
@@ -156,7 +156,7 @@ if.then25:                                        ; preds = %if.end18
   br i1 %cmp.i.i12, label %return, label %lor.rhs.i13
 
 lor.rhs.i13:                                      ; preds = %if.then25
-  %cmp.not.i14 = icmp ugt i64 %agg.tmp27.sroa.0.0.copyload, %name.coerce0
+  %cmp.not.i14 = icmp ult i64 %name.coerce0, %agg.tmp27.sroa.0.0.copyload
   br i1 %cmp.not.i14, label %return, label %land.rhs.i15
 
 land.rhs.i15:                                     ; preds = %lor.rhs.i13

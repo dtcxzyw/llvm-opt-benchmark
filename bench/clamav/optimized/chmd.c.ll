@@ -1756,7 +1756,7 @@ define internal fastcc ptr @read_chunk(ptr nocapture noundef %0, ptr nocapture n
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 128
   %8 = load i32, ptr %7, align 8
-  %.not = icmp ugt i32 %8, %3
+  %.not = icmp ult i32 %3, %8
   br i1 %.not, label %9, label %80
 
 9:                                                ; preds = %4
@@ -3076,7 +3076,7 @@ read_sys_file.exit:                               ; preds = %72
   %103 = or disjoint i32 %100, %102
   %104 = getelementptr inbounds i8, ptr %50, i64 4
   %105 = load i32, ptr %104, align 1
-  %106 = icmp ugt i32 %105, %2
+  %106 = icmp ult i32 %2, %105
   br i1 %106, label %107, label %126
 
 107:                                              ; preds = %88

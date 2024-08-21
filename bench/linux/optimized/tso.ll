@@ -76,7 +76,7 @@ define dso_local void @tso_build_hdr(ptr nocapture noundef readonly %0, ptr noca
   %51 = getelementptr i8, ptr %1, i64 %50
   %52 = load i8, ptr %18, align 2
   %53 = zext i8 %52 to i32
-  %54 = add i32 %53, %3
+  %54 = add i32 %3, %53
   %55 = trunc i32 %54 to i16
   %56 = tail call i16 @llvm.bswap.i16(i16 %55)
   %57 = getelementptr inbounds i8, ptr %51, i64 4

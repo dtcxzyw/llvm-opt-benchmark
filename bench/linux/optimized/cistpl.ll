@@ -1144,7 +1144,7 @@ define internal fastcc noundef i32 @read_cis_cache(ptr noundef %0, i32 noundef %
   %16 = getelementptr inbounds i8, ptr %0, i64 248
   %17 = load i64, ptr %16, align 8
   %18 = zext i32 %2 to i64
-  %19 = add nuw nsw i64 %18, %3
+  %19 = add nuw nsw i64 %3, %18
   %20 = icmp ult i64 %17, %19
   br i1 %20, label %23, label %21
 
@@ -1174,7 +1174,7 @@ define internal fastcc noundef i32 @read_cis_cache(ptr noundef %0, i32 noundef %
   %33 = getelementptr inbounds i8, ptr %28, i64 20
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp eq i64 %35, %3
+  %36 = icmp eq i64 %3, %35
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %32

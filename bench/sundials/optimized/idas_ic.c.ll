@@ -253,7 +253,7 @@ define range(i32 -99, 1) i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double n
   %141 = fdiv double 5.000000e-01, %.0248
   %.0249 = select i1 %140, double %141, double %125
   %142 = load double, ptr %26, align 8
-  %143 = fcmp ogt double %142, %2
+  %143 = fcmp olt double %2, %142
   %144 = fneg double %.0249
   %.1250 = select i1 %143, double %144, double %.0249
   %145 = getelementptr inbounds i8, ptr %0, i64 1248
@@ -1923,7 +1923,7 @@ define internal fastcc void @IDASensNewyyp(ptr nocapture noundef readonly %0, do
   %30 = load ptr, ptr %29, align 8
   %31 = load double, ptr %17, align 8
   %32 = fneg double %31
-  %33 = fmul double %32, %1
+  %33 = fmul double %1, %32
   %34 = load ptr, ptr %15, align 8
   %35 = load ptr, ptr %18, align 8
   %36 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv41

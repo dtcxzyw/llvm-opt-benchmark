@@ -2152,7 +2152,7 @@ _ZN12unicode_bidi14InitialInfoExt20new_with_data_source17hc09f56411e5f175eE.exit
   %299 = add i64 %298, %spec.select.i.i.i
   %300 = getelementptr inbounds i8, ptr %264, i64 16
   %301 = load i8, ptr %300, align 8, !alias.scope !153, !noalias !166, !noundef !7
-  %302 = icmp ult i64 %298, %299
+  %302 = icmp ugt i64 %299, %298
   br i1 %302, label %303, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h37cb52dd6b3b0f34E.llvm.10579729455205085779.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h37cb52dd6b3b0f34E.llvm.10579729455205085779.exit.i.i": ; preds = %291
@@ -5058,7 +5058,7 @@ define internal fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull align 1 %63, i64 %62, i1 false), !alias.scope !984, !noalias !988
   %64 = load i64, ptr %13, align 8, !alias.scope !971, !noalias !974, !noundef !7
   %65 = load i64, ptr %20, align 8, !alias.scope !971, !noalias !974, !noundef !7
-  %66 = icmp ult i64 %64, %65
+  %66 = icmp ugt i64 %65, %64
   br i1 %66, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h3ac447b3a2f059b4E.exit.i", label %67
 
 67:                                               ; preds = %57
@@ -6356,7 +6356,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h139fe40277550836E.llvm.36836
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -8608,7 +8608,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h020385701df02e31E
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !1943
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13), !noalias !1943
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1944)
-  %.not.i.i.i.i = icmp ugt i64 %20, %.sroa.8.0.i.i.i
+  %.not.i.i.i.i = icmp ult i64 %.sroa.8.0.i.i.i, %20
   br i1 %.not.i.i.i.i, label %29, label %38
 
 29:                                               ; preds = %28
@@ -16071,93 +16071,93 @@ define hidden { ptr, i64 } @"_ZN4core3str60_$LT$impl$u20$core..default..Default$
 ; Function Attrs: cold inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef %2, i1 noundef zeroext %3) unnamed_addr #19 personality ptr @rust_eh_personality {
   %.not19 = icmp eq i16 %2, 0
-  %or.cond = or i1 %.not19, %3
+  %or.cond = or i1 %3, %.not19
   br i1 %or.cond, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread14, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = load ptr, ptr %0, align 8, !nonnull !7, !align !1037, !noundef !7
-  %invariant.gep = getelementptr i8, ptr %5, i64 %1
-  %invariant.gep22 = getelementptr i8, ptr %invariant.gep, i64 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !nonnull !7, !align !1037, !noundef !7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !noundef !7
-  %10 = icmp ult i64 %9, 4
-  %11 = getelementptr i8, ptr %7, i64 %9
-  %12 = getelementptr i8, ptr %11, i64 -4
-  br i1 %10, label %.preheader.us, label %.lr.ph.split
+  %6 = getelementptr i8, ptr %5, i64 %1
+  %invariant.gep = getelementptr i8, ptr %6, i64 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = load ptr, ptr %7, align 8, !nonnull !7, !align !1037, !noundef !7
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = load i64, ptr %9, align 8, !noundef !7
+  %11 = icmp ult i64 %10, 4
+  %12 = getelementptr i8, ptr %8, i64 %10
+  %13 = getelementptr i8, ptr %12, i64 -4
+  br i1 %11, label %.preheader.us, label %.lr.ph.split
 
 .preheader.us:                                    ; preds = %.lr.ph, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us
-  %.01220.us = phi i16 [ %24, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us ], [ %2, %.lr.ph ]
-  %13 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.01220.us, i1 true)
-  %14 = zext nneg i16 %13 to i64
-  %gep23.us = getelementptr i8, ptr %invariant.gep22, i64 %14
+  %.01220.us = phi i16 [ %25, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us ], [ %2, %.lr.ph ]
+  %14 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.01220.us, i1 true)
+  %15 = zext nneg i16 %14 to i64
+  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3955)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3958)
-  br label %15
+  br label %16
 
-15:                                               ; preds = %.preheader.us, %16
-  %.sroa.9.0.i.us = phi i64 [ %17, %16 ], [ 0, %.preheader.us ]
-  %exitcond.not.i.us = icmp eq i64 %.sroa.9.0.i.us, %9
-  br i1 %exitcond.not.i.us, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread14, label %16
+16:                                               ; preds = %.preheader.us, %17
+  %.sroa.9.0.i.us = phi i64 [ %18, %17 ], [ 0, %.preheader.us ]
+  %exitcond.not.i.us = icmp eq i64 %.sroa.9.0.i.us, %10
+  br i1 %exitcond.not.i.us, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread14, label %17
 
-16:                                               ; preds = %15
-  %17 = add nuw nsw i64 %.sroa.9.0.i.us, 1
-  %18 = getelementptr inbounds i8, ptr %gep23.us, i64 %.sroa.9.0.i.us
-  %19 = getelementptr inbounds i8, ptr %7, i64 %.sroa.9.0.i.us
-  %20 = load i8, ptr %18, align 1, !alias.scope !3955, !noalias !3958, !noundef !7
-  %21 = load i8, ptr %19, align 1, !alias.scope !3958, !noalias !3955, !noundef !7
-  %.not21.i.us = icmp eq i8 %20, %21
-  br i1 %.not21.i.us, label %15, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us
+17:                                               ; preds = %16
+  %18 = add nuw nsw i64 %.sroa.9.0.i.us, 1
+  %19 = getelementptr inbounds i8, ptr %gep.us, i64 %.sroa.9.0.i.us
+  %20 = getelementptr inbounds i8, ptr %8, i64 %.sroa.9.0.i.us
+  %21 = load i8, ptr %19, align 1, !alias.scope !3955, !noalias !3958, !noundef !7
+  %22 = load i8, ptr %20, align 1, !alias.scope !3958, !noalias !3955, !noundef !7
+  %.not21.i.us = icmp eq i8 %21, %22
+  br i1 %.not21.i.us, label %16, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us
 
-_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us: ; preds = %16
-  %22 = shl nuw i16 1, %13
-  %23 = xor i16 %22, -1
-  %24 = and i16 %.01220.us, %23
-  %.not.us = icmp eq i16 %24, 0
+_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us: ; preds = %17
+  %23 = shl nuw i16 1, %14
+  %24 = xor i16 %23, -1
+  %25 = and i16 %.01220.us, %24
+  %.not.us = icmp eq i16 %25, 0
   br i1 %.not.us, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread14, label %.preheader.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread
-  %.01220 = phi i16 [ %37, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread ], [ %2, %.lr.ph ]
-  %25 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.01220, i1 true)
-  %26 = zext nneg i16 %25 to i64
-  %gep23 = getelementptr i8, ptr %invariant.gep22, i64 %26
+  %.01220 = phi i16 [ %38, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread ], [ %2, %.lr.ph ]
+  %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.01220, i1 true)
+  %27 = zext nneg i16 %26 to i64
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3955)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3958)
-  %27 = getelementptr i8, ptr %gep23, i64 %9
-  %28 = getelementptr i8, ptr %27, i64 -4
-  %29 = icmp ugt ptr %28, %gep23
-  br i1 %29, label %.lr.ph.i, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit
+  %28 = getelementptr i8, ptr %gep, i64 %10
+  %29 = getelementptr i8, ptr %28, i64 -4
+  %30 = icmp ult ptr %gep, %29
+  br i1 %30, label %.lr.ph.i, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph.split, %30
-  %.01730.i = phi ptr [ %32, %30 ], [ %7, %.lr.ph.split ]
-  %.01829.i = phi ptr [ %31, %30 ], [ %gep23, %.lr.ph.split ]
+.lr.ph.i:                                         ; preds = %.lr.ph.split, %31
+  %.01730.i = phi ptr [ %33, %31 ], [ %8, %.lr.ph.split ]
+  %.01829.i = phi ptr [ %32, %31 ], [ %gep, %.lr.ph.split ]
   %.0.copyload.i = load i32, ptr %.01829.i, align 1, !alias.scope !3955, !noalias !3958
   %.0.copyload11.i = load i32, ptr %.01730.i, align 1, !alias.scope !3958, !noalias !3955
   %.not.i = icmp eq i32 %.0.copyload.i, %.0.copyload11.i
-  br i1 %.not.i, label %30, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread
+  br i1 %.not.i, label %31, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread
 
-30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds i8, ptr %.01829.i, i64 4
-  %32 = getelementptr inbounds i8, ptr %.01730.i, i64 4
-  %33 = icmp ult ptr %31, %28
-  br i1 %33, label %.lr.ph.i, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit
+31:                                               ; preds = %.lr.ph.i
+  %32 = getelementptr inbounds i8, ptr %.01829.i, i64 4
+  %33 = getelementptr inbounds i8, ptr %.01730.i, i64 4
+  %34 = icmp ult ptr %32, %29
+  br i1 %34, label %.lr.ph.i, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit
 
-_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit: ; preds = %30, %.lr.ph.split
-  %.0.copyload13.i = load i32, ptr %28, align 1, !alias.scope !3955, !noalias !3958
-  %.0.copyload15.i = load i32, ptr %12, align 1, !alias.scope !3958, !noalias !3955
-  %34 = icmp eq i32 %.0.copyload13.i, %.0.copyload15.i
-  br i1 %34, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread14, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread
+_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit: ; preds = %31, %.lr.ph.split
+  %.0.copyload13.i = load i32, ptr %29, align 1, !alias.scope !3955, !noalias !3958
+  %.0.copyload15.i = load i32, ptr %13, align 1, !alias.scope !3958, !noalias !3955
+  %35 = icmp eq i32 %.0.copyload13.i, %.0.copyload15.i
+  br i1 %35, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread14, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread
 
 _ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread: ; preds = %.lr.ph.i, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit
-  %35 = shl nuw i16 1, %25
-  %36 = xor i16 %35, -1
-  %37 = and i16 %.01220, %36
-  %.not = icmp eq i16 %37, 0
+  %36 = shl nuw i16 1, %26
+  %37 = xor i16 %36, -1
+  %38 = and i16 %.01220, %37
+  %.not = icmp eq i16 %38, 0
   br i1 %.not, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread14, label %.lr.ph.split
 
-_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread14: ; preds = %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us, %15, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %15 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us ], [ false, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread ], [ true, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit ]
+_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread14: ; preds = %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us, %16, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %16 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us ], [ false, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread ], [ true, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit ]
   ret i1 %.0
 }
 
@@ -24386,7 +24386,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   br i1 %66, label %69, label %68
 
 67:                                               ; preds = %60
-  %.not = icmp eq i64 %50, %1
+  %.not = icmp eq i64 %1, %50
   br i1 %.not, label %68, label %71
 
 68:                                               ; preds = %74, %71, %67, %64
@@ -24479,28 +24479,28 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %11, %28
-  %.06249.i = phi i64 [ %29, %28 ], [ 0, %11 ]
-  %.06448.i = phi i8 [ %.3.i, %28 ], [ 0, %11 ]
-  %16 = trunc nuw i8 %.06448.i to i1
+  %.06248.i = phi i64 [ %29, %28 ], [ 0, %11 ]
+  %.06447.i = phi i8 [ %.3.i, %28 ], [ 0, %11 ]
+  %16 = trunc nuw i8 %.06447.i to i1
   br i1 %16, label %._crit_edge.i, label %19
 
 ._crit_edge.i:                                    ; preds = %28, %.lr.ph.i, %11
-  %.064.lcssa.i = phi i8 [ 0, %11 ], [ %.06448.i, %.lr.ph.i ], [ %.3.i, %28 ]
-  %.062.lcssa.i = phi i64 [ 0, %11 ], [ %.06249.i, %.lr.ph.i ], [ %29, %28 ]
+  %.064.lcssa.i = phi i8 [ 0, %11 ], [ %.06447.i, %.lr.ph.i ], [ %.3.i, %28 ]
+  %.062.lcssa.i = phi i64 [ 0, %11 ], [ %.06248.i, %.lr.ph.i ], [ %29, %28 ]
   %17 = add i64 %.062.lcssa.i, 30
   %18 = icmp ult i64 %17, %1
-  br i1 %18, label %.lr.ph57.i, label %._crit_edge58.i
+  br i1 %18, label %.lr.ph56.i, label %._crit_edge57.i
 
 19:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !5031
   store i64 0, ptr %3, align 8, !noalias !5031
-  %invariant.gep.i = getelementptr i8, ptr %0, i64 %.06249.i
+  %invariant.gep.i = getelementptr i8, ptr %0, i64 %.06248.i
   br label %20
 
 20:                                               ; preds = %20, %19
-  %.sroa.019.045.i = phi i64 [ 0, %19 ], [ %21, %20 ]
-  %21 = add nuw nsw i64 %.sroa.019.045.i, 1
-  %22 = shl nuw nsw i64 %.sroa.019.045.i, 4
+  %.sroa.019.044.i = phi i64 [ 0, %19 ], [ %21, %20 ]
+  %21 = add nuw nsw i64 %.sroa.019.044.i, 1
+  %22 = shl nuw nsw i64 %.sroa.019.044.i, 4
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %22
   %.0.copyload.i.i = load <16 x i8>, ptr %gep.i, align 1, !alias.scope !5031, !noalias !5034
   %23 = getelementptr inbounds i8, ptr %gep.i, i64 14
@@ -24508,49 +24508,49 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
   %24 = icmp eq <16 x i8> %.0.copyload.i.i, <i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40>
   %25 = icmp eq <16 x i8> %.0.copyload2.i.i, <i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41>
   %26 = and <16 x i1> %25, %24
-  %27 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %.sroa.019.045.i
+  %27 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %.sroa.019.044.i
   store <16 x i1> %26, ptr %27, align 2, !noalias !5031
   %exitcond.not.i = icmp eq i64 %21, 4
   br i1 %exitcond.not.i, label %.preheader.i, label %20
 
 28:                                               ; preds = %36
-  %29 = add i64 %.06249.i, 64
+  %29 = add i64 %.06248.i, 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5031
-  %30 = add i64 %.06249.i, 142
+  %30 = add i64 %.06248.i, 142
   %31 = icmp ult i64 %30, %1
   br i1 %31, label %.lr.ph.i, label %._crit_edge.i
 
 .preheader.i:                                     ; preds = %20, %36
-  %.sroa.025.047.i = phi i64 [ %32, %36 ], [ 0, %20 ]
-  %.246.i = phi i8 [ %.3.i, %36 ], [ %.06448.i, %20 ]
-  %32 = add nuw nsw i64 %.sroa.025.047.i, 1
-  %33 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %.sroa.025.047.i
+  %.sroa.025.046.i = phi i64 [ %32, %36 ], [ 0, %20 ]
+  %.245.i = phi i8 [ %.3.i, %36 ], [ %.06447.i, %20 ]
+  %32 = add nuw nsw i64 %.sroa.025.046.i, 1
+  %33 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %.sroa.025.046.i
   %34 = load i16, ptr %33, align 2, !noalias !5031, !noundef !7
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %37, %.preheader.i
-  %.3.i = phi i8 [ %.246.i, %.preheader.i ], [ %43, %37 ]
-  %exitcond64.not.i = icmp eq i64 %32, 4
-  br i1 %exitcond64.not.i, label %28, label %.preheader.i
+  %.3.i = phi i8 [ %.245.i, %.preheader.i ], [ %43, %37 ]
+  %exitcond62.not.i = icmp eq i64 %32, 4
+  br i1 %exitcond62.not.i, label %28, label %.preheader.i
 
 37:                                               ; preds = %.preheader.i
-  %38 = shl nuw nsw i64 %.sroa.025.047.i, 4
-  %39 = add nuw nsw i64 %38, %.06249.i
-  %40 = trunc nuw i8 %.246.i to i1
+  %38 = shl nuw nsw i64 %.sroa.025.046.i, 4
+  %39 = add nuw nsw i64 %38, %.06248.i
+  %40 = trunc nuw i8 %.245.i to i1
   %41 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, i64 noundef %39, i16 noundef %34, i1 noundef zeroext %40)
   %42 = or i1 %41, %40
   %43 = zext i1 %42 to i8
   br label %36
 
-.lr.ph57.i:                                       ; preds = %._crit_edge.i, %61
-  %.16355.i = phi i64 [ %62, %61 ], [ %.062.lcssa.i, %._crit_edge.i ]
-  %.16554.i = phi i8 [ %.5.i, %61 ], [ %.064.lcssa.i, %._crit_edge.i ]
-  %44 = trunc nuw i8 %.16554.i to i1
-  br i1 %44, label %._crit_edge58.i, label %53
+.lr.ph56.i:                                       ; preds = %._crit_edge.i, %61
+  %.16354.i = phi i64 [ %62, %61 ], [ %.062.lcssa.i, %._crit_edge.i ]
+  %.16553.i = phi i8 [ %.5.i, %61 ], [ %.064.lcssa.i, %._crit_edge.i ]
+  %44 = trunc nuw i8 %.16553.i to i1
+  br i1 %44, label %._crit_edge57.i, label %53
 
-._crit_edge58.i:                                  ; preds = %61, %.lr.ph57.i, %._crit_edge.i
-  %.165.lcssa.i = phi i8 [ %.064.lcssa.i, %._crit_edge.i ], [ %.16554.i, %.lr.ph57.i ], [ %.5.i, %61 ]
+._crit_edge57.i:                                  ; preds = %61, %.lr.ph56.i, %._crit_edge.i
+  %.165.lcssa.i = phi i8 [ %.064.lcssa.i, %._crit_edge.i ], [ %.16553.i, %.lr.ph56.i ], [ %.5.i, %61 ]
   %45 = add i64 %1, -30
   %46 = getelementptr inbounds i8, ptr %0, i64 %45
   %.0.copyload.i80.i = load <16 x i8>, ptr %46, align 1, !alias.scope !5031, !noalias !5037
@@ -24563,8 +24563,8 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
   %52 = icmp eq i16 %51, 0
   br i1 %52, label %67, label %69
 
-53:                                               ; preds = %.lr.ph57.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 %.16355.i
+53:                                               ; preds = %.lr.ph56.i
+  %54 = getelementptr inbounds i8, ptr %0, i64 %.16354.i
   %.0.copyload.i82.i = load <16 x i8>, ptr %54, align 1, !alias.scope !5031, !noalias !5040
   %55 = getelementptr inbounds i8, ptr %54, i64 14
   %.0.copyload2.i83.i = load <16 x i8>, ptr %55, align 1, !alias.scope !5031, !noalias !5040
@@ -24576,24 +24576,24 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %64, %53
-  %.5.i = phi i8 [ %.16554.i, %53 ], [ %66, %64 ]
-  %62 = add i64 %.16355.i, 16
-  %.reass.i = add i64 %.16355.i, 46
+  %.5.i = phi i8 [ %.16553.i, %53 ], [ %66, %64 ]
+  %62 = add i64 %.16354.i, 16
+  %.reass.i = add i64 %.16354.i, 46
   %63 = icmp ult i64 %.reass.i, %1
-  br i1 %63, label %.lr.ph57.i, label %._crit_edge58.i
+  br i1 %63, label %.lr.ph56.i, label %._crit_edge57.i
 
 64:                                               ; preds = %53
-  %65 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, i64 noundef %.16355.i, i16 noundef %59, i1 noundef zeroext false)
+  %65 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, i64 noundef %.16354.i, i16 noundef %59, i1 noundef zeroext false)
   %66 = zext i1 %65 to i8
   br label %61
 
-67:                                               ; preds = %69, %._crit_edge58.i
-  %.4.i = phi i8 [ %.165.lcssa.i, %._crit_edge58.i ], [ %73, %69 ]
+67:                                               ; preds = %69, %._crit_edge57.i
+  %.4.i = phi i8 [ %.165.lcssa.i, %._crit_edge57.i ], [ %73, %69 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !5031
   %68 = trunc nuw i8 %.4.i to i1
   br label %_ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit
 
-69:                                               ; preds = %._crit_edge58.i
+69:                                               ; preds = %._crit_edge57.i
   %70 = trunc nuw i8 %.165.lcssa.i to i1
   %71 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, i64 noundef %45, i16 noundef %51, i1 noundef zeroext %70)
   %72 = or i1 %71, %70
@@ -25161,7 +25161,7 @@ common.resume:                                    ; preds = %174, %77, %111, %11
   %43 = icmp ne i32 %42, 0
   %44 = getelementptr inbounds i8, ptr %3, i64 20
   %45 = load i32, ptr %44, align 4, !alias.scope !5083, !noalias !5086
-  %46 = icmp ult i32 %45, %40
+  %46 = icmp ugt i32 %40, %45
   %or.cond.i = select i1 %43, i1 %46, i1 false
   br i1 %or.cond.i, label %117, label %47
 
@@ -25173,7 +25173,7 @@ common.resume:                                    ; preds = %174, %77, %111, %11
   %52 = icmp ne i32 %51, 0
   %53 = getelementptr inbounds i8, ptr %3, i64 28
   %54 = load i32, ptr %53, align 4, !alias.scope !5083, !noalias !5086
-  %55 = icmp ult i32 %54, %49
+  %55 = icmp ugt i32 %49, %54
   %or.cond7.i = select i1 %52, i1 %55, i1 false
   br i1 %or.cond7.i, label %117, label %58
 
@@ -26298,7 +26298,7 @@ define hidden noundef zeroext i1 @"_ZN60_$LT$ecow..string..EcoString$u20$as$u20$
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef float @"_ZN60_$LT$f32$u20$as$u20$core..ops..arith..Mul$LT$$RF$f32$GT$$GT$3mul17h9e06352db911234fE.llvm.3683678558897460461"(float noundef %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #10 {
   %4 = load float, ptr %1, align 4, !noundef !7
-  %5 = fmul float %4, %0
+  %5 = fmul float %0, %4
   ret float %5
 }
 
@@ -27724,7 +27724,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !7
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -27805,8 +27805,8 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.017.i11
-  %86 = getelementptr i8, ptr %85, i64 %.1.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.1.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.017.i11
   %.0.copyload15.i16 = load i16, ptr %86, align 1, !alias.scope !5281
   %87 = zext i16 %.0.copyload15.i16 to i64
   %88 = shl nuw nsw i64 %.017.i11, 3
@@ -29127,7 +29127,7 @@ define hidden void @"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u2
   %47 = getelementptr inbounds i8, ptr %28, i64 8
   store i64 %spec.select.i, ptr %47, align 8
   store i64 0, ptr %28, align 8
-  %48 = icmp eq i64 %spec.select.i, %3
+  %48 = icmp eq i64 %3, %spec.select.i
   br i1 %48, label %51, label %50
 
 default.unreachable234:                           ; preds = %"_ZN3png7decoder15Reader$LT$R$GT$4info17h2d34a6addb3c96d7E.llvm.3683678558897460461.exit181.i"
@@ -29234,7 +29234,7 @@ default.unreachable234:                           ; preds = %"_ZN3png7decoder15R
   %79 = add i64 %78, -1
   %80 = zext i32 %73 to i64
   %81 = mul i64 %79, %80
-  %82 = icmp ugt i64 %81, %3
+  %82 = icmp ult i64 %3, %81
   br i1 %82, label %117, label %84
 
 83:                                               ; preds = %.noexc22
@@ -29508,7 +29508,7 @@ default.unreachable234:                           ; preds = %"_ZN3png7decoder15R
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.228.0..sroa_idx.i.i, align 8, !alias.scope !5637, !noalias !5638
   store i64 0, ptr %.sroa.329.0..sroa_idx.i.i, align 8, !alias.scope !5637, !noalias !5638
   %176 = load i64, ptr %112, align 8, !alias.scope !5640, !noalias !5639, !noundef !7
-  %177 = icmp ult i64 %176, %175
+  %177 = icmp ugt i64 %175, %176
   br i1 %177, label %178, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h3ac447b3a2f059b4E.exit.i.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h3ac447b3a2f059b4E.exit.i.i.i": ; preds = %.noexc39
@@ -31718,7 +31718,7 @@ switch.lookup:                                    ; preds = %4
   %31 = getelementptr inbounds i8, ptr %14, i64 8
   store i64 %30, ptr %31, align 8
   store i64 0, ptr %14, align 8
-  %32 = icmp eq i64 %30, %3
+  %32 = icmp eq i64 %3, %30
   br i1 %32, label %33, label %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd9d6bef505af4986E.exit.thread"
 
 "_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd9d6bef505af4986E.exit.thread": ; preds = %switch.lookup
@@ -31892,7 +31892,7 @@ switch.lookup:                                    ; preds = %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %69 = getelementptr inbounds i8, ptr %12, i64 16
   %70 = load i64, ptr %69, align 8, !noundef !7
-  %.not.i = icmp eq i64 %70, %3
+  %.not.i = icmp eq i64 %3, %70
   br i1 %.not.i, label %83, label %71
 
 71:                                               ; preds = %68
@@ -33469,7 +33469,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h09c11d4bf56e7f9cE(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6603)
-  %.not.i = icmp ugt i64 %10, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %10
   br i1 %.not.i, label %21, label %30
 
 21:                                               ; preds = %20
@@ -33624,7 +33624,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h0ea6f9c33fda3736E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6626)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -33976,7 +33976,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h11d67b40cbe3a2edE(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6689)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -34322,7 +34322,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h124e6a33f24f9c4dE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6749)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -34675,7 +34675,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h13181abc1b469a80E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6810)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %27, label %36
 
 27:                                               ; preds = %26
@@ -35018,7 +35018,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h138f1657b59cdcbfE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6867)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %27, label %36
 
 27:                                               ; preds = %26
@@ -35358,7 +35358,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h1ba5be275e6cda62E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6924)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -35708,7 +35708,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h1c29e323f79cec48E(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6983)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -36064,7 +36064,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h1c2bc18f419cbab0E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7044)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -36405,7 +36405,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h2049e133b6b86007E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7103)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %23, label %32
 
 23:                                               ; preds = %22
@@ -36556,7 +36556,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h209b9baa89d0828eE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7129)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -36694,7 +36694,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h21d65a34024b1093E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7153)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -36850,7 +36850,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h22c92750e0f780aaE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7180)
-  %.not.i = icmp ugt i64 %13, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %13
   br i1 %.not.i, label %24, label %33
 
 24:                                               ; preds = %23
@@ -37193,7 +37193,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h2348458ddf3d03f0E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7230)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -37545,7 +37545,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h24361c08532b3e3fE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7291)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -37896,7 +37896,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h259df679954f7c92E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7351)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -38242,7 +38242,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h25bb0e464ace6d6fE(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7411)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -38594,7 +38594,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h36e15a3ce30a717eE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7472)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -38946,7 +38946,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h389c3c38966d879eE(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7532)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -39106,7 +39106,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h3ca5ebc6b3673f45E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7559)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %27, label %36
 
 27:                                               ; preds = %26
@@ -39445,7 +39445,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h3f8b12c18d53e863E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7618)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -39601,7 +39601,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h432d99a2df231f82E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7645)
-  %.not.i = icmp ugt i64 %12, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %12
   br i1 %.not.i, label %23, label %32
 
 23:                                               ; preds = %22
@@ -39773,7 +39773,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h446d2faf527b16f0E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7684)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -40114,7 +40114,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h4b511bc3aa767d22E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7745)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -40455,7 +40455,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h501d52317362b760E(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7805)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -40603,7 +40603,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h50579182a75e3fc1E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7829)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %27, label %36
 
 27:                                               ; preds = %26
@@ -40943,7 +40943,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h52a4ebd5bebbda02E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7887)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %27, label %36
 
 27:                                               ; preds = %26
@@ -41288,7 +41288,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h582038945cf760bfE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7946)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %27, label %36
 
 27:                                               ; preds = %26
@@ -41626,7 +41626,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h592c8d124b7ddbacE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8004)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -41973,7 +41973,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h5c20ed1d32b115bfE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8064)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %27, label %36
 
 27:                                               ; preds = %26
@@ -42316,7 +42316,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h5c7bba6abc80edb0E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8121)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -42669,7 +42669,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h5cc18fd56cd35ed2E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8180)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %27, label %36
 
 27:                                               ; preds = %26
@@ -43009,7 +43009,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h5d331b91be117496E(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8237)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -43351,7 +43351,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h668cf43326887a27E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8294)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -43711,7 +43711,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h66c945f5befa3155E(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8354)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -44071,7 +44071,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h6bb5355877020541E(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8415)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %27, label %36
 
 27:                                               ; preds = %26
@@ -44408,7 +44408,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h6f40967d364bda4dE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8472)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -44569,7 +44569,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h76eef79a37be2e61E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8499)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -44911,7 +44911,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h7891cc0459848f0fE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8558)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -45070,7 +45070,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h7af278724cdf4648E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8585)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -45423,7 +45423,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h7afe6073cf3c85d4E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8645)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -45767,7 +45767,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h7dd55565c7cbfb26E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8704)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -46123,7 +46123,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h7f32299fec31e1cbE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8764)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -46461,7 +46461,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h843d1c426aaad580E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8821)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %27, label %36
 
 27:                                               ; preds = %26
@@ -46803,7 +46803,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h84887f835ad5fd16E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8878)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %23, label %32
 
 23:                                               ; preds = %22
@@ -46958,7 +46958,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h8fe4a85ddc3e9d62E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8904)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -47299,7 +47299,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h93120bf71e2ac528E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8959)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -47647,7 +47647,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h971c266ec8d142c3E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9018)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -47984,7 +47984,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h98136292a02047ffE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9080)
-  %.not.i = icmp ugt i64 %12, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %12
   br i1 %.not.i, label %23, label %32
 
 23:                                               ; preds = %22
@@ -48158,7 +48158,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h98a02c62bc0f2a46E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9118)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -48494,7 +48494,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17h9f3c4c75b868d4e8E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9175)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -48836,7 +48836,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17ha0a38282b563243bE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9235)
-  %.not.i = icmp ugt i64 %12, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %12
   br i1 %.not.i, label %23, label %32
 
 23:                                               ; preds = %22
@@ -49008,7 +49008,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17ha81583b7b4b22881E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9274)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -49349,7 +49349,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hab1747f7755bbd7aE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9335)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -49685,7 +49685,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17had31ac62e20b7ad5E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9392)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -49839,7 +49839,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17haf9f8c328f5f41c6E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9419)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -49983,7 +49983,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hb028d32f76251891E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9445)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -50139,7 +50139,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hb1109b479270f524E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9471)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -50299,7 +50299,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hb32a3792f2bb889bE(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9498)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -50639,7 +50639,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hb67c0807883d31adE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9555)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -50971,7 +50971,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hb8fa16d5acd6f7feE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9612)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -51117,7 +51117,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hbb3dfff364c3f706E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9636)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -51462,7 +51462,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hc4f71d312683bf91E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9696)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -51799,7 +51799,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hc7b852b488884aa8E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9757)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -51945,7 +51945,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hce07e62f5348cda0E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9783)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %27, label %36
 
 27:                                               ; preds = %26
@@ -52283,7 +52283,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hd30060c1812a9a2fE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9840)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -52628,7 +52628,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hd609d691f0e76fc8E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9899)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -52774,7 +52774,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hd8656b9cdedc0273E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9923)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -53115,7 +53115,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hdfb42801f589cd2cE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9983)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -53264,7 +53264,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17he3346d74615bfe65E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10009)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -53613,7 +53613,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17he4ccc5a73c018ad6E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10069)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %23, label %32
 
 23:                                               ; preds = %22
@@ -53768,7 +53768,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hf36dbc44d3e630e4E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10095)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -54118,7 +54118,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hf61c499fedbcf310E(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10155)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -54476,7 +54476,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hfb18ecea20e575e8E(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10217)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -54817,7 +54817,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hfbd3be22c0570e34E(ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10274)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -55166,7 +55166,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hfcfeecede2dcdfecE.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10334)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %11
   br i1 %.not.i, label %23, label %32
 
 23:                                               ; preds = %22
@@ -55329,7 +55329,7 @@ define hidden void @_ZN5typst11foundations4args4Args3eat17hff9d13eb46624086E.llv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10361)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.0
+  %.not.i = icmp ult i64 %.sroa.8.0, %15
   br i1 %.not.i, label %27, label %36
 
 27:                                               ; preds = %26
@@ -55833,7 +55833,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr44drop
 
 69:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
-  %.not.i = icmp ugt i64 %63, %.051
+  %.not.i = icmp ult i64 %.051, %63
   br i1 %.not.i, label %70, label %79
 
 70:                                               ; preds = %69
@@ -56360,7 +56360,7 @@ define hidden void @_ZN5typst11foundations4args4Args6expect17h111f0c1dd1cf2aa8E(
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !10473
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13), !noalias !10473
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10474)
-  %.not.i.i = icmp ugt i64 %19, %.sroa.8.0.i
+  %.not.i.i = icmp ult i64 %.sroa.8.0.i, %19
   br i1 %.not.i.i, label %28, label %37
 
 28:                                               ; preds = %27
@@ -56869,7 +56869,7 @@ define hidden void @_ZN5typst11foundations4args4Args6expect17h1c83ac39692a736eE(
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !10545
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13), !noalias !10545
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10546)
-  %.not.i.i = icmp ugt i64 %19, %.sroa.8.0.i
+  %.not.i.i = icmp ult i64 %.sroa.8.0.i, %19
   br i1 %.not.i.i, label %28, label %37
 
 28:                                               ; preds = %27
@@ -57764,7 +57764,7 @@ define hidden void @_ZN5typst11foundations4args4Args6expect17h312ce5a0d993d677E(
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !10632
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13), !noalias !10632
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10633)
-  %.not.i.i = icmp ugt i64 %19, %.sroa.8.0.i
+  %.not.i.i = icmp ult i64 %.sroa.8.0.i, %19
   br i1 %.not.i.i, label %28, label %37
 
 28:                                               ; preds = %27
@@ -58605,7 +58605,7 @@ define hidden void @_ZN5typst11foundations4args4Args6expect17h4c49325e1a5187f3E(
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !10716
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13), !noalias !10716
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10717)
-  %.not.i.i = icmp ugt i64 %19, %.sroa.8.0.i
+  %.not.i.i = icmp ult i64 %.sroa.8.0.i, %19
   br i1 %.not.i.i, label %28, label %37
 
 28:                                               ; preds = %27
@@ -60253,7 +60253,7 @@ define internal fastcc void @_ZN5typst11foundations4args4Args6expect17h8e43cfa17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !10834
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7), !noalias !10834
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10835)
-  %.not.i.i = icmp ugt i64 %13, %.sroa.8.0.i
+  %.not.i.i = icmp ult i64 %.sroa.8.0.i, %13
   br i1 %.not.i.i, label %22, label %31
 
 22:                                               ; preds = %21
@@ -61911,7 +61911,7 @@ define hidden void @_ZN5typst11foundations4args4Args6expect17hca38bbb8c04a9f49E(
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !10929
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13), !noalias !10929
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10930)
-  %.not.i.i = icmp ugt i64 %19, %.sroa.8.0.i
+  %.not.i.i = icmp ult i64 %.sroa.8.0.i, %19
   br i1 %.not.i.i, label %28, label %37
 
 28:                                               ; preds = %27
@@ -62429,7 +62429,7 @@ define internal fastcc void @_ZN5typst11foundations4args4Args6expect17hdf553f7cf
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12), !noalias !11007
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11), !noalias !11007
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11008)
-  %.not.i.i = icmp ugt i64 %17, %.sroa.8.0.i
+  %.not.i.i = icmp ult i64 %.sroa.8.0.i, %17
   br i1 %.not.i.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -63830,7 +63830,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h23938bc7d8798db9E.ll
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11159)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.023
+  %.not.i = icmp ult i64 %.sroa.8.023, %11
   br i1 %.not.i, label %25, label %34
 
 25:                                               ; preds = %24
@@ -64020,7 +64020,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h2b76daf0eea70320E(pt
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11192)
   %44 = load i64, ptr %10, align 8, !alias.scope !11192, !noalias !11195, !noundef !7
-  %.not.i = icmp ugt i64 %44, %.sroa.8.024
+  %.not.i = icmp ult i64 %.sroa.8.024, %44
   br i1 %.not.i, label %45, label %55
 
 45:                                               ; preds = %43
@@ -64181,7 +64181,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h6ba16e7bb1c68195E(pt
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11221)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.023
+  %.not.i = icmp ult i64 %.sroa.8.023, %11
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -64345,7 +64345,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h788cdd3a33e1c1b3E(pt
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11251)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.023
+  %.not.i = icmp ult i64 %.sroa.8.023, %11
   br i1 %.not.i, label %25, label %34
 
 25:                                               ; preds = %24
@@ -64498,7 +64498,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h7db73a2e7a7d37d1E.ll
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11282)
-  %.not.i = icmp ugt i64 %12, %.sroa.8.024
+  %.not.i = icmp ult i64 %.sroa.8.024, %12
   br i1 %.not.i, label %25, label %34
 
 25:                                               ; preds = %24
@@ -64682,7 +64682,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h842d27f1f30feef5E(pt
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11324)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.023
+  %.not.i = icmp ult i64 %.sroa.8.023, %11
   br i1 %.not.i, label %25, label %34
 
 25:                                               ; preds = %24
@@ -64837,7 +64837,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h8afa947aca2d36d9E(pt
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11353)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.024
+  %.not.i = icmp ult i64 %.sroa.8.024, %11
   br i1 %.not.i, label %23, label %32
 
 23:                                               ; preds = %22
@@ -64998,7 +64998,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17h96d67b8bb82d6389E.ll
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11380)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.023
+  %.not.i = icmp ult i64 %.sroa.8.023, %11
   br i1 %.not.i, label %24, label %33
 
 24:                                               ; preds = %23
@@ -65169,7 +65169,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17hc823f65842148a0aE(pt
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11410)
-  %.not.i = icmp ugt i64 %15, %.sroa.8.027
+  %.not.i = icmp ult i64 %.sroa.8.027, %15
   br i1 %.not.i, label %29, label %38
 
 29:                                               ; preds = %28
@@ -65545,7 +65545,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17hcf60ecf6ae4a388aE(pt
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11477)
   %45 = load i64, ptr %10, align 8, !alias.scope !11477, !noalias !11480, !noundef !7
-  %.not.i = icmp ugt i64 %45, %.sroa.8.026
+  %.not.i = icmp ult i64 %.sroa.8.026, %45
   br i1 %.not.i, label %46, label %56
 
 46:                                               ; preds = %"_ZN94_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hd3d611f4c52ad824E.exit.thread"
@@ -65707,7 +65707,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17he6765115ba9210c2E(pt
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11508)
-  %.not.i = icmp ugt i64 %12, %.sroa.8.024
+  %.not.i = icmp ult i64 %.sroa.8.024, %12
   br i1 %.not.i, label %26, label %35
 
 26:                                               ; preds = %25
@@ -65885,7 +65885,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17hf172a5747a0e0170E(pt
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11550)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.024
+  %.not.i = icmp ult i64 %.sroa.8.024, %11
   br i1 %.not.i, label %23, label %32
 
 23:                                               ; preds = %22
@@ -66047,7 +66047,7 @@ define hidden void @_ZN5typst11foundations4args4Args4find17hf5c81a3cef7b7dcfE(pt
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11582)
-  %.not.i = icmp ugt i64 %11, %.sroa.8.024
+  %.not.i = icmp ult i64 %.sroa.8.024, %11
   br i1 %.not.i, label %25, label %34
 
 25:                                               ; preds = %24
@@ -67906,7 +67906,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !11699)
   %36 = load i64, ptr %15, align 8, !alias.scope !11699, !noalias !11702, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -68272,7 +68272,7 @@ common.resume:                                    ; preds = %89, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !11758)
   %37 = load i64, ptr %15, align 8, !alias.scope !11758, !noalias !11761, !noundef !7
-  %.not.i35 = icmp ugt i64 %37, %.03187
+  %.not.i35 = icmp ult i64 %.03187, %37
   br i1 %.not.i35, label %38, label %48
 
 38:                                               ; preds = %36
@@ -68635,7 +68635,7 @@ common.resume:                                    ; preds = %68, %41
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !11818)
   %32 = load i64, ptr %11, align 8, !alias.scope !11818, !noalias !11821, !noundef !7
-  %.not.i44 = icmp ugt i64 %32, %.03982
+  %.not.i44 = icmp ult i64 %.03982, %32
   br i1 %.not.i44, label %33, label %43
 
 33:                                               ; preds = %31
@@ -68843,7 +68843,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h0153d601670c7293E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %39 = load i64, ptr %16, align 8, !alias.scope !11849, !noalias !11852, !noundef !7
-  %.not.i55 = icmp ugt i64 %39, %.047130
+  %.not.i55 = icmp ult i64 %.047130, %39
   br i1 %.not.i55, label %40, label %50
 
 40:                                               ; preds = %38
@@ -69264,7 +69264,7 @@ common.resume:                                    ; preds = %89, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !11910)
   %37 = load i64, ptr %15, align 8, !alias.scope !11910, !noalias !11913, !noundef !7
-  %.not.i35 = icmp ugt i64 %37, %.03187
+  %.not.i35 = icmp ult i64 %.03187, %37
   br i1 %.not.i35, label %38, label %48
 
 38:                                               ; preds = %36
@@ -69639,7 +69639,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h08391af77fbee024E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   %35 = load i64, ptr %12, align 8, !alias.scope !11969, !noalias !11972, !noundef !7
-  %.not.i49 = icmp ugt i64 %35, %.042112
+  %.not.i49 = icmp ult i64 %.042112, %35
   br i1 %.not.i49, label %36, label %46
 
 36:                                               ; preds = %34
@@ -69963,7 +69963,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h08b23c27e4d5ac7fE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !12037, !noalias !12040, !noundef !7
-  %.not.i51 = icmp ugt i64 %38, %.042133
+  %.not.i51 = icmp ult i64 %.042133, %38
   br i1 %.not.i51, label %39, label %49
 
 39:                                               ; preds = %37
@@ -70416,7 +70416,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !12119)
   %34 = load i64, ptr %15, align 8, !alias.scope !12119, !noalias !12122, !noundef !7
-  %.not.i55 = icmp ugt i64 %34, %.050126
+  %.not.i55 = icmp ult i64 %.050126, %34
   br i1 %.not.i55, label %35, label %45
 
 35:                                               ; preds = %33
@@ -70807,7 +70807,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h09e24437745a8689E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !12183, !noalias !12186, !noundef !7
-  %.not.i50 = icmp ugt i64 %38, %.042117
+  %.not.i50 = icmp ult i64 %.042117, %38
   br i1 %.not.i50, label %39, label %49
 
 39:                                               ; preds = %37
@@ -71221,7 +71221,7 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !12244)
   %37 = load i64, ptr %15, align 8, !alias.scope !12244, !noalias !12247, !noundef !7
-  %.not.i35 = icmp ugt i64 %37, %.02996
+  %.not.i35 = icmp ult i64 %.02996, %37
   br i1 %.not.i35, label %38, label %48
 
 38:                                               ; preds = %36
@@ -71587,7 +71587,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !12308)
   %36 = load i64, ptr %15, align 8, !alias.scope !12308, !noalias !12311, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -71981,7 +71981,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h100b462a86acb22eE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %45 = load i64, ptr %16, align 8, !alias.scope !12375, !noalias !12378, !noundef !7
-  %.not.i57 = icmp ugt i64 %45, %.049160
+  %.not.i57 = icmp ult i64 %.049160, %45
   br i1 %.not.i57, label %46, label %56
 
 46:                                               ; preds = %44
@@ -72412,7 +72412,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !12447)
   %34 = load i64, ptr %15, align 8, !alias.scope !12447, !noalias !12450, !noundef !7
-  %.not.i54 = icmp ugt i64 %34, %.049113
+  %.not.i54 = icmp ult i64 %.049113, %34
   br i1 %.not.i54, label %35, label %45
 
 35:                                               ; preds = %33
@@ -72780,7 +72780,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !12508)
   %36 = load i64, ptr %15, align 8, !alias.scope !12508, !noalias !12511, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -73142,7 +73142,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !12568)
   %36 = load i64, ptr %15, align 8, !alias.scope !12568, !noalias !12571, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -73532,7 +73532,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1c9271c0aa392826E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !12630, !noalias !12633, !noundef !7
-  %.not.i57 = icmp ugt i64 %38, %.049139
+  %.not.i57 = icmp ult i64 %.049139, %38
   br i1 %.not.i57, label %39, label %49
 
 39:                                               ; preds = %37
@@ -73965,7 +73965,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1da4236bbde0e975E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   %34 = load i64, ptr %12, align 8, !alias.scope !12694, !noalias !12697, !noundef !7
-  %.not.i55 = icmp ugt i64 %34, %.047110
+  %.not.i55 = icmp ult i64 %.047110, %34
   br i1 %.not.i55, label %35, label %45
 
 35:                                               ; preds = %33
@@ -74201,7 +74201,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !12722)
   %36 = load i64, ptr %15, align 8, !alias.scope !12722, !noalias !12725, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -74582,7 +74582,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h21937c2b58e148ebE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %37 = load i64, ptr %16, align 8, !alias.scope !12781, !noalias !12784, !noundef !7
-  %.not.i54 = icmp ugt i64 %37, %.047124
+  %.not.i54 = icmp ult i64 %.047124, %37
   br i1 %.not.i54, label %38, label %48
 
 38:                                               ; preds = %36
@@ -75010,7 +75010,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h228ede45d14804e6E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14)
   %40 = load i64, ptr %18, align 8, !alias.scope !12836, !noalias !12839, !noundef !7
-  %.not.i54 = icmp ugt i64 %40, %.047129
+  %.not.i54 = icmp ult i64 %.047129, %40
   br i1 %.not.i54, label %41, label %51
 
 41:                                               ; preds = %39
@@ -75491,7 +75491,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h22b5f71570614c9fE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !12926, !noalias !12929, !noundef !7
-  %.not.i55 = icmp ugt i64 %38, %.047128
+  %.not.i55 = icmp ult i64 %.047128, %38
   br i1 %.not.i55, label %39, label %49
 
 39:                                               ; preds = %37
@@ -75907,7 +75907,7 @@ common.resume:                                    ; preds = %70, %42
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !12987)
   %33 = load i64, ptr %11, align 8, !alias.scope !12987, !noalias !12990, !noundef !7
-  %.not.i34 = icmp ugt i64 %33, %.03071
+  %.not.i34 = icmp ult i64 %.03071, %33
   br i1 %.not.i34, label %34, label %44
 
 34:                                               ; preds = %32
@@ -76084,7 +76084,7 @@ common.resume:                                    ; preds = %68, %41
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !13015)
   %32 = load i64, ptr %11, align 8, !alias.scope !13015, !noalias !13018, !noundef !7
-  %.not.i36 = icmp ugt i64 %32, %.03169
+  %.not.i36 = icmp ult i64 %.03169, %32
   br i1 %.not.i36, label %33, label %43
 
 33:                                               ; preds = %31
@@ -76270,7 +76270,7 @@ common.resume:                                    ; preds = %68, %40
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !13043)
   %31 = load i64, ptr %11, align 8, !alias.scope !13043, !noalias !13046, !noundef !7
-  %.not.i51 = icmp ugt i64 %31, %.044104
+  %.not.i51 = icmp ult i64 %.044104, %31
   br i1 %.not.i51, label %32, label %42
 
 32:                                               ; preds = %30
@@ -76477,7 +76477,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h287683369d89ae1dE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !13071, !noalias !13074, !noundef !7
-  %.not.i54 = icmp ugt i64 %38, %.047155
+  %.not.i54 = icmp ult i64 %.047155, %38
   br i1 %.not.i54, label %39, label %49
 
 39:                                               ; preds = %37
@@ -77008,7 +77008,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h29fdbb10466877ebE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !13155, !noalias !13158, !noundef !7
-  %.not.i55 = icmp ugt i64 %38, %.047130
+  %.not.i55 = icmp ult i64 %.047130, %38
   br i1 %.not.i55, label %39, label %49
 
 39:                                               ; preds = %37
@@ -77441,7 +77441,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h2a471a8cb9aa0637E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   %35 = load i64, ptr %13, align 8, !alias.scope !13216, !noalias !13219, !noundef !7
-  %.not.i59 = icmp ugt i64 %35, %.053111
+  %.not.i59 = icmp ult i64 %.053111, %35
   br i1 %.not.i59, label %36, label %46
 
 36:                                               ; preds = %34
@@ -77685,7 +77685,7 @@ common.resume:                                    ; preds = %82, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !13238)
   %36 = load i64, ptr %15, align 8, !alias.scope !13238, !noalias !13241, !noundef !7
-  %.not.i54 = icmp ugt i64 %36, %.049131
+  %.not.i54 = icmp ult i64 %.049131, %36
   br i1 %.not.i54, label %37, label %47
 
 37:                                               ; preds = %35
@@ -78060,7 +78060,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !13302)
   %34 = load i64, ptr %15, align 8, !alias.scope !13302, !noalias !13305, !noundef !7
-  %.not.i55 = icmp ugt i64 %34, %.050115
+  %.not.i55 = icmp ult i64 %.050115, %34
   br i1 %.not.i55, label %35, label %45
 
 35:                                               ; preds = %33
@@ -78428,7 +78428,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !13363)
   %36 = load i64, ptr %15, align 8, !alias.scope !13363, !noalias !13366, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -78790,7 +78790,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !13422)
   %36 = load i64, ptr %15, align 8, !alias.scope !13422, !noalias !13425, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -79152,7 +79152,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !13481)
   %36 = load i64, ptr %15, align 8, !alias.scope !13481, !noalias !13484, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -79514,7 +79514,7 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !13540)
   %36 = load i64, ptr %15, align 8, !alias.scope !13540, !noalias !13543, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03176
+  %.not.i36 = icmp ult i64 %.03176, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -79886,7 +79886,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !13599)
   %34 = load i64, ptr %15, align 8, !alias.scope !13599, !noalias !13602, !noundef !7
-  %.not.i54 = icmp ugt i64 %34, %.049113
+  %.not.i54 = icmp ult i64 %.049113, %34
   br i1 %.not.i54, label %35, label %45
 
 35:                                               ; preds = %33
@@ -80274,7 +80274,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h36d199b167562b9dE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14)
   %42 = load i64, ptr %18, align 8, !alias.scope !13660, !noalias !13663, !noundef !7
-  %.not.i49 = icmp ugt i64 %42, %.042131
+  %.not.i49 = icmp ult i64 %.042131, %42
   br i1 %.not.i49, label %43, label %53
 
 43:                                               ; preds = %41
@@ -80769,7 +80769,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !13751)
   %36 = load i64, ptr %15, align 8, !alias.scope !13751, !noalias !13754, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -81135,7 +81135,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !13810)
   %36 = load i64, ptr %15, align 8, !alias.scope !13810, !noalias !13813, !noundef !7
-  %.not.i44 = icmp ugt i64 %36, %.03996
+  %.not.i44 = icmp ult i64 %.03996, %36
   br i1 %.not.i44, label %37, label %47
 
 37:                                               ; preds = %35
@@ -81508,7 +81508,7 @@ common.resume:                                    ; preds = %80, %47
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !13870)
   %38 = load i64, ptr %12, align 8, !alias.scope !13870, !noalias !13873, !noundef !7
-  %.not.i36 = icmp ugt i64 %38, %.03073
+  %.not.i36 = icmp ult i64 %.03073, %38
   br i1 %.not.i36, label %39, label %49
 
 39:                                               ; preds = %37
@@ -81748,7 +81748,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h3d5d3e6111d1e7b1E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %45 = load i64, ptr %16, align 8, !alias.scope !13916, !noalias !13919, !noundef !7
-  %.not.i50 = icmp ugt i64 %45, %.042120
+  %.not.i50 = icmp ult i64 %.042120, %45
   br i1 %.not.i50, label %46, label %56
 
 46:                                               ; preds = %44
@@ -82174,7 +82174,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !13983)
   %36 = load i64, ptr %15, align 8, !alias.scope !13983, !noalias !13986, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -82536,7 +82536,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !14042)
   %36 = load i64, ptr %15, align 8, !alias.scope !14042, !noalias !14045, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -82914,7 +82914,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h40ef602dc53ed47bE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %37 = load i64, ptr %16, align 8, !alias.scope !14102, !noalias !14105, !noundef !7
-  %.not.i49 = icmp ugt i64 %37, %.042124
+  %.not.i49 = icmp ult i64 %.042124, %37
   br i1 %.not.i49, label %38, label %48
 
 38:                                               ; preds = %36
@@ -83425,7 +83425,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !14215)
   %36 = load i64, ptr %15, align 8, !alias.scope !14215, !noalias !14218, !noundef !7
-  %.not.i42 = icmp ugt i64 %36, %.03894
+  %.not.i42 = icmp ult i64 %.03894, %36
   br i1 %.not.i42, label %37, label %47
 
 37:                                               ; preds = %35
@@ -83791,7 +83791,7 @@ common.resume:                                    ; preds = %71, %41
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !14274)
   %32 = load i64, ptr %11, align 8, !alias.scope !14274, !noalias !14277, !noundef !7
-  %.not.i41 = icmp ugt i64 %32, %.03584
+  %.not.i41 = icmp ult i64 %.03584, %32
   br i1 %.not.i41, label %33, label %43
 
 33:                                               ; preds = %31
@@ -83976,7 +83976,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !14302)
   %36 = load i64, ptr %15, align 8, !alias.scope !14302, !noalias !14305, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -84352,7 +84352,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h4bd3000dcf889b67E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   %35 = load i64, ptr %12, align 8, !alias.scope !14361, !noalias !14364, !noundef !7
-  %.not.i48 = icmp ugt i64 %35, %.042101
+  %.not.i48 = icmp ult i64 %.042101, %35
   br i1 %.not.i48, label %36, label %46
 
 36:                                               ; preds = %34
@@ -84601,7 +84601,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !14403)
   %36 = load i64, ptr %15, align 8, !alias.scope !14403, !noalias !14406, !noundef !7
-  %.not.i44 = icmp ugt i64 %36, %.03996
+  %.not.i44 = icmp ult i64 %.03996, %36
   br i1 %.not.i44, label %37, label %47
 
 37:                                               ; preds = %35
@@ -84988,7 +84988,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h5077ffc65d272a73E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   %34 = load i64, ptr %12, align 8, !alias.scope !14465, !noalias !14468, !noundef !7
-  %.not.i55 = icmp ugt i64 %34, %.047110
+  %.not.i55 = icmp ult i64 %.047110, %34
   br i1 %.not.i55, label %35, label %45
 
 35:                                               ; preds = %33
@@ -85238,7 +85238,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h50808d76e41d19f1E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   %34 = load i64, ptr %12, align 8, !alias.scope !14493, !noalias !14496, !noundef !7
-  %.not.i51 = icmp ugt i64 %34, %.042106
+  %.not.i51 = icmp ult i64 %.042106, %34
   br i1 %.not.i51, label %35, label %45
 
 35:                                               ; preds = %33
@@ -85518,7 +85518,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h524d1f2ec401f348E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %37 = load i64, ptr %16, align 8, !alias.scope !14543, !noalias !14546, !noundef !7
-  %.not.i54 = icmp ugt i64 %37, %.047124
+  %.not.i54 = icmp ult i64 %.047124, %37
   br i1 %.not.i54, label %38, label %48
 
 38:                                               ; preds = %36
@@ -85957,7 +85957,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h52f1e2b00a18a2baE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %44 = load i64, ptr %16, align 8, !alias.scope !14606, !noalias !14609, !noundef !7
-  %.not.i50 = icmp ugt i64 %44, %.042119
+  %.not.i50 = icmp ult i64 %.042119, %44
   br i1 %.not.i50, label %45, label %55
 
 45:                                               ; preds = %43
@@ -86380,7 +86380,7 @@ common.resume:                                    ; preds = %68, %41
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !14677)
   %32 = load i64, ptr %11, align 8, !alias.scope !14677, !noalias !14680, !noundef !7
-  %.not.i44 = icmp ugt i64 %32, %.03982
+  %.not.i44 = icmp ult i64 %.03982, %32
   br i1 %.not.i44, label %33, label %43
 
 33:                                               ; preds = %31
@@ -86584,7 +86584,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h58649b86dea89b93E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !14705, !noalias !14708, !noundef !7
-  %.not.i62 = icmp ugt i64 %38, %.055152
+  %.not.i62 = icmp ult i64 %.055152, %38
   br i1 %.not.i62, label %39, label %49
 
 39:                                               ; preds = %37
@@ -87116,7 +87116,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !14826)
   %37 = load i64, ptr %15, align 8, !alias.scope !14826, !noalias !14829, !noundef !7
-  %.not.i35 = icmp ugt i64 %37, %.03180
+  %.not.i35 = icmp ult i64 %.03180, %37
   br i1 %.not.i35, label %38, label %48
 
 38:                                               ; preds = %36
@@ -87498,7 +87498,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h5a37a3aa573bd8ffE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !14885, !noalias !14888, !noundef !7
-  %.not.i56 = icmp ugt i64 %38, %.049151
+  %.not.i56 = icmp ult i64 %.049151, %38
   br i1 %.not.i56, label %39, label %49
 
 39:                                               ; preds = %37
@@ -88008,7 +88008,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !14994)
   %36 = load i64, ptr %15, align 8, !alias.scope !14994, !noalias !14997, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -88370,7 +88370,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !15053)
   %36 = load i64, ptr %15, align 8, !alias.scope !15053, !noalias !15056, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -88737,7 +88737,7 @@ common.resume:                                    ; preds = %89, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !15112)
   %38 = load i64, ptr %15, align 8, !alias.scope !15112, !noalias !15115, !noundef !7
-  %.not.i36 = icmp ugt i64 %38, %.03084
+  %.not.i36 = icmp ult i64 %.03084, %38
   br i1 %.not.i36, label %39, label %49
 
 39:                                               ; preds = %37
@@ -89102,7 +89102,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !15171)
   %36 = load i64, ptr %15, align 8, !alias.scope !15171, !noalias !15174, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -89476,7 +89476,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !15230)
   %34 = load i64, ptr %15, align 8, !alias.scope !15230, !noalias !15233, !noundef !7
-  %.not.i55 = icmp ugt i64 %34, %.050126
+  %.not.i55 = icmp ult i64 %.050126, %34
   br i1 %.not.i55, label %35, label %45
 
 35:                                               ; preds = %33
@@ -89856,7 +89856,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !15291)
   %34 = load i64, ptr %15, align 8, !alias.scope !15291, !noalias !15294, !noundef !7
-  %.not.i54 = icmp ugt i64 %34, %.049113
+  %.not.i54 = icmp ult i64 %.049113, %34
   br i1 %.not.i54, label %35, label %45
 
 35:                                               ; preds = %33
@@ -90224,7 +90224,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !15352)
   %36 = load i64, ptr %15, align 8, !alias.scope !15352, !noalias !15355, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -90610,7 +90610,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h6abf6fdcc4c85ff8E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !15414, !noalias !15417, !noundef !7
-  %.not.i58 = icmp ugt i64 %38, %.050136
+  %.not.i58 = icmp ult i64 %.050136, %38
   br i1 %.not.i58, label %39, label %49
 
 39:                                               ; preds = %37
@@ -91034,7 +91034,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !15475)
   %34 = load i64, ptr %15, align 8, !alias.scope !15475, !noalias !15478, !noundef !7
-  %.not.i55 = icmp ugt i64 %34, %.050115
+  %.not.i55 = icmp ult i64 %.050115, %34
   br i1 %.not.i55, label %35, label %45
 
 35:                                               ; preds = %33
@@ -91398,7 +91398,7 @@ common.resume:                                    ; preds = %69, %41
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !15536)
   %32 = load i64, ptr %11, align 8, !alias.scope !15536, !noalias !15539, !noundef !7
-  %.not.i36 = icmp ugt i64 %32, %.03170
+  %.not.i36 = icmp ult i64 %.03170, %32
   br i1 %.not.i36, label %33, label %43
 
 33:                                               ; preds = %31
@@ -91592,7 +91592,7 @@ common.resume:                                    ; preds = %81, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !15564)
   %34 = load i64, ptr %15, align 8, !alias.scope !15564, !noalias !15567, !noundef !7
-  %.not.i54 = icmp ugt i64 %34, %.049145
+  %.not.i54 = icmp ult i64 %.049145, %34
   br i1 %.not.i54, label %35, label %45
 
 35:                                               ; preds = %33
@@ -91956,7 +91956,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !15626)
   %36 = load i64, ptr %15, align 8, !alias.scope !15626, !noalias !15629, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -92341,7 +92341,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h77e7774296936ac0E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !15688, !noalias !15691, !noundef !7
-  %.not.i57 = icmp ugt i64 %38, %.049157
+  %.not.i57 = icmp ult i64 %.049157, %38
   br i1 %.not.i57, label %39, label %49
 
 39:                                               ; preds = %37
@@ -92773,7 +92773,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h7adc0b0e3e47d32fE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
   %45 = load i64, ptr %13, align 8, !alias.scope !15753, !noalias !15756, !noundef !7
-  %.not.i50 = icmp ugt i64 %45, %.042107
+  %.not.i50 = icmp ult i64 %.042107, %45
   br i1 %.not.i50, label %46, label %56
 
 46:                                               ; preds = %44
@@ -93035,7 +93035,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h82e1a7be54053aedE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %37 = load i64, ptr %16, align 8, !alias.scope !15793, !noalias !15796, !noundef !7
-  %.not.i56 = icmp ugt i64 %37, %.049138
+  %.not.i56 = icmp ult i64 %.049138, %37
   br i1 %.not.i56, label %38, label %48
 
 38:                                               ; preds = %36
@@ -93486,7 +93486,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !15882)
   %36 = load i64, ptr %15, align 8, !alias.scope !15882, !noalias !15885, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -93853,7 +93853,7 @@ common.resume:                                    ; preds = %89, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !15941)
   %38 = load i64, ptr %15, align 8, !alias.scope !15941, !noalias !15944, !noundef !7
-  %.not.i36 = icmp ugt i64 %38, %.03084
+  %.not.i36 = icmp ult i64 %.03084, %38
   br i1 %.not.i36, label %39, label %49
 
 39:                                               ; preds = %37
@@ -94223,7 +94223,7 @@ common.resume:                                    ; preds = %90, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !16000)
   %38 = load i64, ptr %15, align 8, !alias.scope !16000, !noalias !16003, !noundef !7
-  %.not.i35 = icmp ugt i64 %38, %.03187
+  %.not.i35 = icmp ult i64 %.03187, %38
   br i1 %.not.i35, label %39, label %49
 
 39:                                               ; preds = %37
@@ -94607,7 +94607,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h8846c79a5efc6d94E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14)
   %40 = load i64, ptr %18, align 8, !alias.scope !16059, !noalias !16062, !noundef !7
-  %.not.i49 = icmp ugt i64 %40, %.042114
+  %.not.i49 = icmp ult i64 %.042114, %40
   br i1 %.not.i49, label %41, label %51
 
 41:                                               ; preds = %39
@@ -95068,7 +95068,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !16138)
   %34 = load i64, ptr %15, align 8, !alias.scope !16138, !noalias !16141, !noundef !7
-  %.not.i54 = icmp ugt i64 %34, %.049113
+  %.not.i54 = icmp ult i64 %.049113, %34
   br i1 %.not.i54, label %35, label %45
 
 35:                                               ; preds = %33
@@ -95436,7 +95436,7 @@ common.resume:                                    ; preds = %70, %42
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !16199)
   %33 = load i64, ptr %11, align 8, !alias.scope !16199, !noalias !16202, !noundef !7
-  %.not.i35 = icmp ugt i64 %33, %.03172
+  %.not.i35 = icmp ult i64 %.03172, %33
   br i1 %.not.i35, label %34, label %44
 
 34:                                               ; preds = %32
@@ -95621,7 +95621,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !16227)
   %36 = load i64, ptr %15, align 8, !alias.scope !16227, !noalias !16230, !noundef !7
-  %.not.i42 = icmp ugt i64 %36, %.03795
+  %.not.i42 = icmp ult i64 %.03795, %36
   br i1 %.not.i42, label %37, label %47
 
 37:                                               ; preds = %35
@@ -95993,7 +95993,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !16287)
   %36 = load i64, ptr %15, align 8, !alias.scope !16287, !noalias !16290, !noundef !7
-  %.not.i44 = icmp ugt i64 %36, %.03996
+  %.not.i44 = icmp ult i64 %.03996, %36
   br i1 %.not.i44, label %37, label %47
 
 37:                                               ; preds = %35
@@ -96380,7 +96380,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h9679f10fe90dfd83E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %37 = load i64, ptr %16, align 8, !alias.scope !16346, !noalias !16349, !noundef !7
-  %.not.i62 = icmp ugt i64 %37, %.055134
+  %.not.i62 = icmp ult i64 %.055134, %37
   br i1 %.not.i62, label %38, label %48
 
 38:                                               ; preds = %36
@@ -96817,7 +96817,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h96baf2e46cb79fafE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !16404, !noalias !16407, !noundef !7
-  %.not.i55 = icmp ugt i64 %38, %.047130
+  %.not.i55 = icmp ult i64 %.047130, %38
   br i1 %.not.i55, label %39, label %49
 
 39:                                               ; preds = %37
@@ -97255,7 +97255,7 @@ define internal fastcc void @_ZN5typst11foundations4args4Args5named17h9b8fc7d89b
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   %38 = load i64, ptr %14, align 8, !alias.scope !16468, !noalias !16471, !noundef !7
-  %.not.i48 = icmp ugt i64 %38, %.03866
+  %.not.i48 = icmp ult i64 %.03866, %38
   br i1 %.not.i48, label %39, label %49
 
 39:                                               ; preds = %37
@@ -97697,7 +97697,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h9bbcf524a085a59aE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %40 = load i64, ptr %17, align 8, !alias.scope !16532, !noalias !16535, !noundef !7
-  %.not.i60 = icmp ugt i64 %40, %.053133
+  %.not.i60 = icmp ult i64 %.053133, %40
   br i1 %.not.i60, label %41, label %51
 
 41:                                               ; preds = %39
@@ -98123,7 +98123,7 @@ common.resume:                                    ; preds = %71, %41
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !16595)
   %32 = load i64, ptr %11, align 8, !alias.scope !16595, !noalias !16598, !noundef !7
-  %.not.i41 = icmp ugt i64 %32, %.03584
+  %.not.i41 = icmp ult i64 %.03584, %32
   br i1 %.not.i41, label %33, label %43
 
 33:                                               ; preds = %31
@@ -98326,7 +98326,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h9cff675841aecf55E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %37 = load i64, ptr %16, align 8, !alias.scope !16623, !noalias !16626, !noundef !7
-  %.not.i56 = icmp ugt i64 %37, %.049133
+  %.not.i56 = icmp ult i64 %.049133, %37
   br i1 %.not.i56, label %38, label %48
 
 38:                                               ; preds = %36
@@ -98748,7 +98748,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h9f676b5c0feb4a2dE.l
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
   %36 = load i64, ptr %13, align 8, !alias.scope !16678, !noalias !16681, !noundef !7
-  %.not.i64 = icmp ugt i64 %36, %.057122
+  %.not.i64 = icmp ult i64 %.057122, %36
   br i1 %.not.i64, label %37, label %47
 
 37:                                               ; preds = %35
@@ -99050,7 +99050,7 @@ common.resume:                                    ; preds = %69, %41
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !16750)
   %32 = load i64, ptr %11, align 8, !alias.scope !16750, !noalias !16753, !noundef !7
-  %.not.i36 = icmp ugt i64 %32, %.03170
+  %.not.i36 = icmp ult i64 %.03170, %32
   br i1 %.not.i36, label %33, label %43
 
 33:                                               ; preds = %31
@@ -99237,7 +99237,7 @@ common.resume:                                    ; preds = %68, %39
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !16778)
   %30 = load i64, ptr %11, align 8, !alias.scope !16778, !noalias !16781, !noundef !7
-  %.not.i55 = icmp ugt i64 %30, %.050108
+  %.not.i55 = icmp ult i64 %.050108, %30
   br i1 %.not.i55, label %31, label %41
 
 31:                                               ; preds = %29
@@ -99423,7 +99423,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !16806)
   %36 = load i64, ptr %15, align 8, !alias.scope !16806, !noalias !16809, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -99792,7 +99792,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !16865)
   %34 = load i64, ptr %15, align 8, !alias.scope !16865, !noalias !16868, !noundef !7
-  %.not.i49 = icmp ugt i64 %34, %.044101
+  %.not.i49 = icmp ult i64 %.044101, %34
   br i1 %.not.i49, label %35, label %45
 
 35:                                               ; preds = %33
@@ -100159,7 +100159,7 @@ common.resume:                                    ; preds = %70, %42
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !16926)
   %33 = load i64, ptr %11, align 8, !alias.scope !16926, !noalias !16929, !noundef !7
-  %.not.i35 = icmp ugt i64 %33, %.03172
+  %.not.i35 = icmp ult i64 %.03172, %33
   br i1 %.not.i35, label %34, label %44
 
 34:                                               ; preds = %32
@@ -100348,7 +100348,7 @@ common.resume:                                    ; preds = %90, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !16954)
   %38 = load i64, ptr %15, align 8, !alias.scope !16954, !noalias !16957, !noundef !7
-  %.not.i35 = icmp ugt i64 %38, %.03187
+  %.not.i35 = icmp ult i64 %.03187, %38
   br i1 %.not.i35, label %39, label %49
 
 39:                                               ; preds = %37
@@ -100715,7 +100715,7 @@ common.resume:                                    ; preds = %89, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !17013)
   %37 = load i64, ptr %15, align 8, !alias.scope !17013, !noalias !17016, !noundef !7
-  %.not.i35 = icmp ugt i64 %37, %.03187
+  %.not.i35 = icmp ult i64 %.03187, %37
   br i1 %.not.i35, label %38, label %48
 
 38:                                               ; preds = %36
@@ -101078,7 +101078,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !17072)
   %36 = load i64, ptr %15, align 8, !alias.scope !17072, !noalias !17075, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -101440,7 +101440,7 @@ common.resume:                                    ; preds = %70, %42
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !17131)
   %33 = load i64, ptr %11, align 8, !alias.scope !17131, !noalias !17134, !noundef !7
-  %.not.i35 = icmp ugt i64 %33, %.03172
+  %.not.i35 = icmp ult i64 %.03172, %33
   br i1 %.not.i35, label %34, label %44
 
 34:                                               ; preds = %32
@@ -101650,7 +101650,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hb212b74092abb79cE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !17162, !noalias !17165, !noundef !7
-  %.not.i55 = icmp ugt i64 %38, %.047130
+  %.not.i55 = icmp ult i64 %.047130, %38
   br i1 %.not.i55, label %39, label %49
 
 39:                                               ; preds = %37
@@ -102087,7 +102087,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hb59665cd188d43fcE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   %33 = load i64, ptr %11, align 8, !alias.scope !17226, !noalias !17229, !noundef !7
-  %.not.i63 = icmp ugt i64 %33, %.055117
+  %.not.i63 = icmp ult i64 %.055117, %33
   br i1 %.not.i63, label %34, label %44
 
 34:                                               ; preds = %32
@@ -102329,7 +102329,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !17250)
   %34 = load i64, ptr %15, align 8, !alias.scope !17250, !noalias !17253, !noundef !7
-  %.not.i49 = icmp ugt i64 %34, %.044101
+  %.not.i49 = icmp ult i64 %.044101, %34
   br i1 %.not.i49, label %35, label %45
 
 35:                                               ; preds = %33
@@ -102708,7 +102708,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !17311)
   %34 = load i64, ptr %15, align 8, !alias.scope !17311, !noalias !17314, !noundef !7
-  %.not.i55 = icmp ugt i64 %34, %.050126
+  %.not.i55 = icmp ult i64 %.050126, %34
   br i1 %.not.i55, label %35, label %45
 
 35:                                               ; preds = %33
@@ -103077,7 +103077,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !17372)
   %36 = load i64, ptr %15, align 8, !alias.scope !17372, !noalias !17375, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -103463,7 +103463,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hc1b43b4b60c3620dE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !17435, !noalias !17438, !noundef !7
-  %.not.i58 = icmp ugt i64 %38, %.050140
+  %.not.i58 = icmp ult i64 %.050140, %38
   br i1 %.not.i58, label %39, label %49
 
 39:                                               ; preds = %37
@@ -103893,7 +103893,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hc39c561acf0567daE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   %35 = load i64, ptr %12, align 8, !alias.scope !17496, !noalias !17499, !noundef !7
-  %.not.i34 = icmp ugt i64 %35, %.02885
+  %.not.i34 = icmp ult i64 %.02885, %35
   br i1 %.not.i34, label %36, label %46
 
 36:                                               ; preds = %34
@@ -104156,7 +104156,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hc57f2275c888faf9E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !17542, !noalias !17545, !noundef !7
-  %.not.i58 = icmp ugt i64 %38, %.050140
+  %.not.i58 = icmp ult i64 %.050140, %38
   br i1 %.not.i58, label %39, label %49
 
 39:                                               ; preds = %37
@@ -104582,7 +104582,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !17603)
   %34 = load i64, ptr %15, align 8, !alias.scope !17603, !noalias !17606, !noundef !7
-  %.not.i55 = icmp ugt i64 %34, %.050126
+  %.not.i55 = icmp ult i64 %.050126, %34
   br i1 %.not.i55, label %35, label %45
 
 35:                                               ; preds = %33
@@ -104951,7 +104951,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !17664)
   %36 = load i64, ptr %15, align 8, !alias.scope !17664, !noalias !17667, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -105331,7 +105331,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hc9fab7ef6a55f382E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !17723, !noalias !17726, !noundef !7
-  %.not.i51 = icmp ugt i64 %38, %.042133
+  %.not.i51 = icmp ult i64 %.042133, %38
   br i1 %.not.i51, label %39, label %49
 
 39:                                               ; preds = %37
@@ -105797,7 +105797,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hca6bfe0972383437E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !17812, !noalias !17815, !noundef !7
-  %.not.i55 = icmp ugt i64 %38, %.047128
+  %.not.i55 = icmp ult i64 %.047128, %38
   br i1 %.not.i55, label %39, label %49
 
 39:                                               ; preds = %37
@@ -106238,7 +106238,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hcdb4132199911df4E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %42 = load i64, ptr %16, align 8, !alias.scope !17873, !noalias !17876, !noundef !7
-  %.not.i36 = icmp ugt i64 %42, %.03096
+  %.not.i36 = icmp ult i64 %.03096, %42
   br i1 %.not.i36, label %43, label %53
 
 43:                                               ; preds = %41
@@ -106679,7 +106679,7 @@ common.resume:                                    ; preds = %69, %40
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !17950)
   %31 = load i64, ptr %11, align 8, !alias.scope !17950, !noalias !17953, !noundef !7
-  %.not.i54 = icmp ugt i64 %31, %.050107
+  %.not.i54 = icmp ult i64 %.050107, %31
   br i1 %.not.i54, label %32, label %42
 
 32:                                               ; preds = %30
@@ -106869,7 +106869,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !17978)
   %37 = load i64, ptr %15, align 8, !alias.scope !17978, !noalias !17981, !noundef !7
-  %.not.i35 = icmp ugt i64 %37, %.03180
+  %.not.i35 = icmp ult i64 %.03180, %37
   br i1 %.not.i35, label %38, label %48
 
 38:                                               ; preds = %36
@@ -107254,7 +107254,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hd427f84935707cb4E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   %41 = load i64, ptr %12, align 8, !alias.scope !18040, !noalias !18043, !noundef !7
-  %.not.i47 = icmp ugt i64 %41, %.038102
+  %.not.i47 = icmp ult i64 %.038102, %41
   br i1 %.not.i47, label %42, label %52
 
 42:                                               ; preds = %40
@@ -107488,7 +107488,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !18068)
   %36 = load i64, ptr %15, align 8, !alias.scope !18068, !noalias !18071, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -107861,7 +107861,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !18127)
   %35 = load i64, ptr %15, align 8, !alias.scope !18127, !noalias !18130, !noundef !7
-  %.not.i50 = icmp ugt i64 %35, %.043112
+  %.not.i50 = icmp ult i64 %.043112, %35
   br i1 %.not.i50, label %36, label %46
 
 36:                                               ; preds = %34
@@ -108247,7 +108247,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hd5bc9b76551334acE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %37 = load i64, ptr %16, align 8, !alias.scope !18187, !noalias !18190, !noundef !7
-  %.not.i56 = icmp ugt i64 %37, %.049137
+  %.not.i56 = icmp ult i64 %.049137, %37
   br i1 %.not.i56, label %38, label %48
 
 38:                                               ; preds = %36
@@ -108722,7 +108722,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hd819767e48c36324E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !18279, !noalias !18282, !noundef !7
-  %.not.i58 = icmp ugt i64 %38, %.050140
+  %.not.i58 = icmp ult i64 %.050140, %38
   br i1 %.not.i58, label %39, label %49
 
 39:                                               ; preds = %37
@@ -109161,7 +109161,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hda2bdb3f1a178b2dE(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %40 = load i64, ptr %16, align 8, !alias.scope !18343, !noalias !18346, !noundef !7
-  %.not.i50 = icmp ugt i64 %40, %.040125
+  %.not.i50 = icmp ult i64 %.040125, %40
   br i1 %.not.i50, label %41, label %51
 
 41:                                               ; preds = %39
@@ -109606,7 +109606,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hdc8b9a731212bcd8E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !18406, !noalias !18409, !noundef !7
-  %.not.i55 = icmp ugt i64 %38, %.047130
+  %.not.i55 = icmp ult i64 %.047130, %38
   br i1 %.not.i55, label %39, label %49
 
 39:                                               ; preds = %37
@@ -110026,7 +110026,7 @@ common.resume:                                    ; preds = %89, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !18467)
   %38 = load i64, ptr %15, align 8, !alias.scope !18467, !noalias !18470, !noundef !7
-  %.not.i35 = icmp ugt i64 %38, %.02982
+  %.not.i35 = icmp ult i64 %.02982, %38
   br i1 %.not.i35, label %39, label %49
 
 39:                                               ; preds = %37
@@ -110391,7 +110391,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !18526)
   %36 = load i64, ptr %15, align 8, !alias.scope !18526, !noalias !18529, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -110753,7 +110753,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !18585)
   %36 = load i64, ptr %15, align 8, !alias.scope !18585, !noalias !18588, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -111122,7 +111122,7 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !18644)
   %36 = load i64, ptr %15, align 8, !alias.scope !18644, !noalias !18647, !noundef !7
-  %.not.i41 = icmp ugt i64 %36, %.03594
+  %.not.i41 = icmp ult i64 %.03594, %36
   br i1 %.not.i41, label %37, label %47
 
 37:                                               ; preds = %35
@@ -111488,7 +111488,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !18703)
   %36 = load i64, ptr %15, align 8, !alias.scope !18703, !noalias !18706, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -111854,7 +111854,7 @@ common.resume:                                    ; preds = %85, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !18762)
   %37 = load i64, ptr %15, align 8, !alias.scope !18762, !noalias !18765, !noundef !7
-  %.not.i35 = icmp ugt i64 %37, %.02996
+  %.not.i35 = icmp ult i64 %.02996, %37
   br i1 %.not.i35, label %38, label %48
 
 38:                                               ; preds = %36
@@ -112220,7 +112220,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !18826)
   %36 = load i64, ptr %15, align 8, !alias.scope !18826, !noalias !18829, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -112591,7 +112591,7 @@ common.resume:                                    ; preds = %87, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !18885)
   %36 = load i64, ptr %15, align 8, !alias.scope !18885, !noalias !18888, !noundef !7
-  %.not.i46 = icmp ugt i64 %36, %.040104
+  %.not.i46 = icmp ult i64 %.040104, %36
   br i1 %.not.i46, label %37, label %47
 
 37:                                               ; preds = %35
@@ -112962,7 +112962,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !18945)
   %36 = load i64, ptr %15, align 8, !alias.scope !18945, !noalias !18948, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -113346,7 +113346,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hfa8bb66bec3100e8E(p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !19007, !noalias !19010, !noundef !7
-  %.not.i50 = icmp ugt i64 %38, %.042117
+  %.not.i50 = icmp ult i64 %.042117, %38
   br i1 %.not.i50, label %39, label %49
 
 39:                                               ; preds = %37
@@ -113756,7 +113756,7 @@ common.resume:                                    ; preds = %88, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !19068)
   %36 = load i64, ptr %15, align 8, !alias.scope !19068, !noalias !19071, !noundef !7
-  %.not.i36 = icmp ugt i64 %36, %.03183
+  %.not.i36 = icmp ult i64 %.03183, %36
   br i1 %.not.i36, label %37, label %47
 
 37:                                               ; preds = %35
@@ -114129,7 +114129,7 @@ common.resume:                                    ; preds = %86, %.body.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !19127)
   %34 = load i64, ptr %15, align 8, !alias.scope !19127, !noalias !19130, !noundef !7
-  %.not.i54 = icmp ugt i64 %34, %.049113
+  %.not.i54 = icmp ult i64 %.049113, %34
   br i1 %.not.i54, label %35, label %45
 
 35:                                               ; preds = %33
@@ -114497,7 +114497,7 @@ common.resume:                                    ; preds = %70, %42
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !19188)
   %33 = load i64, ptr %11, align 8, !alias.scope !19188, !noalias !19191, !noundef !7
-  %.not.i34 = icmp ugt i64 %33, %.03071
+  %.not.i34 = icmp ult i64 %.03071, %33
   br i1 %.not.i34, label %34, label %44
 
 34:                                               ; preds = %32
@@ -140605,13 +140605,13 @@ define { i1, i1 } @"_ZN92_$LT$typst..layout..axes..Axes$LT$bool$GT$$u20$as$u20$c
 define void @"_ZN85_$LT$typst..layout..axes..Axes$LT$bool$GT$$u20$as$u20$core..ops..bit..BitOrAssign$GT$12bitor_assign17hcd708a003e5836a8E"(ptr noalias nocapture noundef align 1 dereferenceable(2) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #16 {
   %4 = load i8, ptr %0, align 1, !range !152, !noundef !7
   %5 = trunc nuw i8 %4 to i1
-  %6 = or i1 %5, %1
+  %6 = or i1 %1, %5
   %7 = zext i1 %6 to i8
   store i8 %7, ptr %0, align 1
   %8 = getelementptr inbounds i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1, !range !152, !noundef !7
   %10 = trunc nuw i8 %9 to i1
-  %11 = or i1 %10, %2
+  %11 = or i1 %2, %10
   %12 = zext i1 %11 to i8
   store i8 %12, ptr %8, align 1
   ret void
@@ -140621,13 +140621,13 @@ define void @"_ZN85_$LT$typst..layout..axes..Axes$LT$bool$GT$$u20$as$u20$core..o
 define void @"_ZN86_$LT$typst..layout..axes..Axes$LT$bool$GT$$u20$as$u20$core..ops..bit..BitAndAssign$GT$13bitand_assign17hc308a89e3107ea80E"(ptr noalias nocapture noundef align 1 dereferenceable(2) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #16 {
   %4 = load i8, ptr %0, align 1, !range !152, !noundef !7
   %5 = trunc nuw i8 %4 to i1
-  %6 = and i1 %5, %1
+  %6 = and i1 %1, %5
   %7 = zext i1 %6 to i8
   store i8 %7, ptr %0, align 1
   %8 = getelementptr inbounds i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1, !range !152, !noundef !7
   %10 = trunc nuw i8 %9 to i1
-  %11 = and i1 %10, %2
+  %11 = and i1 %2, %10
   %12 = zext i1 %11 to i8
   store i8 %12, ptr %8, align 1
   ret void
@@ -141221,7 +141221,7 @@ define { double, double } @_ZN5typst6layout5point5Point9transform17h63f5747d152d
   %4 = load double, ptr %2, align 8, !noundef !7
   %.0.i.inv.i.i.i.i.i.i = fcmp ord double %4, 0.000000e+00
   %.0.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i, double %4, double 0.000000e+00
-  %5 = fmul double %.0.i.i.i.i.i.i, %0
+  %5 = fmul double %0, %.0.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i = fcmp uno double %5, 0.000000e+00
   %6 = tail call double @llvm.fabs.f64(double %5)
   %7 = fcmp one double %6, 0x7FF0000000000000
@@ -141231,7 +141231,7 @@ define { double, double } @_ZN5typst6layout5point5Point9transform17h63f5747d152d
   %9 = load double, ptr %8, align 8, !noundef !7
   %.0.i.inv.i.i.i.i.i.i1 = fcmp ord double %9, 0.000000e+00
   %.0.i.i.i.i.i.i2 = select i1 %.0.i.inv.i.i.i.i.i.i1, double %9, double 0.000000e+00
-  %10 = fmul double %.0.i.i.i.i.i.i2, %1
+  %10 = fmul double %1, %.0.i.i.i.i.i.i2
   %.0.i.inv.i.i.i.i3 = fcmp uno double %10, 0.000000e+00
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp one double %11, 0x7FF0000000000000
@@ -141247,7 +141247,7 @@ define { double, double } @_ZN5typst6layout5point5Point9transform17h63f5747d152d
   %18 = load double, ptr %17, align 8, !noundef !7
   %.0.i.inv.i.i.i.i.i.i6 = fcmp ord double %18, 0.000000e+00
   %.0.i.i.i.i.i.i7 = select i1 %.0.i.inv.i.i.i.i.i.i6, double %18, double 0.000000e+00
-  %19 = fmul double %.0.i.i.i.i.i.i7, %0
+  %19 = fmul double %0, %.0.i.i.i.i.i.i7
   %.0.i.inv.i.i.i.i8 = fcmp uno double %19, 0.000000e+00
   %20 = tail call double @llvm.fabs.f64(double %19)
   %21 = fcmp one double %20, 0x7FF0000000000000
@@ -141257,7 +141257,7 @@ define { double, double } @_ZN5typst6layout5point5Point9transform17h63f5747d152d
   %23 = load double, ptr %22, align 8, !noundef !7
   %.0.i.inv.i.i.i.i.i.i11 = fcmp ord double %23, 0.000000e+00
   %.0.i.i.i.i.i.i12 = select i1 %.0.i.inv.i.i.i.i.i.i11, double %23, double 0.000000e+00
-  %24 = fmul double %.0.i.i.i.i.i.i12, %1
+  %24 = fmul double %1, %.0.i.i.i.i.i.i12
   %.0.i.inv.i.i.i.i13 = fcmp uno double %24, 0.000000e+00
   %25 = tail call double @llvm.fabs.f64(double %24)
   %26 = fcmp one double %25, 0x7FF0000000000000
@@ -141279,14 +141279,14 @@ define { double, double } @_ZN5typst6layout5point5Point13transform_inf17h8ccf7bf
   %4 = load double, ptr %2, align 8, !noundef !7
   %.0.i.inv.i.i.i.i.i.i = fcmp ord double %4, 0.000000e+00
   %.0.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i, double %4, double 0.000000e+00
-  %5 = fmul double %.0.i.i.i.i.i.i, %0
+  %5 = fmul double %0, %.0.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i = fcmp ord double %5, 0.000000e+00
   %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %5, double 0.000000e+00
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load double, ptr %6, align 8, !noundef !7
   %.0.i.inv.i.i.i.i.i.i1 = fcmp ord double %7, 0.000000e+00
   %.0.i.i.i.i.i.i2 = select i1 %.0.i.inv.i.i.i.i.i.i1, double %7, double 0.000000e+00
-  %8 = fmul double %.0.i.i.i.i.i.i2, %1
+  %8 = fmul double %1, %.0.i.i.i.i.i.i2
   %.0.i.inv.i.i.i.i3 = fcmp ord double %8, 0.000000e+00
   %.0.i.i.i.i4 = select i1 %.0.i.inv.i.i.i.i3, double %8, double 0.000000e+00
   %9 = fadd double %.0.i.i.i.i, %.0.i.i.i.i4
@@ -141301,14 +141301,14 @@ define { double, double } @_ZN5typst6layout5point5Point13transform_inf17h8ccf7bf
   %14 = load double, ptr %13, align 8, !noundef !7
   %.0.i.inv.i.i.i.i.i.i7 = fcmp ord double %14, 0.000000e+00
   %.0.i.i.i.i.i.i8 = select i1 %.0.i.inv.i.i.i.i.i.i7, double %14, double 0.000000e+00
-  %15 = fmul double %.0.i.i.i.i.i.i8, %0
+  %15 = fmul double %0, %.0.i.i.i.i.i.i8
   %.0.i.inv.i.i.i.i9 = fcmp ord double %15, 0.000000e+00
   %.0.i.i.i.i10 = select i1 %.0.i.inv.i.i.i.i9, double %15, double 0.000000e+00
   %16 = getelementptr inbounds i8, ptr %2, i64 24
   %17 = load double, ptr %16, align 8, !noundef !7
   %.0.i.inv.i.i.i.i.i.i11 = fcmp ord double %17, 0.000000e+00
   %.0.i.i.i.i.i.i12 = select i1 %.0.i.inv.i.i.i.i.i.i11, double %17, double 0.000000e+00
-  %18 = fmul double %.0.i.i.i.i.i.i12, %1
+  %18 = fmul double %1, %.0.i.i.i.i.i.i12
   %.0.i.inv.i.i.i.i13 = fcmp ord double %18, 0.000000e+00
   %.0.i.i.i.i14 = select i1 %.0.i.inv.i.i.i.i13, double %18, double 0.000000e+00
   %19 = fadd double %.0.i.i.i.i10, %.0.i.i.i.i14
@@ -141419,10 +141419,10 @@ define { double, double } @"_ZN69_$LT$typst..layout..point..Point$u20$as$u20$cor
 define { double, double } @"_ZN80_$LT$typst..layout..point..Point$u20$as$u20$core..ops..arith..Mul$LT$f64$GT$$GT$3mul17hb2bc05b15a7e1892E"(double noundef %0, double noundef %1, double noundef %2) unnamed_addr #6 {
   %.0.i.inv.i.i.i.i.i = fcmp ord double %2, 0.000000e+00
   %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %2, double 0.000000e+00
-  %4 = fmul double %.0.i.i.i.i.i, %0
+  %4 = fmul double %0, %.0.i.i.i.i.i
   %.0.i.inv.i.i.i = fcmp ord double %4, 0.000000e+00
   %.0.i.i.i = select i1 %.0.i.inv.i.i.i, double %4, double 0.000000e+00
-  %5 = fmul double %.0.i.i.i.i.i, %1
+  %5 = fmul double %1, %.0.i.i.i.i.i
   %.0.i.inv.i.i.i3 = fcmp ord double %5, 0.000000e+00
   %.0.i.i.i4 = select i1 %.0.i.inv.i.i.i3, double %5, double 0.000000e+00
   %6 = insertvalue { double, double } poison, double %.0.i.i.i, 0
@@ -141434,10 +141434,10 @@ define { double, double } @"_ZN80_$LT$typst..layout..point..Point$u20$as$u20$cor
 define { double, double } @"_ZN5typst6layout5point90_$LT$impl$u20$core..ops..arith..Mul$LT$typst..layout..point..Point$GT$$u20$for$u20$f64$GT$3mul17h7edca729728817cfE"(double noundef %0, double noundef %1, double noundef %2) unnamed_addr #6 {
   %.0.i.inv.i.i.i.i.i.i = fcmp ord double %0, 0.000000e+00
   %.0.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i, double %0, double 0.000000e+00
-  %4 = fmul double %.0.i.i.i.i.i.i, %1
+  %4 = fmul double %1, %.0.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i = fcmp ord double %4, 0.000000e+00
   %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %4, double 0.000000e+00
-  %5 = fmul double %.0.i.i.i.i.i.i, %2
+  %5 = fmul double %2, %.0.i.i.i.i.i.i
   %.0.i.inv.i.i.i3.i = fcmp ord double %5, 0.000000e+00
   %.0.i.i.i4.i = select i1 %.0.i.inv.i.i.i3.i, double %5, double 0.000000e+00
   %6 = insertvalue { double, double } poison, double %.0.i.i.i.i, 0
@@ -141561,10 +141561,10 @@ define { double, double } @"_ZN5typst6layout4size108_$LT$impl$u20$core..ops..ari
 define { double, double } @"_ZN5typst6layout4size119_$LT$impl$u20$core..ops..arith..Mul$LT$f64$GT$$u20$for$u20$typst..layout..axes..Axes$LT$typst..layout..abs..Abs$GT$$GT$3mul17h36cfcb95d77d948aE"(double noundef %0, double noundef %1, double noundef %2) unnamed_addr #6 {
   %.0.i.inv.i.i.i.i.i = fcmp ord double %2, 0.000000e+00
   %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %2, double 0.000000e+00
-  %4 = fmul double %.0.i.i.i.i.i, %0
+  %4 = fmul double %0, %.0.i.i.i.i.i
   %.0.i.inv.i.i.i = fcmp ord double %4, 0.000000e+00
   %.0.i.i.i = select i1 %.0.i.inv.i.i.i, double %4, double 0.000000e+00
-  %5 = fmul double %.0.i.i.i.i.i, %1
+  %5 = fmul double %1, %.0.i.i.i.i.i
   %.0.i.inv.i.i.i3 = fcmp ord double %5, 0.000000e+00
   %.0.i.i.i4 = select i1 %.0.i.inv.i.i.i3, double %5, double 0.000000e+00
   %6 = insertvalue { double, double } poison, double %.0.i.i.i, 0
@@ -148938,10 +148938,10 @@ define { double, double } @"_ZN69_$LT$typst..layout..point..Point$u20$as$u20$cor
   %6 = fneg double %3
   %.0.i.inv.i.i.i1.i = fcmp ord double %3, 0.000000e+00
   %.0.i.i.i2.i = select i1 %.0.i.inv.i.i.i1.i, double %6, double 0.000000e+00
-  %7 = fadd double %.0.i.i.i.i, %0
+  %7 = fadd double %0, %.0.i.i.i.i
   %.0.i.inv.i.i.i.i1 = fcmp ord double %7, 0.000000e+00
   %.0.i.i.i.i2 = select i1 %.0.i.inv.i.i.i.i1, double %7, double 0.000000e+00
-  %8 = fadd double %.0.i.i.i2.i, %1
+  %8 = fadd double %1, %.0.i.i.i2.i
   %.0.i.inv.i.i.i1.i3 = fcmp ord double %8, 0.000000e+00
   %.0.i.i.i2.i4 = select i1 %.0.i.inv.i.i.i1.i3, double %8, double 0.000000e+00
   %9 = insertvalue { double, double } poison, double %.0.i.i.i.i2, 0
@@ -148954,10 +148954,10 @@ define void @"_ZN75_$LT$typst..layout..point..Point$u20$as$u20$core..ops..arith.
   %4 = load double, ptr %0, align 8, !noundef !7
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8, !noundef !7
-  %7 = fadd double %4, %1
+  %7 = fadd double %1, %4
   %.0.i.inv.i.i.i.i = fcmp ord double %7, 0.000000e+00
   %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %7, double 0.000000e+00
-  %8 = fadd double %6, %2
+  %8 = fadd double %2, %6
   %.0.i.inv.i.i.i1.i = fcmp ord double %8, 0.000000e+00
   %.0.i.i.i2.i = select i1 %.0.i.inv.i.i.i1.i, double %8, double 0.000000e+00
   store double %.0.i.i.i.i, ptr %0, align 8
@@ -149031,10 +149031,10 @@ define { double, double } @"_ZN5typst6layout4size108_$LT$impl$u20$core..ops..ari
   %6 = fneg double %3
   %.0.i.inv.i.i.i1.i = fcmp ord double %3, 0.000000e+00
   %.0.i.i.i2.i = select i1 %.0.i.inv.i.i.i1.i, double %6, double 0.000000e+00
-  %7 = fadd double %.0.i.i.i.i, %0
+  %7 = fadd double %0, %.0.i.i.i.i
   %.0.i.inv.i.i.i.i1 = fcmp ord double %7, 0.000000e+00
   %.0.i.i.i.i2 = select i1 %.0.i.inv.i.i.i.i1, double %7, double 0.000000e+00
-  %8 = fadd double %.0.i.i.i2.i, %1
+  %8 = fadd double %1, %.0.i.i.i2.i
   %.0.i.inv.i.i.i1.i3 = fcmp ord double %8, 0.000000e+00
   %.0.i.i.i2.i4 = select i1 %.0.i.inv.i.i.i1.i3, double %8, double 0.000000e+00
   %9 = insertvalue { double, double } poison, double %.0.i.i.i.i2, 0
@@ -149069,10 +149069,10 @@ define void @"_ZN5typst6layout4size114_$LT$impl$u20$core..ops..arith..AddAssign$
   %4 = load double, ptr %0, align 8, !noundef !7
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8, !noundef !7
-  %7 = fadd double %4, %1
+  %7 = fadd double %1, %4
   %.0.i.inv.i.i.i.i = fcmp ord double %7, 0.000000e+00
   %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %7, double 0.000000e+00
-  %8 = fadd double %6, %2
+  %8 = fadd double %2, %6
   %.0.i.inv.i.i.i1.i = fcmp ord double %8, 0.000000e+00
   %.0.i.i.i2.i = select i1 %.0.i.inv.i.i.i1.i, double %8, double 0.000000e+00
   store double %.0.i.i.i.i, ptr %0, align 8
@@ -154288,7 +154288,7 @@ define void @"_ZN5typst5model4link1_97_$LT$impl$u20$typst..foundations..element.
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16), !noalias !27061
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15), !noalias !27061
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27062)
-  %.not.i.i.i = icmp ugt i64 %27, %.sroa.8.0.i.i
+  %.not.i.i.i = icmp ult i64 %.sroa.8.0.i.i, %27
   br i1 %.not.i.i.i, label %36, label %45
 
 36:                                               ; preds = %35
@@ -160390,7 +160390,7 @@ define void @_ZN5typst4text6lorem_5lorem17h8ea58bc7a0800002E(ptr noalias nocaptu
   %97 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !28545, !noalias !28550, !noundef !7
   %98 = load i64, ptr %6, align 8, !alias.scope !28552, !noalias !28550, !noundef !7
   %99 = sub i64 %98, %97
-  %100 = icmp ult i64 %99, %96
+  %100 = icmp ugt i64 %96, %99
   br i1 %100, label %101, label %105
 
 101:                                              ; preds = %.loopexit205.i
@@ -160645,7 +160645,7 @@ _ZN4core3str11validations15next_code_point17h34adc5e17767eaceE.exit.thread.i.i.i
   %208 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !28583, !noalias !28588, !noundef !7
   %209 = load i64, ptr %6, align 8, !alias.scope !28590, !noalias !28588, !noundef !7
   %210 = sub i64 %209, %208
-  %211 = icmp ult i64 %210, %207
+  %211 = icmp ugt i64 %207, %210
   br i1 %211, label %212, label %249
 
 212:                                              ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17hd2cb4488ffd885e7E.exit.thread.i"
@@ -160668,7 +160668,7 @@ _ZN4core3str11validations15next_code_point17h34adc5e17767eaceE.exit.thread.i.i.i
   %218 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !28545, !noalias !28550, !noundef !7
   %219 = load i64, ptr %6, align 8, !alias.scope !28552, !noalias !28550, !noundef !7
   %220 = sub i64 %219, %218
-  %221 = icmp ult i64 %220, %217
+  %221 = icmp ugt i64 %217, %220
   br i1 %221, label %222, label %226
 
 222:                                              ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17hd2cb4488ffd885e7E.exit.i"

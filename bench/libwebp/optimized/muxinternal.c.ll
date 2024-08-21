@@ -57,7 +57,7 @@ define hidden i32 @ChunkGetIndexFromTag(i32 noundef %0) local_unnamed_addr #4 {
 2:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
   %3 = phi i32 [ 1480085590, %1 ], [ %7, %5 ]
-  %4 = icmp eq i32 %3, %0
+  %4 = icmp eq i32 %0, %3
   br i1 %4, label %.split.loop.exit10, label %5
 
 5:                                                ; preds = %2
@@ -90,7 +90,7 @@ define hidden i32 @ChunkGetIdFromTag(i32 noundef %0) local_unnamed_addr #4 {
 3:                                                ; preds = %.lr.ph
   %4 = getelementptr inbounds [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %indvars.iv.next
   %5 = load i32, ptr %4, align 4
-  %6 = icmp eq i32 %5, %0
+  %6 = icmp eq i32 %0, %5
   br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %3, %1
@@ -150,7 +150,7 @@ define hidden i32 @ChunkGetIndexFromFourCC(ptr nocapture noundef readonly %0) lo
 19:                                               ; preds = %22, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %22 ]
   %20 = phi i32 [ 1480085590, %1 ], [ %24, %22 ]
-  %21 = icmp eq i32 %20, %18
+  %21 = icmp eq i32 %18, %20
   br i1 %21, label %.split.loop.exit10.i, label %22
 
 22:                                               ; preds = %19
@@ -733,7 +733,7 @@ GetChunkListFromId.exit:                          ; preds = %.lr.ph24, %5, %7
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %indvars.iv.next.i
   %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %16, %12
+  %17 = icmp eq i32 %12, %16
   br i1 %17, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %14, %11

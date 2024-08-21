@@ -375,7 +375,7 @@ define internal fastcc void @rb_insert_case1(ptr nocapture noundef %0, ptr nound
 13:                                               ; preds = %.preheader
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp ne ptr %15, %.val.i
+  %16 = icmp ne ptr %.val.i, %15
   br i1 %16, label %node_uncle.exit.i, label %17
 
 17:                                               ; preds = %13
@@ -419,7 +419,7 @@ node_uncle.exit.thread.thread33.i:                ; preds = %20, %node_uncle.exi
   %35 = getelementptr inbounds i8, ptr %11, i64 8
   %36 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp ne ptr %37, %.tr16.i
+  %38 = icmp ne ptr %.tr16.i, %37
   %brmerge = or i1 %38, %16
   br i1 %brmerge, label %50, label %39
 
@@ -452,7 +452,7 @@ node_uncle.exit.thread.thread33.i:                ; preds = %20, %node_uncle.exi
 50:                                               ; preds = %node_uncle.exit.thread.thread33.i
   %51 = getelementptr inbounds i8, ptr %.val.i, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, %.tr16.i
+  %53 = icmp eq ptr %.tr16.i, %52
   br i1 %53, label %54, label %71
 
 54:                                               ; preds = %50
@@ -512,7 +512,7 @@ node_uncle.exit.thread.thread33.i:                ; preds = %20, %node_uncle.exi
   store i32 0, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %73, i64 8
   %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq ptr %77, %.0.i12.i
+  %78 = icmp eq ptr %.0.i12.i, %77
   br i1 %78, label %79, label %103
 
 79:                                               ; preds = %71
@@ -653,7 +653,7 @@ define internal fastcc void @lookup_or_insert32(ptr nocapture noundef %0, i32 no
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = trunc i64 %15 to i32
-  %17 = icmp eq i32 %16, %1
+  %17 = icmp eq i32 %1, %16
   br i1 %.not66.i, label %.preheader.split.us.split.us.i.preheader, label %.preheader.split.split.i.preheader
 
 .preheader.split.split.i.preheader:               ; preds = %.preheader.i
@@ -665,11 +665,11 @@ define internal fastcc void @lookup_or_insert32(ptr nocapture noundef %0, i32 no
 .lr.ph20:                                         ; preds = %.preheader.split.us.split.us.i.preheader, %.preheader.split.us.split.us.i
   %18 = phi i32 [ %37, %.preheader.split.us.split.us.i ], [ %16, %.preheader.split.us.split.us.i.preheader ]
   %.05372.us.us.i19 = phi ptr [ %.154.us.us.i, %.preheader.split.us.split.us.i ], [ %8, %.preheader.split.us.split.us.i.preheader ]
-  %19 = icmp ugt i32 %18, %1
+  %19 = icmp ult i32 %1, %18
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %.lr.ph20
-  %21 = icmp ult i32 %18, %1
+  %21 = icmp ugt i32 %1, %18
   br i1 %21, label %22, label %.preheader.split.us.split.us.i
 
 22:                                               ; preds = %20
@@ -700,7 +700,7 @@ define internal fastcc void @lookup_or_insert32(ptr nocapture noundef %0, i32 no
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = trunc i64 %36 to i32
-  %38 = icmp eq i32 %37, %1
+  %38 = icmp eq i32 %1, %37
   br i1 %38, label %.split.us.i, label %.lr.ph20, !llvm.loop !6
 
 39:                                               ; preds = %6
@@ -760,7 +760,7 @@ define internal fastcc void @lookup_or_insert32(ptr nocapture noundef %0, i32 no
 .lr.ph:                                           ; preds = %.preheader.split.split.i.preheader, %.preheader.split.split.i
   %58 = phi i32 [ %79, %.preheader.split.split.i ], [ %16, %.preheader.split.split.i.preheader ]
   %.05372.i16 = phi ptr [ %.154.i, %.preheader.split.split.i ], [ %8, %.preheader.split.split.i.preheader ]
-  %59 = icmp ugt i32 %58, %1
+  %59 = icmp ult i32 %1, %58
   br i1 %59, label %60, label %67
 
 60:                                               ; preds = %.lr.ph
@@ -776,7 +776,7 @@ define internal fastcc void @lookup_or_insert32(ptr nocapture noundef %0, i32 no
   br label %.split74.us.i
 
 67:                                               ; preds = %.lr.ph
-  %68 = icmp ult i32 %58, %1
+  %68 = icmp ugt i32 %1, %58
   br i1 %68, label %69, label %.preheader.split.split.i
 
 69:                                               ; preds = %67
@@ -797,7 +797,7 @@ define internal fastcc void @lookup_or_insert32(ptr nocapture noundef %0, i32 no
   %77 = load ptr, ptr %76, align 8
   %78 = ptrtoint ptr %77 to i64
   %79 = trunc i64 %78 to i32
-  %80 = icmp eq i32 %79, %1
+  %80 = icmp eq i32 %1, %79
   br i1 %80, label %.split.us.i, label %.lr.ph, !llvm.loop !6
 
 .split74.us.i:                                    ; preds = %72, %63, %31, %25
@@ -844,15 +844,15 @@ define noundef zeroext i1 @wmem_tree_contains32(ptr noundef readonly %0, i32 nou
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i32
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = icmp ugt i32 %9, %1
+  %12 = icmp ult i32 %1, %9
   br i1 %12, label %.sink.split, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i32 %9, %1
+  %14 = icmp ugt i32 %1, %9
   br i1 %14, label %.sink.split, label %17
 
 .sink.split:                                      ; preds = %13, %11
@@ -888,7 +888,7 @@ define ptr @wmem_tree_lookup32(ptr noundef readonly %0, i32 noundef %1) local_un
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i32
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %.lr.ph
@@ -897,11 +897,11 @@ define ptr @wmem_tree_lookup32(ptr noundef readonly %0, i32 noundef %1) local_un
   br label %.loopexit
 
 14:                                               ; preds = %.lr.ph
-  %15 = icmp ugt i32 %9, %1
+  %15 = icmp ult i32 %1, %9
   br i1 %15, label %.sink.split, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ult i32 %9, %1
+  %17 = icmp ugt i32 %1, %9
   br i1 %17, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %16, %14
@@ -936,13 +936,13 @@ define ptr @wmem_tree_lookup32_le(ptr noundef readonly %0, i32 noundef %1) local
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i32
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   br i1 %10, label %.critedge.sink.split, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %11 = phi i32 [ %26, %.lr.ph ], [ %9, %.lr.ph.preheader ]
   %.05176 = phi ptr [ %.1, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %12 = icmp ugt i32 %11, %1
+  %12 = icmp ult i32 %1, %11
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %.lr.ph77
@@ -952,7 +952,7 @@ define ptr @wmem_tree_lookup32_le(ptr noundef readonly %0, i32 noundef %1) local
   br i1 %16, label %28, label %.lr.ph
 
 17:                                               ; preds = %.lr.ph77
-  %18 = icmp ult i32 %11, %1
+  %18 = icmp ugt i32 %1, %11
   br i1 %18, label %19, label %.lr.ph
 
 19:                                               ; preds = %17
@@ -967,7 +967,7 @@ define ptr @wmem_tree_lookup32_le(ptr noundef readonly %0, i32 noundef %1) local
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = trunc i64 %25 to i32
-  %27 = icmp eq i32 %26, %1
+  %27 = icmp eq i32 %1, %26
   br i1 %27, label %.critedge.sink.split, label %.lr.ph77
 
 28:                                               ; preds = %13
@@ -978,12 +978,12 @@ define ptr @wmem_tree_lookup32_le(ptr noundef readonly %0, i32 noundef %1) local
 .thread:                                          ; preds = %19
   %31 = load ptr, ptr %.05176, align 8
   %32 = icmp ne ptr %31, null
-  %33 = icmp ult i32 %11, %1
+  %33 = icmp ugt i32 %1, %11
   %or.cond = or i1 %32, %33
   br i1 %or.cond, label %.critedge.sink.split, label %.critedge
 
 34:                                               ; preds = %28
-  %.old = icmp ult i32 %11, %1
+  %.old = icmp ugt i32 %1, %11
   br i1 %.old, label %.critedge.sink.split, label %.critedge
 
 35:                                               ; preds = %28
@@ -998,7 +998,7 @@ define ptr @wmem_tree_lookup32_le(ptr noundef readonly %0, i32 noundef %1) local
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = trunc i64 %41 to i32
-  %43 = icmp ult i32 %42, %1
+  %43 = icmp ugt i32 %1, %42
   br i1 %43, label %.critedge.sink.split, label %44
 
 44:                                               ; preds = %.preheader
@@ -1034,15 +1034,15 @@ define ptr @wmem_tree_remove32(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i32
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   br i1 %10, label %wmem_tree_lookup32.exit, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = icmp ugt i32 %9, %1
+  %12 = icmp ult i32 %1, %9
   br i1 %12, label %.sink.split.i, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i32 %9, %1
+  %14 = icmp ugt i32 %1, %9
   br i1 %14, label %.sink.split.i, label %17
 
 .sink.split.i:                                    ; preds = %13, %11
@@ -1479,7 +1479,7 @@ define void @wmem_tree_insert32_array(ptr noundef %0, ptr nocapture noundef read
 .lr.ph.i:                                         ; preds = %.preheader.i.i, %.preheader.split.split.i.i
   %34 = phi i32 [ %47, %.preheader.split.split.i.i ], [ %19, %.preheader.i.i ]
   %.05372.i16.i = phi ptr [ %.154.i.i, %.preheader.split.split.i.i ], [ %12, %.preheader.i.i ]
-  %35 = icmp ugt i32 %34, %.128
+  %35 = icmp ult i32 %.128, %34
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %.lr.ph.i
@@ -1489,7 +1489,7 @@ define void @wmem_tree_insert32_array(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not67.i.i, label %.split74.us.i.i, label %.preheader.split.split.i.i
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = icmp ult i32 %34, %.128
+  %40 = icmp ugt i32 %.128, %34
   br i1 %40, label %41, label %.preheader.split.split.i.i
 
 41:                                               ; preds = %39

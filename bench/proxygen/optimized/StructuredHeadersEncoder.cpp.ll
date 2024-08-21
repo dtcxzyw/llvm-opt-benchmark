@@ -1202,7 +1202,7 @@ _ZNKSt3mapIN8proxygen17StructuredHeaders11EncodeErrorENSt7__cxx1112basic_stringI
 lor.rhs.i:                                        ; preds = %_ZNKSt3mapIN8proxygen17StructuredHeaders11EncodeErrorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %8 = load i8, ptr %_M_storage.i.i.i, align 1
-  %cmp.i2.i = icmp ugt i8 %8, %err
+  %cmp.i2.i = icmp ult i8 %err, %8
   br i1 %cmp.i2.i, label %if.then.i, label %invoke.cont11
 
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNKSt3mapIN8proxygen17StructuredHeaders11EncodeErrorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i, %invoke.cont9
@@ -1984,7 +1984,7 @@ entry:
   %div.i.i = udiv i64 %add.i.i, 3
   %mul.i.i = shl i64 %div.i.i, 2
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
-  %cmp.not.i = icmp ult i64 %call.i, %mul.i.i
+  %cmp.not.i = icmp ugt i64 %mul.i.i, %call.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -1993,7 +1993,7 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
-  %cmp2.i = icmp ult i64 %call1.i, %mul.i.i
+  %cmp2.i = icmp ugt i64 %mul.i.i, %call1.i
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -2117,7 +2117,7 @@ _ZNKSt3mapIN8proxygen17StructuredHeaders11EncodeErrorENSt7__cxx1112basic_stringI
 lor.rhs.i:                                        ; preds = %_ZNKSt3mapIN8proxygen17StructuredHeaders11EncodeErrorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %8 = load i8, ptr %_M_storage.i.i.i, align 1
-  %cmp.i2.i = icmp ugt i8 %8, %err
+  %cmp.i2.i = icmp ult i8 %err, %8
   br i1 %cmp.i2.i, label %if.then.i, label %invoke.cont11
 
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNKSt3mapIN8proxygen17StructuredHeaders11EncodeErrorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE11lower_boundERSC_.exit.i, %invoke.cont9
@@ -2426,7 +2426,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11DecodeErr
 entry:
   %cmp.not = icmp ne ptr %__x, null
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2 = icmp eq ptr %add.ptr.i, %__p
+  %cmp2 = icmp eq ptr %__p, %add.ptr.i
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %entry.lor.end_crit_edge, label %lor.rhs
 
@@ -2512,7 +2512,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErr
 entry:
   %cmp.not = icmp ne ptr %__x, null
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2 = icmp eq ptr %add.ptr.i, %__p
+  %cmp2 = icmp eq ptr %__p, %add.ptr.i
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %entry.lor.end_crit_edge, label %lor.rhs
 
@@ -3744,7 +3744,7 @@ land.lhs.true9:                                   ; preds = %land.lhs.true5
   %sub.ptr.lhs.cast12 = ptrtoint ptr %call10 to i64
   %sub.ptr.rhs.cast13 = ptrtoint ptr %call11 to i64
   %sub.ptr.sub14 = sub i64 %sub.ptr.lhs.cast12, %sub.ptr.rhs.cast13
-  %cmp15.not = icmp slt i64 %sub.ptr.sub14, %off
+  %cmp15.not = icmp sgt i64 %off, %sub.ptr.sub14
   br i1 %cmp15.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true9

@@ -755,7 +755,7 @@ define internal noundef zeroext i1 @ax25_from_literal(ptr nocapture noundef %0, 
   %16 = load ptr, ptr %7, align 8
   %17 = tail call i64 @g_bytes_get_size(ptr noundef %16) #8
   %18 = icmp ugt i64 %17, 6
-  %brmerge = or i1 %18, %2
+  %brmerge = or i1 %2, %18
   br i1 %brmerge, label %21, label %19
 
 19:                                               ; preds = %15
@@ -809,7 +809,7 @@ define internal noundef zeroext i1 @vines_from_literal(ptr nocapture noundef %0,
   %16 = load ptr, ptr %7, align 8
   %17 = tail call i64 @g_bytes_get_size(ptr noundef %16) #8
   %18 = icmp ugt i64 %17, 5
-  %brmerge = or i1 %18, %2
+  %brmerge = or i1 %2, %18
   br i1 %brmerge, label %21, label %19
 
 19:                                               ; preds = %15
@@ -863,7 +863,7 @@ define internal noundef zeroext i1 @ether_from_literal(ptr nocapture noundef %0,
   %16 = load ptr, ptr %7, align 8
   %17 = tail call i64 @g_bytes_get_size(ptr noundef %16) #8
   %18 = icmp ugt i64 %17, 5
-  %brmerge = or i1 %18, %2
+  %brmerge = or i1 %2, %18
   br i1 %brmerge, label %21, label %19
 
 19:                                               ; preds = %15

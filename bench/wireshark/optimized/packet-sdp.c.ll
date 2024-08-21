@@ -851,7 +851,7 @@ define internal fastcc void @call_sdp_subdissector(ptr noundef %0, ptr noundef %
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = load i32, ptr @hf_owner, align 4
-  %20 = icmp eq i32 %19, %2
+  %20 = icmp eq i32 %2, %19
   br i1 %20, label %21, label %66
 
 21:                                               ; preds = %9
@@ -925,7 +925,7 @@ dissect_sdp_owner.exit:                           ; preds = %21, %26, %34, %42, 
 
 66:                                               ; preds = %9
   %67 = load i32, ptr @hf_connection_info, align 4
-  %68 = icmp eq i32 %67, %2
+  %68 = icmp eq i32 %2, %67
   br i1 %68, label %69, label %133
 
 69:                                               ; preds = %66
@@ -1049,7 +1049,7 @@ dissect_sdp_connection_info.exit:                 ; preds = %69, %74, %119, %122
 
 133:                                              ; preds = %66
   %134 = load i32, ptr @hf_bandwidth, align 4
-  %135 = icmp eq i32 %134, %2
+  %135 = icmp eq i32 %2, %134
   br i1 %135, label %136, label %163
 
 136:                                              ; preds = %133
@@ -1101,7 +1101,7 @@ dissect_sdp_connection_info.exit:                 ; preds = %69, %74, %119, %122
 
 163:                                              ; preds = %133
   %164 = load i32, ptr @hf_time, align 4
-  %165 = icmp eq i32 %164, %2
+  %165 = icmp eq i32 %2, %164
   br i1 %165, label %166, label %179
 
 166:                                              ; preds = %163
@@ -1131,7 +1131,7 @@ dissect_sdp_time.exit:                            ; preds = %166, %171
 
 179:                                              ; preds = %163
   %180 = load i32, ptr @hf_repeat_time, align 4
-  %181 = icmp eq i32 %180, %2
+  %181 = icmp eq i32 %2, %180
   br i1 %181, label %182, label %209
 
 182:                                              ; preds = %179
@@ -1186,7 +1186,7 @@ dissect_sdp_repeat_time.exit:                     ; preds = %199, %204, %182, %1
 
 209:                                              ; preds = %179
   %210 = load i32, ptr @hf_timezone, align 4
-  %211 = icmp eq i32 %210, %2
+  %211 = icmp eq i32 %2, %210
   br i1 %211, label %212, label %213
 
 212:                                              ; preds = %209
@@ -1195,7 +1195,7 @@ dissect_sdp_repeat_time.exit:                     ; preds = %199, %204, %182, %1
 
 213:                                              ; preds = %209
   %214 = load i32, ptr @hf_encryption_key, align 4
-  %215 = icmp eq i32 %214, %2
+  %215 = icmp eq i32 %2, %214
   br i1 %215, label %216, label %217
 
 216:                                              ; preds = %213
@@ -1204,7 +1204,7 @@ dissect_sdp_repeat_time.exit:                     ; preds = %199, %204, %182, %1
 
 217:                                              ; preds = %213
   %218 = load i32, ptr @hf_session_attribute, align 4
-  %219 = icmp eq i32 %218, %2
+  %219 = icmp eq i32 %2, %218
   br i1 %219, label %220, label %221
 
 220:                                              ; preds = %217
@@ -1213,7 +1213,7 @@ dissect_sdp_repeat_time.exit:                     ; preds = %199, %204, %182, %1
 
 221:                                              ; preds = %217
   %222 = load i32, ptr @hf_media, align 4
-  %223 = icmp eq i32 %222, %2
+  %223 = icmp eq i32 %2, %222
   br i1 %223, label %224, label %225
 
 224:                                              ; preds = %221
@@ -1222,7 +1222,7 @@ dissect_sdp_repeat_time.exit:                     ; preds = %199, %204, %182, %1
 
 225:                                              ; preds = %221
   %226 = load i32, ptr @hf_media_attribute, align 4
-  %227 = icmp eq i32 %226, %2
+  %227 = icmp eq i32 %2, %226
   br i1 %227, label %228, label %dissect_sdp_bandwidth.exit
 
 228:                                              ; preds = %225
@@ -1248,7 +1248,7 @@ define internal fastcc void @complete_descriptions(ptr nocapture noundef readonl
   %9 = tail call i32 @wmem_array_get_count(ptr noundef %8) #9
   %10 = load ptr, ptr %7, align 8
   %11 = tail call ptr @wmem_array_get_raw(ptr noundef %10) #9
-  %12 = icmp ugt i32 %9, %1
+  %12 = icmp ult i32 %1, %9
   br i1 %12, label %.lr.ph80.preheader, label %._crit_edge89
 
 .lr.ph80.preheader:                               ; preds = %2
@@ -1288,7 +1288,7 @@ define internal fastcc void @complete_descriptions(ptr nocapture noundef readonl
   br i1 %25, label %20, label %.loopexit76, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit76
-  %26 = icmp ule i32 %9, %1
+  %26 = icmp uge i32 %1, %9
   %or.cond90.not = select i1 %.not, i1 true, i1 %26
   br i1 %or.cond90.not, label %.loopexit75, label %.lr.ph85
 

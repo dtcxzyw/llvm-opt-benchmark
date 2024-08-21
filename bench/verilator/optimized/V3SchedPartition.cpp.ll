@@ -1904,7 +1904,7 @@ _ZN12VNUser2InUseC2Ev.exit:                       ; preds = %_ZN12VNUser1InUseC2
   %366 = sub i64 %364, %365
   %367 = ashr exact i64 %366, 3
   %368 = ashr exact i64 %366, 2
-  %369 = icmp ult i64 %367, %368
+  %369 = icmp ugt i64 %368, %367
   br i1 %369, label %370, label %401
 
 370:                                              ; preds = %363
@@ -1987,7 +1987,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   br label %"_ZZN7AstNode11foreachImplI13AstNodeVarRefZN7V3Sched9partitionERNS2_12LogicByScopeES4_S4_E3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i"
 
 401:                                              ; preds = %363
-  %402 = icmp ugt i64 %367, %368
+  %402 = icmp ult i64 %368, %367
   %403 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %368
   %spec.select.i105 = select i1 %402, ptr %403, ptr %.sroa.12.0.i
   br label %"_ZZN7AstNode11foreachImplI13AstNodeVarRefZN7V3Sched9partitionERNS2_12LogicByScopeES4_S4_E3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i"
@@ -2880,7 +2880,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %7, %6
   %53 = sub i64 %51, %52
   %54 = ashr exact i64 %53, 3
   %55 = ashr exact i64 %53, 2
-  %56 = icmp ult i64 %54, %55
+  %56 = icmp ugt i64 %55, %54
   br i1 %56, label %57, label %88
 
 57:                                               ; preds = %50
@@ -2963,7 +2963,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   br label %"_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched9partitionERNS2_12LogicByScopeES4_S4_ENK3$_0clEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i"
 
 88:                                               ; preds = %50
-  %89 = icmp ugt i64 %54, %55
+  %89 = icmp ult i64 %55, %54
   %90 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %55
   %spec.select.i = select i1 %89, ptr %90, ptr %.sroa.12.1.i
   br label %"_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched9partitionERNS2_12LogicByScopeES4_S4_ENK3$_0clEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i"
@@ -3362,7 +3362,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 104
-  %18 = icmp eq ptr %17, %16
+  %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZNSt13unordered_mapI5VNRefI10AstSenItemEPN7V3Sched12_GLOBAL__N_114SchedSenVertexESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S6_EEED2Ev.exit, label %19
 
 19:                                               ; preds = %_ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -3455,7 +3455,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = icmp eq ptr %9, %8
+  %10 = icmp eq ptr %8, %9
   br i1 %10, label %_ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %11
 
 11:                                               ; preds = %_ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i
@@ -3662,7 +3662,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder5
   %63 = sub i64 %61, %62
   %64 = ashr exact i64 %63, 3
   %65 = ashr exact i64 %63, 2
-  %66 = icmp ult i64 %64, %65
+  %66 = icmp ugt i64 %65, %64
   br i1 %66, label %67, label %98
 
 67:                                               ; preds = %60
@@ -3745,7 +3745,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder5visitEP9AstActiveEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i
 
 98:                                               ; preds = %60
-  %99 = icmp ugt i64 %64, %65
+  %99 = icmp ult i64 %65, %64
   %100 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %65
   %spec.select.i = select i1 %99, ptr %100, ptr %.sroa.12.1.i
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder5visitEP9AstActiveEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i
@@ -4957,7 +4957,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbP11AstVarScopeEZN
   %4 = getelementptr i8, ptr %.val, i64 120
   %.val.val2 = load i64, ptr %4, align 8
   %5 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4
-  %6 = icmp ne i32 %5, %.val.val
+  %6 = icmp ne i32 %.val.val, %5
   %7 = and i64 %.val.val2, 4294967295
   %.not1.i.i.i = icmp eq i64 %7, 0
   %.not.i.i.i = select i1 %6, i1 true, i1 %.not1.i.i.i
@@ -5375,7 +5375,7 @@ common.resume:                                    ; preds = %.loopexit.i.i59, %1
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
   %58 = ashr exact i64 %56, 2
-  %59 = icmp ult i64 %57, %58
+  %59 = icmp ugt i64 %58, %57
   br i1 %59, label %60, label %91
 
 60:                                               ; preds = %53
@@ -5458,7 +5458,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   br label %_ZZN7AstNode11foreachImplI10AstSenItemZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i
 
 91:                                               ; preds = %53
-  %92 = icmp ugt i64 %57, %58
+  %92 = icmp ult i64 %58, %57
   %93 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %58
   %spec.select.i = select i1 %92, ptr %93, ptr %.sroa.12.0.i
   br label %_ZZN7AstNode11foreachImplI10AstSenItemZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i
@@ -5610,7 +5610,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder1
   %136 = sub i64 %134, %135
   %137 = ashr exact i64 %136, 3
   %138 = ashr exact i64 %136, 2
-  %139 = icmp ult i64 %137, %138
+  %139 = icmp ugt i64 %138, %137
   br i1 %139, label %140, label %171
 
 140:                                              ; preds = %133
@@ -5693,7 +5693,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i52: ; preds
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i
 
 171:                                              ; preds = %133
-  %172 = icmp ugt i64 %137, %138
+  %172 = icmp ult i64 %138, %137
   %173 = getelementptr inbounds ptr, ptr %.sroa.0.2.i23, i64 %138
   %spec.select.i30 = select i1 %172, ptr %173, ptr %.sroa.12.0.i24
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i
@@ -5842,7 +5842,7 @@ _ZZN7AstNode11foreachImplI8AstCCallZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10
   %216 = sub i64 %214, %215
   %217 = ashr exact i64 %216, 3
   %218 = ashr exact i64 %216, 2
-  %219 = icmp ult i64 %217, %218
+  %219 = icmp ugt i64 %218, %217
   br i1 %219, label %220, label %251
 
 220:                                              ; preds = %213
@@ -5925,7 +5925,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i97: ; preds
   br label %_ZZN7AstNode11foreachImplI8AstCCallZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i
 
 251:                                              ; preds = %213
-  %252 = icmp ugt i64 %217, %218
+  %252 = icmp ult i64 %218, %217
   %253 = getelementptr inbounds ptr, ptr %.sroa.0.2.i68, i64 %218
   %spec.select.i75 = select i1 %252, ptr %253, ptr %.sroa.12.0.i69
   br label %_ZZN7AstNode11foreachImplI8AstCCallZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i
@@ -6554,7 +6554,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
   %.val20.i.i.i.i.i.i.i = phi i64 [ %.val20.pre.i.i.i.i.i.i.i, %50 ], [ %.val22.i.i.i.i.i.i.i, %57 ]
   %.013.i.i.i.i.i.i.i = phi ptr [ %49, %50 ], [ %.0.i.i.i.i.i.i.i, %57 ]
   %.0.i.i.i.i.i.i.i = phi ptr [ %51, %50 ], [ %56, %57 ]
-  %53 = icmp eq i64 %.val20.i.i.i.i.i.i.i, %41
+  %53 = icmp eq i64 %41, %.val20.i.i.i.i.i.i.i
   br i1 %53, label %_ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenItemESt4pairIKS3_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenItemESt4pairIKS3_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread.i.i.i.i.i.i.i
 
 _ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenItemESt4pairIKS3_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.i.i.i.i.i.i.i: ; preds = %52
@@ -6699,7 +6699,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
   %94 = getelementptr inbounds i8, ptr %11, i64 56
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %11, i64 104
-  %97 = icmp eq ptr %96, %95
+  %97 = icmp eq ptr %95, %96
   br i1 %97, label %_ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i, label %98
 
 98:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i
@@ -6894,7 +6894,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder1
   %162 = sub i64 %160, %161
   %163 = ashr exact i64 %162, 3
   %164 = ashr exact i64 %162, 2
-  %165 = icmp ult i64 %163, %164
+  %165 = icmp ugt i64 %164, %163
   br i1 %165, label %166, label %197
 
 166:                                              ; preds = %159
@@ -6977,7 +6977,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i.i.i: ; pre
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder12getSenVertexEP10AstSenItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i.i
 
 197:                                              ; preds = %159
-  %198 = icmp ugt i64 %163, %164
+  %198 = icmp ult i64 %164, %163
   %199 = getelementptr inbounds ptr, ptr %.sroa.0.2.i.i.i, i64 %164
   %spec.select.i.i.i = select i1 %198, ptr %199, ptr %.sroa.12.0.i.i.i
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder12getSenVertexEP10AstSenItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i.i.i

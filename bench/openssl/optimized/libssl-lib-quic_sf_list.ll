@@ -530,7 +530,7 @@ define range(i32 0, 2) i32 @ossl_sframe_list_drop_frames(ptr nocapture noundef %
 entry:
   %offset = getelementptr inbounds i8, ptr %fl, i64 32
   %0 = load i64, ptr %offset, align 8
-  %cmp.not = icmp ugt i64 %0, %limit
+  %cmp.not = icmp ult i64 %limit, %0
   br i1 %cmp.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -542,11 +542,11 @@ lor.lhs.false:                                    ; preds = %entry
 lor.rhs:                                          ; preds = %lor.lhs.false
   %end = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i64, ptr %end, align 8
-  %cmp8.not = icmp ult i64 %2, %limit
+  %cmp8.not = icmp ugt i64 %limit, %2
   br i1 %cmp8.not, label %return, label %if.end
 
 lor.rhs22:                                        ; preds = %lor.lhs.false
-  %cmp24 = icmp eq i64 %0, %limit
+  %cmp24 = icmp eq i64 %limit, %0
   br i1 %cmp24, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.rhs, %lor.rhs22

@@ -1321,7 +1321,7 @@ define dso_local void @irq_matrix_assign_system(ptr noundef %0, i32 noundef %1, 
   %13 = load i32, ptr %12, align 8
   %14 = icmp ult i32 %13, 2
   %15 = icmp eq i32 %13, 0
-  %16 = or i1 %15, %2
+  %16 = or i1 %2, %15
   %17 = and i1 %14, %16
   br i1 %17, label %19, label %18, !prof !47
 

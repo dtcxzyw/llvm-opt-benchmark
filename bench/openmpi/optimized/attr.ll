@@ -215,7 +215,7 @@ define noundef zeroext i1 @prte_get_attribute(ptr noundef readonly %0, i16 nound
   %.01725 = phi ptr [ %.017, %23 ], [ %.01723, %4 ]
   %7 = getelementptr inbounds i8, ptr %.01725, i64 144
   %8 = load i16, ptr %7, align 8
-  %9 = icmp eq i16 %8, %1
+  %9 = icmp eq i16 %1, %8
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %.lr.ph
@@ -271,7 +271,7 @@ define i32 @prte_attr_unload(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load i16, ptr %5, align 8
-  %.not = icmp eq i16 %6, %2
+  %.not = icmp eq i16 %2, %6
   br i1 %.not, label %7, label %149
 
 7:                                                ; preds = %3
@@ -292,7 +292,7 @@ define i32 @prte_attr_unload(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %7 ]
   %12 = getelementptr inbounds [8 x i16], ptr @__const.prte_attr_unload.pointers, i64 0, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2
-  %14 = icmp eq i16 %13, %2
+  %14 = icmp eq i16 %2, %13
   br i1 %14, label %.loopexit, label %11
 
 .critedge:                                        ; preds = %11
@@ -605,7 +605,7 @@ define i32 @prte_set_attribute(ptr noundef %0, i16 noundef zeroext %1, i1 nounde
   %.05982 = phi ptr [ %.059, %59 ], [ %.05980, %5 ]
   %9 = getelementptr inbounds i8, ptr %.05982, i64 144
   %10 = load i16, ptr %9, align 8
-  %11 = icmp eq i16 %10, %1
+  %11 = icmp eq i16 %1, %10
   br i1 %11, label %12, label %59
 
 12:                                               ; preds = %.lr.ph
@@ -1153,7 +1153,7 @@ define ptr @prte_fetch_attribute(ptr noundef readonly %0, ptr noundef readonly %
   %.02533 = phi ptr [ %.025, %11 ], [ %.02531, %6 ]
   %8 = getelementptr inbounds i8, ptr %.02533, i64 144
   %9 = load i16, ptr %8, align 8
-  %10 = icmp eq i16 %9, %2
+  %10 = icmp eq i16 %2, %9
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %.lr.ph
@@ -1163,7 +1163,7 @@ define ptr @prte_fetch_attribute(ptr noundef readonly %0, ptr noundef readonly %
   br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 13:                                               ; preds = %3
-  %14 = icmp eq ptr %5, %1
+  %14 = icmp eq ptr %1, %5
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %13
@@ -1330,7 +1330,7 @@ define void @prte_remove_attribute(ptr noundef %0, i16 noundef zeroext %1) local
   %.027 = phi ptr [ %9, %43 ], [ %.025, %2 ]
   %5 = getelementptr inbounds i8, ptr %.027, i64 144
   %6 = load i16, ptr %5, align 8
-  %7 = icmp eq i16 %6, %1
+  %7 = icmp eq i16 %1, %6
   %8 = getelementptr inbounds i8, ptr %.027, i64 120
   %9 = load ptr, ptr %8, align 8
   br i1 %7, label %10, label %43
@@ -2132,7 +2132,7 @@ define ptr @prte_attr_key_to_str(i16 noundef zeroext %0) local_unnamed_addr #0 {
 167:                                              ; preds = %163
   %168 = getelementptr inbounds i8, ptr %161, i64 16
   %169 = load i16, ptr %168, align 16
-  %170 = icmp ugt i16 %169, %0
+  %170 = icmp ult i16 %0, %169
   br i1 %170, label %171, label %175
 
 171:                                              ; preds = %167

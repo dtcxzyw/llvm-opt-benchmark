@@ -128,7 +128,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %63 = getelementptr inbounds i8, ptr %62, i64 2
   %64 = load i16, ptr %63, align 2
   %65 = sext i16 %64 to i32
-  %66 = icmp sgt i32 %65, %1
+  %66 = icmp slt i32 %1, %65
   br i1 %66, label %67, label %77
 
 67:                                               ; preds = %57
@@ -161,7 +161,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %80 = getelementptr inbounds i8, ptr %79, i64 2
   %81 = load i16, ptr %80, align 2
   %82 = sext i16 %81 to i32
-  %83 = icmp sgt i32 %82, %1
+  %83 = icmp slt i32 %1, %82
   br i1 %83, label %84, label %94
 
 84:                                               ; preds = %77
@@ -206,7 +206,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %103 = getelementptr inbounds i8, ptr %102, i64 2
   %104 = load i16, ptr %103, align 2
   %105 = sext i16 %104 to i32
-  %106 = icmp sgt i32 %105, %1
+  %106 = icmp slt i32 %1, %105
   br i1 %106, label %107, label %114
 
 107:                                              ; preds = %97
@@ -230,7 +230,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %117 = getelementptr inbounds i8, ptr %116, i64 2
   %118 = load i16, ptr %117, align 2
   %119 = sext i16 %118 to i32
-  %120 = icmp sgt i32 %119, %1
+  %120 = icmp slt i32 %1, %119
   br i1 %120, label %121, label %128
 
 121:                                              ; preds = %114
@@ -407,7 +407,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %212 = getelementptr inbounds i8, ptr %166, i64 2
   %213 = load i16, ptr %212, align 2
   %214 = sext i16 %213 to i32
-  %215 = icmp sgt i32 %214, %1
+  %215 = icmp slt i32 %1, %214
   br i1 %215, label %216, label %226
 
 216:                                              ; preds = %211
@@ -433,7 +433,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %227 = getelementptr inbounds i8, ptr %168, i64 2
   %228 = load i16, ptr %227, align 2
   %229 = sext i16 %228 to i32
-  %230 = icmp sgt i32 %229, %1
+  %230 = icmp slt i32 %1, %229
   br i1 %230, label %231, label %242
 
 231:                                              ; preds = %226
@@ -675,7 +675,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %353 = getelementptr inbounds i8, ptr %.2698, i64 2
   %354 = load i16, ptr %353, align 2
   %355 = sext i16 %354 to i32
-  %356 = icmp sgt i32 %355, %1
+  %356 = icmp slt i32 %1, %355
   br i1 %356, label %357, label %489
 
 357:                                              ; preds = %352
@@ -827,7 +827,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %443 = getelementptr inbounds i8, ptr %423, i64 2
   %444 = load i16, ptr %443, align 2
   %445 = sext i16 %444 to i32
-  %446 = icmp sgt i32 %445, %1
+  %446 = icmp slt i32 %1, %445
   br i1 %446, label %447, label %459
 
 447:                                              ; preds = %442
@@ -858,7 +858,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %460 = getelementptr inbounds i8, ptr %.5701, i64 2
   %461 = load i16, ptr %460, align 2
   %462 = sext i16 %461 to i32
-  %463 = icmp sgt i32 %462, %1
+  %463 = icmp slt i32 %1, %462
   br i1 %463, label %464, label %476
 
 464:                                              ; preds = %459
@@ -934,7 +934,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %494 = getelementptr inbounds i8, ptr %.2690, i64 2
   %495 = load i16, ptr %494, align 2
   %496 = sext i16 %495 to i32
-  %497 = icmp sgt i32 %496, %1
+  %497 = icmp slt i32 %1, %496
   br i1 %497, label %498, label %618
 
 498:                                              ; preds = %493
@@ -1076,7 +1076,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %577 = getelementptr inbounds i8, ptr %557, i64 2
   %578 = load i16, ptr %577, align 2
   %579 = sext i16 %578 to i32
-  %580 = icmp sgt i32 %579, %1
+  %580 = icmp slt i32 %1, %579
   br i1 %580, label %581, label %593
 
 581:                                              ; preds = %576
@@ -1107,7 +1107,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %594 = getelementptr inbounds i8, ptr %.2690, i64 2
   %595 = load i16, ptr %594, align 2
   %596 = sext i16 %595 to i32
-  %597 = icmp sgt i32 %596, %1
+  %597 = icmp slt i32 %1, %596
   br i1 %597, label %598, label %610
 
 598:                                              ; preds = %593
@@ -1232,7 +1232,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %656 = getelementptr inbounds i8, ptr %653, i64 2
   %657 = load i16, ptr %656, align 2
   %658 = sext i16 %657 to i32
-  %659 = icmp sgt i32 %658, %1
+  %659 = icmp slt i32 %1, %658
   br i1 %659, label %660, label %670
 
 660:                                              ; preds = %648
@@ -1258,7 +1258,7 @@ define double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %1, i32 no
   %671 = getelementptr inbounds i8, ptr %655, i64 2
   %672 = load i16, ptr %671, align 2
   %673 = sext i16 %672 to i32
-  %674 = icmp sgt i32 %673, %1
+  %674 = icmp slt i32 %1, %673
   br i1 %674, label %675, label %700
 
 675:                                              ; preds = %670

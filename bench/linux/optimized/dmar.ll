@@ -2013,7 +2013,7 @@ define dso_local void @qi_flush_dev_iotlb(ptr noundef %0, i16 noundef zeroext %1
   %15 = zext nneg i32 %14 to i64
   %16 = shl nsw i64 -1, %15
   %17 = xor i64 %16, -1
-  %18 = or i64 %17, %4
+  %18 = or i64 %4, %17
   %19 = and i64 %18, -4096
   %20 = or disjoint i64 %19, 1
   br label %23
@@ -2092,7 +2092,7 @@ define dso_local void @qi_flush_piotlb(ptr noundef %0, i16 noundef zeroext %1, i
   %25 = zext nneg i32 %24 to i64
   %26 = shl nsw i64 -1, %25
   %27 = xor i64 %26, -1
-  %28 = and i64 %27, %3
+  %28 = and i64 %3, %27
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %31, label %30, !prof !30
 

@@ -2291,7 +2291,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 _ZN3refI5modelEaSEPS0_.exit:                      ; preds = %if.end.i, %if.then.i.i, %if.then.i.i.i
   store ptr %0, ptr %mdl, align 8
   %m_labels = getelementptr inbounds i8, ptr %this, i64 144
-  %cmp.i.i = icmp eq ptr %m_labels, %labels
+  %cmp.i.i = icmp eq ptr %labels, %m_labels
   br i1 %cmp.i.i, label %_ZN7svectorI6symboljEaSERKS1_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN3refI5modelEaSEPS0_.exit
@@ -18324,7 +18324,7 @@ entry:
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp = icmp ugt i32 %1, %index
+  %cmp = icmp ult i32 %index, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
@@ -18947,7 +18947,7 @@ if.end.split:                                     ; preds = %entry
   store ptr %agg.tmp.sroa.0.0.copyload10, ptr %__comp.i, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5961 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i5961, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i5961
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -19033,7 +19033,7 @@ if.end8.split:                                    ; preds = %if.end8.split.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__cmp.i15)
   store ptr %agg.tmp.sroa.0.0.copyload12, ptr %__comp.i14, align 8
-  %cmp23.i18.not = icmp slt i64 %div.i5961, %__parent.063
+  %cmp23.i18.not = icmp sgt i64 %__parent.063, %div.i5961
   br i1 %cmp23.i18.not, label %while.end.i19, label %while.body.i46
 
 while.body.i46:                                   ; preds = %if.end8.split, %while.body.i46

@@ -2581,7 +2581,7 @@ _ZNSt11_Deque_baseIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EE16_M_allocate
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #22
-  %22 = icmp ugt ptr %.011.i, %13
+  %22 = icmp ult ptr %13, %.011.i
   br i1 %22, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
@@ -3264,7 +3264,7 @@ define linkonce_odr hidden void @_ZN2cv6detail8tracking3tbm22ResizedImageDescrip
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = sdiv exact i64 %16, 96
-  %18 = icmp ult i64 %17, %10
+  %18 = icmp ugt i64 %10, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %3
@@ -3273,7 +3273,7 @@ define linkonce_odr hidden void @_ZN2cv6detail8tracking3tbm22ResizedImageDescrip
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 21:                                               ; preds = %3
-  %22 = icmp ugt i64 %17, %10
+  %22 = icmp ult i64 %10, %17
   br i1 %22, label %23, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 23:                                               ; preds = %21

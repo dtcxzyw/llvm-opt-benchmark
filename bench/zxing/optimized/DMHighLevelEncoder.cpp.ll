@@ -2655,7 +2655,7 @@ define internal fastcc noundef range(i32 0, 6) i32 @_ZN5ZXing10DataMatrixL13Look
   %92 = phi float [ %18, %13 ], [ %134, %259 ]
   %93 = phi <2 x float> [ %14, %13 ], [ %157, %259 ]
   %94 = add nuw nsw i64 %88, %0
-  %95 = icmp ult i64 %94, %.8.val
+  %95 = icmp ugt i64 %.8.val, %94
   br i1 %95, label %97, label %96
 
 96:                                               ; preds = %87

@@ -4200,7 +4200,7 @@ define zeroext i16 @de_mid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 145:                                              ; preds = %128, %130, %63, %65, %143, %107, %91, %26
   %.0192 = phi i32 [ %144, %143 ], [ %133, %130 ], [ %.1, %128 ], [ %108, %107 ], [ %92, %91 ], [ %64, %63 ], [ %64, %65 ], [ %27, %26 ]
   %146 = sub i32 %.0192, %3
-  %147 = icmp ult i32 %146, %4
+  %147 = icmp ugt i32 %4, %146
   br i1 %147, label %148, label %152
 
 148:                                              ; preds = %145
@@ -5692,7 +5692,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.23 = phi i32 [ %880, %877 ], [ %874, %871 ]
   %882 = lshr i32 %.23, 3
   %883 = sub i32 %882, %3
-  %884 = icmp ult i32 %883, %4
+  %884 = icmp ugt i32 %4, %883
   br i1 %884, label %885, label %888
 
 885:                                              ; preds = %881
@@ -5856,7 +5856,7 @@ define hidden zeroext i16 @de_plmn_list(ptr noundef %0, ptr noundef %1, ptr noun
   br label %28
 
 28:                                               ; preds = %22, %._crit_edge
-  %29 = icmp ult i32 %.lcssa39, %4
+  %29 = icmp ugt i32 %4, %.lcssa39
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %28

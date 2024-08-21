@@ -5495,7 +5495,7 @@ define internal fastcc ptr @decrypt_secure_wrapper(ptr noundef %0, ptr noundef %
   %8 = add nuw nsw i32 %7, 2
   %spec.select = tail call i32 @llvm.smin.i32(i32 %8, i32 %2)
   %9 = add nuw nsw i32 %7, 16
-  %.not = icmp sgt i32 %9, %2
+  %.not = icmp slt i32 %2, %9
   br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %4

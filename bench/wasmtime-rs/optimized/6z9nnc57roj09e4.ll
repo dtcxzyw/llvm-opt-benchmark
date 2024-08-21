@@ -154,7 +154,7 @@ define hidden void @_ZN5alloc6string6String4push17hb4ec051e072155f0E(ptr align 8
 define hidden void @_ZN5alloc6string6String8truncate17h77a92ae0b7148deeE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3
-  %.not = icmp ult i64 %4, %1
+  %.not = icmp ugt i64 %1, %4
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2

@@ -8,7 +8,7 @@ define dso_local noundef nonnull ptr @sodium_bin2hex(ptr noundef nonnull returne
 entry:
   %cmp = icmp ult i64 %bin_len, 9223372036854775807
   %mul = shl nuw i64 %bin_len, 1
-  %cmp1.not = icmp ult i64 %mul, %hex_maxlen
+  %cmp1.not = icmp ugt i64 %hex_maxlen, %mul
   %or.cond = select i1 %cmp, i1 %cmp1.not, i1 false
   br i1 %or.cond, label %while.cond.preheader, label %if.then
 
@@ -350,7 +350,7 @@ if.else:                                          ; preds = %if.then
 
 if.end6:                                          ; preds = %if.then3, %if.else, %sodium_base64_check_variant.exit
   %b64_len.0 = phi i64 [ %add, %if.then3 ], [ %add5, %if.else ], [ %mul1, %sodium_base64_check_variant.exit ]
-  %cmp7.not = icmp ult i64 %b64_len.0, %b64_maxlen
+  %cmp7.not = icmp ugt i64 %b64_maxlen, %b64_len.0
   br i1 %cmp7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end6

@@ -271,7 +271,7 @@ define internal fastcc void @RI_FKey_check(ptr nocapture noundef readonly %0) un
   %36 = getelementptr i16, ptr %31, i64 %indvars.iv.i
   %37 = load i16, ptr %36, align 2
   %38 = load i16, ptr %32, align 2
-  %39 = icmp slt i16 %38, %37
+  %39 = icmp sgt i16 %37, %38
   br i1 %39, label %slot_getsomeattrs.exit.i.i, label %slot_attisnull.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %34
@@ -1831,7 +1831,7 @@ define internal fastcc zeroext i1 @ri_PerformCheck(ptr noundef %0, ptr nocapture
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i32
   %30 = load i16, ptr %22, align 2
-  %31 = icmp slt i16 %30, %28
+  %31 = icmp sgt i16 %28, %30
   br i1 %31, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %25
@@ -1887,7 +1887,7 @@ ri_ExtractValues.exit:                            ; preds = %slot_getattr.exit.i
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i32
   %62 = load i16, ptr %54, align 2
-  %63 = icmp slt i16 %62, %60
+  %63 = icmp sgt i16 %60, %62
   br i1 %63, label %slot_getsomeattrs.exit.i.i65, label %slot_getattr.exit.i63
 
 slot_getsomeattrs.exit.i.i65:                     ; preds = %57
@@ -1934,7 +1934,7 @@ slot_getattr.exit.i63:                            ; preds = %slot_getsomeattrs.e
   %87 = load i16, ptr %86, align 2
   %88 = sext i16 %87 to i32
   %89 = load i16, ptr %81, align 2
-  %90 = icmp slt i16 %89, %87
+  %90 = icmp sgt i16 %87, %89
   br i1 %90, label %slot_getsomeattrs.exit.i.i72, label %slot_getattr.exit.i70
 
 slot_getsomeattrs.exit.i.i72:                     ; preds = %84
@@ -1966,7 +1966,7 @@ slot_getattr.exit.i70:                            ; preds = %slot_getsomeattrs.e
 ri_ExtractValues.exit66:                          ; preds = %slot_getattr.exit.i63, %slot_getattr.exit.i70, %79, %48, %ri_ExtractValues.exit
   %106 = load i32, ptr @XactIsoLevel, align 4
   %107 = icmp sgt i32 %106, 1
-  %brmerge.not = and i1 %107, %7
+  %brmerge.not = and i1 %7, %107
   br i1 %brmerge.not, label %108, label %111
 
 108:                                              ; preds = %ri_ExtractValues.exit66
@@ -2663,7 +2663,7 @@ define dso_local noundef zeroext i1 @RI_FKey_pk_upd_check_required(ptr nocapture
   %14 = getelementptr i16, ptr %9, i64 %indvars.iv.i
   %15 = load i16, ptr %14, align 2
   %16 = load i16, ptr %10, align 2
-  %17 = icmp slt i16 %16, %15
+  %17 = icmp sgt i16 %15, %16
   br i1 %17, label %slot_getsomeattrs.exit.i.i, label %slot_attisnull.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %12
@@ -2728,7 +2728,7 @@ define internal fastcc range(i32 0, 3) i32 @ri_NullCheck(ptr noundef %0, ptr noc
   %12 = getelementptr i16, ptr %7, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2
   %14 = load i16, ptr %8, align 2
-  %15 = icmp slt i16 %14, %13
+  %15 = icmp sgt i16 %13, %14
   br i1 %15, label %slot_getsomeattrs.exit.i, label %slot_attisnull.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %10
@@ -2798,7 +2798,7 @@ define internal fastcc noundef zeroext i1 @ri_KeysEqual(ptr noundef %0, ptr noun
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i32
   %30 = load i16, ptr %16, align 2
-  %31 = icmp slt i16 %30, %28
+  %31 = icmp sgt i16 %28, %30
   br i1 %31, label %slot_getsomeattrs.exit.i.us, label %slot_getattr.exit.us
 
 slot_getsomeattrs.exit.i.us:                      ; preds = %.lr.ph.split.us
@@ -2821,7 +2821,7 @@ slot_getattr.exit.us:                             ; preds = %slot_getsomeattrs.e
   %42 = load i16, ptr %27, align 2
   %43 = sext i16 %42 to i32
   %44 = load i16, ptr %19, align 2
-  %45 = icmp slt i16 %44, %42
+  %45 = icmp sgt i16 %42, %44
   br i1 %45, label %slot_getsomeattrs.exit.i29.us, label %slot_getattr.exit30.us
 
 slot_getsomeattrs.exit.i29.us:                    ; preds = %41
@@ -2869,7 +2869,7 @@ slot_getattr.exit30.us:                           ; preds = %slot_getsomeattrs.e
   %73 = load i16, ptr %72, align 2
   %74 = sext i16 %73 to i32
   %75 = load i16, ptr %16, align 2
-  %76 = icmp slt i16 %75, %73
+  %76 = icmp sgt i16 %73, %75
   br i1 %76, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph.split
@@ -2892,7 +2892,7 @@ slot_getattr.exit:                                ; preds = %.lr.ph.split, %slot
   %87 = load i16, ptr %72, align 2
   %88 = sext i16 %87 to i32
   %89 = load i16, ptr %19, align 2
-  %90 = icmp slt i16 %89, %87
+  %90 = icmp sgt i16 %87, %89
   br i1 %90, label %slot_getsomeattrs.exit.i29, label %slot_getattr.exit30
 
 slot_getsomeattrs.exit.i29:                       ; preds = %86
@@ -2970,7 +2970,7 @@ slot_getattr.exit30:                              ; preds = %86, %slot_getsomeat
   call void @fmgr_info_cxt(i32 noundef %119, ptr noundef nonnull %120, ptr noundef %121) #11
   call void @op_input_types(i32 noundef %102, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
   %122 = load i32, ptr %9, align 4
-  %123 = icmp eq i32 %122, %105
+  %123 = icmp eq i32 %105, %122
   br i1 %123, label %.thread.i.i, label %124
 
 124:                                              ; preds = %118
@@ -3074,7 +3074,7 @@ define dso_local noundef zeroext i1 @RI_FKey_fk_upd_check_required(ptr nocapture
   %15 = getelementptr i16, ptr %10, i64 %indvars.iv.i
   %16 = load i16, ptr %15, align 2
   %17 = load i16, ptr %11, align 2
-  %18 = icmp slt i16 %17, %16
+  %18 = icmp sgt i16 %16, %17
   br i1 %18, label %slot_getsomeattrs.exit.i.i, label %slot_attisnull.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %13
@@ -3992,7 +3992,7 @@ define internal fastcc void @ri_ReportViolation(ptr noundef %0, ptr nocapture no
   %54 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %44, i64 0, i64 %53
   %55 = getelementptr inbounds i8, ptr %54, i64 4
   %56 = load i16, ptr %45, align 2
-  %57 = icmp slt i16 %56, %50
+  %57 = icmp sgt i16 %50, %56
   br i1 %57, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %48

@@ -2069,14 +2069,14 @@ _ZN2cvmlIfEENS_7Point3_IT_EERKNS_4MatxIS2_Li3ELi3EEERKS3_.exit.us: ; preds = %.c
   br i1 %307, label %.loopexit.us, label %308
 
 308:                                              ; preds = %302
-  %309 = fneg float %133
-  %310 = fmul float %272, %309
+  %309 = fneg float %272
+  %310 = fmul float %133, %309
   %311 = tail call float @llvm.fmuladd.f32(float %132, float %273, float %310)
-  %312 = fneg float %131
-  %313 = fmul float %273, %312
+  %312 = fneg float %273
+  %313 = fmul float %131, %312
   %314 = tail call float @llvm.fmuladd.f32(float %133, float %271, float %313)
-  %315 = fneg float %132
-  %316 = fmul float %271, %315
+  %315 = fneg float %271
+  %316 = fmul float %132, %315
   %317 = tail call float @llvm.fmuladd.f32(float %131, float %272, float %316)
   store float %311, ptr %7, align 16
   store float %314, ptr %86, align 4

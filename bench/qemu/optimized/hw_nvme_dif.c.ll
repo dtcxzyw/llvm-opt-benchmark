@@ -160,7 +160,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_pci_nvme_dif_pract_generate_dif_crc16.exit.i: ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %cmp39.i = icmp ugt ptr %add.ptr.i, %buf
+  %cmp39.i = icmp ult ptr %buf, %add.ptr.i
   br i1 %cmp39.i, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %trace_pci_nvme_dif_pract_generate_dif_crc16.exit.i
@@ -275,7 +275,7 @@ for.body.i25.i:                                   ; preds = %for.body.i25.i.preh
   %xor8.i33.i = xor i16 %37, %shl.i29.i
   %inc.i34.i = add i32 %i.07.i27.i, 1
   %conv.i35.i = zext i32 %inc.i34.i to i64
-  %cmp.i36.i = icmp ult i64 %conv.i35.i, %conv4.i
+  %cmp.i36.i = icmp ugt i64 %conv4.i, %conv.i35.i
   br i1 %cmp.i36.i, label %for.body.i25.i, label %if.end15.loopexit.i, !llvm.loop !5
 
 if.end15.loopexit.i:                              ; preds = %for.body.i25.i
@@ -365,7 +365,7 @@ if.else.i.i.i40:                                  ; preds = %if.then.i.i.i38
 
 trace_pci_nvme_dif_pract_generate_dif_crc64.exit.i: ; preds = %if.else.i.i.i40, %if.then8.i.i.i42, %land.lhs.true5.i.i.i35, %if.end.i13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i9)
-  %cmp49.i = icmp ugt ptr %add.ptr.i10, %buf
+  %cmp49.i = icmp ult ptr %buf, %add.ptr.i10
   br i1 %cmp49.i, label %for.body.lr.ph.i21, label %return
 
 for.body.lr.ph.i21:                               ; preds = %trace_pci_nvme_dif_pract_generate_dif_crc64.exit.i
@@ -657,7 +657,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pci_nvme_dif_check.exit:                    ; preds = %if.end6, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %cmp51 = icmp ugt ptr %add.ptr, %buf
+  %cmp51 = icmp ult ptr %buf, %add.ptr
   br i1 %cmp51, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %trace_pci_nvme_dif_check.exit
@@ -804,7 +804,7 @@ for.body.i23.i.i:                                 ; preds = %crc16_t10dif.exit.i
   %xor8.i31.i.i = xor i16 %40, %shl.i27.i.i
   %inc.i32.i.i = add i32 %i.07.i25.i.i, 1
   %conv.i33.i.i = zext i32 %inc.i32.i.i to i64
-  %cmp.i34.i.i = icmp ult i64 %conv.i33.i.i, %conv7
+  %cmp.i34.i.i = icmp ugt i64 %conv7, %conv.i33.i.i
   br i1 %cmp.i34.i.i, label %for.body.i23.i.i, label %if.end22.i.i, !llvm.loop !5
 
 if.end22.i.i:                                     ; preds = %for.body.i23.i.i, %crc16_t10dif.exit.i.i

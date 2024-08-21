@@ -656,7 +656,7 @@ land.lhs.true14:                                  ; preds = %land.lhs.true10
 if.then20:                                        ; preds = %land.lhs.true14
   %10 = load i64, ptr @buf, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %sub15
+  %cmp.i = icmp ugt i64 %sub15, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then20

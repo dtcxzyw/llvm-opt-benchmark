@@ -1858,7 +1858,7 @@ verify_headers.exit:                              ; preds = %sw.bb.i, %if.end15.
   br i1 %tobool.not, label %if.end, label %done
 
 if.end:                                           ; preds = %land.lhs.true.i, %land.lhs.true9.i, %verify_headers.exit
-  %cmp.not = icmp ugt ptr %add.ptr, %buffer
+  %cmp.not = icmp ult ptr %buffer, %add.ptr
   br i1 %cmp.not, label %do.body.i.preheader, label %if.then2
 
 do.body.i.preheader:                              ; preds = %if.end
@@ -3056,7 +3056,7 @@ verify_headers.exit.i:                            ; preds = %if.end15.i.i, %sw.b
   br i1 %tobool.not.i21, label %if.end.i, label %fsck_commit.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i.i, %verify_headers.exit.i, %land.lhs.true9.i.i
-  %cmp.not.i = icmp ugt ptr %add.ptr.i, %data
+  %cmp.not.i = icmp ult ptr %data, %add.ptr.i
   br i1 %cmp.not.i, label %do.body.i.preheader.i, label %if.then2.i
 
 do.body.i.preheader.i:                            ; preds = %if.end.i

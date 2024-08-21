@@ -1786,17 +1786,17 @@ _Z18set_grid_alignmentPii.exit:                   ; preds = %13
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %6, ptr %22, align 8
   %23 = xor i32 %4, -1
-  %24 = add i32 %23, %7
+  %24 = add i32 %7, %23
   %25 = add i32 %24, %11
   %26 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %25, ptr %26, align 4
   %27 = xor i32 %5, -1
-  %28 = add i32 %27, %8
+  %28 = add i32 %8, %27
   %29 = add i32 %28, %11
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %29, ptr %30, align 4
   %31 = xor i32 %6, -1
-  %32 = add i32 %31, %9
+  %32 = add i32 %9, %31
   %33 = add i32 %32, %11
   %34 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %33, ptr %34, align 4
@@ -1945,7 +1945,7 @@ define linkonce_odr void @_ZNSt6vectorI9pmegrid_tSaIS0_EE6resizeEm(ptr noundef n
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 72
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -2016,7 +2016,7 @@ _ZNSt12_Vector_baseI9pmegrid_tSaIS0_EE13_M_deallocateEPS0_m.exit37.i: ; preds = 
   br label %_ZNSt6vectorI9pmegrid_tSaIS0_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorI9pmegrid_tSaIS0_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36

@@ -500,7 +500,7 @@ entry:
   %call1.i = tail call ptr @ASN1_item_new(ptr noundef nonnull @IPAddressOrRange_it.local_it) #15
   %cmp = icmp slt i32 %prefixlen, 0
   %mul = shl nuw nsw i32 %afilen, 3
-  %cmp1 = icmp slt i32 %mul, %prefixlen
+  %cmp1 = icmp sgt i32 %prefixlen, %mul
   %or.cond = select i1 %cmp, i1 true, i1 %cmp1
   %cmp2 = icmp eq ptr %call1.i, null
   %or.cond15 = select i1 %or.cond, i1 true, i1 %cmp2
@@ -974,7 +974,7 @@ entry:
   %or.cond1 = or i1 %or.cond, %cmp3
   %cmp5 = icmp eq i32 %switch.select2.i, 0
   %or.cond2 = or i1 %or.cond1, %cmp5
-  %cmp7 = icmp sgt i32 %switch.select2.i, %length
+  %cmp7 = icmp slt i32 %length, %switch.select2.i
   %or.cond11 = or i1 %cmp7, %or.cond2
   br i1 %or.cond11, label %return, label %lor.lhs.false8
 

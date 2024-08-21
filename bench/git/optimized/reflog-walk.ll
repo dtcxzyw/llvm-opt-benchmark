@@ -248,7 +248,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %idxprom.i = and i64 %indvars.iv.next.i, 4294967295
   %timestamp1.i = getelementptr inbounds %struct.reflog_info, ptr %13, i64 %idxprom.i, i32 3
   %14 = load i64, ptr %timestamp1.i, align 8
-  %cmp2.not.i = icmp ugt i64 %14, %timestamp.0
+  %cmp2.not.i = icmp ult i64 %timestamp.0, %14
   br i1 %cmp2.not.i, label %for.cond.i, label %get_reflog_recno_by_time.exit, !llvm.loop !7
 
 get_reflog_recno_by_time.exit:                    ; preds = %for.body.i

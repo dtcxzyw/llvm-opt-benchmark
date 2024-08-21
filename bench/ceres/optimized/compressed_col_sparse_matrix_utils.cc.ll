@@ -216,7 +216,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5ceres8internal5BlockESt6vectorIS
   %90 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %.sroa.02.03.i.i, i64 %89
   %91 = getelementptr i8, ptr %90, i64 4
   %.val.i.i.i = load i32, ptr %91, align 4
-  %92 = icmp slt i32 %.val.i.i.i, %.val
+  %92 = icmp sgt i32 %.val, %.val.i.i.i
   %93 = getelementptr inbounds i8, ptr %90, i64 8
   %94 = xor i64 %89, -1
   %95 = add nsw i64 %.04.i.i, %94
@@ -546,7 +546,7 @@ _ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit: ; pre
   %67 = phi ptr [ %42, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit.thread ], [ %55, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit ]
   %68 = phi ptr [ %41, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit.thread ], [ %54, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit ]
   %.0.i2246 = phi i64 [ 0, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit.thread ], [ %53, %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit ]
-  %69 = icmp ugt i64 %65, %.0.i2246
+  %69 = icmp ult i64 %.0.i2246, %65
   br i1 %69, label %70, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 70:                                               ; preds = %64

@@ -2904,13 +2904,13 @@ invoke.cont28:                                    ; preds = %invoke.cont25
   %36 = load ptr, ptr %m_vars.i, align 8
   %m_true.i = getelementptr inbounds i8, ptr %36, i64 856
   %37 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %37, %35
+  %cmp.i = icmp eq ptr %35, %37
   br i1 %cmp.i, label %if.then45, label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %invoke.cont28
   %m_false.i = getelementptr inbounds i8, ptr %36, i64 864
   %38 = load ptr, ptr %m_false.i, align 8
-  %cmp.i91 = icmp eq ptr %38, %35
+  %cmp.i91 = icmp eq ptr %35, %38
   br i1 %cmp.i91, label %if.end47, label %invoke.cont56
 
 if.then45:                                        ; preds = %invoke.cont28
@@ -3562,12 +3562,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %es, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
-  %cmp.i18 = icmp eq ptr %2, %3
+  %cmp.i18 = icmp eq ptr %3, %2
   br i1 %cmp.i18, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
   %4 = load ptr, ptr %m_false.i, align 8
-  %cmp.i19 = icmp eq ptr %4, %3
+  %cmp.i19 = icmp eq ptr %3, %4
   br i1 %cmp.i19, label %for.inc, label %if.end69
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
@@ -3614,7 +3614,7 @@ for.body24:                                       ; preds = %for.body24.preheade
   %11 = load ptr, ptr %arrayidx29, align 8
   %m_true.i23 = getelementptr inbounds i8, ptr %10, i64 856
   %12 = load ptr, ptr %m_true.i23, align 8
-  %cmp.i24 = icmp eq ptr %12, %11
+  %cmp.i24 = icmp eq ptr %11, %12
   %13 = zext i1 %cmp.i24 to i8
   %spec.select = or disjoint i8 %shl, %13
   %cmp35 = icmp eq i32 %inc42, 4
@@ -3656,7 +3656,7 @@ for.body53:                                       ; preds = %for.body53.preheade
   %19 = load ptr, ptr %arrayidx58, align 8
   %m_true.i33 = getelementptr inbounds i8, ptr %17, i64 856
   %20 = load ptr, ptr %m_true.i33, align 8
-  %cmp.i34 = icmp eq ptr %20, %19
+  %cmp.i34 = icmp eq ptr %19, %20
   %cond = zext i1 %cmp.i34 to i32
   %call60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i32, i32 noundef %cond)
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1

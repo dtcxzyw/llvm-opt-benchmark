@@ -241,7 +241,7 @@ if.then:                                          ; preds = %invoke.cont3
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i, label %cleanup, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -366,7 +366,7 @@ if.then8:                                         ; preds = %invoke.cont6
   %state_.i.i9 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i10 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i10 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i10, label %cleanup, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %if.then8
@@ -453,7 +453,7 @@ if.then:                                          ; preds = %invoke.cont
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i, label %cleanup15, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -561,7 +561,7 @@ if.then12:                                        ; preds = %invoke.cont10
   %state_.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i6 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i6 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i6, label %cleanup, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %if.then12
@@ -734,7 +734,7 @@ if.then23:                                        ; preds = %invoke.cont20
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i13 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i13 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i13, label %cleanup, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then23
@@ -2387,7 +2387,7 @@ if.end235:                                        ; preds = %if.end228
   %state_.i.i455 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i455, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i456 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i456 = icmp eq ptr %agg.result, %s
   %.pr496.pre697 = load ptr, ptr %state_.i.i, align 8
   br i1 %cmp.not.i.i456, label %cleanup236, label %cleanup236.thread
 
@@ -3319,7 +3319,7 @@ land.lhs.true3.i.i.i:                             ; preds = %invoke.cont.i.i.i
   %9 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load i64, ptr %10, align 8
-  %cmp.i.i.i = icmp ugt i64 %11, %7
+  %cmp.i.i.i = icmp ult i64 %7, %11
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %invoke.cont.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true3.i.i.i

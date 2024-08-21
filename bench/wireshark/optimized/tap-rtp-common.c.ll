@@ -1160,7 +1160,7 @@ define hidden void @rtpstream_info_calculate(ptr noundef %0, ptr nocapture nound
   %77 = icmp ne i32 %21, 0
   %78 = fcmp ogt double %71, 0.000000e+00
   %or.cond = select i1 %77, i1 %78, i1 false
-  br i1 %or.cond, label %79, label %104
+  br i1 %or.cond, label %79, label %105
 
 79:                                               ; preds = %2
   %80 = getelementptr inbounds i8, ptr %0, i64 7152
@@ -1170,57 +1170,58 @@ define hidden void @rtpstream_info_calculate(ptr noundef %0, ptr nocapture nound
   %84 = getelementptr inbounds i8, ptr %0, i64 7128
   %85 = load double, ptr %84, align 8
   %86 = uitofp i32 %21 to double
-  %87 = fneg double %85
-  %88 = fmul double %83, %87
+  %87 = fneg double %83
+  %88 = fmul double %85, %87
   %89 = tail call double @llvm.fmuladd.f64(double %86, double %81, double %88)
-  %90 = fmul double %85, %87
-  %91 = tail call double @llvm.fmuladd.f64(double %86, double %71, double %90)
-  %92 = fdiv double %89, %91
-  %93 = fadd double %92, -1.000000e+00
-  %94 = fmul double %76, %93
-  %95 = getelementptr inbounds i8, ptr %1, i64 128
-  store double %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 7088
-  %97 = load i32, ptr %96, align 8
-  %98 = uitofp i32 %97 to double
-  %99 = fmul double %92, %98
-  %100 = fptoui double %99 to i32
-  %101 = uitofp i32 %100 to double
-  %102 = fmul double %92, %101
-  %103 = fmul double %93, 1.000000e+02
-  br label %106
+  %90 = fneg double %85
+  %91 = fmul double %85, %90
+  %92 = tail call double @llvm.fmuladd.f64(double %86, double %71, double %91)
+  %93 = fdiv double %89, %92
+  %94 = fadd double %93, -1.000000e+00
+  %95 = fmul double %76, %94
+  %96 = getelementptr inbounds i8, ptr %1, i64 128
+  store double %95, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 7088
+  %98 = load i32, ptr %97, align 8
+  %99 = uitofp i32 %98 to double
+  %100 = fmul double %93, %99
+  %101 = fptoui double %100 to i32
+  %102 = uitofp i32 %101 to double
+  %103 = fmul double %93, %102
+  %104 = fmul double %94, 1.000000e+02
+  br label %107
 
-104:                                              ; preds = %2
-  %105 = getelementptr inbounds i8, ptr %1, i64 128
-  store double 0.000000e+00, ptr %105, align 8
-  br label %106
+105:                                              ; preds = %2
+  %106 = getelementptr inbounds i8, ptr %1, i64 128
+  store double 0.000000e+00, ptr %106, align 8
+  br label %107
 
-106:                                              ; preds = %104, %79
-  %.sink86 = phi double [ %102, %79 ], [ 0.000000e+00, %104 ]
-  %.sink85 = phi double [ %103, %79 ], [ 0.000000e+00, %104 ]
-  %107 = getelementptr inbounds i8, ptr %1, i64 136
-  store double %.sink86, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %1, i64 144
-  store double %.sink85, ptr %108, align 8
-  %109 = fdiv double %76, 1.000000e+03
-  %110 = getelementptr inbounds i8, ptr %1, i64 152
-  store double %109, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 7260
-  %112 = load i32, ptr %111, align 4
-  %113 = getelementptr inbounds i8, ptr %1, i64 160
-  store i32 %112, ptr %113, align 8
-  %114 = load double, ptr %74, align 8
-  %115 = fdiv double %114, 1.000000e+03
-  %116 = getelementptr inbounds i8, ptr %1, i64 168
-  store double %115, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 7280
-  %118 = load i32, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %1, i64 176
-  store i32 %118, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 7248
-  %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %1, i64 180
-  store i32 %121, ptr %122, align 4
+107:                                              ; preds = %105, %79
+  %.sink86 = phi double [ %103, %79 ], [ 0.000000e+00, %105 ]
+  %.sink85 = phi double [ %104, %79 ], [ 0.000000e+00, %105 ]
+  %108 = getelementptr inbounds i8, ptr %1, i64 136
+  store double %.sink86, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %1, i64 144
+  store double %.sink85, ptr %109, align 8
+  %110 = fdiv double %76, 1.000000e+03
+  %111 = getelementptr inbounds i8, ptr %1, i64 152
+  store double %110, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %0, i64 7260
+  %113 = load i32, ptr %112, align 4
+  %114 = getelementptr inbounds i8, ptr %1, i64 160
+  store i32 %113, ptr %114, align 8
+  %115 = load double, ptr %74, align 8
+  %116 = fdiv double %115, 1.000000e+03
+  %117 = getelementptr inbounds i8, ptr %1, i64 168
+  store double %116, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %0, i64 7280
+  %119 = load i32, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %1, i64 176
+  store i32 %119, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %0, i64 7248
+  %122 = load i32, ptr %121, align 8
+  %123 = getelementptr inbounds i8, ptr %1, i64 180
+  store i32 %122, ptr %123, align 4
   ret void
 }
 

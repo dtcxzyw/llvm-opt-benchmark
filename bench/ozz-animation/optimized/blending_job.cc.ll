@@ -1057,7 +1057,7 @@ _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.
   %.0958.i = phi ptr [ %1133, %.loopexit.i12 ], [ %653, %.lr.ph960.i.preheader ]
   %658 = load float, ptr %.0958.i, align 8
   %659 = fcmp ogt float %658, 0.000000e+00
-  br i1 %659, label %660, label %889
+  br i1 %659, label %660, label %891
 
 660:                                              ; preds = %.lr.ph960.i
   %661 = insertelement <4 x float> poison, float %658, i64 0
@@ -1066,7 +1066,7 @@ _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.
   %664 = getelementptr inbounds i8, ptr %.0958.i, i64 32
   %665 = load i64, ptr %664, align 8
   %666 = icmp eq i64 %665, 0
-  br i1 %666, label %780, label %.preheader.i16
+  br i1 %666, label %781, label %.preheader.i16
 
 .preheader.i16:                                   ; preds = %660
   br i1 %.not961.i, label %.loopexit.i12, label %.lr.ph954.i
@@ -1076,7 +1076,7 @@ _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.
   br label %668
 
 668:                                              ; preds = %668, %.lr.ph954.i
-  %.0818953.i = phi i64 [ 0, %.lr.ph954.i ], [ %779, %668 ]
+  %.0818953.i = phi i64 [ 0, %.lr.ph954.i ], [ %780, %668 ]
   %669 = load ptr, ptr %667, align 8
   %670 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %669, i64 %.0818953.i
   %671 = load ptr, ptr %657, align 8
@@ -1165,458 +1165,458 @@ _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.
   %751 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %734, <4 x float> %729, <4 x float> %750)
   %752 = fneg <4 x float> %738
   %753 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %752, <4 x float> %728, <4 x float> %751)
-  %754 = fmul <4 x float> %728, %747
-  %755 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %733, <4 x float> %731, <4 x float> %754)
-  %756 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %752, <4 x float> %729, <4 x float> %755)
-  %757 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %742, <4 x float> %730, <4 x float> %756)
+  %754 = fneg <4 x float> %728
+  %755 = fmul <4 x float> %734, %754
+  %756 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %733, <4 x float> %731, <4 x float> %755)
+  %757 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %752, <4 x float> %729, <4 x float> %756)
+  %758 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %742, <4 x float> %730, <4 x float> %757)
   store <4 x float> %743, ptr %717, align 16
   store <4 x float> %748, ptr %737, align 16
   store <4 x float> %753, ptr %740, align 16
-  store <4 x float> %757, ptr %732, align 16
-  %758 = getelementptr inbounds i8, ptr %672, i64 112
-  %759 = load <4 x float>, ptr %758, align 16
-  %760 = getelementptr inbounds i8, ptr %670, i64 112
-  %761 = load <4 x float>, ptr %760, align 16
-  %762 = fmul <4 x float> %677, %761
-  %763 = fadd <4 x float> %678, %762
-  %764 = fmul <4 x float> %759, %763
-  store <4 x float> %764, ptr %758, align 16
-  %765 = getelementptr inbounds i8, ptr %672, i64 128
-  %766 = load <4 x float>, ptr %765, align 16
-  %767 = getelementptr inbounds i8, ptr %670, i64 128
-  %768 = load <4 x float>, ptr %767, align 16
-  %769 = fmul <4 x float> %677, %768
-  %770 = fadd <4 x float> %678, %769
-  %771 = fmul <4 x float> %766, %770
-  store <4 x float> %771, ptr %765, align 16
-  %772 = getelementptr inbounds i8, ptr %672, i64 144
-  %773 = load <4 x float>, ptr %772, align 16
-  %774 = getelementptr inbounds i8, ptr %670, i64 144
-  %775 = load <4 x float>, ptr %774, align 16
-  %776 = fmul <4 x float> %677, %775
-  %777 = fadd <4 x float> %678, %776
-  %778 = fmul <4 x float> %773, %777
-  store <4 x float> %778, ptr %772, align 16
-  %779 = add nuw i64 %.0818953.i, 1
-  %exitcond42.not = icmp eq i64 %779, %650
+  store <4 x float> %758, ptr %732, align 16
+  %759 = getelementptr inbounds i8, ptr %672, i64 112
+  %760 = load <4 x float>, ptr %759, align 16
+  %761 = getelementptr inbounds i8, ptr %670, i64 112
+  %762 = load <4 x float>, ptr %761, align 16
+  %763 = fmul <4 x float> %677, %762
+  %764 = fadd <4 x float> %678, %763
+  %765 = fmul <4 x float> %760, %764
+  store <4 x float> %765, ptr %759, align 16
+  %766 = getelementptr inbounds i8, ptr %672, i64 128
+  %767 = load <4 x float>, ptr %766, align 16
+  %768 = getelementptr inbounds i8, ptr %670, i64 128
+  %769 = load <4 x float>, ptr %768, align 16
+  %770 = fmul <4 x float> %677, %769
+  %771 = fadd <4 x float> %678, %770
+  %772 = fmul <4 x float> %767, %771
+  store <4 x float> %772, ptr %766, align 16
+  %773 = getelementptr inbounds i8, ptr %672, i64 144
+  %774 = load <4 x float>, ptr %773, align 16
+  %775 = getelementptr inbounds i8, ptr %670, i64 144
+  %776 = load <4 x float>, ptr %775, align 16
+  %777 = fmul <4 x float> %677, %776
+  %778 = fadd <4 x float> %678, %777
+  %779 = fmul <4 x float> %774, %778
+  store <4 x float> %779, ptr %773, align 16
+  %780 = add nuw i64 %.0818953.i, 1
+  %exitcond42.not = icmp eq i64 %780, %650
   br i1 %exitcond42.not, label %.loopexit.i12, label %668, !llvm.loop !108
 
-780:                                              ; preds = %660
-  %781 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %662
+781:                                              ; preds = %660
+  %782 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %662
   br i1 %.not961.i, label %.loopexit.i12, label %.lr.ph956.i
 
-.lr.ph956.i:                                      ; preds = %780
-  %782 = getelementptr inbounds i8, ptr %.0958.i, i64 8
-  br label %783
+.lr.ph956.i:                                      ; preds = %781
+  %783 = getelementptr inbounds i8, ptr %.0958.i, i64 8
+  br label %784
 
-783:                                              ; preds = %783, %.lr.ph956.i
-  %.0819955.i = phi i64 [ 0, %.lr.ph956.i ], [ %888, %783 ]
-  %784 = load ptr, ptr %782, align 8
-  %785 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %784, i64 %.0819955.i
-  %786 = load ptr, ptr %657, align 8
-  %787 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %786, i64 %.0819955.i
-  %788 = load <4 x float>, ptr %785, align 16, !noalias !109
-  %789 = fmul <4 x float> %662, %788
-  %790 = getelementptr inbounds i8, ptr %785, i64 16
-  %791 = load <4 x float>, ptr %790, align 16, !noalias !109
-  %792 = fmul <4 x float> %662, %791
-  %793 = getelementptr inbounds i8, ptr %785, i64 32
-  %794 = load <4 x float>, ptr %793, align 16, !noalias !109
-  %795 = fmul <4 x float> %662, %794
-  %796 = load <4 x float>, ptr %787, align 16, !noalias !112
-  %797 = fadd <4 x float> %789, %796
-  %798 = getelementptr inbounds i8, ptr %787, i64 16
-  %799 = load <4 x float>, ptr %798, align 16, !noalias !112
-  %800 = fadd <4 x float> %792, %799
-  %801 = getelementptr inbounds i8, ptr %787, i64 32
-  %802 = load <4 x float>, ptr %801, align 16, !noalias !112
-  %803 = fadd <4 x float> %795, %802
-  store <4 x float> %797, ptr %787, align 16
-  store <4 x float> %800, ptr %798, align 16
-  store <4 x float> %803, ptr %801, align 16
-  %804 = getelementptr inbounds i8, ptr %785, i64 48
-  %805 = getelementptr inbounds i8, ptr %785, i64 96
-  %806 = load <4 x i32>, ptr %805, align 16
-  %807 = load <4 x i32>, ptr %804, align 16
-  %808 = and <4 x i32> %806, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %809 = xor <4 x i32> %807, %808
-  %810 = bitcast <4 x i32> %809 to <4 x float>
-  %811 = fmul <4 x float> %662, %810
-  %812 = getelementptr inbounds i8, ptr %785, i64 64
-  %813 = load <4 x i32>, ptr %812, align 16
-  %814 = xor <4 x i32> %813, %808
-  %815 = bitcast <4 x i32> %814 to <4 x float>
-  %816 = fmul <4 x float> %662, %815
-  %817 = getelementptr inbounds i8, ptr %785, i64 80
-  %818 = load <4 x i32>, ptr %817, align 16
-  %819 = xor <4 x i32> %818, %808
-  %820 = bitcast <4 x i32> %819 to <4 x float>
-  %821 = fmul <4 x float> %662, %820
-  %822 = and <4 x i32> %806, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
-  %823 = bitcast <4 x i32> %822 to <4 x float>
-  %824 = fadd <4 x float> %823, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
-  %825 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %824, <4 x float> %662, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  %826 = getelementptr inbounds i8, ptr %787, i64 48
-  %827 = fmul <4 x float> %816, %816
-  %828 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %811, <4 x float> %811, <4 x float> %827)
-  %829 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %821, <4 x float> %821, <4 x float> %828)
-  %830 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %825, <4 x float> %825, <4 x float> %829)
-  %831 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %830)
-  %832 = fmul <4 x float> %831, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %833 = fmul <4 x float> %831, %830
-  %834 = fmul <4 x float> %831, %833
-  %835 = fsub <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %834
-  %836 = fmul <4 x float> %832, %835
-  %837 = fmul <4 x float> %811, %836
-  %838 = fmul <4 x float> %816, %836
-  %839 = fmul <4 x float> %821, %836
-  %840 = fmul <4 x float> %825, %836
-  %841 = getelementptr inbounds i8, ptr %787, i64 96
-  %842 = load <4 x float>, ptr %841, align 16, !noalias !115
-  %843 = load <4 x float>, ptr %826, align 16, !noalias !115
-  %844 = fmul <4 x float> %843, %840
-  %845 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %842, <4 x float> %837, <4 x float> %844)
-  %846 = getelementptr inbounds i8, ptr %787, i64 64
-  %847 = load <4 x float>, ptr %846, align 16, !noalias !115
-  %848 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %847, <4 x float> %839, <4 x float> %845)
-  %849 = getelementptr inbounds i8, ptr %787, i64 80
-  %850 = load <4 x float>, ptr %849, align 16, !noalias !115
-  %851 = fneg <4 x float> %850
-  %852 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %851, <4 x float> %838, <4 x float> %848)
-  %853 = fmul <4 x float> %847, %840
-  %854 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %842, <4 x float> %838, <4 x float> %853)
-  %855 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %850, <4 x float> %837, <4 x float> %854)
-  %856 = fneg <4 x float> %843
-  %857 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %856, <4 x float> %839, <4 x float> %855)
-  %858 = fmul <4 x float> %850, %840
-  %859 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %842, <4 x float> %839, <4 x float> %858)
-  %860 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %843, <4 x float> %838, <4 x float> %859)
-  %861 = fneg <4 x float> %847
-  %862 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %861, <4 x float> %837, <4 x float> %860)
-  %863 = fmul <4 x float> %837, %856
-  %864 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %842, <4 x float> %840, <4 x float> %863)
-  %865 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %861, <4 x float> %838, <4 x float> %864)
-  %866 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %851, <4 x float> %839, <4 x float> %865)
-  store <4 x float> %852, ptr %826, align 16
-  store <4 x float> %857, ptr %846, align 16
-  store <4 x float> %862, ptr %849, align 16
-  store <4 x float> %866, ptr %841, align 16
-  %867 = getelementptr inbounds i8, ptr %787, i64 112
-  %868 = load <4 x float>, ptr %867, align 16
-  %869 = getelementptr inbounds i8, ptr %785, i64 112
+784:                                              ; preds = %784, %.lr.ph956.i
+  %.0819955.i = phi i64 [ 0, %.lr.ph956.i ], [ %890, %784 ]
+  %785 = load ptr, ptr %783, align 8
+  %786 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %785, i64 %.0819955.i
+  %787 = load ptr, ptr %657, align 8
+  %788 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %787, i64 %.0819955.i
+  %789 = load <4 x float>, ptr %786, align 16, !noalias !109
+  %790 = fmul <4 x float> %662, %789
+  %791 = getelementptr inbounds i8, ptr %786, i64 16
+  %792 = load <4 x float>, ptr %791, align 16, !noalias !109
+  %793 = fmul <4 x float> %662, %792
+  %794 = getelementptr inbounds i8, ptr %786, i64 32
+  %795 = load <4 x float>, ptr %794, align 16, !noalias !109
+  %796 = fmul <4 x float> %662, %795
+  %797 = load <4 x float>, ptr %788, align 16, !noalias !112
+  %798 = fadd <4 x float> %790, %797
+  %799 = getelementptr inbounds i8, ptr %788, i64 16
+  %800 = load <4 x float>, ptr %799, align 16, !noalias !112
+  %801 = fadd <4 x float> %793, %800
+  %802 = getelementptr inbounds i8, ptr %788, i64 32
+  %803 = load <4 x float>, ptr %802, align 16, !noalias !112
+  %804 = fadd <4 x float> %796, %803
+  store <4 x float> %798, ptr %788, align 16
+  store <4 x float> %801, ptr %799, align 16
+  store <4 x float> %804, ptr %802, align 16
+  %805 = getelementptr inbounds i8, ptr %786, i64 48
+  %806 = getelementptr inbounds i8, ptr %786, i64 96
+  %807 = load <4 x i32>, ptr %806, align 16
+  %808 = load <4 x i32>, ptr %805, align 16
+  %809 = and <4 x i32> %807, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %810 = xor <4 x i32> %808, %809
+  %811 = bitcast <4 x i32> %810 to <4 x float>
+  %812 = fmul <4 x float> %662, %811
+  %813 = getelementptr inbounds i8, ptr %786, i64 64
+  %814 = load <4 x i32>, ptr %813, align 16
+  %815 = xor <4 x i32> %814, %809
+  %816 = bitcast <4 x i32> %815 to <4 x float>
+  %817 = fmul <4 x float> %662, %816
+  %818 = getelementptr inbounds i8, ptr %786, i64 80
+  %819 = load <4 x i32>, ptr %818, align 16
+  %820 = xor <4 x i32> %819, %809
+  %821 = bitcast <4 x i32> %820 to <4 x float>
+  %822 = fmul <4 x float> %662, %821
+  %823 = and <4 x i32> %807, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %824 = bitcast <4 x i32> %823 to <4 x float>
+  %825 = fadd <4 x float> %824, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %826 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %825, <4 x float> %662, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %827 = getelementptr inbounds i8, ptr %788, i64 48
+  %828 = fmul <4 x float> %817, %817
+  %829 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %812, <4 x float> %812, <4 x float> %828)
+  %830 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %822, <4 x float> %822, <4 x float> %829)
+  %831 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %826, <4 x float> %826, <4 x float> %830)
+  %832 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %831)
+  %833 = fmul <4 x float> %832, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %834 = fmul <4 x float> %832, %831
+  %835 = fmul <4 x float> %832, %834
+  %836 = fsub <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %835
+  %837 = fmul <4 x float> %833, %836
+  %838 = fmul <4 x float> %812, %837
+  %839 = fmul <4 x float> %817, %837
+  %840 = fmul <4 x float> %822, %837
+  %841 = fmul <4 x float> %826, %837
+  %842 = getelementptr inbounds i8, ptr %788, i64 96
+  %843 = load <4 x float>, ptr %842, align 16, !noalias !115
+  %844 = load <4 x float>, ptr %827, align 16, !noalias !115
+  %845 = fmul <4 x float> %844, %841
+  %846 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %843, <4 x float> %838, <4 x float> %845)
+  %847 = getelementptr inbounds i8, ptr %788, i64 64
+  %848 = load <4 x float>, ptr %847, align 16, !noalias !115
+  %849 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %848, <4 x float> %840, <4 x float> %846)
+  %850 = getelementptr inbounds i8, ptr %788, i64 80
+  %851 = load <4 x float>, ptr %850, align 16, !noalias !115
+  %852 = fneg <4 x float> %851
+  %853 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %852, <4 x float> %839, <4 x float> %849)
+  %854 = fmul <4 x float> %848, %841
+  %855 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %843, <4 x float> %839, <4 x float> %854)
+  %856 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %851, <4 x float> %838, <4 x float> %855)
+  %857 = fneg <4 x float> %844
+  %858 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %857, <4 x float> %840, <4 x float> %856)
+  %859 = fmul <4 x float> %851, %841
+  %860 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %843, <4 x float> %840, <4 x float> %859)
+  %861 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %844, <4 x float> %839, <4 x float> %860)
+  %862 = fneg <4 x float> %848
+  %863 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %862, <4 x float> %838, <4 x float> %861)
+  %864 = fneg <4 x float> %838
+  %865 = fmul <4 x float> %844, %864
+  %866 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %843, <4 x float> %841, <4 x float> %865)
+  %867 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %862, <4 x float> %839, <4 x float> %866)
+  %868 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %852, <4 x float> %840, <4 x float> %867)
+  store <4 x float> %853, ptr %827, align 16
+  store <4 x float> %858, ptr %847, align 16
+  store <4 x float> %863, ptr %850, align 16
+  store <4 x float> %868, ptr %842, align 16
+  %869 = getelementptr inbounds i8, ptr %788, i64 112
   %870 = load <4 x float>, ptr %869, align 16
-  %871 = fmul <4 x float> %662, %870
-  %872 = fadd <4 x float> %781, %871
-  %873 = fmul <4 x float> %868, %872
-  store <4 x float> %873, ptr %867, align 16
-  %874 = getelementptr inbounds i8, ptr %787, i64 128
-  %875 = load <4 x float>, ptr %874, align 16
-  %876 = getelementptr inbounds i8, ptr %785, i64 128
+  %871 = getelementptr inbounds i8, ptr %786, i64 112
+  %872 = load <4 x float>, ptr %871, align 16
+  %873 = fmul <4 x float> %662, %872
+  %874 = fadd <4 x float> %782, %873
+  %875 = fmul <4 x float> %870, %874
+  store <4 x float> %875, ptr %869, align 16
+  %876 = getelementptr inbounds i8, ptr %788, i64 128
   %877 = load <4 x float>, ptr %876, align 16
-  %878 = fmul <4 x float> %662, %877
-  %879 = fadd <4 x float> %781, %878
-  %880 = fmul <4 x float> %875, %879
-  store <4 x float> %880, ptr %874, align 16
-  %881 = getelementptr inbounds i8, ptr %787, i64 144
-  %882 = load <4 x float>, ptr %881, align 16
-  %883 = getelementptr inbounds i8, ptr %785, i64 144
+  %878 = getelementptr inbounds i8, ptr %786, i64 128
+  %879 = load <4 x float>, ptr %878, align 16
+  %880 = fmul <4 x float> %662, %879
+  %881 = fadd <4 x float> %782, %880
+  %882 = fmul <4 x float> %877, %881
+  store <4 x float> %882, ptr %876, align 16
+  %883 = getelementptr inbounds i8, ptr %788, i64 144
   %884 = load <4 x float>, ptr %883, align 16
-  %885 = fmul <4 x float> %662, %884
-  %886 = fadd <4 x float> %781, %885
-  %887 = fmul <4 x float> %882, %886
-  store <4 x float> %887, ptr %881, align 16
-  %888 = add nuw i64 %.0819955.i, 1
-  %exitcond43.not = icmp eq i64 %888, %650
-  br i1 %exitcond43.not, label %.loopexit.i12, label %783, !llvm.loop !118
+  %885 = getelementptr inbounds i8, ptr %786, i64 144
+  %886 = load <4 x float>, ptr %885, align 16
+  %887 = fmul <4 x float> %662, %886
+  %888 = fadd <4 x float> %782, %887
+  %889 = fmul <4 x float> %884, %888
+  store <4 x float> %889, ptr %883, align 16
+  %890 = add nuw i64 %.0819955.i, 1
+  %exitcond43.not = icmp eq i64 %890, %650
+  br i1 %exitcond43.not, label %.loopexit.i12, label %784, !llvm.loop !118
 
-889:                                              ; preds = %.lr.ph960.i
-  %890 = fcmp olt float %658, 0.000000e+00
-  br i1 %890, label %891, label %.loopexit.i12
+891:                                              ; preds = %.lr.ph960.i
+  %892 = fcmp olt float %658, 0.000000e+00
+  br i1 %892, label %893, label %.loopexit.i12
 
-891:                                              ; preds = %889
-  %892 = fneg float %658
-  %893 = insertelement <4 x float> poison, float %892, i64 0
-  %894 = shufflevector <4 x float> %893, <4 x float> poison, <4 x i32> zeroinitializer
-  %895 = getelementptr inbounds i8, ptr %.0958.i, i64 24
-  %896 = getelementptr inbounds i8, ptr %.0958.i, i64 32
-  %897 = load i64, ptr %896, align 8
-  %898 = icmp eq i64 %897, 0
-  br i1 %898, label %1018, label %.preheader948.i
+893:                                              ; preds = %891
+  %894 = fneg float %658
+  %895 = insertelement <4 x float> poison, float %894, i64 0
+  %896 = shufflevector <4 x float> %895, <4 x float> poison, <4 x i32> zeroinitializer
+  %897 = getelementptr inbounds i8, ptr %.0958.i, i64 24
+  %898 = getelementptr inbounds i8, ptr %.0958.i, i64 32
+  %899 = load i64, ptr %898, align 8
+  %900 = icmp eq i64 %899, 0
+  br i1 %900, label %1019, label %.preheader948.i
 
-.preheader948.i:                                  ; preds = %891
+.preheader948.i:                                  ; preds = %893
   br i1 %.not961.i, label %.loopexit.i12, label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %.preheader948.i
-  %899 = getelementptr inbounds i8, ptr %.0958.i, i64 8
-  br label %900
+  %901 = getelementptr inbounds i8, ptr %.0958.i, i64 8
+  br label %902
 
-900:                                              ; preds = %900, %.lr.ph.i15
-  %.0820950.i = phi i64 [ 0, %.lr.ph.i15 ], [ %1017, %900 ]
-  %901 = load ptr, ptr %899, align 8
-  %902 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %901, i64 %.0820950.i
-  %903 = load ptr, ptr %657, align 8
+902:                                              ; preds = %902, %.lr.ph.i15
+  %.0820950.i = phi i64 [ 0, %.lr.ph.i15 ], [ %1018, %902 ]
+  %903 = load ptr, ptr %901, align 8
   %904 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %903, i64 %.0820950.i
-  %905 = load ptr, ptr %895, align 8
-  %906 = getelementptr inbounds <4 x float>, ptr %905, i64 %.0820950.i
-  %907 = load <4 x float>, ptr %906, align 16
-  %908 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %907)
-  %909 = fmul <4 x float> %894, %908
-  %910 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %909
-  %911 = load <4 x float>, ptr %902, align 16, !noalias !119
-  %912 = fmul <4 x float> %911, %909
-  %913 = getelementptr inbounds i8, ptr %902, i64 16
-  %914 = load <4 x float>, ptr %913, align 16, !noalias !119
-  %915 = fmul <4 x float> %909, %914
-  %916 = getelementptr inbounds i8, ptr %902, i64 32
-  %917 = load <4 x float>, ptr %916, align 16, !noalias !119
-  %918 = fmul <4 x float> %909, %917
-  %919 = load <4 x float>, ptr %904, align 16, !noalias !122
-  %920 = fsub <4 x float> %919, %912
-  %921 = getelementptr inbounds i8, ptr %904, i64 16
-  %922 = load <4 x float>, ptr %921, align 16, !noalias !122
-  %923 = fsub <4 x float> %922, %915
-  %924 = getelementptr inbounds i8, ptr %904, i64 32
-  %925 = load <4 x float>, ptr %924, align 16, !noalias !122
-  %926 = fsub <4 x float> %925, %918
-  store <4 x float> %920, ptr %904, align 16
-  store <4 x float> %923, ptr %921, align 16
-  store <4 x float> %926, ptr %924, align 16
-  %927 = getelementptr inbounds i8, ptr %902, i64 48
-  %928 = getelementptr inbounds i8, ptr %902, i64 96
-  %929 = load <4 x i32>, ptr %928, align 16
-  %930 = load <4 x i32>, ptr %927, align 16
-  %931 = and <4 x i32> %929, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %932 = xor <4 x i32> %930, %931
-  %933 = bitcast <4 x i32> %932 to <4 x float>
-  %934 = fmul <4 x float> %909, %933
-  %935 = getelementptr inbounds i8, ptr %902, i64 64
-  %936 = load <4 x i32>, ptr %935, align 16
-  %937 = xor <4 x i32> %936, %931
-  %938 = bitcast <4 x i32> %937 to <4 x float>
-  %939 = fmul <4 x float> %909, %938
-  %940 = getelementptr inbounds i8, ptr %902, i64 80
-  %941 = load <4 x i32>, ptr %940, align 16
-  %942 = xor <4 x i32> %941, %931
-  %943 = bitcast <4 x i32> %942 to <4 x float>
-  %944 = fmul <4 x float> %909, %943
-  %945 = and <4 x i32> %929, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
-  %946 = bitcast <4 x i32> %945 to <4 x float>
-  %947 = fadd <4 x float> %946, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
-  %948 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %947, <4 x float> %909, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  %949 = getelementptr inbounds i8, ptr %904, i64 48
-  %950 = fmul <4 x float> %939, %939
-  %951 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %934, <4 x float> %934, <4 x float> %950)
-  %952 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %944, <4 x float> %944, <4 x float> %951)
-  %953 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %948, <4 x float> %948, <4 x float> %952)
-  %954 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %953)
-  %955 = fmul <4 x float> %954, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %956 = fmul <4 x float> %954, %953
-  %957 = fmul <4 x float> %954, %956
-  %958 = fsub <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %957
-  %959 = fmul <4 x float> %955, %958
-  %960 = fmul <4 x float> %948, %959
-  %961 = fneg <4 x float> %934
-  %962 = fmul <4 x float> %959, %961
-  %963 = fneg <4 x float> %939
-  %964 = fmul <4 x float> %959, %963
-  %965 = fneg <4 x float> %944
-  %966 = fmul <4 x float> %959, %965
-  %967 = getelementptr inbounds i8, ptr %904, i64 96
+  %905 = load ptr, ptr %657, align 8
+  %906 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %905, i64 %.0820950.i
+  %907 = load ptr, ptr %897, align 8
+  %908 = getelementptr inbounds <4 x float>, ptr %907, i64 %.0820950.i
+  %909 = load <4 x float>, ptr %908, align 16
+  %910 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %909)
+  %911 = fmul <4 x float> %896, %910
+  %912 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %911
+  %913 = load <4 x float>, ptr %904, align 16, !noalias !119
+  %914 = fmul <4 x float> %913, %911
+  %915 = getelementptr inbounds i8, ptr %904, i64 16
+  %916 = load <4 x float>, ptr %915, align 16, !noalias !119
+  %917 = fmul <4 x float> %911, %916
+  %918 = getelementptr inbounds i8, ptr %904, i64 32
+  %919 = load <4 x float>, ptr %918, align 16, !noalias !119
+  %920 = fmul <4 x float> %911, %919
+  %921 = load <4 x float>, ptr %906, align 16, !noalias !122
+  %922 = fsub <4 x float> %921, %914
+  %923 = getelementptr inbounds i8, ptr %906, i64 16
+  %924 = load <4 x float>, ptr %923, align 16, !noalias !122
+  %925 = fsub <4 x float> %924, %917
+  %926 = getelementptr inbounds i8, ptr %906, i64 32
+  %927 = load <4 x float>, ptr %926, align 16, !noalias !122
+  %928 = fsub <4 x float> %927, %920
+  store <4 x float> %922, ptr %906, align 16
+  store <4 x float> %925, ptr %923, align 16
+  store <4 x float> %928, ptr %926, align 16
+  %929 = getelementptr inbounds i8, ptr %904, i64 48
+  %930 = getelementptr inbounds i8, ptr %904, i64 96
+  %931 = load <4 x i32>, ptr %930, align 16
+  %932 = load <4 x i32>, ptr %929, align 16
+  %933 = and <4 x i32> %931, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %934 = xor <4 x i32> %932, %933
+  %935 = bitcast <4 x i32> %934 to <4 x float>
+  %936 = fmul <4 x float> %911, %935
+  %937 = getelementptr inbounds i8, ptr %904, i64 64
+  %938 = load <4 x i32>, ptr %937, align 16
+  %939 = xor <4 x i32> %938, %933
+  %940 = bitcast <4 x i32> %939 to <4 x float>
+  %941 = fmul <4 x float> %911, %940
+  %942 = getelementptr inbounds i8, ptr %904, i64 80
+  %943 = load <4 x i32>, ptr %942, align 16
+  %944 = xor <4 x i32> %943, %933
+  %945 = bitcast <4 x i32> %944 to <4 x float>
+  %946 = fmul <4 x float> %911, %945
+  %947 = and <4 x i32> %931, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %948 = bitcast <4 x i32> %947 to <4 x float>
+  %949 = fadd <4 x float> %948, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %950 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %949, <4 x float> %911, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %951 = getelementptr inbounds i8, ptr %906, i64 48
+  %952 = fmul <4 x float> %941, %941
+  %953 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %936, <4 x float> %936, <4 x float> %952)
+  %954 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %946, <4 x float> %946, <4 x float> %953)
+  %955 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %950, <4 x float> %950, <4 x float> %954)
+  %956 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %955)
+  %957 = fmul <4 x float> %956, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %958 = fmul <4 x float> %956, %955
+  %959 = fmul <4 x float> %956, %958
+  %960 = fsub <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %959
+  %961 = fmul <4 x float> %957, %960
+  %962 = fmul <4 x float> %950, %961
+  %963 = fneg <4 x float> %961
+  %964 = fmul <4 x float> %936, %963
+  %965 = fmul <4 x float> %941, %963
+  %966 = fmul <4 x float> %946, %963
+  %967 = getelementptr inbounds i8, ptr %906, i64 96
   %968 = load <4 x float>, ptr %967, align 16, !noalias !125
-  %969 = load <4 x float>, ptr %949, align 16, !noalias !125
-  %970 = fmul <4 x float> %969, %960
-  %971 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %968, <4 x float> %962, <4 x float> %970)
-  %972 = getelementptr inbounds i8, ptr %904, i64 64
+  %969 = load <4 x float>, ptr %951, align 16, !noalias !125
+  %970 = fmul <4 x float> %969, %962
+  %971 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %968, <4 x float> %964, <4 x float> %970)
+  %972 = getelementptr inbounds i8, ptr %906, i64 64
   %973 = load <4 x float>, ptr %972, align 16, !noalias !125
   %974 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %973, <4 x float> %966, <4 x float> %971)
-  %975 = getelementptr inbounds i8, ptr %904, i64 80
+  %975 = getelementptr inbounds i8, ptr %906, i64 80
   %976 = load <4 x float>, ptr %975, align 16, !noalias !125
   %977 = fneg <4 x float> %976
-  %978 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %977, <4 x float> %964, <4 x float> %974)
-  %979 = fmul <4 x float> %973, %960
-  %980 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %968, <4 x float> %964, <4 x float> %979)
-  %981 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %976, <4 x float> %962, <4 x float> %980)
+  %978 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %977, <4 x float> %965, <4 x float> %974)
+  %979 = fmul <4 x float> %973, %962
+  %980 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %968, <4 x float> %965, <4 x float> %979)
+  %981 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %976, <4 x float> %964, <4 x float> %980)
   %982 = fneg <4 x float> %969
   %983 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %982, <4 x float> %966, <4 x float> %981)
-  %984 = fmul <4 x float> %976, %960
+  %984 = fmul <4 x float> %976, %962
   %985 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %968, <4 x float> %966, <4 x float> %984)
-  %986 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %969, <4 x float> %964, <4 x float> %985)
+  %986 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %969, <4 x float> %965, <4 x float> %985)
   %987 = fneg <4 x float> %973
-  %988 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %987, <4 x float> %962, <4 x float> %986)
-  %989 = fmul <4 x float> %962, %982
-  %990 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %968, <4 x float> %960, <4 x float> %989)
-  %991 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %987, <4 x float> %964, <4 x float> %990)
-  %992 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %977, <4 x float> %966, <4 x float> %991)
-  store <4 x float> %978, ptr %949, align 16
+  %988 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %987, <4 x float> %964, <4 x float> %986)
+  %989 = fneg <4 x float> %964
+  %990 = fmul <4 x float> %969, %989
+  %991 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %968, <4 x float> %962, <4 x float> %990)
+  %992 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %987, <4 x float> %965, <4 x float> %991)
+  %993 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %977, <4 x float> %966, <4 x float> %992)
+  store <4 x float> %978, ptr %951, align 16
   store <4 x float> %983, ptr %972, align 16
   store <4 x float> %988, ptr %975, align 16
-  store <4 x float> %992, ptr %967, align 16
-  %993 = getelementptr inbounds i8, ptr %904, i64 112
-  %994 = load <4 x float>, ptr %993, align 16
-  %995 = getelementptr inbounds i8, ptr %902, i64 112
-  %996 = load <4 x float>, ptr %995, align 16
-  %997 = fmul <4 x float> %909, %996
-  %998 = fadd <4 x float> %910, %997
-  %999 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ps(<4 x float> %998)
-  %1000 = fmul <4 x float> %994, %999
-  store <4 x float> %1000, ptr %993, align 16
-  %1001 = getelementptr inbounds i8, ptr %904, i64 128
-  %1002 = load <4 x float>, ptr %1001, align 16
-  %1003 = getelementptr inbounds i8, ptr %902, i64 128
-  %1004 = load <4 x float>, ptr %1003, align 16
-  %1005 = fmul <4 x float> %909, %1004
-  %1006 = fadd <4 x float> %910, %1005
-  %1007 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ps(<4 x float> %1006)
-  %1008 = fmul <4 x float> %1002, %1007
-  store <4 x float> %1008, ptr %1001, align 16
-  %1009 = getelementptr inbounds i8, ptr %904, i64 144
-  %1010 = load <4 x float>, ptr %1009, align 16
-  %1011 = getelementptr inbounds i8, ptr %902, i64 144
-  %1012 = load <4 x float>, ptr %1011, align 16
-  %1013 = fmul <4 x float> %909, %1012
-  %1014 = fadd <4 x float> %910, %1013
-  %1015 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ps(<4 x float> %1014)
-  %1016 = fmul <4 x float> %1010, %1015
-  store <4 x float> %1016, ptr %1009, align 16
-  %1017 = add nuw i64 %.0820950.i, 1
-  %exitcond40.not = icmp eq i64 %1017, %650
-  br i1 %exitcond40.not, label %.loopexit.i12, label %900, !llvm.loop !128
+  store <4 x float> %993, ptr %967, align 16
+  %994 = getelementptr inbounds i8, ptr %906, i64 112
+  %995 = load <4 x float>, ptr %994, align 16
+  %996 = getelementptr inbounds i8, ptr %904, i64 112
+  %997 = load <4 x float>, ptr %996, align 16
+  %998 = fmul <4 x float> %911, %997
+  %999 = fadd <4 x float> %912, %998
+  %1000 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ps(<4 x float> %999)
+  %1001 = fmul <4 x float> %995, %1000
+  store <4 x float> %1001, ptr %994, align 16
+  %1002 = getelementptr inbounds i8, ptr %906, i64 128
+  %1003 = load <4 x float>, ptr %1002, align 16
+  %1004 = getelementptr inbounds i8, ptr %904, i64 128
+  %1005 = load <4 x float>, ptr %1004, align 16
+  %1006 = fmul <4 x float> %911, %1005
+  %1007 = fadd <4 x float> %912, %1006
+  %1008 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ps(<4 x float> %1007)
+  %1009 = fmul <4 x float> %1003, %1008
+  store <4 x float> %1009, ptr %1002, align 16
+  %1010 = getelementptr inbounds i8, ptr %906, i64 144
+  %1011 = load <4 x float>, ptr %1010, align 16
+  %1012 = getelementptr inbounds i8, ptr %904, i64 144
+  %1013 = load <4 x float>, ptr %1012, align 16
+  %1014 = fmul <4 x float> %911, %1013
+  %1015 = fadd <4 x float> %912, %1014
+  %1016 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ps(<4 x float> %1015)
+  %1017 = fmul <4 x float> %1011, %1016
+  store <4 x float> %1017, ptr %1010, align 16
+  %1018 = add nuw i64 %.0820950.i, 1
+  %exitcond40.not = icmp eq i64 %1018, %650
+  br i1 %exitcond40.not, label %.loopexit.i12, label %902, !llvm.loop !128
 
-1018:                                             ; preds = %891
-  %1019 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %894
+1019:                                             ; preds = %893
+  %1020 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %896
   br i1 %.not961.i, label %.loopexit.i12, label %.lr.ph952.i
 
-.lr.ph952.i:                                      ; preds = %1018
-  %1020 = getelementptr inbounds i8, ptr %.0958.i, i64 8
-  br label %1021
+.lr.ph952.i:                                      ; preds = %1019
+  %1021 = getelementptr inbounds i8, ptr %.0958.i, i64 8
+  br label %1022
 
-1021:                                             ; preds = %1021, %.lr.ph952.i
-  %.0821951.i = phi i64 [ 0, %.lr.ph952.i ], [ %1132, %1021 ]
-  %1022 = load ptr, ptr %1020, align 8
-  %1023 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %1022, i64 %.0821951.i
-  %1024 = load ptr, ptr %657, align 8
-  %1025 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %1024, i64 %.0821951.i
-  %1026 = load <4 x float>, ptr %1023, align 16, !noalias !129
-  %1027 = fmul <4 x float> %894, %1026
-  %1028 = getelementptr inbounds i8, ptr %1023, i64 16
-  %1029 = load <4 x float>, ptr %1028, align 16, !noalias !129
-  %1030 = fmul <4 x float> %894, %1029
-  %1031 = getelementptr inbounds i8, ptr %1023, i64 32
-  %1032 = load <4 x float>, ptr %1031, align 16, !noalias !129
-  %1033 = fmul <4 x float> %894, %1032
-  %1034 = load <4 x float>, ptr %1025, align 16, !noalias !132
-  %1035 = fsub <4 x float> %1034, %1027
-  %1036 = getelementptr inbounds i8, ptr %1025, i64 16
-  %1037 = load <4 x float>, ptr %1036, align 16, !noalias !132
-  %1038 = fsub <4 x float> %1037, %1030
-  %1039 = getelementptr inbounds i8, ptr %1025, i64 32
-  %1040 = load <4 x float>, ptr %1039, align 16, !noalias !132
-  %1041 = fsub <4 x float> %1040, %1033
-  store <4 x float> %1035, ptr %1025, align 16
-  store <4 x float> %1038, ptr %1036, align 16
-  store <4 x float> %1041, ptr %1039, align 16
-  %1042 = getelementptr inbounds i8, ptr %1023, i64 48
-  %1043 = getelementptr inbounds i8, ptr %1023, i64 96
-  %1044 = load <4 x i32>, ptr %1043, align 16
-  %1045 = load <4 x i32>, ptr %1042, align 16
-  %1046 = and <4 x i32> %1044, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %1047 = xor <4 x i32> %1045, %1046
-  %1048 = bitcast <4 x i32> %1047 to <4 x float>
-  %1049 = fmul <4 x float> %894, %1048
-  %1050 = getelementptr inbounds i8, ptr %1023, i64 64
-  %1051 = load <4 x i32>, ptr %1050, align 16
-  %1052 = xor <4 x i32> %1051, %1046
-  %1053 = bitcast <4 x i32> %1052 to <4 x float>
-  %1054 = fmul <4 x float> %894, %1053
-  %1055 = getelementptr inbounds i8, ptr %1023, i64 80
-  %1056 = load <4 x i32>, ptr %1055, align 16
-  %1057 = xor <4 x i32> %1056, %1046
-  %1058 = bitcast <4 x i32> %1057 to <4 x float>
-  %1059 = fmul <4 x float> %894, %1058
-  %1060 = and <4 x i32> %1044, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
-  %1061 = bitcast <4 x i32> %1060 to <4 x float>
-  %1062 = fadd <4 x float> %1061, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
-  %1063 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1062, <4 x float> %894, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  %1064 = getelementptr inbounds i8, ptr %1025, i64 48
-  %1065 = fmul <4 x float> %1054, %1054
-  %1066 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1049, <4 x float> %1049, <4 x float> %1065)
-  %1067 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1059, <4 x float> %1059, <4 x float> %1066)
-  %1068 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1063, <4 x float> %1063, <4 x float> %1067)
-  %1069 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %1068)
-  %1070 = fmul <4 x float> %1069, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %1071 = fmul <4 x float> %1069, %1068
-  %1072 = fmul <4 x float> %1069, %1071
-  %1073 = fsub <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %1072
-  %1074 = fmul <4 x float> %1070, %1073
-  %1075 = fmul <4 x float> %1063, %1074
-  %1076 = fneg <4 x float> %1049
-  %1077 = fmul <4 x float> %1074, %1076
-  %1078 = fneg <4 x float> %1054
-  %1079 = fmul <4 x float> %1074, %1078
-  %1080 = fneg <4 x float> %1059
-  %1081 = fmul <4 x float> %1074, %1080
-  %1082 = getelementptr inbounds i8, ptr %1025, i64 96
-  %1083 = load <4 x float>, ptr %1082, align 16, !noalias !135
-  %1084 = load <4 x float>, ptr %1064, align 16, !noalias !135
-  %1085 = fmul <4 x float> %1084, %1075
-  %1086 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1083, <4 x float> %1077, <4 x float> %1085)
-  %1087 = getelementptr inbounds i8, ptr %1025, i64 64
-  %1088 = load <4 x float>, ptr %1087, align 16, !noalias !135
-  %1089 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1088, <4 x float> %1081, <4 x float> %1086)
-  %1090 = getelementptr inbounds i8, ptr %1025, i64 80
-  %1091 = load <4 x float>, ptr %1090, align 16, !noalias !135
-  %1092 = fneg <4 x float> %1091
-  %1093 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1092, <4 x float> %1079, <4 x float> %1089)
-  %1094 = fmul <4 x float> %1088, %1075
-  %1095 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1083, <4 x float> %1079, <4 x float> %1094)
-  %1096 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1091, <4 x float> %1077, <4 x float> %1095)
-  %1097 = fneg <4 x float> %1084
-  %1098 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1097, <4 x float> %1081, <4 x float> %1096)
-  %1099 = fmul <4 x float> %1091, %1075
-  %1100 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1083, <4 x float> %1081, <4 x float> %1099)
-  %1101 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1084, <4 x float> %1079, <4 x float> %1100)
-  %1102 = fneg <4 x float> %1088
-  %1103 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1102, <4 x float> %1077, <4 x float> %1101)
-  %1104 = fmul <4 x float> %1077, %1097
-  %1105 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1083, <4 x float> %1075, <4 x float> %1104)
-  %1106 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1102, <4 x float> %1079, <4 x float> %1105)
-  %1107 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1092, <4 x float> %1081, <4 x float> %1106)
-  store <4 x float> %1093, ptr %1064, align 16
-  store <4 x float> %1098, ptr %1087, align 16
-  store <4 x float> %1103, ptr %1090, align 16
-  store <4 x float> %1107, ptr %1082, align 16
-  %1108 = getelementptr inbounds i8, ptr %1025, i64 112
+1022:                                             ; preds = %1022, %.lr.ph952.i
+  %.0821951.i = phi i64 [ 0, %.lr.ph952.i ], [ %1132, %1022 ]
+  %1023 = load ptr, ptr %1021, align 8
+  %1024 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %1023, i64 %.0821951.i
+  %1025 = load ptr, ptr %657, align 8
+  %1026 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %1025, i64 %.0821951.i
+  %1027 = load <4 x float>, ptr %1024, align 16, !noalias !129
+  %1028 = fmul <4 x float> %896, %1027
+  %1029 = getelementptr inbounds i8, ptr %1024, i64 16
+  %1030 = load <4 x float>, ptr %1029, align 16, !noalias !129
+  %1031 = fmul <4 x float> %896, %1030
+  %1032 = getelementptr inbounds i8, ptr %1024, i64 32
+  %1033 = load <4 x float>, ptr %1032, align 16, !noalias !129
+  %1034 = fmul <4 x float> %896, %1033
+  %1035 = load <4 x float>, ptr %1026, align 16, !noalias !132
+  %1036 = fsub <4 x float> %1035, %1028
+  %1037 = getelementptr inbounds i8, ptr %1026, i64 16
+  %1038 = load <4 x float>, ptr %1037, align 16, !noalias !132
+  %1039 = fsub <4 x float> %1038, %1031
+  %1040 = getelementptr inbounds i8, ptr %1026, i64 32
+  %1041 = load <4 x float>, ptr %1040, align 16, !noalias !132
+  %1042 = fsub <4 x float> %1041, %1034
+  store <4 x float> %1036, ptr %1026, align 16
+  store <4 x float> %1039, ptr %1037, align 16
+  store <4 x float> %1042, ptr %1040, align 16
+  %1043 = getelementptr inbounds i8, ptr %1024, i64 48
+  %1044 = getelementptr inbounds i8, ptr %1024, i64 96
+  %1045 = load <4 x i32>, ptr %1044, align 16
+  %1046 = load <4 x i32>, ptr %1043, align 16
+  %1047 = and <4 x i32> %1045, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %1048 = xor <4 x i32> %1046, %1047
+  %1049 = bitcast <4 x i32> %1048 to <4 x float>
+  %1050 = fmul <4 x float> %896, %1049
+  %1051 = getelementptr inbounds i8, ptr %1024, i64 64
+  %1052 = load <4 x i32>, ptr %1051, align 16
+  %1053 = xor <4 x i32> %1052, %1047
+  %1054 = bitcast <4 x i32> %1053 to <4 x float>
+  %1055 = fmul <4 x float> %896, %1054
+  %1056 = getelementptr inbounds i8, ptr %1024, i64 80
+  %1057 = load <4 x i32>, ptr %1056, align 16
+  %1058 = xor <4 x i32> %1057, %1047
+  %1059 = bitcast <4 x i32> %1058 to <4 x float>
+  %1060 = fmul <4 x float> %896, %1059
+  %1061 = and <4 x i32> %1045, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %1062 = bitcast <4 x i32> %1061 to <4 x float>
+  %1063 = fadd <4 x float> %1062, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %1064 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1063, <4 x float> %896, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1065 = getelementptr inbounds i8, ptr %1026, i64 48
+  %1066 = fmul <4 x float> %1055, %1055
+  %1067 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1050, <4 x float> %1050, <4 x float> %1066)
+  %1068 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1060, <4 x float> %1060, <4 x float> %1067)
+  %1069 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1064, <4 x float> %1064, <4 x float> %1068)
+  %1070 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %1069)
+  %1071 = fmul <4 x float> %1070, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %1072 = fmul <4 x float> %1070, %1069
+  %1073 = fmul <4 x float> %1070, %1072
+  %1074 = fsub <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %1073
+  %1075 = fmul <4 x float> %1071, %1074
+  %1076 = fmul <4 x float> %1064, %1075
+  %1077 = fneg <4 x float> %1075
+  %1078 = fmul <4 x float> %1050, %1077
+  %1079 = fmul <4 x float> %1055, %1077
+  %1080 = fmul <4 x float> %1060, %1077
+  %1081 = getelementptr inbounds i8, ptr %1026, i64 96
+  %1082 = load <4 x float>, ptr %1081, align 16, !noalias !135
+  %1083 = load <4 x float>, ptr %1065, align 16, !noalias !135
+  %1084 = fmul <4 x float> %1083, %1076
+  %1085 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1082, <4 x float> %1078, <4 x float> %1084)
+  %1086 = getelementptr inbounds i8, ptr %1026, i64 64
+  %1087 = load <4 x float>, ptr %1086, align 16, !noalias !135
+  %1088 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1087, <4 x float> %1080, <4 x float> %1085)
+  %1089 = getelementptr inbounds i8, ptr %1026, i64 80
+  %1090 = load <4 x float>, ptr %1089, align 16, !noalias !135
+  %1091 = fneg <4 x float> %1090
+  %1092 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1091, <4 x float> %1079, <4 x float> %1088)
+  %1093 = fmul <4 x float> %1087, %1076
+  %1094 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1082, <4 x float> %1079, <4 x float> %1093)
+  %1095 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1090, <4 x float> %1078, <4 x float> %1094)
+  %1096 = fneg <4 x float> %1083
+  %1097 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1096, <4 x float> %1080, <4 x float> %1095)
+  %1098 = fmul <4 x float> %1090, %1076
+  %1099 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1082, <4 x float> %1080, <4 x float> %1098)
+  %1100 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1083, <4 x float> %1079, <4 x float> %1099)
+  %1101 = fneg <4 x float> %1087
+  %1102 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1101, <4 x float> %1078, <4 x float> %1100)
+  %1103 = fneg <4 x float> %1078
+  %1104 = fmul <4 x float> %1083, %1103
+  %1105 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1082, <4 x float> %1076, <4 x float> %1104)
+  %1106 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1101, <4 x float> %1079, <4 x float> %1105)
+  %1107 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1091, <4 x float> %1080, <4 x float> %1106)
+  store <4 x float> %1092, ptr %1065, align 16
+  store <4 x float> %1097, ptr %1086, align 16
+  store <4 x float> %1102, ptr %1089, align 16
+  store <4 x float> %1107, ptr %1081, align 16
+  %1108 = getelementptr inbounds i8, ptr %1026, i64 112
   %1109 = load <4 x float>, ptr %1108, align 16
-  %1110 = getelementptr inbounds i8, ptr %1023, i64 112
+  %1110 = getelementptr inbounds i8, ptr %1024, i64 112
   %1111 = load <4 x float>, ptr %1110, align 16
-  %1112 = fmul <4 x float> %894, %1111
-  %1113 = fadd <4 x float> %1019, %1112
+  %1112 = fmul <4 x float> %896, %1111
+  %1113 = fadd <4 x float> %1020, %1112
   %1114 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ps(<4 x float> %1113)
   %1115 = fmul <4 x float> %1109, %1114
   store <4 x float> %1115, ptr %1108, align 16
-  %1116 = getelementptr inbounds i8, ptr %1025, i64 128
+  %1116 = getelementptr inbounds i8, ptr %1026, i64 128
   %1117 = load <4 x float>, ptr %1116, align 16
-  %1118 = getelementptr inbounds i8, ptr %1023, i64 128
+  %1118 = getelementptr inbounds i8, ptr %1024, i64 128
   %1119 = load <4 x float>, ptr %1118, align 16
-  %1120 = fmul <4 x float> %894, %1119
-  %1121 = fadd <4 x float> %1019, %1120
+  %1120 = fmul <4 x float> %896, %1119
+  %1121 = fadd <4 x float> %1020, %1120
   %1122 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ps(<4 x float> %1121)
   %1123 = fmul <4 x float> %1117, %1122
   store <4 x float> %1123, ptr %1116, align 16
-  %1124 = getelementptr inbounds i8, ptr %1025, i64 144
+  %1124 = getelementptr inbounds i8, ptr %1026, i64 144
   %1125 = load <4 x float>, ptr %1124, align 16
-  %1126 = getelementptr inbounds i8, ptr %1023, i64 144
+  %1126 = getelementptr inbounds i8, ptr %1024, i64 144
   %1127 = load <4 x float>, ptr %1126, align 16
-  %1128 = fmul <4 x float> %894, %1127
-  %1129 = fadd <4 x float> %1019, %1128
+  %1128 = fmul <4 x float> %896, %1127
+  %1129 = fadd <4 x float> %1020, %1128
   %1130 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ps(<4 x float> %1129)
   %1131 = fmul <4 x float> %1125, %1130
   store <4 x float> %1131, ptr %1124, align 16
   %1132 = add nuw i64 %.0821951.i, 1
   %exitcond41.not = icmp eq i64 %1132, %650
-  br i1 %exitcond41.not, label %.loopexit.i12, label %1021, !llvm.loop !138
+  br i1 %exitcond41.not, label %.loopexit.i12, label %1022, !llvm.loop !138
 
-.loopexit.i12:                                    ; preds = %900, %1021, %668, %783, %1018, %.preheader948.i, %889, %780, %.preheader.i16
+.loopexit.i12:                                    ; preds = %902, %1022, %668, %784, %1019, %.preheader948.i, %891, %781, %.preheader.i16
   %1133 = getelementptr inbounds i8, ptr %.0958.i, i64 40
   %.not.i13 = icmp eq ptr %1133, %656
   br i1 %.not.i13, label %_ZN3ozz9animation12_GLOBAL__N_19AddLayersEPNS1_11ProcessArgsE.exit, label %.lr.ph960.i

@@ -3973,7 +3973,7 @@ define i32 @H5P__iterate_plist(ptr noundef %0, i1 noundef zeroext %1, ptr nocapt
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 @H5SL_iterate(ptr noundef %21, ptr noundef nonnull @H5P__iterate_plist_cb, ptr noundef nonnull %6) #13
   %.not = icmp eq i32 %22, 0
-  %brmerge.not = and i1 %.not, %1
+  %brmerge.not = and i1 %1, %.not
   br i1 %brmerge.not, label %.preheader, label %.thread32
 
 .preheader:                                       ; preds = %13, %23

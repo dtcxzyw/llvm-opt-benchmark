@@ -68,7 +68,7 @@ if.then11:                                        ; preds = %land.lhs.true, %if.
   %4 = load ptr, ptr %self, align 8
   %alloc_size.i.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %5 = load i64, ptr %alloc_size.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %5, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %5
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %buffer_push_rlw.exit
 
 if.then.i.i.i:                                    ; preds = %if.then11
@@ -144,7 +144,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %add.i.i46.us = add i64 %13, 1
   %14 = load ptr, ptr %self, align 8
   %15 = load i64, ptr %alloc_size.i.i.i47, align 8
-  %cmp.i.i.i48.us = icmp ult i64 %15, %add.i.i46.us
+  %cmp.i.i.i48.us = icmp ugt i64 %add.i.i46.us, %15
   br i1 %cmp.i.i.i48.us, label %if.then.i.i.i54.us, label %buffer_push_rlw.exit65.us
 
 if.then.i.i.i54.us:                               ; preds = %while.body.us
@@ -191,7 +191,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add.i.i46 = add i64 %22, 1
   %23 = load ptr, ptr %self, align 8
   %24 = load i64, ptr %alloc_size.i.i.i47, align 8
-  %cmp.i.i.i48 = icmp ult i64 %24, %add.i.i46
+  %cmp.i.i.i48 = icmp ugt i64 %add.i.i46, %24
   br i1 %cmp.i.i.i48, label %if.then.i.i.i54, label %buffer_push_rlw.exit65
 
 if.then.i.i.i54:                                  ; preds = %while.body
@@ -253,7 +253,7 @@ if.then30:                                        ; preds = %while.end
   %34 = load ptr, ptr %self, align 8
   %alloc_size.i.i.i74 = getelementptr inbounds i8, ptr %self, i64 16
   %35 = load i64, ptr %alloc_size.i.i.i74, align 8
-  %cmp.i.i.i75 = icmp ult i64 %35, %add.i.i73
+  %cmp.i.i.i75 = icmp ugt i64 %add.i.i73, %35
   br i1 %cmp.i.i.i75, label %if.then.i.i.i81, label %buffer_push_rlw.exit92
 
 if.then.i.i.i81:                                  ; preds = %if.then30
@@ -345,7 +345,7 @@ while.body:                                       ; preds = %buffer_push_rlw.exi
   %2 = load ptr, ptr %rlw, align 8
   %3 = load ptr, ptr %self, align 8
   %4 = load i64, ptr %alloc_size.i, align 8
-  %cmp.i = icmp ult i64 %4, %add3
+  %cmp.i = icmp ugt i64 %add3, %4
   br i1 %cmp.i, label %if.then.i, label %buffer_grow.exit
 
 if.then.i:                                        ; preds = %while.body
@@ -420,7 +420,7 @@ if.end17:                                         ; preds = %if.end
   %add.i.i = add i64 %13, 1
   %14 = load ptr, ptr %self, align 8
   %15 = load i64, ptr %alloc_size.i, align 8
-  %cmp.i.i.i = icmp ult i64 %15, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %15
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %buffer_push_rlw.exit
 
 if.then.i.i.i:                                    ; preds = %if.end17
@@ -547,7 +547,7 @@ if.else:                                          ; preds = %land.lhs.true7, %if
   %4 = load ptr, ptr %self, align 8
   %alloc_size.i.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %5 = load i64, ptr %alloc_size.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %5, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %5
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %buffer_push_rlw.exit
 
 if.then.i.i.i:                                    ; preds = %if.else
@@ -617,7 +617,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %self, align 8
   %alloc_size.i.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load i64, ptr %alloc_size.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %3, %add.i.i
+  %cmp.i.i.i = icmp ugt i64 %add.i.i, %3
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %buffer_push_rlw.exit
 
 if.then.i.i.i:                                    ; preds = %if.then
@@ -662,7 +662,7 @@ buffer_push_rlw.exit:                             ; preds = %if.then, %st_mult.e
   %11 = load ptr, ptr %rlw, align 8
   %12 = load ptr, ptr %self, align 8
   %13 = load i64, ptr %alloc_size.i.i.i, align 8
-  %cmp.i.i = icmp ult i64 %13, %add.i
+  %cmp.i.i = icmp ugt i64 %add.i, %13
   br i1 %cmp.i.i, label %if.then.i.i, label %buffer_push.exit
 
 if.then.i.i:                                      ; preds = %buffer_push_rlw.exit
@@ -713,7 +713,7 @@ if.end:                                           ; preds = %entry
   %20 = load ptr, ptr %self, align 8
   %alloc_size.i.i16 = getelementptr inbounds i8, ptr %self, i64 16
   %21 = load i64, ptr %alloc_size.i.i16, align 8
-  %cmp.i.i17 = icmp ult i64 %21, %add.i14
+  %cmp.i.i17 = icmp ugt i64 %add.i14, %21
   br i1 %cmp.i.i17, label %if.then.i.i25, label %buffer_push.exit36
 
 if.then.i.i25:                                    ; preds = %if.end
@@ -1342,7 +1342,7 @@ if.else.i55:                                      ; preds = %land.lhs.true7.i81,
   %add.i.i.i57 = add i64 %27, 1
   %28 = load ptr, ptr %out, align 8
   %29 = load i64, ptr %alloc_size.i.i.i.i, align 8
-  %cmp.i.i.i.i59 = icmp ult i64 %29, %add.i.i.i57
+  %cmp.i.i.i.i59 = icmp ugt i64 %add.i.i.i57, %29
   br i1 %cmp.i.i.i.i59, label %if.then.i.i.i.i70, label %buffer_push_rlw.exit.i60
 
 if.then.i.i.i.i70:                                ; preds = %if.else.i55
@@ -1431,7 +1431,7 @@ if.else.i:                                        ; preds = %land.lhs.true7.i, %
   %add.i.i.i = add i64 %40, 1
   %41 = load ptr, ptr %out, align 8
   %42 = load i64, ptr %alloc_size.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %42, %add.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, %42
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %buffer_push_rlw.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i

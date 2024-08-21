@@ -116,11 +116,11 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %34 = ptrtoint ptr %33 to i64
   %.neg103 = sub i64 %12, %34
   %35 = trunc i64 %.neg103 to i32
-  %36 = add i32 %35, %2
+  %36 = add i32 %2, %35
   %37 = ptrtoint ptr %32 to i64
   %.neg104 = sub i64 %13, %37
   %38 = trunc i64 %.neg104 to i32
-  %39 = add i32 %38, %3
+  %39 = add i32 %3, %38
   %40 = call i32 @cli_unfsg(ptr noundef %33, ptr noundef %32, i32 noundef %36, i32 noundef %39, ptr noundef nonnull %10, ptr noundef nonnull %11) #2
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %.loopexit108, label %42

@@ -874,7 +874,7 @@ cdf_count_chain.exit:                             ; preds = %20, %6, %.loopexit.
   %29 = getelementptr inbounds i8, ptr %1, i64 56
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
-  %. = tail call i64 @llvm.umax.i64(i64 %31, i64 %4)
+  %. = tail call i64 @llvm.umax.i64(i64 %4, i64 %31)
   %32 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %., ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %5, i64 24
@@ -1149,7 +1149,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sector_chain(ptr nocapture noundef 
   %9 = getelementptr inbounds i8, ptr %1, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = icmp ugt i64 %11, %6
+  %12 = icmp ult i64 %6, %11
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %8
@@ -1631,7 +1631,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_doc_summary_info(ptr nocapture noun
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %1, i64 56
   %21 = load i32, ptr %20, align 8
-  %22 = icmp ugt i32 %21, %18
+  %22 = icmp ult i32 %18, %21
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %11
@@ -1673,7 +1673,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_user_stream(ptr nocapture noundef r
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %1, i64 56
   %22 = load i32, ptr %21, align 8
-  %23 = icmp ugt i32 %22, %19
+  %23 = icmp ult i32 %19, %22
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %12
@@ -1715,7 +1715,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_summary_info(ptr nocapture noundef 
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %1, i64 56
   %21 = load i32, ptr %20, align 8
-  %22 = icmp ugt i32 %21, %18
+  %22 = icmp ult i32 %18, %21
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %11
@@ -1759,7 +1759,7 @@ define hidden i32 @cdf_find_stream(ptr nocapture noundef readonly %0, ptr nocapt
   %gep = getelementptr %struct.cdf_directory_t, ptr %invariant.gep, i64 %.01330.us
   %9 = load i8, ptr %gep, align 2
   %10 = zext i8 %9 to i32
-  %11 = icmp eq i32 %10, %2
+  %11 = icmp eq i32 %2, %10
   br i1 %11, label %cdf_namecmp.exit.thread, label %12
 
 12:                                               ; preds = %8
@@ -1773,7 +1773,7 @@ define hidden i32 @cdf_find_stream(ptr nocapture noundef readonly %0, ptr nocapt
   %15 = getelementptr i8, ptr %14, i64 -70
   %16 = load i8, ptr %15, align 2
   %17 = zext i8 %16 to i32
-  %18 = icmp eq i32 %17, %2
+  %18 = icmp eq i32 %2, %17
   br i1 %18, label %.lr.ph.i, label %31
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split.split
@@ -2520,7 +2520,7 @@ define hidden i32 @cdf_print_elapsed_time(ptr noundef %0, i64 noundef %1, i64 no
   %16 = trunc nsw i64 %15 to i32
   %17 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.6, i32 noundef %16) #20
   %18 = sext i32 %17 to i64
-  %.not = icmp ult i64 %18, %1
+  %.not = icmp ugt i64 %1, %18
   br i1 %.not, label %.thread, label %37
 
 19:                                               ; preds = %3
@@ -2535,7 +2535,7 @@ define hidden i32 @cdf_print_elapsed_time(ptr noundef %0, i64 noundef %1, i64 no
   %23 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %21, i64 noundef %22, ptr noundef nonnull @.str.7, i32 noundef %11) #20
   %24 = add nsw i32 %23, %.04654
   %25 = sext i32 %24 to i64
-  %.not50 = icmp ult i64 %25, %1
+  %.not50 = icmp ugt i64 %1, %25
   br i1 %.not50, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %19, %.thread
@@ -2546,7 +2546,7 @@ define hidden i32 @cdf_print_elapsed_time(ptr noundef %0, i64 noundef %1, i64 no
   %29 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %27, i64 noundef %28, ptr noundef nonnull @.str.7, i32 noundef %9) #20
   %30 = add nsw i32 %29, %.1
   %31 = sext i32 %30 to i64
-  %.not51 = icmp ult i64 %31, %1
+  %.not51 = icmp ugt i64 %1, %31
   br i1 %.not51, label %32, label %37
 
 32:                                               ; preds = %._crit_edge

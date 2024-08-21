@@ -1359,7 +1359,7 @@ define linkonce_odr hidden void @_ZN2cv4plot10Plot2dImpl20setInvertOrientationEb
 define linkonce_odr hidden void @_ZN2cv4plot10Plot2dImpl18setPointIdxToPrintEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %1) unnamed_addr #7 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sle i32 %4, %1
+  %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
   %7 = add nsw i32 %4, -1
@@ -1869,7 +1869,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %7
   %33 = fsub double %32, %2
   %34 = fmul double %22, %33
   %35 = fdiv double %34, %23
-  %36 = fadd double %35, %4
+  %36 = fadd double %4, %35
   %37 = fptosi double %36 to i32
   %38 = sitofp i32 %37 to double
   %39 = load ptr, ptr %24, align 8

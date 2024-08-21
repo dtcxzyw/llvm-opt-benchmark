@@ -873,7 +873,7 @@ if.then.i.i108.us.i:                              ; preds = %invoke.cont7.i.i.us
   %retval.sroa.12.0.i10.i.i.us.i = phi ptr [ %retval.sroa.12.0.i.i.i.us.i, %invoke.cont7.i.i.us.i ], [ %86, %do.body13.i.i.i.i.i.us.i ], [ %86, %land.lhs.true.i.i.i.us.i ], [ %spec.select115.i.i.i.us.i, %if.then64.i.i.i.us.i ], [ %spec.select113.i.i.i.us.i, %if.then32.i.i.i.us.i ]
   %retval.sroa.0.0.i9.i.i.us.i = phi ptr [ %retval.sroa.0.0.i.i.i.us.i, %invoke.cont7.i.i.us.i ], [ null, %do.body13.i.i.i.i.i.us.i ], [ null, %land.lhs.true.i.i.i.us.i ], [ %spec.select114.i.i.i.us.i, %if.then64.i.i.i.us.i ], [ %spec.select.i.i.i.us.i, %if.then32.i.i.i.us.i ]
   %cmp.not.i.i.i9.i.us.i = icmp ne ptr %retval.sroa.0.0.i9.i.i.us.i, null
-  %cmp2.i.i.i.i.us.i = icmp eq ptr %1, %retval.sroa.12.0.i10.i.i.us.i
+  %cmp2.i.i.i.i.us.i = icmp eq ptr %retval.sroa.12.0.i10.i.i.us.i, %1
   %or.cond.i.i.i.i.us.i = select i1 %cmp.not.i.i.i9.i.us.i, i1 true, i1 %cmp2.i.i.i.i.us.i
   br i1 %or.cond.i.i.i.i.us.i, label %cleanup.i.i.us.i, label %lor.rhs.i.i.i.i.us.i
 
@@ -1864,7 +1864,7 @@ if.end35.i.i19.i.i:                               ; preds = %do.body32.i.i15.i.i
 
 if.then.i:                                        ; preds = %do.body32.i.i15.i.i, %do.body13.i.i9.i.i, %if.end12.i.i, %if.then.i.i
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa42.i.i, %do.body32.i.i15.i.i ], [ %__y.0.lcssa42.i.i, %do.body13.i.i9.i.i ], [ %__y.0.lcssa42.i.i, %if.end12.i.i ], [ %__y.0.lcssa43.i.i, %if.then.i.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.sroa.4.0.i.ph.i
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %add.ptr.i.i.i
   br i1 %cmp2.i.i, label %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then.i
@@ -2156,7 +2156,7 @@ if.then21.i:                                      ; preds = %if.then.i.i.i, %if.
   store i32 %7, ptr %r.addr.0.i.i.i, align 4
   %add.ptr.i = getelementptr inbounds i32, ptr %r.addr.0.i.i.i, i64 %n
   %add.ptr25.i = getelementptr inbounds i32, ptr %1, i64 %3
-  %cmp.i.i15.i = icmp ne ptr %add.ptr25.i, %0
+  %cmp.i.i15.i = icmp ne ptr %0, %add.ptr25.i
   %tobool5.i.i18.i = icmp ne ptr %0, null
   %or.cond1.i.i19.i = and i1 %tobool5.i.i18.i, %cmp.i.i15.i
   br i1 %or.cond1.i.i19.i, label %if.then.i.i21.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit26.i

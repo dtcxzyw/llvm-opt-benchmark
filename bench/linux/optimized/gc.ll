@@ -531,7 +531,7 @@ define dso_local void @key_set_expiry(ptr nocapture noundef %0, i64 noundef %1) 
   %12 = load i32, ptr @key_gc_delay, align 4
   %13 = select i1 %11, i32 %12, i32 0
   %14 = zext i32 %13 to i64
-  %15 = add i64 %14, %1
+  %15 = add i64 %1, %14
   %16 = tail call i64 @ktime_get_real_seconds() #4
   %17 = icmp slt i64 %16, %15
   br i1 %17, label %18, label %22

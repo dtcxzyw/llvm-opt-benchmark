@@ -109,7 +109,7 @@ define range(i32 -2, 1) i32 @ValidateFormat(ptr noundef %0, i32 noundef %1, ptr 
 41:                                               ; preds = %38
   %42 = add nsw i32 %35, -1
   %43 = icmp slt i32 %35, 1
-  %.not135.not = icmp sgt i32 %35, %1
+  %.not135.not = icmp slt i32 %1, %35
   %or.cond145 = select i1 %.not134, i1 %.not135.not, i1 false
   %or.cond = or i1 %43, %or.cond145
   br i1 %or.cond, label %.thread, label %44

@@ -102,7 +102,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end7.i:                                        ; preds = %if.end.i, %if.end.i
   %conv.i = zext i32 %parameters17.sroa.0.0.copyload to i64
-  %cmp9.i = icmp ugt i64 %conv.i, %dictBufferCapacity
+  %cmp9.i = icmp ult i64 %dictBufferCapacity, %conv.i
   %cmp15.i = icmp ugt i32 %parameters17.sroa.4.0.copyload, %parameters17.sroa.0.0.copyload
   %or.cond8.i = or i1 %cmp15.i, %cmp9.i
   %5 = add i32 %cond, -32
@@ -252,7 +252,7 @@ entry:
   %call = tail call i64 @COVER_sum(ptr noundef %samplesSizes, i32 noundef %nbSamples) #12
   %cmp = fcmp olt double %splitPoint, 1.000000e+00
   %conv = uitofp i32 %nbSamples to double
-  %mul = fmul double %conv, %splitPoint
+  %mul = fmul double %splitPoint, %conv
   %conv1 = fptoui double %mul to i32
   %sub = select i1 %cmp, i32 %conv1, i32 0
   %cond = select i1 %cmp, i32 %conv1, i32 %nbSamples
@@ -307,7 +307,7 @@ if.then46:                                        ; preds = %if.then43
   br label %return
 
 if.end50:                                         ; preds = %if.end40
-  %cmp51 = icmp eq i32 %sub, %nbSamples
+  %cmp51 = icmp eq i32 %nbSamples, %sub
   br i1 %cmp51, label %if.then53, label %if.end60
 
 if.then53:                                        ; preds = %if.end50
@@ -1083,7 +1083,7 @@ if.end.i:                                         ; preds = %if.end166
 
 if.end7.i:                                        ; preds = %if.end.i, %if.end.i
   %conv.i111 = zext i32 %k63.0138 to i64
-  %cmp9.i = icmp ugt i64 %conv.i111, %dictBufferCapacity
+  %cmp9.i = icmp ult i64 %dictBufferCapacity, %conv.i111
   %cmp15.i = icmp ugt i32 %d62.0143, %k63.0138
   %or.cond8.i = or i1 %cmp9.i, %cmp15.i
   %41 = add i32 %40, -32

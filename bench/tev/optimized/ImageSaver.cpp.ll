@@ -269,7 +269,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSa
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not6.i.i.i = icmp eq ptr %5, %2
+  %.not6.i.i.i = icmp eq ptr %2, %5
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %_ZNSt3__116allocator_traitsINS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEE7destroyB8ne190000IS7_vTnNS_9enable_ifIXntsr13__has_destroyIS8_PT_EE5valueEiE4typeELi0EEEvRS8_SD_.exit.i.i.i
@@ -288,7 +288,7 @@ _ZNKSt3__114default_deleteIN3tev10ImageSaverEEclB8ne190000EPS2_.exit.i.i.i.i.i.i
   br label %_ZNSt3__116allocator_traitsINS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEE7destroyB8ne190000IS7_vTnNS_9enable_ifIXntsr13__has_destroyIS8_PT_EE5valueEiE4typeELi0EEEvRS8_SD_.exit.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEE7destroyB8ne190000IS7_vTnNS_9enable_ifIXntsr13__has_destroyIS8_PT_EE5valueEiE4typeELi0EEEvRS8_SD_.exit.i.i.i: ; preds = %_ZNKSt3__114default_deleteIN3tev10ImageSaverEEclB8ne190000EPS2_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i
-  %.not.i.i.i = icmp eq ptr %6, %2
+  %.not.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE7__clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i
 
 _ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE7__clearB8ne190000Ev.exit.i.loopexit: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEE7destroyB8ne190000IS7_vTnNS_9enable_ifIXntsr13__has_destroyIS8_PT_EE5valueEiE4typeELi0EEEvRS8_SD_.exit.i.i.i

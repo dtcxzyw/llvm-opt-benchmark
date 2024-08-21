@@ -7071,7 +7071,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   %sext = shl i64 %225, 32
   %226 = ashr exact i64 %sext, 32
   %227 = select i1 %4, i64 %226, i64 0
-  %228 = icmp ult i64 %227, %3
+  %228 = icmp ugt i64 %3, %227
   br i1 %228, label %229, label %.loopexit81
 
 229:                                              ; preds = %221
@@ -7096,13 +7096,13 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
 240:                                              ; preds = %.split.us
   %241 = add i32 %234, %224
   %242 = sext i32 %241 to i64
-  %243 = icmp ult i64 %242, %3
+  %243 = icmp ugt i64 %3, %242
   br i1 %243, label %.split.us, label %.loopexit81, !llvm.loop !81
 
 244:                                              ; preds = %261
   %245 = add i32 %249, %224
   %246 = sext i32 %245 to i64
-  %247 = icmp ult i64 %246, %3
+  %247 = icmp ugt i64 %3, %246
   br i1 %247, label %.split, label %.loopexit81, !llvm.loop !81
 
 .split:                                           ; preds = %229, %244
@@ -8442,7 +8442,7 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
 45:                                               ; preds = %40
   %46 = add i32 %29, 1
   %47 = sext i32 %46 to i64
-  %48 = icmp ult i64 %47, %3
+  %48 = icmp ugt i64 %3, %47
   br i1 %48, label %.split.split.us, label %.thread, !llvm.loop !89
 
 .split.split.us13:                                ; preds = %26, %67
@@ -8475,7 +8475,7 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
 67:                                               ; preds = %62
   %68 = add i32 %50, 1
   %69 = sext i32 %68 to i64
-  %70 = icmp ult i64 %69, %3
+  %70 = icmp ugt i64 %3, %69
   br i1 %70, label %.split.split.us13, label %.thread, !llvm.loop !89
 
 .split.split:                                     ; preds = %26, %88
@@ -8507,7 +8507,7 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
 88:                                               ; preds = %83
   %89 = add i32 %72, 1
   %90 = sext i32 %89 to i64
-  %91 = icmp ult i64 %90, %3
+  %91 = icmp ugt i64 %3, %90
   br i1 %91, label %.split.split, label %.thread, !llvm.loop !89
 
 .thread:                                          ; preds = %88, %83, %67, %62, %40, %45, %26, %20
@@ -8692,7 +8692,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 41:                                               ; preds = %40, %36, %34, %31, %21
   %42 = add i32 %14, 1
   %43 = sext i32 %42 to i64
-  %44 = icmp ult i64 %43, %2
+  %44 = icmp ugt i64 %2, %43
   br i1 %44, label %12, label %.thread31, !llvm.loop !95
 
 45:                                               ; preds = %3
@@ -8717,7 +8717,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 58:                                               ; preds = %70
   %59 = add i32 %64, 1
   %60 = sext i32 %59 to i64
-  %61 = icmp ult i64 %60, %2
+  %61 = icmp ugt i64 %2, %60
   br i1 %61, label %62, label %.loopexit38, !llvm.loop !96
 
 62:                                               ; preds = %58, %55
@@ -8754,7 +8754,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 82:                                               ; preds = %86
   %83 = add i32 %88, 1
   %84 = sext i32 %83 to i64
-  %85 = icmp ult i64 %84, %2
+  %85 = icmp ugt i64 %2, %84
   br i1 %85, label %86, label %.loopexit36, !llvm.loop !97
 
 86:                                               ; preds = %82, %80
@@ -8825,13 +8825,13 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 122:                                              ; preds = %117
   %123 = add i32 %119, 1
   %124 = sext i32 %123 to i64
-  %125 = icmp ult i64 %124, %2
+  %125 = icmp ugt i64 %2, %124
   br i1 %125, label %117, label %.split1, !llvm.loop !101
 
 126:                                              ; preds = %._crit_edge
   %127 = add i32 %132, 1
   %128 = sext i32 %127 to i64
-  %129 = icmp ult i64 %128, %2
+  %129 = icmp ugt i64 %2, %128
   br i1 %129, label %.lr.ph, label %.split1, !llvm.loop !101
 
 .split1:                                          ; preds = %126, %122
@@ -9045,7 +9045,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   %251 = add i32 %158, 1
   %252 = add i32 %.ph26, 1
   %253 = sext i32 %251 to i64
-  %254 = icmp ult i64 %253, %2
+  %254 = icmp ugt i64 %2, %253
   br i1 %254, label %.preheader, label %255, !llvm.loop !102
 
 255:                                              ; preds = %250
@@ -10233,7 +10233,7 @@ define dso_local i32 @regmap_bulk_read(ptr noundef %0, i32 noundef %1, ptr nound
   %24 = tail call zeroext i1 @regmap_volatile(ptr noundef %0, i32 noundef %23)
   %25 = add i32 %13, 1
   %26 = zext i32 %25 to i64
-  %.not = icmp ult i64 %26, %3
+  %.not = icmp ugt i64 %3, %26
   %or.cond = select i1 %24, i1 %.not, i1 false
   br i1 %or.cond, label %12, label %27, !llvm.loop !107
 
@@ -10298,7 +10298,7 @@ define dso_local i32 @regmap_bulk_read(ptr noundef %0, i32 noundef %1, ptr nound
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
   %63 = add i32 %68, 1
   %64 = sext i32 %63 to i64
-  %65 = icmp ult i64 %64, %3
+  %65 = icmp ugt i64 %3, %64
   br i1 %65, label %66, label %.loopexit, !llvm.loop !120
 
 66:                                               ; preds = %62, %57
@@ -11340,7 +11340,7 @@ define internal fastcc i32 @_regmap_raw_multi_reg_write(ptr noundef %0, ptr noca
   %72 = getelementptr i8, ptr %70, i64 %5
   %73 = add i32 %27, 1
   %74 = sext i32 %73 to i64
-  %75 = icmp ult i64 %74, %2
+  %75 = icmp ugt i64 %2, %74
   br i1 %75, label %25, label %.loopexit8, !llvm.loop !142
 
 .loopexit8:                                       ; preds = %66, %17
@@ -11405,7 +11405,7 @@ define internal fastcc i32 @_regmap_raw_multi_reg_write(ptr noundef %0, ptr noca
 110:                                              ; preds = %107, %103, %90, %.preheader
   %111 = add i32 %87, 1
   %112 = sext i32 %111 to i64
-  %113 = icmp ult i64 %112, %2
+  %113 = icmp ugt i64 %2, %112
   br i1 %113, label %.preheader, label %.loopexit, !llvm.loop !143
 
 .loopexit:                                        ; preds = %110, %.loopexit8, %14, %3

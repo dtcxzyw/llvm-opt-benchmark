@@ -1398,7 +1398,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK8aiStringeqERKS
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %mData.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %15 = load ptr, ptr %mData.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %15, %value
+  %cmp.i.i.i.i = icmp eq ptr %value, %15
   br i1 %cmp.i.i.i.i, label %invoke.cont15, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end4.i.i.i

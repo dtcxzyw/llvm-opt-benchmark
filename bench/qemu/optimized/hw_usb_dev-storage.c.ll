@@ -644,7 +644,7 @@ trace_usb_msd_cmd_cancel.exit:                    ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %req2 = getelementptr inbounds i8, ptr %1, i64 5896
   %9 = load ptr, ptr %req2, align 8
-  %cmp = icmp eq ptr %9, %req
+  %cmp = icmp eq ptr %req, %9
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %trace_usb_msd_cmd_cancel.exit

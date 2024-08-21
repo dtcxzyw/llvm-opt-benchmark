@@ -195,7 +195,7 @@ declare void @_ZN7mitsuba20ReconstructionFilterIfN5drjit6MatrixINS_8SpectrumIfLm
 define weak_odr noundef float @_ZNK7mitsuba10TentFilterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4evalEfb(ptr noundef nonnull align 8 dereferenceable(56) %0, float noundef %1, i1 noundef zeroext %2) unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 52
   %5 = load float, ptr %4, align 4
-  %6 = fmul contract float %5, %1
+  %6 = fmul contract float %1, %5
   %7 = tail call contract noundef float @llvm.fabs.f32(float %6)
   %8 = fsub contract float 1.000000e+00, %7
   %9 = fcmp contract ogt float %8, 0.000000e+00
@@ -2006,7 +2006,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   %41 = zext nneg i8 %40 to i64
   %42 = select i1 %.not.i.i.i, i64 %41, i64 %39
   %43 = trunc i64 %42 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %43, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %43)
   %44 = sext i32 %.sroa.speculated to i64
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %37, i64 noundef %44)
           to label %46 unwind label %54

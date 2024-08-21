@@ -1187,7 +1187,7 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nocapt
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 3216
   %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, %2
+  %41 = icmp eq ptr %2, %40
   %42 = select i1 %41, ptr @.str.48, ptr null
   %43 = getelementptr i8, ptr %0, i64 8
   %.val.i.i = load ptr, ptr %43, align 8

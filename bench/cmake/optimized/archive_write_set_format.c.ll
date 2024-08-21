@@ -31,7 +31,7 @@ define dso_local i32 @archive_write_set_format(ptr noundef %0, i32 noundef %1) l
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds [21 x %struct.anon], ptr @codes, i64 0, i64 %indvars.iv.next
   %6 = load i32, ptr %5, align 16
-  %7 = icmp eq i32 %6, %1
+  %7 = icmp eq i32 %1, %6
   br i1 %7, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %4, %2

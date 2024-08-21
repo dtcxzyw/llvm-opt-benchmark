@@ -433,7 +433,7 @@ if.end132:                                        ; preds = %if.then128
   br label %return
 
 if.end134:                                        ; preds = %if.end126
-  %cmp138 = icmp eq i8 %22, %type
+  %cmp138 = icmp eq i8 %type, %22
   br i1 %cmp138, label %if.then152, label %lor.lhs.false140
 
 lor.lhs.false140:                                 ; preds = %if.end134
@@ -495,7 +495,7 @@ if.end185:                                        ; preds = %land.lhs.true181, %
   br label %return
 
 if.end186:                                        ; preds = %if.end174
-  %.len = call i64 @llvm.umin.i64(i64 %37, i64 %len)
+  %.len = call i64 @llvm.umin.i64(i64 %len, i64 %37)
   %data194 = getelementptr inbounds i8, ptr %arrayidx98, i64 16
   %38 = load ptr, ptr %data194, align 8
   %off195 = getelementptr inbounds i8, ptr %arrayidx98, i64 40
@@ -948,7 +948,7 @@ if.end3:                                          ; preds = %if.then, %entry
 if.end6:                                          ; preds = %if.end3
   %call7 = tail call i32 @ssl_get_max_send_fragment(ptr noundef nonnull %sc) #5
   %conv = zext i32 %call7 to i64
-  %cmp8 = icmp ult i64 %conv, %len
+  %cmp8 = icmp ugt i64 %len, %conv
   br i1 %cmp8, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end6

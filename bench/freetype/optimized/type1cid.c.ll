@@ -1414,7 +1414,7 @@ define internal i32 @cid_slot_load_glyph(ptr noundef %0, ptr noundef %1, i32 nou
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
-  %.not = icmp ugt i32 %12, %2
+  %.not = icmp ult i32 %2, %12
   br i1 %.not, label %13, label %.thread
 
 13:                                               ; preds = %4

@@ -248,7 +248,7 @@ if.end51:                                         ; preds = %if.then40, %if.then
 if.end.i:                                         ; preds = %if.end51
   %reass.sub = sub nsw i32 %shr2.i, %shr.i
   %add.i = add nsw i32 %reass.sub, 1
-  %cmp6.i = icmp eq i32 %add.i, %shr
+  %cmp6.i = icmp eq i32 %shr, %add.i
   br i1 %cmp6.i, label %if.then7.i, label %if.end12.i
 
 if.then7.i:                                       ; preds = %if.end.i
@@ -895,7 +895,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %idxprom.i = sext i32 %start.031.i to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom.i
   %14 = load i16, ptr %arrayidx.i, align 2
-  %cmp4.not.i = icmp ult i16 %14, %c.0
+  %cmp4.not.i = icmp ugt i16 %c.0, %14
   br i1 %cmp4.not.i, label %if.end6.i, label %for.end.i
 
 if.end6.i:                                        ; preds = %if.then2.i
@@ -907,7 +907,7 @@ land.lhs.true.i:                                  ; preds = %if.end6.i
   %idxprom9.i = sext i32 %inc.i to i64
   %arrayidx10.i = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom9.i
   %15 = load i16, ptr %arrayidx10.i, align 2
-  %cmp12.not.i = icmp ult i16 %15, %c.0
+  %cmp12.not.i = icmp ugt i16 %c.0, %15
   br i1 %cmp12.not.i, label %if.end14.i, label %for.end.i
 
 if.end14.i:                                       ; preds = %land.lhs.true.i, %if.end6.i
@@ -919,7 +919,7 @@ land.lhs.true17.i:                                ; preds = %if.end14.i
   %idxprom19.i = sext i32 %inc15.i to i64
   %arrayidx20.i = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom19.i
   %16 = load i16, ptr %arrayidx20.i, align 2
-  %cmp22.not.i = icmp ult i16 %16, %c.0
+  %cmp22.not.i = icmp ugt i16 %c.0, %16
   br i1 %cmp22.not.i, label %if.end24.i, label %for.end.i
 
 if.end24.i:                                       ; preds = %land.lhs.true17.i, %if.end14.i
@@ -932,7 +932,7 @@ if.end26.i:                                       ; preds = %if.end.i
   %idxprom28.i = sext i32 %div.i to i64
   %arrayidx29.i = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom28.i
   %17 = load i16, ptr %arrayidx29.i, align 2
-  %cmp31.i = icmp ugt i16 %17, %c.0
+  %cmp31.i = icmp ult i16 %c.0, %17
   %start.0.div.i = select i1 %cmp31.i, i32 %start.031.i, i32 %div.i
   %div.limit.0.i = select i1 %cmp31.i, i32 %div.i, i32 %limit.032.i
   %sub.i51 = sub nsw i32 %div.limit.0.i, %start.0.div.i
@@ -949,7 +949,7 @@ land.lhs.true35.i:                                ; preds = %for.end.i
   %idxprom37.i = sext i32 %start.1.i to i64
   %arrayidx38.i = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom37.i
   %18 = load i16, ptr %arrayidx38.i, align 2
-  %cmp40.i = icmp ne i16 %18, %c.0
+  %cmp40.i = icmp ne i16 %c.0, %18
   %cmp64 = icmp slt i32 %start.1.i, 0
   %or.cond = or i1 %cmp64, %cmp40.i
   br i1 %or.cond, label %for.end, label %if.else66
@@ -1520,7 +1520,7 @@ _ZL16extSetUseMapping20UConverterUnicodeSetij.exit: ; preds = %if.then.i, %if.el
 if.then:                                          ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit
   %cmp = icmp ult i32 %firstCP, 65536
   %cond = select i1 %cmp, i32 1, i32 2
-  %cmp9 = icmp eq i32 %cond, %length
+  %cmp9 = icmp eq i32 %length, %cond
   %4 = load ptr, ptr %sa, align 8
   br i1 %cmp9, label %if.then10, label %if.else
 

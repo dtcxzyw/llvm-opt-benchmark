@@ -857,11 +857,11 @@ entry:
   %0 = load i8, ptr %gpe.i, align 16
   %conv.i = zext i8 %0 to i32
   %div8.i = lshr i32 %conv.i, 1
-  %cmp.i = icmp ugt i32 %div8.i, %addr
+  %cmp.i = icmp ult i32 %addr, %div8.i
   br i1 %cmp.i, label %if.then, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %cmp6.i = icmp ugt i32 %conv.i, %addr
+  %cmp6.i = icmp ult i32 %addr, %conv.i
   br i1 %cmp6.i, label %if.then10, label %if.else18.i
 
 if.else18.i:                                      ; preds = %if.else.i
@@ -982,7 +982,7 @@ entry:
   %0 = load i8, ptr %gpe.i, align 16
   %conv.i = zext i8 %0 to i32
   %div8.i = lshr i32 %conv.i, 1
-  %cmp.i = icmp ugt i32 %div8.i, %addr
+  %cmp.i = icmp ult i32 %addr, %div8.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -993,7 +993,7 @@ if.then.i:                                        ; preds = %entry
   br label %acpi_gpe_ioport_get_ptr.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp6.i = icmp ugt i32 %conv.i, %addr
+  %cmp6.i = icmp ult i32 %addr, %conv.i
   br i1 %cmp6.i, label %if.then8.i, label %if.else18.i
 
 if.then8.i:                                       ; preds = %if.else.i
@@ -1024,7 +1024,7 @@ if.end:                                           ; preds = %if.then, %acpi_gpe_
   %val.0 = phi i32 [ %conv, %if.then ], [ 0, %acpi_gpe_ioport_get_ptr.exit ]
   %4 = lshr i8 %0, 1
   %div = zext nneg i8 %4 to i32
-  %cmp2 = icmp ugt i32 %div, %addr
+  %cmp2 = icmp ult i32 %addr, %div
   br i1 %cmp2, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end

@@ -23,19 +23,19 @@ define ptr @Cudd_addIte(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 define ptr @cuddAddIteRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %1
+  %7 = icmp eq ptr %1, %6
   br i1 %7, label %123, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %123, label %addVarToConst.exit
 
 addVarToConst.exit:                               ; preds = %8
-  %12 = icmp eq ptr %2, %1
+  %12 = icmp eq ptr %1, %2
   %spec.select = select i1 %12, ptr %6, ptr %2
-  %13 = icmp eq ptr %3, %1
+  %13 = icmp eq ptr %1, %3
   %.0133 = select i1 %13, ptr %10, ptr %3
   %14 = icmp eq ptr %spec.select, %.0133
   br i1 %14, label %123, label %15
@@ -236,19 +236,19 @@ addVarToConst.exit:                               ; preds = %8
 define ptr @Cudd_addIteConstant(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %1
+  %7 = icmp eq ptr %1, %6
   br i1 %7, label %96, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %96, label %addVarToConst.exit
 
 addVarToConst.exit:                               ; preds = %8
-  %12 = icmp eq ptr %2, %1
+  %12 = icmp eq ptr %1, %2
   %spec.select = select i1 %12, ptr %6, ptr %2
-  %13 = icmp eq ptr %3, %1
+  %13 = icmp eq ptr %1, %3
   %.0103 = select i1 %13, ptr %10, ptr %3
   %14 = icmp eq ptr %spec.select, %.0103
   br i1 %14, label %96, label %15
@@ -408,7 +408,7 @@ declare void @cuddCacheInsert(ptr noundef, i64 noundef, ptr noundef, ptr noundef
 define ptr @Cudd_addEvalConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %common.ret83, label %7
 
 7:                                                ; preds = %3
@@ -419,7 +419,7 @@ define ptr @Cudd_addEvalConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
@@ -556,7 +556,7 @@ define ptr @cuddAddCmplRecur(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %7, %1
+  %10 = icmp eq ptr %1, %7
   %. = select i1 %10, ptr %9, ptr %7
   br label %48
 
@@ -660,24 +660,24 @@ define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noun
 18:                                               ; preds = %8
   %19 = getelementptr inbounds i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, %1
+  %21 = icmp eq ptr %1, %20
   br i1 %21, label %85, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, %1
+  %25 = icmp eq ptr %1, %24
   br i1 %25, label %85, label %26
 
 26:                                               ; preds = %._crit_edge, %22
   %27 = phi ptr [ %.pre, %._crit_edge ], [ %24, %22 ]
-  %28 = icmp eq ptr %27, %2
+  %28 = icmp eq ptr %2, %27
   br i1 %28, label %85, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %0, i64 64
   %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, %2
+  %32 = icmp eq ptr %2, %31
   br i1 %32, label %85, label %33
 
 33:                                               ; preds = %29

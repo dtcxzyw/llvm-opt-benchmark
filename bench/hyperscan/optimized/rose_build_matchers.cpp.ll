@@ -5681,7 +5681,7 @@ define internal fastcc noundef i64 @_ZN3ue2L22literalMinReportOffsetERKNS_13Rose
 entry:
   %ref.tmp45 = alloca %"struct.ue2::suffix_id", align 8
   %conv.i = zext i32 %lit.116.val to i64
-  %add.i = add i64 %conv.i, %lit.8.val
+  %add.i = add i64 %lit.8.val, %conv.i
   %cmp.not.i.i = icmp ult i64 %add.i, 4294967296
   br i1 %cmp.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %if.then.i.i
 

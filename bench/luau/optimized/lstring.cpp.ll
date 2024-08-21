@@ -423,7 +423,7 @@ _Z9luaS_hashPKcm.exit:                            ; preds = %.lr.ph46.i, %.prehe
   %39 = getelementptr inbounds i8, ptr %.028, i64 20
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
-  %42 = icmp eq i64 %41, %2
+  %42 = icmp eq i64 %2, %41
   br i1 %42, label %43, label %57
 
 43:                                               ; preds = %.lr.ph

@@ -576,7 +576,7 @@ if.end61:                                         ; preds = %lor.lhs.false55
   br i1 %cmp65, label %return, label %if.end67
 
 if.end67:                                         ; preds = %if.end61
-  %cmp68 = icmp sgt i32 %add, %length
+  %cmp68 = icmp slt i32 %length, %add
   br i1 %cmp68, label %if.then69, label %if.end70
 
 if.then69:                                        ; preds = %if.end67

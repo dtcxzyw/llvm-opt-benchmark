@@ -279,13 +279,13 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %cfg.07 = phi ptr [ %cfg.0, %for.inc ], [ %cfg.05, %entry ]
   %0 = load i8, ptr %cfg.07, align 8
-  %cmp = icmp eq i8 %0, %select
+  %cmp = icmp eq i8 %select, %0
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
   %subsel6 = getelementptr inbounds i8, ptr %cfg.07, i64 1
   %1 = load i8, ptr %subsel6, align 1
-  %cmp8 = icmp eq i8 %1, %subsel
+  %cmp8 = icmp eq i8 %subsel, %1
   br i1 %cmp8, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
@@ -313,13 +313,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %cfg.07.i = phi ptr [ %cfg.0.i, %for.inc.i ], [ %cfg.05.i, %entry ]
   %2 = load i8, ptr %cfg.07.i, align 8
-  %cmp.i = icmp eq i8 %2, %0
+  %cmp.i = icmp eq i8 %0, %2
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %subsel6.i = getelementptr inbounds i8, ptr %cfg.07.i, i64 1
   %3 = load i8, ptr %subsel6.i, align 1
-  %cmp8.i = icmp eq i8 %3, %1
+  %cmp8.i = icmp eq i8 %1, %3
   br i1 %cmp8.i, label %if.then, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
@@ -383,13 +383,13 @@ while.body:                                       ; preds = %entry, %virtio_inpu
 for.body.i.i:                                     ; preds = %while.body, %for.inc.i.i
   %cfg.07.i.i = phi ptr [ %cfg.0.i.i, %for.inc.i.i ], [ %cfg.05.i.i, %while.body ]
   %3 = load i8, ptr %cfg.07.i.i, align 8
-  %cmp.i.i = icmp eq i8 %3, %1
+  %cmp.i.i = icmp eq i8 %1, %3
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %subsel6.i.i = getelementptr inbounds i8, ptr %cfg.07.i.i, i64 1
   %4 = load i8, ptr %subsel6.i.i, align 1
-  %cmp8.i.i = icmp eq i8 %4, %2
+  %cmp8.i.i = icmp eq i8 %2, %4
   br i1 %cmp8.i.i, label %if.then.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
@@ -453,13 +453,13 @@ if.end:                                           ; preds = %entry
 for.body.i.i:                                     ; preds = %if.end, %for.inc.i.i
   %cfg.07.i.i = phi ptr [ %cfg.0.i.i, %for.inc.i.i ], [ %cfg.05.i.i, %if.end ]
   %2 = load i8, ptr %cfg.07.i.i, align 8
-  %cmp.i.i = icmp eq i8 %2, %0
+  %cmp.i.i = icmp eq i8 %0, %2
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %subsel6.i.i = getelementptr inbounds i8, ptr %cfg.07.i.i, i64 1
   %3 = load i8, ptr %subsel6.i.i, align 1
-  %cmp8.i.i = icmp eq i8 %3, %1
+  %cmp8.i.i = icmp eq i8 %1, %3
   br i1 %cmp8.i.i, label %if.then.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
@@ -720,13 +720,13 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %cfg.07.i = phi ptr [ %cfg.0.i, %for.inc.i ], [ %cfg.05.i, %entry ]
   %2 = load i8, ptr %cfg.07.i, align 8
-  %cmp.i = icmp eq i8 %2, %0
+  %cmp.i = icmp eq i8 %0, %2
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %subsel6.i = getelementptr inbounds i8, ptr %cfg.07.i, i64 1
   %3 = load i8, ptr %subsel6.i, align 1
-  %cmp8.i = icmp eq i8 %3, %1
+  %cmp8.i = icmp eq i8 %1, %3
   br i1 %cmp8.i, label %if.then, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i

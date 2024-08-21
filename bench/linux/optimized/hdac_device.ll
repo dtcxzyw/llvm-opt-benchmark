@@ -755,7 +755,7 @@ declare dso_local i32 @snd_hdac_bus_exec_verb(ptr noundef, i32 noundef, i32 noun
 define dso_local i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = zext i16 %1 to i32
   %6 = shl i32 %5, 20
-  %7 = or i32 %6, %2
+  %7 = or i32 %2, %6
   %8 = or i32 %7, 983040
   %9 = tail call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %8, ptr noundef %3) #9
   ret i32 %9
@@ -771,7 +771,7 @@ define dso_local i32 @snd_hdac_read_parm_uncached(ptr noundef %0, i16 noundef ze
   store i32 0, ptr %4, align 4, !annotation !6
   %5 = zext i16 %1 to i32
   %6 = shl i32 %5, 20
-  %7 = or i32 %6, %2
+  %7 = or i32 %2, %6
   %8 = or i32 %7, 983040
   %9 = call i32 @snd_hdac_regmap_read_raw_uncached(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %4) #9
   %10 = load i32, ptr %4, align 4
@@ -794,7 +794,7 @@ define dso_local i32 @snd_hdac_override_parm(ptr noundef %0, i16 noundef zeroext
 8:                                                ; preds = %4
   %9 = zext i16 %1 to i32
   %10 = shl i32 %9, 20
-  %11 = or i32 %10, %2
+  %11 = or i32 %2, %10
   %12 = or i32 %11, 983040
   %13 = getelementptr inbounds i8, ptr %0, i64 944
   %14 = load i8, ptr %13, align 8

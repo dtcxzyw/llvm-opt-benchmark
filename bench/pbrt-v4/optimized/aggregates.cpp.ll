@@ -1364,7 +1364,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %t1.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %retval.sroa.0.4.vec.insert.i.i24177185, i64 1
   %cmp.i1.i.i = fcmp olt float %add4.i.i, %t1.sroa.0.4.vec.extract.i.i
   %3 = select i1 %cmp.i1.i.i, float %add4.i.i, float %t1.sroa.0.4.vec.extract.i.i
-  %cmp.i3.i.i = fcmp ogt float %.sroa.speculated.i.i178184, %add6.i.i
+  %cmp.i3.i.i = fcmp olt float %add6.i.i, %.sroa.speculated.i.i178184
   %.sroa.speculated.i.i = select i1 %cmp.i3.i.i, float %add6.i.i, float %.sroa.speculated.i.i178184
   %retval.sroa.0.0.vec.insert.i.i23 = insertelement <2 x float> poison, float %2, i64 0
   %retval.sroa.0.4.vec.insert.i.i24 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i23, float %3, i64 1
@@ -2392,7 +2392,7 @@ for.body32:                                       ; preds = %for.cond30.preheade
   %t1.sroa.0.4.vec.extract.i.i119 = extractelement <2 x float> %centroidBounds.sroa.0.0584, i64 1
   %cmp.i1.i.i120 = fcmp olt float %add4.i.i, %t1.sroa.0.4.vec.extract.i.i119
   %31 = select i1 %cmp.i1.i.i120, float %add4.i.i, float %t1.sroa.0.4.vec.extract.i.i119
-  %cmp.i3.i.i121 = fcmp ogt float %centroidBounds.sroa.11.0583, %add6.i.i
+  %cmp.i3.i.i121 = fcmp olt float %add6.i.i, %centroidBounds.sroa.11.0583
   %.sroa.speculated.i.i122 = select i1 %cmp.i3.i.i121, float %add6.i.i, float %centroidBounds.sroa.11.0583
   %retval.sroa.0.0.vec.insert.i.i123 = insertelement <2 x float> poison, float %30, i64 0
   %retval.sroa.0.4.vec.insert.i.i124 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i123, float %31, i64 1
@@ -4024,7 +4024,7 @@ _ZNSt8functionIFvlEED2Ev.exit440:                 ; preds = %lpad.body, %if.then
 if.else258:                                       ; preds = %sw.epilog
   %138 = load i32, ptr %mid, align 4
   %conv260 = sext i32 %138 to i64
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %121, i64 %conv260)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %conv260, i64 %121)
   %139 = load ptr, ptr %bvhPrimitives, align 8
   %140 = load ptr, ptr %totalNodes.addr, align 8
   %141 = load ptr, ptr %orderedPrimsOffset.addr, align 8
@@ -5811,7 +5811,7 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
   %t1.sroa.0.4.vec.extract.i.i96 = extractelement <2 x float> %centroidBounds.sroa.0.0452, i64 1
   %cmp.i1.i.i97 = fcmp olt float %mul2.i, %t1.sroa.0.4.vec.extract.i.i96
   %21 = select i1 %cmp.i1.i.i97, float %mul2.i, float %t1.sroa.0.4.vec.extract.i.i96
-  %cmp.i3.i.i98 = fcmp ogt float %centroidBounds.sroa.12.0451, %mul3.i
+  %cmp.i3.i.i98 = fcmp olt float %mul3.i, %centroidBounds.sroa.12.0451
   %.sroa.speculated.i.i99 = select i1 %cmp.i3.i.i98, float %mul3.i, float %centroidBounds.sroa.12.0451
   %retval.sroa.0.0.vec.insert.i.i100 = insertelement <2 x float> poison, float %20, i64 0
   %retval.sroa.0.4.vec.insert.i.i101 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i100, float %21, i64 1
@@ -6242,7 +6242,7 @@ while.end18.i.i:                                  ; preds = %if.else11.i.i
   %conv172 = trunc i64 %sub.ptr.div to i32
   store i32 %conv172, ptr %va174, align 4
   store i32 %start, ptr %vb175, align 4
-  %cmp176 = icmp sgt i32 %conv172, %start
+  %cmp176 = icmp slt i32 %start, %conv172
   br i1 %cmp176, label %do.body180, label %if.then177
 
 if.then177:                                       ; preds = %"_ZSt9partitionIPPN4pbrt12BVHBuildNodeEZNKS0_12BVHAggregate13buildUpperSAHEN4pstd3pmr21polymorphic_allocatorISt4byteEERSt6vectorIS2_SaIS2_EEiiPSt6atomicIiEE3$_0ET_SI_SI_T0_.exit"
@@ -6252,7 +6252,7 @@ if.then177:                                       ; preds = %"_ZSt9partitionIPPN
 do.body180:                                       ; preds = %"_ZSt9partitionIPPN4pbrt12BVHBuildNodeEZNKS0_12BVHAggregate13buildUpperSAHEN4pstd3pmr21polymorphic_allocatorISt4byteEERSt6vectorIS2_SaIS2_EEiiPSt6atomicIiEE3$_0ET_SI_SI_T0_.exit"
   store i32 %conv172, ptr %va181, align 4
   store i32 %end, ptr %vb182, align 4
-  %cmp183 = icmp slt i32 %conv172, %end
+  %cmp183 = icmp sgt i32 %end, %conv172
   br i1 %cmp183, label %do.end186, label %if.then184
 
 if.then184:                                       ; preds = %do.body180
@@ -6341,7 +6341,7 @@ entry:
 do.end.lr.ph:                                     ; preds = %entry
   %0 = load i32, ptr %this, align 8
   %.fr = freeze i32 %0
-  %cmp3 = icmp sgt i32 %.fr, %nPrimitives
+  %cmp3 = icmp slt i32 %nPrimitives, %.fr
   %sub = add nsw i32 %nPrimitives, -1
   %cmp2.us75 = icmp eq i32 %bitIndex, -1
   %or.cond = or i1 %cmp3, %cmp2.us75
@@ -8341,7 +8341,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -8409,7 +8409,7 @@ _ZNSt12_Vector_baseIN4pbrt9BoundEdgeESaIS1_EE13_M_deallocateEPS1_m.exit24.i: ; p
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -8440,7 +8440,7 @@ entry:
   %nextFreeNode = getelementptr inbounds i8, ptr %this, i64 76
   %0 = load i32, ptr %nextFreeNode, align 4
   store i32 %0, ptr %vb, align 4
-  %cmp = icmp eq i32 %0, %nodeNum
+  %cmp = icmp eq i32 %nodeNum, %0
   %.sink390.sroa.gep = getelementptr inbounds i8, ptr %bounds0, i64 12
   %.sink390.sroa.gep397 = getelementptr inbounds i8, ptr %bounds0, i64 16
   %.sink390.sroa.gep398 = getelementptr inbounds i8, ptr %bounds0, i64 20
@@ -8453,7 +8453,7 @@ if.then:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %nAllocedNodes = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load i32, ptr %nAllocedNodes, align 8
-  %cmp3 = icmp eq i32 %1, %nodeNum
+  %cmp3 = icmp eq i32 %nodeNum, %1
   br i1 %cmp3, label %if.then4, label %if.end18
 
 if.then4:                                         ; preds = %do.end
@@ -8493,7 +8493,7 @@ if.end18:                                         ; preds = %if.end15, %do.end
   %maxPrims = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i32, ptr %maxPrims, align 8
   %conv21 = sext i32 %5 to i64
-  %cmp22 = icmp uge i64 %conv21, %primNums.coerce1
+  %cmp22 = icmp ule i64 %primNums.coerce1, %conv21
   %cmp23 = icmp eq i32 %depth, 0
   %or.cond = or i1 %cmp23, %cmp22
   br i1 %or.cond, label %if.then24, label %if.end26
@@ -8510,7 +8510,7 @@ if.then24:                                        ; preds = %if.end18
 if.end26:                                         ; preds = %if.end18
   %7 = load i32, ptr %this, align 8
   %conv27 = sext i32 %7 to i64
-  %mul29 = mul i64 %conv27, %primNums.coerce1
+  %mul29 = mul i64 %primNums.coerce1, %conv27
   %conv30 = uitofp i64 %mul29 to float
   %pMax.i.i = getelementptr inbounds i8, ptr %nodeBounds, i64 12
   %agg.tmp.sroa.0.0.copyload.i.i = load <2 x float>, ptr %nodeBounds, align 4
@@ -8668,7 +8668,7 @@ while.cond.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %__next.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i.i.i.i, i64 -12
   %type4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i.i.i.i, i64 -4
   %19 = load float, ptr %__next.sroa.0.0.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i3.i.i.i.i = fcmp ogt float %19, %16
+  %cmp.i.i.i.i.i3.i.i.i.i = fcmp olt float %16, %19
   br i1 %cmp.i.i.i.i.i3.i.i.i.i, label %while.body.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i.i.i:                        ; preds = %while.cond.i.i.i.i.i
@@ -8677,7 +8677,7 @@ lor.rhs.i.i.i.i.i.i.i.i.i:                        ; preds = %while.cond.i.i.i.i.
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4pbrt15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKSt6vectorIS5_SaIS5_EEN4pstd4spanIKiEEiPS8_INS2_9BoundEdgeESaISH_EENSE_IiEESL_iE3$_0EclISH_NS_17__normal_iteratorIPSH_SJ_EEEEbRT_T0_.exit.i.i.i.i.i": ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i
   %20 = load i32, ptr %type4.i.i.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp sgt i32 %20, %__val.sroa.38.0.copyload.i.pre.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %__val.sroa.38.0.copyload.i.pre.i.i.i.i, %20
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISD_SaISD_EEN4pstd4spanIKiEEiPS7_NSL_IiEESP_iE3$_0EEEvT_T0_.exit.i.i.i.i"
 
 while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4pbrt15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKSt6vectorIS5_SaIS5_EEN4pstd4spanIKiEEiPS8_INS2_9BoundEdgeESaISH_EENSE_IiEESL_iE3$_0EclISH_NS_17__normal_iteratorIPSH_SJ_EEEEbRT_T0_.exit.i.i.i.i.i", %while.cond.i.i.i.i.i
@@ -8719,7 +8719,7 @@ while.cond.i.i7.i.i.i:                            ; preds = %while.body.i.i19.i.
   %__next.sroa.0.0.i.i9.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i8.i.i.i, i64 -12
   %type4.i.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i8.i.i.i, i64 -4
   %21 = load float, ptr %__next.sroa.0.0.i.i9.i.i.i, align 4
-  %cmp.i.i.i.i.i.i11.i.i.i = fcmp ogt float %21, %__val.sroa.0.0.copyload.i.i.i.i.i
+  %cmp.i.i.i.i.i.i11.i.i.i = fcmp olt float %__val.sroa.0.0.copyload.i.i.i.i.i, %21
   br i1 %cmp.i.i.i.i.i.i11.i.i.i, label %while.body.i.i19.i.i.i, label %lor.rhs.i.i.i.i.i.i12.i.i.i
 
 lor.rhs.i.i.i.i.i.i12.i.i.i:                      ; preds = %while.cond.i.i7.i.i.i
@@ -8728,7 +8728,7 @@ lor.rhs.i.i.i.i.i.i12.i.i.i:                      ; preds = %while.cond.i.i7.i.i
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4pbrt15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKSt6vectorIS5_SaIS5_EEN4pstd4spanIKiEEiPS8_INS2_9BoundEdgeESaISH_EENSE_IiEESL_iE3$_0EclISH_NS_17__normal_iteratorIPSH_SJ_EEEEbRT_T0_.exit.i.i14.i.i.i": ; preds = %lor.rhs.i.i.i.i.i.i12.i.i.i
   %22 = load i32, ptr %type4.i.i.i.i10.i.i.i, align 4
-  %cmp.i.i.i.i.i.i.i15.i.i.i = icmp sgt i32 %22, %__val.sroa.38.0.copyload.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i15.i.i.i = icmp slt i32 %__val.sroa.38.0.copyload.i.i.i.i.i, %22
   br i1 %cmp.i.i.i.i.i.i.i15.i.i.i, label %while.body.i.i19.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISD_SaISD_EEN4pstd4spanIKiEEiPS7_NSL_IiEESP_iE3$_0EEEvT_T0_.exit.i16.i.i.i"
 
 while.body.i.i19.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4pbrt15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKSt6vectorIS5_SaIS5_EEN4pstd4spanIKiEEiPS8_INS2_9BoundEdgeESaISH_EENSE_IiEESL_iE3$_0EclISH_NS_17__normal_iteratorIPSH_SJ_EEEEbRT_T0_.exit.i.i14.i.i.i", %while.cond.i.i7.i.i.i
@@ -8791,7 +8791,7 @@ while.cond.i.i41.i.i.i:                           ; preds = %while.body.i.i56.i.
   %__next.sroa.0.0.i.i43.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i42.i.i.i, i64 -12
   %type4.i.i.i.i44.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i42.i.i.i, i64 -4
   %26 = load float, ptr %__next.sroa.0.0.i.i43.i.i.i, align 4
-  %cmp.i.i.i.i.i3.i45.i.i.i = fcmp ogt float %26, %23
+  %cmp.i.i.i.i.i3.i45.i.i.i = fcmp olt float %23, %26
   br i1 %cmp.i.i.i.i.i3.i45.i.i.i, label %while.body.i.i56.i.i.i, label %lor.rhs.i.i.i.i.i.i46.i.i.i
 
 lor.rhs.i.i.i.i.i.i46.i.i.i:                      ; preds = %while.cond.i.i41.i.i.i
@@ -8800,7 +8800,7 @@ lor.rhs.i.i.i.i.i.i46.i.i.i:                      ; preds = %while.cond.i.i41.i.
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4pbrt15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKSt6vectorIS5_SaIS5_EEN4pstd4spanIKiEEiPS8_INS2_9BoundEdgeESaISH_EENSE_IiEESL_iE3$_0EclISH_NS_17__normal_iteratorIPSH_SJ_EEEEbRT_T0_.exit.i.i48.i.i.i": ; preds = %lor.rhs.i.i.i.i.i.i46.i.i.i
   %27 = load i32, ptr %type4.i.i.i.i44.i.i.i, align 4
-  %cmp.i.i.i.i.i.i.i49.i.i.i = icmp sgt i32 %27, %__val.sroa.38.0.copyload.i.pre.i35.i.i.i
+  %cmp.i.i.i.i.i.i.i49.i.i.i = icmp slt i32 %__val.sroa.38.0.copyload.i.pre.i35.i.i.i, %27
   br i1 %cmp.i.i.i.i.i.i.i49.i.i.i, label %while.body.i.i56.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISD_SaISD_EEN4pstd4spanIKiEEiPS7_NSL_IiEESP_iE3$_0EEEvT_T0_.exit.i50.i.i.i"
 
 while.body.i.i56.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4pbrt15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKSt6vectorIS5_SaIS5_EEN4pstd4spanIKiEEiPS8_INS2_9BoundEdgeESaISH_EENSE_IiEESL_iE3$_0EclISH_NS_17__normal_iteratorIPSH_SJ_EEEEbRT_T0_.exit.i.i48.i.i.i", %while.cond.i.i41.i.i.i
@@ -9085,7 +9085,7 @@ for.end154:                                       ; preds = %if.end143, %"_ZSt4s
   %bestOffset.1.lcssa = phi i32 [ %bestOffset.0, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit" ], [ %bestOffset.2, %if.end143 ]
   %bestAxis.1.lcssa = phi i32 [ -1, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit" ], [ %bestAxis.2, %if.end143 ]
   %conv155 = sext i32 %nBelow.0.lcssa to i64
-  %cmp156 = icmp eq i64 %conv155, %primNums.coerce1
+  %cmp156 = icmp eq i64 %primNums.coerce1, %conv155
   %cmp158 = icmp eq i32 %nAbove.0.lcssa, 0
   %or.cond2 = select i1 %cmp156, i1 %cmp158, i1 false
   br i1 %or.cond2, label %land.end, label %land.rhs
@@ -9110,7 +9110,7 @@ if.then162:                                       ; preds = %land.end
 if.end166:                                        ; preds = %land.end
   %cmp167 = fcmp ogt float %bestCost.1.lcssa, %conv30
   %inc169 = zext i1 %cmp167 to i32
-  %badRefines.addr.0 = add nsw i32 %inc169, %badRefines
+  %badRefines.addr.0 = add nsw i32 %badRefines, %inc169
   %mul171 = fmul float %conv30, 4.000000e+00
   %cmp172 = fcmp ogt float %bestCost.1.lcssa, %mul171
   %cmp174 = icmp ult i64 %primNums.coerce1, 16
@@ -9245,7 +9245,7 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249:        ; preds = %_ZN4pbrt6Tuple3INS_
   %add243 = add nsw i32 %nodeNum, 1
   %n.i.i = getelementptr inbounds i8, ptr %prims0, i64 8
   %53 = load i64, ptr %n.i.i, align 8
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %53, i64 %n0.0.lcssa)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %n0.0.lcssa, i64 %53)
   %54 = load ptr, ptr %prims0, align 8
   %sub248 = add nsw i32 %depth, -1
   %n.i.i255 = getelementptr inbounds i8, ptr %prims1, i64 8
@@ -9267,7 +9267,7 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249:        ; preds = %_ZN4pbrt6Tuple3INS_
   %or.i = or i32 %shl.i, %bestAxis.1.lcssa
   %flags.i = getelementptr inbounds i8, ptr %arrayidx256, i64 4
   store i32 %or.i, ptr %flags.i, align 4
-  %spec.select.i263 = tail call i64 @llvm.umin.i64(i64 %55, i64 %n1.0.lcssa)
+  %spec.select.i263 = tail call i64 @llvm.umin.i64(i64 %n1.0.lcssa, i64 %55)
   store ptr %add.ptr.i258, ptr %agg.tmp263, align 8
   %60 = getelementptr inbounds i8, ptr %agg.tmp263, i64 8
   store i64 %sub.i256, ptr %60, align 8
@@ -9562,7 +9562,7 @@ if.end:                                           ; preds = %_ZNK4pbrt7Bounds3If
   %nodes = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %nodes, align 8
   %tobool.not167 = icmp eq ptr %2, null
-  %cmp168 = fcmp ogt float %cond.i, %rayTMax
+  %cmp168 = fcmp olt float %rayTMax, %cond.i
   %or.cond49169 = or i1 %tobool.not167, %cmp168
   br i1 %or.cond49169, label %while.end, label %if.end9.lr.ph
 
@@ -15647,7 +15647,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -15862,7 +15862,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -16092,7 +16092,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %spec.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 %conv.i.i.i)
+  %spec.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %conv.i.i.i, i64 %10)
   %12 = getelementptr inbounds i8, ptr %__functor.val, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
@@ -24205,7 +24205,7 @@ while.body.i.i.i:                                 ; preds = %"_ZSt13__adjust_hea
   %__value.sroa.0.0.copyload.i.i.i = load i64, ptr %phi.call.i.i.i, align 4
   %__value.sroa.2.0.call5.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %phi.call.i.i.i, i64 8
   %__value.sroa.2.0.copyload.i.i.i = load i32, ptr %__value.sroa.2.0.call5.sroa_idx.i.i.i, align 4
-  %cmp31.i.i.i.i = icmp sgt i64 %div.i78.i.i.i, %__parent.0.i.i.i
+  %cmp31.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i78.i.i.i
   br i1 %cmp31.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKSt6vectorIS5_SaIS5_EEN4pstd4spanIKiEEiPS8_INS2_9BoundEdgeESaISH_EENSE_IiEESL_iE3$_0EclINS_17__normal_iteratorIPSH_SJ_EESR_EEbT_T0_.exit.thread29.i.i.i.i"

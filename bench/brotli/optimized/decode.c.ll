@@ -4025,7 +4025,7 @@ while.cond.i1437.i:                               ; preds = %while.cond.i1437.i,
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %arrayidx2.i.i = getelementptr inbounds [16 x i32], ptr %chunk_offsets.i.i, i64 0, i64 %indvars.iv.next.i.i
   %560 = load i32, ptr %arrayidx2.i.i, align 4
-  %cmp.not.i.i = icmp sgt i32 %560, %sub254.i.i
+  %cmp.not.i.i = icmp slt i32 %sub254.i.i, %560
   br i1 %cmp.not.i.i, label %while.end.i1438.i, label %while.cond.i1437.i, !llvm.loop !26
 
 while.end.i1438.i:                                ; preds = %while.cond.i1437.i
@@ -6685,7 +6685,7 @@ while.cond.i1621.i:                               ; preds = %while.cond.i1621.i,
   %indvars.iv.next.i.i989 = add nuw nsw i64 %indvars.iv.i.i988, 1
   %arrayidx2.i.i990 = getelementptr inbounds [16 x i32], ptr %chunk_offsets.i.i987, i64 0, i64 %indvars.iv.next.i.i989
   %972 = load i32, ptr %arrayidx2.i.i990, align 4
-  %cmp.not.i.i991 = icmp sgt i32 %972, %sub254.i.i982
+  %cmp.not.i.i991 = icmp slt i32 %sub254.i.i982, %972
   br i1 %cmp.not.i.i991, label %while.end.i1622.i, label %while.cond.i1621.i, !llvm.loop !26
 
 while.end.i1622.i:                                ; preds = %while.cond.i1621.i

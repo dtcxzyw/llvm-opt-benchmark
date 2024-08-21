@@ -254,7 +254,7 @@ define dso_local noundef i32 @_ZN10Bookkeeper24stat_blk_depths_for_stmtEPK9State
 
 15:                                               ; preds = %5
   %16 = add nsw i64 %14, 1
-  %17 = icmp ult i64 %13, %16
+  %17 = icmp ugt i64 %16, %13
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
@@ -263,7 +263,7 @@ define dso_local noundef i32 @_ZN10Bookkeeper24stat_blk_depths_for_stmtEPK9State
   br label %.lr.ph.i.preheader
 
 20:                                               ; preds = %15
-  %21 = icmp ugt i64 %13, %16
+  %21 = icmp ult i64 %16, %13
   br i1 %21, label %22, label %.lr.ph.i.preheader
 
 22:                                               ; preds = %20
@@ -424,7 +424,7 @@ define dso_local void @_Z12incr_counterRSt6vectorIiSaIiEEi(ptr noundef nonnull a
 
 11:                                               ; preds = %2
   %12 = add nsw i64 %10, 1
-  %13 = icmp ult i64 %9, %12
+  %13 = icmp ugt i64 %12, %9
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
@@ -433,7 +433,7 @@ define dso_local void @_Z12incr_counterRSt6vectorIiSaIiEEi(ptr noundef nonnull a
   br label %.lr.ph.preheader
 
 16:                                               ; preds = %11
-  %17 = icmp ugt i64 %9, %12
+  %17 = icmp ult i64 %12, %9
   br i1 %17, label %18, label %.lr.ph.preheader
 
 18:                                               ; preds = %16
@@ -1411,7 +1411,7 @@ define dso_local void @_ZN10Bookkeeper25stat_expr_depths_for_stmtEPK9Statement(p
 
 25:                                               ; preds = %17
   %26 = add nsw i64 %24, 1
-  %27 = icmp ult i64 %23, %26
+  %27 = icmp ugt i64 %26, %23
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
@@ -1420,7 +1420,7 @@ define dso_local void @_ZN10Bookkeeper25stat_expr_depths_for_stmtEPK9Statement(p
           to label %.lr.ph.i.preheader unwind label %.loopexit.split-lp.loopexit
 
 30:                                               ; preds = %25
-  %31 = icmp ugt i64 %23, %26
+  %31 = icmp ult i64 %26, %23
   br i1 %31, label %32, label %.lr.ph.i.preheader
 
 32:                                               ; preds = %30
@@ -2003,7 +2003,7 @@ define dso_local void @_ZN10Bookkeeper26record_vars_with_bitfieldsEPK4Type(ptr n
 
 16:                                               ; preds = %7
   %17 = add nsw i64 %15, 1
-  %18 = icmp ult i64 %14, %17
+  %18 = icmp ugt i64 %17, %14
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %16
@@ -2012,7 +2012,7 @@ define dso_local void @_ZN10Bookkeeper26record_vars_with_bitfieldsEPK4Type(ptr n
   br label %.lr.ph.i.preheader
 
 21:                                               ; preds = %16
-  %22 = icmp ugt i64 %14, %17
+  %22 = icmp ult i64 %17, %14
   br i1 %22, label %23, label %.lr.ph.i.preheader
 
 23:                                               ; preds = %21
@@ -2061,7 +2061,7 @@ _Z12incr_counterRSt6vectorIiSaIiEEi.exit:         ; preds = %_Z12incr_counterRSt
 
 41:                                               ; preds = %34
   %42 = add nsw i64 %15, 1
-  %43 = icmp ult i64 %40, %42
+  %43 = icmp ugt i64 %42, %40
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %41
@@ -2070,7 +2070,7 @@ _Z12incr_counterRSt6vectorIiSaIiEEi.exit:         ; preds = %_Z12incr_counterRSt
   br label %.lr.ph.i8.preheader
 
 46:                                               ; preds = %41
-  %47 = icmp ugt i64 %40, %42
+  %47 = icmp ult i64 %42, %40
   br i1 %47, label %48, label %.lr.ph.i8.preheader
 
 48:                                               ; preds = %46

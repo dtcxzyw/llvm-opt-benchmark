@@ -1084,7 +1084,7 @@ define internal fastcc i32 @Abc_BddUniqueCreateInt(ptr nocapture noundef %0, i32
   %25 = getelementptr inbounds i8, ptr %19, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
-  %28 = icmp eq i32 %27, %1
+  %28 = icmp eq i32 %1, %27
   br i1 %28, label %29, label %42
 
 29:                                               ; preds = %22

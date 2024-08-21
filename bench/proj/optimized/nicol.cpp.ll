@@ -72,7 +72,7 @@ define internal { double, double } @_ZL15nicol_s_forward5PJ_LPP8PJconsts(double 
 
 13:                                               ; preds = %9
   %14 = tail call double @cos(double noundef %1) #7
-  %15 = fmul double %14, %0
+  %15 = fmul double %0, %14
   %16 = tail call double @sin(double noundef %1) #7
   %17 = fmul double %16, 0x3FF921FB54442D18
   br label %66

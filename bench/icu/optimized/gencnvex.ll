@@ -873,7 +873,7 @@ cond.end28:                                       ; preds = %cond.false23, %cond
   %spec.select = add nuw nsw i32 %uniqueCount.0114, %inc
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %limit
+  %exitcond.not = icmp eq i32 %limit, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %cond.end28
@@ -1745,7 +1745,7 @@ cond.end26:                                       ; preds = %for.body, %cond.fal
   %spec.select = add nuw nsw i32 %uniqueCount.090, %inc
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %limit
+  %exitcond.not = icmp eq i32 %limit, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %cond.end26, %cond.end

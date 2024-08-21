@@ -781,7 +781,7 @@ agxblen.exit.i.i:                                 ; preds = %269, %agxbsizeof.ex
   %.0.i30.i.i = phi i64 [ 31, %agxbsizeof.exit.i.i ], [ %271, %269 ]
   %.0.i24.i.i = phi i64 [ %268, %agxbsizeof.exit.i.i ], [ %273, %269 ]
   %274 = sub i64 %.0.i30.i.i, %.0.i24.i.i
-  %275 = icmp ult i64 %274, %264
+  %275 = icmp ugt i64 %264, %274
   br i1 %275, label %276, label %277
 
 276:                                              ; preds = %agxblen.exit.i.i
@@ -1849,7 +1849,7 @@ declare ptr @agsubg(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @setGraphAttr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = load ptr, ptr @root, align 8
-  %6 = icmp eq ptr %5, %0
+  %6 = icmp eq ptr %0, %5
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %4
@@ -1891,7 +1891,7 @@ define internal fastcc void @setGraphAttr(ptr noundef %0, ptr noundef %1, ptr no
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr @root, align 8
-  %27 = icmp eq ptr %26, %0
+  %27 = icmp eq ptr %0, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
@@ -2380,7 +2380,7 @@ define internal fastcc void @setGlobalNodeAttr(ptr noundef %0, ptr noundef %1, p
 12:                                               ; preds = %10, %6
   %.0 = phi ptr [ %11, %10 ], [ %1, %6 ]
   %13 = load ptr, ptr @root, align 8
-  %.not = icmp eq ptr %13, %0
+  %.not = icmp eq ptr %0, %13
   br i1 %.not, label %19, label %14
 
 14:                                               ; preds = %12
@@ -2418,7 +2418,7 @@ define internal fastcc void @setGlobalEdgeAttr(ptr noundef %0, ptr noundef %1, p
 12:                                               ; preds = %10, %6
   %.0 = phi ptr [ %11, %10 ], [ %1, %6 ]
   %13 = load ptr, ptr @root, align 8
-  %.not = icmp eq ptr %13, %0
+  %.not = icmp eq ptr %0, %13
   br i1 %.not, label %19, label %14
 
 14:                                               ; preds = %12

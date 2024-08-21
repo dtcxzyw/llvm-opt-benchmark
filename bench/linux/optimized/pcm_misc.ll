@@ -216,7 +216,7 @@ define dso_local range(i64 -22, 2305843009213693952) i64 @snd_pcm_format_size(i3
   %10 = getelementptr [53 x %struct.pcm_format_data], ptr @pcm_formats, i64 0, i64 %5, i32 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = mul i64 %12, %1
+  %13 = mul i64 %1, %12
   %14 = lshr i64 %13, 3
   br label %.thread
 
@@ -275,7 +275,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_format_set_silence(i32 n
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %17
-  %24 = mul i32 %12, %2
+  %24 = mul i32 %2, %12
   %25 = lshr i32 %24, 3
   %26 = load i8, ptr %13, align 4
   %27 = zext nneg i32 %25 to i64

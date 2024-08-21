@@ -1518,7 +1518,7 @@ define internal range(i32 0, 36) i32 @BDF_Glyph_Load(ptr noundef %0, ptr nocaptu
   %11 = getelementptr inbounds i8, ptr %5, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
-  %.not43 = icmp ugt i32 %13, %2
+  %.not43 = icmp ult i32 %2, %13
   br i1 %.not43, label %14, label %68
 
 14:                                               ; preds = %4
@@ -2951,7 +2951,7 @@ bdf_list_ensure_.exit:                            ; preds = %67, %68
   %116 = add i64 %113, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %117 = icmp ult i64 %114, %116
+  %117 = icmp ugt i64 %116, %114
   br i1 %117, label %118, label %bdf_list_ensure_.exit104.thread
 
 118:                                              ; preds = %115

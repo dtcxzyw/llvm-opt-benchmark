@@ -73,7 +73,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4.not, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %cmp6 = icmp ugt i64 %call1, %outlen
+  %cmp6 = icmp ult i64 %outlen, %call1
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5

@@ -925,7 +925,7 @@ define hidden noundef zeroext i1 @_ZNK5Arena8containsEPKv(ptr nocapture noundef 
   %.not = icmp ule ptr %7, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp ugt ptr %9, %1
+  %10 = icmp ult ptr %1, %9
   %or.cond = select i1 %.not, i1 %10, i1 false
   br i1 %or.cond, label %.loopexit, label %11
 
@@ -949,7 +949,7 @@ define hidden noundef zeroext i1 @_ZNK5Arena8containsEPKv(ptr nocapture noundef 
   %17 = getelementptr inbounds i8, ptr %.020, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %15, i64 %18
-  %20 = icmp ugt ptr %19, %1
+  %20 = icmp ult ptr %1, %19
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %14, %16, %.lr.ph

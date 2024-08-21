@@ -2707,7 +2707,7 @@ define ptr @Gia_ManDupCofInt(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %3 = icmp sgt i32 %1, 0
   %4 = getelementptr i8, ptr %0, i64 24
   %.val129 = load i32, ptr %4, align 8
-  %5 = icmp sgt i32 %.val129, %1
+  %5 = icmp slt i32 %1, %.val129
   %or.cond = select i1 %3, i1 %5, i1 false
   br i1 %or.cond, label %7, label %._crit_edge
 

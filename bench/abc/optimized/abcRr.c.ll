@@ -1265,13 +1265,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %120 = add nsw i32 %.val3.i.i, 1
   %121 = getelementptr inbounds i8, ptr %.val2.i.i, i64 228
   %122 = load i32, ptr %121, align 4
-  %.not.i.not.i = icmp sgt i32 %122, %.val3.i.i
+  %.not.i.not.i = icmp slt i32 %.val3.i.i, %122
   br i1 %.not.i.not.i, label %Vec_IntFillExtra.exit.i, label %123
 
 123:                                              ; preds = %110
   %124 = load i32, ptr %119, align 8
   %125 = shl nsw i32 %124, 1
-  %.not83.i = icmp sgt i32 %125, %.val3.i.i
+  %.not83.i = icmp slt i32 %.val3.i.i, %125
   %.not.i.i.not.i = icmp sgt i32 %124, %.val3.i.i
   br i1 %.not83.i, label %138, label %126
 
@@ -1372,13 +1372,13 @@ Vec_IntFillExtra.exit.i:                          ; preds = %._crit_edge.i.i, %1
   %164 = add nsw i32 %.val65.i, 1
   %165 = getelementptr inbounds i8, ptr %.val.i.i, i64 228
   %166 = load i32, ptr %165, align 4
-  %.not.i69.not.i = icmp sgt i32 %166, %.val65.i
+  %.not.i69.not.i = icmp slt i32 %.val65.i, %166
   br i1 %.not.i69.not.i, label %Vec_IntFillExtra.exit82.i, label %167
 
 167:                                              ; preds = %162
   %168 = load i32, ptr %163, align 8
   %169 = shl nsw i32 %168, 1
-  %.not86.i = icmp sgt i32 %169, %.val65.i
+  %.not86.i = icmp slt i32 %.val65.i, %169
   %.not.i.i70.not.i = icmp sgt i32 %168, %.val65.i
   br i1 %.not86.i, label %182, label %170
 
@@ -1797,13 +1797,13 @@ Abc_NtkIncrementTravId.exit100:                   ; preds = %Abc_NtkRRTfi_int.ex
   %343 = add nsw i32 %.val3.i.i119, 1
   %344 = getelementptr inbounds i8, ptr %.val2.i.i118, i64 228
   %345 = load i32, ptr %344, align 4
-  %.not.i158.not = icmp sgt i32 %345, %.val3.i.i119
+  %.not.i158.not = icmp slt i32 %.val3.i.i119, %345
   br i1 %.not.i158.not, label %Vec_IntFillExtra.exit171, label %346
 
 346:                                              ; preds = %340
   %347 = load i32, ptr %342, align 8
   %348 = shl nsw i32 %347, 1
-  %.not180 = icmp sgt i32 %348, %.val3.i.i119
+  %.not180 = icmp slt i32 %.val3.i.i119, %348
   %.not.i.i159.not = icmp sgt i32 %347, %.val3.i.i119
   br i1 %.not180, label %361, label %349
 
@@ -1904,13 +1904,13 @@ Vec_IntFillExtra.exit171:                         ; preds = %340, %._crit_edge.i
   %387 = add nsw i32 %.val77.i, 1
   %388 = getelementptr inbounds i8, ptr %.val.i.i121, i64 228
   %389 = load i32, ptr %388, align 4
-  %.not.i151.not = icmp sgt i32 %389, %.val77.i
+  %.not.i151.not = icmp slt i32 %.val77.i, %389
   br i1 %.not.i151.not, label %Vec_IntFillExtra.exit, label %390
 
 390:                                              ; preds = %385
   %391 = load i32, ptr %386, align 8
   %392 = shl nsw i32 %391, 1
-  %.not182 = icmp sgt i32 %392, %.val77.i
+  %.not182 = icmp slt i32 %.val77.i, %392
   %.not.i.i.not = icmp sgt i32 %391, %.val77.i
   br i1 %.not182, label %405, label %393
 
@@ -2595,7 +2595,7 @@ define internal fastcc void @Abc_NtkRRUpdate(ptr nocapture noundef readonly %0, 
   %8 = sext i32 %.val30.val to i64
   %9 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %8
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %2
+  %11 = icmp eq ptr %2, %10
   %12 = getelementptr i8, ptr %.val30, i64 4
   %.val2.val.i = load i32, ptr %12, align 4
   %13 = sext i32 %.val2.val.i to i64
@@ -2604,7 +2604,7 @@ define internal fastcc void @Abc_NtkRRUpdate(ptr nocapture noundef readonly %0, 
   br i1 %11, label %.sink.split, label %16
 
 16:                                               ; preds = %4
-  %17 = icmp eq ptr %15, %2
+  %17 = icmp eq ptr %2, %15
   br i1 %17, label %.sink.split, label %24
 
 .sink.split:                                      ; preds = %16, %4
@@ -2643,7 +2643,7 @@ define internal fastcc void @Abc_NtkRRUpdate(ptr nocapture noundef readonly %0, 
   %34 = sext i32 %.val32.val to i64
   %35 = getelementptr inbounds ptr, ptr %.val31.val.val, i64 %34
   %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, %1
+  %37 = icmp eq ptr %1, %36
   br i1 %37, label %38, label %57
 
 38:                                               ; preds = %30
@@ -2677,7 +2677,7 @@ define internal fastcc void @Abc_NtkRRUpdate(ptr nocapture noundef readonly %0, 
   %59 = sext i32 %.val36.val to i64
   %60 = getelementptr inbounds ptr, ptr %.val31.val.val, i64 %59
   %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, %1
+  %62 = icmp eq ptr %1, %61
   br i1 %62, label %63, label %78
 
 63:                                               ; preds = %57
@@ -4220,13 +4220,13 @@ Vec_PtrGrow.exit.i38:                             ; preds = %90, %88
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

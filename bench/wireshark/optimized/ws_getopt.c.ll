@@ -339,7 +339,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
 28:                                               ; preds = %22, %25
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %0
+  %exitcond.not = icmp eq i32 %0, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 29:                                               ; preds = %25

@@ -1590,7 +1590,7 @@ define dso_local void @qdisc_tree_reduce_backlog(ptr nocapture noundef readonly 
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %9
-  %15 = or i32 %6, %1
+  %15 = or i32 %1, %6
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.split, label %.split.us
 

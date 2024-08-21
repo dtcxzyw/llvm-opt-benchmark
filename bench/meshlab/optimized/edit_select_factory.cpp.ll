@@ -231,7 +231,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -1238,7 +1238,7 @@ define void @_ZThn16_NK17EditSelectFactory10pluginNameEv(ptr dead_on_unwind noal
 define noundef ptr @_ZN17EditSelectFactory11getEditToolEPK7QAction(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef readnone %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
@@ -1258,7 +1258,7 @@ define noundef ptr @_ZN17EditSelectFactory11getEditToolEPK7QAction(ptr nocapture
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %12
@@ -1278,7 +1278,7 @@ define noundef ptr @_ZN17EditSelectFactory11getEditToolEPK7QAction(ptr nocapture
 22:                                               ; preds = %12
   %23 = getelementptr inbounds i8, ptr %0, i64 72
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, %1
+  %25 = icmp eq ptr %1, %24
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %22
@@ -1298,7 +1298,7 @@ define noundef ptr @_ZN17EditSelectFactory11getEditToolEPK7QAction(ptr nocapture
 32:                                               ; preds = %22
   %33 = getelementptr inbounds i8, ptr %0, i64 88
   %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, %1
+  %35 = icmp eq ptr %1, %34
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %32

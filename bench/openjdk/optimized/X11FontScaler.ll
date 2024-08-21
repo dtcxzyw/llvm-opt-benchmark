@@ -283,10 +283,10 @@ define float @Java_sun_font_NativeFont_getGlyphAdvance(ptr nocapture noundef rea
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %7, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = icmp sgt i32 %18, %3
+  %19 = icmp slt i32 %3, %18
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 12
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 4
-  %20 = icmp slt i32 %.pre.pre, %3
+  %20 = icmp sgt i32 %3, %.pre.pre
   %or.cond = select i1 %19, i1 true, i1 %20
   br i1 %or.cond, label %._crit_edge, label %23
 
@@ -369,13 +369,13 @@ define i64 @Java_sun_font_NativeFont_getGlyphImageNoDefault(ptr nocapture nounde
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8
-  %18 = icmp sgt i32 %17, %3
+  %18 = icmp slt i32 %3, %17
   br i1 %18, label %29, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %6, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = icmp slt i32 %21, %3
+  %22 = icmp sgt i32 %3, %21
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %19
@@ -416,13 +416,13 @@ define i64 @Java_sun_font_NativeFont_getGlyphImage(ptr nocapture noundef readnon
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8
-  %18 = icmp sgt i32 %17, %3
+  %18 = icmp slt i32 %3, %17
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %6, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = icmp slt i32 %21, %3
+  %22 = icmp sgt i32 %3, %21
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %19, %15

@@ -227,9 +227,9 @@ while.end:                                        ; preds = %while.cond
   %1 = trunc nsw i64 %indvars.iv to i32
   %add = add nsw i32 %1, 16
   %shl = shl nuw i32 1, %root_bits
-  %cmp2 = icmp slt i32 %add, %root_bits
+  %cmp2 = icmp sgt i32 %root_bits, %add
   %shl4 = shl nuw i32 1, %add
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %add, i32 %root_bits)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %root_bits, i32 %add)
   %spec.select79 = select i1 %cmp2, i32 %shl4, i32 %shl
   %2 = sext i32 %spec.select to i64
   br label %do.body
@@ -308,7 +308,7 @@ while.end31:                                      ; preds = %while.body25, %whil
   %sub32 = add nsw i32 %root_bits, -1
   %sh_prom = zext nneg i32 %sub32 to i64
   %shr33 = lshr i64 128, %sh_prom
-  %cmp36.not.not109 = icmp sgt i32 %add, %root_bits
+  %cmp36.not.not109 = icmp slt i32 %root_bits, %add
   br i1 %cmp36.not.not109, label %for.body38.lr.ph, label %for.end83
 
 for.body38.lr.ph:                                 ; preds = %while.end31

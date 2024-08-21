@@ -9590,7 +9590,7 @@ define internal fastcc void @set_mode(ptr noundef %0, i32 noundef %1) unnamed_ad
   %48 = lshr i16 %35, 2
   %49 = and i16 %48, 1
   %50 = zext nneg i16 %49 to i32
-  %51 = icmp eq i32 %50, %1
+  %51 = icmp eq i32 %1, %50
   br i1 %51, label %102, label %52
 
 52:                                               ; preds = %47
@@ -10700,7 +10700,7 @@ define internal fastcc void @vc_setGx(ptr noundef %0, i32 noundef %1, i32 nounde
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
   %16 = zext nneg i8 %15 to i32
-  %17 = icmp eq i32 %16, %1
+  %17 = icmp eq i32 %1, %16
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %12
@@ -10985,7 +10985,7 @@ define internal fastcc void @insert_char(ptr noundef %0, i32 noundef %1) unnamed
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds i8, ptr %0, i64 376
   %34 = load i32, ptr %33, align 8
-  %35 = add i32 %34, %1
+  %35 = add i32 %1, %34
   %36 = sub i32 %32, %35
   %37 = shl i32 %36, 1
   %38 = zext i32 %37 to i64

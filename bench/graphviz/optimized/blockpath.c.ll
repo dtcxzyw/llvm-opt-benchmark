@@ -974,7 +974,7 @@ spanning_tree.exit:                               ; preds = %406, %._crit_edge.i
   br i1 %442, label %tailrecurse.i.i, label %443
 
 443:                                              ; preds = %.lr.ph.i.i70
-  %.not.i.i71 = icmp sgt i32 %441, %.tr4449.i.i
+  %.not.i.i71 = icmp slt i32 %.tr4449.i.i, %441
   br i1 %.not.i.i71, label %462, label %444
 
 444:                                              ; preds = %443
@@ -1017,7 +1017,7 @@ spanning_tree.exit:                               ; preds = %406, %._crit_edge.i
 462:                                              ; preds = %443
   %463 = getelementptr inbounds i8, ptr %439, i64 60
   %464 = load i32, ptr %463, align 4
-  %.not39.i.i = icmp sgt i32 %464, %.tr4449.i.i
+  %.not39.i.i = icmp slt i32 %.tr4449.i.i, %464
   br i1 %.not39.i.i, label %measure_distance.exit.i, label %465
 
 465:                                              ; preds = %462
@@ -1624,7 +1624,7 @@ reduce_edge_crossings.exit:                       ; preds = %reduce.exit.i, %728
 .lr.ph:                                           ; preds = %743
   %760 = icmp eq i64 %.val, 1
   %761 = uitofp i64 %.val to double
-  %762 = fadd double %.2.i95, %2
+  %762 = fadd double %2, %.2.i95
   %763 = fmul double %762, %761
   %764 = fdiv double %763, 0x401921FB54442D18
   %.052 = select i1 %760, double 0.000000e+00, double %764

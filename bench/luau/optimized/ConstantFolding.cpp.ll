@@ -2535,7 +2535,7 @@ _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %.lr.ph179, %183, %.
 257:                                              ; preds = %250
   %258 = getelementptr inbounds i8, ptr %246, i64 24
   %259 = load ptr, ptr %258, align 8
-  %260 = icmp eq ptr %259, %2
+  %260 = icmp eq ptr %2, %259
   br i1 %260, label %_ZN4Luau7Compile15ConstantVisitor14recordConstantIPNS_7AstExprEEEvRNS_12DenseHashMapIT_NS0_8ConstantENSt11conditionalIXsr3stdE12is_pointer_vIS6_EENS_16DenseHashPointerESt4hashIS6_EE4typeESt8equal_toIS6_EEES6_RKS7_.exit, label %261
 
 261:                                              ; preds = %257
@@ -2835,7 +2835,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4Luau7Compile8ConstantESaIS2_E
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 24
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -2844,7 +2844,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4Luau7Compile8ConstantESaIS2_E
   br label %_ZNSt6vectorIN4Luau7Compile8ConstantESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN4Luau7Compile8ConstantESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -3706,7 +3706,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Compile15ConstantVisitor11recordVal
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_7Compile8VariableENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit, label %14
 
 14:                                               ; preds = %10
@@ -3781,7 +3781,7 @@ _ZN4Luau12DenseHashMapIPNS_8AstLocalENS_7Compile8VariableENS_16DenseHashPointerE
 54:                                               ; preds = %47
   %55 = getelementptr inbounds i8, ptr %43, i64 24
   %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, %1
+  %57 = icmp eq ptr %1, %56
   br i1 %57, label %_ZN4Luau7Compile15ConstantVisitor14recordConstantIPNS_8AstLocalEEEvRNS_12DenseHashMapIT_NS0_8ConstantENSt11conditionalIXsr3stdE12is_pointer_vIS6_EENS_16DenseHashPointerESt4hashIS6_EE4typeESt8equal_toIS6_EEES6_RKS7_.exit, label %58
 
 58:                                               ; preds = %54

@@ -384,7 +384,7 @@ define internal fastcc void @gt_sanitize(ptr noundef %0, i1 noundef zeroext %1) 
 
 46:                                               ; preds = %43, %35
   %47 = phi i1 [ %45, %43 ], [ false, %35 ]
-  %48 = or i1 %47, %1
+  %48 = or i1 %1, %47
   br i1 %48, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %46, %62

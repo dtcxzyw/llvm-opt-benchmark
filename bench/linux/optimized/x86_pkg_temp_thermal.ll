@@ -402,7 +402,7 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #3 align 16
   %31 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %28) #11, !srcloc !12
   %32 = trunc i64 %31 to i32
   %33 = icmp ult i32 %32, 64
-  %34 = icmp eq i32 %32, %0
+  %34 = icmp eq i32 %0, %32
   %35 = and i1 %33, %34
   %36 = add i64 %31, 1
   br i1 %35, label %21, label %.thread5, !llvm.loop !13

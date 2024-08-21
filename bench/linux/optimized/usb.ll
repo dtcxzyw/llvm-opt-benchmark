@@ -1054,7 +1054,7 @@ define dso_local ptr @usb_find_alt_setting(ptr noundef readonly %0, i32 noundef 
   %19 = getelementptr inbounds i8, ptr %18, i64 10
   %20 = load i8, ptr %19, align 2
   %21 = zext i8 %20 to i32
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   br i1 %22, label %23, label %12
 
 23:                                               ; preds = %15
@@ -1082,7 +1082,7 @@ define dso_local ptr @usb_find_alt_setting(ptr noundef readonly %0, i32 noundef 
   %37 = getelementptr inbounds i8, ptr %36, i64 3
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
-  %40 = icmp eq i32 %39, %2
+  %40 = icmp eq i32 %2, %39
   br i1 %40, label %.thread, label %30
 
 .loopexit:                                        ; preds = %30, %25
@@ -1131,7 +1131,7 @@ define dso_local noundef ptr @usb_ifnum_to_if(ptr nocapture noundef readonly %0,
   %21 = getelementptr inbounds i8, ptr %20, i64 2
   %22 = load i8, ptr %21, align 2
   %23 = zext i8 %22 to i32
-  %24 = icmp eq i32 %23, %1
+  %24 = icmp eq i32 %1, %23
   br i1 %24, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %16, %13, %6, %2
@@ -1162,7 +1162,7 @@ define dso_local ptr @usb_altnum_to_altsetting(ptr nocapture noundef readonly %0
   %15 = getelementptr inbounds i8, ptr %14, i64 3
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
-  %18 = icmp eq i32 %17, %1
+  %18 = icmp eq i32 %1, %17
   br i1 %18, label %.loopexit, label %8
 
 .loopexit:                                        ; preds = %11, %8, %2
@@ -1782,7 +1782,7 @@ define dso_local noundef range(i32 -1, 1) i32 @__usb_get_extra_descriptor(ptr no
   %22 = load i8, ptr %21, align 1
   %23 = icmp ne i8 %22, %2
   %24 = zext i8 %9 to i64
-  %25 = icmp ult i64 %24, %4
+  %25 = icmp ugt i64 %4, %24
   %26 = or i1 %25, %23
   br i1 %26, label %28, label %27
 

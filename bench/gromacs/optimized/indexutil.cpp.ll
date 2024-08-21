@@ -482,7 +482,7 @@ define noundef zeroext i1 @_ZNK3gmx19IndexGroupsAndNames17containsGroupNameERKNS
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPK10IndexGroupSt6vectorIS2_SaIS2_EEEEZNK3gmx19IndexGroupsAndNames17containsGroupNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EbT_SK_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %13, %16, %19, %._crit_edge.i.i.i.i.i, %27, %31, %35
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %27 ], [ %.sroa.032.1.i.i.i.i.i, %31 ], [ %5, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %35 ], [ %.sroa.032.042.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %14, %13 ], [ %17, %16 ], [ %20, %19 ]
-  %37 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %5
+  %37 = icmp ne ptr %5, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   ret i1 %37
 }
 
@@ -1609,7 +1609,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -2696,7 +2696,7 @@ define linkonce_odr void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_less_iter
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -2776,7 +2776,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds i32, ptr %0, i64 %51
   %53 = load i32, ptr %52, align 4
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -2828,7 +2828,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds i32, ptr %0, i64 %73
   %75 = load i32, ptr %74, align 4
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -4046,7 +4046,7 @@ define void @_Z24gmx_ana_index_make_blockP8t_blockaPK10gmx_mtop_tP15gmx_ana_inde
 
 27:                                               ; preds = %21, %22
   %not.or.cond = xor i1 %or.cond, true
-  %spec.select = and i1 %not.or.cond, %4
+  %spec.select = and i1 %4, %not.or.cond
   br i1 %spec.select, label %28, label %41
 
 28:                                               ; preds = %27
@@ -4183,13 +4183,13 @@ define void @_Z24gmx_ana_index_make_blockP8t_blockaPK10gmx_mtop_tP15gmx_ana_inde
   %109 = getelementptr inbounds i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   %.fr194 = freeze i32 %110
-  %111 = icmp sgt i32 %.fr194, %89
+  %111 = icmp slt i32 %89, %.fr194
   br i1 %111, label %160, label %112
 
 112:                                              ; preds = %106
   %113 = getelementptr inbounds i8, ptr %108, i64 8
   %114 = load i32, ptr %113, align 4
-  %.not.i.us.us = icmp sgt i32 %114, %89
+  %.not.i.us.us = icmp slt i32 %89, %114
   br i1 %.not.i.us.us, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us, label %160
 
 _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us: ; preds = %112
@@ -4316,13 +4316,13 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us: ; preds = %112
   %185 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %182, i64 %184
   %186 = getelementptr inbounds i8, ptr %185, i64 4
   %187 = load i32, ptr %186, align 4
-  %188 = icmp sgt i32 %187, %166
+  %188 = icmp slt i32 %166, %187
   br i1 %188, label %209, label %189
 
 189:                                              ; preds = %183
   %190 = getelementptr inbounds i8, ptr %185, i64 8
   %191 = load i32, ptr %190, align 4
-  %.not.i137.us.us = icmp sgt i32 %191, %166
+  %.not.i137.us.us = icmp slt i32 %166, %191
   br i1 %.not.i137.us.us, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit140.us.us, label %209
 
 _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit140.us.us: ; preds = %189
@@ -4501,13 +4501,13 @@ define internal fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9
   %21 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %17, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = icmp sgt i32 %23, %0
+  %24 = icmp slt i32 %0, %23
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds i8, ptr %21, i64 8
   %27 = load i32, ptr %26, align 4
-  %.not.i.i = icmp sgt i32 %27, %0
+  %.not.i.i = icmp slt i32 %0, %27
   br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %28
 
 28:                                               ; preds = %25, %18
@@ -4566,13 +4566,13 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %25
   %69 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %65, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4
-  %72 = icmp sgt i32 %71, %0
+  %72 = icmp slt i32 %0, %71
   br i1 %72, label %76, label %73
 
 73:                                               ; preds = %66
   %74 = getelementptr inbounds i8, ptr %69, i64 8
   %75 = load i32, ptr %74, align 4
-  %.not.i.i15 = icmp sgt i32 %75, %0
+  %.not.i.i15 = icmp slt i32 %0, %75
   br i1 %.not.i.i15, label %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit, label %76
 
 76:                                               ; preds = %73, %66
@@ -4974,13 +4974,13 @@ define internal fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mt
   %24 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %23, i64 %22
   %25 = getelementptr inbounds i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
-  %27 = icmp sgt i32 %26, %1
+  %27 = icmp slt i32 %1, %26
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %24, i64 8
   %30 = load i32, ptr %29, align 4
-  %.not.i.i = icmp sgt i32 %30, %1
+  %.not.i.i = icmp slt i32 %1, %30
   br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %31
 
 31:                                               ; preds = %28, %21
@@ -5029,7 +5029,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %28
   %65 = phi i32 [ %.pre.i.i11, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %75, %72 ]
   %.026.i.i12 = phi i32 [ %61, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %.127.i.i15, %72 ]
   %.0.i.i13 = phi i32 [ -1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %.1.i.i16, %72 ]
-  %66 = icmp sgt i32 %63, %6
+  %66 = icmp slt i32 %6, %63
   br i1 %66, label %72, label %67
 
 67:                                               ; preds = %62
@@ -5037,7 +5037,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %28
   %69 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %64, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load i32, ptr %70, align 4
-  %.not.i.i14 = icmp sgt i32 %71, %6
+  %.not.i.i14 = icmp slt i32 %6, %71
   br i1 %.not.i.i14, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit17, label %72
 
 72:                                               ; preds = %67, %62
@@ -5388,13 +5388,13 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_Z33gmx_ana_indexmap_ini
   %62 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %58, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
-  %65 = icmp sgt i32 %64, %50
+  %65 = icmp slt i32 %50, %64
   br i1 %65, label %90, label %66
 
 66:                                               ; preds = %59
   %67 = getelementptr inbounds i8, ptr %62, i64 8
   %68 = load i32, ptr %67, align 4
-  %.not.i.i.i.us = icmp sgt i32 %68, %50
+  %.not.i.i.i.us = icmp slt i32 %50, %68
   br i1 %.not.i.i.i.us, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit.i.us, label %90
 
 _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit.i.us: ; preds = %66
@@ -5458,13 +5458,13 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit.i.us: ; preds 
   %109 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %105, i64 %108
   %110 = getelementptr inbounds i8, ptr %109, i64 4
   %111 = load i32, ptr %110, align 4
-  %112 = icmp sgt i32 %111, %97
+  %112 = icmp slt i32 %97, %111
   br i1 %112, label %122, label %113
 
 113:                                              ; preds = %106
   %114 = getelementptr inbounds i8, ptr %109, i64 8
   %115 = load i32, ptr %114, align 4
-  %.not.i.i15.i.us = icmp sgt i32 %115, %97
+  %.not.i.i15.i.us = icmp slt i32 %97, %115
   br i1 %.not.i.i15.i.us, label %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit.i.us, label %122
 
 _ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit.i.us: ; preds = %113
@@ -5912,7 +5912,7 @@ _ZL9set_atomsP18gmx_ana_indexmap_tiPi.exit:       ; preds = %21, %.preheader.i, 
   %40 = getelementptr inbounds i8, ptr %0, i64 40
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, %34
-  %brmerge = or i1 %38, %2
+  %brmerge = or i1 %2, %38
   br i1 %brmerge, label %43, label %97
 
 43:                                               ; preds = %.thread

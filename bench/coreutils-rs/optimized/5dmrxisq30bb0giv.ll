@@ -351,7 +351,7 @@ define hidden noundef ptr @_ZN4bstr2io10BufReadExt31for_byte_record_with_termina
   %61 = load i64, ptr %13, align 8, !alias.scope !24, !noalias !29, !noundef !4
   %62 = load i64, ptr %11, align 8, !alias.scope !31, !noalias !29, !noundef !4
   %63 = sub i64 %62, %61
-  %64 = icmp ult i64 %63, %.sroa.5.0
+  %64 = icmp ugt i64 %.sroa.5.0, %63
   br i1 %64, label %65, label %84
 
 65:                                               ; preds = %60
@@ -674,7 +674,7 @@ define hidden noundef ptr @_ZN4bstr2io10BufReadExt31for_byte_record_with_termina
   %61 = load i64, ptr %13, align 8, !alias.scope !76, !noalias !81, !noundef !4
   %62 = load i64, ptr %11, align 8, !alias.scope !83, !noalias !81, !noundef !4
   %63 = sub i64 %62, %61
-  %64 = icmp ult i64 %63, %.sroa.5.0
+  %64 = icmp ugt i64 %.sroa.5.0, %63
   br i1 %64, label %65, label %84
 
 65:                                               ; preds = %60
@@ -997,7 +997,7 @@ define hidden noundef ptr @_ZN4bstr2io10BufReadExt31for_byte_record_with_termina
   %61 = load i64, ptr %13, align 8, !alias.scope !125, !noalias !130, !noundef !4
   %62 = load i64, ptr %11, align 8, !alias.scope !132, !noalias !130, !noundef !4
   %63 = sub i64 %62, %61
-  %64 = icmp ult i64 %63, %.sroa.5.0
+  %64 = icmp ugt i64 %.sroa.5.0, %63
   br i1 %64, label %65, label %84
 
 65:                                               ; preds = %60
@@ -1341,7 +1341,7 @@ define hidden noundef ptr @_ZN4bstr2io10BufReadExt31for_byte_record_with_termina
   %73 = load i64, ptr %14, align 8, !alias.scope !176, !noalias !181, !noundef !4
   %74 = load i64, ptr %12, align 8, !alias.scope !183, !noalias !181, !noundef !4
   %75 = sub i64 %74, %73
-  %76 = icmp ult i64 %75, %.sroa.5.0
+  %76 = icmp ugt i64 %.sroa.5.0, %75
   br i1 %76, label %77, label %131
 
 77:                                               ; preds = %72
@@ -1797,7 +1797,7 @@ define hidden noundef ptr @_ZN4bstr2io10BufReadExt31for_byte_record_with_termina
   %61 = load i64, ptr %13, align 8, !alias.scope !245, !noalias !250, !noundef !4
   %62 = load i64, ptr %11, align 8, !alias.scope !252, !noalias !250, !noundef !4
   %63 = sub i64 %62, %61
-  %64 = icmp ult i64 %63, %.sroa.5.0
+  %64 = icmp ugt i64 %.sroa.5.0, %63
   br i1 %64, label %65, label %84
 
 65:                                               ; preds = %60
@@ -2120,7 +2120,7 @@ define hidden noundef ptr @_ZN4bstr2io10BufReadExt31for_byte_record_with_termina
   %61 = load i64, ptr %13, align 8, !alias.scope !294, !noalias !299, !noundef !4
   %62 = load i64, ptr %11, align 8, !alias.scope !301, !noalias !299, !noundef !4
   %63 = sub i64 %62, %61
-  %64 = icmp ult i64 %63, %.sroa.5.0
+  %64 = icmp ugt i64 %.sroa.5.0, %63
   br i1 %64, label %65, label %84
 
 65:                                               ; preds = %60
@@ -2464,7 +2464,7 @@ define hidden noundef ptr @_ZN4bstr2io10BufReadExt31for_byte_record_with_termina
   %73 = load i64, ptr %14, align 8, !alias.scope !343, !noalias !348, !noundef !4
   %74 = load i64, ptr %12, align 8, !alias.scope !350, !noalias !348, !noundef !4
   %75 = sub i64 %74, %73
-  %76 = icmp ult i64 %75, %.sroa.5.0
+  %76 = icmp ugt i64 %.sroa.5.0, %75
   br i1 %76, label %77, label %131
 
 77:                                               ; preds = %72
@@ -2920,7 +2920,7 @@ define hidden noundef ptr @_ZN4bstr2io10BufReadExt31for_byte_record_with_termina
   %61 = load i64, ptr %13, align 8, !alias.scope !412, !noalias !417, !noundef !4
   %62 = load i64, ptr %11, align 8, !alias.scope !419, !noalias !417, !noundef !4
   %63 = sub i64 %62, %61
-  %64 = icmp ult i64 %63, %.sroa.5.0
+  %64 = icmp ugt i64 %.sroa.5.0, %63
   br i1 %64, label %65, label %84
 
 65:                                               ; preds = %60
@@ -3426,7 +3426,7 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_explicit_out_delim28_$u7b$$
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i115: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !488
-  %78 = icmp eq i64 %.sroa.01.015.i.i113, %66
+  %78 = icmp eq i64 %66, %.sroa.01.015.i.i113
   br i1 %78, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i116, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i116: ; preds = %75, %67, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i115
@@ -3487,7 +3487,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i: ; preds = %91
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !501
-  %99 = icmp eq i64 %.sroa.01.015.i.i, %88
+  %99 = icmp eq i64 %88, %.sroa.01.015.i.i
   br i1 %99, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i: ; preds = %96, %87, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i
@@ -3885,7 +3885,7 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_explicit_out_delim28_$u7b$$
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.i115: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !532
-  %78 = icmp eq i64 %.sroa.01.015.i.i113, %66
+  %78 = icmp eq i64 %66, %.sroa.01.015.i.i113
   br i1 %78, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.thread.i116, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.thread.i116: ; preds = %75, %67, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.i115
@@ -3946,7 +3946,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.thre
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.i: ; preds = %91
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !545
-  %99 = icmp eq i64 %.sroa.01.015.i.i, %88
+  %99 = icmp eq i64 %88, %.sroa.01.015.i.i
   br i1 %99, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.thread.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.thread.i: ; preds = %96, %87, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.i
@@ -4344,7 +4344,7 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_explicit_out_delim28_$u7b$$
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.i115: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !575
-  %78 = icmp eq i64 %.sroa.01.015.i.i113, %66
+  %78 = icmp eq i64 %66, %.sroa.01.015.i.i113
   br i1 %78, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.thread.i116, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.thread.i116: ; preds = %75, %67, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.i115
@@ -4405,7 +4405,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.thre
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.i: ; preds = %91
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !588
-  %99 = icmp eq i64 %.sroa.01.015.i.i, %88
+  %99 = icmp eq i64 %88, %.sroa.01.015.i.i
   br i1 %99, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.thread.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.thread.i: ; preds = %96, %87, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.i
@@ -4803,7 +4803,7 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_explicit_out_delim28_$u7b$$
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i115: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !618
-  %78 = icmp eq i64 %.sroa.01.015.i.i113, %66
+  %78 = icmp eq i64 %66, %.sroa.01.015.i.i113
   br i1 %78, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i116, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i116: ; preds = %75, %67, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i115
@@ -4864,7 +4864,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i: ; preds = %91
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !631
-  %99 = icmp eq i64 %.sroa.01.015.i.i, %88
+  %99 = icmp eq i64 %88, %.sroa.01.015.i.i
   br i1 %99, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i: ; preds = %96, %87, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i
@@ -5267,7 +5267,7 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_implicit_out_delim28_$u7b$$
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i87: ; preds = %75
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !661
-  %83 = icmp eq i64 %.sroa.01.015.i.i85, %71
+  %83 = icmp eq i64 %71, %.sroa.01.015.i.i85
   br i1 %83, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i88, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i88: ; preds = %80, %72, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i87
@@ -5340,7 +5340,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i: ; preds = %100
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !674
-  %108 = icmp eq i64 %.sroa.01.015.i.i, %97
+  %108 = icmp eq i64 %97, %.sroa.01.015.i.i
   br i1 %108, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i: ; preds = %105, %96, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i
@@ -5426,7 +5426,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i121: ; preds = %126
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !687
-  %134 = icmp eq i64 %.sroa.01.015.i.i119, %123
+  %134 = icmp eq i64 %123, %.sroa.01.015.i.i119
   br i1 %134, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i122, label %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h6cd20c45e694377bE.exit76.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i122: ; preds = %131, %122, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i121
@@ -5477,7 +5477,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i104: ; preds = %143
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !700
-  %151 = icmp eq i64 %.sroa.01.015.i.i102, %140
+  %151 = icmp eq i64 %140, %.sroa.01.015.i.i102
   br i1 %151, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i105, label %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h6cd20c45e694377bE.exit76.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i105: ; preds = %148, %139, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i104
@@ -5836,7 +5836,7 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_implicit_out_delim28_$u7b$$
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i87: ; preds = %75
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !729
-  %83 = icmp eq i64 %.sroa.01.015.i.i85, %71
+  %83 = icmp eq i64 %71, %.sroa.01.015.i.i85
   br i1 %83, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i88, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i88: ; preds = %80, %72, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i87
@@ -5909,7 +5909,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i: ; preds = %100
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !742
-  %108 = icmp eq i64 %.sroa.01.015.i.i, %97
+  %108 = icmp eq i64 %97, %.sroa.01.015.i.i
   br i1 %108, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i: ; preds = %105, %96, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i
@@ -5995,7 +5995,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i121: ; preds = %126
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !755
-  %134 = icmp eq i64 %.sroa.01.015.i.i119, %123
+  %134 = icmp eq i64 %123, %.sroa.01.015.i.i119
   br i1 %134, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i122, label %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h6cd20c45e694377bE.exit76.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i122: ; preds = %131, %122, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i121
@@ -6046,7 +6046,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i104: ; preds = %143
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !768
-  %151 = icmp eq i64 %.sroa.01.015.i.i102, %140
+  %151 = icmp eq i64 %140, %.sroa.01.015.i.i102
   br i1 %151, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i105, label %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h6cd20c45e694377bE.exit76.thread"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thread.i105: ; preds = %148, %139, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.i104

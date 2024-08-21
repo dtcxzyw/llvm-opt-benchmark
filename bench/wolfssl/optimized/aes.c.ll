@@ -5574,7 +5574,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
 lor.lhs.false7:                                   ; preds = %land.lhs.true, %lor.lhs.false5
   %nonceSz = getelementptr inbounds i8, ptr %aes, i64 296
   %0 = load i32, ptr %nonceSz, align 8
-  %cmp8.not = icmp eq i32 %0, %ivOutSz
+  %cmp8.not = icmp eq i32 %ivOutSz, %0
   br i1 %cmp8.not, label %lor.lhs.false9, label %if.end39
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false7

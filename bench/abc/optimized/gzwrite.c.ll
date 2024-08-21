@@ -118,7 +118,7 @@ define range(i32 0, -2147483648) i32 @gzwrite(ptr noundef %0, ptr noundef %1, i3
 
 gz_zero.exit:                                     ; preds = %37, %34, %23
   %54 = load i32, ptr %17, align 8
-  %55 = icmp ugt i32 %54, %2
+  %55 = icmp ult i32 %2, %54
   %56 = getelementptr inbounds i8, ptr %0, i64 128
   br i1 %55, label %.preheader, label %80
 
@@ -915,13 +915,13 @@ define i32 @gzsetparams(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = load i32, ptr %12, align 8
-  %14 = icmp eq i32 %13, %1
+  %14 = icmp eq i32 %1, %13
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 92
   %17 = load i32, ptr %16, align 4
-  %18 = icmp eq i32 %17, %2
+  %18 = icmp eq i32 %2, %17
   br i1 %18, label %gz_zero.exit.thread, label %19
 
 19:                                               ; preds = %15, %11

@@ -931,7 +931,7 @@ define internal fastcc void @progress_report(i1 noundef zeroext %0) unnamed_addr
   %2 = tail call i64 @time(ptr noundef null) #12
   %3 = load i64, ptr @last_progress_report, align 8
   %4 = icmp ne i64 %2, %3
-  %brmerge = or i1 %4, %0
+  %brmerge = or i1 %0, %4
   br i1 %brmerge, label %5, label %31
 
 5:                                                ; preds = %1

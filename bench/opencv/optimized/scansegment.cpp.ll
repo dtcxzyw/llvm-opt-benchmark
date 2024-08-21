@@ -425,7 +425,7 @@ _ZN2cv10AutoBufferINS_5Rect_IiEELm72EEC2Em.exit:  ; preds = %.noexc, %75
 _ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit.i: ; preds = %113, %._ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit_crit_edge.i
   %114 = phi i64 [ %101, %._ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit_crit_edge.i ], [ %.pre, %113 ]
   %115 = phi i64 [ %.pre.i, %._ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit_crit_edge.i ], [ 72, %113 ]
-  %.not.i9.i = icmp ult i64 %115, %114
+  %.not.i9.i = icmp ugt i64 %114, %115
   store i64 %114, ptr %18, align 8
   br i1 %.not.i9.i, label %_ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit.i.i, label %_ZN2cv10AutoBufferINS_5Rect_IiEELm72EE8allocateEm.exit.i
 
@@ -538,7 +538,7 @@ _ZN2cv10AutoBufferINS_5Rect_IiEELm72EEC2Em.exit97: ; preds = %.noexc96, %_ZN2cv1
 _ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit.i100: ; preds = %149, %._ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit_crit_edge.i108
   %150 = phi i64 [ %137, %._ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit_crit_edge.i108 ], [ %.pre350, %149 ]
   %151 = phi i64 [ %.pre.i110, %._ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit_crit_edge.i108 ], [ 72, %149 ]
-  %.not.i9.i101 = icmp ult i64 %151, %150
+  %.not.i9.i101 = icmp ugt i64 %150, %151
   store i64 %150, ptr %20, align 8
   br i1 %.not.i9.i101, label %_ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit.i.i107, label %_ZN2cv10AutoBufferINS_5Rect_IiEELm72EE8allocateEm.exit.i102
 
@@ -651,7 +651,7 @@ _ZN2cv10AutoBufferINS_5Rect_IiEELm72EEC2Em.exit120: ; preds = %.noexc119, %_ZN2c
 _ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit.i123: ; preds = %185, %._ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit_crit_edge.i131
   %186 = phi i64 [ %173, %._ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit_crit_edge.i131 ], [ %.pre351, %185 ]
   %187 = phi i64 [ %.pre.i133, %._ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit_crit_edge.i131 ], [ 72, %185 ]
-  %.not.i9.i124 = icmp ult i64 %187, %186
+  %.not.i9.i124 = icmp ugt i64 %186, %187
   store i64 %186, ptr %22, align 8
   br i1 %.not.i9.i124, label %_ZN2cv10AutoBufferINS_5Rect_IiEELm72EE10deallocateEv.exit.i.i130, label %_ZN2cv10AutoBufferINS_5Rect_IiEELm72EE8allocateEm.exit.i125
 
@@ -1131,7 +1131,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc162, %._crit_
 _ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i: ; preds = %376, %._ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit_crit_edge.i
   %377 = phi i64 [ %363, %._ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit_crit_edge.i ], [ %.pre357, %376 ]
   %378 = phi i64 [ %.pre.i171, %._ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit_crit_edge.i ], [ 264, %376 ]
-  %.not.i9.i165 = icmp ult i64 %378, %377
+  %.not.i9.i165 = icmp ugt i64 %377, %378
   store i64 %377, ptr %43, align 8
   br i1 %.not.i9.i165, label %_ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i.i, label %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit.i
 
@@ -1240,7 +1240,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit178:          ; preds = %.noexc177, %_ZN2cv1
 _ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i181: ; preds = %412, %._ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit_crit_edge.i189
   %413 = phi i64 [ %399, %._ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit_crit_edge.i189 ], [ %.pre358, %412 ]
   %414 = phi i64 [ %.pre.i191, %._ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit_crit_edge.i189 ], [ 264, %412 ]
-  %.not.i9.i182 = icmp ult i64 %414, %413
+  %.not.i9.i182 = icmp ugt i64 %413, %414
   store i64 %413, ptr %46, align 8
   br i1 %.not.i9.i182, label %_ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i.i188, label %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit.i183
 
@@ -1346,7 +1346,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc198, %_ZN2cv1
 _ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i: ; preds = %445, %._ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit_crit_edge.i
   %446 = phi i64 [ %435, %._ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit_crit_edge.i ], [ %.pre359, %445 ]
   %447 = phi i64 [ %.pre.i207, %._ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit_crit_edge.i ], [ 1032, %445 ]
-  %.not.i9.i201 = icmp ult i64 %447, %446
+  %.not.i9.i201 = icmp ugt i64 %446, %447
   store i64 %446, ptr %49, align 8
   br i1 %.not.i9.i201, label %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i.i, label %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit.i
 
@@ -1559,7 +1559,7 @@ _ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i225: ; preds = %512, %._ZN2cv10A
   %514 = phi i64 [ %493, %._ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit_crit_edge.i233 ], [ %.pre360, %512 ]
   %515 = phi i64 [ %.pre.i235, %._ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit_crit_edge.i233 ], [ 264, %512 ]
   %516 = getelementptr inbounds i8, ptr %505, i64 8
-  %.not.i9.i226 = icmp ult i64 %515, %514
+  %.not.i9.i226 = icmp ugt i64 %514, %515
   store i64 %514, ptr %516, align 8
   br i1 %.not.i9.i226, label %_ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i.i232, label %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit.i227
 
@@ -7286,7 +7286,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.0.us.i.i.i = phi i64 [ %51, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_T0_SK_T1_T2_.exit.us.i.i.i" ], [ %16, %.split.i.i.i ]
   %phi.call.us.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.us.i.i.i
   %.sroa.03.0.copyload.us.i.i.i = load i64, ptr %phi.call.us.i.i.i, align 4
-  %26 = icmp sgt i64 %18, %.0.us.i.i.i
+  %26 = icmp slt i64 %.0.us.i.i.i, %18
   br i1 %26, label %.lr.ph.i.us.i.i.i, label %._crit_edge.i.us.thread.i.i.i
 
 ._crit_edge.i.us.thread.i.i.i:                    ; preds = %.split.split.us.i.i.i
@@ -7356,7 +7356,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.0.i.i.i = phi i64 [ %83, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_T0_SK_T1_T2_.exit.i.i.i" ], [ %16, %.split.split.preheader.i.i.i ]
   %phi.call.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.i.i.i
   %.sroa.03.0.copyload.i.i.i = load i64, ptr %phi.call.i.i.i, align 4
-  %52 = icmp sgt i64 %18, %.0.i.i.i
+  %52 = icmp slt i64 %.0.i.i.i, %18
   br i1 %52, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.split.i.i.i, %.lr.ph.i.i.i.i

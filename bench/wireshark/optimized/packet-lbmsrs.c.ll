@@ -1515,7 +1515,7 @@ dissect_lbmsrs_stream_request.exit:               ; preds = %74, %77
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.279) #6
   %89 = load i32, ptr @ett_lbmsrs_details, align 4
   %90 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef %89, ptr noundef nonnull %16, ptr noundef nonnull @.str.280) #6
-  %91 = icmp ugt i32 %86, %3
+  %91 = icmp ult i32 %3, %86
   br i1 %91, label %.lr.ph.i, label %._crit_edge.i
 
 92:                                               ; preds = %837

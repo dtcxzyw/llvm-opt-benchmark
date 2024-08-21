@@ -5673,7 +5673,7 @@ _ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread: ; pre
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %16)
   %21 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp eq ptr %21, %20
+  %.not.i.i = icmp eq ptr %20, %21
   br i1 %.not.i.i, label %_ZN7testing8internal13ParamIteratorIN4perf7MatTypeEEaSERKS4_.exit, label %22
 
 22:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread
@@ -11511,7 +11511,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %260 = icmp eq ptr %25, %.sroa.4.0.i.ph.i
+  %260 = icmp eq ptr %.sroa.4.0.i.ph.i, %25
   br i1 %260, label %268, label %261
 
 261:                                              ; preds = %select.unfold.i
@@ -12785,7 +12785,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %260 = icmp eq ptr %25, %.sroa.4.0.i.ph.i
+  %260 = icmp eq ptr %.sroa.4.0.i.ph.i, %25
   br i1 %260, label %268, label %261
 
 261:                                              ; preds = %select.unfold.i
@@ -13933,7 +13933,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %260 = icmp eq ptr %25, %.sroa.4.0.i.ph.i
+  %260 = icmp eq ptr %.sroa.4.0.i.ph.i, %25
   br i1 %260, label %268, label %261
 
 261:                                              ; preds = %select.unfold.i
@@ -15081,7 +15081,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %260 = icmp eq ptr %25, %.sroa.4.0.i.ph.i
+  %260 = icmp eq ptr %.sroa.4.0.i.ph.i, %25
   br i1 %260, label %268, label %261
 
 261:                                              ; preds = %select.unfold.i
@@ -16229,7 +16229,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %260 = icmp eq ptr %25, %.sroa.4.0.i.ph.i
+  %260 = icmp eq ptr %.sroa.4.0.i.ph.i, %25
   br i1 %260, label %268, label %261
 
 261:                                              ; preds = %select.unfold.i
@@ -16910,7 +16910,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %134 = extractvalue { ptr, i32 } %133, 0
   %135 = call ptr @__cxa_begin_catch(ptr %134) #25
-  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i, %111
+  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %111, %.017.i.i.i.i.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_131Size_MatType_Registration_ShiftEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %132, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
@@ -17464,7 +17464,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %301 = extractvalue { ptr, i32 } %300, 0
   %302 = call ptr @__cxa_begin_catch(ptr %301) #25
-  %.not4.i.i.i.i.i.i.i.i.i.i.i28 = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i24, %278
+  %.not4.i.i.i.i.i.i.i.i.i.i.i28 = icmp eq ptr %278, %.017.i.i.i.i.i.i.i.i.i24
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i28, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_135Size_MatType_Registration_EuclideanEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i29:                   ; preds = %299, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i29
@@ -18012,7 +18012,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %468 = extractvalue { ptr, i32 } %467, 0
   %469 = call ptr @__cxa_begin_catch(ptr %468) #25
-  %.not4.i.i.i.i.i.i.i.i.i.i.i87 = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i83, %445
+  %.not4.i.i.i.i.i.i.i.i.i.i.i87 = icmp eq ptr %445, %.017.i.i.i.i.i.i.i.i.i83
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i87, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_136Size_MatType_Registration_SimilarityEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i88
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i88:                   ; preds = %466, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i88
@@ -18560,7 +18560,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %635 = extractvalue { ptr, i32 } %634, 0
   %636 = call ptr @__cxa_begin_catch(ptr %635) #25
-  %.not4.i.i.i.i.i.i.i.i.i.i.i146 = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i142, %612
+  %.not4.i.i.i.i.i.i.i.i.i.i.i146 = icmp eq ptr %612, %.017.i.i.i.i.i.i.i.i.i142
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i146, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_132Size_MatType_Registration_AffineEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i147
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i147:                  ; preds = %633, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i147
@@ -19108,7 +19108,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %802 = extractvalue { ptr, i32 } %801, 0
   %803 = call ptr @__cxa_begin_catch(ptr %802) #25
-  %.not4.i.i.i.i.i.i.i.i.i.i.i205 = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i201, %779
+  %.not4.i.i.i.i.i.i.i.i.i.i.i205 = icmp eq ptr %779, %.017.i.i.i.i.i.i.i.i.i201
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i205, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_136Size_MatType_Registration_ProjectiveEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i206
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i206:                  ; preds = %800, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i206

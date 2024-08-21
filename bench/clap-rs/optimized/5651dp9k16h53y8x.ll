@@ -1424,7 +1424,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.56793
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -2354,7 +2354,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h3fdbb619fdd44
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h8c064a4975316fbdE.exit: ; preds = %9, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h834c022150e53e84E.exit.i"
   %14 = phi ptr [ %10, %9 ], [ %13, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h834c022150e53e84E.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !498
-  %15 = icmp eq i64 %.sroa.01.014.i, %2
+  %15 = icmp eq i64 %2, %.sroa.01.014.i
   br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8c064a4975316fbdE.exit.thread, label %22
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h8c064a4975316fbdE.exit.thread: ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$clap_builder..builder..possible_value..PossibleValue$GT$$GT$17h6bf0c0b5c37198d0E.exit.i", %._ZN4core4iter6traits8iterator8Iterator10advance_by17h8c064a4975316fbdE.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8c064a4975316fbdE.exit
@@ -2455,7 +2455,7 @@ select.unfold.i.i.i.i:                            ; preds = %.sink.split.i.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h3a0a0f98946ac12cE.exit: ; preds = %select.unfold.i.i.i.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd8ac1c9a05e7f9deE.exit.i"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !531
-  %27 = icmp eq i64 %.sroa.01.014.i, %2
+  %27 = icmp eq i64 %2, %.sroa.01.014.i
   br i1 %27, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h3a0a0f98946ac12cE.exit.thread, label %48
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h3a0a0f98946ac12cE.exit.thread: ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$clap_builder..builder..possible_value..PossibleValue$GT$$GT$17h6bf0c0b5c37198d0E.exit.i", %3, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h3a0a0f98946ac12cE.exit
@@ -2582,7 +2582,7 @@ select.unfold.i.i.i.i:                            ; preds = %.sink.split.i.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h30592fb5f0e09cb7E.exit: ; preds = %select.unfold.i.i.i.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h347e96c573c976edE.exit.i"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !597
-  %27 = icmp eq i64 %.sroa.01.014.i, %2
+  %27 = icmp eq i64 %2, %.sroa.01.014.i
   br i1 %27, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h30592fb5f0e09cb7E.exit.thread, label %48
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h30592fb5f0e09cb7E.exit.thread: ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$clap_builder..builder..possible_value..PossibleValue$GT$$GT$17h6bf0c0b5c37198d0E.exit.i", %3, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h30592fb5f0e09cb7E.exit
@@ -2697,7 +2697,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3nth17ha96b7a895d1cf0e
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h5ea1a828fe69a498E.llvm.567936041081457991.exit: ; preds = %7
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !663
-  %15 = icmp eq i64 %.sroa.01.013.i, %2
+  %15 = icmp eq i64 %2, %.sroa.01.013.i
   br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5ea1a828fe69a498E.llvm.567936041081457991.exit.thread, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1ba0053c1bd89bfeE.llvm.567936041081457991.exit"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h5ea1a828fe69a498E.llvm.567936041081457991.exit.thread: ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$clap_builder..builder..possible_value..PossibleValue$GT$$GT$17h6bf0c0b5c37198d0E.exit.i", %._ZN4core4iter6traits8iterator8Iterator10advance_by17h5ea1a828fe69a498E.llvm.567936041081457991.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5ea1a828fe69a498E.llvm.567936041081457991.exit
@@ -3032,7 +3032,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !759, !noalias !764, !noundef !10
   %45 = load i64, ptr %0, align 8, !alias.scope !766, !noalias !764, !noundef !10
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48db17b41ef1d069E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
@@ -3086,7 +3086,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !772, !noalias !777, !noundef !10
   %6 = load i64, ptr %0, align 8, !alias.scope !779, !noalias !777, !noundef !10
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48db17b41ef1d069E.exit"
 
 9:                                                ; preds = %3
@@ -3346,7 +3346,7 @@ _ZN4core3str11validations15next_code_point17h89bb77f6a1195837E.exit.thread.i.i.i
   %103 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !810, !noalias !815, !noundef !10
   %104 = load i64, ptr %11, align 8, !alias.scope !817, !noalias !815, !noundef !10
   %105 = sub i64 %104, %103
-  %106 = icmp ult i64 %105, %102
+  %106 = icmp ugt i64 %102, %105
   br i1 %106, label %107, label %118
 
 107:                                              ; preds = %101
@@ -3366,7 +3366,7 @@ _ZN4core3str11validations15next_code_point17h89bb77f6a1195837E.exit.thread.i.i.i
   %113 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !820, !noalias !825, !noundef !10
   %114 = load i64, ptr %11, align 8, !alias.scope !827, !noalias !825, !noundef !10
   %115 = sub i64 %114, %113
-  %116 = icmp ult i64 %115, %112
+  %116 = icmp ugt i64 %112, %115
   br i1 %116, label %117, label %125
 
 117:                                              ; preds = %108
@@ -3400,7 +3400,7 @@ _ZN4core3str11validations15next_code_point17h89bb77f6a1195837E.exit.thread.i.i.i
   store i64 %130, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !820, !noalias !825
   %131 = load i64, ptr %11, align 8, !alias.scope !830, !noalias !837, !noundef !10
   %132 = sub i64 %131, %130
-  %133 = icmp ult i64 %132, %6
+  %133 = icmp ugt i64 %6, %132
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %125
@@ -4421,7 +4421,7 @@ define hidden void @_ZN12clap_builder7builder10styled_str9StyledStr11push_string
   %9 = load i64, ptr %8, align 8, !alias.scope !1016, !noalias !1021, !noundef !10
   %10 = load i64, ptr %0, align 8, !alias.scope !1023, !noalias !1021, !noundef !10
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %7
+  %12 = icmp ugt i64 %7, %11
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
@@ -4481,7 +4481,7 @@ define hidden void @_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf
   %5 = load i64, ptr %4, align 8, !alias.scope !1035, !noalias !1040, !noundef !10
   %6 = load i64, ptr %0, align 8, !alias.scope !1042, !noalias !1040, !noundef !10
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48db17b41ef1d069E.exit"
 
 9:                                                ; preds = %3
@@ -4786,7 +4786,7 @@ define hidden void @_ZN12clap_builder7builder10styled_str9StyledStr6indent17h701
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
   %16 = add i64 %13, -1
-  %17 = icmp ult i64 %16, %4
+  %17 = icmp ugt i64 %4, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %5
@@ -4879,7 +4879,7 @@ define hidden void @_ZN12clap_builder7builder10styled_str9StyledStr6indent17h701
   %43 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1136, !noalias !1141, !noundef !10
   %44 = load i64, ptr %10, align 8, !alias.scope !1143, !noalias !1141, !noundef !10
   %45 = sub i64 %44, %43
-  %46 = icmp ult i64 %45, %42
+  %46 = icmp ugt i64 %42, %45
   br i1 %46, label %47, label %76
 
 47:                                               ; preds = %41
@@ -4899,7 +4899,7 @@ define hidden void @_ZN12clap_builder7builder10styled_str9StyledStr6indent17h701
   %53 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1146, !noalias !1151, !noundef !10
   %54 = load i64, ptr %10, align 8, !alias.scope !1153, !noalias !1151, !noundef !10
   %55 = sub i64 %54, %53
-  %56 = icmp ult i64 %55, %52
+  %56 = icmp ugt i64 %52, %55
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %48
@@ -4920,7 +4920,7 @@ define hidden void @_ZN12clap_builder7builder10styled_str9StyledStr6indent17h701
   store i64 %63, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1146, !noalias !1151
   %64 = load i64, ptr %10, align 8, !alias.scope !1156, !noalias !1163, !noundef !10
   %65 = sub i64 %64, %63
-  %66 = icmp ult i64 %65, %26
+  %66 = icmp ugt i64 %26, %65
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %58
@@ -5192,7 +5192,7 @@ define hidden void @_ZN12clap_builder7builder10styled_str9StyledStr11push_styled
   %8 = load i64, ptr %7, align 8, !alias.scope !1197, !noalias !1202, !noundef !10
   %9 = load i64, ptr %0, align 8, !alias.scope !1204, !noalias !1202, !noundef !10
   %10 = sub i64 %9, %8
-  %11 = icmp ult i64 %10, %6
+  %11 = icmp ugt i64 %6, %10
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48db17b41ef1d069E.exit"
 
 12:                                               ; preds = %2
@@ -8555,7 +8555,7 @@ define void @_ZN12clap_builder6output4help10write_help17h1bed9819babf9d29E(ptr n
   %21 = load i64, ptr %20, align 8, !alias.scope !1736, !noalias !1741, !noundef !10
   %22 = load i64, ptr %0, align 8, !alias.scope !1743, !noalias !1741, !noundef !10
   %23 = sub i64 %22, %21
-  %24 = icmp ult i64 %23, %19
+  %24 = icmp ugt i64 %19, %23
   br i1 %24, label %25, label %_ZN12clap_builder7builder10styled_str9StyledStr11push_styled17h6ecc01e5bd5edd77E.exit
 
 25:                                               ; preds = %15

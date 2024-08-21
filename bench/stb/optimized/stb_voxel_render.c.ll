@@ -667,7 +667,7 @@ if.then65:                                        ; preds = %if.else62
   %shr72 = lshr i8 %15, 2
   %and73 = and i8 %shr72, 7
   %conv75 = zext nneg i8 %and73 to i32
-  %cmp76 = icmp eq i32 %conv75, %face
+  %cmp76 = icmp eq i32 %face, %conv75
   br i1 %cmp76, label %if.then78, label %if.else146
 
 if.then78:                                        ; preds = %if.then65
@@ -2600,7 +2600,7 @@ if.then:                                          ; preds = %entry
   %add.ptr11 = getelementptr inbounds i8, ptr %2, i64 %idx.ext
   %z1 = getelementptr inbounds i8, ptr %mm, i64 376
   %4 = load i32, ptr %z1, align 8
-  %cmp142 = icmp sgt i32 %4, %z0
+  %cmp142 = icmp slt i32 %z0, %4
   br i1 %cmp142, label %for.body.lr.ph, label %if.end241
 
 for.body.lr.ph:                                   ; preds = %if.then
@@ -2740,7 +2740,7 @@ if.else:                                          ; preds = %entry
   %add.ptr185 = getelementptr inbounds i8, ptr %43, i64 %idx.ext184
   %z1188 = getelementptr inbounds i8, ptr %mm, i64 376
   %44 = load i32, ptr %z1188, align 8
-  %cmp189147 = icmp sgt i32 %44, %z0
+  %cmp189147 = icmp slt i32 %z0, %44
   br i1 %tobool92.not, label %if.else180, label %if.then93
 
 if.then93:                                        ; preds = %if.else
@@ -3429,11 +3429,11 @@ for.body5:                                        ; preds = %for.cond3.preheader
   %arrayidx7 = getelementptr inbounds [6 x [4 x [3 x i8]]], ptr @stbvox_vertex_vector, i64 0, i64 %indvars.iv29, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx7, align 1
   %conv = zext i8 %0 to i32
-  %mul = mul nsw i32 %conv, %x_stride_in_bytes
+  %mul = mul nsw i32 %x_stride_in_bytes, %conv
   %arrayidx14 = getelementptr inbounds i8, ptr %arrayidx7, i64 1
   %1 = load i8, ptr %arrayidx14, align 1
   %conv15 = zext i8 %1 to i32
-  %mul17 = mul nsw i32 %conv15, %y_stride_in_bytes
+  %mul17 = mul nsw i32 %y_stride_in_bytes, %conv15
   %add = add nsw i32 %mul17, %mul
   %arrayidx22 = getelementptr inbounds i8, ptr %arrayidx7, i64 2
   %2 = load i8, ptr %arrayidx22, align 1

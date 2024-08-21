@@ -1311,7 +1311,7 @@ do.body.i.i:                                      ; preds = %entry, %if.end5.i.i
   %bf.load.i.i.i2 = load i32, ptr %l.0.i.i, align 8
   %bf.shl.i.i.i = shl i32 %bf.load.i.i.i2, 24
   %bf.ashr.i.i.i = ashr exact i32 %bf.shl.i.i.i, 24
-  %cmp.i.i = icmp eq i32 %bf.ashr.i.i.i, %0
+  %cmp.i.i = icmp eq i32 %0, %bf.ashr.i.i.i
   br i1 %cmp.i.i, label %if.then3.i.i, label %if.end5.i.i
 
 if.then3.i.i:                                     ; preds = %do.body.i.i
@@ -3318,7 +3318,7 @@ do.body.i.i:                                      ; preds = %entry, %if.end5.i.i
   %bf.load.i.i.i = load i32, ptr %l.0.i.i, align 8
   %bf.shl.i.i.i = shl i32 %bf.load.i.i.i, 24
   %bf.ashr.i.i.i = ashr exact i32 %bf.shl.i.i.i, 24
-  %cmp.i.i = icmp eq i32 %bf.ashr.i.i.i, %0
+  %cmp.i.i = icmp eq i32 %0, %bf.ashr.i.i.i
   br i1 %cmp.i.i, label %if.then3.i.i, label %if.end5.i.i
 
 if.then3.i.i:                                     ; preds = %do.body.i.i
@@ -3563,7 +3563,7 @@ do.body.i.i:                                      ; preds = %entry, %if.end5.i.i
   %bf.load.i.i.i = load i32, ptr %l.0.i.i, align 8
   %bf.shl.i.i.i = shl i32 %bf.load.i.i.i, 24
   %bf.ashr.i.i.i = ashr exact i32 %bf.shl.i.i.i, 24
-  %cmp.i.i = icmp eq i32 %bf.ashr.i.i.i, %0
+  %cmp.i.i = icmp eq i32 %0, %bf.ashr.i.i.i
   br i1 %cmp.i.i, label %if.then3.i.i, label %if.end5.i.i
 
 if.then3.i.i:                                     ; preds = %do.body.i.i
@@ -3881,7 +3881,7 @@ invoke.cont25:                                    ; preds = %invoke.cont15
   store ptr null, ptr %m_nodes.i.i34, align 8
   %m_true.i = getelementptr inbounds i8, ptr %5, i64 856
   %7 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %7, %value
+  %cmp.i = icmp eq ptr %value, %7
   br i1 %cmp.i, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %invoke.cont25
@@ -3966,7 +3966,7 @@ lpad27.loopexit.split-lp:                         ; preds = %if.then36, %invoke.
 if.else:                                          ; preds = %land.lhs.true, %invoke.cont25
   %m_false.i = getelementptr inbounds i8, ptr %5, i64 864
   %20 = load ptr, ptr %m_false.i, align 8
-  %cmp.i42 = icmp eq ptr %20, %value
+  %cmp.i42 = icmp eq ptr %value, %20
   br i1 %cmp.i42, label %land.lhs.true82, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit
 
 land.lhs.true82:                                  ; preds = %if.else

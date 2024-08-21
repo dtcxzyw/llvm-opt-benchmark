@@ -312,7 +312,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_get_bit(ptr nocapture noundef read
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = icmp ult i64 %5, %1
+  %6 = icmp ugt i64 %1, %5
   br i1 %6, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %15
@@ -325,7 +325,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_get_bit(ptr nocapture noundef read
   %11 = getelementptr inbounds i8, ptr %8, i64 56
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = icmp ugt i64 %13, %1
+  %14 = icmp ult i64 %1, %13
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %10
@@ -378,7 +378,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_set_bit(ptr nocapture no
   %10 = getelementptr inbounds i8, ptr %7, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = icmp ugt i64 %12, %1
+  %13 = icmp ult i64 %1, %12
   br i1 %13, label %67, label %14
 
 14:                                               ; preds = %9

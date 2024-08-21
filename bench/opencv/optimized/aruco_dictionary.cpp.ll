@@ -1560,7 +1560,7 @@ define noundef zeroext i1 @_ZNK2cv5aruco10Dictionary8identifyERKNS_3MatERiS5_d(p
   %26 = getelementptr inbounds i8, ptr %0, i64 100
   %27 = load i32, ptr %26, align 4
   %28 = sitofp i32 %27 to double
-  %29 = fmul double %28, %4
+  %29 = fmul double %4, %28
   %30 = fptosi double %29 to i32
   call void @_ZN2cv5aruco10Dictionary19getByteListFromBitsERKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %8, ptr noundef nonnull align 8 dereferenceable(96) %1)
   store i32 -1, ptr %2, align 4
@@ -1653,7 +1653,7 @@ define noundef i32 @_ZNK2cv5aruco10Dictionary15getDistanceToIdERKNS_11_InputArra
   %9 = icmp sgt i32 %2, -1
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = icmp sgt i32 %11, %2
+  %12 = icmp slt i32 %2, %11
   %or.cond = select i1 %9, i1 %12, i1 false
   br i1 %or.cond, label %21, label %13
 
@@ -1743,7 +1743,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %24, %27
   %spec.select = call i32 @llvm.smin.i32(i32 %51, i32 %.01830)
   %53 = add nuw nsw i32 %.01731, 1
   %54 = icmp ult i32 %.01731, 3
-  %55 = and i1 %54, %3
+  %55 = and i1 %3, %54
   br i1 %55, label %40, label %59, !llvm.loop !22
 
 56:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
@@ -1811,7 +1811,7 @@ define void @_ZNK2cv5aruco10Dictionary19generateImageMarkerEiiRKNS_12_OutputArra
   %34 = load i32, ptr %33, align 8
   %35 = shl nsw i32 %4, 1
   %36 = add nsw i32 %34, %35
-  %.not = icmp sgt i32 %36, %2
+  %.not = icmp slt i32 %2, %36
   br i1 %.not, label %37, label %45
 
 37:                                               ; preds = %5
@@ -1845,7 +1845,7 @@ define void @_ZNK2cv5aruco10Dictionary19generateImageMarkerEiiRKNS_12_OutputArra
 45:                                               ; preds = %5
   %46 = getelementptr inbounds i8, ptr %0, i64 8
   %47 = load i32, ptr %46, align 8
-  %48 = icmp sgt i32 %47, %1
+  %48 = icmp slt i32 %1, %47
   br i1 %48, label %57, label %49
 
 49:                                               ; preds = %45

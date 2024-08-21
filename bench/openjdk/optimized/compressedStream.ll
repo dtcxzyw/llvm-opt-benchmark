@@ -415,7 +415,7 @@ define hidden void @_ZN21CompressedWriteStream11write_floatEf(ptr nocapture noun
   %16 = add nuw nsw i32 %.014.i.i.i.i, 1
   %17 = shl i32 12414, %.01013.i.i.i.i
   %18 = add i32 %17, %.01112.i.i.i.i
-  %19 = icmp uge i32 %18, %4
+  %19 = icmp ule i32 %4, %18
   %20 = icmp eq i32 %16, 4
   %or.cond.i.i.i.i = select i1 %19, i1 true, i1 %20
   br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
@@ -518,7 +518,7 @@ define hidden void @_ZN21CompressedWriteStream12write_doubleEd(ptr nocapture nou
   %20 = add nuw nsw i32 %.014.i.i.i.i, 1
   %21 = shl i32 12414, %.01013.i.i.i.i
   %22 = add i32 %21, %.01112.i.i.i.i
-  %23 = icmp uge i32 %22, %7
+  %23 = icmp ule i32 %7, %22
   %24 = icmp eq i32 %20, 4
   %or.cond.i.i.i.i = select i1 %23, i1 true, i1 %24
   br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
@@ -607,7 +607,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   %58 = add nuw nsw i32 %.014.i.i.i.i20, 1
   %59 = shl i32 12414, %.01013.i.i.i.i21
   %60 = add i32 %59, %.01112.i.i.i.i22
-  %61 = icmp uge i32 %60, %8
+  %61 = icmp ule i32 %8, %60
   %62 = icmp eq i32 %58, 4
   %or.cond.i.i.i.i23 = select i1 %61, i1 true, i1 %62
   br i1 %or.cond.i.i.i.i23, label %._crit_edge.loopexit.i.i.i.i24, label %.lr.ph.i.i.i.i19, !llvm.loop !8
@@ -717,7 +717,7 @@ define linkonce_odr hidden void @_ZN21CompressedWriteStream16write_signed_intEi(
   %17 = add nuw nsw i32 %.014.i.i.i.i, 1
   %18 = shl i32 12414, %.01013.i.i.i.i
   %19 = add i32 %18, %.01112.i.i.i.i
-  %20 = icmp uge i32 %19, %5
+  %20 = icmp ule i32 %5, %19
   %21 = icmp eq i32 %17, 4
   %or.cond.i.i.i.i = select i1 %20, i1 true, i1 %21
   br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8

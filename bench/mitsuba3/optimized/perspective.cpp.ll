@@ -989,8 +989,8 @@ _ZN5drjit5scaleINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !44
   %66 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %59, <4 x float> zeroinitializer, i8 -1)
   %67 = fadd contract <4 x float> %66, %66
-  %68 = fneg contract <4 x float> %66
-  %69 = fmul contract <4 x float> %59, %68
+  %68 = fneg contract <4 x float> %59
+  %69 = fmul contract <4 x float> %66, %68
   %70 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %69, <4 x float> %66, <4 x float> %67)
   %71 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %70, <4 x float> %59, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
@@ -1184,8 +1184,8 @@ _ZN5drjit5scaleINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !108
   %157 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %150, <4 x float> zeroinitializer, i8 -1)
   %158 = fadd contract <4 x float> %157, %157
-  %159 = fneg contract <4 x float> %157
-  %160 = fmul contract <4 x float> %150, %159
+  %159 = fneg contract <4 x float> %150
+  %160 = fmul contract <4 x float> %157, %159
   %161 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %160, <4 x float> %157, <4 x float> %158)
   %162 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %161, <4 x float> %150, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
@@ -1467,7 +1467,7 @@ _ZN5drjitmlIffLm4EEENS_6MatrixINS_6detail14replace_scalarINS2_7deepestIJT_T0_EE4
   %310 = xor i32 %308, %309
   %311 = bitcast i32 %310 to float
   %312 = fdiv contract float 1.000000e+00, %311
-  %313 = fmul contract float %275, %6
+  %313 = fmul contract float %6, %275
   %314 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %312, i64 0
   %315 = insertelement <4 x float> %314, float %312, i64 1
   %316 = insertelement <4 x float> %315, float %313, i64 2
@@ -1489,7 +1489,7 @@ _ZN5drjitmlIffLm4EEENS_6MatrixINS_6detail14replace_scalarINS2_7deepestIJT_T0_EE4
 
 _ZN5drjit4diagIN7mitsuba6VectorIfLm4EEETnNSt3__19enable_ifIXnt11is_matrix_vIT_EEiE4typeELi0EEENS_6MatrixINS_6detail5valueIS6_iE4typeEXsrS6_4SizeEEERKS6_.exit.i: ; preds = %317
   %323 = fneg contract float %5
-  %324 = fmul contract float %323, %6
+  %324 = fmul contract float %6, %323
   %325 = fmul contract float %324, %275
   %326 = getelementptr inbounds i8, ptr %7, i64 56
   store float %325, ptr %326, align 8, !noalias !177
@@ -1988,7 +1988,7 @@ define weak_odr void @_ZNK7mitsuba17PerspectiveCameraIfN5drjit6MatrixINS_8Spectr
   %34 = load float, ptr %33, align 16
   %35 = fcmp contract ole float %.sroa.0550.8.vec.extract, %34
   %narrow = select i1 %32, i1 %35, i1 false
-  %36 = and i1 %narrow, %4
+  %36 = and i1 %4, %narrow
   br i1 %36, label %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba6VectorIfLm2EEEE4mul_ERKS3_.exit.critedge, label %.preheader485.preheader
 
 .preheader485.preheader:                          ; preds = %5

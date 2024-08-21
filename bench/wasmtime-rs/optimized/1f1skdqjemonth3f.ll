@@ -273,7 +273,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
   %26 = load i64, ptr %25, align 8, !noundef !13
   %27 = zext i32 %2 to i64
   %28 = add i64 %26, %27
-  %29 = icmp ult i64 %26, %28
+  %29 = icmp ugt i64 %28, %26
   br i1 %29, label %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e16e3e637e06746E.llvm.12393783928750787229.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e16e3e637e06746E.llvm.12393783928750787229.exit.i": ; preds = %24
@@ -669,7 +669,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   %15 = load i64, ptr %13, align 8, !noundef !13
   %16 = getelementptr inbounds i8, ptr %2, i64 160
   %17 = load i64, ptr %16, align 8, !alias.scope !45, !noundef !13
-  %18 = icmp ult i64 %17, %15
+  %18 = icmp ugt i64 %15, %17
   br i1 %18, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7eb14b97b2f443e1E.exit", label %19
 
 19:                                               ; preds = %9
@@ -1354,7 +1354,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   store i8 1, ptr %68, align 1, !noalias !116
   %69 = load i64, ptr %67, align 8, !noalias !116, !noundef !13
   %70 = load i64, ptr %22, align 8, !alias.scope !119, !noalias !116, !noundef !13
-  %71 = icmp ult i64 %70, %69
+  %71 = icmp ugt i64 %69, %70
   br i1 %71, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11unreachable17h81549a42f4fa19e2E.llvm.8213084322371663677.exit", label %72
 
 72:                                               ; preds = %64
@@ -6057,7 +6057,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   tail call void @llvm.experimental.noalias.scope.decl(metadata !708)
   %25 = getelementptr inbounds i8, ptr %8, i64 184
   %26 = load i64, ptr %25, align 8, !alias.scope !708, !noalias !711, !noundef !13
-  %27 = icmp ult i64 %26, %24
+  %27 = icmp ugt i64 %24, %26
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$9split_off17h6fb81f419e95c2a6E.exit"
 
 28:                                               ; preds = %16
@@ -7498,7 +7498,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   store i8 1, ptr %95, align 1, !noalias !864
   %96 = load i64, ptr %94, align 8, !noalias !864, !noundef !13
   %97 = load i64, ptr %44, align 8, !alias.scope !867, !noalias !864, !noundef !13
-  %98 = icmp ult i64 %97, %96
+  %98 = icmp ugt i64 %96, %97
   br i1 %98, label %"_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17h30ba12af5e277479E.exit55", label %99
 
 99:                                               ; preds = %91
@@ -8856,7 +8856,7 @@ default.unreachable439:                           ; preds = %107
   %278 = load i64, ptr %101, align 8, !alias.scope !1008, !noundef !13
   %279 = load i64, ptr %100, align 8, !alias.scope !1008, !noundef !13
   %280 = sub i64 %279, %278
-  %281 = icmp ult i64 %280, %.0.i227
+  %281 = icmp ugt i64 %.0.i227, %280
   br i1 %281, label %282, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc617771f3716d934E.exit.preheader"
 
 282:                                              ; preds = %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit232"
@@ -10795,7 +10795,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %.val, i64 332
   %21 = load i32, ptr %20, align 4
-  %22 = icmp ugt i32 %21, %1
+  %22 = icmp ult i32 %1, %21
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %19
@@ -10838,7 +10838,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %9 = getelementptr inbounds i8, ptr %8, i64 128
   %10 = load i64, ptr %9, align 8, !noalias !1226, !noundef !13
   %11 = trunc i64 %10 to i32
-  %.not = icmp ugt i32 %11, %1
+  %.not = icmp ult i32 %1, %11
   br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %2
@@ -12756,7 +12756,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   store i8 1, ptr %41, align 1, !noalias !1479
   %42 = load i64, ptr %40, align 8, !noalias !1479, !noundef !13
   %43 = load i64, ptr %4, align 8, !alias.scope !1482, !noalias !1479, !noundef !13
-  %44 = icmp ult i64 %43, %42
+  %44 = icmp ugt i64 %42, %43
   br i1 %44, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11unreachable17h81549a42f4fa19e2E.llvm.8213084322371663677.exit", label %45
 
 45:                                               ; preds = %36
@@ -19796,7 +19796,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 34:                                               ; preds = %25
   %35 = getelementptr inbounds i8, ptr %.val64, i64 332
   %36 = load i32, ptr %35, align 4
-  %37 = icmp ugt i32 %36, %1
+  %37 = icmp ult i32 %1, %36
   br i1 %37, label %45, label %38
 
 38:                                               ; preds = %34
@@ -20225,7 +20225,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %15 = load i64, ptr %13, align 8, !noalias !2356, !noundef !13
   %16 = getelementptr inbounds i8, ptr %2, i64 160
   %17 = load i64, ptr %16, align 8, !alias.scope !2359, !noalias !2356, !noundef !13
-  %18 = icmp ult i64 %17, %15
+  %18 = icmp ugt i64 %15, %17
   br i1 %18, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11unreachable17h81549a42f4fa19e2E.llvm.8213084322371663677.exit", label %19
 
 19:                                               ; preds = %9
@@ -21530,7 +21530,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 59:                                               ; preds = %44
   %60 = getelementptr inbounds i8, ptr %.val51, i64 332
   %61 = load i32, ptr %60, align 4
-  %62 = icmp ugt i32 %61, %2
+  %62 = icmp ult i32 %2, %61
   br i1 %62, label %70, label %63
 
 63:                                               ; preds = %59
@@ -22804,7 +22804,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 73:                                               ; preds = %58
   %74 = getelementptr inbounds i8, ptr %.val82, i64 332
   %75 = load i32, ptr %74, align 4
-  %76 = icmp ugt i32 %75, %2
+  %76 = icmp ult i32 %2, %75
   br i1 %76, label %84, label %77
 
 77:                                               ; preds = %73
@@ -29429,7 +29429,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   store i8 1, ptr %156, align 1, !noalias !3412
   %157 = load i64, ptr %155, align 8, !noalias !3412, !noundef !13
   %158 = load i64, ptr %148, align 8, !alias.scope !3415, !noalias !3412, !noundef !13
-  %159 = icmp ult i64 %158, %157
+  %159 = icmp ugt i64 %157, %158
   br i1 %159, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h6d82e4fae05ab311E.exit.thread", label %160
 
 160:                                              ; preds = %152
@@ -34266,7 +34266,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 36:                                               ; preds = %23
   %37 = getelementptr inbounds i8, ptr %.val.i, i64 332
   %38 = load i32, ptr %37, align 4, !noalias !4324
-  %39 = icmp ugt i32 %38, %1
+  %39 = icmp ult i32 %1, %38
   br i1 %39, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_data_drop17h1204cdbe6cf8c499E.llvm.8213084322371663677.exit", label %40
 
 40:                                               ; preds = %36
@@ -34356,7 +34356,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %26 = getelementptr inbounds i8, ptr %25, i64 128
   %27 = load i64, ptr %26, align 8, !noalias !4351, !noundef !13
   %28 = trunc i64 %27 to i32
-  %.not.i = icmp ugt i32 %28, %1
+  %.not.i = icmp ult i32 %1, %28
   br i1 %.not.i, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_elem_drop17hbcfc15edadf0094cE.llvm.8213084322371663677.exit", label %29
 
 29:                                               ; preds = %22
@@ -43029,7 +43029,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %15 = load i64, ptr %13, align 8, !noalias !6368, !noundef !13
   %16 = getelementptr inbounds i8, ptr %2, i64 160
   %17 = load i64, ptr %16, align 8, !alias.scope !6369, !noalias !6368, !noundef !13
-  %18 = icmp ult i64 %17, %15
+  %18 = icmp ugt i64 %15, %17
   br i1 %18, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_unreachable17he102bc7475d73478E.llvm.8213084322371663677.exit", label %19
 
 19:                                               ; preds = %9
@@ -57875,7 +57875,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.82130
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 

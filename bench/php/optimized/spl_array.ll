@@ -2124,11 +2124,11 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %85 = load ptr, ptr @spl_ce_ArrayObject, align 8
   %86 = icmp ne ptr %0, null
   %.not142155 = xor i1 %86, true
-  %87 = icmp eq ptr %83, %0
+  %87 = icmp eq ptr %0, %83
   %or.cond156 = select i1 %.not142155, i1 true, i1 %87
-  %88 = icmp eq ptr %84, %0
+  %88 = icmp eq ptr %0, %84
   %or.cond145157 = select i1 %or.cond156, i1 true, i1 %88
-  %89 = icmp eq ptr %85, %0
+  %89 = icmp eq ptr %0, %85
   %or.cond147158 = select i1 %or.cond145157, i1 true, i1 %89
   br i1 %or.cond147158, label %._crit_edge.thread, label %.lr.ph
 

@@ -549,7 +549,7 @@ if.then:                                          ; preds = %invoke.cont3
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i, label %cleanup61, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -661,7 +661,7 @@ if.then10:                                        ; preds = %invoke.cont8
   %state_.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i9 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i9 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i9, label %cleanup, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %if.then10
@@ -1017,7 +1017,7 @@ if.then:                                          ; preds = %invoke.cont3
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i, label %cleanup149, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -1129,7 +1129,7 @@ if.then10:                                        ; preds = %invoke.cont8
   %state_.i.i27 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i27, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i28 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i28 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i28, label %cleanup, label %if.then.i.i29
 
 if.then.i.i29:                                    ; preds = %if.then10

@@ -749,7 +749,7 @@ define linkonce_odr hidden void @_ZN15JvmtiRawMonitor14dequeue_waiterERNS_5QNode
 
 15:                                               ; preds = %13
   %16 = load volatile ptr, ptr %11, align 8
-  %17 = icmp eq ptr %16, %1
+  %17 = icmp eq ptr %1, %16
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %15
@@ -760,7 +760,7 @@ define linkonce_odr hidden void @_ZN15JvmtiRawMonitor14dequeue_waiterERNS_5QNode
 
 20:                                               ; preds = %13
   %21 = load volatile ptr, ptr %.0, align 8
-  %22 = icmp eq ptr %21, %1
+  %22 = icmp eq ptr %1, %21
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %20
@@ -957,7 +957,7 @@ _ZN18SafepointMechanism14should_processEP10JavaThreadb.exit: ; preds = %30, %19,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 2) i32 @_ZN15JvmtiRawMonitor8raw_exitEP6Thread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load volatile ptr, ptr %0, align 8
-  %.not = icmp eq ptr %3, %1
+  %.not = icmp eq ptr %1, %3
   br i1 %.not, label %4, label %12
 
 4:                                                ; preds = %2
@@ -986,7 +986,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor8raw_waitElP6Thre
   %4 = alloca %"class.JvmtiRawMonitor::ExitOnSuspend", align 8
   %5 = alloca %class.ThreadBlockInVMPreprocess.2, align 8
   %6 = load volatile ptr, ptr %0, align 8
-  %.not = icmp eq ptr %6, %2
+  %.not = icmp eq ptr %2, %6
   br i1 %.not, label %7, label %47
 
 7:                                                ; preds = %3
@@ -1080,7 +1080,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %.1 = phi i32 [ %spec.select, %39 ], [ %13, %41 ]
   store volatile i32 %12, ptr %11, align 8
   %43 = load volatile ptr, ptr %0, align 8
-  %44 = icmp eq ptr %43, %2
+  %44 = icmp eq ptr %2, %43
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %42
@@ -1097,7 +1097,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 2) i32 @_ZN15JvmtiRawMonitor10raw_notifyEP6Thread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load volatile ptr, ptr %0, align 8
-  %.not = icmp eq ptr %3, %1
+  %.not = icmp eq ptr %1, %3
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %2
@@ -1112,7 +1112,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN15JvmtiRawMonitor10raw_notifyEP6Th
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 2) i32 @_ZN15JvmtiRawMonitor13raw_notifyAllEP6Thread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load volatile ptr, ptr %0, align 8
-  %.not = icmp eq ptr %3, %1
+  %.not = icmp eq ptr %1, %3
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %2

@@ -379,7 +379,7 @@ define void @_Z19add_blocks_enxframeP10t_enxframei(ptr nocapture noundef %0, i32
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
-  %6 = icmp slt i32 %5, %1
+  %6 = icmp sgt i32 %1, %5
   br i1 %6, label %7, label %21
 
 7:                                                ; preds = %2
@@ -469,7 +469,7 @@ define void @_Z22add_subblocks_enxblockP10t_enxblocki(ptr nocapture noundef %0, 
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = icmp slt i32 %5, %1
+  %6 = icmp sgt i32 %1, %5
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %2
@@ -2092,7 +2092,7 @@ _ZL11enx_warningPKc.exit215:                      ; preds = %186
   %196 = load i32, ptr %140, align 8
   %197 = getelementptr inbounds i8, ptr %2, i64 72
   %198 = load i32, ptr %197, align 8
-  %199 = icmp slt i32 %198, %196
+  %199 = icmp sgt i32 %196, %198
   br i1 %199, label %200, label %_Z19add_blocks_enxframeP10t_enxframei.exit
 
 200:                                              ; preds = %195
@@ -2427,7 +2427,7 @@ _Z22add_subblocks_enxblockP10t_enxblocki.exit227: ; preds = %._crit_edge.i221, %
   store i32 %345, ptr %351, align 4
   %352 = getelementptr inbounds i8, ptr %350, i64 16
   %353 = load i32, ptr %352, align 8
-  %354 = icmp slt i32 %353, %345
+  %354 = icmp sgt i32 %345, %353
   br i1 %354, label %355, label %_Z22add_subblocks_enxblockP10t_enxblocki.exit234
 
 355:                                              ; preds = %348
@@ -4921,7 +4921,7 @@ switch.early.test.i:                              ; preds = %.lr.ph94.i
 
 _ZL16ener_tensor_diagiPKiS0_P11gmx_enxnm_tS0_iP8t_energyS4_.exit.i: ; preds = %318, %._crit_edge.i.i, %273
   %.0.i.i = phi float [ %322, %318 ], [ 0.000000e+00, %._crit_edge.i.i ], [ 0.000000e+00, %273 ]
-  %323 = fmul float %.0.i.i, %2
+  %323 = fmul float %2, %.0.i.i
   %324 = load ptr, ptr @debug, align 8
   %.not79.i = icmp eq ptr %324, null
   br i1 %.not79.i, label %334, label %325
@@ -4942,7 +4942,7 @@ _ZL16ener_tensor_diagiPKiS0_P11gmx_enxnm_tS0_iP8t_energyS4_.exit.i: ; preds = %3
   br i1 %335, label %336, label %338
 
 336:                                              ; preds = %334
-  %337 = fcmp ogt float %323, %3
+  %337 = fcmp olt float %3, %323
   %.sroa.speculated.i = select i1 %337, float %3, float %323
   br label %338
 

@@ -678,13 +678,13 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not = icmp slt i32 %5, %1
+  %.not = icmp sgt i32 %1, %5
   br i1 %.not, label %6, label %41
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
   %8 = shl nsw i32 %7, 1
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   %.not.i = icmp slt i32 %7, %1
   br i1 %9, label %10, label %22
 
@@ -1013,7 +1013,7 @@ common.ret20:                                     ; preds = %11, %common.ret
   %12 = add nsw i32 %2, -1
   %13 = tail call i32 @Cba_NtkMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %12, ptr noundef %3, i32 noundef %4)
   %14 = shl nuw i32 1, %12
-  %15 = add nsw i32 %14, %4
+  %15 = add nsw i32 %4, %14
   %16 = tail call i32 @Cba_NtkMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %12, ptr noundef %3, i32 noundef %15)
   %17 = sext i32 %12 to i64
   %18 = getelementptr inbounds i32, ptr %1, i64 %17
@@ -3921,7 +3921,7 @@ Cba_ObjNtkId.exit.i.i:                            ; preds = %Cba_ObjRangeSize.ex
   tail call void @llvm.assume(i1 %116)
   %117 = getelementptr i8, ptr %.val.i.i1040, i64 1564
   %.val.i.i.i2.i.i = load i32, ptr %117, align 4
-  %.not.i.i.i.i1041 = icmp sgt i32 %.val.i.i.i2.i.i, %115
+  %.not.i.i.i.i1041 = icmp slt i32 %115, %.val.i.i.i2.i.i
   tail call void @llvm.assume(i1 %.not.i.i.i.i1041)
   %118 = getelementptr i8, ptr %.val.i.i1040, i64 1568
   %.val.i.i.i.i1042 = load ptr, ptr %118, align 8
@@ -6987,13 +6987,13 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
 
 Cba_FonRange.exit.i1490.us:                       ; preds = %1534
   %1536 = add nuw nsw i32 %1533, 1
-  %.not.i1610.not.us = icmp ugt i32 %.val.i.i.i1489.us, %1533
+  %.not.i1610.not.us = icmp ult i32 %1533, %.val.i.i.i1489.us
   br i1 %.not.i1610.not.us, label %Vec_IntFillExtra.exit1623.us, label %1537
 
 1537:                                             ; preds = %Cba_FonRange.exit.i1490.us
   %1538 = load i32, ptr %1516, align 8
   %1539 = shl nsw i32 %1538, 1
-  %.not1728.us = icmp sgt i32 %1539, %1533
+  %.not1728.us = icmp slt i32 %1533, %1539
   br i1 %.not1728.us, label %1548, label %1540
 
 1540:                                             ; preds = %1537
@@ -7098,7 +7098,7 @@ Cba_FonRangeSize.exit1495.us:                     ; preds = %1565, %Vec_IntFillE
 
 1584:                                             ; preds = %Cba_FonRangeSize.exit1495.us
   %1585 = icmp slt i32 %1580, 1
-  %.not.i1624.not.us = icmp sgt i32 %1580, %1533
+  %.not.i1624.not.us = icmp slt i32 %1533, %1580
   %or.cond2117 = or i1 %1585, %.not.i1624.not.us
   br i1 %or.cond2117, label %.thread1698.us, label %1593
 
@@ -7115,7 +7115,7 @@ Cba_FonRangeSize.exit1495.us:                     ; preds = %1565, %Vec_IntFillE
 
 .thread2055:                                      ; preds = %.thread2048
   %1592 = add nuw nsw i32 %1533, 1
-  %.not.i1624.not.us2056 = icmp sgt i32 %1580, %1533
+  %.not.i1624.not.us2056 = icmp slt i32 %1533, %1580
   br i1 %.not.i1624.not.us2056, label %.sink.split2101, label %1593
 
 1593:                                             ; preds = %1584, %.thread2055
@@ -7123,7 +7123,7 @@ Cba_FonRangeSize.exit1495.us:                     ; preds = %1565, %Vec_IntFillE
   %1595 = phi ptr [ %1590, %.thread2055 ], [ null, %1584 ]
   %1596 = load i32, ptr %1516, align 8
   %1597 = shl nsw i32 %1596, 1
-  %.not1731.us = icmp sgt i32 %1597, %1533
+  %.not1731.us = icmp slt i32 %1533, %1597
   br i1 %.not1731.us, label %1606, label %1598
 
 1598:                                             ; preds = %1593
@@ -7555,13 +7555,13 @@ Gia_ManAppendCo.exit1541.us:                      ; preds = %1764, %Vec_IntPush.
 
 Cba_FonRange.exit.i1357:                          ; preds = %1783
   %1785 = add nuw nsw i32 %1782, 1
-  %.not.i1559.not = icmp ugt i32 %.val.i.i.i1356, %1782
+  %.not.i1559.not = icmp ult i32 %1782, %.val.i.i.i1356
   br i1 %.not.i1559.not, label %Vec_IntFillExtra.exit, label %1786
 
 1786:                                             ; preds = %Cba_FonRange.exit.i1357
   %1787 = load i32, ptr %1504, align 8
   %1788 = shl nsw i32 %1787, 1
-  %.not1733 = icmp sgt i32 %1788, %1782
+  %.not1733 = icmp slt i32 %1782, %1788
   br i1 %.not1733, label %1797, label %1789
 
 1789:                                             ; preds = %1786
@@ -7666,7 +7666,7 @@ Cba_FonRangeSize.exit1362:                        ; preds = %1783, %Vec_IntFillE
 
 1833:                                             ; preds = %Cba_FonRangeSize.exit1362
   %1834 = icmp slt i32 %1829, 1
-  %.not.i1568.not = icmp sgt i32 %1829, %1782
+  %.not.i1568.not = icmp slt i32 %1782, %1829
   %or.cond2118 = or i1 %1834, %.not.i1568.not
   br i1 %or.cond2118, label %.thread1684, label %1842
 
@@ -7683,7 +7683,7 @@ Cba_FonRangeSize.exit1362:                        ; preds = %1783, %Vec_IntFillE
 
 .thread2058:                                      ; preds = %.thread2051
   %1841 = add nuw nsw i32 %1782, 1
-  %.not.i1568.not2059 = icmp sgt i32 %1829, %1782
+  %.not.i1568.not2059 = icmp slt i32 %1782, %1829
   br i1 %.not.i1568.not2059, label %.sink.split2104, label %1842
 
 1842:                                             ; preds = %1833, %.thread2058
@@ -7691,7 +7691,7 @@ Cba_FonRangeSize.exit1362:                        ; preds = %1783, %Vec_IntFillE
   %1844 = phi ptr [ %1839, %.thread2058 ], [ null, %1833 ]
   %1845 = load i32, ptr %1504, align 8
   %1846 = shl nsw i32 %1845, 1
-  %.not1736 = icmp sgt i32 %1846, %1782
+  %.not1736 = icmp slt i32 %1782, %1846
   br i1 %.not1736, label %1855, label %1847
 
 1847:                                             ; preds = %1842
@@ -8228,13 +8228,13 @@ Cba_FonRangeSize.exit1411:                        ; preds = %Cba_FonRange.exit.i
 
 Cba_FonRange.exit.i1416:                          ; preds = %2089
   %2091 = add nuw nsw i32 %2079, 1
-  %.not.i1582.not = icmp ugt i32 %.val.i.i.i1415, %2079
+  %.not.i1582.not = icmp ult i32 %2079, %.val.i.i.i1415
   br i1 %.not.i1582.not, label %Vec_IntFillExtra.exit1595, label %2092
 
 2092:                                             ; preds = %Cba_FonRange.exit.i1416
   %2093 = load i32, ptr %1516, align 8
   %2094 = shl nsw i32 %2093, 1
-  %.not1723 = icmp sgt i32 %2094, %2079
+  %.not1723 = icmp slt i32 %2079, %2094
   br i1 %.not1723, label %2103, label %2095
 
 2095:                                             ; preds = %2092
@@ -8339,7 +8339,7 @@ Cba_FonRangeSize.exit1421:                        ; preds = %2089, %Vec_IntFillE
 
 2139:                                             ; preds = %Cba_FonRangeSize.exit1421
   %2140 = icmp slt i32 %2135, 1
-  %.not.i1596.not = icmp sgt i32 %2135, %2079
+  %.not.i1596.not = icmp slt i32 %2079, %2135
   %or.cond2119 = or i1 %2140, %.not.i1596.not
   br i1 %or.cond2119, label %.thread1691, label %2148
 
@@ -8356,7 +8356,7 @@ Cba_FonRangeSize.exit1421:                        ; preds = %2089, %Vec_IntFillE
 
 .thread2061:                                      ; preds = %.thread2054
   %2147 = add nuw nsw i32 %2079, 1
-  %.not.i1596.not2062 = icmp sgt i32 %2135, %2079
+  %.not.i1596.not2062 = icmp slt i32 %2079, %2135
   br i1 %.not.i1596.not2062, label %.sink.split2107, label %2148
 
 2148:                                             ; preds = %2139, %.thread2061
@@ -8364,7 +8364,7 @@ Cba_FonRangeSize.exit1421:                        ; preds = %2089, %Vec_IntFillE
   %2150 = phi ptr [ %2145, %.thread2061 ], [ null, %2139 ]
   %2151 = load i32, ptr %1516, align 8
   %2152 = shl nsw i32 %2151, 1
-  %.not1726 = icmp sgt i32 %2152, %2079
+  %.not1726 = icmp slt i32 %2079, %2152
   br i1 %.not1726, label %2161, label %2153
 
 2153:                                             ; preds = %2148
@@ -9126,7 +9126,7 @@ define ptr @Cba_ManBlast(ptr nocapture noundef readonly %0, i32 noundef %1, i32 
 Cba_ManNtkIsOk.exit.i.i:                          ; preds = %4
   %8 = getelementptr i8, ptr %0, i64 1564
   %.val.i.i.i = load i32, ptr %8, align 4
-  %.not.i.i = icmp sgt i32 %.val.i.i.i, %6
+  %.not.i.i = icmp slt i32 %6, %.val.i.i.i
   br i1 %.not.i.i, label %9, label %Cba_ManRoot.exit
 
 9:                                                ; preds = %Cba_ManNtkIsOk.exit.i.i

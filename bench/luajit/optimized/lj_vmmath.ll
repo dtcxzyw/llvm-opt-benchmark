@@ -39,7 +39,7 @@ sw.bb3:                                           ; preds = %entry
 sw.bb4:                                           ; preds = %entry
   %div.i = fdiv double %x, %y
   %call.i = tail call double @lj_vm_floor(double noundef %div.i) #9
-  %mul.i = fmul double %call.i, %y
+  %mul.i = fmul double %y, %call.i
   %sub5 = fsub double %x, %mul.i
   br label %return
 

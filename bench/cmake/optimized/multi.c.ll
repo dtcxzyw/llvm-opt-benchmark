@@ -2384,7 +2384,7 @@ multi_timeout.exit:                               ; preds = %._crit_edge, %29, %
   br label %153
 
 153:                                              ; preds = %152, %151
-  %or.cond.not = and i1 %116, %5
+  %or.cond.not = and i1 %5, %116
   br i1 %or.cond.not, label %154, label %curl_multi_timeout.exit.thread
 
 154:                                              ; preds = %153

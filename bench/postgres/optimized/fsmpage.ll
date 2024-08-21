@@ -23,7 +23,7 @@ define dso_local noundef zeroext i1 @fsm_set_avail(ptr nocapture noundef %0, i32
 
 10:                                               ; preds = %3
   %11 = load i8, ptr %5, align 4
-  %.not = icmp ult i8 %11, %2
+  %.not = icmp ugt i8 %2, %11
   br i1 %.not, label %12, label %fsm_rebuild_page.exit
 
 12:                                               ; preds = %10, %3
@@ -65,7 +65,7 @@ define dso_local noundef zeroext i1 @fsm_set_avail(ptr nocapture noundef %0, i32
 
 34:                                               ; preds = %27, %32
   %35 = load i8, ptr %5, align 4
-  %36 = icmp ult i8 %35, %2
+  %36 = icmp ugt i8 %2, %35
   br i1 %36, label %.preheader, label %fsm_rebuild_page.exit
 
 .preheader:                                       ; preds = %34, %50

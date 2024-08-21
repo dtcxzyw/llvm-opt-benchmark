@@ -1472,7 +1472,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %0, i64 %index)
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %index, i64 %0)
   %call = tail call ptr @_PyMem_RawWcsdup(ptr noundef %item) #21
   %cmp11 = icmp eq ptr %call, null
   br i1 %cmp11, label %if.then12, label %if.end17
@@ -1508,7 +1508,7 @@ if.then20:                                        ; preds = %if.end17
   br label %return
 
 if.end25:                                         ; preds = %if.end17
-  %cmp26 = icmp sgt i64 %0, %index
+  %cmp26 = icmp slt i64 %index, %0
   br i1 %cmp26, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %if.end25

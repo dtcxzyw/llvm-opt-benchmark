@@ -53,7 +53,7 @@ define nonnull align 8 ptr @"_ZN125_$LT$core..slice..sort..merge_sort..RunVec$LT
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = icmp ugt i64 %6, %1
+  %7 = icmp ult i64 %1, %6
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
@@ -80,7 +80,7 @@ define nonnull align 8 ptr @"_ZN128_$LT$core..slice..sort..merge_sort..RunVec$LT
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = icmp ugt i64 %6, %1
+  %7 = icmp ult i64 %1, %6
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
@@ -382,7 +382,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
 88:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   %89 = load i64, ptr %25, align 8, !noundef !3
-  %90 = icmp ugt i64 %89, %86
+  %90 = icmp ult i64 %86, %89
   br i1 %90, label %92, label %91
 
 91:                                               ; preds = %88
@@ -398,7 +398,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   %97 = load i64, ptr %96, align 8, !noundef !3
   %98 = add nuw i64 %86, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  %99 = icmp ugt i64 %89, %98
+  %99 = icmp ult i64 %98, %89
   br i1 %99, label %101, label %100
 
 100:                                              ; preds = %92
@@ -422,7 +422,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   %111 = getelementptr inbounds { i64, [11 x i64] }, ptr %109, i64 %95
   %112 = getelementptr inbounds { i64, [11 x i64] }, ptr %109, i64 %110
   %113 = sub i64 %110, %95
-  %.not.i = icmp ult i64 %113, %95
+  %.not.i = icmp ugt i64 %95, %113
   %114 = icmp sgt i64 %95, 0
   br i1 %.not.i, label %115, label %119
 
@@ -489,8 +489,8 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   %.026.i = select i1 %127, ptr %131, ptr %134
   %135 = getelementptr inbounds i8, ptr %.02740.i, i64 -96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %135, ptr noundef nonnull align 8 dereferenceable(96) %.026.i, i64 96, i1 false)
-  %136 = icmp ugt ptr %131, %109
-  %137 = icmp ugt ptr %134, %17
+  %136 = icmp ult ptr %109, %131
+  %137 = icmp ult ptr %17, %134
   %or.cond.i = select i1 %136, i1 %137, i1 false
   br i1 %or.cond.i, label %.lr.ph41.i, label %.loopexit.i
 
@@ -531,7 +531,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   %156 = load i64, ptr %25, align 8, !noundef !3
-  %157 = icmp ugt i64 %156, %98
+  %157 = icmp ult i64 %98, %156
   br i1 %157, label %159, label %158
 
 158:                                              ; preds = %155
@@ -548,7 +548,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   store i64 %97, ptr %163, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   %164 = load i64, ptr %25, align 8, !noundef !3
-  %.not.i47 = icmp ugt i64 %164, %86
+  %.not.i47 = icmp ult i64 %86, %164
   br i1 %.not.i47, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17haf08635e70901d8bE.exit", label %165
 
 165:                                              ; preds = %159
@@ -704,7 +704,7 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
-  %.not = icmp ugt i64 %5, %1
+  %.not = icmp ult i64 %1, %5
   br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %2
@@ -1700,7 +1700,7 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17h27c318ad51ec58d0E(ptr al
 79:                                               ; preds = %8
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h30a609e97b79ceedE"(ptr nonnull align 8 %0, i64 %1)
   %80 = xor i64 %.1, -1
-  %81 = add i64 %80, %1
+  %81 = add i64 %1, %80
   br label %83
 
 .thread173:                                       ; preds = %3, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hf56199e6e61b64dcE.exit29", %8
@@ -1854,7 +1854,7 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17h4c6ae112a7dbf2c3E(ptr al
 79:                                               ; preds = %8
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17ha53a66470756c716E"(ptr nonnull align 2 %0, i64 %1)
   %80 = xor i64 %.1, -1
-  %81 = add i64 %80, %1
+  %81 = add i64 %1, %80
   br label %83
 
 .thread173:                                       ; preds = %3, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8280b795bd966837E.exit29", %8
@@ -2008,7 +2008,7 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17h8a76eebdfbf4a6c3E(ptr al
 79:                                               ; preds = %8
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h1581df4c99e124c4E"(ptr nonnull align 8 %0, i64 %1)
   %80 = xor i64 %.1, -1
-  %81 = add i64 %80, %1
+  %81 = add i64 %1, %80
   br label %83
 
 .thread173:                                       ; preds = %3, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hbed8d0dfe85d8410E.exit29", %8
@@ -2162,7 +2162,7 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17h8c01800e084ed486E(ptr al
 79:                                               ; preds = %8
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h1581df4c99e124c4E"(ptr nonnull align 8 %0, i64 %1)
   %80 = xor i64 %.1, -1
-  %81 = add i64 %80, %1
+  %81 = add i64 %1, %80
   br label %83
 
 .thread173:                                       ; preds = %3, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcd715ae596ea37beE.exit29", %8
@@ -2316,7 +2316,7 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17hcb9066415bfbd13eE(ptr al
 79:                                               ; preds = %8
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h96e6c142da565427E"(ptr nonnull align 8 %0, i64 %1)
   %80 = xor i64 %.1, -1
-  %81 = add i64 %80, %1
+  %81 = add i64 %1, %80
   br label %83
 
 .thread173:                                       ; preds = %3, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2a2ecac312fd73abE.exit29", %8
@@ -4929,7 +4929,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h19b72e9b6e0b749aE(ptr al
   br i1 %or.cond.i, label %.preheader.i, label %25
 
 .preheader.i:                                     ; preds = %15
-  %.not7.i = icmp ugt i64 %21, %18
+  %.not7.i = icmp ult i64 %18, %21
   br i1 %.not7.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17hc4d6ac57830d63e5E.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
@@ -5058,7 +5058,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h1afc1aabe1d5884
   br i1 %or.cond.i, label %.preheader.i, label %46
 
 .preheader.i:                                     ; preds = %41
-  %.not7.i = icmp ugt i64 %44, %39
+  %.not7.i = icmp ult i64 %39, %44
   br i1 %.not7.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17h26be96fffef21835E.exit
 
 46:                                               ; preds = %41
@@ -5344,7 +5344,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h2167b454218c752
   br i1 %or.cond.i, label %.preheader.i, label %46
 
 .preheader.i:                                     ; preds = %41
-  %.not7.i = icmp ugt i64 %44, %39
+  %.not7.i = icmp ult i64 %39, %44
   br i1 %.not7.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17h9bbeb16b4579519aE.exit
 
 46:                                               ; preds = %41
@@ -5636,7 +5636,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hb0e1927809514f7
   br i1 %or.cond.i, label %.preheader.i, label %46
 
 .preheader.i:                                     ; preds = %41
-  %.not7.i = icmp ugt i64 %44, %39
+  %.not7.i = icmp ult i64 %39, %44
   br i1 %.not7.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17ha5341729b709cb41E.exit
 
 46:                                               ; preds = %41
@@ -5928,7 +5928,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hb52a11968cf64fc
   br i1 %or.cond.i, label %.preheader.i, label %46
 
 .preheader.i:                                     ; preds = %41
-  %.not7.i = icmp ugt i64 %44, %39
+  %.not7.i = icmp ult i64 %39, %44
   br i1 %.not7.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17h093596ccf6cc2f4eE.exit
 
 46:                                               ; preds = %41
@@ -6220,7 +6220,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hf259ec1d172baf6
   br i1 %or.cond.i, label %.preheader.i, label %46
 
 .preheader.i:                                     ; preds = %41
-  %.not7.i = icmp ugt i64 %44, %39
+  %.not7.i = icmp ult i64 %39, %44
   br i1 %.not7.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17h4bdee571c842f4e9E.exit
 
 46:                                               ; preds = %41
@@ -6416,7 +6416,7 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17h093596ccf6cc2f4eE(
   br i1 %or.cond, label %.preheader, label %10
 
 .preheader:                                       ; preds = %4
-  %.not7 = icmp ugt i64 %6, %2
+  %.not7 = icmp ult i64 %2, %6
   br i1 %.not7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -6454,7 +6454,7 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17h26be96fffef21835E(
   br i1 %or.cond, label %.preheader, label %10
 
 .preheader:                                       ; preds = %4
-  %.not7 = icmp ugt i64 %6, %2
+  %.not7 = icmp ult i64 %2, %6
   br i1 %.not7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -6492,7 +6492,7 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17h4bdee571c842f4e9E(
   br i1 %or.cond, label %.preheader, label %10
 
 .preheader:                                       ; preds = %4
-  %.not7 = icmp ugt i64 %6, %2
+  %.not7 = icmp ult i64 %2, %6
   br i1 %.not7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -6530,7 +6530,7 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17h9bbeb16b4579519aE(
   br i1 %or.cond, label %.preheader, label %10
 
 .preheader:                                       ; preds = %4
-  %.not7 = icmp ugt i64 %6, %2
+  %.not7 = icmp ult i64 %2, %6
   br i1 %.not7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -6568,7 +6568,7 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17ha5341729b709cb41E(
   br i1 %or.cond, label %.preheader, label %10
 
 .preheader:                                       ; preds = %4
-  %.not7 = icmp ugt i64 %6, %2
+  %.not7 = icmp ult i64 %2, %6
   br i1 %.not7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -6606,7 +6606,7 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17hc4d6ac57830d63e5E(
   br i1 %or.cond, label %.preheader, label %10
 
 .preheader:                                       ; preds = %4
-  %.not7 = icmp ugt i64 %6, %2
+  %.not7 = icmp ult i64 %2, %6
   br i1 %.not7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -6836,7 +6836,7 @@ define void @_ZN4core5slice4sort5merge17h70e044dfe2ee4437E(ptr align 8 %0, i64 %
   %7 = getelementptr inbounds { i64, [11 x i64] }, ptr %0, i64 %2
   %8 = getelementptr inbounds { i64, [11 x i64] }, ptr %0, i64 %1
   %9 = sub i64 %1, %2
-  %.not = icmp ult i64 %9, %2
+  %.not = icmp ugt i64 %2, %9
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.313.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   %10 = icmp sgt i64 %2, 0
@@ -6905,8 +6905,8 @@ define void @_ZN4core5slice4sort5merge17h70e044dfe2ee4437E(ptr align 8 %0, i64 %
   %.026 = select i1 %23, ptr %27, ptr %30
   %31 = getelementptr inbounds i8, ptr %.02740, i64 -96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %31, ptr noundef nonnull align 8 dereferenceable(96) %.026, i64 96, i1 false)
-  %32 = icmp ugt ptr %27, %0
-  %33 = icmp ugt ptr %30, %3
+  %32 = icmp ult ptr %0, %27
+  %33 = icmp ult ptr %3, %30
   %or.cond = select i1 %32, i1 %33, i1 false
   br i1 %or.cond, label %.lr.ph41, label %.loopexit
 

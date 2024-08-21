@@ -4438,7 +4438,7 @@ cond.true17:                                      ; preds = %land.lhs.true15
 cond.end24:                                       ; preds = %if.then12, %land.lhs.true15, %cond.true17
   %cond25 = phi i64 [ %sub.ptr.sub22, %cond.true17 ], [ 0, %land.lhs.true15 ], [ 0, %if.then12 ]
   %conv26 = trunc i64 %cond25 to i32
-  %add = add i32 %conv26, %len
+  %add = add i32 %len, %conv26
   %cmp27 = icmp slt i32 %add, 0
   br i1 %cmp27, label %if.then29, label %if.end31
 
@@ -5262,7 +5262,7 @@ if.then3:                                         ; preds = %if.then1
 if.then.i:                                        ; preds = %if.then3
   %m_encoding.i = getelementptr inbounds i8, ptr %parser, i64 288
   %6 = load ptr, ptr %m_encoding.i, align 8
-  %cmp.i = icmp eq ptr %6, %2
+  %cmp.i = icmp eq ptr %2, %6
   %m_eventPtr.i = getelementptr inbounds i8, ptr %parser, i64 544
   %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
   %eventPP.0.i = select i1 %cmp.i, ptr %m_eventPtr.i, ptr %1
@@ -5387,7 +5387,7 @@ entry:
 if.then:                                          ; preds = %entry
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
-  %cmp = icmp eq ptr %1, %enc
+  %cmp = icmp eq ptr %enc, %1
   br i1 %cmp, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.then
@@ -5779,7 +5779,7 @@ entry:
   %0 = load ptr, ptr %m_dtd, align 8
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
-  %cmp = icmp eq ptr %1, %enc
+  %cmp = icmp eq ptr %enc, %1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -6881,7 +6881,7 @@ for.body.i:                                       ; preds = %for.cond.i857, %for
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i857 ]
   %arrayidx.i856 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %145, i64 %indvars.iv.i
   %146 = load ptr, ptr %arrayidx.i856, align 8
-  %cmp3.i = icmp eq ptr %146, %141
+  %cmp3.i = icmp eq ptr %141, %146
   br i1 %cmp3.i, label %if.end346, label %for.cond.i857
 
 land.lhs.true.i853:                               ; preds = %for.cond.i857, %for.cond.preheader.i
@@ -7169,7 +7169,7 @@ for.body.i926:                                    ; preds = %for.cond.i930, %for
   %indvars.iv.i927 = phi i64 [ 0, %for.body.lr.ph.i923 ], [ %indvars.iv.next.i931, %for.cond.i930 ]
   %arrayidx.i928 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %195, i64 %indvars.iv.i927
   %196 = load ptr, ptr %arrayidx.i928, align 8
-  %cmp3.i929 = icmp eq ptr %196, %192
+  %cmp3.i929 = icmp eq ptr %192, %196
   br i1 %cmp3.i929, label %if.end447, label %for.cond.i930
 
 if.end14.i883:                                    ; preds = %for.cond.i930, %if.end434
@@ -8460,7 +8460,7 @@ if.then957:                                       ; preds = %sw.bb954
 
 if.then.i1230:                                    ; preds = %if.then957
   %430 = load ptr, ptr %m_encoding, align 8
-  %cmp.i1231 = icmp eq ptr %430, %enc.addr.0
+  %cmp.i1231 = icmp eq ptr %enc.addr.0, %430
   br i1 %cmp.i1231, label %if.end.i1233, label %if.else.i1232
 
 if.else.i1232:                                    ; preds = %if.then.i1230
@@ -9446,7 +9446,7 @@ if.then1442:                                      ; preds = %land.lhs.true1439
 
 if.then.i1323:                                    ; preds = %if.then1442
   %611 = load ptr, ptr %m_encoding, align 8
-  %cmp.i1325 = icmp eq ptr %611, %enc.addr.0
+  %cmp.i1325 = icmp eq ptr %enc.addr.0, %611
   br i1 %cmp.i1325, label %if.end.i1329, label %if.else.i1326
 
 if.else.i1326:                                    ; preds = %if.then.i1323
@@ -9548,7 +9548,7 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
 
 getRootParserOf.exit:                             ; preds = %while.cond.i
   %cmp1 = icmp eq i32 %account, 0
-  %cmp2 = icmp eq ptr %rootParser.0.i, %originParser
+  %cmp2 = icmp eq ptr %originParser, %rootParser.0.i
   %2 = and i1 %cmp1, %cmp2
   %sub.ptr.lhs.cast = ptrtoint ptr %after to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %before to i64
@@ -9638,7 +9638,7 @@ accountingReportStats.exit:                       ; preds = %getRootParserOf.exi
 
 for.cond6.preheader.i:                            ; preds = %accountingReportStats.exit
   %add.ptr.i = getelementptr i8, ptr %before, i64 10
-  %cmp717.i = icmp ugt ptr %add.ptr.i, %before
+  %cmp717.i = icmp ult ptr %before, %add.ptr.i
   br i1 %cmp717.i, label %for.body8.i, label %for.end14.i
 
 for.cond.preheader.i:                             ; preds = %accountingReportStats.exit
@@ -11412,7 +11412,7 @@ sw.bb:                                            ; preds = %if.end10
 
 lor.lhs.false:                                    ; preds = %sw.bb
   %11 = load ptr, ptr %m_encoding, align 8
-  %cmp.not = icmp eq ptr %11, %enc
+  %cmp.not = icmp eq ptr %enc, %11
   br i1 %cmp.not, label %if.end68, label %if.then13
 
 if.then13:                                        ; preds = %lor.lhs.false, %sw.bb
@@ -11573,7 +11573,7 @@ lookup.exit:                                      ; preds = %for.body.i.i
 
 if.then28:                                        ; preds = %lookup.exit
   %40 = load ptr, ptr %m_encoding, align 8
-  %cmp30 = icmp eq ptr %40, %enc
+  %cmp30 = icmp eq ptr %enc, %40
   br i1 %cmp30, label %if.then32, label %endEntityValue
 
 if.then32:                                        ; preds = %if.then28
@@ -11897,7 +11897,7 @@ sw.bb89:                                          ; preds = %if.end10
 
 if.then93:                                        ; preds = %sw.bb89
   %104 = load ptr, ptr %m_encoding, align 8
-  %cmp95 = icmp eq ptr %104, %enc
+  %cmp95 = icmp eq ptr %enc, %104
   br i1 %cmp95, label %if.then97, label %endEntityValue
 
 if.then97:                                        ; preds = %if.then93
@@ -11943,7 +11943,7 @@ if.end113:                                        ; preds = %land.lhs.true109.if
 
 sw.bb117:                                         ; preds = %if.end10
   %109 = load ptr, ptr %m_encoding, align 8
-  %cmp119 = icmp eq ptr %109, %enc
+  %cmp119 = icmp eq ptr %enc, %109
   br i1 %cmp119, label %if.then121, label %endEntityValue
 
 if.then121:                                       ; preds = %sw.bb117
@@ -11953,7 +11953,7 @@ if.then121:                                       ; preds = %sw.bb117
 
 sw.bb124:                                         ; preds = %if.end10
   %110 = load ptr, ptr %m_encoding, align 8
-  %cmp126 = icmp eq ptr %110, %enc
+  %cmp126 = icmp eq ptr %enc, %110
   br i1 %cmp126, label %if.then128, label %endEntityValue
 
 if.then128:                                       ; preds = %sw.bb124
@@ -11964,7 +11964,7 @@ if.then128:                                       ; preds = %sw.bb124
 
 sw.default:                                       ; preds = %if.end10
   %112 = load ptr, ptr %m_encoding, align 8
-  %cmp132 = icmp eq ptr %112, %enc
+  %cmp132 = icmp eq ptr %enc, %112
   br i1 %cmp132, label %if.then134, label %endEntityValue
 
 if.then134:                                       ; preds = %sw.default
@@ -11996,7 +11996,7 @@ entry:
   store ptr %0, ptr %next, align 8
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
-  %cmp = icmp eq ptr %1, %enc
+  %cmp = icmp eq ptr %enc, %1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -12087,7 +12087,7 @@ if.then6:                                         ; preds = %sw.bb
 
 if.then.i:                                        ; preds = %if.then6
   %13 = load ptr, ptr %m_encoding, align 8
-  %cmp.i = icmp eq ptr %13, %enc
+  %cmp.i = icmp eq ptr %enc, %13
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
@@ -12636,7 +12636,7 @@ if.then2:                                         ; preds = %if.then
 if.then.i:                                        ; preds = %if.then2
   %m_encoding.i = getelementptr inbounds i8, ptr %parser, i64 288
   %3 = load ptr, ptr %m_encoding.i, align 8
-  %cmp.i = icmp eq ptr %3, %enc
+  %cmp.i = icmp eq ptr %enc, %3
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
@@ -12954,7 +12954,7 @@ if.then2:                                         ; preds = %if.then
 if.then.i:                                        ; preds = %if.then2
   %m_encoding.i = getelementptr inbounds i8, ptr %parser, i64 288
   %3 = load ptr, ptr %m_encoding.i, align 8
-  %cmp.i = icmp eq ptr %3, %enc
+  %cmp.i = icmp eq ptr %enc, %3
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
@@ -13638,7 +13638,7 @@ entry:
   %0 = load ptr, ptr %m_dtd, align 8
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
-  %cmp = icmp eq ptr %1, %enc
+  %cmp = icmp eq ptr %enc, %1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -13922,7 +13922,7 @@ if.then71:                                        ; preds = %if.else68
 
 if.then.i:                                        ; preds = %if.then71
   %34 = load ptr, ptr %m_encoding, align 8
-  %cmp.i = icmp eq ptr %34, %enc
+  %cmp.i = icmp eq ptr %enc, %34
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
@@ -14781,7 +14781,7 @@ if.then258:                                       ; preds = %if.else255
 
 if.then.i399:                                     ; preds = %if.then258
   %194 = load ptr, ptr %m_encoding, align 8
-  %cmp.i401 = icmp eq ptr %194, %enc
+  %cmp.i401 = icmp eq ptr %enc, %194
   br i1 %cmp.i401, label %if.end.i405, label %if.else.i402
 
 if.else.i402:                                     ; preds = %if.then.i399
@@ -15025,7 +15025,7 @@ if.then316:                                       ; preds = %land.lhs.true
 
 if.then.i479:                                     ; preds = %if.then316
   %248 = load ptr, ptr %m_encoding, align 8
-  %cmp.i481 = icmp eq ptr %248, %enc
+  %cmp.i481 = icmp eq ptr %enc, %248
   br i1 %cmp.i481, label %if.end.i485, label %if.else.i482
 
 if.else.i482:                                     ; preds = %if.then.i479
@@ -15286,7 +15286,7 @@ if.then408:                                       ; preds = %if.else405
 
 if.then.i541:                                     ; preds = %if.then408
   %308 = load ptr, ptr %m_encoding, align 8
-  %cmp.i543 = icmp eq ptr %308, %enc
+  %cmp.i543 = icmp eq ptr %enc, %308
   br i1 %cmp.i543, label %if.end.i547, label %if.else.i544
 
 if.else.i544:                                     ; preds = %if.then.i541
@@ -15429,7 +15429,7 @@ if.then466:                                       ; preds = %if.else463
 
 if.then.i576:                                     ; preds = %if.then466
   %344 = load ptr, ptr %m_encoding, align 8
-  %cmp.i578 = icmp eq ptr %344, %enc
+  %cmp.i578 = icmp eq ptr %enc, %344
   br i1 %cmp.i578, label %if.end.i582, label %if.else.i579
 
 if.else.i579:                                     ; preds = %if.then.i576
@@ -15505,7 +15505,7 @@ if.then480:                                       ; preds = %if.else477
 
 if.then.i611:                                     ; preds = %if.then480
   %362 = load ptr, ptr %m_encoding, align 8
-  %cmp.i613 = icmp eq ptr %362, %enc
+  %cmp.i613 = icmp eq ptr %enc, %362
   br i1 %cmp.i613, label %if.end.i617, label %if.else.i614
 
 if.else.i614:                                     ; preds = %if.then.i611
@@ -15580,7 +15580,7 @@ if.then492:                                       ; preds = %if.else489
 
 if.then.i646:                                     ; preds = %if.then492
   %380 = load ptr, ptr %m_encoding, align 8
-  %cmp.i648 = icmp eq ptr %380, %enc
+  %cmp.i648 = icmp eq ptr %enc, %380
   br i1 %cmp.i648, label %if.end.i652, label %if.else.i649
 
 if.else.i649:                                     ; preds = %if.then.i646
@@ -15781,7 +15781,7 @@ if.then586:                                       ; preds = %if.else583
 
 if.then.i681:                                     ; preds = %if.then586
   %425 = load ptr, ptr %m_encoding, align 8
-  %cmp.i683 = icmp eq ptr %425, %enc
+  %cmp.i683 = icmp eq ptr %enc, %425
   br i1 %cmp.i683, label %if.end.i687, label %if.else.i684
 
 if.else.i684:                                     ; preds = %if.then.i681
@@ -15858,7 +15858,7 @@ if.then601:                                       ; preds = %sw.default
 
 if.then.i716:                                     ; preds = %if.then601
   %443 = load ptr, ptr %m_encoding, align 8
-  %cmp.i718 = icmp eq ptr %443, %enc
+  %cmp.i718 = icmp eq ptr %enc, %443
   br i1 %cmp.i718, label %if.end.i722, label %if.else.i719
 
 if.else.i719:                                     ; preds = %if.then.i716
@@ -16263,7 +16263,7 @@ if.end66:                                         ; preds = %for.body
 if.then70:                                        ; preds = %if.end66
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %39 = load ptr, ptr %m_encoding, align 8
-  %cmp71 = icmp eq ptr %39, %enc
+  %cmp71 = icmp eq ptr %enc, %39
   br i1 %cmp71, label %if.then73, label %return
 
 if.then73:                                        ; preds = %if.then70
@@ -17532,7 +17532,7 @@ entry:
   store ptr %0, ptr %s, align 8
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
-  %cmp = icmp eq ptr %1, %enc
+  %cmp = icmp eq ptr %enc, %1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -17682,7 +17682,7 @@ if.then24:                                        ; preds = %if.else21
 
 if.then.i:                                        ; preds = %if.then24
   %24 = load ptr, ptr %m_encoding, align 8
-  %cmp.i = icmp eq ptr %24, %enc
+  %cmp.i = icmp eq ptr %enc, %24
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
@@ -17793,7 +17793,7 @@ if.then54:                                        ; preds = %if.else51
 
 if.then.i64:                                      ; preds = %if.then54
   %53 = load ptr, ptr %m_encoding, align 8
-  %cmp.i66 = icmp eq ptr %53, %enc
+  %cmp.i66 = icmp eq ptr %enc, %53
   br i1 %cmp.i66, label %if.end.i70, label %if.else.i67
 
 if.else.i67:                                      ; preds = %if.then.i64
@@ -18588,7 +18588,7 @@ land.lhs.true190:                                 ; preds = %if.end184
   %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %43 = load ptr, ptr %m_dtd, align 8
   %defaultPrefix = getelementptr inbounds i8, ptr %43, i64 304
-  %cmp191 = icmp eq ptr %defaultPrefix, %prefix
+  %cmp191 = icmp eq ptr %prefix, %defaultPrefix
   br i1 %cmp191, label %if.end197, label %if.else195
 
 if.else195:                                       ; preds = %land.lhs.true190, %if.end184
@@ -18758,7 +18758,7 @@ entry:
   %size.i = getelementptr inbounds i8, ptr %0, i64 16
   %power30.i = getelementptr inbounds i8, ptr %0, i64 8
   %pool127 = getelementptr inbounds i8, ptr %0, i64 160
-  %cmp128 = icmp eq ptr %pool127, %pool
+  %cmp128 = icmp eq ptr %pool, %pool127
   %hasParamEntityRefs142 = getelementptr inbounds i8, ptr %0, i64 257
   %standalone144 = getelementptr inbounds i8, ptr %0, i64 258
   %documentEntity = getelementptr inbounds i8, ptr %parser, i64 516
@@ -18830,7 +18830,7 @@ if.end:                                           ; preds = %for.cond
 sw.bb2:                                           ; preds = %if.end
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %8 = load ptr, ptr %m_encoding, align 8
-  %cmp = icmp eq ptr %8, %enc
+  %cmp = icmp eq ptr %enc, %8
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %sw.bb2
@@ -18842,7 +18842,7 @@ if.then3:                                         ; preds = %sw.bb2
 sw.bb5:                                           ; preds = %if.end
   %m_encoding6 = getelementptr inbounds i8, ptr %parser, i64 288
   %10 = load ptr, ptr %m_encoding6, align 8
-  %cmp7 = icmp eq ptr %10, %enc
+  %cmp7 = icmp eq ptr %enc, %10
   br i1 %cmp7, label %if.then8, label %return
 
 if.then8:                                         ; preds = %sw.bb5
@@ -18859,7 +18859,7 @@ sw.bb11:                                          ; preds = %if.end
 if.then14:                                        ; preds = %sw.bb11
   %m_encoding15 = getelementptr inbounds i8, ptr %parser, i64 288
   %12 = load ptr, ptr %m_encoding15, align 8
-  %cmp16 = icmp eq ptr %12, %enc
+  %cmp16 = icmp eq ptr %enc, %12
   br i1 %cmp16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.then14
@@ -19239,7 +19239,7 @@ if.end162:                                        ; preds = %if.else158, %if.els
 if.then164:                                       ; preds = %if.end162
   %m_encoding165 = getelementptr inbounds i8, ptr %parser, i64 288
   %70 = load ptr, ptr %m_encoding165, align 8
-  %cmp166 = icmp eq ptr %70, %enc
+  %cmp166 = icmp eq ptr %enc, %70
   br i1 %cmp166, label %if.then168, label %return
 
 if.then168:                                       ; preds = %if.then164
@@ -19256,7 +19256,7 @@ if.end171:                                        ; preds = %if.end162
 if.then173:                                       ; preds = %if.end171
   %m_encoding174 = getelementptr inbounds i8, ptr %parser, i64 288
   %72 = load ptr, ptr %m_encoding174, align 8
-  %cmp175 = icmp eq ptr %72, %enc
+  %cmp175 = icmp eq ptr %enc, %72
   br i1 %cmp175, label %if.then177, label %return
 
 if.then177:                                       ; preds = %if.then173
@@ -19273,7 +19273,7 @@ if.end180:                                        ; preds = %if.end171
 if.then182:                                       ; preds = %if.end180
   %m_encoding183 = getelementptr inbounds i8, ptr %parser, i64 288
   %74 = load ptr, ptr %m_encoding183, align 8
-  %cmp184 = icmp eq ptr %74, %enc
+  %cmp184 = icmp eq ptr %enc, %74
   br i1 %cmp184, label %if.then186, label %return
 
 if.then186:                                       ; preds = %if.then182
@@ -19385,7 +19385,7 @@ entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exi
 sw.default:                                       ; preds = %if.end
   %m_encoding201 = getelementptr inbounds i8, ptr %parser, i64 288
   %98 = load ptr, ptr %m_encoding201, align 8
-  %cmp202 = icmp eq ptr %98, %enc
+  %cmp202 = icmp eq ptr %enc, %98
   br i1 %cmp202, label %if.then204, label %return
 
 if.then204:                                       ; preds = %sw.default

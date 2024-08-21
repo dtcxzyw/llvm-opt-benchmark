@@ -301,7 +301,7 @@ _ZNSt6vectorIN2cv8haar_cvt19HaarStageClassifierESaIS2_EEC2EmRKS3_.exit: ; preds 
   %169 = ptrtoint ptr %167 to i64
   %170 = sub i64 %168, %169
   %171 = sdiv exact i64 %170, 48
-  %172 = icmp ult i64 %171, %164
+  %172 = icmp ugt i64 %164, %171
   br i1 %172, label %173, label %175
 
 173:                                              ; preds = %161
@@ -310,7 +310,7 @@ _ZNSt6vectorIN2cv8haar_cvt19HaarStageClassifierESaIS2_EEC2EmRKS3_.exit: ; preds 
           to label %_ZNSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 175:                                              ; preds = %161
-  %176 = icmp ugt i64 %171, %164
+  %176 = icmp ult i64 %164, %171
   br i1 %176, label %177, label %_ZNSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE6resizeEm.exit
 
 177:                                              ; preds = %175

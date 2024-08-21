@@ -240,7 +240,7 @@ define linkonce_odr void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 deref
   %6 = getelementptr inbounds i8, ptr %0, i64 136
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 0, %7
-  %9 = and i64 %8, %1
+  %9 = and i64 %1, %8
   %.not30 = icmp eq i64 %7, 0
   br i1 %.not30, label %._crit_edge, label %_ZNK13xlate_flags_t17is_special_accessEv.exit.lr.ph
 
@@ -1432,7 +1432,7 @@ _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNK
 _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit ], [ %40, %.lr.ph.i.i.i ]
   %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17

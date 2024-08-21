@@ -340,7 +340,7 @@ define void @_ZN3gmx23ExpandedEnsembleElement12scheduleTaskEldRKSt8functionIFvS1
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8
-  %11 = icmp ne i64 %10, %1
+  %11 = icmp ne i64 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 104
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
@@ -359,7 +359,7 @@ _Z11do_per_stepll.exit:                           ; preds = %4, %8
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds i8, ptr %0, i64 56
   %25 = load i64, ptr %24, align 8
-  %26 = icmp eq i64 %25, %1
+  %26 = icmp eq i64 %1, %25
   %or.cond = select i1 %23, i1 %26, i1 false
   br i1 %or.cond, label %27, label %31
 
@@ -1534,7 +1534,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 15:                                               ; preds = %12
   %.not.i.i = icmp ne ptr %13, null
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = icmp eq ptr %16, %14
+  %17 = icmp eq ptr %14, %16
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %17
   br i1 %or.cond.i.i, label %.thread, label %18
 
@@ -1595,7 +1595,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

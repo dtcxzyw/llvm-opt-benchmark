@@ -587,7 +587,7 @@ if.end17:                                         ; preds = %if.then16, %for.bod
   %10 = load float, ptr %arrayidx31, align 4
   %11 = tail call noundef float @llvm.fabs.f32(float %10)
   %add33 = fadd float %add, %11
-  %mul = fmul float %add33, %threshold
+  %mul = fmul float %threshold, %add33
   %cmp34 = fcmp ugt float %max.1, %mul
   br i1 %cmp34, label %if.end40, label %if.then35
 
@@ -655,8 +655,8 @@ if.end83:                                         ; preds = %if.else, %if.then62
   %20 = load float, ptr %arrayidx116, align 4
   %arrayidx122 = getelementptr inbounds float, ptr %arrayidx113, i64 %q.1
   %21 = load float, ptr %arrayidx122, align 4
-  %22 = fneg float %sin.0
-  %neg125 = fmul float %21, %22
+  %22 = fneg float %21
+  %neg125 = fmul float %sin.0, %22
   %23 = tail call float @llvm.fmuladd.f32(float %cos.0, float %20, float %neg125)
   %arrayidx131 = getelementptr inbounds float, ptr %arrayidx42, i64 %r.1
   store float %23, ptr %arrayidx131, align 4
@@ -675,12 +675,13 @@ for.body154:                                      ; preds = %if.end83, %for.body
   %25 = load float, ptr %arrayidx158, align 4
   %arrayidx161 = getelementptr inbounds float, ptr %arrayidx.i, i64 %q.1
   %26 = load float, ptr %arrayidx161, align 4
-  %neg164 = fmul float %26, %22
-  %27 = tail call float @llvm.fmuladd.f32(float %cos.0, float %25, float %neg164)
-  store float %27, ptr %arrayidx158, align 4
+  %27 = fneg float %26
+  %neg164 = fmul float %sin.0, %27
+  %28 = tail call float @llvm.fmuladd.f32(float %cos.0, float %25, float %neg164)
+  store float %28, ptr %arrayidx158, align 4
   %mul169 = fmul float %sin.0, %25
-  %28 = tail call float @llvm.fmuladd.f32(float %cos.0, float %26, float %mul169)
-  store float %28, ptr %arrayidx161, align 4
+  %29 = tail call float @llvm.fmuladd.f32(float %cos.0, float %26, float %mul169)
+  store float %29, ptr %arrayidx161, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.inc173, label %for.body154, !llvm.loop !8
@@ -960,16 +961,16 @@ if.else:                                          ; preds = %entry
   %arrayidx11.i24 = getelementptr inbounds i8, ptr %triangle, i64 40
   %12 = load float, ptr %arrayidx11.i24, align 4
   %sub14.i26 = fsub float %12, %6
-  %13 = fneg float %sub14.i14
-  %neg.i = fmul float %sub8.i23, %13
+  %13 = fneg float %sub8.i23
+  %neg.i = fmul float %sub14.i14, %13
   %14 = tail call float @llvm.fmuladd.f32(float %sub8.i11, float %sub14.i26, float %neg.i)
-  %15 = fneg float %sub.i8
-  %neg23.i = fmul float %sub14.i26, %15
+  %15 = fneg float %sub14.i26
+  %neg23.i = fmul float %sub.i8, %15
   %16 = tail call float @llvm.fmuladd.f32(float %sub14.i14, float %sub.i20, float %neg23.i)
   %mul24.i = fmul float %sub8.i, %16
   %17 = tail call float @llvm.fmuladd.f32(float %sub.i, float %14, float %mul24.i)
-  %18 = fneg float %sub8.i11
-  %neg36.i = fmul float %sub.i20, %18
+  %18 = fneg float %sub.i20
+  %neg36.i = fmul float %sub8.i11, %18
   %19 = tail call float @llvm.fmuladd.f32(float %sub.i8, float %sub8.i23, float %neg36.i)
   %20 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i, float %19, float %17)
   %21 = tail call noundef float @llvm.fabs.f32(float %20)
@@ -1076,16 +1077,16 @@ entry:
   store <2 x float> %retval.sroa.0.4.vec.insert.i51, ptr %c, align 8
   %14 = getelementptr inbounds i8, ptr %c, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i52, ptr %14, align 8
-  %15 = fneg float %sub14.i37
-  %neg.i = fmul float %sub8.i46, %15
+  %15 = fneg float %sub8.i46
+  %neg.i = fmul float %sub14.i37, %15
   %16 = tail call float @llvm.fmuladd.f32(float %sub8.i34, float %sub14.i49, float %neg.i)
-  %17 = fneg float %sub.i31
-  %neg23.i = fmul float %sub14.i49, %17
+  %17 = fneg float %sub14.i49
+  %neg23.i = fmul float %sub.i31, %17
   %18 = tail call float @llvm.fmuladd.f32(float %sub14.i37, float %sub.i43, float %neg23.i)
   %mul24.i = fmul float %sub8.i, %18
   %19 = tail call float @llvm.fmuladd.f32(float %sub.i, float %16, float %mul24.i)
-  %20 = fneg float %sub8.i34
-  %neg36.i = fmul float %sub.i43, %20
+  %20 = fneg float %sub.i43
+  %neg36.i = fmul float %sub8.i34, %20
   %21 = tail call float @llvm.fmuladd.f32(float %sub.i31, float %sub8.i46, float %neg36.i)
   %22 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i, float %21, float %19)
   %23 = tail call noundef float @llvm.fabs.f32(float %22)

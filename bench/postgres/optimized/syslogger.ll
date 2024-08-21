@@ -1132,7 +1132,7 @@ write_syslogger_file.exit.i:                      ; preds = %354, %350
   %372 = zext nneg i16 %.sroa.3.0.copyload.i to i64
   %373 = call i64 @fwrite(ptr noundef %360, i64 noundef 1, i64 noundef %372, ptr noundef %.0.i123.i)
   %374 = trunc i64 %373 to i32
-  %.not.i124.i = icmp eq i32 %374, %288
+  %.not.i124.i = icmp eq i32 %288, %374
   br i1 %.not.i124.i, label %write_syslogger_file.exit125.i, label %375
 
 375:                                              ; preds = %371
@@ -1357,7 +1357,7 @@ define dso_local void @write_syslogger_file(ptr nocapture noundef %0, i32 nounde
   %15 = sext i32 %1 to i64
   %16 = tail call i64 @fwrite(ptr noundef %0, i64 noundef 1, i64 noundef %15, ptr noundef %.0)
   %17 = trunc i64 %16 to i32
-  %.not = icmp eq i32 %17, %1
+  %.not = icmp eq i32 %1, %17
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %14
@@ -1657,7 +1657,7 @@ define internal fastcc noundef zeroext i1 @logfile_rotate_dest(i1 noundef zeroex
 19:                                               ; preds = %6
   %20 = and i32 %3, %1
   %21 = icmp ne i32 %20, 0
-  %or.cond55.not = or i1 %21, %0
+  %or.cond55.not = or i1 %0, %21
   br i1 %or.cond55.not, label %22, label %51
 
 22:                                               ; preds = %19
@@ -1668,7 +1668,7 @@ define internal fastcc noundef zeroext i1 @logfile_rotate_dest(i1 noundef zeroex
   %23 = tail call fastcc ptr @logfile_getname(i64 noundef %2, ptr noundef %switch.select59)
   %24 = load i8, ptr @Log_truncate_on_rotation, align 1
   %25 = trunc i8 %24 to i1
-  %brmerge.demorgan = and i1 %25, %0
+  %brmerge.demorgan = and i1 %0, %25
   br i1 %brmerge.demorgan, label %26, label %30
 
 26:                                               ; preds = %22

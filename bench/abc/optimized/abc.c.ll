@@ -5392,7 +5392,7 @@ define void @Abc_FrameUpdateGia(ptr nocapture noundef %0, ptr noundef %1) local_
 11:                                               ; preds = %10, %5
   %12 = getelementptr inbounds i8, ptr %0, i64 288
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %65, label %15
 
 15:                                               ; preds = %11
@@ -6444,7 +6444,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintIo(ptr noundef %0, i32 noun
 12:                                               ; preds = %9
   %13 = load i32, ptr @globalUtilOptind, align 4
   %14 = add nsw i32 %13, 1
-  %15 = icmp slt i32 %14, %1
+  %15 = icmp sgt i32 %1, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
@@ -6452,7 +6452,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintIo(ptr noundef %0, i32 noun
   br label %.loopexit
 
 17:                                               ; preds = %12
-  %18 = icmp eq i32 %14, %1
+  %18 = icmp eq i32 %1, %14
   br i1 %18, label %19, label %32
 
 19:                                               ; preds = %17
@@ -6774,7 +6774,7 @@ Abc_NtkIsSopLogic.exit.thread:                    ; preds = %14, %Abc_NtkIsSopLo
 19:                                               ; preds = %Abc_NtkIsSopLogic.exit
   %20 = load i32, ptr @globalUtilOptind, align 4
   %21 = add nsw i32 %20, 1
-  %22 = icmp slt i32 %21, %1
+  %22 = icmp sgt i32 %1, %21
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19
@@ -6782,7 +6782,7 @@ Abc_NtkIsSopLogic.exit.thread:                    ; preds = %14, %Abc_NtkIsSopLo
   br label %.loopexit
 
 24:                                               ; preds = %19
-  %25 = icmp eq i32 %21, %1
+  %25 = icmp eq i32 %1, %21
   br i1 %25, label %26, label %41
 
 26:                                               ; preds = %24
@@ -6917,7 +6917,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintLevel(ptr noundef %0, i32 n
   %.0.lcssa6065 = phi i32 [ %.1, %21 ], [ %.1, %20 ], [ 0, %._crit_edge.thread ]
   %23 = load i32, ptr @globalUtilOptind, align 4
   %24 = add nsw i32 %23, 1
-  %25 = icmp slt i32 %24, %1
+  %25 = icmp sgt i32 %1, %24
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %.thread
@@ -6925,7 +6925,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintLevel(ptr noundef %0, i32 n
   br label %.loopexit
 
 27:                                               ; preds = %.thread
-  %28 = icmp eq i32 %24, %1
+  %28 = icmp eq i32 %1, %24
   br i1 %28, label %29, label %42
 
 29:                                               ; preds = %27
@@ -7509,7 +7509,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintKMap(ptr noundef %0, i32 no
 9:                                                ; preds = %5
   %10 = load i32, ptr @globalUtilOptind, align 4
   %11 = add nsw i32 %10, 2
-  %12 = icmp eq i32 %11, %1
+  %12 = icmp eq i32 %1, %11
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %9
@@ -7540,7 +7540,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintKMap(ptr noundef %0, i32 no
 
 24:                                               ; preds = %22
   %25 = add nsw i32 %10, 1
-  %26 = icmp slt i32 %25, %1
+  %26 = icmp sgt i32 %1, %25
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %24
@@ -7548,7 +7548,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintKMap(ptr noundef %0, i32 no
   br label %.loopexit
 
 28:                                               ; preds = %24
-  %29 = icmp eq i32 %10, %1
+  %29 = icmp eq i32 %1, %10
   br i1 %29, label %30, label %44
 
 30:                                               ; preds = %28
@@ -8451,7 +8451,7 @@ Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %9, %Abc_NtkIsMapped
 14:                                               ; preds = %Abc_NtkIsMappedLogic.exit
   %15 = load i32, ptr @globalUtilOptind, align 4
   %16 = add nsw i32 %15, 2
-  %17 = icmp slt i32 %16, %1
+  %17 = icmp sgt i32 %1, %16
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
@@ -8459,7 +8459,7 @@ Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %9, %Abc_NtkIsMapped
   br label %81
 
 19:                                               ; preds = %14
-  %.not41.not = icmp slt i32 %15, %1
+  %.not41.not = icmp sgt i32 %1, %15
   br i1 %.not41.not, label %20, label %46
 
 20:                                               ; preds = %19
@@ -8510,7 +8510,7 @@ Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %9, %Abc_NtkIsMapped
   %47 = phi i32 [ %.pre, %.thread._crit_edge ], [ %15, %19 ]
   %.033 = phi ptr [ %40, %.thread._crit_edge ], [ null, %19 ]
   %48 = add nsw i32 %47, 2
-  %49 = icmp eq i32 %48, %1
+  %49 = icmp eq i32 %1, %48
   br i1 %49, label %50, label %79
 
 50:                                               ; preds = %46
@@ -8773,7 +8773,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %Abc_NtkIsBddLo
 26:                                               ; preds = %Abc_NtkIsBddLogic.exit
   %27 = load i32, ptr @globalUtilOptind, align 4
   %28 = add nsw i32 %27, 1
-  %29 = icmp slt i32 %28, %1
+  %29 = icmp sgt i32 %1, %28
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %26
@@ -8781,7 +8781,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %Abc_NtkIsBddLo
   br label %.loopexit
 
 31:                                               ; preds = %26
-  %32 = icmp eq i32 %27, %1
+  %32 = icmp eq i32 %1, %27
   br i1 %32, label %33, label %47
 
 33:                                               ; preds = %31
@@ -8929,7 +8929,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandShowCut(ptr noundef %0, i32 noun
 30:                                               ; preds = %28
   %31 = load i32, ptr @globalUtilOptind, align 4
   %32 = add nsw i32 %31, 1
-  %.not36 = icmp eq i32 %32, %1
+  %.not36 = icmp eq i32 %1, %32
   br i1 %.not36, label %33, label %.loopexit.sink.split
 
 33:                                               ; preds = %30
@@ -13889,7 +13889,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestDec(ptr nocapture readnone %
 26:                                               ; preds = %4
   %27 = load i32, ptr @globalUtilOptind, align 4
   %28 = add nsw i32 %27, 1
-  %.not32 = icmp eq i32 %28, %1
+  %.not32 = icmp eq i32 %1, %28
   br i1 %.not32, label %30, label %29
 
 29:                                               ; preds = %26
@@ -14033,7 +14033,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestNpn(ptr nocapture readnone %
 30:                                               ; preds = %4
   %31 = load i32, ptr @globalUtilOptind, align 4
   %32 = add nsw i32 %31, 1
-  %.not42 = icmp eq i32 %32, %1
+  %.not42 = icmp eq i32 %1, %32
   br i1 %.not42, label %34, label %33
 
 33:                                               ; preds = %30
@@ -14171,7 +14171,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestRPO(ptr nocapture readnone %
 28:                                               ; preds = %4
   %29 = load i32, ptr @globalUtilOptind, align 4
   %30 = add nsw i32 %29, 1
-  %.not27 = icmp eq i32 %30, %1
+  %.not27 = icmp eq i32 %1, %30
   br i1 %.not27, label %32, label %31
 
 31:                                               ; preds = %28
@@ -14226,7 +14226,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestTruth(ptr nocapture readnone
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
   %10 = add nsw i32 %9, 1
-  %.not12 = icmp eq i32 %10, %1
+  %.not12 = icmp eq i32 %1, %10
   br i1 %.not12, label %12, label %11
 
 11:                                               ; preds = %8
@@ -14339,7 +14339,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunSat(ptr nocapture readnone %0
 28:                                               ; preds = %25
   %29 = load i32, ptr @globalUtilOptind, align 4
   %30 = add nsw i32 %29, 1
-  %.not46 = icmp eq i32 %30, %1
+  %.not46 = icmp eq i32 %1, %30
   br i1 %.not46, label %31, label %.loopexit
 
 31:                                               ; preds = %28
@@ -14574,7 +14574,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunEco(ptr nocapture readnone %0
   br i1 %or.cond, label %34, label %.preheader
 
 .preheader:                                       ; preds = %29
-  %33 = icmp slt i32 %30, %1
+  %33 = icmp sgt i32 %1, %30
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 34:                                               ; preds = %29
@@ -15380,7 +15380,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandResubCheck(ptr nocapture readnon
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
   %10 = add nsw i32 %9, 2
-  %11 = icmp eq i32 %10, %1
+  %11 = icmp eq i32 %1, %10
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %8
@@ -15392,7 +15392,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandResubCheck(ptr nocapture readnon
 
 17:                                               ; preds = %8
   %18 = add nsw i32 %9, 1
-  %19 = icmp eq i32 %18, %1
+  %19 = icmp eq i32 %1, %18
   br i1 %19, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %17
@@ -15738,7 +15738,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandVarMin(ptr nocapture readnone %0
 30:                                               ; preds = %4
   %31 = load i32, ptr @globalUtilOptind, align 4
   %32 = add nsw i32 %31, 1
-  %33 = icmp eq i32 %32, %1
+  %33 = icmp eq i32 %1, %32
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
@@ -16091,7 +16091,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
 
 64:                                               ; preds = %62
   %65 = load i32, ptr @globalUtilOptind, align 4
-  %66 = icmp eq i32 %65, %1
+  %66 = icmp eq i32 %1, %65
   br i1 %66, label %.loopexit, label %67
 
 67:                                               ; preds = %64
@@ -16885,7 +16885,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmsStart(ptr nocapture readnone 
 
 21:                                               ; preds = %4
   %22 = load i32, ptr @globalUtilOptind, align 4
-  %23 = icmp slt i32 %22, %1
+  %23 = icmp sgt i32 %1, %22
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %21
@@ -16944,7 +16944,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmsStop(ptr nocapture readnone %
 
 5:                                                ; preds = %3
   %6 = load i32, ptr @globalUtilOptind, align 4
-  %7 = icmp slt i32 %6, %1
+  %7 = icmp sgt i32 %1, %6
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %5
@@ -17377,7 +17377,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr nocapture readnone 
   store i32 %30, ptr %4, align 8
   %84 = load i32, ptr @globalUtilOptind, align 4
   %85 = add nsw i32 %84, 1
-  %86 = icmp eq i32 %85, %1
+  %86 = icmp eq i32 %1, %85
   br i1 %86, label %87, label %.thread
 
 87:                                               ; preds = %83
@@ -17671,7 +17671,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutExact(ptr nocapture readnone 
   store i32 %22, ptr %4, align 8
   %73 = load i32, ptr @globalUtilOptind, align 4
   %74 = add nsw i32 %73, 1
-  %75 = icmp eq i32 %74, %1
+  %75 = icmp eq i32 %1, %74
   br i1 %75, label %76, label %.thread
 
 76:                                               ; preds = %72
@@ -18029,7 +18029,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAllExact(ptr nocapture readnone 
 99:                                               ; preds = %96
   %100 = load i32, ptr @globalUtilOptind, align 4
   %101 = add nsw i32 %100, 1
-  %102 = icmp eq i32 %101, %1
+  %102 = icmp eq i32 %1, %101
   br i1 %102, label %103, label %.thread174
 
 103:                                              ; preds = %99
@@ -18183,7 +18183,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestExact(ptr nocapture readnone
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
   %10 = add nsw i32 %9, 1
-  %11 = icmp eq i32 %10, %1
+  %11 = icmp eq i32 %1, %10
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %8
@@ -18703,7 +18703,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMiter2(ptr noundef %0, i32 nound
 7:                                                ; preds = %5
   %8 = load i32, ptr @globalUtilOptind, align 4
   %9 = add nsw i32 %8, 1
-  %.not19 = icmp eq i32 %9, %1
+  %.not19 = icmp eq i32 %1, %9
   br i1 %.not19, label %11, label %10
 
 10:                                               ; preds = %7
@@ -19539,7 +19539,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAppend(ptr noundef %0, i32 nound
 7:                                                ; preds = %5
   %8 = load i32, ptr @globalUtilOptind, align 4
   %9 = add nsw i32 %8, 1
-  %.not21 = icmp eq i32 %9, %1
+  %.not21 = icmp eq i32 %1, %9
   br i1 %.not21, label %11, label %10
 
 10:                                               ; preds = %7
@@ -19619,7 +19619,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPutOnTop(ptr noundef %0, i32 nou
 7:                                                ; preds = %5
   %8 = load i32, ptr @globalUtilOptind, align 4
   %9 = add nsw i32 %8, 1
-  %10 = icmp slt i32 %9, %1
+  %10 = icmp sgt i32 %1, %9
   br i1 %10, label %.preheader, label %26
 
 .preheader:                                       ; preds = %7
@@ -19675,7 +19675,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPutOnTop(ptr noundef %0, i32 nou
   br label %.loopexit
 
 26:                                               ; preds = %7
-  %.not63 = icmp eq i32 %9, %1
+  %.not63 = icmp eq i32 %1, %9
   br i1 %.not63, label %28, label %27
 
 27:                                               ; preds = %26
@@ -20471,7 +20471,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandOrder(ptr noundef %0, i32 nounde
 14:                                               ; preds = %11
   %15 = load i32, ptr @globalUtilOptind, align 4
   %16 = add nsw i32 %15, 1
-  %17 = icmp eq i32 %16, %1
+  %17 = icmp eq i32 %1, %16
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %14
@@ -20762,7 +20762,7 @@ Abc_NtkIsSopLogic.exit.thread:                    ; preds = %12, %Abc_NtkIsSopLo
 21:                                               ; preds = %17
   %22 = load i32, ptr @globalUtilOptind, align 4
   %23 = add nsw i32 %22, 1
-  %.not30 = icmp eq i32 %23, %1
+  %.not30 = icmp eq i32 %1, %23
   br i1 %.not30, label %26, label %24
 
 24:                                               ; preds = %21
@@ -21314,11 +21314,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandCone(ptr noundef %0, i32 noundef
 37:                                               ; preds = %34
   %38 = load i32, ptr @globalUtilOptind, align 4
   %39 = add nsw i32 %38, 1
-  %40 = icmp slt i32 %39, %1
+  %40 = icmp sgt i32 %1, %39
   br i1 %40, label %.loopexit.sink.split, label %41
 
 41:                                               ; preds = %37
-  %42 = icmp eq i32 %39, %1
+  %42 = icmp eq i32 %1, %39
   br i1 %42, label %43, label %63
 
 43:                                               ; preds = %41
@@ -21500,7 +21500,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandNode(ptr noundef %0, i32 noundef
 11:                                               ; preds = %9
   %12 = load i32, ptr @globalUtilOptind, align 4
   %13 = add nsw i32 %12, 1
-  %.not19 = icmp eq i32 %13, %1
+  %.not19 = icmp eq i32 %1, %13
   br i1 %.not19, label %15, label %14
 
 14:                                               ; preds = %11
@@ -21625,7 +21625,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCof(ptr noundef %0, i32 noundef 
 11:                                               ; preds = %9
   %12 = load i32, ptr @globalUtilOptind, align 4
   %13 = add nsw i32 %12, 2
-  %.not24 = icmp eq i32 %13, %1
+  %.not24 = icmp eq i32 %1, %13
   br i1 %.not24, label %15, label %14
 
 14:                                               ; preds = %11
@@ -22114,7 +22114,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMoveNames(ptr noundef %0, i32 no
 6:                                                ; preds = %3
   %7 = load i32, ptr @globalUtilOptind, align 4
   %8 = add nsw i32 %7, 1
-  %.not27 = icmp eq i32 %8, %1
+  %.not27 = icmp eq i32 %1, %8
   br i1 %.not27, label %10, label %9
 
 9:                                                ; preds = %6
@@ -22313,7 +22313,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExdcSet(ptr noundef %0, i32 noun
 9:                                                ; preds = %6
   %10 = load i32, ptr @globalUtilOptind, align 4
   %11 = add nsw i32 %10, 1
-  %.not27 = icmp eq i32 %11, %1
+  %.not27 = icmp eq i32 %1, %11
   br i1 %.not27, label %12, label %35
 
 12:                                               ; preds = %9
@@ -22398,7 +22398,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCareSet(ptr noundef %0, i32 noun
 9:                                                ; preds = %6
   %10 = load i32, ptr @globalUtilOptind, align 4
   %11 = add nsw i32 %10, 1
-  %.not27 = icmp eq i32 %11, %1
+  %.not27 = icmp eq i32 %1, %11
   br i1 %.not27, label %12, label %35
 
 12:                                               ; preds = %9
@@ -23043,7 +23043,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr noundef %0, i32 noundef 
 65:                                               ; preds = %5
   %66 = load i32, ptr @globalUtilOptind, align 4
   %67 = add nsw i32 %66, 1
-  %.not128 = icmp eq i32 %67, %1
+  %.not128 = icmp eq i32 %1, %67
   br i1 %.not128, label %68, label %.loopexit
 
 68:                                               ; preds = %65
@@ -23368,7 +23368,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGenFsm(ptr nocapture readnone %0
 62:                                               ; preds = %4
   %63 = load i32, ptr @globalUtilOptind, align 4
   %64 = add nsw i32 %63, 1
-  %.not87 = icmp eq i32 %64, %1
+  %.not87 = icmp eq i32 %1, %64
   br i1 %.not87, label %65, label %.loopexit
 
 65:                                               ; preds = %62
@@ -23716,7 +23716,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInter(ptr noundef %0, i32 nounde
   br i1 %.not30, label %60, label %22
 
 22:                                               ; preds = %15
-  %23 = icmp eq i32 %16, %1
+  %23 = icmp eq i32 %1, %16
   br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %22
@@ -23866,7 +23866,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBb2Wb(ptr nocapture readnone %0,
 10:                                               ; preds = %4
   %11 = load i32, ptr @globalUtilOptind, align 4
   %12 = add nsw i32 %11, 2
-  %.not16 = icmp eq i32 %12, %1
+  %.not16 = icmp eq i32 %1, %12
   br i1 %.not16, label %14, label %13
 
 13:                                               ; preds = %10
@@ -24102,7 +24102,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandWrap(ptr nocapture readnone %0, 
 6:                                                ; preds = %3
   %7 = load i32, ptr @globalUtilOptind, align 4
   %8 = add nsw i32 %7, 2
-  %.not18 = icmp eq i32 %8, %1
+  %.not18 = icmp eq i32 %1, %8
   br i1 %.not18, label %10, label %9
 
 9:                                                ; preds = %6
@@ -24848,7 +24848,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandNpnLoad(ptr nocapture readnone %
 5:                                                ; preds = %3
   %6 = load i32, ptr @globalUtilOptind, align 4
   %7 = add nsw i32 %6, 1
-  %.not5 = icmp eq i32 %7, %1
+  %.not5 = icmp eq i32 %1, %7
   br i1 %.not5, label %8, label %12
 
 8:                                                ; preds = %5
@@ -24879,7 +24879,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandNpnSave(ptr nocapture readnone %
 5:                                                ; preds = %3
   %6 = load i32, ptr @globalUtilOptind, align 4
   %7 = add nsw i32 %6, 1
-  %.not5 = icmp eq i32 %7, %1
+  %.not5 = icmp eq i32 %1, %7
   br i1 %.not5, label %8, label %12
 
 8:                                                ; preds = %5
@@ -27867,9 +27867,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigDress(ptr noundef %0, i32 n
 
 24:                                               ; preds = %22
   %25 = load i32, ptr @globalUtilOptind, align 4
-  %.not37 = icmp eq i32 %25, %1
+  %.not37 = icmp eq i32 %1, %25
   %26 = add nsw i32 %25, 1
-  %.not38 = icmp eq i32 %26, %1
+  %.not38 = icmp eq i32 %1, %26
   %or.cond = select i1 %.not37, i1 true, i1 %.not38
   br i1 %or.cond, label %27, label %.loopexit
 
@@ -27970,7 +27970,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDumpEquiv(ptr nocapture readnone
 20:                                               ; preds = %5
   %21 = load i32, ptr @globalUtilOptind, align 4
   %22 = add nsw i32 %21, 3
-  %.not37 = icmp eq i32 %22, %1
+  %.not37 = icmp eq i32 %1, %22
   br i1 %.not37, label %23, label %.loopexit.sink.split
 
 23:                                               ; preds = %20
@@ -34611,7 +34611,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestSeqSweep(ptr nocapture readn
   store i32 %32, ptr %11, align 4
   %114 = load i32, ptr @globalUtilOptind, align 4
   %115 = add nsw i32 %114, 1
-  %116 = icmp eq i32 %115, %1
+  %116 = icmp eq i32 %1, %115
   br i1 %116, label %117, label %122
 
 117:                                              ; preds = %113
@@ -34788,7 +34788,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestScorr(ptr noundef %0, i32 no
 32:                                               ; preds = %4
   %33 = load i32, ptr @globalUtilOptind, align 4
   %34 = add nsw i32 %33, 2
-  %.not54 = icmp eq i32 %34, %1
+  %.not54 = icmp eq i32 %1, %34
   br i1 %.not54, label %35, label %.loopexit.sink.split
 
 35:                                               ; preds = %32
@@ -36510,7 +36510,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSynch(ptr noundef %0, i32 nounde
 
 23:                                               ; preds = %9
   %24 = load i32, ptr @globalUtilOptind, align 4
-  %25 = icmp eq i32 %24, %1
+  %25 = icmp eq i32 %1, %24
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %23
@@ -36787,7 +36787,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandClockGate(ptr noundef %0, i32 no
 77:                                               ; preds = %74
   %78 = load i32, ptr @globalUtilOptind, align 4
   %79 = add nsw i32 %78, 1
-  %80 = icmp eq i32 %79, %1
+  %80 = icmp eq i32 %1, %79
   br i1 %80, label %81, label %91
 
 81:                                               ; preds = %77
@@ -36809,7 +36809,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandClockGate(ptr noundef %0, i32 no
   br label %96
 
 91:                                               ; preds = %77
-  %92 = icmp eq i32 %78, %1
+  %92 = icmp eq i32 %1, %78
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %91
@@ -36954,7 +36954,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExtWin(ptr noundef %0, i32 nound
 
 32:                                               ; preds = %30
   %33 = load i32, ptr @globalUtilOptind, align 4
-  %.not40 = icmp eq i32 %33, %1
+  %.not40 = icmp eq i32 %1, %33
   br i1 %.not40, label %35, label %34
 
 34:                                               ; preds = %32
@@ -37078,7 +37078,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInsWin(ptr noundef %0, i32 nound
 32:                                               ; preds = %30
   %33 = load i32, ptr @globalUtilOptind, align 4
   %34 = add nsw i32 %33, 1
-  %.not50 = icmp eq i32 %34, %1
+  %.not50 = icmp eq i32 %1, %34
   br i1 %.not50, label %36, label %35
 
 35:                                               ; preds = %32
@@ -37213,7 +37213,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSymFun(ptr noundef %0, i32 nound
 24:                                               ; preds = %18
   %25 = load i32, ptr @globalUtilOptind, align 4
   %26 = add nsw i32 %25, 1
-  %.not63 = icmp eq i32 %26, %1
+  %.not63 = icmp eq i32 %1, %26
   br i1 %.not63, label %28, label %27
 
 27:                                               ; preds = %24
@@ -39478,7 +39478,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbSec(ptr noundef %0, i32 nounde
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %26, 1
-  %29 = icmp eq i32 %28, %1
+  %29 = icmp eq i32 %1, %28
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %27
@@ -40348,7 +40348,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDSat(ptr noundef %0, i32 noundef
 65:                                               ; preds = %6
   %66 = load i32, ptr @globalUtilOptind, align 4
   %67 = add nsw i32 %66, 1
-  %68 = icmp eq i32 %67, %1
+  %68 = icmp eq i32 %1, %67
   br i1 %68, label %69, label %101
 
 69:                                               ; preds = %65
@@ -40690,7 +40690,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandXSat(ptr nocapture readnone %0, 
 56:                                               ; preds = %7
   %57 = load i32, ptr @globalUtilOptind, align 4
   %58 = add nsw i32 %57, 1
-  %59 = icmp eq i32 %58, %1
+  %59 = icmp eq i32 %1, %58
   br i1 %59, label %60, label %.loopexit
 
 60:                                               ; preds = %56
@@ -40806,7 +40806,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSatoko(ptr nocapture readnone %0
   call void @free(ptr noundef nonnull %8) #28
   %11 = load i32, ptr @globalUtilOptind, align 4
   %12 = add nsw i32 %11, 1
-  %13 = icmp eq i32 %12, %1
+  %13 = icmp eq i32 %1, %12
   br i1 %13, label %14, label %44
 
 14:                                               ; preds = %10
@@ -41015,7 +41015,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Satoko(ptr nocapture noundef
 26:                                               ; preds = %6
   %27 = load i32, ptr @globalUtilOptind, align 4
   %28 = add nsw i32 %27, 1
-  %29 = icmp eq i32 %28, %1
+  %29 = icmp eq i32 %1, %28
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %26
@@ -41290,7 +41290,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Kissat(ptr noundef %0, i32 n
 39:                                               ; preds = %4
   %40 = load i32, ptr @globalUtilOptind, align 4
   %41 = add nsw i32 %40, 1
-  %42 = icmp eq i32 %41, %1
+  %42 = icmp eq i32 %1, %41
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %39
@@ -47063,8 +47063,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandReconcile(ptr noundef %0, i32 no
 6:                                                ; preds = %3
   %7 = load i32, ptr @globalUtilOptind, align 4
   %8 = add nsw i32 %7, 2
-  %.not44 = icmp eq i32 %8, %1
-  %.not45 = icmp eq i32 %7, %1
+  %.not44 = icmp eq i32 %1, %8
+  %.not45 = icmp eq i32 %1, %7
   %or.cond = or i1 %.not45, %.not44
   br i1 %or.cond, label %10, label %9
 
@@ -53909,7 +53909,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MLGen(ptr nocapture noundef 
 Vec_WrdFreeP.exit:                                ; preds = %37, %44, %.thread.i
   %48 = load i32, ptr @globalUtilOptind, align 4
   %49 = sub nsw i32 %1, %48
-  %50 = icmp eq i32 %48, %1
+  %50 = icmp eq i32 %1, %48
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %Vec_WrdFreeP.exit
@@ -53924,7 +53924,7 @@ Vec_WrdFreeP.exit:                                ; preds = %37, %44, %.thread.i
 
 56:                                               ; preds = %52, %51
   %.037 = phi ptr [ null, %51 ], [ %55, %52 ]
-  %57 = icmp ne i32 %48, %1
+  %57 = icmp ne i32 %1, %48
   %58 = icmp ne i32 %49, 1
   %or.cond = select i1 %57, i1 %58, i1 false
   br i1 %or.cond, label %59, label %60
@@ -57659,7 +57659,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resub(ptr nocapture noundef 
 40:                                               ; preds = %4
   %41 = load i32, ptr @globalUtilOptind, align 4
   %42 = add nsw i32 %41, 1
-  %43 = icmp eq i32 %42, %1
+  %43 = icmp eq i32 %1, %42
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %40
@@ -61113,7 +61113,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm2(ptr nocapture noundef r
 27:                                               ; preds = %22
   %28 = load i32, ptr @globalUtilOptind, align 4
   %29 = add nsw i32 %28, 2
-  %.not48 = icmp eq i32 %29, %1
+  %.not48 = icmp eq i32 %1, %29
   br i1 %.not48, label %31, label %30
 
 30:                                               ; preds = %27
@@ -61269,9 +61269,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Filter(ptr nocapture noundef
 
 28:                                               ; preds = %23
   %29 = load i32, ptr @globalUtilOptind, align 4
-  %.not39 = icmp eq i32 %29, %1
+  %.not39 = icmp eq i32 %1, %29
   %30 = add nsw i32 %29, 2
-  %.not40 = icmp eq i32 %30, %1
+  %.not40 = icmp eq i32 %1, %30
   %or.cond = select i1 %.not39, i1 true, i1 %.not40
   br i1 %or.cond, label %32, label %31
 
@@ -61291,7 +61291,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Filter(ptr nocapture noundef
 34:                                               ; preds = %33, %32
   %35 = phi i32 [ %.pre, %33 ], [ %29, %32 ]
   %36 = add nsw i32 %35, 2
-  %37 = icmp eq i32 %36, %1
+  %37 = icmp eq i32 %1, %36
   br i1 %37, label %38, label %52
 
 38:                                               ; preds = %34
@@ -61460,7 +61460,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9EquivMark(ptr nocapture noun
 15:                                               ; preds = %10
   %16 = load i32, ptr @globalUtilOptind, align 4
   %17 = add nsw i32 %16, 1
-  %.not19 = icmp eq i32 %17, %1
+  %.not19 = icmp eq i32 %1, %17
   br i1 %.not19, label %18, label %.loopexit
 
 18:                                               ; preds = %15
@@ -61688,7 +61688,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr nocapture noundef %0
   %62 = getelementptr inbounds i8, ptr %0, i64 288
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
-  %65 = icmp ne i32 %57, %1
+  %65 = icmp ne i32 %1, %57
   %or.cond = select i1 %64, i1 true, i1 %65
   br i1 %or.cond, label %66, label %67
 
@@ -62816,7 +62816,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Verify(ptr nocapture noundef
 30:                                               ; preds = %4
   %31 = load i32, ptr @globalUtilOptind, align 4
   %32 = add nsw i32 %31, 1
-  %33 = icmp eq i32 %32, %1
+  %33 = icmp eq i32 %1, %32
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %30
@@ -65619,7 +65619,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iiff(ptr nocapture noundef %
 30:                                               ; preds = %4
   %31 = load i32, ptr @globalUtilOptind, align 4
   %32 = add nsw i32 %31, 1
-  %33 = icmp eq i32 %32, %1
+  %33 = icmp eq i32 %1, %32
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
@@ -69250,7 +69250,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetRead(ptr nocapture nound
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
   %10 = add nsw i32 %9, 2
-  %11 = icmp eq i32 %10, %1
+  %11 = icmp eq i32 %1, %10
   %12 = sext i32 %9 to i64
   %13 = getelementptr inbounds ptr, ptr %2, i64 %12
   %14 = load ptr, ptr %13, align 8
@@ -69330,7 +69330,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetSim(ptr nocapture nounde
 13:                                               ; preds = %8
   %14 = load i32, ptr @globalUtilOptind, align 4
   %15 = add nsw i32 %14, 2
-  %.not14 = icmp eq i32 %15, %1
+  %.not14 = icmp eq i32 %1, %15
   br i1 %.not14, label %17, label %16
 
 16:                                               ; preds = %13
@@ -69416,7 +69416,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetEval(ptr nocapture nound
 22:                                               ; preds = %17
   %23 = load i32, ptr @globalUtilOptind, align 4
   %24 = add nsw i32 %23, 2
-  %.not21 = icmp eq i32 %24, %1
+  %.not21 = icmp eq i32 %1, %24
   br i1 %.not21, label %26, label %25
 
 25:                                               ; preds = %22
@@ -69555,7 +69555,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetOpt(ptr nocapture nounde
 40:                                               ; preds = %4
   %41 = load i32, ptr @globalUtilOptind, align 4
   %42 = add nsw i32 %41, 1
-  %43 = icmp slt i32 %42, %1
+  %43 = icmp sgt i32 %1, %42
   br i1 %43, label %72, label %44
 
 44:                                               ; preds = %40
@@ -69569,7 +69569,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetOpt(ptr nocapture nounde
   br label %72
 
 49:                                               ; preds = %44
-  %50 = icmp eq i32 %42, %1
+  %50 = icmp eq i32 %1, %42
   br i1 %50, label %51, label %68
 
 51:                                               ; preds = %49
@@ -69734,7 +69734,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ttopt(ptr nocapture noundef 
 40:                                               ; preds = %4
   %41 = load i32, ptr @globalUtilOptind, align 4
   %42 = add nsw i32 %41, 1
-  %43 = icmp slt i32 %42, %1
+  %43 = icmp sgt i32 %1, %42
   br i1 %43, label %74, label %44
 
 44:                                               ; preds = %40
@@ -69748,7 +69748,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ttopt(ptr nocapture noundef 
   br label %74
 
 49:                                               ; preds = %44
-  %50 = icmp eq i32 %42, %1
+  %50 = icmp eq i32 %1, %42
   br i1 %50, label %51, label %.thread
 
 51:                                               ; preds = %49
@@ -69967,7 +69967,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr nocapture n
 62:                                               ; preds = %4
   %63 = load i32, ptr @globalUtilOptind, align 4
   %64 = add nsw i32 %63, 1
-  %65 = icmp slt i32 %64, %1
+  %65 = icmp sgt i32 %1, %64
   br i1 %65, label %.loopexit.sink.split, label %66
 
 66:                                               ; preds = %62
@@ -69981,7 +69981,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr nocapture n
   br label %109
 
 71:                                               ; preds = %66
-  %72 = icmp eq i32 %64, %1
+  %72 = icmp eq i32 %1, %64
   br i1 %72, label %73, label %93
 
 73:                                               ; preds = %71
@@ -70271,7 +70271,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9TranStoch(ptr nocapture noun
 64:                                               ; preds = %4
   %65 = load i32, ptr @globalUtilOptind, align 4
   %66 = add nsw i32 %65, 1
-  %67 = icmp slt i32 %66, %1
+  %67 = icmp sgt i32 %1, %66
   br i1 %67, label %.loopexit.sink.split, label %68
 
 68:                                               ; preds = %64
@@ -70285,7 +70285,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9TranStoch(ptr nocapture noun
   br label %110
 
 73:                                               ; preds = %68
-  %74 = icmp eq i32 %66, %1
+  %74 = icmp eq i32 %1, %66
   br i1 %74, label %76, label %.thread
 
 .thread:                                          ; preds = %73
@@ -70480,7 +70480,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetMap(ptr noundef %0, i32 
 33:                                               ; preds = %28
   %34 = load i32, ptr @globalUtilOptind, align 4
   %35 = add nsw i32 %34, 1
-  %36 = icmp eq i32 %35, %1
+  %36 = icmp eq i32 %1, %35
   br i1 %36, label %37, label %50
 
 37:                                               ; preds = %33
@@ -76044,7 +76044,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitSat(ptr nocapture readn
 81:                                               ; preds = %4
   %82 = load i32, ptr @globalUtilOptind, align 4
   %83 = add nsw i32 %82, 1
-  %.not109 = icmp eq i32 %83, %1
+  %.not109 = icmp eq i32 %1, %83
   br i1 %.not109, label %85, label %84
 
 84:                                               ; preds = %81
@@ -77138,7 +77138,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr nocapture noundef 
 67:                                               ; preds = %65, %60
   %68 = load i32, ptr @globalUtilOptind, align 4
   %69 = add nsw i32 %68, 1
-  %70 = icmp eq i32 %69, %1
+  %70 = icmp eq i32 %1, %69
   br i1 %70, label %71, label %80
 
 71:                                               ; preds = %67
@@ -77777,7 +77777,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr nocapture noundef
 155:                                              ; preds = %153
   %156 = load i32, ptr @globalUtilOptind, align 4
   %157 = add nsw i32 %156, 1
-  %158 = icmp eq i32 %157, %1
+  %158 = icmp eq i32 %1, %157
   br i1 %158, label %159, label %169
 
 159:                                              ; preds = %155
@@ -80206,7 +80206,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Polyn(ptr nocapture noundef 
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @globalUtilOptind, align 4
-  %.not56.not = icmp slt i32 %38, %1
+  %.not56.not = icmp sgt i32 %1, %38
   br i1 %.not56.not, label %39, label %44
 
 39:                                               ; preds = %37
@@ -80391,7 +80391,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
   br i1 %.not116, label %102, label %43
 
 43:                                               ; preds = %40
-  %.not121 = icmp eq i32 %42, %1
+  %.not121 = icmp eq i32 %1, %42
   br i1 %.not121, label %45, label %44
 
 44:                                               ; preds = %43
@@ -80522,7 +80522,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
   %103 = sext i32 %42 to i64
   %104 = getelementptr inbounds ptr, ptr %2, i64 %103
   %105 = sub nsw i32 %1, %42
-  %106 = icmp eq i32 %42, %1
+  %106 = icmp eq i32 %1, %42
   %107 = icmp eq i32 %105, 1
   %or.cond = select i1 %106, i1 true, i1 %107
   br i1 %or.cond, label %108, label %143
@@ -81004,7 +81004,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Exorcism(ptr nocapture nound
 38:                                               ; preds = %5
   %39 = load i32, ptr @globalUtilOptind, align 4
   %40 = add nsw i32 %39, 2
-  %41 = icmp eq i32 %40, %1
+  %41 = icmp eq i32 %1, %40
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %38
@@ -81016,7 +81016,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Exorcism(ptr nocapture nound
 
 47:                                               ; preds = %38
   %48 = add nsw i32 %39, 1
-  %49 = icmp eq i32 %48, %1
+  %49 = icmp eq i32 %1, %48
   br i1 %49, label %50, label %.loopexit.sink.split
 
 50:                                               ; preds = %47
@@ -82230,7 +82230,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9StochSyn(ptr nocapture nound
 63:                                               ; preds = %58
   %64 = load i32, ptr @globalUtilOptind, align 4
   %65 = add nsw i32 %64, 1
-  %.not69 = icmp eq i32 %65, %1
+  %.not69 = icmp eq i32 %1, %65
   br i1 %.not69, label %67, label %66
 
 66:                                               ; preds = %63
@@ -82357,7 +82357,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.i
   store ptr %21, ptr %18, align 8
   %30 = load i32, ptr @globalUtilOptind, align 4
   %31 = add nsw i32 %30, 1
-  %.not22 = icmp eq i32 %31, %1
+  %.not22 = icmp eq i32 %1, %31
   br i1 %.not22, label %33, label %32
 
 32:                                               ; preds = %Vec_IntStart.exit
@@ -85250,7 +85250,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BMiter(ptr nocapture noundef
 18:                                               ; preds = %13
   %19 = load i32, ptr @globalUtilOptind, align 4
   %20 = add nsw i32 %19, 1
-  %.not29 = icmp eq i32 %20, %1
+  %.not29 = icmp eq i32 %1, %20
   br i1 %.not29, label %22, label %21
 
 21:                                               ; preds = %18
@@ -85421,7 +85421,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BRecover(ptr nocapture nound
 16:                                               ; preds = %11
   %17 = load i32, ptr @globalUtilOptind, align 4
   %18 = add nsw i32 %17, 1
-  %.not85 = icmp eq i32 %18, %1
+  %.not85 = icmp eq i32 %1, %18
   br i1 %.not85, label %22, label %19
 
 19:                                               ; preds = %16
@@ -85670,7 +85670,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9StrEco(ptr nocapture noundef
 18:                                               ; preds = %13
   %19 = load i32, ptr @globalUtilOptind, align 4
   %20 = add nsw i32 %19, 1
-  %.not49 = icmp eq i32 %20, %1
+  %.not49 = icmp eq i32 %1, %20
   br i1 %.not49, label %24, label %21
 
 21:                                               ; preds = %18
@@ -85879,7 +85879,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Test(ptr nocapture noundef %
 42:                                               ; preds = %37
   %43 = load i32, ptr @globalUtilOptind, align 4
   %44 = add nsw i32 %43, 1
-  %45 = icmp eq i32 %44, %1
+  %45 = icmp eq i32 %1, %44
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %42
@@ -88190,7 +88190,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   %indvars.iv75 = phi i64 [ 0, %.lr.ph36.split.us.split.us.preheader ], [ %indvars.iv.next76, %..loopexit30_crit_edge.us.us ]
   %22 = trunc nuw nsw i64 %indvars.iv75 to i32
   %23 = xor i32 %22, -1
-  %24 = add nsw i32 %23, %0
+  %24 = add nsw i32 %0, %23
   %25 = shl i32 %24, %6
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i64, ptr %14, i64 %26
@@ -88617,13 +88617,13 @@ declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #11
 define internal fastcc void @Vec_WrdFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -89649,7 +89649,7 @@ Vec_IntAlloc.exit:                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
   %15 = trunc i64 %indvars.iv to i32
-  %16 = add i32 %15, %0
+  %16 = add i32 %0, %15
   store i32 %16, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

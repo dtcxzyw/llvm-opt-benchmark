@@ -1897,7 +1897,7 @@ define internal ptr @intel_fake_agp_alloc_by_type(i64 noundef %0, i32 noundef %1
   %7 = icmp eq i32 %6, 1
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @intel_private, i64 60), align 4
   %9 = sext i32 %8 to i64
-  %10 = icmp eq i64 %9, %0
+  %10 = icmp eq i64 %0, %9
   %or.cond = select i1 %7, i1 %10, i1 false
   br i1 %or.cond, label %11, label %.thread
 

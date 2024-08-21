@@ -1497,7 +1497,7 @@ define hidden void @"_ZN19pyo3_macros_backend7pyclass45impl_complex_enum_tuple_v
   %5 = alloca [32 x i8], align 8
   %6 = load ptr, ptr %1, align 8
   %7 = load i64, ptr %6, align 8
-  %8 = icmp eq i64 %7, %2
+  %8 = icmp eq i64 %2, %7
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3

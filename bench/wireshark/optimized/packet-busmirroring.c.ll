@@ -484,7 +484,7 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   %157 = zext nneg i8 %156 to i64
   %158 = getelementptr [64 x i8], ptr @pid_table, i64 0, i64 %157
   %159 = load i8, ptr %158, align 1
-  %160 = icmp eq i8 %159, %155
+  %160 = icmp eq i8 %155, %159
   br i1 %160, label %.sink.split328, label %161
 
 161:                                              ; preds = %148

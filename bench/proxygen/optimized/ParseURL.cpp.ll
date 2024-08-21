@@ -156,7 +156,7 @@ if.end:                                           ; preds = %entry
 
 if.end3.i.i.i:                                    ; preds = %if.end
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %0, i64 -2
-  %cmp741.i.i.i = icmp ugt ptr %add.ptr.i1.i.i, %1
+  %cmp741.i.i.i = icmp ult ptr %1, %add.ptr.i1.i.i
   br i1 %cmp741.i.i.i, label %while.cond8.i.i.i, label %if.else126
 
 while.cond8.i.i.i:                                ; preds = %if.end3.i.i.i, %while.cond8.i.i.i.backedge
@@ -312,7 +312,7 @@ invoke.cont8.loopexit.split.loop.exit113:         ; preds = %if.end.i.i.i.i.i
 
 invoke.cont8:                                     ; preds = %for.body.i.i.i.i.i, %invoke.cont8.loopexit.split.loop.exit, %invoke.cont8.loopexit.split.loop.exit111, %invoke.cont8.loopexit.split.loop.exit113, %sw.bb.i.i.i.i.i, %sw.bb21.i.i.i.i.i, %sw.bb26.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i, %sw.bb21.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i, %sw.bb26.i.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit111 ], [ %incdec.ptr.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit113 ], [ %__first.addr.056.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %cmp.i.i = icmp eq ptr %retval.0.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.0.i.i.i.i.i
   br i1 %cmp.i.i, label %if.then10, label %if.else126
 
 if.then10:                                        ; preds = %sw.bb26.i.i.i.i.i, %for.end.i.i.i.i.i, %invoke.cont8
@@ -368,7 +368,7 @@ land.lhs.true38:                                  ; preds = %invoke.cont31
 
 if.then49:                                        ; preds = %land.lhs.true38
   %sub56 = add nsw i64 %conv36, -1
-  %cmp.i11 = icmp ult i64 %sub.ptr.sub.i.i, %sub56
+  %cmp.i11 = icmp ugt i64 %sub56, %sub.ptr.sub.i.i
   br i1 %cmp.i11, label %if.then.i79.invoke, label %invoke.cont63
 
 invoke.cont63:                                    ; preds = %if.then49
@@ -661,7 +661,7 @@ if.then30:                                        ; preds = %invoke.cont28
   %sub.ptr.lhs.cast.i.i46 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i47 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i48 = sub i64 %sub.ptr.lhs.cast.i.i46, %sub.ptr.rhs.cast.i.i47
-  %cmp.i49 = icmp ult i64 %sub.ptr.sub.i.i48, %retval.0.i.i
+  %cmp.i49 = icmp ugt i64 %retval.0.i.i, %sub.ptr.sub.i.i48
   br i1 %cmp.i49, label %if.then.i81.invoke, label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %if.then30
@@ -688,7 +688,7 @@ if.then40:                                        ; preds = %if.end38
   %sub.ptr.lhs.cast.i.i57 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i58 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i59 = sub i64 %sub.ptr.lhs.cast.i.i57, %sub.ptr.rhs.cast.i.i58
-  %cmp.i60.not = icmp ugt i64 %sub.ptr.sub.i.i59, %retval.0.i.i20
+  %cmp.i60.not = icmp ult i64 %retval.0.i.i20, %sub.ptr.sub.i.i59
   br i1 %cmp.i60.not, label %invoke.cont45, label %if.then.i81.invoke
 
 invoke.cont45:                                    ; preds = %if.then40
@@ -725,7 +725,7 @@ if.then55:                                        ; preds = %if.end53
   %sub.ptr.lhs.cast.i.i71 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i72 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i73 = sub i64 %sub.ptr.lhs.cast.i.i71, %sub.ptr.rhs.cast.i.i72
-  %cmp.i74.not = icmp ugt i64 %sub.ptr.sub.i.i73, %retval.0.i.i35
+  %cmp.i74.not = icmp ult i64 %retval.0.i.i35, %sub.ptr.sub.i.i73
   br i1 %cmp.i74.not, label %invoke.cont59, label %if.then.i81.invoke
 
 if.then.i81.invoke:                               ; preds = %if.then55, %if.then40, %if.then30
@@ -787,7 +787,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %authority_) #20
-  %cmp.i.not = icmp ugt i64 %call.i, %call5
+  %cmp.i.not = icmp ult i64 %call5, %call.i
   br i1 %cmp.i.not, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
@@ -863,7 +863,7 @@ if.else:                                          ; preds = %if.end
 
 if.then19:                                        ; preds = %if.else
   %call.i29 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %authority_) #20
-  %cmp.i30 = icmp ult i64 %call.i29, %call
+  %cmp.i30 = icmp ugt i64 %call, %call.i29
   br i1 %cmp.i30, label %if.then.i44, label %if.end.i31
 
 if.then.i44:                                      ; preds = %if.then19

@@ -215,7 +215,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
 72:                                               ; preds = %6
   %73 = load i32, ptr @globalUtilOptind, align 4
   %74 = add nsw i32 %73, 1
-  %.not139 = icmp eq i32 %74, %1
+  %.not139 = icmp eq i32 %1, %74
   br i1 %.not139, label %77, label %75
 
 75:                                               ; preds = %72

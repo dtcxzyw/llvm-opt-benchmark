@@ -20,7 +20,7 @@ define hidden { i64, i64 } @"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden i8 @"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hbf6be3cf243f55b6E"(i8 %0, i64 %1) unnamed_addr #1 {
   %3 = trunc i64 %1 to i8
-  %4 = add nuw i8 %3, %0
+  %4 = add nuw i8 %0, %3
   ret i8 %4
 }
 

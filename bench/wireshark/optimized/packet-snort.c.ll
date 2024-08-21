@@ -1395,7 +1395,7 @@ get_content_match.exit.thread449.i:               ; preds = %522
   %557 = call i32 @tvb_captured_length(ptr noundef %.0.i45) #12
   %558 = call i32 @content_convert_to_binary(ptr noundef nonnull %519) #12
   %559 = sub i32 %557, %558
-  %.not39.i.i.i = icmp ult i32 %559, %515
+  %.not39.i.i.i = icmp ugt i32 %515, %559
   br i1 %.not39.i.i.i, label %.thread471.i, label %.lr.ph.i.i390.i
 
 .lr.ph.i.i390.i:                                  ; preds = %556

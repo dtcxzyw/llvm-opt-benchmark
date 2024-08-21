@@ -335,7 +335,7 @@ proclist_contains_offset.exit.thread:             ; preds = %35, %26, %proclist_
 
 48:                                               ; preds = %proclist_contains_offset.exit.thread, %47
   %49 = load ptr, ptr @cv_sleep_target, align 8
-  %.not32 = icmp eq ptr %49, %0
+  %.not32 = icmp eq ptr %0, %49
   %spec.select.not = and i1 %.021.not, %.not32
   br i1 %spec.select.not, label %50, label %.loopexit
 

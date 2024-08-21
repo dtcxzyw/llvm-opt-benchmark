@@ -824,7 +824,7 @@ define internal range(i32 -1, 1) i32 @connSocketSetWriteHandler(ptr noundef %con
 entry:
   %write_handler = getelementptr inbounds i8, ptr %conn, i64 48
   %0 = load ptr, ptr %write_handler, align 8
-  %cmp = icmp eq ptr %0, %func
+  %cmp = icmp eq ptr %func, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -867,7 +867,7 @@ define internal range(i32 -1, 1) i32 @connSocketSetReadHandler(ptr noundef %conn
 entry:
   %read_handler = getelementptr inbounds i8, ptr %conn, i64 56
   %0 = load ptr, ptr %read_handler, align 8
-  %cmp = icmp eq ptr %0, %func
+  %cmp = icmp eq ptr %func, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

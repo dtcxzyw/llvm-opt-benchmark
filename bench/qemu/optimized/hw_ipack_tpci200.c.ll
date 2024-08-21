@@ -512,7 +512,7 @@ entry:
   %cmp.i = icmp eq i32 %size, 1
   %or.cond.i = and i1 %cmp.i, %tobool
   %xor.i = zext i1 %or.cond.i to i64
-  %spec.select = xor i64 %xor.i, %addr
+  %spec.select = xor i64 %addr, %xor.i
   %shr = lshr i64 %addr, 8
   %conv = trunc i64 %shr to i32
   %bus = getelementptr inbounds i8, ptr %opaque, i64 2608
@@ -708,7 +708,7 @@ entry:
   %cmp.i = icmp eq i32 %size, 1
   %or.cond.i = and i1 %cmp.i, %tobool
   %xor.i = zext i1 %or.cond.i to i64
-  %spec.select = xor i64 %xor.i, %addr
+  %spec.select = xor i64 %addr, %xor.i
   %shr = lshr i64 %addr, 23
   %conv = trunc i64 %shr to i32
   %1 = trunc i64 %spec.select to i32

@@ -535,12 +535,12 @@ define internal range(i32 0, 6) i32 @host_read_memory(i64 noundef %memaddr, ptr 
 entry:
   %buffer_vma = getelementptr inbounds i8, ptr %info, i64 128
   %0 = load i64, ptr %buffer_vma, align 8
-  %cmp = icmp ugt i64 %0, %memaddr
+  %cmp = icmp ult i64 %memaddr, %0
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %conv = sext i32 %length to i64
-  %add = add i64 %conv, %memaddr
+  %add = add i64 %memaddr, %conv
   %buffer_length = getelementptr inbounds i8, ptr %info, i64 136
   %1 = load i32, ptr %buffer_length, align 8
   %conv2 = sext i32 %1 to i64

@@ -776,7 +776,7 @@ entry:
   %call2.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i)
   %cmp.i = icmp eq i32 %call2.i.i, 2
   %inc.i = zext i1 %cmp.i to i32
-  %spec.select.i = add nsw i32 %inc.i, %i
+  %spec.select.i = add nsw i32 %i, %inc.i
   %d_children.i = getelementptr inbounds i8, ptr %0, i64 16
   %idxprom.i = sext i32 %spec.select.i to i64
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %d_children.i, i64 0, i64 %idxprom.i
@@ -3456,7 +3456,7 @@ terminate.lpad.i252:                              ; preds = %if.then13.i.i251
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit253: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.then.i.i245, %if.then13.i.i251
-  %brmerge.not = and i1 %call40, %computeRemainder
+  %brmerge.not = and i1 %computeRemainder, %call40
   %retval.0.mux = select i1 %call40, i32 %i.01281, i32 %retval.01282
   br i1 %brmerge.not, label %if.then43, label %cleanup
 
@@ -4192,9 +4192,9 @@ if.then204:                                       ; preds = %if.else200
   %sub = sub nuw nsw i64 %sub.ptr.div.i514, %sub.ptr.div.i
   %conv207 = trunc i64 %sub to i32
   %cmp224 = icmp ne i32 %remainderDir, 1
-  %119 = and i1 %cmp224, %computeRemainder
+  %119 = and i1 %computeRemainder, %cmp224
   %cmp256 = icmp ne i32 %remainderDir, -1
-  %120 = and i1 %cmp256, %computeRemainder
+  %120 = and i1 %computeRemainder, %cmp256
   %_M_finish.i860 = getelementptr inbounds i8, ptr %ne, i64 8
   %_M_end_of_storage.i861 = getelementptr inbounds i8, ptr %ne, i64 16
   %_M_finish.i971 = getelementptr inbounds i8, ptr %nb, i64 8
@@ -4600,7 +4600,7 @@ terminate.lpad.i689:                              ; preds = %if.then13.i.i688
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit690: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit679, %if.then.i.i682, %if.then13.i.i688
-  %brmerge.not1285 = and i1 %call260, %computeRemainder
+  %brmerge.not1285 = and i1 %computeRemainder, %call260
   %.mux = zext i1 %call260 to i32
   %retval.3.mux = select i1 %call260, i32 %storemerge1273, i32 %retval.31275
   br i1 %brmerge.not1285, label %if.then299, label %cleanup473
@@ -8943,7 +8943,7 @@ invoke.cont19:                                    ; preds = %if.else.i.i38, %if.
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  %brmerge.not = and i1 %call22, %strict
+  %brmerge.not = and i1 %strict, %call22
   br i1 %brmerge.not, label %lor.rhs, label %cleanup.done
 
 lor.rhs:                                          ; preds = %invoke.cont21
@@ -9521,7 +9521,7 @@ invoke.cont7.i:                                   ; preds = %.noexc942
 
 if.then.i935:                                     ; preds = %invoke.cont7.i
   %cmp.not.i.i.i = icmp ne ptr %23, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %24
+  %cmp2.i.i.i = icmp eq ptr %24, %add.ptr.i.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -9701,7 +9701,7 @@ invoke.cont7.i949:                                ; preds = %.noexc981
 
 if.then.i951:                                     ; preds = %invoke.cont7.i949
   %cmp.not.i.i.i952 = icmp ne ptr %43, null
-  %cmp2.i.i.i954 = icmp eq ptr %add.ptr.i.i.i.i86, %44
+  %cmp2.i.i.i954 = icmp eq ptr %44, %add.ptr.i.i.i.i86
   %or.cond.i.i.i955 = select i1 %cmp.not.i.i.i952, i1 true, i1 %cmp2.i.i.i954
   br i1 %or.cond.i.i.i955, label %cleanup.thread.i963, label %lor.rhs.i.i.i956
 
@@ -10023,7 +10023,7 @@ invoke.cont7.i991:                                ; preds = %.noexc1023
 
 if.then.i993:                                     ; preds = %invoke.cont7.i991
   %cmp.not.i.i.i994 = icmp ne ptr %73, null
-  %cmp2.i.i.i996 = icmp eq ptr %add.ptr.i.i.i.i180, %74
+  %cmp2.i.i.i996 = icmp eq ptr %74, %add.ptr.i.i.i.i180
   %or.cond.i.i.i997 = select i1 %cmp.not.i.i.i994, i1 true, i1 %cmp2.i.i.i996
   br i1 %or.cond.i.i.i997, label %cleanup.thread.i1005, label %lor.rhs.i.i.i998
 
@@ -16097,7 +16097,7 @@ entry:
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i1.not = icmp eq ptr %0, %__last.coerce
+  %cmp.i1.not = icmp eq ptr %__last.coerce, %0
   br i1 %cmp.i1.not, label %if.then.if.end_crit_edge, label %if.then6
 
 if.then.if.end_crit_edge:                         ; preds = %if.then
@@ -16422,7 +16422,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %0, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %1
+  %cmp2.i.i = icmp eq ptr %1, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -16492,7 +16492,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_jESt10_Select1stI
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #4 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

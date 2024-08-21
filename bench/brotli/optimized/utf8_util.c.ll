@@ -149,7 +149,7 @@ while.end.loopexit:                               ; preds = %BrotliParseAsUTF8.e
 while.end:                                        ; preds = %while.end.loopexit, %entry
   %size_utf8.0.lcssa = phi double [ 0.000000e+00, %entry ], [ %9, %while.end.loopexit ]
   %conv4 = uitofp i64 %length to double
-  %mul = fmul double %conv4, %min_fraction
+  %mul = fmul double %min_fraction, %conv4
   %cmp5 = fcmp olt double %mul, %size_utf8.0.lcssa
   %cond = zext i1 %cmp5 to i32
   ret i32 %cond

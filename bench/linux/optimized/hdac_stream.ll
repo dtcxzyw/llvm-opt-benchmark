@@ -989,7 +989,7 @@ define dso_local ptr @snd_hdac_get_stream(ptr noundef readonly %0, i32 noundef %
   %12 = getelementptr i8, ptr %7, i64 -108
   %13 = load i8, ptr %12, align 4
   %14 = zext i8 %13 to i32
-  %15 = icmp eq i32 %14, %2
+  %15 = icmp eq i32 %2, %14
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %11, %.preheader

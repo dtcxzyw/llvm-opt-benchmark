@@ -89,7 +89,7 @@ define internal fastcc i32 @nbc_allgather_init(ptr noundef %0, i32 noundef %1, p
   %28 = getelementptr i8, ptr %5, i64 56
   %.val145 = load i64, ptr %28, align 8
   %29 = sub nsw i64 %.val145, %.val144
-  %brmerge = or i1 %18, %9
+  %brmerge = or i1 %9, %18
   %.mux = select i1 %18, ptr %5, ptr %2
   %.mux140 = select i1 %18, i32 %4, i32 %1
   br i1 %brmerge, label %NBC_Copy.exit.thread, label %30
@@ -294,7 +294,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
   br i1 %.not.i153, label %122, label %allgather_sched_linear.exit
 
 122:                                              ; preds = %114
-  %123 = icmp sgt i32 %115, %.val
+  %123 = icmp slt i32 %.val, %115
   %124 = sub nsw i32 %.0381.i, %.0372.i
   %125 = add nsw i32 %.0381.i, %.0372.i
   %.pn47.in.i = select i1 %123, i32 %125, i32 %124

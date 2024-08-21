@@ -395,7 +395,7 @@ correctstack.exit67:                              ; preds = %for.inc20.i61, %for
   %idx.ext = sext i32 %newsize to i64
   %add.ptr = getelementptr inbounds %union.StackValue, ptr %36, i64 %idx.ext
   store ptr %add.ptr, ptr %stack_last, align 8
-  %cmp2368 = icmp slt i32 %conv, %newsize
+  %cmp2368 = icmp sgt i32 %newsize, %conv
   br i1 %cmp2368, label %for.body, label %return
 
 for.body:                                         ; preds = %correctstack.exit67, %for.body
@@ -447,7 +447,7 @@ if.then9:                                         ; preds = %if.else
   %sub.ptr.sub13 = sub i64 %sub.ptr.lhs.cast11, %sub.ptr.rhs.cast
   %sub.ptr.div14 = lshr exact i64 %sub.ptr.sub13, 4
   %conv15 = trunc i64 %sub.ptr.div14 to i32
-  %add = add nsw i32 %conv15, %n
+  %add = add nsw i32 %n, %conv15
   %cmp24 = icmp slt i32 %add, 1000001
   br i1 %cmp24, label %if.then30, label %if.end33
 
@@ -1040,7 +1040,7 @@ sw.epilog.i:                                      ; preds = %if.end21.i, %sw.def
   %idx.ext29.i = sext i32 %nres to i64
   %idx.neg30.i = sub nsw i64 0, %idx.ext29.i
   %add.ptr31.i = getelementptr inbounds %union.StackValue, ptr %61, i64 %idx.neg30.i
-  %spec.select47.i = tail call i32 @llvm.smin.i32(i32 %wanted.addr.0.i, i32 %nres)
+  %spec.select47.i = tail call i32 @llvm.smin.i32(i32 %nres, i32 %wanted.addr.0.i)
   %cmp3648.i = icmp sgt i32 %spec.select47.i, 0
   br i1 %cmp3648.i, label %for.body.preheader.i, label %for.cond48.preheader.i
 
@@ -2136,7 +2136,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %l_G, align 8
   %mainthread = getelementptr inbounds i8, ptr %2, i64 264
   %3 = load ptr, ptr %mainthread, align 8
-  %cmp4.not = icmp eq ptr %3, %L
+  %cmp4.not = icmp eq ptr %L, %3
   br i1 %cmp4.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.then

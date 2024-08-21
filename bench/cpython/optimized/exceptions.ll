@@ -3582,7 +3582,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 define internal ptr @MemoryError_new(ptr noundef %type, ptr noundef %args, ptr nocapture readnone %kwds) #1 {
 entry:
   %0 = load ptr, ptr @PyExc_MemoryError, align 8
-  %cmp.not = icmp eq ptr %0, %type
+  %cmp.not = icmp eq ptr %type, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -7450,13 +7450,13 @@ if.else:                                          ; preds = %if.end23
 
 for.end:                                          ; preds = %if.else
   %16 = trunc i8 %spec.select to i1
-  %cmp31 = icmp eq ptr %3, %type
+  %cmp31 = icmp eq ptr %type, %3
   br i1 %cmp31, label %if.then32, label %if.else36
 
 for.end.thread:                                   ; preds = %for.cond.preheader
-  %cmp3142 = icmp ne ptr %3, %type
+  %cmp3142 = icmp ne ptr %type, %3
   %17 = load ptr, ptr @PyExc_BaseExceptionGroup, align 8
-  %cmp3747 = icmp eq ptr %17, %type
+  %cmp3747 = icmp eq ptr %type, %17
   %or.cond = select i1 %cmp3142, i1 %cmp3747, i1 false
   %spec.select56 = select i1 %or.cond, ptr %3, ptr %type
   br label %if.end56
@@ -7471,7 +7471,7 @@ if.then34:                                        ; preds = %if.then32
 
 if.else36:                                        ; preds = %for.end
   %19 = load ptr, ptr @PyExc_BaseExceptionGroup, align 8
-  %cmp37 = icmp eq ptr %19, %type
+  %cmp37 = icmp eq ptr %type, %19
   br i1 %cmp37, label %if.then38, label %if.else42
 
 if.then38:                                        ; preds = %if.else36
@@ -9117,7 +9117,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true
   %12 = load ptr, ptr %exc_state.i, align 8
   %tobool14.not = icmp ne ptr %12, null
   %13 = load ptr, ptr @PyExc_OSError, align 8
-  %cmp16 = icmp eq ptr %13, %type
+  %cmp16 = icmp eq ptr %type, %13
   %or.cond = select i1 %tobool14.not, i1 %cmp16, i1 false
   br i1 %or.cond, label %if.then17, label %if.end28
 

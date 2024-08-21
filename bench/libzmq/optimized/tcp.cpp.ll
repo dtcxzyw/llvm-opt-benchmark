@@ -265,7 +265,7 @@ if.end:                                           ; preds = %entry
   %conv = zext i16 %call3 to i32
   %call4 = tail call noundef i32 @_ZN3zmq11open_socketEiii(i32 noundef %conv, i32 noundef 1, i32 noundef 6)
   %cmp5 = icmp eq i32 %call4, -1
-  %brmerge.not = and i1 %cmp5, %fallback_to_ipv4_
+  %brmerge.not = and i1 %fallback_to_ipv4_, %cmp5
   br i1 %brmerge.not, label %land.lhs.true7, label %if.end24
 
 land.lhs.true7:                                   ; preds = %if.end

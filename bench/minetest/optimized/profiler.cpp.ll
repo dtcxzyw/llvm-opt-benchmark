@@ -642,7 +642,7 @@ lpad15:                                           ; preds = %if.then24
 if.else28:                                        ; preds = %invoke.cont16
   %second30 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i58, i64 64
   %17 = load float, ptr %second30, align 8, !tbaa !34
-  %add = fadd nsz float %17, %value
+  %add = fadd nsz float %value, %17
   store float %add, ptr %second30, align 8, !tbaa !34
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
@@ -684,7 +684,7 @@ invoke.cont:                                      ; preds = %_ZNSt11unique_lockI
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %invoke.cont
   %2 = load float, ptr %call3, align 4, !tbaa !26
-  %add4 = fadd nsz float %2, %value
+  %add4 = fadd nsz float %value, %2
   store float %add4, ptr %call3, align 4, !tbaa !26
   %call1.i.i.i.i10 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #21
   ret void
@@ -801,7 +801,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.then
 if.else:                                          ; preds = %invoke.cont
   %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 64
   %8 = load float, ptr %second, align 8, !tbaa !34
-  %add = fadd nsz float %8, %value
+  %add = fadd nsz float %value, %8
   store float %add, ptr %second, align 8, !tbaa !34
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit21
 
@@ -1945,7 +1945,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   br i1 %or.cond43.i, label %_Z6pagingjjjRjS_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %cmp6.not.i = icmp ult i32 %conv, %pagecount
+  %cmp6.not.i = icmp ugt i32 %pagecount, %conv
   br i1 %cmp6.not.i, label %if.else13.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -1953,13 +1953,13 @@ if.then7.i:                                       ; preds = %if.else.i
   %sub8.i = add i32 %pagecount, -1
   %add.i = add i32 %mul.i, %sub8.i
   %div.i = udiv i32 %add.i, %pagecount
-  %mul9.i = mul i32 %conv, %page
+  %mul9.i = mul i32 %page, %conv
   %add11.i = add i32 %mul9.i, %sub8.i
   %div12.i = udiv i32 %add11.i, %pagecount
   br label %_Z6pagingjjjRjS_.exit
 
 if.else13.i:                                      ; preds = %if.else.i
-  %cmp14.i = icmp ugt i32 %conv, %page
+  %cmp14.i = icmp ult i32 %page, %conv
   %spec.select = select i1 %cmp14.i, i32 %1, i32 0
   %spec.select50 = select i1 %cmp14.i, i32 %page, i32 0
   br label %_Z6pagingjjjRjS_.exit

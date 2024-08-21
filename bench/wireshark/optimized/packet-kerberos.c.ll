@@ -2283,7 +2283,7 @@ define internal fastcc void @kerberos_key_map_insert(ptr noundef %0, ptr noundef
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @kerberos_all_keys, align 8
-  %.not = icmp eq ptr %8, %0
+  %.not = icmp eq ptr %0, %8
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %7
@@ -5515,7 +5515,7 @@ read_keytab_file_from_preferences.exit.i:         ; preds = %128, %126, %119
   %151 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %148, i32 noundef %150, ptr noundef nonnull %28) #16
   %.not.i55.i = icmp eq i32 %151, 0
   %152 = load i32, ptr %28, align 4
-  %153 = icmp eq i32 %152, %145
+  %153 = icmp eq i32 %145, %152
   %or.cond.i56.i = select i1 %.not.i55.i, i1 %153, i1 false
   br i1 %or.cond.i56.i, label %keytype_for_cksumtype.exit.i, label %146
 
@@ -5572,7 +5572,7 @@ keytype_for_cksumtype.exit.i:                     ; preds = %147, %146
   %182 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %179, i32 noundef %181, ptr noundef nonnull %27) #16
   %.not.i58.i = icmp eq i32 %182, 0
   %183 = load i32, ptr %27, align 4
-  %184 = icmp eq i32 %183, %176
+  %184 = icmp eq i32 %176, %183
   %or.cond.i59.i = select i1 %.not.i58.i, i1 %184, i1 false
   br i1 %or.cond.i59.i, label %keytype_for_cksumtype.exit63.i, label %177
 
@@ -5672,7 +5672,7 @@ kerberos_get_private_data.exit.i.i:               ; preds = %kerberos_new_privat
   %226 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %223, i32 noundef %225, ptr noundef nonnull %17) #16
   %.not.i119.i.i = icmp eq i32 %226, 0
   %227 = load i32, ptr %17, align 4
-  %228 = icmp eq i32 %227, %220
+  %228 = icmp eq i32 %220, %227
   %or.cond.i.i.i = select i1 %.not.i119.i.i, i1 %228, i1 false
   br i1 %or.cond.i.i.i, label %keytype_for_cksumtype.exit.i.i, label %221
 
@@ -6066,7 +6066,7 @@ kerberos_get_private_data.exit.i66.i:             ; preds = %kerberos_new_privat
   %438 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %435, i32 noundef %437, ptr noundef nonnull %11) #16
   %.not.i171.i.i = icmp eq i32 %438, 0
   %439 = load i32, ptr %11, align 4
-  %440 = icmp eq i32 %439, %432
+  %440 = icmp eq i32 %432, %439
   %or.cond.i.i73.i = select i1 %.not.i171.i.i, i1 %440, i1 false
   br i1 %or.cond.i.i73.i, label %keytype_for_cksumtype.exit.i76.i, label %433
 

@@ -1510,7 +1510,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %2
@@ -1594,7 +1594,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 41:                                               ; preds = %2
-  %42 = icmp ugt i64 %8, %1
+  %42 = icmp ult i64 %1, %8
   br i1 %42, label %43, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 43:                                               ; preds = %41
@@ -4710,7 +4710,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %2
@@ -4794,7 +4794,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
 41:                                               ; preds = %2
-  %42 = icmp ugt i64 %8, %1
+  %42 = icmp ult i64 %1, %8
   br i1 %42, label %43, label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
 43:                                               ; preds = %41
@@ -7866,7 +7866,7 @@ define linkonce_odr { ptr, i64 } @_ZNK7xgboost10StringView6substrEmm(ptr noundef
   store i64 %1, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %.not = icmp ult i64 %8, %1
+  %.not = icmp ugt i64 %1, %8
   br i1 %.not, label %9, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
 
 9:                                                ; preds = %3
@@ -11553,7 +11553,7 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i47.thread._crit_edge: ; preds = %_Z
   %144 = ptrtoint ptr %135 to i64
   %145 = sub i64 %143, %144
   %146 = ashr exact i64 %145, 3
-  %147 = icmp ult i64 %146, %141
+  %147 = icmp ugt i64 %141, %146
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %134
@@ -11562,7 +11562,7 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i47.thread._crit_edge: ; preds = %_Z
           to label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 150:                                              ; preds = %134
-  %151 = icmp ugt i64 %146, %141
+  %151 = icmp ult i64 %141, %146
   br i1 %151, label %152, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE6resizeEm.exit
 
 152:                                              ; preds = %150
@@ -16941,7 +16941,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -17815,7 +17815,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -17885,7 +17885,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -18867,7 +18867,7 @@ _ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; p
 _ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit ], [ %45, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ]
   %46 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
-  %.not11.i.i.i26 = icmp eq ptr %5, %1
+  %.not11.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not11.i.i.i26, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30
@@ -19356,7 +19356,7 @@ define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uni
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #14
-  %.not4.i.i = icmp eq ptr %.014, %0
+  %.not4.i.i = icmp eq ptr %0, %.014
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN7xgboost4JsonEEvT_S3_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i
@@ -19517,7 +19517,7 @@ _ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; p
 _ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ], [ %49, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ]
   %50 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
-  %.not11.i.i.i16 = icmp eq ptr %5, %1
+  %.not11.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not11.i.i.i16, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20
@@ -19605,7 +19605,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 13:                                               ; preds = %10
   %.not.i.i = icmp ne ptr %11, null
   %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = icmp eq ptr %14, %12
+  %15 = icmp eq ptr %12, %14
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %15
   br i1 %or.cond.i.i, label %.thread, label %16
 

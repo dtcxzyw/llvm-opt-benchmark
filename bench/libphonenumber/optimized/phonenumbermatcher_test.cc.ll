@@ -21683,7 +21683,7 @@ _ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i
   %56 = load ptr, ptr %16, align 8
   %57 = getelementptr inbounds %"struct.i18n::phonenumbers::(anonymous namespace)::NumberTest", ptr %56, i64 %55
   store ptr %57, ptr %16, align 8
-  %.not11.i.i.i.i.i61.i.i = icmp eq ptr %17, %1
+  %.not11.i.i.i.i.i61.i.i = icmp eq ptr %1, %17
   br i1 %.not11.i.i.i.i.i61.i.i, label %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.i, label %.lr.ph.i.i.i.i.i62.i.i
 
 .lr.ph.i.i.i.i.i62.i.i:                           ; preds = %_ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i, %.lr.ph.i.i.i.i.i62.i.i
@@ -21771,7 +21771,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110Nu
           to label %92 unwind label %101
 
 92:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i
-  %.not11.i.i.i.i.i80.i.i = icmp eq ptr %17, %1
+  %.not11.i.i.i.i.i80.i.i = icmp eq ptr %1, %17
   br i1 %.not11.i.i.i.i.i80.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit86.i.i, label %.lr.ph.i.i.i.i.i81.i.i
 
 .lr.ph.i.i.i.i.i81.i.i:                           ; preds = %92, %.lr.ph.i.i.i.i.i81.i.i
@@ -26502,7 +26502,7 @@ _ZSt10_ConstructIN4i18n12phonenumbers11PhoneNumberEJRKS2_EEvPT_DpOT0_.exit.i.i.i
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #17
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %9
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %9, %.015.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers11PhoneNumberEEvT_S4_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %15, %.lr.ph.i.i.i.i.i.i.i
@@ -38054,7 +38054,7 @@ _ZNSt16allocator_traitsISaIN4i18n12phonenumbers11PhoneNumberEEE9constructIS2_JRK
 _ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers11PhoneNumberEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers11PhoneNumberEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 72
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i27

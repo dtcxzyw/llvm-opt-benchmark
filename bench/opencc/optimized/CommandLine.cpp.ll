@@ -1784,7 +1784,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 .lr.ph.i:                                         ; preds = %.lr.ph16.i, %136
   %.sroa.07.013.i = phi ptr [ %137, %136 ], [ %133, %.lr.ph16.i ]
   %138 = load ptr, ptr %.sroa.07.013.i, align 8
-  %139 = icmp eq ptr %138, %130
+  %139 = icmp eq ptr %130, %138
   br i1 %139, label %_ZN5TCLAP10XorHandler8containsEPKNS_3ArgE.exit, label %136
 
 ._crit_edge.i:                                    ; preds = %136, %.lr.ph16.i
@@ -2446,7 +2446,7 @@ _ZNSt6vectorIS_IPN5TCLAP3ArgESaIS2_EESaIS4_EEC2ERKS6_.exit: ; preds = %.noexc45
 .lr.ph.i:                                         ; preds = %.lr.ph16.i, %169
   %.sroa.07.013.i = phi ptr [ %170, %169 ], [ %166, %.lr.ph16.i ]
   %171 = load ptr, ptr %.sroa.07.013.i, align 8
-  %172 = icmp eq ptr %171, %163
+  %172 = icmp eq ptr %163, %171
   br i1 %172, label %_ZN5TCLAP10XorHandler8containsEPKNS_3ArgE.exit, label %169
 
 ._crit_edge.i:                                    ; preds = %169, %.lr.ph16.i
@@ -7156,7 +7156,7 @@ define linkonce_odr dso_local void @_ZNK5TCLAP9StdOutput10spacePrintERSoRKNSt7__
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
   %9 = trunc i64 %8 to i32
-  %10 = add nsw i32 %9, %4
+  %10 = add nsw i32 %4, %9
   %11 = icmp sgt i32 %10, %3
   %12 = icmp sgt i32 %3, 0
   %or.cond = and i1 %12, %11
@@ -7444,7 +7444,7 @@ _ZNSt16allocator_traitsISaIPN5TCLAP3ArgEEE8allocateERS3_m.exit.i.i.i.i.i: ; pred
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %29 = extractvalue { ptr, i32 } %lpad.phi, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #27
-  %.not4.i.i = icmp eq ptr %.017, %2
+  %.not4.i.i = icmp eq ptr %2, %.017
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPSt6vectorIPN5TCLAP3ArgESaIS3_EEEvT_S7_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %28, %_ZSt8_DestroyISt6vectorIPN5TCLAP3ArgESaIS3_EEEvPT_.exit.i.i
@@ -9536,7 +9536,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i17
@@ -9706,7 +9706,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN5TCLAP3ArgESt6vectorIS4_SaIS4_EEEEPK
 .lr.ph68:                                         ; preds = %.preheader52, %_ZNK5TCLAP3Arg5isSetEv.exit
   %.sroa.031.067 = phi ptr [ %82, %_ZNK5TCLAP3Arg5isSetEv.exit ], [ %14, %.preheader52 ]
   %57 = load ptr, ptr %.sroa.031.067, align 8
-  %.not23 = icmp eq ptr %57, %1
+  %.not23 = icmp eq ptr %1, %57
   br i1 %.not23, label %_ZNK5TCLAP3Arg5isSetEv.exit, label %58
 
 58:                                               ; preds = %.lr.ph68
@@ -9782,7 +9782,7 @@ _ZNK5TCLAP3Arg5isSetEv.exit:                      ; preds = %62, %58, %.lr.ph68
   %83 = phi ptr [ %89, %88 ], [ %8, %.preheader ]
   %.sroa.026.070 = phi ptr [ %90, %88 ], [ %14, %.preheader ]
   %84 = load ptr, ptr %.sroa.026.070, align 8
-  %.not = icmp eq ptr %84, %1
+  %.not = icmp eq ptr %1, %84
   br i1 %.not, label %88, label %85
 
 85:                                               ; preds = %.lr.ph71
@@ -11764,7 +11764,7 @@ _ZNSt16allocator_traitsISaIPN5TCLAP3ArgEEE8allocateERS3_m.exit.i.i.i.i.i.i: ; pr
 _ZNSt6vectorIS_IPN5TCLAP3ArgESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %41
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %41 ], [ %53, %.lr.ph.i.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IPN5TCLAP3ArgESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IPN5TCLAP3ArgESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i.i28

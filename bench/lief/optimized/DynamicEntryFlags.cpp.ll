@@ -664,7 +664,7 @@ _ZNK6frozen3mapIN4LIEF3ELF17DynamicEntryFlags4FLAGEPKcLm35ESt4lessIS4_EE11lower_
 9:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF17DynamicEntryFlags4FLAGEPKcLm35ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
   %.ptr15.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE.enums2str, i64 %.add.i.i
   %10 = load i64, ptr %.ptr15.i.i, align 8
-  %.not21.i.i = icmp ugt i64 %10, %0
+  %.not21.i.i = icmp ult i64 %0, %10
   br i1 %.not21.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF17DynamicEntryFlags4FLAGEPKcLm35ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %11
 
 11:                                               ; preds = %9
@@ -913,7 +913,7 @@ _ZNK6frozen3mapIN4LIEF3ELF17DynamicEntryFlags4FLAGEPKcLm35ESt4lessIS4_EE11lower_
 12:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF17DynamicEntryFlags4FLAGEPKcLm35ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
   %.ptr15.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE.enums2str, i64 %.add.i.i.i
   %13 = load i64, ptr %.ptr15.i.i.i, align 8
-  %.not21.i.i.i = icmp ugt i64 %13, %4
+  %.not21.i.i.i = icmp ult i64 %4, %13
   br i1 %.not21.i.i.i, label %_ZN3fmt2v96detail5writeIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET0_SB_PKT_.exit, label %_ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE.exit
 
 _ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE.exit: ; preds = %12

@@ -657,7 +657,7 @@ define hidden range(i32 0, 2) i32 @cmsDesaturateLab(ptr noundef %0, double nound
 
 42:                                               ; preds = %39, %30
   store double %1, ptr %14, align 8
-  %43 = fmul double %34, %1
+  %43 = fmul double %1, %34
   store double %43, ptr %31, align 8
   br label %60
 
@@ -681,7 +681,7 @@ define hidden range(i32 0, 2) i32 @cmsDesaturateLab(ptr noundef %0, double nound
 
 52:                                               ; preds = %49
   store double %2, ptr %14, align 8
-  %53 = fmul double %34, %2
+  %53 = fmul double %2, %34
   store double %53, ptr %31, align 8
   br label %60
 

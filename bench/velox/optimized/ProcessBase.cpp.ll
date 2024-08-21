@@ -563,7 +563,7 @@ if.end:                                           ; preds = %entry
   %cmp2 = icmp sgt i64 %0, 0
   %add = add i64 %0, 1
   %cond = select i1 %cmp2, i64 %add, i64 4096
-  %.sroa.speculated15 = call i64 @llvm.umin.i64(i64 %cond, i64 %num_bytes)
+  %.sroa.speculated15 = call i64 @llvm.umin.i64(i64 %num_bytes, i64 %cond)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %.sroa.speculated15)
           to label %while.cond unwind label %lpad.loopexit.split-lp
 
@@ -616,7 +616,7 @@ if.end20:                                         ; preds = %if.end15
   %call22 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %out) #16
   %mul = mul i64 %call22, 3
   %div10 = lshr i64 %mul, 1
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %div10, i64 %num_bytes)
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %num_bytes, i64 %div10)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %.sroa.speculated)
           to label %while.cond unwind label %lpad.loopexit, !llvm.loop !10
 

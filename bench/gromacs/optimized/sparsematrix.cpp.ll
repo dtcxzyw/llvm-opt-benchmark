@@ -286,7 +286,7 @@ define void @_Z32gmx_sparsematrix_increment_valueP16gmx_sparsematrixiif(ptr noca
 ._crit_edge:                                      ; preds = %16
   %24 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %14, i64 %indvars.iv, i32 1
   %25 = load float, ptr %24, align 4
-  %26 = fadd float %25, %3
+  %26 = fadd float %3, %25
   store float %26, ptr %24, align 4
   br label %69
 

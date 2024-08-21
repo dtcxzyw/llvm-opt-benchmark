@@ -46,7 +46,7 @@ define dso_local void @pg_sha256_update(ptr nocapture noundef %0, ptr nocapture 
 
 10:                                               ; preds = %5
   %11 = sub nuw nsw i64 64, %9
-  %.not40 = icmp ugt i64 %11, %2
+  %.not40 = icmp ult i64 %2, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = getelementptr [64 x i8], ptr %12, i64 0, i64 %9
   br i1 %.not40, label %20, label %14
@@ -397,7 +397,7 @@ define dso_local void @pg_sha512_update(ptr nocapture noundef %0, ptr nocapture 
 
 10:                                               ; preds = %5
   %11 = sub nuw nsw i64 128, %9
-  %.not51 = icmp ugt i64 %11, %2
+  %.not51 = icmp ult i64 %2, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 80
   %13 = getelementptr [128 x i8], ptr %12, i64 0, i64 %9
   br i1 %.not51, label %26, label %14
@@ -918,7 +918,7 @@ define dso_local void @pg_sha224_update(ptr nocapture noundef %0, ptr nocapture 
 
 10:                                               ; preds = %5
   %11 = sub nuw nsw i64 64, %9
-  %.not40.i = icmp ugt i64 %11, %2
+  %.not40.i = icmp ult i64 %2, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = getelementptr [64 x i8], ptr %12, i64 0, i64 %9
   br i1 %.not40.i, label %20, label %14

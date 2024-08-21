@@ -2417,7 +2417,7 @@ define internal fastcc i32 @enough_space(ptr nocapture noundef readonly %0, i64 
   %11 = call i32 @pmix_path_df(ptr noundef nonnull %4, ptr noundef nonnull %3) #14
   %.not = icmp eq i32 %11, 0
   %12 = load i64, ptr %3, align 8
-  %13 = add i64 %9, %1
+  %13 = add i64 %1, %9
   %.not17 = icmp uge i64 %12, %13
   %narrow = select i1 %.not, i1 %.not17, i1 false
   %.013.ph = zext i1 %narrow to i8
@@ -5029,7 +5029,7 @@ hwloc_get_next_pcidev.exit:                       ; preds = %8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 6
   %16 = load i16, ptr %15, align 2
-  %17 = icmp eq i16 %16, %2
+  %17 = icmp eq i16 %2, %16
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %.lr.ph

@@ -451,7 +451,7 @@ define internal { double, double } @_ZL13lcc_e_forward5PJ_LPP8PJconsts(double %0
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = load double, ptr %11, align 8
-  %13 = fmul double %12, %1
+  %13 = fmul double %1, %12
   %14 = fcmp ugt double %13, 0.000000e+00
   br i1 %14, label %41, label %15
 
@@ -496,7 +496,7 @@ define internal { double, double } @_ZL13lcc_e_forward5PJ_LPP8PJconsts(double %0
 41:                                               ; preds = %10, %38
   %42 = phi double [ %.pre, %38 ], [ %12, %10 ]
   %.0 = phi double [ %40, %38 ], [ 0.000000e+00, %10 ]
-  %43 = fmul double %42, %0
+  %43 = fmul double %0, %42
   %44 = getelementptr inbounds i8, ptr %2, i64 488
   %45 = load double, ptr %44, align 8
   %46 = tail call double @sin(double noundef %43) #7

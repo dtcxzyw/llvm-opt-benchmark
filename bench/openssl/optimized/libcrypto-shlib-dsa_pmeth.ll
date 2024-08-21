@@ -220,7 +220,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %call2 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %2) #6
   %conv = sext i32 %call2 to i64
-  %cmp3.not = icmp eq i64 %conv, %tbslen
+  %cmp3.not = icmp eq i64 %tbslen, %conv
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -256,7 +256,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %call2 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %2) #6
   %conv = sext i32 %call2 to i64
-  %cmp3.not = icmp eq i64 %conv, %tbslen
+  %cmp3.not = icmp eq i64 %tbslen, %conv
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry

@@ -594,7 +594,7 @@ define dso_local void @gen9_set_dc_state(ptr noundef %0, i32 noundef %1) local_u
   %7 = getelementptr inbounds i8, ptr %0, i64 2768
   %8 = load i32, ptr %7, align 8
   %9 = xor i32 %8, -1
-  %10 = and i32 %9, %1
+  %10 = and i32 %1, %9
   %11 = icmp eq i32 %10, 0
   %12 = load i1, ptr @gen9_set_dc_state.__already_done, align 1
   %13 = select i1 %11, i1 true, i1 %12
@@ -1755,7 +1755,7 @@ define dso_local zeroext i1 @chv_phy_powergate_ch(ptr noundef %0, i32 noundef %1
   %11 = shl nuw i32 1, %10
   %12 = and i32 %7, %11
   %13 = icmp ne i32 %12, 0
-  %14 = xor i1 %13, %3
+  %14 = xor i1 %3, %13
   br i1 %14, label %15, label %30
 
 15:                                               ; preds = %4
@@ -2139,7 +2139,7 @@ define dso_local void @chv_phy_powergate_lanes(ptr noundef %0, i1 noundef zeroex
   %60 = tail call i32 @vlv_dpio_read(ptr noundef %4, i32 noundef %13, i32 noundef %59) #9
   tail call void @vlv_iosf_sb_put(ptr noundef %4, i64 noundef 8) #9
   %61 = icmp ne i32 %2, 15
-  %62 = and i1 %61, %1
+  %62 = and i1 %1, %61
   br i1 %62, label %68, label %63
 
 63:                                               ; preds = %57

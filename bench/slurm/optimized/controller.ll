@@ -8256,7 +8256,7 @@ declare i32 @job_hold_by_qos_id(i32 noundef) local_unnamed_addr #2
 define internal noundef i32 @_update_assoc_for_each(ptr noundef %0, ptr noundef readnone %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
@@ -8280,7 +8280,7 @@ declare i32 @acct_policy_update_pending_job(ptr noundef) local_unnamed_addr #2
 define internal noundef i32 @_update_qos_for_each(ptr noundef %0, ptr noundef readnone %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2

@@ -35,7 +35,7 @@ define dso_local noundef zeroext i1 @icmpv6_pkt_to_tuple(ptr noundef %0, i32 nou
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 116
   %9 = load i32, ptr %8, align 4
-  %10 = add i32 %9, %1
+  %10 = add i32 %1, %9
   %11 = sub i32 %7, %10
   %12 = icmp slt i32 %11, 8
   br i1 %12, label %13, label %18, !prof !6
@@ -177,7 +177,7 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 116
   %12 = load i32, ptr %11, align 4
-  %13 = add i32 %12, %2
+  %13 = add i32 %2, %12
   %14 = sub i32 %10, %13
   %15 = icmp slt i32 %14, 8
   br i1 %15, label %16, label %21, !prof !6
@@ -265,7 +265,7 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !5
   %66 = load i32, ptr %9, align 8
   %67 = load i32, ptr %11, align 4
-  %68 = add i32 %67, %2
+  %68 = add i32 %2, %67
   %69 = sub i32 %66, %68
   %70 = icmp slt i32 %69, 40
   br i1 %70, label %71, label %76, !prof !6
@@ -322,7 +322,7 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
   %100 = load i32, ptr %9, align 8
   %101 = load i32, ptr %11, align 4
   %102 = add i32 %100, -40
-  %103 = add i32 %101, %2
+  %103 = add i32 %2, %101
   %104 = sub i32 %102, %103
   %105 = icmp slt i32 %104, 2
   br i1 %105, label %106, label %111, !prof !6

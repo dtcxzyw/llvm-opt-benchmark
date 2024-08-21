@@ -3699,7 +3699,7 @@ is_projection_capable_plan.exit.thread12:         ; preds = %3, %3, %3, %3, %3, 
   %12 = getelementptr inbounds i8, ptr %0, i64 37
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
-  %15 = and i1 %14, %2
+  %15 = and i1 %2, %14
   %16 = zext i1 %15 to i8
   %17 = tail call noundef ptr @palloc0(i64 noundef 112) #12
   store i32 315, ptr %17, align 4

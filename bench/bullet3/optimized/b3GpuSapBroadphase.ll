@@ -2202,7 +2202,7 @@ for.body6:                                        ; preds = %for.cond4.preheader
   %arrayidx9 = getelementptr inbounds [3 x [2 x %class.b3AlignedObjectArray]], ptr %m_sortedAxisCPU, i64 0, i64 %indvars.iv95, i64 %indvars.iv92
   %m_size.i.i = getelementptr inbounds i8, ptr %arrayidx9, i64 4
   %2 = load i32, ptr %m_size.i.i, align 4
-  %cmp4.i = icmp slt i32 %2, %mul
+  %cmp4.i = icmp sgt i32 %mul, %2
   br i1 %cmp4.i, label %for.body9.lr.ph.i, label %_ZN20b3AlignedObjectArrayI10b3SortDataE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i:                                ; preds = %for.body6
@@ -2373,7 +2373,7 @@ for.body81:                                       ; preds = %for.cond79.preheade
   %arrayidx94 = getelementptr inbounds [3 x [2 x %class.b3AlignedObjectArray.0]], ptr %m_objectMinMaxIndexCPU, i64 0, i64 %indvars.iv108, i64 %idxprom87
   %m_size.i.i60 = getelementptr inbounds i8, ptr %arrayidx94, i64 4
   %32 = load i32, ptr %m_size.i.i60, align 4
-  %cmp4.i61 = icmp slt i32 %32, %31
+  %cmp4.i61 = icmp sgt i32 %31, %32
   br i1 %cmp4.i61, label %for.body9.lr.ph.i62, label %_ZN20b3AlignedObjectArrayI14b3UnsignedInt2E6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i62:                              ; preds = %for.body81
@@ -2661,7 +2661,7 @@ invoke.cont3:                                     ; preds = %for.body9.i160, %in
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 1492
   %12 = load i32, ptr %m_size.i, align 4
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @preAabbs, i64 4), align 4
-  %cmp4.i167 = icmp slt i32 %13, %12
+  %cmp4.i167 = icmp sgt i32 %12, %13
   br i1 %cmp4.i167, label %for.body9.lr.ph.i168, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i168:                             ; preds = %invoke.cont3
@@ -2946,7 +2946,7 @@ for.body129:                                      ; preds = %for.cond127.prehead
   %arrayidx147 = getelementptr inbounds [3 x [2 x %class.b3AlignedObjectArray.0]], ptr %m_objectMinMaxIndexCPU, i64 0, i64 %indvars.iv974, i64 %idxprom139
   %m_size.i.i222 = getelementptr inbounds i8, ptr %arrayidx147, i64 4
   %65 = load i32, ptr %m_size.i.i222, align 4
-  %cmp4.i223 = icmp slt i32 %65, %62
+  %cmp4.i223 = icmp sgt i32 %62, %65
   br i1 %cmp4.i223, label %for.body9.lr.ph.i224, label %_ZN20b3AlignedObjectArrayI14b3UnsignedInt2E6resizeEiRKS0_.exit
 
 for.body9.lr.ph.i224:                             ; preds = %for.body129
@@ -9668,7 +9668,7 @@ do.cond:                                          ; preds = %while.end11, %if.th
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !50
 
 do.end:                                           ; preds = %do.cond
-  %cmp15 = icmp sgt i32 %j.2, %lo
+  %cmp15 = icmp slt i32 %lo, %j.2
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %do.end

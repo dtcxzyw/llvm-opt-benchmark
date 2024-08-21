@@ -501,7 +501,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %107 = extractvalue { ptr, i32 } %106, 0
   %108 = call ptr @__cxa_begin_catch(ptr %107) #20
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %101
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %101, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %105, %.lr.ph.i.i.i.i.i.i.i
@@ -831,7 +831,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %193 = extractvalue { ptr, i32 } %192, 0
   %194 = call ptr @__cxa_begin_catch(ptr %193) #20
-  %.not4.i.i.i.i.i.i.i803 = icmp eq ptr %.016.i.i.i.i.i801, %187
+  %.not4.i.i.i.i.i.i.i803 = icmp eq ptr %187, %.016.i.i.i.i.i801
   br i1 %.not4.i.i.i.i.i.i.i803, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i.i807, label %.lr.ph.i.i.i.i.i.i.i804
 
 .lr.ph.i.i.i.i.i.i.i804:                          ; preds = %191, %.lr.ph.i.i.i.i.i.i.i804
@@ -1099,7 +1099,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %258 = extractvalue { ptr, i32 } %257, 0
   %259 = call ptr @__cxa_begin_catch(ptr %258) #20
-  %.not4.i.i.i.i.i.i.i817 = icmp eq ptr %.016.i.i.i.i.i815, %252
+  %.not4.i.i.i.i.i.i.i817 = icmp eq ptr %252, %.016.i.i.i.i.i815
   br i1 %.not4.i.i.i.i.i.i.i817, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i.i821, label %.lr.ph.i.i.i.i.i.i.i818
 
 .lr.ph.i.i.i.i.i.i.i818:                          ; preds = %256, %.lr.ph.i.i.i.i.i.i.i818
@@ -1327,7 +1327,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %315 = extractvalue { ptr, i32 } %314, 0
   %316 = call ptr @__cxa_begin_catch(ptr %315) #20
-  %.not4.i.i.i.i.i.i.i831 = icmp eq ptr %.016.i.i.i.i.i829, %309
+  %.not4.i.i.i.i.i.i.i831 = icmp eq ptr %309, %.016.i.i.i.i.i829
   br i1 %.not4.i.i.i.i.i.i.i831, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i.i835, label %.lr.ph.i.i.i.i.i.i.i832
 
 .lr.ph.i.i.i.i.i.i.i832:                          ; preds = %313, %.lr.ph.i.i.i.i.i.i.i832
@@ -1595,7 +1595,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %380 = extractvalue { ptr, i32 } %379, 0
   %381 = call ptr @__cxa_begin_catch(ptr %380) #20
-  %.not4.i.i.i.i.i.i.i845 = icmp eq ptr %.016.i.i.i.i.i843, %374
+  %.not4.i.i.i.i.i.i.i845 = icmp eq ptr %374, %.016.i.i.i.i.i843
   br i1 %.not4.i.i.i.i.i.i.i845, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i.i849, label %.lr.ph.i.i.i.i.i.i.i846
 
 .lr.ph.i.i.i.i.i.i.i846:                          ; preds = %378, %.lr.ph.i.i.i.i.i.i.i846
@@ -1929,7 +1929,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %469 = extractvalue { ptr, i32 } %468, 0
   %470 = call ptr @__cxa_begin_catch(ptr %469) #20
-  %.not4.i.i.i.i.i.i.i862 = icmp eq ptr %.016.i.i.i.i.i860, %463
+  %.not4.i.i.i.i.i.i.i862 = icmp eq ptr %463, %.016.i.i.i.i.i860
   br i1 %.not4.i.i.i.i.i.i.i862, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i.i866, label %.lr.ph.i.i.i.i.i.i.i863
 
 .lr.ph.i.i.i.i.i.i.i863:                          ; preds = %467, %.lr.ph.i.i.i.i.i.i.i863
@@ -2142,7 +2142,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %.013.i.i.i.i.i.i.i.i = phi ptr [ %532, %533 ], [ %.0.i.i.i.i.i.i.i.i, %549 ]
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %534, %533 ], [ %548, %549 ]
   %536 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
-  %537 = icmp eq i64 %.val.i.i.i.i.i.i.i.i.i, %521
+  %537 = icmp eq i64 %521, %.val.i.i.i.i.i.i.i.i.i
   br i1 %537, label %538, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N12_GLOBAL__N_121StandardLevelComputerEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i.i
 
 538:                                              ; preds = %535
@@ -5823,7 +5823,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %.013.i.i.i = phi ptr [ %24, %25 ], [ %.0.i.i.i, %41 ]
   %.0.i.i.i = phi ptr [ %26, %25 ], [ %40, %41 ]
   %28 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
-  %29 = icmp eq i64 %.val.i.i.i.i, %16
+  %29 = icmp eq i64 %16, %.val.i.i.i.i
   br i1 %29, label %30, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N12_GLOBAL__N_121StandardLevelComputerEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i
 
 30:                                               ; preds = %27
@@ -9705,7 +9705,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 48
-  %21 = icmp eq ptr %20, %19
+  %21 = icmp eq ptr %19, %20
   br i1 %21, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_121StandardLevelComputerEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %22
 
 22:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_121StandardLevelComputerEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit
@@ -10445,7 +10445,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #20
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i

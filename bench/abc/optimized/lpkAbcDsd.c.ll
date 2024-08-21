@@ -579,7 +579,7 @@ Vec_IntPush.exit:
   %7 = load i16, ptr %6, align 2
   %8 = lshr i16 %7, 1
   %9 = load i16, ptr %0, align 8
-  %10 = icmp ule i16 %9, %8
+  %10 = icmp uge i16 %8, %9
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8

@@ -16052,7 +16052,7 @@ if.then70:                                        ; preds = %if.end62
   br label %return
 
 for.end75:                                        ; preds = %for.cond46, %_ZNSt5stackIN6duckdb13IteratorEntryESt5dequeIS1_SaIS1_EEE7emplaceIJRKNS0_4NodeEiEEEvDpOT_.exit
-  %add79 = add i64 %conv49, %depth
+  %add79 = add i64 %depth, %conv49
   %ptr80 = getelementptr inbounds i8, ptr %add.ptr9.i.i.i, i64 16
   %call82 = call noundef zeroext i1 @_ZN6duckdb8Iterator10LowerBoundERKNS_4NodeERKNS_6ARTKeyEbm(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %ptr80, ptr noundef nonnull align 8 dereferenceable(16) %key, i1 noundef zeroext %equal, i64 noundef %add79)
   br label %return

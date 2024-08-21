@@ -426,7 +426,7 @@ define noundef ptr @bn_expand2(ptr noundef %b, i32 noundef %words) local_unnamed
 entry:
   %dmax = getelementptr inbounds i8, ptr %b, i64 12
   %0 = load i32, ptr %dmax, align 4
-  %cmp = icmp slt i32 %0, %words
+  %cmp = icmp sgt i32 %words, %0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -547,7 +547,7 @@ if.end5:                                          ; preds = %if.end
 if.end.i9:                                        ; preds = %if.end5
   %dmax.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   %2 = load i32, ptr %dmax.i.i, align 4
-  %cmp.not.i.i = icmp slt i32 %2, %cond.i
+  %cmp.not.i.i = icmp sgt i32 %cond.i, %2
   br i1 %cmp.not.i.i, label %bn_wexpand.exit.i, label %if.end4.i
 
 bn_wexpand.exit.i:                                ; preds = %if.end.i9
@@ -635,7 +635,7 @@ entry:
 if.end:                                           ; preds = %entry
   %dmax.i = getelementptr inbounds i8, ptr %a, i64 12
   %1 = load i32, ptr %dmax.i, align 4
-  %cmp.not.i = icmp slt i32 %1, %cond
+  %cmp.not.i = icmp sgt i32 %cond, %1
   br i1 %cmp.not.i, label %bn_wexpand.exit, label %if.end4
 
 bn_wexpand.exit:                                  ; preds = %if.end
@@ -676,7 +676,7 @@ define noundef ptr @bn_wexpand(ptr noundef %a, i32 noundef %words) local_unnamed
 entry:
   %dmax = getelementptr inbounds i8, ptr %a, i64 12
   %0 = load i32, ptr %dmax, align 4
-  %cmp.not = icmp slt i32 %0, %words
+  %cmp.not = icmp sgt i32 %words, %0
   br i1 %cmp.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -935,7 +935,7 @@ if.end43:                                         ; preds = %lor.lhs.false, %if.
   %add = add nuw nsw i32 %div42, 1
   %dmax.i45 = getelementptr inbounds i8, ptr %ret.addr.0.ph, i64 12
   %5 = load i32, ptr %dmax.i45, align 4
-  %cmp.not.i.not = icmp sgt i32 %5, %div42
+  %cmp.not.i.not = icmp slt i32 %div42, %5
   br i1 %cmp.not.i.not, label %if.end49, label %bn_wexpand.exit
 
 bn_wexpand.exit:                                  ; preds = %if.end43
@@ -1132,7 +1132,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp7, label %if.end21, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp11 = icmp sgt i32 %add9, %tolen
+  %cmp11 = icmp slt i32 %tolen, %add9
   br i1 %cmp11, label %if.then12, label %if.end21
 
 if.then12:                                        ; preds = %if.else
@@ -1181,7 +1181,7 @@ bn_correct_top.exit:                              ; preds = %if.end5.i, %if.then
   %add14 = add nsw i32 %call13, 7
   %div15 = sdiv i32 %add14, 8
   %add16 = add nsw i32 %div15, %ext.0
-  %cmp17 = icmp sgt i32 %add16, %tolen
+  %cmp17 = icmp slt i32 %tolen, %add16
   br i1 %cmp17, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end, %if.else, %bn_correct_top.exit
@@ -1561,7 +1561,7 @@ if.then2:                                         ; preds = %if.end
   %add = add nuw nsw i32 %div15, 1
   %dmax.i = getelementptr inbounds i8, ptr %a, i64 12
   %1 = load i32, ptr %dmax.i, align 4
-  %cmp.not.i.not = icmp sgt i32 %1, %div15
+  %cmp.not.i.not = icmp slt i32 %div15, %1
   br i1 %cmp.not.i.not, label %if.end5, label %bn_wexpand.exit
 
 bn_wexpand.exit:                                  ; preds = %if.then2
@@ -2289,7 +2289,7 @@ entry:
   %flags6 = getelementptr inbounds i8, ptr %b, i64 20
   %5 = load i32, ptr %flags6, align 4
   %and7 = and i32 %5, -4
-  %or = or i32 %and, %flags
+  %or = or i32 %flags, %and
   %or8 = or i32 %or, %and7
   %or9 = or i32 %or8, 2
   store i32 %or9, ptr %flags5, align 4

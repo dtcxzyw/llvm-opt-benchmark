@@ -1115,7 +1115,7 @@ define hidden { ptr, i64 } @_ZN4ring2io3der6nested17h097f5b9f87b4d413E(ptr noali
   %8 = add i8 %1, -1
   %9 = icmp ult i8 %8, -93
   tail call void @llvm.assume(i1 %9)
-  %.not.i = icmp ne i8 %.sroa.04.0.copyload.i, %1
+  %.not.i = icmp ne i8 %1, %.sroa.04.0.copyload.i
   %.not.i.i = icmp eq i64 %.sroa.6.0.copyload.i, 0
   %or.cond = select i1 %.not.i, i1 true, i1 %.not.i.i
   br i1 %or.cond, label %_ZN9untrusted5input5Input8read_all17h44e99081b328cf83E.llvm.4525565709555364834.exit, label %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i
@@ -1157,7 +1157,7 @@ define hidden void @_ZN4ring2io3der6nested17h2b89b9586a9703eaE(ptr noalias nocap
   %10 = add i8 %2, -1
   %11 = icmp ult i8 %10, -93
   tail call void @llvm.assume(i1 %11)
-  %.not.i = icmp eq i8 %.sroa.04.0.copyload.i, %2
+  %.not.i = icmp eq i8 %2, %.sroa.04.0.copyload.i
   br i1 %.not.i, label %12, label %29
 
 12:                                               ; preds = %9
@@ -1244,7 +1244,7 @@ define hidden { ptr, i64 } @_ZN4ring2io3der6nested17h871765488c25baf8E(ptr noali
   %10 = add i8 %1, -1
   %11 = icmp ult i8 %10, -93
   tail call void @llvm.assume(i1 %11)
-  %.not.i = icmp eq i8 %.sroa.04.0.copyload.i, %1
+  %.not.i = icmp eq i8 %1, %.sroa.04.0.copyload.i
   br i1 %.not.i, label %12, label %26
 
 12:                                               ; preds = %9

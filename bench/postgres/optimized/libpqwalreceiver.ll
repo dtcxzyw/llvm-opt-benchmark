@@ -265,7 +265,7 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
 
 61:                                               ; preds = %51, %50
   %.not59 = xor i1 %1, true
-  %brmerge = or i1 %.not59, %2
+  %brmerge = or i1 %2, %.not59
   br i1 %brmerge, label %62, label %71
 
 62:                                               ; preds = %61

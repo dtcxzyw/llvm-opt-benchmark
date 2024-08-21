@@ -7280,7 +7280,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZNS
 
 60:                                               ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
   %61 = add nuw i64 %.sroa.13177.0197, 1
-  %.not.i39 = icmp ugt i64 %.sroa.0170.0195, %.sroa.13177.0197
+  %.not.i39 = icmp ult i64 %.sroa.13177.0197, %.sroa.0170.0195
   br i1 %.not.i39, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i, label %.invoke
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i: ; preds = %60
@@ -7673,7 +7673,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i97: ; preds = %_Z
 
 185:                                              ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit89
   %186 = add nuw i64 %.sroa.13.0201, 1
-  %.not.i90 = icmp ugt i64 %.sroa.0155.0199, %.sroa.13.0201
+  %.not.i90 = icmp ult i64 %.sroa.13.0201, %.sroa.0155.0199
   br i1 %.not.i90, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i91, label %.invoke232
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i91: ; preds = %185
@@ -18642,7 +18642,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZN
 define linkonce_odr ptr @_ZNSt8_Rb_treeIN3nix9CanonPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp ne ptr %1, null
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = icmp eq ptr %6, %2
+  %7 = icmp eq ptr %2, %6
   %or.cond = select i1 %.not, i1 true, i1 %7
   br i1 %or.cond, label %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit, label %8
 

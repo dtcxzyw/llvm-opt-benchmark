@@ -359,7 +359,7 @@ define internal i32 @PCF_Glyph_Load(ptr noundef %0, ptr nocapture noundef readon
   %8 = getelementptr inbounds i8, ptr %5, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
-  %.not72 = icmp ugt i32 %10, %2
+  %.not72 = icmp ult i32 %2, %10
   br i1 %.not72, label %11, label %TwoByteSwap.exit
 
 11:                                               ; preds = %7

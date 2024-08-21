@@ -91,7 +91,7 @@ define void @_Z7do_viewPK16gmx_output_env_tPKcS3_(ptr noundef %0, ptr noundef %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 1, %15 ]
   %23 = getelementptr inbounds [5 x i32], ptr @_ZL15canViewFileType, i64 0, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, %16
+  %25 = icmp eq i32 %16, %24
   br i1 %25, label %_ZL8can_viewi.exit, label %26
 
 26:                                               ; preds = %.preheader
@@ -305,7 +305,7 @@ define void @_Z8view_allPK16gmx_output_env_tiP8t_filenm(ptr noundef %0, i32 noun
   %indvars.iv.i = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next.i, %11 ]
   %8 = getelementptr inbounds [5 x i32], ptr @_ZL15canViewFileType, i64 0, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4
-  %10 = icmp eq i32 %9, %6
+  %10 = icmp eq i32 %6, %9
   br i1 %10, label %_ZL8can_viewi.exit, label %11
 
 11:                                               ; preds = %7

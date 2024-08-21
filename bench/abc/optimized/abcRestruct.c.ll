@@ -1724,7 +1724,7 @@ Vec_PtrPush.exit65:                               ; preds = %.Vec_PtrGrow.exit11
   %148 = load ptr, ptr %7, align 8
   %149 = getelementptr i8, ptr %148, i64 4
   %.val = load i32, ptr %149, align 4
-  %150 = add i32 %.val, %2
+  %150 = add i32 %2, %.val
   %151 = sub i32 %.val45.lcssa, %150
   %152 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %151)
   ret void
@@ -4231,13 +4231,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %105 = add nsw i32 %.val3.i, 1
   %106 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %107 = load i32, ptr %106, align 4
-  %.not.i69.not = icmp sgt i32 %107, %.val3.i
+  %.not.i69.not = icmp slt i32 %.val3.i, %107
   br i1 %.not.i69.not, label %Vec_IntFillExtra.exit, label %108
 
 108:                                              ; preds = %95
   %109 = load i32, ptr %104, align 8
   %110 = shl nsw i32 %109, 1
-  %.not85 = icmp sgt i32 %110, %.val3.i
+  %.not85 = icmp slt i32 %.val3.i, %110
   %.not.i.i.not = icmp sgt i32 %109, %.val3.i
   br i1 %.not85, label %123, label %111
 
@@ -4357,13 +4357,13 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   %159 = add nsw i32 %.val3.i54, 1
   %160 = getelementptr inbounds i8, ptr %.val2.i53, i64 228
   %161 = load i32, ptr %160, align 4
-  %.not.i71.not = icmp sgt i32 %161, %.val3.i54
+  %.not.i71.not = icmp slt i32 %.val3.i54, %161
   br i1 %.not.i71.not, label %Vec_IntFillExtra.exit84, label %162
 
 162:                                              ; preds = %150
   %163 = load i32, ptr %158, align 8
   %164 = shl nsw i32 %163, 1
-  %.not88 = icmp sgt i32 %164, %.val3.i54
+  %.not88 = icmp slt i32 %.val3.i54, %164
   %.not.i.i72.not = icmp sgt i32 %163, %.val3.i54
   br i1 %.not88, label %177, label %165
 
@@ -4767,7 +4767,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %4, %Vec_IntFill.exi
   store i32 0, ptr %42, align 4
   %43 = getelementptr i8, ptr %1, i64 4
   %.val3748 = load i32, ptr %43, align 4
-  %44 = icmp sgt i32 %.val3748, %2
+  %44 = icmp slt i32 %2, %.val3748
   br i1 %44, label %.lr.ph51, label %.critedge2.preheader
 
 .lr.ph51:                                         ; preds = %.critedge
@@ -4940,7 +4940,7 @@ define void @Abc_NodeMffcSimulate(ptr nocapture noundef readonly %0, i32 noundef
 .critedge.preheader:                              ; preds = %Vec_IntPush.exit, %4
   %9 = getelementptr i8, ptr %0, i64 4
   %.val50 = load i32, ptr %9, align 4
-  %10 = icmp sgt i32 %.val50, %1
+  %10 = icmp slt i32 %1, %.val50
   br i1 %10, label %.lr.ph52, label %.critedge2
 
 .lr.ph52:                                         ; preds = %.critedge.preheader
@@ -5713,13 +5713,13 @@ declare i32 @Abc_NodeMffcLabelAig(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

@@ -156,7 +156,7 @@ if.end.i:                                         ; preds = %entry
 if.then9.i:                                       ; preds = %if.end.i
   %conv.i = zext i32 %3 to i64
   %sub.i = sub nsw i64 128, %conv.i
-  %cmp11.i = icmp ugt i64 %sub.i, %len
+  %cmp11.i = icmp ult i64 %len, %sub.i
   %add.ptr.i = getelementptr inbounds i8, ptr %u.i, i64 %conv.i
   br i1 %cmp11.i, label %if.then13.i, label %if.else.i
 
@@ -313,7 +313,7 @@ if.end:                                           ; preds = %entry
 if.then9:                                         ; preds = %if.end
   %conv = zext i32 %3 to i64
   %sub = sub nsw i64 128, %conv
-  %cmp11 = icmp ugt i64 %sub, %len
+  %cmp11 = icmp ult i64 %len, %sub
   %add.ptr = getelementptr inbounds i8, ptr %u, i64 %conv
   br i1 %cmp11, label %if.then13, label %if.else
 

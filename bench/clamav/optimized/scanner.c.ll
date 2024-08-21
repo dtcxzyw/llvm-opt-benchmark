@@ -356,7 +356,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 73:                                               ; preds = %49
   %74 = getelementptr inbounds i8, ptr %10, i64 40
   %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, %2
+  %76 = icmp eq ptr %2, %75
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %73
@@ -401,7 +401,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 95:                                               ; preds = %.thread
   %96 = getelementptr inbounds i8, ptr %10, i64 40
   %97 = load ptr, ptr %96, align 8
-  %98 = icmp eq ptr %97, %2
+  %98 = icmp eq ptr %2, %97
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %95

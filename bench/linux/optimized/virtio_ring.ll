@@ -1074,7 +1074,7 @@ define internal fastcc noundef i32 @virtqueue_add(ptr noundef %0, ptr nocapture 
   %571 = phi i32 [ %490, %497 ], [ %510, %.loopexit69.split.us.us ], [ %693, %.loopexit69.split ]
   %572 = phi i32 [ 0, %497 ], [ %511, %.loopexit69.split.us.us ], [ %694, %.loopexit69.split ]
   %573 = add i32 %4, %3
-  %574 = icmp ugt i32 %573, %3
+  %574 = icmp ult i32 %3, %573
   br i1 %574, label %575, label %.loopexit66
 
 575:                                              ; preds = %.split107.us

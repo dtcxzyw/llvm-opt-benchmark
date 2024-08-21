@@ -122,7 +122,7 @@ while.body:                                       ; preds = %while.body.preheade
 land.lhs.true19:                                  ; preds = %while.body
   %end = getelementptr inbounds i8, ptr %algRange.040, i64 4
   %5 = load i32, ptr %end, align 4
-  %cmp20.not = icmp ult i32 %5, %code
+  %cmp20.not = icmp ugt i32 %code, %5
   br i1 %cmp20.not, label %if.end24, label %while.end
 
 if.end24:                                         ; preds = %land.lhs.true19, %while.body
@@ -1625,7 +1625,7 @@ if.then:                                          ; preds = %_ZN6icu_75L8getGrou
   %sub10 = add nsw i32 %spec.select, -1
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %buffer.i)
   %cmp.not.i = icmp eq ptr %fn, null
-  %cmp1.not6.i = icmp sle i32 %spec.select, %start
+  %cmp1.not6.i = icmp sge i32 %start, %spec.select
   %or.cond.i = or i1 %cmp.not.i, %cmp1.not6.i
   br i1 %or.cond.i, label %_ZN6icu_75L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit.thread, label %while.body.i106
 
@@ -1952,7 +1952,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %limit, i32 1114112)
-  %cmp9.not = icmp ugt i32 %spec.store.select, %start
+  %cmp9.not = icmp ult i32 %start, %spec.store.select
   br i1 %cmp9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end5

@@ -3266,7 +3266,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -3349,7 +3349,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -10923,7 +10923,7 @@ _ZNK2cv11_InputArray6getMatEi.exit106:            ; preds = %38, %41
   %173 = shl nuw nsw i32 %106, 1
   %174 = shl nuw nsw i32 1, %173
   %175 = uitofp nneg i32 %174 to double
-  %176 = fmul double %175, %6
+  %176 = fmul double %6, %175
   br label %197
 
 .sink.split:                                      ; preds = %165, %137
@@ -11954,7 +11954,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -12028,7 +12028,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; pre
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -27633,7 +27633,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
-  %50 = icmp ult i64 %49, %42
+  %50 = icmp ugt i64 %42, %49
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
@@ -27642,7 +27642,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
 53:                                               ; preds = %35
-  %54 = icmp ugt i64 %49, %42
+  %54 = icmp ult i64 %42, %49
   br i1 %54, label %55, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 55:                                               ; preds = %53
@@ -28059,7 +28059,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
-  %50 = icmp ult i64 %49, %42
+  %50 = icmp ugt i64 %42, %49
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
@@ -28068,7 +28068,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
 53:                                               ; preds = %35
-  %54 = icmp ugt i64 %49, %42
+  %54 = icmp ult i64 %42, %49
   br i1 %54, label %55, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 55:                                               ; preds = %53
@@ -28495,7 +28495,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
-  %50 = icmp ult i64 %49, %42
+  %50 = icmp ugt i64 %42, %49
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
@@ -28504,7 +28504,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
 53:                                               ; preds = %35
-  %54 = icmp ugt i64 %49, %42
+  %54 = icmp ult i64 %42, %49
   br i1 %54, label %55, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 55:                                               ; preds = %53
@@ -28931,7 +28931,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
-  %50 = icmp ult i64 %49, %42
+  %50 = icmp ugt i64 %42, %49
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
@@ -28940,7 +28940,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
 53:                                               ; preds = %35
-  %54 = icmp ugt i64 %49, %42
+  %54 = icmp ult i64 %42, %49
   br i1 %54, label %55, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 55:                                               ; preds = %53
@@ -29355,7 +29355,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
-  %49 = icmp ult i64 %48, %41
+  %49 = icmp ugt i64 %41, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %34
@@ -29364,7 +29364,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %23
 
 52:                                               ; preds = %34
-  %53 = icmp ugt i64 %48, %41
+  %53 = icmp ult i64 %41, %48
   br i1 %53, label %54, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 54:                                               ; preds = %52
@@ -29780,7 +29780,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
-  %50 = icmp ult i64 %49, %42
+  %50 = icmp ugt i64 %42, %49
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
@@ -29789,7 +29789,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
 53:                                               ; preds = %35
-  %54 = icmp ugt i64 %49, %42
+  %54 = icmp ult i64 %42, %49
   br i1 %54, label %55, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 55:                                               ; preds = %53
@@ -30216,7 +30216,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
-  %50 = icmp ult i64 %49, %42
+  %50 = icmp ugt i64 %42, %49
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
@@ -30225,7 +30225,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
 53:                                               ; preds = %35
-  %54 = icmp ugt i64 %49, %42
+  %54 = icmp ult i64 %42, %49
   br i1 %54, label %55, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 55:                                               ; preds = %53
@@ -30640,7 +30640,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
-  %49 = icmp ult i64 %48, %41
+  %49 = icmp ugt i64 %41, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %34
@@ -30649,7 +30649,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %23
 
 52:                                               ; preds = %34
-  %53 = icmp ugt i64 %48, %41
+  %53 = icmp ult i64 %41, %48
   br i1 %53, label %54, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 54:                                               ; preds = %52
@@ -31065,7 +31065,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
-  %50 = icmp ult i64 %49, %42
+  %50 = icmp ugt i64 %42, %49
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
@@ -31074,7 +31074,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
 53:                                               ; preds = %35
-  %54 = icmp ugt i64 %49, %42
+  %54 = icmp ult i64 %42, %49
   br i1 %54, label %55, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 55:                                               ; preds = %53
@@ -31501,7 +31501,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
-  %50 = icmp ult i64 %49, %42
+  %50 = icmp ugt i64 %42, %49
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
@@ -31510,7 +31510,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
 53:                                               ; preds = %35
-  %54 = icmp ugt i64 %49, %42
+  %54 = icmp ult i64 %42, %49
   br i1 %54, label %55, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 55:                                               ; preds = %53
@@ -31925,7 +31925,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
-  %49 = icmp ult i64 %48, %41
+  %49 = icmp ugt i64 %41, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %34
@@ -31934,7 +31934,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %23
 
 52:                                               ; preds = %34
-  %53 = icmp ugt i64 %48, %41
+  %53 = icmp ult i64 %41, %48
   br i1 %53, label %54, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 54:                                               ; preds = %52
@@ -32350,7 +32350,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
-  %50 = icmp ult i64 %49, %42
+  %50 = icmp ugt i64 %42, %49
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
@@ -32359,7 +32359,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
 53:                                               ; preds = %35
-  %54 = icmp ugt i64 %49, %42
+  %54 = icmp ult i64 %42, %49
   br i1 %54, label %55, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 55:                                               ; preds = %53
@@ -32773,7 +32773,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
-  %49 = icmp ult i64 %48, %41
+  %49 = icmp ugt i64 %41, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %34
@@ -32782,7 +32782,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %23
 
 52:                                               ; preds = %34
-  %53 = icmp ugt i64 %48, %41
+  %53 = icmp ult i64 %41, %48
   br i1 %53, label %54, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 54:                                               ; preds = %52

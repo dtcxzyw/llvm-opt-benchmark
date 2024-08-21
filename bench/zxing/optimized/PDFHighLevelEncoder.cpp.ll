@@ -1899,7 +1899,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   %102 = add nuw nsw i64 %90, 1
   %103 = trunc nuw i64 %102 to i32
-  %104 = icmp slt i32 %103, %1
+  %104 = icmp sgt i32 %1, %103
   br i1 %104, label %89, label %.loopexit, !llvm.loop !38
 }
 

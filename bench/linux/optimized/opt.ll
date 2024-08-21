@@ -147,7 +147,7 @@ define dso_local noundef i64 @__recover_optprobed_insn(ptr noundef %0, i64 nound
   %28 = getelementptr inbounds i8, ptr %8, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
-  %31 = icmp eq i64 %30, %1
+  %31 = icmp eq i64 %1, %30
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %27
@@ -162,7 +162,7 @@ define dso_local noundef i64 @__recover_optprobed_insn(ptr noundef %0, i64 nound
 
 38:                                               ; preds = %27
   %39 = xor i64 %30, -1
-  %40 = add i64 %39, %1
+  %40 = add i64 %1, %39
   %41 = getelementptr inbounds i8, ptr %8, i64 144
   %42 = getelementptr i8, ptr %41, i64 %40
   %43 = sub i64 4, %40

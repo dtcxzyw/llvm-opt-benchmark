@@ -874,7 +874,7 @@ _ZN16ZObjectAllocator18alloc_small_objectEm16ZAllocationFlags.exit: ; preds = %_
 
 29:                                               ; preds = %3
   %30 = load i64, ptr @ZObjectSizeLimitMedium, align 8
-  %.not = icmp ult i64 %30, %1
+  %.not = icmp ugt i64 %1, %30
   br i1 %.not, label %37, label %31
 
 31:                                               ; preds = %29

@@ -260,11 +260,11 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
-  %.not37 = icmp ult ptr %5, %0
+  %.not37 = icmp ugt ptr %0, %5
   br i1 %.not37, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = icmp eq ptr %5, %0
+  %7 = icmp eq ptr %0, %5
   %spec.select = select i1 %7, i32 %2, i32 0
   br label %.loopexit
 
@@ -273,11 +273,11 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %narrow.not = icmp ugt ptr %12, %0
+  %narrow.not = icmp ult ptr %0, %12
   br i1 %narrow.not, label %14, label %13
 
 13:                                               ; preds = %8
-  %.not38 = icmp eq ptr %12, %0
+  %.not38 = icmp eq ptr %0, %12
   %spec.select34 = select i1 %.not38, i32 %9, i32 0
   br label %.loopexit
 
@@ -295,7 +295,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, %0
+  %23 = icmp eq ptr %0, %22
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %16
@@ -303,7 +303,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone
   br label %.loopexit
 
 25:                                               ; preds = %16
-  %.not39 = icmp ult ptr %22, %0
+  %.not39 = icmp ugt ptr %0, %22
   %26 = add nsw i32 %.043, -1
   %27 = add nsw i32 %.043, 1
   %.130 = select i1 %.not39, i32 %27, i32 %.02941
@@ -334,11 +334,11 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPKc(ptr noundef %0) local_unna
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %.not37.i = icmp ult ptr %11, %5
+  %.not37.i = icmp ugt ptr %5, %11
   br i1 %.not37.i, label %14, label %12
 
 12:                                               ; preds = %7
-  %13 = icmp eq ptr %11, %5
+  %13 = icmp eq ptr %5, %11
   %spec.select.i = select i1 %13, i32 %8, i32 0
   br label %_ZN9vmSymbols8find_sidEPK6Symbol.exit
 
@@ -347,11 +347,11 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPKc(ptr noundef %0) local_unna
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %narrow.not.i = icmp ugt ptr %18, %5
+  %narrow.not.i = icmp ult ptr %5, %18
   br i1 %narrow.not.i, label %20, label %19
 
 19:                                               ; preds = %14
-  %.not38.i = icmp eq ptr %18, %5
+  %.not38.i = icmp eq ptr %5, %18
   %spec.select34.i = select i1 %.not38.i, i32 %15, i32 0
   br label %_ZN9vmSymbols8find_sidEPK6Symbol.exit
 
@@ -369,7 +369,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPKc(ptr noundef %0) local_unna
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %5
+  %29 = icmp eq ptr %5, %28
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %22
@@ -377,7 +377,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPKc(ptr noundef %0) local_unna
   br label %_ZN9vmSymbols8find_sidEPK6Symbol.exit
 
 31:                                               ; preds = %22
-  %.not39.i = icmp ult ptr %28, %5
+  %.not39.i = icmp ugt ptr %5, %28
   %32 = add nsw i32 %.043.i, -1
   %33 = add nsw i32 %.043.i, 1
   %.130.i = select i1 %.not39.i, i32 %33, i32 %.02941.i

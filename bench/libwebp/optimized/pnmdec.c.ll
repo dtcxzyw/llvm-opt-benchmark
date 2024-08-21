@@ -578,7 +578,7 @@ ReadHeader.exit:                                  ; preds = %222
   %249 = zext nneg i32 %227 to i64
   %250 = mul nuw nsw i64 %248, %249
   %251 = add i64 %250, %.0.i
-  %252 = icmp ugt i64 %251, %1
+  %252 = icmp ult i64 %1, %251
   br i1 %252, label %253, label %256
 
 253:                                              ; preds = %245

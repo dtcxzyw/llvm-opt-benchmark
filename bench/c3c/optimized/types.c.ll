@@ -5031,7 +5031,7 @@ define dso_local noundef zeroext i1 @type_is_subtype(ptr noundef readnone %0, pt
   %.09 = phi ptr [ %27, %type_find_parent_type.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds i8, ptr %.09, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   br i1 %5, label %._crit_edge, label %6
 
 6:                                                ; preds = %.lr.ph
@@ -5451,7 +5451,7 @@ type_flatten.exit79:                              ; preds = %type_flatten.exit75
   %.09.i = phi ptr [ %98, %type_find_parent_type.exit.i ], [ %.053, %73 ]
   %74 = getelementptr inbounds i8, ptr %.09.i, i64 8
   %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, %.054
+  %76 = icmp eq ptr %.054, %75
   br i1 %76, label %type_is_subtype.exit, label %77
 
 77:                                               ; preds = %.lr.ph.i
@@ -5728,7 +5728,7 @@ define dso_local zeroext i1 @type_may_have_method(ptr noundef readonly %0) local
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @type_voidptr, align 8
-  %12 = icmp eq ptr %11, %0
+  %12 = icmp eq ptr %0, %11
   br label %15
 
 13:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
@@ -6339,7 +6339,7 @@ define internal fastcc ptr @type_find_max_ptr_type(ptr noundef readonly %0, ptr 
   %.09.i = phi ptr [ %63, %type_find_parent_type.exit.i ], [ %38, %35 ]
   %39 = getelementptr inbounds i8, ptr %.09.i, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, %36
+  %41 = icmp eq ptr %36, %40
   br i1 %41, label %type_is_subtype.exit, label %42
 
 42:                                               ; preds = %.lr.ph.i
@@ -6393,7 +6393,7 @@ type_find_parent_type.exit.i:                     ; preds = %58, %50
   %.09.i38 = phi ptr [ %88, %type_find_parent_type.exit.i40 ], [ %36, %.loopexit50 ]
   %64 = getelementptr inbounds i8, ptr %.09.i38, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, %38
+  %66 = icmp eq ptr %38, %65
   br i1 %66, label %type_is_subtype.exit, label %67
 
 67:                                               ; preds = %.lr.ph.i37

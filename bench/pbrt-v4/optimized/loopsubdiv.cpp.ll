@@ -522,7 +522,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i1646, %w
 
 if.then.i1641:                                    ; preds = %if.end12.i.i, %if.then.i.i1644
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa29.i.i, %if.then.i.i1644 ], [ %__y.0.lcssa30.i.i, %if.end12.i.i ]
-  %cmp2.i.i1642 = icmp eq ptr %20, %retval.sroa.4.0.i.ph.i
+  %cmp2.i.i1642 = icmp eq ptr %retval.sroa.4.0.i.ph.i, %20
   br i1 %cmp2.i.i1642, label %_ZNSt8_Rb_treeIN4pbrt6SDEdgeES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then.i1641
@@ -709,8 +709,8 @@ _ZNSt8_Rb_treeIN4pbrt6SDEdgeES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_ran
   %retval.sroa.0.0.i.i1678 = phi ptr [ %__y.addr.0.lcssa.i.i.i, %_ZNSt8_Rb_treeIN4pbrt6SDEdgeES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i1677 ], [ %20, %invoke.cont87 ], [ %__y.addr.0.lcssa.i.i.i, %while.body.i29.i.i ], [ %__y.1.i.i, %if.end19.i.i ]
   %retval.sroa.3.0.i.i = phi ptr [ %__y.051.i.i, %_ZNSt8_Rb_treeIN4pbrt6SDEdgeES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i1677 ], [ %20, %invoke.cont87 ], [ %__y.addr.1.i38.i.i, %while.body.i29.i.i ], [ %__y.1.i.i, %if.end19.i.i ]
   %54 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i.i1680 = icmp eq ptr %54, %retval.sroa.0.0.i.i1678
-  %cmp.i1.i.i = icmp eq ptr %20, %retval.sroa.3.0.i.i
+  %cmp.i.i.i1680 = icmp eq ptr %retval.sroa.0.0.i.i1678, %54
+  %cmp.i1.i.i = icmp eq ptr %retval.sroa.3.0.i.i, %20
   %or.cond.i1681 = select i1 %cmp.i.i.i1680, i1 %cmp.i1.i.i, i1 false
   br i1 %or.cond.i1681, label %if.then.i.i1684, label %if.else.i2.i
 
@@ -1722,10 +1722,10 @@ lpad.i500:                                        ; preds = %_ZN4pbrt13InlinedVe
   br label %ehcleanup
 
 invoke.cont254:                                   ; preds = %if.end.i.i.i.i.i507, %invoke.cont18.i
-  %mul3.i.i.i511 = fmul float %agg.tmp.sroa.2.0.copyload.i503, 7.500000e-01
-  %mul3.i.i11.i = fmul float %agg.tmp5.sroa.2.0.copyload.i, 1.250000e-01
-  %add6.i.i512 = fadd float %mul3.i.i.i511, %mul3.i.i11.i
   %mul3.i.i23.i = fmul float %agg.tmp14.sroa.2.0.copyload.i, 1.250000e-01
+  %mul3.i.i11.i = fmul float %agg.tmp5.sroa.2.0.copyload.i, 1.250000e-01
+  %mul3.i.i.i511 = fmul float %agg.tmp.sroa.2.0.copyload.i503, 7.500000e-01
+  %add6.i.i512 = fadd float %mul3.i.i.i511, %mul3.i.i11.i
   %add6.i34.i = fadd float %add6.i.i512, %mul3.i.i23.i
   %t.sroa.0.4.vec.extract.i21.i = extractelement <2 x float> %agg.tmp14.sroa.0.0.copyload.i, i64 1
   %mul2.i.i22.i = fmul float %t.sroa.0.4.vec.extract.i21.i, 1.250000e-01
@@ -1867,7 +1867,7 @@ invoke.cont7.i:                                   ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1893:                                    ; preds = %invoke.cont7.i
   %cmp.not.i.i.i1894 = icmp ne ptr %137, null
-  %cmp2.i.i.i1896 = icmp eq ptr %65, %138
+  %cmp2.i.i.i1896 = icmp eq ptr %138, %65
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i1894, %cmp2.i.i.i1896
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -2230,7 +2230,7 @@ invoke.cont7.i1913:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1915:                                    ; preds = %invoke.cont7.i1913
   %cmp.not.i.i.i1916 = icmp ne ptr %162, null
-  %cmp2.i.i.i1918 = icmp eq ptr %65, %163
+  %cmp2.i.i.i1918 = icmp eq ptr %163, %65
   %or.cond.i.i.i1919 = or i1 %cmp.not.i.i.i1916, %cmp2.i.i.i1918
   br i1 %or.cond.i.i.i1919, label %cleanup.thread.i1928, label %lor.rhs.i.i.i1920
 
@@ -2534,7 +2534,7 @@ invoke.cont7.i1943:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1945:                                    ; preds = %invoke.cont7.i1943
   %cmp.not.i.i.i1946 = icmp ne ptr %208, null
-  %cmp2.i.i.i1948 = icmp eq ptr %65, %209
+  %cmp2.i.i.i1948 = icmp eq ptr %209, %65
   %or.cond.i.i.i1949 = or i1 %cmp.not.i.i.i1946, %cmp2.i.i.i1948
   br i1 %or.cond.i.i.i1949, label %cleanup.thread.i1958, label %lor.rhs.i.i.i1950
 
@@ -2979,11 +2979,11 @@ lpad.i936:                                        ; preds = %_ZN4pbrt13InlinedVe
   br label %ehcleanup944
 
 invoke.cont600:                                   ; preds = %if.end.i.i.i.i.i952, %invoke.cont18.i937
-  %mul3.i.i.i957 = fmul float %agg.tmp.sroa.2.0.copyload.i940, 0x3FE3333340000000
+  %mul3.i.i23.i957 = fmul float %agg.tmp14.sroa.2.0.copyload.i951, 0x3FC99999A0000000
   %mul3.i.i11.i958 = fmul float %agg.tmp5.sroa.2.0.copyload.i947, 0x3FC99999A0000000
-  %add6.i.i959 = fadd float %mul3.i.i.i957, %mul3.i.i11.i958
-  %mul3.i.i23.i960 = fmul float %agg.tmp14.sroa.2.0.copyload.i951, 0x3FC99999A0000000
-  %add6.i34.i961 = fadd float %add6.i.i959, %mul3.i.i23.i960
+  %mul3.i.i.i959 = fmul float %agg.tmp.sroa.2.0.copyload.i940, 0x3FE3333340000000
+  %add6.i.i960 = fadd float %mul3.i.i.i959, %mul3.i.i11.i958
+  %add6.i34.i961 = fadd float %add6.i.i960, %mul3.i.i23.i957
   %t.sroa.0.4.vec.extract.i21.i962 = extractelement <2 x float> %agg.tmp14.sroa.0.0.copyload.i949, i64 1
   %mul2.i.i22.i963 = fmul float %t.sroa.0.4.vec.extract.i21.i962, 0x3FC99999A0000000
   %t.sroa.0.4.vec.extract.i9.i964 = extractelement <2 x float> %agg.tmp5.sroa.0.0.copyload.i943, i64 1
@@ -3574,9 +3574,9 @@ invoke.cont857:                                   ; preds = %invoke.cont857.preh
   %agg.tmp854.sroa.2.0.call856.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i1378, i64 8
   %agg.tmp854.sroa.2.0.copyload = load float, ptr %agg.tmp854.sroa.2.0.call856.sroa_idx, align 4
   %t.sroa.0.0.vec.extract.i1379 = extractelement <2 x float> %agg.tmp854.sroa.0.0.copyload, i64 0
-  %mul.i.i1380 = fmul float %t.sroa.0.0.vec.extract.i1379, %mul851
+  %mul.i.i1380 = fmul float %mul851, %t.sroa.0.0.vec.extract.i1379
   %t.sroa.0.4.vec.extract.i1381 = extractelement <2 x float> %agg.tmp854.sroa.0.0.copyload, i64 1
-  %mul2.i.i1382 = fmul float %t.sroa.0.4.vec.extract.i1381, %mul851
+  %mul2.i.i1382 = fmul float %mul851, %t.sroa.0.4.vec.extract.i1381
   %mul3.i.i1383 = fmul float %mul851, %agg.tmp854.sroa.2.0.copyload
   %T.sroa.0.0.vec.extract1978 = extractelement <2 x float> %T.sroa.0.32702, i64 0
   %add.i1393 = fadd float %T.sroa.0.0.vec.extract1978, %mul.i.i1380
@@ -3869,7 +3869,7 @@ invoke.cont7.i.i:                                 ; preds = %call5.i.i.i.i.i.i.i
 
 if.then.i.i1497:                                  ; preds = %invoke.cont7.i.i
   %cmp.not.i.i.i5.i = icmp ne ptr %302, null
-  %cmp2.i.i.i.i = icmp eq ptr %296, %303
+  %cmp2.i.i.i.i = icmp eq ptr %303, %296
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i5.i, %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -4614,7 +4614,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -4837,7 +4837,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4pbrt6SDEdgeESt4pairIKS1_PNS0_8SDVertexEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(36) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -5117,7 +5117,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPN4pbrt8SDVertexESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

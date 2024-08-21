@@ -736,14 +736,14 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE6resizeEm.exit.i: ; preds = %168
   %189 = phi ptr [ %221, %._crit_edge.us.i ], [ null, %.preheader.lr.ph.i ]
   %.02835.us.i = phi i32 [ %223, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
   %190 = uitofp nneg i32 %.02835.us.i to float
-  %191 = fmul float %190, %3
+  %191 = fmul float %3, %190
   br label %192
 
 192:                                              ; preds = %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backEOS2_.exit.us.i, %.preheader.us.i
   %193 = phi ptr [ %189, %.preheader.us.i ], [ %221, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backEOS2_.exit.us.i ]
   %.02734.us.i = phi i32 [ 0, %.preheader.us.i ], [ %222, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backEOS2_.exit.us.i ]
   %194 = uitofp nneg i32 %.02734.us.i to float
-  %195 = fmul float %194, %3
+  %195 = fmul float %3, %194
   %196 = load ptr, ptr %188, align 8
   %.not.i.i.us.i = icmp eq ptr %193, %196
   br i1 %.not.i.i.us.i, label %200, label %197

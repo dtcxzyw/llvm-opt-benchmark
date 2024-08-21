@@ -2084,7 +2084,7 @@ while.body78.us:                                  ; preds = %while.body78.lr.ph,
   %bLen79.us = getelementptr inbounds i8, ptr %fromUMapping.3104.us, i64 9
   %5 = load i8, ptr %bLen79.us, align 1
   %conv80.us = sext i8 %5 to i32
-  %cmp81.us = icmp eq i32 %conv80.us, %subcharLength
+  %cmp81.us = icmp eq i32 %subcharLength, %conv80.us
   br i1 %cmp81.us, label %land.lhs.true82.us, label %if.end116.us
 
 land.lhs.true82.us:                               ; preds = %while.body78.us
@@ -2301,7 +2301,7 @@ if.then9:                                         ; preds = %if.else
   %bLen = getelementptr inbounds i8, ptr %fromUMapping.096, i64 9
   %32 = load i8, ptr %bLen, align 1
   %conv = sext i8 %32 to i32
-  %cmp10 = icmp eq i32 %conv, %subcharLength
+  %cmp10 = icmp eq i32 %subcharLength, %conv
   br i1 %cmp10, label %land.lhs.true, label %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %if.then9
@@ -2431,7 +2431,7 @@ while.body78:                                     ; preds = %while.body78.lr.ph,
   %bLen79 = getelementptr inbounds i8, ptr %fromUMapping.3104, i64 9
   %44 = load i8, ptr %bLen79, align 1
   %conv80 = sext i8 %44 to i32
-  %cmp81 = icmp eq i32 %conv80, %subcharLength
+  %cmp81 = icmp eq i32 %subcharLength, %conv80
   br i1 %cmp81, label %land.lhs.true82, label %lor.lhs.false99
 
 land.lhs.true82:                                  ; preds = %while.body78

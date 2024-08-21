@@ -1899,7 +1899,7 @@ class_or_module_required.exit:                    ; preds = %7, %7, %7
 class_or_module_required.exit5:                   ; preds = %17, %17, %17
   %23 = getelementptr inbounds i8, ptr %18, i64 112
   %24 = load i64, ptr %23, align 8
-  %25 = icmp eq i64 %24, %0
+  %25 = icmp eq i64 %0, %24
   br i1 %25, label %class_search_ancestor.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %class_or_module_required.exit5
@@ -2188,7 +2188,7 @@ define dso_local range(i64 0, 21) i64 @rb_class_inherited_p(i64 noundef %0, i64 
   %51 = getelementptr inbounds i8, ptr %10, i64 112
   %52 = load i64, ptr %51, align 8
   %.not10.i = icmp eq i64 %0, 0
-  %53 = icmp eq i64 %52, %0
+  %53 = icmp eq i64 %0, %52
   %or.cond11.i = or i1 %.not10.i, %53
   br i1 %or.cond11.i, label %class_search_ancestor.exit, label %.lr.ph.i
 
@@ -2266,7 +2266,7 @@ define internal fastcc i64 @rb_class_alloc(i64 noundef %0) unnamed_addr #2 {
   %4 = load i64, ptr %3, align 8
   %5 = icmp ne i64 %4, 0
   %6 = load i64, ptr @rb_cBasicObject, align 8
-  %.not.i = icmp eq i64 %6, %0
+  %.not.i = icmp eq i64 %0, %6
   %or.cond.i = select i1 %5, i1 true, i1 %.not.i
   br i1 %or.cond.i, label %9, label %7
 
@@ -2382,7 +2382,7 @@ define dso_local i64 @rb_class_superclass(i64 noundef %0) #9 {
 
 5:                                                ; preds = %1
   %6 = load i64, ptr @rb_cBasicObject, align 8
-  %7 = icmp eq i64 %6, %0
+  %7 = icmp eq i64 %0, %6
   br i1 %7, label %19, label %8
 
 8:                                                ; preds = %5
@@ -7567,7 +7567,7 @@ define internal i64 @rb_class_alloc_m(i64 noundef %0) #2 {
   %4 = load i64, ptr %3, align 8
   %5 = icmp ne i64 %4, 0
   %6 = load i64, ptr @rb_cBasicObject, align 8
-  %.not.i = icmp eq i64 %6, %0
+  %.not.i = icmp eq i64 %0, %6
   %or.cond.i = select i1 %5, i1 true, i1 %.not.i
   br i1 %or.cond.i, label %9, label %7
 
@@ -7641,7 +7641,7 @@ define internal noundef i64 @rb_class_initialize(i32 noundef %0, ptr nocapture n
   %7 = load i64, ptr %6, align 8
   %.not = icmp ne i64 %7, 0
   %8 = load i64, ptr @rb_cBasicObject, align 8
-  %9 = icmp eq i64 %8, %2
+  %9 = icmp eq i64 %2, %8
   %or.cond = select i1 %.not, i1 true, i1 %9
   br i1 %or.cond, label %10, label %12
 

@@ -780,7 +780,7 @@ define void @http_add_path_components_to_tree(ptr noundef %0, ptr nocapture read
 21:                                               ; preds = %15
   %22 = load i32, ptr @ett_http_request_path, align 4
   %23 = tail call ptr @proto_item_add_subtree(ptr noundef %2, i32 noundef %22) #14
-  %24 = icmp sgt i32 %9, %3
+  %24 = icmp slt i32 %3, %9
   br i1 %24, label %.lr.ph, label %.loopexit73
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
@@ -6434,7 +6434,7 @@ define internal void @basic_response_dissector(ptr noundef %0, ptr noundef %1, p
   %22 = ptrtoint ptr %4 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = add i32 %24, %3
+  %25 = add i32 %3, %24
   %26 = call i32 @get_token_len(ptr noundef %20, ptr noundef %5, ptr noundef nonnull %9) #14
   %27 = icmp slt i32 %26, 3
   br i1 %27, label %62, label %28
@@ -6545,7 +6545,7 @@ define internal void @basic_request_dissector(ptr noundef %0, ptr noundef %1, pt
   %.pre-phi = phi i64 [ %.pre, %32 ], [ %20, %28 ], [ %20, %24 ], [ %20, %16 ]
   %34 = phi ptr [ %25, %32 ], [ %19, %28 ], [ %19, %24 ], [ %19, %16 ]
   %35 = trunc i64 %.pre-phi45 to i32
-  %36 = add i32 %35, %3
+  %36 = add i32 %3, %35
   %37 = call i32 @get_token_len(ptr noundef %34, ptr noundef %5, ptr noundef nonnull %9) #14
   %38 = load ptr, ptr %10, align 8
   %39 = call ptr @tvb_get_string_enc(ptr noundef %38, ptr noundef %1, i32 noundef %36, i32 noundef %37, i32 noundef 0) #14

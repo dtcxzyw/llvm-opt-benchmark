@@ -836,7 +836,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %113,
   %171 = getelementptr inbounds i8, ptr %12, i64 16
   %172 = load i64, ptr %171, align 8, !alias.scope !103, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  %173 = icmp ult i64 %162, %172
+  %173 = icmp ugt i64 %172, %162
   br i1 %173, label %174, label %175
 
 174:                                              ; preds = %168
@@ -927,7 +927,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %20
   %218 = phi i64 [ 4, %203 ], [ 3, %192 ], [ 2, %185 ]
   %219 = load i64, ptr %13, align 8, !alias.scope !120, !noalias !127, !noundef !4
   %220 = sub i64 %219, %180
-  %221 = icmp ult i64 %220, %218
+  %221 = icmp ugt i64 %218, %220
   br i1 %221, label %222, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h85215e92838fe4faE.exit.i"
 
 222:                                              ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -996,7 +996,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %"_ZN5alloc3vec
   %244 = load i64, ptr %.sroa.529.0..sroa_idx, align 8, !alias.scope !136, !noalias !139, !noundef !4
   %245 = load i64, ptr %13, align 8, !alias.scope !136, !noalias !139, !noundef !4
   %246 = sub i64 %245, %244
-  %247 = icmp ult i64 %246, %243
+  %247 = icmp ugt i64 %243, %246
   br i1 %247, label %248, label %.noexc76
 
 248:                                              ; preds = %.noexc75

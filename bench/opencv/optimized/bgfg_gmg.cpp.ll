@@ -582,7 +582,7 @@ define hidden void @_ZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeE(ptr nocapture no
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %81 ]
   %82 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv.i
   %83 = load i32, ptr %82, align 4
-  %84 = icmp eq i32 %83, %76
+  %84 = icmp eq i32 %76, %83
   br i1 %84, label %85, label %81
 
 85:                                               ; preds = %.lr.ph.i
@@ -647,7 +647,7 @@ _ZN2cv6bgsegmL11findFeatureEiPKiPKfi.exit:        ; preds = %81, %79, %85
   %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.preheader.i54 ], [ %indvars.iv.next.i58, %116 ]
   %113 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv.i57
   %114 = load i32, ptr %113, align 4
-  %115 = icmp eq i32 %114, %76
+  %115 = icmp eq i32 %76, %114
   br i1 %115, label %117, label %116
 
 116:                                              ; preds = %.lr.ph.i56
@@ -749,7 +749,7 @@ _ZN2cv6bgsegmL18normalizeHistogramEPfi.exit:      ; preds = %.lr.ph18.i, %134, %
   %indvars.iv.i72 = phi i64 [ 0, %.lr.ph.preheader.i69 ], [ %indvars.iv.next.i73, %156 ]
   %153 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv.i72
   %154 = load i32, ptr %153, align 4
-  %155 = icmp eq i32 %154, %76
+  %155 = icmp eq i32 %76, %154
   br i1 %155, label %157, label %156
 
 156:                                              ; preds = %.lr.ph.i71

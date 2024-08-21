@@ -7557,7 +7557,7 @@ while.body70:                                     ; preds = %while.cond67
 
 if.else.i:                                        ; preds = %while.body70
   %33 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %33, %32
+  %cmp3.not.i = icmp ugt i32 %32, %33
   %34 = xor i32 %33, -1
   %.sink313 = select i1 %cmp3.not.i, i32 %34, i32 -1
   %sub9.i = add i32 %32, %.sink313
@@ -8023,13 +8023,13 @@ _ZNK12bv2real_util9is_pos_leEPK4expr.exit:        ; preds = %land.rhs.i.i, %_ZNK
   %.pn = load ptr, ptr %this, align 8
   %m_pos_le.i.i = getelementptr inbounds i8, ptr %.pn, i64 120
   %70 = load ptr, ptr %m_pos_le.i.i, align 8
-  %cmp.i2.i = icmp eq ptr %70, %41
+  %cmp.i2.i = icmp eq ptr %41, %70
   br i1 %cmp.i2.i, label %if.then56, label %_ZNK12bv2real_util9is_pos_ltEPK4expr.exit
 
 _ZNK12bv2real_util9is_pos_ltEPK4expr.exit:        ; preds = %_ZNK12bv2real_util9is_pos_leEPK4expr.exit
   %m_pos_lt.i.i = getelementptr inbounds i8, ptr %.pn, i64 136
   %71 = load ptr, ptr %m_pos_lt.i.i, align 8
-  %cmp.i2.i151 = icmp eq ptr %71, %41
+  %cmp.i2.i151 = icmp eq ptr %41, %71
   br i1 %cmp.i2.i151, label %if.then56, label %if.else57
 
 if.then56:                                        ; preds = %_ZNK12bv2real_util9is_pos_ltEPK4expr.exit, %_ZNK12bv2real_util9is_pos_leEPK4expr.exit, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit, %_ZNK10arith_util10is_numeralEPK4expr.exit, %_ZNK17arith_recognizers5is_gtEPK4expr.exit, %_ZNK17arith_recognizers5is_geEPK4expr.exit, %_ZNK17arith_recognizers5is_ltEPK4expr.exit, %_ZNK17arith_recognizers5is_leEPK4expr.exit, %_ZNK17arith_recognizers6is_subEPK4expr.exit, %_ZNK17arith_recognizers6is_addEPK4expr.exit, %_ZNK17arith_recognizers6is_mulEPK4expr.exit

@@ -90,7 +90,7 @@ entry:
 if.end11.i.i:                                     ; preds = %entry
   %cmp.i.i.i = icmp sgt i64 %now.coerce, 0
   %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %now.coerce
-  %cmp1.i.i.i = icmp ult i64 %sub.i.i.i, %agg.tmp3.sroa.0.0.copyload.sroa.speculated
+  %cmp1.i.i.i = icmp ugt i64 %agg.tmp3.sroa.0.0.copyload.sroa.speculated, %sub.i.i.i
   %or.cond = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
   br i1 %or.cond, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 

@@ -684,7 +684,7 @@ if.end:                                           ; preds = %entry
   %5 = load i8, ptr %arrayidx, align 1
   %conv6 = zext i8 %5 to i64
   %add = add nuw i64 %mul, %conv6
-  %cmp7 = icmp ult i64 %add, %output_length
+  %cmp7 = icmp ugt i64 %output_length, %add
   br i1 %cmp7, label %if.then9, label %if.end19
 
 if.then9:                                         ; preds = %if.end

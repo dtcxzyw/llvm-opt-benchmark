@@ -165,7 +165,7 @@ define noundef ptr @php_conv_fp(i8 noundef signext %0, double noundef %1, i1 nou
 ._crit_edge:                                      ; preds = %.lr.ph86.preheader, %.preheader
   %.264.lcssa = phi ptr [ %.163.lcssa, %.preheader ], [ %scevgep, %.lr.ph86.preheader ]
   %63 = icmp sgt i32 %3, 0
-  %brmerge = or i1 %63, %2
+  %brmerge = or i1 %2, %63
   br i1 %brmerge, label %64, label %72
 
 64:                                               ; preds = %._crit_edge
@@ -178,7 +178,7 @@ define noundef ptr @php_conv_fp(i8 noundef signext %0, double noundef %1, i1 nou
   %68 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 %20, ptr %6, align 1
   %69 = icmp sgt i32 %3, 0
-  %brmerge75 = or i1 %69, %2
+  %brmerge75 = or i1 %2, %69
   br i1 %brmerge75, label %70, label %72
 
 70:                                               ; preds = %66

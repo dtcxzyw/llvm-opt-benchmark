@@ -927,7 +927,7 @@ define dso_local i32 @__get_random_u32_below(i32 noundef %0) #0 align 16 {
   %6 = zext i32 %2 to i64
   %7 = mul nuw i64 %6, %5
   %8 = trunc i64 %7 to i32
-  %9 = icmp ult i32 %8, %0
+  %9 = icmp ugt i32 %0, %8
   %extract = lshr i64 %7, 32
   %extract.t = trunc nuw i64 %extract to i32
   br i1 %9, label %10, label %19, !prof !17
@@ -1599,7 +1599,7 @@ declare dso_local void @add_timer_on(ptr noundef, i32 noundef) local_unnamed_add
 define dso_local void @add_input_randomness(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = load i8, ptr @add_input_randomness.last_value, align 1
   %5 = zext i8 %4 to i32
-  %6 = icmp eq i32 %5, %2
+  %6 = icmp eq i32 %2, %5
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %3

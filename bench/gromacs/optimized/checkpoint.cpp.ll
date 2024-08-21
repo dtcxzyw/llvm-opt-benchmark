@@ -2073,7 +2073,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 15:                                               ; preds = %12
   %.not.i.i = icmp ne ptr %13, null
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = icmp eq ptr %16, %14
+  %17 = icmp eq ptr %14, %16
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %17
   br i1 %or.cond.i.i, label %.thread, label %18
 
@@ -2134,7 +2134,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -2727,7 +2727,7 @@ define void @_Z21write_checkpoint_dataP8t_fileio24CheckpointHeaderContentsb23Lam
 53:                                               ; preds = %52, %48, %41
   %54 = getelementptr inbounds i8, ptr %1, i64 6232
   store i32 0, ptr %54, align 8
-  %brmerge.not = and i1 %23, %2
+  %brmerge.not = and i1 %2, %23
   br i1 %brmerge.not, label %55, label %58
 
 55:                                               ; preds = %53
@@ -9075,7 +9075,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12doRvecVectorIN3gmx12Pa
 
 11:                                               ; preds = %6
   %12 = shl nuw i32 1, %1
-  %13 = and i32 %12, %2
+  %13 = and i32 %2, %12
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %15
 
@@ -9189,7 +9189,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12do_cpte_intsI10StateEn
 
 24:                                               ; preds = %23
   %25 = shl nuw i32 1, %1
-  %26 = and i32 %25, %2
+  %26 = and i32 %2, %25
   %.not71.i = icmp eq i32 %26, 0
   br i1 %.not71.i, label %27, label %28
 
@@ -9199,7 +9199,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12do_cpte_intsI10StateEn
 
 28:                                               ; preds = %24
   %29 = load i32, ptr %7, align 4
-  %.not72.i = icmp eq i32 %29, %3
+  %.not72.i = icmp eq i32 %3, %29
   br i1 %.not72.i, label %38, label %30
 
 30:                                               ; preds = %28
@@ -9375,7 +9375,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10St
 
 43:                                               ; preds = %42
   %44 = shl nuw i32 1, %1
-  %45 = and i32 %44, %2
+  %45 = and i32 %2, %44
   %.not71 = icmp eq i32 %45, 0
   br i1 %.not71, label %46, label %47
 
@@ -9387,7 +9387,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10St
   %48 = icmp slt i64 %3, 0
   %49 = load i32, ptr %9, align 4
   %50 = zext i32 %49 to i64
-  %.not72 = icmp eq i64 %50, %3
+  %.not72 = icmp eq i64 %3, %50
   %or.cond77 = select i1 %48, i1 true, i1 %.not72
   br i1 %or.cond77, label %59, label %51
 
@@ -9940,7 +9940,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10St
 
 42:                                               ; preds = %41
   %43 = shl nuw i32 1, %1
-  %44 = and i32 %43, %2
+  %44 = and i32 %2, %43
   %.not71 = icmp eq i32 %44, 0
   br i1 %.not71, label %45, label %46
 
@@ -9952,7 +9952,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE10St
   %47 = icmp slt i64 %3, 0
   %48 = load i32, ptr %8, align 4
   %49 = zext i32 %48 to i64
-  %.not72 = icmp eq i64 %49, %3
+  %.not72 = icmp eq i64 %3, %49
   %or.cond77 = select i1 %47, i1 true, i1 %.not72
   br i1 %or.cond77, label %58, label %50
 
@@ -10256,7 +10256,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16do_cpte_matricesI17Sta
 
 24:                                               ; preds = %23
   %25 = shl nuw i32 1, %1
-  %26 = and i32 %25, %2
+  %26 = and i32 %2, %25
   %.not64 = icmp eq i32 %26, 0
   br i1 %.not64, label %27, label %30
 
@@ -10463,7 +10463,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL8doVectorId17StateKineti
 
 31:                                               ; preds = %30
   %32 = shl nuw i32 1, %1
-  %33 = and i32 %32, %2
+  %33 = and i32 %2, %32
   %.not71.i = icmp eq i32 %33, 0
   br i1 %.not71.i, label %34, label %35
 
@@ -10757,7 +10757,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE17St
 
 31:                                               ; preds = %30
   %32 = shl nuw i32 1, %1
-  %33 = and i32 %32, %2
+  %33 = and i32 %2, %32
   %.not72 = icmp eq i32 %33, 0
   br i1 %.not72, label %34, label %35
 
@@ -10769,7 +10769,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE17St
   %36 = icmp slt i64 %3, 0
   %37 = load i32, ptr %8, align 4
   %38 = zext i32 %37 to i64
-  %.not73 = icmp eq i64 %38, %3
+  %.not73 = icmp eq i64 %3, %38
   %or.cond77 = select i1 %36, i1 true, i1 %.not73
   br i1 %or.cond77, label %47, label %39
 
@@ -11186,7 +11186,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE16St
 
 42:                                               ; preds = %41
   %43 = shl nuw i32 1, %1
-  %44 = and i32 %43, %2
+  %44 = and i32 %2, %43
   %.not71 = icmp eq i32 %44, 0
   br i1 %.not71, label %45, label %46
 
@@ -11198,7 +11198,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIdSaIdE16St
   %47 = icmp slt i64 %3, 0
   %48 = load i32, ptr %8, align 4
   %49 = zext i32 %48 to i64
-  %.not72 = icmp eq i64 %49, %3
+  %.not72 = icmp eq i64 %3, %49
   %or.cond77 = select i1 %47, i1 true, i1 %.not72
   br i1 %or.cond77, label %58, label %50
 
@@ -11464,7 +11464,7 @@ define linkonce_odr void @_ZNSt6vectorI21PullCoordinateHistorySaIS0_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 120
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -11535,7 +11535,7 @@ _ZNSt12_Vector_baseI21PullCoordinateHistorySaIS0_EE13_M_deallocateEPS0_m.exit37.
   br label %_ZNSt6vectorI21PullCoordinateHistorySaIS0_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorI21PullCoordinateHistorySaIS0_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -11560,7 +11560,7 @@ define linkonce_odr void @_ZNSt6vectorI16PullGroupHistorySaIS0_EE6resizeEm(ptr n
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 24
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -11631,7 +11631,7 @@ _ZNSt12_Vector_baseI16PullGroupHistorySaIS0_EE13_M_deallocateEPS0_m.exit37.i: ; 
   br label %_ZNSt6vectorI16PullGroupHistorySaIS0_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorI16PullGroupHistorySaIS0_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -11685,7 +11685,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL14do_cpte_doubleI19State
 
 22:                                               ; preds = %21
   %23 = shl nuw i32 1, %1
-  %24 = and i32 %23, %2
+  %24 = and i32 %2, %23
   %.not71.i.i = icmp eq i32 %24, 0
   br i1 %.not71.i.i, label %25, label %26
 
@@ -11965,7 +11965,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12do_cpte_intsI13StateFe
 
 28:                                               ; preds = %27
   %29 = shl nuw i32 1, %1
-  %30 = and i32 %29, %2
+  %30 = and i32 %2, %29
   %.not72.i = icmp eq i32 %30, 0
   br i1 %.not72.i, label %31, label %32
 
@@ -11977,7 +11977,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL12do_cpte_intsI13StateFe
   %33 = icmp slt i32 %3, 0
   %34 = load i32, ptr %7, align 4
   %35 = zext i32 %34 to i64
-  %.not73.i = icmp eq i64 %35, %12
+  %.not73.i = icmp eq i64 %12, %35
   %or.cond77.i = select i1 %33, i1 true, i1 %.not73.i
   br i1 %or.cond77.i, label %44, label %36
 
@@ -12293,7 +12293,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE13St
 
 31:                                               ; preds = %30
   %32 = shl nuw i32 1, %1
-  %33 = and i32 %32, %2
+  %33 = and i32 %2, %32
   %.not72 = icmp eq i32 %33, 0
   br i1 %.not72, label %34, label %35
 
@@ -12305,7 +12305,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE13St
   %36 = icmp slt i64 %3, 0
   %37 = load i32, ptr %8, align 4
   %38 = zext i32 %37 to i64
-  %.not73 = icmp eq i64 %38, %3
+  %.not73 = icmp eq i64 %3, %38
   %or.cond77 = select i1 %36, i1 true, i1 %.not73
   br i1 %or.cond77, label %47, label %39
 
@@ -12854,7 +12854,7 @@ define linkonce_odr void @_ZNSt6vectorI19gmx_file_position_tSaIS0_EE6resizeEm(pt
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 4128
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -12925,7 +12925,7 @@ _ZNSt12_Vector_baseI19gmx_file_position_tSaIS0_EE13_M_deallocateEPS0_m.exit37.i:
   br label %_ZNSt6vectorI19gmx_file_position_tSaIS0_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorI19gmx_file_position_tSaIS0_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -13373,7 +13373,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit.i:  ; preds = %68
   %155 = getelementptr inbounds i8, ptr %5, i64 4
   %156 = load i32, ptr %155, align 4
   %.not150.i = icmp eq i32 %154, %156
-  %brmerge.i = or i1 %.not150.i, %10
+  %brmerge.i = or i1 %10, %.not150.i
   br i1 %brmerge.i, label %166, label %157
 
 157:                                              ; preds = %152
@@ -13409,7 +13409,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit.i:  ; preds = %68
   %167 = load i8, ptr %45, align 8
   %168 = trunc i8 %167 to i1
   %.not176.i = xor i1 %168, true
-  %brmerge177.i = or i1 %.not176.i, %10
+  %brmerge177.i = or i1 %10, %.not176.i
   br i1 %brmerge177.i, label %170, label %169
 
 169:                                              ; preds = %166
@@ -13702,7 +13702,7 @@ _ZL9check_intP8_IO_FILEPKciiPb.exit78.thread.i.i: ; preds = %_ZL9check_intP8_IO_
 
 291:                                              ; preds = %_ZL9check_intP8_IO_FILEPKciiPb.exit78.thread.i.i
   %292 = icmp ne ptr %67, null
-  %or.cond.i.i = and i1 %292, %7
+  %or.cond.i.i = and i1 %7, %292
   br i1 %or.cond.i.i, label %.sink.split.i.i, label %_ZL11check_matchP8_IO_FILEPK9t_commrecPKiRK24CheckpointHeaderContentsb.exit.i
 
 .sink.split.i.i:                                  ; preds = %291, %290

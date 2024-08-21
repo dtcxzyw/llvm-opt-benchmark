@@ -384,7 +384,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %conv = zext i16 %0 to i32
-  %cmp = icmp ugt i32 %conv, %address
+  %cmp = icmp ult i32 %address, %conv
   br i1 %cmp, label %if.end26, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -701,7 +701,7 @@ if.end:                                           ; preds = %entry
   %sriov_pf = getelementptr inbounds i8, ptr %dev, i64 2200
   %1 = load i16, ptr %sriov_pf, align 8
   %conv = zext i16 %1 to i32
-  %cmp = icmp sgt i32 %conv, %n
+  %cmp = icmp slt i32 %n, %conv
   br i1 %cmp, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end

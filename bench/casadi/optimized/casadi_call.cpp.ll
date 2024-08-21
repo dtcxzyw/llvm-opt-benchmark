@@ -1337,7 +1337,7 @@ _ZSt10_ConstructIN6casadi2MXEJEEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #18
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %8
+  %.not4.i.i.i.i.i.i = icmp eq ptr %8, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %14, %.lr.ph.i.i.i.i.i.i
@@ -1490,7 +1490,7 @@ define void @_ZNK6casadi4Call4dispERKSt6vectorINSt7__cxx1112basic_stringIcSt11ch
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 5
-  %.not.i.i = icmp ugt i64 %27, %.0
+  %.not.i.i = icmp ult i64 %.0, %27
   br i1 %.not.i.i, label %29, label %28
 
 28:                                               ; preds = %21
@@ -1713,7 +1713,7 @@ define void @_ZNK6casadi4Call10ad_forwardERKSt6vectorIS1_INS_2MXESaIS2_EESaIS4_E
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 3
-  %.not.i.i.i = icmp ugt i64 %36, %.029101
+  %.not.i.i.i = icmp ult i64 %.029101, %36
   br i1 %.not.i.i.i, label %38, label %37
 
 37:                                               ; preds = %29
@@ -2238,7 +2238,7 @@ define void @_ZNK6casadi4Call10ad_reverseERKSt6vectorIS1_INS_2MXESaIS2_EESaIS4_E
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 3
-  %.not.i.i.i = icmp ugt i64 %42, %.047154
+  %.not.i.i.i = icmp ult i64 %.047154, %42
   br i1 %.not.i.i.i, label %44, label %43
 
 43:                                               ; preds = %35
@@ -3767,7 +3767,7 @@ define void @_ZNK6casadi4Call14codegen_increfERNS_13CodeGeneratorERSt3setIPvSt4l
 
 select.unfold.i.i:                                ; preds = %22, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %22 ]
-  %25 = icmp eq ptr %13, %.sroa.4.0.i.ph.i.i
+  %25 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %13
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %select.unfold.i.i
@@ -3867,7 +3867,7 @@ define void @_ZNK6casadi4Call14codegen_decrefERNS_13CodeGeneratorERSt3setIPvSt4l
 
 select.unfold.i.i:                                ; preds = %22, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %22 ]
-  %25 = icmp eq ptr %13, %.sroa.4.0.i.ph.i.i
+  %25 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %13
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %select.unfold.i.i

@@ -381,7 +381,7 @@ define dso_local void @ip_cmsg_recv_offset(ptr noundef %0, ptr noundef %1, ptr n
   %210 = ptrtoint ptr %208 to i64
   %211 = sub i64 %209, %210
   %212 = trunc i64 %211 to i32
-  %213 = add i32 %212, %3
+  %213 = add i32 %3, %212
   %214 = call i32 @skb_checksum(ptr noundef %2, i32 noundef %213, i32 noundef %4, i32 noundef 0) #14
   %215 = xor i32 %214, -1
   %216 = call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %194, i32 %215) #15, !srcloc !9

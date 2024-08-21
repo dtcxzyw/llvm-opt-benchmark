@@ -65,7 +65,7 @@ define void @_Z17gather_f_bsplinesPK9gmx_pme_tN3gmx8ArrayRefIKfEEbPK11PmeAtomCom
   %55 = inttoptr i64 %54 to ptr
   %56 = getelementptr inbounds float, ptr %55, i64 %53
   %57 = load float, ptr %56, align 4
-  %58 = fmul float %57, %6
+  %58 = fmul float %6, %57
   br i1 %3, label %59, label %63
 
 59:                                               ; preds = %49

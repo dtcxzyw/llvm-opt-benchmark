@@ -3287,7 +3287,7 @@ define internal fastcc void @__dm_io_complete(ptr noundef %0, i1 noundef zeroext
   %30 = load volatile i64, ptr %29, align 8
   %31 = and i64 %30, 32
   %32 = icmp ne i64 %31, 0
-  %33 = or i1 %17, %1
+  %33 = or i1 %1, %17
   %34 = select i1 %32, i1 true, i1 %33
   br i1 %34, label %35, label %49
 

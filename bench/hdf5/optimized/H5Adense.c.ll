@@ -2379,7 +2379,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove_by_idx(ptr noundef %0, ptr nounde
 
 72:                                               ; preds = %.thread
   %73 = load i64, ptr %6, align 8
-  %.not64 = icmp ugt i64 %73, %4
+  %.not64 = icmp ult i64 %4, %73
   br i1 %.not64, label %78, label %74
 
 74:                                               ; preds = %72

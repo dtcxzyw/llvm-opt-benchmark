@@ -660,7 +660,7 @@ define hidden i32 @CallJavaMainInNewThread(i64 noundef %0, ptr noundef %1) local
 
 adjustStackSize.exit:                             ; preds = %12
   %17 = xor i64 %13, -1
-  %.not.i = icmp uge i64 %17, %0
+  %.not.i = icmp ule i64 %0, %17
   %18 = zext i1 %.not.i to i64
   %spec.select.i = add nuw nsw i64 %15, %18
   %19 = mul nsw i64 %spec.select.i, %13

@@ -1687,7 +1687,7 @@ define internal fastcc void @compute_function_hashkey(ptr nocapture noundef read
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %2, i64 416
-  %10 = icmp ugt ptr %9, %2
+  %10 = icmp ult ptr %2, %9
   br i1 %10, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %8
@@ -1741,7 +1741,7 @@ define internal fastcc void @compute_function_hashkey(ptr nocapture noundef read
   store i8 %36, ptr %37, align 1
   %38 = trunc nuw i8 %28 to i1
   %.not43 = xor i1 %38, true
-  %brmerge = or i1 %.not43, %3
+  %brmerge = or i1 %3, %.not43
   br i1 %brmerge, label %45, label %39
 
 39:                                               ; preds = %35

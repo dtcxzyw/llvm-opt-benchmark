@@ -103,7 +103,7 @@ define hidden noundef ptr @_ZNK9MultiNode16proj_out_or_nullEjb(ptr nocapture nou
   %20 = getelementptr inbounds i8, ptr %10, i64 56
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
-  %23 = xor i1 %22, %2
+  %23 = xor i1 %2, %22
   br i1 %23, label %24, label %._crit_edge
 
 24:                                               ; preds = %.lr.ph, %15, %19
@@ -226,12 +226,12 @@ define hidden noundef zeroext i1 @_ZNK8ProjNode6is_CFGEv(ptr nocapture noundef n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK8ProjNode9proj_typeEPK4Type(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef readonly %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   br i1 %4, label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
-  %7 = icmp eq ptr %6, %1
+  %7 = icmp eq ptr %1, %6
   br i1 %7, label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread, label %8
 
 8:                                                ; preds = %5
@@ -310,12 +310,12 @@ define hidden noundef ptr @_ZNK8ProjNode11bottom_typeEv(ptr nocapture noundef no
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(52) %4) #6
   %13 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  %14 = icmp eq ptr %13, %12
+  %14 = icmp eq ptr %12, %13
   br i1 %14, label %_ZNK8ProjNode9proj_typeEPK4Type.exit, label %15
 
 15:                                               ; preds = %8
   %16 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
-  %17 = icmp eq ptr %16, %12
+  %17 = icmp eq ptr %12, %16
   br i1 %17, label %_ZNK8ProjNode9proj_typeEPK4Type.exit, label %18
 
 18:                                               ; preds = %15
@@ -474,12 +474,12 @@ define hidden noundef ptr @_ZNK8ProjNode5ValueEP8PhaseGVN(ptr nocapture noundef 
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  %20 = icmp eq ptr %19, %18
+  %20 = icmp eq ptr %18, %19
   br i1 %20, label %_ZNK8ProjNode9proj_typeEPK4Type.exit, label %21
 
 21:                                               ; preds = %9
   %22 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
-  %23 = icmp eq ptr %22, %18
+  %23 = icmp eq ptr %18, %22
   br i1 %23, label %_ZNK8ProjNode9proj_typeEPK4Type.exit, label %24
 
 24:                                               ; preds = %21

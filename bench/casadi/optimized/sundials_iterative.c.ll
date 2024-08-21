@@ -258,7 +258,7 @@ define noundef i32 @ClassicalGS(ptr nocapture noundef readonly %0, ptr nocapture
   store double %75, ptr %73, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %76 = trunc nuw i64 %indvars.iv.next112 to i32
-  %77 = icmp slt i32 %76, %2
+  %77 = icmp sgt i32 %2, %76
   br i1 %77, label %65, label %._crit_edge99, !llvm.loop !10
 
 ._crit_edge99:                                    ; preds = %65, %._crit_edge94.thread
@@ -317,8 +317,8 @@ define i32 @QRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapt
   %19 = or disjoint i64 %8, 1
   %20 = getelementptr inbounds double, ptr %2, i64 %19
   %21 = load double, ptr %20, align 8
-  %22 = fneg double %21
-  %23 = fmul double %16, %22
+  %22 = fneg double %16
+  %23 = fmul double %21, %22
   %24 = tail call double @llvm.fmuladd.f64(double %18, double %12, double %23)
   store double %24, ptr %11, align 8
   %25 = fmul double %16, %18
@@ -375,8 +375,8 @@ define i32 @QRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapt
   %59 = or disjoint i64 %29, 1
   %60 = getelementptr inbounds double, ptr %2, i64 %59
   store double %.0138, ptr %60, align 8
-  %61 = fneg double %.0138
-  %62 = fmul double %37, %61
+  %61 = fneg double %37
+  %62 = fmul double %.0138, %61
   %63 = tail call double @llvm.fmuladd.f64(double %.0133, double %33, double %62)
   %64 = load ptr, ptr %30, align 8
   %65 = getelementptr inbounds double, ptr %64, i64 %indvars.iv159
@@ -419,8 +419,8 @@ define i32 @QRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapt
   %84 = or disjoint i64 %73, 1
   %85 = getelementptr inbounds double, ptr %2, i64 %84
   %86 = load double, ptr %85, align 8
-  %87 = fneg double %86
-  %88 = fmul double %81, %87
+  %87 = fneg double %81
+  %88 = fmul double %86, %87
   %89 = tail call double @llvm.fmuladd.f64(double %83, double %77, double %88)
   store double %89, ptr %76, align 8
   %90 = fmul double %81, %83
@@ -480,8 +480,8 @@ define i32 @QRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapt
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds double, ptr %2, i64 %127
   store double %.1139, ptr %128, align 8
-  %129 = fneg double %.1139
-  %130 = fmul double %102, %129
+  %129 = fneg double %102
+  %130 = fmul double %.1139, %129
   %131 = tail call double @llvm.fmuladd.f64(double %.1134, double %97, double %130)
   %132 = load ptr, ptr %94, align 8
   %133 = getelementptr inbounds double, ptr %132, i64 %.pre-phi
@@ -531,8 +531,8 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr nocapture nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.next
   %18 = load double, ptr %17, align 8
-  %19 = fneg double %15
-  %20 = fmul double %18, %19
+  %19 = fneg double %18
+  %20 = fmul double %15, %19
   %21 = tail call double @llvm.fmuladd.f64(double %12, double %9, double %20)
   store double %21, ptr %16, align 8
   %22 = fmul double %12, %18

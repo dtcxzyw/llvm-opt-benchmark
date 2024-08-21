@@ -64,7 +64,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18extend_from_within17h83281
   %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %7, i64 %6)
   %8 = load i64, ptr %0, align 8, !alias.scope !10, !noundef !4
   %9 = sub i64 %8, %4
-  %10 = icmp ult i64 %9, %spec.select.i.i
+  %10 = icmp ugt i64 %spec.select.i.i, %9
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4c942fdedf8ac734E.llvm.16374473169365211629.exit"
 
 11:                                               ; preds = %2
@@ -112,7 +112,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4c942fdedf8ac734E
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %2

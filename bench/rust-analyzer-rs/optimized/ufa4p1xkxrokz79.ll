@@ -68,8 +68,8 @@ define noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph1
 
 12:                                               ; preds = %28, %.split
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %.split ], [ %29, %28 ]
-  %.pn.i.i = phi i64 [ %9, %.split ], [ %30, %28 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val5.i
+  %.pn.i.i.i.i = phi i64 [ %9, %.split ], [ %30, %28 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i
   %13 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i25.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !19
   %14 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, %.15.vec.insert.i.i.i.i
@@ -97,7 +97,7 @@ define noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph1
   %26 = sub nsw i64 0, %25
   %gep.i.i.i = getelementptr { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, ptr, { i32, i16, i16 }, i32, [1 x i32] } }, ptr %invariant.gep.i.i.i, i64 %26
   %.val4.i.i.i.i = load i32, ptr %gep.i.i.i, align 4, !alias.scope !27, !noalias !32, !noundef !5
-  %27 = icmp eq i32 %.val4.i.i.i.i, %storemerge
+  %27 = icmp eq i32 %storemerge, %.val4.i.i.i.i
   br i1 %27, label %31, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
 
 28:                                               ; preds = %16
@@ -216,8 +216,8 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
 
 46:                                               ; preds = %62, %41
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %41 ], [ %63, %62 ]
-  %.pn.i.i = phi i64 [ %43, %41 ], [ %64, %62 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val5.i
+  %.pn.i.i.i.i = phi i64 [ %43, %41 ], [ %64, %62 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i
   %47 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i25.i.i.i = load <16 x i8>, ptr %47, align 1, !noalias !60
   %48 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, %.15.vec.insert.i.i.i.i
@@ -245,7 +245,7 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
   %60 = sub nsw i64 0, %59
   %gep.i.i.i = getelementptr { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, ptr, { i32, i16, i16 }, i32, [1 x i32] } }, ptr %invariant.gep.i.i.i, i64 %60
   %.val4.i.i.i.i = load i32, ptr %gep.i.i.i, align 4, !alias.scope !68, !noalias !73, !noundef !5
-  %61 = icmp eq i32 %.val4.i.i.i.i, %38
+  %61 = icmp eq i32 %38, %.val4.i.i.i.i
   br i1 %61, label %74, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
 
 62:                                               ; preds = %50

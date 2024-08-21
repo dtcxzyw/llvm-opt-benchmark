@@ -89,7 +89,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br label %47
 
 46:                                               ; preds = %39
-  %.not122 = icmp eq i64 %.0100.lcssa, %1
+  %.not122 = icmp eq i64 %1, %.0100.lcssa
   br i1 %.not122, label %119, label %109
 
 47:                                               ; preds = %.lr.ph149, %93
@@ -147,7 +147,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %71
-  %.not121 = icmp eq i64 %.3103126, %1
+  %.not121 = icmp eq i64 %1, %.3103126
   br i1 %.not121, label %119, label %.thread128
 
 74:                                               ; preds = %71
@@ -177,7 +177,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %85
-  %.not119 = icmp eq i64 %.3103126, %1
+  %.not119 = icmp eq i64 %1, %.3103126
   br i1 %.not119, label %119, label %.thread128
 
 88:                                               ; preds = %85
@@ -218,7 +218,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %101
-  %.not114 = icmp eq i64 %.5151, %1
+  %.not114 = icmp eq i64 %1, %.5151
   br i1 %.not114, label %119, label %.thread128
 
 104:                                              ; preds = %101

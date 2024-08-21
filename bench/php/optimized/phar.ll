@@ -2975,7 +2975,7 @@ define hidden range(i32 -1, 1) i32 @phar_open_parsed_phar(ptr noundef %0, i64 no
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp eq i64 %20, %1
+  %21 = icmp eq i64 %1, %20
   br i1 %21, label %22, label %50
 
 22:                                               ; preds = %16
@@ -3936,7 +3936,7 @@ thread-pre-split:                                 ; preds = %9, %29
   %invariant.op = add i64 %1, -1
   %118 = ptrtoint ptr %0 to i64
   %.reass = add i64 %invariant.op, %118
-  %.neg = add i64 %118, %1
+  %.neg = add i64 %1, %118
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.lr.ph
@@ -4141,7 +4141,7 @@ define hidden range(i32 -1, 1) i32 @phar_create_or_parse_filename(ptr noundef %0
   %.0123165169 = phi ptr [ %18, %59 ], [ %18, %68 ], [ %18, %63 ], [ %0, %17 ]
   %70 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 180), align 4
   %.not146 = icmp eq i32 %70, 0
-  %brmerge = or i1 %.not146, %4
+  %brmerge = or i1 %4, %.not146
   br i1 %brmerge, label %77, label %71
 
 71:                                               ; preds = %69
@@ -5284,7 +5284,7 @@ phar_strnstr.exit:                                ; preds = %172
   br i1 %or.cond.i, label %444, label %459
 
 444:                                              ; preds = %441
-  %.not1071.i = icmp eq i64 %414, %4
+  %.not1071.i = icmp eq i64 %4, %414
   br i1 %.not1071.i, label %445, label %447
 
 445:                                              ; preds = %444
@@ -6742,7 +6742,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_check_str(ptr noundef %0, ptr 
 15:                                               ; preds = %11, %10
   %16 = ptrtoint ptr %9 to i64
   %17 = ptrtoint ptr %1 to i64
-  %.neg = add i64 %17, %2
+  %.neg = add i64 %2, %17
   %18 = sub i64 %.neg, %16
   %19 = icmp ult i64 %18, 5
   br i1 %19, label %43, label %20
@@ -7110,7 +7110,7 @@ define hidden range(i32 -1, 1) i32 @phar_split_fname(ptr noundef %0, i64 noundef
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
-  %.not = icmp eq i64 %11, %1
+  %.not = icmp eq i64 %1, %11
   br i1 %.not, label %12, label %39
 
 12:                                               ; preds = %8

@@ -206,7 +206,7 @@ define hidden i32 @mbedtls_psa_ecp_export_key(i16 noundef zeroext %0, ptr nounde
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 7
   %25 = lshr i64 %24, 3
-  %26 = icmp ugt i64 %25, %3
+  %26 = icmp ult i64 %3, %25
   br i1 %26, label %36, label %27
 
 27:                                               ; preds = %21
@@ -352,7 +352,7 @@ define hidden i32 @mbedtls_psa_ecdsa_sign_hash(ptr nocapture noundef readonly %0
   call void @mbedtls_mpi_init(ptr noundef nonnull %11) #6
   call void @mbedtls_mpi_init(ptr noundef nonnull %12) #6
   %24 = shl nuw nsw i64 %23, 1
-  %25 = icmp ugt i64 %24, %7
+  %25 = icmp ult i64 %7, %24
   br i1 %25, label %50, label %26
 
 26:                                               ; preds = %18
@@ -469,7 +469,7 @@ define hidden i32 @mbedtls_psa_ecdsa_verify_hash(ptr nocapture noundef readonly 
   call void @mbedtls_mpi_init(ptr noundef nonnull %10) #6
   call void @mbedtls_mpi_init(ptr noundef nonnull %11) #6
   %23 = shl nuw nsw i64 %22, 1
-  %.not21 = icmp eq i64 %23, %7
+  %.not21 = icmp eq i64 %7, %23
   br i1 %.not21, label %24, label %39
 
 24:                                               ; preds = %17

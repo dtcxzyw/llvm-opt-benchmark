@@ -1877,7 +1877,7 @@ entry:
   %header = alloca %union.anon, align 1
   %conv = trunc i64 %niov to i32
   %call = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %conv) #15
-  %cmp.not = icmp ult i64 %call, %size
+  %cmp.not = icmp ugt i64 %size, %call
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry

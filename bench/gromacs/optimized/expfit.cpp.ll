@@ -597,7 +597,7 @@ define internal noundef double @_ZL10lmc_erffitdPKd(double noundef %0, ptr nocap
   br label %15
 
 13:                                               ; preds = %2
-  %14 = fcmp ogt double %7, %0
+  %14 = fcmp olt double %0, %7
   %. = select i1 %14, double -1.000000e+00, double 1.000000e+00
   br label %15
 
@@ -768,7 +768,7 @@ _ZL8safe_expd.exit22:                             ; preds = %30, %40, %42
   %44 = getelementptr inbounds i8, ptr %1, i64 8
   %45 = load double, ptr %44, align 8
   %46 = tail call double @llvm.fabs.f64(double %45)
-  %47 = fmul double %46, %0
+  %47 = fmul double %0, %46
   %48 = tail call double @cos(double noundef %47) #18
   %49 = fmul double %.0.i21, %48
   br label %50
@@ -900,7 +900,7 @@ _Z11effnNparamsi.exit:                            ; preds = %25, %26
 47:                                               ; preds = %43
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = uitofp nneg i32 %48 to float
-  %50 = fmul float %49, %3
+  %50 = fmul float %3, %49
   br label %51
 
 51:                                               ; preds = %47, %44
@@ -1502,7 +1502,7 @@ _Z11effnNparamsi.exit192.us:                      ; preds = %_Z11effnNparamsi.ex
   %indvars.iv253 = phi i64 [ %indvars.iv.next254, %.lr.ph229.split.us ], [ 0, %.lr.ph229 ]
   %322 = trunc nuw nsw i64 %indvars.iv253 to i32
   %323 = uitofp nneg i32 %322 to float
-  %324 = fmul float %323, %3
+  %324 = fmul float %3, %323
   %325 = getelementptr inbounds double, ptr %38, i64 %indvars.iv253
   %326 = load double, ptr %325, align 8
   %327 = getelementptr inbounds double, ptr %39, i64 %indvars.iv253
@@ -1889,11 +1889,11 @@ define noundef float @_Z7fit_acfiiPK16gmx_output_env_tbfffPfS2_(i32 noundef %0, 
   %15 = phi i1 [ true, %.thread ], [ false, %12 ]
   %16 = fcmp ugt float %5, 0.000000e+00
   %17 = sitofp i32 %0 to float
-  %18 = fmul float %17, %6
+  %18 = fmul float %6, %17
   %.0156 = select i1 %16, float %5, float %18
   %19 = fdiv float %.0156, %6
   %20 = fptosi float %19 to i32
-  %.sroa.speculated131 = tail call i32 @llvm.smin.i32(i32 %20, i32 %0)
+  %.sroa.speculated131 = tail call i32 @llvm.smin.i32(i32 %0, i32 %20)
   %21 = load ptr, ptr @debug, align 8
   %22 = tail call noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %21, i32 noundef %.sroa.speculated131, float noundef %6, ptr noundef %7, ptr noundef null, i32 noundef 1)
   br i1 %15, label %23, label %.critedge114
@@ -1901,7 +1901,7 @@ define noundef float @_Z7fit_acfiiPK16gmx_output_env_tbfffPfS2_(i32 noundef %0, 
 23:                                               ; preds = %14
   %24 = fpext float %22 to double
   %25 = sitofp i32 %.sroa.speculated131 to float
-  %26 = fmul float %25, %6
+  %26 = fmul float %6, %25
   %27 = fpext float %26 to double
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, double noundef 0.000000e+00, double noundef %27, double noundef %24)
   %puts111 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
@@ -1991,7 +1991,7 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   %.0106170 = phi double [ %.1107, %93 ], [ -1.000000e+00, %.preheader167 ]
   %71 = trunc nuw nsw i64 %indvars.iv to i32
   %72 = uitofp nneg i32 %71 to float
-  %73 = fmul float %72, %6
+  %73 = fmul float %6, %72
   %74 = fpext float %73 to double
   %75 = fcmp ogt double %.0190, %74
   br i1 %75, label %.critedge4, label %76
@@ -2057,7 +2057,7 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %.lr.ph178 ], [ 0, %100 ]
   %101 = trunc nuw nsw i64 %indvars.iv194 to i32
   %102 = uitofp nneg i32 %101 to float
-  %103 = fmul float %102, %6
+  %103 = fmul float %6, %102
   %104 = fpext float %103 to double
   %105 = fadd double %.2105, %104
   %106 = call double @sqrt(double noundef %105) #18
@@ -2072,7 +2072,7 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   %109 = fadd double %.0190, 1.000000e-04
   %110 = fdiv double %109, %56
   %111 = fptosi double %110 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %111, i32 %0)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %0, i32 %111)
   %112 = load ptr, ptr @debug, align 8
   %113 = call noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %112, i32 noundef %.sroa.speculated, float noundef %6, ptr noundef %7, ptr noundef null, i32 noundef 1)
   %114 = fpext float %113 to double
@@ -2095,7 +2095,7 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   %121 = load ptr, ptr %66, align 8
   %122 = trunc nuw nsw i64 %indvars.iv202 to i32
   %123 = uitofp nneg i32 %122 to float
-  %124 = fmul float %123, %6
+  %124 = fmul float %6, %123
   %125 = fpext float %124 to double
   %126 = call noundef double %121(double noundef %125, ptr noundef nonnull %11)
   %127 = fptrunc double %126 to float

@@ -39,7 +39,7 @@ define internal ptr @H5O__mdci_decode(ptr noundef %0, ptr nocapture readnone %1,
   %7 = alloca ptr, align 8
   %8 = getelementptr i8, ptr %5, i64 %4
   %.ptr53 = getelementptr i8, ptr %8, i64 -1
-  %9 = icmp ult ptr %.ptr53, %5
+  %9 = icmp ugt ptr %5, %.ptr53
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %6

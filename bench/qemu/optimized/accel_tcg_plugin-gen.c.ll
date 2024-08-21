@@ -384,7 +384,7 @@ entry:
   %2 = load ptr, ptr %plugin_tb, align 8
   %n = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %n, align 8
-  %cmp.not = icmp ult i64 %3, %num_insns
+  %cmp.not = icmp ugt i64 %num_insns, %3
   br i1 %cmp.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry

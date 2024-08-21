@@ -712,7 +712,7 @@ common.resume:                                    ; preds = %47, %20
 
 39:                                               ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
-  %.not.i.i = icmp ugt i64 %28, %31
+  %.not.i.i = icmp ult i64 %31, %28
   br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h381d063d8d3579eaE.exit.i", label %40
 
 40:                                               ; preds = %39
@@ -1175,7 +1175,7 @@ _ZN17crossbeam_channel7context7Context12store_packet17h891d80907ed7870fE.exit.i.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !205)
   %88 = load i64, ptr %35, align 8, !alias.scope !208, !noalias !209, !noundef !4
-  %.not.i.i = icmp ugt i64 %88, %.015.i.i
+  %.not.i.i = icmp ult i64 %.015.i.i, %88
   br i1 %.not.i.i, label %_ZN17crossbeam_channel5waker5Waker10try_select17h9b7e001cc0091ca7E.exit, label %89
 
 89:                                               ; preds = %.noexc3

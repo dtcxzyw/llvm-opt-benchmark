@@ -340,8 +340,8 @@ define void @getComplexPairAndPhaseFromUnitary(ptr nocapture noundef readonly by
   %21 = fmul double %6, %20
   %22 = tail call double @llvm.fmuladd.f64(double %7, double %18, double %21)
   store double %22, ptr %1, align 8
-  %23 = fneg double %7
-  %24 = fmul double %20, %23
+  %23 = fneg double %20
+  %24 = fmul double %7, %23
   %25 = tail call double @llvm.fmuladd.f64(double %6, double %18, double %24)
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   store double %25, ptr %26, align 8
@@ -350,11 +350,10 @@ define void @getComplexPairAndPhaseFromUnitary(ptr nocapture noundef readonly by
   %29 = fmul double %20, %28
   %30 = tail call double @llvm.fmuladd.f64(double %27, double %18, double %29)
   store double %30, ptr %2, align 8
-  %31 = fneg double %27
-  %32 = fmul double %20, %31
-  %33 = tail call double @llvm.fmuladd.f64(double %28, double %18, double %32)
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
-  store double %33, ptr %34, align 8
+  %31 = fmul double %27, %23
+  %32 = tail call double @llvm.fmuladd.f64(double %28, double %18, double %31)
+  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %32, ptr %33, align 8
   ret void
 }
 
@@ -727,22 +726,18 @@ define void @statevec_rotateAroundAxisConj(ptr noundef byval(%struct.Qureg) alig
   %6 = tail call double @llvm.fmuladd.f64(double %.sroa.03.0.copyload, double %.sroa.03.0.copyload, double %5)
   %7 = tail call double @llvm.fmuladd.f64(double %.sroa.5.0.copyload, double %.sroa.5.0.copyload, double %6)
   %sqrt.i.i.i = tail call double @llvm.sqrt.f64(double %7)
-  %8 = fdiv double %.sroa.4.0.copyload, %sqrt.i.i.i
-  %9 = fmul double %2, 5.000000e-01
-  %10 = tail call double @cos(double noundef %9) #22
-  %11 = tail call double @sin(double noundef %9) #22
-  %12 = fneg double %11
-  %13 = tail call double @sin(double noundef %9) #22
-  %14 = fmul double %13, %8
-  %15 = tail call double @sin(double noundef %9) #22
-  %16 = fneg double %15
-  %17 = fneg double %.sroa.5.0.copyload
-  %18 = fdiv double %17, %sqrt.i.i.i
-  %19 = fmul double %18, %12
-  %20 = fneg double %.sroa.03.0.copyload
-  %21 = fdiv double %20, %sqrt.i.i.i
-  %22 = fmul double %21, %16
-  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %10, double %19, double %14, double %22) #22
+  %8 = fdiv double %.sroa.03.0.copyload, %sqrt.i.i.i
+  %9 = fdiv double %.sroa.4.0.copyload, %sqrt.i.i.i
+  %10 = fdiv double %.sroa.5.0.copyload, %sqrt.i.i.i
+  %11 = fmul double %2, 5.000000e-01
+  %12 = tail call double @cos(double noundef %11) #22
+  %13 = tail call double @sin(double noundef %11) #22
+  %14 = tail call double @sin(double noundef %11) #22
+  %15 = fmul double %14, %9
+  %16 = tail call double @sin(double noundef %11) #22
+  %17 = fmul double %13, %10
+  %18 = fmul double %8, %16
+  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %12, double %17, double %15, double %18) #22
   ret void
 }
 
@@ -787,22 +782,18 @@ define void @statevec_controlledRotateAroundAxisConj(ptr noundef byval(%struct.Q
   %7 = tail call double @llvm.fmuladd.f64(double %.sroa.04.0.copyload, double %.sroa.04.0.copyload, double %6)
   %8 = tail call double @llvm.fmuladd.f64(double %.sroa.5.0.copyload, double %.sroa.5.0.copyload, double %7)
   %sqrt.i.i.i = tail call double @llvm.sqrt.f64(double %8)
-  %9 = fdiv double %.sroa.4.0.copyload, %sqrt.i.i.i
-  %10 = fmul double %3, 5.000000e-01
-  %11 = tail call double @cos(double noundef %10) #22
-  %12 = tail call double @sin(double noundef %10) #22
-  %13 = fneg double %12
-  %14 = tail call double @sin(double noundef %10) #22
-  %15 = fmul double %14, %9
-  %16 = tail call double @sin(double noundef %10) #22
-  %17 = fneg double %16
-  %18 = fneg double %.sroa.5.0.copyload
-  %19 = fdiv double %18, %sqrt.i.i.i
-  %20 = fmul double %19, %13
-  %21 = fneg double %.sroa.04.0.copyload
-  %22 = fdiv double %21, %sqrt.i.i.i
-  %23 = fmul double %22, %17
-  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %11, double %20, double %15, double %23) #22
+  %9 = fdiv double %.sroa.04.0.copyload, %sqrt.i.i.i
+  %10 = fdiv double %.sroa.4.0.copyload, %sqrt.i.i.i
+  %11 = fdiv double %.sroa.5.0.copyload, %sqrt.i.i.i
+  %12 = fmul double %3, 5.000000e-01
+  %13 = tail call double @cos(double noundef %12) #22
+  %14 = tail call double @sin(double noundef %12) #22
+  %15 = tail call double @sin(double noundef %12) #22
+  %16 = fmul double %15, %10
+  %17 = tail call double @sin(double noundef %12) #22
+  %18 = fmul double %14, %11
+  %19 = fmul double %9, %17
+  tail call void @statevec_controlledCompactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double %13, double %18, double %16, double %19) #22
   ret void
 }
 
@@ -1878,8 +1869,8 @@ define void @populateKrausSuperOperator2(ptr nocapture noundef %0, ptr nocapture
   %35 = load double, ptr %26, align 8
   %36 = load double, ptr %16, align 8
   %37 = load double, ptr %23, align 8
-  %38 = fneg double %36
-  %39 = fmul double %37, %38
+  %38 = fneg double %37
+  %39 = fmul double %36, %38
   %40 = tail call double @llvm.fmuladd.f64(double %34, double %35, double %39)
   %41 = getelementptr inbounds [4 x [4 x double]], ptr %4, i64 0, i64 %19, i64 %30
   %42 = load double, ptr %41, align 8
@@ -1989,8 +1980,8 @@ define void @populateKrausSuperOperator4(ptr nocapture noundef readonly %0, ptr 
   %41 = load double, ptr %29, align 8
   %42 = load double, ptr %21, align 8
   %43 = load double, ptr %26, align 8
-  %44 = fneg double %42
-  %45 = fmul double %43, %44
+  %44 = fneg double %43
+  %45 = fmul double %42, %44
   %46 = tail call double @llvm.fmuladd.f64(double %40, double %41, double %45)
   %47 = load ptr, ptr %5, align 8
   %48 = getelementptr inbounds ptr, ptr %47, i64 %23
@@ -2156,8 +2147,8 @@ define void @populateKrausSuperOperatorN(ptr nocapture noundef readonly %0, ptr 
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds double, ptr %75, i64 %indvars.iv105
   %77 = load double, ptr %76, align 8
-  %78 = fneg double %73
-  %79 = fmul double %77, %78
+  %78 = fneg double %77
+  %79 = fmul double %73, %78
   %80 = tail call double @llvm.fmuladd.f64(double %64, double %69, double %79)
   %81 = load ptr, ptr %21, align 8
   %82 = getelementptr inbounds ptr, ptr %81, i64 %31
@@ -2299,39 +2290,39 @@ define void @densmatr_mixKrausMap(ptr nocapture noundef readonly byval(%struct.Q
   %16 = shl nuw nsw i64 %indvars.iv103.i, 1
   %17 = load double, ptr %14, align 8
   %18 = load double, ptr %15, align 8
-  %19 = fneg double %18
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %39, %.preheader80.i
-  %20 = phi i1 [ true, %.preheader80.i ], [ false, %39 ]
+  %19 = phi i1 [ true, %.preheader80.i ], [ false, %39 ]
   %indvars.iv100.i = phi i64 [ 0, %.preheader80.i ], [ 1, %39 ]
-  %21 = or disjoint i64 %indvars.iv100.i, %12
-  br label %22
+  %20 = or disjoint i64 %indvars.iv100.i, %12
+  br label %21
 
-22:                                               ; preds = %22, %.preheader.i
-  %23 = phi i1 [ true, %.preheader.i ], [ false, %22 ]
-  %indvars.iv97.i = phi i64 [ 0, %.preheader.i ], [ 1, %22 ]
-  %24 = getelementptr inbounds [2 x [2 x double]], ptr %9, i64 0, i64 %indvars.iv100.i, i64 %indvars.iv97.i
-  %25 = load double, ptr %24, align 8
-  %26 = getelementptr inbounds [2 x [2 x double]], ptr %10, i64 0, i64 %indvars.iv100.i, i64 %indvars.iv97.i
-  %27 = load double, ptr %26, align 8
-  %28 = fmul double %18, %27
-  %29 = tail call double @llvm.fmuladd.f64(double %17, double %25, double %28)
-  %30 = or disjoint i64 %indvars.iv97.i, %16
-  %31 = getelementptr inbounds [4 x [4 x double]], ptr %5, i64 0, i64 %21, i64 %30
-  %32 = load double, ptr %31, align 8
-  %33 = fadd double %32, %29
-  store double %33, ptr %31, align 8
-  %34 = fmul double %25, %19
-  %35 = tail call double @llvm.fmuladd.f64(double %17, double %27, double %34)
-  %36 = getelementptr inbounds [4 x [4 x double]], ptr %7, i64 0, i64 %21, i64 %30
+21:                                               ; preds = %21, %.preheader.i
+  %22 = phi i1 [ true, %.preheader.i ], [ false, %21 ]
+  %indvars.iv97.i = phi i64 [ 0, %.preheader.i ], [ 1, %21 ]
+  %23 = getelementptr inbounds [2 x [2 x double]], ptr %9, i64 0, i64 %indvars.iv100.i, i64 %indvars.iv97.i
+  %24 = load double, ptr %23, align 8
+  %25 = getelementptr inbounds [2 x [2 x double]], ptr %10, i64 0, i64 %indvars.iv100.i, i64 %indvars.iv97.i
+  %26 = load double, ptr %25, align 8
+  %27 = fmul double %18, %26
+  %28 = tail call double @llvm.fmuladd.f64(double %17, double %24, double %27)
+  %29 = or disjoint i64 %indvars.iv97.i, %16
+  %30 = getelementptr inbounds [4 x [4 x double]], ptr %5, i64 0, i64 %20, i64 %29
+  %31 = load double, ptr %30, align 8
+  %32 = fadd double %31, %28
+  store double %32, ptr %30, align 8
+  %33 = fneg double %24
+  %34 = fmul double %18, %33
+  %35 = tail call double @llvm.fmuladd.f64(double %17, double %26, double %34)
+  %36 = getelementptr inbounds [4 x [4 x double]], ptr %7, i64 0, i64 %20, i64 %29
   %37 = load double, ptr %36, align 8
   %38 = fadd double %35, %37
   store double %38, ptr %36, align 8
-  br i1 %23, label %22, label %39
+  br i1 %22, label %21, label %39
 
-39:                                               ; preds = %22
-  br i1 %20, label %.preheader.i, label %40
+39:                                               ; preds = %21
+  br i1 %19, label %.preheader.i, label %40
 
 40:                                               ; preds = %39
   br i1 %13, label %.preheader80.i, label %41
@@ -2485,8 +2476,8 @@ define void @densmatr_mixTwoQubitKrausMap(ptr nocapture noundef readonly byval(%
   %48 = load double, ptr %39, align 8
   %49 = load double, ptr %29, align 8
   %50 = load double, ptr %36, align 8
-  %51 = fneg double %49
-  %52 = fmul double %50, %51
+  %51 = fneg double %50
+  %52 = fmul double %49, %51
   %53 = call double @llvm.fmuladd.f64(double %47, double %48, double %52)
   %54 = getelementptr inbounds double, ptr %.pre14, i64 %43
   %55 = load double, ptr %54, align 8
@@ -2723,39 +2714,39 @@ define void @densmatr_mixPauli(ptr nocapture noundef readonly byval(%struct.Qure
   %33 = shl nuw nsw i64 %indvars.iv103.i.i, 1
   %34 = load double, ptr %31, align 8
   %35 = load double, ptr %32, align 8
-  %36 = fneg double %35
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %56, %.preheader80.i.i
-  %37 = phi i1 [ true, %.preheader80.i.i ], [ false, %56 ]
+  %36 = phi i1 [ true, %.preheader80.i.i ], [ false, %56 ]
   %indvars.iv100.i.i = phi i64 [ 0, %.preheader80.i.i ], [ 1, %56 ]
-  %38 = or disjoint i64 %indvars.iv100.i.i, %29
-  br label %39
+  %37 = or disjoint i64 %indvars.iv100.i.i, %29
+  br label %38
 
-39:                                               ; preds = %39, %.preheader.i.i
-  %40 = phi i1 [ true, %.preheader.i.i ], [ false, %39 ]
-  %indvars.iv97.i.i = phi i64 [ 0, %.preheader.i.i ], [ 1, %39 ]
-  %41 = getelementptr inbounds [2 x [2 x double]], ptr %26, i64 0, i64 %indvars.iv100.i.i, i64 %indvars.iv97.i.i
-  %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds [2 x [2 x double]], ptr %27, i64 0, i64 %indvars.iv100.i.i, i64 %indvars.iv97.i.i
-  %44 = load double, ptr %43, align 8
-  %45 = fmul double %35, %44
-  %46 = tail call double @llvm.fmuladd.f64(double %34, double %42, double %45)
-  %47 = or disjoint i64 %indvars.iv97.i.i, %33
-  %48 = getelementptr inbounds [4 x [4 x double]], ptr %6, i64 0, i64 %38, i64 %47
-  %49 = load double, ptr %48, align 8
-  %50 = fadd double %49, %46
-  store double %50, ptr %48, align 8
-  %51 = fmul double %42, %36
-  %52 = tail call double @llvm.fmuladd.f64(double %34, double %44, double %51)
-  %53 = getelementptr inbounds [4 x [4 x double]], ptr %invariant.gep.i, i64 0, i64 %38, i64 %47
+38:                                               ; preds = %38, %.preheader.i.i
+  %39 = phi i1 [ true, %.preheader.i.i ], [ false, %38 ]
+  %indvars.iv97.i.i = phi i64 [ 0, %.preheader.i.i ], [ 1, %38 ]
+  %40 = getelementptr inbounds [2 x [2 x double]], ptr %26, i64 0, i64 %indvars.iv100.i.i, i64 %indvars.iv97.i.i
+  %41 = load double, ptr %40, align 8
+  %42 = getelementptr inbounds [2 x [2 x double]], ptr %27, i64 0, i64 %indvars.iv100.i.i, i64 %indvars.iv97.i.i
+  %43 = load double, ptr %42, align 8
+  %44 = fmul double %35, %43
+  %45 = tail call double @llvm.fmuladd.f64(double %34, double %41, double %44)
+  %46 = or disjoint i64 %indvars.iv97.i.i, %33
+  %47 = getelementptr inbounds [4 x [4 x double]], ptr %6, i64 0, i64 %37, i64 %46
+  %48 = load double, ptr %47, align 8
+  %49 = fadd double %48, %45
+  store double %49, ptr %47, align 8
+  %50 = fneg double %41
+  %51 = fmul double %35, %50
+  %52 = tail call double @llvm.fmuladd.f64(double %34, double %43, double %51)
+  %53 = getelementptr inbounds [4 x [4 x double]], ptr %invariant.gep.i, i64 0, i64 %37, i64 %46
   %54 = load double, ptr %53, align 8
   %55 = fadd double %52, %54
   store double %55, ptr %53, align 8
-  br i1 %40, label %39, label %56
+  br i1 %39, label %38, label %56
 
-56:                                               ; preds = %39
-  br i1 %37, label %.preheader.i.i, label %57
+56:                                               ; preds = %38
+  br i1 %36, label %.preheader.i.i, label %57
 
 57:                                               ; preds = %56
   br i1 %30, label %.preheader80.i.i, label %58
@@ -3172,34 +3163,34 @@ shiftSubregIndices.exit63:                        ; preds = %._crit_edge.i53, %.
   %47 = lshr i32 %2, 1
   %48 = zext nneg i32 %2 to i64
   %wide.trip.count = zext nneg i32 %47 to i64
-  %invariant.gep = getelementptr i32, ptr %1, i64 %48
+  %49 = getelementptr i32, ptr %1, i64 %48
   br label %.lr.ph74
 
-.lr.ph74:                                         ; preds = %.lr.ph74.preheader, %57
-  %indvars.iv79 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next80, %57 ]
-  %49 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv79
-  %50 = load i32, ptr %49, align 4
-  %51 = xor i64 %indvars.iv79, -1
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %51
-  %52 = load i32, ptr %gep, align 4
-  call void @statevec_swapQubitAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %50, i32 noundef %52) #22
-  %53 = load i32, ptr %0, align 8
-  %.not49 = icmp eq i32 %53, 0
-  br i1 %.not49, label %57, label %54
+.lr.ph74:                                         ; preds = %.lr.ph74.preheader, %59
+  %indvars.iv79 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next80, %59 ]
+  %50 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv79
+  %51 = load i32, ptr %50, align 4
+  %52 = xor i64 %indvars.iv79, -1
+  %53 = getelementptr i32, ptr %49, i64 %52
+  %54 = load i32, ptr %53, align 4
+  call void @statevec_swapQubitAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %51, i32 noundef %54) #22
+  %55 = load i32, ptr %0, align 8
+  %.not49 = icmp eq i32 %55, 0
+  br i1 %.not49, label %59, label %56
 
-54:                                               ; preds = %.lr.ph74
-  %55 = add nsw i32 %50, %8
-  %56 = add nsw i32 %52, %8
-  call void @statevec_swapQubitAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %55, i32 noundef %56) #22
-  br label %57
+56:                                               ; preds = %.lr.ph74
+  %57 = add nsw i32 %51, %8
+  %58 = add nsw i32 %54, %8
+  call void @statevec_swapQubitAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %57, i32 noundef %58) #22
+  br label %59
 
-57:                                               ; preds = %54, %.lr.ph74
-  call void @qasm_recordControlledGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 12, i32 noundef %50, i32 noundef %52) #22
+59:                                               ; preds = %56, %.lr.ph74
+  call void @qasm_recordControlledGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 12, i32 noundef %51, i32 noundef %54) #22
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
   br i1 %exitcond82.not, label %._crit_edge75, label %.lr.ph74
 
-._crit_edge75:                                    ; preds = %57, %3, %._crit_edge70
+._crit_edge75:                                    ; preds = %59, %3, %._crit_edge70
   ret void
 }
 

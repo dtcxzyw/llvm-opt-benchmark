@@ -108,7 +108,7 @@ define { i64, ptr } @stack_pop(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..0..sroa_idx, align 8
   %7 = getelementptr i8, ptr %0, i64 68
   %.val9 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %.val9, %4
+  %.not = icmp eq i32 %4, %.val9
   br i1 %.not, label %.thread, label %11
 
 .thread:                                          ; preds = %1
@@ -128,7 +128,7 @@ define { i64, ptr } @stack_pop(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %15 = getelementptr inbounds i8, ptr %.val.i.pre, i64 %.pre12
   %16 = getelementptr inbounds i8, ptr %15, i64 -4
   %17 = load i32, ptr %16, align 4
-  %18 = icmp eq i32 %.pre11, %.pre
+  %18 = icmp eq i32 %.pre, %.pre11
   br i1 %18, label %19, label %stack_pop_block.exit
 
 19:                                               ; preds = %.thread, %11
@@ -165,7 +165,7 @@ define { i64, ptr } @stack_popn(ptr nocapture noundef %0) local_unnamed_addr #0 
   %.sroa.210.0.copyload = load ptr, ptr %.sroa.210.0..0..sroa_idx, align 8
   %7 = getelementptr i8, ptr %0, i64 68
   %.val11 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %.val11, %4
+  %.not = icmp eq i32 %4, %.val11
   br i1 %.not, label %.thread, label %11
 
 .thread:                                          ; preds = %1
@@ -187,7 +187,7 @@ define { i64, ptr } @stack_popn(ptr nocapture noundef %0) local_unnamed_addr #0 
   %15 = getelementptr inbounds i8, ptr %.val.i.pre, i64 %.pre14
   %16 = getelementptr inbounds i8, ptr %15, i64 -4
   %17 = load i32, ptr %16, align 4
-  %18 = icmp eq i32 %.pre13, %.pre
+  %18 = icmp eq i32 %.pre, %.pre13
   br i1 %18, label %19, label %stack_pop_block.exit
 
 19:                                               ; preds = %.thread, %11
@@ -434,7 +434,7 @@ define ptr @stack_restore(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 68
   %5 = load i32, ptr %3, align 8
   %.val3849 = load i32, ptr %4, align 4
-  %.not50 = icmp eq i32 %.val3849, %5
+  %.not50 = icmp eq i32 %5, %.val3849
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
@@ -445,7 +445,7 @@ define ptr @stack_restore(ptr nocapture noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %.lr.ph, %55
   %.val3857 = phi i32 [ %.val3849, %.lr.ph ], [ %.val38, %55 ]
   %9 = load i32, ptr %6, align 4
-  %.not44 = icmp eq i32 %.val3857, %9
+  %.not44 = icmp eq i32 %9, %.val3857
   br i1 %.not44, label %stack_pop.exit, label %15
 
 stack_pop.exit:                                   ; preds = %8
@@ -466,7 +466,7 @@ stack_pop.exit:                                   ; preds = %8
 
 15:                                               ; preds = %8
   %16 = load i32, ptr %7, align 8
-  %.not45 = icmp eq i32 %.val3857, %16
+  %.not45 = icmp eq i32 %16, %.val3857
   br i1 %.not45, label %17, label %55
 
 17:                                               ; preds = %15
@@ -513,7 +513,7 @@ stack_pop.exit:                                   ; preds = %8
   %39 = getelementptr inbounds i8, ptr %.val.i.pre.i42, i64 %.pre19.i
   %40 = getelementptr inbounds i8, ptr %39, i64 -4
   %41 = load i32, ptr %40, align 4
-  %42 = icmp eq i32 %.pre18.i, %.pre.i41
+  %42 = icmp eq i32 %.pre.i41, %.pre18.i
   br i1 %42, label %.loopexit.i._crit_edge, label %frame_pop.exit
 
 .loopexit.i._crit_edge:                           ; preds = %.loopexit.i
@@ -547,7 +547,7 @@ frame_pop.exit:                                   ; preds = %.loopexit.i, %43
 55:                                               ; preds = %frame_pop.exit, %15, %stack_pop.exit
   %.val38 = phi i32 [ %.val3855, %frame_pop.exit ], [ %.val3857, %15 ], [ %.val38.pre, %stack_pop.exit ]
   %56 = load i32, ptr %3, align 8
-  %.not = icmp eq i32 %.val38, %56
+  %.not = icmp eq i32 %56, %.val38
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %55, %1
@@ -611,7 +611,7 @@ frame_pop.exit:                                   ; preds = %.loopexit.i, %43
   %95 = getelementptr inbounds i8, ptr %94, i64 -4
   %96 = load i32, ptr %95, align 4
   %97 = load i32, ptr %4, align 4
-  %98 = icmp eq i32 %97, %92
+  %98 = icmp eq i32 %92, %97
   br i1 %98, label %99, label %stack_pop_block.exit
 
 99:                                               ; preds = %83
@@ -942,7 +942,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %.sroa.4.0..0..sroa_idx.i = getelementptr inbounds i8, ptr %152, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..0..sroa_idx.i, align 8
   %.val9.i = load i32, ptr %24, align 4
-  %.not.i = icmp eq i32 %.val9.i, %150
+  %.not.i = icmp eq i32 %150, %.val9.i
   br i1 %.not.i, label %.thread.i, label %155
 
 .thread.i:                                        ; preds = %133
@@ -961,7 +961,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %159 = getelementptr inbounds i8, ptr %.val.i.pre.i, i64 %.pre12.i
   %160 = getelementptr inbounds i8, ptr %159, i64 -4
   %161 = load i32, ptr %160, align 4
-  %162 = icmp eq i32 %.pre11.i, %.pre.i
+  %162 = icmp eq i32 %.pre.i, %.pre11.i
   br i1 %162, label %163, label %stack_pop.exit
 
 163:                                              ; preds = %155, %.thread.i
@@ -1099,7 +1099,7 @@ stack_push.exit832:                               ; preds = %194, %215
   %.sroa.4.0..0..sroa_idx.i835 = getelementptr inbounds i8, ptr %239, i64 8
   %.sroa.4.0.copyload.i836 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i835, align 8
   %.val9.i837 = load i32, ptr %24, align 4
-  %.not.i838 = icmp eq i32 %.val9.i837, %237
+  %.not.i838 = icmp eq i32 %237, %.val9.i837
   br i1 %.not.i838, label %.thread.i849, label %242
 
 .thread.i849:                                     ; preds = %236
@@ -1118,7 +1118,7 @@ stack_push.exit832:                               ; preds = %194, %215
   %246 = getelementptr inbounds i8, ptr %.val.i.pre.i840, i64 %.pre12.i842
   %247 = getelementptr inbounds i8, ptr %246, i64 -4
   %248 = load i32, ptr %247, align 4
-  %249 = icmp eq i32 %.pre11.i841, %.pre.i839
+  %249 = icmp eq i32 %.pre.i839, %.pre11.i841
   br i1 %249, label %250, label %stack_pop.exit850
 
 250:                                              ; preds = %242, %.thread.i849
@@ -1239,7 +1239,7 @@ stack_push.exit864:                               ; preds = %stack_push.exit857,
   %.sroa.210.0..0..sroa_idx.i = getelementptr inbounds i8, ptr %313, i64 8
   %.sroa.210.0.copyload.i = load ptr, ptr %.sroa.210.0..0..sroa_idx.i, align 8
   %.val11.i = load i32, ptr %24, align 4
-  %.not.i866 = icmp eq i32 %.val11.i, %311
+  %.not.i866 = icmp eq i32 %311, %.val11.i
   br i1 %.not.i866, label %.thread.i871, label %316
 
 .thread.i871:                                     ; preds = %310
@@ -1260,7 +1260,7 @@ stack_push.exit864:                               ; preds = %stack_push.exit857,
   %320 = getelementptr inbounds i8, ptr %.val.i.pre.i868, i64 %.pre14.i
   %321 = getelementptr inbounds i8, ptr %320, i64 -4
   %322 = load i32, ptr %321, align 4
-  %323 = icmp eq i32 %.pre13.i, %.pre.i867
+  %323 = icmp eq i32 %.pre.i867, %.pre13.i
   br i1 %323, label %324, label %stack_popn.exit
 
 324:                                              ; preds = %316, %.thread.i871
@@ -1377,7 +1377,7 @@ stack_push.exit885:                               ; preds = %stack_push.exit878,
   %.sroa.4.0..0..sroa_idx.i888 = getelementptr inbounds i8, ptr %387, i64 8
   %.sroa.4.0.copyload.i889 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i888, align 8
   %.val9.i890 = load i32, ptr %24, align 4
-  %.not.i891 = icmp eq i32 %.val9.i890, %385
+  %.not.i891 = icmp eq i32 %385, %.val9.i890
   br i1 %.not.i891, label %.thread.i902, label %390
 
 .thread.i902:                                     ; preds = %384
@@ -1396,7 +1396,7 @@ stack_push.exit885:                               ; preds = %stack_push.exit878,
   %394 = getelementptr inbounds i8, ptr %.val.i.pre.i893, i64 %.pre12.i895
   %395 = getelementptr inbounds i8, ptr %394, i64 -4
   %396 = load i32, ptr %395, align 4
-  %397 = icmp eq i32 %.pre11.i894, %.pre.i892
+  %397 = icmp eq i32 %.pre.i892, %.pre11.i894
   br i1 %397, label %398, label %stack_pop.exit903
 
 398:                                              ; preds = %390, %.thread.i902
@@ -1421,7 +1421,7 @@ stack_pop.exit903:                                ; preds = %390, %398
   %.sroa.08.0.copyload.i905 = load i64, ptr %404, align 8
   %.sroa.4.0..0..sroa_idx.i906 = getelementptr inbounds i8, ptr %404, i64 8
   %.sroa.4.0.copyload.i907 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i906, align 8
-  %.not.i909 = icmp eq i32 %.val9.i908, %402
+  %.not.i909 = icmp eq i32 %402, %.val9.i908
   br i1 %.not.i909, label %.thread.i920, label %407
 
 .thread.i920:                                     ; preds = %stack_pop.exit903
@@ -1440,7 +1440,7 @@ stack_pop.exit903:                                ; preds = %390, %398
   %411 = getelementptr inbounds i8, ptr %.val.i.pre.i911, i64 %.pre12.i913
   %412 = getelementptr inbounds i8, ptr %411, i64 -4
   %413 = load i32, ptr %412, align 4
-  %414 = icmp eq i32 %.pre11.i912, %.pre.i910
+  %414 = icmp eq i32 %.pre.i910, %.pre11.i912
   br i1 %414, label %415, label %stack_pop.exit921
 
 415:                                              ; preds = %407, %.thread.i920
@@ -1606,7 +1606,7 @@ stack_push.exit942:                               ; preds = %stack_push.exit935,
   %.sroa.4.0..0..sroa_idx.i945 = getelementptr inbounds i8, ptr %504, i64 8
   %.sroa.4.0.copyload.i946 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i945, align 8
   %.val9.i947 = load i32, ptr %24, align 4
-  %.not.i948 = icmp eq i32 %.val9.i947, %502
+  %.not.i948 = icmp eq i32 %502, %.val9.i947
   br i1 %.not.i948, label %.thread.i959, label %507
 
 .thread.i959:                                     ; preds = %501
@@ -1625,7 +1625,7 @@ stack_push.exit942:                               ; preds = %stack_push.exit935,
   %511 = getelementptr inbounds i8, ptr %.val.i.pre.i950, i64 %.pre12.i952
   %512 = getelementptr inbounds i8, ptr %511, i64 -4
   %513 = load i32, ptr %512, align 4
-  %514 = icmp eq i32 %.pre11.i951, %.pre.i949
+  %514 = icmp eq i32 %.pre.i949, %.pre11.i951
   br i1 %514, label %515, label %stack_pop.exit960
 
 515:                                              ; preds = %507, %.thread.i959
@@ -1752,7 +1752,7 @@ stack_push.exit974:                               ; preds = %stack_push.exit967,
   %.sroa.4.0..0..sroa_idx.i977 = getelementptr inbounds i8, ptr %582, i64 8
   %.sroa.4.0.copyload.i978 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i977, align 8
   %.val9.i979 = load i32, ptr %24, align 4
-  %.not.i980 = icmp eq i32 %.val9.i979, %580
+  %.not.i980 = icmp eq i32 %580, %.val9.i979
   br i1 %.not.i980, label %.thread.i991, label %585
 
 .thread.i991:                                     ; preds = %577
@@ -1771,7 +1771,7 @@ stack_push.exit974:                               ; preds = %stack_push.exit967,
   %589 = getelementptr inbounds i8, ptr %.val.i.pre.i982, i64 %.pre12.i984
   %590 = getelementptr inbounds i8, ptr %589, i64 -4
   %591 = load i32, ptr %590, align 4
-  %592 = icmp eq i32 %.pre11.i983, %.pre.i981
+  %592 = icmp eq i32 %.pre.i981, %.pre11.i983
   br i1 %592, label %593, label %stack_pop.exit992
 
 593:                                              ; preds = %585, %.thread.i991
@@ -1796,7 +1796,7 @@ stack_pop.exit992:                                ; preds = %585, %593
   %.sroa.08.0.copyload.i994 = load i64, ptr %599, align 8
   %.sroa.4.0..0..sroa_idx.i995 = getelementptr inbounds i8, ptr %599, i64 8
   %.sroa.4.0.copyload.i996 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i995, align 8
-  %.not.i998 = icmp eq i32 %.val9.i997, %597
+  %.not.i998 = icmp eq i32 %597, %.val9.i997
   br i1 %.not.i998, label %.thread.i1009, label %602
 
 .thread.i1009:                                    ; preds = %stack_pop.exit992
@@ -1815,7 +1815,7 @@ stack_pop.exit992:                                ; preds = %585, %593
   %606 = getelementptr inbounds i8, ptr %.val.i.pre.i1000, i64 %.pre12.i1002
   %607 = getelementptr inbounds i8, ptr %606, i64 -4
   %608 = load i32, ptr %607, align 4
-  %609 = icmp eq i32 %.pre11.i1001, %.pre.i999
+  %609 = icmp eq i32 %.pre.i999, %.pre11.i1001
   br i1 %609, label %610, label %stack_pop.exit1010
 
 610:                                              ; preds = %602, %.thread.i1009
@@ -1949,7 +1949,7 @@ stack_push.exit1024:                              ; preds = %stack_push.exit1017
   %.sroa.4.0..0..sroa_idx.i1027 = getelementptr inbounds i8, ptr %684, i64 8
   %.sroa.4.0.copyload.i1028 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1027, align 8
   %.val9.i1029 = load i32, ptr %24, align 4
-  %.not.i1030 = icmp eq i32 %.val9.i1029, %682
+  %.not.i1030 = icmp eq i32 %682, %.val9.i1029
   br i1 %.not.i1030, label %.thread.i1041, label %687
 
 .thread.i1041:                                    ; preds = %665
@@ -1968,7 +1968,7 @@ stack_push.exit1024:                              ; preds = %stack_push.exit1017
   %691 = getelementptr inbounds i8, ptr %.val.i.pre.i1032, i64 %.pre12.i1034
   %692 = getelementptr inbounds i8, ptr %691, i64 -4
   %693 = load i32, ptr %692, align 4
-  %694 = icmp eq i32 %.pre11.i1033, %.pre.i1031
+  %694 = icmp eq i32 %.pre.i1031, %.pre11.i1033
   br i1 %694, label %695, label %stack_pop.exit1042
 
 695:                                              ; preds = %687, %.thread.i1041
@@ -2084,7 +2084,7 @@ stack_push.exit1056:                              ; preds = %stack_push.exit1049
   %.sroa.4.0..0..sroa_idx.i1059 = getelementptr inbounds i8, ptr %753, i64 8
   %.sroa.4.0.copyload.i1060 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1059, align 8
   %.val9.i1061 = load i32, ptr %24, align 4
-  %.not.i1062 = icmp eq i32 %.val9.i1061, %751
+  %.not.i1062 = icmp eq i32 %751, %.val9.i1061
   br i1 %.not.i1062, label %.thread.i1073, label %756
 
 .thread.i1073:                                    ; preds = %750
@@ -2103,7 +2103,7 @@ stack_push.exit1056:                              ; preds = %stack_push.exit1049
   %760 = getelementptr inbounds i8, ptr %.val.i.pre.i1064, i64 %.pre12.i1066
   %761 = getelementptr inbounds i8, ptr %760, i64 -4
   %762 = load i32, ptr %761, align 4
-  %763 = icmp eq i32 %.pre11.i1065, %.pre.i1063
+  %763 = icmp eq i32 %.pre.i1063, %.pre11.i1065
   br i1 %763, label %764, label %stack_pop.exit1074
 
 764:                                              ; preds = %756, %.thread.i1073
@@ -2132,7 +2132,7 @@ stack_pop.exit1074:                               ; preds = %756, %764
   %.sroa.4.0..0..sroa_idx.i1077 = getelementptr inbounds i8, ptr %772, i64 8
   %.sroa.4.0.copyload.i1078 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1077, align 8
   %.val9.i1079 = load i32, ptr %24, align 4
-  %.not.i1080 = icmp eq i32 %.val9.i1079, %770
+  %.not.i1080 = icmp eq i32 %770, %.val9.i1079
   br i1 %.not.i1080, label %.thread.i1091, label %775
 
 .thread.i1091:                                    ; preds = %769
@@ -2151,7 +2151,7 @@ stack_pop.exit1074:                               ; preds = %756, %764
   %779 = getelementptr inbounds i8, ptr %.val.i.pre.i1082, i64 %.pre12.i1084
   %780 = getelementptr inbounds i8, ptr %779, i64 -4
   %781 = load i32, ptr %780, align 4
-  %782 = icmp eq i32 %.pre11.i1083, %.pre.i1081
+  %782 = icmp eq i32 %.pre.i1081, %.pre11.i1083
   br i1 %782, label %783, label %stack_pop.exit1092
 
 783:                                              ; preds = %775, %.thread.i1091
@@ -2224,7 +2224,7 @@ frame_local_var.exit:                             ; preds = %794, %stack_pop.exi
   %.sroa.4.0..0..sroa_idx.i1095 = getelementptr inbounds i8, ptr %815, i64 8
   %.sroa.4.0.copyload.i1096 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1095, align 8
   %.val9.i1097 = load i32, ptr %24, align 4
-  %.not.i1098 = icmp eq i32 %.val9.i1097, %813
+  %.not.i1098 = icmp eq i32 %813, %.val9.i1097
   br i1 %.not.i1098, label %.thread.i1109, label %818
 
 .thread.i1109:                                    ; preds = %812
@@ -2243,7 +2243,7 @@ frame_local_var.exit:                             ; preds = %794, %stack_pop.exi
   %822 = getelementptr inbounds i8, ptr %.val.i.pre.i1100, i64 %.pre12.i1102
   %823 = getelementptr inbounds i8, ptr %822, i64 -4
   %824 = load i32, ptr %823, align 4
-  %825 = icmp eq i32 %.pre11.i1101, %.pre.i1099
+  %825 = icmp eq i32 %.pre.i1099, %.pre11.i1101
   br i1 %825, label %826, label %stack_pop.exit1110
 
 826:                                              ; preds = %818, %.thread.i1109
@@ -2268,7 +2268,7 @@ stack_pop.exit1110:                               ; preds = %818, %826
   %.sroa.08.0.copyload.i1112 = load i64, ptr %832, align 8
   %.sroa.4.0..0..sroa_idx.i1113 = getelementptr inbounds i8, ptr %832, i64 8
   %.sroa.4.0.copyload.i1114 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1113, align 8
-  %.not.i1116 = icmp eq i32 %.val9.i1115, %830
+  %.not.i1116 = icmp eq i32 %830, %.val9.i1115
   br i1 %.not.i1116, label %.thread.i1127, label %835
 
 .thread.i1127:                                    ; preds = %stack_pop.exit1110
@@ -2287,7 +2287,7 @@ stack_pop.exit1110:                               ; preds = %818, %826
   %839 = getelementptr inbounds i8, ptr %.val.i.pre.i1118, i64 %.pre12.i1120
   %840 = getelementptr inbounds i8, ptr %839, i64 -4
   %841 = load i32, ptr %840, align 4
-  %842 = icmp eq i32 %.pre11.i1119, %.pre.i1117
+  %842 = icmp eq i32 %.pre.i1117, %.pre11.i1119
   br i1 %842, label %843, label %stack_pop.exit1128
 
 843:                                              ; preds = %835, %.thread.i1127
@@ -2312,7 +2312,7 @@ stack_pop.exit1128:                               ; preds = %835, %843
   %.sroa.08.0.copyload.i1130 = load i64, ptr %849, align 8
   %.sroa.4.0..0..sroa_idx.i1131 = getelementptr inbounds i8, ptr %849, i64 8
   %.sroa.4.0.copyload.i1132 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1131, align 8
-  %.not.i1134 = icmp eq i32 %.val9.i1133, %847
+  %.not.i1134 = icmp eq i32 %847, %.val9.i1133
   br i1 %.not.i1134, label %.thread.i1145, label %852
 
 .thread.i1145:                                    ; preds = %stack_pop.exit1128
@@ -2331,7 +2331,7 @@ stack_pop.exit1128:                               ; preds = %835, %843
   %856 = getelementptr inbounds i8, ptr %.val.i.pre.i1136, i64 %.pre12.i1138
   %857 = getelementptr inbounds i8, ptr %856, i64 -4
   %858 = load i32, ptr %857, align 4
-  %859 = icmp eq i32 %.pre11.i1137, %.pre.i1135
+  %859 = icmp eq i32 %.pre.i1135, %.pre11.i1137
   br i1 %859, label %860, label %stack_pop.exit1146
 
 860:                                              ; preds = %852, %.thread.i1145
@@ -2356,7 +2356,7 @@ stack_pop.exit1146:                               ; preds = %852, %860
   %.sroa.08.0.copyload.i1148 = load i64, ptr %866, align 8
   %.sroa.4.0..0..sroa_idx.i1149 = getelementptr inbounds i8, ptr %866, i64 8
   %.sroa.4.0.copyload.i1150 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1149, align 8
-  %.not.i1152 = icmp eq i32 %.val9.i1151, %864
+  %.not.i1152 = icmp eq i32 %864, %.val9.i1151
   br i1 %.not.i1152, label %.thread.i1163, label %869
 
 .thread.i1163:                                    ; preds = %stack_pop.exit1146
@@ -2375,7 +2375,7 @@ stack_pop.exit1146:                               ; preds = %852, %860
   %873 = getelementptr inbounds i8, ptr %.val.i.pre.i1154, i64 %.pre12.i1156
   %874 = getelementptr inbounds i8, ptr %873, i64 -4
   %875 = load i32, ptr %874, align 4
-  %876 = icmp eq i32 %.pre11.i1155, %.pre.i1153
+  %876 = icmp eq i32 %.pre.i1153, %.pre11.i1155
   br i1 %876, label %877, label %stack_pop.exit1164
 
 877:                                              ; preds = %869, %.thread.i1163
@@ -2560,7 +2560,7 @@ frame_local_var.exit1189:                         ; preds = %962, %955
   %.sroa.4.0..0..sroa_idx.i1192 = getelementptr inbounds i8, ptr %976, i64 8
   %.sroa.4.0.copyload.i1193 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1192, align 8
   %.val9.i1194 = load i32, ptr %24, align 4
-  %.not.i1195 = icmp eq i32 %.val9.i1194, %974
+  %.not.i1195 = icmp eq i32 %974, %.val9.i1194
   br i1 %.not.i1195, label %.thread.i1206, label %979
 
 .thread.i1206:                                    ; preds = %frame_local_var.exit1189
@@ -2579,7 +2579,7 @@ frame_local_var.exit1189:                         ; preds = %962, %955
   %983 = getelementptr inbounds i8, ptr %.val.i.pre.i1197, i64 %.pre12.i1199
   %984 = getelementptr inbounds i8, ptr %983, i64 -4
   %985 = load i32, ptr %984, align 4
-  %986 = icmp eq i32 %.pre11.i1198, %.pre.i1196
+  %986 = icmp eq i32 %.pre.i1196, %.pre11.i1198
   br i1 %986, label %987, label %stack_pop.exit1207
 
 987:                                              ; preds = %979, %.thread.i1206
@@ -2814,7 +2814,7 @@ frame_local_var.exit1232:                         ; preds = %1082, %1075
   %.sroa.4.0..0..sroa_idx.i1235 = getelementptr inbounds i8, ptr %1106, i64 8
   %.sroa.4.0.copyload.i1236 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1235, align 8
   %.val9.i1237 = load i32, ptr %24, align 4
-  %.not.i1238 = icmp eq i32 %.val9.i1237, %1104
+  %.not.i1238 = icmp eq i32 %1104, %.val9.i1237
   br i1 %.not.i1238, label %.thread.i1249, label %1109
 
 .thread.i1249:                                    ; preds = %1103
@@ -2833,7 +2833,7 @@ frame_local_var.exit1232:                         ; preds = %1082, %1075
   %1113 = getelementptr inbounds i8, ptr %.val.i.pre.i1240, i64 %.pre12.i1242
   %1114 = getelementptr inbounds i8, ptr %1113, i64 -4
   %1115 = load i32, ptr %1114, align 4
-  %1116 = icmp eq i32 %.pre11.i1241, %.pre.i1239
+  %1116 = icmp eq i32 %.pre.i1239, %.pre11.i1241
   br i1 %1116, label %1117, label %stack_pop.exit1250
 
 1117:                                             ; preds = %1109, %.thread.i1249
@@ -2967,7 +2967,7 @@ frame_local_var.exit1268:                         ; preds = %1161, %1154
   %.sroa.210.0..0..sroa_idx.i1271 = getelementptr inbounds i8, ptr %1185, i64 8
   %.sroa.210.0.copyload.i1272 = load ptr, ptr %.sroa.210.0..0..sroa_idx.i1271, align 8
   %.val11.i1273 = load i32, ptr %24, align 4
-  %.not.i1274 = icmp eq i32 %.val11.i1273, %1183
+  %.not.i1274 = icmp eq i32 %1183, %.val11.i1273
   br i1 %.not.i1274, label %.thread.i1281, label %1188
 
 .thread.i1281:                                    ; preds = %1182
@@ -2988,7 +2988,7 @@ frame_local_var.exit1268:                         ; preds = %1161, %1154
   %1192 = getelementptr inbounds i8, ptr %.val.i.pre.i1276, i64 %.pre14.i1278
   %1193 = getelementptr inbounds i8, ptr %1192, i64 -4
   %1194 = load i32, ptr %1193, align 4
-  %1195 = icmp eq i32 %.pre13.i1277, %.pre.i1275
+  %1195 = icmp eq i32 %.pre.i1275, %.pre13.i1277
   br i1 %1195, label %1196, label %stack_popn.exit1282
 
 1196:                                             ; preds = %1188, %.thread.i1281
@@ -3141,7 +3141,7 @@ frame_local_var.exit1315:                         ; preds = %1255, %1248
   %.sroa.4.0..0..sroa_idx.i1318 = getelementptr inbounds i8, ptr %1269, i64 8
   %.sroa.4.0.copyload.i1319 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1318, align 8
   %.val9.i1320 = load i32, ptr %24, align 4
-  %.not.i1321 = icmp eq i32 %.val9.i1320, %1267
+  %.not.i1321 = icmp eq i32 %1267, %.val9.i1320
   br i1 %.not.i1321, label %.thread.i1332, label %1272
 
 .thread.i1332:                                    ; preds = %frame_local_var.exit1315
@@ -3160,7 +3160,7 @@ frame_local_var.exit1315:                         ; preds = %1255, %1248
   %1276 = getelementptr inbounds i8, ptr %.val.i.pre.i1323, i64 %.pre12.i1325
   %1277 = getelementptr inbounds i8, ptr %1276, i64 -4
   %1278 = load i32, ptr %1277, align 4
-  %1279 = icmp eq i32 %.pre11.i1324, %.pre.i1322
+  %1279 = icmp eq i32 %.pre.i1322, %.pre11.i1324
   br i1 %1279, label %1280, label %stack_pop.exit1333
 
 1280:                                             ; preds = %1272, %.thread.i1332
@@ -3334,7 +3334,7 @@ frame_local_var.exit1355:                         ; preds = %1344, %1321
   %.sroa.4.0..0..sroa_idx.i1358 = getelementptr inbounds i8, ptr %1371, i64 8
   %.sroa.4.0.copyload.i1359 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1358, align 8
   %.val9.i1360 = load i32, ptr %24, align 4
-  %.not.i1361 = icmp eq i32 %.val9.i1360, %1369
+  %.not.i1361 = icmp eq i32 %1369, %.val9.i1360
   br i1 %.not.i1361, label %.thread.i1372, label %1374
 
 .thread.i1372:                                    ; preds = %1368
@@ -3353,7 +3353,7 @@ frame_local_var.exit1355:                         ; preds = %1344, %1321
   %1378 = getelementptr inbounds i8, ptr %.val.i.pre.i1363, i64 %.pre12.i1365
   %1379 = getelementptr inbounds i8, ptr %1378, i64 -4
   %1380 = load i32, ptr %1379, align 4
-  %1381 = icmp eq i32 %.pre11.i1364, %.pre.i1362
+  %1381 = icmp eq i32 %.pre.i1362, %.pre11.i1364
   br i1 %1381, label %1382, label %stack_pop.exit1373
 
 1382:                                             ; preds = %1374, %.thread.i1372
@@ -3586,7 +3586,7 @@ stack_push.exit1405:                              ; preds = %stack_push.exit1398
   %.sroa.4.0..0..sroa_idx.i1408 = getelementptr inbounds i8, ptr %1509, i64 8
   %.sroa.4.0.copyload.i1409 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1408, align 8
   %.val9.i1410 = load i32, ptr %24, align 4
-  %.not.i1411 = icmp eq i32 %.val9.i1410, %1507
+  %.not.i1411 = icmp eq i32 %1507, %.val9.i1410
   br i1 %.not.i1411, label %.thread.i1422, label %1512
 
 .thread.i1422:                                    ; preds = %1506
@@ -3605,7 +3605,7 @@ stack_push.exit1405:                              ; preds = %stack_push.exit1398
   %1516 = getelementptr inbounds i8, ptr %.val.i.pre.i1413, i64 %.pre12.i1415
   %1517 = getelementptr inbounds i8, ptr %1516, i64 -4
   %1518 = load i32, ptr %1517, align 4
-  %1519 = icmp eq i32 %.pre11.i1414, %.pre.i1412
+  %1519 = icmp eq i32 %.pre.i1412, %.pre11.i1414
   br i1 %1519, label %1520, label %stack_pop.exit1423
 
 1520:                                             ; preds = %1512, %.thread.i1422
@@ -3675,7 +3675,7 @@ path_intact.exit:                                 ; preds = %1530
   %.sroa.4.0..0..sroa_idx.i1426 = getelementptr inbounds i8, ptr %1554, i64 8
   %.sroa.4.0.copyload.i1427 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1426, align 8
   %.val9.i1428 = load i32, ptr %24, align 4
-  %.not.i1429 = icmp eq i32 %.val9.i1428, %1552
+  %.not.i1429 = icmp eq i32 %1552, %.val9.i1428
   br i1 %.not.i1429, label %.thread.i1440, label %1557
 
 .thread.i1440:                                    ; preds = %1551
@@ -3694,7 +3694,7 @@ path_intact.exit:                                 ; preds = %1530
   %1561 = getelementptr inbounds i8, ptr %.val.i.pre.i1431, i64 %.pre12.i1433
   %1562 = getelementptr inbounds i8, ptr %1561, i64 -4
   %1563 = load i32, ptr %1562, align 4
-  %1564 = icmp eq i32 %.pre11.i1432, %.pre.i1430
+  %1564 = icmp eq i32 %.pre.i1430, %.pre11.i1432
   br i1 %1564, label %1565, label %stack_pop.exit1441
 
 1565:                                             ; preds = %1557, %.thread.i1440
@@ -3719,7 +3719,7 @@ stack_pop.exit1441:                               ; preds = %1557, %1565
   %.sroa.08.0.copyload.i1443 = load i64, ptr %1571, align 8
   %.sroa.4.0..0..sroa_idx.i1444 = getelementptr inbounds i8, ptr %1571, i64 8
   %.sroa.4.0.copyload.i1445 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1444, align 8
-  %.not.i1447 = icmp eq i32 %.val9.i1446, %1569
+  %.not.i1447 = icmp eq i32 %1569, %.val9.i1446
   br i1 %.not.i1447, label %.thread.i1458, label %1574
 
 .thread.i1458:                                    ; preds = %stack_pop.exit1441
@@ -3738,7 +3738,7 @@ stack_pop.exit1441:                               ; preds = %1557, %1565
   %1578 = getelementptr inbounds i8, ptr %.val.i.pre.i1449, i64 %.pre12.i1451
   %1579 = getelementptr inbounds i8, ptr %1578, i64 -4
   %1580 = load i32, ptr %1579, align 4
-  %1581 = icmp eq i32 %.pre11.i1450, %.pre.i1448
+  %1581 = icmp eq i32 %.pre.i1448, %.pre11.i1450
   br i1 %1581, label %1582, label %stack_pop.exit1459
 
 1582:                                             ; preds = %1574, %.thread.i1458
@@ -3767,7 +3767,7 @@ stack_pop.exit1459:                               ; preds = %1574, %1582
   %.sroa.4.0..0..sroa_idx.i1462 = getelementptr inbounds i8, ptr %1591, i64 8
   %.sroa.4.0.copyload.i1463 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1462, align 8
   %.val9.i1464 = load i32, ptr %24, align 4
-  %.not.i1465 = icmp eq i32 %.val9.i1464, %1589
+  %.not.i1465 = icmp eq i32 %1589, %.val9.i1464
   br i1 %.not.i1465, label %.thread.i1476, label %1594
 
 .thread.i1476:                                    ; preds = %stack_pop.exit1459
@@ -3786,7 +3786,7 @@ stack_pop.exit1459:                               ; preds = %1574, %1582
   %1598 = getelementptr inbounds i8, ptr %.val.i.pre.i1467, i64 %.pre12.i1469
   %1599 = getelementptr inbounds i8, ptr %1598, i64 -4
   %1600 = load i32, ptr %1599, align 4
-  %1601 = icmp eq i32 %.pre11.i1468, %.pre.i1466
+  %1601 = icmp eq i32 %.pre.i1466, %.pre11.i1468
   br i1 %1601, label %1602, label %stack_pop.exit1477
 
 1602:                                             ; preds = %1594, %.thread.i1476
@@ -3924,7 +3924,7 @@ stack_push.exit1495:                              ; preds = %stack_push.exit1488
   %.sroa.4.0..0..sroa_idx.i1498 = getelementptr inbounds i8, ptr %1670, i64 8
   %.sroa.4.0.copyload.i1499 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1498, align 8
   %.val9.i1500 = load i32, ptr %24, align 4
-  %.not.i1501 = icmp eq i32 %.val9.i1500, %1668
+  %.not.i1501 = icmp eq i32 %1668, %.val9.i1500
   br i1 %.not.i1501, label %.thread.i1512, label %1673
 
 .thread.i1512:                                    ; preds = %1665
@@ -3943,7 +3943,7 @@ stack_push.exit1495:                              ; preds = %stack_push.exit1488
   %1677 = getelementptr inbounds i8, ptr %.val.i.pre.i1503, i64 %.pre12.i1505
   %1678 = getelementptr inbounds i8, ptr %1677, i64 -4
   %1679 = load i32, ptr %1678, align 4
-  %1680 = icmp eq i32 %.pre11.i1504, %.pre.i1502
+  %1680 = icmp eq i32 %.pre.i1502, %.pre11.i1504
   br i1 %1680, label %1681, label %stack_pop.exit1513
 
 1681:                                             ; preds = %1673, %.thread.i1512
@@ -3973,7 +3973,7 @@ stack_pop.exit1513:                               ; preds = %1673, %1681
   %.sroa.4.0..0..sroa_idx.i1516 = getelementptr inbounds i8, ptr %1689, i64 8
   %.sroa.4.0.copyload.i1517 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1516, align 8
   %.val9.i1518 = load i32, ptr %24, align 4
-  %.not.i1519 = icmp eq i32 %.val9.i1518, %1687
+  %.not.i1519 = icmp eq i32 %1687, %.val9.i1518
   br i1 %.not.i1519, label %.thread.i1530, label %1692
 
 .thread.i1530:                                    ; preds = %1686
@@ -3992,7 +3992,7 @@ stack_pop.exit1513:                               ; preds = %1673, %1681
   %1696 = getelementptr inbounds i8, ptr %.val.i.pre.i1521, i64 %.pre12.i1523
   %1697 = getelementptr inbounds i8, ptr %1696, i64 -4
   %1698 = load i32, ptr %1697, align 4
-  %1699 = icmp eq i32 %.pre11.i1522, %.pre.i1520
+  %1699 = icmp eq i32 %.pre.i1520, %.pre11.i1522
   br i1 %1699, label %1700, label %stack_pop.exit1531
 
 1700:                                             ; preds = %1692, %.thread.i1530
@@ -4017,7 +4017,7 @@ stack_pop.exit1531:                               ; preds = %1692, %1700
   %.sroa.08.0.copyload.i1533 = load i64, ptr %1706, align 8
   %.sroa.4.0..0..sroa_idx.i1534 = getelementptr inbounds i8, ptr %1706, i64 8
   %.sroa.4.0.copyload.i1535 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1534, align 8
-  %.not.i1537 = icmp eq i32 %.val9.i1536, %1704
+  %.not.i1537 = icmp eq i32 %1704, %.val9.i1536
   br i1 %.not.i1537, label %.thread.i1548, label %1709
 
 .thread.i1548:                                    ; preds = %stack_pop.exit1531
@@ -4036,7 +4036,7 @@ stack_pop.exit1531:                               ; preds = %1692, %1700
   %1713 = getelementptr inbounds i8, ptr %.val.i.pre.i1539, i64 %.pre12.i1541
   %1714 = getelementptr inbounds i8, ptr %1713, i64 -4
   %1715 = load i32, ptr %1714, align 4
-  %1716 = icmp eq i32 %.pre11.i1540, %.pre.i1538
+  %1716 = icmp eq i32 %.pre.i1538, %.pre11.i1540
   br i1 %1716, label %1717, label %stack_pop.exit1549
 
 1717:                                             ; preds = %1709, %.thread.i1548
@@ -4195,7 +4195,7 @@ stack_push.exit1558:                              ; preds = %1757, %1766
   %.sroa.4.0..0..sroa_idx.i1561 = getelementptr inbounds i8, ptr %1803, i64 8
   %.sroa.4.0.copyload.i1562 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1561, align 8
   %.val9.i1563 = load i32, ptr %24, align 4
-  %.not.i1564 = icmp eq i32 %.val9.i1563, %1801
+  %.not.i1564 = icmp eq i32 %1801, %.val9.i1563
   br i1 %.not.i1564, label %.thread.i1575, label %1806
 
 .thread.i1575:                                    ; preds = %1798
@@ -4214,7 +4214,7 @@ stack_push.exit1558:                              ; preds = %1757, %1766
   %1810 = getelementptr inbounds i8, ptr %.val.i.pre.i1566, i64 %.pre12.i1568
   %1811 = getelementptr inbounds i8, ptr %1810, i64 -4
   %1812 = load i32, ptr %1811, align 4
-  %1813 = icmp eq i32 %.pre11.i1567, %.pre.i1565
+  %1813 = icmp eq i32 %.pre.i1565, %.pre11.i1567
   br i1 %1813, label %1814, label %stack_pop.exit1576
 
 1814:                                             ; preds = %1806, %.thread.i1575
@@ -4293,7 +4293,7 @@ stack_push.exit1583:                              ; preds = %stack_pop.exit1576,
   %.sroa.4.0..0..sroa_idx.i1586 = getelementptr inbounds i8, ptr %1851, i64 8
   %.sroa.4.0.copyload.i1587 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1586, align 8
   %.val9.i1588 = load i32, ptr %24, align 4
-  %.not.i1589 = icmp eq i32 %.val9.i1588, %1849
+  %.not.i1589 = icmp eq i32 %1849, %.val9.i1588
   br i1 %.not.i1589, label %.thread.i1600, label %1854
 
 .thread.i1600:                                    ; preds = %1848
@@ -4312,7 +4312,7 @@ stack_push.exit1583:                              ; preds = %stack_pop.exit1576,
   %1858 = getelementptr inbounds i8, ptr %.val.i.pre.i1591, i64 %.pre12.i1593
   %1859 = getelementptr inbounds i8, ptr %1858, i64 -4
   %1860 = load i32, ptr %1859, align 4
-  %1861 = icmp eq i32 %.pre11.i1592, %.pre.i1590
+  %1861 = icmp eq i32 %.pre.i1590, %.pre11.i1592
   br i1 %1861, label %1862, label %stack_pop.exit1601
 
 1862:                                             ; preds = %1854, %.thread.i1600
@@ -4477,7 +4477,7 @@ stack_push.exit1617:                              ; preds = %stack_push.exit1610
   %.sroa.4.0..0..sroa_idx.i1620 = getelementptr inbounds i8, ptr %1952, i64 8
   %.sroa.4.0.copyload.i1621 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1620, align 8
   %.val9.i1622 = load i32, ptr %24, align 4
-  %.not.i1623 = icmp eq i32 %.val9.i1622, %1950
+  %.not.i1623 = icmp eq i32 %1950, %.val9.i1622
   br i1 %.not.i1623, label %.thread.i1634, label %1955
 
 .thread.i1634:                                    ; preds = %1949
@@ -4496,7 +4496,7 @@ stack_push.exit1617:                              ; preds = %stack_push.exit1610
   %1959 = getelementptr inbounds i8, ptr %.val.i.pre.i1625, i64 %.pre12.i1627
   %1960 = getelementptr inbounds i8, ptr %1959, i64 -4
   %1961 = load i32, ptr %1960, align 4
-  %1962 = icmp eq i32 %.pre11.i1626, %.pre.i1624
+  %1962 = icmp eq i32 %.pre.i1624, %.pre11.i1626
   br i1 %1962, label %1963, label %stack_pop.exit1635
 
 1963:                                             ; preds = %1955, %.thread.i1634
@@ -4523,7 +4523,7 @@ stack_pop.exit1635:                               ; preds = %1955, %1963
   %.sroa.4.0..0..sroa_idx.i1638 = getelementptr inbounds i8, ptr %1972, i64 8
   %.sroa.4.0.copyload.i1639 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1638, align 8
   %.val9.i1640 = load i32, ptr %24, align 4
-  %.not.i1641 = icmp eq i32 %.val9.i1640, %1970
+  %.not.i1641 = icmp eq i32 %1970, %.val9.i1640
   br i1 %.not.i1641, label %.thread.i1652, label %1975
 
 .thread.i1652:                                    ; preds = %stack_pop.exit1635
@@ -4542,7 +4542,7 @@ stack_pop.exit1635:                               ; preds = %1955, %1963
   %1979 = getelementptr inbounds i8, ptr %.val.i.pre.i1643, i64 %.pre12.i1645
   %1980 = getelementptr inbounds i8, ptr %1979, i64 -4
   %1981 = load i32, ptr %1980, align 4
-  %1982 = icmp eq i32 %.pre11.i1644, %.pre.i1642
+  %1982 = icmp eq i32 %.pre.i1642, %.pre11.i1644
   br i1 %1982, label %1983, label %stack_pop.exit1653
 
 1983:                                             ; preds = %1975, %.thread.i1652
@@ -4934,7 +4934,7 @@ stack_push.exit1685:                              ; preds = %stack_push.exit1678
   %.sroa.4.0..0..sroa_idx.i1696 = getelementptr inbounds i8, ptr %2191, i64 8
   %.sroa.4.0.copyload.i1697 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1696, align 8
   %.val9.i1698 = load i32, ptr %24, align 4
-  %.not.i1699 = icmp eq i32 %.val9.i1698, %2189
+  %.not.i1699 = icmp eq i32 %2189, %.val9.i1698
   br i1 %.not.i1699, label %.thread.i1710, label %2194
 
 .thread.i1710:                                    ; preds = %2188
@@ -4953,7 +4953,7 @@ stack_push.exit1685:                              ; preds = %stack_push.exit1678
   %2198 = getelementptr inbounds i8, ptr %.val.i.pre.i1701, i64 %.pre12.i1703
   %2199 = getelementptr inbounds i8, ptr %2198, i64 -4
   %2200 = load i32, ptr %2199, align 4
-  %2201 = icmp eq i32 %.pre11.i1702, %.pre.i1700
+  %2201 = icmp eq i32 %.pre.i1700, %.pre11.i1702
   br i1 %2201, label %2202, label %stack_pop.exit1711
 
 2202:                                             ; preds = %2194, %.thread.i1710
@@ -5014,7 +5014,7 @@ stack_pop.exit1711:                               ; preds = %2194, %2202
   %.sroa.4.0..0..sroa_idx.i1714 = getelementptr inbounds i8, ptr %2230, i64 8
   %.sroa.4.0.copyload.i1715 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1714, align 8
   %.val9.i1716 = load i32, ptr %24, align 4
-  %.not.i1717 = icmp eq i32 %.val9.i1716, %2228
+  %.not.i1717 = icmp eq i32 %2228, %.val9.i1716
   br i1 %.not.i1717, label %.thread.i1728, label %2233
 
 .thread.i1728:                                    ; preds = %2225
@@ -5033,7 +5033,7 @@ stack_pop.exit1711:                               ; preds = %2194, %2202
   %2237 = getelementptr inbounds i8, ptr %.val.i.pre.i1719, i64 %.pre12.i1721
   %2238 = getelementptr inbounds i8, ptr %2237, i64 -4
   %2239 = load i32, ptr %2238, align 4
-  %2240 = icmp eq i32 %.pre11.i1720, %.pre.i1718
+  %2240 = icmp eq i32 %.pre.i1718, %.pre11.i1720
   br i1 %2240, label %2241, label %stack_pop.exit1729
 
 2241:                                             ; preds = %2233, %.thread.i1728
@@ -5157,7 +5157,7 @@ stack_push.exit1736:                              ; preds = %stack_pop.exit1729,
   %.sroa.4.0..0..sroa_idx.i1743 = getelementptr inbounds i8, ptr %2305, i64 8
   %.sroa.4.0.copyload.i1744 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1743, align 8
   %.val9.i1745 = load i32, ptr %24, align 4
-  %.not.i1746 = icmp eq i32 %.val9.i1745, %2303
+  %.not.i1746 = icmp eq i32 %2303, %.val9.i1745
   br i1 %.not.i1746, label %.thread.i1757, label %2308
 
 .thread.i1757:                                    ; preds = %2302
@@ -5176,7 +5176,7 @@ stack_push.exit1736:                              ; preds = %stack_pop.exit1729,
   %2312 = getelementptr inbounds i8, ptr %.val.i.pre.i1748, i64 %.pre12.i1750
   %2313 = getelementptr inbounds i8, ptr %2312, i64 -4
   %2314 = load i32, ptr %2313, align 4
-  %2315 = icmp eq i32 %.pre11.i1749, %.pre.i1747
+  %2315 = icmp eq i32 %.pre.i1747, %.pre11.i1749
   br i1 %2315, label %2316, label %stack_pop.exit1758
 
 2316:                                             ; preds = %2308, %.thread.i1757
@@ -5233,7 +5233,7 @@ stack_pop.exit1758:                               ; preds = %2308, %2316
   %.sroa.4.0..0..sroa_idx.i1761 = getelementptr inbounds i8, ptr %2342, i64 8
   %.sroa.4.0.copyload.i1762 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1761, align 8
   %.val9.i1763 = load i32, ptr %24, align 4
-  %.not.i1764 = icmp eq i32 %.val9.i1763, %2340
+  %.not.i1764 = icmp eq i32 %2340, %.val9.i1763
   br i1 %.not.i1764, label %.thread.i1775, label %2345
 
 .thread.i1775:                                    ; preds = %2337
@@ -5252,7 +5252,7 @@ stack_pop.exit1758:                               ; preds = %2308, %2316
   %2349 = getelementptr inbounds i8, ptr %.val.i.pre.i1766, i64 %.pre12.i1768
   %2350 = getelementptr inbounds i8, ptr %2349, i64 -4
   %2351 = load i32, ptr %2350, align 4
-  %2352 = icmp eq i32 %.pre11.i1767, %.pre.i1765
+  %2352 = icmp eq i32 %.pre.i1765, %.pre11.i1767
   br i1 %2352, label %2353, label %stack_pop.exit1776
 
 2353:                                             ; preds = %2345, %.thread.i1775
@@ -5292,7 +5292,7 @@ stack_pop.exit1776:                               ; preds = %2345, %2353
   %.sroa.08.0.copyload.i1778 = load i64, ptr %2362, align 8
   %.sroa.4.0..0..sroa_idx.i1779 = getelementptr inbounds i8, ptr %2362, i64 8
   %.sroa.4.0.copyload.i1780 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1779, align 8
-  %.not.i1782 = icmp eq i32 %.val9.i1781, %2359
+  %.not.i1782 = icmp eq i32 %2359, %.val9.i1781
   br i1 %.not.i1782, label %.thread.i1793, label %2365
 
 .thread.i1793:                                    ; preds = %.lr.ph1983
@@ -5311,7 +5311,7 @@ stack_pop.exit1776:                               ; preds = %2345, %2353
   %2369 = getelementptr inbounds i8, ptr %.val.i.pre.i1784, i64 %.pre12.i1786
   %2370 = getelementptr inbounds i8, ptr %2369, i64 -4
   %2371 = load i32, ptr %2370, align 4
-  %2372 = icmp eq i32 %.pre11.i1785, %.pre.i1783
+  %2372 = icmp eq i32 %.pre.i1783, %.pre11.i1785
   br i1 %2372, label %2373, label %stack_pop.exit1794
 
 2373:                                             ; preds = %2365, %.thread.i1793
@@ -5494,7 +5494,7 @@ stack_push.exit1801:                              ; preds = %2432, %2438
   %.sroa.4.0..0..sroa_idx.i1804 = getelementptr inbounds i8, ptr %2470, i64 8
   %.sroa.4.0.copyload.i1805 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1804, align 8
   %.val9.i1806 = load i32, ptr %24, align 4
-  %.not.i1807 = icmp eq i32 %.val9.i1806, %2468
+  %.not.i1807 = icmp eq i32 %2468, %.val9.i1806
   br i1 %.not.i1807, label %.thread.i1818, label %2473
 
 .thread.i1818:                                    ; preds = %2467
@@ -5513,7 +5513,7 @@ stack_push.exit1801:                              ; preds = %2432, %2438
   %2477 = getelementptr inbounds i8, ptr %.val.i.pre.i1809, i64 %.pre12.i1811
   %2478 = getelementptr inbounds i8, ptr %2477, i64 -4
   %2479 = load i32, ptr %2478, align 4
-  %2480 = icmp eq i32 %.pre11.i1810, %.pre.i1808
+  %2480 = icmp eq i32 %.pre.i1808, %.pre11.i1810
   br i1 %2480, label %2481, label %stack_pop.exit1819
 
 2481:                                             ; preds = %2473, %.thread.i1818
@@ -5602,7 +5602,7 @@ make_closure.exit:                                ; preds = %2502, %2509
   %2518 = load ptr, ptr %2517, align 8
   %2519 = getelementptr inbounds i8, ptr %2516, i64 12
   %2520 = load i32, ptr %2519, align 4
-  %.not.i1834 = icmp eq i32 %.val.i1833, %.08.i.i1820
+  %.not.i1834 = icmp eq i32 %.08.i.i1820, %.val.i1833
   br i1 %.not.i1834, label %2521, label %.loopexit.i
 
 2521:                                             ; preds = %2514
@@ -5653,7 +5653,7 @@ make_closure.exit:                                ; preds = %2502, %2509
   %2543 = getelementptr inbounds i8, ptr %.val.i.i1835, i64 %.pre-phi.i
   %2544 = getelementptr inbounds i8, ptr %2543, i64 -4
   %2545 = load i32, ptr %2544, align 4
-  %2546 = icmp eq i32 %2541, %2542
+  %2546 = icmp eq i32 %2542, %2541
   br i1 %2546, label %.loopexit.i._crit_edge, label %frame_pop.exit
 
 .loopexit.i._crit_edge:                           ; preds = %.loopexit.i
@@ -5749,7 +5749,7 @@ stack_push.exit1845:                              ; preds = %2559, %2570
   %.sroa.4.0..0..sroa_idx.i1848 = getelementptr inbounds i8, ptr %2594, i64 8
   %.sroa.4.0.copyload.i1849 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1848, align 8
   %.val9.i1850 = load i32, ptr %24, align 4
-  %.not.i1851 = icmp eq i32 %.val9.i1850, %2592
+  %.not.i1851 = icmp eq i32 %2592, %.val9.i1850
   br i1 %.not.i1851, label %.thread.i1862, label %2597
 
 .thread.i1862:                                    ; preds = %2591
@@ -5768,7 +5768,7 @@ stack_push.exit1845:                              ; preds = %2559, %2570
   %2601 = getelementptr inbounds i8, ptr %.val.i.pre.i1853, i64 %.pre12.i1855
   %2602 = getelementptr inbounds i8, ptr %2601, i64 -4
   %2603 = load i32, ptr %2602, align 4
-  %2604 = icmp eq i32 %.pre11.i1854, %.pre.i1852
+  %2604 = icmp eq i32 %.pre.i1852, %.pre11.i1854
   br i1 %2604, label %2605, label %stack_pop.exit1863
 
 2605:                                             ; preds = %2597, %.thread.i1862
@@ -5797,7 +5797,7 @@ stack_pop.exit1863:                               ; preds = %2597, %2605
   br i1 %.not774, label %2678, label %2614
 
 2614:                                             ; preds = %stack_pop.exit1863
-  %.not.i1867 = icmp eq i32 %.val.i1866, %.val822
+  %.not.i1867 = icmp eq i32 %.val822, %.val.i1866
   br i1 %.not.i1867, label %2615, label %.loopexit.i1868
 
 2615:                                             ; preds = %2614
@@ -5848,7 +5848,7 @@ stack_pop.exit1863:                               ; preds = %2597, %2605
   %2637 = getelementptr inbounds i8, ptr %.val.i.i1870, i64 %.pre-phi.i1869
   %2638 = getelementptr inbounds i8, ptr %2637, i64 -4
   %2639 = load i32, ptr %2638, align 4
-  %2640 = icmp eq i32 %2635, %2636
+  %2640 = icmp eq i32 %2636, %2635
   br i1 %2640, label %.loopexit.i1868._crit_edge, label %frame_pop.exit1884
 
 .loopexit.i1868._crit_edge:                       ; preds = %.loopexit.i1868

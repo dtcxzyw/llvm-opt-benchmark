@@ -775,7 +775,7 @@ define range(i32 -1, 2) i32 @IDASpilsDQJtimes(double noundef %0, ptr noundef %1,
   %.04150 = phi i32 [ 0, %34 ], [ %50, %48 ]
   %.14449 = phi double [ %.043, %34 ], [ %49, %48 ]
   tail call void @N_VLinearSum(double noundef %.14449, ptr noundef %4, double noundef 1.000000e+00, ptr noundef %1, ptr noundef %8) #5
-  %39 = fmul double %.14449, %6
+  %39 = fmul double %6, %.14449
   tail call void @N_VLinearSum(double noundef %39, ptr noundef %4, double noundef 1.000000e+00, ptr noundef %2, ptr noundef %9) #5
   %40 = load ptr, ptr %35, align 8
   %41 = load ptr, ptr %36, align 8
@@ -835,7 +835,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetGSTypeB(ptr noundef %0, i32 noundef %1
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -850,7 +850,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetGSTypeB(ptr noundef %0, i32 noundef %1
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -926,7 +926,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetMaxRestartsB(ptr noundef %0, i32 nound
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -941,7 +941,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetMaxRestartsB(ptr noundef %0, i32 nound
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -1016,7 +1016,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetEpsLinB(ptr noundef %0, i32 noundef %1
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -1031,7 +1031,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetEpsLinB(ptr noundef %0, i32 noundef %1
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -1105,7 +1105,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetMaxlB(ptr noundef %0, i32 noundef %1, 
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -1120,7 +1120,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetMaxlB(ptr noundef %0, i32 noundef %1, 
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -1189,7 +1189,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetIncrementFactorB(ptr noundef %0, i32 n
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -1204,7 +1204,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetIncrementFactorB(ptr noundef %0, i32 n
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.016 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.016, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.016, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -1270,7 +1270,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerB(ptr noundef %0, i32 no
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -1285,7 +1285,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerB(ptr noundef %0, i32 no
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.024 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %20 = load i32, ptr %.024, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.024, i64 128
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -1481,7 +1481,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerBS(ptr noundef %0, i32 n
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -1496,7 +1496,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerBS(ptr noundef %0, i32 n
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.024 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %20 = load i32, ptr %.024, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.024, i64 128
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -1736,7 +1736,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnB(ptr noundef %0, i32 nou
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -1751,7 +1751,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnB(ptr noundef %0, i32 nou
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.024 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.024, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.024, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -1894,7 +1894,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnBS(ptr noundef %0, i32 no
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -1909,7 +1909,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnBS(ptr noundef %0, i32 no
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.024 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.024, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.024, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 

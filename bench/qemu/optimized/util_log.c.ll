@@ -686,13 +686,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = sext i32 %i.04 to i64
   %arrayidx = getelementptr %struct.Range, ptr %2, i64 %idxprom
   %3 = load i64, ptr %arrayidx, align 8
-  %cmp.not.i = icmp ugt i64 %3, %addr
+  %cmp.not.i = icmp ult i64 %addr, %3
   br i1 %cmp.not.i, label %for.inc, label %range_contains.exit
 
 range_contains.exit:                              ; preds = %for.body
   %upb.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i64, ptr %upb.i, align 8
-  %cmp1.i.not = icmp ult i64 %4, %addr
+  %cmp1.i.not = icmp ugt i64 %addr, %4
   br i1 %cmp1.i.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %for.body, %range_contains.exit

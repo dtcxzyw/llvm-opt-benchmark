@@ -227,7 +227,7 @@ if.else:                                          ; preds = %entry
 if.end24:                                         ; preds = %for.body, %if.then13, %if.else
   %j.0 = phi i64 [ %3, %if.else ], [ 0, %if.then13 ], [ 0, %for.body ]
   %i.1 = phi i32 [ 0, %if.else ], [ %sub, %if.then13 ], [ %add23, %for.body ]
-  %cmp26.not = icmp eq i32 %i.1, %uLen
+  %cmp26.not = icmp eq i32 %uLen, %i.1
   br i1 %cmp26.not, label %if.end35, label %if.then27
 
 if.then27:                                        ; preds = %if.end24
@@ -303,9 +303,16 @@ for.end:                                          ; preds = %for.body
   %4 = add i32 %3, %inc.i
   store i32 %4, ptr %arrayidx6.i, align 8
   %cmp12.i = icmp eq i32 %and.i, 63
-  br i1 %cmp12.i, label %if.end24.i.thread, label %if.then27.i
+  br i1 %cmp12.i, label %if.end24.i, label %if.end24.i.thread
 
 if.end24.i.thread:                                ; preds = %for.end
+  %5 = zext nneg i32 %and.i to i64
+  %m_buffer28.i = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx30.i = getelementptr inbounds [64 x i8], ptr %m_buffer28.i, i64 0, i64 %5
+  store i8 -128, ptr %arrayidx30.i, align 1
+  br label %_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit
+
+if.end24.i:                                       ; preds = %for.end
   %m_buffer.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx14.i = getelementptr inbounds i8, ptr %this, i64 95
   store i8 -128, ptr %arrayidx14.i, align 1
@@ -313,18 +320,11 @@ if.end24.i.thread:                                ; preds = %for.end
   %.pre = load i32, ptr %m_count, align 4
   br label %_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit
 
-if.then27.i:                                      ; preds = %for.end
-  %5 = zext nneg i32 %and.i to i64
-  %m_buffer28.i = getelementptr inbounds i8, ptr %this, i64 32
-  %arrayidx30.i = getelementptr inbounds [64 x i8], ptr %m_buffer28.i, i64 0, i64 %5
-  store i8 -128, ptr %arrayidx30.i, align 1
-  br label %_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit
-
-_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit:   ; preds = %if.end24.i.thread, %if.then27.i
-  %6 = phi i32 [ %.pre, %if.end24.i.thread ], [ %add.i, %if.then27.i ]
-  %and898 = and i32 %6, 504
-  %cmp9.not99 = icmp eq i32 %and898, 448
-  br i1 %cmp9.not99, label %while.end, label %while.body.lr.ph
+_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit:   ; preds = %if.end24.i, %if.end24.i.thread
+  %6 = phi i32 [ %.pre, %if.end24.i ], [ %add.i, %if.end24.i.thread ]
+  %and8102 = and i32 %6, 504
+  %cmp9.not103 = icmp eq i32 %and8102, 448
+  br i1 %cmp9.not103, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit
   %m_buffer28.i27 = getelementptr inbounds i8, ptr %this, i64 32
@@ -343,22 +343,22 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %9 = add i32 %8, %inc.i16
   store i32 %9, ptr %arrayidx6.i, align 8
   %cmp12.i19 = icmp eq i32 %and.i12, 63
-  br i1 %cmp12.i19, label %if.end24.i21.thread, label %if.then27.i25
+  br i1 %cmp12.i19, label %if.end24.i21, label %if.end24.i21.thread
 
 if.end24.i21.thread:                              ; preds = %while.body
-  store i8 0, ptr %arrayidx14.i36, align 1
-  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef nonnull %m_buffer28.i27)
-  %.pre109 = load i32, ptr %m_count, align 4
-  br label %_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit47
-
-if.then27.i25:                                    ; preds = %while.body
   %10 = zext nneg i32 %and.i12 to i64
   %arrayidx30.i28 = getelementptr inbounds [64 x i8], ptr %m_buffer28.i27, i64 0, i64 %10
   store i8 0, ptr %arrayidx30.i28, align 1
   br label %_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit47
 
-_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit47: ; preds = %if.end24.i21.thread, %if.then27.i25
-  %11 = phi i32 [ %.pre109, %if.end24.i21.thread ], [ %add.i13, %if.then27.i25 ]
+if.end24.i21:                                     ; preds = %while.body
+  store i8 0, ptr %arrayidx14.i36, align 1
+  tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %this, ptr noundef nonnull %m_buffer28.i27)
+  %.pre113 = load i32, ptr %m_count, align 4
+  br label %_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit47
+
+_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit47: ; preds = %if.end24.i21, %if.end24.i21.thread
+  %11 = phi i32 [ %.pre113, %if.end24.i21 ], [ %add.i13, %if.end24.i21.thread ]
   %and8 = and i32 %11, 504
   %cmp9.not = icmp eq i32 %and8, 448
   br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !7
@@ -381,22 +381,22 @@ while.end:                                        ; preds = %_ZN18OpenImageIO_v2
   br label %for.body12
 
 for.body12:                                       ; preds = %while.end, %for.body12
-  %indvars.iv104 = phi i64 [ 0, %while.end ], [ %indvars.iv.next105, %for.body12 ]
-  %shr13 = lshr i64 %indvars.iv104, 2
+  %indvars.iv108 = phi i64 [ 0, %while.end ], [ %indvars.iv.next109, %for.body12 ]
+  %shr13 = lshr i64 %indvars.iv108, 2
   %idxprom14 = and i64 %shr13, 1073741823
   %arrayidx15 = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %idxprom14
   %15 = load i32, ptr %arrayidx15, align 4
-  %indvars.iv104.tr = trunc i64 %indvars.iv104 to i32
-  %16 = shl i32 %indvars.iv104.tr, 3
+  %indvars.iv108.tr = trunc i64 %indvars.iv108 to i32
+  %16 = shl i32 %indvars.iv108.tr, 3
   %sub17 = and i32 %16, 24
   %mul18 = xor i32 %sub17, 24
   %shr19 = lshr i32 %15, %mul18
   %conv21 = trunc i32 %shr19 to i8
-  %arrayidx23 = getelementptr inbounds [20 x i8], ptr %m_digest, i64 0, i64 %indvars.iv104
+  %arrayidx23 = getelementptr inbounds [20 x i8], ptr %m_digest, i64 0, i64 %indvars.iv108
   store i8 %conv21, ptr %arrayidx23, align 1
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next105, 20
-  br i1 %exitcond108.not, label %for.end26, label %for.body12, !llvm.loop !8
+  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %exitcond112.not = icmp eq i64 %indvars.iv.next109, 20
+  br i1 %exitcond112.not, label %for.end26, label %for.body12, !llvm.loop !8
 
 for.end26:                                        ; preds = %for.body12
   ret void

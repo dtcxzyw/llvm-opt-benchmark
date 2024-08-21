@@ -1072,7 +1072,7 @@ define internal fastcc nonnull ptr @serialize_get(ptr noundef %r, ptr noundef %s
 entry:
   %k = alloca %union.TValue, align 8
   %0 = load ptr, ptr %sbx, align 8
-  %cmp.i510 = icmp ugt ptr %0, %r
+  %cmp.i510 = icmp ult ptr %r, %0
   br i1 %cmp.i510, label %if.then.i515, label %eob
 
 if.then.i515:                                     ; preds = %entry

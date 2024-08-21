@@ -566,7 +566,7 @@ entry:
   %len = getelementptr inbounds i8, ptr %uffd_writeprotect, i64 8
   store i64 %length, ptr %len, align 8
   %dont_wake.not = xor i1 %dont_wake, true
-  %brmerge = or i1 %dont_wake.not, %wp
+  %brmerge = or i1 %wp, %dont_wake.not
   %cond = zext i1 %wp to i64
   %spec.select = select i1 %brmerge, i64 %cond, i64 2
   %1 = getelementptr inbounds i8, ptr %uffd_writeprotect, i64 16

@@ -18,7 +18,7 @@ define void @_ZN11gmx_ga2la_tC2Eii(ptr noundef nonnull align 8 dereferenceable(4
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = icmp slt i32 %1, 1025
   %6 = mul nsw i32 %2, 9
-  %7 = icmp sge i32 %6, %1
+  %7 = icmp sle i32 %1, %6
   %8 = select i1 %5, i1 true, i1 %7
   %9 = zext i1 %8 to i8
   store i8 %9, ptr %4, align 8

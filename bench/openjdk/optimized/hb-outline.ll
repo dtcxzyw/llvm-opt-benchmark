@@ -409,7 +409,7 @@ define hidden noundef float @_ZNK12hb_outline_t12control_areaEv(ptr nocapture no
   %.not.i = icmp ult i64 %indvars.iv, %12
   %21 = getelementptr inbounds %struct.hb_outline_point_t, ptr %11, i64 %indvars.iv
   %.0.i = select i1 %.not.i, ptr %21, ptr @_hb_NullPool
-  %.not.i28 = icmp ugt i32 %9, %20
+  %.not.i28 = icmp ult i32 %20, %9
   %22 = zext i32 %20 to i64
   %23 = getelementptr inbounds %struct.hb_outline_point_t, ptr %11, i64 %22
   %.0.i29 = select i1 %.not.i28, ptr %23, ptr @_hb_NullPool
@@ -419,8 +419,8 @@ define hidden noundef float @_ZNK12hb_outline_t12control_areaEv(ptr nocapture no
   %27 = getelementptr inbounds i8, ptr %.0.i, i64 4
   %28 = load float, ptr %27, align 4
   %29 = load float, ptr %.0.i29, align 4
-  %30 = fneg float %28
-  %31 = fmul float %29, %30
+  %30 = fneg float %29
+  %31 = fmul float %28, %30
   %32 = tail call float @llvm.fmuladd.f32(float %24, float %26, float %31)
   %33 = fadd float %.131, %32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
@@ -498,7 +498,7 @@ define hidden void @_ZN12hb_outline_t8emboldenEffff(ptr nocapture noundef nonnul
   %.not.i.i = icmp ult i64 %indvars.iv.i, %22
   %31 = getelementptr inbounds %struct.hb_outline_point_t, ptr %21, i64 %indvars.iv.i
   %.0.i.i = select i1 %.not.i.i, ptr %31, ptr @_hb_NullPool
-  %.not.i28.i = icmp ugt i32 %10, %30
+  %.not.i28.i = icmp ult i32 %30, %10
   %32 = zext i32 %30 to i64
   %33 = getelementptr inbounds %struct.hb_outline_point_t, ptr %21, i64 %32
   %.0.i29.i = select i1 %.not.i28.i, ptr %33, ptr @_hb_NullPool
@@ -508,8 +508,8 @@ define hidden void @_ZN12hb_outline_t8emboldenEffff(ptr nocapture noundef nonnul
   %37 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
   %38 = load float, ptr %37, align 4
   %39 = load float, ptr %.0.i29.i, align 4
-  %40 = fneg float %38
-  %41 = fmul float %39, %40
+  %40 = fneg float %39
+  %41 = fmul float %38, %40
   %42 = tail call float @llvm.fmuladd.f32(float %34, float %36, float %41)
   %43 = fadd float %.131.i, %42
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %27
@@ -572,7 +572,7 @@ _ZN11hb_vector_tIjLb0EEixEi.exit:                 ; preds = %52, %53
 
 61:                                               ; preds = %.lr.ph134
   %62 = load i32, ptr %9, align 4
-  %.not.i91 = icmp ugt i32 %62, %.075132
+  %.not.i91 = icmp ult i32 %.075132, %62
   br i1 %.not.i91, label %64, label %63
 
 63:                                               ; preds = %61
@@ -590,7 +590,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit: ; preds = %63, %64
   %68 = phi i32 [ %.pre141, %63 ], [ %62, %64 ]
   %.0.i92 = phi ptr [ @_hb_CrapPool, %63 ], [ %67, %64 ]
   %69 = load float, ptr %.0.i92, align 4
-  %.not.i93 = icmp ugt i32 %68, %.076131
+  %.not.i93 = icmp ult i32 %.076131, %68
   br i1 %.not.i93, label %71, label %70
 
 70:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit
@@ -609,7 +609,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95: ; preds = %70, %71
   %.0.i94 = phi ptr [ @_hb_CrapPool, %70 ], [ %74, %71 ]
   %76 = load float, ptr %.0.i94, align 4
   %77 = fsub float %69, %76
-  %.not.i96 = icmp ugt i32 %75, %.075132
+  %.not.i96 = icmp ult i32 %.075132, %75
   br i1 %.not.i96, label %79, label %78
 
 78:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95
@@ -628,7 +628,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98: ; preds = %78, %79
   %.0.i97 = phi ptr [ @_hb_CrapPool, %78 ], [ %82, %79 ]
   %84 = getelementptr inbounds i8, ptr %.0.i97, i64 4
   %85 = load float, ptr %84, align 4
-  %.not.i99 = icmp ugt i32 %83, %.076131
+  %.not.i99 = icmp ult i32 %.076131, %83
   br i1 %.not.i99, label %87, label %86
 
 86:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98
@@ -687,8 +687,8 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101: ; preds = %86, %87
   %113 = fneg float %111
   %.sroa.9.0 = select i1 %46, float %111, float %113
   %.sroa.0.0 = select i1 %46, float %112, float %110
-  %114 = fneg float %.sroa.8.0
-  %115 = fmul float %.sroa.051.0127, %114
+  %114 = fneg float %.sroa.051.0127
+  %115 = fmul float %.sroa.8.0, %114
   %116 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0119, float %.sroa.6.0126, float %115)
   %117 = fneg float %116
   %.080 = select i1 %46, float %117, float %116
@@ -723,14 +723,14 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101: ; preds = %86, %87
   br i1 %.not89123, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %134
-  %135 = fadd float %.sroa.0.2, %3
-  %136 = fadd float %.sroa.9.1, %4
+  %135 = fadd float %3, %.sroa.0.2
+  %136 = fadd float %4, %.sroa.9.1
   br label %137
 
 137:                                              ; preds = %.lr.ph, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107
   %.278124 = phi i32 [ %.076131, %.lr.ph ], [ %157, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
   %138 = load i32, ptr %9, align 4
-  %.not.i102 = icmp ugt i32 %138, %.278124
+  %.not.i102 = icmp ult i32 %.278124, %138
   br i1 %.not.i102, label %140, label %139
 
 139:                                              ; preds = %137
@@ -749,7 +749,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104: ; preds = %139, %140
   %145 = fadd float %135, %144
   store float %145, ptr %.0.i103, align 4
   %146 = load i32, ptr %9, align 4
-  %.not.i105 = icmp ugt i32 %146, %.278124
+  %.not.i105 = icmp ult i32 %.278124, %146
   br i1 %.not.i105, label %148, label %147
 
 147:                                              ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104
@@ -850,7 +850,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tI15hb_draw_funcs_t
 
 11:                                               ; preds = %10
   %12 = tail call noundef ptr @hb_draw_funcs_get_empty()
-  %.not3.i = icmp eq ptr %12, %.1
+  %.not3.i = icmp eq ptr %.1, %12
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tI15hb_draw_funcs_t44hb_outline_recording_pen_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit, label %13
 
 13:                                               ; preds = %11
@@ -892,7 +892,7 @@ define internal void @_ZL32hb_outline_recording_pen_move_toP15hb_draw_funcs_tPvP
   br i1 %12, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i, label %13
 
 13:                                               ; preds = %10
-  %.not.i.i = icmp ult i32 %9, %11
+  %.not.i.i = icmp ugt i32 %11, %9
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
@@ -900,7 +900,7 @@ define internal void @_ZL32hb_outline_recording_pen_move_toP15hb_draw_funcs_tPvP
   %14 = lshr i32 %.142.i.i, 1
   %15 = add i32 %.142.i.i, 8
   %16 = add i32 %15, %14
-  %17 = icmp ult i32 %16, %11
+  %17 = icmp ugt i32 %11, %16
   br i1 %17, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -971,7 +971,7 @@ define internal void @_ZL32hb_outline_recording_pen_line_toP15hb_draw_funcs_tPvP
   br i1 %12, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i, label %13
 
 13:                                               ; preds = %10
-  %.not.i.i = icmp ult i32 %9, %11
+  %.not.i.i = icmp ugt i32 %11, %9
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
@@ -979,7 +979,7 @@ define internal void @_ZL32hb_outline_recording_pen_line_toP15hb_draw_funcs_tPvP
   %14 = lshr i32 %.142.i.i, 1
   %15 = add i32 %.142.i.i, 8
   %16 = add i32 %15, %14
-  %17 = icmp ult i32 %16, %11
+  %17 = icmp ugt i32 %11, %16
   br i1 %17, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -1050,7 +1050,7 @@ define internal void @_ZL37hb_outline_recording_pen_quadratic_toP15hb_draw_funcs
   br i1 %14, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i, label %15
 
 15:                                               ; preds = %12
-  %.not.i.i = icmp ult i32 %11, %13
+  %.not.i.i = icmp ugt i32 %13, %11
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %15, %.preheader.i.i
@@ -1058,7 +1058,7 @@ define internal void @_ZL37hb_outline_recording_pen_quadratic_toP15hb_draw_funcs
   %16 = lshr i32 %.142.i.i, 1
   %17 = add i32 %.142.i.i, 8
   %18 = add i32 %17, %16
-  %19 = icmp ult i32 %18, %13
+  %19 = icmp ugt i32 %13, %18
   br i1 %19, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -1121,7 +1121,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds =
   br i1 %38, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i21, label %39
 
 39:                                               ; preds = %36
-  %.not.i.i8 = icmp ult i32 %35, %37
+  %.not.i.i8 = icmp ugt i32 %37, %35
   br i1 %.not.i.i8, label %.preheader.i.i11, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i9
 
 .preheader.i.i11:                                 ; preds = %39, %.preheader.i.i11
@@ -1129,7 +1129,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds =
   %40 = lshr i32 %.142.i.i12, 1
   %41 = add i32 %.142.i.i12, 8
   %42 = add i32 %41, %40
-  %43 = icmp ult i32 %42, %37
+  %43 = icmp ugt i32 %37, %42
   br i1 %43, label %.preheader.i.i11, label %.thread.i.i13, !llvm.loop !12
 
 .thread.i.i13:                                    ; preds = %.preheader.i.i11
@@ -1200,7 +1200,7 @@ define internal void @_ZL33hb_outline_recording_pen_cubic_toP15hb_draw_funcs_tPv
   br i1 %16, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i, label %17
 
 17:                                               ; preds = %14
-  %.not.i.i = icmp ult i32 %13, %15
+  %.not.i.i = icmp ugt i32 %15, %13
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %17, %.preheader.i.i
@@ -1208,7 +1208,7 @@ define internal void @_ZL33hb_outline_recording_pen_cubic_toP15hb_draw_funcs_tPv
   %18 = lshr i32 %.142.i.i, 1
   %19 = add i32 %.142.i.i, 8
   %20 = add i32 %19, %18
-  %21 = icmp ult i32 %20, %15
+  %21 = icmp ugt i32 %15, %20
   br i1 %21, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -1271,7 +1271,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds =
   br i1 %40, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i24, label %41
 
 41:                                               ; preds = %38
-  %.not.i.i11 = icmp ult i32 %37, %39
+  %.not.i.i11 = icmp ugt i32 %39, %37
   br i1 %.not.i.i11, label %.preheader.i.i14, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i12
 
 .preheader.i.i14:                                 ; preds = %41, %.preheader.i.i14
@@ -1279,7 +1279,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds =
   %42 = lshr i32 %.142.i.i15, 1
   %43 = add i32 %.142.i.i15, 8
   %44 = add i32 %43, %42
-  %45 = icmp ult i32 %44, %39
+  %45 = icmp ugt i32 %39, %44
   br i1 %45, label %.preheader.i.i14, label %.thread.i.i16, !llvm.loop !12
 
 .thread.i.i16:                                    ; preds = %.preheader.i.i14
@@ -1342,7 +1342,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit25: ; preds
   br i1 %64, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i40, label %65
 
 65:                                               ; preds = %62
-  %.not.i.i27 = icmp ult i32 %61, %63
+  %.not.i.i27 = icmp ugt i32 %63, %61
   br i1 %.not.i.i27, label %.preheader.i.i30, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i28
 
 .preheader.i.i30:                                 ; preds = %65, %.preheader.i.i30
@@ -1350,7 +1350,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit25: ; preds
   %66 = lshr i32 %.142.i.i31, 1
   %67 = add i32 %.142.i.i31, 8
   %68 = add i32 %67, %66
-  %69 = icmp ult i32 %68, %63
+  %69 = icmp ugt i32 %63, %68
   br i1 %69, label %.preheader.i.i30, label %.thread.i.i32, !llvm.loop !12
 
 .thread.i.i32:                                    ; preds = %.preheader.i.i30
@@ -1423,7 +1423,7 @@ define internal void @_ZL35hb_outline_recording_pen_close_pathP15hb_draw_funcs_t
   br i1 %12, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread6.i, label %13
 
 13:                                               ; preds = %10
-  %.not.i.i = icmp ult i32 %9, %11
+  %.not.i.i = icmp ugt i32 %11, %9
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
@@ -1431,7 +1431,7 @@ define internal void @_ZL35hb_outline_recording_pen_close_pathP15hb_draw_funcs_t
   %14 = lshr i32 %.142.i.i, 1
   %15 = add i32 %.142.i.i, 8
   %16 = add i32 %15, %14
-  %17 = icmp ult i32 %16, %11
+  %17 = icmp ugt i32 %11, %16
   br i1 %17, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !13
 
 .thread.i.i:                                      ; preds = %.preheader.i.i

@@ -221,7 +221,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
 
 124:                                              ; preds = %121
   %125 = icmp sgt i32 %8, -1
-  %.not223 = icmp sgt i32 %60, %8
+  %.not223 = icmp slt i32 %8, %60
   %or.cond231 = select i1 %125, i1 %.not223, i1 false
   br i1 %or.cond231, label %126, label %207
 
@@ -236,15 +236,15 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMp
   br i1 %130, label %207, label %131
 
 131:                                              ; preds = %127, %126
-  %132 = mul nsw i32 %109, %9
+  %132 = mul nsw i32 %9, %109
   %133 = sub nsw i32 2147483647, %132
   %134 = icmp ugt i32 %112, %133
   br i1 %134, label %207, label %135
 
 135:                                              ; preds = %131
-  %136 = add i32 %132, %4
+  %136 = add i32 %4, %132
   %137 = sub i32 -2147483648, %136
-  %138 = icmp ult i32 %137, %8
+  %138 = icmp ugt i32 %8, %137
   br i1 %138, label %207, label %139
 
 139:                                              ; preds = %135
@@ -492,7 +492,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
 94:                                               ; preds = %89
   %95 = add nsw i32 %91, %90
   %96 = sub nsw i32 2147483647, %95
-  %97 = icmp slt i32 %96, %14
+  %97 = icmp sgt i32 %14, %96
   br i1 %97, label %220, label %98
 
 98:                                               ; preds = %94
@@ -516,7 +516,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
 110:                                              ; preds = %101
   %111 = add nsw i32 %107, %104
   %112 = sub nsw i32 2147483647, %111
-  %113 = icmp slt i32 %112, %14
+  %113 = icmp sgt i32 %14, %112
   br i1 %113, label %220, label %114
 
 114:                                              ; preds = %110
@@ -528,7 +528,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
 
 117:                                              ; preds = %114
   %118 = icmp sgt i32 %11, -1
-  %.not241 = icmp sgt i32 %67, %11
+  %.not241 = icmp slt i32 %11, %67
   %or.cond251 = select i1 %118, i1 %.not241, i1 false
   br i1 %or.cond251, label %119, label %220
 
@@ -543,15 +543,15 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   br i1 %123, label %220, label %124
 
 124:                                              ; preds = %120, %119
-  %125 = mul nsw i32 %102, %12
+  %125 = mul nsw i32 %12, %102
   %126 = sub nsw i32 2147483647, %125
   %127 = icmp ugt i32 %105, %126
   br i1 %127, label %220, label %128
 
 128:                                              ; preds = %124
-  %129 = add i32 %125, %4
+  %129 = add i32 %4, %125
   %130 = sub i32 -2147483648, %129
-  %131 = icmp ult i32 %130, %11
+  %131 = icmp ugt i32 %11, %130
   br i1 %131, label %220, label %132
 
 132:                                              ; preds = %128

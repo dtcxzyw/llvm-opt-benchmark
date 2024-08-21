@@ -1361,7 +1361,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h1df388d751b6a139E(ptr no
 .lr.ph.split.us.i.i:                              ; preds = %7
   %9 = load i64, ptr %6, align 8, !alias.scope !139, !noalias !144, !noundef !7
   %10 = sub i64 %9, %.val.i
-  %.not.i.us.i.i = icmp ult i64 %10, %.0.sroa.speculated.i.i
+  %.not.i.us.i.i = icmp ugt i64 %.0.sroa.speculated.i.i, %10
   br i1 %.not.i.us.i.i, label %11, label %12
 
 11:                                               ; preds = %.lr.ph.split.us.i.i
@@ -1377,7 +1377,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h1df388d751b6a139E(ptr no
   %16 = load i64, ptr %6, align 8, !alias.scope !139, !noalias !144, !noundef !7
   %17 = load i64, ptr %5, align 8, !alias.scope !139, !noalias !144, !noundef !7
   %18 = sub i64 %16, %17
-  %19 = icmp ult i64 %18, %.0.sroa.speculated.i.i
+  %19 = icmp ugt i64 %.0.sroa.speculated.i.i, %18
   br i1 %19, label %.split.us.i.i, label %20
 
 .split.us.i.i:                                    ; preds = %12
@@ -1797,7 +1797,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.14837
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 

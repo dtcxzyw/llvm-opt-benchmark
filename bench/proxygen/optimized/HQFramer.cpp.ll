@@ -438,7 +438,7 @@ invoke.cont21.i:                                  ; preds = %invoke.cont16.i
   store i64 %2, ptr %outPushId, align 8, !noalias !10
   %second.i = getelementptr inbounds i8, ptr %id.i, i64 8
   %3 = load i64, ptr %second.i, align 8, !noalias !10
-  %cmp.not.i = icmp eq i64 %3, %header.val
+  %cmp.not.i = icmp eq i64 %header.val, %3
   br i1 %cmp.not.i, label %if.end25.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %invoke.cont21.i
@@ -774,7 +774,7 @@ invoke.cont21.i:                                  ; preds = %invoke.cont16.i
   store i64 %2, ptr %outStreamId, align 8, !noalias !21
   %second.i = getelementptr inbounds i8, ptr %id.i, i64 8
   %3 = load i64, ptr %second.i, align 8, !noalias !21
-  %cmp.not.i = icmp eq i64 %3, %header.val
+  %cmp.not.i = icmp eq i64 %header.val, %3
   br i1 %cmp.not.i, label %if.end25.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %invoke.cont21.i
@@ -829,7 +829,7 @@ invoke.cont21.i:                                  ; preds = %invoke.cont16.i
   store i64 %2, ptr %outPushId, align 8, !noalias !24
   %second.i = getelementptr inbounds i8, ptr %id.i, i64 8
   %3 = load i64, ptr %second.i, align 8, !noalias !24
-  %cmp.not.i = icmp eq i64 %3, %header.val
+  %cmp.not.i = icmp eq i64 %header.val, %3
   br i1 %cmp.not.i, label %if.end25.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %invoke.cont21.i

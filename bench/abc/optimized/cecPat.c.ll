@@ -480,9 +480,9 @@ common.ret27:                                     ; preds = %24, %15, %26
   %41 = trunc nuw nsw i64 %40 to i32
   %42 = and i32 %41, 1
   %43 = add nuw nsw i32 %39, 1
-  %44 = icmp eq i32 %43, %30
+  %44 = icmp eq i32 %30, %43
   %45 = add nuw nsw i32 %42, 1
-  %46 = icmp eq i32 %45, %36
+  %46 = icmp eq i32 %36, %45
   %or.cond11.i = select i1 %44, i1 true, i1 %46
   %47 = icmp eq i32 %30, 3
   %48 = icmp eq i32 %36, 3
@@ -569,7 +569,7 @@ define void @Cec_ManPatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %43 = and i32 %42, 1
   %44 = icmp ne i32 %40, 3
   %45 = add nuw nsw i32 %43, 1
-  %46 = icmp ne i32 %45, %40
+  %46 = icmp ne i32 %40, %45
   %.not = select i1 %44, i1 %46, i1 false
   br i1 %.not, label %48, label %47
 

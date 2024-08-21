@@ -87,7 +87,7 @@ _ZN14CompilerConfig9is_tieredEv.exit.thread:      ; preds = %2, %_ZN14CompilerCo
 15:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %_ZN14CompilerConfig9is_tieredEv.exit.thread
   %.0 = phi i32 [ %spec.select, %_ZN14CompilerConfig9is_tieredEv.exit.thread ], [ 2, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ]
   %16 = zext nneg i32 %.0 to i64
-  %17 = icmp sgt i64 %16, %0
+  %17 = icmp slt i64 %0, %16
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
@@ -175,7 +175,7 @@ _Z30CompileThresholdConstraintFunclb.exit:        ; preds = %2
 
 12:                                               ; preds = %10
   %13 = load i64, ptr @InterpreterProfilePercentage, align 8
-  %14 = icmp sgt i64 %13, %0
+  %14 = icmp slt i64 %0, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %12
@@ -184,7 +184,7 @@ _Z30CompileThresholdConstraintFunclb.exit:        ; preds = %2
 
 16:                                               ; preds = %12
   %17 = add nsw i64 %13, %11
-  %18 = icmp slt i64 %17, %0
+  %18 = icmp sgt i64 %0, %17
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %16
@@ -200,7 +200,7 @@ _Z30CompileThresholdConstraintFunclb.exit:        ; preds = %2
   br label %26
 
 23:                                               ; preds = %20
-  %24 = icmp ult i64 %11, %0
+  %24 = icmp ugt i64 %0, %11
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %23
@@ -248,64 +248,62 @@ define hidden noundef range(i32 0, 7) i32 @_Z34CodeCacheSegmentSizeConstraintFun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z32CodeEntryAlignmentConstraintFunclb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = icmp sgt i64 %0, 0
-  %4 = add nuw i64 %0, 9223372036854775807
-  %5 = and i64 %4, %0
-  %6 = icmp eq i64 %5, 0
-  %7 = select i1 %3, i1 %6, i1 false
-  %8 = load i64, ptr @CodeEntryAlignment, align 8
-  br i1 %7, label %10, label %9
+  %4 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %0)
+  %5 = icmp ult i64 %4, 2
+  %or.cond = select i1 %3, i1 %5, i1 false
+  %6 = load i64, ptr @CodeEntryAlignment, align 8
+  br i1 %or.cond, label %7, label %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 
-9:                                                ; preds = %2
-  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.14, i64 noundef %8) #6
-  br label %17
+_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread: ; preds = %2
+  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.14, i64 noundef %6) #6
+  br label %14
 
-10:                                               ; preds = %2
-  %11 = icmp slt i64 %8, 16
-  br i1 %11, label %12, label %13
+7:                                                ; preds = %2
+  %8 = icmp slt i64 %6, 16
+  br i1 %8, label %9, label %10
 
-12:                                               ; preds = %10
-  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.15, i64 noundef %8, i32 noundef 16) #6
-  br label %17
+9:                                                ; preds = %7
+  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.15, i64 noundef %6, i32 noundef 16) #6
+  br label %14
+
+10:                                               ; preds = %7
+  %11 = load i64, ptr @CodeCacheSegmentSize, align 8
+  %12 = icmp ugt i64 %6, %11
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
-  %14 = load i64, ptr @CodeCacheSegmentSize, align 8
-  %15 = icmp ugt i64 %8, %14
-  br i1 %15, label %16, label %17
+  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.16, i64 noundef %6, i64 noundef %11) #6
+  br label %14
 
-16:                                               ; preds = %13
-  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.16, i64 noundef %8, i64 noundef %14) #6
-  br label %17
-
-17:                                               ; preds = %13, %16, %12, %9
-  %.0 = phi i32 [ 6, %12 ], [ 6, %16 ], [ 6, %9 ], [ 0, %13 ]
+14:                                               ; preds = %10, %13, %9, %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
+  %.0 = phi i32 [ 6, %9 ], [ 6, %13 ], [ 6, %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread ], [ 0, %10 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z31OptoLoopAlignmentConstraintFunclb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = icmp sgt i64 %0, 0
-  %4 = add nuw i64 %0, 9223372036854775807
-  %5 = and i64 %4, %0
-  %6 = icmp eq i64 %5, 0
-  %7 = select i1 %3, i1 %6, i1 false
-  br i1 %7, label %9, label %8
+  %4 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %0)
+  %5 = icmp ult i64 %4, 2
+  %or.cond = select i1 %3, i1 %5, i1 false
+  br i1 %or.cond, label %6, label %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 
-8:                                                ; preds = %2
+_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread: ; preds = %2
   tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.17, i64 noundef %0) #6
-  br label %14
+  br label %11
 
-9:                                                ; preds = %2
-  %10 = load i64, ptr @OptoLoopAlignment, align 8
-  %11 = load i64, ptr @CodeEntryAlignment, align 8
-  %12 = icmp sgt i64 %10, %11
-  br i1 %12, label %13, label %14
+6:                                                ; preds = %2
+  %7 = load i64, ptr @OptoLoopAlignment, align 8
+  %8 = load i64, ptr @CodeEntryAlignment, align 8
+  %9 = icmp sgt i64 %7, %8
+  br i1 %9, label %10, label %11
 
-13:                                               ; preds = %9
-  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.19, i64 noundef %0, i64 noundef %11) #6
-  br label %14
+10:                                               ; preds = %6
+  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.19, i64 noundef %0, i64 noundef %8) #6
+  br label %11
 
-14:                                               ; preds = %9, %13, %8
-  %.0 = phi i32 [ 6, %13 ], [ 6, %8 ], [ 0, %9 ]
+11:                                               ; preds = %6, %10, %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
+  %.0 = phi i32 [ 6, %10 ], [ 6, %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -326,22 +324,21 @@ define hidden noundef range(i32 0, 7) i32 @_Z42ArraycopyDstPrefetchDistanceConst
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z27AVX3ThresholdConstraintFuncib(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %10, label %3
+  br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
   %4 = icmp sgt i32 %0, 0
-  %5 = add nuw i32 %0, 2147483647
-  %6 = and i32 %5, %0
-  %7 = icmp eq i32 %6, 0
-  %8 = select i1 %4, i1 %7, i1 false
-  br i1 %8, label %10, label %9
+  %5 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
+  %6 = icmp ult i32 %5, 2
+  %or.cond = select i1 %4, i1 %6, i1 false
+  br i1 %or.cond, label %7, label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 
-9:                                                ; preds = %3
+_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread: ; preds = %3
   tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.21, i32 noundef %0) #6
-  br label %10
+  br label %7
 
-10:                                               ; preds = %2, %3, %9
-  %.0 = phi i32 [ 6, %9 ], [ 0, %3 ], [ 0, %2 ]
+7:                                                ; preds = %3, %2, %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
+  %.0 = phi i32 [ 6, %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread ], [ 0, %2 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -453,30 +450,29 @@ define hidden noundef range(i32 0, 7) i32 @_Z36InteriorEntryAlignmentConstraintF
 
 6:                                                ; preds = %2
   tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.28, i64 noundef %3, i64 noundef %4) #6
-  br label %17
+  br label %14
 
 7:                                                ; preds = %2
   %8 = icmp sgt i64 %0, 0
-  %9 = add nuw i64 %0, 9223372036854775807
-  %10 = and i64 %9, %0
-  %11 = icmp eq i64 %10, 0
-  %12 = select i1 %8, i1 %11, i1 false
-  br i1 %12, label %14, label %13
+  %9 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %0)
+  %10 = icmp ult i64 %9, 2
+  %or.cond = select i1 %8, i1 %10, i1 false
+  br i1 %or.cond, label %11, label %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 
-13:                                               ; preds = %7
+_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread: ; preds = %7
   tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.29, i64 noundef %3) #6
-  br label %17
+  br label %14
 
-14:                                               ; preds = %7
-  %15 = icmp slt i64 %3, 16
-  br i1 %15, label %16, label %17
+11:                                               ; preds = %7
+  %12 = icmp slt i64 %3, 16
+  br i1 %12, label %13, label %14
 
-16:                                               ; preds = %14
+13:                                               ; preds = %11
   tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.30, i64 noundef %3, i32 noundef 16) #6
-  br label %17
+  br label %14
 
-17:                                               ; preds = %14, %16, %13, %6
-  %.0 = phi i32 [ 6, %6 ], [ 6, %16 ], [ 6, %13 ], [ 0, %14 ]
+14:                                               ; preds = %11, %13, %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread, %6
+  %.0 = phi i32 [ 6, %6 ], [ 6, %13 ], [ 6, %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -484,13 +480,13 @@ define hidden noundef range(i32 0, 7) i32 @_Z36InteriorEntryAlignmentConstraintF
 define hidden noundef range(i32 0, 7) i32 @_Z34NodeLimitFudgeFactorConstraintFunclb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i64, ptr @MaxNodeLimit, align 8
   %4 = sdiv i64 %3, 50
-  %5 = icmp sgt i64 %4, %0
+  %5 = icmp slt i64 %0, %4
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
   %7 = mul nsw i64 %3, 40
   %8 = sdiv i64 %7, 100
-  %9 = icmp slt i64 %8, %0
+  %9 = icmp sgt i64 %0, %8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6, %2
@@ -670,6 +666,12 @@ declare noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIt
 declare void @_ZN20ControlIntrinsicIterD1Ev(ptr noundef nonnull align 8 dereferenceable(33)) unnamed_addr #4
 
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

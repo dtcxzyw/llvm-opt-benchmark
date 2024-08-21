@@ -7473,7 +7473,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4l
 
 select.unfold:                                    ; preds = %12, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %12 ]
-  %15 = icmp eq ptr %4, %.sroa.4.0.i.ph
+  %15 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %15, label %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit, label %16
 
 16:                                               ; preds = %select.unfold
@@ -11354,7 +11354,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS
   %24 = load ptr, ptr %6, align 8
   %.not.i.i = icmp ne ptr %21, null
   %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = icmp eq ptr %25, %22
+  %26 = icmp eq ptr %22, %25
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %26
   br i1 %or.cond.i.i, label %.thread, label %27
 
@@ -11434,7 +11434,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %28
 
 6:                                                ; preds = %3
@@ -12017,7 +12017,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4l
 
 select.unfold:                                    ; preds = %12, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %12 ]
-  %15 = icmp eq ptr %4, %.sroa.4.0.i.ph
+  %15 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %select.unfold

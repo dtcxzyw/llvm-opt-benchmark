@@ -74,7 +74,7 @@ define internal { double, double } @_ZL14eck5_s_forward5PJ_LPP8PJconsts(double %
   %4 = tail call double @cos(double noundef %1) #5
   %5 = fadd double %4, 1.000000e+00
   %6 = fmul double %5, 0x3FDC398DA1EB377F
-  %7 = fmul double %6, %0
+  %7 = fmul double %0, %6
   %8 = fmul double %1, 0x3FEC398DA1EB377F
   %.fca.0.insert = insertvalue { double, double } poison, double %7, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %8, 1

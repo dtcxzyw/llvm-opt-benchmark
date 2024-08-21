@@ -384,7 +384,7 @@ define void @_ZN14VrmlTranslator6Buffer6SetPosEi(ptr nocapture noundef nonnull a
   %3 = alloca [50 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
-  %.not = icmp sgt i32 %5, %1
+  %.not = icmp slt i32 %1, %5
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not12 = icmp eq ptr %7, null
@@ -395,7 +395,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %2
   %8 = tail call i64 @ftell(ptr noundef nonnull %7)
   %9 = icmp ne i64 %8, -1
   %10 = load i32, ptr %4, align 4
-  %.not13 = icmp sgt i32 %10, %1
+  %.not13 = icmp slt i32 %1, %10
   %or.cond22 = select i1 %9, i1 true, i1 %.not13
   br i1 %or.cond22, label %.critedge, label %.preheader
 
@@ -460,13 +460,13 @@ _ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit: ; preds = %28
   %39 = add nsw i32 %38, %36
   store i32 %39, ptr %12, align 8
   store i32 %39, ptr %4, align 4
-  %.not13.old = icmp sgt i32 %39, %1
+  %.not13.old = icmp slt i32 %1, %39
   br i1 %.not13.old, label %.critedge, label %13
 
 .critedge:                                        ; preds = %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit, %..critedge.loopexit_crit_edge, %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit, %2
   %40 = phi i32 [ %10, %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit ], [ %5, %2 ], [ %.pre23.pre, %..critedge.loopexit_crit_edge ], [ %39, %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit ]
   %41 = icmp slt i32 %1, 0
-  %42 = icmp slt i32 %40, %1
+  %42 = icmp sgt i32 %1, %40
   %or.cond19 = select i1 %41, i1 true, i1 %42
   br i1 %or.cond19, label %43, label %46
 
@@ -480,14 +480,14 @@ _ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit: ; preds = %28
 46:                                               ; preds = %.critedge
   %47 = getelementptr inbounds i8, ptr %0, i64 20
   %48 = load i32, ptr %47, align 4
-  %.not15 = icmp sgt i32 %48, %1
+  %.not15 = icmp slt i32 %1, %48
   br i1 %.not15, label %56, label %49
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %0, i64 24
   %51 = load i32, ptr %50, align 8
   %52 = add nsw i32 %51, %48
-  %53 = icmp sgt i32 %52, %1
+  %53 = icmp slt i32 %1, %52
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %49

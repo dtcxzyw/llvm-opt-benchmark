@@ -888,7 +888,7 @@ define internal void @gvevent_render(ptr nocapture noundef readonly %0, ptr noun
 define internal fastcc void @gv_graph_state(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 728
   %4 = tail call ptr @agroot(ptr noundef %1) #12
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2

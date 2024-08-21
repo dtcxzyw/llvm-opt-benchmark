@@ -335,7 +335,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i.i.i: ; preds =
   %137 = load i64, ptr %7, align 8, !alias.scope !42, !noalias !47, !noundef !12
   %138 = load i64, ptr %1, align 8, !alias.scope !49, !noalias !47, !noundef !12
   %139 = sub i64 %138, %137
-  %140 = icmp ult i64 %139, %136
+  %140 = icmp ugt i64 %136, %139
   br i1 %140, label %141, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hee4c213bced04c19E.exit.i.i.i"
 
 141:                                              ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i.i.i

@@ -699,7 +699,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
   br i1 %.not25, label %59, label %57
 
 .thread37:                                        ; preds = %43
-  %.not2541 = icmp eq i32 %44, %0
+  %.not2541 = icmp eq i32 %0, %44
   br i1 %.not2541, label %.thread44, label %57
 
 57:                                               ; preds = %.thread37, %55

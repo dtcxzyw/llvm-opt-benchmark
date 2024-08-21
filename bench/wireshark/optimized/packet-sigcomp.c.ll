@@ -9235,7 +9235,7 @@ define internal fastcc noundef i32 @dissect_udvm_reference_operand(ptr noundef %
   %.sink = phi i32 [ 2, %15 ], [ 3, %23 ], [ 1, %32 ]
   store i16 %.sink46, ptr %4, align 2
   store i32 %.sink45, ptr %3, align 4
-  %36 = add i32 %.sink, %2
+  %36 = add i32 %2, %.sink
   ret i32 %36
 }
 
@@ -9449,7 +9449,7 @@ default.unreachable137:                           ; preds = %6
 
 102:                                              ; preds = %99, %92, %35, %57, %81, %70, %46, %24, %16
   %.sink = phi i32 [ 2, %99 ], [ 1, %92 ], [ 2, %35 ], [ 1, %57 ], [ 3, %81 ], [ 1, %70 ], [ 2, %46 ], [ 1, %24 ], [ 1, %16 ]
-  %103 = add i32 %.sink, %2
+  %103 = add i32 %2, %.sink
   ret i32 %103
 }
 
@@ -9514,7 +9514,7 @@ define internal fastcc noundef i32 @dissect_udvm_literal_operand(ptr noundef %0,
   %.sink = phi i32 [ 2, %15 ], [ 3, %22 ], [ 1, %31 ]
   store i16 %.sink46, ptr %4, align 2
   store i32 %.sink45, ptr %3, align 4
-  %34 = add i32 %.sink, %2
+  %34 = add i32 %2, %.sink
   ret i32 %34
 }
 

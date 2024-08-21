@@ -184,7 +184,7 @@ _ZN9StartNodeC2EP4NodePK9TypeTuple.exit:          ; preds = %82, %71, %_ZN4Node8
   %97 = tail call noundef ptr %96(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i) #7
   %98 = getelementptr inbounds i8, ptr %91, i64 8
   %99 = load i32, ptr %98, align 8
-  %.not.i.i174 = icmp ugt i32 %99, %93
+  %.not.i.i174 = icmp ult i32 %93, %99
   br i1 %.not.i.i174, label %_ZN11PhaseValues15set_type_bottomEPK4Node.exit, label %100
 
 100:                                              ; preds = %_ZN9StartNodeC2EP4NodePK9TypeTuple.exit
@@ -2540,7 +2540,7 @@ _ZN4NodenwEm.exit:                                ; preds = %21, %23
   %37 = load i32, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %37
+  %.not.i.i = icmp ult i32 %37, %39
   br i1 %.not.i.i, label %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit, label %40
 
 40:                                               ; preds = %27
@@ -2596,7 +2596,7 @@ _ZN9VectorSet8test_setEj.exit.i.i.i:              ; preds = %57, %48
   store i32 %70, ptr %68, align 8
   %71 = getelementptr inbounds i8, ptr %52, i64 8
   %72 = load i32, ptr %71, align 8
-  %.not.i.i.i.i.i = icmp ugt i32 %72, %69
+  %.not.i.i.i.i.i = icmp ult i32 %69, %72
   br i1 %.not.i.i.i.i.i, label %_ZN9Node_List4pushEP4Node.exit.i.i.i, label %73
 
 73:                                               ; preds = %67

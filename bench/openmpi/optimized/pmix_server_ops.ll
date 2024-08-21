@@ -2577,13 +2577,13 @@ define internal fastcc ptr @get_tracker(ptr noundef readonly %0, ptr noundef rea
   %.03555.us.us = phi ptr [ %.035.us.us, %21 ], [ %.03553, %.lr.ph.split.us ]
   %16 = getelementptr inbounds i8, ptr %.03555.us.us, i64 568
   %17 = load i64, ptr %16, align 8
-  %.not42.us.us = icmp eq i64 %17, %2
+  %.not42.us.us = icmp eq i64 %2, %17
   br i1 %.not42.us.us, label %18, label %21
 
 18:                                               ; preds = %.lr.ph.split.us.split.us
   %19 = getelementptr inbounds i8, ptr %.03555.us.us, i64 288
   %20 = load i8, ptr %19, align 8
-  %.not43.us.us = icmp eq i8 %20, %3
+  %.not43.us.us = icmp eq i8 %3, %20
   br i1 %.not43.us.us, label %.preheader.lr.ph.split.us.us.us, label %21
 
 21:                                               ; preds = %._crit_edge.us.us, %18, %.lr.ph.split.us.split.us
@@ -2593,7 +2593,7 @@ define internal fastcc ptr @get_tracker(ptr noundef readonly %0, ptr noundef rea
   br i1 %.not.us.us, label %.loopexit48, label %.lr.ph.split.us.split.us, !llvm.loop !13
 
 ._crit_edge.us.us:                                ; preds = %..loopexit_crit_edge.us.us.us
-  %23 = icmp eq i64 %.1.us.us.us, %2
+  %23 = icmp eq i64 %2, %.1.us.us.us
   br i1 %23, label %.loopexit48, label %21
 
 .preheader.lr.ph.split.us.us.us:                  ; preds = %18
@@ -2647,7 +2647,7 @@ define internal fastcc ptr @get_tracker(ptr noundef readonly %0, ptr noundef rea
 44:                                               ; preds = %.lr.ph.split.us.split
   %45 = getelementptr inbounds i8, ptr %.03555.us, i64 288
   %46 = load i8, ptr %45, align 8
-  %.not43.us = icmp eq i8 %46, %3
+  %.not43.us = icmp eq i8 %3, %46
   br i1 %.not43.us, label %.loopexit48, label %47
 
 47:                                               ; preds = %44, %.lr.ph.split.us.split

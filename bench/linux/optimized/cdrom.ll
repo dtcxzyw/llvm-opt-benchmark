@@ -2765,7 +2765,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %183 = getelementptr inbounds i8, ptr %0, i64 48
   %184 = load i32, ptr %183, align 8
   %185 = sext i32 %184 to i64
-  %186 = icmp ugt i64 %185, %3
+  %186 = icmp ult i64 %3, %185
   br i1 %186, label %187, label %766
 
 187:                                              ; preds = %182
@@ -2961,7 +2961,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %309 = xor i32 %308, -1
   %310 = and i32 %306, %309
   %311 = sext i32 %310 to i64
-  %312 = and i64 %311, %3
+  %312 = and i64 %3, %311
   %313 = icmp eq i64 %312, 0
   br i1 %313, label %766, label %314
 
@@ -3028,7 +3028,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %360 = getelementptr inbounds i8, ptr %0, i64 48
   %361 = load i32, ptr %360, align 8
   %362 = sext i32 %361 to i64
-  %363 = icmp ugt i64 %362, %3
+  %363 = icmp ult i64 %3, %362
   br i1 %363, label %364, label %766
 
 364:                                              ; preds = %359, %356
@@ -3344,7 +3344,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %566 = getelementptr inbounds i8, ptr %0, i64 48
   %567 = load i32, ptr %566, align 8
   %568 = sext i32 %567 to i64
-  %569 = icmp ugt i64 %568, %3
+  %569 = icmp ult i64 %3, %568
   br i1 %569, label %570, label %766
 
 570:                                              ; preds = %565

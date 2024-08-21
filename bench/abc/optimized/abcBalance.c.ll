@@ -269,7 +269,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %43, %47
 
 67:                                               ; preds = %59
   %68 = load i32, ptr %33, align 4
-  %69 = icmp sgt i32 %68, %.282
+  %69 = icmp slt i32 %.282, %68
   br i1 %69, label %Extra_ProgressBarUpdate.exit70, label %70
 
 70:                                               ; preds = %67, %59
@@ -462,7 +462,7 @@ define void @Abc_NodeBalancePermute(ptr nocapture noundef readonly %0, ptr nocap
   %4 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %4, align 4
   %5 = add nsw i32 %.val, -2
-  %6 = icmp eq i32 %5, %2
+  %6 = icmp eq i32 %2, %5
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
@@ -1688,7 +1688,7 @@ Vec_PtrSort.exit:                                 ; preds = %._crit_edge, %._cri
 Abc_NodeBalanceFindLeft.exit:                     ; preds = %149, %._crit_edge.split.loop.exit24.i, %127
   %153 = phi i32 [ 0, %127 ], [ %152, %._crit_edge.split.loop.exit24.i ], [ 0, %149 ]
   %154 = add nsw i32 %128, -2
-  %155 = icmp eq i32 %154, %153
+  %155 = icmp eq i32 %153, %154
   br i1 %155, label %Abc_NodeBalancePermute.exit, label %156
 
 156:                                              ; preds = %Abc_NodeBalanceFindLeft.exit

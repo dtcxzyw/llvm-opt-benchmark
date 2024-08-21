@@ -212,7 +212,7 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
   %61 = fmul double %53, %60
   %62 = call double @llvm.fabs.f64(double %57)
   %63 = load double, ptr %1, align 8
-  %64 = fmul double %63, %4
+  %64 = fmul double %4, %63
   %65 = call double @llvm.fabs.f64(double %64)
   %66 = fcmp olt double %62, %65
   %.84 = select i1 %66, double %62, double %65
@@ -220,7 +220,7 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
   %68 = call double @llvm.fabs.f64(double %67)
   %69 = getelementptr inbounds i8, ptr %1, i64 24
   %70 = load double, ptr %69, align 8
-  %71 = fmul double %70, %4
+  %71 = fmul double %4, %70
   %72 = call double @llvm.fabs.f64(double %71)
   %73 = fcmp ogt double %68, %72
   %74 = select i1 %73, double %68, double %72
@@ -242,7 +242,7 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
   %85 = call double @llvm.fabs.f64(double %82)
   %86 = getelementptr inbounds i8, ptr %1, i64 72
   %87 = load double, ptr %86, align 8
-  %88 = fmul double %87, %4
+  %88 = fmul double %4, %87
   %89 = fmul double %88, 0x3FEFFFFDE7210BE9
   %90 = call double @llvm.fabs.f64(double %89)
   %91 = fcmp ogt double %85, %90
@@ -251,7 +251,7 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
 92:                                               ; preds = %84
   %93 = getelementptr inbounds i8, ptr %1, i64 80
   %94 = load double, ptr %93, align 8
-  %95 = fmul double %94, %4
+  %95 = fmul double %4, %94
   %96 = fmul double %95, 0x3FF000010C6F7A0B
   %97 = call double @llvm.fabs.f64(double %96)
   %98 = fcmp olt double %85, %97

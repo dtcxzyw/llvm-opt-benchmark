@@ -218,7 +218,7 @@ define hidden noundef zeroext i1 @_ZN2cv4face18FacemarkKazemiImpl20findNearestLa
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
   %34 = sdiv exact i64 %33, 24
-  %35 = icmp ult i64 %34, %27
+  %35 = icmp ugt i64 %27, %34
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %23
@@ -227,7 +227,7 @@ define hidden noundef zeroext i1 @_ZN2cv4face18FacemarkKazemiImpl20findNearestLa
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
 38:                                               ; preds = %23
-  %39 = icmp ugt i64 %34, %27
+  %39 = icmp ult i64 %27, %34
   br i1 %39, label %40, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
 40:                                               ; preds = %38
@@ -447,7 +447,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -521,7 +521,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; pre
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -814,7 +814,7 @@ define hidden void @_ZN2cv4face18FacemarkKazemiImpl9loadModelENSt7__cxx1112basic
   %121 = ptrtoint ptr %119 to i64
   %122 = sub i64 %120, %121
   %123 = sdiv exact i64 %122, 24
-  %124 = icmp ult i64 %123, %116
+  %124 = icmp ugt i64 %116, %123
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %114
@@ -823,7 +823,7 @@ define hidden void @_ZN2cv4face18FacemarkKazemiImpl9loadModelENSt7__cxx1112basic
           to label %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit unwind label %.loopexit.split-lp160
 
 127:                                              ; preds = %114
-  %128 = icmp ugt i64 %123, %116
+  %128 = icmp ult i64 %116, %123
   br i1 %128, label %129, label %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit
 
 129:                                              ; preds = %127
@@ -1158,7 +1158,7 @@ _ZN2cv4face18FacemarkKazemiImpl10readPixelsERSt14basic_ifstreamIcSt11char_traits
   %255 = ptrtoint ptr %253 to i64
   %256 = sub i64 %254, %255
   %257 = sdiv exact i64 %256, 48
-  %258 = icmp ult i64 %257, %251
+  %258 = icmp ugt i64 %251, %257
   br i1 %258, label %259, label %292
 
 259:                                              ; preds = %249
@@ -1249,7 +1249,7 @@ _ZNSt12_Vector_baseIN2cv4face9tree_nodeESaIS2_EE13_M_deallocateEPS2_m.exit36.i: 
   br label %_ZNSt6vectorIN2cv4face9tree_nodeESaIS2_EE6resizeEm.exit
 
 292:                                              ; preds = %249
-  %293 = icmp ugt i64 %257, %251
+  %293 = icmp ult i64 %251, %257
   br i1 %293, label %294, label %_ZNSt6vectorIN2cv4face9tree_nodeESaIS2_EE6resizeEm.exit
 
 294:                                              ; preds = %292
@@ -1731,7 +1731,7 @@ _ZNSt16allocator_traitsISaIN2cv6Point_IfEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i: 
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit13.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %452 = extractvalue { ptr, i32 } %lpad.phi.i, 0
   %453 = call ptr @__cxa_begin_catch(ptr %452) #20
-  %.not4.i.i.i = icmp eq ptr %.019.i, %422
+  %.not4.i.i.i = icmp eq ptr %422, %.019.i
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN2cv4face9tree_nodeEEvT_S4_.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %451, %_ZSt8_DestroyIN2cv4face9tree_nodeEEvPT_.exit.i.i.i
@@ -1933,7 +1933,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIS_IN2cv4face7regtreeESaIS2_EESaIS4
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 24
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -1942,7 +1942,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIS_IN2cv4face7regtreeESaIS2_EESaIS4
   br label %_ZNSt6vectorIS_IN2cv4face7regtreeESaIS2_EESaIS4_EE15_M_erase_at_endEPS4_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIS_IN2cv4face7regtreeESaIS2_EESaIS4_EE15_M_erase_at_endEPS4_.exit
 
 15:                                               ; preds = %13
@@ -2995,7 +2995,7 @@ _ZNSt16allocator_traitsISaIN2cv6Point_IfEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i: 
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit13.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %342 = extractvalue { ptr, i32 } %lpad.phi.i, 0
   %343 = call ptr @__cxa_begin_catch(ptr %342) #20
-  %.not4.i.i.i = icmp eq ptr %.019.i, %317
+  %.not4.i.i.i = icmp eq ptr %317, %.019.i
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN2cv4face9tree_nodeEEvT_S4_.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %341, %_ZSt8_DestroyIN2cv4face9tree_nodeEEvPT_.exit.i.i.i
@@ -4711,7 +4711,7 @@ _ZNSt16allocator_traitsISaIN2cv6Point_IfEEEE8allocateERS3_m.exit.i.i.i.i.i.i: ; 
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit13 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %28 = extractvalue { ptr, i32 } %lpad.phi, 0
   %29 = tail call ptr @__cxa_begin_catch(ptr %28) #20
-  %.not4.i.i = icmp eq ptr %.019, %2
+  %.not4.i.i = icmp eq ptr %2, %.019
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN2cv4face9tree_nodeEEvT_S4_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %27, %_ZSt8_DestroyIN2cv4face9tree_nodeEEvPT_.exit.i.i
@@ -5182,7 +5182,7 @@ _ZNSt16allocator_traitsISaIN2cv4face9tree_nodeEEE8allocateERS3_m.exit.i.i.i.i.i.
 _ZNSt6vectorIN2cv4face7regtreeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i.i, %44
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %44 ], [ %53, %.lr.ph.i.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIN2cv4face7regtreeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIN2cv4face7regtreeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i.i28

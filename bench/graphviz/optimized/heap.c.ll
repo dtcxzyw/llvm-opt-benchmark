@@ -28,7 +28,7 @@ define void @PQinsert(ptr noundef %0, ptr noundef %1, double noundef %2) local_u
   tail call void @ref(ptr noundef %1) #13
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
-  %7 = fadd double %6, %2
+  %7 = fadd double %2, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   store double %7, ptr %8, align 8
   %9 = load ptr, ptr @PQhash, align 8

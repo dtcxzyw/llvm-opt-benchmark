@@ -178,7 +178,7 @@ define hidden noundef float @_ZN2cv10xobjdetect14calcNormFactorERKNS_3MatES3_(pt
   %50 = fadd double %47, %49
   %51 = sitofp i32 %37 to double
   %52 = fneg double %51
-  %53 = fmul double %52, %51
+  %53 = fmul double %51, %52
   %54 = tail call double @llvm.fmuladd.f64(double %24, double %50, double %53)
   %55 = tail call double @sqrt(double noundef %54) #18
   %56 = fptrunc double %55 to float
@@ -609,7 +609,7 @@ define hidden void @_ZN2cv10xobjdetect18CvFeatureEvaluator8setImageERKNS_3MatEhi
   %7 = alloca %"class.std::allocator", align 1
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8
-  %10 = icmp sgt i32 %9, %3
+  %10 = icmp slt i32 %3, %9
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %5

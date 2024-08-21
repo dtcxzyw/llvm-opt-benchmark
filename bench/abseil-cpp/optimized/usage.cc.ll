@@ -1773,7 +1773,7 @@ call.i.i.i.noexc127:                              ; preds = %for.body.i79
 
 call5.i.i.i.noexc129:                             ; preds = %call.i.i.i.noexc127
   %22 = extractvalue { i64, ptr } %call5.i.i.i130, 0
-  %.sroa.speculated.i.i.i.i.i84 = call i64 @llvm.umin.i64(i64 %20, i64 %22)
+  %.sroa.speculated.i.i.i.i.i84 = call i64 @llvm.umin.i64(i64 %22, i64 %20)
   %cmp.i2.i.i.i.i.i85 = icmp eq i64 %.sroa.speculated.i.i.i.i.i84, 0
   br i1 %cmp.i2.i.i.i.i.i85, label %if.then.i.i.i.i.i122, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i86
 
@@ -1819,7 +1819,7 @@ call.i.i.i.i.noexc131:                            ; preds = %while.cond.i.i92
 
 call5.i.i.i.i.noexc133:                           ; preds = %call.i.i.i.i.noexc131
   %30 = extractvalue { i64, ptr } %call5.i.i.i.i134, 0
-  %.sroa.speculated.i.i.i.i.i.i97 = call i64 @llvm.umin.i64(i64 %28, i64 %30)
+  %.sroa.speculated.i.i.i.i.i.i97 = call i64 @llvm.umin.i64(i64 %30, i64 %28)
   %cmp.i2.i.i.i.i.i.i98 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i97, 0
   br i1 %cmp.i2.i.i.i.i.i.i98, label %if.then.i.i.i.i.i4.i110, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i99
 
@@ -1881,7 +1881,7 @@ call.i.i.i.i.i.i.i.noexc:                         ; preds = %while.cond.i.i.i.i.
 
 call5.i.i.i.i.i.i.i.noexc:                        ; preds = %call.i.i.i.i.i.i.i.noexc
   %39 = extractvalue { i64, ptr } %call5.i.i.i.i.i.i.i51, 0
-  %.sroa.speculated.i.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %37, i64 %39)
+  %.sroa.speculated.i.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %39, i64 %37)
   %cmp.i2.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
 
@@ -1939,7 +1939,7 @@ call.i.i.i.noexc:                                 ; preds = %for.body.i
 
 call5.i.i.i.noexc:                                ; preds = %call.i.i.i.noexc
   %48 = extractvalue { i64, ptr } %call5.i.i.i70, 0
-  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %46, i64 %48)
+  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %48, i64 %46)
   %cmp.i2.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
@@ -1991,7 +1991,7 @@ call.i.i.i.i.noexc:                               ; preds = %while.cond.i.i
 
 call5.i.i.i.i.noexc:                              ; preds = %call.i.i.i.i.noexc
   %56 = extractvalue { i64, ptr } %call5.i.i.i.i72, 0
-  %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %54, i64 %56)
+  %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %56, i64 %54)
   %cmp.i2.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i, label %if.then.i.i.i.i.i4.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
@@ -2760,7 +2760,7 @@ if.then8.i:                                       ; preds = %call3.i.noexc
 
 if.end10.i:                                       ; preds = %if.then8.i, %call3.i.noexc
   %19 = load i64, ptr %__begin4, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %19
+  %cmp.i.i.i = icmp ugt i64 %19, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i
@@ -2945,7 +2945,7 @@ if.then8.i80:                                     ; preds = %call3.i.noexc82
 
 if.end10.i68:                                     ; preds = %if.then8.i80, %call3.i.noexc82
   %33 = load i64, ptr %__begin5, align 8
-  %cmp.i.i.i69 = icmp ult i64 %retval.sroa.0.0.copyload.i.i63, %33
+  %cmp.i.i.i69 = icmp ugt i64 %33, %retval.sroa.0.0.copyload.i.i63
   br i1 %cmp.i.i.i69, label %if.then.i.i.i79, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i70
 
 if.then.i.i.i79:                                  ; preds = %if.end10.i68
@@ -3278,7 +3278,7 @@ if.then8.i:                                       ; preds = %call3.i.noexc
 
 if.end10.i:                                       ; preds = %if.then8.i, %call3.i.noexc
   %6 = load i64, ptr %this, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i, %6
+  %cmp.i.i.i = icmp ugt i64 %6, %retval.sroa.0.0.copyload.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i
@@ -3415,7 +3415,7 @@ if.then8.i:                                       ; preds = %call3.i.noexc
 
 if.end10.i:                                       ; preds = %if.then8.i, %call3.i.noexc
   %6 = load i64, ptr %this, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %6
+  %cmp.i.i.i = icmp ugt i64 %6, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i
@@ -4040,7 +4040,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %3, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -4104,7 +4104,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3mapIS5_St6vectorIPKN4absl15CommandLineFlagESaISD_EESt4lessIS5_ESaIS6_IS7_SF_EEEESt10_Select1stISL_ESH_SaISL_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISL_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -4565,7 +4565,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %8, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %9
+  %cmp2.i.i = icmp eq ptr %9, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -4623,7 +4623,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIPKN4absl15CommandLineFlagESaISC_EEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -5039,7 +5039,7 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %7 = load ptr, ptr %vtable3.i.i.i.i, align 8
   %call5.i.i.i.i = tail call { i64, ptr } %7(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %8 = extractvalue { i64, ptr } %call5.i.i.i.i, 0
-  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %8)
+  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %6)
   %cmp.i2.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
@@ -5073,7 +5073,7 @@ if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   %15 = load ptr, ptr %vtable3.i.i3.i.i, align 8
   %call5.i.i4.i.i = tail call { i64, ptr } %15(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %16 = extractvalue { i64, ptr } %call5.i.i4.i.i, 0
-  %.sroa.speculated.i.i.i.i5.i.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %16)
+  %.sroa.speculated.i.i.i.i5.i.i = tail call i64 @llvm.umin.i64(i64 %16, i64 %14)
   %cmp.i2.i.i.i.i6.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i5.i.i, 0
   br i1 %cmp.i2.i.i.i.i6.i.i, label %if.then.i.i.i.i12.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i7.i.i
 
@@ -5114,7 +5114,7 @@ if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   %25 = load ptr, ptr %vtable3.i.i20.i.i, align 8
   %call5.i.i21.i.i = tail call { i64, ptr } %25(ptr noundef nonnull align 8 dereferenceable(8) %22)
   %26 = extractvalue { i64, ptr } %call5.i.i21.i.i, 0
-  %.sroa.speculated.i.i.i.i22.i.i = tail call i64 @llvm.umin.i64(i64 %24, i64 %26)
+  %.sroa.speculated.i.i.i.i22.i.i = tail call i64 @llvm.umin.i64(i64 %26, i64 %24)
   %cmp.i2.i.i.i.i23.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i22.i.i, 0
   br i1 %cmp.i2.i.i.i.i23.i.i, label %if.then.i.i.i.i29.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i24.i.i
 
@@ -5160,7 +5160,7 @@ if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   %35 = load ptr, ptr %vtable3.i.i37.i.i, align 8
   %call5.i.i38.i.i = tail call { i64, ptr } %35(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %36 = extractvalue { i64, ptr } %call5.i.i38.i.i, 0
-  %.sroa.speculated.i.i.i.i39.i.i = tail call i64 @llvm.umin.i64(i64 %34, i64 %36)
+  %.sroa.speculated.i.i.i.i39.i.i = tail call i64 @llvm.umin.i64(i64 %36, i64 %34)
   %cmp.i2.i.i.i.i40.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i39.i.i, 0
   br i1 %cmp.i2.i.i.i.i40.i.i, label %if.then.i.i.i.i46.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i41.i.i
 
@@ -5201,7 +5201,7 @@ if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   %45 = load ptr, ptr %vtable3.i.i54.i.i, align 8
   %call5.i.i55.i.i = tail call { i64, ptr } %45(ptr noundef nonnull align 8 dereferenceable(8) %42)
   %46 = extractvalue { i64, ptr } %call5.i.i55.i.i, 0
-  %.sroa.speculated.i.i.i.i56.i.i = tail call i64 @llvm.umin.i64(i64 %44, i64 %46)
+  %.sroa.speculated.i.i.i.i56.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %44)
   %cmp.i2.i.i.i.i57.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i56.i.i, 0
   br i1 %cmp.i2.i.i.i.i57.i.i, label %if.then.i.i.i.i63.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i58.i.i
 
@@ -5257,7 +5257,7 @@ while.cond3.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__op
   %56 = load ptr, ptr %vtable3.i.i.i7.i, align 8
   %call5.i.i.i8.i = tail call { i64, ptr } %56(ptr noundef nonnull align 8 dereferenceable(8) %53)
   %57 = extractvalue { i64, ptr } %call5.i.i.i8.i, 0
-  %.sroa.speculated.i.i.i.i.i9.i = tail call i64 @llvm.umin.i64(i64 %55, i64 %57)
+  %.sroa.speculated.i.i.i.i.i9.i = tail call i64 @llvm.umin.i64(i64 %57, i64 %55)
   %cmp.i2.i.i.i.i.i10.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i9.i, 0
   br i1 %cmp.i2.i.i.i.i.i10.i, label %if.then.i.i.i.i.i18.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i11.i
 
@@ -5294,7 +5294,7 @@ while.cond10.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__op
   %64 = load ptr, ptr %vtable3.i.i4.i.i, align 8
   %call5.i.i5.i.i = tail call { i64, ptr } %64(ptr noundef nonnull align 8 dereferenceable(8) %61)
   %65 = extractvalue { i64, ptr } %call5.i.i5.i.i, 0
-  %.sroa.speculated.i.i.i.i6.i.i = tail call i64 @llvm.umin.i64(i64 %63, i64 %65)
+  %.sroa.speculated.i.i.i.i6.i.i = tail call i64 @llvm.umin.i64(i64 %65, i64 %63)
   %cmp.i2.i.i.i.i7.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i6.i.i, 0
   br i1 %cmp.i2.i.i.i.i7.i.i, label %if.then.i.i.i.i13.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i8.i.i
 
@@ -5345,7 +5345,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp28 = icmp sgt i64 %div, %__holeIndex
+  %cmp28 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp28, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS2_15CommandLineFlagEEENS3_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclINS_17__normal_iteratorIPPS8_St6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit"
@@ -5365,7 +5365,7 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %4 = load ptr, ptr %vtable3.i.i, align 8
   %call5.i.i = tail call { i64, ptr } %4(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %5 = extractvalue { i64, ptr } %call5.i.i, 0
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %5)
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %3)
   %cmp.i2.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -5434,7 +5434,7 @@ land.rhs.i:                                       ; preds = %if.end33, %while.bo
   %13 = load ptr, ptr %vtable3.i.i.i, align 8
   %call5.i.i.i = tail call { i64, ptr } %13(ptr noundef nonnull align 8 dereferenceable(8) %__value)
   %14 = extractvalue { i64, ptr } %call5.i.i.i, 0
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %12, i64 %14)
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %12)
   %cmp.i2.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
@@ -5532,7 +5532,7 @@ entry:
 if.end.i.i.i.i.i.i:                               ; preds = %entry
   %agg.tmp2.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 8
   %agg.tmp2.sroa.2.0.copyload.i.i.i = load ptr, ptr %agg.tmp2.sroa.2.0..sroa_idx.i.i.i, align 8
-  %cmp11.not20.i.i.i.i.i.i = icmp ugt i64 %1, %__args.val
+  %cmp11.not20.i.i.i.i.i.i = icmp ult i64 %__args.val, %1
   br i1 %cmp11.not20.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4absl14flags_internal9FlagsHelpERSoSt17basic_string_viewIcSt11char_traitsIcEENS1_10HelpFormatES6_E3$_0JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %while.body.lr.ph.i.i.i.i.i.i
 
 while.body.lr.ph.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i

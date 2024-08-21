@@ -6741,7 +6741,7 @@ default.unreachable46:                            ; preds = %2
   %112 = load ptr, ptr %111, align 8, !alias.scope !2300, !noalias !2303, !nonnull !24, !align !111, !noundef !24
   %113 = getelementptr inbounds i8, ptr %112, i64 16
   %114 = load i64, ptr %113, align 8, !alias.scope !2305, !noalias !2308, !noundef !24
-  %.not.i.i = icmp ugt i64 %114, %110
+  %.not.i.i = icmp ult i64 %110, %114
   br i1 %.not.i.i, label %115, label %"_ZN6object4read5macho7section28MachOSection$LT$Mach$C$R$GT$5bytes17h5e980820ba033ee8E.exit"
 
 115:                                              ; preds = %108
@@ -6801,7 +6801,7 @@ _ZN6object4read5macho7section7Section4data17h065fc7bf78e08c30E.exit.i: ; preds =
   %147 = load ptr, ptr %146, align 8, !alias.scope !2329, !noalias !2332, !nonnull !24, !align !111, !noundef !24
   %148 = getelementptr inbounds i8, ptr %147, i64 16
   %149 = load i64, ptr %148, align 8, !alias.scope !2334, !noalias !2337, !noundef !24
-  %.not.i.i27 = icmp ugt i64 %149, %145
+  %.not.i.i27 = icmp ult i64 %145, %149
   br i1 %.not.i.i27, label %150, label %"_ZN6object4read5macho7section28MachOSection$LT$Mach$C$R$GT$5bytes17h5e980820ba033ee8E.exit"
 
 150:                                              ; preds = %143

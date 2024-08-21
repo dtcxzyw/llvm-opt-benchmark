@@ -360,7 +360,7 @@ land.lhs.true110:                                 ; preds = %if.end106
   %cmp111 = icmp eq i64 %sub.ptr.sub, 4
   %cmp114 = icmp slt i32 %call107, 1401
   %or.cond3 = select i1 %cmp111, i1 %cmp114, i1 false
-  %cmp117 = icmp ugt ptr %date.addr.2, %date
+  %cmp117 = icmp ult ptr %date, %date.addr.2
   %or.cond90 = and i1 %cmp117, %or.cond3
   br i1 %or.cond90, label %land.lhs.true119, label %if.end134
 

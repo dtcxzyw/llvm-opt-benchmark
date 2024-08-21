@@ -68715,7 +68715,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %5 = load i64, ptr %4, align 8, !alias.scope !14579, !noalias !14586, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !14588, !noalias !14586, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3210038351630652E.exit"
 
 9:                                                ; preds = %3
@@ -82182,7 +82182,7 @@ _ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.llvm.1817766180733766
   %44 = load i64, ptr %43, align 8, !alias.scope !16273, !noalias !16280, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !16282, !noalias !16280, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h3210038351630652E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.llvm.18177661807337663391.exit
@@ -95434,7 +95434,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 16)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %2
@@ -95541,7 +95541,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 8)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %2
@@ -98604,7 +98604,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
 101:                                              ; preds = %99, %94
   %.sroa.073.0 = phi ptr [ %96, %99 ], [ %.sroa.067.0.copyload, %94 ]
   %.sroa.574.0 = phi i64 [ 0, %99 ], [ %.sroa.468.0.copyload, %94 ]
-  %102 = icmp eq i64 %76, %.sroa.574.0
+  %102 = icmp eq i64 %.sroa.574.0, %76
   br i1 %102, label %106, label %.invoke
 
 .invoke:                                          ; preds = %106, %101
@@ -101021,7 +101021,7 @@ define hidden void @"_ZN9actix_web3app12App$LT$T$GT$9configure17h30875b5f50e7dbf
   %16 = load i64, ptr %15, align 8, !alias.scope !18768, !noalias !18766, !noundef !4
   %17 = load i64, ptr %1, align 8, !alias.scope !18771, !noalias !18766, !noundef !4
   %18 = sub i64 %17, %16
-  %19 = icmp ult i64 %18, %.sroa.5.0.copyload
+  %19 = icmp ugt i64 %.sroa.5.0.copyload, %18
   br i1 %19, label %22, label %23
 
 20:                                               ; preds = %22
@@ -101079,7 +101079,7 @@ define hidden void @"_ZN9actix_web3app12App$LT$T$GT$9configure17h30875b5f50e7dbf
   %39 = load i64, ptr %38, align 8, !alias.scope !18784, !noalias !18782, !noundef !4
   %40 = load i64, ptr %37, align 8, !alias.scope !18787, !noalias !18782, !noundef !4
   %41 = sub i64 %40, %39
-  %42 = icmp ult i64 %41, %.sroa.550.0.copyload
+  %42 = icmp ugt i64 %.sroa.550.0.copyload, %41
   br i1 %42, label %45, label %46
 
 43:                                               ; preds = %45
@@ -101387,7 +101387,7 @@ define hidden void @"_ZN9actix_web3app12App$LT$T$GT$9configure17hf47030f985d5be8
   %42 = load i64, ptr %41, align 8, !alias.scope !18836, !noalias !18834, !noundef !4
   %43 = load i64, ptr %1, align 8, !alias.scope !18839, !noalias !18834, !noundef !4
   %44 = sub i64 %43, %42
-  %45 = icmp ult i64 %44, %.sroa.5.0.copyload
+  %45 = icmp ugt i64 %.sroa.5.0.copyload, %44
   br i1 %45, label %48, label %49
 
 46:                                               ; preds = %48
@@ -101445,7 +101445,7 @@ define hidden void @"_ZN9actix_web3app12App$LT$T$GT$9configure17hf47030f985d5be8
   %65 = load i64, ptr %64, align 8, !alias.scope !18852, !noalias !18850, !noundef !4
   %66 = load i64, ptr %63, align 8, !alias.scope !18855, !noalias !18850, !noundef !4
   %67 = sub i64 %66, %65
-  %68 = icmp ult i64 %67, %.sroa.550.0.copyload
+  %68 = icmp ugt i64 %.sroa.550.0.copyload, %67
   br i1 %68, label %71, label %72
 
 69:                                               ; preds = %71
@@ -101707,7 +101707,7 @@ define hidden void @"_ZN9actix_web3app12App$LT$T$GT$9configure17hf8142f64f281cf0
   %18 = load i64, ptr %17, align 8, !alias.scope !18890, !noalias !18888, !noundef !4
   %19 = load i64, ptr %1, align 8, !alias.scope !18893, !noalias !18888, !noundef !4
   %20 = sub i64 %19, %18
-  %21 = icmp ult i64 %20, %.sroa.5.0.copyload
+  %21 = icmp ugt i64 %.sroa.5.0.copyload, %20
   br i1 %21, label %24, label %25
 
 22:                                               ; preds = %24
@@ -101765,7 +101765,7 @@ define hidden void @"_ZN9actix_web3app12App$LT$T$GT$9configure17hf8142f64f281cf0
   %41 = load i64, ptr %40, align 8, !alias.scope !18906, !noalias !18904, !noundef !4
   %42 = load i64, ptr %39, align 8, !alias.scope !18909, !noalias !18904, !noundef !4
   %43 = sub i64 %42, %41
-  %44 = icmp ult i64 %43, %.sroa.550.0.copyload
+  %44 = icmp ugt i64 %.sroa.550.0.copyload, %43
   br i1 %44, label %47, label %48
 
 45:                                               ; preds = %47
@@ -102479,7 +102479,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h022df096045
   %17 = load i64, ptr %16, align 8, !alias.scope !18984, !noalias !18982, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !18987, !noalias !18982, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -102537,7 +102537,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h022df096045
   %40 = load i64, ptr %39, align 8, !alias.scope !19000, !noalias !18998, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19003, !noalias !18998, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -102818,7 +102818,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h381fbf53672
   %17 = load i64, ptr %16, align 8, !alias.scope !19044, !noalias !19042, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19047, !noalias !19042, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -102876,7 +102876,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h381fbf53672
   %40 = load i64, ptr %39, align 8, !alias.scope !19060, !noalias !19058, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19063, !noalias !19058, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -103157,7 +103157,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h453fcdf3485
   %17 = load i64, ptr %16, align 8, !alias.scope !19104, !noalias !19102, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19107, !noalias !19102, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -103215,7 +103215,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h453fcdf3485
   %40 = load i64, ptr %39, align 8, !alias.scope !19120, !noalias !19118, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19123, !noalias !19118, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -103496,7 +103496,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h48e48d61790
   %17 = load i64, ptr %16, align 8, !alias.scope !19164, !noalias !19162, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19167, !noalias !19162, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -103554,7 +103554,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h48e48d61790
   %40 = load i64, ptr %39, align 8, !alias.scope !19180, !noalias !19178, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19183, !noalias !19178, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -103835,7 +103835,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h70466b96332
   %17 = load i64, ptr %16, align 8, !alias.scope !19224, !noalias !19222, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19227, !noalias !19222, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -103893,7 +103893,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h70466b96332
   %40 = load i64, ptr %39, align 8, !alias.scope !19240, !noalias !19238, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19243, !noalias !19238, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -104174,7 +104174,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h70bcc49021b
   %17 = load i64, ptr %16, align 8, !alias.scope !19284, !noalias !19282, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19287, !noalias !19282, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -104232,7 +104232,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h70bcc49021b
   %40 = load i64, ptr %39, align 8, !alias.scope !19300, !noalias !19298, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19303, !noalias !19298, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -104513,7 +104513,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h9abda60e3ce
   %17 = load i64, ptr %16, align 8, !alias.scope !19344, !noalias !19342, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19347, !noalias !19342, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -104571,7 +104571,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17h9abda60e3ce
   %40 = load i64, ptr %39, align 8, !alias.scope !19360, !noalias !19358, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19363, !noalias !19358, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -104852,7 +104852,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17hb12151157d5
   %17 = load i64, ptr %16, align 8, !alias.scope !19404, !noalias !19402, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19407, !noalias !19402, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -104910,7 +104910,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17hb12151157d5
   %40 = load i64, ptr %39, align 8, !alias.scope !19420, !noalias !19418, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19423, !noalias !19418, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -105191,7 +105191,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17hb7c121fb61a
   %17 = load i64, ptr %16, align 8, !alias.scope !19464, !noalias !19462, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19467, !noalias !19462, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -105249,7 +105249,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17hb7c121fb61a
   %40 = load i64, ptr %39, align 8, !alias.scope !19480, !noalias !19478, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19483, !noalias !19478, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -105530,7 +105530,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17hc03918f08b4
   %17 = load i64, ptr %16, align 8, !alias.scope !19524, !noalias !19522, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19527, !noalias !19522, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -105588,7 +105588,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17hc03918f08b4
   %40 = load i64, ptr %39, align 8, !alias.scope !19540, !noalias !19538, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19543, !noalias !19538, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -105869,7 +105869,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17hdb901981abc
   %17 = load i64, ptr %16, align 8, !alias.scope !19584, !noalias !19582, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19587, !noalias !19582, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -105927,7 +105927,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17hdb901981abc
   %40 = load i64, ptr %39, align 8, !alias.scope !19600, !noalias !19598, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19603, !noalias !19598, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -106208,7 +106208,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17hde3003feeb4
   %17 = load i64, ptr %16, align 8, !alias.scope !19644, !noalias !19642, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19647, !noalias !19642, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -106266,7 +106266,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17hde3003feeb4
   %40 = load i64, ptr %39, align 8, !alias.scope !19660, !noalias !19658, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19663, !noalias !19658, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -106547,7 +106547,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17he2d4c3a27e0
   %17 = load i64, ptr %16, align 8, !alias.scope !19704, !noalias !19702, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19707, !noalias !19702, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -106605,7 +106605,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17he2d4c3a27e0
   %40 = load i64, ptr %39, align 8, !alias.scope !19720, !noalias !19718, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19723, !noalias !19718, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -106886,7 +106886,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17he4da61f1ad4
   %17 = load i64, ptr %16, align 8, !alias.scope !19764, !noalias !19762, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19767, !noalias !19762, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -106944,7 +106944,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17he4da61f1ad4
   %40 = load i64, ptr %39, align 8, !alias.scope !19780, !noalias !19778, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19783, !noalias !19778, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46
@@ -107225,7 +107225,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17hf2ffb8f0f7a
   %17 = load i64, ptr %16, align 8, !alias.scope !19824, !noalias !19822, !noundef !4
   %18 = load i64, ptr %15, align 8, !alias.scope !19827, !noalias !19822, !noundef !4
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.5.0.copyload
+  %20 = icmp ugt i64 %.sroa.5.0.copyload, %19
   br i1 %20, label %23, label %24
 
 21:                                               ; preds = %23
@@ -107283,7 +107283,7 @@ define hidden void @"_ZN9actix_web5scope14Scope$LT$T$GT$9configure17hf2ffb8f0f7a
   %40 = load i64, ptr %39, align 8, !alias.scope !19840, !noalias !19838, !noundef !4
   %41 = load i64, ptr %38, align 8, !alias.scope !19843, !noalias !19838, !noundef !4
   %42 = sub i64 %41, %40
-  %43 = icmp ult i64 %42, %.sroa.551.0.copyload
+  %43 = icmp ugt i64 %.sroa.551.0.copyload, %42
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %46

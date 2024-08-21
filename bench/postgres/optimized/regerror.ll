@@ -140,7 +140,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr nocapture noundef readnone
   br i1 %.not, label %51, label %44
 
 44:                                               ; preds = %41
-  %45 = icmp ult i64 %43, %3
+  %45 = icmp ugt i64 %3, %43
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44

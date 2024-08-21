@@ -118,7 +118,7 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %cmp5.not = icmp ugt i64 %conv.i.i, %align
+  %cmp5.not = icmp ult i64 %align, %conv.i.i
   br i1 %cmp5.not, label %if.else7, label %if.end8
 
 if.else7:                                         ; preds = %if.end4
@@ -287,7 +287,7 @@ if.then17:                                        ; preds = %if.end15
 
 if.end19:                                         ; preds = %if.then17, %if.end15
   %sub20 = sub i64 %add, %sub10
-  %add21 = add i64 %conv.i.i, %size
+  %add21 = add i64 %size, %conv.i.i
   %cmp22 = icmp ugt i64 %sub20, %add21
   br i1 %cmp22, label %if.then23, label %return
 
@@ -318,7 +318,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i.i = tail call i32 @getpagesize() #10
   %conv.i.i = sext i32 %call.i.i to i64
-  %add = add i64 %conv.i.i, %size
+  %add = add i64 %size, %conv.i.i
   %call1 = tail call i32 @munmap(ptr noundef nonnull %ptr, i64 noundef %add) #9
   br label %if.end
 

@@ -176,7 +176,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %this, align 8
-  %.sroa.speculated32 = tail call i64 @llvm.umax.i64(i64 %2, i64 %additional_space)
+  %.sroa.speculated32 = tail call i64 @llvm.umax.i64(i64 %additional_space, i64 %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated32) #13
   store ptr %call.i.i, ptr %ref.tmp.i, align 8
@@ -245,7 +245,7 @@ if.else:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.else
   %8 = load i64, ptr %this, align 8
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %8, i64 %additional_space)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %additional_space, i64 %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i5)
   %call.i.i6 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated) #13
   store ptr %call.i.i6, ptr %ref.tmp.i5, align 8
@@ -313,7 +313,7 @@ land.lhs.true:                                    ; preds = %entry
   %size = getelementptr inbounds i8, ptr %0, i64 -16
   %2 = load i64, ptr %size, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %2
-  %cmp5 = icmp ugt ptr %add.ptr, %original
+  %cmp5 = icmp ult ptr %original, %add.ptr
   br i1 %cmp5, label %if.end, label %if.end26
 
 if.end:                                           ; preds = %land.lhs.true
@@ -384,7 +384,7 @@ entry:
 if.end:                                           ; preds = %entry
   %used = getelementptr inbounds i8, ptr %1, i64 -8
   %2 = load i64, ptr %used, align 8
-  %cmp.not = icmp ult i64 %2, %size
+  %cmp.not = icmp ugt i64 %size, %2
   br i1 %cmp.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
@@ -664,7 +664,7 @@ for.inc.i.i.i.i.i:                                ; preds = %invoke.cont, %for.i
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
-  %cmp.i.i.not7.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.i.i.not7.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i30

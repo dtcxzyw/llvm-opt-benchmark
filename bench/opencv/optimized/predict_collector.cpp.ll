@@ -175,13 +175,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define noundef zeroext i1 @_ZN2cv4face17StandardCollector7collectEid(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, double noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
-  %6 = fcmp ogt double %5, %2
+  %6 = fcmp olt double %2, %5
   br i1 %6, label %7, label %_ZNSt6vectorIN2cv4face17StandardCollector13PredictResultESaIS3_EE9push_backERKS3_.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load double, ptr %8, align 8
-  %10 = fcmp ogt double %9, %2
+  %10 = fcmp olt double %2, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
@@ -1012,7 +1012,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %phi.call, i64 8
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %24 = icmp sgt i64 %13, %.0
+  %24 = icmp slt i64 %.0, %13
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
@@ -1265,7 +1265,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKidESt10_Select1stIS2_E
 
 select.unfold:                                    ; preds = %19, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %19 ]
-  %22 = icmp eq ptr %10, %.sroa.4.0.i.ph
+  %22 = icmp eq ptr %.sroa.4.0.i.ph, %10
   br i1 %22, label %.thread21, label %23
 
 23:                                               ; preds = %select.unfold

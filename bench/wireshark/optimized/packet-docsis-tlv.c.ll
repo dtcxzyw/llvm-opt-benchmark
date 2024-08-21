@@ -2049,7 +2049,7 @@ define internal i32 @dissect_docsis_tlv(ptr noundef %0, ptr noundef %1, ptr noun
   %84 = load i32, ptr @ett_docsis_tlv_cos, align 4
   %85 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %83, i32 noundef %84, ptr noundef nonnull %62, ptr noundef nonnull @.str.1235, i32 noundef %83) #5
   %86 = add i32 %73, %83
-  %87 = icmp sgt i32 %86, %73
+  %87 = icmp slt i32 %73, %86
   br i1 %87, label %.lr.ph.i, label %dissect_doc10cos.exit
 
 .lr.ph.i:                                         ; preds = %82, %113
@@ -2143,7 +2143,7 @@ dissect_doc10cos.exit:                            ; preds = %113, %82
   %135 = load i32, ptr @ett_docsis_tlv_cos, align 4
   %136 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %134, i32 noundef %135, ptr noundef nonnull %61, ptr noundef nonnull @.str.1236, i32 noundef %134) #5
   %137 = add i32 %73, %134
-  %138 = icmp sgt i32 %137, %73
+  %138 = icmp slt i32 %73, %137
   br i1 %138, label %.lr.ph.i464, label %dissect_cos.exit
 
 .lr.ph.i464:                                      ; preds = %133, %209
@@ -2292,7 +2292,7 @@ dissect_cos.exit:                                 ; preds = %209, %133
   %215 = load i32, ptr @ett_docsis_tlv_mcap, align 4
   %216 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %214, i32 noundef %215, ptr noundef nonnull %58, ptr noundef nonnull @.str.1237, i32 noundef %214) #5
   %217 = add i32 %73, %214
-  %218 = icmp sgt i32 %217, %73
+  %218 = icmp slt i32 %73, %217
   br i1 %218, label %.lr.ph.i465, label %dissect_modemcap.exit
 
 .lr.ph.i465:                                      ; preds = %213, %.loopexit.i
@@ -3663,7 +3663,7 @@ dissect_modemcap.exit:                            ; preds = %.loopexit.i, %213
   %1010 = load i32, ptr @ett_docsis_tlv_clsfr, align 4
   %1011 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %1009, i32 noundef %1010, ptr noundef nonnull %56, ptr noundef nonnull %spec.select, i32 noundef %1009) #5
   %1012 = add i32 %73, %1009
-  %1013 = icmp sgt i32 %1012, %73
+  %1013 = icmp slt i32 %73, %1012
   br i1 %1013, label %.lr.ph.i467, label %dissect_classifiers.exit
 
 .lr.ph.i467:                                      ; preds = %1008, %1410
@@ -3799,7 +3799,7 @@ dissect_modemcap.exit:                            ; preds = %.loopexit.i, %213
   %1083 = load i32, ptr @ett_docsis_tlv_clsfr_err, align 4
   %1084 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1011, ptr noundef %0, i32 noundef %1016, i32 noundef %1082, i32 noundef %1083, ptr noundef nonnull %55, ptr noundef nonnull @.str.1250, i32 noundef %1082) #5
   %1085 = add i32 %1016, %1082
-  %1086 = icmp sgt i32 %1085, %1016
+  %1086 = icmp slt i32 %1016, %1085
   br i1 %1086, label %.lr.ph.i.i, label %dissect_clsfr_err.exit.i
 
 .lr.ph.i.i:                                       ; preds = %1081, %1121
@@ -3882,7 +3882,7 @@ dissect_clsfr_err.exit.i:                         ; preds = %1121, %1081
   %1127 = load i32, ptr @ett_docsis_tlv_clsfr_ip, align 4
   %1128 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1011, ptr noundef %0, i32 noundef %1016, i32 noundef %1126, i32 noundef %1127, ptr noundef nonnull %54, ptr noundef nonnull @.str.1251, i32 noundef %1126) #5
   %1129 = add i32 %1016, %1126
-  %1130 = icmp sgt i32 %1129, %1016
+  %1130 = icmp slt i32 %1016, %1129
   br i1 %1130, label %.lr.ph.i120.i, label %dissect_ip_classifier.exit.i
 
 .lr.ph.i120.i:                                    ; preds = %1125, %1228
@@ -4076,7 +4076,7 @@ dissect_ip_classifier.exit.i:                     ; preds = %1228, %1125
   %1234 = load i32, ptr @ett_docsis_tlv_clsfr_ip6, align 4
   %1235 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1011, ptr noundef %0, i32 noundef %1016, i32 noundef %1233, i32 noundef %1234, ptr noundef nonnull %53, ptr noundef nonnull @.str.1252, i32 noundef %1233) #5
   %1236 = add i32 %1016, %1233
-  %1237 = icmp sgt i32 %1236, %1016
+  %1237 = icmp slt i32 %1016, %1236
   br i1 %1237, label %.lr.ph.i121.i, label %dissect_ip6_classifier.exit.i
 
 .lr.ph.i121.i:                                    ; preds = %1232, %1316
@@ -4232,7 +4232,7 @@ dissect_ip6_classifier.exit.i:                    ; preds = %1316, %1232
   %1322 = load i32, ptr @ett_docsis_tlv_clsfr_eth, align 4
   %1323 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1011, ptr noundef %0, i32 noundef %1016, i32 noundef %1321, i32 noundef %1322, ptr noundef nonnull %51, ptr noundef nonnull @.str.1254, i32 noundef %1321) #5
   %1324 = add i32 %1016, %1321
-  %1325 = icmp sgt i32 %1324, %1016
+  %1325 = icmp slt i32 %1016, %1324
   br i1 %1325, label %.lr.ph.i122.i, label %dissect_eth_clsfr.exit.i
 
 .lr.ph.i122.i:                                    ; preds = %1320, %1360
@@ -4314,7 +4314,7 @@ dissect_eth_clsfr.exit.i:                         ; preds = %1360, %1320
   %1366 = load i32, ptr @ett_docsis_tlv_cos, align 4
   %1367 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1011, ptr noundef %0, i32 noundef %1016, i32 noundef %1365, i32 noundef %1366, ptr noundef nonnull %50, ptr noundef nonnull @.str.1255, i32 noundef %1365) #5
   %1368 = add i32 %1016, %1365
-  %1369 = icmp sgt i32 %1368, %1016
+  %1369 = icmp slt i32 %1016, %1368
   br i1 %1369, label %.lr.ph.i123.i, label %dissect_dot1q_clsfr.exit.i
 
 .lr.ph.i123.i:                                    ; preds = %1364, %1399
@@ -4411,7 +4411,7 @@ dissect_classifiers.exit:                         ; preds = %1410, %1008
   %1417 = load i32, ptr @ett_docsis_tlv_clsfr, align 4
   %1418 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %1416, i32 noundef %1417, ptr noundef nonnull %49, ptr noundef nonnull %spec.select517, i32 noundef %1416) #5
   %1419 = add i32 %73, %1416
-  %1420 = icmp sgt i32 %1419, %73
+  %1420 = icmp slt i32 %73, %1419
   br i1 %1420, label %.lr.ph.i469, label %dissect_sflow.exit
 
 .lr.ph.i469:                                      ; preds = %1414, %dissect_upstream_sflow.exit.i
@@ -4499,7 +4499,7 @@ dissect_classifiers.exit:                         ; preds = %1410, %1008
   %1458 = load i32, ptr @ett_docsis_tlv_sflow_err, align 4
   %1459 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1418, ptr noundef %0, i32 noundef %1423, i32 noundef %1457, i32 noundef %1458, ptr noundef nonnull %48, ptr noundef nonnull @.str.1258, i32 noundef %1457) #5
   %1460 = add i32 %1423, %1457
-  %1461 = icmp sgt i32 %1460, %1423
+  %1461 = icmp slt i32 %1423, %1460
   br i1 %1461, label %.lr.ph.i.i470, label %dissect_sflow_err.exit.i
 
 .lr.ph.i.i470:                                    ; preds = %1456, %1491
@@ -4771,7 +4771,7 @@ dissect_sflow_err.exit.i:                         ; preds = %1491, %1456
   %1617 = load ptr, ptr %49, align 8
   %1618 = zext i8 %1424 to i32
   %1619 = add i32 %.0194.i, %1618
-  %1620 = icmp sgt i32 %1619, %.0194.i
+  %1620 = icmp slt i32 %.0194.i, %1619
   br i1 %1415, label %1621, label %1729
 
 1621:                                             ; preds = %1616
@@ -5132,7 +5132,7 @@ dissect_sflow.exit:                               ; preds = %dissect_upstream_sf
   %1810 = load i32, ptr @ett_docsis_tlv_snmpv3_kick, align 4
   %1811 = call ptr @proto_item_add_subtree(ptr noundef %1809, i32 noundef %1810) #5
   %1812 = add i32 %73, %1808
-  %1813 = icmp sgt i32 %1812, %73
+  %1813 = icmp slt i32 %73, %1812
   br i1 %1813, label %.lr.ph.i472, label %dissect_snmpv3_kickstart.exit
 
 .lr.ph.i472:                                      ; preds = %1806, %1829
@@ -5249,7 +5249,7 @@ dissect_sflow.exit:                               ; preds = %dissect_upstream_sf
   %1878 = load i32, ptr @ett_docsis_tlv_ds_ch_list, align 4
   %1879 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %1877, i32 noundef %1878, ptr noundef nonnull %47, ptr noundef nonnull @.str.1261, i32 noundef %1877) #5
   %1880 = add i32 %73, %1877
-  %1881 = icmp sgt i32 %1880, %73
+  %1881 = icmp slt i32 %73, %1880
   br i1 %1881, label %.lr.ph.i473, label %dissect_ds_ch_list.exit
 
 .lr.ph.i473:                                      ; preds = %1876, %1986
@@ -5270,7 +5270,7 @@ dissect_sflow.exit:                               ; preds = %dissect_upstream_sf
   %1888 = load i32, ptr @ett_docsis_tlv_ds_ch_list_single, align 4
   %1889 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1879, ptr noundef %0, i32 noundef %1884, i32 noundef %1887, i32 noundef %1888, ptr noundef nonnull %46, ptr noundef nonnull @.str.1262, i32 noundef %1887) #5
   %1890 = add i32 %1884, %1887
-  %1891 = icmp sgt i32 %1890, %1884
+  %1891 = icmp slt i32 %1884, %1890
   br i1 %1891, label %.lr.ph.i.i474, label %dissect_ds_ch_list_single.exit.i
 
 .lr.ph.i.i474:                                    ; preds = %1886, %1917
@@ -5336,7 +5336,7 @@ dissect_ds_ch_list_single.exit.i:                 ; preds = %1917, %1886
   %1923 = load i32, ptr @ett_docsis_tlv_ds_ch_list_range, align 4
   %1924 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1879, ptr noundef %0, i32 noundef %1884, i32 noundef %1922, i32 noundef %1923, ptr noundef nonnull %45, ptr noundef nonnull @.str.1263, i32 noundef %1922) #5
   %1925 = add i32 %1884, %1922
-  %1926 = icmp sgt i32 %1925, %1884
+  %1926 = icmp slt i32 %1884, %1925
   br i1 %1926, label %.lr.ph.i38.i, label %dissect_ds_ch_list_range.exit.i
 
 .lr.ph.i38.i:                                     ; preds = %1921, %1970
@@ -5501,7 +5501,7 @@ dissect_ds_ch_list.exit:                          ; preds = %1986, %1876
   %2014 = load i32, ptr @ett_docsis_tlv_dut_filter, align 4
   %2015 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %2013, i32 noundef %2014, ptr noundef nonnull %42, ptr noundef nonnull @.str.1266, i32 noundef %2013) #5
   %2016 = add i32 %73, %2013
-  %2017 = icmp sgt i32 %2016, %73
+  %2017 = icmp slt i32 %73, %2016
   br i1 %2017, label %.lr.ph.i475, label %dissect_dut_filter.exit
 
 .lr.ph.i475:                                      ; preds = %2012, %2038
@@ -5560,7 +5560,7 @@ dissect_dut_filter.exit:                          ; preds = %2038, %2012
   %2044 = load i32, ptr @ett_docsis_tlv_tcc, align 4
   %2045 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %2043, i32 noundef %2044, ptr noundef nonnull %40, ptr noundef nonnull @.str.1267, i32 noundef %2043) #5
   %2046 = add i32 %73, %2043
-  %2047 = icmp sgt i32 %2046, %73
+  %2047 = icmp slt i32 %73, %2046
   br i1 %2047, label %.lr.ph.i476, label %dissect_tcc.exit
 
 .lr.ph.i476:                                      ; preds = %2042
@@ -5743,7 +5743,7 @@ dissect_dut_filter.exit:                          ; preds = %2038, %2012
   %2139 = load i32, ptr @ett_docsis_tlv_tcc_rng_parms, align 4
   %2140 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2045, ptr noundef %0, i32 noundef %2053, i32 noundef %2138, i32 noundef %2139, ptr noundef nonnull %39, ptr noundef nonnull @.str.1269, i32 noundef %2138) #5
   %2141 = add i32 %2053, %2138
-  %2142 = icmp sgt i32 %2141, %2053
+  %2142 = icmp slt i32 %2053, %2141
   br i1 %2142, label %.lr.ph.i.i477, label %dissect_tcc_rng_parms.exit.i
 
 .lr.ph.i.i477:                                    ; preds = %2137, %2195
@@ -5887,7 +5887,7 @@ dissect_tcc_rng_parms.exit.i:                     ; preds = %2195, %2137
   %2219 = load i32, ptr @ett_docsis_tlv_tcc_oudp, align 4
   %2220 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2045, ptr noundef %0, i32 noundef %2053, i32 noundef %2218, i32 noundef %2219, ptr noundef nonnull %38, ptr noundef nonnull @.str.1270, i32 noundef %2218) #5
   %2221 = add i32 %2053, %2218
-  %2222 = icmp sgt i32 %2221, %2053
+  %2222 = icmp slt i32 %2053, %2221
   br i1 %2222, label %.lr.ph.i170.i, label %dissect_tcc_oudp.exit.i
 
 .lr.ph.i170.i:                                    ; preds = %2217, %.lr.ph.i170.i
@@ -5953,7 +5953,7 @@ dissect_tcc_oudp.exit.i:                          ; preds = %.lr.ph.i170.i, %221
   %2255 = load i32, ptr @ett_docsis_tlv_tcc_err, align 4
   %2256 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2045, ptr noundef %0, i32 noundef %2053, i32 noundef %2254, i32 noundef %2255, ptr noundef nonnull %37, ptr noundef nonnull @.str.1271, i32 noundef %2254) #5
   %2257 = add i32 %2053, %2254
-  %2258 = icmp sgt i32 %2257, %2053
+  %2258 = icmp slt i32 %2053, %2257
   br i1 %2258, label %.lr.ph.i171.i, label %dissect_tcc_err.exit.i
 
 .lr.ph.i171.i:                                    ; preds = %2253, %2283
@@ -6036,7 +6036,7 @@ dissect_tcc.exit:                                 ; preds = %2290, %2042
   %2296 = load i32, ptr @ett_docsis_tlv_sid_cl, align 4
   %2297 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %2295, i32 noundef %2296, ptr noundef nonnull %36, ptr noundef nonnull @.str.1272, i32 noundef %2295) #5
   %2298 = add i32 %73, %2295
-  %2299 = icmp sgt i32 %2298, %73
+  %2299 = icmp slt i32 %73, %2298
   br i1 %2299, label %.lr.ph.i479, label %dissect_sid_cl.exit
 
 .lr.ph.i479:                                      ; preds = %2294, %2460
@@ -6072,7 +6072,7 @@ dissect_tcc.exit:                                 ; preds = %2290, %2042
   %2315 = load i32, ptr @ett_docsis_tlv_sid_cl_enc, align 4
   %2316 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2297, ptr noundef %0, i32 noundef %2302, i32 noundef %2314, i32 noundef %2315, ptr noundef nonnull %35, ptr noundef nonnull @.str.1273, i32 noundef %2314) #5
   %2317 = add i32 %2302, %2314
-  %2318 = icmp sgt i32 %2317, %2302
+  %2318 = icmp slt i32 %2302, %2317
   br i1 %2318, label %.lr.ph.i.i483, label %dissect_sid_cl_enc.exit.i
 
 .lr.ph.i.i483:                                    ; preds = %2313, %2400
@@ -6110,7 +6110,7 @@ dissect_tcc.exit:                                 ; preds = %2290, %2042
   %2335 = load i32, ptr @ett_docsis_tlv_sid_cl_enc_map, align 4
   %2336 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2316, ptr noundef %0, i32 noundef %2321, i32 noundef 10, i32 noundef %2335, ptr noundef nonnull %34, ptr noundef nonnull @.str.1274, i32 noundef 10) #5
   %2337 = add i32 %.037.i.i484, 12
-  %2338 = icmp sgt i32 %2337, %2321
+  %2338 = icmp slt i32 %2321, %2337
   br i1 %2338, label %.lr.ph.i.i.i, label %dissect_sid_cl_enc_map.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2334, %2389
@@ -6242,7 +6242,7 @@ dissect_sid_cl_enc.exit.i:                        ; preds = %2400, %2313
   %2406 = load i32, ptr @ett_docsis_tlv_sid_cl_so, align 4
   %2407 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2297, ptr noundef %0, i32 noundef %2302, i32 noundef %2405, i32 noundef %2406, ptr noundef nonnull %33, ptr noundef nonnull @.str.1275, i32 noundef %2405) #5
   %2408 = add i32 %2302, %2405
-  %2409 = icmp sgt i32 %2408, %2302
+  %2409 = icmp slt i32 %2302, %2408
   br i1 %2409, label %.lr.ph.i38.i481, label %dissect_sid_cl_so_crit.exit.i
 
 .lr.ph.i38.i481:                                  ; preds = %2404, %2453
@@ -6356,7 +6356,7 @@ dissect_sid_cl.exit:                              ; preds = %2460, %2294
   %2466 = load i32, ptr @ett_docsis_tlv_rcp, align 4
   %2467 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %2465, i32 noundef %2466, ptr noundef nonnull %30, ptr noundef nonnull @.str.1276, i32 noundef %2465) #5
   %2468 = add i32 %73, %2465
-  %2469 = icmp sgt i32 %2468, %73
+  %2469 = icmp slt i32 %73, %2468
   br i1 %2469, label %.lr.ph.i485, label %dissect_rcp.exit
 
 .lr.ph.i485:                                      ; preds = %2464, %2648
@@ -6425,7 +6425,7 @@ dissect_sid_cl.exit:                              ; preds = %2460, %2294
   %2503 = load i32, ptr @ett_docsis_tlv_rcp_rcv_mod_enc, align 4
   %2504 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2467, ptr noundef %0, i32 noundef %2472, i32 noundef %2502, i32 noundef %2503, ptr noundef nonnull %29, ptr noundef nonnull @.str.1277, i32 noundef %2502) #5
   %2505 = add i32 %2472, %2502
-  %2506 = icmp sgt i32 %2505, %2472
+  %2506 = icmp slt i32 %2472, %2505
   br i1 %2506, label %.lr.ph.i.i486, label %dissect_rcp_rcv_mod.exit.i
 
 .lr.ph.i.i486:                                    ; preds = %2501, %2588
@@ -6480,7 +6480,7 @@ dissect_sid_cl.exit:                              ; preds = %2460, %2294
   %2531 = load i32, ptr @ett_docsis_tlv_rcp_ch_bl_rng, align 4
   %2532 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2504, ptr noundef %0, i32 noundef %2509, i32 noundef %2530, i32 noundef %2531, ptr noundef nonnull %28, ptr noundef nonnull @.str.1278, i32 noundef %2530) #5
   %2533 = add i32 %2509, %2530
-  %2534 = icmp sgt i32 %2533, %2509
+  %2534 = icmp slt i32 %2509, %2533
   br i1 %2534, label %.lr.ph.i.i.i487, label %dissect_ch_bl_rng.exit.i.i
 
 .lr.ph.i.i.i487:                                  ; preds = %2529, %2560
@@ -6595,7 +6595,7 @@ dissect_rcp_rcv_mod.exit.i:                       ; preds = %2588, %2501
   %2594 = load i32, ptr @ett_docsis_tlv_rcp_rcv_ch, align 4
   %2595 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2467, ptr noundef %0, i32 noundef %2472, i32 noundef %2593, i32 noundef %2594, ptr noundef nonnull %27, ptr noundef nonnull @.str.1279, i32 noundef %2593) #5
   %2596 = add i32 %2472, %2593
-  %2597 = icmp sgt i32 %2596, %2472
+  %2597 = icmp slt i32 %2472, %2596
   br i1 %2597, label %.lr.ph.i62.i, label %dissect_rcp_rcv_ch.exit.i
 
 .lr.ph.i62.i:                                     ; preds = %2592, %2636
@@ -6707,7 +6707,7 @@ dissect_rcp.exit:                                 ; preds = %2648, %2464
   %2654 = load i32, ptr @ett_docsis_tlv_rcc, align 4
   %2655 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %2653, i32 noundef %2654, ptr noundef nonnull %26, ptr noundef nonnull @.str.1280, i32 noundef %2653) #5
   %2656 = add i32 %73, %2653
-  %2657 = icmp sgt i32 %2656, %73
+  %2657 = icmp slt i32 %73, %2656
   br i1 %2657, label %.lr.ph.i488, label %dissect_rcc.exit
 
 .lr.ph.i488:                                      ; preds = %2652, %2921
@@ -6748,7 +6748,7 @@ dissect_rcp.exit:                                 ; preds = %2648, %2464
   %2673 = load i32, ptr @ett_docsis_tlv_rcc_rcv_mod_enc, align 4
   %2674 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2655, ptr noundef %0, i32 noundef %2660, i32 noundef %2672, i32 noundef %2673, ptr noundef nonnull %25, ptr noundef nonnull @.str.1281, i32 noundef %2672) #5
   %2675 = add i32 %2660, %2672
-  %2676 = icmp sgt i32 %2675, %2660
+  %2676 = icmp slt i32 %2660, %2675
   br i1 %2676, label %.lr.ph.i.i496, label %dissect_rcc_rcv_mod.exit.i
 
 .lr.ph.i.i496:                                    ; preds = %2671, %2706
@@ -6821,7 +6821,7 @@ dissect_rcc_rcv_mod.exit.i:                       ; preds = %2706, %2671
   %2712 = load i32, ptr @ett_docsis_tlv_rcc_rcv_ch, align 4
   %2713 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2655, ptr noundef %0, i32 noundef %2660, i32 noundef %2711, i32 noundef %2712, ptr noundef nonnull %24, ptr noundef nonnull @.str.1279, i32 noundef %2711) #5
   %2714 = add i32 %2660, %2711
-  %2715 = icmp sgt i32 %2714, %2660
+  %2715 = icmp slt i32 %2660, %2714
   br i1 %2715, label %.lr.ph.i67.i, label %dissect_rcc_rcv_ch.exit.i
 
 .lr.ph.i67.i:                                     ; preds = %2710, %2754
@@ -6938,7 +6938,7 @@ dissect_rcc_partial_serv_down_chan.exit.i:        ; preds = %.lr.ph.i68.i, %2763
   %2773 = load i32, ptr @ett_docsis_tlv_rcc_srcc, align 4
   %2774 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2655, ptr noundef %0, i32 noundef %2660, i32 noundef %2772, i32 noundef %2773, ptr noundef nonnull %22, ptr noundef nonnull @.str.1283, i32 noundef %2772) #5
   %2775 = add i32 %2660, %2772
-  %2776 = icmp sgt i32 %2775, %2660
+  %2776 = icmp slt i32 %2660, %2775
   br i1 %2776, label %.lr.ph.i69.i, label %dissect_rcc_srcc.exit.i
 
 .lr.ph.i69.i:                                     ; preds = %2771, %2849
@@ -7001,7 +7001,7 @@ dissect_rcc_srcc_ds_ch_assign.exit.i.i:           ; preds = %.lr.ph.i34.i.i, %27
   %2799 = load i32, ptr @ett_docsis_tlv_rcc_srcc_ds_prof_assign, align 4
   %2800 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2774, ptr noundef %0, i32 noundef %2779, i32 noundef %2798, i32 noundef %2799, ptr noundef nonnull %19, ptr noundef nonnull @.str.1286, i32 noundef %2798) #5
   %2801 = add i32 %2779, %2798
-  %2802 = icmp sgt i32 %2801, %2779
+  %2802 = icmp slt i32 %2779, %2801
   br i1 %2802, label %.lr.ph.i37.i.i, label %dissect_rcc_srcc_ds_prof_assign.exit.i.i
 
 .lr.ph.i37.i.i:                                   ; preds = %2797, %2843
@@ -7133,7 +7133,7 @@ dissect_rcc_srcc.exit.i:                          ; preds = %2849, %2771
   %2863 = load i32, ptr @ett_docsis_tlv_rcc_rcv_ch, align 4
   %2864 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2655, ptr noundef %0, i32 noundef %2660, i32 noundef %2862, i32 noundef %2863, ptr noundef nonnull %17, ptr noundef nonnull @.str.1288, i32 noundef %2862) #5
   %2865 = add i32 %2660, %2862
-  %2866 = icmp sgt i32 %2865, %2660
+  %2866 = icmp slt i32 %2660, %2865
   br i1 %2866, label %.lr.ph.i70.i, label %dissect_rcc_err.exit.i
 
 .lr.ph.i70.i:                                     ; preds = %2861, %2914
@@ -7254,7 +7254,7 @@ dissect_rcc.exit:                                 ; preds = %2921, %2652
   %2927 = load i32, ptr @ett_docsis_tlv_dsid, align 4
   %2928 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %2926, i32 noundef %2927, ptr noundef nonnull %14, ptr noundef nonnull @.str.1289, i32 noundef %2926) #5
   %2929 = add i32 %73, %2926
-  %2930 = icmp sgt i32 %2929, %73
+  %2930 = icmp slt i32 %73, %2929
   br i1 %2930, label %.lr.ph.i498, label %dissect_dsid.exit
 
 .lr.ph.i498:                                      ; preds = %2925, %dissect_dsid_mc.exit.i
@@ -7306,7 +7306,7 @@ dissect_rcc.exit:                                 ; preds = %2921, %2652
   %2955 = load i32, ptr @ett_docsis_tlv_dsid_ds_reseq, align 4
   %2956 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2928, ptr noundef %0, i32 noundef %2933, i32 noundef %2954, i32 noundef %2955, ptr noundef nonnull %13, ptr noundef nonnull @.str.1290, i32 noundef %2954) #5
   %2957 = add i32 %2933, %2954
-  %2958 = icmp sgt i32 %2957, %2933
+  %2958 = icmp slt i32 %2933, %2957
   br i1 %2958, label %.lr.ph.i.i504, label %dissect_dsid_ds_reseq.exit.i
 
 .lr.ph.i.i504:                                    ; preds = %2953, %3006
@@ -7410,7 +7410,7 @@ dissect_dsid_ds_reseq.exit.i:                     ; preds = %3006, %2953
   %3012 = load i32, ptr @ett_docsis_tlv_dsid_mc, align 4
   %3013 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2928, ptr noundef %0, i32 noundef %2933, i32 noundef %3011, i32 noundef %3012, ptr noundef null, ptr noundef nonnull @.str.1291, i32 noundef %3011) #5
   %3014 = add i32 %2933, %3011
-  %3015 = icmp sgt i32 %3014, %2933
+  %3015 = icmp slt i32 %2933, %3014
   br i1 %3015, label %.lr.ph.i47.i, label %dissect_dsid_mc.exit.i
 
 .lr.ph.i47.i:                                     ; preds = %3010, %3084
@@ -7432,7 +7432,7 @@ dissect_dsid_ds_reseq.exit.i:                     ; preds = %3006, %2953
   %3022 = load i32, ptr @ett_docsis_tlv_dsid_mc_addr, align 4
   %3023 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3013, ptr noundef %0, i32 noundef %3018, i32 noundef %3021, i32 noundef %3022, ptr noundef nonnull %12, ptr noundef nonnull @.str.1292, i32 noundef %3021) #5
   %3024 = add i32 %3018, %3021
-  %3025 = icmp sgt i32 %3024, %3018
+  %3025 = icmp slt i32 %3018, %3024
   br i1 %3025, label %.lr.ph.i.i.i500, label %dissect_dsid_mc_addr.exit.i.i
 
 .lr.ph.i.i.i500:                                  ; preds = %3020, %3067
@@ -7571,7 +7571,7 @@ dissect_dsid.exit:                                ; preds = %dissect_dsid_mc.exi
   %3096 = load i32, ptr @ett_docsis_tlv_dsid, align 4
   %3097 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %3095, i32 noundef %3096, ptr noundef nonnull %9, ptr noundef nonnull @.str.1293, i32 noundef %3095) #5
   %3098 = add i32 %73, %3095
-  %3099 = icmp sgt i32 %3098, %73
+  %3099 = icmp slt i32 %73, %3098
   br i1 %3099, label %.lr.ph.i506, label %dissect_sec_assoc.exit
 
 .lr.ph.i506:                                      ; preds = %3094, %3125
@@ -7651,7 +7651,7 @@ dissect_sec_assoc.exit:                           ; preds = %3125, %3094
   %3139 = load i32, ptr @ett_docsis_tlv_ch_asgn, align 4
   %3140 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %3138, i32 noundef %3139, ptr noundef nonnull %8, ptr noundef nonnull @.str.1294, i32 noundef %3138) #5
   %3141 = add i32 %73, %3138
-  %3142 = icmp sgt i32 %3141, %73
+  %3142 = icmp slt i32 %73, %3141
   br i1 %3142, label %.lr.ph.i508, label %dissect_ch_asgn.exit
 
 .lr.ph.i508:                                      ; preds = %3137, %3168
@@ -7791,7 +7791,7 @@ dissect_ch_asgn.exit:                             ; preds = %3168, %3137
   %3218 = load i32, ptr @ett_docsis_cmts_mc_sess_enc, align 4
   %3219 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %3217, i32 noundef %3218, ptr noundef nonnull %7, ptr noundef nonnull @.str.1295, i32 noundef %3217) #5
   %3220 = add i32 %73, %3217
-  %3221 = icmp sgt i32 %3220, %73
+  %3221 = icmp slt i32 %73, %3220
   br i1 %3221, label %.lr.ph.i510, label %dissect_cmts_mc_sess_enc.exit
 
 .lr.ph.i510:                                      ; preds = %3216, %3249
@@ -7883,7 +7883,7 @@ dissect_cmts_mc_sess_enc.exit:                    ; preds = %3249, %3216
   %3262 = load i32, ptr @ett_docsis_em_id_list_for_cm, align 4
   %3263 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %3261, i32 noundef %3262, ptr noundef nonnull %6, ptr noundef nonnull @.str.1296, i32 noundef %3261) #5
   %3264 = add i32 %73, %3261
-  %3265 = icmp sgt i32 %3264, %73
+  %3265 = icmp slt i32 %73, %3264
   br i1 %3265, label %.lr.ph.i513, label %dissect_em_id_list_for_cm.exit
 
 .lr.ph.i513:                                      ; preds = %3260, %.lr.ph.i513
@@ -7904,7 +7904,7 @@ dissect_em_id_list_for_cm.exit:                   ; preds = %.lr.ph.i513, %3260
   %3272 = load i32, ptr @ett_docsis_tlv_tg_assignment, align 4
   %3273 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %3271, i32 noundef %3272, ptr noundef nonnull %5, ptr noundef nonnull @.str.1297, i32 noundef %3271) #5
   %3274 = add i32 %73, %3271
-  %3275 = icmp sgt i32 %3274, %73
+  %3275 = icmp slt i32 %73, %3274
   br i1 %3275, label %.lr.ph.i514, label %dissect_fdx_tg_assignment.exit
 
 .lr.ph.i514:                                      ; preds = %3270, %3306
@@ -8042,8 +8042,8 @@ define internal fastcc void @dissect_phs(ptr noundef %0, ptr noundef %1, ptr nou
   %8 = zext nneg i16 %4 to i32
   %9 = load i32, ptr @ett_docsis_tlv_phs, align 4
   %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.1260, i32 noundef %8) #5
-  %11 = add i32 %8, %3
-  %12 = icmp sgt i32 %11, %3
+  %11 = add i32 %3, %8
+  %12 = icmp slt i32 %3, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %152
@@ -8149,7 +8149,7 @@ define internal fastcc void @dissect_phs(ptr noundef %0, ptr noundef %1, ptr nou
   %64 = load i32, ptr @ett_docsis_tlv_sflow_err, align 4
   %65 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %15, i32 noundef %63, i32 noundef %64, ptr noundef nonnull %6, ptr noundef nonnull @.str.1258, i32 noundef %63) #5
   %66 = add i32 %15, %63
-  %67 = icmp sgt i32 %66, %15
+  %67 = icmp slt i32 %15, %66
   br i1 %67, label %.lr.ph.i, label %dissect_phs_err.exit
 
 .lr.ph.i:                                         ; preds = %62, %97

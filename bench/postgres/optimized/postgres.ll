@@ -1551,7 +1551,7 @@ define dso_local range(i32 0, 3) i32 @check_log_duration(ptr noundef %0, i1 noun
   %71 = load i8, ptr @xact_is_sampled, align 1
   %72 = trunc i8 %71 to i1
   %.not = xor i1 %72, true
-  %brmerge22 = or i1 %.not, %1
+  %brmerge22 = or i1 %1, %.not
   br i1 %brmerge22, label %80, label %81
 
 .critedge26:                                      ; preds = %.critedge20..critedge26_crit_edge, %52
@@ -2165,7 +2165,7 @@ define dso_local void @process_postgres_switches(i32 noundef %0, ptr noundef %1,
   %14 = icmp eq i32 %13, 0
   %spec.select = select i1 %14, ptr %11, ptr %1
   %15 = sext i1 %14 to i32
-  %spec.select83 = add nsw i32 %15, %0
+  %spec.select83 = add nsw i32 %0, %15
   br label %16
 
 16:                                               ; preds = %10, %4, %8

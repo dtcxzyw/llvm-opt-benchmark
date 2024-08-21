@@ -204,7 +204,7 @@ _ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i: ; preds = %for.body.i.i.i,
   %cond.v.v.i7.i.i.i = select i1 %cmp.i.i4.i.i.i, i32 %16, i32 %18
   %cond.v.i8.i.i.i = zext i32 %cond.v.v.i7.i.i.i to i64
   %cond.i9.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %cond.v.i8.i.i.i
-  %cmp.not2.i3.i.i11.i.i.i = icmp eq ptr %cond.i9.i.i.i, %retval.0.i.i.i
+  %cmp.not2.i3.i.i11.i.i.i = icmp eq ptr %retval.0.i.i.i, %cond.i9.i.i.i
   br i1 %cmp.not2.i3.i.i11.i.i.i, label %_ZNK4llvh15SmallPtrSetImplIPN6hermes5ValueEE5countEPKS2_.exit, label %land.rhs.i4.i.i12.i.i.i
 
 land.rhs.i4.i.i12.i.i.i:                          ; preds = %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i, %while.body.i6.i.i15.i.i.i
@@ -339,7 +339,7 @@ _ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i92: ; preds = %for.body.i.i.
   %cond.v.v.i7.i.i.i96 = select i1 %cmp.i.i4.i.i.i94, i32 %33, i32 %35
   %cond.v.i8.i.i.i97 = zext i32 %cond.v.v.i7.i.i.i96 to i64
   %cond.i9.i.i.i98 = getelementptr inbounds ptr, ptr %34, i64 %cond.v.i8.i.i.i97
-  %cmp.not2.i3.i.i11.i.i.i99 = icmp eq ptr %cond.i9.i.i.i98, %retval.0.i.i.i93
+  %cmp.not2.i3.i.i11.i.i.i99 = icmp eq ptr %retval.0.i.i.i93, %cond.i9.i.i.i98
   br i1 %cmp.not2.i3.i.i11.i.i.i99, label %_ZNK4llvh15SmallPtrSetImplIPN6hermes8VariableEE5countEPKS2_.exit, label %land.rhs.i4.i.i12.i.i.i100
 
 land.rhs.i4.i.i12.i.i.i100:                       ; preds = %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i92, %while.body.i6.i.i15.i.i.i106

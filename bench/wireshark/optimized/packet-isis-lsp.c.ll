@@ -3276,7 +3276,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   %37 = add nuw nsw i32 %32, 7
   %38 = lshr i32 %37, 3
   %39 = add nuw nsw i32 %38, 8
-  %40 = icmp ugt i32 %39, %.02363
+  %40 = icmp ult i32 %.02363, %39
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %36
@@ -3289,7 +3289,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   %46 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #3
   %47 = zext i8 %46 to i32
   %48 = add nuw nsw i32 %39, %47
-  %49 = icmp ugt i32 %48, %.02363
+  %49 = icmp ult i32 %.02363, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %43
@@ -3532,7 +3532,7 @@ define internal void @dissect_lsp_purge_orig_id_clv(ptr noundef %0, ptr noundef 
 
 20:                                               ; preds = %10
   %21 = mul nuw nsw i32 %16, 6
-  %.not = icmp ult i32 %21, %5
+  %.not = icmp ugt i32 %5, %21
   br i1 %.not, label %.lr.ph, label %22
 
 22:                                               ; preds = %20
@@ -3643,7 +3643,7 @@ define internal void @dissect_lsp_avaya_ipvpn(ptr noundef %0, ptr noundef %1, pt
   %24 = add i32 %3, 15
   %25 = load i32, ptr %7, align 4
   %26 = add i32 %25, 15
-  %.not = icmp eq i32 %26, %5
+  %.not = icmp eq i32 %5, %26
   br i1 %.not, label %.preheader, label %28
 
 .preheader:                                       ; preds = %12
@@ -5341,7 +5341,7 @@ define internal void @dissect_lsp_partition_dis_clv(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = icmp sgt i32 %9, %5
+  %10 = icmp slt i32 %5, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
@@ -5358,7 +5358,7 @@ define internal void @dissect_lsp_partition_dis_clv(ptr noundef %0, ptr noundef 
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %13
-  %21 = add i32 %17, %3
+  %21 = add i32 %3, %17
   %22 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_long_clv, ptr noundef %0, i32 noundef %21, i32 noundef -1, ptr noundef nonnull @.str.924, i32 noundef %18) #3
   br label %23
 

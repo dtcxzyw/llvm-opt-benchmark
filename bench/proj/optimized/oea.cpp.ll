@@ -164,9 +164,9 @@ define internal { double, double } @_ZL13oea_s_forward5PJ_LPP8PJconsts(double %0
   %12 = load double, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 80
   %14 = load double, ptr %13, align 8
-  %15 = fneg double %14
-  %16 = fmul double %6, %15
-  %17 = fmul double %8, %16
+  %15 = fmul double %6, %14
+  %16 = fneg double %8
+  %17 = fmul double %15, %16
   %18 = tail call double @llvm.fmuladd.f64(double %12, double %7, double %17)
   %19 = tail call noundef double @_Z6aatan2dd(double noundef %10, double noundef %18)
   %20 = load double, ptr %5, align 8
@@ -228,7 +228,7 @@ define internal { double, double } @_ZL13oea_s_inverse5PJ_XYP8PJconsts(double %0
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 48
   %10 = load double, ptr %9, align 8
-  %11 = fmul double %10, %1
+  %11 = fmul double %1, %10
   %12 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %8, double noundef %11)
   %13 = fmul double %7, %12
   %14 = getelementptr inbounds i8, ptr %5, i64 56
@@ -236,7 +236,7 @@ define internal { double, double } @_ZL13oea_s_inverse5PJ_XYP8PJconsts(double %0
   %16 = load ptr, ptr %2, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 40
   %18 = load double, ptr %17, align 8
-  %19 = fmul double %18, %0
+  %19 = fmul double %0, %18
   %20 = getelementptr inbounds i8, ptr %5, i64 32
   %21 = load double, ptr %20, align 8
   %22 = fmul double %13, %21
@@ -281,9 +281,9 @@ define internal { double, double } @_ZL13oea_s_inverse5PJ_XYP8PJconsts(double %0
   %61 = fmul double %49, %60
   %62 = load double, ptr %54, align 8
   %63 = load double, ptr %52, align 8
-  %64 = fneg double %63
-  %65 = fmul double %49, %64
-  %66 = fmul double %43, %65
+  %64 = fmul double %49, %63
+  %65 = fneg double %43
+  %66 = fmul double %64, %65
   %67 = tail call double @llvm.fmuladd.f64(double %62, double %50, double %66)
   %68 = tail call noundef double @_Z6aatan2dd(double noundef %61, double noundef %67)
   %.fca.0.insert = insertvalue { double, double } poison, double %68, 0

@@ -1315,7 +1315,7 @@ define internal fastcc i32 @get_fds(ptr noundef %str, ptr nocapture noundef writ
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #18
   %add.ptr = getelementptr i8, ptr %str, i64 %call
-  %cmp118 = icmp ugt ptr %add.ptr, %str
+  %cmp118 = icmp ult ptr %str, %add.ptr
   br i1 %cmp118, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.else10
@@ -2041,7 +2041,7 @@ if.end:                                           ; preds = %entry
   %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
   %2 = load i32, ptr %host_vnet_hdr_len, align 8
   %3 = icmp eq i32 %2, 0
-  %cmp4 = xor i1 %3, %using_vnet_hdr
+  %cmp4 = xor i1 %using_vnet_hdr, %3
   br i1 %cmp4, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.end

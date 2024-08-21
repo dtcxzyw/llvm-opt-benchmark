@@ -339,7 +339,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %hmax = getelementptr inbounds i8, ptr %pq, i64 32
   %0 = load i64, ptr %hmax, align 8
-  %cmp1.not = icmp ugt i64 %0, %elem
+  %cmp1.not = icmp ult i64 %elem, %0
   br i1 %cmp1.not, label %lor.lhs.false2, label %return
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false

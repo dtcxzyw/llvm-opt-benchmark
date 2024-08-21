@@ -416,7 +416,7 @@ define void @_ZN5nblib8LeapFrog9integrateEfN3gmx8ArrayRefINS1_11BasicVectorIfEEE
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %17 ]
   %18 = getelementptr inbounds [3 x float], ptr %14, i64 0, i64 %indvars.iv
   %19 = load float, ptr %18, align 4
-  %20 = fmul float %19, %1
+  %20 = fmul float %1, %19
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds float, ptr %21, i64 %.01520
   %23 = load float, ptr %22, align 4

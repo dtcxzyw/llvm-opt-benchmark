@@ -133,7 +133,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z30G1NewSizePercentConstraintFuncjb(
 
 5:                                                ; preds = %2
   %6 = load i32, ptr @G1MaxNewSizePercent, align 4
-  %7 = icmp ult i32 %6, %0
+  %7 = icmp ugt i32 %0, %6
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
@@ -153,7 +153,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z33G1MaxNewSizePercentConstraintFunc
 
 5:                                                ; preds = %2
   %6 = load i32, ptr @G1NewSizePercent, align 4
-  %7 = icmp ugt i32 %6, %0
+  %7 = icmp ult i32 %0, %6
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
@@ -177,7 +177,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z32MaxGCPauseMillisConstraintFuncG1m
 
 7:                                                ; preds = %5
   %8 = load i64, ptr @GCPauseIntervalMillis, align 8
-  %.not = icmp ugt i64 %8, %0
+  %.not = icmp ult i64 %0, %8
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %7
@@ -217,7 +217,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z37GCPauseIntervalMillisConstraintFu
 
 13:                                               ; preds = %10
   %14 = load i64, ptr @MaxGCPauseMillis, align 8
-  %.not = icmp ult i64 %14, %0
+  %.not = icmp ugt i64 %0, %14
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %13

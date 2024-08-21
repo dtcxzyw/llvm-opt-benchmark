@@ -392,14 +392,14 @@ define hidden noundef i64 @_ZN11MonitorList15unlink_deflatedEmP13GrowableArrayIP
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   br label %8
 
-8:                                                ; preds = %.lr.ph, %62
-  %.03467 = phi i64 [ 0, %.lr.ph ], [ %.2, %62 ]
-  %.03566 = phi ptr [ null, %.lr.ph ], [ %.3, %62 ]
-  %.03865 = phi ptr [ %5, %.lr.ph ], [ %.139, %62 ]
+8:                                                ; preds = %.lr.ph, %60
+  %.03467 = phi i64 [ 0, %.lr.ph ], [ %.2, %60 ]
+  %.03566 = phi ptr [ null, %.lr.ph ], [ %.3, %60 ]
+  %.03865 = phi ptr [ %5, %.lr.ph ], [ %.139, %60 ]
   %9 = getelementptr inbounds i8, ptr %.03865, i64 180
   %10 = load volatile i32, ptr %9, align 4
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %12, label %59
+  br i1 %11, label %12, label %57
 
 12:                                               ; preds = %8
   %13 = sub i64 %1, %.03467
@@ -410,9 +410,9 @@ define hidden noundef i64 @_ZN11MonitorList15unlink_deflatedEmP13GrowableArrayIP
   %17 = add i64 %umax, -1
   br label %18
 
-18:                                               ; preds = %46, %12
-  %.056 = phi ptr [ %.03865, %12 ], [ %20, %46 ]
-  %.040 = phi i64 [ 0, %12 ], [ %21, %46 ]
+18:                                               ; preds = %44, %12
+  %.056 = phi ptr [ %.03865, %12 ], [ %20, %44 ]
+  %.040 = phi i64 [ 0, %12 ], [ %21, %44 ]
   %19 = getelementptr inbounds i8, ptr %.056, i64 128
   %20 = load volatile ptr, ptr %19, align 8
   %21 = add nuw i64 %.040, 1
@@ -424,100 +424,99 @@ define hidden noundef i64 @_ZN11MonitorList15unlink_deflatedEmP13GrowableArrayIP
 25:                                               ; preds = %18
   %26 = add nsw i32 %22, 1
   %27 = icmp sgt i32 %22, -1
-  %28 = xor i32 %22, -2147483648
-  %29 = and i32 %28, %26
-  %30 = icmp eq i32 %29, 0
-  %31 = and i1 %27, %30
-  %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %26, i1 true)
-  %33 = sub nuw nsw i32 32, %32
-  %34 = shl nuw i32 1, %33
-  %.0.i.i.i.i = select i1 %31, i32 %26, i32 %34
+  %28 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %26)
+  %29 = icmp ult i32 %28, 2
+  %or.cond.i.i.i.i = select i1 %27, i1 %29, i1 false
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %26, i1 true)
+  %31 = sub nuw nsw i32 32, %30
+  %32 = shl nuw i32 1, %31
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %26, i32 %32
   tail call void @_ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %2, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %18, %25
-  %35 = phi i32 [ %.pre.i, %25 ], [ %22, %18 ]
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %2, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = sext i32 %35 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
-  store ptr %.056, ptr %39, align 8
+  %33 = phi i32 [ %.pre.i, %25 ], [ %22, %18 ]
+  %34 = add nsw i32 %33, 1
+  store i32 %34, ptr %2, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = sext i32 %33 to i64
+  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
+  store ptr %.056, ptr %37, align 8
   %exitcond.not = icmp eq i64 %.040, %17
-  br i1 %exitcond.not, label %.critedge, label %40
+  br i1 %exitcond.not, label %.critedge, label %38
 
-40:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE6appendERKS1_.exit
-  br i1 %16, label %41, label %45
+38:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE6appendERKS1_.exit
+  br i1 %16, label %39, label %43
 
-41:                                               ; preds = %40
-  %42 = load volatile ptr, ptr %0, align 8
-  %43 = icmp eq ptr %42, %.03865
-  %44 = icmp ne ptr %20, null
-  %or.cond = select i1 %43, i1 %44, i1 false
-  br i1 %or.cond, label %46, label %.critedge.thread
+39:                                               ; preds = %38
+  %40 = load volatile ptr, ptr %0, align 8
+  %41 = icmp eq ptr %40, %.03865
+  %42 = icmp ne ptr %20, null
+  %or.cond = select i1 %41, i1 %42, i1 false
+  br i1 %or.cond, label %44, label %.critedge.thread
 
-45:                                               ; preds = %40
+43:                                               ; preds = %38
   %.old1.not = icmp eq ptr %20, null
-  br i1 %.old1.not, label %.sink.split, label %46
+  br i1 %.old1.not, label %.sink.split, label %44
 
-46:                                               ; preds = %41, %45
-  %47 = getelementptr inbounds i8, ptr %20, i64 180
-  %48 = load volatile i32, ptr %47, align 4
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %18, label %.critedge, !llvm.loop !11
+44:                                               ; preds = %39, %43
+  %45 = getelementptr inbounds i8, ptr %20, i64 180
+  %46 = load volatile i32, ptr %45, align 4
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %18, label %.critedge, !llvm.loop !11
 
-.critedge:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE6appendERKS1_.exit, %46
-  %.lcssa = phi i64 [ %umax, %_ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %21, %46 ]
+.critedge:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE6appendERKS1_.exit, %44
+  %.lcssa = phi i64 [ %umax, %_ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %21, %44 ]
   br i1 %16, label %.critedge.thread, label %.sink.split
 
-.critedge.thread:                                 ; preds = %41, %.critedge
-  %50 = phi i64 [ %.lcssa, %.critedge ], [ %21, %41 ]
-  %51 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20, ptr nonnull %.03865, ptr nonnull %0) #18, !srcloc !6
-  %.not46 = icmp eq ptr %51, %.03865
-  br i1 %.not46, label %55, label %.preheader
+.critedge.thread:                                 ; preds = %39, %.critedge
+  %48 = phi i64 [ %.lcssa, %.critedge ], [ %21, %39 ]
+  %49 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20, ptr nonnull %.03865, ptr nonnull %0) #18, !srcloc !6
+  %.not46 = icmp eq ptr %49, %.03865
+  br i1 %.not46, label %53, label %.preheader
 
 .preheader:                                       ; preds = %.critedge.thread, %.preheader
-  %.063 = phi ptr [ %53, %.preheader ], [ %51, %.critedge.thread ]
-  %52 = getelementptr inbounds i8, ptr %.063, i64 128
-  %53 = load volatile ptr, ptr %52, align 8
-  %.not47 = icmp eq ptr %53, %.03865
+  %.063 = phi ptr [ %51, %.preheader ], [ %49, %.critedge.thread ]
+  %50 = getelementptr inbounds i8, ptr %.063, i64 128
+  %51 = load volatile ptr, ptr %50, align 8
+  %.not47 = icmp eq ptr %51, %.03865
   br i1 %.not47, label %.sink.split, label %.preheader, !llvm.loop !12
 
-.sink.split:                                      ; preds = %45, %.preheader, %.critedge
-  %.063.lcssa82.sink = phi ptr [ %.03566, %.critedge ], [ %.063, %.preheader ], [ %.03566, %45 ]
-  %.sink = phi ptr [ %20, %.critedge ], [ %20, %.preheader ], [ null, %45 ]
-  %.ph83 = phi i64 [ %.lcssa, %.critedge ], [ %50, %.preheader ], [ %21, %45 ]
-  %54 = getelementptr inbounds i8, ptr %.063.lcssa82.sink, i64 128
-  store volatile ptr %.sink, ptr %54, align 8
-  br label %55
+.sink.split:                                      ; preds = %43, %.preheader, %.critedge
+  %.063.lcssa82.sink = phi ptr [ %.03566, %.critedge ], [ %.063, %.preheader ], [ %.03566, %43 ]
+  %.sink = phi ptr [ %20, %.critedge ], [ %20, %.preheader ], [ null, %43 ]
+  %.ph83 = phi i64 [ %.lcssa, %.critedge ], [ %48, %.preheader ], [ %21, %43 ]
+  %52 = getelementptr inbounds i8, ptr %.063.lcssa82.sink, i64 128
+  store volatile ptr %.sink, ptr %52, align 8
+  br label %53
 
-55:                                               ; preds = %.sink.split, %.critedge.thread
-  %56 = phi ptr [ %20, %.critedge.thread ], [ %.sink, %.sink.split ]
-  %57 = phi i64 [ %50, %.critedge.thread ], [ %.ph83, %.sink.split ]
+53:                                               ; preds = %.sink.split, %.critedge.thread
+  %54 = phi ptr [ %20, %.critedge.thread ], [ %.sink, %.sink.split ]
+  %55 = phi i64 [ %48, %.critedge.thread ], [ %.ph83, %.sink.split ]
   %.237 = phi ptr [ null, %.critedge.thread ], [ %.063.lcssa82.sink, %.sink.split ]
-  %58 = add i64 %57, %.03467
-  %.not48 = icmp ult i64 %58, %1
-  br i1 %.not48, label %62, label %._crit_edge
+  %56 = add i64 %55, %.03467
+  %.not48 = icmp ult i64 %56, %1
+  br i1 %.not48, label %60, label %._crit_edge
 
-59:                                               ; preds = %8
-  %60 = getelementptr inbounds i8, ptr %.03865, i64 128
-  %61 = load volatile ptr, ptr %60, align 8
-  br label %62
+57:                                               ; preds = %8
+  %58 = getelementptr inbounds i8, ptr %.03865, i64 128
+  %59 = load volatile ptr, ptr %58, align 8
+  br label %60
 
-62:                                               ; preds = %55, %59
-  %.139 = phi ptr [ %61, %59 ], [ %56, %55 ]
-  %.3 = phi ptr [ %.03865, %59 ], [ %.237, %55 ]
-  %.2 = phi i64 [ %.03467, %59 ], [ %58, %55 ]
+60:                                               ; preds = %53, %57
+  %.139 = phi ptr [ %59, %57 ], [ %54, %53 ]
+  %.3 = phi ptr [ %.03865, %57 ], [ %.237, %53 ]
+  %.2 = phi i64 [ %.03467, %57 ], [ %56, %53 ]
   tail call void @_ZN33ObjectMonitorDeflationSafepointer19block_for_safepointEPKcS1_m(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i64 noundef %.2)
   %.not = icmp eq ptr %.139, null
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %62, %55, %4
-  %.1 = phi i64 [ 0, %4 ], [ %58, %55 ], [ %.2, %62 ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
-  %64 = sub i64 0, %.1
-  %65 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %64, ptr nonnull %63) #18, !srcloc !9
+._crit_edge:                                      ; preds = %60, %53, %4
+  %.1 = phi i64 [ 0, %4 ], [ %56, %53 ], [ %.2, %60 ]
+  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = sub i64 0, %.1
+  %63 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %62, ptr nonnull %61) #18, !srcloc !9
   ret i64 %.1
 }
 
@@ -1107,7 +1106,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %2
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %13, i64 %16
-  %18 = icmp ugt ptr %17, %11
+  %18 = icmp ult ptr %11, %17
   %19 = select i1 %.not.i.i.i, i1 %18, i1 false
   br i1 %19, label %20, label %_ZNK5frame20is_interpreted_frameEv.exit.thread
 
@@ -2829,7 +2828,7 @@ _ZNK6HandleclEv.exit6:                            ; preds = %14, %16
 
 53:                                               ; preds = %32
   %54 = load volatile ptr, ptr %35, align 8
-  %55 = icmp eq ptr %54, %0
+  %55 = icmp eq ptr %0, %54
   br label %_ZNK9LockStack8containsEP7oopDesc.exit
 
 56:                                               ; preds = %9, %.thread
@@ -2837,7 +2836,7 @@ _ZNK6HandleclEv.exit6:                            ; preds = %14, %16
   %58 = inttoptr i64 %57 to ptr
   %59 = getelementptr inbounds i8, ptr %58, i64 64
   %60 = load volatile ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, %0
+  %61 = icmp eq ptr %0, %60
   br i1 %61, label %_ZNK9LockStack8containsEP7oopDesc.exit, label %62
 
 62:                                               ; preds = %56
@@ -5180,7 +5179,7 @@ define hidden void @_ZN18ObjectSynchronizer16chk_in_use_entryEP13ObjectMonitorP1
 25:                                               ; preds = %20, %16
   %26 = xor i64 %17, 2
   %27 = inttoptr i64 %26 to ptr
-  %.not24 = icmp eq ptr %27, %0
+  %.not24 = icmp eq ptr %0, %27
   br i1 %.not24, label %33, label %28
 
 28:                                               ; preds = %25
@@ -7245,6 +7244,9 @@ declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

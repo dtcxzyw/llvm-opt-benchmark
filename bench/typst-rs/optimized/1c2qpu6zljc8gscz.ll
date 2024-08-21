@@ -2208,7 +2208,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
   %51 = load i64, ptr %50, align 8, !alias.scope !596, !noundef !13
   %52 = load i64, ptr %4, align 8, !alias.scope !599, !noundef !13
   %53 = sub i64 %52, %51
-  %54 = icmp ult i64 %53, %gepdiff.i.i
+  %54 = icmp ugt i64 %gepdiff.i.i, %53
   br i1 %54, label %55, label %"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17hf7c6579870e85f2cE.llvm.16528140993567049526.exit"
 
 55:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i"
@@ -4071,7 +4071,7 @@ define hidden void @_ZN3png6common4Info6encode17h4c98911db2b34450E(ptr noalias n
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h83f2ad7b60052a71E.llvm.16528140993567049526"(i8 noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = trunc i64 %1 to i8
-  %4 = add nuw i8 %3, %0
+  %4 = add nuw i8 %0, %3
   ret i8 %4
 }
 
@@ -4161,7 +4161,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h139fe40277550836E.llvm.16528
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -4306,7 +4306,7 @@ define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content
   %19 = load i64, ptr %18, align 8, !alias.scope !1065, !noundef !13
   %20 = load i64, ptr %.pre.i, align 8, !alias.scope !1071, !noalias !1065, !noundef !13
   %21 = sub i64 %20, %15
-  %22 = icmp ult i64 %21, %19
+  %22 = icmp ugt i64 %19, %21
   br i1 %22, label %23, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit.i"
 
 23:                                               ; preds = %._crit_edge.i
@@ -5305,7 +5305,7 @@ define hidden void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5
   %4 = alloca { [24 x i8] }, align 1
   %5 = tail call i32 @llvm.fptosi.sat.i32.f32(float %0)
   %6 = sitofp i32 %5 to float
-  %7 = fcmp oeq float %6, %0
+  %7 = fcmp oeq float %0, %6
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %2
@@ -5347,7 +5347,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
   %22 = load i64, ptr %21, align 8, !alias.scope !1354, !noundef !13
   %23 = load i64, ptr %1, align 8, !alias.scope !1357, !noundef !13
   %24 = sub i64 %23, %22
-  %25 = icmp ult i64 %24, %.sroa.3.0.i.i
+  %25 = icmp ugt i64 %.sroa.3.0.i.i, %24
   br i1 %25, label %26, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit.i"
 
 26:                                               ; preds = %_ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i
@@ -5466,7 +5466,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
   %81 = load i64, ptr %80, align 8, !alias.scope !1367, !noundef !13
   %82 = load i64, ptr %1, align 8, !alias.scope !1370, !noundef !13
   %83 = sub i64 %82, %81
-  %84 = icmp ult i64 %83, %gepdiff.i
+  %84 = icmp ugt i64 %gepdiff.i, %83
   br i1 %84, label %85, label %"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_int17ha1c8b648b2087586E.llvm.16528140993567049526.exit"
 
 85:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i"
@@ -5588,7 +5588,7 @@ define hidden void @"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5
   %50 = load i64, ptr %49, align 8, !alias.scope !1380, !noundef !13
   %51 = load i64, ptr %1, align 8, !alias.scope !1383, !noundef !13
   %52 = sub i64 %51, %50
-  %53 = icmp ult i64 %52, %gepdiff.i
+  %53 = icmp ugt i64 %gepdiff.i, %52
   br i1 %53, label %54, label %"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_int17ha1c8b648b2087586E.llvm.16528140993567049526.exit"
 
 54:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i"
@@ -5748,7 +5748,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h4bacc3e138438490E(ptr noa
   %57 = zext nneg i8 %56 to i64
   %.sroa.3.0.i.i = select i1 %52, i64 %57, i64 %55
   %.sroa.0.0.i.i71 = select i1 %52, ptr %1, ptr %53
-  %58 = icmp ult i64 %46, %.sroa.3.0.i.i
+  %58 = icmp ugt i64 %.sroa.3.0.i.i, %46
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %44
@@ -6022,7 +6022,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h4bacc3e138438490E(ptr noa
   %163 = zext nneg i8 %162 to i64
   %.sroa.3.0.i.i.i.i.i172 = select i1 %158, i64 %163, i64 %161
   %.sroa.0.0.i.i.i.i.i173 = select i1 %158, ptr %.sroa.0246.0335, ptr %159
-  %.not.i.i177 = icmp ult i64 %.sroa.27.0337, %4
+  %.not.i.i177 = icmp ugt i64 %4, %.sroa.27.0337
   br i1 %.not.i.i177, label %164, label %165
 
 164:                                              ; preds = %.lr.ph338
@@ -7871,7 +7871,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit: ; preds = %9, %11
   %17 = load i64, ptr %16, align 8, !alias.scope !1808, !noundef !13
   %18 = load i64, ptr %0, align 8, !alias.scope !1811, !noundef !13
   %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %19, %.sroa.3.0.i
+  %20 = icmp ugt i64 %.sroa.3.0.i, %19
   br i1 %20, label %21, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit"
 
 21:                                               ; preds = %_ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit
@@ -7995,7 +7995,7 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
   %50 = load i64, ptr %49, align 8, !alias.scope !1817, !noundef !13
   %51 = load i64, ptr %0, align 8, !alias.scope !1820, !noundef !13
   %52 = sub i64 %51, %50
-  %53 = icmp ult i64 %52, %gepdiff
+  %53 = icmp ugt i64 %gepdiff, %52
   br i1 %53, label %54, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit"
 
 54:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit"
@@ -8452,7 +8452,7 @@ define internal fastcc noalias noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$
   %20 = load ptr, ptr %7, align 8, !nonnull !13, !noundef !13
   %21 = load i64, ptr %8, align 8, !alias.scope !1847, !noalias !1854, !noundef !13
   %22 = sub i64 %16, %21
-  %23 = icmp ult i64 %22, %15
+  %23 = icmp ugt i64 %15, %22
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %19
@@ -8590,7 +8590,7 @@ _ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !13
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -8671,8 +8671,8 @@ _ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !1874
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -8957,7 +8957,7 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
   %51 = load i64, ptr %50, align 8, !alias.scope !1925, !noundef !13
   %52 = load i64, ptr %1, align 8, !alias.scope !1928, !noundef !13
   %53 = sub i64 %52, %51
-  %54 = icmp ult i64 %53, %gepdiff.i
+  %54 = icmp ugt i64 %gepdiff.i, %53
   br i1 %54, label %55, label %"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_int17ha1c8b648b2087586E.llvm.16528140993567049526.exit"
 
 55:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i"
@@ -9061,7 +9061,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !13
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -9142,8 +9142,8 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.017.i11
-  %86 = getelementptr i8, ptr %85, i64 %.1.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.1.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.017.i11
   %.0.copyload15.i16 = load i16, ptr %86, align 1, !alias.scope !1946
   %87 = zext i16 %.0.copyload15.i16 to i64
   %88 = shl nuw nsw i64 %.017.i11, 3

@@ -153,7 +153,7 @@ define hidden void @_ZN21G1RegionToSpaceMapper14fire_on_commitEjmb(ptr nocapture
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN21G1RegionToSpaceMapper13create_mapperE13ReservedSpacemmmm8MEMFLAGS(ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = mul i64 %4, %2
-  %.not = icmp ugt i64 %7, %3
+  %.not = icmp ult i64 %3, %7
   br i1 %.not, label %_ZN36G1RegionsSmallerThanCommitSizeMapperC2E13ReservedSpacemmmm8MEMFLAGS.exit, label %8
 
 8:                                                ; preds = %6
@@ -237,7 +237,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapperD0Ev(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper14commit_regionsEjmP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
   %5 = zext i32 %1 to i64
-  %6 = add i64 %5, %2
+  %6 = add i64 %2, %5
   %7 = icmp ugt i64 %6, %5
   br i1 %7, label %8, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit.thread
 
@@ -356,7 +356,7 @@ _ZN21G1RegionToSpaceMapper14fire_on_commitEjmb.exit: ; preds = %60, %64
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper16uncommit_regionsEjm(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #0 comdat align 2 {
   %4 = zext i32 %1 to i64
-  %5 = add i64 %4, %2
+  %5 = add i64 %2, %4
   %6 = icmp ugt i64 %5, %4
   br i1 %6, label %7, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit.thread
 
@@ -486,7 +486,7 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapperD0Ev(p
 define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper14commit_regionsEjmP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
   %5 = zext i32 %1 to i64
   %6 = trunc i64 %2 to i32
-  %7 = add i32 %6, %1
+  %7 = add i32 %1, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 136
   %9 = load i64, ptr %8, align 8
   %10 = udiv i64 %5, %9
@@ -631,7 +631,7 @@ _ZN21G1RegionToSpaceMapper14fire_on_commitEjmb.exit: ; preds = %68, %71
 define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper16uncommit_regionsEjm(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #0 comdat align 2 {
   %4 = zext i32 %1 to i64
   %5 = trunc i64 %2 to i32
-  %6 = add i32 %5, %1
+  %6 = add i32 %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 136
   %8 = load i64, ptr %7, align 8
   %9 = udiv i64 %4, %8

@@ -83,14 +83,14 @@ define noundef double @_ZN3gmx18getSqrtDeterminantENS_8ArrayRefIKdEE(ptr %0, ptr
   %32 = fmul double %31, %25
   %33 = fmul double %32, %27
   %34 = tail call double @llvm.fmuladd.f64(double %30, double %29, double %33)
-  %35 = fneg double %25
-  %36 = fmul double %23, %35
+  %35 = fneg double %23
+  %36 = fmul double %25, %35
   %37 = tail call double @llvm.fmuladd.f64(double %36, double %25, double %34)
   %38 = fneg double %21
   %39 = fmul double %21, %38
   %40 = tail call double @llvm.fmuladd.f64(double %39, double %29, double %37)
-  %41 = fneg double %19
-  %42 = fmul double %27, %41
+  %41 = fneg double %27
+  %42 = fmul double %19, %41
   %43 = tail call double @llvm.fmuladd.f64(double %42, double %27, double %40)
   br label %44
 
@@ -137,7 +137,7 @@ define noundef double @_ZNK3gmx17CorrelationTensor15getTimeIntegralEid(ptr nocap
 
 16:                                               ; preds = %8, %3
   %.0 = phi double [ %15, %8 ], [ 0.000000e+00, %3 ]
-  %17 = fmul double %.0, %2
+  %17 = fmul double %2, %.0
   ret double %17
 }
 
@@ -177,7 +177,7 @@ _ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us: ; preds = %_ZNK3gmx17Co
   %20 = load double, ptr %19, align 8
   %21 = fdiv double %20, %15
   %22 = fmul double %21, 5.000000e-01
-  %23 = fmul double %22, %1
+  %23 = fmul double %1, %22
   %24 = getelementptr inbounds [6 x double], ptr %3, i64 0, i64 %17
   store double %23, ptr %24, align 8
   %25 = load i64, ptr %4, align 8
@@ -244,14 +244,14 @@ _ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit: ; preds = %.lr.ph.split, %
   %60 = fmul double %59, %53
   %61 = fmul double %60, %55
   %62 = tail call double @llvm.fmuladd.f64(double %58, double %57, double %61)
-  %63 = fneg double %53
-  %64 = fmul double %51, %63
+  %63 = fneg double %51
+  %64 = fmul double %53, %63
   %65 = tail call double @llvm.fmuladd.f64(double %64, double %53, double %62)
   %66 = fneg double %49
   %67 = fmul double %49, %66
   %68 = tail call double @llvm.fmuladd.f64(double %67, double %57, double %65)
-  %69 = fneg double %47
-  %70 = fmul double %55, %69
+  %69 = fneg double %55
+  %70 = fmul double %47, %69
   %71 = tail call double @llvm.fmuladd.f64(double %70, double %55, double %68)
   br label %72
 
@@ -574,7 +574,7 @@ define void @_ZN3gmx17CorrelationTensor18updateBlockLengthsEd(ptr nocapture noun
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -64
   %6 = load double, ptr %5, align 8
-  %7 = fcmp olt double %6, %1
+  %7 = fcmp ogt double %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -582,7 +582,7 @@ define void @_ZN3gmx17CorrelationTensor18updateBlockLengthsEd(ptr nocapture noun
   %.0621 = phi double [ %9, %.lr.ph ], [ %6, %2 ]
   %8 = add nuw nsw i32 %.022, 1
   %9 = fmul double %.0621, 2.000000e+00
-  %10 = fcmp olt double %9, %1
+  %10 = fcmp ogt double %1, %9
   br i1 %10, label %.lr.ph, label %.lr.ph24, !llvm.loop !9
 
 .lr.ph24:                                         ; preds = %.lr.ph, %_ZN3gmx17CorrelationTensor18doubleBlockLengthsEv.exit
@@ -959,7 +959,7 @@ define void @_ZN3gmx17CorrelationTensor7addDataEdNS_8ArrayRefIKdEEbd(ptr nocaptu
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -96
   %13 = load double, ptr %12, align 8
-  %14 = fadd double %13, %1
+  %14 = fadd double %1, %13
   br label %15
 
 15:                                               ; preds = %8, %9
@@ -996,7 +996,7 @@ define void @_ZN3gmx17CorrelationTensor7addDataEdNS_8ArrayRefIKdEEbd(ptr nocaptu
 33:                                               ; preds = %32, %.lr.ph
   store i32 %28, ptr %29, align 8
   %34 = load double, ptr %24, align 8
-  %35 = fadd double %34, %1
+  %35 = fadd double %1, %34
   store double %35, ptr %24, align 8
   %36 = getelementptr inbounds i8, ptr %24, i64 8
   %37 = load double, ptr %36, align 8
@@ -1044,7 +1044,7 @@ _ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit: ; preds = %.lr.ph
   %.lcssa = phi ptr [ %18, %15 ], [ %58, %_ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit ]
   %66 = getelementptr inbounds i8, ptr %.lcssa, i64 -96
   %67 = load double, ptr %66, align 8
-  %68 = fadd double %67, %1
+  %68 = fadd double %1, %67
   store double %68, ptr %66, align 8
   %69 = getelementptr inbounds i8, ptr %.lcssa, i64 -88
   %70 = load double, ptr %69, align 8
@@ -1109,7 +1109,7 @@ define void @_ZN3gmx17CorrelationTensorC2Eiid(ptr noundef nonnull align 8 derefe
   %.013 = phi i32 [ 0, %.lr.ph ], [ %23, %_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EE12emplace_backIJRidEEERS1_DpOT_.exit ]
   %.0912 = phi i32 [ 1, %.lr.ph ], [ %22, %_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EE12emplace_backIJRidEEERS1_DpOT_.exit ]
   %13 = uitofp i32 %.0912 to double
-  %14 = fmul double %13, %3
+  %14 = fmul double %3, %13
   store double %14, ptr %6, align 8
   %15 = load ptr, ptr %9, align 8
   %16 = load ptr, ptr %10, align 8
@@ -1295,7 +1295,7 @@ _ZNSt16allocator_traitsISaIN3gmx20CorrelationBlockDataEEE9constructIS1_JRidEEEvR
 _ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN3gmx20CorrelationBlockDataEEE9constructIS1_JRidEEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaIN3gmx20CorrelationBlockDataEEE9constructIS1_JRidEEEvRS2_PT_DpOT0_.exit ], [ %47, %.lr.ph.i.i.i ]
   %48 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 96
-  %.not10.i.i.i27 = icmp eq ptr %6, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i28

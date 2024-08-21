@@ -204,7 +204,7 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body8.i
   store i32 %0, ptr %m_size.i, align 4
   %m_size.i.i18 = getelementptr inbounds i8, ptr %this, i64 76
   %10 = load i32, ptr %m_size.i.i18, align 4
-  %cmp3.i21 = icmp slt i32 %10, %0
+  %cmp3.i21 = icmp sgt i32 %0, %10
   br i1 %cmp3.i21, label %if.then4.i22, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit62
 
 if.then4.i22:                                     ; preds = %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit

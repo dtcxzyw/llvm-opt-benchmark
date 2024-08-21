@@ -1566,7 +1566,7 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %size = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %size, align 8
-  %cmp4.not = icmp ugt i64 %1, %offset
+  %cmp4.not = icmp ult i64 %offset, %1
   br i1 %cmp4.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
@@ -1917,7 +1917,7 @@ entry:
   %size = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %size, align 8
   %sub = sub i64 %1, %offset
-  %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %bytes)
+  %cond = tail call i64 @llvm.umin.i64(i64 %bytes, i64 %sub)
   store i64 %cond, ptr %len, align 8
   %flags = getelementptr inbounds i8, ptr %request, i64 24
   store i16 8, ptr %flags, align 8
@@ -1956,7 +1956,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end17:                                         ; preds = %if.then5, %if.end
   %6 = phi i64 [ %cond15, %if.then5 ], [ %cond, %if.end ]
-  %cmp20.not = icmp ugt i64 %1, %offset
+  %cmp20.not = icmp ult i64 %offset, %1
   br i1 %cmp20.not, label %if.end27, label %if.then22
 
 if.then22:                                        ; preds = %if.end17
@@ -2104,8 +2104,8 @@ entry:
   %0 = load ptr, ptr %opaque, align 8
   %size = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %size, align 8
-  %cmp.not = icmp ne i64 %1, %offset
-  %brmerge.not = and i1 %cmp.not, %exact
+  %cmp.not = icmp ne i64 %offset, %1
+  %brmerge.not = and i1 %exact, %cmp.not
   br i1 %brmerge.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2113,7 +2113,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp3 = icmp ult i64 %1, %offset
+  %cmp3 = icmp ugt i64 %offset, %1
   br i1 %cmp3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.end

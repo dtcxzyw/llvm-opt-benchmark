@@ -7681,8 +7681,8 @@ entry:
   %3 = load ptr, ptr %data_.i.i, align 8, !noalias !131
   %offset.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load i64, ptr %offset.i.i, align 8, !noalias !131
-  %5 = getelementptr i32, ptr %2, i64 %4
-  %arrayidx.i.i = getelementptr i32, ptr %5, i64 %0
+  %5 = getelementptr i32, ptr %2, i64 %0
+  %arrayidx.i.i = getelementptr i32, ptr %5, i64 %4
   %6 = load i32, ptr %arrayidx.i.i, align 4, !noalias !131
   %conv.i = sext i32 %6 to i64
   %vtable.i = load ptr, ptr %a, align 8, !noalias !131
@@ -7792,8 +7792,8 @@ entry:
   %3 = load ptr, ptr %data_.i.i, align 8, !noalias !134
   %offset.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load i64, ptr %offset.i.i, align 8, !noalias !134
-  %5 = getelementptr i64, ptr %2, i64 %4
-  %arrayidx.i.i = getelementptr i64, ptr %5, i64 %0
+  %5 = getelementptr i64, ptr %2, i64 %0
+  %arrayidx.i.i = getelementptr i64, ptr %5, i64 %4
   %6 = load i64, ptr %arrayidx.i.i, align 8, !noalias !134
   %vtable.i = load ptr, ptr %a, align 8, !noalias !134
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
@@ -7901,8 +7901,8 @@ entry:
   %3 = load ptr, ptr %data_.i.i, align 8, !noalias !137
   %offset.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load i64, ptr %offset.i.i, align 8, !noalias !137
-  %5 = getelementptr i32, ptr %2, i64 %4
-  %arrayidx.i.i = getelementptr i32, ptr %5, i64 %0
+  %5 = getelementptr i32, ptr %2, i64 %0
+  %arrayidx.i.i = getelementptr i32, ptr %5, i64 %4
   %6 = load i32, ptr %arrayidx.i.i, align 4, !noalias !137
   %conv.i = sext i32 %6 to i64
   %vtable.i = load ptr, ptr %a, align 8, !noalias !137
@@ -8012,8 +8012,8 @@ entry:
   %3 = load ptr, ptr %data_.i.i, align 8, !noalias !140
   %offset.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load i64, ptr %offset.i.i, align 8, !noalias !140
-  %5 = getelementptr i64, ptr %2, i64 %4
-  %arrayidx.i.i = getelementptr i64, ptr %5, i64 %0
+  %5 = getelementptr i64, ptr %2, i64 %0
+  %arrayidx.i.i = getelementptr i64, ptr %5, i64 %4
   %6 = load i64, ptr %arrayidx.i.i, align 8, !noalias !140
   %vtable.i = load ptr, ptr %a, align 8, !noalias !140
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
@@ -8640,8 +8640,8 @@ entry:
   %2 = load ptr, ptr %data_.i, align 8
   %offset.i = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load i64, ptr %offset.i, align 8
-  %4 = getelementptr i8, ptr %1, i64 %3
-  %arrayidx.i = getelementptr i8, ptr %4, i64 %0
+  %4 = getelementptr i8, ptr %1, i64 %0
+  %arrayidx.i = getelementptr i8, ptr %4, i64 %3
   %5 = load i8, ptr %arrayidx.i, align 1
   store i8 %5, ptr %type_code, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children, i8 0, i64 24, i1 false)
@@ -9325,8 +9325,8 @@ entry:
   %2 = load ptr, ptr %data_.i, align 8
   %offset.i = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load i64, ptr %offset.i, align 8
-  %4 = getelementptr i8, ptr %1, i64 %3
-  %arrayidx.i = getelementptr i8, ptr %4, i64 %0
+  %4 = getelementptr i8, ptr %1, i64 %0
+  %arrayidx.i = getelementptr i8, ptr %4, i64 %3
   %5 = load i8, ptr %arrayidx.i, align 1
   store i8 %5, ptr %type_code, align 1
   %union_type_.i = getelementptr inbounds i8, ptr %a, i64 40
@@ -9343,8 +9343,8 @@ entry:
   %11 = load ptr, ptr %data_.i, align 8
   %offset.i14 = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load i64, ptr %offset.i14, align 8
-  %13 = getelementptr i32, ptr %10, i64 %12
-  %arrayidx.i15 = getelementptr i32, ptr %13, i64 %9
+  %13 = getelementptr i32, ptr %10, i64 %9
+  %arrayidx.i15 = getelementptr i32, ptr %13, i64 %12
   %14 = load i32, ptr %arrayidx.i15, align 4
   %15 = load ptr, ptr %arr, align 8
   %conv = sext i32 %14 to i64
@@ -76897,8 +76897,8 @@ entry:
   %1 = load i64, ptr %offset.i, align 8
   %raw_value_offsets_.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %raw_value_offsets_.i, align 8
-  %3 = getelementptr i32, ptr %2, i64 %1
-  %arrayidx.i = getelementptr i32, ptr %3, i64 %i
+  %3 = getelementptr i32, ptr %2, i64 %i
+  %arrayidx.i = getelementptr i32, ptr %3, i64 %1
   %4 = load i32, ptr %arrayidx.i, align 4
   %raw_data_.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %raw_data_.i, align 8
@@ -80757,8 +80757,8 @@ entry:
   %1 = load i64, ptr %offset.i, align 8
   %raw_value_offsets_.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %raw_value_offsets_.i, align 8
-  %3 = getelementptr i64, ptr %2, i64 %1
-  %arrayidx.i = getelementptr i64, ptr %3, i64 %i
+  %3 = getelementptr i64, ptr %2, i64 %i
+  %arrayidx.i = getelementptr i64, ptr %3, i64 %1
   %4 = load i64, ptr %arrayidx.i, align 8
   %raw_data_.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %raw_data_.i, align 8
@@ -92015,7 +92015,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12

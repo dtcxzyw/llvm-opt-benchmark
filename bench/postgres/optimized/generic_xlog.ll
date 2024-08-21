@@ -740,7 +740,7 @@ BufferGetPage.exit:                               ; preds = %29, %35
   %41 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext %.033, ptr noundef nonnull %3) #7
   %42 = load i64, ptr %3, align 8
   %43 = getelementptr i8, ptr %41, i64 %42
-  %44 = icmp ugt ptr %43, %41
+  %44 = icmp ult ptr %41, %43
   br i1 %44, label %.lr.ph.i, label %applyPageRedo.exit
 
 .lr.ph.i:                                         ; preds = %BufferGetPage.exit, %.lr.ph.i

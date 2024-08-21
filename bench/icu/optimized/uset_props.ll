@@ -272,7 +272,7 @@ invoke.cont:
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %add = add nsw i32 %pos, 1
   %cmp = icmp slt i32 %add, %cond.i
-  %cmp.i.i3 = icmp ugt i32 %cond.i, %pos
+  %cmp.i.i3 = icmp ult i32 %pos, %cond.i
   %or.cond = and i1 %cmp, %cmp.i.i3
   br i1 %or.cond, label %invoke.cont1, label %lor.rhs
 

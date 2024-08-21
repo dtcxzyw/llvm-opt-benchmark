@@ -1412,10 +1412,10 @@ define hidden void @_ZN2cv20TrackerDaSiamRPNImpl12getSubwindowERNS_3MatERKNS_5Re
   %30 = insertelement <4 x float> poison, float %29, i64 0
   %31 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %30)
   %32 = sitofp i32 %26 to float
-  %33 = fadd float %32, %4
+  %33 = fadd float %4, %32
   %34 = fadd float %33, -1.000000e+00
   %35 = sitofp i32 %31 to float
-  %36 = fadd float %35, %4
+  %36 = fadd float %4, %35
   %37 = fadd float %36, -1.000000e+00
   %38 = fneg float %32
   %39 = fpext float %38 to double

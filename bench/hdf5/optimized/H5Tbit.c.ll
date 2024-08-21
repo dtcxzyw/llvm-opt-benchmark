@@ -225,7 +225,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr nocapture noundef %0, i64 nounde
 
 13:                                               ; preds = %12
   %14 = sub nuw nsw i64 8, %11
-  %15 = tail call i64 @llvm.umin.i64(i64 %14, i64 %3)
+  %15 = tail call i64 @llvm.umin.i64(i64 %3, i64 %14)
   %16 = trunc nuw nsw i64 %15 to i16
   %notmask.i = shl nsw i16 -1, %16
   %17 = xor i16 %notmask.i, -1
@@ -308,7 +308,7 @@ H5T__bit_set.exit.thread93:                       ; preds = %50
 60:                                               ; preds = %58
   %61 = sub i64 %3, %7
   call void @H5T__bit_copy(ptr noundef nonnull %53, i64 noundef 0, ptr noundef %0, i64 noundef %2, i64 noundef %61)
-  %62 = add i64 %7, %2
+  %62 = add i64 %2, %7
   call void @H5T__bit_copy(ptr noundef %0, i64 noundef %62, ptr noundef nonnull %53, i64 noundef 0, i64 noundef %61)
   %63 = trunc i64 %2 to i32
   %64 = sdiv i32 %63, 8
@@ -318,7 +318,7 @@ H5T__bit_set.exit.thread93:                       ; preds = %50
 
 66:                                               ; preds = %60
   %67 = sub nuw nsw i64 8, %65
-  %68 = call i64 @llvm.umin.i64(i64 %67, i64 %7)
+  %68 = call i64 @llvm.umin.i64(i64 %7, i64 %67)
   %69 = trunc nuw nsw i64 %68 to i16
   %notmask.i60 = shl nsw i16 -1, %69
   %70 = xor i16 %notmask.i60, -1
@@ -371,7 +371,7 @@ H5T__bit_set.exit.thread93:                       ; preds = %50
   br label %H5T__bit_set.exit
 
 96:                                               ; preds = %58
-  %97 = add i64 %7, %2
+  %97 = add i64 %2, %7
   %98 = sub i64 %3, %7
   call void @H5T__bit_copy(ptr noundef nonnull %53, i64 noundef 0, ptr noundef %0, i64 noundef %97, i64 noundef %98)
   call void @H5T__bit_copy(ptr noundef %0, i64 noundef %2, ptr noundef nonnull %53, i64 noundef 0, i64 noundef %98)
@@ -385,7 +385,7 @@ H5T__bit_set.exit.thread93:                       ; preds = %50
 
 104:                                              ; preds = %96
   %105 = sub nuw nsw i64 8, %103
-  %106 = call i64 @llvm.umin.i64(i64 %105, i64 %7)
+  %106 = call i64 @llvm.umin.i64(i64 %7, i64 %105)
   %107 = trunc nuw nsw i64 %106 to i16
   %notmask.i76 = shl nsw i16 -1, %107
   %108 = xor i16 %notmask.i76, -1
@@ -468,7 +468,7 @@ define void @H5T__bit_set(ptr nocapture noundef %0, i64 noundef %1, i64 noundef 
 
 9:                                                ; preds = %8
   %10 = sub nuw nsw i64 8, %7
-  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 %2)
+  %11 = tail call i64 @llvm.umin.i64(i64 %2, i64 %10)
   %12 = trunc nuw nsw i64 %11 to i32
   %notmask = shl nsw i32 -1, %12
   %13 = xor i32 %notmask, -1
@@ -643,7 +643,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
   %13 = trunc nuw nsw i64 %.091136 to i32
   %14 = lshr i32 %11, %13
   %15 = trunc i32 %14 to i1
-  %16 = xor i1 %15, %4
+  %16 = xor i1 %4, %15
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %12
@@ -703,7 +703,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
   %40 = trunc nuw i64 %.092140 to i32
   %41 = lshr i32 %39, %40
   %42 = trunc i32 %41 to i1
-  %43 = xor i1 %42, %4
+  %43 = xor i1 %4, %42
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %.preheader111
@@ -728,7 +728,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
   %54 = trunc i64 %.193147 to i32
   %55 = lshr i32 %35, %54
   %56 = trunc i32 %55 to i1
-  %57 = xor i1 %56, %4
+  %57 = xor i1 %4, %56
   br i1 %57, label %62, label %58
 
 58:                                               ; preds = %53
@@ -748,7 +748,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
   %67 = lshr i64 %66, 3
   %68 = and i64 %1, 7
   %69 = sub nuw nsw i64 8, %68
-  %70 = icmp uge i64 %69, %2
+  %70 = icmp ule i64 %2, %69
   %71 = and i64 %65, 7
   %.not = icmp eq i64 %71, 0
   %or.cond = or i1 %70, %.not
@@ -767,7 +767,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
   %78 = trunc nuw nsw i64 %77 to i32
   %79 = lshr i32 %74, %78
   %80 = trunc i32 %79 to i1
-  %81 = xor i1 %80, %4
+  %81 = xor i1 %4, %80
   br i1 %81, label %86, label %82
 
 82:                                               ; preds = %76
@@ -808,7 +808,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
   %96 = trunc i64 %.294131 to i32
   %97 = lshr i32 %95, %96
   %98 = trunc i32 %97 to i1
-  %99 = xor i1 %98, %4
+  %99 = xor i1 %4, %98
   br i1 %99, label %104, label %100
 
 100:                                              ; preds = %.preheader115
@@ -851,7 +851,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
   %118 = trunc nuw nsw i64 %117 to i32
   %119 = lshr i32 %113, %118
   %120 = trunc i32 %119 to i1
-  %121 = xor i1 %120, %4
+  %121 = xor i1 %4, %120
   br i1 %121, label %114, label %122
 
 122:                                              ; preds = %116
@@ -873,7 +873,7 @@ define zeroext i1 @H5T__bit_inc(ptr nocapture noundef %0, i64 noundef %1, i64 no
   br i1 %.not, label %33, label %6
 
 6:                                                ; preds = %3
-  %7 = add i64 %5, %2
+  %7 = add i64 %2, %5
   %8 = icmp ult i64 %7, 8
   %9 = trunc i64 %2 to i32
   %10 = trunc nuw nsw i64 %5 to i32
@@ -888,7 +888,7 @@ define zeroext i1 @H5T__bit_inc(ptr nocapture noundef %0, i64 noundef %1, i64 no
   %16 = and i32 %15, %.0
   %17 = add nuw nsw i32 %16, 1
   %18 = sub nuw nsw i64 8, %5
-  %19 = tail call i64 @llvm.umin.i64(i64 %18, i64 %2)
+  %19 = tail call i64 @llvm.umin.i64(i64 %2, i64 %18)
   %20 = trunc nuw nsw i64 %19 to i32
   %21 = shl nuw nsw i32 1, %20
   %22 = and i32 %17, %21

@@ -791,7 +791,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %prefix.coerce1
+  %cmp.i = icmp ugt i64 %prefix.coerce1, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -847,7 +847,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit19:               ; preds = %if.then.i.i17, %if.
   %sub.ptr.lhs.cast.i22 = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i23 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i24 = sub i64 %sub.ptr.lhs.cast.i22, %sub.ptr.rhs.cast.i23
-  %cmp.i25 = icmp ult i64 %sub.ptr.sub.i24, %retval.sroa.2.0.copyload.i
+  %cmp.i25 = icmp ugt i64 %retval.sroa.2.0.copyload.i, %sub.ptr.sub.i24
   br i1 %cmp.i25, label %if.then.i31, label %if.end.i26
 
 if.then.i31:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit19
@@ -1088,7 +1088,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %prefix.coerce1
+  %cmp.i = icmp ugt i64 %prefix.coerce1, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -1144,7 +1144,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit20:               ; preds = %if.then.i.i18, %if.
   %sub.ptr.lhs.cast.i23 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i24 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i25 = sub i64 %sub.ptr.lhs.cast.i23, %sub.ptr.rhs.cast.i24
-  %cmp.i26 = icmp ult i64 %sub.ptr.sub.i25, %retval.sroa.2.0.copyload.i
+  %cmp.i26 = icmp ugt i64 %retval.sroa.2.0.copyload.i, %sub.ptr.sub.i25
   br i1 %cmp.i26, label %if.then.i32, label %if.end.i27
 
 if.then.i32:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit20
@@ -1255,7 +1255,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12

@@ -221,7 +221,7 @@ define internal { double, double } @_ZL15goode_s_inverse5PJ_XYP8PJconsts(double 
 8:                                                ; preds = %3
   %9 = fcmp oge double %1, 0.000000e+00
   %10 = select i1 %9, double 5.280000e-02, double -5.280000e-02
-  %11 = fadd double %10, %1
+  %11 = fadd double %1, %10
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   br label %13
 

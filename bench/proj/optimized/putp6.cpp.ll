@@ -193,7 +193,7 @@ define internal { double, double } @_ZL15putp6_s_forward5PJ_LPP8PJconsts(double 
   %.sroa.2.2 = phi double [ %26, %32 ], [ %31, %29 ]
   %.0 = phi double [ %sqrt29, %32 ], [ 2.000000e+00, %29 ]
   %35 = load double, ptr %5, align 8
-  %36 = fmul double %35, %0
+  %36 = fmul double %0, %35
   %37 = getelementptr inbounds i8, ptr %5, i64 32
   %38 = load double, ptr %37, align 8
   %39 = fsub double %38, %.0

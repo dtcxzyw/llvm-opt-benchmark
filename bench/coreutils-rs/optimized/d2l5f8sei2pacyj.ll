@@ -1237,7 +1237,7 @@ common.resume:                                    ; preds = %31, %18
   %.idx.i = phi i64 [ 0, %.lr.ph.i.i ], [ %.add.i, %84 ]
   %.ptr.i = getelementptr inbounds i8, ptr @anon.c26689b4b3f0ec1139c0701bc8b1e935.43, i64 %.idx.i
   %.val7.i.i = load i32, ptr %.ptr.i, align 4, !range !93, !noalias !238, !noundef !5
-  %83 = icmp eq i32 %.sroa.4.0.i.ph19.i, %.val7.i.i
+  %83 = icmp eq i32 %.val7.i.i, %.sroa.4.0.i.ph19.i
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %82

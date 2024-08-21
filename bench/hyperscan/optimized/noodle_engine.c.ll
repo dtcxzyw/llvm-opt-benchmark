@@ -34,7 +34,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %6 = add i8 %5, -65
   %cmp.i32.not = icmp ult i8 %6, 26
   %noCase.addr.i9.0 = select i1 %cmp.i32.not, i1 %tobool, i1 false
-  %add.i115 = add i64 %conv.i, %start
+  %add.i115 = add i64 %start, %conv.i
   %sub.i116 = add i64 %add.i115, -1
   %sub2.i117 = sub i64 %len, %sub.i116
   %cmp.i118 = icmp ult i64 %sub2.i117, 16
@@ -46,7 +46,7 @@ if.then2.i17:                                     ; preds = %if.then2.i
   br i1 %cmp.i118, label %if.then.i158, label %if.end.i119
 
 if.then.i158:                                     ; preds = %if.then2.i17
-  %tobool.i187.not = icmp eq i64 %sub.i116, %len
+  %tobool.i187.not = icmp eq i64 %len, %sub.i116
   br i1 %tobool.i187.not, label %scan.exit, label %if.end.i189
 
 if.end.i189:                                      ; preds = %if.then.i158
@@ -321,7 +321,7 @@ if.end12.i122:                                    ; preds = %if.end.i119
   %add14.i124 = add i64 %add13.i123, %sub.i116
   %and.i125 = and i64 %add14.i124, -16
   %sub15.i126 = sub i64 %and.i125, %47
-  %add16.i127 = add i64 %47, %len
+  %add16.i127 = add i64 %len, %47
   %and17.i128 = and i64 %add16.i127, -16
   %sub18.i129 = sub i64 %and17.i128, %47
   %sub19.i130 = add i64 %len, -16
@@ -759,7 +759,7 @@ if.else.i16:                                      ; preds = %if.then2.i
   br i1 %cmp.i118, label %if.then.i90, label %if.end.i89
 
 if.then.i90:                                      ; preds = %if.else.i16
-  %tobool.i220.not = icmp eq i64 %sub.i116, %len
+  %tobool.i220.not = icmp eq i64 %len, %sub.i116
   br i1 %tobool.i220.not, label %scan.exit, label %if.end.i222
 
 if.end.i222:                                      ; preds = %if.then.i90
@@ -1032,7 +1032,7 @@ if.end12.i:                                       ; preds = %if.end.i89
   %add14.i = add i64 %add13.i, %sub.i116
   %and.i = and i64 %add14.i, -16
   %sub15.i = sub i64 %and.i, %147
-  %add16.i = add i64 %147, %len
+  %add16.i = add i64 %len, %147
   %and17.i = and i64 %add16.i, -16
   %sub18.i = sub i64 %and17.i, %147
   %sub19.i = add i64 %len, -16
@@ -1467,7 +1467,7 @@ if.else.i:                                        ; preds = %if.end.i
   %conv.i2061 = zext i8 %206 to i64
   %sub.i2062 = sub i64 %len, %conv.i2061
   %add.i2063 = add i64 %sub.i2062, 2
-  %add2.i2066 = add i64 %conv.i, %start
+  %add2.i2066 = add i64 %start, %conv.i
   %sub5.i2069 = sub i64 %add2.i2066, %conv.i2061
   %key0.i2086 = getelementptr inbounds i8, ptr %n, i64 28
   %207 = load i8, ptr %key0.i2086, align 4
@@ -3177,7 +3177,7 @@ if.end68:                                         ; preds = %for.inc, %if.end
   %nocase = getelementptr inbounds i8, ptr %n, i64 26
   %34 = load i8, ptr %nocase, align 2
   %tobool70 = icmp ne i8 %34, 0
-  %cmp.i = icmp ugt i64 %conv.i.pre-phi, %len
+  %cmp.i = icmp ult i64 %len, %conv.i.pre-phi
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end68
@@ -3204,7 +3204,7 @@ if.then2.i149:                                    ; preds = %if.then2.i
   br i1 %cmp.i252, label %if.then.i292, label %if.end.i253
 
 if.then.i292:                                     ; preds = %if.then2.i149
-  %tobool.i322.not = icmp eq i64 %sub.i250, %len
+  %tobool.i322.not = icmp eq i64 %len, %sub.i250
   br i1 %tobool.i322.not, label %return, label %if.end.i324
 
 if.end.i324:                                      ; preds = %if.then.i292
@@ -3479,7 +3479,7 @@ if.end12.i256:                                    ; preds = %if.end.i253
   %add14.i258 = add i64 %add13.i257, %sub.i250
   %and.i259 = and i64 %add14.i258, -16
   %sub15.i260 = sub i64 %and.i259, %79
-  %add16.i261 = add i64 %79, %len
+  %add16.i261 = add i64 %len, %79
   %and17.i262 = and i64 %add16.i261, -16
   %sub18.i263 = sub i64 %and17.i262, %79
   %sub19.i264 = add i64 %len, -16
@@ -3917,7 +3917,7 @@ if.else.i148:                                     ; preds = %if.then2.i
   br i1 %cmp.i252, label %if.then.i224, label %if.end.i223
 
 if.then.i224:                                     ; preds = %if.else.i148
-  %tobool.i356.not = icmp eq i64 %sub.i250, %len
+  %tobool.i356.not = icmp eq i64 %len, %sub.i250
   br i1 %tobool.i356.not, label %return, label %if.end.i358
 
 if.end.i358:                                      ; preds = %if.then.i224
@@ -4190,7 +4190,7 @@ if.end12.i:                                       ; preds = %if.end.i223
   %add14.i = add i64 %add13.i, %sub.i250
   %and.i = and i64 %add14.i, -16
   %sub15.i = sub i64 %and.i, %179
-  %add16.i = add i64 %179, %len
+  %add16.i = add i64 %len, %179
   %and17.i = and i64 %add16.i, -16
   %sub18.i = sub i64 %and17.i, %179
   %sub19.i = add i64 %len, -16

@@ -13,13 +13,13 @@ define ptr @Cudd_Cofactor(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %2
+  %9 = icmp eq ptr %2, %8
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %2
+  %13 = icmp eq ptr %2, %12
   br i1 %13, label %15, label %.preheader
 
 .preheader:                                       ; preds = %10
@@ -58,11 +58,11 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %2
+  %12 = icmp eq ptr %2, %11
   br i1 %12, label %119, label %13
 
 13:                                               ; preds = %9
-  %14 = icmp ne ptr %6, %1
+  %14 = icmp ne ptr %1, %6
   %15 = tail call ptr @cuddCacheLookup2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_Cofactor, ptr noundef nonnull %6, ptr noundef %2) #5
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %21, label %16
@@ -109,7 +109,7 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %30, i64 24
   %45 = load ptr, ptr %44, align 8
-  %.not109 = icmp eq ptr %30, %2
+  %.not109 = icmp eq ptr %2, %30
   %46 = ptrtoint ptr %43 to i64
   %47 = xor i64 %46, 1
   %48 = inttoptr i64 %47 to ptr
@@ -282,7 +282,7 @@ define void @cuddGetBranches(ptr noundef %0, ptr nocapture noundef %1, ptr nocap
 define range(i32 0, 2) i32 @cuddCheckCube(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -320,7 +320,7 @@ cuddGetBranches.exit:                             ; preds = %9
 
 tailrecurse.backedge:                             ; preds = %cuddGetBranches.exit, %28
   %.tr20.be = phi ptr [ %.019, %cuddGetBranches.exit ], [ %.018, %28 ]
-  %27 = icmp eq ptr %4, %.tr20.be
+  %27 = icmp eq ptr %.tr20.be, %4
   br i1 %27, label %._crit_edge, label %9
 
 28:                                               ; preds = %cuddGetBranches.exit

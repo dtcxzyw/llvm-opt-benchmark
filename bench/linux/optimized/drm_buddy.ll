@@ -60,7 +60,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr nocapture nou
 
 10:                                               ; preds = %3
   %11 = sub i64 0, %2
-  %12 = and i64 %11, %1
+  %12 = and i64 %1, %11
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 40

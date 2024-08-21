@@ -182,7 +182,7 @@ if.end4:                                          ; preds = %if.end
   tail call void @uv_once(ptr noundef nonnull @process_title_mutex_once, ptr noundef nonnull @init_process_title_mutex_once) #7
   tail call void @uv_mutex_lock(ptr noundef nonnull @process_title_mutex) #7
   %1 = load i64, ptr @process_title.1, align 8
-  %cmp5.not = icmp ult i64 %1, %size
+  %cmp5.not = icmp ugt i64 %size, %1
   br i1 %cmp5.not, label %if.end7, label %return.sink.split
 
 if.end7:                                          ; preds = %if.end4

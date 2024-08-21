@@ -840,7 +840,7 @@ for.inc.us.i:                                     ; preds = %for.body7.us.i
 
 for.end.us.i:                                     ; preds = %for.body7.us.i
   %5 = trunc nuw nsw i64 %indvars.iv19.i to i32
-  %cmp11.us.i = icmp eq i32 %5, %argc
+  %cmp11.us.i = icmp eq i32 %argc, %5
   br i1 %cmp11.us.i, label %for.inc25.us.i, label %if.end15.us.i
 
 if.end15.us.i:                                    ; preds = %for.end.us.i

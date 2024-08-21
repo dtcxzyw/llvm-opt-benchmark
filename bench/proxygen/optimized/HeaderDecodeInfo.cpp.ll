@@ -1214,7 +1214,7 @@ if.end8:                                          ; preds = %lor.lhs.false5.us.i
   store i8 1, ptr %hasPath_, align 1
   %not.allowEmptyPath = xor i1 %allowEmptyPath, true
   %spec.select = or i1 %cmp.not7.i.i, %not.allowEmptyPath
-  %tobool14 = and i1 %spec.select, %strictValidation
+  %tobool14 = and i1 %strictValidation, %spec.select
   %msg_ = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %msg_, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !33
@@ -2711,10 +2711,10 @@ entry:
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp eq i64 %1, %2
-  %cmp2.not.i = icmp ule ptr %0, %value
+  %cmp2.not.i = icmp uge ptr %value, %0
   %or.cond.not8.i = and i1 %cmp2.not.i, %cmp.i
   %add.ptr.i2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %1
-  %cmp5.i = icmp ugt ptr %add.ptr.i2, %value
+  %cmp5.i = icmp ult ptr %value, %add.ptr.i2
   %or.cond7.i = select i1 %or.cond.not8.i, i1 %cmp5.i, i1 false
   br i1 %or.cond7.i, label %if.then.i, label %if.else.i
 

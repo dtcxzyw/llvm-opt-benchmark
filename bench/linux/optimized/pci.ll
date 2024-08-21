@@ -644,7 +644,7 @@ define dso_local zeroext i8 @pci_find_next_capability(ptr nocapture noundef read
 
 23:                                               ; preds = %.preheader
   %24 = zext nneg i16 %21 to i32
-  %25 = icmp eq i32 %24, %2
+  %25 = icmp eq i32 %2, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %23
@@ -730,7 +730,7 @@ define dso_local zeroext i8 @pci_find_capability(ptr nocapture noundef readonly 
 
 34:                                               ; preds = %.preheader
   %35 = zext nneg i16 %32 to i32
-  %36 = icmp eq i32 %35, %1
+  %36 = icmp eq i32 %1, %35
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %34
@@ -818,7 +818,7 @@ define dso_local zeroext i8 @pci_bus_find_capability(ptr noundef %0, i32 noundef
 
 31:                                               ; preds = %.preheader
   %32 = zext nneg i16 %29 to i32
-  %33 = icmp eq i32 %32, %2
+  %33 = icmp eq i32 %2, %32
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %31
@@ -4269,7 +4269,7 @@ define internal fastcc i32 @__pci_enable_wake(ptr noundef %0, i32 noundef %1, i1
   %9 = getelementptr inbounds i8, ptr %0, i64 157
   %10 = and i24 %.pre, 16384
   %11 = icmp eq i24 %10, 0
-  %12 = xor i1 %11, %2
+  %12 = xor i1 %2, %11
   br i1 %12, label %40, label %13
 
 13:                                               ; preds = %._crit_edge
@@ -5899,7 +5899,7 @@ define dso_local noundef range(i32 -12, 1) i32 @pci_add_ext_cap_save_buffer(ptr 
 18:                                               ; preds = %.preheader
   %19 = load i32, ptr %4, align 4
   %20 = trunc i32 %19 to i16
-  %21 = icmp ne i16 %20, %1
+  %21 = icmp ne i16 %1, %20
   %22 = icmp eq i16 %15, 0
   %23 = or i1 %22, %21
   br i1 %23, label %24, label %33
@@ -8317,7 +8317,7 @@ define dso_local range(i32 -25, 1) i32 @pcie_reset_flr(ptr noundef %0, i1 nounde
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 268435456
   %11 = icmp eq i32 %10, 0
-  %12 = or i1 %11, %1
+  %12 = or i1 %1, %11
   %13 = select i1 %11, i32 -25, i32 0
   br i1 %12, label %16, label %14
 
@@ -10707,7 +10707,7 @@ define dso_local void @__pcie_print_link_status(ptr noundef %0, i1 noundef zeroe
   %54 = phi i32 [ 0, %2 ], [ %41, %47 ], [ %41, %37 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #27
   %55 = icmp uge i32 %54, %6
-  %56 = and i1 %55, %1
+  %56 = and i1 %1, %55
   br i1 %56, label %57, label %64
 
 57:                                               ; preds = %.thread
@@ -11838,7 +11838,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(pt
   %74 = and i16 %73, 3
   %75 = zext nneg i16 %74 to i32
   store i32 %75, ptr %9, align 8
-  %76 = icmp eq i32 %75, %1
+  %76 = icmp eq i32 %1, %75
   br i1 %76, label %91, label %77
 
 77:                                               ; preds = %68
@@ -12885,7 +12885,7 @@ define internal range(i32 -25, 1) i32 @pci_af_flr(ptr noundef %0, i1 noundef zer
   %16 = load i8, ptr %4, align 1
   %17 = and i8 %16, 3
   %18 = icmp ne i8 %17, 3
-  %19 = or i1 %18, %1
+  %19 = or i1 %1, %18
   %20 = select i1 %18, i32 -25, i32 0
   br i1 %19, label %48, label %21
 
@@ -12968,7 +12968,7 @@ define internal range(i32 -25, 1) i32 @pci_pm_reset(ptr noundef %0, i1 noundef z
   %16 = load i16, ptr %3, align 2
   %17 = and i16 %16, 8
   %18 = icmp ne i16 %17, 0
-  %19 = or i1 %18, %1
+  %19 = or i1 %1, %18
   %20 = select i1 %18, i32 -25, i32 0
   br i1 %19, label %67, label %21
 

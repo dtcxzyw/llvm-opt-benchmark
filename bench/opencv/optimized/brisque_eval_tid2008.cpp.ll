@@ -1383,7 +1383,7 @@ _ZNSt6vectorISt4pairIfNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7
   %521 = fadd double %.03946.i.i, %520
   %522 = add i32 %.03847.i.i, 1
   %523 = zext i32 %522 to i64
-  %524 = icmp ult i64 %523, %500
+  %524 = icmp ugt i64 %500, %523
   br i1 %524, label %.lr.ph.i.i, label %_ZN12_GLOBAL__N_17pearsonIfEEdPKT_S3_m.exit.i, !llvm.loop !45
 
 _ZN12_GLOBAL__N_17pearsonIfEEdPKT_S3_m.exit.i:    ; preds = %.lr.ph.i.i, %501
@@ -1393,13 +1393,13 @@ _ZN12_GLOBAL__N_17pearsonIfEEdPKT_S3_m.exit.i:    ; preds = %.lr.ph.i.i, %501
   %.037.lcssa.i.i = phi double [ 0.000000e+00, %501 ], [ %512, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi double [ 0.000000e+00, %501 ], [ %508, %.lr.ph.i.i ]
   %525 = uitofp nneg i64 %500 to double
-  %526 = fneg double %.0.lcssa.i.i
-  %527 = fmul double %.0.lcssa.i.i, %526
-  %528 = call double @llvm.fmuladd.f64(double %525, double %.040.lcssa.i.i, double %527)
-  %529 = fneg double %.037.lcssa.i.i
-  %530 = fmul double %.037.lcssa.i.i, %529
+  %526 = fneg double %.037.lcssa.i.i
+  %527 = fneg double %.0.lcssa.i.i
+  %528 = fmul double %.0.lcssa.i.i, %527
+  %529 = call double @llvm.fmuladd.f64(double %525, double %.040.lcssa.i.i, double %528)
+  %530 = fmul double %.037.lcssa.i.i, %526
   %531 = call double @llvm.fmuladd.f64(double %525, double %.039.lcssa.i.i, double %530)
-  %532 = fmul double %531, %528
+  %532 = fmul double %531, %529
   %533 = call double @sqrt(double noundef %532) #24
   %534 = load ptr, ptr %4, align 8
   %.not.i.i.i.i30 = icmp eq ptr %534, null
@@ -1436,7 +1436,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %535, %_ZN12_GLOBAL_
           to label %544 unwind label %612
 
 544:                                              ; preds = %542
-  %545 = fmul double %.037.lcssa.i.i, %526
+  %545 = fmul double %.0.lcssa.i.i, %526
   %546 = call double @llvm.fmuladd.f64(double %525, double %.041.lcssa.i.i, double %545)
   %547 = fdiv double %546, %533
   %548 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %543, double noundef %547)
@@ -1968,7 +1968,7 @@ _ZNSt12_Vector_baseISt4pairIfNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 _ZNSt6vectorISt4pairIfNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIfNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt4pairIfNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_M_allocateEm.exit ], [ %32, %.lr.ph.i.i.i.i ]
   %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorISt4pairIfNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorISt4pairIfNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %.lr.ph.i.i.i.i17
@@ -2367,7 +2367,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !59
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -2451,7 +2451,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !59
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79

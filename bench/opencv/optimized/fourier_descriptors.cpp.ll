@@ -522,18 +522,18 @@ define void @_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_(ptr nocapture noundef
   %164 = load ptr, ptr %15, align 8
   %165 = getelementptr inbounds double, ptr %164, i64 %29
   %166 = load double, ptr %165, align 8
-  %167 = load ptr, ptr %5, align 8
-  %168 = getelementptr inbounds double, ptr %167, i64 %29
-  %169 = load double, ptr %168, align 8
-  %170 = load ptr, ptr %14, align 8
-  %171 = getelementptr inbounds double, ptr %170, i64 %29
-  %172 = load double, ptr %171, align 8
-  %173 = tail call double @llvm.fmuladd.f64(double %166, double %1, double %172)
-  %174 = tail call double @sin(double noundef %173) #20
-  %175 = fneg double %166
-  %176 = fmul double %166, %175
-  %177 = fmul double %176, %169
-  %178 = fmul double %177, %174
+  %167 = fmul double %166, %166
+  %168 = load ptr, ptr %5, align 8
+  %169 = getelementptr inbounds double, ptr %168, i64 %29
+  %170 = load double, ptr %169, align 8
+  %171 = fmul double %167, %170
+  %172 = load ptr, ptr %14, align 8
+  %173 = getelementptr inbounds double, ptr %172, i64 %29
+  %174 = load double, ptr %173, align 8
+  %175 = tail call double @llvm.fmuladd.f64(double %166, double %1, double %174)
+  %176 = tail call double @sin(double noundef %175) #20
+  %177 = fneg double %176
+  %178 = fmul double %171, %177
   %179 = tail call double @llvm.fmuladd.f64(double %158, double %163, double %178)
   %180 = fadd double %.0138150, %179
   %181 = load ptr, ptr %15, align 8
@@ -555,14 +555,14 @@ define void @_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_(ptr nocapture noundef
   %197 = load ptr, ptr %5, align 8
   %198 = getelementptr inbounds double, ptr %197, i64 %29
   %199 = load double, ptr %198, align 8
-  %200 = load ptr, ptr %14, align 8
-  %201 = getelementptr inbounds double, ptr %200, i64 %29
-  %202 = load double, ptr %201, align 8
-  %203 = tail call double @llvm.fmuladd.f64(double %196, double %1, double %202)
-  %204 = tail call double @sin(double noundef %203) #20
-  %205 = fneg double %196
-  %206 = fmul double %199, %205
-  %207 = fmul double %206, %204
+  %200 = fmul double %196, %199
+  %201 = load ptr, ptr %14, align 8
+  %202 = getelementptr inbounds double, ptr %201, i64 %29
+  %203 = load double, ptr %202, align 8
+  %204 = tail call double @llvm.fmuladd.f64(double %196, double %1, double %203)
+  %205 = tail call double @sin(double noundef %204) #20
+  %206 = fneg double %205
+  %207 = fmul double %200, %206
   %208 = tail call double @llvm.fmuladd.f64(double %188, double %193, double %207)
   %209 = fadd double %.0137151, %208
   %210 = load ptr, ptr %15, align 8
@@ -609,16 +609,17 @@ define void @_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_(ptr nocapture noundef
   %.0138.lcssa = phi double [ 0.000000e+00, %4 ], [ %180, %17 ]
   %.0137.lcssa = phi double [ 0.000000e+00, %4 ], [ %209, %17 ]
   %.0136.lcssa = phi double [ 0.000000e+00, %4 ], [ %238, %17 ]
-  %241 = fneg double %.0141.lcssa
-  %242 = fmul double %.0140.lcssa, %241
+  %241 = fneg double %.0140.lcssa
+  %242 = fmul double %.0141.lcssa, %241
   %243 = tail call double @llvm.fmuladd.f64(double %.0143.lcssa, double %.0142.lcssa, double %242)
   store double %243, ptr %2, align 8
   %244 = fmul double %.0143.lcssa, %.0138.lcssa
   %245 = tail call double @llvm.fmuladd.f64(double %.0139.lcssa, double %.0142.lcssa, double %244)
   %246 = fneg double %.0137.lcssa
   %247 = tail call double @llvm.fmuladd.f64(double %246, double %.0140.lcssa, double %245)
-  %248 = tail call double @llvm.fmuladd.f64(double %241, double %.0136.lcssa, double %247)
-  store double %248, ptr %3, align 8
+  %248 = fneg double %.0141.lcssa
+  %249 = tail call double @llvm.fmuladd.f64(double %248, double %.0136.lcssa, double %247)
+  store double %249, ptr %3, align 8
   ret void
 }
 
@@ -656,10 +657,10 @@ define noundef double @_ZN2cv8ximgproc14ContourFitting8distanceESt7complexIdEd(p
   %.sroa.0.0.copyload.i = load double, ptr %16, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 8
   %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %17 = fmul double %.sroa.0.0.copyload.i, %1
-  %18 = fmul double %.sroa.4.0.copyload.i, %2
-  %19 = fmul double %.sroa.0.0.copyload.i, %2
-  %20 = fmul double %.sroa.4.0.copyload.i, %1
+  %17 = fmul double %1, %.sroa.0.0.copyload.i
+  %18 = fmul double %2, %.sroa.4.0.copyload.i
+  %19 = fmul double %2, %.sroa.0.0.copyload.i
+  %20 = fmul double %1, %.sroa.4.0.copyload.i
   %21 = fsub double %17, %18
   %22 = fadd double %19, %20
   %23 = fcmp uno double %21, 0.000000e+00
@@ -682,7 +683,7 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit:             ; preds = %12, %24, %26
   %33 = getelementptr inbounds double, ptr %32, i64 %indvars.iv
   %34 = load double, ptr %33, align 8
   %35 = fmul double %9, %34
-  %36 = fmul double %34, %3
+  %36 = fmul double %3, %34
   %37 = tail call noundef { double, double } @cexp(double noundef %35, double noundef %36) #20
   %38 = extractvalue { double, double } %37, 0
   %39 = extractvalue { double, double } %37, 1
@@ -727,10 +728,10 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit27:           ; preds = %_ZStmlIdESt7complex
   %.sroa.0.0.copyload.i33 = load double, ptr %67, align 8
   %.sroa.4.0..sroa_idx.i34 = getelementptr inbounds i8, ptr %67, i64 8
   %.sroa.4.0.copyload.i35 = load double, ptr %.sroa.4.0..sroa_idx.i34, align 8
-  %68 = fmul double %.sroa.0.0.copyload.i33, %1
-  %69 = fmul double %.sroa.4.0.copyload.i35, %2
-  %70 = fmul double %.sroa.0.0.copyload.i33, %2
-  %71 = fmul double %.sroa.4.0.copyload.i35, %1
+  %68 = fmul double %1, %.sroa.0.0.copyload.i33
+  %69 = fmul double %2, %.sroa.4.0.copyload.i35
+  %70 = fmul double %2, %.sroa.0.0.copyload.i33
+  %71 = fmul double %1, %.sroa.4.0.copyload.i35
   %72 = fsub double %68, %69
   %73 = fadd double %70, %71
   %74 = fcmp uno double %72, 0.000000e+00
@@ -761,7 +762,7 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit38:           ; preds = %_ZStmlIdESt7complex
   %84 = getelementptr inbounds double, ptr %83, i64 %.pre-phi104
   %85 = load double, ptr %84, align 8
   %86 = fmul double %9, %85
-  %87 = fmul double %85, %3
+  %87 = fmul double %3, %85
   %88 = tail call noundef { double, double } @cexp(double noundef %86, double noundef %87) #20
   %89 = extractvalue { double, double } %88, 0
   %90 = extractvalue { double, double } %88, 1
@@ -2922,7 +2923,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %72, %75
 
 99:                                               ; preds = %97
   %100 = sdiv i32 %.0, 2
-  %.not = icmp slt i32 %100, %3
+  %.not = icmp sgt i32 %3, %100
   br i1 %.not, label %102, label %110
 
 101:                                              ; preds = %97
@@ -3201,7 +3202,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt7complexIdESaIS1_EE6resizeEm(ptr
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -3272,7 +3273,7 @@ _ZNSt12_Vector_baseISt7complexIdESaIS1_EE13_M_deallocateEPS1_m.exit36.i: ; preds
   br label %_ZNSt6vectorISt7complexIdESaIS1_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorISt7complexIdESaIS1_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36

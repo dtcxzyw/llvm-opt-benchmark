@@ -814,7 +814,7 @@ _ZSt8_DestroyIPN5vcpkg12ControlGroupES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8
   br label %_ZNSt6vectorIN5vcpkg12ControlGroupESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5vcpkg12ControlGroupESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg12ControlGroupES1_EvT_S3_RSaIT0_E.exit.i, %118
-  %119 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %.val7
+  %119 = icmp ne ptr %.val7, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   ret i1 %119
 
 .loopexit:                                        ; preds = %35, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i.i", %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit16.i.i.i.i.i.i", %52, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.i.i.i.i.i.i", %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit18.i.i.i.i.i.i"
@@ -921,7 +921,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg12ControlGroupEEE9constructIS1_JRlRNS0_10Strin
 _ZNSt6vectorIN5vcpkg12ControlGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN5vcpkg12ControlGroupEEE9constructIS1_JRlRNS0_10StringViewES7_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %25, %_ZNSt16allocator_traitsISaIN5vcpkg12ControlGroupEEE9constructIS1_JRlRNS0_10StringViewES7_EEEvRS2_PT_DpOT0_.exit ], [ %34, %.lr.ph.i.i.i ]
   %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 72
-  %.not10.i.i.i28 = icmp eq ptr %7, %1
+  %.not10.i.i.i28 = icmp eq ptr %1, %7
   br i1 %.not10.i.i.i28, label %_ZNSt6vectorIN5vcpkg12ControlGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, label %.lr.ph.i.i.i29
 
 .lr.ph.i.i.i29:                                   ; preds = %_ZNSt6vectorIN5vcpkg12ControlGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i29

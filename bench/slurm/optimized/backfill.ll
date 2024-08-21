@@ -8541,7 +8541,7 @@ define internal fastcc void @_add_reservation(i32 noundef %0, i32 noundef %1, pt
   %9 = trunc i64 %. to i32
   %10 = load i32, ptr @backfill_resolution, align 4
   %11 = add i32 %10, %9
-  %.0142 = tail call i32 @llvm.umax.i32(i32 %11, i32 %1)
+  %.0142 = tail call i32 @llvm.umax.i32(i32 %1, i32 %11)
   %12 = and i64 %., 4294967295
   br label %13
 

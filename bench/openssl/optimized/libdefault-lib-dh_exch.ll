@@ -757,7 +757,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %cmp7 = icmp ugt i64 %conv, %outlen
+  %cmp7 = icmp ult i64 %outlen, %conv
   br i1 %cmp7, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end6

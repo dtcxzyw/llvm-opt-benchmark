@@ -393,7 +393,7 @@ math_N.exit63:                                    ; preds = %.lr.ph.i59, %math_l
   %174 = fdiv double %173, %.0.lcssa.i58
   %175 = call double @llvm.ceil.f64(double %174)
   %176 = fptosi double %175 to i32
-  %.not41.not81 = icmp slt i32 %176, %0
+  %.not41.not81 = icmp sgt i32 %0, %176
   br i1 %.not41.not81, label %.lr.ph84.preheader, label %._crit_edge85
 
 .lr.ph84.preheader:                               ; preds = %math_N.exit63
@@ -1133,8 +1133,8 @@ _greater_than_equal_to.exit.thread:               ; preds = %217, %_greater_than
   %446 = fsub double %413, %415
   %447 = load double, ptr %8, align 8
   %448 = fsub double %447, %438
-  %449 = fneg double %446
-  %450 = fmul double %448, %449
+  %449 = fneg double %448
+  %450 = fmul double %446, %449
   %451 = tail call double @llvm.fmuladd.f64(double %444, double %445, double %450)
   br label %is_left_of.exit
 
@@ -1171,8 +1171,8 @@ _greater_than_equal_to.exit.thread:               ; preds = %217, %_greater_than
   %474 = fsub double %415, %413
   %475 = load double, ptr %8, align 8
   %476 = fsub double %475, %471
-  %477 = fneg double %474
-  %478 = fmul double %476, %477
+  %477 = fneg double %476
+  %478 = fmul double %474, %477
   %479 = tail call double @llvm.fmuladd.f64(double %472, double %473, double %478)
   br label %is_left_of.exit
 
@@ -1308,8 +1308,8 @@ is_left_of.exit.thread:                           ; preds = %465, %457, %439, %4
   %565 = fsub double %532, %534
   %566 = load double, ptr %5, align 8
   %567 = fsub double %566, %557
-  %568 = fneg double %565
-  %569 = fmul double %567, %568
+  %568 = fneg double %567
+  %569 = fmul double %565, %568
   %570 = tail call double @llvm.fmuladd.f64(double %563, double %564, double %569)
   br label %is_left_of.exit921
 
@@ -1346,8 +1346,8 @@ is_left_of.exit.thread:                           ; preds = %465, %457, %439, %4
   %593 = fsub double %534, %532
   %594 = load double, ptr %5, align 8
   %595 = fsub double %594, %590
-  %596 = fneg double %593
-  %597 = fmul double %595, %596
+  %596 = fneg double %595
+  %597 = fmul double %593, %596
   %598 = tail call double @llvm.fmuladd.f64(double %591, double %592, double %597)
   br label %is_left_of.exit921
 
@@ -1629,8 +1629,8 @@ is_left_of.exit921.thread973:                     ; preds = %584, %576, %558, %5
   %784 = fsub double %751, %753
   %785 = load double, ptr %8, align 8
   %786 = fsub double %785, %776
-  %787 = fneg double %784
-  %788 = fmul double %786, %787
+  %787 = fneg double %786
+  %788 = fmul double %784, %787
   %789 = tail call double @llvm.fmuladd.f64(double %782, double %783, double %788)
   br label %is_left_of.exit927
 
@@ -1667,8 +1667,8 @@ is_left_of.exit921.thread973:                     ; preds = %584, %576, %558, %5
   %812 = fsub double %753, %751
   %813 = load double, ptr %8, align 8
   %814 = fsub double %813, %809
-  %815 = fneg double %812
-  %816 = fmul double %814, %815
+  %815 = fneg double %814
+  %816 = fmul double %812, %815
   %817 = tail call double @llvm.fmuladd.f64(double %810, double %811, double %816)
   br label %is_left_of.exit927
 
@@ -1804,8 +1804,8 @@ is_left_of.exit927.thread:                        ; preds = %803, %795, %777, %7
   %903 = fsub double %870, %872
   %904 = load double, ptr %5, align 8
   %905 = fsub double %904, %895
-  %906 = fneg double %903
-  %907 = fmul double %905, %906
+  %906 = fneg double %905
+  %907 = fmul double %903, %906
   %908 = tail call double @llvm.fmuladd.f64(double %901, double %902, double %907)
   br label %is_left_of.exit933
 
@@ -1842,8 +1842,8 @@ is_left_of.exit927.thread:                        ; preds = %803, %795, %777, %7
   %931 = fsub double %872, %870
   %932 = load double, ptr %5, align 8
   %933 = fsub double %932, %928
-  %934 = fneg double %931
-  %935 = fmul double %933, %934
+  %934 = fneg double %933
+  %935 = fmul double %931, %934
   %936 = tail call double @llvm.fmuladd.f64(double %929, double %930, double %935)
   br label %is_left_of.exit933
 
@@ -1955,17 +1955,17 @@ is_left_of.exit933.thread990:                     ; preds = %922, %914, %896, %8
   %1005 = fsub double %1004, %1003
   %1006 = tail call double @llvm.fmuladd.f64(double %1002, double %1005, double %1003)
   %1007 = fadd double %990, 0x3E7AD7F29ABCAF48
-  %1008 = fcmp olt double %1007, %990
+  %1008 = fcmp ogt double %990, %1007
   br i1 %1008, label %_less_than.exit, label %1009
 
 1009:                                             ; preds = %999
   %1010 = fadd double %990, 0xBE7AD7F29ABCAF48
-  %1011 = fcmp ogt double %1010, %990
+  %1011 = fcmp olt double %990, %1010
   br i1 %1011, label %_less_than.exit, label %1012
 
 1012:                                             ; preds = %1009
   %1013 = load double, ptr %988, align 8
-  %1014 = fcmp ugt double %1013, %1006
+  %1014 = fcmp ult double %1006, %1013
   br label %_less_than.exit
 
 _less_than.exit:                                  ; preds = %1012, %1009, %999, %995
@@ -2164,8 +2164,8 @@ _less_than.exit:                                  ; preds = %1012, %1009, %999, 
   %1149 = fsub double %1116, %1118
   %1150 = load double, ptr %8, align 8
   %1151 = fsub double %1150, %1141
-  %1152 = fneg double %1149
-  %1153 = fmul double %1151, %1152
+  %1152 = fneg double %1151
+  %1153 = fmul double %1149, %1152
   %1154 = tail call double @llvm.fmuladd.f64(double %1147, double %1148, double %1153)
   br label %is_left_of.exit939
 
@@ -2202,8 +2202,8 @@ _less_than.exit:                                  ; preds = %1012, %1009, %999, 
   %1177 = fsub double %1118, %1116
   %1178 = load double, ptr %8, align 8
   %1179 = fsub double %1178, %1174
-  %1180 = fneg double %1177
-  %1181 = fmul double %1179, %1180
+  %1180 = fneg double %1179
+  %1181 = fmul double %1177, %1180
   %1182 = tail call double @llvm.fmuladd.f64(double %1175, double %1176, double %1181)
   br label %is_left_of.exit939
 
@@ -2668,8 +2668,8 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
   %122 = fsub double %92, %57
   %123 = load double, ptr %1, align 8
   %124 = fsub double %123, %114
-  %125 = fneg double %122
-  %126 = fmul double %124, %125
+  %125 = fneg double %124
+  %126 = fmul double %122, %125
   %127 = tail call double @llvm.fmuladd.f64(double %120, double %121, double %126)
   br label %is_left_of.exit
 
@@ -2705,8 +2705,8 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
   %149 = fsub double %57, %92
   %150 = load double, ptr %1, align 8
   %151 = fsub double %150, %146
-  %152 = fneg double %149
-  %153 = fmul double %151, %152
+  %152 = fneg double %151
+  %153 = fmul double %149, %152
   %154 = tail call double @llvm.fmuladd.f64(double %147, double %148, double %153)
   br label %is_left_of.exit
 
@@ -2765,8 +2765,8 @@ is_left_of.exit.thread105:                        ; preds = %140, %132, %115, %1
   %186 = fsub double %70, %57
   %187 = load double, ptr %0, align 8
   %188 = fsub double %187, %179
-  %189 = fneg double %186
-  %190 = fmul double %188, %189
+  %189 = fneg double %188
+  %190 = fmul double %186, %189
   %191 = tail call double @llvm.fmuladd.f64(double %185, double %58, double %190)
   br label %is_left_of.exit99
 
@@ -2801,8 +2801,8 @@ is_left_of.exit.thread105:                        ; preds = %140, %132, %115, %1
   %212 = fsub double %57, %70
   %213 = load double, ptr %0, align 8
   %214 = fsub double %213, %210
-  %215 = fneg double %212
-  %216 = fmul double %214, %215
+  %215 = fneg double %214
+  %216 = fmul double %212, %215
   %217 = tail call double @llvm.fmuladd.f64(double %211, double %71, double %216)
   br label %is_left_of.exit99
 

@@ -449,9 +449,9 @@ define internal void @exnew2(ptr nocapture readnone %parent, ptr noundef %ptr, p
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str.1, i32 noundef 74) #2
   %0 = load i32, ptr @saved_idx2, align 4
-  %cmp = icmp eq i32 %0, %idx
+  %cmp = icmp eq i32 %idx, %0
   %1 = load i32, ptr @saved_idx3, align 4
-  %cmp1 = icmp eq i32 %1, %idx
+  %cmp1 = icmp eq i32 %idx, %1
   %2 = select i1 %cmp, i1 true, i1 %cmp1
   %lor.ext = zext i1 %2 to i32
   %call3 = tail call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef nonnull @.str.23, i32 noundef %lor.ext) #2
@@ -507,9 +507,9 @@ if.end:                                           ; preds = %if.else, %if.then
 define internal noundef i32 @exdup2(ptr noundef %to, ptr nocapture readnone %from, ptr noundef %from_d, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
 entry:
   %0 = load i32, ptr @saved_idx2, align 4
-  %cmp = icmp eq i32 %0, %idx
+  %cmp = icmp eq i32 %idx, %0
   %1 = load i32, ptr @saved_idx3, align 4
-  %cmp1 = icmp eq i32 %1, %idx
+  %cmp1 = icmp eq i32 %idx, %1
   %2 = select i1 %cmp, i1 true, i1 %cmp1
   %lor.ext = zext i1 %2 to i32
   %call = tail call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @.str.23, i32 noundef %lor.ext) #2
@@ -577,9 +577,9 @@ define internal void @exfree2(ptr nocapture readnone %parent, ptr nocapture read
 entry:
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef %ad, i32 noundef %idx) #2
   %0 = load i32, ptr @saved_idx2, align 4
-  %cmp = icmp eq i32 %0, %idx
+  %cmp = icmp eq i32 %idx, %0
   %1 = load i32, ptr @saved_idx3, align 4
-  %cmp1 = icmp eq i32 %1, %idx
+  %cmp1 = icmp eq i32 %idx, %1
   %2 = select i1 %cmp, i1 true, i1 %cmp1
   %lor.ext = zext i1 %2 to i32
   %call3 = tail call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @.str.23, i32 noundef %lor.ext) #2

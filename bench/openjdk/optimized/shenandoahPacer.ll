@@ -277,7 +277,7 @@ define hidden noundef i64 @_ZN15ShenandoahPacer31update_and_get_progress_history
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ShenandoahPacer12restart_withEmd(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = uitofp i64 %1 to double
-  %5 = fmul double %4, %2
+  %5 = fmul double %2, %4
   %6 = fptoui double %5 to i64
   %7 = lshr i64 %6, 3
   %8 = getelementptr inbounds i8, ptr %0, i64 272

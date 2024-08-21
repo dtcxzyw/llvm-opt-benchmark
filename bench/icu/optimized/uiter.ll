@@ -649,7 +649,7 @@ if.then2:                                         ; preds = %if.else
 if.else3:                                         ; preds = %if.else
   %start = getelementptr inbounds i8, ptr %iter, i64 12
   %1 = load i32, ptr %start, align 4
-  %cmp4 = icmp sgt i32 %1, %state
+  %cmp4 = icmp slt i32 %state, %1
   br i1 %cmp4, label %if.then7, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %if.else3
@@ -1032,7 +1032,7 @@ if.then4:                                         ; preds = %lor.lhs.false2, %if
 if.else5:                                         ; preds = %lor.lhs.false2
   %begin.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %begin.i, align 8
-  %cmp8 = icmp sgt i32 %2, %state
+  %cmp8 = icmp slt i32 %state, %2
   br i1 %cmp8, label %if.then13, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %if.else5
@@ -1760,7 +1760,7 @@ if.else76:                                        ; preds = %if.else68
   %limit77 = getelementptr inbounds i8, ptr %iter, i64 20
   %10 = load i32, ptr %limit77, align 4
   %sub79 = sub nsw i32 %10, %9
-  %cmp80.not = icmp sgt i32 %sub79, %delta
+  %cmp80.not = icmp slt i32 %delta, %sub79
   br i1 %cmp80.not, label %if.end93, label %if.then81
 
 if.then81:                                        ; preds = %if.else76
@@ -2590,7 +2590,7 @@ if.else3:                                         ; preds = %if.else
   %cmp.not.i = icmp ne i32 %2, 0
   %or.i = zext i1 %cmp.not.i to i32
   %spec.select.i = or disjoint i32 %shl.i, %or.i
-  %cmp5 = icmp eq i32 %spec.select.i, %state
+  %cmp5 = icmp eq i32 %state, %spec.select.i
   br i1 %cmp5, label %if.end38, label %if.else7
 
 if.else7:                                         ; preds = %if.else3

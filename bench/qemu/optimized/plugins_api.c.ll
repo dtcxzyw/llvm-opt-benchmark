@@ -172,7 +172,7 @@ define dso_local ptr @qemu_plugin_tb_get_insn(ptr nocapture noundef readonly %tb
 entry:
   %n = getelementptr inbounds i8, ptr %tb, i64 8
   %0 = load i64, ptr %n, align 8
-  %cmp.not = icmp ugt i64 %0, %idx
+  %cmp.not = icmp ult i64 %idx, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

@@ -614,14 +614,14 @@ list_length.exit:                                 ; preds = %.loopexit401, %186
   %286 = select i1 %283, ptr @.str.17, ptr %285
   %287 = getelementptr inbounds i8, ptr %260, i64 108
   %288 = load i32, ptr %287, align 4
-  %.not362 = icmp eq i32 %288, %4
+  %.not362 = icmp eq i32 %4, %288
   br i1 %.not362, label %289, label %294
 
 289:                                              ; preds = %282
   %290 = getelementptr inbounds i8, ptr %260, i64 100
   %291 = load i8, ptr %290, align 4
   %292 = trunc i8 %291 to i1
-  %293 = xor i1 %292, %3
+  %293 = xor i1 %3, %292
   br i1 %293, label %294, label %301
 
 294:                                              ; preds = %289, %282

@@ -395,7 +395,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_bmtree(ptr nocapture nound
   %narrow.i = sub nuw nsw i32 32, %15
   %16 = shl nuw i32 1, %narrow.i
   %.0.i = select i1 %14, i32 1, i32 %16
-  %17 = icmp eq i32 %.val74, %1
+  %17 = icmp eq i32 %1, %.val74
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %7
@@ -480,7 +480,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bmtree(ptr nocapt
   store i32 -32766, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %9, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %13, i8 -1, i64 128, i1 false)
-  %14 = icmp eq i32 %.val53, %1
+  %14 = icmp eq i32 %1, %.val53
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10

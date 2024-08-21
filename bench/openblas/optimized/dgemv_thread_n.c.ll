@@ -118,7 +118,7 @@ define noundef i32 @dgemv_thread_n(i64 noundef %0, i64 noundef %1, double nounde
   %70 = sitofp i64 %1 to double
   %71 = fmul double %69, %70
   %72 = fcmp ole double %71, 9.216000e+03
-  %73 = mul nsw i64 %66, %0
+  %73 = mul nsw i64 %0, %66
   %74 = icmp sgt i64 %73, 1024
   %75 = select i1 %72, i1 true, i1 %74
   br i1 %75, label %118, label %76

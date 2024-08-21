@@ -5688,13 +5688,13 @@ define hidden void @"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7
   %70 = load i32, ptr %68, align 4, !noalias !705, !noundef !4
   %71 = getelementptr i8, ptr %56, i64 16
   %.val4.us1523.i.i.i = load i32, ptr %71, align 4, !noalias !705
-  %72 = icmp eq i32 %70, %.val4.us1523.i.i.i
+  %72 = icmp eq i32 %.val4.us1523.i.i.i, %70
   br i1 %72, label %.loopexit, label %.backedge.us16.i.i.i
 
 "_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h2ebcdc06c40bbd01E.exit.i.us.i.i.i": ; preds = %.backedge.us16.i.i.i
   %73 = getelementptr i8, ptr %.pn.i.i, i64 40
   %.val4.us15.i.i.i = load i32, ptr %73, align 4, !noalias !705
-  %74 = icmp eq i32 %70, %.val4.us15.i.i.i
+  %74 = icmp eq i32 %.val4.us15.i.i.i, %70
   br i1 %74, label %.loopexit, label %.backedge.us16.i.i.i
 
 .backedge.us16.i.i.i:                             ; preds = %.lr.ph.split.split.us.i.i.i, %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h2ebcdc06c40bbd01E.exit.i.us.i.i.i"
@@ -5738,7 +5738,7 @@ define hidden void @"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7
   %.val4.us1625.i.i.i = load i32, ptr %92, align 4, !noalias !714
   %93 = getelementptr i8, ptr %77, i64 28
   %.val5.us1726.i.i.i = load i8, ptr %93, align 4, !noalias !714
-  %94 = icmp eq i32 %91, %.val4.us1625.i.i.i
+  %94 = icmp eq i32 %.val4.us1625.i.i.i, %91
   %95 = icmp ne i8 %.val5.us1726.i.i.i, 3
   %spec.select.i.us27.i.i.i = select i1 %94, i1 %95, i1 false
   br i1 %spec.select.i.us27.i.i.i, label %.loopexit, label %.backedge.us18.i.i.i
@@ -5748,7 +5748,7 @@ define hidden void @"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7
   %.val4.us16.i.i.i = load i32, ptr %96, align 4, !noalias !714
   %97 = getelementptr i8, ptr %.pn3.i.i, i64 60
   %.val5.us17.i.i.i = load i8, ptr %97, align 4, !noalias !714
-  %98 = icmp eq i32 %91, %.val4.us16.i.i.i
+  %98 = icmp eq i32 %.val4.us16.i.i.i, %91
   %99 = icmp ne i8 %.val5.us17.i.i.i, 3
   %spec.select.i.us.i.i.i = select i1 %98, i1 %99, i1 false
   br i1 %spec.select.i.us.i.i.i, label %.loopexit, label %.backedge.us18.i.i.i
@@ -9739,7 +9739,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !1603, !noalias !1608, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !1610, !noalias !1608, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc47a90b1234fdc16E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -9796,7 +9796,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !1616, !noalias !1621, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !1623, !noalias !1621, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc47a90b1234fdc16E.exit"
 
 9:                                                ; preds = %3
@@ -12577,7 +12577,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h4af530c9c46f1d4eE.llvm.7396764
 define hidden void @"_ZN9itertools11lazy_buffer19LazyBuffer$LT$I$GT$7prefill17h78bb1892b0072011E"(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %7, %2
@@ -14095,7 +14095,7 @@ _ZN15ide_diagnostics8handlers13no_such_field31missing_record_expr_field_fixes17r
           to label %423 unwind label %418, !noalias !2327
 
 423:                                              ; preds = %422
-  %.not152.i = icmp eq i32 %198, %74
+  %.not152.i = icmp eq i32 %74, %198
   br i1 %.not152.i, label %435, label %425
 
 .thread338.i:                                     ; preds = %459, %457, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h261d7364dc97f09cE.exit.i", %446, %435, %425

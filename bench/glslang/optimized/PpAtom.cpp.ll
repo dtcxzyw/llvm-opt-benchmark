@@ -402,7 +402,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7
 55:                                               ; preds = %67, %53
   %56 = phi i64 [ %.pre.i.i, %53 ], [ %69, %67 ]
   %57 = phi ptr [ %54, %53 ], [ %66, %67 ]
-  %58 = icmp eq i64 %56, %.09.lcssa.i.i
+  %58 = icmp eq i64 %.09.lcssa.i.i, %56
   br i1 %58, label %59, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i
 
 59:                                               ; preds = %55
@@ -699,7 +699,7 @@ _ZSt13move_backwardIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14p
 _ZSt24__uninitialized_fill_n_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEmS9_NS5_IS9_EEET_SC_T0_RKT1_RT2_.exit: ; preds = %.lr.ph.i, %35
   %39 = phi ptr [ %9, %35 ], [ %38, %.lr.ph.i ]
   store ptr %39, ptr %8, align 8
-  %.not8.i.i50 = icmp eq ptr %9, %1
+  %.not8.i.i50 = icmp eq ptr %1, %9
   br i1 %.not8.i.i50, label %_ZSt22__uninitialized_move_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit56.thread, label %.lr.ph.i.i51
 
 _ZSt22__uninitialized_move_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit56.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEmS9_NS5_IS9_EEET_SC_T0_RKT1_RT2_.exit
@@ -793,7 +793,7 @@ _ZSt24__uninitialized_fill_n_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN
 _ZSt34__uninitialized_move_if_noexcept_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit: ; preds = %.lr.ph.i.i73, %_ZSt24__uninitialized_fill_n_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEmS9_NS5_IS9_EEET_SC_T0_RKT1_RT2_.exit71
   %.0.lcssa.i.i77 = phi ptr [ %66, %_ZSt24__uninitialized_fill_n_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEmS9_NS5_IS9_EEET_SC_T0_RKT1_RT2_.exit71 ], [ %72, %.lr.ph.i.i73 ]
   %73 = getelementptr ptr, ptr %.0.lcssa.i.i77, i64 %2
-  %.not8.i.i78 = icmp eq ptr %9, %1
+  %.not8.i.i78 = icmp eq ptr %1, %9
   br i1 %.not8.i.i78, label %_ZSt34__uninitialized_move_if_noexcept_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit84, label %.lr.ph.i.i79
 
 .lr.ph.i.i79:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit, %.lr.ph.i.i79
@@ -858,7 +858,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %22 = getelementptr inbounds i8, ptr %14, i64 %1
   %23 = add i64 %2, %1
   %24 = sub i64 %7, %23
-  %25 = icmp ugt ptr %14, %3
+  %25 = icmp ult ptr %3, %14
   %26 = getelementptr inbounds i8, ptr %14, i64 %7
   %27 = icmp ult ptr %26, %3
   %28 = select i1 %25, i1 true, i1 %27
@@ -967,7 +967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit
 
 58:                                               ; preds = %51
-  %.not87 = icmp ugt ptr %53, %3
+  %.not87 = icmp ult ptr %3, %53
   br i1 %.not87, label %68, label %59
 
 59:                                               ; preds = %58

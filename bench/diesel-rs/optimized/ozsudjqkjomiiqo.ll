@@ -148,7 +148,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 
 58:                                               ; preds = %54
   %.neg = xor i64 %.sroa.03.043, -1
-  %.neg16 = mul i64 %.neg, %3
+  %.neg16 = mul i64 %3, %.neg
   %59 = getelementptr inbounds i8, ptr %55, i64 %.neg16
   %60 = load ptr, ptr %41, align 8, !invariant.load !3, !nonnull !3
   br label %61
@@ -258,7 +258,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 106:                                              ; preds = %99
   %107 = load ptr, ptr %65, align 8, !nonnull !3, !noundef !3
   %.neg17 = xor i64 %.0.i.i, -1
-  %.neg18 = mul i64 %.neg17, %3
+  %.neg18 = mul i64 %3, %.neg17
   %108 = getelementptr inbounds i8, ptr %107, i64 %.neg18
   %109 = getelementptr inbounds i8, ptr %107, i64 %.0.i.i
   %110 = load i8, ptr %109, align 1, !noundef !3

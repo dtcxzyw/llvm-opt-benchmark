@@ -7113,7 +7113,7 @@ dcm_state_get.exit.thread.i:                      ; preds = %dcm_state_get.exit.
 68:                                               ; preds = %.lr.ph.i
   %69 = getelementptr inbounds i8, ptr %65, i64 32
   %70 = load i32, ptr %69, align 8
-  %71 = icmp ugt i32 %70, %63
+  %71 = icmp ult i32 %63, %70
   br i1 %71, label %dcm_state_assoc_get.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i._crit_edge.i:                            ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
@@ -7178,7 +7178,7 @@ col_set_str_conditional.exit.i:                   ; preds = %91, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %92 = add i32 %59, %62
-  %93 = icmp ugt i32 %92, %62
+  %93 = icmp ult i32 %62, %92
   br i1 %93, label %.lr.ph.i46.i, label %dissect_dcm_pdu_data.exit.thread.i
 
 .lr.ph.i46.i:                                     ; preds = %col_set_str_conditional.exit.i
@@ -8058,7 +8058,7 @@ define internal fastcc noundef i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr nou
   br i1 %.not51.i, label %dissect_dcm_tag_open.exit, label %33
 
 33:                                               ; preds = %30
-  %.not52.i = icmp ugt i32 %32, %6
+  %.not52.i = icmp ult i32 %6, %32
   br i1 %.not52.i, label %34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %33
@@ -10044,7 +10044,7 @@ sub_1358:                                         ; preds = %sub_0357
   %.0266.lcssa430 = phi i32 [ %181, %._crit_edge394 ], [ 0, %.preheader ]
   %182 = getelementptr inbounds i8, ptr %1, i64 408
   %183 = load ptr, ptr %182, align 8
-  %184 = add i32 %.0266.lcssa430, %8
+  %184 = add i32 %8, %.0266.lcssa430
   %185 = tail call ptr @tvb_format_text(ptr noundef %183, ptr noundef %0, i32 noundef %4, i32 noundef %184) #10
   %186 = load i32, ptr @hf_dcm_tag_value_str, align 4
   %187 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %186, ptr noundef %0, i32 noundef %4, i32 noundef %8, ptr noundef %185) #10
@@ -10684,7 +10684,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
   %13 = add i32 %5, %4
   %14 = load i32, ptr @ett_assoc, align 4
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %2, i32 noundef %14) #10
-  %16 = icmp ugt i32 %13, %4
+  %16 = icmp ult i32 %4, %13
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6
@@ -10750,7 +10750,7 @@ define internal fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef
   %44 = tail call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef %.04751, i32 noundef 1, i32 noundef %43) #10
   %45 = load i32, ptr @hf_dcm_assoc_item_len, align 4
   %46 = tail call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %45, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef %37) #10
-  %47 = icmp ugt i32 %33, %27
+  %47 = icmp ult i32 %27, %33
   br i1 %47, label %.lr.ph.i, label %dissect_dcm_userinfo.exit
 
 .lr.ph.i:                                         ; preds = %32, %dissect_dcm_assoc_async_negotiation.exit.i

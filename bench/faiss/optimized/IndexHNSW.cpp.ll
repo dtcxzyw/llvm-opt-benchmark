@@ -1333,7 +1333,7 @@ define void @_ZNK5faiss9IndexHNSW6searchElPKflPfPlPKNS_16SearchParametersE(ptr n
 .lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.i
   %storemerge29.i = phi i64 [ %94, %.lr.ph.i ], [ 0, %.noexc ]
   %92 = add nsw i64 %storemerge29.i, %90
-  %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %92, i64 %1)
+  %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %1, i64 %92)
   store i64 %.sroa.speculated.i, ptr %19, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN5faiss12_GLOBAL__N_111hnsw_searchINS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvPKNS_9IndexHNSWElPKfRT_PKNS_16SearchParametersE.omp_outlined, ptr nonnull %8, ptr nonnull %21, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, ptr nonnull %9, ptr nonnull %62, ptr nonnull %11)
   call void @_ZN5faiss17InterruptCallback5checkEv()
@@ -1584,7 +1584,7 @@ define void @_ZNK5faiss9IndexHNSW12range_searchElPKffPNS_17RangeSearchResultEPKN
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc15
   %storemerge29.i = phi i64 [ %78, %.noexc15 ], [ 0, %.noexc ]
   %76 = add nsw i64 %storemerge29.i, %74
-  %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %76, i64 %1)
+  %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %1, i64 %76)
   store i64 %.sroa.speculated.i, ptr %18, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN5faiss12_GLOBAL__N_111hnsw_searchINS_29RangeSearchBlockResultHandlerINS_4CMaxIflEEEEEEvPKNS_9IndexHNSWElPKfRT_PKNS_16SearchParametersE.omp_outlined, ptr nonnull %7, ptr nonnull %19, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, ptr nonnull %18, ptr nonnull %8, ptr nonnull %45, ptr nonnull %10)
   invoke void @_ZN5faiss17InterruptCallback5checkEv()
@@ -2492,24 +2492,24 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit.i:              ; preds = %65
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i:       ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i, %65, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i
   %78 = phi float [ %.pre.i, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i ], [ %67, %65 ], [ %67, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i ]
-  %79 = fcmp olt float %78, %57
+  %79 = fcmp ogt float %57, %78
   br i1 %79, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i:            ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i
   %80 = getelementptr inbounds i64, ptr %53, i64 %63
   %81 = load i64, ptr %80, align 8
-  %82 = fcmp oeq float %78, %57
-  %83 = icmp slt i64 %81, %.03236
+  %82 = fcmp oeq float %57, %78
+  %83 = icmp sgt i64 %.03236, %81
   %84 = and i1 %82, %83
   br i1 %84, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %90
 
 85:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i
-  %86 = fcmp olt float %69, %57
+  %86 = fcmp ogt float %57, %69
   br i1 %86, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %85
-  %87 = fcmp oeq float %69, %57
-  %88 = icmp slt i64 %71, %.03236
+  %87 = fcmp oeq float %57, %69
+  %88 = icmp sgt i64 %.03236, %71
   %89 = and i1 %87, %88
   br i1 %89, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %90
 
@@ -2677,7 +2677,7 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %6, %_ZN5fa
   %53 = getelementptr inbounds i64, ptr %5, i64 %.0.lcssa.i
   store i64 %52, ptr %53, align 8
   %54 = xor i64 %.03740, -1
-  %55 = add i64 %54, %0
+  %55 = add i64 %0, %54
   %56 = getelementptr inbounds float, ptr %1, i64 %55
   store float %7, ptr %56, align 4
   %57 = getelementptr inbounds i64, ptr %2, i64 %55
@@ -3338,24 +3338,24 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit.i:              ; preds = %20
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i:       ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i, %20, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i
   %33 = phi float [ %.pre.i, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i ], [ %22, %20 ], [ %22, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i ]
-  %34 = fcmp olt float %33, %1
+  %34 = fcmp ogt float %1, %33
   br i1 %34, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i:            ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i
   %35 = getelementptr inbounds i64, ptr %15, i64 %18
   %36 = load i64, ptr %35, align 8
-  %37 = fcmp oeq float %33, %1
-  %38 = icmp slt i64 %36, %2
+  %37 = fcmp oeq float %1, %33
+  %38 = icmp sgt i64 %2, %36
   %39 = and i1 %37, %38
   br i1 %39, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %45
 
 40:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i
-  %41 = fcmp olt float %24, %1
+  %41 = fcmp ogt float %1, %24
   br i1 %41, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %40
-  %42 = fcmp oeq float %24, %1
-  %43 = icmp slt i64 %26, %2
+  %42 = fcmp oeq float %1, %24
+  %43 = icmp sgt i64 %2, %26
   %44 = and i1 %42, %43
   br i1 %44, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %45
 
@@ -3562,7 +3562,7 @@ define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEE
 17:                                               ; preds = %4
   %18 = getelementptr inbounds i64, ptr %11, i64 %7
   %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, %1
+  %20 = icmp eq i64 %1, %19
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %17
@@ -7813,13 +7813,13 @@ _ZNK5faiss8IndexIVF13get_list_sizeEm.exit:        ; preds = %126
   %177 = getelementptr inbounds float, ptr %166, i64 %176
   %178 = load float, ptr %177, align 4
   %179 = getelementptr inbounds i64, ptr %167, i64 %176
-  %180 = fcmp olt float %178, %173
+  %180 = fcmp ogt float %173, %178
   br i1 %180, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i.i, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i.i.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit.i.i.i:          ; preds = %.lr.ph.i.i.i
   %181 = load i64, ptr %179, align 8
-  %182 = fcmp oeq float %178, %173
-  %183 = icmp slt i64 %181, %175
+  %182 = fcmp oeq float %173, %178
+  %183 = icmp sgt i64 %175, %181
   %184 = and i1 %182, %183
   br i1 %184, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i.i, label %_ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i
 
@@ -7855,13 +7855,13 @@ _ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i: ; preds = 
   %196 = getelementptr inbounds float, ptr %168, i64 %195
   %197 = load float, ptr %196, align 4
   %198 = getelementptr inbounds i64, ptr %169, i64 %195
-  %199 = fcmp olt float %197, %194
+  %199 = fcmp ogt float %194, %197
   br i1 %199, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i35.i.i, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i34.i.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit.i34.i.i:        ; preds = %.lr.ph.i32.i.i
   %200 = load i64, ptr %198, align 8
-  %201 = fcmp oeq float %197, %194
-  %202 = icmp slt i64 %200, %.02842.i.i
+  %201 = fcmp oeq float %194, %197
+  %202 = icmp sgt i64 %.02842.i.i, %200
   %203 = and i1 %201, %202
   br i1 %203, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i35.i.i, label %_ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit36.i.i
 
@@ -8007,12 +8007,12 @@ _ZN5faiss15maxheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit: ; preds = %_ZN5faiss9heap_p
   %266 = getelementptr inbounds float, ptr %215, i64 %265
   %267 = load float, ptr %266, align 4
   %268 = getelementptr inbounds i64, ptr %216, i64 %265
-  %269 = fcmp olt float %267, %256
+  %269 = fcmp ogt float %256, %267
   br i1 %269, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i.i80, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i.i.i79
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit.i.i.i79:        ; preds = %.lr.ph.i.i.i77
   %270 = load i64, ptr %268, align 8
-  %271 = fcmp oeq float %267, %256
+  %271 = fcmp oeq float %256, %267
   %272 = icmp slt i64 %270, %247
   %273 = and i1 %271, %272
   br i1 %273, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i.i80, label %.sink.split.i
@@ -8071,23 +8071,23 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit.i.i62.i:        ; preds = %287
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i64.i: ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i.i62.i, %287, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i.i.i
   %300 = phi float [ %.pre.i.i.i, %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i.i.i ], [ %289, %287 ], [ %289, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i.i62.i ]
-  %301 = fcmp olt float %300, %256
+  %301 = fcmp ogt float %256, %300
   br i1 %301, label %.sink.split.i, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i:        ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i64.i
   %302 = getelementptr inbounds i64, ptr %216, i64 %285
   %303 = load i64, ptr %302, align 8
-  %304 = fcmp oeq float %300, %256
+  %304 = fcmp oeq float %256, %300
   %305 = icmp slt i64 %303, %247
   %306 = and i1 %304, %305
   br i1 %306, label %.sink.split.i, label %312
 
 307:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i.i62.i
-  %308 = fcmp olt float %291, %256
+  %308 = fcmp ogt float %256, %291
   br i1 %308, label %.sink.split.i, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i:        ; preds = %307
-  %309 = fcmp oeq float %291, %256
+  %309 = fcmp oeq float %256, %291
   %310 = icmp slt i64 %293, %247
   %311 = and i1 %309, %310
   br i1 %311, label %.sink.split.i, label %312

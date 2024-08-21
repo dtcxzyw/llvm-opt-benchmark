@@ -640,7 +640,7 @@ define i32 @ompi_group_excl(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
 
 ._crit_edge.us:                                   ; preds = %16
   %21 = trunc nuw nsw i64 %indvars.iv50 to i32
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   br i1 %22, label %._crit_edge.us.thread, label %26
 
 ._crit_edge.us.thread:                            ; preds = %20, %._crit_edge.us

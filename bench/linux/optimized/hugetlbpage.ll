@@ -56,7 +56,7 @@ define dso_local i64 @hugetlb_get_unmapped_area(ptr nocapture noundef readonly %
   %20 = getelementptr inbounds i8, ptr %15, i64 48
   %21 = load i64, ptr %20, align 8
   %22 = xor i64 %21, -1
-  %23 = and i64 %22, %2
+  %23 = and i64 %2, %22
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %25, label %165
 

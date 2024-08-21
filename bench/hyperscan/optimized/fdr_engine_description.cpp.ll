@@ -320,7 +320,7 @@ invoke.cont68:                                    ; preds = %11
   %call69.not = xor i1 %call69, true
   %cmp73 = icmp ugt i32 %conv27, 3999
   %13 = or i1 %cmp73, %call69.not
-  %or.cond46 = or i1 %13, %make_small
+  %or.cond46 = or i1 %make_small, %13
   %sub75 = add nsw i32 %ideal.3, -2
   %ideal.4 = select i1 %or.cond46, i32 %ideal.3, i32 %sub75
   %call78 = invoke noundef i32 @_ZN3ue27absdiffEjj(i32 noundef %ideal.4, i32 noundef %domain.075)
@@ -673,7 +673,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 48
-  %cmp.not5.i.i.i19 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i19 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i19, label %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %for.body.i.i.i20
 
 for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i20

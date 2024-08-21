@@ -3501,7 +3501,7 @@ while.body:                                       ; preds = %while.cond
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %total_read.0
   %call = call noundef i64 @_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %sub, ptr noundef %add.ptr)
   %add = add nsw i64 %call, %total_read.0
-  %cmp3 = icmp eq i64 %add, %nbytes
+  %cmp3 = icmp eq i64 %nbytes, %add
   br i1 %cmp3, label %while.end, label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %while.body
@@ -6313,7 +6313,7 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i64 [ %sub, %cond.true ], [ 0, %entry ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %cond, i64 %nbytes)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %nbytes, i64 %cond)
   %cmp = icmp sgt i64 %.sroa.speculated, 0
   br i1 %cmp, label %if.then, label %if.end18
 

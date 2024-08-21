@@ -5584,7 +5584,7 @@ _ZN2cv6stereo8Matching5minimEPsiidi.exit64:       ; preds = %57, %41
 
 61:                                               ; preds = %_ZN2cv6stereo8Matching5minimEPsiidi.exit64
   %62 = icmp eq i32 %.055.lcssa.i46, 0
-  %63 = icmp eq i32 %24, %.055.lcssa.i46
+  %63 = icmp eq i32 %.055.lcssa.i46, %24
   %or.cond56.i = or i1 %62, %63
   br i1 %or.cond56.i, label %64, label %66
 
@@ -5664,7 +5664,7 @@ _ZN2cv6stereo8Matching5minimEPsiidi.exit64:       ; preds = %57, %41
 _ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit: ; preds = %64, %96, %115
   %.051.i = phi double [ %65, %64 ], [ %97, %96 ], [ %.1.i66, %115 ]
   %119 = icmp eq i32 %.055.lcssa.i, 0
-  %120 = icmp eq i32 %24, %.055.lcssa.i
+  %120 = icmp eq i32 %.055.lcssa.i, %24
   %or.cond56.i67 = or i1 %119, %120
   br i1 %or.cond56.i67, label %121, label %123
 
@@ -5751,7 +5751,7 @@ _ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73: ; preds = %121, %1
 
 175:                                              ; preds = %173
   %176 = icmp eq i32 %.055.lcssa.i, 0
-  %177 = icmp eq i32 %24, %.055.lcssa.i
+  %177 = icmp eq i32 %.055.lcssa.i, %24
   %or.cond56.i74 = or i1 %176, %177
   br i1 %or.cond56.i74, label %178, label %180
 

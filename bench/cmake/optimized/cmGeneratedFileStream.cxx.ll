@@ -456,7 +456,7 @@ _ZN25cmGeneratedFileStreamBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 39:                                               ; preds = %28
   %.not16 = xor i1 %38, true
-  %brmerge = or i1 %.not16, %3
+  %brmerge = or i1 %3, %.not16
   br i1 %brmerge, label %49, label %40
 
 40:                                               ; preds = %39
@@ -693,7 +693,7 @@ _ZN25cmGeneratedFileStreamBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 23:                                               ; preds = %21
   %.not17 = xor i1 %22, true
-  %brmerge = or i1 %.not17, %2
+  %brmerge = or i1 %2, %.not17
   br i1 %brmerge, label %33, label %24
 
 24:                                               ; preds = %23
@@ -926,7 +926,7 @@ define dso_local noundef nonnull align 8 dereferenceable(348) ptr @_ZN21cmGenera
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   %13 = tail call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
   %.not = xor i1 %13, true
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %19, label %14
 
 14:                                               ; preds = %4

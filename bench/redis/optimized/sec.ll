@@ -146,7 +146,7 @@ entry:
   %result.i = alloca %struct.edata_list_active_t, align 8
   %deferred_work_generated.i = alloca i8, align 1
   %cmp = icmp ugt i64 %alignment, 4096
-  %or.cond = or i1 %cmp, %zero
+  %or.cond = or i1 %zero, %cmp
   br i1 %or.cond, label %if.then, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %entry
@@ -158,7 +158,7 @@ lor.lhs.false5:                                   ; preds = %entry
 lor.lhs.false7:                                   ; preds = %lor.lhs.false5
   %max_alloc = getelementptr inbounds i8, ptr %self, i64 72
   %1 = load i64, ptr %max_alloc, align 8
-  %cmp9 = icmp ult i64 %1, %size
+  %cmp9 = icmp ugt i64 %size, %1
   br i1 %cmp9, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false7, %lor.lhs.false5, %entry

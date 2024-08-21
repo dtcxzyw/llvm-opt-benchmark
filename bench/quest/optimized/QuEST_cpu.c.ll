@@ -2186,7 +2186,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
   br i1 %.not, label %64, label %55
 
 55:                                               ; preds = %4
-  %.not57 = icmp eq i32 %54, %2
+  %.not57 = icmp eq i32 %2, %54
   br i1 %.not57, label %57, label %56
 
 56:                                               ; preds = %55
@@ -2204,7 +2204,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
 
 57:                                               ; preds = %55
   %.not58 = icmp sgt i64 %44, %37
-  %.not64 = icmp eq i32 %51, %2
+  %.not64 = icmp eq i32 %2, %51
   br i1 %.not58, label %61, label %58
 
 58:                                               ; preds = %57
@@ -2264,7 +2264,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
 64:                                               ; preds = %4
   %65 = shl nuw i64 2, %41
   %66 = sdiv i64 %44, %65
-  %67 = icmp eq i32 %54, %2
+  %67 = icmp eq i32 %2, %54
   %68 = icmp sgt i64 %66, 0
   br i1 %67, label %.preheader, label %.preheader67
 
@@ -2272,7 +2272,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
   br i1 %68, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader67
-  %.not65 = icmp eq i32 %51, %2
+  %.not65 = icmp eq i32 %2, %51
   %69 = shl nuw i64 2, %36
   %alternateNormZeroingSomeAmpBlocks.omp_outlined.1.alternateNormZeroingSomeAmpBlocks.omp_outlined.i63 = select i1 %.not65, ptr @alternateNormZeroingSomeAmpBlocks.omp_outlined, ptr @alternateNormZeroingSomeAmpBlocks.omp_outlined.1
   br label %77
@@ -2281,7 +2281,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
   br i1 %68, label %.lr.ph71, label %.loopexit
 
 .lr.ph71:                                         ; preds = %.preheader
-  %.not66 = icmp eq i32 %51, %2
+  %.not66 = icmp eq i32 %2, %51
   %70 = shl nuw i64 2, %36
   %71 = sdiv i64 %42, %70
   %alternateNormZeroingSomeAmpBlocks.omp_outlined.1.alternateNormZeroingSomeAmpBlocks.omp_outlined.i61 = select i1 %.not66, ptr @alternateNormZeroingSomeAmpBlocks.omp_outlined, ptr @alternateNormZeroingSomeAmpBlocks.omp_outlined.1
@@ -2945,8 +2945,8 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nocapt
   %52 = load double, ptr %51, align 8
   %53 = getelementptr inbounds double, ptr %25, i64 %50
   %54 = load double, ptr %53, align 8
-  %55 = fneg double %49
-  %56 = fmul double %54, %55
+  %55 = fneg double %54
+  %56 = fmul double %49, %55
   %57 = call double @llvm.fmuladd.f64(double %47, double %52, double %56)
   %58 = fadd double %.04347.us, %57
   %59 = fmul double %49, %52
@@ -3113,8 +3113,8 @@ define internal void @statevec_calcInnerProductLocal.omp_outlined(ptr noalias no
   %40 = call double @llvm.fmuladd.f64(double %32, double %36, double %39)
   %41 = fadd double %29, %40
   store double %41, ptr %10, align 8
-  %42 = fneg double %34
-  %43 = fmul double %36, %42
+  %42 = fneg double %36
+  %43 = fmul double %34, %42
   %44 = call double @llvm.fmuladd.f64(double %32, double %38, double %43)
   %45 = fadd double %44, %30
   store double %45, ptr %11, align 8
@@ -3774,8 +3774,8 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nocap
   %52 = load ptr, ptr %10, align 8
   %53 = getelementptr inbounds double, ptr %52, i64 %.04145
   %54 = load double, ptr %53, align 8
-  %55 = fneg double %54
-  %56 = fmul double %48, %55
+  %55 = fneg double %48
+  %56 = fmul double %54, %55
   %57 = call double @llvm.fmuladd.f64(double %51, double %42, double %56)
   store double %57, ptr %50, align 8
   %58 = fmul double %42, %54
@@ -4636,7 +4636,7 @@ define internal void @statevec_compactUnitaryLocal.omp_outlined(ptr noalias noca
   %16 = load i64, ptr %2, align 8
   %17 = icmp sgt i64 %16, 0
   %.pre = load i32, ptr %0, align 4
-  br i1 %17, label %18, label %86
+  br i1 %17, label %18, label %85
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
@@ -4653,7 +4653,7 @@ define internal void @statevec_compactUnitaryLocal.omp_outlined(ptr noalias noca
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
-  %.048 = phi i64 [ %84, %.lr.ph ], [ %22, %18 ]
+  %.048 = phi i64 [ %83, %.lr.ph ], [ %22, %18 ]
   %23 = load i64, ptr %3, align 8
   %24 = sdiv i64 %.048, %23
   %25 = load i64, ptr %4, align 8
@@ -4673,8 +4673,8 @@ define internal void @statevec_compactUnitaryLocal.omp_outlined(ptr noalias noca
   %39 = load double, ptr %38, align 8
   %40 = load double, ptr %7, align 8
   %41 = load double, ptr %8, align 8
-  %42 = fneg double %41
-  %43 = fmul double %35, %42
+  %42 = fneg double %35
+  %43 = fmul double %41, %42
   %44 = call double @llvm.fmuladd.f64(double %40, double %32, double %43)
   %45 = load double, ptr %9, align 8
   %46 = fneg double %45
@@ -4697,38 +4697,37 @@ define internal void @statevec_compactUnitaryLocal.omp_outlined(ptr noalias noca
   store double %59, ptr %61, align 8
   %62 = load double, ptr %9, align 8
   %63 = load double, ptr %10, align 8
-  %64 = fneg double %63
-  %65 = fmul double %35, %64
-  %66 = call double @llvm.fmuladd.f64(double %62, double %32, double %65)
-  %67 = load double, ptr %7, align 8
-  %68 = call double @llvm.fmuladd.f64(double %67, double %37, double %66)
-  %69 = load double, ptr %8, align 8
-  %70 = call double @llvm.fmuladd.f64(double %69, double %39, double %68)
-  %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds double, ptr %71, i64 %29
-  store double %70, ptr %72, align 8
-  %73 = load double, ptr %9, align 8
-  %74 = load double, ptr %10, align 8
-  %75 = fmul double %32, %74
-  %76 = call double @llvm.fmuladd.f64(double %73, double %35, double %75)
-  %77 = load double, ptr %7, align 8
-  %78 = call double @llvm.fmuladd.f64(double %77, double %39, double %76)
-  %79 = load double, ptr %8, align 8
-  %80 = fneg double %79
-  %81 = call double @llvm.fmuladd.f64(double %80, double %37, double %78)
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds double, ptr %82, i64 %29
-  store double %81, ptr %83, align 8
-  %84 = add nsw i64 %.048, 1
-  %85 = load i64, ptr %13, align 8
-  %.not.not = icmp slt i64 %.048, %85
+  %64 = fmul double %63, %42
+  %65 = call double @llvm.fmuladd.f64(double %62, double %32, double %64)
+  %66 = load double, ptr %7, align 8
+  %67 = call double @llvm.fmuladd.f64(double %66, double %37, double %65)
+  %68 = load double, ptr %8, align 8
+  %69 = call double @llvm.fmuladd.f64(double %68, double %39, double %67)
+  %70 = load ptr, ptr %5, align 8
+  %71 = getelementptr inbounds double, ptr %70, i64 %29
+  store double %69, ptr %71, align 8
+  %72 = load double, ptr %9, align 8
+  %73 = load double, ptr %10, align 8
+  %74 = fmul double %32, %73
+  %75 = call double @llvm.fmuladd.f64(double %72, double %35, double %74)
+  %76 = load double, ptr %7, align 8
+  %77 = call double @llvm.fmuladd.f64(double %76, double %39, double %75)
+  %78 = load double, ptr %8, align 8
+  %79 = fneg double %78
+  %80 = call double @llvm.fmuladd.f64(double %79, double %37, double %77)
+  %81 = load ptr, ptr %6, align 8
+  %82 = getelementptr inbounds double, ptr %81, i64 %29
+  store double %80, ptr %82, align 8
+  %83 = add nsw i64 %.048, 1
+  %84 = load i64, ptr %13, align 8
+  %.not.not = icmp slt i64 %.048, %84
   br i1 %.not.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
-  br label %86
+  br label %85
 
-86:                                               ; preds = %._crit_edge, %11
+85:                                               ; preds = %._crit_edge, %11
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre)
   ret void
 }
@@ -4773,7 +4772,7 @@ define internal void @statevec_multiControlledTwoQubitUnitaryLocal.omp_outlined(
   %15 = load i64, ptr %2, align 8
   %16 = icmp sgt i64 %15, 0
   %.pre110 = load i32, ptr %0, align 4
-  br i1 %16, label %17, label %263
+  br i1 %16, label %17, label %260
 
 17:                                               ; preds = %10
   %18 = add nsw i64 %15, -1
@@ -4823,9 +4822,9 @@ define internal void @statevec_multiControlledTwoQubitUnitaryLocal.omp_outlined(
   %52 = getelementptr inbounds i8, ptr %9, i64 248
   br label %53
 
-53:                                               ; preds = %.lr.ph, %260
-  %54 = phi i64 [ %20, %.lr.ph ], [ %261, %260 ]
-  %.0108 = phi i64 [ %21, %.lr.ph ], [ %262, %260 ]
+53:                                               ; preds = %.lr.ph, %257
+  %54 = phi i64 [ %20, %.lr.ph ], [ %258, %257 ]
+  %.0108 = phi i64 [ %21, %.lr.ph ], [ %259, %257 ]
   %55 = load i32, ptr %3, align 4
   %56 = load i32, ptr %4, align 4
   %57 = call i32 @llvm.smin.i32(i32 %55, i32 %56)
@@ -4851,7 +4850,7 @@ define internal void @statevec_multiControlledTwoQubitUnitaryLocal.omp_outlined(
   %74 = add nsw i64 %73, %70
   %75 = and i64 %74, %71
   %.not106 = icmp eq i64 %75, %71
-  br i1 %.not106, label %76, label %260
+  br i1 %.not106, label %76, label %257
 
 76:                                               ; preds = %72, %53
   %77 = zext nneg i32 %55 to i64
@@ -4881,8 +4880,8 @@ define internal void @statevec_multiControlledTwoQubitUnitaryLocal.omp_outlined(
   %101 = load double, ptr %100, align 8
   %102 = load double, ptr %9, align 8
   %103 = load double, ptr %22, align 8
-  %104 = fneg double %103
-  %105 = fmul double %89, %104
+  %104 = fneg double %89
+  %105 = fmul double %103, %104
   %106 = call double @llvm.fmuladd.f64(double %102, double %86, double %105)
   %107 = load double, ptr %23, align 8
   %108 = call double @llvm.fmuladd.f64(double %107, double %91, double %106)
@@ -4921,147 +4920,144 @@ define internal void @statevec_multiControlledTwoQubitUnitaryLocal.omp_outlined(
   store double %137, ptr %139, align 8
   %140 = load double, ptr %29, align 8
   %141 = load double, ptr %30, align 8
-  %142 = fneg double %141
-  %143 = fmul double %89, %142
-  %144 = call double @llvm.fmuladd.f64(double %140, double %86, double %143)
-  %145 = load double, ptr %31, align 8
-  %146 = call double @llvm.fmuladd.f64(double %145, double %91, double %144)
-  %147 = load double, ptr %32, align 8
-  %148 = fneg double %147
-  %149 = call double @llvm.fmuladd.f64(double %148, double %93, double %146)
-  %150 = load double, ptr %33, align 8
-  %151 = call double @llvm.fmuladd.f64(double %150, double %95, double %149)
-  %152 = load double, ptr %34, align 8
-  %153 = fneg double %152
-  %154 = call double @llvm.fmuladd.f64(double %153, double %97, double %151)
-  %155 = load double, ptr %35, align 8
-  %156 = call double @llvm.fmuladd.f64(double %155, double %99, double %154)
-  %157 = load double, ptr %36, align 8
-  %158 = fneg double %157
-  %159 = call double @llvm.fmuladd.f64(double %158, double %101, double %156)
-  %160 = load ptr, ptr %7, align 8
-  %161 = getelementptr inbounds double, ptr %160, i64 %79
-  store double %159, ptr %161, align 8
-  %162 = load double, ptr %30, align 8
-  %163 = load double, ptr %29, align 8
-  %164 = fmul double %89, %163
-  %165 = call double @llvm.fmuladd.f64(double %162, double %86, double %164)
-  %166 = load double, ptr %32, align 8
-  %167 = call double @llvm.fmuladd.f64(double %166, double %91, double %165)
-  %168 = load double, ptr %31, align 8
-  %169 = call double @llvm.fmuladd.f64(double %168, double %93, double %167)
-  %170 = load double, ptr %34, align 8
-  %171 = call double @llvm.fmuladd.f64(double %170, double %95, double %169)
-  %172 = load double, ptr %33, align 8
-  %173 = call double @llvm.fmuladd.f64(double %172, double %97, double %171)
-  %174 = load double, ptr %36, align 8
-  %175 = call double @llvm.fmuladd.f64(double %174, double %99, double %173)
-  %176 = load double, ptr %35, align 8
-  %177 = call double @llvm.fmuladd.f64(double %176, double %101, double %175)
-  %178 = load ptr, ptr %8, align 8
-  %179 = getelementptr inbounds double, ptr %178, i64 %79
-  store double %177, ptr %179, align 8
-  %180 = load double, ptr %37, align 8
-  %181 = load double, ptr %38, align 8
-  %182 = fneg double %181
-  %183 = fmul double %89, %182
-  %184 = call double @llvm.fmuladd.f64(double %180, double %86, double %183)
-  %185 = load double, ptr %39, align 8
-  %186 = call double @llvm.fmuladd.f64(double %185, double %91, double %184)
-  %187 = load double, ptr %40, align 8
-  %188 = fneg double %187
-  %189 = call double @llvm.fmuladd.f64(double %188, double %93, double %186)
-  %190 = load double, ptr %41, align 8
-  %191 = call double @llvm.fmuladd.f64(double %190, double %95, double %189)
-  %192 = load double, ptr %42, align 8
-  %193 = fneg double %192
-  %194 = call double @llvm.fmuladd.f64(double %193, double %97, double %191)
-  %195 = load double, ptr %43, align 8
-  %196 = call double @llvm.fmuladd.f64(double %195, double %99, double %194)
-  %197 = load double, ptr %44, align 8
-  %198 = fneg double %197
-  %199 = call double @llvm.fmuladd.f64(double %198, double %101, double %196)
-  %200 = load ptr, ptr %7, align 8
-  %201 = getelementptr inbounds double, ptr %200, i64 %82
-  store double %199, ptr %201, align 8
-  %202 = load double, ptr %38, align 8
-  %203 = load double, ptr %37, align 8
-  %204 = fmul double %89, %203
-  %205 = call double @llvm.fmuladd.f64(double %202, double %86, double %204)
-  %206 = load double, ptr %40, align 8
-  %207 = call double @llvm.fmuladd.f64(double %206, double %91, double %205)
-  %208 = load double, ptr %39, align 8
-  %209 = call double @llvm.fmuladd.f64(double %208, double %93, double %207)
-  %210 = load double, ptr %42, align 8
-  %211 = call double @llvm.fmuladd.f64(double %210, double %95, double %209)
-  %212 = load double, ptr %41, align 8
-  %213 = call double @llvm.fmuladd.f64(double %212, double %97, double %211)
-  %214 = load double, ptr %44, align 8
-  %215 = call double @llvm.fmuladd.f64(double %214, double %99, double %213)
-  %216 = load double, ptr %43, align 8
-  %217 = call double @llvm.fmuladd.f64(double %216, double %101, double %215)
-  %218 = load ptr, ptr %8, align 8
-  %219 = getelementptr inbounds double, ptr %218, i64 %82
-  store double %217, ptr %219, align 8
-  %220 = load double, ptr %45, align 8
-  %221 = load double, ptr %46, align 8
-  %222 = fneg double %221
-  %223 = fmul double %89, %222
-  %224 = call double @llvm.fmuladd.f64(double %220, double %86, double %223)
-  %225 = load double, ptr %47, align 8
-  %226 = call double @llvm.fmuladd.f64(double %225, double %91, double %224)
-  %227 = load double, ptr %48, align 8
-  %228 = fneg double %227
-  %229 = call double @llvm.fmuladd.f64(double %228, double %93, double %226)
-  %230 = load double, ptr %49, align 8
-  %231 = call double @llvm.fmuladd.f64(double %230, double %95, double %229)
-  %232 = load double, ptr %50, align 8
-  %233 = fneg double %232
-  %234 = call double @llvm.fmuladd.f64(double %233, double %97, double %231)
-  %235 = load double, ptr %51, align 8
-  %236 = call double @llvm.fmuladd.f64(double %235, double %99, double %234)
-  %237 = load double, ptr %52, align 8
-  %238 = fneg double %237
-  %239 = call double @llvm.fmuladd.f64(double %238, double %101, double %236)
-  %240 = load ptr, ptr %7, align 8
-  %241 = getelementptr inbounds double, ptr %240, i64 %83
-  store double %239, ptr %241, align 8
-  %242 = load double, ptr %46, align 8
-  %243 = load double, ptr %45, align 8
-  %244 = fmul double %89, %243
-  %245 = call double @llvm.fmuladd.f64(double %242, double %86, double %244)
-  %246 = load double, ptr %48, align 8
-  %247 = call double @llvm.fmuladd.f64(double %246, double %91, double %245)
-  %248 = load double, ptr %47, align 8
-  %249 = call double @llvm.fmuladd.f64(double %248, double %93, double %247)
-  %250 = load double, ptr %50, align 8
-  %251 = call double @llvm.fmuladd.f64(double %250, double %95, double %249)
-  %252 = load double, ptr %49, align 8
-  %253 = call double @llvm.fmuladd.f64(double %252, double %97, double %251)
-  %254 = load double, ptr %52, align 8
-  %255 = call double @llvm.fmuladd.f64(double %254, double %99, double %253)
-  %256 = load double, ptr %51, align 8
-  %257 = call double @llvm.fmuladd.f64(double %256, double %101, double %255)
-  %258 = load ptr, ptr %8, align 8
-  %259 = getelementptr inbounds double, ptr %258, i64 %83
-  store double %257, ptr %259, align 8
+  %142 = fmul double %141, %104
+  %143 = call double @llvm.fmuladd.f64(double %140, double %86, double %142)
+  %144 = load double, ptr %31, align 8
+  %145 = call double @llvm.fmuladd.f64(double %144, double %91, double %143)
+  %146 = load double, ptr %32, align 8
+  %147 = fneg double %146
+  %148 = call double @llvm.fmuladd.f64(double %147, double %93, double %145)
+  %149 = load double, ptr %33, align 8
+  %150 = call double @llvm.fmuladd.f64(double %149, double %95, double %148)
+  %151 = load double, ptr %34, align 8
+  %152 = fneg double %151
+  %153 = call double @llvm.fmuladd.f64(double %152, double %97, double %150)
+  %154 = load double, ptr %35, align 8
+  %155 = call double @llvm.fmuladd.f64(double %154, double %99, double %153)
+  %156 = load double, ptr %36, align 8
+  %157 = fneg double %156
+  %158 = call double @llvm.fmuladd.f64(double %157, double %101, double %155)
+  %159 = load ptr, ptr %7, align 8
+  %160 = getelementptr inbounds double, ptr %159, i64 %79
+  store double %158, ptr %160, align 8
+  %161 = load double, ptr %30, align 8
+  %162 = load double, ptr %29, align 8
+  %163 = fmul double %89, %162
+  %164 = call double @llvm.fmuladd.f64(double %161, double %86, double %163)
+  %165 = load double, ptr %32, align 8
+  %166 = call double @llvm.fmuladd.f64(double %165, double %91, double %164)
+  %167 = load double, ptr %31, align 8
+  %168 = call double @llvm.fmuladd.f64(double %167, double %93, double %166)
+  %169 = load double, ptr %34, align 8
+  %170 = call double @llvm.fmuladd.f64(double %169, double %95, double %168)
+  %171 = load double, ptr %33, align 8
+  %172 = call double @llvm.fmuladd.f64(double %171, double %97, double %170)
+  %173 = load double, ptr %36, align 8
+  %174 = call double @llvm.fmuladd.f64(double %173, double %99, double %172)
+  %175 = load double, ptr %35, align 8
+  %176 = call double @llvm.fmuladd.f64(double %175, double %101, double %174)
+  %177 = load ptr, ptr %8, align 8
+  %178 = getelementptr inbounds double, ptr %177, i64 %79
+  store double %176, ptr %178, align 8
+  %179 = load double, ptr %37, align 8
+  %180 = load double, ptr %38, align 8
+  %181 = fmul double %180, %104
+  %182 = call double @llvm.fmuladd.f64(double %179, double %86, double %181)
+  %183 = load double, ptr %39, align 8
+  %184 = call double @llvm.fmuladd.f64(double %183, double %91, double %182)
+  %185 = load double, ptr %40, align 8
+  %186 = fneg double %185
+  %187 = call double @llvm.fmuladd.f64(double %186, double %93, double %184)
+  %188 = load double, ptr %41, align 8
+  %189 = call double @llvm.fmuladd.f64(double %188, double %95, double %187)
+  %190 = load double, ptr %42, align 8
+  %191 = fneg double %190
+  %192 = call double @llvm.fmuladd.f64(double %191, double %97, double %189)
+  %193 = load double, ptr %43, align 8
+  %194 = call double @llvm.fmuladd.f64(double %193, double %99, double %192)
+  %195 = load double, ptr %44, align 8
+  %196 = fneg double %195
+  %197 = call double @llvm.fmuladd.f64(double %196, double %101, double %194)
+  %198 = load ptr, ptr %7, align 8
+  %199 = getelementptr inbounds double, ptr %198, i64 %82
+  store double %197, ptr %199, align 8
+  %200 = load double, ptr %38, align 8
+  %201 = load double, ptr %37, align 8
+  %202 = fmul double %89, %201
+  %203 = call double @llvm.fmuladd.f64(double %200, double %86, double %202)
+  %204 = load double, ptr %40, align 8
+  %205 = call double @llvm.fmuladd.f64(double %204, double %91, double %203)
+  %206 = load double, ptr %39, align 8
+  %207 = call double @llvm.fmuladd.f64(double %206, double %93, double %205)
+  %208 = load double, ptr %42, align 8
+  %209 = call double @llvm.fmuladd.f64(double %208, double %95, double %207)
+  %210 = load double, ptr %41, align 8
+  %211 = call double @llvm.fmuladd.f64(double %210, double %97, double %209)
+  %212 = load double, ptr %44, align 8
+  %213 = call double @llvm.fmuladd.f64(double %212, double %99, double %211)
+  %214 = load double, ptr %43, align 8
+  %215 = call double @llvm.fmuladd.f64(double %214, double %101, double %213)
+  %216 = load ptr, ptr %8, align 8
+  %217 = getelementptr inbounds double, ptr %216, i64 %82
+  store double %215, ptr %217, align 8
+  %218 = load double, ptr %45, align 8
+  %219 = load double, ptr %46, align 8
+  %220 = fmul double %219, %104
+  %221 = call double @llvm.fmuladd.f64(double %218, double %86, double %220)
+  %222 = load double, ptr %47, align 8
+  %223 = call double @llvm.fmuladd.f64(double %222, double %91, double %221)
+  %224 = load double, ptr %48, align 8
+  %225 = fneg double %224
+  %226 = call double @llvm.fmuladd.f64(double %225, double %93, double %223)
+  %227 = load double, ptr %49, align 8
+  %228 = call double @llvm.fmuladd.f64(double %227, double %95, double %226)
+  %229 = load double, ptr %50, align 8
+  %230 = fneg double %229
+  %231 = call double @llvm.fmuladd.f64(double %230, double %97, double %228)
+  %232 = load double, ptr %51, align 8
+  %233 = call double @llvm.fmuladd.f64(double %232, double %99, double %231)
+  %234 = load double, ptr %52, align 8
+  %235 = fneg double %234
+  %236 = call double @llvm.fmuladd.f64(double %235, double %101, double %233)
+  %237 = load ptr, ptr %7, align 8
+  %238 = getelementptr inbounds double, ptr %237, i64 %83
+  store double %236, ptr %238, align 8
+  %239 = load double, ptr %46, align 8
+  %240 = load double, ptr %45, align 8
+  %241 = fmul double %89, %240
+  %242 = call double @llvm.fmuladd.f64(double %239, double %86, double %241)
+  %243 = load double, ptr %48, align 8
+  %244 = call double @llvm.fmuladd.f64(double %243, double %91, double %242)
+  %245 = load double, ptr %47, align 8
+  %246 = call double @llvm.fmuladd.f64(double %245, double %93, double %244)
+  %247 = load double, ptr %50, align 8
+  %248 = call double @llvm.fmuladd.f64(double %247, double %95, double %246)
+  %249 = load double, ptr %49, align 8
+  %250 = call double @llvm.fmuladd.f64(double %249, double %97, double %248)
+  %251 = load double, ptr %52, align 8
+  %252 = call double @llvm.fmuladd.f64(double %251, double %99, double %250)
+  %253 = load double, ptr %51, align 8
+  %254 = call double @llvm.fmuladd.f64(double %253, double %101, double %252)
+  %255 = load ptr, ptr %8, align 8
+  %256 = getelementptr inbounds double, ptr %255, i64 %83
+  store double %254, ptr %256, align 8
   %.pre = load i64, ptr %12, align 8
-  br label %260
+  br label %257
 
-260:                                              ; preds = %76, %72
-  %261 = phi i64 [ %.pre, %76 ], [ %54, %72 ]
-  %262 = add nsw i64 %.0108, 1
-  %.not.not = icmp slt i64 %.0108, %261
+257:                                              ; preds = %76, %72
+  %258 = phi i64 [ %.pre, %76 ], [ %54, %72 ]
+  %259 = add nsw i64 %.0108, 1
+  %.not.not = icmp slt i64 %.0108, %258
   br i1 %.not.not, label %53, label %._crit_edge
 
-._crit_edge:                                      ; preds = %260, %17
+._crit_edge:                                      ; preds = %257, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre110)
   %.pre109 = load i32, ptr %0, align 4
-  br label %263
+  br label %260
 
-263:                                              ; preds = %._crit_edge, %10
-  %264 = phi i32 [ %.pre109, %._crit_edge ], [ %.pre110, %10 ]
-  call void @__kmpc_barrier(ptr nonnull @2, i32 %264)
+260:                                              ; preds = %._crit_edge, %10
+  %261 = phi i32 [ %.pre109, %._crit_edge ], [ %.pre110, %10 ]
+  call void @__kmpc_barrier(ptr nonnull @2, i32 %261)
   ret void
 }
 
@@ -5305,8 +5301,8 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   %98 = load double, ptr %97, align 8
   %99 = getelementptr inbounds double, ptr %23, i64 %indvars.iv116
   %100 = load double, ptr %99, align 8
-  %101 = fneg double %100
-  %102 = fmul double %96, %101
+  %101 = fneg double %96
+  %102 = fmul double %100, %101
   %103 = call double @llvm.fmuladd.f64(double %98, double %91, double %102)
   %104 = load ptr, ptr %12, align 8
   %105 = getelementptr inbounds double, ptr %104, i64 %80
@@ -5385,7 +5381,7 @@ define internal void @statevec_unitaryLocal.omp_outlined(ptr noalias nocapture n
   %13 = load i64, ptr %2, align 8
   %14 = icmp sgt i64 %13, 0
   %.pre = load i32, ptr %0, align 4
-  br i1 %14, label %15, label %89
+  br i1 %14, label %15, label %88
 
 15:                                               ; preds = %8
   %16 = add nsw i64 %13, -1
@@ -5412,7 +5408,7 @@ define internal void @statevec_unitaryLocal.omp_outlined(ptr noalias nocapture n
   br label %27
 
 27:                                               ; preds = %.lr.ph, %27
-  %.045 = phi i64 [ %19, %.lr.ph ], [ %87, %27 ]
+  %.045 = phi i64 [ %19, %.lr.ph ], [ %86, %27 ]
   %28 = load i64, ptr %3, align 8
   %29 = sdiv i64 %.045, %28
   %30 = load i64, ptr %4, align 8
@@ -5432,8 +5428,8 @@ define internal void @statevec_unitaryLocal.omp_outlined(ptr noalias nocapture n
   %44 = load double, ptr %43, align 8
   %45 = load double, ptr %7, align 8
   %46 = load double, ptr %20, align 8
-  %47 = fneg double %46
-  %48 = fmul double %40, %47
+  %47 = fneg double %40
+  %48 = fmul double %46, %47
   %49 = call double @llvm.fmuladd.f64(double %45, double %37, double %48)
   %50 = load double, ptr %21, align 8
   %51 = call double @llvm.fmuladd.f64(double %50, double %42, double %49)
@@ -5454,38 +5450,37 @@ define internal void @statevec_unitaryLocal.omp_outlined(ptr noalias nocapture n
   store double %62, ptr %64, align 8
   %65 = load double, ptr %23, align 8
   %66 = load double, ptr %24, align 8
-  %67 = fneg double %66
-  %68 = fmul double %40, %67
-  %69 = call double @llvm.fmuladd.f64(double %65, double %37, double %68)
-  %70 = load double, ptr %25, align 8
-  %71 = call double @llvm.fmuladd.f64(double %70, double %42, double %69)
-  %72 = load double, ptr %26, align 8
-  %73 = fneg double %72
-  %74 = call double @llvm.fmuladd.f64(double %73, double %44, double %71)
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds double, ptr %75, i64 %34
-  store double %74, ptr %76, align 8
-  %77 = load double, ptr %23, align 8
-  %78 = load double, ptr %24, align 8
-  %79 = fmul double %37, %78
-  %80 = call double @llvm.fmuladd.f64(double %77, double %40, double %79)
-  %81 = load double, ptr %25, align 8
-  %82 = call double @llvm.fmuladd.f64(double %81, double %44, double %80)
-  %83 = load double, ptr %26, align 8
-  %84 = call double @llvm.fmuladd.f64(double %83, double %42, double %82)
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds double, ptr %85, i64 %34
-  store double %84, ptr %86, align 8
-  %87 = add nsw i64 %.045, 1
-  %88 = load i64, ptr %10, align 8
-  %.not.not = icmp slt i64 %.045, %88
+  %67 = fmul double %66, %47
+  %68 = call double @llvm.fmuladd.f64(double %65, double %37, double %67)
+  %69 = load double, ptr %25, align 8
+  %70 = call double @llvm.fmuladd.f64(double %69, double %42, double %68)
+  %71 = load double, ptr %26, align 8
+  %72 = fneg double %71
+  %73 = call double @llvm.fmuladd.f64(double %72, double %44, double %70)
+  %74 = load ptr, ptr %5, align 8
+  %75 = getelementptr inbounds double, ptr %74, i64 %34
+  store double %73, ptr %75, align 8
+  %76 = load double, ptr %23, align 8
+  %77 = load double, ptr %24, align 8
+  %78 = fmul double %37, %77
+  %79 = call double @llvm.fmuladd.f64(double %76, double %40, double %78)
+  %80 = load double, ptr %25, align 8
+  %81 = call double @llvm.fmuladd.f64(double %80, double %44, double %79)
+  %82 = load double, ptr %26, align 8
+  %83 = call double @llvm.fmuladd.f64(double %82, double %42, double %81)
+  %84 = load ptr, ptr %6, align 8
+  %85 = getelementptr inbounds double, ptr %84, i64 %34
+  store double %83, ptr %85, align 8
+  %86 = add nsw i64 %.045, 1
+  %87 = load i64, ptr %10, align 8
+  %.not.not = icmp slt i64 %.045, %87
   br i1 %.not.not, label %27, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %27, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
-  br label %89
+  br label %88
 
-89:                                               ; preds = %._crit_edge, %8
+88:                                               ; preds = %._crit_edge, %8
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre)
   ret void
 }
@@ -5561,8 +5556,8 @@ define internal void @statevec_compactUnitaryDistributed.omp_outlined(ptr noalia
   %36 = load double, ptr %35, align 8
   %37 = load double, ptr %8, align 8
   %38 = load double, ptr %9, align 8
-  %39 = fneg double %38
-  %40 = fmul double %30, %39
+  %39 = fneg double %30
+  %40 = fmul double %38, %39
   %41 = call double @llvm.fmuladd.f64(double %37, double %27, double %40)
   %42 = load double, ptr %10, align 8
   %43 = call double @llvm.fmuladd.f64(double %42, double %33, double %41)
@@ -5668,8 +5663,8 @@ define internal void @statevec_unitaryDistributed.omp_outlined(ptr noalias nocap
   %36 = load double, ptr %35, align 8
   %37 = load double, ptr %8, align 8
   %38 = load double, ptr %9, align 8
-  %39 = fneg double %38
-  %40 = fmul double %30, %39
+  %39 = fneg double %30
+  %40 = fmul double %38, %39
   %41 = call double @llvm.fmuladd.f64(double %37, double %27, double %40)
   %42 = load double, ptr %10, align 8
   %43 = call double @llvm.fmuladd.f64(double %42, double %33, double %41)
@@ -5756,7 +5751,7 @@ define internal void @statevec_controlledCompactUnitaryLocal.omp_outlined(ptr no
   %19 = load i64, ptr %2, align 8
   %20 = icmp sgt i64 %19, 0
   %.pre55 = load i32, ptr %0, align 4
-  br i1 %20, label %21, label %102
+  br i1 %20, label %21, label %101
 
 21:                                               ; preds = %14
   %22 = add nsw i64 %19, -1
@@ -5772,9 +5767,9 @@ define internal void @statevec_controlledCompactUnitaryLocal.omp_outlined(ptr no
   %.not53 = icmp sgt i64 %25, %24
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %21, %99
-  %26 = phi i64 [ %100, %99 ], [ %24, %21 ]
-  %.054 = phi i64 [ %101, %99 ], [ %25, %21 ]
+.lr.ph:                                           ; preds = %21, %98
+  %26 = phi i64 [ %99, %98 ], [ %24, %21 ]
+  %.054 = phi i64 [ %100, %98 ], [ %25, %21 ]
   %27 = load i64, ptr %3, align 8
   %28 = sdiv i64 %.054, %27
   %29 = load i64, ptr %4, align 8
@@ -5792,7 +5787,7 @@ define internal void @statevec_controlledCompactUnitaryLocal.omp_outlined(ptr no
   %41 = ashr i64 %40, %38
   %42 = and i64 %41, 4294967295
   %.not52 = icmp eq i64 %42, 0
-  br i1 %.not52, label %99, label %43
+  br i1 %.not52, label %98, label %43
 
 43:                                               ; preds = %.lr.ph
   %44 = add nsw i64 %32, %27
@@ -5808,8 +5803,8 @@ define internal void @statevec_controlledCompactUnitaryLocal.omp_outlined(ptr no
   %54 = load double, ptr %53, align 8
   %55 = load double, ptr %10, align 8
   %56 = load double, ptr %11, align 8
-  %57 = fneg double %56
-  %58 = fmul double %50, %57
+  %57 = fneg double %50
+  %58 = fmul double %56, %57
   %59 = call double @llvm.fmuladd.f64(double %55, double %47, double %58)
   %60 = load double, ptr %12, align 8
   %61 = fneg double %60
@@ -5832,42 +5827,41 @@ define internal void @statevec_controlledCompactUnitaryLocal.omp_outlined(ptr no
   store double %74, ptr %76, align 8
   %77 = load double, ptr %12, align 8
   %78 = load double, ptr %13, align 8
-  %79 = fneg double %78
-  %80 = fmul double %50, %79
-  %81 = call double @llvm.fmuladd.f64(double %77, double %47, double %80)
-  %82 = load double, ptr %10, align 8
-  %83 = call double @llvm.fmuladd.f64(double %82, double %52, double %81)
-  %84 = load double, ptr %11, align 8
-  %85 = call double @llvm.fmuladd.f64(double %84, double %54, double %83)
-  %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr inbounds double, ptr %86, i64 %44
-  store double %85, ptr %87, align 8
-  %88 = load double, ptr %12, align 8
-  %89 = load double, ptr %13, align 8
-  %90 = fmul double %47, %89
-  %91 = call double @llvm.fmuladd.f64(double %88, double %50, double %90)
-  %92 = load double, ptr %10, align 8
-  %93 = call double @llvm.fmuladd.f64(double %92, double %54, double %91)
-  %94 = load double, ptr %11, align 8
-  %95 = fneg double %94
-  %96 = call double @llvm.fmuladd.f64(double %95, double %52, double %93)
-  %97 = load ptr, ptr %9, align 8
-  %98 = getelementptr inbounds double, ptr %97, i64 %44
-  store double %96, ptr %98, align 8
+  %79 = fmul double %78, %57
+  %80 = call double @llvm.fmuladd.f64(double %77, double %47, double %79)
+  %81 = load double, ptr %10, align 8
+  %82 = call double @llvm.fmuladd.f64(double %81, double %52, double %80)
+  %83 = load double, ptr %11, align 8
+  %84 = call double @llvm.fmuladd.f64(double %83, double %54, double %82)
+  %85 = load ptr, ptr %8, align 8
+  %86 = getelementptr inbounds double, ptr %85, i64 %44
+  store double %84, ptr %86, align 8
+  %87 = load double, ptr %12, align 8
+  %88 = load double, ptr %13, align 8
+  %89 = fmul double %47, %88
+  %90 = call double @llvm.fmuladd.f64(double %87, double %50, double %89)
+  %91 = load double, ptr %10, align 8
+  %92 = call double @llvm.fmuladd.f64(double %91, double %54, double %90)
+  %93 = load double, ptr %11, align 8
+  %94 = fneg double %93
+  %95 = call double @llvm.fmuladd.f64(double %94, double %52, double %92)
+  %96 = load ptr, ptr %9, align 8
+  %97 = getelementptr inbounds double, ptr %96, i64 %44
+  store double %95, ptr %97, align 8
   %.pre = load i64, ptr %16, align 8
-  br label %99
+  br label %98
 
-99:                                               ; preds = %43, %.lr.ph
-  %100 = phi i64 [ %.pre, %43 ], [ %26, %.lr.ph ]
-  %101 = add nsw i64 %.054, 1
-  %.not.not = icmp slt i64 %.054, %100
+98:                                               ; preds = %43, %.lr.ph
+  %99 = phi i64 [ %.pre, %43 ], [ %26, %.lr.ph ]
+  %100 = add nsw i64 %.054, 1
+  %.not.not = icmp slt i64 %.054, %99
   br i1 %.not.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %99, %21
+._crit_edge:                                      ; preds = %98, %21
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre55)
-  br label %102
+  br label %101
 
-102:                                              ; preds = %._crit_edge, %14
+101:                                              ; preds = %._crit_edge, %14
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre55)
   ret void
 }
@@ -5918,7 +5912,7 @@ define internal void @statevec_multiControlledUnitaryLocal.omp_outlined(ptr noal
   %17 = load i64, ptr %2, align 8
   %18 = icmp sgt i64 %17, 0
   %.pre51 = load i32, ptr %0, align 4
-  br i1 %18, label %19, label %105
+  br i1 %18, label %19, label %104
 
 19:                                               ; preds = %12
   %20 = add nsw i64 %17, -1
@@ -5944,9 +5938,9 @@ define internal void @statevec_multiControlledUnitaryLocal.omp_outlined(ptr noal
   %30 = getelementptr inbounds i8, ptr %11, i64 56
   br label %31
 
-31:                                               ; preds = %.lr.ph, %102
-  %32 = phi i64 [ %22, %.lr.ph ], [ %103, %102 ]
-  %.050 = phi i64 [ %23, %.lr.ph ], [ %104, %102 ]
+31:                                               ; preds = %.lr.ph, %101
+  %32 = phi i64 [ %22, %.lr.ph ], [ %102, %101 ]
+  %.050 = phi i64 [ %23, %.lr.ph ], [ %103, %101 ]
   %33 = load i64, ptr %3, align 8
   %34 = sdiv i64 %.050, %33
   %35 = load i64, ptr %4, align 8
@@ -5962,7 +5956,7 @@ define internal void @statevec_multiControlledUnitaryLocal.omp_outlined(ptr noal
   %45 = xor i64 %43, %44
   %46 = and i64 %45, %39
   %47 = icmp eq i64 %39, %46
-  br i1 %47, label %48, label %102
+  br i1 %47, label %48, label %101
 
 48:                                               ; preds = %31
   %49 = add nsw i64 %38, %33
@@ -5978,8 +5972,8 @@ define internal void @statevec_multiControlledUnitaryLocal.omp_outlined(ptr noal
   %59 = load double, ptr %58, align 8
   %60 = load double, ptr %11, align 8
   %61 = load double, ptr %24, align 8
-  %62 = fneg double %61
-  %63 = fmul double %55, %62
+  %62 = fneg double %55
+  %63 = fmul double %61, %62
   %64 = call double @llvm.fmuladd.f64(double %60, double %52, double %63)
   %65 = load double, ptr %25, align 8
   %66 = call double @llvm.fmuladd.f64(double %65, double %57, double %64)
@@ -6000,42 +5994,41 @@ define internal void @statevec_multiControlledUnitaryLocal.omp_outlined(ptr noal
   store double %77, ptr %79, align 8
   %80 = load double, ptr %27, align 8
   %81 = load double, ptr %28, align 8
-  %82 = fneg double %81
-  %83 = fmul double %55, %82
-  %84 = call double @llvm.fmuladd.f64(double %80, double %52, double %83)
-  %85 = load double, ptr %29, align 8
-  %86 = call double @llvm.fmuladd.f64(double %85, double %57, double %84)
-  %87 = load double, ptr %30, align 8
-  %88 = fneg double %87
-  %89 = call double @llvm.fmuladd.f64(double %88, double %59, double %86)
-  %90 = load ptr, ptr %9, align 8
-  %91 = getelementptr inbounds double, ptr %90, i64 %49
-  store double %89, ptr %91, align 8
-  %92 = load double, ptr %27, align 8
-  %93 = load double, ptr %28, align 8
-  %94 = fmul double %52, %93
-  %95 = call double @llvm.fmuladd.f64(double %92, double %55, double %94)
-  %96 = load double, ptr %29, align 8
-  %97 = call double @llvm.fmuladd.f64(double %96, double %59, double %95)
-  %98 = load double, ptr %30, align 8
-  %99 = call double @llvm.fmuladd.f64(double %98, double %57, double %97)
-  %100 = load ptr, ptr %10, align 8
-  %101 = getelementptr inbounds double, ptr %100, i64 %49
-  store double %99, ptr %101, align 8
+  %82 = fmul double %81, %62
+  %83 = call double @llvm.fmuladd.f64(double %80, double %52, double %82)
+  %84 = load double, ptr %29, align 8
+  %85 = call double @llvm.fmuladd.f64(double %84, double %57, double %83)
+  %86 = load double, ptr %30, align 8
+  %87 = fneg double %86
+  %88 = call double @llvm.fmuladd.f64(double %87, double %59, double %85)
+  %89 = load ptr, ptr %9, align 8
+  %90 = getelementptr inbounds double, ptr %89, i64 %49
+  store double %88, ptr %90, align 8
+  %91 = load double, ptr %27, align 8
+  %92 = load double, ptr %28, align 8
+  %93 = fmul double %52, %92
+  %94 = call double @llvm.fmuladd.f64(double %91, double %55, double %93)
+  %95 = load double, ptr %29, align 8
+  %96 = call double @llvm.fmuladd.f64(double %95, double %59, double %94)
+  %97 = load double, ptr %30, align 8
+  %98 = call double @llvm.fmuladd.f64(double %97, double %57, double %96)
+  %99 = load ptr, ptr %10, align 8
+  %100 = getelementptr inbounds double, ptr %99, i64 %49
+  store double %98, ptr %100, align 8
   %.pre = load i64, ptr %14, align 8
-  br label %102
+  br label %101
 
-102:                                              ; preds = %48, %31
-  %103 = phi i64 [ %.pre, %48 ], [ %32, %31 ]
-  %104 = add nsw i64 %.050, 1
-  %.not.not = icmp slt i64 %.050, %103
+101:                                              ; preds = %48, %31
+  %102 = phi i64 [ %.pre, %48 ], [ %32, %31 ]
+  %103 = add nsw i64 %.050, 1
+  %.not.not = icmp slt i64 %.050, %102
   br i1 %.not.not, label %31, label %._crit_edge
 
-._crit_edge:                                      ; preds = %102, %19
+._crit_edge:                                      ; preds = %101, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre51)
-  br label %105
+  br label %104
 
-105:                                              ; preds = %._crit_edge, %12
+104:                                              ; preds = %._crit_edge, %12
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre51)
   ret void
 }
@@ -6084,7 +6077,7 @@ define internal void @statevec_controlledUnitaryLocal.omp_outlined(ptr noalias n
   %16 = load i64, ptr %2, align 8
   %17 = icmp sgt i64 %16, 0
   %.pre52 = load i32, ptr %0, align 4
-  br i1 %17, label %18, label %105
+  br i1 %17, label %18, label %104
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %16, -1
@@ -6110,9 +6103,9 @@ define internal void @statevec_controlledUnitaryLocal.omp_outlined(ptr noalias n
   %29 = getelementptr inbounds i8, ptr %10, i64 56
   br label %30
 
-30:                                               ; preds = %.lr.ph, %102
-  %31 = phi i64 [ %21, %.lr.ph ], [ %103, %102 ]
-  %.051 = phi i64 [ %22, %.lr.ph ], [ %104, %102 ]
+30:                                               ; preds = %.lr.ph, %101
+  %31 = phi i64 [ %21, %.lr.ph ], [ %102, %101 ]
+  %.051 = phi i64 [ %22, %.lr.ph ], [ %103, %101 ]
   %32 = load i64, ptr %3, align 8
   %33 = sdiv i64 %.051, %32
   %34 = load i64, ptr %4, align 8
@@ -6130,7 +6123,7 @@ define internal void @statevec_controlledUnitaryLocal.omp_outlined(ptr noalias n
   %46 = ashr i64 %45, %43
   %47 = and i64 %46, 4294967295
   %.not49 = icmp eq i64 %47, 0
-  br i1 %.not49, label %102, label %48
+  br i1 %.not49, label %101, label %48
 
 48:                                               ; preds = %30
   %49 = add nsw i64 %37, %32
@@ -6146,8 +6139,8 @@ define internal void @statevec_controlledUnitaryLocal.omp_outlined(ptr noalias n
   %59 = load double, ptr %58, align 8
   %60 = load double, ptr %10, align 8
   %61 = load double, ptr %23, align 8
-  %62 = fneg double %61
-  %63 = fmul double %55, %62
+  %62 = fneg double %55
+  %63 = fmul double %61, %62
   %64 = call double @llvm.fmuladd.f64(double %60, double %52, double %63)
   %65 = load double, ptr %24, align 8
   %66 = call double @llvm.fmuladd.f64(double %65, double %57, double %64)
@@ -6168,42 +6161,41 @@ define internal void @statevec_controlledUnitaryLocal.omp_outlined(ptr noalias n
   store double %77, ptr %79, align 8
   %80 = load double, ptr %26, align 8
   %81 = load double, ptr %27, align 8
-  %82 = fneg double %81
-  %83 = fmul double %55, %82
-  %84 = call double @llvm.fmuladd.f64(double %80, double %52, double %83)
-  %85 = load double, ptr %28, align 8
-  %86 = call double @llvm.fmuladd.f64(double %85, double %57, double %84)
-  %87 = load double, ptr %29, align 8
-  %88 = fneg double %87
-  %89 = call double @llvm.fmuladd.f64(double %88, double %59, double %86)
-  %90 = load ptr, ptr %8, align 8
-  %91 = getelementptr inbounds double, ptr %90, i64 %49
-  store double %89, ptr %91, align 8
-  %92 = load double, ptr %26, align 8
-  %93 = load double, ptr %27, align 8
-  %94 = fmul double %52, %93
-  %95 = call double @llvm.fmuladd.f64(double %92, double %55, double %94)
-  %96 = load double, ptr %28, align 8
-  %97 = call double @llvm.fmuladd.f64(double %96, double %59, double %95)
-  %98 = load double, ptr %29, align 8
-  %99 = call double @llvm.fmuladd.f64(double %98, double %57, double %97)
-  %100 = load ptr, ptr %9, align 8
-  %101 = getelementptr inbounds double, ptr %100, i64 %49
-  store double %99, ptr %101, align 8
+  %82 = fmul double %81, %62
+  %83 = call double @llvm.fmuladd.f64(double %80, double %52, double %82)
+  %84 = load double, ptr %28, align 8
+  %85 = call double @llvm.fmuladd.f64(double %84, double %57, double %83)
+  %86 = load double, ptr %29, align 8
+  %87 = fneg double %86
+  %88 = call double @llvm.fmuladd.f64(double %87, double %59, double %85)
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr inbounds double, ptr %89, i64 %49
+  store double %88, ptr %90, align 8
+  %91 = load double, ptr %26, align 8
+  %92 = load double, ptr %27, align 8
+  %93 = fmul double %52, %92
+  %94 = call double @llvm.fmuladd.f64(double %91, double %55, double %93)
+  %95 = load double, ptr %28, align 8
+  %96 = call double @llvm.fmuladd.f64(double %95, double %59, double %94)
+  %97 = load double, ptr %29, align 8
+  %98 = call double @llvm.fmuladd.f64(double %97, double %57, double %96)
+  %99 = load ptr, ptr %9, align 8
+  %100 = getelementptr inbounds double, ptr %99, i64 %49
+  store double %98, ptr %100, align 8
   %.pre = load i64, ptr %13, align 8
-  br label %102
+  br label %101
 
-102:                                              ; preds = %48, %30
-  %103 = phi i64 [ %.pre, %48 ], [ %31, %30 ]
-  %104 = add nsw i64 %.051, 1
-  %.not.not = icmp slt i64 %.051, %103
+101:                                              ; preds = %48, %30
+  %102 = phi i64 [ %.pre, %48 ], [ %31, %30 ]
+  %103 = add nsw i64 %.051, 1
+  %.not.not = icmp slt i64 %.051, %102
   br i1 %.not.not, label %30, label %._crit_edge
 
-._crit_edge:                                      ; preds = %102, %18
+._crit_edge:                                      ; preds = %101, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre52)
-  br label %105
+  br label %104
 
-105:                                              ; preds = %._crit_edge, %11
+104:                                              ; preds = %._crit_edge, %11
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre52)
   ret void
 }
@@ -6306,8 +6298,8 @@ define internal void @statevec_controlledCompactUnitaryDistributed.omp_outlined(
   %51 = load double, ptr %50, align 8
   %52 = load double, ptr %11, align 8
   %53 = load double, ptr %12, align 8
-  %54 = fneg double %53
-  %55 = fmul double %45, %54
+  %54 = fneg double %45
+  %55 = fmul double %53, %54
   %56 = call double @llvm.fmuladd.f64(double %52, double %42, double %55)
   %57 = load double, ptr %13, align 8
   %58 = call double @llvm.fmuladd.f64(double %57, double %48, double %56)
@@ -6444,8 +6436,8 @@ define internal void @statevec_controlledUnitaryDistributed.omp_outlined(ptr noa
   %51 = load double, ptr %50, align 8
   %52 = load double, ptr %11, align 8
   %53 = load double, ptr %12, align 8
-  %54 = fneg double %53
-  %55 = fmul double %45, %54
+  %54 = fneg double %45
+  %55 = fmul double %53, %54
   %56 = call double @llvm.fmuladd.f64(double %52, double %42, double %55)
   %57 = load double, ptr %13, align 8
   %58 = call double @llvm.fmuladd.f64(double %57, double %48, double %56)
@@ -6585,8 +6577,8 @@ define internal void @statevec_multiControlledUnitaryDistributed.omp_outlined(pt
   %51 = load double, ptr %50, align 8
   %52 = load double, ptr %12, align 8
   %53 = load double, ptr %13, align 8
-  %54 = fneg double %53
-  %55 = fmul double %45, %54
+  %54 = fneg double %45
+  %55 = fmul double %53, %54
   %56 = call double @llvm.fmuladd.f64(double %52, double %42, double %55)
   %57 = load double, ptr %14, align 8
   %58 = call double @llvm.fmuladd.f64(double %57, double %48, double %56)
@@ -7970,8 +7962,8 @@ define internal void @statevec_phaseShiftByTerm.omp_outlined(ptr noalias nocaptu
   %40 = load double, ptr %39, align 8
   %41 = load double, ptr %8, align 8
   %42 = load double, ptr %9, align 8
-  %43 = fneg double %42
-  %44 = fmul double %40, %43
+  %43 = fneg double %40
+  %44 = fmul double %42, %43
   %45 = call double @llvm.fmuladd.f64(double %41, double %37, double %44)
   store double %45, ptr %36, align 8
   %46 = load double, ptr %9, align 8
@@ -8097,8 +8089,8 @@ define internal void @statevec_controlledPhaseShift.omp_outlined(ptr noalias noc
   %49 = load double, ptr %48, align 8
   %50 = load double, ptr %9, align 8
   %51 = load double, ptr %10, align 8
-  %52 = fneg double %51
-  %53 = fmul double %49, %52
+  %52 = fneg double %49
+  %53 = fmul double %51, %52
   %54 = call double @llvm.fmuladd.f64(double %50, double %46, double %53)
   store double %54, ptr %45, align 8
   %55 = load double, ptr %10, align 8
@@ -8207,8 +8199,8 @@ define internal void @statevec_multiControlledPhaseShift.omp_outlined(ptr noalia
   %36 = load double, ptr %35, align 8
   %37 = load double, ptr %8, align 8
   %38 = load double, ptr %9, align 8
-  %39 = fneg double %38
-  %40 = fmul double %36, %39
+  %39 = fneg double %36
+  %40 = fmul double %38, %39
   %41 = call double @llvm.fmuladd.f64(double %37, double %33, double %40)
   store double %41, ptr %32, align 8
   %42 = load double, ptr %9, align 8
@@ -10073,19 +10065,19 @@ define internal void @statevec_setWeightedQureg.omp_outlined(ptr noalias nocaptu
   %44 = load double, ptr %43, align 8
   %45 = load double, ptr %9, align 8
   %46 = load double, ptr %10, align 8
-  %47 = fneg double %46
-  %48 = fmul double %44, %47
+  %47 = fneg double %44
+  %48 = fmul double %46, %47
   %49 = call double @llvm.fmuladd.f64(double %45, double %41, double %48)
   %50 = load double, ptr %11, align 8
   %51 = load double, ptr %12, align 8
-  %52 = fneg double %51
-  %53 = fmul double %32, %52
+  %52 = fneg double %32
+  %53 = fmul double %51, %52
   %54 = call double @llvm.fmuladd.f64(double %50, double %29, double %53)
   %55 = fadd double %49, %54
   %56 = load double, ptr %13, align 8
   %57 = load double, ptr %14, align 8
-  %58 = fneg double %57
-  %59 = fmul double %38, %58
+  %58 = fneg double %38
+  %59 = fmul double %57, %58
   %60 = call double @llvm.fmuladd.f64(double %56, double %35, double %59)
   %61 = fadd double %55, %60
   store double %61, ptr %40, align 8
@@ -10185,8 +10177,8 @@ define internal void @statevec_applyDiagonalOp.omp_outlined(ptr noalias nocaptur
   %28 = load ptr, ptr %6, align 8
   %29 = getelementptr inbounds double, ptr %28, i64 %.030
   %30 = load double, ptr %29, align 8
-  %31 = fneg double %24
-  %32 = fmul double %30, %31
+  %31 = fneg double %30
+  %32 = fmul double %24, %31
   %33 = call double @llvm.fmuladd.f64(double %21, double %27, double %32)
   store double %33, ptr %20, align 8
   %34 = fmul double %24, %27
@@ -10280,8 +10272,8 @@ define internal void @densmatr_applyDiagonalOpLocal.omp_outlined(ptr noalias noc
   %32 = load ptr, ptr %7, align 8
   %33 = getelementptr inbounds double, ptr %32, i64 %29
   %34 = load double, ptr %33, align 8
-  %35 = fneg double %25
-  %36 = fmul double %34, %35
+  %35 = fneg double %34
+  %36 = fmul double %25, %35
   %37 = call double @llvm.fmuladd.f64(double %22, double %31, double %36)
   store double %37, ptr %21, align 8
   %38 = fmul double %25, %31
@@ -10580,8 +10572,8 @@ define internal void @densmatr_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
   %52 = load double, ptr %51, align 8
   %53 = getelementptr inbounds double, ptr %39, i64 %50
   %54 = load double, ptr %53, align 8
-  %55 = fneg double %48
-  %56 = fmul double %54, %55
+  %55 = fneg double %54
+  %56 = fmul double %48, %55
   %57 = call double @llvm.fmuladd.f64(double %46, double %52, double %56)
   %58 = fadd double %41, %57
   store double %58, ptr %12, align 8
@@ -10985,8 +10977,8 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
   %107 = load ptr, ptr %15, align 8
   %108 = getelementptr inbounds double, ptr %107, i64 %.07097
   %109 = load double, ptr %108, align 8
-  %110 = fneg double %109
-  %111 = fmul double %103, %110
+  %110 = fneg double %103
+  %111 = fmul double %109, %110
   %112 = call double @llvm.fmuladd.f64(double %106, double %102, double %111)
   store double %112, ptr %105, align 8
   %113 = fmul double %102, %109
@@ -11349,8 +11341,8 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %149 = load ptr, ptr %16, align 8
   %150 = getelementptr inbounds double, ptr %149, i64 %.086145
   %151 = load double, ptr %150, align 8
-  %152 = fneg double %151
-  %153 = fmul double %145, %152
+  %152 = fneg double %145
+  %153 = fmul double %151, %152
   %154 = call double @llvm.fmuladd.f64(double %148, double %144, double %153)
   store double %154, ptr %147, align 8
   %155 = fmul double %144, %151
@@ -11946,8 +11938,8 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %240 = load ptr, ptr %15, align 8
   %241 = getelementptr inbounds double, ptr %240, i64 %.0141237
   %242 = load double, ptr %241, align 8
-  %243 = fneg double %242
-  %244 = fmul double %236, %243
+  %243 = fneg double %236
+  %244 = fmul double %242, %243
   %245 = call double @llvm.fmuladd.f64(double %239, double %235, double %244)
   store double %245, ptr %238, align 8
   %246 = fmul double %235, %242

@@ -75,7 +75,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %34 = load i64, ptr %10, align 8, !alias.scope !6, !noalias !11, !noundef !4
   %35 = load i64, ptr %3, align 8, !alias.scope !13, !noalias !11, !noundef !4
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %16
+  %37 = icmp ugt i64 %16, %36
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5264e45b139607ccE.exit"
 
 38:                                               ; preds = %33
@@ -115,7 +115,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %52 = load i64, ptr %10, align 8, !alias.scope !23, !noalias !28, !noundef !4
   %53 = load i64, ptr %3, align 8, !alias.scope !30, !noalias !28, !noundef !4
   %54 = sub i64 %53, %52
-  %.not = icmp ugt i64 %54, %46
+  %.not = icmp ult i64 %46, %54
   br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5264e45b139607ccE.exit13", label %55
 
 55:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5789e8b1f2330215E.exit"
@@ -258,7 +258,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %34 = load i64, ptr %10, align 8, !alias.scope !47, !noalias !52, !noundef !4
   %35 = load i64, ptr %3, align 8, !alias.scope !54, !noalias !52, !noundef !4
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %16
+  %37 = icmp ugt i64 %16, %36
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5264e45b139607ccE.exit"
 
 38:                                               ; preds = %33
@@ -298,7 +298,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %52 = load i64, ptr %10, align 8, !alias.scope !64, !noalias !69, !noundef !4
   %53 = load i64, ptr %3, align 8, !alias.scope !71, !noalias !69, !noundef !4
   %54 = sub i64 %53, %52
-  %.not = icmp ugt i64 %54, %46
+  %.not = icmp ult i64 %46, %54
   br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5264e45b139607ccE.exit13", label %55
 
 55:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5789e8b1f2330215E.exit"
@@ -459,7 +459,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
   %55 = getelementptr inbounds i8, ptr %53, i64 16
   %56 = load i64, ptr %55, align 8, !alias.scope !96, !noalias !99, !noundef !4
   %57 = sub i64 %54, %56
-  %58 = icmp ugt i64 %57, %52
+  %58 = icmp ult i64 %52, %57
   br i1 %58, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hf40580062971130bE.exit.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hf40580062971130bE.exit.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hf40580062971130bE.exit.thread.i": ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -532,7 +532,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !112, !noalias !115, !noundef !4
   %9 = sub i64 %6, %8
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hf40580062971130bE.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hf40580062971130bE.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hf40580062971130bE.exit.thread": ; preds = %3

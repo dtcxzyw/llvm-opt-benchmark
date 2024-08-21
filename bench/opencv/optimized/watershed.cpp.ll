@@ -1243,11 +1243,11 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
 
 14:                                               ; preds = %5
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 12), align 4
-  %16 = icmp sgt i32 %15, %1
+  %16 = icmp slt i32 %1, %15
   %17 = icmp sgt i32 %2, -1
   %or.cond.not58 = and i1 %17, %16
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 8), align 8
-  %.not = icmp sgt i32 %18, %2
+  %.not = icmp slt i32 %2, %18
   %or.cond28 = select i1 %or.cond.not58, i1 %.not, i1 false
   br i1 %or.cond28, label %19, label %50
 

@@ -175,7 +175,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -455,7 +455,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #17
   %cmp7 = icmp eq ptr %call, null
@@ -719,7 +719,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 if.else7.i.i.i:                                   ; preds = %if.then.i.i
   %sub.i.i.i = sub nuw nsw i32 %cond.i.i, %spec.select.i.i
-  %12 = call i32 @llvm.umin.i32(i32 %sub.i.i.i, i32 %cond.i.i)
+  %12 = call i32 @llvm.umin.i32(i32 %cond.i.i, i32 %sub.i.i.i)
   %cmp.i.not.i = icmp eq i32 %12, 0
   br i1 %cmp.i.not.i, label %while.end, label %if.then2.i.i
 
@@ -751,7 +751,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shr.i.i.i.i = sext i16 %15 to i32
   %16 = load i32, ptr %fLength.i5.i, align 4
   %cond.i.i.i33 = select i1 %cmp.i.i.i.i, i32 %16, i32 %shr.i.i.i.i
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i.i.i33, i32 %add)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %add, i32 %cond.i.i.i33)
   %17 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i35 = icmp slt i16 %17, 0
   %18 = ashr i16 %17, 5
@@ -770,7 +770,7 @@ if.then.i.i44:                                    ; preds = %while.body
 
 if.else7.i.i.i47:                                 ; preds = %if.then.i.i44
   %sub.i.i.i48 = sub nuw nsw i32 %cond.i.i38, %spec.select.i.i45
-  %20 = call i32 @llvm.umin.i32(i32 %sub.i.i.i48, i32 %cond.i.i38)
+  %20 = call i32 @llvm.umin.i32(i32 %cond.i.i38, i32 %sub.i.i.i48)
   %cmp.i8.not.i = icmp eq i32 %20, 0
   br i1 %cmp.i8.not.i, label %while.end, label %if.then2.i.i49
 
@@ -1511,7 +1511,7 @@ if.else.i:                                        ; preds = %if.then
   %shr.i.i.i3 = sext i16 %5 to i32
   %6 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i5 = select i1 %cmp.i.i.i2, i32 %6, i32 %shr.i.i.i3
-  %cmp3.i = icmp ugt i32 %cond.i.i5, %call2.i
+  %cmp3.i = icmp ult i32 %call2.i, %cond.i.i5
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6icu_7513UnicodeString8truncateEi.exit
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -3094,7 +3094,7 @@ lor.lhs.false:                                    ; preds = %entry
   %availableIDs = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %availableIDs, align 8
   %call.i = tail call noundef i32 @uhash_count_75(ptr noundef %0)
-  %cmp2.not = icmp sgt i32 %call.i, %index
+  %cmp2.not = icmp slt i32 %index, %call.i
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry

@@ -2813,7 +2813,7 @@ define range(i32 -1, 1) i32 @add_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %add_function_slow.exit
 
 104:                                              ; preds = %72
-  %105 = icmp eq ptr %.0142.i, %0
+  %105 = icmp eq ptr %0, %.0142.i
   %106 = load ptr, ptr %.0142.i, align 8
   br i1 %105, label %107, label %110
 
@@ -2945,7 +2945,7 @@ define range(i32 -1, 1) i32 @add_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %zend_binop_error.exit.i
 
 zend_binop_error.exit.i:                          ; preds = %171, %169
-  %.not156.i = icmp eq ptr %.0142.i, %0
+  %.not156.i = icmp eq ptr %0, %.0142.i
   br i1 %.not156.i, label %add_function_slow.exit, label %174
 
 174:                                              ; preds = %zend_binop_error.exit.i
@@ -2954,7 +2954,7 @@ zend_binop_error.exit.i:                          ; preds = %171, %169
   br label %add_function_slow.exit
 
 176:                                              ; preds = %166, %.critedge160.i
-  %177 = icmp eq ptr %.0142.i, %0
+  %177 = icmp eq ptr %0, %.0142.i
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %176
@@ -3255,11 +3255,11 @@ define range(i32 -1, 1) i32 @sub_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %zend_binop_error.exit.i
 
 zend_binop_error.exit.i:                          ; preds = %117, %115
-  %.not148.i = icmp eq ptr %.0134.i, %0
+  %.not148.i = icmp eq ptr %0, %.0134.i
   br i1 %.not148.i, label %sub_function_slow.exit, label %.critedge.sink.split.i
 
 120:                                              ; preds = %112, %.critedge152.i
-  %121 = icmp eq ptr %.0134.i, %0
+  %121 = icmp eq ptr %0, %.0134.i
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %120
@@ -3563,11 +3563,11 @@ define range(i32 -1, 1) i32 @mul_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %zend_binop_error.exit.i
 
 zend_binop_error.exit.i:                          ; preds = %125, %123
-  %.not145.i = icmp eq ptr %.0130.i, %0
+  %.not145.i = icmp eq ptr %0, %.0130.i
   br i1 %.not145.i, label %mul_function_slow.exit, label %.critedge.sink.split.i
 
 128:                                              ; preds = %120, %.critedge149.i
-  %129 = icmp eq ptr %.0130.i, %0
+  %129 = icmp eq ptr %0, %.0130.i
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %128
@@ -3770,7 +3770,7 @@ define range(i32 -1, 1) i32 @pow_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %zend_binop_error.exit
 
 zend_binop_error.exit:                            ; preds = %67, %69
-  %.not74 = icmp eq ptr %.064, %0
+  %.not74 = icmp eq ptr %0, %.064
   br i1 %.not74, label %80, label %72
 
 72:                                               ; preds = %zend_binop_error.exit
@@ -3779,7 +3779,7 @@ zend_binop_error.exit:                            ; preds = %67, %69
   br label %80
 
 74:                                               ; preds = %.critedge76, %64
-  %75 = icmp eq ptr %.064, %0
+  %75 = icmp eq ptr %0, %.064
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %74
@@ -4063,7 +4063,7 @@ define range(i32 -1, 1) i32 @div_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %zend_binop_error.exit
 
 zend_binop_error.exit:                            ; preds = %67, %69
-  %.not90 = icmp eq ptr %.079, %0
+  %.not90 = icmp eq ptr %0, %.079
   br i1 %.not90, label %128, label %72
 
 72:                                               ; preds = %zend_binop_error.exit
@@ -4152,7 +4152,7 @@ zend_binop_error.exit:                            ; preds = %67, %69
 118:                                              ; preds = %85, %82, %113, %105, %98, %90
   %.sroa.7.0.ph = phi i32 [ 5, %82 ], [ 5, %98 ], [ 5, %105 ], [ 5, %113 ], [ 5, %90 ], [ 4, %85 ]
   %.sroa.0.1.ph = phi i64 [ 4890909195324358656, %82 ], [ %101, %98 ], [ %109, %105 ], [ %117, %113 ], [ %94, %90 ], [ %88, %85 ]
-  %119 = icmp eq ptr %.079, %0
+  %119 = icmp eq ptr %0, %.079
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %118
@@ -4170,7 +4170,7 @@ unreachable:                                      ; preds = %74
   unreachable
 
 div_function_base.exit:                           ; preds = %110, %102, %95, %80, %19
-  %.not91 = icmp eq ptr %.079, %0
+  %.not91 = icmp eq ptr %0, %.079
   br i1 %.not91, label %126, label %124
 
 124:                                              ; preds = %div_function_base.exit
@@ -4344,7 +4344,7 @@ define range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %zend_binop_error.exit
 
 zend_binop_error.exit:                            ; preds = %29, %31
-  %.not71 = icmp eq ptr %.060, %0
+  %.not71 = icmp eq ptr %0, %.060
   br i1 %.not71, label %84, label %.sink.split84
 
 .sink.split:                                      ; preds = %3, %8
@@ -4408,7 +4408,7 @@ zend_binop_error.exit:                            ; preds = %29, %31
   br label %zend_binop_error.exit78
 
 zend_binop_error.exit78:                          ; preds = %59, %61
-  %.not74 = icmp eq ptr %.1, %0
+  %.not74 = icmp eq ptr %0, %.1
   br i1 %.not74, label %84, label %.sink.split84
 
 .sink.split82:                                    ; preds = %35, %38
@@ -4841,7 +4841,7 @@ define range(i32 -1, 1) i32 @bitwise_not_function(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %33, label %30
 
 30:                                               ; preds = %28
-  %.not115 = icmp eq ptr %.0107, %0
+  %.not115 = icmp eq ptr %0, %.0107
   br i1 %.not115, label %92, label %31
 
 31:                                               ; preds = %30
@@ -4945,7 +4945,7 @@ define range(i32 -1, 1) i32 @bitwise_not_function(ptr noundef %0, ptr noundef %1
   br i1 %87, label %92, label %.loopexit
 
 .loopexit:                                        ; preds = %3, %85, %79
-  %.not117 = icmp eq ptr %.0107, %0
+  %.not117 = icmp eq ptr %0, %.0107
   br i1 %.not117, label %90, label %88
 
 88:                                               ; preds = %.loopexit
@@ -5046,7 +5046,7 @@ define range(i32 -1, 1) i32 @bitwise_or_function(ptr noundef %0, ptr noundef %1,
   %45 = getelementptr inbounds i8, ptr %36, i64 24
   %46 = load i8, ptr %45, align 8
   %47 = or i8 %46, %44
-  %48 = icmp eq ptr %.0163, %0
+  %48 = icmp eq ptr %0, %.0163
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %42
@@ -5133,7 +5133,7 @@ define range(i32 -1, 1) i32 @bitwise_or_function(ptr noundef %0, ptr noundef %1,
   %reass.sub = sub i64 %96, %.0169.lcssa
   %97 = add i64 %reass.sub, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull align 1 %94, i64 %97, i1 false)
-  %98 = icmp eq ptr %.0163, %0
+  %98 = icmp eq ptr %0, %.0163
   br i1 %98, label %99, label %109
 
 99:                                               ; preds = %._crit_edge
@@ -5193,7 +5193,7 @@ define range(i32 -1, 1) i32 @bitwise_or_function(ptr noundef %0, ptr noundef %1,
   br label %zend_binop_error.exit
 
 zend_binop_error.exit:                            ; preds = %122, %124
-  %.not182 = icmp eq ptr %.0163, %0
+  %.not182 = icmp eq ptr %0, %.0163
   br i1 %.not182, label %158, label %.sink.split
 
 127:                                              ; preds = %25
@@ -5241,7 +5241,7 @@ zend_binop_error.exit:                            ; preds = %122, %124
   br label %zend_binop_error.exit189
 
 zend_binop_error.exit189:                         ; preds = %145, %147
-  %.not181 = icmp eq ptr %.0163, %0
+  %.not181 = icmp eq ptr %0, %.0163
   br i1 %.not181, label %158, label %.sink.split
 
 150:                                              ; preds = %129
@@ -5356,7 +5356,7 @@ define range(i32 -1, 1) i32 @bitwise_and_function(ptr noundef %0, ptr noundef %1
   %45 = getelementptr inbounds i8, ptr %36, i64 24
   %46 = load i8, ptr %45, align 8
   %47 = and i8 %46, %44
-  %48 = icmp eq ptr %.0159, %0
+  %48 = icmp eq ptr %0, %.0159
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %42
@@ -5436,7 +5436,7 @@ define range(i32 -1, 1) i32 @bitwise_and_function(ptr noundef %0, ptr noundef %1
   %90 = getelementptr inbounds i8, ptr %66, i64 24
   %91 = getelementptr inbounds [1 x i8], ptr %90, i64 0, i64 %.0165.lcssa
   store i8 0, ptr %91, align 1
-  %92 = icmp eq ptr %.0159, %0
+  %92 = icmp eq ptr %0, %.0159
   br i1 %92, label %93, label %103
 
 93:                                               ; preds = %._crit_edge
@@ -5496,7 +5496,7 @@ define range(i32 -1, 1) i32 @bitwise_and_function(ptr noundef %0, ptr noundef %1
   br label %zend_binop_error.exit
 
 zend_binop_error.exit:                            ; preds = %116, %118
-  %.not178 = icmp eq ptr %.0159, %0
+  %.not178 = icmp eq ptr %0, %.0159
   br i1 %.not178, label %152, label %.sink.split
 
 121:                                              ; preds = %25
@@ -5544,7 +5544,7 @@ zend_binop_error.exit:                            ; preds = %116, %118
   br label %zend_binop_error.exit185
 
 zend_binop_error.exit185:                         ; preds = %139, %141
-  %.not177 = icmp eq ptr %.0159, %0
+  %.not177 = icmp eq ptr %0, %.0159
   br i1 %.not177, label %152, label %.sink.split
 
 144:                                              ; preds = %123
@@ -5656,7 +5656,7 @@ define range(i32 -1, 1) i32 @bitwise_xor_function(ptr noundef %0, ptr noundef %1
   %45 = getelementptr inbounds i8, ptr %36, i64 24
   %46 = load i8, ptr %45, align 8
   %47 = xor i8 %46, %44
-  %48 = icmp eq ptr %.0159, %0
+  %48 = icmp eq ptr %0, %.0159
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %42
@@ -5736,7 +5736,7 @@ define range(i32 -1, 1) i32 @bitwise_xor_function(ptr noundef %0, ptr noundef %1
   %90 = getelementptr inbounds i8, ptr %66, i64 24
   %91 = getelementptr inbounds [1 x i8], ptr %90, i64 0, i64 %.0165.lcssa
   store i8 0, ptr %91, align 1
-  %92 = icmp eq ptr %.0159, %0
+  %92 = icmp eq ptr %0, %.0159
   br i1 %92, label %93, label %103
 
 93:                                               ; preds = %._crit_edge
@@ -5796,7 +5796,7 @@ define range(i32 -1, 1) i32 @bitwise_xor_function(ptr noundef %0, ptr noundef %1
   br label %zend_binop_error.exit
 
 zend_binop_error.exit:                            ; preds = %116, %118
-  %.not178 = icmp eq ptr %.0159, %0
+  %.not178 = icmp eq ptr %0, %.0159
   br i1 %.not178, label %152, label %.sink.split
 
 121:                                              ; preds = %25
@@ -5844,7 +5844,7 @@ zend_binop_error.exit:                            ; preds = %116, %118
   br label %zend_binop_error.exit185
 
 zend_binop_error.exit185:                         ; preds = %139, %141
-  %.not177 = icmp eq ptr %.0159, %0
+  %.not177 = icmp eq ptr %0, %.0159
   br i1 %.not177, label %152, label %.sink.split
 
 144:                                              ; preds = %123
@@ -5934,7 +5934,7 @@ define range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr noundef %1,
   br label %zend_binop_error.exit
 
 zend_binop_error.exit:                            ; preds = %29, %31
-  %.not74 = icmp eq ptr %.063, %0
+  %.not74 = icmp eq ptr %0, %.063
   br i1 %.not74, label %87, label %.sink.split87
 
 .sink.split:                                      ; preds = %3, %8
@@ -5998,7 +5998,7 @@ zend_binop_error.exit:                            ; preds = %29, %31
   br label %zend_binop_error.exit81
 
 zend_binop_error.exit81:                          ; preds = %59, %61
-  %.not77 = icmp eq ptr %.1, %0
+  %.not77 = icmp eq ptr %0, %.1
   br i1 %.not77, label %87, label %.sink.split87
 
 .sink.split85:                                    ; preds = %35, %38
@@ -6129,7 +6129,7 @@ define range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr noundef %1
   br label %zend_binop_error.exit
 
 zend_binop_error.exit:                            ; preds = %29, %31
-  %.not75 = icmp eq ptr %.064, %0
+  %.not75 = icmp eq ptr %0, %.064
   br i1 %.not75, label %83, label %.sink.split88
 
 .sink.split:                                      ; preds = %3, %8
@@ -6193,7 +6193,7 @@ zend_binop_error.exit:                            ; preds = %29, %31
   br label %zend_binop_error.exit82
 
 zend_binop_error.exit82:                          ; preds = %59, %61
-  %.not78 = icmp eq ptr %.1, %0
+  %.not78 = icmp eq ptr %0, %.1
   br i1 %.not78, label %83, label %.sink.split88
 
 .sink.split86:                                    ; preds = %35, %38
@@ -6363,7 +6363,7 @@ define range(i32 -1, 1) i32 @concat_function(ptr noundef %0, ptr noundef %1, ptr
   br label %414
 
 55:                                               ; preds = %36
-  %56 = icmp eq ptr %.0419, %0
+  %56 = icmp eq ptr %0, %.0419
   %57 = icmp eq ptr %.0419, %2
   %or.cond = and i1 %56, %57
   br i1 %or.cond, label %123, label %59
@@ -6522,7 +6522,7 @@ define range(i32 -1, 1) i32 @concat_function(ptr noundef %0, ptr noundef %1, ptr
   br i1 %126, label %127, label %172
 
 127:                                              ; preds = %123
-  %.not485 = icmp eq ptr %.0420, %0
+  %.not485 = icmp eq ptr %0, %.0420
   br i1 %.not485, label %128, label %.critedge
 
 128:                                              ; preds = %127
@@ -6624,7 +6624,7 @@ define range(i32 -1, 1) i32 @concat_function(ptr noundef %0, ptr noundef %1, ptr
   br i1 %175, label %176, label %220
 
 176:                                              ; preds = %172
-  %.not479 = icmp eq ptr %.1, %0
+  %.not479 = icmp eq ptr %0, %.1
   br i1 %.not479, label %177, label %.critedge496
 
 177:                                              ; preds = %176
@@ -6803,7 +6803,7 @@ define range(i32 -1, 1) i32 @concat_function(ptr noundef %0, ptr noundef %1, ptr
   br label %414
 
 259:                                              ; preds = %220
-  %260 = icmp eq ptr %.1, %0
+  %260 = icmp eq ptr %0, %.1
   br i1 %260, label %261, label %340
 
 261:                                              ; preds = %259
@@ -8349,8 +8349,8 @@ define internal fastcc range(i32 -1, 2) i32 @compare_long_to_string(i64 noundef 
 
 13:                                               ; preds = %10
   %14 = load i64, ptr %4, align 8
-  %15 = icmp slt i64 %14, %0
-  %16 = icmp sgt i64 %14, %0
+  %15 = icmp sgt i64 %0, %14
+  %16 = icmp slt i64 %0, %14
   %17 = sext i1 %16 to i32
   %18 = select i1 %15, i32 1, i32 %17
   br label %92
@@ -8529,16 +8529,16 @@ define internal fastcc range(i32 -1, 2) i32 @compare_double_to_string(double nou
 13:                                               ; preds = %10
   %14 = load i64, ptr %4, align 8
   %15 = sitofp i64 %14 to double
-  %16 = fcmp oeq double %15, %0
-  %17 = fcmp ogt double %15, %0
+  %16 = fcmp oeq double %0, %15
+  %17 = fcmp olt double %0, %15
   %18 = select i1 %17, i32 -1, i32 1
   %19 = select i1 %16, i32 0, i32 %18
   br label %65
 
 20:                                               ; preds = %10
   %21 = load double, ptr %5, align 8
-  %22 = fcmp oeq double %21, %0
-  %23 = fcmp ogt double %21, %0
+  %22 = fcmp oeq double %0, %21
+  %23 = fcmp olt double %0, %21
   %24 = select i1 %23, i32 -1, i32 1
   %25 = select i1 %22, i32 0, i32 %24
   br label %65
@@ -10862,7 +10862,7 @@ define i32 @zend_binary_strncmp(ptr noundef readonly %0, i64 noundef %1, ptr nou
 
 7:                                                ; preds = %5
   %8 = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
-  %. = tail call i64 @llvm.umin.i64(i64 %8, i64 %4)
+  %. = tail call i64 @llvm.umin.i64(i64 %4, i64 %8)
   %9 = tail call i32 @memcmp(ptr noundef %0, ptr noundef %2, i64 noundef %.) #28
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %17
@@ -10871,7 +10871,7 @@ define i32 @zend_binary_strncmp(ptr noundef readonly %0, i64 noundef %1, ptr nou
   %11 = tail call i64 @llvm.umin.i64(i64 %4, i64 %1)
   %12 = tail call i64 @llvm.umin.i64(i64 %4, i64 %3)
   %13 = icmp eq i64 %11, %12
-  %14 = icmp ugt i64 %12, %1
+  %14 = icmp ult i64 %1, %12
   %15 = select i1 %14, i32 -1, i32 1
   %16 = select i1 %13, i32 0, i32 %15
   br label %17
@@ -10888,7 +10888,7 @@ define range(i32 -255, 256) i32 @zend_binary_strncasecmp(ptr noundef readonly %0
 
 7:                                                ; preds = %5
   %8 = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
-  %. = tail call i64 @llvm.umin.i64(i64 %8, i64 %4)
+  %. = tail call i64 @llvm.umin.i64(i64 %4, i64 %8)
   br label %9
 
 9:                                                ; preds = %10, %7
@@ -10923,7 +10923,7 @@ define range(i32 -255, 256) i32 @zend_binary_strncasecmp(ptr noundef readonly %0
   %27 = tail call i64 @llvm.umin.i64(i64 %4, i64 %1)
   %28 = tail call i64 @llvm.umin.i64(i64 %4, i64 %3)
   %29 = icmp eq i64 %27, %28
-  %30 = icmp ugt i64 %28, %1
+  %30 = icmp ult i64 %1, %28
   %31 = select i1 %30, i32 -1, i32 1
   %32 = select i1 %29, i32 0, i32 %31
   br label %33
@@ -10988,7 +10988,7 @@ define i32 @zend_binary_strncasecmp_l(ptr noundef readonly %0, i64 noundef %1, p
 
 7:                                                ; preds = %5
   %8 = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
-  %. = tail call i64 @llvm.umin.i64(i64 %8, i64 %4)
+  %. = tail call i64 @llvm.umin.i64(i64 %4, i64 %8)
   br label %9
 
 9:                                                ; preds = %10, %7
@@ -11019,7 +11019,7 @@ define i32 @zend_binary_strncasecmp_l(ptr noundef readonly %0, i64 noundef %1, p
   %23 = tail call i64 @llvm.umin.i64(i64 %4, i64 %1)
   %24 = tail call i64 @llvm.umin.i64(i64 %4, i64 %3)
   %25 = icmp eq i64 %23, %24
-  %26 = icmp ugt i64 %24, %1
+  %26 = icmp ult i64 %1, %24
   %27 = select i1 %26, i32 -1, i32 1
   %28 = select i1 %25, i32 0, i32 %27
   br label %29
@@ -11076,7 +11076,7 @@ define i32 @zend_binary_zval_strncmp(ptr nocapture noundef readonly %0, ptr noca
   %13 = getelementptr inbounds i8, ptr %7, i64 24
   %14 = getelementptr inbounds i8, ptr %4, i64 24
   %15 = tail call i64 @llvm.umin.i64(i64 %6, i64 %9)
-  %..i = tail call i64 @llvm.umin.i64(i64 %15, i64 %10)
+  %..i = tail call i64 @llvm.umin.i64(i64 %10, i64 %15)
   %16 = tail call i32 @memcmp(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %13, i64 noundef %..i) #28
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %zend_binary_strncmp.exit
@@ -11085,7 +11085,7 @@ define i32 @zend_binary_zval_strncmp(ptr nocapture noundef readonly %0, ptr noca
   %18 = tail call i64 @llvm.umin.i64(i64 %10, i64 %6)
   %19 = tail call i64 @llvm.umin.i64(i64 %10, i64 %9)
   %20 = icmp eq i64 %18, %19
-  %21 = icmp ugt i64 %19, %6
+  %21 = icmp ult i64 %6, %19
   %22 = select i1 %21, i32 -1, i32 1
   %23 = select i1 %20, i32 0, i32 %22
   br label %zend_binary_strncmp.exit
@@ -11818,11 +11818,11 @@ define ptr @zend_memnstr_ex(ptr noundef %0, ptr nocapture noundef readonly %1, i
 ._crit_edge:                                      ; preds = %.lr.ph
   %21 = sub i64 0, %2
   %22 = getelementptr inbounds i8, ptr %3, i64 %21
-  %.not66 = icmp ult ptr %22, %0
+  %.not66 = icmp ugt ptr %0, %22
   br i1 %.not66, label %.loopexit, label %.preheader.us
 
 ._crit_edge.thread:                               ; preds = %.preheader57
-  %.not6683 = icmp ult ptr %3, %0
+  %.not6683 = icmp ugt ptr %0, %3
   %spec.select = select i1 %.not6683, ptr null, ptr %0
   br label %.loopexit
 

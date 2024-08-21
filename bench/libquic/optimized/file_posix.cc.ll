@@ -254,7 +254,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %sub = sub nsw i32 %size, %bytes_read.0
   %conv8 = sext i32 %sub to i64
-  %add = add nsw i64 %idx.ext, %offset
+  %add = add nsw i64 %offset, %idx.ext
   br label %do.body5
 
 do.body5:                                         ; preds = %land.rhs, %do.body
@@ -561,7 +561,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %sub = sub nsw i32 %size, %bytes_written.0
   %conv14 = sext i32 %sub to i64
-  %add = add nsw i64 %idx.ext, %offset
+  %add = add nsw i64 %offset, %idx.ext
   br label %do.body10
 
 do.body10:                                        ; preds = %land.rhs, %do.body

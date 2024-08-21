@@ -958,7 +958,7 @@ Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.e
 define ptr @Hop_Compose(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 80
   %.val = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %.val, %3
+  %.not = icmp slt i32 %3, %.val
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
@@ -1077,7 +1077,7 @@ Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.e
 define ptr @Hop_Complement(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 80
   %.val = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %.val, %2
+  %.not = icmp slt i32 %2, %.val
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
@@ -1178,7 +1178,7 @@ Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.e
 define ptr @Hop_Remap(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 80
   %.val37 = load i32, ptr %5, align 8
-  %6 = icmp slt i32 %.val37, %3
+  %6 = icmp sgt i32 %3, %.val37
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4

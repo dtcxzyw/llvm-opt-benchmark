@@ -1872,7 +1872,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %126, %122
 
 .lr.ph:                                           ; preds = %143
   %153 = trunc i64 %indvars.iv359 to i32
-  %154 = mul i32 %153, %2
+  %154 = mul i32 %2, %153
   %155 = zext i32 %154 to i64
   %invariant.gep379 = getelementptr inbounds float, ptr %30, i64 %155
   br label %156
@@ -1904,7 +1904,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %126, %122
 
 .lr.ph277:                                        ; preds = %159
   %169 = trunc i64 %indvars.iv359 to i32
-  %170 = mul i32 %169, %2
+  %170 = mul i32 %2, %169
   %171 = zext i32 %170 to i64
   br label %172
 
@@ -1940,7 +1940,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %126, %122
 
 .lr.ph283:                                        ; preds = %.preheader
   %185 = trunc i64 %indvars.iv359 to i32
-  %186 = mul i32 %185, %2
+  %186 = mul i32 %2, %185
   %187 = zext i32 %186 to i64
   %invariant.gep381 = getelementptr inbounds float, ptr %30, i64 %187
   br label %188
@@ -2467,7 +2467,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPfN9__gnu_cxx5__ops15_Iter_le
   %12 = load float, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -2547,7 +2547,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds float, ptr %0, i64 %51
   %53 = load float, ptr %52, align 4
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -2599,7 +2599,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds float, ptr %0, i64 %73
   %75 = load float, ptr %74, align 4
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23

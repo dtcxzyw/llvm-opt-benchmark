@@ -181,7 +181,7 @@ if.end:                                           ; preds = %entry
   %0 = load i32, ptr %suite_id, align 8
   %call1 = tail call i32 @ossl_qrl_get_suite_cipher_tag_len(i32 noundef %0) #11
   %conv = zext i32 %call1 to i64
-  %add = add i64 %conv, %plaintext_len
+  %add = add i64 %plaintext_len, %conv
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -206,7 +206,7 @@ if.end:                                           ; preds = %entry
   %0 = load i32, ptr %suite_id, align 8
   %call1 = tail call i32 @ossl_qrl_get_suite_cipher_tag_len(i32 noundef %0) #11
   %conv = zext i32 %call1 to i64
-  %cmp2.not = icmp ult i64 %conv, %ciphertext_len
+  %cmp2.not = icmp ugt i64 %ciphertext_len, %conv
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %ciphertext_len, i64 %conv)
   %spec.select6 = zext i1 %cmp2.not to i32
   br label %return

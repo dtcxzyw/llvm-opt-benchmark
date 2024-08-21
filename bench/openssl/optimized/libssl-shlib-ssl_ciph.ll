@@ -1572,11 +1572,11 @@ if.end40.i:                                       ; preds = %if.end33.i
   br i1 %tobool86.not.i, label %if.then87.i, label %for.cond.backedge.i
 
 if.then87.i:                                      ; preds = %if.end40.i
-  %cmp.i.i = icmp eq ptr %tail.0149.i, %next.1150.i
+  %cmp.i.i = icmp eq ptr %next.1150.i, %tail.0149.i
   br i1 %cmp.i.i, label %ll_append_tail.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then87.i
-  %cmp1.i.i = icmp eq ptr %head.0148.i, %next.1150.i
+  %cmp1.i.i = icmp eq ptr %next.1150.i, %head.0148.i
   %.head.0148.i = select i1 %cmp1.i.i, ptr %cond.i, ptr %head.0148.i
   %prev.i.i = getelementptr inbounds i8, ptr %next.1150.i, i64 24
   %28 = load ptr, ptr %prev.i.i, align 8
@@ -1649,11 +1649,11 @@ if.end33.i84:                                     ; preds = %if.end9.i73
   br i1 %tobool86.not.i87, label %if.then87.i97, label %for.cond.backedge.i88
 
 if.then87.i97:                                    ; preds = %if.end33.i84
-  %cmp.i.i98 = icmp eq ptr %tail.0149.i75, %next.1150.i74
+  %cmp.i.i98 = icmp eq ptr %next.1150.i74, %tail.0149.i75
   br i1 %cmp.i.i98, label %ll_append_tail.exit.i114, label %if.end.i.i99
 
 if.end.i.i99:                                     ; preds = %if.then87.i97
-  %cmp1.i.i100 = icmp eq ptr %head.0148.i76, %next.1150.i74
+  %cmp1.i.i100 = icmp eq ptr %next.1150.i74, %head.0148.i76
   %.head.0148.i102 = select i1 %cmp1.i.i100, ptr %cond.i78, ptr %head.0148.i76
   %prev.i.i103 = getelementptr inbounds i8, ptr %next.1150.i74, i64 24
   %33 = load ptr, ptr %prev.i.i103, align 8
@@ -1726,11 +1726,11 @@ if.end33.i133:                                    ; preds = %if.end9.i122
   br i1 %tobool101.not.i, label %for.cond.backedge.i135, label %if.then102.i
 
 if.then102.i:                                     ; preds = %if.end33.i133
-  %cmp.i89.i = icmp eq ptr %head.0148.i125, %next.1150.i123
+  %cmp.i89.i = icmp eq ptr %next.1150.i123, %head.0148.i125
   br i1 %cmp.i89.i, label %ll_append_head.exit.i, label %if.end.i90.i
 
 if.end.i90.i:                                     ; preds = %if.then102.i
-  %cmp1.i91.i = icmp eq ptr %tail.0149.i124, %next.1150.i123
+  %cmp1.i91.i = icmp eq ptr %next.1150.i123, %tail.0149.i124
   %.tail.0149.i = select i1 %cmp1.i91.i, ptr %cond.i127, ptr %tail.0149.i124
   %next.i93.i = getelementptr inbounds i8, ptr %next.1150.i123, i64 16
   %38 = load ptr, ptr %next.i93.i, align 8
@@ -1803,11 +1803,11 @@ if.end47.i:                                       ; preds = %if.end9.i149
   br i1 %tobool86.not.i160, label %if.then87.i170, label %for.cond.backedge.i161
 
 if.then87.i170:                                   ; preds = %if.end47.i
-  %cmp.i.i171 = icmp eq ptr %tail.0149.i151, %next.1150.i150
+  %cmp.i.i171 = icmp eq ptr %next.1150.i150, %tail.0149.i151
   br i1 %cmp.i.i171, label %ll_append_tail.exit.i187, label %if.end.i.i172
 
 if.end.i.i172:                                    ; preds = %if.then87.i170
-  %cmp1.i.i173 = icmp eq ptr %head.0148.i152, %next.1150.i150
+  %cmp1.i.i173 = icmp eq ptr %next.1150.i150, %head.0148.i152
   %.head.0148.i175 = select i1 %cmp1.i.i173, ptr %cond.i154, ptr %head.0148.i152
   %prev.i.i176 = getelementptr inbounds i8, ptr %next.1150.i150, i64 24
   %43 = load ptr, ptr %prev.i.i176, align 8
@@ -1880,11 +1880,11 @@ if.end47.i208:                                    ; preds = %if.end9.i195
   br i1 %tobool86.not.i210, label %if.then87.i220, label %for.cond.backedge.i211
 
 if.then87.i220:                                   ; preds = %if.end47.i208
-  %cmp.i.i221 = icmp eq ptr %tail.0149.i197, %next.1150.i196
+  %cmp.i.i221 = icmp eq ptr %next.1150.i196, %tail.0149.i197
   br i1 %cmp.i.i221, label %ll_append_tail.exit.i237, label %if.end.i.i222
 
 if.end.i.i222:                                    ; preds = %if.then87.i220
-  %cmp1.i.i223 = icmp eq ptr %head.0148.i198, %next.1150.i196
+  %cmp1.i.i223 = icmp eq ptr %next.1150.i196, %head.0148.i198
   %.head.0148.i225 = select i1 %cmp1.i.i223, ptr %cond.i200, ptr %head.0148.i198
   %prev.i.i226 = getelementptr inbounds i8, ptr %next.1150.i196, i64 24
   %48 = load ptr, ptr %prev.i.i226, align 8
@@ -1957,11 +1957,11 @@ if.end47.i258:                                    ; preds = %if.end9.i245
   br i1 %tobool86.not.i260, label %if.then87.i270, label %for.cond.backedge.i261
 
 if.then87.i270:                                   ; preds = %if.end47.i258
-  %cmp.i.i271 = icmp eq ptr %tail.0149.i247, %next.1150.i246
+  %cmp.i.i271 = icmp eq ptr %next.1150.i246, %tail.0149.i247
   br i1 %cmp.i.i271, label %ll_append_tail.exit.i287, label %if.end.i.i272
 
 if.end.i.i272:                                    ; preds = %if.then87.i270
-  %cmp1.i.i273 = icmp eq ptr %head.0148.i248, %next.1150.i246
+  %cmp1.i.i273 = icmp eq ptr %next.1150.i246, %head.0148.i248
   %.head.0148.i275 = select i1 %cmp1.i.i273, ptr %cond.i250, ptr %head.0148.i248
   %prev.i.i276 = getelementptr inbounds i8, ptr %next.1150.i246, i64 24
   %53 = load ptr, ptr %prev.i.i276, align 8
@@ -2024,11 +2024,11 @@ if.end9.i295:                                     ; preds = %ssl_cipher_apply_ru
   br i1 %tobool86.not.i307, label %if.then87.i317, label %for.cond.backedge.i308
 
 if.then87.i317:                                   ; preds = %if.end9.i295
-  %cmp.i.i318 = icmp eq ptr %tail.0149.i297, %next.1150.i296
+  %cmp.i.i318 = icmp eq ptr %next.1150.i296, %tail.0149.i297
   br i1 %cmp.i.i318, label %ll_append_tail.exit.i334, label %if.end.i.i319
 
 if.end.i.i319:                                    ; preds = %if.then87.i317
-  %cmp1.i.i320 = icmp eq ptr %head.0148.i298, %next.1150.i296
+  %cmp1.i.i320 = icmp eq ptr %next.1150.i296, %head.0148.i298
   %.head.0148.i322 = select i1 %cmp1.i.i320, ptr %cond.i300, ptr %head.0148.i298
   %prev.i.i323 = getelementptr inbounds i8, ptr %next.1150.i296, i64 24
   %56 = load ptr, ptr %prev.i.i323, align 8
@@ -2098,12 +2098,12 @@ if.end54.i:                                       ; preds = %if.end9.i342
   %active93.i = getelementptr inbounds i8, ptr %next.1150.i343, i64 8
   %60 = load i32, ptr %active93.i, align 8
   %tobool94.not.i = icmp eq i32 %60, 0
-  %cmp.i69.i = icmp eq ptr %tail.0149.i344, %next.1150.i343
+  %cmp.i69.i = icmp eq ptr %next.1150.i343, %tail.0149.i344
   %or.cond143.i = select i1 %tobool94.not.i, i1 true, i1 %cmp.i69.i
   br i1 %or.cond143.i, label %for.cond.backedge.i353, label %if.end.i70.i
 
 if.end.i70.i:                                     ; preds = %if.end54.i
-  %cmp1.i71.i = icmp eq ptr %head.0148.i345, %next.1150.i343
+  %cmp1.i71.i = icmp eq ptr %next.1150.i343, %head.0148.i345
   %.head.0148156.i = select i1 %cmp1.i71.i, ptr %cond.i347, ptr %head.0148.i345
   %prev.i73.i = getelementptr inbounds i8, ptr %next.1150.i343, i64 24
   %61 = load ptr, ptr %prev.i73.i, align 8
@@ -2167,12 +2167,12 @@ if.end40.i379:                                    ; preds = %if.end9.i367
   %active93.i382 = getelementptr inbounds i8, ptr %next.1150.i368, i64 8
   %65 = load i32, ptr %active93.i382, align 8
   %tobool94.not.i383 = icmp eq i32 %65, 0
-  %cmp.i69.i384 = icmp eq ptr %tail.0149.i369, %next.1150.i368
+  %cmp.i69.i384 = icmp eq ptr %next.1150.i368, %tail.0149.i369
   %or.cond143.i385 = select i1 %tobool94.not.i383, i1 true, i1 %cmp.i69.i384
   br i1 %or.cond143.i385, label %for.cond.backedge.i401, label %if.end.i70.i386
 
 if.end.i70.i386:                                  ; preds = %if.end40.i379
-  %cmp1.i71.i387 = icmp eq ptr %head.0148.i370, %next.1150.i368
+  %cmp1.i71.i387 = icmp eq ptr %next.1150.i368, %head.0148.i370
   %.head.0148156.i389 = select i1 %cmp1.i71.i387, ptr %cond.i372, ptr %head.0148.i370
   %prev.i73.i390 = getelementptr inbounds i8, ptr %next.1150.i368, i64 24
   %66 = load ptr, ptr %prev.i73.i390, align 8
@@ -2236,12 +2236,12 @@ if.end33.i426:                                    ; preds = %if.end9.i415
   %active93.i430 = getelementptr inbounds i8, ptr %next.1150.i416, i64 8
   %70 = load i32, ptr %active93.i430, align 8
   %tobool94.not.i431 = icmp eq i32 %70, 0
-  %cmp.i69.i432 = icmp eq ptr %tail.0149.i417, %next.1150.i416
+  %cmp.i69.i432 = icmp eq ptr %next.1150.i416, %tail.0149.i417
   %or.cond143.i433 = select i1 %tobool94.not.i431, i1 true, i1 %cmp.i69.i432
   br i1 %or.cond143.i433, label %for.cond.backedge.i449, label %if.end.i70.i434
 
 if.end.i70.i434:                                  ; preds = %if.end33.i426
-  %cmp1.i71.i435 = icmp eq ptr %head.0148.i418, %next.1150.i416
+  %cmp1.i71.i435 = icmp eq ptr %next.1150.i416, %head.0148.i418
   %.head.0148156.i437 = select i1 %cmp1.i71.i435, ptr %cond.i420, ptr %head.0148.i418
   %prev.i73.i438 = getelementptr inbounds i8, ptr %next.1150.i416, i64 24
   %71 = load ptr, ptr %prev.i73.i438, align 8
@@ -2305,12 +2305,12 @@ if.end33.i474:                                    ; preds = %if.end9.i463
   %active93.i478 = getelementptr inbounds i8, ptr %next.1150.i464, i64 8
   %75 = load i32, ptr %active93.i478, align 8
   %tobool94.not.i479 = icmp eq i32 %75, 0
-  %cmp.i69.i480 = icmp eq ptr %tail.0149.i465, %next.1150.i464
+  %cmp.i69.i480 = icmp eq ptr %next.1150.i464, %tail.0149.i465
   %or.cond143.i481 = select i1 %tobool94.not.i479, i1 true, i1 %cmp.i69.i480
   br i1 %or.cond143.i481, label %for.cond.backedge.i497, label %if.end.i70.i482
 
 if.end.i70.i482:                                  ; preds = %if.end33.i474
-  %cmp1.i71.i483 = icmp eq ptr %head.0148.i466, %next.1150.i464
+  %cmp1.i71.i483 = icmp eq ptr %next.1150.i464, %head.0148.i466
   %.head.0148156.i485 = select i1 %cmp1.i71.i483, ptr %cond.i468, ptr %head.0148.i466
   %prev.i73.i486 = getelementptr inbounds i8, ptr %next.1150.i464, i64 24
   %76 = load ptr, ptr %prev.i73.i486, align 8
@@ -2374,12 +2374,12 @@ if.end47.i524:                                    ; preds = %if.end9.i511
   %active93.i526 = getelementptr inbounds i8, ptr %next.1150.i512, i64 8
   %80 = load i32, ptr %active93.i526, align 8
   %tobool94.not.i527 = icmp eq i32 %80, 0
-  %cmp.i69.i528 = icmp eq ptr %tail.0149.i513, %next.1150.i512
+  %cmp.i69.i528 = icmp eq ptr %next.1150.i512, %tail.0149.i513
   %or.cond143.i529 = select i1 %tobool94.not.i527, i1 true, i1 %cmp.i69.i528
   br i1 %or.cond143.i529, label %for.cond.backedge.i545, label %if.end.i70.i530
 
 if.end.i70.i530:                                  ; preds = %if.end47.i524
-  %cmp1.i71.i531 = icmp eq ptr %head.0148.i514, %next.1150.i512
+  %cmp1.i71.i531 = icmp eq ptr %next.1150.i512, %head.0148.i514
   %.head.0148156.i533 = select i1 %cmp1.i71.i531, ptr %cond.i516, ptr %head.0148.i514
   %prev.i73.i534 = getelementptr inbounds i8, ptr %next.1150.i512, i64 24
   %81 = load ptr, ptr %prev.i73.i534, align 8
@@ -2454,12 +2454,12 @@ if.end60.i:                                       ; preds = %if.end9.i559
   %active108.i = getelementptr inbounds i8, ptr %next.1150.i560, i64 8
   %87 = load i32, ptr %active108.i, align 8
   %tobool109.not.i = icmp eq i32 %87, 0
-  %cmp.i103.i = icmp eq ptr %head.0148.i562, %next.1150.i560
+  %cmp.i103.i = icmp eq ptr %next.1150.i560, %head.0148.i562
   %or.cond144.i = select i1 %tobool109.not.i, i1 true, i1 %cmp.i103.i
   br i1 %or.cond144.i, label %for.cond.backedge.i571, label %if.end.i104.i
 
 if.end.i104.i:                                    ; preds = %if.end60.i
-  %cmp1.i105.i = icmp eq ptr %tail.0149.i561, %next.1150.i560
+  %cmp1.i105.i = icmp eq ptr %next.1150.i560, %tail.0149.i561
   %.tail.0149157.i = select i1 %cmp1.i105.i, ptr %cond.i564, ptr %tail.0149.i561
   %next.i107.i = getelementptr inbounds i8, ptr %next.1150.i560, i64 16
   %88 = load ptr, ptr %next.i107.i, align 8
@@ -2523,12 +2523,12 @@ if.end54.i599:                                    ; preds = %if.end9.i585
   %active108.i601 = getelementptr inbounds i8, ptr %next.1150.i586, i64 8
   %92 = load i32, ptr %active108.i601, align 8
   %tobool109.not.i602 = icmp eq i32 %92, 0
-  %cmp.i103.i603 = icmp eq ptr %head.0148.i588, %next.1150.i586
+  %cmp.i103.i603 = icmp eq ptr %next.1150.i586, %head.0148.i588
   %or.cond144.i604 = select i1 %tobool109.not.i602, i1 true, i1 %cmp.i103.i603
   br i1 %or.cond144.i604, label %for.cond.backedge.i620, label %if.end.i104.i605
 
 if.end.i104.i605:                                 ; preds = %if.end54.i599
-  %cmp1.i105.i606 = icmp eq ptr %tail.0149.i587, %next.1150.i586
+  %cmp1.i105.i606 = icmp eq ptr %next.1150.i586, %tail.0149.i587
   %.tail.0149157.i608 = select i1 %cmp1.i105.i606, ptr %cond.i590, ptr %tail.0149.i587
   %next.i107.i609 = getelementptr inbounds i8, ptr %next.1150.i586, i64 16
   %93 = load ptr, ptr %next.i107.i609, align 8
@@ -2592,12 +2592,12 @@ if.end33.i645:                                    ; preds = %if.end9.i634
   %active108.i650 = getelementptr inbounds i8, ptr %next.1150.i635, i64 8
   %97 = load i32, ptr %active108.i650, align 8
   %tobool109.not.i651 = icmp eq i32 %97, 0
-  %cmp.i103.i652 = icmp eq ptr %head.0148.i637, %next.1150.i635
+  %cmp.i103.i652 = icmp eq ptr %next.1150.i635, %head.0148.i637
   %or.cond144.i653 = select i1 %tobool109.not.i651, i1 true, i1 %cmp.i103.i652
   br i1 %or.cond144.i653, label %for.cond.backedge.i669, label %if.end.i104.i654
 
 if.end.i104.i654:                                 ; preds = %if.end33.i645
-  %cmp1.i105.i655 = icmp eq ptr %tail.0149.i636, %next.1150.i635
+  %cmp1.i105.i655 = icmp eq ptr %next.1150.i635, %tail.0149.i636
   %.tail.0149157.i657 = select i1 %cmp1.i105.i655, ptr %cond.i639, ptr %tail.0149.i636
   %next.i107.i658 = getelementptr inbounds i8, ptr %next.1150.i635, i64 16
   %98 = load ptr, ptr %next.i107.i658, align 8
@@ -2668,12 +2668,12 @@ if.end54.i700:                                    ; preds = %if.end33.i694
   %active108.i702 = getelementptr inbounds i8, ptr %next.1150.i684, i64 8
   %103 = load i32, ptr %active108.i702, align 8
   %tobool109.not.i703 = icmp eq i32 %103, 0
-  %cmp.i103.i704 = icmp eq ptr %head.0148.i686, %next.1150.i684
+  %cmp.i103.i704 = icmp eq ptr %next.1150.i684, %head.0148.i686
   %or.cond144.i705 = select i1 %tobool109.not.i703, i1 true, i1 %cmp.i103.i704
   br i1 %or.cond144.i705, label %for.cond.backedge.i721, label %if.end.i104.i706
 
 if.end.i104.i706:                                 ; preds = %if.end54.i700
-  %cmp1.i105.i707 = icmp eq ptr %tail.0149.i685, %next.1150.i684
+  %cmp1.i105.i707 = icmp eq ptr %next.1150.i684, %tail.0149.i685
   %.tail.0149157.i709 = select i1 %cmp1.i105.i707, ptr %cond.i688, ptr %tail.0149.i685
   %next.i107.i710 = getelementptr inbounds i8, ptr %next.1150.i684, i64 16
   %104 = load ptr, ptr %next.i107.i710, align 8
@@ -2730,11 +2730,11 @@ if.end9.i735:                                     ; preds = %ssl_cipher_apply_ru
   br i1 %tobool101.not.i749, label %for.cond.backedge.i770, label %if.then102.i750
 
 if.then102.i750:                                  ; preds = %if.end9.i735
-  %cmp.i89.i751 = icmp eq ptr %head.0148.i738, %next.1150.i736
+  %cmp.i89.i751 = icmp eq ptr %next.1150.i736, %head.0148.i738
   br i1 %cmp.i89.i751, label %ll_append_head.exit.i767, label %if.end.i90.i752
 
 if.end.i90.i752:                                  ; preds = %if.then102.i750
-  %cmp1.i91.i753 = icmp eq ptr %tail.0149.i737, %next.1150.i736
+  %cmp1.i91.i753 = icmp eq ptr %next.1150.i736, %tail.0149.i737
   %.tail.0149.i755 = select i1 %cmp1.i91.i753, ptr %cond.i740, ptr %tail.0149.i737
   %next.i93.i756 = getelementptr inbounds i8, ptr %next.1150.i736, i64 16
   %107 = load ptr, ptr %next.i93.i756, align 8
@@ -3061,7 +3061,7 @@ if.end9:                                          ; preds = %if.end9.lr.ph, %for
 if.then13:                                        ; preds = %if.end9
   %strength_bits14 = getelementptr inbounds i8, ptr %3, i64 68
   %4 = load i32, ptr %strength_bits14, align 4
-  %cmp15.not = icmp eq i32 %4, %strength_bits
+  %cmp15.not = icmp eq i32 %strength_bits, %4
   br i1 %cmp15.not, label %if.end83, label %for.cond.backedge
 
 if.end23:                                         ; preds = %if.end9
@@ -3070,7 +3070,7 @@ if.end23:                                         ; preds = %if.end9
 land.lhs.true:                                    ; preds = %if.end23
   %id = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i32, ptr %id, align 8
-  %cmp25.not = icmp eq i32 %5, %cipher_id
+  %cmp25.not = icmp eq i32 %cipher_id, %5
   br i1 %cmp25.not, label %if.end27, label %for.cond.backedge
 
 if.end27:                                         ; preds = %land.lhs.true, %if.end23
@@ -3119,7 +3119,7 @@ if.end54:                                         ; preds = %land.lhs.true49, %i
 land.lhs.true56:                                  ; preds = %if.end54
   %min_tls57 = getelementptr inbounds i8, ptr %3, i64 44
   %10 = load i32, ptr %min_tls57, align 4
-  %cmp58.not = icmp eq i32 %10, %min_tls
+  %cmp58.not = icmp eq i32 %min_tls, %10
   br i1 %cmp58.not, label %if.end60, label %for.cond.backedge
 
 if.end60:                                         ; preds = %land.lhs.true56, %if.end54
@@ -3155,11 +3155,11 @@ if.then85:                                        ; preds = %if.end83
   br i1 %tobool86.not, label %if.then87, label %for.cond.backedge
 
 if.then87:                                        ; preds = %if.then85
-  %cmp.i = icmp eq ptr %tail.0149, %next.1150
+  %cmp.i = icmp eq ptr %next.1150, %tail.0149
   br i1 %cmp.i, label %ll_append_tail.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then87
-  %cmp1.i = icmp eq ptr %head.0148, %next.1150
+  %cmp1.i = icmp eq ptr %next.1150, %head.0148
   %next.i = getelementptr inbounds i8, ptr %next.1150, i64 16
   %14 = load ptr, ptr %next.i, align 8
   %.head.0148 = select i1 %cmp1.i, ptr %14, ptr %head.0148
@@ -3201,12 +3201,12 @@ if.then92:                                        ; preds = %if.end83
   %active93 = getelementptr inbounds i8, ptr %next.1150, i64 8
   %17 = load i32, ptr %active93, align 8
   %tobool94.not = icmp eq i32 %17, 0
-  %cmp.i69 = icmp eq ptr %tail.0149, %next.1150
+  %cmp.i69 = icmp eq ptr %next.1150, %tail.0149
   %or.cond143 = select i1 %tobool94.not, i1 true, i1 %cmp.i69
   br i1 %or.cond143, label %for.cond.backedge, label %if.end.i70
 
 if.end.i70:                                       ; preds = %if.then92
-  %cmp1.i71 = icmp eq ptr %head.0148, %next.1150
+  %cmp1.i71 = icmp eq ptr %next.1150, %head.0148
   %next.i87 = getelementptr inbounds i8, ptr %next.1150, i64 16
   %18 = load ptr, ptr %next.i87, align 8
   %.head.0148156 = select i1 %cmp1.i71, ptr %18, ptr %head.0148
@@ -3248,11 +3248,11 @@ if.then99:                                        ; preds = %if.else97
   br i1 %tobool101.not, label %for.cond.backedge, label %if.then102
 
 if.then102:                                       ; preds = %if.then99
-  %cmp.i89 = icmp eq ptr %head.0148, %next.1150
+  %cmp.i89 = icmp eq ptr %next.1150, %head.0148
   br i1 %cmp.i89, label %ll_append_head.exit, label %if.end.i90
 
 if.end.i90:                                       ; preds = %if.then102
-  %cmp1.i91 = icmp eq ptr %tail.0149, %next.1150
+  %cmp1.i91 = icmp eq ptr %next.1150, %tail.0149
   %prev.i102 = getelementptr inbounds i8, ptr %next.1150, i64 24
   %22 = load ptr, ptr %prev.i102, align 8
   %.tail.0149 = select i1 %cmp1.i91, ptr %22, ptr %tail.0149
@@ -3297,12 +3297,12 @@ if.then107:                                       ; preds = %if.else105
   %active108 = getelementptr inbounds i8, ptr %next.1150, i64 8
   %25 = load i32, ptr %active108, align 8
   %tobool109.not = icmp eq i32 %25, 0
-  %cmp.i103 = icmp eq ptr %head.0148, %next.1150
+  %cmp.i103 = icmp eq ptr %next.1150, %head.0148
   %or.cond144 = select i1 %tobool109.not, i1 true, i1 %cmp.i103
   br i1 %or.cond144, label %for.cond.backedge, label %if.end.i104
 
 if.end.i104:                                      ; preds = %if.then107
-  %cmp1.i105 = icmp eq ptr %tail.0149, %next.1150
+  %cmp1.i105 = icmp eq ptr %next.1150, %tail.0149
   %prev.i121 = getelementptr inbounds i8, ptr %next.1150, i64 24
   %26 = load ptr, ptr %prev.i121, align 8
   %.tail.0149157 = select i1 %cmp1.i105, ptr %26, ptr %tail.0149
@@ -3508,12 +3508,12 @@ if.end83.i:                                       ; preds = %if.then13.i
   %active93.i = getelementptr inbounds i8, ptr %next.1150.i, i64 8
   %14 = load i32, ptr %active93.i, align 8
   %tobool94.not.i = icmp eq i32 %14, 0
-  %cmp.i69.i = icmp eq ptr %tail.0149.i, %next.1150.i
+  %cmp.i69.i = icmp eq ptr %next.1150.i, %tail.0149.i
   %or.cond143.i = select i1 %tobool94.not.i, i1 true, i1 %cmp.i69.i
   br i1 %or.cond143.i, label %for.cond.backedge.i, label %if.end.i70.i
 
 if.end.i70.i:                                     ; preds = %if.end83.i
-  %cmp1.i71.i = icmp eq ptr %head.0148.i, %next.1150.i
+  %cmp1.i71.i = icmp eq ptr %next.1150.i, %head.0148.i
   %.head.0148156.i = select i1 %cmp1.i71.i, ptr %cond.i, ptr %head.0148.i
   %prev.i73.i = getelementptr inbounds i8, ptr %next.1150.i, i64 24
   %15 = load ptr, ptr %prev.i73.i, align 8
@@ -4746,7 +4746,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %nid = getelementptr inbounds [14 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_mac, i64 0, i64 %indvars.iv, i32 1
   %0 = load i32, ptr %nid, align 4
-  %cmp1 = icmp eq i32 %0, %md_nid
+  %cmp1 = icmp eq i32 %md_nid, %0
   br i1 %cmp1, label %return.split.loop.exit6, label %for.inc
 
 for.inc:                                          ; preds = %for.body

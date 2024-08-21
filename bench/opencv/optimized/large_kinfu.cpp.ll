@@ -4936,7 +4936,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu13SubmapManagerINS_3MatEE9getSubma
 23:                                               ; preds = %3
   %24 = icmp sgt i32 %2, -1
   %25 = trunc i64 %15 to i32
-  %26 = icmp sgt i32 %25, %2
+  %26 = icmp slt i32 %2, %25
   %or.cond = and i1 %24, %26
   br i1 %or.cond, label %34, label %27
 
@@ -5171,7 +5171,7 @@ _ZSt10_ConstructIN2cv3MatEJRS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
   %61 = tail call ptr @__cxa_begin_catch(ptr %60) #24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %53
+  %.not4.i.i.i.i.i.i = icmp eq ptr %53, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %58, %.lr.ph.i.i.i.i.i.i
@@ -5777,7 +5777,7 @@ _ZNSt3mapIiN2cv5kinfu6SubmapINS0_3MatEE14PoseConstraintESt4lessIiESaISt4pairIKiS
 99:                                               ; preds = %_ZNSt3mapIiN2cv5kinfu6SubmapINS0_3MatEE14PoseConstraintESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i.i
   %100 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i, i64 32
   %101 = load i32, ptr %100, align 4
-  %102 = icmp sgt i32 %101, %68
+  %102 = icmp slt i32 %68, %101
   br i1 %102, label %.critedge.i.i, label %104
 
 .critedge.i.i:                                    ; preds = %99, %_ZNSt3mapIiN2cv5kinfu6SubmapINS0_3MatEE14PoseConstraintESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i.i, %89
@@ -6217,7 +6217,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit97:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i.i.i.i98, label %_ZNSt10_HashtableIiSt4pairIKiN2cv5kinfu13SubmapManagerINS2_3MatEE16ActiveSubmapDataEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit.i.i.i, label %262, !llvm.loop !143
 
 _ZNSt10_HashtableIiSt4pairIKiN2cv5kinfu13SubmapManagerINS2_3MatEE16ActiveSubmapDataEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit.i.i.i: ; preds = %262
-  %264 = icmp eq ptr %261, %.0.i.i.i.i
+  %264 = icmp eq ptr %.0.i.i.i.i, %261
   %265 = load ptr, ptr %.sroa.0153.0240, align 8
   %.not18.i.i.i.i = icmp eq ptr %265, null
   br i1 %264, label %266, label %280
@@ -6984,7 +6984,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -7423,7 +7423,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %13
+  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -7707,7 +7707,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv5kinfu13SubmapManagerINS_3MatEE18e
 58:                                               ; preds = %57
   %59 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %60, %1
+  %61 = icmp eq i32 %1, %60
   br i1 %61, label %.loopexit222, label %57, !llvm.loop !202
 
 62:                                               ; preds = %52
@@ -7726,11 +7726,11 @@ define linkonce_odr hidden noundef i32 @_ZN2cv5kinfu13SubmapManagerINS_3MatEE18e
   %72 = load ptr, ptr %70, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 4
-  %75 = icmp eq i32 %74, %1
+  %75 = icmp eq i32 %1, %74
   br i1 %75, label %.loopexit222, label %.lr.ph.i.i.i.i.i
 
 76:                                               ; preds = %79
-  %77 = icmp eq i32 %81, %1
+  %77 = icmp eq i32 %1, %81
   br i1 %77, label %.loopexit222, label %.lr.ph.i.i.i.i.i, !llvm.loop !145
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %71, %76
@@ -8158,7 +8158,7 @@ _ZNSt3mapIiN2cv5kinfu6SubmapINS0_3MatEE14PoseConstraintESt4lessIiESaISt4pairIKiS
 200:                                              ; preds = %_ZNSt3mapIiN2cv5kinfu6SubmapINS0_3MatEE14PoseConstraintESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i.i
   %201 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i, i64 32
   %202 = load i32, ptr %201, align 4
-  %203 = icmp sgt i32 %202, %191
+  %203 = icmp slt i32 %191, %202
   br i1 %203, label %.critedge.i.i, label %205
 
 .critedge.i.i:                                    ; preds = %200, %_ZNSt3mapIiN2cv5kinfu6SubmapINS0_3MatEE14PoseConstraintESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i.i, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit
@@ -8215,7 +8215,7 @@ _ZNSt3mapIiN2cv5kinfu6SubmapINS0_3MatEE14PoseConstraintESt4lessIiESaISt4pairIKiS
 218:                                              ; preds = %_ZNSt3mapIiN2cv5kinfu6SubmapINS0_3MatEE14PoseConstraintESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i.i101
   %219 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i96, i64 32
   %220 = load i32, ptr %219, align 4
-  %221 = icmp sgt i32 %220, %211
+  %221 = icmp slt i32 %211, %220
   br i1 %221, label %.critedge.i.i103, label %223
 
 .critedge.i.i103:                                 ; preds = %218, %_ZNSt3mapIiN2cv5kinfu6SubmapINS0_3MatEE14PoseConstraintESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i.i101, %205
@@ -9173,7 +9173,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv5kinfu13SubmapManagerINS_3M
 11:                                               ; preds = %10
   %12 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, %2
+  %14 = icmp eq i32 %2, %13
   br i1 %14, label %.loopexit37, label %10, !llvm.loop !202
 
 15:                                               ; preds = %3
@@ -9192,11 +9192,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv5kinfu13SubmapManagerINS_3M
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, %2
+  %28 = icmp eq i32 %2, %27
   br i1 %28, label %.loopexit37, label %.lr.ph.i.i.i.i.i
 
 29:                                               ; preds = %32
-  %30 = icmp eq i32 %34, %2
+  %30 = icmp eq i32 %2, %34
   br i1 %30, label %.loopexit37, label %.lr.ph.i.i.i.i.i, !llvm.loop !145
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %24, %29
@@ -10053,7 +10053,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIiSt4pairIKiN2cv5kinfu6SubmapINS2_
 21:                                               ; preds = %18
   %.not.i.i = icmp ne ptr %19, null
   %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = icmp eq ptr %22, %20
+  %23 = icmp eq ptr %20, %22
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %23
   br i1 %or.cond.i.i, label %.thread, label %24
 
@@ -10091,7 +10091,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN2cv5kinfu6SubmapINS2_3MatEE14PoseConstraintEESt10_Sel
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN2cv5kinfu6SubmapINS2_3MatEE14PoseConstraintEESt10_Select1stIS8_ESt4lessIiESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -10691,7 +10691,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv5kinfu13SubmapManagerINS2_3MatEE16ActiveSubmapD
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKiN2cv5kinfu13SubmapManagerINS2_3MatEE16ActiveSubmapDataEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKiN2cv5kinfu13SubmapManagerINS2_3MatEE16ActiveSubmapDataEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -11223,7 +11223,7 @@ define linkonce_odr hidden void @_ZN2cv5kinfu6SubmapINS_3MatEE9integrateERKNS_11
   %7 = alloca %"class.std::allocator.12", align 1
   %8 = getelementptr inbounds i8, ptr %0, i64 192
   %9 = load i32, ptr %8, align 8
-  %.not = icmp sgt i32 %9, %4
+  %.not = icmp slt i32 %4, %9
   br i1 %.not, label %10, label %18
 
 10:                                               ; preds = %5
@@ -11461,7 +11461,7 @@ _ZNSt16allocator_traitsISaIN2cv3PtrINS0_5kinfu6SubmapINS0_3MatEEEEEEE9constructI
 _ZNSt6vectorIN2cv3PtrINS0_5kinfu6SubmapINS0_3MatEEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_5kinfu6SubmapINS0_3MatEEEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_5kinfu6SubmapINS0_3MatEEEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit ], [ %42, %.lr.ph.i.i.i.i ]
   %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv3PtrINS0_5kinfu6SubmapINS0_3MatEEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv3PtrINS0_5kinfu6SubmapINS0_3MatEEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i17
@@ -11558,7 +11558,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu13SubmapManagerINS_4UMatEE9getSubm
 23:                                               ; preds = %3
   %24 = icmp sgt i32 %2, -1
   %25 = trunc i64 %15 to i32
-  %26 = icmp sgt i32 %25, %2
+  %26 = icmp slt i32 %2, %25
   %or.cond = and i1 %24, %26
   br i1 %or.cond, label %34, label %27
 
@@ -11793,7 +11793,7 @@ _ZSt10_ConstructIN2cv4UMatEJRS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
   %61 = tail call ptr @__cxa_begin_catch(ptr %60) #24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %53
+  %.not4.i.i.i.i.i.i = icmp eq ptr %53, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv4UMatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %58, %.lr.ph.i.i.i.i.i.i
@@ -12131,7 +12131,7 @@ _ZNSt3mapIiN2cv5kinfu6SubmapINS0_4UMatEE14PoseConstraintESt4lessIiESaISt4pairIKi
 99:                                               ; preds = %_ZNSt3mapIiN2cv5kinfu6SubmapINS0_4UMatEE14PoseConstraintESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i.i
   %100 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i, i64 32
   %101 = load i32, ptr %100, align 4
-  %102 = icmp sgt i32 %101, %68
+  %102 = icmp slt i32 %68, %101
   br i1 %102, label %.critedge.i.i, label %104
 
 .critedge.i.i:                                    ; preds = %99, %_ZNSt3mapIiN2cv5kinfu6SubmapINS0_4UMatEE14PoseConstraintESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i.i, %89
@@ -12571,7 +12571,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit97:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i.i.i.i98, label %_ZNSt10_HashtableIiSt4pairIKiN2cv5kinfu13SubmapManagerINS2_4UMatEE16ActiveSubmapDataEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit.i.i.i, label %262, !llvm.loop !313
 
 _ZNSt10_HashtableIiSt4pairIKiN2cv5kinfu13SubmapManagerINS2_4UMatEE16ActiveSubmapDataEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit.i.i.i: ; preds = %262
-  %264 = icmp eq ptr %261, %.0.i.i.i.i
+  %264 = icmp eq ptr %.0.i.i.i.i, %261
   %265 = load ptr, ptr %.sroa.0153.0240, align 8
   %.not18.i.i.i.i = icmp eq ptr %265, null
   br i1 %264, label %266, label %280
@@ -13338,7 +13338,7 @@ _ZSt10_ConstructIN2cv4UMatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv4UMatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -13671,7 +13671,7 @@ _ZSt10_ConstructIN2cv4UMatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %13
+  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv4UMatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -13815,7 +13815,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv5kinfu13SubmapManagerINS_4UMatEE18
 58:                                               ; preds = %57
   %59 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %60, %1
+  %61 = icmp eq i32 %1, %60
   br i1 %61, label %.loopexit222, label %57, !llvm.loop !362
 
 62:                                               ; preds = %52
@@ -13834,11 +13834,11 @@ define linkonce_odr hidden noundef i32 @_ZN2cv5kinfu13SubmapManagerINS_4UMatEE18
   %72 = load ptr, ptr %70, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 4
-  %75 = icmp eq i32 %74, %1
+  %75 = icmp eq i32 %1, %74
   br i1 %75, label %.loopexit222, label %.lr.ph.i.i.i.i.i
 
 76:                                               ; preds = %79
-  %77 = icmp eq i32 %81, %1
+  %77 = icmp eq i32 %1, %81
   br i1 %77, label %.loopexit222, label %.lr.ph.i.i.i.i.i, !llvm.loop !315
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %71, %76
@@ -14266,7 +14266,7 @@ _ZNSt3mapIiN2cv5kinfu6SubmapINS0_4UMatEE14PoseConstraintESt4lessIiESaISt4pairIKi
 200:                                              ; preds = %_ZNSt3mapIiN2cv5kinfu6SubmapINS0_4UMatEE14PoseConstraintESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i.i
   %201 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i, i64 32
   %202 = load i32, ptr %201, align 4
-  %203 = icmp sgt i32 %202, %191
+  %203 = icmp slt i32 %191, %202
   br i1 %203, label %.critedge.i.i, label %205
 
 .critedge.i.i:                                    ; preds = %200, %_ZNSt3mapIiN2cv5kinfu6SubmapINS0_4UMatEE14PoseConstraintESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i.i, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit
@@ -14323,7 +14323,7 @@ _ZNSt3mapIiN2cv5kinfu6SubmapINS0_4UMatEE14PoseConstraintESt4lessIiESaISt4pairIKi
 218:                                              ; preds = %_ZNSt3mapIiN2cv5kinfu6SubmapINS0_4UMatEE14PoseConstraintESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i.i101
   %219 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i96, i64 32
   %220 = load i32, ptr %219, align 4
-  %221 = icmp sgt i32 %220, %211
+  %221 = icmp slt i32 %211, %220
   br i1 %221, label %.critedge.i.i103, label %223
 
 .critedge.i.i103:                                 ; preds = %218, %_ZNSt3mapIiN2cv5kinfu6SubmapINS0_4UMatEE14PoseConstraintESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i.i101, %205
@@ -15004,7 +15004,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv5kinfu13SubmapManagerINS_4U
 11:                                               ; preds = %10
   %12 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, %2
+  %14 = icmp eq i32 %2, %13
   br i1 %14, label %.loopexit37, label %10, !llvm.loop !362
 
 15:                                               ; preds = %3
@@ -15023,11 +15023,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv5kinfu13SubmapManagerINS_4U
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, %2
+  %28 = icmp eq i32 %2, %27
   br i1 %28, label %.loopexit37, label %.lr.ph.i.i.i.i.i
 
 29:                                               ; preds = %32
-  %30 = icmp eq i32 %34, %2
+  %30 = icmp eq i32 %2, %34
   br i1 %30, label %.loopexit37, label %.lr.ph.i.i.i.i.i, !llvm.loop !315
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %24, %29
@@ -15871,7 +15871,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIiSt4pairIKiN2cv5kinfu6SubmapINS2_
 21:                                               ; preds = %18
   %.not.i.i = icmp ne ptr %19, null
   %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = icmp eq ptr %22, %20
+  %23 = icmp eq ptr %20, %22
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %23
   br i1 %or.cond.i.i, label %.thread, label %24
 
@@ -15909,7 +15909,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN2cv5kinfu6SubmapINS2_4UMatEE14PoseConstraintEESt10_Se
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN2cv5kinfu6SubmapINS2_4UMatEE14PoseConstraintEESt10_Select1stIS8_ESt4lessIiESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -16331,7 +16331,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv5kinfu13SubmapManagerINS2_4UMatEE16ActiveSubmap
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKiN2cv5kinfu13SubmapManagerINS2_4UMatEE16ActiveSubmapDataEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKiN2cv5kinfu13SubmapManagerINS2_4UMatEE16ActiveSubmapDataEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -16664,7 +16664,7 @@ define linkonce_odr hidden void @_ZN2cv5kinfu6SubmapINS_4UMatEE9integrateERKNS_1
   %7 = alloca %"class.std::allocator.12", align 1
   %8 = getelementptr inbounds i8, ptr %0, i64 192
   %9 = load i32, ptr %8, align 8
-  %.not = icmp sgt i32 %9, %4
+  %.not = icmp slt i32 %4, %9
   br i1 %.not, label %10, label %18
 
 10:                                               ; preds = %5
@@ -16900,7 +16900,7 @@ _ZNSt16allocator_traitsISaIN2cv3PtrINS0_5kinfu6SubmapINS0_4UMatEEEEEEE9construct
 _ZNSt6vectorIN2cv3PtrINS0_5kinfu6SubmapINS0_4UMatEEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_5kinfu6SubmapINS0_4UMatEEEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_5kinfu6SubmapINS0_4UMatEEEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit ], [ %42, %.lr.ph.i.i.i.i ]
   %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv3PtrINS0_5kinfu6SubmapINS0_4UMatEEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv3PtrINS0_5kinfu6SubmapINS0_4UMatEEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i17

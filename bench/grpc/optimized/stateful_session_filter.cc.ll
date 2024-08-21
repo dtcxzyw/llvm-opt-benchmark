@@ -875,7 +875,7 @@ do.end8:                                          ; preds = %_ZNK9grpc_core21Ser
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 80
-  %cmp.not.i20 = icmp ule i64 %sub.ptr.div.i.i, %7
+  %cmp.not.i20 = icmp uge i64 %7, %sub.ptr.div.i.i
   %add.ptr.i.i21 = getelementptr inbounds %"struct.grpc_core::StatefulSessionMethodParsedConfig::CookieConfig", ptr %9, i64 %7
   %cmp11.not218 = icmp eq ptr %9, null
   %cmp11.not = or i1 %cmp11.not218, %cmp.not.i20
@@ -1371,7 +1371,7 @@ if.then8.i.i:                                     ; preds = %call3.i.noexc.i
 
 if.end10.i.i:                                     ; preds = %if.then8.i.i, %call3.i.noexc.i
   %62 = load i64, ptr %__begin2.i, align 8, !noalias !11
-  %cmp.i.i.i29.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i.i, %62
+  %cmp.i.i.i29.i = icmp ugt i64 %62, %retval.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i29.i, label %if.then.i.i.i31.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i
 
 if.then.i.i.i31.i:                                ; preds = %if.end10.i.i
@@ -3316,7 +3316,7 @@ if.then8.i:                                       ; preds = %call3.i.noexc
 
 if.end10.i:                                       ; preds = %if.then8.i, %call3.i.noexc
   %6 = load i64, ptr %this, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i, %6
+  %cmp.i.i.i = icmp ugt i64 %6, %retval.sroa.0.0.copyload.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i
@@ -4785,7 +4785,7 @@ if.then8.i.i.i:                                   ; preds = %_ZN4absl12lts_20230
 
 if.end10.i.i.i:                                   ; preds = %if.then8.i.i.i, %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i.i.i
   %4 = load i64, ptr %it, align 8, !alias.scope !66
-  %cmp.i.i.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %cmp.i.i.i.i.i = icmp ugt i64 %4, %retval.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end10.i.i.i
@@ -4860,7 +4860,7 @@ if.then8.i:                                       ; preds = %_ZN4absl12lts_20230
 
 if.end10.i:                                       ; preds = %if.then8.i, %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
   %11 = load i64, ptr %it, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %11
+  %cmp.i.i.i = icmp ugt i64 %11, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i
@@ -5252,7 +5252,7 @@ cond.false.i.i:                                   ; preds = %entry
 _ZNK9grpc_core24XdsOverrideHostAttribute19actual_address_listEv.exit: ; preds = %entry, %cond.false.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %0, %cond.false.i.i ], [ 0, %entry ]
   %retval.sroa.3.0.i.i = phi ptr [ %payload_.i.i.i, %cond.false.i.i ], [ null, %entry ]
-  %cmp.i = icmp eq i64 %retval.sroa.0.0.i.i, %cookie_address_list.coerce0
+  %cmp.i = icmp eq i64 %cookie_address_list.coerce0, %retval.sroa.0.0.i.i
   br i1 %cmp.i, label %land.rhs.i, label %if.end
 
 land.rhs.i:                                       ; preds = %_ZNK9grpc_core24XdsOverrideHostAttribute19actual_address_listEv.exit
@@ -5262,7 +5262,7 @@ land.rhs.i:                                       ; preds = %_ZNK9grpc_core24Xds
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %land.rhs.i
   %bcmp.i = tail call i32 @bcmp(ptr %cookie_address_list.coerce1, ptr %retval.sroa.3.0.i.i, i64 %cookie_address_list.coerce0)
   %cmp.i.i = icmp ne i32 %bcmp.i, 0
-  %or.cond = or i1 %cmp.i.i, %cluster_changed
+  %or.cond = or i1 %cluster_changed, %cmp.i.i
   br i1 %or.cond, label %if.end, label %return
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %land.rhs.i
@@ -5787,7 +5787,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12

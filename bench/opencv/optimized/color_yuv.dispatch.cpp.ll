@@ -1346,12 +1346,12 @@ define hidden void @_ZN2cv3hal12cpu_baseline21cvtThreePlaneYUVtoBGREPKhmPhmiiibi
   %12 = alloca %"class.std::allocator", align 1
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline21cvtThreePlaneYUVtoBGREPKhmPhmiiibiE26__cv_trace_location_fn2065)
   %13 = sext i32 %5 to i64
-  %14 = mul i64 %13, %1
+  %14 = mul i64 %1, %13
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
   %16 = sdiv i32 %5, 4
   %17 = add nsw i32 %16, %5
   %18 = sext i32 %17 to i64
-  %19 = mul i64 %18, %1
+  %19 = mul i64 %1, %18
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
   %21 = sdiv i32 %4, 2
   %22 = srem i32 %5, 4
@@ -1678,7 +1678,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline21cvtBGRtoThreePlaneYUVEPKhmPhmiiibi
   %13 = alloca %"class.cv::Range", align 4
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline21cvtBGRtoThreePlaneYUVEPKhmPhmiiibiE26__cv_trace_location_fn2097)
   %14 = sext i32 %5 to i64
-  %15 = mul i64 %14, %3
+  %15 = mul i64 %3, %14
   %16 = getelementptr inbounds i8, ptr %2, i64 %15
   %17 = icmp eq i32 %8, 2
   %18 = zext i1 %7 to i8
@@ -4747,7 +4747,7 @@ define void @_ZN2cv3hal19cvtTwoPlaneYUVtoBGREPKhmPhmiiibi(ptr noundef %0, i64 no
 
 .noexc:                                           ; preds = %9
   %14 = sext i32 %5 to i64
-  %15 = mul i64 %14, %1
+  %15 = mul i64 %1, %14
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
   invoke void @_ZN2cv3hal12cpu_baseline19cvtTwoPlaneYUVtoBGREPKhmS3_mPhmiiibi(ptr noundef %0, i64 noundef %1, ptr noundef %16, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, i32 noundef %8)
           to label %17 unwind label %24

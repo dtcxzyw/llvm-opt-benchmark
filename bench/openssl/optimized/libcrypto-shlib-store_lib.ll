@@ -1883,7 +1883,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %call2 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %digest) #9
   %conv = sext i32 %call2 to i64
-  %cmp3.not = icmp eq i64 %conv, %len
+  %cmp3.not = icmp eq i64 %len, %conv
   br i1 %cmp3.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %land.lhs.true

@@ -278,7 +278,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -3028,7 +3028,7 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   store i8 1, ptr %9, align 1
   %80 = load i32, ptr %67, align 8
   %81 = sext i32 %80 to i64
-  %82 = icmp ugt i64 %81, %2
+  %82 = icmp ult i64 %2, %81
   %83 = zext i1 %82 to i8
   store i8 %83, ptr %34, align 1
   %84 = getelementptr inbounds i8, ptr %9, i64 2
@@ -4316,7 +4316,7 @@ define noundef zeroext i1 @_ZN29MLPoliciesStandAloneFunctions41isPrimitiveModali
 
 10:                                               ; preds = %8
   %not. = xor i1 %1, true
-  %11 = and i1 %not., %2
+  %11 = and i1 %2, %not.
   br label %25
 
 12:                                               ; preds = %5, %5
@@ -4379,12 +4379,12 @@ declare noundef i32 @_ZNK9MeshModel8dataMaskEv(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN29MLPoliciesStandAloneFunctions37isPrimitiveModalityWorthToBeActivatedEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEbbb(i32 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #17 align 2 {
   %.not = xor i1 %3, true
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %5, label %7
 
 5:                                                ; preds = %4
   %6 = and i1 %1, %3
-  %brmerge9.demorgan = and i1 %6, %2
+  %brmerge9.demorgan = and i1 %2, %6
   br label %7
 
 7:                                                ; preds = %5, %4

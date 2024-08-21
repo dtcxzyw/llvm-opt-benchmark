@@ -110,8 +110,8 @@ if.end.i:                                         ; preds = %entry
 
 if.end5.i:                                        ; preds = %if.end.i
   %2 = add nsw i32 %call, -918000
-  %or.cond36.i = icmp ult i32 %2, -917232
-  br i1 %or.cond36.i, label %return, label %while.body.i.i
+  %or.cond40.i = icmp ult i32 %2, -917232
+  br i1 %or.cond40.i, label %return, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end5.i, %if.end18.i.i
   %min.016.i.i = phi i32 [ %min.1.i.i, %if.end18.i.i ], [ 0, %if.end5.i ]
@@ -123,7 +123,7 @@ while.body.i.i:                                   ; preds = %if.end5.i, %if.end1
   %arrayidx5.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i
   %last6.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 4
   %3 = load i32, ptr %last6.i.i, align 4
-  %cmp7.i.i = icmp ult i32 %3, %call
+  %cmp7.i.i = icmp ugt i32 %call, %3
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %while.body.i.i
@@ -132,7 +132,7 @@ if.then8.i.i:                                     ; preds = %while.body.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
   %4 = load i32, ptr %arrayidx5.i.i, align 8
-  %cmp13.i.i = icmp ugt i32 %4, %call
+  %cmp13.i.i = icmp ult i32 %call, %4
   br i1 %cmp13.i.i, label %if.then14.i.i, label %return
 
 if.then14.i.i:                                    ; preds = %if.else.i.i
@@ -147,8 +147,8 @@ if.end18.i.i:                                     ; preds = %if.then14.i.i, %if.
 
 if.end7.i:                                        ; preds = %if.end18.i.i
   %5 = add nsw i32 %call, -262142
-  %or.cond37.i = icmp ult i32 %5, -257790
-  br i1 %or.cond37.i, label %return, label %while.body.i10.i
+  %or.cond41.i = icmp ult i32 %5, -257790
+  br i1 %or.cond41.i, label %return, label %while.body.i10.i
 
 while.body.i10.i:                                 ; preds = %if.end7.i, %if.end18.i25.i
   %min.016.i11.i = phi i32 [ %min.1.i27.i, %if.end18.i25.i ], [ 0, %if.end7.i ]
@@ -160,7 +160,7 @@ while.body.i10.i:                                 ; preds = %if.end7.i, %if.end1
   %arrayidx5.i17.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i
   %last6.i18.i = getelementptr inbounds i8, ptr %arrayidx5.i17.i, i64 4
   %6 = load i32, ptr %last6.i18.i, align 4
-  %cmp7.i19.i = icmp ult i32 %6, %call
+  %cmp7.i19.i = icmp ugt i32 %call, %6
   br i1 %cmp7.i19.i, label %if.then8.i29.i, label %if.else.i20.i
 
 if.then8.i29.i:                                   ; preds = %while.body.i10.i
@@ -169,7 +169,7 @@ if.then8.i29.i:                                   ; preds = %while.body.i10.i
 
 if.else.i20.i:                                    ; preds = %while.body.i10.i
   %7 = load i32, ptr %arrayidx5.i17.i, align 8
-  %cmp13.i21.i = icmp ugt i32 %7, %call
+  %cmp13.i21.i = icmp ult i32 %call, %7
   br i1 %cmp13.i21.i, label %if.then14.i23.i, label %return
 
 if.then14.i23.i:                                  ; preds = %if.else.i20.i
@@ -462,8 +462,8 @@ if.end.i.i:                                       ; preds = %while.end
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %9 = add nsw i32 %call.i, -918000
-  %or.cond36.i.i = icmp ult i32 %9, -917232
-  br i1 %or.cond36.i.i, label %.loopexit, label %while.body.i.i.i
+  %or.cond40.i.i = icmp ult i32 %9, -917232
+  br i1 %or.cond40.i.i, label %.loopexit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end5.i.i, %if.end18.i.i.i
   %min.016.i.i.i = phi i32 [ %min.1.i.i.i, %if.end18.i.i.i ], [ 0, %if.end5.i.i ]
@@ -475,7 +475,7 @@ while.body.i.i.i:                                 ; preds = %if.end5.i.i, %if.en
   %arrayidx5.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i
   %last6.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i.i, i64 4
   %10 = load i32, ptr %last6.i.i.i, align 4
-  %cmp7.i.i.i = icmp ult i32 %10, %call.i
+  %cmp7.i.i.i = icmp ugt i32 %call.i, %10
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %while.body.i.i.i
@@ -484,7 +484,7 @@ if.then8.i.i.i:                                   ; preds = %while.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   %11 = load i32, ptr %arrayidx5.i.i.i, align 8
-  %cmp13.i.i.i = icmp ugt i32 %11, %call.i
+  %cmp13.i.i.i = icmp ult i32 %call.i, %11
   br i1 %cmp13.i.i.i, label %if.then14.i.i.i, label %utf8_width.exit
 
 if.then14.i.i.i:                                  ; preds = %if.else.i.i.i
@@ -499,8 +499,8 @@ if.end18.i.i.i:                                   ; preds = %if.then14.i.i.i, %i
 
 if.end7.i.i:                                      ; preds = %if.end18.i.i.i
   %12 = add nsw i32 %call.i, -262142
-  %or.cond37.i.i = icmp ult i32 %12, -257790
-  br i1 %or.cond37.i.i, label %.loopexit, label %while.body.i10.i.i
+  %or.cond41.i.i = icmp ult i32 %12, -257790
+  br i1 %or.cond41.i.i, label %.loopexit, label %while.body.i10.i.i
 
 while.body.i10.i.i:                               ; preds = %if.end7.i.i, %if.end18.i25.i.i
   %min.016.i11.i.i = phi i32 [ %min.1.i27.i.i, %if.end18.i25.i.i ], [ 0, %if.end7.i.i ]
@@ -512,7 +512,7 @@ while.body.i10.i.i:                               ; preds = %if.end7.i.i, %if.en
   %arrayidx5.i17.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i
   %last6.i18.i.i = getelementptr inbounds i8, ptr %arrayidx5.i17.i.i, i64 4
   %13 = load i32, ptr %last6.i18.i.i, align 4
-  %cmp7.i19.i.i = icmp ult i32 %13, %call.i
+  %cmp7.i19.i.i = icmp ugt i32 %call.i, %13
   br i1 %cmp7.i19.i.i, label %if.then8.i29.i.i, label %if.else.i20.i.i
 
 if.then8.i29.i.i:                                 ; preds = %while.body.i10.i.i
@@ -521,7 +521,7 @@ if.then8.i29.i.i:                                 ; preds = %while.body.i10.i.i
 
 if.else.i20.i.i:                                  ; preds = %while.body.i10.i.i
   %14 = load i32, ptr %arrayidx5.i17.i.i, align 8
-  %cmp13.i21.i.i = icmp ugt i32 %14, %call.i
+  %cmp13.i21.i.i = icmp ult i32 %call.i, %14
   br i1 %cmp13.i21.i.i, label %if.then14.i23.i.i, label %.loopexit
 
 if.then14.i23.i.i:                                ; preds = %if.else.i20.i.i
@@ -977,8 +977,8 @@ if.end.i.i:                                       ; preds = %if.end62
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %48 = add nsw i32 %call.i71, -918000
-  %or.cond36.i.i = icmp ult i32 %48, -917232
-  br i1 %or.cond36.i.i, label %if.end72, label %while.body.i.i.i
+  %or.cond40.i.i = icmp ult i32 %48, -917232
+  br i1 %or.cond40.i.i, label %if.end72, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end5.i.i, %if.end18.i.i.i
   %min.016.i.i.i = phi i32 [ %min.1.i.i.i, %if.end18.i.i.i ], [ 0, %if.end5.i.i ]
@@ -990,7 +990,7 @@ while.body.i.i.i:                                 ; preds = %if.end5.i.i, %if.en
   %arrayidx5.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i
   %last6.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i.i, i64 4
   %49 = load i32, ptr %last6.i.i.i, align 4
-  %cmp7.i.i.i = icmp ult i32 %49, %call.i71
+  %cmp7.i.i.i = icmp ugt i32 %call.i71, %49
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %while.body.i.i.i
@@ -999,7 +999,7 @@ if.then8.i.i.i:                                   ; preds = %while.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   %50 = load i32, ptr %arrayidx5.i.i.i, align 8
-  %cmp13.i.i.i = icmp ugt i32 %50, %call.i71
+  %cmp13.i.i.i = icmp ult i32 %call.i71, %50
   br i1 %cmp13.i.i.i, label %if.then14.i.i.i, label %utf8_width.exit
 
 if.then14.i.i.i:                                  ; preds = %if.else.i.i.i
@@ -1014,8 +1014,8 @@ if.end18.i.i.i:                                   ; preds = %if.then14.i.i.i, %i
 
 if.end7.i.i:                                      ; preds = %if.end18.i.i.i
   %51 = add nsw i32 %call.i71, -262142
-  %or.cond37.i.i = icmp ult i32 %51, -257790
-  br i1 %or.cond37.i.i, label %utf8_width.exit, label %while.body.i10.i.i
+  %or.cond41.i.i = icmp ult i32 %51, -257790
+  br i1 %or.cond41.i.i, label %utf8_width.exit, label %while.body.i10.i.i
 
 while.body.i10.i.i:                               ; preds = %if.end7.i.i, %if.end18.i25.i.i
   %min.016.i11.i.i = phi i32 [ %min.1.i27.i.i, %if.end18.i25.i.i ], [ 0, %if.end7.i.i ]
@@ -1027,7 +1027,7 @@ while.body.i10.i.i:                               ; preds = %if.end7.i.i, %if.en
   %arrayidx5.i17.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i
   %last6.i18.i.i = getelementptr inbounds i8, ptr %arrayidx5.i17.i.i, i64 4
   %52 = load i32, ptr %last6.i18.i.i, align 4
-  %cmp7.i19.i.i = icmp ult i32 %52, %call.i71
+  %cmp7.i19.i.i = icmp ugt i32 %call.i71, %52
   br i1 %cmp7.i19.i.i, label %if.then8.i29.i.i, label %if.else.i20.i.i
 
 if.then8.i29.i.i:                                 ; preds = %while.body.i10.i.i
@@ -1036,7 +1036,7 @@ if.then8.i29.i.i:                                 ; preds = %while.body.i10.i.i
 
 if.else.i20.i.i:                                  ; preds = %while.body.i10.i.i
   %53 = load i32, ptr %arrayidx5.i17.i.i, align 8
-  %cmp13.i21.i.i = icmp ugt i32 %53, %call.i71
+  %cmp13.i21.i.i = icmp ult i32 %call.i71, %53
   br i1 %cmp13.i21.i.i, label %if.then14.i23.i.i, label %utf8_width.exit
 
 if.then14.i23.i.i:                                ; preds = %if.else.i20.i.i
@@ -1057,7 +1057,7 @@ if.then67:                                        ; preds = %utf8_width.exit
   store ptr %text, ptr %text.addr, align 8
   %54 = load i64, ptr %buf, align 8
   %spec.select.i75 = tail call i64 @llvm.usub.sat.i64(i64 %54, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i75, %0
+  %cmp.i = icmp ugt i64 %0, %spec.select.i75
   br i1 %cmp.i, label %if.then.i79, label %if.end.i76
 
 if.then.i79:                                      ; preds = %if.then67
@@ -1195,8 +1195,8 @@ if.end.i.i:                                       ; preds = %if.end
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %10 = add nsw i32 %call.i, -918000
-  %or.cond36.i.i = icmp ult i32 %10, -917232
-  br i1 %or.cond36.i.i, label %if.end10, label %while.body.i.i.i
+  %or.cond40.i.i = icmp ult i32 %10, -917232
+  br i1 %or.cond40.i.i, label %if.end10, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end5.i.i, %if.end18.i.i.i
   %min.016.i.i.i = phi i32 [ %min.1.i.i.i, %if.end18.i.i.i ], [ 0, %if.end5.i.i ]
@@ -1208,7 +1208,7 @@ while.body.i.i.i:                                 ; preds = %if.end5.i.i, %if.en
   %arrayidx5.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i
   %last6.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i.i, i64 4
   %11 = load i32, ptr %last6.i.i.i, align 4
-  %cmp7.i.i.i = icmp ult i32 %11, %call.i
+  %cmp7.i.i.i = icmp ugt i32 %call.i, %11
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %while.body.i.i.i
@@ -1217,7 +1217,7 @@ if.then8.i.i.i:                                   ; preds = %while.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   %12 = load i32, ptr %arrayidx5.i.i.i, align 8
-  %cmp13.i.i.i = icmp ugt i32 %12, %call.i
+  %cmp13.i.i.i = icmp ult i32 %call.i, %12
   br i1 %cmp13.i.i.i, label %if.then14.i.i.i, label %utf8_width.exit
 
 if.then14.i.i.i:                                  ; preds = %if.else.i.i.i
@@ -1232,8 +1232,8 @@ if.end18.i.i.i:                                   ; preds = %if.then14.i.i.i, %i
 
 if.end7.i.i:                                      ; preds = %if.end18.i.i.i
   %13 = add nsw i32 %call.i, -262142
-  %or.cond37.i.i = icmp ult i32 %13, -257790
-  br i1 %or.cond37.i.i, label %utf8_width.exit, label %while.body.i10.i.i
+  %or.cond41.i.i = icmp ult i32 %13, -257790
+  br i1 %or.cond41.i.i, label %utf8_width.exit, label %while.body.i10.i.i
 
 while.body.i10.i.i:                               ; preds = %if.end7.i.i, %if.end18.i25.i.i
   %min.016.i11.i.i = phi i32 [ %min.1.i27.i.i, %if.end18.i25.i.i ], [ 0, %if.end7.i.i ]
@@ -1245,7 +1245,7 @@ while.body.i10.i.i:                               ; preds = %if.end7.i.i, %if.en
   %arrayidx5.i17.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i
   %last6.i18.i.i = getelementptr inbounds i8, ptr %arrayidx5.i17.i.i, i64 4
   %14 = load i32, ptr %last6.i18.i.i, align 4
-  %cmp7.i19.i.i = icmp ult i32 %14, %call.i
+  %cmp7.i19.i.i = icmp ugt i32 %call.i, %14
   br i1 %cmp7.i19.i.i, label %if.then8.i29.i.i, label %if.else.i20.i.i
 
 if.then8.i29.i.i:                                 ; preds = %while.body.i10.i.i
@@ -1254,7 +1254,7 @@ if.then8.i29.i.i:                                 ; preds = %while.body.i10.i.i
 
 if.else.i20.i.i:                                  ; preds = %while.body.i10.i.i
   %15 = load i32, ptr %arrayidx5.i17.i.i, align 8
-  %cmp13.i21.i.i = icmp ugt i32 %15, %call.i
+  %cmp13.i21.i.i = icmp ult i32 %call.i, %15
   br i1 %cmp13.i21.i.i, label %if.then14.i23.i.i, label %utf8_width.exit
 
 if.then14.i23.i.i:                                ; preds = %if.else.i20.i.i

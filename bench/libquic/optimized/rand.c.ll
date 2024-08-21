@@ -165,7 +165,7 @@ for.body:                                         ; preds = %if.end54, %for.body
   store i8 %xor45, ptr %arrayidx63, align 1
   %inc66 = add i32 %i.048, 1
   %conv55 = zext i32 %inc66 to i64
-  %cmp56 = icmp ult i64 %conv55, %len
+  %cmp56 = icmp ugt i64 %len, %conv55
   br i1 %cmp56, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body

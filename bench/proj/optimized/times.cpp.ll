@@ -80,7 +80,7 @@ define internal { double, double } @_ZL15times_s_forward5PJ_LPP8PJconsts(double 
   %7 = tail call double @sin(double noundef %6) #6
   %8 = fmul double %7, %7
   %9 = tail call double @llvm.fmuladd.f64(double %8, double -3.458800e-01, double 7.448200e-01)
-  %10 = fmul double %9, %0
+  %10 = fmul double %0, %9
   %11 = fmul double %5, 1.707110e+00
   %.fca.0.insert = insertvalue { double, double } poison, double %10, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %11, 1

@@ -66,7 +66,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canon
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %23 = load i64, ptr %5, align 8, !alias.scope !8, !noalias !5, !noundef !4
-  %24 = icmp ult i64 %23, %.val29
+  %24 = icmp ugt i64 %.val29, %23
   br i1 %24, label %25, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hd3dc628e23f969f0E.exit"
 
 25:                                               ; preds = %22
@@ -232,7 +232,7 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canon
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %21 = load i64, ptr %5, align 8, !alias.scope !25, !noalias !22, !noundef !4
-  %22 = icmp ult i64 %21, %.val27
+  %22 = icmp ugt i64 %.val27, %21
   br i1 %22, label %23, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h83358d0a40e47624E.exit"
 
 23:                                               ; preds = %20

@@ -1753,11 +1753,11 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %15 ]
   %45 = getelementptr inbounds [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %indvars.iv
   %46 = load i16, ptr %45, align 16
-  %47 = icmp eq i16 %46, %2
+  %47 = icmp eq i16 %2, %46
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %.preheader120
-  %49 = icmp ugt i16 %46, %2
+  %49 = icmp ult i16 %2, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next, 152
   %or.cond205 = select i1 %49, i1 true, i1 %exitcond175.not

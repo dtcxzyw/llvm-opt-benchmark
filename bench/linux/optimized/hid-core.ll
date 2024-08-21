@@ -2067,7 +2067,7 @@ define internal i32 @usbhid_raw_request(ptr nocapture noundef readonly %0, i8 no
   %19 = zext i8 %1 to i16
   %20 = icmp eq i8 %1, 0
   %21 = sext i1 %20 to i64
-  %22 = add i64 %21, %3
+  %22 = add i64 %3, %21
   %23 = zext i1 %20 to i64
   %24 = getelementptr i8, ptr %2, i64 %23
   %25 = load i32, ptr %14, align 8
@@ -2120,7 +2120,7 @@ define internal i32 @usbhid_raw_request(ptr nocapture noundef readonly %0, i8 no
   store i8 %61, ptr %2, align 1
   %64 = icmp eq i8 %61, 0
   %65 = sext i1 %64 to i64
-  %66 = add i64 %65, %3
+  %66 = add i64 %3, %65
   %67 = zext i1 %64 to i64
   %68 = getelementptr i8, ptr %2, i64 %67
   %69 = load i32, ptr %63, align 8
@@ -2166,7 +2166,7 @@ define internal i32 @usbhid_output_report(ptr nocapture noundef readonly %0, ptr
   %16 = load i8, ptr %1, align 1
   %17 = icmp eq i8 %16, 0
   %18 = sext i1 %17 to i64
-  %19 = add i64 %18, %2
+  %19 = add i64 %2, %18
   %20 = zext i1 %17 to i64
   %21 = getelementptr i8, ptr %1, i64 %20
   %22 = getelementptr inbounds i8, ptr %12, i64 80

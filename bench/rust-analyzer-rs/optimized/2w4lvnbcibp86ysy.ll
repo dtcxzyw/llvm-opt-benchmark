@@ -224,7 +224,7 @@ _ZN17crossbeam_channel7context7Context12store_packet17hbbe90e382767dd1bE.exit.i.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %61 = load i64, ptr %5, align 8, !alias.scope !23, !noalias !26, !noundef !4
-  %.not.i = icmp ugt i64 %61, %.016.i
+  %.not.i = icmp ult i64 %.016.i, %61
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hf44604418bee7d59E.exit", label %62
 
 62:                                               ; preds = %59
@@ -1865,7 +1865,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.15129224242354108758.exi
 
 122:                                              ; preds = %117
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
-  %.not.i13.i = icmp ugt i64 %111, %114
+  %.not.i13.i = icmp ult i64 %114, %111
   br i1 %.not.i13.i, label %126, label %123
 
 123:                                              ; preds = %122
@@ -2055,7 +2055,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.15129224242354108758.exi
 
 191:                                              ; preds = %186
   call void @llvm.experimental.noalias.scope.decl(metadata !336)
-  %.not.i13.i48 = icmp ugt i64 %180, %183
+  %.not.i13.i48 = icmp ult i64 %183, %180
   br i1 %.not.i13.i48, label %195, label %192
 
 192:                                              ; preds = %191
@@ -3094,7 +3094,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.15129224242354108758.exi
 
 124:                                              ; preds = %119
   call void @llvm.experimental.noalias.scope.decl(metadata !531)
-  %.not.i13.i = icmp ugt i64 %113, %116
+  %.not.i13.i = icmp ult i64 %116, %113
   br i1 %.not.i13.i, label %128, label %125
 
 125:                                              ; preds = %124
@@ -3326,7 +3326,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.15129224242354108758.exi
 
 202:                                              ; preds = %197
   call void @llvm.experimental.noalias.scope.decl(metadata !593)
-  %.not.i13.i56 = icmp ugt i64 %191, %194
+  %.not.i13.i56 = icmp ult i64 %194, %191
   br i1 %.not.i13.i56, label %206, label %203
 
 203:                                              ; preds = %202

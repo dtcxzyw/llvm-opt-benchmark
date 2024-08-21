@@ -106,7 +106,7 @@ Abc_Clock.exit67.i:                               ; preds = %25, %22
   %47 = getelementptr i8, ptr %.val61.val.val.i, i64 56
   %.val61.val.val.val.i = load ptr, ptr %47, align 8
   %48 = load i32, ptr %.val61.val.val.val.i, align 8
-  %.not.i.i.i = icmp sgt i32 %48, %.val62.i
+  %.not.i.i.i = icmp slt i32 %.val62.i, %48
   br i1 %.not.i.i.i, label %Vec_AttGrow.exit.i.i.i, label %49
 
 49:                                               ; preds = %40
@@ -232,7 +232,7 @@ Abc_ObjGlobalBdd.exit.i:                          ; preds = %80, %77, %Vec_AttGr
   %112 = getelementptr i8, ptr %.val63.val.val.i, i64 56
   %.val63.val.val.val.i = load ptr, ptr %112, align 8
   %113 = load i32, ptr %.val63.val.val.val.i, align 8
-  %.not.i.i68.i = icmp sgt i32 %113, %.val64.i
+  %.not.i.i68.i = icmp slt i32 %.val64.i, %113
   br i1 %.not.i.i68.i, label %Vec_AttGrow.exit.i.i70.i, label %114
 
 114:                                              ; preds = %105

@@ -62,8 +62,8 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   br i1 %or.cond23, label %568, label %51
 
 51:                                               ; preds = %48
-  %52 = fneg double %19
-  %53 = fmul double %23, %52
+  %52 = fneg double %23
+  %53 = fmul double %19, %52
   %54 = tail call double @llvm.fmuladd.f64(double %17, double %25, double %53)
   %55 = fcmp oeq double %54, 0.000000e+00
   br i1 %55, label %568, label %56
@@ -255,12 +255,12 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   br i1 %or.cond956, label %150, label %568
 
 150:                                              ; preds = %135
-  %151 = fneg double %25
-  %152 = fmul double %19, %27
-  %153 = tail call double @llvm.fmuladd.f64(double %151, double %21, double %152)
-  %154 = fneg double %23
-  %155 = fneg double %17
-  %156 = fmul double %27, %155
+  %151 = fneg double %19
+  %152 = fneg double %25
+  %153 = fmul double %19, %27
+  %154 = tail call double @llvm.fmuladd.f64(double %152, double %21, double %153)
+  %155 = fneg double %27
+  %156 = fmul double %17, %155
   %157 = tail call double @llvm.fmuladd.f64(double %23, double %21, double %156)
   %158 = fadd double %21, -5.000000e-01
   %159 = fadd double %27, -5.000000e-01
@@ -619,7 +619,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %346 = sitofp i32 %345 to double
   %347 = fmul double %344, %346
   %348 = fptosi double %347 to i32
-  %349 = fmul double %343, %154
+  %349 = fmul double %343, %52
   %350 = shl nuw i32 1, %12
   %351 = sitofp i32 %350 to double
   %352 = fmul double %349, %351
@@ -677,11 +677,11 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %384 = fadd double %383, 5.000000e-01
   %385 = sitofp i32 %379 to double
   %386 = fadd double %385, 5.000000e-01
-  %387 = fmul double %384, %52
+  %387 = fmul double %384, %151
   %388 = tail call double @llvm.fmuladd.f64(double %381, double %25, double %387)
-  %389 = fadd double %153, %388
+  %389 = fadd double %154, %388
   %390 = fmul double %17, %384
-  %391 = tail call double @llvm.fmuladd.f64(double %381, double %154, double %390)
+  %391 = tail call double @llvm.fmuladd.f64(double %381, double %52, double %390)
   %392 = fadd double %157, %391
   %393 = fcmp uge double %389, %326
   %394 = fcmp ult double %389, %328
@@ -714,8 +714,8 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %.0806 = phi double [ %389, %373 ], [ %398, %397 ]
   %.0805 = phi double [ %392, %373 ], [ %399, %397 ]
   %406 = tail call double @llvm.fmuladd.f64(double %386, double %25, double %387)
-  %407 = fadd double %153, %406
-  %408 = tail call double @llvm.fmuladd.f64(double %386, double %154, double %390)
+  %407 = fadd double %154, %406
+  %408 = tail call double @llvm.fmuladd.f64(double %386, double %52, double %390)
   %409 = fadd double %157, %408
   %410 = fcmp uge double %407, %326
   %411 = fcmp ult double %407, %328
@@ -843,11 +843,11 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %469 = fadd double %468, 5.000000e-01
   %470 = sitofp i32 %464 to double
   %471 = fadd double %470, 5.000000e-01
-  %472 = fmul double %469, %52
+  %472 = fmul double %469, %151
   %473 = tail call double @llvm.fmuladd.f64(double %466, double %25, double %472)
-  %474 = fadd double %153, %473
+  %474 = fadd double %154, %473
   %475 = fmul double %17, %469
-  %476 = tail call double @llvm.fmuladd.f64(double %466, double %154, double %475)
+  %476 = tail call double @llvm.fmuladd.f64(double %466, double %52, double %475)
   %477 = fadd double %157, %476
   %478 = fcmp ule double %474, %326
   %479 = fcmp ugt double %474, %328
@@ -880,8 +880,8 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %.0792 = phi double [ %474, %458 ], [ %483, %482 ]
   %.0791 = phi double [ %477, %458 ], [ %484, %482 ]
   %491 = tail call double @llvm.fmuladd.f64(double %471, double %25, double %472)
-  %492 = fadd double %153, %491
-  %493 = tail call double @llvm.fmuladd.f64(double %471, double %154, double %475)
+  %492 = fadd double %154, %491
+  %493 = tail call double @llvm.fmuladd.f64(double %471, double %52, double %475)
   %494 = fadd double %157, %493
   %495 = fcmp ule double %492, %326
   %496 = fcmp ugt double %492, %328

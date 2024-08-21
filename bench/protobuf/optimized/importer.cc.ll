@@ -1005,7 +1005,7 @@ if.then8.i.i.i:                                   ; preds = %call3.i.i.i.noexc
 
 if.end10.i.i.i:                                   ; preds = %if.then8.i.i.i, %call3.i.i.i.noexc
   %6 = load i64, ptr %__begin2, align 8, !alias.scope !9
-  %cmp.i.i.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i.i.i, %6
+  %cmp.i.i.i.i.i = icmp ugt i64 %6, %retval.sroa.0.0.copyload.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end10.i.i.i
@@ -1171,7 +1171,7 @@ if.then8.i:                                       ; preds = %call3.i.noexc
 
 if.end10.i:                                       ; preds = %if.then8.i, %call3.i.noexc
   %15 = load i64, ptr %__begin2, align 8
-  %cmp.i.i.i33 = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %15
+  %cmp.i.i.i33 = icmp ugt i64 %15, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i33, label %if.then.i.i.i34, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i34:                                  ; preds = %if.end10.i
@@ -1650,7 +1650,7 @@ if.end51:                                         ; preds = %if.then47, %if.then
 
 if.then53:                                        ; preds = %if.end51
   %conv54 = sext i32 %after_prefix_start.0 to i64
-  %cmp.i.i36 = icmp ugt i64 %conv54, %filename.coerce0
+  %cmp.i.i36 = icmp ult i64 %filename.coerce0, %conv54
   br i1 %cmp.i.i36, label %if.then.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
 if.then.i.i:                                      ; preds = %if.then53
@@ -1913,7 +1913,7 @@ entry:
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
-  %cmp.i.i = icmp eq i64 %0, %virtual_file.coerce0
+  %cmp.i.i = icmp eq i64 %virtual_file.coerce0, %0
   br i1 %cmp.i.i, label %land.rhs.i.i, label %if.then.critedge
 
 land.rhs.i.i:                                     ; preds = %entry
@@ -2430,7 +2430,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN6google8protobuf8compiler14DiskSourceTree7MappingESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6google8protobuf8compiler14DiskSourceTree7MappingESaIS4_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6google8protobuf8compiler14DiskSourceTree7MappingESaIS4_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 64
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6google8protobuf8compiler14DiskSourceTree7MappingESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6google8protobuf8compiler14DiskSourceTree7MappingESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %for.body.i.i.i12

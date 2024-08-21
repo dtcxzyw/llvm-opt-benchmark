@@ -86,7 +86,7 @@ LZ4HC_init_internal.exit:                         ; preds = %LZ4_resetStreamHC_f
   %lowLimit.i = getelementptr inbounds i8, ptr %state, i64 262172
   store i32 %conv3.i, ptr %lowLimit.i, align 4
   %call2 = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp = icmp sgt i32 %call2, %dstCapacity
+  %cmp = icmp slt i32 %dstCapacity, %call2
   %. = zext i1 %cmp to i32
   %call5 = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %state, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr, i32 noundef %dstCapacity, i32 noundef %compressionLevel, i32 noundef %.)
   br label %return
@@ -311,7 +311,7 @@ if.then12.i.i:                                    ; preds = %if.end4.i.i
   %spec.select.idx.i = select i1 %cmp.i.i, i64 -5, i64 0
   %spec.select.i = getelementptr inbounds i8, ptr %add.ptr4.i.i, i64 %spec.select.idx.i
   %cmp8.i23.i = icmp slt i32 %18, 13
-  %cmp12.i.not28583091.i = icmp ult ptr %add.ptr1.i.i, %src
+  %cmp12.i.not28583091.i = icmp ugt ptr %src, %add.ptr1.i.i
   %or.cond3115.i = select i1 %cmp8.i23.i, i1 true, i1 %cmp12.i.not28583091.i
   br i1 %or.cond3115.i, label %_last_literals.i.i, label %while.body.i.lr.ph.lr.ph.i
 
@@ -353,7 +353,7 @@ while.body.i.lr.ph.i:                             ; preds = %while.cond.i.outer.
   %invariant.gep.i = getelementptr i8, ptr %20, i64 %idx.neg.i.i.i
   %sub75.i.i = add i32 %21, -4
   %add.ptr8.i2908.i = getelementptr inbounds i8, ptr %20, i64 8
-  %cmp23.i2177.i = icmp ugt ptr %add.ptr1.i.i, %20
+  %cmp23.i2177.i = icmp ult ptr %20, %add.ptr1.i.i
   %cmp257.i.i = icmp ult i32 %22, %21
   %ip15.i2228.i = ptrtoint ptr %add.ptr11.i.ptr.i to i64
   %end363.i.i = getelementptr inbounds i8, ptr %19, i64 262144
@@ -951,7 +951,7 @@ if.then222.i.i:                                   ; preds = %if.then204.i61.i
   %add.ptr228.i.i = getelementptr inbounds i8, ptr %cond218.i.i, i64 4
   %iEnd32.i2131.i = ptrtoint ptr %cond227.i.i to i64
   %add.ptr.i2134.i = getelementptr inbounds i8, ptr %cond227.i.i, i64 -7
-  %cmp23.i2135.i = icmp ugt ptr %add.ptr.i2134.i, %add.ptr228.i.i
+  %cmp23.i2135.i = icmp ult ptr %add.ptr228.i.i, %add.ptr.i2134.i
   br i1 %cmp23.i2135.i, label %while.body.i2157.i, label %while.cond14.preheader.i2136.i
 
 while.cond14.preheader.i2136.i:                   ; preds = %if.then.i2166.i, %if.then222.i.i
@@ -2253,7 +2253,7 @@ if.then222.i344.i:                                ; preds = %if.then204.i331.i
   %add.ptr228.i349.i = getelementptr inbounds i8, ptr %cond218.i340.i, i64 4
   %iEnd32.i2325.i = ptrtoint ptr %cond227.i348.i to i64
   %add.ptr.i2328.i = getelementptr inbounds i8, ptr %cond227.i348.i, i64 -7
-  %cmp23.i2329.i = icmp ugt ptr %add.ptr.i2328.i, %add.ptr228.i349.i
+  %cmp23.i2329.i = icmp ult ptr %add.ptr228.i349.i, %add.ptr.i2328.i
   br i1 %cmp23.i2329.i, label %while.body.i2351.i, label %while.cond14.preheader.i2330.i
 
 while.cond14.preheader.i2330.i:                   ; preds = %if.then.i2360.i, %if.then222.i344.i
@@ -3115,7 +3115,7 @@ while.body.i817.lr.ph.i:                          ; preds = %LZ4HC_Insert.exit.i
   %and186.i9981985.i = and i1 %cmp180.i992.i, %cmp184.i996.i
   %conv.i2459.i = zext i32 %add.ptr108.i.val.i to i64
   %add.i2460.i = mul nuw i64 %conv.i2459.i, 4294967297
-  %cmp23.i2547.i = icmp ugt ptr %add.ptr1.i.i, %182
+  %cmp23.i2547.i = icmp ult ptr %182, %add.ptr1.i.i
   %cmp257.i966.i = icmp ult i32 %184, %183
   %ip15.i2617.i = ptrtoint ptr %add.ptr11.i715.ptr.i to i64
   br label %while.body.i817.i
@@ -3780,7 +3780,7 @@ if.then222.i876.i:                                ; preds = %if.then204.i863.i
   %add.ptr228.i881.i = getelementptr inbounds i8, ptr %cond218.i872.i, i64 4
   %iEnd32.i2499.i = ptrtoint ptr %cond227.i880.i to i64
   %add.ptr.i2502.i = getelementptr inbounds i8, ptr %cond227.i880.i, i64 -7
-  %cmp23.i2503.i = icmp ugt ptr %add.ptr.i2502.i, %add.ptr228.i881.i
+  %cmp23.i2503.i = icmp ult ptr %add.ptr228.i881.i, %add.ptr.i2502.i
   br i1 %cmp23.i2503.i, label %while.body.i2525.i, label %while.cond14.preheader.i2504.i
 
 while.cond14.preheader.i2504.i:                   ; preds = %if.then.i2534.i, %if.then222.i876.i
@@ -5303,7 +5303,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit:        ; preds = %entry
   %lowLimit.i.i = getelementptr inbounds i8, ptr %state, i64 262172
   store i32 65536, ptr %lowLimit.i.i, align 4
   %call2.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp.i5 = icmp sgt i32 %call2.i, %dstCapacity
+  %cmp.i5 = icmp slt i32 %dstCapacity, %call2.i
   %..i = zext i1 %cmp.i5 to i32
   %call5.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %state, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i, i32 noundef %dstCapacity, i32 noundef %compressionLevel, i32 noundef %..i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %srcSize.addr.i)
@@ -5376,7 +5376,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %if.end
   %lowLimit.i.i.i = getelementptr inbounds i8, ptr %call, i64 262172
   store i32 65536, ptr %lowLimit.i.i.i, align 4
   %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp.i5.i = icmp sgt i32 %call2.i.i, %dstCapacity
+  %cmp.i5.i = icmp slt i32 %dstCapacity, %call2.i.i
   %..i.i = zext i1 %cmp.i5.i to i32
   %call5.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %call, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i, i32 noundef %dstCapacity, i32 noundef %compressionLevel, i32 noundef %..i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %srcSize.addr.i.i)
@@ -5652,7 +5652,7 @@ entry:
   %srcSize.addr = alloca i32, align 4
   store i32 %srcSize, ptr %srcSize.addr, align 4
   %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp = icmp sgt i32 %call, %dstCapacity
+  %cmp = icmp slt i32 %dstCapacity, %call
   %. = zext i1 %cmp to i32
   %call2 = call fastcc i32 @LZ4_compressHC_continue_generic(ptr noundef %LZ4_streamHCPtr, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr, i32 noundef %dstCapacity, i32 noundef %.)
   ret i32 %call2
@@ -5795,7 +5795,7 @@ LZ4HC_Insert.exit.i:                              ; preds = %while.body.i.i
 if.end16:                                         ; preds = %LZ4HC_Insert.exit.i, %LZ4HC_init_internal.exit.i, %if.end
   %.pre81 = phi i32 [ 65536, %LZ4HC_Insert.exit.i ], [ 65536, %LZ4HC_init_internal.exit.i ], [ %4, %if.end ]
   %15 = phi ptr [ %add.ptr, %LZ4HC_Insert.exit.i ], [ %add.ptr, %LZ4HC_init_internal.exit.i ], [ %5, %if.end ]
-  %cmp18.not = icmp eq ptr %6, %src
+  %cmp18.not = icmp eq ptr %src, %6
   br i1 %cmp18.not, label %if.end16.if.end21_crit_edge, label %if.then20
 
 if.end16.if.end21_crit_edge:                      ; preds = %if.end16
@@ -5888,7 +5888,7 @@ if.end21:                                         ; preds = %if.end16.if.end21_c
   %idx.ext25 = zext i32 %sub to i64
   %add.ptr26 = getelementptr inbounds i8, ptr %25, i64 %idx.ext25
   %cmp27 = icmp ugt ptr %add.ptr22, %25
-  %cmp29 = icmp ugt ptr %add.ptr26, %src
+  %cmp29 = icmp ult ptr %src, %add.ptr26
   %or.cond = select i1 %cmp27, i1 %cmp29, i1 false
   br i1 %or.cond, label %if.then31, label %if.end62
 
@@ -6028,7 +6028,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
   %lowLimit.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 262172
   store i32 65536, ptr %lowLimit.i.i.i.i, align 4
   %call2.i.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp.i5.i.i = icmp sgt i32 %call2.i.i.i, %call
+  %cmp.i5.i.i = icmp slt i32 %call, %call2.i.i.i
   %..i.i.i = zext i1 %cmp.i5.i.i to i32
   %call5.i.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %call.i, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i.i, i32 noundef %call, i32 noundef 0, i32 noundef %..i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %srcSize.addr.i.i.i)
@@ -6079,7 +6079,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
   %lowLimit.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 262172
   store i32 65536, ptr %lowLimit.i.i.i.i, align 4
   %call2.i.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp.i5.i.i = icmp sgt i32 %call2.i.i.i, %maxDstSize
+  %cmp.i5.i.i = icmp slt i32 %maxDstSize, %call2.i.i.i
   %..i.i.i = zext i1 %cmp.i5.i.i to i32
   %call5.i.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %call.i, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i.i, i32 noundef %maxDstSize, i32 noundef 0, i32 noundef %..i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %srcSize.addr.i.i.i)
@@ -6135,7 +6135,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
   %lowLimit.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 262172
   store i32 65536, ptr %lowLimit.i.i.i.i, align 4
   %call2.i.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp.i5.i.i = icmp sgt i32 %call2.i.i.i, %call
+  %cmp.i5.i.i = icmp slt i32 %call, %call2.i.i.i
   %..i.i.i = zext i1 %cmp.i5.i.i to i32
   %call5.i.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %call.i, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i.i, i32 noundef %call, i32 noundef %cLevel, i32 noundef %..i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %srcSize.addr.i.i.i)
@@ -6190,7 +6190,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
   %lowLimit.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 262172
   store i32 65536, ptr %lowLimit.i.i.i.i, align 4
   %call2.i.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp.i5.i.i = icmp sgt i32 %call2.i.i.i, %maxDstSize
+  %cmp.i5.i.i = icmp slt i32 %maxDstSize, %call2.i.i.i
   %..i.i.i = zext i1 %cmp.i5.i.i to i32
   %call5.i.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %call.i, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i.i, i32 noundef %maxDstSize, i32 noundef %cLevel, i32 noundef %..i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %srcSize.addr.i.i.i)
@@ -6239,7 +6239,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %entry
   %lowLimit.i.i.i = getelementptr inbounds i8, ptr %state, i64 262172
   store i32 65536, ptr %lowLimit.i.i.i, align 4
   %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp.i5.i = icmp sgt i32 %call2.i.i, %call
+  %cmp.i5.i = icmp slt i32 %call, %call2.i.i
   %..i.i = zext i1 %cmp.i5.i to i32
   %call5.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %state, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i, i32 noundef %call, i32 noundef 0, i32 noundef %..i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %srcSize.addr.i.i)
@@ -6282,7 +6282,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %entry
   %lowLimit.i.i.i = getelementptr inbounds i8, ptr %state, i64 262172
   store i32 65536, ptr %lowLimit.i.i.i, align 4
   %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp.i5.i = icmp sgt i32 %call2.i.i, %maxDstSize
+  %cmp.i5.i = icmp slt i32 %maxDstSize, %call2.i.i
   %..i.i = zext i1 %cmp.i5.i to i32
   %call5.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %state, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i, i32 noundef %maxDstSize, i32 noundef 0, i32 noundef %..i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %srcSize.addr.i.i)
@@ -6330,7 +6330,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %entry
   %lowLimit.i.i.i = getelementptr inbounds i8, ptr %state, i64 262172
   store i32 65536, ptr %lowLimit.i.i.i, align 4
   %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp.i5.i = icmp sgt i32 %call2.i.i, %call
+  %cmp.i5.i = icmp slt i32 %call, %call2.i.i
   %..i.i = zext i1 %cmp.i5.i to i32
   %call5.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %state, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i, i32 noundef %call, i32 noundef %cLevel, i32 noundef %..i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %srcSize.addr.i.i)
@@ -6377,7 +6377,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %entry
   %lowLimit.i.i.i = getelementptr inbounds i8, ptr %state, i64 262172
   store i32 65536, ptr %lowLimit.i.i.i, align 4
   %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp.i5.i = icmp sgt i32 %call2.i.i, %maxDstSize
+  %cmp.i5.i = icmp slt i32 %maxDstSize, %call2.i.i
   %..i.i = zext i1 %cmp.i5.i to i32
   %call5.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %state, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i, i32 noundef %maxDstSize, i32 noundef %cLevel, i32 noundef %..i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %srcSize.addr.i.i)
@@ -6396,7 +6396,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %srcSize.addr.i)
   store i32 %srcSize, ptr %srcSize.addr.i, align 4
   %call.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp.i = icmp sgt i32 %call.i, %call
+  %cmp.i = icmp slt i32 %call, %call.i
   %..i = zext i1 %cmp.i to i32
   %call2.i = call fastcc i32 @LZ4_compressHC_continue_generic(ptr noundef %ctx, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i, i32 noundef %call, i32 noundef %..i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %srcSize.addr.i)
@@ -6410,7 +6410,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %srcSize.addr.i)
   store i32 %srcSize, ptr %srcSize.addr.i, align 4
   %call.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
-  %cmp.i = icmp sgt i32 %call.i, %maxDstSize
+  %cmp.i = icmp slt i32 %maxDstSize, %call.i
   %..i = zext i1 %cmp.i to i32
   %call2.i = call fastcc i32 @LZ4_compressHC_continue_generic(ptr noundef %ctx, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i, i32 noundef %maxDstSize, i32 noundef %..i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %srcSize.addr.i)
@@ -6618,7 +6618,7 @@ if.then12.i:                                      ; preds = %if.end4.i
   %spec.select.idx = select i1 %cmp.i, i64 -5, i64 0
   %spec.select = getelementptr inbounds i8, ptr %add.ptr4.i, i64 %spec.select.idx
   %cmp8.i12 = icmp slt i32 %3, 13
-  %cmp12.i.not27792950 = icmp ult ptr %add.ptr1.i, %src
+  %cmp12.i.not27792950 = icmp ugt ptr %src, %add.ptr1.i
   %or.cond2974 = select i1 %cmp8.i12, i1 true, i1 %cmp12.i.not27792950
   br i1 %or.cond2974, label %_last_literals.i, label %while.body.i.lr.ph.lr.ph
 
@@ -6661,7 +6661,7 @@ while.body.i.lr.ph:                               ; preds = %while.body.i.lr.ph.
   %invariant.gep = getelementptr i8, ptr %4, i64 %idx.neg.i.i
   %sub75.i = add i32 %5, -4
   %add.ptr8.i2897 = getelementptr inbounds i8, ptr %4, i64 8
-  %cmp23.i2105 = icmp ugt ptr %add.ptr1.i, %4
+  %cmp23.i2105 = icmp ult ptr %4, %add.ptr1.i
   %cmp257.i = icmp ult i32 %6, %5
   %ip15.i2155 = ptrtoint ptr %add.ptr11.i.ptr to i64
   %.pre = load i32, ptr %nextToUpdate.i.i, align 8
@@ -7250,7 +7250,7 @@ if.then222.i:                                     ; preds = %if.then204.i50
   %add.ptr228.i = getelementptr inbounds i8, ptr %cond218.i, i64 4
   %iEnd32.i2059 = ptrtoint ptr %cond227.i to i64
   %add.ptr.i2062 = getelementptr inbounds i8, ptr %cond227.i, i64 -7
-  %cmp23.i2063 = icmp ugt ptr %add.ptr.i2062, %add.ptr228.i
+  %cmp23.i2063 = icmp ult ptr %add.ptr228.i, %add.ptr.i2062
   br i1 %cmp23.i2063, label %while.body.i2085, label %while.cond14.preheader.i2064
 
 while.cond14.preheader.i2064:                     ; preds = %if.then.i2094, %if.then222.i
@@ -7692,7 +7692,7 @@ while.body.i274.lr.ph:                            ; preds = %LZ4HC_Insert.exit.i
   %and186.i4551954 = and i1 %cmp180.i449, %cmp184.i453
   %conv.i2205 = zext i32 %add.ptr28.i.val to i64
   %add.i2206 = mul nuw i64 %conv.i2205, 4294967297
-  %cmp23.i2294 = icmp ugt ptr %add.ptr1.i, %55
+  %cmp23.i2294 = icmp ult ptr %55, %add.ptr1.i
   %cmp257.i423 = icmp ult i32 %57, %56
   %ip15.i2363 = ptrtoint ptr %add.ptr11.i173.ptr to i64
   br label %while.body.i274
@@ -8357,7 +8357,7 @@ if.then222.i333:                                  ; preds = %if.then204.i320
   %add.ptr228.i338 = getelementptr inbounds i8, ptr %cond218.i329, i64 4
   %iEnd32.i2246 = ptrtoint ptr %cond227.i337 to i64
   %add.ptr.i2249 = getelementptr inbounds i8, ptr %cond227.i337, i64 -7
-  %cmp23.i2250 = icmp ugt ptr %add.ptr.i2249, %add.ptr228.i338
+  %cmp23.i2250 = icmp ult ptr %add.ptr228.i338, %add.ptr.i2249
   br i1 %cmp23.i2250, label %while.body.i2272, label %while.cond14.preheader.i2251
 
 while.cond14.preheader.i2251:                     ; preds = %if.then.i2281, %if.then222.i333
@@ -9002,7 +9002,7 @@ while.body.i806.lr.ph:                            ; preds = %LZ4HC_Insert.exit.i
   %and186.i9871958 = and i1 %cmp180.i981, %cmp184.i985
   %conv.i2413 = zext i32 %add.ptr108.i.val to i64
   %add.i2414 = mul nuw i64 %conv.i2413, 4294967297
-  %cmp23.i2501 = icmp ugt ptr %add.ptr1.i, %137
+  %cmp23.i2501 = icmp ult ptr %137, %add.ptr1.i
   %cmp257.i955 = icmp ult i32 %139, %138
   %ip15.i2570 = ptrtoint ptr %add.ptr11.i704.ptr to i64
   br label %while.body.i806
@@ -9667,7 +9667,7 @@ if.then222.i865:                                  ; preds = %if.then204.i852
   %add.ptr228.i870 = getelementptr inbounds i8, ptr %cond218.i861, i64 4
   %iEnd32.i2453 = ptrtoint ptr %cond227.i869 to i64
   %add.ptr.i2456 = getelementptr inbounds i8, ptr %cond227.i869, i64 -7
-  %cmp23.i2457 = icmp ugt ptr %add.ptr.i2456, %add.ptr228.i870
+  %cmp23.i2457 = icmp ult ptr %add.ptr228.i870, %add.ptr.i2456
   br i1 %cmp23.i2457, label %while.body.i2479, label %while.cond14.preheader.i2458
 
 while.cond14.preheader.i2458:                     ; preds = %if.then.i2488, %if.then222.i865
@@ -10915,7 +10915,7 @@ if.end:                                           ; preds = %entry
   %spec.select.idx = select i1 %cmp6, i64 -5, i64 0
   %spec.select = getelementptr inbounds i8, ptr %add.ptr5, i64 %spec.select.idx
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %sufficient_len, i64 4095)
-  %cmp13.not27322940 = icmp ult ptr %add.ptr2, %source
+  %cmp13.not27322940 = icmp ugt ptr %source, %add.ptr2
   br i1 %cmp13.not27322940, label %_last_literals, label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end
@@ -10963,7 +10963,7 @@ while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr
   %invariant.gep = getelementptr i8, ptr %2, i64 %idx.neg.i.i.i2826
   %sub75.i.i2186 = add i32 %3, -4
   %add.ptr8.i270.i2590 = getelementptr inbounds i8, ptr %2, i64 8
-  %cmp23.i2030 = icmp ugt ptr %add.ptr2, %2
+  %cmp23.i2030 = icmp ult ptr %2, %add.ptr2
   %cmp257.i.i2326 = icmp ult i32 %4, %3
   %ip15.i2073 = ptrtoint ptr %add.ptr11.i.i1923.ptr.ptr.ptr to i64
   %end363.i.i1976 = getelementptr inbounds i8, ptr %1, i64 262144
@@ -11628,7 +11628,7 @@ if.then222.i.i2236:                               ; preds = %if.then204.i.i2223
   %add.ptr228.i.i2241 = getelementptr inbounds i8, ptr %cond218.i.i2232, i64 4
   %iEnd32.i1984 = ptrtoint ptr %cond227.i.i2240 to i64
   %add.ptr.i1987 = getelementptr inbounds i8, ptr %cond227.i.i2240, i64 -7
-  %cmp23.i1988 = icmp ugt ptr %add.ptr.i1987, %add.ptr228.i.i2241
+  %cmp23.i1988 = icmp ult ptr %add.ptr228.i.i2241, %add.ptr.i1987
   br i1 %cmp23.i1988, label %while.body.i2010, label %while.cond14.preheader.i1989
 
 while.cond14.preheader.i1989:                     ; preds = %if.then.i2019, %if.then222.i.i2236
@@ -13099,7 +13099,7 @@ if.then222.i.i1145:                               ; preds = %if.then204.i.i1132
   %add.ptr228.i.i1150 = getelementptr inbounds i8, ptr %cond218.i.i1141, i64 4
   %iEnd32.i2169 = ptrtoint ptr %cond227.i.i1149 to i64
   %add.ptr.i2172 = getelementptr inbounds i8, ptr %cond227.i.i1149, i64 -7
-  %cmp23.i2173 = icmp ugt ptr %add.ptr.i2172, %add.ptr228.i.i1150
+  %cmp23.i2173 = icmp ult ptr %add.ptr228.i.i1150, %add.ptr.i2172
   br i1 %cmp23.i2173, label %while.body.i2195, label %while.cond14.preheader.i2174
 
 while.cond14.preheader.i2174:                     ; preds = %if.then.i2204, %if.then222.i.i1145
@@ -14292,7 +14292,7 @@ if.then222.i.i:                                   ; preds = %if.then204.i.i
   %add.ptr228.i.i = getelementptr inbounds i8, ptr %cond218.i.i, i64 4
   %iEnd32.i2382 = ptrtoint ptr %cond227.i.i to i64
   %add.ptr.i2385 = getelementptr inbounds i8, ptr %cond227.i.i, i64 -7
-  %cmp23.i2386 = icmp ugt ptr %add.ptr.i2385, %add.ptr228.i.i
+  %cmp23.i2386 = icmp ult ptr %add.ptr228.i.i, %add.ptr.i2385
   br i1 %cmp23.i2386, label %while.body.i2408, label %while.cond14.preheader.i2387
 
 while.cond14.preheader.i2387:                     ; preds = %if.then.i2417, %if.then222.i.i
@@ -15517,7 +15517,7 @@ entry:
   %conv = zext i32 %pattern32 to i64
   %add = mul nuw i64 %conv, 4294967297
   %add.ptr = getelementptr inbounds i8, ptr %iEnd, i64 -7
-  %cmp23 = icmp ugt ptr %add.ptr, %ip
+  %cmp23 = icmp ult ptr %ip, %add.ptr
   br i1 %cmp23, label %while.body, label %while.cond14.preheader
 
 while.cond14.preheader:                           ; preds = %if.then, %entry

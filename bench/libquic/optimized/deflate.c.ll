@@ -476,7 +476,7 @@ if.end16:                                         ; preds = %lor.lhs.false10.thr
   store i32 0, ptr %wrap5, align 4
   %w_size = getelementptr inbounds i8, ptr %0, i64 160
   %5 = load i32, ptr %w_size, align 16
-  %cmp18.not = icmp ugt i32 %5, %dictLength
+  %cmp18.not = icmp ult i32 %dictLength, %5
   br i1 %cmp18.not, label %if.end29, label %if.then19
 
 if.end16.thread:                                  ; preds = %lor.lhs.false10
@@ -487,7 +487,7 @@ if.end16.thread:                                  ; preds = %lor.lhs.false10
   store i32 0, ptr %wrap5, align 4
   %w_size66 = getelementptr inbounds i8, ptr %0, i64 160
   %7 = load i32, ptr %w_size66, align 16
-  %cmp18.not67 = icmp ugt i32 %7, %dictLength
+  %cmp18.not67 = icmp ult i32 %dictLength, %7
   br i1 %cmp18.not67, label %if.end29, label %if.end25
 
 if.then19:                                        ; preds = %if.end16
@@ -1358,7 +1358,7 @@ if.end14:                                         ; preds = %if.end
   %level15 = getelementptr inbounds i8, ptr %0, i64 1308
   %strategy17 = getelementptr inbounds i8, ptr %0, i64 1312
   %2 = load i32, ptr %strategy17, align 16
-  %cmp18.not = icmp eq i32 %2, %strategy
+  %cmp18.not = icmp eq i32 %strategy, %2
   br i1 %cmp18.not, label %lor.lhs.false19, label %land.lhs.true
 
 lor.lhs.false19:                                  ; preds = %if.end14
@@ -5226,7 +5226,7 @@ land.lhs.true11.i:                                ; preds = %land.lhs.true.i
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true11.i
   %38 = load i32, ptr %lookahead3, align 4
-  %cmp17.not.i = icmp ult i32 %38, %input_length.0
+  %cmp17.not.i = icmp ugt i32 %input_length.0, %38
   br i1 %cmp17.not.i, label %if.end66.sink.split, label %for.body23.i
 
 for.cond20.i:                                     ; preds = %lor.lhs.false36.i

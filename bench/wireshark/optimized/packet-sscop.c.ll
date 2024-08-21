@@ -365,17 +365,17 @@ define hidden range(i32 0, 2) i32 @sscop_allowed_subdissector(ptr noundef readno
 initialize_handles_once.exit:                     ; preds = %.initialize_handles_once.exit_crit_edge, %2
   %8 = phi ptr [ %.pre, %.initialize_handles_once.exit_crit_edge ], [ %7, %2 ]
   %9 = load ptr, ptr @q2931_handle, align 8
-  %10 = icmp eq ptr %9, %0
+  %10 = icmp eq ptr %0, %9
   %11 = load ptr, ptr @data_handle, align 8
-  %12 = icmp eq ptr %11, %0
+  %12 = icmp eq ptr %0, %11
   %or.cond = select i1 %10, i1 true, i1 %12
   %13 = load ptr, ptr @sscf_nni_handle, align 8
-  %14 = icmp eq ptr %13, %0
+  %14 = icmp eq ptr %0, %13
   %or.cond8 = select i1 %or.cond, i1 true, i1 %14
   %15 = load ptr, ptr @alcap_handle, align 8
-  %16 = icmp eq ptr %15, %0
+  %16 = icmp eq ptr %0, %15
   %or.cond10 = select i1 %or.cond8, i1 true, i1 %16
-  %17 = icmp eq ptr %8, %0
+  %17 = icmp eq ptr %0, %8
   %or.cond12 = select i1 %or.cond10, i1 true, i1 %17
   %.0 = zext i1 %or.cond12 to i32
   ret i32 %.0

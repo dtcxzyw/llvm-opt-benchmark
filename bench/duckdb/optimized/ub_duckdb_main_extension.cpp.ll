@@ -8527,7 +8527,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit676: ; preds = %if
 
 invoke.cont18:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit676
   %call.not = xor i1 %call, true
-  %brmerge = or i1 %call.not, %force_install
+  %brmerge = or i1 %force_install, %call.not
   br i1 %brmerge, label %if.end21, label %cleanup539
 
 lpad7:                                            ; preds = %if.end
@@ -8880,7 +8880,7 @@ invoke.cont69:                                    ; preds = %invoke.cont66
           to label %invoke.cont72 unwind label %lpad68
 
 invoke.cont72:                                    ; preds = %invoke.cont69
-  %brmerge657.demorgan = and i1 %call73, %force_install
+  %brmerge657.demorgan = and i1 %force_install, %call73
   br i1 %brmerge657.demorgan, label %if.then76, label %if.end80
 
 if.then76:                                        ; preds = %invoke.cont72
@@ -9722,7 +9722,7 @@ invoke.cont250:                                   ; preds = %invoke.cont248
           to label %invoke.cont253 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit913
 
 invoke.cont253:                                   ; preds = %invoke.cont250
-  %brmerge659.demorgan = and i1 %call254, %force_install
+  %brmerge659.demorgan = and i1 %force_install, %call254
   br i1 %brmerge659.demorgan, label %if.then257, label %if.end261
 
 if.then257:                                       ; preds = %invoke.cont253
@@ -10950,7 +10950,7 @@ invoke.cont487:                                   ; preds = %invoke.cont483
           to label %invoke.cont490 unwind label %lpad486
 
 invoke.cont490:                                   ; preds = %invoke.cont487
-  %brmerge661.demorgan = and i1 %call491, %force_install
+  %brmerge661.demorgan = and i1 %force_install, %call491
   br i1 %brmerge661.demorgan, label %if.then494, label %if.end498
 
 if.then494:                                       ; preds = %invoke.cont490

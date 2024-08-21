@@ -1639,7 +1639,7 @@ define dso_local i32 @_ZN4Luau7CodeGen18translateFastCallNERNS0_9IrBuilderEPKjib
   %48 = load i8, ptr @_ZN5FFlag20LuauCodegenFastcall3E, align 8
   %49 = trunc i8 %48 to i1
   %.not152 = xor i1 %49, true
-  %brmerge = or i1 %.not152, %3
+  %brmerge = or i1 %3, %.not152
   %.mux = select i1 %49, i32 %6, i32 0
   br i1 %brmerge, label %54, label %50
 

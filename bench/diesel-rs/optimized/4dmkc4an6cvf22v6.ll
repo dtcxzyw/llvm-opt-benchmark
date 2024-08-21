@@ -6058,7 +6058,7 @@ define hidden { ptr, i64 } @_ZN6diesel2pg10connection6result8PgResult11column_na
   %4 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel4util9once_cell17OnceCell$LT$T$GT$11get_or_init17h2f142d5748b9db19E"(ptr noundef nonnull align 8 %3, ptr noundef nonnull align 8 %0)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %.not = icmp ugt i64 %6, %1
+  %.not = icmp ult i64 %1, %6
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !4
   %9 = getelementptr inbounds { i64, [2 x i64] }, ptr %8, i64 %1
@@ -6343,7 +6343,7 @@ define hidden void @"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$di
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8, !noalias !1271, !noundef !4
-  %7 = icmp ugt i64 %6, %2
+  %7 = icmp ult i64 %2, %6
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
@@ -6389,7 +6389,7 @@ define void @"_ZN118_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$d
 define { i64, i64 } @"_ZN97_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h6fa7abb433d65b39E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   %. = zext i1 %5 to i64
   %6 = insertvalue { i64, i64 } poison, i64 %., 0
   %7 = insertvalue { i64, i64 } %6, i64 %1, 1

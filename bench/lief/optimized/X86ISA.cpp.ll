@@ -3906,7 +3906,7 @@ define noundef ptr @_ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE(i32 noundef %0) loc
 3:                                                ; preds = %1
   %.ptr14.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.enums2str, i64 %.add12.i.i
   %4 = load i32, ptr %.ptr14.i.i, align 8
-  %.not15.i.i = icmp sgt i32 %4, %0
+  %.not15.i.i = icmp slt i32 %0, %4
   br i1 %.not15.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF6X86ISA4FLAGEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %5
 
 5:                                                ; preds = %3
@@ -3963,7 +3963,7 @@ _ZNK6frozen3mapIN4LIEF3ELF6X86ISA3ISAEPKcLm33ESt4lessIS4_EE11lower_boundIS4_EEPK
 9:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF6X86ISA3ISAEPKcLm33ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
   %.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_6X86ISA3ISAE.enums2str, i64 %.sink9.i.i.i.i.add.i.i
   %10 = load i32, ptr %.ptr.i.i, align 4
-  %.not21.i.i = icmp sgt i32 %10, %0
+  %.not21.i.i = icmp slt i32 %0, %10
   br i1 %.not21.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF6X86ISA3ISAEPKcLm33ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %11
 
 11:                                               ; preds = %9
@@ -4350,7 +4350,7 @@ _ZN3fmt2v96detail8copy_strIcRNS0_17basic_string_viewIcEESt20back_insert_iterator
 21:                                               ; preds = %16
   %.ptr14.i.i.i.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.enums2str, i64 %.add12.i.i.i.i.i.i
   %22 = load i32, ptr %.ptr14.i.i.i.i.i.i, align 8
-  %.not15.i.i.i.i.i.i = icmp sgt i32 %22, %19
+  %.not15.i.i.i.i.i.i = icmp slt i32 %19, %22
   br i1 %.not15.i.i.i.i.i.i, label %_ZN3fmt2v96detail17write_range_entryIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4LIEF3ELF6X86ISA4FLAGETnNSt9enable_ifIXaantsr18is_std_string_likeINSt5decayIT1_E4typeEEE5valuentsr3std7is_sameISH_T_EE5valueEiE4typeELi0EEET0_SN_RKSH_.exit, label %_ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.exit.i.i.i
 
 _ZN4LIEF3ELF9to_stringENS0_6X86ISA4FLAGE.exit.i.i.i: ; preds = %21
@@ -4427,7 +4427,7 @@ _ZNK6frozen3mapIN4LIEF3ELF6X86ISA3ISAEPKcLm33ESt4lessIS4_EE11lower_boundIS4_EEPK
 12:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF6X86ISA3ISAEPKcLm33ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
   %.ptr.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_6X86ISA3ISAE.enums2str, i64 %.sink9.i.i.i.i.add.i.i.i
   %13 = load i32, ptr %.ptr.i.i.i, align 4
-  %.not21.i.i.i = icmp sgt i32 %13, %4
+  %.not21.i.i.i = icmp slt i32 %4, %13
   br i1 %.not21.i.i.i, label %_ZN3fmt2v96detail5writeIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET0_SB_PKT_.exit, label %_ZN4LIEF3ELF9to_stringENS0_6X86ISA3ISAE.exit
 
 _ZN4LIEF3ELF9to_stringENS0_6X86ISA3ISAE.exit:     ; preds = %12

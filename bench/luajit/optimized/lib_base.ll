@@ -1675,7 +1675,7 @@ if.then:                                          ; preds = %land.lhs.true, %ent
 if.end:                                           ; preds = %land.lhs.true
   %and = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and to ptr
-  %cmp5 = icmp eq ptr %3, %L
+  %cmp5 = icmp eq ptr %L, %3
   br i1 %cmp5, label %if.end35, label %if.else
 
 if.else:                                          ; preds = %if.end

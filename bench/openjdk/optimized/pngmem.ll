@@ -209,7 +209,7 @@ define hidden noalias ptr @png_malloc_array(ptr noalias noundef %0, i32 noundef 
   br i1 %mul.ov.i, label %png_malloc_array_checked.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = mul i64 %8, %2
+  %10 = mul i64 %2, %8
   %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %png_malloc_array_checked.exit, label %11
 
@@ -260,7 +260,7 @@ define hidden noalias ptr @png_realloc_array(ptr noalias noundef %0, ptr noundef
 
 13:                                               ; preds = %9
   %14 = sub nuw nsw i32 2147483647, %2
-  %.not = icmp ult i32 %14, %3
+  %.not = icmp ugt i32 %3, %14
   br i1 %.not, label %png_malloc_array_checked.exit.thread, label %15
 
 15:                                               ; preds = %13
@@ -271,7 +271,7 @@ define hidden noalias ptr @png_realloc_array(ptr noalias noundef %0, ptr noundef
   br i1 %mul.ov.i, label %png_malloc_array_checked.exit.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = mul i64 %17, %4
+  %19 = mul i64 %4, %17
   %.not.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i, label %png_malloc_array_checked.exit.thread, label %20
 
@@ -303,7 +303,7 @@ png_malloc_array_checked.exit:                    ; preds = %24, %26
 
 29:                                               ; preds = %28
   %30 = zext nneg i32 %2 to i64
-  %31 = mul i64 %30, %4
+  %31 = mul i64 %4, %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i, ptr align 1 %1, i64 %31, i1 false)
   br label %._crit_edge
 
@@ -311,7 +311,7 @@ png_malloc_array_checked.exit:                    ; preds = %24, %26
   %.pre-phi37 = phi i64 [ %31, %29 ], [ 0, %28 ]
   %32 = getelementptr inbounds i8, ptr %.0.i, i64 %.pre-phi37
   %33 = zext nneg i32 %3 to i64
-  %34 = mul i64 %33, %4
+  %34 = mul i64 %4, %33
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %32, i8 0, i64 %34, i1 false)
   br label %png_malloc_array_checked.exit.thread
 

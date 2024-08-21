@@ -152,7 +152,7 @@ define internal i64 @ft_lzw_stream_io(ptr nocapture noundef readonly %0, i64 nou
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 4336
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %10, label %30
 
 10:                                               ; preds = %4
@@ -200,7 +200,7 @@ ft_lzw_file_reset.exit.thread.i:                  ; preds = %20
 
 30:                                               ; preds = %ft_lzw_file_reset.exit.thread.i, %4
   %31 = phi i64 [ 0, %ft_lzw_file_reset.exit.thread.i ], [ %8, %4 ]
-  %32 = icmp ult i64 %31, %1
+  %32 = icmp ugt i64 %1, %31
   br i1 %32, label %33, label %54
 
 33:                                               ; preds = %30

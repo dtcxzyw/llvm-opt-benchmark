@@ -5623,7 +5623,7 @@ ssl_proto_tree_add_segment_data.exit.i:           ; preds = %74, %proto_item_set
   br label %110
 
 108:                                              ; preds = %99
-  %..i = call i32 @llvm.umin.i32(i32 %88, i32 %22)
+  %..i = call i32 @llvm.umin.i32(i32 %22, i32 %88)
   %109 = sub i32 %..i, %.0217405.i
   br label %110
 
@@ -5703,7 +5703,7 @@ ssl_proto_tree_add_segment_data.exit.i:           ; preds = %74, %proto_item_set
   br i1 %147, label %148, label %.thread361.i
 
 148:                                              ; preds = %143
-  %149 = icmp ugt i32 %127, %22
+  %149 = icmp ult i32 %22, %127
   %150 = load ptr, ptr %34, align 8
   call void @col_clear(ptr noundef %150, i32 noundef 25) #11
   br i1 %149, label %.thread361.i, label %151

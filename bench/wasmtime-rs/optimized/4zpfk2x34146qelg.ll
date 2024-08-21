@@ -209,7 +209,7 @@ define void @_ZN14cranelift_wasm5state17ControlStackFrame35truncate_value_stack_
   %.val = load i64, ptr %3, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !7, !noundef !4
-  %6 = icmp ult i64 %5, %.val
+  %6 = icmp ugt i64 %.val, %5
   br i1 %6, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf3e19d12c7dfe3bfE.exit", label %7
 
 7:                                                ; preds = %2
@@ -232,7 +232,7 @@ define void @_ZN14cranelift_wasm5state17ControlStackFrame37truncate_value_stack_
   %7 = sub i64 %.val, %.0
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !10, !noundef !4
-  %10 = icmp ult i64 %9, %7
+  %10 = icmp ugt i64 %7, %9
   br i1 %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf3e19d12c7dfe3bfE.exit", label %11
 
 11:                                               ; preds = %2
@@ -576,7 +576,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState5pushn17hbbe68b94392
   %5 = load i64, ptr %4, align 8, !alias.scope !104, !noalias !109, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !111, !noalias !109, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hf935146f7db2bd36E.exit"
 
 9:                                                ; preds = %3
@@ -748,7 +748,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState4pop317h917630204866
 define void @_ZN14cranelift_wasm5state20FuncTranslationState4popn17h1d6a820bd7ae6c77E(ptr noalias nocapture noundef align 8 dereferenceable(248) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf3e19d12c7dfe3bfE.exit", label %6
 
 6:                                                ; preds = %2
@@ -765,7 +765,7 @@ define { ptr, i64 } @_ZN14cranelift_wasm5state20FuncTranslationState5peekn17h775
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = sub i64 %4, %1
-  %6 = icmp ult i64 %4, %1
+  %6 = icmp ugt i64 %1, %4
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %2
@@ -786,7 +786,7 @@ define { ptr, i64 } @_ZN14cranelift_wasm5state20FuncTranslationState9peekn_mut17
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = sub i64 %4, %1
-  %6 = icmp ult i64 %4, %1
+  %6 = icmp ugt i64 %1, %4
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %2
@@ -886,7 +886,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState7push_if17h30c17eb7e
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = load i64, ptr %0, align 8, !alias.scope !145, !noundef !4
   %10 = sub i64 %9, %8
-  %11 = icmp ult i64 %10, %3
+  %11 = icmp ugt i64 %3, %10
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hda5efcf46bbde948E.exit"
 
 12:                                               ; preds = %6

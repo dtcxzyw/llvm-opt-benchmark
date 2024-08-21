@@ -119,7 +119,7 @@ if.then:                                          ; preds = %for.body
   %9 = load i16, ptr %select, align 4
   %10 = call noundef i16 @llvm.bswap.i16(i16 %9)
   %conv6 = zext i32 %8 to i64
-  %cmp8 = icmp ugt i64 %conv6, %buflen
+  %cmp8 = icmp ult i64 %buflen, %conv6
   %conv11 = trunc nuw i64 %buflen to i32
   %spec.select = select i1 %cmp8, i32 %conv11, i32 %8
   %conv12 = zext i32 %spec.select to i64
@@ -197,7 +197,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i8 %call, ptr %arrayidx, align 1
   %inc = add i32 %i.05, 1
   %conv = sext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %len
+  %cmp = icmp ugt i64 %len, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry
@@ -259,7 +259,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i8 %call, ptr %arrayidx, align 1
   %inc = add i32 %i.05, 1
   %conv = sext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %len
+  %cmp = icmp ugt i64 %len, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry

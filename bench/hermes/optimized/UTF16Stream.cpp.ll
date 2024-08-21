@@ -92,7 +92,7 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast6 = ptrtoint ptr %3 to i64
   %sub.ptr.sub8 = sub i64 %sub.ptr.lhs.cast6, %sub.ptr.rhs.cast
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.sub.i
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.div.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -103,7 +103,7 @@ if.then.i:                                        ; preds = %if.then
   br label %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.sub.i
+  %cmp4.i = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.div.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -188,7 +188,7 @@ if.then.i:                                        ; preds = %if.then2
   %5 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast6.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub8.i = sub i64 %sub.ptr.lhs.cast6.i, %sub.ptr.rhs.cast.i
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.sub.i.i
+  %cmp.i.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.div.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -199,7 +199,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.sub.i.i
+  %cmp4.i.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.div.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i

@@ -48,7 +48,7 @@ define hidden noundef ptr @_Z38pj_projection_specific_setup_col_urbanP8PJconsts(
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %56
+  br label %55
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 88
@@ -67,8 +67,8 @@ define hidden noundef ptr @_Z38pj_projection_specific_setup_col_urbanP8PJconsts(
   %18 = tail call double @sin(double noundef %17) #7
   %19 = getelementptr inbounds i8, ptr %0, i64 216
   %20 = load double, ptr %19, align 8
-  %21 = fneg double %20
-  %22 = fmul double %18, %21
+  %21 = fneg double %18
+  %22 = fmul double %20, %21
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %18, double 1.000000e+00)
   %24 = tail call double @sqrt(double noundef %23) #7
   %25 = fdiv double 1.000000e+00, %24
@@ -79,39 +79,38 @@ define hidden noundef ptr @_Z38pj_projection_specific_setup_col_urbanP8PJconsts(
   store double %28, ptr %29, align 8
   %30 = load double, ptr %19, align 8
   %31 = fsub double 1.000000e+00, %30
-  %32 = fneg double %30
-  %33 = fmul double %18, %32
-  %34 = tail call double @llvm.fmuladd.f64(double %33, double %18, double 1.000000e+00)
-  %35 = tail call double @pow(double noundef %34, double noundef 1.500000e+00) #7
-  %36 = fdiv double %31, %35
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
-  store double %36, ptr %37, align 8
-  %38 = load double, ptr %16, align 8
-  %39 = tail call double @tan(double noundef %38) #7
-  %40 = load double, ptr %37, align 8
-  %41 = fmul double %40, 2.000000e+00
-  %42 = fmul double %25, %41
-  %43 = fdiv double %39, %42
-  %44 = getelementptr inbounds i8, ptr %2, i64 24
-  store double %43, ptr %44, align 8
-  %45 = load double, ptr %2, align 8
-  %46 = fadd double %45, 1.000000e+00
-  %47 = getelementptr inbounds i8, ptr %2, i64 32
-  store double %46, ptr %47, align 8
-  %48 = load double, ptr %19, align 8
-  %49 = fsub double 1.000000e+00, %48
-  %50 = fdiv double %45, %49
-  %51 = fadd double %50, 1.000000e+00
-  %52 = fmul double %40, %51
-  %53 = getelementptr inbounds i8, ptr %2, i64 40
-  store double %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr @_ZL17col_urban_forward5PJ_LPP8PJconsts, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @_ZL17col_urban_inverse5PJ_XYP8PJconsts, ptr %55, align 8
-  br label %56
+  %32 = fmul double %30, %21
+  %33 = tail call double @llvm.fmuladd.f64(double %32, double %18, double 1.000000e+00)
+  %34 = tail call double @pow(double noundef %33, double noundef 1.500000e+00) #7
+  %35 = fdiv double %31, %34
+  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %35, ptr %36, align 8
+  %37 = load double, ptr %16, align 8
+  %38 = tail call double @tan(double noundef %37) #7
+  %39 = load double, ptr %36, align 8
+  %40 = fmul double %39, 2.000000e+00
+  %41 = fmul double %25, %40
+  %42 = fdiv double %38, %41
+  %43 = getelementptr inbounds i8, ptr %2, i64 24
+  store double %42, ptr %43, align 8
+  %44 = load double, ptr %2, align 8
+  %45 = fadd double %44, 1.000000e+00
+  %46 = getelementptr inbounds i8, ptr %2, i64 32
+  store double %45, ptr %46, align 8
+  %47 = load double, ptr %19, align 8
+  %48 = fsub double 1.000000e+00, %47
+  %49 = fdiv double %44, %48
+  %50 = fadd double %49, 1.000000e+00
+  %51 = fmul double %39, %50
+  %52 = getelementptr inbounds i8, ptr %2, i64 40
+  store double %51, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL17col_urban_forward5PJ_LPP8PJconsts, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL17col_urban_inverse5PJ_XYP8PJconsts, ptr %54, align 8
+  br label %55
 
-56:                                               ; preds = %6, %4
+55:                                               ; preds = %6, %4
   %.0 = phi ptr [ %5, %4 ], [ %0, %6 ]
   ret ptr %.0
 }
@@ -148,25 +147,25 @@ define internal { double, double } @_ZL17col_urban_forward5PJ_LPP8PJconsts(doubl
   %7 = tail call double @sin(double noundef %1) #7
   %8 = getelementptr inbounds i8, ptr %2, i64 216
   %9 = load double, ptr %8, align 8
-  %10 = fneg double %9
-  %11 = fmul double %7, %10
+  %10 = fneg double %7
+  %11 = fmul double %9, %10
   %12 = tail call double @llvm.fmuladd.f64(double %11, double %7, double 1.000000e+00)
   %13 = tail call double @sqrt(double noundef %12) #7
   %14 = fdiv double 1.000000e+00, %13
-  %15 = fmul double %14, %0
+  %15 = fmul double %0, %14
   %16 = fmul double %6, %15
   %17 = getelementptr inbounds i8, ptr %5, i64 16
   %18 = load double, ptr %17, align 8
   %19 = fmul double %18, %16
   %20 = getelementptr inbounds i8, ptr %2, i64 448
   %21 = load double, ptr %20, align 8
-  %22 = fadd double %21, %1
+  %22 = fadd double %1, %21
   %23 = fmul double %22, 5.000000e-01
   %24 = tail call double @sin(double noundef %23) #7
   %25 = load double, ptr %8, align 8
   %26 = fsub double 1.000000e+00, %25
-  %27 = fneg double %25
-  %28 = fmul double %24, %27
+  %27 = fneg double %24
+  %28 = fmul double %25, %27
   %29 = tail call double @llvm.fmuladd.f64(double %28, double %24, double 1.000000e+00)
   %30 = tail call double @pow(double noundef %29, double noundef 1.500000e+00) #7
   %31 = fdiv double %26, %30
@@ -203,14 +202,14 @@ define internal { double, double } @_ZL17col_urban_inverse5PJ_XYP8PJconsts(doubl
   %14 = getelementptr inbounds i8, ptr %5, i64 32
   %15 = load double, ptr %14, align 8
   %16 = fdiv double %0, %15
-  %17 = fneg double %13
-  %18 = fmul double %16, %17
+  %17 = fneg double %16
+  %18 = fmul double %13, %17
   %19 = tail call double @llvm.fmuladd.f64(double %18, double %16, double %11)
   %20 = tail call double @sin(double noundef %19) #7
   %21 = getelementptr inbounds i8, ptr %2, i64 216
   %22 = load double, ptr %21, align 8
-  %23 = fneg double %22
-  %24 = fmul double %20, %23
+  %23 = fneg double %20
+  %24 = fmul double %22, %23
   %25 = tail call double @llvm.fmuladd.f64(double %24, double %20, double 1.000000e+00)
   %26 = tail call double @sqrt(double noundef %25) #7
   %27 = fdiv double 1.000000e+00, %26

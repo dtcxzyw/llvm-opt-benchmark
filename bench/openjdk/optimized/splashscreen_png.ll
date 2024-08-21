@@ -16,7 +16,7 @@ define hidden void @my_png_read_stream(ptr noundef %0, ptr noundef %1, i64 nound
   %6 = trunc i64 %2 to i32
   %7 = tail call i32 %5(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %6) #7
   %8 = zext i32 %7 to i64
-  %.not = icmp eq i64 %8, %2
+  %.not = icmp eq i64 %2, %8
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %3

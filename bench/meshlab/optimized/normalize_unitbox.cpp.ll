@@ -201,8 +201,8 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6Mat
   invoke void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS_16PartialReduxExprINS2_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(9) %13, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEKNS_9ReplicateINS_16PartialReduxExprIS6_NS0_15member_minCoeffIddEELi0EEELin1ELi1EEEEEEC2ERKSF_.exit unwind label %.body.i.i.i.i.i.i
 
-common.resume:                                    ; preds = %67, %.body.i.i.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %15, %.body.i.i.i.i.i.i ], [ %68, %67 ]
+common.resume:                                    ; preds = %65, %.body.i.i.i.i.i.i
+  %common.resume.op = phi { ptr, i32 } [ %15, %.body.i.i.i.i.i.i ], [ %66, %65 ]
   %14 = load ptr, ptr %12, align 8
   call void @free(ptr noundef %14) #14
   resume { ptr, i32 } %common.resume.op
@@ -241,14 +241,14 @@ _ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEK
 
 31:                                               ; preds = %28
   %32 = sdiv i64 9223372036854775807, %21
-  %33 = icmp slt i64 %32, %23
+  %33 = icmp sgt i64 %23, %32
   br i1 %33, label %34, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i
 
 34:                                               ; preds = %31
   %35 = call ptr @__cxa_allocate_exception(i64 8) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %35, align 8
   invoke void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #15
-          to label %.noexc unwind label %67
+          to label %.noexc unwind label %65
 
 .noexc:                                           ; preds = %34
   unreachable
@@ -256,7 +256,7 @@ _ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEK
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i: ; preds = %31, %28
   %36 = mul nsw i64 %21, %23
   invoke void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %36, i64 noundef %23, i64 noundef %21)
-          to label %thread-pre-split unwind label %67
+          to label %thread-pre-split unwind label %65
 
 thread-pre-split:                                 ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i
   %.pr = load i64, ptr %26, align 8
@@ -273,54 +273,54 @@ thread-pre-split:                                 ; preds = %_ZN5Eigen15PlainObj
   br i1 %or.cond, label %.preheader.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKS5_KNS_9ReplicateINS_16PartialReduxExprIS5_NS0_15member_minCoeffIddEELi0EEELin1ELi1EEEEEEENS0_9assign_opIddEELi0EEELi0ELi0EE3runERSM_.exit
 
 .preheader.i:                                     ; preds = %37, %._crit_edge.i
-  %43 = phi i64 [ %62, %._crit_edge.i ], [ %38, %37 ]
-  %44 = phi i64 [ %63, %._crit_edge.i ], [ %39, %37 ]
-  %.0810.i = phi i64 [ %64, %._crit_edge.i ], [ 0, %37 ]
+  %43 = phi i64 [ %60, %._crit_edge.i ], [ %38, %37 ]
+  %44 = phi i64 [ %61, %._crit_edge.i ], [ %39, %37 ]
+  %.0810.i = phi i64 [ %62, %._crit_edge.i ], [ 0, %37 ]
   %45 = icmp sgt i64 %44, 0
   br i1 %45, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %46 = mul nuw nsw i64 %.0810.i, %39
-  %47 = getelementptr double, ptr %40, i64 %46
+  %invariant.gep = getelementptr double, ptr %40, i64 %46
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.09.i = phi i64 [ %59, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %48 = getelementptr double, ptr %47, i64 %.09.i
-  %49 = load ptr, ptr %6, align 8
-  %50 = load i64, ptr %11, align 8
-  %51 = mul nsw i64 %50, %.0810.i
-  %52 = getelementptr double, ptr %49, i64 %51
-  %53 = getelementptr double, ptr %52, i64 %.09.i
-  %54 = load ptr, ptr %16, align 8
-  %55 = getelementptr double, ptr %54, i64 %.0810.i
-  %56 = load double, ptr %55, align 8
-  %57 = load double, ptr %53, align 8
-  %58 = fsub double %57, %56
-  store double %58, ptr %48, align 8
-  %59 = add nuw nsw i64 %.09.i, 1
-  %60 = load i64, ptr %24, align 8
-  %61 = icmp slt i64 %59, %60
-  br i1 %61, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !20
+  %.09.i = phi i64 [ %57, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %gep = getelementptr double, ptr %invariant.gep, i64 %.09.i
+  %47 = load ptr, ptr %6, align 8
+  %48 = load i64, ptr %11, align 8
+  %49 = mul nsw i64 %48, %.0810.i
+  %50 = getelementptr double, ptr %47, i64 %.09.i
+  %51 = getelementptr double, ptr %50, i64 %49
+  %52 = load ptr, ptr %16, align 8
+  %53 = getelementptr double, ptr %52, i64 %.0810.i
+  %54 = load double, ptr %53, align 8
+  %55 = load double, ptr %51, align 8
+  %56 = fsub double %55, %54
+  store double %56, ptr %gep, align 8
+  %57 = add nuw nsw i64 %.09.i, 1
+  %58 = load i64, ptr %24, align 8
+  %59 = icmp slt i64 %57, %58
+  br i1 %59, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !20
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %.pre12 = load i64, ptr %26, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader.i
-  %62 = phi i64 [ %.pre12, %._crit_edge.i.loopexit ], [ %43, %.preheader.i ]
-  %63 = phi i64 [ %60, %._crit_edge.i.loopexit ], [ %44, %.preheader.i ]
-  %64 = add nuw nsw i64 %.0810.i, 1
-  %65 = icmp slt i64 %64, %62
-  br i1 %65, label %.preheader.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKS5_KNS_9ReplicateINS_16PartialReduxExprIS5_NS0_15member_minCoeffIddEELi0EEELin1ELi1EEEEEEENS0_9assign_opIddEELi0EEELi0ELi0EE3runERSM_.exit, !llvm.loop !21
+  %60 = phi i64 [ %.pre12, %._crit_edge.i.loopexit ], [ %43, %.preheader.i ]
+  %61 = phi i64 [ %58, %._crit_edge.i.loopexit ], [ %44, %.preheader.i ]
+  %62 = add nuw nsw i64 %.0810.i, 1
+  %63 = icmp slt i64 %62, %60
+  br i1 %63, label %.preheader.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKS5_KNS_9ReplicateINS_16PartialReduxExprIS5_NS0_15member_minCoeffIddEELi0EEELin1ELi1EEEEEEENS0_9assign_opIddEELi0EEELi0ELi0EE3runERSM_.exit, !llvm.loop !21
 
 _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKS5_KNS_9ReplicateINS_16PartialReduxExprIS5_NS0_15member_minCoeffIddEELi0EEELin1ELi1EEEEEEENS0_9assign_opIddEELi0EEELi0ELi0EE3runERSM_.exit: ; preds = %._crit_edge.i, %37
-  %66 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %66) #14
+  %64 = load ptr, ptr %12, align 8
+  call void @free(ptr noundef %64) #14
   ret void
 
-67:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i, %34
-  %68 = landingpad { ptr, i32 }
+65:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i, %34
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 }
@@ -510,7 +510,7 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
 define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %.not = icmp eq i64 %6, %1
+  %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %4
@@ -572,7 +572,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeEl
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
-  %.not = icmp eq i64 %9, %1
+  %.not = icmp eq i64 %1, %9
   br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %4

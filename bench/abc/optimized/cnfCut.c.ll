@@ -406,7 +406,7 @@ define void @Cnf_CutRemoveIthVar(ptr nocapture noundef %0, i32 noundef %1, i32 n
   %5 = add i8 %4, -1
   store i8 %5, ptr %0, align 8
   %6 = sext i8 %5 to i32
-  %7 = icmp sgt i32 %6, %1
+  %7 = icmp slt i32 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -434,7 +434,7 @@ define void @Cnf_CutRemoveIthVar(ptr nocapture noundef %0, i32 noundef %1, i32 n
 define void @Cnf_CutInsertIthVar(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = load i8, ptr %0, align 8
   %5 = sext i8 %4 to i32
-  %6 = icmp sgt i32 %5, %1
+  %6 = icmp slt i32 %1, %5
   br i1 %6, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %3

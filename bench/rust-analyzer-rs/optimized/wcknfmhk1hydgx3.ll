@@ -760,7 +760,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %17 = load ptr, ptr %12, align 8, !noalias !124, !nonnull !4, !align !121, !noundef !4
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8, !noalias !124, !noundef !4
-  %20 = icmp ugt i64 %19, %.sroa.0.07.i
+  %20 = icmp ult i64 %.sroa.0.07.i, %19
   br i1 %20, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha78a909ad582815cE.exit.i", label %21, !prof !125
 
 21:                                               ; preds = %16
@@ -831,7 +831,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17ha4c4be51a10d5a16E.exit: ; preds = 
   %44 = load ptr, ptr %.sroa.10.0.copyload, align 8, !noalias !138, !nonnull !4, !align !121, !noundef !4
   %45 = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8, !noalias !138, !noundef !4
-  %47 = icmp ugt i64 %46, %39
+  %47 = icmp ult i64 %39, %46
   br i1 %47, label %48, label %70, !prof !125
 
 48:                                               ; preds = %43
@@ -3159,7 +3159,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.15310
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -7240,7 +7240,7 @@ common.resume:                                    ; preds = %47, %53, %23, %28
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h75521cbf96636a53E.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   %.us-phi.i = phi i64 [ %.sroa.01.017.us.i, %.lr.ph.split.us.i ], [ %.sroa.01.017.i, %.lr.ph.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !2937
-  %38 = icmp eq i64 %.us-phi.i, %1
+  %38 = icmp eq i64 %1, %.us-phi.i
   br i1 %38, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h75521cbf96636a53E.exit.thread.thread, label %58
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h75521cbf96636a53E.exit.thread.thread: ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h75521cbf96636a53E.exit
@@ -10763,7 +10763,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !3284, !noalias !3289, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !3291, !noalias !3289, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5ddb04363b0a4521E.exit"
 
 9:                                                ; preds = %3
@@ -10920,7 +10920,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !3319, !noalias !3324, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !3326, !noalias !3324, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5ddb04363b0a4521E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit

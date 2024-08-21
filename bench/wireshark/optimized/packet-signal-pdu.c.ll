@@ -5928,7 +5928,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
   br i1 %.not283.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.preheader.i
 
 .lr.ph.split.i.preheader.i:                       ; preds = %.lr.ph.i.i
-  %.not74.i326.i = icmp eq i32 %102, %.076128
+  %.not74.i326.i = icmp eq i32 %.076128, %102
   br i1 %.not74.i326.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.split.us.i.i

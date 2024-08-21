@@ -811,7 +811,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__io_timeout_prep(ptr noun
 
 18:                                               ; preds = %14
   %19 = icmp ne i32 %6, 0
-  %20 = and i1 %19, %2
+  %20 = and i1 %2, %19
   br i1 %20, label %99, label %21
 
 21:                                               ; preds = %18
@@ -1279,7 +1279,7 @@ define dso_local zeroext i1 @io_kill_timeouts(ptr noundef %0, ptr noundef readno
   %17 = getelementptr i8, ptr %12, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ne ptr %18, %1
-  %20 = or i1 %19, %2
+  %20 = or i1 %2, %19
   br i1 %20, label %32, label %22
 
 21:                                               ; preds = %11

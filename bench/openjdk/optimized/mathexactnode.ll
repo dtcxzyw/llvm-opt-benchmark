@@ -123,8 +123,8 @@ define hidden noundef zeroext i1 @_ZN16OverflowMulLNode11is_overflowEll(i64 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK16OverflowAddINode12can_overflowEPK4TypeS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(52) %0, ptr noundef readnone %1, ptr noundef readnone %2) unnamed_addr #1 align 2 {
   %4 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
-  %5 = icmp ne ptr %4, %1
-  %6 = icmp ne ptr %4, %2
+  %5 = icmp ne ptr %1, %4
+  %6 = icmp ne ptr %2, %4
   %or.cond.not.i = and i1 %5, %6
   ret i1 %or.cond.not.i
 }
@@ -139,7 +139,7 @@ define hidden noundef zeroext i1 @_ZNK16OverflowSubINode12can_overflowEPK4TypeS2
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %7, %9
   %11 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
-  %12 = icmp ne ptr %11, %2
+  %12 = icmp ne ptr %2, %11
   %.0 = select i1 %10, i1 %12, i1 false
   ret i1 %.0
 }
@@ -147,15 +147,15 @@ define hidden noundef zeroext i1 @_ZNK16OverflowSubINode12can_overflowEPK4TypeS2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK16OverflowMulINode12can_overflowEPK4TypeS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(52) %0, ptr noundef readnone %1, ptr noundef readnone %2) unnamed_addr #1 align 2 {
   %4 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
-  %5 = icmp eq ptr %4, %1
-  %6 = icmp eq ptr %4, %2
+  %5 = icmp eq ptr %1, %4
+  %6 = icmp eq ptr %2, %4
   %or.cond.i = or i1 %5, %6
   br i1 %or.cond.i, label %_ZN9MulHelperI16OverflowMulINodeE12can_overflowEPK4TypeS4_.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @_ZN7TypeInt3ONEE, align 8
-  %9 = icmp ne ptr %8, %1
-  %10 = icmp ne ptr %8, %2
+  %9 = icmp ne ptr %1, %8
+  %10 = icmp ne ptr %2, %8
   %or.cond9.not.i = and i1 %9, %10
   br label %_ZN9MulHelperI16OverflowMulINodeE12can_overflowEPK4TypeS4_.exit
 
@@ -167,8 +167,8 @@ _ZN9MulHelperI16OverflowMulINodeE12can_overflowEPK4TypeS4_.exit: ; preds = %3, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK16OverflowAddLNode12can_overflowEPK4TypeS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(52) %0, ptr noundef readnone %1, ptr noundef readnone %2) unnamed_addr #1 align 2 {
   %4 = load ptr, ptr @_ZN8TypeLong4ZEROE, align 8
-  %5 = icmp ne ptr %4, %1
-  %6 = icmp ne ptr %4, %2
+  %5 = icmp ne ptr %1, %4
+  %6 = icmp ne ptr %2, %4
   %or.cond.not.i = and i1 %5, %6
   ret i1 %or.cond.not.i
 }
@@ -183,7 +183,7 @@ define hidden noundef zeroext i1 @_ZNK16OverflowSubLNode12can_overflowEPK4TypeS2
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %7, %9
   %11 = load ptr, ptr @_ZN8TypeLong4ZEROE, align 8
-  %12 = icmp ne ptr %11, %2
+  %12 = icmp ne ptr %2, %11
   %.0 = select i1 %10, i1 %12, i1 false
   ret i1 %.0
 }
@@ -191,15 +191,15 @@ define hidden noundef zeroext i1 @_ZNK16OverflowSubLNode12can_overflowEPK4TypeS2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK16OverflowMulLNode12can_overflowEPK4TypeS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(52) %0, ptr noundef readnone %1, ptr noundef readnone %2) unnamed_addr #1 align 2 {
   %4 = load ptr, ptr @_ZN8TypeLong4ZEROE, align 8
-  %5 = icmp eq ptr %4, %1
-  %6 = icmp eq ptr %4, %2
+  %5 = icmp eq ptr %1, %4
+  %6 = icmp eq ptr %2, %4
   %or.cond.i = or i1 %5, %6
   br i1 %or.cond.i, label %_ZN9MulHelperI16OverflowMulLNodeE12can_overflowEPK4TypeS4_.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @_ZN8TypeLong3ONEE, align 8
-  %9 = icmp ne ptr %8, %1
-  %10 = icmp ne ptr %8, %2
+  %9 = icmp ne ptr %1, %8
+  %10 = icmp ne ptr %2, %8
   %or.cond9.not.i = and i1 %9, %10
   br label %_ZN9MulHelperI16OverflowMulLNodeE12can_overflowEPK4TypeS4_.exit
 

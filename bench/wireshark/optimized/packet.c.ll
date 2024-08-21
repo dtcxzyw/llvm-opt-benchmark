@@ -295,7 +295,7 @@ declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @set_actual_length(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length(ptr noundef %0) #25
-  %4 = icmp ugt i32 %3, %1
+  %4 = icmp ult i32 %1, %3
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
@@ -506,7 +506,7 @@ define hidden void @free_data_sources(ptr nocapture noundef %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define void @mark_frame_as_depended_upon(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
-  %.not = icmp eq i32 %3, %1
+  %.not = icmp eq i32 %1, %3
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2

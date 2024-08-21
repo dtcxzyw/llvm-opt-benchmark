@@ -1041,7 +1041,7 @@ define internal fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr nou
   %171 = load i32, ptr @hf_docsis_len, align 4
   %172 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %171, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
   %173 = load i16, ptr %6, align 2
-  %174 = icmp ult i16 %173, %5
+  %174 = icmp ugt i16 %5, %173
   br i1 %174, label %175, label %dissect_ehdr.exit
 
 175:                                              ; preds = %168

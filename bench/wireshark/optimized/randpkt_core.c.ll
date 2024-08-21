@@ -298,7 +298,7 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
 94:                                               ; preds = %85, %89, %86
   %95 = add i32 %.072, 1
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %96, %1
+  %97 = icmp ugt i64 %1, %96
   br i1 %97, label %36, label %._crit_edge75, !llvm.loop !8
 
 ._crit_edge75:                                    ; preds = %94, %27
@@ -430,7 +430,7 @@ sub_0:                                            ; preds = %10, %4
 29:                                               ; preds = %23
   %30 = getelementptr inbounds i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
-  %.not24 = icmp slt i32 %31, %2
+  %.not24 = icmp sgt i32 %2, %31
   br i1 %.not24, label %37, label %32
 
 32:                                               ; preds = %29

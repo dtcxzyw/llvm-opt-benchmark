@@ -757,7 +757,7 @@ define ptr @cvMemStorageAlloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 
 41:                                               ; preds = %29
   %42 = sext i32 %31 to i64
-  %43 = icmp ult i64 %42, %1
+  %43 = icmp ugt i64 %1, %42
   br i1 %43, label %44, label %59
 
 44:                                               ; preds = %41
@@ -766,7 +766,7 @@ define ptr @cvMemStorageAlloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %47 = and i32 %46, -8
   %48 = add i32 %47, -16
   %49 = sext i32 %48 to i64
-  %50 = icmp ult i64 %49, %1
+  %50 = icmp ugt i64 %1, %49
   br i1 %50, label %51, label %58
 
 51:                                               ; preds = %44
@@ -1292,7 +1292,7 @@ define void @cvSetSeqBlockSize(ptr noundef %0, i32 noundef %1) local_unnamed_add
 define ptr @cvGetSeqElem(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
-  %.not = icmp ugt i32 %4, %1
+  %.not = icmp ult i32 %1, %4
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
@@ -1855,7 +1855,7 @@ define void @cvSetSeqReaderPos(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 
 27:                                               ; preds = %25
   %28 = sub nsw i32 0, %22
-  %29 = icmp sgt i32 %28, %1
+  %29 = icmp slt i32 %1, %28
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %27
@@ -1886,7 +1886,7 @@ define void @cvSetSeqReaderPos(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br label %49
 
 39:                                               ; preds = %25
-  %.not126 = icmp sgt i32 %22, %1
+  %.not126 = icmp slt i32 %1, %22
   br i1 %.not126, label %49, label %40
 
 40:                                               ; preds = %39
@@ -4876,7 +4876,7 @@ define void @cvSeqPopMulti(ptr noundef %0, ptr noundef writeonly %1, i32 noundef
 29:                                               ; preds = %20
   %30 = getelementptr inbounds i8, ptr %0, i64 40
   %31 = load i32, ptr %30, align 8
-  %. = tail call i32 @llvm.smin.i32(i32 %31, i32 %2)
+  %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %31)
   %.not85 = icmp eq i32 %3, 0
   br i1 %.not85, label %35, label %.preheader
 
@@ -10103,7 +10103,7 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
   %166 = add nuw nsw i32 %.4158, %.283157
   %167 = lshr i32 %166, 1
   %168 = load i32, ptr %38, align 8
-  %.not.i129 = icmp ugt i32 %168, %167
+  %.not.i129 = icmp ult i32 %167, %168
   br i1 %.not.i129, label %171, label %169
 
 169:                                              ; preds = %165
@@ -11427,7 +11427,7 @@ define void @cvSetRemove(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 p
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not.i.i = icmp ugt i32 %15, %1
+  %.not.i.i = icmp ult i32 %1, %15
   br i1 %.not.i.i, label %22, label %16
 
 16:                                               ; preds = %13
@@ -12106,7 +12106,7 @@ define i32 @cvGraphRemoveVtx(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not.i.i = icmp ugt i32 %16, %1
+  %.not.i.i = icmp ult i32 %1, %16
   br i1 %.not.i.i, label %23, label %17
 
 17:                                               ; preds = %14
@@ -12417,7 +12417,7 @@ define ptr @cvFindGraphEdge(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not.i.i = icmp ugt i32 %16, %1
+  %.not.i.i = icmp ult i32 %1, %16
   br i1 %.not.i.i, label %23, label %17
 
 17:                                               ; preds = %14
@@ -12491,7 +12491,7 @@ cvGetSeqElem.exit.i:                              ; preds = %.lr.ph.i.i, %40, %.
 
 _ZL12cvGetSetElemPK5CvSeti.exit:                  ; preds = %17, %cvGetSeqElem.exit.i, %44
   %52 = phi ptr [ null, %cvGetSeqElem.exit.i ], [ %spec.select.i, %44 ], [ null, %17 ]
-  %.not.i.i12 = icmp ugt i32 %16, %2
+  %.not.i.i12 = icmp ult i32 %2, %16
   br i1 %.not.i.i12, label %59, label %53
 
 53:                                               ; preds = %_ZL12cvGetSetElemPK5CvSeti.exit
@@ -12827,7 +12827,7 @@ define range(i32 0, 2) i32 @cvGraphAddEdge(ptr noundef %0, i32 noundef %1, i32 n
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
-  %.not.i.i = icmp ugt i32 %18, %1
+  %.not.i.i = icmp ult i32 %1, %18
   br i1 %.not.i.i, label %25, label %19
 
 19:                                               ; preds = %16
@@ -12901,7 +12901,7 @@ cvGetSeqElem.exit.i:                              ; preds = %.lr.ph.i.i, %42, %.
 
 _ZL12cvGetSetElemPK5CvSeti.exit:                  ; preds = %19, %cvGetSeqElem.exit.i, %46
   %54 = phi ptr [ null, %cvGetSeqElem.exit.i ], [ %spec.select.i, %46 ], [ null, %19 ]
-  %.not.i.i14 = icmp ugt i32 %18, %2
+  %.not.i.i14 = icmp ult i32 %2, %18
   br i1 %.not.i.i14, label %61, label %55
 
 55:                                               ; preds = %_ZL12cvGetSetElemPK5CvSeti.exit
@@ -13017,7 +13017,7 @@ define void @cvGraphRemoveEdge(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not.i.i = icmp ugt i32 %16, %1
+  %.not.i.i = icmp ult i32 %1, %16
   br i1 %.not.i.i, label %23, label %17
 
 17:                                               ; preds = %14
@@ -13091,7 +13091,7 @@ cvGetSeqElem.exit.i:                              ; preds = %.lr.ph.i.i, %40, %.
 
 _ZL12cvGetSetElemPK5CvSeti.exit:                  ; preds = %17, %cvGetSeqElem.exit.i, %44
   %52 = phi ptr [ null, %cvGetSeqElem.exit.i ], [ %spec.select.i, %44 ], [ null, %17 ]
-  %.not.i.i12 = icmp ugt i32 %16, %2
+  %.not.i.i12 = icmp ult i32 %2, %16
   br i1 %.not.i.i12, label %59, label %53
 
 53:                                               ; preds = %_ZL12cvGetSetElemPK5CvSeti.exit
@@ -13266,7 +13266,7 @@ define i32 @cvGraphVtxDegree(ptr noundef readonly %0, i32 noundef %1) local_unna
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not.i.i = icmp ugt i32 %16, %1
+  %.not.i.i = icmp ult i32 %1, %16
   br i1 %.not.i.i, label %23, label %17
 
 17:                                               ; preds = %14
@@ -15267,7 +15267,7 @@ define void @_ZN2cv8clearSeqEP5CvSeq(ptr noundef %0) local_unnamed_addr #0 {
 define noundef ptr @_ZN2cv10getSeqElemEPK5CvSeqi(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
-  %.not.i = icmp ugt i32 %4, %1
+  %.not.i = icmp ult i32 %1, %4
   br i1 %.not.i, label %11, label %5
 
 5:                                                ; preds = %2

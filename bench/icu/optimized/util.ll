@@ -133,7 +133,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -413,7 +413,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #13
   %cmp7 = icmp eq ptr %call, null
@@ -568,7 +568,7 @@ while.body15:                                     ; preds = %while.cond13.prehea
   %mul18 = mul nsw i32 %div16, %r.136
   %sub19.recomposed = srem i32 %n.addr.135, %r.136
   %div20 = udiv i32 %r.136, %radix
-  %cmp14.not = icmp ult i32 %r.136, %radix
+  %cmp14.not = icmp ugt i32 %radix, %r.136
   br i1 %cmp14.not, label %return, label %while.body15, !llvm.loop !7
 
 return:                                           ; preds = %while.body15, %while.cond13.preheader, %if.then
@@ -992,7 +992,7 @@ entry:
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i12 = select i1 %cmp.i.i10, i32 %3, i32 %shr.i.i11
   %cmp13 = icmp slt i32 %0, %cond.i12
-  %cmp.i.i614 = icmp ugt i32 %cond.i12, %0
+  %cmp.i.i614 = icmp ult i32 %0, %cond.i12
   %or.cond915 = and i1 %cmp13, %cmp.i.i614
   br i1 %or.cond915, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.lr.ph, label %while.end
 

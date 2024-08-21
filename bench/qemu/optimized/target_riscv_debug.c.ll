@@ -1045,7 +1045,7 @@ sw.bb3.i18:                                       ; preds = %sw.bb
   %tdata2.i = getelementptr inbounds i8, ptr %env, i64 8376
   %arrayidx4.i = getelementptr [2 x i64], ptr %tdata2.i, i64 0, i64 %4
   %30 = load i64, ptr %arrayidx4.i, align 8
-  %cmp5.not.i = icmp eq i64 %30, %val
+  %cmp5.not.i = icmp eq i64 %val, %30
   br i1 %cmp5.not.i, label %sw.epilog, label %if.then6.i
 
 if.then6.i:                                       ; preds = %sw.bb3.i18
@@ -1381,7 +1381,7 @@ sw.bb3.i26:                                       ; preds = %sw.bb4
   %tdata2.i27 = getelementptr inbounds i8, ptr %env, i64 8376
   %arrayidx4.i28 = getelementptr [2 x i64], ptr %tdata2.i27, i64 0, i64 %42
   %63 = load i64, ptr %arrayidx4.i28, align 8
-  %cmp5.not.i29 = icmp eq i64 %63, %val
+  %cmp5.not.i29 = icmp eq i64 %val, %63
   br i1 %cmp5.not.i29, label %sw.epilog, label %if.then6.i30
 
 if.then6.i30:                                     ; preds = %sw.bb3.i26

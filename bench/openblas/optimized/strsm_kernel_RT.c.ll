@@ -32,10 +32,10 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %28, label %.loopexit55, label %29
 
 29:                                               ; preds = %22
-  %30 = mul i64 %24, %2
+  %30 = mul i64 %2, %24
   %31 = sub i64 0, %30
   %32 = getelementptr inbounds float, ptr %25, i64 %31
-  %33 = mul i64 %24, %7
+  %33 = mul i64 %7, %24
   %34 = sub i64 0, %33
   %35 = getelementptr inbounds float, ptr %26, i64 %34
   br i1 %19, label %36, label %.loopexit56

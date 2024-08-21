@@ -44,7 +44,7 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
 15:                                               ; preds = %9
   %16 = sub i32 8192, %14
   %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %17, %2
+  %18 = icmp ult i64 %2, %17
   %19 = trunc nuw i64 %2 to i32
   %20 = select i1 %18, i32 %19, i32 %16
   %21 = getelementptr inbounds i8, ptr %0, i64 216
@@ -87,7 +87,7 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
 38:                                               ; preds = %37
   %39 = sub i32 8192, %14
   %40 = zext i32 %39 to i64
-  %41 = icmp ugt i64 %40, %2
+  %41 = icmp ult i64 %2, %40
   %42 = trunc nuw i64 %2 to i32
   %43 = select i1 %41, i32 %42, i32 %39
   %44 = zext i32 %43 to i64

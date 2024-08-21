@@ -44,7 +44,7 @@ define i32 @ompi_coll_libnbc_igather(ptr noundef %0, i32 noundef %1, ptr noundef
 define internal fastcc i32 @nbc_gather_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i1 noundef zeroext %10) unnamed_addr #0 {
   %12 = getelementptr i8, ptr %7, i64 220
   %.val = load i32, ptr %12, align 4
-  %13 = icmp eq i32 %.val, %6
+  %13 = icmp eq i32 %6, %.val
   br i1 %13, label %14, label %.thread
 
 .thread:                                          ; preds = %11

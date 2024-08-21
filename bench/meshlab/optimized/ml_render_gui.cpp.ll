@@ -2831,7 +2831,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br i1 %.not14, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %63 = icmp eq ptr %62, %1
+  %63 = icmp eq ptr %1, %62
   invoke void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %62, i1 noundef zeroext %63)
           to label %._crit_edge.split.split.us unwind label %.split.us
 
@@ -11569,7 +11569,7 @@ define void @_ZN24MLRenderingParametersTab21activateRenderingModeEi(ptr noundef 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = icmp sgt i32 %8, %1
+  %9 = icmp slt i32 %1, %8
   br i1 %9, label %10, label %32
 
 10:                                               ; preds = %4
@@ -11865,7 +11865,7 @@ define linkonce_odr void @_ZN7QVectorIP17MLRenderingActionE6resizeEi(ptr noundef
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = icmp eq i32 %5, %1
+  %6 = icmp eq i32 %1, %5
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %2
@@ -11893,7 +11893,7 @@ define linkonce_odr void @_ZN7QVectorIP17MLRenderingActionE6resizeEi(ptr noundef
   %18 = getelementptr inbounds i8, ptr %3, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 2147483647
-  %21 = icmp slt i32 %20, %1
+  %21 = icmp sgt i32 %1, %20
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %17
@@ -11903,7 +11903,7 @@ define linkonce_odr void @_ZN7QVectorIP17MLRenderingActionE6resizeEi(ptr noundef
 
 25:                                               ; preds = %22, %17
   %26 = phi i32 [ 0, %22 ], [ 8, %17 ]
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %20, i32 %1)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 %20)
   tail call void @_ZN7QVectorIP17MLRenderingActionE7reallocEi6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %.sroa.speculated, i32 %26)
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 4
@@ -11913,7 +11913,7 @@ define linkonce_odr void @_ZN7QVectorIP17MLRenderingActionE6resizeEi(ptr noundef
 27:                                               ; preds = %25, %22
   %28 = phi i32 [ %.pre17, %25 ], [ %5, %22 ]
   %29 = phi ptr [ %.pre, %25 ], [ %3, %22 ]
-  %30 = icmp sgt i32 %28, %1
+  %30 = icmp slt i32 %1, %28
   %31 = load atomic i32, ptr %29 monotonic, align 4
   %32 = icmp ult i32 %31, 2
   br i1 %30, label %33, label %51

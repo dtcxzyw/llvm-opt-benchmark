@@ -1775,7 +1775,7 @@ define internal fastcc noundef zeroext i1 @data_push_tail(ptr noundef %0, i64 no
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load volatile i64, ptr %8, align 8
   %10 = xor i64 %9, -1
-  %11 = add i64 %10, %1
+  %11 = add i64 %1, %10
   %12 = load i32, ptr %4, align 8
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %11, %13
@@ -1880,7 +1880,7 @@ default.unreachable11:                            ; preds = %select.unfold
 
 77:                                               ; preds = %75, %64
   %78 = xor i64 %59, -1
-  %79 = add i64 %78, %1
+  %79 = add i64 %1, %78
   %80 = load i32, ptr %4, align 8
   %81 = zext nneg i32 %80 to i64
   %82 = lshr i64 %79, %81
@@ -1910,7 +1910,7 @@ default.unreachable11:                            ; preds = %select.unfold
 91:                                               ; preds = %.thread3, %.loopexit
   %92 = phi i64 [ %83, %.loopexit ], [ %90, %.thread3 ]
   %93 = xor i64 %92, -1
-  %94 = add i64 %93, %1
+  %94 = add i64 %1, %93
   %95 = load i32, ptr %4, align 8
   %96 = zext nneg i32 %95 to i64
   %97 = lshr i64 %94, %96

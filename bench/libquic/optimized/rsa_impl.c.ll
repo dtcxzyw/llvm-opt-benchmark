@@ -27,7 +27,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_encrypt(ptr noundef %rsa, ptr noc
 entry:
   %call = tail call i32 @RSA_size(ptr noundef %rsa) #7
   %conv = zext i32 %call to i64
-  %cmp = icmp ugt i64 %conv, %max_out
+  %cmp = icmp ult i64 %max_out, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -220,7 +220,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_sign_raw(ptr noundef %rsa, ptr no
 entry:
   %call = tail call i32 @RSA_size(ptr noundef %rsa) #7
   %conv = zext i32 %call to i64
-  %cmp = icmp ugt i64 %conv, %max_out
+  %cmp = icmp ult i64 %max_out, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -290,7 +290,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_decrypt(ptr noundef %rsa, ptr noc
 entry:
   %call = tail call i32 @RSA_size(ptr noundef %rsa) #7
   %conv = zext i32 %call to i64
-  %cmp = icmp ugt i64 %conv, %max_out
+  %cmp = icmp ult i64 %max_out, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -312,7 +312,7 @@ err.thread:                                       ; preds = %if.else
 
 if.end11:                                         ; preds = %if.end, %if.else
   %buf.0 = phi ptr [ %call6, %if.else ], [ %out, %if.end ]
-  %cmp13.not = icmp eq i64 %conv, %in_len
+  %cmp13.not = icmp eq i64 %in_len, %conv
   br i1 %cmp13.not, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.end11
@@ -399,7 +399,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end:                                           ; preds = %lor.lhs.false
   %call = tail call i32 @RSA_size(ptr noundef nonnull %rsa) #7
   %conv = zext i32 %call to i64
-  %cmp2 = icmp ugt i64 %conv, %max_out
+  %cmp2 = icmp ult i64 %max_out, %conv
   br i1 %cmp2, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
@@ -407,7 +407,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %cmp7.not = icmp eq i64 %conv, %in_len
+  %cmp7.not = icmp eq i64 %in_len, %conv
   br i1 %cmp7.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end5

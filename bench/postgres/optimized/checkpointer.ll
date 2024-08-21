@@ -817,7 +817,7 @@ define dso_local void @CheckpointWriteDelay(i32 noundef %0, double noundef %1) l
 16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %17 = load double, ptr @CheckPointCompletionTarget, align 8
-  %18 = fmul double %17, %1
+  %18 = fmul double %1, %17
   %19 = load double, ptr @ckpt_cached_elapsed, align 8
   %20 = fcmp olt double %18, %19
   br i1 %20, label %IsCheckpointOnSchedule.exit.thread, label %21
@@ -1103,7 +1103,7 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #2 {
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %15, i64 20
   %21 = load i32, ptr %20, align 4
-  %22 = or i32 %21, %0
+  %22 = or i32 %0, %21
   %23 = or i32 %22, 64
   store i32 %23, ptr %20, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12

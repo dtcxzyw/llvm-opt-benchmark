@@ -317,7 +317,7 @@ define noundef i32 @SUNMatScaleAddI_Dense(double noundef %0, ptr nocapture nound
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds double, ptr %16, i64 %.01516
   %18 = load double, ptr %17, align 8
-  %19 = fmul double %18, %0
+  %19 = fmul double %0, %18
   store double %19, ptr %17, align 8
   %20 = icmp eq i64 %.01516, %.017
   br i1 %20, label %21, label %30

@@ -8738,7 +8738,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEe
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %.val.i2)
   %17 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp eq ptr %17, %16
+  %.not.i.i = icmp eq ptr %16, %17
   br i1 %.not.i.i, label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEaSERKS5_.exit, label %18
 
 18:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_110ThreshTypeEEeqERKS5_.exit.thread
@@ -8793,7 +8793,7 @@ _ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread: ; pre
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(8) %44)
   %49 = load ptr, ptr %34, align 8
-  %.not.i.i3 = icmp eq ptr %49, %48
+  %.not.i.i3 = icmp eq ptr %48, %49
   br i1 %.not.i.i3, label %_ZN7testing8internal13ParamIteratorIN4perf7MatTypeEEaSERKS4_.exit, label %50
 
 50:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread
@@ -14210,7 +14210,7 @@ _ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit.thread: ; preds = %1, %_ZNK
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %16)
   %21 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp eq ptr %21, %20
+  %.not.i.i = icmp eq ptr %20, %21
   br i1 %.not.i.i, label %_ZN7testing8internal13ParamIteratorIdEaSERKS2_.exit, label %22
 
 22:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit.thread
@@ -14265,7 +14265,7 @@ _ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread: ; preds = %37, %_ZN
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %48)
   %53 = load ptr, ptr %38, align 8
-  %.not.i.i4 = icmp eq ptr %53, %52
+  %.not.i.i4 = icmp eq ptr %52, %53
   br i1 %.not.i.i4, label %_ZN7testing8internal13ParamIteratorIiEaSERKS2_.exit, label %54
 
 54:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread
@@ -14320,7 +14320,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMe
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(8) %.val.i5)
   %81 = load ptr, ptr %69, align 8
-  %.not.i.i6 = icmp eq ptr %81, %80
+  %.not.i.i6 = icmp eq ptr %80, %81
   br i1 %.not.i.i6, label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEaSERKS5_.exit, label %82
 
 82:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_117AdaptThreshMethodEEeqERKS5_.exit.thread
@@ -14375,7 +14375,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTy
   %107 = load ptr, ptr %106, align 8
   %108 = tail call noundef ptr %107(ptr noundef nonnull align 8 dereferenceable(8) %.val.i8)
   %109 = load ptr, ptr %97, align 8
-  %.not.i.i9 = icmp eq ptr %109, %108
+  %.not.i.i9 = icmp eq ptr %108, %109
   br i1 %.not.i.i9, label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEaSERKS5_.exit, label %110
 
 110:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_115AdaptThreshTypeEEeqERKS5_.exit.thread
@@ -15907,7 +15907,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %268 = icmp eq ptr %31, %.sroa.4.0.i.ph.i
+  %268 = icmp eq ptr %.sroa.4.0.i.ph.i, %31
   br i1 %268, label %276, label %269
 
 269:                                              ; preds = %select.unfold.i
@@ -16098,7 +16098,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i = phi i32 [ %323, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %336, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i ], [ %331, %330 ]
   %337 = getelementptr inbounds [5 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_110ThreshType7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i
   %338 = load i32, ptr %337, align 4, !noalias !244
-  %339 = icmp eq i32 %338, %.val.i.i.i.i.i.i.i
+  %339 = icmp eq i32 %.val.i.i.i.i.i.i.i, %338
   br i1 %339, label %340, label %316
 
 340:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i
@@ -16734,7 +16734,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
 _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test33Size_MatType_ThreshType_thresholdEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test33Size_MatType_ThreshType_thresholdEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test33Size_MatType_ThreshType_thresholdEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit ], [ %30, %.lr.ph.i.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 64
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test33Size_MatType_ThreshType_thresholdEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test33Size_MatType_ThreshType_thresholdEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i17
@@ -17588,7 +17588,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %267 = icmp eq ptr %26, %.sroa.4.0.i.ph.i
+  %267 = icmp eq ptr %.sroa.4.0.i.ph.i, %26
   br i1 %267, label %275, label %268
 
 268:                                              ; preds = %select.unfold.i
@@ -18045,7 +18045,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
 _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test24Size_Only_threshold_otsuEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test24Size_Only_threshold_otsuEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test24Size_Only_threshold_otsuEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit ], [ %30, %.lr.ph.i.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 64
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test24Size_Only_threshold_otsuEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test24Size_Only_threshold_otsuEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i17
@@ -18903,7 +18903,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %273 = icmp eq ptr %35, %.sroa.4.0.i.ph.i
+  %273 = icmp eq ptr %.sroa.4.0.i.ph.i, %35
   br i1 %273, label %281, label %274
 
 274:                                              ; preds = %select.unfold.i
@@ -19085,7 +19085,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %.preheader.i.i.i.i.
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %328, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %341, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %336, %335 ]
   %342 = getelementptr inbounds [2 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_117AdaptThreshMethod7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i.i.i.i
   %343 = load i32, ptr %342, align 4, !noalias !294
-  %344 = icmp eq i32 %343, %.val.i.i.i.i.i.i.i.i.i.i
+  %344 = icmp eq i32 %.val.i.i.i.i.i.i.i.i.i.i, %343
   br i1 %344, label %345, label %320
 
 345:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -19268,7 +19268,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %.preheader.i.i.i.i.
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %383, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ], [ %396, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %391, %390 ]
   %397 = getelementptr inbounds [2 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_117AdaptThreshMethod7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i.i.i
   %398 = load i32, ptr %397, align 4, !noalias !294
-  %399 = icmp eq i32 %398, %.val.i.i.i.i.i.i.i.i.i
+  %399 = icmp eq i32 %.val.i.i.i.i.i.i.i.i.i, %398
   br i1 %399, label %400, label %375
 
 400:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i.i.i
@@ -19794,7 +19794,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
 _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test72Size_AdaptThreshType_AdaptThreshMethod_BlockSize_Delta_adaptiveThresholdEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test72Size_AdaptThreshType_AdaptThreshMethod_BlockSize_Delta_adaptiveThresholdEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test72Size_AdaptThreshType_AdaptThreshMethod_BlockSize_Delta_adaptiveThresholdEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit ], [ %30, %.lr.ph.i.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 64
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test72Size_AdaptThreshType_AdaptThreshMethod_BlockSize_Delta_adaptiveThresholdEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test72Size_AdaptThreshType_AdaptThreshMethod_BlockSize_Delta_adaptiveThresholdEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i17

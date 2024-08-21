@@ -45,11 +45,11 @@ define dso_local void @PageInit(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
 
 11:                                               ; preds = %7
   %12 = getelementptr i8, ptr %0, i64 %1
-  %13 = icmp ugt ptr %12, %0
+  %13 = icmp ult ptr %0, %12
   br i1 %13, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %11
-  %14 = add i64 %4, %1
+  %14 = add i64 %1, %4
   %15 = add i64 %4, 8
   %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 %15)
   %16 = xor i64 %4, -1
@@ -277,7 +277,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
   br i1 %.not83, label %51, label %40
 
 40:                                               ; preds = %38
-  %.not85 = icmp ult i16 %.0.i, %3
+  %.not85 = icmp ugt i16 %3, %.0.i
   br i1 %.not85, label %.loopexit, label %41
 
 41:                                               ; preds = %40
@@ -299,7 +299,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
   br label %104
 
 51:                                               ; preds = %38
-  %.not84 = icmp uge i16 %.0.i, %3
+  %.not84 = icmp ule i16 %3, %.0.i
   br label %.loopexit
 
 52:                                               ; preds = %30
@@ -468,11 +468,11 @@ define dso_local ptr @PageGetTempPageCopySpecial(ptr nocapture noundef readonly 
 
 11:                                               ; preds = %1
   %12 = getelementptr i8, ptr %5, i64 %4
-  %13 = icmp ugt ptr %12, %5
+  %13 = icmp ult ptr %5, %12
   br i1 %13, label %.lr.ph.preheader.i, label %PageInit.exit
 
 .lr.ph.preheader.i:                               ; preds = %11
-  %14 = add i64 %7, %4
+  %14 = add i64 %4, %7
   %15 = add i64 %7, 8
   %umax.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %15)
   %16 = xor i64 %7, -1
@@ -759,7 +759,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
 
 21:                                               ; preds = %10
   %22 = trunc nuw nsw i64 %indvars.iv161 to i32
-  %23 = icmp slt i32 %22, %1
+  %23 = icmp sgt i32 %1, %22
   br i1 %23, label %.lr.ph143, label %._crit_edge144
 
 .lr.ph143:                                        ; preds = %21
@@ -840,7 +840,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   %sum.shift = lshr i32 %68, 4
   %69 = and i32 %sum.shift, 16383
   %70 = select i1 %66, i32 0, i32 %69
-  %71 = icmp sgt i32 %70, %1
+  %71 = icmp slt i32 %1, %70
   br i1 %71, label %.preheader.preheader, label %85
 
 .preheader.preheader:                             ; preds = %64
@@ -1687,7 +1687,7 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i
 66:                                               ; preds = %59
   %67 = add nuw nsw i64 %51, 7
   %68 = and i64 %67, 65528
-  %69 = icmp ugt i16 %37, %1
+  %69 = icmp ult i16 %1, %37
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %66

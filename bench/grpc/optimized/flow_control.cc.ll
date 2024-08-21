@@ -843,7 +843,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %announced_window_ = getelementptr inbounds i8, ptr %0, i64 224
   %1 = load i64, ptr %announced_window_, align 8
-  %cmp = icmp slt i64 %1, %incoming_frame_size
+  %cmp = icmp sgt i64 %incoming_frame_size, %1
   br i1 %cmp, label %if.then, label %invoke.cont6
 
 if.then:                                          ; preds = %entry
@@ -1065,7 +1065,7 @@ entry:
   %0 = load i32, ptr %min_value, align 4
   %max_value = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load i32, ptr %max_value, align 16
-  %cmp.i = icmp ugt i32 %0, %new_desired_value
+  %cmp.i = icmp ult i32 %new_desired_value, %0
   %max.val.i = tail call i32 @llvm.umin.i32(i32 %1, i32 %new_desired_value)
   %retval.0.i = select i1 %cmp.i, i32 %0, i32 %max.val.i
   %conv = zext i32 %retval.0.i to i64
@@ -1372,7 +1372,7 @@ if.end14:                                         ; preds = %if.then10, %cond.en
   %target_initial_window_size_15 = getelementptr inbounds i8, ptr %this, i64 200
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 108), align 4
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 112), align 16
-  %cmp.i.i20 = icmp ugt i32 %19, %target.0
+  %cmp.i.i20 = icmp ult i32 %target.0, %19
   %max.val.i.i = call i32 @llvm.umin.i32(i32 %20, i32 %target.0)
   %retval.0.i.i = select i1 %cmp.i.i20, i32 %19, i32 %max.val.i.i
   %conv.i21 = zext i32 %retval.0.i.i to i64
@@ -1406,7 +1406,7 @@ _ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingE22grpc_chttp2_setting_
   %target_frame_size_ = getelementptr inbounds i8, ptr %this, i64 208
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 140), align 4
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 144), align 16
-  %cmp.i.i25 = icmp ugt i32 %25, %target.0
+  %cmp.i.i25 = icmp ult i32 %target.0, %25
   %max.val.i.i26 = call i32 @llvm.umin.i32(i32 %26, i32 %target.0)
   %retval.0.i.i27 = select i1 %cmp.i.i25, i32 %25, i32 %max.val.i.i26
   %conv.i28 = zext i32 %retval.0.i.i27 to i64
@@ -1449,7 +1449,7 @@ if.then18:                                        ; preds = %_ZN9grpc_core6chttp
   %retval.0.i44 = call i32 @llvm.umax.i32(i32 %max.val.i43, i32 16384)
   %32 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 236), align 4
   %33 = load i32, ptr getelementptr inbounds (i8, ptr @grpc_chttp2_settings_parameters, i64 240), align 16
-  %cmp.i.i45 = icmp ugt i32 %32, %retval.0.i44
+  %cmp.i.i45 = icmp ult i32 %retval.0.i44, %32
   %max.val.i.i46 = call i32 @llvm.umin.i32(i32 %33, i32 %retval.0.i44)
   %retval.0.i.i47 = select i1 %cmp.i.i45, i32 %32, i32 %max.val.i.i46
   %conv.i48 = zext i32 %retval.0.i.i47 to i64
@@ -2345,7 +2345,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12

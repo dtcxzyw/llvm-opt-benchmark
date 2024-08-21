@@ -762,7 +762,7 @@ is_simple_values.exit:                            ; preds = %list_length.exit10.
   %147 = getelementptr i8, ptr %144, i64 16
   %.val.i102 = load ptr, ptr %147, align 8
   %148 = load ptr, ptr %.val.i102, align 8
-  %.not8.i = icmp eq ptr %148, %24
+  %.not8.i = icmp eq ptr %24, %148
   br i1 %.not8.i, label %149, label %is_simple_values.exit.thread
 
 149:                                              ; preds = %is_simple_values.exit
@@ -2056,7 +2056,7 @@ list_length.exit160:                              ; preds = %.loopexit
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 80
   %63 = load ptr, ptr %62, align 8
-  %.not155 = icmp eq ptr %63, %1
+  %.not155 = icmp eq ptr %1, %63
   br i1 %.not155, label %list_length.exit160.thread, label %64
 
 64:                                               ; preds = %59
@@ -2509,7 +2509,7 @@ define internal fastcc ptr @find_jointree_node_for_rel(ptr noundef readonly %0, 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = icmp eq i32 %8, %1
+  %9 = icmp eq i32 %1, %8
   br i1 %9, label %.loopexit, label %.thread
 
 10:                                               ; preds = %4
@@ -2544,7 +2544,7 @@ define internal fastcc ptr @find_jointree_node_for_rel(ptr noundef readonly %0, 
 25:                                               ; preds = %4
   %26 = getelementptr inbounds i8, ptr %0, i64 64
   %27 = load i32, ptr %26, align 8
-  %28 = icmp eq i32 %27, %1
+  %28 = icmp eq i32 %1, %27
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %25
@@ -3548,7 +3548,7 @@ define internal fastcc noundef zeroext i1 @jointree_contains_lateral_outer_refs(
   %30 = load i32, ptr %29, align 4
   %.not = icmp ne i32 %30, 0
   %spec.select = select i1 %.not, ptr null, ptr %3
-  %spec.select41 = or i1 %.not, %2
+  %spec.select41 = or i1 %2, %.not
   %31 = getelementptr inbounds i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = tail call fastcc zeroext i1 @jointree_contains_lateral_outer_refs(ptr noundef %0, ptr noundef %32, i1 noundef zeroext %spec.select41, ptr noundef %spec.select)

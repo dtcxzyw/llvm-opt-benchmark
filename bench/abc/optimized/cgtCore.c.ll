@@ -1582,7 +1582,7 @@ Bar_ProgressUpdate.exit.us:                       ; preds = %.lr.ph, %Bar_Progre
 .lr.ph.split:                                     ; preds = %.lr.ph, %Bar_ProgressUpdate.exit
   %.02338 = phi i32 [ %65, %Bar_ProgressUpdate.exit ], [ 0, %.lr.ph ]
   %62 = load i32, ptr %54, align 4
-  %63 = icmp sgt i32 %62, %.02338
+  %63 = icmp slt i32 %.02338, %62
   br i1 %63, label %Bar_ProgressUpdate.exit, label %64
 
 64:                                               ; preds = %.lr.ph.split

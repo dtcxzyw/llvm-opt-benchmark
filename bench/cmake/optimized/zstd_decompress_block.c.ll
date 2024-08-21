@@ -160,7 +160,7 @@ define dso_local range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock(ptr nound
 58:                                               ; preds = %56
   %59 = icmp eq i32 %5, 0
   %60 = add nuw nsw i64 %.0199, 131136
-  %61 = icmp ult i64 %60, %4
+  %61 = icmp ugt i64 %4, %60
   %or.cond.i = select i1 %59, i1 %61, i1 false
   br i1 %or.cond.i, label %62, label %66
 
@@ -344,7 +344,7 @@ ZSTD_allocateLiteralsBuffer.exit:                 ; preds = %62, %68, %73
 158:                                              ; preds = %154
   %159 = icmp eq i32 %5, 0
   %160 = add nuw nsw i64 %.0202, 131136
-  %161 = icmp ult i64 %160, %4
+  %161 = icmp ugt i64 %4, %160
   %or.cond.i223 = select i1 %159, i1 %161, i1 false
   br i1 %or.cond.i223, label %162, label %166
 
@@ -484,13 +484,13 @@ ZSTD_allocateLiteralsBuffer.exit226:              ; preds = %162, %168, %176
   br i1 %232, label %272, label %233
 
 233:                                              ; preds = %231
-  %234 = icmp ugt i64 %.0197, %4
+  %234 = icmp ult i64 %4, %.0197
   br i1 %234, label %272, label %235
 
 235:                                              ; preds = %233
   %236 = icmp eq i32 %5, 0
   %237 = add nuw nsw i64 %.0197, 131136
-  %238 = icmp ult i64 %237, %4
+  %238 = icmp ugt i64 %4, %237
   %or.cond.i227 = select i1 %236, i1 %238, i1 false
   br i1 %or.cond.i227, label %239, label %241
 
@@ -1235,7 +1235,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %17 = getelementptr inbounds i8, ptr %0, i64 29944
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %19, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %19)
   br label %20
 
 20:                                               ; preds = %16, %.thread
@@ -2461,7 +2461,7 @@ BIT_reloadDStreamFast.exit2367.i:                 ; preds = %573
 
 669:                                              ; preds = %659
   %670 = getelementptr inbounds i8, ptr %661, i64 -32
-  %671 = icmp uge ptr %670, %.11835.i
+  %671 = icmp ule ptr %.11835.i, %670
   %672 = icmp ult i64 %660, -16
   %or.cond3.i.i = and i1 %672, %671
   br i1 %or.cond3.i.i, label %673, label %.lr.ph.i.i.preheader
@@ -2781,8 +2781,8 @@ thread-pre-split:                                 ; preds = %651, %ZSTD_safecopy
   br i1 %813, label %ZSTD_decompressSequencesLong_default.exit, label %814
 
 814:                                              ; preds = %809
-  %815 = icmp ult ptr %643, %.11835.i
-  %816 = icmp ugt ptr %648, %.11835.i
+  %815 = icmp ugt ptr %.11835.i, %643
+  %816 = icmp ult ptr %.11835.i, %648
   %or.cond.i2372.i = and i1 %815, %816
   br i1 %or.cond.i2372.i, label %ZSTD_decompressSequencesLong_default.exit, label %817
 
@@ -2809,7 +2809,7 @@ thread-pre-split:                                 ; preds = %651, %ZSTD_safecopy
 
 826:                                              ; preds = %817
   %827 = getelementptr inbounds i8, ptr %798, i64 -32
-  %828 = icmp uge ptr %827, %.11835.i
+  %828 = icmp ule ptr %.11835.i, %827
   %829 = icmp ult i64 %818, -16
   %or.cond3.i.i.i = and i1 %829, %828
   br i1 %or.cond3.i.i.i, label %830, label %.lr.ph.i.i.i.preheader
@@ -3394,7 +3394,7 @@ ZSTD_execSequenceEndSplitLitBuffer.exit.i:        ; preds = %1045, %.preheader25
 
 1104:                                             ; preds = %1094
   %1105 = getelementptr inbounds i8, ptr %1096, i64 -32
-  %1106 = icmp uge ptr %1105, %.418382539.i
+  %1106 = icmp ule ptr %.418382539.i, %1105
   %1107 = icmp ult i64 %1095, -16
   %or.cond3.i2376.i = and i1 %1107, %1106
   br i1 %or.cond3.i2376.i, label %1108, label %.lr.ph.i2380.i.preheader
@@ -3702,8 +3702,8 @@ thread-pre-split36:                               ; preds = %1086, %ZSTD_safecop
   br i1 %1241, label %ZSTD_decompressSequencesLong_default.exit, label %1242
 
 1242:                                             ; preds = %1237
-  %1243 = icmp ult ptr %1081, %.418382539.i
-  %1244 = icmp ugt ptr %1083, %.418382539.i
+  %1243 = icmp ugt ptr %.418382539.i, %1081
+  %1244 = icmp ult ptr %.418382539.i, %1083
   %or.cond.i2395.i = and i1 %1243, %1244
   br i1 %or.cond.i2395.i, label %ZSTD_decompressSequencesLong_default.exit, label %1245
 
@@ -3730,7 +3730,7 @@ thread-pre-split36:                               ; preds = %1086, %ZSTD_safecop
 
 1254:                                             ; preds = %1245
   %1255 = getelementptr inbounds i8, ptr %1226, i64 -32
-  %1256 = icmp uge ptr %1255, %.418382539.i
+  %1256 = icmp ule ptr %.418382539.i, %1255
   %1257 = icmp ult i64 %1246, -16
   %or.cond3.i.i2397.i = and i1 %1257, %1256
   br i1 %or.cond3.i.i2397.i, label %1258, label %.lr.ph.i.i2401.i.preheader
@@ -4983,8 +4983,8 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %313
   br i1 %405, label %ZSTD_decompressSequencesSplitLitBuffer_default.exit, label %406
 
 406:                                              ; preds = %402
-  %407 = icmp ult ptr %389, %.115442052.i
-  %408 = icmp ugt ptr %388, %.115442052.i
+  %407 = icmp ugt ptr %.115442052.i, %389
+  %408 = icmp ult ptr %.115442052.i, %388
   %or.cond.i.i = and i1 %407, %408
   br i1 %or.cond.i.i, label %ZSTD_decompressSequencesSplitLitBuffer_default.exit, label %409
 
@@ -5011,7 +5011,7 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %313
 
 418:                                              ; preds = %409
   %419 = getelementptr inbounds i8, ptr %391, i64 -32
-  %420 = icmp uge ptr %419, %.115442052.i
+  %420 = icmp ule ptr %.115442052.i, %419
   %421 = icmp ult i64 %410, -16
   %or.cond3.i.i.i = and i1 %420, %421
   br i1 %or.cond3.i.i.i, label %422, label %.lr.ph.i.i.i.preheader
@@ -5637,7 +5637,7 @@ BIT_reloadDStreamFast.exit1949.i:                 ; preds = %674
 
 768:                                              ; preds = %758
   %769 = getelementptr inbounds i8, ptr %760, i64 -32
-  %770 = icmp uge ptr %769, %.11544.lcssa.i
+  %770 = icmp ule ptr %.11544.lcssa.i, %769
   %771 = icmp ult i64 %759, -16
   %or.cond3.i.i = and i1 %771, %770
   br i1 %or.cond3.i.i, label %772, label %.lr.ph.i.i.preheader
@@ -7640,7 +7640,7 @@ ZSTD_decompressSequences_default.exit:            ; preds = %425, %.loopexit719.
 define dso_local void @ZSTD_checkContinuity(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 29888
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, %1
+  %6 = icmp ne ptr %1, %5
   %7 = icmp ne i64 %2, 0
   %or.cond = and i1 %7, %6
   br i1 %or.cond, label %8, label %16
@@ -7668,7 +7668,7 @@ define dso_local void @ZSTD_checkContinuity(ptr nocapture noundef %0, ptr nounde
 define dso_local i64 @ZSTD_decompressBlock_deprecated(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 29888
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp ne ptr %7, %1
+  %8 = icmp ne ptr %1, %7
   %9 = icmp ne i64 %2, 0
   %or.cond.i = and i1 %9, %8
   br i1 %or.cond.i, label %10, label %ZSTD_checkContinuity.exit
@@ -7699,7 +7699,7 @@ ZSTD_checkContinuity.exit:                        ; preds = %5, %10
 define dso_local i64 @ZSTD_decompressBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 29888
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp ne ptr %7, %1
+  %8 = icmp ne ptr %1, %7
   %9 = icmp ne i64 %2, 0
   %or.cond.i.i = and i1 %9, %8
   br i1 %or.cond.i.i, label %10, label %ZSTD_decompressBlock_deprecated.exit
@@ -7805,7 +7805,7 @@ define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1,
   br i1 %46, label %42, label %ZSTD_safecopy.exit, !llvm.loop !26
 
 47:                                               ; preds = %37
-  %.not147.i = icmp ult ptr %20, %0
+  %.not147.i = icmp ugt ptr %0, %20
   br i1 %.not147.i, label %61, label %48
 
 48:                                               ; preds = %47

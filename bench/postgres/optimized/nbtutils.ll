@@ -2046,7 +2046,7 @@ define dso_local zeroext i1 @_bt_checkkeys(ptr nocapture noundef readonly %0, pt
   %or.cond5 = and i1 %22, %27
   %or.cond7 = and i1 %21, %30
   %or.cond76 = or i1 %or.cond5, %or.cond7
-  %brmerge.demorgan = and i1 %or.cond76, %6
+  %brmerge.demorgan = and i1 %6, %or.cond76
   br i1 %brmerge.demorgan, label %.thread, label %33
 
 .thread:                                          ; preds = %23, %28, %31
@@ -2054,7 +2054,7 @@ define dso_local zeroext i1 @_bt_checkkeys(ptr nocapture noundef readonly %0, pt
   %.06586 = phi i1 [ false, %31 ], [ true, %28 ], [ true, %23 ]
   %32 = and i32 %25, 4
   %.not = icmp eq i32 %32, 0
-  %brmerge79.not = and i1 %.not, %5
+  %brmerge79.not = and i1 %5, %.not
   br i1 %brmerge79.not, label %.thread90, label %33
 
 33:                                               ; preds = %.thread, %31
@@ -2063,7 +2063,7 @@ define dso_local zeroext i1 @_bt_checkkeys(ptr nocapture noundef readonly %0, pt
   %34 = getelementptr inbounds i8, ptr %.068127, i64 4
   %35 = load i16, ptr %34, align 4
   %36 = sext i16 %35 to i32
-  %37 = icmp sgt i32 %36, %2
+  %37 = icmp slt i32 %2, %36
   br i1 %37, label %.thread90, label %38
 
 38:                                               ; preds = %33
@@ -2083,7 +2083,7 @@ define dso_local zeroext i1 @_bt_checkkeys(ptr nocapture noundef readonly %0, pt
   %45 = getelementptr inbounds i8, ptr %.062.i, i64 4
   %46 = load i16, ptr %45, align 4
   %47 = sext i16 %46 to i32
-  %48 = icmp sgt i32 %47, %2
+  %48 = icmp slt i32 %2, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
@@ -2278,7 +2278,7 @@ _bt_check_rowcompare.exit:                        ; preds = %94, %96, %98, %106
   br label %.loopexit
 
 136:                                              ; preds = %125
-  %brmerge82.demorgan = and i1 %.088, %6
+  %brmerge82.demorgan = and i1 %6, %.088
   br i1 %brmerge82.demorgan, label %.thread90, label %137
 
 137:                                              ; preds = %136
@@ -3222,7 +3222,7 @@ BTreeTupleIsPivot.exit:                           ; preds = %18
   %33 = sext i16 %8 to i32
   %34 = and i16 %.val.i, 4096
   %.not43 = icmp eq i16 %34, 0
-  %or.cond98 = and i1 %.not43, %1
+  %or.cond98 = and i1 %1, %.not43
   %.not4496 = icmp eq i16 %8, %10
   %or.cond99 = select i1 %or.cond98, i1 %.not4496, i1 false
   br i1 %or.cond99, label %BTreeTupleIsPosting.exit59.thread, label %BTreeTupleIsPivot.exit67.thread
@@ -3343,7 +3343,7 @@ define dso_local void @_bt_check_third_page(ptr nocapture noundef readonly %0, p
   %17 = add nsw i64 %16, -8
   %.not = icmp ult i64 %17, %10
   %.not20 = icmp ult i64 %16, %10
-  %or.cond = or i1 %.not20, %2
+  %or.cond = or i1 %2, %.not20
   %or.cond28 = and i1 %.not, %or.cond
   br i1 %or.cond28, label %18, label %62
 

@@ -1032,7 +1032,7 @@ define range(i32 -1, 1) i32 @H5Epop(i64 noundef %0, i64 noundef %1) local_unname
 32:                                               ; preds = %22, %24
   %.015 = phi ptr [ %26, %24 ], [ @H5E_stack_g, %22 ]
   %33 = load i64, ptr %.015, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %33, i64 %1)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %33)
   %34 = tail call i32 @H5E__pop(ptr noundef nonnull %.015, i64 noundef %spec.select) #5
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %41
@@ -1137,7 +1137,7 @@ define range(i32 -1, 1) i32 @H5Epush2(i64 noundef %0, ptr nocapture noundef read
 
 53:                                               ; preds = %46
   %54 = load i64, ptr @H5E_ERR_CLS_g, align 8
-  %.not = icmp eq i64 %54, %4
+  %.not = icmp eq i64 %4, %54
   br i1 %.not, label %62, label %55
 
 55:                                               ; preds = %53
@@ -1153,9 +1153,9 @@ define range(i32 -1, 1) i32 @H5Epush2(i64 noundef %0, ptr nocapture noundef read
 
 62:                                               ; preds = %55, %53
   %63 = load i64, ptr @H5E_first_maj_id_g, align 8
-  %64 = icmp sgt i64 %63, %5
+  %64 = icmp slt i64 %5, %63
   %65 = load i64, ptr @H5E_last_maj_id_g, align 8
-  %66 = icmp slt i64 %65, %5
+  %66 = icmp sgt i64 %5, %65
   %or.cond = select i1 %64, i1 true, i1 %66
   br i1 %or.cond, label %67, label %74
 
@@ -1172,9 +1172,9 @@ define range(i32 -1, 1) i32 @H5Epush2(i64 noundef %0, ptr nocapture noundef read
 
 74:                                               ; preds = %62, %67
   %75 = load i64, ptr @H5E_first_min_id_g, align 8
-  %76 = icmp sgt i64 %75, %6
+  %76 = icmp slt i64 %6, %75
   %77 = load i64, ptr @H5E_last_min_id_g, align 8
-  %78 = icmp slt i64 %77, %6
+  %78 = icmp sgt i64 %6, %77
   %or.cond45 = select i1 %76, i1 true, i1 %78
   br i1 %or.cond45, label %79, label %86
 
@@ -1614,7 +1614,7 @@ define range(i32 -1, 1) i32 @H5Eset_auto2(i64 noundef %0, ptr noundef %1, ptr no
 41:                                               ; preds = %34
   %42 = getelementptr inbounds i8, ptr %4, i64 32
   %43 = load ptr, ptr %42, align 8
-  %.not = icmp eq ptr %43, %1
+  %.not = icmp eq ptr %1, %43
   %spec.select = zext i1 %.not to i8
   %44 = getelementptr inbounds i8, ptr %4, i64 4
   store i8 %spec.select, ptr %44, align 4

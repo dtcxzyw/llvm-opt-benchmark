@@ -644,7 +644,7 @@ for.body.i.i:                                     ; preds = %if.end11.i.i, %for.
   br i1 %7, label %for.body.i.i, label %if.end41.i.i, !llvm.loop !6
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %cmp31.i.not.i = icmp ult i64 %conv.i.i, %srcSize
+  %cmp31.i.not.i = icmp ugt i64 %srcSize, %conv.i.i
   br i1 %cmp31.i.not.i, label %if.end34.i.i, label %return
 
 if.end34.i.i:                                     ; preds = %if.else.i.i
@@ -792,7 +792,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp13.i, label %for.body.i, label %if.end41.i, !llvm.loop !6
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp31.i.not = icmp ult i64 %conv.i, %srcSize
+  %cmp31.i.not = icmp ugt i64 %srcSize, %conv.i
   br i1 %cmp31.i.not, label %if.end34.i, label %HUF_readStats_body.exit
 
 if.end34.i:                                       ; preds = %if.else.i

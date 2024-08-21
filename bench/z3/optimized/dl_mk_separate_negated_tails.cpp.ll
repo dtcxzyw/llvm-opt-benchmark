@@ -286,7 +286,7 @@ if.then15:                                        ; preds = %for.body12
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %if.then15
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 -4
   %18 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.i18 = icmp ugt i32 %18, %16
+  %cmp.i18 = icmp ult i32 %16, %18
   br i1 %cmp.i18, label %_ZNK14expr_free_vars8containsEj.exit, label %if.then20
 
 _ZNK14expr_free_vars8containsEj.exit:             ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
@@ -1818,7 +1818,7 @@ if.then15.i:                                      ; preds = %for.body12.i
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i.i:         ; preds = %if.then15.i
   %arrayidx.i.i.i16 = getelementptr inbounds i8, ptr %25, i64 -4
   %26 = load i32, ptr %arrayidx.i.i.i16, align 4
-  %cmp.i18.i = icmp ugt i32 %26, %24
+  %cmp.i18.i = icmp ult i32 %24, %26
   br i1 %cmp.i18.i, label %_ZNK14expr_free_vars8containsEj.exit.i, label %if.then20.i
 
 _ZNK14expr_free_vars8containsEj.exit.i:           ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i.i

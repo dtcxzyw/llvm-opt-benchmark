@@ -1935,7 +1935,7 @@ define void @jpeg_enable_lossless(ptr noundef %0, i32 noundef %1, i32 noundef %2
 24:                                               ; preds = %14
   %25 = getelementptr inbounds i8, ptr %0, i64 72
   %26 = load i32, ptr %25, align 8
-  %.not29 = icmp sgt i32 %26, %2
+  %.not29 = icmp slt i32 %2, %26
   br i1 %.not29, label %44, label %27
 
 27:                                               ; preds = %24, %14

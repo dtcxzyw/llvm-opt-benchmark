@@ -1606,7 +1606,7 @@ _ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit: ; preds = %if.then25
   %conv27 = sext i32 %nextArg.0247 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max.addr.i)
   store i64 %nargs, ptr %max.addr.i, align 8, !tbaa !7
-  %cmp.not.i146 = icmp ult i64 %conv27, %nargs
+  %cmp.not.i146 = icmp ugt i64 %nargs, %conv27
   br i1 %cmp.not.i146, label %_ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit, label %if.then.i.i147, !prof !100
 
 if.then.i.i147:                                   ; preds = %_ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit
@@ -1650,7 +1650,7 @@ _ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit154: ; preds = %if.then
   %conv43 = sext i32 %18 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max.addr.i155)
   store i64 %nargs, ptr %max.addr.i155, align 8, !tbaa !7
-  %cmp.not.i156 = icmp ult i64 %conv43, %nargs
+  %cmp.not.i156 = icmp ugt i64 %nargs, %conv43
   br i1 %cmp.not.i156, label %_ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit158, label %if.then.i.i157, !prof !100
 
 if.then.i.i157:                                   ; preds = %_ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit154
@@ -1740,7 +1740,7 @@ if.end61:                                         ; preds = %if.end57
   %conv62 = sext i32 %argIndex.0 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max.addr.i173)
   store i64 %nargs, ptr %max.addr.i173, align 8, !tbaa !7
-  %cmp.not.i174 = icmp ult i64 %conv62, %nargs
+  %cmp.not.i174 = icmp ugt i64 %nargs, %conv62
   br i1 %cmp.not.i174, label %_ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit176, label %if.then.i.i175, !prof !100
 
 if.then.i.i175:                                   ; preds = %if.end61

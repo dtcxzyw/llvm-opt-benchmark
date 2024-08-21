@@ -96,7 +96,7 @@ define dso_local void @rpc_xprt_switch_remove_xprt(ptr noundef %0, ptr noundef %
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 128
   %9 = icmp eq i64 %8, 0
-  %10 = and i1 %9, %2
+  %10 = and i1 %2, %9
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %5

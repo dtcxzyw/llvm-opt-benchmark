@@ -936,7 +936,7 @@ define range(i32 0, 2) i32 @Cudd_ReadIthClause(ptr noundef readonly %0, i32 noun
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
-  %.not = icmp ugt i32 %18, %1
+  %.not = icmp ult i32 %1, %18
   br i1 %.not, label %19, label %53
 
 19:                                               ; preds = %16

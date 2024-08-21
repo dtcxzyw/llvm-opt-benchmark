@@ -3085,7 +3085,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   %47 = zext i16 %45 to i32
   %48 = add i32 %46, %47
   %49 = zext i32 %48 to i64
-  %50 = icmp ugt i64 %49, %3
+  %50 = icmp ult i64 %3, %49
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %37
@@ -6256,7 +6256,7 @@ define internal fastcc range(i32 0, 33) i32 @read_eocd(ptr nocapture noundef wri
   %.not19 = icmp ne i16 %.val23, %.val
   %14 = add i32 %8, %6
   %15 = zext i32 %14 to i64
-  %16 = icmp sgt i64 %15, %2
+  %16 = icmp slt i64 %2, %15
   %or.cond = select i1 %.not19, i1 true, i1 %16
   br i1 %or.cond, label %23, label %17
 

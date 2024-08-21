@@ -2738,7 +2738,7 @@ define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE6spliceENS_12List
 if.then:
   %0 = load ptr, ptr %i.coerce, align 8
   %cmp.i = icmp ne ptr %position.coerce, %i.coerce
-  %cmp.i3 = icmp ne ptr %0, %position.coerce
+  %cmp.i3 = icmp ne ptr %position.coerce, %0
   %or.cond = select i1 %cmp.i, i1 %cmp.i3, i1 false
   br i1 %or.cond, label %if.then8, label %if.end18
 
@@ -2858,7 +2858,7 @@ define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE6spliceENS_12List
 entry:
   %0 = load ptr, ptr %i.coerce, align 8
   %cmp.i.i = icmp ne ptr %position.coerce, %i.coerce
-  %cmp.i3.i = icmp ne ptr %0, %position.coerce
+  %cmp.i3.i = icmp ne ptr %position.coerce, %0
   %or.cond.i = select i1 %cmp.i.i, i1 %cmp.i3.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %_ZN5eastl4listIbNS_9allocatorEE6spliceENS_12ListIteratorIbPKbRS4_EERS2_S7_.exit
 
@@ -5339,7 +5339,7 @@ define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE6spliceENS_12List
 if.then:
   %0 = load ptr, ptr %i.coerce, align 8
   %cmp.i = icmp ne ptr %position.coerce, %i.coerce
-  %cmp.i3 = icmp ne ptr %0, %position.coerce
+  %cmp.i3 = icmp ne ptr %position.coerce, %0
   %or.cond = select i1 %cmp.i, i1 %cmp.i3, i1 false
   br i1 %or.cond, label %if.then8, label %if.end18
 
@@ -5459,7 +5459,7 @@ define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE6spliceENS_12List
 entry:
   %0 = load ptr, ptr %i.coerce, align 8
   %cmp.i.i = icmp ne ptr %position.coerce, %i.coerce
-  %cmp.i3.i = icmp ne ptr %0, %position.coerce
+  %cmp.i3.i = icmp ne ptr %position.coerce, %0
   %or.cond.i = select i1 %cmp.i.i, i1 %cmp.i3.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %_ZN5eastl4listIiNS_9allocatorEE6spliceENS_12ListIteratorIiPKiRS4_EERS2_S7_.exit
 
@@ -7912,7 +7912,7 @@ define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE6spliceENS
 if.then:
   %0 = load ptr, ptr %i.coerce, align 8
   %cmp.i = icmp ne ptr %position.coerce, %i.coerce
-  %cmp.i3 = icmp ne ptr %0, %position.coerce
+  %cmp.i3 = icmp ne ptr %position.coerce, %0
   %or.cond = select i1 %cmp.i, i1 %cmp.i3, i1 false
   br i1 %or.cond, label %if.then8, label %if.end18
 
@@ -8032,7 +8032,7 @@ define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE6spliceENS
 entry:
   %0 = load ptr, ptr %i.coerce, align 8
   %cmp.i.i = icmp ne ptr %position.coerce, %i.coerce
-  %cmp.i3.i = icmp ne ptr %0, %position.coerce
+  %cmp.i3.i = icmp ne ptr %position.coerce, %0
   %or.cond.i = select i1 %cmp.i.i, i1 %cmp.i3.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %_ZN5eastl4listI7Align64NS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_S8_.exit
 
@@ -9826,7 +9826,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mValue = getelementptr inbounds i8, ptr %pNode.014, i64 16
   %inc.i = add nsw i64 %1, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %mValue, %value
+  %cmp.not.i = icmp eq ptr %value, %mValue
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
@@ -11285,7 +11285,7 @@ define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6splic
 if.then:
   %0 = load ptr, ptr %i.coerce, align 8
   %cmp.i = icmp ne ptr %position.coerce, %i.coerce
-  %cmp.i3 = icmp ne ptr %0, %position.coerce
+  %cmp.i3 = icmp ne ptr %position.coerce, %0
   %or.cond = select i1 %cmp.i, i1 %cmp.i3, i1 false
   br i1 %or.cond, label %if.then8, label %if.end18
 
@@ -11405,7 +11405,7 @@ define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6splic
 entry:
   %0 = load ptr, ptr %i.coerce, align 8
   %cmp.i.i = icmp ne ptr %position.coerce, %i.coerce
-  %cmp.i3.i = icmp ne ptr %0, %position.coerce
+  %cmp.i3.i = icmp ne ptr %position.coerce, %0
   %or.cond.i = select i1 %cmp.i.i, i1 %cmp.i3.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_S8_.exit
 
@@ -18838,7 +18838,7 @@ invoke.cont1659:                                  ; preds = %invoke.cont1657
   %943 = load ptr, ptr %a1658, align 8, !noalias !558
   %944 = load ptr, ptr %942, align 8
   %cmp.i.i2490 = icmp ne ptr %943, %942
-  %cmp.i3.i = icmp ne ptr %944, %943
+  %cmp.i3.i = icmp ne ptr %943, %944
   %or.cond.i = select i1 %cmp.i.i2490, i1 %cmp.i3.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %invoke.cont1666
 
@@ -18873,7 +18873,7 @@ invoke.cont1666:                                  ; preds = %if.then8.i, %invoke
   %953 = phi ptr [ %.pre4474, %if.then8.i ], [ %943, %invoke.cont1659 ]
   %954 = load ptr, ptr %940, align 8
   %cmp.i.i2497 = icmp ne ptr %953, %940
-  %cmp.i3.i2498 = icmp ne ptr %954, %953
+  %cmp.i3.i2498 = icmp ne ptr %953, %954
   %or.cond.i2499 = select i1 %cmp.i.i2497, i1 %cmp.i3.i2498, i1 false
   br i1 %or.cond.i2499, label %if.then8.i2500, label %invoke.cont1666.invoke.cont1672_crit_edge
 
@@ -19532,7 +19532,7 @@ invoke.cont1874:                                  ; preds = %invoke.cont1872
   %1071 = load ptr, ptr %a1873, align 8, !noalias !558
   %1072 = load ptr, ptr %1070, align 8
   %cmp.i.i.i2757 = icmp ne ptr %1071, %1070
-  %cmp.i3.i.i = icmp ne ptr %1072, %1071
+  %cmp.i3.i.i = icmp ne ptr %1071, %1072
   %or.cond.i.i = select i1 %cmp.i.i.i2757, i1 %cmp.i3.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then8.i.i, label %invoke.cont1882
 
@@ -19567,7 +19567,7 @@ invoke.cont1882:                                  ; preds = %if.then8.i.i, %invo
   %1081 = phi ptr [ %.pre4478, %if.then8.i.i ], [ %1071, %invoke.cont1874 ]
   %1082 = load ptr, ptr %1068, align 8
   %cmp.i.i.i2764 = icmp ne ptr %1081, %1068
-  %cmp.i3.i.i2765 = icmp ne ptr %1082, %1081
+  %cmp.i3.i.i2765 = icmp ne ptr %1081, %1082
   %or.cond.i.i2766 = select i1 %cmp.i.i.i2764, i1 %cmp.i3.i.i2765, i1 false
   br i1 %or.cond.i.i2766, label %if.then8.i.i2767, label %invoke.cont1882.invoke.cont1889_crit_edge
 

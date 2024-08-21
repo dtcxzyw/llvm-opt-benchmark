@@ -1752,9 +1752,9 @@ if.end132:                                        ; preds = %if.then128, %while.
   %36 = tail call i16 @llvm.bswap.i16(i16 %conv139)
   store i16 %36, ptr %add.ptr134, align 1
   %37 = load i32, ptr %buflen82, align 8
-  %cmp141 = icmp sgt i32 %37, %len
+  %cmp141 = icmp slt i32 %len, %37
   %inc = zext i1 %cmp141 to i32
-  %spec.select = add i32 %inc, %len
+  %spec.select = add i32 %len, %inc
   br label %if.end147
 
 if.end147:                                        ; preds = %land.lhs.true36, %if.end132, %if.end14, %calculate_max_transfer.exit, %land.lhs.true81, %if.else, %land.lhs.true20

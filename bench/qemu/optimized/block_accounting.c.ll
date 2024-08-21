@@ -370,7 +370,7 @@ if.end.i:                                         ; preds = %if.end21
   %boundaries.i = getelementptr inbounds i8, ptr %arrayidx24, i64 8
   %15 = load ptr, ptr %boundaries.i, align 8
   %16 = load i64, ptr %15, align 8
-  %cmp1.i = icmp ugt i64 %16, %spec.select
+  %cmp1.i = icmp ult i64 %spec.select, %16
   br i1 %cmp1.i, label %return.sink.split.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -379,7 +379,7 @@ if.end5.i:                                        ; preds = %if.end.i
   %idxprom.i = sext i32 %sub.i to i64
   %arrayidx7.i = getelementptr i64, ptr %15, i64 %idxprom.i
   %18 = load i64, ptr %arrayidx7.i, align 8
-  %cmp8.not.i = icmp ugt i64 %18, %spec.select
+  %cmp8.not.i = icmp ult i64 %spec.select, %18
   br i1 %cmp8.not.i, label %if.end16.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i

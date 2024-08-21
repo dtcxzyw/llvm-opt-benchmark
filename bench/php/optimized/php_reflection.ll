@@ -6042,7 +6042,7 @@ define hidden void @zim_ReflectionParameter___construct(ptr noundef %0, ptr noca
   %134 = load i8, ptr %69, align 8
   %135 = icmp eq i8 %134, 8
   %136 = load ptr, ptr @zend_ce_closure, align 8
-  %137 = icmp eq ptr %136, %.1368
+  %137 = icmp eq ptr %.1368, %136
   %or.cond = select i1 %135, i1 %137, i1 false
   br i1 %or.cond, label %138, label %is_closure_invoke.exit.thread
 
@@ -8012,7 +8012,7 @@ get_type_kind.exit.thread27:                      ; preds = %8, %get_type_kind.e
   store ptr %0, ptr %39, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 8
   store i32 %1, ptr %.sroa.4.0..sroa_idx, align 8
-  %or.cond = and i1 %35, %3
+  %or.cond = and i1 %3, %35
   %not. = xor i1 %34, true
   %narrow = and i1 %33, %not.
   %narrow33 = and i1 %narrow, %or.cond
@@ -15092,7 +15092,7 @@ define internal fastcc void @add_class_vars(ptr noundef %0, i1 noundef zeroext %
 29:                                               ; preds = %26, %19
   %30 = and i32 %24, 16
   %31 = icmp eq i32 %30, 0
-  %.not48 = xor i1 %31, %1
+  %.not48 = xor i1 %1, %31
   br i1 %.not48, label %32, label %82
 
 32:                                               ; preds = %29
@@ -16259,7 +16259,7 @@ _property_string.exit:                            ; preds = %371, %376
   %456 = getelementptr inbounds i8, ptr %442, i64 8
   %457 = load ptr, ptr %456, align 8
   %458 = load ptr, ptr @zend_ce_closure, align 8
-  %459 = icmp eq ptr %458, %1
+  %459 = icmp eq ptr %1, %458
   br i1 %459, label %460, label %is_closure_invoke.exit.thread
 
 460:                                              ; preds = %455
@@ -17225,7 +17225,7 @@ define hidden void @zim_ReflectionClass_hasMethod(ptr nocapture noundef readonly
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr @zend_ce_closure, align 8
-  %34 = icmp eq ptr %33, %15
+  %34 = icmp eq ptr %15, %33
   br i1 %34, label %35, label %is_closure_invoke.exit.thread
 
 35:                                               ; preds = %32
@@ -17329,7 +17329,7 @@ define hidden void @zim_ReflectionClass_getMethod(ptr nocapture noundef readonly
   %33 = load i8, ptr %32, align 8
   %34 = icmp eq i8 %33, 0
   %.old = load ptr, ptr @zend_ce_closure, align 8
-  %.old65 = icmp eq ptr %.old, %17
+  %.old65 = icmp eq ptr %17, %.old
   br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %29
@@ -17425,7 +17425,7 @@ is_closure_invoke.exit.thread:                    ; preds = %41
   %.pr.pr.pre = load i8, ptr %32, align 8
   %.pre = load ptr, ptr @zend_ce_closure, align 8
   %86 = icmp eq i8 %.pr.pr.pre, 0
-  %87 = icmp eq ptr %.pre, %17
+  %87 = icmp eq ptr %17, %.pre
   %or.cond = select i1 %86, i1 %87, i1 false
   br i1 %or.cond, label %88, label %is_closure_invoke.exit55.thread
 
@@ -25447,7 +25447,7 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
   %191 = load i32, ptr %67, align 8
   %192 = getelementptr inbounds i8, ptr %190, i64 64
   %193 = load i32, ptr %192, align 8
-  %194 = icmp eq i32 %193, %191
+  %194 = icmp eq i32 %191, %193
   br i1 %194, label %195, label %_extension_ini_string.exit.i
 
 195:                                              ; preds = %189
@@ -26736,7 +26736,7 @@ define hidden void @zim_ReflectionExtension_getINIEntries(ptr nocapture noundef 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %43 = getelementptr inbounds i8, ptr %41, i64 64
   %44 = load i32, ptr %43, align 8
-  %45 = icmp eq i32 %44, %42
+  %45 = icmp eq i32 %42, %44
   br i1 %45, label %46, label %_addinientry.exit
 
 46:                                               ; preds = %40
@@ -33989,7 +33989,7 @@ define internal ptr @_reflection_write_property(ptr noundef %0, ptr noundef %1, 
   %10 = load ptr, ptr @zend_known_strings, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 352
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %9
@@ -34012,7 +34012,7 @@ define internal ptr @_reflection_write_property(ptr noundef %0, ptr noundef %1, 
   %22 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %10, %14 ]
   %23 = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, %1
+  %25 = icmp eq ptr %1, %24
   br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %.critedge2

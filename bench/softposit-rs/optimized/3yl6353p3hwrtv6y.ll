@@ -336,7 +336,7 @@ define void @_ZN9softposit7quire163ops7fdp_one17hdf0004494d585a1dE(ptr noalias n
 
 46:                                               ; preds = %41, %35
   %.024 = phi i128 [ %45, %41 ], [ %40, %35 ]
-  %47 = xor i1 %11, %2
+  %47 = xor i1 %2, %11
   %48 = sub i128 0, %.024
   %spec.select37 = select i1 %47, i128 %.024, i128 %48
   %49 = add i128 %spec.select37, %4

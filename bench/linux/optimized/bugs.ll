@@ -1923,7 +1923,7 @@ define internal noundef range(i32 -22, 1) i32 @retbleed_parse_cmdline(ptr nounde
 define dso_local noundef zeroext i1 @retpoline_module_ok(i1 noundef zeroext %0) local_unnamed_addr #1 align 16 {
   %2 = load i32, ptr @spectre_v2_enabled, align 4
   %3 = icmp eq i32 %2, 0
-  %4 = or i1 %3, %0
+  %4 = or i1 %0, %3
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
@@ -2126,7 +2126,7 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %16, i32 128, ptr elementtype(i8) %16) #15, !srcloc !12
   %17 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !15
   %18 = inttoptr i64 %17 to ptr
-  %19 = icmp eq ptr %18, %0
+  %19 = icmp eq ptr %0, %18
   br i1 %19, label %42, label %ssb_prctl_set.exit
 
 20:                                               ; preds = %7
@@ -2137,7 +2137,7 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i32 128, ptr elementtype(i8) %22) #15, !srcloc !12
   %23 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !15
   %24 = inttoptr i64 %23 to ptr
-  %25 = icmp eq ptr %24, %0
+  %25 = icmp eq ptr %0, %24
   br i1 %25, label %42, label %ssb_prctl_set.exit
 
 26:                                               ; preds = %7
@@ -2149,7 +2149,7 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %28, i32 128, ptr elementtype(i8) %28) #15, !srcloc !12
   %29 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !15
   %30 = inttoptr i64 %29 to ptr
-  %31 = icmp eq ptr %30, %0
+  %31 = icmp eq ptr %0, %30
   br i1 %31, label %42, label %ssb_prctl_set.exit
 
 32:                                               ; preds = %7
@@ -2166,7 +2166,7 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %38, i32 128, ptr elementtype(i8) %38) #15, !srcloc !12
   %39 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !15
   %40 = inttoptr i64 %39 to ptr
-  %41 = icmp eq ptr %40, %0
+  %41 = icmp eq ptr %0, %40
   br i1 %41, label %42, label %ssb_prctl_set.exit
 
 42:                                               ; preds = %37, %26, %20, %15
@@ -2209,7 +2209,7 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %62, i32 128, ptr elementtype(i8) %62) #15, !srcloc !12
   %63 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !15
   %64 = inttoptr i64 %63 to ptr
-  %65 = icmp eq ptr %64, %0
+  %65 = icmp eq ptr %0, %64
   br i1 %65, label %66, label %ssb_prctl_set.exit
 
 66:                                               ; preds = %61
@@ -2247,7 +2247,7 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %84, i32 128, ptr elementtype(i8) %84) #15, !srcloc !12
   %85 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !15
   %86 = inttoptr i64 %85 to ptr
-  %87 = icmp eq ptr %86, %0
+  %87 = icmp eq ptr %0, %86
   br i1 %87, label %88, label %ssb_prctl_set.exit
 
 88:                                               ; preds = %83
@@ -2299,7 +2299,7 @@ define dso_local void @arch_seccomp_spec_mitigate(ptr noundef %0) local_unnamed_
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %6, i32 128, ptr elementtype(i8) %6) #15, !srcloc !12
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !15
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %0
+  %9 = icmp eq ptr %0, %8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
@@ -2336,7 +2336,7 @@ define dso_local void @arch_seccomp_spec_mitigate(ptr noundef %0) local_unnamed_
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %29, i32 128, ptr elementtype(i8) %29) #15, !srcloc !12
   %30 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !15
   %31 = inttoptr i64 %30 to ptr
-  %32 = icmp eq ptr %31, %0
+  %32 = icmp eq ptr %0, %31
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %27

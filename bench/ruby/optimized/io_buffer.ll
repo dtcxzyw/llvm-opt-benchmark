@@ -769,7 +769,7 @@ io_buffer_extract_flags.exit:                     ; preds = %22
 31:                                               ; preds = %io_buffer_extract_size.exit.thread, %io_buffer_extract_size.exit
   %.01217 = phi i64 [ %20, %io_buffer_extract_size.exit.thread ], [ %.012, %io_buffer_extract_size.exit ]
   %32 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
-  %.not.i14 = icmp ugt i64 %32, %.01217
+  %.not.i14 = icmp ult i64 %.01217, %32
   %..i = select i1 %.not.i14, i32 2, i32 4
   br label %33
 
@@ -1547,7 +1547,7 @@ define dso_local void @rb_io_buffer_resize(i64 noundef %0, i64 noundef %1) local
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
-  %.not.i = icmp ugt i64 %13, %1
+  %.not.i = icmp ult i64 %1, %13
   %..i = select i1 %.not.i, i32 2, i32 4
   tail call fastcc void @io_buffer_initialize(i64 noundef %0, ptr noundef nonnull %3, ptr noundef null, i64 noundef %1, i32 noundef %..i, i64 noundef 4)
   br label %88
@@ -1582,7 +1582,7 @@ define dso_local void @rb_io_buffer_resize(i64 noundef %0, i64 noundef %1) local
 
 28:                                               ; preds = %20
   %.val = load i64, ptr %21, align 8
-  %29 = icmp ult i64 %.val, %1
+  %29 = icmp ugt i64 %1, %.val
   br i1 %29, label %30, label %io_buffer_resize_clear.exit
 
 30:                                               ; preds = %28
@@ -1639,7 +1639,7 @@ io_buffer_free.exit:                              ; preds = %37, %39
 50:                                               ; preds = %45
   %51 = getelementptr i8, ptr %3, i64 8
   %.val44 = load i64, ptr %51, align 8
-  %52 = icmp ult i64 %.val44, %1
+  %52 = icmp ugt i64 %1, %.val44
   br i1 %52, label %53, label %io_buffer_resize_clear.exit46
 
 53:                                               ; preds = %50
@@ -1655,7 +1655,7 @@ io_buffer_resize_clear.exit46:                    ; preds = %50, %53
 
 56:                                               ; preds = %33
   %57 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
-  %.not.i.i = icmp ugt i64 %57, %1
+  %.not.i.i = icmp ult i64 %1, %57
   %..i.i = select i1 %.not.i.i, i32 2, i32 4
   %.not19.i.i = icmp eq i64 %1, 0
   br i1 %.not19.i.i, label %io_buffer_initialize.exit.i.thread, label %58
@@ -1711,7 +1711,7 @@ io_buffer_initialize.exit.i.thread:               ; preds = %56, %io_buffer_init
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %72, %io_buffer_initialize.exit.i.thread
   %.val.i = phi i64 [ %71, %io_buffer_initialize.exit.i.thread ], [ %.val.pre.i, %72 ]
-  %73 = icmp ult i64 %.val.i, %1
+  %73 = icmp ugt i64 %1, %.val.i
   br i1 %73, label %74, label %io_buffer_resize_clear.exit.i
 
 74:                                               ; preds = %ruby_nonempty_memcpy.exit.i
@@ -3038,7 +3038,7 @@ io_buffer_validate.exit.thread.i.i:               ; preds = %io_buffer_validate.
 rb_io_buffer_get_bytes_for_reading.exit:          ; preds = %io_buffer_validate.exit.thread.i.i, %14
   %storemerge.i.i = phi i64 [ %16, %14 ], [ 0, %io_buffer_validate.exit.thread.i.i ]
   %17 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
-  %.not.i = icmp ugt i64 %17, %storemerge.i.i
+  %.not.i = icmp ult i64 %storemerge.i.i, %17
   %..i = select i1 %.not.i, i32 2, i32 4
   tail call fastcc void @io_buffer_initialize(i64 noundef %0, ptr noundef %3, ptr noundef null, i64 noundef %storemerge.i.i, i32 noundef %..i, i64 noundef 4)
   %18 = tail call fastcc i64 @io_buffer_copy_from(ptr noundef %3, ptr noundef %13, i64 noundef %storemerge.i.i, i32 noundef 0, ptr noundef null)
@@ -4507,7 +4507,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
-  %.not.i = icmp ugt i64 %11, %10
+  %.not.i = icmp ult i64 %10, %11
   %..i = select i1 %.not.i, i32 2, i32 4
   %12 = load i64, ptr @rb_cIOBuffer, align 8
   %13 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %12, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
@@ -4578,7 +4578,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
-  %.not.i = icmp ugt i64 %11, %10
+  %.not.i = icmp ult i64 %10, %11
   %..i = select i1 %.not.i, i32 2, i32 4
   %12 = load i64, ptr @rb_cIOBuffer, align 8
   %13 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %12, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
@@ -4649,7 +4649,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
-  %.not.i = icmp ugt i64 %11, %10
+  %.not.i = icmp ult i64 %10, %11
   %..i = select i1 %.not.i, i32 2, i32 4
   %12 = load i64, ptr @rb_cIOBuffer, align 8
   %13 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %12, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
@@ -4708,7 +4708,7 @@ define internal i64 @io_buffer_not(i64 noundef %0) #0 {
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
-  %.not.i = icmp ugt i64 %5, %4
+  %.not.i = icmp ult i64 %4, %5
   %..i = select i1 %.not.i, i32 2, i32 4
   %6 = load i64, ptr @rb_cIOBuffer, align 8
   %7 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %6, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
@@ -5341,7 +5341,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %13, %27, %io_buffer
   %.031 = phi i64 [ %16, %18 ], [ %29, %27 ], [ 0, %io_buffer_validate.exit.i.thread ], [ 0, %io_buffer_validate.exit.i ], [ %16, %13 ]
   %.0 = phi ptr [ %.sroa.3.0.copyload, %18 ], [ %26, %27 ], [ null, %io_buffer_validate.exit.i.thread ], [ null, %io_buffer_validate.exit.i ], [ %17, %13 ]
   %30 = icmp ne ptr %.0, null
-  %31 = icmp ule ptr %.0, %1
+  %31 = icmp uge ptr %1, %.0
   %or.cond.not = and i1 %30, %31
   %32 = getelementptr i8, ptr %.0, i64 %.031
   %33 = getelementptr i8, ptr %1, i64 %2
@@ -5685,7 +5685,7 @@ io_buffer_extract_offset.exit:                    ; preds = %20, %18, %9
 36:                                               ; preds = %22, %io_buffer_extract_offset.exit
   %37 = getelementptr i8, ptr %6, i64 8
   %.val = load i64, ptr %37, align 8
-  %38 = icmp ult i64 %.val, %storemerge
+  %38 = icmp ugt i64 %storemerge, %.val
   br i1 %38, label %39, label %io_buffer_default_length.exit
 
 39:                                               ; preds = %36
@@ -5715,67 +5715,67 @@ declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i64 1, 9) i64 @io_buffer_buffer_type_size(i64 noundef %0) unnamed_addr #0 {
   %2 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U8, align 8
-  %3 = icmp eq i64 %2, %0
+  %3 = icmp eq i64 %0, %2
   %4 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S8, align 8
-  %5 = icmp eq i64 %4, %0
+  %5 = icmp eq i64 %0, %4
   %or.cond = select i1 %3, i1 true, i1 %5
   br i1 %or.cond, label %45, label %6
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_u16, align 8
-  %8 = icmp eq i64 %7, %0
+  %8 = icmp eq i64 %0, %7
   %9 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U16, align 8
-  %10 = icmp eq i64 %9, %0
+  %10 = icmp eq i64 %0, %9
   %or.cond22 = select i1 %8, i1 true, i1 %10
   %11 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_s16, align 8
-  %12 = icmp eq i64 %11, %0
+  %12 = icmp eq i64 %0, %11
   %or.cond24 = select i1 %or.cond22, i1 true, i1 %12
   %13 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S16, align 8
-  %14 = icmp eq i64 %13, %0
+  %14 = icmp eq i64 %0, %13
   %or.cond26 = select i1 %or.cond24, i1 true, i1 %14
   br i1 %or.cond26, label %45, label %15
 
 15:                                               ; preds = %6
   %16 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_u32, align 8
-  %17 = icmp eq i64 %16, %0
+  %17 = icmp eq i64 %0, %16
   %18 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U32, align 8
-  %19 = icmp eq i64 %18, %0
+  %19 = icmp eq i64 %0, %18
   %or.cond28 = select i1 %17, i1 true, i1 %19
   %20 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_s32, align 8
-  %21 = icmp eq i64 %20, %0
+  %21 = icmp eq i64 %0, %20
   %or.cond30 = select i1 %or.cond28, i1 true, i1 %21
   %22 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S32, align 8
-  %23 = icmp eq i64 %22, %0
+  %23 = icmp eq i64 %0, %22
   %or.cond32 = select i1 %or.cond30, i1 true, i1 %23
   br i1 %or.cond32, label %45, label %24
 
 24:                                               ; preds = %15
   %25 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_u64, align 8
-  %26 = icmp eq i64 %25, %0
+  %26 = icmp eq i64 %0, %25
   %27 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U64, align 8
-  %28 = icmp eq i64 %27, %0
+  %28 = icmp eq i64 %0, %27
   %or.cond34 = select i1 %26, i1 true, i1 %28
   %29 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_s64, align 8
-  %30 = icmp eq i64 %29, %0
+  %30 = icmp eq i64 %0, %29
   %or.cond36 = select i1 %or.cond34, i1 true, i1 %30
   %31 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S64, align 8
-  %32 = icmp eq i64 %31, %0
+  %32 = icmp eq i64 %0, %31
   %or.cond38 = select i1 %or.cond36, i1 true, i1 %32
   br i1 %or.cond38, label %45, label %33
 
 33:                                               ; preds = %24
   %34 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_f32, align 8
-  %35 = icmp eq i64 %34, %0
+  %35 = icmp eq i64 %0, %34
   %36 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_F32, align 8
-  %37 = icmp eq i64 %36, %0
+  %37 = icmp eq i64 %0, %36
   %or.cond40 = select i1 %35, i1 true, i1 %37
   br i1 %or.cond40, label %45, label %38
 
 38:                                               ; preds = %33
   %39 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_f64, align 8
-  %40 = icmp eq i64 %39, %0
+  %40 = icmp eq i64 %0, %39
   %41 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_F64, align 8
-  %42 = icmp eq i64 %41, %0
+  %42 = icmp eq i64 %0, %41
   %or.cond42 = select i1 %40, i1 true, i1 %42
   br i1 %or.cond42, label %45, label %43
 
@@ -5794,7 +5794,7 @@ declare i64 @rb_sym2id(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @rb_io_buffer_get_value(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U8, align 8
-  %6 = icmp eq i64 %5, %2
+  %6 = icmp eq i64 %2, %5
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %4
@@ -5819,7 +5819,7 @@ io_buffer_read_U8.exit:                           ; preds = %7
 
 17:                                               ; preds = %4
   %18 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S8, align 8
-  %19 = icmp eq i64 %18, %2
+  %19 = icmp eq i64 %2, %18
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %17
@@ -5844,7 +5844,7 @@ io_buffer_read_S8.exit:                           ; preds = %20
 
 30:                                               ; preds = %17
   %31 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_u16, align 8
-  %32 = icmp eq i64 %31, %2
+  %32 = icmp eq i64 %2, %31
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %30
@@ -5869,7 +5869,7 @@ io_buffer_read_u16.exit:                          ; preds = %33
 
 43:                                               ; preds = %30
   %44 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U16, align 8
-  %45 = icmp eq i64 %44, %2
+  %45 = icmp eq i64 %2, %44
   br i1 %45, label %46, label %57
 
 46:                                               ; preds = %43
@@ -5895,7 +5895,7 @@ io_buffer_read_U16.exit:                          ; preds = %46
 
 57:                                               ; preds = %43
   %58 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_s16, align 8
-  %59 = icmp eq i64 %58, %2
+  %59 = icmp eq i64 %2, %58
   br i1 %59, label %60, label %70
 
 60:                                               ; preds = %57
@@ -5920,7 +5920,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 70:                                               ; preds = %57
   %71 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S16, align 8
-  %72 = icmp eq i64 %71, %2
+  %72 = icmp eq i64 %2, %71
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %70
@@ -5929,7 +5929,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 75:                                               ; preds = %70
   %76 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_u32, align 8
-  %77 = icmp eq i64 %76, %2
+  %77 = icmp eq i64 %2, %76
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %75
@@ -5938,7 +5938,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 80:                                               ; preds = %75
   %81 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U32, align 8
-  %82 = icmp eq i64 %81, %2
+  %82 = icmp eq i64 %2, %81
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %80
@@ -5947,7 +5947,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 85:                                               ; preds = %80
   %86 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_s32, align 8
-  %87 = icmp eq i64 %86, %2
+  %87 = icmp eq i64 %2, %86
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %85
@@ -5956,7 +5956,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 90:                                               ; preds = %85
   %91 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S32, align 8
-  %92 = icmp eq i64 %91, %2
+  %92 = icmp eq i64 %2, %91
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %90
@@ -5965,7 +5965,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 95:                                               ; preds = %90
   %96 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_u64, align 8
-  %97 = icmp eq i64 %96, %2
+  %97 = icmp eq i64 %2, %96
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %95
@@ -5974,7 +5974,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 100:                                              ; preds = %95
   %101 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U64, align 8
-  %102 = icmp eq i64 %101, %2
+  %102 = icmp eq i64 %2, %101
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %100
@@ -5983,7 +5983,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 105:                                              ; preds = %100
   %106 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_s64, align 8
-  %107 = icmp eq i64 %106, %2
+  %107 = icmp eq i64 %2, %106
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %105
@@ -5992,7 +5992,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 110:                                              ; preds = %105
   %111 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S64, align 8
-  %112 = icmp eq i64 %111, %2
+  %112 = icmp eq i64 %2, %111
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %110
@@ -6001,7 +6001,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 115:                                              ; preds = %110
   %116 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_f32, align 8
-  %117 = icmp eq i64 %116, %2
+  %117 = icmp eq i64 %2, %116
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %115
@@ -6010,7 +6010,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 120:                                              ; preds = %115
   %121 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_F32, align 8
-  %122 = icmp eq i64 %121, %2
+  %122 = icmp eq i64 %2, %121
   br i1 %122, label %123, label %125
 
 123:                                              ; preds = %120
@@ -6019,7 +6019,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 125:                                              ; preds = %120
   %126 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_f64, align 8
-  %127 = icmp eq i64 %126, %2
+  %127 = icmp eq i64 %2, %126
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %125
@@ -6028,7 +6028,7 @@ io_buffer_read_s16.exit:                          ; preds = %60
 
 130:                                              ; preds = %125
   %131 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_F64, align 8
-  %132 = icmp eq i64 %131, %2
+  %132 = icmp eq i64 %2, %131
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %130
@@ -6607,7 +6607,7 @@ declare i64 @rb_yield_values(i32 noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @rb_io_buffer_set_value(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U8, align 8
-  %7 = icmp eq i64 %6, %2
+  %7 = icmp eq i64 %2, %6
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %5
@@ -6634,7 +6634,7 @@ io_buffer_write_U8.exit:                          ; preds = %8
 
 20:                                               ; preds = %5
   %21 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S8, align 8
-  %22 = icmp eq i64 %21, %2
+  %22 = icmp eq i64 %2, %21
   br i1 %22, label %23, label %39
 
 23:                                               ; preds = %20
@@ -6674,7 +6674,7 @@ io_buffer_write_S8.exit:                          ; preds = %30, %32
 
 39:                                               ; preds = %20
   %40 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_u16, align 8
-  %41 = icmp eq i64 %40, %2
+  %41 = icmp eq i64 %2, %40
   br i1 %41, label %42, label %54
 
 42:                                               ; preds = %39
@@ -6701,7 +6701,7 @@ io_buffer_write_u16.exit:                         ; preds = %42
 
 54:                                               ; preds = %39
   %55 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U16, align 8
-  %56 = icmp eq i64 %55, %2
+  %56 = icmp eq i64 %2, %55
   br i1 %56, label %57, label %70
 
 57:                                               ; preds = %54
@@ -6729,7 +6729,7 @@ io_buffer_write_U16.exit:                         ; preds = %57
 
 70:                                               ; preds = %54
   %71 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_s16, align 8
-  %72 = icmp eq i64 %71, %2
+  %72 = icmp eq i64 %2, %71
   br i1 %72, label %73, label %89
 
 73:                                               ; preds = %70
@@ -6769,7 +6769,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 89:                                               ; preds = %70
   %90 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S16, align 8
-  %91 = icmp eq i64 %90, %2
+  %91 = icmp eq i64 %2, %90
   br i1 %91, label %92, label %93
 
 92:                                               ; preds = %89
@@ -6778,7 +6778,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 93:                                               ; preds = %89
   %94 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_u32, align 8
-  %95 = icmp eq i64 %94, %2
+  %95 = icmp eq i64 %2, %94
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %93
@@ -6787,7 +6787,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 97:                                               ; preds = %93
   %98 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U32, align 8
-  %99 = icmp eq i64 %98, %2
+  %99 = icmp eq i64 %2, %98
   br i1 %99, label %100, label %101
 
 100:                                              ; preds = %97
@@ -6796,7 +6796,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 101:                                              ; preds = %97
   %102 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_s32, align 8
-  %103 = icmp eq i64 %102, %2
+  %103 = icmp eq i64 %2, %102
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %101
@@ -6805,7 +6805,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 105:                                              ; preds = %101
   %106 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S32, align 8
-  %107 = icmp eq i64 %106, %2
+  %107 = icmp eq i64 %2, %106
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %105
@@ -6814,7 +6814,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 109:                                              ; preds = %105
   %110 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_u64, align 8
-  %111 = icmp eq i64 %110, %2
+  %111 = icmp eq i64 %2, %110
   br i1 %111, label %112, label %113
 
 112:                                              ; preds = %109
@@ -6823,7 +6823,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 113:                                              ; preds = %109
   %114 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U64, align 8
-  %115 = icmp eq i64 %114, %2
+  %115 = icmp eq i64 %2, %114
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %113
@@ -6832,7 +6832,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 117:                                              ; preds = %113
   %118 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_s64, align 8
-  %119 = icmp eq i64 %118, %2
+  %119 = icmp eq i64 %2, %118
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %117
@@ -6841,7 +6841,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 121:                                              ; preds = %117
   %122 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_S64, align 8
-  %123 = icmp eq i64 %122, %2
+  %123 = icmp eq i64 %2, %122
   br i1 %123, label %124, label %125
 
 124:                                              ; preds = %121
@@ -6850,7 +6850,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 125:                                              ; preds = %121
   %126 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_f32, align 8
-  %127 = icmp eq i64 %126, %2
+  %127 = icmp eq i64 %2, %126
   br i1 %127, label %128, label %129
 
 128:                                              ; preds = %125
@@ -6859,7 +6859,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 129:                                              ; preds = %125
   %130 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_F32, align 8
-  %131 = icmp eq i64 %130, %2
+  %131 = icmp eq i64 %2, %130
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %129
@@ -6868,7 +6868,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 133:                                              ; preds = %129
   %134 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_f64, align 8
-  %135 = icmp eq i64 %134, %2
+  %135 = icmp eq i64 %2, %134
   br i1 %135, label %136, label %137
 
 136:                                              ; preds = %133
@@ -6877,7 +6877,7 @@ io_buffer_write_s16.exit:                         ; preds = %80, %82
 
 137:                                              ; preds = %133
   %138 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_F64, align 8
-  %139 = icmp eq i64 %138, %2
+  %139 = icmp eq i64 %2, %138
   br i1 %139, label %140, label %141
 
 140:                                              ; preds = %137
@@ -7401,7 +7401,7 @@ io_buffer_extract_offset.exit:                    ; preds = %5
 37:                                               ; preds = %24
   %38 = getelementptr i8, ptr %6, i64 8
   %.val = load i64, ptr %38, align 8
-  %39 = icmp ult i64 %.val, %storemerge19
+  %39 = icmp ugt i64 %storemerge19, %.val
   br i1 %39, label %40, label %io_buffer_default_length.exit
 
 40:                                               ; preds = %37

@@ -2316,7 +2316,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6append17h3a3909d50
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = load i64, ptr %0, align 8, !alias.scope !438, !noundef !4
   %10 = sub i64 %9, %8
-  %11 = icmp ult i64 %10, %6
+  %11 = icmp ugt i64 %6, %10
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdc350b65bd848d91E.exit"
 
 12:                                               ; preds = %2
@@ -2517,7 +2517,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.1371177941823602
   %44 = load i64, ptr %43, align 8, !alias.scope !444, !noalias !449, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !451, !noalias !449, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hcc909c8b8797f9bbE.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.13711779418236020091.exit
@@ -3538,8 +3538,8 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   store i64 %2, ptr %40, align 8, !noalias !598
   store ptr %5, ptr %18, align 8, !noalias !598
   store i64 %6, ptr %41, align 8, !noalias !598
-  %.not.i90 = icmp ugt i64 %93, %3
-  %.not12.i = icmp ugt i64 %94, %7
+  %.not.i90 = icmp ult i64 %3, %93
+  %.not12.i = icmp ult i64 %7, %94
   %or.cond.i = and i1 %.not.i90, %.not12.i
   br i1 %or.cond.i, label %95, label %_ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit
 
@@ -3908,8 +3908,8 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store ptr %1, ptr %17, align 8, !noalias !611
   store ptr %4, ptr %16, align 8, !noalias !611
-  %.not.i90 = icmp ugt i64 %87, %2
-  %.not12.i = icmp ugt i64 %88, %5
+  %.not.i90 = icmp ult i64 %2, %87
+  %.not12.i = icmp ult i64 %5, %88
   %or.cond.i = and i1 %.not.i90, %.not12.i
   br i1 %or.cond.i, label %89, label %_ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit
 
@@ -4424,8 +4424,8 @@ _ZN7similar10algorithms5utils17common_suffix_len17h2dd02b8ba86efcceE.exit: ; pre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !658
   store ptr %1, ptr %17, align 8, !noalias !659
   store ptr %4, ptr %16, align 8, !noalias !659
-  %.not.i90.i = icmp ugt i64 %120, %30
-  %.not12.i.i = icmp ugt i64 %121, %31
+  %.not.i90.i = icmp ult i64 %30, %120
+  %.not12.i.i = icmp ult i64 %31, %121
   %or.cond.i.i = and i1 %.not.i90.i, %.not12.i.i
   br i1 %or.cond.i.i, label %122, label %_ZN7similar10algorithms5utils17common_suffix_len17h2dd02b8ba86efcceE.exit.i
 
@@ -6076,8 +6076,8 @@ _ZN7similar10algorithms5utils17common_suffix_len17h5a6d9afcb6ca1c89E.exit: ; pre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !941
   store ptr %1, ptr %17, align 8, !noalias !942
   store ptr %4, ptr %16, align 8, !noalias !942
-  %.not.i90.i = icmp ugt i64 %120, %30
-  %.not12.i.i = icmp ugt i64 %121, %31
+  %.not.i90.i = icmp ult i64 %30, %120
+  %.not12.i.i = icmp ult i64 %31, %121
   %or.cond.i.i = and i1 %.not.i90.i, %.not12.i.i
   br i1 %or.cond.i.i, label %122, label %_ZN7similar10algorithms5utils17common_suffix_len17h5a6d9afcb6ca1c89E.exit.i
 
@@ -6888,7 +6888,7 @@ common.resume:                                    ; preds = %71, %56
   %66 = load i64, ptr %65, align 8, !alias.scope !1041, !noalias !1047, !noundef !4
   %67 = load i64, ptr %7, align 8, !alias.scope !1050, !noalias !1047, !noundef !4
   %68 = sub i64 %67, %66
-  %69 = icmp ult i64 %68, %64
+  %69 = icmp ugt i64 %64, %68
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %61

@@ -117,7 +117,7 @@ invoke.cont:                                      ; preds = %if.then
   %mul = shl nsw i32 %1, 1
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 180
   %2 = load i32, ptr %m_size.i.i, align 4
-  %cmp4.i = icmp slt i32 %2, %mul
+  %cmp4.i = icmp sgt i32 %mul, %2
   br i1 %cmp4.i, label %for.body9.lr.ph.i, label %invoke.cont7
 
 for.body9.lr.ph.i:                                ; preds = %invoke.cont
@@ -172,7 +172,7 @@ invoke.cont19:                                    ; preds = %invoke.cont13
   %mul23 = shl nsw i32 %9, 1
   %m_size.i.i9 = getelementptr inbounds i8, ptr %this, i64 116
   %10 = load i32, ptr %m_size.i.i9, align 4
-  %cmp4.i10 = icmp slt i32 %10, %mul23
+  %cmp4.i10 = icmp sgt i32 %mul23, %10
   br i1 %cmp4.i10, label %for.body9.lr.ph.i11, label %invoke.cont25
 
 for.body9.lr.ph.i11:                              ; preds = %invoke.cont19

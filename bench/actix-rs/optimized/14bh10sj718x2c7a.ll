@@ -1313,7 +1313,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.1317402815733802
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load i64, ptr %47, align 8, !alias.scope !215, !noalias !220, !noundef !7
   %49 = sub i64 %48, %46
-  %.not.i.i = icmp ult i64 %49, %44
+  %.not.i.i = icmp ugt i64 %44, %49
   br i1 %.not.i.i, label %50, label %51
 
 50:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.13174028157338022411.exit
@@ -1329,7 +1329,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.1317402815733802
   %55 = load i64, ptr %47, align 8, !alias.scope !215, !noalias !220, !noundef !7
   %56 = load i64, ptr %45, align 8, !alias.scope !215, !noalias !220, !noundef !7
   %57 = sub i64 %55, %56
-  %58 = icmp ult i64 %57, %44
+  %58 = icmp ugt i64 %44, %57
   br i1 %58, label %59, label %"_ZN68_$LT$actix_web..http..header..Writer$u20$as$u20$core..fmt..Write$GT$9write_str17hab431095072e0ab2E.exit"
 
 59:                                               ; preds = %51
@@ -3609,7 +3609,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.llvm
   store i64 %17, ptr %6, align 8, !noalias !626
   %25 = getelementptr inbounds i8, ptr %8, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !7
-  %.not.i = icmp ult i64 %26, %17
+  %.not.i = icmp ugt i64 %17, %26
   br i1 %.not.i, label %27, label %44
 
 27:                                               ; preds = %16
@@ -4970,7 +4970,7 @@ select.unfold:                                    ; preds = %60
   store i64 %89, ptr %7, align 8, !noalias !853
   %98 = getelementptr inbounds i8, ptr %9, i64 16
   %99 = load i64, ptr %98, align 8, !noalias !846, !noundef !7
-  %.not.i.i.i.i = icmp ult i64 %99, %89
+  %.not.i.i.i.i = icmp ugt i64 %89, %99
   br i1 %.not.i.i.i.i, label %100, label %116
 
 100:                                              ; preds = %.noexc35
@@ -6043,7 +6043,7 @@ define void @"_ZN84_$LT$actix_web..http..header..range..Range$u20$as$u20$core..s
   br label %50
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit.thread": ; preds = %22, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit"
-  %.not.i71 = icmp eq i64 %21, %2
+  %.not.i71 = icmp eq i64 %2, %21
   br i1 %.not.i71, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit74", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit74.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit74": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit.thread"
@@ -6244,7 +6244,7 @@ define void @"_ZN92_$LT$actix_web..http..header..range..ByteRangeSpec$u20$as$u20
   br label %40
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit.thread": ; preds = %21
-  %.not.i62 = icmp eq i64 %20, %2
+  %.not.i62 = icmp eq i64 %2, %20
   br i1 %.not.i62, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit65": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit.thread"
@@ -6519,7 +6519,7 @@ define void @_ZN9actix_web4http6header6Writer4take17h6b3594f1be7405a6E(ptr noali
   store i64 %18, ptr %6, align 8, !noalias !1066
   %26 = getelementptr inbounds i8, ptr %8, i64 16
   %27 = load i64, ptr %26, align 8, !noalias !1062, !noundef !7
-  %.not.i.i = icmp ult i64 %27, %18
+  %.not.i.i = icmp ugt i64 %18, %27
   br i1 %.not.i.i, label %28, label %44
 
 28:                                               ; preds = %17
@@ -6597,7 +6597,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$actix_web..http..header..Writer$u
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !1081, !noalias !1084, !noundef !7
   %8 = sub i64 %7, %5
-  %.not.i = icmp ult i64 %8, %2
+  %.not.i = icmp ugt i64 %2, %8
   br i1 %.not.i, label %9, label %10
 
 9:                                                ; preds = %3
@@ -6613,7 +6613,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$actix_web..http..header..Writer$u
   %14 = load i64, ptr %6, align 8, !alias.scope !1081, !noalias !1084, !noundef !7
   %15 = load i64, ptr %4, align 8, !alias.scope !1081, !noalias !1084, !noundef !7
   %16 = sub i64 %14, %15
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %18, label %_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.exit
 
 18:                                               ; preds = %10
@@ -7914,7 +7914,7 @@ define void @"_ZN92_$LT$actix_web..types..payload..StringExtractFut$u20$as$u20$c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1310)
   %19 = load ptr, ptr @_ZN11encoding_rs5UTF_817h3d10998125ce5213E, align 8, !noalias !1313, !nonnull !7, !align !143, !noundef !7
-  %20 = icmp eq ptr %19, %12
+  %20 = icmp eq ptr %12, %19
   %21 = getelementptr inbounds i8, ptr %9, i64 8
   %22 = getelementptr inbounds i8, ptr %9, i64 16
   br i1 %20, label %26, label %23
@@ -9319,7 +9319,7 @@ define void @"_ZN91_$LT$actix_web..types..payload..HttpMessageBody$u20$as$u20$co
   store i64 %34, ptr %7, align 8, !noalias !1527
   %42 = getelementptr inbounds i8, ptr %9, i64 16
   %43 = load i64, ptr %42, align 8, !noalias !1523, !noundef !7
-  %.not.i.i = icmp ult i64 %43, %34
+  %.not.i.i = icmp ugt i64 %34, %43
   br i1 %.not.i.i, label %44, label %60
 
 44:                                               ; preds = %.noexc
@@ -9422,7 +9422,7 @@ define void @"_ZN91_$LT$actix_web..types..payload..HttpMessageBody$u20$as$u20$co
   %77 = load ptr, ptr %22, align 8, !noundef !7
   %78 = load i64, ptr %23, align 8, !alias.scope !1542, !noalias !1545, !noundef !7
   %79 = sub i64 %78, %70
-  %.not.i31 = icmp ult i64 %79, %71
+  %.not.i31 = icmp ugt i64 %71, %79
   br i1 %.not.i31, label %80, label %81
 
 80:                                               ; preds = %76
@@ -9441,7 +9441,7 @@ define void @"_ZN91_$LT$actix_web..types..payload..HttpMessageBody$u20$as$u20$co
   %85 = load i64, ptr %23, align 8, !alias.scope !1542, !noalias !1545, !noundef !7
   %86 = load i64, ptr %18, align 8, !alias.scope !1542, !noalias !1545, !noundef !7
   %87 = sub i64 %85, %86
-  %88 = icmp ult i64 %87, %71
+  %88 = icmp ugt i64 %71, %87
   br i1 %88, label %89, label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h554d430186713f3aE.exit38"
 
 89:                                               ; preds = %81

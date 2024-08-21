@@ -2702,7 +2702,7 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   %169 = add i32 %.0223.i, 1
   %.not250.i = icmp ne ptr %.0143, null
   %170 = sub i32 %169, %16
-  %171 = icmp slt i32 %170, %20
+  %171 = icmp sgt i32 %20, %170
   %or.cond254.i = and i1 %.not250.i, %171
   br i1 %or.cond254.i, label %172, label %tvb_parse_param.exit
 

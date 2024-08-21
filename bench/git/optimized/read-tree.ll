@@ -929,7 +929,7 @@ if.then.i:                                        ; preds = %entry
 if.else.i:                                        ; preds = %entry
   %df_conflict_entry.i = getelementptr inbounds i8, ptr %o, i64 112
   %2 = load ptr, ptr %df_conflict_entry.i, align 8
-  %cmp.i = icmp eq ptr %2, %1
+  %cmp.i = icmp eq ptr %1, %2
   br i1 %cmp.i, label %if.then2.i, label %if.else4.i
 
 if.then2.i:                                       ; preds = %if.else.i
@@ -974,7 +974,7 @@ if.then.i24:                                      ; preds = %for.body
 
 if.else.i10:                                      ; preds = %for.body
   %8 = load ptr, ptr %df_conflict_entry.i11, align 8
-  %cmp.i12 = icmp eq ptr %8, %7
+  %cmp.i12 = icmp eq ptr %7, %8
   br i1 %cmp.i12, label %if.then2.i22, label %if.else4.i13
 
 if.then2.i22:                                     ; preds = %if.else.i10

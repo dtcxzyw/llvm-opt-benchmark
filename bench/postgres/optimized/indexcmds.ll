@@ -2502,7 +2502,7 @@ CheckPredicate.exit:                              ; preds = %413, %402
   %660 = load i8, ptr %442, align 1
   %661 = trunc i8 %660 to i1
   %.not544 = xor i1 %661, true
-  %brmerge545 = or i1 %.not544, %10
+  %brmerge545 = or i1 %10, %.not544
   br i1 %brmerge545, label %680, label %662
 
 662:                                              ; preds = %658
@@ -2544,7 +2544,7 @@ CheckPredicate.exit:                              ; preds = %413, %402
   %681 = load i8, ptr %442, align 1
   %682 = trunc i8 %681 to i1
   %spec.select = select i1 %682, i16 2, i16 0
-  %brmerge546 = or i1 %.0455, %9
+  %brmerge546 = or i1 %9, %.0455
   %brmerge547 = or i1 %brmerge546, %105
   %683 = or disjoint i16 %spec.select, 4
   %.1463 = select i1 %brmerge547, i16 %683, i16 %spec.select

@@ -2129,7 +2129,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres13OrderedGroupsIPdE17Add
 20:                                               ; preds = %19
   %21 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, %1
+  %23 = icmp eq ptr %1, %22
   br i1 %23, label %_ZNSt13unordered_mapIPdiSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_iEEE4findERS6_.exit, label %19, !llvm.loop !25
 
 24:                                               ; preds = %13
@@ -2147,11 +2147,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5ceres13OrderedGroupsIPdE17Add
   %33 = load ptr, ptr %31, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, %1
+  %36 = icmp eq ptr %1, %35
   br i1 %36, label %_ZNSt13unordered_mapIPdiSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_iEEE4findERS6_.exit, label %.lr.ph.i.i.i.i
 
 37:                                               ; preds = %40
-  %38 = icmp eq ptr %42, %1
+  %38 = icmp eq ptr %1, %42
   br i1 %38, label %_ZNSt13unordered_mapIPdiSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_iEEE4findERS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !26
 
 .lr.ph.i.i.i.i:                                   ; preds = %32, %37
@@ -2482,7 +2482,7 @@ _ZNSt3mapIiSt3setIPdSt4lessIS1_ESaIS1_EES2_IiESaISt4pairIKiS5_EEEixERS8_.exit45:
 
 select.unfold.i.i:                                ; preds = %148, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %148 ]
-  %151 = icmp eq ptr %139, %.sroa.4.0.i.ph.i.i
+  %151 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %139
   br i1 %151, label %_ZNSt8_Rb_treeIPdS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %152
 
 152:                                              ; preds = %select.unfold.i.i
@@ -2985,7 +2985,7 @@ define hidden noundef i32 @_ZN5ceres8internal32ReorderResidualBlocksByPartitionE
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.us.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %12
+  %17 = icmp eq ptr %12, %16
   br i1 %17, label %"_ZZN5ceres8internal32ReorderResidualBlocksByPartitionERKSt13unordered_setIPNS0_13ResidualBlockESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEPNS0_7ProgramEENK3$_0clES3_.exit.i.i", label %13, !llvm.loop !36
 
 .loopexit33.us.i.i:                               ; preds = %13
@@ -3012,11 +3012,11 @@ define hidden noundef i32 @_ZN5ceres8internal32ReorderResidualBlocksByPartitionE
   %29 = load ptr, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, %23
+  %32 = icmp eq ptr %23, %31
   br i1 %32, label %"_ZZN5ceres8internal32ReorderResidualBlocksByPartitionERKSt13unordered_setIPNS0_13ResidualBlockESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEPNS0_7ProgramEENK3$_0clES3_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i
 
 33:                                               ; preds = %36
-  %34 = icmp eq ptr %38, %23
+  %34 = icmp eq ptr %23, %38
   br i1 %34, label %"_ZZN5ceres8internal32ReorderResidualBlocksByPartitionERKSt13unordered_setIPNS0_13ResidualBlockESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEPNS0_7ProgramEENK3$_0clES3_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !38
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %28, %33
@@ -3062,7 +3062,7 @@ define hidden noundef i32 @_ZN5ceres8internal32ReorderResidualBlocksByPartitionE
 47:                                               ; preds = %46
   %48 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i14.us.i.i, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, %45
+  %50 = icmp eq ptr %45, %49
   br i1 %50, label %"_ZZN5ceres8internal32ReorderResidualBlocksByPartitionERKSt13unordered_setIPNS0_13ResidualBlockESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEPNS0_7ProgramEENK3$_0clES3_.exit16.loopexit.us.i.i", label %46, !llvm.loop !36
 
 "_ZZN5ceres8internal32ReorderResidualBlocksByPartitionERKSt13unordered_setIPNS0_13ResidualBlockESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEPNS0_7ProgramEENK3$_0clES3_.exit16.loopexit.us.i.i": ; preds = %47
@@ -3089,11 +3089,11 @@ define hidden noundef i32 @_ZN5ceres8internal32ReorderResidualBlocksByPartitionE
   %61 = load ptr, ptr %59, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %55
+  %64 = icmp eq ptr %55, %63
   br i1 %64, label %"_ZZN5ceres8internal32ReorderResidualBlocksByPartitionERKSt13unordered_setIPNS0_13ResidualBlockESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEPNS0_7ProgramEENK3$_0clES3_.exit16.i.i", label %.lr.ph.i.i.i.i.i.i7.i.i
 
 65:                                               ; preds = %68
-  %66 = icmp eq ptr %70, %55
+  %66 = icmp eq ptr %55, %70
   br i1 %66, label %"_ZZN5ceres8internal32ReorderResidualBlocksByPartitionERKSt13unordered_setIPNS0_13ResidualBlockESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEPNS0_7ProgramEENK3$_0clES3_.exit16.i.i", label %.lr.ph.i.i.i.i.i.i7.i.i, !llvm.loop !38
 
 .lr.ph.i.i.i.i.i.i7.i.i:                          ; preds = %60, %65
@@ -4488,7 +4488,7 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIiLi1EiE6resizeEll(ptr n
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %.not = icmp eq i64 %6, %1
+  %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %4
@@ -4898,9 +4898,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal17CompressedStorageIiiE6resiz
 
 7:                                                ; preds = %3
   %8 = sitofp i64 %1 to double
-  %9 = fmul double %8, %2
+  %9 = fmul double %2, %8
   %10 = fptosi double %9 to i64
-  %11 = add nsw i64 %10, %1
+  %11 = add nsw i64 %1, %10
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %11, i64 2147483647)
   %12 = icmp slt i64 %.sroa.speculated, %1
   br i1 %12, label %13, label %15
@@ -15781,7 +15781,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiSt3setIPdSt4lessIS3_ESaIS3_EE
 22:                                               ; preds = %19
   %.not.i.i = icmp ne ptr %20, null
   %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = icmp eq ptr %23, %21
+  %24 = icmp eq ptr %21, %23
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %24
   br i1 %or.cond.i.i, label %.thread, label %25
 
@@ -15832,7 +15832,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiSt3setIPdSt4lessIS3_ESaIS3_EEESt10_Select1stIS8_ES4_Ii
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiSt3setIPdSt4lessIS3_ESaIS3_EEESt10_Select1stIS8_ES4_IiESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -16177,8 +16177,8 @@ _ZNSt8_Rb_treeIPdS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE11equal_rangeERKS0_.exi
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %.sroa.037.0.i
-  %30 = icmp eq ptr %4, %.sroa.3.0.i
+  %29 = icmp eq ptr %.sroa.037.0.i, %28
+  %30 = icmp eq ptr %.sroa.3.0.i, %4
   %or.cond = select i1 %29, i1 %30, i1 false
   br i1 %or.cond, label %31, label %.critedge.i
 
@@ -16229,12 +16229,12 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiSt3setIPdSt4lessIS3_ESaIS3_EEESt10_Select1stIS8_ES4_IiESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_ESF_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = icmp eq ptr %8, %2
+  %9 = icmp eq ptr %2, %8
   br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %7
@@ -16521,7 +16521,7 @@ _ZNSt10_HashtableIPdSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIPdSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIPdSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge

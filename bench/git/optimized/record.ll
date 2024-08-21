@@ -236,7 +236,7 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   %i.0.lcssa.i = phi i32 [ 8, %entry ], [ %3, %while.end.loopexit.i ]
   %sub10.i = sub i32 9, %i.0.lcssa.i
   %conv12.i = sext i32 %sub10.i to i64
-  %cmp.i = icmp ugt i64 %conv12.i, %dest.coerce1
+  %cmp.i = icmp ult i64 %dest.coerce1, %conv12.i
   br i1 %cmp.i, label %put_var_int.exit.thread, label %put_var_int.exit
 
 put_var_int.exit.thread:                          ; preds = %while.end.i
@@ -390,7 +390,7 @@ if.end:                                           ; preds = %get_var_int.exit, %
   %len2 = getelementptr inbounds i8, ptr %last_key, i64 8
   %6 = load i64, ptr %len2, align 8
   %cmp3 = icmp ugt i64 %prefix_len.059, %6
-  %cmp.i8 = icmp eq i64 %retval.0.i60, %in.coerce1
+  %cmp.i8 = icmp eq i64 %in.coerce1, %retval.0.i60
   %or.cond = select i1 %cmp3, i1 true, i1 %cmp.i8
   br i1 %or.cond, label %return, label %if.end.i9
 
@@ -1608,7 +1608,7 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   %i.0.lcssa.i = phi i32 [ 8, %entry ], [ %3, %while.end.loopexit.i ]
   %sub10.i = sub i32 9, %i.0.lcssa.i
   %conv12.i = sext i32 %sub10.i to i64
-  %cmp.i = icmp ugt i64 %conv12.i, %s.coerce1
+  %cmp.i = icmp ult i64 %s.coerce1, %conv12.i
   br i1 %cmp.i, label %put_var_int.exit.thread, label %put_var_int.exit
 
 put_var_int.exit.thread:                          ; preds = %while.end.i
@@ -2269,7 +2269,7 @@ entry:
 if.end:                                           ; preds = %entry
   %mul = shl nsw i32 %hash_size, 1
   %conv = sext i32 %mul to i64
-  %cmp = icmp ugt i64 %conv, %s.coerce1
+  %cmp = icmp ult i64 %s.coerce1, %conv
   br i1 %cmp, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
@@ -2677,7 +2677,7 @@ if.end44:                                         ; preds = %do.body, %if.end
 if.end51:                                         ; preds = %if.end44
   %mul = shl nsw i32 %hash_size, 1
   %conv53 = sext i32 %mul to i64
-  %cmp54 = icmp ugt i64 %conv53, %in.coerce1
+  %cmp54 = icmp ult i64 %in.coerce1, %conv53
   br i1 %cmp54, label %return, label %if.end57
 
 if.end57:                                         ; preds = %if.end51
@@ -2697,7 +2697,7 @@ if.end57:                                         ; preds = %if.end51
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %add.ptr77, i64 %conv60, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %in.coerce0, i64 %conv53
   %sub.i = sub nuw i64 %in.coerce1, %conv53
-  %cmp.i.i = icmp eq i64 %conv53, %in.coerce1
+  %cmp.i.i = icmp eq i64 %in.coerce1, %conv53
   br i1 %cmp.i.i, label %done, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end57
@@ -3101,7 +3101,7 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   %i.0.lcssa.i = phi i32 [ 8, %entry ], [ %3, %while.end.loopexit.i ]
   %sub10.i = sub i32 9, %i.0.lcssa.i
   %conv12.i = sext i32 %sub10.i to i64
-  %cmp.i = icmp ugt i64 %conv12.i, %out.coerce1
+  %cmp.i = icmp ult i64 %out.coerce1, %conv12.i
   br i1 %cmp.i, label %return, label %put_var_int.exit
 
 put_var_int.exit:                                 ; preds = %while.end.i
@@ -3370,7 +3370,7 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   %i.0.lcssa.i = phi i32 [ 8, %if.then ], [ %3, %while.end.loopexit.i ]
   %sub10.i = sub i32 9, %i.0.lcssa.i
   %conv12.i = sext i32 %sub10.i to i64
-  %cmp.i = icmp ugt i64 %conv12.i, %s.coerce1
+  %cmp.i = icmp ult i64 %s.coerce1, %conv12.i
   br i1 %cmp.i, label %put_var_int.exit.thread, label %put_var_int.exit
 
 put_var_int.exit.thread:                          ; preds = %while.end.i

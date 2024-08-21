@@ -72,7 +72,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %mul = shl i64 %sub.ptr.sub, 1
-  %cond = tail call i64 @llvm.umax.i64(i64 %mul, i64 %new_cap)
+  %cond = tail call i64 @llvm.umax.i64(i64 %new_cap, i64 %mul)
   %call = tail call ptr @nghttp2_mem_realloc(ptr noundef %mem, ptr noundef %1, i64 noundef %cond) #9
   %cmp4 = icmp eq ptr %call, null
   br i1 %cmp4, label %return, label %if.end6
@@ -272,7 +272,7 @@ define hidden range(i32 -901, 1) i32 @nghttp2_bufs_realloc(ptr nocapture noundef
 entry:
   %offset = getelementptr inbounds i8, ptr %bufs, i64 56
   %0 = load i64, ptr %offset, align 8
-  %cmp = icmp ugt i64 %0, %chunk_length
+  %cmp = icmp ult i64 %chunk_length, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

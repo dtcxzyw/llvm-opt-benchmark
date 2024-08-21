@@ -5523,7 +5523,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   call void @_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB16ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE9skipBytesEi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %145)
   %146 = add nuw nsw i64 %69, 1
   %147 = trunc nuw nsw i64 %146 to i32
-  %148 = icmp slt i32 %147, %1
+  %148 = icmp sgt i32 %1, %147
   br i1 %148, label %68, label %.loopexit, !llvm.loop !259
 
 .preheader:                                       ; preds = %58, %.preheader

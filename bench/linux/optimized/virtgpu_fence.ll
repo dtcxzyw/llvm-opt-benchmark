@@ -41,7 +41,7 @@ define dso_local noundef ptr @virtio_gpu_fence_alloc(ptr noundef %0, i64 noundef
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 62072
   %9 = zext i32 %2 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = getelementptr inbounds i8, ptr %5, i64 96
   store ptr %8, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 64

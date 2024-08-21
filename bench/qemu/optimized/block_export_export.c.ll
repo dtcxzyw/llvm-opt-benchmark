@@ -558,12 +558,12 @@ define dso_local void @blk_exp_close_all_type(i32 noundef %type) local_unnamed_a
 entry:
   %call = tail call ptr @qemu_get_aio_context() #9
   %call.i = tail call ptr @qemu_get_current_aio_context() #9
-  %cmp.i = icmp eq ptr %call.i, %call
+  %cmp.i = icmp eq ptr %call, %call.i
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @qemu_get_aio_context() #9
-  %cmp2.i = icmp eq ptr %call1.i, %call
+  %cmp2.i = icmp eq ptr %call, %call1.i
   br i1 %cmp2.i, label %in_aio_context_home_thread.exit, label %if.else
 
 in_aio_context_home_thread.exit:                  ; preds = %if.end.i
@@ -731,7 +731,7 @@ if.then7:                                         ; preds = %if.end5
 
 if.end8:                                          ; preds = %if.end5
   %cmp1217 = icmp ne i32 %mode, 0
-  %cmp12.not = and i1 %cmp1217, %has_mode
+  %cmp12.not = and i1 %has_mode, %cmp1217
   br i1 %cmp12.not, label %if.end19, label %while.end
 
 while.end:                                        ; preds = %if.end8

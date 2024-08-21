@@ -58,7 +58,7 @@ define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_btls(ptr nocaptu
   %21 = add i64 %20, %indvars.iv81
   %22 = urem i64 %21, %sext60
   %23 = load i64, ptr %5, align 8
-  %24 = icmp ugt i64 %23, %22
+  %24 = icmp ult i64 %22, %23
   br i1 %24, label %25, label %mca_bml_base_btl_array_get_index.exit
 
 25:                                               ; preds = %19
@@ -121,7 +121,7 @@ mca_bml_base_btl_array_get_index.exit66:          ; preds = %mca_bml_base_btl_ar
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i8, ptr %29, i64 48
   %51 = load i64, ptr %50, align 8
-  %52 = icmp ult i64 %51, %2
+  %52 = icmp ugt i64 %2, %51
   br i1 %52, label %67, label %53
 
 53:                                               ; preds = %49, %45, %43

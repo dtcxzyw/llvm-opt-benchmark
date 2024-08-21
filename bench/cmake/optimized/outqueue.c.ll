@@ -15,7 +15,7 @@ define dso_local i64 @lzma_outq_memusage(i64 noundef %0, i32 noundef %1) local_u
 5:                                                ; preds = %2
   %6 = shl nuw nsw i32 %1, 1
   %7 = zext nneg i32 %6 to i64
-  %8 = mul nuw nsw i64 %7, %0
+  %8 = mul nuw nsw i64 %0, %7
   %narrow = mul nuw nsw i32 %1, 80
   %narrow12 = add nuw nsw i32 %narrow, 48
   %9 = zext nneg i32 %narrow12 to i64
@@ -37,7 +37,7 @@ define dso_local range(i32 0, 9) i32 @lzma_outq_init(ptr nocapture noundef %0, p
 7:                                                ; preds = %4
   %8 = shl nuw nsw i32 %3, 1
   %9 = zext nneg i32 %8 to i64
-  %10 = mul nuw nsw i64 %9, %2
+  %10 = mul nuw nsw i64 %2, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %.not24 = icmp eq i64 %12, %2

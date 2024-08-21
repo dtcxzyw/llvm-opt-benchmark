@@ -308,7 +308,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPmlN9__gnu_cxx5__ops15_Iter_
   %17 = load i64, ptr %16, align 8
   %18 = add nsw i64 %13, -1
   %19 = lshr i64 %18, 1
-  %20 = icmp ugt i64 %19, %15
+  %20 = icmp ult i64 %15, %19
   br i1 %20, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
@@ -399,7 +399,7 @@ _ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_1
   %61 = add nsw i64 %.039.us.i.i.i, -1
   %62 = getelementptr inbounds i64, ptr %0, i64 %61
   %63 = load i64, ptr %62, align 8
-  %.not.us.i.i.i = icmp slt i64 %19, %.039.us.i.i.i
+  %.not.us.i.i.i = icmp sgt i64 %.039.us.i.i.i, %19
   br i1 %.not.us.i.i.i, label %_ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_S9_T1_T2_.exit33.us.i.i.i, label %.lr.ph.i28.us.i.i.i
 
 .lr.ph.i28.us.i.i.i:                              ; preds = %.split15.us.i.i.i, %.lr.ph.i28.us.i.i.i
@@ -458,7 +458,7 @@ _ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_1
   %88 = add nsw i64 %.039.i.i.i, -1
   %89 = getelementptr inbounds i64, ptr %0, i64 %88
   %90 = load i64, ptr %89, align 8
-  %.not.i.i.i = icmp slt i64 %19, %.039.i.i.i
+  %.not.i.i.i = icmp sgt i64 %.039.i.i.i, %19
   br i1 %.not.i.i.i, label %._crit_edge.i18.i.i.i, label %.lr.ph.i28.i.i.i
 
 .lr.ph.i28.i.i.i:                                 ; preds = %.split15.i.i.i, %.lr.ph.i28.i.i.i
@@ -4509,7 +4509,7 @@ define void @_ZN5faiss26matrix_bucket_sort_inplaceEmmPllS0_i(i64 noundef %0, i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   %24 = tail call noundef double @_ZN5faiss12getmillisecsEv()
   %25 = mul i64 %1, %0
-  %26 = icmp ugt i64 %25, %3
+  %26 = icmp ult i64 %3, %25
   br i1 %26, label %43, label %27
 
 27:                                               ; preds = %23
@@ -4834,7 +4834,7 @@ _ZN5faiss12_GLOBAL__N_123bucket_sort_inplace_refIlEEvmmPT_S2_Pl.exit: ; preds = 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %142 = mul i64 %1, %0
   store i64 %142, ptr %13, align 8
-  %143 = icmp ugt i64 %142, %3
+  %143 = icmp ult i64 %3, %142
   br i1 %143, label %160, label %144
 
 144:                                              ; preds = %137
@@ -4882,7 +4882,7 @@ _ZN5faiss12_GLOBAL__N_123bucket_sort_inplace_refIlEEvmmPT_S2_Pl.exit: ; preds = 
   %163 = mul nsw i64 %162, 24
   %164 = udiv i64 5368709120, %163
   %165 = tail call i64 @llvm.umin.i64(i64 %164, i64 %161)
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %165, i64 %3)
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %3, i64 %165)
   store i64 %.sroa.speculated.i, ptr %15, align 8
   %166 = icmp sgt i32 %139, 0
   br i1 %166, label %167, label %169
@@ -6256,7 +6256,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_17ToWriteIlE11bucket_sortEv(p
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = ashr exact i64 %44, 3
-  %46 = icmp ult i64 %45, %38
+  %46 = icmp ugt i64 %38, %45
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %35
@@ -6267,7 +6267,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_17ToWriteIlE11bucket_sortEv(p
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 49:                                               ; preds = %35
-  %50 = icmp ugt i64 %45, %38
+  %50 = icmp ult i64 %38, %45
   br i1 %50, label %51, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 51:                                               ; preds = %49

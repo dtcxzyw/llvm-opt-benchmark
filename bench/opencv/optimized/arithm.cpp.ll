@@ -826,7 +826,7 @@ _ZNK2cv11_InputArray6getMatEi.exit187:            ; preds = %225, %228
   %263 = load i64, ptr %17, align 8
   %264 = mul i64 %263, %.sroa.speculated208
   %265 = load i64, ptr %194, align 8
-  %.not.i = icmp ult i64 %265, %264
+  %.not.i = icmp ugt i64 %264, %265
   br i1 %.not.i, label %267, label %266
 
 266:                                              ; preds = %262
@@ -1052,7 +1052,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit.thread: ; preds = %261
   %351 = mul i64 %349, %350
   %352 = add i64 %351, 32
   %353 = load i64, ptr %194, align 8
-  %.not.i190 = icmp ult i64 %353, %352
+  %.not.i190 = icmp ugt i64 %352, %353
   br i1 %.not.i190, label %355, label %354
 
 354:                                              ; preds = %345
@@ -2691,7 +2691,7 @@ _ZNK2cv11_InputArray6getMatEi.exit421:            ; preds = %379, %382
   %422 = mul i64 %.0665, %395
   %423 = add i64 %422, 64
   %424 = load i64, ptr %384, align 8
-  %.not.i = icmp ult i64 %424, %423
+  %.not.i = icmp ugt i64 %423, %424
   br i1 %.not.i, label %426, label %425
 
 .loopexit.split-lp.loopexit.split:                ; preds = %.preheader
@@ -2941,7 +2941,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit.split: ; preds = %_ZN2cv10AutoBuffe
   %518 = mul i64 %.sroa.speculated, %395
   %519 = add i64 %518, 64
   %520 = load i64, ptr %384, align 8
-  %.not.i425 = icmp ult i64 %520, %519
+  %.not.i425 = icmp ugt i64 %519, %520
   br i1 %.not.i425, label %522, label %521
 
 521:                                              ; preds = %515

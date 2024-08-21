@@ -265,7 +265,7 @@ lor.rhs.i.i:                                      ; preds = %for.body.i
 rom_order_compare.exit.i:                         ; preds = %lor.rhs.i.i
   %addr5.i.i = getelementptr inbounds i8, ptr %item.022.i, i64 96
   %2 = load i64, ptr %addr5.i.i, align 8
-  %cmp6.i.not.i = icmp ugt i64 %2, %addr
+  %cmp6.i.not.i = icmp ult i64 %addr, %2
   br i1 %cmp6.i.not.i, label %do.body.i, label %for.inc.i
 
 do.body.i:                                        ; preds = %rom_order_compare.exit.i, %lor.rhs.i.i
@@ -760,7 +760,7 @@ if.then1:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %call9 = tail call ptr @rom_add_blob(ptr noundef %name, ptr noundef %source, i64 noundef %conv, i64 noundef %conv, i64 noundef %dest, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
-  %add11 = add i64 %conv, %dest
+  %add11 = add i64 %dest, %conv
   %sub = add i64 %add11, -1
   br label %for.body.i.i
 
@@ -3992,7 +3992,7 @@ if.end22:                                         ; preds = %if.end16, %if.end8
 while.cond:                                       ; preds = %if.end22, %land.rhs
   %i.2 = phi i32 [ %inc, %land.rhs ], [ %i.0, %if.end22 ]
   %conv27 = sext i32 %i.2 to i64
-  %cmp28 = icmp ult i64 %conv27, %srclen
+  %cmp28 = icmp ugt i64 %srclen, %conv27
   br i1 %cmp28, label %land.rhs, label %if.end34
 
 land.rhs:                                         ; preds = %while.cond
@@ -4010,7 +4010,7 @@ if.end34:                                         ; preds = %land.rhs, %while.co
 while.cond39:                                     ; preds = %if.end34, %land.rhs43
   %i.4 = phi i32 [ %inc44, %land.rhs43 ], [ %i.1, %if.end34 ]
   %conv40 = sext i32 %i.4 to i64
-  %cmp41 = icmp ult i64 %conv40, %srclen
+  %cmp41 = icmp ugt i64 %srclen, %conv40
   br i1 %cmp41, label %land.rhs43, label %if.end53
 
 land.rhs43:                                       ; preds = %while.cond39
@@ -4025,7 +4025,7 @@ if.end53:                                         ; preds = %land.rhs43, %while.
   %and54 = and i32 %conv, 2
   %spec.select = add i32 %i.3, %and54
   %conv60 = sext i32 %spec.select to i64
-  %cmp61.not = icmp ult i64 %conv60, %srclen
+  %cmp61.not = icmp ugt i64 %srclen, %conv60
   br i1 %cmp61.not, label %if.end64, label %toosmall
 
 if.end64:                                         ; preds = %if.end53
@@ -4665,7 +4665,7 @@ lor.rhs.i.i:                                      ; preds = %for.body.i
 rom_order_compare.exit.i:                         ; preds = %lor.rhs.i.i
   %addr5.i.i = getelementptr inbounds i8, ptr %item.022.i, i64 96
   %2 = load i64, ptr %addr5.i.i, align 8
-  %cmp6.i.not.i = icmp ugt i64 %2, %addr
+  %cmp6.i.not.i = icmp ult i64 %addr, %2
   br i1 %cmp6.i.not.i, label %do.body.i, label %for.inc.i
 
 do.body.i:                                        ; preds = %rom_order_compare.exit.i, %lor.rhs.i.i
@@ -5594,7 +5594,7 @@ define internal zeroext i1 @find_rom_cb(i64 noundef %start.coerce0, i64 noundef 
 entry:
   %mr3 = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %mr3, align 8
-  %cmp.not = icmp eq ptr %0, %mr
+  %cmp.not = icmp eq ptr %mr, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -5789,7 +5789,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
 
 rom_transaction_begin.exit.i:                     ; preds = %for.body.i.i, %if.end
   %complete.i = getelementptr inbounds i8, ptr %parser.i, i64 320
-  %cmp37.i.not = icmp ugt ptr %add.ptr.i, %0
+  %cmp37.i.not = icmp ult ptr %0, %add.ptr.i
   br i1 %cmp37.i.not, label %for.body.lr.ph.i, label %out.i
 
 for.body.lr.ph.i:                                 ; preds = %rom_transaction_begin.exit.i

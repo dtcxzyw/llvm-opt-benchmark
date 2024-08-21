@@ -434,7 +434,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 57:                                               ; preds = %50, %56, %37
   %.0412 = phi i32 [ 2, %37 ], [ 3, %56 ], [ 3, %50 ]
   %.0411 = phi i32 [ -1, %37 ], [ %45, %56 ], [ %45, %50 ]
-  %58 = icmp ult i32 %.0412, %0
+  %58 = icmp ugt i32 %0, %.0412
   br i1 %58, label %.preheader592, label %.loopexit
 
 .preheader592:                                    ; preds = %57
@@ -4639,11 +4639,11 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %604
 
 604:                                              ; preds = %589, %._crit_edge1201
-  %605 = icmp sge i32 %.0550, %2
+  %605 = icmp sle i32 %2, %.0550
   br i1 %605, label %606, label %632
 
 606:                                              ; preds = %604
-  %607 = icmp slt i32 %.0552, %3
+  %607 = icmp sgt i32 %3, %.0552
   %.b623 = load i1, ptr @doWrite, align 4
   %or.cond69.not = select i1 %607, i1 true, i1 %.b623
   br i1 %or.cond69.not, label %632, label %608
@@ -4738,7 +4738,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 646:                                              ; preds = %645, %._crit_edge
   %.3 = phi ptr [ null, %645 ], [ %.2533, %._crit_edge ]
-  %647 = icmp sge i32 %.0552, %3
+  %647 = icmp sle i32 %3, %.0552
   %or.cond687 = and i1 %647, %605
   br i1 %or.cond687, label %.thread.thread, label %648
 
@@ -5569,7 +5569,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
   %.0482644.us.us.us = phi i64 [ 0, %.preheader.lr.ph.us.us ], [ %indvars.iv.next727, %._crit_edge.us.us.us ]
   %342 = mul nsw i32 %.0464647.us.us.us, %9
   %343 = sub nsw i32 %4, %342
-  %.596.us.us.us = tail call i32 @llvm.smin.i32(i32 %343, i32 %9)
+  %.596.us.us.us = tail call i32 @llvm.smin.i32(i32 %9, i32 %343)
   %sext = shl i64 %.0482644.us.us.us, 32
   %344 = ashr exact i64 %sext, 32
   br label %345
@@ -5582,7 +5582,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
   %.b521.us.us.us = load i1, ptr @doTile, align 4
   %346 = mul nsw i32 %.0465641.us.us.us, %8
   %347 = sub nsw i32 %3, %346
-  %..us.us.us = tail call i32 @llvm.smin.i32(i32 %347, i32 %8)
+  %..us.us.us = tail call i32 @llvm.smin.i32(i32 %8, i32 %347)
   %348 = select i1 %.b521.us.us.us, i32 %..us.us.us, i32 %.0476
   %349 = select i1 %.b521.us.us.us, i32 %.596.us.us.us, i32 %.0477
   %.b530.us.us.us = load i1, ptr @doYUV, align 4

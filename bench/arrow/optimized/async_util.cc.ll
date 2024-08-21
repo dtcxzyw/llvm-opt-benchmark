@@ -5955,7 +5955,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
 if.end:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %available_cost_ = getelementptr inbounds i8, ptr %this, i64 52
   %5 = load i32, ptr %available_cost_, align 4
-  %cmp.not = icmp slt i32 %5, %amt
+  %cmp.not = icmp sgt i32 %amt, %5
   br i1 %cmp.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end

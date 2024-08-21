@@ -376,7 +376,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5cmsys8Enco
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
-  %28 = icmp ult i64 %.lcssa, %27
+  %28 = icmp ugt i64 %27, %.lcssa
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %._crit_edge
@@ -387,7 +387,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5cmsys8Enco
   br label %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit
 
 31:                                               ; preds = %._crit_edge
-  %32 = icmp ugt i64 %.lcssa, %27
+  %32 = icmp ult i64 %27, %.lcssa
   br i1 %32, label %33, label %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit
 
 33:                                               ; preds = %31

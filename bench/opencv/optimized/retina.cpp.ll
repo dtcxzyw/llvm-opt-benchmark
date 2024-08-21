@@ -1317,7 +1317,7 @@ define hidden void @_ZN2cv11bioinspired10RetinaImpl26setupOPLandIPLParvoChannelE
   tail call void @_ZN2cv11bioinspired17ParvoRetinaFilter31setOPLandParvoFiltersParametersEffffff(ptr noundef nonnull align 8 dereferenceable(304) %27, float noundef 0.000000e+00, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8)
   %28 = getelementptr inbounds i8, ptr %26, i64 364
   %29 = load float, ptr %28, align 4
-  %30 = fmul float %29, %9
+  %30 = fmul float %9, %29
   %31 = getelementptr inbounds i8, ptr %26, i64 360
   store float %30, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %26, i64 372
@@ -1330,7 +1330,7 @@ define hidden void @_ZN2cv11bioinspired10RetinaImpl26setupOPLandIPLParvoChannelE
   %36 = load ptr, ptr %13, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 364
   %38 = load float, ptr %37, align 4
-  %39 = fmul float %38, %9
+  %39 = fmul float %9, %38
   %40 = getelementptr inbounds i8, ptr %36, i64 360
   store float %39, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %36, i64 372
@@ -1372,7 +1372,7 @@ define hidden void @_ZN2cv11bioinspired10RetinaImpl20setupIPLMagnoChannelEbfffff
   tail call void @_ZN2cv11bioinspired17MagnoRetinaFilter20setCoefficientsTableEffffff(ptr noundef nonnull align 8 dereferenceable(324) %13, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %7, float noundef %8)
   %14 = getelementptr inbounds i8, ptr %12, i64 668
   %15 = load float, ptr %14, align 4
-  %16 = fmul float %15, %6
+  %16 = fmul float %6, %15
   %17 = getelementptr inbounds i8, ptr %12, i64 664
   store float %16, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %12, i64 676

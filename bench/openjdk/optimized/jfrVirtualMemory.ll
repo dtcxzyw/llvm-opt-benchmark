@@ -166,7 +166,7 @@ define hidden noundef ptr @_ZN23JfrVirtualMemorySegment19take_from_committedEm(p
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = lshr i64 %9, 3
-  %.not = icmp ult i64 %10, %1
+  %.not = icmp ugt i64 %1, %10
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %2
@@ -452,7 +452,7 @@ define hidden noundef ptr @_ZN23JfrVirtualMemoryManager6commitEm(ptr nocapture n
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = lshr i64 %11, 3
-  %.not.i.i = icmp ult i64 %12, %1
+  %.not.i.i = icmp ugt i64 %1, %12
   br i1 %.not.i.i, label %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread, label %_ZN23JfrVirtualMemorySegment6commitEm.exit
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit:       ; preds = %2
@@ -492,7 +492,7 @@ _ZN23JfrVirtualMemorySegment6commitEm.exit.thread: ; preds = %_ZN23JfrVirtualMem
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = lshr i64 %32, 3
-  %.not.i.i9 = icmp ult i64 %33, %1
+  %.not.i.i9 = icmp ugt i64 %1, %33
   br i1 %.not.i.i9, label %_ZN23JfrVirtualMemorySegment6commitEm.exit11, label %34
 
 34:                                               ; preds = %24
@@ -639,7 +639,7 @@ _ZL23adjust_allocation_ratioPmS_.exit:            ; preds = %7, %20
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
   %58 = lshr i64 %57, 3
-  %.not.i.i.i.i = icmp ult i64 %58, %49
+  %.not.i.i.i.i = icmp ugt i64 %49, %58
   br i1 %.not.i.i.i.i, label %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i.i, label %_ZN23JfrVirtualMemorySegment6commitEm.exit.i.i
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit.i.i:   ; preds = %34
@@ -679,7 +679,7 @@ _ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i.i: ; preds = %_ZN23JfrVirtua
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
   %79 = lshr i64 %78, 3
-  %.not.i.i9.i.i = icmp ult i64 %79, %49
+  %.not.i.i9.i.i = icmp ugt i64 %49, %79
   br i1 %.not.i.i9.i.i, label %_ZN16JfrVirtualMemory19commit_memory_blockEv.exit, label %_ZN23JfrVirtualMemoryManager6commitEm.exit.i
 
 _ZN23JfrVirtualMemoryManager6commitEm.exit.i:     ; preds = %70
@@ -725,7 +725,7 @@ define hidden noundef zeroext i1 @_ZN16JfrVirtualMemory19commit_memory_blockEv(p
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = lshr i64 %13, 3
-  %.not.i.i.i = icmp ult i64 %14, %4
+  %.not.i.i.i = icmp ugt i64 %4, %14
   br i1 %.not.i.i.i, label %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i, label %_ZN23JfrVirtualMemorySegment6commitEm.exit.i
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit.i:     ; preds = %1
@@ -765,7 +765,7 @@ _ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i: ; preds = %_ZN23JfrVirtualM
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
   %35 = lshr i64 %34, 3
-  %.not.i.i9.i = icmp ult i64 %35, %4
+  %.not.i.i9.i = icmp ugt i64 %4, %35
   br i1 %.not.i.i9.i, label %_ZN23JfrVirtualMemoryManager6commitEm.exit.thread, label %_ZN23JfrVirtualMemoryManager6commitEm.exit
 
 _ZN23JfrVirtualMemoryManager6commitEm.exit:       ; preds = %26
@@ -803,7 +803,7 @@ define hidden noundef ptr @_ZN16JfrVirtualMemory6commitEm(ptr nocapture noundef 
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = lshr i64 %12, 3
-  %.not.i.i.i = icmp ult i64 %13, %1
+  %.not.i.i.i = icmp ugt i64 %1, %13
   br i1 %.not.i.i.i, label %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i, label %_ZN23JfrVirtualMemorySegment6commitEm.exit.i
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit.i:     ; preds = %2
@@ -843,7 +843,7 @@ _ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i: ; preds = %_ZN23JfrVirtualM
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
   %34 = lshr i64 %33, 3
-  %.not.i.i9.i = icmp ult i64 %34, %1
+  %.not.i.i9.i = icmp ugt i64 %1, %34
   br i1 %.not.i.i9.i, label %_ZN23JfrVirtualMemoryManager6commitEm.exit, label %35
 
 35:                                               ; preds = %25
@@ -900,7 +900,7 @@ define hidden noundef ptr @_ZN16JfrVirtualMemory9new_datumEv(ptr nocapture nound
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = lshr i64 %19, 3
-  %.not.i.i.i.i = icmp ult i64 %20, %10
+  %.not.i.i.i.i = icmp ugt i64 %10, %20
   br i1 %.not.i.i.i.i, label %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i.i, label %_ZN23JfrVirtualMemorySegment6commitEm.exit.i.i
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit.i.i:   ; preds = %7
@@ -940,7 +940,7 @@ _ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i.i: ; preds = %_ZN23JfrVirtua
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = lshr i64 %40, 3
-  %.not.i.i9.i.i = icmp ult i64 %41, %10
+  %.not.i.i9.i.i = icmp ugt i64 %10, %41
   br i1 %.not.i.i9.i.i, label %_ZN16JfrVirtualMemory19commit_memory_blockEv.exit.thread, label %_ZN23JfrVirtualMemoryManager6commitEm.exit.i
 
 _ZN23JfrVirtualMemoryManager6commitEm.exit.i:     ; preds = %32

@@ -427,7 +427,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN100_$LT$core.
   %16 = ptrtoint ptr %14 to i64
   %17 = sub nuw i64 %15, %16
   %18 = udiv exact i64 %17, 24
-  %.not.i = icmp ugt i64 %18, %3
+  %.not.i = icmp ult i64 %3, %18
   %19 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %14, i64 %3
   %20 = getelementptr inbounds i8, ptr %19, i64 24
   %storemerge.i = select i1 %.not.i, ptr %20, ptr %13
@@ -884,7 +884,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %15 = ptrtoint ptr %13 to i64
   %16 = sub nuw i64 %14, %15
   %17 = udiv exact i64 %16, 24
-  %.not.i.i = icmp ugt i64 %17, %4
+  %.not.i.i = icmp ult i64 %4, %17
   %18 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %13, i64 %4
   br i1 %.not.i.i, label %select.unfold, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08917d541ac1ccd0E.llvm.8330083114956406873.exit"
 
@@ -9624,7 +9624,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h106e309cb397af90E(ptr noa
   %.val = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
   %45 = getelementptr i8, ptr %1, i64 16
   %.val71 = load i64, ptr %45, align 8, !noundef !4
-  %46 = icmp ult i64 %40, %.val71
+  %46 = icmp ugt i64 %.val71, %40
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %38
@@ -9868,7 +9868,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h106e309cb397af90E(ptr noa
   %.val.i173 = load ptr, ptr %117, align 8, !noalias !2517, !nonnull !4, !noundef !4
   %118 = getelementptr i8, ptr %.sroa.0247.0336, i64 16
   %.val3.i174 = load i64, ptr %118, align 8, !noalias !2517, !noundef !4
-  %.not.i.i178 = icmp ult i64 %.sroa.27.0338, %4
+  %.not.i.i178 = icmp ugt i64 %4, %.sroa.27.0338
   br i1 %.not.i.i178, label %119, label %120
 
 119:                                              ; preds = %.lr.ph339
@@ -10041,7 +10041,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h63643d7301a3237bE(ptr noa
   %.val = load ptr, ptr %1, align 8, !nonnull !4, !align !83, !noundef !4
   %44 = getelementptr i8, ptr %1, i64 8
   %.val71 = load i64, ptr %44, align 8, !noundef !4
-  %45 = icmp ult i64 %40, %.val71
+  %45 = icmp ugt i64 %.val71, %40
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %38
@@ -10279,7 +10279,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h63643d7301a3237bE(ptr noa
   %.val.i173 = load ptr, ptr %.sroa.0247.0336, align 8, !noalias !2661, !nonnull !4, !align !83, !noundef !4
   %111 = getelementptr i8, ptr %.sroa.0247.0336, i64 8
   %.val3.i174 = load i64, ptr %111, align 8, !noalias !2661, !noundef !4
-  %.not.i.i178 = icmp ult i64 %.sroa.27.0338, %4
+  %.not.i.i178 = icmp ugt i64 %4, %.sroa.27.0338
   br i1 %.not.i.i178, label %112, label %113
 
 112:                                              ; preds = %.lr.ph339
@@ -12779,7 +12779,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !4
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -12860,8 +12860,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !3382
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -26602,7 +26602,7 @@ define internal noundef nonnull ptr @"_ZN90_$LT$chalk_ir..SubstFolder$LT$I$C$A$G
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !align !75, !noundef !4
   %11 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$17substitution_data17he98a6d5e86f7f388E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val)
   %12 = extractvalue { ptr, i64 } %11, 1
-  %13 = icmp ugt i64 %12, %1
+  %13 = icmp ult i64 %1, %12
   br i1 %13, label %"_ZN8chalk_ir24SubstFolder$LT$I$C$A$GT$2at17h5b660ed7d29ea197E.exit", label %14, !prof !5823
 
 14:                                               ; preds = %10
@@ -26667,7 +26667,7 @@ define internal noundef nonnull ptr @"_ZN90_$LT$chalk_ir..SubstFolder$LT$I$C$A$G
 
 .noexc:                                           ; preds = %12
   %14 = extractvalue { ptr, i64 } %13, 1
-  %15 = icmp ugt i64 %14, %2
+  %15 = icmp ult i64 %2, %14
   br i1 %15, label %20, label %16, !prof !5823
 
 16:                                               ; preds = %.noexc
@@ -26806,7 +26806,7 @@ define internal noundef nonnull ptr @"_ZN90_$LT$chalk_ir..SubstFolder$LT$I$C$A$G
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !align !75, !noundef !4
   %11 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$17substitution_data17he98a6d5e86f7f388E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val)
   %12 = extractvalue { ptr, i64 } %11, 1
-  %13 = icmp ugt i64 %12, %1
+  %13 = icmp ult i64 %1, %12
   br i1 %13, label %"_ZN8chalk_ir24SubstFolder$LT$I$C$A$GT$2at17h5b660ed7d29ea197E.exit", label %14, !prof !5823
 
 14:                                               ; preds = %10
@@ -26912,7 +26912,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
   %9 = udiv exact i64 %8, 24
-  %.not = icmp ugt i64 %9, %1
+  %.not = icmp ult i64 %1, %9
   %10 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %5, i64 %1
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %storemerge = select i1 %.not, ptr %11, ptr %4

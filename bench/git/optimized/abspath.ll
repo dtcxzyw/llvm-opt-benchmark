@@ -272,7 +272,7 @@ while.end19.i:                                    ; preds = %while.body.i, %whil
   %len.1.lcssa.i = phi i64 [ %len.0.lcssa.i, %while.end.i ], [ %len.121.i, %land.rhs9.i ], [ %conv.i32, %while.body17.i ], [ %conv.i32, %while.body.i ]
   %36 = load i64, ptr %resolved, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %36, i64 1)
-  %cmp.i14.i = icmp ult i64 %spec.select.i.i, %len.1.lcssa.i
+  %cmp.i14.i = icmp ugt i64 %len.1.lcssa.i, %spec.select.i.i
   br i1 %cmp.i14.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %while.end19.i
@@ -475,7 +475,7 @@ while.end19.i64:                                  ; preds = %while.body.i85, %wh
   %len.1.lcssa.i65 = phi i64 [ %len.0.lcssa.i62, %while.end.i61 ], [ %len.121.i75, %land.rhs9.i74 ], [ %conv.i57, %while.body17.i78 ], [ %conv.i57, %while.body.i85 ]
   %63 = load i64, ptr %resolved, align 8
   %spec.select.i.i66 = call i64 @llvm.usub.sat.i64(i64 %63, i64 1)
-  %cmp.i14.i67 = icmp ult i64 %spec.select.i.i66, %len.1.lcssa.i65
+  %cmp.i14.i67 = icmp ugt i64 %len.1.lcssa.i65, %spec.select.i.i66
   br i1 %cmp.i14.i67, label %if.then.i.i73, label %if.end.i.i68
 
 if.then.i.i73:                                    ; preds = %while.end19.i64

@@ -433,7 +433,7 @@ define hidden noundef i32 @_ZNK8Pipeline15operand_latencyEjPKS_(ptr nocapture no
 11:                                               ; preds = %3
   %12 = load i8, ptr %0, align 8
   %13 = zext i8 %12 to i32
-  %14 = icmp ult i32 %13, %1
+  %14 = icmp ugt i32 %1, %13
   br i1 %14, label %29, label %15
 
 15:                                               ; preds = %11
@@ -533,7 +533,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   %40 = getelementptr inbounds i8, ptr %39, i64 200
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
-  %43 = icmp ugt i32 %42, %1
+  %43 = icmp ult i32 %1, %42
   br i1 %43, label %44, label %80
 
 44:                                               ; preds = %38
@@ -648,7 +648,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(8) %88) #10
   %93 = add i32 %92, %.03274
-  %94 = icmp ugt i32 %93, %1
+  %94 = icmp ult i32 %1, %93
   br i1 %94, label %96, label %95
 
 95:                                               ; preds = %85

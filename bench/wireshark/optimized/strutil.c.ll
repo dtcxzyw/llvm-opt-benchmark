@@ -553,7 +553,7 @@ define range(i32 0, 2) i32 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 nou
 
 .preheader:                                       ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 1
-  %9 = icmp ugt ptr %6, %0
+  %9 = icmp ult ptr %0, %6
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
@@ -1269,7 +1269,7 @@ define i64 @ws_label_strcpy(ptr nocapture noundef writeonly %0, i64 noundef %1, 
 
 .lr.ph144:                                        ; preds = %6
   %10 = xor i64 %2, -1
-  %11 = add i64 %10, %1
+  %11 = add i64 %1, %10
   %12 = and i32 %4, 1
   %.not132 = icmp eq i32 %12, 0
   %13 = load ptr, ptr @g_ascii_table, align 8

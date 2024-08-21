@@ -976,7 +976,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17Growab
   %27 = load float, ptr %26, align 4
   %28 = fadd float %25, %27
   store float %28, ptr %26, align 4
-  br label %49
+  br label %47
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread: ; preds = %13, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge, %2
   %29 = phi i32 [ %.pre, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge ], [ %6, %2 ], [ %14, %13 ]
@@ -988,30 +988,29 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread: ; pr
 33:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread
   %34 = add nsw i32 %29, 1
   %35 = icmp sgt i32 %29, -1
-  %36 = xor i32 %29, -2147483648
-  %37 = and i32 %36, %34
-  %38 = icmp eq i32 %37, 0
-  %39 = and i1 %35, %38
-  %40 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
-  %41 = sub nuw nsw i32 32, %40
-  %42 = shl nuw i32 1, %41
-  %.0.i.i.i.i = select i1 %39, i32 %34, i32 %42
+  %36 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %34)
+  %37 = icmp ult i32 %36, 2
+  %or.cond.i.i.i.i = select i1 %35, i1 %37, i1 false
+  %38 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
+  %39 = sub nuw nsw i32 32, %38
+  %40 = shl nuw i32 1, %39
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %34, i32 %40
   tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %0, align 8
   br label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread, %33
-  %43 = phi i32 [ %.pre.i, %33 ], [ %29, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread ]
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = sext i32 %43 to i64
-  %48 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %46, i64 %47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %48, ptr noundef nonnull align 8 dereferenceable(25) %1, i64 25, i1 false)
-  br label %49
+  %41 = phi i32 [ %.pre.i, %33 ], [ %29, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread ]
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %0, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = sext i32 %41 to i64
+  %46 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %44, i64 %45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %46, ptr noundef nonnull align 8 dereferenceable(25) %1, i64 25, i1 false)
+  br label %47
 
-49:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit, %23
+47:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit, %23
   ret void
 }
 
@@ -1059,12 +1058,87 @@ _ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit: ; preds = %5, %30
   %34 = phi i32 [ %33, %30 ], [ 8, %5 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %34, ptr %35, align 4
-  tail call void @_ZN13ConstantTable3addERNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(25) %0)
+  %36 = load i32, ptr %1, align 8
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %.lr.ph.i.i, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+
+.lr.ph.i.i:                                       ; preds = %_ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit
+  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  br label %39
+
+39:                                               ; preds = %43, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %43 ]
+  %40 = load ptr, ptr %38, align 8
+  %41 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %40, i64 %indvars.iv.i.i
+  %42 = tail call noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %41, ptr noundef nonnull readonly align 8 dereferenceable(25) %0)
+  br i1 %42, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i, label %43
+
+43:                                               ; preds = %39
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %44 = load i32, ptr %1, align 8
+  %45 = sext i32 %44 to i64
+  %46 = icmp slt i64 %indvars.iv.next.i.i, %45
+  br i1 %46, label %39, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i, !llvm.loop !22
+
+_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i: ; preds = %39
+  %47 = load ptr, ptr %38, align 8
+  %sext.i = shl i64 %indvars.iv.i.i, 32
+  %48 = ashr exact i64 %sext.i, 27
+  %49 = getelementptr inbounds i8, ptr %47, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %51 = load i8, ptr %50, align 8
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i
+
+_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i: ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i
+  %.pre.i = load i32, ptr %1, align 8
+  br label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+
+53:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i
+  %54 = getelementptr inbounds i8, ptr %49, i64 20
+  %55 = load float, ptr %54, align 4
+  %56 = fadd float %55, %23
+  store float %56, ptr %54, align 4
+  br label %_ZN13ConstantTable3addERNS_8ConstantE.exit
+
+_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i: ; preds = %43, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i, %_ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit
+  %57 = phi i32 [ %.pre.i, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i ], [ %36, %_ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit ], [ %44, %43 ]
+  %58 = getelementptr inbounds i8, ptr %1, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp eq i32 %57, %59
+  br i1 %60, label %61, label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
+
+61:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+  %62 = add nsw i32 %57, 1
+  %63 = icmp sgt i32 %57, -1
+  %64 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %62)
+  %65 = icmp ult i32 %64, 2
+  %or.cond.i.i.i.i.i = select i1 %63, i1 %65, i1 false
+  %66 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %62, i1 true)
+  %67 = sub nuw nsw i32 32, %66
+  %68 = shl nuw i32 1, %67
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %62, i32 %68
+  tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.0.i.i.i.i.i)
+  %.pre.i.i = load i32, ptr %1, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
+
+_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %61, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+  %69 = phi i32 [ %.pre.i.i, %61 ], [ %57, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i ]
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr %1, align 8
+  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = sext i32 %69 to i64
+  %74 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %72, i64 %73
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %74, ptr noundef nonnull readonly align 8 dereferenceable(25) %0, i64 25, i1 false)
+  br label %_ZN13ConstantTable3addERNS_8ConstantE.exit
+
+_ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %53, %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   store i8 17, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %4, align 1
@@ -1078,14 +1152,170 @@ define hidden void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind noalias
   store i8 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %9, align 8
-  tail call void @_ZN13ConstantTable3addERNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(25) %0)
+  %10 = load i32, ptr %1, align 8
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %.lr.ph.i.i, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+
+.lr.ph.i.i:                                       ; preds = %3
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  br label %13
+
+13:                                               ; preds = %17, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %17 ]
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %14, i64 %indvars.iv.i.i
+  %16 = tail call noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %15, ptr noundef nonnull readonly align 8 dereferenceable(25) %0)
+  br i1 %16, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i, label %17
+
+17:                                               ; preds = %13
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %18 = load i32, ptr %1, align 8
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next.i.i, %19
+  br i1 %20, label %13, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i, !llvm.loop !22
+
+_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i: ; preds = %13
+  %21 = load ptr, ptr %12, align 8
+  %sext.i = shl i64 %indvars.iv.i.i, 32
+  %22 = ashr exact i64 %sext.i, 27
+  %23 = getelementptr inbounds i8, ptr %21, i64 %22
+  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %25 = load i8, ptr %24, align 8
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i
+
+_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i: ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i
+  %.pre.i = load i32, ptr %1, align 8
+  br label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+
+27:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i
+  %28 = getelementptr inbounds i8, ptr %23, i64 20
+  %29 = load float, ptr %28, align 4
+  %30 = fadd float %29, 0.000000e+00
+  store float %30, ptr %28, align 4
+  br label %_ZN13ConstantTable3addERNS_8ConstantE.exit
+
+_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i: ; preds = %17, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i, %3
+  %31 = phi i32 [ %.pre.i, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i ], [ %10, %3 ], [ %18, %17 ]
+  %32 = getelementptr inbounds i8, ptr %1, i64 4
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %31, %33
+  br i1 %34, label %35, label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
+
+35:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+  %36 = add nsw i32 %31, 1
+  %37 = icmp sgt i32 %31, -1
+  %38 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %36)
+  %39 = icmp ult i32 %38, 2
+  %or.cond.i.i.i.i.i = select i1 %37, i1 %39, i1 false
+  %40 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
+  %41 = sub nuw nsw i32 32, %40
+  %42 = shl nuw i32 1, %41
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %36, i32 %42
+  tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.0.i.i.i.i.i)
+  %.pre.i.i = load i32, ptr %1, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
+
+_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %35, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+  %43 = phi i32 [ %.pre.i.i, %35 ], [ %31, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i ]
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %1, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = sext i32 %43 to i64
+  %48 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %46, i64 %47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %48, ptr noundef nonnull readonly align 8 dereferenceable(25) %0, i64 25, i1 false)
+  br label %_ZN13ConstantTable3addERNS_8ConstantE.exit
+
+_ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %27, %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueEi(ptr dead_on_unwind noalias nonnull writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture noundef readnone %2, i8 noundef zeroext %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueEi(ptr dead_on_unwind noalias nonnull writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture readnone %2, i8 noundef zeroext %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13ConstantTable8ConstantC2E9BasicTypeP13GrowableArrayI6jvalueEib(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 noundef zeroext %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext true)
-  tail call void @_ZN13ConstantTable3addERNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(25) %0)
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = load i8, ptr %7, align 8
+  %9 = trunc i8 %8 to i1
+  %10 = load i32, ptr %1, align 8
+  %11 = icmp sgt i32 %10, 0
+  %or.cond.i = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond.i, label %.lr.ph.i.i, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+
+.lr.ph.i.i:                                       ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  br label %13
+
+13:                                               ; preds = %17, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %17 ]
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %14, i64 %indvars.iv.i.i
+  %16 = tail call noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %15, ptr noundef nonnull readonly align 8 dereferenceable(25) %0)
+  br i1 %16, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i, label %17
+
+17:                                               ; preds = %13
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %18 = load i32, ptr %1, align 8
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next.i.i, %19
+  br i1 %20, label %13, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i, !llvm.loop !22
+
+_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i: ; preds = %13
+  %21 = load ptr, ptr %12, align 8
+  %sext.i = shl i64 %indvars.iv.i.i, 32
+  %22 = ashr exact i64 %sext.i, 27
+  %23 = getelementptr inbounds i8, ptr %21, i64 %22
+  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %25 = load i8, ptr %24, align 8
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i
+
+_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i: ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i
+  %.pre.i = load i32, ptr %1, align 8
+  br label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+
+27:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i
+  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %29 = load float, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %23, i64 20
+  %31 = load float, ptr %30, align 4
+  %32 = fadd float %29, %31
+  store float %32, ptr %30, align 4
+  br label %_ZN13ConstantTable3addERNS_8ConstantE.exit
+
+_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i: ; preds = %17, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i, %6
+  %33 = phi i32 [ %.pre.i, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i ], [ %10, %6 ], [ %18, %17 ]
+  %34 = getelementptr inbounds i8, ptr %1, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %33, %35
+  br i1 %36, label %37, label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
+
+37:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+  %38 = add nsw i32 %33, 1
+  %39 = icmp sgt i32 %33, -1
+  %40 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %38)
+  %41 = icmp ult i32 %40, 2
+  %or.cond.i.i.i.i.i = select i1 %39, i1 %41, i1 false
+  %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %38, i1 true)
+  %43 = sub nuw nsw i32 32, %42
+  %44 = shl nuw i32 1, %43
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %38, i32 %44
+  tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.0.i.i.i.i.i)
+  %.pre.i.i = load i32, ptr %1, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
+
+_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %37, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+  %45 = phi i32 [ %.pre.i.i, %37 ], [ %33, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i ]
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %1, align 8
+  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = sext i32 %45 to i64
+  %50 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %48, i64 %49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %50, ptr noundef nonnull readonly align 8 dereferenceable(25) %0, i64 25, i1 false)
+  br label %_ZN13ConstantTable3addERNS_8ConstantE.exit
+
+_ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %27, %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
   ret void
 }
 
@@ -1149,27 +1379,26 @@ _ZN13GrowableArrayI6jvalueEC2Ei.exit:             ; preds = %5, %.lr.ph.preheade
 33:                                               ; preds = %25
   %34 = add nsw i32 %29, 1
   %35 = icmp sgt i32 %29, -1
-  %36 = xor i32 %29, -2147483648
-  %37 = and i32 %36, %34
-  %38 = icmp eq i32 %37, 0
-  %39 = and i1 %35, %38
-  %40 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
-  %41 = sub nuw nsw i32 32, %40
-  %42 = shl nuw i32 1, %41
-  %.0.i.i.i.i = select i1 %39, i32 %34, i32 %42
+  %36 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %34)
+  %37 = icmp ult i32 %36, 2
+  %or.cond.i.i.i.i = select i1 %35, i1 %37, i1 false
+  %38 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
+  %39 = sub nuw nsw i32 32, %38
+  %40 = shl nuw i32 1, %39
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %34, i32 %40
   tail call void @_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %28, align 8
   br label %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit
 
 _ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit: ; preds = %25, %33
-  %43 = phi i32 [ %.pre.i, %33 ], [ %29, %25 ]
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %28, align 8
-  %45 = getelementptr inbounds i8, ptr %28, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = sext i32 %43 to i64
-  %48 = getelementptr inbounds %union.jvalue, ptr %46, i64 %47
-  store i64 %.sroa.0.0.copyload.i, ptr %48, align 8
+  %41 = phi i32 [ %.pre.i, %33 ], [ %29, %25 ]
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %28, align 8
+  %43 = getelementptr inbounds i8, ptr %28, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = sext i32 %41 to i64
+  %46 = getelementptr inbounds %union.jvalue, ptr %44, i64 %45
+  store i64 %.sroa.0.0.copyload.i, ptr %46, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %24
   br i1 %.not, label %._crit_edge, label %25
@@ -1179,14 +1408,13 @@ _ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueE(ptr dead_on_unwind noalias nonnull writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture noundef readnone %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueE(ptr dead_on_unwind noalias writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture noundef readnone %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load i32, ptr %4, align 4
   %7 = zext i8 %3 to i64
   %8 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = mul nsw i32 %9, %6
-  tail call void @_ZN13ConstantTable8ConstantC2E9BasicTypeP13GrowableArrayI6jvalueEib(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 noundef zeroext %3, ptr noundef nonnull %4, i32 noundef %10, i1 noundef zeroext true)
-  tail call void @_ZN13ConstantTable3addERNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(25) %0)
+  tail call void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueEi(ptr dead_on_unwind writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr poison, i8 noundef zeroext %3, ptr noundef nonnull %4, i32 noundef %10)
   ret void
 }
 
@@ -1201,7 +1429,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %11, i32 1
   %13 = load i8, ptr %12, align 4
-  switch i8 %13, label %54 [
+  switch i8 %13, label %48 [
     i8 11, label %14
     i8 10, label %19
     i8 6, label %25
@@ -1218,7 +1446,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
   %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   %.sroa.03.sroa.0.0.extract.trunc7 = trunc i64 %18 to i32
   %.sroa.03.sroa.6.0.extract.shift10 = and i64 %18, -4294967296
-  br label %57
+  br label %51
 
 19:                                               ; preds = %4
   %20 = load ptr, ptr %3, align 8
@@ -1226,7 +1454,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   %24 = trunc i64 %23 to i32
-  br label %57
+  br label %51
 
 25:                                               ; preds = %4
   %26 = load ptr, ptr %3, align 8
@@ -1234,7 +1462,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef float %28(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   %30 = bitcast float %29 to i32
-  br label %57
+  br label %51
 
 31:                                               ; preds = %4
   %32 = load ptr, ptr %3, align 8
@@ -1244,7 +1472,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
   %36 = bitcast double %35 to i64
   %.sroa.03.sroa.0.0.extract.trunc = trunc i64 %36 to i32
   %.sroa.03.sroa.6.0.extract.shift = and i64 %36, -4294967296
-  br label %57
+  br label %51
 
 37:                                               ; preds = %4, %4
   %38 = load ptr, ptr %3, align 8
@@ -1253,7 +1481,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
   %41 = tail call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   %.sroa.03.sroa.0.0.extract.trunc6 = trunc i64 %41 to i32
   %.sroa.03.sroa.6.0.extract.shift8 = and i64 %41, -4294967296
-  br label %57
+  br label %51
 
 42:                                               ; preds = %4
   %43 = load ptr, ptr %3, align 8
@@ -1261,108 +1489,82 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   %47 = inttoptr i64 %46 to ptr
-  store i8 17, ptr %0, align 8, !alias.scope !23
-  %48 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 0, ptr %48, align 1, !alias.scope !23
-  %49 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 8, ptr %49, align 4, !alias.scope !23
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1, ptr %50, align 8, !alias.scope !23
-  %51 = getelementptr inbounds i8, ptr %0, i64 20
-  store float 0.000000e+00, ptr %51, align 4, !alias.scope !23
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 1, ptr %52, align 8, !alias.scope !23
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %47, ptr %53, align 8, !alias.scope !23
-  br label %88
+  tail call void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %47)
+  br label %52
 
-54:                                               ; preds = %4
-  %55 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %55, align 1
-  %56 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %13) #10
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 277, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %56) #9
+48:                                               ; preds = %4
+  %49 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %49, align 1
+  %50 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %13) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 277, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %50) #9
   unreachable
 
-57:                                               ; preds = %37, %31, %25, %19, %14
+51:                                               ; preds = %37, %31, %25, %19, %14
   %.sroa.03.sroa.0.0 = phi i32 [ %.sroa.03.sroa.0.0.extract.trunc6, %37 ], [ %.sroa.03.sroa.0.0.extract.trunc, %31 ], [ %30, %25 ], [ %24, %19 ], [ %.sroa.03.sroa.0.0.extract.trunc7, %14 ]
   %.sroa.03.sroa.6.0 = phi i64 [ %.sroa.03.sroa.6.0.extract.shift8, %37 ], [ %.sroa.03.sroa.6.0.extract.shift, %31 ], [ 0, %25 ], [ 0, %19 ], [ %.sroa.03.sroa.6.0.extract.shift10, %14 ]
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.03.sroa.0.0 to i64
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.03.sroa.6.0, %.sroa.0.sroa.0.0.insert.ext
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %58 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %59 = load ptr, ptr %58, align 8, !noalias !26
-  %60 = getelementptr inbounds i8, ptr %59, i64 1808
-  %61 = load ptr, ptr %60, align 8, !noalias !26
-  %62 = getelementptr inbounds i8, ptr %61, i64 128
-  %63 = load ptr, ptr %62, align 8, !noalias !26
-  %64 = getelementptr inbounds i8, ptr %63, i64 2136
-  %65 = load ptr, ptr %64, align 8, !noalias !26
-  %66 = getelementptr inbounds i8, ptr %2, i64 40
-  %67 = load i32, ptr %66, align 8, !noalias !26
-  %68 = getelementptr inbounds i8, ptr %65, i64 120
-  %69 = load ptr, ptr %68, align 8, !noalias !26
-  %70 = zext i32 %67 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
-  %72 = load ptr, ptr %71, align 8, !noalias !26
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
-  %74 = load double, ptr %73, align 8, !noalias !26
-  %75 = fptrunc double %74 to float
-  store i8 %13, ptr %0, align 8, !alias.scope !26
-  %76 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 0, ptr %76, align 1, !alias.scope !26
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1, ptr %77, align 8, !alias.scope !26
-  %78 = getelementptr inbounds i8, ptr %0, i64 20
-  store float %75, ptr %78, align 4, !alias.scope !26
-  %79 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 1, ptr %79, align 8, !alias.scope !26
-  %80 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %80, align 8, !alias.scope !26
-  %81 = icmp eq i8 %13, 14
-  br i1 %81, label %_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue.exit, label %82
+  tail call void @_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue(ptr dead_on_unwind writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2, i8 noundef zeroext %13, i64 %.sroa.0.sroa.0.0.insert.insert)
+  br label %52
 
-82:                                               ; preds = %57
-  %83 = zext nneg i8 %13 to i64
-  %84 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %83
-  %85 = load i32, ptr %84, align 4, !noalias !26
-  br label %_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue.exit
-
-_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue.exit: ; preds = %57, %82
-  %86 = phi i32 [ %85, %82 ], [ 8, %57 ]
-  %87 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %86, ptr %87, align 4, !alias.scope !26
-  br label %88
-
-88:                                               ; preds = %_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue.exit, %42
-  tail call void @_ZN13ConstantTable3addERNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(25) %0)
+52:                                               ; preds = %51, %42
   ret void
 }
 
 declare noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable14add_jump_tableEP16MachConstantNode(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = ptrtoint ptr %2 to i64
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
-  %6 = load i32, ptr %5, align 8
-  %7 = add nsw i32 %6, 1
-  store i32 %7, ptr %5, align 8
-  %8 = sitofp i32 %7 to float
-  %9 = fneg float %8
+define hidden void @_ZN13ConstantTable14add_jump_tableEP16MachConstantNode(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i:
+  %3 = ptrtoint ptr %2 to i64
+  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = load i32, ptr %4, align 8
+  %6 = add nsw i32 %5, 1
+  store i32 %6, ptr %4, align 8
+  %7 = sitofp i32 %6 to float
+  %8 = fneg float %7
   store i8 14, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 0, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
-  store float %9, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 8, ptr %15, align 4
-  tail call void @_ZN13ConstantTable3addERNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(25) %0)
+  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 0, ptr %9, align 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store float %8, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %3, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 8, ptr %14, align 4
+  %15 = load i32, ptr %1, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp eq i32 %15, %17
+  br i1 %18, label %19, label %_ZN13ConstantTable3addERNS_8ConstantE.exit
+
+19:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
+  %20 = add nsw i32 %15, 1
+  %21 = icmp sgt i32 %15, -1
+  %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
+  %23 = icmp ult i32 %22, 2
+  %or.cond.i.i.i.i.i = select i1 %21, i1 %23, i1 false
+  %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
+  %25 = sub nuw nsw i32 32, %24
+  %26 = shl nuw i32 1, %25
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %20, i32 %26
+  tail call void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.0.i.i.i.i.i)
+  %.pre.i.i = load i32, ptr %1, align 8
+  br label %_ZN13ConstantTable3addERNS_8ConstantE.exit
+
+_ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i, %19
+  %27 = phi i32 [ %.pre.i.i, %19 ], [ %15, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i ]
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %1, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = sext i32 %27 to i64
+  %32 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %30, i64 %31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %32, ptr noundef nonnull readonly align 8 dereferenceable(25) %0, i64 25, i1 false)
   ret void
 }
 
@@ -1425,7 +1627,7 @@ define hidden void @_ZNK13ConstantTable15fill_jump_tableEP17C2_MacroAssemblerP16
   %48 = add nuw i32 %.014, 1
   %49 = load i32, ptr %29, align 8
   %50 = icmp ult i32 %48, %49
-  br i1 %50, label %32, label %.loopexit, !llvm.loop !29
+  br i1 %50, label %32, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %32, %16, %4
   ret void
@@ -1527,7 +1729,7 @@ _ZN13GrowableArrayI6jvalueE8allocateEv.exit:      ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !30
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !24
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1543,7 +1745,7 @@ _ZN13GrowableArrayI6jvalueE8allocateEv.exit:      ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !31
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !25
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1635,7 +1837,7 @@ _ZN13GrowableArrayIN13ConstantTable8ConstantEE8allocateEv.exit: ; preds = %7, %1
   %29 = load i32, ptr %0, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !32
+  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !26
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %32 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1663,7 +1865,7 @@ _ZN13GrowableArrayIN13ConstantTable8ConstantEE8allocateEv.exit: ; preds = %7, %1
   %41 = load i32, ptr %3, align 4
   %42 = trunc nuw i64 %indvars.iv.next22 to i32
   %43 = icmp sgt i32 %41, %42
-  br i1 %43, label %.lr.ph19, label %.preheader, !llvm.loop !33
+  br i1 %43, label %.lr.ph19, label %.preheader, !llvm.loop !27
 
 44:                                               ; preds = %.preheader
   %45 = load i64, ptr %4, align 8
@@ -1680,8 +1882,8 @@ _ZN13GrowableArrayIN13ConstantTable8ConstantEE10deallocateEPS1_.exit: ; preds = 
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -1691,7 +1893,7 @@ attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { noreturn nounwind }
 attributes #10 = { nounwind }
 
@@ -1720,14 +1922,8 @@ attributes #10 = { nounwind }
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN13ConstantTable3addEP8Metadata: argument 0"}
-!25 = distinct !{!25, !"_ZN13ConstantTable3addEP8Metadata"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue: argument 0"}
-!28 = distinct !{!28, !"_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue"}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}

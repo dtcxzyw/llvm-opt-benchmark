@@ -876,7 +876,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr %122, ptr %13, align 8, !noalias !113
   %148 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %121, ptr %148, align 8, !noalias !113
-  %149 = icmp eq i64 %130, %.lcssa218
+  %149 = icmp eq i64 %.lcssa218, %130
   br i1 %149, label %153, label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %153, %141
@@ -935,7 +935,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   store ptr %.sroa.30.1, ptr %12, align 8, !noalias !118
   store ptr %.sroa.32.1, ptr %114, align 8, !noalias !118
-  %173 = icmp eq i64 %167, %169
+  %173 = icmp eq i64 %169, %167
   br i1 %173, label %175, label %174
 
 174:                                              ; preds = %164
@@ -1236,7 +1236,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %305 = add nuw nsw i64 %290, 2
   %306 = getelementptr inbounds i8, ptr %spec.select.i, i64 368
   %307 = add i64 %222, 2
-  %308 = icmp ult i64 %307, %305
+  %308 = icmp ugt i64 %305, %307
   br i1 %308, label %309, label %314
 
 309:                                              ; preds = %.thread.i13.i
@@ -1653,7 +1653,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr %119, ptr %12, align 8, !noalias !291
   %144 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %118, ptr %144, align 8, !noalias !291
-  %145 = icmp eq i64 %126, %.lcssa207
+  %145 = icmp eq i64 %.lcssa207, %126
   br i1 %145, label %149, label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %149, %137
@@ -1711,7 +1711,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store ptr %.sroa.50351.1, ptr %11, align 8, !noalias !294
   store ptr %.sroa.52.1, ptr %112, align 8, !noalias !294
-  %169 = icmp eq i64 %163, %165
+  %169 = icmp eq i64 %165, %163
   br i1 %169, label %171, label %170
 
 170:                                              ; preds = %160
@@ -2008,7 +2008,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %299 = add nuw nsw i64 %283, 2
   %300 = getelementptr inbounds i8, ptr %spec.select.i, i64 232
   %301 = add i64 %216, 2
-  %302 = icmp ult i64 %301, %299
+  %302 = icmp ugt i64 %299, %301
   br i1 %302, label %303, label %308
 
 303:                                              ; preds = %296

@@ -208,7 +208,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i.i, 
   %10 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -8
   %11 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %11, %8
+  %cmp.i.i.i = icmp eq ptr %8, %11
   br i1 %cmp.i.i.i, label %invoke.cont3, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %.noexc8
@@ -600,7 +600,7 @@ invoke.cont10:                                    ; preds = %_ZN4cvc58internal12
   %15 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 -8
   %16 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %16, %13
+  %cmp.i.i.i.i = icmp eq ptr %13, %16
   br i1 %cmp.i.i.i.i, label %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont10
@@ -662,7 +662,7 @@ cond.true:                                        ; preds = %invoke.cont20
   %27 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i176, align 8
   %add.ptr.i.i.i.i.i.i.i177 = getelementptr inbounds i8, ptr %27, i64 -8
   %28 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i177, align 8
-  %cmp.i.i.i.i178 = icmp eq ptr %28, %25
+  %cmp.i.i.i.i178 = icmp eq ptr %25, %28
   br i1 %cmp.i.i.i.i178, label %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i180, label %if.then.i.i.i179
 
 if.then.i.i.i179:                                 ; preds = %cond.true
@@ -711,7 +711,7 @@ if.end51:                                         ; preds = %invoke.cont20
   %37 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i188, align 8
   %add.ptr.i.i.i.i.i.i.i189 = getelementptr inbounds i8, ptr %37, i64 -8
   %38 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i189, align 8
-  %cmp.i.i.i.i190 = icmp eq ptr %38, %35
+  %cmp.i.i.i.i190 = icmp eq ptr %35, %38
   br i1 %cmp.i.i.i.i190, label %cond.true61, label %if.then.i.i.i191
 
 if.then.i.i.i191:                                 ; preds = %if.end51
@@ -887,7 +887,7 @@ invoke.cont110:                                   ; preds = %for.end
   %57 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i287, align 8
   %add.ptr.i.i.i.i.i.i.i288 = getelementptr inbounds i8, ptr %57, i64 -8
   %58 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i288, align 8
-  %cmp.i.i.i.i289 = icmp eq ptr %58, %55
+  %cmp.i.i.i.i289 = icmp eq ptr %55, %58
   br i1 %cmp.i.i.i.i289, label %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i291, label %if.then.i.i.i290
 
 if.then.i.i.i290:                                 ; preds = %invoke.cont110
@@ -1210,7 +1210,7 @@ entry:
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i1.not = icmp eq ptr %0, %__last.coerce
+  %cmp.i1.not = icmp eq ptr %__last.coerce, %0
   br i1 %cmp.i1.not, label %if.then.if.end_crit_edge, label %if.then6
 
 if.then.if.end_crit_edge:                         ; preds = %if.then

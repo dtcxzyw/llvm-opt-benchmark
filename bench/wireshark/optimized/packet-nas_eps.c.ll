@@ -3801,7 +3801,7 @@ define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr
   %30 = zext nneg i8 %.0108 to i32
   %31 = shl nuw nsw i32 %30, 1
   %32 = add nuw nsw i32 %31, 4
-  %33 = icmp ugt i32 %32, %4
+  %33 = icmp ult i32 %4, %32
   br i1 %33, label %34, label %.preheader
 
 34:                                               ; preds = %28
@@ -3859,7 +3859,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %52, %55
 60:                                               ; preds = %23
   %61 = zext nneg i8 %.0108 to i32
   %62 = mul nuw nsw i32 %61, 5
-  %.not = icmp ult i32 %62, %4
+  %.not = icmp ugt i32 %4, %62
   br i1 %.not, label %.preheader122, label %63
 
 63:                                               ; preds = %60
@@ -5817,7 +5817,7 @@ define internal void @nas_esm_act_def_eps_bearer_ctx_req(ptr noundef %0, ptr nou
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -6027,7 +6027,7 @@ define internal void @nas_esm_act_def_eps_bearer_ctx_acc(ptr noundef %0, ptr nou
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 123, i32 noundef 11, i32 noundef 28, i32 noundef %14, i32 noundef %11, ptr noundef null) #10
   %16 = zext i16 %15 to i32
   %.not36 = icmp eq i32 %11, %16
@@ -6057,7 +6057,7 @@ define internal void @nas_esm_act_def_eps_bearer_ctx_rej(ptr noundef %0, ptr nou
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -6258,7 +6258,7 @@ define internal void @nas_esm_act_ded_eps_bearer_ctx_acc(ptr noundef %0, ptr nou
   br i1 %12, label %33, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 51, i32 noundef 11, i32 noundef 21, i32 noundef %14, i32 noundef %11, ptr noundef null) #10
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -6304,7 +6304,7 @@ define internal void @nas_esm_act_ded_eps_bearer_ctx_rej(ptr noundef %0, ptr nou
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -6366,7 +6366,7 @@ define internal void @nas_esm_mod_eps_bearer_ctx_req(ptr noundef %0, ptr noundef
   br i1 %12, label %93, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 54, i32 noundef 5, i32 noundef 57, i32 noundef %14, i32 noundef %11, ptr noundef null) #10
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -6493,7 +6493,7 @@ define internal void @nas_esm_mod_eps_bearer_ctx_acc(ptr noundef %0, ptr noundef
   br i1 %12, label %27, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 51, i32 noundef 11, i32 noundef 21, i32 noundef %14, i32 noundef %11, ptr noundef null) #10
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -6531,7 +6531,7 @@ define internal void @nas_esm_mod_eps_bearer_ctx_rej(ptr noundef %0, ptr noundef
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -6592,7 +6592,7 @@ define internal void @nas_esm_deact_eps_bearer_ctx_req(ptr noundef %0, ptr nound
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -6670,7 +6670,7 @@ define internal void @nas_esm_deact_eps_bearer_ctx_acc(ptr noundef %0, ptr nound
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 123, i32 noundef 11, i32 noundef 28, i32 noundef %14, i32 noundef %11, ptr noundef null) #10
   %16 = zext i16 %15 to i32
   %.not36 = icmp eq i32 %11, %16
@@ -6700,7 +6700,7 @@ define internal void @nas_esm_pdn_con_rej(ptr noundef %0, ptr noundef %1, ptr no
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -6816,7 +6816,7 @@ define internal void @nas_esm_pdn_disc_rej(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -6976,7 +6976,7 @@ define internal void @nas_esm_bearer_res_all_rej(ptr noundef %0, ptr noundef %1,
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -7162,7 +7162,7 @@ define internal void @nas_esm_bearer_res_mod_rej(ptr noundef %0, ptr noundef %1,
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -7253,7 +7253,7 @@ define internal void @nas_esm_inf_resp(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %12, label %27, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 39, i32 noundef 5, i32 noundef 45, i32 noundef %14, i32 noundef %11, ptr noundef null) #10
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -7291,7 +7291,7 @@ define internal void @nas_esm_notification(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -7339,7 +7339,7 @@ define internal void @nas_esm_status(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7377,7 +7377,7 @@ define internal void @nas_esm_remote_ue_report(ptr noundef %0, ptr noundef %1, p
   br i1 %12, label %27, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 122, i32 noundef 11, i32 noundef 22, i32 noundef %14, i32 noundef %11, ptr noundef nonnull @.str.930) #10
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -7428,7 +7428,7 @@ define internal void @nas_esm_data_transport(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8221,7 +8221,7 @@ define internal void @nas_emm_attach_comp(ptr noundef %0, ptr noundef %1, ptr no
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -8258,7 +8258,7 @@ define internal void @nas_emm_attach_rej(ptr noundef %0, ptr noundef %1, ptr nou
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -8982,7 +8982,7 @@ define internal void @nas_emm_trac_area_upd_rej(ptr noundef %0, ptr noundef %1, 
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -9208,7 +9208,7 @@ define internal void @nas_emm_serv_rej(ptr noundef %0, ptr noundef %1, ptr nound
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -9286,7 +9286,7 @@ define internal void @nas_emm_serv_accept(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %12, label %39, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 107, i32 noundef 5, i32 noundef 70, i32 noundef %14, i32 noundef %11, ptr noundef nonnull @.str.952) #10
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -9340,7 +9340,7 @@ define internal void @nas_emm_guti_realloc_cmd(ptr noundef %0, ptr noundef %1, p
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -9480,7 +9480,7 @@ define internal void @nas_emm_auth_resp(ptr noundef %0, ptr noundef %1, ptr noun
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -9540,7 +9540,7 @@ define internal void @nas_emm_id_res(ptr noundef %0, ptr noundef %1, ptr noundef
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -9577,7 +9577,7 @@ define internal void @nas_emm_auth_fail(ptr noundef %0, ptr noundef %1, ptr noun
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -9622,7 +9622,7 @@ define internal void @nas_emm_sec_mode_cmd(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -9742,7 +9742,7 @@ define internal void @nas_emm_sec_mode_comp(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %12, label %27, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 121, i32 noundef 10, i32 noundef 60, i32 noundef %14, i32 noundef %11, ptr noundef null) #10
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -9780,7 +9780,7 @@ define internal void @nas_emm_sec_mode_rej(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -9815,7 +9815,7 @@ define internal void @nas_emm_emm_status(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9853,7 +9853,7 @@ define internal void @nas_emm_emm_inf(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %12, label %39, label %13
 
 13:                                               ; preds = %8
-  %14 = add i32 %10, %3
+  %14 = add i32 %3, %10
   %15 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i8 noundef zeroext 69, i32 noundef 1, i32 noundef 8, i32 noundef %14, i32 noundef %11, ptr noundef nonnull @.str.977) #10
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %11, %16
@@ -9907,7 +9907,7 @@ define internal void @nas_emm_dl_nas_trans(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -9944,7 +9944,7 @@ define internal void @nas_emm_ul_nas_trans(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -9981,7 +9981,7 @@ define internal void @nas_emm_cs_serv_not(ptr noundef %0, ptr noundef %1, ptr no
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -10050,7 +10050,7 @@ define internal void @nas_emm_dl_gen_nas_trans(ptr noundef %0, ptr noundef %1, p
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 
@@ -10117,7 +10117,7 @@ define internal void @nas_emm_ul_gen_nas_trans(ptr noundef %0, ptr noundef %1, p
 
 10:                                               ; preds = %8
   %11 = zext i16 %9 to i32
-  %12 = add i32 %11, %3
+  %12 = add i32 %3, %11
   %13 = sub nsw i32 %4, %11
   br label %17
 

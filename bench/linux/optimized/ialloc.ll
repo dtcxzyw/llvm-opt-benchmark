@@ -3232,8 +3232,8 @@ define dso_local ptr @ext4_orphan_get(ptr noundef %0, i64 noundef %1) local_unna
   %9 = getelementptr inbounds i8, ptr %4, i64 184
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = icmp ugt i64 %11, %1
-  %13 = icmp ult i64 %8, %1
+  %12 = icmp ult i64 %1, %11
+  %13 = icmp ugt i64 %1, %8
   %14 = select i1 %12, i1 true, i1 %13
   br i1 %14, label %.thread8, label %15
 

@@ -173,7 +173,7 @@ ParseFtyp.exit:                                   ; preds = %8
 define internal ptr @AvifInfoInternalForwardRead(ptr nocapture noundef %0, i64 noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
@@ -193,7 +193,7 @@ define internal ptr @AvifInfoInternalForwardRead(ptr nocapture noundef %0, i64 n
 define internal void @AvifInfoInternalForwardSkip(ptr nocapture noundef %0, i64 noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %4, i64 %1)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %4)
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 %spec.select
   store ptr %6, ptr %0, align 8
@@ -1843,14 +1843,14 @@ define internal fastcc range(i32 0, 2) i32 @AvifInfoInternalGetItemFeatures(ptr 
   %25 = getelementptr inbounds i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
-  %.not63 = icmp eq i32 %27, %1
+  %.not63 = icmp eq i32 %1, %27
   br i1 %.not63, label %28, label %.loopexit70
 
 28:                                               ; preds = %23
   %29 = load i8, ptr %24, align 1
   %30 = load i8, ptr %7, align 2
   %31 = zext i8 %30 to i32
-  %32 = icmp eq i32 %31, %1
+  %32 = icmp eq i32 %1, %31
   br i1 %32, label %33, label %.loopexit71
 
 33:                                               ; preds = %28
@@ -1961,7 +1961,7 @@ define internal fastcc range(i32 0, 2) i32 @AvifInfoInternalGetItemFeatures(ptr 
   %72 = getelementptr inbounds i8, ptr %71, i64 1
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
-  %.not = icmp eq i32 %74, %1
+  %.not = icmp eq i32 %1, %74
   br i1 %.not, label %75, label %79
 
 75:                                               ; preds = %69

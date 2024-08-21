@@ -3303,7 +3303,7 @@ h5tools_count_ncols.exit139:                      ; preds = %.lr.ph.i133, %37
   br label %62
 
 62:                                               ; preds = %60, %57, %54
-  %63 = icmp eq i64 %56, %7
+  %63 = icmp eq i64 %7, %56
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %62
@@ -3606,7 +3606,7 @@ h5tools_count_ncols.exit143:                      ; preds = %.lr.ph.i137, %36
   br label %61
 
 61:                                               ; preds = %59, %56, %53
-  %62 = icmp eq i64 %55, %8
+  %62 = icmp eq i64 %8, %55
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %61
@@ -5234,7 +5234,7 @@ define noundef i32 @render_bin_output_region_data_blocks(i64 noundef %0, ptr noc
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader150 ]
   %.096151 = phi i64 [ %58, %.lr.ph ], [ 1, %.preheader150 ]
   %48 = trunc nuw i64 %indvars.iv to i32
-  %49 = add i32 %48, %3
+  %49 = add i32 %3, %48
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds i64, ptr %6, i64 %50
   %52 = load i64, ptr %51, align 8

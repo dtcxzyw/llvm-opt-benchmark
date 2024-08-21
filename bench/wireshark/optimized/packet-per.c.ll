@@ -1685,8 +1685,8 @@ proto_item_set_hidden.exit136:                    ; preds = %77, %74, %69, %70
 109:                                              ; preds = %121
   %110 = trunc nuw nsw i32 %131 to i16
   %111 = and i16 %110, 255
-  %112 = icmp ugt i16 %111, %9
-  %113 = icmp ult i16 %111, %8
+  %112 = icmp ult i16 %9, %111
+  %113 = icmp ugt i16 %8, %111
   %or.cond133.us = or i1 %112, %113
   br i1 %or.cond133.us, label %116, label %114
 
@@ -1752,7 +1752,7 @@ proto_item_set_hidden.exit136:                    ; preds = %77, %74, %69, %70
 
 145:                                              ; preds = %133
   %146 = and i32 %143, 255
-  %147 = icmp slt i32 %146, %11
+  %147 = icmp sgt i32 %11, %146
   br i1 %147, label %148, label %152
 
 148:                                              ; preds = %145
@@ -2039,7 +2039,7 @@ proto_item_set_hidden.exit:                       ; preds = %22, %19, %16, %12
   br i1 %.not209, label %._crit_edge._crit_edge, label %73
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = add i32 %71, %5
+  %.pre = add i32 %5, %71
   br label %92
 
 73:                                               ; preds = %._crit_edge
@@ -2058,7 +2058,7 @@ proto_item_set_hidden.exit:                       ; preds = %22, %19, %16, %12
   %86 = load i32, ptr @hf_per_internal_num_bits, align 4
   %87 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %86, ptr noundef %0, i32 noundef %69, i32 noundef %67, i32 noundef %.0192) #10
   %88 = load i32, ptr @hf_per_internal_value, align 4
-  %89 = add i32 %71, %5
+  %89 = add i32 %5, %71
   %90 = zext i32 %89 to i64
   %91 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format_value(ptr noundef %3, i32 noundef %88, ptr noundef %0, i32 noundef %69, i32 noundef %67, i64 noundef %90, ptr noundef nonnull @.str.26, ptr noundef %80, i32 noundef %89) #10
   br label %92
@@ -2081,7 +2081,7 @@ proto_item_set_hidden.exit:                       ; preds = %22, %19, %16, %12
   %100 = add i32 %.2, 8
   %101 = lshr exact i32 %100, 3
   %102 = add nsw i32 %101, -1
-  %103 = add i32 %99, %5
+  %103 = add i32 %5, %99
   br label %159
 
 104:                                              ; preds = %94
@@ -2102,7 +2102,7 @@ proto_item_set_hidden.exit:                       ; preds = %22, %19, %16, %12
   %115 = add i32 %.3, 16
   %116 = lshr exact i32 %115, 3
   %117 = add nsw i32 %116, -2
-  %118 = add i32 %114, %5
+  %118 = add i32 %5, %114
   %119 = add i32 %118, %110
   br label %159
 
@@ -3694,7 +3694,7 @@ dissect_per_integer64b.exit:                      ; preds = %77, %79
   %217 = add i32 %.3248, 8
   %218 = lshr exact i32 %217, 3
   %219 = add nsw i32 %218, -1
-  %220 = add i64 %216, %5
+  %220 = add i64 %5, %216
   br label %259
 
 221:                                              ; preds = %211
@@ -3715,7 +3715,7 @@ dissect_per_integer64b.exit:                      ; preds = %77, %79
   %232 = add i32 %.4249, 16
   %233 = lshr exact i32 %232, 3
   %234 = add nsw i32 %233, -2
-  %235 = add i64 %231, %5
+  %235 = add i64 %5, %231
   %236 = add i64 %235, %227
   br label %259
 

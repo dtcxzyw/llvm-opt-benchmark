@@ -169,7 +169,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 ._crit_edge.i:                                    ; preds = %36, %.preheader.i
   %38 = load i32, ptr @H5_optind, align 4
-  %.not10.i = icmp slt i32 %38, %0
+  %.not10.i = icmp sgt i32 %0, %38
   br i1 %.not10.i, label %41, label %39
 
 39:                                               ; preds = %._crit_edge.i

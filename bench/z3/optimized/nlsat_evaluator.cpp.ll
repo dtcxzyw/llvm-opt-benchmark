@@ -604,7 +604,7 @@ switch.lookup33:                                  ; preds = %land.rhs.i.i
 
 _ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit: ; preds = %land.rhs.i.i, %switch.lookup33, %land.lhs.true.i.i, %land.lhs.true10.i.i, %switch.lookup28, %switch.lookup
   %18 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch.masked32, %switch.lookup28 ], [ false, %land.lhs.true10.i.i ], [ false, %land.lhs.true.i.i ], [ %switch.masked37, %switch.lookup33 ], [ false, %land.rhs.i.i ]
-  %spec.select.i = xor i1 %18, %neg
+  %spec.select.i = xor i1 %neg, %18
   ret i1 %spec.select.i
 }
 
@@ -772,7 +772,7 @@ switch.lookup25:                                  ; preds = %land.rhs.i.i
 
 _ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit: ; preds = %land.rhs.i.i, %switch.lookup25, %land.lhs.true.i.i, %land.lhs.true10.i.i, %switch.lookup20, %switch.lookup
   %26 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch.masked24, %switch.lookup20 ], [ false, %land.lhs.true10.i.i ], [ false, %land.lhs.true.i.i ], [ %switch.masked29, %switch.lookup25 ], [ false, %land.rhs.i.i ]
-  %spec.select.i = xor i1 %26, %neg
+  %spec.select.i = xor i1 %neg, %26
   br label %return
 
 return:                                           ; preds = %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit, %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
@@ -842,7 +842,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5nlsat20undef_var_assignment8
 entry:
   %m_y = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %m_y, align 8
-  %cmp.not = icmp eq i32 %0, %x
+  %cmp.not = icmp eq i32 %x, %0
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
@@ -856,7 +856,7 @@ land.rhs:                                         ; preds = %entry
 _ZNK6vectorIbLb0EjE3getEjRKb.exit.i:              ; preds = %land.rhs
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %3, %x
+  %cmp.not.i.i = icmp ult i32 %x, %3
   br i1 %cmp.not.i.i, label %_ZNK6vectorIbLb0EjE3getEjRKb.exit.then.i, label %land.end
 
 _ZNK6vectorIbLb0EjE3getEjRKb.exit.then.i:         ; preds = %_ZNK6vectorIbLb0EjE3getEjRKb.exit.i
@@ -1118,7 +1118,7 @@ if.end14.i:                                       ; preds = %for.body.i45
   %36 = load i32, ptr %m_pos.i55.i, align 8
   %mul.i.i56.i = shl i32 %36, 1
   %add.i.i57.i = or disjoint i32 %mul.i.i56.i, 1
-  %cmp17.not.i = icmp ult i32 %mul.i.i46.i, %c.0170
+  %cmp17.not.i = icmp ugt i32 %c.0170, %mul.i.i46.i
   br i1 %cmp17.not.i, label %if.else20.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end14.i
@@ -1128,13 +1128,13 @@ if.then18.i:                                      ; preds = %if.end14.i
 
 if.else20.i:                                      ; preds = %if.end14.i
   %add.i.i47.i = or disjoint i32 %mul.i.i46.i, 1
-  %cmp21.i = icmp eq i32 %add.i.i47.i, %c.0170
-  %cmp22.i = icmp eq i32 %add.i.i57.i, %c.0170
+  %cmp21.i = icmp eq i32 %c.0170, %add.i.i47.i
+  %cmp22.i = icmp eq i32 %c.0170, %add.i.i57.i
   %or.cond.i145 = or i1 %cmp21.i, %cmp22.i
   br i1 %or.cond.i145, label %call2.i.noexc, label %if.else24.i
 
 if.else24.i:                                      ; preds = %if.else20.i
-  %cmp25.i = icmp ult i32 %add.i.i57.i, %c.0170
+  %cmp25.i = icmp ugt i32 %c.0170, %add.i.i57.i
   br i1 %cmp25.i, label %if.then26.i, label %if.end36.i
 
 if.then26.i:                                      ; preds = %if.else24.i
@@ -1168,7 +1168,7 @@ if.end36.i:                                       ; preds = %if.else24.i, %if.en
   br i1 %cmp40.i, label %call2.i.noexc, label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.end36.i
-  %cmp43.not.i = icmp ult i32 %mul.i.i81.i, %c.0170
+  %cmp43.not.i = icmp ugt i32 %c.0170, %mul.i.i81.i
   %low.0.add38.i = select i1 %cmp43.not.i, i32 %add38.i, i32 %low.087.i
   %add38.high.0.i = select i1 %cmp43.not.i, i32 %high.088.i, i32 %add38.i
   %add.i146 = add nsw i32 %low.0.add38.i, 1

@@ -2459,7 +2459,7 @@ define internal fastcc i64 @Abc_Tt6Min_rec(i64 noundef %0, i64 noundef %1, i32 n
   %33 = getelementptr inbounds i64, ptr %.val75, i64 %indvars.iv82
   %34 = load i64, ptr %33, align 8
   %35 = xor i64 %34, -1
-  %36 = and i64 %35, %0
+  %36 = and i64 %0, %35
   %37 = and i64 %34, %1
   %38 = or i64 %36, %37
   %or.cond73 = icmp eq i64 %38, 0
@@ -3547,7 +3547,7 @@ define internal fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %1,
 
 11:                                               ; preds = %7
   %12 = xor i64 %1, -1
-  %13 = and i64 %12, %2
+  %13 = and i64 %2, %12
   %.not99 = icmp eq i64 %13, 0
   br i1 %.not99, label %14, label %15
 
@@ -3597,7 +3597,7 @@ define internal fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %1,
 
 34:                                               ; preds = %23
   %35 = xor i64 %25, -1
-  %36 = xor i64 %35, %1
+  %36 = xor i64 %1, %35
   %37 = and i64 %36, %2
   %.not106 = icmp eq i64 %37, 0
   br i1 %.not106, label %38, label %19
@@ -5039,7 +5039,7 @@ define internal fastcc i64 @Abc_TtGia6Min_rec(ptr noundef %0, i64 noundef %1, i6
   %42 = getelementptr inbounds i64, ptr %.val122, i64 %indvars.iv149
   %43 = load i64, ptr %42, align 8
   %44 = xor i64 %43, -1
-  %45 = and i64 %44, %1
+  %45 = and i64 %1, %44
   %46 = and i64 %43, %2
   %47 = or i64 %45, %46
   %or.cond119 = icmp eq i64 %47, 0
@@ -5056,7 +5056,7 @@ define internal fastcc i64 @Abc_TtGia6Min_rec(ptr noundef %0, i64 noundef %1, i6
 
 54:                                               ; preds = %41
   %55 = and i64 %43, %1
-  %56 = and i64 %44, %2
+  %56 = and i64 %2, %44
   %57 = or i64 %55, %56
   %or.cond120 = icmp eq i64 %57, 0
   br i1 %or.cond120, label %58, label %37

@@ -769,7 +769,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %ivlen4 = getelementptr inbounds i8, ptr %vctx, i64 80
   %1 = load i64, ptr %ivlen4, align 8
-  %cmp5.not = icmp eq i64 %1, %ivlen
+  %cmp5.not = icmp eq i64 %ivlen, %1
   br i1 %cmp5.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.then2
@@ -804,7 +804,7 @@ if.end19:                                         ; preds = %if.end18, %if.end
 if.then21:                                        ; preds = %if.end19
   %keylen23 = getelementptr inbounds i8, ptr %vctx, i64 72
   %3 = load i64, ptr %keylen23, align 8
-  %cmp24.not = icmp eq i64 %3, %keylen
+  %cmp24.not = icmp eq i64 %keylen, %3
   br i1 %cmp24.not, label %if.end26, label %if.then25
 
 if.then25:                                        ; preds = %if.then21
@@ -934,7 +934,7 @@ if.end12:                                         ; preds = %if.end.thread, %if.
 
 if.then14:                                        ; preds = %if.end12
   %add = add i64 %outlint.0, %nextblocks.021
-  %cmp15 = icmp ugt i64 %add, %outsize
+  %cmp15 = icmp ult i64 %outsize, %add
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.then14

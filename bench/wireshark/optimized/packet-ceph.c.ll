@@ -2854,7 +2854,7 @@ c_pkt_data_init.exit:                             ; preds = %87, %.sink.split.i
   %.val32.i.i = load ptr, ptr %9, align 8
   %.val33.i.i = load ptr, ptr %15, align 8
   %153 = getelementptr inbounds i8, ptr %.val32.i.i, i64 64
-  %.not34.i.i = icmp eq ptr %153, %.val33.i.i
+  %.not34.i.i = icmp eq ptr %.val33.i.i, %153
   br i1 %.not34.i.i, label %154, label %157
 
 154:                                              ; preds = %145

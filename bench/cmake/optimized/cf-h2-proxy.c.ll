@@ -1137,7 +1137,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not124, label %24, label %20
 
 20:                                               ; preds = %17
-  %21 = icmp ugt i64 %19, %3
+  %21 = icmp ult i64 %3, %19
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20
@@ -2356,7 +2356,7 @@ define internal range(i32 -902, 1) i32 @tunnel_recv_callback(ptr nocapture readn
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 288
   %11 = load i32, ptr %10, align 8
-  %.not = icmp eq i32 %11, %2
+  %.not = icmp eq i32 %2, %11
   br i1 %.not, label %12, label %17
 
 12:                                               ; preds = %6
@@ -2384,7 +2384,7 @@ define internal noundef i32 @proxy_h2_on_stream_close(ptr nocapture readnone %0,
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 288
   %10 = load i32, ptr %9, align 8
-  %.not = icmp eq i32 %10, %1
+  %.not = icmp eq i32 %1, %10
   br i1 %.not, label %11, label %28
 
 11:                                               ; preds = %4

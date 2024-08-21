@@ -3699,7 +3699,7 @@ define dso_local void @_ZN11FactPointTo12point_to_strB5cxx11EPK8Variable(ptr dea
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
   %7 = load ptr, ptr @_ZN11FactPointTo8null_ptrE, align 8
-  %8 = icmp eq ptr %7, %1
+  %8 = icmp eq ptr %1, %7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
@@ -3715,7 +3715,7 @@ define dso_local void @_ZN11FactPointTo12point_to_strB5cxx11EPK8Variable(ptr dea
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr @_ZN11FactPointTo7tbd_ptrE, align 8
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
@@ -3731,7 +3731,7 @@ define dso_local void @_ZN11FactPointTo12point_to_strB5cxx11EPK8Variable(ptr dea
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr @_ZN11FactPointTo11garbage_ptrE, align 8
-  %20 = icmp eq ptr %19, %1
+  %20 = icmp eq ptr %1, %19
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %18
@@ -4504,10 +4504,10 @@ define dso_local void @_ZN11FactPointTo26merge_pointees_of_pointersERKSt6vectorI
   %.026 = phi i64 [ 0, %.lr.ph27 ], [ %58, %_ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread ]
   %18 = getelementptr inbounds ptr, ptr %13, i64 %.026
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %17, %19
-  %21 = icmp eq ptr %16, %19
+  %20 = icmp eq ptr %19, %17
+  %21 = icmp eq ptr %19, %16
   %or.cond.i = select i1 %20, i1 true, i1 %21
-  %22 = icmp eq ptr %15, %19
+  %22 = icmp eq ptr %19, %15
   %or.cond = select i1 %or.cond.i, i1 true, i1 %22
   br i1 %or.cond, label %_ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread, label %25
 
@@ -5777,7 +5777,7 @@ _ZSt13move_backwardIPPK4FactS3_ET0_T_S5_S4_.exit: ; preds = %25, %_ZSt22__uninit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPK4FactSt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %17
   %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %30, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPK4FactSt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit, label %31
 
 31:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPK4FactSt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
@@ -5842,7 +5842,7 @@ _ZNSt12_Vector_baseIPK4FactSaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vecto
   %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorIPK4FactSaIS2_EE12_M_check_lenEmPKc.exit ]
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %60, label %59
 
 59:                                               ; preds = %_ZNSt12_Vector_baseIPK4FactSaIS2_EE11_M_allocateEm.exit
@@ -5992,7 +5992,7 @@ _ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i.i: ; pred
 _ZNSt6vectorIS_IPK8VariableSaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %41
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %41 ], [ %53, %.lr.ph.i.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IPK8VariableSaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IPK8VariableSaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i.i28

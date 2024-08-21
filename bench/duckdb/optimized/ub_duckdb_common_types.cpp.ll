@@ -6277,7 +6277,7 @@ entry:
   %cond.i.i = select i1 %cmp.i.i.i, ptr %inlined.i.i, ptr %1
   %2 = load i8, ptr %cond.i.i, align 1, !tbaa !116
   %conv.i = zext i8 %2 to i64
-  %add = add i64 %conv.i, %n
+  %add = add i64 %n, %conv.i
   %div1.i.i = lshr i64 %add, 3
   %add.i.i = add nuw nsw i64 %div1.i.i, 1
   %3 = trunc i64 %add to i8
@@ -7524,7 +7524,7 @@ entry.else:                                       ; preds = %entry
 entry.cont:                                       ; preds = %entry.else, %entry
   %0 = phi i8 [ %bit_string.sroa.2.0.extract.trunc, %entry ], [ %.else.val, %entry.else ]
   %conv.i = zext i8 %0 to i64
-  %add = add i64 %conv.i, %n
+  %add = add i64 %n, %conv.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bit_string.i)
   store i64 %bit_string.coerce0, ptr %bit_string.i, align 8
   %1 = getelementptr inbounds i8, ptr %bit_string.i, i64 8
@@ -31233,7 +31233,7 @@ define noundef zeroext i1 @_ZN6duckdb7Hugeint10AddInPlaceERNS_9hugeint_tES1_(ptr
 entry:
   %0 = load i64, ptr %lhs, align 8, !tbaa !741
   %1 = xor i64 %0, -1
-  %cmp = icmp ult i64 %1, %rhs.coerce0
+  %cmp = icmp ugt i64 %rhs.coerce0, %1
   %cmp3 = icmp sgt i64 %rhs.coerce1, -1
   %upper4 = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load i64, ptr %upper4, align 8, !tbaa !739
@@ -31254,7 +31254,7 @@ if.end:                                           ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   %conv20 = zext i1 %cmp to i64
-  %3 = add nsw i64 %conv20, %rhs.coerce1
+  %3 = add nsw i64 %rhs.coerce1, %conv20
   %sub21 = sub nsw i64 -9223372036854775808, %3
   %cmp22 = icmp slt i64 %2, %sub21
   br i1 %cmp22, label %cleanup, label %if.end24
@@ -31517,7 +31517,7 @@ entry:
   %agg.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = xor i64 %lhs.coerce0, -1
-  %cmp.i = icmp ult i64 %0, %rhs.coerce0
+  %cmp.i = icmp ugt i64 %rhs.coerce0, %0
   %cmp3.i = icmp sgt i64 %rhs.coerce1, -1
   br i1 %cmp3.i, label %if.then.i, label %if.else.i
 
@@ -31530,12 +31530,12 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i
   %conv6.i = zext i1 %cmp.i to i64
-  %add12.i = add nuw i64 %conv6.i, %rhs.coerce1
+  %add12.i = add nuw i64 %rhs.coerce1, %conv6.i
   br label %if.end
 
 if.else.i:                                        ; preds = %entry
   %conv20.i = zext i1 %cmp.i to i64
-  %1 = add nsw i64 %conv20.i, %rhs.coerce1
+  %1 = add nsw i64 %rhs.coerce1, %conv20.i
   %sub21.i = sub nsw i64 -9223372036854775808, %1
   %cmp22.i = icmp sgt i64 %sub21.i, %lhs.coerce1
   br i1 %cmp22.i, label %if.then, label %if.end
@@ -45928,7 +45928,7 @@ if.end73:                                         ; preds = %if.end73.loopexit, 
   %pos.promoted186 = phi i64 [ %44, %land.lhs.true ], [ %44, %if.end48 ], [ %inc54, %if.then53 ], [ %pos.promoted186198, %if.end73.loopexit ]
   %micros.2 = phi i64 [ 0, %land.lhs.true ], [ 0, %if.end48 ], [ 0, %if.then53 ], [ %50, %if.end73.loopexit ]
   %cmp76187 = icmp ult i64 %pos.promoted186, %len
-  %or.cond189 = and i1 %cmp76187, %strict
+  %or.cond189 = and i1 %strict, %cmp76187
   br i1 %or.cond189, label %land.rhs77, label %if.end87
 
 land.rhs77:                                       ; preds = %if.end73, %while.body81
@@ -123061,7 +123061,7 @@ _ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71: ; preds = %if.end.i
 
 while.body.preheader:                             ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71
   %retval.0.i55104 = ptrtoint ptr %incdec.ptr22.i54 to i64
-  %19 = add i64 %dst103, %len
+  %19 = add i64 %len, %dst103
   %20 = add i64 %retval.0.i55104, %idxprom
   %21 = sub i64 %19, %20
   %scevgep = getelementptr i8, ptr %incdec.ptr22.i54, i64 %21
@@ -123268,7 +123268,7 @@ _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66: ; preds = %if.end.i
 
 while.body.preheader:                             ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66
   %retval.0.i48103 = ptrtoint ptr %incdec.ptr15.i47 to i64
-  %11 = add i64 %dst102, %len
+  %11 = add i64 %len, %dst102
   %12 = add i64 %retval.0.i48103, %idxprom
   %13 = sub i64 %11, %12
   %scevgep = getelementptr i8, ptr %incdec.ptr15.i47, i64 %13
@@ -123600,7 +123600,7 @@ _ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66: ; preds = %if.end.i
 
 while.body.preheader:                             ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66
   %retval.0.i47105 = ptrtoint ptr %incdec.ptr17.i46 to i64
-  %11 = add i64 %dst104, %len
+  %11 = add i64 %len, %dst104
   %12 = add i64 %retval.0.i47105, %idxprom
   %13 = sub i64 %11, %12
   %scevgep = getelementptr i8, ptr %incdec.ptr17.i46, i64 %13

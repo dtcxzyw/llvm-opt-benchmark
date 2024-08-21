@@ -12628,7 +12628,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #30
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN4fizz6detail12PendingEventESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -18003,7 +18003,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #30
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN4fizz8AppWriteESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -18359,7 +18359,7 @@ if.then:                                          ; preds = %entry
   %add = add i64 %sub.i, %delta
   store i64 %add, ptr %newSz, align 8
   %cmp4 = icmp ugt i64 %add, 23
-  %or.cond.not = or i1 %cmp4, %disableSSO
+  %or.cond.not = or i1 %disableSSO, %cmp4
   br i1 %or.cond.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then
@@ -18764,7 +18764,7 @@ entry:
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %capacity_.i, align 8
   %and.i = and i64 %0, 4611686018427387903
-  %cmp.not = icmp ult i64 %and.i, %minCapacity
+  %cmp.not = icmp ugt i64 %minCapacity, %and.i
   br i1 %cmp.not, label %if.end, label %if.end21
 
 if.end:                                           ; preds = %entry
@@ -18923,7 +18923,7 @@ if.then:                                          ; preds = %entry
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %capacity_.i.i, align 8
   %and.i.i = and i64 %3, 4611686018427387903
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %and.i.i, i64 %2)
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %2, i64 %and.i.i)
   store i64 %.sroa.speculated.i, ptr %effectiveCapacity.i, align 8
   %call3.i = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i)
   %4 = load ptr, ptr %this, align 8

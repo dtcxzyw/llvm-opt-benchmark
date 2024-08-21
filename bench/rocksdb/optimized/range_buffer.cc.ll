@@ -40,11 +40,11 @@ entry:
   %is_exclusive_lock = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %frombool, ptr %is_exclusive_lock, align 2
   %call = tail call noundef ptr @_Z26toku_dbt_negative_infinityv()
-  %cmp = icmp eq ptr %call, %left_key
+  %cmp = icmp eq ptr %left_key, %call
   %frombool3 = zext i1 %cmp to i8
   store i8 %frombool3, ptr %this, align 2
   %call4 = tail call noundef ptr @_Z26toku_dbt_positive_infinityv()
-  %cmp5 = icmp eq ptr %call4, %left_key
+  %cmp5 = icmp eq ptr %left_key, %call4
   %left_pos_inf = getelementptr inbounds i8, ptr %this, i64 1
   %frombool6 = zext i1 %cmp5 to i8
   store i8 %frombool6, ptr %left_pos_inf, align 1
@@ -66,12 +66,12 @@ cond.end:                                         ; preds = %entry, %cond.false
 
 if.then:                                          ; preds = %cond.end
   %call9 = tail call noundef ptr @_Z26toku_dbt_negative_infinityv()
-  %cmp10 = icmp eq ptr %call9, %right_key
+  %cmp10 = icmp eq ptr %right_key, %call9
   %right_neg_inf = getelementptr inbounds i8, ptr %this, i64 3
   %frombool11 = zext i1 %cmp10 to i8
   store i8 %frombool11, ptr %right_neg_inf, align 1
   %call12 = tail call noundef ptr @_Z26toku_dbt_positive_infinityv()
-  %cmp13 = icmp eq ptr %call12, %right_key
+  %cmp13 = icmp eq ptr %right_key, %call12
   %right_pos_inf = getelementptr inbounds i8, ptr %this, i64 2
   %frombool14 = zext i1 %cmp13 to i8
   store i8 %frombool14, ptr %right_pos_inf, align 2
@@ -428,10 +428,10 @@ if.then:                                          ; preds = %entry
   %call.i = tail call noundef ptr @_ZN8memarena17malloc_from_arenaEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %add.i)
   %frombool.i.i = zext i1 %is_write_request to i8
   %call.i.i = tail call noundef ptr @_Z26toku_dbt_negative_infinityv()
-  %cmp.i.i = icmp eq ptr %call.i.i, %left_key
+  %cmp.i.i = icmp eq ptr %left_key, %call.i.i
   %frombool3.i.i = zext i1 %cmp.i.i to i8
   %call4.i.i = tail call noundef ptr @_Z26toku_dbt_positive_infinityv()
-  %cmp5.i.i = icmp eq ptr %call4.i.i, %left_key
+  %cmp5.i.i = icmp eq ptr %left_key, %call4.i.i
   %frombool6.i.i = zext i1 %cmp5.i.i to i8
   %call7.i.i = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef %left_key)
   br i1 %call7.i.i, label %_ZN4toku12range_buffer13record_header4initEPK10__toku_dbtS4_b.exit.i, label %cond.false.i.i
@@ -489,10 +489,10 @@ entry:
   %call = tail call noundef ptr @_ZN8memarena17malloc_from_arenaEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %add)
   %frombool.i = zext i1 %is_exclusive to i8
   %call.i = tail call noundef ptr @_Z26toku_dbt_negative_infinityv()
-  %cmp.i = icmp eq ptr %call.i, %key
+  %cmp.i = icmp eq ptr %key, %call.i
   %frombool3.i = zext i1 %cmp.i to i8
   %call4.i = tail call noundef ptr @_Z26toku_dbt_positive_infinityv()
-  %cmp5.i = icmp eq ptr %call4.i, %key
+  %cmp5.i = icmp eq ptr %key, %call4.i
   %frombool6.i = zext i1 %cmp5.i to i8
   %call7.i = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef %key)
   br i1 %call7.i, label %_ZN4toku12range_buffer13record_header4initEPK10__toku_dbtS4_b.exit, label %cond.false.i
@@ -543,10 +543,10 @@ entry:
   %call = tail call noundef ptr @_ZN8memarena17malloc_from_arenaEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %add3)
   %frombool.i = zext i1 %is_exclusive to i8
   %call.i = tail call noundef ptr @_Z26toku_dbt_negative_infinityv()
-  %cmp.i = icmp eq ptr %call.i, %left_key
+  %cmp.i = icmp eq ptr %left_key, %call.i
   %frombool3.i = zext i1 %cmp.i to i8
   %call4.i = tail call noundef ptr @_Z26toku_dbt_positive_infinityv()
-  %cmp5.i = icmp eq ptr %call4.i, %left_key
+  %cmp5.i = icmp eq ptr %left_key, %call4.i
   %frombool6.i = zext i1 %cmp5.i to i8
   %call7.i = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef %left_key)
   br i1 %call7.i, label %if.then.i, label %cond.false.i
@@ -559,10 +559,10 @@ cond.false.i:                                     ; preds = %entry
 if.then.i:                                        ; preds = %entry, %cond.false.i
   %cond.i = phi i16 [ %3, %cond.false.i ], [ 0, %entry ]
   %call9.i = tail call noundef ptr @_Z26toku_dbt_negative_infinityv()
-  %cmp10.i = icmp eq ptr %call9.i, %right_key
+  %cmp10.i = icmp eq ptr %right_key, %call9.i
   %frombool11.i = zext i1 %cmp10.i to i8
   %call12.i = tail call noundef ptr @_Z26toku_dbt_positive_infinityv()
-  %cmp13.i = icmp eq ptr %call12.i, %right_key
+  %cmp13.i = icmp eq ptr %right_key, %call12.i
   %frombool14.i = zext i1 %cmp13.i to i8
   %call15.i = tail call noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef nonnull %right_key)
   br i1 %call15.i, label %_ZN4toku12range_buffer13record_header4initEPK10__toku_dbtS4_b.exit, label %cond.false17.i

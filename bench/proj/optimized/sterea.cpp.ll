@@ -192,9 +192,9 @@ define internal { double, double } @_ZL16sterea_e_inverse5PJ_XYP8PJconsts(double
   %29 = load double, ptr %22, align 8
   %30 = fmul double %10, %29
   %31 = load double, ptr %19, align 8
-  %32 = fneg double %9
-  %33 = fmul double %31, %32
-  %34 = fmul double %17, %33
+  %32 = fmul double %9, %31
+  %33 = fneg double %17
+  %34 = fmul double %32, %33
   %35 = tail call double @llvm.fmuladd.f64(double %30, double %18, double %34)
   %36 = tail call double @atan2(double noundef %28, double noundef %35) #9
   br label %39
@@ -257,9 +257,9 @@ define internal { double, double } @_ZL16sterea_e_forward5PJ_LPP8PJconsts(double
   %35 = fmul double %34, %33
   %36 = load double, ptr %19, align 8
   %37 = load double, ptr %16, align 8
-  %38 = fneg double %37
-  %39 = fmul double %14, %38
-  %40 = fmul double %15, %39
+  %38 = fmul double %14, %37
+  %39 = fneg double %15
+  %40 = fmul double %38, %39
   %41 = tail call double @llvm.fmuladd.f64(double %36, double %13, double %40)
   %42 = fmul double %32, %41
   br label %43

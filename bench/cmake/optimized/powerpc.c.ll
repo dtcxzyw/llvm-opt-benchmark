@@ -59,7 +59,7 @@ define internal i64 @powerpc_code(ptr nocapture readnone %0, i32 noundef %1, i1 
   %30 = shl nuw nsw i32 %29, 8
   %31 = and i32 %15, 252
   %32 = trunc i64 %.03639.us to i32
-  %33 = add i32 %32, %1
+  %33 = add i32 %1, %32
   %34 = add i32 %20, %33
   %35 = add i32 %34, %31
   %36 = add i32 %35, %25
@@ -120,7 +120,7 @@ define internal i64 @powerpc_code(ptr nocapture readnone %0, i32 noundef %1, i1 
   %74 = shl nuw nsw i32 %73, 8
   %75 = and i32 %59, 252
   %76 = trunc i64 %.03639 to i32
-  %77 = add i32 %76, %1
+  %77 = add i32 %1, %76
   %78 = sub i32 %64, %77
   %79 = add i32 %78, %75
   %80 = add i32 %79, %69

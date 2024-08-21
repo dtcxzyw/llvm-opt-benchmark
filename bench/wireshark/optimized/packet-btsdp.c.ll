@@ -9738,7 +9738,7 @@ get_type_length.exit22:                           ; preds = %get_type_length.exi
   %.022.i20 = phi i32 [ %30, %get_type_length.exit ], [ %30, %32 ], [ %30, %35 ], [ %30, %36 ], [ %30, %37 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ]
   %49 = phi i32 [ 2, %get_type_length.exit ], [ %34, %32 ], [ 4, %35 ], [ 8, %36 ], [ 16, %37 ], [ %40, %38 ], [ %44, %42 ], [ %spec.select.i19, %46 ]
   %50 = zext i16 %27 to i32
-  %51 = icmp eq i32 %50, %3
+  %51 = icmp eq i32 %3, %50
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %get_type_length.exit22

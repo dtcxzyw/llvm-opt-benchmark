@@ -1153,7 +1153,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @is_user_min_admin_level(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %5 = icmp ne i32 %4, %1
+  %5 = icmp ne i32 %1, %4
   %6 = icmp ne i32 %1, 0
   %or.cond.i = and i1 %6, %5
   br i1 %or.cond.i, label %7, label %_is_user_min_admin_level.exit
@@ -1171,7 +1171,7 @@ _is_user_min_admin_level.exit:                    ; preds = %3, %7
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @is_user_min_admin_level_locked(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %5 = icmp ne i32 %4, %1
+  %5 = icmp ne i32 %1, %4
   %6 = icmp ne i32 %1, 0
   %or.cond.i = and i1 %6, %5
   br i1 %or.cond.i, label %7, label %_is_user_min_admin_level.exit

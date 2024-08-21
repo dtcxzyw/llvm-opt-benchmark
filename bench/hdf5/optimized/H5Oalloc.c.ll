@@ -149,7 +149,7 @@ define range(i32 -1, 1) i32 @H5O__alloc_chunk(ptr noundef %0, ptr noundef %1, i6
   %16 = and i8 %15, 2
   %17 = or disjoint i8 %16, 4
   %18 = zext nneg i8 %17 to i64
-  %19 = add i64 %18, %2
+  %19 = add i64 %2, %18
   %20 = icmp ult i64 %19, 22
   br i1 %20, label %22, label %21
 
@@ -298,7 +298,7 @@ H5O__alloc_msgs.exit:                             ; preds = %82
   %107 = add nuw nsw i64 %103, %101
   %108 = select i1 %99, i64 %106, i64 %107
   %109 = load i64, ptr %76, align 8
-  %.not277 = icmp ugt i64 %109, %3
+  %.not277 = icmp ult i64 %3, %109
   br i1 %.not277, label %421, label %110
 
 110:                                              ; preds = %97
@@ -4041,7 +4041,7 @@ H5O__move_cont.exit.thread590.i:                  ; preds = %.thread.i
 863:                                              ; preds = %858
   %864 = getelementptr inbounds i8, ptr %.0247.i.i, i64 16
   %865 = load i32, ptr %864, align 8
-  %866 = icmp eq i32 %865, %825
+  %866 = icmp eq i32 %825, %865
   br i1 %866, label %867, label %913
 
 867:                                              ; preds = %863
@@ -4076,7 +4076,7 @@ H5O__move_cont.exit.thread590.i:                  ; preds = %.thread.i
   %.0206242.i.i = phi i32 [ 0, %.lr.ph.i.i35 ], [ %897, %895 ]
   %885 = getelementptr inbounds i8, ptr %.0205243.i.i, i64 16
   %886 = load i32, ptr %885, align 8
-  %887 = icmp eq i32 %886, %825
+  %887 = icmp eq i32 %825, %886
   br i1 %887, label %888, label %895
 
 888:                                              ; preds = %883

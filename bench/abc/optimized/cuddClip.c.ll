@@ -54,8 +54,8 @@ define internal fastcc ptr @cuddBddClippingAndRecur(ptr noundef %0, ptr noundef 
   %8 = ptrtoint ptr %7 to i64
   %9 = xor i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %10, %1
-  %12 = icmp eq ptr %10, %2
+  %11 = icmp eq ptr %1, %10
+  %12 = icmp eq ptr %2, %10
   %or.cond = or i1 %11, %12
   br i1 %or.cond, label %145, label %13
 
@@ -63,17 +63,17 @@ define internal fastcc ptr @cuddBddClippingAndRecur(ptr noundef %0, ptr noundef 
   %14 = ptrtoint ptr %2 to i64
   %15 = xor i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
-  %17 = icmp eq ptr %16, %1
+  %17 = icmp eq ptr %1, %16
   br i1 %17, label %145, label %18
 
 18:                                               ; preds = %13
   %19 = icmp eq ptr %1, %2
-  %20 = icmp eq ptr %7, %2
+  %20 = icmp eq ptr %2, %7
   %or.cond157 = or i1 %19, %20
   br i1 %or.cond157, label %145, label %21
 
 21:                                               ; preds = %18
-  %22 = icmp eq ptr %7, %1
+  %22 = icmp eq ptr %1, %7
   br i1 %22, label %145, label %23
 
 23:                                               ; preds = %21
@@ -301,13 +301,13 @@ define internal fastcc ptr @cuddBddClipAndAbsRecur(ptr noundef %0, ptr noundef %
   %9 = ptrtoint ptr %8 to i64
   %10 = xor i64 %9, 1
   %11 = inttoptr i64 %10 to ptr
-  %12 = icmp eq ptr %11, %1
-  %13 = icmp eq ptr %11, %2
+  %12 = icmp eq ptr %1, %11
+  %13 = icmp eq ptr %2, %11
   %or.cond273 = or i1 %12, %13
   %14 = ptrtoint ptr %2 to i64
   %15 = xor i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
-  %17 = icmp eq ptr %16, %1
+  %17 = icmp eq ptr %1, %16
   %or.cond218274 = or i1 %17, %or.cond273
   br i1 %or.cond218274, label %.loopexit, label %.lr.ph
 
@@ -324,13 +324,13 @@ define internal fastcc ptr @cuddBddClipAndAbsRecur(ptr noundef %0, ptr noundef %
   %.tr226277 = phi ptr [ %3, %.lr.ph ], [ %75, %tailrecurse ]
   %.tr225276 = phi ptr [ %2, %.lr.ph ], [ %spec.select, %tailrecurse ]
   %.tr224275 = phi ptr [ %1, %.lr.ph ], [ %spec.select221, %tailrecurse ]
-  %23 = icmp eq ptr %22, %.tr224275
-  %24 = icmp eq ptr %22, %.tr225276
+  %23 = icmp eq ptr %.tr224275, %22
+  %24 = icmp eq ptr %.tr225276, %22
   %or.cond219 = and i1 %23, %24
   br i1 %or.cond219, label %.loopexit, label %25
 
 25:                                               ; preds = %20
-  %26 = icmp eq ptr %22, %.tr226277
+  %26 = icmp eq ptr %.tr226277, %22
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25

@@ -2152,7 +2152,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !366, !noalias !364, !noundef !20
   %8 = sub i64 %7, %5
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4dfe459b1168b1feE.exit"
 
 10:                                               ; preds = %3
@@ -2359,7 +2359,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit: ; preds = %8, %
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !alias.scope !379, !noalias !377, !noundef !20
   %47 = sub i64 %46, %44
-  %48 = icmp ult i64 %47, %42
+  %48 = icmp ugt i64 %42, %47
   br i1 %48, label %49, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4dfe459b1168b1feE.exit"
 
 49:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit
@@ -2714,7 +2714,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !alias.scope !451, !noundef !20
   %11 = sub i64 %10, %8
-  %12 = icmp ult i64 %11, %6
+  %12 = icmp ugt i64 %6, %11
   br i1 %12, label %13, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9e01866b25fa9ab5E.exit"
 
 13:                                               ; preds = %2
@@ -5384,7 +5384,7 @@ _ZN10ockam_core4bare29write_variable_length_integer17he1bc22900535e385E.exit.i: 
   %114 = load i64, ptr %92, align 8, !alias.scope !850, !noalias !857, !noundef !20
   %115 = load i64, ptr %91, align 8, !alias.scope !860, !noalias !857, !noundef !20
   %116 = sub i64 %115, %114
-  %117 = icmp ult i64 %116, %106
+  %117 = icmp ugt i64 %106, %116
   br i1 %117, label %118, label %119
 
 118:                                              ; preds = %.noexc57
@@ -5475,7 +5475,7 @@ _ZN10ockam_core4bare29write_variable_length_integer17he1bc22900535e385E.exit.i.i
   %152 = load i64, ptr %92, align 8, !alias.scope !869, !noalias !878, !noundef !20
   %153 = load i64, ptr %91, align 8, !alias.scope !882, !noalias !878, !noundef !20
   %154 = sub i64 %153, %152
-  %155 = icmp ult i64 %154, %144
+  %155 = icmp ugt i64 %144, %154
   br i1 %155, label %156, label %_ZN10ockam_core4bare9write_str17h45bf16c359560f2cE.exit
 
 156:                                              ; preds = %.noexc66
@@ -6086,7 +6086,7 @@ _ZN10ockam_core4bare29write_variable_length_integer17he1bc22900535e385E.exit.i: 
   %100 = load i64, ptr %77, align 8, !alias.scope !921, !noalias !928, !noundef !20
   %101 = load i64, ptr %76, align 8, !alias.scope !931, !noalias !928, !noundef !20
   %102 = sub i64 %101, %100
-  %103 = icmp ult i64 %102, %92
+  %103 = icmp ugt i64 %92, %102
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %.noexc39

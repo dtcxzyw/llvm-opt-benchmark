@@ -3194,7 +3194,7 @@ if.then:                                          ; preds = %PyUnicode_DATA.exit
   br label %return
 
 if.end:                                           ; preds = %PyUnicode_DATA.exit
-  %cmp2.not = icmp sgt i64 %pystr.val, %idx
+  %cmp2.not = icmp slt i64 %idx, %pystr.val
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -4194,7 +4194,7 @@ PyUnicode_READ.exit.i:                            ; preds = %if.end6.i.i, %if.th
 
 if.then.i427:                                     ; preds = %PyUnicode_READ.exit.i
   %inc.i = add nuw nsw i64 %idx, 1
-  %cmp3.i.not = icmp ugt i64 %sub.i, %idx
+  %cmp3.i.not = icmp ult i64 %idx, %sub.i
   br i1 %cmp3.i.not, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i427
@@ -4835,7 +4835,7 @@ if.end105.i:                                      ; preds = %land.lhs.true99.i, 
 
 if.then107.i:                                     ; preds = %if.end105.i
   %conv.i421 = zext nneg i32 %bf.clear to i64
-  %mul.i = mul i64 %conv.i421, %idx
+  %mul.i = mul i64 %idx, %conv.i421
   %add.ptr.i = getelementptr i8, ptr %retval.0.i.i418, i64 %mul.i
   %sub108.i = sub i64 %idx.5321.i, %idx
   %call109.i = tail call ptr @PyUnicode_FromKindAndData(i32 noundef %bf.clear, ptr noundef %add.ptr.i, i64 noundef %sub108.i) #3
@@ -5009,7 +5009,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp4, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %cmp8.not502 = icmp slt i64 %sub, %idx
+  %cmp8.not502 = icmp sgt i64 %idx, %sub
   br i1 %cmp8.not502, label %if.then29, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond.preheader, %while.body
@@ -6110,7 +6110,7 @@ PyUnicode_DATA.exit:                              ; preds = %if.then.i, %if.end.
   %4 = getelementptr i8, ptr %pystr, i64 16
   %pystr.val = load i64, ptr %4, align 8
   %sub = add i64 %pystr.val, -1
-  %cmp3.not272 = icmp slt i64 %sub, %idx
+  %cmp3.not272 = icmp sgt i64 %idx, %sub
   br i1 %cmp3.not272, label %if.then17, label %land.rhs
 
 land.rhs:                                         ; preds = %PyUnicode_DATA.exit, %while.body
@@ -7787,7 +7787,7 @@ if.end32:                                         ; preds = %if.end28
   %7 = load ptr, ptr %indent, align 8
   %cmp33.not = icmp ne ptr %7, @_Py_NoneStruct
   %add = zext i1 %cmp33.not to i64
-  %spec.select = add i64 %add, %indent_level
+  %spec.select = add i64 %indent_level, %add
   %ob_item = getelementptr inbounds i8, ptr %call, i64 24
   %item_separator = getelementptr inbounds i8, ptr %s, i64 56
   br label %for.cond
@@ -7983,7 +7983,7 @@ if.end24:                                         ; preds = %if.end20
   %5 = load ptr, ptr %indent, align 8
   %cmp25.not = icmp ne ptr %5, @_Py_NoneStruct
   %add = zext i1 %cmp25.not to i64
-  %spec.select = add i64 %add, %indent_level
+  %spec.select = add i64 %indent_level, %add
   %sort_keys = getelementptr inbounds i8, ptr %s, i64 64
   %6 = load i8, ptr %sort_keys, align 8
   %tobool28.not = icmp eq i8 %6, 0

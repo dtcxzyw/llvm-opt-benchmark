@@ -215,8 +215,8 @@ entry:
   %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
-  %cmp14 = icmp sgt i32 %cond.i, %start
-  %cmp.i.i515 = icmp ugt i32 %cond.i, %start
+  %cmp14 = icmp slt i32 %start, %cond.i
+  %cmp.i.i515 = icmp ult i32 %start, %cond.i
   %or.cond16 = and i1 %cmp14, %cmp.i.i515
   br i1 %or.cond16, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.lr.ph, label %while.end
 

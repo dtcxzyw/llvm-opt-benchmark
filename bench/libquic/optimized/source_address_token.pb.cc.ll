@@ -480,7 +480,7 @@ entry:
 
 .noexc1:                                          ; preds = %.noexc
   %2 = load ptr, ptr @_ZN3net18SourceAddressToken17default_instance_E, align 8
-  %cmp.not.i = icmp eq ptr %2, %this
+  %cmp.not.i = icmp eq ptr %this, %2
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %.noexc1
@@ -518,7 +518,7 @@ entry:
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %ip_, ptr noundef nonnull %1)
   %2 = load ptr, ptr @_ZN3net18SourceAddressToken17default_instance_E, align 8
-  %cmp.not = icmp eq ptr %2, %this
+  %cmp.not = icmp eq ptr %this, %2
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -567,7 +567,7 @@ entry:
 
 .noexc1.i:                                        ; preds = %.noexc.i
   %2 = load ptr, ptr @_ZN3net18SourceAddressToken17default_instance_E, align 8
-  %cmp.not.i.i = icmp eq ptr %2, %this
+  %cmp.not.i.i = icmp eq ptr %this, %2
   br i1 %cmp.not.i.i, label %_ZN3net18SourceAddressTokenD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %.noexc1.i

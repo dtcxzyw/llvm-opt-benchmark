@@ -1194,7 +1194,7 @@ if.end.i:                                         ; preds = %if.then7.i, %if.the
 
 if.else.i:                                        ; preds = %for.body
   %9 = load ptr, ptr %identLet_.i, align 8
-  %cmp.i3 = icmp eq ptr %9, %0
+  %cmp.i3 = icmp eq ptr %0, %9
   br i1 %cmp.i3, label %if.then16.i, label %_ZN6hermes5irgen11ESTreeIRGen21genVariableDeclaratorEPNS_12UniqueStringEPNS_6ESTree22VariableDeclaratorNodeE.exit
 
 if.then16.i:                                      ; preds = %if.else.i
@@ -1676,7 +1676,7 @@ if.end.i:                                         ; preds = %if.then7.i, %if.the
 
 if.else.i:                                        ; preds = %for.body
   %16 = load ptr, ptr %identLet_.i, align 8
-  %cmp.i25 = icmp eq ptr %16, %7
+  %cmp.i25 = icmp eq ptr %7, %16
   br i1 %cmp.i25, label %if.then16.i, label %_ZN6hermes5irgen11ESTreeIRGen21genVariableDeclaratorEPNS_12UniqueStringEPNS_6ESTree22VariableDeclaratorNodeE.exit
 
 if.then16.i:                                      ; preds = %if.else.i
@@ -2133,7 +2133,7 @@ if.end:                                           ; preds = %if.then7, %if.then
 if.else:                                          ; preds = %entry
   %identLet_ = getelementptr inbounds i8, ptr %this, i64 144
   %8 = load ptr, ptr %identLet_, align 8
-  %cmp = icmp eq ptr %8, %kind
+  %cmp = icmp eq ptr %kind, %8
   br i1 %cmp, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.else
@@ -2586,7 +2586,7 @@ entry:
   %cmp.i.i.i = icmp ne i32 %__args1.val, 0
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
-  %cmp2.not.i.i.i = icmp eq ptr %1, %__args3.val
+  %cmp2.not.i.i.i = icmp eq ptr %__args3.val, %1
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 %cmp2.not.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %"_ZSt10__invoke_rIvRZZN6hermes5irgen11ESTreeIRGen17genForOfStatementEPNS0_6ESTree18ForOfStatementNodeEENK3$_0clEvEUlPNS3_4NodeENS1_17ControlFlowChangeEPNS0_10BasicBlockEE_JS8_S9_SB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit", label %if.then.i.i.i
 

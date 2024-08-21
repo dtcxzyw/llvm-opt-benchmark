@@ -963,7 +963,7 @@ define dso_local noundef zeroext i1 @_ZN16cmCursesMainForm17LookForCacheEntryERK
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorIS2_SaIS2_EEEEZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EbT_SI_T0_.exit": ; preds = %16, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.i.i.i.i.i", %._crit_edge.i.i.i.i.i, %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit29.i.i.i.i.i", %73, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit31.i.i.i.i.i", %85, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit33.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit33.thread52.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.thread.loopexit.split.loop.exit54.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.thread.loopexit.split.loop.exit56.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.thread.loopexit.split.loop.exit58.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.thread.loopexit.split.loop.exit62.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.thread.loopexit.split.loop.exit64.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.thread.loopexit.split.loop.exit66.i.i.i.i.i"
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit29.i.i.i.i.i" ], [ %.sroa.037.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit31.i.i.i.i.i" ], [ %.sroa.037.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit33.i.i.i.i.i" ], [ %6, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit33.thread52.i.i.i.i.i" ], [ %6, %._crit_edge.i.i.i.i.i ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %61 ], [ %.sroa.037.1.i.i.i.i.i, %73 ], [ %.sroa.037.2.i.i.i.i.i, %85 ], [ %91, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.thread.loopexit.split.loop.exit54.i.i.i.i.i" ], [ %92, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.thread.loopexit.split.loop.exit56.i.i.i.i.i" ], [ %93, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.thread.loopexit.split.loop.exit58.i.i.i.i.i" ], [ %94, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.thread.loopexit.split.loop.exit62.i.i.i.i.i" ], [ %95, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.thread.loopexit.split.loop.exit64.i.i.i.i.i" ], [ %96, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.thread.loopexit.split.loop.exit66.i.i.i.i.i" ], [ %.sroa.037.074.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN16cmCursesMainForm17LookForCacheEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIP27cmCursesCacheEntryCompositeSt6vectorISF_SaISF_EEEEEEbT_.exit.i.i.i.i.i" ], [ %.sroa.037.074.i.i.i.i.i, %16 ]
-  %97 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %6
+  %97 = icmp ne ptr %6, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   ret i1 %97
 }
 
@@ -2591,7 +2591,7 @@ define dso_local void @_ZN16cmCursesMainForm6RenderEiiii(ptr noundef nonnull ali
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %0, i64 216
   %36 = load i32, ptr %35, align 8
-  %37 = icmp sgt i32 %36, %3
+  %37 = icmp slt i32 %3, %36
   %38 = icmp slt i32 %4, 6
   %or.cond = or i1 %38, %37
   br i1 %or.cond, label %214, label %39
@@ -6968,7 +6968,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRA58_KcEEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRA58_KcEEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -7139,7 +7139,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %25, %.lr.ph.i.i.i ]
   %26 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i15 = icmp eq ptr %4, %1
+  %.not10.i.i.i15 = icmp eq ptr %1, %4
   br i1 %.not10.i.i.i15, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i16
@@ -7226,7 +7226,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcEEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcEEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -7436,7 +7436,7 @@ _ZNSt16allocator_traitsISaI27cmCursesCacheEntryCompositeEE9constructIS0_JRKNSt7_
 _ZNSt6vectorI27cmCursesCacheEntryCompositeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaI27cmCursesCacheEntryCompositeEE9constructIS0_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7cmStatebiRiEEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %27, %_ZNSt16allocator_traitsISaI27cmCursesCacheEntryCompositeEE9constructIS0_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7cmStatebiRiEEEvRS1_PT_DpOT0_.exit ], [ %47, %.lr.ph.i.i.i ]
   %48 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
-  %.not10.i.i.i30 = icmp eq ptr %9, %1
+  %.not10.i.i.i30 = icmp eq ptr %1, %9
   br i1 %.not10.i.i.i30, label %_ZNSt6vectorI27cmCursesCacheEntryCompositeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit36, label %.lr.ph.i.i.i31
 
 .lr.ph.i.i.i31:                                   ; preds = %_ZNSt6vectorI27cmCursesCacheEntryCompositeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i31
@@ -7603,7 +7603,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27

@@ -861,7 +861,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %302
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %311, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %314 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ], [ %313, %311 ]
-  %.not.i.i.i.i.i.i.i.i.i63.i.i = icmp eq ptr %.sroa.24.16, %.sroa.34.11
+  %.not.i.i.i.i.i.i.i.i.i63.i.i = icmp eq ptr %.sroa.34.11, %.sroa.24.16
   br i1 %.not.i.i.i.i.i.i.i.i.i63.i.i, label %316, label %315
 
 315:                                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
@@ -1082,7 +1082,7 @@ _ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i: ; preds = %_ZNSt6vect
   %400 = ashr exact i64 %399, 2
   %401 = sext i32 %396 to i64
   %402 = add nsw i64 %400, %401
-  %403 = icmp ult i64 %400, %402
+  %403 = icmp ugt i64 %402, %400
   br i1 %403, label %404, label %435
 
 404:                                              ; preds = %.lr.ph475.i
@@ -1169,7 +1169,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i.i: ; preds = %432, %_ZNS
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 435:                                              ; preds = %.lr.ph475.i
-  %436 = icmp ugt i64 %400, %402
+  %436 = icmp ult i64 %402, %400
   br i1 %436, label %437, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 437:                                              ; preds = %435

@@ -82,7 +82,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %size = getelementptr inbounds i8, ptr %lookup, i64 16
   %0 = load i32, ptr %size, align 8
-  %cmp1 = icmp sgt i32 %0, %val
+  %cmp1 = icmp slt i32 %val, %0
   br i1 %cmp1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %entry

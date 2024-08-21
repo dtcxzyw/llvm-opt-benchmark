@@ -973,7 +973,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler26query_compressed_disp_byteEibii
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %8 = and i64 %7, 134217728
   %.not34 = icmp ne i64 %8, 0
-  %brmerge.not = and i1 %.not34, %1
+  %brmerge.not = and i1 %1, %.not34
   br i1 %brmerge.not, label %9, label %36
 
 9:                                                ; preds = %6
@@ -1600,7 +1600,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit90: ; preds = %166, %.sink.sp
   %207 = ptrtoint ptr %205 to i64
   %.neg = sub i64 %207, %206
   %208 = trunc i64 %.neg to i32
-  %209 = add i32 %208, %5
+  %209 = add i32 %5, %208
   %210 = load i32, ptr %10, align 8
   %.not.i92 = icmp eq i32 %210, 0
   br i1 %.not.i92, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit94, label %.sink.split.i93
@@ -2868,7 +2868,7 @@ _ZN9Assembler11prefix_rex2E7Address8Registerbb.exit: ; preds = %30, %43
 
 92:                                               ; preds = %85
   %93 = icmp sgt i32 %11, 3
-  %or.cond = and i1 %93, %3
+  %or.cond = and i1 %3, %93
   br i1 %or.cond, label %94, label %112
 
 94:                                               ; preds = %92
@@ -3485,7 +3485,7 @@ define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibb(ptr nocapture no
 
 31:                                               ; preds = %22
   %32 = icmp sgt i32 %1, 3
-  %or.cond = and i1 %32, %2
+  %or.cond = and i1 %2, %32
   br i1 %or.cond, label %33, label %39
 
 33:                                               ; preds = %31
@@ -25723,9 +25723,9 @@ define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibibb(ptr nocapture 
 
 43:                                               ; preds = %34
   %44 = icmp sgt i32 %3, 3
-  %or.cond3 = and i1 %44, %4
+  %or.cond3 = and i1 %4, %44
   %45 = icmp sgt i32 %1, 3
-  %or.cond5 = and i1 %45, %2
+  %or.cond5 = and i1 %2, %45
   %or.cond29 = or i1 %or.cond5, %or.cond3
   br i1 %or.cond29, label %46, label %64
 

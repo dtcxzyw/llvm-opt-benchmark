@@ -567,13 +567,13 @@ _addto_state_char_list.exit.i:                    ; preds = %220, %.thread247.i
   %.1.i = phi i32 [ %.0255.ph.i, %247 ], [ %.0255.ph.i, %245 ], [ %.0255.ph.i, %246 ], [ %.0255.ph.i, %230 ], [ %.0255.ph.i, %_addto_state_char_list.exit.i ], [ %.0255.ph.i, %209 ], [ %.0255.ph.i, %185 ], [ %.0255.ph.i, %163 ], [ %.0255.ph.i, %162 ], [ %.0255.ph.i, %156 ], [ %.0255.ph.i, %_parse_cond_flags.exit.i ], [ %.0255.ph.i, %.critedge.i ], [ 1, %85 ], [ %.0255.ph.i, %123 ], [ %.0255.ph.i, %._crit_edge.i ], [ %.0255.ph.i, %133 ], [ %.0255.ph.i, %172 ], [ %.0255.ph.i, %179 ], [ %.0255.ph.i, %197 ], [ %.0255.ph.i, %_addto_state_char_list.exit.thread.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %0
+  %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge259.i, label %.outer.i, !llvm.loop !10
 
 .thread272.i:                                     ; preds = %81
   %indvars.iv.next276.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv277.i = trunc i64 %indvars.iv.next276.i to i32
-  %exitcond.not278.i = icmp eq i32 %lftr.wideiv277.i, %0
+  %exitcond.not278.i = icmp eq i32 %0, %lftr.wideiv277.i
   br i1 %exitcond.not278.i, label %._crit_edge259.thread282.i, label %67, !llvm.loop !10
 
 ._crit_edge259.thread282.i:                       ; preds = %.thread272.i

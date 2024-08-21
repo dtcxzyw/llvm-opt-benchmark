@@ -164,7 +164,7 @@ entry:
   %2 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %3, %0
+  %cmp.i.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i.i, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -192,7 +192,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %6 = load ptr, ptr %_M_finish.i.i.i.i.i.i5, align 8
   %add.ptr.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load ptr, ptr %add.ptr.i.i.i.i.i.i6, align 8
-  %cmp.i.i.i7 = icmp eq ptr %7, %4
+  %cmp.i.i.i7 = icmp eq ptr %4, %7
   br i1 %cmp.i.i.i7, label %invoke.cont7, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %.noexc9
@@ -407,7 +407,7 @@ cond.true75:                                      ; preds = %if.else
   %16 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 -8
   %17 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i355 = icmp eq ptr %17, %14
+  %cmp.i.i.i355 = icmp eq ptr %14, %17
   br i1 %cmp.i.i.i355, label %_ZN4cvc57context3CDOIjE3setERKj.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cond.true75
@@ -458,7 +458,7 @@ do.end:                                           ; preds = %do.cond
   %24 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 -8
   %25 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %25, %22
+  %cmp.i.i.i.i = icmp eq ptr %22, %25
   br i1 %cmp.i.i.i.i, label %_ZN4cvc57context3CDOIbEaSERKb.exit, label %if.then.i.i.i451
 
 if.then.i.i.i451:                                 ; preds = %do.end

@@ -953,7 +953,7 @@ thread-pre-split:                                 ; preds = %37
   br label %58
 
 57:                                               ; preds = %52
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %54, i64 %50)
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %50, i64 %54)
   br label %58
 
 58:                                               ; preds = %57, %55
@@ -968,7 +968,7 @@ thread-pre-split:                                 ; preds = %37
   br label %64
 
 63:                                               ; preds = %58
-  %spec.select114.i = call i64 @llvm.umin.i64(i64 %54, i64 %48)
+  %spec.select114.i = call i64 @llvm.umin.i64(i64 %48, i64 %54)
   br label %64
 
 64:                                               ; preds = %63, %60
@@ -1614,7 +1614,7 @@ define internal fastcc range(i32 0, 10) i32 @_php_iconv_strpos(ptr nocapture nou
   %.065.lcssa106 = phi i64 [ %.065.lcssa105, %._crit_edge91.thread ], [ %.065.lcssa, %._crit_edge91 ]
   %85 = call i32 @iconv_close(ptr noundef %20) #16
   %86 = icmp eq i32 %.156108, 0
-  %87 = icmp ult i64 %.065.lcssa106, %5
+  %87 = icmp ugt i64 %5, %.065.lcssa106
   %or.cond = select i1 %86, i1 %87, i1 false
   %spec.select81 = select i1 %or.cond, i32 9, i32 %.156108
   br label %88

@@ -111,7 +111,7 @@ if.end4:                                          ; preds = %if.end4.i
 lor.lhs.false:                                    ; preds = %if.end4
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #8
-  %cmp7.not = icmp sgt i32 %call.i, %idx
+  %cmp7.not = icmp slt i32 %idx, %call.i
   br i1 %cmp7.not, label %if.end9, label %err
 
 if.end9:                                          ; preds = %lor.lhs.false
@@ -443,7 +443,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #8
-  %cmp3.not = icmp sgt i32 %call2, %idx
+  %cmp3.not = icmp slt i32 %idx, %call2
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -564,7 +564,7 @@ if.end40:                                         ; preds = %if.end36
 
 lor.lhs.false.i:                                  ; preds = %if.end40
   %call2.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %9) #8
-  %cmp3.not.i.not = icmp slt i32 %call2.i, %spec.select
+  %cmp3.not.i.not = icmp sgt i32 %spec.select, %call2.i
   br i1 %cmp3.not.i.not, label %CRYPTO_get_ex_data.exit, label %if.end.i49
 
 if.end.i49:                                       ; preds = %lor.lhs.false.i
@@ -809,7 +809,7 @@ if.then39:                                        ; preds = %land.lhs.true
 
 lor.lhs.false.i:                                  ; preds = %if.then39
   %call2.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %10) #8
-  %cmp3.not.i = icmp sgt i32 %call2.i, %9
+  %cmp3.not.i = icmp slt i32 %9, %call2.i
   br i1 %cmp3.not.i, label %if.end.i41, label %CRYPTO_get_ex_data.exit
 
 if.end.i41:                                       ; preds = %lor.lhs.false.i
@@ -898,7 +898,7 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %call2.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #8
-  %cmp3.not.i = icmp sgt i32 %call2.i, %idx
+  %cmp3.not.i = icmp slt i32 %idx, %call2.i
   br i1 %cmp3.not.i, label %CRYPTO_get_ex_data.exit, label %if.end
 
 CRYPTO_get_ex_data.exit:                          ; preds = %lor.lhs.false.i

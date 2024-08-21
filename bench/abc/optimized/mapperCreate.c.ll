@@ -1412,7 +1412,7 @@ define ptr @Map_NodeAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   %7 = ptrtoint ptr %2 to i64
   %8 = xor i64 %7, 1
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
@@ -1435,7 +1435,7 @@ define ptr @Map_NodeAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, %1
+  %26 = icmp eq ptr %1, %25
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %23
@@ -1455,7 +1455,7 @@ define ptr @Map_NodeAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
 36:                                               ; preds = %31
   %37 = getelementptr inbounds i8, ptr %0, i64 48
   %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, %2
+  %39 = icmp eq ptr %2, %38
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %36

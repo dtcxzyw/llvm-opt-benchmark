@@ -4512,7 +4512,7 @@ unreachable.i:                                    ; preds = %invoke.cont60.i, %i
   unreachable
 
 invoke.cont64:                                    ; preds = %call66.i.noexc
-  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %114, i32 %.sroa.speculated)
+  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %114)
   %.sroa.speculated87.i = call i32 @llvm.smax.i32(i32 %113, i32 %.sroa.speculated46)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114LineBufferTaskE, i64 16), ptr %call66.i30, align 8
   %_ifd.i.i = getelementptr inbounds i8, ptr %call66.i30, i64 16
@@ -5568,7 +5568,7 @@ entry:
   %maxY3 = getelementptr inbounds i8, ptr %2, i64 224
   %4 = load i32, ptr %maxY3, align 4
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %4, i32 %sub)
-  %cmp.not = icmp eq i32 %0, %scanLine1
+  %cmp.not = icmp eq i32 %scanLine1, %0
   br i1 %cmp.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry
@@ -5619,7 +5619,7 @@ lpad16:                                           ; preds = %invoke.cont14
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %cmp18.not = icmp eq i32 %.sroa.speculated, %scanLine2
+  %cmp18.not = icmp eq i32 %scanLine2, %.sroa.speculated
   br i1 %cmp18.not, label %if.end42, label %do.body20
 
 do.body20:                                        ; preds = %if.end

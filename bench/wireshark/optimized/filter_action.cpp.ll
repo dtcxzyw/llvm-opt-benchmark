@@ -1223,7 +1223,7 @@ define noundef ptr @_ZN12FilterAction17createFilterGroupE7QStringbbP7QWidget(ptr
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = icmp ne i64 %24, 0
-  %spec.select = and i1 %25, %2
+  %spec.select = and i1 %2, %25
   %26 = load ptr, ptr @mainApp, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %_ZN7QStringD2Ev.exit, label %27
@@ -2533,7 +2533,7 @@ _ZNK17QArrayDataPointerIN12FilterAction6ActionEE11needsDetachEv.exit: ; preds = 
 7:                                                ; preds = %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE14freeSpaceAtEndEv.exit, label %27
 
 _ZNK17QArrayDataPointerIN12FilterAction6ActionEE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -2602,7 +2602,7 @@ _ZNK17QArrayDataPointerIN12FilterAction6ActionEE11needsDetachEv.exit.thread: ; p
 
 50:                                               ; preds = %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE11needsDetachEv.exit.thread
   %51 = load i64, ptr %43, align 8
-  %52 = icmp sgt i64 %51, %1
+  %52 = icmp slt i64 %1, %51
   br i1 %52, label %53, label %_ZN9QtPrivate12QPodArrayOpsIN12FilterAction6ActionEE10createHoleEN10QArrayData14GrowthPositionExx.exit
 
 53:                                               ; preds = %50
@@ -2693,7 +2693,7 @@ _ZNK17QArrayDataPointerIN12FilterAction6ActionEE16freeSpaceAtBeginEv.exit: ; pre
   br i1 %or.cond, label %31, label %.critedge
 
 31:                                               ; preds = %19
-  %32 = add i64 %25, %2
+  %32 = add i64 %2, %25
   %33 = sub i64 %22, %32
   %34 = sdiv i64 %33, 2
   %35 = tail call noundef i64 @llvm.smax.i64(i64 %34, i64 0)
@@ -3036,7 +3036,7 @@ _ZNK17QArrayDataPointerIN12FilterAction6ActionEE22constAllocatedCapacityEv.exit.
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE22constAllocatedCapacityEv.exit31
 
@@ -3079,7 +3079,7 @@ _ZNK17QArrayDataPointerIN12FilterAction6ActionEE16freeSpaceAtBeginEv.exit33: ; p
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)
@@ -3142,7 +3142,7 @@ _ZNK17QArrayDataPointerIN12FilterAction10ActionTypeEE11needsDetachEv.exit: ; pre
 7:                                                ; preds = %_ZNK17QArrayDataPointerIN12FilterAction10ActionTypeEE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerIN12FilterAction10ActionTypeEE14freeSpaceAtEndEv.exit, label %27
 
 _ZNK17QArrayDataPointerIN12FilterAction10ActionTypeEE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -3211,7 +3211,7 @@ _ZNK17QArrayDataPointerIN12FilterAction10ActionTypeEE11needsDetachEv.exit.thread
 
 50:                                               ; preds = %_ZNK17QArrayDataPointerIN12FilterAction10ActionTypeEE11needsDetachEv.exit.thread
   %51 = load i64, ptr %43, align 8
-  %52 = icmp sgt i64 %51, %1
+  %52 = icmp slt i64 %1, %51
   br i1 %52, label %53, label %_ZN9QtPrivate12QPodArrayOpsIN12FilterAction10ActionTypeEE10createHoleEN10QArrayData14GrowthPositionExx.exit
 
 53:                                               ; preds = %50
@@ -3302,7 +3302,7 @@ _ZNK17QArrayDataPointerIN12FilterAction10ActionTypeEE16freeSpaceAtBeginEv.exit: 
   br i1 %or.cond, label %31, label %.critedge
 
 31:                                               ; preds = %19
-  %32 = add i64 %25, %2
+  %32 = add i64 %2, %25
   %33 = sub i64 %22, %32
   %34 = sdiv i64 %33, 2
   %35 = tail call noundef i64 @llvm.smax.i64(i64 %34, i64 0)
@@ -3642,7 +3642,7 @@ _ZNK17QArrayDataPointerIN12FilterAction10ActionTypeEE22constAllocatedCapacityEv.
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerIN12FilterAction10ActionTypeEE22constAllocatedCapacityEv.exit31
 
@@ -3685,7 +3685,7 @@ _ZNK17QArrayDataPointerIN12FilterAction10ActionTypeEE16freeSpaceAtBeginEv.exit33
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)
@@ -3733,7 +3733,7 @@ _ZNK17QArrayDataPointerIN12FilterAction15ActionDirectionEE11needsDetachEv.exit: 
 7:                                                ; preds = %_ZNK17QArrayDataPointerIN12FilterAction15ActionDirectionEE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerIN12FilterAction15ActionDirectionEE14freeSpaceAtEndEv.exit, label %27
 
 _ZNK17QArrayDataPointerIN12FilterAction15ActionDirectionEE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -3802,7 +3802,7 @@ _ZNK17QArrayDataPointerIN12FilterAction15ActionDirectionEE11needsDetachEv.exit.t
 
 50:                                               ; preds = %_ZNK17QArrayDataPointerIN12FilterAction15ActionDirectionEE11needsDetachEv.exit.thread
   %51 = load i64, ptr %43, align 8
-  %52 = icmp sgt i64 %51, %1
+  %52 = icmp slt i64 %1, %51
   br i1 %52, label %53, label %_ZN9QtPrivate12QPodArrayOpsIN12FilterAction15ActionDirectionEE10createHoleEN10QArrayData14GrowthPositionExx.exit
 
 53:                                               ; preds = %50
@@ -3893,7 +3893,7 @@ _ZNK17QArrayDataPointerIN12FilterAction15ActionDirectionEE16freeSpaceAtBeginEv.e
   br i1 %or.cond, label %31, label %.critedge
 
 31:                                               ; preds = %19
-  %32 = add i64 %25, %2
+  %32 = add i64 %2, %25
   %33 = sub i64 %22, %32
   %34 = sdiv i64 %33, 2
   %35 = tail call noundef i64 @llvm.smax.i64(i64 %34, i64 0)
@@ -4233,7 +4233,7 @@ _ZNK17QArrayDataPointerIN12FilterAction15ActionDirectionEE22constAllocatedCapaci
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %25)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerIN12FilterAction15ActionDirectionEE22constAllocatedCapacityEv.exit31
 
@@ -4276,7 +4276,7 @@ _ZNK17QArrayDataPointerIN12FilterAction15ActionDirectionEE16freeSpaceAtBeginEv.e
   %50 = getelementptr inbounds i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
-  %53 = add i64 %52, %2
+  %53 = add i64 %2, %52
   %54 = sub i64 %51, %53
   %55 = sdiv i64 %54, 2
   %56 = call noundef i64 @llvm.smax.i64(i64 %55, i64 0)

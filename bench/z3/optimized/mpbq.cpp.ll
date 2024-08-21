@@ -1326,7 +1326,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then4:                                         ; preds = %if.end
   %div = udiv i32 %2, %n
   store i32 %div, ptr %m_k, align 8
-  %cmp.i = icmp ult i32 %2, %n
+  %cmp.i = icmp ugt i32 %n, %2
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then4
@@ -1341,7 +1341,7 @@ if.else:                                          ; preds = %if.end
 
 if.then10:                                        ; preds = %if.else
   store i32 %div12, ptr %m_k, align 8
-  %cmp.i18 = icmp ult i32 %2, %n
+  %cmp.i18 = icmp ugt i32 %n, %2
   br i1 %cmp.i18, label %return, label %return.sink.split.sink.split
 
 if.else13:                                        ; preds = %if.else
@@ -1394,7 +1394,7 @@ entry:
 if.then:                                          ; preds = %entry
   %div = udiv i32 %1, %n
   store i32 %div, ptr %m_k, align 8
-  %cmp.i = icmp ult i32 %1, %n
+  %cmp.i = icmp ugt i32 %n, %1
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -1415,7 +1415,7 @@ if.then6:                                         ; preds = %if.else
 
 if.else10:                                        ; preds = %if.else
   store i32 %div8, ptr %m_k, align 8
-  %cmp.i27 = icmp ult i32 %1, %n
+  %cmp.i27 = icmp ugt i32 %n, %1
   br i1 %cmp.i27, label %return, label %if.end.i28
 
 if.end.i28:                                       ; preds = %if.else10
@@ -5429,7 +5429,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %a, align 8
   %cmp.i = icmp slt i32 %1, 0
-  %2 = xor i1 %cmp.i, %to_plus_inf
+  %2 = xor i1 %to_plus_inf, %cmp.i
   %sub = sub nuw i32 %0, %k
   %3 = load ptr, ptr %this, align 8
   tail call void @_ZN11mpz_managerILb0EE3absER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %3, ptr noundef nonnull align 8 dereferenceable(16) %a)
@@ -5687,7 +5687,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit100:    ; preds = %if.then.i96, %if.el
 
 if.then53:                                        ; preds = %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit100
   %sub56 = sub nuw i32 %33, %34
-  %cmp57.not = icmp ugt i32 %sub56, %k
+  %cmp57.not = icmp ult i32 %k, %sub56
   %35 = load ptr, ptr %this, align 8
   br i1 %cmp57.not, label %if.else64, label %if.then58
 
@@ -5761,7 +5761,7 @@ if.end77:                                         ; preds = %_ZN11mpz_managerILb
   store i32 %k, ptr %m_k78, align 8
   %40 = load ptr, ptr %this, align 8
   call void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %40, ptr noundef nonnull align 8 dereferenceable(16) %m_div_tmp2, ptr noundef nonnull align 8 dereferenceable(16) %m_div_tmp3, ptr noundef nonnull align 8 dereferenceable(16) %c)
-  %41 = xor i1 %cmp41, %to_plus_inf
+  %41 = xor i1 %to_plus_inf, %cmp41
   br i1 %41, label %if.then85, label %if.end88
 
 if.then85:                                        ; preds = %if.end77

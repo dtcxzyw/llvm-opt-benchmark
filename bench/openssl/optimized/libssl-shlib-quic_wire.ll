@@ -72,13 +72,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.08 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %arrayidx = getelementptr inbounds %struct.ossl_quic_ack_range_st, ptr %1, i64 %i.08
   %2 = load i64, ptr %arrayidx, align 8
-  %cmp1.not = icmp ugt i64 %2, %pn
+  %cmp1.not = icmp ult i64 %pn, %2
   br i1 %cmp1.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
   %end = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load i64, ptr %end, align 8
-  %cmp4.not = icmp ult i64 %3, %pn
+  %cmp4.not = icmp ugt i64 %pn, %3
   br i1 %cmp4.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true

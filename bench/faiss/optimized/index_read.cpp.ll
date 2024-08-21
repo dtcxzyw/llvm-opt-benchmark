@@ -930,7 +930,7 @@ _ZN5faiss20RandomRotationMatrixC2Ev.exit:         ; preds = %111
   %312 = ptrtoint ptr %310 to i64
   %313 = sub i64 %311, %312
   %314 = ashr exact i64 %313, 2
-  %315 = icmp ult i64 %314, %288
+  %315 = icmp ugt i64 %288, %314
   br i1 %315, label %316, label %318
 
 316:                                              ; preds = %306
@@ -941,7 +941,7 @@ _ZN5faiss20RandomRotationMatrixC2Ev.exit:         ; preds = %111
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 318:                                              ; preds = %306
-  %319 = icmp ugt i64 %314, %288
+  %319 = icmp ult i64 %288, %314
   br i1 %319, label %320, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 320:                                              ; preds = %318
@@ -1119,7 +1119,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %316, %318, %320, %3
   %410 = ptrtoint ptr %408 to i64
   %411 = sub i64 %409, %410
   %412 = ashr exact i64 %411, 2
-  %413 = icmp ult i64 %412, %386
+  %413 = icmp ugt i64 %386, %412
   br i1 %413, label %414, label %416
 
 414:                                              ; preds = %404
@@ -1130,7 +1130,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %316, %318, %320, %3
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit462
 
 416:                                              ; preds = %404
-  %417 = icmp ugt i64 %412, %386
+  %417 = icmp ult i64 %386, %412
   br i1 %417, label %418, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit462
 
 418:                                              ; preds = %416
@@ -1308,7 +1308,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit462:            ; preds = %414, %416, %418, %4
   %508 = ptrtoint ptr %506 to i64
   %509 = sub i64 %507, %508
   %510 = ashr exact i64 %509, 2
-  %511 = icmp ult i64 %510, %484
+  %511 = icmp ugt i64 %484, %510
   br i1 %511, label %512, label %514
 
 512:                                              ; preds = %502
@@ -1319,7 +1319,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit462:            ; preds = %414, %416, %418, %4
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit464
 
 514:                                              ; preds = %502
-  %515 = icmp ugt i64 %510, %484
+  %515 = icmp ult i64 %484, %510
   br i1 %515, label %516, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit464
 
 516:                                              ; preds = %514
@@ -1697,7 +1697,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit464:            ; preds = %512, %514, %516, %5
   %712 = ptrtoint ptr %710 to i64
   %713 = sub i64 %711, %712
   %714 = ashr exact i64 %713, 2
-  %715 = icmp ult i64 %714, %688
+  %715 = icmp ugt i64 %688, %714
   br i1 %715, label %716, label %718
 
 716:                                              ; preds = %706
@@ -1708,7 +1708,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit464:            ; preds = %512, %514, %516, %5
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit466
 
 718:                                              ; preds = %706
-  %719 = icmp ugt i64 %714, %688
+  %719 = icmp ult i64 %688, %714
   br i1 %719, label %720, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit466
 
 720:                                              ; preds = %718
@@ -1886,7 +1886,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit466:            ; preds = %716, %718, %720, %7
   %810 = ptrtoint ptr %808 to i64
   %811 = sub i64 %809, %810
   %812 = ashr exact i64 %811, 2
-  %813 = icmp ult i64 %812, %786
+  %813 = icmp ugt i64 %786, %812
   br i1 %813, label %814, label %816
 
 814:                                              ; preds = %804
@@ -1897,7 +1897,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit466:            ; preds = %716, %718, %720, %7
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit468
 
 816:                                              ; preds = %804
-  %817 = icmp ugt i64 %812, %786
+  %817 = icmp ult i64 %786, %812
   br i1 %817, label %818, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit468
 
 818:                                              ; preds = %816
@@ -3145,7 +3145,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull alig
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -3154,7 +3154,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull alig
   br label %_ZNSt6vectorIfSaIfEE15_M_erase_at_endEPf.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIfSaIfEE15_M_erase_at_endEPf.exit
 
 15:                                               ; preds = %13
@@ -3185,7 +3185,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnull alig
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -3194,7 +3194,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnull alig
   br label %_ZNSt6vectorIiSaIiEE15_M_erase_at_endEPi.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIiSaIiEE15_M_erase_at_endEPi.exit
 
 15:                                               ; preds = %13
@@ -3944,7 +3944,7 @@ define noundef ptr @_ZN5faiss18read_InvertedListsEPNS_8IOReaderEi(ptr noundef %0
   %126 = ptrtoint ptr %124 to i64
   %127 = sub i64 %125, %126
   %128 = sdiv exact i64 %127, 24
-  %129 = icmp ult i64 %128, %121
+  %129 = icmp ugt i64 %121, %128
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %119
@@ -3953,7 +3953,7 @@ define noundef ptr @_ZN5faiss18read_InvertedListsEPNS_8IOReaderEi(ptr noundef %0
   br label %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
 
 132:                                              ; preds = %119
-  %133 = icmp ugt i64 %128, %121
+  %133 = icmp ult i64 %121, %128
   br i1 %133, label %134, label %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
 
 134:                                              ; preds = %132
@@ -3990,7 +3990,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %130, %132, %134, %_
   %145 = ptrtoint ptr %143 to i64
   %146 = sub i64 %144, %145
   %147 = sdiv exact i64 %146, 24
-  %148 = icmp ult i64 %147, %140
+  %148 = icmp ugt i64 %140, %147
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
@@ -3999,7 +3999,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %130, %132, %134, %_
   br label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit
 
 151:                                              ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
-  %152 = icmp ugt i64 %147, %140
+  %152 = icmp ult i64 %140, %147
   br i1 %152, label %153, label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit
 
 153:                                              ; preds = %151
@@ -4090,7 +4090,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc146
   %179 = ptrtoint ptr %177 to i64
   %180 = sub i64 %178, %179
   %181 = ashr exact i64 %180, 3
-  %182 = icmp ult i64 %181, %174
+  %182 = icmp ugt i64 %174, %181
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %.lr.ph
@@ -4099,7 +4099,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc146
           to label %_ZNSt6vectorIlSaIlEE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit
 
 185:                                              ; preds = %.lr.ph
-  %186 = icmp ugt i64 %181, %174
+  %186 = icmp ult i64 %174, %181
   br i1 %186, label %187, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 187:                                              ; preds = %185
@@ -4718,7 +4718,7 @@ define internal fastcc void @_ZN5faissL29read_ArrayInvertedLists_sizesEPNS_8IORe
   %108 = ptrtoint ptr %106 to i64
   %109 = sub i64 %107, %108
   %110 = ashr exact i64 %109, 3
-  %111 = icmp ult i64 %110, %86
+  %111 = icmp ugt i64 %86, %110
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %104
@@ -4729,7 +4729,7 @@ define internal fastcc void @_ZN5faissL29read_ArrayInvertedLists_sizesEPNS_8IORe
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 114:                                              ; preds = %104
-  %115 = icmp ugt i64 %110, %86
+  %115 = icmp ult i64 %86, %110
   br i1 %115, label %116, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 116:                                              ; preds = %114
@@ -5214,7 +5214,7 @@ define linkonce_odr void @_ZNSt6vectorIlSaIlEE6resizeEm(ptr noundef nonnull alig
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -5223,7 +5223,7 @@ define linkonce_odr void @_ZNSt6vectorIlSaIlEE6resizeEm(ptr noundef nonnull alig
   br label %_ZNSt6vectorIlSaIlEE15_M_erase_at_endEPl.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIlSaIlEE15_M_erase_at_endEPl.exit
 
 15:                                               ; preds = %13
@@ -5247,7 +5247,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -5330,7 +5330,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -6076,7 +6076,7 @@ define internal fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuan
   %148 = ptrtoint ptr %146 to i64
   %149 = sub i64 %147, %148
   %150 = ashr exact i64 %149, 2
-  %151 = icmp ult i64 %150, %125
+  %151 = icmp ugt i64 %125, %150
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %142
@@ -6087,7 +6087,7 @@ define internal fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuan
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 154:                                              ; preds = %142
-  %155 = icmp ugt i64 %150, %125
+  %155 = icmp ult i64 %125, %150
   br i1 %155, label %156, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 156:                                              ; preds = %154
@@ -6994,7 +6994,7 @@ _ZN5faiss9IndexFlatC2Ev.exit:                     ; preds = %236
   %513 = ptrtoint ptr %511 to i64
   %514 = sub i64 %512, %513
   %515 = ashr exact i64 %514, 2
-  %516 = icmp ult i64 %515, %489
+  %516 = icmp ugt i64 %489, %515
   br i1 %516, label %517, label %519
 
 517:                                              ; preds = %507
@@ -7005,7 +7005,7 @@ _ZN5faiss9IndexFlatC2Ev.exit:                     ; preds = %236
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 519:                                              ; preds = %507
-  %520 = icmp ugt i64 %515, %489
+  %520 = icmp ult i64 %489, %515
   br i1 %520, label %521, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 521:                                              ; preds = %519
@@ -16498,7 +16498,7 @@ define internal fastcc void @_ZN5faissL26read_ResidualQuantizer_oldEPNS_17Residu
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
   %130 = ashr exact i64 %129, 3
-  %131 = icmp ult i64 %130, %105
+  %131 = icmp ugt i64 %105, %130
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %122
@@ -16509,7 +16509,7 @@ define internal fastcc void @_ZN5faissL26read_ResidualQuantizer_oldEPNS_17Residu
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 134:                                              ; preds = %122
-  %135 = icmp ugt i64 %130, %105
+  %135 = icmp ult i64 %105, %130
   br i1 %135, label %136, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 136:                                              ; preds = %134
@@ -16822,7 +16822,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %132, %134, %136, %1
   %310 = ptrtoint ptr %308 to i64
   %311 = sub i64 %309, %310
   %312 = ashr exact i64 %311, 2
-  %313 = icmp ult i64 %312, %287
+  %313 = icmp ugt i64 %287, %312
   br i1 %313, label %314, label %316
 
 314:                                              ; preds = %304
@@ -16833,7 +16833,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %132, %134, %136, %1
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 316:                                              ; preds = %304
-  %317 = icmp ugt i64 %312, %287
+  %317 = icmp ult i64 %287, %312
   br i1 %317, label %318, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 318:                                              ; preds = %316
@@ -18054,7 +18054,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread: ; preds = %5
 24:                                               ; preds = %22
   %25 = load ptr, ptr %3, align 8
   %26 = load ptr, ptr %0, align 8
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %23, i64 %.07.i36)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.07.i36, i64 %23)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %26, i64 %.sroa.speculated.i, i1 false)
   br label %28
 
@@ -18213,7 +18213,7 @@ define internal fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IORe
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
   %79 = sdiv exact i64 %78, 24
-  %80 = icmp ult i64 %79, %72
+  %80 = icmp ugt i64 %72, %79
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %71
@@ -18222,7 +18222,7 @@ define internal fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IORe
   br label %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
 
 83:                                               ; preds = %71
-  %84 = icmp ugt i64 %79, %72
+  %84 = icmp ult i64 %72, %79
   br i1 %84, label %85, label %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
 
 85:                                               ; preds = %83
@@ -18359,7 +18359,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %81, %83, %85, %_ZSt
   %147 = ptrtoint ptr %145 to i64
   %148 = sub i64 %146, %147
   %149 = ashr exact i64 %148, 3
-  %150 = icmp ult i64 %149, %123
+  %150 = icmp ugt i64 %123, %149
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %140
@@ -18368,7 +18368,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %81, %83, %85, %_ZSt
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 153:                                              ; preds = %140
-  %154 = icmp ugt i64 %149, %123
+  %154 = icmp ult i64 %123, %149
   br i1 %154, label %155, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 155:                                              ; preds = %153
@@ -19055,7 +19055,7 @@ define internal fastcc void @_ZN5faissL20read_ScalarQuantizerEPNS_15ScalarQuanti
   %208 = ptrtoint ptr %206 to i64
   %209 = sub i64 %207, %208
   %210 = ashr exact i64 %209, 2
-  %211 = icmp ult i64 %210, %185
+  %211 = icmp ugt i64 %185, %210
   br i1 %211, label %212, label %214
 
 212:                                              ; preds = %202
@@ -19066,7 +19066,7 @@ define internal fastcc void @_ZN5faissL20read_ScalarQuantizerEPNS_15ScalarQuanti
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 214:                                              ; preds = %202
-  %215 = icmp ugt i64 %210, %185
+  %215 = icmp ult i64 %185, %210
   br i1 %215, label %216, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 216:                                              ; preds = %214
@@ -19175,23 +19175,23 @@ define internal fastcc noundef ptr @_ZN5faissL10read_ivfpqEPNS_8IOReaderEji(ptr 
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = tail call noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef nonnull @.str.77)
-  %17 = icmp eq i32 %16, %1
+  %17 = icmp eq i32 %1, %16
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %3
   %19 = tail call noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef nonnull @.str.76)
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   br label %21
 
 21:                                               ; preds = %18, %3
   %22 = phi i1 [ true, %3 ], [ %20, %18 ]
   %23 = tail call noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef nonnull @.str.77)
-  %24 = icmp eq i32 %23, %1
+  %24 = icmp eq i32 %1, %23
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %21
   %26 = tail call noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef nonnull @.str.79)
-  %27 = icmp eq i32 %26, %1
+  %27 = icmp eq i32 %1, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25, %21
@@ -20140,7 +20140,7 @@ define internal fastcc void @_ZN5faissL9read_HNSWEPNS_4HNSWEPNS_8IOReaderE(ptr n
   %78 = ptrtoint ptr %76 to i64
   %79 = sub i64 %77, %78
   %80 = ashr exact i64 %79, 3
-  %81 = icmp ult i64 %80, %56
+  %81 = icmp ugt i64 %56, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %73
@@ -20151,7 +20151,7 @@ define internal fastcc void @_ZN5faissL9read_HNSWEPNS_4HNSWEPNS_8IOReaderE(ptr n
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 84:                                               ; preds = %73
-  %85 = icmp ugt i64 %80, %56
+  %85 = icmp ult i64 %56, %80
   br i1 %85, label %86, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 86:                                               ; preds = %84
@@ -20314,7 +20314,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %82, %84, %86, %88
   %173 = ptrtoint ptr %171 to i64
   %174 = sub i64 %172, %173
   %175 = ashr exact i64 %174, 2
-  %176 = icmp ult i64 %175, %150
+  %176 = icmp ugt i64 %150, %175
   br i1 %176, label %177, label %179
 
 177:                                              ; preds = %167
@@ -20325,7 +20325,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %82, %84, %86, %88
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 179:                                              ; preds = %167
-  %180 = icmp ugt i64 %175, %150
+  %180 = icmp ult i64 %150, %175
   br i1 %180, label %181, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 181:                                              ; preds = %179
@@ -20488,7 +20488,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %177, %179, %181, %1
   %268 = ptrtoint ptr %266 to i64
   %269 = sub i64 %267, %268
   %270 = ashr exact i64 %269, 2
-  %271 = icmp ult i64 %270, %245
+  %271 = icmp ugt i64 %245, %270
   br i1 %271, label %272, label %274
 
 272:                                              ; preds = %262
@@ -20499,7 +20499,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %177, %179, %181, %1
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit218
 
 274:                                              ; preds = %262
-  %275 = icmp ugt i64 %270, %245
+  %275 = icmp ult i64 %245, %270
   br i1 %275, label %276, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit218
 
 276:                                              ; preds = %274
@@ -20662,7 +20662,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit218:            ; preds = %272, %274, %276, %2
   %363 = ptrtoint ptr %361 to i64
   %364 = sub i64 %362, %363
   %365 = ashr exact i64 %364, 3
-  %366 = icmp ult i64 %365, %340
+  %366 = icmp ugt i64 %340, %365
   br i1 %366, label %367, label %369
 
 367:                                              ; preds = %357
@@ -20673,7 +20673,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit218:            ; preds = %272, %274, %276, %2
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 369:                                              ; preds = %357
-  %370 = icmp ugt i64 %365, %340
+  %370 = icmp ult i64 %340, %365
   br i1 %370, label %371, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 371:                                              ; preds = %369
@@ -20836,7 +20836,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %367, %369, %371, %3
   %458 = ptrtoint ptr %456 to i64
   %459 = sub i64 %457, %458
   %460 = ashr exact i64 %459, 2
-  %461 = icmp ult i64 %460, %435
+  %461 = icmp ugt i64 %435, %460
   br i1 %461, label %462, label %464
 
 462:                                              ; preds = %452
@@ -20847,7 +20847,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %367, %369, %371, %3
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit221
 
 464:                                              ; preds = %452
-  %465 = icmp ugt i64 %460, %435
+  %465 = icmp ult i64 %435, %460
   br i1 %465, label %466, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit221
 
 466:                                              ; preds = %464
@@ -22414,7 +22414,7 @@ define internal fastcc void @_ZN5faissL14read_NNDescentEPNS_9NNDescentEPNS_8IORe
   %357 = ptrtoint ptr %355 to i64
   %358 = sub i64 %356, %357
   %359 = ashr exact i64 %358, 2
-  %360 = icmp ult i64 %359, %334
+  %360 = icmp ugt i64 %334, %359
   br i1 %360, label %361, label %363
 
 361:                                              ; preds = %351
@@ -22425,7 +22425,7 @@ define internal fastcc void @_ZN5faissL14read_NNDescentEPNS_9NNDescentEPNS_8IORe
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 363:                                              ; preds = %351
-  %364 = icmp ugt i64 %359, %334
+  %364 = icmp ult i64 %334, %359
   br i1 %364, label %365, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 365:                                              ; preds = %363
@@ -22841,7 +22841,7 @@ define internal fastcc void @_ZN5faissL22read_AdditiveQuantizerEPNS_17AdditiveQu
   %134 = ptrtoint ptr %132 to i64
   %135 = sub i64 %133, %134
   %136 = ashr exact i64 %135, 3
-  %137 = icmp ult i64 %136, %111
+  %137 = icmp ugt i64 %111, %136
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %128
@@ -22852,7 +22852,7 @@ define internal fastcc void @_ZN5faissL22read_AdditiveQuantizerEPNS_17AdditiveQu
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 140:                                              ; preds = %128
-  %141 = icmp ugt i64 %136, %111
+  %141 = icmp ult i64 %111, %136
   br i1 %141, label %142, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 142:                                              ; preds = %140
@@ -23065,7 +23065,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %138, %140, %142, %1
   %258 = ptrtoint ptr %256 to i64
   %259 = sub i64 %257, %258
   %260 = ashr exact i64 %259, 2
-  %261 = icmp ult i64 %260, %235
+  %261 = icmp ugt i64 %235, %260
   br i1 %261, label %262, label %264
 
 262:                                              ; preds = %252
@@ -23076,7 +23076,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %138, %140, %142, %1
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 264:                                              ; preds = %252
-  %265 = icmp ugt i64 %260, %235
+  %265 = icmp ult i64 %235, %260
   br i1 %265, label %266, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 266:                                              ; preds = %264
@@ -23562,7 +23562,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %262, %264, %266, %2
   %536 = ptrtoint ptr %534 to i64
   %537 = sub i64 %535, %536
   %538 = ashr exact i64 %537, 2
-  %539 = icmp ult i64 %538, %513
+  %539 = icmp ugt i64 %513, %538
   br i1 %539, label %540, label %542
 
 540:                                              ; preds = %530
@@ -23573,7 +23573,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %262, %264, %266, %2
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit213
 
 542:                                              ; preds = %530
-  %543 = icmp ugt i64 %538, %513
+  %543 = icmp ult i64 %513, %538
   br i1 %543, label %544, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit213
 
 544:                                              ; preds = %542
@@ -23910,7 +23910,7 @@ define internal fastcc void @_ZN5faissL15read_direct_mapEPNS_9DirectMapEPNS_8IOR
   %97 = ptrtoint ptr %95 to i64
   %98 = sub i64 %96, %97
   %99 = ashr exact i64 %98, 3
-  %100 = icmp ult i64 %99, %73
+  %100 = icmp ugt i64 %73, %99
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %91
@@ -23921,7 +23921,7 @@ define internal fastcc void @_ZN5faissL15read_direct_mapEPNS_9DirectMapEPNS_8IOR
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 103:                                              ; preds = %91
-  %104 = icmp ugt i64 %99, %73
+  %104 = icmp ult i64 %73, %99
   br i1 %104, label %105, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 105:                                              ; preds = %103
@@ -24316,7 +24316,7 @@ define linkonce_odr void @_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_S
   %12 = fdiv double %9, %11
   %13 = tail call double @llvm.ceil.f64(double %12)
   %14 = fptoui double %13 to i64
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %14, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %1, i64 %14)
   %15 = tail call noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %.sroa.speculated)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
@@ -24450,7 +24450,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge
@@ -24891,7 +24891,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
 ._crit_edge.thread:                               ; preds = %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit, %46, %50, %44, %._crit_edge
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 48
-  %54 = icmp eq ptr %53, %52
+  %54 = icmp eq ptr %52, %53
   br i1 %54, label %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE21_M_deallocate_bucketsEv.exit, label %55
 
 55:                                               ; preds = %._crit_edge.thread
@@ -24938,7 +24938,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 128
-  %12 = icmp eq ptr %11, %10
+  %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -24975,7 +24975,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 128
-  %12 = icmp eq ptr %11, %10
+  %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZN5faiss19IndexIDMap2TemplateINS_5IndexEED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -26061,7 +26061,7 @@ _ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEC2Ev.exit: ; preds = %340
   %406 = ptrtoint ptr %404 to i64
   %407 = sub i64 %405, %406
   %408 = ashr exact i64 %407, 3
-  %409 = icmp ult i64 %408, %382
+  %409 = icmp ugt i64 %382, %408
   br i1 %409, label %410, label %412
 
 410:                                              ; preds = %400
@@ -26072,7 +26072,7 @@ _ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEC2Ev.exit: ; preds = %340
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 412:                                              ; preds = %400
-  %413 = icmp ugt i64 %408, %382
+  %413 = icmp ult i64 %382, %408
   br i1 %413, label %414, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 414:                                              ; preds = %412
@@ -26966,7 +26966,7 @@ _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_E
   %858 = load i8, ptr %857, align 1
   %859 = zext i8 %858 to i32
   %860 = lshr i32 %859, %854
-  %.not.i.i222 = icmp slt i32 %855, %661
+  %.not.i.i222 = icmp sgt i32 %661, %855
   br i1 %.not.i.i222, label %864, label %861
 
 861:                                              ; preds = %852
@@ -27035,7 +27035,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %8
   %892 = load i8, ptr %891, align 1
   %893 = zext i8 %892 to i32
   %894 = lshr i32 %893, %888
-  %.not.i76.i = icmp slt i32 %889, %886
+  %.not.i76.i = icmp sgt i32 %886, %889
   br i1 %.not.i76.i, label %900, label %895
 
 895:                                              ; preds = %_ZN5faiss15BitstringReader4readEi.exit.i
@@ -27177,7 +27177,7 @@ _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_E
   %955 = load i8, ptr %954, align 1
   %956 = zext i8 %955 to i32
   %957 = lshr i32 %956, %951
-  %.not.i97.i = icmp slt i32 %952, %949
+  %.not.i97.i = icmp sgt i32 %949, %952
   br i1 %.not.i97.i, label %963, label %958
 
 958:                                              ; preds = %948
@@ -27981,7 +27981,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %91, %.noexc130, %_Z
   %141 = ptrtoint ptr %.0.i.i.i.i.i to i64
   %142 = ptrtoint ptr %.sroa.0162.2 to i64
   %143 = sub i64 %141, %142
-  %144 = icmp ult i64 %143, %122
+  %144 = icmp ugt i64 %122, %143
   br i1 %144, label %145, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
 
 145:                                              ; preds = %140
@@ -28145,7 +28145,7 @@ _ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_
   %222 = load i8, ptr %221, align 1
   %223 = zext i8 %222 to i32
   %224 = lshr i32 %223, %218
-  %.not.i = icmp slt i32 %219, %1
+  %.not.i = icmp sgt i32 %1, %219
   br i1 %.not.i, label %228, label %225
 
 225:                                              ; preds = %216
@@ -28214,7 +28214,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %225, %._crit_edge.i
   %256 = load i8, ptr %255, align 1
   %257 = zext i8 %256 to i32
   %258 = lshr i32 %257, %252
-  %.not.i135 = icmp slt i32 %253, %250
+  %.not.i135 = icmp sgt i32 %250, %253
   br i1 %.not.i135, label %264, label %259
 
 259:                                              ; preds = %_ZN5faiss15BitstringReader4readEi.exit
@@ -28444,7 +28444,7 @@ _ZN5faiss15BitstringReader4readEi.exit154:        ; preds = %259, %._crit_edge.i
   %363 = ptrtoint ptr %361 to i64
   %364 = sub i64 %362, %363
   %365 = ashr exact i64 %364, 3
-  %366 = icmp ult i64 %365, %340
+  %366 = icmp ugt i64 %340, %365
   br i1 %366, label %367, label %369
 
 367:                                              ; preds = %358
@@ -28458,7 +28458,7 @@ _ZN5faiss15BitstringReader4readEi.exit154:        ; preds = %259, %._crit_edge.i
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 369:                                              ; preds = %358
-  %370 = icmp ugt i64 %365, %340
+  %370 = icmp ult i64 %340, %365
   br i1 %370, label %371, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 371:                                              ; preds = %369
@@ -28789,7 +28789,7 @@ define linkonce_odr void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 56
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -28798,7 +28798,7 @@ define linkonce_odr void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt
   br label %_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EE15_M_erase_at_endEPSB_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EE15_M_erase_at_endEPSB_.exit
 
 15:                                               ; preds = %13
@@ -28839,7 +28839,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stES
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %27 = load ptr, ptr %.05.i.i.i.i, align 8
   %28 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 48
-  %29 = icmp eq ptr %28, %27
+  %29 = icmp eq ptr %27, %28
   br i1 %29, label %_ZSt8_DestroyISt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS3_EEEEvPT_.exit.i.i.i.i, label %30
 
 30:                                               ; preds = %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i.i.i
@@ -28886,7 +28886,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 120
-  %12 = icmp eq ptr %11, %10
+  %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -28923,7 +28923,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 120
-  %12 = icmp eq ptr %11, %10
+  %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -28991,7 +28991,7 @@ define linkonce_odr void @_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash1
   %12 = fdiv double %9, %11
   %13 = tail call double @llvm.ceil.f64(double %12)
   %14 = fptoui double %13 to i64
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %14, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %1, i64 %14)
   %15 = tail call noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %.sroa.speculated)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
@@ -29123,7 +29123,7 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge
@@ -29387,7 +29387,7 @@ _ZSt27__uninitialized_default_n_aIPSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIl
   %53 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
   store ptr null, ptr %53, align 8, !alias.scope !56, !noalias !59
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
-  %55 = icmp eq ptr %54, %41
+  %55 = icmp eq ptr %41, %54
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %.lr.ph.i.i.i37
@@ -29455,7 +29455,7 @@ define linkonce_odr void @_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_E
   %12 = fdiv double %9, %11
   %13 = tail call double @llvm.ceil.f64(double %12)
   %14 = fptoui double %13 to i64
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %14, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %1, i64 %14)
   %15 = tail call noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %.sroa.speculated)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
@@ -29587,7 +29587,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stES
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge

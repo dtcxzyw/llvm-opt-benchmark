@@ -12,7 +12,7 @@ define ptr @strrchr(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   %.0 = phi ptr [ null, %2 ], [ %spec.select, %3 ]
   %4 = load i8, ptr %.04, align 1
   %5 = sext i8 %4 to i32
-  %6 = icmp eq i32 %5, %1
+  %6 = icmp eq i32 %1, %5
   %spec.select = select i1 %6, ptr %.04, ptr %.0
   %7 = getelementptr inbounds i8, ptr %.04, i64 1
   %.not = icmp eq i8 %4, 0

@@ -3185,7 +3185,7 @@ define dso_local { i64, i32 } @AlterDomainNotNull(ptr noundef %0, i1 noundef zer
   %19 = getelementptr inbounds i8, ptr %18, i64 130
   %20 = load i8, ptr %19, align 2
   %21 = trunc i8 %20 to i1
-  %22 = xor i1 %21, %1
+  %22 = xor i1 %1, %21
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %12
@@ -4885,13 +4885,13 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   call void @table_close(ptr noundef %64, i32 noundef 3) #8
   %67 = load i32, ptr %65, align 4
   call void @AlterConstraintNamespaces(i32 noundef %67, i32 noundef %25, i32 noundef %1, i1 noundef zeroext false, ptr noundef %4) #8
-  %brmerge79 = or i1 %.not69, %2
+  %brmerge79 = or i1 %2, %.not69
   br i1 %brmerge79, label %76, label %70
 
 68:                                               ; preds = %63
   %69 = load i8, ptr %39, align 1
   %.not70 = icmp eq i8 %69, 99
-  %brmerge77 = or i1 %.not70, %2
+  %brmerge77 = or i1 %2, %.not70
   br i1 %brmerge77, label %76, label %70
 
 70:                                               ; preds = %.thread, %68

@@ -1154,7 +1154,7 @@ entry:
 
 while.cond:                                       ; preds = %land.rhs, %entry
   %end.addr.0 = phi ptr [ %end, %entry ], [ %arrayidx, %land.rhs ]
-  %cmp.not = icmp eq ptr %end.addr.0, %cur
+  %cmp.not = icmp eq ptr %cur, %end.addr.0
   br i1 %cmp.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
@@ -6930,7 +6930,7 @@ if.end:                                           ; preds = %if.then10.i, %if.en
   %16 = load i32, ptr %string_length9, align 4
   %current_table_bytes_.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %current_table_bytes_.i.i, align 8
-  %cmp.i = icmp ult i32 %17, %16
+  %cmp.i = icmp ugt i32 %16, %17
   br i1 %cmp.i, label %_ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit, label %if.else
 
 _ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit: ; preds = %if.end
@@ -6938,7 +6938,7 @@ _ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit: ; preds = %i
   %add.i = add nuw nsw i64 %conv, 32
   %hard_limit_.i.i = getelementptr inbounds i8, ptr %15, i64 88
   %18 = load i64, ptr %hard_limit_.i.i, align 8
-  %cmp.i.i.not = icmp ugt i64 %18, %add.i
+  %cmp.i.i.not = icmp ult i64 %add.i, %18
   br i1 %cmp.i.i.not, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %_ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit
@@ -7653,7 +7653,7 @@ if.end:                                           ; preds = %if.then10.i, %if.en
   %16 = load i32, ptr %string_length9, align 4
   %current_table_bytes_.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %current_table_bytes_.i.i, align 8
-  %cmp.i = icmp ult i32 %17, %16
+  %cmp.i = icmp ugt i32 %16, %17
   br i1 %cmp.i, label %_ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit, label %if.else
 
 _ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit: ; preds = %if.end
@@ -7661,7 +7661,7 @@ _ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit: ; preds = %i
   %add.i = add nuw nsw i64 %conv, 32
   %hard_limit_.i.i = getelementptr inbounds i8, ptr %15, i64 88
   %18 = load i64, ptr %hard_limit_.i.i, align 8
-  %cmp.i.i.not = icmp ugt i64 %18, %add.i
+  %cmp.i.i.not = icmp ult i64 %add.i, %18
   br i1 %cmp.i.i.not, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %_ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit
@@ -9327,7 +9327,7 @@ if.end:                                           ; preds = %entry
   %7 = load i8, ptr %0, align 1
   %8 = and i8 %7, 127
   %and = zext nneg i8 %8 to i32
-  %add = add i32 %and, %value
+  %add = add i32 %value, %and
   %cmp = icmp sgt i8 %7, -1
   br i1 %cmp, label %return, label %if.end10
 
@@ -18019,7 +18019,7 @@ _ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.ex
 
 _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %if.then4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %__last, %incdec.ptr.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIPKhmEvRT_T0_.exit
@@ -18082,7 +18082,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIhSaIh
   %cond.i58 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i59 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i61 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i59, %sub.ptr.rhs.cast.i.i56
-  %tobool.not.i.i.i.i.i.i.i.i.i62 = icmp eq ptr %4, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i62 = icmp eq ptr %__position.coerce, %4
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i62, label %invoke.cont61, label %if.then.i.i.i.i.i.i.i.i.i63
 
 if.then.i.i.i.i.i.i.i.i.i63:                      ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit

@@ -1304,7 +1304,7 @@ define internal range(i32 -9, 1) i32 @netxray_dump_can_write_encap_1_1(i32 nound
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
   %4 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 8
-  %6 = icmp eq i32 %5, %0
+  %6 = icmp eq i32 %0, %5
   br i1 %6, label %wtap_encap_to_netxray_1_1_encap.exit, label %3
 
 wtap_encap_to_netxray_1_1_encap.exit:             ; preds = %3, %.preheader, %1
@@ -1495,7 +1495,7 @@ define internal range(i32 0, 2) i32 @netxray_dump_finish_1_1(ptr noundef %0, ptr
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %22 ]
   %24 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %25, %21
+  %26 = icmp eq i32 %21, %25
   br i1 %26, label %27, label %22
 
 27:                                               ; preds = %23
@@ -1557,7 +1557,7 @@ define internal range(i32 -9, 1) i32 @netxray_dump_can_write_encap_2_0(i32 nound
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
   %4 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 8
-  %6 = icmp eq i32 %5, %0
+  %6 = icmp eq i32 %0, %5
   br i1 %6, label %wtap_encap_to_netxray_2_0_encap.exit, label %3
 
 wtap_encap_to_netxray_2_0_encap.exit:             ; preds = %3, %.preheader, %1
@@ -1838,7 +1838,7 @@ define internal range(i32 0, 2) i32 @netxray_dump_finish_2_0(ptr noundef %0, ptr
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %22 ]
   %24 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %25, %21
+  %26 = icmp eq i32 %21, %25
   br i1 %26, label %27, label %22
 
 27:                                               ; preds = %23

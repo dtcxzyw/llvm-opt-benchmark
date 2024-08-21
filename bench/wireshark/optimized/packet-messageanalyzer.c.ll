@@ -1546,7 +1546,7 @@ define internal fastcc i32 @dissect_ma_wfp_capture_v4_common(ptr noundef %0, ptr
   %16 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.372, ptr noundef %15, i32 noundef %16) #4
   %17 = load i32, ptr @proto_ma_wfp_capture2_v4, align 4
-  %18 = icmp eq i32 %17, %3
+  %18 = icmp eq i32 %3, %17
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %4
@@ -1844,7 +1844,7 @@ define internal fastcc i32 @dissect_ma_wfp_capture_v6_common(ptr noundef %0, ptr
   %16 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.372, ptr noundef %15, i32 noundef %16) #4
   %17 = load i32, ptr @proto_ma_wfp_capture2_v6, align 4
-  %18 = icmp eq i32 %17, %3
+  %18 = icmp eq i32 %3, %17
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %4
@@ -2096,7 +2096,7 @@ define internal fastcc i32 @dissect_ma_wfp_capture_auth_common(ptr noundef %0, p
   %8 = load i32, ptr @ett_ma_wfp_capture_auth, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #4
   %10 = load i32, ptr @proto_ma_wfp_capture_auth_v4, align 4
-  %11 = icmp eq i32 %10, %3
+  %11 = icmp eq i32 %3, %10
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %4
@@ -2110,7 +2110,7 @@ define internal fastcc i32 @dissect_ma_wfp_capture_auth_common(ptr noundef %0, p
 14:                                               ; preds = %13, %12
   %.0 = phi i32 [ 4, %12 ], [ 16, %13 ]
   %15 = load i32, ptr @proto_ma_wfp_capture_auth_v4, align 4
-  %16 = icmp eq i32 %15, %3
+  %16 = icmp eq i32 %3, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %14

@@ -142,7 +142,7 @@ if.end4.i:                                        ; preds = %if.end.i
 lor.lhs.false.i:                                  ; preds = %if.end4.i
   %write_queue.i = getelementptr inbounds i8, ptr %w, i64 56
   %6 = load ptr, ptr %write_queue.i, align 8
-  %cmp.i.not.i = icmp eq ptr %6, %write_queue.i
+  %cmp.i.not.i = icmp eq ptr %write_queue.i, %6
   br i1 %cmp.i.not.i, label %if.then9.i, label %if.end12.i
 
 if.then9.i:                                       ; preds = %lor.lhs.false.i, %if.end4.i
@@ -175,7 +175,7 @@ if.end16.i:                                       ; preds = %if.then14.i, %if.en
 if.then23.i:                                      ; preds = %if.end16.i
   %write_queue.i.i = getelementptr inbounds i8, ptr %w, i64 56
   %11 = load ptr, ptr %write_queue.i.i, align 8
-  %cmp.i.not6.i.i = icmp eq ptr %11, %write_queue.i.i
+  %cmp.i.not6.i.i = icmp eq ptr %write_queue.i.i, %11
   br i1 %cmp.i.not6.i.i, label %uv__stream_flush_write_queue.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then23.i
@@ -200,7 +200,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   store ptr %12, ptr %16, align 8
   store ptr %12, ptr %prev.i5.i.i, align 8
   %17 = load ptr, ptr %write_queue.i.i, align 8
-  %cmp.i.not.i.i = icmp eq ptr %17, %write_queue.i.i
+  %cmp.i.not.i.i = icmp eq ptr %write_queue.i.i, %17
   br i1 %cmp.i.not.i.i, label %uv__stream_flush_write_queue.exit.i, label %while.body.i.i
 
 uv__stream_flush_write_queue.exit.i:              ; preds = %while.body.i.i, %if.then23.i
@@ -639,7 +639,7 @@ if.then27:                                        ; preds = %if.end19
   call fastcc void @uv__write_callbacks(ptr noundef nonnull %add.ptr)
   %write_queue = getelementptr inbounds i8, ptr %w, i64 56
   %76 = load ptr, ptr %write_queue, align 8
-  %cmp.i37.not = icmp eq ptr %76, %write_queue
+  %cmp.i37.not = icmp eq ptr %write_queue, %76
   br i1 %cmp.i37.not, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.then27
@@ -728,7 +728,7 @@ define hidden void @uv__stream_flush_write_queue(ptr noundef %stream, i32 nounde
 entry:
   %write_queue = getelementptr inbounds i8, ptr %stream, i64 192
   %0 = load ptr, ptr %write_queue, align 8
-  %cmp.i.not6 = icmp eq ptr %0, %write_queue
+  %cmp.i.not6 = icmp eq ptr %write_queue, %0
   br i1 %cmp.i.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -753,7 +753,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store ptr %1, ptr %5, align 8
   store ptr %1, ptr %prev.i5, align 8
   %6 = load ptr, ptr %write_queue, align 8
-  %cmp.i.not = icmp eq ptr %6, %write_queue
+  %cmp.i.not = icmp eq ptr %write_queue, %6
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %entry
@@ -785,7 +785,7 @@ do.body:                                          ; preds = %entry
 if.end:                                           ; preds = %do.body, %entry
   %write_queue.i = getelementptr inbounds i8, ptr %stream, i64 192
   %5 = load ptr, ptr %write_queue.i, align 8
-  %cmp.i.not6.i = icmp eq ptr %5, %write_queue.i
+  %cmp.i.not6.i = icmp eq ptr %write_queue.i, %5
   br i1 %cmp.i.not6.i, label %uv__stream_flush_write_queue.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end
@@ -810,7 +810,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store ptr %6, ptr %10, align 8
   store ptr %6, ptr %prev.i5.i, align 8
   %11 = load ptr, ptr %write_queue.i, align 8
-  %cmp.i.not.i = icmp eq ptr %11, %write_queue.i
+  %cmp.i.not.i = icmp eq ptr %write_queue.i, %11
   br i1 %cmp.i.not.i, label %uv__stream_flush_write_queue.exit, label %while.body.i
 
 uv__stream_flush_write_queue.exit:                ; preds = %while.body.i, %if.end
@@ -825,7 +825,7 @@ entry:
   %pq = alloca %struct.uv__queue, align 8
   %write_completed_queue = getelementptr inbounds i8, ptr %stream, i64 208
   %0 = load ptr, ptr %write_completed_queue, align 8
-  %cmp.i.not = icmp eq ptr %0, %write_completed_queue
+  %cmp.i.not = icmp eq ptr %write_completed_queue, %0
   br i1 %cmp.i.not, label %while.end, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
@@ -841,7 +841,7 @@ if.else.i:                                        ; preds = %entry
   store ptr %write_completed_queue, ptr %2, align 8
   store ptr %pq, ptr %prev4.i.i, align 8
   %3 = load ptr, ptr %pq, align 8
-  %cmp.i15.not17 = icmp eq ptr %3, %pq
+  %cmp.i15.not17 = icmp eq ptr %pq, %3
   br i1 %cmp.i15.not17, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.else.i
@@ -908,7 +908,7 @@ if.then15:                                        ; preds = %if.end13
 
 if.end17:                                         ; preds = %if.then15, %if.end13
   %17 = load ptr, ptr %pq, align 8
-  %cmp.i15.not = icmp eq ptr %17, %pq
+  %cmp.i15.not = icmp eq ptr %pq, %17
   br i1 %cmp.i15.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %if.end17, %if.else.i, %entry
@@ -1314,7 +1314,7 @@ do.body9:                                         ; preds = %lor.lhs.false4
   store i32 %and16, ptr %flags, align 8
   %write_queue = getelementptr inbounds i8, ptr %stream, i64 192
   %6 = load ptr, ptr %write_queue, align 8
-  %cmp.i.not = icmp eq ptr %6, %write_queue
+  %cmp.i.not = icmp eq ptr %write_queue, %6
   br i1 %cmp.i.not, label %if.then18, label %return
 
 if.then18:                                        ; preds = %do.body9
@@ -1480,7 +1480,7 @@ for.cond.outer:                                   ; preds = %uv__write_req_finis
 
 for.cond:                                         ; preds = %for.cond.outer, %if.end20
   %0 = load ptr, ptr %write_queue, align 8
-  %cmp.i.not = icmp eq ptr %0, %write_queue
+  %cmp.i.not = icmp eq ptr %write_queue, %0
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %for.cond
@@ -1740,7 +1740,7 @@ entry:
   %msg = alloca %struct.msghdr, align 8
   %cmsg = alloca %union.uv__cmsg, align 8
   %call = tail call i32 @uv__getiovmax() #12
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %call, i32 %nbufs)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %nbufs, i32 %call)
   %cmp1.not = icmp eq ptr %send_handle, null
   br i1 %cmp1.not, label %do.body13.preheader, label %if.then2
 

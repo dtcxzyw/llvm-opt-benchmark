@@ -305,7 +305,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %71, %74
   store i32 33619968, ptr %27, align 8
   store ptr %18, ptr %106, align 8
   %108 = load double, ptr %24, align 8
-  %109 = fmul double %108, %3
+  %109 = fmul double %3, %108
   %110 = invoke noundef double @_ZN2cv9thresholdERKNS_11_InputArrayERKNS_12_OutputArrayEddi(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27, double noundef %109, double noundef 0.000000e+00, i32 noundef 3)
           to label %111 unwind label %229
 
@@ -1119,7 +1119,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit232: ; preds = %_ZNSt6ve
   %.sroa.0331.8 = phi ptr [ %401, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i229 ], [ %.sroa.0331.3501, %386 ]
   %.sroa.10338.5 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i227.pn, i64 8
   %408 = add i32 %.0151502, 1
-  %409 = icmp eq i32 %408, %2
+  %409 = icmp eq i32 %2, %408
   %or.cond189 = select i1 %274, i1 %409, i1 false
   br i1 %or.cond189, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit232._crit_edge, label %.loopexit387
 
@@ -1342,7 +1342,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit262: ; preds = %_ZNSt6ve
   %.sroa.10338.6 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i257.pn, i64 8
   %480 = add nuw i64 %.1148522, 1
   %indvars = trunc i64 %480 to i32
-  %481 = icmp eq i32 %indvars, %2
+  %481 = icmp eq i32 %2, %indvars
   %or.cond191 = select i1 %247, i1 %481, i1 false
   %exitcond590.not = icmp eq i64 %480, %umax589
   %or.cond630 = select i1 %or.cond191, i1 true, i1 %exitcond590.not
@@ -2380,7 +2380,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
   %.0.i = phi i64 [ %10, %.split.i ], [ %56, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKfSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN2cv14greaterThanPtrEEEEvT_T0_SF_T1_T2_.exit.i ]
   %phi.call.i = getelementptr inbounds ptr, ptr %0, i64 %.0.i
   %19 = load ptr, ptr %phi.call.i, align 8
-  %20 = icmp sgt i64 %12, %.0.i
+  %20 = icmp slt i64 %.0.i, %12
   br i1 %20, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %18, %34

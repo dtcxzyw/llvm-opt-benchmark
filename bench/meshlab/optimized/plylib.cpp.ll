@@ -387,7 +387,7 @@ _ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE11_M_allocateEm.exit: ; preds
 _ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE11_M_allocateEm.exit ], [ %48, %.lr.ph.i.i.i.i ]
   %49 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 168
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i.i17
@@ -558,13 +558,13 @@ _ZN3vcg3ply10PlyElement8FindPropEPKc.exit:        ; preds = %.lr.ph.i
 29:                                               ; preds = %25, %23
   %30 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 36
   %31 = load i32, ptr %30, align 4
-  %.not = icmp eq i32 %31, %5
+  %.not = icmp eq i32 %5, %31
   br i1 %.not, label %32, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 32
   %34 = load i32, ptr %33, align 8
-  %.not55 = icmp eq i32 %34, %2
+  %.not55 = icmp eq i32 %2, %34
   br i1 %.not55, label %35, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread
 
 35:                                               ; preds = %32
@@ -573,7 +573,7 @@ _ZN3vcg3ply10PlyElement8FindPropEPKc.exit:        ; preds = %.lr.ph.i
 36:                                               ; preds = %35
   %37 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 40
   %38 = load i32, ptr %37, align 8
-  %.not56 = icmp eq i32 %38, %7
+  %.not56 = icmp eq i32 %7, %38
   br i1 %.not56, label %39, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread
 
 39:                                               ; preds = %36
@@ -1925,7 +1925,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i17
@@ -2031,7 +2031,7 @@ _ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE9constructIS2_JRKS2_EEEvRS3_P
 _ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %38, %.lr.ph.i.i.i.i ]
   %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 64
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i.i27
@@ -2408,7 +2408,7 @@ define noundef ptr @_ZN3vcg3ply7PlyFile8ElemNameEi(ptr nocapture noundef nonnull
   %10 = sub i64 %8, %9
   %11 = lshr exact i64 %10, 6
   %12 = trunc i64 %11 to i32
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %13, label %17
 
 13:                                               ; preds = %4
@@ -2439,7 +2439,7 @@ define noundef i32 @_ZNK3vcg3ply7PlyFile10ElemNumberEi(ptr nocapture noundef non
   %10 = sub i64 %8, %9
   %11 = lshr exact i64 %10, 6
   %12 = trunc i64 %11 to i32
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %13, label %17
 
 13:                                               ; preds = %4

@@ -2743,7 +2743,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %302
   %566 = load i64, ptr %26, align 8, !alias.scope !553, !noalias !556, !noundef !8
   %567 = load i64, ptr %.sroa.5.0..sroa_idx.i.i244, align 8, !alias.scope !553, !noalias !556, !noundef !8
   %568 = sub i64 %566, %567
-  %569 = icmp ugt i64 %568, %564
+  %569 = icmp ult i64 %564, %568
   br i1 %569, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h17692e77590edab6E.exit64.thread.us.i", label %570
 
 570:                                              ; preds = %563
@@ -2833,7 +2833,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %302
   %592 = load i64, ptr %26, align 8, !alias.scope !576, !noalias !579, !noundef !8
   %593 = load i64, ptr %.sroa.5.0..sroa_idx.i.i244, align 8, !alias.scope !576, !noalias !579, !noundef !8
   %594 = sub i64 %592, %593
-  %595 = icmp ugt i64 %594, %.us-phi86.i
+  %595 = icmp ult i64 %.us-phi86.i, %594
   br i1 %595, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h17692e77590edab6E.exit.thread.i", label %596
 
 596:                                              ; preds = %591
@@ -2890,7 +2890,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %302
   %614 = load i64, ptr %26, align 8, !alias.scope !581, !noalias !584, !noundef !8
   %615 = load i64, ptr %.sroa.5.0..sroa_idx.i.i244, align 8, !alias.scope !581, !noalias !584, !noundef !8
   %616 = sub i64 %614, %615
-  %617 = icmp ugt i64 %616, %612
+  %617 = icmp ult i64 %612, %616
   br i1 %617, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h17692e77590edab6E.exit59.thread.i", label %618
 
 618:                                              ; preds = %611
@@ -3043,7 +3043,7 @@ _ZN6uu_tac10buffer_tac17h2412e63fec88ceedE.exit:  ; preds = %603
   %.039.lcssa296.i = phi i64 [ %.140.i, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17hb10a25cf88e6a05fE.exit.i256" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !606)
   %653 = sub i64 %652, %651
-  %654 = icmp ugt i64 %653, %.039.lcssa296.i
+  %654 = icmp ult i64 %.039.lcssa296.i, %653
   br i1 %654, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h17692e77590edab6E.exit.thread.i266", label %655
 
 655:                                              ; preds = %._crit_edge.thread.i
@@ -3075,7 +3075,7 @@ _ZN6uu_tac10buffer_tac17h2412e63fec88ceedE.exit:  ; preds = %603
   store i64 %649, ptr %18, align 8, !noalias !612
   store i64 %.037194.i, ptr %175, align 8, !noalias !612
   %663 = add i64 %.037194.i, 1
-  %.not4.i.i.i = icmp ult i64 %663, %649
+  %.not4.i.i.i = icmp ugt i64 %649, %663
   br i1 %.not4.i.i.i, label %664, label %_ZN14regex_automata4util6search5Input8set_span17ha6b47a7fb4c99499E.exit.i.i
 
 664:                                              ; preds = %662
@@ -3693,7 +3693,7 @@ _ZN14regex_automata4meta5regex5Regex6search17h648c121a5c95efe5E.exit.i.i: ; pred
   %860 = load i64, ptr %22, align 8, !alias.scope !703, !noalias !706, !noundef !8
   %861 = load i64, ptr %.sroa.5.0..sroa_idx.i.i258, align 8, !alias.scope !703, !noalias !706, !noundef !8
   %862 = sub i64 %860, %861
-  %863 = icmp ugt i64 %862, %858
+  %863 = icmp ult i64 %858, %862
   br i1 %863, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h17692e77590edab6E.exit67.thread.i", label %864
 
 864:                                              ; preds = %857
@@ -3719,7 +3719,7 @@ _ZN14regex_automata4meta5regex5Regex6search17h648c121a5c95efe5E.exit.i.i: ; pred
   %873 = load i64, ptr %22, align 8, !alias.scope !709, !noalias !712, !noundef !8
   %874 = load i64, ptr %.sroa.5.0..sroa_idx.i.i258, align 8, !alias.scope !709, !noalias !712, !noundef !8
   %875 = sub i64 %873, %874
-  %876 = icmp ugt i64 %875, %871
+  %876 = icmp ult i64 %871, %875
   br i1 %876, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h17692e77590edab6E.exit70.thread.i", label %877
 
 877:                                              ; preds = %870

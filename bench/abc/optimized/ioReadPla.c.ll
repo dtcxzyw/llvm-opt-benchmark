@@ -1651,7 +1651,7 @@ define ptr @Io_ReadPla(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nound
 
 25:                                               ; preds = %22
   %26 = load i32, ptr %15, align 4
-  %27 = icmp sgt i32 %26, %24
+  %27 = icmp slt i32 %24, %26
   br i1 %27, label %Extra_ProgressBarUpdate.exit.i, label %28
 
 28:                                               ; preds = %25, %22

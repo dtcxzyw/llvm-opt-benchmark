@@ -374,7 +374,7 @@ define void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr nocapture noundef nonnull 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %_ZN6marisa8grimoire2io6Mapper8map_dataEm.exit
 
 14:                                               ; preds = %10
@@ -429,7 +429,7 @@ define noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr nocapture nound
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %10

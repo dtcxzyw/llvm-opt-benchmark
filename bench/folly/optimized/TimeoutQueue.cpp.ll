@@ -464,7 +464,7 @@ entry:
   %2 = load i64, ptr %1, align 8, !tbaa !36
   %and.i157291 = and i64 %2, -2
   %3 = inttoptr i64 %and.i157291 to ptr
-  %cmp.not292 = icmp eq ptr %3, %x
+  %cmp.not292 = icmp eq ptr %x, %3
   br i1 %cmp.not292, label %while.end, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %entry
@@ -1335,7 +1335,7 @@ if.end40:                                         ; preds = %if.end30, %if.then1
   %12 = load i64, ptr %11, align 8, !tbaa !36
   %and.i436 = and i64 %12, -2
   %13 = inttoptr i64 %and.i436 to ptr
-  %cmp42 = icmp eq ptr %13, %z
+  %cmp42 = icmp eq ptr %z, %13
   br i1 %cmp42, label %if.then43, label %if.else45
 
 if.then43:                                        ; preds = %if.end40
@@ -1400,7 +1400,7 @@ if.end78:                                         ; preds = %if.then74, %if.else
   %24 = load i64, ptr %20, align 8, !tbaa !36
   %and.i457 = and i64 %24, -2
   %25 = inttoptr i64 %and.i457 to ptr
-  %cmp80 = icmp eq ptr %25, %z
+  %cmp80 = icmp eq ptr %z, %25
   br i1 %cmp80, label %if.then81, label %if.else83
 
 if.then81:                                        ; preds = %if.end78

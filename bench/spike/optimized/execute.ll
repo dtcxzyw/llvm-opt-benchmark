@@ -657,11 +657,11 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %177, %175, %_ZL
   %230 = load ptr, ptr %228, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 8
   %232 = load i64, ptr %231, align 8
-  %233 = icmp eq i64 %232, %.168143
+  %233 = icmp eq i64 %.168143, %232
   br i1 %233, label %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEixERS5_.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
 234:                                              ; preds = %237
-  %235 = icmp eq i64 %239, %.168143
+  %235 = icmp eq i64 %.168143, %239
   br i1 %235, label %_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEixERS5_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %229, %234
@@ -1729,7 +1729,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
 ._crit_edge:                                      ; preds = %30, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 48
-  %33 = icmp eq ptr %32, %31
+  %33 = icmp eq ptr %31, %32
   br i1 %33, label %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %34
 
 34:                                               ; preds = %._crit_edge

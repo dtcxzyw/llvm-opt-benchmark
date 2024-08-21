@@ -612,7 +612,7 @@ define dso_local i32 @irq_set_affinity_locked(ptr noundef %0, ptr noundef %1, i1
 25:                                               ; preds = %22
   %26 = tail call i32 @irq_do_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   %27 = icmp ne i32 %26, -16
-  %28 = or i1 %27, %2
+  %28 = or i1 %2, %27
   br i1 %28, label %38, label %29
 
 29:                                               ; preds = %25

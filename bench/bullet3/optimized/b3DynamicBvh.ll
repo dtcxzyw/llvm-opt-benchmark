@@ -296,7 +296,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %4 = load ptr, ptr %pdbvt, align 8
-  %cmp = icmp eq ptr %4, %node
+  %cmp = icmp eq ptr %node, %4
   br i1 %cmp, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
@@ -1748,7 +1748,7 @@ if.end44:                                         ; preds = %_ZNK12b3DbvtAabbMm7
 define internal fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr nocapture noundef %pdbvt, ptr noundef readonly %leaf) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %pdbvt, align 8
-  %cmp = icmp eq ptr %0, %leaf
+  %cmp = icmp eq ptr %leaf, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1995,15 +1995,15 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   store float %sub8.i.i, ptr %arrayidx7.i.i, align 8
   %mx.i7 = getelementptr inbounds i8, ptr %volume, i64 16
   %14 = load float, ptr %mx.i7, align 16
-  %add.i.i = fadd float %14, %margin
+  %add.i.i = fadd float %margin, %14
   store float %add.i.i, ptr %mx.i7, align 16
   %arrayidx4.i3.i = getelementptr inbounds i8, ptr %volume, i64 20
   %15 = load float, ptr %arrayidx4.i3.i, align 4
-  %add5.i.i = fadd float %15, %margin
+  %add5.i.i = fadd float %margin, %15
   store float %add5.i.i, ptr %arrayidx4.i3.i, align 4
   %arrayidx7.i5.i = getelementptr inbounds i8, ptr %volume, i64 24
   %16 = load float, ptr %arrayidx7.i5.i, align 8
-  %add8.i.i = fadd float %16, %margin
+  %add8.i.i = fadd float %margin, %16
   store float %add8.i.i, ptr %arrayidx7.i5.i, align 8
   %17 = load float, ptr %velocity, align 16
   %cmp.i8 = fcmp ogt float %17, 0.000000e+00
@@ -2250,15 +2250,15 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   store float %sub8.i.i, ptr %arrayidx7.i.i, align 8
   %mx.i6 = getelementptr inbounds i8, ptr %volume, i64 16
   %14 = load float, ptr %mx.i6, align 16
-  %add.i.i = fadd float %14, %margin
+  %add.i.i = fadd float %margin, %14
   store float %add.i.i, ptr %mx.i6, align 16
   %arrayidx4.i3.i = getelementptr inbounds i8, ptr %volume, i64 20
   %15 = load float, ptr %arrayidx4.i3.i, align 4
-  %add5.i.i = fadd float %15, %margin
+  %add5.i.i = fadd float %margin, %15
   store float %add5.i.i, ptr %arrayidx4.i3.i, align 4
   %arrayidx7.i5.i = getelementptr inbounds i8, ptr %volume, i64 24
   %16 = load float, ptr %arrayidx7.i5.i, align 8
-  %add8.i.i = fadd float %16, %margin
+  %add8.i.i = fadd float %margin, %16
   store float %add8.i.i, ptr %arrayidx7.i5.i, align 8
   %call.i = tail call fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef nonnull %this, ptr noundef nonnull %leaf)
   %tobool.not.i = icmp eq ptr %call.i, null

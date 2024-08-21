@@ -1074,7 +1074,7 @@ _ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit: ; preds = %if.then25
   %conv27 = sext i32 %nextArg.0247 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max.addr.i)
   store i64 %nargs, ptr %max.addr.i, align 8, !tbaa !56
-  %cmp.not.i146 = icmp ult i64 %conv27, %nargs
+  %cmp.not.i146 = icmp ugt i64 %nargs, %conv27
   br i1 %cmp.not.i146, label %_ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit, label %if.then.i.i147, !prof !55
 
 if.then.i.i147:                                   ; preds = %_ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit
@@ -1118,7 +1118,7 @@ _ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit154: ; preds = %if.then
   %conv43 = sext i32 %18 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max.addr.i155)
   store i64 %nargs, ptr %max.addr.i155, align 8, !tbaa !56
-  %cmp.not.i156 = icmp ult i64 %conv43, %nargs
+  %cmp.not.i156 = icmp ugt i64 %nargs, %conv43
   br i1 %cmp.not.i156, label %_ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit158, label %if.then.i.i157, !prof !55
 
 if.then.i.i157:                                   ; preds = %_ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit154
@@ -1208,7 +1208,7 @@ if.end61:                                         ; preds = %if.end57
   %conv62 = sext i32 %argIndex.0 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max.addr.i173)
   store i64 %nargs, ptr %max.addr.i173, align 8, !tbaa !56
-  %cmp.not.i174 = icmp ult i64 %conv62, %nargs
+  %cmp.not.i174 = icmp ugt i64 %nargs, %conv62
   br i1 %cmp.not.i174, label %_ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit176, label %if.then.i.i175, !prof !55
 
 if.then.i.i175:                                   ; preds = %if.end61
@@ -7563,7 +7563,7 @@ if.then:                                          ; preds = %_ZN5folly3f146detai
   %sh_prom.i = and i64 %3, 255
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %and.i37 = and i64 %sub.i, %hp.coerce0
+  %and.i37 = and i64 %hp.coerce0, %sub.i
   %add.ptr38 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %and.i37
   %cmp839 = icmp eq ptr %add.ptr38, %add.ptr1.i.i
   br i1 %cmp839, label %cleanup.thread, label %if.end
@@ -10104,7 +10104,7 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detai
   %25 = phi ptr [ %.pre, %if.end7 ], [ %.pre136, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit ]
   %notmask.i60 = shl nsw i64 -1, %sh_prom.i59.pre-phi
   %sub.i61 = xor i64 %notmask.i60, -1
-  %and.i62 = and i64 %sub.i61, %hp.coerce0
+  %and.i62 = and i64 %hp.coerce0, %sub.i61
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %25, i64 %and.i62
   %26 = load <16 x i8>, ptr %add.ptr, align 16, !tbaa !28
   %27 = icmp slt <16 x i8> %26, zeroinitializer
@@ -12467,7 +12467,7 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detai
   %14 = phi ptr [ %10, %if.end7 ], [ %.pre115, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit ]
   %notmask.i58 = shl nsw i64 -1, %sh_prom.i57.pre-phi
   %sub.i59 = xor i64 %notmask.i58, -1
-  %and.i60 = and i64 %sub.i59, %hp.coerce0
+  %and.i60 = and i64 %hp.coerce0, %sub.i59
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %14, i64 %and.i60
   %15 = load <16 x i8>, ptr %add.ptr, align 16, !tbaa !28
   %16 = icmp slt <16 x i8> %15, zeroinitializer

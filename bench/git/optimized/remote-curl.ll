@@ -1187,7 +1187,7 @@ if.end.i.i:                                       ; preds = %push_dav.exit.i.i, 
 
 if.then.i14.i.i83:                                ; preds = %if.end.i.i
   %111 = load ptr, ptr @last_discovery, align 8
-  %cmp.i15.i.i = icmp eq ptr %111, %call.i.i58
+  %cmp.i15.i.i = icmp eq ptr %call.i.i58, %111
   br i1 %cmp.i15.i.i, label %if.then1.i.i.i, label %if.end.i16.i.i
 
 if.then1.i.i.i:                                   ; preds = %if.then.i14.i.i83
@@ -1273,7 +1273,7 @@ if.then.i113:                                     ; preds = %if.end70
   %call1.i114 = call i64 @strtol(ptr noundef nonnull %value.0, ptr noundef nonnull %end.i, i32 noundef 10) #16
   %conv.i115 = trunc i64 %call1.i114 to i32
   %120 = load ptr, ptr %end.i, align 8
-  %cmp.i116 = icmp eq ptr %120, %value.0
+  %cmp.i116 = icmp eq ptr %value.0, %120
   br i1 %cmp.i116, label %if.end82, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i113
@@ -1323,7 +1323,7 @@ if.else22.i:                                      ; preds = %if.else.i107
 if.then25.i:                                      ; preds = %if.else22.i
   %call28.i = call i64 @strtoul(ptr noundef nonnull %value.0, ptr noundef nonnull %end26.i, i32 noundef 10) #16
   %122 = load ptr, ptr %end26.i, align 8
-  %cmp29.i = icmp eq ptr %122, %value.0
+  %cmp29.i = icmp eq ptr %value.0, %122
   br i1 %cmp29.i, label %if.end82, label %lor.lhs.false31.i
 
 lor.lhs.false31.i:                                ; preds = %if.then25.i
@@ -2196,7 +2196,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true
   %3 = load ptr, ptr @last_discovery, align 8
-  %cmp.i = icmp eq ptr %3, %1
+  %cmp.i = icmp eq ptr %1, %3
   br i1 %cmp.i, label %if.then1.i, label %free_discovery.exit
 
 if.then1.i:                                       ; preds = %if.then.i
@@ -3671,7 +3671,7 @@ if.then1:                                         ; preds = %if.end
 lor.lhs.false:                                    ; preds = %if.then1
   %len = getelementptr inbounds i8, ptr %clientp, i64 64
   %1 = load i64, ptr %len, align 8
-  %cmp3 = icmp ult i64 %1, %offset
+  %cmp3 = icmp ugt i64 %offset, %1
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %lor.lhs.false, %if.then1

@@ -3717,7 +3717,7 @@ entry:
   %1 = or i1 %hasAssocStream, %hasExAttributes
   %cond = select i1 %1, i8 4, i8 0
   %hasPriority.not = xor i1 %hasPriority, true
-  %brmerge = or i1 %hasPriority.not, %hasAssocStream
+  %brmerge = or i1 %hasAssocStream, %hasPriority.not
   %2 = load i32, ptr @_ZN8proxygen5http218kFramePrioritySizeE, align 4
   %3 = trunc i32 %2 to i8
   %conv10 = select i1 %brmerge, i8 0, i8 %3
@@ -3905,7 +3905,7 @@ invoke.cont:                                      ; preds = %if.else149.i, %_ZNR
   %and190.i = shl i32 %length.addr.2.i, 8
   %conv191.i = zext i8 %type to i32
   %or192.i = or disjoint i32 %and190.i, %conv191.i
-  %cmp.not.i = icmp ugt i64 %headerSize.1, %bufLen
+  %cmp.not.i = icmp ult i64 %bufLen, %headerSize.1
   br i1 %cmp.not.i, label %if.else.i, label %invoke.cont6.thread
 
 invoke.cont6.thread:                              ; preds = %invoke.cont

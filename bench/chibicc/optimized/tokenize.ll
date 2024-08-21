@@ -178,7 +178,7 @@ entry:
 
 while.cond:                                       ; preds = %land.rhs, %entry
   %line.0 = phi ptr [ %loc, %entry ], [ %arrayidx, %land.rhs ]
-  %cmp = icmp ugt ptr %line.0, %input
+  %cmp = icmp ult ptr %input, %line.0
   br i1 %cmp, label %land.rhs, label %while.cond3.preheader
 
 land.rhs:                                         ; preds = %while.cond

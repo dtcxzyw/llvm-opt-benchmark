@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i64 0, -9223372036854775808) i64 @_ZN17cranelift_bforest4node9split_pos17h3dabb7ba4df49034E(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = lshr i64 %0, 1
-  %.not = icmp ult i64 %3, %1
+  %.not = icmp ugt i64 %1, %3
   %4 = add i64 %0, 1
   %5 = lshr i64 %4, 1
   %.0 = select i1 %.not, i64 %5, i64 %3

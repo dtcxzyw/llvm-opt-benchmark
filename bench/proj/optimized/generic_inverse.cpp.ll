@@ -50,36 +50,36 @@ define hidden { double, double } @_Z21pj_generic_inverse_2d5PJ_XYP8PJconsts5PJ_L
   %33 = fsub double %31, %13
   %34 = fdiv double %33, %27
   %35 = fsub double %32, %14
-  %36 = fdiv double %35, %27
-  %37 = fcmp ogt double %.sroa.12.0121, 0.000000e+00
-  %38 = select i1 %37, double 0xBEB0C6F7A0B5ED8D, double 0x3EB0C6F7A0B5ED8D
-  %39 = fadd double %.sroa.12.0121, %38
-  %40 = load ptr, ptr %7, align 8
-  %41 = tail call { double, double } %40(double %.sroa.068.0120, double %39, ptr noundef nonnull %2)
-  %42 = extractvalue { double, double } %41, 0
-  %43 = extractvalue { double, double } %41, 1
-  %44 = fsub double %42, %13
-  %45 = fsub double %43, %14
-  %46 = fdiv double %45, %38
-  %47 = fneg double %44
-  %48 = fdiv double %47, %38
-  %49 = fmul double %36, %48
+  %36 = fcmp ogt double %.sroa.12.0121, 0.000000e+00
+  %37 = select i1 %36, double 0xBEB0C6F7A0B5ED8D, double 0x3EB0C6F7A0B5ED8D
+  %38 = fadd double %.sroa.12.0121, %37
+  %39 = load ptr, ptr %7, align 8
+  %40 = tail call { double, double } %39(double %.sroa.068.0120, double %38, ptr noundef nonnull %2)
+  %41 = extractvalue { double, double } %40, 0
+  %42 = extractvalue { double, double } %40, 1
+  %43 = fsub double %41, %13
+  %44 = fdiv double %43, %37
+  %45 = fsub double %42, %14
+  %46 = fdiv double %45, %37
+  %47 = fneg double %35
+  %48 = fdiv double %47, %27
+  %49 = fmul double %48, %44
   %50 = tail call double @llvm.fmuladd.f64(double %34, double %46, double %49)
   %51 = fcmp une double %50, 0.000000e+00
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %25
   %53 = fdiv double %46, %50
-  %54 = fdiv double %48, %50
-  %55 = fneg double %36
-  %56 = fdiv double %55, %50
+  %54 = fneg double %44
+  %55 = fdiv double %54, %50
+  %56 = fdiv double %48, %50
   %57 = fdiv double %34, %50
   br label %58
 
 58:                                               ; preds = %21, %25, %52
   %.184 = phi double [ %57, %52 ], [ %.083116, %25 ], [ %.083116, %21 ]
   %.182 = phi double [ %56, %52 ], [ %.081117, %25 ], [ %.081117, %21 ]
-  %.180 = phi double [ %54, %52 ], [ %.079118, %25 ], [ %.079118, %21 ]
+  %.180 = phi double [ %55, %52 ], [ %.079118, %25 ], [ %.079118, %21 ]
   %.1 = phi double [ %53, %52 ], [ %.0119, %25 ], [ %.0119, %21 ]
   br i1 %8, label %59, label %69
 

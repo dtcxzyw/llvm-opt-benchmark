@@ -241,7 +241,7 @@ define internal fastcc void @print_qom_composition(ptr noundef %mon, ptr noundef
 entry:
   %call = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8) #4
   %call1 = tail call ptr @object_get_root() #4
-  %cmp = icmp eq ptr %call1, %obj
+  %cmp = icmp eq ptr %obj, %call1
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry

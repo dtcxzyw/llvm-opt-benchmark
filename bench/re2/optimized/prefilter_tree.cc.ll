@@ -4772,7 +4772,7 @@ define linkonce_odr i64 @_ZN3re213AbslHashValueIN4absl7debian213hash_internal9Ha
 entry:
   %0 = load i32, ptr %a, align 8
   %or.i.i.i.i.i.i.i.i = zext i32 %0 to i64
-  %add.i.i.i.i.i.i.i.i = add i64 %or.i.i.i.i.i.i.i.i, %h.coerce
+  %add.i.i.i.i.i.i.i.i = add i64 %h.coerce, %or.i.i.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i, 64
@@ -5068,21 +5068,21 @@ entry:
   %2 = ptrtoint ptr %0 to i64
   %shr.i.i.i.i = lshr i64 %2, 12
   %xor.i.i.i = xor i64 %shr.i.i.i.i, %shr.i.i.i
-  %seq.sroa.3.012.i = and i64 %xor.i.i.i, %1
-  %add.ptr13.i = getelementptr inbounds i8, ptr %0, i64 %seq.sroa.3.012.i
-  %3 = load <16 x i8>, ptr %add.ptr13.i, align 1
-  %cmp.i.i.i14.i = icmp slt <16 x i8> %3, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %4 = bitcast <16 x i1> %cmp.i.i.i14.i to i16
-  %cmp.i.not15.i = icmp eq i16 %4, 0
-  br i1 %cmp.i.not15.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
+  %and.i.i.i = and i64 %xor.i.i.i, %1
+  %add.ptr12.i = getelementptr inbounds i8, ptr %0, i64 %and.i.i.i
+  %3 = load <16 x i8>, ptr %add.ptr12.i, align 1
+  %cmp.i.i.i13.i = icmp slt <16 x i8> %3, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %4 = bitcast <16 x i1> %cmp.i.i.i13.i to i16
+  %cmp.i.not14.i = icmp eq i16 %4, 0
+  br i1 %cmp.i.not14.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
 
 if.end.i:                                         ; preds = %entry, %if.end.i
-  %seq.sroa.3.017.i = phi i64 [ %seq.sroa.3.0.i, %if.end.i ], [ %seq.sroa.3.012.i, %entry ]
   %seq.sroa.8.016.i = phi i64 [ %add.i4.i, %if.end.i ], [ 0, %entry ]
+  %seq.sroa.3.015.i = phi i64 [ %and.i6.i, %if.end.i ], [ %and.i.i.i, %entry ]
   %add.i4.i = add i64 %seq.sroa.8.016.i, 16
-  %add3.i.i = add i64 %add.i4.i, %seq.sroa.3.017.i
-  %seq.sroa.3.0.i = and i64 %add3.i.i, %1
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %seq.sroa.3.0.i
+  %add3.i.i = add i64 %add.i4.i, %seq.sroa.3.015.i
+  %and.i6.i = and i64 %add3.i.i, %1
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %and.i6.i
   %5 = load <16 x i8>, ptr %add.ptr.i, align 1
   %cmp.i.i.i.i = icmp slt <16 x i8> %5, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %6 = bitcast <16 x i1> %cmp.i.i.i.i to i16
@@ -5090,7 +5090,7 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !54
 
 _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %if.end.i, %entry
-  %seq.sroa.3.0.lcssa.i = phi i64 [ %seq.sroa.3.012.i, %entry ], [ %seq.sroa.3.0.i, %if.end.i ]
+  %seq.sroa.3.0.lcssa.i = phi i64 [ %and.i.i.i, %entry ], [ %and.i6.i, %if.end.i ]
   %.lcssa.i = phi i16 [ %4, %entry ], [ %6, %if.end.i ]
   %7 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %conv.i = zext nneg i16 %7 to i64
@@ -5140,21 +5140,21 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re
   %13 = ptrtoint ptr %11 to i64
   %shr.i.i.i.i9 = lshr i64 %13, 12
   %xor.i.i.i10 = xor i64 %shr.i.i.i.i9, %shr.i.i.i
-  %seq.sroa.3.012.i11 = and i64 %xor.i.i.i10, %12
-  %add.ptr13.i12 = getelementptr inbounds i8, ptr %11, i64 %seq.sroa.3.012.i11
-  %14 = load <16 x i8>, ptr %add.ptr13.i12, align 1
-  %cmp.i.i.i14.i13 = icmp slt <16 x i8> %14, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %15 = bitcast <16 x i1> %cmp.i.i.i14.i13 to i16
-  %cmp.i.not15.i14 = icmp eq i16 %15, 0
-  br i1 %cmp.i.not15.i14, label %if.end.i24, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit33
+  %and.i.i.i11 = and i64 %xor.i.i.i10, %12
+  %add.ptr12.i12 = getelementptr inbounds i8, ptr %11, i64 %and.i.i.i11
+  %14 = load <16 x i8>, ptr %add.ptr12.i12, align 1
+  %cmp.i.i.i13.i13 = icmp slt <16 x i8> %14, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %15 = bitcast <16 x i1> %cmp.i.i.i13.i13 to i16
+  %cmp.i.not14.i14 = icmp eq i16 %15, 0
+  br i1 %cmp.i.not14.i14, label %if.end.i24, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit33
 
 if.end.i24:                                       ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE28rehash_and_grow_if_necessaryEv.exit, %if.end.i24
-  %seq.sroa.3.017.i25 = phi i64 [ %seq.sroa.3.0.i29, %if.end.i24 ], [ %seq.sroa.3.012.i11, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE28rehash_and_grow_if_necessaryEv.exit ]
-  %seq.sroa.8.016.i26 = phi i64 [ %add.i4.i27, %if.end.i24 ], [ 0, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE28rehash_and_grow_if_necessaryEv.exit ]
-  %add.i4.i27 = add i64 %seq.sroa.8.016.i26, 16
-  %add3.i.i28 = add i64 %add.i4.i27, %seq.sroa.3.017.i25
-  %seq.sroa.3.0.i29 = and i64 %add3.i.i28, %12
-  %add.ptr.i30 = getelementptr inbounds i8, ptr %11, i64 %seq.sroa.3.0.i29
+  %seq.sroa.8.016.i25 = phi i64 [ %add.i4.i27, %if.end.i24 ], [ 0, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE28rehash_and_grow_if_necessaryEv.exit ]
+  %seq.sroa.3.015.i26 = phi i64 [ %and.i6.i29, %if.end.i24 ], [ %and.i.i.i11, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE28rehash_and_grow_if_necessaryEv.exit ]
+  %add.i4.i27 = add i64 %seq.sroa.8.016.i25, 16
+  %add3.i.i28 = add i64 %add.i4.i27, %seq.sroa.3.015.i26
+  %and.i6.i29 = and i64 %add3.i.i28, %12
+  %add.ptr.i30 = getelementptr inbounds i8, ptr %11, i64 %and.i6.i29
   %16 = load <16 x i8>, ptr %add.ptr.i30, align 1
   %cmp.i.i.i.i31 = icmp slt <16 x i8> %16, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %17 = bitcast <16 x i1> %cmp.i.i.i.i31 to i16
@@ -5162,11 +5162,11 @@ if.end.i24:                                       ; preds = %_ZN4absl7debian218c
   br i1 %cmp.i.not.i32, label %if.end.i24, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit33, !llvm.loop !54
 
 _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit33: ; preds = %if.end.i24, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE28rehash_and_grow_if_necessaryEv.exit
-  %seq.sroa.3.0.lcssa.i17 = phi i64 [ %seq.sroa.3.012.i11, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE28rehash_and_grow_if_necessaryEv.exit ], [ %seq.sroa.3.0.i29, %if.end.i24 ]
+  %seq.sroa.3.0.lcssa.i16 = phi i64 [ %and.i.i.i11, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE28rehash_and_grow_if_necessaryEv.exit ], [ %and.i6.i29, %if.end.i24 ]
   %.lcssa.i18 = phi i16 [ %15, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE28rehash_and_grow_if_necessaryEv.exit ], [ %17, %if.end.i24 ]
   %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i18, i1 true)
   %conv.i19 = zext nneg i16 %18 to i64
-  %add.i.i20 = add i64 %seq.sroa.3.0.lcssa.i17, %conv.i19
+  %add.i.i20 = add i64 %seq.sroa.3.0.lcssa.i16, %conv.i19
   %and.i.i21 = and i64 %add.i.i20, %12
   %.pre = load i64, ptr %settings_.i, align 8
   br label %if.end
@@ -5236,18 +5236,18 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re
   %sub.i7.i = sub i64 %new_capacity, %5
   %settings_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %sub.i7.i, ptr %settings_.i.i.i, align 8
-  %cmp.not25 = icmp eq i64 %2, 0
-  br i1 %cmp.not25, label %if.end19, label %for.body
+  %cmp.not26 = icmp eq i64 %2, 0
+  br i1 %cmp.not26, label %if.end19, label %for.body
 
 for.body:                                         ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE16initialize_slotsEv.exit, %for.inc
-  %i.026 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE16initialize_slotsEv.exit ]
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %i.026
+  %i.027 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re29PrefilterEEENS4_13PrefilterTree13PrefilterHashENS8_14PrefilterEqualESaIS6_EE16initialize_slotsEv.exit ]
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %i.027
   %6 = load i8, ptr %arrayidx, align 1
   %cmp.i = icmp sgt i8 %6, -1
   br i1 %cmp.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %i.026
+  %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %i.027
   %7 = load ptr, ptr %add.ptr, align 8
   %call.i.i.i.i.i.i.i.i.i = tail call noundef i64 @_ZN3re213AbslHashValueIN4absl7debian213hash_internal9HashStateEEET_S5_RKNS_9PrefilterE(i64 ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), ptr noundef nonnull align 8 dereferenceable(52) %7)
   %8 = load ptr, ptr %this, align 8
@@ -5256,21 +5256,21 @@ if.then:                                          ; preds = %for.body
   %10 = ptrtoint ptr %8 to i64
   %shr.i.i.i.i = lshr i64 %10, 12
   %xor.i.i.i = xor i64 %shr.i.i.i.i, %shr.i.i.i
-  %seq.sroa.3.012.i = and i64 %xor.i.i.i, %9
-  %add.ptr13.i = getelementptr inbounds i8, ptr %8, i64 %seq.sroa.3.012.i
-  %11 = load <16 x i8>, ptr %add.ptr13.i, align 1
-  %cmp.i.i.i14.i = icmp slt <16 x i8> %11, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %12 = bitcast <16 x i1> %cmp.i.i.i14.i to i16
-  %cmp.i.not15.i = icmp eq i16 %12, 0
-  br i1 %cmp.i.not15.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
+  %and.i.i.i = and i64 %xor.i.i.i, %9
+  %add.ptr12.i = getelementptr inbounds i8, ptr %8, i64 %and.i.i.i
+  %11 = load <16 x i8>, ptr %add.ptr12.i, align 1
+  %cmp.i.i.i13.i = icmp slt <16 x i8> %11, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %12 = bitcast <16 x i1> %cmp.i.i.i13.i to i16
+  %cmp.i.not14.i = icmp eq i16 %12, 0
+  br i1 %cmp.i.not14.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
 
 if.end.i:                                         ; preds = %if.then, %if.end.i
-  %seq.sroa.3.017.i = phi i64 [ %seq.sroa.3.0.i, %if.end.i ], [ %seq.sroa.3.012.i, %if.then ]
   %seq.sroa.8.016.i = phi i64 [ %add.i4.i, %if.end.i ], [ 0, %if.then ]
+  %seq.sroa.3.015.i = phi i64 [ %and.i6.i, %if.end.i ], [ %and.i.i.i, %if.then ]
   %add.i4.i = add i64 %seq.sroa.8.016.i, 16
-  %add3.i.i = add i64 %add.i4.i, %seq.sroa.3.017.i
-  %seq.sroa.3.0.i = and i64 %add3.i.i, %9
-  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %seq.sroa.3.0.i
+  %add3.i.i = add i64 %add.i4.i, %seq.sroa.3.015.i
+  %and.i6.i = and i64 %add3.i.i, %9
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %and.i6.i
   %13 = load <16 x i8>, ptr %add.ptr.i, align 1
   %cmp.i.i.i.i15 = icmp slt <16 x i8> %13, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %14 = bitcast <16 x i1> %cmp.i.i.i.i15 to i16
@@ -5278,7 +5278,7 @@ if.end.i:                                         ; preds = %if.then, %if.end.i
   br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !54
 
 _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %if.end.i, %if.then
-  %seq.sroa.3.0.lcssa.i = phi i64 [ %seq.sroa.3.012.i, %if.then ], [ %seq.sroa.3.0.i, %if.end.i ]
+  %seq.sroa.3.0.lcssa.i = phi i64 [ %and.i.i.i, %if.then ], [ %and.i6.i, %if.end.i ]
   %.lcssa.i = phi i16 [ %12, %if.then ], [ %14, %if.end.i ]
   %15 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %conv.i = zext nneg i16 %15 to i64
@@ -5304,7 +5304,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
-  %inc = add nuw i64 %i.026, 1
+  %inc = add nuw i64 %i.027, 1
   %cmp.not = icmp eq i64 %inc, %2
   br i1 %cmp.not, label %if.then14, label %for.body, !llvm.loop !55
 
@@ -5324,24 +5324,24 @@ entry:
   %1 = load i64, ptr %capacity_, align 8
   tail call void @_ZN4absl7debian218container_internal37ConvertDeletedToEmptyAndFullToDeletedEPam(ptr noundef %0, i64 noundef %1)
   %2 = load i64, ptr %capacity_, align 8
-  %cmp.not70 = icmp eq i64 %2, 0
-  br i1 %cmp.not70, label %for.end, label %for.body.lr.ph
+  %cmp.not71 = icmp eq i64 %2, 0
+  br i1 %cmp.not71, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %slots_ = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.071 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.072 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %i.071
+  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %i.072
   %4 = load i8, ptr %arrayidx, align 1
   %cmp.i = icmp eq i8 %4, -2
   br i1 %cmp.i, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
   %5 = load ptr, ptr %slots_, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %5, i64 %i.071
+  %add.ptr = getelementptr inbounds ptr, ptr %5, i64 %i.072
   %6 = load ptr, ptr %add.ptr, align 8
   %call.i.i.i.i.i.i.i.i.i = tail call noundef i64 @_ZN3re213AbslHashValueIN4absl7debian213hash_internal9HashStateEEET_S5_RKNS_9PrefilterE(i64 ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), ptr noundef nonnull align 8 dereferenceable(52) %6)
   %7 = load ptr, ptr %this, align 8
@@ -5350,21 +5350,21 @@ if.end:                                           ; preds = %for.body
   %9 = ptrtoint ptr %7 to i64
   %shr.i.i.i.i = lshr i64 %9, 12
   %xor.i.i.i = xor i64 %shr.i.i.i.i, %shr.i.i.i
-  %seq.sroa.3.012.i = and i64 %xor.i.i.i, %8
-  %add.ptr13.i = getelementptr inbounds i8, ptr %7, i64 %seq.sroa.3.012.i
-  %10 = load <16 x i8>, ptr %add.ptr13.i, align 1
-  %cmp.i.i.i14.i = icmp slt <16 x i8> %10, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %11 = bitcast <16 x i1> %cmp.i.i.i14.i to i16
-  %cmp.i.not15.i = icmp eq i16 %11, 0
-  br i1 %cmp.i.not15.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
+  %and.i.i.i = and i64 %xor.i.i.i, %8
+  %add.ptr12.i = getelementptr inbounds i8, ptr %7, i64 %and.i.i.i
+  %10 = load <16 x i8>, ptr %add.ptr12.i, align 1
+  %cmp.i.i.i13.i = icmp slt <16 x i8> %10, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %11 = bitcast <16 x i1> %cmp.i.i.i13.i to i16
+  %cmp.i.not14.i = icmp eq i16 %11, 0
+  br i1 %cmp.i.not14.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
 
 if.end.i:                                         ; preds = %if.end, %if.end.i
-  %seq.sroa.3.017.i = phi i64 [ %seq.sroa.3.0.i, %if.end.i ], [ %seq.sroa.3.012.i, %if.end ]
   %seq.sroa.8.016.i = phi i64 [ %add.i4.i, %if.end.i ], [ 0, %if.end ]
+  %seq.sroa.3.015.i = phi i64 [ %and.i6.i, %if.end.i ], [ %and.i.i.i, %if.end ]
   %add.i4.i = add i64 %seq.sroa.8.016.i, 16
-  %add3.i.i = add i64 %add.i4.i, %seq.sroa.3.017.i
-  %seq.sroa.3.0.i = and i64 %add3.i.i, %8
-  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %seq.sroa.3.0.i
+  %add3.i.i = add i64 %add.i4.i, %seq.sroa.3.015.i
+  %and.i6.i = and i64 %add3.i.i, %8
+  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %and.i6.i
   %12 = load <16 x i8>, ptr %add.ptr.i, align 1
   %cmp.i.i.i.i = icmp slt <16 x i8> %12, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %13 = bitcast <16 x i1> %cmp.i.i.i.i to i16
@@ -5372,75 +5372,75 @@ if.end.i:                                         ; preds = %if.end, %if.end.i
   br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !54
 
 _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %if.end.i, %if.end
-  %seq.sroa.3.0.lcssa.i = phi i64 [ %seq.sroa.3.012.i, %if.end ], [ %seq.sroa.3.0.i, %if.end.i ]
+  %seq.sroa.3.0.lcssa.i = phi i64 [ %and.i.i.i, %if.end ], [ %and.i6.i, %if.end.i ]
   %.lcssa.i = phi i16 [ %11, %if.end ], [ %13, %if.end.i ]
   %14 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %conv.i = zext nneg i16 %14 to i64
   %add.i.i = add i64 %seq.sroa.3.0.lcssa.i, %conv.i
   %and.i.i = and i64 %add.i.i, %8
-  %sub.i = sub i64 %and.i.i, %seq.sroa.3.012.i
-  %sub.i27 = sub i64 %i.071, %seq.sroa.3.012.i
-  %and.i67 = xor i64 %sub.i, %sub.i27
-  %cmp12.unshifted = and i64 %and.i67, %8
+  %sub.i = sub i64 %and.i.i, %and.i.i.i
+  %sub.i28 = sub i64 %i.072, %and.i.i.i
+  %and.i68 = xor i64 %sub.i, %sub.i28
+  %cmp12.unshifted = and i64 %and.i68, %8
   %cmp12 = icmp ult i64 %cmp12.unshifted, 16
   br i1 %cmp12, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
   %15 = trunc i64 %call.i.i.i.i.i.i.i.i.i to i8
-  %conv.i30 = and i8 %15, 127
-  %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 %i.071
-  store i8 %conv.i30, ptr %arrayidx.i, align 1
+  %conv.i31 = and i8 %15, 127
+  %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 %i.072
+  store i8 %conv.i31, ptr %arrayidx.i, align 1
   %16 = load ptr, ptr %this, align 8
-  %sub.i31 = add i64 %i.071, -16
+  %sub.i32 = add i64 %i.072, -16
   %17 = load i64, ptr %capacity_, align 8
-  %and.i33 = and i64 %17, %sub.i31
+  %and.i34 = and i64 %17, %sub.i32
   %and6.i = and i64 %17, 15
-  %18 = getelementptr i8, ptr %16, i64 %and.i33
+  %18 = getelementptr i8, ptr %16, i64 %and.i34
   %19 = getelementptr i8, ptr %18, i64 1
   %arrayidx8.i = getelementptr i8, ptr %19, i64 %and6.i
-  store i8 %conv.i30, ptr %arrayidx8.i, align 1
+  store i8 %conv.i31, ptr %arrayidx8.i, align 1
   br label %for.inc
 
 if.end15:                                         ; preds = %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
   %arrayidx17 = getelementptr inbounds i8, ptr %7, i64 %and.i.i
   %20 = load i8, ptr %arrayidx17, align 1
-  %cmp.i34 = icmp eq i8 %20, -128
+  %cmp.i35 = icmp eq i8 %20, -128
   %21 = trunc i64 %call.i.i.i.i.i.i.i.i.i to i8
-  %conv.i35 = and i8 %21, 127
-  store i8 %conv.i35, ptr %arrayidx17, align 1
+  %conv.i36 = and i8 %21, 127
+  store i8 %conv.i36, ptr %arrayidx17, align 1
   %22 = load ptr, ptr %this, align 8
-  %sub.i37 = add i64 %and.i.i, -16
+  %sub.i38 = add i64 %and.i.i, -16
   %23 = load i64, ptr %capacity_, align 8
-  %and.i39 = and i64 %23, %sub.i37
-  %and6.i40 = and i64 %23, 15
-  %24 = getelementptr i8, ptr %22, i64 %and.i39
+  %and.i40 = and i64 %23, %sub.i38
+  %and6.i41 = and i64 %23, 15
+  %24 = getelementptr i8, ptr %22, i64 %and.i40
   %25 = getelementptr i8, ptr %24, i64 1
-  %arrayidx8.i41 = getelementptr i8, ptr %25, i64 %and6.i40
-  store i8 %conv.i35, ptr %arrayidx8.i41, align 1
+  %arrayidx8.i42 = getelementptr i8, ptr %25, i64 %and6.i41
+  store i8 %conv.i36, ptr %arrayidx8.i42, align 1
   %26 = load ptr, ptr %slots_, align 8
-  br i1 %cmp.i34, label %if.then19, label %if.else
+  br i1 %cmp.i35, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end15
   %add.ptr23 = getelementptr inbounds ptr, ptr %26, i64 %and.i.i
-  %add.ptr25 = getelementptr inbounds ptr, ptr %26, i64 %i.071
+  %add.ptr25 = getelementptr inbounds ptr, ptr %26, i64 %i.072
   %27 = load ptr, ptr %add.ptr25, align 8
   store ptr %27, ptr %add.ptr23, align 8
   %28 = load ptr, ptr %this, align 8
-  %arrayidx.i43 = getelementptr inbounds i8, ptr %28, i64 %i.071
-  store i8 -128, ptr %arrayidx.i43, align 1
+  %arrayidx.i44 = getelementptr inbounds i8, ptr %28, i64 %i.072
+  store i8 -128, ptr %arrayidx.i44, align 1
   %29 = load ptr, ptr %this, align 8
-  %sub.i44 = add i64 %i.071, -16
+  %sub.i45 = add i64 %i.072, -16
   %30 = load i64, ptr %capacity_, align 8
-  %and.i46 = and i64 %30, %sub.i44
-  %and6.i47 = and i64 %30, 15
-  %31 = getelementptr i8, ptr %29, i64 %and.i46
+  %and.i47 = and i64 %30, %sub.i45
+  %and6.i48 = and i64 %30, 15
+  %31 = getelementptr i8, ptr %29, i64 %and.i47
   %32 = getelementptr i8, ptr %31, i64 1
-  %arrayidx8.i48 = getelementptr i8, ptr %32, i64 %and6.i47
-  store i8 -128, ptr %arrayidx8.i48, align 1
+  %arrayidx8.i49 = getelementptr i8, ptr %32, i64 %and6.i48
+  store i8 -128, ptr %arrayidx8.i49, align 1
   br label %for.inc
 
 if.else:                                          ; preds = %if.end15
-  %add.ptr29 = getelementptr inbounds ptr, ptr %26, i64 %i.071
+  %add.ptr29 = getelementptr inbounds ptr, ptr %26, i64 %i.072
   %33 = load ptr, ptr %add.ptr29, align 8
   %add.ptr34 = getelementptr inbounds ptr, ptr %26, i64 %and.i.i
   %34 = load ptr, ptr %add.ptr34, align 8
@@ -5448,25 +5448,25 @@ if.else:                                          ; preds = %if.end15
   %35 = load ptr, ptr %slots_, align 8
   %add.ptr37 = getelementptr inbounds ptr, ptr %35, i64 %and.i.i
   store ptr %33, ptr %add.ptr37, align 8
-  %dec = add i64 %i.071, -1
+  %dec = add i64 %i.072, -1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then19, %if.else, %for.body, %if.then13
-  %i.1 = phi i64 [ %i.071, %if.then13 ], [ %i.071, %if.then19 ], [ %dec, %if.else ], [ %i.071, %for.body ]
+  %i.1 = phi i64 [ %i.072, %if.then13 ], [ %i.072, %if.then19 ], [ %dec, %if.else ], [ %i.072, %for.body ]
   %inc = add i64 %i.1, 1
   %36 = load i64, ptr %capacity_, align 8
   %cmp.not = icmp eq i64 %inc, %36
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !56
 
 for.end:                                          ; preds = %for.inc, %entry
-  %.lcssa69 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %div2.i.i = lshr i64 %.lcssa69, 3
+  %.lcssa70 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
+  %div2.i.i = lshr i64 %.lcssa70, 3
   %size_.i = getelementptr inbounds i8, ptr %this, i64 16
   %37 = load i64, ptr %size_.i, align 8
   %38 = add i64 %div2.i.i, %37
-  %sub.i59 = sub i64 %.lcssa69, %38
+  %sub.i60 = sub i64 %.lcssa70, %38
   %settings_.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store i64 %sub.i59, ptr %settings_.i.i, align 8
+  store i64 %sub.i60, ptr %settings_.i.i, align 8
   ret void
 }
 
@@ -5532,7 +5532,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i19
@@ -6502,7 +6502,7 @@ for.body.i.i.i.i.i.i60:                           ; preds = %if.then.i55, %for.b
   br i1 %cmp.i.i.i.i.i.i66, label %for.body.i.i.i.i.i.i60, label %if.end89, !llvm.loop !66
 
 if.else.i43:                                      ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit42
-  %cmp.i = icmp eq ptr %__result.addr.0.lcssa.i.i.i.i.i31, %__buffer
+  %cmp.i = icmp eq ptr %__buffer, %__result.addr.0.lcssa.i.i.i.i.i31
   br i1 %cmp.i, label %if.end89, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.else.i43
@@ -6543,7 +6543,7 @@ if.then12.i:                                      ; preds = %_ZNK9__gnu_cxx5__op
   %18 = load i32, ptr %second.i.i53, align 4
   %second3.i.i54 = getelementptr inbounds i8, ptr %__result.sroa.0.0.i, i64 -8
   store i32 %18, ptr %second3.i.i54, align 8
-  %cmp.i12.i = icmp eq ptr %__last1.sroa.0.0.i.ph, %__first.coerce.tr143
+  %cmp.i12.i = icmp eq ptr %__first.coerce.tr143, %__last1.sroa.0.0.i.ph
   br i1 %cmp.i12.i, label %if.then18.i, label %while.body.i46.outer, !llvm.loop !78
 
 if.then18.i:                                      ; preds = %if.then12.i
@@ -6578,7 +6578,7 @@ if.else27.i:                                      ; preds = %_ZNK9__gnu_cxx5__op
   %21 = load i32, ptr %second.i36.i, align 4
   %second3.i37.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.i, i64 -8
   store i32 %21, ptr %second3.i37.i, align 8
-  %cmp31.i = icmp eq ptr %__last2.addr.0.i, %__buffer
+  %cmp31.i = icmp eq ptr %__buffer, %__last2.addr.0.i
   br i1 %cmp31.i, label %if.end89, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.else27.i
@@ -7110,7 +7110,7 @@ while.end:                                        ; preds = %_ZSt12__move_mergeI
   %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %add.ptr.i5, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
   %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %__result.addr.0.lcssa.i.i.i.i.i13.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
   %sub.ptr.div.i.lcssa = phi i64 [ %sub.ptr.div.i95, %entry ], [ %sub.ptr.div.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.i.lcssa, i64 %__step_size)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %__step_size, i64 %sub.ptr.div.i.lcssa)
   %add.ptr.i11 = getelementptr inbounds %"struct.std::pair.28", ptr %__first.sroa.0.0.lcssa, i64 %.sroa.speculated
   %cmp.i30.i13 = icmp ne i64 %.sroa.speculated, 0
   %cmp.i431.i14 = icmp ne ptr %add.ptr.i11, %__last.coerce
@@ -7363,7 +7363,7 @@ while.end:                                        ; preds = %_ZSt12__move_mergeI
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2, %_ZSt12__move_mergeIPSt4pairImiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
   %__result.sroa.0.0.lcssa = phi ptr [ %__result.coerce, %entry ], [ %add.ptr.i.i.i.i22.i, %_ZSt12__move_mergeIPSt4pairImiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
   %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div92, %entry ], [ %sub.ptr.div, %_ZSt12__move_mergeIPSt4pairImiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa, i64 %__step_size)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %__step_size, i64 %sub.ptr.div.lcssa)
   %add.ptr13 = getelementptr inbounds %"struct.std::pair.28", ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
   %cmp37.i15 = icmp ne i64 %.sroa.speculated, 0
   %cmp138.i16 = icmp ne ptr %add.ptr13, %__last
@@ -7726,7 +7726,7 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit: ; preds = %if.then9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %__last.coerce, %incdec.ptr.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEPiiET0_T_SA_S9_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit
@@ -7791,7 +7791,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIiSaIi
   %cond.i47 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i48 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i48, %sub.ptr.rhs.cast.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %4, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %__position.coerce, %4
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i51, label %invoke.cont83, label %if.then.i.i.i.i.i.i.i.i.i52
 
 if.then.i.i.i.i.i.i.i.i.i52:                      ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit
@@ -8206,7 +8206,7 @@ while.body.us:                                    ; preds = %if.end, %_ZSt13__ad
   %__parent.0.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %div1617, %if.end ]
   %phi.call.us = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.0.us
   %1 = load i32, ptr %phi.call.us, align 4
-  %cmp28.i.us = icmp sgt i64 %div.i2123, %__parent.0.us
+  %cmp28.i.us = icmp slt i64 %__parent.0.us, %div.i2123
   br i1 %cmp28.i.us, label %while.body.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 while.body.i.us:                                  ; preds = %while.body.us, %while.body.i.us
@@ -8258,7 +8258,7 @@ while.body:                                       ; preds = %while.body.preheade
   %__parent.0 = phi i64 [ %dec, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %div1617, %while.body.preheader ]
   %phi.call = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.0
   %6 = load i32, ptr %phi.call, align 4
-  %cmp28.i = icmp sgt i64 %div.i2123, %__parent.0
+  %cmp28.i = icmp slt i64 %__parent.0, %div.i2123
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %while.body.i

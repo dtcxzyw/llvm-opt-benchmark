@@ -300,7 +300,7 @@ define noundef double @_Z21calcRotationalEntropyfibPKff(float noundef %0, i32 no
   unreachable
 
 18:                                               ; preds = %15
-  %19 = fmul float %14, %4
+  %19 = fmul float %4, %14
   %20 = fdiv float %0, %19
   %21 = fpext float %20 to double
   br label %.sink.split

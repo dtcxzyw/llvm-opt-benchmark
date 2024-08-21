@@ -112,7 +112,7 @@ define hidden ptr @Curl_dynhds_getn(ptr nocapture noundef readonly %dynhds, i64 
 entry:
   %hds_len = getelementptr inbounds i8, ptr %dynhds, i64 8
   %0 = load i64, ptr %hds_len, align 8
-  %cmp = icmp ugt i64 %0, %n
+  %cmp = icmp ult i64 %n, %0
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry

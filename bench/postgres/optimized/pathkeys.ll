@@ -75,20 +75,20 @@ define dso_local ptr @make_canonical_pathkey(ptr nocapture noundef %0, ptr nound
 29:                                               ; preds = %23
   %30 = getelementptr inbounds i8, ptr %25, i64 16
   %31 = load i32, ptr %30, align 8
-  %32 = icmp eq i32 %31, %2
+  %32 = icmp eq i32 %2, %31
   br i1 %32, label %33, label %42
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %25, i64 20
   %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %35, %3
+  %36 = icmp eq i32 %3, %35
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %25, i64 24
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
-  %41 = xor i1 %40, %4
+  %41 = xor i1 %4, %40
   br i1 %41, label %42, label %.loopexit
 
 42:                                               ; preds = %23, %29, %33, %37
@@ -184,7 +184,7 @@ define dso_local ptr @append_pathkeys(ptr noundef %0, ptr noundef readonly %1) l
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, %.val
+  %26 = icmp eq ptr %.val, %25
   br i1 %26, label %pathkey_is_redundant.exit, label %20
 
 .loopexit:                                        ; preds = %20, %.preheader.i, %.lr.ph.i
@@ -577,7 +577,7 @@ compare_pathkeys.exit.thread.us.i:                ; preds = %.thread18.us.i
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
-  %91 = icmp eq ptr %90, %64
+  %91 = icmp eq ptr %64, %90
   br i1 %91, label %pathkeys_contained_in.exit.thread, label %.preheader.i.i45
 
 .preheader.i.i45:                                 ; preds = %86
@@ -822,7 +822,7 @@ compare_pathkeys.exit.thread.us.i109:             ; preds = %.thread18.us.i106
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8
-  %195 = icmp eq ptr %194, %168
+  %195 = icmp eq ptr %168, %194
   br i1 %195, label %pathkeys_contained_in.exit76.thread, label %.preheader.i.i85
 
 .preheader.i.i85:                                 ; preds = %190
@@ -1234,7 +1234,7 @@ pathkeys_contained_in.exit.thread27.us:           ; preds = %44, %36
 61:                                               ; preds = %58, %57
   %62 = getelementptr inbounds i8, ptr %52, i64 64
   %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %1
+  %64 = icmp eq ptr %1, %63
   br i1 %64, label %pathkeys_contained_in.exit.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %61
@@ -1410,7 +1410,7 @@ pathkeys_contained_in.exit.thread26.us:           ; preds = %22, %14
 34:                                               ; preds = %31, %.lr.ph69
   %35 = getelementptr inbounds i8, ptr %30, i64 64
   %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, %1
+  %37 = icmp eq ptr %1, %36
   br i1 %37, label %pathkeys_contained_in.exit.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %34
@@ -1671,7 +1671,7 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, %.val
+  %74 = icmp eq ptr %.val, %73
   br i1 %74, label %pathkey_is_redundant.exit, label %68
 
 .loopexit:                                        ; preds = %68, %.preheader.i, %.lr.ph.i
@@ -1815,7 +1815,7 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture nou
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, %.val
+  %50 = icmp eq ptr %.val, %49
   br i1 %50, label %pathkey_is_redundant.exit, label %44
 
 .loopexit:                                        ; preds = %44, %.preheader.i, %.lr.ph.i
@@ -2260,13 +2260,13 @@ find_var_for_subquery_tle.exit128:                ; preds = %134
 175:                                              ; preds = %169
   %176 = getelementptr inbounds i8, ptr %171, i64 16
   %177 = load i32, ptr %176, align 8
-  %178 = icmp eq i32 %177, %151
+  %178 = icmp eq i32 %151, %177
   br i1 %178, label %179, label %188
 
 179:                                              ; preds = %175
   %180 = getelementptr inbounds i8, ptr %171, i64 20
   %181 = load i32, ptr %180, align 4
-  %182 = icmp eq i32 %181, %152
+  %182 = icmp eq i32 %152, %181
   br i1 %182, label %183, label %188
 
 183:                                              ; preds = %179
@@ -2393,7 +2393,7 @@ find_var_for_subquery_tle.exit128.thread:         ; preds = %139, %119, %.lr.ph.
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 8
   %234 = load ptr, ptr %233, align 8
-  %235 = icmp eq ptr %234, %.089.val
+  %235 = icmp eq ptr %.089.val, %234
   br i1 %235, label %pathkey_is_redundant.exit, label %229
 
 .loopexit:                                        ; preds = %229, %.preheader.i138, %.lr.ph.i140
@@ -2874,7 +2874,7 @@ make_pathkey_from_sortop.exit:                    ; preds = %23
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, %.val
+  %54 = icmp eq ptr %.val, %53
   br i1 %54, label %pathkey_is_redundant.exit, label %48
 
 .loopexit:                                        ; preds = %48, %.preheader.i, %.lr.ph.i
@@ -3640,7 +3640,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, %.0.val
+  %74 = icmp eq ptr %.0.val, %73
   br i1 %74, label %pathkey_is_redundant.exit, label %68
 
 .loopexit:                                        ; preds = %68, %.preheader.i54, %.lr.ph.i56

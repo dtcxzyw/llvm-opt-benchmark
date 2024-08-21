@@ -658,7 +658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit66: ; 
   %139 = ptrtoint ptr %137 to i64
   %140 = sub i64 %138, %139
   %141 = ashr exact i64 %140, 3
-  %142 = icmp ult i64 %141, %135
+  %142 = icmp ugt i64 %135, %141
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %.noexc67
@@ -667,7 +667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit66: ; 
           to label %150 unwind label %237
 
 145:                                              ; preds = %.noexc67
-  %146 = icmp ugt i64 %141, %135
+  %146 = icmp ult i64 %135, %141
   br i1 %146, label %147, label %150
 
 147:                                              ; preds = %145
@@ -723,7 +723,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit73: ; 
   %166 = ptrtoint ptr %164 to i64
   %167 = sub i64 %165, %166
   %168 = ashr exact i64 %167, 3
-  %169 = icmp ult i64 %168, %162
+  %169 = icmp ugt i64 %162, %168
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %.noexc75
@@ -732,7 +732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit73: ; 
           to label %177 unwind label %241
 
 172:                                              ; preds = %.noexc75
-  %173 = icmp ugt i64 %168, %162
+  %173 = icmp ult i64 %162, %168
   br i1 %173, label %174, label %177
 
 174:                                              ; preds = %172
@@ -788,7 +788,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit82: ; 
   %193 = ptrtoint ptr %191 to i64
   %194 = sub i64 %192, %193
   %195 = ashr exact i64 %194, 3
-  %196 = icmp ult i64 %195, %189
+  %196 = icmp ugt i64 %189, %195
   br i1 %196, label %197, label %199
 
 197:                                              ; preds = %.noexc84
@@ -797,7 +797,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit82: ; 
           to label %204 unwind label %245
 
 199:                                              ; preds = %.noexc84
-  %200 = icmp ugt i64 %195, %189
+  %200 = icmp ult i64 %189, %195
   br i1 %200, label %201, label %204
 
 201:                                              ; preds = %199
@@ -2066,7 +2066,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37: ; 
   %96 = ptrtoint ptr %94 to i64
   %97 = sub i64 %95, %96
   %98 = sdiv exact i64 %97, 24
-  %99 = icmp ult i64 %98, %92
+  %99 = icmp ugt i64 %92, %98
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %.noexc38
@@ -2075,7 +2075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37: ; 
           to label %109 unwind label %176
 
 102:                                              ; preds = %.noexc38
-  %103 = icmp ugt i64 %98, %92
+  %103 = icmp ult i64 %92, %98
   br i1 %103, label %104, label %109
 
 104:                                              ; preds = %102
@@ -2214,7 +2214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54: ; 
   %140 = ptrtoint ptr %138 to i64
   %141 = sub i64 %139, %140
   %142 = ashr exact i64 %141, 2
-  %143 = icmp ult i64 %142, %136
+  %143 = icmp ugt i64 %136, %142
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %.noexc56
@@ -2223,7 +2223,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54: ; 
           to label %151 unwind label %190
 
 146:                                              ; preds = %.noexc56
-  %147 = icmp ugt i64 %142, %136
+  %147 = icmp ult i64 %136, %142
   br i1 %147, label %148, label %151
 
 148:                                              ; preds = %146
@@ -5903,7 +5903,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 15:                                               ; preds = %12
   %.not.i.i = icmp ne ptr %13, null
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = icmp eq ptr %16, %14
+  %17 = icmp eq ptr %14, %16
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %17
   br i1 %or.cond.i.i, label %.thread, label %18
 
@@ -5964,7 +5964,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -6835,7 +6835,7 @@ _ZSt10_ConstructIN3gmx17KeyValueTreeValueEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pre
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #18
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx17KeyValueTreeValueEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %28, %_ZSt8_DestroyIN3gmx17KeyValueTreeValueEEvPT_.exit.i.i.i.i.i.i

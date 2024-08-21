@@ -1607,7 +1607,7 @@ define internal fastcc noundef zeroext i1 @isCurrentGroup(ptr nocapture noundef 
   %20 = load i16, ptr %19, align 8
   %21 = sext i16 %20 to i32
   %22 = load i16, ptr %10, align 2
-  %23 = icmp slt i16 %22, %20
+  %23 = icmp sgt i16 %20, %22
   br i1 %23, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %17
@@ -1624,7 +1624,7 @@ slot_getattr.exit:                                ; preds = %17, %slot_getsomeat
   %30 = getelementptr i64, ptr %29, i64 %26
   %31 = load i64, ptr %30, align 8
   %32 = load i16, ptr %13, align 2
-  %33 = icmp slt i16 %32, %20
+  %33 = icmp sgt i16 %20, %32
   br i1 %33, label %slot_getsomeattrs.exit.i23, label %slot_getattr.exit24
 
 slot_getsomeattrs.exit.i23:                       ; preds = %slot_getattr.exit

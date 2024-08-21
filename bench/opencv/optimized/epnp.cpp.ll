@@ -4257,14 +4257,14 @@ define hidden void @_ZN2cv4epnp16estimate_R_and_tEPA3_dPd(ptr nocapture noundef 
   %155 = getelementptr inbounds i8, ptr %1, i64 56
   %156 = load double, ptr %155, align 8
   %157 = call double @llvm.fmuladd.f64(double %154, double %156, double %150)
-  %158 = fneg double %152
-  %159 = fmul double %138, %158
+  %158 = fneg double %138
+  %159 = fmul double %152, %158
   %160 = call double @llvm.fmuladd.f64(double %159, double %148, double %157)
-  %161 = fneg double %144
-  %162 = fmul double %153, %161
+  %161 = fneg double %153
+  %162 = fmul double %144, %161
   %163 = call double @llvm.fmuladd.f64(double %162, double %142, double %160)
-  %164 = fneg double %135
-  %165 = fmul double %146, %164
+  %164 = fneg double %146
+  %165 = fmul double %135, %164
   %166 = call double @llvm.fmuladd.f64(double %165, double %156, double %163)
   %167 = fcmp olt double %166, 0.000000e+00
   br i1 %167, label %168, label %172

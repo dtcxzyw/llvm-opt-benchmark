@@ -300,9 +300,9 @@ if.then9:                                         ; preds = %entry
 
 if.end10:                                         ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 13
-  %cmp11 = icmp ugt ptr %add.ptr, %in
+  %cmp11 = icmp ult ptr %in, %add.ptr
   %add.ptr13 = getelementptr inbounds i8, ptr %in, i64 %in_len
-  %cmp14 = icmp ugt ptr %add.ptr13, %out
+  %cmp14 = icmp ult ptr %out, %add.ptr13
   %or.cond = select i1 %cmp11, i1 %cmp14, i1 false
   br i1 %or.cond, label %if.then16, label %if.end17
 

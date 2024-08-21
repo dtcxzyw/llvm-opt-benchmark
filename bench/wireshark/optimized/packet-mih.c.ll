@@ -2153,7 +2153,7 @@ define internal fastcc void @dissect_link_status_req(ptr noundef %0, i16 noundef
   %hf_channel_id.val = load i32, ptr @hf_channel_id, align 4
   %9 = select i1 %.not, i32 %hf_op_mode.val, i32 %hf_channel_id.val
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %7, i32 noundef %.38, i32 noundef 0) #5
-  %11 = add i16 %.39, %1
+  %11 = add i16 %1, %.39
   %12 = sext i16 %11 to i32
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %12) #5
   %14 = add i16 %11, 1

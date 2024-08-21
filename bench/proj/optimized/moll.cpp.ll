@@ -349,7 +349,7 @@ define internal { double, double } @_ZL14moll_s_forward5PJ_LPP8PJconsts(double %
 27:                                               ; preds = %25, %22
   %.sroa.2.2 = phi double [ %26, %25 ], [ %24, %22 ]
   %28 = load double, ptr %5, align 8
-  %29 = fmul double %28, %0
+  %29 = fmul double %0, %28
   %30 = tail call double @cos(double noundef %.sroa.2.2) #7
   %31 = fmul double %29, %30
   %32 = getelementptr inbounds i8, ptr %5, i64 8

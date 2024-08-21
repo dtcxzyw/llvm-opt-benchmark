@@ -316,7 +316,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr nocapture noundef readonly %
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 1
   %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %155, label %9
 
 9:                                                ; preds = %3

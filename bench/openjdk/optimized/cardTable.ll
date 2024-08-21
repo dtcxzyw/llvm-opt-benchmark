@@ -281,7 +281,7 @@ define hidden { ptr, i64 } @_ZNK9CardTable13committed_forE9MemRegion(ptr nocaptu
   %31 = phi ptr [ %29, %18 ], [ %16, %3 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, %1
+  %34 = icmp eq ptr %1, %33
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %30
@@ -311,7 +311,7 @@ define hidden { ptr, i64 } @_ZNK9CardTable13committed_forE9MemRegion(ptr nocaptu
 define hidden void @_ZN9CardTable21resize_covered_regionE9MemRegion(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, %1
+  %6 = icmp ne ptr %1, %5
   %7 = zext i1 %6 to i32
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = zext i1 %6 to i64
@@ -352,7 +352,7 @@ define hidden void @_ZN9CardTable21resize_covered_regionE9MemRegion(ptr nocaptur
 37:                                               ; preds = %25, %3
   %38 = phi ptr [ %36, %25 ], [ %23, %3 ]
   %39 = load ptr, ptr %8, align 8
-  %40 = icmp eq ptr %39, %.sroa.01.0.copyload
+  %40 = icmp eq ptr %.sroa.01.0.copyload, %39
   br i1 %40, label %41, label %_ZNK9CardTable13committed_forE9MemRegion.exit
 
 41:                                               ; preds = %37
@@ -401,7 +401,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit:    ; preds = %37, %41
 74:                                               ; preds = %62, %_ZNK9CardTable13committed_forE9MemRegion.exit
   %75 = phi ptr [ %73, %62 ], [ %60, %_ZNK9CardTable13committed_forE9MemRegion.exit ]
   %76 = load ptr, ptr %8, align 8
-  %77 = icmp eq ptr %76, %1
+  %77 = icmp eq ptr %1, %76
   br i1 %77, label %78, label %_ZNK9CardTable13committed_forE9MemRegion.exit13
 
 78:                                               ; preds = %74
@@ -561,7 +561,7 @@ define hidden void @_ZN9CardTable15dirty_MemRegionE9MemRegion(ptr nocapture noun
 define hidden void @_ZN9CardTable15clear_MemRegionE9MemRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr %1, i64 %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %3

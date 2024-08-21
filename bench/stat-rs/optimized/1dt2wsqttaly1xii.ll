@@ -979,7 +979,7 @@ define hidden noundef double @"_ZN4core5clone5impls52_$LT$impl$u20$core..clone..
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN51_$LT$f64$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17ha88af277ed48ad4fE.llvm.4752837998330011175"(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, double noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #6 {
   %4 = load double, ptr %0, align 8, !noundef !4
-  %5 = fadd double %4, %1
+  %5 = fadd double %1, %4
   store double %5, ptr %0, align 8
   ret void
 }
@@ -1192,7 +1192,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   %7 = load i64, ptr %6, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
-  %.not1.i.i = icmp ult i64 %7, %2
+  %.not1.i.i = icmp ugt i64 %2, %7
   br i1 %.not1.i.i, label %8, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$16generic_view_mut17h80970aa5b15fe700E.llvm.4752837998330011175.exit"
 
 8:                                                ; preds = %3

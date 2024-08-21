@@ -770,7 +770,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %81, %87
   %97 = fpext float %94 to double
   %98 = fmul double %97, 0x404CA5DC1A63C1F8
   %99 = fptrunc double %98 to float
-  %100 = fcmp ogt float %99, %6
+  %100 = fcmp olt float %6, %99
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %96

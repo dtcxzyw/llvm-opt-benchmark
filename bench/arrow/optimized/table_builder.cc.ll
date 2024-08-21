@@ -360,7 +360,7 @@ nrvo.skipdtor.thread.i:                           ; preds = %call2.i3.i.noexc
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %call2.i3.i.noexc
   %mul.i.i.i = shl nsw i64 %19, 1
-  %.sroa.speculated.i.i.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i)
+  %.sroa.speculated.i.i.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i, i64 %mul.i.i.i)
   %vtable4.i.i = load ptr, ptr %17, align 8, !noalias !10
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 24
   %21 = load ptr, ptr %vfn5.i.i, align 8, !noalias !10
@@ -771,7 +771,7 @@ nrvo.skipdtor.thread:                             ; preds = %do.body
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
   %mul.i.i = shl nsw i64 %4, 1
-  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %2, align 8, !noalias !33
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %6 = load ptr, ptr %vfn5.i, align 8, !noalias !33
@@ -1645,7 +1645,7 @@ nrvo.skipdtor.thread.i:                           ; preds = %call2.i3.i.noexc
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %call2.i3.i.noexc
   %mul.i.i.i = shl nsw i64 %117, 1
-  %.sroa.speculated.i.i.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i)
+  %.sroa.speculated.i.i.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i, i64 %mul.i.i.i)
   %vtable4.i.i = load ptr, ptr %115, align 8, !noalias !57
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 24
   %119 = load ptr, ptr %vfn5.i.i, align 8, !noalias !57
@@ -2173,7 +2173,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -2182,7 +2182,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -2886,7 +2886,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -2961,7 +2961,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5arrow12ArrayBuilderESt14default_deleteIS2_E
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else

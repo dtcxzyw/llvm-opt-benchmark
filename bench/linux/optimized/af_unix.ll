@@ -310,11 +310,11 @@ define dso_local i32 @__unix_dgram_recvmsg(ptr noundef %0, ptr noundef %1, i64 n
   %99 = load i32, ptr %8, align 4
   %100 = sub i32 %98, %99
   %101 = zext i32 %100 to i64
-  %102 = icmp ult i64 %101, %2
+  %102 = icmp ugt i64 %2, %101
   br i1 %102, label %109, label %103
 
 103:                                              ; preds = %96
-  %104 = icmp ugt i64 %101, %2
+  %104 = icmp ult i64 %2, %101
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %103
@@ -4829,7 +4829,7 @@ define internal fastcc ptr @unix_find_other(ptr nocapture noundef readonly %0, p
   %69 = getelementptr inbounds i8, ptr %43, i64 514
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = icmp eq i32 %71, %3
+  %72 = icmp eq i32 %3, %71
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %68
@@ -5390,7 +5390,7 @@ define internal fastcc i32 @queue_oob(ptr noundef %0, ptr noundef %1, ptr nounde
   %40 = getelementptr inbounds i8, ptr %3, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  %43 = or i1 %42, %4
+  %43 = or i1 %4, %42
   br i1 %43, label %.thread, label %45
 
 .thread:                                          ; preds = %28
@@ -6256,7 +6256,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, -32
   %72 = sext i32 %71 to i64
-  %73 = icmp ult i64 %72, %2
+  %73 = icmp ugt i64 %2, %72
   br i1 %73, label %304, label %74
 
 74:                                               ; preds = %68

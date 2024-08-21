@@ -1110,7 +1110,7 @@ if.end23:                                         ; preds = %if.end20
 do.end:                                           ; preds = %if.end23, %if.end20
   %retval15.0 = phi i1 [ %call26, %if.end23 ], [ false, %if.end20 ]
   store i8 0, ptr %m_simulated_mouse, align 1, !tbaa !41
-  %brmerge = or i1 %retval15.0, %second_try
+  %brmerge = or i1 %second_try, %retval15.0
   br i1 %brmerge, label %cleanup35, label %if.then31
 
 if.then31:                                        ; preds = %do.end

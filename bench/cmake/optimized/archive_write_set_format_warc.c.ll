@@ -248,7 +248,7 @@ define internal i64 @_warc_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   %11 = load i64, ptr %10, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %11)
   %12 = tail call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %spec.select) #14
   %.not = icmp eq i32 %12, 0
   %13 = sext i32 %12 to i64

@@ -77,7 +77,7 @@ if.else.i:                                        ; preds = %for.body.i
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %5 to i32
-  %and.i.i = and i32 %conv.i.i, %type
+  %and.i.i = and i32 %type, %conv.i.i
   %tobool.i.not.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.i.not.i, label %if.then5.i, label %if.else6.i
 
@@ -198,7 +198,7 @@ if.else.i:                                        ; preds = %for.body.i
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %5 to i32
-  %and.i.i = and i32 %conv.i.i, %type
+  %and.i.i = and i32 %type, %conv.i.i
   %tobool.i.not.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.i.not.i, label %if.then6.i, label %if.else7.i
 
@@ -1747,7 +1747,7 @@ if.end4:                                          ; preds = %entry, %if.then2
   %format_str.0 = phi ptr [ @.str.1, %if.then2 ], [ @.str, %entry ]
   %call = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buffer, i64 noundef %size_in_chars, ptr noundef nonnull %format_str.0, i32 noundef %value) #6
   %conv = sext i32 %call to i64
-  %cmp5.not = icmp ult i64 %conv, %size_in_chars
+  %cmp5.not = icmp ugt i64 %size_in_chars, %conv
   %. = select i1 %cmp5.not, i32 0, i32 22
   br label %return
 
@@ -1769,7 +1769,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %temp, i64 noundef 13, ptr noundef nonnull @.str, i32 noundef %value) #6
   %conv = sext i32 %call to i64
-  %cmp1.not = icmp ult i64 %conv, %size_in_chars
+  %cmp1.not = icmp ugt i64 %size_in_chars, %conv
   br i1 %cmp1.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end

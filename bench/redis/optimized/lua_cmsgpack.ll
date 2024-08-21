@@ -411,7 +411,7 @@ entry:
   %ud.i.i = alloca ptr, align 8
   %conv = fptrunc double %d to float
   %conv1 = fpext float %conv to double
-  %cmp = fcmp oeq double %conv1, %d
+  %cmp = fcmp oeq double %d, %conv1
   %free.i = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load i64, ptr %free.i, align 8, !tbaa !13
   br i1 %cmp, label %if.then, label %if.else

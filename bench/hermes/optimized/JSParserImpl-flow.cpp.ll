@@ -2164,17 +2164,17 @@ cleanup:                                          ; preds = %if.end39, %do.body,
   %seenDirectives_.i.i = getelementptr inbounds i8, ptr %this, i64 1176
   %conv.i = zext i32 %1 to i64
   %89 = load i32, ptr %Size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %89, %1
+  %cmp.i.i = icmp ult i32 %1, %89
   br i1 %cmp.i.i, label %if.end15.sink.split.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cleanup
-  %cmp5.i.i = icmp ult i32 %89, %1
+  %cmp5.i.i = icmp ugt i32 %1, %89
   br i1 %cmp5.i.i, label %if.then6.i.i, label %_ZN6hermes6parser6detail12JSParserImpl31SaveStrictModeAndSeenDirectivesD2Ev.exit
 
 if.then6.i.i:                                     ; preds = %if.else.i.i
   %Capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 1188
   %90 = load i32, ptr %Capacity.i.i.i, align 4
-  %cmp8.i.i = icmp ult i32 %90, %1
+  %cmp8.i.i = icmp ugt i32 %1, %90
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end.i.i
 
 if.then9.i.i:                                     ; preds = %if.then6.i.i
@@ -2185,7 +2185,7 @@ if.then9.i.i:                                     ; preds = %if.then6.i.i
 
 if.end.i.i:                                       ; preds = %if.then9.i.i, %if.then6.i.i
   %conv.i17.pre-phi.i.in.i = phi i32 [ %.pre.i.i, %if.then9.i.i ], [ %89, %if.then6.i.i ]
-  %cmp13.not20.i.i = icmp eq i32 %conv.i17.pre-phi.i.in.i, %1
+  %cmp13.not20.i.i = icmp eq i32 %1, %conv.i17.pre-phi.i.in.i
   br i1 %cmp13.not20.i.i, label %if.end15.sink.split.i.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.end.i.i
@@ -4585,17 +4585,17 @@ entry:
   %conv = zext i32 %3 to i64
   %Size.i.i = getelementptr inbounds i8, ptr %2, i64 1184
   %4 = load i32, ptr %Size.i.i, align 8
-  %cmp.i = icmp ugt i32 %4, %3
+  %cmp.i = icmp ult i32 %3, %4
   br i1 %cmp.i, label %if.end15.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %cmp5.i = icmp ult i32 %4, %3
+  %cmp5.i = icmp ugt i32 %3, %4
   br i1 %cmp5.i, label %if.then6.i, label %_ZN4llvh15SmallVectorImplIPN6hermes12UniqueStringEE6resizeEm.exit
 
 if.then6.i:                                       ; preds = %if.else.i
   %Capacity.i.i = getelementptr inbounds i8, ptr %2, i64 1188
   %5 = load i32, ptr %Capacity.i.i, align 4
-  %cmp8.i = icmp ult i32 %5, %3
+  %cmp8.i = icmp ugt i32 %3, %5
   br i1 %cmp8.i, label %if.then9.i, label %if.end.i
 
 if.then9.i:                                       ; preds = %if.then6.i
@@ -4606,7 +4606,7 @@ if.then9.i:                                       ; preds = %if.then6.i
 
 if.end.i:                                         ; preds = %if.then9.i, %if.then6.i
   %conv.i17.pre-phi.i.in = phi i32 [ %.pre.i, %if.then9.i ], [ %4, %if.then6.i ]
-  %cmp13.not20.i = icmp eq i32 %conv.i17.pre-phi.i.in, %3
+  %cmp13.not20.i = icmp eq i32 %3, %conv.i17.pre-phi.i.in
   br i1 %cmp13.not20.i, label %if.end15.sink.split.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
@@ -15286,7 +15286,7 @@ while.end:                                        ; preds = %while.cond, %if.end
   %hasUnknownMembers.0 = phi i8 [ 1, %if.then ], [ 0, %if.end52 ], [ 0, %while.cond ]
   %optKind.sroa.7.1.fr = freeze i8 %optKind.sroa.7.1
   %19 = load ptr, ptr %members, align 8
-  %cmp.i.i = icmp eq ptr %19, %members
+  %cmp.i.i = icmp eq ptr %members, %19
   br i1 %cmp.i.i, label %if.end97, label %if.then57
 
 if.then57:                                        ; preds = %while.end

@@ -59,7 +59,7 @@ define void @rb_Digest_MD5_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %.not, label %33, label %21
 
 21:                                               ; preds = %20
-  %22 = add i64 %7, %2
+  %22 = add i64 %2, %7
   %23 = icmp ugt i64 %22, 64
   %24 = sub nuw nsw i64 64, %7
   %25 = select i1 %23, i64 %24, i64 %2

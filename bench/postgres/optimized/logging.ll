@@ -236,7 +236,7 @@ define dso_local void @pg_log_generic_v(i32 noundef %0, i32 noundef %1, ptr noal
   store ptr null, ptr %5, align 8
   store i64 0, ptr %6, align 8
   %10 = load i32, ptr @__pg_log_level, align 4
-  %11 = icmp ugt i32 %10, %0
+  %11 = icmp ult i32 %0, %10
   br i1 %11, label %117, label %12
 
 12:                                               ; preds = %4

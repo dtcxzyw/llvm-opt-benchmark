@@ -165,7 +165,7 @@ define range(i32 0, 2) i32 @enlargePQExpBuffer(ptr noundef %0, i64 noundef %1) l
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 2147483647, %10
-  %.not = icmp ugt i64 %11, %1
+  %.not = icmp ult i64 %1, %11
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %8
@@ -366,7 +366,7 @@ markPQExpBufferBroken.exit25:                     ; preds = %27, %29
 36:                                               ; preds = %33
   %37 = load i64, ptr %6, align 8
   %38 = sub i64 2147483647, %37
-  %.not.i26 = icmp ugt i64 %38, %.020
+  %.not.i26 = icmp ult i64 %.020, %38
   br i1 %.not.i26, label %42, label %39
 
 39:                                               ; preds = %36
@@ -475,7 +475,7 @@ define void @appendBinaryPQExpBuffer(ptr noundef %0, ptr nocapture noundef reado
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 2147483647, %11
-  %.not.i = icmp ugt i64 %12, %2
+  %.not.i = icmp ult i64 %2, %12
   br i1 %.not.i, label %16, label %13
 
 13:                                               ; preds = %9

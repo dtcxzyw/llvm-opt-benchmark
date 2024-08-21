@@ -1004,7 +1004,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc58internal
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Rational", align 8
   call void @_ZNK4cvc58internal8RationalplERKS1_(ptr nonnull sret(%"class.cvc5::internal::Rational") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %rhs)
-  %cmp.i = icmp eq ptr %ref.tmp, %this
+  %cmp.i = icmp eq ptr %this, %ref.tmp
   br i1 %cmp.i, label %invoke.cont4, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -1047,7 +1047,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc58internal
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Rational", align 8
   call void @_ZNK4cvc58internal8RationalmiERKS1_(ptr nonnull sret(%"class.cvc5::internal::Rational") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %rhs)
-  %cmp.i = icmp eq ptr %ref.tmp, %this
+  %cmp.i = icmp eq ptr %this, %ref.tmp
   br i1 %cmp.i, label %invoke.cont4, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -1090,7 +1090,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4cvc58internal
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Rational", align 8
   call void @_ZNK4cvc58internal8RationalmlERKS1_(ptr nonnull sret(%"class.cvc5::internal::Rational") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %rhs)
-  %cmp.i = icmp eq ptr %ref.tmp, %this
+  %cmp.i = icmp eq ptr %this, %ref.tmp
   br i1 %cmp.i, label %invoke.cont4, label %if.end.i
 
 if.end.i:                                         ; preds = %entry

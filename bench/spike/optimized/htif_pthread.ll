@@ -791,7 +791,7 @@ _ZNSt11_Deque_baseIcSaIcEE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #17
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -2096,7 +2096,7 @@ define linkonce_odr void @_ZNSt5dequeIcSaIcEE19_M_range_insert_auxIPKcEEvSt15_De
   %17 = ptrtoint ptr %10 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
-  %20 = icmp ult i64 %19, %8
+  %20 = icmp ugt i64 %8, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %14
@@ -2237,7 +2237,7 @@ _ZSt22__uninitialized_copy_aIPKcSt15_Deque_iteratorIcRcPcEcET0_T_S7_S6_RSaIT1_E.
   %85 = ptrtoint ptr %10 to i64
   %86 = xor i64 %85, -1
   %87 = add i64 %84, %86
-  %88 = icmp ult i64 %87, %8
+  %88 = icmp ugt i64 %8, %87
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %81
@@ -2467,7 +2467,7 @@ define linkonce_odr void @_ZNSt5dequeIcSaIcEE13_M_insert_auxIPKcEEvSt15_Deque_it
   %79 = load ptr, ptr %78, align 8
   %80 = ptrtoint ptr %79 to i64
   %81 = sub i64 %52, %80
-  %82 = icmp ult i64 %81, %4
+  %82 = icmp ugt i64 %4, %81
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %77
@@ -2693,7 +2693,7 @@ _ZStplRKSt15_Deque_iteratorIcRcPcEl.exit39:       ; preds = %142, %148
   %183 = load ptr, ptr %32, align 8, !noalias !223
   %184 = ptrtoint ptr %180 to i64
   %185 = ptrtoint ptr %181 to i64
-  %186 = add i64 %185, %4
+  %186 = add i64 %4, %185
   %187 = sub i64 %184, %186
   %188 = icmp sgt i64 %187, -1
   br i1 %188, label %189, label %195
@@ -3012,7 +3012,7 @@ _ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i.i.i53:   ; preds = %316, %310
   %331 = ptrtoint ptr %330 to i64
   %332 = xor i64 %69, -1
   %333 = add i64 %331, %332
-  %334 = icmp ult i64 %333, %4
+  %334 = icmp ugt i64 %4, %333
   br i1 %334, label %335, label %337
 
 335:                                              ; preds = %328
@@ -3123,7 +3123,7 @@ _ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit64:       ; preds = %369, %375
   %388 = load ptr, ptr %58, align 8
   %389 = ptrtoint ptr %385 to i64
   %390 = ptrtoint ptr %386 to i64
-  %391 = add i64 %390, %4
+  %391 = add i64 %4, %390
   %392 = sub i64 %389, %391
   %393 = icmp sgt i64 %392, -1
   br i1 %393, label %394, label %400
@@ -3503,7 +3503,7 @@ define linkonce_odr void @_ZNSt5dequeIcSaIcEE24_M_new_elements_at_frontEm(ptr no
   %33 = ptrtoint ptr %32 to i64
   %34 = sub i64 %10, %33
   %35 = ashr exact i64 %34, 3
-  %36 = icmp ult i64 %35, %31
+  %36 = icmp ugt i64 %31, %35
   br i1 %36, label %37, label %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit
 
 37:                                               ; preds = %29

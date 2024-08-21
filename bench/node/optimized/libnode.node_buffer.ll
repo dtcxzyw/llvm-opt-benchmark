@@ -14359,7 +14359,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %9 = phi i64 [ %.pre.i.i, %if.end.i.i ], [ %12, %lor.lhs.false.i.i ]
   %__prev_p.0.i.i = phi ptr [ %7, %if.end.i.i ], [ %__p.0.i.i, %lor.lhs.false.i.i ]
   %__p.0.i.i = phi ptr [ %8, %if.end.i.i ], [ %10, %lor.lhs.false.i.i ]
-  %cmp.i.i.i.i = icmp eq i64 %9, %call2.i
+  %cmp.i.i.i.i = icmp eq i64 %call2.i, %9
   br i1 %cmp.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i.i, label %if.end3.i.i
 
 _ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i.i: ; preds = %for.cond.i.i
@@ -14559,7 +14559,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -14644,7 +14644,7 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i, %i
   %10 = phi i64 [ %.pre.i, %if.end.i ], [ %13, %lor.lhs.false.i ]
   %__prev_p.0.i = phi ptr [ %8, %if.end.i ], [ %__p.0.i, %lor.lhs.false.i ]
   %__p.0.i = phi ptr [ %9, %if.end.i ], [ %11, %lor.lhs.false.i ]
-  %cmp.i.i.i = icmp eq i64 %10, %call2.i
+  %cmp.i.i.i = icmp eq i64 %call2.i, %10
   br i1 %cmp.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i, label %if.end3.i
 
 _ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i: ; preds = %for.cond.i
@@ -14676,7 +14676,7 @@ if.end13:                                         ; preds = %if.end11, %if.end
   %15 = load ptr, ptr %this, align 8
   %arrayidx.i16 = getelementptr inbounds ptr, ptr %15, i64 %__bkt.0
   %16 = load ptr, ptr %arrayidx.i16, align 8
-  %cmp.i = icmp eq ptr %16, %__prev_n.0
+  %cmp.i = icmp eq ptr %__prev_n.0, %16
   %17 = load ptr, ptr %__n.0, align 8
   %tobool.not.i17 = icmp eq ptr %17, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -15707,7 +15707,7 @@ entry:
   %5 = load i16, ptr %arrayidx.i, align 2
   %sub7 = sub i64 %0, %1
   %invariant.gep = getelementptr i8, ptr %add.ptr, i64 4
-  %cmp.not100 = icmp ult i64 %sub7, %start_index
+  %cmp.not100 = icmp ugt i64 %start_index, %sub7
   br i1 %cmp.not100, label %return, label %while.cond9.preheader.lr.ph
 
 while.cond9.preheader.lr.ph:                      ; preds = %entry
@@ -15888,7 +15888,7 @@ entry:
   %length_.i19 = getelementptr inbounds i8, ptr %subject, i64 8
   %1 = load i64, ptr %length_.i19, align 8
   %sub3 = sub i64 %1, %0
-  %cmp.not50 = icmp ult i64 %sub3, %index
+  %cmp.not50 = icmp ugt i64 %index, %sub3
   br i1 %cmp.not50, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -16125,7 +16125,7 @@ do.end5:                                          ; preds = %entry
   %length_.i11 = getelementptr inbounds i8, ptr %subject, i64 8
   %1 = load i64, ptr %length_.i11, align 8
   %sub = sub i64 %1, %0
-  %cmp9.not45 = icmp ult i64 %sub, %index
+  %cmp9.not45 = icmp ugt i64 %index, %sub
   br i1 %cmp9.not45, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end5
@@ -16886,7 +16886,7 @@ entry:
   %5 = load i8, ptr %arrayidx.i, align 1
   %sub7 = sub i64 %0, %1
   %invariant.gep = getelementptr i8, ptr %add.ptr, i64 4
-  %cmp.not100 = icmp ult i64 %sub7, %start_index
+  %cmp.not100 = icmp ugt i64 %start_index, %sub7
   br i1 %cmp.not100, label %return, label %while.cond9.preheader.lr.ph
 
 while.cond9.preheader.lr.ph:                      ; preds = %entry
@@ -17063,7 +17063,7 @@ entry:
   %length_.i19 = getelementptr inbounds i8, ptr %subject, i64 8
   %1 = load i64, ptr %length_.i19, align 8
   %sub3 = sub i64 %1, %0
-  %cmp.not59 = icmp ult i64 %sub3, %index
+  %cmp.not59 = icmp ugt i64 %index, %sub3
   br i1 %cmp.not59, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -17320,7 +17320,7 @@ do.end5:                                          ; preds = %entry
   %length_.i11 = getelementptr inbounds i8, ptr %subject, i64 8
   %1 = load i64, ptr %length_.i11, align 8
   %sub = sub i64 %1, %0
-  %cmp9.not48 = icmp ult i64 %sub, %index
+  %cmp9.not48 = icmp ugt i64 %index, %sub
   br i1 %cmp9.not48, label %return, label %for.body.lr.ph.split.us
 
 for.body.lr.ph.split.us:                          ; preds = %do.end5

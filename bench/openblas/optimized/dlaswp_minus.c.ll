@@ -10,7 +10,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %13 = getelementptr inbounds i32, ptr %8, i64 %12
   %14 = sub nsw i64 %2, %12
   %15 = sub i64 1, %14
-  %16 = mul i64 %15, %9
+  %16 = mul i64 %9, %15
   %17 = getelementptr inbounds i32, ptr %13, i64 %16
   %18 = icmp slt i64 %0, 1
   %19 = icmp slt i64 %14, 1

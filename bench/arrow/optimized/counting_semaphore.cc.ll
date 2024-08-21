@@ -196,7 +196,7 @@ while.cond.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   %3 = load i8, ptr %closed_.i, align 4
   %tobool.i.i.i = trunc i8 %3 to i1
   %4 = load i32, ptr %this, align 8
-  %cmp.i.not.i.i = icmp uge i32 %4, %num_permits
+  %cmp.i.not.i.i = icmp ule i32 %num_permits, %4
   %or.cond.not = select i1 %tobool.i.i.i, i1 true, i1 %cmp.i.not.i.i
   br i1 %or.cond.not, label %invoke.cont14.thread, label %while.body.i.i
 
@@ -227,7 +227,7 @@ invoke.cont14.thread:                             ; preds = %while.cond.i.i, %if
 
 invoke.cont14:                                    ; preds = %if.then.i.i
   %8 = load i32, ptr %this, align 8
-  %cmp.i4.i.i.not = icmp ult i32 %8, %num_permits
+  %cmp.i4.i.i.not = icmp ugt i32 %num_permits, %8
   %9 = load i32, ptr %num_waiters_, align 8
   %sub = sub i32 %9, %num_permits
   store i32 %sub, ptr %num_waiters_, align 8
@@ -405,7 +405,7 @@ while.cond.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   %2 = load i8, ptr %closed_.i, align 4
   %tobool.i.i.i = trunc i8 %2 to i1
   %3 = load i32, ptr %num_waiters_.i.i.i, align 8
-  %cmp.i.not.i.i = icmp uge i32 %3, %num_waiters
+  %cmp.i.not.i.i = icmp ule i32 %num_waiters, %3
   %or.cond.not = select i1 %tobool.i.i.i, i1 true, i1 %cmp.i.not.i.i
   br i1 %or.cond.not, label %if.then12, label %while.body.i.i
 
@@ -426,7 +426,7 @@ if.then.i.i:                                      ; preds = %call2.i.i.i.i.i.noe
   %4 = load i8, ptr %closed_.i, align 4
   %tobool.i2.i.i = trunc i8 %4 to i1
   %5 = load i32, ptr %num_waiters_.i.i.i, align 8
-  %cmp.i5.i.i.not = icmp uge i32 %5, %num_waiters
+  %cmp.i5.i.i.not = icmp ule i32 %num_waiters, %5
   %or.cond61.not = select i1 %tobool.i2.i.i, i1 true, i1 %cmp.i5.i.i.not
   br i1 %or.cond61.not, label %if.then12, label %if.end16
 

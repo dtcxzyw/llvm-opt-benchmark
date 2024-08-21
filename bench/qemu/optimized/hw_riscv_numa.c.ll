@@ -406,7 +406,7 @@ cond.true:                                        ; preds = %if.then
   br label %return.sink.split
 
 if.end:                                           ; preds = %numa_enabled.exit
-  %cmp = icmp sgt i32 %1, %socket_id
+  %cmp = icmp slt i32 %socket_id, %1
   br i1 %cmp, label %cond.true1, label %return
 
 cond.true1:                                       ; preds = %if.end
@@ -584,7 +584,7 @@ entry:
   %0 = load ptr, ptr %possible_cpu_arch_ids, align 8
   %call1 = tail call ptr %0(ptr noundef %ms) #10
   %1 = load i32, ptr %call1, align 8
-  %cmp = icmp ugt i32 %1, %cpu_index
+  %cmp = icmp ult i32 %cpu_index, %1
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry

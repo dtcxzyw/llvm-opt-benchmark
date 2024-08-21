@@ -398,7 +398,7 @@ define void @_ZN3gmx24ParrinelloRahmanBarostat12scheduleTaskEldRKSt8functionIFvS
 
 11:                                               ; preds = %4
   %12 = sext i32 %10 to i64
-  %13 = add nsw i64 %12, %1
+  %13 = add nsw i64 %1, %12
   %14 = getelementptr inbounds i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
@@ -415,7 +415,7 @@ _Z11do_per_stepll.exit19:                         ; preds = %4, %11
   %.0.i18 = phi i1 [ %22, %11 ], [ false, %4 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 280
   %24 = load i64, ptr %23, align 8
-  %25 = icmp eq i64 %24, %1
+  %25 = icmp eq i64 %1, %24
   br i1 %25, label %26, label %_ZNSt8functionIFvvEED2Ev.exit
 
 26:                                               ; preds = %_Z11do_per_stepll.exit19
@@ -1858,16 +1858,16 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   br i1 %exitcond41.not, label %61, label %.preheader, !llvm.loop !19
 
 61:                                               ; preds = %60
-  %62 = fneg float %8
-  %63 = fmul float %27, %62
+  %62 = fneg float %27
+  %63 = fmul float %8, %62
   %64 = tail call float @llvm.fmuladd.f32(float %25, float %22, float %63)
-  %65 = fneg float %20
-  %66 = fmul float %22, %65
+  %65 = fneg float %22
+  %66 = fmul float %20, %65
   %67 = tail call float @llvm.fmuladd.f32(float %8, float %11, float %66)
-  %68 = fmul float %27, %65
+  %68 = fmul float %20, %62
   %69 = tail call float @llvm.fmuladd.f32(float %25, float %11, float %68)
-  %70 = fneg float %23
-  %71 = fmul float %69, %70
+  %70 = fneg float %69
+  %71 = fmul float %23, %70
   %72 = tail call float @llvm.fmuladd.f32(float %6, float %67, float %71)
   %73 = tail call noundef float @llvm.fmuladd.f32(float %28, float %64, float %72)
   %74 = getelementptr inbounds i8, ptr %30, i64 220
@@ -3176,7 +3176,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 15:                                               ; preds = %12
   %.not.i.i = icmp ne ptr %13, null
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = icmp eq ptr %16, %14
+  %17 = icmp eq ptr %14, %16
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %17
   br i1 %or.cond.i.i, label %.thread, label %18
 
@@ -3237,7 +3237,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -4055,7 +4055,7 @@ _ZSt10_ConstructIN3gmx17KeyValueTreeValueEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pre
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #31
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx17KeyValueTreeValueEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %28, %_ZSt8_DestroyIN3gmx17KeyValueTreeValueEEvPT_.exit.i.i.i.i.i.i

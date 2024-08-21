@@ -276,9 +276,9 @@ define internal fastcc i32 @__tty_buffer_request_room(ptr noundef %0, i64 nounde
   %15 = getelementptr inbounds i8, ptr %6, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = sub i32 %14, %16
-  %18 = and i1 %9, %2
+  %18 = and i1 %2, %9
   %19 = zext i32 %17 to i64
-  %20 = icmp ult i64 %19, %1
+  %20 = icmp ugt i64 %1, %19
   %21 = select i1 %18, i1 true, i1 %20
   br i1 %21, label %24, label %22
 
@@ -522,7 +522,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_prepare_flip_string
   %14 = load i32, ptr %13, align 8
   %15 = sub i32 %12, %14
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %3

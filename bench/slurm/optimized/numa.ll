@@ -646,7 +646,7 @@ define zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_unnamed_ad
   %16 = load i16, ptr %15, align 2
   %17 = mul i16 %14, %16
   %18 = zext i16 %17 to i32
-  %.not30 = icmp ugt i16 %17, %0
+  %.not30 = icmp ult i16 %0, %17
   br i1 %.not30, label %19, label %53
 
 19:                                               ; preds = %8

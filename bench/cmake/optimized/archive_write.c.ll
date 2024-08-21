@@ -562,7 +562,7 @@ define internal range(i32 -30, 1) i32 @archive_write_client_write(ptr nocapture 
   br i1 %25, label %26, label %54
 
 26:                                               ; preds = %22
-  %. = tail call i64 @llvm.umin.i64(i64 %24, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %24)
   %27 = getelementptr inbounds i8, ptr %7, i64 24
   %28 = load ptr, ptr %27, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %1, i64 %., i1 false)

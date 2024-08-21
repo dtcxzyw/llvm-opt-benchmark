@@ -46,7 +46,7 @@ define hidden void @"_ZN3nom5bytes8complete3tag28_$u7b$$u7b$closure$u7d$$u7d$17h
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i", %4
-  %.not.i19 = icmp ugt i64 %6, %3
+  %.not.i19 = icmp ult i64 %3, %6
   br i1 %.not.i19, label %select.unfold, label %"_ZN59_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTake$GT$10take_split17h1e5aa5c4855c500aE.llvm.15859092204462515359.exit"
 
 "_ZN59_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTake$GT$10take_split17h1e5aa5c4855c500aE.llvm.15859092204462515359.exit": ; preds = %.loopexit
@@ -133,7 +133,7 @@ define hidden void @"_ZN3nom8sequence14separated_pair28_$u7b$$u7b$closure$u7d$$u
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i", %12
-  %.not.i19.i.i = icmp ugt i64 %14, %.sroa.425.0.copyload
+  %.not.i19.i.i = icmp ult i64 %.sroa.425.0.copyload, %14
   br i1 %.not.i19.i.i, label %.loopexit, label %22
 
 20:                                               ; preds = %4
@@ -244,7 +244,7 @@ define hidden void @"_ZN3nom8sequence8preceded28_$u7b$$u7b$closure$u7d$$u7d$17hc
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i", %4
-  %.not.i19.i.i = icmp ugt i64 %6, %3
+  %.not.i19.i.i = icmp ult i64 %3, %6
   br i1 %.not.i19.i.i, label %.loopexit, label %12
 
 12:                                               ; preds = %.loopexit.i.i
@@ -547,7 +547,7 @@ define hidden void @"_ZN59_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTak
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %.not.i.i = icmp ult i64 %6, %2
+  %.not.i.i = icmp ugt i64 %2, %6
   br i1 %.not.i.i, label %7, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.llvm.15859092204462515359.exit"
 
 7:                                                ; preds = %3
@@ -626,7 +626,7 @@ define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$G
   br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .loopexit.i:                                      ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i", %4
-  %.not.i19.i = icmp ugt i64 %6, %3
+  %.not.i19.i = icmp ult i64 %3, %6
   br i1 %.not.i19.i, label %select.unfold.i, label %"_ZN59_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTake$GT$10take_split17h1e5aa5c4855c500aE.llvm.15859092204462515359.exit.i"
 
 "_ZN59_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTake$GT$10take_split17h1e5aa5c4855c500aE.llvm.15859092204462515359.exit.i": ; preds = %.loopexit.i
@@ -690,7 +690,7 @@ define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$G
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i.i", %4
-  %.not.i19.i.i.i = icmp ugt i64 %6, %3
+  %.not.i19.i.i.i = icmp ult i64 %3, %6
   br i1 %.not.i19.i.i.i, label %.loopexit.i, label %12
 
 12:                                               ; preds = %.loopexit.i.i.i
@@ -769,7 +769,7 @@ define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$G
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i.i", %12
-  %.not.i19.i.i.i = icmp ugt i64 %14, %.sroa.425.0.copyload.i
+  %.not.i19.i.i.i = icmp ult i64 %.sroa.425.0.copyload.i, %14
   br i1 %.not.i19.i.i.i, label %.loopexit.i, label %22
 
 20:                                               ; preds = %4

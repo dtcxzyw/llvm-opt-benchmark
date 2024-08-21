@@ -3184,7 +3184,7 @@ define internal fastcc void @dissect_isb_data(ptr noundef %0, ptr noundef %1, pt
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @wmem_array_get_count(ptr noundef %19) #8
-  %.not.i = icmp ugt i32 %20, %14
+  %.not.i = icmp ult i32 %14, %20
   br i1 %.not.i, label %23, label %21
 
 21:                                               ; preds = %4
@@ -3245,7 +3245,7 @@ define internal fastcc void @dissect_epb_data(ptr noundef %0, ptr noundef %1, pt
   %30 = getelementptr inbounds i8, ptr %27, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @wmem_array_get_count(ptr noundef %31) #8
-  %.not.i = icmp ugt i32 %32, %25
+  %.not.i = icmp ult i32 %25, %32
   br i1 %.not.i, label %35, label %33
 
 33:                                               ; preds = %4

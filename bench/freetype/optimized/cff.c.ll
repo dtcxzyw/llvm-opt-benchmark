@@ -808,7 +808,7 @@ thread-pre-split:                                 ; preds = %52
   %271 = add i32 %267, -391
   %272 = getelementptr inbounds i8, ptr %64, i64 1608
   %273 = load i32, ptr %272, align 8
-  %274 = icmp ugt i32 %273, %271
+  %274 = icmp ult i32 %271, %273
   br i1 %274, label %275, label %cff_index_get_sid_string.exit.thread
 
 275:                                              ; preds = %270
@@ -876,7 +876,7 @@ cff_index_get_sid_string.exit.thread:             ; preds = %220, %220, %270, %2
   %302 = add i32 %297, -391
   %303 = getelementptr inbounds i8, ptr %64, i64 1608
   %304 = load i32, ptr %303, align 8
-  %305 = icmp ugt i32 %304, %302
+  %305 = icmp ult i32 %302, %304
   br i1 %305, label %306, label %cff_index_get_sid_string.exit422.thread
 
 306:                                              ; preds = %301
@@ -980,7 +980,7 @@ cff_index_get_sid_string.exit422:                 ; preds = %306, %314
   %341 = add i32 %336, -391
   %342 = getelementptr inbounds i8, ptr %64, i64 1608
   %343 = load i32, ptr %342, align 8
-  %344 = icmp ugt i32 %343, %341
+  %344 = icmp ult i32 %341, %343
   br i1 %344, label %345, label %cff_index_get_sid_string.exit422.thread
 
 345:                                              ; preds = %340
@@ -1056,7 +1056,7 @@ cff_index_get_sid_string.exit422.thread:          ; preds = %.outer.backedge, %.
   %378 = add i32 %373, -391
   %379 = getelementptr inbounds i8, ptr %64, i64 1608
   %380 = load i32, ptr %379, align 8
-  %381 = icmp ugt i32 %380, %378
+  %381 = icmp ult i32 %378, %380
   br i1 %381, label %382, label %cff_index_get_sid_string.exit428.thread
 
 382:                                              ; preds = %377
@@ -1872,7 +1872,7 @@ define internal i32 @cff_glyph_load(ptr noundef %0, ptr noundef %1, i32 noundef 
 45:                                               ; preds = %44
   %46 = getelementptr inbounds i8, ptr %34, i64 1328
   %47 = load i32, ptr %46, align 8
-  %.not.i.i = icmp ult i32 %47, %2
+  %.not.i.i = icmp ugt i32 %2, %47
   br i1 %.not.i.i, label %cff_slot_load.exit, label %cff_charset_cid_to_gindex.exit.i
 
 cff_charset_cid_to_gindex.exit.i:                 ; preds = %45
@@ -1886,7 +1886,7 @@ cff_charset_cid_to_gindex.exit.i:                 ; preds = %45
 53:                                               ; preds = %41, %31
   %54 = getelementptr inbounds i8, ptr %34, i64 36
   %55 = load i32, ptr %54, align 4
-  %.not321.i = icmp ugt i32 %55, %2
+  %.not321.i = icmp ult i32 %2, %55
   br i1 %.not321.i, label %56, label %cff_slot_load.exit
 
 56:                                               ; preds = %53, %cff_charset_cid_to_gindex.exit.i, %44
@@ -2208,7 +2208,7 @@ cff_charset_cid_to_gindex.exit.i:                 ; preds = %45
 260:                                              ; preds = %276, %247
   %.034.i.i = phi ptr [ %252, %247 ], [ %277, %276 ]
   %.033.i.i = phi i32 [ %259, %247 ], [ %270, %276 ]
-  %261 = icmp ugt i32 %.033.i.i, %.0292.i
+  %261 = icmp ult i32 %.0292.i, %.033.i.i
   br i1 %261, label %cff_fd_select_get.exit.i, label %262
 
 262:                                              ; preds = %260
@@ -2220,7 +2220,7 @@ cff_charset_cid_to_gindex.exit.i:                 ; preds = %45
   %268 = load i8, ptr %267, align 1
   %269 = zext i8 %268 to i32
   %270 = or disjoint i32 %266, %269
-  %271 = icmp ugt i32 %270, %.0292.i
+  %271 = icmp ult i32 %.0292.i, %270
   br i1 %271, label %272, label %276
 
 272:                                              ; preds = %262
@@ -2946,7 +2946,7 @@ define internal i32 @cff_get_advances(ptr noundef %0, i32 noundef %1, i32 nounde
   %32 = getelementptr inbounds i8, ptr %31, i64 336
   %33 = load ptr, ptr %32, align 8
   %34 = trunc nuw i64 %indvars.iv to i32
-  %35 = add i32 %34, %1
+  %35 = add i32 %1, %34
   call void %33(ptr noundef nonnull %0, i8 noundef zeroext 1, i32 noundef %35, ptr noundef nonnull %6, ptr noundef nonnull %7) #19
   %36 = load i16, ptr %7, align 2
   %37 = zext i16 %36 to i64
@@ -2987,7 +2987,7 @@ define internal i32 @cff_get_advances(ptr noundef %0, i32 noundef %1, i32 nounde
   %50 = getelementptr inbounds i8, ptr %49, i64 336
   %51 = load ptr, ptr %50, align 8
   %52 = trunc nuw i64 %indvars.iv80 to i32
-  %53 = add i32 %52, %1
+  %53 = add i32 %1, %52
   call void %51(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef %53, ptr noundef nonnull %6, ptr noundef nonnull %8) #19
   %54 = load i16, ptr %8, align 2
   %55 = zext i16 %54 to i64
@@ -3015,7 +3015,7 @@ define internal i32 @cff_get_advances(ptr noundef %0, i32 noundef %1, i32 nounde
   %indvars.iv85 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next86, %66 ]
   %62 = load ptr, ptr %59, align 8
   %63 = trunc nuw i64 %indvars.iv85 to i32
-  %64 = add i32 %63, %1
+  %64 = add i32 %1, %63
   %65 = tail call i32 @cff_glyph_load(ptr noundef %10, ptr noundef %62, i32 noundef %64, i32 noundef %58)
   %.not61 = icmp eq i32 %65, 0
   br i1 %.not61, label %66, label %.loopexit
@@ -3268,7 +3268,7 @@ define internal ptr @cff_sid_to_glyph_name(ptr nocapture noundef readonly %0, i3
   %15 = add nsw i32 %10, -391
   %16 = getelementptr inbounds i8, ptr %4, i64 1608
   %17 = load i32, ptr %16, align 8
-  %18 = icmp ugt i32 %17, %15
+  %18 = icmp ult i32 %15, %17
   br i1 %18, label %19, label %cff_index_get_sid_string.exit
 
 19:                                               ; preds = %14
@@ -3541,7 +3541,7 @@ define internal i32 @cff_ps_get_font_info(ptr nocapture noundef readonly %0, ptr
   %24 = add i32 %19, -391
   %25 = getelementptr inbounds i8, ptr %5, i64 1608
   %26 = load i32, ptr %25, align 8
-  %27 = icmp ugt i32 %26, %24
+  %27 = icmp ult i32 %24, %26
   br i1 %27, label %28, label %cff_index_get_sid_string.exit
 
 28:                                               ; preds = %23
@@ -3580,7 +3580,7 @@ cff_index_get_sid_string.exit:                    ; preds = %17, %23, %28, %34, 
   %47 = add i32 %42, -391
   %48 = getelementptr inbounds i8, ptr %5, i64 1608
   %49 = load i32, ptr %48, align 8
-  %50 = icmp ugt i32 %49, %47
+  %50 = icmp ult i32 %47, %49
   br i1 %50, label %51, label %cff_index_get_sid_string.exit41
 
 51:                                               ; preds = %46
@@ -3620,7 +3620,7 @@ cff_index_get_sid_string.exit41:                  ; preds = %cff_index_get_sid_s
   %71 = add i32 %66, -391
   %72 = getelementptr inbounds i8, ptr %5, i64 1608
   %73 = load i32, ptr %72, align 8
-  %74 = icmp ugt i32 %73, %71
+  %74 = icmp ult i32 %71, %73
   br i1 %74, label %75, label %cff_index_get_sid_string.exit44
 
 75:                                               ; preds = %70
@@ -3660,7 +3660,7 @@ cff_index_get_sid_string.exit44:                  ; preds = %cff_index_get_sid_s
   %95 = add i32 %90, -391
   %96 = getelementptr inbounds i8, ptr %5, i64 1608
   %97 = load i32, ptr %96, align 8
-  %98 = icmp ugt i32 %97, %95
+  %98 = icmp ult i32 %95, %97
   br i1 %98, label %99, label %cff_index_get_sid_string.exit47
 
 99:                                               ; preds = %94
@@ -3700,7 +3700,7 @@ cff_index_get_sid_string.exit47:                  ; preds = %cff_index_get_sid_s
   %119 = add i32 %114, -391
   %120 = getelementptr inbounds i8, ptr %5, i64 1608
   %121 = load i32, ptr %120, align 8
-  %122 = icmp ugt i32 %121, %119
+  %122 = icmp ult i32 %119, %121
   br i1 %122, label %123, label %cff_index_get_sid_string.exit50
 
 123:                                              ; preds = %118
@@ -3798,7 +3798,7 @@ define internal i32 @cff_ps_get_font_extra(ptr nocapture noundef readonly %0, pt
   %21 = add i32 %16, -391
   %22 = getelementptr inbounds i8, ptr %5, i64 1608
   %23 = load i32, ptr %22, align 8
-  %24 = icmp ugt i32 %23, %21
+  %24 = icmp ult i32 %21, %23
   br i1 %24, label %25, label %cff_index_get_sid_string.exit.thread
 
 25:                                               ; preds = %20
@@ -4013,7 +4013,7 @@ define internal i32 @cff_get_glyph_name(ptr noundef %0, i32 noundef %1, ptr noun
   %35 = add nsw i32 %30, -391
   %36 = getelementptr inbounds i8, ptr %6, i64 1608
   %37 = load i32, ptr %36, align 8
-  %38 = icmp ugt i32 %37, %35
+  %38 = icmp ult i32 %35, %37
   br i1 %38, label %39, label %cff_index_get_sid_string.exit.thread
 
 39:                                               ; preds = %34
@@ -4104,7 +4104,7 @@ define internal i32 @cff_get_name_index(ptr noundef %0, ptr noundef %1) #4 {
 34:                                               ; preds = %28
   %35 = add nsw i32 %32, -391
   %36 = load i32, ptr %26, align 8
-  %37 = icmp ugt i32 %36, %35
+  %37 = icmp ult i32 %35, %36
   br i1 %37, label %38, label %cff_index_get_string.exit.thread
 
 38:                                               ; preds = %34
@@ -4215,7 +4215,7 @@ define internal range(i32 0, 7) i32 @cff_get_ros(ptr nocapture noundef readonly 
   %18 = add i32 %9, -391
   %19 = getelementptr inbounds i8, ptr %6, i64 1608
   %20 = load i32, ptr %19, align 8
-  %21 = icmp ugt i32 %20, %18
+  %21 = icmp ult i32 %18, %20
   br i1 %21, label %22, label %cff_index_get_sid_string.exit
 
 22:                                               ; preds = %17
@@ -4272,7 +4272,7 @@ cff_index_get_sid_string.exit:                    ; preds = %17, %22, %28, %31
   %48 = add i32 %43, -391
   %49 = getelementptr inbounds i8, ptr %6, i64 1608
   %50 = load i32, ptr %49, align 8
-  %51 = icmp ugt i32 %50, %48
+  %51 = icmp ult i32 %48, %50
   br i1 %51, label %52, label %cff_index_get_sid_string.exit35
 
 52:                                               ; preds = %47
@@ -4359,7 +4359,7 @@ define internal range(i32 0, 7) i32 @cff_get_cid_from_glyph_index(ptr nocapture 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %5, i64 36
   %12 = load i32, ptr %11, align 4
-  %.not15 = icmp ugt i32 %12, %1
+  %.not15 = icmp ult i32 %1, %12
   br i1 %.not15, label %13, label %21
 
 13:                                               ; preds = %10
@@ -4626,7 +4626,7 @@ define internal zeroext i8 @cff_fd_select_get(ptr nocapture noundef %0, i32 noun
 34:                                               ; preds = %50, %21
   %.034 = phi ptr [ %26, %21 ], [ %51, %50 ]
   %.033 = phi i32 [ %33, %21 ], [ %44, %50 ]
-  %35 = icmp ugt i32 %.033, %1
+  %35 = icmp ult i32 %1, %.033
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %34
@@ -4638,7 +4638,7 @@ define internal zeroext i8 @cff_fd_select_get(ptr nocapture noundef %0, i32 noun
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = or disjoint i32 %40, %43
-  %45 = icmp ugt i32 %44, %1
+  %45 = icmp ult i32 %1, %44
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %36
@@ -4721,12 +4721,12 @@ define internal i32 @cff_blend_build_vector(ptr nocapture noundef %0, i32 nounde
   %15 = getelementptr inbounds i8, ptr %7, i64 5032
   %16 = load i16, ptr %15, align 8
   %17 = zext i16 %16 to i32
-  %.not96 = icmp eq i32 %17, %2
+  %.not96 = icmp eq i32 %2, %17
   br i1 %.not96, label %18, label %.split.us
 
 18:                                               ; preds = %14, %12
   %19 = load i32, ptr %13, align 8
-  %.not97 = icmp ugt i32 %19, %1
+  %.not97 = icmp ult i32 %1, %19
   br i1 %.not97, label %20, label %.split.us
 
 20:                                               ; preds = %18
@@ -5302,7 +5302,7 @@ define internal fastcc i64 @cff_parse_num(ptr nocapture noundef readonly %0, ptr
 30:                                               ; preds = %25
   %31 = getelementptr inbounds i8, ptr %.0.val, i64 3
   %32 = icmp ule ptr %31, %27
-  %.not37.i = icmp ugt ptr %28, %27
+  %.not37.i = icmp ult ptr %27, %28
   %or.cond.i = select i1 %32, i1 true, i1 %.not37.i
   br i1 %or.cond.i, label %33, label %cff_parse_integer.exit
 
@@ -5320,7 +5320,7 @@ define internal fastcc i64 @cff_parse_num(ptr nocapture noundef readonly %0, ptr
 42:                                               ; preds = %25
   %43 = getelementptr inbounds i8, ptr %.0.val, i64 5
   %44 = icmp ule ptr %43, %27
-  %.not36.i = icmp ugt ptr %28, %27
+  %.not36.i = icmp ult ptr %27, %28
   %or.cond38.i = select i1 %44, i1 true, i1 %.not36.i
   br i1 %or.cond38.i, label %45, label %cff_parse_integer.exit
 
@@ -5357,7 +5357,7 @@ define internal fastcc i64 @cff_parse_num(ptr nocapture noundef readonly %0, ptr
   %69 = icmp ult i8 %2, -5
   %70 = getelementptr inbounds i8, ptr %.0.val, i64 2
   %71 = icmp ule ptr %70, %27
-  %.not35.i = icmp ugt ptr %28, %27
+  %.not35.i = icmp ult ptr %27, %28
   %or.cond39.i = select i1 %71, i1 true, i1 %.not35.i
   br i1 %69, label %72, label %80
 
@@ -5441,7 +5441,7 @@ define internal range(i32 0, 162) i32 @cff_parse_font_matrix(ptr nocapture nound
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %.068.val, i64 3
   %30 = icmp ule ptr %29, %22
-  %.not37.i.i = icmp ugt ptr %26, %22
+  %.not37.i.i = icmp ult ptr %22, %26
   %or.cond.i.i = select i1 %30, i1 true, i1 %.not37.i.i
   br i1 %or.cond.i.i, label %31, label %cff_parse_integer.exit.thread.i
 
@@ -5459,7 +5459,7 @@ define internal range(i32 0, 162) i32 @cff_parse_font_matrix(ptr nocapture nound
 40:                                               ; preds = %25
   %41 = getelementptr inbounds i8, ptr %.068.val, i64 5
   %42 = icmp ule ptr %41, %22
-  %.not36.i.i = icmp ugt ptr %26, %22
+  %.not36.i.i = icmp ult ptr %22, %26
   %or.cond38.i.i = select i1 %42, i1 true, i1 %.not36.i.i
   br i1 %or.cond38.i.i, label %43, label %cff_parse_integer.exit.thread.i
 
@@ -5496,7 +5496,7 @@ define internal range(i32 0, 162) i32 @cff_parse_font_matrix(ptr nocapture nound
   %67 = icmp ult i8 %20, -5
   %68 = getelementptr inbounds i8, ptr %.068.val, i64 2
   %69 = icmp ule ptr %68, %22
-  %.not35.i.i = icmp ugt ptr %26, %22
+  %.not35.i.i = icmp ult ptr %22, %26
   %or.cond39.i.i = select i1 %69, i1 true, i1 %.not35.i.i
   br i1 %67, label %70, label %78
 
@@ -6155,14 +6155,14 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
 146:                                              ; preds = %142
   %147 = getelementptr inbounds i8, ptr %.val.i, i64 3
   %148 = icmp ule ptr %147, %143
-  %.not37.i.i.i = icmp ugt ptr %144, %143
+  %.not37.i.i.i = icmp ult ptr %143, %144
   %or.cond.i.i.i = select i1 %148, i1 true, i1 %.not37.i.i.i
   br i1 %or.cond.i.i.i, label %cff_parse_integer.exit.i.thread.i, label %cff_parse_integer.exit.i.thread.thread.i
 
 149:                                              ; preds = %142
   %150 = getelementptr inbounds i8, ptr %.val.i, i64 5
   %151 = icmp ule ptr %150, %143
-  %.not36.i.i.i = icmp ugt ptr %144, %143
+  %.not36.i.i.i = icmp ult ptr %143, %144
   %or.cond38.i.i.i = select i1 %151, i1 true, i1 %.not36.i.i.i
   br i1 %or.cond38.i.i.i, label %152, label %cff_parse_integer.exit.i.thread.thread.i
 
@@ -6199,7 +6199,7 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
   %176 = icmp ult i8 %119, -5
   %177 = getelementptr inbounds i8, ptr %.val.i, i64 2
   %178 = icmp ule ptr %177, %143
-  %.not35.i.i.i = icmp ugt ptr %144, %143
+  %.not35.i.i.i = icmp ult ptr %143, %144
   %or.cond39.i.i.i = select i1 %178, i1 true, i1 %.not35.i.i.i
   br i1 %176, label %179, label %187
 
@@ -6381,7 +6381,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly %0, ptr noundef 
   %9 = getelementptr inbounds i8, ptr %.0, i64 1
   %10 = getelementptr inbounds i8, ptr %.0, i64 2
   %11 = icmp ule ptr %10, %1
-  %.not193 = icmp ugt ptr %9, %1
+  %.not193 = icmp ult ptr %1, %9
   %or.cond204 = select i1 %11, i1 true, i1 %.not193
   br i1 %or.cond204, label %12, label %.loopexit
 
@@ -6455,7 +6455,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly %0, ptr noundef 
   %39 = getelementptr inbounds i8, ptr %.3, i64 1
   %40 = getelementptr inbounds i8, ptr %.3, i64 2
   %41 = icmp ule ptr %40, %1
-  %.not195 = icmp ugt ptr %39, %1
+  %.not195 = icmp ult ptr %1, %39
   %or.cond205 = select i1 %41, i1 true, i1 %.not195
   br i1 %or.cond205, label %._crit_edge, label %.loopexit
 
@@ -6518,7 +6518,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly %0, ptr noundef 
   %64 = getelementptr inbounds i8, ptr %.5, i64 1
   %65 = getelementptr inbounds i8, ptr %.5, i64 2
   %66 = icmp ule ptr %65, %1
-  %.not197 = icmp ugt ptr %64, %1
+  %.not197 = icmp ult ptr %1, %64
   %or.cond206 = select i1 %66, i1 true, i1 %.not197
   br i1 %or.cond206, label %._crit_edge252, label %.loopexit
 
@@ -6782,7 +6782,7 @@ define internal fastcc i64 @do_fixed(ptr nocapture noundef readonly %0, ptr %.0.
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %.0.val, i64 3
   %47 = icmp ule ptr %46, %42
-  %.not37.i = icmp ugt ptr %43, %42
+  %.not37.i = icmp ult ptr %42, %43
   %or.cond.i = select i1 %47, i1 true, i1 %.not37.i
   br i1 %or.cond.i, label %48, label %cff_parse_integer.exit
 
@@ -6800,7 +6800,7 @@ define internal fastcc i64 @do_fixed(ptr nocapture noundef readonly %0, ptr %.0.
 57:                                               ; preds = %40
   %58 = getelementptr inbounds i8, ptr %.0.val, i64 5
   %59 = icmp ule ptr %58, %42
-  %.not36.i = icmp ugt ptr %43, %42
+  %.not36.i = icmp ult ptr %42, %43
   %or.cond38.i = select i1 %59, i1 true, i1 %.not36.i
   br i1 %or.cond38.i, label %60, label %cff_parse_integer.exit
 
@@ -6837,7 +6837,7 @@ define internal fastcc i64 @do_fixed(ptr nocapture noundef readonly %0, ptr %.0.
   %84 = icmp ult i8 %3, -5
   %85 = getelementptr inbounds i8, ptr %.0.val, i64 2
   %86 = icmp ule ptr %85, %42
-  %.not35.i = icmp ugt ptr %43, %42
+  %.not35.i = icmp ult ptr %42, %43
   %or.cond39.i = select i1 %86, i1 true, i1 %.not35.i
   br i1 %84, label %87, label %95
 
@@ -7017,7 +7017,7 @@ define internal fastcc i32 @cff_index_access_element(ptr noundef readonly %0, i3
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = load i8, ptr %16, align 8
   %18 = zext i8 %17 to i32
-  %19 = mul i32 %18, %1
+  %19 = mul i32 %1, %18
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8

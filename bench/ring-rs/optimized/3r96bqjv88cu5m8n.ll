@@ -371,7 +371,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint12elem_reduced17h274c2844
   %14 = getelementptr inbounds i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8, !noundef !4
   store i64 %15, ptr %12, align 8
-  %16 = icmp eq i64 %15, %2
+  %16 = icmp eq i64 %2, %15
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %3
@@ -488,7 +488,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint12elem_reduced17ha274d8af
   %14 = getelementptr inbounds i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8, !noundef !4
   store i64 %15, ptr %12, align 8
-  %16 = icmp eq i64 %15, %2
+  %16 = icmp eq i64 %2, %15
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %3
@@ -728,7 +728,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %7
   %57 = getelementptr inbounds i8, ptr %56, i64 24
   %58 = load i64, ptr %57, align 8, !alias.scope !91, !noalias !94, !noundef !4
   %59 = shl i64 %58, 3
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %59, i64 %52)
+  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %52, i64 %59)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %31), !noalias !97
   call void @_ZN4ring2ec7suite_b3ops60scalar_parse_big_endian_partially_reduced_variable_consttime17hbdfc0a3fbc2dcaadE(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(272) %56, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %spec.select.i.i), !noalias !98
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
@@ -1335,7 +1335,7 @@ define hidden void @_ZN4ring2ec7suite_b3ops12PublicKeyOps10elem_parse17h2c4b2e31
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2894363935a0893bE.llvm.8403485840513791397.exit": ; preds = %19
   %25 = sub nuw i64 %14, %12
-  %.not.i = icmp eq i64 %10, %25
+  %.not.i = icmp eq i64 %25, %10
   br i1 %.not.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haee67adab7116f68E.llvm.9292951165861561203.exit.i", label %33
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haee67adab7116f68E.llvm.9292951165861561203.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2894363935a0893bE.llvm.8403485840513791397.exit"

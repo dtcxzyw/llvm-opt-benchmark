@@ -3489,7 +3489,7 @@ declare ptr @jpeg_alloc_quant_table(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @examine_app0(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = zext i32 %2 to i64
-  %6 = add nsw i64 %5, %3
+  %6 = add nsw i64 %3, %5
   %7 = icmp ugt i32 %2, 13
   br i1 %7, label %8, label %122
 

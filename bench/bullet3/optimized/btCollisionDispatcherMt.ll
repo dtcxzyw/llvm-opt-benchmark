@@ -225,7 +225,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IP20btPersistent
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp sgt i32 %0, %newsize
+  %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -273,7 +273,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit: ; preds = %for.body
   br i1 %exitcond23.not, label %if.end15, label %for.body, !llvm.loop !5
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %0, %newsize
+  %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
 
 for.body8.lr.ph:                                  ; preds = %if.else
@@ -375,7 +375,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldEC2ERKS2_.exit: ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit.thread.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %newsize
+  %exitcond.not = icmp eq i32 %newsize, %lftr.wideiv
   br i1 %exitcond.not, label %if.end15, label %for.body8, !llvm.loop !9
 
 if.end15:                                         ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldEC2ERKS2_.exit, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit, %if.else
@@ -835,7 +835,7 @@ if.then.i:                                        ; preds = %entry
   %11 = load ptr, ptr %m_persistentManifoldPoolAllocator, align 8
   %m_pool.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %m_pool.i, align 8
-  %cmp.not.i = icmp ugt ptr %12, %manifold
+  %cmp.not.i = icmp ult ptr %manifold, %12
   br i1 %cmp.not.i, label %if.else12, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
@@ -845,7 +845,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   %mul.i = mul nsw i32 %14, %13
   %idx.ext.i = sext i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext.i
-  %cmp3.i = icmp ugt ptr %add.ptr.i, %manifold
+  %cmp3.i = icmp ult ptr %manifold, %add.ptr.i
   br i1 %cmp3.i, label %_ZN15btPoolAllocator10freeMemoryEPv.exit, label %if.else12
 
 if.else:                                          ; preds = %entry
@@ -1523,7 +1523,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(20816) %3, ptr noundef nonnull align 8 dereferenceable(49) %4)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body, %entry
@@ -1747,7 +1747,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldEC2ERKS2_.exit: ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit.thread.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %end
+  %exitcond.not = icmp eq i32 %end, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldEC2ERKS2_.exit, %entry

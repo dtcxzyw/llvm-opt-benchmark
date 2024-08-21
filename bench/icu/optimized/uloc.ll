@@ -1494,7 +1494,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -1774,7 +1774,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #19
   %cmp7 = icmp eq ptr %call, null
@@ -2651,7 +2651,7 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
 if.end8:                                          ; preds = %lor.lhs.false
   %call9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer) #21
   %conv10 = trunc i64 %call9 to i32
-  %cmp11 = icmp sgt i32 %conv10, %bufferCapacity
+  %cmp11 = icmp slt i32 %bufferCapacity, %conv10
   br i1 %cmp11, label %if.then12, label %for.body.i
 
 if.then12:                                        ; preds = %if.end8

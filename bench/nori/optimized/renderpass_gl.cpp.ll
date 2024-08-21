@@ -1765,7 +1765,7 @@ define hidden void @_ZN7nanogui10RenderPass15set_clear_colorEmRKNS_5ColorE(ptr n
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 4
-  %.not.i.i = icmp ugt i64 %11, %1
+  %.not.i.i = icmp ult i64 %1, %11
   br i1 %.not.i.i, label %_ZNSt6vectorIN7nanogui5ColorESaIS1_EE2atEm.exit, label %12
 
 12:                                               ; preds = %3

@@ -595,36 +595,39 @@ angleSet.exit.thread:                             ; preds = %4, %1, %11
   %.not7085 = icmp eq ptr %97, null
   br i1 %.not7085, label %.thread, label %.lr.ph88
 
-.lr.ph88:                                         ; preds = %81, %.lr.ph88
-  %.286 = phi ptr [ %118, %.lr.ph88 ], [ %97, %81 ]
-  %98 = getelementptr inbounds i8, ptr %.286, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 176
-  %101 = load ptr, ptr %100, align 8
-  %102 = load double, ptr %101, align 8
-  %103 = fsub double %102, %92
-  %104 = getelementptr inbounds i8, ptr %101, i64 8
-  %105 = load double, ptr %104, align 8
-  %106 = fsub double %105, %94
-  %107 = fneg double %106
-  %108 = fmul double %96, %107
-  %109 = tail call double @llvm.fmuladd.f64(double %103, double %95, double %108)
-  %110 = fadd double %92, %109
-  store double %110, ptr %101, align 8
-  %111 = fmul double %95, %106
-  %112 = tail call double @llvm.fmuladd.f64(double %103, double %96, double %111)
-  %113 = fadd double %94, %112
-  %114 = load ptr, ptr %98, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 176
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
-  store double %113, ptr %117, align 8
-  %118 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.286) #19
-  %.not70 = icmp eq ptr %118, null
-  br i1 %.not70, label %.thread, label %.lr.ph88
+.lr.ph88:                                         ; preds = %81
+  %98 = fneg double %96
+  br label %99
 
-.thread:                                          ; preds = %48, %.lr.ph88, %._crit_edge, %81, %angleSet.exit.thread, %50
-  %.060.shrunk = phi i1 [ %or.cond, %50 ], [ false, %angleSet.exit.thread ], [ true, %81 ], [ %or.cond, %._crit_edge ], [ true, %.lr.ph88 ], [ %or.cond, %48 ]
+99:                                               ; preds = %.lr.ph88, %99
+  %.286 = phi ptr [ %97, %.lr.ph88 ], [ %119, %99 ]
+  %100 = getelementptr inbounds i8, ptr %.286, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 176
+  %103 = load ptr, ptr %102, align 8
+  %104 = load double, ptr %103, align 8
+  %105 = fsub double %104, %92
+  %106 = getelementptr inbounds i8, ptr %103, i64 8
+  %107 = load double, ptr %106, align 8
+  %108 = fsub double %107, %94
+  %109 = fmul double %108, %98
+  %110 = tail call double @llvm.fmuladd.f64(double %105, double %95, double %109)
+  %111 = fadd double %92, %110
+  store double %111, ptr %103, align 8
+  %112 = fmul double %95, %108
+  %113 = tail call double @llvm.fmuladd.f64(double %105, double %96, double %112)
+  %114 = fadd double %94, %113
+  %115 = load ptr, ptr %100, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 176
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 8
+  store double %114, ptr %118, align 8
+  %119 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.286) #19
+  %.not70 = icmp eq ptr %119, null
+  br i1 %.not70, label %.thread, label %99
+
+.thread:                                          ; preds = %48, %99, %._crit_edge, %81, %angleSet.exit.thread, %50
+  %.060.shrunk = phi i1 [ %or.cond, %50 ], [ false, %angleSet.exit.thread ], [ true, %81 ], [ %or.cond, %._crit_edge ], [ true, %99 ], [ %or.cond, %48 ]
   %.060 = zext i1 %.060.shrunk to i32
   ret i32 %.060
 }

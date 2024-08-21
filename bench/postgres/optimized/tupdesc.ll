@@ -1032,7 +1032,7 @@ define dso_local void @TupleDescInitEntry(ptr noundef %0, i16 noundef signext %1
   br label %.loopexit
 
 31:                                               ; preds = %6
-  %.not = icmp eq ptr %13, %2
+  %.not = icmp eq ptr %2, %13
   br i1 %.not, label %.loopexit, label %32
 
 32:                                               ; preds = %31

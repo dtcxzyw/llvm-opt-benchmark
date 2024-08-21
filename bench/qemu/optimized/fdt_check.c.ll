@@ -16,7 +16,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call i64 @fdt_header_size(ptr noundef %fdt) #2
-  %cmp1 = icmp ugt i64 %call, %bufsize
+  %cmp1 = icmp ult i64 %bufsize, %call
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
@@ -44,7 +44,7 @@ if.end7:                                          ; preds = %if.end3
   %3 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = zext i8 %3 to i64
   %or10.i = or disjoint i64 %or7.i, %conv9.i
-  %cmp9 = icmp ugt i64 %or10.i, %bufsize
+  %cmp9 = icmp ult i64 %bufsize, %or10.i
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end7

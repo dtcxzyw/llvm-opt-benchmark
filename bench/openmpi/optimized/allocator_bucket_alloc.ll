@@ -420,7 +420,7 @@ define ptr @mca_allocator_bucket_realloc(ptr nocapture noundef readonly %0, ptr 
   %7 = zext nneg i32 %6 to i64
   %8 = shl nuw i64 1, %7
   %9 = add i64 %8, -16
-  %.not = icmp ult i64 %9, %2
+  %.not = icmp ugt i64 %2, %9
   br i1 %.not, label %10, label %mca_allocator_bucket_free.exit
 
 10:                                               ; preds = %3

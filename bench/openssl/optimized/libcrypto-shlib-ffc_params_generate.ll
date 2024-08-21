@@ -77,7 +77,7 @@ if.end28:                                         ; preds = %if.end23
   %N.addr.2 = select i1 %cmp29, i64 %conv33, i64 %N.addr.0
   %shr = lshr i64 %N.addr.2, 3
   %conv35 = trunc i64 %shr to i32
-  %cmp36.not = icmp ult i64 %N.addr.2, %L
+  %cmp36.not = icmp ugt i64 %L, %N.addr.2
   br i1 %cmp36.not, label %lor.lhs.false, label %if.then40
 
 lor.lhs.false:                                    ; preds = %if.end28

@@ -180,8 +180,8 @@ define internal range(i32 0, 2) i32 @busmaster_read(ptr nocapture noundef %0, pt
 
 25:                                               ; preds = %21, %.lr.ph.i
   %26 = load i64, ptr %17, align 8
-  %.not15.i = icmp sgt i64 %26, %15
-  %.not16.i = icmp slt i64 %19, %15
+  %.not15.i = icmp slt i64 %15, %26
+  %.not16.i = icmp sgt i64 %15, %19
   %or.cond.i = or i1 %.not16.i, %.not15.i
   br i1 %or.cond.i, label %27, label %30
 
@@ -301,8 +301,8 @@ busmaster_find_priv_entry.exit.thread:            ; preds = %27, %.lr.ph
 
 78:                                               ; preds = %74, %.lr.ph.i61
   %79 = load i64, ptr %70, align 8
-  %.not15.i63 = icmp sgt i64 %79, %69
-  %.not16.i64 = icmp slt i64 %72, %69
+  %.not15.i63 = icmp slt i64 %69, %79
+  %.not16.i64 = icmp sgt i64 %69, %72
   %or.cond.i65 = or i1 %.not16.i64, %.not15.i63
   br i1 %or.cond.i65, label %80, label %busmaster_find_priv_entry.exit68
 
@@ -353,8 +353,8 @@ define internal range(i32 0, 2) i32 @busmaster_seek_read(ptr nocapture noundef r
 
 18:                                               ; preds = %14, %.lr.ph.i
   %19 = load i64, ptr %10, align 8
-  %.not15.i = icmp sgt i64 %19, %1
-  %.not16.i = icmp slt i64 %12, %1
+  %.not15.i = icmp slt i64 %1, %19
+  %.not16.i = icmp sgt i64 %1, %12
   %or.cond.i = or i1 %.not16.i, %.not15.i
   br i1 %or.cond.i, label %20, label %busmaster_find_priv_entry.exit
 

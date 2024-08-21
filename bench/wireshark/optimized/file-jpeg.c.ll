@@ -1344,7 +1344,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %98 = icmp eq i32 %97, 1
   %or.cond = select i1 %96, i1 %98, i1 false
   %99 = load i32, ptr @hf_ifd_tag, align 4
-  %100 = icmp eq i32 %99, %5
+  %100 = icmp eq i32 %5, %99
   %or.cond133 = select i1 %or.cond, i1 %100, i1 false
   br i1 %or.cond133, label %101, label %113
 

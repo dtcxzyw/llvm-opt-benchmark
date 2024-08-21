@@ -10095,8 +10095,9 @@ cond.false23:                                     ; preds = %cond.false
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %20 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %19)
   %21 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %20)
-  %22 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %22
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %22 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %22
   %23 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %21)
   br label %cond.end25
 

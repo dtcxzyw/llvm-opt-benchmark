@@ -358,7 +358,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
   %idx.neg.i.i = sub i64 1, %call3.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %protocolStr.coerce1, i64 %idx.neg.i.i
-  %cmp741.i.i = icmp ugt ptr %add.ptr.i.i, %protocolStr.coerce0
+  %cmp741.i.i = icmp ult ptr %protocolStr.coerce0, %add.ptr.i.i
   br i1 %cmp741.i.i, label %while.cond8.preheader.lr.ph.i.i, label %if.else9
 
 while.cond8.preheader.lr.ph.i.i:                  ; preds = %if.end3.i.i
@@ -465,7 +465,7 @@ if.end3.i.i72:                                    ; preds = %if.end.i.i70
   %7 = load i8, ptr %arrayidx.i.i.i74, align 1
   %idx.neg.i.i75 = sub i64 1, %call3.i57
   %add.ptr.i.i76 = getelementptr inbounds i8, ptr %protocolStr.coerce1, i64 %idx.neg.i.i75
-  %cmp741.i.i77 = icmp ugt ptr %add.ptr.i.i76, %protocolStr.coerce0
+  %cmp741.i.i77 = icmp ult ptr %protocolStr.coerce0, %add.ptr.i.i76
   br i1 %cmp741.i.i77, label %while.cond8.preheader.lr.ph.i.i79, label %if.else14
 
 while.cond8.preheader.lr.ph.i.i79:                ; preds = %if.end3.i.i72
@@ -572,7 +572,7 @@ if.end3.i.i149:                                   ; preds = %if.end.i.i147
   %14 = load i8, ptr %arrayidx.i.i.i151, align 1
   %idx.neg.i.i152 = sub i64 1, %call3.i134
   %add.ptr.i.i153 = getelementptr inbounds i8, ptr %protocolStr.coerce1, i64 %idx.neg.i.i152
-  %cmp741.i.i154 = icmp ugt ptr %add.ptr.i.i153, %protocolStr.coerce0
+  %cmp741.i.i154 = icmp ult ptr %protocolStr.coerce0, %add.ptr.i.i153
   br i1 %cmp741.i.i154, label %while.cond8.preheader.lr.ph.i.i156, label %return
 
 while.cond8.preheader.lr.ph.i.i156:               ; preds = %if.end3.i.i149
@@ -1256,7 +1256,7 @@ invoke.cont3:                                     ; preds = %for.cond.i.i, %call
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_Locale.i.i) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   %8 = load ptr, ptr %Input, align 8
-  %cmp.i = icmp eq ptr %8, %retval.0.i.i
+  %cmp.i = icmp eq ptr %retval.0.i.i, %8
   br i1 %cmp.i, label %if.then.i, label %if.then4.i
 
 if.then.i:                                        ; preds = %invoke.cont3
@@ -1327,7 +1327,7 @@ for.inc.i:                                        ; preds = %call.i.i.noexc
 invoke.cont:                                      ; preds = %for.inc.i, %call.i.i.noexc, %entry
   %It.0.lcssa.i = phi ptr [ %0, %entry ], [ %It.06.i, %call.i.i.noexc ], [ %scevgep.i, %for.inc.i ]
   %8 = load ptr, ptr %Input, align 8
-  %cmp.i = icmp eq ptr %8, %0
+  %cmp.i = icmp eq ptr %0, %8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont
@@ -1336,7 +1336,7 @@ if.then.i:                                        ; preds = %invoke.cont
 
 if.else.i:                                        ; preds = %invoke.cont
   %9 = load ptr, ptr %e_.i.i.i, align 8
-  %cmp3.i = icmp eq ptr %9, %It.0.lcssa.i
+  %cmp3.i = icmp eq ptr %It.0.lcssa.i, %9
   br i1 %cmp3.i, label %if.then4.i, label %if.else6.i
 
 if.then4.i:                                       ; preds = %if.else.i

@@ -4278,7 +4278,7 @@ define internal fastcc noundef ptr @__get_vm_area_node(i64 noundef %0, i64 nound
 14:                                               ; preds = %9
   %15 = shl nsw i64 -1, %2
   %16 = xor i64 %15, -1
-  %17 = add i64 %16, %0
+  %17 = add i64 %0, %16
   %18 = and i64 %17, %15
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %57, label %20, !prof !12
@@ -5246,7 +5246,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %72 = zext nneg i32 %67 to i64
   %73 = shl nsw i64 -1, %72
   %74 = xor i64 %73, -1
-  %75 = add i64 %74, %0
+  %75 = add i64 %0, %74
   %76 = and i64 %75, %73
   %77 = icmp eq i64 %76, 0
   %78 = add i64 %76, -1
@@ -6636,7 +6636,7 @@ define dso_local i32 @remap_vmalloc_range_partial(ptr noundef %0, i64 noundef %1
   %9 = add i64 %4, 4095
   %10 = and i64 %9, -4096
   %11 = ptrtoint ptr %2 to i64
-  %12 = or i64 %11, %1
+  %12 = or i64 %1, %11
   %13 = and i64 %12, 4095
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %.thread7
@@ -10031,7 +10031,7 @@ define internal fastcc void @free_vmap_area_rb_augment_cb_propagate(ptr noundef 
   %32 = load i64, ptr %4, align 8
   %33 = and i64 %32, -4
   %34 = inttoptr i64 %33 to ptr
-  %35 = icmp eq ptr %34, %1
+  %35 = icmp eq ptr %1, %34
   br i1 %35, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %31, %26, %2

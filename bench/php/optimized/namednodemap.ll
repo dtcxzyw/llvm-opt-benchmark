@@ -160,7 +160,7 @@ define hidden ptr @php_dom_named_node_map_get_named_item(ptr noundef readonly %0
   %11 = icmp ne i32 %6, 6
   %12 = tail call ptr @xmlHashLookup(ptr noundef nonnull %9, ptr noundef %1) #3
   %.not26 = icmp ne ptr %12, null
-  %brmerge.not = and i1 %.not26, %2
+  %brmerge.not = and i1 %2, %.not26
   %or.cond = select i1 %11, i1 %brmerge.not, i1 false
   br i1 %or.cond, label %13, label %25
 

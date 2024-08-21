@@ -245,7 +245,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %107 = getelementptr inbounds i8, ptr %106, i64 %indvars.iv.i
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
-  %110 = add nuw nsw i32 %109, %2
+  %110 = add nuw nsw i32 %2, %109
   %111 = add nsw i32 %110, -1
   %112 = mul i64 %.val65.val.i, %90
   %113 = getelementptr inbounds i8, ptr %.val.i, i64 %112

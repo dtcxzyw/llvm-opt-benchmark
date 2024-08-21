@@ -1211,7 +1211,7 @@ define internal fastcc i32 @Abc_EsopAddLits(ptr noundef %0, i64 noundef %1, i64 
   %17 = shl nsw i32 %5, 1
   %18 = shl nuw i32 1, %17
   %19 = and i64 %2, -4294967296
-  %20 = add i64 %19, %4
+  %20 = add i64 %4, %19
   %21 = ashr i64 %20, 32
   %22 = ashr i64 %2, 32
   %23 = getelementptr i32, ptr %0, i64 %21
@@ -1255,7 +1255,7 @@ define internal fastcc i32 @Abc_EsopAddLits(ptr noundef %0, i64 noundef %1, i64 
   %36 = shl nsw i32 %5, 1
   %37 = shl nuw i32 2, %36
   %38 = and i64 %1, -4294967296
-  %39 = add i64 %38, %4
+  %39 = add i64 %4, %38
   %40 = ashr i64 %39, 32
   %41 = ashr i64 %1, 32
   %42 = getelementptr i32, ptr %0, i64 %40

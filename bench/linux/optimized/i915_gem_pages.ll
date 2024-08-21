@@ -1341,7 +1341,7 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load volatile i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ugt i64 %15, %2
+  %16 = icmp ult i64 %2, %15
   br i1 %16, label %122, label %17
 
 17:                                               ; preds = %4
@@ -1356,7 +1356,7 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   %24 = lshr i32 %.in213, 12
   %25 = add i32 %24, %20
   %26 = zext i32 %25 to i64
-  %27 = icmp ugt i64 %26, %2
+  %27 = icmp ult i64 %2, %26
   br i1 %27, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
@@ -1416,7 +1416,7 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   %56 = lshr i32 %.in2.us, 12
   %57 = add i32 %56, %28
   %58 = zext i32 %57 to i64
-  %59 = icmp ugt i64 %58, %2
+  %59 = icmp ult i64 %2, %58
   br i1 %59, label %.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %85
@@ -1473,7 +1473,7 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   %88 = lshr i32 %.in2, 12
   %89 = add i32 %88, %60
   %90 = zext i32 %89 to i64
-  %91 = icmp ugt i64 %90, %2
+  %91 = icmp ult i64 %2, %90
   br i1 %91, label %.thread, label %.lr.ph.split
 
 .thread:                                          ; preds = %85, %.lr.ph.split, %.preheader3, %53, %.lr.ph.split.us, %.preheader3.us, %17
@@ -1484,13 +1484,13 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   store i32 %92, ptr %13, align 8
   tail call void @mutex_unlock(ptr noundef %18) #6
   %95 = zext i32 %92 to i64
-  %96 = icmp ugt i64 %95, %2
+  %96 = icmp ult i64 %2, %95
   br i1 %96, label %122, label %97, !prof !21
 
 97:                                               ; preds = %.thread
   %98 = add i32 %94, %92
   %99 = zext i32 %98 to i64
-  %100 = icmp ugt i64 %99, %2
+  %100 = icmp ult i64 %2, %99
   br i1 %100, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %97, %110
@@ -1514,7 +1514,7 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   %114 = lshr i32 %113, 12
   %115 = add i32 %114, %101
   %116 = zext i32 %115 to i64
-  %117 = icmp ugt i64 %116, %2
+  %117 = icmp ult i64 %2, %116
   br i1 %117, label %.loopexit, label %.preheader, !llvm.loop !54
 
 .loopexit:                                        ; preds = %110, %97

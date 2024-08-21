@@ -708,7 +708,7 @@ define hidden noundef ptr @_ZN11EpsilonHeap17allocate_new_tlabEmmPm(ptr noundef 
 24:                                               ; preds = %14, %18, %23, %9
   %.134 = phi i64 [ 0, %23 ], [ %11, %18 ], [ %11, %14 ], [ %11, %9 ]
   %.1 = phi i64 [ %17, %23 ], [ %17, %18 ], [ %17, %14 ], [ 0, %9 ]
-  %.not42 = icmp ult i64 %.134, %2
+  %.not42 = icmp ugt i64 %2, %.134
   br i1 %.not42, label %25, label %30
 
 25:                                               ; preds = %24
@@ -981,11 +981,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20BlockLocationPrinterI11Epsil
   %13 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
-  %.not.i.i = icmp ule ptr %15, %1
+  %.not.i.i = icmp uge ptr %1, %15
   %16 = getelementptr inbounds i8, ptr %13, i64 48
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds ptr, ptr %15, i64 %17
-  %19 = icmp ugt ptr %18, %1
+  %19 = icmp ult ptr %1, %18
   %20 = select i1 %.not.i.i, i1 %19, i1 false
   br i1 %20, label %21, label %23
 
@@ -1132,9 +1132,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK11EpsilonHeap5is_inEPKv(ptr n
   %9 = ptrtoint ptr %5 to i64
   %10 = sub i64 %8, %9
   %11 = lshr i64 %10, 3
-  %.not.i.i = icmp ule ptr %5, %1
+  %.not.i.i = icmp uge ptr %1, %5
   %12 = getelementptr inbounds ptr, ptr %5, i64 %11
-  %13 = icmp ugt ptr %12, %1
+  %13 = icmp ult ptr %1, %12
   %14 = select i1 %.not.i.i, i1 %13, i1 false
   ret i1 %14
 }

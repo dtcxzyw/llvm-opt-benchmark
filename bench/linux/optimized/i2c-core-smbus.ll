@@ -964,7 +964,7 @@ define dso_local zeroext i8 @i2c_smbus_pec(i8 noundef zeroext %0, ptr nocapture 
   %24 = trunc nuw i16 %23 to i8
   %25 = add i32 %6, 1
   %26 = sext i32 %25 to i64
-  %27 = icmp ult i64 %26, %2
+  %27 = icmp ugt i64 %2, %26
   br i1 %27, label %.preheader, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %22, %3
@@ -2319,7 +2319,7 @@ define dso_local i32 @i2c_smbus_read_i2c_block_data_or_emulated(ptr nocapture no
 82:                                               ; preds = %92, %78
   %83 = phi i64 [ %80, %78 ], [ %94, %92 ]
   %84 = trunc i64 %83 to i8
-  %85 = add i8 %84, %1
+  %85 = add i8 %1, %84
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %5) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(34) %5, i8 0, i64 34, i1 false), !annotation !14
   %86 = load ptr, ptr %9, align 8

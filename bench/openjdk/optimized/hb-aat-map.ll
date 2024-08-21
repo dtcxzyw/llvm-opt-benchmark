@@ -86,7 +86,7 @@ define hidden void @_ZN20hb_aat_map_builder_t11add_featureERK12hb_feature_t(ptr 
 
 20:                                               ; preds = %19
   %21 = tail call noundef ptr @hb_blob_get_empty()
-  %.not3.i.i.i.i = icmp eq ptr %21, %.1.i.i.i
+  %.not3.i.i.i.i = icmp eq ptr %.1.i.i.i, %21
   br i1 %.not3.i.i.i.i, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i, label %22
 
 22:                                               ; preds = %20
@@ -178,7 +178,7 @@ _ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face
 
 68:                                               ; preds = %67
   %69 = tail call noundef ptr @hb_blob_get_empty()
-  %.not3.i.i.i.i44 = icmp eq ptr %69, %.1.i.i.i42
+  %.not3.i.i.i.i44 = icmp eq ptr %.1.i.i.i42, %69
   br i1 %.not3.i.i.i.i44, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45, label %70
 
 70:                                               ; preds = %68
@@ -343,7 +343,7 @@ _ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit: ; preds = %1
 
 154:                                              ; preds = %153
   %155 = tail call noundef ptr @hb_blob_get_empty()
-  %.not3.i.i.i.i58 = icmp eq ptr %155, %.1.i.i.i56
+  %.not3.i.i.i.i58 = icmp eq ptr %.1.i.i.i56, %155
   br i1 %.not3.i.i.i.i58, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i59, label %156
 
 156:                                              ; preds = %154
@@ -401,7 +401,7 @@ _ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face
   %185 = load i8, ptr %184, align 1
   %186 = zext i8 %185 to i32
   %187 = or disjoint i32 %183, %186
-  %188 = icmp sgt i32 %187, %165
+  %188 = icmp slt i32 %165, %187
   br i1 %188, label %189, label %191
 
 189:                                              ; preds = %.lr.ph.i.i.i.i.i.i
@@ -409,7 +409,7 @@ _ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face
   br label %194
 
 191:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not23.i.i.i.i.i.i = icmp eq i32 %187, %165
+  %.not23.i.i.i.i.i.i = icmp eq i32 %165, %187
   br i1 %.not23.i.i.i.i.i.i, label %195, label %192
 
 192:                                              ; preds = %191
@@ -543,7 +543,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_t
 
 17:                                               ; preds = %16
   %18 = tail call noundef ptr @hb_blob_get_empty()
-  %.not3.i.i.i = icmp eq ptr %18, %.1.i.i
+  %.not3.i.i.i = icmp eq ptr %.1.i.i, %18
   br i1 %.not3.i.i.i, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i, label %19
 
 19:                                               ; preds = %17
@@ -582,7 +582,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN20hb_aat_map_builder_t
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %1
-  %.not.i.i = icmp slt i32 %6, %4
+  %.not.i.i = icmp sgt i32 %4, %6
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %8, %.preheader.i.i
@@ -590,7 +590,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN20hb_aat_map_builder_t
   %9 = lshr i32 %.142.i.i, 1
   %10 = add i32 %.142.i.i, 8
   %11 = add i32 %10, %9
-  %12 = icmp ult i32 %11, %5
+  %12 = icmp ugt i32 %5, %11
   br i1 %12, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !8
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -704,7 +704,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(12) ptr @_ZNK
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = or disjoint i32 %20, %23
-  %25 = icmp sgt i32 %24, %1
+  %25 = icmp slt i32 %1, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -712,7 +712,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(12) ptr @_ZNK
   br label %31
 
 28:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %.not23.i.i.i.i.i = icmp eq i32 %24, %1
+  %.not23.i.i.i.i.i = icmp eq i32 %1, %24
   br i1 %.not23.i.i.i.i.i, label %32, label %29
 
 29:                                               ; preds = %28
@@ -788,7 +788,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72: ; pr
   br i1 %24, label %44, label %25
 
 25:                                               ; preds = %21
-  %.not.i.i.i = icmp slt i32 %.sroa.0208.0267, %22
+  %.not.i.i.i = icmp sgt i32 %22, %.sroa.0208.0267
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i
 
 .preheader.i.i.i:                                 ; preds = %25, %.preheader.i.i.i
@@ -796,7 +796,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72: ; pr
   %26 = lshr i32 %.142.i.i.i, 1
   %27 = add i32 %.142.i.i.i, 8
   %28 = add i32 %27, %26
-  %29 = icmp ult i32 %28, %23
+  %29 = icmp ugt i32 %23, %28
   br i1 %29, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !9
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
@@ -890,7 +890,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit76: ; pr
   br i1 %61, label %81, label %62
 
 62:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit76
-  %.not.i.i.i77 = icmp slt i32 %.sroa.0208.5, %59
+  %.not.i.i.i77 = icmp sgt i32 %59, %.sroa.0208.5
   br i1 %.not.i.i.i77, label %.preheader.i.i.i81, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i78
 
 .preheader.i.i.i81:                               ; preds = %62, %.preheader.i.i.i81
@@ -898,7 +898,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit76: ; pr
   %63 = lshr i32 %.142.i.i.i82, 1
   %64 = add i32 %.142.i.i.i82, 8
   %65 = add i32 %64, %63
-  %66 = icmp ult i32 %65, %60
+  %66 = icmp ugt i32 %60, %65
   br i1 %66, label %.preheader.i.i.i81, label %.thread.i.i.i83, !llvm.loop !9
 
 .thread.i.i.i83:                                  ; preds = %.preheader.i.i.i81
@@ -1022,7 +1022,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E
 102:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit
   %103 = add i32 %.sroa.17.0.lcssa334, 1
   %104 = tail call i32 @llvm.smax.i32(i32 %103, i32 0)
-  %.not.i.i.i98 = icmp slt i32 %.sroa.0208.1, %103
+  %.not.i.i.i98 = icmp sgt i32 %103, %.sroa.0208.1
   br i1 %.not.i.i.i98, label %.preheader.i.i.i102.preheader, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i99
 
 .preheader.i.i.i102.preheader:                    ; preds = %2, %102
@@ -1038,7 +1038,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E
   %107 = lshr i32 %.142.i.i.i103, 1
   %108 = add i32 %.142.i.i.i103, 8
   %109 = add i32 %108, %107
-  %110 = icmp ult i32 %109, %106
+  %110 = icmp ugt i32 %106, %109
   br i1 %110, label %.preheader.i.i.i102, label %.thread.i.i.i104, !llvm.loop !9
 
 .thread.i.i.i104:                                 ; preds = %.preheader.i.i.i102
@@ -1274,7 +1274,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit: ; preds = %182, %181
   %.0.i123 = phi ptr [ @_hb_CrapPool, %181 ], [ %184, %182 ]
   %185 = load i32, ptr %.0.i123, align 4
-  %.not.i124 = icmp ugt i32 %179, %.056276
+  %.not.i124 = icmp ult i32 %.056276, %179
   br i1 %.not.i124, label %187, label %186
 
 186:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit
@@ -1353,7 +1353,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit135: ; pr
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit138: ; preds = %214, %213
   %.0.i137 = phi ptr [ @_hb_CrapPool, %213 ], [ %216, %214 ]
   %217 = add i32 %.056276, 1
-  %.not.i139 = icmp ugt i32 %179, %217
+  %.not.i139 = icmp ult i32 %217, %179
   br i1 %.not.i139, label %219, label %218
 
 218:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit138
@@ -1406,7 +1406,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit141: ; pr
   br i1 %234, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit, label %235
 
 235:                                              ; preds = %232
-  %.not19.i.i145 = icmp slt i32 %233, %230
+  %.not19.i.i145 = icmp sgt i32 %230, %233
   %236 = lshr i32 %233, 2
   %.not20.i.i146 = icmp ult i32 %231, %236
   %or.cond22.i.i147 = or i1 %.not19.i.i145, %.not20.i.i146
@@ -1481,7 +1481,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit: ;
   br i1 %258, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread6.i, label %259
 
 259:                                              ; preds = %257
-  %.not.i.i159 = icmp ult i32 %.sroa.0.0282, %.pre320
+  %.not.i.i159 = icmp ugt i32 %.pre320, %.sroa.0.0282
   br i1 %.not.i.i159, label %.preheader.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i160
 
 .preheader.i.i:                                   ; preds = %259, %.preheader.i.i
@@ -1489,7 +1489,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit: ;
   %260 = lshr i32 %.142.i.i, 1
   %261 = add i32 %.142.i.i, 8
   %262 = add i32 %261, %260
-  %263 = icmp ult i32 %262, %.pre320
+  %263 = icmp ugt i32 %.pre320, %262
   br i1 %263, label %.preheader.i.i, label %.thread.i.i162, !llvm.loop !13
 
 .thread.i.i162:                                   ; preds = %.preheader.i.i
@@ -1573,7 +1573,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE7lsearchIS1_EEPS1_
 
 286:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread258
   %287 = add nuw i32 %285, 1
-  %288 = icmp ugt i32 %.sroa.9.0283, %287
+  %288 = icmp ult i32 %287, %.sroa.9.0283
   br i1 %288, label %.lr.ph.i.i170, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i
 
 .lr.ph.i.i170:                                    ; preds = %286

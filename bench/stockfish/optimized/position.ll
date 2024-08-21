@@ -1188,7 +1188,7 @@ define dso_local void @_ZN9Stockfish8Position18set_castling_rightENS_5ColorENS_6
   %10 = and i64 %9, %7
   %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %10, i1 true)
   %12 = trunc nuw nsw i64 %11 to i32
-  %13 = icmp slt i32 %12, %2
+  %13 = icmp sgt i32 %2, %12
   %14 = select i1 %13, i32 5, i32 10
   %15 = icmp eq i32 %1, 0
   %16 = select i1 %15, i32 3, i32 12
@@ -4808,7 +4808,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(p
   br i1 %.not29, label %51, label %64
 
 51:                                               ; preds = %38
-  %52 = icmp slt i32 %.02634, %1
+  %52 = icmp sgt i32 %1, %.02634
   br i1 %52, label %.loopexit, label %53
 
 53:                                               ; preds = %51

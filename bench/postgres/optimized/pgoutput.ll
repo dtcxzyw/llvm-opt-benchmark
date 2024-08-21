@@ -1622,7 +1622,7 @@ define internal void @pgoutput_stream_abort(ptr noundef %0, ptr nocapture nounde
   %indvars.iv.i = phi i64 [ 0, %.lr.ph22.i ], [ %indvars.iv.next.i, %37 ]
   %32 = getelementptr %union.ListCell, ptr %30, i64 %indvars.iv.i
   %33 = load i32, ptr %32, align 8
-  %34 = icmp eq i32 %33, %20
+  %34 = icmp eq i32 %20, %33
   br i1 %34, label %.split.i, label %37
 
 .split.i:                                         ; preds = %31
@@ -1675,7 +1675,7 @@ define internal void @pgoutput_stream_commit(ptr noundef %0, ptr noundef %1, i64
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph22.us.i ], [ %indvars.iv.next33.i, %18 ]
   %15 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv32.i
   %16 = load i32, ptr %15, align 8
-  %17 = icmp eq i32 %16, %8
+  %17 = icmp eq i32 %8, %16
   br i1 %17, label %.split.us25.i, label %18
 
 18:                                               ; preds = %14

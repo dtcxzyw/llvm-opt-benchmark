@@ -494,7 +494,7 @@ lor.lhs.false10:                                  ; preds = %land.lhs.true
 
 if.then14:                                        ; preds = %lor.lhs.false10
   %conv = sext i32 %div to i64
-  %cmp15.not = icmp ugt i64 %conv, %size
+  %cmp15.not = icmp ult i64 %size, %conv
   br i1 %cmp15.not, label %if.end25.thread, label %if.end29
 
 if.end25.thread:                                  ; preds = %if.then14

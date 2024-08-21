@@ -909,7 +909,7 @@ entry:
   %call.i = tail call i32 @BN_num_bits(ptr noundef %a) #4
   %cmp.i.i = icmp sgt i32 %call.i, 2048
   %..i.i = select i1 %cmp.i.i, i32 128, i32 64
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %..i.i, i32 %checks)
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %checks, i32 %..i.i)
   %call2.i = tail call fastcc i32 @bn_is_prime_int(ptr noundef %a, i32 noundef %spec.select.i, ptr noundef %ctx_passed, i32 noundef 0, ptr noundef %cb)
   ret i32 %call2.i
 }
@@ -920,7 +920,7 @@ entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %w) #4
   %cmp.i = icmp sgt i32 %call, 2048
   %..i = select i1 %cmp.i, i32 128, i32 64
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %..i, i32 %checks)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %checks, i32 %..i)
   %call2 = tail call fastcc i32 @bn_is_prime_int(ptr noundef %w, i32 noundef %spec.select, ptr noundef %ctx, i32 noundef %do_trial_division, ptr noundef %cb)
   ret i32 %call2
 }
@@ -931,7 +931,7 @@ entry:
   %call.i = tail call i32 @BN_num_bits(ptr noundef %w) #4
   %cmp.i.i = icmp sgt i32 %call.i, 2048
   %..i.i = select i1 %cmp.i.i, i32 128, i32 64
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %..i.i, i32 %checks)
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %checks, i32 %..i.i)
   %call2.i = tail call fastcc i32 @bn_is_prime_int(ptr noundef %w, i32 noundef %spec.select.i, ptr noundef %ctx, i32 noundef %do_trial_division, ptr noundef %cb)
   ret i32 %call2.i
 }

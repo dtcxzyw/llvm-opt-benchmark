@@ -68,7 +68,7 @@ if.end:                                           ; preds = %entry
   %1 = load i16, ptr %this, align 4
   %or.cond = icmp ugt i32 %maxInt, 999
   %conv = sext i16 %1 to i32
-  %cmp4.not = icmp sgt i32 %conv, %maxInt
+  %cmp4.not = icmp slt i32 %maxInt, %conv
   %or.cond7 = select i1 %or.cond, i1 true, i1 %cmp4.not
   br i1 %or.cond7, label %if.else, label %if.then5
 

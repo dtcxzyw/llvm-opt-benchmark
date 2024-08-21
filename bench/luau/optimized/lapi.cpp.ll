@@ -4504,7 +4504,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %53, %44, %_ZL10getc
   %73 = getelementptr inbounds i8, ptr %72, i64 3
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
-  %76 = icmp eq i32 %75, %2
+  %76 = icmp eq i32 %2, %75
   %77 = getelementptr inbounds i8, ptr %72, i64 16
   %spec.select = select i1 %76, ptr %77, ptr null
   br label %78
@@ -8666,7 +8666,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %59, %50, %_ZL10getc
   %74 = load ptr, ptr %.0, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load i32, ptr %75, align 8
-  %77 = icmp ugt i32 %76, %2
+  %77 = icmp ult i32 %2, %76
   br i1 %77, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZL11pseudo2addrP9lua_Statei.exit
@@ -9119,7 +9119,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %59, %50, %_ZL10getc
   %84 = getelementptr inbounds i8, ptr %78, i64 4
   %85 = load i8, ptr %84, align 4
   %86 = zext i8 %85 to i32
-  %.not27.i = icmp ult i32 %86, %2
+  %.not27.i = icmp ugt i32 %2, %86
   br i1 %.not27.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %87
 
 87:                                               ; preds = %83
@@ -9139,7 +9139,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %59, %50, %_ZL10getc
   %97 = getelementptr inbounds i8, ptr %94, i64 3
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
-  %.not25.i = icmp ult i32 %99, %2
+  %.not25.i = icmp ugt i32 %2, %99
   br i1 %.not25.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %100
 
 100:                                              ; preds = %96
@@ -9162,7 +9162,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %59, %50, %_ZL10getc
   %113 = phi ptr [ %111, %108 ], [ %104, %100 ]
   %114 = getelementptr inbounds i8, ptr %94, i64 148
   %115 = load i32, ptr %114, align 4
-  %.not26.i = icmp slt i32 %115, %2
+  %.not26.i = icmp sgt i32 %2, %115
   br i1 %.not26.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit, label %116
 
 116:                                              ; preds = %112
@@ -9315,7 +9315,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %53, %44, %_ZL10getc
   %78 = getelementptr inbounds i8, ptr %72, i64 4
   %79 = load i8, ptr %78, align 4
   %80 = zext i8 %79 to i32
-  %.not27.i = icmp ult i32 %80, %2
+  %.not27.i = icmp ugt i32 %2, %80
   br i1 %.not27.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %81
 
 81:                                               ; preds = %77
@@ -9335,7 +9335,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %53, %44, %_ZL10getc
   %91 = getelementptr inbounds i8, ptr %88, i64 3
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
-  %.not25.i = icmp ult i32 %93, %2
+  %.not25.i = icmp ugt i32 %2, %93
   br i1 %.not25.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %94
 
 94:                                               ; preds = %90
@@ -9358,7 +9358,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %53, %44, %_ZL10getc
   %107 = phi ptr [ %105, %102 ], [ %98, %94 ]
   %108 = getelementptr inbounds i8, ptr %88, i64 148
   %109 = load i32, ptr %108, align 4
-  %.not26.i = icmp slt i32 %109, %2
+  %.not26.i = icmp sgt i32 %2, %109
   br i1 %.not26.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit, label %110
 
 110:                                              ; preds = %106

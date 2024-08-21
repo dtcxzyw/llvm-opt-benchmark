@@ -2379,7 +2379,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   %j.0127 = phi i64 [ 0, %land.rhs.lr.ph ], [ %inc88, %for.inc87 ]
   %conv = trunc i64 %j.0127 to i32
   %cmp.i = icmp sgt i32 %conv, -1
-  %cmp1.not.i = icmp sgt i32 %conv.i, %conv
+  %cmp1.not.i = icmp slt i32 %conv, %conv.i
   %or.cond116 = and i1 %cmp.i, %cmp1.not.i
   br i1 %or.cond116, label %if.end.i, label %for.inc87
 

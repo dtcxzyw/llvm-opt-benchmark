@@ -3588,7 +3588,7 @@ _ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit109: ; pre
           to label %38 unwind label %.loopexit.split-lp
 
 38:                                               ; preds = %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit109
-  %39 = icmp eq ptr %21, %3
+  %39 = icmp eq ptr %3, %21
   %40 = icmp eq ptr %21, %17
   %or.cond.i = and i1 %39, %40
   br i1 %or.cond.i, label %41, label %42
@@ -3598,7 +3598,7 @@ _ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit109: ; pre
           to label %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit unwind label %.loopexit.split-lp
 
 42:                                               ; preds = %38
-  %43 = icmp eq ptr %17, %3
+  %43 = icmp eq ptr %3, %17
   %brmerge = or i1 %43, %40
   %.mux = select i1 %43, double -1.000000e+00, double 1.000000e+00
   %.mux283 = select i1 %43, ptr %21, ptr %3
@@ -3633,7 +3633,7 @@ _ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit115: ; preds
           to label %.loopexit175.sink.split unwind label %.loopexit.split-lp
 
 54:                                               ; preds = %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit115
-  %55 = icmp eq ptr %17, %3
+  %55 = icmp eq ptr %3, %17
   %or.cond.i116 = and i1 %55, %40
   br i1 %or.cond.i116, label %56, label %57
 
@@ -3662,7 +3662,7 @@ _ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit12
 _ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit: ; preds = %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit122
   %62 = fneg double %61
   %63 = icmp eq ptr %19, %15
-  %64 = icmp eq ptr %15, %6
+  %64 = icmp eq ptr %6, %15
   %65 = getelementptr inbounds i8, ptr %1, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq ptr %17, %19
@@ -4493,7 +4493,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; pred
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %.not = icmp eq i64 %6, %1
+  %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %4
@@ -14433,7 +14433,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -14483,7 +14483,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

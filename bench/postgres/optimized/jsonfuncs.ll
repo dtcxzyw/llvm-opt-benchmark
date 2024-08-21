@@ -1936,7 +1936,7 @@ define internal fastcc ptr @setPath(ptr noundef %0, ptr noundef %1, ptr noundef 
   %32 = and i32 %7, 32
   %.not42 = icmp eq i32 %32, 0
   %33 = add i32 %3, -1
-  %.not43 = icmp slt i32 %33, %5
+  %.not43 = icmp sgt i32 %5, %33
   %or.cond = or i1 %.not43, %.not42
   br i1 %or.cond, label %43, label %34
 
@@ -2038,7 +2038,7 @@ define internal fastcc ptr @setPath(ptr noundef %0, ptr noundef %1, ptr noundef 
   %87 = icmp eq i32 %.2121.i, -2147483648
   %88 = icmp eq i32 %46, 0
   %or.cond.i = or i1 %88, %87
-  %89 = icmp eq i32 %33, %5
+  %89 = icmp eq i32 %5, %33
   %or.cond146.i = and i1 %89, %or.cond.i
   %90 = and i32 %7, 25
   %.not136.i = icmp ne i32 %90, 0
@@ -2190,7 +2190,7 @@ push_null_elements.exit66:                        ; preds = %.lr.ph.i64, %136
   br label %setPathArray.exit
 
 143:                                              ; preds = %._crit_edge94
-  %144 = icmp sle i32 %33, %5
+  %144 = icmp sge i32 %5, %33
   %145 = or i1 %144, %133
   %or.cond156.i.not = or i1 %.not42, %145
   br i1 %or.cond156.i.not, label %setPathArray.exit, label %146
@@ -2260,7 +2260,7 @@ setPathArray.exit:                                ; preds = %.thread, %143, %154
   %.not137.i46 = icmp ne i32 %171, 0
   %or.cond151.i.not = and i1 %.not137.i46, %170
   %172 = add i32 %3, -1
-  %173 = icmp eq i32 %172, %5
+  %173 = icmp eq i32 %5, %172
   %or.cond153.i47 = and i1 %173, %or.cond151.i.not
   br i1 %or.cond153.i47, label %174, label %205
 
@@ -2511,7 +2511,7 @@ setPathArray.exit:                                ; preds = %.thread, %143, %154
   %311 = and i32 %7, 32
   %.not140.i48 = icmp eq i32 %311, 0
   %or.cond164.i = or i1 %.not140.i48, %310
-  %312 = icmp sle i32 %172, %5
+  %312 = icmp sge i32 %5, %172
   %or.cond166.i.not = or i1 %312, %or.cond164.i
   br i1 %or.cond166.i.not, label %setPathObject.exit, label %313
 
@@ -2578,7 +2578,7 @@ setPathObject.exit:                               ; preds = %._crit_edge, %340
   %346 = and i32 %7, 32
   %.not = icmp eq i32 %346, 0
   %347 = add i32 %3, -1
-  %.not41 = icmp slt i32 %347, %5
+  %.not41 = icmp sgt i32 %5, %347
   %or.cond44 = or i1 %.not41, %.not
   br i1 %or.cond44, label %353, label %348
 
@@ -7815,7 +7815,7 @@ JsValueToJsObject.exit:                           ; preds = %98
   %.028 = phi i64 [ %114, %115 ], [ %114, %112 ], [ 0, %update_cached_tupdesc.exit ]
   %119 = getelementptr inbounds i8, ptr %0, i64 16
   %120 = load i32, ptr %119, align 8
-  %121 = icmp ne i32 %120, %1
+  %121 = icmp ne i32 %1, %120
   %122 = icmp ne i32 %1, 2249
   %or.cond = and i1 %122, %121
   br i1 %or.cond, label %123, label %128
@@ -9036,7 +9036,7 @@ populate_array_assign_ndims.exit:                 ; preds = %41, %16
 54:                                               ; preds = %.lr.ph, %91
   %55 = load i32, ptr %20, align 8
   %56 = icmp slt i32 %55, 1
-  %.not28 = icmp sgt i32 %55, %2
+  %.not28 = icmp slt i32 %2, %55
   %or.cond = or i1 %56, %.not28
   br i1 %or.cond, label %87, label %57
 
@@ -9998,7 +9998,7 @@ push_null_elements.exit:                          ; preds = %.lr.ph.i, %40
   store i32 %.sink, ptr %50, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %4
+  %exitcond.not = icmp eq i32 %4, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %46, %18, %6

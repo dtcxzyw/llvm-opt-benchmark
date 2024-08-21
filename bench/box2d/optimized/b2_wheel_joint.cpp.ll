@@ -262,8 +262,8 @@ entry:
   %y2.i = getelementptr inbounds i8, ptr %this, i64 224
   %27 = load float, ptr %y2.i, align 8
   %sub3.i = fsub float %26, %27
-  %28 = fneg float %call.i
-  %neg.i = fmul float %sub3.i, %28
+  %28 = fneg float %sub3.i
+  %neg.i = fmul float %call.i, %28
   %29 = tail call float @llvm.fmuladd.f32(float %call2.i, float %sub.i, float %neg.i)
   %mul6.i = fmul float %call2.i, %sub3.i
   %30 = tail call float @llvm.fmuladd.f32(float %call.i, float %sub.i, float %mul6.i)
@@ -276,8 +276,8 @@ entry:
   %y2.i44 = getelementptr inbounds i8, ptr %this, i64 232
   %34 = load float, ptr %y2.i44, align 8
   %sub3.i45 = fsub float %33, %34
-  %35 = fneg float %call.i35
-  %neg.i50 = fmul float %sub3.i45, %35
+  %35 = fneg float %sub3.i45
+  %neg.i50 = fmul float %call.i35, %35
   %36 = tail call float @llvm.fmuladd.f32(float %call2.i36, float %sub.i42, float %neg.i50)
   %mul6.i51 = fmul float %call2.i36, %sub3.i45
   %37 = tail call float @llvm.fmuladd.f32(float %call.i35, float %sub.i42, float %mul6.i51)
@@ -291,29 +291,29 @@ entry:
   %38 = load float, ptr %m_localYAxisA, align 8
   %y.i71 = getelementptr inbounds i8, ptr %this, i64 156
   %39 = load float, ptr %y.i71, align 4
-  %neg.i72 = fmul float %39, %28
-  %40 = tail call float @llvm.fmuladd.f32(float %call2.i, float %38, float %neg.i72)
+  %40 = fneg float %39
+  %neg.i72 = fmul float %call.i, %40
+  %41 = tail call float @llvm.fmuladd.f32(float %call2.i, float %38, float %neg.i72)
   %mul6.i73 = fmul float %call2.i, %39
-  %41 = tail call float @llvm.fmuladd.f32(float %call.i, float %38, float %mul6.i73)
-  %retval.sroa.0.0.vec.insert.i74 = insertelement <2 x float> poison, float %40, i64 0
-  %retval.sroa.0.4.vec.insert.i75 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i74, float %41, i64 1
+  %42 = tail call float @llvm.fmuladd.f32(float %call.i, float %38, float %mul6.i73)
+  %retval.sroa.0.0.vec.insert.i74 = insertelement <2 x float> poison, float %41, i64 0
+  %retval.sroa.0.4.vec.insert.i75 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i74, float %42, i64 1
   %m_ay = getelementptr inbounds i8, ptr %this, i64 260
   store <2 x float> %retval.sroa.0.4.vec.insert.i75, ptr %m_ay, align 4
   %add.i76 = fadd float %29, %sub.i64
   %add3.i79 = fadd float %30, %sub3.i67
-  %42 = fneg float %add3.i79
-  %neg.i83 = fmul float %40, %42
-  %43 = tail call noundef float @llvm.fmuladd.f32(float %add.i76, float %41, float %neg.i83)
+  %43 = fneg float %41
+  %neg.i83 = fmul float %add3.i79, %43
+  %44 = tail call noundef float @llvm.fmuladd.f32(float %add.i76, float %42, float %neg.i83)
   %m_sAy = getelementptr inbounds i8, ptr %this, i64 276
-  store float %43, ptr %m_sAy, align 4
-  %44 = fneg float %37
-  %neg.i86 = fmul float %40, %44
-  %45 = tail call noundef float @llvm.fmuladd.f32(float %36, float %41, float %neg.i86)
+  store float %44, ptr %m_sAy, align 4
+  %neg.i86 = fmul float %37, %43
+  %45 = tail call noundef float @llvm.fmuladd.f32(float %36, float %42, float %neg.i86)
   %m_sBy = getelementptr inbounds i8, ptr %this, i64 280
   store float %45, ptr %m_sBy, align 8
   %add = fadd float %6, %7
-  %mul = fmul float %8, %43
-  %46 = tail call float @llvm.fmuladd.f32(float %mul, float %43, float %add)
+  %mul = fmul float %8, %44
+  %46 = tail call float @llvm.fmuladd.f32(float %mul, float %44, float %add)
   %mul72 = fmul float %9, %45
   %47 = tail call float @llvm.fmuladd.f32(float %mul72, float %45, float %46)
   %m_mass = getelementptr inbounds i8, ptr %this, i64 284
@@ -325,27 +325,29 @@ entry:
   %48 = load float, ptr %m_localXAxisA, align 8
   %y.i88 = getelementptr inbounds i8, ptr %this, i64 148
   %49 = load float, ptr %y.i88, align 4
-  %neg.i89 = fmul float %49, %28
-  %50 = tail call float @llvm.fmuladd.f32(float %call2.i, float %48, float %neg.i89)
+  %50 = fneg float %49
+  %neg.i89 = fmul float %call.i, %50
+  %51 = tail call float @llvm.fmuladd.f32(float %call2.i, float %48, float %neg.i89)
   %mul6.i90 = fmul float %call2.i, %49
-  %51 = tail call float @llvm.fmuladd.f32(float %call.i, float %48, float %mul6.i90)
-  %retval.sroa.0.0.vec.insert.i91 = insertelement <2 x float> poison, float %50, i64 0
-  %retval.sroa.0.4.vec.insert.i92 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i91, float %51, i64 1
+  %52 = tail call float @llvm.fmuladd.f32(float %call.i, float %48, float %mul6.i90)
+  %retval.sroa.0.0.vec.insert.i91 = insertelement <2 x float> poison, float %51, i64 0
+  %retval.sroa.0.4.vec.insert.i92 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i91, float %52, i64 1
   %m_ax = getelementptr inbounds i8, ptr %this, i64 252
   store <2 x float> %retval.sroa.0.4.vec.insert.i92, ptr %m_ax, align 4
-  %neg.i101 = fmul float %50, %42
-  %52 = tail call noundef float @llvm.fmuladd.f32(float %add.i76, float %51, float %neg.i101)
+  %53 = fneg float %51
+  %neg.i101 = fmul float %add3.i79, %53
+  %54 = tail call noundef float @llvm.fmuladd.f32(float %add.i76, float %52, float %neg.i101)
   %m_sAx = getelementptr inbounds i8, ptr %this, i64 268
-  store float %52, ptr %m_sAx, align 4
-  %neg.i104 = fmul float %50, %44
-  %53 = tail call noundef float @llvm.fmuladd.f32(float %36, float %51, float %neg.i104)
+  store float %54, ptr %m_sAx, align 4
+  %neg.i104 = fmul float %37, %53
+  %55 = tail call noundef float @llvm.fmuladd.f32(float %36, float %52, float %neg.i104)
   %m_sBx = getelementptr inbounds i8, ptr %this, i64 272
-  store float %53, ptr %m_sBx, align 8
-  %mul88 = fmul float %8, %52
-  %54 = tail call float @llvm.fmuladd.f32(float %mul88, float %52, float %add)
-  %mul92 = fmul float %9, %53
-  %55 = tail call float @llvm.fmuladd.f32(float %mul92, float %53, float %54)
-  %cmp95 = fcmp ogt float %55, 0.000000e+00
+  store float %55, ptr %m_sBx, align 8
+  %mul88 = fmul float %8, %54
+  %56 = tail call float @llvm.fmuladd.f32(float %mul88, float %54, float %add)
+  %mul92 = fmul float %9, %55
+  %57 = tail call float @llvm.fmuladd.f32(float %mul92, float %55, float %56)
+  %cmp95 = fcmp ogt float %57, 0.000000e+00
   br i1 %cmp95, label %if.end99, label %if.end99.thread
 
 if.end99.thread:                                  ; preds = %entry
@@ -354,7 +356,7 @@ if.end99.thread:                                  ; preds = %entry
   br label %if.else134
 
 if.end99:                                         ; preds = %entry
-  %div97 = fdiv float 1.000000e+00, %55
+  %div97 = fdiv float 1.000000e+00, %57
   %m_axialMass = getelementptr inbounds i8, ptr %this, i64 292
   store float %div97, ptr %m_axialMass, align 4
   %m_springMass = getelementptr inbounds i8, ptr %this, i64 296
@@ -364,28 +366,28 @@ if.end99:                                         ; preds = %entry
   %m_gamma = getelementptr inbounds i8, ptr %this, i64 304
   store float 0.000000e+00, ptr %m_gamma, align 8
   %m_stiffness = getelementptr inbounds i8, ptr %this, i64 204
-  %56 = load float, ptr %m_stiffness, align 4
-  %cmp100 = fcmp ogt float %56, 0.000000e+00
+  %58 = load float, ptr %m_stiffness, align 4
+  %cmp100 = fcmp ogt float %58, 0.000000e+00
   br i1 %cmp100, label %if.then102, label %if.else134
 
 if.then102:                                       ; preds = %if.end99
   store float %div97, ptr %m_springMass, align 8
-  %mul3.i = fmul float %sub3.i67, %51
-  %57 = tail call noundef float @llvm.fmuladd.f32(float %sub.i64, float %50, float %mul3.i)
-  %58 = load float, ptr %data, align 8
+  %mul3.i = fmul float %sub3.i67, %52
+  %59 = tail call noundef float @llvm.fmuladd.f32(float %sub.i64, float %51, float %mul3.i)
+  %60 = load float, ptr %data, align 8
   %m_damping = getelementptr inbounds i8, ptr %this, i64 208
-  %59 = load float, ptr %m_damping, align 8
-  %60 = tail call float @llvm.fmuladd.f32(float %58, float %56, float %59)
-  %mul109 = fmul float %58, %60
+  %61 = load float, ptr %m_damping, align 8
+  %62 = tail call float @llvm.fmuladd.f32(float %60, float %58, float %61)
+  %mul109 = fmul float %60, %62
   %cmp112 = fcmp ogt float %mul109, 0.000000e+00
   %div115 = fdiv float 1.000000e+00, %mul109
   %storemerge34 = select i1 %cmp112, float %div115, float %mul109
   store float %storemerge34, ptr %m_gamma, align 8
-  %mul118 = fmul float %57, %58
-  %mul120 = fmul float %56, %mul118
+  %mul118 = fmul float %59, %60
+  %mul120 = fmul float %58, %mul118
   %mul122 = fmul float %mul120, %storemerge34
   store float %mul122, ptr %m_bias, align 4
-  %add125 = fadd float %55, %storemerge34
+  %add125 = fadd float %57, %storemerge34
   store float %add125, ptr %m_springMass, align 8
   %cmp128 = fcmp ogt float %add125, 0.000000e+00
   br i1 %cmp128, label %if.then129, label %if.end135
@@ -402,15 +404,15 @@ if.else134:                                       ; preds = %if.end99.thread, %i
 
 if.end135:                                        ; preds = %if.then102, %if.then129, %if.else134
   %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
-  %61 = load i8, ptr %m_enableLimit, align 8
-  %tobool = trunc i8 %61 to i1
+  %63 = load i8, ptr %m_enableLimit, align 8
+  %tobool = trunc i8 %63 to i1
   br i1 %tobool, label %if.then136, label %if.else139
 
 if.then136:                                       ; preds = %if.end135
-  %mul3.i109 = fmul float %sub3.i67, %51
-  %62 = tail call noundef float @llvm.fmuladd.f32(float %50, float %sub.i64, float %mul3.i109)
+  %mul3.i109 = fmul float %sub3.i67, %52
+  %64 = tail call noundef float @llvm.fmuladd.f32(float %51, float %sub.i64, float %mul3.i109)
   %m_translation = getelementptr inbounds i8, ptr %this, i64 180
-  store float %62, ptr %m_translation, align 4
+  store float %64, ptr %m_translation, align 4
   br label %if.end140
 
 if.else139:                                       ; preds = %if.end135
@@ -422,8 +424,8 @@ if.else139:                                       ; preds = %if.end135
 
 if.end140:                                        ; preds = %if.else139, %if.then136
   %m_enableMotor = getelementptr inbounds i8, ptr %this, i64 201
-  %63 = load i8, ptr %m_enableMotor, align 1
-  %tobool141 = trunc i8 %63 to i1
+  %65 = load i8, ptr %m_enableMotor, align 1
+  %tobool141 = trunc i8 %65 to i1
   br i1 %tobool141, label %if.then142, label %if.else151
 
 if.then142:                                       ; preds = %if.end140
@@ -447,60 +449,60 @@ if.else151:                                       ; preds = %if.end140
 
 if.end153:                                        ; preds = %if.then142, %if.then146, %if.else151
   %warmStarting = getelementptr inbounds i8, ptr %data, i64 20
-  %64 = load i8, ptr %warmStarting, align 4
-  %tobool155 = trunc i8 %64 to i1
+  %66 = load i8, ptr %warmStarting, align 4
+  %tobool155 = trunc i8 %66 to i1
   br i1 %tobool155, label %if.then156, label %if.else203
 
 if.then156:                                       ; preds = %if.end153
   %dtRatio = getelementptr inbounds i8, ptr %data, i64 8
-  %65 = load float, ptr %dtRatio, align 8
-  %m_impulse = getelementptr inbounds i8, ptr %this, i64 160
-  %66 = load float, ptr %m_impulse, align 8
-  %mul158 = fmul float %65, %66
-  store float %mul158, ptr %m_impulse, align 8
   %67 = load float, ptr %dtRatio, align 8
-  %m_springImpulse161 = getelementptr inbounds i8, ptr %this, i64 168
-  %68 = load float, ptr %m_springImpulse161, align 8
-  %mul162 = fmul float %67, %68
-  store float %mul162, ptr %m_springImpulse161, align 8
+  %m_impulse = getelementptr inbounds i8, ptr %this, i64 160
+  %68 = load float, ptr %m_impulse, align 8
+  %mul158 = fmul float %67, %68
+  store float %mul158, ptr %m_impulse, align 8
   %69 = load float, ptr %dtRatio, align 8
+  %m_springImpulse161 = getelementptr inbounds i8, ptr %this, i64 168
+  %70 = load float, ptr %m_springImpulse161, align 8
+  %mul162 = fmul float %69, %70
+  store float %mul162, ptr %m_springImpulse161, align 8
+  %71 = load float, ptr %dtRatio, align 8
   %m_motorImpulse165 = getelementptr inbounds i8, ptr %this, i64 164
-  %70 = load float, ptr %m_motorImpulse165, align 4
-  %mul166 = fmul float %69, %70
+  %72 = load float, ptr %m_motorImpulse165, align 4
+  %mul166 = fmul float %71, %72
   store float %mul166, ptr %m_motorImpulse165, align 4
   %m_lowerImpulse168 = getelementptr inbounds i8, ptr %this, i64 172
-  %71 = load float, ptr %m_lowerImpulse168, align 4
-  %add169 = fadd float %mul162, %71
+  %73 = load float, ptr %m_lowerImpulse168, align 4
+  %add169 = fadd float %mul162, %73
   %m_upperImpulse170 = getelementptr inbounds i8, ptr %this, i64 176
-  %72 = load float, ptr %m_upperImpulse170, align 8
-  %sub = fsub float %add169, %72
-  %mul.i = fmul float %40, %mul158
-  %mul1.i = fmul float %41, %mul158
-  %mul.i113 = fmul float %50, %sub
-  %mul1.i115 = fmul float %51, %sub
+  %74 = load float, ptr %m_upperImpulse170, align 8
+  %sub = fsub float %add169, %74
+  %mul.i = fmul float %41, %mul158
+  %mul1.i = fmul float %42, %mul158
+  %mul.i113 = fmul float %51, %sub
+  %mul1.i115 = fmul float %52, %sub
   %add.i118 = fadd float %mul.i, %mul.i113
   %add3.i121 = fadd float %mul1.i, %mul1.i115
-  %mul183 = fmul float %52, %sub
-  %73 = tail call float @llvm.fmuladd.f32(float %mul158, float %43, float %mul183)
-  %add185 = fadd float %mul166, %73
-  %mul190 = fmul float %53, %sub
-  %74 = tail call float @llvm.fmuladd.f32(float %mul158, float %45, float %mul190)
-  %add192 = fadd float %mul166, %74
-  %75 = load float, ptr %m_invMassA, align 4
-  %mul.i124 = fmul float %75, %add.i118
-  %mul1.i126 = fmul float %75, %add3.i121
+  %mul183 = fmul float %54, %sub
+  %75 = tail call float @llvm.fmuladd.f32(float %mul158, float %44, float %mul183)
+  %add185 = fadd float %mul166, %75
+  %mul190 = fmul float %55, %sub
+  %76 = tail call float @llvm.fmuladd.f32(float %mul158, float %45, float %mul190)
+  %add192 = fadd float %mul166, %76
+  %77 = load float, ptr %m_invMassA, align 4
+  %mul.i124 = fmul float %77, %add.i118
+  %mul1.i126 = fmul float %77, %add3.i121
   %sub.i129 = fsub float %15, %mul.i124
   %sub4.i = fsub float %16, %mul1.i126
-  %76 = load float, ptr %m_invIA, align 4
-  %neg = fneg float %76
-  %77 = tail call float @llvm.fmuladd.f32(float %neg, float %add185, float %17)
-  %78 = load float, ptr %m_invMassB, align 8
-  %mul.i131 = fmul float %add.i118, %78
-  %mul1.i133 = fmul float %add3.i121, %78
+  %78 = load float, ptr %m_invIA, align 4
+  %neg = fneg float %78
+  %79 = tail call float @llvm.fmuladd.f32(float %neg, float %add185, float %17)
+  %80 = load float, ptr %m_invMassB, align 8
+  %mul.i131 = fmul float %80, %add.i118
+  %mul1.i133 = fmul float %80, %add3.i121
   %add.i136 = fadd float %21, %mul.i131
   %add4.i = fadd float %22, %mul1.i133
-  %79 = load float, ptr %m_invIB, align 8
-  %80 = tail call float @llvm.fmuladd.f32(float %79, float %add192, float %23)
+  %81 = load float, ptr %m_invIB, align 8
+  %82 = tail call float @llvm.fmuladd.f32(float %81, float %add192, float %23)
   br label %if.end209
 
 if.else203:                                       ; preds = %if.end153
@@ -513,31 +515,31 @@ if.end209:                                        ; preds = %if.else203, %if.the
   %vB.sroa.4.0 = phi float [ %add4.i, %if.then156 ], [ %22, %if.else203 ]
   %vA.sroa.0.0 = phi float [ %sub.i129, %if.then156 ], [ %15, %if.else203 ]
   %vA.sroa.4.0 = phi float [ %sub4.i, %if.then156 ], [ %16, %if.else203 ]
-  %wB.0 = phi float [ %80, %if.then156 ], [ %23, %if.else203 ]
-  %wA.0 = phi float [ %77, %if.then156 ], [ %17, %if.else203 ]
-  %81 = load ptr, ptr %velocities, align 8
-  %82 = load i32, ptr %m_indexA, align 4
-  %idxprom212 = sext i32 %82 to i64
-  %arrayidx213 = getelementptr inbounds %struct.b2Velocity, ptr %81, i64 %idxprom212
+  %wB.0 = phi float [ %82, %if.then156 ], [ %23, %if.else203 ]
+  %wA.0 = phi float [ %79, %if.then156 ], [ %17, %if.else203 ]
+  %83 = load ptr, ptr %velocities, align 8
+  %84 = load i32, ptr %m_indexA, align 4
+  %idxprom212 = sext i32 %84 to i64
+  %arrayidx213 = getelementptr inbounds %struct.b2Velocity, ptr %83, i64 %idxprom212
   store float %vA.sroa.0.0, ptr %arrayidx213, align 4
   %arrayidx213.sroa_idx = getelementptr inbounds i8, ptr %arrayidx213, i64 4
   store float %vA.sroa.4.0, ptr %arrayidx213.sroa_idx, align 4
-  %83 = load ptr, ptr %velocities, align 8
-  %84 = load i32, ptr %m_indexA, align 4
-  %idxprom217 = sext i32 %84 to i64
-  %w219 = getelementptr inbounds %struct.b2Velocity, ptr %83, i64 %idxprom217, i32 1
-  store float %wA.0, ptr %w219, align 4
   %85 = load ptr, ptr %velocities, align 8
-  %86 = load i32, ptr %m_indexB, align 8
-  %idxprom222 = sext i32 %86 to i64
-  %arrayidx223 = getelementptr inbounds %struct.b2Velocity, ptr %85, i64 %idxprom222
+  %86 = load i32, ptr %m_indexA, align 4
+  %idxprom217 = sext i32 %86 to i64
+  %w219 = getelementptr inbounds %struct.b2Velocity, ptr %85, i64 %idxprom217, i32 1
+  store float %wA.0, ptr %w219, align 4
+  %87 = load ptr, ptr %velocities, align 8
+  %88 = load i32, ptr %m_indexB, align 8
+  %idxprom222 = sext i32 %88 to i64
+  %arrayidx223 = getelementptr inbounds %struct.b2Velocity, ptr %87, i64 %idxprom222
   store float %vB.sroa.0.0, ptr %arrayidx223, align 4
   %arrayidx223.sroa_idx = getelementptr inbounds i8, ptr %arrayidx223, i64 4
   store float %vB.sroa.4.0, ptr %arrayidx223.sroa_idx, align 4
-  %87 = load ptr, ptr %velocities, align 8
-  %88 = load i32, ptr %m_indexB, align 8
-  %idxprom227 = sext i32 %88 to i64
-  %w229 = getelementptr inbounds %struct.b2Velocity, ptr %87, i64 %idxprom227, i32 1
+  %89 = load ptr, ptr %velocities, align 8
+  %90 = load i32, ptr %m_indexB, align 8
+  %idxprom227 = sext i32 %90 to i64
+  %w229 = getelementptr inbounds %struct.b2Velocity, ptr %89, i64 %idxprom227, i32 1
   store float %wB.0, ptr %w229, align 4
   ret void
 }
@@ -840,8 +842,8 @@ if.then:                                          ; preds = %entry
   %y2.i = getelementptr inbounds i8, ptr %this, i64 224
   %13 = load float, ptr %y2.i, align 8
   %sub3.i = fsub float %12, %13
-  %14 = fneg float %call.i
-  %neg.i = fmul float %sub3.i, %14
+  %14 = fneg float %sub3.i
+  %neg.i = fmul float %call.i, %14
   %15 = tail call float @llvm.fmuladd.f32(float %call2.i, float %sub.i, float %neg.i)
   %mul6.i = fmul float %call2.i, %sub3.i
   %16 = tail call float @llvm.fmuladd.f32(float %call.i, float %sub.i, float %mul6.i)
@@ -855,8 +857,8 @@ if.then:                                          ; preds = %entry
   %y2.i46 = getelementptr inbounds i8, ptr %this, i64 232
   %20 = load float, ptr %y2.i46, align 8
   %sub3.i47 = fsub float %19, %20
-  %21 = fneg float %call.i37
-  %neg.i52 = fmul float %sub3.i47, %21
+  %21 = fneg float %sub3.i47
+  %neg.i52 = fmul float %call.i37, %21
   %22 = tail call float @llvm.fmuladd.f32(float %call2.i38, float %sub.i44, float %neg.i52)
   %mul6.i53 = fmul float %call2.i38, %sub3.i47
   %23 = tail call float @llvm.fmuladd.f32(float %call.i37, float %sub.i44, float %mul6.i53)
@@ -870,24 +872,24 @@ if.then:                                          ; preds = %entry
   %24 = load float, ptr %m_localXAxisA, align 8
   %y.i73 = getelementptr inbounds i8, ptr %this, i64 148
   %25 = load float, ptr %y.i73, align 4
-  %neg.i74 = fmul float %25, %14
-  %26 = tail call float @llvm.fmuladd.f32(float %call2.i, float %24, float %neg.i74)
+  %26 = fneg float %25
+  %neg.i74 = fmul float %call.i, %26
+  %27 = tail call float @llvm.fmuladd.f32(float %call2.i, float %24, float %neg.i74)
   %mul6.i75 = fmul float %call2.i, %25
-  %27 = tail call float @llvm.fmuladd.f32(float %call.i, float %24, float %mul6.i75)
+  %28 = tail call float @llvm.fmuladd.f32(float %call.i, float %24, float %mul6.i75)
   %add.i78 = fadd float %15, %sub.i66
   %add3.i81 = fadd float %16, %sub3.i69
   %m_ax = getelementptr inbounds i8, ptr %this, i64 252
   %y.i84 = getelementptr inbounds i8, ptr %this, i64 256
-  %28 = load float, ptr %y.i84, align 8
-  %29 = load float, ptr %m_ax, align 4
-  %30 = fneg float %add3.i81
-  %neg.i85 = fmul float %29, %30
-  %31 = tail call noundef float @llvm.fmuladd.f32(float %add.i78, float %28, float %neg.i85)
-  %32 = fneg float %23
-  %neg.i88 = fmul float %29, %32
-  %33 = tail call noundef float @llvm.fmuladd.f32(float %22, float %28, float %neg.i88)
-  %mul3.i = fmul float %27, %sub3.i69
-  %34 = tail call noundef float @llvm.fmuladd.f32(float %26, float %sub.i66, float %mul3.i)
+  %29 = load float, ptr %y.i84, align 8
+  %30 = load float, ptr %m_ax, align 4
+  %31 = fneg float %30
+  %neg.i85 = fmul float %add3.i81, %31
+  %32 = tail call noundef float @llvm.fmuladd.f32(float %add.i78, float %29, float %neg.i85)
+  %neg.i88 = fmul float %23, %31
+  %33 = tail call noundef float @llvm.fmuladd.f32(float %22, float %29, float %neg.i88)
+  %mul3.i = fmul float %28, %sub3.i69
+  %34 = tail call noundef float @llvm.fmuladd.f32(float %27, float %sub.i66, float %mul3.i)
   %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
   %35 = load float, ptr %m_upperTranslation, align 4
   %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
@@ -928,8 +930,8 @@ if.then49:                                        ; preds = %if.end47
   %add = fadd float %37, %38
   %m_invIA = getelementptr inbounds i8, ptr %this, i64 244
   %39 = load float, ptr %m_invIA, align 4
-  %mul = fmul float %31, %39
-  %40 = tail call float @llvm.fmuladd.f32(float %mul, float %31, float %add)
+  %mul = fmul float %32, %39
+  %40 = tail call float @llvm.fmuladd.f32(float %mul, float %32, float %add)
   %m_invIB = getelementptr inbounds i8, ptr %this, i64 248
   %41 = load float, ptr %m_invIB, align 8
   %mul51 = fmul float %33, %41
@@ -938,9 +940,9 @@ if.then49:                                        ; preds = %if.end47
   %fneg = fneg float %C.0
   %div = fdiv float %fneg, %42
   %impulse.0 = select i1 %cmp53, float %div, float 0.000000e+00
-  %mul.i = fmul float %26, %impulse.0
-  %mul1.i = fmul float %27, %impulse.0
-  %mul57 = fmul float %31, %impulse.0
+  %mul.i = fmul float %27, %impulse.0
+  %mul1.i = fmul float %28, %impulse.0
+  %mul57 = fmul float %32, %impulse.0
   %mul58 = fmul float %33, %impulse.0
   %mul.i98 = fmul float %37, %mul.i
   %mul1.i100 = fmul float %37, %mul1.i
@@ -979,8 +981,8 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %y2.i124 = getelementptr inbounds i8, ptr %this, i64 224
   %48 = load float, ptr %y2.i124, align 8
   %sub3.i125 = fsub float %47, %48
-  %49 = fneg float %call.i116
-  %neg.i130 = fmul float %sub3.i125, %49
+  %49 = fneg float %sub3.i125
+  %neg.i130 = fmul float %call.i116, %49
   %50 = tail call float @llvm.fmuladd.f32(float %call2.i117, float %sub.i122, float %neg.i130)
   %mul6.i131 = fmul float %call2.i117, %sub3.i125
   %51 = tail call float @llvm.fmuladd.f32(float %call.i116, float %sub.i122, float %mul6.i131)
@@ -994,8 +996,8 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %y2.i136 = getelementptr inbounds i8, ptr %this, i64 232
   %55 = load float, ptr %y2.i136, align 8
   %sub3.i137 = fsub float %54, %55
-  %56 = fneg float %call.i119
-  %neg.i142 = fmul float %sub3.i137, %56
+  %56 = fneg float %sub3.i137
+  %neg.i142 = fmul float %call.i119, %56
   %57 = tail call float @llvm.fmuladd.f32(float %call2.i120, float %sub.i134, float %neg.i142)
   %mul6.i143 = fmul float %call2.i120, %sub3.i137
   %58 = tail call float @llvm.fmuladd.f32(float %call.i119, float %sub.i134, float %mul6.i143)
@@ -1009,20 +1011,20 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %59 = load float, ptr %m_localYAxisA, align 8
   %y.i165 = getelementptr inbounds i8, ptr %this, i64 156
   %60 = load float, ptr %y.i165, align 4
-  %neg.i166 = fmul float %60, %49
-  %61 = tail call float @llvm.fmuladd.f32(float %call2.i117, float %59, float %neg.i166)
+  %61 = fneg float %60
+  %neg.i166 = fmul float %call.i116, %61
+  %62 = tail call float @llvm.fmuladd.f32(float %call2.i117, float %59, float %neg.i166)
   %mul6.i167 = fmul float %call2.i117, %60
-  %62 = tail call float @llvm.fmuladd.f32(float %call.i116, float %59, float %mul6.i167)
+  %63 = tail call float @llvm.fmuladd.f32(float %call.i116, float %59, float %mul6.i167)
   %add.i170 = fadd float %50, %sub.i158
   %add3.i173 = fadd float %51, %sub3.i161
-  %63 = fneg float %add3.i173
-  %neg.i178 = fmul float %61, %63
-  %64 = tail call noundef float @llvm.fmuladd.f32(float %add.i170, float %62, float %neg.i178)
-  %65 = fneg float %58
-  %neg.i181 = fmul float %61, %65
-  %66 = tail call noundef float @llvm.fmuladd.f32(float %57, float %62, float %neg.i181)
-  %mul3.i184 = fmul float %62, %sub3.i161
-  %67 = tail call noundef float @llvm.fmuladd.f32(float %sub.i158, float %61, float %mul3.i184)
+  %64 = fneg float %62
+  %neg.i178 = fmul float %add3.i173, %64
+  %65 = tail call noundef float @llvm.fmuladd.f32(float %add.i170, float %63, float %neg.i178)
+  %neg.i181 = fmul float %58, %64
+  %66 = tail call noundef float @llvm.fmuladd.f32(float %57, float %63, float %neg.i181)
+  %mul3.i184 = fmul float %63, %sub3.i161
+  %67 = tail call noundef float @llvm.fmuladd.f32(float %sub.i158, float %62, float %mul3.i184)
   %m_invMassA100 = getelementptr inbounds i8, ptr %this, i64 236
   %68 = load float, ptr %m_invMassA100, align 4
   %m_invMassB101 = getelementptr inbounds i8, ptr %this, i64 240
@@ -1044,9 +1046,9 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %fneg114 = fneg float %67
   %div115 = fdiv float %fneg114, %75
   %impulse111.0 = select i1 %cmp112, float %div115, float 0.000000e+00
-  %mul.i185 = fmul float %61, %impulse111.0
-  %mul1.i187 = fmul float %62, %impulse111.0
-  %mul120 = fmul float %64, %impulse111.0
+  %mul.i185 = fmul float %62, %impulse111.0
+  %mul1.i187 = fmul float %63, %impulse111.0
+  %mul120 = fmul float %65, %impulse111.0
   %mul122 = fmul float %66, %impulse111.0
   %mul.i190 = fmul float %68, %mul.i185
   %mul1.i192 = fmul float %68, %mul1.i187
@@ -1105,8 +1107,8 @@ entry:
   %3 = load float, ptr %q.i.i, align 4
   %y.i.i = getelementptr inbounds i8, ptr %this, i64 132
   %4 = load float, ptr %y.i.i, align 4
-  %5 = fneg float %3
-  %neg.i.i = fmul float %4, %5
+  %5 = fneg float %4
+  %neg.i.i = fmul float %3, %5
   %6 = tail call float @llvm.fmuladd.f32(float %1, float %2, float %neg.i.i)
   %7 = load float, ptr %m_xf.i, align 4
   %add.i.i = fadd float %7, %6
@@ -1134,8 +1136,8 @@ entry:
   %3 = load float, ptr %q.i.i, align 4
   %y.i.i = getelementptr inbounds i8, ptr %this, i64 140
   %4 = load float, ptr %y.i.i, align 4
-  %5 = fneg float %3
-  %neg.i.i = fmul float %4, %5
+  %5 = fneg float %4
+  %neg.i.i = fmul float %3, %5
   %6 = tail call float @llvm.fmuladd.f32(float %1, float %2, float %neg.i.i)
   %7 = load float, ptr %m_xf.i, align 4
   %add.i.i = fadd float %7, %6
@@ -1170,14 +1172,14 @@ entry:
   %sub = fsub float %add, %5
   %m_ax = getelementptr inbounds i8, ptr %this, i64 252
   %6 = load float, ptr %m_ax, align 4
-  %mul.i1 = fmul float %6, %sub
+  %mul.i1 = fmul float %sub, %6
   %y.i2 = getelementptr inbounds i8, ptr %this, i64 256
   %7 = load float, ptr %y.i2, align 8
   %mul1.i3 = fmul float %sub, %7
   %add.i = fadd float %mul.i, %mul.i1
   %add3.i = fadd float %mul1.i, %mul1.i3
-  %mul.i9 = fmul float %add.i, %inv_dt
-  %mul1.i11 = fmul float %add3.i, %inv_dt
+  %mul.i9 = fmul float %inv_dt, %add.i
+  %mul1.i11 = fmul float %inv_dt, %add3.i
   %retval.sroa.0.0.vec.insert.i12 = insertelement <2 x float> poison, float %mul.i9, i64 0
   %retval.sroa.0.4.vec.insert.i13 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i12, float %mul1.i11, i64 1
   ret <2 x float> %retval.sroa.0.4.vec.insert.i13
@@ -1188,7 +1190,7 @@ define noundef float @_ZNK12b2WheelJoint17GetReactionTorqueEf(ptr nocapture noun
 entry:
   %m_motorImpulse = getelementptr inbounds i8, ptr %this, i64 164
   %0 = load float, ptr %m_motorImpulse, align 4
-  %mul = fmul float %0, %inv_dt
+  %mul = fmul float %inv_dt, %0
   ret float %mul
 }
 
@@ -1208,8 +1210,8 @@ entry:
   %4 = load float, ptr %q.i.i, align 4
   %y.i.i = getelementptr inbounds i8, ptr %this, i64 132
   %5 = load float, ptr %y.i.i, align 4
-  %6 = fneg float %4
-  %neg.i.i = fmul float %5, %6
+  %6 = fneg float %5
+  %neg.i.i = fmul float %4, %6
   %7 = tail call float @llvm.fmuladd.f32(float %2, float %3, float %neg.i.i)
   %8 = load float, ptr %m_xf.i, align 4
   %add.i.i = fadd float %8, %7
@@ -1227,8 +1229,8 @@ entry:
   %13 = load float, ptr %q.i.i3, align 4
   %y.i.i5 = getelementptr inbounds i8, ptr %this, i64 140
   %14 = load float, ptr %y.i.i5, align 4
-  %15 = fneg float %13
-  %neg.i.i6 = fmul float %14, %15
+  %15 = fneg float %14
+  %neg.i.i6 = fmul float %13, %15
   %16 = tail call float @llvm.fmuladd.f32(float %11, float %12, float %neg.i.i6)
   %17 = load float, ptr %m_xf.i2, align 4
   %add.i.i7 = fadd float %17, %16
@@ -1243,13 +1245,14 @@ entry:
   %20 = load float, ptr %m_localXAxisA, align 8
   %y.i.i14 = getelementptr inbounds i8, ptr %this, i64 148
   %21 = load float, ptr %y.i.i14, align 4
-  %neg.i.i15 = fmul float %21, %6
-  %22 = tail call float @llvm.fmuladd.f32(float %2, float %20, float %neg.i.i15)
+  %22 = fneg float %21
+  %neg.i.i15 = fmul float %4, %22
+  %23 = tail call float @llvm.fmuladd.f32(float %2, float %20, float %neg.i.i15)
   %mul6.i.i = fmul float %2, %21
-  %23 = tail call float @llvm.fmuladd.f32(float %4, float %20, float %mul6.i.i)
-  %mul3.i = fmul float %sub3.i, %23
-  %24 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %22, float %mul3.i)
-  ret float %24
+  %24 = tail call float @llvm.fmuladd.f32(float %4, float %20, float %mul6.i.i)
+  %mul3.i = fmul float %sub3.i, %24
+  %25 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %23, float %mul3.i)
+  ret float %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1273,8 +1276,8 @@ entry:
   %c.i = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load float, ptr %c.i, align 4
   %7 = load float, ptr %q, align 4
-  %8 = fneg float %7
-  %neg.i = fmul float %sub3.i, %8
+  %8 = fneg float %sub3.i
+  %neg.i = fmul float %7, %8
   %9 = tail call float @llvm.fmuladd.f32(float %6, float %sub.i, float %neg.i)
   %mul6.i = fmul float %6, %sub3.i
   %10 = tail call float @llvm.fmuladd.f32(float %7, float %sub.i, float %mul6.i)
@@ -1292,8 +1295,8 @@ entry:
   %c.i20 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = load float, ptr %c.i20, align 4
   %16 = load float, ptr %q4, align 4
-  %17 = fneg float %16
-  %neg.i22 = fmul float %sub3.i17, %17
+  %17 = fneg float %sub3.i17
+  %neg.i22 = fmul float %16, %17
   %18 = tail call float @llvm.fmuladd.f32(float %15, float %sub.i14, float %neg.i22)
   %mul6.i23 = fmul float %15, %sub3.i17
   %19 = tail call float @llvm.fmuladd.f32(float %16, float %sub.i14, float %mul6.i23)
@@ -1315,40 +1318,41 @@ entry:
   %24 = load float, ptr %m_localXAxisA, align 8
   %y.i43 = getelementptr inbounds i8, ptr %this, i64 148
   %25 = load float, ptr %y.i43, align 4
-  %neg.i44 = fmul float %25, %8
-  %26 = tail call float @llvm.fmuladd.f32(float %6, float %24, float %neg.i44)
+  %26 = fneg float %25
+  %neg.i44 = fmul float %7, %26
+  %27 = tail call float @llvm.fmuladd.f32(float %6, float %24, float %neg.i44)
   %mul6.i45 = fmul float %6, %25
-  %27 = tail call float @llvm.fmuladd.f32(float %7, float %24, float %mul6.i45)
+  %28 = tail call float @llvm.fmuladd.f32(float %7, float %24, float %mul6.i45)
   %m_linearVelocity = getelementptr inbounds i8, ptr %0, i64 64
-  %28 = load float, ptr %m_linearVelocity, align 8
+  %29 = load float, ptr %m_linearVelocity, align 8
   %m_linearVelocity.sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
-  %29 = load float, ptr %m_linearVelocity.sroa_idx, align 4
+  %30 = load float, ptr %m_linearVelocity.sroa_idx, align 4
   %m_linearVelocity19 = getelementptr inbounds i8, ptr %1, i64 64
-  %30 = load float, ptr %m_linearVelocity19, align 8
+  %31 = load float, ptr %m_linearVelocity19, align 8
   %m_linearVelocity19.sroa_idx = getelementptr inbounds i8, ptr %1, i64 68
-  %31 = load float, ptr %m_linearVelocity19.sroa_idx, align 4
+  %32 = load float, ptr %m_linearVelocity19.sroa_idx, align 4
   %m_angularVelocity = getelementptr inbounds i8, ptr %0, i64 72
-  %32 = load float, ptr %m_angularVelocity, align 8
+  %33 = load float, ptr %m_angularVelocity, align 8
   %m_angularVelocity20 = getelementptr inbounds i8, ptr %1, i64 72
-  %33 = load float, ptr %m_angularVelocity20, align 8
-  %fneg.i = fneg float %32
-  %mul.i = fmul float %27, %fneg.i
-  %mul1.i = fmul float %26, %32
+  %34 = load float, ptr %m_angularVelocity20, align 8
+  %fneg.i = fneg float %33
+  %mul.i = fmul float %28, %fneg.i
+  %mul1.i = fmul float %27, %33
   %mul3.i = fmul float %sub3.i39, %mul1.i
-  %34 = tail call noundef float @llvm.fmuladd.f32(float %sub.i36, float %mul.i, float %mul3.i)
-  %mul1.i56 = fmul float %18, %33
-  %35 = fmul float %19, %33
-  %add.i59 = fsub float %30, %35
-  %add3.i62 = fadd float %31, %mul1.i56
-  %sub.i65 = fsub float %add.i59, %28
-  %sub3.i68 = fsub float %add3.i62, %29
-  %mul1.i74 = fmul float %9, %32
-  %36 = fmul float %10, %32
-  %sub.i77 = fadd float %36, %sub.i65
+  %35 = tail call noundef float @llvm.fmuladd.f32(float %sub.i36, float %mul.i, float %mul3.i)
+  %mul1.i56 = fmul float %18, %34
+  %36 = fmul float %19, %34
+  %add.i59 = fsub float %31, %36
+  %add3.i62 = fadd float %32, %mul1.i56
+  %sub.i65 = fsub float %add.i59, %29
+  %sub3.i68 = fsub float %add3.i62, %30
+  %mul1.i74 = fmul float %9, %33
+  %37 = fmul float %10, %33
+  %sub.i77 = fadd float %37, %sub.i65
   %sub3.i80 = fsub float %sub3.i68, %mul1.i74
-  %mul3.i85 = fmul float %27, %sub3.i80
-  %37 = tail call noundef float @llvm.fmuladd.f32(float %26, float %sub.i77, float %mul3.i85)
-  %add = fadd float %34, %37
+  %mul3.i85 = fmul float %28, %sub3.i80
+  %38 = tail call noundef float @llvm.fmuladd.f32(float %27, float %sub.i77, float %mul3.i85)
+  %add = fadd float %35, %38
   ret float %add
 }
 
@@ -1397,7 +1401,7 @@ entry:
   %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i8, ptr %m_enableLimit, align 8
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %flag
+  %2 = xor i1 %flag, %1
   br i1 %2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1466,10 +1470,10 @@ define void @_ZN12b2WheelJoint9SetLimitsEff(ptr nocapture noundef nonnull align 
 entry:
   %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load float, ptr %m_lowerTranslation, align 8
-  %cmp = fcmp une float %0, %lower
+  %cmp = fcmp une float %lower, %0
   %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
   %1 = load float, ptr %m_upperTranslation, align 4
-  %cmp2 = fcmp une float %1, %upper
+  %cmp2 = fcmp une float %upper, %1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp2
   br i1 %or.cond, label %if.then, label %if.end
 
@@ -1533,7 +1537,7 @@ entry:
   %m_enableMotor = getelementptr inbounds i8, ptr %this, i64 201
   %0 = load i8, ptr %m_enableMotor, align 1
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %flag
+  %2 = xor i1 %flag, %1
   br i1 %2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1582,7 +1586,7 @@ define void @_ZN12b2WheelJoint13SetMotorSpeedEf(ptr nocapture noundef nonnull al
 entry:
   %m_motorSpeed = getelementptr inbounds i8, ptr %this, i64 196
   %0 = load float, ptr %m_motorSpeed, align 4
-  %cmp = fcmp une float %0, %speed
+  %cmp = fcmp une float %speed, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1630,7 +1634,7 @@ define void @_ZN12b2WheelJoint17SetMaxMotorTorqueEf(ptr nocapture noundef nonnul
 entry:
   %m_maxMotorTorque = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load float, ptr %m_maxMotorTorque, align 8
-  %cmp = fcmp une float %0, %torque
+  %cmp = fcmp une float %torque, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1678,7 +1682,7 @@ define noundef float @_ZNK12b2WheelJoint14GetMotorTorqueEf(ptr nocapture noundef
 entry:
   %m_motorImpulse = getelementptr inbounds i8, ptr %this, i64 164
   %0 = load float, ptr %m_motorImpulse, align 4
-  %mul = fmul float %0, %inv_dt
+  %mul = fmul float %inv_dt, %0
   ret float %mul
 }
 
@@ -1815,8 +1819,8 @@ entry:
   %4 = load float, ptr %q.i, align 4
   %y.i = getelementptr inbounds i8, ptr %this, i64 132
   %5 = load float, ptr %y.i, align 4
-  %6 = fneg float %4
-  %neg.i = fmul float %5, %6
+  %6 = fneg float %5
+  %neg.i = fmul float %4, %6
   %7 = tail call float @llvm.fmuladd.f32(float %2, float %3, float %neg.i)
   %8 = load float, ptr %m_xf.i, align 4
   %add.i = fadd float %8, %7
@@ -1836,8 +1840,8 @@ entry:
   %13 = load float, ptr %q.i10, align 4
   %y.i12 = getelementptr inbounds i8, ptr %this, i64 140
   %14 = load float, ptr %y.i12, align 4
-  %15 = fneg float %13
-  %neg.i13 = fmul float %14, %15
+  %15 = fneg float %14
+  %neg.i13 = fmul float %13, %15
   %16 = tail call float @llvm.fmuladd.f32(float %11, float %12, float %neg.i13)
   %17 = load float, ptr %m_xf.i9, align 4
   %add.i14 = fadd float %17, %16
@@ -1853,10 +1857,11 @@ entry:
   %20 = load float, ptr %m_localXAxisA, align 8
   %y.i21 = getelementptr inbounds i8, ptr %this, i64 148
   %21 = load float, ptr %y.i21, align 4
-  %neg.i22 = fmul float %21, %6
-  %22 = tail call float @llvm.fmuladd.f32(float %2, float %20, float %neg.i22)
+  %22 = fneg float %21
+  %neg.i22 = fmul float %4, %22
+  %23 = tail call float @llvm.fmuladd.f32(float %2, float %20, float %neg.i22)
   %mul6.i = fmul float %2, %21
-  %23 = tail call float @llvm.fmuladd.f32(float %4, float %20, float %mul6.i)
+  %24 = tail call float @llvm.fmuladd.f32(float %4, float %20, float %mul6.i)
   store float 0x3FE6666660000000, ptr %c1, align 4
   %g.i = getelementptr inbounds i8, ptr %c1, i64 4
   store float 0x3FE6666660000000, ptr %g.i, align 4
@@ -1894,117 +1899,117 @@ entry:
   store float 1.000000e+00, ptr %a.i36, align 4
   %vtable = load ptr, ptr %draw, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
-  %24 = load ptr, ptr %vfn, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pA, ptr noundef nonnull align 4 dereferenceable(8) %pB, ptr noundef nonnull align 4 dereferenceable(16) %c5)
+  %25 = load ptr, ptr %vfn, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pA, ptr noundef nonnull align 4 dereferenceable(8) %pB, ptr noundef nonnull align 4 dereferenceable(16) %c5)
   %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
-  %25 = load i8, ptr %m_enableLimit, align 8
-  %tobool = trunc i8 %25 to i1
+  %26 = load i8, ptr %m_enableLimit, align 8
+  %tobool = trunc i8 %26 to i1
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
-  %26 = load float, ptr %m_lowerTranslation, align 8
-  %mul.i = fmul float %22, %26
-  %mul1.i = fmul float %23, %26
-  %27 = load float, ptr %pA, align 8
-  %add.i40 = fadd float %27, %mul.i
+  %27 = load float, ptr %m_lowerTranslation, align 8
+  %mul.i = fmul float %23, %27
+  %mul1.i = fmul float %24, %27
+  %28 = load float, ptr %pA, align 8
+  %add.i40 = fadd float %28, %mul.i
   %y.i41 = getelementptr inbounds i8, ptr %pA, i64 4
-  %28 = load float, ptr %y.i41, align 4
-  %add3.i = fadd float %mul1.i, %28
+  %29 = load float, ptr %y.i41, align 4
+  %add3.i = fadd float %mul1.i, %29
   %retval.sroa.0.0.vec.insert.i42 = insertelement <2 x float> poison, float %add.i40, i64 0
   %retval.sroa.0.4.vec.insert.i43 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i42, float %add3.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i43, ptr %lower, align 8
   %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
-  %29 = load float, ptr %m_upperTranslation, align 4
-  %mul.i44 = fmul float %22, %29
-  %mul1.i46 = fmul float %23, %29
-  %add.i49 = fadd float %27, %mul.i44
-  %add3.i52 = fadd float %28, %mul1.i46
+  %30 = load float, ptr %m_upperTranslation, align 4
+  %mul.i44 = fmul float %23, %30
+  %mul1.i46 = fmul float %24, %30
+  %add.i49 = fadd float %28, %mul.i44
+  %add3.i52 = fadd float %29, %mul1.i46
   %retval.sroa.0.0.vec.insert.i53 = insertelement <2 x float> poison, float %add.i49, i64 0
   %retval.sroa.0.4.vec.insert.i54 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i53, float %add3.i52, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i54, ptr %upper, align 8
   %m_localYAxisA = getelementptr inbounds i8, ptr %this, i64 152
-  %30 = load float, ptr %c.i, align 4
-  %31 = load float, ptr %m_localYAxisA, align 8
-  %32 = load float, ptr %q.i, align 4
+  %31 = load float, ptr %c.i, align 4
+  %32 = load float, ptr %m_localYAxisA, align 8
+  %33 = load float, ptr %q.i, align 4
   %y.i56 = getelementptr inbounds i8, ptr %this, i64 156
-  %33 = load float, ptr %y.i56, align 4
-  %34 = fneg float %32
-  %neg.i57 = fmul float %33, %34
-  %35 = call float @llvm.fmuladd.f32(float %30, float %31, float %neg.i57)
-  %mul6.i58 = fmul float %30, %33
-  %36 = call float @llvm.fmuladd.f32(float %32, float %31, float %mul6.i58)
+  %34 = load float, ptr %y.i56, align 4
+  %35 = fneg float %34
+  %neg.i57 = fmul float %33, %35
+  %36 = call float @llvm.fmuladd.f32(float %31, float %32, float %neg.i57)
+  %mul6.i58 = fmul float %31, %34
+  %37 = call float @llvm.fmuladd.f32(float %33, float %32, float %mul6.i58)
   %vtable13 = load ptr, ptr %draw, align 8
   %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 48
-  %37 = load ptr, ptr %vfn14, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %lower, ptr noundef nonnull align 4 dereferenceable(8) %upper, ptr noundef nonnull align 4 dereferenceable(16) %c1)
-  %mul.i61 = fmul float %35, 5.000000e-01
-  %mul1.i63 = fmul float %36, 5.000000e-01
-  %38 = load float, ptr %lower, align 8
-  %sub.i = fsub float %38, %mul.i61
+  %38 = load ptr, ptr %vfn14, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %lower, ptr noundef nonnull align 4 dereferenceable(8) %upper, ptr noundef nonnull align 4 dereferenceable(16) %c1)
+  %mul.i61 = fmul float %36, 5.000000e-01
+  %mul1.i63 = fmul float %37, 5.000000e-01
+  %39 = load float, ptr %lower, align 8
+  %sub.i = fsub float %39, %mul.i61
   %y.i66 = getelementptr inbounds i8, ptr %lower, i64 4
-  %39 = load float, ptr %y.i66, align 4
-  %sub3.i = fsub float %39, %mul1.i63
+  %40 = load float, ptr %y.i66, align 4
+  %sub3.i = fsub float %40, %mul1.i63
   %retval.sroa.0.0.vec.insert.i68 = insertelement <2 x float> poison, float %sub.i, i64 0
   %retval.sroa.0.4.vec.insert.i69 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i68, float %sub3.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i69, ptr %ref.tmp15, align 8
-  %add.i75 = fadd float %mul.i61, %38
-  %add3.i78 = fadd float %mul1.i63, %39
+  %add.i75 = fadd float %mul.i61, %39
+  %add3.i78 = fadd float %mul1.i63, %40
   %retval.sroa.0.0.vec.insert.i79 = insertelement <2 x float> poison, float %add.i75, i64 0
   %retval.sroa.0.4.vec.insert.i80 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i79, float %add3.i78, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i80, ptr %ref.tmp19, align 8
   %vtable23 = load ptr, ptr %draw, align 8
   %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 48
-  %40 = load ptr, ptr %vfn24, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(16) %c2)
-  %41 = load float, ptr %upper, align 8
-  %sub.i86 = fsub float %41, %mul.i61
+  %41 = load ptr, ptr %vfn24, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(16) %c2)
+  %42 = load float, ptr %upper, align 8
+  %sub.i86 = fsub float %42, %mul.i61
   %y.i87 = getelementptr inbounds i8, ptr %upper, i64 4
-  %42 = load float, ptr %y.i87, align 4
-  %sub3.i89 = fsub float %42, %mul1.i63
+  %43 = load float, ptr %y.i87, align 4
+  %sub3.i89 = fsub float %43, %mul1.i63
   %retval.sroa.0.0.vec.insert.i90 = insertelement <2 x float> poison, float %sub.i86, i64 0
   %retval.sroa.0.4.vec.insert.i91 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i90, float %sub3.i89, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i91, ptr %ref.tmp25, align 8
-  %add.i97 = fadd float %mul.i61, %41
-  %add3.i100 = fadd float %mul1.i63, %42
+  %add.i97 = fadd float %mul.i61, %42
+  %add3.i100 = fadd float %mul1.i63, %43
   %retval.sroa.0.0.vec.insert.i101 = insertelement <2 x float> poison, float %add.i97, i64 0
   %retval.sroa.0.4.vec.insert.i102 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i101, float %add3.i100, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i102, ptr %ref.tmp29, align 8
   %vtable33 = load ptr, ptr %draw, align 8
   %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 48
-  %43 = load ptr, ptr %vfn34, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp29, ptr noundef nonnull align 4 dereferenceable(16) %c3)
+  %44 = load ptr, ptr %vfn34, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp29, ptr noundef nonnull align 4 dereferenceable(16) %c3)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %44 = load float, ptr %pA, align 8
-  %sub.i108 = fsub float %44, %22
+  %45 = load float, ptr %pA, align 8
+  %sub.i108 = fsub float %45, %23
   %y.i109 = getelementptr inbounds i8, ptr %pA, i64 4
-  %45 = load float, ptr %y.i109, align 4
-  %sub3.i111 = fsub float %45, %23
+  %46 = load float, ptr %y.i109, align 4
+  %sub3.i111 = fsub float %46, %24
   %retval.sroa.0.0.vec.insert.i112 = insertelement <2 x float> poison, float %sub.i108, i64 0
   %retval.sroa.0.4.vec.insert.i113 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i112, float %sub3.i111, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i113, ptr %ref.tmp35, align 8
-  %add.i119 = fadd float %22, %44
-  %add3.i122 = fadd float %23, %45
+  %add.i119 = fadd float %23, %45
+  %add3.i122 = fadd float %24, %46
   %retval.sroa.0.0.vec.insert.i123 = insertelement <2 x float> poison, float %add.i119, i64 0
   %retval.sroa.0.4.vec.insert.i124 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i123, float %add3.i122, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i124, ptr %ref.tmp39, align 8
   %vtable43 = load ptr, ptr %draw, align 8
   %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 48
-  %46 = load ptr, ptr %vfn44, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp35, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp39, ptr noundef nonnull align 4 dereferenceable(16) %c1)
+  %47 = load ptr, ptr %vfn44, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp35, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp39, ptr noundef nonnull align 4 dereferenceable(16) %c1)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %vtable45 = load ptr, ptr %draw, align 8
   %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 64
-  %47 = load ptr, ptr %vfn46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pA, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c1)
+  %48 = load ptr, ptr %vfn46, align 8
+  call void %48(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pA, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c1)
   %vtable47 = load ptr, ptr %draw, align 8
   %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 64
-  %48 = load ptr, ptr %vfn48, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pB, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c4)
+  %49 = load ptr, ptr %vfn48, align 8
+  call void %49(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pB, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c4)
   ret void
 }
 

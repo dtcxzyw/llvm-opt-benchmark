@@ -202,7 +202,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124TargetCompileOptionsImpl1
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 @_ZNK10cmMakefile15GetPolicyStatusEN10cmPolicies8PolicyIDEb(ptr noundef nonnull align 8 dereferenceable(3520) %11, i32 noundef 101, i1 noundef zeroext false)
   %or.cond = icmp ugt i32 %12, 1
-  %spec.select = and i1 %or.cond, %3
+  %spec.select = and i1 %3, %or.cond
   %13 = load ptr, ptr %10, align 8
   call void @_ZNK10cmMakefile12GetBacktraceEv(ptr dead_on_unwind nonnull writable sret(%class.cmListFileBacktrace) align 8 %6, ptr noundef nonnull align 8 dereferenceable(3520) %13)
   %14 = load ptr, ptr %0, align 8

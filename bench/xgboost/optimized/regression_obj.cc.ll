@@ -4553,7 +4553,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -5177,7 +5177,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -5225,7 +5225,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN4dmlc9parameter16FieldAccessEntryEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -5697,7 +5697,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -5745,7 +5745,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7xgboost14ObjFunctionRegEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -7306,7 +7306,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRKS6_SC_EEEvRS8_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRKS6_SC_EEEvRS8_PT_DpOT0_.exit ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
-  %.not10.i.i.i27 = icmp eq ptr %6, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %.lr.ph.i.i.i28
@@ -7701,7 +7701,7 @@ _ZNK4dmlc9parameter12ParamManager4FindERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 select.unfold.i.i:                                ; preds = %52, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %52 ]
-  %55 = icmp eq ptr %13, %.sroa.4.0.i.ph.i.i
+  %55 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %13
   br i1 %55, label %_ZNSt8_Rb_treeIPN4dmlc9parameter16FieldAccessEntryES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %56
 
 56:                                               ; preds = %select.unfold.i.i
@@ -8015,7 +8015,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRKS7_EEEvRS8_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRKS7_EEEvRS8_PT_DpOT0_.exit ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %.lr.ph.i.i.i27
@@ -8672,7 +8672,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit ], [ %30, %.lr.ph.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %.lr.ph.i.i.i17
@@ -8794,7 +8794,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.020.lcssa32.i, %._crit_edge.thread.i ], [ %.020.lcssa33.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ]
-  %25 = icmp eq ptr %6, %.sroa.4.0.i.ph
+  %25 = icmp eq ptr %.sroa.4.0.i.ph, %6
   br i1 %25, label %.thread15, label %26
 
 26:                                               ; preds = %select.unfold
@@ -9001,7 +9001,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -9069,7 +9069,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -11451,7 +11451,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6common9Transfor
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_16LinearSquareLossEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENSB_IT_Lm18446744073709551615EEEPNS8_ISG_EE.exit.i: ; preds = %.noexc8
-  %18 = icmp ugt i64 %13, %2
+  %18 = icmp ult i64 %2, %13
   br i1 %18, label %_ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_16LinearSquareLossEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS9_EEEvSD_DpPT_ENKUlmE_clEm.exit, label %19
 
 19:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_16LinearSquareLossEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENSB_IT_Lm18446744073709551615EEEPNS8_ISG_EE.exit.i
@@ -12394,7 +12394,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7xgboost7Context14DispatchDeviceIZNS
   %13 = load i64, ptr %12, align 8
   %14 = tail call { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_15SquaredLogErrorEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 0, ptr %11, i64 %13, ptr %11)
   %15 = extractvalue { i64, ptr } %14, 0
-  %16 = icmp eq i64 %15, %13
+  %16 = icmp eq i64 %13, %15
   br label %60
 
 17:                                               ; preds = %3
@@ -12480,7 +12480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %40 = load i64, ptr %39, align 8
   %41 = call { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_15SquaredLogErrorEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 0, ptr %38, i64 %40, ptr %38)
   %42 = extractvalue { i64, ptr } %41, 0
-  %43 = icmp eq i64 %42, %40
+  %43 = icmp eq i64 %40, %42
   br label %60
 
 44:                                               ; preds = %18
@@ -14164,7 +14164,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6common9Transfor
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_15SquaredLogErrorEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENSB_IT_Lm18446744073709551615EEEPNS8_ISG_EE.exit.i: ; preds = %.noexc8
-  %18 = icmp ugt i64 %13, %2
+  %18 = icmp ult i64 %2, %13
   br i1 %18, label %_ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_15SquaredLogErrorEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS9_EEEvSD_DpPT_ENKUlmE_clEm.exit, label %19
 
 19:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_15SquaredLogErrorEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENSB_IT_Lm18446744073709551615EEEPNS8_ISG_EE.exit.i
@@ -15108,7 +15108,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7xgboost7Context14DispatchDeviceIZNS
   %13 = load i64, ptr %12, align 8
   %14 = tail call { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_18LogisticRegressionEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 0, ptr %11, i64 %13, ptr %11)
   %15 = extractvalue { i64, ptr } %14, 0
-  %16 = icmp eq i64 %15, %13
+  %16 = icmp eq i64 %13, %15
   br label %60
 
 17:                                               ; preds = %3
@@ -15194,7 +15194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %40 = load i64, ptr %39, align 8
   %41 = call { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_18LogisticRegressionEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 0, ptr %38, i64 %40, ptr %38)
   %42 = extractvalue { i64, ptr } %41, 0
-  %43 = icmp eq i64 %42, %40
+  %43 = icmp eq i64 %40, %42
   br label %60
 
 44:                                               ; preds = %18
@@ -16879,7 +16879,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6common9Transfor
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_18LogisticRegressionEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENSB_IT_Lm18446744073709551615EEEPNS8_ISG_EE.exit.i: ; preds = %.noexc8
-  %18 = icmp ugt i64 %13, %2
+  %18 = icmp ult i64 %2, %13
   br i1 %18, label %_ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_18LogisticRegressionEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS9_EEEvSD_DpPT_ENKUlmE_clEm.exit, label %19
 
 19:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_18LogisticRegressionEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENSB_IT_Lm18446744073709551615EEEPNS8_ISG_EE.exit.i
@@ -17922,7 +17922,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7xgboost7Context14DispatchDeviceIZNS
   %13 = load i64, ptr %12, align 8
   %14 = tail call { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_22LogisticClassificationEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 0, ptr %11, i64 %13, ptr %11)
   %15 = extractvalue { i64, ptr } %14, 0
-  %16 = icmp eq i64 %15, %13
+  %16 = icmp eq i64 %13, %15
   br label %60
 
 17:                                               ; preds = %3
@@ -18008,7 +18008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %40 = load i64, ptr %39, align 8
   %41 = call { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_22LogisticClassificationEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 0, ptr %38, i64 %40, ptr %38)
   %42 = extractvalue { i64, ptr } %41, 0
-  %43 = icmp eq i64 %42, %40
+  %43 = icmp eq i64 %40, %42
   br label %60
 
 44:                                               ; preds = %18
@@ -19690,7 +19690,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6common9Transfor
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_22LogisticClassificationEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENSB_IT_Lm18446744073709551615EEEPNS8_ISG_EE.exit.i: ; preds = %.noexc8
-  %18 = icmp ugt i64 %13, %2
+  %18 = icmp ult i64 %2, %13
   br i1 %18, label %_ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_22LogisticClassificationEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS9_EEEvSD_DpPT_ENKUlmE_clEm.exit, label %19
 
 19:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_22LogisticClassificationEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENSB_IT_Lm18446744073709551615EEEPNS8_ISG_EE.exit.i
@@ -20650,7 +20650,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7xgboost7Context14DispatchDeviceIZNS
   %13 = load i64, ptr %12, align 8
   %14 = tail call { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_11LogisticRawEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 0, ptr %11, i64 %13, ptr %11)
   %15 = extractvalue { i64, ptr } %14, 0
-  %16 = icmp eq i64 %15, %13
+  %16 = icmp eq i64 %13, %15
   br label %60
 
 17:                                               ; preds = %3
@@ -20736,7 +20736,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %40 = load i64, ptr %39, align 8
   %41 = call { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_11LogisticRawEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 0, ptr %38, i64 %40, ptr %38)
   %42 = extractvalue { i64, ptr } %41, 0
-  %43 = icmp eq i64 %42, %40
+  %43 = icmp eq i64 %40, %42
   br label %60
 
 44:                                               ; preds = %18
@@ -22426,7 +22426,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6common9Transfor
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_11LogisticRawEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENSB_IT_Lm18446744073709551615EEEPNS8_ISG_EE.exit.i: ; preds = %.noexc8
-  %18 = icmp ugt i64 %13, %2
+  %18 = icmp ult i64 %2, %13
   br i1 %18, label %_ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_11LogisticRawEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS9_EEEvSD_DpPT_ENKUlmE_clEm.exit, label %19
 
 19:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_11LogisticRawEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENSB_IT_Lm18446744073709551615EEEPNS8_ISG_EE.exit.i
@@ -23370,7 +23370,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7xgboost7Context14DispatchDeviceIZNS
   %13 = load i64, ptr %12, align 8
   %14 = tail call { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_13GammaDevianceEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 0, ptr %11, i64 %13, ptr %11)
   %15 = extractvalue { i64, ptr } %14, 0
-  %16 = icmp eq i64 %15, %13
+  %16 = icmp eq i64 %13, %15
   br label %60
 
 17:                                               ; preds = %3
@@ -23456,7 +23456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %40 = load i64, ptr %39, align 8
   %41 = call { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_13GammaDevianceEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 0, ptr %38, i64 %40, ptr %38)
   %42 = extractvalue { i64, ptr } %41, 0
-  %43 = icmp eq i64 %42, %40
+  %43 = icmp eq i64 %40, %42
   br label %60
 
 44:                                               ; preds = %18
@@ -25108,7 +25108,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6common9Transfor
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_13GammaDevianceEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENSB_IT_Lm18446744073709551615EEEPNS8_ISG_EE.exit.i: ; preds = %.noexc8
-  %18 = icmp ugt i64 %13, %2
+  %18 = icmp ult i64 %2, %13
   br i1 %18, label %_ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_13GammaDevianceEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS9_EEEvSD_DpPT_ENKUlmE_clEm.exit, label %19
 
 19:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_13GammaDevianceEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENSB_IT_Lm18446744073709551615EEEPNS8_ISG_EE.exit.i
@@ -27424,7 +27424,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %82, label %_ZZN7xgboost3obj21PseudoHuberRegression11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i, label %83
 
 83:                                               ; preds = %.lr.ph.i.i
-  %84 = icmp ugt i64 %81, %.048138
+  %84 = icmp ult i64 %.048138, %81
   br i1 %84, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i, label %85
 
 85:                                               ; preds = %83
@@ -27542,7 +27542,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
   br i1 %156, label %_ZZN7xgboost3obj21PseudoHuberRegression11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i65, label %157
 
 157:                                              ; preds = %.lr.ph.i.i62
-  %158 = icmp ugt i64 %155, %.049136
+  %158 = icmp ult i64 %.049136, %155
   br i1 %158, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i64, label %159
 
 159:                                              ; preds = %157
@@ -27617,7 +27617,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
   br i1 %202, label %_ZZN7xgboost3obj21PseudoHuberRegression11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i75, label %203
 
 203:                                              ; preds = %.lr.ph.i.i72
-  %204 = icmp ugt i64 %201, %.051134
+  %204 = icmp ult i64 %.051134, %201
   br i1 %204, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i74, label %205
 
 205:                                              ; preds = %203
@@ -27735,7 +27735,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
   br i1 %276, label %_ZZN7xgboost3obj21PseudoHuberRegression11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i85, label %277
 
 277:                                              ; preds = %.lr.ph.i.i82
-  %278 = icmp ugt i64 %275, %.052132
+  %278 = icmp ult i64 %.052132, %275
   br i1 %278, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i84, label %279
 
 279:                                              ; preds = %277
@@ -27810,7 +27810,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
   br i1 %322, label %_ZZN7xgboost3obj21PseudoHuberRegression11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i95, label %323
 
 323:                                              ; preds = %.lr.ph.i.i92
-  %324 = icmp ugt i64 %321, %.050130
+  %324 = icmp ult i64 %.050130, %321
   br i1 %324, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i94, label %325
 
 325:                                              ; preds = %323
@@ -27885,7 +27885,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
   br i1 %368, label %_ZZN7xgboost3obj21PseudoHuberRegression11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i105, label %369
 
 369:                                              ; preds = %.lr.ph.i.i102
-  %370 = icmp ugt i64 %367, %.047129
+  %370 = icmp ult i64 %.047129, %367
   br i1 %370, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i104, label %371
 
 371:                                              ; preds = %369
@@ -28479,7 +28479,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit: ; preds
   br label %_ZSt5applyIRZN7xgboost3obj21PseudoHuberRegression11GetGradientERKNS0_16HostDeviceVectorIfEERKNS0_8MetaInfoEiPNS0_6linalg6TensorINS0_6detail20GradientPairInternalIfEELi2EEEEUlmmE_RSt5tupleIJmmEEEDcOT_OT0_.exit
 
 59:                                               ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit
-  %60 = icmp ugt i64 %55, %.sink.i
+  %60 = icmp ult i64 %.sink.i, %55
   br i1 %60, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.i, label %61
 
 61:                                               ; preds = %59
@@ -30842,7 +30842,7 @@ _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj17PoissonRegression11GetGr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZN7xgboost3obj17PoissonRegression11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENKUlmNS_6common4SpanIiLm18446744073709551615EEENSH_ISD_Lm18446744073709551615EEENSH_IKfLm18446744073709551615EEESL_SL_E_clEmSI_SJ_SL_SL_SL_(ptr noundef nonnull align 4 dereferenceable(8) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 comdat align 2 {
   %8 = load i64, ptr %4, align 8
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit, label %10
 
 10:                                               ; preds = %7
@@ -30860,7 +30860,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit: ; preds = %7
 
 17:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit
   %18 = load i64, ptr %6, align 8
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit10, label %20
 
 20:                                               ; preds = %17
@@ -30877,7 +30877,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit10: ; preds = %17
 25:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit10
   %26 = phi float [ %24, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit10 ], [ 1.000000e+00, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit ]
   %27 = load i64, ptr %5, align 8
-  %28 = icmp ugt i64 %27, %1
+  %28 = icmp ult i64 %1, %27
   br i1 %28, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit11, label %29
 
 29:                                               ; preds = %25
@@ -30914,7 +30914,7 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %35
   %44 = fadd float %14, %43
   %45 = tail call float @expf(float noundef %44) #17
   %46 = load i64, ptr %3, align 8
-  %47 = icmp ugt i64 %46, %1
+  %47 = icmp ult i64 %1, %46
   br i1 %47, label %_ZNK7xgboost6common4SpanINS_6detail20GradientPairInternalIfEELm18446744073709551615EEixEm.exit, label %48
 
 48:                                               ; preds = %40
@@ -31311,7 +31311,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6common9Transfor
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj17PoissonRegression13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENS9_IT_Lm18446744073709551615EEEPNS6_ISE_EE.exit.i: ; preds = %.noexc8
-  %18 = icmp ugt i64 %13, %2
+  %18 = icmp ult i64 %2, %13
   br i1 %18, label %_ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj17PoissonRegression13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS7_EEEvSB_DpPT_ENKUlmE_clEm.exit, label %19
 
 19:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj17PoissonRegression13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENS9_IT_Lm18446744073709551615EEEPNS6_ISE_EE.exit.i
@@ -32274,9 +32274,9 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit142: ; preds = %.noexc141, %_ZN4dm
   %261 = uitofp i1 %253 to double
   %262 = fneg double %261
   %263 = call double @llvm.fmuladd.f64(double %214, double %.182, double %262)
-  %264 = fneg double %214
-  %265 = fmul double %214, %264
-  %266 = fmul double %265, %.184
+  %264 = fmul double %214, %214
+  %265 = fneg double %.184
+  %266 = fmul double %264, %265
   %267 = call double @llvm.fmuladd.f64(double %214, double %.182, double %266)
   %268 = fmul double %263, %222
   %269 = fptrunc double %268 to float
@@ -34814,7 +34814,7 @@ _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNS_3obj17TweedieRegression11GetGr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZN7xgboost3obj17TweedieRegression11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENKUlmNS_6common4SpanIiLm18446744073709551615EEENSH_ISD_Lm18446744073709551615EEENSH_IKfLm18446744073709551615EEESL_SL_E_clEmSI_SJ_SL_SL_SL_(ptr noundef nonnull align 4 dereferenceable(8) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 comdat align 2 {
   %8 = load i64, ptr %4, align 8
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit, label %10
 
 10:                                               ; preds = %7
@@ -34832,7 +34832,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit: ; preds = %7
 
 17:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit
   %18 = load i64, ptr %6, align 8
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15, label %20
 
 20:                                               ; preds = %17
@@ -34849,7 +34849,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15: ; preds = %17
 25:                                               ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15
   %26 = phi float [ %24, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit15 ], [ 1.000000e+00, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit ]
   %27 = load i64, ptr %5, align 8
-  %28 = icmp ugt i64 %27, %1
+  %28 = icmp ult i64 %1, %27
   br i1 %28, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit16, label %29
 
 29:                                               ; preds = %25
@@ -34898,7 +34898,7 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %35
   %56 = fmul float %14, %55
   %57 = tail call float @expf(float noundef %56) #17
   %58 = load i64, ptr %3, align 8
-  %59 = icmp ugt i64 %58, %1
+  %59 = icmp ult i64 %1, %58
   br i1 %59, label %_ZNK7xgboost6common4SpanINS_6detail20GradientPairInternalIfEELm18446744073709551615EEixEm.exit, label %60
 
 60:                                               ; preds = %40
@@ -35300,7 +35300,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6common9Transfor
   unreachable
 
 _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj17TweedieRegression13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENS9_IT_Lm18446744073709551615EEEPNS6_ISE_EE.exit.i: ; preds = %.noexc8
-  %18 = icmp ugt i64 %13, %2
+  %18 = icmp ult i64 %2, %13
   br i1 %18, label %_ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj17TweedieRegression13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS7_EEEvSB_DpPT_ENKUlmE_clEm.exit, label %19
 
 19:                                               ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj17TweedieRegression13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENS9_IT_Lm18446744073709551615EEEPNS6_ISE_EE.exit.i
@@ -37051,7 +37051,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %73, label %_ZZN7xgboost3obj17MeanAbsoluteError11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i, label %74
 
 74:                                               ; preds = %.lr.ph.i.i
-  %75 = icmp ugt i64 %72, %.048138
+  %75 = icmp ult i64 %.048138, %72
   br i1 %75, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i, label %76
 
 76:                                               ; preds = %74
@@ -37167,7 +37167,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
   br i1 %145, label %_ZZN7xgboost3obj17MeanAbsoluteError11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i65, label %146
 
 146:                                              ; preds = %.lr.ph.i.i62
-  %147 = icmp ugt i64 %144, %.049136
+  %147 = icmp ult i64 %.049136, %144
   br i1 %147, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i64, label %148
 
 148:                                              ; preds = %146
@@ -37240,7 +37240,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
   br i1 %189, label %_ZZN7xgboost3obj17MeanAbsoluteError11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i75, label %190
 
 190:                                              ; preds = %.lr.ph.i.i72
-  %191 = icmp ugt i64 %188, %.051134
+  %191 = icmp ult i64 %.051134, %188
   br i1 %191, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i74, label %192
 
 192:                                              ; preds = %190
@@ -37356,7 +37356,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
   br i1 %261, label %_ZZN7xgboost3obj17MeanAbsoluteError11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i85, label %262
 
 262:                                              ; preds = %.lr.ph.i.i82
-  %263 = icmp ugt i64 %260, %.052132
+  %263 = icmp ult i64 %.052132, %260
   br i1 %263, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i84, label %264
 
 264:                                              ; preds = %262
@@ -37429,7 +37429,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
   br i1 %305, label %_ZZN7xgboost3obj17MeanAbsoluteError11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i95, label %306
 
 306:                                              ; preds = %.lr.ph.i.i92
-  %307 = icmp ugt i64 %304, %.050130
+  %307 = icmp ult i64 %.050130, %304
   br i1 %307, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i94, label %308
 
 308:                                              ; preds = %306
@@ -37502,7 +37502,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
   br i1 %349, label %_ZZN7xgboost3obj17MeanAbsoluteError11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i105, label %350
 
 350:                                              ; preds = %.lr.ph.i.i102
-  %351 = icmp ugt i64 %348, %.047129
+  %351 = icmp ult i64 %.047129, %348
   br i1 %351, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i104, label %352
 
 352:                                              ; preds = %350
@@ -38090,7 +38090,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit: ; preds
   br label %_ZSt5applyIRZN7xgboost3obj17MeanAbsoluteError11GetGradientERKNS0_16HostDeviceVectorIfEERKNS0_8MetaInfoEiPNS0_6linalg6TensorINS0_6detail20GradientPairInternalIfEELi2EEEEUlmmE_RSt5tupleIJmmEEEDcOT_OT0_.exit
 
 46:                                               ; preds = %_ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit
-  %47 = icmp ugt i64 %42, %.sink.i
+  %47 = icmp ult i64 %.sink.i, %42
   br i1 %47, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.i, label %48
 
 48:                                               ; preds = %46

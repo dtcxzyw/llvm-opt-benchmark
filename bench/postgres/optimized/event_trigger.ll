@@ -832,7 +832,7 @@ define dso_local i32 @get_event_trigger_oid(ptr noundef %0, i1 noundef zeroext %
   %3 = ptrtoint ptr %0 to i64
   %4 = tail call i32 @GetSysCacheOid(i32 noundef 25, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #13
   %.not = icmp ne i32 %4, 0
-  %brmerge = or i1 %.not, %1
+  %brmerge = or i1 %1, %.not
   br i1 %brmerge, label %9, label %5
 
 5:                                                ; preds = %2
@@ -1905,7 +1905,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
   %12 = zext nneg i16 %11 to i32
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6

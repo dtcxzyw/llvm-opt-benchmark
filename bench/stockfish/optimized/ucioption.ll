@@ -120,7 +120,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish19CaseInsensitiveLessclERKNSt
   %14 = icmp slt i64 %13, %10
   %15 = getelementptr inbounds i8, ptr %4, i64 %13
   %spec.select.i.i.i = select i1 %14, ptr %15, ptr %5
-  %.not19.i.i = icmp eq ptr %spec.select.i.i.i, %4
+  %.not19.i.i = icmp eq ptr %4, %spec.select.i.i.i
   br i1 %.not19.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %3
@@ -329,7 +329,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(144) ptr @
   %22 = icmp slt i64 %21, %18
   %23 = getelementptr inbounds i8, ptr %12, i64 %21
   %spec.select.i.i.i.i = select i1 %22, ptr %23, ptr %13
-  %.not19.i.i.i = icmp eq ptr %spec.select.i.i.i.i, %12
+  %.not19.i.i.i = icmp eq ptr %12, %spec.select.i.i.i.i
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %10
@@ -1068,7 +1068,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %23 = icmp slt i64 %22, %19
   %24 = getelementptr inbounds i8, ptr %13, i64 %22
   %spec.select.i.i.i.i = select i1 %23, ptr %24, ptr %14
-  %.not19.i.i.i = icmp eq ptr %spec.select.i.i.i.i, %13
+  %.not19.i.i.i = icmp eq ptr %13, %spec.select.i.i.i.i
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -1124,7 +1124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit7: ; p
   %51 = icmp slt i64 %50, %47
   %52 = getelementptr inbounds i8, ptr %41, i64 %50
   %spec.select.i.i.i.i8 = select i1 %51, ptr %52, ptr %42
-  %.not19.i.i.i9 = icmp eq ptr %spec.select.i.i.i.i8, %41
+  %.not19.i.i.i9 = icmp eq ptr %41, %spec.select.i.i.i.i8
   br i1 %.not19.i.i.i9, label %._crit_edge.i.i.i17, label %.lr.ph.preheader.i.i.i10
 
 .lr.ph.preheader.i.i.i10:                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit7
@@ -1548,7 +1548,7 @@ define linkonce_odr dso_local ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %20 = icmp slt i64 %19, %16
   %21 = getelementptr inbounds i8, ptr %10, i64 %19
   %spec.select.i.i.i.i = select i1 %20, ptr %21, ptr %11
-  %.not19.i.i.i = icmp eq ptr %spec.select.i.i.i.i, %10
+  %.not19.i.i.i = icmp eq ptr %10, %spec.select.i.i.i.i
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %8
@@ -1614,7 +1614,7 @@ define linkonce_odr dso_local ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %16 = icmp slt i64 %15, %12
   %17 = getelementptr inbounds i8, ptr %6, i64 %15
   %spec.select.i.i.i.i = select i1 %16, ptr %17, ptr %7
-  %.not19.i.i.i = icmp eq ptr %spec.select.i.i.i.i, %6
+  %.not19.i.i.i = icmp eq ptr %6, %spec.select.i.i.i.i
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.lr.ph
@@ -1747,7 +1747,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   %16 = icmp slt i64 %15, %12
   %17 = getelementptr inbounds i8, ptr %6, i64 %15
   %spec.select.i.i.i.i = select i1 %16, ptr %17, ptr %7
-  %.not19.i.i.i = icmp eq ptr %spec.select.i.i.i.i, %6
+  %.not19.i.i.i = icmp eq ptr %6, %spec.select.i.i.i.i
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.lr.ph
@@ -1802,7 +1802,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9Stockfish6OptionEESt10_Select1stISA_ENS8_19CaseInsensitiveLessESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %42
 
 6:                                                ; preds = %3
@@ -1828,7 +1828,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
   %23 = icmp slt i64 %22, %19
   %24 = getelementptr inbounds i8, ptr %13, i64 %22
   %spec.select.i.i.i.i = select i1 %23, ptr %24, ptr %14
-  %.not19.i.i.i = icmp eq ptr %spec.select.i.i.i.i, %13
+  %.not19.i.i.i = icmp eq ptr %13, %spec.select.i.i.i.i
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %9
@@ -1889,7 +1889,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   %54 = icmp slt i64 %53, %50
   %55 = getelementptr inbounds i8, ptr %44, i64 %53
   %spec.select.i.i.i.i10 = select i1 %54, ptr %55, ptr %45
-  %.not19.i.i.i11 = icmp eq ptr %spec.select.i.i.i.i10, %44
+  %.not19.i.i.i11 = icmp eq ptr %44, %spec.select.i.i.i.i10
   br i1 %.not19.i.i.i11, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit22, label %.lr.ph.preheader.i.i.i12
 
 .lr.ph.preheader.i.i.i12:                         ; preds = %42
@@ -1947,7 +1947,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   %85 = icmp slt i64 %84, %81
   %86 = getelementptr inbounds i8, ptr %75, i64 %84
   %spec.select.i.i.i.i23 = select i1 %85, ptr %86, ptr %76
-  %.not19.i.i.i24 = icmp eq ptr %spec.select.i.i.i.i23, %75
+  %.not19.i.i.i24 = icmp eq ptr %75, %spec.select.i.i.i.i23
   br i1 %.not19.i.i.i24, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit35, label %.lr.ph.preheader.i.i.i25
 
 .lr.ph.preheader.i.i.i25:                         ; preds = %72
@@ -2011,7 +2011,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   %116 = icmp slt i64 %115, %112
   %117 = getelementptr inbounds i8, ptr %106, i64 %115
   %spec.select.i.i.i.i36 = select i1 %116, ptr %117, ptr %107
-  %.not19.i.i.i37 = icmp eq ptr %spec.select.i.i.i.i36, %106
+  %.not19.i.i.i37 = icmp eq ptr %106, %spec.select.i.i.i.i36
   br i1 %.not19.i.i.i37, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit48, label %.lr.ph.preheader.i.i.i38
 
 .lr.ph.preheader.i.i.i38:                         ; preds = %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit22.thread87
@@ -2069,7 +2069,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   %147 = icmp slt i64 %146, %143
   %148 = getelementptr inbounds i8, ptr %137, i64 %146
   %spec.select.i.i.i.i49 = select i1 %147, ptr %148, ptr %138
-  %.not19.i.i.i50 = icmp eq ptr %spec.select.i.i.i.i49, %137
+  %.not19.i.i.i50 = icmp eq ptr %137, %spec.select.i.i.i.i49
   br i1 %.not19.i.i.i50, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit61, label %.lr.ph.preheader.i.i.i51
 
 .lr.ph.preheader.i.i.i51:                         ; preds = %134
@@ -2154,7 +2154,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
   %16 = icmp slt i64 %15, %12
   %17 = getelementptr inbounds i8, ptr %6, i64 %15
   %spec.select.i.i.i.i = select i1 %16, ptr %17, ptr %7
-  %.not19.i.i.i = icmp eq ptr %spec.select.i.i.i.i, %6
+  %.not19.i.i.i = icmp eq ptr %6, %spec.select.i.i.i.i
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.lr.ph
@@ -2232,7 +2232,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   %49 = icmp slt i64 %48, %45
   %50 = getelementptr inbounds i8, ptr %39, i64 %48
   %spec.select.i.i.i.i5 = select i1 %49, ptr %50, ptr %40
-  %.not19.i.i.i6 = icmp eq ptr %spec.select.i.i.i.i5, %39
+  %.not19.i.i.i6 = icmp eq ptr %39, %spec.select.i.i.i.i5
   br i1 %.not19.i.i.i6, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17, label %.lr.ph.preheader.i.i.i7
 
 .lr.ph.preheader.i.i.i7:                          ; preds = %37
@@ -2289,7 +2289,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9Stockfish6OptionEESt10_Select1stISA_ENS8_19CaseInsensitiveLessESaISA_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSH_PSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 {
   %.not = icmp ne ptr %1, null
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = icmp eq ptr %5, %2
+  %6 = icmp eq ptr %2, %5
   %or.cond = select i1 %.not, i1 true, i1 %6
   br i1 %or.cond, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %7
 
@@ -2309,7 +2309,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   %20 = icmp slt i64 %19, %16
   %21 = getelementptr inbounds i8, ptr %10, i64 %19
   %spec.select.i.i.i.i = select i1 %20, ptr %21, ptr %11
-  %.not19.i.i.i = icmp eq ptr %spec.select.i.i.i.i, %10
+  %.not19.i.i.i = icmp eq ptr %10, %spec.select.i.i.i.i
   br i1 %.not19.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %7

@@ -9949,7 +9949,7 @@ land.lhs.true.i:                                  ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 2
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp2.i = icmp sgt i32 %conv.i, %row_i
+  %cmp2.i = icmp slt i32 %row_i, %conv.i
   br i1 %cmp2.i, label %_ZNK8GUITable6getRowEi.exit, label %cleanup67
 
 _ZNK8GUITable6getRowEi.exit:                      ; preds = %land.lhs.true.i
@@ -10069,7 +10069,7 @@ while.cond.preheader:                             ; preds = %if.else46
   %conv.i132 = trunc i64 %sub.ptr.div.i.i131 to i32
   %17 = load ptr, ptr %m_rows.i, align 8
   %indent54 = getelementptr inbounds i8, ptr %add.ptr.i10.i, i64 12
-  %cmp2.i133 = icmp sge i32 %conv.i132, %row_i
+  %cmp2.i133 = icmp sle i32 %row_i, %conv.i132
   br label %while.cond
 
 while.cond:                                       ; preds = %land.lhs.true.i125, %while.cond.preheader
@@ -10305,7 +10305,7 @@ land.lhs.true:                                    ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 2
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp2 = icmp sgt i32 %conv, %i
+  %cmp2 = icmp slt i32 %i, %conv
   br i1 %cmp2, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
@@ -10343,7 +10343,7 @@ if.end:                                           ; preds = %entry
   %Y = getelementptr inbounds i8, ptr %this, i64 68
   %2 = load i32, ptr %Y, align 4, !tbaa !320
   %3 = xor i32 %2, -1
-  %sub2 = add i32 %3, %y
+  %sub2 = add i32 %y, %3
   %m_scrollbar = getelementptr inbounds i8, ptr %this, i64 456
   %4 = load ptr, ptr %m_scrollbar, align 8, !tbaa !86
   %call3 = tail call noundef i32 @_ZNK12GUIScrollBar6getPosEv(ptr noundef nonnull align 8 dereferenceable(408) %4)
@@ -10387,7 +10387,7 @@ land.lhs.true.i:                                  ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 2
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp2.i = icmp sgt i32 %conv.i, %row_i
+  %cmp2.i = icmp slt i32 %row_i, %conv.i
   br i1 %cmp2.i, label %_ZNK8GUITable6getRowEi.exit, label %cleanup38
 
 _ZNK8GUITable6getRowEi.exit:                      ; preds = %land.lhs.true.i
@@ -10405,7 +10405,7 @@ if.end:                                           ; preds = %_ZNK8GUITable6getRo
   %AbsoluteRect = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load i32, ptr %AbsoluteRect, align 8, !tbaa !321
   %5 = xor i32 %4, -1
-  %sub2 = add i32 %5, %x
+  %sub2 = add i32 %x, %5
   %cellcount = getelementptr inbounds i8, ptr %add.ptr.i10.i, i64 8
   %6 = load i32, ptr %cellcount, align 8, !tbaa !141
   %cmp468 = icmp sgt i32 %6, 1
@@ -10577,7 +10577,7 @@ lor.lhs.false:                                    ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !66
   %conv.i = trunc i64 %0 to i32
-  %cmp2.not = icmp ugt i32 %conv.i, %begin
+  %cmp2.not = icmp ult i32 %begin, %conv.i
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -12537,7 +12537,7 @@ while.body:                                       ; preds = %if.end97, %while.bo
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %1 = load ptr, ptr %vfn, align 8
   %call10 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(308) %0)
-  %brmerge = or i1 %call10, %includeInvisible
+  %brmerge = or i1 %includeInvisible, %call10
   br i1 %brmerge, label %land.lhs.true, label %if.end97
 
 land.lhs.true:                                    ; preds = %while.body
@@ -12555,7 +12555,7 @@ if.then19:                                        ; preds = %lor.lhs.false14, %l
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 144
   %3 = load ptr, ptr %vfn22, align 8
   %call23 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(308) %.pre)
-  %brmerge140 = or i1 %call23, %includeDisabled
+  %brmerge140 = or i1 %includeDisabled, %call23
   %.pre189 = load ptr, ptr %_M_storage.i.i, align 8, !tbaa !98
   br i1 %brmerge140, label %if.then26, label %if.end88
 
@@ -12569,7 +12569,7 @@ land.lhs.true29:                                  ; preds = %if.then26
   %IsTabGroup.i155 = getelementptr inbounds i8, ptr %.pre189, i64 276
   %5 = load i8, ptr %IsTabGroup.i155, align 4, !tbaa !91, !range !92, !noundef !93
   %tobool.i156 = icmp ne i8 %5, 0
-  %6 = xor i1 %tobool.i156, %group
+  %6 = xor i1 %group, %tobool.i156
   br i1 %6, label %if.end88, label %if.then36
 
 if.then36:                                        ; preds = %land.lhs.true29
@@ -12593,7 +12593,7 @@ if.then44:                                        ; preds = %if.end42
   %cmp48 = icmp sgt i32 %7, %9
   %cmp50 = icmp slt i32 %7, %startOrder
   %10 = and i1 %cmp50, %cmp48
-  %or.cond141 = and i1 %10, %reverse
+  %or.cond141 = and i1 %reverse, %10
   br i1 %or.cond141, label %if.end70.sink.split, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %if.then44

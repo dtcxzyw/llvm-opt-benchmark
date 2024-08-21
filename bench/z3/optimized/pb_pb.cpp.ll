@@ -447,7 +447,7 @@ for.body.preheader:                               ; preds = %entry
   %retval.sroa.0.0.copyload.i7 = load i64, ptr %m_wlits.i, align 4
   %ref.tmp.sroa.1.0.extract.shift8 = lshr i64 %retval.sroa.0.0.copyload.i7, 32
   %ref.tmp.sroa.1.0.extract.trunc9 = trunc nuw i64 %ref.tmp.sroa.1.0.extract.shift8 to i32
-  %cmp.i10 = icmp eq i32 %ref.tmp.sroa.1.0.extract.trunc9, %l.coerce
+  %cmp.i10 = icmp eq i32 %l.coerce, %ref.tmp.sroa.1.0.extract.trunc9
   br i1 %cmp.i10, label %return, label %for.cond
 
 for.cond:                                         ; preds = %for.body.preheader, %for.body
@@ -461,7 +461,7 @@ for.body:                                         ; preds = %for.cond
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i, align 4
   %ref.tmp.sroa.1.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
   %ref.tmp.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.1.0.extract.shift to i32
-  %cmp.i = icmp eq i32 %ref.tmp.sroa.1.0.extract.trunc, %l.coerce
+  %cmp.i = icmp eq i32 %l.coerce, %ref.tmp.sroa.1.0.extract.trunc
   br i1 %cmp.i, label %return.loopexit, label %for.cond, !llvm.loop !9
 
 return.loopexit:                                  ; preds = %for.body, %for.cond
@@ -945,7 +945,7 @@ if.then6:                                         ; preds = %if.end
 if.end10:                                         ; preds = %if.then6, %if.end
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %2 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i = icmp eq i32 %2, %wl.sroa.3.0.copyload
+  %cmp.i.i = icmp eq i32 %wl.sroa.3.0.copyload, %2
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end10
@@ -1119,7 +1119,7 @@ if.then63.us:                                     ; preds = %if.end61.us
 if.end66.us:                                      ; preds = %if.then63.us, %if.end61.us
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %13 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i51.us = icmp eq i32 %13, %wl.sroa.2.0.copyload.us
+  %cmp.i.i51.us = icmp eq i32 %wl.sroa.2.0.copyload.us, %13
   br i1 %cmp.i.i51.us, label %if.then.i58.us, label %if.else.i52.us
 
 if.else.i52.us:                                   ; preds = %if.end66.us
@@ -1199,7 +1199,7 @@ if.then63:                                        ; preds = %if.end61
 if.end66:                                         ; preds = %if.then63, %if.end61
   %.b80 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %19 = select i1 %.b80, i32 -2, i32 0
-  %cmp.i.i51 = icmp eq i32 %19, %wl.sroa.2.0.copyload
+  %cmp.i.i51 = icmp eq i32 %wl.sroa.2.0.copyload, %19
   br i1 %cmp.i.i51, label %if.then.i58, label %if.else.i52
 
 if.then.i58:                                      ; preds = %if.end66

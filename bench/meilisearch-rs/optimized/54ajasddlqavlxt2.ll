@@ -1101,7 +1101,7 @@ _ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i: ; preds = %9
   %.sroa.02.013.i.i.i.i = phi i64 [ %121, %119 ], [ 0, %.lr.ph.i.preheader.i.i.i ]
   %117 = phi ptr [ %120, %119 ], [ %116, %.lr.ph.i.preheader.i.i.i ]
   %.val9.i.i.i.i = load i8, ptr %117, align 1, !noalias !133, !noundef !4
-  %118 = icmp eq i8 %.val9.i.i.i.i, %62
+  %118 = icmp eq i8 %62, %.val9.i.i.i.i
   br i1 %118, label %363, label %119
 
 119:                                              ; preds = %.lr.ph.i.i.i.i
@@ -1213,7 +1213,7 @@ default.unreachable.i.i:                          ; preds = %132
   br i1 %162, label %.invoke.i, label %.noexc31.i
 
 .noexc31.i:                                       ; preds = %160, %.noexc.i
-  %163 = icmp ugt i64 %.sroa.30.0.copyload.i, %135
+  %163 = icmp ult i64 %135, %.sroa.30.0.copyload.i
   br i1 %163, label %164, label %.invoke1027.i
 
 164:                                              ; preds = %.noexc31.i
@@ -1693,7 +1693,7 @@ _ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i.i: ; preds =
 
 .noexc141.i:                                      ; preds = %360, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i.i, %350
   %.sroa.9.1.ph.i.i = phi i8 [ %.sroa.0.0.i13.i.i.i, %360 ], [ %.sroa.0.0.i11.i.i.i, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i.i ], [ %333, %350 ]
-  %361 = icmp ult i8 %62, %.sroa.9.1.ph.i.i
+  %361 = icmp ugt i8 %.sroa.9.1.ph.i.i, %62
   br i1 %361, label %.noexc141._crit_edge.i, label %362
 
 362:                                              ; preds = %.noexc141.i
@@ -1773,7 +1773,7 @@ _ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i.i: ; preds =
 .noexc42.i:                                       ; preds = %.lr.ph.i.i169.i, %.noexc41.i
   %.sroa.0.0.i173.i = phi i64 [ 0, %.noexc41.i ], [ %394, %.lr.ph.i.i169.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  %396 = icmp ugt i64 %100, %.sroa.7.0.i339836.i
+  %396 = icmp ult i64 %.sroa.7.0.i339836.i, %100
   br i1 %396, label %397, label %.invoke1027.i
 
 397:                                              ; preds = %.noexc42.i
@@ -2725,7 +2725,7 @@ define hidden void @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drai
   %9 = add i64 %8, %6
   %10 = load i64, ptr %4, align 8, !noundef !4
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %19, %2

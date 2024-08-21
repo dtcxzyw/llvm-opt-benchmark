@@ -3183,14 +3183,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -3300,14 +3300,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -3338,15 +3338,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -4416,14 +4416,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -4578,14 +4578,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -4622,16 +4622,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %8
+  %cmp.not.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %11, %8
+  %cmp.not.i.i.i1 = icmp uge ptr %8, %11
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -5650,14 +5650,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -6764,14 +6764,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -6924,14 +6924,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -6968,16 +6968,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %8
+  %cmp.not.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %11, %8
+  %cmp.not.i.i.i1 = icmp uge ptr %8, %11
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -8009,14 +8009,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -8126,14 +8126,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -8164,15 +8164,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -9230,14 +9230,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -9390,14 +9390,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -9434,16 +9434,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %8
+  %cmp.not.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %11, %8
+  %cmp.not.i.i.i1 = icmp uge ptr %8, %11
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -10462,14 +10462,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -11576,14 +11576,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -11736,14 +11736,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -11780,16 +11780,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %8
+  %cmp.not.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %11, %8
+  %cmp.not.i.i.i1 = icmp uge ptr %8, %11
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -12817,14 +12817,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -12933,14 +12933,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -12971,15 +12971,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -14035,14 +14035,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -14194,14 +14194,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -14238,16 +14238,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %8
+  %cmp.not.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %11, %8
+  %cmp.not.i.i.i1 = icmp uge ptr %8, %11
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -15262,14 +15262,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -16373,14 +16373,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -16532,14 +16532,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -16576,16 +16576,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %8
+  %cmp.not.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %11, %8
+  %cmp.not.i.i.i1 = icmp uge ptr %8, %11
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -17613,14 +17613,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -17729,14 +17729,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -17767,15 +17767,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -18831,14 +18831,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -18990,14 +18990,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -19034,16 +19034,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %8
+  %cmp.not.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %11, %8
+  %cmp.not.i.i.i1 = icmp uge ptr %8, %11
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -20058,14 +20058,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -21169,14 +21169,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -21328,14 +21328,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -21372,16 +21372,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %8
+  %cmp.not.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %11, %8
+  %cmp.not.i.i.i1 = icmp uge ptr %8, %11
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -22558,14 +22558,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -23847,14 +23847,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -24039,14 +24039,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -24084,16 +24084,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %11 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %11, %9
+  %cmp.not.i.i = icmp eq ptr %9, %11
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %12 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %12, %9
+  %cmp.not.i.i.i1 = icmp uge ptr %9, %12
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %13 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %13, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %13
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -25256,14 +25256,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -26545,14 +26545,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -26737,14 +26737,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -26782,16 +26782,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %11 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %11, %9
+  %cmp.not.i.i = icmp eq ptr %9, %11
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %12 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %12, %9
+  %cmp.not.i.i.i1 = icmp uge ptr %9, %12
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %13 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %13, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %13
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -27967,14 +27967,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -29256,14 +29256,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -29448,14 +29448,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -29493,16 +29493,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %11 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %11, %9
+  %cmp.not.i.i = icmp eq ptr %9, %11
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %12 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %12, %9
+  %cmp.not.i.i.i1 = icmp uge ptr %9, %12
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %13 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %13, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %13
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -30665,14 +30665,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -31954,14 +31954,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -32146,14 +32146,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -32191,16 +32191,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %11 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %11, %9
+  %cmp.not.i.i = icmp eq ptr %9, %11
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %12 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %12, %9
+  %cmp.not.i.i.i1 = icmp uge ptr %9, %12
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %13 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %13, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %13
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -32548,7 +32548,7 @@ for.inc.i.i1648:                                  ; preds = %for.inc.loopexit.i.
 for.end.i.i:                                      ; preds = %for.inc.i.i1648
   %25 = icmp ult i64 %23, 2
   %26 = load ptr, ptr %mpBucketBuffer.i.i.i.i1642, align 8, !noalias !495
-  %cmp.not.i.i.i.i1651 = icmp eq ptr %26, %24
+  %cmp.not.i.i.i.i1651 = icmp eq ptr %24, %26
   %or.cond.i.i.i = select i1 %25, i1 true, i1 %cmp.not.i.i.i.i1651
   br i1 %or.cond.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i, label %if.then.i.i.i.i1652
 
@@ -32608,7 +32608,7 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %36 = load ptr, ptr %mpNext.i.i, align 8
   %37 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %37, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %37
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i30
 
 if.then.i.i.i.i30:                                ; preds = %while.body.i.i
@@ -32764,7 +32764,7 @@ for.inc.i.i1697:                                  ; preds = %for.inc.loopexit.i.
 for.end.i.i1700:                                  ; preds = %for.inc.i.i1697
   %65 = icmp ult i64 %63, 2
   %66 = load ptr, ptr %mpBucketBuffer.i.i.i.i1677, align 8, !noalias !511
-  %cmp.not.i.i.i.i1701 = icmp eq ptr %66, %64
+  %cmp.not.i.i.i.i1701 = icmp eq ptr %64, %66
   %or.cond.i.i.i1702 = select i1 %65, i1 true, i1 %cmp.not.i.i.i.i1701
   br i1 %or.cond.i.i.i1702, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i1705, label %if.then.i.i.i.i1703
 
@@ -32884,7 +32884,7 @@ while.body.i.i88:                                 ; preds = %for.body.i.i84, %_Z
   %mpNext.i.i90 = getelementptr inbounds i8, ptr %pNode.08.i.i89, i64 8
   %85 = load ptr, ptr %mpNext.i.i90, align 8
   %86 = load ptr, ptr %mpBucketBuffer.i.i.i.i1677, align 8
-  %cmp.not.i.i.i.i91 = icmp eq ptr %86, %pNode.08.i.i89
+  %cmp.not.i.i.i.i91 = icmp eq ptr %pNode.08.i.i89, %86
   br i1 %cmp.not.i.i.i.i91, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i93, label %if.then.i.i.i.i92
 
 if.then.i.i.i.i92:                                ; preds = %while.body.i.i88
@@ -32908,7 +32908,7 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm1
   %.pre3277 = load i64, ptr %mnBucketCount.i.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pre3277, 2
   %88 = load ptr, ptr %mpBucketBuffer.i.i.i.i1677, align 8
-  %cmp.not.i.i.i = icmp eq ptr %88, %.pre
+  %cmp.not.i.i.i = icmp eq ptr %.pre, %88
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit.i, label %if.then.i.i.i
 
@@ -33040,7 +33040,7 @@ while.body.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i1
   %mpNext.i.i.i.i.i112 = getelementptr inbounds i8, ptr %pNode.08.i.i.i.i.i, i64 8
   %102 = load ptr, ptr %mpNext.i.i.i.i.i112, align 8
   %103 = load ptr, ptr %mpBucketBuffer.i.i.i.i1677, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %103, %pNode.08.i.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i.i.i, %103
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i.i
@@ -33065,7 +33065,7 @@ invoke.cont.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %105 = icmp ult i64 %.pre1.i.i.i, 2
   store i64 0, ptr %mnElementCount.i, align 8
   %106 = load ptr, ptr %mpBucketBuffer.i.i.i.i1677, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %106, %.pre.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %.pre.i.i.i, %106
   %or.cond.i.i.i.i = select i1 %105, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl14fixed_hash_mapIiiLm100ELm100ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEED2Ev.exit, label %if.then.i.i.i.i.i
 
@@ -33131,14 +33131,14 @@ while.body.i.i132:                                ; preds = %for.body.i.i128, %_
   %mpNext.i.i134 = getelementptr inbounds i8, ptr %pNode.08.i.i133, i64 8
   %113 = load ptr, ptr %mpNext.i.i134, align 8
   %114 = load ptr, ptr %mpBucketBuffer.i.i.i.i127, align 8
-  %cmp.not.i.i.i.i135 = icmp eq ptr %114, %pNode.08.i.i133
+  %cmp.not.i.i.i.i135 = icmp eq ptr %pNode.08.i.i133, %114
   br i1 %cmp.not.i.i.i.i135, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i136
 
 if.then.i.i.i.i136:                               ; preds = %while.body.i.i132
   %115 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i137 = icmp ule ptr %115, %pNode.08.i.i133
+  %cmp.not.i.i.i.i.i137 = icmp uge ptr %pNode.08.i.i133, %115
   %116 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %116, %pNode.08.i.i133
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i133, %116
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i137, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i143, label %delete.notnull.i.i.i.i.i.i
 
@@ -33244,16 +33244,16 @@ invoke.cont99:                                    ; preds = %if.then4.i.i158, %i
 invoke.cont102:                                   ; preds = %invoke.cont99
   %mpBucketBuffer.i = getelementptr inbounds i8, ptr %fixedHashMap54, i64 96
   %125 = load ptr, ptr %mpBucketBuffer.i, align 8
-  %cmp.not.i161 = icmp eq ptr %125, %retval.0.i153
+  %cmp.not.i161 = icmp eq ptr %retval.0.i153, %125
   br i1 %cmp.not.i161, label %invoke.cont104, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont102
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %fixedHashMap54, i64 88
   %126 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i162 = icmp ule ptr %126, %retval.0.i153
+  %cmp.not.i.i162 = icmp uge ptr %retval.0.i153, %126
   %mpCapacity.i.i163 = getelementptr inbounds i8, ptr %fixedHashMap54, i64 64
   %127 = load ptr, ptr %mpCapacity.i.i163, align 8
-  %cmp2.i.i = icmp ugt ptr %127, %retval.0.i153
+  %cmp2.i.i = icmp ult ptr %retval.0.i153, %127
   %or.cond.i.i164 = select i1 %cmp.not.i.i162, i1 %cmp2.i.i, i1 false
   br i1 %or.cond.i.i164, label %if.then.i.i166, label %if.else.i.i165
 
@@ -33403,14 +33403,14 @@ while.body.i.i.i1714:                             ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i1715 = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %144 = load ptr, ptr %mpNext.i.i.i1715, align 8
   %145 = load ptr, ptr %mpBucketBuffer.i, align 8
-  %cmp.not.i.i.i.i.i1716 = icmp eq ptr %145, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i1716 = icmp eq ptr %pNode.08.i.i.i, %145
   br i1 %cmp.not.i.i.i.i.i1716, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i1717
 
 if.then.i.i.i.i.i1717:                            ; preds = %while.body.i.i.i1714
   %146 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %146, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %146
   %147 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %147, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %147
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -33440,15 +33440,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %149 = load ptr, ptr %mpBucketArray.i122, align 8
   %cmp.i.i1719 = icmp ult i64 %.pr.i, 2
   %150 = load ptr, ptr %mpBucketBuffer.i, align 8
-  %cmp.not.i.i.i1720 = icmp eq ptr %150, %149
+  %cmp.not.i.i.i1720 = icmp eq ptr %149, %150
   %or.cond.i1721 = select i1 %cmp.i.i1719, i1 true, i1 %cmp.not.i.i.i1720
   br i1 %or.cond.i1721, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i1722
 
 if.then.i.i.i1722:                                ; preds = %invoke.cont.i
   %151 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i1723 = icmp ule ptr %151, %149
+  %cmp.not.i.i.i.i1723 = icmp uge ptr %149, %151
   %152 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i1724 = icmp ugt ptr %152, %149
+  %cmp2.i.i.i.i1724 = icmp ult ptr %149, %152
   %or.cond.i.i.i.i1725 = select i1 %cmp.not.i.i.i.i1723, i1 %cmp2.i.i.i.i1724, i1 false
   br i1 %or.cond.i.i.i.i1725, label %if.then.i.i.i.i1729, label %if.else.i.i.i.i1726
 
@@ -33958,14 +33958,14 @@ while.body.i.i.i1742:                             ; preds = %for.body.i.i.i1738,
   %mpNext.i.i.i1744 = getelementptr inbounds i8, ptr %pNode.08.i.i.i1743, i64 64
   %219 = load ptr, ptr %mpNext.i.i.i1744, align 64
   %220 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1735, align 8
-  %cmp.not.i.i.i.i.i1745 = icmp eq ptr %220, %pNode.08.i.i.i1743
+  %cmp.not.i.i.i.i.i1745 = icmp eq ptr %pNode.08.i.i.i1743, %220
   br i1 %cmp.not.i.i.i.i.i1745, label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i1746
 
 if.then.i.i.i.i.i1746:                            ; preds = %while.body.i.i.i1742
   %221 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1736, align 8
-  %cmp.not.i.i.i.i.i.i1747 = icmp ule ptr %221, %pNode.08.i.i.i1743
+  %cmp.not.i.i.i.i.i.i1747 = icmp uge ptr %pNode.08.i.i.i1743, %221
   %222 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1737, align 8
-  %cmp2.i.i.i.i.i.i1748 = icmp ugt ptr %222, %pNode.08.i.i.i1743
+  %cmp2.i.i.i.i.i.i1748 = icmp ult ptr %pNode.08.i.i.i1743, %222
   %or.cond.i.i.i.i.i.i1749 = select i1 %cmp.not.i.i.i.i.i.i1747, i1 %cmp2.i.i.i.i.i.i1748, i1 false
   br i1 %or.cond.i.i.i.i.i.i1749, label %if.then.i.i.i.i.i.i1769, label %delete.notnull.i.i.i.i.i.i.i1750
 
@@ -33996,15 +33996,15 @@ invoke.cont.i1755:                                ; preds = %while.end.i.i.i1752
   %224 = load ptr, ptr %mpBucketArray.i346, align 8
   %cmp.i.i1758 = icmp ult i64 %.pr.i1756, 2
   %225 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1735, align 8
-  %cmp.not.i.i.i1759 = icmp eq ptr %225, %224
+  %cmp.not.i.i.i1759 = icmp eq ptr %224, %225
   %or.cond.i1760 = select i1 %cmp.i.i1758, i1 true, i1 %cmp.not.i.i.i1759
   br i1 %or.cond.i1760, label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, label %if.then.i.i.i1761
 
 if.then.i.i.i1761:                                ; preds = %invoke.cont.i1755
   %226 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1736, align 8
-  %cmp.not.i.i.i.i1762 = icmp ule ptr %226, %224
+  %cmp.not.i.i.i.i1762 = icmp uge ptr %224, %226
   %227 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1737, align 8
-  %cmp2.i.i.i.i1763 = icmp ugt ptr %227, %224
+  %cmp2.i.i.i.i1763 = icmp ult ptr %224, %227
   %or.cond.i.i.i.i1764 = select i1 %cmp.not.i.i.i.i1762, i1 %cmp2.i.i.i.i1763, i1 false
   br i1 %or.cond.i.i.i.i1764, label %if.then.i.i.i.i1768, label %if.else.i.i.i.i1765
 
@@ -34052,14 +34052,14 @@ while.body.i.i.i1784:                             ; preds = %for.body.i.i.i1780,
   %mpNext.i.i.i1786 = getelementptr inbounds i8, ptr %pNode.08.i.i.i1785, i64 64
   %232 = load ptr, ptr %mpNext.i.i.i1786, align 64
   %233 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1777, align 8
-  %cmp.not.i.i.i.i.i1787 = icmp eq ptr %233, %pNode.08.i.i.i1785
+  %cmp.not.i.i.i.i.i1787 = icmp eq ptr %pNode.08.i.i.i1785, %233
   br i1 %cmp.not.i.i.i.i.i1787, label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i1788
 
 if.then.i.i.i.i.i1788:                            ; preds = %while.body.i.i.i1784
   %234 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1778, align 8
-  %cmp.not.i.i.i.i.i.i1789 = icmp ule ptr %234, %pNode.08.i.i.i1785
+  %cmp.not.i.i.i.i.i.i1789 = icmp uge ptr %pNode.08.i.i.i1785, %234
   %235 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1779, align 8
-  %cmp2.i.i.i.i.i.i1790 = icmp ugt ptr %235, %pNode.08.i.i.i1785
+  %cmp2.i.i.i.i.i.i1790 = icmp ult ptr %pNode.08.i.i.i1785, %235
   %or.cond.i.i.i.i.i.i1791 = select i1 %cmp.not.i.i.i.i.i.i1789, i1 %cmp2.i.i.i.i.i.i1790, i1 false
   br i1 %or.cond.i.i.i.i.i.i1791, label %if.then.i.i.i.i.i.i1811, label %delete.notnull.i.i.i.i.i.i.i1792
 
@@ -34090,15 +34090,15 @@ invoke.cont.i1797:                                ; preds = %while.end.i.i.i1794
   %237 = load ptr, ptr %mpBucketArray.i310, align 8
   %cmp.i.i1800 = icmp ult i64 %.pr.i1798, 2
   %238 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1777, align 8
-  %cmp.not.i.i.i1801 = icmp eq ptr %238, %237
+  %cmp.not.i.i.i1801 = icmp eq ptr %237, %238
   %or.cond.i1802 = select i1 %cmp.i.i1800, i1 true, i1 %cmp.not.i.i.i1801
   br i1 %or.cond.i1802, label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %if.then.i.i.i1803
 
 if.then.i.i.i1803:                                ; preds = %invoke.cont.i1797
   %239 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1778, align 8
-  %cmp.not.i.i.i.i1804 = icmp ule ptr %239, %237
+  %cmp.not.i.i.i.i1804 = icmp uge ptr %237, %239
   %240 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1779, align 8
-  %cmp2.i.i.i.i1805 = icmp ugt ptr %240, %237
+  %cmp2.i.i.i.i1805 = icmp ult ptr %237, %240
   %or.cond.i.i.i.i1806 = select i1 %cmp.not.i.i.i.i1804, i1 %cmp2.i.i.i.i1805, i1 false
   br i1 %or.cond.i.i.i.i1806, label %if.then.i.i.i.i1810, label %if.else.i.i.i.i1807
 
@@ -34146,14 +34146,14 @@ while.body.i.i.i1826:                             ; preds = %for.body.i.i.i1822,
   %mpNext.i.i.i1828 = getelementptr inbounds i8, ptr %pNode.08.i.i.i1827, i64 128
   %245 = load ptr, ptr %mpNext.i.i.i1828, align 64
   %246 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1819, align 8
-  %cmp.not.i.i.i.i.i1829 = icmp eq ptr %246, %pNode.08.i.i.i1827
+  %cmp.not.i.i.i.i.i1829 = icmp eq ptr %pNode.08.i.i.i1827, %246
   br i1 %cmp.not.i.i.i.i.i1829, label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i1830
 
 if.then.i.i.i.i.i1830:                            ; preds = %while.body.i.i.i1826
   %247 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1820, align 8
-  %cmp.not.i.i.i.i.i.i1831 = icmp ule ptr %247, %pNode.08.i.i.i1827
+  %cmp.not.i.i.i.i.i.i1831 = icmp uge ptr %pNode.08.i.i.i1827, %247
   %248 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1821, align 8
-  %cmp2.i.i.i.i.i.i1832 = icmp ugt ptr %248, %pNode.08.i.i.i1827
+  %cmp2.i.i.i.i.i.i1832 = icmp ult ptr %pNode.08.i.i.i1827, %248
   %or.cond.i.i.i.i.i.i1833 = select i1 %cmp.not.i.i.i.i.i.i1831, i1 %cmp2.i.i.i.i.i.i1832, i1 false
   br i1 %or.cond.i.i.i.i.i.i1833, label %if.then.i.i.i.i.i.i1853, label %delete.notnull.i.i.i.i.i.i.i1834
 
@@ -34184,15 +34184,15 @@ invoke.cont.i1839:                                ; preds = %while.end.i.i.i1836
   %250 = load ptr, ptr %mpBucketArray.i270, align 8
   %cmp.i.i1842 = icmp ult i64 %.pr.i1840, 2
   %251 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1819, align 8
-  %cmp.not.i.i.i1843 = icmp eq ptr %251, %250
+  %cmp.not.i.i.i1843 = icmp eq ptr %250, %251
   %or.cond.i1844 = select i1 %cmp.i.i1842, i1 true, i1 %cmp.not.i.i.i1843
   br i1 %or.cond.i1844, label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %if.then.i.i.i1845
 
 if.then.i.i.i1845:                                ; preds = %invoke.cont.i1839
   %252 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1820, align 8
-  %cmp.not.i.i.i.i1846 = icmp ule ptr %252, %250
+  %cmp.not.i.i.i.i1846 = icmp uge ptr %250, %252
   %253 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1821, align 8
-  %cmp2.i.i.i.i1847 = icmp ugt ptr %253, %250
+  %cmp2.i.i.i.i1847 = icmp ult ptr %250, %253
   %or.cond.i.i.i.i1848 = select i1 %cmp.not.i.i.i.i1846, i1 %cmp2.i.i.i.i1847, i1 false
   br i1 %or.cond.i.i.i.i1848, label %if.then.i.i.i.i1852, label %if.else.i.i.i.i1849
 
@@ -34240,14 +34240,14 @@ while.body.i.i.i1868:                             ; preds = %for.body.i.i.i1864,
   %mpNext.i.i.i1870 = getelementptr inbounds i8, ptr %pNode.08.i.i.i1869, i64 128
   %258 = load ptr, ptr %mpNext.i.i.i1870, align 64
   %259 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1861, align 8
-  %cmp.not.i.i.i.i.i1871 = icmp eq ptr %259, %pNode.08.i.i.i1869
+  %cmp.not.i.i.i.i.i1871 = icmp eq ptr %pNode.08.i.i.i1869, %259
   br i1 %cmp.not.i.i.i.i.i1871, label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i1872
 
 if.then.i.i.i.i.i1872:                            ; preds = %while.body.i.i.i1868
   %260 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1862, align 8
-  %cmp.not.i.i.i.i.i.i1873 = icmp ule ptr %260, %pNode.08.i.i.i1869
+  %cmp.not.i.i.i.i.i.i1873 = icmp uge ptr %pNode.08.i.i.i1869, %260
   %261 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1863, align 8
-  %cmp2.i.i.i.i.i.i1874 = icmp ugt ptr %261, %pNode.08.i.i.i1869
+  %cmp2.i.i.i.i.i.i1874 = icmp ult ptr %pNode.08.i.i.i1869, %261
   %or.cond.i.i.i.i.i.i1875 = select i1 %cmp.not.i.i.i.i.i.i1873, i1 %cmp2.i.i.i.i.i.i1874, i1 false
   br i1 %or.cond.i.i.i.i.i.i1875, label %if.then.i.i.i.i.i.i1895, label %delete.notnull.i.i.i.i.i.i.i1876
 
@@ -34278,15 +34278,15 @@ invoke.cont.i1881:                                ; preds = %while.end.i.i.i1878
   %263 = load ptr, ptr %mpBucketArray.i244, align 8
   %cmp.i.i1884 = icmp ult i64 %.pr.i1882, 2
   %264 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1861, align 8
-  %cmp.not.i.i.i1885 = icmp eq ptr %264, %263
+  %cmp.not.i.i.i1885 = icmp eq ptr %263, %264
   %or.cond.i1886 = select i1 %cmp.i.i1884, i1 true, i1 %cmp.not.i.i.i1885
   br i1 %or.cond.i1886, label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i1887
 
 if.then.i.i.i1887:                                ; preds = %invoke.cont.i1881
   %265 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1862, align 8
-  %cmp.not.i.i.i.i1888 = icmp ule ptr %265, %263
+  %cmp.not.i.i.i.i1888 = icmp uge ptr %263, %265
   %266 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1863, align 8
-  %cmp2.i.i.i.i1889 = icmp ugt ptr %266, %263
+  %cmp2.i.i.i.i1889 = icmp ult ptr %263, %266
   %or.cond.i.i.i.i1890 = select i1 %cmp.not.i.i.i.i1888, i1 %cmp2.i.i.i.i1889, i1 false
   br i1 %or.cond.i.i.i.i1890, label %if.then.i.i.i.i1894, label %if.else.i.i.i.i1891
 
@@ -34360,14 +34360,14 @@ while.body.i.i.i1910:                             ; preds = %for.body.i.i.i1906,
   %mpNext.i.i.i1912 = getelementptr inbounds i8, ptr %pNode.08.i.i.i1911, i64 8
   %273 = load ptr, ptr %mpNext.i.i.i1912, align 8
   %274 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1903, align 8
-  %cmp.not.i.i.i.i.i1913 = icmp eq ptr %274, %pNode.08.i.i.i1911
+  %cmp.not.i.i.i.i.i1913 = icmp eq ptr %pNode.08.i.i.i1911, %274
   br i1 %cmp.not.i.i.i.i.i1913, label %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i1914
 
 if.then.i.i.i.i.i1914:                            ; preds = %while.body.i.i.i1910
   %275 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1904, align 8
-  %cmp.not.i.i.i.i.i.i1915 = icmp ule ptr %275, %pNode.08.i.i.i1911
+  %cmp.not.i.i.i.i.i.i1915 = icmp uge ptr %pNode.08.i.i.i1911, %275
   %276 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1905, align 8
-  %cmp2.i.i.i.i.i.i1916 = icmp ugt ptr %276, %pNode.08.i.i.i1911
+  %cmp2.i.i.i.i.i.i1916 = icmp ult ptr %pNode.08.i.i.i1911, %276
   %or.cond.i.i.i.i.i.i1917 = select i1 %cmp.not.i.i.i.i.i.i1915, i1 %cmp2.i.i.i.i.i.i1916, i1 false
   br i1 %or.cond.i.i.i.i.i.i1917, label %if.then.i.i.i.i.i.i1937, label %delete.notnull.i.i.i.i.i.i.i1918
 
@@ -34397,15 +34397,15 @@ invoke.cont.i1923:                                ; preds = %while.end.i.i.i1920
   %278 = load ptr, ptr %mpBucketArray.i.i1898, align 8
   %cmp.i.i1926 = icmp ult i64 %.pr.i1924, 2
   %279 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1903, align 8
-  %cmp.not.i.i.i1927 = icmp eq ptr %279, %278
+  %cmp.not.i.i.i1927 = icmp eq ptr %278, %279
   %or.cond.i1928 = select i1 %cmp.i.i1926, i1 true, i1 %cmp.not.i.i.i1927
   br i1 %or.cond.i1928, label %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i1929
 
 if.then.i.i.i1929:                                ; preds = %invoke.cont.i1923
   %280 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1904, align 8
-  %cmp.not.i.i.i.i1930 = icmp ule ptr %280, %278
+  %cmp.not.i.i.i.i1930 = icmp uge ptr %278, %280
   %281 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1905, align 8
-  %cmp2.i.i.i.i1931 = icmp ugt ptr %281, %278
+  %cmp2.i.i.i.i1931 = icmp ult ptr %278, %281
   %or.cond.i.i.i.i1932 = select i1 %cmp.not.i.i.i.i1930, i1 %cmp2.i.i.i.i1931, i1 false
   br i1 %or.cond.i.i.i.i1932, label %if.then.i.i.i.i1936, label %if.else.i.i.i.i1933
 
@@ -34479,14 +34479,14 @@ while.body.i.i.i1952:                             ; preds = %for.body.i.i.i1948,
   %mpNext.i.i.i1954 = getelementptr inbounds i8, ptr %pNode.08.i.i.i1953, i64 8
   %288 = load ptr, ptr %mpNext.i.i.i1954, align 8
   %289 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1945, align 8
-  %cmp.not.i.i.i.i.i1955 = icmp eq ptr %289, %pNode.08.i.i.i1953
+  %cmp.not.i.i.i.i.i1955 = icmp eq ptr %pNode.08.i.i.i1953, %289
   br i1 %cmp.not.i.i.i.i.i1955, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i1956
 
 if.then.i.i.i.i.i1956:                            ; preds = %while.body.i.i.i1952
   %290 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1946, align 8
-  %cmp.not.i.i.i.i.i.i1957 = icmp ule ptr %290, %pNode.08.i.i.i1953
+  %cmp.not.i.i.i.i.i.i1957 = icmp uge ptr %pNode.08.i.i.i1953, %290
   %291 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1947, align 8
-  %cmp2.i.i.i.i.i.i1958 = icmp ugt ptr %291, %pNode.08.i.i.i1953
+  %cmp2.i.i.i.i.i.i1958 = icmp ult ptr %pNode.08.i.i.i1953, %291
   %or.cond.i.i.i.i.i.i1959 = select i1 %cmp.not.i.i.i.i.i.i1957, i1 %cmp2.i.i.i.i.i.i1958, i1 false
   br i1 %or.cond.i.i.i.i.i.i1959, label %if.then.i.i.i.i.i.i1979, label %delete.notnull.i.i.i.i.i.i.i1960
 
@@ -34516,15 +34516,15 @@ invoke.cont.i1965:                                ; preds = %while.end.i.i.i1962
   %293 = load ptr, ptr %mpBucketArray.i.i1940, align 8
   %cmp.i.i1968 = icmp ult i64 %.pr.i1966, 2
   %294 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1945, align 8
-  %cmp.not.i.i.i1969 = icmp eq ptr %294, %293
+  %cmp.not.i.i.i1969 = icmp eq ptr %293, %294
   %or.cond.i1970 = select i1 %cmp.i.i1968, i1 true, i1 %cmp.not.i.i.i1969
   br i1 %or.cond.i1970, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i1971
 
 if.then.i.i.i1971:                                ; preds = %invoke.cont.i1965
   %295 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1946, align 8
-  %cmp.not.i.i.i.i1972 = icmp ule ptr %295, %293
+  %cmp.not.i.i.i.i1972 = icmp uge ptr %293, %295
   %296 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1947, align 8
-  %cmp2.i.i.i.i1973 = icmp ugt ptr %296, %293
+  %cmp2.i.i.i.i1973 = icmp ult ptr %293, %296
   %or.cond.i.i.i.i1974 = select i1 %cmp.not.i.i.i.i1972, i1 %cmp2.i.i.i.i1973, i1 false
   br i1 %or.cond.i.i.i.i1974, label %if.then.i.i.i.i1978, label %if.else.i.i.i.i1975
 
@@ -34589,14 +34589,14 @@ while.body.i.i.i1994:                             ; preds = %for.body.i.i.i1990,
   %mpNext.i.i.i1996 = getelementptr inbounds i8, ptr %pNode.08.i.i.i1995, i64 8
   %302 = load ptr, ptr %mpNext.i.i.i1996, align 8
   %303 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1987, align 8
-  %cmp.not.i.i.i.i.i1997 = icmp eq ptr %303, %pNode.08.i.i.i1995
+  %cmp.not.i.i.i.i.i1997 = icmp eq ptr %pNode.08.i.i.i1995, %303
   br i1 %cmp.not.i.i.i.i.i1997, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i2003, label %if.then.i.i.i.i.i1998
 
 if.then.i.i.i.i.i1998:                            ; preds = %while.body.i.i.i1994
   %304 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1988, align 8
-  %cmp.not.i.i.i.i.i.i1999 = icmp ule ptr %304, %pNode.08.i.i.i1995
+  %cmp.not.i.i.i.i.i.i1999 = icmp uge ptr %pNode.08.i.i.i1995, %304
   %305 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1989, align 8
-  %cmp2.i.i.i.i.i.i2000 = icmp ugt ptr %305, %pNode.08.i.i.i1995
+  %cmp2.i.i.i.i.i.i2000 = icmp ult ptr %pNode.08.i.i.i1995, %305
   %or.cond.i.i.i.i.i.i2001 = select i1 %cmp.not.i.i.i.i.i.i1999, i1 %cmp2.i.i.i.i.i.i2000, i1 false
   br i1 %or.cond.i.i.i.i.i.i2001, label %if.then.i.i.i.i.i.i2022, label %delete.notnull.i.i.i.i.i.i.i2002
 
@@ -34626,15 +34626,15 @@ invoke.cont.i2008:                                ; preds = %while.end.i.i.i2005
   %307 = load ptr, ptr %mpBucketArray.i.i1982, align 8
   %cmp.i.i2011 = icmp ult i64 %.pr.i2009, 2
   %308 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i1987, align 8
-  %cmp.not.i.i.i2012 = icmp eq ptr %308, %307
+  %cmp.not.i.i.i2012 = icmp eq ptr %307, %308
   %or.cond.i2013 = select i1 %cmp.i.i2011, i1 true, i1 %cmp.not.i.i.i2012
   br i1 %or.cond.i2013, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit2025, label %if.then.i.i.i2014
 
 if.then.i.i.i2014:                                ; preds = %invoke.cont.i2008
   %309 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1988, align 8
-  %cmp.not.i.i.i.i2015 = icmp ule ptr %309, %307
+  %cmp.not.i.i.i.i2015 = icmp uge ptr %307, %309
   %310 = load ptr, ptr %mpCapacity.i.i.i.i.i.i1989, align 8
-  %cmp2.i.i.i.i2016 = icmp ugt ptr %310, %307
+  %cmp2.i.i.i.i2016 = icmp ult ptr %307, %310
   %or.cond.i.i.i.i2017 = select i1 %cmp.not.i.i.i.i2015, i1 %cmp2.i.i.i.i2016, i1 false
   br i1 %or.cond.i.i.i.i2017, label %if.then.i.i.i.i2021, label %if.else.i.i.i.i2018
 
@@ -34709,14 +34709,14 @@ while.body.i.i.i2038:                             ; preds = %for.body.i.i.i2034,
   %mpNext.i.i.i2040 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2039, i64 8
   %316 = load ptr, ptr %mpNext.i.i.i2040, align 8
   %317 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2031, align 8
-  %cmp.not.i.i.i.i.i2041 = icmp eq ptr %317, %pNode.08.i.i.i2039
+  %cmp.not.i.i.i.i.i2041 = icmp eq ptr %pNode.08.i.i.i2039, %317
   br i1 %cmp.not.i.i.i.i.i2041, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i2042
 
 if.then.i.i.i.i.i2042:                            ; preds = %while.body.i.i.i2038
   %318 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2032, align 8
-  %cmp.not.i.i.i.i.i.i2043 = icmp ule ptr %318, %pNode.08.i.i.i2039
+  %cmp.not.i.i.i.i.i.i2043 = icmp uge ptr %pNode.08.i.i.i2039, %318
   %319 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2033, align 8
-  %cmp2.i.i.i.i.i.i2044 = icmp ugt ptr %319, %pNode.08.i.i.i2039
+  %cmp2.i.i.i.i.i.i2044 = icmp ult ptr %pNode.08.i.i.i2039, %319
   %or.cond.i.i.i.i.i.i2045 = select i1 %cmp.not.i.i.i.i.i.i2043, i1 %cmp2.i.i.i.i.i.i2044, i1 false
   br i1 %or.cond.i.i.i.i.i.i2045, label %if.then.i.i.i.i.i.i2065, label %delete.notnull.i.i.i.i.i.i.i2046
 
@@ -34746,15 +34746,15 @@ invoke.cont.i2051:                                ; preds = %while.end.i.i.i2048
   %321 = load ptr, ptr %mpBucketArray.i.i2026, align 8
   %cmp.i.i2054 = icmp ult i64 %.pr.i2052, 2
   %322 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2031, align 8
-  %cmp.not.i.i.i2055 = icmp eq ptr %322, %321
+  %cmp.not.i.i.i2055 = icmp eq ptr %321, %322
   %or.cond.i2056 = select i1 %cmp.i.i2054, i1 true, i1 %cmp.not.i.i.i2055
   br i1 %or.cond.i2056, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %if.then.i.i.i2057
 
 if.then.i.i.i2057:                                ; preds = %invoke.cont.i2051
   %323 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2032, align 8
-  %cmp.not.i.i.i.i2058 = icmp ule ptr %323, %321
+  %cmp.not.i.i.i.i2058 = icmp uge ptr %321, %323
   %324 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2033, align 8
-  %cmp2.i.i.i.i2059 = icmp ugt ptr %324, %321
+  %cmp2.i.i.i.i2059 = icmp ult ptr %321, %324
   %or.cond.i.i.i.i2060 = select i1 %cmp.not.i.i.i.i2058, i1 %cmp2.i.i.i.i2059, i1 false
   br i1 %or.cond.i.i.i.i2060, label %if.then.i.i.i.i2064, label %if.else.i.i.i.i2061
 
@@ -34819,14 +34819,14 @@ while.body.i.i.i2080:                             ; preds = %for.body.i.i.i2076,
   %mpNext.i.i.i2082 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2081, i64 8
   %330 = load ptr, ptr %mpNext.i.i.i2082, align 8
   %331 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2073, align 8
-  %cmp.not.i.i.i.i.i2083 = icmp eq ptr %331, %pNode.08.i.i.i2081
+  %cmp.not.i.i.i.i.i2083 = icmp eq ptr %pNode.08.i.i.i2081, %331
   br i1 %cmp.not.i.i.i.i.i2083, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i2089, label %if.then.i.i.i.i.i2084
 
 if.then.i.i.i.i.i2084:                            ; preds = %while.body.i.i.i2080
   %332 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2074, align 8
-  %cmp.not.i.i.i.i.i.i2085 = icmp ule ptr %332, %pNode.08.i.i.i2081
+  %cmp.not.i.i.i.i.i.i2085 = icmp uge ptr %pNode.08.i.i.i2081, %332
   %333 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2075, align 8
-  %cmp2.i.i.i.i.i.i2086 = icmp ugt ptr %333, %pNode.08.i.i.i2081
+  %cmp2.i.i.i.i.i.i2086 = icmp ult ptr %pNode.08.i.i.i2081, %333
   %or.cond.i.i.i.i.i.i2087 = select i1 %cmp.not.i.i.i.i.i.i2085, i1 %cmp2.i.i.i.i.i.i2086, i1 false
   br i1 %or.cond.i.i.i.i.i.i2087, label %if.then.i.i.i.i.i.i2108, label %delete.notnull.i.i.i.i.i.i.i2088
 
@@ -34856,15 +34856,15 @@ invoke.cont.i2094:                                ; preds = %while.end.i.i.i2091
   %335 = load ptr, ptr %mpBucketArray.i.i2068, align 8
   %cmp.i.i2097 = icmp ult i64 %.pr.i2095, 2
   %336 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2073, align 8
-  %cmp.not.i.i.i2098 = icmp eq ptr %336, %335
+  %cmp.not.i.i.i2098 = icmp eq ptr %335, %336
   %or.cond.i2099 = select i1 %cmp.i.i2097, i1 true, i1 %cmp.not.i.i.i2098
   br i1 %or.cond.i2099, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit2111, label %if.then.i.i.i2100
 
 if.then.i.i.i2100:                                ; preds = %invoke.cont.i2094
   %337 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2074, align 8
-  %cmp.not.i.i.i.i2101 = icmp ule ptr %337, %335
+  %cmp.not.i.i.i.i2101 = icmp uge ptr %335, %337
   %338 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2075, align 8
-  %cmp2.i.i.i.i2102 = icmp ugt ptr %338, %335
+  %cmp2.i.i.i.i2102 = icmp ult ptr %335, %338
   %or.cond.i.i.i.i2103 = select i1 %cmp.not.i.i.i.i2101, i1 %cmp2.i.i.i.i2102, i1 false
   br i1 %or.cond.i.i.i.i2103, label %if.then.i.i.i.i2107, label %if.else.i.i.i.i2104
 
@@ -34927,14 +34927,14 @@ while.body.i.i436:                                ; preds = %for.body.i.i432, %_
   %mpNext.i.i438 = getelementptr inbounds i8, ptr %pNode.08.i.i437, i64 8
   %344 = load ptr, ptr %mpNext.i.i438, align 8
   %345 = load ptr, ptr %mpBucketBuffer.i.i.i.i429, align 8
-  %cmp.not.i.i.i.i439 = icmp eq ptr %345, %pNode.08.i.i437
+  %cmp.not.i.i.i.i439 = icmp eq ptr %pNode.08.i.i437, %345
   br i1 %cmp.not.i.i.i.i439, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i440
 
 if.then.i.i.i.i440:                               ; preds = %while.body.i.i436
   %346 = load ptr, ptr %mpPoolBegin.i.i.i.i.i430, align 8
-  %cmp.not.i.i.i.i.i441 = icmp ule ptr %346, %pNode.08.i.i437
+  %cmp.not.i.i.i.i.i441 = icmp uge ptr %pNode.08.i.i437, %346
   %347 = load ptr, ptr %mpCapacity.i.i.i.i.i431, align 8
-  %cmp2.i.i.i.i.i442 = icmp ugt ptr %347, %pNode.08.i.i437
+  %cmp2.i.i.i.i.i442 = icmp ult ptr %pNode.08.i.i437, %347
   %or.cond.i.i.i.i.i443 = select i1 %cmp.not.i.i.i.i.i441, i1 %cmp2.i.i.i.i.i442, i1 false
   br i1 %or.cond.i.i.i.i.i443, label %if.then.i.i.i.i.i450, label %delete.notnull.i.i.i.i.i.i444
 
@@ -35075,14 +35075,14 @@ while.body.i.i467:                                ; preds = %for.body.i.i463, %_
   %mpNext.i.i469 = getelementptr inbounds i8, ptr %pNode.08.i.i468, i64 8
   %359 = load ptr, ptr %mpNext.i.i469, align 8
   %360 = load ptr, ptr %mpBucketBuffer.i.i.i.i460, align 8
-  %cmp.not.i.i.i.i470 = icmp eq ptr %360, %pNode.08.i.i468
+  %cmp.not.i.i.i.i470 = icmp eq ptr %pNode.08.i.i468, %360
   br i1 %cmp.not.i.i.i.i470, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i476, label %if.then.i.i.i.i471
 
 if.then.i.i.i.i471:                               ; preds = %while.body.i.i467
   %361 = load ptr, ptr %mpPoolBegin.i.i.i.i.i461, align 8
-  %cmp.not.i.i.i.i.i472 = icmp ule ptr %361, %pNode.08.i.i468
+  %cmp.not.i.i.i.i.i472 = icmp uge ptr %pNode.08.i.i468, %361
   %362 = load ptr, ptr %mpCapacity.i.i.i.i.i462, align 8
-  %cmp2.i.i.i.i.i473 = icmp ugt ptr %362, %pNode.08.i.i468
+  %cmp2.i.i.i.i.i473 = icmp ult ptr %pNode.08.i.i468, %362
   %or.cond.i.i.i.i.i474 = select i1 %cmp.not.i.i.i.i.i472, i1 %cmp2.i.i.i.i.i473, i1 false
   br i1 %or.cond.i.i.i.i.i474, label %if.then.i.i.i.i.i491, label %delete.notnull.i.i.i.i.i.i475
 
@@ -35111,15 +35111,15 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb
   %364 = load ptr, ptr %mpBucketArray.i424, align 8
   %cmp.i.i482 = icmp ult i64 %.pr3005, 2
   %365 = load ptr, ptr %mpBucketBuffer.i.i.i.i460, align 8
-  %cmp.not.i.i.i488 = icmp eq ptr %365, %364
+  %cmp.not.i.i.i488 = icmp eq ptr %364, %365
   %or.cond = select i1 %cmp.i.i482, i1 true, i1 %cmp.not.i.i.i488
   br i1 %or.cond, label %invoke.cont459, label %if.then.i.i.i489
 
 if.then.i.i.i489:                                 ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE11DoFreeNodesEPPNS_9hash_nodeIiLb0EEEm.exit.i
   %366 = load ptr, ptr %mpPoolBegin.i.i.i.i.i461, align 8
-  %cmp.not.i.i.i1.i = icmp ule ptr %366, %364
+  %cmp.not.i.i.i1.i = icmp uge ptr %364, %366
   %367 = load ptr, ptr %mpCapacity.i.i.i.i.i462, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %367, %364
+  %cmp2.i.i.i.i = icmp ult ptr %364, %367
   %or.cond.i.i.i.i490 = select i1 %cmp.not.i.i.i1.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i490, label %if.then.i.i.i2.i, label %if.else.i.i.i.i
 
@@ -35234,14 +35234,14 @@ while.body.i.i.i2124:                             ; preds = %for.body.i.i.i2120,
   %mpNext.i.i.i2126 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2125, i64 8
   %378 = load ptr, ptr %mpNext.i.i.i2126, align 8
   %379 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2117, align 8
-  %cmp.not.i.i.i.i.i2127 = icmp eq ptr %379, %pNode.08.i.i.i2125
+  %cmp.not.i.i.i.i.i2127 = icmp eq ptr %pNode.08.i.i.i2125, %379
   br i1 %cmp.not.i.i.i.i.i2127, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i2128
 
 if.then.i.i.i.i.i2128:                            ; preds = %while.body.i.i.i2124
   %380 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2118, align 8
-  %cmp.not.i.i.i.i.i.i2129 = icmp ule ptr %380, %pNode.08.i.i.i2125
+  %cmp.not.i.i.i.i.i.i2129 = icmp uge ptr %pNode.08.i.i.i2125, %380
   %381 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2119, align 8
-  %cmp2.i.i.i.i.i.i2130 = icmp ugt ptr %381, %pNode.08.i.i.i2125
+  %cmp2.i.i.i.i.i.i2130 = icmp ult ptr %pNode.08.i.i.i2125, %381
   %or.cond.i.i.i.i.i.i2131 = select i1 %cmp.not.i.i.i.i.i.i2129, i1 %cmp2.i.i.i.i.i.i2130, i1 false
   br i1 %or.cond.i.i.i.i.i.i2131, label %if.then.i.i.i.i.i.i2151, label %delete.notnull.i.i.i.i.i.i.i2132
 
@@ -35271,15 +35271,15 @@ invoke.cont.i2137:                                ; preds = %while.end.i.i.i2134
   %383 = load ptr, ptr %mpBucketArray.i424, align 8
   %cmp.i.i2140 = icmp ult i64 %.pr.i2138, 2
   %384 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2117, align 8
-  %cmp.not.i.i.i2141 = icmp eq ptr %384, %383
+  %cmp.not.i.i.i2141 = icmp eq ptr %383, %384
   %or.cond.i2142 = select i1 %cmp.i.i2140, i1 true, i1 %cmp.not.i.i.i2141
   br i1 %or.cond.i2142, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %if.then.i.i.i2143
 
 if.then.i.i.i2143:                                ; preds = %invoke.cont.i2137
   %385 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2118, align 8
-  %cmp.not.i.i.i.i2144 = icmp ule ptr %385, %383
+  %cmp.not.i.i.i.i2144 = icmp uge ptr %383, %385
   %386 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2119, align 8
-  %cmp2.i.i.i.i2145 = icmp ugt ptr %386, %383
+  %cmp2.i.i.i.i2145 = icmp ult ptr %383, %386
   %or.cond.i.i.i.i2146 = select i1 %cmp.not.i.i.i.i2144, i1 %cmp2.i.i.i.i2145, i1 false
   br i1 %or.cond.i.i.i.i2146, label %if.then.i.i.i.i2150, label %if.else.i.i.i.i2147
 
@@ -35350,14 +35350,14 @@ while.body.i.i.i2166:                             ; preds = %for.body.i.i.i2162,
   %mpNext.i.i.i2168 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2167, i64 8
   %392 = load ptr, ptr %mpNext.i.i.i2168, align 8
   %393 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2159, align 8
-  %cmp.not.i.i.i.i.i2169 = icmp eq ptr %393, %pNode.08.i.i.i2167
+  %cmp.not.i.i.i.i.i2169 = icmp eq ptr %pNode.08.i.i.i2167, %393
   br i1 %cmp.not.i.i.i.i.i2169, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i2170
 
 if.then.i.i.i.i.i2170:                            ; preds = %while.body.i.i.i2166
   %394 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2160, align 8
-  %cmp.not.i.i.i.i.i.i2171 = icmp ule ptr %394, %pNode.08.i.i.i2167
+  %cmp.not.i.i.i.i.i.i2171 = icmp uge ptr %pNode.08.i.i.i2167, %394
   %395 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2161, align 8
-  %cmp2.i.i.i.i.i.i2172 = icmp ugt ptr %395, %pNode.08.i.i.i2167
+  %cmp2.i.i.i.i.i.i2172 = icmp ult ptr %pNode.08.i.i.i2167, %395
   %or.cond.i.i.i.i.i.i2173 = select i1 %cmp.not.i.i.i.i.i.i2171, i1 %cmp2.i.i.i.i.i.i2172, i1 false
   br i1 %or.cond.i.i.i.i.i.i2173, label %if.then.i.i.i.i.i.i2193, label %delete.notnull.i.i.i.i.i.i.i2174
 
@@ -35387,15 +35387,15 @@ invoke.cont.i2179:                                ; preds = %while.end.i.i.i2176
   %397 = load ptr, ptr %mpBucketArray.i.i2154, align 8
   %cmp.i.i2182 = icmp ult i64 %.pr.i2180, 2
   %398 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2159, align 8
-  %cmp.not.i.i.i2183 = icmp eq ptr %398, %397
+  %cmp.not.i.i.i2183 = icmp eq ptr %397, %398
   %or.cond.i2184 = select i1 %cmp.i.i2182, i1 true, i1 %cmp.not.i.i.i2183
   br i1 %or.cond.i2184, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %if.then.i.i.i2185
 
 if.then.i.i.i2185:                                ; preds = %invoke.cont.i2179
   %399 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2160, align 8
-  %cmp.not.i.i.i.i2186 = icmp ule ptr %399, %397
+  %cmp.not.i.i.i.i2186 = icmp uge ptr %397, %399
   %400 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2161, align 8
-  %cmp2.i.i.i.i2187 = icmp ugt ptr %400, %397
+  %cmp2.i.i.i.i2187 = icmp ult ptr %397, %400
   %or.cond.i.i.i.i2188 = select i1 %cmp.not.i.i.i.i2186, i1 %cmp2.i.i.i.i2187, i1 false
   br i1 %or.cond.i.i.i.i2188, label %if.then.i.i.i.i2192, label %if.else.i.i.i.i2189
 
@@ -35456,14 +35456,14 @@ while.body.i.i.i2208:                             ; preds = %for.body.i.i.i2204,
   %mpNext.i.i.i2210 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2209, i64 8
   %406 = load ptr, ptr %mpNext.i.i.i2210, align 8
   %407 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2201, align 8
-  %cmp.not.i.i.i.i.i2211 = icmp eq ptr %407, %pNode.08.i.i.i2209
+  %cmp.not.i.i.i.i.i2211 = icmp eq ptr %pNode.08.i.i.i2209, %407
   br i1 %cmp.not.i.i.i.i.i2211, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i2217, label %if.then.i.i.i.i.i2212
 
 if.then.i.i.i.i.i2212:                            ; preds = %while.body.i.i.i2208
   %408 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2202, align 8
-  %cmp.not.i.i.i.i.i.i2213 = icmp ule ptr %408, %pNode.08.i.i.i2209
+  %cmp.not.i.i.i.i.i.i2213 = icmp uge ptr %pNode.08.i.i.i2209, %408
   %409 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2203, align 8
-  %cmp2.i.i.i.i.i.i2214 = icmp ugt ptr %409, %pNode.08.i.i.i2209
+  %cmp2.i.i.i.i.i.i2214 = icmp ult ptr %pNode.08.i.i.i2209, %409
   %or.cond.i.i.i.i.i.i2215 = select i1 %cmp.not.i.i.i.i.i.i2213, i1 %cmp2.i.i.i.i.i.i2214, i1 false
   br i1 %or.cond.i.i.i.i.i.i2215, label %if.then.i.i.i.i.i.i2236, label %delete.notnull.i.i.i.i.i.i.i2216
 
@@ -35493,15 +35493,15 @@ invoke.cont.i2222:                                ; preds = %while.end.i.i.i2219
   %411 = load ptr, ptr %mpBucketArray.i.i2196, align 8
   %cmp.i.i2225 = icmp ult i64 %.pr.i2223, 2
   %412 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2201, align 8
-  %cmp.not.i.i.i2226 = icmp eq ptr %412, %411
+  %cmp.not.i.i.i2226 = icmp eq ptr %411, %412
   %or.cond.i2227 = select i1 %cmp.i.i2225, i1 true, i1 %cmp.not.i.i.i2226
   br i1 %or.cond.i2227, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit2239, label %if.then.i.i.i2228
 
 if.then.i.i.i2228:                                ; preds = %invoke.cont.i2222
   %413 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2202, align 8
-  %cmp.not.i.i.i.i2229 = icmp ule ptr %413, %411
+  %cmp.not.i.i.i.i2229 = icmp uge ptr %411, %413
   %414 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2203, align 8
-  %cmp2.i.i.i.i2230 = icmp ugt ptr %414, %411
+  %cmp2.i.i.i.i2230 = icmp ult ptr %411, %414
   %or.cond.i.i.i.i2231 = select i1 %cmp.not.i.i.i.i2229, i1 %cmp2.i.i.i.i2230, i1 false
   br i1 %or.cond.i.i.i.i2231, label %if.then.i.i.i.i2235, label %if.else.i.i.i.i2232
 
@@ -35568,14 +35568,14 @@ while.body.i.i.i2252:                             ; preds = %for.body.i.i.i2248,
   %mpNext.i.i.i2254 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2253, i64 8
   %420 = load ptr, ptr %mpNext.i.i.i2254, align 8
   %421 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2245, align 8
-  %cmp.not.i.i.i.i.i2255 = icmp eq ptr %421, %pNode.08.i.i.i2253
+  %cmp.not.i.i.i.i.i2255 = icmp eq ptr %pNode.08.i.i.i2253, %421
   br i1 %cmp.not.i.i.i.i.i2255, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i2256
 
 if.then.i.i.i.i.i2256:                            ; preds = %while.body.i.i.i2252
   %422 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2246, align 8
-  %cmp.not.i.i.i.i.i.i2257 = icmp ule ptr %422, %pNode.08.i.i.i2253
+  %cmp.not.i.i.i.i.i.i2257 = icmp uge ptr %pNode.08.i.i.i2253, %422
   %423 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2247, align 8
-  %cmp2.i.i.i.i.i.i2258 = icmp ugt ptr %423, %pNode.08.i.i.i2253
+  %cmp2.i.i.i.i.i.i2258 = icmp ult ptr %pNode.08.i.i.i2253, %423
   %or.cond.i.i.i.i.i.i2259 = select i1 %cmp.not.i.i.i.i.i.i2257, i1 %cmp2.i.i.i.i.i.i2258, i1 false
   br i1 %or.cond.i.i.i.i.i.i2259, label %if.then.i.i.i.i.i.i2279, label %delete.notnull.i.i.i.i.i.i.i2260
 
@@ -35605,15 +35605,15 @@ invoke.cont.i2265:                                ; preds = %while.end.i.i.i2262
   %425 = load ptr, ptr %mpBucketArray.i.i2240, align 8
   %cmp.i.i2268 = icmp ult i64 %.pr.i2266, 2
   %426 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2245, align 8
-  %cmp.not.i.i.i2269 = icmp eq ptr %426, %425
+  %cmp.not.i.i.i2269 = icmp eq ptr %425, %426
   %or.cond.i2270 = select i1 %cmp.i.i2268, i1 true, i1 %cmp.not.i.i.i2269
   br i1 %or.cond.i2270, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, label %if.then.i.i.i2271
 
 if.then.i.i.i2271:                                ; preds = %invoke.cont.i2265
   %427 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2246, align 8
-  %cmp.not.i.i.i.i2272 = icmp ule ptr %427, %425
+  %cmp.not.i.i.i.i2272 = icmp uge ptr %425, %427
   %428 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2247, align 8
-  %cmp2.i.i.i.i2273 = icmp ugt ptr %428, %425
+  %cmp2.i.i.i.i2273 = icmp ult ptr %425, %428
   %or.cond.i.i.i.i2274 = select i1 %cmp.not.i.i.i.i2272, i1 %cmp2.i.i.i.i2273, i1 false
   br i1 %or.cond.i.i.i.i2274, label %if.then.i.i.i.i2278, label %if.else.i.i.i.i2275
 
@@ -35674,14 +35674,14 @@ while.body.i.i.i2294:                             ; preds = %for.body.i.i.i2290,
   %mpNext.i.i.i2296 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2295, i64 8
   %434 = load ptr, ptr %mpNext.i.i.i2296, align 8
   %435 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2287, align 8
-  %cmp.not.i.i.i.i.i2297 = icmp eq ptr %435, %pNode.08.i.i.i2295
+  %cmp.not.i.i.i.i.i2297 = icmp eq ptr %pNode.08.i.i.i2295, %435
   br i1 %cmp.not.i.i.i.i.i2297, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i2298
 
 if.then.i.i.i.i.i2298:                            ; preds = %while.body.i.i.i2294
   %436 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2288, align 8
-  %cmp.not.i.i.i.i.i.i2299 = icmp ule ptr %436, %pNode.08.i.i.i2295
+  %cmp.not.i.i.i.i.i.i2299 = icmp uge ptr %pNode.08.i.i.i2295, %436
   %437 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2289, align 8
-  %cmp2.i.i.i.i.i.i2300 = icmp ugt ptr %437, %pNode.08.i.i.i2295
+  %cmp2.i.i.i.i.i.i2300 = icmp ult ptr %pNode.08.i.i.i2295, %437
   %or.cond.i.i.i.i.i.i2301 = select i1 %cmp.not.i.i.i.i.i.i2299, i1 %cmp2.i.i.i.i.i.i2300, i1 false
   br i1 %or.cond.i.i.i.i.i.i2301, label %if.then.i.i.i.i.i.i2321, label %delete.notnull.i.i.i.i.i.i.i2302
 
@@ -35711,15 +35711,15 @@ invoke.cont.i2307:                                ; preds = %while.end.i.i.i2304
   %439 = load ptr, ptr %mpBucketArray.i.i2282, align 8
   %cmp.i.i2310 = icmp ult i64 %.pr.i2308, 2
   %440 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2287, align 8
-  %cmp.not.i.i.i2311 = icmp eq ptr %440, %439
+  %cmp.not.i.i.i2311 = icmp eq ptr %439, %440
   %or.cond.i2312 = select i1 %cmp.i.i2310, i1 true, i1 %cmp.not.i.i.i2311
   br i1 %or.cond.i2312, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, label %if.then.i.i.i2313
 
 if.then.i.i.i2313:                                ; preds = %invoke.cont.i2307
   %441 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2288, align 8
-  %cmp.not.i.i.i.i2314 = icmp ule ptr %441, %439
+  %cmp.not.i.i.i.i2314 = icmp uge ptr %439, %441
   %442 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2289, align 8
-  %cmp2.i.i.i.i2315 = icmp ugt ptr %442, %439
+  %cmp2.i.i.i.i2315 = icmp ult ptr %439, %442
   %or.cond.i.i.i.i2316 = select i1 %cmp.not.i.i.i.i2314, i1 %cmp2.i.i.i.i2315, i1 false
   br i1 %or.cond.i.i.i.i2316, label %if.then.i.i.i.i2320, label %if.else.i.i.i.i2317
 
@@ -35781,14 +35781,14 @@ while.body.i.i.i2336:                             ; preds = %for.body.i.i.i2332,
   %mpNext.i.i.i2338 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2337, i64 8
   %448 = load ptr, ptr %mpNext.i.i.i2338, align 8
   %449 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2329, align 8
-  %cmp.not.i.i.i.i.i2339 = icmp eq ptr %449, %pNode.08.i.i.i2337
+  %cmp.not.i.i.i.i.i2339 = icmp eq ptr %pNode.08.i.i.i2337, %449
   br i1 %cmp.not.i.i.i.i.i2339, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i2340
 
 if.then.i.i.i.i.i2340:                            ; preds = %while.body.i.i.i2336
   %450 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2330, align 8
-  %cmp.not.i.i.i.i.i.i2341 = icmp ule ptr %450, %pNode.08.i.i.i2337
+  %cmp.not.i.i.i.i.i.i2341 = icmp uge ptr %pNode.08.i.i.i2337, %450
   %451 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2331, align 8
-  %cmp2.i.i.i.i.i.i2342 = icmp ugt ptr %451, %pNode.08.i.i.i2337
+  %cmp2.i.i.i.i.i.i2342 = icmp ult ptr %pNode.08.i.i.i2337, %451
   %or.cond.i.i.i.i.i.i2343 = select i1 %cmp.not.i.i.i.i.i.i2341, i1 %cmp2.i.i.i.i.i.i2342, i1 false
   br i1 %or.cond.i.i.i.i.i.i2343, label %if.then.i.i.i.i.i.i2363, label %delete.notnull.i.i.i.i.i.i.i2344
 
@@ -35818,15 +35818,15 @@ invoke.cont.i2349:                                ; preds = %while.end.i.i.i2346
   %453 = load ptr, ptr %mpBucketArray.i.i2324, align 8
   %cmp.i.i2352 = icmp ult i64 %.pr.i2350, 2
   %454 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2329, align 8
-  %cmp.not.i.i.i2353 = icmp eq ptr %454, %453
+  %cmp.not.i.i.i2353 = icmp eq ptr %453, %454
   %or.cond.i2354 = select i1 %cmp.i.i2352, i1 true, i1 %cmp.not.i.i.i2353
   br i1 %or.cond.i2354, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %if.then.i.i.i2355
 
 if.then.i.i.i2355:                                ; preds = %invoke.cont.i2349
   %455 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2330, align 8
-  %cmp.not.i.i.i.i2356 = icmp ule ptr %455, %453
+  %cmp.not.i.i.i.i2356 = icmp uge ptr %453, %455
   %456 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2331, align 8
-  %cmp2.i.i.i.i2357 = icmp ugt ptr %456, %453
+  %cmp2.i.i.i.i2357 = icmp ult ptr %453, %456
   %or.cond.i.i.i.i2358 = select i1 %cmp.not.i.i.i.i2356, i1 %cmp2.i.i.i.i2357, i1 false
   br i1 %or.cond.i.i.i.i2358, label %if.then.i.i.i.i2362, label %if.else.i.i.i.i2359
 
@@ -35893,14 +35893,14 @@ while.body.i.i.i2378:                             ; preds = %for.body.i.i.i2374,
   %mpNext.i.i.i2380 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2379, i64 8
   %462 = load ptr, ptr %mpNext.i.i.i2380, align 8
   %463 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2371, align 8
-  %cmp.not.i.i.i.i.i2381 = icmp eq ptr %463, %pNode.08.i.i.i2379
+  %cmp.not.i.i.i.i.i2381 = icmp eq ptr %pNode.08.i.i.i2379, %463
   br i1 %cmp.not.i.i.i.i.i2381, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i2382
 
 if.then.i.i.i.i.i2382:                            ; preds = %while.body.i.i.i2378
   %464 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2372, align 8
-  %cmp.not.i.i.i.i.i.i2383 = icmp ule ptr %464, %pNode.08.i.i.i2379
+  %cmp.not.i.i.i.i.i.i2383 = icmp uge ptr %pNode.08.i.i.i2379, %464
   %465 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2373, align 8
-  %cmp2.i.i.i.i.i.i2384 = icmp ugt ptr %465, %pNode.08.i.i.i2379
+  %cmp2.i.i.i.i.i.i2384 = icmp ult ptr %pNode.08.i.i.i2379, %465
   %or.cond.i.i.i.i.i.i2385 = select i1 %cmp.not.i.i.i.i.i.i2383, i1 %cmp2.i.i.i.i.i.i2384, i1 false
   br i1 %or.cond.i.i.i.i.i.i2385, label %if.then.i.i.i.i.i.i2405, label %delete.notnull.i.i.i.i.i.i.i2386
 
@@ -35930,15 +35930,15 @@ invoke.cont.i2391:                                ; preds = %while.end.i.i.i2388
   %467 = load ptr, ptr %mpBucketArray.i.i2366, align 8
   %cmp.i.i2394 = icmp ult i64 %.pr.i2392, 2
   %468 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2371, align 8
-  %cmp.not.i.i.i2395 = icmp eq ptr %468, %467
+  %cmp.not.i.i.i2395 = icmp eq ptr %467, %468
   %or.cond.i2396 = select i1 %cmp.i.i2394, i1 true, i1 %cmp.not.i.i.i2395
   br i1 %or.cond.i2396, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %if.then.i.i.i2397
 
 if.then.i.i.i2397:                                ; preds = %invoke.cont.i2391
   %469 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2372, align 8
-  %cmp.not.i.i.i.i2398 = icmp ule ptr %469, %467
+  %cmp.not.i.i.i.i2398 = icmp uge ptr %467, %469
   %470 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2373, align 8
-  %cmp2.i.i.i.i2399 = icmp ugt ptr %470, %467
+  %cmp2.i.i.i.i2399 = icmp ult ptr %467, %470
   %or.cond.i.i.i.i2400 = select i1 %cmp.not.i.i.i.i2398, i1 %cmp2.i.i.i.i2399, i1 false
   br i1 %or.cond.i.i.i.i2400, label %if.then.i.i.i.i2404, label %if.else.i.i.i.i2401
 
@@ -36063,14 +36063,14 @@ while.body.i.i.i2420:                             ; preds = %for.body.i.i.i2416,
   %mpNext.i.i.i2422 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2421, i64 8
   %483 = load ptr, ptr %mpNext.i.i.i2422, align 8
   %484 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2413, align 8
-  %cmp.not.i.i.i.i.i2423 = icmp eq ptr %484, %pNode.08.i.i.i2421
+  %cmp.not.i.i.i.i.i2423 = icmp eq ptr %pNode.08.i.i.i2421, %484
   br i1 %cmp.not.i.i.i.i.i2423, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i2424
 
 if.then.i.i.i.i.i2424:                            ; preds = %while.body.i.i.i2420
   %485 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2414, align 8
-  %cmp.not.i.i.i.i.i.i2425 = icmp ule ptr %485, %pNode.08.i.i.i2421
+  %cmp.not.i.i.i.i.i.i2425 = icmp uge ptr %pNode.08.i.i.i2421, %485
   %486 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2415, align 8
-  %cmp2.i.i.i.i.i.i2426 = icmp ugt ptr %486, %pNode.08.i.i.i2421
+  %cmp2.i.i.i.i.i.i2426 = icmp ult ptr %pNode.08.i.i.i2421, %486
   %or.cond.i.i.i.i.i.i2427 = select i1 %cmp.not.i.i.i.i.i.i2425, i1 %cmp2.i.i.i.i.i.i2426, i1 false
   br i1 %or.cond.i.i.i.i.i.i2427, label %if.then.i.i.i.i.i.i2447, label %delete.notnull.i.i.i.i.i.i.i2428
 
@@ -36100,15 +36100,15 @@ invoke.cont.i2433:                                ; preds = %while.end.i.i.i2430
   %488 = load ptr, ptr %mpBucketArray.i.i2408, align 8
   %cmp.i.i2436 = icmp ult i64 %.pr.i2434, 2
   %489 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2413, align 8
-  %cmp.not.i.i.i2437 = icmp eq ptr %489, %488
+  %cmp.not.i.i.i2437 = icmp eq ptr %488, %489
   %or.cond.i2438 = select i1 %cmp.i.i2436, i1 true, i1 %cmp.not.i.i.i2437
   br i1 %or.cond.i2438, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %if.then.i.i.i2439
 
 if.then.i.i.i2439:                                ; preds = %invoke.cont.i2433
   %490 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2414, align 8
-  %cmp.not.i.i.i.i2440 = icmp ule ptr %490, %488
+  %cmp.not.i.i.i.i2440 = icmp uge ptr %488, %490
   %491 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2415, align 8
-  %cmp2.i.i.i.i2441 = icmp ugt ptr %491, %488
+  %cmp2.i.i.i.i2441 = icmp ult ptr %488, %491
   %or.cond.i.i.i.i2442 = select i1 %cmp.not.i.i.i.i2440, i1 %cmp2.i.i.i.i2441, i1 false
   br i1 %or.cond.i.i.i.i2442, label %if.then.i.i.i.i2446, label %if.else.i.i.i.i2443
 
@@ -36248,14 +36248,14 @@ while.body.i.i626:                                ; preds = %for.body.i.i622, %_
   %mpNext.i.i628 = getelementptr inbounds i8, ptr %pNode.08.i.i627, i64 8
   %507 = load ptr, ptr %mpNext.i.i628, align 8
   %508 = load ptr, ptr %mpBucketBuffer.i.i.i.i619, align 8
-  %cmp.not.i.i.i.i629 = icmp eq ptr %508, %pNode.08.i.i627
+  %cmp.not.i.i.i.i629 = icmp eq ptr %pNode.08.i.i627, %508
   br i1 %cmp.not.i.i.i.i629, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i630
 
 if.then.i.i.i.i630:                               ; preds = %while.body.i.i626
   %509 = load ptr, ptr %mpPoolBegin.i.i.i.i.i620, align 8
-  %cmp.not.i.i.i.i.i631 = icmp ule ptr %509, %pNode.08.i.i627
+  %cmp.not.i.i.i.i.i631 = icmp uge ptr %pNode.08.i.i627, %509
   %510 = load ptr, ptr %mpCapacity.i.i.i.i.i621, align 8
-  %cmp2.i.i.i.i.i632 = icmp ugt ptr %510, %pNode.08.i.i627
+  %cmp2.i.i.i.i.i632 = icmp ult ptr %pNode.08.i.i627, %510
   %or.cond.i.i.i.i.i633 = select i1 %cmp.not.i.i.i.i.i631, i1 %cmp2.i.i.i.i.i632, i1 false
   br i1 %or.cond.i.i.i.i.i633, label %if.then.i.i.i.i.i657, label %delete.notnull.i.i.i.i.i.i634
 
@@ -36284,15 +36284,15 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1E
   %512 = load ptr, ptr %mpBucketArray.i614, align 8
   %cmp.i.i640 = icmp ult i64 %.pr3007, 2
   %513 = load ptr, ptr %mpBucketBuffer.i.i.i.i619, align 8
-  %cmp.not.i.i.i646 = icmp eq ptr %513, %512
+  %cmp.not.i.i.i646 = icmp eq ptr %512, %513
   %or.cond3376 = select i1 %cmp.i.i640, i1 true, i1 %cmp.not.i.i.i646
   br i1 %or.cond3376, label %invoke.cont600, label %if.then.i.i.i647
 
 if.then.i.i.i647:                                 ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE11DoFreeNodesEPPNS_9hash_nodeIiLb0EEEm.exit.i
   %514 = load ptr, ptr %mpPoolBegin.i.i.i.i.i620, align 8
-  %cmp.not.i.i.i1.i649 = icmp ule ptr %514, %512
+  %cmp.not.i.i.i1.i649 = icmp uge ptr %512, %514
   %515 = load ptr, ptr %mpCapacity.i.i.i.i.i621, align 8
-  %cmp2.i.i.i.i651 = icmp ugt ptr %515, %512
+  %cmp2.i.i.i.i651 = icmp ult ptr %512, %515
   %or.cond.i.i.i.i652 = select i1 %cmp.not.i.i.i1.i649, i1 %cmp2.i.i.i.i651, i1 false
   br i1 %or.cond.i.i.i.i652, label %if.then.i.i.i2.i656, label %if.else.i.i.i.i653
 
@@ -36452,14 +36452,14 @@ while.body.i.i726:                                ; preds = %for.body.i.i722, %_
   %mpNext.i.i728 = getelementptr inbounds i8, ptr %pNode.08.i.i727, i64 8
   %529 = load ptr, ptr %mpNext.i.i728, align 8
   %530 = load ptr, ptr %mpBucketBuffer.i.i.i.i719, align 8
-  %cmp.not.i.i.i.i729 = icmp eq ptr %530, %pNode.08.i.i727
+  %cmp.not.i.i.i.i729 = icmp eq ptr %pNode.08.i.i727, %530
   br i1 %cmp.not.i.i.i.i729, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i735, label %if.then.i.i.i.i730
 
 if.then.i.i.i.i730:                               ; preds = %while.body.i.i726
   %531 = load ptr, ptr %mpPoolBegin.i.i.i.i.i720, align 8
-  %cmp.not.i.i.i.i.i731 = icmp ule ptr %531, %pNode.08.i.i727
+  %cmp.not.i.i.i.i.i731 = icmp uge ptr %pNode.08.i.i727, %531
   %532 = load ptr, ptr %mpCapacity.i.i.i.i.i721, align 8
-  %cmp2.i.i.i.i.i732 = icmp ugt ptr %532, %pNode.08.i.i727
+  %cmp2.i.i.i.i.i732 = icmp ult ptr %pNode.08.i.i727, %532
   %or.cond.i.i.i.i.i733 = select i1 %cmp.not.i.i.i.i.i731, i1 %cmp2.i.i.i.i.i732, i1 false
   br i1 %or.cond.i.i.i.i.i733, label %if.then.i.i.i.i.i759, label %delete.notnull.i.i.i.i.i.i734
 
@@ -36488,15 +36488,15 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1E
   %534 = load ptr, ptr %mpBucketArray.i614, align 8
   %cmp.i.i742 = icmp ult i64 %.pr3009, 2
   %535 = load ptr, ptr %mpBucketBuffer.i.i.i.i719, align 8
-  %cmp.not.i.i.i748 = icmp eq ptr %535, %534
+  %cmp.not.i.i.i748 = icmp eq ptr %534, %535
   %or.cond3377 = select i1 %cmp.i.i742, i1 true, i1 %cmp.not.i.i.i748
   br i1 %or.cond3377, label %invoke.cont630, label %if.then.i.i.i749
 
 if.then.i.i.i749:                                 ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE11DoFreeNodesEPPNS_9hash_nodeIiLb0EEEm.exit.i740
   %536 = load ptr, ptr %mpPoolBegin.i.i.i.i.i720, align 8
-  %cmp.not.i.i.i1.i751 = icmp ule ptr %536, %534
+  %cmp.not.i.i.i1.i751 = icmp uge ptr %534, %536
   %537 = load ptr, ptr %mpCapacity.i.i.i.i.i721, align 8
-  %cmp2.i.i.i.i753 = icmp ugt ptr %537, %534
+  %cmp2.i.i.i.i753 = icmp ult ptr %534, %537
   %or.cond.i.i.i.i754 = select i1 %cmp.not.i.i.i1.i751, i1 %cmp2.i.i.i.i753, i1 false
   br i1 %or.cond.i.i.i.i754, label %if.then.i.i.i2.i758, label %if.else.i.i.i.i755
 
@@ -36633,14 +36633,14 @@ while.body.i.i.i2462:                             ; preds = %for.body.i.i.i2458,
   %mpNext.i.i.i2464 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2463, i64 8
   %550 = load ptr, ptr %mpNext.i.i.i2464, align 8
   %551 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2455, align 8
-  %cmp.not.i.i.i.i.i2465 = icmp eq ptr %551, %pNode.08.i.i.i2463
+  %cmp.not.i.i.i.i.i2465 = icmp eq ptr %pNode.08.i.i.i2463, %551
   br i1 %cmp.not.i.i.i.i.i2465, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i2471, label %if.then.i.i.i.i.i2466
 
 if.then.i.i.i.i.i2466:                            ; preds = %while.body.i.i.i2462
   %552 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2456, align 8
-  %cmp.not.i.i.i.i.i.i2467 = icmp ule ptr %552, %pNode.08.i.i.i2463
+  %cmp.not.i.i.i.i.i.i2467 = icmp uge ptr %pNode.08.i.i.i2463, %552
   %553 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2457, align 8
-  %cmp2.i.i.i.i.i.i2468 = icmp ugt ptr %553, %pNode.08.i.i.i2463
+  %cmp2.i.i.i.i.i.i2468 = icmp ult ptr %pNode.08.i.i.i2463, %553
   %or.cond.i.i.i.i.i.i2469 = select i1 %cmp.not.i.i.i.i.i.i2467, i1 %cmp2.i.i.i.i.i.i2468, i1 false
   br i1 %or.cond.i.i.i.i.i.i2469, label %if.then.i.i.i.i.i.i2490, label %delete.notnull.i.i.i.i.i.i.i2470
 
@@ -36670,15 +36670,15 @@ invoke.cont.i2476:                                ; preds = %while.end.i.i.i2473
   %555 = load ptr, ptr %mpBucketArray.i614, align 8
   %cmp.i.i2479 = icmp ult i64 %.pr.i2477, 2
   %556 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2455, align 8
-  %cmp.not.i.i.i2480 = icmp eq ptr %556, %555
+  %cmp.not.i.i.i2480 = icmp eq ptr %555, %556
   %or.cond.i2481 = select i1 %cmp.i.i2479, i1 true, i1 %cmp.not.i.i.i2480
   br i1 %or.cond.i2481, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit2493, label %if.then.i.i.i2482
 
 if.then.i.i.i2482:                                ; preds = %invoke.cont.i2476
   %557 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2456, align 8
-  %cmp.not.i.i.i.i2483 = icmp ule ptr %557, %555
+  %cmp.not.i.i.i.i2483 = icmp uge ptr %555, %557
   %558 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2457, align 8
-  %cmp2.i.i.i.i2484 = icmp ugt ptr %558, %555
+  %cmp2.i.i.i.i2484 = icmp ult ptr %555, %558
   %or.cond.i.i.i.i2485 = select i1 %cmp.not.i.i.i.i2483, i1 %cmp2.i.i.i.i2484, i1 false
   br i1 %or.cond.i.i.i.i2485, label %if.then.i.i.i.i2489, label %if.else.i.i.i.i2486
 
@@ -36833,14 +36833,14 @@ while.body17.i:                                   ; preds = %while.body17.i.preh
   %mpNext18.i = getelementptr inbounds i8, ptr %pDeleteList.127.i, i64 24
   %578 = load ptr, ptr %mpNext18.i, align 8
   %579 = load ptr, ptr %mpBucketBuffer.i.i.i840, align 8
-  %cmp.not.i.i.i843 = icmp eq ptr %579, %pDeleteList.127.i
+  %cmp.not.i.i.i843 = icmp eq ptr %pDeleteList.127.i, %579
   br i1 %cmp.not.i.i.i843, label %_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i, label %if.then.i.i.i844
 
 if.then.i.i.i844:                                 ; preds = %while.body17.i
   %580 = load ptr, ptr %mpPoolBegin.i.i.i.i841, align 8
-  %cmp.not.i.i.i.i845 = icmp ule ptr %580, %pDeleteList.127.i
+  %cmp.not.i.i.i.i845 = icmp uge ptr %pDeleteList.127.i, %580
   %581 = load ptr, ptr %mpCapacity.i.i.i.i842, align 8
-  %cmp2.i.i.i.i846 = icmp ugt ptr %581, %pDeleteList.127.i
+  %cmp2.i.i.i.i846 = icmp ult ptr %pDeleteList.127.i, %581
   %or.cond.i.i.i.i847 = select i1 %cmp.not.i.i.i.i845, i1 %cmp2.i.i.i.i846, i1 false
   br i1 %or.cond.i.i.i.i847, label %if.then.i.i.i.i849, label %delete.notnull.i.i.i.i.i848
 
@@ -37027,7 +37027,7 @@ for.inc.i.i2535:                                  ; preds = %for.inc.loopexit.i.
 for.end.i.i2538:                                  ; preds = %for.inc.i.i2535
   %611 = icmp ult i64 %609, 2
   %612 = load ptr, ptr %mpBucketBuffer.i.i.i.i2516, align 8, !noalias !659
-  %cmp.not.i.i.i.i2539 = icmp eq ptr %612, %610
+  %cmp.not.i.i.i.i2539 = icmp eq ptr %610, %612
   %or.cond.i.i.i2540 = select i1 %611, i1 true, i1 %cmp.not.i.i.i.i2539
   br i1 %or.cond.i.i.i2540, label %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i, label %if.then.i.i.i.i2541
 
@@ -37087,7 +37087,7 @@ while.body.i.i.i.i.i866:                          ; preds = %for.body.i.i.i.i.i8
   %mpNext.i.i.i.i.i868 = getelementptr inbounds i8, ptr %pNode.08.i.i.i.i.i867, i64 48
   %621 = load ptr, ptr %mpNext.i.i.i.i.i868, align 8
   %622 = load ptr, ptr %mpBucketBuffer.i.i.i.i2516, align 8
-  %cmp.not.i.i.i.i.i.i.i869 = icmp eq ptr %622, %pNode.08.i.i.i.i.i867
+  %cmp.not.i.i.i.i.i.i.i869 = icmp eq ptr %pNode.08.i.i.i.i.i867, %622
   br i1 %cmp.not.i.i.i.i.i.i.i869, label %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i870
 
 if.then.i.i.i.i.i.i.i870:                         ; preds = %while.body.i.i.i.i.i866
@@ -37112,7 +37112,7 @@ invoke.cont.i.i.i875:                             ; preds = %while.end.i.i.i.i.i
   %624 = icmp ult i64 %.pre1.i.i.i877, 2
   store i64 0, ptr %mnElementCount.i2497, align 8
   %625 = load ptr, ptr %mpBucketBuffer.i.i.i.i2516, align 8
-  %cmp.not.i.i.i.i.i879 = icmp eq ptr %625, %.pre.i.i.i876
+  %cmp.not.i.i.i.i.i879 = icmp eq ptr %.pre.i.i.i876, %625
   %or.cond.i.i.i.i880 = select i1 %624, i1 true, i1 %cmp.not.i.i.i.i.i879
   br i1 %or.cond.i.i.i.i880, label %_ZN5eastl14fixed_hash_mapIK18InstanceRenderDatajLm10ELm11ELb0ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEED2Ev.exit, label %if.then.i.i.i.i.i881
 
@@ -37594,16 +37594,16 @@ if.then.i.i2561:                                  ; preds = %for.end.i2560
   %mAllocator.i.i2562 = getelementptr inbounds i8, ptr %intHashSet, i64 48
   %mpBucketBuffer.i.i13.i = getelementptr inbounds i8, ptr %intHashSet, i64 96
   %704 = load ptr, ptr %mpBucketBuffer.i.i13.i, align 8
-  %cmp.not.i.i.i2563 = icmp eq ptr %704, %702
+  %cmp.not.i.i.i2563 = icmp eq ptr %702, %704
   br i1 %cmp.not.i.i.i2563, label %.noexc1051, label %if.then.i.i.i2564
 
 if.then.i.i.i2564:                                ; preds = %if.then.i.i2561
   %mpPoolBegin.i.i.i.i2565 = getelementptr inbounds i8, ptr %intHashSet, i64 88
   %705 = load ptr, ptr %mpPoolBegin.i.i.i.i2565, align 8
-  %cmp.not.i.i.i.i2566 = icmp ule ptr %705, %702
+  %cmp.not.i.i.i.i2566 = icmp uge ptr %702, %705
   %mpCapacity.i.i.i.i2567 = getelementptr inbounds i8, ptr %intHashSet, i64 64
   %706 = load ptr, ptr %mpCapacity.i.i.i.i2567, align 8
-  %cmp2.i.i.i.i2568 = icmp ugt ptr %706, %702
+  %cmp2.i.i.i.i2568 = icmp ult ptr %702, %706
   %or.cond.i.i.i.i2569 = select i1 %cmp.not.i.i.i.i2566, i1 %cmp2.i.i.i.i2568, i1 false
   br i1 %or.cond.i.i.i.i2569, label %if.then.i.i.i.i2571, label %delete.notnull.i.i.i.i.i2570
 
@@ -38121,16 +38121,16 @@ if.then.i.i2604:                                  ; preds = %for.end.i2602
   %mAllocator.i.i2605 = getelementptr inbounds i8, ptr %intHashMap, i64 48
   %mpBucketBuffer.i.i13.i2606 = getelementptr inbounds i8, ptr %intHashMap, i64 96
   %791 = load ptr, ptr %mpBucketBuffer.i.i13.i2606, align 8
-  %cmp.not.i.i.i2607 = icmp eq ptr %791, %789
+  %cmp.not.i.i.i2607 = icmp eq ptr %789, %791
   br i1 %cmp.not.i.i.i2607, label %.noexc1294, label %if.then.i.i.i2608
 
 if.then.i.i.i2608:                                ; preds = %if.then.i.i2604
   %mpPoolBegin.i.i.i.i2609 = getelementptr inbounds i8, ptr %intHashMap, i64 88
   %792 = load ptr, ptr %mpPoolBegin.i.i.i.i2609, align 8
-  %cmp.not.i.i.i.i2610 = icmp ule ptr %792, %789
+  %cmp.not.i.i.i.i2610 = icmp uge ptr %789, %792
   %mpCapacity.i.i.i.i2611 = getelementptr inbounds i8, ptr %intHashMap, i64 64
   %793 = load ptr, ptr %mpCapacity.i.i.i.i2611, align 8
-  %cmp2.i.i.i.i2612 = icmp ugt ptr %793, %789
+  %cmp2.i.i.i.i2612 = icmp ult ptr %789, %793
   %or.cond.i.i.i.i2613 = select i1 %cmp.not.i.i.i.i2610, i1 %cmp2.i.i.i.i2612, i1 false
   br i1 %or.cond.i.i.i.i2613, label %if.then.i.i.i.i2615, label %delete.notnull.i.i.i.i.i2614
 
@@ -38321,14 +38321,14 @@ while.body.i.i.i2631:                             ; preds = %for.body.i.i.i2627,
   %mpNext.i.i.i2633 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2632, i64 16
   %821 = load ptr, ptr %mpNext.i.i.i2633, align 8
   %822 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2624, align 8
-  %cmp.not.i.i.i.i.i2634 = icmp eq ptr %822, %pNode.08.i.i.i2632
+  %cmp.not.i.i.i.i.i2634 = icmp eq ptr %pNode.08.i.i.i2632, %822
   br i1 %cmp.not.i.i.i.i.i2634, label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i2635
 
 if.then.i.i.i.i.i2635:                            ; preds = %while.body.i.i.i2631
   %823 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2625, align 8
-  %cmp.not.i.i.i.i.i.i2636 = icmp ule ptr %823, %pNode.08.i.i.i2632
+  %cmp.not.i.i.i.i.i.i2636 = icmp uge ptr %pNode.08.i.i.i2632, %823
   %824 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2626, align 8
-  %cmp2.i.i.i.i.i.i2637 = icmp ugt ptr %824, %pNode.08.i.i.i2632
+  %cmp2.i.i.i.i.i.i2637 = icmp ult ptr %pNode.08.i.i.i2632, %824
   %or.cond.i.i.i.i.i.i2638 = select i1 %cmp.not.i.i.i.i.i.i2636, i1 %cmp2.i.i.i.i.i.i2637, i1 false
   br i1 %or.cond.i.i.i.i.i.i2638, label %if.then.i.i.i.i.i.i2658, label %delete.notnull.i.i.i.i.i.i.i2639
 
@@ -38358,15 +38358,15 @@ invoke.cont.i2644:                                ; preds = %while.end.i.i.i2641
   %826 = load ptr, ptr %mpBucketArray.i1137, align 8
   %cmp.i.i2647 = icmp ult i64 %.pr.i2645, 2
   %827 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2624, align 8
-  %cmp.not.i.i.i2648 = icmp eq ptr %827, %826
+  %cmp.not.i.i.i2648 = icmp eq ptr %826, %827
   %or.cond.i2649 = select i1 %cmp.i.i2647, i1 true, i1 %cmp.not.i.i.i2648
   br i1 %or.cond.i2649, label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i2650
 
 if.then.i.i.i2650:                                ; preds = %invoke.cont.i2644
   %828 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2625, align 8
-  %cmp.not.i.i.i.i2651 = icmp ule ptr %828, %826
+  %cmp.not.i.i.i.i2651 = icmp uge ptr %826, %828
   %829 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2626, align 8
-  %cmp2.i.i.i.i2652 = icmp ugt ptr %829, %826
+  %cmp2.i.i.i.i2652 = icmp ult ptr %826, %829
   %or.cond.i.i.i.i2653 = select i1 %cmp.not.i.i.i.i2651, i1 %cmp2.i.i.i.i2652, i1 false
   br i1 %or.cond.i.i.i.i2653, label %if.then.i.i.i.i2657, label %if.else.i.i.i.i2654
 
@@ -38413,14 +38413,14 @@ while.body.i.i.i2673:                             ; preds = %for.body.i.i.i2669,
   %mpNext.i.i.i2675 = getelementptr inbounds i8, ptr %pNode.08.i.i.i2674, i64 8
   %834 = load ptr, ptr %mpNext.i.i.i2675, align 8
   %835 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2666, align 8
-  %cmp.not.i.i.i.i.i2676 = icmp eq ptr %835, %pNode.08.i.i.i2674
+  %cmp.not.i.i.i.i.i2676 = icmp eq ptr %pNode.08.i.i.i2674, %835
   br i1 %cmp.not.i.i.i.i.i2676, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i2677
 
 if.then.i.i.i.i.i2677:                            ; preds = %while.body.i.i.i2673
   %836 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2667, align 8
-  %cmp.not.i.i.i.i.i.i2678 = icmp ule ptr %836, %pNode.08.i.i.i2674
+  %cmp.not.i.i.i.i.i.i2678 = icmp uge ptr %pNode.08.i.i.i2674, %836
   %837 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2668, align 8
-  %cmp2.i.i.i.i.i.i2679 = icmp ugt ptr %837, %pNode.08.i.i.i2674
+  %cmp2.i.i.i.i.i.i2679 = icmp ult ptr %pNode.08.i.i.i2674, %837
   %or.cond.i.i.i.i.i.i2680 = select i1 %cmp.not.i.i.i.i.i.i2678, i1 %cmp2.i.i.i.i.i.i2679, i1 false
   br i1 %or.cond.i.i.i.i.i.i2680, label %if.then.i.i.i.i.i.i2700, label %delete.notnull.i.i.i.i.i.i.i2681
 
@@ -38450,15 +38450,15 @@ invoke.cont.i2686:                                ; preds = %while.end.i.i.i2683
   %839 = load ptr, ptr %mpBucketArray.i892, align 8
   %cmp.i.i2689 = icmp ult i64 %.pr.i2687, 2
   %840 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i2666, align 8
-  %cmp.not.i.i.i2690 = icmp eq ptr %840, %839
+  %cmp.not.i.i.i2690 = icmp eq ptr %839, %840
   %or.cond.i2691 = select i1 %cmp.i.i2689, i1 true, i1 %cmp.not.i.i.i2690
   br i1 %or.cond.i2691, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %if.then.i.i.i2692
 
 if.then.i.i.i2692:                                ; preds = %invoke.cont.i2686
   %841 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2667, align 8
-  %cmp.not.i.i.i.i2693 = icmp ule ptr %841, %839
+  %cmp.not.i.i.i.i2693 = icmp uge ptr %839, %841
   %842 = load ptr, ptr %mpCapacity.i.i.i.i.i.i2668, align 8
-  %cmp2.i.i.i.i2694 = icmp ugt ptr %842, %839
+  %cmp2.i.i.i.i2694 = icmp ult ptr %839, %842
   %or.cond.i.i.i.i2695 = select i1 %cmp.not.i.i.i.i2693, i1 %cmp2.i.i.i.i2694, i1 false
   br i1 %or.cond.i.i.i.i2695, label %if.then.i.i.i.i2699, label %if.else.i.i.i.i2696
 
@@ -38618,7 +38618,7 @@ for.inc.i.i2745:                                  ; preds = %for.inc.loopexit.i.
 for.end.i.i2748:                                  ; preds = %for.inc.i.i2745
   %871 = icmp ult i64 %869, 2
   %872 = load ptr, ptr %mpBucketBuffer.i.i.i.i2725, align 8, !noalias !749
-  %cmp.not.i.i.i.i2749 = icmp eq ptr %872, %870
+  %cmp.not.i.i.i.i2749 = icmp eq ptr %870, %872
   %or.cond.i.i.i2750 = select i1 %871, i1 true, i1 %cmp.not.i.i.i.i2749
   br i1 %or.cond.i.i.i2750, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i, label %if.then.i.i.i.i2751
 
@@ -38900,7 +38900,7 @@ for.inc.i.i2798:                                  ; preds = %for.inc.loopexit.i.
 for.end.i.i2801:                                  ; preds = %for.inc.i.i2798
   %913 = icmp ult i64 %911, 2
   %914 = load ptr, ptr %mpBucketBuffer.i.i.i.i2725, align 8, !noalias !765
-  %cmp.not.i.i.i.i2802 = icmp eq ptr %914, %912
+  %cmp.not.i.i.i.i2802 = icmp eq ptr %912, %914
   %or.cond.i.i.i2803 = select i1 %913, i1 true, i1 %cmp.not.i.i.i.i2802
   br i1 %or.cond.i.i.i2803, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i2806, label %if.then.i.i.i.i2804
 
@@ -39082,7 +39082,7 @@ for.inc.i.i2853:                                  ; preds = %for.inc.loopexit.i.
 for.end.i.i2856:                                  ; preds = %for.inc.i.i2853
   %951 = icmp ult i64 %949, 2
   %952 = load ptr, ptr %mpBucketBuffer.i.i.i.i2725, align 8, !noalias !780
-  %cmp.not.i.i.i.i2857 = icmp eq ptr %952, %950
+  %cmp.not.i.i.i.i2857 = icmp eq ptr %950, %952
   %or.cond.i.i.i2858 = select i1 %951, i1 true, i1 %cmp.not.i.i.i.i2857
   br i1 %or.cond.i.i.i2858, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i2861, label %if.then.i.i.i.i2859
 
@@ -39264,7 +39264,7 @@ for.inc.i.i2908:                                  ; preds = %for.inc.loopexit.i.
 for.end.i.i2911:                                  ; preds = %for.inc.i.i2908
   %989 = icmp ult i64 %987, 2
   %990 = load ptr, ptr %mpBucketBuffer.i.i.i.i2725, align 8, !noalias !795
-  %cmp.not.i.i.i.i2912 = icmp eq ptr %990, %988
+  %cmp.not.i.i.i.i2912 = icmp eq ptr %988, %990
   %or.cond.i.i.i2913 = select i1 %989, i1 true, i1 %cmp.not.i.i.i.i2912
   br i1 %or.cond.i.i.i2913, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i2916, label %if.then.i.i.i.i2914
 
@@ -39409,7 +39409,7 @@ for.inc.i.i2963:                                  ; preds = %for.inc.loopexit.i.
 for.end.i.i2966:                                  ; preds = %for.inc.i.i2963
   %1020 = icmp ult i64 %1018, 2
   %1021 = load ptr, ptr %mpBucketBuffer.i.i.i.i2725, align 8, !noalias !807
-  %cmp.not.i.i.i.i2967 = icmp eq ptr %1021, %1019
+  %cmp.not.i.i.i.i2967 = icmp eq ptr %1019, %1021
   %or.cond.i.i.i2968 = select i1 %1020, i1 true, i1 %cmp.not.i.i.i.i2967
   br i1 %or.cond.i.i.i2968, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i2971, label %if.then.i.i.i.i2969
 
@@ -39458,7 +39458,7 @@ while.body.i.i.i.i.i1611:                         ; preds = %for.body.i.i.i.i.i1
   %mpNext.i.i.i.i.i1613 = getelementptr inbounds i8, ptr %pNode.08.i.i.i.i.i1612, i64 8
   %1030 = load ptr, ptr %mpNext.i.i.i.i.i1613, align 8
   %1031 = load ptr, ptr %mpBucketBuffer.i.i.i.i2725, align 8
-  %cmp.not.i.i.i.i.i.i.i1614 = icmp eq ptr %1031, %pNode.08.i.i.i.i.i1612
+  %cmp.not.i.i.i.i.i.i.i1614 = icmp eq ptr %pNode.08.i.i.i.i.i1612, %1031
   br i1 %cmp.not.i.i.i.i.i.i.i1614, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i1615
 
 if.then.i.i.i.i.i.i.i1615:                        ; preds = %while.body.i.i.i.i.i1611
@@ -39482,7 +39482,7 @@ invoke.cont.i.i.i1620:                            ; preds = %while.end.i.i.i.i.i
   %.pre1.i.i.i1622 = load i64, ptr %mnBucketCount.i.i.i.i1372, align 8
   %1033 = icmp ult i64 %.pre1.i.i.i1622, 2
   %1034 = load ptr, ptr %mpBucketBuffer.i.i.i.i2725, align 8
-  %cmp.not.i.i.i.i.i1624 = icmp eq ptr %1034, %.pre.i.i.i1621
+  %cmp.not.i.i.i.i.i1624 = icmp eq ptr %.pre.i.i.i1621, %1034
   %or.cond.i.i.i.i1625 = select i1 %1033, i1 true, i1 %cmp.not.i.i.i.i.i1624
   br i1 %or.cond.i.i.i.i1625, label %_ZN5eastl14fixed_hash_mapIiiLm10ELm10ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEED2Ev.exit, label %if.then.i.i.i.i.i1626
 
@@ -39627,7 +39627,7 @@ for.inc.i.i.i:                                    ; preds = %for.inc.loopexit.i.
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i
   %19 = icmp ult i64 %17, 2
   %20 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %20, %18
+  %cmp.not.i.i.i.i.i = icmp eq ptr %18, %20
   %or.cond.i.i.i.i = select i1 %19, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i.i, label %if.then.i.i.i.i.i
 
@@ -39692,7 +39692,7 @@ while.body.i.i.i.i:                               ; preds = %for.body.i.i.i.i, %
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i
@@ -39718,7 +39718,7 @@ invoke.cont.i.i:                                  ; preds = %while.end.i.i.i.i
   %mnElementCount.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i.i.i, align 8
   %7 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %7, %.pre.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %.pre.i.i, %7
   %or.cond.i.i.i = select i1 %6, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev.exit, label %if.then.i.i.i.i
 
@@ -39844,14 +39844,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -39888,16 +39888,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %8
+  %cmp.not.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %11, %8
+  %cmp.not.i.i.i1 = icmp uge ptr %8, %11
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -40095,7 +40095,7 @@ for.inc.i.i93:                                    ; preds = %for.inc.loopexit.i.
 for.end.i.i:                                      ; preds = %for.inc.i.i93
   %27 = icmp ult i64 %25, 2
   %28 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8, !noalias !817
-  %cmp.not.i.i.i.i96 = icmp eq ptr %28, %26
+  %cmp.not.i.i.i.i96 = icmp eq ptr %26, %28
   %or.cond.i.i.i = select i1 %27, i1 true, i1 %cmp.not.i.i.i.i96
   br i1 %or.cond.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i, label %if.then.i.i.i.i97
 
@@ -40126,7 +40126,7 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm1
 
 if.else.i.i:                                      ; preds = %for.body.i.i.i
   %34 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8, !noalias !812
-  %cmp.not.i.i.i.i = icmp eq ptr %34, %result.0.i.i.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %result.0.i.i.i.i, %34
   br i1 %cmp.not.i.i.i.i, label %for.inc, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i
@@ -40318,7 +40318,7 @@ while.body.i.i:                                   ; preds = %for.body.i.i17, %_Z
   %mpNext.i.i19 = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %59 = load ptr, ptr %mpNext.i.i19, align 8
   %60 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i20 = icmp eq ptr %60, %pNode.08.i.i
+  %cmp.not.i.i.i.i20 = icmp eq ptr %pNode.08.i.i, %60
   br i1 %cmp.not.i.i.i.i20, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i22, label %if.then.i.i.i.i21
 
 if.then.i.i.i.i21:                                ; preds = %while.body.i.i
@@ -40342,7 +40342,7 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm1
   %.pre134 = load i64, ptr %mnBucketCount.i, align 8
   %cmp.i.i = icmp ult i64 %.pre134, 2
   %62 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %62, %.pre133
+  %cmp.not.i.i.i = icmp eq ptr %.pre133, %62
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit.i, label %if.then.i.i.i
 
@@ -40468,7 +40468,7 @@ while.body.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i,
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i.i.i, i64 8
   %77 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   %78 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %78, %pNode.08.i.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i.i.i, %78
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i.i
@@ -40492,7 +40492,7 @@ invoke.cont.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %.pre1.i.i.i = load i64, ptr %mnBucketCount.i, align 8
   %80 = icmp ult i64 %.pre1.i.i.i, 2
   %81 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %81, %.pre.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %.pre.i.i.i, %81
   %or.cond.i.i.i.i = select i1 %80, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl14fixed_hash_mapIiiLm100ELm100ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEED2Ev.exit, label %if.then.i.i.i.i.i
 
@@ -40678,15 +40678,15 @@ for.inc.i:                                        ; preds = %for.inc.loopexit.i,
 for.end.i102:                                     ; preds = %for.inc.i
   %27 = icmp ult i64 %25, 2
   %28 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i105 = icmp eq ptr %28, %26
+  %cmp.not.i.i.i105 = icmp eq ptr %26, %28
   %or.cond = select i1 %27, i1 true, i1 %cmp.not.i.i.i105
   br i1 %or.cond, label %.noexc, label %if.then.i.i.i106
 
 if.then.i.i.i106:                                 ; preds = %for.end.i102
   %29 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i108 = icmp ule ptr %29, %26
+  %cmp.not.i.i.i.i108 = icmp uge ptr %26, %29
   %30 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i110 = icmp ugt ptr %30, %26
+  %cmp2.i.i.i.i110 = icmp ult ptr %26, %30
   %or.cond.i.i.i.i111 = select i1 %cmp.not.i.i.i.i108, i1 %cmp2.i.i.i.i110, i1 false
   br i1 %or.cond.i.i.i.i111, label %if.then.i.i.i.i113, label %delete.notnull.i.i.i.i.i112
 
@@ -40721,14 +40721,14 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm1
 
 if.else.i76:                                      ; preds = %for.body.i.i69
   %36 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8, !noalias !829
-  %cmp.not.i.i.i = icmp eq ptr %36, %result.0.i.i.i
+  %cmp.not.i.i.i = icmp eq ptr %result.0.i.i.i, %36
   br i1 %cmp.not.i.i.i, label %for.inc, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i76
   %37 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8, !noalias !829
-  %cmp.not.i.i.i.i = icmp ule ptr %37, %result.0.i.i.i
+  %cmp.not.i.i.i.i = icmp uge ptr %result.0.i.i.i, %37
   %38 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8, !noalias !829
-  %cmp2.i.i.i.i = icmp ugt ptr %38, %result.0.i.i.i
+  %cmp2.i.i.i.i = icmp ult ptr %result.0.i.i.i, %38
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -41030,14 +41030,14 @@ while.body.i.i.i79:                               ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i80 = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %76 = load ptr, ptr %mpNext.i.i.i80, align 8
   %77 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i.i.i81 = icmp eq ptr %77, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i81 = icmp eq ptr %pNode.08.i.i.i, %77
   br i1 %cmp.not.i.i.i.i.i81, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i82
 
 if.then.i.i.i.i.i82:                              ; preds = %while.body.i.i.i79
   %78 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %78, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %78
   %79 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %79, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %79
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -41067,15 +41067,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %81 = load ptr, ptr %mpBucketArray.i66, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %82 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i84 = icmp eq ptr %82, %81
+  %cmp.not.i.i.i84 = icmp eq ptr %81, %82
   %or.cond.i85 = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i84
   br i1 %or.cond.i85, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i86
 
 if.then.i.i.i86:                                  ; preds = %invoke.cont.i
   %83 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i87 = icmp ule ptr %83, %81
+  %cmp.not.i.i.i.i87 = icmp uge ptr %81, %83
   %84 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i88 = icmp ugt ptr %84, %81
+  %cmp2.i.i.i.i88 = icmp ult ptr %81, %84
   %or.cond.i.i.i.i89 = select i1 %cmp.not.i.i.i.i87, i1 %cmp2.i.i.i.i88, i1 false
   br i1 %or.cond.i.i.i.i89, label %if.then.i.i.i.i91, label %if.else.i.i.i.i
 
@@ -41202,7 +41202,7 @@ for.inc.i.i92:                                    ; preds = %for.inc.loopexit.i.
 for.end.i.i:                                      ; preds = %for.inc.i.i92
   %16 = icmp ult i64 %14, 2
   %17 = load ptr, ptr %mpBucketBuffer.i.i.i.i88, align 8, !noalias !847
-  %cmp.not.i.i.i.i95 = icmp eq ptr %17, %15
+  %cmp.not.i.i.i.i95 = icmp eq ptr %15, %17
   %or.cond.i.i.i = select i1 %16, i1 true, i1 %cmp.not.i.i.i.i95
   br i1 %or.cond.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE8DoRehashEm.exit.i, label %if.then.i.i.i.i96
 
@@ -41466,7 +41466,7 @@ while.body.i.i:                                   ; preds = %for.body.i.i13, %_Z
   %mpNext.i.i14 = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %56 = load ptr, ptr %mpNext.i.i14, align 8
   %57 = load ptr, ptr %mpBucketBuffer.i.i.i.i88, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %57, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %57
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
@@ -41490,7 +41490,7 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm1
   %.pre136 = load i64, ptr %mnBucketCount.i, align 8
   %cmp.i.i = icmp ult i64 %.pre136, 2
   %59 = load ptr, ptr %mpBucketBuffer.i.i.i.i88, align 8
-  %cmp.not.i.i.i = icmp eq ptr %59, %.pre135
+  %cmp.not.i.i.i = icmp eq ptr %.pre135, %59
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit.i, label %if.then.i.i.i
 
@@ -41616,7 +41616,7 @@ while.body.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i,
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i.i.i, i64 8
   %74 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   %75 = load ptr, ptr %mpBucketBuffer.i.i.i.i88, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %75, %pNode.08.i.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i.i.i, %75
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i.i
@@ -41640,7 +41640,7 @@ invoke.cont.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %.pre1.i.i.i = load i64, ptr %mnBucketCount.i, align 8
   %77 = icmp ult i64 %.pre1.i.i.i, 2
   %78 = load ptr, ptr %mpBucketBuffer.i.i.i.i88, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %78, %.pre.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %.pre.i.i.i, %78
   %or.cond.i.i.i.i = select i1 %77, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl19fixed_hash_multimapIiiLm100ELm100ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEED2Ev.exit, label %if.then.i.i.i.i.i
 
@@ -41770,15 +41770,15 @@ for.inc.i:                                        ; preds = %for.inc.loopexit.i,
 for.end.i94:                                      ; preds = %for.inc.i
   %16 = icmp ult i64 %14, 2
   %17 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i96 = icmp eq ptr %17, %15
+  %cmp.not.i.i.i96 = icmp eq ptr %15, %17
   %or.cond = select i1 %16, i1 true, i1 %cmp.not.i.i.i96
   br i1 %or.cond, label %.noexc, label %if.then.i.i.i97
 
 if.then.i.i.i97:                                  ; preds = %for.end.i94
   %18 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i98 = icmp ule ptr %18, %15
+  %cmp.not.i.i.i.i98 = icmp uge ptr %15, %18
   %19 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i99 = icmp ugt ptr %19, %15
+  %cmp2.i.i.i.i99 = icmp ult ptr %15, %19
   %or.cond.i.i.i.i100 = select i1 %cmp.not.i.i.i.i98, i1 %cmp2.i.i.i.i99, i1 false
   br i1 %or.cond.i.i.i.i100, label %if.then.i.i.i.i102, label %delete.notnull.i.i.i.i.i101
 
@@ -42157,14 +42157,14 @@ while.body.i.i.i81:                               ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i82 = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %71 = load ptr, ptr %mpNext.i.i.i82, align 8
   %72 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i.i.i83 = icmp eq ptr %72, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i83 = icmp eq ptr %pNode.08.i.i.i, %72
   br i1 %cmp.not.i.i.i.i.i83, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i84
 
 if.then.i.i.i.i.i84:                              ; preds = %while.body.i.i.i81
   %73 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %73, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %73
   %74 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %74, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %74
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -42194,15 +42194,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %76 = load ptr, ptr %mpBucketArray.i87, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %77 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %77, %76
+  %cmp.not.i.i.i = icmp eq ptr %76, %77
   %or.cond.i85 = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i85, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %78 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %78, %76
+  %cmp.not.i.i.i.i = icmp uge ptr %76, %78
   %79 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %79, %76
+  %cmp2.i.i.i.i = icmp ult ptr %76, %79
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -44063,7 +44063,7 @@ for.inc.i.i.i:                                    ; preds = %for.inc.loopexit.i.
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i
   %18 = icmp ult i64 %16, 2
   %19 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %19, %17
+  %cmp.not.i.i.i.i.i = icmp eq ptr %17, %19
   %or.cond.i.i.i.i = select i1 %18, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i.i, label %if.then.i.i.i.i.i
 
@@ -44126,7 +44126,7 @@ while.body.i.i.i.i:                               ; preds = %for.body.i.i.i.i, %
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i.i, i64 48
   %3 = load ptr, ptr %mpNext.i.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i
@@ -44152,7 +44152,7 @@ invoke.cont.i.i:                                  ; preds = %while.end.i.i.i.i
   %mnElementCount.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i.i.i, align 8
   %7 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %7, %.pre.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %.pre.i.i, %7
   %or.cond.i.i.i = select i1 %6, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl8hash_mapIK18InstanceRenderDatajNS_4hashIS2_EENS_8equal_toIS2_EENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev.exit, label %if.then.i.i.i.i
 
@@ -48033,16 +48033,16 @@ if.then.i.i2687:                                  ; preds = %for.end.i
   %mAllocator.i.i = getelementptr inbounds i8, ptr %toMap, i64 48
   %mpBucketBuffer.i.i13.i = getelementptr inbounds i8, ptr %toMap, i64 96
   %620 = load ptr, ptr %mpBucketBuffer.i.i13.i, align 8
-  %cmp.not.i.i.i2688 = icmp eq ptr %620, %618
+  %cmp.not.i.i.i2688 = icmp eq ptr %618, %620
   br i1 %cmp.not.i.i.i2688, label %.noexc, label %if.then.i.i.i2689
 
 if.then.i.i.i2689:                                ; preds = %if.then.i.i2687
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 88
   %621 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %621, %618
+  %cmp.not.i.i.i.i = icmp uge ptr %618, %621
   %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 64
   %622 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %622, %618
+  %cmp2.i.i.i.i = icmp ult ptr %618, %622
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -53214,16 +53214,16 @@ if.then.i.i2687:                                  ; preds = %for.end.i
   %mAllocator.i.i = getelementptr inbounds i8, ptr %toMap, i64 48
   %mpBucketBuffer.i.i13.i = getelementptr inbounds i8, ptr %toMap, i64 96
   %620 = load ptr, ptr %mpBucketBuffer.i.i13.i, align 8
-  %cmp.not.i.i.i2688 = icmp eq ptr %620, %618
+  %cmp.not.i.i.i2688 = icmp eq ptr %618, %620
   br i1 %cmp.not.i.i.i2688, label %.noexc, label %if.then.i.i.i2689
 
 if.then.i.i.i2689:                                ; preds = %if.then.i.i2687
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 88
   %621 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %621, %618
+  %cmp.not.i.i.i.i = icmp uge ptr %618, %621
   %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 64
   %622 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %622, %618
+  %cmp2.i.i.i.i = icmp ult ptr %618, %622
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -54700,14 +54700,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %7 = load ptr, ptr %mpNext.i.i.i, align 8
   %8 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %8, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %8
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %9 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %9, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %9
   %10 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %10, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %10
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -54738,15 +54738,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %12 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %13 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i.i = icmp eq ptr %12, %13
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %14, %12
+  %cmp.not.i.i.i.i = icmp uge ptr %12, %14
   %15 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %15, %12
+  %cmp2.i.i.i.i = icmp ult ptr %12, %15
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -62478,16 +62478,16 @@ if.then.i.i2647:                                  ; preds = %for.end.i
   %mAllocator.i.i = getelementptr inbounds i8, ptr %toMap, i64 48
   %mpBucketBuffer.i.i13.i = getelementptr inbounds i8, ptr %toMap, i64 96
   %581 = load ptr, ptr %mpBucketBuffer.i.i13.i, align 8
-  %cmp.not.i.i.i2648 = icmp eq ptr %581, %579
+  %cmp.not.i.i.i2648 = icmp eq ptr %579, %581
   br i1 %cmp.not.i.i.i2648, label %.noexc, label %if.then.i.i.i2649
 
 if.then.i.i.i2649:                                ; preds = %if.then.i.i2647
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 88
   %582 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %582, %579
+  %cmp.not.i.i.i.i = icmp uge ptr %579, %582
   %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 64
   %583 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %583, %579
+  %cmp2.i.i.i.i = icmp ult ptr %579, %583
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -67461,16 +67461,16 @@ if.then.i.i2647:                                  ; preds = %for.end.i
   %mAllocator.i.i = getelementptr inbounds i8, ptr %toMap, i64 48
   %mpBucketBuffer.i.i13.i = getelementptr inbounds i8, ptr %toMap, i64 96
   %581 = load ptr, ptr %mpBucketBuffer.i.i13.i, align 8
-  %cmp.not.i.i.i2648 = icmp eq ptr %581, %579
+  %cmp.not.i.i.i2648 = icmp eq ptr %579, %581
   br i1 %cmp.not.i.i.i2648, label %.noexc, label %if.then.i.i.i2649
 
 if.then.i.i.i2649:                                ; preds = %if.then.i.i2647
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 88
   %582 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %582, %579
+  %cmp.not.i.i.i.i = icmp uge ptr %579, %582
   %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 64
   %583 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %583, %579
+  %cmp2.i.i.i.i = icmp ult ptr %579, %583
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -76018,14 +76018,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %11 = load ptr, ptr %mpNext.i.i.i, align 8
   %12 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %12, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %12
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %13 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %13, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %13
   %14 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %14, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %14
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -76055,15 +76055,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %16 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %17 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %17, %16
+  %cmp.not.i.i.i = icmp eq ptr %16, %17
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %18 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %18, %16
+  %cmp.not.i.i.i.i = icmp uge ptr %16, %18
   %19 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %19, %16
+  %cmp2.i.i.i.i = icmp ult ptr %16, %19
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -76169,14 +76169,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %11 = load ptr, ptr %mpNext.i.i.i, align 8
   %12 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %12, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %12
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %13 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %13, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %13
   %14 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %14, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %14
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -76206,15 +76206,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %16 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %17 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %17, %16
+  %cmp.not.i.i.i = icmp eq ptr %16, %17
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %18 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %18, %16
+  %cmp.not.i.i.i.i = icmp uge ptr %16, %18
   %19 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %19, %16
+  %cmp2.i.i.i.i = icmp ult ptr %16, %19
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -76320,14 +76320,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %11 = load ptr, ptr %mpNext.i.i.i, align 8
   %12 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %12, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %12
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %13 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %13, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %13
   %14 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %14, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %14
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -76357,15 +76357,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %16 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %17 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %17, %16
+  %cmp.not.i.i.i = icmp eq ptr %16, %17
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %18 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %18, %16
+  %cmp.not.i.i.i.i = icmp uge ptr %16, %18
   %19 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %19, %16
+  %cmp2.i.i.i.i = icmp ult ptr %16, %19
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -76471,14 +76471,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %11 = load ptr, ptr %mpNext.i.i.i, align 8
   %12 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %12, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %12
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %13 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %13, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %13
   %14 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %14, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %14
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -76508,15 +76508,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %16 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %17 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %17, %16
+  %cmp.not.i.i.i = icmp eq ptr %16, %17
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %18 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %18, %16
+  %cmp.not.i.i.i.i = icmp uge ptr %16, %18
   %19 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %19, %16
+  %cmp2.i.i.i.i = icmp ult ptr %16, %19
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -76698,14 +76698,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -76930,14 +76930,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 16
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -77128,7 +77128,7 @@ for.inc.i.i.i:                                    ; preds = %for.inc.loopexit.i.
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i
   %19 = icmp ult i64 %17, 2
   %20 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %20, %18
+  %cmp.not.i.i.i.i.i = icmp eq ptr %18, %20
   %or.cond.i.i.i.i = select i1 %19, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i.i, label %if.then.i.i.i.i.i
 
@@ -77291,7 +77291,7 @@ for.inc.i.i:                                      ; preds = %for.inc.loopexit.i.
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %26 = icmp ult i64 %24, 2
   %27 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8, !noalias !2704
-  %cmp.not.i.i.i.i = icmp eq ptr %27, %25
+  %cmp.not.i.i.i.i = icmp eq ptr %25, %27
   %or.cond.i.i.i = select i1 %26, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i, label %if.then.i.i.i.i
 
@@ -77363,7 +77363,7 @@ while.body.i.i.i.i:                               ; preds = %for.body.i.i.i.i, %
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i
@@ -77389,7 +77389,7 @@ invoke.cont.i.i:                                  ; preds = %while.end.i.i.i.i
   %mnElementCount.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i.i.i, align 8
   %7 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %7, %.pre.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %.pre.i.i, %7
   %or.cond.i.i.i = select i1 %6, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev.exit, label %if.then.i.i.i.i
 
@@ -77437,14 +77437,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -77475,15 +77475,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -77542,14 +77542,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -77580,15 +77580,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -77644,14 +77644,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -77682,15 +77682,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -77746,14 +77746,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -77784,15 +77784,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -77848,14 +77848,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -77886,15 +77886,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -77950,14 +77950,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -77988,15 +77988,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -78052,14 +78052,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -78090,15 +78090,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -78154,14 +78154,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -78192,15 +78192,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -78256,14 +78256,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -78294,15 +78294,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -78358,14 +78358,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -78396,15 +78396,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -78460,14 +78460,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -78498,15 +78498,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -78562,14 +78562,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -78600,15 +78600,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -78664,14 +78664,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -78702,15 +78702,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -78766,14 +78766,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -78804,15 +78804,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -78868,14 +78868,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -78906,15 +78906,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -78970,14 +78970,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -79008,15 +79008,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -79074,14 +79074,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -79113,15 +79113,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %9 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %10 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %9
+  %cmp.not.i.i = icmp eq ptr %9, %10
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %11 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %11, %9
+  %cmp.not.i.i.i = icmp uge ptr %9, %11
   %12 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -79192,14 +79192,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -79231,15 +79231,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %9 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %10 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %9
+  %cmp.not.i.i = icmp eq ptr %9, %10
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %11 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %11, %9
+  %cmp.not.i.i.i = icmp uge ptr %9, %11
   %12 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -79310,14 +79310,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -79349,15 +79349,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %9 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %10 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %9
+  %cmp.not.i.i = icmp eq ptr %9, %10
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %11 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %11, %9
+  %cmp.not.i.i.i = icmp uge ptr %9, %11
   %12 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -79428,14 +79428,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -79467,15 +79467,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %9 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %10 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %9
+  %cmp.not.i.i = icmp eq ptr %9, %10
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %11 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %11, %9
+  %cmp.not.i.i.i = icmp uge ptr %9, %11
   %12 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -79546,14 +79546,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -79585,15 +79585,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %9 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %10 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %9
+  %cmp.not.i.i = icmp eq ptr %9, %10
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %11 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %11, %9
+  %cmp.not.i.i.i = icmp uge ptr %9, %11
   %12 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -79664,14 +79664,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -79703,15 +79703,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %9 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %10 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %9
+  %cmp.not.i.i = icmp eq ptr %9, %10
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %11 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %11, %9
+  %cmp.not.i.i.i = icmp uge ptr %9, %11
   %12 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -79782,14 +79782,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -79821,15 +79821,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %9 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %10 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %9
+  %cmp.not.i.i = icmp eq ptr %9, %10
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %11 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %11, %9
+  %cmp.not.i.i.i = icmp uge ptr %9, %11
   %12 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -79900,14 +79900,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -79939,15 +79939,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %9 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %10 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %9
+  %cmp.not.i.i = icmp eq ptr %9, %10
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %11 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %11, %9
+  %cmp.not.i.i.i = icmp uge ptr %9, %11
   %12 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -80014,7 +80014,7 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
@@ -80040,7 +80040,7 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i.i, align 8
   %7 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, %.pre.i
+  %cmp.not.i.i.i = icmp eq ptr %.pre.i, %7
   %or.cond.i.i = select i1 %6, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i
 
@@ -80088,14 +80088,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -80126,15 +80126,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -80192,14 +80192,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -80231,15 +80231,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %9 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %10 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %9
+  %cmp.not.i.i = icmp eq ptr %9, %10
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %11 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %11, %9
+  %cmp.not.i.i.i = icmp uge ptr %9, %11
   %12 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -80308,14 +80308,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 64
   %3 = load ptr, ptr %mpNext.i.i, align 64
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -80346,15 +80346,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -80410,14 +80410,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 64
   %3 = load ptr, ptr %mpNext.i.i, align 64
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -80448,15 +80448,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -80512,14 +80512,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 128
   %3 = load ptr, ptr %mpNext.i.i, align 64
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -80550,15 +80550,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -80614,14 +80614,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 128
   %3 = load ptr, ptr %mpNext.i.i, align 64
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -80652,15 +80652,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -80716,14 +80716,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -80754,15 +80754,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -80818,14 +80818,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -80856,15 +80856,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -80920,14 +80920,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -80958,15 +80958,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -81022,14 +81022,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -81060,15 +81060,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -81124,14 +81124,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -81162,15 +81162,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -81226,14 +81226,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -81264,15 +81264,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -81328,14 +81328,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -81366,15 +81366,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -81430,14 +81430,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -81468,15 +81468,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -81532,14 +81532,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -81570,15 +81570,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -81634,14 +81634,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 24
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -81672,15 +81672,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -81734,7 +81734,7 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 48
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
@@ -81760,7 +81760,7 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i.i, align 8
   %7 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, %.pre.i
+  %cmp.not.i.i.i = icmp eq ptr %.pre.i, %7
   %or.cond.i.i = select i1 %6, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i
 
@@ -81810,14 +81810,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -81849,15 +81849,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %9 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %10 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %9
+  %cmp.not.i.i = icmp eq ptr %9, %10
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %11 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %11, %9
+  %cmp.not.i.i.i = icmp uge ptr %9, %11
   %12 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %9
+  %cmp2.i.i.i = icmp ult ptr %9, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -81926,14 +81926,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 16
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -81964,15 +81964,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -82028,14 +82028,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -82066,15 +82066,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -82128,7 +82128,7 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
@@ -82154,7 +82154,7 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i.i, align 8
   %7 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, %.pre.i
+  %cmp.not.i.i.i = icmp eq ptr %.pre.i, %7
   %or.cond.i.i = select i1 %6, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i
 
@@ -82258,16 +82258,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -82470,14 +82470,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -82680,16 +82680,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -82955,16 +82955,16 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
 if.else:                                          ; preds = %for.body.i
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %17 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %17, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %17
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %18, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %18
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %19 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %19, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %19
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -83026,14 +83026,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -83195,14 +83195,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -83233,15 +83233,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -83348,16 +83348,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -83531,14 +83531,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -83695,14 +83695,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -83733,15 +83733,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -83848,16 +83848,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -84138,14 +84138,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -84307,14 +84307,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -84345,15 +84345,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -84460,16 +84460,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -84672,14 +84672,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -84882,16 +84882,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -85157,16 +85157,16 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
 if.else:                                          ; preds = %for.body.i
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %17 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %17, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %17
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %18, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %18
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %19 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %19, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %19
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -85228,14 +85228,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -85397,14 +85397,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -85435,15 +85435,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -85550,16 +85550,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -85733,14 +85733,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -85897,14 +85897,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -85935,15 +85935,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -86050,16 +86050,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -86340,14 +86340,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -86509,14 +86509,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -86547,15 +86547,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -86664,16 +86664,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb1EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -86894,14 +86894,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -87105,16 +87105,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -87407,16 +87407,16 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1EL
 if.else:                                          ; preds = %_ZNK5eastl14hash_code_baseIiNS_4pairIKiiEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashELb1EE7compareERS2_jPNS_9hash_nodeIS3_Lb1EEE.exit.i
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %18 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %18, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %18
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %19 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %19, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %19
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %20 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %20, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %20
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -87478,14 +87478,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -87646,14 +87646,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -87684,15 +87684,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -87801,16 +87801,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb1EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -87995,14 +87995,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -88158,14 +88158,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -88196,15 +88196,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -88313,16 +88313,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -88623,14 +88623,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -88791,14 +88791,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -88829,15 +88829,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -88946,16 +88946,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb1EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -89176,14 +89176,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -89387,16 +89387,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -89689,16 +89689,16 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24E
 if.else:                                          ; preds = %_ZNK5eastl14hash_code_baseI1ANS_4pairIKS1_S1_EENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashELb1EE7compareERS3_jPNS_9hash_nodeIS4_Lb1EEE.exit.i
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %18 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %18, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %18
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %19 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %19, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %19
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %20 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %20, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %20
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -89760,14 +89760,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -89928,14 +89928,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -89966,15 +89966,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -90083,16 +90083,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb1EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -90277,14 +90277,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -90440,14 +90440,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -90478,15 +90478,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -90595,16 +90595,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -90905,14 +90905,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -91073,14 +91073,14 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNode.08.i.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNode.08.i.i.i, %6
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -91111,15 +91111,15 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %8 = load ptr, ptr %mpBucketArray.i.i, align 8
   %cmp.i.i = icmp ult i64 %.pr.i, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i = icmp eq ptr %8, %9
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -91229,16 +91229,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 104
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -91449,14 +91449,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -91661,16 +91661,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 104
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -91945,16 +91945,16 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
 if.else:                                          ; preds = %for.body.i
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %18 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %18, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %18
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %19 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %19, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %19
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %20 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %20, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %20
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -92021,14 +92021,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -92233,16 +92233,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 104
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -92424,14 +92424,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -92631,16 +92631,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 104
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -92932,14 +92932,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -93144,16 +93144,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 104
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -93364,14 +93364,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -93576,16 +93576,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 104
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -93860,16 +93860,16 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
 if.else:                                          ; preds = %for.body.i
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %18 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %18, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %18
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %19 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %19, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %19
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %20 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %20, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %20
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -93936,14 +93936,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -94148,16 +94148,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 104
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -94339,14 +94339,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -94546,16 +94546,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 104
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -94847,14 +94847,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -95114,7 +95114,7 @@ for.inc.i22:                                      ; preds = %for.inc.loopexit.i,
 for.end.i:                                        ; preds = %for.inc.i22
   %26 = icmp ult i64 %24, 2
   %27 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %27, %25
+  %cmp.not.i.i.i = icmp eq ptr %25, %27
   %or.cond.i.i = select i1 %26, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit, label %if.then.i.i.i
 
@@ -95348,16 +95348,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -95653,7 +95653,7 @@ for.inc.i.i.i:                                    ; preds = %for.inc.loopexit.i.
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i
   %19 = icmp ult i64 %17, 2
   %20 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %20, %18
+  %cmp.not.i.i.i.i.i = icmp eq ptr %18, %20
   %or.cond.i.i.i.i = select i1 %19, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE8DoRehashEm.exit.i.i, label %if.then.i.i.i.i.i
 
@@ -95716,7 +95716,7 @@ while.body.i.i.i.i:                               ; preds = %for.body.i.i.i.i, %
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i
@@ -95742,7 +95742,7 @@ invoke.cont.i.i:                                  ; preds = %while.end.i.i.i.i
   %mnElementCount.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i.i.i, align 8
   %7 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %7, %.pre.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %.pre.i.i, %7
   %or.cond.i.i.i = select i1 %6, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev.exit, label %if.then.i.i.i.i
 
@@ -95788,7 +95788,7 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i.i, %_Z
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %pNode.08.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
@@ -95814,7 +95814,7 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i.i, align 8
   %7 = load ptr, ptr %mpBucketBuffer.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, %.pre.i
+  %cmp.not.i.i.i = icmp eq ptr %.pre.i, %7
   %or.cond.i.i = select i1 %6, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %if.then.i.i.i
 
@@ -95857,14 +95857,14 @@ while.body.i:                                     ; preds = %for.body.i, %_ZN5ea
   %mpNext.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %3 = load ptr, ptr %mpNext.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %pNode.08.i
+  %cmp.not.i.i.i = icmp eq ptr %pNode.08.i, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNode.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNode.08.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNode.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNode.08.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -95901,16 +95901,16 @@ if.then.i:                                        ; preds = %if.then
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %8
+  %cmp.not.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i1 = icmp ule ptr %11, %8
+  %cmp.not.i.i.i1 = icmp uge ptr %8, %11
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %12, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %12
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i1, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i2, label %if.else.i.i.i
 
@@ -96032,16 +96032,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -96257,16 +96257,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 104
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -96480,16 +96480,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -96697,16 +96697,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -96953,16 +96953,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -97181,16 +97181,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -97402,16 +97402,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -97771,16 +97771,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -98046,16 +98046,16 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm1
 if.else:                                          ; preds = %for.body.i
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %17 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %17, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %17
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %18, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %18
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %19 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %19, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %19
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -98537,16 +98537,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -98943,16 +98943,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -99068,16 +99068,16 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0
 if.else:                                          ; preds = %for.body.i
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %16 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %16
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %17 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %17, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %17
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %18 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %18, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %18
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -99305,16 +99305,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -99415,16 +99415,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -99923,16 +99923,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -100181,16 +100181,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -100401,16 +100401,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %15, %13
+  %cmp.not.i.i = icmp eq ptr %13, %15
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %16 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %16, %13
+  %cmp.not.i.i.i = icmp uge ptr %13, %16
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %17 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %17, %13
+  %cmp2.i.i.i = icmp ult ptr %13, %17
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -100663,16 +100663,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 104
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -100832,14 +100832,14 @@ _ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i.i.i: ; preds = %if
   %inc3.i.i.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %8 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %8
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i.i.i
   %9 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %9, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %9
   %10 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %10, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %10
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -100870,15 +100870,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %12 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %13 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i = icmp eq ptr %12, %13
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %14, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %14
   %15 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %15, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %15
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -101178,16 +101178,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -101343,16 +101343,16 @@ _ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i: ; preds = %if.the
   store i64 %inc3.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %25 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %25, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %25
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %26 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %26, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %26
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %27 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %27, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %27
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -101514,16 +101514,16 @@ _ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i: ; preds = %if.the
   store i64 %inc3.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %25 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %25, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %25
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %26 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %26, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %26
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %27 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %27, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %27
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -101689,16 +101689,16 @@ _ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i: ; preds = %if.the
   store i64 %inc3.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %27 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %27, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %27
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %28 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %28, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %28
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %29 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %29, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %29
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -101851,16 +101851,16 @@ _ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i: ; preds = %for.bo
   store i64 %inc3.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %24 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %24, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %24
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %25 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %25, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %25
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %26 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %26, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %26
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -102220,14 +102220,14 @@ _ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i.i.i: ; preds = %if
   %inc3.i.i.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %8 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %8
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i.i.i
   %9 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %9, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %9
   %10 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %10, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %10
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -102258,15 +102258,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %12 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %13 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i = icmp eq ptr %12, %13
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %14, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %14
   %15 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %15, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %15
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -102566,16 +102566,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -102731,16 +102731,16 @@ _ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i: ; preds = %if.the
   store i64 %inc3.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %25 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %25, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %25
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %26 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %26, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %26
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %27 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %27, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %27
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -102902,16 +102902,16 @@ _ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i: ; preds = %if.the
   store i64 %inc3.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %25 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %25, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %25
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %26 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %26, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %26
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %27 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %27, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %27
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -103077,16 +103077,16 @@ _ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i: ; preds = %if.the
   store i64 %inc3.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %27 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %27, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %27
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %28 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %28, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %28
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %29 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %29, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %29
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -103239,16 +103239,16 @@ _ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i: ; preds = %for.bo
   store i64 %inc3.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %24 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %24, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %24
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %25 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %25, %result.0.i.i
+  %cmp.not.i.i.i = icmp uge ptr %result.0.i.i, %25
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %26 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %26, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %26
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -103589,14 +103589,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -103627,15 +103627,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -103848,16 +103848,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -104014,14 +104014,14 @@ _ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i
   %inc3.i.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %8 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %8
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i.i.i
   %9 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i2.i.i.i = icmp ule ptr %9, %pNode.08.i.i
+  %cmp.not.i.i2.i.i.i = icmp uge ptr %pNode.08.i.i, %9
   %10 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %10, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %10
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i2.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i3.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -104052,15 +104052,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %12 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %13 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i = icmp eq ptr %12, %13
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %14, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %14
   %15 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %15, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %15
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -104213,16 +104213,16 @@ _ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i: ; preds = %if.then.i.i.i, %if.
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %24 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %24, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %24
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %25 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i2.i = icmp ule ptr %25, %result.0.i.i
+  %cmp.not.i.i2.i = icmp uge ptr %result.0.i.i, %25
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %26 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %26, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %26
   %or.cond.i.i.i = select i1 %cmp.not.i.i2.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i3.i, label %delete.notnull.i.i.i.i
 
@@ -104330,16 +104330,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -104686,14 +104686,14 @@ _ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i
   %inc3.i.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %8 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %8
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i.i.i
   %9 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i2.i.i.i = icmp ule ptr %9, %pNode.08.i.i
+  %cmp.not.i.i2.i.i.i = icmp uge ptr %pNode.08.i.i, %9
   %10 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %10, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %10
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i2.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i3.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -104724,15 +104724,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %12 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %13 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i = icmp eq ptr %12, %13
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %14, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %14
   %15 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %15, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %15
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -104885,16 +104885,16 @@ _ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i: ; preds = %if.then.i.i.i, %if.
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %mpBucketBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %24 = load ptr, ptr %mpBucketBuffer.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %24, %result.0.i.i
+  %cmp.not.i.i = icmp eq ptr %result.0.i.i, %24
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %25 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i2.i = icmp ule ptr %25, %result.0.i.i
+  %cmp.not.i.i2.i = icmp uge ptr %result.0.i.i, %25
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %26 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %26, %result.0.i.i
+  %cmp2.i.i.i = icmp ult ptr %result.0.i.i, %26
   %or.cond.i.i.i = select i1 %cmp.not.i.i2.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i3.i, label %delete.notnull.i.i.i.i
 
@@ -105002,16 +105002,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -105358,14 +105358,14 @@ _ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i.i.i: ; preds = %if
   %inc3.i.i.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %8 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %8
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i.i.i
   %9 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %9, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %9
   %10 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %10, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %10
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -105396,15 +105396,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %12 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %13 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i = icmp eq ptr %12, %13
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %14, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %14
   %15 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %15, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %15
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -105677,16 +105677,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -106523,14 +106523,14 @@ _ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i.i.i: ; preds = %if
   %inc3.i.i.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %8 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %8
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i.i.i
   %9 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %9, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %9
   %10 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %10, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %10
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -106561,15 +106561,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %12 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %13 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i = icmp eq ptr %12, %13
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %14, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %14
   %15 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %15, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %15
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -106842,16 +106842,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -107688,14 +107688,14 @@ _ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i
   %inc3.i.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %8 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %8
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i.i.i
   %9 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i2.i.i.i = icmp ule ptr %9, %pNode.08.i.i
+  %cmp.not.i.i2.i.i.i = icmp uge ptr %pNode.08.i.i, %9
   %10 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %10, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %10
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i2.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i3.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -107726,15 +107726,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %12 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %13 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i = icmp eq ptr %12, %13
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %14, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %14
   %15 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %15, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %15
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -107959,16 +107959,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -108287,14 +108287,14 @@ _ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i
   %inc3.i.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %8 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %8
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i.i.i
   %9 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i2.i.i.i = icmp ule ptr %9, %pNode.08.i.i
+  %cmp.not.i.i2.i.i.i = icmp uge ptr %pNode.08.i.i, %9
   %10 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %10, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %10
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i2.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i3.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -108325,15 +108325,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %12 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %13 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i = icmp eq ptr %12, %13
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %14, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %14
   %15 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %15, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %15
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -108558,16 +108558,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -108861,7 +108861,7 @@ if.else:                                          ; preds = %_ZN5eastl9hashtable
   %21 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i = add nsw i64 %21, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %second, %obj
+  %cmp.not.i = icmp eq ptr %obj, %second
   br i1 %cmp.not.i, label %_ZN10TestObjectaSEOS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -109007,7 +109007,7 @@ if.else:                                          ; preds = %_ZN5eastl9hashtable
   %21 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %21, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %second, %obj
+  %cmp.not.i = icmp eq ptr %obj, %second
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -109405,7 +109405,7 @@ if.else:                                          ; preds = %_ZN5eastl9hashtable
   %21 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i = add nsw i64 %21, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %second, %obj
+  %cmp.not.i = icmp eq ptr %obj, %second
   br i1 %cmp.not.i, label %_ZN10TestObjectaSEOS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -109551,7 +109551,7 @@ if.else:                                          ; preds = %_ZN5eastl9hashtable
   %21 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %21, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %second, %obj
+  %cmp.not.i = icmp eq ptr %obj, %second
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -109958,14 +109958,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -109996,15 +109996,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -110106,16 +110106,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -110253,14 +110253,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -110291,15 +110291,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -110401,16 +110401,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -110548,14 +110548,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -110586,15 +110586,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -110696,16 +110696,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -110843,14 +110843,14 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %_ZN5
   %mpNext.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 8
   %3 = load ptr, ptr %mpNext.i.i, align 8
   %4 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %pNode.08.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %pNode.08.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %5, %pNode.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNode.08.i.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %6, %pNode.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNode.08.i.i, %6
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -110881,15 +110881,15 @@ invoke.cont:                                      ; preds = %while.end.i.i
   %8 = load ptr, ptr %mpBucketArray.i, align 8
   %cmp.i = icmp ult i64 %.pr, 2
   %9 = load ptr, ptr %mpBucketBuffer.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i = icmp eq ptr %8, %9
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond, label %invoke.cont2, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %10, %8
+  %cmp.not.i.i.i = icmp uge ptr %8, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %11, %8
+  %cmp2.i.i.i = icmp ult ptr %8, %11
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -110991,16 +110991,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -111101,16 +111101,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 
@@ -111359,16 +111359,16 @@ if.then.i:                                        ; preds = %for.end
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpBucketBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 96
   %14 = load ptr, ptr %mpBucketBuffer.i.i13, align 8
-  %cmp.not.i.i = icmp eq ptr %14, %12
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ule ptr %15, %12
+  %cmp.not.i.i.i = icmp uge ptr %12, %15
   %mpCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpCapacity.i.i.i, align 8
-  %cmp2.i.i.i = icmp ugt ptr %16, %12
+  %cmp2.i.i.i = icmp ult ptr %12, %16
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %delete.notnull.i.i.i.i
 

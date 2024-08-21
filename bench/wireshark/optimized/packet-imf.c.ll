@@ -1654,7 +1654,7 @@ define internal void @dissect_imf_mailbox(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %9, label %12, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %10 = icmp sgt i32 %8, %1
+  %10 = icmp slt i32 %1, %8
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -1697,7 +1697,7 @@ define internal void @dissect_imf_mailbox(ptr noundef %0, i32 noundef %1, i32 no
   %.0.lcssa40 = phi i32 [ %.0.lcssa, %23 ], [ %.0.lcssa, %._crit_edge ], [ %8, %21 ]
   %28 = add i32 %8, 1
   %.neg34 = xor i32 %8, -1
-  %.neg = add i32 %.neg34, %2
+  %.neg = add i32 %2, %.neg34
   %29 = add i32 %.neg, %.0.lcssa40
   %30 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %28, i32 noundef %29, i8 noundef zeroext 62) #7
   %.not33 = icmp eq i32 %30, -1

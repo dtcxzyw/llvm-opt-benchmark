@@ -4173,7 +4173,7 @@ if.end156:                                        ; preds = %next_arg.exit189.ta
   %142 = load ptr, ptr %cmd165, align 8
   tail call void @free(ptr noundef %142) #18
   tail call void @free(ptr noundef %94) #18
-  %cmp168 = icmp eq ptr %94, %tcmd
+  %cmp168 = icmp eq ptr %tcmd, %94
   %or.cond = or i1 %tobool166.not, %cmp168
   br i1 %or.cond, label %return.loopexit.split.loop.exit270, label %if.end174
 

@@ -458,7 +458,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i297, %for
   %pNode.addr.02.i.i.i.i = phi ptr [ %35, %for.inc.i.i.i.i ], [ %33, %for.body.i297 ]
   %34 = getelementptr i8, ptr %pNode.addr.02.i.i.i.i, i64 8
   %call.val.i.i.i.i = load i32, ptr %34, align 8, !noalias !17
-  %cmp.i.i.i.i.i.i = icmp eq i32 %call.val.i.i.i.i, %call.val.i.i.i
+  %cmp.i.i.i.i.i.i = icmp eq i32 %call.val.i.i.i, %call.val.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -496,7 +496,7 @@ for.body.i.i.i:                                   ; preds = %for.body61, %for.in
   %pNode.addr.02.i.i.i = phi ptr [ %41, %for.inc.i.i.i ], [ %39, %for.body61 ]
   %40 = getelementptr i8, ptr %pNode.addr.02.i.i.i, i64 8
   %call.val.i.i.i301 = load i32, ptr %40, align 8, !noalias !24
-  %cmp.i.i.i.i.i = icmp eq i32 %call.val.i.i.i301, %call.val.i.i
+  %cmp.i.i.i.i.i = icmp eq i32 %call.val.i.i, %call.val.i.i.i301
   br i1 %cmp.i.i.i.i.i, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -586,7 +586,7 @@ for.body.i.i.i337:                                ; preds = %for.body79, %for.in
   %pNode.addr.02.i.i.i338 = phi ptr [ %51, %for.inc.i.i.i341 ], [ %49, %for.body79 ]
   %50 = getelementptr i8, ptr %pNode.addr.02.i.i.i338, i64 8
   %call.val.i.i.i339 = load i32, ptr %50, align 8, !noalias !30
-  %cmp.i.i.i.i.i340 = icmp eq i32 %call.val.i.i.i339, %call.val.i.i332
+  %cmp.i.i.i.i.i340 = icmp eq i32 %call.val.i.i332, %call.val.i.i.i339
   br i1 %cmp.i.i.i.i.i340, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit350, label %for.inc.i.i.i341
 
 for.inc.i.i.i341:                                 ; preds = %for.body.i.i.i337
@@ -992,7 +992,7 @@ for.body.i.i:                                     ; preds = %_ZNK5eastl19intrusi
   %pNode.addr.02.i.i = phi ptr [ %92, %for.inc.i.i ], [ %90, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit ]
   %91 = getelementptr i8, ptr %pNode.addr.02.i.i, i64 8
   %call.val.i.i571 = load i32, ptr %91, align 8
-  %cmp.i.i.i.i = icmp eq i32 %call.val.i.i571, %89
+  %cmp.i.i.i.i = icmp eq i32 %89, %call.val.i.i571
   br i1 %cmp.i.i.i.i, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
@@ -1065,7 +1065,7 @@ for.body.i.i597:                                  ; preds = %for.body177, %for.i
   %pNode.addr.02.i.i598 = phi ptr [ %103, %for.inc.i.i601 ], [ %101, %for.body177 ]
   %102 = getelementptr i8, ptr %pNode.addr.02.i.i598, i64 8
   %call.val.i.i599 = load i32, ptr %102, align 8
-  %cmp.i.i.i.i600 = icmp eq i32 %call.val.i.i599, %100
+  %cmp.i.i.i.i600 = icmp eq i32 %100, %call.val.i.i599
   br i1 %cmp.i.i.i.i600, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit609, label %for.inc.i.i601
 
 for.inc.i.i601:                                   ; preds = %for.body.i.i597
@@ -2097,7 +2097,7 @@ _ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit
   br i1 %cmp.i.not.i1246, label %for.end.i1247, label %for.body.i1236, !llvm.loop !41
 
 for.end.i1247:                                    ; preds = %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i1243, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i1231
-  %cmp.i11.i1248 = icmp eq ptr %242, %retval.sroa.0.0.i12222936
+  %cmp.i11.i1248 = icmp eq ptr %retval.sroa.0.0.i12222936, %242
   br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit1259
 
 _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit1259: ; preds = %for.body.i1236, %for.end.i1247
@@ -2436,7 +2436,7 @@ for.body.i.i.i.i1461:                             ; preds = %for.body.i1455, %fo
   %pNode.addr.02.i.i.i.i1462 = phi ptr [ %279, %for.inc.i.i.i.i1464 ], [ %277, %for.body.i1455 ]
   %mKey.i.i.i.i.i = getelementptr inbounds i8, ptr %pNode.addr.02.i.i.i.i1462, i64 8
   %278 = load i32, ptr %mKey.i.i.i.i.i, align 4, !noalias !80
-  %cmp.i.i.i.i.i1463 = icmp eq i32 %278, %276
+  %cmp.i.i.i.i.i1463 = icmp eq i32 %276, %278
   br i1 %cmp.i.i.i.i.i1463, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE6insertERS2_.exit.i, label %for.inc.i.i.i.i1464
 
 for.inc.i.i.i.i1464:                              ; preds = %for.body.i.i.i.i1461
@@ -2474,7 +2474,7 @@ for.body.i.i.i1475:                               ; preds = %for.body461, %for.i
   %pNode.addr.02.i.i.i1476 = phi ptr [ %285, %for.inc.i.i.i1479 ], [ %283, %for.body461 ]
   %mKey.i.i.i.i1477 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i.i1476, i64 8
   %284 = load i32, ptr %mKey.i.i.i.i1477, align 4, !noalias !87
-  %cmp.i.i.i.i1478 = icmp eq i32 %284, %282
+  %cmp.i.i.i.i1478 = icmp eq i32 %282, %284
   br i1 %cmp.i.i.i.i1478, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE6insertERS2_.exit, label %for.inc.i.i.i1479
 
 for.inc.i.i.i1479:                                ; preds = %for.body.i.i.i1475
@@ -2564,7 +2564,7 @@ for.body.i.i.i1521:                               ; preds = %for.body482, %for.i
   %pNode.addr.02.i.i.i1522 = phi ptr [ %295, %for.inc.i.i.i1525 ], [ %293, %for.body482 ]
   %mKey.i.i.i.i1523 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i.i1522, i64 8
   %294 = load i32, ptr %mKey.i.i.i.i1523, align 4, !noalias !93
-  %cmp.i.i.i.i1524 = icmp eq i32 %294, %292
+  %cmp.i.i.i.i1524 = icmp eq i32 %292, %294
   br i1 %cmp.i.i.i.i1524, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE6insertERS2_.exit1534, label %for.inc.i.i.i1525
 
 for.inc.i.i.i1525:                                ; preds = %for.body.i.i.i1521
@@ -2975,7 +2975,7 @@ for.body.i.i1778:                                 ; preds = %_ZNK5eastl19intrusi
   %pNode.addr.02.i.i1779 = phi ptr [ %337, %for.inc.i.i1782 ], [ %335, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE17validate_iteratorENS_28intrusive_hashtable_iteratorIS2_Lb1EEE.exit ]
   %mKey.i.i.i1780 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i1779, i64 8
   %336 = load i32, ptr %mKey.i.i.i1780, align 4, !noalias !111
-  %cmp.i.i.i1781 = icmp eq i32 %336, %mKey556.val
+  %cmp.i.i.i1781 = icmp eq i32 %mKey556.val, %336
   br i1 %cmp.i.i.i1781, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit, label %for.inc.i.i1782
 
 for.inc.i.i1782:                                  ; preds = %for.body.i.i1778
@@ -3052,7 +3052,7 @@ for.body.i.i1815:                                 ; preds = %for.body584, %for.i
   %pNode.addr.02.i.i1816 = phi ptr [ %348, %for.inc.i.i1819 ], [ %346, %for.body584 ]
   %mKey.i.i.i1817 = getelementptr inbounds i8, ptr %pNode.addr.02.i.i1816, i64 8
   %347 = load i32, ptr %mKey.i.i.i1817, align 4
-  %cmp.i.i.i1818 = icmp eq i32 %347, %mKey587.val
+  %cmp.i.i.i1818 = icmp eq i32 %mKey587.val, %347
   br i1 %cmp.i.i.i1818, label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE4findERKi.exit, label %for.inc.i.i1819
 
 for.inc.i.i1819:                                  ; preds = %for.body.i.i1815
@@ -4193,7 +4193,7 @@ _ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb1EEppEv.exit
   br i1 %cmp.i.not.i2539, label %for.end.i2540, label %for.body.i2529, !llvm.loop !110
 
 for.end.i2540:                                    ; preds = %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19MapWidgetELb1EEppEv.exit.i2536, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5beginEv.exit.i2524
-  %cmp.i11.i2541 = icmp eq ptr %510, %ref.tmp796.sroa.0.02940
+  %cmp.i11.i2541 = icmp eq ptr %ref.tmp796.sroa.0.02940, %510
   br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit
 
 _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit: ; preds = %for.body.i2529, %for.end.i2540
@@ -4478,7 +4478,7 @@ for.body.i.i.i2829:                               ; preds = %_ZNK5eastl19intrusi
   %pNode.addr.02.i.i.i2830 = phi ptr [ %542, %for.inc.i.i.i2833 ], [ %540, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2823 ]
   %541 = getelementptr i8, ptr %pNode.addr.02.i.i.i2830, i64 8
   %call.val.i.i.i2831 = load i32, ptr %541, align 8, !noalias !246
-  %cmp.i.i.i.i.i2832 = icmp eq i32 %call.val.i.i.i2831, %call.val.i.i2824
+  %cmp.i.i.i.i.i2832 = icmp eq i32 %call.val.i.i2824, %call.val.i.i.i2831
   br i1 %cmp.i.i.i.i.i2832, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2842, label %for.inc.i.i.i2833
 
 for.inc.i.i.i2833:                                ; preds = %for.body.i.i.i2829
@@ -4507,7 +4507,7 @@ for.body.i.i.i2848:                               ; preds = %_ZN5eastl19intrusiv
   %pNode.addr.02.i.i.i2849 = phi ptr [ %546, %for.inc.i.i.i2852 ], [ %544, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2842 ]
   %545 = getelementptr i8, ptr %pNode.addr.02.i.i.i2849, i64 8
   %call.val.i.i.i2850 = load i32, ptr %545, align 8, !noalias !251
-  %cmp.i.i.i.i.i2851 = icmp eq i32 %call.val.i.i.i2850, %call.val.i.i2843
+  %cmp.i.i.i.i.i2851 = icmp eq i32 %call.val.i.i2843, %call.val.i.i.i2850
   br i1 %cmp.i.i.i.i.i2851, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2861, label %for.inc.i.i.i2852
 
 for.inc.i.i.i2852:                                ; preds = %for.body.i.i.i2848
@@ -4536,7 +4536,7 @@ for.body.i.i.i2867:                               ; preds = %_ZN5eastl19intrusiv
   %pNode.addr.02.i.i.i2868 = phi ptr [ %550, %for.inc.i.i.i2871 ], [ %548, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2861 ]
   %549 = getelementptr i8, ptr %pNode.addr.02.i.i.i2868, i64 8
   %call.val.i.i.i2869 = load i32, ptr %549, align 8, !noalias !256
-  %cmp.i.i.i.i.i2870 = icmp eq i32 %call.val.i.i.i2869, %call.val.i.i2862
+  %cmp.i.i.i.i.i2870 = icmp eq i32 %call.val.i.i2862, %call.val.i.i.i2869
   br i1 %cmp.i.i.i.i.i2870, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2880, label %for.inc.i.i.i2871
 
 for.inc.i.i.i2871:                                ; preds = %for.body.i.i.i2867

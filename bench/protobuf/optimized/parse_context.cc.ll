@@ -479,7 +479,7 @@ define { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallba
 entry:
   %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %limit_, align 4
-  %cmp = icmp slt i32 %0, %overrun
+  %cmp = icmp sgt i32 %overrun, %0
   br i1 %cmp, label %return, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %entry
@@ -820,7 +820,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = trunc i64 %sub.ptr.sub to i32
   %conv = add i32 %2, 16
-  %cmp2.not = icmp slt i32 %conv, %size
+  %cmp2.not = icmp sgt i32 %size, %conv
   br i1 %cmp2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
@@ -898,7 +898,7 @@ if.end6:                                          ; preds = %entry
   %8 = load i32, ptr %limit_, align 4
   %9 = trunc i64 %sub.ptr.sub to i32
   %conv13 = add i32 %8, %9
-  %cmp14 = icmp slt i32 %conv13, %size
+  %cmp14 = icmp sgt i32 %size, %conv13
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end6
@@ -5986,7 +5986,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %nbytes.051 = trunc i64 %sub.ptr.sub to i32
-  %cmp52 = icmp slt i32 %nbytes.051, %size
+  %cmp52 = icmp sgt i32 %size, %nbytes.051
   br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -6007,7 +6007,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = load i32, ptr %out, align 8
   %add = add nsw i32 %1, %conv3
   %2 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %2, %add
+  %cmp.i = icmp sgt i32 %add, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %while.body
@@ -6085,7 +6085,7 @@ if.end35:                                         ; preds = %while.end
   %add38 = add nsw i32 %9, %conv27
   %total_size_.i35 = getelementptr inbounds i8, ptr %out, i64 4
   %10 = load i32, ptr %total_size_.i35, align 4
-  %cmp.i36 = icmp slt i32 %10, %add38
+  %cmp.i36 = icmp sgt i32 %add38, %10
   br i1 %cmp.i36, label %if.then.i38, label %_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit39
 
 if.then.i38:                                      ; preds = %if.end35
@@ -6199,7 +6199,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %nbytes.051 = trunc i64 %sub.ptr.sub to i32
-  %cmp52 = icmp slt i32 %nbytes.051, %size
+  %cmp52 = icmp sgt i32 %size, %nbytes.051
   br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -6220,7 +6220,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = load i32, ptr %out, align 8
   %add = add nsw i32 %1, %conv3
   %2 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %2, %add
+  %cmp.i = icmp sgt i32 %add, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %while.body
@@ -6298,7 +6298,7 @@ if.end35:                                         ; preds = %while.end
   %add38 = add nsw i32 %9, %conv27
   %total_size_.i35 = getelementptr inbounds i8, ptr %out, i64 4
   %10 = load i32, ptr %total_size_.i35, align 4
-  %cmp.i36 = icmp slt i32 %10, %add38
+  %cmp.i36 = icmp sgt i32 %add38, %10
   br i1 %cmp.i36, label %if.then.i38, label %_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit39
 
 if.then.i38:                                      ; preds = %if.end35
@@ -6401,7 +6401,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %nbytes.051 = trunc i64 %sub.ptr.sub to i32
-  %cmp52 = icmp slt i32 %nbytes.051, %size
+  %cmp52 = icmp sgt i32 %size, %nbytes.051
   br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -6422,7 +6422,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = load i32, ptr %out, align 8
   %add = add nsw i32 %1, %conv3
   %2 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %2, %add
+  %cmp.i = icmp sgt i32 %add, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %while.body
@@ -6500,7 +6500,7 @@ if.end35:                                         ; preds = %while.end
   %add38 = add nsw i32 %9, %conv27
   %total_size_.i35 = getelementptr inbounds i8, ptr %out, i64 4
   %10 = load i32, ptr %total_size_.i35, align 4
-  %cmp.i36 = icmp slt i32 %10, %add38
+  %cmp.i36 = icmp sgt i32 %add38, %10
   br i1 %cmp.i36, label %if.then.i38, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit39
 
 if.then.i38:                                      ; preds = %if.end35
@@ -6603,7 +6603,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %nbytes.051 = trunc i64 %sub.ptr.sub to i32
-  %cmp52 = icmp slt i32 %nbytes.051, %size
+  %cmp52 = icmp sgt i32 %size, %nbytes.051
   br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -6624,7 +6624,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = load i32, ptr %out, align 8
   %add = add nsw i32 %1, %conv3
   %2 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %2, %add
+  %cmp.i = icmp sgt i32 %add, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %while.body
@@ -6702,7 +6702,7 @@ if.end35:                                         ; preds = %while.end
   %add38 = add nsw i32 %9, %conv27
   %total_size_.i35 = getelementptr inbounds i8, ptr %out, i64 4
   %10 = load i32, ptr %total_size_.i35, align 4
-  %cmp.i36 = icmp slt i32 %10, %add38
+  %cmp.i36 = icmp sgt i32 %add38, %10
   br i1 %cmp.i36, label %if.then.i38, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit39
 
 if.then.i38:                                      ; preds = %if.end35
@@ -6805,7 +6805,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %nbytes.051 = trunc i64 %sub.ptr.sub to i32
-  %cmp52 = icmp slt i32 %nbytes.051, %size
+  %cmp52 = icmp sgt i32 %size, %nbytes.051
   br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -6826,7 +6826,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = load i32, ptr %out, align 8
   %add = add nsw i32 %1, %conv3
   %2 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %2, %add
+  %cmp.i = icmp sgt i32 %add, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %while.body
@@ -6904,7 +6904,7 @@ if.end35:                                         ; preds = %while.end
   %add38 = add nsw i32 %9, %conv27
   %total_size_.i35 = getelementptr inbounds i8, ptr %out, i64 4
   %10 = load i32, ptr %total_size_.i35, align 4
-  %cmp.i36 = icmp slt i32 %10, %add38
+  %cmp.i36 = icmp sgt i32 %add38, %10
   br i1 %cmp.i36, label %if.then.i38, label %_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit39
 
 if.then.i38:                                      ; preds = %if.end35
@@ -7152,7 +7152,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %nbytes.051 = trunc i64 %sub.ptr.sub to i32
-  %cmp52 = icmp slt i32 %nbytes.051, %size
+  %cmp52 = icmp sgt i32 %size, %nbytes.051
   br i1 %cmp52, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -7173,7 +7173,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = load i32, ptr %out, align 8
   %add = add nsw i32 %1, %conv3
   %2 = load i32, ptr %total_size_.i, align 4
-  %cmp.i = icmp slt i32 %2, %add
+  %cmp.i = icmp sgt i32 %add, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
 
 if.then.i:                                        ; preds = %while.body
@@ -7251,7 +7251,7 @@ if.end35:                                         ; preds = %while.end
   %add38 = add nsw i32 %9, %conv27
   %total_size_.i35 = getelementptr inbounds i8, ptr %out, i64 4
   %10 = load i32, ptr %total_size_.i35, align 4
-  %cmp.i36 = icmp slt i32 %10, %add38
+  %cmp.i36 = icmp sgt i32 %add38, %10
   br i1 %cmp.i36, label %if.then.i38, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit39
 
 if.then.i38:                                      ; preds = %if.end35

@@ -1122,7 +1122,7 @@ do.body5.i:                                       ; preds = %if.then114
 
 do.end6.i:                                        ; preds = %if.then114
   %77 = load i64, ptr %capacity_.i, align 8
-  %cmp.i60 = icmp ult i64 %77, %mul112
+  %cmp.i60 = icmp ugt i64 %mul112, %77
   br i1 %cmp.i60, label %if.then8.i, label %_ZN4node16MaybeStackBufferIDsLm1024EE25AllocateSufficientStorageEm.exit
 
 if.then8.i:                                       ; preds = %do.end6.i
@@ -1191,7 +1191,7 @@ _ZN4node16MaybeStackBufferIDsLm1024EEixEm.exit:   ; preds = %if.then128
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %88 = load i64, ptr %capacity_.i, align 8
-  %cmp.not.i70 = icmp ult i64 %88, %sub.ptr.div
+  %cmp.not.i70 = icmp ugt i64 %sub.ptr.div, %88
   br i1 %cmp.not.i70, label %do.body4.i71, label %_ZN4node16MaybeStackBufferIDsLm1024EE9SetLengthEm.exit
 
 do.body4.i71:                                     ; preds = %_ZN4node16MaybeStackBufferIDsLm1024EEixEm.exit
@@ -1555,7 +1555,7 @@ do.body5:                                         ; preds = %entry
 do.end6:                                          ; preds = %entry
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i, align 8
-  %cmp = icmp ult i64 %1, %storage
+  %cmp = icmp ugt i64 %storage, %1
   br i1 %cmp, label %if.end.i.i, label %if.end18
 
 if.end.i.i:                                       ; preds = %do.end6
@@ -3956,7 +3956,7 @@ _ZNK4node4i18n9Converter13max_char_sizeEv.exit:   ; preds = %if.then6.i, %do.end
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i19)
   %call8.i = call signext i8 @ucnv_getMaxCharSize_74(ptr noundef nonnull %call.i) #20
   %conv.i22 = sext i8 %call8.i to i64
-  %mul = mul i64 %conv.i22, %source_length
+  %mul = mul i64 %source_length, %conv.i22
   %conv5 = and i64 %mul, 4294967295
   call void @_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm(ptr noundef nonnull align 8 dereferenceable(1048) %result, i64 noundef %conv5)
   %3 = load ptr, ptr %buf_.i, align 8
@@ -3985,7 +3985,7 @@ _ZN4node16MaybeStackBufferIcLm1024EEixEm.exit:    ; preds = %if.then
   %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %8 = load i64, ptr %capacity_.i, align 8
-  %cmp.not.i30 = icmp ult i64 %8, %sub.ptr.sub
+  %cmp.not.i30 = icmp ugt i64 %sub.ptr.sub, %8
   br i1 %cmp.not.i30, label %do.body4.i32, label %_ZN4node16MaybeStackBufferIcLm1024EE9SetLengthEm.exit
 
 do.body4.i32:                                     ; preds = %_ZN4node16MaybeStackBufferIcLm1024EEixEm.exit
@@ -4613,7 +4613,7 @@ do.body5.i.i:                                     ; preds = %_ZN4node4i18n9Conve
 
 do.end6.i.i:                                      ; preds = %_ZN4node4i18n9Converter15set_subst_charsEPKc.exit
   %3 = load i64, ptr %capacity_.i, align 8
-  %cmp.i.i10 = icmp ult i64 %3, %div7
+  %cmp.i.i10 = icmp ugt i64 %div7, %3
   br i1 %cmp.i.i10, label %if.then8.i.i, label %_ZN4node4i18n12_GLOBAL__N_116CopySourceBufferEPNS_16MaybeStackBufferIDsLm1024EEEPKcmm.exit
 
 if.then8.i.i:                                     ; preds = %do.end6.i.i

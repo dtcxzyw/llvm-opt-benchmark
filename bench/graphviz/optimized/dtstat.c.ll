@@ -305,7 +305,7 @@ define internal fastcc void @dttstat(ptr noundef %0, ptr nocapture noundef reado
 13:                                               ; preds = %11, %9
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = icmp ult i64 %15, %2
+  %16 = icmp ugt i64 %2, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13

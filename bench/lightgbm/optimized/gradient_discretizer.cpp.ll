@@ -1214,7 +1214,7 @@ define linkonce_odr void @_ZNSt6vectorIaSaIaEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -1297,7 +1297,7 @@ _ZNSt12_Vector_baseIaSaIaEE13_M_deallocateEPam.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIaSaIaEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIaSaIaEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -2136,7 +2136,7 @@ _ZSt13move_backwardIPaS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br label %_ZSt4fillIPaaEvT_S1_RKT0_.exit
 
 26:                                               ; preds = %13
-  %27 = icmp eq i64 %16, %2
+  %27 = icmp eq i64 %2, %16
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPamaaET_S1_T0_RKT1_RSaIT2_E.exit, label %28
 
 28:                                               ; preds = %26
@@ -2196,7 +2196,7 @@ _ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit:    ; preds = %36
   %53 = getelementptr inbounds i8, ptr %52, i64 %48
   %54 = load i8, ptr %3, align 1
   tail call void @llvm.memset.p0.i64(ptr align 1 %53, i8 %54, i64 %2, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i74 = icmp eq ptr %37, %1
+  %.not.i.i.i.i.i.i.i.i.i74 = icmp eq ptr %1, %37
   br i1 %.not.i.i.i.i.i.i.i.i.i74, label %_ZSt34__uninitialized_move_if_noexcept_aIPaS0_SaIaEET0_T_S3_S2_RT1_.exit, label %55
 
 55:                                               ; preds = %51
@@ -2290,7 +2290,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !7
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -2374,7 +2374,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !7
 
 _ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -3261,7 +3261,7 @@ define linkonce_odr void @_ZN8LightGBM3Log5WriteENS_8LogLevelEPKcS3_P13__va_list
   %5 = alloca [512 x i8], align 16
   %6 = tail call noundef nonnull align 4 dereferenceable(4) ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZZN8LightGBM3Log8GetLevelEvE5level)
   %7 = load i32, ptr %6, align 4
-  %.not = icmp slt i32 %7, %0
+  %.not = icmp sgt i32 %0, %7
   br i1 %.not, label %23, label %8
 
 8:                                                ; preds = %4
@@ -3755,15 +3755,15 @@ _ZN8LightGBM7Network9GlobalSumIdEESt6vectorIT_SaIS3_EEPS5_.exit: ; preds = %_ZNS
   %115 = call double @llvm.fabs.f64(double %101)
   %116 = fsub double %115, %105
   %117 = fcmp ogt double %116, 0.000000e+00
+  %.sroa.speculated.i.i = select i1 %117, double %116, double 0.000000e+00
   %118 = fcmp ogt double %101, 0.000000e+00
   %119 = zext i1 %118 to i32
   %120 = fcmp olt double %101, 0.000000e+00
   %.neg.i.i.i = sext i1 %120 to i32
   %121 = add nsw i32 %.neg.i.i.i, %119
   %122 = sitofp i32 %121 to double
-  %.neg.i = fneg double %116
-  %123 = select i1 %117, double %.neg.i, double -0.000000e+00
-  %124 = fmul double %123, %122
+  %123 = fneg double %122
+  %124 = fmul double %.sroa.speculated.i.i, %123
   %125 = fadd double %104, %106
   %126 = fdiv double %124, %125
   %127 = fcmp ogt double %107, 0.000000e+00
@@ -3868,15 +3868,15 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   %171 = call double @llvm.fabs.f64(double %166)
   %172 = fsub double %171, %168
   %173 = fcmp ogt double %172, 0.000000e+00
+  %.sroa.speculated.i.i46 = select i1 %173, double %172, double 0.000000e+00
   %174 = fcmp ogt double %166, 0.000000e+00
   %175 = zext i1 %174 to i32
   %176 = fcmp olt double %166, 0.000000e+00
-  %.neg.i.i.i46 = sext i1 %176 to i32
-  %177 = add nsw i32 %.neg.i.i.i46, %175
+  %.neg.i.i.i47 = sext i1 %176 to i32
+  %177 = add nsw i32 %.neg.i.i.i47, %175
   %178 = sitofp i32 %177 to double
-  %.neg.i47 = fneg double %172
-  %179 = select i1 %173, double %.neg.i47, double -0.000000e+00
-  %180 = fmul double %179, %178
+  %179 = fneg double %178
+  %180 = fmul double %.sroa.speculated.i.i46, %179
   %181 = fadd double %167, %169
   %182 = fdiv double %180, %181
   %183 = fcmp ogt double %170, 0.000000e+00

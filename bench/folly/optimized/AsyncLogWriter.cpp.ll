@@ -1609,7 +1609,7 @@ entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %cond.neg.i.i
   %flags = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 48
   %1 = load i32, ptr %flags, align 8, !tbaa !63
-  %or = or i32 %1, %extraFlags
+  %or = or i32 %extraFlags, %1
   %or2 = or i32 %or, 4
   store i32 %or2, ptr %flags, align 8, !tbaa !63
   %messageReady_ = getelementptr inbounds i8, ptr %this, i64 144

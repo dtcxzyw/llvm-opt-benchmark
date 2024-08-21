@@ -322,7 +322,7 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
 
 6:                                                ; preds = %4
   %7 = sub nsw i32 8, %3
-  %.not = icmp slt i32 %7, %2
+  %.not = icmp sgt i32 %2, %7
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %6

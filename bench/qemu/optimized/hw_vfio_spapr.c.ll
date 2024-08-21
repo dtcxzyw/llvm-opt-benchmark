@@ -114,7 +114,7 @@ for.body.i:                                       ; preds = %int128_get64.exit, 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %max_iova.i = getelementptr inbounds i8, ptr %hostwin.07.i, i64 8
   %4 = load i64, ptr %max_iova.i, align 8
-  %cmp1.not.i = icmp ult i64 %4, %sub
+  %cmp1.not.i = icmp ugt i64 %sub, %4
   br i1 %cmp1.not.i, label %for.inc.i, label %return
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
@@ -365,7 +365,7 @@ for.body.i43:                                     ; preds = %int128_get64.exit41
   %38 = load i64, ptr %hostwin.021.i, align 8
   %max_iova2.i = getelementptr inbounds i8, ptr %hostwin.021.i, i64 8
   %39 = load i64, ptr %max_iova2.i, align 8
-  %cmp.i.i44 = icmp ugt i64 %38, %sub40
+  %cmp.i.i44 = icmp ult i64 %sub40, %38
   %cmp2.i.i = icmp ult i64 %39, %36
   %.not.i.not.i = or i1 %cmp.i.i44, %cmp2.i.i
   br i1 %.not.i.not.i, label %for.cond.i, label %if.then.i
@@ -859,8 +859,8 @@ if.then:                                          ; preds = %if.end.i, %vfio_pre
   %a.sroa.0.0.insert.insert.i = add nsw i128 %a.sroa.0.0.insert.ext.i, -1
   %7 = lshr i128 %a.sroa.0.0.insert.insert.i, 64
   %.tr.i = trunc nuw i128 %7 to i64
-  %.narrow.i = sub i64 0, %coerce5.sroa.2.0.extract.trunc
-  %cmp.i = icmp eq i64 %.tr.i, %.narrow.i
+  %.narrow.i = sub i64 0, %.tr.i
+  %cmp.i = icmp eq i64 %coerce5.sroa.2.0.extract.trunc, %.narrow.i
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
@@ -1051,8 +1051,8 @@ if.then:                                          ; preds = %if.end.i, %vfio_pre
   %a.sroa.0.0.insert.insert.i = add nsw i128 %a.sroa.0.0.insert.ext.i, -1
   %7 = lshr i128 %a.sroa.0.0.insert.insert.i, 64
   %.tr.i = trunc nuw i128 %7 to i64
-  %.narrow.i = sub i64 0, %coerce5.sroa.2.0.extract.trunc
-  %cmp.i = icmp eq i64 %.tr.i, %.narrow.i
+  %.narrow.i = sub i64 0, %.tr.i
+  %cmp.i = icmp eq i64 %coerce5.sroa.2.0.extract.trunc, %.narrow.i
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then

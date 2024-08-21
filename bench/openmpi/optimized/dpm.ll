@@ -12309,7 +12309,7 @@ define void @ompi_dpm_mark_dyncomm(ptr noundef %0) local_unnamed_addr #16 {
 ompi_group_get_proc_name.exit.i:                  ; preds = %32, %28
   %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %28 ], [ %.sroa.0.0.copyload.i.i, %32 ]
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.i.i to i32
-  %.not10.i = icmp eq i32 %.sroa.0.0.extract.trunc.i, %.sroa.0.0.extract.trunc
+  %.not10.i = icmp eq i32 %.sroa.0.0.extract.trunc, %.sroa.0.0.extract.trunc.i
   br i1 %.not10.i, label %20, label %ompi_dpm_group_is_dyn.exit
 
 ompi_dpm_group_is_dyn.exit:                       ; preds = %20, %ompi_group_get_proc_name.exit.i
@@ -12365,7 +12365,7 @@ ompi_dpm_group_is_dyn.exit.thread:                ; preds = %16, %ompi_dpm_group
 ompi_group_get_proc_name.exit.i19:                ; preds = %53, %49
   %.sroa.0.0.i.i20 = phi i64 [ %.sroa.0.0.insert.insert.i.i.i18, %49 ], [ %.sroa.0.0.copyload.i.i25, %53 ]
   %.sroa.0.0.extract.trunc.i21 = trunc i64 %.sroa.0.0.i.i20 to i32
-  %.not10.i22 = icmp eq i32 %.sroa.0.0.extract.trunc.i21, %.sroa.0.0.extract.trunc
+  %.not10.i22 = icmp eq i32 %.sroa.0.0.extract.trunc, %.sroa.0.0.extract.trunc.i21
   br i1 %.not10.i22, label %41, label %ompi_dpm_group_is_dyn.exit26
 
 ompi_dpm_group_is_dyn.exit26:                     ; preds = %ompi_group_get_proc_name.exit.i19, %41

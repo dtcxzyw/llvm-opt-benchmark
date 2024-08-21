@@ -909,7 +909,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %186,
   %223 = load i64, ptr %24, align 8, !alias.scope !217, !noalias !222, !noundef !18
   %224 = load i64, ptr %2, align 8, !alias.scope !224, !noalias !222, !noundef !18
   %225 = sub i64 %224, %223
-  %226 = icmp ult i64 %225, %222
+  %226 = icmp ugt i64 %222, %225
   br i1 %226, label %227, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hc2d55cfdaac8b0feE.exit"
 
 227:                                              ; preds = %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
@@ -1962,7 +1962,7 @@ define hidden noundef zeroext i1 @_ZN3std2io8buffered9bufreader6buffer6Buffer12c
   %8 = load i64, ptr %7, align 8, !noundef !18
   %9 = sub nuw i64 %8, %6
   %10 = getelementptr inbounds i8, ptr %4, i64 %6
-  %11 = icmp uge i64 %9, %1
+  %11 = icmp ule i64 %1, %9
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %3
@@ -1993,7 +1993,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !18
   %9 = sub i64 %6, %8
-  %10 = icmp ult i64 %9, %2
+  %10 = icmp ugt i64 %2, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
@@ -2007,7 +2007,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
 
 14:                                               ; preds = %._crit_edge, %3
   %15 = phi i64 [ %.pre, %._crit_edge ], [ %6, %3 ]
-  %.not = icmp ugt i64 %15, %2
+  %.not = icmp ult i64 %2, %15
   br i1 %.not, label %16, label %22
 
 16:                                               ; preds = %14

@@ -141,7 +141,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast66, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %add = add i32 %conv, %sz
+  %add = add i32 %sz, %conv
   %cmp2 = icmp ugt i32 %add, 2147483392
   %3 = select i1 %cmp70, i1 true, i1 %cmp2
   br i1 %3, label %if.then7, label %if.end
@@ -185,7 +185,7 @@ lor.lhs.false:                                    ; preds = %if.else
 if.then38:                                        ; preds = %lor.lhs.false, %if.else
   %sub.ptr.sub43 = sub i64 %sub.ptr.lhs.cast66, %sub.ptr.rhs.cast13
   %conv44 = trunc i64 %sub.ptr.sub43 to i32
-  %add45 = add i32 %conv44, %sz
+  %add45 = add i32 %sz, %conv44
   tail call fastcc void @buf_grow(ptr noundef nonnull %sb, i32 noundef %add45)
   br label %return
 
@@ -210,7 +210,7 @@ if.else62:                                        ; preds = %entry
   %sub.ptr.rhs.cast67 = ptrtoint ptr %10 to i64
   %sub.ptr.sub68 = sub i64 %sub.ptr.lhs.cast66, %sub.ptr.rhs.cast67
   %conv69 = trunc i64 %sub.ptr.sub68 to i32
-  %add73 = add i32 %conv69, %sz
+  %add73 = add i32 %sz, %conv69
   %cmp74 = icmp ugt i32 %add73, 2147483392
   %11 = select i1 %cmp70, i1 true, i1 %cmp74
   br i1 %11, label %if.then83, label %if.end87
@@ -286,7 +286,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %cmp.i = icmp ult i32 %conv.i, %sz
+  %cmp.i = icmp ugt i32 %sz, %conv.i
   br i1 %cmp.i, label %if.then.i, label %lj_buf_need.exit
 
 if.then.i:                                        ; preds = %entry
@@ -395,7 +395,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %cmp.i = icmp ult i32 %conv.i, %sz
+  %cmp.i = icmp ugt i32 %sz, %conv.i
   br i1 %cmp.i, label %if.then.i, label %lj_buf_more.exit
 
 if.then.i:                                        ; preds = %entry
@@ -423,7 +423,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %cmp.i = icmp ult i32 %conv.i, %len
+  %cmp.i = icmp ugt i32 %len, %conv.i
   br i1 %cmp.i, label %if.then.i, label %lj_buf_more.exit
 
 if.then.i:                                        ; preds = %entry

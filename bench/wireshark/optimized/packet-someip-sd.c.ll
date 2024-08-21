@@ -1175,7 +1175,7 @@ proto_item_set_hidden.exit214.i.i:                ; preds = %switch.hole_check, 
   %476 = load i32, ptr %12, align 4
   %477 = add i32 %476, %475
   %invariant.umin.i.i.i = call i32 @llvm.umin.i32(i32 %477, i32 %.095)
-  %478 = icmp ugt i32 %invariant.umin.i.i.i, %475
+  %478 = icmp ult i32 %475, %invariant.umin.i.i.i
   br i1 %478, label %.lr.ph.preheader.i.i.i, label %someip_sd_register_ports.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %474
@@ -1226,7 +1226,7 @@ someip_sd_register_ports.exit.i.i:                ; preds = %492, %474
   %494 = load i32, ptr %13, align 4
   %495 = add i32 %494, %493
   %invariant.umin.i216.i.i = call i32 @llvm.umin.i32(i32 %495, i32 %.095)
-  %496 = icmp ugt i32 %invariant.umin.i216.i.i, %493
+  %496 = icmp ult i32 %493, %invariant.umin.i216.i.i
   br i1 %496, label %.lr.ph.preheader.i217.i.i, label %someip_sd_register_ports.exit226.i.i
 
 .lr.ph.preheader.i217.i.i:                        ; preds = %someip_sd_register_ports.exit.i.i

@@ -1588,7 +1588,7 @@ define hidden void @deleteGSSOIDSet(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr @ftab, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, %0
+  %6 = icmp ne ptr %0, %5
   %7 = icmp ne ptr %0, null
   %or.cond = and i1 %7, %6
   br i1 %or.cond, label %8, label %12

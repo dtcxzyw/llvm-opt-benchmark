@@ -45481,7 +45481,7 @@ define hidden void @"_ZN4core3ptr410drop_in_place$LT$itertools..groupbylazy..Gro
   %9 = getelementptr inbounds i8, ptr %3, i64 112
   %10 = load i64, ptr %9, align 8, !noalias !19415, !noundef !9
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i.i = or i1 %11, %12
   br i1 %or.cond.i.i, label %14, label %17
 
@@ -101861,7 +101861,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17he78cc5678
   tail call void @llvm.assume(i1 %11)
   %12 = sub nuw i64 -9223372036854775808, %1
   %13 = udiv i64 %12, %0
-  %14 = icmp ult i64 %13, %2
+  %14 = icmp ugt i64 %2, %13
   br i1 %14, label %15, label %5
 
 15:                                               ; preds = %9, %5
@@ -125273,7 +125273,7 @@ define hidden void @"_ZN88_$LT$itertools..groupbylazy..Group$LT$K$C$I$C$F$GT$$u2
   %9 = getelementptr inbounds i8, ptr %3, i64 112
   %10 = load i64, ptr %9, align 8, !noundef !9
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i = or i1 %11, %12
   br i1 %or.cond.i, label %14, label %"_ZN9itertools11groupbylazy24GroupBy$LT$K$C$I$C$F$GT$10drop_group17he74d16b0e232cf38E.exit"
 

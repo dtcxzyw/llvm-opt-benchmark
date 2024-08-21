@@ -139,7 +139,7 @@ define dso_local range(i32 -1, 1) i32 @aeResizeSetSize(ptr nocapture noundef %ev
 entry:
   %setsize1 = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize1, align 4
-  %cmp = icmp eq i32 %0, %setsize
+  %cmp = icmp eq i32 %setsize, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -184,7 +184,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 0, ptr %arrayidx, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %setsize
+  %exitcond.not = icmp eq i32 %setsize, %lftr.wideiv
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 return:                                           ; preds = %for.body, %if.end4, %if.end, %entry
@@ -244,7 +244,7 @@ entry:
   %ee.i = alloca %struct.epoll_event, align 4
   %setsize = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize, align 4
-  %cmp.not = icmp sgt i32 %0, %fd
+  %cmp.not = icmp slt i32 %fd, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -306,7 +306,7 @@ if.end11:                                         ; preds = %if.then10, %if.end7
   %clientData12 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store ptr %clientData, ptr %clientData12, align 8
   %8 = load i32, ptr %eventLoop, align 8
-  %cmp13 = icmp slt i32 %8, %fd
+  %cmp13 = icmp sgt i32 %fd, %8
   br i1 %cmp13, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end11
@@ -327,7 +327,7 @@ entry:
   %ee.i = alloca %struct.epoll_event, align 4
   %setsize = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize, align 4
-  %cmp.not = icmp sgt i32 %0, %fd
+  %cmp.not = icmp slt i32 %fd, %0
   br i1 %cmp.not, label %if.end, label %if.end24
 
 if.end:                                           ; preds = %entry
@@ -376,7 +376,7 @@ aeApiDelEvent.exit:                               ; preds = %if.end10.thread.i, 
   %and8 = and i32 %7, %not.i
   store i32 %and8, ptr %arrayidx, align 8
   %8 = load i32, ptr %eventLoop, align 8
-  %cmp10 = icmp eq i32 %8, %fd
+  %cmp10 = icmp eq i32 %fd, %8
   %cmp12 = icmp eq i32 %and8, 0
   %or.cond = select i1 %cmp10, i1 %cmp12, i1 false
   br i1 %or.cond, label %for.cond.preheader, label %if.end24
@@ -420,7 +420,7 @@ define dso_local ptr @aeGetFileClientData(ptr nocapture noundef readonly %eventL
 entry:
   %setsize = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize, align 4
-  %cmp.not = icmp sgt i32 %0, %fd
+  %cmp.not = icmp slt i32 %fd, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -447,7 +447,7 @@ define dso_local i32 @aeGetFileEvents(ptr nocapture noundef readonly %eventLoop,
 entry:
   %setsize = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize, align 4
-  %cmp.not = icmp sgt i32 %0, %fd
+  %cmp.not = icmp slt i32 %fd, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

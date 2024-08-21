@@ -189,7 +189,7 @@ define dso_local void @switch_mm_irqs_off(ptr nocapture readnone %0, ptr noundef
   br label %12
 
 12:                                               ; preds = %11, %3
-  %13 = icmp eq ptr %5, %1
+  %13 = icmp eq ptr %1, %5
   br i1 %13, label %14, label %30
 
 14:                                               ; preds = %12
@@ -1150,7 +1150,7 @@ define dso_local void @flush_tlb_mm_range(ptr noundef %0, i64 noundef %1, i64 no
 57:                                               ; preds = %.thread
   %58 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @cpu_tlbstate) #11, !srcloc !115
   %59 = inttoptr i64 %58 to ptr
-  %60 = icmp eq ptr %59, %0
+  %60 = icmp eq ptr %0, %59
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %57

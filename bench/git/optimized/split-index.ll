@@ -84,7 +84,7 @@ entry:
   %1 = load ptr, ptr %hash_algo, align 8
   %rawsz = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz, align 8
-  %cmp = icmp ugt i64 %2, %sz
+  %cmp = icmp ult i64 %sz, %2
   br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -135,7 +135,7 @@ init_split_index.exit:                            ; preds = %if.end, %if.end.i
   %10 = load i64, ptr %rawsz4, align 8
   %add.ptr = getelementptr inbounds i8, ptr %data_, i64 %10
   %sub = sub i64 %sz, %10
-  %tobool.not = icmp eq i64 %10, %sz
+  %tobool.not = icmp eq i64 %sz, %10
   br i1 %tobool.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %init_split_index.exit
@@ -530,7 +530,7 @@ entry:
   %cache_nr = getelementptr inbounds i8, ptr %data, i64 12
   %1 = load i32, ptr %cache_nr, align 4
   %conv = zext i32 %1 to i64
-  %cmp.not = icmp ugt i64 %conv, %pos
+  %cmp.not = icmp ult i64 %pos, %conv
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -617,7 +617,7 @@ entry:
   %cache_nr = getelementptr inbounds i8, ptr %data, i64 12
   %0 = load i32, ptr %cache_nr, align 4
   %conv = zext i32 %0 to i64
-  %cmp.not = icmp ugt i64 %conv, %pos
+  %cmp.not = icmp ult i64 %pos, %conv
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1231,7 +1231,7 @@ land.lhs.true9:                                   ; preds = %land.lhs.true5
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %cmp13 = icmp eq ptr %5, %ce
+  %cmp13 = icmp eq ptr %ce, %5
   br i1 %cmp13, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true9
@@ -1286,7 +1286,7 @@ if.then:                                          ; preds = %land.lhs.true5
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %cmp14.not = icmp eq ptr %7, %old_entry
+  %cmp14.not = icmp eq ptr %old_entry, %7
   br i1 %cmp14.not, label %if.end, label %if.then15
 
 if.then15:                                        ; preds = %if.then

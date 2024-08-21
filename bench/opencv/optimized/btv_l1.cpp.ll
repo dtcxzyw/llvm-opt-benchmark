@@ -2928,7 +2928,7 @@ _ZN2cv8superres6detail2atINS_3MatESaIS3_EEERT_iRSt6vectorIS5_T0_E.exit70: ; pred
   %231 = add nsw i32 %230, 1
   %232 = srem i32 %231, %227
   %.neg15.i74 = xor i32 %230, -1
-  %.neg.i75 = add i32 %.neg15.i74, %1
+  %.neg.i75 = add i32 %1, %.neg15.i74
   %233 = add i32 %.neg.i75, %232
   br label %234
 
@@ -3416,7 +3416,7 @@ _ZN12_GLOBAL__N_114calcBtvWeightsEidRSt6vectorIfSaIfEE.exit.i: ; preds = %._crit
   %407 = ptrtoint ptr %405 to i64
   %408 = sub i64 %406, %407
   %409 = sdiv exact i64 %408, 96
-  %410 = icmp ult i64 %409, %402
+  %410 = icmp ugt i64 %402, %409
   br i1 %410, label %411, label %413
 
 411:                                              ; preds = %386
@@ -3425,7 +3425,7 @@ _ZN12_GLOBAL__N_114calcBtvWeightsEidRSt6vectorIfSaIfEE.exit.i: ; preds = %._crit
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 413:                                              ; preds = %386
-  %414 = icmp ugt i64 %409, %402
+  %414 = icmp ult i64 %402, %409
   br i1 %414, label %415, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i
 
 415:                                              ; preds = %413
@@ -3475,7 +3475,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i: ; preds = %_ZSt8_DestroyIPN2cv
   %431 = ptrtoint ptr %429 to i64
   %432 = sub i64 %430, %431
   %433 = sdiv exact i64 %432, 96
-  %434 = icmp ult i64 %433, %402
+  %434 = icmp ugt i64 %402, %433
   br i1 %434, label %435, label %437
 
 435:                                              ; preds = %.noexc155.i
@@ -3484,7 +3484,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i: ; preds = %_ZSt8_DestroyIPN2cv
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit80.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 437:                                              ; preds = %.noexc155.i
-  %438 = icmp ugt i64 %433, %402
+  %438 = icmp ult i64 %402, %433
   br i1 %438, label %439, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit80.i.i
 
 439:                                              ; preds = %437
@@ -3730,7 +3730,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit80.i.i: ; preds = %_ZSt8_DestroyIPN2
   %533 = ptrtoint ptr %531 to i64
   %534 = sub i64 %532, %533
   %535 = sdiv exact i64 %534, 96
-  %536 = icmp ult i64 %535, %528
+  %536 = icmp ugt i64 %528, %535
   br i1 %536, label %537, label %539
 
 537:                                              ; preds = %520
@@ -3739,7 +3739,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit80.i.i: ; preds = %_ZSt8_DestroyIPN2
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i unwind label %340
 
 539:                                              ; preds = %520
-  %540 = icmp ugt i64 %535, %528
+  %540 = icmp ult i64 %528, %535
   br i1 %540, label %541, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i
 
 541:                                              ; preds = %539
@@ -3773,7 +3773,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i:   ; preds = %_ZSt8_DestroyIPN2cv
   %555 = ptrtoint ptr %553 to i64
   %556 = sub i64 %554, %555
   %557 = sdiv exact i64 %556, 96
-  %558 = icmp ult i64 %557, %550
+  %558 = icmp ugt i64 %550, %557
   br i1 %558, label %559, label %561
 
 559:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i
@@ -3782,7 +3782,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i:   ; preds = %_ZSt8_DestroyIPN2cv
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit175.i unwind label %340
 
 561:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i
-  %562 = icmp ugt i64 %557, %550
+  %562 = icmp ult i64 %550, %557
   br i1 %562, label %563, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit175.i
 
 563:                                              ; preds = %561
@@ -5419,7 +5419,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114upscaleMotionsERKN2cv11_InputArr
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 96
-  %22 = icmp ult i64 %21, %14
+  %22 = icmp ugt i64 %14, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %1
@@ -5428,7 +5428,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114upscaleMotionsERKN2cv11_InputArr
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 25:                                               ; preds = %1
-  %26 = icmp ugt i64 %21, %14
+  %26 = icmp ult i64 %14, %21
   br i1 %26, label %27, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 27:                                               ; preds = %25

@@ -482,9 +482,9 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %inc25.i = phi i64 [ %inc2628.i, %for.body.i ], [ %inc.i, %if.then.i ]
   %conv1323.i = phi i32 [ %conv132429.i, %for.body.i ], [ %conv13.i, %if.then.i ]
-  %inc15.i = add nuw nsw i32 %insn.030.i, 1
-  %conv.i32 = zext nneg i32 %inc15.i to i64
-  %cmp.i = icmp ult i64 %conv.i32, %conv40
+  %inc15.i = add i32 %insn.030.i, 1
+  %conv.i32 = sext i32 %inc15.i to i64
+  %cmp.i = icmp ugt i64 %conv40, %conv.i32
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.inc.i
@@ -535,9 +535,9 @@ get_host_pc_size.exit.i38:                        ; preds = %cond.true.i.i34, %i
   br label %for.inc41.i
 
 for.inc41.i:                                      ; preds = %get_host_pc_size.exit.i38, %for.body21.i
-  %inc42.i = add nuw nsw i32 %insn.134.i, 1
-  %conv18.i = zext nneg i32 %inc42.i to i64
-  %cmp19.i = icmp ult i64 %conv18.i, %conv40
+  %inc42.i = add i32 %insn.134.i, 1
+  %conv18.i = sext i32 %inc42.i to i64
+  %cmp19.i = icmp ugt i64 %conv40, %conv18.i
   br i1 %cmp19.i, label %for.body21.i, label %write_jr_code_debug_info.exit, !llvm.loop !9
 
 write_jr_code_debug_info.exit.critedge:           ; preds = %get_clock.exit.i

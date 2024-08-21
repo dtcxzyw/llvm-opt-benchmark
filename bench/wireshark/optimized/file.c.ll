@@ -7653,13 +7653,13 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %16
   %23 = getelementptr inbounds i8, ptr %0, i64 56
   %24 = load i16, ptr %23, align 8
   %25 = zext i16 %24 to i32
-  %26 = icmp eq i32 %25, %2
+  %26 = icmp eq i32 %2, %25
   br i1 %26, label %27, label %64
 
 27:                                               ; preds = %cf_callback_invoke.exit
   %28 = getelementptr inbounds i8, ptr %0, i64 64
   %29 = load i32, ptr %28, align 8
-  %30 = icmp ne i32 %29, %3
+  %30 = icmp ne i32 %3, %29
   %31 = icmp ne i32 %4, 0
   %or.cond = or i1 %31, %30
   br i1 %or.cond, label %64, label %32

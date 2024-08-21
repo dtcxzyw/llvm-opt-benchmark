@@ -2601,7 +2601,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
 37:                                               ; preds = %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !731)
   %38 = load i64, ptr %3, align 8, !alias.scope !731, !noundef !4
-  %.not.i51 = icmp ugt i64 %38, %14
+  %.not.i51 = icmp ult i64 %14, %38
   br i1 %.not.i51, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h2e659cec1f7cab42E.exit", label %39
 
 39:                                               ; preds = %37
@@ -2852,7 +2852,7 @@ _ZN4rand3rng3Rng9gen_range17hda06af3f6a31c48cE.exit.i: ; preds = %26
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   %40 = load i64, ptr %39, align 8, !alias.scope !763, !noundef !4
   %41 = lshr i64 %38, 2
-  %.not30.i = icmp ugt i64 %41, %40
+  %.not30.i = icmp ult i64 %40, %41
   br i1 %.not30.i, label %_ZN7uu_shuf20NonrepeatingIterator7produce17h0d19692826d43762E.exit, label %42
 
 42:                                               ; preds = %34
@@ -2896,7 +2896,7 @@ _ZN4rand3rng3Rng9gen_range17hda06af3f6a31c48cE.exit.i: ; preds = %26
 55:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !763
   %56 = load i64, ptr %14, align 8, !alias.scope !763, !noundef !4
-  %57 = icmp ult i64 %46, %56
+  %57 = icmp ugt i64 %56, %46
   br i1 %57, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h49147192b42b4b9eE.exit.i", label %58
 
 58:                                               ; preds = %55
@@ -3039,7 +3039,7 @@ define void @_ZN7uu_shuf11parse_range17h5d91bdffba6a71a9E(ptr noalias nocapture 
   br label %34
 
 26:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %22, %2
+  %.not.i.i.i = icmp eq i64 %2, %22
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %26, %30

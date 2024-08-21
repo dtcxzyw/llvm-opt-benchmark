@@ -122,7 +122,7 @@ define void @_ZN3gmx22ComputeDebyeScattering16initPairDistHistEv(ptr noundef non
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
   %30 = sdiv exact i64 %29, 24
-  %31 = icmp ult i64 %30, %23
+  %31 = icmp ugt i64 %23, %30
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %14
@@ -131,7 +131,7 @@ define void @_ZN3gmx22ComputeDebyeScattering16initPairDistHistEv(ptr noundef non
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
 
 34:                                               ; preds = %14
-  %35 = icmp ugt i64 %30, %23
+  %35 = icmp ult i64 %23, %30
   br i1 %35, label %36, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
 
 36:                                               ; preds = %34
@@ -176,7 +176,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit:    ; preds = %32, %34, %36, %_ZSt
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 3
-  %53 = icmp ult i64 %52, %45
+  %53 = icmp ugt i64 %45, %52
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %.lr.ph
@@ -185,7 +185,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit:    ; preds = %32, %34, %36, %_ZSt
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 56:                                               ; preds = %.lr.ph
-  %57 = icmp ugt i64 %52, %45
+  %57 = icmp ult i64 %45, %52
   br i1 %57, label %58, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 58:                                               ; preds = %56
@@ -248,7 +248,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit10:             ; preds = %_ZNSt6vectorIdSaIdE
   %92 = ptrtoint ptr %90 to i64
   %93 = sub i64 %91, %92
   %94 = ashr exact i64 %93, 3
-  %95 = icmp ult i64 %94, %87
+  %95 = icmp ugt i64 %87, %94
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit10
@@ -259,7 +259,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit10:             ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit12
 
 98:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit10
-  %99 = icmp ugt i64 %94, %87
+  %99 = icmp ult i64 %87, %94
   br i1 %99, label %100, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit12
 
 100:                                              ; preds = %98
@@ -603,7 +603,7 @@ define void @_ZN3gmx22ComputeDebyeScattering16computeIntensityEv(ptr noundef non
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
-  %18 = icmp ult i64 %17, %10
+  %18 = icmp ugt i64 %10, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %1
@@ -614,7 +614,7 @@ define void @_ZN3gmx22ComputeDebyeScattering16computeIntensityEv(ptr noundef non
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 21:                                               ; preds = %1
-  %22 = icmp ugt i64 %17, %10
+  %22 = icmp ult i64 %10, %17
   br i1 %22, label %23, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 23:                                               ; preds = %21
@@ -1127,7 +1127,7 @@ define void @_ZN3gmx22ComputeDebyeScattering39computeMonteCarloPairDistancesHist
   store i32 0, ptr %72, align 8
   %73 = add nsw i64 %16, -1
   %74 = uitofp i64 %16 to float
-  %75 = fmul float %74, %3
+  %75 = fmul float %3, %74
   %76 = uitofp i64 %73 to float
   %77 = fmul float %75, %76
   %78 = fpext float %77 to double

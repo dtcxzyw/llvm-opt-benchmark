@@ -407,7 +407,7 @@ define hidden ptr @lbtrm_transport_add(ptr noundef %0, i16 noundef zeroext %1, i
   %.053 = phi ptr [ %12, %11 ], [ %9, %6 ]
   %14 = getelementptr inbounds i8, ptr %.053, i64 32
   %15 = load i32, ptr %14, align 8
-  %16 = icmp ult i32 %15, %5
+  %16 = icmp ugt i32 %5, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
@@ -729,7 +729,7 @@ define internal i32 @dissect_lbtrm(ptr noundef %0, ptr noundef %1, ptr noundef %
 51:                                               ; preds = %45
   %52 = getelementptr inbounds i8, ptr %50, i64 32
   %53 = load i32, ptr %52, align 8
-  %54 = icmp ult i32 %53, %48
+  %54 = icmp ugt i32 %48, %53
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %51
@@ -769,7 +769,7 @@ define internal i32 @dissect_lbtrm(ptr noundef %0, ptr noundef %1, ptr noundef %
 74:                                               ; preds = %68
   %75 = getelementptr inbounds i8, ptr %73, i64 32
   %76 = load i32, ptr %75, align 8
-  %77 = icmp ult i32 %76, %71
+  %77 = icmp ugt i32 %71, %76
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %74
@@ -800,7 +800,7 @@ define internal i32 @dissect_lbtrm(ptr noundef %0, ptr noundef %1, ptr noundef %
 92:                                               ; preds = %84
   %93 = getelementptr inbounds i8, ptr %91, i64 32
   %94 = load i32, ptr %93, align 8
-  %95 = icmp ult i32 %94, %88
+  %95 = icmp ugt i32 %88, %94
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %92

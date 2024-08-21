@@ -870,7 +870,7 @@ if.end4.i67:                                      ; preds = %land.lhs.true.if.en
 if.end105:                                        ; preds = %if.end4.i67, %land.lhs.true.i61, %if.then103, %if.end100
   %39 = load i64, ptr %base, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %39, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %idxprom
+  %cmp.i = icmp ugt i64 %idxprom, %spec.select.i
   br i1 %cmp.i, label %if.then.i73, label %if.end.i70
 
 if.then.i73:                                      ; preds = %if.end105
@@ -1001,7 +1001,7 @@ if.end4.i:                                        ; preds = %land.lhs.true.if.en
 if.end37:                                         ; preds = %if.end4.i, %land.lhs.true.i, %if.then35, %if.end32
   %16 = load i64, ptr %path, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %16, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %5
+  %cmp.i = icmp ugt i64 %5, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i20
 
 if.then.i:                                        ; preds = %if.end37

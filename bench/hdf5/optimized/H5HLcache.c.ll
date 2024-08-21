@@ -485,7 +485,7 @@ thread-pre-split:                                 ; preds = %36, %thread-pre-spl
   br label %117
 
 115:                                              ; preds = %89
-  %.neg = add i64 %99, %2
+  %.neg = add i64 %2, %99
   %116 = sub i64 %.neg, %98
   call void @llvm.memset.p0.i64(ptr align 1 %97, i8 0, i64 %116, i1 false)
   br label %117
@@ -696,7 +696,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef %
   %5 = alloca ptr, align 8
   %6 = getelementptr i8, ptr %1, i64 %2
   %.ptr79 = getelementptr i8, ptr %6, i64 -1
-  %7 = icmp ult ptr %.ptr79, %1
+  %7 = icmp ugt ptr %1, %.ptr79
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %4

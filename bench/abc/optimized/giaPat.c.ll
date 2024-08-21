@@ -245,9 +245,9 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %71 = trunc nuw nsw i64 %70 to i32
   %72 = and i32 %71, 1
   %73 = add nuw nsw i32 %69, 1
-  %74 = icmp eq i32 %73, %57
+  %74 = icmp eq i32 %57, %73
   %75 = add nuw nsw i32 %72, 1
-  %76 = icmp eq i32 %75, %66
+  %76 = icmp eq i32 %66, %75
   %or.cond11.i = select i1 %74, i1 true, i1 %76
   %77 = icmp eq i32 %57, 3
   %78 = icmp eq i32 %66, 3
@@ -293,7 +293,7 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %101 = and i32 %100, 1
   %102 = icmp ne i32 %98, 3
   %103 = add nuw nsw i32 %101, 1
-  %104 = icmp ne i32 %103, %98
+  %104 = icmp ne i32 %98, %103
   %.not42 = select i1 %102, i1 %104, i1 false
   br i1 %.not42, label %106, label %105
 

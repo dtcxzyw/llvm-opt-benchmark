@@ -486,7 +486,7 @@ PyUnicode_READ.exit135:                           ; preds = %if.then.i130, %if.t
 if.end21.sink.split:                              ; preds = %PyUnicode_READ.exit112, %PyUnicode_READ.exit135
   %.sink = phi i64 [ 1, %PyUnicode_READ.exit135 ], [ 2, %PyUnicode_READ.exit112 ]
   %tobool56.not.ph = phi i1 [ true, %PyUnicode_READ.exit135 ], [ false, %PyUnicode_READ.exit112 ]
-  %inc = add i64 %.sink, %start
+  %inc = add i64 %start, %.sink
   store i64 %inc, ptr %pos, align 8
   br label %if.end21
 
@@ -696,7 +696,7 @@ if.then86:                                        ; preds = %if.end76
 
 if.end88:                                         ; preds = %if.end76, %if.then86
   %37 = load i64, ptr %pos, align 8
-  %tobool90.not = icmp eq i64 %37, %end
+  %tobool90.not = icmp eq i64 %end, %37
   br i1 %tobool90.not, label %if.end147, label %land.lhs.true91
 
 land.lhs.true91:                                  ; preds = %if.end88
@@ -734,7 +734,7 @@ if.then95:                                        ; preds = %PyUnicode_READ.exit
 
 if.end98:                                         ; preds = %if.then95, %PyUnicode_READ.exit197
   %41 = phi i64 [ %inc97, %if.then95 ], [ %37, %PyUnicode_READ.exit197 ]
-  %tobool100.not = icmp eq i64 %41, %end
+  %tobool100.not = icmp eq i64 %end, %41
   br i1 %tobool100.not, label %if.end147, label %land.lhs.true101
 
 land.lhs.true101:                                 ; preds = %if.end98
@@ -782,7 +782,7 @@ if.end110:                                        ; preds = %if.then105
 
 if.end113:                                        ; preds = %if.end110, %PyUnicode_READ.exit207
   %47 = phi i64 [ %inc112, %if.end110 ], [ %41, %PyUnicode_READ.exit207 ]
-  %tobool115.not = icmp eq i64 %47, %end
+  %tobool115.not = icmp eq i64 %end, %47
   br i1 %tobool115.not, label %if.end147, label %land.lhs.true116
 
 land.lhs.true116:                                 ; preds = %if.end113
@@ -877,7 +877,7 @@ if.end147:                                        ; preds = %if.end88, %if.end98
 
 if.then151:                                       ; preds = %if.end147
   %conv152 = zext nneg i32 %bf.clear to i64
-  %mul = mul i64 %conv152, %start
+  %mul = mul i64 %start, %conv152
   %add.ptr = getelementptr i8, ptr %retval.0.i, i64 %mul
   %call154 = tail call ptr @PyUnicode_FromKindAndData(i32 noundef %bf.clear, ptr noundef %add.ptr, i64 noundef %sub) #12
   %cmp155.not = icmp eq ptr %call154, null

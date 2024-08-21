@@ -2280,7 +2280,7 @@ define dso_local i32 @compute_parallel_worker(ptr nocapture noundef readonly %0,
 13:                                               ; preds = %11
   %14 = load i32, ptr @min_parallel_table_scan_size, align 4
   %15 = sitofp i32 %14 to double
-  %16 = fcmp ogt double %15, %1
+  %16 = fcmp olt double %1, %15
   br i1 %16, label %52, label %17
 
 17:                                               ; preds = %13, %11
@@ -2290,7 +2290,7 @@ define dso_local i32 @compute_parallel_worker(ptr nocapture noundef readonly %0,
 19:                                               ; preds = %17
   %20 = load i32, ptr @min_parallel_index_scan_size, align 4
   %21 = sitofp i32 %20 to double
-  %22 = fcmp ogt double %21, %2
+  %22 = fcmp olt double %2, %21
   br i1 %22, label %52, label %23
 
 23:                                               ; preds = %19, %17, %7
@@ -2307,7 +2307,7 @@ define dso_local i32 @compute_parallel_worker(ptr nocapture noundef readonly %0,
   %.032 = phi i32 [ 1, %25 ], [ %33, %32 ]
   %29 = mul i32 %.034, 3
   %30 = uitofp i32 %29 to double
-  %31 = fcmp ugt double %30, %1
+  %31 = fcmp ult double %1, %30
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %28
@@ -2330,7 +2330,7 @@ define dso_local i32 @compute_parallel_worker(ptr nocapture noundef readonly %0,
   %.0 = phi i32 [ %38, %36 ], [ %40, %43 ]
   %40 = mul i32 %.0, 3
   %41 = uitofp i32 %40 to double
-  %42 = fcmp ugt double %41, %2
+  %42 = fcmp ult double %2, %41
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %39
@@ -4680,7 +4680,7 @@ define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr nocapt
 76:                                               ; preds = %.split24
   %77 = and i32 %73, 1
   %.not97 = icmp eq i32 %77, 0
-  %78 = xor i1 %.not97, %4
+  %78 = xor i1 %4, %.not97
   %.083 = select i1 %78, i16 2, i16 4
   store i8 1, ptr %5, align 1
   %79 = load i32, ptr %57, align 4
@@ -5094,7 +5094,7 @@ define internal fastcc void @set_plain_rel_pathlist(ptr noundef %0, ptr noundef 
   %20 = icmp eq i32 %19, 0
   %.pre.i = load i32, ptr @min_parallel_table_scan_size, align 4
   %21 = sext i32 %.pre.i to i64
-  %22 = icmp sgt i64 %21, %17
+  %22 = icmp slt i64 %17, %21
   %or.cond.i = select i1 %20, i1 %22, i1 false
   br i1 %or.cond.i, label %create_plain_partial_paths.exit, label %23
 
@@ -5106,7 +5106,7 @@ define internal fastcc void @set_plain_rel_pathlist(ptr noundef %0, ptr noundef 
   %.034.i.i = phi i32 [ %24, %23 ], [ %26, %28 ]
   %.032.i.i = phi i32 [ 1, %23 ], [ %29, %28 ]
   %26 = mul i32 %.034.i.i, 3
-  %27 = icmp ugt i32 %26, %12
+  %27 = icmp ult i32 %12, %26
   br i1 %27, label %compute_parallel_worker.exit.i, label %28
 
 28:                                               ; preds = %25

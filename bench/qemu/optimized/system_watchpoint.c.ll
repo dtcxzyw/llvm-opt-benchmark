@@ -18,7 +18,7 @@ define dso_local range(i32 -22, 1) i32 @cpu_watchpoint_insert(ptr noundef %cpu, 
 entry:
   %cmp = icmp eq i64 %len, 0
   %0 = sub i64 0, %len
-  %cmp1 = icmp ult i64 %0, %addr
+  %cmp1 = icmp ugt i64 %addr, %0
   %or.cond = or i1 %cmp, %cmp1
   br i1 %or.cond, label %if.then, label %if.end
 
@@ -66,7 +66,7 @@ do.body20:                                        ; preds = %if.end
 if.end32:                                         ; preds = %do.body20, %do.body
   %or = or i64 %addr, -4096
   %sub33 = sub nsw i64 0, %or
-  %cmp34.not = icmp ult i64 %sub33, %len
+  %cmp34.not = icmp ugt i64 %len, %sub33
   br i1 %cmp34.not, label %if.else36, label %if.then35
 
 if.then35:                                        ; preds = %if.end32
@@ -110,20 +110,20 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %wp.010 = phi ptr [ %wp.0, %for.inc ], [ %wp.08, %entry ]
   %0 = load i64, ptr %wp.010, align 8
-  %cmp = icmp eq i64 %0, %addr
+  %cmp = icmp eq i64 %addr, %0
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
   %len1 = getelementptr inbounds i8, ptr %wp.010, i64 8
   %1 = load i64, ptr %len1, align 8
-  %cmp2 = icmp eq i64 %1, %len
+  %cmp2 = icmp eq i64 %len, %1
   br i1 %cmp2, label %land.lhs.true3, label %for.inc
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
   %flags4 = getelementptr inbounds i8, ptr %wp.010, i64 28
   %2 = load i32, ptr %flags4, align 4
   %and = and i32 %2, -193
-  %cmp5 = icmp eq i32 %and, %flags
+  %cmp5 = icmp eq i32 %flags, %and
   br i1 %cmp5, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true3
@@ -244,8 +244,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %wp.0.val5 = load i64, ptr %0, align 8
   %add.i = add i64 %wp.0.val, -1
   %sub.i = add i64 %add.i, %wp.0.val5
-  %cmp.i = icmp uge i64 %sub.i, %addr
-  %cmp5.i = icmp uge i64 %sub3.i, %wp.0.val
+  %cmp.i = icmp ule i64 %addr, %sub.i
+  %cmp5.i = icmp ule i64 %wp.0.val, %sub3.i
   %lnot.i = and i1 %cmp5.i, %cmp.i
   br i1 %lnot.i, label %if.then, label %for.inc
 
@@ -339,8 +339,8 @@ land.lhs.true:                                    ; preds = %for.body
   %wp.0.val42 = load i64, ptr %5, align 8
   %add.i = add i64 %wp.0.val, -1
   %sub.i = add i64 %add.i, %wp.0.val42
-  %cmp.i = icmp uge i64 %sub.i, %addr.addr.0
-  %cmp5.i = icmp uge i64 %sub3.i, %wp.0.val
+  %cmp.i = icmp ule i64 %addr.addr.0, %sub.i
+  %cmp5.i = icmp ule i64 %wp.0.val, %sub3.i
   %lnot.i = and i1 %cmp.i, %cmp5.i
   br i1 %lnot.i, label %if.then20, label %for.inc
 

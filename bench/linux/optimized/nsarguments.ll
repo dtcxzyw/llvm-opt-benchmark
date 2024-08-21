@@ -202,7 +202,7 @@ define dso_local void @acpi_ns_check_argument_count(ptr noundef %0, ptr nocaptur
   %22 = getelementptr inbounds i8, ptr %21, i64 14
   %23 = load i8, ptr %22, align 2
   %24 = zext i8 %23 to i32
-  %25 = icmp ugt i32 %24, %2
+  %25 = icmp ult i32 %2, %24
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %20
@@ -210,7 +210,7 @@ define dso_local void @acpi_ns_check_argument_count(ptr noundef %0, ptr nocaptur
   br label %42
 
 27:                                               ; preds = %20
-  %28 = icmp ult i32 %24, %2
+  %28 = icmp ugt i32 %2, %24
   br i1 %28, label %29, label %42
 
 29:                                               ; preds = %27
@@ -222,7 +222,7 @@ define dso_local void @acpi_ns_check_argument_count(ptr noundef %0, ptr nocaptur
   %32 = load i16, ptr %31, align 1
   %33 = and i16 %32, 7
   %34 = zext nneg i16 %33 to i32
-  %35 = icmp ugt i32 %34, %2
+  %35 = icmp ult i32 %2, %34
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %30
@@ -230,7 +230,7 @@ define dso_local void @acpi_ns_check_argument_count(ptr noundef %0, ptr nocaptur
   br label %42
 
 37:                                               ; preds = %30
-  %38 = icmp ult i32 %34, %2
+  %38 = icmp ugt i32 %2, %34
   %39 = icmp sgt i16 %32, -1
   %40 = and i1 %39, %38
   br i1 %40, label %41, label %42

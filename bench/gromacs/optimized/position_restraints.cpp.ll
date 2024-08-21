@@ -133,7 +133,7 @@ define void @_Z14posres_wrapperP6t_nrnbRK22InteractionDefinitionsPK5t_pbcPA3_KfP
 .loopexit.i:                                      ; preds = %79
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 2
   %65 = trunc nuw i64 %indvars.iv.next101.i to i32
-  %66 = icmp slt i32 %65, %24
+  %66 = icmp sgt i32 %24, %65
   br i1 %66, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.loopexit79.i, %.loopexit.i
@@ -319,7 +319,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pb
   ]
 
 25:                                               ; preds = %24
-  %26 = fmul float %22, %5
+  %26 = fmul float %5, %22
   %27 = tail call float @llvm.fmuladd.f32(float %15, float %20, float %26)
   %28 = getelementptr inbounds float, ptr %10, i64 %indvars.iv112
   store float %27, ptr %28, align 4
@@ -356,7 +356,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pb
 ._crit_edge:                                      ; preds = %.lr.ph, %30
   %.099.lcssa = phi float [ %34, %30 ], [ %45, %.lr.ph ]
   %.098.lcssa = phi float [ %33, %30 ], [ %42, %.lr.ph ]
-  %49 = fmul float %.099.lcssa, %5
+  %49 = fmul float %5, %.099.lcssa
   %50 = tail call float @llvm.fmuladd.f32(float %15, float %.098.lcssa, float %49)
   %51 = getelementptr inbounds float, ptr %10, i64 %indvars.iv112
   store float 0.000000e+00, ptr %51, align 4
@@ -368,9 +368,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pb
   %55 = load float, ptr %54, align 4
   %56 = getelementptr inbounds float, ptr %4, i64 %indvars.iv112
   %57 = load float, ptr %56, align 4
-  %58 = fmul float %57, %5
+  %58 = fmul float %5, %57
   %59 = tail call float @llvm.fmuladd.f32(float %15, float %55, float %58)
-  %60 = fmul float %22, %5
+  %60 = fmul float %5, %22
   %61 = tail call float @llvm.fmuladd.f32(float %15, float %20, float %60)
   %62 = getelementptr inbounds float, ptr %10, i64 %indvars.iv112
   store float %61, ptr %62, align 4
@@ -396,7 +396,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pb
   resume { ptr, i32 } %71
 
 72:                                               ; preds = %18
-  %73 = fmul float %22, %5
+  %73 = fmul float %5, %22
   %74 = tail call float @llvm.fmuladd.f32(float %15, float %20, float %73)
   %75 = getelementptr inbounds float, ptr %10, i64 %indvars.iv112
   store float 0.000000e+00, ptr %75, align 4
@@ -712,7 +712,7 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
 .loopexit.i:                                      ; preds = %173
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 2
   %87 = trunc nuw i64 %indvars.iv.next24.i to i32
-  %88 = icmp slt i32 %87, %58
+  %88 = icmp sgt i32 %58, %87
   br i1 %88, label %.lr.ph.i, label %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.loopexit.i
@@ -1027,7 +1027,7 @@ define void @_Z16fbposres_wrapperP6t_nrnbRK22InteractionDefinitionsPK5t_pbcPA3_K
 .loopexit.i:                                      ; preds = %232
   %55 = fadd float %.0112197.i, %.0116.i
   %56 = trunc nuw i64 %indvars.iv.next212.i to i32
-  %57 = icmp slt i32 %56, %23
+  %57 = icmp sgt i32 %23, %56
   br i1 %57, label %58, label %._crit_edge.loopexit.i, !llvm.loop !20
 
 58:                                               ; preds = %.loopexit.i, %.lr.ph.i

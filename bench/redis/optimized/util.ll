@@ -1016,7 +1016,7 @@ digits10.exit:                                    ; preds = %if.end.i, %if.end3.
   %retval.0.i = phi i32 [ %add.i, %if.end15.i ], [ %add20.i, %if.end17.i ], [ %add27.i, %if.then24.i ], [ %add31.i, %if.end28.i ], [ 4, %if.then12.i ], [ 1, %entry ], [ 3, %if.end3.i ], [ 2, %if.end.i ], [ 1, %if.end32.i ]
   %accumulator.ret.tr.i = add i32 %retval.0.i, %accumulator.tr15.i
   %conv = zext i32 %accumulator.ret.tr.i to i64
-  %cmp.not = icmp ult i64 %conv, %dstlen
+  %cmp.not = icmp ugt i64 %dstlen, %conv
   br i1 %cmp.not, label %if.end, label %err
 
 if.end:                                           ; preds = %digits10.exit
@@ -1653,7 +1653,7 @@ entry:
 if.end:                                           ; preds = %entry
   %conv = fptosi double %d to i64
   %conv2 = sitofp i64 %conv to double
-  %cmp3 = fcmp oeq double %conv2, %d
+  %cmp3 = fcmp oeq double %d, %conv2
   br i1 %cmp3, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end
@@ -1716,7 +1716,7 @@ if.else22:                                        ; preds = %if.else9
 if.end.i:                                         ; preds = %if.else22
   %conv.i = fptosi double %value to i64
   %conv2.i = sitofp i64 %conv.i to double
-  %cmp3.i = fcmp oeq double %conv2.i, %value
+  %cmp3.i = fcmp oeq double %value, %conv2.i
   br i1 %cmp3.i, label %if.then25, label %if.else28
 
 if.then25:                                        ; preds = %if.end.i
@@ -1804,7 +1804,7 @@ if.end14:                                         ; preds = %if.end5
   %idxprom15 = zext nneg i32 %fractional_digits to i64
   %arrayidx16 = getelementptr inbounds [18 x double], ptr @fixedpoint_d2string.powers_of_ten, i64 0, i64 %idxprom15
   %1 = load double, ptr %arrayidx16, align 8
-  %mul = fmul double %1, %dvalue
+  %mul = fmul double %dvalue, %1
   %call = tail call i64 @llrint(double noundef %mul) #29
   %cmp17 = icmp slt i64 %call, 0
   br i1 %cmp17, label %if.then19, label %if.end30

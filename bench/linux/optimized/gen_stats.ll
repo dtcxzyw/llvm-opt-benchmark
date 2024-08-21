@@ -113,7 +113,7 @@ define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_start_copy_compat(ptr 
   %43 = getelementptr inbounds i8, ptr %42, i64 2
   %44 = load i16, ptr %43, align 2
   %45 = zext i16 %44 to i32
-  %46 = icmp eq i32 %45, %6
+  %46 = icmp eq i32 %6, %45
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %41

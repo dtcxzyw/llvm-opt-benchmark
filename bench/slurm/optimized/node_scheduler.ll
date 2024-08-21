@@ -1737,7 +1737,7 @@ define dso_local i32 @select_nodes(ptr noundef %0, i1 noundef zeroext %1, ptr no
   %107 = getelementptr inbounds i8, ptr %0, i64 120
   %108 = load ptr, ptr %107, align 8
   %.not389 = icmp eq ptr %108, null
-  %brmerge396 = or i1 %.not389, %1
+  %brmerge396 = or i1 %1, %.not389
   %.mux = select i1 %.not389, i32 2006, i32 0
   br i1 %brmerge396, label %497, label %109
 
@@ -3095,7 +3095,7 @@ _apply_extra_constraints.exit:                    ; preds = %97, %86
   %148 = getelementptr inbounds i8, ptr %0, i64 816
   %149 = getelementptr inbounds i8, ptr %23, i64 8
   %.not394 = xor i1 %5, true
-  %brmerge395 = or i1 %.not394, %4
+  %brmerge395 = or i1 %4, %.not394
   %150 = getelementptr inbounds i8, ptr %23, i64 40
   %151 = getelementptr inbounds i8, ptr %23, i64 16
   %152 = getelementptr inbounds i8, ptr %23, i64 32
@@ -3310,7 +3310,7 @@ _set_err_msg.exit:                                ; preds = %223, %224, %.sink.s
 .lr.ph.i400:                                      ; preds = %251
   %254 = getelementptr inbounds i8, ptr %245, i64 216
   %255 = icmp ne ptr %244, null
-  %or.cond7.i = and i1 %255, %5
+  %or.cond7.i = and i1 %5, %255
   br label %256
 
 256:                                              ; preds = %346, %.lr.ph.i400
@@ -4867,7 +4867,7 @@ define internal fastcc i32 @_get_req_features(ptr nocapture noundef readonly %0,
   %86 = load ptr, ptr @share_node_bitmap, align 8
   call void @filter_by_node_owner(ptr noundef nonnull %3, ptr noundef %86)
   %.not362 = xor i1 %10, true
-  %brmerge = or i1 %.not362, %8
+  %brmerge = or i1 %8, %.not362
   br i1 %brmerge, label %_filter_by_node_feature.exit, label %87
 
 87:                                               ; preds = %83
@@ -5626,7 +5626,7 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph398, %336
   %440 = load ptr, ptr %115, align 8
   %441 = getelementptr inbounds i8, ptr %440, i64 268
   store i32 %439, ptr %441, align 4
-  %442 = call i32 @llvm.umax.i32(i32 %438, i32 %5)
+  %442 = call i32 @llvm.umax.i32(i32 %5, i32 %438)
   %443 = load ptr, ptr %115, align 8
   %444 = getelementptr inbounds i8, ptr %443, i64 284
   store i32 %442, ptr %444, align 4

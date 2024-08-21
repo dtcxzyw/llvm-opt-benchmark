@@ -449,8 +449,8 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
   br i1 %.not165, label %227, label %.sink.split
 
 120:                                              ; preds = %92
-  %121 = call i32 @llvm.smax.i32(i32 %83, i32 %3)
-  %122 = call i32 @llvm.smax.i32(i32 %91, i32 %4)
+  %121 = call i32 @llvm.smax.i32(i32 %3, i32 %83)
+  %122 = call i32 @llvm.smax.i32(i32 %4, i32 %91)
   %. = call i32 @llvm.smin.i32(i32 %82, i32 %87)
   %123 = sub i32 %., %121
   %124 = call i32 @llvm.smin.i32(i32 %89, i32 %95)

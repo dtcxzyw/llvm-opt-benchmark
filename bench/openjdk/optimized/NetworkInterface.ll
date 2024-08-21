@@ -888,7 +888,7 @@ define ptr @Java_java_net_NetworkInterface_getByIndex0(ptr noundef %0, ptr nocap
   %.01318 = phi ptr [ %13, %11 ], [ %6, %5 ]
   %8 = getelementptr inbounds i8, ptr %.01318, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = icmp eq i32 %9, %2
+  %10 = icmp eq i32 %2, %9
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %.preheader

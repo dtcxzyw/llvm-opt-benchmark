@@ -243,7 +243,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_should_send_window_update(i32 noun
 
 4:                                                ; preds = %2
   %5 = sdiv i32 %0, 2
-  %6 = icmp sle i32 %5, %1
+  %6 = icmp sge i32 %1, %5
   %7 = zext i1 %6 to i32
   br label %8
 

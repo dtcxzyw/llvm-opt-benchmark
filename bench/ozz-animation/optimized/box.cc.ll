@@ -31,7 +31,7 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr nocapture noundef
   %6 = ptrtoint ptr %1 to i64
   %7 = add i64 %5, %6
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp ugt ptr %8, %1
+  %9 = icmp ult ptr %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -66,7 +66,7 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr nocapture noundef
   %.sroa.064.0.vec.insert = insertelement <2 x float> poison, float %21, i64 0
   %.sroa.064.4.vec.insert = insertelement <2 x float> %.sroa.064.0.vec.insert, float %23, i64 1
   %26 = ptrtoint ptr %.094 to i64
-  %27 = add i64 %26, %2
+  %27 = add i64 %2, %26
   %28 = inttoptr i64 %27 to ptr
   %29 = icmp ult ptr %28, %8
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !5

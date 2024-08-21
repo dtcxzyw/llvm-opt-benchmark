@@ -568,7 +568,7 @@ _ZL11pr_difftimeP8_IO_FILEd.exit:                 ; preds = %.critedge.i, %49
 
 53:                                               ; preds = %51
   %54 = sitofp i64 %3 to double
-  %55 = fmul double %54, %4
+  %55 = fmul double %4, %54
   %56 = tail call ptr @getenv(ptr noundef nonnull @.str.148) #10
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %67

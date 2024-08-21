@@ -1649,7 +1649,7 @@ entry:
   %attached = getelementptr inbounds i8, ptr %call.i, i64 264
   %0 = load i8, ptr %attached, align 8
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %value
+  %2 = xor i1 %value, %1
   br i1 %2, label %if.end, label %if.end7
 
 if.end:                                           ; preds = %entry

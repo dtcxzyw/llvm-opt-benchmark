@@ -1045,7 +1045,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr nocapture noundef %0
 62:                                               ; preds = %7
   %63 = load i32, ptr @globalUtilOptind, align 4
   %64 = add nsw i32 %63, 2
-  %65 = icmp eq i32 %64, %1
+  %65 = icmp eq i32 %1, %64
   br i1 %65, label %66, label %103
 
 66:                                               ; preds = %62
@@ -1130,7 +1130,7 @@ Scl_ReadLibraryFile.exit168:                      ; preds = %86, %.sink.split.i1
 
 103:                                              ; preds = %62
   %104 = add nsw i32 %63, 1
-  %105 = icmp eq i32 %104, %1
+  %105 = icmp eq i32 %1, %104
   br i1 %105, label %106, label %120
 
 106:                                              ; preds = %103
@@ -1326,7 +1326,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteLib(ptr nocapture noundef r
 5:                                                ; preds = %3
   %6 = load i32, ptr @globalUtilOptind, align 4
   %7 = add nsw i32 %6, 1
-  %.not17 = icmp eq i32 %7, %1
+  %.not17 = icmp eq i32 %1, %7
   br i1 %.not17, label %8, label %29
 
 8:                                                ; preds = %5
@@ -1634,7 +1634,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadScl(ptr nocapture noundef %0
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
   %10 = add nsw i32 %9, 1
-  %.not32 = icmp eq i32 %10, %1
+  %.not32 = icmp eq i32 %1, %10
   br i1 %.not32, label %11, label %.loopexit
 
 11:                                               ; preds = %8
@@ -1723,7 +1723,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteScl(ptr nocapture noundef r
 5:                                                ; preds = %3
   %6 = load i32, ptr @globalUtilOptind, align 4
   %7 = add nsw i32 %6, 1
-  %.not17 = icmp eq i32 %7, %1
+  %.not17 = icmp eq i32 %1, %7
   br i1 %.not17, label %8, label %29
 
 8:                                                ; preds = %5
@@ -1887,7 +1887,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr nocapture noundef re
 48:                                               ; preds = %40
   %49 = load i32, ptr @globalUtilOptind, align 4
   %50 = add nsw i32 %49, 1
-  %51 = icmp eq i32 %50, %1
+  %51 = icmp eq i32 %1, %50
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %48
@@ -3827,7 +3827,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadConstr(ptr noundef %0, i32 n
 8:                                                ; preds = %5
   %9 = load i32, ptr @globalUtilOptind, align 4
   %10 = add nsw i32 %9, 1
-  %.not38 = icmp eq i32 %10, %1
+  %.not38 = icmp eq i32 %1, %10
   br i1 %.not38, label %11, label %.loopexit
 
 11:                                               ; preds = %8
@@ -3902,7 +3902,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr nocapture nounde
 12:                                               ; preds = %9
   %13 = load i32, ptr @globalUtilOptind, align 4
   %14 = add nsw i32 %13, 1
-  %15 = icmp eq i32 %14, %1
+  %15 = icmp eq i32 %1, %14
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12
@@ -3912,7 +3912,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr nocapture nounde
   br label %26
 
 20:                                               ; preds = %12
-  %21 = icmp eq i32 %13, %1
+  %21 = icmp eq i32 %1, %13
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %20

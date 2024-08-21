@@ -28,13 +28,13 @@ define i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr no
 
 12:                                               ; preds = %4
   %13 = load i32, ptr %spec.store.select, align 4
-  %14 = icmp sgt i32 %13, %1
+  %14 = icmp slt i32 %1, %13
   br i1 %14, label %.loopexit227, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %spec.store.select, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = icmp slt i32 %17, %1
+  %18 = icmp sgt i32 %1, %17
   br i1 %18, label %.loopexit227, label %19
 
 19:                                               ; preds = %15
@@ -85,7 +85,7 @@ define i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr no
   %42 = shl nuw nsw i32 %.0158, 1
   %43 = zext nneg i32 %42 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) @hist_start, i8 0, i64 %43, i1 false)
-  %44 = icmp ugt ptr %7, %0
+  %44 = icmp ult ptr %0, %7
   %45 = ptrtoint ptr %2 to i64
   br i1 %44, label %.lr.ph249, label %._crit_edge
 
@@ -542,8 +542,8 @@ define i32 @pglz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr noundef
   %7 = getelementptr i8, ptr %0, i64 %6
   %8 = sext i32 %3 to i64
   %9 = getelementptr i8, ptr %2, i64 %8
-  %10 = icmp ugt ptr %7, %0
-  %11 = icmp ugt ptr %9, %2
+  %10 = icmp ult ptr %0, %7
+  %11 = icmp ult ptr %2, %9
   %12 = and i1 %10, %11
   br i1 %12, label %.lr.ph113, label %.critedge._crit_edge
 

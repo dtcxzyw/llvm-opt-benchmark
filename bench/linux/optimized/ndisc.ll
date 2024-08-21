@@ -1138,7 +1138,7 @@ define dso_local void @ndisc_send_na(ptr noundef %0, ptr noundef %1, ptr noundef
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 4
   %18 = icmp eq i32 %17, 0
-  %19 = and i1 %18, %5
+  %19 = and i1 %5, %18
   %20 = getelementptr inbounds i8, ptr %12, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 808
